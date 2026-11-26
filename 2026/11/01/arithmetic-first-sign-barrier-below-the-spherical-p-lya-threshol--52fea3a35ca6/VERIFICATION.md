@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytic proof is in `RESULT.md`. The standalone standard-library checker `CHECK.py` was run on the final source file: it completed 3,437 supplementary assertions, including a finite rational phase-max enumeration, selected Legendre quadratures and a comparison with the predicted two-endpoint asymptotic. Those assertions do not prove the infinite-index limit or globally certify prior-literature originality.
+## correctness
 
-For each fixed cutoff strictly inside the angular interval, the proof requires parameter-uniform Legendre singularity asymptotics as the exponent approaches the critical value. Critical all-degree positivity comes from Lu's cited theorem, not any finite quadrature. The arithmetic phase recurrence and matching exponential bounds are analytical arguments.
+PASS
 
-Independent audit was not performed.
+The uniform endpoint estimate can be justified without importing parameter uniformity from Sidi. Localize in x=cos(t) at x=1 and at t=theta. At x=1 expand the amplitude in sqrt(1-x) through degree four, and subtract the 1/2 and 3/2 powers globally with their Taylor coefficients. The remaining localized function is smooth apart from a remainder of order (1-x)^(5/2), with differentiated bounds uniform in delta in [5/4,3/2]. Three integrations using the Legendre self-adjoint operator give O(n^(-6)): the third iterate has at worst an integrable (1-x)^(-1/2) singularity and the earlier fluxes vanish. Rodrigues/beta integration gives the 1/2-power coefficient exactly as -1/(sqrt(2) L(L^2-1)), L=n+1/2; the 3/2 power is O(L^(-5)). The former times the Taylor coefficient -sqrt(2) delta theta^(delta-1) gives +B L^(-3). At the interior cutoff, expand the interior Legendre oscillatory series through the L^(-7/2) term with uniform O(L^(-9/2)) remainder on a compact interval around theta. This expansion follows from the two quadratic endpoints of the Laplace integral for P_n(cos t): the coefficient of the quadratic term in the log at one endpoint is -i sin(t) exp(-it)/2, with real part -sin^2(t)/2; the other endpoint is conjugate. The smooth amplitudes admit uniform Gaussian expansion and the integral away from the endpoints is exponentially small. For u=theta-t, the first amplitude has endpoint sqrt(2 sin(theta)/pi); the Fourier integral of u^delta times a smooth cutoff/amplitude has leading coefficient Gamma(delta+1) exp(-i pi(delta+1)/2) L^(-delta-1) times the endpoint value. To see the uniform next-order estimate, subtract the endpoint value times exp(-u), integrate the latter exactly, and split the remaining O(u^(delta+1)) amplitude smoothly at u proportional to 1/L; on the larger-u range four integrations by parts give O(L^(-delta-2)) uniformly. The higher oscillatory terms therefore give O(L^(-delta-5/2)) or smaller. This verifies the frozen error after scaling by L^3; directly integrating the raw first-order Darboux remainder without cancellation would not suffice. Strict coefficient positivity at delta=3/2 is verified by specializing the strict all-degree boundary result in 107c9b8148b4 §§1–3 to lambda=1/2 (the cap coefficients are squares, nonzero away from finitely many radii for each fixed degree, and the positive-mixture proof yields strictness). This is stronger than inferring it from strict positive definiteness alone. In the subcritical expansion the phase is -sin(L theta+pi epsilon/2), and B_0/A_0=sqrt(2 theta/sin theta). On the rational orbit 2n p+p runs over one parity class modulo 2q, giving the displayed distances to q/2 and all three q cases. On irrational orbits visits to a fixed phase arc are syndetic by compactness and minimality. For fixed epsilon in (0,1/4), there are arbitrarily large degrees with shifted sine bounded positively (already its n=0 value is positive), so the growing L^epsilon term proves the minimum exists on the whole specified range. In the limit, L^epsilon below exp(C-eta), C=log(B_0/(A_0 m)), leaves a uniform positive gap at all high degrees before that scale, and continuity plus strict critical positivity handles the finite low degrees. A near-maximal phase recurs within bounded gaps in the interval between exp((C+eta/2)/epsilon) and exp((C+eta)/epsilon), so a negative coefficient occurs there. This proves the first-index limit at fixed theta; no finite quadrature, theta-uniform limit or strict critical positivity from a numerical check is used.
+
+## originality
+
+PASS
+
+Pass for the simultaneous first-negative-degree exponent with its phase-dependent rational values. Neither strict positivity at the boundary, nor fixed-parameter endpoint asymptotics, nor elementary evaluation of a phase maximum alone is claimed as original. No inspected statement yields the first-index law for this family.
+
+## value
+
+PASS
+
+The result quantifies the least harmonic degree at which spherical positive definiteness fails. A fixed-exponent nonpositivity test or a finite list of apparently positive coefficients would miss an obstruction delayed to exponentially large degree. The exact rate and the rational phase corrections give a meaningful measurable difference between cutoff angles, with the pointwise (not angle-uniform) scope maintained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

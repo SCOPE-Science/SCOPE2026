@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The seasonal exponential is an exact nilpotent shear times common exponential recovery. The proof treats all dimensions \(n\ge2\), permutations, arbitrary positive individual exposures and all strict Floquet regimes. An eigenvector-component recurrence, justified in both directions, yields the monic characteristic polynomial for generic parameters; continuity handles exceptional multiplicity. Primitivity gives a simple positive Perron eigenvalue. The monotonicity of the defining scalar root gives the strict threshold ranking and the special cases at \(n=2\) and \(n=3\). The averaged-versus-ordered counterexample is exact and uses rational comparisons. The standalone checker reproduced all 152 permutation polynomials through dimension five using rational arithmetic. Finite checks do not supply the general proof.
+PASS
 
-## Originality — PASS with bounded literature risk
+With one update per coordinate, write x for initial and y for final coordinates of the undamped sweep. Then y=x+Ly+Ux, where L records inputs from already updated coordinates and U records the rest. In recipient-update order L is strictly lower triangular; thus Q=(I−L)⁻¹(I+U) and det(zI−Q)=det((z−1)I−zL−U). Only the diagonal term and the full directed cycle enter the latter determinant, with signs giving (z−1)^n−Pz^k. This verifies multiplicities directly, even at repeated roots and at n=2. Each undamped shear has a nonnegative matrix, and the product dominates the identity plus the weighted directed cycle, so it is primitive and its spectral radius is simple. The positive root above one is unique since the logarithmic derivative of (z−1)^n/z^k is ((n−k)z+k)/(z(z−1))>0 there. Its strict order in k follows by comparing consecutive exponents. The common scalar damping multiplies the whole propagator, so comparison with the unit circle verifies the strict linear stability tests and the simple critical multiplier; it does not decide nonlinear critical behavior. The order-sensitive counterexample to the average passes the stated exact inequalities and the analytic log bound. Fresh exact arithmetic for all 152 orders in dimensions 2–5 supported the polynomial; the original replay was inspected and not run.
 
-Qu and Ashwath, arXiv:2609.13668, analyze reproduction-number shapes for compartmental models, but their cyclic case is disease relapse rather than time ordering of directed host contacts. Valdano et al. (2015) already give general temporal infection-propagator threshold methods, and Valdano, Colombi, Poletto and Colizza (2023) explicitly give the time-ordered matrix exponential and spectral threshold. These older general statements are not claimed as new. The result instead gives the exact polynomial \((\lambda-1)^n-P\lambda^k\), the reduction to the cyclic ascent of a permutation, and sharp opposite seasonal-order outcomes with identical mean contact rates. Relevant accessible research records on seasonal SIR and population-pulse ordering address different state models and do not imply this particular polynomial. The older 2015 article was consulted at abstract level, not full text; a published elementary-matrix product result or a hidden specialization of the general epidemic threshold framework could subsume the exact result. No search proves absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Chronological network data can change disease-free invasion even when all seasonal generators and their arithmetic average are stable. The theorem gives a complete, dimension-independent classification using only a cyclic ascent statistic and the product of exposure strengths, making the sharp three-population example reproducible rather than anecdotal. The difference starts at three groups, and the exact stability thresholds can be used to test approximations based on time-averaged contact data. This value comes from the sharp structural classification and quantitative reversal, not from the already-known existence of spectral Floquet thresholds.
+The distinct supported contribution is the weighted real cyclic-shear spectral reduction and its application to a one-cycle switched system. General ordered-propagator thresholds already exist. The closest exact algebraic statement gives the same statistic for an unweighted binary update and has a closely related determinant argument, but its characteristic-two theorem does not imply the weighted real spectrum. The cyclic Gauss–Seidel sources checked concern different iteration matrices or order restrictions.
 
-## Limitations and closest literature
+## value
 
-The equal recovery and exclusive one-link seasonal assumptions are essential to the exact shear reduction. Nothing is claimed about nonlinear global attraction or stochastic epidemic outcomes. The directly inspected open research contains the general time-ordering framework but not the cyclic-ascent formula. Review of the earlier 2015 threshold paper was restricted to the accessible public abstract, and broad older matrix-product coverage cannot be excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The main exact structural reduction replaces a factorially large schedule family by a single cyclic statistic for the full spectrum in each dimension. The abstract switched-system witness shows why stable snapshots and a stable average are insufficient evidence of period stability. The latter is a useful limitation for preventive modeling, not an empirical result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

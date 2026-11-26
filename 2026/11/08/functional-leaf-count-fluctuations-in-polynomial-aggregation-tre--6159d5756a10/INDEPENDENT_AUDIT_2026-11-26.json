@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:26:28.091368Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39 and 47–102",
+        "Frozen VERIFICATION.md and CHECK.py"
+      ],
+      "rationale": "A new leaf replaces an old one unless a uniform branch selects a nonleaf; hence the increment is Bernoulli with parameter (j/n)^beta(1-L/j). Centering by the exact mean gives damping a_{n,j}=1-n^{-1}(j/n)^{beta-1} and a bounded martingale difference. The ODE has an integrable second derivative at zero for every fixed beta>0, so summed local Euler errors and the one-leaf initial discrepancy give an O_beta(1) unscaled centering bound. Summation by parts against the monotone damping weights bounds the supremum by twice the martingale supremum, giving summable Azuma tails under every cross-row coupling. The martingale brackets converge uniformly by the fluid law away from zero and a bounded initial-interval estimate; the drift measures have vanishing mesh atoms and converge uniformly in cumulative mass to t^beta/beta. Thus the centered recursion converges to the stated linear diffusion, including 0<beta<1. The same bracket and squared product weights give convergence of endpoint variance. The variance is positive since 0<p_beta(s)<1 in the interior. The beta=0 and beta=1 formulas follow from the limiting kernel s/t and x_1(t)=t-1+exp(-t), respectively. The density comparison follows from the positive drift difference (q_1-q_2)(1-x_2/t). The variance bound 1/(beta+1) gives its zero limit, and its beta=1 value exceeds 1/12. Even a literal eventual-decrease interpretation holds: writing e=1/beta and u=s^beta gives x_beta(s)/s=e*u*J(e,u), with J(e,u)=integral_0^1 w^e exp(-e*u*(1-w)) dw. The variance divided by e is the integral of exp(-2e(1-u))*u^e*(1-e*u*J)*(1-u+e*u^2*J); dominated differentiation using integrable logarithms shows a C^1 extension with value 1/2 at e=0. Thus dv_beta/d beta is eventually negative. The frozen finite checker was inspected, not executed, and its reported cases are not the proof.",
+      "residual_risks": [
+        "The functional theorem is for fixed beta>0; beta=0 is a boundary benchmark, not a uniform joint n,beta limit.",
+        "The beta=1 comparison of leading constants does not identify the entire finite tree law with the Cayley law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The aggregation theorem is Gromov–Hausdorff–Prokhorov convergence under distance scale n^{-beta/(beta+1)}.",
+          "Isaev–Southwell–Zhukovskii provide scalar parameter CLTs for uniform labelled trees, including leaves."
+        ],
+        "reasoning": "Neither has hypotheses and conclusions covering the general beta growing leaf trajectory. Generic martingale limit machinery still needs the exact leaf-transition reduction, the singular-initial-time control and the variance analysis.",
+        "searches": [
+          "arXiv:2609.13066, Theorem 1.1",
+          "arXiv:1912.09838, Theorem 1.1 and Corollary 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.13066 §§2.1, 3 and Theorem 1.1",
+        "arXiv:1912.09838 Theorem 1.1 and Corollary 1.2",
+        "Resultary c7cff8a9c92e and f15c3ff5e404"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same model in the first paper, but a limit of rescaled metric-measure trees; same type of observable in the second, but only a scalar benchmark law in a different ensemble."
+        ],
+        "reasoning": "Even a scalar CLT at beta=1 gives no cross-time covariance kernel or beta-dependent variance. Equal benchmark constants do not imply either the functional Gaussian law or nonmonotonicity.",
+        "searches": [
+          "Statement comparison: arXiv:2609.13066 Theorem 1.1 and arXiv:1912.09838 Corollary 1.2 versus frozen RESULT.md (Finding)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Donderwinkel–van Haastert use the identical independent Bernoulli/uniform-parent rule and profile (i/n)^beta.",
+          "Resultary c7cff8a9c92e uses a fixed exponential birth-label bias and a stationary covariance sum, not the polynomial time-inhomogeneous rule."
+        ],
+        "reasoning": "Defining leaves by zero children makes an equivalent local statistic across formulations, but does not make the models or fluctuation processes equivalent. Metric distance scaling does not encode unscaled terminal degree counts.",
+        "searches": [
+          "Resultary semantic search for polynomial aggregation leaf trajectories and related leaf-count CLTs",
+          "arXiv:2609.13066, §§2.1 and 3",
+          "Targeted primary literature lookup: polynomial discrete aggregation leaf count (unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue describes f15c3ff5e404 as a scalar CLT and variance maximum in a leaf-driven preferential tree; an exact mirror lookup did not yield its body.",
+          "The locally inspected c7cff8a9c92e shares the ordered-limit numbers e^{-1} and e^{-1}-2e^{-2}, but not the beta-indexed integral or diffusion.",
+          "The beta=0 and beta=1 constants are known benchmarks and are not claimed new."
+        ],
+        "reasoning": "The exact numbers at benchmarks and a similarly named dispersion result are not coverage of the stipulated whole profile; the unavailable body limits this comparison to the stated catalogue scope.",
+        "searches": [
+          "Resultary catalogue and exact local mirror ID lookup for f15c3ff5e404",
+          "Resultary c7cff8a9c92e, local RESULT.md lines 5–43"
+        ]
+      },
+      "rationale": "The aggregation model and metric scaling are prior work, as are the classical benchmark constants. The supported increment is the specific time-inhomogeneous growing leaf-count law, diffusion and explicit nonmonotone variance profile for the polynomial triangular array. The strongest inspected comparators do not state or mechanically imply that combination.",
+      "residual_risks": [
+        "The targeted web lookup was unavailable; a search failure is not evidence of absence.",
+        "The f15c3ff5e404 body was not available for statement-level comparison. No priority inferred from shared dates.",
+        "The primary aggregation PDF was successfully retrieved for this audit, superseding the frozen note about its earlier unavailability; the comparison is limited to the passages read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and metric scaling covered; inspected statements do not cover the leaf-count theorem",
+          "evidence": [
+            "R_i is Bernoulli with parameter f(n,i); failure selects the predecessor, success a uniform parent in [i].",
+            "f(n,i)=(i/n)^beta in the polynomial model; Theorem 1.1 concerns GHP convergence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.13066",
+          "material_read": "Open PDF p. 2, Theorem 1.1; pp. 5–6, §2.1; p. 8, polynomial profile in §3",
+          "method": "Lawful open-access PDF, targeted passage extraction",
+          "title": "Convergence and compactness of discrete aggregation trees",
+          "trigger": "Identical model and closest potential explicit coverage"
+        },
+        {
+          "assessment": "Scalar benchmark coverage, not triangular-array functional law",
+          "evidence": [
+            "The ensemble is a uniform random labelled tree, and leaf count is among the scalar examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1912.09838",
+          "material_read": "Open PDF p. 4, Theorem 1.1 and Corollary 1.2",
+          "method": "Lawful open-access PDF passage inspection",
+          "title": "Distribution of tree parameters by martingale approach",
+          "trigger": "Possible broader tree-parameter normality"
+        },
+        {
+          "assessment": "Different model; equal numbers only in particular ordered limit",
+          "evidence": [
+            "Fixed geometric lag law; the limit is Brownian with a stationary covariance-sum variance."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-functional-gaussian-leaf-fluctuations-in-exponentially-age-biase--c7cff8a9c92e",
+          "material_read": "Local RESULT.md, definitions and Finding",
+          "method": "Resultary search and local source inspection",
+          "title": "Functional Gaussian leaf fluctuations in exponentially age-biased recursive trees",
+          "trigger": "Closest local functional leaf overlap"
+        },
+        {
+          "assessment": "Reported different leaf-driven model and scalar statistic; no body-level conclusion",
+          "evidence": [
+            "Catalogue reports a unique variance maximum for leaf-driven preferential attachment; the present record makes no uniqueness claim."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-gaussian-leaf-count-fluctuations-and-a-sharp-dispersion-maximum--f15c3ff5e404",
+          "material_read": "Catalogue summary; body unavailable in exact mirror lookup",
+          "method": "Resultary search and targeted exact mirror lookup",
+          "title": "Gaussian leaf-count fluctuations and a sharp dispersion maximum",
+          "trigger": "Related local leaf-count variance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–5 of Proof",
+        "arXiv:2609.13066 Theorem 1.1"
+      ],
+      "rationale": "Leaf counts are local statistics uncontrolled by the natural metric-measure scaling theorem. The result identifies the entire Gaussian trajectory, supplies the terminal variance and separates a strictly decreasing density from a genuinely nonmonotone variance across the natural profile family. The integrable singular drift at the initial time and the arbitrary-coupling almost-sure law are useful features, not rephrasings of the benchmark constants.",
+      "residual_risks": [
+        "No classification of the location or uniqueness of a maximum, or joint limit with metric tree shape."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

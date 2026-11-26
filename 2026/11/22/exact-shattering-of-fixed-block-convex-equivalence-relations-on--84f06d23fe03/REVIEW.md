@@ -1,19 +1,21 @@
-# Mathematical review of fixed-block convex equivalence shattering
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The cut-site encoding is a bijection from \(b\)-block convex equivalence relations to \((b-1)\)-element cut sets. Necessity follows from three literal trace patterns: one negative query, all negatives, and all positives. The no-triple-intersection lemma follows rigorously from each interval having a private site; it justifies the replacement of bad piercing sites by private sites without losing any intended hits. The padding argument gives an exact, rather than merely upper-bounded, cut count for every requested trace. For the VC bound, the cardinality of private sites, doubly occupied all-negative cuts, and all-positive reserve sites are compared without double counting. Three-site overlapping-interval gadgets achieve all constraints for every admissible parameter pair, including the endpoints. The checker directly compares two separately implemented criteria in 397,284 finite instances, verifies 45 full VC-dimension cases, and cross-checks an additional 3,040 deterministic instances. The proof is all-parameter; finite tests alone would not establish it.
+PASS
 
-## Originality — PASS, with priority limitations
+Cut sets of size c=b−1 encode the partitions bijectively; answer zero is interval intersection. The single-negative, all-negative and all-positive traces force private sites, tau≤c and at least c outside sites, respectively. With private sites, intervals have no containment and their left and right endpoint orders agree; at a triple common point the middle interval is covered by the outer two, a contradiction. Consequently when piercing the intended negatives, a site hitting an unwanted interval can hit only one intended interval and can be moved to its private site. At most c sites suffice before exact padding outside the whole support. For s intervals, private sites are distinct, and an all-negative witness needs at least max(0,s−c) distinct shared sites, disjoint from private sites. Thus s≤2c, s≤m−c and m≥c+s+max(0,s−c)≥2s. Singletons attain the bound for s≤c; otherwise s−c disjoint overlapping pairs and 2c−s singleton gadgets occupy 2s−c sites with one piercer per active gadget. Empty supports and c=0,m are covered. My bounded replay, `/tmp/opencode/frozen-review-repro.py intervals`, computed piercing directly from cut-set traces instead of using greedy piercing and checked 202,013 support/quota pairs for m=0,…,5. Source checker and its recorded output were inspected, not executed; the universal conclusion follows from the argument, not replay.
 
-The unrestricted-cut published result [3] has the same queries but allows all block counts. Its private-site criterion alone does not imply shattering by any fixed-size cut layer: the additional piercing and outside-union constraints are genuinely necessary, and its dimension \(n-1\) differs sharply from the exact fixed-block formula. The refinement-closed family theorem [4] explicitly requires closure under arbitrary refinement, which the exact-\(b\)-block class lacks. The fixed-*size* two-block partition result [5] instead has no convexity restriction and a different query-completion geometry. The inspected arXiv literature [1–2] motivates VC studies and bounded unions of intervals but does not state the all-parameter pair-equality theorem. Relevant published results were examined by their full scientific statements, and searches included alternate interval-hitting and uniform-rank terminology. Unindexed or differently formulated historical coverage remains possible, and no independent priority verification has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-The exact number of convex equivalence classes is a natural resource constraint for segmentation, ordered clustering, and fixed-complexity concept learning. The complete support test separates three independent obstacles: private witnesses for individual queries, the number of cuts needed to realize all negatives, and an equal-cardinality reserve to realize all positives. The sharp three-way VC formula is nonmonotone in the number of blocks, with a plateau followed by a collapse as nearly every site is forced to be a cut. This is a structural all-parameter statement, not a recomputation of a classical interval count, a formal corollary of unrestricted partitions, or a small finite example.
+The private-site obstruction and cut encoding are prior. The distinct result is simultaneous sufficiency on one exact-cardinality layer and the attendant sharp all-parameter VC law; none of the inspected formulations supplies that result.
 
-## Sources and limits
+## value
 
-Relevant scientific sources: [1] H. Chase and J. Freitag, arXiv:1801.06566v1; [2] E. Blais et al., arXiv:2012.03923v1; [3] *Exact shattering polynomial for convex equivalence relations on a finite chain*; [4] *Refinement-closed partition concepts: exact shattering supports, online dimension, and coloring quotients*; [5] *Forest size profiles determine shattering by fixed-cardinality cuts*. Complete references and URLs appear in `RESULT.md`. Alternate-language priority risk, absence of adaptive dimensions, and finite checker coverage are disclosed in that document.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed number of blocks is a natural constraint in ordered segmentation. The result gives a decision criterion for each support and a nonmonotone sharp VC formula, including the distinct obstructions at small and large cut quotas. It is more informative than the private-site condition for variable block counts. No counting polynomial or online dimension is evaluated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

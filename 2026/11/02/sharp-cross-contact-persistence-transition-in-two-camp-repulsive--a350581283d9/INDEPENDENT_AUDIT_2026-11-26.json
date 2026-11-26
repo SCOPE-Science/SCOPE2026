@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:11.484326Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kann–Feng equations (3.1)–(3.2) give the stated strict threshold, negative-edge force and self-loop normalization (RESULT.md's reference to equation (3) is imprecise). In the active regime the homogeneous camps are invariant because all vertices in a camp have the same signed degrees. Updates of the lower and upper opinion are respectively −α(c−d) and +β(c−d); the deficit is therefore multiplied by 1−η. For 0<η<1 this gives positive geometrically decreasing deficit at every finite iterate. If η≥1 the first iterate is at or beyond c; the next update uses only identical-opinion within-camp neighbors and the system freezes, without continuing the active recurrence. For η>1 the normalized overshoot is strictly below 1 since both degree fractions are strictly below 1 and d0>0. Connected negative K_{m,m} with d0/c→0 realizes the supremum; the positive cliques with a negative matching or all negative cross edges realize the other phases. The proof in RESULT.md lines 14–25 works also for unequal camp sizes. I inspected VERIFICATION.md and verify_signed.py without running them; the latter implements the edge updates directly with fractions on 30 symmetric examples, advancing 22 steps with assertions inside the loop, not a general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.10 concerns complete all-repulsive graphs and final diameter. The stochastic-block construction in §5.2 produces simulations. Resultary 83f04c040918 characterizes retention of full reception across initially fully receptive profiles of complete signed graphs by the two largest hostile degrees."
+        ],
+        "reasoning": "The profile class in the indexed theorem is broader but its graph class is narrower; it does not extend the all-receptive reduction with the common denominator |V| to unequal camp-specific denominators or the bipartite extremizing family.",
+        "searches": [
+          "arXiv:2301.02210 Theorem 4.10 and §5.2",
+          "Resultary 83f04c040918"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.02210",
+        "Resultary 83f04c040918, 1b8b8cade899, c5356e23c8e4, aa4da2245e3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier update supplies the forces but not the fixed camp-specific active normalization, the shutdown versus geometric approach under one threshold, or sharpness across this class. The complete-network theorem can address closure in the η=1 slice; its hypotheses exclude the K_{m,m} sharpness sequence."
+        ],
+        "reasoning": "The new result is the invariant quotient with its exact realizable boundary and sharp excess for incomplete as well as complete signed graphs, not a priority claim for the model or contact-limit effect.",
+        "searches": [
+          "arXiv:2301.02210 Theorems 4.10–4.11 and equations (3.1)–(3.2)",
+          "Resultary 83f04c040918, 1b8b8cade899"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Receptivity is the strict distance test in Kann–Feng. In a two-camp quotient, a complete underlying graph forces 1+p_A+r_A=1+p_B+r_B=|V|, hence η=1 for the all-cross-negative, all-within-positive sign pattern. The persistent-path entry has the same finite-time versus limit threshold discrepancy on a different invariant configuration."
+        ],
+        "reasoning": "Changing from signed degrees to receptive-contact language identifies genuine overlaps, but neither complete-graph claim gives the two independent denominators on incomplete biregular graphs.",
+        "searches": [
+          "arXiv:2301.02210 equations (3.1)–(3.2) and §5.2",
+          "Resultary 83f04c040918 and 1b8b8cade899"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed persistent path proves strict-threshold noncommutation on all-repulsive complete graphs. c5356e23c8e4 gives excess over a proposed 2c final diameter bound on a three-agent family, and aa4da2245e3c gives a cycle criterion for equilibrium receptivity of one negative tie."
+        ],
+        "reasoning": "Their exact quantities and assumptions differ: final diameter minus 2c and equilibrium single-tie separation are not first-step two-camp gap minus c. The complete and persistent-path overlaps do not tabulate the general η boundary or normalized supremum.",
+        "searches": [
+          "Local Resultary signed contact persistence, hostile degree, and overshoot: 83f04c040918, 1b8b8cade899, c5356e23c8e4, aa4da2245e3c"
+        ]
+      },
+      "rationale": "The comparison supports the general sign-biregular degree-ratio trichotomy and sharp one-step excess, not the generic fact that strict-threshold contacts may differ at a limit. The complete signed network threshold contains an exactly overlapping boundary case, which is not credited separately.",
+      "residual_risks": [
+        "A published invariant equitable-partition treatment of the same signed force and threshold could contain equivalent results outside the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rule and neighboring complete-graph result, not the full quotient classification",
+          "evidence": [
+            "Strict confidence inequality with self-loop; complete all-repulsive theorem; stochastic-block simulations. The mixed-sign spread bound is presented as suspected from numerics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02210",
+          "material_read": "PDF pp. 3–4, eqs. (3.1)–(3.2); Theorems 4.10–4.11, pp. 12–14; §5.2, p. 17, eqs. (5.3)–(5.4)",
+          "method": "Targeted OA PDF passages",
+          "title": "A Repulsive Bounded-Confidence Model of Opinion Dynamics in Polarized Communities",
+          "trigger": "Same model and purported community threshold"
+        },
+        {
+          "assessment": "Complete-underlying-graph overlap",
+          "evidence": [
+            "Two largest hostile degrees and common denominator |V|; complete two-camp sign pattern lies at η=1."
+          ],
+          "identifier_or_url": "83f04c040918",
+          "material_read": "RESULT.md offset 0–4122",
+          "method": "Local Resultary mirror",
+          "title": "Sharp hostile-degree threshold and finite stabilization in complete signed networks",
+          "trigger": "Threshold for losing a signed contact"
+        },
+        {
+          "assessment": "Same threshold-limit phenomenon with a different contact structure",
+          "evidence": [
+            "Receptive path at every finite time but no receptive pair at the limiting opinions in an all-repulsive complete graph."
+          ],
+          "identifier_or_url": "1b8b8cade899",
+          "material_read": "RESULT.md offset 0–4332",
+          "method": "Local Resultary mirror",
+          "title": "A persistent receptive path and sharp diffusive relaxation in repulsive bounded confidence",
+          "trigger": "Exact contact persistence and asymptotic closure"
+        },
+        {
+          "assessment": "Distinct final diameter excess",
+          "evidence": [
+            "Supremum c/2 for the excess over 2c in its three-vertex family."
+          ],
+          "identifier_or_url": "c5356e23c8e4",
+          "material_read": "RESULT.md offsets 0–4190 and 4877",
+          "method": "Local Resultary mirror",
+          "title": "A connected three-agent counterexample to a repulsive-confidence spread bound",
+          "trigger": "Exact overshoot in the same model"
+        },
+        {
+          "assessment": "Distinct equilibrium problem; no priority inferred from its date",
+          "evidence": [
+            "Equilibrium existence criterion and separation via effective resistance with one negative edge."
+          ],
+          "identifier_or_url": "aa4da2245e3c",
+          "material_read": "RESULT.md offset 0–4116",
+          "method": "Local Resultary mirror",
+          "title": "A single antagonistic tie is persistently receptive exactly when it lies on a cycle",
+          "trigger": "Same-day exact signed contact condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural homogeneous two-camp class isolates when mixed-sign graph structure leads to persistent links or actual finite-time contact loss. Exact boundary, realizability of all three phases and the sharp nonattained maximum of the one-step excess make the classification useful beyond observing a linear active-regime recurrence. It also separates a dynamical limit from evaluation of the strict threshold at that limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

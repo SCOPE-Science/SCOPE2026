@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification and reproduction
-The proof is analytic and does not assume that finite enumeration proves an arbitrary-dimension result. The critical steps to check are (i) both odd-cycle Fourier contact equations and their equality classification, (ii) preservation of Fourier nonnegativity under coordinate summation, (iii) validity of the bound in every coordinate ordering, (iv) passage from an axis Fourier zero to an entire hyperplane using nonnegative summands, and (v) inversion in complementary frequencies to force two-point slice rigidity. Each is derived in `RESULT.md`.
+# Independent mathematical audit
 
-Run `python3 checker.py` from the extracted package. The script uses only the Python standard library, computes direct complex DFTs, tests all one-dimensional cycle lengths 3 through 23, and tests ten two- or three-factor examples. The observed result is `PASS 81 Fourier-positivity, sharp-mass, odd-grid-zero-mask, and even-phase checks`. This is corroborative numerical verification with declared tolerances, not exhaustive verification of all groups.
+## correctness
 
-One-dimensional odd equality is exact algebra, and the only divisions are by \(\sin(\pi-\pi/n)\) and \(\cos(\pi/n)\), which are nonzero for odd \(n\ge3\). The even-case sharp phase interval is tested at endpoints and strictly outside them, but its general sufficiency is established by the nearest-angle argument. The spectral mask follows from a product of explicit one-dimensional transforms. No independent external audit, code certification, or claim of a computer-assisted universal proof is made.
+PASS
+
+The normalization and complex-valued convention matter. In one odd cyclic coordinate the two grid contacts at ±(n−1)/2 bound the real part of f(1); equality makes both nonnegative Fourier values zero, and the sine term then forces the imaginary part to vanish. For n even the antipodal contact fixes Re f(1)=1/2, leaving a nonzero interval |Im f(1)|≤(1/2)tan(π/n) as imposed by the closest samples to π. For products, marginal sums and restrictions are positive definite. Bounding the mass by successively marginalizing all coordinates outside an axis shows that at full equality each axis must reach its one-factor bound. Each odd-axis Fourier contact is a zero average of nonnegative full Fourier coefficients, so all coefficients on the corresponding frequency hyperplane vanish. Inverting in the other coordinates gives two linear equations on each spatial triple; subtraction, using a nonzero sine, forces the two outer entries equal and their value to be the central one divided by 2cos(π/n). Applying this in every odd coordinate gives the stated tensor when all are odd, including n=3. Its transform factors with exactly two deleted grid frequencies per axis. When an even side occurs its interval of phases tensors with fixed maximizing factors to give distinct normalized maximizers. A separate direct DFT check corroborated the small-grid, product and even-phase cases.
+
+## originality
+
+PASS
+
+The scalar product law and the corresponding one-dimensional real-even mass are prior knowledge and receive no originality credit. The inspected closest theorem gives product values, not a classification of arbitrary complex maximizers. The additional finding is rigidity precisely in the all-odd case, with an exact Fourier support and a phase continuum otherwise.
+
+## value
+
+PASS
+
+Extremal mass and a complete rigidity test are different information. Here the test works in all dimensions and detects instability of uniqueness from any even side in the complex-valued problem. The forced Fourier zeros also determine the exact Fourier support and furnish a short equality-propagation argument rather than a case enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

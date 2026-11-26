@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:39.760857Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 6–66 and 71–77",
+        "VERIFICATION.md lines 18–22",
+        "verify.py lines 10–61 (inspected, not run)",
+        "/workspace/branches/review_replay.py, flow()"
+      ],
+      "rationale": "For q≤a every first image is at most a, and the only fixed point there is zero, including the boundary q=a. For q>a every positive fixed point requires a<x<q; its flight time is H(x)=∫_x^{x/q} dz/f(z). H diverges at both endpoints. Writing f(x)=xg(x) with g(z)=r(1−z)(z−a), the sign of H′ is the sign of g(x)−g(x/q), equivalently x+x/q−1−a. The unique minimum is therefore x*=q(1+a)/(1+q), and partial fractions at the two endpoints give the displayed positive logarithmic cutoff. The sign of the map displacement on (a,q) is the sign of T−H(x); off that interval the displacement is negative except at zero. The increasing map preserves each side of any fixed point, so this sign pattern proves the full basins, including x_0=0 and x_0=1, and excludes nontrivial cycles. At the fold, q f(y*)/f(x*)=1 and ∂_T P_T(x*)=q f(y*)>0. Differentiating the first-variation formula once gives P″=(f′(y*)−f′(x*))/f(x*)<0, with the stated rational coefficient −2/P″. Taylor expansion and telescoping reciprocals of the positive forward-iterate deviations give the n(x_n−x*) limit. A fresh ODE integration at (a,q,r)=(0.37,0.78,1.3) gave the claimed tangency and critical scale (finite-difference estimate 0.476473858 versus formula 0.476473842).",
+      "residual_risks": [
+        "The proof text says 'twice differentiating' the first-variation identity; the equation is correct and follows by differentiating it once. The coefficient is for forward iteration from above, not inverse iteration. The population dynamics are deterministic, not a statistical claim about fisheries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General continuation near short flow times and additive-logistic saddle nodes; strong-Allee bistability in discrete Ricker–Schreiber harvesting maps; observation-based depensatory harvest policies."
+        ],
+        "reasoning": "These give mechanisms and nearby applications. Neither branch continuation nor the discrete escapement threshold establishes a global statement in the continuous inter-pulse time with a fixed retention fraction.",
+        "searches": [
+          "arXiv:2308.14167, local continuation and logistic examples",
+          "DOI:10.1007/s12080-020-00465-8, strong-Allee section",
+          "DOI:10.1098/rspb.2022.0526 pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1098/rspb.2022.0526",
+        "DOI:10.1007/s12080-020-00465-8",
+        "arXiv:2308.14167",
+        "DOI:10.3934/math.2026025",
+        "Resultary 9f60f33dcbb0 and 43aee5c6c9d1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected antecedents fix different transit endpoints, use additive versus multiplicative kicks, or use a different flow or discrete state map. The generic local saddle-node normal form has no model-specific curvature coefficient."
+        ],
+        "reasoning": "Even after crediting the normal form and reciprocal-telescoping argument, the all-parameter unique minimum of the cubic flight time, all-stock basins, and exact model-dependent coefficient still require the frozen calculation. No substitutable stronger formula was found in the passages checked.",
+        "searches": [
+          "Meyer et al. additive-logistic flow-kick fold",
+          "Xu–Zou pp. 5–7, semi-trivial transit and periodic orbit",
+          "Theoretical Ecology 13, 519–536, strong-Allee section pp. 7–8 of PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer et al. derive fold curves for flow-kick maps and use additive kicks of logistic flow.",
+          "Xu–Zou use multiplicative prey pulses but triggered by a state threshold, for two interacting species; their semi-trivial flight time uses logistic prey flow."
+        ],
+        "reasoning": "A time-to-target form is an equivalent formulation of the frozen map only for the same cubic flight from x to x/q with fixed period. Neither example has that flight and kick law. A public search targeting the exact cubic and fixed multiplicative pulse returned irrelevant hits, which are not evidence against coverage.",
+        "searches": [
+          "Resultary: scalar Allee periodic harvesting and impulsive fishery",
+          "arXiv:2308.14167 pp. 2–3",
+          "DOI:10.3934/math.2026025, Eq. (2.1) and flight time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two closest indexed findings give a sinusoidal-harvest response amplitude and a predator-persistence feasibility barrier, respectively. Xu–Zou Theorem 2.2 gives sufficient conditions for an order-one periodic solution."
+        ],
+        "reasoning": "There is no natural finite table for this continuous family; the closest indexed explicit boundaries and amplitudes are different observables under different dynamics.",
+        "searches": [
+          "Resultary 9f60f33dcbb0",
+          "Resultary 43aee5c6c9d1",
+          "Xu–Zou Theorem 2.2"
+        ]
+      },
+      "rationale": "The distinct claim supported by the inspected evidence is the exact cutoff, global basin classification, and explicit critical amplitude for the specified cubic flow with fixed periodic multiplicative removals. Strong-Allee bistability, fold mechanisms, flight-time methods and the generic parabolic 1/n rate are not claimed as original.",
+      "residual_risks": [
+        "Earlier poorly indexed work on the exact scalar cubic system with fixed multiplicative pulses may exist. The inspected comparisons do not establish priority.",
+        "Alharbi (2024) cited by the harmonic-response record could not be independently checked; no negative claim about that full paper is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related population model, different intervention",
+          "evidence": "Harvest rate depends on estimated biomass relative to B_MSY and B_lim and on observation; OCR of the flow is insufficient to identify an exact polynomial. The harvest-policy distinction is clear.",
+          "identifier_or_url": "DOI:10.1098/rspb.2022.0526; https://repository.library.noaa.gov/view/noaa/60179/noaa_60179_DS1.pdf",
+          "material_read": "PDF pp. 2–3, extracted offsets 19000–24914 and 25600–29396",
+          "method": "Lawful NOAA OA PDF",
+          "title": "Avoiding critical thresholds through effective monitoring",
+          "trigger": "Depensatory fishery growth and policy"
+        },
+        {
+          "assessment": "Discrete Ricker–Schreiber model, not a cubic flow",
+          "evidence": "Its strong-Allee threshold T is an escapement level determined by f(T)=K_1, not the inter-pulse interval.",
+          "identifier_or_url": "DOI:10.1007/s12080-020-00465-8",
+          "material_read": "PDF abstract and pp. 7–8, offsets 37400–42333",
+          "method": "OA full-text passages",
+          "title": "Threshold harvesting as a conservation or exploitation strategy in population management",
+          "trigger": "Proportional harvest with a strong Allee effect"
+        },
+        {
+          "assessment": "Known mechanism, different exact fold",
+          "evidence": "Additive kick on quadratic logistic growth. Small-time continuation does not give the global cubic multiplicative-pulse law.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.14167",
+          "material_read": "PDF pp. 2–3, extracted offsets 6680–13011",
+          "method": "OA preprint passages",
+          "title": "Continuation of fixed points and bifurcations from ODE to flow-kick disturbance models",
+          "trigger": "General flow-kick fold and exact examples"
+        },
+        {
+          "assessment": "Different model and trigger",
+          "evidence": "The multiplicative prey removal is triggered when ηx+(1−η)y=h_l. The prey's semi-trivial flow is logistic and its transit ends at h_l/η.",
+          "identifier_or_url": "DOI:10.3934/math.2026025",
+          "material_read": "PDF pp. 4–7, Eq. (2.1), semi-trivial flight time, Theorem 2.2",
+          "method": "Lawful publisher PDF passages",
+          "title": "Dynamics of a predator-prey model with the Allee effect for the predator induced by weighted harvesting strategy",
+          "trigger": "Impulsive harvesting with multiplicative removal and Allee effect"
+        },
+        {
+          "assessment": "Different forcing and amplitude",
+          "evidence": "Continuous sinusoidal harvesting with first-order harmonic response, not a kick map.",
+          "identifier_or_url": "2026/10/4/SCOPE-correct-harmonic-response-amplitude-for-a-periodically-harvested--9f60f33dcbb0",
+          "material_read": "Finding; cited Alharbi (2024) primary article not accessible",
+          "method": "Local mirror text; lawful DOI retrieval attempted separately",
+          "title": "Correct harmonic-response amplitude for a periodically harvested Allee population model",
+          "trigger": "Closest indexed scalar Allee periodic-harvest record"
+        },
+        {
+          "assessment": "Different persistence question",
+          "evidence": "The barrier rules out strictly positive predator cycles under a condition in the two-species Xu–Zou model.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-harvesting-feasibility-barrier-to-predator-persistence-in-an-a--43aee5c6c9d1",
+          "material_read": "Finding",
+          "method": "Local mirror text",
+          "title": "A harvesting-feasibility barrier to predator persistence in an Allee impulsive fishery",
+          "trigger": "Closest indexed Allee impulsive-fishery record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 6–24, 38–66",
+        "arXiv:2308.14167 pp. 2–3"
+      ],
+      "rationale": "For pulse removals under depensation it matters whether any positive stock can persist at a given retention and recovery interval. The closed interval cutoff and the all-stock basins answer that question without time-stepping or fitting, and the exact one-sided rate distinguishes slow critical persistence from ordinary attraction. The amplitude and global cutoff supply predictive information beyond the generic observation that saddle nodes occur.",
+      "residual_risks": [
+        "Value is as an exact deterministic benchmark, not as a recommendation of real harvest frequencies or a stochastic persistence guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

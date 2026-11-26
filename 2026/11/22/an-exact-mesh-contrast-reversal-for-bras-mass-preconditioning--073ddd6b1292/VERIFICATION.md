@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-The local \(P_1\) consistent mass and its inverse were computed symbolically from their \(2\times2\) definitions. Period-two Bloch reduction gives two explicit eigenvalue branches; their extrema were checked analytically using the derivatives of \(qu-t\sqrt{u^2-9}\), including the regime change at \(r=3\). The weighted BRAS formula was reduced to a quadratic polynomial in the assembled mass matrix. All endpoints and the contrast root satisfy their exact algebraic equalities.
+## correctness
 
-`python3 verify.py` was executed using standard-library rational arithmetic. It passed 40 combinations of mesh sizes and exact positive contrast ratios. It independently assembles three matrices from their element contributions, checks the weighted polynomial identity, the Jacobi endpoint eigenvectors, and both zone-edge eigenvectors. It also confirms the exact witness \(r=4\): the unweighted eigenvalues at the relevant zone edge are \(169/48\) and \(49/48\), giving condition number \(169/49\), while the weighted condition number is \(91/75\).
+PASS
 
-# Limits
+The comparison is for periodic alternating P1 elements with n divisible by four. The diagonal and absolute row radius of M are (a+b)/3 and (a+b)/6; the constant and alternating vectors realize both Gershgorin endpoints, so Jacobi gives 3. Independently taking traces and determinants of the cell symbols, the two-symbol product for the identity weight has trace 1+qu/6 and determinant (3q+2u)^2/144, where q=r+1/r and u=4-cos(theta). The eigenvalue branches in the proof follow. The upper branch increases to u=5, a discrete phase available because n/2 is even. The lower branch is always at least 1 and its continuous minimum is at u=3q/2 (with u=3 at r=1). For r>=3 it minimizes on the phase set at u=5; below r=3 the stated bound suffices without replacing the discrete minimum by the continuous one. The equality condition on the exact branch is 3r^2-6r-13=0, with its sole admissible root 1+4/sqrt(3). Local diagonal-mass weights give diagonal 4/(a+b) and neighbor entries -2h/(a+b)^2, proving the stated polynomial in M. Its mass-product eigenvalue is 1+4ab sin^2(theta/2)/(3(a+b)^2), giving the claimed maximum, minimum, and limit. An independent rational four-mode check at n=4, r=4 confirms the complete spectra and the reported strict ordering.
 
-Finite checks neither establish the universal theorem nor verify historical priority; the general proof is the Bloch-symbol calculation in RESULT.md. Independent mathematical validation has not been performed. The identity-weighted BRAS definition and the weighted variant follow public primary literature; the new assertion concerns their exact finite-mesh spectral comparison.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact alternating-periodic spectra, sharp identity-weighted BRAS/Jacobi contrast reversal, and exact diagonal-local-mass comparison. The BRAS definitions, general lower bound, contrast-induced degradation, diagonal weighting remedy and its approach to unit conditioning on a graded example are already established in the inspected antecedents.
+
+## value
+
+PASS
+
+The alternating family separates the effect of contrast from mesh order and supplies a sharp all-size benchmark beyond qualitative warnings about grading. It gives both the range in which the original BRAS improves on Jacobi and a reproducible regime in which it is strictly worse, while bounding the weighted counterpart for every contrast. This is an exact, motivated counterexample and design comparison, not a claim that weighting or grading effects were newly discovered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

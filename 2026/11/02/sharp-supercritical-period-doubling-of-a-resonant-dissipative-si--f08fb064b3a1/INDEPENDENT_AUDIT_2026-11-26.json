@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:37:47.912499Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–76",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/audit_evidence/recompute.py: flip; output recompute.out"
+      ],
+      "rationale": "The half-turn two-cycle is exact, and its return matrix has trace 1+λ²−t² and determinant λ². The strict Schur conditions give precisely 0<t<t_c and at equality the simple roots −1,−λ². For local uniqueness without assuming symmetry of an arbitrary candidate, use the odd return G=F² in a chart around the first phase. For any small G-two-cycle with points m±h its midpoint satisfies G(m+h)+G(m−h)−2m=0. The derivative in m at the critical origin is 2(DG−I), invertible; oddness gives m=0 as the unique local solution, so every such cycle satisfies G(p)=−p. The two one-step angular increments then force the displayed momenta and the two sine equations. Their Jacobian has complementary eigenvalue 2t_c and null vector w=(b,t_c+a). Eliminating the complementary coordinate and dividing the odd scalar equation by s reduces it to a smooth equation in s² with nonzero derivative −t_c k²(w_1^4+w_2^4)/6. Its root is s²=6μ/[k²(t_c²+a²)(t_c+a)]+O(μ²). The two signs correspond to one geometric prime four-cycle, and the negative side has no real nonzero root. In the trace of the two-step derivative at that branch, the change from the old cycle's trace is k²[t_c²(u²+v²)+a t_c(v²−u²)]/2+O(μ²)=6t_c μ+O(μ²); the net change from critical is 4t_c μ. The second two-step derivative is identical by oddness. Squaring the two eigenvalues gives 1−8t_c μ/(1−λ²)+O(μ²) and λ⁴+O(μ), both inside the unit disk for small μ>0. Independent scalar bisection and multiplication of four one-step Jacobians corroborated the amplitude and slope in nine cases.",
+      "residual_risks": [
+        "The local estimates are for each fixed 0<λ<1; the small neighbourhood and error bounds need not be uniform near λ=1. Numeric checks are corroborative only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 supplies a local scalar flip theorem with nondegeneracy hypotheses.",
+          "The closest historical dissipative-orbit texts were not retrieved in full."
+        ],
+        "reasoning": "The scalar theorem cannot identify this map's resonance, threshold, exact equations, or quantitative coefficients without calculation; generic conformally symplectic structure is weaker still.",
+        "searches": [
+          "Arnaud arXiv:2603.00758",
+          "Glendinning–Simpson arXiv:2206.04840, Theorem 3.4",
+          "Wenzel et al., Celletti–Di Ruzza and Murakami et al. DOI/OA retrieval"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local mirror 126cc707048b and 827557a5829d",
+        "arXiv:2206.04840 and 2603.00758",
+        "DOI/OA accessibility checks for Wenzel et al. 1991, Celletti–Di Ruzza 2011, Murakami et al. 2001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar theorem describes qualitative supercritical doubling under conditions; the winding theorem classifies a different orbit in a different torque slice."
+        ],
+        "reasoning": "The result needs a calculation of the projected cubic for the half-turn branch and a second, full-space return calculation. Neither the existence of generic flips nor the period-one sink count implies the original claim.",
+        "searches": [
+          "Glendinning–Simpson arXiv:2206.04840, p. 9 Theorem 3.4",
+          "Resultary 126cc707048b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In θ=2πx, P=2π(y+1/2), the map is P'=λP+t sin θ+π(1−λ), θ'=θ+P'.",
+          "Resultary 126cc707048b studies the zero-torque map and period-one winding sinks."
+        ],
+        "reasoning": "Removing the angular half-turn by a momentum translation produces nonzero torque; neither the parameter slice nor the flip from period two to four matches the inspected winding-one theorem.",
+        "searches": [
+          "Resultary: dissipative standard-map winding sinks and sine-memory two-cycles",
+          "Wenzel–Biham–Jayaprakash DOI 10.1103/PhysRevA.43.6550"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest mirror hits were 126cc707048b (zero-torque period-one sinks) and 827557a5829d (different sine-memory map on the plane)."
+        ],
+        "reasoning": "Neither is an exact branch catalogue for the specified resonance. No ranked exact threshold/amplitude/slope entry was identified; the search is not an exhaustive historical catalogue.",
+        "searches": [
+          "Resultary: half-turn resonant dissipative sine/standard map, period-two flip, exact amplitude and multipliers"
+        ]
+      },
+      "rationale": "The supported distinct content is the flip of the specified half-turn branch in the torqued dissipative standard map, including its local orbit equations, amplitude and multiplier slope. Generic flip theory is background, not an originality claim. No inspected theorem gives these coefficients for this branch.",
+      "residual_risks": [
+        "The most pertinent historical periodic-orbit paper, Wenzel et al. (1991), was not inspected in full. Wider literature search was partly unavailable; no negative inference is made from that or other access failures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different torque and prime period",
+          "evidence": "Zero-torque winding one-step sinks; transformed target has torque π(1−λ) and a period-two orbit losing stability to a period-four orbit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-coexistence-staircase-for-winding-one-step-sinks-in-the-di--126cc707048b",
+          "material_read": "RESULT.md Finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary local search and mirror reader",
+          "title": "Sharp coexistence staircase for winding one-step sinks",
+          "trigger": "Same dissipative standard-map family"
+        },
+        {
+          "assessment": "Different map and resonance",
+          "evidence": "Map on R² with second component x+y and large-amplitude primitive two-cycles; not a dissipative half-turn flip on the cylinder.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-two-cycle-resonance-towers-in-a-fixed-point-free-sine-memo--827557a5829d",
+          "material_read": "RESULT.md Finding in local mirror",
+          "method": "Resultary local search and mirror reader",
+          "title": "Sharp two-cycle resonance towers in a fixed-point-free sine-memory map",
+          "trigger": "Sine-map two-cycle resonance"
+        },
+        {
+          "assessment": "Qualitative scalar framework",
+          "evidence": "Gives local supercritical doubling under hypotheses, not the half-turn orbit or its coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.04840",
+          "material_read": "PDF p. 9, Theorem 3.4, text offset 27350",
+          "method": "OA author PDF passage",
+          "title": "Normal Forms, Differentiable Conjugacies, and Elementary Bifurcations of Maps",
+          "trigger": "Plausible generic implication"
+        },
+        {
+          "assessment": "Context only in inspected material",
+          "evidence": "No half-turn periodic-orbit theorem in material read; a term miss is not a whole-document exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.00758",
+          "material_read": "PDF p. 1 and relevant context; targeted search for standard map did not locate a passage",
+          "method": "OA PDF passage and term search",
+          "title": "Conformally symplectic Dynamics",
+          "trigger": "Conformally symplectic setting"
+        },
+        {
+          "assessment": "Unresolved priority risk",
+          "evidence": "Title alone does not fix torque, branch or the reported local coefficients.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.43.6550",
+          "material_read": "Bibliographic identification; no relevant full-text passage retrieved",
+          "method": "Publisher/OA alternate retrieval attempts",
+          "title": "Periodic Orbits in the Dissipative Standard Map",
+          "trigger": "Strongest historical match to map and periodic orbits"
+        },
+        {
+          "assessment": "Unresolved overlap",
+          "evidence": "No statement-level comparison of the half-turn branch was available.",
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2011.16.151",
+          "material_read": "Bibliographic identification; no relevant full-text passage retrieved",
+          "method": "Publisher/OA alternate retrieval attempts",
+          "title": "Periodic and quasi-periodic orbits of a dissipative twist map",
+          "trigger": "Dissipative periodic-orbit classification"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "No verified statement on the torqued dissipative half-turn orbit was obtained.",
+          "identifier_or_url": "https://doi.org/10.1143/PTP.106.909",
+          "material_read": "Bibliographic identification; no relevant full-text passage retrieved",
+          "method": "Publisher/OA alternate retrieval attempts",
+          "title": "Global Period-Doubling Bifurcation in the Standard Map",
+          "trigger": "Period-doubling in standard maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and local bifurcation calculation",
+        "Glendinning–Simpson, Theorem 3.4 as qualitative baseline"
+      ],
+      "rationale": "The exact resonant orbit is singled out by the half-turn drift and the sine zeros, rather than by an arbitrary numerical slice. Its stability boundary and the explicit supercritical branch give a local benchmark for the torqued dissipative standard map, including the dependence of the rate of attraction on damping. The full-space multiplier law and local uniqueness add more than merely identifying a generic flip.",
+      "residual_risks": [
+        "No global bifurcation, basin classification or limit as damping vanishes is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

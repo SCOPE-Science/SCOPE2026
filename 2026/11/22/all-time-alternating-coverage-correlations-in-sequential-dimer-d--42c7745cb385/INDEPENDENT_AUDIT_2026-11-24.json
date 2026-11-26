@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:54.679962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen opening specified oriented nearest-neighbor clocks, whereas its assumptions and proof used one clock per unordered bond. If both orientations have unit rate, the mean starts as 4t rather than the printed 2t, so the distinction changes finite-time formulas. The complete replacement fixes one clock per unordered bond, explicitly gives p=1−exp(−2t) for the two-direction convention, and leaves the polynomial laws intact. On the repaired model, site coverage is decided by the first incident arrival and K_i depends only on four clocks. Writing A=R−M for an arrived clock minus a thresholded local maximum gives a=p−p³/3; adjacent maxima are disjoint, and the shared-neighbor joint maximum probability at distance two is the integral of x y min(x,y) over the square [0,p]². Twice the integral of x²y over 0≤x≤y≤p gives 2p⁵/15. Thus edge covariances at lags 0,1,2 are a(1−a), −p³(p³−6p+6)/9, p⁵(6−5p)/45, yielding the four site polynomials by K_i=A_{i−1}+A_i. The Bernstein certificates give the three claimed strict inequalities for the factored polynomials and hence the covariance signs and V>0. Three sites discarded between blocks of length floor(n^(1/3)) make the main sums independent; their variance is nV+o(n), their normalized sizes vanish, and the bounded-degree covariance of discarded sites gives variance o(n). The same argument applies at saturation. The frozen rational order enumerator was inspected, not executed, and remains applicable to the repaired formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Although the all-length outermost covariance theorem is stated for rods of length at least three, its derivation works for length two and yields Var[min(U,p)²/2] with U uniform, equal to p⁵(6−5p)/45. It also yields the sharp dependence cutoff; it does not evaluate the inner lags. The terminal trimer theorem is about the binary indicator of triple coverage."
+        ],
+        "reasoning": "The repair recognizes mechanical implication for the outer lag and cutoff instead of claiming them as independent novelty. Neither that formula nor the use of a finite closure system determines the inner-lag values and joint signs.",
+        "searches": [
+          "Resultary 5023e9240d95 Finding and proof (including offsets 3650–8400)",
+          "Resultary 27b43bfd218a Finding and proof opening",
+          "arXiv:2410.12373 §2 finite joint hierarchy and §7 Discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.03992 §II and §VI A",
+        "arXiv:2410.12373 §§2, 7",
+        "Resultary 5023e9240d95, 27b43bfd218a and 14cb4a65704f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier deposited-dimer bulk variance 2/45 implies the 8/45 terminal coefficient for multiplicity (count both endpoints, with bounded boundary corrections); the known sharp range and outermost-lag value fix only part of the covariance sum."
+        ],
+        "reasoning": "An aggregate variance at saturation plus one outer-lag function does not give the inner functions or their global signs. The generic bounded finite-dependence CLT is not asserted as new; its explicitly evaluated finite-time normalization is the informative part.",
+        "searches": [
+          "arXiv:2209.03992 §II terminal variance; Resultary 5023e9240d95 exact covariance and limitations",
+          "arXiv:2410.12373 §7 spatial correlation passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With uniform first-arrival marks, retained dimers are the threshold indicator minus the thresholded peak indicator, not just a generic peak process at finite time. The inspected sliding-window winning-index record 14cb4a65704f concerns index changes rather than this observable.",
+          "Krapivsky's one-site probabilities imply the stated mean and variance at a site."
+        ],
+        "reasoning": "At saturation the retained indicator is the complement of a local maximum; finite times also require mixed arrival–peak probabilities. One-site coverage and window winner changes do not determine the inner spatial lag functions.",
+        "searches": [
+          "Resultary: accepted-if-new dimer multiplicity two-point covariance and exact sequential-covering dependence",
+          "Targeted literature lookup for iid thresholded local maxima / peak covariances and competitive dimer covering",
+          "arXiv:2209.03992 §§II and VI A; arXiv:2410.12373 §§2 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest tables concern one site, the single outer lag, or the trimer terminal binary statistic. The outer-lag paper references a separately recorded complete dimer law but does not identify another record in its references."
+        ],
+        "reasoning": "No retrieved independent table gives the claimed full temporal dimer profile. The unlabelled reference might refer to the assigned record; that inference and publication ordering were not used to dispose of the overlap.",
+        "searches": [
+          "Resultary exact temporal dimer covariance and oscillating finite-profile comparison (5023e9240d95 and 27b43bfd218a)",
+          "arXiv:2209.03992 §II, §VI A Eqs. (63)–(73); arXiv:2410.12373 §2 and Discussion"
+        ]
+      },
+      "rationale": "The repaired claim credits prior one-site and saturated aggregate information and explicitly narrows the distinct content to the complete temporal dimer profile, including the previously unevaluated inner lags, joint sign theorem, and explicit finite-time window fluctuation coefficient. There is demonstrable overlap on the outermost lag and sharp cutoff, not evidence of coverage of the whole claim.",
+      "residual_risks": [
+        "An unindexed result about thresholded peaks, or a separately recorded full dimer temporal law, could give further exact overlap. No distinct such table was located; the all-length result's unnamed reference alone does not identify one.",
+        "Same-day catalogue dates establish neither priority nor absence of overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-site law and terminal aggregate coefficient covered, not the all-time kernel",
+          "evidence": [
+            "The one-site probabilities are exp(−2t), 2(1−exp(−3t))/3, and 1/3−exp(−2t)+2exp(−3t)/3; the terminal finite-interval count has leading variance 2/45 per unit length."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.03992",
+          "material_read": "§II p. 4 (around offset 26700), §VI A p. 7 Eqs. (63)–(73), around offsets 48500–52659",
+          "method": "OA primary PDF passage and formula comparison",
+          "title": "Random Sequential Covering",
+          "trigger": "Same dimer model and aggregate variance"
+        },
+        {
+          "assessment": "Relevant local dynamics underlying one-site results; no evaluated inner-lag profile in these sections",
+          "evidence": [
+            "The Discussion identifies additional spatial correlation observables as a direction for analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.12373",
+          "material_read": "§2 pp. 2–3 (offsets around 6500–10755); §7 p. 16 (around offset 51800)",
+          "method": "OA primary PDF passages",
+          "title": "Random sequential covering of a one-dimensional lattice by k-mers",
+          "trigger": "General local joint hierarchy for the same model"
+        },
+        {
+          "assessment": "Overlaps at d=3 for all times, not at d=1,2 or in full fluctuation law",
+          "evidence": [
+            "g_k(v)=(1−exp(−(k−1)v))/(k−1)−(1−exp(−kv))/k; at k=2 it equals (1−exp(−v))²/2. The covariance is Var[g_k(min(T,t))]. The reference to another dimer profile carries no identifier."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-outermost-coverage-covariance-for-all-sequentially-deposit--5023e9240d95/RESULT.md",
+          "material_read": "Finding, conditional-variance proof, relationship, limitations and references, offset 0 through closing passages",
+          "method": "Indexed mirror text and exact k=2 substitution",
+          "title": "Sharp outermost coverage covariance for all sequentially deposited k-mers",
+          "trigger": "Direct mechanical overlap for the outer lag and sharp range"
+        },
+        {
+          "assessment": "Different length, time horizon and binary observable",
+          "evidence": [
+            "It treats the indicator of terminal triple coverage with six dependent lags."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-oscillating-spatial-correlations-and-exact-gaussian-fluctuations--27b43bfd218a/RESULT.md",
+          "material_read": "Finding, scope and proof opening, offsets 0–4281",
+          "method": "Indexed mirror statement and observable comparison",
+          "title": "Oscillating spatial correlations and exact Gaussian fluctuations in trimer sequential covering",
+          "trigger": "Similar finite covariance, sign and CLT conclusion"
+        },
+        {
+          "assessment": "Adjacent topic, not relied on for a whole-document exclusion",
+          "evidence": [
+            "The indexed statement concerns changes in the winning index of a sliding window, not thresholded peak indicators."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-negative-to-positive-lag-transition-for-cyclic-sliding-window--14cb4a65704f",
+          "material_read": "Indexed claim describing the observable",
+          "method": "Resultary search-result scope check",
+          "title": "A negative-to-positive lag transition for cyclic sliding-window maxima",
+          "trigger": "Peak-process equivalent-formulation lookup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete spatial covariance law addresses the two-point observable left open by the single-site theory. The evaluated inner lags and the nontrivial uniform sign pattern, together with the exact time-dependent extensive variance, distinguish the spatial fluctuation mechanisms. They are useful even after setting aside the already-covered outer lag, one-site law and saturated variance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

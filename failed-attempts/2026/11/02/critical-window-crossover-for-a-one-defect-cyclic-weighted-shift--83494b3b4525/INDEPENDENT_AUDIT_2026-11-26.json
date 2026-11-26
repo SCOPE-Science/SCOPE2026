@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:16:32.900176Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Taking coordinate moduli bounds the numerical-range quadratic form by the real adjacency Rayleigh quotient, and equality holds at a positive Perron vector, also for the connected path r=0. Reflection and the interior recurrence give positive cosine/cosh vectors and the two endpoint equations. The trigonometric ratio decreases from 1 to 0 on the stated interval. The hyperbolic ratio is cosh η+tanh((n−1)η/2)sinh η, increasing in η and n. For r<1 the phase equation nθ+2 arctan(((1+r)/(1−r))tan(θ/2))=π yields strict monotonicity and θ=π/(n+(1+r)/(1−r))+O_r(n^−4). For r>1 the exponential variable q satisfies q−r=(rq−1)q^−n; the row-sum bound keeps q bounded, so q−r=O_r(r^−n), and replacing q by r on the right costs O_r(nr^−2n). Expanding (q+q^−1)/2 yields the claimed coefficient. After rescaling the exact monotone boundary equations by n, compact root bracketing gives the trigonometric and hyperbolic limits; continuity at a=0 follows from the small-root quadratic forms. The source checker was inspected, not executed. This does not assume fixed-r error bounds are uniform near r=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2009.01401 covers complex corner weights and the full spectrum, gives the universal determinant in Proposition 1, exact trigonometric and hyperbolic equations, and the fixed-strength polynomial/exponential regimes. Theorem 6 includes the exact limiting outlier after the affine change, with an O_r(r^−n) error.",
+          "arXiv:2304.06050 gives finite-dimensional numerical-range framework; arXiv:2308.07514 changes the endpoint diagonals and concerns a different matrix. The continuum delta-interaction root equations are analogous but do not itself supply the discrete limit."
+        ],
+        "reasoning": "The 2020 Toeplitz result is the strongest and materially covers the same spectral problem. It is separate from the 2023 Laplacian paper cited in the frozen package.",
+        "searches": [
+          "arXiv:2009.01401 Propositions 1, 3 and 15 and Theorems 2, 3, 5, 6",
+          "arXiv:2304.06050 weighted cyclic shift determinants",
+          "arXiv:2308.07514 weighted cycle Laplacian",
+          "periodic delta interaction Robin equation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and check_cyclic_shift.py",
+        "arXiv:2009.01401",
+        "arXiv:2304.06050",
+        "arXiv:2308.07514",
+        "Resultary 94abec24c055 and 17bf045f66f8",
+        "Chang–Wang DOI access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For 0<r<1, β=(1−r)/(1+r) makes the prior trigonometric characteristic quadratic T²−2β cot(θ)T−β²=0 with T=tan(nθ/2). On the lowest branch T>0, so T=β cot(θ/2), the frozen equation. For r>1, β=(r−1)/(r+1); Eq. (39), with b=tanh(η/2) and T=tanh(nη/2), becomes (bT−β)(T−βb)=0. Since T≥b>0 and β<1, bT=β, the frozen hyperbolic equation. A constant-vector Rayleigh test gives λ_min<0 for every r>1 and Proposition 15's exact determinant identity does not require the large-n regime of Theorem 5.",
+          "Putting r=1+a/n gives nβ→|a|/2. The prior product equations at θ=z/n or η=y/n converge on compact sets, after multiplication by n, to z tan(z/2)/2 or y tanh(y/2)/2; monotone inversion gives the two branches. Exponentiating the strong product equation gives q−r=(rq−1)q^−n, so Taylor expansion of the same prior equation yields the extra displayed correction coefficient."
+        ],
+        "reasoning": "This conclusion uses the exact prior equations in the moving-parameter regime, not an invalid substitution into the fixed-r asymptotics. The necessary branch check and scalar rescaling are direct; no new spectral estimate or independent crossover mechanism remains.",
+        "searches": [
+          "arXiv:2009.01401 Eq. (23) and Eq. (39), read proof passages for Propositions 3 and 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2009.01401 Eq. (1) and the displayed n=6 matrix have diagonal 2, neighbors −1 and real corner −r at α=r. The frozen Perron matrix B_n(r) has diagonal 0 and the corresponding positive weights, so w_n(r)=1−λ_min(A_{r,n})/2."
+        ],
+        "reasoning": "The affine equivalence is exact for every n and r in the Finding; changing from a Toeplitz spectral edge to a numerical radius does not change the mathematics of these formulas.",
+        "searches": [
+          "eigenvalues tridiagonal Hermitian Toeplitz matrices perturbations in off-diagonal corners Grudsky Maximenko Soto Gonzalez transition asymptotic spectral edge arxiv",
+          "arXiv:2009.01401 Eq. (1)",
+          "one-defect cyclic weighted shift numerical radius vs periodic Jacobi spectral edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 94abec24c055 has a moving defect on a half-line with a one-sided threshold; 17bf045f66f8 has a diagonal boundary perturbation of a unilateral shift compression with k cot k and κ coth κ. Neither is the exact same family. Another Robin lead 36fadd7efde6 was not available in the mirror."
+        ],
+        "reasoning": "The exact coverage comes from the equivalent primary Toeplitz spectral equations; similar profiles elsewhere are not themselves evidence of a matching indexed theorem.",
+        "searches": [
+          "Resultary: one-defect cyclic weighted shift numerical radius critical window r=1+a/n; cyclic weighted shift one defect numerical range boundary; periodic Jacobi impurity critical scaling; Robin delta interaction cycle"
+        ]
+      },
+      "rationale": "Grudsky–Maximenko–Soto-González (2020), arXiv:2009.01401, study exactly the relevant matrix up to the affine change A_{r,n}=2I−B_n(r), not merely a similar cycle Laplacian. Their exact weak and strong characteristic equations specialize to the identical scalar equations for the lowest eigenvalue. The signed crossover is a direct rescaling of these exact prior equations, not an inference from their nonuniform fixed-strength error estimates. The previously displayed exponential order and other finite-size statements or leading coefficients also follow by elementary expansion or monotonicity of the same equations. No explicit statement of the double-scaled limit is attributed to that paper.",
+      "residual_risks": [
+        "No claim is made about the first printed occurrence of the signed critical-window limit in those exact words.",
+        "The Chang–Wang full text and a further indexed Robin lead were unavailable; the decision rests on the materially inspected equivalent 2020 results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact matrix equivalence; direct weak and strong secular-equation coverage, with critical scaling obtained by specialization and simple monotone root convergence",
+          "evidence": "Same two corner entries and otherwise constant diagonal; exact characteristic zero equations above and fixed-strength outlier bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.01401",
+          "material_read": "Title and abstract; Eq. (1) and example (offset 3760); weak equations and Theorems 2–3 (offset 8200); Theorems 5–6 (offsets 12200 and 16800); Propositions 1 and 3 (Eq. (21), Eq. (23)); Proposition 15 (Eq. (39), pp. 14–15, offset 40700)",
+          "method": "Lawful primary PDF, passages by text offset",
+          "title": "Eigenvalues of tridiagonal Hermitian Toeplitz matrices with perturbations in the off-diagonal corners",
+          "trigger": "Exact corner-perturbed matrix under affine equivalence"
+        },
+        {
+          "assessment": "General finite-dimensional framework; not decisive for the critical limit",
+          "evidence": "Hermitian support-line eigenvalues are determined by a determinant; the compared example is finite n=6.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.06050",
+          "material_read": "PDF pp. 1–2 and pp. 13–14, equations (6.3)–(6.5), offsets 0 and 42500",
+          "method": "Lawful arXiv PDF",
+          "title": "Numerical ranges of cyclic shift matrices",
+          "trigger": "Weighted cyclic shifts and support-line eigenvalue formulas"
+        },
+        {
+          "assessment": "Different matrix family",
+          "evidence": "Weighted Laplacian modifies both endpoint diagonals as well as the distinguished edge.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.07514",
+          "material_read": "PDF pp. 1–4, offsets 0 and 5995",
+          "method": "Lawful arXiv PDF",
+          "title": "Eigenvalues of Laplacian matrices of the cycles with one negative-weighted edge",
+          "trigger": "Similar defect outlier in a cycle"
+        },
+        {
+          "assessment": "Full-text implications unresolved",
+          "evidence": "Weight-permutation scope at abstract level does not exclude a closer special case.",
+          "identifier_or_url": "10.1016/j.jmaa.2012.04.039",
+          "material_read": "Landing/abstract level only",
+          "method": "Lawful DOI access attempt",
+          "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+          "trigger": "Earlier cyclic shift numerical-radius work"
+        },
+        {
+          "assessment": "Related profile in a different domain",
+          "evidence": "Half-line geometry and a one-sided window for a bond moving to depth L.",
+          "identifier_or_url": "Resultary 94abec24c055",
+          "material_read": "RESULT.md Finding and critical scaling proof at offset 0",
+          "method": "Local published mirror",
+          "title": "Critical boundary-layer localization for a moving weighted-shift defect",
+          "trigger": "Same-day defect window and comparable scaling"
+        },
+        {
+          "assessment": "Not the one-bond cycle",
+          "evidence": "Diagonal rank-one defect at a boundary, with cot/coth profiles, rather than cyclic edge weights and tan/tanh profiles.",
+          "identifier_or_url": "Resultary 17bf045f66f8",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published mirror",
+          "title": "A Robin critical window for numerical ranges of boundary perturbations",
+          "trigger": "Analogous numerical-radius Robin scaling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The boundary between extended and localized spectral states is motivated, and the explicit window is a useful way to present that boundary. Here the exact general secular equations for the same operator already mechanically specify the whole two-sided window; the refinements and monotonicity come from the same elementary scalar identities. The frozen finding does not leave a distinct exact invariant or other independently useful new result beyond that prior implication.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

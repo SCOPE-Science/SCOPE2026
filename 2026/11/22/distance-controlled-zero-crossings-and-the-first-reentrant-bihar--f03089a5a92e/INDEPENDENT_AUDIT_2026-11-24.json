@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:42:38.463077Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–92 (independent proof reconstruction)",
+        "Frozen VERIFICATION.md and verify.py, in particular bracket code lines 85–102 (inspected only)",
+        "Independent exact bracket and boundary-order reproduction: /workspace/branches/f273dae9-be64-4b57-ab35-dc0a07d6d666/q4_exact_repro.py; regenerated decimals 0.0180433350, 0.0380861165, 0.1722802964, 0.3401695302"
+      ],
+      "rationale": "For the unnormalized cube, the Walsh eigenvalues of L are 2k. At distance r the entry times 2^d has coefficient c_{d,r,k} on x^(k^2), x=exp(-4t). Double counting gives c_{d,r,k}=binom(d,k)K_r(k)/binom(d,r), with K_r of degree r and leading term (-2)^r y^r/r!. Each reversal in the nonzero samples of K_r forces a real root between successive sampled indices, so Descartes bounds all positive x roots with multiplicity by r. At t=0 Laplacian powers of degree below r cannot connect the two vertices. For even r=2q the (2q)! shortest walks give leading coefficient (-1)^q (2q)!/q!; for odd r=2q+1 the r+1 adjacency term is excluded by parity, leaving leading coefficient (-1)^q 2d(2q+1)!/q!. Thus x=1 accounts for exactly ceil(r/2) roots. The constant coefficient gives a positive limit as t tends to infinity, yielding the claimed positivity at distance one and exactly one simple crossing at distances two and three. On Q4, independent exact arithmetic confirms the two P4 brackets (0.25,0.26), (0.93,0.94) and the P2 and P3 brackets (0.85,0.86), (0.50,0.51). The bound establishes uniqueness and simplicity in each bracket; reversing their order under x=exp(-4t) gives the stated times and the first dimension with two crossings. Before the first antipodal crossing distance two is negative; between antipodal crossings the antipodal class is negative. After the final crossing all classes are positive, with only the antipodal zero at that endpoint. Each row sums to one and the absolute row sum adds twice the negative mass; shell sizes 6, 4, 1 divided by 16 give the displayed norm, and symmetry gives the same column norm.",
+      "residual_risks": [
+        "No execution of the packaged verifier. The exact rational brackets and analytic bound certify the zeros; decimals are illustrative. No assertion of saturation of the bound for every distance or dimension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected continuous biharmonic semigroup results concern local eventual positivity, not zeros of finite-cube matrix entries.",
+          "The rook result is on K_a square K_b (includes Q2 but not Q4), while d4246db3e6b2 gives staged recovery and norm for the squared semigroup on K_q^{square 3}, q>=3."
+        ],
+        "reasoning": "Neither general positivity for large time nor classification on two- or three-factor families entails a uniform bound by Hamming distance on binary cubes of arbitrary dimension, or the Q4 sign diagram.",
+        "searches": [
+          "Arora arXiv:2101.11386 Theorem 5.1; Daners–Glück–Mui arXiv:2111.02753 introduction and Theorem 2.1; Resultary 621e2ef18776 and d4246db3e6b2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; Resultary 9d68e70a362b, d4246db3e6b2, 621e2ef18776, 093b06a03097; arXiv:2101.11386 and 2111.02753"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fractional Q3 result already uses sign-variation root counting. The extension in the frozen claim controls the sign variation of all d+1 spectral coefficients by a degree-r Krawtchouk polynomial and spends ceil(r/2) roots at t=0.",
+          "The negative-part norm method overlaps the rook and nonbinary work, but requires the actual signs of the Q4 classes to determine time intervals; the quartic-distance double crossing is certified separately."
+        ],
+        "reasoning": "Generalized Descartes and the row-sum identity are reusable ingredients but do not by themselves evaluate coefficient variations, short-time multiplicity or the double crossing. Credit only the conclusions requiring those additions.",
+        "searches": [
+          "Compare Resultary 9d68e70a362b Proof §3, d4246db3e6b2 Proof §§1–4 and 621e2ef18776 Proof §§1–3 to frozen §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9d68e70a362b studies exp(-t L^alpha) on Q3: alpha=2 is a genuine common case, and alpha>2 gives antipodal reentry there.",
+          "093b06a03097 uses the same binary graph class and Q4 reentry, but a rational Radau IIA update of L rather than exp(-t L^2)."
+        ],
+        "reasoning": "Equivalence requires both the graph and the spectral multiplier. The first source specializes to the squared experiment in a lower dimension, with one distance-three zero at alpha=2; the second does not become the same kernel by a change of time.",
+        "searches": [
+          "Resultary: fractional heat on a three-cube, Q4 positivity reentry and Radau; 9d68e70a362b, 093b06a03097"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct same-day 9d68e70a362b uses generalized-polynomial sign variation for Q3 and reports a single positive distance-three zero at alpha=2. Distinct same-day d4246db3e6b2 classifies two-stage recovery and the norm on the nonbinary three-factor family. The prior rook and Radau records have exact cutoffs for other families or operators."
+        ],
+        "reasoning": "These are relevant indexed neighbors, not exact sources for the Q4 squared-Laplacian values. No order or historical priority is inferred from a shared calendar date.",
+        "searches": [
+          "Local Resultary: discrete biharmonic and fractional Hamming kernel thresholds, exact Q4 positivity/norm and antipodal crossings; 9d68e70a362b, d4246db3e6b2, 621e2ef18776, 093b06a03097"
+        ]
+      },
+      "rationale": "The distinct supported additions are the all-dimension distance-only count for the squared Laplacian and the first double crossing with exact Q4 classification. Walsh/Krawtchouk identities, Descartes, negative-mass norms and general eventual positivity are not novelty claims. Fixed-size, exponent-dependent and different-graph comparators have substantial method or special-case overlap but do not supply the supported claim.",
+      "residual_risks": [
+        "The bounded external search did not produce a relevant new discrete-cube comparator; that is not evidence of absence. Earlier differently indexed association-scheme or discrete biharmonic results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method and squared Q3 cases overlap; neither the joint Q4 sign diagram nor all-dimension bound is covered",
+          "evidence": "Sign variation for generalized polynomials; one positive antipodal root at alpha=2 versus reentry for alpha>2.",
+          "identifier_or_url": "Resultary 9d68e70a362b",
+          "material_read": "RESULT.md Finding and Proof §3",
+          "method": "Local mirror primary record",
+          "title": "Three separated positivity scales for fractional heat on the three-cube",
+          "trigger": "Distinct same-day fractional-cube reentry and sign-counting proof"
+        },
+        {
+          "assessment": "Analogous threshold and norm for a different graph family",
+          "evidence": "Two successive recoveries on K_q^{square 3} with q>=3, not K_2^{square 4}.",
+          "identifier_or_url": "Resultary d4246db3e6b2",
+          "material_read": "RESULT.md Finding and Proof §§1–4",
+          "method": "Local mirror primary record",
+          "title": "Two-stage positivity recovery for biharmonic heat on nonbinary Hamming graphs",
+          "trigger": "Same squared semigroup and closely related staged positivity/norm question"
+        },
+        {
+          "assessment": "Partial overlap at Q2; target Q4 is outside the two-factor family",
+          "evidence": "Horizon and norm are for K_a square K_b with a four-level spectral projection structure rather than the five Walsh levels of Q4.",
+          "identifier_or_url": "Resultary 621e2ef18776",
+          "material_read": "RESULT.md Finding and Proof §§1–3",
+          "method": "Local mirror primary record",
+          "title": "Exact positivity horizon and peak amplification of biharmonic heat on rook graphs",
+          "trigger": "Earlier exact graph biharmonic horizon and norm"
+        },
+        {
+          "assessment": "Different spectral operator",
+          "evidence": "Uses a rational Radau IIA time-step multiplier of L, not the squared-Laplacian exponential.",
+          "identifier_or_url": "Resultary 093b06a03097",
+          "material_read": "RESULT.md Finding and Q4 proof",
+          "method": "Local mirror primary record",
+          "title": "Sharp Radau positivity loss and reentry on Boolean hypercubes",
+          "trigger": "Same Boolean cube and reentry phenomenon"
+        },
+        {
+          "assessment": "General continuous-space context, not a finite-cube zero classification",
+          "evidence": "Treats local eventual positivity of the Dirichlet bi-Laplacian on bounded smooth domains.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.11386",
+          "material_read": "pp. 14–15, Dirichlet bi-Laplacian, Theorem 5.1",
+          "method": "Located OA primary PDF passages",
+          "title": "Locally Eventually Positive Operator Semigroups",
+          "trigger": "Potential broader biharmonic positivity result"
+        },
+        {
+          "assessment": "Different setting and a qualitative positivity conclusion",
+          "evidence": "Continuous-space evolution and eventual local positivity, not a finite-cube multiplicity bound or exact fourth-dimensional crossover.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.02753",
+          "material_read": "p. 1 abstract/introduction and p. 4 Theorem 2.1",
+          "method": "Located OA primary PDF passages",
+          "title": "Local uniform convergence and eventual positivity of solutions to biharmonic heat equations",
+          "trigger": "Potential prior squared-Laplacian positivity claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and proof §§2–5; fractional Q3 and rook comparisons for the change in sign behavior"
+      ],
+      "rationale": "Counting entry zeros with multiplicity governs how often a signed diffusion entry can reverse sign, and the bound depends only on distance, not the number of spectral levels. The first double crossing is a sharp natural witness rather than a sampled fluctuation: all lower dimensions are proved incapable of it and the exact Q4 thresholds settle entrywise recovery and both endpoint norms. It distinguishes reentry of individual entries from eventual positivity of the full operator.",
+      "residual_risks": [
+        "No exhaustive higher-dimensional phase diagram or classification for weighted or nonbinary cubes is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

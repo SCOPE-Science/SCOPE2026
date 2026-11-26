@@ -1,61 +1,43 @@
-#!/usr/bin/env python3
-"""Independent finite-field checks of prescribed additive commutators in radical-square-zero quiver algebras."""
-from itertools import product
+"""Finite comparison of repeated commutator fibers in two ways."""
 from collections import Counter
+from itertools import product
 
-def product_in_algebra(x,y,n,edges,q):
-    diag=tuple(x[v]*y[v]%q for v in range(n))
-    arr=tuple((x[u]*y[n+j]+x[n+j]*y[v])%q for j,(u,v) in enumerate(edges))
-    return diag+arr
+EDGES = ((0,0), (0,1), (0,1), (1,2), (2,0))
+N, M = 3, len(EDGES)
 
-def brute(n,edges,q):
-    D=n+len(edges)
-    A=list(product(range(q),repeat=D))
-    count=Counter()
-    for a in A:
-        for b in A:
-            ab=product_in_algebra(a,b,n,edges,q)
-            ba=product_in_algebra(b,a,n,edges,q)
-            c=tuple((ab[n+j]-ba[n+j])%q for j in range(len(edges)))
-            assert all(ab[v]==ba[v] for v in range(n))
-            count[c]+=1
-    return count
 
-def predicted(n,edges,q,c,t=1):
-    if any(u==v and c[j] for j,(u,v) in enumerate(edges)):
-        return 0
-    total=0
-    # Color labels in (F_q)^(2t); number of colorings q^(2tn).
-    for colors in product(range(q**(2*t)),repeat=n):
-        same=sum(colors[u]==colors[v] for u,v in edges)
-        if any(c[j] and colors[u]==colors[v] for j,(u,v) in enumerate(edges)):
-            continue
-        total+=q**((2*t-1)*len(edges)+same)
-    return total
+def mul(x, y):
+    return tuple(x[v]*y[v] for v in range(N)) + tuple(
+        (x[u]*y[N+j]) ^ (x[N+j]*y[v]) for j,(u,v) in enumerate(EDGES))
 
-def validate(n,edges,q):
-    got=brute(n,edges,q)
-    for c in product(range(q),repeat=len(edges)):
-        expected=predicted(n,edges,q,c)
-        assert got[c]==expected,(n,edges,q,c,got[c],expected)
-    assert sum(got.values())==q**(2*(n+len(edges)))
-    print('PASS',n,edges,q,'targets',q**len(edges),'pairs',q**(2*(n+len(edges))))
 
-def chromatic_bruteforce(n,edges,K):
-    # Edges support only, no loops.
-    return any(all(cols[u]!=cols[v] for u,v in edges)
-               for cols in product(range(K),repeat=n))
+def convolution(left, right):
+    out = Counter()
+    for (x,a),(y,b) in product(left.items(),right.items()):
+        out[tuple(u^v for u,v in zip(x,y))] += a*b
+    return out
 
-if __name__=='__main__':
-    validate(2,[(0,1)],2)
-    validate(2,[(0,1),(0,1)],2)
-    validate(2,[(0,0),(0,1)],2)
-    validate(3,[(0,1),(1,2),(0,2)],2)
-    validate(3,[(0,1),(1,2),(0,2)],3)
-    K4=[(i,j) for i in range(4) for j in range(i+1,4)]
-    K5=[(i,j) for i in range(5) for j in range(i+1,5)]
-    assert chromatic_bruteforce(4,K4,4)
-    assert not chromatic_bruteforce(5,K5,4)
-    assert chromatic_bruteforce(5,K5,16)
-    print('PASS K4 one-commutator and K5 two-commutator threshold over F2')
-    print('VERIFY_OK_QUIVER_CHROMATIC_COMMUTATOR_WIDTH')
+
+def coloring(t):
+    out = Counter()
+    for c in product(range(2**(2*t)),repeat=N):
+        distinct = [c[u] != c[v] for u,v in EDGES]
+        lifts = 2**(2*t*M-sum(distinct))
+        for target in product(*(range(2) if d else (0,) for d in distinct)):
+            out[target] += lifts
+    return out
+
+
+if __name__ == '__main__':
+    one = Counter()
+    for x,y in product(product(range(2),repeat=N+M),repeat=2):
+        a,b = mul(x,y),mul(y,x)
+        assert a[:N] == b[:N]
+        one[tuple(u^v for u,v in zip(a[N:],b[N:]))] += 1
+    f = one
+    for t in (2,3):
+        f = convolution(f,one)
+        assert f == coloring(t)
+        assert sum(f.values()) == 2**(2*t*(N+M))
+        print('pairs',t,'nonempty fibers',len(f),'tuples',sum(f.values()))
+    print('MULTIPLE_COMMUTATOR_FIBERS_OK')

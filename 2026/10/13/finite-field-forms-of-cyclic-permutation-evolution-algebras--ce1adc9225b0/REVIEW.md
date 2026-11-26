@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Any algebra isomorphism between two nonzero weighted cycle algebras is forced to be monomial: pairwise products of distinct natural-basis vectors make each row of the change-of-basis matrix have at most one nonzero entry, and invertibility makes it a monomial matrix. The square relations force the permutation part to be a directed-cycle rotation and the diagonal factors to satisfy a recurrence. Closing that recurrence gives exactly the \((2^m-1)\)-power residue condition. The quotient of \(\mathbb F_q^\times\) by these powers is cyclic of order \(g=\gcd(2^m-1,q-1)\), rotation acts by doubling, and Burnside's lemma gives the class formula. Exhaustive small-field checks independently agree with the isomorphism and automorphism formulas.
+## correctness
 
-## Originality
-PASS with stated residual risk. The closest classical source is Khudoyberdiyev--Omirov--Qaralleh: its complex single-cycle theorem normalizes all nonzero weights to one, which is precisely the root-extraction step that fails over finite fields. Narkuziyev develops cycle decompositions and idempotent/nilpotent calculations, while Elduque--Labra describe graph-controlled automorphism structure. Wei--Zou give the broad finite-field orbit framework for all idempotent evolution algebras, but the inspected abstract does not state the fixed directed-cycle invariant or the all-dimensional Burnside formula. Targeted searches for finite-field permutation cycles, \((2^m-1)\)-power obstructions, weighted-cycle isomorphism, and doubling-orbit counts found no statement implying this one.
+PASS
 
-## Value
-PASS. The weighted directed cycle is the irreducible building block of permutation evolution algebras, and the classical complex classification collapses its weights by roots. Over finite fields, the exact obstruction is therefore a natural base-field descent question rather than an arbitrary parameter slice. The theorem gives a complete moduli description, an exact class count for every \(m\) and \(q\), and exact automorphism orders; it also pinpoints when the classical collapse survives.
+For an arbitrary F_q-linear algebra isomorphism, mixed products of different source basis vectors vanish. Independence of the nonzero target basis squares then forces the products of distinct entries of each isomorphism-matrix row to vanish. Invertibility makes the matrix monomial. The permutation satisfies sigma(i+1)=sigma(i)+1, leaving rotations. At rotation k the recurrence lambda_{i+1}=lambda_i^2 d_{i+k}/c_i closes exactly when lambda_0^N=Theta(c)/Theta(rot_k d), so necessity and sufficiency hold in every characteristic. In the quotient by N-th powers, Theta(rot_1 d)=Theta(d)^2 since their ratio differs by d_0^N. Every quotient class is realized (vary a single coefficient), and squaring is invertible and has m-th power the identity. The fixed set of squaring^k has gcd(g,2^k-1) elements, including g for k=0. Burnside counts the classes; separately each of h admissible rotations has exactly g scalar lifts, giving gh automorphisms. If g>1 the identity orbit cannot include any other class, proving the collapse criterion. Read the frozen verifier as consistency evidence; fresh exact checks with python3 /workspace/review_evidence/5_gf4_witness.py tested 180 invertible maps on each of the 81 ordered weight pairs and recovered two classes and automorphism-order histogram {3:6,6:3} on the nine tuples. The theorem is the symbolic recurrence, not an inference from those examples. It treats algebras given by one directed cycle over the base field, not all descent forms of the scalar-extended algebra or all perfect evolution algebras.
 
-## Closest literature and limitations
-The closest direct predecessor is the complex normalization theorem in *Few remarks on evolution algebras*. The main broader comparison is the 2023 finite-field orbit framework for idempotent evolution algebras. The claim is restricted to one nonzero directed cycle, and the 2023 full text was not available for direct inspection, leaving a specific specialization risk rather than an unresolved contradiction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct earlier-record contribution is the explicit all-q, all-m arithmetic resolution on a fixed single-cycle support: the power-class invariant with its rotation action, reduced class count and exact rational lift count. Monomiality and the abstract orbit/counting framework are prior. A later dated indexed result contains the entire classification and goes further; this is demonstrable equivalent coverage in the later record, not evidence of an earlier publication or of provenance between the two. The strongest earlier sources do not resolve the all-dimension restricted orbit problem by a parameter substitution.
+
+## value
+
+PASS
+
+A single cycle is the basic nonzero permutation support. The arithmetic obstruction determines exactly when the familiar unit-weight normalization fails, enumerates the resulting nonisomorphic forms in every dimension, and tells when graph rotations lift to rational automorphisms. The explicit all-dimension answer replaces an unrestricted matrix orbit search; it is not simply the F_4 example or a low-dimensional recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

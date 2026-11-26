@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:08:46.614311Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md lines 30–60; VERIFICATION.md lines 19–25; verification/check.py inspected but not executed.",
+        "Independent replay: python3 /workspace/branches/independent-checks/analytic_spot_checks.py cycle. Direct Dirichlet-Laplacian solves and singular values verified the bound, equality cases, and counts for all 7,315 unordered sets at N=3..21. This only corroborates the analytic proof."
+      ],
+      "rationale": "With counting measure, Parseval reduces the objective to the square of the interpolation operator norm, not to Dirichlet energy. Affine interpolation gives the stated Gram entries. Each edge block has a linear symmetric eigenvalue and a strictly convex antisymmetric eigenvalue. In a nontrivial average with a transposed pair of unequal gaps, equality in the top eigenvalue would force the optimizing vector to be constant on both changed edges, hence constant on the triangle. Unequal endpoint row sums then rule this out. A unit transfer strictly decreases the bound whenever the gap difference is at least two. Reflections give both 2-by-2 radicals, and counting the exceptional gap (or cosets for equal gaps) gives the stated counts. At N=4 the off-diagonal in the reduced block is zero, not positive as suggested by one sentence in the proof; the explicit diagonal entries 3/2 and 1 still give the asserted root, and the remaining eigenvalue is 1. For the asymptotic, the constant-unit-vector block has diagonal N/3, coupling into its orthogonal complement of squared norm 1/18 for either nonzero residue, and a spectral separation q/2+O(1) from that complement. Schur reduction gives the excess 1/(9q)+O(q^-2).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day universal three-site circular minimax kernels, 2026/11/22/SCOPE-universal-three-site-circular-minimax-kernels-and-fractional-sob--724766c6cbf0, Finding and Relationship to prior work; continuous minimax trace geometry depends on K(d)+K(2d)=0.",
+          "Host-frame theorem gives Parseval/isometric analysis and existence of harmonic completion."
+        ],
+        "reasoning": "The continuous trace theorem optimizes a kernel on real gaps and can give nonuniform minimizers; its kernel entries are not the gap-local interpolation Gram blocks. The host-frame theorem reduces the objective but does not optimize the placements. No ordering of the same-day results is assumed.",
+        "searches": [
+          "Resultary: strict balancing integer cyclic spacings residue radical interpolation energy three samples",
+          "arXiv:2607.14168 Theorems 1 and 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and the identified mirrored findings",
+        "Fokam Souop and Bitjoka, arXiv:2607.14168, Theorems 1 and 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026/11/16/SCOPE-harmonic-completion-of-cyclic-graph-wavelets-exact-frame-distort--8426f47cda6b computes squared bounds 1 and n/2 for a consecutive path P_n in C_(2n-2).",
+          "2026/11/22/SCOPE-sharp-two-threshold-smoothness-frame-stability-frontier-for-cycl--f4a8e0f7d8b1 treats a Dirichlet-energy/frame-budget tradeoff for path completion."
+        ],
+        "reasoning": "Bounds at a fixed contiguous placement and an energy/extension tradeoff do not imply strict balancing among arbitrary placements. For the stated optimum one still needs a strict comparison under edge transfers and the analysis of the residue classes.",
+        "searches": [
+          "Resultary: graph harmonic interpolation anchor placement upper frame bound cyclic graph wavelets",
+          "arXiv:2607.14168, Theorems 1 and 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-knot periodic linear-spline projection, Finding, 2026/10/25/SCOPE-sharp-three-knot-periodic-linear-spline-projection-bound--088a71941c5f",
+          "Three-frequency Riesz conditioning, Finding, 2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae"
+        ],
+        "reasoning": "The spline projection acts on ambient functions and uses an L-infinity norm; nodal completion uses an l2 input on three values and an l2 output on the discrete cycle. The Riesz matrix is a Fourier Vandermonde Gram with an eigenvalue-ratio objective. Neither is equivalent under the translation or reflection symmetries used here.",
+        "searches": [
+          "Resultary: linear spline knot placement operator norm optimal equispaced interpolation cardinal splines",
+          "Resultary: three anchor harmonic extension finite cycle optimal cyclic gap spacings upper norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier Riesz finding gives the same N/3 or N cardinalities for a different extremal set. The path-completion record gives explicit bounds for fixed paths, not the two residue-class radicals."
+        ],
+        "reasoning": "This is an all-N formula rather than a finite table. The exact matched counts concern a different operator; the searched exact sources did not supply the target norm values or penalty.",
+        "searches": [
+          "Resultary: three anchor harmonic extension finite cycle optimal cyclic gap spacings upper norm",
+          "Resultary: strict balancing integer cyclic spacings residue radical interpolation energy three samples"
+        ]
+      },
+      "rationale": "The finite-cycle squared interpolation norm, strict placement characterization, exact values and integer-grid penalty are distinct from the inspected Riesz, projection, path-completion and continuous-trace objectives. This is a best-of-knowledge judgment about the joint claim, not priority for Parseval analysis or linear interpolation.",
+      "residual_risks": [
+        "An equivalent discrete nodal-to-grid result may be indexed under periodic linear-spline mesh design. The bounded primary search gave no pertinent result and cannot exclude this.",
+        "The result does not claim precedence or coverage for more anchors, weighted cycles, or other norm criteria."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background, not placement coverage",
+          "evidence": "Parseval analysis and Dirichlet-minimizing completion, with no placement bound in those statements.",
+          "identifier_or_url": "https://arxiv.org/html/2607.14168",
+          "material_read": "Theorem 1 and Theorem 5 (HTML offsets about 15000 and 28100)",
+          "method": "OA theorem passages",
+          "title": "Tight Wavelet Frames on Graphs via Isometric Group Embedding",
+          "trigger": "Primary host analysis and harmonic completion theorem"
+        },
+        {
+          "assessment": "Distinct operator and criterion",
+          "evidence": "Fixed sites {0,1,2}, variable frequency triples, ratio of extreme squared singular values.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae",
+          "material_read": "Finding",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Sharp Riesz conditioning for consecutive triples on finite cycles",
+          "trigger": "Same balanced cyclic spacings and extremal counts"
+        },
+        {
+          "assessment": "Distinct input, norm and extremum",
+          "evidence": "L-infinity norm of the L2-orthogonal projector, mesh-independent supremum 7/3 and equal-mesh value 16/9.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-three-knot-periodic-linear-spline-projection-bound--088a71941c5f",
+          "material_read": "Finding",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Sharp three-knot periodic linear-spline projection bound",
+          "trigger": "Spline formulation of piecewise-linear completion"
+        },
+        {
+          "assessment": "Fixed-path case, not arbitrary three-anchor optimization",
+          "evidence": "Consecutive-path geometry with squared bounds 1 and n/2.",
+          "identifier_or_url": "2026/11/16/SCOPE-harmonic-completion-of-cyclic-graph-wavelets-exact-frame-distort--8426f47cda6b",
+          "material_read": "Finding",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Harmonic completion of cyclic graph wavelets: exact frame distortion and a quadratic Dirichlet obstruction",
+          "trigger": "Same harmonic completion and squared upper bound"
+        },
+        {
+          "assessment": "Different Gram and continuous domain",
+          "evidence": "Optimal {0,d,2d}, characterized by K(d)+K(2d)=0, extends its continuous Sobolev trace special case.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-three-site-circular-minimax-kernels-and-fractional-sob--724766c6cbf0",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Universal three-site circular minimax kernels and fractional Sobolev designs",
+          "trigger": "Same-day three-site largest-eigenvalue design"
+        },
+        {
+          "assessment": "Different norm and optimum",
+          "evidence": "Continuous mean-zero H1 trace norm optimized at (t,t,1-2t) with t=(9-sqrt(21))/30.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-nonuniform-three-point-sobolev-trace-design-on-a-circle--e4c7a6f7a5fa",
+          "material_read": "Finding",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Sharp nonuniform three-point Sobolev trace design on a circle",
+          "trigger": "Same-day sharp three-point circle design"
+        },
+        {
+          "assessment": "Different design variable",
+          "evidence": "Path completion and energy/frame-budget tradeoff, rather than three free anchors.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-threshold-smoothness-frame-stability-frontier-for-cycl--f4a8e0f7d8b1",
+          "material_read": "Finding",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Sharp two-threshold smoothness/frame stability frontier for cyclic harmonic completion",
+          "trigger": "Same-day cyclic completion and frame-bound comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It answers a natural placement problem for the worst possible energy amplification of harmonic interpolation. The strict equality characterization and leading integrality cost distinguish it from the immediate continuous-average lower bound. The matrix strictness argument explains why every unbalanced placement loses; the result is not a finite simulation or a claim about unrelated recovery criteria.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

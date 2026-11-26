@@ -1,15 +1,21 @@
-# Scientific review: strong metric bases of squared cycles
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For each of the four residue classes, the proof derives every mutual-maximal-distance separation from the exact squared-cycle distance and invokes the published strong-resolving-graph vertex-cover equivalence. Its independent-set classification is exhaustive: antipodal transversals, odd-cycle gap patterns, forbidden-gap patterns for \(C_n(1,3)\), or one missing antipodal pair with two possible side assignments. The exchange analysis subsequently covers all one-vertex replacements. Direct geodesic enumeration in `verify.py` confirms all conclusions for each \(6\le n\le20\), but the mathematical argument, not these finite experiments, supplies the infinite-range result. The base case \(n=6\) and all transitions in the modular table are included.
+## correctness
 
-## Originality
-**PASS, with residual risk.** Oellermann–Peters-Fransen (2006 online/2007 print) prove the general resolving-graph reduction and compute strong dimensions for certain Cartesian products of cycles, not squared cycles; the reduction itself is not new. Kang–Yi's 2014 abstract concerns general comparisons with zero forcing. Jamil et al. (2023, full-text Section 2.2) discuss *local fractional* resolving neighborhoods of \(C_n(1,2)\), which do not supply minimum integer strong bases. Nasir et al. (2024, full-text description) investigate *edge-based doubly resolving* sets, a different optimization problem. Targeted literature searches using “strong metric dimension,” “square of cycle,” “circulant \(C_n(1,2)\),” and basis reconfiguration, and semantic comparisons with the accessible mathematical research record found no statement determining the complete optimal basis families and the mod-four hypercube/cycle transition. An earlier unindexed exact classification, or a covering special theorem under different terminology, remains possible. The full Kang–Yi paper was not materially inspected, so the abstract is only background and not a whole-document exclusion.
+PASS
 
-## Value
-**PASS.** On a canonical family of circulant sensor-location graphs, both the number and geometry of all optimal geodesic landmark placements undergo an exact residue-dependent transition: the solution space is an exponentially large hypercube in one congruence class, but only a single cycle of linearly many optima in the other three. The contrast is not implied by the general vertex-cover reduction or by a scalar strong dimension. The explicit basis list also permits direct counting and optimum-preserving reconfiguration without search.
+The graph distance is ceil(s/2) at cyclic separation s. For M=floor(n/2), moving two steps toward the antipode increases distance for s≤M−2; the two top separations tie if M is even, while only M is maximal if M is odd. This proves the stated mutually maximally distant step table. A third vertex cannot strongly resolve a mutually maximally distant pair; conversely a geodesic through any given pair can be extended one end at a time until its endpoints are mutually maximally distant, and covering that endpoint pair resolves the original pair. The basis complements are therefore exactly the maximum independent sets of the auxiliary graph. In residue 2 this gives matching transversals and a cube. In residue 0 antipodal fibers have equality constraints along their chain and an opposite-side seam, so a full assignment is impossible; dropping one fiber leaves a path with exactly two choices, producing the listed intervals and precisely the start-index shifts ±1 as exchanges. In residues 1 and 3 the multipliers give C_n(1,3) and C_n. Allowed gaps and their total slack force one length-five or length-three gap respectively, with all other gaps two. The long gap cannot be split into two allowed gaps; removing an endpoint instead permits the two ordered splits that move the long gap. This gives precisely the exchanges ±2 on the start labels and hence an odd cycle. The argument applies from n=6 (the first 2,3,0,1 cases being 6,7,8,9); counts and diameters follow from those graphs. The uploaded checker was inspected but not executed; its finite cases are only diagnostic.
 
-## Closest literature and limitations
-Most relevant are Oellermann and Peters-Fransen, *Discrete Applied Mathematics* 155 (2007), DOI 10.1016/j.dam.2006.06.009; Jamil et al., *Complexity* (2023), DOI 10.1155/2023/3635342; Nasir et al., *AIMS Mathematics* 9 (2024), DOI 10.3934/math.2024766; and Kang–Yi, arXiv:1401.3008 (2014). Their verified scope differences are recorded in `AUDIT.json`. The theorem is limited to ordinary second powers of simple cycles and one-selected-one-unselected vertex exchanges. Unindexed prior work is a remaining novelty risk; no independent mathematical assessment has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard strong-resolving/vertex-cover reduction, odd-cycle gap argument, and generic token move facts are not new. The supported distinct claim is the joint mod-four classification of every strong basis and its exchange graph for the squared-cycle family. No inspected matched object or broader theorem supplies that classification.
+
+## value
+
+PASS
+
+The graph and optimum exchange operation are natural. The result determines every optimum basis, not just the minimum size, and separates two qualitatively distinct exchange geometries, one with exponentially many solutions. The signed antipodal seam and the odd forbidden-gap pattern explain why the other residues behave differently.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

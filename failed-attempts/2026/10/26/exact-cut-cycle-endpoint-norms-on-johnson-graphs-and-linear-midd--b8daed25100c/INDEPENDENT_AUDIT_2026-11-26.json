@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:02:21.674725Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–73",
+        "Frozen VERIFICATION.md and verify_johnson.py, particularly orbit_case and full_graph_case"
+      ],
+      "rationale": "For unit incidence forcing at adjacent A and B, the Laplacian potential is antisymmetric in the exchanged labels and vanishes on vertices containing both or neither. On positive-side orbit j, neighbor counts are j(n−2k+j) down, (k−1−j)² up, one to its negative partner and n−2 to zero. The latter two types yield nv_j in the reduced equation. Positivity by the minimum principle and the unforced recurrence below the top give strict increase in j, including at n=2k, since each interior chain coupling is positive. With orbit multiplicity N_j, detailed balance gives V=ΣN_jv_j=1/n and nW+T=k−1 for W=ΣjN_jv_j and T the increasing-orbit flux. Index shifting gives T=(n−2)W−(k−1)²V. Thus 2(n−1)V+2T is the full absolute column sum and simplifies to the stated cut norm. Signed edge transitivity makes the sum constant and symmetry gives the infinity norm. The uniform diagonal is rank(Q)/|E|=2(1−1/binom(n,k))/(k(n−k)), and changing Q to I−Q adds 1−2Q_ee to each absolute sum. The density and fixed-rank limits follow by division by n or passage to the fixed-rank limit, respectively.",
+      "residual_risks": [
+        "The archived exact checker was inspected, not executed. Its full-graph checks sum the reconstructed currents and check the forced-edge voltage; they do not compare individual coordinates with a separate closed-form column. The universal conclusion uses the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known Hamming-graph results give explicit canonical cut norms for those graphs. General electrical localization theorems bound total current, including in the edge-transitive setting, rather than evaluating the Johnson expression."
+        ],
+        "reasoning": "Hamming adjacency changes one coordinate and does not identify the constant-weight exchange graph as the graph to which the Hamming norm applies. General localization upper bounds do not determine the exact sums.",
+        "searches": [
+          "arXiv:2305.12582, §§2.6–2.7 and Theorems 43,45",
+          "arXiv:1708.01632, Theorems 1.4–1.5",
+          "arXiv:2605.24130, Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8c057bfa2e76",
+        "arXiv:2305.12582",
+        "arXiv:1708.01632",
+        "arXiv:2605.24130"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched result explicitly covers the middle-slice and fixed-rank limits. All remaining positive-density limits are obtained from its exact expressions by dividing by n and taking k/n→α."
+        ],
+        "reasoning": "Adding the density parametrization or changing from edge flows to endpoint operator language does not add a new mathematical claim. An optimal projection over all nonorthogonal choices is not claimed in the frozen record.",
+        "searches": [
+          "Resultary 8c057bfa2e76, Finding and proof §§1–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On unit-weight edges the transfer-impedance operator, up to incidence transpose and the chosen orientations, is Dᵀ(DDᵀ)⁺D. The absolute column sum is the total magnitude of the current for insertion of unit demand on the selected edge."
+        ],
+        "reasoning": "The electrical formulation concerns the same operator. Johnson association-scheme vertex idempotents and cut/cycle projections on other graph families instead act on different spaces or graphs.",
+        "searches": [
+          "Resultary 8c057bfa2e76, Finding and proof §§1–6",
+          "Schild–Rao–Srivastava, arXiv:1708.01632, transfer impedance, Theorems 1.4–1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched theorem uses n≥6 and 3≤k≤floor(n/2) and the same canonical cut and cycle spaces. Its cut norm is [(k+1)n²−(k²+3)n+2]/[n(n−1)], and the cycle norm is this plus 1−4(1−1/binom(n,k))/(k(n−k))."
+        ],
+        "reasoning": "Common denominator n(n−1) puts the frozen cut expression in exactly the matched form. Both endpoint norms and their graph, coefficient and parameter conventions agree.",
+        "searches": [
+          "Local Resultary search for exact higher-rank Johnson cut/cycle endpoint norms; 2026/10/18/SCOPE-exact-endpoint-hodge-norms-on-all-higher-rank-johnson-graphs--8c057bfa2e76"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary theorem gives the same canonical cut and cycle endpoint norms over exactly the same higher-rank Johnson parameter range. Its differently written cut expression is algebraically identical, its cycle correction identical, and the density limit follows directly. No distinct substantive claim survives. The catalog path date is reported as context, not independent evidence of discovery or publication order.",
+      "residual_risks": [
+        "The two indexed path dates establish neither priority nor independent derivation. The overlap conclusion rests on the actual statement and is independent of chronological precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EQUIVALENT_COVERAGE",
+          "evidence": [
+            "Both exact formulas coincide; the indexed theorem also gives the two highlighted regimes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-endpoint-hodge-norms-on-all-higher-rank-johnson-graphs--8c057bfa2e76/RESULT.md",
+          "material_read": "Finding and proof §§1–6, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror; compare assumptions and simplify both rational expressions",
+          "title": "Exact endpoint Hodge norms on all higher-rank Johnson graphs",
+          "trigger": "Exact rank range, graph and canonical endpoint norms in Resultary"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_GRAPH",
+          "evidence": [
+            "Theorem 45 gives the orthogonal cut norm (d+1)/2 for the binary Hamming cube, not for the Johnson exchange graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Title page and §§2.6–2.7, pp. 20–23, Theorems 43 and 45",
+          "method": "Primary text; compare graph adjacency and projection definitions",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Cited exact related projection norms for Hamming graphs"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_SPECIALIZATION",
+          "evidence": [
+            "The general localization estimates, including the edge-transitive consequence, are bounds, not the exact Johnson-rank evaluations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.01632",
+          "material_read": "p. 4, Theorems 1.4–1.5 and transfer-impedance definition",
+          "method": "Primary text; match the unit-weight operator and compare the bounds",
+          "title": "Localization of Electrical Flows",
+          "trigger": "Transfer-current equivalent of the cut projection"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_EXACT_SPECIALIZATION",
+          "evidence": [
+            "Universal logarithmic bounds in graph size do not evaluate the Johnson current sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.24130",
+          "material_read": "pp. 1–2, Theorems 1.1–1.2",
+          "method": "Primary text; compare quantified conclusion with endpoint norm identity",
+          "title": "A Tight Bound on Localization of Electrical Flows",
+          "trigger": "Stronger general transfer-current localization bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–24 and 59–73",
+        "Resultary 8c057bfa2e76, Finding and proof"
+      ],
+      "rationale": "Exact edge-current norms on this family are naturally motivated and useful, but this record adds no independently useful new invariant or regime: the known exact values already give all of its quantitative conclusions. The change of rational presentation and the density-limit substitution do not create a new gap to resolve.",
+      "residual_risks": [
+        "This does not deny the scientific utility of the original exact Johnson theorem, or decide temporal priority between the records."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

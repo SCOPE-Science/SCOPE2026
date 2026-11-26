@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact Gram-energy projection gives the minimax eigenvalue criterion; leaf-permutation averaging establishes existence of a symmetric optimum. A complete invariant-subspace diagonalization and a positive sign test reduce the eigenvalue optimization to the lower root of a quadratic. Concavity and endpoint derivatives establish a unique symmetric optimum. The discriminant and boundary limit are explicit. Direct numerical and symbolic checks reproduce the formulas, but finite checks are not invoked as infinite proofs.
+## correctness
 
-**Originality — PASS, with residual risk.** The motivating batch-coordinate paper formulates general distributions and gives theoretical bounds and learning-based parameter optimization, while the derived statement supplies a closed-form minimax optimizer for every size and star coherence, including near-singular scaling. An inspected published single-coordinate result optimizes rank-one coordinate sampling and does not cover rank-two pair projectors. Targeted semantic searches did not reveal the complete star family or its optimal formula. Full-text access to the most relevant motivating paper was limited; uninspected material remains an explicit possible source of overlap, not a claim of bibliographic completeness.
+PASS
 
-**Value — PASS.** This is a complete natural probability-design problem for correlated least-squares columns, not a chosen isolated numerical table. It establishes a structural redistribution of mass toward hub–leaf updates, with an order-of-magnitude difference in allocation in the large near-singular star limit. The exact one-step contraction gives an interpretable benchmark for static probability-learning methods.
+For e=x−x*, exact pair minimization subtracts the orthogonal projection in the G^{1/2}e coordinates, so the sharp one-step improvement is the smallest eigenvalue of the projector average. Concavity and leaf-permutation symmetry justify optimizing the orbit mixture without assuming all optimizers are symmetric. The contrast eigenspace and the hub/uniform-leaf block give the stated L, trace T and determinant K; the displayed characteristic polynomial is strictly negative at L for θ>0 (the affine bracket is positive at both endpoints), so the two block roots are distinct and the lower root controls. Its endpoint derivatives are nk>0 and tk/(k−1)<0, and concavity and interior analyticity give a unique interior optimum in this family. Substituting the stationary θ into the polynomial preserves the λ derivative at stationarity, which is negative at the lower block root; this selects the smaller eliminated root. Rationalizing gives Λ/k=2/(2/n+t+2u(n−1)/(n√δ)); the limit gives the stated mass and order. The n=3, u=1/2 example also follows by exact substitution. This is a proof check; the frozen numerical script was inspected, not run, and its endpoint-limit examples are printed comparisons, not asserted tests.
 
-The result is restricted to exact block solves, star Gram matrices, and one-step worst-case squared prediction error. The existence of a symmetric optimal law does not establish uniqueness among all laws, or asymptotic-rate optimality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The projector formulation and probability-design framework are standard; inspected statements do not cover the star-specific solution of the sharp one-step pair-law problem for n≥3 leaves, including its interior mass and singular-limit scaling.
+
+## value
+
+PASS
+
+The family isolates the effect of one correlated hub on an exact optimal pair design. It answers a quantitative question not settled by symmetry alone: how far to bias the hub and how that preference scales at the positive-definiteness boundary. The n^{-1/2} versus n^{-1} comparison shows an order change, without implying runtime or multistep optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

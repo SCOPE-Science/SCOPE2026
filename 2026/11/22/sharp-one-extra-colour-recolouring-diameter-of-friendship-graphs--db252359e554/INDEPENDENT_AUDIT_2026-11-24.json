@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:42:30.490921Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With three named colours every triangle is frozen and each fixed-hub petal has two states. With four named colours the ordered pairs in a fixed-hub petal form a C6, so the fixed-hub graph is its t-fold Cartesian product. Each of the six unordered hub-colour pairs contributes 2^t edges, and every enabled state has exactly one hub move. This gives 4·6^t states, 4t·6^t+6·2^t edges and 12·2^t hub-enabled states. For two distinct hub colours, the two common ordered pairs are antipodal in each local C6, so the costs via the two gateways add to six, and each petal can independently choose a cost at most three. A path with one hub move then gives 3t+1, while equal hub colours cost at most 3t. Exchanging both endpoint colours in each petal takes at least three moves per petal even if the hub moves, and the witness also has distinct hub colours. This proves the exact diameter, including t=1, without requiring the finite checks. The supplied script was inspected, not executed; its t=1 through 5 output is recorded evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv:2003.01818 abstract gives connectivity and O(n²) diameter for k-colourable OAT graphs at k+1 colours. F_t is in OAT by repeatedly attaching a two-vertex clique at the hub. The frozen discussion reports a 4n bound for P4-free graphs, not independently verified at passage level."
+        ],
+        "reasoning": "The OAT theorem implies connectivity. Its bound at n=2t+1 does not determine the exact coefficient or additive term. Even the reported 4n bound would give 8t+4 rather than the exact diameter.",
+        "searches": [
+          "Resultary: chordal block windmill graph colouring reconfiguration exact diameter",
+          "Biedl–Lubiw–Merkel arXiv:2003.01818",
+          "Belavadi–Cameron–Merkel arXiv:2206.09268",
+          "Belavadi–Cameron–Sintiari arXiv:2405.06446",
+          "Bonamy et al. DOI:10.1007/s10878-012-9490-y"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary exact-title, alias and class searches",
+        "arXiv:2003.01818 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available general bound is O(n²); the star record has a different legal state space. The fixed-hub Cartesian factors allow a shared antipodal-gateway argument and a simultaneous per-petal lower bound with the hub charged separately."
+        ],
+        "reasoning": "Neither available prior result implies the sharp upper and lower bounds. Credit the general theorem with connectivity, not the exact distance.",
+        "searches": [
+          "arXiv:2003.01818 abstract",
+          "Resultary: exact distances and full distance polynomial for recolouring stars (4d2a82e57fa3)",
+          "RESULT.md, proof of upper and lower bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit under these aliases is the frozen finding itself. The distinct star-distance finding 4d2a82e57fa3 is for K_{1,n} with no petal edges and k≥n+1 (catalogue summary)."
+        ],
+        "reasoning": "Removing the petal edges changes the allowed moves; moreover, the star palette condition with n=2t fails at four colours for t≥2. That star result does not transfer the exact diameter.",
+        "searches": [
+          "Resultary: friendship graph recolouring diameter 3t+1 four colours",
+          "Resultary: K1 join tK2 four-colour recolouring graph exact diameter",
+          "Resultary: Dutch windmill graph one extra colour recolouring diameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue comparisons yielded the identical finding and the distinct star-distance record. Frozen verification_output.txt gives only checks for 1≤t≤5."
+        ],
+        "reasoning": "The claim is an exact all-t formula, not a finite graph-table entry. A diameter for the t=1 triangle or a small-instance list would not establish it.",
+        "searches": [
+          "Resultary: friendship graph recolouring diameter 3t+1 four colours",
+          "Resultary: Dutch windmill graph one extra colour recolouring diameter"
+        ]
+      },
+      "rationale": "The verified general OAT result covers connectivity, not this sharp distance. No inspected available claim matches or implies the all-t exact diameter on the friendship graph under the same palette and move rule. The size and hub counts are supporting facts, not the basis of the originality decision.",
+      "residual_risks": [
+        "Full text of the closest distinct indexed result and of the relevant 2022/2024 and chordal sources was not retrieved. A more specific prior exact result could exist. The decision is not a priority or exhaustive literature claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers connectivity and a nonexact diameter bound",
+          "evidence": "k-colourable OAT graphs have connected (k+1)-colour recolouring graphs with diameter O(n²).",
+          "identifier_or_url": "https://arxiv.org/abs/2003.01818",
+          "material_read": "arXiv abstract statement; full-text passage unavailable",
+          "method": "Primary abstract via literature lookup; lawful OA text retrieval attempted",
+          "title": "Building a larger class of graphs for efficient reconfiguration of vertex colouring",
+          "trigger": "Broader OAT theorem includes friendship graphs"
+        },
+        {
+          "assessment": "Available theorem has a different graph and palette regime; same-day date establishes no order",
+          "evidence": "Named star colourings of K_{1,n} at k≥n+1, not K1 joined to t disjoint edges at k=4.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-distances-and-the-full-distance-polynomial-for-recolouring--4d2a82e57fa3",
+          "material_read": "Resultary statement summary only; full text unavailable",
+          "method": "Resultary and attempted lawful mirror retrieval",
+          "title": "Exact distances and the full distance polynomial for recolouring stars at the sharp palette threshold",
+          "trigger": "Closest distinct exact-distance result with a hub"
+        },
+        {
+          "assessment": "No independent whole-text exclusion",
+          "evidence": "The frozen discussion reports a 4n bound and broader connectivity results; it does not identify a prior exact 3t+1 claim.",
+          "identifier_or_url": "arXiv:2206.09268; arXiv:2405.06446; DOI:10.1007/s10878-012-9490-y",
+          "material_read": "Frozen record's related-work discussion; no retrieved full-text passage",
+          "method": "Frozen RESULT.md lines 40–53 and attempted OA retrieval",
+          "title": "Reconfiguration of vertex colouring and forbidden induced subgraphs; Recoloring via modular decomposition; Reconfiguration graphs for vertex colourings of chordal and chordal bipartite graphs",
+          "trigger": "P4-free, modular-decomposition and chordal approaches may include F_t"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family has an unbounded number of interacting petals at the minimum palette permitting moves. The invariant distinguishes frozen three-colour states from a connected four-colour space and quantifies its worst-case distance exactly. Counting hub-change gateways and proving that one hub move suffices for the sharp bound explain why a general connectivity result does not give the answer. This is a useful benchmark for sharp recolouring bounds on clique attachments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

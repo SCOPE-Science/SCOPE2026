@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:04:09.173099Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The statement applies only to real eigenpairs with nonzero z in the kernel of scaled C. Exact formulas above give the continuous witness and equality case; rational spot checks are corroborative. No claim is made about all eigenvalues, convergence or arbitrarily prescribed randomized Q.",
+      "rationale": "Conjugating the generalized pencil by the inverse square roots gives the stated equations. With Cz=0 in scaled coordinates the first and third equations give x*Ãx=λ(||x||²+||z||²); x=0 would force z=0 by injectivity of the scaled B transpose. Hence 0<λ<b strictly. If λ<a, eliminating x and using the inverse Loewner order gives λ≥β/(b−λ), equivalently λ(b−λ)≥β. The discriminant and lower-root cases follow only on λ<a, and the complementary branch λ≥a yields the clipping. When the root r exists, r=β/(b−r)≥β/b, which also gives the weaker universally clipped bound. To verify the full asserted attainment regime r≤a, take A=diag(a,b,b), B with rows √β e2^T and √β e3^T, C=(0,1), identity approximating blocks and any positive E; y=0,z=e1,x=−√β e2/(b−r) is an eigenvector at r by r(b−r)=β, even at r=a. In the proposed unbounded family, s²=3+6t² gives Bx=(2t²−s²/3)e1=−e1 and (A−I)x=−B^T z, so λ=1 for all t≥1. The Gram entries are 3+7t²,100t²,100t²; the first is the minimum and β/b diverges, with diagonal blocks fixed and all ranks and positivity requirements satisfied. Independent rational spot checks give β/b=10/7 and 850/7 at t=1 and t=11. These examples also satisfy the source paper's spectral-straddling normalization and avoid both diagonal spectra at λ=1.",
+      "replay_paths": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balani Bakrani et al. give a related quadratic bound for a different Q_{3,+} preconditioner with a Ky=0 branch. Bergamaschi, Bergamaschi and Martínez give cubic bounds with a different block triangular preconditioner and system.",
+          "Only abstract or landing-page information was recovered for the 2026 SPD-preconditioning item; no whole-paper exclusion is inferred."
+        ],
+        "reasoning": "The first two theorems have different preconditioning pencils and do not specialize to the checked counterexample or to the clipped floor for the Liang–Huang ker C branch. The unavailable full text remains a bounded comparison risk.",
+        "searches": [
+          "arXiv:2307.00525 Section 4.1, equation (4.1), and Theorem 6",
+          "arXiv:2505.06043 Theorem 2",
+          "DOI 10.3390/a19050359"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.01031v1, corresponding unversioned HTML and attempted v2",
+        "arXiv:2307.00525",
+        "arXiv:2505.06043",
+        "DOI 10.3390/a19050359 abstract or landing material",
+        "Resultary cdc3a708185a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source passes from a resolvent Rayleigh quotient to a scalar quadratic. A Rayleigh quotient of the inverse is not the inverse of a shifted Rayleigh quotient of Ã in general. The exact examples have λ between the extremes of Ã, not a positive definite resolvent.",
+          "There is no reduction from the other checked preconditioner's Ky=0 theorem to this particular eigenvector and pencil."
+        ],
+        "reasoning": "The stronger-looking source lower inequality cannot be credited as valid dominating coverage: it already fails at t=1 under the stated hypotheses. Conditional positive-definite resolvent ordering and a separate λ≥a branch are needed to establish the valid floor.",
+        "searches": [
+          "arXiv:2609.01031v1 equations (2.8)–(2.11) and Lemma 2.2 proof",
+          "arXiv:2307.00525 Theorem 6 compared to the frozen pencil"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the same normalized pencil the original γ_min^B and γ_max^A are β and b, and the lemma assumes nonzero z in ker scaled C. The fixed-spectrum witnesses apply to that exact statement.",
+          "Catalogue cdc3a708185a also has a modal double-saddle system but uses C=cI invertible and therefore never has the required nonzero kernel component."
+        ],
+        "reasoning": "The cited lemma and frozen theorem address the same branch under different symbols; the frozen claim is a counterexample and replacement, not a restatement. The modal Richardson tuning problem has no such branch.",
+        "searches": [
+          "Resultary: exact clipped spectral floor, double saddle-point triangular preconditioning, kernel-C branch and β/b witness",
+          "Liang–Huang arXiv:2609.01031v1 equations (1.1), (2.1), Lemma 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant exact source states the unclipped inequality, not a corrected formula. The closest opened catalogue entry computes an exact modal spectral radius optimization, not a certificate list or value for this branch."
+        ],
+        "reasoning": "This is a symbolic universal inequality and an unbounded family rather than a scalar table entry; the relevant exact-coverage checks are a prior formula, correction, or family for the same admissible pencil. The bounded searches established no such earlier exact match.",
+        "searches": [
+          "Resultary: exact formula and fixed-spectrum counterexample; closest modal scalar-Schur tuning hit cdc3a708185a",
+          "arXiv:2609.01031 versioned and unversioned Lemma 2.2"
+        ]
+      },
+      "rationale": "The inspected original paper states the lower bound that the exact family violates; the clipped replacement is not its result. Closely related quadratic and cubic enclosures concern different matrix pencils, preconditioners or kernel conditions. Credit the repair of the specific spectral assertion, the unbounded fixed-spectrum failure and lower-root attainment, not the standard energy identity or inversion inequality in isolation.",
+      "residual_risks": [
+        "The full SPD-preconditioning paper was not recovered; the available version check is not an exhaustive revision-history audit.",
+        "The bounded catalogue and literature search does not exclude an unindexed equivalent correction or earlier counterexample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact statement challenged; the available unversioned text retains it",
+          "evidence": "Lemma 2.2 gives γ_min^B/γ_max^A≤λ≤γ_max^A for the nonzero ker scaled C case under the SPD/rank setting. Equation (2.9) is the unjustified scalar step. An explicit v2 request did not supply a text.",
+          "identifier_or_url": "https://arxiv.org/html/2609.01031v1",
+          "material_read": "Section 2 normalization, Lemmas 2.1–2.2, equations (2.8)–(2.11), offsets near 17000 and 21400; unversioned HTML counterpart",
+          "method": "OA full-text passage comparison and bounded revision check",
+          "title": "Randomized inexact block triangular preconditioners for double saddle-point systems in PDE-constrained optimization",
+          "trigger": "Exact alleged original spectral assertion and its hypotheses"
+        },
+        {
+          "assessment": "Related quadratic form but different pencil and branch",
+          "evidence": "The preconditioner is Q_{3,+}, and applicability is expressed using Ky=0, not the stated ker scaled C branch of the Liang–Huang pencil.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.00525",
+          "material_read": "Section 4.1, eq. (4.1), p. 11; Theorem 6, eqs. (4.27)–(4.31), p. 13",
+          "method": "Targeted OA PDF passages",
+          "title": "Some preconditioning techniques for a class of double saddle point problems",
+          "trigger": "Earlier related quadratic estimate with a kernel branch"
+        },
+        {
+          "assessment": "Different system and preconditioner",
+          "evidence": "Cubic enclosures for real eigenvalues of that preconditioned system do not identify the current nullspace branch.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.06043",
+          "material_read": "Theorem 2, eqs. (2.30)–(2.31), p. 6",
+          "method": "Targeted OA PDF passages",
+          "title": "Block-triangular preconditioning theorem, Bergamaschi, Bergamaschi and Martínez",
+          "trigger": "Possible broader enclosure for real eigenvalues"
+        },
+        {
+          "assessment": "No full-text mathematical exclusion",
+          "evidence": "Accessible framing is SPD preconditioning; the attempted full text was not recovered for comparison.",
+          "identifier_or_url": "https://doi.org/10.3390/a19050359",
+          "material_read": "Landing page or abstract only",
+          "method": "Bounded OA access attempts",
+          "title": "Eigenvalue Bounds for Symmetric, Multiple Saddle-Point Matrices with SPD Preconditioners",
+          "trigger": "Cited potentially broader multiple-saddle bound"
+        },
+        {
+          "assessment": "Different optimization and no nonzero nullspace branch",
+          "evidence": "The modal model uses invertible C=cI and studies the unit-step Richardson spectral radius.",
+          "identifier_or_url": "2026/11/8/SCOPE-unique-scalar-schur-tuning-for-modal-double-saddle-point-richard--cdc3a708185a",
+          "material_read": "RESULT.md model, finding and Limitations (latter near offset 7600)",
+          "method": "Local Resultary mirror",
+          "title": "Unique scalar Schur tuning for modal double saddle-point Richardson",
+          "trigger": "Closest catalogue hit on the double-saddle structure and spectral tuning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The claimed lower enclosure of a concrete preconditioned branch can be wrong by an arbitrarily large factor even with diagonal spectra unchanged. Pinpointing the resolvent error and replacing the false inequality with a bound valid under the actual hypotheses is useful for interpreting those spectra. Attainability makes the quadratic portion meaningful, not merely a loose rescue.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

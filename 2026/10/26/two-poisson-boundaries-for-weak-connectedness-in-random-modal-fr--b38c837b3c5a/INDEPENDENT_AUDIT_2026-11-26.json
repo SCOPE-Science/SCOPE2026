@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:05:34.094416Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–81, including both probability windows and the nonmonotone middle",
+        "Frozen VERIFICATION.md and verify.py; independent bounded all-valuation replay in /workspace/branches/f78d81ac-295a-4eef-b69f-91d0da8a2838"
+      ],
+      "rationale": "At any world, witnesses for the two diamonds either coincide or are related in one of the two directions. Singleton valuations on a distinct incomparable successor pair prove the converse. In the sparse window the independent rows give a binomial count of vertices with outdegree ≥2, with total mean tending to c²/2; the incidence expectation of comparable forks is n C(n−1,2)p²(2p−p²)=o(1). In the dense window independent unordered dyads give a binomial count of mutually missing pairs with the same limiting mean. For each missing dyad the independent common-predecessor trials fail with probability (1−p²)^(n−2); the expected number of such unwitnessed missing dyads tends to zero. Both arguments include c=0. In the intermediate region the variance of all forks divided by the squared mean is O((n³p²)^−1+(n²p)^−1), using that only pairs of forks in one outgoing row sharing an arc contribute covariance. For p<ε, concentration plus Markov on the comparable forks bounds validity by o(1)+4ε. For p≥ε, missing dyads have diverging expected count and the probability any lacks a common predecessor is ≤n²exp(−ε²(n−2)); sending ε to zero covers oscillatory sequences satisfying the two divergence bounds. Independent full finite enumeration of all valuations and the structural condition reproduced counts 1/1, 4/4, 52/64, 1907/4096 for n=1,2,3,4.",
+      "residual_risks": [
+        "Finite enumeration verifies the listed finite instances of modal correspondence; the asymptotics rest on the analytic estimates, not the enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected modal paper treats finite-model and finite-width methods for weakly transitive logics. The digraph classification has additional symmetry/regularity assumptions and no independent-edge probability output in the relevant theorem. Both journal full texts were unavailable after lawful attempts."
+        ],
+        "reasoning": "Standard rare-subgraph methods fit parts of the proofs, especially the sparse edge-pattern count. They are not in themselves a source for the dense window in which many forks share the same missing dyad, or for the two-ended theorem on this property.",
+        "searches": [
+          "Santschi–Vooijs arXiv:2606.31920",
+          "arXiv:2405.03310, Theorem 1.1",
+          "Bang-Jensen and Erdős–Palmer–Robinson DOI retrievals"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and mirrors 11c9e65649f0, 0540fd10926b and 6ae929bcd75b",
+        "Kikot et al. cited PDF; arXiv:2606.31920 and arXiv:2405.03310",
+        "Targeted outward primary-literature query and two bounded journal retrievals"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deterministic correspondence reduces validity to fork absence but does not evaluate its probability. The same-day Church–Rosser event concerns failure to have a common successor, not failure of two successors to be connected after sharing a predecessor."
+        ],
+        "reasoning": "Even transposing arcs in the other Poisson problem yields an absence of common predecessors, whereas this dense obstruction is a missing dyad that has a common predecessor. Different dependent obstructions prevent transfer of either quantitative law.",
+        "searches": [
+          "Kikot et al., Table 2 and p. 46",
+          "Local mirror, same-day Church–Rosser Poisson result and reentrant modal density result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Table 2 gives the same modal axiom and §9 gives its deterministic first-order correspondence. A separately inspected digraph source, arXiv:2405.03310 Theorem 1.1, classifies two-sided locally semicomplete commutative weakly distance-regular digraphs."
+        ],
+        "reasoning": "Equivalence to no induced out-fork with nonadjacent leaves, or to one-sided out-neighborhood semicompleteness, is the same deterministic property. Two-sided local semicompleteness and weak distance-regularity are not equivalent hypotheses; their structural classification does not give probabilities under independent arcs.",
+        "searches": [
+          "Local Resultary searches on random modal frames, weak connectedness and reentrant Poisson thresholds",
+          "Web query: random digraph locally out-semicomplete weakly connected Kripke frame probability threshold induced out-fork common predecessor nonadjacent successors Poisson directed graph n^-3/2",
+          "Kikot et al., Table 2 and §9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The density record has a logarithmic sparse window for an arc without a two-step alternative; the Church–Rosser record has a sqrt((2 log n+t)/n) scale for pairs with no common out-neighbor. The reduction-axiom record counts sparse paths for deletion repairs."
+        ],
+        "reasoning": "None gives the two exact scales and curve for the required fork. The mathematical output is a limiting law, not a numerical table; the small counts are merely supporting verification.",
+        "searches": [
+          "Local Resultary searches for sparse/dense Poisson regimes of weak connectedness and modal validity",
+          "Inspected modal density, sparse deletion repair, and Church–Rosser insertion repair findings"
+        ]
+      },
+      "rationale": "The exact deterministic modal correspondence is classical and is not credited as new. The supported distinct finding is the combined independent-arc two-ended probability diagram for the one-sided condition, including the different obstruction counts and scalings at opposite ends and the full vanishing intermediate region.",
+      "residual_risks": [
+        "No global priority result: relevant induced-pattern literature may contain another formulation; the two older cited journal full texts were unavailable. Unproductive lookups are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact deterministic prior overlap; does not establish the probability finding",
+          "evidence": "Same weak-connectedness formula and first-order condition with the equality case.",
+          "identifier_or_url": "https://intranet.csc.liv.ac.uk/~frank/publ/EL-JSL-final.pdf",
+          "material_read": "Table 2, p. 7, and p. 46 (§9), PDF text around offsets 21100 and 142200",
+          "method": "Primary OA text",
+          "title": "Kripke Completeness of Strictly Positive Modal Logics over Meet-Semilattices with Operators",
+          "trigger": "Exact axiom and deterministic frame property"
+        },
+        {
+          "assessment": "Different hypotheses and results",
+          "evidence": "Finite-model and finite-width theory, not validity thresholds for independent random arcs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31920",
+          "material_read": "Abstract and passages on selection and finite width",
+          "method": "Primary OA text",
+          "title": "Logics Containing wK4: Selection à la Fine",
+          "trigger": "Motivating modal literature"
+        },
+        {
+          "assessment": "No implication from the inspected theorem",
+          "evidence": "The theorem assumes commutative weak distance-regularity and classifies locally semicomplete nonsemicomplete digraphs by three structural forms.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.03310",
+          "material_read": "Theorem 1.1, p. 2, PDF text offsets 7710–8891",
+          "method": "Literal-query location and bounded full-text passage",
+          "title": "Locally semicomplete weakly distance-regular digraphs",
+          "trigger": "Strongest relevant structural hit in the targeted outward search"
+        },
+        {
+          "assessment": "Unverified as full text",
+          "evidence": "Related two-sided graph property; inspected Yan provides independent evidence of the structural setting, not a substitute for this paper.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190140310",
+          "material_read": "Bibliographic information only; no lawful accessible full text recovered",
+          "method": "DOI/publisher and repository attempts, HTTP 403 at publisher",
+          "title": "Locally semicomplete digraphs: A generalization of tournaments",
+          "trigger": "Potential neighborhood-property formulation"
+        },
+        {
+          "assessment": "Unverified as full text",
+          "evidence": "The cited title concerns local connectivity in a random graph; exact theorem not inferred from the title.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190070405",
+          "material_read": "Bibliographic information only; no lawful accessible full text recovered",
+          "method": "DOI/publisher and repository attempts, HTTP 403 at publisher",
+          "title": "Local connectivity of a random graph",
+          "trigger": "Random neighborhood-property literature"
+        },
+        {
+          "assessment": "Different axiom, obstruction and scale",
+          "evidence": "Density requires an alternative two-step path for an arc and has a logarithmic sparse window.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-poisson-window-and-reentrant-validity-for-the-modal-density-ax--11c9e65649f0",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local mirror",
+          "title": "A Poisson window and reentrant validity for the modal density axiom",
+          "trigger": "Closest reentrant random-modal comparison"
+        },
+        {
+          "assessment": "No equivalent coverage; same date not used as a priority inference",
+          "evidence": "Missing common out-neighbor is the obstruction at a distinct logarithmic scale.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-poisson-optimal-insertion-repairs-for-finite-church-rosser-modal--6ae929bcd75b",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local mirror",
+          "title": "Poisson optimal insertion repairs for finite Church–Rosser modal frames",
+          "trigger": "Strong same-day modal pair-obstruction comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Local mirror modal-density result for comparison"
+      ],
+      "rationale": "The standard modal axiom gives a natural test case where validity disappears and returns as the arc density grows. The two different powers and common curve distinguish isolated outdegree obstructions from many forks clustered on one rare missing pair; counting raw forks at both boundaries would miss that distinction. The intermediate proof completes the classification rather than only evaluating two special-density examples.",
+      "residual_risks": [
+        "No general result for two-sided local semicompleteness or random transitive/reflexive frames is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

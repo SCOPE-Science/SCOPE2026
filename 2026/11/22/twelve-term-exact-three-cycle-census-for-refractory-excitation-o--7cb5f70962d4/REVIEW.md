@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The connected-graph phase-rotation criterion follows by analyzing all possible three-step site time words and excluding mixed cycling/resting vertices. Exact row palettes reduce the successor-neighbor condition to column-local Boolean tests. Inclusion–exclusion over subpalettes produces a finite, width-independent universal formula with 6859 nonempty-palette terms. The supplied program exhaustively computes and asserts the resulting twelve integer coefficients, proving the formula for every positive width. An independent literal-update implementation reproduces the census for all 531441 states at width four and all states at smaller widths. The orbit division and asymptotic remainder follow immediately. The claim is confined to initially primitive period three.
+## correctness
 
-## Originality — PASS (qualified)
-The phase-rotation criterion and the corresponding two-row matched-clique enumeration are established prior work. Direct inspection of the complete two-row result and full three-color arbitrary-graph article did not show the three-row twelve-term formula. The full-subdivision counting theorem concerns a different graph family and neither states nor implies this coefficient evaluation. Searches covered rook graph, line-graph, matched-clique, three-color excitation and fixed-period aliases, including similarity-ranked published records. Searches cannot eliminate unindexed equivalents; the 1993 archival abstract and older founding paper were not completely checked in full text. The novelty claimed is the exact three-row count and its sharp asymptotic deficit, not the general local criterion or generic exponential transfer principle.
+PASS
 
-## Value — PASS
-The three-row rook graph, equivalent to the line graph of a complete bipartite graph with a three-vertex shore, is a canonical dimension jump from the known matched-two-clique case. Its fully evaluated twelve-base census quantifies an intrinsic recurrent-state density and an exact temporal-orbit population for every width; the leading correction \(9(2/3)^n\) differs from the known two-row coefficient \(6(2/3)^n\). This is a motivated natural complete classification of one temporal period, not a numerical single-instance tabulation or a mere re-expression of the two-row result. Future full-basin enumerations can use these exact immediately recurrent populations.
+In a state returning after three synchronous updates, any site that is ever excited must cycle 1,2,0, and a site that is never excited must stay at 0. An edge between the two classes would excite the latter; connectedness therefore makes all sites cycle unless all are zero. The excitation at each site's resting time is exactly the presence of its initial cyclic successor in its open neighborhood. With exact row palettes specified, this is a per-column test; inclusion–exclusion forces every color of each specified palette to occur. The finite integer computation is independent of n: a separate nine-bit subset-zeta aggregation reproduced every coefficient, and literal updates on all states at widths 1–3 gave 6, 72, 2562. The formula gives 119880 and 5109306 at widths 4 and 5. Every nonfixed returning phase has orbit size three. After normalizing by 27^n the two largest surviving corrections have bases 18/27 and 14/27, proving the stated leading term and remainder.
 
-## Closest literature and limits
-Gravner–Lyu–Sivakoff (2016, arXiv:1610.07320), *Dense immediate three-cycles on two matched cliques*, and *Exact three-periodic excitation census on full graph subdivisions* are the principal comparison points. The review does not claim full transient classification, exhaustive historical coverage, or independent external checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The local phase characterization is prior context. The inspected exact counts concern different graph families or a different row count. They do not give the exact three-row product census or its evaluated twelve coefficients.
+
+## value
+
+PASS
+
+The first width beyond two matched cliques introduces a different column-support mechanism on the natural line graphs of complete bipartite graphs. The exact formula specifies recurrent populations and the leading failure probability, quantities usable in further study of how many states must undergo a transient; it is not a list of sampled finite examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

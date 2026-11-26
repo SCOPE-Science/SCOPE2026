@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:41:59.676644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent Klein-model check: in each half-sector 0 <= theta < phi=pi/n the side is reached at tanh r = cos(phi)/cos(theta). Thus the area inside radius t per half-sector is the integral of cosh(min(t,r))-1. For t above the inradius split at B_n; integrating the side-limited part by v=sin(theta)/sin(phi) yields arcsin(sin(B_n)/sin(phi))=G_n. This gives both CDF branches, the normalized continuous density (including the junction) and the exact incircle mass. Expanding the forbidden half-angle gives B_n(rho+h) ~ sin(phi)*sqrt(2h/cos(phi)); integrating the missing polar area gives exactly the stated h^(3/2) coefficient. At fixed n the allowed angle is 4n*cot(phi)*exp(-2t)+O_n(exp(-4t)); integrating the density gives the stated exponential tail. For the limit, set theta=v*pi/n. After area normalization the two cutoffs in the sector integral tend to exp(s) and b/sqrt(1-v^2), with b=2/pi; the minimum is bounded by the disk cutoff. Dominated convergence gives the integral of this minimum on [0,1], which evaluates to the claimed H through and at its join, and has left mass b at the limiting incircle. Its derivative deficit there is b*sqrt(2h)+O(h^(3/2)) and its right survival asymptotic is b^2*exp(-s)/2. No interchange of fixed-n tail and large-n limits is needed. Independent replay /workspace/replay/04.py passed 20 clipped-sector quadratures and six scaled-sector checks; these are finite checks, not the proof. The frozen checks/regular_ideal_polygon.py is present and was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "54abf06270a5 gives marked cusp and angle/depth limits, and explicitly gives their relevant radial marginals, including the complete scalar survival limit.",
+          "Xu samples Liouville-random geodesics and measures chords. Resultary 4d5a27e5da32 and 1d7379fbdbb6 measure distance to the nearest side (bounded by the inradius), not distance from the center."
+        ],
+        "reasoning": "The marked results dominate the scalar geometric limit. The chord-length and clearance results do not.",
+        "searches": [
+          "54abf06270a5, Finding: Fixed-side cusp law with marks; Many-side arcsine–exponential law",
+          "arXiv:1410.4052, p. 2",
+          "Resultary: ideal polygon center-distance and boundary-clearance laws"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 54abf06270a5",
+        "Resultary 4d5a27e5da32",
+        "Resultary 1d7379fbdbb6",
+        "Xu arXiv:1410.4052"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day density defect has leading term -2n*sqrt(2*cos(phi))*sqrt(h)/((n-2)pi); integration gives the frozen 3/2 term. Its stated tail coefficient is identical. Its explicit scalar survival limit yields the limiting left branch, right tail coefficient and join singularity by the deterministic shift and expansion.",
+          "The generic hyperbolic disk formula alone only gives the below-incircle branch; it cannot establish the full comparison."
+        ],
+        "reasoning": "There is no independent new scalar residual. The verdict is about exact redundant coverage, not an asserted earlier date or attribution.",
+        "searches": [
+          "54abf06270a5 RESULT.md, Finding: Exact radial law and Many-side arcsine–exponential law",
+          "https://www.maths.gla.ac.uk/wws/cabripages/hyperbolic/circleformulae.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record uses the same curvature, polygon, center and area-uniform point. It writes the outside-incircle survival function with theta_n=B_n and arccos(sin(theta_n)/sin(phi))=pi/2-G_n.",
+          "Its survival limit is centered at the inradius rho_n; rho_n-log n tends to log(2/pi), so the variable there is s-log(2/pi) when the frozen variable is s."
+        ],
+        "reasoning": "Complementing the survival function and shifting the centered variable reconcile both exact laws, not just their qualitative shapes.",
+        "searches": [
+          "Resultary: regular ideal hyperbolic polygons area-uniform center distance radial law logarithmic limit",
+          "2026/11/22/SCOPE-exact-radial-laws-and-two-marked-limits-for-regular-ideal-hyperb--54abf06270a5, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The positive exact database match is distinct Resultary item 54abf06270a5: its Finding displays both finite-n survival branches, the density, the fixed-n tail coefficient and a scalar limiting survival formula. The external query did not identify a useful further source."
+        ],
+        "reasoning": "This is a formula-level match in a claim database, not a sequence-prefix or generic circle-area match.",
+        "searches": [
+          "Resultary: exact center-distance/radial and logarithmic-limit terms",
+          "\"regular ideal polygon\" hyperbolic \"radial distribution\" area-uniform center distance logarithmic limit"
+        ]
+      },
+      "rationale": "A distinct same-date Resultary record exactly covers the complete finite-n law and the scalar many-side limit and explicitly states the fixed-n tail and density defect. The remaining CDF defect and limiting tail/transition are elementary integrations or expansions of those same formulas. This is demonstrated equivalent coverage and a stronger marked result, not a mere search hit; no priority or publication order within that date is inferred. No uncovered substantive part of the frozen finding survives.",
+      "residual_risks": [
+        "No reliable relative ordering of the two records dated 2026-11-22 was established.",
+        "The cited Glasgow circle-formula note was unavailable in the attempted retrieval; no negative priority claim is based on it.",
+        "Uninspected classical circular-segment or centered-volume formulas may give additional finite-n coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact substantive overlap, with strictly stronger marked limits; within-date priority unresolved",
+          "evidence": [
+            "Finding: Exact radial law, Fixed-side cusp law with marks, and Many-side arcsine–exponential law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-radial-laws-and-two-marked-limits-for-regular-ideal-hyperb--54abf06270a5/RESULT.md",
+          "material_read": "Finding and assumptions (mirror offset 0); bounded radial geometry proof passage",
+          "method": "Compare both finite survival branches, density, fixed-side cusp and shifted many-side survival term by term",
+          "title": "Exact radial laws and two marked limits for regular ideal hyperbolic polygons",
+          "trigger": "Same regular ideal polygon radial observable and many-side law"
+        },
+        {
+          "assessment": "Inspected formulas concern chord length, not center distance",
+          "evidence": [
+            "Liouville measure is on the space of geodesics; the ideal-triangle chord measure is 3 rho d rho / sinh^2(rho)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.4052",
+          "material_read": "PDF p. 2, Liouville measure and ideal-triangle/quadrilateral chord measures (extracted offsets 5345 and 7652)",
+          "method": "Compare random object, measure and distance variable",
+          "title": "On the Ambartzumian–Pleijel identity in hyperbolic geometry",
+          "trigger": "Exact distributions for ideal polygons"
+        },
+        {
+          "assessment": "Different, bounded observable",
+          "evidence": [
+            "The variable is distance to the boundary and is bounded by the inradius."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-boundary-clearance-law-and-a-sharp-side-count-limit-for-re--4d5a27e5da32",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Compare law's random variable and support",
+          "title": "Exact boundary clearance law and a sharp side count limit for regular ideal hyperbolic polygons",
+          "trigger": "Same polygons and area-uniform points"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Small-clearance expansion and full ideal-triangle nearest-boundary law."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-logarithmic-boundary-distance-law-and-a-renormalized-shape-i--1d7379fbdbb6",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Compare nearest-side versus fixed-center distance",
+          "title": "The logarithmic boundary-distance law and a renormalized shape invariant for ideal hyperbolic polygons",
+          "trigger": "Earlier related ideal-polygon law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The radial law is a meaningful geometric diagnostic, but the frozen package adds no distinct scientific result once the exact scalar formulas and stronger marked limits in 54abf06270a5 are credited. An alternative centering and expansions of the same law do not supply a separate worthwhile claim; no repair is proposed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

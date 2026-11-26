@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The same six integral structure constants are used throughout. Two integer minor certificates of the explicit derivation-equation matrix have determinants \(-4\) (order \(21\)) and \(-15\) (order \(19\)); together with directly verified independent kernels, these establish the ordinary-derivation dimensions over every field, including positive characteristic. The local-space calculation uses values on specific basis sums to obtain the sharp dimension-seven upper bound and gives a universal pointwise derivation witness for the extra map. `verify.py` recomputes the certificates and separately enumerates local constraints over four small fields. Computation is corroboration, not a substitute for the all-field proof.
+PASS
 
-## Originality
+The integral product table satisfies the Zinbiel identity because A²A=0 and symmetrized products are annihilator-valued. Independent exact reconstruction gave determinants −4 and −15 for the displayed 21- and 19-row minors. Away from characteristic two the four central maps attain the nullity bound; in characteristic two C,U,V attain the six-dimensional bound. For the local upper bound in characteristic two, the basis tests leave ten coefficients. Write L(e3)=a e3+b e4, L(e5)=c e4+d e5, and let t be the e2 coefficient of L(e2). Testing e3+e5 imposes a=d and b=c, and testing e2+e3 imposes t=a; these constraints are independent over every field of characteristic two. The pointwise cancellation in the exhibited P witness works also over F2, using zero when the e1-coordinate vanishes and division only when it does not; e1e2 detects nonderivation. Thus the seven independent local maps exhaust the space, and finite-field counts follow by linearity. Independent finite replay gave (6,7) over F2 and F4 and (4,4) over F3 and F5; those samples are not the all-field argument. Frozen code was inspected, not run.
 
-PASS, with qualified historical priority. The motivating article's Section 4.2 concerns characteristic-zero centrality/local rigidity for exactly this algebra, and its general criterion is inapplicable in characteristic two because the ordinary derivation space enlarges. The characteristic-two defect and complete \(\operatorname{LocDer}/\operatorname{Der}\) calculation are not stated there. Prior two-local work on filiform/null-filiform algebras and small-dimensional complex examples does not imply this distinct local computation. Published mathematical records with superficially related modular local derivations concern different Leibniz or associative algebra laws. The full texts of some earlier specialized papers remain unavailable; novelty is therefore not independently certified.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A canonical five-dimensional locally rigid example in the recent literature changes behaviour under reduction to characteristic two: ordinary derivations jump from dimension four to six, yet the space of linear local derivations jumps to seven. The exact one-dimensional quotient and an explicit proper local operator identify a sharp boundary of a natural local-rigidity assertion. This is not an arbitrary numerical slice or a restatement of the source's characteristic-zero result.
+The exact modular comparison, especially the sharp one-dimensional characteristic-two defect, survives the inspected prior results. The multiplication table, characteristic-zero conclusion and general local-interpolation mechanism are not novel.
 
-## Scope and residual risks
+## value
 
-Only the displayed five-dimensional Zinbiel algebra is classified; no claim is made about all five-dimensional Zinbiel algebras or nonlinear two-local maps. Source priority in older unindexed specialty publications is not established. The check is same-model only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a named characteristic-zero minimal-dimension rigidity example, not an arbitrarily selected table. The exact computation shows where rigidity breaks under reduction and determines the full size and generator of the defect, strictly strengthening the existence supplied by the interpolation mechanism once a modular witness is found.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

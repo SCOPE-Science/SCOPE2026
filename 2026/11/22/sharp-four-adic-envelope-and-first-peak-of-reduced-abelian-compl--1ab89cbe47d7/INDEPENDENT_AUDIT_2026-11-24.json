@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:22:07.110664Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–63",
+        "Frozen VERIFICATION.md, VERIFY.py and VERIFY_OUTPUT.txt (inspected, not executed)",
+        "Campbell–Currie–Rampersad, arXiv:2509.16034, Lemmas 2–3",
+        "Replay: python3 /workspace/reproductions/5.py"
+      ],
+      "rationale": "The alternation-count interval is filled by unit changes on sliding windows. Complement closure gives both initial bits for each count, hence one Parikh class for an odd count and two for an even count, with no collision across counts. Independently, the adjacent-difference sequence C satisfies C(2k)=1 and C(2k+1)=1−C(k); splitting windows by initial parity gives the even/odd extrema recurrences used in the proof, including the separate length-two base. For the width recursion any index n≤4^(m+1) reduces to s≤4^m+1 with gain at most one, and the possible extra index has width one by odd reduction. The proposed first width maximum occurs at 4(q_m−1); every earlier index reduces below q_m. The minimum alternation parity flips on q_m. Consequently for odd m≥3, q_m falls one below the complexity peak, q_m+1 has smaller width, and q_m+2 has the right width and even starting count; for even m, q_m itself suffices. At 4^j the width is two and the minimum is odd, giving four classes and the liminf; the envelope and first peaks give the 3/2 limsup. Independent tests reproduced maxima, first times and troughs through m=9 and scanned all factor classes through length 512. The scan is exhaustive there because each such factor lies in at most two length-512 substitution blocks, and all four adjacent block types occur in the scanned prefix.",
+      "residual_risks": [
+        "The rank m=1 is exceptional (maximum four, first at four); numerical ranks do not replace the arbitrary-rank induction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Campbell–Currie–Rampersad supplies alternation extrema, and §3 leaves the relevant reduced-Abelian recurrences open.",
+          "The frozen record reports a later all-length pointwise and regularity algorithm; that paper's full text was unavailable. The inspected ternary parity result counts ordinary Parikh vectors for 0→001, 1→110."
+        ],
+        "reasoning": "The ternary result is not about this invariant or word. A complete pointwise rule for R can evaluate any finite-rank maximum, but it is not by itself the symbolic sharp maximum and first-achievement theorem over unbounded ranks; an optimizing argument or a suitable stronger prior assertion is needed.",
+        "searches": [
+          "arXiv:2509.16034 §§2–3",
+          "https://ideosphere.ai/papers/redab-tm-v1.pdf",
+          "Resultary: SCOPE-sharp-abelian-complexity-envelope-for-ternary-digit-two-parity--ea6d16472081"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.16034",
+        "Resultary thematic and exact-title search: the assigned identical record is a self-match, not priority evidence",
+        "Later closed-form paper access attempts and frozen comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new optimization argument bounds all recursive predecessors, handles the extra odd predecessor at 4^m+1 and proves strict predecessor exclusion below q_m; then minimum-count parity forces the shift by two at odd ranks."
+        ],
+        "reasoning": "The inspected published alternation recurrences enable, but do not directly give, this sharp bound and least attainment. An all-length formula would determine the sequence abstractly and lets one recompute any chosen finite case, but no inspected result provides the extremal induction, a dominating universal bound with equality criteria, or an equivalent general first-peak assertion.",
+        "searches": [
+          "Campbell–Currie–Rampersad Lemmas 2–3 and §3",
+          "Resultary exact-title and thematic comparisons; frozen comparison with later closed-form Proposition 8.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Run reduction followed by equality of Parikh vectors is exactly the published definition. The theorem in §2.1 counts reduced words themselves, not the Parikh vectors thereof.",
+          "Length two has four distinct bigrams and four 2-Abelian classes but only three reduced Abelian classes."
+        ],
+        "reasoning": "Neither ordinary Abelian, reduced factor, nor 2-Abelian complexity can be identified with this R. Counting the period-doubling-related adjacent differences gives the alternation width, but converting to R also requires the parity of the lower endpoint.",
+        "searches": [
+          "Resultary: Thue–Morse reduced Abelian complexity and first peak; exact later pointwise paper title",
+          "arXiv:2509.16034, definitions and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected earlier table is for reduced factor complexity. The later paper reportedly uses 4,12,44,172,… as an unboundedness witness. The verified m=3 first R peak is 46, not 44."
+        ],
+        "reasoning": "A witness subsequence is not a census of heights or a table proving least attainment. It anticipates the even-rank candidates, but neither it nor the finite verification data supplies the missing odd-rank correction or all-rank upper bound.",
+        "searches": [
+          "arXiv:2509.16034 §2.1 Theorem 1 and §3",
+          "Frozen RESULT.md line 69 describing later pointwise formula and Proposition 8.1",
+          "Frozen VERIFY_OUTPUT.txt"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the sharp all-scale prefix maximum together with its first attaining length and the resulting exact oscillation. Neither the definition, alternation identities, known candidate lengths, nor a pointwise formula is credited as new. A reported stronger pointwise source could not be read; its possible sharp-optimization coverage is a material but unresolved priority risk, not established overlap.",
+      "residual_risks": [
+        "The later exact pointwise paper could not be independently inspected for its implications or text around Proposition 8.1. A stronger symbolic description of width or parity peaks could subsume portions of the finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered definitions and proof ingredients, not the claimed optimized theorem",
+          "evidence": "Theorem 1 treats reduced words, Lemmas 2–3 prescribe alternation counts, and §3 treats the reduced Abelian case separately.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.16034",
+          "material_read": "PDF p. 2 definitions; §2.1 Theorem 1 p. 3; Lemmas 2–3 pp. 5–7; §3 p. 15",
+          "method": "OA full-text passages with extracted-text offsets 4200, 8200, 11800, 16300 and 30800",
+          "title": "Reduced complexities for sequences over finite alphabets",
+          "trigger": "Original definition and relevant extrema recurrences"
+        },
+        {
+          "assessment": "Material risk; reported pointwise coverage credited as background, no verified statement-level optimization coverage",
+          "evidence": "Reported Proposition 8.1 uses 4,12,44,172,… as witnesses; the first peak differs at odd ranks. This description is from the frozen record, not an independent quotation.",
+          "identifier_or_url": "https://ideosphere.ai/papers/redab-tm-v1.pdf",
+          "material_read": "Frozen RESULT.md lines 68–77 only; no primary text read",
+          "method": "OA direct and VPN attempts returned 403; exact-title Resultary search did not provide this paper",
+          "title": "A closed form for the reduced Abelian complexity of the Thue–Morse word, and the five open problems of Campbell, Currie and Rampersad",
+          "trigger": "Reported exact all-length formula and overlapping witness recurrence"
+        },
+        {
+          "assessment": "Structurally analogous envelope, not coverage",
+          "evidence": "Ordinary Parikh vectors for the fixed point 0→001 and 1→110, power-three bound 2k+2.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-abelian-complexity-envelope-for-ternary-digit-two-parity--ea6d16472081",
+          "material_read": "Finding, offset 0–469",
+          "method": "Resultary and local full-text mirror",
+          "title": "Sharp Abelian-complexity envelope for ternary digit-two parity",
+          "trigger": "Close indexed prefix-envelope comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and first-attainment proof",
+        "Campbell–Currie–Rampersad §3"
+      ],
+      "rationale": "The invariant is a natural established factor statistic. The theorem determines where its highest complexity first occurs at every scale, distinguishes the first alternation-width peak from the first reduced-Parikh peak, and quantifies logarithmic peaks coexisting with exact constant troughs. These are structural facts about a familiar word, not just pointwise reevaluations or a finite table.",
+      "residual_risks": [
+        "No new pointwise formula or broader universality across substitutions is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

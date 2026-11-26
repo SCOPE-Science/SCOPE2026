@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:43:22.710519Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=1+x+x^-1, write A^3=A(x^3)+3B; modulo nine only zero and one insertions of B survive. For r=0,1,2 the correction constant terms before 3m are 2T_(m-1), 6T_(m-1)+2[x]A^(m-1), and 16T_(m-1)+8[x]A^(m-1); 2[x]A^(m-1)=T_m-T_(m-1). This verifies all three recurrences and the initial case. Modulo three the digit 2 annihilates, and digits 0/1 copy. Modulo nine, a binary prefix acquires six exactly at an appended 0 after 1. Its first 2 creates 3 or 6 according to its predecessor, the first subsequent 0/1 adds three, and further binary appends leave the class unchanged. With a second 2 the residue becomes zero and stays there, since whenever a nonzero correction multiplier is possible the prefix minus one still contains an earlier 2. Sentinels 0 and 1 give a bijection between binary words with d descents and 2d+1 chosen transitions. Counting unique-2 positions yields the stated 3 and 6 counts and then the zero count by subtraction, with L=0,1 checked separately. For omega=e^(2pi i/3), the odd binomial part at sqrt(omega)=e^(pi i/3) has dominant term of modulus 3^((L+1)/2)/2 and a remainder of modulus 1/2. Orthogonality gives sum of squared centered counts = 2|F_L(omega)|^2/3, so cancellation in individual classes cannot remove the claimed maximum order. Independent replay: python3 -I -B /workspace/reproduce.py 1 directly multiplied Laurent polynomials modulo nine through n=6560 and checked every residue and the nine complete histograms. The uploaded checker and its reported run were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kohen's theorem for Laurent constant terms gives density one for zeros mod 9 here because T_2=3 is divisible by 3.",
+          "Beukers gives general prime-power linear schemes; Rowland–Yassawi's central-trinomial worked case is modulo four. Mikić's generalized divisibility and Delannoy valuation statements do not give the ordinary modulo-nine spectra."
+        ],
+        "reasoning": "Coverage of all sequences or prime powers at an algorithmic level is not a formula for this unit-class discrepancy or for the closed counts. The density claim, by contrast, is covered and excluded from novelty.",
+        "searches": [
+          "arXiv:2503.21988 Theorem 20; arXiv:2211.15240 Corollary 1.5; arXiv:1310.8635 §4.2; arXiv:2311.14623 Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f302476becb1",
+        "Resultary self-hit a8ada75e42c9",
+        "arXiv:2503.21988",
+        "arXiv:2211.15240",
+        "arXiv:1310.8635",
+        "arXiv:2110.06244",
+        "arXiv:2311.14623",
+        "OEIS A002426"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "f302476becb1 already proves N_0(L)=3^L-(L+6)2^(L-2) and its exact language. It provides the recurrences from which the different nonzero transitions can be derived.",
+          "The full histogram and upper and lower discrepancy of order 3^(L/2) are not stated in those sources: they use a descent-count transition bijection and spectral evaluation of the resulting odd-binomial generating polynomial."
+        ],
+        "reasoning": "The result is an explicit counting refinement, not new modular recurrences or a new proof of the zero test. In particular the sharp bias is not a substitution into a prior density theorem.",
+        "searches": [
+          "Resultary f302476becb1 Finding and Proof; Kohen Theorem 20; Rowland–Yassawi §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The older Resultary record gives the same condition for residue zero and the same T mod 9 recurrences (the displayed 3m+1 corrections differ by a multiple of 18mT_(m-1)).",
+          "Modulo-three nonzero support is exactly the binary-digit ternary language, as also recorded in A002426 and proved in Rampersad–Shallit Theorem 6."
+        ],
+        "reasoning": "Changing from a constant term to central trinomial numbers or an automatic sequence does not change the observable. The two established support tests do not distinguish 3 and 6 or all three unit classes.",
+        "searches": [
+          "Resultary: central trinomial mod nine, exact ternary digit criterion and residue frequencies",
+          "OEIS A002426",
+          "arXiv:2110.06244 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue match a8ada75e42c9 is the assigned record; distinct f302476becb1 already gives the zero row for every L>=2. A002426 lists the sequence and the mod-three criterion; no explicit all-class block census or sharp bias was found in the inspected material."
+        ],
+        "reasoning": "Term tables give finite residues by reduction. The exact previously catalogued zero row is prior coverage; neither it nor a finite term table settles the unbounded centered counts of the three unit residues.",
+        "searches": [
+          "Resultary: complete central trinomial modulo-nine residue spectra and sharp ternary-block bias",
+          "OEIS A002426 central trinomial numbers"
+        ]
+      },
+      "rationale": "The exact zero criterion, zero-class count, and equivalent recurrences are already in f302476becb1; density-one divisibility also follows from Kohen's general theorem. Credit all of that. The reviewed contribution is the remaining five residue classes, their joint exact histograms and sharp conditional discrepancy. These can be developed from the known recurrences, but require the descent and unique-digit analysis, counting and Fourier argument; the cited automata methods give computability, not the explicit spectrum or sharp fluctuation scale.",
+      "residual_risks": [
+        "An explicit equivalent automaton analysis or residue-frequency table may exist outside the inspected sources. The public and catalogue search is bounded and does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified prior zero criterion, count and recurrences",
+          "evidence": [
+            "At least two 2s, or a unique 2 preceded by 1 and followed by a digit; N_0(L)=3^L-(L+6)2^(L-2)."
+          ],
+          "identifier_or_url": "Resultary f302476becb1",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–2497 and 514–4361",
+          "method": "Local mirror",
+          "title": "An exact ternary-language criterion for nine dividing central trinomial numbers",
+          "trigger": "Closest exact overlap, same sequence and modulus"
+        },
+        {
+          "assessment": "Density-one zero overlap only",
+          "evidence": [
+            "Taking p=3, a=2 and P=1+x+x^-1, Q=1 supplies the zero limiting frequency conclusion (frequency of residue zero is one)."
+          ],
+          "identifier_or_url": "arXiv:2503.21988",
+          "material_read": "Theorem 20, p. 14, offset 48445",
+          "method": "OA PDF passage",
+          "title": "A Linear Representation for Constant Term Sequences mod p^a with Applications to Uniform Recurrence",
+          "trigger": "General frequency theorem for the same constant-term sequences"
+        },
+        {
+          "assessment": "Generic algorithmic scope",
+          "evidence": [
+            "Constant-term sequences admit p-linear schemes modulo prime powers; Theorem 1.4 itself concerns Apéry numbers."
+          ],
+          "identifier_or_url": "arXiv:2211.15240",
+          "material_read": "Introduction and Corollary 1.5, pp. 1, 3–4, offsets 0 and 10799",
+          "method": "OA PDF passages",
+          "title": "p-Linear schemes for sequences modulo p^r",
+          "trigger": "Prime-power exact recurrence frameworks"
+        },
+        {
+          "assessment": "Different modulus in the worked example",
+          "evidence": [
+            "Trinomial residues computed modulo four, not an explicit modulo-nine histogram or discrepancy."
+          ],
+          "identifier_or_url": "arXiv:1310.8635",
+          "material_read": "§4.2, pp. 32–34, offset 82903",
+          "method": "OA PDF passage",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Explicit central trinomial example"
+        },
+        {
+          "assessment": "Modulo-three premise and mod-five example, not the nine result",
+          "evidence": [
+            "Theorem 6 gives the digit-2 test modulo three."
+          ],
+          "identifier_or_url": "arXiv:2110.06244",
+          "material_read": "§3, pp. 6–7, offset 15879",
+          "method": "OA PDF passage",
+          "title": "Congruence Properties of Combinatorial Sequences via Walnut and the Rowland–Yassawi–Zeilberger Automaton",
+          "trigger": "Same sequence and digit-language tests"
+        },
+        {
+          "assessment": "Different generalization/sequence for closest divisibility statements",
+          "evidence": [
+            "Theorem 8 studies parameter b dividing generalized central trinomial coefficients; the 3-adic valuation comparison concerns central Delannoy numbers."
+          ],
+          "identifier_or_url": "arXiv:2311.14623",
+          "material_read": "Theorem 8, p. 6, offset 19170",
+          "method": "OA PDF passage",
+          "title": "On new divisibility properties of generalized central trinomial coefficients and Legendre polynomials",
+          "trigger": "Related divisibilities and a 3-adic theorem"
+        },
+        {
+          "assessment": "Sequence listing and mod-three test, not a substitute for the stated exact block theorem",
+          "evidence": [
+            "The ternary condition with no 2 gives nondivisibility by three."
+          ],
+          "identifier_or_url": "https://oeis.org/A002426",
+          "material_read": "Sequence and ternary-digit comment around offset 3361",
+          "method": "OA web text",
+          "title": "Central trinomial coefficients",
+          "trigger": "Exact sequence catalogue and formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first square of the digit prime distinguishes residue distributions that both divisibility tests collapse. The exact spectra and the optimal within-support fluctuation scale give reusable arithmetic information for complete ternary blocks; density-one zeros alone would entirely mask that behavior. The case is a natural refinement of the classical sequence, and the counting and bias law are not just a finite table or the old zero class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

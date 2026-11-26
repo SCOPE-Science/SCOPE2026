@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:07:46.113614Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A factor containing a pair of adjacent ones with gap g has outer runs L,R with L+R=2r-g-2; the halves each contain one one exactly when L,R<=r-1. An integer with that sum is attainable from the two capped intervals exactly when the sum is nonnegative and no greater than the sum of the caps. Resolving the minima yields the stated three upper bounds and the lower bound, including zero gaps and empty intervals. Two adjacent pairs give a union by half-length, not a sum; pure-zero classes are floor(M/2). Uniform indexed words correspond to uniform integer compositions. Their normalized gaps converge by simplex Riemann sums to the Dirichlet law; the rounded interval endpoints give uniform O(1/n) error in the normalized count, and the length of the union is continuous even at an interval's collapse. Boundedness gives first-moment convergence. Independent bounded replay enumerated active four-constraint systems by exact rational solves, triangulated hull boundaries (SciPy ConvexHull; only triangulation topology used floating point), and summed rational simplex determinants: 7 vertices and 12 boundary simplices for P1, 10 vertices and 26 for P12, volumes 1/32 and 13/864. This independently corroborates the original Ehrhart volumes without executing reproduce.py. In simplex coordinates the density is 6; it gives union contribution 41/144, while the simplex maximum gives H4/8=25/96, totaling 157/288. Both cited interior examples for the limit are consistent. The source's finite word checks are recorded evidence rather than an all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kociumaka et al. develop unrestricted extremal bounds and an O(nm) bound in terms of the number of runs.",
+          "Fazekas et al., pp. 4–5, Table 2 and Theorem 8, give minimum floor((n+2)/4) at exactly three markers, for distinct literal factors."
+        ],
+        "reasoning": "A general bound may specialize at the number of runs and the literal minimum uses the same population, but neither determines the class count word by word or the class mean over all placements.",
+        "searches": [
+          "Resultary: three ones Abelian squares Parikh spectrum fixed weight exact formula versus distinct factors square vectors bounds",
+          "Kociumaka et al., arXiv:1604.02238, Abstract and bounded-run result; Fazekas et al., arXiv:2604.23188, Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–80, VERIFICATION.md and reproduce.py support",
+        "Same-day Resultary records 3d4cd7a4fb18 and dff15673ad39",
+        "arXiv:1604.02238; arXiv:2604.23188; OEIS A262265"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete literal factor classification already gives each pair's band |u-v|<=g with u+v+g even. Projecting these feasible pairs to r=(u+v+g+2)/2 and taking an interval union reconstructs the wordwise count after resolving caps.",
+          "Literal collisions occur only when b=c; the projected intervals can overlap even when b!=c. The same-day cyclic law wraps the ends, including a third pair and treating the end runs as one gap."
+        ],
+        "reasoning": "Credit the direct overlap in the pair feasibility criterion and the shared composition limit method. Neither prior numerical formula implies the projected overlap integral, whose exact four-dimensional volume is essential to the distinct 157/288 result.",
+        "searches": [
+          "3d4cd7a4fb18 Finding and Proof, offset 3085 onward",
+          "dff15673ad39 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kociumaka et al., arXiv:1604.02238, pp. 2–3: nonequivalent Abelian squares. Whole-square Parikh vectors are twice their half vectors, so this really is the same equivalence relation.",
+          "Same-day record 3d4cd7a4fb18 counts literal strings in the very same family. Same-day record dff15673ad39 classifies cyclic half-Parikh types for an odd circle (letter exchange matches the marker convention)."
+        ],
+        "reasoning": "Neither changing the name of the class nor changing which letter is marked is novel. Linear four-gap sampling and the cyclic three-gap spectrum have different admissible factors, and the literal count does not identify coincident Parikh classes.",
+        "searches": [
+          "Resultary: three-one binary words Abelian squares half Parikh vectors interval union Dirichlet 157/288",
+          "Resultary: three-one Abelian square count equivalence by half-Parikh vector interval formula literal distinct squares fixed-weight limit Dirichlet mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A262265 tabulates the unrestricted binary maximum of the same nonequivalent-square statistic (lengths 1–34), not a fixed-weight conditional law.",
+          "The same-day literal diversity record tabulates its initial total counts under a different equivalence, with n^2-scale limit and mean 1/40."
+        ],
+        "reasoning": "Maximizing over every binary word or summing literal factors over the correct words cannot yield this scale-n mean for classes.",
+        "searches": [
+          "OEIS A262265",
+          "Fazekas et al. Table 2",
+          "Resultary query including 157/288 and Dirichlet listed above"
+        ]
+      },
+      "rationale": "The same class statistic is established terminology. A same-day exact factor classification supplies the feasible literal factors and materially overlaps the local interval argument. The supported distinct contribution is the exact deduplicated linear spectrum with its conditional limit law and exact mean: the earlier/comparable literal cardinality and circular spectrum statements do not supply the overlap measure for the two projected linear intervals. No within-day priority is inferred.",
+      "residual_risks": [
+        "The direct broad literature query was deferred; decisions use actual accessible primary statements and the local index, not an exhaustive literature census.",
+        "Same-day ordering is unknown. Equivalent results on binary square vectors might appear under different names; the priority assessment is limited to the exact linear conditional law and its constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping pair criterion, different count and limit",
+          "evidence": "Feasible band condition and literal collision only for b=c; scale-n^2 mean 1/40.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-abelian-square-diversity-and-conditional-limit-law-for-thr--3d4cd7a4fb18",
+          "material_read": "Finding, scope, complete factor classification; offsets 0–4711",
+          "method": "Resultary search and OA local mirror",
+          "title": "Exact Abelian-square diversity and conditional limit law for three-marker binary words",
+          "trigger": "Identical fixed-weight linear word family and limit model"
+        },
+        {
+          "assessment": "Substantial conceptual overlap, different cyclic geometry and theorem",
+          "evidence": "Cyclic intervals from three positive distances, odd n, exact sum and prefix bounds.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-cyclic-abelian-square-type-spectrum-with-three-marked-lett--dff15673ad39",
+          "material_read": "Finding and scope, offsets 0–2735",
+          "method": "Resultary search and OA local mirror",
+          "title": "Exact cyclic Abelian-square type spectrum with three marked letters",
+          "trigger": "Same half-Parikh equivalence and three markers"
+        },
+        {
+          "assessment": "Covers equivalence and upper bounds, not the inspected conditional mean",
+          "evidence": "Distinct and nonequivalent counts are separate; bounded number of runs gives O(nm).",
+          "identifier_or_url": "https://arxiv.org/abs/1604.02238",
+          "material_read": "PDF pp. 1–3 and bounded-run statement p. 12",
+          "method": "Primary PDF inspection",
+          "title": "Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word",
+          "trigger": "Prior exact equivalence terminology and general bounds"
+        },
+        {
+          "assessment": "Same family, different statistic and optimization",
+          "evidence": "Minimum of literal distinct-factor count floor((n+2)/4) with specified extremizers.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.23188",
+          "material_read": "PDF pp. 4–5, Table 2 and Theorem 8",
+          "method": "Primary PDF inspection",
+          "title": "Binary Words Containing Few Abelian Squares",
+          "trigger": "Exactly three markers in a linear binary word"
+        },
+        {
+          "assessment": "Different population and extremum rather than expectation",
+          "evidence": "Maxima taken over all binary words at each length.",
+          "identifier_or_url": "https://oeis.org/A262265",
+          "material_read": "Definition and displayed terms",
+          "method": "Database statement check",
+          "title": "Maximum number of nonequivalent Abelian squares in a binary word",
+          "trigger": "Candidate exact sequence for the class statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This measures diversity in a natural, established equivalence, not a relabeling of literal diversity. The union resolves precisely which half-Parikh vectors are realized in the sparse regime; its nonconstant conditional law and exact mean quantify the scale-n effect and its nontrivial two-pair overlap, which the scale-n^2 literal-square law does not measure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:42:39.101564Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two distances are (sqrt(3)/2)|t| and (sqrt(3)/2)|1-t|. Taking the farther line and projecting gives the stated two affine branches; both chart descriptions of a vertex give the same opposite midpoint. On t>1 two steps give t/4, and on t<0 they give 1+(t-1)/4. Iterating to [0,1] exhausts all exterior states; the two open half-sides remain invariant and contract by -1/2 per step toward the two three-cycles. The endpoints and midpoint are precisely the exceptions in [0,1]; pulling these back by the two-step maps gives the stated four progressions and the midpoint. Across each such point, nearby iterates on opposite sides land in different invariant half-sides. The progressions give 4 log_4 R+O(1) per chart, and shared vertices affect the distinct count by O(1). The positive-ray minus basin occupies (0,1/2) and (4^k,2·4^k); adding their clipped lengths gives the boxed formula, with a continuous phase rising to 2/3 and falling to 1/3 on [1,4]. This is for complete lines and directed cutoffs, not all cutoff conventions. The frozen verifier reports finite checks, not an independent audit. A separate bounded check (python /workspace/branches/independent_checks.py 4) agreed for 1,887 exact rational geometric orbits; it is not a proof for all real states.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Everett, Definition 2.1, Theorem 3.5, Corollary 4.4 and Remark 4.5.",
+          "2944d54e59d8, Finding and Limitations: exact criteria for the primitive period-three cycles of arbitrary triangles, with local attraction; global basins and other periods expressly outside scope."
+        ],
+        "reasoning": "Everett covers the map and qualitative convergence. The arbitrary-triangle result covers existence and count of the two equilateral three-cycles, not their complete global basins or arclength fractions.",
+        "searches": [
+          "arXiv:2408.16019v1",
+          "Resultary record 2944d54e59d8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support",
+        "Everett, arXiv:2408.16019v1",
+        "Resultary 2944d54e59d8",
+        "Resultary 9ee2bb535370"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shell classification of 9ee2bb535370 yields (0,1/2) and (4^k,2·4^k) on the frozen directed ray after the coordinate change; 2944d54e59d8 does not classify these intervals."
+        ],
+        "reasoning": "For R in [4^m,4^{m+1}), sum the half-side length, the full shell lengths 4^k for k<m, and the partial shell length min(R-4^m,4^m). This is exactly the frozen formula. The separator count follows from the same progressions, and sampling all multiplicative phases gives the cluster interval.",
+        "searches": [
+          "9ee2bb535370, statement and proof of shell classification",
+          "2944d54e59d8, Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9ee2bb535370, Finding and proof: centered-coordinate exceptional points p=0 and p=±(2^m-1/2); alternating dyadic shells and sharp one-sided extremes 1/3 and 2/3."
+        ],
+        "reasoning": "Set p=t-1/2. The points become t=1/2, 2^m and 1-2^m; splitting m by parity recovers all four progressions of the frozen theorem. Relabeling the cycles identifies the occupied positive-ray intervals.",
+        "searches": [
+          "Resultary: equilateral farthest-projection global basins, midpoint preimages and oscillating one-sided densities",
+          "Resultary record 9ee2bb535370"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 9ee2bb535370 Finding is an exact analytic statement of the global basin partition and limiting density extremes, not a numerical table or a matching title alone."
+        ],
+        "reasoning": "This is a continuum basin theorem; a finite numerical basin table would not settle it. The exact published shell statement is the decisive corpus match.",
+        "searches": [
+          "Resultary comparison of 2944d54e59d8 and 9ee2bb535370 with the equilateral global basin theorem"
+        ]
+      },
+      "rationale": "A distinct Resultary finding, 9ee2bb535370, gives the same full basin partition, midpoint preimages and sharp one-sided limits under a translation of the side coordinate and a relabeling of the cycles. The exact uncentered B_-(R) formula and exceptional-point count are direct summations/counts of those same shells, not a distinct surviving result. This is a finding of equivalent coverage in the current corpus, not a claim that the November 2 catalogue entry preceded the October 19 frozen entry or that either copied the other. Everett and the earlier arbitrary-triangle three-cycle result do not themselves cover the global basin law.",
+      "residual_risks": [
+        "The dates and mathematical equivalence do not determine historical priority, derivation history, or the relationship between the two catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and qualitative approach to periodic or fixed points, not the exact sharp equilateral basin law in the inspected results.",
+          "evidence": [
+            "Def. 2.1 includes fixed ties on complete supporting lines; Rem. 4.5 discusses odd-period orientations in the isosceles boundary discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.16019",
+          "material_read": "Def. 2.1 (p. 2), Thm. 3.5 (p. 5), Cor. 4.4 (p. 6), Rem. 4.5 (p. 7)",
+          "method": "Lawful open preprint, bounded full-text passages",
+          "title": "A Piecewise Contractive Map on Triangles",
+          "trigger": "Same farthest-projection map; qualitative global dynamics"
+        },
+        {
+          "assessment": "Contains the two equilateral cycles and local attraction as a special case, not full basins.",
+          "evidence": [
+            "Exact zero/one/two-cycle criteria; Limitations expressly exclude fixed points, other periods, and global basins."
+          ],
+          "identifier_or_url": "Resultary:2944d54e59d8",
+          "material_read": "RESULT.md Finding (offsets 0–4881) and Limitations (offset 7372 onward)",
+          "method": "Local public corpus mirror, bounded text inspection",
+          "title": "Exact two-orientation classification of primitive three-cycles for the farthest-projection triangle map",
+          "trigger": "Explicit closest cycle theorem cited by frozen record"
+        },
+        {
+          "assessment": "Distinct catalogue record with mathematically equivalent global shell law and density extremes.",
+          "evidence": [
+            "Centered exceptional set p=0 or p=±(2^m-1/2); dyadic shells; one-sided liminf 1/3 and limsup 2/3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-dyadic-basins-and-oscillating-directional-densities-for-eq--9ee2bb535370",
+          "material_read": "RESULT.md Finding and proof, offsets 0–4714 and 5000–8969",
+          "method": "Local public corpus mirror, bounded text inspection and coordinate comparison",
+          "title": "Exact dyadic basins and oscillating directional densities for equilateral farthest projections",
+          "trigger": "Same geometry, exceptional sets and directional fractions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The global partition of a natural unbounded piecewise contraction and the nonexistence of a one-sided basin weight despite a discrete separator are useful dynamical facts. The exact phase law explains that failure and contrasts with symmetric cutoffs. This mathematical value does not make the duplicate shell law a distinct contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

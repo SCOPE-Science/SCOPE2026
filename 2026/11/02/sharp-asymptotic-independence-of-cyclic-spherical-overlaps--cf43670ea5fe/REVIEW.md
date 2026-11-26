@@ -1,29 +1,21 @@
-# Scientific review: cyclic spherical-overlap independence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final theorem concerns a simple cycle of independently sampled uniform spherical vertices, fixed real dimension at least three, and length at least four. It distinguishes strict-subset exact independence, the whole-vector density, its exact chi-square divergence, and the sharp asymptotic in total variation.
+PASS
 
-The core equality is a trace of consecutive harmonic projections. Normalized Gegenbauer kernels are the rank-\(D_{d,\ell}\) spherical harmonic projection kernels, so their mixed cycle moments vanish unless every degree matches. Orthogonality gives an \(L^2\)-summable density series when the length is at least four; polynomial measure uniqueness identifies that series with the genuine joint law and establishes nonnegativity without an unsupported positivity assumption. The degree-one term controls the total-variation norm because the higher-harmonic \(L^2\) remainder is exponentially smaller; the required strict rate inequality is proved by two base cases and a gamma-function recurrence. The qubit statement follows by a bijective affine transformation of the Bloch inner products.
+Leaf integration gives the exact product law on each forest. With normalized sphere measure the kernel Q_l is the degree-l harmonic projector divided by its rank D_l, and cyclic contraction gives mixed moments zero unless all degrees agree, then D_l^(1-m). In the one-edge inner-product measure, the Q_l have squared norm 1/D_l, by the same projector norm identity. Thus the proposed summands have squared product-space norms D_l^(2-m), summable since (m-2)(d-2)>=2. Their L2 limit defines a finite signed measure matching the joint law on tensor polynomials, which are uniformly dense on the compact cube. Equality of measures also proves positivity; no pointwise convergence is needed. The test product of the edges has mean d^(1-m), not zero. Parseval yields the divergence; the tail starting at l=2 is at most D_2^(4-m) times the convergent sum of D_l^(-2) over l>=2. The reverse L1 triangle inequality and L2 bound give the TV error about the degree-one term (d/2)a_d^m. For both parities D_2 a_d^2>1: it is 5/4 and 16/pi^2 for d=3,4, and the ratio at d+2 versus d is d^2(d+4)/[(d-1)(d+1)(d+2)]>1. Hence the error is smaller order, for each fixed d. The bijective Bloch change of variables gives a_3=1/2 and exactly the indicated TV prefactor. The general-m moment comparison in Step 5 should cite Zhang Proposition 6.8, not Theorem 6.7 (the latter is for triples); this is a citation-locator error and the mathematical identity is independently proved. Frozen scripts and finite checks were inspected, not executed.
 
-The checker actually ran against the bundled script and reported 9,782 successful algebraic/numerical assertions. It tests finite identities, not the infinite-dimensional harmonic argument, which is separately proved. No calculation is interpreted as a proof of the infinite theorem. Mathematical scope and limits are explicit.
+## originality
 
-## Originality — PASS, with priority risk
+PASS
 
-Closest primary sources read and compared:
+The forest and cyclic trace mechanisms are established prior techniques, and the cited qubit product moment is already known. Neither the scalar product or cumulant results nor the inspected kernel-cycle work provides the claimed sharp fixed-dimensional TV asymptotic for the full continuously valued edge vector, including its prefactor and smaller-order error. Credit is for that joint-law result, not for inventing harmonic trace identities or for global priority.
 
-- Zhang, arXiv:2610.25196v1, Sections 6.5–6.9. The paper obtains a single cyclic product's moments, Markov-chain representation, and a logarithmic central limit theorem. The result \(\mathbb E|\Delta_m|^2=2^{-m}+3\,6^{-m}\) agrees with a moment implied by the current density, but a single moment does not determine the joint law or total-variation distance of all separate edge fidelities.
-- Huang and Li, arXiv:2610.12765v1, Sections 1.1 and 2.1. They establish independence on forests in a latent spherical edge-indicator model and apply spherical operator traces to cycle-count detection as dimension varies. Their statements concern graph testing with Bernoulli indicators, not the sharp law of all continuous edge inner products as a fixed-dimensional cycle length grows.
-- Jones and Potechin, arXiv:2107.00216 / ITCS 2022, Sections 1 and 3. Their spherical polynomial basis and graph-moment results are related harmonic machinery; their inspected results do not state the present full joint cycle density or the exact fixed-dimensional \(L^2\) and sharp \(L^1\) rates.
+## value
 
-Statement-level and implication comparisons were made for equivalent parameterizations, general harmonic operators, graph moment frameworks, and direct tables or prior claims. The exact mixed moments and harmonic spectral expansion use classical tools; their mere use is not asserted to be new. Residual risk: a general spectral transfer or polynomial-graph theorem may implicitly imply this specific formula and sharp norm asymptotic. No exhaustive historical priority or independent review is claimed.
+PASS
 
-## Mathematical value — PASS
+The cycle is the first obstruction to exact forest independence. A vector-law error with a sharp coefficient quantifies that obstruction in a way that a single cycle moment or chi-square upper bound does not. The fixed-d TV rate a_d^m is strictly smaller than the scale d^(-m/2) from chi-square alone, since |Z| is nonconstant. The qubit result is a useful interpretation of the real theorem, not a separate source of novelty.
 
-A natural random-geometric-graph paradox is that edge overlaps around a cycle can have **all proper marginals independent**, yet the complete set is dependent. The theorem quantifies exactly how quickly this global obstruction disappears when the cycle grows. It provides an \(L^2\) density, an exact chi-square divergence, a sharp total-variation coefficient, and a concrete experimentally interpretable Haar-qubit fidelity corollary. The norm and rate are not consequences of knowing finitely many scalar cumulants or the mean of a cyclic product. The result is structurally motivated rather than an arbitrary special parameter computation.
-
-## Limits
-
-No claim is made for pointwise convergence of the density series, dimension-uniform error, high-dimensional complex states beyond the qubit Bloch representation, or finite closed-form total-variation values. Historical priority relative to very general kernel-operator and spherical polynomial theorems remains a research risk.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

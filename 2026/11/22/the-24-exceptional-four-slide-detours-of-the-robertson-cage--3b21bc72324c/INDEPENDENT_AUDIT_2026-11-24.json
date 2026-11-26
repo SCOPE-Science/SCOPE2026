@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:04:19.353070Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–62, graph_edges.txt, REPRODUCE.sh, verify_bitset.py, verify_independent.cpp, and VERIFICATION.md",
+        "Independent replay: python3 /workspace/branches/review_reproduction.py 5",
+        "MathWorld Robertson Graph, opening graph description and order of its automorphism group"
+      ],
+      "rationale": "Reconstructed the labelled graph from RESULT.md's cycle and chords, matched each edge to the packaged list, and directly checked quartic degree and girth five on 19 vertices. The observation sets are monotone; a proper stationary set cannot later be completed. Using synchronous set propagation with initial closed neighborhoods at round one, independent enumeration found no successful size-zero, singleton or pair candidate, and 753 successful triples, with rounds 2–5 having counts 109,320,204,120. Independently built the two graphs by explicit single-vertex replacements restricted to those triples, retaining a replacement for slides exactly when the removed and inserted vertices are adjacent in the base graph. Breadth-first search from each vertex gives exact distance by discovery layer, and reached all states in both graphs. It reproduced both complete distance tables, the 14,538 and 3,452 edges, jump eccentricity three throughout, slide eccentricities 717 at six and 36 at seven, and excess counts 29,788, 131,574, 109,054, 12,688, 24. The test is pairwise: either slide distance seven or excess four forces the joint distances (3,7), disjointness and two four-round optima. The stated example belongs to the exceptional set. An independent bijection backtrack preserving adjacency and nonadjacency enumerated the complete 24-element automorphism group and recovered exactly the same 24 pairs from that example, with union of endpoints exactly the 36 states of eccentricity seven. These checks exhaust the specified graph and states, not general power domination instances.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The power-domination preprint studies TAR and TJ; Definition 4.1 defines the minimum-set TJ graph. The journal version illustrates TS in Example 1.2 and leaves general TS questions as Problems 6.2–6.3.",
+          "Křišťan–Svoboda gives shortest sequences for ordinary dominating sets of trees and interval graphs."
+        ],
+        "reasoning": "Neither study asserts the full shortest-path comparison for minimum power-dominating triples on this quartic girth-five cage. An algorithm for ordinary domination under TS does not supply a census for power domination; nor is TAR/TJ connectivity alone sufficient for TS connectivity or distances.",
+        "searches": [
+          "power domination reconfiguration token sliding minimum power dominating sets research theorems exact distances",
+          "Bjorkman et al. arXiv:2201.01798v1 abstract, §§4–5; published version §§1 and 6",
+          "Shortest Dominating Set Reconfiguration under Token Sliding arXiv:2307.10847, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Bjorkman et al. preprint and journal passages above",
+        "Křišťan–Svoboda arXiv:2307.10847 abstract",
+        "Resultary IDs a93dbce61492, d7b1243130fc, 763cb004ebbc",
+        "MathWorld Robertson Graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier TJ framework gives the exchange rule on minimum sets, not the family of these particular minimum sets or the shortest paths after restricting exchanges to base edges.",
+          "The McGee and Robertson same-object process comparisons provide neither a transfer theorem nor identical feasible families."
+        ],
+        "reasoning": "The exact joint distance census and extremal orbit require data about which optimum triples exist and which successive slides preserve optimality. They do not follow just from cage uniqueness, minimum-state reconfiguration definitions, or jumping results. Credit TS as already defined and illustrated, not only proposed as a direction.",
+        "searches": [
+          "Bjorkman et al. arXiv:2201.01798v1, Definition 4.1 and §5; journal Example 1.2 and Problems 6.2–6.3",
+          "Same-object Resultary Findings a93dbce61492 and d7b1243130fc; same-rule McGee Finding 763cb004ebbc"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-object monomer-adsorption record a93dbce61492 gives independent-set jamming laws; majority-dynamics record d7b1243130fc tabulates attractors and basins after single-edge deletions.",
+          "The broader Robertson-specific literature lookup returned unrelated hits; it was not counted as evidence of absence."
+        ],
+        "reasoning": "The relevant feasible sets are minimum sensors whose closed neighborhood can propagate via the unique-unobserved-neighbor rule. Neither maximal independent sets nor synchronous binary-majority state orbits are equivalent. The excess here compares two shortest paths through the same set of feasible triples, not the graph's ordinary vertex-distance penalty.",
+        "searches": [
+          "Resultary: same-object Robertson (4,5)-cage power-domination and relocation comparison; IDs a93dbce61492, d7b1243130fc and 763cb004ebbc",
+          "Primary lookup: Robertson graph or Robertson cage, power domination, token sliding and jumping reconfiguration 753"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The McGee record 763cb004ebbc applies the same jump/slide comparison to the 24-vertex cubic cage, with 576 optima and excess seven on eight pairs with distances (1,8).",
+          "The structural Robertson reference gives 19 vertices, 38 edges, quartic degree, girth five and group order 24; these entries are not sensor-configuration invariants."
+        ],
+        "reasoning": "The McGee classification is a genuinely related benchmark and not the same table: changing degree and cage changes the feasible state space and both exchange graphs. The common date establishes no priority. No distinct matching Robertson table was identified in these bounded checks.",
+        "searches": [
+          "Resultary: exact minimum power-domination relocation excess on cage graphs, comparison with SCOPE-eight-exceptional-relocation-detours-for-optimum-power-dominatio--763cb004ebbc",
+          "MathWorld Robertson Graph, opening description and graph-data identifier"
+        ]
+      },
+      "rationale": "The proposed distinct finding is the complete minimum-configuration and relocation metric on the Robertson cage. The graph identity, definition of power domination and general reconfiguration models are established. The closest inspected same-object works address a different process, while the closest same-parameter catalogue result addresses a different graph. No compared theorem or table supplies the Robertson metrics.",
+      "residual_risks": [
+        "The bounded searches do not rule out an unindexed Robertson power-domination calculation or stronger unlocated reconfiguration work. The off-topic Robertson-specific web result provided no novelty evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines general models and treats TAR/TJ, without supplying the required Robertson-cage metrics in the inspected results",
+          "evidence": [
+            "TS exchanges adjacent vertices; Definition 4.1 constructs the TJ graph of minimum X-sets; §5 concerns power-domination TJ results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.01798",
+          "material_read": "Abstract; introduction p. 1–2 (offsets 0, 3200, 5600); §4 Definition 4.1 and §5 (offsets 50700 and 53000 onward)",
+          "method": "Open primary PDF, bounded passage and section inspection",
+          "title": "Power Domination Reconfiguration",
+          "trigger": "Direct antecedent for the same reconfiguration parameter"
+        },
+        {
+          "assessment": "TS is illustrated; no implication to this cage's census",
+          "evidence": [
+            "An example shows a small power-domination TS graph; the concluding questions explicitly ask for general TS results and further study."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s44007-025-00187-5",
+          "material_read": "§1 Example 1.2, offset 14200; §6 Problems 6.2–6.3, PDF p. 26, offset 70800",
+          "method": "Lawful accessible journal text, decisive passages",
+          "title": "Power Domination Reconfiguration, journal version",
+          "trigger": "Check for TS advances added after the preprint"
+        },
+        {
+          "assessment": "Different parameter and graph families",
+          "evidence": [
+            "The algorithms are explicitly for ordinary dominating sets in trees and interval graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.10847",
+          "material_read": "Abstract and opening of §1, extracted offset 0–2766",
+          "method": "Open primary PDF scope inspection",
+          "title": "Shortest Dominating Set Reconfiguration under Token Sliding",
+          "trigger": "Potential shortest-path antecedent"
+        },
+        {
+          "assessment": "Same method and metric on the McGee graph, not the Robertson cage",
+          "evidence": [
+            "576 optima and eight sharp excess-seven pairs in a different cage."
+          ],
+          "identifier_or_url": "SCOPE-eight-exceptional-relocation-detours-for-optimum-power-dominatio--763cb004ebbc",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Eight exceptional relocation detours for optimum power domination",
+          "trigger": "Closest distinct catalogue claim for the same kind of exact metric"
+        },
+        {
+          "assessment": "Different state spaces, rules and outputs",
+          "evidence": [
+            "Independent-set jamming probabilities and binary-majority basins are not power-domination reconfiguration."
+          ],
+          "identifier_or_url": "Resultary a93dbce61492; d7b1243130fc",
+          "material_read": "Both Findings and Assumptions",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Exact monomer-adsorption jamming law on the Robertson (4,5)-cage; A simultaneous consensus and oscillation gain under every Robertson edge deletion",
+          "trigger": "Same graph and possible equivalent dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and full pair-distance table",
+        "Independent replay of the exact joint distances and symmetry",
+        "Bjorkman et al. journal Problems 6.2–6.3"
+      ],
+      "rationale": "The unique quartic girth-five cage and minimum configurations give a natural finite monitoring benchmark. Comparing the two complete metrics isolates the cost of enforcing local moves while never using extra sensors. The sharp four-move separation, its incidence with diameter seven and exact single symmetry orbit provide more than a raw sensor count or a specially selected example. The exact data are useful for testing how relocation constraints interact with feasibility and monitoring latency, without claiming a general cage theorem.",
+      "residual_risks": [
+        "Value is for the specified natural finite instance; the classification does not imply bounds for other graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

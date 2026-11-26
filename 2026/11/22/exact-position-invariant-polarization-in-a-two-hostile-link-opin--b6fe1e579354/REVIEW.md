@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact fixed-mean path-gradient transformation, rank-two Hessian, critical radial inequality, coercivity, unique positive tanh branch by strict subhomogeneity, and Perron/Hessian stability argument provide a complete proof for every allowed path length. The 750 finite supplementary numerical assertions passed from the standalone checker. Finite tests are not used as proof. The conclusion is restricted to exactly two *global minimizing* nonconsensus states, not all equilibrium states.
+## correctness
 
-## Originality — PASS (bounded to inspected work)
-The original full text of Boyce et al. supplies the model and a general stability principle. Its Appendix C explicitly estimates, rather than exactly solves, the onset for one hostile path-edge placement; neither all-location invariance nor global-minimizing nonlinear state classification appears there. General signed-Laplacian spectral-index machinery in Bronski–DeVille is credited; its broad spectral conclusions do not establish the nonlinear minimum classification. Related indexed findings on opinion anchors and receptive antagonistic ties use mathematically distinct models. Remaining risk: indexed search and selected primary full texts do not establish universal historical priority.
+PASS
 
-## Value — PASS
-The exact threshold resolves an explicit approximation gap in a motivated social-opinion topology. The stronger nonlinear classification proves that moving the second hostile link changes the local location of the largest opinion jump but not total opinion range or the global-minimizer energy. This precise design distinction is a structural, not a routine numerical, conclusion.
+Path differences are linear coordinates on each fixed-mean hyperplane. The potential is the quadratic sum of path drops minus the two log-cosh terms in their total and the distinguished drop, all divided by K. Permuting the differences preserves its values and Hessian inertia but not the flow metric. The two columns (ones and the distinguished coordinate vector) have Gram matrix [[K-1,1],[1,1]], giving the stated Perron eigenvalue and the unique first loss of positive Hessian at consensus. At or below threshold, y·grad Phi is positive for every nonzero y by z tanh(alpha z)<alpha z^2 when z is nonzero (and is ||y||^2 if both repulsive drops vanish). Coercivity and gradient dissipation give global convergence to the unique critical point. Above threshold the negative Hessian direction implies linear instability, and coercivity gives a nonzero global minimum. Replacing all drops by their absolute values strictly decreases energy if there were both positive and negative drops. Stationarity of a nonzero aligned minimum then forces positive ordinary drops u and distinguished drop u+v. The positive Perron direction and the all-ones vector bracket a positive fixed point; the maximum ratio of two vectors cannot exceed one in either direction by strict subhomogeneity of tanh, proving uniqueness. The positive Jacobian of this two-component map sends the fixed vector strictly below itself (z sech^2(z)<tanh(z)); the corresponding rank-two Hessian perturbation has spectral radius less than one, so both sign-related minima are exponentially attracting in the fixed-mean flow. For the optional onset coefficient the complementary eigenspace is invertible at threshold; its component is cubic in the amplitude and projection of the tanh cubic onto (1,t) gives the stated coefficient. No classification of additional stationary states or equality of transients is needed. I inspected the finite checker without executing it.
 
-## Scope and limitations
-Finite unit-weight paths with overlapping unit repulsion and tanh response; conserved mean; conclusions about global potential minimizers and their local attraction. No arbitrary-network, stochastic or empirical claim, no classification of every nonglobal stationary point, and no transient-orbit equivalence. Independent scientific and historical-priority validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Boyce et al. already supply the tanh-gradient model and the boundary-placement quadratic form. The exact onset is a short rank-two evaluation of that quadratic form, and linear threshold placement invariance follows from the permutation of its distinguished coordinate. The materially distinct claim is the sharp nonlinear classification on fixed-mean hyperplanes: uniqueness and global convergence through the degenerate endpoint, exactly two global minima above it, and their explicit placement-invariant positive branch and strict local stability. These are not consequences of the prior quadratic bracket or of general signed-Laplacian inertia alone. No historical exclusivity is asserted.
+
+## value
+
+PASS
+
+This is a named previously analyzed arrangement and its natural complete placement family. The practical invariant is that, although the distinguished step can move, neither the polarization range nor the global minimum energy changes, and only the position of the larger drop changes at all supercritical strengths. The fixed-mean consensus statement at the nonhyperbolic endpoint and the exact global profiles distinguish actual nonlinear polarization from a simple spectral threshold. The small matrix diagonalization alone would be a weaker contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

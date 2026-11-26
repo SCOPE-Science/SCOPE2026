@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The projected spin-flip matrix is constructed on all independent sets of the clique windmill. Exact decomposition into the Cartesian sum of peripheral star operators and one additional pendant hub state gives the Laurent-coefficient zero-mode count. Spectral-measure weights at the peripheral vacuum give the unique hub-supported zero mode for odd petal count and its absence for even count. Triangle inequality proves the all-time odd lower bound; Duhamel's inequality and a controlled two-vector approximate motion prove the even-time upper bound. The binomial local limit and a summable reciprocal-square domination prove both asymptotic coefficients. The stand-alone checker reconstructs the full physical independent-set matrix for seven finite instances, checks finite-field rank, direct numerical spectra and hub amplitudes, then compares two finite asymptotic sums. Small-case computations do not substitute for the proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with priority risk.** The 2010 Rydberg blockade paper supplies the physical constraint and spin-flip operator in a chain. Buijsman's 2022 zero-mode classification concerns open and periodic chains; its chiral bound does not yield the exact count or hub projection on clique windmills. The 2022 hypergrid paper analyzes two hypercubes sharing a vertex, not a pendant vertex attached to a Cartesian product of stars. The 2023 independent-set Hamiltonian paper gives the general projected-spin-flip/independent-set graph equivalence, but no windmill-specific spectral measure or parity trapping theorem. Public records on windmill adjacency mixing and independent-set Walsh convolution refer to different operators. The equivalence in the 2023 paper is acknowledged as prior, and unindexed graph-quantum-walk identities remain a residual risk.
+PASS
 
-**Value — PASS.** The graph family is a natural, scalable blockade geometry with a universal excited hub and repeated peripheral cliques. The result is stronger than a formal zero-mode census: odd petal counts produce uniform-in-time survival near one, whereas even counts permit near-zero return at the prescribed \(m^{1/4}\) time scale. This parity effect can guide idealized constrained-spin dynamics benchmarks and distinguishes robust stationary hub overlap from apparent finite-time revival. The result makes no unsupported noise-stability or thermalization claims.
+With r>=2 and m>=1 the hub-free flip graph is the Cartesian product of m stars K_{1,r}; the hub state couples only to the vacuum v. Each star has eigenvalues ±sqrt(r) and r-1 zero eigenvalues, and its vacuum sees only the two nonzero eigenvectors with equal weights. Tensoring gives the Laurent-coefficient nullity and the binomial vacuum measure. In the bordered kernel equations Ax+av=0 and <v,x>=0, projection to ker A forces a=0 exactly in the even case, when one peripheral zero direction is removed. In the odd case v is orthogonal to ker A and <v,A^+v>=0 by symmetry of the vacuum measure, so the orthogonal added kernel direction is h-A^+v and its normalization gives the stated hub weight. The proof's 'unique normalized zero vector' is understood as the unique bright direction orthogonal to the dark zero space; arbitrary mixtures with dark vectors can also overlap the hub. For odd m the residual spectral weight is <1/2, giving the all-time lower bound. For even m, with a=sqrt(p_m), z=P_0v/a and D=A^+v, the trajectory cos(at)(h-D)-i sin(at)z has initial error ||D|| and integrated residual ||D|| at pi/(2a); its hub component vanishes there. This proves the stated upper bound, not an exact minimum. The binomial local limit with a uniform central-mass bound allows dominated convergence against k^-2; the two reciprocal-square sums over odd and nonzero even k are pi^2/4 and pi^2/12. Stirling gives the claimed m^(1/4) time scale. The proof covers m=1 and fixed r in the asymptotic statements.
 
-**Limitations.** Exact idealized dynamics, fixed homogeneous flip weights and a particular initial basis vector. Finite calculations are corroboration, not a proof of all sizes. Historical priority and independent review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published general independent-set walk description and related hypergrid models do not supply the specific bordered-star spectral and hub-return results. Two closely matching distinct catalogue records concern different operators or a different configuration graph. The passing scope is the exact family-specific nullity and hub spectral/dynamical parity contrast, not the general PXP mapping, chiral symmetry, or the use of a Schur complement or Duhamel estimate.
+
+## value
+
+PASS
+
+The model gives a concrete natural blockade geometry in which large global nullity does not determine local trapping. The exact hub projection and near-escape estimate separate an all-times survival guarantee from asymptotically vanishing survival at a specified mesoscopic time. This is a useful dynamical distinction unavailable from zero-mode counting alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

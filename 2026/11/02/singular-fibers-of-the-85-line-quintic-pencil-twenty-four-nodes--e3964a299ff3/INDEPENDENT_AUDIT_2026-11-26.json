@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:38:51.191193Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–85",
+        "VERIFICATION.md lines 19–29",
+        "verify.py lines 4–41; exact identities and scope inspected, not executed"
+      ],
+      "rationale": "Reconstructed the projective gradient exhaustion. If x=y=0, the two last derivatives exclude zw≠0 and z=0, leaving only P at t=0. With exactly one of x,y zero, the other derivative forces z=w≠0 and then t=1 and one of the two quartic equations at w/z=1. With xy≠0, z=w=0 is excluded by F_z+F_w=−12x²y². The first two derivatives then require h=(z−w)/(z+w) with h²=−3 and x²=−hy², ruling out zw=0. The mixed quartic terms cancel in F, forcing t=1 at w/z=ρ a primitive cube root. In z=1, F_w gives y⁴=−(1+ρ)/4=ρ²/4, and F_z vanishes with these substitutions. This gives 4+4+8+8 points. Independently evaluated the Hessian: at the two axial families it has determinant 3456. Off-axis, write B=1+ρ; H_xx=24By², H_xy/H_xx=−x/y, and the leading 2×2 block has determinant zero. The full determinant is −H_xx(H_yw+(x/y)H_xw)² with the squared term’s argument 24(1+h)y³. This simplifies to 3456ρ², so all points are nodes. At P the homogeneous leading quartic has no projective gradient zero; blowing up gives smooth strict transform along the exceptional genus-three quartic, with E²=−4 and discrepancy 2−4=−2. The smooth tangent cone gives the ordinary multiplicity-four Milnor number 3³=27. A smooth quintic has Euler number 55, and smoothing increases it by the sum of local Milnor numbers on a complex surface; the claimed values 28 and 31 follow. Homogenizing in the base gives the stated nonreduced fiber at infinity.",
+      "residual_risks": [
+        "The checker only corroborates polynomial identities and a tangent-cone algebra length; exhaustion and the geometric invariants rely on the proof and standard isolated-hypersurface results. No assertions about a resolved total space or other characteristics are certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Lemma 3.1 proof declares singularity at 0 and 1 and proceeds with t≠0,1. The B₄ quartic result identifies a genus-three exceptional quartic with self-intersection −4 and discrepancy −2 once its own ordinary quadruple point is located."
+        ],
+        "reasoning": "General formulas give resolution and Milnor data once local types are proved but do not classify the fibers of this pencil. Absence of specific terms in the manuscript is not in itself evidence of absence; the endpoint-excluded proof is the decisive comparison.",
+        "searches": [
+          "arXiv:2609.26862v1 HTML: Lemma 3.1, Milnor number, Euler characteristic, ordinary double point, exceptional divisor",
+          "Resultary: singular fibers of the 85-line quintic pencil and ordinary quadruple points"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 11–35, 91–97",
+        "arXiv:2609.26862v1 §3.1 Lemma 3.1",
+        "Resultary 68c16287848f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yu–Zhu's proof begins by noting singularity at t=0,1, then assumes the complementary parameter range for its gradient analysis. Its defining equation supplies data, not the endpoint Hessian ranks or local singularity counts."
+        ],
+        "reasoning": "The standard local invariants are consequences of the newly verified types, not further novelty. The 24-node count and the ordinary type at the other endpoint require an endpoint exhaustion and nondegeneracy checks; the prior smoothness theorem does not supply them.",
+        "searches": [
+          "arXiv:2609.26862v1 §3.1 Lemma 3.1 proof",
+          "Resultary 68c16287848f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact defining pencil matches Yu–Zhu §3.1. Lemma 3.1 states smoothness iff t∉{0,1}.",
+          "The indexed B₄ local analogue is an unexpected quartic, not this quintic family."
+        ],
+        "reasoning": "A set of bad base parameters is not an equivalent description of the singular loci, which can differ in size and local analytic type even with the same bad parameters. The quartic comparison matches the local tangent-cone type but not the surface or pencil.",
+        "searches": [
+          "Yu–Zhu 85-line quintic pencil arXiv:2609.26862v1 §3.1 Lemma 3.1",
+          "Resultary: 85-line quintic pencil, displayed equation, 24 nodes and ordinary quadruple point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected distinct hit concerns a generic B₄ unexpected quartic with one ordinary quadruple point, gives the genus and the two resolution numbers, and makes no claim about the Yu–Zhu pencil."
+        ],
+        "reasoning": "A match of the local resolution numbers does not cover the object-specific classification or its Euler numbers. The ranked search did not locate an exact-pencil table; this is bounded evidence, not an exhaustive negative.",
+        "searches": [
+          "Resultary: 85-line quintic pencil, 24 A₁ points, ordinary quadruple fiber and displayed equation",
+          "Resultary 68c16287848f Finding"
+        ]
+      },
+      "rationale": "The contribution is the exact singularity basket and its invariants for the displayed pencil, not the known exceptional affine parameter set, the standard ordinary-point invariant formulas, or the formal compactification of the defining equation. Yu–Zhu leave the singular endpoints out of their derivative argument. The closest distinct indexed result concerns the same ordinary-quadruple-point type on a different surface, not this basket.",
+      "residual_risks": [
+        "Bounded search and targeted readings cannot exclude another unpublished or unindexed calculation on the exact pencil."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers affine bad parameters only",
+          "evidence": "For t=0,1 singularity is asserted; subsequent proof assumes t≠0,1 and provides no node count, endpoint type, or resolution.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26862v1",
+          "material_read": "§3.1 Lemma 3.1 and gradient proof, in OA HTML offset range 18100–26100; targeted invariant-term checks",
+          "method": "Primary arXiv HTML, bounded OA reading",
+          "title": "A smooth quintic surface with 85 lines and Picard number 43",
+          "trigger": "Exact same pencil and singular parameter statement"
+        },
+        {
+          "assessment": "Partial local analogue on a different surface family",
+          "evidence": "Same ordinary tangent-quartic type, genus 3, E²=−4 and discrepancy −2 on a B₄ unexpected quartic; not the Yu–Zhu pencil or its second singular fiber.",
+          "identifier_or_url": "2026/10/4/SCOPE-the-generic-b-4-unexpected-quartic-has-one-ordinary-quadruple-po--68c16287848f",
+          "material_read": "Mirrored RESULT.md Finding and local resolution statement",
+          "method": "Local Resultary mirror",
+          "title": "The generic B₄ unexpected quartic has one ordinary quadruple point",
+          "trigger": "Strongest indexed local-type and resolution match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–35, 56–85",
+        "arXiv:2609.26862v1 §3.1"
+      ],
+      "rationale": "The 85-line quintic pencil is already a motivated family. Classifying its two finite degenerations distinguishes markedly different local and topological behavior (one nonrational exceptional curve versus 24 nodes), giving precise input for degeneration and vanishing-cycle calculations. This value rests on establishing the complete fiber baskets, not on reapplying standard formulas in isolation.",
+      "residual_risks": [
+        "The review does not establish limiting line incidences or monodromy information beyond the stated local and Euler data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

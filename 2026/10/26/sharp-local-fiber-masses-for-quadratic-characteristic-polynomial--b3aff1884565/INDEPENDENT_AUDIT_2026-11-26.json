@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:35:43.664285Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mathematics is unchanged in the repaired RESULT.md. After fixing trace the determinant condition is bc=-f(a). For valuation j<e there are j+1 possible valuations k of b, each with phi(p^{e-k}) choices and p^k compatible c, hence (j+1)phi(p^e). For product zero b=0 contributes p^e in addition to e phi(p^e). The sum of truncated valuations is sum_r p^{e-r}R_r, proving the finite formula exactly. The normalized correction p^{-e-1}R_e goes to zero by continuity of Haar measure on the decreasing root neighborhoods; the intersection consists of at most two points. Split roots are integral, each with mean distance valuation 1/(p-1), including a repeated root. In the nonsplit case distances to the two roots are equal by conjugacy. For a nearest center a0 of valuation distance t, ultrametricity gives v(x-alpha)=min(v(x-a0),t) everywhere. The cumulative tail integral gives H_p(t)=sum_{j=1}^{floor(t)}p^{-j}+(t-floor(t))p^{-floor(t)-1}, strictly smaller than 1/(p-1) for finite t and zero iff t=0. A root modulo p exists iff v(f(x))>=1 at some x; in the nonsplit case 2t is the maximum integer valuation of f. This proves both equality criteria and convergence. For odd p the nonsplit unit residue has t=s if the discriminant valuation is 2s, and odd valuation forces t=s+1/2. At 2 odd trace has two simple roots or no roots according to determinant parity. For even trace translate to y^2-c: odd v gives t=s+1/2, and for v=2s odd squares are 1 mod 8 so the nonsquare units 3,7 give t=s+1/2 and 5 gives t=s+1. Together with the square and zero cases this yields exactly the stated densities. Independent replay /workspace/replay_matrix_mass.py used smooth lifts and a two-level rescale of each singular scalar class, verifying 5400 exact finite counts and 900 level-26 normalized comparisons. Those tests corroborate, not replace, the proof. The uploaded verifier was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These are rank-three representation counts. At 2 and even T multiplication by 2 identifies the count with 1/8 times the count for 2y^2+2bc at modulus 2^{e+1}; for odd T, x=2a-T gives 1/32 times the count for x^2+4bc at modulus 2^{e+2}, where x is automatically odd. Thus the corresponding normalized form densities are 2 lambda_2. Griffiths gives a block convolution method and restricts its density definition to nonzero targets; the length-two local-ring class tables give centralizers and orbit methods at e=2."
+        ],
+        "reasoning": "General algorithms can compute finite instances via convolution or summing conjugacy classes. The inspected statements do not evaluate the all-depth dyadic ternary convolution or the zero-target density and sharp parameters; this is a material general-density priority risk, not an established overlap beyond the explicit earlier counts.",
+        "searches": [
+          "local representation density quadratic forms over p-adic integers binary quadratic form root-distance density dyadic",
+          "fixed characteristic polynomial matrix conjugacy classes over Z/p^e primary cyclic noncyclic Jordan centralizer count",
+          "arXiv:2602.21070v1; arXiv:1805.03331; arXiv:1212.6157; Sato–Hironaka JNT 83 (2000)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 83aa1c7cebbd and 6ab7ccee525b",
+        "Math Stack Exchange 5046556/5046717",
+        "Kumar–Kumari PJM 326 (2023)",
+        "arXiv:2602.21070v1, 2410.04632, 1212.6157, 1805.03331",
+        "Sato–Hironaka JNT 83 (unread); Reiner 1961, Project Euclid (unread)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier post assumes unit determinant, stratifies by v_p(b), and attempts to split by dyadic unit modulo 8. Its u=3 branch adds only 2^{2e-3} to the 2^{2e-1} base when v=0. For p=2,T=0,D=5 this gives 5/8, but R_1=1,R_2=0 force the true normalized count 3/4 for e>=2. For repeated roots it also incorrectly counts only the zero shifted diagonal in the b=0 term; at e=2 all p multiples of p are allowed. The same-day odd shell formulas, in contrast, are equivalent to the claimed odd finite counts."
+        ],
+        "reasoning": "The earlier post establishes a method antecedent and some special cases, not a correct result implying the full claim. At odd primes the explicit exact overlap is credited and excluded from distinct contributions. The compact all-prime identity is useful because its dyadic root counts and the limiting classification are correct uniformly, including nonsmooth reductions and repeated roots.",
+        "searches": [
+          "Resultary 83aa1c7cebbd Finding",
+          "Math Stack Exchange answer 5046717 Odd and Dyadic cases",
+          "arXiv:2602.21070v1 pp. 2–4 and arXiv:1212.6157 §9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At odd p, x=2a-T bijectively maps the fiber equation to x^2+4bc=Delta; the same-day formula sums determinant valuation shells while the frozen formula exchanges sums to express them by R_r. Guria also uses quadratic root congruences inside a global weighted count."
+        ],
+        "reasoning": "The odd-prime shell sum is demonstrably the same finite count, not just a similar topic. The equivalence through division by 2 fails as a direct change of variables at the dyadic prime; for even T one instead uses y^2+bc=(T/2)^2-D.",
+        "searches": [
+          "Resultary: fixed trace determinant 2x2 matrices modulo p^e chain ring exact ramified fiber count discriminant valuation",
+          "quadratic polynomial roots modulo p^r congruence generating series exact lifting singular roots",
+          "Resultary 83aa1c7cebbd; arXiv:2410.04632"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day Resultary record gives exact odd-residue chain-ring shells including zero discriminant. The random quadratic coefficients mod p^2 record is not this fixed-f all-depth statistic. Older Math Stack Exchange answer explicitly attempts exact formulas for odd and dyadic primes with unit determinant, while Kumar–Kumari Eq. (3-8) gives exact unit-determinant odd field fibers."
+        ],
+        "reasoning": "These are genuine prior sources for exact counts; the full formula does not follow from field counts, random coefficient laws, or the incorrect dyadic formulas in the post. No chronology is inferred from the shared catalogue date.",
+        "searches": [
+          "websearch: exact count of 2x2 matrices with prescribed trace and determinant over Z/p^nZ, including ramified and dyadic cases; compare local quadratic representation densities and congruence-root generating series",
+          "Resultary 83aa1c7cebbd and 6ab7ccee525b",
+          "Math Stack Exchange question 5046556 and answer 5046717",
+          "Kumar–Kumari, Divisors of Fourier coefficients of two newforms"
+        ]
+      },
+      "rationale": "Repaired comparison explicitly credits the same-day coverage of every odd-prime finite fiber and the numerical data for the odd-prime limits. The prior attempt with the same valuation decomposition, including dyadic parameters, is now cited and its missing correct counts distinguished by a concrete counterexample. Pass only the supported distinct all-prime root-count formulation with a correct complete classification including exceptional dyadic values and both sharp equality criteria, not priority for the odd-prime finite counts or the valuation method. The theorem remains an exact local statement.",
+      "residual_risks": [
+        "More general local representation densities could specialize to parts of the corrected classification, especially for nonzero targets. The inspected general formulas did not establish that implication; some specialist full texts were inaccessible. The source comparisons do not determine an ordering between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed broader odd-residue finite count, excludes p=2; same day with no ordering established",
+          "evidence": "Explicit valuation-shell formulas for every finite level, including zero discriminant.",
+          "identifier_or_url": "2026/10/26/SCOPE-discriminant-stratified-characteristic-polynomial-counts-over-fi--83aa1c7cebbd",
+          "material_read": "RESULT.md Finding, offsets 0–4706",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Discriminant-stratified characteristic polynomial counts over finite chain rings",
+          "trigger": "Exact same matrix fiber over broader chain rings"
+        },
+        {
+          "assessment": "Same valuation approach; unit determinant restriction and incorrect formulas do not imply the repaired classification",
+          "evidence": "Dyadic u=3 branch and repeated-root b=0 branch fail the concrete counts above.",
+          "identifier_or_url": "https://math.stackexchange.com/a/5046717",
+          "material_read": "Question 5046556 and answer 5046717, odd-prime and dyadic branches (2025-03-17)",
+          "method": "Exact public Stack Exchange API JSON after HTML access failed",
+          "title": "The number of 2 times 2 matrices over Z/ell^n with prescribed determinant and trace",
+          "trigger": "Direct earlier exact-title match"
+        },
+        {
+          "assessment": "Explicit unit-determinant odd field counts; not the all-depth classification in the inspected section",
+          "evidence": "Field fiber size ell^2+ell, ell^2, or ell^2-ell by discrimimant type, before forming global sums.",
+          "identifier_or_url": "https://msp.org/pjm/2023/326-1/pjm-v326-n1-p04-s.pdf",
+          "material_read": "§3A, especially p. 94 Eq. (3-8), PDF offsets 20400–30158",
+          "method": "OA primary PDF",
+          "title": "Divisors of Fourier coefficients of two newforms",
+          "trigger": "Earlier direct citation on finite-level fibers"
+        },
+        {
+          "assessment": "General convolution route but no closed ternary valuation law in inspected material",
+          "evidence": "Finite counts for blocks including hyperbolic and dyadic blocks; sums by convolution; density definition restricted to nonzero targets.",
+          "identifier_or_url": "arXiv:2602.21070v1",
+          "material_read": "Abstract and pp. 2–4, offsets 3900–12308",
+          "method": "OA primary PDF",
+          "title": "Elementary local representation densities at all primes via lifting recursions",
+          "trigger": "General all-prime quadratic-form density coverage"
+        },
+        {
+          "assessment": "Global smoothed integral count, no matching local conclusion in inspected passages",
+          "evidence": "Quadratic congruence at-a^2-r=0 mod b and averaged Weyl sums under discriminant restrictions.",
+          "identifier_or_url": "arXiv:2410.04632",
+          "material_read": "PDF pp. 1–2 and p. 4, offsets 4500 and 12300",
+          "method": "OA primary PDF",
+          "title": "Counting 2 by 2 integer matrices with fixed trace and determinant",
+          "trigger": "Fixed-polynomial congruence roots in matrix counting"
+        },
+        {
+          "assessment": "A route to e=2, not all depths",
+          "evidence": "Length-two similarity types, normal forms and centralizer sizes.",
+          "identifier_or_url": "arXiv:1212.6157",
+          "material_read": "Abstract, §9 and Table 5, pp. 38–40",
+          "method": "OA primary PDF",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Alternative conjugacy/centralizer count"
+        },
+        {
+          "assessment": "Unresolved prior-art risk, not negative evidence",
+          "evidence": "Title states non-dyadic treatment; no inference about its internal formulas.",
+          "identifier_or_url": "Sato–Hironaka, JNT 83 (2000), 106–136",
+          "material_read": "No primary text accessible",
+          "method": "OA retrieval to ScienceDirect gave 403",
+          "title": "Local Densities of Representations of Quadratic Forms over p-Adic Integers (The Non-Dyadic Case)",
+          "trigger": "Possible general rank-three containment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Precise fixed-polynomial local factors are natural input to trace/determinant counting. After crediting the odd finite counts, the remaining exact formula works at all levels with no assumption of invertibility, simple roots, or odd p, and gives the correct limiting mass for all dyadic and repeated-root parameters. The distinct dyadic corrections and equality cases matter because field-level counts cannot predict their local mass; they expose how much the density changes among indistinguishable nonsmooth reductions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

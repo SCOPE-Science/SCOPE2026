@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:29:51.230677Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–86; VERIFICATION.md and check.py inspected, not executed.",
+        "Independent replay: python3 -B /workspace/branches/independent_arithmetic.py, section 4, verifies the exact n=4, r=3/4 directional ratio 1569/913."
+      ],
+      "rationale": "In the fixed-diagonal affine space, the off-diagonal coordinate isometry up to factor sqrt(2) preserves both nearest points and the max-entry size of differences. For k=n-2 and any r>0, the two contrast eigenvalues are 2(1-c^2) and k(1-a^2)/(k-1); the two-constant sector has matrix with diagonal 2c^2, ka^2 and off-diagonal -sqrt(2k)ca. Its determinant is zero and trace positive. The kernel is precisely span(1,1,r,...,r). Differentiating the simple zero eigenvalue in zero-diagonal directions gives the halfspace with inward normal q_ij=v_i v_j; its exterior-direction projection has tangent-plane linear part I-qq^T/||q||_2^2. The (1,2) row has nonnegative diagonal, negative other entries, and absolute sum exactly 1+F_k(r). At the boundary this is a directional tangent-plane calculation, not a claim of an ordinary two-sided derivative of the projector. For each fixed direction, the scaled convex sets increase to a dense subset of the tangent cone as the scale decreases; bounded nearest points therefore converge to the unique tangent-cone nearest point. A common exterior shift of two directions realizing the row signs yields two distinct nearby finite inputs and their ratio limit. F_k has a positive attained maximum since it is positive at r=1, tends to -1 at zero and to 0 at infinity. At r=s/sqrt(k), F_k/k converges uniformly on compact s intervals to s^2/(2+4s^2+s^4); the small-s numerator bound and large-s quartic denominator bound trap all maximizing sequences away from both tails. Differentiating in s^2 gives the unique limiting maximizer 2^(1/4) for s and maximum (2-sqrt(2))/4. Firm nonexpansivity in n(n-1)/2 independent coordinates bounds the full Lipschitz modulus from above at linear order, not by the particular family constant.",
+      "residual_risks": [
+        "The distinguished-row value need not optimize all elliptope normals; no unrestricted sharp finite or leading constant and no exact finite-pair attainment are certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-day Resultary 96cde73fc3b5, Finding and Steps 1–3, gives the universal upper bound, the exact tangent-hyperplane row formula, and equality for globally C^1 convex bodies. Items 79a64f1ddf26 and 054e541508a5 give matching growth order for a spectral ball and a PSD cone."
+        ],
+        "reasoning": "The elliptope has nonsmooth points (e.g. at the all-ones rank-one matrix, distinct nonproportional off-diagonal outward normals arise from different kernel contrasts), so the all-normal sharp lower bound for globally smooth bodies does not cover it. Its simple-kernel smooth normals are constrained by q_ij=v_i v_j. Neither spectral-ball nor PSD-cone projection enforces the same affine slice.",
+        "searches": [
+          "Resultary: universal sharp maximum-entry infinity norm Lipschitz constant (1+sqrt N)/2 Euclidean metric projection convex body C1 smooth boundary support normals halfspaces",
+          "Resultary: spectral-ball and PSD-cone coordinatewise amplification"
+        ]
+      },
+      "checked_sources": [
+        "Resultary self-hit, 96cde73fc3b5, 79a64f1ddf26, 054e541508a5 and e19c93a79149",
+        "arXiv:2401.04657 and arXiv:2407.06408; Higham 2002; Higham–Strabić 2016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both Higham distance comparisons concern scalar distance estimates; the bound on |gamma(A)-gamma(B)| does not compare output matrices. Resultary 96cde73fc3b5 already gives the halfspace linear-part formula and common exterior shift used to see the row norm."
+        ],
+        "reasoning": "The generic formula transfers locally once an admissible normal is given, so it covers the abstract amplifier, not the realization and optimization of this family of normals. A PSD repair followed by resetting the diagonal is not nearest projection onto the elliptope in general. The distinct witness spectrum and scalings give the problem-specific growth lower bound; the shared date of the 2026/11/22 items does not resolve priority.",
+        "searches": [
+          "Higham 2002 §1–2, open Manchester manuscript; Higham–Strabić 2016 introduction",
+          "Resultary 96cde73fc3b5 RESULT.md Steps 1–3; frozen record 79a64f1ddf26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact direct catalogue match was the frozen item itself.",
+          "Armijo et al. formulate the same least-squares projection; Im et al. study elliptope projection and spectrahedral nondegeneracy."
+        ],
+        "reasoning": "Off-diagonal-coordinate Euclidean projection is equivalent to Frobenius projection in the fixed-diagonal slice. The cited algorithm and nondegeneracy statements are not two-input maximum-entry gains. Scalar distance to the set is also a different map.",
+        "searches": [
+          "Resultary: nearest correlation repair, elliptope Euclidean projection and maximum-entry Lipschitz growth",
+          "arXiv:2401.04657 §5; arXiv:2407.06408 §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The smooth-body record gives a different sharp constant with unrestricted supporting normals. Item 054e541508a5 gives a PSD-family diagonal coefficient leading with n/4. Item e19c93a79149 gives exact 3/2 and 9/8 symmetric PSD constants in order two."
+        ],
+        "reasoning": "None gives this fixed-diagonal projector's F_k variational profile or its coefficient. The non-self exact numerical hits concern other norms/outputs or feasible sets, not a table of the claimed rows.",
+        "searches": [
+          "Resultary: max-entry projection and rank-deficient elliptope tangents; exact semidefinite diagonal and off-diagonal amplification",
+          "Resultary 96cde73fc3b5, 054e541508a5, e19c93a79149"
+        ]
+      },
+      "rationale": "The specific realizable rank-(n-1) normal family with its exact row gain and optimized asymptotic lower coefficient is distinct. The universal upper bound and the transfer from a local halfspace to finite pair sensitivity are shared with a broader smooth-projection result and are not independently novel. Other same-day findings establish coordinate growth for different projectors, not the fixed-diagonal elliptope witness.",
+      "residual_risks": [
+        "Priority is best-of-knowledge; prior exact optimization over balanced attainable kernel vectors or an unindexed constrained-projection sensitivity theorem could change it. Same-day overlap in abstract mechanism is documented without inferring publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the shared upper bound and tangent mechanism; unrestricted normal optimization is not available for the elliptope",
+          "evidence": [
+            "Explicit row formula for I-nu nu^T and upper value (1+sqrt N)/2 unweighted.",
+            "Equality lower bound assumes C^1 boundary, uses a supporting point for every unit normal, and uses two exterior directions with a common normal shift."
+          ],
+          "identifier_or_url": "Resultary 96cde73fc3b5",
+          "material_read": "RESULT.md Finding, assumptions and Steps 1–3, offsets 0–5510, local snapshot 36a7204",
+          "method": "Local mirrored primary result, bounded full passages",
+          "title": "Shape-independent sharp coordinatewise stability of smooth convex-body projection",
+          "trigger": "Direct general sharp projection theorem and tangent method"
+        },
+        {
+          "assessment": "Same object, algorithmic rather than the particular row sensitivity",
+          "evidence": [
+            "Sets up Frobenius least squares with PSD and unit-diagonal constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.04657",
+          "material_read": "§5, manuscript p. 11, offset 32252",
+          "method": "Lawful open primary PDF bounded passage",
+          "title": "A Semi-Smooth Newton Method for General Projection Equations Applied to the Nearest Correlation Matrix Problem",
+          "trigger": "Exact projection operator and derivative-based methods"
+        },
+        {
+          "assessment": "Spectrahedral nondegeneracy, not the row norm gain or its asymptotics",
+          "evidence": [
+            "The section states every elliptope point is nondegenerate in the pertinent spectrahedral-optimization sense."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.06408",
+          "material_read": "§5.3, PDF p. 25, offset 77110",
+          "method": "Lawful open primary manuscript bounded passage",
+          "title": "Projection, Degeneracy, and Singularity Degree for Spectrahedra",
+          "trigger": "Closest elliptope projection and Jacobian conditioning work"
+        },
+        {
+          "assessment": "The displayed inequality concerns distance values gamma, not coordinate differences between the projections",
+          "evidence": [
+            "States |gamma(A)-gamma(B)| <= ||A-B||, and then begins normal-cone characterization of the weighted Frobenius optimization."
+          ],
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/232/1/paper3.pdf",
+          "material_read": "Abstract and end of §1 into §2, PDF offsets 8500–10572",
+          "method": "Lawful Manchester alternate manuscript after DOI access failure",
+          "title": "Computing the Nearest Correlation Matrix—A Problem from Finance",
+          "trigger": "Original same-object paper; seemingly relevant distance stability inequality"
+        },
+        {
+          "assessment": "Bounds on a scalar distance, not map sensitivity",
+          "evidence": [
+            "Estimates distance to a nearest feasible correlation matrix rather than comparing two repaired matrices."
+          ],
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2496/1/15m1052007.pdf",
+          "material_read": "Abstract/introduction, p. 2, offset 1869",
+          "method": "Lawful open primary PDF bounded passage",
+          "title": "Bounds for the Distance to the Nearest Correlation Matrix",
+          "trigger": "Potential stability statement on same object"
+        },
+        {
+          "assessment": "Shared dimension-growth phenomenon, different admissible normals",
+          "evidence": [
+            "Rank-one singular outer products with independent left and right vectors do not supply the elliptope's off-diagonal kernel normals."
+          ],
+          "identifier_or_url": "Resultary 79a64f1ddf26, also frozen record 3",
+          "material_read": "Finding, assumptions and boundary-tangent proof",
+          "method": "Statement and proof comparison with the frozen package",
+          "title": "Linear entrywise instability of Frobenius projection onto the spectral-norm ball",
+          "trigger": "Material same-day linear-growth overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; Higham 2002 nearest-correlation formulation; Resultary 96cde73fc3b5 for the shared general mechanism"
+      ],
+      "rationale": "For a standard operation in correlation repair, the theorem determines the growth order of a natural measure of worst-case individual-entry error and exhibits the exact local geometry that causes it. Realizing rank deficiency while maintaining the whole unit diagonal is a relevant constraint, not an arbitrary parameter restriction. The optimized witness makes the lower bound useful even though the full sharp constant is open.",
+      "residual_risks": [
+        "Worst-case inputs in the stated affine space are not restricted to PSD or to entries in [-1,1]; no performance conclusion for a restricted set of empirical inputs is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

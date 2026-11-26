@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:35:47.354701Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With off-diagonal damping at gamma, the traceless generator eigenmodes have strictly negative real part: an imaginary-axis eigenmode would have zero off-diagonal entries by Hilbert–Schmidt dissipation, hence commute with adjacency and be scalar by connectivity. Thus the signed centered integral converges. In the permutation-symmetric equations the integrated imaginary coherences are P=(n−1)/(2bJn) and Q=−1/(2bJn) when the latter orbit exists. The integrated real coherences are U=−(n−2)/(2 gamma n), and V=W=1/(gamma n) for existing orbits. Substitution into the remaining equations and the trace constraint gives nX/(n−1) with the stated K and R coefficients. The a=1 equations give gamma/[2J²(b+1)]+(b−1)/[gamma(b+1)], including b=1. R=2b(b−1) for a=1, b(3b−2) for a=2, and has nonnegative coefficients in b and positive leading coefficient for a>=3. Thus the positive gamma and inverse-gamma terms give the unique optimum for n>=3; K_1,1 has only the increasing linear term. Leading powers of K and R give both scaling regimes. A separate full matrix-unit generator solve at J=1.25, gamma=1.5 gave T=0.496, 1.106, 0.24 and 0.422222222222 for (a,b)=(1,4),(4,1),(1,1),(2,2); it also matched the reported minima for n>2, with residuals below 5e−16. Replay: /workspace/branches/0b87a800-a3f8-45d4-a874-e6f2dfef92b8/replay_record4.py. These finite checks and the supplied verification notes are not proofs of the full family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older classicalization article uses H=D−A and quantum–classical distance. The topology survey includes site probabilities and several stability measures, with finite star and complete baselines. The indexed universal-hub result uses the same integral but under the Laplacian."
+        ],
+        "reasoning": "Standard open-system dynamics and broader topology comparisons do not supply the all-size centered signed return integral for adjacency and arbitrary initialized class. The universal-hub result does not dominate the claimed Hamiltonians and initial states.",
+        "searches": [
+          "arXiv:2204.01836 pp. 2–4",
+          "arXiv:2507.17880 pp. 2 and 5",
+          "Resultary 4e0e911e9d37"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e0e911e9d37",
+        "arXiv:2204.01836",
+        "arXiv:2507.17880"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic zero-frequency resolvent formula reduces to inversion of a trace-zero Lindblad operator; it does not evaluate the inverse in terms of a and b.",
+          "The same signed observable is not the absolute-distance, mixing or trapping measures of nearby transport work."
+        ],
+        "reasoning": "Extracting two topology-dependent coefficients, the positivity of the inverse-rate coefficient and the asymmetric scaling limits still needs the adjacency-biclique calculation. The optimization after the coefficient calculation is elementary and is not by itself an originality claim.",
+        "searches": [
+          "Resultary 4e0e911e9d37 statement and proof",
+          "arXiv:2204.01836 Haken–Strobl equation and objective"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a Laplacian universal hub on a star, the indexed result gives gamma/[2(b+1)]+(b−1)/(2 gamma) at unit hopping. For the adjacency star hub the second term is (b−1)/[gamma(b+1)]."
+        ],
+        "reasoning": "One edge is equivalent up to a scalar Hamiltonian shift, sign and units. An unbalanced graph has nonconstant diagonal degree, so subtracting a common energy and reversing the hopping sign cannot give the adjacency Hamiltonian. Even on balanced bicliques, universal-hub coverage only applies to the edge.",
+        "searches": [
+          "Resultary: integrated centered return and dephasing optimum",
+          "Resultary 4e0e911e9d37, Finding and k=1 boundary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed formula obtained was 4e0e911e9d37. Its k=1 boundary gives T_1(gamma)=gamma/4 at unit hopping, but its nontrivial star formula differs."
+        ],
+        "reasoning": "It verifies known coverage of a boundary instance without covering the all-size exact invariant. No comparable exact table was established in the bounded check.",
+        "searches": [
+          "Resultary: Haken–Strobl adjacency complete bipartite exact return resolvent and noise optimum"
+        ]
+      },
+      "rationale": "Pass is for the all-size adjacency-biclique signed return, optimum and scaling, not for the Haken–Strobl equation, resolvent method or known one-edge boundary. The closest same-day indexed result has the same observable in a different Hamiltonian family; the comparison is based on its formula, not its date.",
+      "residual_risks": [
+        "An alternative adjacency-biclique spectral or Green-function calculation in uninspected literature could imply the exact coefficients. No historical-priority conclusion is based on same-day catalogue dates or bounded search misses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-edge overlap; not an implication for general adjacency bicliques",
+          "evidence": "Uses a combinatorial Laplacian and a universal-vertex start; its star inverse-gamma coefficient differs for b>1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-integrated-hub-return-resonance-under-position-dephasing--4e0e911e9d37/RESULT.md",
+          "material_read": "Finding at offset 0 and proof boundary at offset 5845",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact integrated hub-return resonance under position dephasing",
+          "trigger": "Same signed return and optimizer on stars"
+        },
+        {
+          "assessment": "Model context, different Hamiltonian and measured observable",
+          "evidence": "H=L=D−A, site-projector dephasing, and quantum–classical distance objective.",
+          "identifier_or_url": "arXiv:2204.01836",
+          "material_read": "PDF p. 2 offset 4920; p. 3 offset 7985; p. 4 offsets 11317–12981",
+          "method": "OA PDF excerpts",
+          "title": "Decoherence and classicalization of continuous-time quantum walks on graphs",
+          "trigger": "Same dephasing framework, stars"
+        },
+        {
+          "assessment": "Inspected passages concern finite topology examples and dynamical stability observables",
+          "evidence": "Node occupancy and coherence, among other stability measures; N=10 star and complete baselines, not an all-size signed integrated occupation result.",
+          "identifier_or_url": "arXiv:2507.17880",
+          "material_read": "PDF p. 2 offset 1255 and p. 5 offset 11115",
+          "method": "OA PDF excerpts",
+          "title": "Stability of Continuous Time Quantum Walks in Complex Networks",
+          "trigger": "Topology comparison including noisy stars"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The signed centered integral is a natural zero-frequency equilibrium occupation correlation, and the complete bipartite family separates imbalance and start-class effects while remaining explicit. The formula gives exact quantitative dephasing tradeoffs, distinguishes a one-edge boundary with no positive optimum, and shows why a fixed starting part and proportionally growing parts have different optimal scalings. These are meaningful benchmarks for zero-frequency dynamics, not proxies claimed to optimize mixing or transport times.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

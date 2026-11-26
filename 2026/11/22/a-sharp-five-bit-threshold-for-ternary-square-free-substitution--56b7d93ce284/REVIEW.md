@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact claim concerns a ternary source with **all** contiguous nonempty squares excluded. Full-alphabet single-substitution correction is equivalent to minimum Hamming distance at least three. The 48-word orbit code has all 1,128 pairs checked directly. The seven-orbit rational received-word certificates give total weights 48 and 63/2 at lengths nine and eight, respectively; each source ball has exact weight one. Perfect pairings of the complete length-six and length-seven source sets and the direct shorter counts exclude 32 words below length nine. The included Python checker reconstructs all source sets independently and verifies every certificate without floating-point optimization.
+## correctness
 
-## Originality (PASS, qualified)
-Relevant inspected full texts are Currie's 2012 ternary square-free morphism paper, Buschmann and Bystrykh's 2013 barcode error-correction paper, and Przybocki's 2021 delicacy paper. Their objects or conclusions do not imply a maximal family of ternary all-square-free length-nine words at Hamming distance three. The 2016 Gasnikov–Shur wildcard-flexibility chapter was compared only from accessible extracted text after page-image retrieval failed. Indexed published findings on homopolymer-free non-overlapping words have a different feasible family and different decoding property. No equivalent exact table was located, but unindexed historical coverage cannot be excluded; no uniqueness claim is made.
+PASS
 
-## Value (PASS)
-The exact size 48 and the minimum blocklength nine establish a nontrivial finite design threshold for 32 distinguishable messages with single-substitution correction and all-square avoidance. This tests an important constraint stronger than forbidding neighboring repeats. Explicit symmetry-organized constructions and small rational dual witnesses improve reproducibility; no asymptotic conclusion is claimed.
+For distinct full-alphabet strings at distance one or two, a common radius-one output is obtained by keeping one center (distance one) or matching one center at one differing coordinate and the other at the second (distance two). Distance at least three excludes any common output. Independent replay, using embedded inputs checked for exact agreement with CERTIFICATE.json, regenerated all square-free sources with counts (3,6,12,18,30,42,60,78,108), verified that the n=6 and n=7 confusable pairs partition their respective source sets (bounds 21 and 30), and checked nonnegative exact weights on every n=8 and n=9 ball. Each ball received weight one with total budgets 63/2 and 48, so disjointness gives the integral upper bounds 31 and 48. The five n=9 orbits had 48 distinct legal centers and passed all 1,128 pair checks. Thus the integer maximum at nine is 48, with all earlier maxima <32; no exact n=8 value is established. Replay: /workspace/review-evidence/3/independent_audit.py and audit-full.txt in that directory. The frozen checker was inspected and not executed.
 
-## Boundaries and comparison risk
-The result assumes the word boundary is known, works over three symbols, and covers substitutions rather than insertions or deletions. The bound at length eight is deliberately not stated as exact. The original 2016 flexibility chapter was not fully rendered, and older unindexed exact computations may exist. These are limitations of historical comparison, not substitutions for the finite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Hamming-ball packing formulation, symmetry, and rational upper bounds are established tools. The increment is the explicit optimum and exclusion of all shorter lengths for the full square-free source constraint and arbitrary single substitutions, which do not follow from the closest inspected substitution-detection and cross-bifix results. No broader historical priority is asserted.
+
+## value
+
+PASS
+
+For a natural strong repeat-avoidance constraint, five binary payload bits is a defined code-design target rather than a selected numerical coincidence. The result gives an exact capacity of 48 at the first feasible length, an explicit attaining set, and independently checkable compact dual certificates explaining why length eight cannot carry even 32. It is an exact benchmark for the stated substitution model, not an asymptotic or deployment claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:02:55.685173Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, definition, pair table and proof",
+        "VERIFICATION.md, gapped_verify_dp.cpp and gapped_verify_direct.py (read)",
+        "Independent replay: python3 audit_deck.py"
+      ],
+      "rationale": "The prefix recurrence splits admissible tuples according to whether they use the last index; a nonempty preceding prefix pattern can extend only from the prefix two positions back, with no such contribution at the first index. I independently reproduced the complete census in audit_deck.py using a different signature. For each pattern length k, count tuples whose designated slots are all ones, leaving other slots unconstrained. These 2^k moment counts are the Boolean zeta transform of the exact pattern counts and can be inverted, so grouping by these moments preserves the fibers. Zero-based admissible indices i_j arise bijectively from increasing indices m_j in range(n−k+1) by i_j=m_j+j. For all 2^n words at each n=1,…,13, exact integer grouping gives the sole length-two collision {01,10}, injectivity for 3≤n≤12, and 8184 singleton plus four doubleton fibers at n=13. The discovered doubletons agree word for word with the frozen table; each consists of two reversals and complementation interchanges pairs in two distinct orbits. A maximum labeled code chooses one word per fiber, so its size is 8188 and its count is 2⁴=16.",
+      "residual_risks": [
+        "The exhaustion is exact for these lengths, not a theorem for other gaps, alphabets, observation orders, or longer words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rigo et al. study factor complexity in special infinite sequences and characterize binary (1,2)-equivalence in Lemma 2.1, not the order-three census in the passages inspected.",
+          "Resultary 5d691b245815 includes the full census plus a universal-context substitution claim and symmetry classification of maximum codebooks."
+        ],
+        "reasoning": "An order-two equivalence characterization is not a classification of its refinements by the length-three coordinates. The later catalogue entry genuinely dominates the present finite theorem; its catalogue date follows the frozen source path date.",
+        "searches": [
+          "Rigo–Stipulanti–Whiteland DOI 10.1109/ISIT54713.2023.10206676, abstract and Lemma 2.1",
+          "Golm et al. arXiv:2201.12671v2, §III",
+          "Resultary 5d691b245815"
+        ]
+      },
+      "checked_sources": [
+        "Golm–Nahvi–Gabrys–Milenkovic arXiv:2201.12671v2",
+        "Rigo–Stipulanti–Whiteland DOI 10.1109/ISIT54713.2023.10206676",
+        "Resultary 5d691b245815"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complementation and reversal of the prior example produce its two complement-related fibers, but not the other two. No published upper bound on the total collision class count was present in the inspected table.",
+          "The optimum and its count follow immediately from the new fiber data, not from the threshold itself."
+        ],
+        "reasoning": "The earlier threshold identifies the first meaningful length for this search and the example gives one collision, but neither rules out additional doubletons or larger fibers. The length-two collision is a degenerate case under the explicit up-to-three profile, not a contradiction of the reported nondegenerate threshold. The later catalogue theorem directly implies all the frozen finite data.",
+        "searches": [
+          "Golm et al. §§II–III, definition and numerical table",
+          "Rigo et al. Lemma 2.1",
+          "Resultary 5d691b245815, Finding and exact comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Golm et al.'s multiset B^(3) counts ordered subsequences of every length up to three with adjacent selected indices at distance at least two. The frozen 14 coordinates give precisely that multiset by multiplicity.",
+          "The one skipped position is called separation distance 2 in Golm et al.; the length cutoff 3 is not a gap size."
+        ],
+        "reasoning": "Binary words have exactly 2+4+8 possible nonempty observations through length three. The coordinate re-encoding introduces no new equivalence relation.",
+        "searches": [
+          "Resultary: one-gap three-deck, nonconsecutive subsequences and gapped-binomial equivalence",
+          "Golm et al. arXiv:2201.12671v2, §II; Rigo–Stipulanti–Whiteland, gapped binomial equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 'Confusable pairs (examples)' table reports G(3)=13 and lists 1101111010111 versus 1110101111011. It does not tabulate all fibers at n=13.",
+          "The later catalogue finding has the same four pairs, 8184 singletons, 8188 classes, range 3–12, length-two exception, and 16 maximum labeled codebooks."
+        ],
+        "reasoning": "A table of first collisions with an example is strictly less information than a complete equality partition; the later catalogue record has the exact partition summaries.",
+        "searches": [
+          "Golm et al. arXiv:2201.12671v2, §III numerical table (HTML offset 28904)",
+          "Resultary 5d691b245815, exact collision and codebook data"
+        ]
+      },
+      "rationale": "The separation-two deck through length three is exactly the deck of Golm et al. for k=3. Their nondegenerate threshold 13 and their example, the last pair in the frozen table, are prior work; the table explicitly labels its pairs as examples. The distinct content supported here is the complete length-13 histogram and exact list of all four classes, not the threshold or the known example. These are fully duplicated in a later Resultary catalogue record, also including the codebook consequences. The later-dated overlap is not evidence of earlier priority, and dates and matching statements alone do not establish provenance.",
+      "residual_risks": [
+        "The prior example and threshold may have been computed from data not published in the inspected table. A bounded search cannot rule out an earlier complete census elsewhere.",
+        "The exact later match is established, but provenance beyond the available record dates and text is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact observation match and partial prior data, not the full census in the inspected table",
+          "evidence": "Indices differ by at least 2; G(3)=13; the example column lists the last frozen pair.",
+          "identifier_or_url": "https://arxiv.org/html/2201.12671v2",
+          "material_read": "§II definition, HTML offsets 6457–10056; §III numerical table, offset 28904",
+          "method": "Primary full-text passages",
+          "title": "The Gapped k-Deck Problem",
+          "trigger": "Same deck and previously reported threshold"
+        },
+        {
+          "assessment": "Related lower-order and factor-complexity results",
+          "evidence": "Binary (1,2)-equivalence characterization, not all binary words under order-three equivalence.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/302524/1/isit2023.pdf",
+          "material_read": "Abstract, p. 1; Lemma 2.1, p. 2",
+          "method": "Primary PDF passages",
+          "title": "Gapped Binomial Complexities in Sequences",
+          "trigger": "Equivalent terminology and broader theory"
+        },
+        {
+          "assessment": "Exact overlap on the frozen claims, in a later-dated catalogue entry",
+          "evidence": "Same four reversal pairs and census; additionally treats substitution and codebook symmetry.",
+          "identifier_or_url": "Resultary 5d691b245815 (2026-10-26)",
+          "material_read": "RESULT.md, Finding and comparison passages at text offsets 311 and 7600",
+          "method": "Published record text and comparison of exact pairs and counts",
+          "title": "Four minimal binary one-gap three-deck collisions and universal substitutions",
+          "trigger": "Exact same deck, cutoff, fibers, and codebook counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and finite census",
+        "Golm et al. §III numerical table"
+      ],
+      "rationale": "Length 13 is motivated by the published first nondegenerate loss of reconstruction, not an arbitrary cutoff. The complete census determines precisely how badly reconstruction fails at that boundary: only eight words are affected, there are no higher-multiplicity obstructions, and the four pairs show the exact symmetry of the failures. The fiber census also gives the sharp zero-error code size and choices of optimum codebook. These last deductions are simple consequences, not a separate structural contribution.",
+      "residual_risks": [
+        "No inference about the growth or shape of fibers for n>13 is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

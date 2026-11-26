@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:25:16.403763Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and assumptions; VERIFICATION.md; check.py inspected (numerics not needed for the analytic check)",
+        "repairs/4/RESULT.md"
+      ],
+      "rationale": "I reconstructed the normalized B=1 proof for arbitrary holomorphic maps into the open half-strip. Its bounded Dirichlet majorant is the Brownian exit expectation: the exit ordinate has the prescribed mean and takes both signs with positive probability, giving a strictly positive gap inside. Bounded harmonic radial convergence applies to both the majorant pulled back to the disk and the imaginary part; no assumption on the boundary real part is needed. The Fourier coefficients of the limiting triangular datum are 2/lambda_j^2. The conformal inverse has a boundary extension away from the single preimage of infinity; bounded analytic uniqueness rules out a positive-measure preimage of that point. Thus inner maps give equality, whereas non-inner maps give a positive integrated gap on a positive-measure set. Composing with an automorphism (and optionally a disk power) realizes any center. For the corner law the derivative is (2/pi) log|coth(pi(X+iY)/4)|; z coth z=1+O(|z|^2) gives the requisite uniform derivative error, whose integral from 0 to X is O(X(X^2+Y^2)). Rechecking the repair confirms both the limit from the prior calculation and the claims it retains.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Essén–Shea–Stanton Theorems 6 and 8 concern general sharp Orlicz/conjugate-function inequalities and sharpness for analytic-polynomial settings inspected; no bounded-half-strip all-extremizer classification or joint corner estimate was found in those passages.",
+          "A lawful retrieval attempt for Baernstein did not supply full text; its exact implications remain unverified."
+        ],
+        "reasoning": "General subharmonic majorant/minorant methods are prior, not the repaired claim; broad historical coverage remains plausible and no novelty is inferred from access failure.",
+        "searches": [
+          "Essén–Shea–Stanton DOI 10.5802/aif.1896, pp. 623–631 and 647; Baernstein DOI 10.1512/iumj.1978.27.27055 and lawful OA alternatives"
+        ]
+      },
+      "checked_sources": [
+        "Brazitikos arXiv:2605.18087v1",
+        "Essén–Shea–Stanton DOI 10.5802/aif.1896",
+        "Resultary 3926fe608e2b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Before evaluating at Y=0, the proof shows |y|^p <= U_p(x,y), takes disk means at (u(0),v(0)), and gives the full two-variable eigenfunction series with coefficients 2 integral_0^1 (1-y^p) cos(lambda_j y) dy.",
+          "The boundary data converge uniformly as p decreases to 1; at p=1 the coefficients are 2/lambda_j^2. Passing to the limit at any X>0 yields the very profile in the frozen Finding. Conformal boundary realization then provides the sharp bound. This does not rely on the divergent A_p.",
+          "The prior centered kernel/slope argument does not characterize equality for arbitrary analytic maps or integrate the derivative with a uniform remainder as both X and Y approach zero."
+        ],
+        "reasoning": "Credit the mechanically implied exact endpoint bound, including nonreal centers, rather than treating its absence from the prior theorem statement as novelty. Retain the equality classification and joint asymptotics, which require the strict-gap boundary argument and additional explicit analysis.",
+        "searches": [
+          "Brazitikos arXiv:2605.18087v1, Theorem 1 proof pp. 3–7, offsets 10700–20243 and 20900–23584"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The half-strip solution in Brazitikos has the same Dirichlet modes and boundary data |y|^p, with p approaching one. Normalization by B is just scaling.",
+          "The closest fixed-center Resultary result, 3926fe608e2b, bounds two-sided Fourier coefficients of bounded harmonic maps at fixed center modulus, a different feasible class and objective."
+        ],
+        "reasoning": "Limiting the half-strip calculation identifies the profile, whereas the coefficient-envelope asymptotic does not translate into this boundary-moment problem under relabeling, normalization or Cayley transformation.",
+        "searches": [
+          "Resultary: fixed complex center sharp half-strip boundary L1 of Im F, and normalized bounded conjugate functions",
+          "Brazitikos arXiv:2605.18087v1, Theorem 1 and two-variable Dirichlet proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected mirrored 3926fe608e2b Finding: coefficient envelope at fixed center modulus, not the integral of the absolute imaginary trace in a half-strip.",
+          "The broad lookup was uninformative; no matching exact table or equality/corner formula was identified there."
+        ],
+        "reasoning": "The nearest exact indexed formula is for a different functional, so it provides no equality test or uniform two-center expansion for this one.",
+        "searches": [
+          "Resultary: fixed-center boundary first-moment conjugate function and strip log-corner profile; broad literature lookup on sharp fixed complex-center conjugate bounds"
+        ]
+      },
+      "rationale": "This is a PASS only for the repaired contribution: the if-and-only-if extremizer classification at every allowable complex center and the explicit uniform two-parameter crossover. The repaired text supplies the endpoint implication and credits the explicit profile to it. The inspected prior formulas give a majorant and the centered p>1 slope regime, not the boundary strictness and converse extremizer analysis or the uniform logarithmic term with the arctangent crossover and direction-independent error.",
+      "residual_risks": [
+        "Baernstein (1978) full text was not retrieved; older general sharp-conjugate inequalities may contain related implications. Priority is best-of-knowledge only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The endpoint bound and profile are implied despite the final linear estimate assuming p>1; repaired contributions not supplied",
+          "evidence": "The proof computes U_p(x,y) in both variables before specializing to the centered slope; the limit gives the endpoint coefficients directly.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.18087v1",
+          "material_read": "Theorem 1 and proof pp. 3–7; specifically offsets 10700–20243 and 20900–23584",
+          "method": "OA primary PDF bounded passages",
+          "title": "Sharp Estimates for Conjugate Functions with Applications to Trigonometric Polynomials",
+          "trigger": "Same half-strip geometry and Dirichlet values with p>1"
+        },
+        {
+          "assessment": "Broader method; no demonstrated implication for repaired contribution",
+          "evidence": "Orlicz inequalities and subharmonic minorant framework for normalized conjugates, not the claimed half-strip equality or uniform fixed-center corner formula in the passages examined.",
+          "identifier_or_url": "https://aif.centre-mersenne.org/item/10.5802/aif.1896.pdf",
+          "material_read": "Introduction and general theorem passages pp. 623–631; Theorem 8 p. 647",
+          "method": "OA primary PDF passages",
+          "title": "Sharp L log^alpha L inequalities for conjugate functions",
+          "trigger": "Potential broader sharp conjugate inequalities"
+        },
+        {
+          "assessment": "Unresolved access risk, not a negative coverage finding",
+          "evidence": "No mathematical passage recovered.",
+          "identifier_or_url": "https://doi.org/10.1512/iumj.1978.27.27055",
+          "material_read": "Bibliographic evidence only",
+          "method": "Bounded lawful OA retrieval attempt, no full text located",
+          "title": "Some sharp inequalities for conjugate functions",
+          "trigger": "Potential earlier sharp endpoint result"
+        },
+        {
+          "assessment": "Different observable and feasible class",
+          "evidence": "Bounds Fourier coefficients at fixed center modulus, not the absolute boundary moment of a conjugate with positive real part.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-fixed-center-two-sided-fourier-coefficient-envelope-for-bo--3926fe608e2b",
+          "material_read": "Mirrored Finding, offset 92",
+          "method": "Local Resultary search and mirrored original",
+          "title": "Sharp fixed-center two-sided Fourier-coefficient envelope for bounded harmonic maps",
+          "trigger": "Closest fixed-center catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/4/RESULT.md; Brazitikos Theorem 1 and proof"
+      ],
+      "rationale": "The complete extremizer test distinguishes all equality maps, including nonunivalent maps, rather than merely constructing a conformal witness. The joint estimate pinpoints why the initial response changes from finite linear slope at a fixed off-center ordinate to the centered logarithmic singularity. Its uniform error covers paths for which separate one-variable expansions would not determine the crossover. These are independently useful statements about equality and asymptotic scale in a natural sharp bound already implied by prior work.",
+      "residual_risks": [
+        "The repair does not claim attainment or an equality classification for degree-restricted polynomial classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:31:45.186542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–31 and 33–53; VERIFICATION.md, line 19; verify.py, lines 9–77 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/frozen_claim_checks.py (semigroup)"
+      ],
+      "rationale": "For coin sizes 1,3,5 the costs 1,2,3 are each at least three fifths of size. Repeated size-five coins and residual constructions of costs 0,1,2,2,3 attain the rounded bound. Minimum cost h(t) is nondecreasing, so t=i is optimal among nonnegative t congruent to i, giving the Apéry formula. In residue i there are h(i) nonnegative gaps and the largest gap is w_(m-1)-m. The full blocks contribute 15k+8 in block k; a final r-term block contributes 3qr+c_r. If z is pseudo-Frobenius then z+m is Apéry; conversely for z=w_i-m it suffices to test z+g in the semigroup on the generators. In a wrapped transition this holds automatically; in an unwrapped one it is exactly h(i+t)<h(i)+c. For t=5 equality always holds, so only the last five indices remain. Nonwrapped t=3 allows only residue 2 modulo 5 and nonwrapped t=1 allows residues 2 and 4. Intersecting gives the displayed I_m and type vector. Type one gives symmetry. The proof's reference to four possible indices in Step 4 is a count typo: there are five candidates before screening, as used by the displayed index formula. A separate increasing-integer membership recurrence checked gaps and the generator definition of pseudo-Frobenius exactly for m=6..70.",
+      "residual_risks": [
+        "The finite check corroborates the proof; it does not address larger generator lists or m<6."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu et al., pp. 10 and 13 (arXiv text offsets 38532 and 50329), gives PF/invariant calculations for generalized-repunit and Thabit families. The specific step sequence 1,m+2,m+2 of the four generators is not an ordinary arithmetic progression. Frozen RESULT.md line 57 describes the correspondence to the full odd-right-end semigroup on the even-m subfamily."
+        ],
+        "reasoning": "Knowing the invariants of a larger semigroup does not determine those of a proper truncation. In the displayed family at even m>=8, the next odd-step candidate 4m+7 is below the minimum in residue 7, which is 5m+7; its addition changes the Apéry set. A general weighted-coin template does not evaluate this particular minimum and PF spectrum by itself.",
+        "searches": [
+          "Resultary: full smallest odd-right-end numerical semigroup even multiplicity generators Frobenius genus m=6",
+          "OA: arXiv:2306.03459, weighted coin Apéry set generalized Mersenne Thabit numerical semigroups pseudo-Frobenius; pseudo-Frobenius",
+          "OA: DOI:10.3390/axioms15030189, even m smallest odd-right-end numerical semigroup generators Frobenius number genus"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 684b5569536f (same record), dd5454e0b3af, 7091c6f11bba",
+        "Robles-Pérez and Rosales, arXiv:2310.09287, Proposition 3.17",
+        "Liu et al., arXiv:2306.03459, pp. 2, 10, 13",
+        "Moreno-Frías and Rosales, DOI:10.3390/axioms15030189, landing page and frozen comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Robles-Pérez and Rosales, Proposition 3.17, p. 6: PF consists of maximal Apéry elements shifted by the multiplicity. The retrieved generalized Mersenne/Thabit specializations concern different generators. The frozen proof's coin minimum and unwrapped increment conditions are the extra family-specific input."
+        ],
+        "reasoning": "The standard proposition gives a route once the full Apéry set and its semigroup order are known; it does not state the ceiling function or the maximal-residue selection. The known m=6 invariant values are covered, not the uniform PF law across five classes.",
+        "searches": [
+          "OA: arXiv:2310.09287, pseudo-Frobenius, Proposition 3.17",
+          "OA: arXiv:2306.03459, pseudo-Frobenius",
+          "DOI:10.3390/axioms15030189 and identified open-access retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "684b5569536f is the audited record. dd5454e0b3af addresses the PF spectrum of sparsified repunit triples; 7091c6f11bba addresses generalized Frobenius and second Apéry invariants of <m,m+1,hm-1>."
+        ],
+        "reasoning": "A PF spectrum can equivalently be stated as maximal Apéry elements minus the multiplicity. The related generator families and second-Apéry invariant are not equivalent to that spectrum for the displayed four generators.",
+        "searches": [
+          "Resultary: <m,m+1,2m+3,3m+5> pseudo-Frobenius type symmetry five-class formula Apéry",
+          "Resultary: numerical semigroup generated by four elements m, m+1, 2m+3, 3m+5 pseudo-Frobenius m congruence classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-family indexed hit is the same record. The frozen comparison indicates previously known F=17 and g=11 for the coincident m=6 semigroup; no independent previous table of its PF set was established."
+        ],
+        "reasoning": "The theorem is an infinite PF set law, not a single invariant from a finite enumeration. A table entry of F or genus does not specify the other PF values. No inspected database supplies a parameterized exact table for this truncation.",
+        "searches": [
+          "Resultary exact-family queries using m,m+1,2m+3,3m+5 and pseudo-Frobenius/type/symmetry",
+          "OA: m=6 odd right-end numerical semigroup Frobenius number genus generated by; DOI:10.3390/axioms15030189"
+        ]
+      },
+      "rationale": "The distinct claim is the complete, parameter-uniform PF spectrum and type/symmetry law for the truncation, supported by its explicit Apéry calculation. The standard Apéry/PF relation and the weighted coin approach are not new. The m=6 Frobenius and genus instance is already attributed to the full odd-right-end case and is not credited as new here. The checked primary results and indexed statements do not supply this truncation's PF formula or force its five-class law without the family-specific optimization and maximal-residue computation.",
+      "residual_risks": [
+        "The full odd-right-end primary text was unavailable; coverage of the m=6 PF set by that source is not verified.",
+        "Equivalent parametrizations in work on augmented arithmetic sequences or monotone Apéry sets may not be indexed under these terms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the standard maximal-Apéry mechanism, not the explicit residue calculation",
+          "evidence": [
+            "PF(S)={w-n : w is semigroup-order maximal in Ap(S,n)}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.09287",
+          "material_read": "Proposition 3.17, p. 6, OA offset 16296",
+          "method": "Targeted OA full-text lookup",
+          "title": "Numerical Semigroups with Monotone Apéry Set and Fixed Multiplicity and Ratio",
+          "trigger": "General monotone-Apéry theorem could cover the exact PF law"
+        },
+        {
+          "assessment": "Relevant method and exact specializations for other generator patterns",
+          "evidence": [
+            "Retrieved closed formula passages specialize to generalized repunit and Thabit generators; they do not give the sizes 1,3,5 with costs 1,2,3 as this truncation's formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03459",
+          "material_read": "pp. 2, 10 and 13, OA offsets 4870, 38532 and 50329",
+          "method": "Targeted OA full-text lookup",
+          "title": "A Generalization of Mersenne and Thabit Numerical Semigroups",
+          "trigger": "Weighted coin Apéry computations and closed PF laws"
+        },
+        {
+          "assessment": "Frobenius/genus overlap at m=6 is credited as reported; primary theorem locator not recovered",
+          "evidence": [
+            "The frozen comparison describes the full even-m family and specifically excepts the already known coincident m=6 invariants."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/axioms15030189",
+          "material_read": "Landing page; overlap described in frozen RESULT.md line 57, not independently confirmed from article text",
+          "method": "Targeted OA lookup, DOI and publisher page/PDF attempts",
+          "title": "Odd Right-End Numerical Semigroups",
+          "trigger": "Possibly matching family for even m and coincident m=6 case"
+        },
+        {
+          "assessment": "Different generators in available statement",
+          "evidence": [
+            "Applies to <R_n,R_(n+2),R_(n+6)>."
+          ],
+          "identifier_or_url": "dd5454e0b3af",
+          "material_read": "Resultary catalog statement",
+          "method": "Targeted exact-family Resultary search",
+          "title": "Exact Apéry and pseudo-Frobenius laws for sparsified repunit triples",
+          "trigger": "Closest indexed PF formula for a sparsified generator list"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–31, 39–49 and 55–61"
+      ],
+      "rationale": "This is a natural fixed-generator truncation of the odd-step construction, with a direct arithmetic extension to all integers m>=6. The complete PF spectrum gives the exact maximal gaps under semigroup order, not just the largest gap, and its five-class type and symmetry law is useful without rerunning a residue search at each m. It demonstrates a parity-independent structure not inferable from the full even-m model.",
+      "residual_risks": [
+        "No classification beyond the stated truncation is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

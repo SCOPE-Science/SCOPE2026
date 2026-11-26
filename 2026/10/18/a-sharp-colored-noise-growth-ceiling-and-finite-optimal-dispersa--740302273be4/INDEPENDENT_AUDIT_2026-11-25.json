@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:11:37.189817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Subtracting the log equations gives Ẋ=H−M sinh X, with stationary variance 2λD for the OU difference. On a common forcing path all solutions contract at rate M, and the pullback from zero is Cauchy with stationary bound |X(t)|≤∫_{−∞}^t e^{−M(t−s)}|H(s)|ds. Jensen against the normalized exponential kernel gives finite exponential moments, locally uniform in M>0. The pullback is a stationary ergodic factor of H; contraction transfers the long-time log-total growth to arbitrary positive initial abundances. Direct differentiation gives g=(1/2)E[H tanh(X/2)], including the zero mean environmental average. Applying stationarity to log cosh(X/2) gives g=(M/2)E[cosh X−1]; X cannot be identically zero under nondegenerate forcing. At M=0 both uncoupled log growth rates, and thus the log growth rate of their sum, converge to r. For the critical Gaussian identity I independently condition the past as H(−u)=e^(−λu)H(0)+Z(u), with the residual path Z independent of H(0). Scalar Gaussian integration by parts, first with finite past, differentiates X(0) in H(0) by integrating the input e^(−λu) against exp(−M∫_{−u}^0 cosh X). This proves the stated response formula, including its λD/2 prefactor; e^(−(M+λ)u) dominates passage to infinite past. The sech² factor is strictly below 1 with positive probability, proving the strict global cap. The stationary cosh moment gives E sinh²X≤2λD/M². Since cosh X−1≤sinh²X/2, the response converges to the linear one at fixed M as D→0, and on times u=v/M at fixed D as M→∞, yielding both coefficients by dominated convergence. Stationarity of X², XH and cosh X gives λM E[X sinh X]+M² E[sinh²X]=2λD. It implies the small-M split bound at any R, and taking first M→0 and then R→∞ proves the endpoint. For continuity at positive M, couple the two stationary pullbacks on one H; the difference has a restoring rate at least min(M,M') and source bounded by |M−M'|·|sinh X_{M'}|. The uniform local moments yield L¹ continuity of X and hence continuity of the bounded tanh response paired with the integrable H. Strict positivity and the two vanishing endpoints give an attained finite positive maximum, not uniqueness. The frozen simulation was inspected, not run; its seeded finite-time checks cannot certify the strict bound or limiting statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hening–Nguyen–Yin study Brownian-driven density-dependent dynamics, and the inspected Benaïm–Lobry–Sari–Strickler passage describes periodic switching of patch growth rates. Henderson–Tiffeau-Mayer's weak-noise expression λD/(M+λ) is a saddle approximation in the infinite-patch mean-field setting, not the exact N=2 coefficient λD/[2(M+λ)]."
+        ],
+        "reasoning": "Neither a white-in-time driver, switching environments, nor the mean-field limit is an exact dominating theorem whose specialization gives the colored two-patch bounds.",
+        "searches": [
+          "Targeted primary-literature search for strict growth ceilings and finite optimum in two-patch OU dispersal",
+          "arXiv:1605.02027 (DOI:10.1007/s00285-017-1153-2); arXiv:2111.12633; arXiv:2603.02403v1, Eq. (15) and Supplement weak-noise passage"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.02403v1",
+        "arXiv:1605.02027 / DOI:10.1007/s00285-017-1153-2",
+        "arXiv:2111.12633",
+        "Resultary 4c48e3f7d92f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The main text reports a numerical peak at finite M for N=2 and says an optimum is expected at any finite N. It does not derive decay at both migration endpoints from exact colored dynamics. The known stationary expectation leaves the law of X and the claimed sharp all-parameter ceiling undetermined."
+        ],
+        "reasoning": "The causal response estimate supplies the explicit ceiling and sharp coefficients; the stationary moment budget supplies the nontrivial M→0 limit. These make the known numerical observation a theorem under exactly stated conditions.",
+        "searches": [
+          "Compare arXiv:2603.02403v1 pp. 4–5 and Supplement §III.D pp. 13–14 to the frozen equations (3)–(8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original law has migration M/N per link (M/2 for N=2) and exactly the frozen OU normalization. Supplement Eq. (54) uses M/2(E e^(−X)−1); exchange symmetry makes it identical to M/2(E cosh X−1). The supplement states that Eq. (54) is evaluated numerically for colored noise and gives the exact Bessel expression specifically for white noise."
+        ],
+        "reasoning": "This is actual equivalent prior coverage of the model and the growth formula, but it does not evaluate the colored-noise response or furnish an exact optimization theorem.",
+        "searches": [
+          "Resultary: exact two-patch OU growth ceiling, colored-noise optimal migration, and frozen-title equivalent",
+          "arXiv:2603.02403v1, Eq. (9), Supplement §III.D Eq. (54), and Fig. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed match 4c48e3f7d92f concerns stationary local variances under additive white noise. The published exact Bessel formula and analytic markers in Fig. 4 concern white noise; colored curves are numerical."
+        ],
+        "reasoning": "No same-observable, same-noise exact entry or table for the claimed coefficient and finite-M ceiling was found. Neither a different observable nor numerical evaluations are equivalent exact data.",
+        "searches": [
+          "Resultary: two-patch Ornstein–Uhlenbeck growth ceiling, exact enhancement coefficient, finite optimal dispersal",
+          "arXiv:2603.02403v1 Supplement Eqs. (54)–(55), and Fig. 4"
+        ]
+      },
+      "rationale": "The exact model, the basic stationary growth identity and the numerical observation of a finite colored-noise optimum are prior. The surviving contribution is the exact response identity and strict ceiling at all positive parameters, its sharp weak-noise and fast-migration coefficients, and the quantitative slow-migration estimate proving rigorous attainment. No inspected source supplies or mechanically implies that package.",
+      "residual_risks": [
+        "Bounded comparison does not exclude an unindexed exact two-patch theorem or a broader law implying the same response bound. The numerical observation, the model and the original expectation identity are not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on model, growth identity and numerical observation, not exact ceiling or attainment proof",
+          "evidence": [
+            "Supplement: ‘For coloured noise at N=2 we evaluate Eq. (54) numerically.’ Eq. (55) and the analytic markers concern white noise; Eq. (15) belongs to the mean-field discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.02403v1",
+          "material_read": "Versioned PDF pp. 1–2, Eq. (9); pp. 4–5 Eq. (15), finite-optimum text and Fig. 4; Supplement pp. 13–14, weak-noise section and §III.D Eqs. (54)–(55), offsets 73750–75748 for latter",
+          "method": "Open primary PDF passages",
+          "title": "Fluctuating environments are sufficient to drive substantial variability in species abundance across locations",
+          "trigger": "Identical colored-noise migration model and reported finite optimum"
+        },
+        {
+          "assessment": "Different environmental dynamics",
+          "evidence": [
+            "Density-dependent patch dynamics driven by correlated Brownian motions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.02027",
+          "material_read": "Open PDF introduction p. 3, near offset 13900",
+          "method": "Primary open PDF passage",
+          "title": "Stochastic population growth in spatially heterogeneous environments: the density-dependent case",
+          "trigger": "General stochastic structured-population growth"
+        },
+        {
+          "assessment": "Different forcing, no claim of full-document exclusion",
+          "evidence": [
+            "The inspected scope describes periodically switching growth rates in opposite habitats."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.12633",
+          "material_read": "PDF p. 1 abstract, near offset 0",
+          "method": "Primary PDF abstract scope check",
+          "title": "Untangling the role of temporal and spatial variations in persistence of populations",
+          "trigger": "Migration and finite persistence/growth optima in heterogeneous patches"
+        },
+        {
+          "assessment": "Different stochastic model and observable",
+          "evidence": [
+            "Classifies stationary local variances in a linear additive-white-noise model, not the long-run population growth exponent with colored per-capita noise."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-no-local-variance-maxima-under-symmetric-dispersal-in-a-two-patc--4c48e3f7d92f",
+          "material_read": "Local RESULT.md finding and model",
+          "method": "Resultary and local original passage",
+          "title": "No local-variance maxima under symmetric dispersal in a two-patch model",
+          "trigger": "Two-patch symmetric dispersal and noise extrema"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model and question are independently motivated by an existing numerical finite-optimum observation. The strict ceiling gives usable parameter-dependent control without a white-noise or weak-noise replacement, the two sharp limits identify its accuracy, and the small-migration bound makes the qualitative finite optimum rigorous without claiming uniqueness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

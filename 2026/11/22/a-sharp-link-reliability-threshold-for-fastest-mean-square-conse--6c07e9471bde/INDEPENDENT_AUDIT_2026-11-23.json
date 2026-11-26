@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:22:57.717856Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For either Laplacian projector P₂ or P₄ and each edge vector b=e_i−e_j, bᵀP_j b=1: the squared projection onto the alternating unit vector is 1 and the remaining squared norm is 1. Therefore the Bernoulli covariance correction to T(P_j) relative to (I−phL)P_j(I−phL) is exactly p(1−p)h²∑bbᵀ=p(1−p)h²L. This independently yields the stated K and its symmetric Frobenius representation. Independence across rounds gives E||W_k⋯W_1x||²=xᵀT^k(P)x on the mean-zero space; diagonal coefficients are K^k(1,1)ᵀ. For 0<p<1 and h>0 the positive K (positive diagonal from the no-edge event) has a dominant positive Perron vector, so the rate holds for every nonzero mean-zero vector as well as the worst case. At h=0 it is 1; at p=1 it is the maximum of the two deterministic squared modal multipliers. I independently expanded (tr K)²−4 det K, obtained the stated radical, and found det C=16p³(p+3)>0 with C₁₁>0. The smallest eigenvalue of C gives a strictly positive uniform convexity modulus for λ_max(S) in h. The right slope at zero is −4p. For the upper boundary the derivative divided by p is 7p−3+N/√Q; for p≥3/7 it is positive. Below 3/7 the valid squared sign test factors as −16(p−1)(3p−2)(11p²−8p+1), negative below the smaller root and positive above it. This yields the unique optimizing regime at and around the threshold. At p=1 the unique minimizer is the modal crossover h=1/3, with rate 1/9. As a check on the distinction from the one-step objective, at (p,h)=(3/4,2/5) both row sums equal 7/25 but ∂hR=2/5. Only the common-gain family is optimized, with its feasible range [0,1/2]. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5 of the 2010 paper treats tori to first order in small failure probability, not the exact optimized curve for all p. Its p. 890 weight discussion concerns a separate additive-noise steady-state criterion.",
+          "Battilotti–Cacace–d’Angelo Theorems 2–3 concern distributed filtering limits, asymptotic unbiasedness and mean-square boundedness."
+        ],
+        "reasoning": "An implicit general spectral radius does not by itself classify the constrained optimum; the two-mode reduction and the sign of the boundary derivative supply the additional classification. Neither perturbative tori rates nor filter boundedness dominate an exact all-p optimization.",
+        "searches": [
+          "DOI:10.1109/TAC.2010.2041998",
+          "arXiv:2305.04555v1",
+          "IEEE document 4434917"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1109/TAC.2010.2041998",
+        "arXiv:2305.04555v1",
+        "DOI:10.1109/CDC.2007.4434917 (abstract)",
+        "Resultary:6c07e9471bde (same record)",
+        "Resultary:d96e8c040b54 (summary)",
+        "Resultary:c93f751b4cab (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest catalog descriptions respectively concern a four-node path with a two-message sampling design and single-edge sampling on complete bipartite graphs. K₂,₂ is C₄, but choosing exactly one edge in every round is different from four independently active Bernoulli edges, including no-edge and concurrent-edge events.",
+          "The exact general covariance theorem implies a rate for any fixed gain, but no inspected prior statement gives this sign factorization at the stochastic gain cap or the switch it certifies."
+        ],
+        "reasoning": "The novelty is not the framework or a fixed-gain invocation of it: the optimizer classification comes from additional invariant-space, strong convexity and boundary sign analysis. The same-day matches are distinguished by their stated models, not by their date; their full statements were unavailable.",
+        "searches": [
+          "DOI:10.1109/TAC.2010.2041998 (Theorems 2.3 and 2.5)",
+          "Resultary:d96e8c040b54",
+          "Resultary:c93f751b4cab"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Patterson–Bamieh–El Abbadi Theorem 2.3 and the uniform-failure corollary give the exact asymptotic covariance spectral radius for arbitrary connected undirected graphs; set failure probability to 1−p to compare parameters.",
+          "Their p. 884 discussion separates the covariance operator from eigenvalues of individual or expected weight matrices."
+        ],
+        "reasoning": "The rate criterion and methodology are not new. Expected matrix contraction, one-step mean-square energy, and the multiple-round covariance spectral radius are not interchangeable objectives; matching one of the former cannot entail the gain threshold for the latter.",
+        "searches": [
+          "Resultary: iid independent Bernoulli edge failures distributed average consensus asymptotic mean square rate covariance operator",
+          "DOI:10.1109/TAC.2010.2041998"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top catalog result 6c07e9471bde matched the frozen record itself, not another result. Catalog neighbors d96e8c040b54 and c93f751b4cab reported different algorithms or sampling regimes.",
+          "The external lookup identified the 2010 author manuscript and the 2007 precursor, not an exact C₄ common-gain threshold table."
+        ],
+        "reasoning": "The exact targeted matches inspected did not yield a distinct source for the full radical and gain switch. The search is not a proof of nonexistence; the two nearby catalog comparisons are summary-limited.",
+        "searches": [
+          "Resultary: random link failures consensus exact gain optimization reliability threshold four cycle",
+          "Resultary: four-cycle iid Bernoulli links exact asymptotic mean-square consensus rate optimal gain reliability threshold",
+          "Literature: \"Convergence Rates of Distributed Average Consensus with Stochastic Link Failures\" Patterson Bamieh El Abbadi PDF full text"
+        ]
+      },
+      "rationale": "A general exact covariance-operator characterization for this failure model is established prior work. The supported additional result is its explicit C₄ mode reduction and the constrained common-gain optimizer switching at a precise reliability. Neither the inspected general characterization nor the related case results supplies that optimization. Priority is assessed only against the evidence inspected.",
+      "residual_risks": [
+        "The 2007 conference full text and the two near catalog matches were not accessible in full.",
+        "An earlier exact finite-cycle gain analysis under different terminology or in unindexed material is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General exact spectral-radius framework covers the model; inspected tori results do not give the all-reliability gain switch",
+          "evidence": [
+            "Theorem 2.3 gives exact worst-case asymptotic covariance rate; Theorem 2.5 gives a small-failure expansion. The p. 890 remark uses an additive-noise steady-state objective."
+          ],
+          "identifier_or_url": "https://www.webee.technion.ac.il/Sites/People/stacyp/papers/patterson_tac10.pdf",
+          "material_read": "Printed pp. 880–881, offsets 0–4895 and 11800–16780; pp. 883–885, offsets 19500–29521 including Theorems 2.3/2.5 and corollary; distinct weight remark p. 890",
+          "method": "Bounded primary author-PDF comparison",
+          "title": "Convergence Rates of Distributed Average Consensus with Stochastic Link Failures",
+          "trigger": "Same failure model and exact asymptotic-rate method (DOI 10.1109/TAC.2010.2041998)"
+        },
+        {
+          "assessment": "Filtering asymptotics, not this exact decay-rate switch",
+          "evidence": [
+            "Push-sum limits in probability, asymptotic unbiasedness and mean-square boundedness do not evaluate the common-gain C₄ optimizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.04555v1",
+          "material_read": "PDF pp. 1,4,8,10; offsets 0, 12327–15812, 27882, 35136; Theorems 2–3",
+          "method": "Bounded primary PDF comparison",
+          "title": "Consensus analysis of random sub-graphs for distributed filtering with link failures",
+          "trigger": "Plausible later random-subgraph consensus result"
+        },
+        {
+          "assessment": "No whole-paper conclusion possible",
+          "evidence": [
+            "The abstract describes a Lyapunov-like covariance recursion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/CDC.2007.4434917",
+          "material_read": "Indexed abstract only; full text unavailable",
+          "method": "Indexed primary abstract and attempted open original retrieval",
+          "title": "Distributed average consensus with stochastic communication failures",
+          "trigger": "Earlier conference precursor to same covariance model"
+        },
+        {
+          "assessment": "Summarized models differ; full-text coverage unresolved",
+          "evidence": [
+            "d96e8c040b54 describes a four-node path with a two-message design. c93f751b4cab describes uniform single-edge sampling on complete bipartite graphs."
+          ],
+          "identifier_or_url": "Resultary:d96e8c040b54 and Resultary:c93f751b4cab",
+          "material_read": "Indexed summaries only; mirrored statements unavailable",
+          "method": "Local catalog comparison, attempted statement retrieval",
+          "title": "Related cataloged exact disagreement results",
+          "trigger": "Same-day four-vertex and exact multi-step/one-step comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural gain-design question is whether to use the maximum nonnegative update or back off to improve long-run mean-square convergence. On C₄ the full reliability law gives a precise boundary and an easily tested example where optimizing a one-step surrogate does not optimize long-run decay. The threshold and proof of uniqueness throughout the feasible range are substantive beyond listing eigenvalues for one graph or one parameter point.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction
 
-Use the self-contained `verify_distances.py` with Python 3 and the standalone `verify_signatures.cpp` with a C++17 compiler. The outputs `verify_distances.out` and `verify_signatures.out` capture successful actual executions. The two programs build the same abstract cubic graph by distinct vertex numberings, compute distance matrices using BFS versus Floyd–Warshall, test edge resolution with pair-cover masks versus injective distance signatures, and construct exchange adjacency by generated replacements versus intersection cardinality. Both independently check every one of the \(3276\) three-subsets and \(20475\) four-subsets and BFS from every one of the \(1932\) exchange states.
+# Independent mathematical audit
 
-These are exhaustive finite checks because each relevant set appears once in a complete lexicographic enumeration and each BFS traverses every graph edge. The records do not certify any statement for flower snarks other than \(J_7\); no external audit is claimed.
+## correctness
+
+PASS
+
+The explicit graph is a 7-cycle of b vertices, a 14-cycle ordered c0,...,c6,d0,...,d6 with the required twisted closing edges, and seven a hubs with the three prescribed spokes each. Independent replay (python3 /workspace/branches/reproduction/flower.py) numbers the two cycles consecutively, computes each edge distance by the first vertex layer meeting an endpoint, and exhausts all 3276 triples and 20475 quadruples using injectivity of the 42 signatures. No triple resolves, ruling out all smaller sets by upward closure. There are 1932 resolving quadruples, including {a0,b0,c1,c4}. Triple buckets construct exchange cliques, with every pair of distinct bases sharing exactly one bucket if adjacent and none otherwise, giving 17920 edges without double counting. Integer bitset layer search from every basis reaches all 1932 bases and has last nonempty layer at distance 5 from every root. Hence the exchange graph is connected and its radius and diameter are both 5. This is exhaustive for this graph and this unrestricted replacement move, not a statement about other orders or token slides.
+
+## originality
+
+PASS
+
+The strongest examined flower-snark primary text explicitly leaves the edge dimension undecided at odd orders at least seven; its mixed-dimension theorem is not an edge lower bound. The standard definition and set-cover method are already known. The precise J7 minimum, optimal-basis count and exchange geometry are distinct in the inspected sources; this is not priority certification.
+
+## value
+
+PASS
+
+J7 is the first undecided order in a published family question, not an arbitrary test graph. The exact minimum is useful on its own; the full optimal-state census and constant unrestricted exchange eccentricity further quantify whether and how far apart minimal landmark configurations can be moved. A complete finite benchmark needs no unsupported generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

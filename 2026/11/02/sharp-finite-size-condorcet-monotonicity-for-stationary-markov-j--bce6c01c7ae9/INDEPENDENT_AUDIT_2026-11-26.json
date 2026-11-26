@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:39.921500Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stationarity lets one add a voter at either end of the contiguous middle window. Only the two endpoint-and-count events change the majority indicator. In a gain word there are m+2 ones and m+1 zeros, but with final state 1 the outgoing counts are m+1 from each state. The equal endpoints imply N01=N10, so N11=N00 as well. Complementation bijects gains and losses, preserves transition factors exactly, and changes only initial mass from pi1 to pi0, a ratio t/s. Thus the signed increment is (1-t/s) times gain mass. The gain event contains a word for every m, including 101 for m=0, and every word has positive mass. When s=t complementation gives J_m=1/2 at every size; otherwise the bounded indicators converge in expectation to the appropriate endpoint by the Markov ergodic theorem. No assumption on the sign of 1-s-t is used. The exact-rational checker was read, not run: its majority cross-check reaches 11 voters; its separate gain/loss and complement checks cover m=0 through 3 only. This finite scope does not restrict the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kaniovski B-solution corollary gives finite-size comparisons with a common pairwise correlation and selected joint law; positive correlation can hurt in that model.",
+          "The correlated-binary-trials manuscript uses a second-order Bahadur truncation. The Berend–Sapir full text was not obtained."
+        ],
+        "reasoning": "Neither inspected dependence model supplies the general stationary two-state path weights. Random-subcommittee results do not automatically compare contiguous windows: skipping a voter generally replaces a P transition by P^2. The exact implications of the inaccessible paper cannot be excluded.",
+        "searches": [
+          "Berend and Sapir DOI 10.1007/s00355-006-0179-y; lawful full-text retrieval",
+          "Kaniovski manuscript pp. 12–15 and Zaigraev–Kaniovski author manuscript"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_markov_jury.py",
+        "DOI 10.1007/s00355-006-0179-y (no full text)",
+        "Kaniovski and Zaigraev–Kaniovski author manuscripts",
+        "arXiv:1001.2144",
+        "Resultary:5099ff0be1f8, 14681171f6a8, e0a02e3773ca, 235cd640600d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary Markov-binomial theorem bounds total variation to an approximating distribution; the matched catalogue records derive increments in mixtures that can have a finite optimal size.",
+          "Kaniovski compares different homogeneous equicorrelated laws, not restrictions of the same stationary first-order chain to nested contiguous windows."
+        ],
+        "reasoning": "The operative equality here is the pairwise complement ratio t/s after exact cancellation of transition factors. Neither the approximation nor a dependence model with different finite path probabilities implies this ratio or its strict sign law.",
+        "searches": [
+          "Xia–Zhang, Theorem 1.1",
+          "Resultary: exact odd-majority size phase diagram under two-state shared competence",
+          "Kaniovski, Corollary 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5099ff0be1f8, 14681171f6a8 and e0a02e3773ca express adjacent majority increments as expectations over a common latent competence with conditionally IID votes.",
+          "Xia–Zhang use the same count of ones in a two-state Markov chain and give distributional approximations."
+        ],
+        "reasoning": "Exchangeable shared competence includes IID votes but generally cannot represent distance-dependent lag correlations rho^ell, in particular negative lag-one correlation. A Markov-binomial tail is the correct equivalent count formulation, but approximation bounds are not the exact difference of its consecutive odd tails.",
+        "searches": [
+          "Resultary: odd-jury exact majority increments, stationary binary Markov jury and Markov-binomial majority comparisons",
+          "arXiv:1001.2144"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue expressions are latent-mixture increment formulas, not the gain-event probability of a serial chain. Same-date Resultary 235cd640600d treats stationary multistate opinion-count modes, not varying-jury majority accuracy."
+        ],
+        "reasoning": "No inspected catalogue entry supplies the exact Markov identity. A table of exact probabilities for particular rational transition matrices would not cover this identity for all positive transitions and sizes.",
+        "searches": [
+          "Resultary: stationary Markov jury increment / odd-majority phase diagram / binary majority across contiguous jury sizes"
+        ]
+      },
+      "rationale": "The distinct claim is the exact endpoint-pivotal identity and hence strict monotonicity for stationary serial Markov votes in contiguous odd windows. It is not a priority claim for monotonicity with independent voters or asymptotic success under dependence. Accessible comparisons do not establish equivalent coverage; the precise scope of Berend–Sapir (2007) remains unresolved.",
+      "residual_risks": [
+        "The 2007 dependent-subcommittee paper could have a general criterion that specializes to a monotonicity conclusion. Its exact statements were unavailable.",
+        "A Markov-binomial identity in another parameterization or older probability literature could have been missed. The search is not a historical-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unresolved coverage, not evidence of noncoverage",
+          "evidence": "The frozen comparison describes random subcommittees. The full-text hypotheses and any implication for contiguous stationary Markov paths could not be verified.",
+          "identifier_or_url": "https://doi.org/10.1007/s00355-006-0179-y",
+          "material_read": "Bibliographic identification and frozen description; no full-text theorem",
+          "method": "DOI and Springer article/PDF attempts, OA recovery and targeted literature lookup",
+          "title": "Monotonicity in Condorcet's Jury Theorem with dependent voters",
+          "trigger": "Closest plausible general dependent-jury monotonicity theorem"
+        },
+        {
+          "assessment": "Different model, substantive comparison",
+          "evidence": "Homogeneous equal pairwise correlation with a chosen joint law, not a lag-dependent Markov path distribution.",
+          "identifier_or_url": "https://www.accessecon.com/pubs/scw2008/generalpdfscw2008/scw2008-08-00027s.pdf",
+          "material_read": "Abstract and introduction; B-solution theorem and Corollary 1.4, pp. 12–15",
+          "method": "Open author manuscript, focused full-text passages",
+          "title": "Aggregation of Correlated Votes and Condorcet's Jury Theorem",
+          "trigger": "Finite-size comparisons with correlated votes"
+        },
+        {
+          "assessment": "Same count, different theorem",
+          "evidence": "Total-variation approximation for stationary-chain counts, not an exact increment.",
+          "identifier_or_url": "https://arxiv.org/abs/1001.2144",
+          "material_read": "Introduction p. 1 and Theorem 1.1 p. 3 (offset ~8799)",
+          "method": "Open primary paper, focused theorem passage",
+          "title": "On approximation of Markov binomial distributions",
+          "trigger": "Exact same Markov count object"
+        },
+        {
+          "assessment": "Genuine structural overlap, different dependence and formula",
+          "evidence": "An expectation of (P(1-P))^(m+1)(2P-1) over latent P controls the mixture increment, allowing finite optima absent here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-odd-majority-size-phase-diagram-under-two-state-shared-com--e0a02e3773ca",
+          "material_read": "Mirrored RESULT.md Finding, offset 0, and related findings 5099ff0be1f8 and 14681171f6a8",
+          "method": "Resultary search and local mirror reads",
+          "title": "Exact odd-majority size phase diagram under two-state shared competence",
+          "trigger": "Exact adjacent odd-size increments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Asymptotic consistency does not decide monotonicity at every finite size under dependence, and dependent-jury models can have finite optima. The exact all-size comparison for a single stationary serial law explains why neither persistent nor alternating local dependence changes the competence sign, and quantifies each increment through one positive pivotal probability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

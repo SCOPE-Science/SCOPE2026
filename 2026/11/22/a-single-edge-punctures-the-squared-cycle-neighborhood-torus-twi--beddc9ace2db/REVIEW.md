@@ -1,15 +1,21 @@
-# Scientific review: a single edge punctures the squared-cycle neighborhood torus twice
+# Independent mathematical audit
 
-## Correctness — PASS
-The finding is the single statement \(\mathcal N(C_n^2-e)\simeq\bigvee^3 S^1\) for every \(n\ge9\) and every edge. The entire parameter domain is handled with two edge-orbit collapse sequences, not extrapolated from examples. The explicit torus core has \(2n\) triangles, \(3n\) edges, orientable six-cycle vertex links and Euler characteristic zero. A distance-one fault removes two isolated triangular interiors; a distance-two fault removes two paired-triangle interiors and their internal diagonals, after two additional free-face collapses. The remaining two-dimensional part collapses to a connected graph via the dual-graph-root argument; its Euler characteristic forces rank three. The separately reconstructed exact finite complexes and chain matrices pass for all \(n\) from 9 through 64. No stronger integral homotopy claim is being inferred from finite homology ranks.
+## correctness
 
-## Originality — PASS against inspected evidence
-Shukla (arXiv:1802.04526; journal 2019) handles the intact 4-regular circulant, and the broader inspected cycle-power mapping-torus classification handles intact graphs only. A full published squared-cycle equivariant-torus result likewise covers no edge faults. The earlier squared-cycle vertex-deletion calculation changes vertices rather than deleting an edge, and has only two boundary orders. Search terms included open-neighborhood, Lovász, cycle square, circulant, edge fault, short and long edges, punctured torus and free fundamental group. Specific published-source searches and mathematical implication comparisons are recorded in AUDIT.json. An equivalent unindexed theorem or indirect implication via an uninspected general result remains possible.
+PASS
 
-## Value — PASS
-This is a sharp natural fault response for a canonical 4-regular circulant. Both graph-edge orbits turn a space with the homotopy type of a torus into a graph with fundamental group free of rank three, despite their different puncture configurations. The statement supplies a uniform topological classification and an explicit mechanism for loss of the integral orientation class; it does not merely recompute a face count. It has natural applications as a worked test of neighborhood-complex stability under graph-edge perturbations, without claiming a theorem for all circulants.
+For n>=9 the signed shifts from -4 to 4 are distinct modulo n; the positive shift intersections of Q_0 with Q_d have sizes 2,1,2,1 for d=1,2,3,4, and larger cyclic shifts give zero. Thus triangles have unique supporting neighborhoods. Difference-two edges {i-1,i+1} are supported only in their own Q_i; after its U_i collapse their only coface is V_i. The surviving A_i,B_i form a connected closed orientable triangulated surface: the edges of differences 1,3,4 have degree two, the six-cycle links have distinct vertices, and the listed orientations cancel on each edge. Its Euler characteristic is zero, giving the intact torus. A length-one fault reduces Q_0,Q_1 to A_0,B_1; the same collapses elsewhere remove exactly the open faces B_0,A_1 from the torus, with disjoint vertex sets and all boundary edges retained. A length-two fault reduces Q_0,Q_2 to U_0,V_2, which collapse on their own difference-two edges. The residual complex lacks the two pairs A_0,B_0 and A_2,B_2 and just their two internal diagonals; it is connected via difference-one edges and has Euler characteristic -2. Its two missing disks touch at one boundary vertex, so the manifold-with-boundary argument for length one should not be used verbatim. Instead, closed-surface dual connectivity gives each remaining triangle component an edge to a deleted triangle. That edge survived since it has a remaining coface. Peeling a rooted spanning tree outward uses a parent edge still present and free at each step, leaving a connected graph of rank three. Rotations and reflections cover all edges.
 
-## Limits and sources
-The range is \(n\ge9\), one edge, and the ordinary open-neighborhood complex. No claim about equivariance, multiple faults, or naturality is made. The complete 2019 Shukla paper's pertinent theorems and proof were inspected, as were complete public scientific statements of the two closest existing squared/cycle-power results. The original publication date used for the background is the verifiable arXiv v1 date 2018-02-13; 2019 is its journal year. Independent scientific audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact homotopy torus is already known. The supported contribution is the all-order edge-fault wedge classification for both edge orbits, with different puncture geometry but the same homotopy type. No inspected matching theorem handles these nonregular open neighborhood complexes after an edge fault.
+
+## value
+
+PASS
+
+This is a complete, uniform stability test of a familiar intact torus model under the simplest graph fault. Neither graph edge orbit preserves the fundamental class, and both create an extra independent loop. Contrasting separate holes with disks touching at a vertex yields a concrete reason not to predict the new topology from the intact type or from a manifold heuristic alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

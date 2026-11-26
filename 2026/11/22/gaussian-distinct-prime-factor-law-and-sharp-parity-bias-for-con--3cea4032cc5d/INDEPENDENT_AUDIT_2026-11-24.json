@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:43:16.668044Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–95; checker.py and VERIFICATION.md inspected without executing supplied code",
+        "Independent bounded direct product/LCM enumeration over T_k for 1<=k<=12, comparing the resulting exact frequencies with the PGF and testing every proper divisor of T_k as a candidate period"
+      ],
+      "rationale": "A prime divides the product/LCM quotient exactly when at least two entries are multiples. For L=k+1, this holds always for p<=L/2, never for p>=L, and on L-p residues for the intermediate primes. CRT gives independent Bernoullis. Shifting by any candidate period times T_k/p isolates the p-indicator, forcing divisibility by p; the empty product case has period 1. The parity product vanishes iff 3p=2L, hence iff p=2 and k=2. The PNT integrals of t^(-1)-1 and (t^(-1)-1)(2-t^(-1)) give log 2-1/2 and 3 log 2-2, and the constant small-prime count adds 1/2 to the mean coefficient. Bernoulli third absolute moments are bounded by the variances, so Berry–Esseen divides the total third moment by sigma^3 and gives O(1/sigma). For parity, g(t)=log|3-2/t|=log 3+log|t-2/3|-log t integrates to -(2/3)log 2. With x=L and eta=exp(-c sqrt(log x)/3), truncation to log eta makes total variation O(sqrt(log x)); Stieltjes summation with the quoted PNT error makes its weighted prime-sum error o(x/log x). The truncated integral converges in L^1 and 1<=|3p-2x| for integers x>=4, so the O(eta x+1) affected integers contribute an error at most O((eta x+1)log x)=o(x/log x). This proves the magnitude asymptotic without an unsupported uniform-prime approximation at the singularity.",
+      "residual_risks": [
+        "The enumeration checks finite cases only. The Gaussian statement takes uniform sampling over the exact period before k grows; the asymptotic for the absolute bias does not assert an eventual sign."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed records 13a51748a6aa and 1434dbd13002 analyze log(k!/Q_k) and P(Q_k=k!), respectively. The period literature treats the quotient itself or multiplicative-function quotients."
+        ],
+        "reasoning": "The log-valued statistic, single extremal atom and full-quotient period neither equal nor determine these growing-window asymptotics for the collapsed prime support by themselves.",
+        "searches": [
+          "Resultary: growing-window Gaussian and prime-scale statistics of consecutive LCM quotients",
+          "Huang–Yang arXiv:2611.15379v1; Hong–Qian arXiv:0903.0530v3"
+        ]
+      },
+      "checked_sources": [
+        "The four Resultary comparison themes and primary passages above; bounded primary literature search for the omega and unitary sign asymptotics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite law yields a Bernoulli array. Its Gaussian approximation follows by standard Berry–Esseen after calculating the prime density constants. Parity is a product with a logarithmic singularity at p/L=2/3, for which the prime-sum replacement needs separate control; it is not an implication of the Gaussian approximation."
+        ],
+        "reasoning": "Credit the finite consequences and standard normal approximation mechanism. The prior statements do not supply the prime-integral asymptotics, especially the absolute bias constant and its singularity estimate. Distinct same-day findings were compared by content, not discounted by date.",
+        "searches": [
+          "Resultary: growing-window omega mean, variance, normal approximation and logarithmic unitary bias",
+          "§Finding of records 8e35eb7b4fbc, 13a51748a6aa, 1434dbd13002, 34529d61f621"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Positive exponents in the joint valuation law correspond exactly to summands for omega, and evaluation at z=-1 gives the unitary sign.",
+          "The indexed Liouville finding instead signs the sum of exponents and balances iff L=3*2^a. Tian–Yang studies additive patterns of (-1)^omega on integers, not this quotient density."
+        ],
+        "reasoning": "There is exact equivalence for the finite law under compression; the finite parity observable and asymptotic cannot be replaced by Liouville parity or additive patterns.",
+        "searches": [
+          "Resultary: Farhi/consecutive LCM quotient omega PGF and parity",
+          "Tian–Yang, arXiv:2611.10499v1; indexed Liouville parity record 34529d61f621"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 8e35eb7b4fbc supplies the full joint prime-valuation PGF and frequencies, even for arithmetic progressions; the ordinary consecutive case specializes immediately. Record b42ad25dab65 supplies periods of multiplicative quotients."
+        ],
+        "reasoning": "The exact census subsumes the finite omega distribution and all finite-period sign densities; the compressed least period is checked separately, since a period for a richer observable need not be minimal after compression. Neither exact source states a growing-window theorem for the collapsed observable.",
+        "searches": [
+          "Resultary: exact value-frequency law for consecutive arithmetic-progression LCM quotients",
+          "Resultary: exact least periods for positive multiplicative consecutive LCM quotients"
+        ]
+      },
+      "rationale": "The complete finite law is available by compressing prior joint valuation data. This is credited as coverage, not a novel law. The distinct content assessed here is the claimed growing-window law and sharp logarithmic parity-bias asymptotic: the prior finite census supplies inputs but gives neither the uniform asymptotic estimates nor the constants for these observables. The strongest other quotient limits found treat log size, maximality, or the Liouville sign, not the statistics under audit.",
+      "residual_risks": [
+        "The literature search is not exhaustive. The finite distribution can be specialized from older coverage, and an unlocated asymptotic extraction from those data could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite distribution after compression",
+          "evidence": [
+            "Joint prime-valuation PGF and exact quotient-value frequencies in the inclusive arithmetic-progression setting."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-value-frequency-law-for-consecutive-arithmetic-progression--8e35eb7b4fbc",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact value-frequency law for consecutive arithmetic-progression LCM quotients",
+          "trigger": "Potential stronger exact law"
+        },
+        {
+          "assessment": "Richer quotient period, not compressed minimal period",
+          "evidence": [
+            "Taking the function f(n)=n covers the full quotient Q_k."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-least-periods-for-positive-multiplicative-consecutive-lcm--b42ad25dab65",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Published-record mirror",
+          "title": "Exact least periods for positive multiplicative consecutive LCM quotients",
+          "trigger": "Possible period coverage"
+        },
+        {
+          "assessment": "Framework overlap, not omega compressed law",
+          "evidence": [
+            "Farhi–Kane period theorem and arithmetic-progression quotient-period statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15379",
+          "material_read": "pp. 2–3, offsets 3819 and 5293",
+          "method": "OA PDF bounded passages",
+          "title": "On least periods of a class of arithmetic functions",
+          "trigger": "Prior period framework for same quotient"
+        },
+        {
+          "assessment": "Framework overlap",
+          "evidence": [
+            "Treats the product-to-LCM quotient and extends period results to arithmetic progressions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0903.0530",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "OA PDF passage",
+          "title": "The least common multiple of consecutive arithmetic progression terms",
+          "trigger": "Original extension of Farhi periods"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Gaussian law for log(k!/Q_k) with mean asymptotic gamma*k and variance asymptotic (2-log(2*pi))*k log k."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-gaussian-logarithmic-law-for-consecutive-integer-lcm-quotients--13a51748a6aa",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Published-record mirror",
+          "title": "A Gaussian logarithmic law for consecutive integer LCM quotients",
+          "trigger": "Same-quotient growing-window CLT"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Sharp frequency of the event Q_k=k!, not an alternating signed sum of all fibres."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-prime-scale-rarity-of-maximal-consecutive-integer-lcm-quot--1434dbd13002",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Published-record mirror",
+          "title": "Sharp prime-scale rarity of maximal consecutive integer LCM quotients",
+          "trigger": "Same prime-scale quotient asymptotics"
+        },
+        {
+          "assessment": "Different parity and balance set",
+          "evidence": [
+            "Uses total prime multiplicities Omega and exact balance iff k+1=3*2^a, not an absolute-bias asymptotic for omega."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-liouville-parity-cancellation-for-consecutive-integer-lcm--34529d61f621",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Published-record mirror",
+          "title": "Exact Liouville parity cancellation for consecutive integer LCM quotients",
+          "trigger": "Closest exact same-quotient parity result"
+        },
+        {
+          "assessment": "Not about the quotient law",
+          "evidence": [
+            "Additive patterns of (-1)^omega(n) rather than products of boundary-prime factors of Farhi quotients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10499",
+          "material_read": "p. 1, offset 1053",
+          "method": "OA PDF passage",
+          "title": "A Goldbach-Type Problem for the Unitary Möbius Function",
+          "trigger": "Same sign function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–52, 70–95; exact finite census and Liouville parity finding compared above"
+      ],
+      "rationale": "A natural arithmetic statistic has both ordinary Gaussian fluctuations and a substantially smaller alternating bias, with explicit constants. The Gaussian part is a routine distributional mechanism once the prime support is identified, but the log bias measures arithmetic cancellation not captured by the Gaussian law or the finite census alone; the singular prime sum is a worthwhile additional estimate for this established quotient family.",
+      "residual_risks": [
+        "No result for short intervals of n, for simultaneous growth beyond full-period sampling, or for the sign of the bias."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,14 +1,21 @@
-# Assessment of nonlinear logarithmic contraction with spatial diffusion
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified positive Neumann problem has globally bounded solutions because each production term is bounded and degradation is strictly positive. The published well-mixed existence argument gives the positive equilibrium. The unit-Hill identity \(h-s|h'|=h^2/a\) yields a strictly negative logarithmic Jacobian row margin on any multiplicative box. The box is invariant by a first-contact argument. For the difference of two logarithmic solutions, diffusion becomes a scalar elliptic term plus transport by the sum of their log-gradients; at any spatial extremum of the log difference, transport vanishes and the elliptic term has the favorable sign. This gives the claimed Dini differential inequality and exponential estimate. Strong connectedness with a positive basal source or inhibitory edge makes every nonnegative profile strictly positive after positive time, giving the nonnegative-data corollary. All extrema, signs, quantifiers and the explicit rate were rederived before acceptance. Exact rational checks are included but are not used as the infinite-dimensional proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-The most direct 2026 source, Sontag's *Global stability of Michaelis–Menten networks*, gives well-mixed ODE contraction and the reaction-side row-margin identity, not reaction–diffusion equations. The 2023 Blanchini–Breda–Giordano–Liessi paper concerns ODEs and delay systems. The 2012/2013 Aminzare–Sontag result does prove inheritance of *fixed diagonally weighted norm* contraction by a Neumann PDE, but its stated hypotheses fail for the present full class: a two-node inhibitory network has a positive Jacobian eigenvalue \(19/18\) at a strictly positive state, so no uniform negative matrix measure in any fixed norm is possible. The nonlinear log-ratio PDE mechanism and explicit full-class rate were not located in inspected primary sources or related research records. Remaining risk: an uninspected spatial nonlinear-metric theorem, or broader sufficient condition not framed in these terms, may already encompass the result.
+PASS
 
-## Value — PASS
-The finding rules out nonlinear diffusion-driven patterns, stationary heterogeneous solutions and alternative recurrent attractors for an entire mixed-sign regulatory network class, in any spatial dimension and for arbitrary positive diffusion coefficients. Its quantitative exponential rate can be calculated from finitely many Michaelis–Menten endpoint values, without spectral calculations or diffusion comparisons. This supplies a structural stability theorem for a spatial extension of a recently studied biological model, rather than a routine isolated parameter calculation.
+Reconstructed the estimate for strictly positive continuous data and the extension to nonnegative continuous data. For existence, the map x_i ↦ (b_i+Σ_j h_ij(x_j))/d_i maps the product of the componentwise production-bound intervals to itself, so Brouwer supplies an equilibrium. A zero component there forces every predecessor to be zero and every incoming edge to be activating; strong connectivity then forces the all-zero vector, contradicted by the basal or inhibitory source. In log coordinates the diagonal reaction derivative is −f_i/x_i and the off-diagonal derivative is x_j h′_ij(x_j)/x_i. Both kinetics obey h−s|h′|=h²/a; hence each row margin is −q_i/x_i. Its worst value on the box is exactly −q_i,R/U_i, since the monotone numerator terms have independent input variables and no self-term. Comparison with the equilibrium at the first log-box face gives invariance. For two solutions the log-difference diffusion is the scalar Laplacian plus transport by the sum of the two log-gradients. At a signed spatial maximum, including on the C² Neumann boundary, the gradient vanishes and the Laplacian has the favorable sign. The segment-averaged matrix retains the negative row margin by the triangle inequality. The upper Dini inequality (including tied maximizers) gives the claimed estimate; R=0 follows by uniqueness, and the estimate itself forces uniqueness among positive equilibria. Boundedness and parabolic comparison give global evolution; a basal or inhibitory input supplies a uniform positive forcing on bounded time intervals, and positivity propagates along directed paths by comparison and time integration. Restarting at positive time proves convergence and excludes nonnegative heterogeneous stationary profiles. Independently checked the example: h(2)=1/5 gives 1/50; at s=1/10 the untransformed spectral abscissa is −1/3+2/(1+2s)²=19/18.
 
-The result does not address cross-diffusion, boundary forcing, or higher Hill exponents. Historical priority is not independently certified. The finite checker is corroborative only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the spatial, pairwise, explicit-rate theorem under the frozen hypotheses, not the prior well-mixed logarithmic metric or reaction row identity. No equivalent spatial theorem was established in the inspected literature and indexed records.
+
+## value
+
+PASS
+
+This is a global incremental stability and no-pattern theorem for a natural mixed-sign reaction class, not just a local linear-stability calculation. It works for unequal positive diffusivities without a domain-dependent gap, and gives a quantitative, directly computable bound on loss of memory of initial data. The fixed-norm obstruction makes clear why the spatial result is not a routine application of the cited contraction-inheritance theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# An eight-rim transition in the Euclidean thickness of wheel spanning-tree polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The matroid greedy-support identity expresses every Euclidean directional width as a nonnegative sum of connectivity values; strict triangle equality reduces global minimizers to normalized cut indicators. The published three-connectivity of wheel matroids bounds all non-singleton cuts below by connectivity two. An explicit half-rim edge subset attains that bound in both parity cases; comparison with singleton cuts gives the sharp transition at \(m=8\). The all-dimensional proof is analytic and combinatorial, while the embedded exact checker confirms \(m=3,\ldots,9\) and tests arbitrary small integer objective directions for the two smallest wheels.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-The 2019 full-text wheel-matroid source proves connectivity and rank, the 2021 generalized-permutahedron source treats deformation cones, and the 2024 matroid-valuation source supplies base-polytope definitions. None of the inspected relevant passages supplies the claimed intrinsic minimum width or the complete two-regime normal classification. Indexed results on wheel spanning-tree covariance concern a different Euclidean invariant; special cut formulas for hyper-permutahedra and polymatroid independence polytopes do not cover the wheel base family. Full-text comparison is incomplete for some published indexed records and absence from searches does not establish historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-An exact intrinsic-thickness formula and all-dimensional minimizing-normal distinction for a basic graphic-matroid polytope family provide geometry not given by its spanning-tree count or covariance. The rim-eight threshold is sharp and changes the combinatorial character of thinnest directions.
+In the orthonormal edge metric and intrinsic sum-zero direction space, greedy optimization in both orders gives width as the sum of the nonnegative sorted level jumps times the rank connectivity of their prefix cuts. The same jumps expand the direction in centered indicators, so the triangle inequality reduces the minimum to a normalized cut ratio. Distinct proper nested centered indicators are not parallel, giving the claimed rigidity. Wheel-matroid 3-connectivity gives the singleton value and the lower bound two on connectivity for larger cuts. For m=2b the displayed balanced cut and its complement have b components each; for m=2b+1 they have b+1 and b, counting isolates. Both have m edges and rank connectivity two. Maximization of the centered cut norm at m edges and the crossing at 4+2√3 establish both regimes, including m=3, and exclude integer ties. The analytic argument establishes all real directions, not just those checked by enumeration.
 
-## Scientific limits
-The result applies to the unscaled canonical edge-coordinate metric, not diagonal weight perturbations. The broad cut-normal lemma is a proof ingredient; the accepted finding is the complete wheel-specific width and minimum-normal theorem. Unindexed equivalence remains possible; no independent expert check has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected distinct source gives or implies the exact wheel base-polytope formula and the transition in all its minimizing directions. The constituent greedy method and connectivity input are not novelty claims.
+
+## value
+
+PASS
+
+Exact Euclidean thickness of the canonical spanning-tree polytope is intrinsic geometric information not provided by spanning-tree counts or typical-direction measures. Wheels form a standard matroid family, and the complete sharp switch from individual edges to balanced connectivity cuts explains which directions are thinnest across the family, not just at a few orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

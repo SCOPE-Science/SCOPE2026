@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary distribution is normalized and obeys the displayed birth-death balance. Telescoping gives the *exact* indicator maximization formula. For all later sites, the proof supplies a genuine infinite-index estimate and an elementary finite-range rational inequality, with no numerical extrapolation. The local checker independently passed 842 exact-rational assertions.
+## correctness
 
-**Originality — PASS against inspected evidence.** DeSalvo's 2026 paper supplies the generic formula and asks for dense-parameter factors, not the first-site evaluation. Zhang's earlier convolution-order theorem and an indexed constant-birth first-difference Stein theorem do not imply the particular quadratic-birth size-factor maximizer. Unindexed classical results remain a priority risk.
+PASS
 
-**Value — PASS.** The exact endpoint factor resolves the dense-parameter size-factor evaluation in the first nontrivial equal-offset two-row HNB case. It replaces a lattice supremum with an explicit constant in the regime singled out in the motivating paper and proves a uniform nonmaximizer gap. The bound \(w\ge9/10\) is a certified dense interval, not an asserted natural critical threshold; the modest scope and absence of increment bounds remain limitations.
+Detailed balance and telescoping give the sharp factor at j=m+1 as F_m G_{m+1}/((m+1)²p_{m+1}); the lower tail and its complement attain the eventwise bound. At m=0 it is (1-p_0)/(4w)≥1/4. Summing the quadratic-geometric tail and using n=m+1 gives the factor bound 5/n in each regime (1-w)n≤1 or ≥1, which suffices for n≥25. For 2≤n≤24, bounding the three geometric-moment terms by their stated rational envelopes gives B_n with denominator 1140n(n+1). The numerator of 1/5−B_n is 23 at n=2 and is at least 135n²−236n−221>0 for 3≤n≤24. Thus every later site is ≤1/5 uniformly on the frozen interval, the maximizer is unique in its index, and the limit follows exactly. The events themselves need not have unique signs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the explicit nonasymptotic parameter window and quantitative uniform separation of the noninitial sites. A distinct same-day general HNB result directly covers the qualitative eventual equality and the limit under the exact parameter substitution, and itself describes the two-row result as an earlier special case. Date paths do not establish priority. Its near-one compactness/finite-site argument does not give the certified window [9/10,1) or the uniform cap of 1/5. Those are proved here via a quantitative all-index estimate, not asserted as a new generic first-site principle.
+
+## value
+
+PASS
+
+The HNB open problem motivates a natural Stein error constant. This result makes the eventual assertion usable at a stated finite parameter, including w=0.9, and certifies a gap of at least 1/20 against every competing site. Exact evaluation and robust localization across an entire explicit interval are more informative than computing the first site's value or observing its numerical dominance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

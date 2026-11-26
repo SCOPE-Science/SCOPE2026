@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:16:42.723345Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 24–90, including the full transition table, Yule embedding, normalizing product and bracket proof",
+        "Frozen VERIFICATION.md, verify.py and recorded verify_output.txt; finite transition and nonsimultaneity checks"
+      ],
+      "rationale": "In the one-edge tree a mark gains A=L−D/2 by 1/2 on attachment to itself and loses 1 on attachment to a neighboring leaf, at rates D/T and L/T in discrete time. This remains valid at the seed edge. The drift is −A/T, and the conditional second moment of the increment is (D/4+L)/T. Iterating the resulting squared-state recursion with E[D]=O(sqrt(n)) gives E[A²]=O(sqrt(n)). In the exponential-clock embedding the edge count and a marked degree after birth are Yule processes of per-capita rates 2 and 1. Each rescaled limit is positive and finite by the one-particle Yule law; their independence is not needed. Evaluating at the edge-count hitting times gives the F∞-measurable positive W. The drift-compensated A/b has b∼c n^{-1/2}. The leading rescaled diagonal bracket is n^{-3/2} sum (3D_j/(8c²)), giving W/(4c²); the linear and quadratic errors before normalization are O(n^{5/4}) and O(sqrt(n)) in L¹. When both marks cease to be leaves, their raw increments cannot occur together, so the centered cross term is −A_u A_v/T²; the exceptional prefix is a.s. finite and the remaining normalized sum is O(n^{-1}) in L¹. For the stable martingale array one may start at a common deterministic size after all births: the rows use the same nested tree filtrations, initial terms vanish, and the n^{-3/4}-scaled increments have deterministic maximum O(n^{-1/4}). Conditional Lindeberg follows; if using the realized-variation formulation, the difference from the predictable variation also tends to zero in L² by bounding its variance by the squared maximal jump times the uniformly bounded expected scaled bracket. Cramér–Wold with bounded F∞ test weights thus gives the asserted stable Gaussian kernel. Rescaling by n^{1/2}b and studentizing by the a.s. positive degree limits gives diagonal 1/4 covariance and independent limiting coordinates.",
+      "residual_risks": [
+        "The supplied program was inspected, not executed; its saved checks do not prove the CLT. The result is for a fixed finite vector of deterministic birth labels in the specified model, not a uniform growing family or a functional limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published uniform law bounds the all-vertex maximum of |L−D/2| by O_P(n^{1/4}(log n)^2). The PA joint degree-count CLT concerns aggregate counts in degree classes."
+        ],
+        "reasoning": "Uniform concentration does not specify Gaussian fluctuations of individual old labels; an aggregate covariance does not give the stable cross-label kernel. General urn/martingale tools would still require the statistic-specific drift, random time or bracket, and cross-label analysis.",
+        "searches": [
+          "Baldassarri–Bet arXiv:2102.07570v2, abstract",
+          "Resultary uniform half-degree law 309f47c597b3, Finding and comparison/limitations",
+          "Fixed-label PA urn/CLT literature lookup"
+        ]
+      },
+      "checked_sources": [
+        "Hartle–Krapivsky arXiv:2602.01021v1 §III.5 and §IV",
+        "Baldassarri–Bet arXiv:2102.07570v2 abstract",
+        "Resultary 309f47c597b3 and identical index record 52e0d376292e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier population asymptotic contains the same half-degree center and variance coefficient; the uniform result uses the same local drift. Neither supplies the vanishing post-threshold off-diagonal brackets or the limit conditional on the infinite growth."
+        ],
+        "reasoning": "A population conditional variance or the separate mean and growth estimates cannot be substituted for a stable distributional convergence theorem. Even one-dimensional marginal CLTs alone would not give stable conditional independence across marks.",
+        "searches": [
+          "Hartle–Krapivsky §III.5, equations (57)–(63), and §IV",
+          "Resultary 309f47c597b3, Finding and limitations, including drift overlap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (57)–(63) give the conditional population mean k/2+1−6/(k+3) and variance k/4+1/2+O(1/k), with a Gaussian large-k shape anticipated, not established in that passage."
+        ],
+        "reasoning": "Leafdegree, leaf-neighbor count, and the number of neighbors of degree one are the same observable, but the empirical degree-conditioned population law is a different sampling experiment from following fixed birth labels in time. Taking its large-k limit is not the stable marked CLT.",
+        "searches": [
+          "Primary lookup for preferential-attachment marked/fixed-vertex leaf-neighbor urn and CLT",
+          "Hartle–Krapivsky arXiv:2602.01021v1, §III.5 and §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly matching 52e0d376292e is the assigned finding itself. The distinct strongest indexed result inspected is the November 8 uniform half-degree law 309f47c597b3; it does not tabulate or state the target stable kernel."
+        ],
+        "reasoning": "Neither an index duplicate nor finite history counts constitute a prior exact limiting law. The finding requires no external census table; no earlier equivalent kernel was demonstrated in the inspected matches.",
+        "searches": [
+          "Resultary semantic lookup for joint mixed Gaussian leaf-neighbor fixed-hub preferential attachment, including same-day entries"
+        ]
+      },
+      "rationale": "The supported distinction is the mixed Gaussian limit stable with respect to tree growth for finitely many fixed labels and its independent realized-degree studentization. Neither the center nor the coefficient 1/4 is novel as a population asymptotic. The distinct uniform half-degree result controls the same statistic but does not identify its fixed-label law at the sharp fluctuation scale.",
+      "residual_risks": [
+        "No absolute or same-day priority claim. A less visibly indexed fixed-vertex branching/urn result or a general theorem with this example already worked out could weaken the distinction; none was established by the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for mean and leading variance but distinct population sampling; no fixed-label joint theorem in the inspected statements",
+          "evidence": "Conditional leafdegree variance is k/4+1/2−12/k+O(k^−2); Gaussian population asymptotics are anticipated. §IV changes to aggregate class counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.01021v1",
+          "material_read": "§III.5, equations (57)–(63), offsets 39398–44541; opening of §IV at offset 44541",
+          "method": "OA primary text",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Same model, exact conditional leafdegree moments and closest Gaussian comparison"
+        },
+        {
+          "assessment": "Prior same-statistic concentration, not the fixed-label stable CLT",
+          "evidence": "Maximum centered count has an O_P(n^{1/4}(log n)^2) upper bound and maximum leafdegree/maximum degree tends to 1/2.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-uniform-half-degree-law-for-leaves-in-preferential-attachment--309f47c597b3/RESULT.md",
+          "material_read": "Finding at offset 0; comparison and limitations around offset 7000",
+          "method": "Local Resultary mirror",
+          "title": "A uniform half-degree law for leaves in preferential-attachment trees",
+          "trigger": "Same centered statistic simultaneously over all birth labels"
+        },
+        {
+          "assessment": "The stated CLT concerns a different vector; no blanket full-paper exclusion inferred",
+          "evidence": "The joint asymptotic Gaussian vector is built from degree counts, not local leaf-neighbor counts at fixed labels.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.07570v2",
+          "material_read": "p. 1 abstract, OA offset 1950",
+          "method": "OA primary text",
+          "title": "Asymptotic normality of degree counts in a general preferential attachment model",
+          "trigger": "Potential stronger joint PA martingale CLT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Steps 3–5; Hartle–Krapivsky §III.5; Resultary 309f47c597b3"
+      ],
+      "rationale": "This supplies the sharp fluctuation scale and conditional law for a natural degree–leaf composition statistic in a classical growth model. It separates dependent random hub sizes from asymptotically independent local noise and identifies a universal Gaussian normalization using an observed degree, beyond a population variance or simultaneous upper bound.",
+      "residual_risks": [
+        "The claim is neither universality across kernels nor finite-size conditional independence; applicability to randomly chosen or growing collections is not shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

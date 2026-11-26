@@ -1,15 +1,21 @@
-# Scientific review — four-node centered convection-diffusion positivity
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is necessary and sufficient for every \(0<d/a<1\), \(0\le\theta\le1\), and \(h>0\) on the *four-site periodic centered stencil*. Fourier diagonalization gives all four resolvent coefficients; one neighbor is positive, the opposite site is positive, and the remaining neighbor has the exact sign of a quadratic with exactly one positive root. The theta update subtracts only a diagonal multiple of identity, so strict monotonicity of the resolvent diagonal gives the full timestep geometry. At the Crank–Nicolson boundary, substituting the neighbor-root identity reduces admissibility to the polynomial \(\kappa^2+2\kappa-1\), yielding the unique critical positive root \(\sqrt2-1\). The standalone verifier checks symbolic algebra and direct exact matrix inversion. The proof, not the 320 numerical parameter samples, establishes the universal assertion.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The full-text primary comparison is Hadjimichael–Ketcheson–Lóczi, arXiv:2105.07403v1, especially Section 2 and Theorem 1(i), which forbids positivity on even grids for **pure** advection. That theorem has zero physical diffusion and does not imply positivity recovery or the sharp Crank–Nicolson cutoff when \(d>0\). Fekete–Ketcheson–Lóczi, arXiv:1610.00228, Section 6, addresses explicit Runge–Kutta with centered convection or separate heat discretizations, not the coupled implicit theta matrix. Published positivity-preserving characteristic schemes modify the numerical operator rather than analyze this unmodified one. Published results on theta stepping of **Markov** cycles and on symmetric heat networks have nonnegative spatial off-diagonal coefficients; in the present strict parameter regime one neighbor coefficient is negative, so their positivity criteria do not dominate this theorem. Searches of accessible previously recorded claims did not identify this four-node convection-diffusion ratio and the exact stepwise phase diagram. This is best-knowledge, not independent priority certification; similar resolvent work in other terminology remains a residual risk.
+PASS
 
-## Value — PASS
-This is a natural complete classification at the smallest even periodic centered convection grid with a nontrivial centered derivative, directly addressing the even-grid obstruction in the motivating paper. In the convection-dominated regime, where the spatial semidiscretization has negative off-diagonal entries, second-order Crank–Nicolson can nevertheless preserve a nonnegative grid vector for some positive step **exactly** when \(d/a\ge\sqrt2-1\). The positive-step set collapses to one step at the threshold and is bounded above away from it. The singular zero-diffusion limit explains why adding arbitrarily weak diffusion changes the qualitative feasibility at fixed grid count. The fact does not imply high accuracy, nor extend the four-site constant-coefficient theorem to larger or irregular grids.
+For four sites S^4=I. Independently inverting 1+2κt−(κ+1)tS−(κ−1)tS^3 modulo S^4−I recovers the claimed diagonal and the potentially negative off-diagonal tPκ(t)/[(1+4κt)Fκ(t)]; the other off-diagonals have strictly positive numerators for κ,t>0. Pκ has positive leading and negative constant coefficients for 0<κ<1, so its only positive root is t*. The identity M=θ^(-1)(Q−(1−θ)I) leaves the off-diagonal signs unchanged and imposes exactly Rκ(t)≥1−θ. Rκ decreases strictly from 1 to 1/4, not attaining 1/4 at a finite step; this proves the four regimes, with their endpoints. For θ=0 the negative explicit neighbor persists. At t*, substituting κFκ=1+4κt gives Rκ≥1/2 iff t*≤1/[2(1−κ)]; Pκ at that bound has sign κ²+2κ−1. Direct substitution also gives the quoted critical kernel and unique step. As κ tends to zero, t*∼1/(2√κ), κt* tends to zero and Rκ(t*) tends to 1/2. At κ=0 the bad coefficient is −t/(1+4t²) and the explicit step still fails. The theorem pertains to nonnegative completed updates, not intermediate stages, stability, or accuracy on general grids.
 
-## Closest literature and remaining limitations
-Relevant published antecedents: Hadjimichael et al. (2021), arXiv:2105.07403v1; Fekete et al. (2016), arXiv:1610.00228; and Li–Fu (2022), DOI 10.4208/aamm.OA-2021-0051 (abstract-level method distinction). Comparison of claim implications is presented in the structured originality fields in `AUDIT.json`. Independent mathematical review and exhaustive historical priority are not performed. The proof is restricted to the four-node periodic centered stencil, constant coefficients, and strictly positive convection-dominated diffusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same frozen finding indexed in Resultary is not independent prior coverage. The closest inspected primary result gives the obstruction only at zero diffusion. Neither the shared circulant technique nor the known endpoint implies positive-diffusion reentry at t*, the finite diagonal ceiling, or the sharp Crank–Nicolson ratio. Pass applies to the four-site positive-diffusion phase diagram, not the general theta method or the zero-diffusion obstruction.
+
+## value
+
+PASS
+
+Four sites are the first even periodic grid for which the two centered neighbors are distinct. On this canonical case the negative spatial coefficient does not preclude nonnegative fully discrete evolution: the methods can regain positivity only above a nonzero time and can lose it again at a finite upper time. The exact second-order threshold and singleton identify which mechanism limits the admissible steps and provide a test case for general periodic positivity analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

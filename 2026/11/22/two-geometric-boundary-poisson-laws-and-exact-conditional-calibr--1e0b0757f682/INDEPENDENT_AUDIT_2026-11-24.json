@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:59:40.257962Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–89; VERIFICATION.md; check.py (inspected, not executed)",
+        "Independent triangular-array score, remainder and rare-count calculations; standard-library N(0,1) cutoff evaluation"
+      ],
+      "rationale": "Write H=n p̂, D=∑(Xᵢ−1)₊. The numerator H−K is S²/(n+S)−D, and the denominator (1−p̂)√H is Sn/(n+S)^(3/2). When np is bounded, Var(p X̄)=q/n proves p̂/p→1; H→λ and K has the binomial-to-Poisson limit, or K=0 with high probability for λ=0. When nq² is bounded, D agrees with the count of Xᵢ≥2 off an event of probability at most nq³. At positive critical intensity, S/(nq)→1 from the first two moments, and the fit terms tend to λ and √λ. At zero intensity, D=0 with high probability and S/√n→0 by Markov, giving Z→0 with the stated zero-total convention. For Gaussian sufficiency the centered score Y=p²(X−q/p)+1{X=0}−p has variance pq² using Cov(X,1{X=0})=−q. Its third absolute moment is O(p) for p≤1/2 by geometric moments and the rare indicator, and O(q²) for p≥1/2 by splitting X=0, X=1 and X≥2 (the first two scores are q² and −2pq; the remaining geometric tail has uniformly bounded scaled third moment). This gives the required Lyapunov ratios. The fitted numerator's Taylor remainder is p³δ²/(1+pδ), δ=X̄−q/p; the good-event expected standardized bound is 2√(p/n), and the complementary event is negligible by Var(pδ)=q/n. Fitted-to-true scales tend to one because nq→∞. A bounded subsequence of either critical intensity has a lattice or degenerate limit, proving necessity for arbitrary sequences. Conditional on S=s, joint masses p^n q^s are equal, so counting supports of size n−k and their positive compositions gives the formula. The fixed conditional denominator preserves ordering by |K−H|, and the tie-inclusive conditional tail is superuniform. For the stated cutoff and strictly subcritical λ, zero Poisson events do not reject and every positive count rejects, with no atom on the boundary. Independent numerical evaluation gives λ*=0.176524554935153 and 1−exp(−λ*)=0.1618218025087914.",
+      "residual_risks": [
+        "The size formula does not cover the atom-on-cutoff parameter, assert a global supremum, or give a uniform normal approximation. The reported Monte Carlo cannot establish the infinite-sequence results and is not used for the decision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Under the geometric model, every sample vector of fixed total is uniform over weak compositions",
+          "The earlier tail method applies to a generic discrepancy; conditional on the sum the studentization is constant, so D can be the absolute observed-versus-fitted zero count"
+        ],
+        "reasoning": "The stronger conditional framework directly covers the displayed conditional procedure, even if that exact one-coordinate sum is not printed. It does not study moving-parameter normal calibration. The same-day sparse-Poisson analysis is not a stronger theorem covering geometric data.",
+        "searches": [
+          "arXiv:2010.03891 §§2.1 and 3.1: exact conditional testing and geometric uniform compositions",
+          "González-Barrios–O’Reilly–Rueda DOI 10.1007/s00184-006-0035-1, cited as earlier geometric conditional-law derivation",
+          "Resultary sparse-Poisson rank-one calibration record"
+        ]
+      },
+      "checked_sources": [
+        "Di Noia et al. arXiv:2112.11861",
+        "Erlemann–Lindqvist arXiv:2010.03891; bounded OA attempt for DOI 10.1007/s00184-006-0035-1",
+        "Targeted Resultary lookup and two exact material mirror passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fixed-law delta-method CLT gives no control of the vanishing geometric score variance at the endpoints",
+          "Poisson rare zeros and geometric rare doubletons occur on different scales; the Stein–Chen analogue covers only its Poisson-null doubleton regime",
+          "The general conditional law and generic tail test imply the finite calibration"
+        ],
+        "reasoning": "The two-parameter-sequence necessity and sufficiency and the finite positive endpoint intensity limits require moving-law CLT estimates and endpoint calculations beyond the compared statements. The stated near-16.18% consequence comes from those new limits and excluding atom ties, not from the known conditional corollary.",
+        "searches": [
+          "Di Noia et al. Proposition 3.1 and geometric subsection; Erlemann–Lindqvist conditional recipe; strongest distinct Resultary sparse-Poisson Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Di Noia et al. use the same fitted zero-cell contrast and geometric plug-in variance, but Proposition 3.1 fixes the parameter",
+          "Erlemann–Lindqvist's geometric conditional KS includes the zero discrepancy as one coordinate; its maximum over all coordinates is not the one-coordinate statistic",
+          "The sparse Poisson Stein–Chen finding has a similar centered Poisson law on rare doubletons under a different sampling law and standardization"
+        ],
+        "reasoning": "Sign and fixed-conditional-scale rewritings do not change a two-sided zero-cell test. The conditional recipe thus overlaps genuinely, but the fixed-parameter normal theorem or a single sparse Poisson-null boundary does not address both geometric endpoints.",
+        "searches": [
+          "Di Noia et al. arXiv:2112.11861, §3 Proposition 3.1 and §4.2",
+          "Erlemann–Lindqvist arXiv:2010.03891, §3.2.3",
+          "Resultary: zero-frequency geometric goodness of fit exact conditional positive compositions sample sum fitted geometric studentized Poisson boundary normality np n(1-p)^2 Di Noia"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary finding is the very same frozen record; the nearest distinct sparse-Poisson Finding gives nλ² threshold, limiting Poisson intensity τ/2, and 13.93% at τ=0.3",
+          "The older geometric law already determines the finite K|S table by choosing the zero positions and positive parts"
+        ],
+        "reasoning": "The same record is not independent coverage. The finite conditional table is mechanically implied and credited to the existing method, while no distinct studied entry gives the sharp two-boundary geometric result or its overrejection window.",
+        "searches": [
+          "Resultary targeted semantic search for the geometric studentized limits and conditional composition law; inspect local mirror hits ending 1e0b0757f682 and 5730903ab8bc",
+          "arXiv:2010.03891 §3.1 conditional geometric law"
+        ]
+      },
+      "rationale": "Credit is restricted to the sharp triangular-parameter normality and two Poisson boundary laws for the exact Di Noia statistic and the resulting quantitative normal-calibration failure. Its fixed-parameter statistic and CLT are known. The exact conditional calibration itself, although useful here, is covered in substance by the earlier uniform-composition law and general conditional-tail method, with the mass function an elementary counting corollary. No independent novelty credit is given to conditioning, this corollary, or the generic level guarantee; these are not the stated novel target. The closest sparse Poisson-null analogue has one rare-doubleton boundary for a different distribution and statistic, not the two opposite geometric limits.",
+      "residual_risks": [
+        "The focused same-statistic web lookup could not supply further coverage evidence; this is not evidence of no papers. The unread 2006 text may contain an explicit same-tail example. Broader unindexed moving-law results remain a historical-priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-parameter statistic and CLT covered; no moving-parameter criterion in those statements",
+          "evidence": "Geometric fitted zero-cell contrast with the same plug-in variance; fixed-law normality.",
+          "identifier_or_url": "https://arxiv.org/html/2112.11861",
+          "material_read": "§3 Proposition 3.1 and §4.2 geometric statistic and variance",
+          "method": "OA full-text passages",
+          "title": "Goodness-of-fit test for count distributions with finite second moment",
+          "trigger": "Source of the exact statistic and standard normal calibration"
+        },
+        {
+          "assessment": "Stronger known conditioning covers the finite calibration; geometric KS statistic differs; no statement-level coverage of the endpoint theorem",
+          "evidence": "Uniform weak compositions conditional on total and a general tie-inclusive tail for D; the fitted KS includes the zero-cell discrepancy in a maximum.",
+          "identifier_or_url": "https://arxiv.org/html/2010.03891",
+          "material_read": "§§2.1 and 3.1, HTML offsets 8327–17807; §3.2.3, offsets 22283–26697",
+          "method": "OA full-text passages",
+          "title": "Conditional Goodness-of-Fit Tests for Discrete Distributions",
+          "trigger": "Same geometric conditioning and conditional discrepancy test"
+        },
+        {
+          "assessment": "Unresolved whether the exact zero-cell tail was explicitly printed; general conditional coverage already established independently",
+          "evidence": "Erlemann–Lindqvist credit this article for the conditional geometric distribution.",
+          "identifier_or_url": "https://doi.org/10.1007/s00184-006-0035-1",
+          "material_read": "Later paper's attribution of the geometric conditional law; no readable full text obtained",
+          "method": "Bounded lawful OA attempt and primary-source attribution comparison",
+          "title": "Goodness of fit for discrete random variables using the conditional density",
+          "trigger": "Earlier geometric conditional testing cited by Erlemann–Lindqvist"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Same statistic, two boundaries, conditional calibration and overrejection window.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-geometric-boundary-poisson-laws-and-exact-conditional-calibr--1e0b0757f682",
+          "material_read": "RESULT.md Finding and scope, offset 0–4076",
+          "method": "Local Resultary mirror",
+          "title": "Two geometric boundary Poisson laws and exact conditional calibration for a zero-frequency goodness-of-fit test",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Different null, discrepancy and scope; no inference from the shared date",
+          "evidence": "Exponential Stein–Chen statistics on Poisson samples collapse to a rare-doubleton coordinate; the theorem is for the single sparse Poisson endpoint and gives a different quantitative example.",
+          "identifier_or_url": "2026/11/22/SCOPE-sparse-poisson-rank-one-calibration-for-exponential-stein-chen-g--5730903ab8bc",
+          "material_read": "RESULT.md Finding and scope, offset 0–4060",
+          "method": "Local Resultary mirror",
+          "title": "Sparse-Poisson rank-one calibration for exponential Stein–Chen goodness-of-fit discrepancies",
+          "trigger": "Closest rare-doubleton and nominal size analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of sparse mechanisms and overrejection",
+        "Published fixed-law testing and conditional calibration sources above"
+      ],
+      "rationale": "The statistic and its fixed-parameter normal reference are published and practically interpretable. Proving that normal calibration specifically fails at two different null scales, with limiting size near 16.18% at nominal 5%, identifies a substantial inference problem and explains it via two distinct rare events. The exact parameter-free calibration is a useful existing alternative when applied here; value does not depend on its novelty.",
+      "residual_risks": [
+        "Conditional tests can be conservative. There is no asserted power result, finite-sample error bound, or optimal calibration across alternatives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

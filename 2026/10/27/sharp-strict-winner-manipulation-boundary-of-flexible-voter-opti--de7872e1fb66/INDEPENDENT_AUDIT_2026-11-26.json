@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:17:58.278661Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a disliked sincere winner b and liked new winner a, a successful report must include a and exclude b. If P is the opponent score, the two strict victories imply u_s<P_b-P_a<u_t. For m=1 no liked/disliked pair exists; for m=2 a sincere singleton already supplies the maximal weight; for m=3 the only candidate interval (3/2,3) contains no multiple of 3/2. Independently for m=4, scale weights to 2,3,6. The strict gap forces a size-three report (there is no integer strictly between 2 and 3), consisting of all names except b. Thus P_b>P_a and P_a>P_c for both other names c. If only one positive opponent ballot contains b, that ballot cannot contain a (or the gap is nonpositive) or any other name (that name would receive at least P_b); as a singleton its weight 2 is too small. If two positive ballots contain b, exactly one must contain a (P_a>0 and P_b>P_a). The other has weight 3 since its weight equals the gap, and hence includes another name c; P_a>P_c>=3 forces the a-containing ballot to have weight 6, but it then also supports a third name that ties or exceeds P_a. These contradictions cover at most two opponents. A separate exact unordered-opponent replay (reproductions/frozen_checks.py, argument 5) tested 256, 4096 and 34816 tuples with zero events; quotienting by opponent permutations is exhaustive. The four-voter witness yields (14/3,10/3,0,0) and (14/3,6,4,4), with different strict winners. Joint minimality is under the coordinatewise order (or minimizing candidates first), not a universal four-voter lower bound independent of m: with five candidates, opponents {A,B},{B,C}, truth {A} and deviation {A,D,E} give strict B then A with three voters. The original's explicitly scoped claims hold. The supplied checker uses int.bit_count(), so its documented Python 3.8 minimum should be read as Python 3.10 for replay; this does not affect the exact verdict.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact same-rule theorems concern flexible voter representation and uniqueness among scoring rules.",
+          "Alcalde-Unzu–Vorsatz's accessible Size Approval Voting abstract describes nonnegative weakly decreasing per-approved-name weights as ballot size increases."
+        ],
+        "reasoning": "Representation and uniqueness do not supply strict incentive constraints, and the abstract's weight class excludes these increasing weights. The unseen full text is not ruled out as supplying some separately broader observation.",
+        "searches": [
+          "arXiv:2505.01395v1 §§2.5–2.6, Theorems 2.5–2.7",
+          "https://ideas.repec.org/p/unm/umamet/2007008.html"
+        ]
+      },
+      "checked_sources": [
+        "Halpern–Procaccia–Suksompong, arXiv:2505.01395v1 §§2.5–2.6",
+        "Alcalde-Unzu–Vorsatz, Size Approval Voting abstract",
+        "Resultary Kemeny 49d1d1b6332f, Baldwin 9f030d3b5c8b and Nash-product 2287081620fd comparator findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The FVR optimality of the source's rule is consistent with the audited four-voter counterexample to strict strategyproofness. Its uniqueness theorem says which score optimizes representation, not how much padding changes individual winners.",
+          "In ordinary approval with a constant positive ballot weight the strict gap cannot occur, whereas the frozen four-voter witness positively exploits the weight increase."
+        ],
+        "reasoning": "The substantive extra comparison is between the discrete attainable opponent score gaps, the two strict inequalities, and the extra candidates necessarily padded into a report. The inspected prior claims neither encode those constraints for this score nor establish the sharp conditional witness.",
+        "searches": [
+          "arXiv:2505.01395v1 §2.5 Theorem 2.5 and §2.6 Theorem 2.7",
+          "Alcalde-Unzu–Vorsatz, Size Approval Voting, working paper abstract at https://ideas.repec.org/p/unm/umamet/2007008.html",
+          "Resultary: strict winner / tie-localized manipulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 2.5 gives approved-name weight 1/(1-f), f=k/m, and the equivalent minimum of disapproval scores. The latter can be scaled to allocate one disapproval point per nonfull ballot.",
+          "Approval and complementary disapproval scores sum to a candidate-independent constant for each ballot (empty ballots are also strategically neutral under either convention)."
+        ],
+        "reasoning": "The dual flips the optimization sign and preserves ties and every strict winner. It is already known as a rule formulation, but the checked source gives no matching sharp strategic classification under either formulation.",
+        "searches": [
+          "arXiv:2505.01395v1 §2.5 R_OPT and complementary disapproval formulation",
+          "Resultary: FVR-optimal approval, normalized disapproval, 1/(1-f), strict-to-strict ballot padding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalog comparisons are three-candidate Kemeny tie localization (ordinal ballots, odd electorates), three-candidate Baldwin (ordinal elimination, first profitable case at five voters), and three-project Nash-product budget division (first profitable case at four voters, but a different outcome and utility model)."
+        ],
+        "reasoning": "Matching threshold language or parameters does not produce the same rule or strict pair of outcomes. No same-rule exact table or census was retrieved.",
+        "searches": [
+          "Resultary: FVR-optimal approval manipulation and exact candidate/electorate thresholds",
+          "2026/10/4/SCOPE-tie-localization-of-unilateral-manipulation-for-three-candidate--49d1d1b6332f",
+          "2026/10/4/SCOPE-sharp-five-voter-manipulation-boundary-for-three-candidate-baldw--9f030d3b5c8b",
+          "2026/10/25/SCOPE-the-sharp-four-voter-manipulability-frontier-for-three-project-n--2287081620fd"
+        ]
+      },
+      "rationale": "The rule and its dual formulation are prior. The supported distinct claim is the strict-winner obstruction for all electorates with at most three candidates and the exact first electorate size conditional on four candidates. The inspected same-rule primary passages prove FVR optimality and scoring-rule uniqueness, not this incentive classification. Nearby exact catalog thresholds use different voting or allocation maps; the known size-approval weight class in the inspected abstract has opposite monotonicity. This is a bounded priority assessment.",
+      "residual_risks": [
+        "The full text of Size Approval Voting was unavailable on the checked lawful routes. Its abstract does not rule out ancillary material beyond its main weight class.",
+        "An overlooked independent exact treatment of the increasing-weight rule or its complementary disapproval form remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule and complement already known; the guarantees checked are FVR optimality and uniqueness in a scoring family, not the strict-winner threshold",
+          "evidence": [
+            "§2.5, HTML offset near 27700, gives 1/(1-f) and ignores full ballots; Theorems 2.5 and 2.7"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.01395v1",
+          "material_read": "§2.5 score and dual, Theorem 2.5; §2.6 Theorem 2.7",
+          "method": "Read exact primary HTML passages and normalize fractional approval to ballot size",
+          "title": "The Proportional Veto Principle for Approval Ballots",
+          "trigger": "Source of exact voting rule and plausible place for a strategic statement"
+        },
+        {
+          "assessment": "Abstract describes nonnegative weakly decreasing weights, unlike this rule's strictly increasing proper-ballot weights; no whole-document claim made",
+          "evidence": [
+            "RePEc abstract, offset near 580"
+          ],
+          "identifier_or_url": "https://ideas.repec.org/p/unm/umamet/2007008.html",
+          "material_read": "Accessible working-paper abstract; article page and DOI did not yield full text",
+          "method": "Inspect RePEc abstract near offset 580 and compare weight monotonicity; attempt publisher and working-paper links",
+          "title": "Size Approval Voting",
+          "trigger": "Potential broader class of approval rules weighted by ballot size"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a rule motivated by a representation guarantee, the first strict incentive failure at the smallest feasible candidate count is meaningful independently of tie policy. The all-electorate small-candidate obstruction comes from a score lattice, and the sharp four-candidate distinction additionally depends on compulsory padding. This is more than a computed example; it identifies a discrete boundary without claiming ordinary strategyproofness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

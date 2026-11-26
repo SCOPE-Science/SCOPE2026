@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:46:59.577699Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–54; VERIFICATION.md; artifacts/verify.py (inspected, not executed)",
+        "Independent modular elimination on entries (−1)^popcount(x&s), prime 101, n=3,5,7,9",
+        "Filmus arXiv:1406.0142v2, Lemma 2.3 and Theorem 4.1"
+      ],
+      "rationale": "Real Walsh characters diagonalize the cube Laplacian at 2j with multiplicity binom(n,j). PBH is exactly injectivity of each eigenspace restriction. For n=2r+1, the adjoint inclusion and deletion operators obey DU−UD=(n−2k)I at rank k; raising is injective below the middle. At rank t the primitive kernel is spanned by disjoint pair differences: choose each ballot top set b1<…<bt with bi≥2i, greedily match disjoint non-tops ai<bi, and use the top sets as distinct leading monomials of the kernel products. The ballot count is binom(n,t)−binom(n,t−1), the primitive dimension. Adjointness gives the orthogonal decomposition of their raised images. Each chosen pair straddling X contributes −2 times its pair difference, and any nonstraddling pair cancels. The remaining coefficient of z^(j−t) in (1−z²)^(r−t)(1+z) is the nonzero signed binomial in the proof. Thus each primitive sector maps isomorphically to its corresponding target sector for j≤r. Frequency complements give all higher ranks and vertex complements give the other actuator layer. In even dimension the central restriction has proportional complementary columns, and all other layer sizes are below the largest multiplicity. Independently computed ranks modulo 101 for all fixed levels at n=3,5,7,9 equal their full column counts; this certifies these finite ranks over R, not the general theorem.",
+      "residual_risks": [
+        "The proof is about real exact controllability and independent input columns for the uniform undirected cube; it does not extend to general weighted networks or constrained inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The controlling 11/8 source attains the multiplicity lower bound for both parities and rules out the even central layer; the other later match also includes an even heterogeneous construction.",
+          "The inspected traditional sources give grid-eigenspace and distance-regular leader criteria, not the exact odd layer in the inspected passages."
+        ],
+        "reasoning": "The explicit matching placement and per-level ranks go substantially beyond the generic PBH lower bound; the stronger matched statement covers the frozen scope.",
+        "searches": [
+          "Resultary sharp-coordinate-actuator-placement 45657af810d8 and sharp-central-shell-actuator-placement 876293fe84cf",
+          "arXiv:1203.0129v1, Remark 5.4; Zhang–Camlibel–Cao, CDC-ECC 2011"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 45657af810d8 and 876293fe84cf",
+        "Filmus; Notarstefano–Parlangeli; Zhang–Camlibel–Cao"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Filmus supplies slice harmonics, not a fixed homogeneous Walsh rank theorem in those passages. The Resultary proof explicitly gives rank binom(n,j) at each level, including j>k.",
+          "The matched source explicitly says the even central rank is at most half the required rank. Its multiplicity lower bound also rules out all other even layers by size."
+        ],
+        "reasoning": "Complementing every vertex sends the matched odd layer to the other middle layer and preserves the system; comparing sizes settles the only additional wording about even layers.",
+        "searches": [
+          "Filmus arXiv:1406.0142v2, Lemma 2.3, Theorem 4.1",
+          "Resultary 45657af810d8, Finding and Step 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched W_k,j is the same fixed-level Walsh restriction to weight k, with exactly the same signed binomial sector factor under t=ℓ and r=k. Complementation covers j>k as in the frozen proof."
+        ],
+        "reasoning": "Different harmonic-basis calculations certify the same all-level injectivity, not a different mathematical rank property.",
+        "searches": [
+          "Resultary: hypercube actuator / full Walsh rank / odd central shell",
+          "2026/11/8/SCOPE-sharp-coordinate-actuator-placement-on-every-binary-hypercube--45657af810d8, RESULT.md offsets 400 and 4008"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "These formulas give exact input cardinalities and all ranks in every dimension of the frozen assertion. There is no independent finite census claimed by the theorem."
+        ],
+        "reasoning": "An exact table lookup is inapplicable for priority of a general all-dimensional formula; the finite verifier output is only corroboration of that covered formula.",
+        "searches": [
+          "Resultary 45657af810d8, exact placement and rank formulas"
+        ]
+      },
+      "rationale": "A distinct indexed result gives the same odd layer, the same rank assertion at every Walsh level, the same sector scalar, and the even central-layer obstruction in the identical real coordinate-actuation model. It additionally gives the unrestricted even-dimensional optimum. Once these statements are compared, the complementary odd layer is cube symmetry and even noncentral-layer failure is immediate by cardinality. No supported distinct remainder survives. Verified equivalent coverage is not an inference of historical priority from the later catalog date.",
+      "residual_risks": [
+        "The matching catalog dates are later than the frozen directory date; priority is not determined. Further implications via general intersection matrices or grid results were not necessary to establish coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full frozen assertion and extends to even optimal placement",
+          "evidence": "Same system and fixed slice matrix, nonzero scalar with the same closed form; same upper-level complementation; explicit even central failure. Snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-coordinate-actuator-placement-on-every-binary-hypercube--45657af810d8/RESULT.md",
+          "material_read": "Finding and assumptions offset 400–2515; Step 3 offset 4008–6197",
+          "method": "Local Resultary mirror and side-by-side formula comparison",
+          "title": "Sharp coordinate actuator placement on every binary hypercube",
+          "trigger": "Exact odd construction, parity boundary and rank match"
+        },
+        {
+          "assessment": "Matches odd optimal placement; stronger minimum scope",
+          "evidence": "Odd central layer and an even construction in a facet; not relied on for the all-level scalar formula.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-central-shell-actuator-placement-for-boolean-hypercube-con--876293fe84cf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp central-shell actuator placement for Boolean hypercube controllability",
+          "trigger": "Second precise placement match"
+        },
+        {
+          "assessment": "Basis ingredient, not the all-level Walsh rank statement in these passages",
+          "evidence": "A specified family of slice characters across degrees gives an orthogonal basis.",
+          "identifier_or_url": "arXiv:1406.0142v2",
+          "material_read": "Lemma 2.3 p. 5 offset 20676; Theorem 4.1 p. 10 offset 46517",
+          "method": "OA primary PDF",
+          "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Primary harmonic decomposition source"
+        },
+        {
+          "assessment": "General controllability antecedent; exact layer not explicit in inspected text",
+          "evidence": "Multiplicity and mode-symmetry conditions for grid controllability.",
+          "identifier_or_url": "arXiv:1203.0129v1",
+          "material_read": "Abstract and Remark 5.4, p. 27 offset 77194",
+          "method": "OA primary PDF",
+          "title": "Controllability and observability of grid graphs via reduction and symmetries",
+          "trigger": "Cube is a Cartesian product of length-two paths"
+        },
+        {
+          "assessment": "Adjacent general criteria",
+          "evidence": "Explicit choices treated for cycles and complete graphs; other distance-regular classes noted as future work in inspected passages.",
+          "identifier_or_url": "https://pure.rug.nl/ws/files/13905758/2011ProcCDCZhang.pdf",
+          "material_read": "Introduction p. 2 and conclusion p. 6 offset 42486",
+          "method": "OA proceedings PDF",
+          "title": "Controllability of diffusively-coupled multi-agent systems with general and distance regular coupling topologies",
+          "trigger": "Hypercubes are distance-regular"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and PBH proof",
+        "Compared exact actuator placement record"
+      ],
+      "rationale": "A concrete actuator set meeting the unavoidable dimensional bound and a per-eigenspace injection proof provide useful exact structure. The odd–even boundary explains why superficially analogous layer selection fails in even cubes. This value is intrinsic, not a separate contribution over the stronger matched record.",
+      "residual_risks": [
+        "No energy, robustness, or bounded-input conclusion. The even obstruction is to a complete single layer only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

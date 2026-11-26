@@ -1,157 +1,38 @@
-# Sharp fixed-center first-moment profile for bounded conjugate functions
+# Extremizers and the logarithmic crossover in the half-strip first-moment problem
 
 ## Finding
 
-Let \(F\) be holomorphic on the unit disk \(\mathbb D\), with \(\operatorname{Re}F(z)>0\) and \(|\operatorname{Im}F(z)|<B\) for every \(z\in\mathbb D\), where \(B>0\). Write \(F(0)=M+iV\), so \(M>0\), \(|V|<B\). The radial boundary trace \(v^*(e^{it})=\lim_{r\uparrow1}\operatorname{Im}F(re^{it})\) exists almost everywhere. With \(dm(t)=dt/(2\pi)\), the **exact sharp bound for every centre** is
-
+Let \(F\) be holomorphic on the unit disk with \(\operatorname{Re}F>0\), \(|\operatorname{Im}F|<B\), and \(F(0)=M+iV\), where \(B>0\), \(M>0\), and \(|V|<B\). Put \(X=M/B\), \(Y=V/B\). Write \(v^*\) for the almost-everywhere radial boundary trace of \(\operatorname{Im}F\), and use normalized Lebesgue measure \(dm=dt/(2\pi)\) on the circle. The sharp first absolute moment is \(B\mathcal G(X,Y)\), where
 \[
-\int_{\mathbb T}|v^*|\,dm\ \le B\,\mathcal G(M/B,V/B),
-\qquad
-\mathcal G(X,Y)=1-\frac8{\pi^2}\sum_{j=0}^{\infty}
+\mathcal G(X,Y)=1-\frac8{\pi^2}\sum_{j\ge0}
 \frac{e^{-(2j+1)\pi X/2}\cos((2j+1)\pi Y/2)}{(2j+1)^2}.
 \]
+The profile itself is an endpoint consequence of Brazitikos' half-strip Dirichlet calculation (see below). The claims here are the **complete equality classification** and the **uniform corner law** for this profile:
 
-The bound is attained for **each** \(X>0\) and \(|Y|<1\). In fact, equality holds if and only if the analytic disk self-map
-
-\[
-\Phi(z)=\frac{\sinh(\pi F(z)/(2B))-1}{\sinh(\pi F(z)/(2B))+1}
-\]
-
-is **inner**, meaning \(|\Phi^*(e^{it})|=1\) almost everywhere. This characterizes all equality cases, including nonunivalent extremizers.
-
-The complete derivative profile is
-
-\[
-\partial_X\mathcal G(X,Y)=\frac1\pi
-\log\frac{\cosh(\pi X/2)+\cos(\pi Y/2)}
-{\cosh(\pi X/2)-\cos(\pi Y/2)}.
-\]
-
-Consequently \(X\mapsto\mathcal G(X,Y)\) is strictly increasing and strictly concave for \(|Y|<1\); its boundary value is \(\mathcal G(0,Y)=|Y|\). At every fixed \(0<|Y|<1\), its initial right slope is the finite quantity \((2/\pi)\log\cot(\pi|Y|/4)\). At the centered slice \(Y=0\) the slope diverges, with the exact logarithmic law
-
-\[
-\mathcal G(X,0)=\frac{2X}{\pi}\left(1+\log\frac4{\pi X}\right)+O(X^3)
-\qquad(X\downarrow0).
-\]
-
-More precisely, at the corner \((X,Y)\to(0,0)\), uniformly for \(X>0\) and \(|Y|\) small,
-
+* \(\int |v^*|\,dm=B\mathcal G(X,Y)\) if and only if \(\Phi=(\sinh(\pi F/(2B))-1)/(\sinh(\pi F/(2B))+1)\) is inner, meaning that its radial boundary values have modulus one almost everywhere. Equivalently, the extremizers at a specified center are precisely the inverse conformal images of inner maps with the corresponding value at zero. They exist at every allowed center and need not be univalent.
+* Uniformly as \((X,Y)\to(0,0)\) with \(X>0\),
 \[
 \mathcal G(X,Y)=|Y|+\frac2\pi\left[
-X\left(1+\log\frac4{\pi\sqrt{X^2+Y^2}}\right)
--|Y|\arctan\frac{X}{|Y|}\right]
+X\left(1+\log\frac4{\pi\sqrt{X^2+Y^2}}\right)-|Y|\arctan\frac X{|Y|}\right]
 +O\bigl(X(X^2+Y^2)\bigr),
 \]
-
-where the product involving \(|Y|\) is interpreted as zero at \(Y=0\). Thus the two-parameter crossover interpolates rigorously between the regular nonzero-mean boundary and the singular centered endpoint.
-
-## Assumptions and scope
-
-All quantifiers are as stated: \(B\in(0,\infty)\), \(M\in(0,\infty)\), \(V\in(-B,B)\), and **any** holomorphic \(F\) with the indicated range. No Hardy-space assumption on the unbounded real part is needed. Its imaginary part is bounded harmonic, so the radial trace and its integral exist. The integrals are normalized by total circle mass one. Endpoint centres \(M=0\) or \(|V|=B\) are excluded from the open-strip theorem and only appear as continuous profile limits.
-
-For \(Y=0\), an alternative closed form of the sharp profile is
-
-\[
-\mathcal G(X,0)=1-\frac4{\pi^2}\left[
-\operatorname{Li}_2(e^{-\pi X/2})-\operatorname{Li}_2(-e^{-\pi X/2})\right],
-\quad
-\partial_X\mathcal G(X,0)=\frac2\pi\log\coth\frac{\pi X}{4}.
-\]
-
-In particular \(1-\mathcal G(X,0)\sim(8/\pi^2)e^{-\pi X/2}\) as \(X\to\infty\).
+with the arctangent product interpreted as zero at \(Y=0\). At the centered slice this is \(\frac{2X}{\pi}(1+\log(4/(\pi X)))+O(X^3)\); off center, at fixed \(0<|Y|<1\), the initial slope is the finite \((2/\pi)\log\cot(\pi|Y|/4)\). The two-parameter expression is uniform across these regimes, including \(|Y|\ll X\) and \(X\ll |Y|\).
 
 ## Proof
 
-**1. Harmonic majorization.** By scaling assume \(B=1\), and set
-\(\Omega=\{x+iy:x>0,\ |y|<1\}\). Let \(U(x,y)\) be the unique bounded harmonic function on \(\Omega\) extending the continuous boundary datum \(h(x+iy)=|y|\). Since \(|y|\) is subharmonic and bounded, the comparison principle on truncated half-strips, with the limit at infinity, gives \(U(x,y)\ge |y|\). The inequality is *strict in the interior*: for Brownian motion first exiting \(\Omega\), the imaginary exit coordinate \(Y_\tau\) has mean \(y\) by bounded optional stopping, and has positive probability of both signs from every interior point, so \(E|Y_\tau|>|E Y_\tau|\). Harmonic measure represents \(U=E|Y_\tau|\).
+Scale by \(B\) to reduce to \(B=1\). Let \(\Omega=\{x+iy:x>0,\ -1<y<1\}\). Let \(U\) be the harmonic extension of \(|y|\) on its boundary, given by the expected value of the absolute imaginary coordinate at Brownian exit. Exit occurs almost surely since the imaginary coordinate exits \((-1,1)\) almost surely. This representation gives uniqueness in the bounded class by bounded optional stopping. Also, the imaginary coordinate at exit has mean \(y\) and has positive probability of either sign (each of the upper and lower sides has positive harmonic measure from any interior point). Thus \(U(x,y)>|y|\) inside \(\Omega\). The disk function \(U\circ F\) is bounded and harmonic; the mean-value theorem and bounded convergence for the radial imaginary trace give \(\int |v^*|\,dm\le U(F(0))\). No boundary integrability of \(\operatorname{Re}F\) is used.
 
-The function \(U\circ F\) is bounded harmonic on \(\mathbb D\), hence its circle means equal \(U(F(0))\). For each radius, \(|\operatorname{Im}F|\le U(F)\); bounded radial convergence and Fatou's theorem therefore give
+For clarity about prior implication, Brazitikos solves the half-strip problem with boundary value \(|y|^p\), for \(p>1\), before restricting the eventual estimate to \(Y=0\). The two-variable extension \(U_p(X,Y)\) tends uniformly to \(U\) as \(p\downarrow1\), by uniform convergence of the boundary data and bounded harmonic comparison. The prior Fourier coefficients of \(1-U_p\), namely \(2\int_0^1(1-y^p)\cos(\lambda_j y)\,dy\) for \(\lambda_j=(j+1/2)\pi\), tend to \(2/\lambda_j^2\) by elementary integration. Passing to this limit in the series at \(X>0\) is justified by the summable exponential bound. Thus \(U=\mathcal G\), with \(\mathcal G(0,Y)=|Y|\). The linear constant from the final \(p>1\) theorem does not have a finite endpoint; the fixed-center Dirichlet solution does.
 
+For equality, \(H(w)=\sinh(\pi w/2)\) maps \(\Omega\) biholomorphically onto the right half-plane. Indeed \(\operatorname{Re}\sinh(u+iv)=\sinh u\cos v>0\) for \(u>0, |v|<\pi/2\); the three finite boundary pieces map one-to-one onto the three successive segments of the imaginary axis separated by \(\pm i\), with infinity mapped to infinity. Alternatively the inverse is \((2/\pi)\operatorname{arsinh}\) with the branch into \(\Omega\). The inverse after the Cayley transform extends continuously at every point of the unit circle other than the point \(1\) corresponding to infinity. If \(\Phi\) is inner, its trace avoids \(1\) a.e. by boundary uniqueness for bounded analytic functions (\(\Phi\not\equiv1\)); hence \(F^*\) is on the finite boundary a.e. There \(U(F^*)=|\operatorname{Im}F^*|\). Conversely, if \(\Phi\) is not inner, \(|\Phi^*|<1\) on a positive-measure subset, on which \(F^*\in\Omega\) and the gap is strictly positive. The radial limit of the bounded nonnegative gap \(U\circ F-|\operatorname{Im}F|\) exists a.e. and its integral equals the moment deficit. This proves necessity. For attainment take any disk automorphism sending zero to the Cayley image of \(X+iY\), or compose such an automorphism with \(z^m\), \(m\ge2\), for nonunivalent examples.
+
+For the corner law differentiate the exponentially convergent Fourier series and sum the odd-power series. This gives
 \[
-\int_{\mathbb T}|v^*|\,dm\le U(F(0)).
+\partial_X\mathcal G(X,Y)=\frac1\pi\log\frac{\cosh(\pi X/2)+\cos(\pi Y/2)}{\cosh(\pi X/2)-\cos(\pi Y/2)}
+=\frac2\pi\log\left|\coth\frac{\pi(X+iY)}4\right|.
 \]
+The ratio exceeds one for \(|Y|<1\) and decreases strictly with \(X>0\), giving strict increase and concavity of the profile in \(X\). Substituting \(X=0\) for \(Y\ne0\) gives the stated finite slope. Near zero, \(z\coth z=1+O(|z|^2)\), so the derivative is \((2/\pi)\log(4/(\pi\sqrt{X^2+Y^2}))+O(X^2+Y^2)\) with a direction-independent remainder. Integrating from zero at fixed \(Y\) gives the formula, since the integral of \(\log\sqrt{t^2+Y^2}\) from zero to \(X\) is \(X\log\sqrt{X^2+Y^2}-X+|Y|\arctan(X/|Y|)\). The integrated error is \(O(X(X^2+Y^2))\).
 
-This proof does not require radial limits of the positive real part.
+## Scope, verification, and prior work
 
-**2. Explicit Dirichlet solution.** Put \(W=1-U\). It has zero boundary data on \(y=\pm1\) and triangular datum \(1-|y|\) on \(x=0\). The even Dirichlet eigenfunctions are \(\cos(\lambda_j y)\), \(\lambda_j=(j+1/2)\pi\), with unit squared norm on \((-1,1)\). Direct integration yields
-
-\[
-2\int_0^1(1-y)\cos(\lambda_j y)\,dy=\frac2{\lambda_j^2}.
-\]
-
-Thus uniqueness of the bounded Dirichlet solution, or separation of variables, gives
-
-\[
-W(X,Y)=\sum_{j=0}^\infty \frac{2}{\lambda_j^2}
- e^{-\lambda_j X}\cos(\lambda_j Y).
-\]
-
-This is the claimed \(\mathcal G(X,Y)=1-W(X,Y)\). Its convergence is absolute for \(X>0\), allowing differentiation. Summing the differentiated odd-power series gives
-
-\[
-\partial_X\mathcal G(X,Y)=\frac4\pi
-\operatorname{Re}\operatorname{artanh}
-\left(e^{-\pi X/2+i\pi Y/2}\right),
-\]
-
-which simplifies to the displayed logarithmic formula. Because \(\cos(\pi Y/2)>0\), direct differentiation proves strict increase and strict concavity in \(X\). The triangular Fourier series gives \(\mathcal G(0,Y)=|Y|\). The derivative at \(X=0\) is finite for \(Y\ne0\), equal to \((2/\pi)\log\cot(\pi|Y|/4)\).
-
-**3. Attainment and equality classification.** The map
-
-\[
-H(w)=\sinh(\pi w/2)
-\]
-
-is a conformal bijection \(\Omega\to\{\operatorname{Re}\zeta>0\}\), with inverse \((2/\pi)\operatorname{arsinh}\zeta\) using the branch mapping into \(\Omega\). For any given centre \(w_0=X+iY\), put \(h_0=H(w_0)\), \(a=\operatorname{Re}h_0>0\), \(b=\operatorname{Im}h_0\). Then
-
-\[
-F_{w_0}(z)=\frac2\pi\operatorname{arsinh}
-\left(a\frac{1+z}{1-z}+ib\right)
-\]
-
-is holomorphic \(\mathbb D\to\Omega\), takes value \(w_0\) at the origin, and maps almost every point of the circle to a finite point of \(\partial\Omega\). On this boundary \(U=|y|\), so the inequality is an equality. This also establishes sharpness for each fixed two-parameter centre, not just asymptotically as the centre approaches the boundary.
-
-More generally, \(\Phi=(H\circ F-1)/(H\circ F+1)\) is a disk self-map. If it is inner, its a.e. boundary values lie on the unit circle and avoid the single point \(1\) almost everywhere, so \(F^*\in\partial\Omega\) a.e. and equality follows. Conversely, if \(\Phi\) is not inner, the set \(\{|\Phi^*|<1\}\) has positive measure, and on that set \(F^*\) is interior to \(\Omega\); the strict pointwise gap \(U(F^*)-|\operatorname{Im}F^*|>0\) forces strict inequality after integration. This is the asserted if-and-only-if characterization. Undoing the scaling \(F\mapsto F/B\) gives the general case.
-
-**4. The critical corner.** Writing \(a=\pi/2\), the derivative takes the form
-
-\[
-\partial_X\mathcal G(X,Y)=\frac1\pi\log
-\frac{\cosh(aX)+\cos(aY)}{\cosh(aX)-\cos(aY)}.
-\]
-
-Taylor expansion of the numerator and denominator shows, uniformly as \((X,Y)\to(0,0)\), \(X>0\),
-
-\[
-\partial_X\mathcal G(X,Y)=\frac2\pi
-\log\frac4{\pi\sqrt{X^2+Y^2}}+O(X^2+Y^2).
-\]
-
-Integrate from \(0\) to \(X\), using \(\mathcal G(0,Y)=|Y|\) and the elementary primitive
-
-\[
-\int_0^X\log\sqrt{t^2+Y^2}\,dt=
-\frac X2\log(X^2+Y^2)-X+|Y|\arctan\frac X{|Y|},
-\]
-
-with its continuous \(Y=0\) convention. The uniform remainder is \(O(X(X^2+Y^2))\), proving the joint expansion and its centered special case.
-
-## Verification
-
-The separate `check.py` tests the Fourier/eigenfunction and dilogarithm formulas against a direct integral of the *explicit conformal extremizer* for multiple real and nonreal centres, checks the derivative against high-precision differentiation, and tests the joint corner expansion. It is a numerical cross-check only; the infinite-dimensional claims are proved above by harmonic majorization, uniqueness, boundary attainment and exact Fourier expansion.
-
-## Relationship to prior work
-
-Brazitikos (2026), *Sharp Estimates for Conjugate Functions with Applications to Trigonometric Polynomials*, arXiv:2605.18087v1, Theorem 1 and its proof (pages 3–7), considers \(p>1\) and derives the half-strip Dirichlet majorant to obtain a **linear** sharp \(L^p\) constant. The published bound has \(A_p\to\infty\) as \(p\downarrow1\), and does not state this fixed-centre \(p=1\) profile, nonzero-imaginary-centre bound, inner-map classification, or uniform logarithmic-corner law. The separation-of-variables framework is explicitly credited to that paper; no claim is made to invent the majorant method itself.
-
-Older sharp conjugate-function research includes Baernstein (1978) and Essén–Shea–Stanton (2002), which study wider sharp inequality principles; their possible reduction to this explicit endpoint classification remains a historical-priority risk. This result states a precise new fixed-centre endpoint theorem, not a claim of an independently new general conformal technique.
-
-## Limitations
-
-The sharpness and complete equality classification concern the whole specified holomorphic class, **not** degree-bounded trigonometric polynomials. The endpoint centre \(M=0\) is not covered by the open-domain theorem. The result does not claim uniqueness of extremizers (many inner compositions are allowed) or independent audit. Although primary and indexed literature were compared, exhaustive historical priority—particularly in broad older conjugate-function inequalities—has not been established.
-
-## References
-
-1. S. Brazitikos, *Sharp Estimates for Conjugate Functions with Applications to Trigonometric Polynomials*, arXiv:2605.18087v1 (first public May 18, 2026), https://arxiv.org/pdf/2605.18087.
-2. A. Baernstein II, *Some sharp inequalities for conjugate functions*, Indiana Univ. Math. J. **27** (1978), 833–852, DOI 10.1512/iumj.1978.27.27055.
-3. M. Essén, D. F. Shea, C. S. Stanton, *Sharp \(L\log^\alpha L\) inequalities for conjugate functions*, Ann. Inst. Fourier **52** (2002), 623–659, DOI 10.5802/aif.1896.
+The equality classification is for all holomorphic maps into the open half-strip, not for degree-bounded trigonometric polynomials. Endpoint centers are excluded; they enter only through profile limits. The accompanying numerical check evaluates the profile, conformal boundary integral, derivative and corner expression at sample points, not the equality characterization or uniform asymptotic proof. Brazitikos' *Sharp Estimates for Conjugate Functions with Applications to Trigonometric Polynomials*, [arXiv:2605.18087v1](https://arxiv.org/pdf/2605.18087v1), Theorem 1 proof, pp. 3–7, supplies the Dirichlet extension and all two-variable eigenfunction coefficients before the real-center linear estimate. The exact endpoint bound follows from this calculation, and its attainment is the standard conformal-boundary construction. The classification of **all** equality cases and the uniform corner formula are not stated in the compared passages. Broader techniques occur in Baernstein, DOI [10.1512/iumj.1978.27.27055](https://doi.org/10.1512/iumj.1978.27.27055), and Essén–Shea–Stanton, DOI [10.5802/aif.1896](https://doi.org/10.5802/aif.1896); exhaustive historical priority is not asserted.

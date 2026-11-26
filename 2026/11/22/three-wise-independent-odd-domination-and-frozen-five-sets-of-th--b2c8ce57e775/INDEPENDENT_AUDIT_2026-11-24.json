@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:58:40.066501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay (python3 /workspace/branches/independent_checks.py 4) checked the LCF and chord descriptions agree, the metric intersection numbers and girth, the eleven listed independent rows and seven listed null vectors including the free-column identity, and traversed all 262144 labeled masks by Gray-code syndrome updates. It found 128 solutions of weights 5/9/13 with counts 18/92/18 and tested all eight patterns on each of 816 triples. Rank 11 plus a nonempty solution set gives an affine dimension-seven code. The nonzero, distinct kernel-generator columns with no vanishing three-column sum give each triple rank three; fixed odd parity on a four-vertex closed neighborhood excludes four-wise independence. For a five-set, odd domination implies even induced degrees; girth six makes the induced subgraph a forest and thus independent. Its fifteen incidences on thirteen exterior vertices single out exactly one vertex v with three selected neighbors. To cover the six distance-three vertices with the two other selected vertices, each must cover three; only distance-four vertices can do so. Conversely the displayed N(v) plus the distance-four layer satisfies every parity equation by the verified layer incidences. Complementation preserves solutions as M times the all-ones vector vanishes; summing equations over a shore makes the total weight odd. The variance 9/2 from pairwise independence, with eighteen cases at each extreme, exhausts the allowed weights by forcing zero at 7 and 11. The replay checked all 153 intersections, confirming profiles 0/1/2/1, and all exchange eccentricities equal 3. For five-sets, intersection size 5-t is precisely a t-vertex replacement, hence the three-move graph is distance three with degree six and 54 edges. Connected even-degree induced subgraphs in the cubic bipartite graph are singletons or even cycles, ruled out by the odd weights at least five. The original scripts were inspected, not run. The proof text overstates the C++ verifier: it does not check the pair-intersection table or the three-move diameter; those are checked by the supplied Python algorithm on inspection and by the executed independent replay. This does not affect the claimed mathematics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen references identify prior binary closed-neighborhood and connected odd-domination work; no complete independent body inspection of the three foundational papers was possible in this review.",
+          "The local ordinary-domination statement gives all ordinary minimum sets and concurrence for Pappus. The bondage catalogue statement concerns the effect of edge deletion on ordinary domination."
+        ],
+        "reasoning": "Credit the general parity equation and Eulerian condition; they do not by themselves give a graph-specific rank/kernel certificate and affine enumerator. The inspected stronger coverage of the ordinary optimum family does not count nonoptimum parity solutions or establish coordinate strength for the 128-element family.",
+        "searches": [
+          "Caro–Klostermeyer–Goldwasser DOI 10.7151/DMGT.1137",
+          "Caro–Klostermeyer, The Odd Domination Number of a Graph, JCMCC 44 (2003)",
+          "Caro–Klostermeyer–Yuster DOI 10.7151/DMGT.1276",
+          "Local Resultary SCOPE-2312bedeb2f5 and SCOPE-eab3bbe40f0f"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE 2312bedeb2f5, eab3bbe40f0f and 1c34b9cc3820",
+        "Caro–Klostermeyer JCMCC 44 (2003), bibliographic/access check",
+        "DOI:10.7151/DMGT.1137 and DOI:10.7151/DMGT.1276, access checks only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Retained-line-centred A_l consists of points on l and the other retained parallels; point-centred B_p consists of incident retained lines and the other points of the omitted-direction line through p. These are exactly the form N(v) union its distance-four layer.",
+          "Membership u in S_v is symmetric in u,v (distances 1 or 4), so pair concurrence for vertices u,v is the intersection size of the two sets centred at u,v. The Pappus bipartition/diameter turns nonadjacent opposite-shore pairs into distance-three pairs.",
+          "Each of these minima is independent and dominates; the explicit parity check (or the verified layer counts) gives odd feasibility. Ordinary completeness then supplies the exact minimum odd family and the concurrence table supplies the exchange adjacency."
+        ],
+        "reasoning": "Credit this direct implication for optimizer geometry once its parity is established, rather than calling the same-day record irrelevant. It does not by that implication supply the nonoptimal affine coset, rank, exact triple uniformity or 18/92/18 spectrum. The absence of connected odd domination also follows from the general induced-degree condition plus odd weight and bipartiteness and is not a separate priority claim.",
+        "searches": [
+          "Local mirror SCOPE-2312bedeb2f5, definitions at offsets 1680–3771, concurrence around offsets 4488–5511"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed-neighborhood Lights Out with all-one target has exactly the same affine solution equation (I+A)x=1; the all-off kernel alone is not this coset.",
+          "Three-wise uniformity is an orthogonal array of strength three, or absence of dual words of weights one through three. A closed-neighborhood check gives a dual word of weight four.",
+          "The examined Pappus ordinary-domination record classifies minimum ordinary sets rather than all solutions of the parity equation."
+        ],
+        "reasoning": "Changing the terminology from odd domination to Lights Out or code/orthogonal-array language does not make the claim new. The exact graph-specific affine coset, not general linear algebra, is the comparison target. The ordinary-domination predicate has no parity constraint on all solutions.",
+        "searches": [
+          "Literature: Pappus graph Lights Out closed-neighborhood parity code, odd domination and weight enumerator",
+          "Local Resultary: Pappus parity coset, ordinary minimum domination, and optimum exchange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-2312bedeb2f5 provides an actual exact table at the minimum: concurrence 0 at incident pairs, 1 within a shore, 2 at opposite-shore nonincidences.",
+          "SCOPE-eab3bbe40f0f gives 18 ordinary minimum five-sets and 171 minimum bondage sets; SCOPE-1c34b9cc3820 concerns 18 size-six open-neighborhood locating-dominating sets.",
+          "No distinct Pappus all-on Lights Out/odd-domination table for the full weight distribution and triple-coordinate marginals was located."
+        ],
+        "reasoning": "The ordinary-minimum table is a real partial overlap, not coincidental matching counts. The other catalogue findings count different objects or do not go beyond ordinary minima. A negative focused lookup is only a search limitation, not proof of priority.",
+        "searches": [
+          "Local Resultary: Pappus odd domination/closed-neighborhood linear code and ordinary minimum five-sets",
+          "Local mirror SCOPE-2312bedeb2f5, optimum-family definitions and concurrence",
+          "Focused literature lookup for a Pappus Lights Out/odd-domination enumerator"
+        ]
+      },
+      "rationale": "Pass for the distinct central parity-coset classification (full enumerator and exact strength three). Credit existing general odd-domination/Lights Out methods and the separate catalogue's substantial ordinary-optimum coverage. Neither the bare count nor the optimal family and intersection incidence, once identified with the ordinary optima, are independent novelty. No priority ordering is inferred from the same calendar date.",
+      "residual_risks": [
+        "An unindexed Pappus-specific binary neighborhood/Lights Out code table could duplicate the central code parameters.",
+        "The foundational Caro and coauthor papers were not independently available as usable primary passages via the attempted lawful copies, so there is no statement-level exclusion of their entire contents.",
+        "The two 22 November records overlap at the optimum family; no priority ordering is proved by their dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable coverage of the minimum family and adjacency after parity is checked, not coverage of the full affine coset; precedence relative to the assigned record is not inferred",
+          "evidence": [
+            "A_l selects the points on l and the other lines parallel to l; B_p selects the retained lines through p and the two other points of the omitted-direction line.",
+            "Concurring optimal sets: zero at edges, one for same-shore pairs, two for other opposite-shore pairs."
+          ],
+          "identifier_or_url": "SCOPE-minimum-domination-reconstructs-the-pappus-graph-and-separates-s--2312bedeb2f5",
+          "material_read": "Local mirrored RESULT.md Finding, family definitions offsets 1680–3771 and concurrence passages near offsets 4488–5511",
+          "method": "Lawful local mirror bounded passage inspection; identify the affine-plane point/line centres and translate concurrence using symmetric membership",
+          "title": "Minimum domination reconstructs the Pappus graph and separates its query notions",
+          "trigger": "Strongest graph-specific hit with all eighteen ordinary minimizers and their concurrence"
+        },
+        {
+          "assessment": "Ordinary domination and bondage, not all-on parity code",
+          "evidence": [
+            "Ordinary domination number five; eighteen ordinary minima and 171 minimum bondage sets."
+          ],
+          "identifier_or_url": "SCOPE-the-171-minimum-three-edge-bondage-sets-of-the-pappus-graph--eab3bbe40f0f",
+          "material_read": "Local mirrored RESULT.md Finding at offset 0 onward",
+          "method": "Compare defined feasibility predicate and effect of edge deletion",
+          "title": "The 171 minimum three-edge bondage sets of the Pappus graph",
+          "trigger": "Exact Pappus optimum count in neighbouring catalogue"
+        },
+        {
+          "assessment": "Different feasible sets, no exact parity-code coverage in the inspected finding",
+          "evidence": [
+            "Eighteen size-six open-neighborhood locating-dominating sets."
+          ],
+          "identifier_or_url": "SCOPE-the-pappus-graph-reconstructs-itself-from-optimal-locating-domin--1c34b9cc3820",
+          "material_read": "Local mirrored RESULT.md offsets 0–2934",
+          "method": "Compare the open-neighborhood locating predicate and size",
+          "title": "The Pappus graph reconstructs itself from optimal locating-dominating data",
+          "trigger": "Earlier catalogue result with eighteen Pappus optimal sets"
+        },
+        {
+          "assessment": "No whole-source exclusion; earlier generic work is credited",
+          "evidence": [],
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-044/the-odd-domination-number-of-a-graph/",
+          "material_read": "Bibliographic identification; publisher PDF produced no inspectable text in the bounded retrieval",
+          "method": "Lawful OA retrieval attempt",
+          "title": "The Odd Domination Number of a Graph",
+          "trigger": "Foundational odd-domination paper possibly supplying graph-specific parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full weight spectrum and orthogonal-array strength of the closed-neighborhood parity coset are natural exact invariants of a canonical small cubic symmetric graph. Ordinary optimum counts do not answer either question: the parity constraints give uniformity on every triple while the minimum feasible sets are rigid under small replacements. The useful independent content is this full feasible-space benchmark and its structural certificate, not merely another computation of the known ordinary optimum count or the generic even-degree corollary. No generalization to other graphs is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

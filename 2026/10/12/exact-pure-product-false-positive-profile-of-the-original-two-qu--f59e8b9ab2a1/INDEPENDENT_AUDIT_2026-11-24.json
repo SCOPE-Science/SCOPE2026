@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:43:50.101349Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For half-angle α=γ/2 and nonzero mean direction m, write the two unit Bloch vectors as cos(α)m ± sin(α)e, with e perpendicular to m (arbitrary there if γ=0). The mean has length cos(α). For a unit transverse n, factorization gives zero cross covariance and variance [1−sin²(α)(e·n)²]/2. Its global minimum is cos²(α)/2, attained at n=e; at γ=0 all transverse axes tie. Both normalizations give the stated values, and taking γ→π gives an infimum but not a value at the undefined endpoint. The review's explicit product uses opposite transverse components ±√3/2 and common longitudinal component 1/2; the dot product is −1/2 and the variance minimum is 1/8. This exact witness is in the 2011 review, not the qualitative product paragraph of the 2003 preprint; correct the attribution when citing the example. The analytic minimization, not the recorded numerical output, supports the result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint recalls ξ₂≥1 for separable N-qubit states and proves a separate inequality for the modified parameter in Eq. (36). The nearby catalog entry concerns n≥3 one-axis twisting with phase damping."
+        ],
+        "reasoning": "A lower bound for separable states does not force equality for all pure two-qubit products or the exact minimum of their transverse collective variance. The indexed many-qubit dynamical result has different hypotheses.",
+        "searches": [
+          "arXiv:quant-ph/0304051v3 §III.1 and §III.2; original Wineland bound for separable states",
+          "Resultary one-axis-twisting coherence window e701ed8476d3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:quant-ph/0304051v3",
+        "arXiv:quant-ph/0304051v1 p. 2",
+        "arXiv:1101.0308 §3",
+        "Resultary e701ed8476d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating introduction says ξ₁ ‘can be less than 1’ for a nonsymmetric product; §III.1 also says it ‘can be larger than unity even for a non-symmetric product state’ while discussing Eq. (4) and arbitrary pure two-qubit states. The later review quantifies one ξ₁=1/2 witness."
+        ],
+        "reasoning": "A single witness and a separable lower bound do not imply the exact full-domain result. The frozen minimization demonstrates that, for the stated pure two-qubit nonzero-mean scope, the over-unity sentence cannot hold, whether or not a broader context was intended.",
+        "searches": [
+          "arXiv:quant-ph/0304051v3, after Eq. (8) and §III.1 around Eq. (21)",
+          "arXiv:1101.0308 §3 Eq. (11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The literature distinguishes the common transverse direction for the original parameters from separate local axes for the invariant replacements. A common rotation brings any product in scope to the two Bloch vectors with equal longitudinal and opposite transverse components."
+        ],
+        "reasoning": "A formula for the separately rotated invariant parameters is not the relative-angle function of the original parameters; they only agree here at aligned Bloch vectors for ξ₁.",
+        "searches": [
+          "Resultary: pure two-qubit product spin squeezing false positives, original Kitagawa–Ueda and Wineland parameters",
+          "arXiv:quant-ph/0304051v3 §I and Eqs. (4), (11)–(14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit review example gives mean 1/2, variance 1/8 and ξ₁=1/2. The nearest catalogued squeezing record found is not a pure two-qubit profile."
+        ],
+        "reasoning": "No finite lookup table is applicable to the continuous angle; the closest exact published calculation checked is a single point, not a class or a parametrized set of equality cases.",
+        "searches": [
+          "Resultary focused searches for the exact pure-product squeezing profile",
+          "arXiv:1101.0308 §3 Eq. (11) and following example"
+        ]
+      },
+      "rationale": "The qualitative counterexample and a particular point were known. The supported distinct contribution is the complete relative-angle profile under the original collective definitions, including the optimal variance and vanishing infimum of ξ₁ with ξ₂ exactly one. This also resolves the apparent over-unity claim for nonsymmetric products in the pure two-qubit discussion of the motivating source.",
+      "residual_risks": [
+        "Targeted inspection does not exclude another text deriving the saturation or the full angle profile under different notation.",
+        "The cited over-unity sentence is only ruled out here for pure two-qubit products with the nonzero mean and the original collective definition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative prior false positives and broader lower bounds, but not the angular profile",
+          "evidence": "The original ξ₁ can be less than one on a nonsymmetric product; Eqs. (11)–(14) switch to local transverse frames, and §III.2 distinguishes the known original ξ₂≥1 from the new invariant bound.",
+          "identifier_or_url": "https://arxiv.org/html/quant-ph/0304051v3",
+          "material_read": "§I Eq. (4) and passage after Eq. (8); §II Eqs. (11)–(14); §III.1 following Eq. (21); §III.2 separable-state discussion through Eq. (36)",
+          "method": "OA full-text passages and direct normalization/quantifier comparison",
+          "title": "Spin squeezing criterion with local unitary invariance",
+          "trigger": "Same definitions and motivating false-positive claim"
+        },
+        {
+          "assessment": "One exact point, not full coverage",
+          "evidence": "The product of √3/2|0⟩ ± 1/2|1⟩ gives ξ₁=1/2 and minimum variance 1/8, at γ=2π/3.",
+          "identifier_or_url": "https://arxiv.org/html/1101.0308",
+          "material_read": "§3 Eq. (11) and adjoining evaluation",
+          "method": "OA full-text passage and substitution of the Bloch vectors",
+          "title": "Spin Squeezing and Quantum Correlations",
+          "trigger": "Candidate prior exact product-state computation"
+        },
+        {
+          "assessment": "Different quantum family and invariant question",
+          "evidence": "It treats n≥3 one-axis twisting with independent phase damping and an asymptotic Wineland quantity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-the-critical-one-fifth-power-local-coherence-window-for-one-axis--e701ed8476d3/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary mirror, snapshot 36a7204",
+          "title": "The critical one-fifth-power local-coherence window for one-axis twisting",
+          "trigger": "Nearest catalogued spin-squeezing result in focused queries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A known false-positive example becomes a complete diagnostic boundary: every misaligned nonantipodal pure product is classified, and one can make the apparent Kitagawa–Ueda squeezing arbitrarily strong without genuine entanglement or Wineland squeezing. The exact normalization and endpoint matter to interpreting the witness, and the full classification also resolves a conflicting qualitative statement in the motivating discussion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

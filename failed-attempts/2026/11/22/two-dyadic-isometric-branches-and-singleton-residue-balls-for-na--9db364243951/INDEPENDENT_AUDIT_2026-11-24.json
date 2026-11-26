@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:25:55.274875Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–68",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent branch_replay.py: first register return and direct lower-modulus fiber checks (python3 branches/replay/branch_replay.py from the review workspace)"
+      ],
+      "rationale": "Using the forward shift E on the recurrence, E^3=I+E^2 and E^7=3I+2E+4E^2, so B=(E^7-I)/2=I+E+2E^2 and B+B^2 is E+E^2 modulo two. The values u_3,u_4,u_5,u_6=1,2,3,4 make both corresponding scalar parities odd at each of r=3,4, at the base seven-step and doubled scales. Squaring I+2^(h+1)D_h makes D_h mod 2 stable from h=1 onward, and shifting by 7j does not alter the state mod 2. Thus each increment by 2^h of the branch parameter has valuation h+1; an odd number of such increments preserves that valuation because each divided increment is odd. Negating the order of s,t does not change it. The progression maps are therefore bijections onto their parity cosets modulo 2^k. The matrix congruence supplies period 7*2^(k-1); any period is divisible by seven by the nonconstant mod-2 cycle of prime length, and the r=3 valuation forces the full power-of-two factor. Direct recurrence gives 2 mod 8 only at n=4 and 7 mod 8 only at n=24 within the length-28 block. The parity-chart bijections then count exactly one hit per such target within each full period, since 28 divides that period for k>=3. An independent recurrence checked first register return, both chart permutations and the claimed singleton fibers through 2^14; the quantifiers beyond that range follow from the algebra.",
+      "residual_risks": [
+        "The result does not classify all scalar fibers or assert that 2 and 7 mod 8 are the only singleton target classes. No odd prime powers are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1d412e89dd2f classifies exactly which classes give the scaled isometry and extends the two charts to parity cosets of Z_2; the frozen branch theorem is included.",
+          "849f5443ff2b gives the state-cycle lengths for c=1. Prime-power period lifting with P(2)=7 and P(4)=14 gives the known full least period. The earlier 145313dde067 publishes a mod-28 interpolation of every scalar residue branch, not just a statement of individual valuations."
+        ],
+        "reasoning": "Period and full state-return cycles alone would not settle scalar fibers. The strongest same-object chart theorem does cover the charts, and the earlier interpolation supplies an independent mechanical route to the singleton rows.",
+        "searches": [
+          "Resultary 1d412e89dd2f, Finding and step 5",
+          "Resultary 849f5443ff2b, Finding and Proof for c=1",
+          "Kuloğlu–Özkan–Shannon, The Narayana Sequence in Finite Groups, Theorems 2.1 and 2.5",
+          "Resultary 145313dde067, Proof step 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1d412e89dd2f, 145313dde067, 849f5443ff2b and 9db364243951 (identical self-indexed record)",
+        "OEIS A271953",
+        "Kuloğlu–Özkan–Shannon, Franzone–Harrington, Kirthi and Lin (OA passages as listed)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One mod-8 period has 2 only at n=4 and 7 only at n=24, which belong to the even and odd in-scope charts, respectively. Once the known chart bijections are applied, each finer target in either congruence ball has exactly one preimage, with no further lifting theorem.",
+          "The earlier interpolation states M^28=I+8D and the branch residue is constant mod 8. The quotients (u_(n+28)-u_n)/8 at n=4,24 are respectively 10703 and 22368895, both odd. These are the linear coefficients after dividing out 8. Raising I+8D to a positive parameter difference d gives I+8dD modulo 2^(4+nu_2(d)), since nu_2(binomial(d,j))>=nu_2(d)-nu_2(j) for j>=2. Thus the two earlier mod-28 branches alone give exact valuation 3+nu_2(d) and biject onto the corresponding output balls."
+        ],
+        "reasoning": "The earlier individual-valuation theorem by itself does not determine odd parts or differences. Its explicit interpolation plus two odd coefficients yields the singleton corollary by the same unit lifting with no independent obstruction to resolve. Alternatively the exact same-day parity bijections yield it merely by filtering the 28-term block. No complete multiplicity classification transfers, but none was asserted.",
+        "searches": [
+          "1d412e89dd2f, residue transversals (step 4) and Limitations (offset 6701 onward)",
+          "145313dde067, matrix interpolation and mod-8 reduction (step 1, offset 0–4814)",
+          "Direct exact recurrence evaluation of n=0..52"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The compared recurrence starts a_0=a_1=a_2=1, which equals (u_1,u_2,u_3). The same recurrence then forces a_n=u_(n+1) for all n>=0.",
+          "The other record states nu_2(a_(7t+j)-a_(7s+j))=1+nu_2(t-s) for j=2,3 and distinct nonnegative s,t and the corresponding complete parity transversals for every k>=1."
+        ],
+        "reasoning": "The index shift sends j=2,3 precisely to r=3,4. The exact isometry and residue-coverage claims match quantifier for quantifier, not just in test cases or method.",
+        "searches": [
+          "Resultary and primary search: Narayana cows dyadic congruences, residue transversals, pairwise valuations and singleton fibers",
+          "Resultary 1d412e89dd2f, Finding and Proof steps 1–5, offsets 0–4486"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9db364243951 is self-indexing; the distinct 1d412e89dd2f statement is the exact chart hit. A271953 supplies period data, including 7 and 14 at moduli 2 and 4, not target multiplicities.",
+          "Franzone–Harrington's I(2,3) mod 8 is an index set modulo the period when the outputs are taken mod 3; it is not an output fiber at 2 mod 8. The sibling record's Limitations leaves full-period multiplicities open, so the singleton supplement is not claimed as a literal table match."
+        ],
+        "reasoning": "The catalogue gives direct statement-level coverage of the defining chart theorem notwithstanding the shared date. The indexed period and modular example must be distinguished from the frozen scalar multiplicity statement.",
+        "searches": [
+          "Resultary 9db364243951, 1d412e89dd2f, 849f5443ff2b, 145313dde067",
+          "OEIS A271953, offset 0 (least periods of A000930 modulo n)",
+          "Franzone–Harrington, Integers 24 (2024) A10, §3, PDF p. 4"
+        ]
+      },
+      "rationale": "Demonstrable coverage, not a conclusion about calendar priority: distinct same-day Resultary record 1d412e89dd2f proves the exact two difference laws and both residue transversals after the normalization shift a_n=u_(n+1); it even rules out the other five isometry classes. The least period is independently known. The singleton supplement does not appear as a printed statement in that record, but is a mechanical consequence of its bijections and one mod-8 recurrence block. It can also be recovered directly from the earlier explicit mod-28 interpolation with two scalar parity evaluations. Thus no independently original main finding or nonmechanical remainder is established here. This is not a finding of false mathematics or a priority attribution between same-day entries.",
+      "residual_risks": [
+        "The coverage decision does not establish within-day publication order or historical independence. It does not require ruling out still earlier versions or unindexed works, and there is no claim that all scalar multiplicities are already classified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent branch claims and strictly stronger classification; does not literally state the singleton fibers",
+          "evidence": "The same two exact difference laws, residue transversals and least period, with a one-index shift, plus exclusion of all other isometry classes.",
+          "identifier_or_url": "Resultary 1d412e89dd2f",
+          "material_read": "RESULT.md Finding and Proof steps 1–5, offsets 0–4486; Limitations from offset 6701",
+          "method": "Local published mirror; normalize initial terms and compare exact theorem",
+          "title": "Two complete residue sections of Narayana cows at every power of two",
+          "trigger": "Distinct same-day possible exact match"
+        },
+        {
+          "assessment": "Individual-valuation statement is not equivalent, but its published interpolation makes the singleton result mechanical",
+          "evidence": "M^28=I+8D with fixed integer D, scalar binomial interpolation on every branch and reduction to one length-28 table.",
+          "identifier_or_url": "Resultary 145313dde067",
+          "material_read": "RESULT.md Finding and Proof steps 1–3, offsets 0–4814",
+          "method": "Local published mirror; matched the interpolation and checked the two unit coefficients independently",
+          "title": "A complete binary valuation law and bounded-discrepancy density for Narayana numbers",
+          "trigger": "Earlier exact information on all mod-28 index classes"
+        },
+        {
+          "assessment": "Covers the period, not the scalar-isometry theorem by itself",
+          "evidence": "Cycle lengths of the three-coordinate state map; fiber size in a projection is not a cycle length.",
+          "identifier_or_url": "Resultary 849f5443ff2b",
+          "material_read": "RESULT.md Finding and proof for c=1, offset 0",
+          "method": "Local published mirror",
+          "title": "Complete periodic-cycle spectra of the generalized Narayana recurrence modulo powers of two",
+          "trigger": "Earlier period and stronger state-cycle information"
+        },
+        {
+          "assessment": "Period antecedent, not a scalar-fiber classification",
+          "evidence": "Prime-power lift when the period first increases; the first periods are recorded at OEIS A271953.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/60-5/kologlu.pdf",
+          "material_read": "Theorems 2.1 and 2.5, pp. 213–214, OA offsets about 6500 and 10500",
+          "method": "Primary OA PDF passages",
+          "title": "The Narayana Sequence in Finite Groups",
+          "trigger": "Same recurrence and prime-power period lifting"
+        },
+        {
+          "assessment": "Not the frozen two-adic target sets",
+          "evidence": "I(a,m) is an index set for targets modulo m; a displayed index set reduced modulo 8 has underlying target modulus 3.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/y10/y10.pdf",
+          "material_read": "§3, PDF p. 4, OA offset about 5900",
+          "method": "Primary OA PDF passage",
+          "title": "Sierpiński and Riesel Numbers in Narayana's Cow Sequence",
+          "trigger": "Exact modular hit sets for Narayana numbers"
+        },
+        {
+          "assessment": "Inspected passages do not give the two charts or singleton results",
+          "evidence": "Periods modulo primes in Kirthi, recurrence identities/convolution and negative indices in Lin.",
+          "identifier_or_url": "arXiv:1509.05745; Symmetry 13 (2021), 149",
+          "material_read": "Kirthi pp. 2–3; Lin p. 1",
+          "method": "Primary OA PDF passages",
+          "title": "Narayana Sequences for Cryptographic Applications; On the Recurrence Properties of Narayana's Cows Sequence",
+          "trigger": "Older modular and recurrence antecedents"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–15 and 51–68",
+        "Resultary 1d412e89dd2f, Proof step 4 and Limitations",
+        "Resultary 145313dde067, Proof step 1"
+      ],
+      "rationale": "The exact parity transversals are natural structural information, but are already supplied by the matching result. Relative to that coverage, the proposed additional singleton cylinders are obtained by filtering one length-28 table against those transversals (or by two parity tests in an available explicit interpolation). Neither the fraction one quarter nor least fiber size one adds content beyond that immediate deduction. There is no separate useful unknown invariant established at the required threshold: the frozen result deliberately does not classify the remaining fibers. No substantive repaired claim is supported by the existing evidence.",
+      "residual_risks": [
+        "A complete or otherwise substantive new scalar-fiber classification could have value; this disposition does not assess such an unasserted claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

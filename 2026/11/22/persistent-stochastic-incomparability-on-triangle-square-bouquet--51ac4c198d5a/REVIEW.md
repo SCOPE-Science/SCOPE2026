@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every maximal independent set is classified by hub membership and the choice on the three-vertex path remaining in the square. The sequential hub mass is computed by an explicit independent-priority integral, and the middle mass by an independent relative-rank event. Directly checkable inequalities give strict CDF crossing at the two support cutoffs and a single negative mass difference. The displayed total-variation identity follows exactly. Independent rational dynamic-programming and full maximal-set enumeration checks agree for the first three nontrivial parameters; those finite checks are not asserted to prove the infinite statement.
+## correctness
 
-## Originality
-PASS relative to examined evidence. Higuita-Diaz, López and Roldán-Correa explicitly supply the eight-vertex instance, which is therefore excluded from the novelty claim. Their Section 5.1 has a two-size support and Section 5.3 establishes a single three-size example; neither statement implies strict crossover and an exact total-variation law for all larger shared-hub bouquets. Related individual-cycle, clique-bouquet and wheel results have different graph decompositions; the first cannot derive the new complete law without further reasoning. Historical priority remains uncertain because unindexed general composition results may exist.
+PASS
 
-## Value
-PASS. The motivating paper identifies a minimal connected example of stochastic incomparability; an isolated counterexample does not show stability under enlargement. Here a natural iterative local graph operation preserves both opposed inequalities for every size, and yields a nonzero limiting distributional separation and opposing polynomial/exponential rare-event scales. This is a structural robustness and quantitative phenomenon, not merely a recount of the finite instance.
+The two sampling laws are on cardinalities, not on labeled maximal sets. The hub-selected class consists only of hub plus square antipode. Excluding the hub, one must take one vertex per triangle and then either the square antipode or its two neighbors; all such selections dominate the hub because r≥2. This yields counts (1,2^r,2^r). Under i.i.d. priorities, conditional on hub priority t all triangle priorities must exceed t for hub acceptance, and the independent square gate is (1−t)^2 plus the integral of 2u(1−u) from 0 to t (the first hub neighbor in the square appears at u<t but is blocked by the antipode). Beta integration gives (r+1)/((r+2)(2r+1)). For size r+1 the antipode must have the earliest of the three nonhub square priorities and at least one triangle priority must precede the hub, with independent probabilities 1/3 and 1−1/(2r+1). At size 2 the sequential CDF is greater than 1/(2r+3), itself greater than the static CDF. At r+1 the sequential CDF is less than (2r+3)/(3(2r+1))<1/2, and the static CDF exceeds 1/2. Thus the two outside signed mass differences are positive and the middle one is negative. Its magnitude is total variation and tends to 1/6. Taking the quotient of the two size-2 probabilities gives asymptotic equivalence to 2^r/r.
 
-## Closest literature and limitations
-The primary source is arXiv:2611.14718v1 (2026-11-10), particularly Sections 2 and 5.3; its finite example is credited exactly. The general local-limit theory in https://doi.org/10.1002/rsa.21200 gives methodological background, not the required growing-hub comparison. Only this triangle–square family is established; no result on arbitrary bouquets, low-degree graphs or sharpness is inferred. Search-based originality is not a proof of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known eight-vertex witness and its law are exactly the credited r=2 case. The distinct supported claim is the all-r enlargement with exact three-point laws, persistent crossing, TV limit and rare-size asymptotic. The inspected related results do not imply that package.
+
+## value
+
+PASS
+
+This is a natural extension of the published witness, not an arbitrary finite census. It resolves whether incomparability persists when the number of identical triangle blocks grows. The rare event keeps one crossing strict despite its vanishing absolute mass, with polynomial versus exponential rarity, while the TV limit quantifies a discrepancy that does not vanish. This is useful exact information about the two ensembles, distinct from merely finding another crossing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

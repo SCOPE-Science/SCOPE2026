@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:48:38.626473Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each cross-edge is examined only by its later endpoint, so conditional independence in a given side word is exact. The degree argument integrates E[1/(1+D)] = integral_0^1 (1−p+px)^n dx, giving the finite mean, even for p=1. Reconstructed the crucial variance independently by a Doob martingale: given the first i fair letters with counts A_i,B_i, the expected future sum of q^{opposite count} is (q^{A_i}+q^{B_i})/p. Thus the martingale increments take the two equally likely values ±(q^{A_i}−q^{B_i}) at the next position. Their squared expectations sum over i≥0 to 2 sum_i[((1+q²)/2)^i−q^i] = 2/(1+q). L² convergence of the conditional-expectation martingale follows from M in L² (Minkowski bounds its L² norm by the convergent sum of ((1+q²)/2)^((j−1)/2)). Therefore p[M(q)−M(q²)]→1 and sqrt(p)(M(q)−2/p)→0 in L². Conditional Bernoulli Berry–Esseen is valid for the countable sum by finite truncation; conditional variances are asymptotically 1/p in probability, and mixing this bound plus Slutsky proves the infinite model CLT. In the finite balanced word the next-step sign probability differs by at most (j−1)/(2(2n−j+1)); the matched-prefix probability therefore tends to one for K=ceil(20 log(1/p)/p). The finite tail bound uses Maclaurin on n weights q and n−1 weights 1 after conditioning on the side at j; both tails are O(p^9). The exact finite mean differs from 2/p by o(p^−1/2). Lemma 1 of the source applies to the specified recoloring rule, using reversal of the uniform ordering convention when needed. The frozen checker was inspected, not executed; its finite enumeration corroborates the conditional law, not the CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The neighboring ordinary (one-class) Erdős–Rényi result handles p→0 and Np→∞, but its ordering exposes j−1 potential earlier edges at position j, unlike the bipartite word.",
+          "Proposition 9 treats fixed positive p for bipartite graphs. The historical report's full text could not be retrieved and its title alone is not evidence of a covering bound."
+        ],
+        "reasoning": "Ordinary Erdős–Rényi has deterministic conditional means by position, and the bipartite fixed-p limit is not a uniform triangular-array theorem. The generic bounded-degree results cited by the newer paper do not directly justify this scaling on graphs of growing degree; stronger historical bounds remain an access risk.",
+        "searches": [
+          "arXiv:2611.17989v1, §§5.3–5.4 and Proposition 9",
+          "Baldi–Rinott–Stein DOI 10.1016/B978-0-12-058470-3.50012-4; Stanford report tn772ff5474"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17989v1",
+        "Baldi–Rinott–Stein DOI and attempted OA report",
+        "Resultary cd7af7620aee (claim summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 9 gives independent conditional Bernoulli indicators of parameter (1−p)^{h_j}; after the proposition the authors explicitly leave p→0 open and discuss the interleaving contribution.",
+          "In the balanced frame the squared increments computed in this review sum to 2/(2−p), whereas the edge-noise variance is of order 1/p."
+        ],
+        "reasoning": "The prior product formula supplies the starting variables, not the cancellation or uniform approximation to a finite balanced word. The comparison does not claim to close the full sparse range or to treat unbalanced shores.",
+        "searches": [
+          "arXiv:2611.17989v1 Lemma 1, Proposition 9 and paragraphs immediately following it in §5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2611.17989v1 Lemma 1 has T=N−S in law under the random central daemon and monochrome start.",
+          "The orientation of all edges toward the later or earlier priority converts the same peak count to a source or sink count, depending on direction."
+        ],
+        "reasoning": "The graph, acyclic-order and coloring formulations encode the same variable and provide no novelty by relabeling. The precise varying-density normalized law and interleaving cancellation, not the reduction itself, are assessed.",
+        "searches": [
+          "Primary literature: de Panafieu Mathieu local maxima random bipartite graph vanishing edge probability Gaussian balanced interleaving self stabilizing coloring Baldi Rinott",
+          "Resultary: balanced random bipartite graph sparse local maxima random ordering Gaussian coloring daemon variance side interleaving"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published index returns the frozen target, and also the multipartite random-priority record cd7af7620aee, whose Gaussian limit is for a growing palette on a complete multipartite graph.",
+          "The cited preprint has a conditional product formula and fixed-p moment information, not an explicit balanced conditional-mean variance identity evaluated in the inspected statement."
+        ],
+        "reasoning": "Finite or fixed-density distributions are prior. The growing-palette law randomizes colors on a different graph and does not provide the iid-side variance or sparse balanced edge limit here.",
+        "searches": [
+          "Resultary: balanced random bipartite graph sparse local maxima random ordering Gaussian coloring daemon variance side interleaving",
+          "arXiv:2611.17989v1 Proposition 9 fixed-p moment statements"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the balanced varying-p result and exact environmental cancellation. The key source explicitly leaves the bipartite p→0 regime open; its assertion about variance contributions is not valid for the infinite balanced environment as p→0.",
+      "residual_risks": [
+        "A sharper earlier deterministic-graph normal approximation could imply some of the annealed result after additional random graph estimates. No full-text coverage claim for the historical report is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the process representation and fixed-p law; expressly leaves the bipartite vanishing-p limit open",
+          "evidence": [
+            "§3.1 Lemma 1; §5.4 Proposition 9 and paragraph starting 'In the regime p → 0'"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17989v1",
+          "material_read": "Model and Lemma 1, end of ordinary Erdős–Rényi section, §5.4 Proposition 9 including its following sparse-regime paragraph, and beginning of §6",
+          "method": "Read the relevant open PDF text passage and checked priority convention against the displayed statement",
+          "title": "The Exact Stabilization Time of Self-Stabilizing Coloring: Mean, Variance, and Distribution",
+          "trigger": "Same reduction and same random bipartite model"
+        },
+        {
+          "assessment": "No full-text exclusion; possible sharper older approximation remains a risk",
+          "evidence": [
+            "Baldi, Rinott and Stein, 1989, pp. 59–81; cited in the 2026 preprint introduction as general local-maxima context"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/B978-0-12-058470-3.50012-4; https://purl.stanford.edu/tn772ff5474",
+          "material_read": "DOI bibliographic entry only; historical Stanford full text not obtained",
+          "method": "DOI lookup and attempted legitimate OA repository retrieval; no authorized retrieval tool used",
+          "title": "A Normal Approximation for the Number of Local Maxima of a Random Function on a Graph",
+          "trigger": "Plausible broader local-maxima normal approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It resolves a quantified portion of a real sparse-regime question for a known random-order graph statistic. The bounded exact environmental variance is the main structural contribution: it explains why leading fluctuations here are Bernoulli edge noise, in contrast to the generic interleaving heuristic. The coupling window is sufficient, not shown optimal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

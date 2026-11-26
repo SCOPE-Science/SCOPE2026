@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite statement has a complete, auditable enumeration proof. Every unrooted binary tree is represented by a rooted hierarchy; a separate edge-insertion representation gives the identical \(945\) split systems. Every quartet truth value is cross-checked using the independent four-point tree-distance criterion. The strictly increasing depth-first support enumeration is exhaustive by heredity of shattering; relabeling transitivity and incidence double-counting justify the reported global coefficients. All \(64\) binary patterns of one six-query support have explicit witnesses, and all \(504\) canonical-query extremal supports are partitioned into three full symmetric-group orbits. The results concern a finite domain, so exhaustive enumeration is a complete proof once the search's exhaustiveness is established; no infinite case is asserted.
+## correctness
 
-**Originality — PASS, with residual historical priority risk.** The inspected phylogenetic split/partition compatibility results, minimally definitive quartet constructions, and multiclass tree-learning/Natarajan bounds address related but logically different questions. None of the inspected results explicitly or by a stated stronger theorem yields the one-versus-rest binary seven-taxon polynomial and orbit classification. An older equivalent tabulation under alternate terminology cannot be ruled out by negative searches.
+PASS
 
-**Mathematical value — PASS.** The result exactly calibrates the binary quartet-query shattering complex at the smallest tested leaf number with a capacity jump (VC ranks \(1,2,3,6\) for \(4,5,6,7\) leaves). It gives the entire face polynomial, not just a dimension, and structurally classifies all size-six extremal supports in three symmetry types. Quartet constraints are fundamental in phylogenetic reconstruction and sample-complexity analysis; these explicit finite data are natural benchmarks for later general bounds and for distinguishing binary incidence learning from multiclass Natarajan shattering. No larger-order theorem is claimed.
+Rooting at leaf 0 gives a bijection with full binary hierarchies on the other leaves; an internal split separates the two pairs exactly when their paths are disjoint. The trace-cell refinement is necessary and sufficient, and downward closure plus increasing query order makes traversal complete. Query transitivity gives 105 M_k/k and permits using the same restricted list for the orbit census. An independent bounded implementation reproduced 945 trees, 315 displays per query, 206992 visited prefixes, M_1 through M_7 = (1,102,4887,125928,75570,504,0), the reported polynomial, and orbit sizes (1260,2520,5040) with restricted sizes (72,144,288). It checked all 64 stored trace witnesses against generated trees and found the smaller dimensions (1,2,3).
 
-**Closest literature and limitations.** See `RESULT.md` for the comparisons with arXiv:2104.14146, arXiv:2302.04492, arXiv:1101.5302, and arXiv:2604.17461. The result is finite; the smaller-dimensional maximal-face spectrum and general seven-plus-taxon patterns are unproved. Historical priority under another term remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the joint census as delimited in the original, not for the previously established VC dimension 6, example support, trace witnesses, or exhaustive traversal. The earlier Resultary enumeration reaches the same prefixes; a depth histogram is a small instrumentation change, not a new shattering algorithm. But its published conclusion and aggregate node count do not specify the multigraded counts, and it does not carry out the classification of the size-six supports up to the leaf action.
+
+## value
+
+PASS
+
+The binary quartet trace complex is a natural learning invariant, and seven leaves is the first small order where the maximum substantially exceeds the preceding values. The enumerated distribution and the exact three nonisomorphic kinds of dimension-maximizing support give small benchmarks for structural conjectures and extremal examples; a dimension or one witness cannot supply them. Value rests on that precise classification, not on rederiving a known dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:44:19.945821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Quotient differentiation gives w_iw_j(s_j−s_i)(λ_i−λ_j) at exponent λ_i+λ_j in the positive-denominator derivative. Merge equal rates by their weighted mean scores; if the resulting mean is constant it has no strict reversal (the derivative-zero bound is for a nonzero numerator). For three distinct rates the three ordered coefficients cannot alternate twice, by transitivity of the effective scores. In the four-class rate cone, the ordered pair signs are −−−++−; at a tied middle pair, collecting coefficients cannot add a sign change. The generalized Descartes bound follows by dividing by the lowest power and differentiating: Rolle counts multiplicity, and with equal first two coefficient signs the normalized function initially moves away from zero, so an additional derivative zero is needed before the first root. For the witness, after division by 50y⁴ with y=e^(−t), the exact coefficients are (−3,−6,−16,100,100,−200); evaluations at y=1,1/2,1/4 give −25, 5/2, −479/128. The two disjoint sign brackets saturate the multiplicity bound, giving two simple roots and a minimum followed by a maximum. The finite-depth brackets and strict hypotheses persist under small simultaneous perturbations. Monotone rate-vs-score order precludes reversals by the pair formula. The attached checker was inspected, not executed. The rate-sum condition is sufficient but not necessary for the upper bound; the original does not assert necessity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.3(b) characterizes an extended complete Chebyshev system by nonvanishing initial Wronskians, implying at most dimension minus one zeros counting multiplicity for a nonzero linear combination.",
+          "The ratio paper's order-three sign-regular theorem explicitly addresses unimodal coefficient ratios and exponential kernels; the four-score ranks here are not unimodal, so that theorem alone is not used to cover four rates."
+        ],
+        "reasoning": "Sort rates increasingly, set e_i=exp(−λ_it), and B=Σ w_ie_i. For k=1,…,m−1, the prefix Wronskian of ((e_1/B)′,…,(e_k/B)′) equals W(1,e_1/B,…,e_k/B)=B^(−k−1)W(B,e_1,…,e_k). Expanding in B leaves only j>k terms w_j W(e_j,e_1,…,e_k). They all have the same nonzero sign: each is a positive exponential times a Vandermonde on the ordered distinct exponents, with the same permutation of columns. Thus apply the known criterion to the entire derivative basis. Since e_m/B is affine in the first m−1 ratios, M′ is in the span. This yields m−2 zeros for nonconstant M, without the extra four-rate hypothesis.",
+        "searches": [
+          "Grau–Mañosas–Villadelprat, arXiv:0805.1140, Lemma 2.3(b), extended complete Chebyshev systems via continuous Wronskians",
+          "Karp–Vishnyakova–Zhang, arXiv:2408.01755, ratio of Dirichlet series"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Local published-record retrieval and shared-rate mortality proof",
+        "Grau–Mañosas–Villadelprat Lemma 2.3(b)",
+        "Karp–Vishnyakova–Zhang Theorem 2.5 and exponential example",
+        "Munz et al. primary attenuation-model passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive coefficients and real distinct exponents verify the known Wronskian criterion by a same-sign sum of Vandermondes.",
+          "The earlier sign brackets remain after changing coordinates and after imposing the strict gap by continuity."
+        ],
+        "reasoning": "The established zero theorem gives the stronger obstruction for all four-rate orders, and the earlier exact construction furnishes attainment in the restricted order. Neither a physically relabeled example nor the finite-point openness argument distinguishes a sharp new filtration law. The failure is verified coverage/implication, not a retrieval failure or a false statement.",
+        "searches": [
+          "Original passage in Grau–Mañosas–Villadelprat Lemma 2.3(b)",
+          "Original catalogue proof of shared-rate mortality reversals, Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For positive scores, set cohort proportions b_i proportional to w_i and a_i proportional to w_i s_i. Then S_A/S_B=M(t)/M(0), and h_B−h_A=M′/M. The mortality proof's three-class obstruction does not assume survival dominance.",
+          "The prior exact mortality witness has rates i=1,2,3,4, proportion vectors proportional to (4,2,1,4) and (3,1,3,1), and a sign-certified two-reversal hazard polynomial."
+        ],
+        "reasoning": "Even the constrained witness can be transported: use S_B(T−t)/S_A(T−t) with T=log 16 and cancel a common factor, giving rates 5−i, weights a_i exp(−iT), scores b_i/a_i. The rate-ordered score ranks are (1,4,2,3), matching λ1<λ4<λ2<λ3 in size order. The prior polynomial has signs +,−,+ at q=1/16,1/5,1 (q=exp(−(T−t))), placing both turns at t>0. The gap condition holds with equality; decreasing the rate of size class 3 by any sufficiently small positive amount makes the gap strict without destroying the sign brackets. The quotient/time reversal gives the same minimum-then-maximum order. No appeal to empirical mortality or filtration similarity is needed.",
+        "searches": [
+          "Local Resultary search on shared-rate exponential-mixture reversals; prior mortality RESULT.md, proof Steps 1–4",
+          "Unimodality preservation by ratios of functional series and integral transforms, arXiv:2408.01755, Theorem 2.5 and Ex. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier catalogue record gives explicit four-rate integer-polynomial sign certificates and a universal three-rate obstruction.",
+          "The filtration paper's fitted attenuation coefficients concern actual experimental classes with an increasing trend, not an exact table of mathematical turning-point witnesses."
+        ],
+        "reasoning": "No identical numeric parameter tuple is needed to cover this existence claim. The earlier exact catalogue witness yields an admissible witness by the explicit reduction; the new exact values of its chosen depths and scores do not decide originality of the theorem.",
+        "searches": [
+          "Local Resultary shared exponential attenuation and hazard-reversal records; 2026/11/2 exact mortality witness",
+          "Munz et al. 2024, Eq. 2 and fitted coefficients"
+        ]
+      },
+      "rationale": "The main upper bound is a routine specialization of a verified classical extended Chebyshev-system criterion to the normalized exponential basis: in fact any nonconstant mean with m positive rate groups has at most m−2 stationary zeros, independently of rate gaps and score order. The earlier shared-rate mortality result is mathematically equivalent to the three-rate obstruction and supplies a four-rate attaining witness in the present ordering after a reciprocal/time-reversal reduction and a small rate perturbation. The reported numerical filtration example can differ without supplying a distinct sharp theorem.",
+      "residual_risks": [
+        "Exact historical priority for the derivative-basis specialization is not claimed. The verdict rests on demonstrated implication and overlap rather than matching titles.",
+        "The Pinelis oscillation paper and Boos et al. full text were unavailable; neither is needed to infer the coverage established here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the three-rate obstruction and supplies a transformed attaining four-rate example",
+          "evidence": "Steps 1–2 use no survival dominance; Steps 3–4 use shared rates 1,2,3,4, positive proportions and polynomial 11q⁴+4q³+19q²−18q+2.",
+          "identifier_or_url": "2026/11/2/SCOPE-four-mortality-classes-are-necessary-for-two-hazard-rank-reversa--15335021eb5a",
+          "material_read": "RESULT.md, Finding and proof Steps 1–4, offsets 0–6314",
+          "method": "Bounded statements and proof from local published-record mirror",
+          "title": "Four mortality classes are necessary for two hazard-rank reversals under strict survival ordering",
+          "trigger": "Strongest published-record overlap under exponential-mixture ratio duality"
+        },
+        {
+          "assessment": "Established broader theorem gives a stronger derivative-zero bound",
+          "evidence": "An extended complete Chebyshev system is characterized by everywhere nonzero continuous prefix Wronskians; the derivative basis satisfies it by the displayed Vandermonde calculation.",
+          "identifier_or_url": "https://arxiv.org/pdf/0805.1140",
+          "material_read": "§2, Lemma 2.3(b), PDF p. 5, around offset 21546",
+          "method": "Located and read bounded original PDF passage",
+          "title": "A Chebyshev criterion for Abelian integrals",
+          "trigger": "Known prefix-Wronskian criterion applicable to normalized exponential derivatives"
+        },
+        {
+          "assessment": "Broader unimodality context, not by itself the two-turn result",
+          "evidence": "Unimodal coefficient ratios yield unimodality, with an explicit application to ratios of Dirichlet series. The four-class rate-ordered scores in the frozen cone are not unimodal.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.01755",
+          "material_read": "Theorem 2.5, PDF p. 5, offset 22300; exponential kernel example, p. 6, offset 27590",
+          "method": "Located and read bounded original PDF passages",
+          "title": "Unimodality preservation by ratios of functional series and integral transforms",
+          "trigger": "Directly studies ratios of exponential series under sign-regularity"
+        },
+        {
+          "assessment": "Model context, not a new experimental effect",
+          "evidence": "Models exponential attenuation; its reported size dependence is increasing, not the one-peaked rates of the mathematical witness.",
+          "identifier_or_url": "https://doi.org/10.1186/s43591-023-00077-z",
+          "material_read": "Eq. 2, p. 6; fitted trend, p. 10, near offsets 34200 and 55100",
+          "method": "Bounded primary PDF passages",
+          "title": "Transport and retention of micro-polystyrene in coarse riverbed sediments",
+          "trigger": "Physical validation of the proposed model/order"
+        },
+        {
+          "assessment": "Not used for coverage verdict",
+          "evidence": "No statement-level evidence taken from the uninspected full text.",
+          "identifier_or_url": "https://eudml.org/doc/122103",
+          "material_read": "Bibliographic access page only; original text inaccessible through journal and alternate identified copies",
+          "method": "Lawful OA retrieval attempts",
+          "title": "L’Hospital type rules for oscillation, with applications",
+          "trigger": "Plausible still closer historical coverage of quotient derivative oscillation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The diagnostic is intelligible as a model illustration, but the main mathematical conclusion is a routine specialization of the general Chebyshev zero count, with a superfluous gap restriction; the constrained two-turn existence is also accessible by direct reparametrization of an earlier exact witness. The arbitrary hypothetical weights and depth numerics add no established empirical or independently useful exact invariant. There is no validation of the one-peaked condition in filtration data.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

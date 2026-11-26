@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:26:26.831286Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently averaged the actual, unsymmetrized Fourier transform over each nonzero dual ray D, obtaining (q μ(D⊥)−1)/(q−1). Missing rays all have mean t=(qa−1)/(q−1), where a is the origin atom, and the aggregate mean on selected rays is y=[1+(k−1)t]/k, using Σ_j μ(L_j)=1+(k−1)a and the equal ray sizes. The optimum over t∈[−1/(q−1),1] is unique: -t descends and y strictly ascends until their crossing, or the domain truncates before the crossing. A constant line weight attains each fixed-mass bound, so all optimizers must have the claimed a. At q≤2k, including the boundary, the selected aggregate mean and the missing means are ± the bound; a disk average at the endpoint ±m requires every value to equal that endpoint, by the real-part inequality. Thus every coefficient including the zero one is determined and Fourier inversion gives outright uniqueness with no reversibility hypothesis. At q>2k selected frequencies still saturate and are fixed; omitted ones have strict slack for the canonical optimizer. In F₇ on the two axes and diagonal, an odd function g supported at ±1 with values ±1 produces f=(g,g,−g) along the three punctured lines. Its total mass is zero and its transform is ĝ(u)+ĝ(v)−ĝ(u+v), which vanishes on the three selected dual lines. Since ||f||₁=6, adding ε f for 0<|ε|<1/108 is feasible from the uniform nonzero weights 1/18 and leaves every omitted magnitude strictly below 2/9 (the original magnitude is 1/6). Both distinct masses attain the bound, and the perturbation is not even.",
+      "replay": "Repair RESULT.md, Proof: ray averages, endpoint uniqueness and the exact F₇ perturbation. No assumption of projective symmetry or that the additive character is faithful over a nonprime field is used. Inspected but did not execute frozen check_bias.py; it checks the canonical construction numerically and never tests arbitrary-measure uniqueness. No classification of all q>2k minimizers, general affine supports, or signed/complex measures is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jafarizadeh's indexed abstract specifically states optimal transition probabilities assign identical weights to edges within the same adjacency relation of association-scheme networks. The loopless pencil graph has degree d=k(q−1) and nonconstant adjacency eigenvalues q−k and −k, by orthogonality. A real undirected regular graph with these two nonconstant eigenvalues is strongly regular: A² is a linear combination of I, A, and the all-ones matrix by spectral multiplication. Hence I, A, and the complement adjacency form its two-class symmetric association scheme.",
+          "Fraser's visible abstract gives a Kakeya existence bound for all directions; frozen citation notes identify a 1/k bound for the pencil. Neither is a statement about spectral equality of arbitrary optimizing laws. The 2004 SDP paper's pp. 11–12 locate excerpts give general upper/lower bound machinery, distinct from the specific equality case."
+        ],
+        "reasoning": "The abstract’s relation-constant optimum, specialized to this two-class scheme with only one allowed nonloop relation, gives I−bL. Its optimum number and weights follow directly. Neither an existence theorem for such an optimal representative nor a bound in an unrelated geometry supplies equality constraints on complex Fourier coefficients of nonsymmetric optimizers. Exact scope of the association-scheme paper beyond accessible abstract remains a risk.",
+        "searches": [
+          "Fastest mixing on strongly regular graphs or association schemes, optimal adjacency-relation weights",
+          "IEEE article 11513850 and DOAJ article c7c2a3c2fbde42eab5c713bf9d00a1f2, same-paper access attempts",
+          "Boyd–Diaconis–Xiao SIAM Review 2004 FMMC SDP and dual",
+          "Fraser arXiv:2505.09464 and journal DOI"
+        ]
+      },
+      "checked_sources": [
+        "IEEE:11513850 and its DOAJ abstract excerpts",
+        "arXiv:0709.0955v1 (full-text Theorem 3.1)",
+        "Boyd–Diaconis–Xiao FMMC §4 located excerpts",
+        "Fraser arXiv:2505.09464 (abstract and frozen citation notes)",
+        "Resultary 8a0af04feab6, 87d7ea89b8bb, d9f8bb93f1e9, 754730fed24a",
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and REVIEW.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The allowed nonloop relation has valency d=k(q−1), and the Laplacian endpoints are q(k−1) and qk. The homogeneous chain I−bL has 0≤b≤1/d. Optimizing the extremes yields b=min{1/d,2/[q(2k−1)]}, and max{(q−k)/[k(q−1)],1/(2k−1)}. Its holding mass is 1−db, and uniform mass on the pencil follows when that equals b. This is direct coverage of the originally emphasized value, canonical weights and the uniform special case.",
+          "For the repair, averaging to an optimal homogeneous chain generally loses equality information. The equality proof instead retains the exact unsymmetrized means and uses that an average at a real endpoint of a complex disk forces every coefficient on the averaging set to coincide. In the other branch an explicit invisible odd perturbation survives; neither an asserted homogeneous optimum nor the fourth-power synthesis ratio predicts this."
+        ],
+        "reasoning": "The repair uses the matching numerical value to formulate a new equality-case statement, not to claim an independently new numerical minimax. Existence or identification of one symmetric representative does not logically supply uniqueness or certify distinct asymmetric optimizers.",
+        "searches": [
+          "Apply Jafarizadeh IEEE:11513850 relation-constant optimum and Boyd et al. Theorem 3.1 to the pencil graph Laplacian endpoints",
+          "Compare Resultary 87d7ea89b8bb exact synthesis equality functional",
+          "Fraser arXiv:2505.09464 direction-cover versus minimax equality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P(x,y)=μ(y−x) is diagonalized by additive characters and its maximum nonconstant eigenvalue modulus is exactly the objective. Averaging μ with reflection preserves the origin and does not increase the bias, so the optimal value equals that for symmetric convolution walks. Averaging any feasible reversible graph chain over translations preserves feasibility and cannot increase the norm on mean-zero functions, establishing the full symmetric FMMC equivalence for the value.",
+          "Boyd et al. Theorem 3.1 gives the explicit optimum for edge-transitive graphs; the known scope includes at least pencils with k=2,3 since invertible projective maps can permute two or three directions while translations and scalar dilations move edges within directions. This does not alone justify edge transitivity for arbitrary selected sets.",
+          "The repaired F₇ example is a nonsymmetric law even on such a pencil, so knowing equivalent optimum values in the symmetric reduction does not classify all optimizers."
+        ],
+        "reasoning": "The optimization of the number is an exact equivalent graph problem, not an analogy. The correspondence and symmetrization do not invert uniquely on non-even laws, which is precisely where the equality proof has additional content.",
+        "searches": [
+          "Resultary incomplete line pencil positive Fourier-bias equality rigidity uniqueness nonsymmetric minimizer",
+          "Finite-field Fourier bias as fastest mixing on affine-plane partial geometry",
+          "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955v1, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Fourier bias hit 8a0af04feab6 is the assigned record. The distinct exact same-support record 87d7ea89b8bb classifies complex extremizers for a fourth-power norm ratio; located passage offset 79 begins with unitary Fourier normalization and counting norms, and its summary gives a different central-weight ratio. The binary quadratic-conic equality result d9f8bb93f1e9 and two-line sampling rank record 754730fed24a treat different objects/objectives.",
+          "The primary full-text spectral FMMC equations 6–7 do give exact matching numbers on the covered edge-transitive pencils; they are credited, not dismissed for lack of a pencil table."
+        ],
+        "reasoning": "Identical underlying point sets do not give identical equality theories for different objectives. Neither a list of optimal numbers nor an existence formula for an optimal transition matrix specifies all nonsymmetric minimizing probabilities.",
+        "searches": [
+          "Resultary equality rigidity nonsymmetric finite-field line-pencil minimizers phase q=2k",
+          "Resultary 87d7ea89b8bb fourth-power synthesis extremizer comparison",
+          "arXiv:0709.0955v1 §3, exact FMMC equations 6–7"
+        ]
+      },
+      "rationale": "The repair credits the prior route to the numerical value and restricts the contribution to equality constraints on every probability law, including asymmetric ones: disk saturation proves unrestricted uniqueness in the flat branch, and an exact non-even example shows a real equality-case distinction in the other branch. No compared statement was found to give these nonsymmetric conclusions. The strongest broad association-scheme source was available only at abstract/statement level, so priority of the exact equality results is qualified, not certified.",
+      "residual_risks": [
+        "The association-scheme paper was not available in full through the identified lawful routes; its precise equality and possible nonreversible scope could change this assessment. Abstract evidence is used for what it positively says, not to exclude further content.",
+        "The closest Kakeya and same-support synthesis passages were not fully recovered. Prior specialized equality results, or broader extremal convolution results applying directly to asymmetric laws, may remain unindexed or uninspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong statement-level coverage of the homogeneous optimum; broader equality scope and exact dating not independently verified",
+          "evidence": [
+            "Optimal transition weights equal along an adjacency relation; association-scheme spectral and linear programming formulations."
+          ],
+          "identifier_or_url": "https://ieeexplore.ieee.org/abstract/document/11513850; DOAJ c7c2a3c2fbde42eab5c713bf9d00a1f2",
+          "material_read": "Publisher title on legal landing page; indexed publisher and DOAJ abstract excerpts on relation-uniform optimum; no full text",
+          "method": "Targeted primary literature search, then bounded OA publisher, PDF endpoint, DOAJ and same-paper metadata attempts",
+          "title": "Pareto–Optimal Design of Markov Chains on Networks Based on Association Schemes",
+          "trigger": "Strongest plausible broader theorem covering arbitrary direction choices"
+        },
+        {
+          "assessment": "Verified exact optimal value and representative within its graph-transitivity hypothesis",
+          "evidence": [
+            "Equations (6)–(7) minimize over I−αL with α bounded by 1/maximum valency; the same eigenvalue balancing yields the claimed numerical branches."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0709.0955v1",
+          "material_read": "Full-text §3.1 Theorem 3.1 and proof, offsets 27370–32613",
+          "method": "OA literal locate, then bounded full-text offset read",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Direct exact FMMC formula on edge-transitive members"
+        },
+        {
+          "assessment": "General optimality/duality, not by itself a specialized equality classification",
+          "evidence": [
+            "§4 weak and strong duality and sharp dual feasible lower bounds for the reversible graph SDP."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf; DOI 10.1137/S0036144503423264",
+          "material_read": "OA locate excerpts p.7 and p.11 around offsets 23966, 36745 and 37828",
+          "method": "Lawful OA PDF passage location",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Symmetric graph-chain reduction and lower-bound framework"
+        },
+        {
+          "assessment": "Available statement gives an existence bound, not equality classification",
+          "evidence": [
+            "Existence with nonzero-frequency bound q^-1 for a Kakeya set; frozen source reports the analogous nonsharp 1/k incidence construction on concurrent pencils."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.09464; DOI 10.1112/blms.70367",
+          "material_read": "Search-visible abstract and frozen references to Theorem 2.1 and §3.1; OA full passage unavailable",
+          "method": "Primary literature search and lawful OA retrieval attempt",
+          "title": "Fourier analytic properties of Kakeya sets in finite fields",
+          "trigger": "Same Fourier objective for measures on direction covers"
+        },
+        {
+          "assessment": "Different norm ratio and equality problem despite geometry match; no temporal priority inference",
+          "evidence": [
+            "Unitary Fourier normalization, counting-measure fourth-power synthesis, complex extremizers and distinct central-weight ratio."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-universal-sharp-fourth-power-fourier-synthesis-on-finite-field-l--87d7ea89b8bb",
+          "material_read": "Catalogue summary and located start of local RESULT.md at offset 79",
+          "method": "Resultary lookup and bounded local-mirror attempt",
+          "title": "Universal sharp fourth-power Fourier synthesis on finite-field line pencils",
+          "trigger": "Same-day exact equality cases on the same support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Knowing one canonical optimal measure leaves open whether unrelated input measures could attain the same bias and whether the common intersection must be used. The repaired theorem identifies what every measure must do, establishes unrestricted uniqueness in the entire flat regime, and demonstrates that uniqueness can fail despite a unique homogeneous choice. This is structural information about exact Fourier equality cases rather than another calculation of a covered eigenvalue bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

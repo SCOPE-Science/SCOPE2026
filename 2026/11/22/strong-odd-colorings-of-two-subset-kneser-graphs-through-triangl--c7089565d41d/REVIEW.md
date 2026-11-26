@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph \(\mathrm{KG}(n,2)\) is identified with the edges of \(K_n\), and strong-odd color classes are characterized completely as singleton edges, full triangles, or (only for even \(n\)) full stars. The proof checks star sizes \(2\), proper stars of size at least \(3\), whole stars, and triangles by explicit parity counts; it proves no other color classes occur. At most one full star can occur. Coloring costs reduce to maximum edge-disjoint triangle packings, whose four leave cases and existence are credited to Schönheim's theorem; the three even-residue cost differences establish the unique exceptional tie at \(n=6\). Independent-code-path finite checks test the class lemma and solve color partitioning exhaustively through \(n=7\), and construct and verify optimizers through \(n=10\). Computation is corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, provisional
+Every class is an intersecting family of edges, hence a star subfamily or a triangle. For a proper star of size t≥2, a noncentral edge can see two class edges when t=2, t−1 when t≥3 is odd, and t−2 when t≥4 is even, all positive even counts. A full star gives n−3 neighbors for every noncentral edge and is therefore permitted exactly for even n. Triangles and singletons always work. Two full stars cannot coexist. With P(v) the maximum triangle packing size, the respective costs are C0=binom(n,2)−2P(n) and C*=1+binom(n−1,2)−2P(n−1); equality within a type forces a maximum packing. The verified classical leave sizes give the four formulas and C0−C*=(2n−12)/3, (2n−4)/3, (2n−2)/3 in the even residues 0,2,4, respectively. Independently at n=6, triangles 123,145,246,356 leave a matching; five triples would violate leave-degree parity. In K5, 123 and 145 pack two triples; three would leave one edge, violating even leave degree. These give seven colors in each allowed type and no other optimum type. This verifies all n≥5 and classifies unlabelled color partitions, not named assignments.
 
-The verified earliest public motivating preprint is Kwon–Park (January 22, 2024), which defines the invariant but addresses sparse graph bounds; Caro et al. (October 3, 2024) addresses planar and product bounds. The later 2025 Caro et al. paper establishes the Petersen \(n=5\) special case and the maximum odd-independent-set size in general Kneser graphs. Both are acknowledged. Neither its maximum-class size alone nor the classical triangle-packing theorem specifies the permitted partition classes of \(\mathrm{KG}(n,2)\), the full-star optimality cutoff, or the general chromatic-number formula. Semantic published-record searches did not identify an equivalent or stronger result. Unindexed articles, unpublished designs-to-coloring reductions, and incomplete global priority clearance remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The claim solves a natural infinite family for a recently studied coloring invariant and completely classifies optimal color partitions, not merely their sizes. The sharp dichotomy between odd orders (only packing/leave classes) and even orders (a full-star class is forced for \(n\ge8\)), including the \(n=6\) tie, makes the reduction to classical partial Steiner triple systems useful. This structural identification is not a direct numerical substitution into a known packing count without the nontrivial parity classification.
+Passes for the all-order rank-two formula and complete optimizer reduction and classification. The n=5 optimizer structure is already implicit in the published Petersen proof, not just its scalar value; the full-star parity criterion and the packing extremum are also prior ingredients. The checked literature does not settle the distinct all-order coloring claim.
 
-## Closest literature and limitations
+## value
 
-Kwon and Park, arXiv:2401.11653; Caro et al., arXiv:2410.02336 and arXiv:2509.20763 (Petersen and Kneser odd independence); Schönheim (1966), cited via the ETSU construction-based maximum-packing exposition. The result is specifically the \(2\)-subset Kneser family with open-neighborhood parity; the named-color enumerator and higher-rank generalization are not claimed. Priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles a natural infinite subfamily of Kneser graphs for a neighborhood-parity invariant, not just one scalar. The allowable-class lemma and star versus no-star comparison explain how a classical packing problem determines all optimizers, including the exceptional tie; they provide reusable structure beyond the already-known Petersen value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The geometric dictionary from exceptional classes to the 45 tritangents is explicit; a repeated nine-line support has exactly two disjoint tritangent partitions and therefore is a Steiner pair. All six root reflections have checked Picard action, and the exhaustive generator BFS reaches precisely 51840 Weyl elements. The exact 120-point cycle histogram is reconstructed for every element. The degree-five example is a valid general-position blowup for every prime power at least four, with all 24 Steiner orbits of length five. The quarter-density statement follows from the independently published equidistribution theorem, not extrapolation from finite samples.
+## correctness
 
-## Originality
-**PASS, with residual historical-table risk.** The inspected Elsenhans–Jahnel article provides the 120-point set and invariant-pair theory but not the full 25-class shortest-Steiner-degree census. Rybakov–Trepalin and Banwait–Fité–Loughran tabulate Weyl classes and exceptional-line data, not the shortest Steiner-pair degree or the tritangent-without-Steiner asymptotic. Loughran–Trepalin settles realizability, not the 120-label cycle invariant. Existing Frobenius classifications using 40 complementary Steiner triplets or joint line/tritangent spectra recover the Weyl conjugacy type and hence could serve to calculate this statistic, but they do not provide the evaluated 120-pair minimum-degree table, the quarter-density obstruction, or the sharp all-field construction. An earlier unpublished or unindexed table for the 120-point permutation representation remains possible. Statements and logical implications, not title similarity, were compared.
+PASS
 
-## Mathematical value
-**PASS.** The result gives a complete arithmetic descent obstruction for a canonical cubic-surface marking, unlike a bare group order computation. The sharp value five is realized by actual smooth cubic surfaces over every finite field of size at least four, not only by an abstract Weyl element. The positive quarter-density separation between rational tritangents and rational Steiner-pair markings is an arithmetic phenomenon invisible to the cubic surface's line count alone.
+The 27 Picard classes give the line-intersection graph. Its triangles are tritangent plane triples: intersecting lines are coplanar in a triple, including concurrent triples since the tangent plane at their smooth common point contains all of them. For three disjoint tritangents, a conjugate tritangent contains one line from each; testing the conjugate triples directly gives exactly 120 nine-line supports with complementary partitions. Frobenius preserves the graph and thus these supports, with rationality of a configuration equivalent to setwise stability. Independently of the frozen reflection walk, each ordered sixer of skew lines determines at most one incidence automorphism: outside the six, each line has a unique incidence pattern with it, as seen from the listed L and Q classes. Exhaustion gives 72 sixers and all 720 orderings for each extend, with adjacency checked, so the graph automorphism action has exactly the known Weyl group order 51840. Taking the least orbit size on supports gives the claimed histogram; jointly testing fixed tritangents gives 12960. A geometric point in a Frobenius cycle of length h is rational over F_(q^n) iff h divides n, so least cycle size is precisely the minimal descent degree, not the splitting field degree. Banwait–Fité–Loughran Theorem 1.9 is unweighted for cubic surfaces and applies to this conjugacy-invariant event, yielding 1/4 asymptotically. In the sharpness construction, secants of the five conjugate conic points are nonrational since a rational secant would stabilize its two-point intersection with the conic. Each excludes at most one rational point outside the conic; q²−10>0 for q≥4, so the sixth point can be chosen off those secants and the conic. Bézout excludes any different conic through the five given points; the six centers are in general position. The blowup and anticanonical embedding descend and give the asserted five-cycle action, which has the claimed three profiles. Neither q=2 nor q=3 sharpness is asserted.
 
-## Limitations and nearest literature
-The group counts do not state fixed-field isomorphism-class counts. The asymptotic assertion assumes the published Weyl equidistribution theorem. Classical Steiner-pair geometry, inverse Galois realizability, and group tables are prior input. Historic permutation tables not indexed by present searches may overlap the computed table.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 120-point action, character/class data, inverse-realizability framework and unweighted equidistribution are prior inputs. The available strongest related statements do not give the 120-pair shortest-orbit histogram or the joint tritangent/Steiner event classification. Credit this explicit rationality invariant and its geometric realization and density, not the classical geometry or a new Weyl-class classification.
+
+## value
+
+PASS
+
+The minimum extension degree is a natural, useful invariant of a rational marking, not another label of a Weyl class. The exhaustive result gives a sharp universal degree, explicit geometric examples at the bound, and a quarter-frequency mismatch between two standard cubic-surface markings. Knowing Frobenius class labels or line spectra alone does not give these exact results by a table read-off.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

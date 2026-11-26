@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:40:41.466858Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof is correct: Schwarz–Pick and the even part control the mixed and pure discarded terms, respectively; a polytorus maximizer exists; the Cauchy bound e² along complex rotations yields H=2e⁴+4e², and two Taylor bounds plus real/imaginary sign selection give the claimed constant. The zero-deficit limit is legitimate. For the repair, independently checked the stronger prior-work specialization: at a norming polytorus point choose w_j=iε_j x_j to capture at least half the mixed linear norm, average at x±(sw+μv), and use the squared ball bound 1+s² and pure tail norm ≤δ. Then s||L_v||≤4δ+4s², optimizing at s=√δ and taking a limit when δ=0. The surviving three-coordinate obstruction is exact: on the tridisk torus the phase of z_3 aligns the two summands, and the remaining maximum is max(cosθ+2b sinθ)=√(1+4b²). Dividing the squared normalized discarded norm by δ_b gives 1+1/√(1+4b²)→2, excluding all p>1/2. For one retained coordinate, the mixed linear norm equals its value in modulus at the unit retained coordinate, so Schwarz–Pick plus the pure tail bound gives 3δ−δ². Finite tests are not the proof. The replacement checker verifies 100 exact Pythagorean instances; the original supplied checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 treats p-convex complex sequence lattices with p>2, but §6's cited optimality is for the scalar field, degree and lattice assumptions, not the deficit exponent on c0.",
+          "Proposition 4.6 is point-dependent. Theorem 1.1 of García-Ferrero–Ortega-Cerdà gives square-root stability for a weighted L² concentration deficit around reproducing kernels, not finite-coordinate c0 truncation."
+        ],
+        "reasoning": "Neither qualitative localization nor a square-root estimate for another norm and extremizer class supplies matching lower asymptotics here.",
+        "searches": [
+          "Dantas–Rodríguez Theorem 3.4 pp. 9–12 and §6 pp. 29–30",
+          "Dantas–Jung–Mazzitelli–Rodríguez arXiv:2209.01767 Proposition 4.6",
+          "García-Ferrero–Ortega-Cerdà DOI:10.1007/s00220-025-05292-8 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.00780",
+        "arXiv:2209.01767",
+        "DOI:10.1007/s00220-025-05292-8",
+        "arXiv:2410.21693",
+        "Resultary 2cf50e1d9083, 8f7d6dda436b, 0dead01092a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior pre-limit inequality bounds st|2B(w,v)| by the squared norm bound minus the retained norm plus s²+t²|P(v)|. For c0 take t=1 with disjoint support, use ||x±(sw+μv)||²=1+s², the pure tail bound δ and the prior sign factor 2. This gives the stronger 8√δ+δ directly.",
+          "The prior upper estimate does not give a lower estimate, and the optimality examples for changing hypotheses do not imply the three-coordinate ratio limit √2."
+        ],
+        "reasoning": "This is actual implication from earlier proof, not merely proximity of qualitative statements. The revised distinction is rate sharpness, not a covered upper theorem.",
+        "searches": [
+          "arXiv:2608.00780 Theorem 3.4 even averaging and tangential sign estimates, pp. 9–12; §6 optimality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finite-coordinate norm near-attainment is exactly equivalent to a supported near-norming point for the purpose of these bounds, because P_F attains its norm on its finite polytorus.",
+          "Polydisk Bohr/Schur–Agler radii and Agler norms concern other inequalities; they do not give a truncation obstruction for this supremum-norm deficit."
+        ],
+        "reasoning": "The qualitative prior theorem is about the same concentration quantity; the repaired lower witness answers a distinct question about its optimal rate.",
+        "searches": [
+          "Complex c0 quadratic polynomials uniform concentration, sharp deficit exponent, coordinate restriction and polydisk supremum norm",
+          "Dantas–Rodríguez arXiv:2608.00780 Theorem 3.4 and proof",
+          "Knese arXiv:2410.21693 polydisk Schur-function estimates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RESULT.md findings for Resultary 2cf50e1d9083 and 8f7d6dda436b concern L² restrictions to phase or coordinate chambers of a complex sphere; 0dead01092a7 concerns an L² spectral gap on two caps.",
+          "These were ranked topical hits, not matching polydisk sup-norm estimates or witness identities."
+        ],
+        "reasoning": "The comparisons use both the observable and ambient norm; no matching lower witness was found in the inspected indexed claims.",
+        "searches": [
+          "Resultary: dimension-free quadratic c0 concentration, finite coordinate norm deficit, square-root sharp exponent and three-coordinate witness"
+        ]
+      },
+      "rationale": "Final repaired finding only. The frozen originality assertion that the upper rate needs new work FAILS: the pre-limit proof of the prior theorem directly implies a strictly better constant, 8 instead of 8√(e⁴+2e²+1/2). Preserve the old finding as evidence but credit that upper bound as background. The repaired claim is the exact exponent obstruction with only three coordinates, together with the linear one-retained-coordinate contrast. The inspected prior concentration theorem and its optimality discussion do not supply this obstruction; the one-coordinate estimate itself uses standard Schwarz–Pick.",
+      "residual_risks": [
+        "A specialized earlier extremal polynomial or peak-stability example might contain an equivalent lower obstruction under other terminology.",
+        "The best leading constant, higher degrees, real scalars and vector-valued analogues are not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong direct coverage of the upper rate; not of the repaired obstruction",
+          "evidence": "Quadratic decomposition, disjoint even average and sign-aligned tangent perturbation before the limit already yield the square-root rate on c0. Section 6 studies optimal hypotheses, not the modulus exponent.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.00780",
+          "material_read": "Theorem 3.4 and proof, PDF pp. 9–13, offsets 25320–39048; §6 around 89500–95636",
+          "method": "OA PDF text, statement and decisive estimates inspected",
+          "title": "Concentration theorems for 2-homogeneous polynomials and bilinear forms with applications to the Kadec–Klee properties",
+          "trigger": "Same uniform concentration setting and claim that prior proof was only qualitative"
+        },
+        {
+          "assessment": "Related point-dependent localization only",
+          "evidence": "The threshold depends on the norming vector and the target is a complex Hilbert space.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.01767",
+          "material_read": "Proposition 4.6, p. 27, offset 111650",
+          "method": "OA PDF text",
+          "title": "On the strong subdifferentiability of the homogeneous polynomials and (symmetric) tensor products",
+          "trigger": "Localization of complex c0 polynomials"
+        },
+        {
+          "assessment": "Different norm and extremizer problem",
+          "evidence": "Weighted integral concentration in a one-variable polynomial space and distance to reproducing kernels.",
+          "identifier_or_url": "https://doi.org/10.1007/s00220-025-05292-8",
+          "material_read": "Theorem 1.1, pp. 3–4, offsets 3600 and 6000",
+          "method": "OA theorem passages",
+          "title": "Quantitative holomorphic polynomial concentration and stability",
+          "trigger": "Potential square-root polynomial stability precedent"
+        },
+        {
+          "assessment": "Adjacent, not decisive for priority",
+          "evidence": "Focus on Bohr, Bohr–Agler and Schur–Agler radii rather than truncation stability.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.21693",
+          "material_read": "Abstract on p. 1, offset 0",
+          "method": "OA abstract text only",
+          "title": "Three radii associated to Schur functions on the polydisk",
+          "trigger": "Polydisk quantitative estimates for homogeneous polynomials"
+        },
+        {
+          "assessment": "Different L² concentration problems",
+          "evidence": "Spherical phase cells or coordinate caps, not coordinate truncation in c0 sup norm.",
+          "identifier_or_url": "Resultary 2cf50e1d9083, 8f7d6dda436b and 0dead01092a7",
+          "material_read": "RESULT.md findings for the three hits",
+          "method": "Local published-record mirror",
+          "title": "Linked-phase quadratic Hardy concentration and sharp coordinate-dominance concentration",
+          "trigger": "Nearest indexed concentration aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact example sets a hard limit on every uniform deficit bound and identifies the minimal retained-coordinate geometry responsible: one retained coordinate permits an improved linear rate, whereas two retained and one discarded coordinate already saturate the uniform exponent. This is a motivated sharpness result for the pre-existing concentration theorem, not a weaker numerical rewrite of its upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

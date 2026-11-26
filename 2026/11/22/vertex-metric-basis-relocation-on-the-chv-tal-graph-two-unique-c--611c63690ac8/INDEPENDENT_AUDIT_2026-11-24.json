@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:02:48.366919Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact twelve-vertex labelled edge list, complete host-graph BFS and exhaustive distance-signature enumeration independently reproduce no resolving set of size at most three and 146 resolving four-sets. Adjacency of bases in the jump graph is symmetric difference of cardinality two; for sliding, its two vertices must be a host edge. All-source BFS on the resulting graphs confirms connectivity, 928 and 452 edges, radii 4 and 4, diameters 4 and 6, slide eccentricities 4:2, 5:104, 6:40 and exactly centers {2,8,9,11} and {3,6,7,10}. All 10585 unordered distinct pairs give jump excesses (10367,218) and slide excesses (4463,4944,1070,92,16) relative to 4−|S∩T|. The proof covers only minimum vertex-resolving sets and single simultaneous replacements. Replay: python3 /workspace/review_checks/1.py; saved output /workspace/review_checks/1.out. This was a fresh finite computation, distinct from inspection of the frozen verifier evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hakanen et al., p. 1, describes forced and excluded vertices, structural bounds and complexity, not this all-pairs census in the material examined.",
+          "The exact relocation results inspected in Resultary use graph-specific basis sets, including the four-dimensional hypercube and the truncated tetrahedron."
+        ],
+        "reasoning": "Generic feasibility and move definitions permit enumeration but do not supply a stronger theorem on all-pairs distances specializing to this host. The partial inspection of Nishimura is not whole-paper exclusion.",
+        "searches": [
+          "Hakanen–Junnila–Laihonen–Yero DOI 10.1016/j.dam.2021.12.004",
+          "Nishimura DOI 10.3390/a11040052",
+          "Resultary metric-basis slides and exchange geometry"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof, Verification, and prior work",
+        "Resultary cde749ff7c82, b132d9f37fd9, 2073aedeea3c and 2451bb5af26f",
+        "DOI 10.1016/j.dam.2021.12.004",
+        "arXiv:1602.00291",
+        "DOI 10.3390/a11040052"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the truncated tetrahedral graph the stronger equality d_J(A,B)=3−|A∩B| holds for every basis pair; it demonstrably does not hold with dimension 4 in the assigned host, where 218 pairs require a detour.",
+          "The same-host edge-metric assertion is explicitly limited to the edge predicate."
+        ],
+        "reasoning": "The exact comparisons do not imply the vertex findings, either directly or by treating the dimension as a substituted parameter. Same-day dates alone were not used to infer priority.",
+        "searches": [
+          "Resultary 2073aedeea3c §Finding and table",
+          "Resultary cde749ff7c82 §§Finding and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary cde749ff7c82 uses the same host and moves but edge resolution, with dimension 5 and 192 bases.",
+          "Kelenc–Tratnik–Yero, arXiv:1602.00291, p. 1, defines resolution of edges rather than of vertices."
+        ],
+        "reasoning": "Changing what must be distinguished changes even the minimum cardinality and the state count; the two relocation graphs are not equivalent descriptions of one state space.",
+        "searches": [
+          "Resultary: Chvátal graph, vertex and edge metric basis jump/slide mobility",
+          "Primary: metric dimension reconfiguration of resolving sets under token jumps/slides"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-host edge-metric table has jump and slide diameters 5 and 7, rather than 4 and 6.",
+          "The hypercube table's 928 is a state count, not the 928 jump edges on the Chvátal graph; the truncated tetrahedron and Möbius–Kantor tables have 156 and 320 states respectively."
+        ],
+        "reasoning": "Actual exact catalog entries were compared by host, resolving predicate and column meaning; none supplies the same labelled center or detour table. Identical frozen finding entries are not independent prior evidence.",
+        "searches": [
+          "Primary: Chvátal-graph vertex metric dimension and metric bases",
+          "Resultary cde749ff7c82, b132d9f37fd9, 2073aedeea3c, 2451bb5af26f"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact Chvátal vertex-basis relocation geometry and detour census, not the host graph, the metric-basis definition or the jump/slide framework. Inspected sources do not establish this census. The closest exact same-host result uses a different feasibility predicate; the primary search was bounded and low-yield.",
+      "residual_risks": [
+        "Bounded primary searches had low yield, and the general reconfiguration reference was not recovered in full; older or unindexed equivalent exact vertex computations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-graph overlap; different predicate",
+          "evidence": "Edge resolving, dimension 5, 192 bases, jump diameter 5 and slide diameter 7.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-edge-metric-basis-mobility-of-the-chv-tal-graph--cde749ff7c82/RESULT.md",
+          "material_read": "Finding (offset 0), Relationship to prior work (offset 4498)",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete edge-metric basis mobility of the Chvátal graph",
+          "trigger": "Same host and move rules"
+        },
+        {
+          "assessment": "Different host, not prior coverage",
+          "evidence": "928 bases, 3584 slide edges, radius 8 and diameter 10.",
+          "identifier_or_url": "Resultary b132d9f37fd9",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Metric-basis token slides on the four-dimensional hypercube",
+          "trigger": "Exact vertex metric-basis slide geometry"
+        },
+        {
+          "assessment": "Material same-day analog on a different host",
+          "evidence": "156 three-landmark states, all jump pairs attain the exchange lower bound, 204 slide pairs have excess four.",
+          "identifier_or_url": "Resultary 2073aedeea3c",
+          "material_read": "Finding and table, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact metric-basis exchange and slide geometry of the truncated tetrahedral graph",
+          "trigger": "Exact all-pairs jump equality and slide excess four"
+        },
+        {
+          "assessment": "Different host and census",
+          "evidence": "320 four-landmark states, slide diameter 12, maximum excess 8.",
+          "identifier_or_url": "Resultary 2451bb5af26f",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact landmark relocation geometry of the Möbius–Kantor graph",
+          "trigger": "Same dimension and metric relocation predicates"
+        },
+        {
+          "assessment": "Inspected passage gives structural setting, not relocation census",
+          "evidence": "Metric bases and vertices constrained to occur in all or none, bounds and complexity.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2021.12.004",
+          "material_read": "PDF p. 1, offsets 1006–2618",
+          "method": "OA PDF",
+          "title": "On vertices contained in all or in no metric basis",
+          "trigger": "Metric-basis structural literature"
+        },
+        {
+          "assessment": "Different resolving predicate",
+          "evidence": "The objects to distinguish are graph edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.00291",
+          "material_read": "PDF p. 1, offset 1940",
+          "method": "OA PDF",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Precise contrast with edge resolution"
+        },
+        {
+          "assessment": "Generic reference; full-text coverage not independently excluded",
+          "evidence": "Access limited in the attempted routes.",
+          "identifier_or_url": "https://doi.org/10.3390/a11040052",
+          "material_read": "Landing-page information, no decisive full-text passage retrieved",
+          "method": "Publisher and alternate attempt",
+          "title": "Introduction to Reconfiguration",
+          "trigger": "Standard jump/slide framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Chvátal graph is a classical small regular high-chromatic host with independent interest. Its complete minimum-state mobility geometry quantifies a real difference between global and adjacency-constrained replacements that neither connectivity nor metric dimension records: only two optimal slide starting states and positive jump detours even without locality. The exact pairwise excess census supplies a directly usable small benchmark and a contrast with other hosts where every jump attains the exchange lower bound. This is not a claimed general algorithm or a family-wide result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

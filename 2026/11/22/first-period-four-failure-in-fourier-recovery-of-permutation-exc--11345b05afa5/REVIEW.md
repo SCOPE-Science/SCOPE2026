@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated claim is finite and exhaustive. A first-principles rook expansion of the signed permutation indicator gives \(\Lambda_n(S)=\sum_j(-2)^j(n-j)!R_j(S)\); an independently derived excedance-word recurrence gives each word's exact multiplicity. Full Walsh transforms from both formulas match for all \(524287\) frequencies across orders \(1\) through \(19\). Direct permutation enumeration confirms all word counts through order eight. Every claimed nullity, inertia component, sharp gap and reversal orbit is checked from decoded exact integer values. A five-position frequency also has a compact explicit six-term integer cancellation certificate.
+## correctness
 
-## Originality — PASS under bounded comparison
-The closest primary complete text, Ehrenborg–Steingrímsson (2000), establishes the underlying word recurrences, but no signed all-frequency nullity or order-nineteen Fourier cutoff. Andrade–Lundberg–Nagle (2014) concerns asymptotics of extremal word counts rather than signed convolutions. Clark–Ehrenborg (2010) addresses extremal excedance words; its full text was unavailable. Related existing permutation-matrix Fourier results use \(n^2\) edge coordinates, rather than the \(n-1\) excedance-position coordinates; their ranks and zero sets do not imply this result. An unindexed signed-excedance specialization remains the main priority risk.
+PASS
 
-## Value — PASS
-Exact recovery of a multiplicity-weighted permutation statistic is a well-defined harmonic-analysis question; its invertibility controls whether arbitrary signals can be reconstructed from XOR-shifted excedance profiles. The observed period-four invertibility pattern at orders three, seven, eleven and fifteen breaks at nineteen: the first such failure has a fully enumerated twenty-four-dimensional blind space and sharp recoverable-space condition number. This is a natural first-cutoff result, not an arbitrary single-frequency computation; no general all-order theorem is claimed.
+The real Walsh basis diagonalizes unnormalized XOR convolution with signs (−1)^|S∩E|. Expanding one factor 1−2·1_{π(i)>i} per selected row groups constraints by a nonattacking partial assignment, with (n−j)! completions for j assigned rows. On processing selected rows in descending order, each previously used column is also allowed in the new row, leaving exactly n−i−(j−1) choices when inserting its j-th rook. This proves the integer algorithm. The frozen second method uses the classical excedance-word recurrence and boundary deletions (checked against the cited original), then an unnormalized Walsh transform. An independent exact replay of the rook formula exhausts all 524287 order/mask pairs and matches direct permutation enumeration at n≤8. It reproduces the full nullity table, including zero nullity at 3,7,11,15. Every one of the 24 zero masks at 19 matches the certificate; bit reversal gives 12 two-element orbits. The inertia is (131048,131072,24) and the smallest nonzero magnitude is 3403284480. By the triangle bound, attained at the empty mask, the largest magnitude is 19!, so the quotient is exactly 41247931725/1154. The dimension used in the calculation is 2^(n−1); the uploaded program's printed dimension label uses n−1, the bit length, but its loop bounds, rank expression and the stated theorem use the correct dimension.
 
-## Limits
-This review is confined to the new finite claim, excludes independent expert validation, and does not settle the subsequent residue-class sequence. Some historical primary texts have incomplete publication-day provenance; exact source dating uses the independently verified 2014 arXiv posting rather than inventing a day for earlier works.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the first failed order in the specified residue class, with complete blind-space and conditioning data at that order. The underlying excedance counts, recurrences, complement-reversal duality and classical rook/inclusion–exclusion enumeration are not originality claims.
+
+## value
+
+PASS
+
+An invertible multiplicity-weighted pattern convolution permits recovery of every input on the cube. Odd orders avoid the elementary forced reversal-fixed odd-frequency zero present at even orders, and the initial successful residue-class orders are not enough to guarantee subsequent recovery. The first exact failure at 19 and its complete blind modes tell precisely which signals are unrecoverable there, and the nonzero gap quantifies worst-case stability on the remaining modes. This is a motivated cutoff, not a single arbitrary order or frequency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

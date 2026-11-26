@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:44:42.497388Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent all-length proof: a vertex in a full column needs a horizontal private witness in an adjacent empty column (a vertex in a nonempty neighboring column cannot serve). An empty column can witness selections of at most one full column, since between two full columns neither row is private. Thus the full-column count is bounded by the empty-column count. In equality, each full column must have exactly one witness-bearing empty column, and it must supply both rows; the other neighbor of this empty column is necessarily empty or absent. A singleton cannot border an empty column under this condition; it cannot border a full one either, since then neither itself nor its mate is private and a nonempty horizontal neighbor supplies no private witness. Hence the word is all singletons or all full/empty. In the singleton case each interior column's two neighbors have equal masks, giving exactly the four period-one or period-two words, all valid. In the full/empty case each column has exactly one opposite neighbor; the opposite links form the unique perfect matching of the path, and all other links join equal masks. This forces even n and gives the two stated prefixes, in which each empty column is dominated and supplies both witnesses to its matched full column. At n=1 the singleton prefixes reduce to the two vertices. This proves the count without running the packaged script. Inspection of verify.py's five-column test, sentinel flush, weight inequalities and tight-product logic also supports the stated certificate interpretation; packaged stdout is recorded evidence, not a fresh reproduction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.4 states Gamma=alpha for bipartite graphs; Theorem 8.1 states Gamma(P_m square P_n)=ceil(mn/2)."
+        ],
+        "reasoning": "The stronger grid theorem covers the scalar bound with m=2, not the attainers; the earlier ladder-specific theorem covers those exactly.",
+        "searches": [
+          "Sahbi, arXiv:2610.03785v2, Theorems 2.4 and 8.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verification_output.txt",
+        "Resultary ee60eed8ab77",
+        "arXiv:2610.03785v2",
+        "arXiv:2408.08053",
+        "OEIS A290379 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mertens sums over all dominating sets, not just inclusion-minimal sets. The earlier ladder theorem explicitly supplies the equality classification, with a five-column private-neighbor finite-state approach as well."
+        ],
+        "reasoning": "Ordinary domination polynomials cannot be read as the claimed minimal-attainer enumeration. The earlier ladder result already asserts the whole equality theorem, not just a consequence.",
+        "searches": [
+          "Mertens, arXiv:2408.08053, §1",
+          "Earlier ladder RESULT.md, statement and opening proof at offset 379"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier RESULT.md at offset 379 gives 1111…, 2222…, 1212…, 2121… and, only at even n, 30033003… and 03300330…, truncated at the first n symbols. Its masks, inclusional minimality and labeling are the same."
+        ],
+        "reasoning": "The theorem is identical under the same column-mask convention; the earlier result also interprets the count as the leading coefficient of the minimal-domination polynomial.",
+        "searches": [
+          "Resultary: maximum minimal dominating sets of ladder graphs; SCOPE-all-maximum-minimal-dominating-sets-of-ladder-graphs--ee60eed8ab77"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A290379 was cited as total minimal dominating sets; its entries could not be retrieved lawfully through the available reader. The earlier RESULT.md explicitly gives the exact extremal count (2, then 4 for odd and 6 for even in the stated ranges)."
+        ],
+        "reasoning": "Total counts alone cannot identify maximizing sets. Exact extremal counts and their realizing masks are already in the earlier theorem.",
+        "searches": [
+          "OEIS A290379",
+          "Earlier ladder RESULT.md, offset 379"
+        ]
+      },
+      "rationale": "The Resultary record dated 2026-10-12 states the exact classification on the same labeled ladders, including both even-only patterns and n=1. This is direct documented prior coverage, not an inference from date alone, a matching count, or a failed search.",
+      "residual_risks": [
+        "No exhaustive claim of earliest historical priority; direct earlier equivalent is enough.",
+        "OEIS entry was not independently retrieved; this does not affect the decisive overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the exact claim",
+          "evidence": "Same six patterns, parity and exceptional n=1; same leading-coefficient interpretation and local witness setup.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-all-maximum-minimal-dominating-sets-of-ladder-graphs--ee60eed8ab77/RESULT.md",
+          "material_read": "Offset 379–2779, theorem, scope and opening proof",
+          "method": "Bounded local-mirror text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All maximum minimal dominating sets of ladder graphs",
+          "trigger": "Same object, extremum and equality families"
+        },
+        {
+          "assessment": "Covers scalar Gamma, not an equality-family classification in these passages",
+          "evidence": "Bipartite Gamma=alpha and grid Gamma=ceil(mn/2).",
+          "identifier_or_url": "https://arxiv.org/html/2610.03785v2",
+          "material_read": "Theorems 2.4 and 8.1, offsets 6245 and 31262",
+          "method": "Bounded OA HTML",
+          "title": "Upper k-Star-Forming Sets, k-Independence, and Upper Domination",
+          "trigger": "Broader exact upper-domination theorem"
+        },
+        {
+          "assessment": "Different enumerator",
+          "evidence": "D_G sums all dominating sets by size, rather than inclusion-minimal ones.",
+          "identifier_or_url": "https://arxiv.org/html/2408.08053",
+          "material_read": "Section 1 definition near offset 2996",
+          "method": "Bounded OA HTML",
+          "title": "Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph",
+          "trigger": "Cardinality-stratified graph enumeration"
+        },
+        {
+          "assessment": "Not independently assessed; not relied on for rejection",
+          "evidence": "Frozen record describes it as an unstratified count.",
+          "identifier_or_url": "https://oeis.org/A290379",
+          "material_read": "No OEIS entries read; frozen citation only",
+          "method": "OA direct and VPN retrieval unavailable",
+          "title": "Number of minimal dominating sets in the n-ladder graph",
+          "trigger": "Possible exact ladder table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The equality families are mathematically useful in their own right, but this submission supplies no distinct invariant or structural gain over the previously recorded complete theorem and finite-state approach. Correct verification of the same classification does not constitute a separate advance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

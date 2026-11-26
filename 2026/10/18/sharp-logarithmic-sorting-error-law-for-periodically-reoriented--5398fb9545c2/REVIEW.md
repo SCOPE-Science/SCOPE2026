@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The symmetric mobility has Schur complement \(\kappa I_2>0\). An explicit constant triangular square root establishes the exact orthogonal noise decomposition without changing the Stratonovich law. The angular coupling is the differential of \(R_\phi u\), and the independent two-dimensional rotationally mixed Brownian integral has path-conditionally deterministic covariance. This proves the one-cycle law, independence across periodic reset intervals, and the complete cumulant function. Strict convexity and a direct exponential-tilting argument establish the large-deviation rate. The wrapped normal heat kernel is smooth and positive; nondegenerate Laplace asymptotics at zero establish the exact logarithmic coefficient and constant. Finite Bessel/quadrature and original-SDE simulation checks passed; the analytical proof establishes the infinite limits.
+PASS
 
-## Originality — PASS, with residual risks
+A constant factor with angular column (h/√c,√c) and translational columns (√κ I,0) has the same Gram matrix as the symmetric mobility square root and differs by a constant orthogonal noise rotation. The angular term is d(Rφu) in Stratonovich form, since Ju=h/c. The independent translational noise integral has zero quadratic covariation correction; conditional on the angular path it is Gaussian with deterministic covariance τI before rescaling, hence independent of that path. Increments on disjoint reset cycles are iid. Integrating the endpoint e-projection gives cos Θ−1, and tilting yields Λ(q)=εq²+log A_z(q) with A_z=e^−qB_z from the wrapped-normal Fourier coefficients. Λ′(0)<0, Λ″≥2ε>0 and Λ′ eventually positive since the angular variable is bounded. The optimal Chernoff upper bound is matched by tilting to zero mean: the tilted CLT gives nonvanishing probability for a sample mean in [0,δ], and undoing the tilt costs at most q*δ in the per-cycle exponent. For fixed z, scaling θ=v/√q in the wrapped integral and in its first derivative gives A_z∼H_z/√(2πq) and −A_z′/A_z∼1/(2q). Gaussian domination follows from 1−cos θ≥2θ²/π² on the integration interval; an even Taylor expansion of w_z and the phase gives the stated relative O_z(q^−1) corrections. The optimizer escapes every compact interval as ε→0 because −A_z′/A_z is strictly positive there, and 2εq*=−A_z′/A_z gives εq*²→1/4. Substitution yields 1/4 log(1/ε)−1/4−log(H_z/√π) per cycle, divided by τ per unit time. Opposite h reflects the full law, the moment identities follow from E cos(kΘ)=exp(−k²z), and at ε=0 the wrong-sign event has probability zero for n≥1 because each cosine equals one with probability zero. These arguments are analytical (RESULT.md Eqs. (6)–(12)); no uploaded script executed. They do not imply a joint-limit estimate, a rate for an anisotropic Schur complement, or an optimal decision rule beyond the specified displacement sign.
 
-Cleuren and Eichhorn, *Sorting by Resetting*, arXiv:2603.19430v1, Section (ii) and appendix, first publicly posted 2026-03-19, derive the model and mean current but do not provide the characteristic law, sign-error exponent, or weak-noise logarithmic law. Chaki, Olsen, and Löwen, *Anisotropic Brownian particles under resetting*, arXiv:2406.17550v2, Sections II and V, have independent orientation and translational Brownian noises, Poissonian angle resetting, and late-time Gaussian diffusion; their result does not entail the correlated-noise sign-error rate. Named-alias and reduction searches against published mathematical research records returned no covering claim: the closest recorded descriptions were about unrelated chiral symbol dynamics and stochastic covariance systems. The relevant complete source sections were read, not inferred from snippets. The general Cramér/Laplace tools are not themselves new; implicit specialized coverage by unlocated literature remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The parent physical paper explicitly proposes sorting by orientation resets and quantifies only average motion. Sorting reliability is controlled by wrong-sign probabilities, not only drift. The exact full one-cycle distribution determines those finite-exposure probabilities, and the asymptotic rate provides a usable device-design performance measure. Its \(\tfrac14\log(1/\epsilon)\) singularity is quantitatively surprising, reflects the quadratic tangency of the angular endpoint at the sorting boundary, and is not a simple substitution into the known mean current. The isotropic Schur complement is a motivated residual-translation-noise class; it is not claimed to represent all colloids.
+The distinct finding taken for this pass is the exact sign-error rate and its sharp fixed-z small-residual-noise asymptotic, including the optimizer and constant. Credit the parent model and mean drift, and do not count the standalone endpoint factorization as a new mechanism: it is a specialization of a broader exact decomposition in a distinct catalogue result, and is also directly obtainable from the parent dynamics. No inspected comparison supplies the model-specific rate and logarithmic asymptotic. This is a bounded assessment, not a priority assertion.
 
-## Closest literature and limitations
+## value
 
-The statements are restricted to a positive isotropic residual mobility, perfect deterministic orientation resetting, and an iterated cycle-number/weak-residual-noise limit. A fully anisotropic Schur complement or imperfect-reset process may exhibit different rates. Some abstract general theory may implicitly include the exact model, but no decisive covering source was identified in the examined material.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The useful new quantity is the speed of decay of the misclassification probability for a specified protocol, which an average drift or effective diffusivity cannot predict. The logarithmic rather than inverse-noise rate, and its explicit constant, resolve the behavior near the one-sided noiseless boundary. The result is an idealized model guarantee, not an experimental design validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:39:15.848050Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–58",
+        "Frozen VERIFICATION.md, verify_near_permutation.py, verify_last_columns.cpp, verification_output.txt"
+      ],
+      "rationale": "A singleton letter forces primitivity, and the two rows with predecessor a are exactly the rows starting at its two successors. These positions are distinct, and their symbols cannot coincide: if both were a, the two a-positions would form the entire two-cycle, contrary to n≥3. The only possible adjacent equal pair in the linear last column is aa. When neither successor is a, their row blocks are singletons, consecutive exactly at neighboring occupied ranks. If the successors are a and c, the two a-rows have prefixes aa and ac; precisely the ac row has predecessor a, and it faces the c block because comparing the second symbols puts it on that side of the a block. These rows are consecutive exactly when a and c are neighboring ranks. For any unordered successor pair, delete both a's; on the remaining circle of r−1 distinct letters, uniquely insert either single copies before the designated distinct non-a letters, or the block aa before c. Hence each pair gives (r−2)! circles for each repeated a, also when r=2. Counting r−1 adjacent pairs among all binomial(r,2) pairs gives r! clustered and (r−2)r!/2 unclustered, with (0,2) at n=3. The ambient-alphabet multiplier uses adjacency in the occupied induced order, not across unused letters or around the ends of the rank order. The two supplied checkers test distinct constructions (source rotations and stable LF cycles) for lengths 3–9; their recorded outputs agree. They were inspected, not run, and are not the basis of the all-n proof.",
+      "residual_risks": [
+        "Does not apply to a fixed support as n grows, a terminal sentinel, cyclic output runs, or multiple repeated letters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fici–Gabory concatenate alphabet permutations, hence count balanced content rather than the one-repeat profile. Fici–Gabory–Romana–Sciortino Theorem 17 gives an unclustered necklace using all k letters for N≥k≥3; k=N−1 forces the target profile. Kumallagov Proposition 5.5 counts all one-cycle images at fixed Parikh vector; Remark 5.6 excludes interpreting this as a count of unclustering."
+        ],
+        "reasoning": "Existence and an unrestricted total are real prior overlap, not bounds implying exact fibers. The balanced Parikh class does not include the target.",
+        "searches": [
+          "arXiv:2502.12844v1, Definition 1; arXiv:2508.20879v1, Theorems 15 and 17; arXiv:2606.01267v1, Proposition 5.5 and Remark 5.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches for single repeat, equivalent LF predicates, exact distribution and broader fixed-Parikh coverage",
+        "Resultary:e59509c51e29 (identical target), 11ed932d1942",
+        "arXiv:2502.12844v1, 2508.20879v1, 2606.01267v1",
+        "One literature search returned no usable stronger result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 17 proves the n-run class is nonempty for n≥4, not that its size is (n−3)(n−1)!/2. The fixed-Parikh count gives the sum of the two output classes. A characterization by α-ascending n-cycles is a general encoding, not an evaluated count with the neighboring output-color condition."
+        ],
+        "reasoning": "The needed extra ingredient is a counted circle-insertion bijection with one fiber for each unordered successor pair and a proof linking that pair's ranks to linear row adjacency, including the doubled first-letter block. No inspected theorem directly gives the claimed split by specialization; enumerating constrained LF cycles or proving that bijection is still necessary.",
+        "searches": [
+          "arXiv:2508.20879v1 Theorem 17",
+          "arXiv:2606.01267v1 Propositions 5.5, 5.7",
+          "Resultary:11ed932d1942, Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumallagov uses α-ascending permutations τ with L_i=b_α(τ⁻¹(i)), gives the one-cycle test, and writes unclustering as inequality of neighboring block colors at preimages. Its item (c) tracks cyclic input runs, a different statistic. In the frozen family the only repeated block color is the unique duplicated letter."
+        ],
+        "reasoning": "LF gives the equivalent output positional condition: the two indices receiving the unique two-letter block's color must not be adjacent. It does not supply the successor-pair breakout or its uniform fiber count; those require relating row adjacency to the original circle and its alphabet ranks. A cyclic input-run formula cannot replace the linear output test.",
+        "searches": [
+          "Resultary: near-permutation BWT, one repeated letter, consecutive successor ranks, (2,1,…,1) linear last-column run distribution",
+          "arXiv:2606.01267v1, Proposition 5.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top match e59509c51e29 is the frozen record itself. Resultary 11ed932d1942 enumerates linear output runs for ternary content (n−3,1,2), intersecting the target at n=4 for the highest-rank repeated letter. Kumallagov's finite values concern a minimum cyclic source run statistic, rather than the full fixed-content output split."
+        ],
+        "reasoning": "The sparse-ternary record's overlapping finite slice is not distinct novelty here and does not yield growing occupied support. No external evaluated all-length split was identified in the inspected material.",
+        "searches": [
+          "Resultary exact BWT run split and near-permutation content; same target e59509c51e29; distinct sparse-ternary spectrum 11ed932d1942",
+          "arXiv:2606.01267v1, exact enumeration context"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the exact all-length successor-pair criterion and run census for the single-repeat profile. Prior work covers existence of an unclustered necklace in this very profile for n≥4 and gives the unrestricted fixed-Parikh total and standard LF characterization. Those results are credited and are not claimed as new. They do not count the adjacency-constrained fibers, and the closest distinct exact census uses a different content profile except for a small overlap.",
+      "residual_risks": [
+        "An unindexed earlier equivalent counted specialization of LF may exist. Same-day publication order was not inferred, and isolated small cases are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different balanced-content class.",
+          "evidence": [
+            "Concatenated alphabet permutations have equal multiplicities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2502.12844v1",
+          "material_read": "Introduction and Definition 1, PDF pp. 1–2, around text offsets 3790 and 8694",
+          "method": "OA passage comparison",
+          "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform",
+          "trigger": "General BWT image and permutation results"
+        },
+        {
+          "assessment": "Genuinely covers near-permutation existence for n≥4; not the exact split.",
+          "evidence": [
+            "Theorem 17 uses every symbol over k letters for N≥k≥3. The ternary count is a lower bound at length 3m."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.20879v1",
+          "material_read": "Theorems 15 and 17 at PDF pp. 2, 11, around offsets 4486 and 32762",
+          "method": "OA theorem and hypotheses inspection",
+          "title": "Unclustered BWTs of any Length over Non-Binary Alphabets",
+          "trigger": "Exact same unclustering predicate and potentially stronger existence/counts"
+        },
+        {
+          "assessment": "Gives the Parikh baseline and a general test, not this run-refined enumeration.",
+          "evidence": [
+            "Remark 5.6 distinguishes unclustered counts; Proposition 5.7(b) tests neighboring output block colors and (c) counts cyclic input runs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.01267v1",
+          "material_read": "Proposition 5.5 and Remark 5.6, PDF p. 6 around offset 18704; Proposition 5.7, offset 20741–21923 and p. 7",
+          "method": "OA exact statements, including stable sorting and one-cycle conditions",
+          "title": "An extremal problem for completely unclustered Burrows–Wheeler images",
+          "trigger": "Fixed-Parikh enumerations and LF equivalent formulation"
+        },
+        {
+          "assessment": "Overlaps one repeated-highest subfamily at n=4; not the all-length target.",
+          "evidence": [
+            "Ternary content (n−3,1,2); linear run spectrum."
+          ],
+          "identifier_or_url": "Resultary:11ed932d1942",
+          "material_read": "Mirrored RESULT.md Finding, scope and run-spectrum passages reported at offsets 0–6339",
+          "method": "Compared hypotheses and the intersection of the content families",
+          "title": "Exact sparse-ternary Burrows–Wheeler run spectrum",
+          "trigger": "Closest distinct exact-content linear output-run census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and circle-insertion proof",
+        "arXiv:2508.20879v1 and 2606.01267v1, existence and fixed-content context"
+      ],
+      "rationale": "The minimal fixed-content departure from an ordinary alphabet permutation is a natural test for whether BWT sorting clusters a repeated letter. The successor-rank criterion identifies exactly what does so, and the uniform successor fibers turn an existence phenomenon into a complete finite count and probability over arbitrary growing support. This is a useful baseline for stronger fixed-Parikh refinements, not a claim about typical clustering over fixed alphabets.",
+      "residual_risks": [
+        "The result does not extend on its own to general Parikh vectors or the more difficult fixed-alphabet extremal questions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

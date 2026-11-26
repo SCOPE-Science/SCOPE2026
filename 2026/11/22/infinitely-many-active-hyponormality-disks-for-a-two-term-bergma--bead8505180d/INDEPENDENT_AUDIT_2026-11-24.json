@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:31:30.894127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, lines 54–107",
+        "Frozen VERIFICATION.md and CHECK.py, inspected not executed"
+      ],
+      "rationale": "The normalized monomial basis gives a single forward shift: projecting z^(n+2) times conjugate(z) multiplies z^(n+1) by (n+2)/(n+3). Squaring the resulting weight gives (n+1)/(n+2)+2x(n+1)/(n+3)+y(n+1)(n+2)/(n+3)^2. Subtracting at adjacent indices recovers A_k, B_k and C_k over the stated positive denominator, while the initial diagonal entry is automatically nonnegative. This reasoning does not divide by a weight and covers zero weights. Consecutive line differences are positive slope increments times x−X_k. The X_k are strictly ordered and tend up to −5/8, so telescoping settles every finite maximum and monotone convergence settles the unattained limiting regime, including its left endpoint. Completing the square gives the stated centers and radii. The positive-coefficient formula for Y_k−X_k² shows that every switch lies in the physical domain, and the nonzero change in slope gives a corner on each sign of the imaginary part. The accumulation points follow from Y_k→1/2. On the real line the cubic numerator in k has all coefficients nonnegative in the two allowed closed ranges; outside them either its constant term (through t=−1) or its leading cubic term is negative. Thus both real endpoints are included and the intermediate range is genuinely excluded.",
+      "residual_risks": [
+        "The recorded finite checks are not independent validation of infinitely many active tests; the proof above uses exact monotonicity and algebra. No other Bergman weights or subnormality classification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fleeman–Liaw gives a quarter-plane sufficient condition and cautions about necessity for the general family.",
+          "Kim–Lee's equal-degree weighted-Bergman sufficient condition gives Re λ>0 on the target slice; its radial-summand threshold in the other work is for a different operator."
+        ],
+        "reasoning": "A sufficient quarter/half-plane result cannot settle the left-hand reentrance or identify the active excluded disks. The criterion that ranges over all fixed-angular-degree symbols gives stronger scope but leaves their envelope unevaluated.",
+        "searches": [
+          "Resultary: radial Toeplitz Bergman Mellin criterion fixed angular degree hyponormality two-term symbols",
+          "Fleeman–Liaw §4 Theorems 8, 11 and Example 12",
+          "Kim–Lee DOI 10.1007/s43034-022-00241-1 Theorem 2.7",
+          "Kim–Lee DOI 10.1186/s13660-021-02602-1 Proposition 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and matching local records",
+        "Fleeman–Liaw arXiv:1707.09677",
+        "Kim–Lee DOI 10.1186/s13660-021-02602-1 and 10.1007/s43034-022-00241-1",
+        "Le–Simanek arXiv:2003.07330"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Liu–Lu criterion as quoted by Fleeman–Liaw gives the index inequalities by direct substitution.",
+          "Le–Simanek and the distinct Jacobi catalogue record concern a forward shift plus a diagonal; here both terms contribute to the same forward weight.",
+          "Determining that the consecutive intersections strictly order the upper envelope, and also satisfy Y_k>X_k² for every k, is what establishes genuine active arcs."
+        ],
+        "reasoning": "Neither the radial diagonal perturbation result nor the fixed-angular-degree arithmetic criterion establishes that the tests are nonredundant in the complex parameter domain. That exact geometric claim is the basis of the pass.",
+        "searches": [
+          "arXiv:1707.09677 §4 Theorem 8",
+          "arXiv:2003.07330 Theorem 2.1",
+          "Resultary: unweighted Bergman hyponormal Toeplitz symbol z + lambda z^2 bar z Liu Lu"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fleeman–Liaw §4, Theorem 8, states the Liu–Lu Mellin criterion. Here the angular degree is 1 and the radial function is r+λr³.",
+          "That substitution gives positivity of adjacent squared-shift-weight differences, equivalent to excluding the individual open disks."
+        ],
+        "reasoning": "An iff sequence criterion is genuinely equivalent to hyponormality here and is prior. An unsolved infinite family of inequalities is not the same as a verified formula for the active index and the accumulation/corner geometry.",
+        "searches": [
+          "Resultary: Bergman Toeplitz z + lambda z^2 conjugate(z) hyponormality disks",
+          "Resultary: hyponormality for T_{z+lambda z|z|^2} explicit complex parameter phase diagram",
+          "Primary: Fleeman Liaw Hyponormal Toeplitz operators with non-harmonic symbol acting on the Bergman space Section 4 Liu Lu criterion z^m bar z^n exact symbol z+lambda z^2 bar z"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 2026/11/22/SCOPE-infinitely-many-active-hyponormality-disks-for-a-two-term-bergma--bead8505180d is the assigned record itself.",
+          "Distinct hit 2026/11/22/SCOPE-the-half-power-spectral-transition-and-coulomb-edge-law-for-berg--b8745f13efaa has z+C|z|^s and a Jacobi norm threshold, not z+λz|z|²."
+        ],
+        "reasoning": "The nearby catalogue claim changes the angular degree of the second summand, so its threshold cannot be read as a table entry for the target. No applicable distinct exact classification was identified.",
+        "searches": [
+          "Resultary: infinitely many active hyponormality disks Bergman Toeplitz two-term symbol",
+          "Resultary: Bergman weighted shift hyponormality parameter envelope real reentrant slice"
+        ]
+      },
+      "rationale": "Credit the prior fixed-angular-degree criterion with the entire infinite family of tests and hence the individual disk inequalities. The distinct content is the explicit evaluated envelope, the proof that infinitely many of those disks make genuine exposed arcs and corners, and the exact real slice. Related sufficient conditions and the superficially similar radial-perturbation model do not give this geometry.",
+      "residual_risks": [
+        "Full original Liu–Lu (2009) and Kim–Lee Remarks were not available in the attempted access paths. An equivalent solved case in either or other unindexed material remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the criterion but not its explicit envelope in this case",
+          "evidence": "The Mellin-ratio iff criterion applies; the two-term sufficiency statements do not solve the precise phase diagram.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.09677",
+          "material_read": "§4 Theorem 8 p. 14 (offset 49000), Theorem 11 and Example 12 pp. 15–18 (offsets 49000–64867)",
+          "method": "Original OA PDF passages",
+          "title": "Hyponormal Toeplitz operators with non-harmonic symbol acting on the Bergman space",
+          "trigger": "Strongest general reduction including the target's angular degree"
+        },
+        {
+          "assessment": "Sufficient condition, not classification",
+          "evidence": "Equal nonnegative relative degrees with Re(ab)>0 suffice, giving Re λ>0 here.",
+          "identifier_or_url": "https://doi.org/10.1007/s43034-022-00241-1",
+          "material_read": "Theorem 2.7 p. 8, OA offset 21666",
+          "method": "OA paper passage",
+          "title": "Hyponormal Toeplitz operators with non-harmonic symbols on the weighted Bergman spaces",
+          "trigger": "Equal relative degrees could cover the exact symbol"
+        },
+        {
+          "assessment": "Different symbol family",
+          "evidence": "The bound |C|≤1/2 for n=1, s=2 treats a radial summand, not λz|z|².",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-021-02602-1",
+          "material_read": "Proposition 1.4 p. 2",
+          "method": "OA paper passage",
+          "title": "Hyponormality of Toeplitz operators with non-harmonic symbols on the Bergman spaces",
+          "trigger": "Nearby sharp two-term operator result"
+        },
+        {
+          "assessment": "Shift plus diagonal, not two terms of the same angular degree",
+          "evidence": "Different band structure of the Toeplitz operator and commutator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.07330",
+          "material_read": "Theorem 2.1 p. 2, OA offset 1800",
+          "method": "Original OA PDF passage",
+          "title": "Hyponormal Toeplitz Operators on Weighted Bergman Spaces",
+          "trigger": "Possible generalization covering both two-term symbols"
+        },
+        {
+          "assessment": "Nearby exact result, not equivalent",
+          "evidence": "Radial term C|z|^s and norm threshold |C|≤1/s for s≥1/2, a different second summand and different boundary.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-half-power-spectral-transition-and-coulomb-edge-law-for-berg--b8745f13efaa",
+          "material_read": "RESULT.md finding, mirror offsets 0–4922",
+          "method": "Local Resultary mirror",
+          "title": "The half-power spectral transition and Coulomb edge law for Bergman Toeplitz operators",
+          "trigger": "Strongest distinct Resultary hit"
+        },
+        {
+          "assessment": "Original source's scope beyond the quoted criterion remains a limit",
+          "evidence": "The quoted theorem implies the shift-weight tests; no claim is made about uninspected original examples.",
+          "identifier_or_url": "https://doi.org/10.4134/JKMS.2009.46.3.621",
+          "material_read": "Criterion as quoted in Fleeman–Liaw Theorem 8; original full text not retrieved",
+          "method": "DOI access attempt and inspection of attributed quotation",
+          "title": "Commutativity and hyponormality of Toeplitz operators on the weighted Bergman space",
+          "trigger": "Original source of the iff criterion"
+        },
+        {
+          "assessment": "Full text unavailable in the check",
+          "evidence": "No negative inference from unavailable passages.",
+          "identifier_or_url": "https://doi.org/10.1515/math-2023-0114",
+          "material_read": "Bibliographic identification only",
+          "method": "Bounded DOI and publisher-page attempts",
+          "title": "Remarks on hyponormal Toeplitz operators with nonharmonic symbols",
+          "trigger": "Plausibly relevant later exact two-term results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–4",
+        "Fleeman–Liaw §4"
+      ],
+      "rationale": "It is a natural first nonharmonic perturbation of the Bergman shift, and the explicit envelope turns an infinite test into an exact phase diagram. Infinitely many exposed circles show that no finite truncation of the original commutator tests can capture the complex region; their corner accumulation and the simpler reentrant real slice explain the geometry that the general criterion leaves implicit.",
+      "residual_risks": [
+        "The geometric result is for one unweighted family and is not a criterion for general polynomial symbols."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

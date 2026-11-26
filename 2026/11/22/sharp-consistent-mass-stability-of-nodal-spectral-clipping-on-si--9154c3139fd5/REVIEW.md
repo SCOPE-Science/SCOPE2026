@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The exact consistent simplex mass matrix has eigenvalue ratio \(d+2\). Firm nonexpansivity of Frobenius spectral interval projection yields a block-diagonal positive contraction relating input/output differences. The classical Kantorovich/Wielandt estimate supplies the upper bound. For even vertex count, half active nodes attain it; for odd vertex count, a three-projector equiangular tensor frame, together with scalar active/frozen nodes, gives an explicit finite input pair attaining equality. Scalar active-set maximization and lumped-mass contraction complete the statement. Exact-symbolic cases and finite actual clipping examples were replayed with the packaged verifier; these tests are supporting checks, not a proof of all dimensions.
+## correctness
 
-**Originality — PASS under documented search limits.** The 2026 Amiri–Barrenechea–Pryer work studies tensor eigenvalue-range preservation but does not state this sharp universal consistent-mass Lipschitz modulus or scalar/tensor dimension parity. The 2023 scalar nodal-bound method gives different stability machinery, and the 2019 flux-correction tensor article studies a distinct limiter. Published mathematical record comparisons show related nodal Dirichlet-energy amplification but not the same mass-norm theorem. The upper Kantorovich inequality is known; the exact restricted spectral-clipping equality and parity gap are the asserted contribution. Broader historical priority is not independently certified.
+PASS
 
-**Value — PASS.** Nodal eigenvalue clipping is used to preserve tensor physical admissibility, yet elementwise consistent-mass error estimates can be amplified even though each node is individually nonexpansive. The exact dimension-dependent factor is an immediately usable mesh-independent error-propagation constant, with an explicit finite worst case. The scalar/tensor gap explains when scalar admissibility intuition understates tensor perturbation sensitivity; this is a substantive numerical-analysis distinction beyond a renaming of norm equivalence.
+The affine simplex mass matrix is proportional to G=I+11^T on the n=d+1 nodes and has metric ratio κ=n+1. A nodal input/output difference pair (u,v) of the convex projection satisfies ||v||²≤<u,v>, so vv^T/<u,v> (or zero) is a positive contraction taking u to v. Orthogonal projections have G-norm at most (κ+1)/(2√κ) by the Wielandt angle estimate; the spectral-layer integral transfers this to contractions and the sum of element norms gives the mesh estimate. For exact attainment, the stated identity/zero blocks (even n) or the three rank-one directions plus cancelling blocks (odd n) give sum D_i h=nh/2. For the normalized constant mode e, z=2De−e is a unit mean-zero mode; δ=e/κ+z gives Dδ=(1+1/κ)(e+z)/2 and ratio (κ+1)/(2√κ). The rank-one perturbations commute with their nodal bases, so a sufficiently small finite perturbation realizes these actions by actual clipping, including after fixed-coordinate embedding for m>2. For the scalar selector with 1≤k≤n active nodes, eliminating inactive inputs by a Schur complement gives denominator metric I+11^T/(n−k+1) on the active coordinates and numerator metric I+11^T; the constant active direction gives squared factor (k+1)(n−k+1)/(n+1). The empty selector has norm zero, not one as the unqualified selector expression in the proof would suggest; it is immaterial to the maximum, attained by the balanced nonempty selector and realizable by finite scalar clipping differences. Positive lumped weights preserve nodewise nonexpansivity, with equality on interval-interior fields. All sharpness claims are universal over meshes, not assertions of sharpness on every mesh. These are analytic checks of the arbitrary-dimension proof and exact witnesses; the supplied diagnostic code was inspected, not executed.
 
-**Limits.** No sharpness for fixed arbitrary meshes, high-order or constrained nodal spaces, or seminorms is claimed. More remotely related projection papers could exist beyond the accessed corpus.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant antecedents cover nodal truncation, other metrics or the general metric-change inequality. The supported distinct combination is sharp finite realization by clipping in the consistent mass metric, with the exact different scalar constant where d is even. No covering statement was found in the inspected evidence; this is not a priority certificate.
+
+## value
+
+PASS
+
+This gives the exact worst-case L² sensitivity of a natural nodal postprocessing operation, with explicit pairs showing the amplification is real despite Frobenius nonexpansivity at each node. The scalar/tensor parity difference identifies an amplification mechanism available only to matrix data in even dimensions. This is useful for choosing or analyzing consistent versus lumped norms without claiming PDE stability beyond the stated setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

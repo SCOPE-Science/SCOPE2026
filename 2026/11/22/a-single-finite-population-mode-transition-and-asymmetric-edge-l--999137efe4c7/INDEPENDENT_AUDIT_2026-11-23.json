@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:22:48.670940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–85 and VERIFICATION.md",
+        "Frozen check.py inspected, not executed; the finite cases do not prove uniqueness or the critical multiplicity",
+        "Corrected /workspace/repairs/2/RESULT.md read and assessed",
+        "Independent replay: python /workspace/branches/audit_replays.py (adaptive quadrature gives q=0.7649508673898 and C=0.8221789586625; right/left finite-t checks at λ=1/2 and 1)"
+      ],
+      "rationale": "The corrected RESULT.md passes; the frozen Step 4 sentence at line 81 is false as written, since the stated A_+>A_- makes left/right converge to sech(πλ), not cosh(πλ). The opening statement and displayed leakage asymptotics already had the right direction. The repair corrects the sentence, makes the critical-point statement precisely f′=f″=0 without an exact multiplicity, and supplies the approximation, openness and domination details. Independently, conditional averaging divides the position variance by N, and division by (2a)² gives t_N. The angular log derivative is strictly increasing with opposite infinite ends, hence the latent density is U-shaped. Endpoint ramps have derivative signs +,-,+,-, converge in L¹, and give the at-most-three sign changes by Gaussian variation diminution. The semigroup makes the mode count nonincreasing. All critical points lie inside (−1,1); strict posterior log-concavity at t=1 and compactness preserve a unique mode slightly below it. Signs witnessing two strict maxima persist in t; they exist for small t by the two nondegenerate scaled edge peaks, hence there is exactly one separating t_c in (0,1). At t_c a degenerate critical point is required since a finite set of simple critical points in the compact region would persist. The scale change z=1−√t s gives the t^−1/4 density profile; integration by parts on s^(1/2) times the Gaussian gives F″+ξF′+F/2=0. F vanishes at both infinities and every zero of F′ is a strict maximum; F′(0)<0 and differentiable local convergence thus locate both inward peaks and their heights. The mirrored integrations give the two t^1/4 leakages, and Tonelli gives C=2∫₀^∞ uφ₁(u)/√u du=2^(1/4)Γ(3/4)/√π. Both surviving right/left ratios are A_+/A_-=cosh(πλ).",
+      "residual_risks": [
+        "The theorem fixes finite positive λ and the stated simultaneous Poisson resets of an ideal gas. It gives no critical normal form, explicit general formula for t_c, or uniformity as λ varies with N. Quadrature is illustrative, not an asymptotic certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conditional-product sample-mean laws and large-N analysis are general prior work.",
+          "Gaussian smoothing does not create modes; that fact alone gives no initial or terminal count for this mixing density."
+        ],
+        "reasoning": "Neither general framework yields the necessary three-sign-change cap from the singular latent law, the compactness/curvature transition argument, or the evaluated two edge observables as a stated implication.",
+        "searches": [
+          "Biroli–Larralde–Majumdar–Schehr arXiv:2307.15351v2, Sec. VI.1",
+          "Lindeberg Gaussian scale-space noncreation"
+        ]
+      },
+      "checked_sources": [
+        "Kulkarni–Majumdar–Sabhapandit arXiv:2407.20342v2 Sec. 3.1",
+        "Biroli et al. arXiv:2307.15351v2 Sec. VI.1",
+        "Lindeberg noncreation section",
+        "Resultary 9db875e12990"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixture and its fixed width mapping follow immediately from the known Gaussian product conditioned on age. Standard rescaling predicts the edge exponents, given the known latent singularity.",
+          "An explicit limiting profile with a unique sharp peak supplies the numerical inward-shift constant, and tail integration supplies the explicit leakage constant and asymmetry for the smoothed sample mean."
+        ],
+        "reasoning": "Novelty is bounded to the rigorous complete modal theorem and sharp paired edge conclusions, not the smoothing method, Gaussian family, or value of the latent amplitude ratio. Known scale-space monotonicity and the one-particle reported transition do not furnish the missing count proof or asymptotic constants in the inspected passages.",
+        "searches": [
+          "Primary resetting equations (26), (40)–(44)",
+          "General sample-mean results (127)–(137)",
+          "Gaussian scale-space noncreation and the Resultary OU transition statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Eq. (43) one-particle profile becomes the exact sample-mean profile by σ→σ/√N. Equation (41) already contains the latent amplitude ratio. Sec. 3.1 reports a critical width and a limiting threshold as r→0."
+        ],
+        "reasoning": "A prior all-width theorem for the same one-particle density would cover the modal conclusion by substitution. The examined discussion reports and illustrates the phenomenon, but does not prove the uniqueness and exact count at every positive λ and width. No novelty assigned to the reparameterization.",
+        "searches": [
+          "Kulkarni–Majumdar–Sabhapandit arXiv:2407.20342v2, Sec. 3.1 and Eqs. (40)–(44)",
+          "Equivalent reset-cosine Gaussian smoothing and finite-population transition literature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Resultary record 9db875e12990 proves an all-width transition with square-root peak opening for a symmetric power-law latent law of an OU reset process; its original Finding was inspected.",
+          "Primary resetting Eq. (41) explicitly covers the latent exponents and ratio, not the peak shift and leakage through Gaussian smoothing."
+        ],
+        "reasoning": "Neither the symmetric latent-law transition nor numerical thresholds table the exact asymmetric reset-cosine laws. The distinct same-date entry is neither the same law nor evidence of publication order.",
+        "searches": [
+          "Resultary: reset Gaussian smoothing peak count, cosine density, and edge leakage",
+          "Related thermal peak-transition record 9db875e12990"
+        ]
+      },
+      "rationale": "For the repaired claim, credit the exact mixture, unsmoothed edge singularities and their ratio, and the one-particle critical-width phenomenon to prior work. The finite-N law is exactly the same width family, not a distinct collective mechanism. The supported addition is a proof of the all-positive-width mode count for each λ>0 and the sharp smoothed peak and leakage asymptotics in the stated physical scaling.",
+      "residual_risks": [
+        "The equivalent one-particle formulation is the leading priority risk. A rigorous all-width treatment elsewhere, or a sharper general endpoint theorem, could cover parts of this result. Bounded searches and inspected passages do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for mixture and latent edges; substantial one-particle modal overlap, no full uniqueness proof in examined discussion",
+          "evidence": "Eq. (41) latent amplitude ratio cosh(πr/ω); Eq. (43) Gaussian-smoothing family; critical-width discussion including r→0.",
+          "identifier_or_url": "https://arxiv.org/html/2407.20342v2",
+          "material_read": "Sec. 3.1 around Eqs. (40)–(44), text offsets 33000 and 34500",
+          "method": "Lawful arXiv primary HTML passages",
+          "title": "Dynamically emergent correlations in bosons via quantum resetting",
+          "trigger": "Same stochastic quantum law and exact equivalent width family"
+        },
+        {
+          "assessment": "Sample-mean framework, not the specific modal or sharp leakage theorem",
+          "evidence": "Conditionally independent mean law and its large-N treatment.",
+          "identifier_or_url": "https://arxiv.org/html/2307.15351v2",
+          "material_read": "Sec. VI.1 Eqs. (127)–(137), text offsets 100400 and 101800",
+          "method": "Lawful arXiv primary HTML passages",
+          "title": "Exact extreme, order and sum statistics in a class of strongly correlated system",
+          "trigger": "General conditional sample means"
+        },
+        {
+          "assessment": "The general mode monotonicity principle is known",
+          "evidence": "No creation under further Gaussian smoothing; does not give the reset-specific initial count.",
+          "identifier_or_url": "https://www.csc.kth.se/~tony/cern-review/cern-html/node6.html",
+          "material_read": "Noncreation section, offset 0",
+          "method": "Lawful author HTML text",
+          "title": "Non-creation of local extrema and semi-group structure",
+          "trigger": "Core scale-space argument"
+        },
+        {
+          "assessment": "Same technique class, different law with different hypotheses and conclusions",
+          "evidence": "Symmetric power-law latent density for the OU model, with square-root peak opening; no asymmetric cosine edges or scaled peak/leakage theorem.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-peak-number-transition-under-thermally-calibrated-gaussi--9db875e12990",
+          "material_read": "Original RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp peak-number transition under thermally calibrated Gaussian smoothing",
+          "trigger": "Substantial exact modal-theorem analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof Steps 2–4",
+        "Primary resetting Sec. 3.1 and Eq. (41)"
+      ],
+      "rationale": "After discounting the width substitution, the proof resolves when two latent edges can actually produce separate finite-noise maxima in this standard reset model. It also supplies distinct, quantitative observables: inward peak shifts and fourth-root leakage with precise constants. The paired asymmetry diagnostics are useful because one is local to the maxima while the other is an integrated probability beyond support; their agreement is nontrivial at the observation level even though the latent amplitude ratio is known.",
+      "residual_risks": [
+        "No distinct collective dynamical transition, other clock, or interacting-gas mechanism claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

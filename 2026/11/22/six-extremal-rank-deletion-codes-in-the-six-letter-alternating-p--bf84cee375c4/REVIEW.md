@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified finite model reduces exactly to independent sets in a 61-vertex, 480-edge confusability graph. A complete source and deck enumeration is reconstructed in an embedded standalone checker. Both pairwise deck intersection and a separate inverse-insertion construction produce the collision graph. Exhaustive, unpruned Bron–Kerbosch traversal of the compatibility graph yields exactly 33,202 maximal cliques with sizes 6–11, including exactly six of size 11. Every independent set extends to a maximal one, proving both the extremum and the six equality cases; the latter are checked directly. The intersection of seven and involution orbits are computed directly, with explicit lists. Risk: finite computation rather than a short closed-form argument; mitigated by complete inspectable code and two collision constructions.
+## correctness
 
-## Originality — PASS (qualified)
-The 2014 Gabrys–Yaakobi–Farnoud–Sala–Bruck–Dolecek paper presents the rank-deletion model, the deletion/insertion equivalence, the signature-pair VT construction, and asymptotic unrestricted bounds. Its Construction 1 already supplies an 11-word lower-bound class when restricted to the prescribed signature; this is explicitly credited. Its stated results do not imply the sharp constrained upper bound, exactly six equality codebooks, seven-word common intersection, or five reverse-complement orbits. Searches of published research records for alternating permutation deletion code capacities, zigzag one-deletion corrections, and standardized-deletion optima found results on related but different models, not those four finite claims. Full source was inspected, not merely its title. Risk: an unindexed or inaccessible finite table may supply equivalent counts; no independent literature audit has been done.
+PASS
 
-## Mathematical value — PASS
-This gives the exact zero-error constrained deletion capacity at a natural nontrivial Euler-zigzag source size and a surprisingly rigid classification of every optimizer. Seven of the eleven words are forced in all maximum codebooks, and only six codebooks attain a bound whose mere feasibility was already furnished by a general code construction. Equality structure and sharp constrained optimality address questions not answered by a generic lower bound. Scope is deliberately finite and does not purport to cover other block lengths.
+Rank standardization gives exactly the set of distinct outputs for a deletion; inserting the erased rank into the standardized survivor word is the inverse relation. Thus pairwise disjoint decks are exactly cliques in the compatibility graph. Inspection of checker.py confirms its pivot recursion visits every maximal clique: an unreported maximal extension must contain a candidate outside the pivot's neighborhood or it could be enlarged by the pivot, and an already used pivot excludes rather than duplicates that extension. The separate JavaScript replay rebuilt the 61-source, 480-conflict graph by both deletion and insertion and obtained all 33,202 maximal cliques (777, 10498, 16495, 5033, 393, 6 at sizes 6 through 11). In a finite graph every clique extends to a maximal one. The six largest cliques exactly match the six codebooks; their seven-word intersection also matches. For even source length the reversal-complement map preserves the up-down signature and commutes with deletion up to the analogous length-five reversal-complement, so its four fixed codebooks and swapped pair really give five orbits. Replay notes: /workspace/branches/ba6a0dcd-e510-409c-bbaa-fbdeaa3352ed/record5_replay.md. Supplied checker inspected, not executed.
 
-## Closest literature and limits
-Gabrys et al., *Single-Deletion-Correcting Codes over Permutations* (2014), DOI:10.1109/ISIT.2014.6875337, is the main direct comparison. The existing construction's size-11 lower bound is not claimed as new. The analysis is for strict up-down length-six rank permutation reads only, and an unindexed finite classification remains a historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge, the supported distinct contribution is a matching finite upper bound and a complete equality classification for the one fixed alternating source signature, not the existence of an 11-word code. Crediting the earlier construction is conservative and agrees with an independent syndrome calculation: for inverse ascent bits, the six syndrome class sizes modulo 6 are 10,10,10,11,10,10 and the residue-3 class is exactly the listed third codebook.
+
+## value
+
+PASS
+
+Alternation is a natural complete fixed-signature class in the rank-deletion construction, not a selected handful of favorable permutations. Even when a standard syndrome already supplies eleven words, it does not tell a researcher whether that size is maximal, how much freedom an optimal design has, or which words are unavoidable. The exhaustive classification answers all three for the 61-word instance and supplies an exact benchmark for alternative constructions. No extension to other lengths or to other channels is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

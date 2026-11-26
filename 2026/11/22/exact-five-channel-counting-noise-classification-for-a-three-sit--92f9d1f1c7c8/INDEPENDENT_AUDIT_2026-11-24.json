@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:33:25.399312Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 37–100; VERIFICATION.md and verify_counts.py inspected as source evidence",
+        "Independent exact replay: python /workspace/review_evidence/replay_2.py (SymPy)"
+      ],
+      "rationale": "Verified for the eight-state chain with rate-one injection, exit and rightward hops and equal positive exchange w only at the middle site. The marked hop channel counts both accepted bond transitions. Independently used a row-generator martingale calculation: for each mark solve Lh_a=m_a-r_a, where r_a is its instantaneous rate. The centered count plus the bounded potential increment is a martingale with jump indicator_a+h_a(y)-h_a(x). Its limiting covariance per unit time is the stationary rate-weighted sum of products of these jumps. The bounded corrections vanish at covariance-rate scale, and finite irreducibility makes the bracket rate and mean rate independent of initial state. Exact symbolic arithmetic matched the five mean rates and Fano functions and all ten cross-covariances. It recovered the stated positive-coefficient certificates for the boundary derivative and negative Langmuir derivative and the strictly increasing cubic controlling the hop derivative. The unique positive cubic root is 0.38380195482895884... and the Fano factor there is 0.59245585461490491.... The endpoint limits are not assertions at w=0 or infinity.",
+      "residual_risks": [
+        "Not a classification at unequal rates, at larger lengths, or for finite-time or clock-attempt counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lazarescu–Mallick §§I–II use arbitrary boundary entrance and exit rates and all sizes, but the stochastic rules have no internal reservoir. Sato–Nishinari is periodic, and Parmeggiani–Franosch–Frey addresses profiles and phases.",
+          "The balanced-network record assumes circulation balance and homogeneous reservoirs and measures attachment/detachment–signed-current covariances."
+        ],
+        "reasoning": "None of these broader statements covers the boundary-driven, middle-only reaction process and its ten count-pair signs.",
+        "searches": [
+          "arXiv:cond-mat/0408034",
+          "arXiv:1601.02651",
+          "arXiv:1104.5089v1, §§I–II",
+          "Resultary: balanced exclusion reaction–transport covariance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.07053",
+        "arXiv:cond-mat/0408034",
+        "arXiv:1601.02651",
+        "arXiv:1104.5089v1 (alternate to DOI 10.1088/1751-8113/44/31/315001)",
+        "Three Resultary records identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known cumulant methods provide a way to calculate but not the signs or derivative certificates. The pure open TASEP formula can overlap at the zero-exchange boundary but not classify the w>0 dynamics; the unequal-rate slice intersects the equal-rate path only at w=1."
+        ],
+        "reasoning": "The strict signs and three Fano-response classes on an entire rate path require additional elimination and are not specializations of the actual formulas or claims inspected.",
+        "searches": [
+          "Closest Resultary count-noise, occupation and balanced-covariance findings",
+          "Lazarescu–Mallick §II and discussion of the cumulant formula in §I"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-a-double-turn-desorption-noise-response-in-a-three-site-exclusio--cdd15675aceb varies adsorption alone with desorption fixed, and its boundary and bond counts are paired observables rather than the present five marks.",
+          "SCOPE-an-exact-three-site-langmuir-paradox-greater-density-polarizatio--4660b937e344 and Silva et al. concern occupancy covariances, not second cumulant rates of integrated accepted-event counts."
+        ],
+        "reasoning": "The equal-rate diagonal is not determined by a fixed-desorption slice; scaling cannot turn one into the other with all boundary and hop rates kept at one. Instantaneous occupation covariances are also not interchangeable with long-time marked count covariances.",
+        "searches": [
+          "Resultary: three-site Langmuir Fano/event-count and occupation-covariance findings",
+          "arXiv:2611.07053, abstract and results p. 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed entries give fixed-desorption Fano classifications or same-model stationary occupation results, and Silva et al.'s displayed covariances are spatial occupation covariances."
+        ],
+        "reasoning": "An exact table of occupation observables or a different rate slice does not tabulate the required rational marked-count responses. No matching table appeared in the bounded check.",
+        "searches": [
+          "Resultary three-site TASEP–Langmuir noise/occupation searches",
+          "Silva et al. arXiv:2611.07053, p. 8"
+        ]
+      },
+      "rationale": "The distinct content supported by the bounded comparison is the exact, all-positive-w second-order classification of these five accepted count marks along the equal-exchange path. The chain and general cumulant machinery are prior. The closest same-day count record works on a different rate path and mark convention; the closest same-model occupation record has different observables. No inspected prior claim entails the full classification. No ordering is inferred from same-day publications.",
+      "residual_risks": [
+        "An unlocated exact formula covering the joint marks and internal exchange could subsume the result; the bounded review does not assert historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model overlap, different observable",
+          "evidence": "Results passage concerns equal-time site occupation covariance, not event-count cumulants.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.07053",
+          "material_read": "Abstract p. 1 and results p. 8, OA offset 53687",
+          "method": "OA primary passages",
+          "title": "Langmuir kinetics and totally asymmetric volume exclusion in linear chains via Fock space formalism",
+          "trigger": "Closest general open-chain Langmuir model"
+        },
+        {
+          "assessment": "Relevant background, no covering statement in inspected material",
+          "evidence": "Describes density and current profiles and phase behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0408034",
+          "material_read": "Abstract p. 1",
+          "method": "OA primary passage",
+          "title": "The Totally Asymmetric Simple Exclusion Process with Langmuir Kinetics",
+          "trigger": "Standard model precedent"
+        },
+        {
+          "assessment": "Scope and observable differ",
+          "evidence": "Periodic lattice and time-dependent density/current/correlation functions.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.02651",
+          "material_read": "Abstract and density/current/correlation section p. 4, offset 27147",
+          "method": "OA primary passages",
+          "title": "Relaxation dynamics of the asymmetric simple exclusion process with Langmuir kinetics on a ring",
+          "trigger": "Time-dependent covariances in exclusion with exchange"
+        },
+        {
+          "assessment": "No covering dynamics: no bulk exchange",
+          "evidence": "§I specifies the generating function for the stationary current, Eqs. (15)–(19); §II permits only rightward internal motion and entrance and exit at boundaries.",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.5089",
+          "material_read": "Abstract, §I and §II model rules, pp. 1–2, offsets 0 and 5500–10986",
+          "method": "OA arXiv PDF passages",
+          "title": "An Exact Formula for the Statistics of the Current in the TASEP with Open Boundaries",
+          "trigger": "Potential broader exact current-cumulant formula; lawful alternate to DOI route"
+        },
+        {
+          "assessment": "Distinct rate family and no matching cross-covariance classification",
+          "evidence": "Middle adsorption u varies with desorption fixed at 1; paired boundary/bond observables and multiple turning points.",
+          "identifier_or_url": "Resultary: SCOPE-a-double-turn-desorption-noise-response-in-a-three-site-exclusio--cdd15675aceb",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "A double-turn desorption-noise response in a three-site exclusion chain",
+          "trigger": "Strong same-day exact count-noise overlap"
+        },
+        {
+          "assessment": "Stationary occupations, not jump-count statistics",
+          "evidence": "Equal middle exchange with equal boundaries, but the results classify occupation quantities.",
+          "identifier_or_url": "Resultary: SCOPE-an-exact-three-site-langmuir-paradox-greater-density-polarizatio--4660b937e344",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "An exact three-site Langmuir paradox: greater density polarization",
+          "trigger": "Same-day, equal-exchange model overlap"
+        },
+        {
+          "assessment": "Incompatible assumptions and different counts",
+          "evidence": "Circulation-balanced networks with homogeneous reservoirs and signed transport current rather than these distinct jump marks.",
+          "identifier_or_url": "Resultary: SCOPE-exact-time-ordered-reaction-transport-covariance-on-balanced-exc--5c264ddb40d9",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Exact time-ordered reaction–transport covariance on balanced exclusion networks",
+          "trigger": "Strong related reaction/count correlation terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen model rules and Finding; independently reproduced global sign and shape certificates"
+      ],
+      "rationale": "Three sites give the smallest open chain with a genuinely internal exchange site. The complete sign matrix and the contrasting increase, decrease and unique maximum answer a natural finite benchmark for how reaction noise differs from boundary and transport noise. The findings apply over the full positive control range and distinguish the aggregate of both hops from boundary traffic; neither one parameter value nor a static occupancy computation could establish them.",
+      "residual_risks": [
+        "This benchmark does not establish analogous phenomena at other chain lengths or claim an experimental application."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

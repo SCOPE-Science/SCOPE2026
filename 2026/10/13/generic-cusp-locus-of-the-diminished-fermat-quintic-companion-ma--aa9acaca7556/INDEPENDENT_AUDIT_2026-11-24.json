@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:22:41.782237Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–62; VERIFICATION.md; verify.py",
+        "Independent exact replay: /workspace/branches/69c2aa1a-c7ca-4442-91b6-3b55d64eb476/independent_check.py"
+      ],
+      "rationale": "For the six frozen quintics, the affine differential has rank 3 on the torus: two of its 3×3 minors would force a³=b³=−c³ there, and a third then has nonzero factor −18c⁹. The common factor abc of the maximal minors does not alone give this exclusion. On a=0 the a-row vanishes and u_3=c⁵, u_5=−5b²c³ give independent derivatives in b,c away from the vertices; b=0 follows by swapping a,b and permuting and negating the target coordinates. On c=0, u_1=−a⁵,u_2=b⁵ suffice. At vertices only the radial derivative survives. Euler's identity then gives precisely the stated projective ranks. In each cusp chart the normalized coordinates all lie in C[[t−t_0,x²,x³]]. Two depend only on t and y=x³ with invertible 2×2 Jacobian there outside the indicated exceptions; a third is a unit in the recovered t,y times x². For instance on a=x,b=t,c=1, use u_4/u_3 and u_5/u_3 with determinant −50t(t³+1), and use u_1/u_3=x²(5−y)/(1−5y). On c=x,a=1,b=t one may use u_5/u_1 and u_6/u_1 with determinant 50t(t³+1), and u_3/u_1; b=0 follows by symmetry. The pullback of O_X(1) is ample, so the proper map contracts no curve and is finite. The line restrictions recover t rationally, and for each line its two identically vanishing coordinates impose two cubic equations off that line, leaving at most finitely many possible extra preimages. Thus a general closed point of each curve has only the indicated preimage. The injection from the reduced image local ring into the finite pushforward remains injective on completion, and the unique preimage identifies the completed pushforward with the source completion at that point. Hence the calculated image subring is the actual completed local ring, not merely a parametrized branch. It is the cusp with a smooth parameter, and its normalization is obtained by adjoining x. An independent exact SymPy replay confirmed the minors, vertex ranks and chart determinants; the supplied script was inspected without executing it.",
+      "residual_risks": [
+        "No completed image germ is asserted at a vertex or at the nonvertex chart exceptions t³=−1. Other singularities of the image are not excluded. The independent calculation is symbolic checking, not formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier exact-map record gives normalization and degree 25 and excludes differential/singularity classification from its scope.",
+          "The later uniform record specializes at m=3 to this map, discusses generic nonnormality along the image of c=0, and refers without ID to a prior special-case rank/cusp calculation. It does not itself give the exact cusp ring or global rank function; the reference is not evidence of distinct prior duplication.",
+          "Theorem 5.6 of the companion-varieties paper is for a different Fermat map with normal image in its setting."
+        ],
+        "reasoning": "The overlapping normalizations and nonnormality consequence are credited. Neither broader scope by parameter nor normality properties for another linear system determine the local subring and differential here.",
+        "searches": [
+          "Resultary f47df59b3142 and 27ce427105f4, exact RESULT.md comparisons",
+          "Di Gennaro et al., arXiv:2101.07346, Theorem 5.6"
+        ]
+      },
+      "checked_sources": [
+        "Kabat–Strycharz-Szemberg, Lemma 5 and companion-surface discussion",
+        "Di Gennaro et al., §§5.1–5.2",
+        "Resultary f47df59b3142 and 27ce427105f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A finite birational map from a smooth plane describes the normalization, but that fact does not determine the differential or which powers of a transverse parameter lie in the target ring. Generic nonnormality likewise cannot distinguish C[[t,x²,x³]] from other proper subrings. Here the global torus-minor exclusion and the two independent chart recoveries, together with singleton fibers, supply those missing determinations."
+        ],
+        "reasoning": "These verifications are not substitutions into a prior theorem giving the rank or analytic type; the known image degree and generic nonnormality are not counted as original.",
+        "searches": [
+          "Resultary f47df59b3142, proof and limitations",
+          "Resultary 27ce427105f4, generic nonnormality and relationship sections",
+          "Kabat–Strycharz-Szemberg, Lemma 5 and final remarks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The six coefficients in the 2020 source are those reviewed here. The source verifies base-point freeness and asks about the image; it does not identify the rank strata or generic completed local rings.",
+          "The 2022 paper's standard and augmented Fermat systems and morphisms from a blow-up are not equivalent to this six-coordinate diminished arrangement map."
+        ],
+        "reasoning": "Compare the minors of the map and the image germs via the normalization subring, not companion-variety titles, a rank drop for another morphism, or mere nonnormality.",
+        "searches": [
+          "Resultary semantic searches on the diminished-Fermat quintic map, companion surface normalization, differential stratification and cuspidal singularities",
+          "Kabat–Strycharz-Szemberg, arXiv:2003.02596, Lemma 5 and concluding companion-surface discussion",
+          "Di Gennaro et al., arXiv:2101.07346, §§5.1–5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest identifiable exact-map entry tabulates degree 25, not the rank values by strata or the completed local rings. The later family entry does not tabulate those invariants either."
+        ],
+        "reasoning": "The finite-valued rank function is on geometric strata of this one map, not a numeric sequence amenable to a coefficient table. The relevant exact-record check is the matching-map catalogue lookup.",
+        "searches": [
+          "Resultary exact-map and related-family searches, particularly f47df59b3142 and 27ce427105f4"
+        ]
+      },
+      "rationale": "The supported distinct claims are the exact rank strata for the six-dimensional base-point-free quintic system and the precise generic analytic germ on its three coordinate-line images. The strongest inspected prior exact-map result proves finite birational normalization and degree 25 but explicitly does not identify differential strata or singularities. The founding paper gives the system and invites investigation of its image; the strongest related Fermat-family literature either uses another system or does not determine the cusp subring. These are affirmative statement-level distinctions, not a claim of exhaustive novelty.",
+      "residual_risks": [
+        "Szpond's §4.4 was not inspected in full. The later indexed record does not identify the prior computation it mentions. The bounded lookup neither establishes exhaustive novelty nor attaches priority to any unidentified comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact map and base-point freeness prior; distinct open image question",
+          "evidence": [
+            "The final discussion frames investigation of the resulting companion surface as an open problem."
+          ],
+          "identifier_or_url": "https://www.numdam.org/item/10.5802/crmath.77.pdf",
+          "material_read": "PDF p. 5, offset 11719, six coefficients, Lemma 5 and companion-image discussion",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Diminished Fermat-type arrangements and unexpected curves",
+          "trigger": "Primary construction of the exact six quintics"
+        },
+        {
+          "assessment": "Different larger system on a blow-up and different map",
+          "evidence": [
+            "The inspected result establishes birationality to a normal surface for the ordinary or augmented Fermat setting, not the frozen system."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.07346",
+          "material_read": "PDF pp. 13–16, §§5.1–5.2, offsets 40354 and 45927 including Theorem 5.6",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Companion varieties for root systems and Fermat arrangements",
+          "trigger": "Plausible broader Fermat companion study"
+        },
+        {
+          "assessment": "Exact map but distinct invariants",
+          "evidence": [
+            "Proves finite birational normalization and degree 25; it does not determine the singular locus or differential rank drop."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-the-diminished-fermat-quintic-companion-map-normalizes-a-degree--f47df59b3142",
+          "material_read": "RESULT.md, finding, singleton-fiber argument and limitations",
+          "method": "Local Resultary mirror passage",
+          "title": "The diminished-Fermat quintic companion map normalizes a degree-25 surface",
+          "trigger": "Exact same six quintics and image"
+        },
+        {
+          "assessment": "Later family overlap on normalization and qualitative nonnormality, not the exact germs",
+          "evidence": [
+            "Its reference to a previous special-case rank/cusp computation is unattributed in the inspected passage."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-uniform-normalization-theorem-for-diminished-fermat-companion--27ce427105f4",
+          "material_read": "RESULT.md, m=3 specialization, generic nonnormality and relationship section",
+          "method": "Local Resultary mirror passage",
+          "title": "A uniform normalization theorem for diminished-Fermat companion surfaces",
+          "trigger": "Uniform family containing the frozen map"
+        },
+        {
+          "assessment": "Unresolved contextual overlap, not negative evidence",
+          "evidence": [
+            "The candidate publisher route was unavailable and no identified lawful same-paper alternate was obtained in this check."
+          ],
+          "identifier_or_url": "Szpond, Math. Nachr. 293 (2020), 158–168, §4.4",
+          "material_read": "Bibliographic and section reference from the 2020 construction paper only; decisive §4.4 not inspected",
+          "method": "Reference tracing and lawful publisher availability check",
+          "title": "Unexpected curves and Togliatti-type surfaces",
+          "trigger": "Referenced neighboring companion-surface construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kabat–Strycharz-Szemberg, concluding companion-surface question",
+        "Frozen RESULT.md, Finding and Limitations",
+        "Prior exact-map Resultary f47df59b3142"
+      ],
+      "rationale": "The object is the specific companion image introduced in the source's explicit question. The exact rank stratification resolves where its normalization parametrization loses immersion everywhere, including the extreme vertex behavior. The actual image cusp model identifies how it loses normality in codimension one on three natural curves, which neither the degree nor mere nonnormality tells a later study of the surface. This is a motivated, reusable exact result without requiring a full singular-locus theorem.",
+      "residual_risks": [
+        "No global exhaustion of the image singularities is asserted; the exceptional germs remain to be classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

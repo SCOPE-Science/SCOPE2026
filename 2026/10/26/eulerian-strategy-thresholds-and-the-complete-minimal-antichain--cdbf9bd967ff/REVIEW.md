@@ -1,15 +1,21 @@
-# Review of the unanimous-preference strategy theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The contiguous-occupied-interval invariant holds by induction from the first parked car. While the left side is unfilled, its extension occurs precisely at the greedy quota threshold. A first failure necessarily exhausts the right side and leaves too few cars to attain the greedy target, proving the success equivalence. Greedy subsequence witnesses then give the exact irredundant antichain. The strategy-count recurrence is the standard Eulerian insertion recurrence, with the maximum-insertion map explicitly inverted by deleting successive maxima. Independent physical simulation exhaustively checked all strategies for orders through eight; finite evidence is only supplementary.
+## correctness
 
-## Originality
-PASS with a residual bibliographic risk. Ferrari--Verciani (arXiv:2610.20267v1, Sections 4--8) establish the general upset, and Theorem 5.4 establishes the minimal-total-quota profiles. Those general statements do not classify *all* minimal profiles nor enumerate *all* successful strategies at fixed unanimous preference. Section 8 identifies complete minimal-element description and permutation connections as open topics. The present classification explicitly proves absence of additional minimal profiles and discovers the Eulerian-tail size under an insertion encoding. Related earlier homogeneous-quota Naples results (arXiv:2405.07522) do not count variable-quota strategy vectors. Search of accessible related literature and published mathematical-result records found no equivalent statement. Inaccessible/unindexed mathematics could reduce the priority claim; comparison of theorem statements, rather than title matching, grounds this assessment.
+PASS
 
-## Value
-PASS. This is a natural infinite family singled out directly by the preference model, not a finite parameter patch: it determines the entire upset, shows exponentially many minimal profiles for central preferences, gives an exact distribution over \(n!\) strategies in terms of classical Eulerian numbers, and constructs a permutation correspondence. It addresses two explicitly motivated gaps in the original model (minimal-element classification and permutation linkage), with exact finite boundaries and no unsupported downstream theorem.
+While there has been no failure, occupied spaces are an interval about m. Until the left side fills, the next left vacancy is at distance L+1 when L places on the left are filled; the backward move therefore tracks the recurrence for b exactly up to that cap. If car i is first to fail, all n−m right spaces are occupied, L<m−1, and b_i=L. Since i−2=L+n−m, even an increment at every remaining index gives b_n≤L+n−i=m−2. Conversely, complete success fills all m−1 left places and has achieved that level. Recording the increment indices yields the threshold subsequence, and any witness subsequence forces the greedy score to reach each threshold by the corresponding index. Each elementary vector is feasible because i_j≥j+1, and the vectors have different equal-size supports, so none dominates another. The union of their principal upsets is precisely the success set. Each vector has the stated total quota. Inserting the new maximum into the k descent gaps or the final gap preserves k descents; the other gaps add one. The two ordered gap lists match the two quota ranges, and deletion uniquely reverses each step. This proves both the bijection and Eulerian tail, including the all-success case m=1, n=1, and the single maximal-threshold strategy at m=n. The recorded finite enumeration is corroboration only.
 
-## Limitations
-The proof depends on common preferences; arbitrary preference words are not classified. The constructed permutation encoding need not agree with other standard inversion-sequence maps. Finite tests do not establish the universal result. An additional external mathematical audit and publication-priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ferrari–Verciani already give exactly these minimum-total profiles, their quota totals and their binomial count in the unanimous specialization. The supported contribution is showing that there are no additional componentwise-minimal successful profiles, giving an explicit threshold test for the whole upset, and obtaining the Eulerian-tail success count and a compatible permutation encoding. Neither the original model nor the Eulerian recurrence is claimed as new.
+
+## value
+
+PASS
+
+Unanimous preferences provide a natural nontrivial class for the stated unresolved general antichain problem. The new exclusion of all other componentwise minima gives an exact description of a successful upset that can have exponentially many generators. The greedy score also converts every successful-strategy count in the class to a classical permutation distribution instead of enumerating its elements or reasoning just about quota minimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

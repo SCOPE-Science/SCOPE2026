@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:16:41.986761Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–89; VERIFICATION.md; verify.py (inspected, not executed)",
+        "reproductions/1.py and reproductions/1.txt: OPENBLAS_NUM_THREADS=1 python3 reproductions/1.py"
+      ],
+      "rationale": "Deleting the hub gives arm blocks strictly below 4 by the positive quadratic form in RESULT.md. At and above 4 the hub Schur complement is scalar, so inertia at 4 counts at most one generalized eigenvalue in [4,infinity), and any nullspace there is one-dimensional. The inverse entry h_L obeys h_1=1/(lambda-1), h_{L+1}=1/(lambda-2-h_L); at 4 this gives (2L-1)/(2L+1). The scalar q+sum h_L-mu*lambda is strictly decreasing and has edge value 4(sum L/(2L+1)-mu), giving all three mass cases. Above 4 the reflected geometric arm solution has alternating signs and successive magnitudes with ratios below rho. The edge marginal increments decrease strictly. At fixed lambda>4 the continued fraction gives strictly positive increments, with successive increments in ratio h_{L+2} h_{L+1}<1; thus balancing and concentration strictly order the scalar functions for unequal profiles, and order their roots when above 4. Capping at 4 accounts for all ties below the band. As all lengths tend to infinity the inverse entries approach rho from below; bracketing the zero gives the limit q^2/[mu(q-mu)] when mu<q/2, with monotonicity under coordinatewise lengthening. Each finite threshold is strictly less than q/2. An independent incidence/edge-space eigensolver checked 462 threshold/count/vector cases as well as sampled capped rankings and long-arm limits. At mu=6/5 the example tops were about 4.110839 and 3.938173, respectively.",
+      "residual_risks": [
+        "Finite floating-point checks are supplementary. The proof is for identical free arms except for their lengths and a single hub mass contrast; no uncapped ordering below the band is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iguchi–Yamada's general network model and localized-mode limit are for degree-dependent scale-free oscillator analysis, not an exact threshold or limit for uniform free paths with a tunable hub.",
+          "Ilić orders the coefficients of the ordinary starlike-tree Laplacian polynomial under arm-length majorization."
+        ],
+        "reasoning": "A model that encompasses mass-spring networks does not itself prove a spectral classification for this parameterized family. The theorem on ordinary coefficients does not apply to arbitrary entries of the generalized mass matrix.",
+        "searches": [
+          "arXiv:cond-mat/0408323, equations (4)–(6), (15)",
+          "arXiv:1104.4280, §2, Theorem 8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE records 6756fc9e71dd, f8fc708d0559, fcd11a969142",
+        "Nakatsukasa–Saito–Woei, arXiv:1112.4526v2 §3",
+        "Ilić, arXiv:1104.4280 §2",
+        "Iguchi–Yamada, arXiv:cond-mat/0408323"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unweighted uniqueness and center dominance are established. Ordinary coefficient majorization concerns the optimization geometry but not variable mass. The network-mode limit inspected does not impose the free-path transfer and matching equation q(1+rho)=mu(2+rho+1/rho)."
+        ],
+        "reasoning": "These results do not imply the crossing curve as mu varies. The finite result needs the band-edge arm response and its strict discrete concavity, and the frequency ordering needs that concavity away from the edge; neither follows merely from unweighted localization or coefficient ordering.",
+        "searches": [
+          "arXiv:1112.4526v2, §3, Corollary 3.1 and Theorem 3.2",
+          "arXiv:1104.4280, §2, Theorem 8",
+          "arXiv:cond-mat/0408323, Eq. (15)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 3.1 gives one eigenvalue at or above 4 in the unweighted starlike graph, with equality only for the claw. This is the mu=1 slice, not a result varying mu.",
+          "The nearest mechanical Resultary record, 6756fc9e71dd, changes spring constants on a path and maximizes the lowest nonzero frequency rather than changing arm lengths at fixed spring constant.",
+          "The bounded primary lookup did not add a usable match; this is not negative evidence."
+        ],
+        "reasoning": "Nondimensionalizing masses or changing frequency units does not remove the independent hub contrast in the generalized mass matrix. The two mechanical optimizations use different variables and different spectral objectives.",
+        "searches": [
+          "Resultary: title, central/hub-mass threshold, balanced-arm ordering, infinite-arm limit",
+          "Primary lookup: weighted star or junction oscillator threshold and spectral ordering",
+          "arXiv:1112.4526v2, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE 6756fc9e71dd treats lowest-frequency spring allocation on a path. SCOPE f8fc708d0559 treats a centered maximal-average operator on a vertex-weighted star, and fcd11a969142 treats denoising fusion on a star. None supplies a table or formula for this generalized vibrational eigenvalue."
+        ],
+        "reasoning": "This is a symbolic classification over unbounded lengths and continuous contrasts, not a request to recompute a finite table. A catalogue formula could nevertheless cover it; the retrieved formulas concern different operators. No priority ordering is inferred from same-day metadata.",
+        "searches": [
+          "Resultary: hub-to-arm mass cutoff formula, balanced arm partitions, and long-arm spectral formula"
+        ]
+      },
+      "rationale": "The unweighted edge result and unweighted length-majorization literature are prior. The inspected statements do not cover the finite free-arm crossing as a function of hub inertia together with its sharp allocations and resulting above-band frequency ordering. The infinite-arm formula is credited as a limit of the model, not a claim to invent junction localization.",
+      "residual_risks": [
+        "The comparison is bounded; earlier specialized weighted-junction or finite-star vibration literature not identified in these checks may contain additional coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in the unweighted case",
+          "evidence": "Exactly one eigenvalue at or above 4; equality only for the claw; strictly largest central eigenvector component in magnitude.",
+          "identifier_or_url": "https://arxiv.org/html/1112.4526v2",
+          "material_read": "§3, Corollary 3.1 and Theorem 3.2, OA text around offsets 10255–13454",
+          "method": "OA primary full-text passage",
+          "title": "Mysteries around the graph Laplacian eigenvalue 4",
+          "trigger": "Same starlike operator at unit hub mass"
+        },
+        {
+          "assessment": "Structural precedent for balance, but not the generalized spectral ordering",
+          "evidence": "Coefficientwise ordering T(p) <=_c T(q) for p majorized by q, for the ordinary Laplacian.",
+          "identifier_or_url": "https://arxiv.org/html/1104.4280",
+          "material_read": "§2, definitions and Theorem 8, around OA offsets 10850 and 12800",
+          "method": "OA primary full-text passage",
+          "title": "On the ordering of trees by the Laplacian coefficients",
+          "trigger": "Same arm-allocation majorization on starlike trees"
+        },
+        {
+          "assessment": "Related general model and different spectral limit",
+          "evidence": "Degree-dependent oscillator modes on scale-free networks, not a finite free-path transfer or the fixed-q long-arm limit here.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0408323",
+          "material_read": "Model equations (4)–(6) and localized limit (15), PDF p. 3 for (15), extracted text around offsets 14500–17752 and 19000–21786",
+          "method": "Lawful OA preprint of the same paper, targeted PDF passage read",
+          "title": "Vibrational modes and spectrum of oscillators on a scale-free network",
+          "trigger": "Mass-spring network and localized-mode limit, abstract only in frozen review"
+        },
+        {
+          "assessment": "Different graph, budget variable and eigenvalue objective",
+          "evidence": "Prescribed total stiffness on a freely translating path; maximizes its first nonzero mode.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-mass-centered-spring-allocation-maximizes-the-lowest-vibration-f--6756fc9e71dd/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary query and local mirror passage",
+          "title": "Mass-centered spring allocation maximizes the lowest vibration frequency, with a logarithmic static-compliance cost",
+          "trigger": "Closest spring-network allocation result"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Exact centered graph-ball maximal averaging norm, not a generalized stiffness spectrum.",
+          "identifier_or_url": "SCOPE record f8fc708d0559",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary query and local mirror passage",
+          "title": "Mass-ratio phase changes for centered L2 maximal averages",
+          "trigger": "Same weighted-star and hub-contrast terminology"
+        },
+        {
+          "assessment": "Different operator and threshold event",
+          "evidence": "Fidelity-mass and edge-penalty threshold for irreversible denoising fusion.",
+          "identifier_or_url": "SCOPE record fcd11a969142",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary query and local mirror passage",
+          "title": "A sharp hub-mass budget for irreversible fusion on weighted stars",
+          "trigger": "Hub-mass threshold on weighted star"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–28 and 72–89; arXiv:1112.4526v2, §3"
+      ],
+      "rationale": "The spectral edge has physical meaning independent of the finite star. At fixed total material and hub mass the exact allocation range decides whether rearranging arm sites can create or eliminate a localized mode. The strict frequency ordering also guides allocation when several geometries already have a mode above the edge. These are distinct design decisions that unweighted existence alone does not resolve.",
+      "residual_risks": [
+        "This is an idealized discrete undamped design rule, not a claim about heterogeneous springs, damping, or the entire spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

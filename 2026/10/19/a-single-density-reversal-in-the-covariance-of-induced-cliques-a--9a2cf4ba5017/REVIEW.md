@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The overlap calculation separates every pair of induced \(r\)-vertex motif indicators according to their number of common vertices, including the mutually exclusive diagonal. Dividing the resulting covariance by a strictly positive factor yields a strictly decreasing function with opposite endpoint signs, proving a unique root. Bernoulli's inequality bounds it, and a uniform fixed-size overlap expansion establishes the first finite-size correction. Exact edge-state enumeration and exact-rational checks corroborate, but are not used as infinite proofs.
+## correctness
 
-**Originality: PASS (self-review, residual uncertainty).** The 2008 motif-count method derives marginal second moments through overlap counting, and the 1990 random-graph framework encompasses more general subgraph statistics. Their possible implication of this finite covariance identity is acknowledged. The distinctive claim assessed here is the strict single-crossing classification for all \(r,n\) and its sharp threshold location, not the generic second-moment technique. Relevant accessible primary texts on induced graphlets and subgraph approximation do not state or establish that classification. Full comparison was not possible for the 1990 framework and the original 2008 paper; independence of this finding from all earlier work is not established.
+PASS
 
-**Mathematical value: PASS.** The two motif counts quantify mutually exclusive local density classes. Their mixed covariance is a natural diagnostic for jointly standardizing graphlet features in a binomial random graph. The full sign-phase diagram, exact smallest ambient-size boundary, and universal large-\(n\) density with correction are structural consequences rather than a single low-order table entry. The sign reversal makes a qualitative prediction for every motif size.
+Independently checked the ordered-pair calculation. Given a clique on T with |S∩T|=s, the sole missing edge of the near-clique on S must be one of a−b_s unshared edges, where a=binom(r,2) and b_s=binom(s,2). This also makes the joint indicator zero at s=r; s≤1 cancels by edge independence. Dividing the covariance by binom(n,r)(1−p)p^(2a−1) gives a decreasing sum of positive multiples of p^(−b_s) minus a constant, with the s=r−1 term strictly positive in its coefficient for every n≥r+1. Its limits at zero and one have opposite signs. At p0=(a−1)/a, Bernoulli's inequality makes every overlap contribution nonpositive and the identical-set contribution strictly negative. Only the last two overlaps occur at n=r+1, yielding p^binom(r−1,2)=2/(r+1). For r=3 the only off-diagonal term has A_2=3(n−3), giving 2(n−3)/(3n−8); at n=r the counts cannot co-occur. For large n with r fixed, A_3/A_2=(r−2)^2/[3(n−2r+3)] and the other ratios are O_r(n^−2). The s=2 term after dividing out A_2 has slope −(a−1)p0^(a−2) at its zero; the s=3 term there is −(3a−1)p0^(a−3)/a². These give the stated signed correction with an O_r(n^−2) remainder by Taylor expansion on a fixed neighborhood. Inspected the frozen verifier; its exact graph census at selected small n and numerical root checks are corroboration, not the proof. No frozen code was executed.
 
-**Limitations.** The result is for independent-edge binomial graphs, fixed \(r\) in the asymptotic, and exactly one defect edge. Marginal variance frameworks may implicitly contain pieces of the calculation. External comparison is substantial but not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass applies to the general r≥3 theorem with its finite-size endpoint and fixed-r correction, not to the overlap technique or the exact r=3 case, which was stated in an earlier record. A later more general pattern theorem subsumes the threshold and correction when n≥2r−2, without establishing earlier coverage or the full small-n range.
+
+## value
+
+PASS
+
+The covariance between a complete motif and its nearest induced defect is relevant when interpreting co-fluctuation of motif counts. The theorem distinguishes exclusion on the same set from positive correlation through shared present edges and proves exactly one reversal for every nontrivial graph order, including orders where small-overlap asymptotics are inapplicable. The finite endpoint and displacement of the threshold quantify this competition beyond the standard overlap bookkeeping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

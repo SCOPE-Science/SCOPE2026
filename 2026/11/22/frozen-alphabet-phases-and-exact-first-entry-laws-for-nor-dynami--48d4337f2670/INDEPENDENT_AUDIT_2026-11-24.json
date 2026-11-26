@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:07:12.021682Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–87 and VERIFICATION.md",
+        "Frozen kautz_verify.py and checker_output.txt (read only)",
+        "Fresh exhaustive functional graph: python3 /workspace/reviews/evidence/3/functional_graph.py; transcript /workspace/reviews/evidence/3/output.txt"
+      ],
+      "rationale": "Each update reduces relevant prefix length by one until the first-letter subspace. The reduced loopless complete NOR map permutes the zero/one pair, fixes each singleton and sends every other nonuniform vector to zero. Periodicity forces membership in the image after d−1 steps; a specified two-one vector is attainable then by disjoint, individually surjective NOR trees (including height 0), hence realizes T=d. Initial leaves of distinct prefix evaluations have distinct suffixes, while leaves within a root are indexed by all admissible prepended strings, once each. Independence and equal bias therefore give the stated CDF as the disjoint probabilities of two uniform outcomes and q+1 single-block outcomes; at t=d−1 only one-hot outputs reach a fixed point. Exact integer counts use B_t and S_t as leaf counts. For the critical limit, differentiation of J(s) gives the sign of sum_{j=0}^{q−1} s^(−j)−q², strictly falling from +infinity to q−q². With endpoint limits 1 and 0 this establishes precisely one interior crossing of 1; monotone even iterates converge to opposite endpoints on either side, and p=p_* is stationary. The basin limit is (q+1)p_*² there, including the stated endpoint cases off criticality.",
+      "residual_risks": [
+        "Fresh checks use indegree-stripping rather than assuming period ≤2; they cover 6 cases up to (4,2), checking p=1/2,1/3,4/5 by exact weights. All-size conclusions come from the proof, not the enumeration. The critical limit is not uniform in p and does not cover correlated inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected journal abstract excerpt refers to prior AND/OR results, not a demonstrated Kautz theorem. The special-digraph full text, proceedings and survey passage could not be verified; the de Bruijn result is explicit about full words, not an all-digraph theorem."
+        ],
+        "reasoning": "No inspected broader result establishes both one-hot phases and the block-weighted first-entry law. Inaccessible works remain risks, not excluded coverage.",
+        "searches": [
+          "Aledo et al. DOI:10.1080/00207160.2012.742191",
+          "Aledo et al. CMMSE 2012 pp. 49–53",
+          "Aledo et al. DOI:10.1155/2015/594294",
+          "Resultary 5b15590db320 RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5b15590db320 and 165ad680a86f",
+        "Lavault hal-00461923",
+        "Aledo et al. 2013 DOI 10.1080/00207160.2012.742191 (excerpt)",
+        "Aledo et al. CMMSE 2012 and survey 2015 (attempted, not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same recursion p_(t+1)=(1−p_t)^q and disjoint-block argument yield p_t^(q^(d−t))+(1−p_t)^(q^(d−t)) there. No one-hot patterns recur there; its critical result concerns synchronization time."
+        ],
+        "reasoning": "The common recursion does not encode the recurrent targets. Applying the Kautz loopless base tests instead gives the extra (q+1)p_t^h(1−p_t)^(qh) term and the positive limiting fixed mass at stationarity. Same date gives no order.",
+        "searches": [
+          "Same-day de Bruijn 5b15590db320, RESULT.md Finding and assumptions (local mirror)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Kautz words shift with adjacent equal letters forbidden; unlike the full de Bruijn alphabet this makes the first-letter update loopless. The Kautz XOR record 165ad680a86f is outgoing XOR and its Jordan structure is not a NOR attractor theorem."
+        ],
+        "reasoning": "Viewing words as iterated edges explains the collapse but does not equate the two base maps. Fixed NOR configurations are independent absorbing sets for the reversed arc convention (kernels), but fixed-set structure alone does not give synchronous transients or weighted basins.",
+        "searches": [
+          "Resultary NOR on Kautz / de Bruijn and Kautz transient dynamics",
+          "Lavault HAL hal-00461923 §§3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching record itself is not separate evidence. 5b15590db320 has an exact two-term CDF for uniform recurrence on de Bruijn; 165ad680a86f has an exact but different XOR depth census."
+        ],
+        "reasoning": "An all-depth census requires the same graph and Boolean rule; neither nearby exact census gives the Kautz NOR fixed-basin term.",
+        "searches": [
+          "Resultary Kautz NOR recurrence, exact first entry, synchronization shells, Kautz XOR"
+        ]
+      },
+      "rationale": "Credit the classical graph structure and strong same-day overlap in NOR prefix collapse, product bias recursion and exact shells on de Bruijn words. The Kautz fixed phases, extra block event and resulting exact nonzero critical basin are not obtained by substituting parameters in the two-uniform-state law. No inspected source provided a stronger theorem covering this additional phase and first-entry statement. This is a limited substantive distinction, not a priority determination for the method.",
+      "residual_risks": [
+        "Special-digraph journal full text, conference contribution and survey passages were not independently accessible. Unindexed or inaccessible Kautz results may exist. No time priority inferred from 2026-11-22."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological overlap, not Kautz fixed phases",
+          "evidence": [
+            "All q-letter words allowed; only uniform two-cycle; two uniform-power terms."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-synchronization-shells-and-a-critical-slowing-transition-f--5b15590db320",
+          "material_read": "RESULT.md, recurrent classification, assumptions and first-entry statement",
+          "method": "Resultary local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact synchronization shells and a critical slowing transition for NOR dynamics on de Bruijn digraphs",
+          "trigger": "Closest same-day NOR exact shells and scalar recursion"
+        },
+        {
+          "assessment": "Different rule and orientation",
+          "evidence": [
+            "Outgoing XOR gives a linear Jordan classification."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-parity-dependent-jordan-structure-and-transient-depth-census-for--165ad680a86f",
+          "material_read": "RESULT.md stated system and census",
+          "method": "Resultary local mirror",
+          "title": "Parity-dependent Jordan structure and transient-depth census for Kautz XOR dynamics",
+          "trigger": "Same word network and transient census"
+        },
+        {
+          "assessment": "Structural overlap only in inspected sections",
+          "evidence": [
+            "Kautz uses q+1 letters and is built similarly to the de Bruijn shift network; communication protocols are not NOR basin laws."
+          ],
+          "identifier_or_url": "https://hal.science/hal-00461923",
+          "material_read": "§3.1 PDF p. 7 (offset 18876), §3.2 (offset 22300)",
+          "method": "OA text passages",
+          "title": "Interconnection Networks: Graph- and Group-Theoretic Modelling",
+          "trigger": "Classical Kautz and de Bruijn definitions and reductions"
+        },
+        {
+          "assessment": "Full scope unresolved",
+          "evidence": [
+            "Accessible excerpt credits past AND/OR fixed/eventually fixed points and ends before the new scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00207160.2012.742191",
+          "material_read": "Publisher abstract excerpt only",
+          "method": "Literature search; publisher OA request denied; identified author PDF timed out",
+          "title": "Parallel dynamical systems over special digraph classes",
+          "trigger": "Potential special-digraph update classification"
+        },
+        {
+          "assessment": "Unresolved",
+          "evidence": [
+            "Cannot make a statement about whole-document coverage."
+          ],
+          "identifier_or_url": "https://www.unioviedo.es/bayon/osh/Proceedings-Vol-1-cmmse-2012.pdf",
+          "material_read": "No primary passage recovered, cited pp. 49–53 unverified",
+          "method": "Two OA retrieval attempts returned 404",
+          "title": "Dynamics of some Parallel Dynamical Systems over Digraphs",
+          "trigger": "Related conference version on special digraphs"
+        },
+        {
+          "assessment": "Unresolved",
+          "evidence": [
+            "No verified comparison passage in the survey itself."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2015/594294",
+          "material_read": "Cited §§3.2 and 4.1 not retrieved",
+          "method": "OA publisher page and identified PDF requests denied",
+          "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+          "trigger": "Potential broad graph dynamics result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Lavault §3.1",
+        "Resultary de Bruijn NOR record 5b15590db320"
+      ],
+      "rationale": "Kautz is a standard directed network, and the effect of deleting same-letter transitions is qualitative: a uniform oscillator acquires q+1 coexisting fixed phases. The exact first-entry and individual-basin laws, and the isolated critical survival limit, measure the effect for all alphabets and depths and are useful beyond the elementary NOR-tree recursion.",
+      "residual_risks": [
+        "No universality across graph families, other update rules, or critical scaling window claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

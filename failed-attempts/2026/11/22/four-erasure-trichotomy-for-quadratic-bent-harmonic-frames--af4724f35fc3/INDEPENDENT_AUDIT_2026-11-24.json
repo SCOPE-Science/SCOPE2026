@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:28:17.223360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–74, Walsh normalization, mask spectra/counts and retained bounds",
+        "verify_direct_walsh.py and verify_direct_walsh.out, direct Walsh and characteristic-polynomial finite checks",
+        "verify_symplectic_counts.py and verify_symplectic_counts.out, symplectic mask counts",
+        "VERIFICATION.md recorded statuses; uploaded scripts inspected, not executed"
+      ],
+      "rationale": "Orthogonal distinct character rows give Parseval normalization. One coordinate-pair Walsh sum is 2(−1)^{αβ}, so the nonzero-frequency D-sum is −r(−1)^q/2 and the restricted Gram is ((r−1)I+S_E)/(2r). The triangle product on a rooted pair of differences is −(−1)^B. All four triangle products multiply to +1, and switching to normalize the edges at one root shows that triangle signs determine the class. Relabeling gives all-positive, exactly one negative edge, or all-negative representatives, according to 0, 2, or 4 negative triangles. In the one-negative-edge case the two pair differences give eigenvalues +1 and −1, and the pair-constant block [−1,2;2,1] gives ±√5. The two uniform-sign matrices give the other spectra. For the all-positive and all-negative types the nondegenerate symplectic equations give respectively n(n−1)(n/2)(n/4)/24 and n(n−1)(n/2−2)(n/4−3)/24 unordered masks; the remainder is the middle class. These classes are intrinsic to the triangle signs, so the root criteria are invariant. The retained lower frame bound is 1−λ_max(P_E); all-positive has strictly largest λ_max and all classes occur for n≥16. The only Gram singularity is at r=4 in the all-negative class, which does not impair the retained frame. The asserted m=2 and m=3 counts agree with exact substitution and the frozen outputs.",
+      "residual_risks": [
+        "Finite output is corroboration at two dimensions, not the all-m proof. No assertion about arbitrary nonlinear bent frames or greater erasure sizes was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bodmann–Paulsen Theorem 5.3, PDF p. 15, gives k/n+(m−1)c as the largest possible erased Gram eigenvalue, attained exactly in the empty switching class; their p. 17 comparison treats one negative edge",
+          "Real Paley RESULT.md Finding and Proof, offsets 0–4065, explicitly uses the same three universal four-vertex switching spectra"
+        ],
+        "reasoning": "The Paley census concerns a different family and does not supply this multiplicity table, but it already supplies the universal spectral part. Bodmann–Paulsen gives the worst spectral bound and equality class without restriction to quadratic characters; with c=1/(2r) and an all-positive switching mask the frozen worst bound follows.",
+        "searches": [
+          "Bodmann–Paulsen Frames, graphs and erasures arXiv:math/0406134, §5",
+          "Resultary exact four-column spectra for real Paley harmonic frames"
+        ]
+      },
+      "checked_sources": [
+        "Bodmann–Paulsen §5.1",
+        "Brouwer regular two-graph exposition",
+        "Fickus et al. §7",
+        "Resultary real Paley and binary symplectic findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In any regular two-graph on n vertices with a positive triangles per pair, let N_j count four-sets with j positive triangles. Counting triangle/four-set incidences gives 2N₂+4N₄=binom(n,2)a(n−3)/3; counting pairs of triangles along their common pair gives N₂+6N₄=binom(n,2)binom(a,2). Only j=0,2,4 are possible.",
+          "With a=n/2 these two equations and N₀+N₂+N₄=binom(n,4) give precisely the frozen masses N₄,N₂,N₀; positivity gives equality in the standard erasure bound and fixes its attainment count."
+        ],
+        "reasoning": "No family-specific incidence beyond standard two-graph regularity is needed. The census is a short algebraic specialization of these elementary moment counts and universal small signed matrices; the theorem's remaining local criteria and rank observations follow from switching and the resulting eigenvalues. Failure is based on this demonstrated implication, not an inaccessible possible prior source.",
+        "searches": [
+          "Regular two-graph pair-incidence definition and signed K4 spectra, Brouwer and real Paley proof",
+          "Two-graphs and NSSDs: An algebraic approach, PII S0166218X18302610"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A positive Gram sign triangle here corresponds to B(x+y,x+z)=1; the third vertex is constrained by one nonconstant binary functional for a fixed pair, giving a=n/2 positive triangles per pair",
+          "The graph of B(x,y)=1, with zero isolated, has this two-graph; the sixteen-point case has the corresponding known two-eigenvalue Seidel spectrum"
+        ],
+        "reasoning": "The hyperbolic form realizes the regular two-graph but is not additional input to the four-counts. In fact the full sign matrix has eigenvalues 1±r from the known Parseval/equiangular parameters, so S²=2S+(n−1)I. Multiplying each off-diagonal entry of S² by the corresponding S entry gives the signed triangle excess 2 per pair and thus a=n/2, without a special quadratic computation.",
+        "searches": [
+          "Brouwer Two-graphs, definition, switching and regular sixteen-point example",
+          "Resultary binary symplectic graph and quadratic Walsh comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fickus et al., §7, PDF p. 24, Eq. (38) discussion: the (16,6) harmonic ETF binder is BIBD(16,4,3) and has exactly 60 regular simplices",
+          "Brouwer gives the complementary 16-point two-graphs with spectra (−5)^6 3^10 and 5^6(−3)^10; the indexed Paley and Walsh-band tables belong to different operators or fields"
+        ],
+        "reasoning": "The m=2 type-C number is an exact known entry, already credited in the finding. No claim is made that the full all-m table was found in an exact database versus obtained as the direct consequence below.",
+        "searches": [
+          "Fickus–Jasper–King–Mixon arXiv:1711.07081, 60 regular simplices",
+          "Brouwer regular two-graph on 16 points",
+          "Resultary real/complex Paley spectral censuses and dual symplectic sampling"
+        ]
+      },
+      "rationale": "The claimed distinguishing census is mechanically determined by known real equiangular Parseval frame parameters and regular two-graph structure, with already available universal four-vertex switching spectra and erasure bounds. This is implication evidence, not a claim to have found these exact all-m formulas in print. At m=2 the 60 regular simplices are explicitly documented in primary work.",
+      "residual_risks": [
+        "Whether these precise all-m formulas were already printed remains unresolved. Established mechanical implication does not require a printed table. No priority claim is made about the incidence identities themselves."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general worst-class erasure bound applicable here",
+          "evidence": "Compression by erasure mask and equality precisely for an induced graph switching equivalent to the empty graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0406134",
+          "material_read": "§5.1 Theorem 5.3 at PDF p. 15 and one-edge computation at p. 17 (offsets 44940 and 51030)",
+          "method": "OA PDF passage inspection",
+          "title": "Frames, graphs and erasures",
+          "trigger": "General equiangular Parseval erasure bounds"
+        },
+        {
+          "assessment": "Standard regular two-graph and switching framework, with explicit 16-point coverage",
+          "evidence": "Even four-set condition, constant pair multiplicity and complementary 16-point spectra.",
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/twographs.html",
+          "material_read": "A two-graph and Example: the regular two-graph on 16 points, offset 0",
+          "method": "OA webpage inspection",
+          "title": "Two-graphs",
+          "trigger": "Equivalent regular switching-class formulation"
+        },
+        {
+          "assessment": "Confirms exact 60-simplex coverage in the (16,6) harmonic ETF",
+          "evidence": "The binder of the exhibited ETF is a BIBD(16,4,3) and contains exactly 60 regular simplices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.07081",
+          "material_read": "§7 p. 24, Eq. (38) discussion near offsets 111400–112729",
+          "method": "OA PDF passage inspection",
+          "title": "Equiangular tight frames that contain regular simplices",
+          "trigger": "Exact known m=2 simplex count"
+        },
+        {
+          "assessment": "Same signed local spectra; different family and counts",
+          "evidence": "Odd-prime real Paley harmonic frames use the same three signed K4 switching spectra.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-four-column-spectra-and-extremal-census-for-real-paley-har--28714709e48e",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–4065",
+          "method": "Resultary search and local paper mirror",
+          "title": "Exact four-column spectra and extremal census for real Paley harmonic frames",
+          "trigger": "Closest universal four-mask spectral overlap"
+        },
+        {
+          "assessment": "Different operator and counts",
+          "evidence": "Samples the first Walsh band on a quadric, not the four-erasure Gram matrices of the frozen full harmonic frame.",
+          "identifier_or_url": "2026/10/11/SCOPE-dual-symplectic-graphs-govern-first-walsh-band-sampling-on-binar--f73b283fd6aa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local paper mirror",
+          "title": "Dual symplectic graphs govern first Walsh-band sampling on binary quadrics",
+          "trigger": "Closest binary quadratic signed-graph vocabulary"
+        },
+        {
+          "assessment": "Different frame class",
+          "evidence": "Complex Paley frames at primes p≡3 mod 4 use tournament classes, not this real sign census.",
+          "identifier_or_url": "2026/10/11/SCOPE-four-column-spectral-census-and-sharp-distortion-of-paley-harmon--318c7b91876e",
+          "material_read": "Indexed result comparison of frame and census regime",
+          "method": "Resultary search and local paper mirror",
+          "title": "Four-column spectral census and sharp distortion of Paley harmonic frames",
+          "trigger": "Related exact four-mask table"
+        },
+        {
+          "assessment": "Not used as positive or negative coverage evidence",
+          "evidence": "The text could not be inspected in this comparison.",
+          "identifier_or_url": "PII S0166218X18302610",
+          "material_read": "Search result; no decisive text retrieved",
+          "method": "Primary-literature search and attempted OA retrieval",
+          "title": "Two-graphs and NSSDs: An algebraic approach",
+          "trigger": "Potential historical coverage of regular-two-graph small subset counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 42–74",
+        "Generic erasure characterization and regular two-graph comparison above"
+      ],
+      "rationale": "Four-erasure stability of a natural frame is well motivated, but all identifying four-mask statistics here reduce to universal signed K4 matrices and two elementary incidence moments from already fixed frame parameters. No new family-specific invariant survives that reduction; the sharp worst bound is a specialization of a known general erasure result. A useful worked example is not a distinct scientific census at this threshold.",
+      "residual_risks": [
+        "This does not discount higher-erasure or other questions for which two-graph regularity no longer determines the answer; no such theorem is supplied in the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

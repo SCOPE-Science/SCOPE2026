@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:01:33.784857Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the finite proof and independently reproduced the whole table with python3 /workspace/branches/petersen_reproduction.py (requires NumPy). It filters all 4^10 words by the fifteen edges and the ten distinct-neighbor-color tests; excluding one fixed label checks the three-palette case by symmetry (120 proper and zero dynamic), and the odd cycle excludes smaller palettes. All 5,760 valid states use four names. Recolouring edges were built by grouping on the other nine coordinates, so every edge differs at exactly one coordinate and no move is missed. Direct orbit-set equalities verify completeness of the four profiles. Exact successive neighbor-set layers from a representative of each orbit reached all 5,760 states; orbit-weighting and division by two at positive distances apply because both actions preserve legal moves and every unordered pair has two orientations. Reproduced degrees 9,9,6,6 and eccentricities 15,15,16,16 in the stated profile order, and matched all sixteen histogram entries, summing to 16,585,920 unordered pairs with 20,160 at distance one and 12,960 at distance sixteen. The computation is exhaustive for this named-palette, open-neighborhood, single-vertex graph only. Inspected, but did not execute, the two frozen implementations and their reference outputs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full proper four-palette graph has 12,960 states, 53,280 edges, radius 13 and diameter 14.",
+          "The Kneser theorem generalizes the minimum-palette fact and counts defects among optimal ordinary colorings, not the four-color exchange metric."
+        ],
+        "reasoning": "The broader ordinary graph has fewer move restrictions and can provide paths through forbidden states. Its complete connectedness or histogram cannot substitute for connectedness or shortest-path enumeration in this induced graph.",
+        "searches": [
+          "83b049512d48, ordinary Petersen recolouring Finding, orbit table and proof",
+          "22a170961b8a, broader KG(n,2) proper conflict-free coloring theorem",
+          "arXiv:2610.09565v2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dynamic, conflict-free and Petersen recolouring searches",
+        "83b049512d48",
+        "22a170961b8a",
+        "2b49c41819af",
+        "373334d2a6e9",
+        "31f03994e1a6",
+        "f42ba7a5e7e8",
+        "arXiv:2610.09565v2",
+        "arXiv:2203.01088",
+        "10.1016/j.dam.2016.01.016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior ordinary table, 0000112323 has eccentricity 13; it has eccentricity 16 in the dynamic exchange graph. The earlier BFS tests properness only on each move.",
+          "The three-dynamic result and the same-day general proper conflict-free palette theorem do not compute any legal four-color distances."
+        ],
+        "reasoning": "The existing ordinary state graph can serve as an input to a new calculation by filtering its vertices and then recalculating shortest paths. Neither substituting the selected rows into the old histogram nor keeping old distances between valid states computes the induced metric. This is a substantive constrained computation, not novelty for the four-state-profile census.",
+        "searches": [
+          "83b049512d48 RESULT.md at OA mirror offset 1216 (four relevant rows and ordinary BFS construction)",
+          "22a170961b8a RESULT.md at offset 83",
+          "Resultary: constrained-distance and related Petersen move censuses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a triple of neighbor colors, one occurs exactly once if and only if the three colors are not all equal. Thus two-dynamic equals proper open-neighborhood conflict-free on this cubic graph.",
+          "The same-day Kneser result gives the proper conflict-free number n-1 for KG(n,2), thus four at n=5. arXiv:2610.09565v2 instead reports the three-dynamic number ten for the Petersen graph."
+        ],
+        "reasoning": "Equivalent predicates were compared, but a chromatic number or a defect count for three-colorings does not determine the exchange graph on valid four-colorings. Closed-neighborhood variants and single-edge recolouring are different.",
+        "searches": [
+          "Resultary: two-dynamic Petersen four-colour single-vertex reconfiguration; proper open-neighborhood conflict-free Petersen",
+          "22a170961b8a",
+          "arXiv:2203.01088",
+          "arXiv:2610.09565v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The eleven-orbit table in 83b049512d48 includes precisely the four dynamic representatives 0000111223, 0001222311, 0000112323 and 0001221313 with the stated populations.",
+          "Related catalogue tables count symmetry-breaking proper assignments, conflict-free colorings of cycle prisms, a closed-neighborhood variant on generalized Petersen graphs, or edge-color moves, not the present distances."
+        ],
+        "reasoning": "There is demonstrable exact table coverage of the state classification. The local predicate selects orbits, but the table does not include adjacency or distance information restricted to those four orbits.",
+        "searches": [
+          "Resultary: exact Petersen two-dynamic or proper conflict-free recolouring census",
+          "83b049512d48",
+          "2b49c41819af",
+          "373334d2a6e9",
+          "31f03994e1a6",
+          "f42ba7a5e7e8"
+        ]
+      },
+      "rationale": "The valid-state populations follow by testing the four already tabulated ordinary-coloring orbit representatives, and the same-day Kneser conflict-free theorem covers the minimum palette at n=5. These facts do not carry novelty credit. The surviving exact result is the metric of the legal induced recolouring graph, including the singleton/eccentricity equivalence. The closest earlier computation is for the full graph and gives different eccentricities and diameters; it does not give an induced distance table. The inspected dynamic and conflict-free sources contain no equivalent metric result. Best-of-knowledge assessment, not a publication-priority guarantee.",
+      "residual_risks": [
+        "Same-day predicate overlap does not establish time ordering. No novelty is asserted for the minimum palette or dynamic state census alone.",
+        "Full-text coverage of older dynamic-colouring literature and unindexed exact reconfiguration calculations remains incomplete."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the valid-state orbits via local filtering; different graph metric",
+          "evidence": [
+            "0000112323 has population 960 and ordinary eccentricity 13. The ordinary BFS keeps moves using only the properness test, not neighbor diversity."
+          ],
+          "identifier_or_url": "83b049512d48",
+          "material_read": "RESULT.md, offset 1216 onwards: full eleven-orbit table, assumptions, adjacency and BFS proof",
+          "method": "Published finding local mirror, exact passages",
+          "title": "Exact Petersen vertex-recolouring geometry at three and four colours",
+          "trigger": "Identical graph, palette and single-vertex move, without the dynamic condition"
+        },
+        {
+          "assessment": "Covers minimum palette at n=5; no induced geometry",
+          "evidence": [
+            "Proper conflict-free chromatic number of KG(n,2) is n-1 for n>=5; the witness counts concern ordinary optimal colorings."
+          ],
+          "identifier_or_url": "22a170961b8a",
+          "material_read": "RESULT.md Finding, offset 83",
+          "method": "Published finding local mirror",
+          "title": "A sharp proper conflict-free colouring surcharge and witness defect law for Kneser graphs",
+          "trigger": "Same-day theorem on the equivalent predicate and broader Kneser family"
+        },
+        {
+          "assessment": "Different condition and no induced dynamic geometry",
+          "evidence": [
+            "D_P(4)=3840 for proper distinguishing colorings, defined by absence of color-preserving graph automorphisms."
+          ],
+          "identifier_or_url": "2b49c41819af",
+          "material_read": "RESULT.md, offset 861",
+          "method": "Published finding local mirror",
+          "title": "The proper symmetry-breaking colouring polynomial of the Petersen graph",
+          "trigger": "Exact four-colour orbit and assignment tables for Petersen"
+        },
+        {
+          "assessment": "Different graph and invariant",
+          "evidence": [
+            "The underlying graphs are C_n square K_2; the result counts assignments, not Petersen move distances."
+          ],
+          "identifier_or_url": "373334d2a6e9",
+          "material_read": "RESULT.md, offset 78",
+          "method": "Published finding local mirror",
+          "title": "Optimal proper conflict-free colouring census for cycle prisms",
+          "trigger": "Equivalent local predicate on cubic graphs"
+        },
+        {
+          "assessment": "Three-dynamic palette result, not a two-dynamic exchange census",
+          "evidence": [
+            "Reports the three-dynamic chromatic number 10 for the Petersen graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09565v2",
+          "material_read": "Definition p. 1 and Petersen passage p. 13, offsets 0 and 43862",
+          "method": "OA primary PDF passages",
+          "title": "Dynamic Coloring and Graph Squares of Regular Graphs",
+          "trigger": "Dynamic chromatic results for the same graph"
+        },
+        {
+          "assessment": "Limited comparison only",
+          "evidence": [
+            "Available material does not establish an exact constrained metric; the full text was not read."
+          ],
+          "identifier_or_url": "10.1016/j.dam.2016.01.016",
+          "material_read": "Landing page and accessible abstract, not full paper",
+          "method": "OA DOI retrieval",
+          "title": "On r-dynamic coloring of graphs",
+          "trigger": "Foundational same-predicate study of regular graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen graph is a canonical cubic benchmark, and reconfiguring minimum-palette assignments subject to the natural local nonmonochromatic-neighborhood constraint can destroy connectivity or change shortest paths. The exact result says it stays connected but its diameter grows from 14 to 16, and a singleton class characterizes the entire radius-15 center of the constrained graph. That structural criterion, and the exact shell counts when needed for testing constrained recolouring methods, are useful on this graph without claiming a general cubic-graph theorem. Recomputing the published ordinary orbit table alone would not meet this value test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

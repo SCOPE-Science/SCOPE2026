@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:57:36.660526Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44",
+        "Frozen check_bier_midsection.py and VERIFICATION.md, inspected without execution",
+        "Björner–Paffenholz–Sjöstrand–Ziegler, arXiv:math/0311356, introduction"
+      ],
+      "rationale": "In the (N−2)-dimensional Bier PL sphere, the full red subcomplex is the unfilled graph. Each mixed simplex intersects the half-height hyperplane in the affine product obtained by giving each color half the mass; these identifications agree on all common faces. To check the regular-neighborhood step, take a derived subdivision by coning each original face from an interior point, at height 1/2 for each mixed face. Its simplices represent nested nonempty faces. A chain cannot contain pure faces of both colors. A chain of all mixed faces extends by a nonempty pure-red subface of its smallest face, and likewise by a pure-blue subface. Thus the half-height superlevel is exactly the closed derived star of the derived full red subcomplex and the color level is its frontier, by the full-subcomplex PL regular-neighborhood theorem. The connected graph neighborhood has a ball per vertex and a 1-handle per edge. Amalgamating along a spanning tree leaves one ball and g=|E|−N+1 orientable 1-handles, since the ambient sphere is orientable. The boundary is the asserted connected sum, with a sphere at g=0; for N=5 this is the usual surface case. For K_(q+4) the dual is precisely the q-skeleton, and the cycle rank is binomial(q+3,2), for q≥1 only.",
+      "residual_risks": [
+        "Relies on the classical PL derived-neighborhood and orientable 1-handlebody theorems. Finite homology checks, including the packaged NumPy checker, are not certificates of PL type. No conclusion for q=0 or a filled triangle complex is being audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Bier theorem gives the ambient PL sphere. Choi–Yoon–Yu classify induced subcomplexes, not the intersections of mixed faces with the half-height level. The mixed-skeleton paper states the general homotopy type as a conjecture."
+        ],
+        "reasoning": "The color-level identification with a graph-neighborhood frontier is needed before standard handlebody classification can give the PL type. Neither ambient sphericity nor manifoldness alone supplies it.",
+        "searches": [
+          "arXiv:math/0311356 introduction",
+          "arXiv:2503.05385v1, §1 and Thm. 1.1",
+          "arXiv:2611.12847v1, Thm. 1.3 and Conj. 1.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.12847v1",
+        "arXiv:math/0311356",
+        "arXiv:2503.05385v1",
+        "Resultary 72db0e5ca5eb, ee2aed422b74 and identical assigned record e3bcec003696"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "72db0e5ca5eb proves π₁(X_(1,q)) free for all q≥2 and X_(1,2) homeomorphic to ten copies of S¹×S² in connected sum. ee2aed422b74 gives integral orientation and symmetry characters, explicitly without a type classification."
+        ],
+        "reasoning": "These overlaps are substantive but free fundamental group and orientation are not an all-dimensional PL recognition theorem. Neither claim establishes the arbitrary noncomplete graph case. The same-day date is not used to infer order.",
+        "searches": [
+          "Resultary 72db0e5ca5eb and ee2aed422b74, actual Findings",
+          "arXiv:2611.12847v1, Thm. 1.3 and Conj. 1.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For complete graphs the Alexander-dual condition gives exactly the complementary skeleton. The conjectured homotopy type at p=1 has the same count as the graph cycle rank; the primary theorem establishes manifoldness, not that type."
+        ],
+        "reasoning": "This is the same ordered space at those parameters, not a different convention or a quotient; the known formula in the conjecture is not a proof. The q=0 case, four disjoint circles in the primary source, is out of scope.",
+        "searches": [
+          "Resultary: mixed-skeleton deleted product discrete configuration spaces of simplex skeleta p=1 free fundamental group q=2 connected sums S1 times S2 manifold orientability symmetry L binomial graph Alexander dual Bier regular neighborhood frontier",
+          "arXiv:2611.12847v1, Thm. 1.3, Rem. 1.5, Conj. 1.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact graph theorem hit is the assigned record itself. The primary paper describes known small cases and numerical evidence; the distinct Resultary 72db0e5ca5eb proves an exact q=2 type, not the infinite family."
+        ],
+        "reasoning": "A finite examples table or homological census does not cover the PL classification for all connected graphs. Small cases where the topology is already determined are credited separately.",
+        "searches": [
+          "Resultary: mixed-skeleton deleted product p=1 free fundamental group q=2 connected sums graph Alexander dual Bier regular neighborhood",
+          "arXiv:2611.12847v1, Thm. 1.1, Rem. 1.2 and Rem. 1.5"
+        ]
+      },
+      "rationale": "The evaluated PL frontier for every graph–dual pair, and in particular the complementary simplex-skeleton cases with p=1 and q≥3, are not supplied by the compared statements. Prior work already covers mixed-skeleton manifoldness, closed orientation, the genus-six surface, the free fundamental group for q≥2, and the q=2 TOP classification (which also determines its PL type by three-dimensional PL uniqueness). No distinct novelty is assigned to those consequences.",
+      "residual_risks": [
+        "An unindexed proof of the same equator–neighborhood identification in the Bier setting might imply this result; the checked statements and bounded search do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known manifoldness, low cases, and conjectural general homotopy type",
+          "evidence": [
+            "K₅ gives a genus-six surface; the general genus expression appears as a homotopy-type conjecture for positive p and q."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.12847v1",
+          "material_read": "Thms. 1.1 and 1.3, Rems. 1.2, 1.4–1.5, Conj. 1.6",
+          "method": "OA HTML opening results and conjecture, around offsets 3500–9100",
+          "title": "Discrete Configuration Spaces of Simplex Skeleta: a Middle-Dimensional Manifold Phenomenon",
+          "trigger": "Identical complete-graph complementary-skeleton case"
+        },
+        {
+          "assessment": "Essential PL-sphere input, not the graph frontier type",
+          "evidence": [
+            "The deleted join with the Alexander dual is a Bier sphere."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0311356",
+          "material_read": "Introduction, Bier construction and sphere statement",
+          "method": "OA HTML, roughly offsets 1900–4600",
+          "title": "Bier spheres and posets",
+          "trigger": "Ambient Bier sphere theorem"
+        },
+        {
+          "assessment": "The theorem concerns full induced subcomplexes, not the half-height product level",
+          "evidence": [
+            "A full subcomplex is induced on vertices, unlike the equator cutting mixed simplices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.05385v1",
+          "material_read": "Introductory Bier construction and Theorem 1.1",
+          "method": "OA HTML near offset 3900",
+          "title": "On the full subcomplexes of Bier spheres and their applications to real toric spaces",
+          "trigger": "Same ambient construction and induced subcomplexes"
+        },
+        {
+          "assessment": "Partial overlap, including q=2 homeomorphism",
+          "evidence": [
+            "For q≥2 the first projection induces the stated free π₁; the connected-sum classification there is restricted to the first asymmetric three-dimensional case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-orientability-and-a-connected-sum-classification-of-asymmetric-s--72db0e5ca5eb",
+          "material_read": "Finding and scope, offsets 300–2522 in RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Orientability and a connected-sum classification of asymmetric simplex-skeleton deleted products",
+          "trigger": "Strongest standalone catalogue coverage of p=1 mixed-skeleton topology"
+        },
+        {
+          "assessment": "Covers orientation and symmetry, not PL connected sums",
+          "evidence": [
+            "A fundamental cycle and vertex-permutation character are given without assuming the connected-sum classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-integral-orientation-characters-of-mixed-simplex-skeleton-config--ee2aed422b74",
+          "material_read": "Finding and scope, offsets 300–2711 in RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Integral orientation characters of mixed simplex-skeleton configuration manifolds",
+          "trigger": "Same mixed-skeleton family; broader orientation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–44",
+        "arXiv:2611.12847v1, Conj. 1.6"
+      ],
+      "rationale": "This is a structural PL classification of an infinite family, including different noncomplete graphs with the same cycle rank. It explains that only the graph rank controls the frontier and settles the positive-q, p=1 instances in PL type, rather than only checking low case homology or computing another invariant of them.",
+      "residual_risks": [
+        "No higher first-skeleton dimension or arbitrary graph self-configuration result follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

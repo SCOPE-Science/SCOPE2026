@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:16:05.271914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "OPT equals the closest-pair distance δ: some two agents share a facility, so their distances sum to at least δ, and placing at all reports except one endpoint of a closest pair attains δ. Omission costs d_i. With u_i=δ/d_i the moment is Σu_i^(2−p)/Σu_i², and at least two u_i equal one. For 0<p<2 put v_i=u_i²; x↦x^(1−p/2) is strictly concave. For fixed total of the n−2 unfixed v_i, the numerator is thus maximized by making them equal. The resulting one-variable ratio [2+(n−2)z^(2−p)]/[2+(n−2)z²] has derivative with sign given by 2(2−p)−4z^p−(n−2)pz²; its unique zero gives the displayed root, value and equality condition. The gaps 1,1/z,…,1/z realize equality. For p=2 the numerator is n and the denominator strictly exceeds two; for p>2 it is unbounded as z→0, using the same family, but finite on each profile. Replay: the scalar derivative and gaps above or RESULT.md lines 26–53. The supplied verify.py was inspected, not executed. These are all-metric supremum statements for distinct locations, not risk-sensitive incentive results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "That theorem gives a unique attained sharp scalar root for q>1, n/2 at q=1, and divergence at q<1. Its proof gives the optimizing reciprocal coordinate y=(q−1)/(qR) and gaps 1,1/y,…,1/y."
+        ],
+        "reasoning": "The regimes correspond exactly to p<2, p=2 and p>2. At q=1 the indexed exact denominator Σy_i>2 supplies nonattainment. At q>1, y=z^p and y=(q−1)/(qR) give R=(2−p)/(2z^p); substituting into its root gives the frozen root. Strict maximization of g_R gives the same equality condition. This covers the full frontier, not just p=1.",
+        "searches": [
+          "Resultary 2026/11/2, 368ff58cd3f6, Finding and Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Chan–Lin–Wang arXiv:2608.22484 §4",
+        "Escoffier et al. OA submitted paper §2.1",
+        "Resultary 368ff58cd3f6, Finding and Proof §§1–2",
+        "Resultary ab04c95505a5, Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chan–Lin–Wang optimize the mean at q=2, not all moments. Escoffier et al. use q=1 and obtain the n/2 mean bound; under the profile reduction that is the p=2 bound, made sharp and nonattained by the long-gap family.",
+          "The indexed q-law controls the full interval 0<q<∞ needed for p>0, unlike either fixed-q paper alone."
+        ],
+        "reasoning": "The original p=1 proof alone does not imply the frontier, but the general q-law does, even though it is stated as a mean result. This is exact implication under reparameterization, not a common proof technique alone.",
+        "searches": [
+          "Chan–Lin–Wang arXiv:2608.22484 §4 pp. 19–20",
+          "Escoffier et al., doi:10.1007/978-3-642-24873-3_6, submitted version §2.1",
+          "Resultary 368ff58cd3f6, Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed proof gives the normalized mean Σy_i^(q−1)/Σy_i^q. Setting q=2/p and y_i=u_i^p gives exactly Σu_i^(2−p)/Σu_i².",
+          "The profile transform is onto: any list of positive distances whose minimum occurs at least twice is realizable. Sort it, put the first two agents at gap equal to the minimum, then append each remaining agent at a gap equal to its listed distance. Nondecreasing gaps make each new agent's left gap its nearest-neighbor distance."
+        ],
+        "reasoning": "Taking powers of the nearest-neighbor distance list and realizing it on a new line instance suffices; this does not assume that raising all distances to p>1 preserves a metric. The two suprema are the same on the given all-metric domain, with identical attainment after transforming the extremizing profiles.",
+        "searches": [
+          "Resultary: reciprocal-power omission, exact worst-case welfare and cost moments",
+          "Resultary 2026/11/2, 368ff58cd3f6, RESULT.md offsets 0–4339"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching constants are contained in a root formula and exact regime statements, not in a table. The distinct Poisson-logarithmic penalty entry studies the conditional mean across random input profiles, not worst-case moments over mechanism realizations."
+        ],
+        "reasoning": "An exact tabulation is not the form of this continuous-order invariant; the symbolic catalogue result already establishes coverage. The random-input asymptotic is not an alternative covering theorem.",
+        "searches": [
+          "Resultary 2026/11/2 368ff58cd3f6; 2026/11/8 ab04c95505a5",
+          "Chan–Lin–Wang arXiv:2608.22484 §4 Theorem 3"
+        ]
+      },
+      "rationale": "A distinct indexed reciprocal-power mean-welfare theorem gives the entire frontier, via an exact profile transformation and q=2/p. The comparison is about coverage, not date-based priority. The p=1 case is also stated in the original inverse-square mechanism paper.",
+      "residual_risks": [
+        "The chronological or dependent relationship between the two exact catalogue analyses is not established; the verdict is not a priority attribution.",
+        "The transform compares worst cases across profiles in the stated domain, not risk preferences or strategic behavior of the two mechanisms on a single fixed metric."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete frozen moment claim under q=2/p",
+          "evidence": [
+            "Exact q-law for all profiles and the sharp realizable line pattern; one-coordinate maximizer and unique-root proof."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-power-law-welfare-phase-diagram-and-a-cubic-incentive-ob--368ff58cd3f6/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–2, offsets 0–4339",
+          "method": "Local catalogue mirror and exact change of variables",
+          "title": "A sharp power-law welfare phase diagram and a cubic incentive obstruction for facility omission",
+          "trigger": "Same omission mechanism with variable inverse-distance exponent"
+        },
+        {
+          "assessment": "Covers p=1 only in the inspected theorem",
+          "evidence": [
+            "Theorem 3 and its Cauchy–Schwarz proof optimize the expected-cost ratio (1+√(n/2))/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.22484",
+          "material_read": "§4 Theorem 3 and proof, pp. 19–20 (PDF offsets 64000–76993)",
+          "method": "OA primary PDF passage comparison",
+          "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+          "trigger": "Original inverse-square rule and possible risk-bound coverage"
+        },
+        {
+          "assessment": "q=1 mean bound (related by the reduction to the p=2 case), not the all-q law",
+          "evidence": [
+            "Inverse-first-power omission and n/2 expected-cost guarantee."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-24873-3_6",
+          "material_read": "OA submitted version §2.1, pp. 4–5",
+          "method": "OA primary passage comparison",
+          "title": "Strategy-Proof Mechanisms for Facility Location Games with Many Facilities",
+          "trigger": "Earlier reciprocal-distance omission and expected-cost guarantee"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Worst-case cost risk is a natural question, but on this exact scope the claimed new frontier gives the same invariant as the indexed full power-law mean theorem, under an onto power substitution. The frozen claim establishes no statistic beyond that reparameterization, and does not address a fixed-metric restriction, strategy under risk preferences, or another mathematical gap that survives the equivalence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

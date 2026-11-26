@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:46:17.811687Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the complete repaired text. For weight w the neighbor one-counts are w−x for unmatched vertices and w−s for a deleted pair of sum s. With w=m a mixed pair ties and exactly the other 2(m−J) bits complement; their balance and the identity of mixed pairs are preserved, so a second update returns the state. Off that layer both threshold cases give unanimity: a boundary tie at w=m−1 (respectively m+1) can only occur on a 00 (respectively 11) pair. Hence nonunanimous unbalanced states enter a fixed point exactly at step one. Zero balanced activity is possible only at k=m and J=m, with 2^m orientations, and each primitive two-orbit has two states. The stratification chooses and orients j pairs, chooses r other pairs to be 11, and fills the remaining m−j−2r ones on the 2m−2k unmatched labels. This covers k=0 and the forced parity when k=m. For a uniform m-subset, the probabilities of specified one and two mixed pairs are 2 binom(2m−2,m−1)/binom(2m,m) and 4 binom(2m−4,m−2)/binom(2m,m); subtracting p² gives covariance m/[(2m−1)²(2m−3)], including m=2. The stated variance and uniform O(m) bound for k≤m yield concentration of J/m, with mean tending to α/2; the changing fraction is 1−J/m. The moment proof treats the balance condition exactly and says nothing about unconditioned uniform states. The supplied checkers and verification notes were inspected, not executed; the captured output files mentioned in the text were not attached, and the finite checks do not constitute the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaaser–Mallmann-Trenn–Natale state the Turán as-equal-as-possible class and an O(r²) bound on convergence time; the tie rule matches. Tamuz–Tessler state the eventual-period-at-most-two framework.",
+          "Tripartite record 146d3112ea75 treats exact primitive-orbit counts on K_{a,b,c}; the equal-size record 6279dfb842f9 treats equal multipartite block sizes and includes the full matching's aggregate census at size two."
+        ],
+        "reasoning": "Turán convergence and general period-two results apply at the correct scope but have different observables. The tripartite and equal-size exact counts do not cover the activity coefficients on the full mixed-part family. The stronger parity-gated transition theorem is instead credited as an input, not treated as unrelated.",
+        "searches": [
+          "Resultary: complete multipartite majority dynamics exact all periodic orbit activity enumeration mixed part sizes",
+          "Literature: primary literature synchronous binary majority dynamics complete multipartite graphs exact two-cycles activity enumeration clique minus matching",
+          "OA arXiv:1508.03519, §1 pp. 3–4; arXiv:1307.4035, p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_direct.py, verify_weighted.py",
+        "Repaired RESULT.md",
+        "Resultary matching-deleted, cocktail-party, equal-size and tripartite majority records listed above; exact lookup attempted for inaccessible equal-part activity citation",
+        "Kaaser–Mallmann-Trenn–Natale arXiv:1508.03519; Tamuz–Tessler arXiv:1307.4035"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parity-gated proof says that mixed pairs retain their two bits and all other vertices flip at weight N/2. Its H and C2 formulas give both the all-k aggregate census and the final-edge threshold, as well as the pointwise flip count after counting the mixed pairs.",
+          "Obtaining the balanced activity profile requires counting all assignments in each stratum, including the interaction of the pair-type multiplicities with the unmatched vertices. The moment/limit refinement uses the positive pair covariance under constrained sampling, which is not determined by the earlier period counts."
+        ],
+        "reasoning": "The old transition rule provides which statistic to count and is directly stronger than the original claimed dynamics. The nonduplicate work is the exact law of that statistic across the balanced population, including the moments and concentration through the mixed-part interpolation.",
+        "searches": [
+          "Parity-gated record e054374efd08, RESULT.md, Finding and even-u proof",
+          "Cocktail-party record 1b19fbc146ae, RESULT.md, Finding",
+          "Equal-part K_{s,…,s} record 6279dfb842f9, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Parity-gated record e054374efd08 uses exactly the same update and graph with r deleted pairs and u universal vertices. Substitution r=k, u=2(m−k) covers all k≥1; its even-u proof gives the exact balanced and unbalanced rules.",
+          "Cocktail-party record 1b19fbc146ae is the u=0 endpoint (k=m), counting constituent configurations rather than dividing by two for primitive temporal orbits.",
+          "The equivalent complete multipartite graph consists of k parts of size two and 2m−2k singletons; it is T(2m,2m−k) in the as-equal-as-possible convention."
+        ],
+        "reasoning": "The alternate graph descriptions do not create a new period theorem. They orient the search for the full activity distribution; the inspected exact equivalents give phase behavior and period totals, not multiplicities by Hamming distance.",
+        "searches": [
+          "Resultary: matching-deleted complete graphs universal vertices parity gated majority all k transition and census",
+          "Resultary: One universal vertex exponentially suppresses majority two-cycles on cocktail-party graphs",
+          "Resultary: complete multipartite majority dynamics exact all periodic orbit activity enumeration mixed part sizes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The e054374efd08 formulas exactly tabulate H(r,u) and C2(r,u) and imply the original k=m fixed threshold; they do not tabulate counts by flip activity. The accessible equal-size formulation gives fixed and two-step-return counts.",
+          "The cited equal-part activity record 0086189051c3 could not be read at its exact path. The original comparison attributes endpoint activity to it; this unverified statement is not relied on to rule out any overlap, and the accessible equal-size period record is not used as a substitute."
+        ],
+        "reasoning": "Endpoint activity alone would not certify all intermediate matching sizes. The actual exact table with the correct objects and broader scope duplicates the aggregate counts, hence these are now background; the refinement has to be justified on its own, not by an unsuccessful search for a table.",
+        "searches": [
+          "Resultary: Activity-resolved majority two-cycles on equal-part Turán graphs exact result",
+          "Resultary: 0086189051c3",
+          "Resultary exact crossover e054374efd08, Finding and even-u proof at offset 0–4070",
+          "Resultary equal-size family 6279dfb842f9, Finding at offset 0"
+        ]
+      },
+      "rationale": "Pass only for the repaired quantitative activity refinement. The original originality claim for the final-edge threshold is contradicted by demonstrable previous coverage, and the repair explicitly credits the earlier all-k transition and period results and the implied flip rule. The surviving multiplicity distribution, exact dependent moments and balanced activity limit are not stated in the inspected exact prior results and are not parameter substitutions in their aggregate counts.",
+      "residual_risks": [
+        "The exact contents and normalization of 0086189051c3 were not confirmed; endpoint originality is not claimed.",
+        "A stronger indexed under different terminology or unindexed activity enumeration could exist. This bounded search does not establish historical absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage requiring repair: exact transitions and aggregate census for each positive k, including the final-edge threshold; no activity-stratum law in those passages",
+          "evidence": "For even u the balanced layer is an involution with mixed pairs fixed and all other bits flipped; unanimity is reached from below or above that weight in one update. Additional balanced fixed states occur exactly at u=0.",
+          "identifier_or_url": "2026/11/17/SCOPE-parity-gated-majority-oscillations-on-matching-deleted-complete--e054374efd08",
+          "material_read": "Finding, Assumptions and even-u proof, local-mirror offsets 0–4070",
+          "method": "Resultary semantic lookup and bounded local-mirror reading",
+          "title": "Parity-gated majority oscillations on matching-deleted complete graphs",
+          "trigger": "Exact same dynamics after rewriting isolated matching defects as deleted pairs plus universal vertices"
+        },
+        {
+          "assessment": "Exact endpoint period census and entry time, not the partial-matching activity law",
+          "evidence": "2+2^n fixed configurations and binom(2n,n)−2^n period-two configurations, entry by the first update.",
+          "identifier_or_url": "2026/11/8/SCOPE-one-universal-vertex-exponentially-suppresses-majority-two-cycle--1b19fbc146ae",
+          "material_read": "Finding at mirror offset 71",
+          "method": "Resultary and bounded local-mirror passage",
+          "title": "One universal vertex exponentially suppresses majority two-cycles on cocktail-party graphs",
+          "trigger": "Strong overlap at the full deleted matching endpoint"
+        },
+        {
+          "assessment": "Unverified exact endpoint scope or normalization; not counted as negative evidence",
+          "evidence": "The frozen text describes equal-size parts and asserts full-matching endpoint coverage; no original passage was retrievable from the identified path.",
+          "identifier_or_url": "2026/11/8/SCOPE-activity-resolved-majority-two-cycles-on-equal-part-tur-n-graphs--0086189051c3",
+          "material_read": "Citation and relationship text in the frozen original; target original unavailable",
+          "method": "Exact title and identifier Resultary searches, exact local-mirror path attempt",
+          "title": "Activity-resolved majority two-cycles on equal-part Turán graphs",
+          "trigger": "Cited prior with potential activity overlap, particularly k=m"
+        },
+        {
+          "assessment": "Overlap in aggregate endpoint counts; genuine separate source from the unverified equal-part activity citation",
+          "evidence": "Equal-size K_{s,…,s} fixed and two-step-return counts, with s=2 the full matching.",
+          "identifier_or_url": "2026/10/26/SCOPE-parity-selective-recurrent-majority-dynamics-on-balanced-complet--6279dfb842f9",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Parity-selective recurrent majority dynamics on balanced complete multipartite graphs",
+          "trigger": "Accessible equal-part exact-family comparison"
+        },
+        {
+          "assessment": "Restricted to tripartite graphs and aggregate period counts",
+          "evidence": "Computes primitive temporal two-orbits on K_{a,b,c}, not an all-k matching activity distribution.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-two-cycle-census-and-equality-phase-transition-in-triparti--146d3112ea75",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact two-cycle census and equality phase transition in tripartite majority dynamics",
+          "trigger": "Different exact multipartite majority census that could include unequal parts"
+        },
+        {
+          "assessment": "Correct general graph family and rule but not the exact distribution",
+          "evidence": "Turán parts are as equal as possible; an O(r²) voting-time bound is given.",
+          "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+          "material_read": "§1, p. 3 at offset 9110, tie rule p. 4 near 10895",
+          "method": "OA PDF query and bounded passage",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Broader Turán convergence theorem and matching update setting"
+        },
+        {
+          "assessment": "General theorem, not quantitative census by phase activity",
+          "evidence": "Classical eventual period at most two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.4035",
+          "material_read": "p. 3 near offset 9259",
+          "method": "OA PDF query and passage",
+          "title": "Majority Dynamics and the Retention of Information",
+          "trigger": "General recurrence/period bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Same-size graphs with different numbers of deleted pairs have identical primitive period counts before the last deletion, so those counts cannot measure how much of a periodic configuration moves. The repaired claim resolves that motivated observable over the full natural defect-density interpolation, with finite coefficients, the dependence correction for balanced sampling, and a conditional macroscopic law. It is useful as an exact calibration of activity versus recurrence; no independent scientific value is attributed to a new proof of the already known threshold or to the k=0 endpoint alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

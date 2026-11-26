@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:38:55.642109Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh exact census independently reproduced the eight joint cells, all symmetry orbit columns, both marginals, both means (839/128 and 445/64) and each lexicographically least CSV witness. For replay, run python3 /tmp/opencode/independent_order5_census.py: prescribe 00000 as the first departure from vertex 0000, then assign the order of outgoing edges independently at the 15 other four-bit vertices. Each rooted Euler tour uniquely determines these orders, and a walk consuming the next available prescribed edge is completely determined. Reject early stops; a 32-step walk uses every distinct edge and closes by conservation. The 32768 assignments yield exactly 2048 distinct normalized words, each checked to have all 32 cyclic factors of length five. Count ones with prefix differences on the doubled word for every start and length 1 through 32; then D is the largest |2k-length| and P the largest set size of k. Generate the four reversal/complement candidates and normalize each at its unique zero factor, counting distinct orbits only. This yields 32 size-two and 496 size-four orbits and no other size. Consecutive fixed-length counts differ by at most one, establishing the equivalent max-minus-min formula. The census is exhaustive for binary order five, not a higher-order theorem or an external attestation. The frozen verify.py and spectrum.csv were inspected, not executed as code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gabrić–Sawada analyzes selected constructions and explicitly mentions the all-cycle discrepancy distribution as future work.",
+          "Álvarez et al. prove binary-order-n minimum discrepancy n, supplying the value 5 alone.",
+          "Richomme–Saari–Zamboni supply the general Parikh-vector framework, not a joint enumeration of order-five cycles."
+        ],
+        "reasoning": "The general theory supplies definitions, inequalities and the optimal discrepancy value; these do not count the pair of statistics on the population.",
+        "searches": [
+          "arXiv:2005.01638v2 §§1.2 and 7",
+          "arXiv:2407.17367v1 Theorem 1",
+          "arXiv:0911.2914v1 §2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c8828a3eb45, 29504196af99 and 3a32aa1283e5",
+        "debruijnsequence.org/db/props",
+        "arXiv:0911.2914v1",
+        "arXiv:2005.01638v2",
+        "arXiv:2407.17367v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All five-bit factors occur, so P>=6; D bounds the absolute one-zero increment at each length and hence implies P<=D+1. Thus the previously counted D=5 layer must have P=6.",
+          "For D=7 the verified census exhibits P=6,7,8 with counts 48,640,224; neither the D=7 marginal nor those bounds determine how the layer splits."
+        ],
+        "reasoning": "The minimum layer and marginal cannot support novelty, but the prior bounds and censuses do not mechanically imply the remaining joint cells or their orbit decomposition.",
+        "searches": [
+          "2c8828a3eb45 minimum discrepancy and symmetry result",
+          "3a32aa1283e5 length-six statistic definition and X=10 row",
+          "arXiv:2407.17367v1 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P-1 is the cyclic factor-balance constant: max over equal-length factors of the difference in their numbers of ones, since the window-count support contains all integers between its extremes.",
+          "The properties page's total-word balance is the 16/16 composition, not the same-length factor-balance constant.",
+          "The same-day Abelian-square spectrum counts length-six windows with equal Parikh vectors in their two length-three halves, not the maximal number of vectors at one length."
+        ],
+        "reasoning": "Formulating the invariant in terms of equal-length factor imbalance addresses aliases; neither fixed total composition nor the number of Abelian-square windows computes it.",
+        "searches": [
+          "Richomme–Saari–Zamboni arXiv:0911.2914v1 §2, Parikh vectors and balance",
+          "Resultary: order-five cyclic balance, peak Abelian complexity, Abelian squares",
+          "debruijnsequence.org/db/props balance and discrepancy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2c8828a3eb45 and 29504196af99 give the 224,688,912,224 discrepancy marginal; 2c8828a3eb45 gives the 8 and 52 orbits and same least witness in the minimum layer.",
+          "3a32aa1283e5 gives the same numerical triple 224,8,52 in its X=10 row, but a cycle-level cross-tab of X and (D,P) found only 40 cycles in common with (5,6).",
+          "The curated public properties table reports discrepancy for selected constructions, not cyclic factor-balance values for the whole population."
+        ],
+        "reasoning": "Identical population size, aggregate row counts or symmetry columns do not identify a joint census without matching its statistic and the classified subset.",
+        "searches": [
+          "Resultary 2c8828a3eb45 complete discrepancy census",
+          "Resultary 29504196af99 complete circular discrepancy distribution",
+          "Resultary 3a32aa1283e5 complete length-six Abelian-square spectrum",
+          "debruijnsequence.org/db/props construction tables"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete joint D versus peak circular Parikh-range classification, including how the nonextremal discrepancy layers split and how their symmetry orbits split. The full discrepancy marginal and the minimum-layer orbit counts are already in 2c8828a3eb45; even P=6 on that layer follows from 6<=P<=D+1. Those facts and the least minimum-discrepancy witness are not new. The closest same-day Abelian census counts different words within its superficially identical aggregate row. Inspected catalogue and literature do not cover the remaining joint classification; this is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "An unindexed older enumeration or supplemental catalogue could contain the exact joint table; the bounded checks do not establish historical priority.",
+        "Known marginal, minimum layer and orbit data cannot be credited to this joint classification as standalone contributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact discrepancy marginal and extremal-layer overlap",
+          "evidence": "It gives 224 minima, 8 size-two and 52 size-four orbits, and the same least witness; its census has no Abelian peak classification.",
+          "identifier_or_url": "Resultary 2c8828a3eb45",
+          "material_read": "RESULT.md discrepancy census and minimum layer finding",
+          "method": "Indexed search and local mirror passage comparison",
+          "title": "Complete discrepancy census for binary order-five de Bruijn sequences",
+          "trigger": "Exact earlier order-five census"
+        },
+        {
+          "assessment": "Same marginal, not joint factor-balance counts",
+          "evidence": "The four multiplicities are 224, 688, 912 and 224, classified only by D.",
+          "identifier_or_url": "Resultary 29504196af99",
+          "material_read": "RESULT.md discrepancy distribution finding",
+          "method": "Indexed search and local mirror passage comparison",
+          "title": "Complete circular discrepancy distribution of binary order-five de Bruijn sequences",
+          "trigger": "Another exact order-five population table"
+        },
+        {
+          "assessment": "Different statistic and classified subset",
+          "evidence": "Only 40 cycles in X=10 also belong to (D,P)=(5,6), despite matching aggregate row totals and orbit columns.",
+          "identifier_or_url": "Resultary 3a32aa1283e5",
+          "material_read": "RESULT.md statistic definition and spectrum, including X=10 row",
+          "method": "Indexed search, local mirror passage comparison and independent cross-tabulation",
+          "title": "Complete length-six Abelian-square spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Same order and plausible matching Abelian invariant including orbit counts"
+        },
+        {
+          "assessment": "Construction-specific comparator, not the exact joint table",
+          "evidence": "The tables compare min/random/max discrepancy for construction families, not the Abelian peak of every rotation class.",
+          "identifier_or_url": "https://debruijnsequence.org/db/props",
+          "material_read": "Balance and discrepancy sections and construction tables, HTML offsets 593, 1422–3900 and 5000–6854",
+          "method": "Public page passage and table inspection",
+          "title": "De Bruijn Sequence and Universal Cycle Constructions: properties",
+          "trigger": "Possible exact database with joint metadata"
+        },
+        {
+          "assessment": "Conceptual prior art, no matching finite classification in the assessed results",
+          "evidence": "Abelian complexity counts Parikh vectors; the balance lemmas concern differences of equal-length factors.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.2914",
+          "material_read": "§2 PDF p. 2 Parikh vectors, p. 5 factor-count changes and balance lemmas",
+          "method": "Open-access PDF passage comparison",
+          "title": "Abelian Complexity in Minimal Subshifts",
+          "trigger": "Equivalent balance/complexity definition"
+        },
+        {
+          "assessment": "Construction results and motivation rather than a joint census",
+          "evidence": "The concluding discussion asks for discrepancy distributions over all de Bruijn sequences.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.01638",
+          "material_read": "v2 §1.2 p. 3 and §7 p. 16",
+          "method": "Open-access PDF passage comparison",
+          "title": "Investigating the discrepancy property of de Bruijn sequences",
+          "trigger": "Closest comprehensive discrepancy investigation"
+        },
+        {
+          "assessment": "Establishes D_min=5 here, not its multiplicity or the joint table",
+          "evidence": "There are binary order-n sequences attaining the lower bound n for all n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.17367",
+          "material_read": "v1 Theorem 1, p. 2",
+          "method": "Open-access theorem comparison",
+          "title": "De Bruijn Sequences with Minimum Discrepancy",
+          "trigger": "Broader order-uniform minimum theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pair measures two independently motivated kinds of circular balance: largest absolute excess over all windows, and concentration of symbol counts among windows of the same length. Order five is a complete nontrivial benchmark beyond individual construction examples. In particular identical peak P=6 allows discrepancies 5, 6, and 7, and the D=7 population splits over three peak values. Quantifying these splits and their symmetry decomposition gives exact test data for proposed dependences and population models; the already-known marginal alone would not give this value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

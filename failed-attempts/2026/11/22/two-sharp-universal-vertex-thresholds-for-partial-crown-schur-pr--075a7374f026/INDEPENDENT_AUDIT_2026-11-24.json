@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:08:58.735468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formulas are correct for every stated k,r,s. Operator/trace duality and rank-one trace-norm tests give the maximization of the weighted nuclear norm. For a general complex symbol the Hilbert–Schmidt adjoint has the conjugate symbol (equivalent by complex conjugation, and identical for this real mask). The SVD factorization for positive weights gives joint concavity by taking the infimum of affine costs; continuity allows zero weights. Rotating identical weighted rows or columns combines their squared weights, proving the exact reduction to one additional row or column of each type. Averaging the core permutations and, when both shores are present, transposition gives the stated symmetric weight profiles. With no added vertices the two crown eigenspaces give 2-2/k. For one shore with total core mass x, the k-1 orthogonal core directions contribute (k-1)sqrt(x)/k and the constant direction contributes sqrt(1-(2k-1)x/k²). The derivative at x=1 has the sign of k²-4k+2, negative at k=2,3 only; strict concavity gives the stated stationary value or the endpoint. For both shores the two-dimensional block has determinant -x(1-x)/k and trace 1-x/k; these give the square-root discriminant in the proof. Its trace norm plus the other k-1 singular values is strictly concave, has positive derivative at zero and derivative (k²-5k+2)/(k(k-1)) at one. This is negative exactly at k=2,3,4. Completing the square in the radicand and maximizing the linear term plus its square root gives (k-1+2k sqrt(k+2))/(4k-1) on the interior branch. At x=1 both objectives give the bare crown norm. The weighted polar isometry supplies a contraction attaining the norm, with aggregate universal weights freely splittable. Read RESULT.md lines 36–92, VERIFICATION.md and checks/verify_partial_crown.py. The stored finite checks were inspected, not executed, and are not needed for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9f78317148b0 treats nested blocky Schur masks generally and calculates every finite canonical component, with arbitrary finite duplications.",
+          "Levene's rooted-tree attachment framework includes the crown-core value 2-2/k but the inspected passage does not state these universal-shore formulas."
+        ],
+        "reasoning": "The target is literally an admissible one-block finite specialization of the catalogue theorem. Its proof supplies exact component formulas, not merely an overall list of possible norms.",
+        "searches": [
+          "9f78317148b0, canonical decomposition and proof of all values",
+          "Levene arXiv:2611.08419, §3.3 and Theorem 3.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/verify_partial_crown.py",
+        "Resultary mirror records 9f78317148b0, 6ae70fc76077 and 708bab8a17cc",
+        "Levene arXiv:2611.08419 and NYJM 20 (2014), selected primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier row/column duplication theorem extends its canonical formula to arbitrary r,s. Both thresholds follow at once by comparing its explicitly evaluated D_m^{1,0} and D_m^{1,1} against D_m^{0,0}.",
+          "The two last strict values are obtained by substituting m=3 in D_m^{1,0} and m=4 in D_m^{1,1}. The signed-mask result has different formulas and does not do this."
+        ],
+        "reasoning": "No fresh norms, optimization or obstruction are needed to extract the frozen sharp thresholds from the blocky-difference theorem. The supposedly new all-parameter classification is directly covered by formulas already present in its proof.",
+        "searches": [
+          "9f78317148b0 RESULT.md, Proof 1–3, norm invariance and canonical evaluation",
+          "6ae70fc76077 RESULT.md, signed branch and threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its canonical D_m^{u,v} has top-left J_m-I_m and all-one border blocks, with u,v in {0,1}. For m=k,u=1_{r>0},v=1_{s>0}, the frozen B is exactly a finite duplication of D.",
+          "Equivalently B is P-Q for P the full rectangle and Q the k singleton diagonal rectangles, the earlier problem's admissible nested blocky masks.",
+          "6ae70fc76077 instead has negative entries at the deleted positions; the affine change B=(J+M)/2 for the signed symbol M does not preserve norms."
+        ],
+        "reasoning": "The blocky-difference description is an exact identification, unlike the signed-symbol resemblance. The earlier duplication lemma preserves exactly the operator-norm Schur multiplier norm used in the frozen record.",
+        "searches": [
+          "Resultary: partial crown with all-one rows and columns, complete bipartite minus a matching, and differences of blocky Schur projections",
+          "9f78317148b0 RESULT.md, canonical masks and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier piecewise list for D_m^{1,0} gives m/sqrt(2m-1) at m=2,3 and 2-2/m at m>=4. Its D_m^{1,1} list gives (m-1+2m sqrt(m+2))/(4m-1) through m=4 and 2-2/m at m>=5. It also gives the unbordered crown value.",
+          "Levene's small norms include 9/7 and 2/sqrt(3); the radius-one star entry also gives 9/7 at its matching small case. Those comparisons alone would cover only special cases."
+        ],
+        "reasoning": "The separate 11/17 entry, not the identical indexed target or just a small-norm table, has an exact match of the whole formula, including labels by size and by border flags.",
+        "searches": [
+          "Resultary 9f78317148b0 proof, local mirror offsets 4920–7489",
+          "Levene 2014 Proposition 5.1(8) and Remark 5.3; Resultary 708bab8a17cc"
+        ]
+      },
+      "rationale": "The distinct catalogue record 9f78317148b0 explicitly gives the identical canonical masks, the entire one- and two-shore piecewise formulas including the breakpoints, and norm invariance under arbitrary finite row/column duplication. Setting its core size m=k and flags u=1_{r>0}, v=1_{s>0}, then duplicating its universal rows and columns, recovers every frozen case. This is demonstrated coverage of the full claimed advance, not just of the credited small norms or a method resemblance. The older catalogue path is provenance evidence, not a claim about authorship or absolute scientific priority.",
+      "residual_risks": [
+        "Catalogue path dates and overlap do not determine authorship, independent discovery, or ultimate priority; the finding fails because of verified statement-level coverage by a distinct source.",
+        "No stronger primary priority claim is made from the bounded literature inspection or from OCR of the small-mask diagrams."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive complete coverage of all frozen cases",
+          "evidence": "D_m^{u,v} has exactly the deleted matching and optional universal shores; its norm formulas have both identical thresholds and its duplication lemma preserves the norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-discrete-norm-spectrum-of-differences-of-two-blocky-schur-pr--9f78317148b0/RESULT.md",
+          "material_read": "RESULT.md Finding and Proof 1–3; inspected offsets 0–6499 and 6100–9759, with the branch formulas confirmed in the bounded page 4920–7489",
+          "method": "Resultary then local-mirror exact text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The discrete norm spectrum of differences of two blocky Schur projections",
+          "trigger": "Distinct Resultary hit specializing to complete bipartite minus a matching"
+        },
+        {
+          "assessment": "General rooted-tree attachment and exact core value, not the decisive universal-shore comparison",
+          "evidence": "Equation (3.1) gives 2(m-1)/m; the theorem treats attachment of rooted trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.08419",
+          "material_read": "§3.3, Theorem 3.8, pp. 10–12, extraction offsets 29400 and 32250",
+          "method": "Open-access primary PDF, targeted passages",
+          "title": "A half-line of Schur idempotent norms",
+          "trigger": "Closest cited Schur idempotent framework and crown core"
+        },
+        {
+          "assessment": "Small-case coverage, not the all-parameter classification",
+          "evidence": "Proposition 5.1 supplies 9/7; the formula sqrt(2m/(m+1)) for [1 I_m] specializes at m=2 to 2/sqrt(3).",
+          "identifier_or_url": "https://nyjm.albany.edu/j/2014/20-19v.pdf",
+          "material_read": "Proposition 5.1(8), p. 15, and Remarks 5.2–5.3, p. 17; extraction offsets 38976, 42400, 46450",
+          "method": "Open-access primary PDF, targeted passages; extracted diagrams are noisy",
+          "title": "Norms of idempotent Schur multipliers",
+          "trigger": "Prior credited small norm formulas"
+        },
+        {
+          "assessment": "Different symbol and threshold",
+          "evidence": "For J-2diag(1^k,0), the one-unflipped-coordinate branch has norm 1+k/(1+sqrt(2k)) through k=5 and 3-4/k from k=6.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-schur-norms-for-partially-flipped-diagonal-sign-matrices--6ae70fc76077",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Sharp Schur norms for partially flipped diagonal sign matrices",
+          "trigger": "Potential affine equivalent with partial diagonal defects"
+        },
+        {
+          "assessment": "Small-case overlap only",
+          "evidence": "(5m-1)/(3m+1) gives 9/7 for the matching two-leaf star mask.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-endpoint-schur-norms-of-radius-one-balls-on-stars-of-arbit--708bab8a17cc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror full-text passage",
+          "title": "Exact endpoint Schur norms of radius-one balls on stars of arbitrary degree",
+          "trigger": "Near-match on a small mask"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The two thresholds are natural and useful invariants, but the frozen record does not advance them beyond the existing component-by-component norm formulas. Reading the branch boundaries and renaming the optional borders are mechanical deductions, and the self-contained proof uses the same scalar optimization. There is no independently useful unknown exact fact, different proof mechanism, or surviving new classification in the submitted scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

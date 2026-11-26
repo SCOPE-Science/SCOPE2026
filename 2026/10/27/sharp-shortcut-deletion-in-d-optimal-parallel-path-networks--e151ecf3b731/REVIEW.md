@@ -1,15 +1,21 @@
-# Scientific review: D-optimal parallel-path shortcut
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite simple-graph Laplacian map is injective in individual edge weights, hence the log determinant is strictly concave wherever the graph stays connected. A direct weighted spanning-tree enumeration is symmetric under intra-path edge permutations, forcing the unique optimizer to equalize each path. The resulting strictly concave budget problem has explicitly solved KKT equations, including the boundary derivative. The sum \(S=\sum_i(\ell_i+1)^{-1}\) is exactly the boundary KKT test; at equality the two formula branches agree. Exact-rational determinant tests, permutation invariance, and full-dimensional numerical optimizations provide standalone finite checks, not an infinite proof.
+## correctness
 
-## Originality — PASS with stated residual risk
-The closest inspected primary research is Cheng's 1981 D-optimality connection, Boyd's 2006 convex graph-Laplacian framework, and Khosoussi et al.'s original 2016 weighted tree-connectivity and edge-selection study. Those works respectively optimize discrete graph topology, describe general spectral convex optimization, and develop selection/relaxation methods with fixed base weights. None of the materially inspected statements gives the present unique unrestricted edge-by-edge allocation on arbitrary parallel-path networks or the reciprocal-path-length deletion law. Broader general optimization frameworks do encompass the problem but do not analytically settle the specified support. An equivalent formula in specialized network-design or design-theory literature remains possible.
+PASS
 
-## Value — PASS
-This is a natural exact D-optimal network-design question: with a fixed budget, should a physically available one-edge shortcut be funded or discarded? The answer is a sharp, parameter-free combinatorial threshold involving only path lengths. It applies to any finite number of unequal-length parallel routes, classifies a nontrivial support phase change, and identifies the unique optimal conductance on every individual edge. Unlike a single computed example, the law directly identifies which infrastructure edge receives no resources for whole families of networks.
+A tree retains exactly one complete terminal path (possibly the direct edge); every other long path must lose exactly one edge to avoid cycles without isolating internal vertices. This gives the multiaffine path polynomial even at zero weights. A positive design exists, and on the positive-determinant domain the reduced Laplacian depends injectively on conductances of this simple graph. Off-diagonals recover nonroot edge weights, then diagonals recover root edge weights. Strict log-det concavity gives uniqueness, and polynomial invariance under intra-path permutations then forces equal weights within each path. The common weights are positive because deleting a whole long path isolates internal vertices. With path budget coordinates x_i and V=x_0+sum(c_i x_i), c_i=1/ell_i^2, the objective up to constants is sum((ell_i-1)log x_i)+log V. The stationarity multiplier is rho by summing coordinate derivatives against the allocation. If x_0 is positive, V=1/rho and x_0=(1-S)/rho; that solution also satisfies complementary slackness when S=1. On the zero-shortcut face, xi=rho V must solve sum((ell_i-1)c_i/(xi-c_i))=1 above max(c_i). This sum is strictly decreasing there and takes value S at xi=1. The root satisfies the omitted-edge inequality 1/V<=rho exactly when S>=1. The stationarity formula budgets correctly: sum((ell_i-1)xi/(xi-c_i))=sum(ell_i-1)+1=rho. Converting back gives both stated weight formulas and determinant factors, which agree at equality. The concavity argument makes the feasible KKT solution globally optimal and unique.
 
-## Scientific limits
-Unit cost per conductance on each edge, no cross-links, no edge caps, and just one direct terminal shortcut are essential. Numerical checks are finite; the theorem is analytic. Specialized older coverage is not excluded categorically.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact overlap exists in restricted graph families, notably the unicyclic case and cone-over-star cases. The distinct claim credited here is the heterogeneous, arbitrary-number parallel-path allocation and its shortcut criterion, not the determinant objective, effective-resistance calculus, unweighted theta count, or previously solved subcases. No inspected result covered both arbitrary path counts and the heterogeneous lengths with these closed formulas.
+
+## value
+
+PASS
+
+Uniform-cost budgeted D-optimality is a natural criterion on parallel routes. The solution predicts a support transition that a generic determinant formulation does not locate, and distinguishes threshold equality from strict deletion by the direct-edge marginal gain. The exact heterogeneous reciprocal-length rule and single-root allocation are useful beyond the previously covered cycle, short-route and book cases; they decide both whether a shortcut is worth any budget and how to allocate the rest without an edge-by-edge optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

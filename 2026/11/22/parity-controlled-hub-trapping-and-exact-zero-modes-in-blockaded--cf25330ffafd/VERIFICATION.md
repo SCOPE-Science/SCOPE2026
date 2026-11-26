@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The exact analytical reduction uses \(H=\begin{pmatrix}A&|v\rangle\\\langle v|&0\end{pmatrix}\), with \(A\) the Cartesian sum of local \(K_{1,r}\) adjacency operators. Its eigenvalue multiset and vacuum spectral weights give the exact kernel census and phase-dependent overlap. The parity return bounds are elementary consequences of the spectrally resolved vacuum and Duhamel's estimate. Their proofs appear in `RESULT.md`.
+## correctness
 
-Run `python verify.py` with Python, NumPy and SciPy. The program independently enumerates allowed physical spin configurations by bitmask, creates the full spin-flip Hamiltonian from the original graph, and checks modular rank, numerical zero-energy multiplicity, hub zero-mode weight, and selected finite-time bounds. Seven finite \((m,r)\) pairs pass. The program also evaluates two large finite binomial sums as asymptotic spot checks. Modular ranks, floating-point spectra and asymptotic spot checks are finite consistency evidence, not proofs about arbitrary \(m\); the required infinite statements follow from the analytic argument.
+PASS
 
-No external or independent audit has been carried out. Finite coherent models with ideal homogeneous blockade only; no verification is offered for finite detuning, finite blockade strength, noise, or experimental apparatus.
+With r>=2 and m>=1 the hub-free flip graph is the Cartesian product of m stars K_{1,r}; the hub state couples only to the vacuum v. Each star has eigenvalues ±sqrt(r) and r-1 zero eigenvalues, and its vacuum sees only the two nonzero eigenvectors with equal weights. Tensoring gives the Laurent-coefficient nullity and the binomial vacuum measure. In the bordered kernel equations Ax+av=0 and <v,x>=0, projection to ker A forces a=0 exactly in the even case, when one peripheral zero direction is removed. In the odd case v is orthogonal to ker A and <v,A^+v>=0 by symmetry of the vacuum measure, so the orthogonal added kernel direction is h-A^+v and its normalization gives the stated hub weight. The proof's 'unique normalized zero vector' is understood as the unique bright direction orthogonal to the dark zero space; arbitrary mixtures with dark vectors can also overlap the hub. For odd m the residual spectral weight is <1/2, giving the all-time lower bound. For even m, with a=sqrt(p_m), z=P_0v/a and D=A^+v, the trajectory cos(at)(h-D)-i sin(at)z has initial error ||D|| and integrated residual ||D|| at pi/(2a); its hub component vanishes there. This proves the stated upper bound, not an exact minimum. The binomial local limit with a uniform central-mass bound allows dominated convergence against k^-2; the two reciprocal-square sums over odd and nonzero even k are pi^2/4 and pi^2/12. Stirling gives the claimed m^(1/4) time scale. The proof covers m=1 and fixed r in the asymptotic statements.
+
+## originality
+
+PASS
+
+The published general independent-set walk description and related hypergrid models do not supply the specific bordered-star spectral and hub-return results. Two closely matching distinct catalogue records concern different operators or a different configuration graph. The passing scope is the exact family-specific nullity and hub spectral/dynamical parity contrast, not the general PXP mapping, chiral symmetry, or the use of a Schur complement or Duhamel estimate.
+
+## value
+
+PASS
+
+The model gives a concrete natural blockade geometry in which large global nullity does not determine local trapping. The exact hub projection and near-escape estimate separate an all-times survival guarantee from asymptotically vanishing survival at a specified mesoscopic time. This is a useful dynamical distinction unavailable from zero-mode counting alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

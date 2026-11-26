@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:19:27.414504Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The moment ratio is F(q^n)/F(1) by cancellation of the infinite products; F(1) is strictly positive. Normal convergence on compact subsets of the stated disk and analyticity past 1 justify absolute summation and termwise differences. Comparing coefficients in (1-az)F(z)=(1-bz)F(qz) gives the stated recurrence. The k=1 and k=2 multipliers are negative and all later ones positive, so the normalized difference bracket has one positive contribution, from k=1, and subtracts positive terms proportional to q^((k-1)n). Thus the most restrictive tail is n=0 for each order. R_m is strictly increasing and divergent and R_1<1 because the weights exceed one. For the operator equivalence, the signed alternating sum is diagonal on e_n and its entries are the normalized signed moment differences divided by the positive gamma_n. Equality at R_m=1 passes, and higher orders then fail. For fixed p and a, c_k/(-c_1) is comparable to epsilon*a^(k-2), with constants uniform in k and small epsilon: the j>=3 factors have positive uniform lower bounds and summable deviations from 1. Put r=floor(log_p m). The part k>=r costs O(a^r); for k=r-j below r, (1-q^k)^m<=exp(-p^j) gives a summable a^(-j) penalty. Conversely k=r+2 contributes at least (1-q)*a^r by Bernoulli's inequality. This gives two-sided m^(-beta), even when r<2 with the lower part empty. The inequalities at M and M+1 now bracket L*M-beta*log M within a bounded additive distance of log(1/epsilon); M tends to infinity since each fixed R_m tends to zero. First M is comparable to log(1/epsilon), and substituting its logarithm proves the asserted log-log term and bounded error. This does not identify a constant for the remainder or give uniformity when p or a varies.",
+      "status": "PASS",
+      "verification": "Frozen check.py was inspected without running it; it compares exact rational differences with a truncated charge-series diagnostic. Independent exact differences at p=2, a=1/5 certify M=10,15,19 at b=41/100,401/1000,4001/10000 respectively, with positive and negative signs at the two respective boundary orders. Replay and fractions: /workspace/branches/82f14ae9-6696-4513-9614-00006d605b1b/ordinal2_exact_verification.md. The all-tail theorem and the limit follow from the analytic bounds, not from truncation or these examples."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.10 proves complete hyperexpansivity on the sector through D=pN. Theorem 3.7 classifies when a positive rescaling in the relevant sector makes the shift conditionally positive definite; the papers also address k-hyponormality."
+        ],
+        "reasoning": "These results govern complete alternation or different finite Hankel-type tests (sometimes for rescaled shifts), not the asymptotic last passing order of the unchanged shift. In particular the multiplier yielding CPD does not imply this cutoff for finite differences.",
+        "searches": [
+          "arXiv:2309.05888v2 §1.3 and §2.3; arXiv:2405.15000 §§2 and 3.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.05888v2",
+        "arXiv:2405.15000",
+        "Resultary 1efa50a5d44f summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known VIIIB sign pattern implies loss of all-order alternation; factoring the k=1 piece also gives the n=0 finite test straight from the charge."
+        ],
+        "reasoning": "The cutoff asymptotic additionally needs control of the sizes of the positive charges uniformly under perturbation and of the orders for which atoms with k approximately log_p m dominate. A fixed-atom argument or the prior sign pattern alone supplies no power m^(-beta), hence no log-log coefficient. No existing stronger quantitative bound giving that conclusion was identified in the compared passages.",
+        "searches": [
+          "arXiv:2405.15000 §§1, 3.4 (Eq. 3.11); arXiv:2309.05888v2 §2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2405.15000 §1 writes the multiplier as p(D-p^(j-1)N)/(p^j-1) and lists the +,-,+,+,... VIIIB charge signs."
+        ],
+        "reasoning": "Setting N=-a,D=-b converts that multiplier exactly to (a-bq^(j-1))/(1-q^j); the Bayesian or probabilistic interpretation is not needed for the equivalence to alternating moments. Novelty cannot rest on rediscovering the product or the signs.",
+        "searches": [
+          "Resultary: geometrically regular weighted shift finite k-hyperexpansivity difference cutoff near complete hyperexpansive boundary log log charge",
+          "Web: geometrically regular weighted shifts finite m hyperexpansivity order cutoff Benhida Curto Exner completely hyperexpansive boundary log log signed charges q-binomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The diagrams and charge sign lists classify sectors; the nearby Bessel-threshold record 1efa50a5d44f concerns numerical radius."
+        ],
+        "reasoning": "The sector classification and signs contain no table of the exact finite order or its boundary divergence. The numerical-radius threshold is not a test of the same invariant. The assigned record is not independent prior evidence.",
+        "searches": [
+          "Resultary weighted-shift boundary, alternating-order and charge query above; arXiv:2309.05888v2 Fig. 1 and Thm. 1.2; arXiv:2405.15000 §1 Magic Square"
+        ]
+      },
+      "rationale": "The signed charge, its signs, and qualitative complete-hyperexpansivity classification are prior. The root-tail test is a short consequence of the known signs and is not an independent novelty premise. The precise divergent maximal order, including the coefficient of the log-log term, remains a distinct quantitative conclusion in the literature compared.",
+      "residual_risks": [
+        "A specialized earlier geometric-sum or finite differences treatment in this operator family may contain the same quantitative order inversion; neither finite searches nor source sections certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family and all-order validity at the boundary; no finite-order divergence in the examined statements",
+          "evidence": [
+            "Thm. 2.10 uses complete monotonicity of the first difference for VIIIA, ending at D=pN."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.05888",
+          "material_read": "v2 primary PDF §1.1.2 definitions, §1.3 statement/diagram, §2.3 Theorem 2.10 and nearby discussion",
+          "method": "OA PDF text and relevant theorem equations compared",
+          "title": "Geometrically regular weighted shifts",
+          "trigger": "Same family and boundary; possible existing classification or quantitative result"
+        },
+        {
+          "assessment": "Direct overlap on the representation, signs and qualitative obstruction; §3.4 measures CPD after changing weights, not a limiting maximal alternating order",
+          "evidence": [
+            "VIIIB has charges +,-,+,+,... at 1,q,q^2,...; Eq. (3.11) writes the atomic expansion for generic VIIIB points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.15000",
+          "material_read": "§1 charge construction/multiplier, §2 theorem statements sampled, §3.4 statement of Thm. 3.7 and start of proof",
+          "method": "OA PDF primary-text passage comparison",
+          "title": "Signed representing measures (Berger-type charges) in subnormality and related properties of weighted shifts",
+          "trigger": "Potential direct coverage because the same atoms and sign pattern are classified"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies how long finite-order tests can silently pass just outside a known all-order sector. The log-log delay is not captured by monitoring any one fixed atom and is relevant to interpreting order-limited tests. An exact criterion uniform over starting index and a two-term boundary law supply more than a qualitative failure of complete hyperexpansivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

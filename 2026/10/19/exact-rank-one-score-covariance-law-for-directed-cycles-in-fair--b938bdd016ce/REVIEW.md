@@ -1,21 +1,21 @@
-# Scientific review: cycle counts and outdegree statistics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Conditioning on one vertex's \(d\) outgoing arcs leaves all other arcs independently fair. Counting cycles anchored at the conditioned vertex proves the exact conditional mean (5), including the Hamilton-cycle endpoint. The total-covariance identity gives the master formula for arbitrary \(f\). Binomial coefficient and convolution identities independently yield the exact histogram and exceedance formulas, with positive finite prefactors establishing all sign and rank claims. Full exhaustive labeled-tournament enumeration at 3–6 vertices and 89,996 further parameter/sign checks passed; the analytic argument is required for the infinite family.
+PASS
 
-## Originality — PASS with specified residual risks
+A direct replay conditions on each candidate cycle indicator being one. A vertex off the cycle retains its Bin(m,1/2) degree law; a vertex on the cycle has one incident win and one incident loss fixed, with its other m-2 edges still fair and independent, so has degree 1+S with S~Bin(m-2,1/2). There are (n) falling ell divided by ell candidate oriented cycles (rotation only), each present with probability 2^{-ell}. Summing their covariances gives (n) falling ell /2^ell times [E f(1+S)-E f(D)]. The identity d(m-d)p_m(d)=m(m-1)p_{m-2}(d-1)/4 converts this to (1), including ell=n. The scalar multiplier is positive for every ell; the covariance with H0 is nonzero since m>=2 and D(m-D)=0 at D=0 but has positive mean. Thus the cross-covariance rank is exactly one, and residual orthogonality is only linear, not independence. The degree-class covariance follows from 4d(m-d)-m(m-1)=m-(2d-m)^2; its equality roots are integers exactly for square m, by parity. For the threshold let T_j=P(S>=j). Because D has the law of S plus an independent Bin(2,1/2), the expectation difference is (2T_{k-1}-T_k-T_{k-2})/4, equal to (p_{m-2}(k-1)-p_{m-2}(k-2))/4. The ratio of successive masses in the interior is (m-k)/(k-1), giving the cutoff 2k=n, with the endpoint signs from one mass vanishing. At n=3, two cyclic and six transitive orientations give Cov(C3,H0)=-3/16 and threshold covariances +3/16,-3/16, consistent with the formulas. The source file verification/check_cycles.py was found inside the nested directory and inspected, not executed. Its stated checks are finite (all orientations through n=6 and a bounded sign test); the all-length formulas follow from the exact conditioning argument, not those finite checks.
 
-The exact finite random-tournament **cross-covariance** for every cycle length and every additive degree statistic, with universal rank-one proportionality and complete bin/threshold signs, was not found in examined directly relevant sources. Linial–Morgenstern's analysis of three- and four-cycle densities is extremal rather than a random-score covariance result. Komarov–Mackey's exact five-cycle formula uses an edge-score sequence that is strictly richer than the vertex-degree histogram; their theorem does not state the current family of expectations/covariances. Kuo–Liu–Ribas–Zhou (2019) give a sieve upper bound for random-tournament cycle-count multiplicities, not a joint outdegree result. Known deterministic three-cycle degree identities provide a plausible partial precursor, not the all-length conditional mean.
+## originality
 
-An implicit derivation from earlier edge-score identities or general motif-projection theory is a genuine priority risk. The complete Butts (2006) directed cycle-census text was not accessible for direct comparison, and its abstract does not resolve possible implication. Review does not establish independently certified novelty.
+PASS
 
-## Mathematical value — PASS
+The triangle specialization is explicitly covered by the earlier October 12 indexed result; the four-cycle specialization also follows from the October 18 indexed orthogonal decomposition, as shown below. The supported distinct claim is the single exact all-length formula for the mixed score covariances, including lengths at least five and their exact degree/threshold signs and residuals. A later November 2 record matches the full score covariance and projection and implies threshold signs; that is documentary overlap, not antecedent coverage. The earlier published results examined concern different moment, extremal or deterministic quantities and do not establish the full claim in the inspected statements.
 
-The outdegree histogram is the natural score-profile diagnostic for a fair random tournament, whereas directed-cycle counts measure recurrent orientation motifs. An exact **rank-one dependence structure** across all cycle lengths is a substantive structural simplification: it permits every linear outdegree adjustment to be transferred from triangles to all longer cycles. The degree-bin zero/sign transitions (including square-order exact zeros) and sharp exceedance sign threshold provide complete natural finite-dimensional classifications, not an arbitrary parameter slice.
+## value
 
-## Limits and closest literature
+PASS
 
-The result covers independent unbiased orientations, not fixed-degree tournaments or biased edge laws. Orthogonality is not independence; rank one applies only to the cross-covariance operator. Closest papers: Linial–Morgenstern (arXiv:1405.1576), Komarov–Mackey (arXiv:1410.6828), Kuo et al. (2019); accessible abstract only: Butts (2006). Potential priority implications from general second-order motif methods remain.
+The all-length law collapses the linear dependence between the full cycle-count vector and the full additive score profile to one direction, including up to Hamiltonian cycles. The exact finite-size degree and threshold signs give the direction of dependence and its zero boundary for each length, beyond known triangle and four-cycle cases. This is an exact joint invariant for two naturally used diagnostics, not just a marginal moment or finite recomputation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

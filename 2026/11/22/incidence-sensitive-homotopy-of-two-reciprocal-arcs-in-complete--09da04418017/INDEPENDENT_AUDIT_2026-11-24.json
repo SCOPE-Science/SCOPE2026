@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:20:00.471769Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49; VERIFICATION.md, verify.py, verify_output.txt",
+        "Independent face, link, Betti, and elementary-collapse replay for 2<=n<=6: branches/ae1d88f5-752c-4ba5-91df-a046ac28f6c8/independent_record2_check.py and accompanying output; disjoint base has 20 faces including the empty face"
+      ],
+      "rationale": "Forward arcs alone form the chessboard graph with edge p_j q_k iff j differs from k. A single reverse arc forbids only its reciprocal forward vertex: degrees are compatible with a forward matching and any cycle using only one reverse would be a 2-cycle. With incident reverse arcs at most one can be used; the two cones cover because their excluded forward vertices never co-occur. Their cofibrant intersection gives the unreduced suspension. In the shared-source case its graph is a crown on n-1 vertices per shore. At n=2 or 3 it has two tree components, and for n>=4 every pair on the same shore has a common neighbor. With a shared target, the remaining p_j (j>=3) all see q_1 and q_2; the other q_j see a remaining p_k when n>=4. At n=2 there are two isolated q vertices and at n=3 a tree and an isolated q. The common cycle rank for n>=4 is (n-1)(n-2)-(2n-2)+1, hence the indicated integral suspension type. For disjoint reverse arcs, a face containing p_j for j>=3 lacks both p_1 and p_2, so inserting r_1 cannot complete either its reciprocal cycle or the only possible 4-cycle; the analogous q_j rule gives insertion of r_2. Each extra vertex can be deleted by pairing its faces missing the apex with those containing it, in decreasing face size; every such pair is then a free-face elementary collapse and the apex remains for other deletions. This gives the relative statement for each natural inclusion. The disjoint base has four triangles on p_2,q_1,r_1,r_2 forming a tetrahedral boundary, plus the path r_1,q_2,p_1,r_2 attached only at its endpoints, hence S^1 wedge S^2. The exact all-n argument, not mod-two evidence, determines the homotopy types.",
+      "residual_risks": [
+        "The replay is bounded and the Betti portion is mod two only; integral homotopy and the all-order relative collapses are proved combinatorially. The convention excluding directed 2-cycles is essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General two-reversal results require disjoint endpoint pairs and deletion of the old orientation. Published chessboard calculations treat one-way bicliques; bidirectional polygonal work treats paths/cycles."
+        ],
+        "reasoning": "Their broader graph parameters do not include the combination of retained reciprocals and partial biclique orientation, or the incident placements.",
+        "searches": [
+          "SCOPE-5cee81ae2fdc and SCOPE-32883856792f (general bipartite reversal)",
+          "arXiv:2601.05670, Theorem 2.8; arXiv:2208.04656, §3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary SCOPE-5cee81ae2fdc, SCOPE-32883856792f, and SCOPE-027fb88d517d",
+        "arXiv:2208.04656, 2110.11206, 2203.03476, and 2601.05670"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The replacement model is the subcomplex of the disjoint model omitting p_1 and q_2. Its formula has an edgeless residual graph. Forward-only chessboard Euler characteristics say nothing about the attaching links of the two added reverses."
+        ],
+        "reasoning": "Even in the disjoint model the added vertices can create a new loop, as the explicit base does. No result inspected implies the relative collapse of all extra columns or the change in homotopy at n=4 for either incident placement.",
+        "searches": [
+          "Both replacement RESULT.md proof/scope passages in local mirror",
+          "arXiv:2208.04656 Theorem 3.7; arXiv:2110.11206 Example 6.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two replacement records present equivalent threefold suspension and three S^0 join versions. They delete the forward arcs whose directions are changed. Oriented matchings on a face poset are yet another model."
+        ],
+        "reasoning": "Reversing a directed arc removes a vertex of the arc-set complex; adding the reverse preserves that vertex and creates reciprocal 2-cycles. Thus replacement is not an equivalent formulation of the target, and oriented matchings here cannot be substituted for arc multipaths.",
+        "searches": [
+          "Resultary: multipath complexes K_{2,n} two reciprocal arcs versus two reversed arcs",
+          "arXiv:2203.03476, oriented matching complex definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Identical entry SCOPE-09da04418017 is the assigned item. Distinct same-day SCOPE-5cee81ae2fdc and SCOPE-32883856792f both give S^2 for the disjoint replacement in K_{2,n}. SCOPE-027fb88d517d gives integral types for fully bidirected bicliques at n=3,4,5,6."
+        ],
+        "reasoning": "The two same-day records overlap each other, but not the exact arc set or types here. The fully bidirected family has all reverses, so its finite cases do not certify these partial-reciprocity types.",
+        "searches": [
+          "Resultary: incidence-sensitive homotopy of reciprocal arcs in complete bipartite multipath complexes; bidirected biclique Moore spaces"
+        ]
+      },
+      "rationale": "The combination of cone intersection and column collapses applies to adding reciprocal arcs without deleting forward arcs. The strongest indexed replacement theorems specialize to S^2 in the disjoint K_{2,n} case, not S^1 wedge S^2, and have no shared-endpoint theorem. Credit their exact coverage of the closely related replacement model and do not infer date precedence.",
+      "residual_risks": [
+        "The comparative search is bounded. The dates of the two closely related replacement records do not resolve their historical priority or exact relationship to each other."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-day strong replacement coverage, not the retained-forward model",
+          "evidence": "Disjoint reversed pairs with both cross edges give a threefold suspension of the residual matching complex. For K_{2,n} the empty residual yields S^2.",
+          "identifier_or_url": "2026/11/22 SCOPE-5cee81ae2fdc; SCOPE-32883856792f",
+          "material_read": "Local RESULT.md Findings and assumptions offsets 0–3475 and 0–3427; further scope/proof at offsets 6250 and 3400–6537 respectively",
+          "method": "Resultary search and local published mirror",
+          "title": "A threefold suspension theorem for two reversed arcs in bipartite digraphs; Two reversed arcs transfer matching complex topology through a double-arc gadget",
+          "trigger": "Closest complete-biclique two-arc classifications"
+        },
+        {
+          "assessment": "Different reciprocity family",
+          "evidence": "All biclique edges are bidirected and specified finite n types are reported.",
+          "identifier_or_url": "2026/10/18 SCOPE-027fb88d517d",
+          "material_read": "Local RESULT.md Finding at offset 0",
+          "method": "Resultary search and local published mirror",
+          "title": "Moore-space summands in bidirected complete bipartite multipath complexes",
+          "trigger": "Integral multipath types in a bidirected biclique"
+        },
+        {
+          "assessment": "Forward subcomplex known; theorem does not apply after insertions",
+          "evidence": "Multipaths of a one-way biclique are ordinary chessboard matchings; Theorem 3.7 gives its Euler characteristic.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.04656",
+          "material_read": "PDF §3.2 p. 6 offset 29781 and Theorem 3.7 p. 7 offset 31234",
+          "method": "Direct OA PDF passages",
+          "title": "On the homotopy type of multipath complexes",
+          "trigger": "Same forward-only graph and chessboard complex"
+        },
+        {
+          "assessment": "Other graph constructions or other complex definitions",
+          "evidence": "The dandelion example gives a graph complex; the oriented matching complex uses compatible poset matchings; the bidirectional polygonal theorem concerns a different graph family.",
+          "identifier_or_url": "arXiv:2110.11206; arXiv:2203.03476; arXiv:2601.05670",
+          "material_read": "Example 6.10 pp. 28–29; oriented matching definition pp. 1–2; bidirectional polygonal paper p. 1 and Theorem 2.8 p. 7",
+          "method": "Direct OA PDF passages",
+          "title": "Combinatorial and topological aspects of path posets; Monotone cohomologies and oriented matchings; Multipath complexes of bidirectional polygonal digraphs",
+          "trigger": "Potential broader graph-complex frameworks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen classification and relative collapse construction; cited forward-only and replacement-model results"
+      ],
+      "rationale": "This gives a complete integral classification for the first two-arc placements in a basic multipath family. The same number of new arcs yields materially different topology depending on their incidence, and the disjoint case gives explicit elementary collapse stability under the actual inclusions, not just coincident Betti numbers or an Euler-characteristic computation.",
+      "residual_risks": [
+        "No corresponding theorem with more reverse arcs or a larger source shore is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

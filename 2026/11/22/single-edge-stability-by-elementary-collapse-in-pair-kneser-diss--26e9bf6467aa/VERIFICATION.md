@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the elementary collapse
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted directory. The script requires Python 3.8 or newer and uses only its standard library. It constructs all two-subsets of the source ground set, calculates Kneser adjacency by disjointness, and checks the induced maximum-degree-one rule for every vertex subset at source orders five, six and seven. It checks the 24 added local faces and partitions their transported copies by unique external ground label.
+## correctness
 
-The exact output is:
+PASS
 
-```text
-n=5: intact_faces=261, fault_faces=285, extra_faces=24, free_face_pairs=12: PASS
-n=6: intact_faces=747, fault_faces=795, extra_faces=48, free_face_pairs=24: PASS
-n=7: intact_faces=1751, fault_faces=1823, extra_faces=72, free_face_pairs=36: PASS
-UNIVERSAL_5_LABEL_COLLAPSE_CORE_PASS
-```
+Normalize the deleted graph edge to 01--23 by permuting the ground labels. Each new face contains both endpoints and a third selected pair disjoint from one endpoint. A selected pair disjoint from both would already have degree two in the faulted graph. Hence an external label occurs, and each pair containing an external label contains exactly one of them. Two such pairs with distinct external labels either give the same fixed endpoint two neighbors, or are disjoint from one another and each already has a fixed neighbor. Thus all new faces use exactly one external label. Independently enumerating all 1024 subsets of the ten pair vertices on five ground labels gives 261 intact and 285 faulted faces including the empty face; the extras by size are 4,12,8. Each of the twelve table rows has precisely its stated strict coface after earlier removals. Downward closure rules out intact cofaces of a new face and support uniqueness rules out cofaces in any other block. This proves the exact relative collapse and counts for all n>=5, not just the local case. The intact three-skeleton equivalence supplies the credited sphere-wedge corollary.
 
-Each of the twelve explicitly prescribed local pairs is checked against *every* remaining strict coface after previous pairs are removed, verifying actual elementary collapses. The arbitrary-order theorem is deduced from the independently proved five-source-label support reduction; three finite enumerations by themselves would not prove it. The published intact-complex sphere-wedge classification is cited as background and not re-certified here. Independent external audit has not been performed.
+## originality
+
+PASS
+
+The supported distinct claim is the single-graph-edge relative collapse and its exact relative face count. The intact homotopy classification and intact structural results are prior coverage and receive no novelty credit. No distinct equivalent collapse was found in the inspected sources.
+
+## value
+
+PASS
+
+The exact relative collapse answers a natural stability question for an established complex. It determines the map of interest, not just the agreement of two abstract homotopy types. The five-label localization explains why an edge fault can create linearly many faces without altering the simple-homotopy type and gives a reusable local certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The independent Poisson-thinning derivation yields the displayed two-type matrix. Its Perron root is an exact quadratic-form expression; direct differentiation gives a positive second derivative for unequal preserving-layer transmissibilities. The endpoint derivative signs establish the global optimizer classification. Tangency yields the explicit minimizer; the rational example has a determinant polynomial whose two roots are exact and whose positivity criterion gives a complete subcritical interval. The standalone checker successfully reconstructs these identities. The network limit and endpoint accessibility qualifications are explicitly stated in the result.
+PASS
 
-## Originality — PASS (subject to residual priority risk)
+Poisson thinning gives the stated type-indexed mean offspring matrix; for Poisson layers the excess-degree means coincide with the respective original means. The larger quadratic eigenvalue is the Perron root, including the reducible diagonal and periodic off-diagonal endpoints. The claimed second derivative is positive when h>0, and the endpoint derivatives are −max(c,d) and q−s. Equality q=s gives a unique endpoint, while h=0 gives the stated affine exception. To fix the sign of the interior minimum, put A=h²+q² and u=t−h²/A. The normalized root is sq²/A−su+sqrt(Au²+h²q²/A). A stationary point requires u>0 and gives u=shq/[A sqrt(q²−cd)]; substituting yields the positive-sign L*, with t* also obtained from characteristic-polynomial tangency. Strict convexity puts L* strictly below both endpoint values, giving precisely the open total-degree range for strict suppression and supercritical pure endpoints. In the example the smaller determinant root is greater than 1/11, so I−M is positive definite between the two roots and has largest M eigenvalue exactly 1 on their boundary. Outside, its determinant is negative. The example's seed can reach the supercritical class in both pure cases; no claim about arbitrary seeds at the reducible endpoint, or about finite-epidemic outbreak size, is required. The strict subcritical interval does not say that critical boundary points survive.
 
-The 2022/2023 Sood et al. article provides the broader multistrain/multilayer epidemic model and generic Jacobian threshold but its inspected main sections do not state the fixed-total-degree identity-versus-swap allocation classification. The 2016 Min et al. model exhibits nonmonotone multiplex thresholds but has different underlying state transitions, and the 2010 Karlin reduction principle assumes a separated mixing/growth structure that cannot realize the strict interior regime under the specified substitution. The 2024 temporal SIS Parrondo phenomenon concerns time alternation, not concurrent strain-switching layer allocation. The finding claims a specialized exact criterion, not the first nonmonotonicity example. More general spectral or branching optimization literature is a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a sharp boundary between endpoint-optimal and interior-optimal layer allocations and demonstrates genuine reentrant extinction with exact algebraic endpoints while total mean contacts are unchanged. This is a natural risk-relevant intervention comparison not inferable from monotonicity in total network connectivity. Neither computational reproducibility nor novelty alone is used as the value rationale: the exact allocation rule and threshold-reversal phenomenon provide the mathematical motivation.
+The prior two-layer branching model and the qualitative phenomenon of suppression between supercritical pure regimes receive no novelty credit. The distinctive result on the inspected evidence is the sharp fixed-budget suppression classification and concrete interval for the particular Poisson model. The framework is prior; the exact allocation theorem is not a threshold formula stated in different notation.
 
-## Scientific limitations
+## value
 
-The conclusion covers independent Poisson contact layers, two strains, specified identity/swap mutation rules, and the invasion threshold; it does not cover arbitrary mutation matrices, finite-population attack rates, or any unconditional claim concerning every initial strain at reducible endpoints. Broader spectral interpolation literature might subsume this specialized result, so independent publication-priority review remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed total budget is a natural control constraint for prevention; increasing the number of contacts would be a different question. The iff criterion separates the endpoint regime from strict interior suppression, and the witness identifies a regime in which neither pure allocation suffices. This is a usable decision boundary for the stated early-emergence model, rather than the routine act of diagonalizing a 2×2 matrix or claiming a general effect of layered interventions. The deterministic preserve/switch and Poisson assumptions sharply limit interpretation; no finite-outbreak or agent-specific conclusion is supported.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

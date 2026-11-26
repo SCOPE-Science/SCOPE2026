@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:33:21.489786Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and n=5 example",
+        "Frozen VERIFICATION.md, verify_primary.py and verify_alt.cpp",
+        "Independent in-memory BFS for the two n=5 example vertices"
+      ],
+      "rationale": "At the boundary i,i+1 the change in excedance count is [π_{i+1}=i+1]−[π_i=i+1]. Since entries are distinct, legality excludes that value in both slots, so no moved value changes excedance status. For any top set T⊆{2,…,n}, the canonical word lists T increasingly and its complement increasingly. The j-th top is ≥j+1 and the j-th complement value is ≤|T|+j, so the canonical word realizes T. Sorting in this order is legal: an adjacent inverted pair within T has both entries >i+1, an inverted pair in the complement has both <i+1, and a cross-block inversion moves each entry away from its threshold. This proves connectivity and the two-sort bound n(n−1). For T={2,…,k+1}, every boundary of the canonical word contains its forbidden value; hence that word is isolated and its fiber is a singleton. Otherwise the first top t_j>j+1 can be swapped with the next top or with 1 if j=k, so its connected fiber is nontrivial. For the edge count, the two forbidden events at each boundary are disjoint. Deleting a fixed point removes its row and column with all other strict excedance comparisons unchanged. Deleting π_i=i+1 removes row i and column i+1; the remaining rows before i and after i keep the same comparison signs, including at surviving column i and row i+1. Thus the counts of blocked incidences are A(n−1,k) and A(n−1,k−1) per boundary; subtraction and division by two gives the result. This also covers k=0, k=n−1 and n=2 under the stated convention. The frozen scripts were inspected but not executed. A separate bounded breadth-first search using the strict top-set test found distance 8 and 31 reachable vertices in the illustrative n=5 fiber {4,5}; the unrestricted relative permutation has 6 inversions.",
+      "residual_risks": [
+        "The supplied Python tests finite dimensions and the C++ DSU checks finite component and edge incidences, not the all-n Eulerian formula independently. Expected console lines in the frozen verification are not fresh run logs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "79c08e75f702 classifies components by strict left/right signs for the forbidden fixed-point labels, with 2^|F∩{2,…,n−1}| components. Its proof sorts the left, unrestricted, and right blocks. The two derangement graphs have restricted vertices, and the cyclic one adds the wraparound move. Pierrot–Rossin–West replace patterns in consecutive positions based on relative order."
+        ],
+        "reasoning": "The fixed-point theorem forbids equality for every constrained label; here equality is allowed and belongs to the nonexcedance side. Even with all fixed points forbidden, legality differs: a derangement cannot move π_{i+1}=i into position i, whereas the fixed-excedance rule can do so if neither entry equals i+1. The same sorting argument transfers after checking the changed constraints, but the stated graph theorems are not equivalent. The relative-order pattern rule is also not the absolute label threshold i+1.",
+        "searches": [
+          "Resultary 79c08e75f702, selected forbidden fixed points; 5a562e89a765 and f608872f11aa, cyclic and linear derangement reconfiguration",
+          "Pierrot–Rossin–West DOI 10.46298/dmtcs.2951"
+        ]
+      },
+      "checked_sources": [
+        "DOIs 10.1006/aama.1999.0671, 10.46298/dmtcs.2951 and arXiv:math/0507149",
+        "Attempted DOI 10.4310/joc.2014.v5.n4.a4",
+        "Resultary 79c08e75f702, 5a562e89a765, f608872f11aa and 11345b05afa5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The related fixed-point proof uses the same monotone block-sort mechanism and proves the same diameter bound for its own fibers. Classical position-set formulas give enumerative information after inverse/reflection. The Baril–Mansour–Petrossian primary text was not available to check its exact equivalence definition."
+        ],
+        "reasoning": "Once the moves and their preserved fibers are proved, the number of components follows from realizability and the familiar binomial count. But realizing or counting a fiber does not establish its legal connectivity, and the strict-side result does not enumerate blocked boundary incidences in this graph. The separate local threshold and deletion identities establish those conclusions; no checked prior statement supplies them mechanically.",
+        "searches": [
+          "Resultary 79c08e75f702, Finding and complete canonical-sort proof",
+          "Baril–Mansour–Petrossian DOI 10.4310/joc.2014.v5.n4.a4 (direct and identified lawful alternate attempted)",
+          "Ehrenborg–Steingrímsson, prescribed-set formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inverse gives a deficiency-position set {v:π⁻¹(v)<v}; reflecting both indices and values converts it to a strict excedance-position set. Thus classical position-set enumeration can enumerate the fibers as sets. The tableau paper defines the weak-excedance top π(i) at an index with π(i)≥i."
+        ],
+        "reasoning": "The inverse turns an original adjacent-position swap into a swap of adjacent labels, not generally positions. Counting a fiber via that bijection does not prove it is connected in the original graph. Weak-excedance top statistics also include fixed points, unlike this invariant.",
+        "searches": [
+          "Ehrenborg–Steingrímsson DOI 10.1006/aama.1999.0671, prescribed excedance sets and Ferrers rook placements",
+          "Steingrímsson–Williams arXiv:math/0507149, weak-excedance tops",
+          "Resultary 11345b05afa5 on position-excedance rook enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest records report counts for fixed-point-avoidance graphs and two isolates in restricted derangement graphs. No inspected exact record states one isolate per fixed-excedance stratum or the bound Eulerian edge total."
+        ],
+        "reasoning": "The component count, isolate count and edge total are invariants of the designated adjacent-position graph, not ordinary tabulations of the number of permutations with k excedances or with a fixed set of indices. The Eulerian numbers are known inputs, not new table values.",
+        "searches": [
+          "Resultary searches for strict excedance-top adjacent-swap fibers, Eulerian edge totals and fixed-point-free permutation components; closest IDs 79c08e75f702, f608872f11aa and 5a562e89a765"
+        ]
+      },
+      "rationale": "The distinct claim is the top-value component classification for strict fixed-excedance strata of all permutations under consecutive-position swaps, including its isolates and edge formula. Value-side excedance statistics, fiber enumeration under inverse/reflection, and the closely related side-signature bubble-sort method are not claimed as new. The strongest same-day forbidden-fixed-point record uses the same sorting idea but a different vertex constraint and threshold; its theorem does not give this move rule, classification, or edge statistic.",
+      "residual_risks": [
+        "The exact definition in Baril–Mansour–Petrossian could not be compared from primary text. The inspected results establish method and statistic overlaps, not historical priority; an unindexed equivalent graph theorem is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts a position-indexed set; equivalent to fiber-size enumeration after inverse and reflection, not a move theorem.",
+          "evidence": "Defines the excedance set using indices; the rook count imposes π(i)≤i at specified positions.",
+          "identifier_or_url": "10.1006/aama.1999.0671",
+          "material_read": "PDF pp. 1 and 12, OA offsets 898 and 29380",
+          "method": "Bounded OA PDF passages",
+          "title": "The Excedance Set of a Permutation",
+          "trigger": "Prescribed-set enumeration and rook equivalence"
+        },
+        {
+          "assessment": "Prior weak top terminology and tableau bijections, not a component classification.",
+          "evidence": "Defines the bottom i and top π(i) of a weak excedance at π(i)≥i.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0507149",
+          "material_read": "PDF pp. 1 and 3, OA offsets 0 and 10300",
+          "method": "Bounded OA PDF passages",
+          "title": "Permutation Tableaux and Permutation Patterns",
+          "trigger": "Value-side excedance statistics"
+        },
+        {
+          "assessment": "Different rule, as it uses relative order.",
+          "evidence": "Replaces consecutive entries by rearrangements dictated by a pattern-replacement set.",
+          "identifier_or_url": "10.46298/dmtcs.2951",
+          "material_read": "PDF p. 1, abstract and introduction",
+          "method": "Bounded OA PDF passage",
+          "title": "Adjacent transformations in permutations",
+          "trigger": "Consecutive-entry replacement equivalences"
+        },
+        {
+          "assessment": "Definition and possible implications unverified; no noncoverage inference from title or access failure.",
+          "evidence": "The frozen record describes an equivalence at individual excedance positions; that description was not independently verified.",
+          "identifier_or_url": "10.4310/joc.2014.v5.n4.a4",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Lawful OA attempts via DOI, Project Euclid and International Press; access denied",
+          "title": "Equivalence classes of permutations modulo excedances",
+          "trigger": "Plausible same equivalence relation"
+        },
+        {
+          "assessment": "Substantial proof-method overlap; the statement uses different legality and strict side constraints, and no fixed-excedance edge formula.",
+          "evidence": "Permutations avoid π(i)=i for i in F, and classify components by whether each constrained label lies strictly before or after its forbidden slot; the proof sorts L, U, R increasingly within blocks.",
+          "identifier_or_url": "2026/11/2/SCOPE-component-signatures-for-permutations-avoiding-selected-fixed-po--79c08e75f702",
+          "material_read": "Finding, assumptions and proof, mirror offset 0–5513",
+          "method": "Local Resultary full-text mirror",
+          "title": "Component signatures for permutations avoiding selected fixed points",
+          "trigger": "Same canonical adjacent sorting and side-of-label invariant"
+        },
+        {
+          "assessment": "Different vertex domain and cyclic moves.",
+          "evidence": "Derangements with cyclic adjacency have n−1 excedance-indexed components and two isolates; without wraparound there are 2^(n−2) components.",
+          "identifier_or_url": "2026/11/8/SCOPE-cyclic-adjacent-swaps-collapse-derangement-reconfiguration-to-ex--5a562e89a765",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Cyclic adjacent swaps collapse derangement reconfiguration to excedance classes",
+          "trigger": "Excedance-derived components and isolates under adjacent swaps"
+        },
+        {
+          "assessment": "Different domain and feasibility rule.",
+          "evidence": "Internal signs for derangements index 2^(n−2) components and there are two isolates overall.",
+          "identifier_or_url": "2026/11/8/SCOPE-hypercube-component-geometry-and-a-sharp-two-position-threshold--f608872f11aa",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "Hypercube component geometry and a sharp two-position threshold",
+          "trigger": "Linear adjacent-swap signs and isolates"
+        },
+        {
+          "assessment": "Convolution of position-set distributions, not a reconfiguration theorem.",
+          "evidence": "Its rook-placement identity is for the Walsh multipliers of a position-set distribution.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-period-four-failure-in-fourier-recovery-of-permutation-exc--11345b05afa5",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary full-text mirror",
+          "title": "First period-four failure in Fourier recovery of permutation excedance statistics",
+          "trigger": "Excedance sets and rook enumeration under alternate terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary 79c08e75f702 for the adjacent reconfiguration comparison"
+      ],
+      "rationale": "A classical statistic defines a natural subgraph of the permutahedron. The theorem gives complete reachability information in all strata via a simple conserved set, an explicit path construction, and exact isolation and edge counts. These answer structural questions not resolved by the classical Eulerian enumeration of vertices alone.",
+      "residual_risks": [
+        "The diameter bound is not an exact general intra-fiber metric or a formula for component sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

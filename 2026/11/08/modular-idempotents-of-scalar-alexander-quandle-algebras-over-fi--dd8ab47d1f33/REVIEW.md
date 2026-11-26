@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof defines an exact family for arbitrary finite fields of equal characteristic, with both scalar parameters nonzero. The group-ring transport is checked on the basis. The augmentation ideal of the ordinary group ring is explicitly nilpotent, so an augmentation-zero idempotent must vanish. Every augmentation-one element is a principal unit. The characteristic-\(p\) Frobenius identity proves this unit group has exponent \(p\), allowing the idempotent equation to be treated as a linear fixed-point equation. The equivariant filtration and Maschke's theorem justify replacing that multiplicative unit representation by the ordinary augmentation-ideal representation, rather than assuming that \(u\mapsto u-1\) is linear. The latter is the regular representation of the cyclic group of nonzero scalars. Its character eigenvalues give the exact kernel dimension and the polynomial-gcd formula. The closure and Alexander-quandle structure are verified directly from commuting automorphisms. Characteristic two and the smallest nonempty parameter case are covered. The standalone checker independently enumerates 24 finite instances and reports `VERIFY_OK checked=24`; it is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+In K[(F,+)] the original product is ρ_α(u)ρ_β(v) with ordinary multiplication on the right. The augmentation ideal I is nilpotent and each augmentation-zero idempotent lies in I^{2^j} for every j, so only the algebra zero is lost on restricting to augmentation one. Frobenius and px=0 give v^p=0 for v∈I, so 1+I is an elementary abelian p-group under ordinary multiplication. Its idempotents in the transported product are the F_p-linear kernel of ρ_α+ρ_β−1, stable under both automorphisms. The equivariant quotients of the principal-unit filtration equal I^j/I^{j+1}; Maschke applies over F_p since p does not divide |F×| and identifies 1+I noncanonically with I as an F_p[F×]-module. The basis X^x−1 for x≠0 is permuted regularly, so after scalar extension the characters t↦t^k give exactly the claimed nullity over K. This also verifies the gcd and Frobenius lower bound; the excluded F2 case is the only case where the stated parameter set is empty. The zero vector of W corresponds to the nonzero algebra idempotent e_0, so there is one additional algebra zero, not an extra point of W.
 
-The group-ring transport is known (Zhang, Proposition 2.1), but the cited article determines augmentation powers and integral idempotents, not the present modular coefficient-field kernel and exact count. Elhamdadi–Ta–Virgin, Lemma 6.2, has a related complex-character sum-of-two-roots condition for integral idempotents on a prime-order quandle. The condition there includes complex roots of unity and parity restrictions; it does not imply the modular equalities over \(\mathbb F_{p^s}\). Sangare–Ta addresses ordered commutative quandles and characteristic-two commutative restrictions; it does not classify arbitrary scalar Alexander quandles in their own characteristic. The previous midpoint formula is included as a specialization but does not determine the nonmidpoint parameter-dependent counts or the characteristic-two jump. Exact statement, parameter, and implication comparisons found no dominating published classification. Unindexed historical work and implicit derivations from general group-ring representation theory remain risks; the assessment is not an independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Quandle-algebra idempotents are studied both as algebraic objects and as possible coloring enhancements. Their modular behavior is not controlled by the integral classification. Here an infinite family is classified by a natural, exact, computable character invariant, and the resulting nonzero idempotent quandle is determined up to isomorphism. The quantitative phase change already at the 16-element additive field, from \(17\) to \(1025\) idempotents when only the Alexander scalar changes, shows the invariant carries mathematical information not visible from field order alone. This is a complete classification within a motivated family, rather than a small enumeration or a reformulation of the midpoint case.
+There is exact prior catalogue coverage of the prime-order base case and substantial prior coverage of prime-subfield scalars on elementary abelian groups. Credit those cases rather than a new general prime-subfield census. The supported distinct result is the exact count and nonzero-idempotent quandle for genuine extension-field scalars, including characteristic two. Their multiplication operators can have no invariant F_p-lines, and the prime-scalar eigenspace formulas and integral/ordered treatments inspected do not give this case.
 
-## Closest literature and limits
+## value
 
-The core sources are Zhang, arXiv:2610.08204v1 (transport and integral classification); Elhamdadi–Ta–Virgin, arXiv:2609.03799v1 (complex Fourier character condition and integral problem); Sangare–Ta, arXiv:2608.01550v1 (commutative and characteristic-two special settings); and Bardakov–Elhamdadi, arXiv:2601.07057v1 (the quandle-ring idempotent problem). Churchill et al., arXiv:2608.09149v2, studies related core-quandle and integral questions; its inspected sections do not give the full scalar modular formula. The result is restricted to scalar Alexander actions and equal coefficient characteristic, and the abstract quandle identification is noncanonical. No higher-dimensional arbitrary linear Alexander transformation or other-characteristic classification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result explains how a modular idempotent locus that is not a linear subspace in the original algebra becomes an explicit Alexander quandle, and counts it over every finite coefficient extension. The genuine extension-scalar range allows large differences on the same additive group (17 versus 1025 idempotents in the F16 examples) and includes characteristic two where a midpoint reduction is unavailable. The regular-character mechanism explains those differences rather than just fitting small counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

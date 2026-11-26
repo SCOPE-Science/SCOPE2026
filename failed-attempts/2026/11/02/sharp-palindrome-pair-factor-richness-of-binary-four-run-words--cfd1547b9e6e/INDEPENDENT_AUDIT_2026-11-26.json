@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:54:19.385916Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The count is for distinct contiguous factors and includes the empty word. Every factor with at most three runs splits into two palindromes. For a four-run factor 0^x1^b0^c1^y, no cut inside a run or at the central boundary can make both pieces palindromic; the other two boundaries give exactly x=c or y=b. The two 0-to-1 transition rectangles overlap in the rectangle with the two coordinatewise minima, which accounts for all duplicates. Substitution in the count gives the three quadratic upper bounds after reversal and bit exchange; in the remaining strict case a<c, b>d, putting x=b+c gives Q<=2-n+(n+2)x-3x^2/4<=(n^2+n+10)/3. Integrality gives the claimed ceiling. The explicit triples of residue-class witnesses attain the bound and cover n=8,9,10 and all larger lengths. For a three-run host, reverse to a<=c; the count is 1+(a+1)b+(a+1)c+bc, maximized by balancing the three arguments of sum n+1. This verifies the benchmark and the stated gap without an unrestricted extremum claim. No bundled script was executed; the proof is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary e23e9ffaf1ab bounds all hosts with at most four runs, gives the exact four-run subcase and classifies all maximizers.",
+          "Borchert–Rampersad's unrestricted benchmark is presented as conjectural; Guo–Shallit–Shur Proposition 5 characterizes individual words, not an extremal factor census in a host."
+        ],
+        "reasoning": "The indexed theorem directly supplies the exact subcase rather than merely a bound for a larger set. The earlier literature passages alone do not supply it.",
+        "searches": [
+          "Resultary: broader run-constrained formulas and three-run benchmark",
+          "Borchert–Rampersad arXiv:1509.05396v1, Section 4; Guo–Shallit–Shur arXiv:1503.09112v1, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary e23e9ffaf1ab",
+        "arXiv:1509.05396v1",
+        "arXiv:1503.09112v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem gives the benchmark 1+floor((n+1)^2/3) attained using at most three runs and all four-run extremizers for n>=8.",
+          "Borchert–Rampersad Lemma 13 supplies membership for at most three runs; Proposition 5 of Guo–Shallit–Shur supplies membership by conjugacy to reversal."
+        ],
+        "reasoning": "Subtracting the indexed exact maxima gives the stated gap. The assigned four-run witness quadruples meet the indexed equality criteria. Membership criteria alone do not establish the optimization.",
+        "searches": [
+          "Resultary e23e9ffaf1ab, Finding and exact run-count proof",
+          "arXiv:1509.05396v1, Section 4 and Lemma 13; arXiv:1503.09112v1, Proposition 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e23e9ffaf1ab, Finding: M4(n)=floor((n^2+n+10)/3) for n>=8 with the same binary linear factors and empty word convention."
+        ],
+        "reasoning": "Since n^2+n is 0 or 2 modulo 3, its displayed floor equals ceil((n^2+n+9)/3) at every claimed length.",
+        "searches": [
+          "Resultary: four-run binary palindrome-pair maximum; exact ceiling formula and equivalent floor formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed piecewise table gives 8,12,16,21 at n=4,5,6,7 and the general expression at all n>=8."
+        ],
+        "reasoning": "This is not an extrapolation from a table of finite values; the exact all-length expression is present as a theorem.",
+        "searches": [
+          "Resultary: displayed quadratic ceiling, four-run values and Borchert–Rampersad three-run benchmark"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary theorem expressly covers the exact four-run maximum for n>=8, the three-run benchmark, and hence their gap. It also classifies all maximizing quadruples and handles n=4,5,6,7. The catalogue paths differ; that establishes distinct documents, not authorship, priority, or independent discovery. The failure is for demonstrated equivalent coverage, not a chronology inference.",
+      "residual_risks": [
+        "The relationship and priority between the assigned and distinct indexed records are undetermined; path dates alone do not establish them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent and stronger coverage",
+          "evidence": "Same conventions; exact floor formula for n>=8, full optimizer conditions, smaller lengths and three-run attainment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-palindrome-pair-factor-bounds-for-four-run-binary-words--e23e9ffaf1ab/RESULT.md",
+          "material_read": "Finding, assumptions, and relevant run counting and optimization passages (offsets 0, 2500, 5900)",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp palindrome-pair factor bounds for four-run binary words",
+          "trigger": "Exact and broader Resultary hit"
+        },
+        {
+          "assessment": "Partial overlap: benchmark conjecture and three-run membership",
+          "evidence": "Section 4 explicitly describes the evidence as computational conjecture and lists three-run candidates; Lemma 13 proves at-most-three-block membership.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.05396v1",
+          "material_read": "Section 4, pp. 4–5; Lemma 13, p. 6",
+          "method": "OA full-text passages",
+          "title": "Words with many palindrome pair factors",
+          "trigger": "Same extremal factor-count objective and three-run benchmark"
+        },
+        {
+          "assessment": "Membership connection, not the requested extremum",
+          "evidence": "A word is a product of two palindromes iff it is conjugate to its reversal; this is not a distinct-factor maximum in a fixed host.",
+          "identifier_or_url": "https://arxiv.org/pdf/1503.09112v1",
+          "material_read": "Section 3 overview and Proposition 5, p. 5",
+          "method": "OA full-text passages",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "General palindrome-pair criterion and enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The run-constrained extremum is a natural boundary for the unrestricted palindrome-pair factor problem, but the frozen record supplies no additional exact fact beyond the indexed stronger theorem. Its explicit witnesses are instances of that theorem's full equality characterization.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

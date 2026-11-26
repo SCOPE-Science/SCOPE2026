@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:49:43.082027Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p_i>0 summing to one, ∑ᵢⱼpᵢpⱼaᵢⱼ=(1−e)+(e/s₂)∑pᵢ²=1 and the given closed e-interval is exactly entrywise admissibility. Dividing by c and conjugating with diag(√p) yields the symmetric nonnegative S(e)=uuᵀ+eB, u_i=√p_i, B=D/s₂−uuᵀ. Its Perron root is the largest algebraic eigenvalue even at the closed endpoints. The unit trial vector u has constant Rayleigh quotient one; at e≠0 it is a top eigenvector only if Bu=0, equivalently all p_i=s₂. For equal p, S(e)=uuᵀ+e(I−uuᵀ) and the top eigenvalue stays one. In the unequal case the unique minimum and convexity imply strict one-sided monotonicity; simple-eigenvalue perturbation at e=0 gives curvature coefficient ||Bu||²=s₃/s₂²−1>0, since the spectral gap is one and uᵀBu=0. On {u,w=Bu/√v}, the exact compression has diagonal (1,et) and off-diagonal e√v, with t=wᵀDw/s₂ equal to the displayed moment ratio. This gives the lower envelope. If the shares take two values, the span consists of class-constant functions after division by u, so Perron symmetry puts a leading vector in the span for e<1 (strictly positive off-diagonals), and at e=1 the vector on any largest-share class suffices. Conversely, a top Ritz vector at e≠0 must have a nonzero w coefficient and satisfy Dx in the span; divided by u this forces a genuinely quadratic polynomial to agree with a linear polynomial at every distinct share, impossible for three or more shares. With uniform shares the envelope formula is undefined rather than an extra equality case; with e=0 equality is automatic for all unequal shares. The exact two-group radicals and the resulting strict threshold comparisons agree. Sharpness is attainment by the stated equality class and not a claim of pointwise optimization over every fixed feasible moment triple. All conclusions are for the stipulated deterministic reduced matrix, not sparse finite-network outbreak probabilities or an intervention recommendation.",
+      "replay": "Independent exact reconstruction in /tmp/opencode/frozen_1_to_5_math_replay.py, section 1, recomputes the two-share compression and both radical eigenvalues. The arbitrary finite-m and continuous-parameter claims follow from the analytic argument, not the supplied numerical verifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 39303f706ba1 optimizes over all reciprocal nonnegative matrices with fixed two-valued row totals, yielding a bound L(t_*) at the largest feasible cross-class flux t_*; its actual class compression in §2 bounds at the realized flux t. For the present family with two share classes of total weights P and Q, the normalized realized flux is (1−e)PQ, so that two-class Ritz calculation is indeed shared.",
+          "The earlier fixed-degree planted-partition models and the theorem of 39303f706ba1 do not quantify over three or more distinct row totals or give the residual quadratic identity ruling out equality there. Hill–Glasser–Feng was identified as a possible mixing-monotonicity comparison, but its substantive passages were not retrieved."
+        ],
+        "reasoning": "Optimizing flux with prescribed totals is a different feasible set from varying e at one overall budget; the row totals here themselves vary with e. More broadly, a Rayleigh quotient of the weighted constant gives the plain constant-budget lower bound for every reciprocal matrix; that theorem does not supply the specific higher-moment envelope or its equality criterion.",
+        "searches": [
+          "Resultary 39303f706ba1 mirrored RESULT.md §§1–3 of proof, offsets 0–4821",
+          "Hill–Glasser–Feng doi:10.1007/s00285-023-01886-9; lawful PMC, Springer and Europe PMC attempts",
+          "Gupta–Landry arXiv:2605.12773v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.12773v1 §II.C.2",
+        "doi:10.1103/PhysRevE.108.034311 §II.C",
+        "Resultary 39303f706ba1 and 93114c418fa5",
+        "doi:10.1007/s00285-023-01886-9 (full text not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed budget gives a constant trial Rayleigh quotient, and generic Ritz theory gives a compression inequality once a subspace is chosen; both ingredients are prior. The inspected two-rate theorem supplies a related exact class compression and rigidity under a different optimization.",
+          "The proof for three or more share values needs the explicit compression on {u,Bu}, its s₄ contribution, and the argument that a saturating Ritz vector forces a nonzero quadratic on the support of the shares. The prior two-rate formula cannot supply this necessity at more than two distinct shares."
+        ],
+        "reasoning": "Credit the two-community corollaries, related two-rate lumping, and variational method. The quantitative arbitrary-share extension and the exact support-size obstruction are what the assessment deems distinct, not spectral sensitivity of the reproduction number itself.",
+        "searches": [
+          "arXiv:2605.12773v1 Eq. (32)",
+          "Resultary 39303f706ba1 §§2–3 of proof",
+          "Landry–Restrepo doi:10.1103/PhysRevE.108.034311 Eqs. (1)–(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gupta–Landry use α=(1−s₂)/s₂ for two shares; 1+αe=1−e+e/s₂ is exactly the within-community factor, and Eq. (32) supplies the same two-group spectrum with equal biological products.",
+          "Detailed-balance conjugation is equivalent to testing the reciprocal operator in its population-weighted inner product. The constant function and its degree-centered image give the two-dimensional Ritz space; the equal-share case is a class lumping."
+        ],
+        "reasoning": "Two communities and a fixed global budget are not novel; the exact two-group example is a specialization of prior spectral formulas, not the independent contribution. Under multiple distinct shares the row degrees vary with e, and the moment envelope is a compression onto an affine function of share, not a two-class aggregation for arbitrary shares.",
+        "searches": [
+          "Gupta–Landry arXiv:2605.12773v1 §II.C.2, Eqs. (28)–(32)",
+          "Landry–Restrepo doi:10.1103/PhysRevE.108.034311 §II.C",
+          "Resultary local semantic search for fixed-budget epidemic threshold, community moments and two-class compression"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct threshold entry, 2026/10/18/SCOPE-exact-sharp-epidemic-threshold-and-optimizer-rigidity-for-two-co--39303f706ba1, gives an exact minimum indexed by two fixed rates and budgets, not by s₂,s₃,s₄ for arbitrary-valued shares.",
+          "The distinct same-date 2026/11/22/SCOPE-a-convex-commuting-invasion-barrier-and-an-exact-reentrant-windo--93114c418fa5 concerns discrete-time SIS two-city commuting at a fixed information equilibrium. Its convexity and interval theorem applies to different matrices and variables."
+        ],
+        "reasoning": "The exact two-community eigenvalue family is covered algebraically by Gupta–Landry, regardless of whether the worked numeric settings are tabulated. No checked distinct catalogue statement covers the full moment formula and equality classification. The shared date of a nearby result does not establish priority.",
+        "searches": [
+          "Local Resultary semantic lookup for an exact population-moment threshold and optimizer rigidity",
+          "Resultary 39303f706ba1 and 93114c418fa5 theorem statements",
+          "Gupta–Landry §II.C.2 two-community formula"
+        ]
+      },
+      "rationale": "The two-community normalization and reproduction-number formula are already in Gupta–Landry; their equal-product specialization implies the two-community minimization. The weighted Rayleigh budget bound itself is elementary. A notably close Resultary two-rate theorem already develops the same two-class compression idea for reciprocal matrices at prescribed class row rates. The supported distinct result is the arbitrary-finite-share quantitative law along the fixed-global-budget affine family, especially the explicit (s₂,s₃,s₄) envelope and the strict necessity of at most two share values for equality at nonzero e. Neither the general variational machinery nor the inspected close statements settle this multi-valued moment and equality claim; best-of-knowledge only.",
+      "residual_risks": [
+        "An equivalent Ritz or moment bound may appear under rank-one perturbations, reversible matrix inequalities, or epidemic model mixing; this was a focused, not exhaustive, check.",
+        "Hill–Glasser–Feng was not independently read in full, and only the inspected sections support the comparisons above. No claim of comprehensive historical priority or empirical applicability follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same two-community intensity family and spectrum when biological products agree; does not give the checked arbitrary-share envelope in those passages.",
+          "evidence": [
+            "The unequal community normalization uses α=[1−(r²+(1−r)²)]/[r²+(1−r)²]; Eqs. (31)–(32) give the corresponding invasion expression."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.12773v1",
+          "material_read": "PDF §II.C.2 pp. 5–6, Eqs. (28)–(32), around offsets 38759–47012; earlier balanced setup near offset 34300",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "The interplay of network structure and correlated infectious traits in epidemic models",
+          "trigger": "Exact two-community budget and next-generation matrix"
+        },
+        {
+          "assessment": "Pre-existing fixed mean-degree/count normalization; hypergraph SIS/opinion problem rather than this moment envelope.",
+          "evidence": [
+            "The text varies community structure while holding the total expected hyperedge count in Eq. (3) constant."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.034311",
+          "material_read": "OA PDF §II.C, Eqs. (1)–(3), offsets approximately 9500–16646",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "Opinion disparity in hypergraphs with community structure",
+          "trigger": "Fixed budget planted-partition normalization precedent"
+        },
+        {
+          "assessment": "Significant overlap in weighted two-class compression; optimizing cross-class flux at fixed two-class degrees does not cover the new formula and strictness for three or more share values.",
+          "evidence": [
+            "Fixed row totals a,b and reciprocity; upper feasible flux t_*=min(Pa,Qb); the lower compression matrix at realized t is H(t)=[[a−t/P,t/√(PQ)],[t/√(PQ),b−t/Q]]. Equality at the optimum requires prescribed constant cross-class row sums."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-sharp-epidemic-threshold-and-optimizer-rigidity-for-two-co--39303f706ba1",
+          "material_read": "Mirrored RESULT.md offsets 0–4821, theorem, weighted similarity, compression H(t), monotonicity and start of construction",
+          "method": "Local Resultary search and mirrored statement comparison",
+          "title": "Exact sharp epidemic threshold and optimizer rigidity for two contact-rate classes",
+          "trigger": "Closest distinct overlapping reciprocal compression and equality result"
+        },
+        {
+          "assessment": "Distinct SIS commuting model at fixed information equilibrium; does not supply the affine reciprocal moment compression.",
+          "evidence": [
+            "Treats convexity and a reentrant window in a two-city commuting map rather than arbitrary finite planted-partition shares."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-convex-commuting-invasion-barrier-and-an-exact-reentrant-windo--93114c418fa5",
+          "material_read": "Mirrored RESULT.md theorem and model",
+          "method": "Local Resultary search and mirrored statement comparison",
+          "title": "A convex commuting invasion barrier and an exact reentrant window",
+          "trigger": "Nearby same-date spectral mixing and threshold result"
+        },
+        {
+          "assessment": "The frozen record describes a fixed-per-group-activity comparison, but that characterization was not independently verified and no negative whole-paper claim is made.",
+          "evidence": [
+            "The cited article is relevant to mixing and control thresholds; retrieval did not yield its theorem for direct comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01886-9",
+          "material_read": "Citation and publisher/PMC retrieval responses only; no substantive primary full text read",
+          "method": "Lawful open-access requests via PMC, Springer and Europe PMC; no usable result passage obtained",
+          "title": "Implications for infectious disease models of heterogeneous mixing on control thresholds",
+          "trigger": "Potentially broader results on mixing and reproduction numbers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing population-wide activity is a natural comparison in the stated model and is not equivalent to fixing each community's degree. The elementary lower bound alone would have limited value. The small set of population moments instead yields a quantitative bound away from proportional mixing and an exact structural test for when it loses no information. Distinguishing the two-share configurations from all multi-valued ones is a useful sharp result beyond a two-group computation, while the model's deterministic scope limits extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-block event has probability \(6/[n(n-1)]\) for each specified value triplet. The three classes of pairs of triplets have exact probabilities derived from block contractions; their summed overlap is \(O(n^{-2})\), establishing rarity and asymptotic uniqueness. Given one event, its six internal orders are independent of the contracted uniform permutation. Mixed factorial moments of nonboundary positive and negative adjacencies converge to those of two independent mean-one Poisson variables. The boundary error is uniformly \(O(n^{-1})\). Transferring from a specified block to the union event introduces only a relative \(O(n^{-1})\) error on bounded test functions. Exhaustive exact-rational checks support all finite combinatorial steps. A proof, not finite computation, supplies the limit.
+## correctness
 
-## Originality — PASS, with historical priority risk
-Corteel–Louchard–Pemantle (2006), particularly Section 2, gives the unconditional Poisson limit for common adjacencies and separate exact/asymptotic information about the *number* of three-label common intervals. Xu–Alain–Sankoff (2008) establishes marginal Poisson adjacency laws and their use for genomic testing. Neither the inspected Section 2 of the first article nor the accessible substantive sections of the second establishes a conditional joint signed adjacency limit when at least one rare three-block occurs. The result is not implied by their marginal limits or triplet expectations: conditioning on an event of probability \(\Theta(n^{-1})\) can change the limit while leaving all unconditional limits untouched. Relevant semantic database searches did not reveal the same theorem. Historical equivalent formulations, especially within older runs/genome literature, remain a bounded priority risk; a failed search alone is not evidence of uniqueness.
+PASS
 
-## Value — PASS
-An observed conserved three-gene block necessarily forces at least one common adjacency, and its internal orientation creates one of four dependent signed marks. Using an unconditional Poisson baseline after selecting for a common three-block therefore miscalibrates the count distribution. The full conditional marked law gives a natural asymptotic null model for such selected comparisons, distinguishing increasing/decreasing orientations; this is an exact structural relationship, rather than recomputing a known marginal or selecting arbitrary numerical parameters.
+A specified unordered consecutive-label triple contracts to one object with six internal orders, giving 6/[n(n-1)]. At label offsets 1 and 2 the triple windows overlap in two and one positions; allocating shared labels to the overlap gives 4 and 8 orders of their union, respectively. Disjoint triples contract separately with 36 internal choices. Summing the resulting intersections gives O(n^(-2)), so Bonferroni yields P(E_n)=6/n+O(n^(-2)) and asymptotic uniqueness. Given a specified triple, the block order is uniform and independent of the contracted permutation; its successive differences give exactly the four stated marks. At most two original consecutive-value edges cross the block boundary, each requiring an outside label to neighbor the contracted block and hence having probability O(1/n) uniformly. Each feasible assignment of ell fixed directed singleton edges contracts to directed runs of the value paths, with probability 1/(n-2)_ell; contradictory choices, including both signs of the same edge, have probability zero. Disjoint-label ordered selections give n^ell+O(n^(ell-1)) choices, all overlapping selections O(n^(ell-1)). Each mixed factorial moment tends to 1 uniformly in the triple. Tightness and moment identification (the product Poisson law has exponential moments) give the asserted external joint limit, independent of the internal mark. Replacing the union indicator by the sum of marked indicators costs at most the pair intersection sum on bounded tests, or O(1/n) after conditioning. Adding the components gives the claimed shifted Poisson(2) law and fixed-k probabilities. The exact signed means have internal contribution 2/3, one contribution 1/(n-2) per external singleton edge and 1/[3(n-2)] per boundary edge. Independent positional-window enumeration over all 46,230 permutations for n=3, through 8 verified single and pair counts, all internal marks and both signed conditional means; replay: python3 /workspace/branches/reproduce_records_1_to_4.py. Frozen verification, source code and same-model review were inspected, not treated as independent evidence. The enumeration is only a finite check of the analytic proof.
 
-## Scope and limitations
-Only independent uniform linear gene-order permutations are covered, with the first order normalized to identity. The event is rare, asymptotic to \(6/n\). No evolutionary mechanism, explicit total-variation convergence rate, or signed/circular extension is claimed. Finite checking does not replace the proof. No independent audit has been performed.
+## originality
 
-## Primary literature
-- S. Corteel, G. Louchard, R. Pemantle, *Common Intervals in Permutations*, DMTCS 8 (2006), 189–214, https://doi.org/10.46298/dmtcs.362.
-- W. Xu, B. Alain, D. Sankoff, *Poisson adjacency distributions in genome comparison*, Bioinformatics 24 (2008), i146–i152, https://doi.org/10.1093/bioinformatics/btn295.
-- F. de Montgolfier, M. Raffinot, I. Rusu, *Easy Identification of Generalized Common and Conserved Nested Intervals*, J. Comput. Biol. 21 (2014), 520–533, https://doi.org/10.1089/cmb.2013.0146 (background on interval definitions and detection rather than probability).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge pass for the rare-event conditional joint law, not for ordinary adjacency limits, overlap enumeration or Poisson factorial-moment technique. The retrieved marginal results neither state nor determine the mark. The closest common-interval primary passage could not be independently retrieved; this leaves a specific priority risk, not a result about the whole paper.
+
+## value
+
+PASS
+
+Selecting comparisons by a shared three-marker block changes the null law nontrivially: a particular direction-correlated mark cannot be approximated by reusing the unconditional Poisson(2) model. The joint law quantifies this selection effect for the natural uniform-permutation null model, with no claim about evolutionary sampling or a finite-size rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

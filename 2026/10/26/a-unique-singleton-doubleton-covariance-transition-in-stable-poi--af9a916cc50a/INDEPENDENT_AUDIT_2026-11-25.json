@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:02:12.402980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions, Proof, Verification; VERIFICATION.md; verify.py",
+        "/workspace/branches/replay_three.py"
+      ],
+      "rationale": "For prescribed blocks of total size s and count k, once seated the marked blocks stay unchanged at step m with probability (m-s+kα)/m. Applying this to (s,k)=(1,1),(2,1),(3,2) and multiplying by the number of disjoint placements gives all three moments and the stated sign ratio. For n≥4 the factors (j+2α)/(j+α)^2 decrease strictly for j≥1, with decreasing leftover reciprocal factors; at n=3 the ratio is 2/[3α(1+α)]. The endpoint ratios straddle one. The sample-size quotient increases with α because n−3+2α is smaller than both denominator arguments n−2+α and n−1+α. Its numerator after subtracting 1 at α=2/5 has a positive factor 13n²−43n+24=(n−3)(13n−4)+12, so induction from α₃>2/5 gives strict ordering. Gamma-ratio cancellation gives αB(α,α)>1 at fixed α<1, implying αₙ→1. The log-ratio slope at α=1 telescopes to −1−1/(n−1), its second derivative is uniformly bounded by reciprocal-square sums near 1, and its value at 1 is log(1−2/n). The mean value theorem gives the stated scaling. Independent EPPF enumeration reproduced the moments for 35 exact parameter pairs and a symbolic check reproduced the quotient positivity identity; replay: python /workspace/branches/replay_three.py. Read but did not execute the frozen verifier; its numerical n-values up to 1000 are selected samples, not the proof of ordering.",
+      "residual_risks": [
+        "Unconditional moments only; other block sizes and nonzero strength are not proved.",
+        "α=1 is a limit of the ratio, not a nondegenerate covariance comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equation (4.16) is the general two-parameter joint count law; Theorem 4.2 gives large-n behavior of normalized frequency counts for a fixed model."
+        ],
+        "reasoning": "The larger model supplies the initial moments, but the fixed-parameter limit does not imply finite-n uniqueness, strict ordering, or a moving-parameter root near α=1.",
+        "searches": [
+          "Maller–Shemehsavar arXiv:2309.00815v1 §4.2, Theorem 4.2, Eq. (4.16)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.00815v1 §4.2",
+        "Resultary record ending 5f1aa6cfc47a, RESULT.md",
+        "Targeted Resultary and web searches listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact moment ratio can be obtained from the sampling formula; strict monotonicity in α, the sample-size quotient comparison, and uniform control of the log-ratio slope as α→1 are separate comparisons.",
+          "The θ>1 local theorem does not specialize at θ=0."
+        ],
+        "reasoning": "Prior general methods recover the inputs to the result, not mechanically its sign geometry or singular boundary.",
+        "searches": [
+          "Comparison of Pitman's joint sampling formula as quoted in arXiv:2309.00815v1 Eq. (4.16) and the frozen log-ratio proof",
+          "Comparison with Resultary record ending 5f1aa6cfc47a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the frequency-of-frequencies formulation, the sign change is the unique intersection of the mixed first factorial moment and the product of the means, both strictly positive in the interior."
+        ],
+        "reasoning": "The exchangeable restaurant, stable partition and Poisson–Dirichlet count descriptions give the same statistic; no inspected comparator in those formulations gives the full sign theorem.",
+        "searches": [
+          "Resultary: PD(alpha,0) singleton doubleton covariance threshold unique zero",
+          "Resultary: n(1-alpha_n) -> 2 singleton doubleton Poisson Dirichlet covariance",
+          "Web: “Poisson-Dirichlet” singleton doubleton covariance threshold unique zero discount"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct Resultary record 2026/10/26/SCOPE-a-quadratic-discount-window-reverses-singleton-doubleton-covaria--5f1aa6cfc47a gives n²α₍*,ₙ₎(θ)→2θ(θ−1) at fixed θ>1, near α=0, with the reverse sign direction; its prior-work discussion refers to a distinct θ=0 calculation near α=1."
+        ],
+        "reasoning": "The same-date finding has a different parameter regime and only a local transition with different scaling. Its acknowledgement of the other regime is not a stronger theorem covering the assigned global zero and nesting; the calendar date establishes no priority.",
+        "searches": [
+          "Resultary: A unique singleton–doubleton covariance transition in stable Poisson–Dirichlet partitions",
+          "Resultary: n(1-alpha_n) -> 2 singleton doubleton Poisson Dirichlet covariance"
+        ]
+      },
+      "rationale": "Credit the known frequency-count law and its specialization to mixed block moments. The supported distinct contribution is the global one-zero sign theorem, strict nesting in sample size and near-one moving-discount scale, not the discovery of the joint law or of the three moments.",
+      "residual_risks": [
+        "An earlier or unindexed explicit sign analysis may exist; no historical priority is established.",
+        "The same-date cross-reference does not identify the earlier θ=0 calculation by record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the underlying joint law, not the assessed sign theorem",
+          "evidence": [
+            "Equation (4.16) quotes Pitman's joint count distribution with attribution to Pitman–Yor (1997), §A.2, p. 896; Theorem 4.2 is a large-n normalized distribution result without moving α."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.00815v1",
+          "material_read": "p. 14, §4.2 Theorem 4.2 and Eq. (4.16), text offsets 47000–51482",
+          "method": "OA versioned primary PDF passage",
+          "title": "Limiting Behaviour of Poisson-Dirichlet and Generalised Poisson-Dirichlet Distributions",
+          "trigger": "Same count vector and broader two-parameter PD family"
+        },
+        {
+          "assessment": "Related but no equivalent or dominating claim in inspected material",
+          "evidence": [
+            "θ>1 fixed; local root near α=0 with n⁻² scaling and negative-to-positive sign. The comparison mentions the separate θ=0 near-one regime."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-quadratic-discount-window-reverses-singleton-doubleton-covaria--5f1aa6cfc47a",
+          "material_read": "RESULT.md finding, proof and comparison, text offsets 0–4090 and 4070–8016",
+          "method": "Published local mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A quadratic discount window reverses singleton–doubleton covariance",
+          "trigger": "Closest distinct Resultary finding with the same covariance counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Maller–Shemehsavar §4.2 for the frequency-count setting"
+      ],
+      "rationale": "Singletons and doubletons are the first two frequency-of-frequencies counts. The theorem tells precisely when the direction of their dependence reverses without changing the sampling model, establishes that the negative-covariance window strictly shrinks, and fixes its scale where fixed-discount asymptotics do not decide the sign. This is a natural all-n comparison, not a numerical root at a selected n.",
+      "residual_risks": [
+        "No implications are claimed for estimator optimality or for general partition-count dependence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

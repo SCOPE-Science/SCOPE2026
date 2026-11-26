@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:48:12.526726Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 7–61 and 67–121",
+        "VERIFICATION.md, verify.py and verification_output.txt",
+        "Arratia–Goldstein–Gordon, DOI 10.1214/aop/1176991491, §2 Theorem 2"
+      ],
+      "rationale": "The exact path identity is 2N−T=X₁+Xₙ+2Z, with Z the sum of neighboring occupancy minima. The difference between the adjacency-pair count W and Z is a nonnegative integer bounded by the sum of the two ordered-triple counts across each edge. Their factorial moments are (N)₃/n³ apiece. Thus the mismatch probability between the joint statistics (C,2N−T) and (C,2W) is at most 2N/n+2(n−1)(N)₃/n³ under the sampling coupling. For the two-color process, an index is independent of the entire outside family when the observation pairs are disjoint. Each observation pair meets 2N−3 pairs including itself and 2(N−2) other pairs. Conditional on the shared observation's label, the support size for a same-or-adjacent mark is 2 at either end and 3 in the interior. Its first and second moments give qₙ and sₙ, including for n=2; different colors on the same pair are mutually exclusive. AGG Theorem 2 in event-supremum TV gives the claimed 2(b₁+b₂) with b₃=0. Summing by color and doubling the second count contract TV. The error O(N/n+N³/n²) tends to zero in the stated range; vanishing, finite positive and diverging Poisson means give the three phases, with common deterministic standardization for the Gaussian comparison. Zero defect requires empty endpoints and separated occupied interior sites. Removing the mandatory gaps counts these sites by the stated binomial, and counting labeled surjections yields the two exact formulas. They concern attainment of the ceiling 2N (unattainable at n=2), not the actual largest attainable value at n=2. Inspected the frozen checker and recorded evidence without executing it: exact identities and extremal counts are checked in finite cases, the displayed joint TV bound is capped at 1 on that enumerative grid, and the simulations are diagnostic only. The nonvacuous estimate follows from the proof.",
+      "residual_risks": [
+        "No claim at the n^(2/3) boundary or about sharpness of the error bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AGG gives a Poisson process approximation and its finite grouped-count contraction, sufficient for the marked pair portion given the explicit overlap inputs.",
+          "The Comb follow-ups examined concern moment results and distinguish fixed-bin asymptotics from a separately mentioned fixed-N sparse regime."
+        ],
+        "reasoning": "AGG alone does not identify the ordered variation defect with an approximately doubled pair statistic or count the zero-defect event; those steps are model-specific.",
+        "searches": [
+          "DOI 10.1214/aop/1176991491, §2 Theorem 2",
+          "arXiv:2610.13366 and arXiv:2610.17046, uniform-null expectation and variance regimes"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary record fd1f3a6c86d1",
+        "arXiv:2606.01465, 2610.13366, 2610.17046",
+        "DOI 10.1214/aop/1176991491"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent Poisson counts for disjoint colors are a direct grouped-process application; the boundary and repeated-site errors are not general AGG terms.",
+          "Dropping an edge from a cycle changes the defect; it still does not add the ordinary collision law or its joint error. The indexed cyclic record is also dated later than this source."
+        ],
+        "reasoning": "Credit the general theorem and standard counting inputs; the residual theorem is the explicit quantitative simultaneous path application.",
+        "searches": [
+          "AGG §2 Theorem 2 compared with RESULT.md lines 69–121",
+          "fd1f3a6c86d1 compared with the endpoint and collision terms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Comb Test, p. 1, uses the same discrete variation and describes an exact null dynamic program.",
+          "The cyclic result replaces the path by a cycle and has no ordinary collision coordinate. Neither deleting an arbitrary edge nor marginalizing provides the stated joint law."
+        ],
+        "reasoning": "Exact computation of the marginal law and a univariate analogue are not equivalent to a quantitative joint limit or to the stated closed counts.",
+        "searches": [
+          "Local Resultary: ordered-histogram variation/roughness, birthday saturation and occupancy collisions; matching record fd1f3a6c86d1",
+          "arXiv:2606.01465, arXiv:2610.13366, arXiv:2610.17046"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed cyclic analogue gives a Stirling sum over independent sets of a cycle and a cyclic saturation law, not the interior-path count or the zero-collision specialization.",
+          "The exact marginal dynamic program does not itself furnish the closed extremal formulas or the joint extreme event."
+        ],
+        "reasoning": "No covering exact formula or table was located in the examined material; an algorithm for the marginal null law is already known.",
+        "searches": [
+          "Local Resultary finding fd1f3a6c86d1, RESULT.md offsets 150–4509",
+          "Comb Test, arXiv:2606.01465, exact-null computation"
+        ]
+      },
+      "rationale": "Pass for the path-specific joint collision/variation-defect estimate and closed extremal counts, not for the underlying Comb statistic, exact-null computation in general, or Poisson process theorem. The closest identified indexed analogue is cyclic and univariate, and does not give the path coupling or the joint distribution.",
+      "residual_risks": [
+        "The separate sparse analysis mentioned in Part 1 was not identified or retrieved. Unlocated equivalent results may exist; this is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general approximation and grouping, not histogram-specific reduction or exact counts",
+          "evidence": [
+            "Factor 2(b₁+b₂) in standard TV at b₃=0."
+          ],
+          "identifier_or_url": "https://dornsife.usc.edu/larry-goldstein/wp-content/uploads/sites/221/2023/06/AGG.pdf",
+          "material_read": "Section 2, Theorem 2, printed pp. 11–12",
+          "method": "Lawful authors’ PDF, bounded text passage near offset 7600",
+          "title": "Two Moments Suffice for Poisson Approximations: The Chen–Stein Method",
+          "trigger": "General marked-process implication and normalization"
+        },
+        {
+          "assessment": "Prior coverage of the statistic and exact computation, not evidence of a covering joint law",
+          "evidence": [
+            "Exact marginal null via dynamic programming."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.01465",
+          "material_read": "v2, p. 1, statistic and exact-null discussion",
+          "method": "Bounded OA PDF passage",
+          "title": "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation",
+          "trigger": "Identical statistic and exact finite null law"
+        },
+        {
+          "assessment": "Mean-focused; separately mentioned sparse analysis is an unresolved lead",
+          "evidence": [
+            "The identified complementary sparse regime keeps N fixed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13366",
+          "material_read": "v1 pp. 1, 3, regime comparison including offset 11154",
+          "method": "Bounded OA PDF passages",
+          "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+          "trigger": "Same model and announced sparse work"
+        },
+        {
+          "assessment": "Identified variance regime is not simultaneous growing sparse bins and sample",
+          "evidence": [
+            "Fixed n and large N variance asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17046v1",
+          "material_read": "v1 p. 1",
+          "method": "Bounded OA PDF passage",
+          "title": "Discrete total variation under the multinomial, Part 2: variance under the uniform null",
+          "trigger": "Variance/asymptotics for the identical statistic"
+        },
+        {
+          "assessment": "Cyclic univariate analogue; later record date",
+          "evidence": [
+            "Cyclic independent sets, univariate Poisson saturation and birthday/Gaussian phases."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-birthday-scale-poisson-law-and-exact-saturation-count-for-cycl--fd1f3a6c86d1",
+          "material_read": "RESULT.md offsets 150–4509",
+          "method": "Local Resultary mirror",
+          "title": "A birthday-scale Poisson law and exact saturation count for cyclic histogram variation",
+          "trigger": "Closest indexed analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, joint bound, phases and exact probabilities",
+        "Comb Test, arXiv:2606.01465"
+      ],
+      "rationale": "The theorem calibrates a naturally used histogram statistic in a regime different from large samples on a fixed grid. The joint estimate shows that coincidences and neighbor interactions behave independently even though they use the same sample; its error gives a usable simultaneous range and also transfers the independent Gaussian phase. The endpoint-aware exact formula gives a finite check for zero defect. This is more than a rephrasing of a marginal birthday approximation.",
+      "residual_risks": [
+        "Value is in null behavior, not a claim about test power or a sharp sparsity threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

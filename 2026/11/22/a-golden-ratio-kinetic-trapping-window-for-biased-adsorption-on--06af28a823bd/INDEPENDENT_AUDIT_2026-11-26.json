@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:30:34.748343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–60",
+        "VERIFICATION.md, verify_exact.py and verify_symbolic.py (inspected, not executed)",
+        "Independent symbolic enumeration by ordered triangle: python /workspace/review_checks.py, check adsorption"
+      ],
+      "rationale": "The first two occupied pairs share a point. Their only possible third moves are the unique edge closing their triangle or an extension of the common-point star; the former jams, the latter permanently blocks closure. Independent exponential races can be restarted on the surviving eligible set by memorylessness. As a separate check, summing over the six orders per underlying triangle, and distinguishing triangles with and without the marked point, reproduces the exact finite law for symbolic N,w and yields p_N(1)=1/(N−2). At w/N→c>0 finite only the first ordinary edge followed by the two marked closure edges contributes to the limit; the first-marked terms vanish. The probability tends to zero at either ratio endpoint (0 or ∞) directly from the race bounds. The occupancy law converges weakly to the stated Bernoulli mixture, with Var(X)/N² converging to f(c)(1−f(c)). The derivative numerator 1+c−c² has a single positive root φ giving f(φ)=φ⁻⁵. Continuity and strict separation from the two boundary values ensure interior finite-size maxima for sufficiently large N; every subsequential optimizer ratio stays away from both endpoints and any accumulation point must maximize f, so every optimizer ratio converges to φ.",
+      "residual_risks": [
+        "'Only scale' means w_N=Θ(N) for a sequence with a positive limiting trapping probability, not necessarily convergence of w_N/N. The variance sentence concerns unnormalized X divided in variance by N², equivalently Var(X/N)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pippenger and Evans supply graph RSA frameworks; Krivelevich et al. Theorems 1.1–1.3 were reported in the frozen source audit as local-limit results with identically distributed priorities; the available comparison does not address a marked-rate family of diverging degrees. Frankl–Kupavskii is cited for deterministic intersecting families."
+        ],
+        "reasoning": "General exponential-race recursion specifies how to compute jamming probabilities, but the competing populations and surviving triangle routes as w and N jointly diverge still need evaluation. A greedy density law under locally finite convergence cannot simply be substituted into this dense Kneser problem.",
+        "searches": [
+          "Primary literature query: biased rank-two Kneser adsorption, maximal intersecting families and random greedy exclusion",
+          "10.1137/0402034; 10.1103/RevModPhys.65.1281; 10.1002/rsa.21200; 10.1016/j.ejc.2023.103885"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 06af28a823bd and 6f9dd0cb504c",
+        "10.1137/0402034, 10.1103/RevModPhys.65.1281, 10.1002/rsa.21200 and 10.1016/j.ejc.2023.103885 (scope and retrieval limitations above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-graph uniform race gives one scalar p_N(1) per system size. At w∼cN, the first ordinary pair has nontrivial probability and the two later marked acceptances form a route invisible in that uniform limit."
+        ],
+        "reasoning": "Uniform-order probability and terminal shape support do not determine how many marked pairs compete at the second and third steps, nor do they imply the positive mixture, variance amplification, or φ optimizer. The comparison is confined to available statements, not a negative finding about inaccessible full text.",
+        "searches": [
+          "Resultary 6f9dd0cb504c; local mirror lookup for its exact statement",
+          "10.1002/rsa.21200; 10.1137/0402034"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KG(N,2) is the complement of the line graph of K_N, so this is random greedy construction of a clique in the line graph (a maximal intersecting edge family in K_N). Random greedy matching in K_N instead accepts disjoint edges."
+        ],
+        "reasoning": "The clique formulation preserves the rates and outcome exactly; ordinary matching reverses the compatibility test and is not a prior solution. The deterministic intersecting-family classification gives possible outcomes, not their rate-dependent masses.",
+        "searches": [
+          "Resultary: random greedy intersecting families on KG(N,2)",
+          "Resultary: rate-biased random sequential adsorption on Kneser networks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact weighted match 06af28a823bd is the assigned record. The distinct same-day index 6f9dd0cb504c states full star or triangle, triangle probability 1/(N−2), order-N variance under uniform order, and also jam-time limits."
+        ],
+        "reasoning": "This is exact matching coverage of the w=1 component, regardless of chronological ordering. The available indexed statement fixes uniform order and does not report the exact p_N(w) or the marked-rate asymptotics.",
+        "searches": [
+          "Resultary: exact Kneser biased adsorption",
+          "Resultary: golden-ratio linear-rate scaling and terminal-jam probability"
+        ]
+      },
+      "rationale": "Credit the terminal geometries and the exact unbiased triangle/variance law as substantively shared with the distinct same-date rank-two Kneser result. Do not infer priority from the date or count those parts as novel. The supported distinct claim is the inhomogeneous-rate law, positive limiting triangle mass only at the linear bias scale, and the limiting optimum and optimizer convergence. The available same-model uniform result and the broader framework do not give that marked-rate result as stated.",
+      "residual_risks": [
+        "The exact same-day Kneser full result and several historical general RSA texts were not accessible; further weighted coverage is unresolved. An unproductive literature query is not evidence against it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unbiased overlap; no marked-rate statement in available evidence",
+          "evidence": [
+            "Uniform-order triangular jam 1/(N−2), otherwise full star, order-N variance; separate results for jamming times."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-scale-jamming-and-rare-maximality-failure-in-the-rank-two-kn--6f9dd0cb504c",
+          "material_read": "Indexed claim; full local mirror not recovered",
+          "method": "Resultary query and local-mirror attempt",
+          "title": "Two-scale jamming and rare maximality failure in the rank-two Kneser graph",
+          "trigger": "Same graph and same terminal observable in a distinct same-day record"
+        },
+        {
+          "assessment": "General framework; historical exact coverage unresolved",
+          "evidence": [
+            "Graph RSA and described high-girth/regular graph applications, rather than an available marked-rank-two formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Abstract-level scope documented by the frozen source audit; full text not independently retrieved",
+          "method": "OA retrieval attempt and source scope comparison",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Classical general graph RSA; potential stronger calculation"
+        },
+        {
+          "assessment": "Classical model background; whole-document coverage unresolved",
+          "evidence": [
+            "Frozen RESULT.md lines 66–77 identify the graph-adsorption framework as prior work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/RevModPhys.65.1281",
+          "material_read": "Reported bibliographic and abstract scope; decisive full-text passage unavailable",
+          "method": "Lawful OA attempt",
+          "title": "Random and cooperative sequential adsorption",
+          "trigger": "Historical RSA review with possible exact graph calculations"
+        },
+        {
+          "assessment": "Reported local-limit assumptions do not subsume this weighted dense sequence",
+          "evidence": [
+            "Locally convergent graph analyses and identically distributed priorities, as documented in the frozen audit."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.21200",
+          "material_read": "Frozen source's scope descriptions for Sections 1 and 1.1 and Theorems 1.1–1.3; independent full retrieval unavailable",
+          "method": "OA/Wiley attempt returned access failure",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "General greedy-independent-set result on graph sequences"
+        },
+        {
+          "assessment": "Structure is not a rate-dependent probability law",
+          "evidence": [
+            "Erdős–Ko–Rado/Hilton–Milner setting is deterministic, not an inhomogeneous arrival order."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2023.103885",
+          "material_read": "Indexed scope reported by the frozen source; full text unavailable in this review",
+          "method": "OA attempt and deterministic structure comparison",
+          "title": "Improved bounds on the maximum diversity of intersecting families",
+          "trigger": "Intersecting-family structural comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 16–33 and 54–60"
+      ],
+      "rationale": "For a canonical graph with two terminal sizes, a single marked-point rate turns a rare O(1/N) small jam into a positive-probability macroscopic alternative. The result isolates when that happens, supplies an optimal rate and explains the change from order-N to order-N² terminal fluctuations. The parameter scale is selected by competition between populations of edges, not chosen as an arbitrary slice.",
+      "residual_risks": [
+        "Terminal distribution only; no finite-time, higher-rank or general rate-profile result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

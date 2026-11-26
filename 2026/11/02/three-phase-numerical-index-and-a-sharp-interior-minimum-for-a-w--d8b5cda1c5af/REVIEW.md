@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For 1<r<3 the dual cube-hyperplane section has exactly twelve explicitly enumerated extreme functionals. The two exact functional decompositions give operator-norm domination constants K_L=(-r^2+5r-2)/(r+1) and K_H=min((3r-1)/(r(3-r)),3/r); two explicit rank-one maps attain each constant. Their comparison gives all three pieces, with direct endpoint arguments. The embedded rational checker verifies 359 distinct parameters, including both functional identities and sharp norm/radius witnesses; finite tests are corroboration rather than an infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The complete 2026 short-edge four-cycle theorem concerns r<=1 and expressly does not handle r>1; the complete published weighted-cycle numerical-index-one theorem determines only the qualitative equality n=1. The 2023 primary paper covers only two-dimensional three-point free spaces, and the transportation-quotient representation alone has no quantitative numerical-index conclusion. No materially implying statement was found in actual published-finding corpus searches and inspected relevant primary literature. Residual possibility of an unindexed equivalent earlier polyhedral calculation remains.
+PASS
 
-## Mathematical value — PASS
-Completes the natural one-edge deformation of a four-point cycle, revealing two exact active-facet transitions, an unexpected strict interior minimum 5/9 at r=5/3, and explicit extremal rank-one maps. Neither the threshold n=1 at r=1 and r=3 nor the previously known short-edge formula predicts this nonmonotone law. The index is a natural isometric Banach-space invariant, not an arbitrary statistic.
+Shortest paths express every normalized two-point molecule as a convex combination of signed edge molecules. The oriented cycle relation is the entire edge-flow kernel, giving the displayed weighted quotient and its dual box section. For 1<r<3 the box section's vertices bind three coordinates, giving the two stated patterns and their signs/permutations. Decomposing a norming pair in its two exposed faces proves the extreme-pair radius formula. The exceptional light normer decomposition costs K_L; for the heavy source the h_i decomposition costs L_H, while the cycle relation and the three light norming slices cost 3/r. All coefficients and normalizations in those identities agree. For y_L, the minimum at s=-a gives K_L; the v_1 normers evaluate to a,a,-1,1,1, with a in (0,1), and the other source slices contribute at most K_L/2<1 or zero. For y_H the minimum is at s=0, its heavy normers give 1,1,-1, and the vertex (1,1,-1,-1) or its negative witnesses the norm on each light slice. Thus the ratios are exactly K_L and min(L_H,3/r). The numerator of L_H-K_L over the positive common denominator factors as (r-1)^2(-r^2+6r-1); that of K_L-3/r as (3-r)(r^2-2r-1). L_H=3/r at 5/3. The first branch decreases and the last two increase, and the switch values agree. At r=1 all dual vertices saturate every molecule; at r=3 the metric is the path metric and the space is ell_1^3. An independent replay generated feasible box vertices by each omitted coordinate and all signed caps, and checked the two operator norms and radii by scaled integer evaluation for 615 distinct rationals of denominator at most 31. The packaged verify.py is a separate bounded rational witness check with its own vertex construction; read, not executed. Only the analytic argument covers the full real interval.
 
-## Closest literature and limitations
-The full short-edge four-cycle result and weighted-cycle rigidity result were inspected and their claims compared by logical implication, not only by title. The 2023 theorem on three-point spaces does not cover the dimension-three setting. The 2018 general polyhedral work was inspected only in part, so an unindexed broader theorem is a remaining risk. Only real four-point metrics with three equal edges are covered. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The short-edge calculation, index-one boundary characterization and geometric quotient are existing coverage. The distinct result is quantitative on 1<r<3: the three-branch formula, two switches, minimum and sharp interior rank-one witnesses. The cited public Resultary records establish public availability, not peer-reviewed status.
+
+## value
+
+PASS
+
+This completes the quantitative profile of a natural real free-space deformation with three fixed equal edges, continuing a known complementary branch and improving a qualitative index-one result. The sharp 5/9 minimum and changing controlling facet/rank-one witness are useful exact data about a natural isometry invariant, not incidental sample values. It does not classify all extremizing operators, arbitrary four-edge metrics, or complex spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

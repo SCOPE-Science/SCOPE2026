@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:10:11.920123Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§Assumptions and Proof",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/repairs/1/RESULT.md",
+        "/workspace/review_evidence/reproduce.py, cographs()"
+      ],
+      "rationale": "For disjoint union the closure test is componentwise; for a join, a selected nonclique on either side forces the other side to be selected in full. The four possibilities by clique status are disjoint, and every mixed induced path has both nonadjacent endpoints in one side. This proves the two-polynomial recursion in both directions, with the empty and singleton cases explicit. On a supplied binary cotree convolution and all coefficient work at child sizes a,b cost O(ab), since a+b≤2ab and completeness is propagated by flags. The sum of ab counts each pair at its lowest common ancestor. For the coefficient claim, universal extension is K_H+zF_H; the connected cases at order five therefore come from exactly the nine admissible four-vertex types with the listed degree keys. For disconnected graphs of order at most five at most one component can be noncomplete, and binomial factors preserve its known smaller-order unimodality by the two-step difference test. Anti-exchange extends from connected components because an obstruction cannot use two different components. Independent replay `python3 /workspace/review_evidence/reproduce.py 1` compared direct forbidden triples with cotree polynomial calculations on all 535 labelled cographs through order five, counted 462 labelled trivially perfect graphs, verified the nine table rows, and found only the five labellings of the star nonunimodal. The direct star coefficient and cutoff calculations are correct as background.",
+      "residual_risks": [
+        "The replay covers order at most five; the cotree argument proves the unbounded claim. The operation count assumes a supplied cotree and is not a bit-complexity estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2603.04706 p. 2 (offset 5000) uses every three-vertex path; Lemma 4 p. 6 counts star sets and Theorem 14 p. 15 counts all-path convex sets in threshold graphs. The cited induced hull-number full text could not be retrieved via the lawful DOI/OA route."
+        ],
+        "reasoning": "General bounded-width tractability is a plausible route to a counting algorithm, but no actual theorem was shown to give the explicit induced-convention cotree recurrence and its coefficient arithmetic bound. The scalar all-path threshold count neither imposes the same closure rule nor gives the induced rank coefficients.",
+        "searches": [
+          "All-path and induced-path convex set enumeration on cographs and bounded-width classes",
+          "Dourado–Grippo–Lin–Protti arXiv:2603.04706, Lemma 4 and Theorem 14",
+          "Dourado–Penso–Rautenbach DOI 10.1016/j.tcs.2022.01.004"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.05588v1",
+        "arXiv:2603.04706",
+        "Local Resultary af818a6c215c and 473be4ff33e8",
+        "Frozen RESULT.md and /workspace/repairs/1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In af818a6c215c a leaf sends (1,0,z); the bridge block sends (1,z,1+z). The center starts at (1,0,z); iterating the displayed vertex update gives (1,dz,z(1+z)^d), whose sum is the star formula."
+        ],
+        "reasoning": "The two convexity notions agree on stars because the neighbors of any one vertex are pairwise nonadjacent. The polynomial and its elementary cutoff inequalities are therefore a mechanical consequence of earlier counting, not a separate contribution. Neither this implication nor the scalar star total addresses whether other trivially perfect types at order five are nonunimodal.",
+        "searches": [
+          "October 13 Resultary af818a6c215c, Finding and Proof's vertex and block messages at offset 0 onward",
+          "arXiv:2603.04706 §P3-convex counting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gutiérrez–Protti–Tondato p. 3 (offset 6300) defines length-bounded induced paths, and the l₂ characterization is exactly the trivially perfect class on connected graphs. The frozen excluded-middle predicate is its length-two form."
+        ],
+        "reasoning": "The connected structure theorem is existing background, not an enumeration of all closed sets by cardinality. Its extension to disconnected components is routine and not claimed as new. All-path P3 uses a different predicate even at a triangle.",
+        "searches": [
+          "Local Resultary: induced three-vertex-path convexity rank polynomials and cograph cotree recurrences",
+          "Gutiérrez–Protti–Tondato arXiv:2203.05588v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 Finding states a complete multivariate all-path polynomial for all block graphs and explicitly includes bridge blocks. The distinct same-day circuit Finding likewise gives the weighted polynomial on connected block graphs. No earlier indexed coefficient-shape classification for all trivially perfect graphs through five vertices surfaced."
+        ],
+        "reasoning": "These broader block-graph results exactly cover the star size distribution despite the different path convention in graphs with triangles. The same-day record is compared by mathematical scope, without assuming order of publication. The star subfamily is not the whole trivially perfect class, and the indexed hits do not give the global uniqueness table.",
+        "searches": [
+          "Local Resultary: weighted or multivariate P3-convexity polynomial, block graphs, stars, nonunimodality and induced cographs",
+          "2026/10/13/SCOPE-a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c",
+          "2026/10/18/SCOPE-a-linear-size-weighted-p-3-convex-set-circuit-for-block-graphs--473be4ff33e8"
+        ]
+      },
+      "rationale": "PASS for the narrowed induced-path cotree recurrence and smallest-order uniqueness claim. A standalone novelty reading of the frozen Finding's full star formula and star cutoff assertions fails: an earlier weighted block-graph recurrence gives the polynomial immediately via bridge blocks, and the shape thresholds are routine comparisons of its first few coefficients. The repaired document credits the specialization explicitly, keeping those facts only as background. No earlier inspected statement or mechanical implication subsumes the full cograph recurrence under the induced convention or the comparison across all five-vertex trivially perfect types.",
+      "residual_risks": [
+        "Earlier equivalent closure-polynomial formulas, possibly under bounded-width or induced convexity terminology, remain possible.",
+        "The cited induced hull-number paper and a relevant 2017 induced-P3 complexity paper were not readable through the attempted lawful routes; their uninspected content is not exclusion evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same closure and known convex-geometry subclass, not a rank-distribution recurrence",
+          "evidence": "Induced paths of length at most k are used; the length-two result characterizes trivially perfect graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.05588v1",
+          "material_read": "p. 3, offset 6300 and l₂ structural characterization",
+          "method": "OA original arXiv text",
+          "title": "Convex geometries over induced paths with bounded length",
+          "trigger": "Same induced-path convex closure and class theorem"
+        },
+        {
+          "assessment": "Different all-path convention, scalar star and threshold counts",
+          "evidence": "An omitted vertex may have at most one neighbor in the set, and the cited counts are total counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.04706",
+          "material_read": "p. 2 definition, p. 6 Lemma 4, p. 15 Theorem 14 (offsets 5000, 16600, 34500)",
+          "method": "OA paper full text",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Same-looking convex-set counts for overlapping graph families"
+        },
+        {
+          "assessment": "Earlier mechanical coverage of star polynomial and shape thresholds, not the repaired general claims",
+          "evidence": "The full theorem includes bridge blocks; substituting the single-leaf block gives the precise three messages used above.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-three-state-multivariate-p-3-convexity-polynomial-for-block-gr--af818a6c215c",
+          "material_read": "Finding, scope, proof of vertex and block messages, offset 0–4141",
+          "method": "Local Resultary mirror via OA paper",
+          "title": "A three-state multivariate P3-convexity polynomial for block graphs",
+          "trigger": "Dominating earlier weighted count on the stars"
+        },
+        {
+          "assessment": "Exact specialization on stars; same day does not determine priority",
+          "evidence": "The connected block-graph circuit counts all-path P3-convex sets by weights.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-linear-size-weighted-p-3-convex-set-circuit-for-block-graphs--473be4ff33e8",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local Resultary mirror via OA paper",
+          "title": "A linear-size weighted P3-convex-set circuit for block graphs",
+          "trigger": "Distinct indexed weighted polynomial covering the star subfamily"
+        },
+        {
+          "assessment": "Unresolved full-text access, not negative evidence",
+          "evidence": "The known focus is hull number, a different statistic; the inspection does not rule out ancillary enumeration results.",
+          "identifier_or_url": "10.1016/j.tcs.2022.01.004",
+          "material_read": "Bibliographic scope; no readable full text retrieved",
+          "method": "DOI and lawful OA retrieval attempted",
+          "title": "The hull number in the convexity of induced paths of order 3",
+          "trigger": "Same induced closure; potential counting implications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/1/RESULT.md, Finding and both proofs",
+        "Gutiérrez–Protti–Tondato arXiv:2203.05588v1, convex geometry characterization"
+      ],
+      "rationale": "The recurrence evaluates the full distribution of a natural graph closure, including both coefficients and shape rather than merely the total. It supplies exact polynomial arithmetic in a standard graph decomposition. The smallest-order uniqueness result is a structurally meaningful obstruction to unimodality in the associated convex-geometric class and excludes alternative minimal examples. The elementary star calculation by itself is not counted as a valuable new contribution.",
+      "residual_risks": [
+        "No consequence is claimed for unimodality of arbitrary convex geometries or beyond the stated smallest-order classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

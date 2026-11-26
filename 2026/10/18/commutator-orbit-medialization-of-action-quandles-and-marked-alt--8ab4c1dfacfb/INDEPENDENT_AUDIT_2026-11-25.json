@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:02:05.515689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a right quandle the medial identity is equivalent to pairwise commutation of the relative translations s_a s_d^{-1} for a fixed d; these generate the displacement group D. The subgroup N=[D,D] is normal in the inner group, and s_{n(b)}=n s_b n^{-1} for n∈N. The latter equality and normality show that its orbits respect both operands, including right division. The quotient displacement group is an abelian image of D. A homomorphism to a medial quandle intertwines translations and inverses with those on its image; hence it kills the commutator action and factors uniquely through the quotient. For the given formula s_(y,h)=ζ^{-1}Ψ_h, where Ψ_h is diagonal right action and ζ(x,g)=(x^g,g) commutes with it. Relative translations with h=1 as the reference are exactly Ψ_h, proving D=Ψ(G) and N=Ψ(G′), also for nonfaithful or nontransitive actions. For n≥2, the marked stabilizer fixes the marked cycle pointwise and its remaining permutations are rotations and equal-length exchanges. A remaining even cycle or repeated odd cycle length yields an odd stabilizer element; distinct odd lengths give only even rotations. Thus precisely those remaining distinct-odd partitions cause a split, including the empty partition. Counting the split types gives the baseline plus split bonus. Independently, each even S_n class contributes 2 m_1(λ) in Burnside's sum because the centralizer size cancels the class-size denominator. The two sum formulas are for n≥2, where the index is two; the separate n=1 value is one. A fresh enumeration of marked representative orbits for n=2,…,7 matches both expressions (4,6,10,16,24,36) and the splitting criterion. Replay/output: /workspace/branches/af26e821-43be-4b7f-8fd0-9cb2d977fde7/independent_marked_counts.py and independent_marked_counts.txt in the same directory. The general result is proved, not inferred from these finite cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theory supplies the medial/abelian-displacement equivalence, the map of displacement groups under quotient, and orbit/congruence machinery. Kai identifies the central shift and diagonal group in the inner action.",
+          "Bardakov–Sangare treat the conjugation quandle, including a criterion for mediality and the medial quotient size for Conj(S_3). The action quandle of a singleton reduces to that setting, but the marked S_n quandle does not."
+        ],
+        "reasoning": "The universal action-orbit formula follows from the general tools plus the relative-translation computation. That prior structural coverage is credited. It does not compute the cardinalities of the diagonal G′-orbits for a specific marked action.",
+        "searches": [
+          "Kai arXiv:2609.17438, Lemma 3.1 and Corollary 3.12",
+          "Bonatto–Stanovský arXiv:1902.08980v3, Propositions 3.2–3.5",
+          "The Structure of Medial Quandles, Proposition 2.1(3)",
+          "Bardakov–Sangare arXiv:2610.18676, Theorem 5.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "arXiv:2609.17438, 1902.08980v3 and 2610.18676",
+        "The Structure of Medial Quandles, Proposition 2.1",
+        "Wilson, section 1.3.2",
+        "Resultary 09bbc488caec, 4e307898185b and 8fb56434686f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kai's (λ,d) classification indexes S_n components; it does not distinguish the two A_n orbits that may lie in one. For example a mark on the even cycle of a transposition in S_3 leaves one odd singleton, so that marked orbit splits even though the unmarked transposition class does not.",
+          "The two later Resultary conjugation-medialization entries give derived conjugacy orbits in the unmarked problem and the classical split rule there."
+        ],
+        "reasoning": "The unmarked rule supplies a method, not the claimed enumerator. One must identify the marked stabilizer and test the parity on the complement of the marked cycle, or perform the marked Burnside calculation retaining fixed-point multiplicities. This is the supported application beyond the established general tools.",
+        "searches": [
+          "Kai arXiv:2609.17438, Proposition 4.4 and Corollary 4.5",
+          "Wilson, section 1.3.2",
+          "Resultary 4e307898185b, Finding and relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n≥3 the marked A_n-orbit problem is equivalently conjugation on S_n by the stabilizer A_{n−1}, since A_n is transitive on the marked symbol; the exceptional n=2 case is handled separately.",
+          "The classical source gives the unmarked centralizer criterion and distinct-odd splitting. The inspected Resultary conjugation-medialization records work with unmarked permutations, while 09bbc488caec concerns automorphisms of the marked action quandle."
+        ],
+        "reasoning": "Applying the classical parity test to the full permutation could give the wrong answer for a mark on an even cycle or one of several same-length cycles. The precise reduction fixes the marked cycle pointwise and tests only its complement. No inspected source states the equivalent relative marked census.",
+        "searches": [
+          "Resultary universal symmetric-group action quandles, medial quotients and marked alternating orbits",
+          "symmetric group conjugation marked permutations alternating group orbit split relative conjugacy classes A_{n-1} S_n distinct odd partition branching algebra",
+          "Wilson, section 1.3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "09bbc488caec gives automorphism data of the same marked action quandle. 4e307898185b and 8fb56434686f give the unmarked p(n) plus distinct-odd partition census. Their statements are not tables of the marked numbers.",
+          "The bounded original enumeration reproduced the marked sequence through n=7. The separate OEIS search was unavailable, so no absence from that database is inferred."
+        ],
+        "reasoning": "Conj(S_3) has four medial points whereas the marked Q_3 has six. The unmarked generating statistic and the marked count are not the same exact table or formula.",
+        "searches": [
+          "Resultary 09bbc488caec, 4e307898185b, 8fb56434686f",
+          "OEIS web-index query for 1,4,6,10,16,24,36,52,76 with permutation/conjugacy terms"
+        ]
+      },
+      "rationale": "Credit the explicit marked alternating-orbit census of the universal medial quotient. The displacement computation and orbit-quotient argument are direct applications of earlier action-quandle and displacement theory, not a new general mediality criterion or commutator theory. Earlier marked S_n component parameters, unmarked class splitting, and unmarked conjugation medialization do not state the marked stabilizer rule and both enumerations for the action quandle.",
+      "residual_risks": [
+        "The joint marked statistic may be indexed under relative conjugacy or subgroup-centralizer algebra rather than quandle terminology. Bounded targeted search did not settle that priority risk; an unavailable OEIS lookup is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Antecedent for construction, inner group, and marked S_n types",
+          "evidence": "The component type is (λ,d), and the inner group splits off the central powers of ζ. These passages do not split each component under the diagonal derived group.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.17438",
+          "material_read": "Lemma 3.1, p. 4 (offset 12627); Corollary 3.12, p. 6 (offset 25875); Proposition 4.4 and Corollary 4.5, pp. 13–14 (offsets 51600, 54600)",
+          "method": "OA PDF passages",
+          "title": "Quandles from Group Actions and a Cayley-type Embedding Theorem",
+          "trigger": "Original construction and closest S_n component classification"
+        },
+        {
+          "assessment": "Standard general criterion used by the proof",
+          "evidence": "A quandle is medial exactly when its displacement group is abelian.",
+          "identifier_or_url": "https://www.karlin.mff.cuni.cz/~stanovsk/math/medial_quandles.pdf",
+          "material_read": "Proposition 2.1(3), pp. 3–4, offsets 8900 and 11335",
+          "method": "OA PDF passages",
+          "title": "The Structure of Medial Quandles",
+          "trigger": "General displacement criterion"
+        },
+        {
+          "assessment": "Provides general group/congruence framework, not a marked orbit census",
+          "evidence": "The quotient maps relative displacement groups to the corresponding quotient groups; subgroup orbits and congruences are compared for subgroups normal in the multiplication group.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.08980v3",
+          "material_read": "Section 1.2; Propositions 3.2–3.5 and Lemma 3.4, pp. 7–9, offsets 28600–34440",
+          "method": "OA PDF passages",
+          "title": "Commutator Theory for Racks and Quandles",
+          "trigger": "Potential broader orbit/congruence antecedent"
+        },
+        {
+          "assessment": "Prior unmarked comparison, distinct scope",
+          "evidence": "Treats Conj(G), a lower bound for its medial quotient and the exact Conj(S_3) example; arXiv v1 predates the frozen record.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.18676",
+          "material_read": "Theorem 5.4, p. 17, offset 49100",
+          "method": "OA PDF passage",
+          "title": "Constructions and Automorphisms of Quandles",
+          "trigger": "Closest published comparison about medialization and S_n"
+        },
+        {
+          "assessment": "Unmarked parity criterion; method reused for the unmarked complement",
+          "evidence": "An even S_n class splits in A_n under the distinct-odd cycle length criterion.",
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/r.a.wilson/FSG/notes1.pdf",
+          "material_read": "Section 1.3.2, p. 6, offset 15068",
+          "method": "OA PDF passage",
+          "title": "Finite simple groups notes",
+          "trigger": "Classical splitting and centralizer comparison"
+        },
+        {
+          "assessment": "Same Q_n, different result",
+          "evidence": "Computes its full automorphism group and inner automorphisms, crediting Kai for the component parameters.",
+          "identifier_or_url": "2026/10/12/SCOPE-full-automorphisms-of-the-universal-symmetric-group-action-quand--09bbc488caec",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 6370",
+          "method": "Resultary local mirror",
+          "title": "Full automorphisms of the universal symmetric-group action quandle",
+          "trigger": "Earlier exact-object catalogue match"
+        },
+        {
+          "assessment": "Later unmarked case and same general mechanism",
+          "evidence": "G′-conjugacy orbits are the medial quotient of Conj(G), with p(n) plus distinct-odd partition count for unmarked S_n.",
+          "identifier_or_url": "2026/10/26/SCOPE-derived-conjugacy-medialization-of-conjugation-quandles-symmetri--4e307898185b",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 8090",
+          "method": "Resultary local mirror",
+          "title": "Derived-conjugacy medialization of conjugation quandles",
+          "trigger": "Closest exact partial match for a derived-group quotient"
+        },
+        {
+          "assessment": "Later unmarked quotient, not marked action-quandle coverage",
+          "evidence": "Uses ordinary conjugacy-class splitting and counts unmarked orbits.",
+          "identifier_or_url": "2026/11/8/SCOPE-medial-conjugation-quotients-of-symmetric-groups-and-their-full--8fb56434686f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Medial conjugation quotients of symmetric groups and their full automorphism groups",
+          "trigger": "Related local exact enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The calculation gives an explicit census of the universal medial quotient of a natural action-quandle family. A mark changes which cycle lengths constrain splitting, so the familiar unmarked conjugacy quotient cannot recover the labeled component refinements. The stabilizer rule decides each split without constructing the large quandle table, and the two formulas give direct and independent ways to compute its size. Value rests on that marked invariant, not on the standard displacement criterion by itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

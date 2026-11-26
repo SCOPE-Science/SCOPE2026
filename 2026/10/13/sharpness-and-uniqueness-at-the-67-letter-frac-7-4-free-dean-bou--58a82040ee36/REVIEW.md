@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The verifier exhausts every normalized \(\frac{7}{4}\)-free Dean word through length \(68\). There are \(414112\) normalized words at length \(67\), exactly one with \(d_3\ge3\), and \(486776\) at length \(68\), none with \(d_3\ge3\). Every length-\(68\) survivor contains all eight reduced pairs, making \(d_3\) nonincreasing under further extension. A direct all-factor scan separately verifies the displayed witness and its exact three minimal absent triples. The eight inverse-preserving alphabet symmetries give eight distinct global extremizers.
+## correctness
 
-## Originality
-PASS. The closest direct result is Lemma 19 of Badkobeh--Harju--Ochem--Rosenfeld, which proves only \(|w|<68\) for \(\frac{7}{4}\)-free Dean words with \(d_3\ge3\). It neither proves attainability at \(67\) nor classifies equality cases. The later strict-threshold ternary work does not imply the claim. Searches under the source notation, equivalent minimal-absent language, the lemma number, length \(67\), and the exact witness string found no covering statement.
+PASS
 
-Residual risk remains that an unindexed computation or unpublished enumeration contains the same witness or orbit classification.
+Any admissible word of length at least 2 starts with one of eight allowed ordered pairs. The inversion-preserving permutation taking any such pair to 01 is unique, so the normalization loses no orbits and the final orbit has size eight. Alternating parity excludes exactly equal-letter and inverse-letter adjacent pairs; the repetition search handles all other constraints. A new forbidden factor after an append must be a suffix. For each p, it suffices to inspect the suffix of length ceil(7p/4), if present: any longer suffix of period p has a suffix of that length of the same period. This tests the inclusive threshold, regardless of whether the candidate period is least. The independent replay used masked two-bit comparisons for those shortest suffixes and computed D_3 from the actual sets of pairs and triples. Its length-24 probe found 350 normalized words; its full run found 414112 at length 67 with exactly the specified qualifying word, and 486776 at length 68, all pair-complete, with d3 counts 397780, 83006, 5990 for 0, 1, 2. It separately scanned the witness's factors and checked its palindrome and exact D_3={010,101,303}. Pair-completeness at length 68 ensures that further extensions can only remove minimal absent triples, so no longer qualifying word is missed; d3 need not be monotone on arbitrary incomplete prefixes. Independent reproduction: python3 /workspace/branches/4607a331-6161-4173-aef5-5e141050614b/replay.py, with exit-zero results in replay_counts.txt in the same directory. The frozen checker was inspected but not executed.
 
-## Value
-PASS. The claim closes the equality case of a published finite cutoff at a mathematically distinguished repetition threshold, and it does so completely: exact maximum, exact count, one symmetry orbit, and an explicit representative. This is a natural sharpness/classification refinement rather than an arbitrary finite census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior lemma supplies the same strict upper bound |w|<68, but not its sharpness, the length-67 representative or the classification of equality. The distinct claim is exact attainment and a unique extremal orbit, not the prior upper bound or a new general algorithm.
+
+## value
+
+PASS
+
+Length 67 is the equality case left by an existing bound at a natural sharp repetition threshold, not an arbitrary enumeration layer. The explicit attaining word and its unique symmetry orbit settle both whether the published cutoff is sharp and what its equality cases are.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

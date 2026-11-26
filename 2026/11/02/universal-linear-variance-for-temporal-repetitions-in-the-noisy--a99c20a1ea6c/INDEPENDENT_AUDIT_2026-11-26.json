@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:45:52.748511Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–85",
+        "Frozen VERIFICATION.md and verify.py",
+        "repairs/4/RESULT.md and SLOGAN.txt",
+        "arXiv:2207.01224v2 model definition, Eq. (7), Lemma 2.3 and Theorem 2.7(1)"
+      ],
+      "rationale": "Conditional on copy/refresh randomness, the nonconstant part of the count is half a sum of degree-two Rademacher characters with nonnegative multiplicities. Different unordered pairs are orthogonal, while double-refresh witnesses have unique pairs indexed by the smaller time and occur with probability epsilon^2. Total variance gives the claim; no infinite sum or stationarity is involved. At complete refresh the time-edge forest gives independent fair edge products, hence equality and the Bernoulli CLT. For 0<epsilon<1 the cited graph and time-zero initialization agree, and with T=L+d the cited sample mean is R_L/L. The bound excludes the O(log L) alternative and gives (log T)/T^2=o(Var(S_T)), exactly the unthinned theorem's premise. It also supplies the stated limiting variance floor. The corrected RESULT retains this proof; the frozen checker and recorded tests are corroboration only and were inspected, not executed.",
+      "residual_risks": [
+        "The coefficient for 0<epsilon<1 is not claimed optimal. The asymptotics use the cited theorem; there is no separate computational or formal-proof attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3fff36789a8d covers arbitrary initial laws for its bound, but has an observation-degree and lag dependence",
+          "The primary article's CLT is conditional and its linear upper bound does not provide a uniform floor"
+        ],
+        "reasoning": "The known initial-law generality is acknowledged, not claimed anew. It is orthogonal to the quantitative improvement under fair independent starts. The web search found no useful follow-up; that is not evidence of absence.",
+        "searches": [
+          "Resultary 3fff36789a8d Finding and scope",
+          "arXiv:2207.01224v2 Eq. (7), Lemma 2.3 and Theorem 2.7(1)",
+          "Primary literature search for follow-up results on unthinned lag repetition variance"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3fff36789a8d (same statistic, distinct result)",
+        "arXiv:2207.01224v2 / DOI 10.1214/23-AOP1637",
+        "Frozen RESULT.md and the revised quantitative claim"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older floor: epsilon^(Delta+4)/2 times (1+floor((L-d-1)/(2d+2))); its asymptotic coefficient is epsilon^(Delta+4)/(4(d+1))",
+          "Both the earlier bound and this bound suffice for the already-given unthinned CLT"
+        ],
+        "reasoning": "The older coefficient can be arbitrarily small compared with epsilon^2/4; it does not imply the new floor. The qualitative consequences are already established and are no longer the originality claim.",
+        "searches": [
+          "Resultary 3fff36789a8d",
+          "arXiv:2207.01224v2 §2.2–2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3fff36789a8d defines Q_T using precisely the same lag comparisons; replace its T by L in R_L",
+          "The cited paper also treats the unthinned count and the normalized sample mean"
+        ],
+        "reasoning": "Agreement counts and spin-product sums differ only by scaling and a constant. The older lower bound on this exact observable nevertheless does not supply the uniform numerical inequality.",
+        "searches": [
+          "Resultary search for single-vertex synchronous noisy-voter lag repetition counts and linear variance",
+          "arXiv:2207.01224v2 §2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct local-mirror inspection of 3fff36789a8d, RESULT.md Finding and proof, offsets 0–4077 and 4800–8306",
+          "That result provides its exact bound only for L>=d+1"
+        ],
+        "reasoning": "The natural exact-record check is the Resultary index rather than a numerical sequence table: the object is a symbolic, all-graphs bound. The leading exact record covers the qualitative consequence but has no entry for this stronger bound, including short samples.",
+        "searches": [
+          "Resultary semantic search for locally finite graph, noisy voter, unthinned repetition, variance lower bound"
+        ]
+      },
+      "rationale": "The repaired claim credits the known qualitative results and claims only the stronger quantitative finite-time bound and its quantitative consequence. The strongest matching result has a factor epsilon^(Delta+4) and a length restriction and weakens as degree or lag grows; it does not imply epsilon^2 L/4 uniformly. The repaired proof conditions on the entire ancestry instead of protecting a sparse set of isolated refreshes.",
+      "residual_risks": [
+        "A broader earlier ancestry/orthogonal decomposition estimate may imply the bound; the inspected sources do not furnish it. No definitive historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers positivity and unthinned CLT; does not cover the quantitative uniform strengthening",
+          "evidence": [
+            "Delta is the local degree, and L>=d+1; variance floor is epsilon^(Delta+4)/2 times the displayed block count",
+            "Earlier finite-time theorem has more general initialization; fair independent initial bits for its CLT"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-uniform-linear-variance-for-single-vertex-noisy-voter-repetition--3fff36789a8d/RESULT.md",
+          "material_read": "Finding, assumptions, isolation proof and consequence, offsets 0–4077 and 4800–8306",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Uniform linear variance for single-vertex noisy-voter repetitions on locally finite graphs",
+          "trigger": "Top semantic match, same observable, graph class and noise law"
+        },
+        {
+          "assessment": "Provides upper bound, variance dichotomy and conditional CLT, not the explicit lower bound",
+          "evidence": [
+            "Asks explicitly whether the unthinned variance can be sublinear",
+            "The CLT premise is log(T)/T^2=o(Var(S_T))"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.01224v2",
+          "material_read": "Model definition offsets 2300–4630, Eq. (7) and Lemma 2.3 at 18400, Theorem 2.7(1) at 35000",
+          "method": "Lawful author preprint HTML; exact model and hypotheses matched",
+          "title": "Global information from local observations of the noisy voter model on a graph",
+          "trigger": "Exact original model and prerequisite theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 3fff36789a8d benchmark bound",
+        "Frozen and repaired Finding and proof"
+      ],
+      "rationale": "There is a natural need for a variance floor that is not exponentially small in the observation degree and does not deteriorate with lag. The new lower bound remains informative at every length, gives an explicit floor on limiting variance, and is attained at complete refresh. Its significance is quantitative, not priority for the qualitative CLT.",
+      "residual_risks": [
+        "No optimal constant for interior noise, finite-sample approximation error, or uniform-in-lag CLT is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

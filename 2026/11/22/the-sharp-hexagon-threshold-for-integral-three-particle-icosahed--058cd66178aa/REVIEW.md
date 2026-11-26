@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The comparison theorem for the reduced Świątkowski complex supplies a faithful integral graph-configuration model. The exact verifier confirms 14,080 degree-three and 31,680 degree-two basis elements, 13,970 mod-two boundary pivots, all 700 signed torus boundaries, and 110 unit integer pivots. The latter have a unimodular coordinate minor; combined with the top-rank upper bound they prove that the tori span the *entire integral kernel*. All shorter products lie integrally in the 100-triangle sublattice, which extends to the full basis, proving the rank-ten free quotient. The graph input and every pivot are included in reproducible files.
+## correctness
 
-**Originality — PASS relative to inspected published and indexed evidence.** Maciążek–Sawicki's strongest inspected product-cycle results concern wheels, certain cubic graphs and second-homology cases, none implying the third homology of the 5-regular icosahedron. An–Drummond-Cole–Knudsen gives the general computing model, not its icosahedral output. The indexed three-particle dodecahedral result concerns the *dual but different graph*, while an icosahedral result concerns *two* particles. Equivalent formulations, broader implications, exact tables and claim-level entailment were separately searched; no decisive covering statement was found. The detailed comparison and actual source inspections are in `AUDIT.json`.
+PASS
 
-**Value — PASS.** Disjoint polygon cycles provide canonical geometrically embedded product tori in graph configuration spaces. The complete icosahedral calculation shows that triangles supply a primitive rank-100 sublattice, quadrilaterals and pentagons add nothing, and exactly ten further classes need hexagons. This clean sharp natural cutoff is not implied by an ambient Betti number, and it resolves the full top-degree integral lattice for a canonical Platonic graph.
+The reduced Świątkowski complex in weight 3 has no degree-4 term; its top homology is the integral kernel, with exactly 14080 columns and 31680 rows in the top differential. A cycle's fundamental chain is the sum of its incoming-to-outgoing half-edge differences. By naturality from the disjoint union of the three circles with one particle per component, the signed tensor product represents the actual geometric torus, not merely an abstract closed vector. Independent exact replay: run python3 /workspace/audit-evidence/1/recompute.py with the co-located frozen BASIS_CERTIFICATE.json as its argument. The replay builds the graph from two pentagons and two poles, checks the frozen edge set, enumerates cycles by subsets and permutations (20,30,72,240 at lengths 3–6), obtains all 700 triples, checks the listed 110-element minor has determinant +1, reduces every short torus against the first 100 rows over the integers, and independently obtains mod-2 rank 13970 using a different local anchor and row order. Mod-2 rank is a lower bound for rational boundary rank, so the kernel has rank at most 110. The unit minor gives a primitive subgroup of the chain group of rank 110, hence all of the kernel. Its first 100 generators are exactly the triangle triples and are saturated already, with quotient Z^10. No cycle in a disjoint triple can exceed length 6 on 12 vertices. Neither the supplied verifier nor a numerical rank result was used as a substitute for this check.
 
-**Closest literature and limits.** Farley–Sabalka (arXiv:math/0410539), Maciążek–Sawicki (arXiv:1606.03414; DOI 10.1007/s00220-019-03583-5), and An–Drummond-Cole–Knudsen (arXiv:1708.02351) provide foundational methods; none of the inspected material gives the icosahedral rank and length filtration. Relevant published published-finding corpus records on the dodecahedron and two-particle icosahedron have different domains. Full copies of those indexed records were inaccessible, and unindexed equivalence remains a priority risk. This is an exact finite computation only, not a general or equivariant theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact graph-specific integral basis and minimal cycle-length threshold were not found in the inspected coverage. Distinct same-day results treat other graphs; general methods and product-generation results do not supply this rank, saturation and sharp threshold together.
+
+## value
+
+PASS
+
+The icosahedron is a natural highly symmetric graph, and short disjoint cycles give geometrically localized commuting-travel motions for three particles. A Betti number alone cannot say which such motions account for the full integral lattice. The computed threshold and primitive short sublattice distinguish the 100 triangle products from the ten necessarily longer generators and give reusable exact data for comparing graph geometry and product generation. It is a motivated finite cutoff, not a general graph theorem or a table lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

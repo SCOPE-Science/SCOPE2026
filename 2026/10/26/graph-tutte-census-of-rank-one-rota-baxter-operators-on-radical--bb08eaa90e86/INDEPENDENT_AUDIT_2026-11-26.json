@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:09:41.567474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md eqs. (1)–(4) and lines 55–71; VERIFICATION.md; rb_quiver_checker.py lines 5–134"
+      ],
+      "rationale": "For R=f⊗a, use an x with f(x)=1 and vary the other argument in ker f, then reverse the arguments: f must be a common left/right eigenfunctional, with a^2=(lambda+mu)a. These identities are sufficient by substitution. The square-zero case forces both eigenvalues zero and forces the diagonal of a to vanish. Weighted incident-arrow vectors span aA+Aa because products of two arrows vanish. Scaling the support coordinates and negating one set of vertex columns gives an oriented graph incidence matrix whose kernel on vertex labels consists of constants on components, in every characteristic. This gives exactly r(S), also for parallel edges and for original loops that become ordinary separated edges. For nonzero square of a, the image line has a unique nonzero idempotent p, and the only admissible Peirce eigenvalues are (1,0) and (0,1), also in characteristic two. For a fixed 0/1 diagonal, crossing-arrow coefficients are free and conjugation by 1+j changes them independently by signed coordinates of j. The two cross-corner dimensions are therefore u and v. B empty or full gives zero contribution, and only the radical count requires dividing by q-1. The Tutte subset expansion gives (2), and the path's separated matching and two-state transfer matrix give (3). For the three-vertex line and fork both radical terms agree; the cut-weight sums give 4q(q-1)(q+1) and 2q(q-1)(q^2+q+2), whose difference is (4). For q=2 the matching term is 2(2^4-1)+(2^3-1)=37 and the cut terms are 24 and 32, yielding 61 and 69. The n=1 path gives zero. The checker was inspected, not run; its integer bit_count call requires Python 3.10 or later, not 3.9 as stated. Its finite enumeration is supplemental to the general proof.",
+      "residual_risks": [
+        "For general quivers the separated graph itself can depend on orientation; equality of the radical contributions is established for the line and fork in (4), not for unrestricted reorientation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The semigroup-paper scope is orders two and three. Gubarev's complete classification is for full triangular matrices of order three in characteristic zero, up to specified equivalences.",
+          "The finite-field triangular census gives a general idempotent-image formula in full T_n and a complete count for full T_3; changing to the radical-square-zero quotient changes its multiplication."
+        ],
+        "reasoning": "The low-dimensional overlap is not the originality core. Arbitrary finite fields, arbitrarily many arrows, and the full separated-support graph are not supplied by that broader-in-rank but different-algebra classification.",
+        "searches": [
+          "arXiv:1402.3702 abstract and introduction; arXiv:2404.00289 abstract and Theorem 2; Resultary 2d4b878c5041 Finding and Proof 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1402.3702, 2404.00289",
+        "Resultary 24446a4eca8e, f79766dd4bb5, 9bf726674b49, 43a9e317850f, 2d4b878c5041"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The joint dimensions dim(aA) and dim(Aa) do not measure their intersection. For a supported radical generator these dimensions count distinct sources and targets, whereas the rank of their sum also needs the number of components of the separated graph.",
+          "Unit conjugacy via an undirected graph does not give the orientation-sensitive dichotomy between the two Peirce corners. A classification on full U3 does not automatically descend to all operators on its quotient."
+        ],
+        "reasoning": "The inspected exact counts cannot be substituted directly into the tensor classification to obtain (1). The extra connected-component and directed-corner statistics give distinct scientific content even if small path cases are already known.",
+        "searches": [
+          "Resultary 43a9e317850f and 24446a4eca8e Findings; 2d4b878c5041 prior-work passage at offset 5200; arXiv:2404.00289, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2d4b878c5041 uses the general rank-one split and counts idempotent-image maps for full triangular algebras, including overlap in the full two-by-two case.",
+          "Full U3 has nonzero radical square; neither its characteristic-zero equivalence classes nor the rank-one reduction identifies the finite-quiver support rank or counts the relevant Peirce spaces."
+        ],
+        "reasoning": "An equivalent formulation as eigenfunctionals is background. To get the arbitrary-quiver law requires determining the dimensions of the sum of the left and right ideals and the cross corners in the quotient, not just using a rank-one tensor parameterization.",
+        "searches": [
+          "Resultary: rank-one weight-zero Rota–Baxter operators on radical-square-zero quiver/path algebras; 2d4b878c5041",
+          "arXiv:1402.3702; arXiv:2404.00289, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f79766dd4bb5 and 9bf726674b49 count conjugacy spectra via the underlying undirected graph, not rank-one maps via the separated graph.",
+          "43a9e317850f and 24446a4eca8e give orientation-sensitive principal-ideal and right-annihilator spectra, respectively. The former has a related line/fork witness for a different statistic.",
+          "2d4b878c5041 mentions radical-square-zero path enumerations without identifying one; its References and SOURCE.md did not resolve the phrase."
+        ],
+        "reasoning": "The nearest exact formulae and witnesses compare different invariants. The uncited reference and an unsuccessful targeted lookup do not establish either priority or absence of coverage.",
+        "searches": [
+          "Resultary: rank-one quiver/path census; f79766dd4bb5, 9bf726674b49, 43a9e317850f, 24446a4eca8e and 2d4b878c5041"
+        ]
+      },
+      "rationale": "The distinctive supported result is the unrestricted finite-field quiver counting law with the separated graphic rank and the two directed Peirce cuts. The standard rank-one reduction, graph subset expansion and transfer-matrix technique are not claimed new. The closest consulted enumerations count different quantities or different algebras. An unnamed reference to previous path enumerations remains a genuine risk for the path specialization, but the inspected sources do not show it or the general law is covered.",
+      "residual_risks": [
+        "An unnamed prior path enumeration could cover some specializations; neither the nearby references nor the bounded lookup resolved it. The best-of-knowledge finding concerns the distinct arbitrary-quiver formula, not priority for low-dimensional cases or every specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bounded-order coverage, not the general quiver count",
+          "evidence": [
+            "The study classifies weight-zero operators on semigroup algebras of orders two and three."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.3702",
+          "material_read": "Abstract and introduction, PDF pp. 1–2",
+          "method": "Open primary PDF, offsets 0 and 3887",
+          "title": "Classification of Rota-Baxter operators on semigroup algebras of order two and three",
+          "trigger": "Small-algebra weight-zero classifications could overlap small paths"
+        },
+        {
+          "assessment": "Different algebra, field scope and counting problem",
+          "evidence": [
+            "Theorem 2 treats full U3 in characteristic zero up to symmetries and scalar multiplication."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.00289",
+          "material_read": "Abstract and Theorem 2, pp. 1 and 19",
+          "method": "Open primary PDF, offsets 0 and 49769",
+          "title": "Rota–Baxter operators of weight zero on upper-triangular matrices of order three",
+          "trigger": "Full operator classification for a nearby triangular algebra"
+        },
+        {
+          "assessment": "Full triangular count with a small overlapping boundary; unnamed path-census reference remains unresolved",
+          "evidence": [
+            "Counts the idempotent-image stratum in T_n and all rank-one maps in full T3, not the arbitrary quiver quotient. The prior-work passage leaves the path enumeration unnamed; source commit date is 2026-11-02 UTC, distinct from its catalogue date."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25 2d4b878c5041",
+          "material_read": "Finding, Proof 1, Relationship to prior work, References, SOURCE.md and provenance metadata",
+          "method": "Local published record; prior-work passage offset 5200",
+          "title": "Gaussian-binomial enumeration of rank-one Rota–Baxter operators on triangular matrix algebras",
+          "trigger": "Rank-one finite-field triangular census and possible path overlap"
+        },
+        {
+          "assessment": "Different element census; joint dimensions lack the sum dimension",
+          "evidence": [
+            "The path orientation comparison counts elements with small principal ideals, not rank-one Rota–Baxter maps."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 43a9e317850f",
+          "material_read": "Finding",
+          "method": "Local published RESULT.md, offset 0",
+          "title": "Joint principal-ideal dimension spectrum of radical-square-zero quiver algebras",
+          "trigger": "Same quivers and orientation witness"
+        },
+        {
+          "assessment": "Right-annihilator dimensions do not give the two-sided weighted incidence rank",
+          "evidence": [
+            "Counts elements by right annihilator dimensions, not Rota–Baxter tensors."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25 24446a4eca8e",
+          "material_read": "Finding",
+          "method": "Local published RESULT.md, offset 0",
+          "title": "Right-annihilator dimension spectra of radical-square-zero quiver algebras",
+          "trigger": "All-quiver dimension-spectrum formula including loops and parallel arrows"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank one is the first nonzero stratum for the defining operator identity, and the domain is a natural family with arbitrary edge multiplicity. The count distinguishes a graphic-matroid calculation for radical image from a directed cut calculation for idempotent image. These yield a usable all-length path recurrence and an exact orientation witness attributable to one stratum. This is not a claim of a polynomial-time general counting algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

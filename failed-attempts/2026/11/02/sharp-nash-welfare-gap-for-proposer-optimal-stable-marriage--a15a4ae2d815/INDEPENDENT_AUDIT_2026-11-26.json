@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:45:08.077914Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37",
+        "Frozen VERIFICATION.md and VERIFY.py inspected, not executed",
+        "Replay: python3 -I /workspace/branches/review_reproduction.py 2; /workspace/branches/review_reproduction.txt"
+      ],
+      "rationale": "For any stable alternative changing m pairs, proposer optimality makes each switched man strictly worse, so his utility ratio is at most (n-1)/n, with equality only from first to second. Each switched woman's ratio is at most n, with equality only from last to first. The resulting (n-1)^m bound, positivity and m<=n give the claimed bound and the universal n=2 factor one. For n>=3 equality forces m=n and all stipulated ranks. Disjoint perfect matchings can realize those ranks, one stable by all men's top choices and the other by all women's top choices. Each man has a unique second choice, so the Nash maximizer is unique at equality. The matchings and residual list orders give the stated labeled count without duplication and division by (n!)^(2n) gives the probability. Mutual first choices in a bijection force the only stable matching and attain the lower bound. An independent exhaustive replay obtained factors 1 and 8, with 16 and 12 extremal profiles for n=2 and n=3, respectively, and checked the n=3 extremizer ranks and uniqueness.",
+      "residual_risks": [
+        "The enumeration covers only n=2 and n=3; the proof, not the replay, establishes all n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier RESULT.md bounds the ratio by (n-1)^m for m changed pairs and gives sharpness for each feasible m.",
+          "Desai et al. use the identical utilities and objective but Theorem 2 concerns computing the optimum; the Jain–Vaish abstract treats many-to-one cardinal utilities."
+        ],
+        "reasoning": "The earlier Resultary theorem is stronger in the same model and already includes this worst case; mere broader matching settings in the other sources do not yield this comparison.",
+        "searches": [
+          "Earlier Resultary RESULT.md offsets 0–8475",
+          "Desai et al., arXiv:2609.02354v1",
+          "Jain and Vaish, arXiv:2312.09167"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and references 1–4",
+        "Published Resultary index, decisive 2026/10/25 record and two cited 2026/10/4 records",
+        "Cited arXiv primary sources, bounded literature lookup on sharp proposer-optimal DA gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting m=n in the prior sharp bound gives the frozen global factor; prior rigidity, uniqueness, and census are explicit.",
+          "The reported probability is the prior labeled count divided by (n!)^(2n)."
+        ],
+        "reasoning": "Neither the n>=3 extremizer classification nor the probability conversion supplies a remainder independent of the earlier result.",
+        "searches": [
+          "Earlier Resultary RESULT.md finding and rigidity passage, offsets 0–8475",
+          "Frozen RESULT.md lines 5–17 and 25–37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior finding, offsets 0–3997: same DA benchmark and same rank-utility Nash product, square-root geometric NSW factor, top/second vs last/top pattern and uniqueness."
+        ],
+        "reasoning": "Taking a 2n-th root of the product bound gives the very same NSW ratio; the two statements use the same baseline and normalization. This is not coverage inferred from a title.",
+        "searches": [
+          "Resultary: proposer-optimal stable marriage Nash welfare rank utility sharp gap and extremal census",
+          "2026/10/25/SCOPE-sharp-nash-welfare-loss-under-proposer-optimal-stable-marriage--1c548a8406a6/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier proposer-optimal record gives n!D_n((n-2)!)^(2n), D_n the derangement number, and the exact 12/46656 census at factor 8.",
+          "The cited alternative counts concern numbers of stable matchings or intersections of rank-maximal and sex-equal optimizer sets."
+        ],
+        "reasoning": "The exact certified count in the earlier proposer-optimal record is the same event and denominator, not a coincidence with another three-pair table.",
+        "searches": [
+          "Earlier Resultary RESULT.md offsets 3997–8475",
+          "2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1",
+          "2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-sex-equal-stable-marriage--8dcd874ae6a3"
+        ]
+      },
+      "rationale": "The distinct earlier Resultary finding 2026/10/25/SCOPE-sharp-nash-welfare-loss-under-proposer-optimal-stable-marriage--1c548a8406a6 establishes all central assertions for exactly the same stability, baseline and positive rank utilities. It also attains its stronger bound for each feasible number of changed pairs. The frozen relationship section does not account for this coverage. No distinct surviving result was established.",
+      "residual_risks": [
+        "The comparison does not establish who first proved the theorem worldwide; the observed earlier coverage settles the disposition of this submission."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier coverage; changed-pair bound is stronger",
+          "evidence": "Same utilities, factor, equality ranks, unique maximizer, all-size formula and 12/46656 count.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-nash-welfare-loss-under-proposer-optimal-stable-marriage--1c548a8406a6/RESULT.md",
+          "material_read": "Finding and rigidity/count, offsets 0–8475",
+          "method": "Published Resultary search and local mirror passage comparison",
+          "title": "Sharp Nash-welfare loss under proposer-optimal stable marriage",
+          "trigger": "Exact matching DA baseline and Nash extremizers"
+        },
+        {
+          "assessment": "Same-setting algorithmic predecessor, not the comparison in inspected material",
+          "evidence": "u=n-r; stable NSW maximization; theorem for an algorithm, conclusion describes empirical comparisons.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.02354",
+          "material_read": "PDF pp. 2, 4, 7 and 11: utility definition, problem, Theorem 2 and conclusion",
+          "method": "OA primary PDF, located by passage",
+          "title": "Fair Stable Matching: A Nash Social Welfare Approach",
+          "trigger": "Identical rank scale and objective"
+        },
+        {
+          "assessment": "Different matching model in the inspected material",
+          "evidence": "Cardinal many-to-one preferences, capacities, and computational complexity.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.09167",
+          "material_read": "PDF opening abstract",
+          "method": "OA primary PDF",
+          "title": "Maximizing Nash Social Welfare under Two-Sided Preferences",
+          "trigger": "Cited two-sided Nash matching context"
+        },
+        {
+          "assessment": "Different enumerated property",
+          "evidence": "Labeled counts 34080, 11484, 1092 for one, two, or three stable matchings.",
+          "identifier_or_url": "2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1",
+          "material_read": "RESULT.md opening at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Full-symmetry census of three-by-three stable-marriage profiles",
+          "trigger": "Exact census in same market size"
+        },
+        {
+          "assessment": "Different objectives and no DA baseline in this comparison",
+          "evidence": "Counts 39084, 6204, 864, 504 for equality, disjointness, and two strict containments of optimizer sets.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-sex-equal-stable-marriage--8dcd874ae6a3",
+          "material_read": "RESULT.md opening at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-by-three conflict layer for rank-maximal and sex-equal stable marriage",
+          "trigger": "Exact welfare-related census in same market size"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–37",
+        "Earlier proposer-optimal loss RESULT.md, finding and rigidity/count passages"
+      ],
+      "rationale": "The exact stable-baseline loss and equality census are meaningful questions, but this submission does not add a distinct comparison, census, characterization, or method beyond the earlier finding. The independently reproduced three-pair number is also already explicitly reported, and the all-size argument is already subsumed.",
+      "residual_risks": [
+        "This assesses the incremental scientific value of the frozen record, not the utility of the original theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

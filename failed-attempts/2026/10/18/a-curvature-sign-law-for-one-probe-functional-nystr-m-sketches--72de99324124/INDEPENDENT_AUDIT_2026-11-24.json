@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:01:51.367694Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–56",
+        "VERIFICATION.md, verify.py, requirements reference and verification_output.txt as frozen evidence; proof checked analytically rather than inferring the laws from finite runs"
+      ],
+      "rationale": "The single nonzero sketch eigenvalue is the ratio of the squared norm of B^q g to the positive scalar g^T B^(2q−1)g. In the diagonal basis put p=2q−1 and w_i equal to squared probe coordinates. If no positive eigenvalue is active, both approximants are zero. Otherwise each trace is determined by a weighted Lehmer mean, f(Σw_i a_i^(p+1)/Σw_i a_i^p) versus Σw_i f(a_i)^(p+1)/Σw_i f(a_i)^p. Tilting the second weight law by (a_i/f(a_i))^p yields the first. Its covariance with f(a_i) is nonnegative in the concave case and nonpositive in the convex case because f(t)/t is respectively decreasing or increasing in the weak sense. Jensen gives the other step with the same inequality direction, strictly for strict curvature and nonconstant active spectrum. One active value gives equality, as does positive linear f. Each rank-one captured trace is at most f(max a_i) and nonnegative. For the Gaussian examples the direct deficit on diag(1,s) is s(1+u²)/(u²+s) with u standard Cauchy; cancellation against the density integrates to √s exactly. The function-after trace uses the eigenvalue λ=(u²+ε²)/(u²+ε). For 0<ε<1, substituting u=√ε v in E(1−λ^α) leaves a factor √ε and a dominated integrand, bounded on compact sets with a uniform O(v^(−2)) tail. For α=1/2 the limiting integral before the Cauchy factor 2/π is ∫₀∞(1−v/√(1+v²))dv=1. For α=2 it is ∫₀∞(2/(1+v²)−1/(1+v²)²)dv=3π/4. Adding the ε^α term yields the stated constants and divergent ratios. This does not assert an ordering of the matrices themselves.",
+      "residual_risks": [
+        "Only one column, same probe, finite real PSD input and permitted scalar functions; Gaussian asymptotics only for the specified examples"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general means theorem allows distinct generators and distinct point-dependent weights and needs only the stated pointwise comparison condition and matching normalized weights; it is not limited to powers or matrix inputs",
+          "Nyström literature already defines the algorithmic orders and treats error bounds/near-optimality under different hypotheses. The indexed 47ebac6f3ff1 strengthens the power subfamily to eigenvalue-by-eigenvalue comparison for multi-column full-rank sketches on positive-definite inputs"
+        ],
+        "reasoning": "The main coverage is the exact reduction to a general means theorem, not an inference from a broader-looking Nyström title. The multi-column catalogue result covers the order sign for the power family but not arbitrary f, so it is not by itself grounds for rejecting the general statement.",
+        "searches": [
+          "Grünwald–Páles arXiv:2112.11871v2 Theorem 6 and Eq. (14)",
+          "Persson–Kressner arXiv:2209.11023, Persson–Boullé–Kressner arXiv:2404.00960, Persson–Meyer–Musco arXiv:2311.14023, Gittens–Mahoney JMLR 17",
+          "Resultary 47ebac6f3ff1, same-sketch positive and fractional powers"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.11871v2",
+        "arXiv:2209.11023, 2404.00960 and 2311.14023",
+        "Gittens–Mahoney JMLR 17",
+        "Resultary 9bb62c848ba0, 6a0180b3e23e, 47ebac6f3ff1, 799984e751a1 and 001de74882eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For f smooth with f'>0, Eq. (14) for concavity is (f(x)/f(y))^p (f(x)−f(y))/f'(y ≤ (x/y)^p(x−y), for x,y>0. The supporting-line inequality bounds the signed difference term; f(x)/x decreasing gives f(x)/f(y)≤x/y for x≥y and ≥x/y for x<y; multiplication against x−y gives the desired sign in both cases. For convex f the inequality reverses by the same signed comparison, so apply the theorem with the means exchanged",
+          "For continuous f, average f(t+2η−s) against a smooth nonnegative kernel supported on |s|≤η, subtract the value at zero and add ηt. This is smooth, normalized, preserves curvature and has positive derivative, and tends locally uniformly to f. The inequality then extends in the explicit trace ratios. Strictness is ordinary strict Jensen at more than one active value; trace underestimation is the internality of a weighted mean",
+          "Write L=1+ε−λ for the ordinary rank-one trace residual on diag(1,ε). The square function-after deficit is exactly −2ε+2(1+ε)L−L². By 6a0180b3e23e at r=2, λ_1=1, its first moment is √ε and the second is asymptotic to (1/π)B(1/2,3/2)√ε=(1/2)√ε. Hence the square constant 3/2 and ratio exponent follow directly. The square-root constant follows by rescaling diag(κ,1) with κ=1/ε in 9bb62c848ba0, where trace and nuclear deficit agree"
+        ],
+        "reasoning": "The cited published broader theorem gives the deterministic order after an explicit identification and a routine closure argument. No new comparison theorem is needed for strictness or trace bounds. The apparently surviving square example is also a moment specialization, not just a case with unidentified possible overlap. Neither example provides a substantive, independently distinct result for repair.",
+        "searches": [
+          "arXiv:2112.11871v2, Theorem 6, Eq. (14)",
+          "Resultary 6a0180b3e23e, Eqs. (1), (2), (5)",
+          "Resultary 9bb62c848ba0, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the active positive eigenvalues x_i with w_i>0, the original sketch eigenvalue is the generalized mean with generator id and weight functions Q_i(x)=w_i x^p. For smooth strictly increasing f, the inverse image of the direct trace under f is the generalized mean with generator f and weights P_i(x)=w_i f(x)^p",
+          "Both weight systems have the same normalized proportions P_i/P_0=Q_i/Q_0=w_i/Σw_j, as required in Theorem 6"
+        ],
+        "reasoning": "The spectral reduction eliminates all matrix structure and identifies the two means (up to applying f to both). One active spectral value gives equality without invoking any mean theorem. The exact sufficient condition for the two means is checked under claim_vs_prior_implication.",
+        "searches": [
+          "Páles Zakaria On the local and global comparison of generalized Bajraktarević means arxiv",
+          "Grünwald–Páles arXiv:2112.11871v2 §1 (Eq. (1)) and §3 (Theorem 6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9bb62c848ba0 states the exact leading square-root function-after error after rescaling and its order-one crossover",
+          "Distinct same-day 6a0180b3e23e Eqs. (2) and (5) provide both direct expectations via s=ε^α, and the two required ordinary-sketch moments for the square function-after example. It gives an exact rank-two residual distribution as well",
+          "47ebac6f3ff1 provides the power subfamily at higher rank; the later power-boundary and log-trace records treat special Gaussian regimes, not an arbitrary scalar f"
+        ],
+        "reasoning": "Both Gaussian comparisons are contained in indexed formulas through direct substitutions and elementary normalization or moments. The same-day hit was assessed from its statement, not dismissed or presumed prior from the label date.",
+        "searches": [
+          "Resultary one-column funNyström Gaussian trace-error crossover, half-moment transition, deterministic power dominance; inspected 9bb62c848ba0, 6a0180b3e23e and 47ebac6f3ff1",
+          "Resultary 799984e751a1 and 001de74882eb, function-power boundary and planar log-trace law"
+        ]
+      },
+      "rationale": "The deterministic core is a routine scalar specialization of an existing more general comparison theorem for nonsymmetric generalized Bajraktarević means. The comparison identifies Eq. (14) and discharges both of its hypotheses by direct substitution and the elementary supporting-line/ratio properties of curvature. Extending to the stated continuous case is by smoothing and taking the trace limits. The examples do not leave an independent novel core: exact direct deficits and the first two residual moments are covered by the rank-two specialization of the indexed half-moment law, which also gives the square function-after asymptotic by a polynomial identity. The square-root function-after example is independently covered by homogeneity and the indexed Gaussian crossover. These are coverage judgments, not date-based claims about conception priority.",
+      "residual_risks": [
+        "One specific Nyström literature search was unavailable; the failure decision relies on the inspected means theorem and exact catalogue statements, not on inaccessible evidence",
+        "The unidentified Gaussian residual reference in the frozen paper is not assigned a fabricated identity or date"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies audited curvature order by the explicit weight and generator substitution",
+          "evidence": "Identical normalized weights and the pointwise signed secant condition imply global comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.11871v2",
+          "material_read": "§1 Eq. (1), offsets 3000–4894; §3 p. 6 Theorem 6 and Eq. (14), offsets 29350–31570",
+          "method": "OA primary PDF text, located then read theorem passage",
+          "title": "Local and global comparison of nonsymmetric generalized Bajraktarević means",
+          "trigger": "Equivalent scalar means and stronger general comparison"
+        },
+        {
+          "assessment": "Algorithmic baseline but not exact one-probe scalar comparison in these passages",
+          "evidence": "Expected nuclear-error bound assumes target rank and oversampling parameters at least two; x² is not operator monotone.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.11023",
+          "material_read": "§1.1 and Eq. (3), pp. 4–5; §3.3 Theorem 3.9, p. 13; p. 3 operator-monotonicity discussion",
+          "method": "OA primary PDF text",
+          "title": "Randomized low-rank approximation of monotone matrix functions",
+          "trigger": "Prior algorithms and trace/nuclear error bounds"
+        },
+        {
+          "assessment": "Different rank and oversampling hypotheses",
+          "evidence": "The inspected error theorem assumes target rank k≥2 and oversampling p≥2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.00960",
+          "material_read": "§2.3.1 Theorem 2.1 p. 5",
+          "method": "OA primary PDF text",
+          "title": "Randomized Nyström approximation of non-negative self-adjoint operators",
+          "trigger": "Possible stronger low-rank error theorem"
+        },
+        {
+          "assessment": "Ordinary Nyström baseline",
+          "evidence": "Trace-norm error bound with a structural sketch alignment term; not an order comparison of matrix functions and sketches.",
+          "identifier_or_url": "https://www.jmlr.org/papers/volume17/gittens16a/gittens16a.pdf",
+          "material_read": "§4.1.3 Theorem 4 p. 48",
+          "method": "OA primary PDF text",
+          "title": "Revisiting the Nyström Method for Improved Large-Scale Machine Learning",
+          "trigger": "Prior ordinary power-Nyström residual bounds"
+        },
+        {
+          "assessment": "Transfer under operator monotonicity, not the present same-sketch scalar order criterion in the inspected passages",
+          "evidence": "Near-optimality transfer applies to operator-monotone functions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.14023",
+          "material_read": "Abstract p. 1 and §1.2 contributions p. 4",
+          "method": "OA primary PDF text",
+          "title": "Persson–Meyer–Musco matrix-function near-optimality transfer",
+          "trigger": "Possible general function-after approximation theorem"
+        },
+        {
+          "assessment": "Covers square-root function-after asymptotic",
+          "evidence": "At θ=1/2 and q=1 the normalized diag(κ,1) error tends to 1+2/π. Scaling the matrix by ε scales the error by √ε.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0/RESULT.md",
+          "material_read": "Finding and scope, mirrored offsets 0–2878; relationship passage near offset 5100",
+          "method": "Resultary search and OA local mirror text",
+          "title": "One-column funNyström has a sharp Gaussian trace-error crossover under power iteration",
+          "trigger": "Potential equivalent Gaussian square-root asymptotic"
+        },
+        {
+          "assessment": "Exactly covers direct expectations and implies square function-after asymptotic",
+          "evidence": "At r=2 the residual is rank-one PSD, E L=√(λ_1 ε), and E L²∼(1/π)B(1/2,3/2)√ε when λ_1=1; the square deficit is a quadratic in L.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-half-moment-transition-for-unoversampled-gaussian-ny--6a0180b3e23e/RESULT.md",
+          "material_read": "Finding and scope, mirrored offsets 0–4338, specifically Eqs. (1), (2), (5)",
+          "method": "Resultary search and OA local mirror text",
+          "title": "A universal half-moment transition for unoversampled Gaussian Nyström error",
+          "trigger": "Exact rank-two Gaussian residual law likely to imply example moments"
+        },
+        {
+          "assessment": "Stronger in rank and spectral ordering on a narrower function class",
+          "evidence": "For positive-definite matrices and full-rank sketches it gives the concave and convex power signs eigenvalue by eigenvalue.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-deterministic-spectral-dominance-of-funnystr-m-for-fractional-ma--47ebac6f3ff1/RESULT.md",
+          "material_read": "Finding, mirrored offsets 0–2500",
+          "method": "Resultary search and OA local mirror text",
+          "title": "Deterministic spectral dominance of funNyström for fractional matrix powers",
+          "trigger": "Strongest indexed deterministic-order overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "arXiv:2112.11871v2 Theorem 6",
+        "Resultary 9bb62c848ba0 and 6a0180b3e23e"
+      ],
+      "rationale": "The algorithm-order question is well motivated, and the statements are useful as exposition. But the one-column comparison is a routine specialization once the rank-one eigenvalue is written as a weighted scalar mean. The quantitative witnesses do not supply a separate unknown exact invariant: the normalization, substitutions and first two known residual moments already give all their differing rates and constants. With no result for higher rank or an independent nontrivial regime in the frozen claim, there is no genuinely surviving contribution to repair.",
+      "residual_risks": [
+        "The negative decision does not deny pedagogical utility or the practical importance of choosing a sketch order"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

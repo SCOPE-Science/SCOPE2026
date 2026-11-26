@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:42:17.366743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–24 and 27–96",
+        "Frozen VERIFICATION.md:19–21 and VERIFY.py:27–51, inspected without execution",
+        "Independent exact envelope replay: python3 -B /tmp/opencode/independent_branch.py, all 16 pairs and 80 longer word comparisons"
+      ],
+      "rationale": "Let s=x+y. On the (f,g) step, (s',x')=(2+f-g-s,2s-x-f); the four lower and four upper x-bounds follow from y∈[0,1/2], x'∈[1/2,1], y'∈[0,1], and x∈[0,1]. Pulling the intervals back for all 16 pairs and integrating their linear envelopes gives precisely AB, BA, AD, CA, each of area 1/48. The two recurrent words are repetitions of AB or BA; their two-step translation is -4δ about s=3/4 or 5/4. Intersecting translates of the respective two-letter interval takes the extreme shift in each bound and gives width 1/4-(4m-1)|δ| on |δ|≤1/[4(4m-1)]. The terminal AD constraint at ε=3/4-s intersects the initial AB interval with the last AD interval shifted by -4(m-1)ε. The initial CA constraint, in the ensuing A coordinates with Jacobian one, intersects the interval of the first CA step with the terminal A upper bound shifted by -4(m-1)ε. Both yield width min(2ε,1/4-(4m-3)ε) on 0≤ε≤1/[4(4m-3)]. These give recurrent areas 1/[16(4m-1)] and transient areas 1/[16(4m-1)(4m-3)] each. Summation and nested-set squeezing prove the frozen even formula and all-time normalizing constant. The frozen verification notes overstate the supplied main program: it checks 240 named word areas, including the four positive pairs at m=1, but does not enumerate all 16 pairs. That supplementary evidence error does not affect the independent full transition check or the symbolic proof.",
+      "residual_risks": [
+        "The independent rational checks corroborate the algebra and do not substitute for the translated interval proof at arbitrary m.",
+        "The law is unconditional area; conditioning on P multiplies it by four. It is not a mixing or return-to-base tail."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed record additionally gives an exact odd-time law and conditional first-exit consequences.",
+          "Myers Hill–Sturman–Wilson identify parabolic period-two segments and exact escape-time cells A_k in A3 (pp. 7–9); pp. 37–39 concern return to a distinct tower base, and pp. 39–40 use selected wedges."
+        ],
+        "reasoning": "The indexed result explicitly covers a stronger temporal classification. Exact escape cells are relevant to possible independent prior derivation, but their use in correlation and induced-return estimates alone is not an exact cumulative P-area formula.",
+        "searches": [
+          "Resultary exact parabolic survival laws fa18f62401f4",
+          "arXiv:2303.08515v1, parabolic cells, escapes and induced returns"
+        ]
+      },
+      "checked_sources": [
+        "Indexed exact counterpart fa18f62401f4 and arXiv:2303.08515v1 passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed statement supplies the even identity at every m. Its 1/16 limit also follows from that identity and the inclusions S_(2m+2)⊂S_(2m+1)⊂S_(2m).",
+          "The primary paper's tower-base return event A_n on the full torus is not the frozen event of staying in P for n successive observations."
+        ],
+        "reasoning": "Apply T and preserve area for a direct implication from the indexed claim. The published O(1/n) return/correlation results do not give the claimed coefficient by identifying observables; any further derivation from published escape-cell geometry was not needed for this coverage decision.",
+        "searches": [
+          "fa18f62401f4, RESULT.md Finding",
+          "arXiv:2303.08515v1, Eq. (9), Theorem 1 and return estimates, pp. 7–9 and 37–40"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding gives the same even formula and 1/16 unconditioned limit for its neutral A3 branch. For a(t)=2 min(t,1-t), a(y+1/2)=1-a(y) and a(1-x)=a(x); the symmetry T(x,y)=(1-x,y+1/2) mod 1 commutes with the horizontal and vertical shears separately."
+        ],
+        "reasoning": "T sends y in the lower half to the upper half and the intermediate u to 1-u, so T(P)=A3 up to null boundaries. Since T preserves area and commutes with H, all branch survival sets correspond at every n.",
+        "searches": [
+          "Resultary: orthogonal tents parabolic branch, exact survival / consecutive residence / first exit",
+          "2026/11/2 SCOPE-exact-parabolic-branch-survival-laws-for-the-orthogonal-tents-to--fa18f62401f4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its retrieved Finding states (2m-1)/[4(4m-1)(4m-3)] at even times and the unconditioned constant 1/16, not merely an exponent or finite samples."
+        ],
+        "reasoning": "The identical exact numbers refer to the same observable under the symmetry, so a separate tabulation is unnecessary.",
+        "searches": [
+          "Resultary local mirror, exact even branch-area formula and 1/(16n) tail, source ID fa18f62401f4"
+        ]
+      },
+      "rationale": "The exact even law and tail are covered by the distinct indexed result fa18f62401f4, which also gives the odd law and first-exit consequences. Its named branch and the frozen branch are area-preservingly conjugate by a symmetry of this same map, so the overlap is exact, not just equality of exponents. The later catalogue date does not establish publication priority. The 2023 paper is independently close because it analyzes escape-cell geometry, but its base-return and correlation estimates are not themselves the frozen observable. No separate distinct surviving contribution is shown.",
+      "residual_risks": [
+        "Bounded comparison, not an exhaustive historical-priority ruling. The unseen thesis and fuller escape-cell calculations could contain another equivalent evaluation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified stronger equivalent observable; no date-based priority inference.",
+          "evidence": [
+            "Exact even law, additional odd law, tail constant 1/16; neutral branch A3 maps from P by T."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-parabolic-branch-survival-laws-for-the-orthogonal-tents-to--fa18f62401f4",
+          "material_read": "RESULT.md, Finding from offset 0, branch and normalization definitions",
+          "method": "Local Resultary mirror",
+          "title": "Exact parabolic branch survival laws for the orthogonal tents torus map",
+          "trigger": "Exact same-map branch survival match"
+        },
+        {
+          "assessment": "Relevant cell geometry; inspected texts distinguish branch residence from return-to-base and correlation observables. No ruling out implicit earlier derivation from the full geometry.",
+          "evidence": [
+            "A2 and A3 nonhyperbolic, A_k escape-cell partition, sigma and tower base Δ0, and O(1/n) estimates for other observables."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.08515v1",
+          "material_read": "OA PDF p. 3 Theorem 1, offsets 8200–14199; pp. 7–9 Eq. (9) and cells, 19500–30473; pp. 37–40 return estimates and selected wedges, 121000–135972; p. 47 bibliography",
+          "method": "OA primary PDF bounded passages",
+          "title": "Loss of Exponential Mixing in a Non-Monotonic Toral Map",
+          "trigger": "Same map, parabolic branches, exact escape cells and return estimates"
+        },
+        {
+          "assessment": "No determination of coverage from unavailable thesis text.",
+          "evidence": [
+            "The inspected bibliography names the thesis but gives no full text link."
+          ],
+          "identifier_or_url": "J. Myers Hill PhD thesis, Sept. 2022, cited by arXiv:2303.08515v1 p. 47",
+          "material_read": "Citation only; full thesis not retrieved",
+          "method": "Bibliography of the OA primary paper",
+          "title": "Mixing in the Presence of Non-Monotonicity",
+          "trigger": "Plausible earlier geometry or exact area summation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:17–21 and 93–102",
+        "Exact counterpart fa18f62401f4, Finding and branch identification"
+      ],
+      "rationale": "The precise residence tail of a neutral branch is a motivated statistic that would be useful independently of a correlation theorem. Here it is already available with stronger temporal information for the symmetry-related branch. Repeating its even tail for P by a map symmetry changes no invariant and leaves no independently useful exact fact or new mechanism in the frozen finding.",
+      "residual_risks": [
+        "A distinct exact tail for a different observable, such as return to an inducing base, is not assessed by this decision."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

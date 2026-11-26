@@ -1,15 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite \(K_4\) extension property proves the exact compatibility predicate, and Boolean Möbius inversion proves an integral congruence of the full type matrix with a diagonal of induced independence sums. Both exterior zeta matrices are integral unimodular. A deletion-and-independent-neighborhood generator covers every triangle-free graph of order at most eight. Complete adjacency-preserving isomorphism backtracking deduplicates without a quotient heuristic; an independent brute-force alternating-subset evaluator corroborates the dynamic-programming independence sums for all 410 eight-vertex classes. The cube is the unique class with absolute independence sum divisible by an odd prime. All 256 induced sums, 65,536 congruence entries and sign counts are reproduced. A rigorous finite census combined with the exact identity is a proof of the stated finite cutoff, not a proof of any unbounded order claim.
+## correctness
 
-## Originality — PASS, provisional
-The Henson extension property, the Boolean meet-matrix reduction, the cube's independence polynomial, the unlabeled triangle-free graph class counts, and the general independence-polynomial bounds are all prior work. The earlier exact Smith classifications of adjacent type feasibility for chordal and unicyclic bases apply only to those graph families and do not cover the cube, which has several independent cycles. Levit–Mandrescu and Cutler–Kahl address alternating independence evaluations but do not present the sharp eight-vertex *unique* triangle-free extremizer or its logical Smith consequences in inspected passages. The explicit database coefficient row gives the cubic witness but no complete minimum/uniqueness classification. The reported contribution is the first odd-primary torsion cutoff over *every* triangle-free named base, uniqueness of the cube at that cutoff, and its complete integral matrix classification. Residual risk: a small-graph Euler-sum extremizer may be implicit in another unindexed source; searching does not prove priority.
+PASS
 
-## Mathematical value — PASS
-The question locates the first genuine odd-characteristic obstruction in the arithmetic of logically defined type compatibility. Prior all-unit results on chordal bases and all-2-primary results on unicyclic bases motivate a sharp departure in multicyclic bases. Eight is not an arbitrary census limit: it is independently demonstrated to be the least size at which odd torsion occurs, with a unique natural cube geometry. The complete \(256\times256\) Smith profile and field-rank distinction make the boundary mathematically interpretable beyond one small polynomial coefficient.
+Homogeneity fixes the type once the named adjacency vector is fixed; any such vector is realized by finite extension since the old graph is triangle-free. With two new adjacent vertices the only possible K4 uses both new vertices and an old edge inside their common neighborhood, including when the two types are equal. Thus the matrix is the Boolean meet matrix of the independence indicator. Its zeta congruence is integral and invertible, with diagonal h(U)=(-1)^|U| I_{G[U]}(-1). Independent enumeration used a lexicographic canonical code over degree-ordered relabelings (no heuristic isomorphism filter) and exact alternating subset sums. Every admissible graph occurs by deleting its last vertex and extending by an independent neighborhood. The enumeration recovers the order-eight frequencies 1,35,253,111,9,1 for values −2,−1,0,1,2,3; the sole 3 is canonically Q3. All smaller orders, including the empty graph with sum 1, have no nonzero odd-prime-divisible value, so all proper induced subgraphs at order eight are harmless as well. Independent Boolean subtraction gives 138 zeros, 105 units, twelve absolute twos and one three, with 60 positive and 58 negative entries. Combining one twosummand with the threesummand gives 106 Smith units, eleven factors 2 and one factor 6, with 138 zeros; the reported cokernel and ranks follow.
 
-## Limitations and risk
-The threshold is confined to triangle-free old bases with at most eight vertices. Exhaustive small-graph enumeration is not a global structural bound at larger orders. Previous matrices and abstract meet identities are acknowledged as precedent; new value is the precise first-characteristic boundary. Independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established Henson setting, Boolean meet factorization, scalar independence evaluation and cube witness are not novel. What survives comparison is the sharp minimum order across the whole triangle-free age, its unique order-eight exception and complete cube matrix invariants. Neither the existing table entries nor the related compatibility results or scalar bounds determine those jointly.
+
+## value
+
+PASS
+
+The finite cutoff addresses the least size at which characteristics other than 2 can change the rank of the adjacent-type matrix. It separates a natural extremizer from all smaller and equal-order competitors rather than reporting a handpicked cube evaluation. The full field-rank comparison and unique Smith factor divisible by 3 give a reusable explicit obstruction for work on logical type matrices and induced independence sums.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

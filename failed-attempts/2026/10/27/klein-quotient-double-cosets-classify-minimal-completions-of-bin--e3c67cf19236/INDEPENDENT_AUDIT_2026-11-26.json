@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:47:34.502039Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–42; VERIFICATION.md and verify.py (read only)",
+        "arXiv:2610.18480, Lemmas 3.7, 3.9 and 3.14(1), Corollary 3.11 and Proposition 3.3",
+        "Independent bounded replay: enumerate ordered independent binary row masks at r=2,3,4,5, deduplicate their common kernels; enumerate all 16 subsets in the four-point quotient, compare translates, and group those with trivial stabilizer into orbits"
+      ],
+      "rationale": "H-fixed configurations are binary subsets of the quotient. In the Klein quotient every two-point subset is stabilized by translation by the difference of its elements; precisely the singleton and triple subsets have trivial stabilizer, and each family forms one orbit. A rule restricted to H-fixed inputs has no active neighborhood if the pattern is inconsistent on cosets; otherwise it has one projected active pattern. Units restrict to units. The exclusion of the diagonal collapse can also be checked directly in the quotient. Its first nonunit factor after the initial units must have exactly the corresponding cross-orbit pairs as its nontrivial kernel, up to a unit, by transitivity on those pairs. A lazy map with a constant active pattern merges the two constants, so cannot be such a factor. A mixed binary pattern writing 0 either removes the lone 1 from every singleton (an impermissible collapse inside that orbit) or fixes the singletons. On any triple its one zero permits at most one matching mixed-pattern translate, so the map cannot shrink that triple to a singleton and hence cannot merge the two free orbits. The writing-1 case is complementary. For the general kernel rigidity argument, after composing the first nonunit with the preceding unit product its kernel is a nontrivial subrelation of the target kernel; the single orbit of nontrivial unordered pairs forces kernel equality. The two images are then isomorphic as equivariant quotients, and this isomorphism extends to a unit because the complements have the same multiset of orbit types. Distinct H give disjoint double cosets because a unit preserves every point stabilizer. Units recover each representative from any element of its double coset. The elementary-collapse generation and exception lemmas then give sufficiency: each remaining collapse is between the two exact-H orbits, and orientation and choice of bijection are conjugate by units. Finally, the elementary abelian 2-quotient has (2^r−1)(2^r−2) ordered independent functional pairs, with six pairs per kernel. Independent enumeration gave the listed kernel and orbit counts; it tests arithmetic and the quotient orbits, not the generation conclusion.",
+      "residual_risks": [
+        "The general sufficiency proof relies on the established elementary-collapse generation and exception results. The finite counts are not a monoid enumeration; the submitted verify.py is the packaged path for its finite checks and was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.9 is for arbitrary finite G-sets and any subset W of equivariant maps. It concludes that any equal-stabilizer elementary orbit collapse in ⟨W∪Aut_G(X)⟩ equals φ w ψ for one w∈W and two units. Lemma 3.14(1) uses exactly the normal Klein quotient kernel exception for binary configurations."
+        ],
+        "reasoning": "This is stronger than a qualitative obstruction: it already gives the exact single-generator double-coset rigidity needed for a general supplement. The restriction to configurations only enters via the prior exception classification.",
+        "searches": [
+          "Resultary: C2 x C2 lazy cellular automata relative rank arbitrary group",
+          "arXiv:2610.18480, Theorem 1.2 and Lemmas 3.7, 3.9, 3.14"
+        ]
+      },
+      "checked_sources": [
+        "Alcalá-Arroyo–Castillo-Ramirez arXiv:2610.18480",
+        "Alcalá-Arroyo–Castillo-Ramirez–Ma–Zhang arXiv:2610.20329",
+        "Four targeted Resultary checks listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each H, the two exact-H orbits are distinct and satisfy the same stabilizer hypothesis of Lemma 3.9. If the enlarged generators yield ε_H, take W=L∪S in that lemma to obtain ε_H=φ w ψ. The prior quotient nonmembership excludes w∈L, so S hits the indicated double coset. Conversely the only possibly missing elementary collapses are equal-stabilizer collapses with H in the Klein kernel family, by Lemma 3.14(1); a four-point quotient has just the two free orbits and Lemma 3.7 gives conjugacy and elementary generation. Unit-preserved stabilizer labels make the required cosets disjoint, so minimum sets are transversals and the count is the codimension-two Gaussian binomial."
+        ],
+        "reasoning": "The decisive prior lemma already quantifies over arbitrary auxiliary transformations. Substituting the union of the lazy rules and the arbitrary supplement is enough; the proof in the frozen result reproduces rather than extends that lemma. Combining it with the exact published exception list requires only the four-element orbit count and elementary labeling and arithmetic, not an independent new classification step.",
+        "searches": [
+          "arXiv:2610.18480 Lemma 3.9, OA offset 23870",
+          "arXiv:2610.18480 Lemma 3.14(1), OA offset 38987",
+          "arXiv:2610.18480 Lemma 3.7 and Corollaries 3.11–3.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the Klein group the earlier Theorem 5.2 identifies the complement of the unique maximal proper submonoid containing M as UεU."
+        ],
+        "reasoning": "In a finite monoid every proper submonoid containing M is contained in a maximal such submonoid. The stated earlier complement criterion is therefore equivalent to the frozen arbitrary-S test for G=C₂². This exact overlap is for one group; the general implication is checked separately.",
+        "searches": [
+          "Resultary: Klein-quotient double-cosets classify minimal completions of binary cellular automata",
+          "Resultary: exact hitting-set criterion cellular automata supplementary generators",
+          "arXiv:2610.20329, Theorem 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Proposition 5.1 explicitly gives rank one relative to M and its Theorem 5.2 characterizes the relevant complement in terms of the same double coset. The ranked index queries did not return an applicable separate exact table."
+        ],
+        "reasoning": "The small case is already known as a symbolic result, and the larger counts 7, 35, 155 are the standard counts of codimension-two subspaces of the elementary abelian quotient once the mechanically implied criterion is applied. Exact table absence does not change this comparison.",
+        "searches": [
+          "Resultary: relative rank(E:M) Klein four cellular automata lazy",
+          "arXiv:2610.20329, Proposition 5.1 and Theorem 5.2"
+        ]
+      },
+      "rationale": "The exact all-group statement is not printed in the inspected older papers, but it is a direct consequence of the earlier arbitrary-W rigidity lemma and the earlier exception classification, not a new rigidity or separation theorem. The necessity direction literally instantiates Lemma 3.9 at W=L∪S and uses the known quotient obstruction. Sufficiency immediately applies Lemmas 3.7 and 3.14. Distinct kernel labels separate under units, and Gaussian-binomial counting then gives the exact rank. The earlier Klein-only paper also explicitly gives the rank-one case and identifies its compulsory double coset.",
+      "residual_risks": [
+        "The exact formatted all-group formula was not identified as a published displayed result. The finding of prior coverage is mathematical implication, not a claim that it was printed verbatim. A located passage in arXiv:2203.12158 on relative rank modulo units could not be read after a retrieval timeout and is not needed for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion is covered by direct implication of the stated lemmas",
+          "evidence": "Lemma 3.9 says W⊆End_G(X) is arbitrary and a generated same-stabilizer collapse must be φ◦w◦ψ with w∈W. Lemma 3.14(1) says every elementary collapse belongs to M unless G_x=G_y is in the normal Klein quotient kernel family. Corollary 3.11 excludes the quotient collapse itself, and Lemma 3.7 supplies generation and conjugacy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.18480",
+          "material_read": "Theorem 1.2 p. 2; Lemma 3.7 p. 6; Lemma 3.9 pp. 7–8 (offset 23870); Corollaries 3.11–3.12; Lemma 3.14 p. 12 (offset 38987)",
+          "method": "OA primary PDF, including direct decisive lemma passages",
+          "title": "When do lazy and invertible cellular automata generate all cellular automata?",
+          "trigger": "Potential general-generation and necessary-generator coverage"
+        },
+        {
+          "assessment": "Exact rank-one case and equivalent single-quotient hitting test for this group; also stronger maximal-submonoid information there",
+          "evidence": "Proposition 5.1 gives relative rank one. Theorem 5.2 gives the unique maximal proper Q containing M and E∖Q=UεU.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.20329",
+          "material_read": "Theorem 1.1 p. 1; Proposition 4.1 p. 5; Proposition 5.1 p. 6 (offset 20344); Theorem 5.2 pp. 6–7 (offset 21375)",
+          "method": "OA primary PDF",
+          "title": "Generation by lazy and invertible cellular automata over the Klein four-group",
+          "trigger": "Exact rank or stronger compulsory-generator statement for the Klein group"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Steps 1–6",
+        "arXiv:2610.18480 Lemmas 3.7, 3.9, 3.14",
+        "arXiv:2610.20329 Proposition 5.1 and Theorem 5.2"
+      ],
+      "rationale": "The relative rank modulo all lazy maps is a natural invariant, and the all-supplement phrasing is a useful summary of its known structure. But the exact missing-generator condition is already forced by the prior arbitrary-supplement lemma and exception list. The remaining orbit count, disjointness of different stabilizer labels, and Gaussian-binomial evaluation leave no independently unresolved precise invariant in the frozen claim.",
+      "residual_risks": [
+        "This decision does not cover the distinct problem of counting maximal submonoids or computing |M| for general finite groups, neither of which is proved here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

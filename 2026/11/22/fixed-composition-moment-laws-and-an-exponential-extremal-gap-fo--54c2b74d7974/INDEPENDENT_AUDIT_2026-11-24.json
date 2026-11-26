@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:15:44.650819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–57 and 61–110",
+        "Frozen VERIFICATION.md, verification/verify_monochromatic.py, verification/verify_moments.py and both recorded outputs (read without execution)"
+      ],
+      "rationale": "The ordered sequence of non-a letters is unchanged by any deletion. Scanning the residual uniquely gives all retained a-gap counts even when separators have repeated letters; hence X_k is the coefficient of the product of finite geometric sums, and Y is the product of (c_i+1). Each weak composition has the same multiplicity (q-1)^b. Splitting each c_i into deleted and residual parts, of respective totals k and m-k, verifies the mean by two separate stars-and-bars counts. For the second moment, grouping two deletion counts by their minimum and signed difference gives the single-gap kernel (1-x²uv)/((1-x)(1-xu)(1-xv)(1-xuv)), equivalent to the stated H. Extracting the total m from its r-th power implements the conditioning, not independence of gaps. At u=v=1 this becomes (1+x)/(1-x)^3; the one-mark kernel at u=1 is (1-x)^-2. The smoothing difference is exactly the interval of monomials from B+1 to A-1, strictly positive at z=1, so balancing terminates with the stated simultaneous equality class and multiplicity. At b=m this gives 2^m and m+1 maximizing compositions. Stirling's formula for the ratio of the binomials, including the factor (3m+1)/(2m+1) from shifting the numerator, confirms the two asymptotics and prefactors.",
+      "residual_risks": [
+        "The sample scripts are corroboration, not proof. The printed 21648 counter weights each (k,l) cell by the number of compositions; there are 816 distinct parameter/cell combinations in the script, not 21648 distinct coefficients.",
+        "The law conditions on one distinguished count, not a complete q-letter composition; it does not cover nonmonochromatic deletions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complement-factor primary paper describes the general object, algorithms and inverse/structural questions.",
+          "The unrestricted deletion-ball works optimize counts over all deletion patterns with run constraints and use balancing."
+        ],
+        "reasoning": "General algorithms can evaluate individual hosts but are not an exact statistical law for a fixed-content ensemble. Ordinary-ball maxima do not establish the conditional joint law or ratio.",
+        "searches": [
+          "arXiv:2603.20790v1 §1",
+          "arXiv:2601.06493v2 abstract and §I-A",
+          "Local Resultary 2036e6f8e3be Finding and proof step 4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 54c2b74d7974, 2036e6f8e3be, 3b99e07a61fe, 4b7dc91ebfc9, 4b52d54dc239",
+        "arXiv:2603.20790v1 and arXiv:2601.06493v2, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The run-collision result includes the same two-part smoothing identity for positive run lengths; the present gaps may be zero.",
+          "The distinct-letter formula counts a different set of residuals."
+        ],
+        "reasoning": "Credit the prior smoothing identity and its balanced-product consequence. They do not yield the sum over host compositions or the two simultaneous deletion vectors needed for this kernel. The 27/32 rate is a consequence of the conditional mean and sharp maximum here, not a new asymptotic method.",
+        "searches": [
+          "Local Resultary 2036e6f8e3be equations (1)–(2) and proof step 4",
+          "Local Resultary 3b99e07a61fe Finding",
+          "arXiv:2601.06493v2 §I-A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The run-pair finding gives |C(w,ab)|=M_ab−N_abab and an independent-letter expectation.",
+          "The alternating-host spectrum and prefix/suffix composition multiset findings address different deletion observables.",
+          "The a-gap bijection converts the claimed random profile to a product over uniform weak compositions."
+        ],
+        "reasoning": "The composition reformulation is equivalent, but no inspected result in that formulation supplied the marked second-moment kernel and comparison to the maximum. The primary search's unrelated results carry no negative evidentiary weight.",
+        "searches": [
+          "Local Resultary search: 3b99e07a61fe, 4b7dc91ebfc9, 4b52d54dc239",
+          "Primary literature lookup for monochromatic complement deletions and fixed-content composition moments (unrelated returns)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The self match is the same finding. Other returned exact spectra concern a fixed alternating host or observational composition multisets."
+        ],
+        "reasoning": "No inspected nonself table covers this matrix of fixed-a-count moments. Nonexhaustive indexing cannot decide priority.",
+        "searches": [
+          "Local Resultary search: frozen record 54c2b74d7974 and adjacent exact-spectrum records 4b7dc91ebfc9 and 4b52d54dc239"
+        ]
+      },
+      "rationale": "Qualified to the distinct conditional mean and full second-moment profile and the exact exponential comparison and optimizer frequency in this ensemble. The balancing principle is prior art, and the marginal mean uses elementary composition counts. Neither the inspected ordinary-ball extremal result nor the different-pattern complement formula covers the random variable and ensemble together.",
+      "residual_risks": [
+        "An equivalent marked weak-composition or random product-of-chains moment identity could be indexed under unrelated terminology. The literature query itself did not resolve this risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Object and algorithmic context; the inspected contributions do not supply the claimed conditioned moments.",
+          "evidence": [
+            "Algorithms for C(w,u), inverse and structural questions"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.20790v1",
+          "material_read": "Section 1, Our Contribution, around offset 8000",
+          "method": "OA HTML",
+          "title": "(Sets of) Complement Scattered Factors",
+          "trigger": "Same underlying complement sets"
+        },
+        {
+          "assessment": "Related extremal methods for unrestricted balls, not the conditioned profile.",
+          "evidence": [
+            "Ordinary deletion balls and balancing of runs"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2601.06493v2",
+          "material_read": "Abstract and §I-A, offsets 0 and 5860–7800",
+          "method": "OA HTML",
+          "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+          "trigger": "Balanced deletion extremizers"
+        },
+        {
+          "assessment": "Actual prior smoothing overlap, no matching random-host law.",
+          "evidence": [
+            "Run-length polynomial product bound for unrestricted fixed-deletion balls with positive maximal runs"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-run-pattern-collision-thresholds-and-short-deletion-extrem--2036e6f8e3be",
+          "material_read": "Finding equations (1)–(2) and proof step 4",
+          "method": "Indexed source, local mirror",
+          "title": "Exact run-pattern collision thresholds and short-deletion extremal counts",
+          "trigger": "Same smoothing identity"
+        },
+        {
+          "assessment": "Different target ab and independent-letter ensemble.",
+          "evidence": [
+            "M_ab minus the alternating-four collision correction gives the ab count"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-run-pair-formula-for-two-letter-complement-scattered-factors--3b99e07a61fe",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed source, local mirror",
+          "title": "A run-pair formula for two-letter complement scattered factors",
+          "trigger": "Related residual count and expectation"
+        },
+        {
+          "assessment": "Does not cover this ensemble.",
+          "evidence": [
+            "Fixed-weight outputs of a specified alternating host"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-fixed-composition-deletion-spectra-and-parity-bias-for-alternati--4b7dc91ebfc9",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed source, local mirror",
+          "title": "Fixed-composition deletion spectra and parity bias for alternating words",
+          "trigger": "Exact fixed-weight deletion spectrum"
+        },
+        {
+          "assessment": "Different observations and ensemble.",
+          "evidence": [
+            "One missing observation in prefix/suffix composition data from an i.i.d. word"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-composition-deletion-sphere-laws-and-three-alphabet-regime--4b52d54dc239",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Indexed source, local mirror",
+          "title": "Exact composition deletion-sphere laws and three alphabet regimes",
+          "trigger": "Possible alias for composition deletions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–53 and 104–110",
+        "Complement scattered factors, arXiv:2603.20790v1, stated motivating problems"
+      ],
+      "rationale": "Monochromatic complement deletion isolates a natural source of collisions. The cross moments quantify how counts at different deletion depths vary together in a fixed-count experiment, while the sharp 27/32 comparison quantifies a consequential discrepancy between mean residual ambiguity and worst-case ambiguity. The whole conditional profile, not elementary smoothing or stars and bars in isolation, is the useful invariant.",
+      "residual_risks": [
+        "Neither a typical-value estimate nor a channel-capacity conclusion follows from the mean-to-optimum comparison."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

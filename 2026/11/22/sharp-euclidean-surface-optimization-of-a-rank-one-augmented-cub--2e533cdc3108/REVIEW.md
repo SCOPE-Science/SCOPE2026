@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity \(P_n(t)=\{x_i\ge0,\,\sum_i(x_i-1)_+\le t\}\) follows by exact coordinate decomposition. Every listed subset-support facet and lower-coordinate facet has dimension \(n-1\) and the stated Euclidean area by orthogonal factorization and the simplex Gram determinant. Dissection by coordinates above one gives the exact volume polynomial. In dimension three the exact derivative polynomial \(F\) has strictly negative constant coefficient and strictly positive remaining coefficients, so Descartes' rule and endpoint signs show exactly one positive minimizer; this proves sharp equality and global uniqueness. The executable cross-check independently passes twelve convex hull volume-area comparisons, facet-rank checks, symbolic polynomial equality and numerical root bracketing. No finite computation is used to justify an infinite theorem.
+PASS
 
-## Originality — PASS, with priority risk
+The corrected files are /workspace/repairs/1/RESULT.md and verify.py. The frozen exact optimum is correct, but the final displayed digit of the surface quotient with ellipsis was wrong: independent Decimal bisection and evaluation gave t*=0.4286306377334204013764… and 5.7626370245621151604897…, not 5.762637024562116…. Replay via python3 /workspace/branches/reproduce_decisive.py. Splitting x into capped coordinates and nonnegative excess gives the maximum-over-subsets inequality and the measure-zero-wall volume decomposition. Maximizing a subset sum on each summand gives the full simplex-times-cube face, including the singleton (whose deleted-subset inequality argument in the frozen proof was incomplete) and full subset. The lower coordinate facets are copies of the smaller body. All faces have codimension one and exhaust the defining inequalities. The simplex Gram matrix has determinant k t^(2k−2), with the empty Gram determinant 1 for k=1. At zero the subset inequalities of size at least two become redundant, and the volume and area polynomials have the cube limits. In 3D direct expansion gives the displayed derivative cubic, whose negative constant and positive other coefficients make it strictly increasing on t≥0, with exactly one positive root. The derivative sign and positivity of the volume ensure the global equality statement after unit-volume scaling. The repaired script's symbolic identity agrees with the independent expansion; uploaded hull code was inspected, not run, and is only supplementary.
 
-The closest published cubical-summand theory (Castillo et al., arXiv:2009.07252; 2020-09-15) concerns type cones and classifications of cube summands rather than the ordinary Euclidean surface of a cube-plus-simplex sum. Richter–Saorín Gómez (DOI 10.1007/s12220-021-00766-2) treats Euclidean-ball parallel bodies and relative-gauge isoperimetry, not this simplex-directed deformation. The full published 2026 cube-plus-crosspolytope result (published-finding corpus ID `2026/11/17/SCOPE-square-root-boundary-area-condensation-and-a-gaussian-facet-rank--4ae7f8d398dc`) was inspected: its analogous subset-simplex Gram area and all-sign boundary-localization method are acknowledged, while neither its symmetric body nor its limiting rank distribution gives the three-dimensional asymmetric unique fixed-volume minimizer. No tested exact equivalent or dominating theorem was identified in semantic or literature searches, but an unindexed treatment remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp fixed-volume surface minimum distinguishes the cube and simplex endpoints from a strictly better interior geometry in a canonical natural Minkowski deformation; it specifies one exact algebraic optimum and its unique equality class. The all-dimensional complete Euclidean facet-area spectrum is the structural input. This is a motivated natural restricted geometric extremal problem, not a cosmetic reparametrization or a claim of a new volume identity. No paper-sized generalization is claimed.
+The repaired assessment claims a distinct exact 3D fixed-volume optimizer, not novelty for the volume polynomial or the orthant-accessible subset-facet spectrum. The corrected result explicitly credits the orthant reduction to the earlier cube–crosspolytope geometry.
 
-## Closest literature and limits
+## value
 
-The nearest antecedent is the full-text published cube-plus-crosspolytope boundary-spectrum result; see the specific original and strictly different symmetric-body contributions described above. The optimization is restricted to dimension three, to this one-parameter shape family, and to standard Euclidean area at fixed volume. No independent publication-priority or mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A Euclidean surface optimum for the natural interpolation between the normalized cube and simplex need not occur in the interior or be unique. Here it does, with a sharp exact equality shape, demonstrating that moving away from either pure endpoint can improve the fixed-volume surface within the family. The full facet bookkeeping explains that interpolation. This value assessment is for the surviving sharp optimization, not the correction of one digit or the Gram formula alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

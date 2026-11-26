@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:36:22.923895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 7–79",
+        "VERIFICATION.md, lines 19–23",
+        "verify.py, lines 19–93",
+        "Alistarh et al. arXiv:2307.07297, Theorem 2.7 and Appendix B"
+      ],
+      "rationale": "For fixed pair parameters write x=1−u and y=1−v. The discounted sums d_1,d_2 of the two players' defection probabilities satisfy d_1=1/2+δx d_2 and d_2=1/2+δy d_1. The donation payoff is (b−c)/(1−δ)+c d_1−b d_2, which verifies the pair formula independently of the four-state inversion. Exchangeability gives the penalty kernel (1+δ(x+y)/2)/(1−δ²xy) multiplied by (b−c)/2. Independence turns its uniformly convergent geometric expansion into Σ_j δ^(2j)(m_j²+δm_jm_(j+1)). Jensen gives nonnegative termwise differences relative to the constant law, and the first possibly nonzero term is δ³μVar(X), with all higher terms bounded by O(δ⁴) as δ→0. Nonconstant nonnegative X has μ>0, so positivity is strict. Convex order increases every entering moment; the endpoint law gives the simultaneous chord bounds at fixed mean. Strict convexity of x² and its positive δ³μ coefficient force endpoint support for equality at a nontrivial maximum. Boundary means admit only a constant law. The exact kernel evaluated at the two endpoints gives the displayed envelope. The stationary multinomial probabilities are geometric in the level index under the stated IGT parameters; the iid comparison uses that one-agent law, not a conditional comparison at a realized finite-population mean. Evaluating the four ordered pairs in the example gives 21/16 versus 4/3, as stated. The finite checks were inspected, not executed; the moment argument establishes the result for arbitrary probability laws on the interval.",
+      "residual_risks": [
+        "No result for dependent pairs, dissimilar population laws or time-evolving generosity within the game. Population-size independence refers to the iid comparison at a fixed law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition D.1 bounds one-coordinate averaging against a random strategy using a uniform second-derivative bound and variance. Núñez Rodríguez–Neves studies replicator regimes for specified reactive strategies. Historical Nature and JCR source retrieval did not yield the needed passages."
+        ],
+        "reasoning": "A Taylor bound of that kind controls the size of an approximation error but does not prove a strict direction or an extremal two-law comparison for iid draws. A replicator regime is not a stronger statement about these stopped pair payoffs.",
+        "searches": [
+          "Primary searches on Alistarh et al., Nowak–Sigmund and GTFT heterogeneity",
+          "arXiv:2307.07297 Appendix D.2, Proposition D.1",
+          "arXiv:1509.01225, Definition 1 and Eqs. (5)–(8)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked searches and records 782b8b55b870 and e15fcf7a240d",
+        "Alistarh et al. arXiv:2307.07297",
+        "Núñez Rodríguez–Neves arXiv:1509.01225"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The row payoff retains distinct benefit and cost terms until iid symmetry is used. The model-specific nonnegative moment decomposition identifies the δ³μVar(X) term and the strict second-moment chord case; these do not come from assigning a sign to the prior absolute-scale curvature estimate."
+        ],
+        "reasoning": "The prior exact data and classical Jensen/chord facts are acknowledged tools. Extracting a signed, sharp law-level comparison requires the exchangeability and independence reduction and an equality analysis, not relabeling a stated approximation bound.",
+        "searches": [
+          "arXiv:2307.07297 Appendix B.1 Eqs. (40)–(46) and Appendix D.2 Proposition D.1",
+          "Comparison with frozen Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior discounted-sum convention and GTFT formula agree; replacing cooperation parameters by defection multipliers x=1−u is a reparametrization, not a new kernel. The Núñez Rodríguez–Neves stationary per-round formulas are not the geometric total-payoff objective."
+        ],
+        "reasoning": "The comparison concerns averaging an existing pair payoff over independent draws from a law, not an alternative notation for the existing pair formula or the infinite-horizon stationary objective.",
+        "searches": [
+          "Resultary searches on heterogeneity and payoff under repeated generous tit-for-tat and on IGT",
+          "Primary searches on GTFT heterogeneous generosity versus mean payoff",
+          "arXiv:2307.07297 Appendix B.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed convexity result is a one-shot public-goods payoff difference; the closest indexed IGT result is a count-chain mixing profile. The prior IGT paper specifies the exact pair kernel and stationary probabilities, not the fixed-mean extremal laws in the inspected passages."
+        ],
+        "reasoning": "The simple rational example is not a stand-alone lookup claim; the assessed exact object is an envelope over all laws of a prescribed mean on a bounded interval.",
+        "searches": [
+          "Resultary searches for the sharp fixed-mean GTFT envelope and endpoint/convex-order extremizers",
+          "Primary lookup for convex-order extremizers in GTFT payoff",
+          "Local Resultary records 782b8b55b870 and e15fcf7a240d"
+        ]
+      },
+      "rationale": "The exact pair payoff, multinomial stationary law and use of an average-generosity payoff are prior work. The distinct supported claim is the strict iid sign, positive leading variance certificate and sharp distribution-free envelope with its equality laws and convex-order monotonicity. The strongest available prior bound in the same IGT setting concerns a different averaging operation and does not give these sign and extremal statements.",
+      "residual_risks": [
+        "The Nowak–Sigmund and Molander full texts were not accessible through the attempted lawful routes; any equivalent historical treatment under other terminology remains an open priority risk. The final ACM publisher text was not compared with the accessible arXiv version. The decision is bounded by the inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact pair and stationary ingredients, and a different variance-control result",
+          "evidence": [
+            "Theorem 2.7 gives the multinomial probabilities proportional to (1/β−1)^(j−1).",
+            "The pair formula under geometric stopping includes the s_1=1/2 specialization. Proposition D.1 compares E[f(g,S)] to E[f(Eg,S)] up to L Var(g), without asserting the iid envelope."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.07297",
+          "material_read": "Theorem 2.7, PDF offset about 47300; Appendix B.1.1 Eq. (33) and B.1.4–B.1.5 Eqs. (40)–(46); Appendix D.2 Proposition D.1, offset about 161450",
+          "method": "Lawful OA arXiv PDF passage inspection; publisher PDF not accessible",
+          "title": "Game Dynamics and Equilibrium Computation in the Population Protocol Model",
+          "trigger": "Identical GTFT pair law, IGT equilibrium and use of mean generosity"
+        },
+        {
+          "assessment": "Different objective and distributional question",
+          "evidence": [
+            "Uses stationary per-round payoff and replicator dynamics among three specified strategies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.01225",
+          "material_read": "Definition 1, Eqs. (5)–(8), and replicator analysis, PDF pp. 3–6",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Evolution of cooperation in a particular case of the infinitely repeated Prisoner's Dilemma with three strategies",
+          "trigger": "Reactive generous TFT and heterogeneous strategy populations"
+        },
+        {
+          "assessment": "Exact overlap not determined",
+          "evidence": [
+            "Available metadata does not supply a theorem passage; no usable full text obtained."
+          ],
+          "identifier_or_url": "10.1038/355250a0",
+          "material_read": "Bibliographic metadata only",
+          "method": "Lawful publisher PDF/HTML and OA availability checks",
+          "title": "Tit for tat in heterogeneous populations",
+          "trigger": "Plausible earlier heterogeneous reciprocity treatment"
+        },
+        {
+          "assessment": "Exact overlap not determined",
+          "evidence": [
+            "No publisher or repository passage was obtained. The secondary citation concerns the strategy origin, not the reviewed result."
+          ],
+          "identifier_or_url": "10.1177/0022002785029004004",
+          "material_read": "Bibliographic metadata and the secondary citation in Núñez Rodríguez–Neves, p. 4",
+          "method": "Lawful publisher PDF/HTML and repository availability checks",
+          "title": "The Optimal Level of Generosity in a Selfish, Uncertain Environment",
+          "trigger": "Early source on optimal generosity and GTFT"
+        },
+        {
+          "assessment": "Different game and observable",
+          "evidence": [
+            "One-shot finite-population public-goods cooperative-versus-defective payoff advantage, not an iid GTFT generosity law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-four-person-reversal-and-universal-convexity-of-finite-p--782b8b55b870/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp four-person reversal and universal convexity of finite-population payoffs (Resultary record)",
+          "trigger": "Same-day indexed payoff convexity and sign change"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "Treats convergence of the count chain in total variation, not payoff comparison at fixed mean."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-gaussian-cutoff-profile-for-incremental-generosity-learn--e15fcf7a240d/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp Gaussian cutoff profile for incremental generosity learning (Resultary record)",
+          "trigger": "Same IGT model family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–5",
+        "Alistarh et al. Appendix D.2"
+      ],
+      "rationale": "Replacing heterogeneous generosity by its mean is an approximation already used in the motivating model. A sign-definite nonvanishing bias, explicit positive variance certificate and uniquely sharp worst case give directly useful information not supplied by a numeric example or an unsigned error bound. The convex-order comparison describes which changes in the law can worsen the bias without changing its mean.",
+      "residual_risks": [
+        "The payoff comparison is not a claim that reducing heterogeneity improves evolutionary fitness or cooperation under other objectives."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

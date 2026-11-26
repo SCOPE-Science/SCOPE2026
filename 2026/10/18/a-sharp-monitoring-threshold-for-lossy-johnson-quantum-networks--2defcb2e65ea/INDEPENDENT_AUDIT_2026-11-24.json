@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:21:34.239490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions, and proof §§1–4; VERIFICATION.md and check.py (inspection)",
+        "Repaired RESULT.md and VERIFICATION.md, including the completely monitored norm bounds",
+        "Independent replays: /workspace/review_checks.py 4 and /workspace/branches/0f91e6e1-188c-4092-845e-53a79b6d2a56/independent_check.py"
+      ],
+      "rationale": "Final repaired claim. In the frozen original the main infinite-time theorem is correct, but the extension in Assumptions said absorption is 'immediate' when every configuration is monitored. For instance n=3,k=2,r=2 with Γ=γI gives survival e^(−γt), disproving immediate absorption. In the repaired RESULT.md, the norm derivative equals −⟨ψ,Γψ⟩ for arbitrary Hermitian coherent dynamics. When all vertices are monitored this lies between −γ_max||ψ||² and −γ_min||ψ||². Integration gives the two stated bounds, a zero limit and strictly positive finite-time survival. In the nontrivial domain, a boundary row belonging to a k-set meeting exactly one monitored coordinate is J times a row of the (k−1)-to-k inclusion matrix D on the m=n−r unmonitored labels. More heavily monitored rows are zero. The kernel is exactly ker D, independent of r at fixed m. I rechecked the adjacency Gram identity entrywise: diagonal k, off-diagonal 1 if the intersection has size k−1 and 0 otherwise. Thus each kernel vector extended by zero is an eigenvector at −Jk. Conversely, factoring the imaginary part of the eigenvalue against its eigenvector forces any real-energy eigenvector to vanish on monitored vertices, thence belong to that kernel. This space reduces the operator, acting as the same real scalar under its adjoint, and Jordan blocks on the orthogonal complement still decay. Hence survival is the squared norm of the dark projection, including for coherent inputs and starting monitored basis vectors. The Boolean add/remove commutator is obtained by canceling each single replacement in the two orders; their diagonal difference is m−2ℓ. Injectivity of the up-map below half rank gives surjectivity of D when k≤(m+1)/2; complementing gives injectivity when k>(m+1)/2, including m=k. Binomial rank-nullity then gives the dark dimension; the permutation-invariant projector has constant diagonal (regardless of whether the loss operator is symmetric). The binomial ratio is k/(m−k+1), and absence of dark vectors is exactly m≤2k−1. The coherent uniform state is in ran D*, so is completely absorbed. The seven independent exact SymPy instances (`python3 /workspace/review_checks.py 4`) and the independent Fraction rank/Gram replay across 83 nontrivial cases through n=8 corroborate the algebra; neither proves decay for every detector perturbation. Inspection of frozen check.py gives 83×5+24+4=443 numerical checks including four sampled real-symmetric detector perturbations, not arbitrary perturbations as numerical examples. Both corrected files distinguish these finite checks from the theorem for all Hermitian perturbations; the frozen script was not executed and its recorded numerical error is reported as recorded. The repaired VERIFICATION.md preserves the original JSON front matter verbatim.",
+      "residual_risks": [
+        "Infinite-time certainty is not a uniform finite-time performance guarantee. None of the proof extends to extra unmonitored Hamiltonian terms or arbitrary dephasing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-20261025-1d711c8bda6b, Finding and assumptions: arbitrary trap placements on J(n,2) with positive losses; this covers more placements for k=2. Here specialization gives dim dark=max{choose(n−r,2)−(n−r),0}, and symmetry gives the localized absorption law.",
+          "SCOPE-20261011-d102febb3be1 Finding: concentration rank for harmonic degrees ≤L<k on the intersection face containing both prescribed labels.",
+          "SCOPE-20261108-041443e7729a Finding: restriction to the same kind of union of stars is injective on degree-one harmonics with its three-sector spectrum."
+        ],
+        "reasoning": "The exact two-excitation law without V_F is covered by a more general placement result on that slice. The intersection-face spectrum does not impose vanishing on a union and restricts the harmonic degrees below k; the degree-one union result does not address the higher kernel that controls trapping. None covers the general k,r threshold.",
+        "searches": [
+          "Resultary: dark subspace Johnson graph absorption threshold multiple marked local coordinates",
+          "Resultary: absorbing Johnson graph configurations that contain any of several marked coordinates binomial incidence dark subspace",
+          "Resultary: Exact two-coordinate-face concentration spectrum on Johnson slices"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1707.07482v1, 2410.05945v1, 2108.01992v1, 2203.14384v3; Gottlieb DOI citation/access attempt",
+        "SCOPE-20261108-e785fe81a13a, SCOPE-20261025-1d711c8bda6b, SCOPE-20261102-409aad9cc826, SCOPE-20261011-d102febb3be1, SCOPE-20261108-041443e7729a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General dark-state/projection and rank theories apply after identification of the boundary kernel and its invariance; Gottlieb's exact historic DOI text was not recovered in the bounded lookup and rank was reconstructed directly.",
+          "One-coordinate projector proof assumes an unmonitored set of size at least 2k. Its parameter substitution gives the trapping projector once the repeated/zero boundary-row reduction is proved, but not the complete absorption side, including at and beyond m=2k−1. The arbitrary-trap spectral rank theorem is confined to k=2. Detector-side Hermitian independence by itself is a generic reducing-space observation."
+        ],
+        "reasoning": "The substantive bridge is identifying the repeated down-incidence block for the union of many configuration stars, proving it is an eigenspace upon extension and evaluating the rank in the injective as well as the surjective regime. General loss theory does not itself determine this kernel or how it changes with the monitored-coordinate budget. The narrower verified overlaps are not separate contributions in the final claim.",
+        "searches": [
+          "Compare arXiv:1707.07482v1 general dark-state framework and complete-graph example; arXiv:2108.01992v1 §2, arXiv:2203.14384v3 intro, arXiv:2410.05945v1 Eqs. (5)–(6)",
+          "Local-mirror comparison: SCOPE-20261108-e785fe81a13a proof §§2–4, offset 3600, and SCOPE-20261025-1d711c8bda6b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Le et al. arXiv:1707.07482v1 pp. 3–4 gives the dark mechanism and exact one-excitation, one-target boundary case.",
+          "Lewis–Banchi–Bose arXiv:2410.05945v1 p. 2 Eqs. (5)–(6) gives fixed-excitation Johnson hopping and local-field marking.",
+          "SCOPE-20261108-e785fe81a13a, proof §§2–4: single-coordinate Johnson boundary B_J=W_(k−1,k), survival projection onto ker B_J, and full explicit projector in its trapping domain."
+        ],
+        "reasoning": "An occupation label is shared with the local-field search, but a Hermitian marking potential or target binary string is not the dissipative union-of-stars observation problem. For the genuinely equivalent trapping-sector projector use the unmonitored set m and compare to a one-coordinate absorber on J(m+1,k): stacking r copies of the boundary D and appending zero rows leaves the kernel unchanged. This gives the exact partial coverage, not a new projector formula on m≥2k.",
+        "searches": [
+          "Resultary: Johnson graph coordinate monitoring lossy quantum walk dark states absorption",
+          "Resultary: Johnson graph monitored coordinates subset face incidence kernel quantum network",
+          "Primary literature: Johnson graph quantum walk absorbing traps dark subspace coordinate monitoring Johnson scheme local coordinate marked subsets continuous-time quantum absorption"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261108-e785fe81a13a states the exact r=1 trapping formula k/(n−k) and projector; SCOPE-20261102-409aad9cc826 gives one-site uniform-loss survival blocks with dark energy −Jk and credits its dark count/capture corollary separately.",
+          "The strongest exact k=2 and spectral-concentration matches are identified in broader_coverage."
+        ],
+        "reasoning": "These are material overlaps at specific occupancy and detector restrictions, and for the shared trapping projector after reduction. The tracked sources did not give a table or formula for the complete threshold r≥max{1,n−2k+1} with arbitrary k,n, positive rates and detector-side Hermitian dynamics.",
+        "searches": [
+          "Resultary: Johnson graph coordinate-defined face absorber all-state capture threshold arbitrary positive loss rates",
+          "Resultary coordinate-monitoring and incidence searches above"
+        ]
+      },
+      "rationale": "The distinctive final claim is the exact all-k, all-r classification for a coordinated union of monitored configuration stars and its all-state threshold, not generic dark-state criteria, classical incidence rank, one-coordinate capture or the fully monitored norm estimate. The repaired version now expressly credits the strongest exact overlaps. In the trapping sector the one-coordinate theorem on a smaller graph gives the same projector under the boundary-kernel reduction; it is not merely a similar title or a similar numerical threshold. The evidence distinguishes that reduction from the full threshold and placement result; catalogue dates are not treated as evidence of scientific priority.",
+      "residual_risks": [
+        "There may be a broader monitored-spin, classical representation-theory or observability result that supplies the complete coordinate-union classification. The bounded sources do not establish absolute priority. The exact overlaps in specified sectors, including the trapping-side equivalent projector, are established and credited irrespective of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "generic antecedent and exact k=r=1 match",
+          "evidence": [
+            "The orthogonal dark space has dimension N−2 for the complete graph with a single target site."
+          ],
+          "identifier_or_url": "arXiv:1707.07482v1",
+          "material_read": "complete-graph example pp. 3–4, offsets 21000 and 26000",
+          "method": "OA PDF passage inspection",
+          "title": "How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures",
+          "trigger": "loss-projector framework and complete-graph boundary case"
+        },
+        {
+          "assessment": "same Hamiltonian graph, different marked evolution",
+          "evidence": [
+            "Uses diagonal Hermitian fields depending on excitation occupation, not sinks on configurations meeting a monitored set."
+          ],
+          "identifier_or_url": "arXiv:2410.05945v1",
+          "material_read": "abstract p. 1; model Eqs. (5)–(6) p. 2 offset 14000",
+          "method": "OA PDF passage inspection",
+          "title": "Quantum Spatial Search with Multiple Excitations",
+          "trigger": "local occupancy marks in fixed-excitation Johnson network"
+        },
+        {
+          "assessment": "one marked basis vertex and Hermitian oracle",
+          "evidence": [
+            "H=−γA−|w⟩⟨w| with uniform search input."
+          ],
+          "identifier_or_url": "arXiv:2108.01992v1",
+          "material_read": "§2 p. 3 offset 6300",
+          "method": "OA PDF passage inspection",
+          "title": "Spatial Search on Johnson Graphs by Continuous-Time Quantum Walk",
+          "trigger": "continuous-time marked Johnson graph"
+        },
+        {
+          "assessment": "marked-vertex search, not irreversible absorption",
+          "evidence": [
+            "Johnson application analyzes two marked vertices."
+          ],
+          "identifier_or_url": "arXiv:2203.14384v3",
+          "material_read": "abstract and introduction pp. 1, 3 offsets 1866 and 9300",
+          "method": "OA PDF passage inspection",
+          "title": "Multimarked Spatial Search by Continuous-Time Quantum Walk",
+          "trigger": "generalized marking might cover coordinate unions"
+        },
+        {
+          "assessment": "incidence rank is acknowledged as classical; no whole-paper comparison claimed",
+          "evidence": [
+            "The needed rank follows independently from the Boolean up/down commutator in the repaired result."
+          ],
+          "identifier_or_url": "DOI:10.1090/S0002-9939-1966-0204305-9",
+          "material_read": "bibliographic citation; OA DOI retrieval timed out, no full text assessed",
+          "method": "lawful DOI retrieval attempt",
+          "title": "A Certain Class of Incidence Matrices",
+          "trigger": "classical rank ingredient"
+        },
+        {
+          "assessment": "exact one-coordinate trapping overlap with projector equivalent after the repeated-row reduction",
+          "evidence": [
+            "On m≥2k, B_J is the same W_(k−1,k), dark vectors have energy −k in adjacency units, and the diagonal of the survival projector is (m−2k+1)/(m−k+1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-catalan-dark-subspaces-and-a-distance-two-trapping-resonance-on--e785fe81a13a",
+          "material_read": "RESULT.md Finding; proof §§2–4, offsets 0, 3600–7295, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "local mirror passage inspection",
+          "title": "Catalan dark subspaces and a distance-two trapping resonance on Johnson-type graphs",
+          "trigger": "closest exact dark-space and projector catalogue overlap"
+        },
+        {
+          "assessment": "covers k=2 by specialization without detector-side Hermitian terms",
+          "evidence": [
+            "Complement of selected coordinate stars is exactly all pairs on the remaining m labels; the rank result yields the same dark dimension there."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-bipartite-component-formula-for-the-absorbing-spectral-rank-of-t--1d711c8bda6b",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0 and 1800",
+          "method": "local mirror passage inspection",
+          "title": "Bipartite component formula for the absorbing spectral rank of triangular Johnson graphs",
+          "trigger": "stronger arbitrary trap placement for k=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof; Lewis–Banchi–Bose fixed-excitation model; Le et al. trapping framework"
+      ],
+      "rationale": "The repaired claim gives the minimal placement budget for eventually absorbing every coherent input in a fixed-excitation all-to-all model. It uses the natural observable of whether any designated site is occupied; a class-wide threshold and closed input-dependent limiting law are different from the generic existence of dark states or a single numerical projector entry. The placement reduction explains why increasing the monitored set affects the limit through its reduction of the unmonitored set, not through detector rates; below threshold any dark state defeats capture even though the underlying graph remains connected. The complete-masking timing correction and special-case overlap discussion do not change this scientific contribution.",
+      "residual_risks": [
+        "Exact placement statement for finite graphs and infinite-time no-jump absorption only, not an experimental time-scale or robustness result outside the specified detector sector."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

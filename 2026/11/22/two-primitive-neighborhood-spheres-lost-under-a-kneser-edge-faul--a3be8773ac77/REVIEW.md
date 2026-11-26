@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The new theorem is finite and fully quantified over all graph edges by edge transitivity. The standalone file `verify.py` reconstructs the full simplex families and replays 268 valid elementary collapses, then checks a directed-acyclic 53-pair Morse matching with exactly one zero-cell and 17 two-cells. For the relative inclusion, it replays 22 free relative cancellations and checks an integral boundary matrix with two independent unit rows, proving a free rank-two cokernel through the integral long exact sequence. All data are embedded in `CERTIFICATE.json`, and the actual package files replay successfully. The known 19-sphere intact classification is cited from primary literature.
+## correctness
 
-**Originality — PASS against inspected evidence.** Nilakantan–Singh (arXiv:1802.05848v1, full HTML Sections 1–5 inspected) proves the intact family and analyzes an aggregate unstable-edge subgraph; it does not give this one-edge intermediate homotopy type or primitive integral inclusion. Searches also checked one-edge/edge-deleted aliases, related Kneser vertex-deletion findings, neighborhood-complex symmetry computations, and broader graph-fault records. No exact or stronger implication was found. The aggregate matching construction could potentially admit an unpublished one-edge refinement; searches cannot prove universal novelty.
+PASS
 
-**Value — PASS.** The graph is the first nontrivial triangle-bearing two-subset Kneser case, and its neighborhood complex is central to Lovász-type topological graph invariants. The exact response to a minimal graph fault is neither a mere face-count change nor a Betti-number guess: it gives the damaged integral homotopy type and a primitive homology map, distinguishing loss of two free spheres from possible torsion or nonprimitive effects. It provides a reproducible benchmark for fault resilience in neighborhood complexes without claiming a family-wide extension.
+The S6 action is transitive on unordered disjoint pairs, so deletion of the edge 12–34 suffices. I rebuilt both open-neighborhood complexes by testing all nonempty subsets of the fifteen vertices for a common neighbor and independently replayed CERTIFICATE.json, rather than executing the supplied verifier. The face counts are 710 and 660 with the claimed f-vectors. I checked the 268 absolute collapses, the 53 incident disjoint pairs on the residual 124 faces, and topologically sorted the full reversed Hasse graph. The unmatched cells are exactly one vertex and 17 triangles; Forman's CW model therefore has 17 two-cells attached to the point. I also replayed the 22 relative cancellations and obtained the signed boundary with rows (-1,-1,0,0) and (0,0,-1,-1). Independently, writing X=N(K) and Y=N(K-e), the relative chains split into the parts lost from each of the two endpoint-neighborhood simplices (these simplices intersect in the vertex 56, retained in Y). For the first simplex on the pairs from {3,4,5,6}, a face is lost exactly if it contains 34 and its union uses all four labels: otherwise a second common neighbor can be chosen using a missing label and 1, or 12 itself is still a neighbor. Its intersection with Y is the simplex omitting 34 plus the cones from 34 on the two disjoint edges {35,45} and {36,46}; collapsing one side of each triangle gives a contractible base with a single loop attached via the cone vertex, hence homotopy type S^1. The other simplex is symmetric. Thus H3(X,Y)=0 and H2(X,Y)=Z^2 over the integers, in agreement with the cancellation check. The pair sequence and H1(Y)=0 give the claimed injection and free cokernel. No general Kneser edge-deletion claim is inferred.
 
-**Limitations.** Only the fifteen-vertex graph and one deleted edge are covered. A certificate of exhaustive finite computations is not an independent review. Bibliographic equivalence outside indexed sources remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The examined prior theorem gives the intact type and studies a graph with an aggregate unstable-edge deletion. Neither it nor the closest indexed vertex-deletion record establishes this single-edge open-neighborhood type and primitive inclusion. The exact catalogue result is the assigned record itself, not independent coverage.
+
+## value
+
+PASS
+
+A one-edge fault in the first triangle-bearing two-subset Kneser graph is a natural minimal graph perturbation. A complete integral homotopy computation and a primitive inclusion distinguish the effect of that fault from mere loss of Euler characteristic or Betti rank. The precise retained subgroup property is useful in comparing graph-fault stages, without claiming a general stability theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

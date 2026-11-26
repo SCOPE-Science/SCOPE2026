@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:13:31.524715Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The five generators have one dependence, using all five; consequently differences are uniquely singletons or pairs of generator labels. This gives exactly zero common neighbors if adjacent and two if nonadjacent, diameter two, and independence of each neighborhood. In the complement, an edge uv of G has six other vertices adjacent to neither in G (each endpoint has four other neighbors and they are disjoint); these are common complement neighbors. Thus both distances 1 and 2 really swap, while a landmark is singled out by a zero. Three landmarks cannot distinguish thirteen outside vertices with eight signatures. For four landmarks at least nineteen ones are needed across twelve distinct four-bit outside signatures, obtained by filling the weights 0,1,2 and one weight-3 word. The incidence total is 20−2e; hence a resolving four-set must have no internal edge. Translating a member to 0 reduces independence to three distinct pair-labels that pairwise intersect; they are a star or triangle. In the triangle case the two unused singletons each see only the landmark 0 and have identical signatures. The star case is four neighbors of a common center. Its center, omitted neighbor and ten nonneighbors have respectively the all-one, all-zero and distinct one-/two-bit adjacency signatures. Distinct centers share at most two neighbors, so every jump lies inside the appropriate K5, and every removed/inserted pair is nonadjacent in G and adjacent in its complement. Independent replay: `python3 /workspace/reviews/4-check.py`. It uses even subsets of five labels with distance-four symmetric-difference adjacency, Floyd–Warshall, pair-separation masks and three-landmark overlap buckets. It checked all sizes 0–4 in both graphs, exact equality of the 80 bases, unique centers, sixteen 5-cliques and the 160, 0, 160 jump/original slide/complement slide counts. Frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu–Ye's Section 4 relates ordinary and folded cubes, yielding equal metric dimension for odd n and transfers of resolving sets. Zhang et al. give the upper bound n−1 for odd n≥5, cited in Lu–Ye's Theorem 1.5. Ganesan constructs n−1 singleton landmarks in Qn and classifies minimal sets in the corresponding first/last layers only."
+        ],
+        "reasoning": "The general results give upper bounds and some construction families; the restriction to particular Q5 layers is not an exhaustiveness result among all landmark four-sets. The slide/jump conclusion is not a parameter restriction of their metric-dimension theorems.",
+        "searches": [
+          "arXiv:2012.00396v2, Section 4, Lemmas 4.1–4.3",
+          "DOI:10.1007/s11590-019-01476-z publisher preview and Lu–Ye Theorem 1.5",
+          "arXiv:1106.3632v3, Sections 2–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1312.4973, arXiv:2012.00396v2, arXiv:1106.3632v3",
+        "DOIs 10.1007/s11590-019-01476-z and 10.1007/s11590-014-0790-2 (limited as above)",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, METADATA.json, VERIFICATION.md, SLOGAN.txt and both verify scripts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ganesan's four singleton neighbors in Q5 project by Lu–Ye's Lemma 4.2 to four neighbors of the folded zero vertex. Projected translations and coordinate relabeling yield all 80 candidate bases as resolving sets. Bailey's distance matrices exchange the two off-diagonal classes under complementation."
+        ],
+        "reasoning": "All candidate placements are already implied to work, but the absence of other optimal placements is not. That exclusion needs the incidence-weight and triangle obstruction (or independent exact exhaustion). The exchange and slide graphs follow directly once that missing basis classification is established.",
+        "searches": [
+          "Ganesan arXiv:1106.3632v3 Theorem 3 and Corollary 4; Lu–Ye arXiv:2012.00396v2 Lemmas 4.1–4.2; Bailey arXiv:1312.4973 Section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The folded 5-cube F5 is this Clebsch graph: the five unit vectors modulo the all-ones relation map to the five Cayley generators. Lu–Ye explicitly use the antipodal quotient.",
+          "The relevant hypercube symmetry search surfaced Nikolić–Čangalović–Grujičić (DOI 10.1007/s11590-014-0790-2); its repository abstract describes an upper-bound heuristic, not an exhaustive Q5 basis theorem. Full text was not accessible.",
+          "The frozen literature notes identify nearby edge-metric-basis and determining-set records; those are differently defined families, not vertex-distance bases."
+        ],
+        "reasoning": "An all-basis classification for the ordinary Q5 could cover the basis classification by antipodal projection. The inspected constructions and upper-bound statements do not give such an exhaustive list. A metric basis fixes stabilizers but the converse is not true by definition, and resolving edges uses a different distance comparison.",
+        "searches": [
+          "Resultary: Clebsch graph folded 5-cube metric bases common neighborhoods exchange slide reconfiguration 80 (unavailable)",
+          "Web: Clebsch graph metric basis bases 80 folded 5 cube minimum resolving sets independent neighborhoods reconfiguration Bailey Lu Ye Zhang (unavailable)",
+          "Web: Q5 hypercube all minimum resolving sets metric bases classification Sebo Tannier 4 hypercube 5 all symmetry types"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lu–Ye Table 1 gives β(F5)=4, consistent with the frozen citation of Bailey. Bailey's methodology uses representatives of subset orbits to establish dimension and explicitly notes equal dimension for primitive strongly regular graphs and their complements."
+        ],
+        "reasoning": "Counting optimal placements and resolving the reconfiguration relations is not read from a dimension table. No novelty is assigned to four landmarks or the equality of those minima.",
+        "searches": [
+          "Bailey arXiv:1312.4973, Section 3 and metric-dimension tables",
+          "Lu–Ye arXiv:2012.00396v2, Table 1"
+        ]
+      },
+      "rationale": "Best of knowledge, novelty is confined to the exhaustiveness of the basis form and its reconfiguration consequences. The dimension, agreement for complementary diameter-two graphs, and even sufficiency of the proposed four-of-five placements are covered by earlier work or its direct implications; this does not establish that no other bases occur. The 2019 folded-cube paper and the 2014 hypercube symmetry paper are bounded full-text access risks, not grounds for claiming negative full-text evidence.",
+      "residual_risks": [
+        "Historical complete classification in inaccessible folded-cube or hypercube sources is not ruled out; no accessible statement supplied it.",
+        "Failed Resultary query supplies no negative evidence; the frozen comparisons to nearby records are not independent full-text verification of those records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers dimension and possible basis transfers, not an enumerated or structural exhaustive F5 family in the relevant section.",
+          "evidence": [
+            "Table 1 gives β(F5)=4.",
+            "Lemma 4.2 projects resolving sets for odd n; the argument supplies no full ordinary-Q5 list."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2012.00396v2",
+          "material_read": "Primary HTML introduction, folding definition, Section 4, including Table 1 and proofs of Lemmas 4.1–4.3.",
+          "method": "Read distance/folding definitions, hypotheses and directions of resolving-set transfers against the claims.",
+          "title": "A bridge between the minimal doubly resolving set problem in (folded) hypercubes and the coin weighing problem",
+          "trigger": "Same graph as F5 and plausible basis transfers."
+        },
+        {
+          "assessment": "With Lu–Ye covers sufficiency of all 80 placements; does not give exclusion of other folded placements.",
+          "evidence": [
+            "Theorem 3, Corollary 4, and last paragraph of Section 3 distinguish construction from classifying only certain layers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.3632v3",
+          "material_read": "Primary PDF text, Sections 1.1, 2 and 3.",
+          "method": "Traced the explicit singleton family and its symmetry scope through the antipodal quotient.",
+          "title": "Minimal resolving sets for the hypercube",
+          "trigger": "Exact four-landmark Q5 construction that projects to F5."
+        },
+        {
+          "assessment": "Known metric dimension and complement equality; no move geometry in the inspected method.",
+          "evidence": [
+            "Section 3 uses distinct restricted rows and automorphism orbits for dimension, and states equal dimensions for complementary primitive strongly regular graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4973",
+          "material_read": "Primary PDF abstract and Section 3 methodology.",
+          "method": "Compared the distance-matrix test and minimum-cardinality output to the exact family and moves.",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Known Clebsch value and complement comparison."
+        },
+        {
+          "assessment": "Full-body coverage unknown.",
+          "evidence": [
+            "Abstract says that explicit inclusion-minimal sets give upper bounds; Lu–Ye report β(Fn)≤n−1 in the relevant odd range."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11590-019-01476-z",
+          "material_read": "Publisher abstract/preview, and statement as quoted in Lu–Ye's Theorem 1.5.",
+          "method": "Read lawful preview and compared upper-bound quantifier; subscription full text not available in the supplied tool catalog.",
+          "title": "On the metric dimension of the folded n-cube",
+          "trigger": "Same family and explicit resolving-set constructions."
+        },
+        {
+          "assessment": "Full-text implication unresolved as an access limitation only; no evidence of a full Q5 family classification in the accessible abstract.",
+          "evidence": [
+            "Repository handle https://rfos.fon.bg.ac.rs/handle/123456789/1688 identifies upper bounds up to n=22 and extensions to higher n."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11590-014-0790-2",
+          "material_read": "Institutional repository metadata and abstract; attached copy marked restricted; publisher PDF not retrieved.",
+          "method": "Compared the heuristic and stated bounds to the needed exhaustiveness.",
+          "title": "Symmetry properties of resolving sets and metric bases in hypercubes",
+          "trigger": "Possible all-minimum-bases Q5 classification under folding."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This supplies a natural finite benchmark for exact optimal-landmark reconfiguration on complementary diameter-two graphs. Identical optimal states and feasible jumps do not entail identical locality: all 160 jumps are disabled as slides in one graph and retained in the other, with an exact obstruction to changing centers. That information is structurally useful and strictly richer than the known metric dimension or construction of some bases. No broader folded-cube claim is justified.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two quadric equations diagonalize simultaneously over the specified complex field. Jacobian rank drops exactly on repeated eigenvalue blocks, allowing exhaustive classification of fiber singular loci. Explicit local elimination shows each two-element block contributes two ordinary nodes; each three-element block splits the surface into a transverse pair of smooth quadrics meeting in a conic. Counting projective intersections of the ten equalities gives precisely ten triple-block and fifteen disjoint-pair parameters, with no higher collisions. The independent Chern-class and stratified Euler computations both give \(24\); the included exact-arithmetic checker confirms the finite incidence and Chern computations. Limit: the checker does not replace the proved geometric assertions.
+## correctness
 
-## Originality — PASS with residual priority uncertainty
-The explicit source, Gao arXiv:2610.23024v1, Example 7.12, supplies the fourfold and the *different* four-line ruling-discriminant cover, not the ten-line bad-fiber locus or the complete 25-point stratification. The source's general-family table of twenty nodal fibers does not describe the ten two-node singular values in the special diagonal line section. Search comparisons with general quadric-pencil literature and the closest published records concerning different quartic del Pezzo and conic-bundle discriminants found no statement implying these exact counts for this fibration. The classical eigenvalue method is prior art and mathematical priority cannot be fully certified from searches alone; this is a specific full geometric classification, not a general new method.
+PASS
 
-## Mathematical value — PASS
-The arithmetic construction deliberately uses a special diagonal net. Its branch divisor for the ruling cover has four lines, but the *singular-fiber locus* has ten, with a non-Lefschetz collision profile. Exactly identifying ten reducible fibers and fifteen four-node fibers resolves the natural question of which base values are genuinely singular and what singular fibers occur. It explains why a general line section specializes a twenty-node count to ten distinct critical values and supplies a checkable topological consistency equation. These are intrinsic geometric invariants of the fibration, not arbitrarily selected parameters or a restatement of its general rank-two Picard property.
+After absorbing the minus sign in the first quadric, Jacobian dependence at a fiber point means its support lies in a single eigenvalue block. On a size-two block the first quadric gives two points; eliminating a coordinate leaves exactly the nondegenerate quadratic in the three complementary coordinates, even if a different block is repeated. A size-three block leaves a binary quadratic with two distinct factors; the restrictions of the first quadric to the two hyperplanes are nondegenerate because the two complementary eigenvalues differ, and the intersection is the smooth conic on the repeated block. In the plane t4=0, t0+t1+t2+t3=0, each triple and each choice of two disjoint pairs determines one projective point of exactly that pattern; sizes 4 and (3,2) would force the zero vector. Hence the ten triple incidences are precisely pair-in-triple and the other 15 crossings are ordinary double. A transverse general line meets ten open line strata. The determinant's five linear factors have pairwise brackets ti-tj, giving the square with no other factor. Independently, projection to the fixed smooth quadric threefold gives a P1-bundle away from the simultaneous zeros of yi^2-y3^2 for i=0,1,2, and a P2 over each of those points. On y3=1 these are the 16 distinct points with y0,y1,y2=±1 and y4=±2. The coefficient differences are local coordinates at these points, so the total incidence hypersurface in the product with the quadric is smooth there and elsewhere. This gives e(X)=2(4-16)+3·16=24, separately from the frozen stratified and Chern computations. The independent exact incidence replay (/workspace/replay/independent_checks.py, incidence) accounts for all 45 pairs of lines at 10 triple and 15 double points. The replay is not a certificate of the complex local geometry. The divisor comparison is specifically for the binary-quintic discriminant, not an unspecified critical-value scheme.
 
-## Related evidence and limitations
-Gao, *The geometric exceptional set for Fano threefolds*, arXiv:2610.23024v1, sections 6 and 7.2, especially Example 7.12, was inspected in its arXiv HTML full-text version. Skorobogatov's 2010 degree-four del Pezzo article was compared at abstract level, and classical intersection-of-quadrics material was compared through available descriptions. Published mathematical-record comparisons returned nearby findings on another two-node quartic del Pezzo surface and a different conic-bundle discriminant, with different objects and no implication of this result. Full text of those records was not accessible through the available public GitHub links. The classification is only for the specified complex diagonal family; historical priority remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The diagonal model, the general-family count of twenty one-node singular fibers and the different four-line cover are prior. The supported contribution is the exact ten-line collision stratification and fiber geometry of this special fibration. Neither the known count for a general member nor the four-line cover predicts which critical values coincide or which fibers split. This is a bounded source comparison, not a priority certificate.
+
+## value
+
+PASS
+
+For the specific published diagonal fibration, the exact intrinsic bad-fiber locus and a complete list of its collision strata distinguish actual singular fibers from the ruling cover and distinguish the node count from the number of critical values. The reducible and four-node fibers are real geometry not supplied by the general-family table. This finite classification is useful independently of the routine Chern or degree calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The residue decomposition partitions \([0,1)\) into disjoint finite \(d\)-spaced chains. On odd chains the bipartite independent-set imbalance gives a sharp universal lower bound on failure for any coupling. The adjacent-pair swap is an explicit measure-preserving involution saturating it. This proves all real-parameter statements, including rational boundaries and the strict local cusps. The standalone checker passed 9,867 exact finite checks; it is diagnostic and does not replace the argument.
+PASS
 
-## Originality — PASS within inspected evidence
+Discarding the null endpoint 1, write x=t+kd uniquely with 0≤t<d. Residues t<r have m+1 positions and the remaining residues have m, each position carrying measure dt. On odd chains let S contain even positions and B odd positions. A successful distance-d edge from S must enter B, so for any coupling the success mass is at most 1−λ(S)+λ(B). The difference λ(S)−λ(B) is the residue measure of odd chains, r for even m and d−r for odd m. This uses no disintegration or graph assumption about a competing copula. The adjacent-pair swap is a measurable, measure-preserving involution (piecewise translations, with odd tails fixed), inducing an exchangeable coupling with exactly this failure mass. Positive distances have perfect success only at even reciprocals; at an odd reciprocal 1/k with k≥3 the one-sided slopes −(k+1) and k−1 give a strict local minimum with mass 1−1/k. The boundary cases follow from identical variables at d=0 and zero endpoint mass at d=1. Separate finite assignment reproduction checked all 28 grid size/step cases through size 8 by exhaustive permutations and verified the formula and construction for 8,128 cases through size 128, with exact reciprocal checks. This is not the proof for all real d. The uploaded checker was read, not executed.
 
-The literature-led problem of extremal joint behavior under fixed marginals differs from Ansari's prescribed-maximum law. Prior graph/endograph results provide single-transformation formulas, while the present nonconvex event is a union of two incompatible shifted graphs. General Kellerer-type capacity duality encompasses the optimization variationally but does not evaluate the parity-dependent two-line geometry. No equivalent closed-form evaluation was identified in the inspected primary texts or accessible prior-claim summaries. An earlier result in differently named coupling or matching literature remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem computes an entire natural exact-distance dependence capacity, not a sampled or arbitrarily truncated slice, and provides an explicit optimal exchangeable singular copula. It reveals a full alternating cusp sequence and a precise characterization of perfect-separation distances. These are substantive geometric consequences not supplied by simply writing down a generic transport optimization.
+The distinct supported claim is the evaluated all-distance envelope and an exchangeable deterministic involution that attains it, with the parity classification. General capacity duality covers the variational problem, not an evaluated envelope. The closest indexed two-distance result raises substantial partial-overlap risk, but its available statement under restricted support does not establish the optimum over all couplings. Priority is provisional at the access limits stated below.
 
-## Scope and limitations
+## value
 
-Only equal continuous-uniform marginals on an ordinary interval and one prescribed absolute separation are covered. Optimal couplings need not be unique. The checker supports finite instances only; no independent mathematical validation has been undertaken.
+PASS
 
-## Closest literature
+The maximized atom is a natural sharp dependence bound for two fixed marginals even though every independent continuous coupling has zero mass there. The result supplies an exact capacity, a coupling that attains it for every real d, and a complete account of perfect feasibility and alternating cusps. This is an explicit geometric evaluation, not just an invocation of capacity duality.
 
-Ansari, arXiv:2610.30642v1 (2026); Mroz and collaborators, arXiv:1602.05807 (2016); Iacò, Thonhauser and Tichy, arXiv:1502.06839 (2015); Côté and Wang, arXiv:2611.25237v1 (2026), with general Hall-style capacity duality.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: friction ordering of velocity-reset clock noise
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies positive forcing, reset prefactor and damping; zero thermal noise; the full exponent range \(\alpha>-1\); and iid reset cycles. Integration of the exact deterministic trajectory gives the stated event hazard, including its integrable singularity for negative exponents. The decisive lemma is not numerical: strict monotonicity of \(z/(e^z-1)\) determines the hazard-elasticity direction, then the quantile ratios have a strict rank monotonicity. Equal-mean normalized quantiles cross exactly once, proving strict convex order. Renewal variance asymptotics give the count-Fano interpretation. The Weibull and exponential endpoint limits and the explicit strong-damping coefficient follow from justified survival-integral limits, with finite moments. The standalone numerical tests passed but are supporting checks only.
+PASS
 
-## Originality — PASS, with residual priority risk
+The deterministic cycle v=(F/γ)(1−e^(−γt)) gives the stated survivor after integrating the hazard. The singular hazard at zero for −1<α<0 is integrable; the positive terminal hazard gives finite moments of every order. With f=(1−e^(−y))^α, H=∫f, the reciprocal elasticity H/(yf)=∫_0^1 f(sy)/f(y)ds strictly increases for α>0 and decreases for α<0: the sign of the logarithmic derivative of each interior ratio is the sign of α times the positive difference sy/(e^(sy)−1)−y/(e^y−1). The rank elasticity of Qγ is this reciprocal at y=γQγ; y strictly increases with γ at fixed rank. Consequently the two mean-normalized quantiles cross once, in the claimed direction. Subtracting a supporting line of a strict convex test at their common crossing value gives strict inequality when its expectations are finite. The α=0 law is exactly exponential. Renewal variance asymptotics give CV² as the count Fano. At small γ, pointwise Weibull convergence is moment-controlled: small positive damping is dominated by a fixed-damping survivor for α>0 and by the Weibull survivor for α<0. For ε=κγ^(−α−1), the terminal-rate-scaled survivor equals e^(−y−εcα)e^(−εDα(y/ε)), with bounded Dα=H−id−cα and ∫(1+u)|Dα(u)|du finite. Integrating the survival difference with weights 1 and 2y gives errors O(ε²) and O(ε³); the ratio has coefficient 2cα. Independent scaled-survival quadrature at F=λ=1, α=−1/2,1,2 and γ=.2,1,5,80 reproduced both Fano directions and the predicted large-γ coefficients; the supplied script was inspected but not run. The order concerns iid noiseless cycles and the Fano limit, not finite-time count noise.
 
-The closest source, Takeishi–Akimoto, arXiv:2603.14164, constructs precisely the velocity-resetting dynamics, obtains general frictionless interval densities, and solves the damped deterministic one-power stationary velocity profile. Those established facts are credited. Its inspected waiting-time and damped sections, and conclusion, do not report monotone *normalized convex order across damping for all power exponents* or the sharp count-noise endpoints and coefficient. Eule–Metzger, arXiv:1510.07876, provides generic arbitrary-wait renewal resetting theory, not the special friction-parameter ordering. The 2025 stochastic-order paper of Arab et al. supplies generic ordering terminology in a distinct transformed-distribution family, without the present friction-controlled survival family. Indexed related results on velocity-only Poisson resetting and active velocity forcing have different dynamics and observables; none supplies a stronger covering statement. Standard star-order and renewal tools are not claimed as invented. Priority beyond checked indexes, especially alternate reliability terminology or unpublished computations, remains a real risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result is motivated by a non-Poisson event clock in a model introduced to explain nonlinear transport. Its single global statement controls **all** normalized convex costs of inter-reset timing, not just one selected variance, and distinguishes the two physically opposite classes \(\alpha>0\) and \(-1<\alpha<0\) without adjusting other parameters. It gives a sharp Weibull-to-Poisson noise range and explicit damping convergence scale. This determines how viscous dissipation changes the predictability of collision/reset events despite altering their absolute frequency, and provides exact benchmarks for physical count measurements and simulation. It is not a routine recomputation of the known stationary velocity density.
+The deterministic hazard model, its frictionless Weibull law and the count-variance renewal relation are prior or standard. The supported distinction is the sign-resolved strict relative-dispersion and convex order for all positive frictions and α>−1, together with the model-specific strong-damping coefficient. Neither general order definitions nor a known cycle law at one exponent supplies these conclusions without the elasticity sign and the boundary-layer estimates.
 
-## Limits and closest comparisons
+## value
 
-No conclusion extends to nonzero acceleration noise, non-iid intervals, correlated reset memories, finite-time count noise, or variable damping in one cycle. Numerical checks are finite. The general stochastic-order literature could contain an unindexed equivalent specialization; a publication-priority search is not a proof of uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fluctuation question is distinct from the known mean-velocity response: a damping change is proved to order every normalized convex waiting-time risk, not just the variance. The sharp Weibull-to-exponential Fano range and signed approach rate quantify when damping regularizes versus increases relative count noise, with a direction reversal as the velocity-power sign changes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

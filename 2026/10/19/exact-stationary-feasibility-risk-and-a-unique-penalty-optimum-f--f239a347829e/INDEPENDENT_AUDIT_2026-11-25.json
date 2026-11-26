@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:28:12.614197Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired claim retains the scalar stochastic theorem, corrects the source comparison (the source uses run-constant, horizon-dependent parameters, not an iteration-indexed diminishing schedule), and credits the already-known deterministic boundary. Reconstructed the affine scaled matrix and Schur conditions: its quadratic factor has q(1)=t and q(−1)=4−3t with constant term 1−t; the remaining eigenvalue is 1−α. At and above 4/3, exactly one simple real eigenvalue is ≤−1 and the others have modulus less than one. Independent noise contributes a sum of squared first-coordinate impulse coefficients; the stated controllability and observability determinants t and −α make the dominant coefficient nonzero, so the risk actually diverges, including at equality. For the variance, the normalized momentum variance is α/(2−α), and the two cross terms come from a linear system with determinant α²+(1−α²)t. Stationarity of λ/η, whose increment is t times the next primal iterate, gives C₁₂=tC₁₁/2. Combining that with the next primal variance yields the stated risk, with physical scale σ²/η². Independently checked the strict log second derivative by comparing 3/(4−3t) with (1−α)/(2−α−(1−α)t), and the signs at 2/3 and 1. The logarithmic derivative extends continuously in α on the closed bracket; its only zeros at the endpoint parameters are the stated limits. The optimizer holds at fixed η and α while varying β/η. The repaired auxiliary files correct garbled parameter notation, checker filename, and the description of covariance checks; the checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qiu et al. select parameters by K and bound KKT residual at a randomly selected output from a finite run.",
+          "The older momentum linearized ALM uses scheduled parameters and averaged stationarity/feasibility guarantees.",
+          "SPDHG Algorithm 2.1 randomizes which dual data block is updated, rather than adding filtered primal oracle noise; in the single-block case its sampling is deterministic."
+        ],
+        "reasoning": "None is a more general stationary output-covariance or risk-minimization result for the specified fixed linear recursion. The general Lyapunov equation gives the computational framework, but not the strict optimizing ratio or its dependence on α without the explicit scalar calculation and analysis.",
+        "searches": [
+          "arXiv:2604.13272v1 Lemma 7 and Theorem 1",
+          "Shi–Wang–Wang mlalm-8.pdf Algorithm 1 and Theorem 1",
+          "arXiv:2301.02511 Algorithm 2.1",
+          "stochastic Chambolle Pock primal dual hybrid gradient exact stationary covariance bilinear constant step momentum filtered gradient noise optimal feasibility error tuning"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:2604.13272v1, 2309.03998v2, 2301.02511; Shi–Wang–Wang primary PDF",
+        "Resultary local index and mirrors fd5004e04a73, b8117b8b15ed, 9ae77a2e1a30, 81fc4c4ccce8, 1d2b92edc54c, 7f3b12106861"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under the exact change of dual coordinate above, the determinant and trace of the known bilinear block are 1−t and 2−2t, so its spectrum is already covered.",
+          "The cited proximal ALM and linearized ADMM results tune deterministic modes. The STORM record has a sample-coupled correction on a scalar quadratic, not the augmented feasibility recursion."
+        ],
+        "reasoning": "The known spectrum plus the stable momentum pole supplies the Schur interval, but it does not imply how the forcing projects onto the unstable mode and the measured output, nor the dependence of the finite stationary second moment on t. The latter can yield a different optimum from deterministic rate tuning. Only the distinct forced claim is passed.",
+        "searches": [
+          "arXiv:2309.03998v2 §7 scalar update and boundary",
+          "arXiv:2604.13272v1 Lemma 7 and Theorem 1",
+          "Resultary mirror fd5004e04a73",
+          "Related Resultary records b8117b8b15ed and 9ae77a2e1a30"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The MALM source specializes to the exact frozen recurrence for f=0, operator 1, and additive oracle noise.",
+          "Banert–Upadhyaya–Giselsson §7 analyzes the saddle xy and locates the negative unit eigenvalue at step product 4/(1+2θ)."
+        ],
+        "reasoning": "For m=0, set y=λ+βx. The resulting updates x'=x−y/η, y'=y+β(2x'−x) are exactly the cited Chambolle–Pock iteration at θ=1 and product β/η. This is exact prior spectral coverage, not just a shared constant. With filtered noise present, the primal step includes −m/η; the deterministic result does not analyze that input or its output variance.",
+        "searches": [
+          "arXiv:2604.13272v1 Eqs. (5)–(7)",
+          "Chambolle Pock sharp 4/3 counterexample scalar bilinear convergence matrix He Ma Yuan Li Yan 4/3 PDHG",
+          "arXiv:2309.03998v2 §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The STORM record gives a stationary variance for scalar corrected momentum with no dual state; RandProx-LC optimizes cumulative feasibility under Bernoulli skipping.",
+          "The periodic PDHG record has no noise; the paired signed-descent record gives stationary risks with a different update and tuning variable (within-pair oracle coupling)."
+        ],
+        "reasoning": "A formula for a different observable, noise law or transition is not a table of this exact risk. The inspected indexed results do not supply the forced MALM optimum; the finite frozen rational grid is corroboration rather than an independent source of prior values.",
+        "searches": [
+          "Resultary: scalar bilinear Chambolle Pock primal dual hybrid gradient constant steps stochastic additive exponential moving average gradient noise exact stationary primal feasibility covariance optimal penalty 4/3",
+          "Resultary mirrors fd5004e04a73, 81fc4c4ccce8, 1d2b92edc54c and 7f3b12106861"
+        ]
+      },
+      "rationale": "Pass for the repaired forced scalar feasibility-risk and penalty-optimum theorem. The sharp deterministic 4/3 block threshold, including the eigenvalue −1 at equality, has exact equivalent prior coverage in scalar bilinear Chambolle–Pock and is no longer treated as an independent contribution. The forced stationary risk and its optimizer are not supplied by the strongest inspected deterministic or stochastic literature. Neither the MALM recurrence nor discrete Lyapunov methodology is claimed new.",
+      "residual_risks": [
+        "An equivalent colored-input response calculation in unindexed control or stochastic primal–dual literature is not excluded.",
+        "The wider PDHG and stochastic ALM literature was compared by the decisive inspected passages, not exhaustively surveyed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical specialized step formulas; different finite-horizon analytical claim",
+          "evidence": "Oracle refresh, primal step and dual ascent match. Lemma 7 selects α proportional to K^(−1/2) and η, β to K^(1/2); Theorem 1 samples an output before the chosen horizon.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.13272v1",
+          "material_read": "§II.A Eqs. (5)–(7), Algorithm 1, Lemma 7 and Theorem 1; OA offsets 13900–17016, 35750–37990, 45100–47091 and algorithm initialization",
+          "method": "OA primary PDF passages",
+          "title": "A Momentum-based Stochastic Algorithm for Linearly Constrained Nonconvex Optimization",
+          "trigger": "Source of the MALM update and its convergence regime"
+        },
+        {
+          "assessment": "Exact prior coverage of the deterministic boundary, not forced stationary risk",
+          "evidence": "Uses f=g*=0 and L=1, displays the two-by-two iteration, and has λ₂=−1 at the threshold. Setting θ=1 and y=λ+βx gives the MALM homogeneous primal–dual block.",
+          "identifier_or_url": "https://arxiv.org/html/2309.03998v2",
+          "material_read": "Abstract and §7 Counterexample, OA offsets 54360–about 58600",
+          "method": "OA primary HTML passage and exact coordinate transformation",
+          "title": "The Chambolle–Pock method converges weakly with θ>1/2 and τσ‖L‖²<4/(1+2θ)",
+          "trigger": "Potential sharp deterministic 4/3 equivalence"
+        },
+        {
+          "assessment": "Scheduled method and averaged convergence, not this stationary limit",
+          "evidence": "Uses indexed parameters and bounds stationarity/feasibility averaged over a run.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/08/mlalm-8.pdf",
+          "material_read": "Algorithm 1 p. 7 and Theorem 1 p. 16 (OA offsets about 32600 and 77900)",
+          "method": "OA primary PDF passages",
+          "title": "A momentum-based linearized augmented Lagrangian method for nonconvex constrained stochastic optimization",
+          "trigger": "Older related stochastic momentum ALM"
+        },
+        {
+          "assessment": "Different source of randomness",
+          "evidence": "Random dual-block choice and fixed-step specialization; there is no exponential filter of additive oracle noise in these updates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02511",
+          "material_read": "Algorithm 2.1 and fixed-step discussion, PDF p. 4, OA offset 12700 onward",
+          "method": "OA primary PDF passage",
+          "title": "Stochastic Primal Dual Hybrid Gradient Algorithm with Adaptive Step-Sizes",
+          "trigger": "Potential stochastic coverage under equivalent primal–dual notation"
+        },
+        {
+          "assessment": "Different state dynamics",
+          "evidence": "Additive-noise scalar quadratic with corrected momentum and interval 0<s<2; no dual feasibility state.",
+          "identifier_or_url": "fd5004e04a73",
+          "material_read": "Mirrored RESULT.md Finding and model",
+          "method": "Configured local mirror",
+          "title": "Exact stationary covariance and stability factorization for constant-template STORM",
+          "trigger": "Closest indexed exact scalar momentum covariance"
+        },
+        {
+          "assessment": "Different stochastic recursion and objective",
+          "evidence": "Exact-gradient, Bernoulli-skipped update; minimizes accumulated feasibility violation, not a limiting second moment with additive noise.",
+          "identifier_or_url": "81fc4c4ccce8",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Sharp cumulative feasibility tuning beyond the Bernoulli RandProx-LC step bound",
+          "trigger": "Exact scalar feasibility optimum in a related indexed model"
+        },
+        {
+          "assessment": "Noiseless two-period variation of the steps",
+          "evidence": "Exact stability under alternating reciprocal steps with a fixed product; no stochastic covariance or stationary tuning.",
+          "identifier_or_url": "1d2b92edc54c",
+          "material_read": "Mirrored RESULT.md Finding, offset 0–2060",
+          "method": "Configured local mirror",
+          "title": "A sharp Floquet frontier for periodically balanced primal–dual steps",
+          "trigger": "Indexed sharp frontier for the equivalent bilinear primal–dual block"
+        },
+        {
+          "assessment": "Different signed two-step method, input, and risk functional",
+          "evidence": "Optimizes within-pair Gaussian call coupling for total squared distance; not filtered primal noise or the penalty ratio here.",
+          "identifier_or_url": "7f3b12106861",
+          "material_read": "Mirrored RESULT.md Finding, offset 0–1945",
+          "method": "Configured local mirror",
+          "title": "Sharp oracle-coupling reversal for noisy two-step slingshot descent-ascent",
+          "trigger": "Exact stationary risk on a noisy scalar bilinear saddle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the smallest equality-constrained model in which feasibility, a dual state and filtered gradient noise all interact. The exact stationary calculation answers how to choose the penalty against persistent oracle noise, including a strictly interior optimizer with different limits at slow refresh and near-unfiltered noise. It also separates a noiseless spectral threshold from actual divergence of forced feasibility variance. The value is in that tuning distinction and explicit risk, not in renaming the known 4/3 boundary or in extrapolating a scalar optimizer to general MALM.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

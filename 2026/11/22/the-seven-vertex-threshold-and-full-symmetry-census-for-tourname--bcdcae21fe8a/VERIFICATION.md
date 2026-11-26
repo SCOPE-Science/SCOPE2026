@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Compile `verify.cpp` using a C++17 compiler, for example `c++ -std=c++17 -O2 -Wall -Wextra verify.cpp -o verify`, and execute `./verify`. The full enumeration prints `ALL_CHECKS_OK` only after assertions of \(1{,}503{,}216\) labelled rank-three seven-point tournaments, \(313\) corresponding isomorphism classes, \(456\) total classes, the automorphism-order histogram, and their exact orbit-size sums. The code enumerates exactly the integer mask interval from zero through \(2^{21}-1\), with every bit assignment representing one labelled tournament; it does not sample the claimed finite census.
+# Independent mathematical audit
 
-`independent_check.py` implements the rank recursion over actual vertex subsets, and checks agreement with the optimized witness criterion exhaustively through order five and for 1,000 deterministic masks at each of orders six and seven. This separately cross-checks the semantic reduction, but is not an exhaustive independent orbit or labelled census. Published McKay catalogues supply a separate cross-check for the total of 456 unlabelled tournaments, not for the claimed rank-three tally.
+## correctness
 
-Scope: finite tournaments and their ordinal-free, finite one-point-extension rank levels. The statement makes no inference about infinite hosts. Only the displayed orbit census relies on executable exhaustive finite computation; the lower threshold, rank criterion, and upper rank-four exclusion have mathematical proofs. Mathematical and historical-priority peer audits remain unperformed.
+PASS
+
+For a marked pair, rank at least one means the four orientations to the pair all occur. Rank at least three of the empty marking therefore requires a vertex admitting such a pair with both an in-neighbor and an out-neighbor. Fewer than six vertices cannot realize even one full pair profile; at six, the two witnesses force the same vertex's outdegree to be 2 and 3, respectively. Rank at least four requires a triple with eight distinct possible extensions, hence at least eleven vertices. A separately written and executed bottom-up recursion scans every labelled tournament of orders 1–7. It finds no rank-three case below seven and 1,503,216 positive cases at seven. Exact orbit enumeration gives 313 of 456 classes and the positive automorphism-order counts (1:292, 3:17, 5:2, 7:1, 21:1), with labelled counts recovered from orbit weights. By the rank-four obstruction all positive cases at seven have rank exactly three.
+
+## originality
+
+PASS
+
+The rank definition and seven-vertex existence example are prior. The distinct supported content is necessity of seven vertices, and the complete labelled and unlabelled rank-three census refined by automorphism order. The inspected general theorem and tournament catalogue do not settle those rank-filtered assertions.
+
+## value
+
+PASS
+
+This is the natural first nontrivial host-order cutoff for the specified extension depth, not an arbitrary slice. The census shows that the first possible order already has many distinct qualifying hosts, and the orbit refinement quantifies how automorphisms affect the comparison between labelled and unlabelled prevalence. It supplies an exact reference point for later structural work on the invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

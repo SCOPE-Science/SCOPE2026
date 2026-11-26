@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:06:25.921149Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified Brownian entrance, the clock is continuous, strictly increasing and unbounded (in d≥3 Brownian transience puts the path eventually outside any fixed ball), and the origin is polar after departure. With n=α+2 and Y=R^n/(κ n²), direct differentiation gives L_Y=y∂²_y+a∂_y, a=1+(d−2)/n. The time-change Itô argument extends from zero because r^n is C² there and the drift and quadratic variation after time change are a dt and 2Y dt for positive times. At fixed t and s≥0 the bounded backward-test martingale with value (1+s(t−v))^(−a) exp(−sY_v/[1+s(t−v)]) gives Y_t in law tG_a. Independent Poisson ages are Exp(λ); coupling at the next reset gives uniqueness. The product law follows by scaling the age, and both gamma integrals are finite exactly when q/n>−1 since a>1. Writing ν=a−1 and u=λr^n/(κ n²), the Bessel product density has f_U(0+)=Γ(ν)/Γ(a)=1/ν, giving the small-ball constant λ/[κ(d−2)n] and spatial density asymptotic λr^(n−d)/[κ(d−2)ω_d]. In the spatial mode calculation, (z^νK_ν)'=−z^νK_{ν−1}<0, settling n−d≤0. For n−d>0, ν∈(0,1); h=zK_{ν−1}/K_ν satisfies z h'=h²+2νh−z². Small-z asymptotics give h∼c z^(2ν) for c>0, hence h'>0 near zero by the Riccati equation; at infinity h=z+1/2−ν+O(1/z) gives h'→1 by the same equation. Every zero of h' would have h''=−2, precluding a return to positive derivative, so h increases strictly from zero to infinity. The spatial log slope n−d−(n/2)h has one zero above threshold, proving the unique maximizing radius, not a mode of the radius density. The frozen numerical script and recorded checks were inspected, not executed; they are not needed for these universal statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "56391c757951 covers every d≥2 and α≥0, gives the same mode threshold for spatial density, and adds a mode-location bound and reset-information result. The older planar threshold-reset record uses a different reset clock. Sandev et al. treat the planar inverse-square case; Evans–Majumdar treat arbitrary dimension at constant diffusivity."
+        ],
+        "reasoning": "The broader indexed Poisson theorem contains the complete frozen parameter regime after the rate change. The originally cited published neighbors cover excluded faces or other dimensions and do not by themselves imply the all-parameter claim.",
+        "searches": [
+          "Resultary 56391c757951: d≥2, α≥0 mode and reset-information results",
+          "Resultary 82659e25c406: threshold resets and radial power transform",
+          "arXiv:2609.24427v1 §2 and Eq. (18)",
+          "arXiv:1404.4574v1 §2.1 and Eq. (10)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 56391c757951",
+        "Resultary 82659e25c406",
+        "arXiv:2610.21962v1",
+        "arXiv:2609.24427v1",
+        "arXiv:1404.4574v1",
+        "arXiv:2201.05598v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed heat kernel from zero is proportional to r^α t^(−a) exp(−r^n/(n²t)), with known normalization; its stationary law explicitly mixes independent exponential ages. Lenzi et al. use a distinct divergence-form forward operator."
+        ],
+        "reasoning": "Multiplying that kernel by ω_d r^(d−1) and setting y=r^n/n² gives y^(a−1)exp(−y/t)/(Γ(a)t^a). Thus conditional on age t the power-radius is tG_a. Taking ρ=λ/κ and mixing gives λR^n/(κ n²)=G_1G_a in law; the Mellin formula, cutoff and sampler follow from elementary gamma moments. The broader record need not write the product explicitly to imply it.",
+        "searches": [
+          "Resultary 56391c757951, displayed free heat kernel and Exp(ρ) stationary age",
+          "arXiv:2201.05598v1 §II Eq. (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed finding uses D(x)=|x|^(−α), the same time-changed Brownian entrance, the same exponential-age mixture, and the matching spatial Bessel density. Frimpong et al. have the same operator and reset mechanism in one dimension only."
+        ],
+        "reasoning": "Changing diffusivity from 1 to κ accelerates the underlying path by κ in physical time; as a stationary age mixture this replaces the indexed rate ρ by λ/κ. Its Bessel argument then equals 2√u and its prefactor matches the frozen density. The change of variables gives the same probability law, not just agreement of a qualitative exponent.",
+        "searches": [
+          "Resultary: spatial shell mode and dimension-sluggishness transition for Poisson resets",
+          "Resultary 56391c757951, Finding and Heat kernel and normalization",
+          "arXiv:2610.21962v1 §§2.1, 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no independent finite table in the theorem. The indexed closed formula gives the law throughout the claimed family and the same critical central value after rate normalization."
+        ],
+        "reasoning": "Exact analytic law is the appropriate comparison here. Multiplying by the radial Jacobian and using K_ν(z)∼2^(ν−1)Γ(ν)z^(−ν) yields the exact small-ball coefficient. Numerical diagnostics in the frozen record do not add a new exact classification.",
+        "searches": [
+          "Resultary 56391c757951, exact stationary spatial density and origin classification"
+        ]
+      },
+      "rationale": "Resultary 56391c757951 proves the same stationary spatial density and mode transition in a larger parameter range for the same entrance and reset convention. Its transient kernel is explicitly gamma after the frozen radial power transform, so mixing with the specified exponential age directly gives the two-gamma representation and exact moments. This is mathematical coverage, not a priority inference from catalog dates.",
+      "residual_risks": [
+        "The relationship and historical discovery order of the two substantially overlapping records are not adjudicated.",
+        "Other prior literature may use the explicit gamma-product notation; that historical question is not required for the direct implication from the inspected kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and broader mode theorem; exact product law is an elementary consequence",
+          "evidence": "D(x)=|x|^(−α); d≥2, α≥0; a Bessel-K spatial density, transition at α=d−2, same time-change entrance, exponential equilibrium age and the displayed gamma-transform heat kernel.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-dimension-sluggishness-transition-for-resetting-diffusion-a-uniq--56391c757951/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and displayed origin heat kernel, local-mirror text offsets 0–3365",
+          "method": "Resultary lookup and same-file local mirror",
+          "title": "Dimension–sluggishness transition for resetting diffusion: a unique radial mode and a reset-information phase diagram",
+          "trigger": "Same model, spatial threshold and exact densities"
+        },
+        {
+          "assessment": "Different renewal scheme and dimension",
+          "evidence": "Uses first-exit rather than exponential resets, so its invariant law is not the Poisson equilibrium considered here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-planar-power-diffusion-universality-under-radial-threshold-reset--82659e25c406",
+          "material_read": "Indexed planar threshold-reset finding",
+          "method": "Resultary source comparison",
+          "title": "Planar power-diffusion universality under radial threshold resetting",
+          "trigger": "Same radial Itô power transform"
+        },
+        {
+          "assessment": "Substantial one-dimensional overlap, not the d≥3 transition",
+          "evidence": "The forward operator is ∂²_x(|x|^(−α)p); the stationary law is Bessel-K and the reset site is depleted for positive sluggishness.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21962v1",
+          "material_read": "§2.1, p. 2, offset 9292; §3.1 Eq. (21), p. 8, offset 31500",
+          "method": "Open-access PDF passages",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Same sluggish Itô operator and Poisson resets"
+        },
+        {
+          "assessment": "Planar inverse-square special case outside the frozen dimension range",
+          "evidence": "The planar D₀/ρ² model yields the K₀ stationary case for Itô; the article's alpha labels the interpretation, not the power.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24427v1",
+          "material_read": "Abstract and §2, offsets 2569 and 7000; Eq. (18), p. 5, offset 18200",
+          "method": "Open-access PDF passages",
+          "title": "Heterogeneous planar diffusion with axisymmetric power-law decaying diffusion coefficient under stochastic resetting",
+          "trigger": "Planar power-law resetting under the same Itô convention"
+        },
+        {
+          "assessment": "Constant-diffusivity face only",
+          "evidence": "D is constant in the diffusion kernel giving the reset Bessel density.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.4574v1",
+          "material_read": "§2.1, p. 3, offsets 7881 and 9212; Eq. (10), p. 5, offset 11500",
+          "method": "Open-access PDF passages",
+          "title": "Diffusion with resetting in arbitrary spatial dimension",
+          "trigger": "Multidimensional Poisson resetting and Bessel density"
+        },
+        {
+          "assessment": "Different stochastic convention in one dimension",
+          "evidence": "The forward operator ∂_x[D(x)∂_x p] is not ∂²_x[D(x)p].",
+          "identifier_or_url": "https://arxiv.org/abs/2201.05598v1",
+          "material_read": "§II Eq. (1), offset 9993",
+          "method": "Open-access PDF passage",
+          "title": "Transient anomalous diffusion in heterogeneous media with stochastic resetting",
+          "trigger": "Heterogeneous power-law diffusion with reset"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp spatial-mode threshold is useful but already covered. The exact two-gamma sampler is practically convenient; it is obtained directly by a change of variables in the covered transient heat kernel followed by drawing the already specified exponential age. The moments and small-ball coefficient also follow directly, so the reviewed package does not supply a separate worthwhile mathematical increment.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

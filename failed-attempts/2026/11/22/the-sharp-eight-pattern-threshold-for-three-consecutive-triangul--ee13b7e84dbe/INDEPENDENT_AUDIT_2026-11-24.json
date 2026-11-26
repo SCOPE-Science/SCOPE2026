@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:31:39.072721Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–44, especially the trace sentence at line 12 and the point count at line 34",
+        "VERIFICATION.md and checker.py, inspected without execution",
+        "/workspace/branches/e75f7860-250c-40bc-a905-96a3071a7ca4/independent_replay.py and replay_results.txt"
+      ],
+      "rationale": "The eight-count identity, Hasse bound and sharp cutoff are correct. Expanding the three-sign indicator on the admissible set gives the seven moments, in order A,B,C,AB,AC,BC,ABC: (-s-1-t,-s-2,-s-1-t,-1-u-t,E_p,-1-u-t,-s-2u). The quadratic moments follow by removing the four starts from the full translated quadratic sums, and AC gives the uncorrected quartic. The monic quartic has two rational points at infinity, hence #C(F_p)=p+E_p+2. The Finding calls E_p itself the Frobenius trace of the associated genus-one curve; with the trace convention a_p=p+1-#C(F_p), the actual trace is -1-E_p (e.g. E_5=1, a_5=-2). The proof uses the correct shifted Hasse bound, so this erroneous normalization clause does not affect the formula or threshold. The bound p-23-2sqrt(p) is positive for p>=37. A private independent set-membership replay exhausts the remaining primes, matches each frequency and confirms minima (0,0,0,0,0,1,1,2,2) at (5,7,11,13,17,19,23,29,31).",
+      "residual_risks": [
+        "The finite replay certifies the small-prime calculation, not the infinite tail; the Hasse proof supplies that tail. The sign/shift correction alone would not address existing coverage."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "d08a73e76429 treats all sixteen consecutive ordinary words over odd prime powers, with a finite certificate of exactly which words fail. Cohen evaluates only homogeneous words at q=5^d; Mittou's exact formulas stop at length three; the Conrad passages offer general estimates and examples."
+        ],
+        "reasoning": "Full four-sign universality is stronger but its exception list alone does not settle the quotient at the exceptional primes. The actual per-word certificate does settle it. Neither homogeneous counts nor length-three ordinary counts would suffice in its place.",
+        "searches": [
+          "d08a73e76429, Finding and proof, local mirror",
+          "Cohen arXiv:2402.10737v2, Theorem 1.2",
+          "Mittou arXiv:2607.11068v1, Theorems 4–5",
+          "Conrad, Quadratic Residue Patterns Modulo a Prime"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d08a73e76429 and 0ce25ceb3ddb",
+        "Cohen arXiv:2402.10737v2; Mittou arXiv:2607.11068v1; Conrad's note",
+        "Wang–Fang DOI 10.1155/2023/5253261; Wang–Li DOI 10.12386/A20210160 (full texts unavailable)",
+        "arXiv:2209.01859v2, Peralta subsequence setting, PDF pp. 2 and 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-sign proof writes 16 M_p(e) as the full-field product indicator sum less the four excluded-start values. Adding the equation for -e and dividing by two cancels every odd subset. The constant term is p-4; the six pair sums are the full-field value -1 minus known exceptional evaluations. The only surviving degree-four sum is the same E_p, with coefficient e_0 e_1 e_2 e_3=ac and zero corrections at the exceptional starts."
+        ],
+        "reasoning": "The pair weights for (0,1),(1,2),(2,3),(0,2),(1,3),(0,3) are sa,sb,sc,ab,bc,sabc. Substitution of the four omitted values gives exactly (a+c)(-s-1-t)+b(-s-2)+b(a+c)(-1-u-t)+abc(-s-2u); no cubic sums or new curve evaluation remain. This is a direct specialization of the indexed exact identity and evaluated even terms. That indexed result expressly does not claim a sixteen-word exact-frequency table, which is not needed for this implication.",
+        "searches": [
+          "d08a73e76429, RESULT.md, open offset 1900 to 5443: exact indicator identity, pair sums, genus-one quartic and exclusions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For L_j=chi(n+j), the triangular word is (s L_0 L_1, s L_1 L_2, s L_2 L_3) at every admissible start. For a word (a,b,c) its two preimages are e=(1,sa,ab,sabc) and -e. Thus N_p(a,b,c)=M_p(e)+M_p(-e) for the four-sign counts M."
+        ],
+        "reasoning": "The same admissible starts are used, and the triangular words are precisely the eight global-sign orbits of the sixteen ordinary words. This is an exact identity of counts, not an asymptotic or heuristic relationship.",
+        "searches": [
+          "Resultary: four consecutive ordinary quadratic-character words and triangular index patterns",
+          "d08a73e76429, RESULT.md, Proof 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Under the stated bit encoding, opposite words have masks m and 15-m. The listed prime rows p=5,7,11,13,17 each miss an opposite pair: (0,15) except p=13 where (5,10) is missing. The other exceptional prime rows are 19:{3,4,13}, 23:{8,14}, 29:{0,6}, 31:{12}, 41:{15}, 53:{15}; none contains an opposite pair. All other eligible primes have all sixteen words by that result."
+        ],
+        "reasoning": "This finite published certificate plus the universal theorem gives exactly the triangular failure set and hence the sharp threshold 19, with no new census. The certificate gives missing masks rather than exact frequencies; the latter follow from the indicator proof, not from the mask table.",
+        "searches": [
+          "d08a73e76429, finite_census.txt, complete table at offset 0",
+          "d08a73e76429, RESULT.md, finite certificate and universal theorem"
+        ]
+      },
+      "rationale": "A distinct indexed four-sign result and its actual certificate mechanically give the sharp threshold under global-sign pairing; its exact indicator identity likewise gives the triangular frequency formula upon pairing, using only the already evaluated quadratic sums, its very same quartic sum and four exceptional-start corrections. This conclusion is about demonstrable coverage, not which of the two same-day records was written or published first. The four-sign headline theorem alone, without its proof and certificate, would not suffice.",
+      "residual_risks": [
+        "No same-day priority is assigned. The decision uses a distinct indexed proof and reproducible data, not inaccessible literature or exact-title similarity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive existing mathematical coverage by projection, not an assertion about same-day priority",
+          "evidence": "Explicit four-word indicator identity, quadratic evaluations, exact quartic identification and Hasse bound with two infinities, and complete exceptional masks.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-sign-quadratic-residue-universality-over-finite-field--d08a73e76429",
+          "material_read": "RESULT.md Finding and Proof 1–2, notably offsets 1900–5443; finite_census.txt offset 0, all missing-mask rows",
+          "method": "Bounded local Resultary mirror reads of proof and exact certificate",
+          "title": "Sharp four-sign quadratic-residue universality over finite fields",
+          "trigger": "Four consecutive ordinary signs project exactly onto three triangular signs"
+        },
+        {
+          "assessment": "Covers homogeneous words over a narrower family, not the full quotient",
+          "evidence": "Exact all-square and all-nonsquare counts for length four at q=5^d.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.10737",
+          "material_read": "PDF pp. 1–3, abstract and Theorems 1.1–1.2",
+          "method": "Bounded open PDF passages, v2",
+          "title": "Triples and quadruples of consecutive squares or non-squares in a finite field",
+          "trigger": "Potential exact four-word counts"
+        },
+        {
+          "assessment": "Exact ordinary-word counts at lengths two and three, not four",
+          "evidence": "Length-three formulas in terms of a Jacobsthal sum.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.11068",
+          "material_read": "Abstract and Theorems 4–5, PDF pp. 1 and 3–5",
+          "method": "Bounded open PDF passages, v1",
+          "title": "Exact Frequencies of Consecutive Quadratic Residue and Nonresidue Patterns Modulo a Prime",
+          "trigger": "Potential complete ordinary-word frequency table"
+        },
+        {
+          "assessment": "Methodological precedent and general estimates",
+          "evidence": "Indicator expansion, triple examples at 101 and 1009, and historical bounds for lengths four and five.",
+          "identifier_or_url": "https://kconrad.math.uconn.edu/blurbs/ugradnumthy/QuadraticResiduePatterns.pdf",
+          "material_read": "PDF pp. 1–3 and 6",
+          "method": "Bounded open PDF passages",
+          "title": "Quadratic Residue Patterns Modulo a Prime",
+          "trigger": "General consecutive-character pattern formulas and small-field data"
+        },
+        {
+          "assessment": "Abstract concerns homogeneous progression runs; no full-text exclusion inferred",
+          "evidence": "Related counts, but precise coverage of mixed words was not independently inspected.",
+          "identifier_or_url": "https://doi.org/10.1155/2023/5253261",
+          "material_read": "Accessible abstract; full-text and alternative-copy attempts unsuccessful",
+          "method": "Publisher and lawful alternate lookup attempts",
+          "title": "The Distribution Properties of Consecutive Quadratic Residue Sequences",
+          "trigger": "Potential patterns or exact counts at length four"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "d08a73e76429 RESULT.md indicator proof and finite_census.txt"
+      ],
+      "rationale": "Consecutive triangular index signs are a natural observable and a sharp cutoff could be valuable on its own. Here the cutoff is the direct complement-pair readout of an existing finite certificate and the formula is its underlying four-word indicator's even-part specialization. Neither requires a new count or structural lemma; the mean-square-root bound even uses the same curve. A cleaner presentation or a normalization correction does not leave a distinct valuable result to repair.",
+      "residual_risks": [
+        "The assessment does not devalue genuinely new sharp thresholds; it is specific to this mechanically implied one."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

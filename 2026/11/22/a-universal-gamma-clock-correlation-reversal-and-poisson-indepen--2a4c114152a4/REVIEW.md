@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly fixes the occupation-density local-time normalization and the full-reset renewal clock. Conditional Gaussianity and the Brownian Markov property give exact free-excursion second and mixed fourth moments. Equilibrium renewal sampling yields a Gamma age-moment ratio, whose simplification gives the universal sign and both sharp endpoints. At the zero-covariance threshold the stationary Fourier resolvent independently establishes full coordinate factorization. All statements are for \(k,D_x,D_y,\lambda>0\); there is no finite-enumeration-to-infinite-proof step. An extracted checker independently compared age moments to numerical survival integrals and tested the mixed moment and Poisson inversion.
+PASS
 
-## Originality — PASS, qualified
+For a fixed excursion time t, conditional Gaussianity of X given the transverse path makes the mixed square moment 2D_x E[L_t Y_t²]. With the occupation-normalized local time, the Markov transition from Y_s=0 contributes 2D_y(t−s) and the density at Y_s=0 is (4πD_y s)^(−1/2). Integrating gives 8D_x√D_y t^(3/2)/(3√π); the product of the single-coordinate second moments is 4D_x√D_y t^(3/2)/√π. Complete independent resets give a positional marginal averaged over the equilibrium age A, not over S or over time since initialization. With a_p=E[A^p], the ratio to be tested is 2a_(3/2)/(3a_(1/2)a_1)−1. The survival integral gives a_p=Γ(k+p+1)/[(p+1)Γ(k+1)λ^p], reducing the ratio to (1−k)/(5(k+1)); the open endpoint bounds and sign claims follow. Nonzero square covariance excludes independence for all k≠1. For k=1, the equilibrium age is exponential and the decaying stationary Fourier resolvent in y has form c_ξ exp(−√(λ/D_y)|y|), where the jump at zero yields c_ξ=λ/(D_xξ²+2√(λD_y)). Its inverse is the product of normalized Laplace densities. All moments used are finite for k>0. I inspected the supplied quadrature script, without executing it; the conclusion is analytic.
 
-The 2020 Domazetoski et al. Poisson comb transform, including its two-dimensional specialization, is stronger than any isolated claim of a new Poisson product law. No such priority is asserted. The 2023 Masó-Puigdellosas et al. manuscript develops non-Poisson renewal resetting but its global-reset calculations concern marginal longitudinal MSD, not Gamma-family mixed squared-coordinate covariance and its unique sign/independence boundary. The closest indexed comparative findings address common Brownian shocks, renewal Brownian extreme gaps and diffusing-diffusivity statistics on different state spaces; they do not imply the comb-specific shape law. This is a best-knowledge implication comparison, not a guarantee of exhaustive novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mixed energy statistic is natural in a constrained comb: longitudinal diffusion occurs only at the backbone, so transverse excursions and longitudinal motion compete. The theorem resolves this negative physical-age dependence against positive common-reset-age mixing, identifying exactly when they cancel and when the entire joint law factorizes. The sharp parameter-free ratio, full two-sided Gamma phase diagram and if-and-only-if independence classification are meaningful qualitative statements rather than a routine marginal MSD calculation.
+The exponential product resolvent, free-comb framework and renewal-age averaging are preexisting. The supported distinct result is the complete Gamma-shape mixed-square dependence law and the use of its strict signs to exclude independence at every nonexponential shape. No independent consulted statement contains that all-shape classification. The full free propagator plus generic renewal mixing can encode the answer before evaluation; they are not themselves an evaluated mixed-square or independence theorem for Gamma resetting.
 
-## Closest literature and limitations
+## value
 
-See the 2020 Physical Review Research and 2023 Entropy papers cited in `RESULT.md`. Residual publication-priority risk is possible unindexed literature on arbitrary renewal-clock comb cross moments. The result does not cover discrete combs, partial resets, or non-Gamma clocks, and absence of a matching search result is not a uniqueness proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Gamma family changes clock dispersion around a natural Poisson baseline. A scale-free fourth-order observable separates the negative dependence at a fixed comb excursion age from positive dependence induced by age mixing, with a sharp sign reversal at the only independent shape. This provides a two-coordinate diagnostic not available from signed-coordinate covariance or a backbone MSD alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

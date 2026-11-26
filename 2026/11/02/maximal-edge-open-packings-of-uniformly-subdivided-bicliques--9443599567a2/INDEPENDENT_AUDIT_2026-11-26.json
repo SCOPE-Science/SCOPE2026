@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:10.445902Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–3",
+        "Frozen VERIFICATION.md and verify.py (read, not run)",
+        "Replay: python3 /workspace/audit-evidence/frozen_checks.py 1"
+      ],
+      "rationale": "Same-type incidences never conflict; opposite types conflict exactly when they share just one of row or column. Hence a maximal set must take on either side every position compatible with all selected positions on the other. The resulting mutual closures are the two pure sets, b(b−1) identical transverse pairs, 4b oriented singleton/full-neighborhood pairs, and the complementary single-row blocks. In the last case each block has at least two positions; otherwise double closure adds an opposite-row position or fills the full pure side. If both rows are used and one has at least two positions, the other side is forced to a singleton or empty, so there are no additional cases. For b=1 the conflicts form a matching and for b=2 two disjoint K_{2,2}, giving the stated four counts in each small case. The binomial sum for the blocks, overlapping exponents and total follow; for b≥3 all mixed cases have size at most b+1, while each pure set has size 2b. The subdivisions have degeneracy at most two by deleting the subdivision vertices first. An independent run enumerated directly from third-edge witnesses for each b=1,…,5, matching the full distributions, including the collisions at b=3 and b=4.",
+      "residual_risks": [
+        "The replay is finite; the mutual-closure argument supplies exhaustion for arbitrary b."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 26 record gives a matching/center decomposition of all packings of S(G) and a maximum-cut scalar formula. The inspected edge-open-packing papers focus on maxima and relevant comparisons or bounds."
+        ],
+        "reasoning": "The general decomposition applies to this very graph, unlike merely analogous families. Its formula counts every feasible size layer, without recording which sets extend to larger ones.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-edge-open-packing-decomposition-and-exact-polynomial-for-complet--68d40fe5e7c1",
+          "arXiv:2403.00750, 2406.04020 and 2508.01935"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search and four identified mirror records",
+        "DOI 10.1051/ro/2022171",
+        "arXiv:2403.00750v1",
+        "arXiv:2406.04020v2",
+        "arXiv:2508.01935v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior formula 2|M|+mc(G−V(M)), for K_{2,b} the values by matching size 0,1,2 are 2b,b+1,4; only the empty matching attains 2b for b≥3. The two ordered full cuts of the connected bipartite base then give the maximum census.",
+          "The all-set polynomial counts partial incidence choices as well as saturated ones. For the mixed cuts with no double incidences, even saturating a fixed cut need not be globally maximal: a one-edge star allows doubling that incidence."
+        ],
+        "reasoning": "The maximum statements are covered. The maximal tiers require additional extension constraints: for a nonpure mixed saturated cut with one center row, both opposite stars must contain at least two edges. Such constraints and the exact binomial contributions are beyond numerical specialization of the all-packing polynomial.",
+        "searches": [
+          "October 26 S(G) decomposition, equations (1)–(2) and exact structural proof",
+          "Pandey–Santra arXiv:2508.01935 maximum-size bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chelladurai–Kalimuthu–Soundararajan define the same third-edge condition and relate it to injective edge coloring.",
+          "Same-graph Resultary matches under induced matching fix a different feasibility condition. The targeted literature lookup did not add an exact hit."
+        ],
+        "reasoning": "Maximal edge-open packings are precisely maximal independent sets in the third-edge conflict graph, whereas injective coloring partitions that graph into independent sets. This is not induced matching: two successive edges through a subdivision vertex can be selected here, but never in a matching.",
+        "searches": [
+          "Resultary semantic lookup for maximal edge-open packings on full subdivisions of bicliques",
+          "Literature lookup covering injective edge coloring and maximal independent sets of the edge-open-packing conflict graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later 11/8 record gives a maximal edge-open packing polynomial for S(K_n). A same-day 11/2 record gives maximal induced matchings on I(K_{a,b}), with support {2,b} for I(K_{2,b}); an October 26 record likewise treats induced matching on S(K_{p,q})."
+        ],
+        "reasoning": "Exact indexed polynomials were inspected for the same invariant on another family and a different invariant on the very same graph. Neither is the F_b claimed here; date alone is not used to distinguish the same-day record.",
+        "searches": [
+          "Resultary entries for full maximal enumerators on S(K_n), I(K_{a,b}), and S(K_{p,q})"
+        ]
+      },
+      "rationale": "The prior general S(G) decomposition of all packings and maximum-cut formula materially cover the feasible packings and imply the maximum size and its two attaining sets here for b≥3. The supported distinct part is the explicit classification and cardinality distribution of all inclusion-maximal sets, including the gap, not that prior decomposition or its extremal consequences. This requires analyzing extensions that can change the matching or center sets; the inspected prior result does not give a maximality filter or the mixed-type contributions.",
+      "residual_risks": [
+        "An equivalent maximal-biclique or maximal-independent-set account could be unindexed.",
+        "The earlier subdivision decomposition is a strong starting point and yields the maximum assertions; no distinct priority is credited to those assertions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same local condition, different computed invariant",
+          "evidence": "Defines a third common edge and the maximum packing number; the coloring objective is a partition.",
+          "identifier_or_url": "10.1051/ro/2022171",
+          "material_read": "PDF pp. 3765–3766, definitions and introduction",
+          "method": "OA PDF passages",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Original packing definition and injective coloring alias"
+        },
+        {
+          "assessment": "Maximum algorithms/bounds in inspected passage",
+          "evidence": "Treats the maximum invariant, complexity and a tree algorithm.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00750v1",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Potential general edge-open packing coverage"
+        },
+        {
+          "assessment": "Distinguishes induced matching from edge-open packing",
+          "evidence": "Compares scalar packing numbers for trees and products.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020v2",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Two similar invariants and graph families"
+        },
+        {
+          "assessment": "Scalar extremum coverage, not maximal tiers in the inspected statements",
+          "evidence": "Characterizes aspects of the maximum invariant and gives a bound in terms of |E(G)| and δ(G).",
+          "identifier_or_url": "https://arxiv.org/abs/2508.01935v1",
+          "material_read": "pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Edge open packing: further characterizations",
+          "trigger": "Possible covering packing characterizations"
+        },
+        {
+          "assessment": "Same graph; exact all-packings decomposition and covered maximum census, not asserted inclusion-maximal classification",
+          "evidence": "Doubly selected subdivision vertices form a matching; all other incidences are arbitrary nonempty neighbor choices from centers across the residual cut.",
+          "identifier_or_url": "2026/10/26/SCOPE-edge-open-packing-decomposition-and-exact-polynomial-for-complet--68d40fe5e7c1",
+          "material_read": "RESULT.md Finding, equations (1)–(2), and decomposition proof; direct decisive read offset 650–4570",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Edge-open packing decomposition and exact polynomial for complete graph subdivisions",
+          "trigger": "Strongest overlap: all edge-open packings of arbitrary subdivisions"
+        },
+        {
+          "assessment": "Same invariant, different base family",
+          "evidence": "Counts all labeled inclusion-maximal edge-open packings of S(K_n).",
+          "identifier_or_url": "2026/11/8/SCOPE-maximal-edge-open-packing-sets-in-once-subdivided-complete-graph--7b611417b077",
+          "material_read": "RESULT.md offset 0–4190",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Maximal edge-open packing sets in once-subdivided complete graphs",
+          "trigger": "Exact maximal polynomial under the same subdivision operation"
+        },
+        {
+          "assessment": "Same graph, stricter packing notion",
+          "evidence": "Maximal induced matchings of I(K_{2,b}) have the stated support {2,b}, not the frozen edge-open distribution.",
+          "identifier_or_url": "2026/11/2/SCOPE-maximal-induced-matchings-of-complete-graph-incidence-families-e--3a1144b1760f",
+          "material_read": "RESULT.md offset 0–4435",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Maximal induced matchings of complete-graph incidence families",
+          "trigger": "Exact enumerator on the identical subdivided biclique"
+        },
+        {
+          "assessment": "Earlier analogue only",
+          "evidence": "Counts induced matchings rather than edge-open packings.",
+          "identifier_or_url": "2026/10/26/SCOPE-induced-matching-enumerators-and-unbounded-maximal-size-gaps-in--785d52919f69",
+          "material_read": "RESULT.md offset 0–4370",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Induced matching enumerators and unbounded maximal size gaps",
+          "trigger": "Earlier size gaps for a related invariant on S(K_{p,q})"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Earlier all-packings S(G) decomposition and maximal induced-matching comparison"
+      ],
+      "rationale": "The polynomial enumerates the possible sizes of saturated packings, not just which packings can attain the maximum. The four-type description explains how exponentially many smaller maximal choices coexist with only two largest ones. Unbounded missing sizes on connected bipartite graphs of degeneracy two provide a natural structural contrast with the familiar scalar extremum.",
+      "residual_risks": [
+        "No comparable distribution is claimed for general theta graphs or arbitrary subdivisions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

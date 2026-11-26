@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:54:28.120862Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the negative half-line direct convolution gives f(t)=e^{rt}/[(a+r)(b+r)]; on the positive half-line it gives [e^{−at}/(a+r)−e^{−bt}/(b+r)]/(b−a). The matching of f and f′ and the jump −1 in f″ imply that the third distributional derivative of the correlation product has masses −f(−T), −f(T) at −T/2,+T/2. Every term from the remaining piecewise exponentials integrates to a sum of smooth T-dependent coefficients times e^{±iωT/2}/(λ−iω). In the cell ω=((2n+1)π+φ)/T, |φ|≤π, derivatives in T or φ preserve the O(n⁻¹) bound on compact positive-delay bands: the phases depend only on φ, and ∂_Tω=−ω/T only costs one power of ω in the squared denominator. The ratio f(T)/f(−T) has slope 2r at 0. For r<a its derivative is the difference of two decaying exponentials, with the positive term decaying faster, so the ratio has one maximum and then decreases to zero, crossing 1 transversely once at positive T. For a≤r≤b the derivative is positive directly; for r>b the positive term already dominates at zero and grows faster. In a positive-frequency phase cell the normalized leading map is f(−T)e^{iφ/2}−f(T)e^{−iφ/2}; its derivative at (T*,0) is invertible as a real 2×2 matrix, with diagonal entries −f(−T*)ρ′(T*) and f(T*). On a small ball, composing the perturbed map with the inverse of that derivative gives the fixed-point iteration x↦x−J⁻¹F_n(x); uniform C¹ closeness makes it a contraction into the ball for large n. This proves one transverse zero with displacement O(n⁻¹). Away from that ball the leading term is bounded away from zero on the compact phase cell and delay band; this proves exhaustion or exclusion with the stated boundary qualification. Reality supplies the conjugate strings. For (2,3,1) the balance factors as (e^T−1)(e^T−3)=0. Formal assumptions allow r=a and r=b in the exclusion branch despite the title; no claim is made for delay tending to either endpoint of (0,∞). CHECK.py and its recorded output were inspected, not executed or used to infer exhaustion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gröchenig–Stöckler develops a frame-set theorem covering finite-type examples",
+          "Gröchenig–Jaming–Malinnikova states total positivity need not give zero-free ambiguity and calls for separate zero analysis for higher distinct causal convolutions"
+        ],
+        "reasoning": "The broader window class and frame result do not control isolated zeros of a self-ambiguity function; the inspected ambiguity paper does not give a mixed three-factor classification as a consequence of total positivity.",
+        "searches": [
+          "arXiv:1104.4894v1 p. 2, finite-type totally positive functions",
+          "arXiv:1811.03937v1 p. 2 and pp. 5–6, higher exponential convolutions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECK.py and CHECK_OUTPUT.txt",
+        "Gröchenig–Jaming–Malinnikova arXiv:1811.03937v1",
+        "Gröchenig–Stöckler arXiv:1104.4894v1",
+        "Resultary a9366ccdb6a1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-factor causal and mixed reflections have nonvanishing ambiguity for distinct rates, while the equal-rate reflected example e^{−a|x|} has zeros",
+          "The frozen record reports an earlier calculation with coincident causal rates a=b, without a usable citation"
+        ],
+        "reasoning": "One cannot infer nonvanishing or location of zeros of a window's self-ambiguity simply by convolving the window with another exponential. A coincident-rate calculation also would not determine the positive balance and transversality for all 0<a<b. No inspected prior implication supplies the claimed phase diagram.",
+        "searches": [
+          "arXiv:1811.03937v1 Example 3 and Lemma 3.1",
+          "Resultary repeated-rate meaning search; frozen RESULT.md Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gröchenig–Jaming–Malinnikova §3 compares causal and reflected exponential convolutions in ambiguity notation",
+          "a9366ccdb6a1 treats the sech^m window and high Doppler zeros at fixed nonzero delay"
+        ],
+        "reasoning": "Changing ordinary Doppler to angular frequency rescales zeros, not their existence. The indexed family has zeros along each fixed nonzero delay; it is not equivalent to the three-factor result where high-frequency zeros can have only one positive delay accumulation point.",
+        "searches": [
+          "Resultary meaning searches for three-exponential ambiguity zeros, threshold r=a, balanced-delay high-frequency strings and the repeated-rate analogue",
+          "arXiv:1811.03937v1 §3, Wigner/STFT and ambiguity formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed high-frequency result is for sech^m; no checked indexed statement gives the exact exponential balance or the r=a partition",
+          "Frozen CHECK_OUTPUT.txt consists of five numerical roots in one example, not an external table or a certificate for the theorem"
+        ],
+        "reasoning": "A matching phase-order motif or a numerical root near log 3 does not supply the parameter dichotomy and exclusion/exhaustion; date alone neither establishes priority nor removes the indexed comparison.",
+        "searches": [
+          "Resultary meaning searches for the explicit balanced-delay example and the three-factor/repeated-rate strings",
+          "2026/10/26/SCOPE-spherical-bessel-delay-scaling-for-all-integer-power-hyperbolic--a9366ccdb6a1"
+        ]
+      },
+      "rationale": "The supported distinct statement is the rate-dependent high-angular-frequency existence, local uniqueness and compact-band exhaustion/exclusion for this mixed-direction three-factor window. Published two-factor nonvanishing and the closest indexed high-frequency strings for a different window do not give that dichotomy. The mentioned repeated-rate subfamily is not credited as new; its cited coverage could not be independently located. This is not an absolute priority claim.",
+      "residual_risks": [
+        "An equivalent general exponential-spline asymptotic theorem has not been ruled out exhaustively.",
+        "The reported repeated-rate calculation is unlocated and is not claimed here as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Adjacent lower-factor results and total-positivity limitation, not this three-factor result",
+          "evidence": "Distinct-rate two-factor causal/reflected windows are nonvanishing; equal-rate reflected case can have zeros. The higher causal convolution question is discussed separately.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.03937v1",
+          "material_read": "PDF p. 2 offset 6150; §3 Example 3 and Lemma 3.1 pp. 5–6 offsets 17150 and 22008",
+          "method": "OA PDF bounded passages",
+          "title": "Zeros of the Wigner Distribution and the Short-Time Fourier Transform",
+          "trigger": "Closest primary ambiguity zero/nonzero results for exponential convolutions"
+        },
+        {
+          "assessment": "Covers the window class in a frame-set question, not the local ambiguity zero geometry",
+          "evidence": "Finite-type totally positive examples include convolutions of exponential factors; the result concerns frame sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.4894v1",
+          "material_read": "PDF p. 2 offset 6100",
+          "method": "OA PDF bounded passage",
+          "title": "Gabor Frames and Totally Positive Functions",
+          "trigger": "Possible broader finite-type total-positivity theorem"
+        },
+        {
+          "assessment": "Different window and fixed-delay zero count rather than a balance threshold",
+          "evidence": "For sech^m the record gives N_{m,T}(R)=|T|R+O(1) positive Doppler zeros at fixed nonzero T, plus small-delay scaling; r=a has no counterpart there.",
+          "identifier_or_url": "2026/10/26/SCOPE-spherical-bessel-delay-scaling-for-all-integer-power-hyperbolic--a9366ccdb6a1",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local-mirror reading",
+          "title": "Spherical-Bessel delay scaling for all integer-power hyperbolic-secant windows",
+          "trigger": "Closest indexed high-frequency ambiguity-zero strings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result turns a leading-order cancellation into a sharp existence and exclusion theorem for actual regular zeros of a natural exponential-convolution window. It identifies the mechanism by a simple rate inequality and localizes and enumerates the asymptotic branches on compact positive-delay bands. Distinguishing true transverse zeros from small Fourier values at approximate phases is substantive for ambiguity-zero questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

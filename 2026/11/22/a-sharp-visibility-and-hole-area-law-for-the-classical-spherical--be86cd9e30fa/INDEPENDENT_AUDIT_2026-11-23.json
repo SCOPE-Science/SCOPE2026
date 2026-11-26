@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:29:46.707278Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the closed solid, on each horizontal half-chord of the projected ball the ray meets material iff c|p|+s sqrt(R²−p²−y²) ≥ sqrt(a²−y²) for |y|<a; for |y|≥a every ray through the ball meets material. The left-hand side is concave in |p| with maximum sqrt(R²−y²)>sqrt(a²−y²). The inner crossing, when present, is p=c sqrt(a²−y²)−sh: the projected point lifts along the ray to the rim x=sqrt(a²−y²), z=h at its positive endpoint. The central gap is the open intersection of two filled ellipses, with boundary entirely in the shadow; any other missing point within the ball's projected disk can reach the unbounded exterior along its horizontal section. At criticality the origin hits the rim, so there is no remaining bounded component. The axial and side-on cases follow directly from the ray test. Integrating the inner width proves the area and strict nesting. The lens factor is the integral of 2 sqrt(1−t²) from τ to 1, giving 4 sqrt(2)/3 times (1−τ)^(3/2) with the stated error. Combining τ'(θc)=R²/(ah) and cos θc=h/R gives the stated angular constant; converting by c−h/R~(a/R)(θc−θ) yields B. Uniform viewing cosine then gives the atom, inverse CDF, 2/3 onset and, with the classical volume, unique recovery. Reconstruct from RESULT.md §§1–4; VERIFICATION.md and verify_napkin.py were inspected, not executed. In the checker the tally counts all sampled rays, though only samples in the proposed hole invoke the occupancy assertion. This does not affect the proof. The critical topology uses the stated closed material, not an arbitrary convention that deletes rim points.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Slepian treats a convex body's mean projected area; a convex shadow has no bounded complementary hole. Egan discusses multiple ray crossings and a torus shadow average, a different statistic. The Apostol–Mnatsakanian full-text retrieval was blocked."
+        ],
+        "reasoning": "These available broader projection statements do not provide the angular hole geometry for a sphere minus a cylinder. Projection of the penetration curves by itself would still need an argument distinguishing interior gaps from exterior missing rays.",
+        "searches": [
+          "arXiv:1109.0595",
+          "Greg Egan, Average Shadows, Non-convex solids",
+          "doi:10.1080/00029890.2007.11920429"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 128776cbdf5e and f28ff9f55b4f",
+        "Devlin napkin-ring volume PDF",
+        "MathWorld Spherical Ring",
+        "Slepian arXiv:1109.0595",
+        "Egan Average Shadows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The torus record obtains 3/2-collapse and a 2/3 small-area onset by the same kind of probability inversion. The frustum record likewise obtains 3/2 silhouette increments and an inverse-geometry result. Devlin establishes the height-only volume."
+        ],
+        "reasoning": "The exponents and inversion method are overlapping ingredients; none determines the drilled-ball critical angle, inner lens, angular coefficient, or visibility probability. Reconstruction is a simple corollary of the classical volume and the new object-specific visibility threshold, not a standalone novelty.",
+        "searches": [
+          "Resultary torus shadow record 128776cbdf5e, Critical hole-area law",
+          "Resultary frustum silhouette record f28ff9f55b4f, Finding",
+          "Devlin, Volume of a napkin ring, p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen indexed result is the same record, not independent coverage. Torus shadows use an eroded ellipse, not an intersection of the projected bore-rim disks. The distinct same-day frustum result concerns outer silhouette contact at arctan((R−r)/H), not a bounded complementary component."
+        ],
+        "reasoning": "Comparing through the lens/erosion and rim-contact formulations does not identify a parameter or projection equivalence; the same-day frustum record was assessed on its statements, not on an assumed chronology.",
+        "searches": [
+          "Resultary semantic search: napkin ring orthographic shadow, drilled-sphere bounded complement and area law",
+          "Projection/descriptive geometry search: cylinder penetration of a sphere and shadow overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classical reference entry covers the geometry and height-only volume but not an angular hole table or projected area law; no distinct exact match appeared in the relevant ranked findings."
+        ],
+        "reasoning": "The circle-lens area used after rescaling is elementary, and tabulation of the classical volume would only cover the volume input. Neither supplies the identification of this shadow hole with that lens.",
+        "searches": [
+          "MathWorld Spherical Ring",
+          "Resultary semantic lookup for spherical ring visibility and area"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact projected bounded component and the induced area law for the spherical drilled solid. The lens integral, classical volume law, and generic contact exponents are not independently new. No equivalent or applicable stronger exact shadow theorem was found in the inspected sources.",
+      "residual_risks": [
+        "Bounded catalogue and literature searches cannot certify priority. Older engineering/drafting results may exist under penetration or oblique-view terminology.",
+        "The Apostol–Mnatsakanian article and the cited Stack Exchange question 109908 could not be read in the attempted copies (HTTP 403); no absence claim is made from that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial methodological overlap, different theorem and geometry",
+          "evidence": "Erosion of a projected ellipse has 3/2 area closing and 2/3 small-area probability onset.",
+          "identifier_or_url": "2026/10/25/SCOPE-two-visibility-transitions-and-a-critical-hole-area-tail-for-tor--128776cbdf5e",
+          "material_read": "RESULT.md, Critical hole-area law (about offset 5782)",
+          "method": "Local publication mirror",
+          "title": "Two visibility transitions and a critical hole-area tail for torus shadows",
+          "trigger": "Closest nonconvex shadow-hole and random-area law"
+        },
+        {
+          "assessment": "Analogue, not equivalent or covering",
+          "evidence": "For a convex frustum the smaller rim joins the outer silhouette at arctan((R−r)/H); the treated 3/2 quantities are outer silhouette excesses.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-silhouette-contact-laws-and-local-inverse-geometry-for--f28ff9f55b4f",
+          "material_read": "RESULT.md Finding, offsets 0 and about 1146",
+          "method": "Local publication mirror",
+          "title": "Frustum silhouette contact and local inverse geometry",
+          "trigger": "Distinct same-day analogue for sharp projection contact, probability and reconstruction"
+        },
+        {
+          "assessment": "Covers the classical volume only in the inspected derivation",
+          "evidence": "The volume depends on h and equals 4πh³/3 with the present half-height convention.",
+          "identifier_or_url": "https://profkeithdevlin.org/wp-content/uploads/2023/09/napkinring.pdf",
+          "material_read": "PDF p. 1 derivation",
+          "method": "Open-access PDF",
+          "title": "Volume of a napkin ring",
+          "trigger": "Identical solid and one inverse-law input"
+        },
+        {
+          "assessment": "Classical reference, not a shadow law in the inspected passage",
+          "evidence": "The entry gives the spherical ring volume.",
+          "identifier_or_url": "https://mathworld.wolfram.com/SphericalRing.html",
+          "material_read": "Volume discussion, about offset 380 onward",
+          "method": "Open website",
+          "title": "Spherical Ring",
+          "trigger": "Exact classical reference entry"
+        },
+        {
+          "assessment": "Its stated theorem does not cover a nonconvex bounded shadow hole",
+          "evidence": "The result is about the average projected area of convex solids.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.0595",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Open-access paper",
+          "title": "The Average Projected Area Theorem – Generalization to Higher Dimensions",
+          "trigger": "Plausible broad projection theorem"
+        },
+        {
+          "assessment": "Related analysis, different quantity",
+          "evidence": "The torus example accounts for multiple ray crossings in computing a weighted average shadow area.",
+          "identifier_or_url": "Greg Egan, Average Shadows",
+          "material_read": "Non-convex solids, about offset 35600",
+          "method": "Open website",
+          "title": "Average Shadows",
+          "trigger": "Nonconvex ray and shadow comparison"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence",
+          "evidence": "HTTP 403 on attempted copy.",
+          "identifier_or_url": "https://doi.org/10.1080/00029890.2007.11920429",
+          "material_read": "No original passage available after retrieval attempt",
+          "method": "Open-access retrieval attempt",
+          "title": "Unwrapping Curves from Cylinders and Cones",
+          "trigger": "Potential descriptive-geometry treatment of penetration curves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact directional topology and area classification for a classical nonconvex solid. A ray obstruction does not in general follow from projected rim outlines alone; the proof makes the bounded/exterior distinction and gives an observable visibility statistic independent of the classical volume datum. The explicit dependence and invertible pair make this more than a generic lens asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

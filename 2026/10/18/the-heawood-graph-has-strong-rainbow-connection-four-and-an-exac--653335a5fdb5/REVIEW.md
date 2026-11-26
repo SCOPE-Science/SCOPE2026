@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fano cyclic incidence graph and binary projective-plane model are independently constructed and verified; both represent 14 vertices and 21 edges. Girth-six uniqueness of the length-two geodesic forces any strong three-colouring to be proper, so fixing its 0-vertex color palette yields exactly eight cases. In every such case the seven unserved antiflags form a matching, giving a strict three-colour lower bound. An explicit four-colour edge list succeeds for every one of the 91 unordered vertex pairs. Both verifiers exhaustively count fresh-fourth-colour matching repairs, with the exact spectrum \((0,0,0,0,126,84,0,0)\) for all normalized/unlabelled and all named colourings. Sources, outputs and standalone code are included.
+PASS
 
-## Originality — PASS with residual source-access risks
+Any two distinct points are on a unique line and any two lines meet at one point. Thus a pair of adjacent edges is the unique two-step geodesic between its other endpoints; strong rainbow colouring forces propriety, including with the fourth colour. A nonincident point–line pair has precisely three geodesics of length three, one per point on the target line. Consequently only the 28 nonincidences need testing once propriety holds. I independently enumerated colour permutations at each point, discarding line conflicts and normalizing at point 0. There are eight classes, the eight frozen obstruction strings all match, each failed set is a bijection of points to nonincident lines, and every nonincidence occurs twice. A second recursion generated matchings as partial injections of points into incident lines. For each geodesic and input colouring I tested admissible intersections with the matching: zero recoloured edges if the original path is rainbow, one if the two retained colours differ, never two or more. This reproduced the all-matching vector (1,21,168,644,1218,1050,336,24) and the success vector (0,0,0,0,126,84,0,0) for each of the eight classes. The specific frozen four-colour witness passed. Palette renaming multiplies the class count by 6 and preserves successes. Nonmatching recolourings cannot avoid adjacent new-colour conflicts, so the four-edge minimum is exact within the specified model and src(H)=4.
 
-The 24 Heawood perfect matchings and eight proper three-edge-colourings modulo palette names are already present in graph-reference tables and are not new. Chartrand et al.'s 2008 foundational *Rainbow connection in graphs* (full open PDF inspected) has other src family results, but not this Fano-specific conclusion. Published Heawood rainbow three-connectivity bounds, including Balbuena et al. 2018, concern three internally disjoint rainbow paths, which does not imply the present one-rainbow-geodesic theorem or its repair enumerator. Mathematical database queries for specific aliases, seven-antiflag matchings and 126/84 counts produced no directly covering item. The original 2007 rainbow-cages article and full supplemental tables of general integer-programming work were not inspected and remain explicit risks. Search absence is not mathematical proof of universal priority.
+## originality
 
-## Value — PASS
+PASS
 
-A single fresh palette class is a natural, constrained way to repair a standard 3-edge-factorization into a shortest-path rainbow communication coloring. The complete exact repair polynomial \(126t^4+84t^5\), its factorization-independence and its unusual absence of any successful larger matching repairs go well beyond a routine graph count. The observed obstruction design covers each nonincident pair twice across the eight factorizations. All claims are restricted to the Fano incidence graph, and no infinite-family consequence is asserted.
+The factorization counts and Fano incidence facts are known inputs. The supported distinct finding is the rainbow-geodesic obstruction design and its quantitative fresh-colour matching repair census, including an exact witness and minimum. The available comparisons establish the invariant and computational methods but did not yield those counts or an equivalent result. Priority of the bare src value is less well resolved than that of the joint census.
 
-## Limitations
+## value
 
-No external independent audit has been performed, and plausible unindexed literature is not ruled out. General unconstrained recolouring is not classified. For archived prior work, only relevant scientific statements were used for overlap checks, with no assertion of renewed certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical cubic Fano incidence graph is a natural distance-three test case. Beyond the optimal value, the obstruction incidence pattern and full repair polynomial measure how a standard proper colouring can be changed to make all distances work. The loss of all successes again at six or seven recolourings is a meaningful nonmonotone effect, not implied by the existence of one successful repair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

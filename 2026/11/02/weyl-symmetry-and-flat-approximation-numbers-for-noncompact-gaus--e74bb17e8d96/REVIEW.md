@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cited boundedness and compactness equivalences force the sharp semidefinite boundary condition. The exact algebraic identity turns this condition into a nonzero solution of the intertwining equations. Equality on dense coherent states gives an operator identity; boundedness forces the intertwining constant to have unit modulus. Weyl-translated fixed vectors converge weakly to zero, providing a lower bound against every compact approximant. The independent numerical checker tests the critical identity and a nonunitary example. It does not constitute an infinite proof.
+## correctness
 
-## Originality
-PASS on a best-knowledge basis. Sang–Zhao classify bounded and compact members of the exact five-parameter family, but their main theorems do not give the full essential norm, all approximation numbers, or a boundary Weyl symmetry. Dong–Zhu's compact-versus-unitary dichotomy is restricted to a two-parameter subfamily and does not imply the present nonunitary example. Contextual convolution kernels and quadratic oscillator semigroups have substantial related theory; an equivalent covariance or ideal-norm result may be implicit in that literature. Searches are not proof of novelty.
+PASS
 
-## Value
-PASS. The quantified distance-to-compact classification is exact for the whole noncompact boundary of a natural Gaussian operator family, not merely for an isolated example or canonical unitaries. It identifies a structural Weyl symmetry explaining why finite-rank approximation fails maximally and extends the compactness criterion to operator-ideal behavior.
+The literal frozen equality of distance to every compact operator is false: take T=I (γ=1 with all other coefficients zero) and the rank-one negative projection K=-P onto the constants; ||T-K||=2. The delivered RESULT.md instead asserts the sharp lower bound against each compact K, attained at K=0, which is what the proof establishes. The Sang–Zhao classification applies to the exact five-parameter kernel at p=q=2, gives compactness when γ=0, and forces |α|,|β|<1/2 and boundary equality |γ|²/D+2|N|=1 in the noncompact case. An independent direct check gives the same degeneracy: integrating the coherent-state output norm squared leaves the input quadratic (|γ|²/D-1)|w|²+2 Re(N w²); a strictly negative form would make the integral of ||Tk_w||² finite and hence T Hilbert–Schmidt. Comparing coefficients of z and conjugate w in the two displaced coherent outputs gives precisely the two equations in the record. Equivalently, conjugate the second equation and solve for v to obtain v=(γ-bar*u+2α-bar*γ*u-bar)/D; substituting into the first leaves (1-|γ|²/D)u-2N-bar*u-bar=0. At the boundary there is a nonzero u, and |2β|<1 ensures v is nonzero. Norms force the constant phase to have modulus one. Weyl powers run weakly to zero on any fixed vector while preserving its T-output norm, so compact K vanishes on that sequence in norm and ||T-K||≥||T||. This yields the essential norm and all finite-rank infima, not equality for each K. Conversely, finite monomial projections converge uniformly on a compact output image. In the explicit nonunitary example direct Gaussian integration gives ||Tk_w||²=D^{-1/2} exp(-(Im w)^2), nonconstant on unit vectors. No frozen script was executed.
 
-## Limitations and nearest literature
-Theorem for one complex variable only; compact approximation profiles remain undetermined here. References: Sang–Zhao, arXiv:2610.28279v1, Theorems 1.1–1.2; Dong–Zhu, arXiv:2509.16672v1, introduction and Theorems A–B; Cao–Li–Shen–Wick–Yan arXiv:1907.00574 (abstract-level contextual check). Broader oscillator-semigroup theory is a residual priority risk. Independent validation and publication-priority adjudication are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+What survives is the implication from the five-parameter noncompact boundary to a nonzero Weyl intertwining pair in the real phase plane, including arbitrary admissible linear terms. The essential norm and all approximation numbers are then determined by a general weak-convergence argument, not by a new theory of compact approximation. Known convolution multipliers and canonical or weighted-composition subfamilies already give some nonunitary behavior, but the sources inspected do not cover the full real-pair implication.
+
+## value
+
+PASS
+
+For the full bounded noncompact boundary, knowing only failure of compactness does not determine even the first nontrivial approximation numbers. The theorem identifies a nonzero nondamping phase-space direction and uses it to show that no compact perturbation, of any rank, can reduce the operator norm. This uniform structural explanation survives the quantifier correction and extends beyond the known convolution, weighted-composition and unitary examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

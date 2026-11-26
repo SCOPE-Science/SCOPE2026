@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:03:12.611556Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed norm theorem holds, but the frozen Finding incorrectly calls the first distributional derivative of the nodal linear interpolant atomic. For example, the nodal data y_i=x_i give L(x)=x, so DL=dx, whereas every a_j=0. The complete repaired RESULT.md keeps the theorem and identifies the atomic measure as D²L=sum_j a_j Dirac(x_j), proved by cellwise integration by parts and cancellation of traces. It also fixes the one-jump support description at theta_j=0 or 1 and scopes the finite checks to the actual rational inputs. For the repaired claim, independent differentiation from the four endpoint equations (/workspace/replay/local_formulas.py) gives normalized H''=(4-6t)(1-theta_i)a_i+(6t-2)theta_{i+1}a_{i+1}; each absolute kernel integral is 5/3. The physical cell factor cancels. C¹ matching eliminates point masses in D²H, and summing the cellwise triangle inequality proves the upper bound, including convergence for bounded weights. Any coordinate vector of the secant jumps is realized by taking one slope jump and integrating on this bilateral grid. Its two cell interiors are disjoint, and their total mass is exactly the corresponding column weight, giving the supremum, with no need to attain it; for unbounded weights these single-jump norms are arbitrarily large. The identity |1-theta|+|theta|=1+2dist(theta,[0,1]) gives exactly the minimizing blends. No finite test supplies the bilateral or real-parameter quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lavery treats minimization of curvature or second-derivative L1 objectives.",
+          "Aràndiga's accessible abstract addresses derivative prescriptions for monotone cubic Hermite interpolation on uniform and nonuniform grids, not a stated sharp gain.",
+          "914665cad692 treats a globally coupled C² cardinal operator."
+        ],
+        "reasoning": "Neither a broader feasible set in a minimization problem nor a monotonicity/approximation statement gives an upper bound with equality for this fixed local operator; a different smoothness class and input norm do not dominate it.",
+        "searches": [
+          "Lavery (2002), PDF pp. 1–2",
+          "Aràndiga (2013), DOI 10.1137/12088495X, accessible abstract",
+          "Resultary 914665cad692"
+        ]
+      },
+      "checked_sources": [
+        "Lavery, DOI 10.1016/S0167-8396(02)00087-0",
+        "Aràndiga, DOI 10.1137/12088495X (abstract only)",
+        "Resultary e43fd465f28e (identical), 69f462923543, 914665cad692"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior local secant blends and cubic Hermite representation are not new. Lavery's earlier objective can use the same second derivative without prescribing this linear map."
+        ],
+        "reasoning": "The norm requires identifying the jump-to-second-derivative columns and their physical L1 masses, as well as demonstrating exact saturation on the unrestricted mesh. A first-order bound or a minimization formula does not identify these masses or their maximum.",
+        "searches": [
+          "Resultary 69f462923543",
+          "Lavery (2002), abstract and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For L piecewise linear the equivalent input norm is |D²L|(R); on output it is |D²H|(R).",
+          "69f462923543 fixes the same family of local slopes but maps first nodal variation to TV of H on alternating meshes, with an optimized constant 1+16ab/[27(a²+b²)].",
+          "Lavery minimizes an L1 roughness functional over choices of spline coefficients."
+        ],
+        "reasoning": "A first derivative of the output in the TV objective and an atomic second derivative input do not define the same map as first nodal variation to TV of H. Minimizing roughness over coefficients is not computing the worst-case norm of every fixed slope rule.",
+        "searches": [
+          "Resultary 69f462923543 and 914665cad692",
+          "Lavery (2002), DOI 10.1016/S0167-8396(02)00087-0, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The match with 5/3 and real extrapolation is the identical assigned entry. The distinct neighboring entries give constants for first-variation operators rather than this second-variation norm."
+        ],
+        "reasoning": "No distinct inspected exact formula covers the repaired claim. The same-day cardinal entry addresses a different operator and quantity regardless of priority.",
+        "searches": [
+          "Resultary e43fd465f28e, 69f462923543, 914665cad692 (mirrored findings, starting at offset 0)"
+        ]
+      },
+      "rationale": "The revised derivative interpretation is standard and not itself novel. The distinct claim is the exact second-variation gain for the fixed local blend operator on arbitrary bilateral grids, including spatially varying and extrapolating weights. The closest local-blend result treats first variation, and the accessible primary minimization and approximation results do not establish this norm. Assessment is bounded by the material inspected.",
+      "residual_risks": [
+        "Aràndiga full text could not be inspected; related sharp estimates elsewhere in the nonuniform Hermite literature may be unindexed or use different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different optimization, not a fixed-rule norm",
+          "evidence": "Coefficients minimize the L1 norm of curvature; second-derivative-based cubic L1 splines minimize L1 norms of second derivatives.",
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~sequin/CS284/PAPERS/L1Spline_Lavery.pdf",
+          "material_read": "PDF pp. 1–2, abstract and introduction, extracted offsets near 700 and 3800",
+          "method": "OA PDF excerpts",
+          "title": "Shape-preserving, multiscale interpolation by univariate curvature-based cubic L1 splines in Cartesian and polar coordinates",
+          "trigger": "Closest accessible primary work on L1 spline roughness"
+        },
+        {
+          "assessment": "Concrete unresolved full-text risk",
+          "evidence": "Abstract describes prescribing derivatives to obtain monotonicity on uniform and nonuniform grids.",
+          "identifier_or_url": "https://doi.org/10.1137/12088495X",
+          "material_read": "Search-accessible abstract; SIAM/ACM and JSTOR landing-page attempts did not supply full text",
+          "method": "Primary search and lawful access attempts; abstract only",
+          "title": "On the Order of Nonuniform Monotone Cubic Hermite Interpolants",
+          "trigger": "Nonuniform local Hermite derivative prescriptions"
+        },
+        {
+          "assessment": "First-order variation in a restricted mesh class",
+          "evidence": "Optimizes nodal-to-function variation on alternating intervals, giving 1+16ab/[27(a²+b²)].",
+          "identifier_or_url": "Resultary 69f462923543 (2026-11-17)",
+          "material_read": "Mirrored RESULT.md finding and hypotheses, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp variation-optimal affine-reproducing cubic Hermite slopes",
+          "trigger": "Same convex local secant-blend family"
+        },
+        {
+          "assessment": "Different C² cardinal spline operator and first-order norm",
+          "evidence": "The sharp nodal-to-function total variation constant is about 1.589109.",
+          "identifier_or_url": "Resultary 914665cad692 (2026-11-22)",
+          "material_read": "Mirrored RESULT.md finding and setting, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp bounded-variation amplification of cardinal cubic spline interpolation",
+          "trigger": "Distinct same-day exact cubic TV norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Integrated absolute second derivative is a natural quantitative measure of spline roughness. The exact sharp worst-case factor is independent of arbitrary mesh contrasts, classifies all minimizing real local slope blends, and gives the precise penalty and loss of boundedness for extrapolating weights. These are usable bounds for prescribed interpolation rules, not statements about geometric curvature or optimality among all interpolants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

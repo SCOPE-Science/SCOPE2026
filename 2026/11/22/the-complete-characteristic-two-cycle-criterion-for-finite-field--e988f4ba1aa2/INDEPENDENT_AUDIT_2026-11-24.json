@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:14:35.439769Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–48",
+        "VERIFICATION.md",
+        "verify_structure_graph.py"
+      ],
+      "rationale": "The first coordinate of a fixed pair forces b=0, which suffices. In a finite functional graph, the eventual cycle is constant along edges hence throughout a weak component; conversely every vertex connects to its eventual cycle. Thus the component criterion is exactly absence of additional cycles. T²(1,x)=(1,x+x²); a nonzero least-period orbit of g(x)=x+x² gives a T-cycle of twice that period because all its intermediate first coordinates 1+x differ from 1 and are distinct. For an odd divisor s>1, trace(1)=1, trace(x²)=trace(x), and ker(g)={0,1}, so g permutes the trace-zero subspace of dimension s-1. Its nonzero elements are periodic but not fixed. For multiples of four use the F16 subfield. The modulus u^4+u+1 has no binary root and is nonzero modulo u²+u+1 (remainder 1), hence is irreducible. Independent product convolution and reduction gave the eight products 8,14,10,13,15,9,12,11 in the listed order; XOR gave the corresponding first coordinates 5,13,3,9,4,11,2,14, with distinct pairs. For replay multiply the four-bit polynomials by convolution mod 2, then for each nonzero degree k>=4 subtract u^(k-4)(u^4+u+1) in descending degree. Every m>=3 is divisible by four or has an odd divisor s>1. For F4, a zero product reaches a fixed point in one step, a=b in two, and distinct nonzero pairs reach (1,1) in one step for {omega,omega²} and two for {1,omega} or {1,omega²}; (1,1) then reaches (1,0) in two steps. Independently iterated all starts until b=0 using moduli u+1 and u²+u+1: numbers at successive hitting times from zero were (2,1,1) over F2 and (4,3,3,2,4) over F4. I inspected, but did not run, the frozen script.",
+      "residual_risks": [
+        "Only the two exceptional fields and the stated eight-cycle need finite calculations in this proof. It does not enumerate all cycles in general."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hypothesis 6.1 directly asks the existence question for all finite extension fields apart from F4; the char-2 paragraph gives reduction to prime extension degrees and degree four, then reports finite computation up to degree 13. It does not give an all-degree proof there.",
+          "The inspected companion field statement excludes periods 2, 3 and 4 in characteristic two, for every degree."
+        ],
+        "reasoning": "The broad hypothesis is not a theorem. Excluding a bounded set of periods in every degree is compatible with existence of longer periods in all later degrees; it cannot settle existence or exclusion of every nontrivial cycle.",
+        "searches": [
+          "Chernev and Chernev arXiv:2611.07521, Hypothesis 6.1, Sections 5, 6 and 8; local Resultary short-period spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Chernev–Chernev arXiv:2611.07521 original HTML",
+        "Exact assigned catalogue record and distinct short-period catalogue record",
+        "Focused primary-literature lookup by structure-graph aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-step identity is already in Lemma 5.1, introduced there under a characteristic-not-two discussion, but its displayed polynomial identity also holds in characteristic two. Section 6 does not exploit the trace-zero permutation mechanism. Its prior subfield reduction, even with F16, leaves arbitrarily large odd prime degrees."
+        ],
+        "reasoning": "The missing unbounded step is showing a nonzero periodic g-orbit uniformly in odd degrees; the trace-zero restriction furnishes it. The lift or existence in finitely many subfields alone does not mechanically imply the criterion.",
+        "searches": [
+          "Chernev–Chernev Lemma 5.1 and characteristic-two discussion; matched short-period theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same ordered-pair map and fixed-loop test appear in the primary source and in the distinct short-period catalogue theorem."
+        ],
+        "reasoning": "Exactly q weak components and no nontrivial cycles are equivalent for this map because it has q fixed points and a unique cycle per weak component. The exact assigned record as a search hit is not independent coverage.",
+        "searches": [
+          "Local Resultary by meaning: Vieta map, structure graph, characteristic-two extension-degree cycle criterion",
+          "Chernev–Chernev, Definition 3.1 and Statement 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chernev–Chernev report nontrivial cycles in F16 and other tested fields and the F4 exception. The short-period table counts only lengths through four and so contains no F16 eight-cycle certificate or all-degree existence table."
+        ],
+        "reasoning": "The F16 existence result and its consequences for multiples of four are credited as covered. Coordinate-level differences in a finite witness are not the basis for passing originality. The available tables do not supply all odd extension degrees.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-unique-four-cycles-and-the-complete-short-period-spectrum-of-fin--bea141355804, original Finding",
+          "Chernev–Chernev Section 8 computational table and Section 6 report"
+        ]
+      },
+      "rationale": "The distinct supported contribution is the all-degree characteristic-two conclusion, via the permutation on the odd-degree trace-zero subspace. The graph, cycle lift, extension reduction and some finite witnesses or existence results were already available. Neither that bounded coverage nor the companion short-period classification settles the unrestricted criterion.",
+      "residual_risks": [
+        "No earliest-priority claim. Prior computations may include the same eight-cycle under a field-basis change, and an unindexed source could contain the all-degree observation. The proof of the all-degree claim, not the exact coordinates of the F16 witness, is the contribution assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact problem, partial results and applicable lift, not inspected all-degree proof",
+          "evidence": [
+            "Fixed loops and the identity at (-1,x). Section 6 reduces to prime extension degrees and degree four and reports bounded calculations; it does not give the odd-degree trace proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.07521",
+          "material_read": "Definition 3.1 and Statement 3.5 (offset 5126); Lemma 5.1 (9479); Hypothesis 6.1 and char-2 coverage paragraph (13537), Section 8 table",
+          "method": "Original arXiv HTML passages",
+          "title": "On the Connected Components of Structure Graphs of Associative Rings",
+          "trigger": "Exact problem and prior two-step map"
+        },
+        {
+          "assessment": "Material overlap of map and low-period conclusions, not equivalent coverage",
+          "evidence": [
+            "In characteristic two no periods 2, 3 or 4; the longer existence problem is outside its statement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-unique-four-cycles-and-the-complete-short-period-spectrum-of-fin--bea141355804",
+          "material_read": "RESULT.md Finding and assumptions offset 0; period-four proof slice around offset 3176",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Unique four-cycles and the complete short-period spectrum of finite reduced-ring structure graphs",
+          "trigger": "Same-day catalogue hit on the identical ordered-pair map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chernev–Chernev Hypothesis 6.1 and Section 6",
+        "Frozen trace-zero argument and field-degree criterion"
+      ],
+      "rationale": "This answers the characteristic-two part of an explicit published hypothesis by replacing an unbounded family of prime-degree computations with a uniform invariant-subspace argument and one small field witness. It gives a clean boundary between the two fixed-point-only fields and all larger extensions. This value does not rest on refinding an eight-cycle already known to exist.",
+      "residual_risks": [
+        "This does not settle the odd-characteristic or general finite-ring cases, nor longer cycle counts or periods in general."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

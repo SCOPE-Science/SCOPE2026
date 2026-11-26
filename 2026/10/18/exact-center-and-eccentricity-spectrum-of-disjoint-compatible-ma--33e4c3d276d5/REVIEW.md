@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Noncrossing perfect matchings on eighteen cyclically ordered vertices are enumerated in two complete and independently implemented ways: interval decomposition and balanced-parenthesis words. The standard strict interleaving test is exactly the criterion for chord crossings, and the disjointness test also forbids coincident chords. Pairwise chord-mask scanning and allowed-chord recursive generation produce the same lexicographically indexed adjacency graph, identified by matching SHA-256 digests. Each program performs exhaustive breadth-first search from all \(4070\) vertices in the unique large component, establishing the exact eccentricity distribution, unique two-match center and diameter without statistical or asymptotic extrapolation. The codes and reproduced outputs are embedded in the record.
+## correctness
 
-**Originality — PASS, with risk.** The original 2014/2015 classification [1] proves the component type regime and enumerations and identifies the boundary rings as maximum-degree vertices, but does not derive eccentricities, radius, center or diameter of the large component. The 2002 short local flip graph [2] and later auxiliary-graph compatibility model [4] use different adjacency relations; their diameter theorems do not imply the claimed distances. A publication and mathematical-record search under disjoint compatibility, Catalan matchings, link patterns, Dyck-word adjacency, center, radius and diameter did not identify a covering metric classification. A matching statement in unindexed articles, databases or author supplements remains a genuine residual priority risk.
+PASS
 
-**Value — PASS.** This is not a new tabulation of Catalan numbers or connected components. The original classification establishes \(k=9\) as the first case in the permanent three-component-type regime, but leaves the dynamics of the big component undescribed metrically. Determining that its two maximally mobile boundary rings are also its **unique metric centers**, together with exact radius, diameter and all six eccentricity classes of \(4070\) configurations, measures the worst-case length of admissible geometric transformations in the natural first stable instance. The fact is finite and does not require a general theorem to be meaningful.
+The graph uses strict endpoint interleaving to detect interior crossings; chords sharing endpoints do not cross, but identical chords are excluded separately. Independently enumerated from the alternating matching by legal re-pairings of two chords. This enumeration is complete: if the ear (0,1) is absent, their old chords are nested as (0,a),(1,b) with 1<b<a. The other chords are confined to the three intervals between 1,b,a,0; the replacement (0,1),(b,a) is noncrossing. Freeze the ear and induct on the remaining circular labels, obtaining flip connectivity to the seed. The flips only enumerate vertices; the disjoint-compatibility edges were tested separately on all unordered vertex pairs. Exact breadth-first layers from every vertex of the giant component yield 4862 vertices, 8677 edges, component sizes 1^612, 5^36 and 4070^1, all 36 order-five components stars, eccentricity histogram 10:2, 11:480, 12:483, 13:1377, 14:1368, 15:360, and exactly the specified alternating centers. The canonical graph digest agrees with both recorded outputs. This proves the finite claim only, not a formula for other sizes.
 
-**Closest literature and limits.** The original paper [1] supplies component and degree counts; these are not novel. Its full accessible journal PDF was inspected at the relevant theorems and concluding sections, including searches throughout for diameter and shortest-path results. The graph-class paper [4] studies an edge relation mediated by an auxiliary object, not direct disjoint compatibility. The old short-flip source [2] was available in abstract and secondary quotations but its institution-hosted full PDF could not be fetched; this limits historical certainty, though its displayed defining adjacency is different. No claim beyond \(k=9\) is included.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the center, radius, diameter and full eccentricity histogram for the first giant component in the three-type regime, not the already published vertices, component counts, edge enumeration or identification of maximum-degree rings.
+
+## value
+
+PASS
+
+k=9 is the first size with the published three-type component regime, not an arbitrary instance. The exact distance distribution supplies a transformation-length benchmark and identifies the unique optimal starting matchings in the worst case. That the uniquely highest-degree rings also minimize eccentricity does not follow from their degrees. The result is a useful exact baseline without claiming any larger-k behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

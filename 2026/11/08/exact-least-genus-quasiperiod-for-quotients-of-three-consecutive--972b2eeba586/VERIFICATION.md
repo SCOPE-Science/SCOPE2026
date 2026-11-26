@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` under Python 3 with the standard library. The finite verifier reports:
+## correctness
 
-```text
-GENUS_INDEPENDENT_DP_OK 3375
-QUASIPOLYNOMIAL_BRANCHES_OK 1978
-LINEAR_COEFFICIENT_PERIODS_OK 98
-VERIFY_OK finite_checks_only=True infinite_period_proof_separate=True independent_audit=False
-```
+PASS
 
-The dynamic-programming check constructs the parent numerical semigroup independently of the interval-gap formula, then counts multiples of the quotient modulus absent from it. All cases in \(3\le a<128\), \(2\le p<29\) pass, with additional branch and coefficient-period tests for finite ranges. The infinitely many parameter values and the least-eventual-period assertion are proved symbolically in `RESULT.md`; a finite computation alone cannot establish them. Independent audit has not been performed.
+In the block N=qa+r, 0<=r<a, no expression can use more than q generators; exactly q gives every excess up to 2q, and fewer cannot exceed q(a+2). Hence the disjoint missing intervals and their exact multiple counts are valid. Writing a=2pm+r and q=tp+s gives the floor summand 2(m-t)+δ_s(r). Summing complete p-blocks and the tail gives the proposed quadratic. Summing remainders of sk modulo p uses every multiple of gcd(p,k) with multiplicity gcd(p,k); subtracting the contribution from exact divisibility in the shifted first floor gives D_p(r). After conversion to polynomials in a, the linear coefficient has period p for p=3 and p>=5 (for p>=5 the two maximal residues of the gcd sum are 0,-2 and cannot be permuted by a nonzero translation), and period 2 at p=4. The constant terms obstruct period p: for odd p both tails at 0,p vanish and the difference is -1/4; for even p, with r=p+1 the tail counts s<p/3 in 0<=s<=p/2-1, giving ceil(p/3), whereas the tail at 1 is empty. The branch difference is the stated strictly positive constant for even p>=4. Any eventual period T and 2p give gcd(T,2p) by equality of branch polynomials on infinite compatible progressions. This and the explicit p=2 parity polynomials give precisely the claimed least periods, including p=4.
+
+## originality
+
+PASS
+
+The supported distinct claim is the all-residue exact genus formula with the sharp least eventual period. Previously treated divisibility branches and the generic root-of-unity genus identity are not new. The frozen comparison understates Liu 2604.26415: it does include the target family on p dividing a. Neither that specialization, nor the closest same-family Frobenius result, yields the stated unrestricted genus-period classification.
+
+## value
+
+PASS
+
+The genus, unlike the Frobenius number, measures every missing element of a quotient. The gcd statistic and separate constant-term obstruction predict exactly which polynomial branches must be distinguished for the first consecutive three-generator family. The genuine period doubling and its exception are structural information, not a finite re-tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

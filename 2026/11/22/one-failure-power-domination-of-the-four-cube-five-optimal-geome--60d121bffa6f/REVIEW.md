@@ -1,19 +1,21 @@
-# Scientific review — one-failure power domination of the four-cube
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Distinct-location failure is defined with the original graph intact. The six exhaustive triple symmetry types establish the necessary and sufficient distance-three-pair criterion (560 total triples). That criterion reduces minimum four-set robustness to the induced \(2K_2\), \(P_4\), and \(C_4\) classification in a graph isomorphic to \(Q_4\). Elementary edge counting establishes the 160/192/24 split. Two separate verifiers independently check the 376 sets and all pairwise shortest reconfiguration distances. The first simulates power domination on all 65,536 vertex subsets; the second uses only the structural four-set classification. Both were executed from their actual packaged source content before acceptance. Finite claims are not extrapolated to arbitrary cube dimension.
+PASS
 
-## Originality
+The Finding's bare universal deletion predicate would accept the empty deployment vacuously. The corrected RESULT explicitly requires a nonempty deployment (the intended actual-failure experiment, also used by the frozen checker), and adds the singleton closure argument excluding size two. For nonempty deployments of size under four, failure leaves zero or one seed, or would require a triangle in the bipartite distance-three graph. Independent replay computes closures of all 65,536 seed subsets and confirms the distance-three pair and triple tests, all robust coefficient counts, and equality of the four-set list with the three induced shapes. Translation and coordinate-permutation orbits give five classes with sizes 48,96,16,192,24; distance-three adjacency is isomorphic to cube adjacency via parity complement. Each admissible shape selects two of each parity, so sliding along a cube edge is impossible. Pairwise symmetric-difference adjacency and complete distance-layer enumeration give degrees 12,14,16, all vertices reachable, 2496 edges, radius 5 and diameter 6, including the full distance histogram. No number or movement rule is altered in the repair.
 
-PASS, subject to the stated residual publication-priority risk. The 2011 Dean–Ilic–Ramirez–Shen–Tian result gives only the minimum ordinary cube power domination number, not single-failure configuration geometry. Pai–Chang–Wang (2010) concerns grid fault tolerance. The 2023 Bjorkman–Conrad and Bjorkman–Conrad–Flagg papers give general robust definitions, bounds, complete bipartite graphs, and trees/block graphs, not the five-geometry classification. The 2026 Bjorkman et al. reconfiguration paper treats ordinary minimum power domination, not the one-failure family. Semantic searches for Hamming-distance-three triples, robust four-cube placements, exact counts, and reconfiguration did not locate a dominating theorem. No claim of priority certainty is made; the older grid article was accessible through its abstract/metadata, not fully inspected.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The optimum is not just a numerical upper bound: the full family of one-erasure-optimal sensor layouts is represented as induced subgraphs of a second cube, explaining five symmetry classes. The sharp separation between completely frozen physical slides and a connected single-sensor exchange graph, including its exact finite diameter, is a concrete robustness-preserving mobility phenomenon. This is motivated by a published failure-resilience graph parameter and by the practical need to rearrange minimum sensor configurations without losing one-failure protection.
+Distinct-location fault tolerance and both move conventions are known, and ordinary Q4 has minimum two. The supported distinct finding is the full one-failure optimum ensemble and its exact two-rule mobility, not a new robustness or reconfiguration notion. The nonempty-deployment clarification does not change that comparison.
 
-## Scope and remaining risks
+## value
 
-The 2011 ordinary power domination result and the general fault-tolerant definition are credited. No infinite-dimensional claim, multiset-sensor classification, or independence of verification is asserted. The 2010 primary grid article could not be fully inspected, though its stated graph class differs from the four-cube; unindexed equivalent results remain a residual priority risk. Finite computations use exhaustive candidate spaces rather than statistical evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first exact distinct-site robustness census here distinguishes not merely the best budget but the structure of every optimum. It explains why no local slide is legal by parity and shows unrestricted one-for-one replacement nevertheless connects all states. This is a meaningful contrast between relocation constraints at fixed fault tolerance, on a canonical small regular graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

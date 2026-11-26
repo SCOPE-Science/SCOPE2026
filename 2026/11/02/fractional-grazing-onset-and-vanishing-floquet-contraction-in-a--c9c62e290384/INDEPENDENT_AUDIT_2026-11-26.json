@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:53:20.645629Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and proof lines 37–96",
+        "Frozen VERIFICATION.md and checks/grazing_checker.py lines 10–44, inspected only"
+      ],
+      "rationale": "Reconstructed the uniform two-fold energy balance and the multiplier, including the local uniqueness argument for a fixed neighborhood. Write δ=r−1 and ε=λ+(δ_+)^{3/2}. On a fixed time interval containing one harmonic turn, a bootstrap assuming state error at most Kε bounds the integral of |H(x)| by O((δ_++Kε)^{3/2}); Duhamel closes at O(ε) for fixed b and small parameters by first choosing K large and then shrinking the neighborhood. The return time is 2π+O(ε) by transversality. Replacing x by r sin t in the loss incurs O(ε√(δ_++ε)), since the integrand is locally Lipschitz and the union of active windows has that support scale. The harmonic loss is (8√2/3)(δ_+)^{3/2}+o((δ_+)^{3/2}); the input is (π+o(1))λ. The replacement error is o(λ+(δ_+)^{3/2}); this excludes fixed points with δ≤0 or outside a compact positive range of δ/λ^{2/3} as r→1. At λ=0, points a fixed distance above 1 lose energy, and points a fixed distance below 1 remain in the linear zone during a first return for small λ and have strictly positive displacement for λ>0. Nearby cycles cross the section, since the polar angle is strictly rotating on a sufficiently small annulus. The scaled displacement has one simple limiting zero C_b, with opposite signs on either side. The transverse-fold residence time is 4√(2δ)+o(√δ) by comparison of the contact windows; continuity of the field makes the matching variational saltation matrices identity. Liouville with section factor r/P(r) gives P′<1 on the compact scaled interval, uniqueness there, and at the fixed point log m=−4√2 b√C_b λ^{1/3}+o(λ^{1/3}). The uniform O(λ) trajectory comparison on this interval gives the same leading law for the maximum of |x|. No numerical estimate is needed for any of these limits.",
+      "residual_risks": [
+        "The supplied numerical script checks section radius, not numerical Floquet contraction or maximum |x|. Its label for the multiplier constant follows an assignment, not a numerical test. These advertised diagnostics are not needed for the analytic validation.",
+        "The proof is for fixed b>0 and local uniqueness near the grazing circle; it gives no uniform joint-parameter claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai et al. give lower and upper bounds on H_n, a supremum of cycle counts, and discuss grazing as background. The two targeted general grazing texts could not be read in full."
+        ],
+        "reasoning": "A bound on the number of cycles gives neither their size nor the derivative of their return map. General fractional grazing mechanisms are acknowledged prior context, not credited as new; an exact general formula plus a controlled tangential/differentiation argument could reduce part of the specialization, and the inaccessible sources leave that comparison limited.",
+        "searches": [
+          "arXiv:2610.10050v1, abstract and introduction on many-fold continuous Liénard fields",
+          "Jeffrey, Modeling with nonsmooth dynamics",
+          "di Bernardo–Budd–Champneys, DOI 10.1088/0951-7715/14/5/306"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted catalogue searches",
+        "arXiv:2610.10050v1",
+        "10.1112/jlms.70430 (access attempted)",
+        "Jeffrey Bristol repository PDF (access attempted)",
+        "10.1088/0951-7715/14/5/306 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target needs the two-fold loss coefficient 8√2 b/3, the input π and the separate outside-residence leading coefficient 4√2. Accessible cycle-count statements give none of these data."
+        ],
+        "reasoning": "A generic nonzero 3/2 loss combined with a nonzero O(λ) input explains a 2/3 balance heuristically. It does not by itself fix either leading constant, prove the compact-s uniform remainder on this path, or justify differentiating it to obtain a 1/3 Floquet law. No inspected prior result implies the exact joint statement.",
+        "searches": [
+          "arXiv:2610.10050v1, introduction pp. 2–3 and references",
+          "10.1112/jlms.70430, exact three-zone source recovery",
+          "10.1088/0951-7715/14/5/306, grazing normal forms"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The change to Liénard notation is exact: F=bH−λx has central slope −λ and equal outer slopes b−λ with folds at ±1. Cai et al. identify the 2026 three-zone work as the two-fold cycle-count result."
+        ],
+        "reasoning": "The relevant Liénard family is not excluded by normalization or nomenclature. The available comparison identifies cycle-count overlap but does not establish an equivalent quantitative onset or multiplier statement.",
+        "searches": [
+          "Resultary exact title and two-fold grazing onset/system formula",
+          "Chen–Feng–Jia–Meng DOI 10.1112/jlms.70430",
+          "Cai–Chen–Jin–Lu arXiv:2610.10050v1, introduction and reference [4]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct matching catalogue finding for the paired asymptotics was identified in the inspected results."
+        ],
+        "reasoning": "This is a parameterized analytic asymptotic, not recovery of a tabulated number. The catalogue comparison uses both the family and the two quantitative invariants; the search outcome is not exhaustive evidence of absence.",
+        "searches": [
+          "Local Resultary search by exact title, two-fold grazing, ODE formula and related three-zone DOI"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit coupled radius/multiplier law and its uniform scaled displacement for this symmetric fixed-b path. Neither three-zone existence or cycle counts nor the generic occurrence of fractional grazing terms are credited as new. The closest same-family paper was not readable, leaving the access risk stated below.",
+      "residual_risks": [
+        "The exact same-family three-zone treatment might already contain quantitative near-grazing expansions; its full text was not available in this review.",
+        "General grazing normal-form literature may cover parts of the computation, particularly the 3/2 power; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related cycle-count coverage, not the quantitative asymptotic in the passages inspected",
+          "evidence": [
+            "The introduction's bounds concern the supremum H_n; the abstract credits the two-fold maximum-count case to the three-zone authors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.10050",
+          "material_read": "PDF p. 1 abstract, pp. 2–3 introduction (offsets 7331 and 10970), p. 28 reference [4] (offset 99062)",
+          "method": "Open primary-text passage inspection",
+          "title": "Bounds on the maximum number of limit cycles of piecewise linear Liénard systems I. The continuous case",
+          "trigger": "Class includes the two-fold system and cites the exact three-zone work"
+        },
+        {
+          "assessment": "Unresolved exact scope; not evidence of noncoverage",
+          "evidence": [
+            "HTTP 403 on direct and VPN retrieval; no repository copy identified. Accessible citation describes maximum limit-cycle count."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms.70430",
+          "material_read": "Bibliographic identification and the description in Cai et al.; no full text",
+          "method": "Lawful direct and VPN retrieval and DOI open-copy recovery",
+          "title": "Maximum number of limit cycles of the piecewise linear Liénard system with three zones",
+          "trigger": "Exact three-zone setting and plausible detailed grazing overlap"
+        },
+        {
+          "assessment": "Background acknowledged; exact applicability not inspected",
+          "evidence": [
+            "HTTP 403 on both retrieval routes."
+          ],
+          "identifier_or_url": "https://research-information.bris.ac.uk/files/216852466/nsmodelfiadsRR.pdf",
+          "material_read": "No full text",
+          "method": "Open direct and VPN retrieval",
+          "title": "Modeling with nonsmooth dynamics",
+          "trigger": "Frozen result points to general fractional grazing laws"
+        },
+        {
+          "assessment": "Exact implication unsettled; no claim of novelty for 3/2 grazing terms generally",
+          "evidence": [
+            "Publisher paywall; neither candidate repository copy could be verified against the DOI or title."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/0951-7715/14/5/306",
+          "material_read": "No full text",
+          "method": "Open retrieval and DOI repository-copy recovery",
+          "title": "Normal form maps for grazing bifurcations in N-dimensional piecewise-smooth dynamical systems",
+          "trigger": "Potential stronger generic grazing normal form"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "arXiv:2610.10050v1, cycle-count context"
+      ],
+      "rationale": "This natural center-to-isolated-cycle transition has two distinct, measurable singular scales. The coefficients and uniform return law determine where the cycle sits and how weakly it attracts, data not supplied by a cycle count or by a grazing exponent alone. The model gives a reproducible benchmark for leading-order treatment of a pair of folds without claiming broad bifurcation or uniqueness results.",
+      "residual_risks": [
+        "Scientific value is specific to the quantitative law, not to existence alone or an abstract first occurrence of fractional powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

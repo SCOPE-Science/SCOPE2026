@@ -1,15 +1,21 @@
-# Review: A zeta-moment limit law for Wilf surplus in reflective numerical semigroups
+# Independent mathematical audit
 
-## Correctness — PASS
-Shor's full-text Proposition 3.4 and Corollaries 3.6 and 3.8 fix the exact admissible multiplicities, Frobenius numbers and embedding dimensions. The displayed two-branch Wilf-surplus identity follows by algebra from those results. The error from the explicit model \(f(a/g)\) is at most \(4/g\), apart from one ordinary semigroup, and the model has summable derivative variation and jumps. Hence Lipschitz-observable means converge at the claimed \(O((1+\tau(g))/g)\) rate. Splitting \([0,1]\) into reciprocal intervals gives the CDF and each zeta moment by an absolutely convergent expansion. The delivered `verify.py` passed 4,116 independent finite semigroup enumerations and three truncated moment comparisons. Finite checks cannot establish the limit and are not presented as doing so.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest and strongest source is Shor, *Reflective numerical semigroups* (arXiv:2207.00051v1): its results directly imply the one-semigroup Wilf formula, and this formula is **not** claimed new. Shor proves Wilf's inequality (Corollary 4.20), gives the count of genus-fixed semigroups, and computes several asymptotics for fixed-Frobenius counts. The inspected full text does not identify a normalized Wilf-surplus limit distribution, a full CDF, zeta moments, or a quantitative fixed-genus Lipschitz-discrepancy statement. A published isolated-gap distribution for reflective semigroups addresses a different invariant and gives no implication to the Wilf-surplus law; its available research summary was checked but not treated as whole-paper inspection. Search of research records and primary literature did not locate an equivalent theorem. Earlier implicit or unindexed equivalent calculations remain a genuine residual risk. A failed search is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Wilf surplus is a canonical numerical-semigroup invariant central to the Wilf conjecture. This theorem gives the complete nondegenerate limiting *distribution*, full support, exact CDF, every positive integer moment in zeta values, and a quantitative rate for the entire classified fixed-genus family. It goes beyond verifying the known nonnegative bound or simply tabulating small genera. The new arithmetic-statistical law may serve as a benchmark for comparing restricted families to the general semigroup population; no extension to all semigroups is asserted.
+Shor's classification and formulas give q=floor(g/a), r=g−qa in [1,a−1], conductor 2g−r+1, and e=a or a−1 according as r=a−1 or not. The nongap count below the conductor is qa+1, so the two surplus formulas follow by multiplication and subtraction. When a≤g, qa≤g and a≤g give the claimed 4/g error against q(a/g)^2. The second case has a≥3 and nonnegative additive term, and W is nonnegative and at most qa²≤g² on ordinary entries; the a=g+1 entry has W=0. Each open mesh interval of f has variation O(q⁻²) and the jumps are summable; f(0)=0 is continuous at zero. For every fixed Lipschitz test, the integral versus endpoint-sum error is bounded by variation/g, and replacing the uniform mesh by the admissible set changes the tested mean by O((1+τ(g))/g). On (1/(q+1),1/q] the sublevel set is cut off at sqrt(t/q); each level set is countable and adjacent image closures overlap since q/(q+1)^2<1/(q+1), giving atomlessness and full support. Integrating each branch to power m and shifting the second sum yields [q^m−(q−1)^m]/q^(2m+1), whose binomial expansion gives the stated zeta moments and positive variance. An independent finite check generated all semigroups through genus 10 by deleting a minimal generator above the Frobenius number, then tested gaps modulo g and recalculated W from each reflected gap set. It reproduced the admissible multiplicities and the surplus in every case; the finite check is not the proof of convergence.
 
-## Scope and residual risk
-The source's structural formulas are assumed and accurately attributed; all novel conclusions are asymptotic deductions. Mathematical correctness has no independent external certification. Possible unindexed equivalent results are not ruled out by database searching.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Wilf surplus, reflective classification, cardinality and structural formulas are prior inputs, as is Wilf nonnegativity in this class. The prior isolated-gap and pivot-run results overlap substantially in sampling and divisor arithmetic, but neither gives this surplus law, its distribution, or its complete zeta moment sequence. The bounded originality decision concerns that distributional result rather than the elementary substitution into Shor's formulas.
+
+## value
+
+PASS
+
+The Wilf surplus measures the magnitude of a central inequality rather than merely testing its sign. In a classified natural ensemble, its g² scale, nondegenerate atomless law, variance and full zeta moment sequence give a quantitative benchmark for typical behaviour and comparison to other semigroup ensembles. The divisor-sensitive rate makes the benchmark testable at finite genus. This goes beyond restating the known positivity result or listing a few surplus values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

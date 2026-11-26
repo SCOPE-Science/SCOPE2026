@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact object is the expectation of distinct nonempty binary scattered-subsequence strings for a stationary two-state Markov chain with positive cross-transition probabilities. The proof verifies deterministic state updates, four conditional expectations, a rational generating function, a factored characteristic polynomial, the positive Perron eigenvalue, and a positive strict derivative along each fixed-stationary-frequency family. Exact independent host-set enumeration and a separate rational recurrence match in 603 parameter-length instances; symbolic algebra confirms the two determinant identities and the numerator. The tests do not substitute for the analytical proof.
+PASS
 
-## Originality
+Appending b replaces the set of words ending in b by all old subsequence strings (including the empty one) with b appended, leaving the other ending class unchanged. Conditioning on the last bit gives the displayed recurrence with stationary forcing. Independently, a greedy first-match transfer gives the same scalar law: set A=1-(1-p)z and B=1-(1-q)z; the successive-match entries H01=pz/A and H10=qz/B, H00=(1-p)z+pqz²/B and H11=(1-q)z+pqz²/A encode first hitting times. The initial row is zL(q/B,p/A)/s; summing all nonempty target lengths and then all host lengths gives the numerator zL[s(1-z)L+2pqz] and the stated denominator. The characteristic factors leave exactly one eigenvalue above one, from the minus-square-root factor. Since p,q>0, the four-state matrix is irreducible even at p=q=1. Using a strictly positive left Perron vector, the forced geometric sum bounds the observed total above and below by constant multiples of the Perron sum; no primitivity or cancellation assumption is needed. Implicit differentiation at fixed frequency gives t²/[s(2t+s(1-c))]>0 for t=Lambda-1 and c=sqrt(theta(1-theta)); the admissible upper endpoint is where the minority cannot repeat. A separate exact enumeration matched the claimed series for (p,q)=(1/2,1/3) through n=7 and for the alternating endpoint through n=10. The package verifier was read, not run.
 
-PASS with residual historical-priority risk. The closest paper, Biers-Ariel, Godbole and Kelley (arXiv:1704.08661, Sections 3.2 and 4(c)), already supplies a Markov matrix recursion and expressly invites solving its growth rates. The result does not claim to introduce that recursion. The claimed new contribution is its closed asymmetric radical growth law, scalar all-length generating function, and sharp fixed-composition correlation ordering. A prior symmetric-Markov full-length-spectrum note covers only equal cross-transition probabilities; the exact uniform iid formula of Collins covers only the independent fair point. No checked source gives the all-asymmetric fixed-composition optimality conclusion. Unindexed equivalent work remains possible; an exhaustive priority claim is not made.
+## originality
 
-## Value
+PASS
 
-PASS. Expected subsequence diversity measures how many different deletion-channel readouts a random word can support. Fixing the stationary letter composition removes a major confounder; the theorem then quantitatively separates the effect of serial correlation on exponential diversity. The unique optimum at a run-excluding transition boundary and the exact square-root spectral factorization are structurally informative, beyond an arbitrary parameter example or matrix re-expression.
+Credit the known stationary binary Markov recurrence and the already evaluated iid and symmetric cases. The distinct result is the evaluated asymmetric scalar law with a quadratic Perron root and its strict fixed-composition comparison. The strongest primary match specifically leaves solving the recurrence and computing growth rates as questions, and the strongest catalogue match requires symmetry.
 
-## Limits
+## value
 
-No independent audit or full literature exhaustion is claimed. The theorem concerns the growth of the mean, not the almost-sure growth of individual words, and does not enumerate each subsequence length separately.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result evaluates a natural statistic previously left in four coupled Markov recurrences, giving a usable closed rate rather than a generic quartic. It separates serial dependence from letter composition and identifies the unique maximizing chain and the strict position of iid between persistence and antipersistence. Those comparisons are useful without treating known symmetric or iid formulas as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:18:39.814057Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–92",
+        "VERIFICATION.md, lines 19–25",
+        "checks/pulse_critical_check.py, lines 9–86 (inspected, not executed)"
+      ],
+      "rationale": "The pulse product and between-pulse growth yield the exact periodic, positive factor S. Independent reduction: V(t)=S(t)x(t)^λ/y(t), using the periodic right-continuous S, is continuous at every pulse, and V'=gSx^λ between pulses by cancellation. Positivity, logistic bounds and finitely many fixed positive multipliers give global solutions and uniformly bounded intra-cycle logarithmic drifts. If V remained bounded, integrability of gSx^λ and those drift bounds would force x→0 uniformly by phase, and y=Sx^λ/V→0 as well. But then the log of x increases by a uniformly positive amount per sufficiently late cycle, since the net resident growth log P+∫r>0, a contradiction. Thus V→∞ and y→0 by bounded x. The perturbed affine reciprocal period map for x has limiting slope (P exp(∫r))^-1<1 and the resident fixed point; it gives x→x_* uniformly in phase with the specified pulse convention. Increments V((n+1)T)−V(nT) converge to I=∫gSx_*^λ>0, so V(nT)/n→I, yielding the phase limit. Since (log V)'=gy with no jumps, J_n=log(V((n+1)T)/V(nT)), hence nJ_n→1 and ∫_0^{NT}gy=log(V(NT)/V(0))=log N+log(y(0)I/x(0)^λ)+o(1). This proves the limits with arbitrary strictly positive initial values, all phases, and zero-size pulses allowed. The example script integrates a finite sample and was inspected, not run.",
+      "residual_risks": [
+        "The constant 1 is for the dimensionless g-weighted cycle load, not the unweighted invader density; exact neutrality, alignment, positive gap and positive initial populations matter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Courcelle et al. require strict invasion inequalities for robust permanence.",
+          "Schreiber's inspected permanence theorem uses positive invasion, and Proposition 4.5 uses strictly negative invasion for missing species on an extinction-bound orbit.",
+          "The 2002 abstract is genuinely close in model class but does not settle treatment of equality or the rate."
+        ],
+        "reasoning": "Strict-sign hypotheses do not cover the exact neutral threshold. A broad model class with a qualitative conclusion does not establish the global power law, profile or coefficient.",
+        "searches": [
+          "Courcelle–MacDonald–Patel arXiv:2609.09343v1 Theorem 4.3",
+          "Schreiber arXiv:2507.02157v2 Theorem 4.3 and Proposition 4.5",
+          "Periodic coefficients and competitive extinction in impulsive Lotka–Volterra systems, DOI 10.1023/A:1019772312091"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.09343v1",
+        "arXiv:2507.02157v2",
+        "DOI 10.1023/A:1019772312091",
+        "DOI 10.1093/imammb/21.2.129",
+        "DOI 10.1016/j.chaos.2004.09.065",
+        "Resultary 4b480230e60f, 04eddb3a1618, 55e6694e28df"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected primary theorem statements omit exact zero invasion from their strict alternatives.",
+          "The later constant-interaction formula supplies the neutral law in that subcase after the explicit identification above; the pulse-period weighting is not an independent novelty within the subcase.",
+          "Earlier inaccessible full texts are not treated as definitively noncovering."
+        ],
+        "reasoning": "An equilibrium existence, local stability or strict-sign result does not imply an exact global neutral-phase profile or normalized load. The exact reduction examined is only to a later subcase.",
+        "searches": [
+          "arXiv:2609.09343v1 Theorem 4.3",
+          "arXiv:2507.02157v2 Theorem 4.3 and Proposition 4.5",
+          "Earlier impulsive competition DOI 10.1023/A:1019772312091, 10.1093/imammb/21.2.129 and 10.1016/j.chaos.2004.09.065",
+          "Resultary 4b480230e60f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 4b480230e60f, exchange species labels (its X=y, Y=x), choose its power q=λ and its interaction tuple (b,c,e,f)=(λ b_0+g_0, λ a_0,b_0,a_0), and assign its pulses (α_j,β_j)=(q_j,p_j). For constant a_0,b_0,g_0 this yields the same resident profile and S.",
+          "The later record's reciprocal identity and phase profile yield the same weighted period and logarithmic limits for that constant-interaction subcase."
+        ],
+        "reasoning": "This is real equivalence for the specified subcase, not just a shared extinction exponent; its constant interactions do not give the whole seasonal-interaction family. An older theorem using a periodic removal of pulse jumps or a neutral Floquet reduction could also matter, but no checked statement supplies the full result that way.",
+        "searches": [
+          "Resultary semantic comparison of neutral Floquet invasion, algebraic critical extinction, staggered pulses and periodic phase profiles",
+          "Resultary 4b480230e60f Finding and assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4b480230e60f is a later catalogue match for constant interactions.",
+          "04eddb3a1618 is an earlier seasonal t^-1 profile for cooperative dynamics without pulses; 55e6694e28df has simultaneously marginal growth and extinction of both species rather than a persistent resident."
+        ],
+        "reasoning": "No compared catalogue formula matches the full positive-resident seasonal competition hypotheses and constants. The results with the same decay exponent are mathematically distinguishable; ranked returns do not certify novelty.",
+        "searches": [
+          "Resultary searches for phase-resolved critical exclusion under impulses, inverse-cycle weighted load, and neutral seasonal critical extinction",
+          "Resultary 4b480230e60f, 04eddb3a1618, 55e6694e28df"
+        ]
+      },
+      "rationale": "The distinct result is the global phase-resolved quantitative neutral exclusion law for the aligned family with periodically varying interactions, including the weighted load constant and initial-state logarithmic offset. The exact ratio cancellation and inverse-linear asymptotic mechanism are elementary. Inspected earlier sign-based results and the earlier cooperative analogue do not cover the theorem. An exact constant-interaction overlap in a later catalogue record is credited as a substantive comparison, not taken as earlier priority or as coverage of the varying interactions.",
+      "residual_risks": [
+        "Full texts of the 2002, 2004 and 2005 impulsive competition comparators were not available. Equivalent older neutral analysis under Floquet, pulse-removal or periodic competition notation remains possible.",
+        "No exhaustive priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Robust permanence under strict invasion inequalities, not neutral exclusion.",
+          "evidence": [
+            "Theorem 4.3 requires strict inequalities for invasion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09343",
+          "material_read": "v1 PDF p. 16 Theorem 4.3, offset 41509",
+          "method": "Compare hypothesis signs and conclusion",
+          "title": "Persistence of n-Species Lotka–Volterra Models with Periodic Pulses",
+          "trigger": "Closest cited strict-invasion pulsed competition theorem"
+        },
+        {
+          "assessment": "Inspected theorems do not treat the quantitative equality case here.",
+          "evidence": [
+            "Positive invasion is used for permanence; a strictly negative invasion condition is used for extinction-bound trajectories."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.02157",
+          "material_read": "v2 PDF pp. 16–17 Theorem 4.3 and Proposition 4.5, offsets 52971 and 55548",
+          "method": "Compare strict signs and quantifiers",
+          "title": "Coexistence and Extinction in Flow-Kick Systems: An invasion growth rate approach",
+          "trigger": "General pulse extinction criteria may dominate"
+        },
+        {
+          "assessment": "Exact equality and decay-rate coverage unresolved.",
+          "evidence": [
+            "Abstract describes periodic coefficients, fixed-time impulses and competitive extinction conditions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1019772312091",
+          "material_read": "Abstract; PDF/article retrieval unsuccessful",
+          "method": "Available statement comparison only and attempted lawful retrieval",
+          "title": "On Competitive Extinction in Impulsive Lotka–Volterra Systems",
+          "trigger": "Earlier same-domain extinction theorem"
+        },
+        {
+          "assessment": "No whole-paper conclusion on equivalent quantitative coverage.",
+          "evidence": [
+            "The 2004 abstract mentions Floquet stability of trivial and semitrivial periodic solutions, not a visible neutral-load formula."
+          ],
+          "identifier_or_url": "DOI 10.1093/imammb/21.2.129; DOI 10.1016/j.chaos.2004.09.065",
+          "material_read": "Abstract or landing material; full text unavailable on attempted routes",
+          "method": "Scope screening and attempted lawful retrieval",
+          "title": "The periodic competing Lotka–Volterra model with impulsive effect; The persistence in a Lotka–Volterra competition systems with impulsive",
+          "trigger": "Earlier periodic impulsive competition stability and threshold criteria"
+        },
+        {
+          "assessment": "Exact constant-interaction overlap, but no coverage of arbitrary periodic interaction coefficients; later indexed record.",
+          "evidence": [
+            "At zero invasion one species becomes extinct with explicit phase-resolved inverse-time amplitude and a reciprocal identity."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 4b480230e60f",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offsets 0 and 6457",
+          "method": "Explicit species exchange, coefficient and pulse substitution",
+          "title": "Phase-resolved critical extinction under staggered ecological pulses",
+          "trigger": "Closest same neutral competitive phase law and pulse setting"
+        },
+        {
+          "assessment": "Distinct regimes, not equivalents to the stated competitive resident/invader law.",
+          "evidence": [
+            "The cooperative result has no pulses; the trichotomy concerns extinction of both populations under simultaneously marginal growth."
+          ],
+          "identifier_or_url": "Resultary 04eddb3a1618; 55e6694e28df",
+          "material_read": "Indexed finding comparisons",
+          "method": "Compare interaction signs, pulse setting and persistent-resident assumption",
+          "title": "Universal two-component critical extinction profiles in periodically forced cooperative Lotka–Volterra systems; A critical extinction-exponent trichotomy for periodically harvested rank-one competition",
+          "trigger": "Related critical time-periodic extinction profiles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, assumptions and proof",
+        "Strict-sign comparator theorems on pulsed permanence and flow-kick extinction"
+      ],
+      "rationale": "The exact boundary between strict invasion cases is a motivated quantitative gap. A globally valid phase profile identifies how a neutral competitor vanishes despite a unit linear invasion multiplier; the universal normalized load and explicit initial-state offset translate that profile into measurable model quantities. The value is the combined result for an aligned seasonal and impulsive family, not novelty of ratio cancellation alone.",
+      "residual_risks": [
+        "Deterministic model, not a prediction of stochastic extinction time or a generic neutral competitive-system classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

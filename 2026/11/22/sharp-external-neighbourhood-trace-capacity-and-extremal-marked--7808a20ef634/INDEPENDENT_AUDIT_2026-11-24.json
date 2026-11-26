@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:57:56.966245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof; VERIFICATION.md; verify_line_graph_profiles.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/reproduce_frozen_reviews.py 5"
+      ],
+      "rationale": "Complete the graph on the marked endpoints and two fresh vertices: every possible trace is the union of the incident-mark signatures of the endpoints of an unmarked edge. Equal nonempty signatures at distinct vertices occur exactly at the ends of an isolated marked K_2. If r is the number of distinct nonempty signatures, ℓ the number of K_2 components and p the number of P_3 components, r=|V(S)|−ℓ. Among the empty, singleton-signature and distinct signature-pair candidates, discard m−ℓ signature pairs used exclusively by marked edges and p valid leaf pairs whose union already equals the middle signature. This gives 1+r+binom(r,2)−(m−ℓ)−p. A connected e-edge component has at most e+1 vertices, so D=3m−2r≥ℓ; the only zero contribution is P_3, and deficit one means K_2 or a three-edge tree. Substituting ℓ≤3m−2r gives the lower-r bound 1+binom(r,2)−r+2m, increasing for r≥1. It is strictly below the proposed extremum if r≤3k−1 for even m=2k≥4 or r≤3k for odd m=2k+1≥3. At D=0 only kP_3 is possible; at D=1 the P_4 option has an extra collision (its two distance-two nonedges both hit all three marks). For attainability, cross-component traces recover the two signatures on their disjoint component supports. Within K_2 there is just one nonempty trace, within P_3 the two singletons and their union, and within a claw the three singleton leaves, three leaf-pair unions, and the center signature. Summation, including one empty trace, gives exactly the displayed values and both m=2 equality types; m=1 has exactly two attainable traces. This establishes classification of marked graphs that can attain, not of all ambient graphs. Independent direct line-adjacency enumeration checked the bound and equality predicate for 17,421 labelled small marked-edge families on up to six possible endpoints and at most seven marks.",
+      "residual_risks": [
+        "Finite enumeration cannot certify arbitrary m; saturation, the exact deficit, and collision accounting do so. The empty trace is included only if realized in the ambient graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 16 of Foucaud et al. gives a tight total-edge maximum for pendant-free graphs with edge-identifying codes of size k, with leading term 8k²/9, mod-3 cases, and constructions dominated by P_4 code components.",
+          "Berthe et al. bound closed traces for treewidth/pathwidth conditions, rather than this unrestricted line-graph class."
+        ],
+        "reasoning": "An identifying code uses a closed trace on every edge and separates the marked edges from one another and all other edges. The unmarked trace does agree with this closed trace, but the converse to identification fails (in a P_3 marked component the two marked edges share the same closed trace into the marks). Thus the stronger hypothesis cannot bound the larger family in this finding; 8/9 and 9/8 refer to different maxima, and the P_4 method is a related but different argument.",
+        "searches": [
+          "Resultary: line graph identifying codes trace shatter function distinct neighborhoods",
+          "arXiv:1107.0207 Theorem 16 and Corollary 17",
+          "arXiv:2607.16889, definition and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1107.0207, 1506.02623, 1507.08164 and 2607.16889",
+        "Resultary 6dda30d48830 and exact target 7808a20ef634"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted line-graph external traces are unions of two incidence signatures, and the simple-root-graph restriction forbids pairs corresponding to marked edges. The target then uses the sharp deficit 3m−2r and collision differences among P_3, P_4 and the claw."
+        ],
+        "reasoning": "An analogy to the known identifying-code cross-component constructions does not determine which component shapes maximize the number of distinct signatures under the weaker open-external rule or the exact within-component collision corrections. The located inverse-domination and permutation results do not imply those corrections or classify equality here.",
+        "searches": [
+          "arXiv:1107.0207 Theorem 16 proof and constructions",
+          "arXiv:1506.02623 Theorem 6",
+          "arXiv:1507.08164 Theorem 13 and Resultary 6dda30d48830"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foucaud–Henning use N(e)∩D for edges outside D, and require every such trace to be distinct and nonempty. Theorem 6 gives γ'_L≤|E|/2 under their edge-twin and isolation assumptions."
+        ],
+        "reasoning": "Deleting all unmarked edges but one representative of each nonempty trace preserves those traces and yields an edge-locating-dominating set of the given size. Conversely, for any such set with m marks, adding a disjoint unmarked edge realizes an extra empty trace. Thus the exact equivalent problem is to maximize the number of outside edges for a host with an edge-locating-dominating set of size m; that maximum is M_m−1. An upper bound on the minimum code size for a fixed host does not provide the required upper bound in this inverse problem.",
+        "searches": [
+          "Resultary: external neighbourhood traces line graph marked edges exact maximum distinct profiles",
+          "Resultary: line graph neighbourhood trace capacity marked edge extremal P3 claw",
+          "arXiv:1506.02623, edge-locating-dominating definition and Theorem 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed permutation-graph record gives m²−1 and simple marked permutations. Foucaud et al. give a tight n≤m²+m−2 for an m-element locating-dominating set in permutation graphs, corresponding to m²−2 nonempty external traces (and m²−1 if one empty trace is admitted)."
+        ],
+        "reasoning": "These are exact symbolic catalogues on a different graph class and a different description of the marked structure; they do not give the binomial parity formulas or line-graph extremizers. The only identical target hit is not antecedent evidence; the same-day permutation record's order is not inferred.",
+        "searches": [
+          "Resultary: edge locating domination external neighbourhood profiles line graphs",
+          "Resultary 6dda30d48830, permutation rigidity Finding; exact target 7808a20ef634",
+          "arXiv:1507.08164, Theorem 13 and Proposition 14"
+        ]
+      },
+      "rationale": "The trace definition and the inverse locating-domination interpretation are not new. The distinct exact result is the line-graph capacity at a fixed number of marks, with both parities and the complete marked-edge equality types. The closest inspected indexed trace-capacity result is for permutation representations; the closest primary extremal theorem is for the stronger all-edge identification condition and yields a different coefficient and different extremizers.",
+      "residual_risks": [
+        "Best-of-knowledge bounded comparison; an unindexed inverse edge-locating-domination treatment could overlap. No global historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close exact quadratic bound for closed all-edge identification, not the external open maximum",
+          "evidence": "Tight bound with leading 8k²/9 and mod-3 cases; residue-zero construction on P_4 codes with all cross-edges.",
+          "identifier_or_url": "https://arxiv.org/abs/1107.0207",
+          "material_read": "Definition p. 2, offset 7234; Theorem 16 and proof pp. 8–9, offsets 31042 and 37900 (HTML equations at 34976 and 44387); Corollary 17 p. 9",
+          "method": "Open primary PDF and arXiv HTML passages",
+          "title": "Identifying codes in line graphs",
+          "trigger": "Strongest plausible primary extremal bound with prescribed code size"
+        },
+        {
+          "assessment": "Same open-external trace notion; inspected bound has the wrong direction and optimization variable to subsume the target",
+          "evidence": "Unique nonempty traces on outside edges; theorem bounds γ'_L from above by half the number of edges under edge-twin-free and no-isolated-edge hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.02623",
+          "material_read": "Edge-locating-dominating definition p. 4 offset 12794; Theorem 6 p. 15 offset 59490",
+          "method": "Open primary PDF passages",
+          "title": "Location-Domination in Line Graphs",
+          "trigger": "Same traces; exact inverse formulation for a prescribed size"
+        },
+        {
+          "assessment": "Same extremal trace objective in a different graph class and representation",
+          "evidence": "For m≥4 the prescribed permutation representation has capacity m²−1, equality exactly for simple marked permutations; nonsimple maximum m²−2.",
+          "identifier_or_url": "2026/11/22/SCOPE-simple-permutation-rigidity-of-extremal-external-neighbourhood-p--6dda30d48830",
+          "material_read": "Mirrored RESULT.md Finding offset 0 and prior work at offset 9200",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Simple-permutation rigidity of extremal external neighbourhood profiles",
+          "trigger": "Strongest distinct Resultary match by trace objective"
+        },
+        {
+          "assessment": "Parallel exact problem in permutation graphs, not line-graph capacity",
+          "evidence": "Tight n≤m²+m−2 for a size-m locating-dominating set in a permutation graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.08164",
+          "material_read": "Section 4, Theorem 13 p. 7 offset 32526; Proposition 14 p. 8 offset 39841",
+          "method": "Open primary PDF passages",
+          "title": "Identification, location-domination and metric dimension on interval and permutation graphs. I. Bounds",
+          "trigger": "Primary source for exact nearby permutation bound"
+        },
+        {
+          "assessment": "Related general neighbourhood-complexity problem, different graph restrictions and trace convention",
+          "evidence": "Closed neighbourhood traces over all vertices; bounds with treewidth/pathwidth hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.16889",
+          "material_read": "Definition p. 1 offset 549; Theorem 2 p. 3 offset 13906",
+          "method": "Open primary PDF passages",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "Possible broader maximum-complexity bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and equality proof",
+        "Foucaud–Henning edge-locating-dominating definition",
+        "Foucaud et al. Theorem 16 as a distinct all-edge analogue"
+      ],
+      "rationale": "The number of distinguishable unmarked edges at a fixed marking budget is a natural extremal invariant, exactly equivalent (up to the empty trace) to inverse edge-locating domination. The completed ambient construction and full marked-component characterization determine which sparse mark configurations achieve the sharp quadratic capacity; the difference between a three-edge path and a claw is invisible to a crude endpoint bound. These conclusions are useful beyond the generic fact that the growth is quadratic.",
+      "residual_risks": [
+        "Not an extremal theorem for closed all-edge identification, ambient connectedness constraints, or a classification of which smaller ambient graphs realize the capacity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

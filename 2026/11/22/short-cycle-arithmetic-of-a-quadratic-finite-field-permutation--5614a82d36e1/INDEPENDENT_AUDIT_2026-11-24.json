@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:21:40.695397Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the coordinate u=x+β^(−1)y with β²=δ, the fiber map is multiplication by α_z=1+βz. Its norm cannot vanish because δ is nonsquare; the multipliers are all q distinct roots of X^q+X−2 since β^q=−β and the derivative is one. On z=0 all q² points are fixed, and elsewhere only u=0 is fixed. On nonzero points, every orbit of a multiplier has its multiplicative order. Counting trace roots with order dividing m subtracts the identity root exactly once; Möbius inversion and division by d give the displayed count for d>1. For an exact order d, p does not divide d, q²≡1 mod d, and q cannot be ±1 mod d: trace two would then force α=1, including in the reciprocal case. Independent /workspace/review_checks.py argument 4 verified the unit residues at d=2 to 15, all 12 integer resultants using determinants of multiplication in the cyclotomic quotient rather than the source's Sylvester matrix, and all four exact monic modular gcds, not just their degrees. The nontrivial residue entries isolate (d,p,r)=(8,3,3),(12,5,5),(15,19,4),(15,11,11); each p has order two modulo the corresponding d and gives the right residue for odd f. The cyclotomic polynomials are separable in these characteristics and their gcd roots are exactly two trace-line multipliers of primitive order d. Each contributes (q²−1)/d cycles. Finally, the sign of the fiber permutation is the quadratic character of the determinant (odd-order transvections and a diagonal scalar check); the product of determinants is 4 because each product of 1±βz over z is 1−β^(q−1)=2. This proves evenness for every odd q and shows independence from δ. The archived verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bian–Chen–Zheng's indexed description gives a general Dickson-matrix/Jordan approach to cycles and parity of linearized permutations. The frozen literature inspection describes Chen's result as a quadratic-plus-linear injectivity criterion and Gerike–Kyureghyan's as cycle invariance along additive lines."
+        ],
+        "reasoning": "The first framework covers individual linear fibers in principle and is the main broad-coverage risk; that per-fiber capability does not itself resolve the exact cross-characteristic frequency. The other known result scopes do not supply the arithmetic exceptional table.",
+        "searches": [
+          "Primary literature search for linearized permutation cycles and parity (Bian–Chen–Zheng, arXiv:2610.11574)",
+          "Chen arXiv:2611.09629v1, Theorem 4",
+          "Gerike–Kyureghyan DOI 10.1007/s10623-020-00721-2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5614a82d36e1 (same-record control)",
+        "arXiv:2610.11574 (index/abstract-level comparison)",
+        "MathDB 369612 and arXiv:2611.09629v1 (frozen source comparisons)",
+        "DOI 10.1007/s10623-020-00721-2 (frozen source comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A fiber-order procedure implies a computable cycle count for each q. Deriving the uniform initial spectrum requires isolating the nontrivial modular involutions, their allowable prime factors via integer resultants, the modular gcd degrees and the extension parity.",
+          "The fixed count follows directly from the fiber normal form; evenness uses the additional determinant product 4."
+        ],
+        "reasoning": "A method that computes a given instance is not a closed-form census across infinitely many extensions and characteristics. Without the exact root-count analysis, the compared general methods do not state the conclusion of substance.",
+        "searches": [
+          "arXiv:2610.11574 (linearized cycle/parity framework)",
+          "MathDB item 369612 (same map)",
+          "arXiv:2611.09629v1 (permutation criterion)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen source comparison attributes the exact map and its fiber determinants to MathDB item 369612. The equivalent arithmetic problem asks for primitive dth roots α with α+α^q=2 in the quadratic extension."
+        ],
+        "reasoning": "Prior display of the map covers its construction. Testing the trace-two condition across every admissible q requires the characteristic-specific cyclotomic common-root calculations, which do not follow from fiber invertibility alone.",
+        "searches": [
+          "Resultary: short cycles in (x+zy,y+δzx,z) for nonsquare δ and trace-two multipliers",
+          "MathDB item 369612"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary summary is the assigned record itself (5614a82d36e1), not a separate prior result. The recorded comparisons to other explicit finite-field spectra concern different maps."
+        ],
+        "reasoning": "Finite examples, similar resonances for different maps and the exact same-record index are not antecedents to the all-q table.",
+        "searches": [
+          "Resultary: primitive periods 8,12,15 with characteristics 3,5,11,19 and odd extension degree",
+          "Frozen source's nearby finite-field permutation comparisons, RESULT.md:71–85"
+        ]
+      },
+      "rationale": "Credit the explicit uniform initial resonance table and counts for the known map. The map, linear-fiber cycle mechanism and character parity method are not new constructions or general techniques. No separate source was found establishing the particular arithmetic classification; the highly relevant uninspected primary material remains an explicit access limitation.",
+      "residual_risks": [
+        "Bian–Chen–Zheng full text and the MathDB discussion were not independently available; a directly evaluated trace-two specialization or earlier cyclotomic treatment could cover the table.",
+        "Per-fiber abstract conclusions and a matching index are not evidence of whole-text noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General per-fiber coverage; exact arithmetic specialization remains unresolved in the full text",
+          "evidence": [
+            "The abstract-level description deals with Dickson-matrix Jordan blocks and eigenvalue parity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11574",
+          "material_read": "Indexed description plus frozen abstract account; original full text not available from targeted OA/retrieval attempts",
+          "method": "Primary search, targeted OA and identified arXiv alternate",
+          "title": "Cycle structures and parities of linearized permutation polynomials",
+          "trigger": "Highly relevant broader linear-fiber cycle and parity method"
+        },
+        {
+          "assessment": "Credit existing map and fiber invertibility; no exclusion of uninspected discussion details",
+          "evidence": [
+            "The recorded construction uses the same coordinates and determinant 1−δz²."
+          ],
+          "identifier_or_url": "https://mathdb.com/p/369612/classification-conjecture-for-quadratic-permutation-systems",
+          "material_read": "Frozen passages describing the construction and focused comparison; primary discussion not independently reached",
+          "method": "Frozen RESULT.md:71–85 and documented source comparison",
+          "title": "Classification conjecture for quadratic permutation systems over finite fields of odd characteristic",
+          "trigger": "Exact map is attributed to the public discussion"
+        },
+        {
+          "assessment": "Known injectivity criterion, not a stated primitive-cycle count",
+          "evidence": [
+            "The compared theorem uses radicals of quadratic forms to decide injectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09629",
+          "material_read": "Frozen statement-level comparison of Theorem 4",
+          "method": "Frozen cited theorem/source notes",
+          "title": "Permutation polynomials from quadratic and linear forms",
+          "trigger": "General odd-characteristic quadratic permutation classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The window includes precisely the first three moduli whose unit groups admit a q involution other than ±1; it is not a list of arbitrary finite-field tests. The arithmetic resolves the first genuine period possibilities of an existing quadratic map, including four specific resonant characteristics, extension parity and multiplicities. The gcd formula covers higher periods algorithmically, not by a further uniform evaluation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

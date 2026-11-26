@@ -20,7 +20,7 @@ K_n(q)=\sup_{x,y\in\mathcal C_{n,q},\,V(x-y)>0}\frac{V(\mathcal A x-\mathcal A y
 \left(\dfrac{1+q}{1-q}\right)^2,&n\ge6.
 \end{cases}
 \]
-These are exact supremum values for all real inputs satisfying the stated cone inequalities, not just linearized estimates. In particular the four-input constant changes its maximizing step position at \(q=1/2\), and at six inputs the fully developed amplification law stabilizes in sequence length. The constants diverge quadratically as \(q\uparrow1\), despite Aitken's exact elimination of geometric errors.
+These are exact supremum values for all real inputs satisfying the stated cone inequalities, not just linearized estimates. In particular the four-input constant changes its maximizing step position at \(q=1/2\), and at six inputs the fully developed amplification law stabilizes in sequence length. For each fixed \(n\ge4\), the constant diverges quadratically as \(q\uparrow1\), despite Aitken's exact elimination of geometric errors. The singleton-output case \(n=3\) has zero variation for every \(q\).
 
 ## Assumptions and scope
 The domain is the *strict* cone of increasing finite real sequences whose positive forward increments decrease by a factor strictly below \(q\) at each step. The upper bound also holds if the ratio inequalities \(u_{j+1}<q u_j\) are replaced with \(u_{j+1}\le q u_j\), while keeping all increments positive. All statements use the unweighted adjacent Jordan variation of discrete input and output sequences. Translation of the inputs does not change either variation seminorm. No claim is made about arbitrary sequences, alternating-sign increments, rounding errors, or stochastic perturbations crossing the cone boundary.

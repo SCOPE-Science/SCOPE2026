@@ -1,19 +1,21 @@
-# Scientific review: complete null-polynomial module of a 128-element ring
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ring is the seven-dimensional \(\mathbb F_2\)-algebra \((A,B)\) with multiplication \((A,B)(C,D)=(AC,AD+BC)\). The seven proposed generators are shown null for every ring element through the exact identities for \(t(r)\), \(t(r)^2\), and \(t(r)^3\), where \(t=x+x^2\). Their leading coefficients are linearly independent, giving a reduction to thirty normal monomials. An explicitly indexed thirty-by-thirty evaluation matrix has determinant one in \(\mathbb F_2\); `verify.py` constructs the matrix from the multiplication law and checks this determinant by exact elimination. Thus the generators are complete for **all** polynomial degrees. The Smith invariants follow from a two-by-two presentation matrix, and the constant stabilizer and sharp degree-six threshold follow by coefficient multiplication. The checker was run successfully on the actual supplied file.
+PASS
 
-No finite sampling is extrapolated: the finite certificate proves exact independence, while the leading-term argument proves the unbounded-degree claim. A separate independent audit is still outstanding.
+The seven displayed relations evaluate to zero by the pair multiplication law and the identities for t(r), t(r)^2, t(r)^3. Their distinct leading-coefficient directions give a free basis for their span and reduce arbitrary degrees to the stated thirty normal monomials. The specified 30 by 30 minor was reconstructed using explicit binary matrices and has exact F2-rank 30. There is also a short independent check: write any normal form as F(t)+xH(t), using the monic basis t^j, x t^j for central polynomials. Comparing evaluation at r and r+1 separates F from H since t(r+1)=t(r). For either separated part, r=0 kills its constant coefficient; r=(0,I) kills the triangular part of its t coefficient; r=(E12,0) kills the remaining t coefficient, which is supported in the first column of the upper-right block; r=(E12,E21) has t(r)^2=(0,I), so kills the remaining t^2 coefficient, supported in the triangular block. The two coupled relations have entry gcd t^2 and determinant t^6, giving factors t^2,t^4; the other five relations are diagonal. The resulting exponents sum to 15 and deg(t)=2, giving 2^30 functions. The first six generators stay null after any constant right multiplier. The seventh, g, has product class (a+d)U11 t^3 for a multiplier with diagonal entries a,d; U11 t^3 represents the nonzero normal form U12 t^2. This gives 64 stabilizing constants. Degree at most five uses only the four low-degree generators, which are stable under constants and hence, by centrality, under arbitrary polynomials. g U11 supplies the failure in degree six.
 
-## Originality — PASS, with stated residual risks
+## originality
 
-V. Havlovec, *Null polynomials over a finite ring need not form a two-sided ideal* (arXiv:2608.13251, first submitted 2026-08-13), is the closest result. Its explicit counterexample uses the **same ring** and its degree-six null polynomial is precisely the final generator of the present presentation. These known facts are not claimed as original. Inspection of the complete accessible paper's introduction, counterexample proof, and subsequent remarks showed no seven-generator description, no Smith invariant factors, no exact constant right-stabilizer, and no lower bound on the degree of a failing null polynomial.
+PASS
 
-Havlovec, *Integer-valued polynomials over structural matrix rings* (arXiv:2608.13242, also first submitted 2026-08-13), was inspected through its structural matrix hypotheses and main ideal and polynomial-characterization results, especially Theorems 4.9/4.13 and Corollary 4.15. Those results concern rings specified by allowed positions; the equality between diagonal blocks makes the present ring a different object, and the structural-matrix positive theorems do not imply this description. Werner, *Polynomials that kill each element of a finite ring* (2014), establishes positive classes and the original conjectural setting, not the claimed module structure, as far as accessible abstract/publisher preview and later citations establish. Targeted exact-title and algebraic-equivalence searches found no covering theorem. An unindexed treatment of this exact example or a stronger polynomial-function presentation remains possible and is the principal residual risk.
+The ring, failure of the right-ideal property and degree-six witness are already in Havlovec and receive no novelty credit. The complete module, invariant factors and exact function count, constant right-stabilizer, and exclusion of all smaller failure degrees are supported distinct additions on the evidence inspected.
 
-## Value — PASS
+## value
 
-The source's single degree-six obstruction was a counterexample to a long-standing finite-ring conjecture. This result determines **all** null polynomials for that canonical counterexample, the complete finite polynomial-function module and its \(2^{30}\) function count, and the exact index-two ring of allowable constant right multipliers. It also proves that the original degree-six witness has the smallest possible degree even when multiplied on the right by an arbitrary polynomial, a natural sharp bound on the first occurrence of the obstruction. The full presentation explains the failure mechanism rather than adding an isolated example or a routine numerical count. The theorem is intentionally restricted to this motivated finite ring; extrapolation to arbitrary finite rings is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the motivated counterexample ring from a finite-ring null-polynomial problem. Its full evaluation kernel gives an exact basis and function count in all polynomial degrees; the stabilizer identifies precisely which constants preserve it, and the least degree distinguishes the known witness from all lower-degree possibilities. These strengthen understanding of the counterexample rather than merely replaying it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

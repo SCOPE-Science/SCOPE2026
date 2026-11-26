@@ -1,19 +1,21 @@
-# Scientific review: Three sharp sowing-date regimes before one random rainfall opportunity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the conditional-on-rain law and derives the exact inclusion–exclusion objective with all three pairwise terms and the triple term. Moving the earliest planting date to zero strictly improves success. The compact closure analysis excludes the corner and the infinitely delayed third cohort, and shows that no point on the equal-date diagonal except its endpoint can be globally optimal. On the first-date boundary, direct differentiation gives the unique lower threshold. For an interior extremum, the substitution \(y=pv/u\) yields \(u=Z(y)\), a strictly decreasing parametrization; the remaining stationarity function has strictly positive derivative on the entire allowed interval because two explicit quadratic discriminants are negative. Its endpoint sign has exactly the stated second threshold. Existence, uniqueness and all boundary equalities follow; finite randomized computations are corroboration rather than a substitute for this argument.
+PASS
 
-## Originality — PASS on inspected evidence, subject to historical priority
+Shifting a delayed first date to zero multiplies its positive success probability by exp(t₁), so every optimizer starts at zero. For u=exp(−t₂), v=exp(−t₃), direct integration over the three intervals of the uniform variable exp(−R) gives the same objective F as inclusion–exclusion. The compactified domain is continuous at its zero corner; that corner is strictly worse than (1,1), and moving off v=0 at u>0 increases F. On v=u<1 the only possible diagonal maximizer has negative F_v and is improved by decreasing v. The u=1 edge has unique optimizer v=min(1,p₁/p). Interior stationarity forces u=Z(y) and p₁<y<3/4 for y=pv/u. The singular value y=8/9 cannot satisfy F_v=0. On the admissible interval the remaining stationarity function is strictly increasing by the stated positive quadratics, and its endpoint signs yield the unique admissible root only for p>p₂. For those p the boundary candidate has F_u<0 (so an inward move decreasing u increases F); at p=p₂ the limiting root is the existing boundary point, not a tie. This exhausts all closure boundaries and interior stationary points and gives the three unique ordered calendars. Independent integration and polynomial root isolation reproduce both constants and, at p=1, dates 0, 0.156819423113, 0.706895851121 and success 0.7895887539535.
 
-Farrell et al. (2023), doi:10.1002/eap.2834, motivate timing of dryland seeding relative to rain but the accessible abstract does not contain this probability model or threshold theorem; full text could not be read, so this is a genuine priority risk rather than a claimed full-text exclusion. ten Brink, Gremer and Kokko (2020), doi:10.1111/ele.13461, analyze adaptive germination and dormancy under unpredictable seasons rather than externally timed identical sowing cohorts competing for a single exponential first rain. Agoungbome et al. (2023), doi:10.3390/agronomy13010167, estimate region-dependent sowing windows using simulated rainfall and crop growth, not an analytic three-cohort optimizer. Denton et al. (2024), doi:10.1111/1365-2664.14779, analyze precipitation and ecological restoration empirically. Nearby exact transient-occupancy survey timing and seed-bank diversification statements use different stochastic events, controls and objectives and do not imply the present theorem. More general historical stochastic scheduling and perishable-reliability coverage remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The exact two critical establishment probabilities change the *number of distinct planting times*, not merely the numerical location of an existing optimum. The intermediate two-date regime and third three-date regime demonstrate when independently fading cohorts have a genuine timing-diversification benefit even though all are exposed to a single shared rainfall event. This complete, natural three-cohort classification is a benchmark for restoration timing under uncertainty; it does not claim an empirical schedule or a result for unequal decay rates.
+Rain-dependent sowing and diversified timing are established ideas. The supported distinct finding is the full three-release optimum under one exponential trigger, with three independently decaying establishment opportunities conditional on that trigger and a union-of-successes objective. In that model the two exact thresholds control changes in the active equality constraints. The strongest indexed exponential calendars and the biological timing literature inspected use different feasible timing choices or objectives, and do not give these thresholds or the unique quartic regime.
 
-## Reproducibility and limitations
+## value
 
-The independent Python 3 standard-library checker tests the exact stationary polynomial identity using rational arithmetic, evaluates the original piecewise event integral independently of the inclusion–exclusion expression, and probes boundary cases and random feasible schedules. The theorem still rests on the analytic proof. Exponential rain, equal-rate viability loss, conditional independence, exactly three cohorts and absence of a final seasonal deadline limit applicability. The motivating full primary text was not accessible through available routes; a complete historical priority audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The tradeoff between early availability and lifetime decay is inherent in timing several opportunities before one uncertain trigger. Three cohorts are the smallest instance in which simultaneous, partly staggered, and fully staggered schedules can all be distinct. Exact thresholds show when to expect each pattern and include both boundary cases; this gives a structural baseline for timing diversification without inferring distinct rain sources or adaptive decisions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

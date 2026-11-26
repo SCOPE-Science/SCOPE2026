@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the explicit four-state kernel
+# Independent mathematical audit
 
-## Reproducible checks
-Run `python verify.py` with Python 3.10 or later; no third-party packages are required. The script reports 270 exact rational checks of the common-denominator identity, 400 direct complex 2-by-2 matrix-product comparisons against the spectral formula, and checks of dimension scaling and the quartic coefficient. The precise count is stated only for tests actually executed.
+## correctness
 
-## Analytic certificate
-The strict result does not depend on sample meshes: the exact resolvent identity is
-\[
-H(s)=\frac{8q^4s(s-(1-q^2))}{(s+1-q^2)(s+(1+q)^2)(s+(1-q)^2)((s+1)^2-q^2(2-q^2))}.
-\]
-The two sets defining \(H\) have identical products, so \(\int_0^\infty H(s)ds=0\). Its sign changes once, at \(s=1-q^2\). Multiplication by the strictly increasing power \(s^r\) makes the integral positive for \(r>0\) in the convergence range; the fractional-power representation then forces the alternating eigenvalue to be strictly negative for \(0<r<1\). The quartic coefficient follows from an ordinary binomial expansion.
+PASS
 
-## Unproved limits
-No global optimum over all density quadruples is asserted. The finite program does not establish originality, and no independent validation has been performed.
+The Finding itself is correct. Independently, write c=1−q² and F(x)=cosh(r arcosh x). The two-dimensional product spectra, after extracting their common geometric mean, give x=1, 1/c, (1+q²)/c for opposite, adjacent, and identical states. These x are equally spaced. The alternating eigenvalue is the corresponding second difference of F times 2(c/d²)^r. F is strictly concave for 0<r<1: at x=cosh t, F′=r sinh(rt)/sinh t decreases because z coth z is strictly increasing. Its expansion F(1+v)=1+r²v+r²(r²−1)v²/6+O(v³) gives exactly the claimed quartic term. The other nonconstant eigenvalues are strictly positive by strict AM–GM; the inactive block affects only the positive constant eigenvalue. The frozen resolvent proof also checks: writing V=s²+2s+c², the product polynomials have quotient (V²−4q⁴s²)/V², giving the stated logarithmic derivative and single crossing. Fresh matrix spectra (18 cases, replay: python3 /workspace/evidence/review_checks.py 4) agreed to 1.0e−15; finite corroboration only. The frozen RESULT.md line 87 overclaims every strictly positive common spectrum, which includes the all-scalar spectrum where the only state is I/d and the Gram matrix is constant. repairs/4/RESULT.md corrects the quantifier to the stated Pauli-corner spectra and clarifies the pure-state overlap; the proof and Finding are unchanged and the three axes are assessed for that corrected text.
+
+## originality
+
+PASS
+
+Pure-state nonpositivity, including the pure Pauli square, is already known; the supported contribution is the strict faithful-square obstruction for every interior q and every fractional r, with exact inertia and a quartic small-q law. The strongest compared statements do not give those features.
+
+## value
+
+PASS
+
+This determines whether the three-point positivity phenomenon survives locally at four points even with full rank and a common spectrum. Exact inertia for the entire faithful square family and the first nonzero q⁴ defect are substantive stability information beyond a numerical example or continuation near pure states. The repair removes an unsupported generalization without diluting that contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

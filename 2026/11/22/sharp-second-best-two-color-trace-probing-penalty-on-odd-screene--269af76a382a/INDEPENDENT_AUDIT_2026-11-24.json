@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:14:42.445844Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited repairs/1/RESULT.md. At zero cyclic separation the Green recurrence yields c(r⁻¹−r)(1−r^n)=1 and off zero the characteristic relation gives zero. Independent, class-restricted Rademacher probes sum unbiasedly; pair coefficients give 4 Σ_same G_ij², or 2 Σ_d f_d(n+C_d). The telescoping relation f_d−f_m=2 Σ_(k>d)(k−d)a_k gives the exact window certificate, with each coefficient positive and each window difference nonnegative by parity. A one-defect reference fills the odd/even window lower bounds and has C_d=(−1)^d(n−2d). Any nonoptimal word has at least three defects, forcing T₂ to increase by at least eight. On flipping reference sites 2 and 3, only the windows ending at 2 or starting at 3 may change, with pair of sums (1,−1)→(−1,1) at odd k≥3 and (2,0)→(0,2) at even k≥4. Therefore the higher T_k are unchanged; the word is admissible and attains 16a₂, including m=2 where only the endpoint coefficient is defined. For the baseline comparison, same solve count means averaging two independent full-support probes; domination by a geometric series justifies the fixed-μ limit. An independent exact rational replay in branches/268a8060-5c50-42cb-afd7-111b79b45d79/gap_check.py and gap_check_output.txt confirmed 20 parameter cases (21,824 words modulo color exchange, including the inadmissible constant words in the scan); it uses weights f_d/c², direct pair enumeration and the admissible witness, not the window formula as an oracle. These finite tests are corroboration only; the analytic proof establishes all allowed n and μ. Uploaded code was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest checked work covers the same odd-cycle estimator and ground states, with a different, asymptotic parity-frustration correction. Other inspected records optimize even-cycle and complete-bipartite resolvents. Convex Ising ground-state conditions and general graph-coloring probing do not compare against the best non-minimizer."
+        ],
+        "reasoning": "The positive window coefficient at k=2 gives a structural lower bound and the isolated flip witness is needed for sharpness. A ground-state-only theorem, even a more general one, does not provide that joint certificate.",
+        "searches": [
+          "Kerimov DOI 10.1063/5.0001423, Introduction p. 1",
+          "Switzer et al. arXiv:2106.01275 PDF abstract",
+          "Resultary ad9f3c6dc76a, 1edc2b42b895 and 82aa4e3655f0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and recorded output; repairs/1/RESULT.md; independent gap_check.py and output in assigned branch",
+        "Resultary 269af76a382a, 82aa4e3655f0, ad9f3c6dc76a and 1edc2b42b895",
+        "Kerimov (2020), Switzer et al. (arXiv:2106.01275), Poljak–Turzík (1992, access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day source directly states the identical optimum and optimal geometry; it studies an asymptotic parity correction rather than minimizing over all nonoptimal partitions.",
+          "The even-cycle result has no forced defect and does not apply at odd n, and the complete-bipartite result changes the graph. The Ising comparison lacks the finite odd-ring first-gap statement in the passages inspected."
+        ],
+        "reasoning": "The narrowed finding is not a claim of priority for the old optimum or its formulas. The exact attainment preserving all longer window costs is additional to the compared assertions; the finite-gap vs asymptotic-correction distinction is substantive, not terminological.",
+        "searches": [
+          "Original 82aa4e3655f0/RESULT.md, offsets 0–11013",
+          "Original ad9f3c6dc76a and 1edc2b42b895 findings, offset 0",
+          "Kerimov author-copy introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "V(s) is a constant plus twice the Ising energy Σ f_d s_i s_j, and equals four times total weight minus four times weighted cut. Thus the claimed positive gap measures the first Ising excitation (with factor 2) or the best-to-second-cut shortfall (with factor 4).",
+          "Kerimov's inspected Introduction discusses the Hubbard criterion and periodic ground states in an infinite-system setting, not this finite-circle first excitation."
+        ],
+        "reasoning": "The mathematical reductions identify potentially equivalent results and remove any novelty credit for a change of language. The decisive distinction in the examined material is ground-state ordering versus an exact gap with a matching non-ground-state configuration.",
+        "searches": [
+          "finite periodic antiferromagnetic Ising, convex long-range interaction, odd ring and first-excitation gap; Kerimov DOI 10.1063/5.0001423",
+          "weighted circulant Max-Cut; Poljak–Turzík DOI 10.1016/0012-365X(92)90690-H"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact gap claim occurs in the assigned record itself. The distinct indexed same-day record gives the exact V_min and one-defect classification, and describes finite diagnostic computations.",
+          "No all-parameter table of the gap above the minimum was established in the inspected exact-neighbor statement; finite enumerations of minima are not such a table."
+        ],
+        "reasoning": "The confirmed overlap is the baseline, now credited. A finite match or minimum-variance formula cannot establish the n=5 and n≥7 second-best laws for every positive screening strength.",
+        "searches": [
+          "Resultary: sharp second-best two-color trace-probing penalty, 269af76a382a; odd-cycle stochastic trace probing, 82aa4e3655f0"
+        ]
+      },
+      "rationale": "The repair makes the exact first gap and its attaining perturbation the distinct claim. It credits the exact minimum variance and one-frustrated-bond classification to verified same-day coverage, without inferring order, and does not treat the ordinary variance identity, same-solve baseline, or antiferromagnetic ground-state ordering as the gap result.",
+      "residual_risks": [
+        "The Poljak–Turzík primary theorem text was not available by the attempted lawful routes. Equivalent finite first-excitation statements under weighted circulant-cut or Ising terminology outside the inspected passages remain possible; neither absence nor coverage was inferred from the access limitation.",
+        "The shared date of the exact baseline statements does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of optimum and optimizer classification, not the first nonoptimal variance gap. Same-date order unresolved.",
+          "evidence": "One monochromatic adjacent edge is necessary and sufficient, with the same V_min; the additional formula is an asymptotic parity-frustration correction, not a competing partition energy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-odd-cycle-stochastic-trace-probing-a-unique-frustrated-bond-and--82aa4e3655f0",
+          "material_read": "Original RESULT.md including Finding and proof, bounded offsets 0–11013",
+          "method": "Resultary search then original local-mirror statement",
+          "title": "Odd-cycle stochastic trace probing: a unique frustrated bond and the parity penalty",
+          "trigger": "Same estimator, graph, screening range and ground-state optimum"
+        },
+        {
+          "assessment": "The inspected material addresses infinite-system ground-state ordering, not the claimed finite-size gap.",
+          "evidence": "Positive convex potential and chemical potential; Hubbard criterion and periodic ground-state uniqueness up to translation.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0001423",
+          "material_read": "Primary Introduction (offset 2402, printed p. 1)",
+          "method": "Lawful author-hosted PDF https://yoksis.bilkent.edu.tr/pdf/files/14930.pdf",
+          "title": "Ground state criteria in one-dimensional antiferromagnetic Ising model with long range interaction",
+          "trigger": "Equivalent fixed pair-energy formulation and convex antiferromagnetic ordering"
+        },
+        {
+          "assessment": "Estimator background in inspected material, not a sharp odd-cycle first-excitation law.",
+          "evidence": "Variance reduction through coloring/probing and application to a permuted inverse for a lattice displacement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.01275",
+          "material_read": "PDF abstract at offset 0",
+          "method": "Lawful arXiv PDF text",
+          "title": "Probing for the Trace Estimation of a Permuted Matrix Inverse Corresponding to a Lattice Displacement",
+          "trigger": "Graph-coloring probing and variance framework"
+        },
+        {
+          "assessment": "Even-cycle optimum only in inspected statement; the model is not the forced-defect odd case.",
+          "evidence": "Even n≥4, unique checkerboard and variance comparison.",
+          "identifier_or_url": "ad9f3c6dc76a",
+          "material_read": "Original RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Checkerboard probing uniquely minimizes two-color trace variance on screened cycles",
+          "trigger": "Same graph family and estimator with another parity"
+        },
+        {
+          "assessment": "Related estimator, different graph and transition.",
+          "evidence": "Complete bipartite K_(m,n) and a screening-dependent partition transition.",
+          "identifier_or_url": "1edc2b42b895",
+          "material_read": "Original RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp two-color stochastic-probing transition on complete bipartite resolvents",
+          "trigger": "Exact two-color resolvent-probing optimum"
+        },
+        {
+          "assessment": "Plausible residual overlap only; application to these couplings or the second-best objective not established.",
+          "evidence": "The named paper concerns Max-Cut in circulant graphs; the title/access result does not settle first-gap coverage.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(92)90690-H",
+          "material_read": "Landing-page/abstract access only; no original theorem passage retrieved",
+          "method": "Bounded lawful OA DOI/repository attempt; no alternate repository copy found",
+          "title": "Max-cut in circulant graphs",
+          "trigger": "Variance gap reduces exactly to a weighted circulant cut shortfall"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural fixed two-solve scheme, the exact positive first gap measures the smallest cost of leaving the one-defect family and certifies when a near-optimal coloring must be optimal. Its change from endpoint difference at n=5 to local curvature at n≥7, with an explicit witness preserving all larger window costs, adds information not contained in either the exact minimum or the asymptotic parity penalty.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

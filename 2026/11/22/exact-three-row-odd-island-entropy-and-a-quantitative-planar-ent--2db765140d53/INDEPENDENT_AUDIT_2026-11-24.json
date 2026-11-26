@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:20:31.311129Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frontier transition preserves connectivity and parity by adding each old component once, and tests precisely the components that can no longer connect to the right. An extra empty mask tests closure. A new implementation using row-mask intersections reproduced 19 states, 119 transitions, the exact characteristic factorization, root isolation above 6, all eight listed counts, and a direct flood-fill census through n=5. A full column followed by one more full column if needed supplies an odd cap at width 3; every state thus returns to the empty state, whose loop proves primitivity. In an extendible strip word, an interior component already has odd size. Full columns at the occupied ends merge the boundary components, after which one added column on a suitable end toggles each even merged component, including the case of one component meeting both ends. Padding to two columns per end with zeros makes the map injective and proves the language bounds for all lengths, not just the tested boards. Independent strips with an empty spacer row give the claimed per-site lower bound. The replay verifies the strict width-two comparison with rational root enclosures and verifies 0.48216 by a rational exponential bound.",
+      "replay_paths": [
+        "/workspace/branches/independent-review/replay2.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known two-dimensional soficity and the nonsoficity result in dimensions at least three concern representability. The closest finite-width computations instead give a quintic at width two."
+        ],
+        "reasoning": "Neither the general transfer framework nor the inspected soficity statements identify the width-three frontier or its spectral radius. Two separated occupied rows around an empty middle row can encode a previously joined or a disconnected pair, a distinction not present in the width-two frontier.",
+        "searches": [
+          "Callard Ch. 7 §7.1 and bibliography [Cas10]",
+          "Gladkov–Mitrofanov abstract and introduction",
+          "Resultary two-row odd-island entropy and two-rail closed-island counts"
+        ]
+      },
+      "checked_sources": [
+        "Callard Ch. 7 §7.1 and [Cas10]",
+        "arXiv:2611.21008v1",
+        "Resultary 9dc9baf1be25",
+        "Resultary a2dd499263a3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-row root only yields the bound log(Λ₂)/3 with the same spacer method; the independently enclosed width-three root satisfies Λ₃³>Λ₂⁴."
+        ],
+        "reasoning": "The spacer construction itself is not claimed as new. The inspected width-two computations do not imply the improved numerical bound or the exact width-three entropy. Comparison is based on statements, not the same-day catalogue labels.",
+        "searches": [
+          "Resultary width-two odd-component records 9dc9baf1be25 and a2dd499263a3",
+          "Callard Ch. 7 §7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both concern the multidimensional component-parity condition, not the one-dimensional run-spacing odd shift. The infinite strip permits infinite components and is not defined as the finite-board counting problem."
+        ],
+        "reasoning": "Soficity or nonsoficity is not an entropy computation. The proof linking finite boards to strip words is needed to compare an exact finite census with this particular entropy claim.",
+        "searches": [
+          "Callard, Soficity of multidimensional subshifts, Ch. 7 §7.1",
+          "arXiv:2611.21008v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-rail finite-ladder table begins 1,3,11,37,127; the three-row board table begins 1,6,37,251,1692. The two-row entropy/zeta record also uses the quintic, not the degree-eleven factor."
+        ],
+        "reasoning": "These are actual related exact entries and not equivalent tables; changing the width changes the state space and its invariant.",
+        "searches": [
+          "Resultary 9dc9baf1be25 and a2dd499263a3",
+          "Callard Ch. 7 §7.1"
+        ]
+      },
+      "rationale": "The inspected comparisons cover the underlying multidimensional shift and the exact two-row case, not the degree-eleven three-row entropy or the resulting numerical planar lower bound. The strict comparison with width two is mathematical; the catalogue dates alone do not show which result had historical priority.",
+      "residual_risks": [
+        "Cassaigne's unpublished construction was identified through the published attribution, not inspected as an original text.",
+        "A finite-width tabulation may be unindexed; a zero-result search is not evidence of priority.",
+        "The wording 'previously known' does not establish historical ordering of the same-day catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and attribution of planar soficity, not the claimed entropy in the relevant passages",
+          "evidence": "Defines the multidimensional odd shift and attributes soficity to Cassaigne; bibliography lists unpublished Odd shift (2010).",
+          "identifier_or_url": "https://www.acallard.net/publications/thesis.pdf",
+          "material_read": "Ch. 7 §7.1, printed p. 54 (PDF p. 72); bibliography [Cas10]",
+          "method": "Open-access PDF passage and bibliography inspection",
+          "title": "Soficity of multidimensional subshifts",
+          "trigger": "Direct precursor defining the same shift"
+        },
+        {
+          "assessment": "Different invariant in the passages examined",
+          "evidence": "Nonsoficity for dimension at least three; describes Cassaigne's two-dimensional announcement.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.21008v1",
+          "material_read": "Abstract and introduction",
+          "method": "Open-access targeted text inspection",
+          "title": "The Odd Shift is not sofic in dimensions d≥3",
+          "trigger": "Same parity shift, recent result in other dimensions"
+        },
+        {
+          "assessment": "Width two, not width three",
+          "evidence": "Quintic Perron root and periodic-point/zeta calculation for the two-row strip.",
+          "identifier_or_url": "Resultary 9dc9baf1be25",
+          "material_read": "Exact entropy and zeta statements",
+          "method": "Resultary semantic search and local mirror",
+          "title": "Exact entropy and parity-corrected zeta of the two-row odd-island shift",
+          "trigger": "Closest exact strip entropy"
+        },
+        {
+          "assessment": "Explicitly excludes widths three and higher",
+          "evidence": "Two-row root and exact counts beginning 1,3,11,37,127.",
+          "identifier_or_url": "Resultary a2dd499263a3",
+          "material_read": "Root, finite-ladder generating function and scope",
+          "method": "Resultary semantic search and local mirror",
+          "title": "Exact two-rail entropy and closed-island counts for the odd-component shift",
+          "trigger": "Closest finite-board census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Width three is a natural next strip after the two-row calculation and requires distinguishing connectivity across an empty middle row. The exact spectral invariant controls both finite-board and actual strip growth, and the independent-strip construction strictly improves a quantitative lower bound for the full planar entropy. It does not purport to determine that planar entropy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

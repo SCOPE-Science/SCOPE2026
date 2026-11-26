@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:34:19.716832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The minimal subtree on the four marked leaves, with degree-two vertices suppressed, has a central edge. An original tree edge inducing that split has two parameters on each side and binary cut rank at most one. Restricted rows or columns have at most two possible patterns on the opposite pair (zero and at most one nonzero pattern), even when the realizing vertex is a parameter. This confines the traces to at most two rows and two columns of the four-by-four table, giving at most 12. Shattering any larger set would shatter each of its quadruples. A fresh exact check verified connectedness and distance-hereditary reduction certificates for both witnesses, the twelve listed four-set traces, and the eight different triple traces. In the 13-vertex witness three traces already occur among the parameters, and each of the other nine vertices realizes a different additional trace. Induced subgraphs retaining the parameters retain exactly their selected profiles, so all 3–12 occur; four isolated vertices and the four-vertex star give 1 and 2. The eight-vertex connected witness shatters three, and no smaller witness can realize eight traces. The replay script is branches/fec4ef40-fb63-42da-b771-ef60cc56fd99/independent_check.py, with CHECK_OK in the completed run. The supplied checker was inspected, not executed. The finite witness checks do not establish the universal bound, which follows from the cut argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bousquet–Thomassé Lemma 5 gives at most 2^k cross-neighborhood classes at a binary rank-k cut. Theorem 7 bounds distance-2 VC-dimension by 3·2^{k+1}+2, not the four-site all-vertex trace statistic.",
+          "The later monadically dependent graph results give polynomial or almost-linear neighborhood complexity bounds in broader settings, not this exact fixed-size maximum and its attainment."
+        ],
+        "reasoning": "The rank-one cut restriction plus the central edge gives the stated upper bound, but the restricted cross-cut patterns alone do not force the existence of compatible within-side traces. Sharpness and the spectrum need additional graph constructions.",
+        "searches": [
+          "arXiv:1412.1793v1 §3.2, Lemma 5 and Theorem 7",
+          "arXiv:2611.08143v1 Lemma 3.1 and neighborhood definitions",
+          "arXiv:2607.10941v1 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:1412.1793v1, 2611.08143v1, 2607.10941v1",
+        "arXiv:1608.01464 and 2005.11766, introductory passages",
+        "Resultary 3519bee5e97b, 61aa84aa3a1a and 99413cf9082e",
+        "White Rose ePrint 105529, abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even an exact VC dimension of three would give only an upper bound of 15 traces on four sites by Sauer–Shelah. The source actually gives 12 and certifies attainability of each number. The strongest matched subclass results can overlap the triple shattering or lower profile counts but cannot furnish the 12 extremizer.",
+          "The distance-hereditary enumeration paper arXiv:1608.01464 counts graphs, not exact distinct adjacency traces on a fixed parameter set."
+        ],
+        "reasoning": "The general rank-cut lemma provides the numerical obstruction after the two-by-two marked-leaf split, but it does not make every allowed cell jointly realizable. The certified extremizer and its induced-subgraph traces fill that gap. The immediate minimal-order argument for the triple is supportive, not the basis for originality.",
+        "searches": [
+          "arXiv:1412.1793v1 Lemma 5; exact Resultary comparisons 3519bee5e97b and 61aa84aa3a1a; focused primary-search results arXiv:1608.01464 and arXiv:2005.11766"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary rank-width at most one and distance heredity describe the same class. Counting distinct open adjacency rows restricted to A over all vertices, including parameter vertices, is exactly the frozen trace statistic.",
+          "The Weisfeiler–Leman dimension of distance-hereditary graphs (arXiv:2005.11766) concerns graph identification with WL-dimension 2, not this shattering statistic."
+        ],
+        "reasoning": "Changing the name of the graph class or using the row-trace formulation gives the same test. External-only, closed-neighborhood, equality-sensitive, and WL variants are not interchangeable with it.",
+        "searches": [
+          "Resultary: rank-width one, distance-hereditary graphs, four-parameter open-neighborhood traces",
+          "Primary search: distance-hereditary graphs exact open-neighborhood VC dimension neighborhood complexity distinct traces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching bd9f724b9520 entry is the identical frozen item. The distinct same-day block-graph record 3519bee5e97b gives maximum 10 at four parameters and VC dimension 3; the cograph record 61aa84aa3a1a gives 1–8 at four and VC dimension 2; the interval-graph record 99413cf9082e gives maximum 13 at four but has no rank-width-one hypothesis.",
+          "A further interval-graph hit 9d6b84f296e4 could not be resolved to its original full statement in the local mirror, so it is not counted as evidence of coverage or noncoverage."
+        ],
+        "reasoning": "An exact result on a proper subclass can yield only some lower witnesses unless it already attains 12. An unrestricted interval-graph maximum likewise gives no extremal equality witness or universal bound for the rank-width-one class.",
+        "searches": [
+          "Resultary exact neighborhood trace spectra for distance-hereditary graphs, block graphs, cographs and interval graphs"
+        ]
+      },
+      "rationale": "The known cut-rank lemma gives the cross-cut row/column template, not the exact global spectrum. The supported distinct content is the sharp four-parameter maximum and attainment of every cardinality, together with exact triple shattering in the full distance-hereditary class. The broader complexity bounds, different VC notions and closest exact catalogue results inspected do not provide the 12-profile extremizer or four-parameter spectrum for this class.",
+      "residual_risks": [
+        "These targeted comparisons do not rule out an unindexed exact open-neighborhood formula or separate earlier extremizer. Full text was unavailable for the linear rank-width item and the additional interval-graph mirror hit. Neither missing source is taken as negative evidence or assumed decisive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the cross-cut partition lemma and a bound for a different distance-2 shattering statistic, not the exact profile spectrum.",
+          "evidence": [
+            "Rank k yields at most 2^k classes on each side with uniform adjacency between classes; distance-2 VC-dimension bound 3·2^{k+1}+2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.1793",
+          "material_read": "v1 §3.2, Lemma 5 around offset 21020 and Theorem 7 around offset 24213",
+          "method": "Lawful OA primary text, bounded passages",
+          "title": "VC-dimension and Erdős–Pósa property",
+          "trigger": "Same rank-width hypothesis and related shattering bounds; plausible dominating theorem"
+        },
+        {
+          "assessment": "General polynomial bound, not an exact rank-width-one four-point formula.",
+          "evidence": [
+            "Definitions and general bound in Lemma 3.1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.08143",
+          "material_read": "v1 neighborhood complexity/VC definitions and Lemma 3.1, offsets 42082–45379",
+          "method": "Lawful OA primary text, bounded passages",
+          "title": "First-Order Model Checking on Monadically Dependent Graph Classes",
+          "trigger": "Broader class and same neighborhood-complexity terminology"
+        },
+        {
+          "assessment": "Almost-linear growth in a broader setting, not an evaluated small-parameter spectrum.",
+          "evidence": [
+            "Bound of form |A|^{1+o(1)}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10941",
+          "material_read": "v1 Theorem 2, offsets 6210–11207",
+          "method": "Lawful OA primary text, bounded passage",
+          "title": "Neighborhood Complexity and Radius-1 Merge-Width in Monadically Dependent Graph Classes",
+          "trigger": "Potentially stronger general neighborhood complexity theorem"
+        },
+        {
+          "assessment": "Their four-parameter counts differ, and the classes and scope do not give the claimed distance-hereditary spectrum.",
+          "evidence": [
+            "Block graphs: 3m−2 at m=4; cographs: attainable 1 through 2m; interval graphs: m(m+3)/2−1 for m≥2."
+          ],
+          "identifier_or_url": "2026/11/22: 3519bee5e97b, 61aa84aa3a1a, 99413cf9082e",
+          "material_read": "Local mirror RESULT.md Findings for the three records",
+          "method": "Configured Resultary local mirror, bounded passages",
+          "title": "Exact Resultary neighborhood trace results for block graphs, cographs and interval graphs",
+          "trigger": "Distinct same-day exact results on closely related graph classes"
+        },
+        {
+          "assessment": "Abstract context concerns linear rank-width; exact trace coverage in unavailable text remains unassessed.",
+          "evidence": [],
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/105529/",
+          "material_read": "Landing page and abstract only; no relevant full-text passage retrieved",
+          "method": "Lawful OA retrieval attempted twice",
+          "title": "Linear Rank-Width of Distance-Hereditary Graphs",
+          "trigger": "Same graph class and width terminology in the focused search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the first parameter size past the class's shattering threshold, where a mere VC bound misses three cells. The rank-one cut explains the sharp obstruction, and the certified graph construction shows its full strength can be attained simultaneously while also determining the intervening cardinalities. This is a useful exact benchmark for adjacency types in distance-hereditary graphs, not just a count from a finite graph list.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

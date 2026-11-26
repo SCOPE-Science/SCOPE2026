@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:54:53.403525Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–51",
+        "VERIFICATION.md and checker.py lines 9–54 (inspected, not executed)",
+        "review-evidence/marker_overlap.py and marker_overlap.txt"
+      ],
+      "rationale": "Disintegrating the one-step output over its tail gives conditional first-symbol probabilities J(0x), J(1x), with the input as the tail law. Thus its entropy equals H(p)+(log 2−H(p))μ(W_q). The equal mixture of 01^∞ and 10^∞ is fair and supported on W_q. A second marker at a positive distance less than q would have its initial symbol and first tail symbol inside the constant tail of the first, impossible. At distance q its initial symbol is the final symbol of the first marker, forcing opposite type. Every length-q starting window therefore contains at most one marker, yielding mass at most 1/q by invariance. Equality makes all translated windows contain exactly one start in the two-sided stationary extension, almost surely (countably many windows); hence starts are one residue class mod q and marker types alternate. The windows determined by these markers cover the line, so the only allowed orbit is the alternating runs of length q. Uniform measure there is fair and uniquely invariant on that orbit. Since 0<p<1/2 the objective is strictly increasing in marker mass, proving uniqueness as stated. For every positive continuous normalized J, compactness bounds both branch probabilities below by a common positive δ, so the stationary fair supremum is at least H(δ)>0 (fair invariant inputs exist) and no gap can equal log 2. For p=e^{−(q+1)}, H(p)=O(qe^{−q}), proving the stated asymptotic and sharpness. The bounded independent replay `python3 -B /workspace/review-evidence/marker_overlap.py` checks every two-marker overlap length for 2≤q≤100, finding only the opposite-type one-symbol overlap; this is corroborative, not the proof over all stationary inputs.",
+      "residual_risks": [
+        "No statement on output invariance, mutual-information capacity, or the outcome for more restrictive marginal constraints is being validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lopes–Oliveira around offset 86608 compares optimizing domains and formulates constraints; Example 60 at offset 126466 is memoryless with fixed-point extrema",
+          "SCOPE-effa1409f1ac assumes strict non-overlap and bounds sum of length times cylinder mass"
+        ],
+        "reasoning": "The broad channel formalism gives the function to optimize, not its extremizers for this model. The two markers cross-overlap in one symbol; the prior occupancy inequality is inapplicable with their full length q+1. The usable exclusion distance here is q, with an attainable rigid equality condition.",
+        "searches": [
+          "arXiv:2611.13904v1 output-entropy discussion, equations 65–66 and Example 60",
+          "SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac, Finding and hypotheses"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.13904v1 Theorem B, equations 65–66 and Example 60",
+        "arXiv:1804.07822 Theorem A",
+        "SCOPE-effa1409f1ac Finding and assumptions",
+        "Resultary exact-title and related searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem B yields the integral identity directly",
+          "Prior locally constant optimization supplies methods or existence regimes, not the sharp value for 1_Wq",
+          "Two opposite markers permit exactly the nearest admissible overlap used to force the 2q-cycle"
+        ],
+        "reasoning": "Neither the general identity nor a generic periodic-orbit theorem implies the exact fair/free versus fair/stationary comparison. The record contributes the realizable, sharp marker extremum, its unique optimizer, and the full asymptotic separation in the positive continuous class; it does not take credit for the channel identity or routine packing as a general technique.",
+        "searches": [
+          "arXiv:2611.13904v1 Theorem B, Section 6 and Example 60",
+          "arXiv:1804.07822 Theorem A",
+          "SCOPE-effa1409f1ac, overlap assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lopes–Oliveira Theorem B, HTML around offsets 19275–19495: affine output-entropy objective over inputs",
+          "Wolf–Yang Theorem A, HTML offsets 9514–14191: periodic optimizing regimes for locally constant potentials"
+        ],
+        "reasoning": "The equivalent ergodic optimization problem is to maximize the stationary frequency of {01^q,10^q}. Standard finite-graph maximum-mean-cycle methods formulate that optimization but do not select the maximizing bi-infinite sequences without the specific overlap analysis. Fairness is an input restriction and does not require output invariance.",
+        "searches": [
+          "Resultary: stationary versus nonstationary fair binary Ruelle output entropy, marker frequency",
+          "arXiv:2611.13904v1 Theorem B and output-entropy optimization",
+          "arXiv:1804.07822 Theorem A"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching Resultary indexed record is this assignment itself; the distinct occupancy record is as compared above",
+          "checker.py tabulates a bounded collection of cyclic words, not a published optimization classification"
+        ],
+        "reasoning": "The asserted invariant supremum and uniqueness run over arbitrary q and shift-invariant laws, not a fixed finite table query. The finite-graph reduction is applicable at fixed q, but no prior table giving these optimizers or the universal gap was identified.",
+        "searches": [
+          "Resultary: fair-input entropy gap and alternating binary markers",
+          "Resultary: stationary occupancy inequality for variable-length non-overlapping codes"
+        ]
+      },
+      "rationale": "The conditional entropy identity and broad optimization distinction are prior. The inspected statements do not establish this exact fair-input family or the unique alternating-run optimizer and sharp nonattained output-entropy gap. The closest overlapping occupancy theorem excludes the one-symbol overlaps essential to the equality case.",
+      "residual_risks": [
+        "An equivalent earlier example in finite-state ergodic optimization or stationary marker methods may exist outside the inspected passages and index results. Standard ingredients are not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers identity and general framework, not these extrema",
+          "evidence": "Affine output entropy in the input; constrained optimization and a memoryless example, rather than the fair two-marker process.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13904v1",
+          "material_read": "Theorem B around offsets 19275–19495; channel optimization around 86608 including equations 65–66; Example 60 around 126466",
+          "method": "Bounded lawful OA HTML reads",
+          "title": "Thermodynamic Formalism for Non-Invariant Probabilities: Entropy, Divergence, Channels",
+          "trigger": "Same non-invariant entropy and Ruelle output optimization"
+        },
+        {
+          "assessment": "Related methods/classification, not a computation of this potential or channel gap",
+          "evidence": "Periodic optimizing regimes do not specify maximizing cycles for these overlapping markers.",
+          "identifier_or_url": "arXiv:1804.07822",
+          "material_read": "Theorem A context, HTML offsets 9514–14191",
+          "method": "Bounded lawful OA HTML read",
+          "title": "A topological classification of locally constant potentials via zero-temperature measures",
+          "trigger": "General periodic maximizing-measure theory"
+        },
+        {
+          "assessment": "Related but different hypotheses and outputs",
+          "evidence": "One-symbol opposite-type overlap here violates cross-bifix-freeness; prior bound is weighted by full codeword length and does not address the Ruelle entropy gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac",
+          "material_read": "Finding and strict code non-overlap hypotheses",
+          "method": "Local Resultary search and matched mirror passage",
+          "title": "A stationary occupancy inequality for variable-length non-overlapping codes",
+          "trigger": "Closest distinct Resultary match by stationary occupancy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§3–5",
+        "Lopes–Oliveira channel optimization discussion"
+      ],
+      "rationale": "The exact example separates two natural optimization domains while imposing the same fair input marginal. The stationary optimum can vanish asymptotically although the unrestricted optimum is the full bit, and strictly positive continuous channels cannot attain the limiting gap. Identifying a unique stationary process at every finite q gives an exact witness rather than just a numerical separation or a restatement of the entropy identity.",
+      "residual_risks": [
+        "The contribution is an extremal output-entropy comparison, not a statement about transmission rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:57:40.083340Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct interval correlation gives T_(ell+a)+T_(ell-a)-2T_ell for the self terms, the two tents at ±ell, and cancels the mixed terms except for the negative tents at ±d (the shorter interval produces the flat part of each mixed overlap). Plancherel in the stated 2pi convention turns the squared intensity norm into the four-tent energy. Positive and negative supports separate as a<ell; the only cross terms are same-side pairs at distance g. The tent autocorrelation is the convolution of four centered length-a boxes, equivalently the cubic truncated-power difference with knots -2a,-a,0,a,2a. It gives 2a^3/3-ag^2+g^3/2 up to a, (2a-g)^3/6 up to 2a, and zero thereafter. Substitution in 8a^3/3-4C_a(g) verifies the joins and plateau. For the quotient distance, reflection fixes E_0. Its L1 translation discrepancy is continuous, strictly positive off zero and constant at large translations. Triangle inequality forces any minimizer into a small fixed neighborhood of zero as a tends to zero; there the endpoints do not interact and the cost is 2|t-a/2|+2|t+a/2|, minimized at 2a. At fixed positive gap this proves exactly the stated obstruction, not an upper estimate for arbitrary pairs. The checker named in RESULT.md:68 was not supplied or replayed; the reasoning is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.2 is uniqueness modulo the natural symmetries, not a modulus. Theorem 1.3(ii) assumes ordered lengths, positive length and gap lower bounds, and small ordinary L2 intensity error. Remark 1.4 exhibits a different example with vanishing short component and gap; it is outside the first smallness threshold at its stated error.",
+          "The focused literature lookup returned no items; this is not evidence of absence."
+        ],
+        "reasoning": "The purported stronger stability result cannot serve as broader valid coverage because the fixed-lower-bound family contradicts it as printed. Uniqueness alone gives no inverse rate.",
+        "searches": [
+          "arXiv:2606.19855v1, Theorems 1.2 and 1.3 and Remark 1.4",
+          "Web: two interval indicators Fourier intensity covariogram stability equal length imbalance counterexample Xia Xu 2606.19855 Holder two thirds Lipschitz correction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–78 and VERIFICATION.md",
+        "Xia–Xu arXiv:2606.19855v1 and unversioned current theorem; v2 PDF and HTML not available",
+        "Resultary 9eae37fe4ea0 and e88fc9b5606a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choose eta=-a, c=ell/2, c0=g, and epsilon=||P_eta-P_0||_2 in the common normalization (any fixed Fourier normalization changes only a constant). The ordered lengths and fixed bounds hold, including equality for the equal-length reference; epsilon^2=(8/3)a^3 meets (3) for small a."
+        ],
+        "reasoning": "Both (4), with length difference a, and (5), with distance 2a, would be O(a^(3/2)) for fixed c,c0, a contradiction. No statement about unsquared magnitudes or a uniform upper 2/3 bound follows.",
+        "searches": [
+          "arXiv:2606.19855v1 PDF p. 4 offsets 13600–17198; current PDF and HTML Theorem 1.3(ii) comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fourier-intensity differences and covariogram differences are equivalent by Plancherel. The entire four-tent difference is also the difference for two equal-width a intervals with gaps ell-a and d-a."
+        ],
+        "reasoning": "The aliased data differences yield the same cubic norm formula, but the equal-width comparison lets the common width a vanish. It does not provide the fixed-positive-length inverse witness, which requires the frozen geometric reduction and its quotient distance.",
+        "searches": [
+          "arXiv:2606.19855v1 PDF Theorem 1.3(ii), eqs. (3)–(5)",
+          "Resultary 2026/11/8/9eae37fe4ea0 Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The equal-width gap-variation record lists exactly a^3 Phi(g/a) after substituting its width=a and gap difference=g. The three-interval collision record has a cubic energy and a 2/3 exponent in a different geometry."
+        ],
+        "reasoning": "There is an exact profile match, but neither comparison yields the obstruction for two unequal-versus-equal intervals whose lengths and gap stay bounded below. The dated record labels do not decide priority.",
+        "searches": [
+          "Resultary: two-interval Fourier intensities, fixed-gap length imbalance and cubic covariogram crossover",
+          "Resultary 2026/11/8/9eae37fe4ea0 and 2026/11/8/e88fc9b5606a"
+        ]
+      },
+      "rationale": "The distinct claim is the exact intensity crossover for the fixed-gap length-imbalance direction and its uniformly separated inverse obstruction at equal component lengths. The cubic tent overlap profile itself is shared with the equal-width gap-variation problem and is not novel in isolation. The directly inspected Xia–Xu estimate is incompatible with the explicit family under the printed hypotheses and metric; it does not cover the contribution.",
+      "residual_risks": [
+        "No exhaustive literature or complete version-history search; a different correction or independently derived equivalent witness could exist. The claim concerns the inspected printed version, not the correctness of an uninspected revision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Incompatibility with the printed Lipschitz statement, not with uniqueness; proof-error location not adjudicated",
+          "evidence": [
+            "Ordinary L2 norm of squared Fourier magnitudes; c and c0 strictly positive; lengths non-strictly ordered.",
+            "In Remark 1.4 the shorter component and gap both shrink to zero; its stated epsilon does not satisfy the first threshold at those lower bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.19855v1",
+          "material_read": "p. 4 definition of dist and Theorem 1.3(ii), (3)–(5), p. 5 Remark 1.4; comparison with current displayed theorem",
+          "method": "OA PDF locate and offset read, cross-check against HTML versions",
+          "title": "Fourier Phase Retrieval for Finite Unions of Intervals",
+          "trigger": "Exact metric and possible contradiction to published stability claim"
+        },
+        {
+          "assessment": "Same data difference under reparameterization, not the same inverse geometry",
+          "evidence": [
+            "Equal-width mixed correlations are T_width centered at ±(width+gap); choose width=a and the two gaps ell-a,d-a."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/9eae37fe4ea0",
+          "material_read": "Finding, Assumptions and Proof offsets 0–4576",
+          "method": "Local Resultary mirror passage read",
+          "title": "Sharp local and global Fourier-intensity stability of two equal intervals",
+          "trigger": "Exact three-piece cubic profile match"
+        },
+        {
+          "assessment": "Different interval count and collision",
+          "evidence": [
+            "Three-interval gap-collision witness, rather than imbalance at fixed two-interval gap."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/e88fc9b5606a",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror passage read",
+          "title": "Sharp two-thirds inverse stability at a three-interval Fourier collision",
+          "trigger": "Same inverse exponent and cubic split energy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The degeneration occurs at a natural equal-length geometry with neither a vanishing component nor a closing gap. The explicit family tests a specific claimed stability regime and rules out every exponent above 2/3 there, while the exact overlap calculation quantifies the fixed-center gap crossover. This is a useful obstruction without claiming a matching general upper bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

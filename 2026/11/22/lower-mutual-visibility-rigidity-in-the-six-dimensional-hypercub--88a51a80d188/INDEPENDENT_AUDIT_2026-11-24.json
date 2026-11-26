@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:29:21.488104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Closed neighborhoods are visible via the pair's two-flip vertex, and cannot accept an outside vertex since every geodesic from the center starts in the selected neighborhood. Their induced stars have distinct centers. Empty and singleton sets extend. For the decisive finite exclusion I inspected both frozen C++ predicates and conducted a fresh exhaustive computation, not execution of the supplied C++: `python3 /workspace/checks/q6_orbits.py` (Python 3 and NumPy; log `/workspace/checks/q6_orbits_output.txt`). The independent checker augments representatives of orbits under XOR and coordinate permutations. Deleting one vertex from any candidate, taking the orbit representative for the smaller set, and applying the same isometry to the deleted vertex shows that augmentation covers every next-size orbit. It marks all and only the normalized containing-zero images by translating by each selected origin and applying all 720 coordinate permutations. A same-cardinality colex bitmap separately confirms disjointness and full coverage of each entire normalized domain. Visibility is checked by directed reachability along edges reducing Hamming distance to the target, allowing selected endpoints but not selected interior vertices. Heredity makes all one-vertex extensions a sufficient maximality test. Weighted by normalized orbit sizes, tested totals for sizes 2–7 were 63, 1953, 39711, 595665, 7028847, 67945521; visible totals were 63, 1953, 39696, 594440, 6982332, 66836889, and maximal totals were 0, 0, 0, 0, 0, 7. The sole maximal orbit through size seven is represented by (0,1,2,4,8,16,32), with seven images containing zero. This recovers only the 64 closed neighborhoods, and does not extrapolate to higher dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar–Yero ask for hypercube lower mutual-visibility numbers. Korže–Vesel compute maximum ordinary and other maximum-size visibility parameters, including μ(Q6)=32. The distance-limited catalog hit 205d6ab586a0 addresses μ₂ and μ₃, not minimal maximal ordinary sets."
+        ],
+        "reasoning": "The property of being a minimum maximal set among all ordinary feasible sets does not follow from maximal cardinality under the ordinary, total, or distance-limited constraints. No stronger dimension-independent lower/rigidity theorem was established by the inspected sources.",
+        "searches": [
+          "arXiv:2307.02951 p. 5 and Problem 1 p. 18",
+          "arXiv:2405.05650 p. 8 and p. 15",
+          "Resultary: hypercube distance-limited and lower total visibility"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_permutations.cpp, verify_lattice.cpp, permutation_results.txt",
+        "Independent q6_orbits.py replay and log",
+        "arXiv:2307.02951",
+        "arXiv:2405.05650",
+        "Resultary 88a51a80d188, 9297186832e0, 6d8bf40baa6c, 205d6ab586a0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At any center of Q6, two distinct neighbors share an external neighbor given by the two flips. The Neighborhood Lemma therefore gives μ⁻(Q6)≤7. It does not exclude feasible maximal sets with fewer vertices or other seven-vertex configurations."
+        ],
+        "reasoning": "The upper bound and its witness argument are already implied; only the exhaustive exclusion and rigidity go beyond it. Knowing the largest feasible set does not identify the smallest maximal one.",
+        "searches": [
+          "Brešar–Yero Neighborhood Lemma, OA text offset 14200, and Problem 1, offset 52750",
+          "Korže–Vesel maximum ordinary Q6 passage, offset 23000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected lower parameter is the minimum size among inclusion-maximal sets, i.e. those admitting no legal one-vertex extension. The upper ordinary and lower ordinary parameters have different quantifiers. The four-row cylinder record has the analogous classification by boundary neighborhoods but on C4 × P_n."
+        ],
+        "reasoning": "Using maximal feasible family terminology or allowed shortest-path extension gives the same lower problem; changing to maximum feasibility, different pair quantifiers or a different product graph does not.",
+        "searches": [
+          "Resultary: Q6 lower ordinary mutual visibility, smallest inclusion-maximal visibility set, closed-neighborhood rigidity",
+          "Brešar–Yero arXiv:2307.02951, neighborhood lemma and Problem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same exact Q6 catalog hit 88a51a80d188 is the assigned record, not independent prior evidence. C3 × C8 has the same reported number 7 but 4,608 minimum maximal sets; C4 × P_n has minimum size four with boundary-neighborhood rigidity for n≥3. The Q6 table in Korže–Vesel concerns maximum-size parameters."
+        ],
+        "reasoning": "Neither equality of a numeric result for a different graph nor a Q6 table for different parameters is exact database coverage of the count or classification. The bounded search did not identify an independent prior table of the requested Q6 invariant.",
+        "searches": [
+          "Resultary: exact Q6 ordinary lower counts and census of minimum maximal sets",
+          "Korže–Vesel arXiv:2405.05650, table on p. 15",
+          "Resultary 9297186832e0 and 6d8bf40baa6c, Findings"
+        ]
+      },
+      "rationale": "The known neighborhood construction and upper bound are credited. The supported distinct claim is the matching lower bound and classification of all minimum inclusion-maximal ordinary sets in Q6. Neither known maximum-size Q6 counts nor same-value lower results for other graphs settle that claim.",
+      "residual_risks": [
+        "An unindexed census or a lower-visibility theorem stated in alternate language could cover the result; the available comparisons do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies neighborhood upper bound; lower exact cube question posed",
+          "evidence": [
+            "The lemma applies to neighborhood witnesses; Problem 1 asks for hypercube lower numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "Neighborhood Lemma p. 5; Problem 1 p. 18",
+          "method": "Primary OA PDF passages",
+          "title": "Lower (total) mutual-visibility number in graphs",
+          "trigger": "Defining paper and potentially broader hypercube bound"
+        },
+        {
+          "assessment": "Maximum-size variants rather than lower ordinary",
+          "evidence": [
+            "The exact ordinary value 32 and table entries concern maximum-size objective functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.05650",
+          "material_read": "Exact Q6 discussion p. 8 and table p. 15",
+          "method": "Primary OA PDF passages",
+          "title": "Variety of mutual-visibility problems in hypercubes",
+          "trigger": "Strong exact Q6 database/table candidate"
+        },
+        {
+          "assessment": "Numerical match 7 on a different graph",
+          "evidence": [
+            "C3 × C8 has 4,608 minimum inclusion-maximal witnesses."
+          ],
+          "identifier_or_url": "9297186832e0",
+          "material_read": "Original RESULT.md Finding, offset 560",
+          "method": "Local Resultary mirror",
+          "title": "Exact mutual visibility and maximal-set census of the triangular torus",
+          "trigger": "Same ordinary lower value and maximal-set count in an indexed result"
+        },
+        {
+          "assessment": "Analogous rigidity in a different product graph",
+          "evidence": [
+            "C4 × P_n has lower number 4, with eight boundary neighborhoods for n≥3."
+          ],
+          "identifier_or_url": "6d8bf40baa6c",
+          "material_read": "Original RESULT.md Finding and proof beginning, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The eight boundary neighborhoods: lower mutual visibility in four-row cylinders",
+          "trigger": "Potential neighborhood-rigidity equivalent"
+        },
+        {
+          "assessment": "Identical assigned record, not separate earlier evidence",
+          "evidence": [
+            "Same lower number and all-64-neighborhood classification."
+          ],
+          "identifier_or_url": "88a51a80d188",
+          "material_read": "Original Finding, scope and proof",
+          "method": "Indexed identity and frozen original",
+          "title": "Lower mutual-visibility rigidity in the six-dimensional hypercube",
+          "trigger": "Exact catalog hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The six-cube is a natural member of the explicitly posed lower-visibility family, and its 64 vertices already give nearly 68 million translation-normalized candidates at the critical size. The result establishes both the exact minimum termination size of ordinary visibility extension and the whole minimum configuration type, a useful boundary case for testing general lower-bound and rigidity conjectures. It is more than a known upper bound or a maximum-number recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

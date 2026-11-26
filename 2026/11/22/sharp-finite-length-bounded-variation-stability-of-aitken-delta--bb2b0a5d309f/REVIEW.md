@@ -1,15 +1,21 @@
-# Scientific review: variation sensitivity of sliding Aitken extrapolation
+# Independent mathematical audit
 
-## Correctness: PASS
-The quotient is smooth on the convex cone of strictly positive increments with ratios bounded above by \(q<1\). Its Jacobian has the exact three-entry row \((t^2,-2t,1)/(1-t)^2\). A jump decomposition of arbitrary perturbations reduces its induced adjacent-variation seminorm to the variations of finitely many step responses. Explicit formulas for the possible truncated step responses establish the sharp coefficients at lengths three, four, and five and the length-independent value from six onward. Integrating the derivative over the segment between two admissible inputs proves the nonlinear two-input inequality; geometric-increment inputs and infinitesimal step perturbations approach every sharp coefficient. The standalone exact-rational checker passed 30,348 checks, including global two-input inequalities. The analytic proof supplies all infinite quantifiers.
+## correctness
 
-## Originality: PASS (qualified)
-Searches compared Aitken, Shanks, and Steffensen names, slope-ratio and geometric-contraction assumptions, numerical sensitivity and noise amplification, bounded variation seminorms, and finite-length sensitivity. Closest primary texts inspected: Brezinski–Redivo Zaglia (2007), particularly its Aitken kernel and numerical-stability discussion; Tiruneh (2013), especially its introductory geometric-ratio formulation and higher-order error-eigenvalue treatment; and accessible excerpts of Pomeranz (2017) on signed-error acceleration. These treat the extrapolator, convergence rates, or cancellation errors but do not state the sharp adjacent-variation coefficients. The closest accessible research-record summaries on noisy Aitken extrapolation concern random heavy-tail errors, not deterministic uniform variation moduli. The underlying algebraic transformation is classical and unindexed equivalent estimates remain possible. Brezinski (1989), *Contraction properties of sequence transformations*, is a historical title directly relevant to possible general contraction bounds. A complete text was unavailable after archival, open-access and publisher searches; no claim of noncoverage is made for this paper. Its title and citations associate it with convergence improvement rather than specifically adjacent Jordan variation, but this is an unresolved priority risk. Full research-record package access was not available for two stochastic Aitken records, but their exposed statements do not dominate this claim.
+PASS
 
-## Mathematical value: PASS
-Aitken extrapolation exactly annihilates geometric error modes, but this does not control the roughness of the *difference between two transformed sequences*. The sharp phase diagram quantifies a precise noise-amplification budget for this standard convergence accelerator: a genuine four-sample threshold, a five-sample intermediate coefficient, and a six-sample saturation at quadratic blowup as the contraction ratio approaches one. The finding is a full characterization of a natural nonlinear operator's perturbation norm on a motivated family of linearly convergent sequences, not merely a derivative estimate at a single triple. It provides a concrete limit to stability arguments based only on an input's geometric convergence rate.
+For the corrected finding, use the increment coordinates u, in which the input seminorm is the l1 norm. Put F(a,b)=a^2/(a-b). The adjacent output differences are u_j+F(u_{j+1},u_{j+2})-F(u_j,u_{j+1}). Their Jacobian has rows with three successive entries 1-H(t_j), H(t_{j+1})-U(t_j), U(t_{j+1}), where t_j=u_{j+1}/u_j, H(t)=(1-2t)/(1-t)^2 and U(t)=1/(1-t)^2. The signs are +,-,+, so each column sum of absolute values is maximized in the limit with all relevant ratios at q. The largest sums for n=4,5,>=6 are respectively max(U,U-H), 2U-H, and 2U+1-2H (U,H at q); n=3 has no adjacent output differences. Convexity of the linear increment inequalities bounds finite pairs by the integrated Jacobian, also with weak ratio caps and positive increments. A geometric increment vector with a common ratio t<q is interior; perturbing one maximizing increment and then taking t up to q proves sharpness. The nonzero leading numerators as q tends to one are 2,3,4 in the three positive cases. The separately authored exact-rational checker passed 5,500 derivative-step, 420 finite two-input and 16 near-sharp checks; these corroborate the proof, not replace it.
 
-## Limitations and priority risk
-The result is restricted to one-dimensional real strictly monotone sequences with a uniform positive ratio cap. Sharp values are suprema, not generally achieved by a positive finite difference. It does not treat floating-point rounding, sign-alternating data, or convergence speed of transformed outputs. Independent bibliographic and mathematical validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the sharp two-input adjacent-variation operator modulus for the full sliding transform, with the finite-length boundary regimes. Neither the geometric-error kernel nor scalar contraction/noise results in the inspected material give that modulus. The repair removes a boundary misstatement and makes no new priority claim.
+
+## value
+
+PASS
+
+Exact geometric-error removal does not quantify perturbation amplification. The corrected theorem gives a sharp deterministic worst-case bound that is independent of increment size, detects when truncation at the ends changes the worst perturbation, and distinguishes the zero singleton case from the quadratic blowup of all nonzero moduli. These features inform use of the sliding transform on short traces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:46:44.289745Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formulas are correct. In the Gaussian normalization K_w(z)=exp(z conjugate(w)), the kernel adjoint identity gives C_ψ* f(z)=exp(conjugate(d)z)f(conjugate(c)z). Applying this in the two orders gives the displayed W_{β,q,t,γ} tuples: (a conjugate(d),b conjugate(c),b conjugate(d)) and (conjugate(d),b,0). For such W, the proposed displacements satisfy conjugate(u)+q conjugate(v)=β and −qu−v=t, and changing variables in the Gaussian integral shows these displacements are unitary. Given v=−t−qu, the real part of (|u|²+|v|²)/2+q conjugate(v)u is |t|²/2+Δ|u|²/2. The diagonal dilation has exactly the singular sequence |q|^n, with rank one at q=0; thus substitution and geometric summation give all the stated formulas including the p<1 quasi-norms. Independently, expanding the ratio exponent gives the stated Q/(2Δ). Completing the square gives Q=(1−|c|²)|b−(1−q)d/(1−|c|²)|²−|a−c|²|d|²/(1−|c|²). This verifies the determinant, all three order relations for distinct slopes, and the exact rigidity for equal slopes. Read VERIFICATION.md and verification.py without running the frozen program; the operator proof is exact and not dependent on truncation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fatehi Proposition 2.3 proof states that the matched-weight operator for slope ρ and shift s is unitarily equivalent to exp(|s|²/(1−ρ)) times the centered dilation at ρ. Theorem 4.2(a) states an exact norm for every kernel weight and affine contractive symbol.",
+          "Dong–Zhu already gives the geometric singular list in the centered dilation case, from its quadratic parameter zero. Johnson gives upper bounds for Bargmann pullbacks, and Leng–Zhao works on disk Hardy/Bergman spaces."
+        ],
+        "reasoning": "Fatehi is decisive, since the general positive square then has eigenvalues exp(2Re γ+|β|²+|s|²/(1−ρ))ρ^n. Taking the square root and expanding the exponent gives precisely exp(Re γ+|t|²/2+|β+q conjugate(t)|²/(2Δ))|q|^n. The two required constants and every Schatten quasi-norm are substitutions and geometric sums of this result.",
+        "searches": [
+          "Fatehi arXiv:1809.04829 §2 and §4",
+          "Dong–Zhu arXiv:2509.16672 kernel and Theorem A",
+          "Johnson arXiv:2403.13227 Theorem 2; Leng–Zhao arXiv:2610.15472 §1"
+        ]
+      },
+      "checked_sources": [
+        "Fatehi arXiv:1809.04829 Proposition 2.3 and Theorem 4.2",
+        "Tian arXiv:2610.29786",
+        "Dong–Zhu arXiv:2509.16672",
+        "Johnson arXiv:2403.13227",
+        "Leng–Zhao arXiv:2610.15472",
+        "Resultary 6189441e1ef3 and b96c3b6b80d6",
+        "doi:10.1016/j.jmaa.2017.05.021 access attempt only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the matched class, substitute a_F=ρ, b_F=c_F=s in Fatehi's explicit centered unitary equivalence. This proves the full claimed singular spectra by acting on the standard monomial basis, without using the frozen factorization.",
+          "For the order question, subtract the two logs of the prior norm formula and complete the square: Q=(1−|c|²)|b−(1−q)d/(1−|c|²)|²−|a−c|²|d|²/(1−|c|²). When a=c the center is d and the second term vanishes; otherwise the second term is strictly negative for d≠0, and varying b produces negative, positive and zero values. The common singular ratio |q| makes the same sign hold for every p."
+        ],
+        "reasoning": "The paired presentation may be convenient, but no further Fock-space analysis or independently unresolved arithmetic or classification step remains. Lack of the same wording in Tian is not novelty over Fatehi's formulas.",
+        "searches": [
+          "Fatehi Proposition 2.3 (d)⇒(a) and Theorem 4.2(a), compared with RESULT.md 40–100",
+          "Tian Propositions 3.5–3.6 and Corollary 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tian treats the same orders up to adjoint for one orientation, which preserves singular values.",
+          "Each product is merely a scalar times a weighted composition with a kernel weight, the class in Fatehi §4. Moreover, for Wf(z)=exp(γ+βz)f(qz+t), kernel adjoints give W*W=e^{2Re γ+|β|²} M_{K_s} C_{ρz+s}, where ρ=|q|² and s=t+q conjugate(β). This is exactly the real-slope matched-weight case of Fatehi Proposition 2.3."
+        ],
+        "reasoning": "The reduction does not discard arbitrary complex translations: they remain in s and the scalar, and the strict slopes ensure 0≤ρ<1, including the rank-one endpoint.",
+        "searches": [
+          "Resultary: exact Fock cross-adjoint singular values, affine translations and norm order",
+          "Fatehi arXiv:1809.04829 Proposition 2.3 and Theorem 4.2",
+          "Tian arXiv:2610.29786 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 6189441e1ef3 is the identical record. Distinct entry b96c3b6b80d6 concerns singular values of finite sums of coalescing radial Fock dilations, not two cross-adjoint orders. The inspected affine-iterate entry treats asymptotic composition powers.",
+          "The relevant exact antecedent is an analytic formula, not a lookup table. Its norm class includes both translated products without any restricting parameter choice."
+        ],
+        "reasoning": "The catalog does not provide a separate exact paired entry in the inspected results. That does not overcome exact coverage by the prior analytic norm and unitary-equivalence formulas.",
+        "searches": [
+          "Resultary: exact affine Fock composition product spectra; cross-adjoint orders; displacement-dependent reversal",
+          "Fatehi exact weighted-composition norm formula, Theorem 4.2"
+        ]
+      },
+      "rationale": "The asserted quantitative result is mechanically covered by an earlier Gaussian Fock result with arbitrary translations, not merely by centered special cases. Fatehi arXiv:1809.04829, Proposition 2.3 proof, (d)⇒(a), explicitly identifies the matched exponential weight and affine symbol with a scalar multiple of the centered dilation by unitary equivalence. Apply it to the positive square of each of the two cross products after the elementary kernel identity. This gives every singular value and multiplier even at q=0. Independently, Fatehi's Theorem 4.2 already gives both exact operator norms by direct substitution. The residual paired order sign is the expansion and completion of the square in the difference of these two known log-norm expressions. The exact paired presentation was not located earlier, but there is no distinct scientific step in it beyond applying existing formulas and elementary algebra; this is prior coverage by implication, not a finding that the frozen claim is false.",
+      "residual_risks": [
+        "The exact paired sign display might also be explicitly stated elsewhere; that historical question is not resolved or necessary for the implication finding.",
+        "No whole-source finding rests on the inaccessible entire-function composition paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dominates the exact singular spectra and norms via the positive square, and implies the order classification by elementary algebra.",
+          "evidence": [
+            "For matched weight c=b(conjugate(a)−1)/(a−1), Proposition 2.3's proof gives unitary equivalence to exp(|b|²/(1−conjugate(a))) C_{az}; choosing a real makes c=b.",
+            "Theorem 4.2(a) gives exact norm for unrestricted b,c with |a|<1; its proof explicitly conjugates off the exponential weight."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1809.04829",
+          "material_read": "§2 Proposition 2.3 and its proof, especially (d)⇒(a), offsets 14550–19878; §4 Remark 4.1 and Theorem 4.2(a) proof, offsets 27885–33037",
+          "method": "Opened primary article passages by offset; checked the matching parameters and the positive-square kernel calculation",
+          "title": "Weighted composition operators on the Fock space (M. Fatehi)",
+          "trigger": "Exact norm or full singular values for arbitrary affine shifts and kernel weights"
+        },
+        {
+          "assessment": "Qualitative compactness for the same objects, but not the decisive quantitative antecedent.",
+          "evidence": [
+            "Corollary 3.7 relates compactness of both products to the product of the affine slopes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.29786",
+          "material_read": "§3 Propositions 3.5–3.6 and Corollary 3.7, OA offsets about 35050–42277",
+          "method": "Open primary passages checked against the two orientations",
+          "title": "Weighted composition operators on the Fock space (X. Tian)",
+          "trigger": "Exact same cross products"
+        },
+        {
+          "assessment": "Exact centered family; corroborates the spectral shape but is not needed for the translated implication from Fatehi.",
+          "evidence": [
+            "T^(s,0)=s^(−1/2)D_{1/s} with singular values |s|^(−n−1/2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.16672",
+          "material_read": "§1 canonical kernel and Theorem A, offsets about 2500–7985",
+          "method": "Open primary article and substitution of zero quadratic parameter",
+          "title": "Canonical integral operators on the Fock space II",
+          "trigger": "Broader Gaussian singular-spectrum formulas"
+        },
+        {
+          "assessment": "Johnson's bounds and the disk-space criteria do not give the relevant translated Fock constants.",
+          "evidence": [
+            "The first uses general quadratic-weight pullback estimates; the second works in a different, disk-space geometry."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2403.13227 ; https://arxiv.org/html/2610.15472",
+          "material_read": "Johnson Theorem 2, OA offset about 6362; Leng–Zhao §1 and Hardy/Bergman setting around offsets 6210–8700",
+          "method": "Open primary passages and hypotheses comparison",
+          "title": "Pullback operators on Bargmann spaces; Schatten class membership of products of composition operators and their adjoints",
+          "trigger": "Possible exact spectral or Schatten order coverage"
+        },
+        {
+          "assessment": "Self-match and a distinct coalescing-sum problem, respectively.",
+          "evidence": [
+            "The second entry is for radial dilation sums, not products of translated compositions with adjoints."
+          ],
+          "identifier_or_url": "Resultary: 6189441e1ef3; b96c3b6b80d6",
+          "material_read": "Mirrored statements of the two findings",
+          "method": "Configured Resultary search and local mirror comparison",
+          "title": "Exact two-order singular spectra and displacement reversal; Two-scale singular spectra of coalescing Fock composition sums",
+          "trigger": "Exact and neighboring catalog matches"
+        },
+        {
+          "assessment": "Unresolved possible additional coverage; not used as evidence for either coverage or exclusion.",
+          "evidence": [
+            "No exact cross-adjoint statement could be checked from the available material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2017.05.021",
+          "material_read": "Landing page and abstract only; no primary full text available on the attempted OA route",
+          "method": "Targeted primary literature lookup and lawful access attempt",
+          "title": "Composition operators on Hilbert spaces of entire functions with analytic symbols",
+          "trigger": "Related entire-function composition norm results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "These cross products and sharp Schatten norms are natural and their juxtaposition is convenient, but the submitted exact fact is already mechanically available. A prior explicit unitary reduction of the exact positive square supplies all eigenvalues, and direct substitution into a prior norm theorem followed by one completion of the square supplies the supposedly separate phase classification. Under the standard for narrow exact results, packaging these consequences does not fill a remaining scientific gap. No surviving distinct result is established by dropping the geometric sequence and retaining just the algebraic sign test, so no repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

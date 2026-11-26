@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:26:56.113449Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–129; VERIFICATION.md, lines 18–24; verify.py, lines 21–129 (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/frozen_math_checks.py 2; rational witness and an alternative monotone-root parameterization, three fixed ratios and selected odd E through 4001"
+      ],
+      "rationale": "A local round has multiplier (1-alpha*h_i)^E and center coefficient one minus that multiplier. The strict individual stability interval makes the mean round multiplier strictly contractive. Comparing normalized center coefficients at the limit for every center vector gives equality exactly when all F_E(alpha*h_i) agree. F_1 is constant. For even E>=2, F_E strictly decreases on (0,2): the geometric-sum derivative is positive in u=1-z both for u>=0 and, using even parity, for u<0. For odd E>=3 the branch z<1 has values above 1 and strictly decreases, whereas z=1+t, 0<t<1, has values below 1. Its derivative has the sign of E*t^(E-1)+(E-1)*t^E-1, strictly increasing from -1 to 2E-2. Hence three levels of curvature are impossible and distinct equal distortions require 1<alpha*a<alpha*b<2. For rho=b/a in (1,2), put x=alpha*b-1 and y=(x+1)/rho-1. The equality is x^E-rho*y^E=rho-1; the left side is strictly increasing (derivative E*(x^(E-1)-y^(E-1))) and its values at x=rho-1 and x=1 bracket rho-1 strictly. This rederives uniqueness and excludes the endpoint rho=2. Since 0<y<2/rho-1<1, the exact identity gives x^E -> rho-1, hence E*(1-x) -> -log(rho-1) and the synchronized multiplier tends to -q*(rho-1). The cubic rule follows by factoring the difference of 3-3z+z^2. The two witness fixed points and multipliers agree with independently iterated exact rational local steps.",
+      "residual_risks": [
+        "The exact statement concerns synchronization times, arbitrary centers, and the strict open stability interval. The finite decimal checks are corroboration, not justification for the real-parameter classification or the limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MUSIC gives the general schedule and sufficient neighborhood convergence; infinite conservatism of a quadratic local map gives existence of a surrogate; average drift at the optimum can vanish in a statistical quadratic client limit."
+        ],
+        "reasoning": "None of those results classifies exact preservation uniformly in every finite vector of centers in the oscillatory stable interval.",
+        "searches": [
+          "MUSIC arXiv:2403.02589v1, equations (7)–(9) and Theorem 1",
+          "Charles–Rush, PMLR 167, pp. 3–4",
+          "Wang et al. arXiv:2206.04723v1, pp. 2, 6–7"
+        ]
+      },
+      "checked_sources": [
+        "PMLR 130 charles21a and PMLR 167 charles22a; arXiv:2403.02589v1 and 2206.04723v1; Resultary 38a4345bc15c, 6e87af5006ee, 3787d399dabe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The common polynomial condition follows immediately from the known distortion plus equality of normalized weights. At odd E, exceptional steps have both local multipliers negative, and the proof needs a strict single fold and a boundary root; the statistical drift result does not force coefficientwise equality."
+        ],
+        "reasoning": "Credit this immediate reduction, but the earlier general result does not itself give the number of possible levels, the if-and-only-if b/a<2, the unique-tuning statement or the odd-E logarithmic law by mere parameter substitution.",
+        "searches": [
+          "Charles–Konečný Theorem 1 and equations (6)–(8); Wang et al., average drift definition and quadratic discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under scalar full-gradient updates the earlier Q_i is exactly F_E(alpha*h_i). The earlier Mime catalog entry concerns corrected local directions and a third-step centralized-iterate error, not exactness of the uncorrected round limit."
+        ],
+        "reasoning": "The distortion identity is genuinely equivalent as a method and must be credited. The inspected source does not resolve the global level sets of F_E or their high-epoch root.",
+        "searches": [
+          "Resultary semantic checks on all-centers cancellation, odd local epochs, two curvatures, scalar quadratic FedAvg and surrogate bias",
+          "Charles–Konečný, equations (6)–(8) and Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact records give Mime's first cubic defect, a capped SPS clipping formula, or a decreasing-step sign reshuffling trap. The first is a different update law, the second a stochastic stationary objective, and the third a different sign-dynamics algorithm."
+        ],
+        "reasoning": "No inspected exact formula or catalog finding supplies the complete stable-interval cancellation table or boundary law for plain local GD. The theorem depends continuously on the curvature ratio and is not a finite numerical table claim.",
+        "searches": [
+          "Resultary searches on parity-aware local rounds, exact tuning and curvature distortion; records 38a4345bc15c, 6e87af5006ee and 3787d399dabe"
+        ]
+      },
+      "rationale": "The affine map and surrogate curvature distortion are already known, and comparing all center coefficients is a direct application of that surrogate formula. The distinct result is the full parity/level-set classification on the individually stable interval, including the sharp curvature-ratio obstruction, unique tuning and the asymptotic. The strongest inspected surrogate theorem and neighboring records give no covering theorem for these claims.",
+      "residual_risks": [
+        "The source comparison is bounded. Equivalent specializations under different surrogate polynomial or root terminology may exist.",
+        "The known surrogate framework makes part of the reduction immediate; originality does not attach to that reduction itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the surrogate polynomial and potential optimizer shift; not the full stable-range phase diagram",
+          "evidence": [
+            "The surrogate client Hessian is Q_i A_i with Q_i a sum of powers of the one-step matrix. The scalar unregularized specialization gives h_i F_E(alpha*h_i)."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v130/charles21a/charles21a.pdf",
+          "material_read": "Page 4, equations (6)–(8) and Theorem 1, around extracted offsets 19500–25928",
+          "method": "Open primary PDF",
+          "title": "Convergence and Accuracy Trade-Offs in Federated Learning and Meta-Learning",
+          "trigger": "Exact client Hessian distortion for quadratic local updates"
+        },
+        {
+          "assessment": "Schedule and sufficient convergence bounds; different question",
+          "evidence": [
+            "Linear mean-square convergence to a neighborhood under assumptions and small-step conditions, not a characterization of exact optimizer preservation at oscillatory steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.02589v1",
+          "material_read": "PDF pp. 3 and 6, equations (7)–(9) and Theorem 1; offsets 19400 and 45700",
+          "method": "Open primary PDF",
+          "title": "MUSIC: Accelerated Convergence for Distributed Optimization With Inexact and Exact Methods",
+          "trigger": "Multiple local updates followed by averaging as a special case"
+        },
+        {
+          "assessment": "Statistical cancellation, not the arbitrary-center finite model",
+          "evidence": [
+            "Average drift at the optimum appears in the convergence bound and vanishes almost surely in the statistical large-client model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.04723v1",
+          "material_read": "PDF pp. 2 and 6–7, definition and quadratic model, offsets 7169, 24900 and 35000",
+          "method": "Open primary PDF",
+          "title": "On the Unreasonable Effectiveness of Federated Averaging with Heterogeneous Data",
+          "trigger": "Cancellation of client drift at the optimum for heterogeneous quadratics"
+        },
+        {
+          "assessment": "Surrogate existence, not its precise minimizer alignment",
+          "evidence": [
+            "For quadratic f, both the gradient and the one-step map are infinitely conservative."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v167/charles22a/charles22a.pdf",
+          "material_read": "PDF pp. 3–4, extracted offsets 8050 and 11100",
+          "method": "Open primary PDF",
+          "title": "Iterated Vector Fields and Conservatism, with Applications to Federated Learning",
+          "trigger": "Conservative iterated gradient fields and surrogate minima"
+        },
+        {
+          "assessment": "Neighboring but distinct corrected update",
+          "evidence": [
+            "One- and two-step equality with centralized GD, third-step discrepancy -eta^3 V_H c under Mime; not a statement about plain local GD's limiting fixed point."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-mime-s-first-quadratic-averaging-defect-appears-at-the-third-loc--38a4345bc15c/RESULT.md",
+          "material_read": "Finding and proof through offset 5200",
+          "method": "Local catalog mirror",
+          "title": "Mime's first quadratic averaging defect appears at the third local step",
+          "trigger": "Exact bias by local step count on heterogeneous quadratic clients"
+        },
+        {
+          "assessment": "Different algorithm and target",
+          "evidence": [
+            "Weights are clipped curvatures at a stochastic stationary mean, not an epoch polynomial under deterministic full averaging."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local catalog mirror",
+          "title": "Exact curvature-clipping phase diagram for capped SPS on scalar quadratics",
+          "trigger": "Exact scalar surrogate weights and mean target"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–34 and 74–125; Charles–Konečný, Theorem 1"
+      ],
+      "rationale": "The uniform-in-centers formulation isolates when an ordinary local update schedule does not distort the minimizer, rather than exploiting an accidental symmetric set of centers. The sharp obstruction at a curvature ratio of two, impossibility for three curvature levels, unique tunable exception and its precise stability-boundary approach answer a meaningful fixed-step question in an established scheme.",
+      "residual_risks": [
+        "Does not justify practical near-boundary tuning, vector/partial-mixing extensions, or robustness to stochastic gradients and finite precision."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

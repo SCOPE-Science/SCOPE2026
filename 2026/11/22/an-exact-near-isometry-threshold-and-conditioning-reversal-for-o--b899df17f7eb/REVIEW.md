@@ -1,12 +1,21 @@
-# Review of the one-collision unicyclic sketch-spectrum finding
+# Independent mathematical audit
 
-## Correctness — PASS
-For any unit-weight connected unicyclic incidence space, the circulation vector gives the projector \(P=I-cc^{\mathsf T}/\ell\). One collision changes the ambient sketch Gram by a difference of two orthogonal rank-one projectors; compression yields an exact two-root characteristic equation, with each of four sign/support cases checked. The kernel-intersection dimension argument excludes all multiple-collision events at distortion below one. Counting collision-free maps and unique cycle–bridge collisions proves the probability. The singular-value calculation establishes the strict reversal. The embedded verifier confirms 1,260 exact rational polynomial cases and exhaustive small signed-hash cases. Risks: incorrect whitening or extrapolation beyond distortion one would invalidate the claim; neither is done here.
+## correctness
 
-## Originality — PASS (qualified)
-The closest published item, *Exact signed CountSketch rank survival for weighted unicyclic incidence matrices* (2026), gives the rank-survival law and the circulation-hyperplane reduction for the same setting. Rank survival is expressly excluded from new contributions. Its complete inspected result and proof did not state the one-collision Gram spectral atoms, the exact squared-norm distortion distribution below one, or the conditioning-vs-distortion reversal. Clarkson–Woodruff (2012) and Hu et al. (2021) supply more general sparse embedding frameworks; neither inspected full-text treatment makes these exact finite unicyclic statements. A codimension-one sketch-frame result not found in the searches may still subsume them.
+PASS
 
-## Value — PASS
-The dimension-critical one-collision regime separates three commonly conflated diagnostics: full algebraic rank, subunit subspace norm distortion, and singular-value conditioning. The exact near-isometry success probability provides a closed benchmark at any \(n,\ell,m\); the strictly reversed rankings of two genuinely rank-preserving collision classes explain why maximizing one diagnostic can worsen another. This is structurally sharper than an isolated small example, while confined to a meaningful restricted graph family and not a general embedding theorem.
+For the oriented cycle vector c, UU^T=P=I-cc^T/ell. For a sole collision of e,f with sign product tau, set x=U^T e_e and y=U^T e_f. The Gram perturbation is tau(xy^T+yx^T), with two eigenvalues tau<x,y> +/- ||x||||y|| and n-3 zeros; x,y are independent since c has at least three nonzero coordinates. Here <x,y>=-c_e c_f/ell and ||x||^2=1-c_e^2/ell. This gives all four stated spectra, including both sign relations. For subunit tolerance only the collision-free and mixed cycle–bridge cases pass, the latter including equality at sqrt(1-1/ell). At most n-2 occupied buckets forces a nontrivial sketch kernel on the incidence hyperplane. The falling-factorial counts then apply also for m<n and ell=n. Taking square roots of the Gram ratios gives the stated reversal of singular-value condition numbers. A separate exact-rational program checked 20 pair/sign cases on a triangle with two bridges; its print banner incorrectly says 22, but its explicit class counts are 3+3+12+2. The same program counted 288 subunit successes at tolerance 9/10 and 432 rank successes among the 1296 configurations on a triangle with one pendant edge; that count uses the proved collision classes, not an independent solver for all Gram spectra.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact whitened Gram spectra, the strictly subunit probability law, and the opposite ranking of two successful collision types. Not a priority claim for the sketch construction, circulation hyperplane, or exact rank survival.
+
+## value
+
+PASS
+
+Exact preservation of metric information is an independent question once algebraic success is known. This gives the precise probability step and a structural example where minimizing squared-norm distortion chooses the worse-conditioned full-rank sketch. It separates metrics used for different numerical objectives on the same elementary graph and sketch, not just two definitions or a rank recount.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

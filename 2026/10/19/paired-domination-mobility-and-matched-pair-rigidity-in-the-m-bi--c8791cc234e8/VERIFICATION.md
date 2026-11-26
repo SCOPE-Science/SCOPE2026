@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The graph is \(\operatorname{GP}(8,3)\), with vertices and edges defined in `RESULT.md`. `verify_by_matchings.py` independently enumerates disjoint edge sets of cardinalities \(1\) through \(4\), tests dominating endpoint sets, constructs transition graphs and breadth-first distances, and writes `certificate.json` in deterministic JSON form. `verify_by_subsets.cpp` separately enumerates all qualifying vertex masks up to size \(8\), recursively verifies induced perfect matchings, then independently builds and measures all transition graphs.
+## correctness
 
-Both programs produced their embedded outputs exactly. They agree on \(0,0,0,684\) paired-dominating sets at even sizes \(2,4,6,8\), token-jumping edges \(3504\), unrestricted adjacent-pair substitutions \(2016\), and partner-preserving substitutions \(1392\). Both find an edgeless token-sliding graph, identify the \(54\) induced-\(4K_2\) pair-substitution isolates, and reproduce the stated components and distance profiles. Each program uses exhaustive finite checks; no stochastic inference or finite-to-infinite extrapolation is employed.
+PASS
 
-Re-run the commands in `RESULT.md` after extracting the six documents and supporting files into a single directory. `certificate.json` contains the complete enumerated edge and vertex lists; its byte-level regeneration and the two output replays are inspectable checks. Distances refer to graph metrics within nontrivial connected components, with certificate sentinel \(-1\) indicating isolated configurations. These checks are computational and self-reviewed; independent scientific validation has not been performed.
+Reconstructed GP(8,3) from the 24 stated edges. Each paired-dominating set must be balanced in the parity bipartition, so exhaustive enumeration need only examine t vertices from each side at size 2t. The independent enumeration tests closed-neighborhood coverage and all Hall inequalities; for t=1,2,3,4 it finds 0,0,0,684 sets. A slide crosses the bipartition and destroys balance. For the other moves I classified every unordered pair of optimum sets by its differences, applying Hall again on the common six vertices for partner preservation. Independent BFS reproduces all reported metrics: J has 3504 edges and eccentricities 6:216,7:432,8:36 on its sole component; E has 2016 edges, a 630-state component of eccentricity 6 and 54 isolates; Q has 1392 edges, the same 54 isolates, and components of orders 432,168,30 with eccentricity profiles (9:192,10:240), (9:96,10:72), (4:30). In each pair graph the isolate index set equals the set of optima inducing exactly four edges, hence 4K2 because a perfect matching exists. The certificate's graph, state list, three edge lists, eccentricity arrays and induced-edge counts agree exactly with the fresh computation. Partner preservation is an edge-wise existential condition on vertex sets, not a claim about lifting paths to a space with fixed matching labels.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the exact comparison of move spaces on the same minimum paired-dominating family, especially the induced-4K2 isolation criterion and the splitting under the existential shared-matching condition. The abstract balance obstruction to slides is elementary and not credited as an original claim. The strongest accessible matches concern different state sets or graph families; none supplies or makes routine the stated transition classification. This is a best-of-knowledge judgment, not a priority certificate.
+
+## value
+
+PASS
+
+The smallest paired-dominating states of this named symmetric cubic graph provide an exact comparison where changing the rule has distinct effects: all states communicate by individual jumps; adjacency-only slides disappear; adjacent pair replacement leaves exactly the induced-matching states frozen; preserving partnerships does not freeze new individual states but splits the mobile part into three. The same explicit benchmark and the isolate test are useful for distinguishing instantaneous matchability from retention of a partnership. The complete finite geometry is more informative than an isolated optimum number or an arbitrary metric from a census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

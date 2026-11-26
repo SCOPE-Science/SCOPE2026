@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:41:54.893851Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In area coordinates t=πr² the coherent-state density is a rank-one trace-class operator whose vector and derivatives in t have uniformly bounded Hilbert norms near s>0 (termwise differentiation of the factorially decaying monomial coordinates). Moving the upper limit gives trace-norm C⁴ and exact area preservation. The disc eigenvalues are strictly decreasing with gap b_N(s)>0 across the top block. Differentiating each simple eigenvalue twice gives A''_jj+2 Σ_{k≠j}|A'_jk|²/(λ_j−λ_k); the terms wholly in the block cancel in pairs. The diagonal first derivative vanishes and Σ_{j<N}b'_j=−b_{N−1}. The 1/2 from Taylor expansion cancels the factor 2 from real Parseval and the factor 2 in the off-block term, giving exactly L_{N,m}; the series is dominated since each summand is bounded by b_j. At m=1 only j=N−1 enters and the coefficient vanishes. At m=2, b_{j+2}/(b_{j+1}+b_{j+2})=s/(s+j+2), so the curvature reduces to b_{N−1}[1−(N−1)/(s+N)−s/(s+N+1)], including N=1 by omitting the zero term. Cos(2θ) gives Fourier weight 1/4 and rotation by π/2 makes the deficit even, proving the O(ε⁴) remainder. Fixed N,s,h and local only. RESULT.md §§1–5 provide the analytical replay; the two frozen scripts were inspected, not run, and their finite tests are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu's global inequality for all measurable sets gives maximality of the disk, not the exact Hessian.",
+          "Nicola–Riccardi–Tilli prove disk optimality within circularly symmetric sets in the cited theorem.",
+          "2026/11/2 record aaa08769b28c includes the all-rank formula and adds balanced-edge asymptotics."
+        ],
+        "reasoning": "Global comparison supplies a sign, and circularly symmetric competitors exclude general angular graphs. The later all-rank indexed result supplies the formula itself, not only a broader-looking setting.",
+        "searches": [
+          "Resultary: broader angular shape calculus and spectral localization",
+          "arXiv:2607.28376, Theorem 1",
+          "arXiv:2503.07069, Theorem 1.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.28376",
+        "arXiv:2503.07069",
+        "50f65f60373f",
+        "2c9ed3c69c1b",
+        "aaa08769b28c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Second-order necessary conditions at a maximum imply nonnegative deficit coefficients but give neither the mode-by-mode formula nor the strictly positive m=2 value.",
+          "The indexed all-rank finding explicitly gives both, including the same closed form for m=2."
+        ],
+        "reasoning": "Do not conflate an implication about signs with an equivalent coefficient computation. Exact same-scope catalog coverage, rather than sign implications of the literature, decides this axis.",
+        "searches": [
+          "arXiv:2607.28376, Theorem 1",
+          "arXiv:2503.07069, Theorem 1.5",
+          "2c9ed3c69c1b, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/25 record 2c9ed3c69c1b, Finding: κ_{N,m}=L_{N,m} with the same disc-area parameter and angular graph convention.",
+          "2026/10/18 record 50f65f60373f, Finding: its rank-one multiplier e^(−s)S_{m−1}/S_m is L_{1,m}, since L_{1,m}=b_0(1−b_m/Σ_{j=1}^m b_j)."
+        ],
+        "reasoning": "Changing the coefficient label or calling the perturbation an angular deformation does not change the theorem; the rank-one formulation alone does not cover N≥2.",
+        "searches": [
+          "Resultary: all-rank angular Fourier shape Hessian of Gaussian Fock Toeplitz Ky Fan concentration",
+          "Resultary: rank-one exact Fourier shape Hessian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two are distinct indexed records with an all-rank symbol matching the frozen formula; the third is an exact N=1 match only."
+        ],
+        "reasoning": "This is theorem-level exact database coverage. Catalog dates distinguish the entries but do not establish chronology of discovery or provenance.",
+        "searches": [
+          "Resultary record 2c9ed3c69c1b",
+          "Resultary record aaa08769b28c",
+          "Resultary record 50f65f60373f"
+        ]
+      },
+      "rationale": "Distinct indexed results state the same all-rank, mean-zero radial-graph Fourier Hessian, not just disk optimality or a similar rank-one calculation. The all-rank match includes the same coefficient with the same index range, translation zero and exact positive quadrupole. The matching catalog records are dated later than the assigned record; exact catalog coverage is established, but precedence, dependence and publication priority are not inferred. The failure is for a distinct uncatalogued scientific claim, not for incorrect mathematics or proof of prior authorship.",
+      "residual_risks": [
+        "Discovery and publication priority among catalog entries are not established by catalog dates.",
+        "The full rank-one stability article by Gómez–Guerra–Ramos–Tilli was not assessed; a targeted literature search did not resolve whether an earlier all-rank derivation exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial: global inequality, no exact Hessian in the cited theorem",
+          "evidence": "The statement maximizes the first N eigenvalue sum at a disk for fixed area and any N≥1.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.28376",
+          "material_read": "PDF p. 4, Theorem 1, text offset 9000",
+          "method": "Open-access text, bounded theorem passage",
+          "title": "The isoperimetric inequality for the Ky Fan norm",
+          "trigger": "Global disk maximality cited as closest prior theorem"
+        },
+        {
+          "assessment": "Does not cover the nonradial graph claim in the inspected passages",
+          "evidence": "The cited disk comparison restricts competitors to circularly symmetric sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.07069",
+          "material_read": "Abstract and p. 5, Theorem 1.5, offsets 538 and 15800",
+          "method": "Open-access text, bounded statement comparison",
+          "title": "The Faber–Krahn inequality for partial sums of eigenvalues of Toeplitz operators",
+          "trigger": "Closest circularly symmetric partial-sum theorem"
+        },
+        {
+          "assessment": "Equivalent at N=1 only; no priority inference",
+          "evidence": "Rank-one coefficient equals the specialization of L_{N,m}.",
+          "identifier_or_url": "2026/10/18/50f65f60373f",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and mirrored record text",
+          "title": "Exact Fourier shape Hessian and angular-frequency transition",
+          "trigger": "Same-day angular localization match"
+        },
+        {
+          "assessment": "Exact all-rank coverage as a distinct catalog record",
+          "evidence": "Every multiplier, including m=1 and the positive m=2 closed form, agrees.",
+          "identifier_or_url": "2026/10/25/2c9ed3c69c1b",
+          "material_read": "Finding and proof comparison",
+          "method": "Resultary lookup and mirrored record text",
+          "title": "Exact angular Hessian of Gaussian Ky Fan concentration around discs",
+          "trigger": "Strong all-rank indexed match"
+        },
+        {
+          "assessment": "Covers Hessian and extends it with asymptotics",
+          "evidence": "Restates the complete all-rank symbol, with additional balanced-edge behavior.",
+          "identifier_or_url": "2026/11/2/aaa08769b28c",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and mirrored record text",
+          "title": "All-rank Fock Ky Fan shape Hessians and their universal spectral asymptotics",
+          "trigger": "Second all-rank indexed match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Mode-resolved second variations of a natural spectral extremum give information not supplied by the value-only inequality. The exact quadrupole curvature separates translation from an actual shape deformation and provides a fixed-rank local stability benchmark. The contribution has mathematical value even though the assigned claim is catalog-covered.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:28:31.441100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Assumptions and scope, Proof, Verification",
+        "VERIFICATION.md; CHECK.py (inspected, not executed)",
+        "Independent transfer-matrix marginal computation and smaller-cycle argument in this review"
+      ],
+      "rationale": "Let P be the two-state matrix with diagonal q and off-diagonal r=1-q. Summing the periodic weights gives tr(P^n)=1+(2q-1)^n>0; overwriting reserve states leaves the original marginal law of all ordinary sites. For n=5 each ordinary site in the separated layout is adjacent to a reserve, so fair spin marginals give mean 7/2. For adjacent reserves the only functional site that can be stranded is the middle of the three ordinary sites, exactly at pattern 010. Summing over the two overwritten sites gives unnormalized weight r^2(P^3)_{00}=q r^2(4q^2-6q+3), strictly positive. Full access means all ordinary sites were functional. The adjacent and separated layouts have unnormalized weights q^2(P^3)_{11} and q((P^2)_{11})^2 from cyclic gaps (1,1,3) and (1,2,2). Their difference is q r^2(q^2-r^2)=q r^2(2q-1). This yields the exact probability gap, the equality case, and the reported example at q=3/4 without relying on the source enumeration. At n=4 every ordinary site is adjacent to some reserve for either layout, giving mean 3 by the fair marginals; at n=3 there is only one layout orbit. Strict placement claims are modulo dihedral symmetry.",
+      "residual_risks": [
+        "The minimality is only for two overwritten sites and these objectives in the stipulated simple-cycle model. It is not a general graph, conditional-intervention or ecological inference."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balanced refuges dominate every reachability upper tail for independent, identical survival on arbitrary cycles in the prior Resultary theorem. The correlated-fire primary paper has a different species-representation objective and stochastic spreading hazard. The cited USDA paper was inaccessible in the attempted public copies."
+        ],
+        "reasoning": "A larger parameter range under independence excludes the periodic interacting law except at q=1/2; a spatially correlated hazard model does not transfer the Ising marginals or objective by specialization in the inspected statements.",
+        "searches": [
+          "Resultary:6a11d899bd76 Finding and assumptions",
+          "doi:10.1371/journal.pone.0146023 model and correlated-risk example",
+          "Hof–Flather (1996), USDA Treesearch 23822"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:6a11d899bd76",
+        "doi:10.1371/journal.pone.0146023",
+        "Hof–Flather 1996 (citation only; OA retrieval unsuccessful)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent theorem applies to the fair independent specialization q=1/2 and already supports the reachability-tail spacing conclusion there. In that case full access has the same probability for every placement, because it is simply success at all ordinary sites. In the correlated fire example the mean is indifferent, unlike the strict separation preference in the submitted result."
+        ],
+        "reasoning": "Credit independent-case coverage and the qualitative correlated joint-success comparison; neither implies strict simultaneous disagreement of the two optimizers or the size-four exclusion under the periodic Ising law.",
+        "searches": [
+          "Resultary:6a11d899bd76 Finding and assumptions",
+          "doi:10.1371/journal.pone.0146023 p. 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic-refuge Finding compares reachability to mutual connectivity of protected sites; the current full-access event means all ordinary sites are functional, whether or not one calls the objective a connectivity event. The Albers example concerns joint species survival after fire spread rather than paths from forced functional sites."
+        ],
+        "reasoning": "Neither equivalent-sounding connectivity wording nor the shared preference for adjacency on a joint-success event identifies the underlying event, model, or mean ordering.",
+        "searches": [
+          "Resultary cyclic refuge and reachable habitat, 6a11d899bd76",
+          "doi:10.1371/journal.pone.0146023 pp. 3–5, 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct catalogue match is 6a11d899bd76, which has no periodic Ising crossover. Albers et al.'s worked adjacency/separation example has tied mean survival and greater probability of both species surviving under adjacency."
+        ],
+        "reasoning": "The identifiable example/table coverage is qualitatively related but does not tabulate the nonzero expectation gap, full-access reversal at q=1/2, or minimal n of this model. A later targeted catalogue lookup failed, which is not negative evidence.",
+        "searches": [
+          "Resultary for cyclic refuges with reachability and placement tradeoffs",
+          "doi:10.1371/journal.pone.0146023 p. 7 correlated-reserve example"
+        ]
+      },
+      "rationale": "The independent cycling-refuge theorem already covers spacing and accessible-habitat tails under independence, and Albers et al. already exhibit an adjacency advantage for joint success under a correlated risk model even with equal mean survival. Neither covers the strict mean-versus-full-access conflict, its exact sign boundary, and the minimal cycle size under the stated periodic Ising intervention. The pass is limited to that specific distinct mathematical claim.",
+      "residual_risks": [
+        "Closer overlap in Hof–Flather or unindexed finite-cycle reliability work was not excluded; unrelated web results and a failed catalogue query carry no negative evidentiary weight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Independent-case coverage; different second event",
+          "evidence": "Balanced layouts maximize upper tails of reachable habitat with independent survival; clustering favors mutual refuge connectivity.",
+          "identifier_or_url": "Resultary:2026/10/26/SCOPE-opposing-optimal-reserve-layouts-for-reachable-habitat-and-refug--6a11d899bd76",
+          "material_read": "Finding at offset 0; assumptions at offset 2074",
+          "method": "Local mirror text",
+          "title": "Opposing optimal reserve layouts for reachable habitat and refuge connectivity on a cyclic landscape",
+          "trigger": "Near-identical layout conflict and cyclic geometry"
+        },
+        {
+          "assessment": "Material qualitative antecedent, not the Ising-cycle theorem",
+          "evidence": "Under neighbor-spreading fire, adjacent reserves can maximize the chance both species survive with a tied mean; the hazard law and objective differ.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0146023",
+          "material_read": "Abstract p. 1; model pp. 3–5 at offsets 17555, 21560, 26460; example p. 7 at offsets 38200–41074",
+          "method": "Lawful publisher PDF text",
+          "title": "Spatially-Correlated Risk in Nature Reserve Site Selection",
+          "trigger": "Adjacent versus separated reserve outcomes under correlated risk"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence against coverage",
+          "evidence": "No statement-level conclusion from the inaccessible source.",
+          "identifier_or_url": "https://research.fs.usda.gov/download/treesearch/23822.pdf",
+          "material_read": "Bibliographic citation in RESULT.md; no primary passage retrieved",
+          "method": "Cited OA PDF and USDA record page both returned 403",
+          "title": "Accounting for connectivity and spatial correlation in the optimal placement of wildlife habitat",
+          "trigger": "Directly cited spatial correlation and connectivity study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and limitations",
+        "Independent marginal derivation in this review",
+        "Resultary:6a11d899bd76 and doi:10.1371/journal.pone.0146023 p. 7"
+      ],
+      "rationale": "The exact smallest witness shows that optimizing average accessibility can oppose maximizing full accessibility as soon as positive coupling is introduced, even though the independent full-access criterion is indifferent. The two objectives and the change of dependence regime are motivated by independent-cycle and correlated-reserve work. The exact sign change and exclusion of smaller cycles make this useful as a benchmark for placement rules, without pretending a five-site model calibrates a real reserve.",
+      "residual_risks": [
+        "No implication for arbitrary correlations, field-based design, or larger-cycle optimal layouts is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument determines the unique central socle \(C=\mathbf F_qE_{14}\) and proves every additive two-sided ideal either lies in \(C\) or contains \(C\); the quotient \(R/C\) has two-dimensional square-zero product image. Every quotient ideal is reconstructed as an additive graph over its projected subspace, with all two-sided closure constraints explicitly enumerated. Gaussian coefficients and graph-map counts give the all-prime-power polynomial. Two standalone checkers enumerate the actual ideals at prime-field orders \(2,3\) and at extension-field order \(4\), including direct closure tests and scalar-linearity comparison. Boundary cases \(m=1\), the zero ideal and whole ring are included. Finite checks alone would not prove the theorem; the argument does.
+PASS
 
-## Originality — PASS, with residual literature risk
+Reconstructed the all-field argument. With a,b,c,d,e,f the indicated matrix units, the nonzero products are ab=d, bc=e, ae=dc=f. For any ideal element with a coordinate outside F_q f, one of multiplication by e (on the right), by a and c (on opposite sides), by d (on the left), or by c or a when only d/e remain, isolates a nonzero multiple of f. Scaling the multiplier forces the whole annihilator C=F_q f. All subspaces of C are ideals and all ideals containing C lift from R/C, with C counted just once. In the quotient, T in W=F_q d+F_q e and the projection S into F_q a+F_q b+F_q c determine an ideal up to a linear graph map S→W/T over F_p. A nonzero a or b coordinate requires all of F_q d in T; b or c requires all of F_q e. These conditions are also sufficient. Thus S=0 gives G_{2m}, T=W and S≠0 gives z^{2m}(G_{3m}−1), and either proper T containing one forced line contributes Gaussian counts weighted by p^{(m−r)dim S}. This yields exactly the displayed polynomial, also for p=2 and m=1. Independent coefficient expansion gave [1,3,1,15,35,39,69,87,651,1395,651,63,1] over F4 and total 3011; repeating the one-coordinate count over F4 for scalar-linear ideals gives 59. The brace correspondence follows from lambda-stability giving left multiplication closure, with circle-normality then giving right closure, and conversely by the quotient map for a two-sided ideal.
 
-The closely matching Marberg study (arXiv:1005.4150) classifies supernormal groups and obtains a counting formula when the field order is prime; hence its prime-field case is prior art. The new claimed invariant is the complete prime-subfield-additive ideal-size polynomial over arbitrary extension fields, not the known scalar-linear or prime-field enumeration. The 2018 skew-brace study (arXiv:1804.04106) defines and examines the appropriate ideal notion but does not present this polynomial in its inspected main text. Semantic result-index searches for aliases, ordinary/Lie versus associative ideals, nonprime field cases and exact finite counts found no dominating statement. An unindexed equivalent formula remains a residual risk; unavailability of universal literature coverage is not asserted as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The natural notion of ring/brace ideal requires additive rather than full field-linearity, and extension fields create many non-scalar subgroups. The polynomial measures the complete size distribution uniformly for all field characteristics and degrees. Its first extension-field instance identifies a substantial difference—\(3011\) additive ideals versus \(59\) scalar-linear ideals over \(\mathbf F_4\)—and gives explicit sizes, useful for ideal-lattice, radical-brace and supernormal-subgroup comparisons. This is a complete intrinsic invariant rather than an arbitrary finite census.
+Credit the known prime-field classification and total. The supported distinct claim is the additive, prime-field-dimension-refined polynomial for extension fields, not a scalar-linear reformulation of the prime case. No inspected result gives or mechanically implies that extension-field polynomial.
 
-## Evidence and limitations
+## value
 
-The explicit four-case matrix multiplication, Gaussian subspace counts and graph-map multiplicities are self-contained in `RESULT.md`. Standalone programs `verify_gf4.py` and `verify_prime.py` reproduce the finite cases. Theorem does not count all group normal subgroups and does not extend to larger matrix sizes. The exact primary-literature dates are the initial arXiv posting of arXiv:1804.04106 (2018-04-11), and Marberg's arXiv:1005.4150 (2010).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete dimension classification for a natural smallest niltriangular example with nonzero triple products and a substantial distinction between additive and scalar-linear ideals. The classification supplies sizes and multiplicities for every extension degree, with a transparent count of the mixed lifts. The F4 contrast is a useful consequence, not the sole claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

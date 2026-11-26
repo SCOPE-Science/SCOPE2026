@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact probability formulas follow by normalizing i.i.d. atomless observations to independent uniforms, independent-block conditioning, and beta integrals. All boundary cases (including deterministic end indicators) are explicit. The strict positive overlapping-interval covariance is proved by a beta-maximum stochastic lower bound, and the diagonal negative covariance follows from stochastic dominance of a sample minimum. The full-rank conclusion is proved for every finite size by a positive-coefficient Hessenberg determinant recurrence. Exact exhaustive checks through seven observations corroborate these steps but are not the infinite proof.
+## correctness
 
-## Originality — PASS with residual uncertainty
-Position-indexed forward minima against reverse maxima were checked against the closest literature with the exact same pair of observables: Jin's full-text joint generating functions enumerate total left-to-right minima and right-to-left maxima, not the indexed cross-covariance and its rank. Gnedin's full 2006 preprint treats upper/lower records in a single forward scan. Gnedin and Gorin's 2012 work concerns forward record-set-based permutation measures. Published search hits and record-index bibliography were also checked; no accessible theorem was found which covers the strict four-region sign law together with a sign-nonsingular full-rank matrix. Older implicit position-marked results remain a priority risk; search failure is not proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-Two-sided extreme-record scans are natural distribution-free screening statistics. A complete, exact sign phase diagram and robust full-rank theorem identify directional dependence that total-count formulas obscure. Sign nonsingularity is stronger than numerical full rank, surviving all strict sign-preserving perturbations, and answers which linear combinations of record flags can be jointly uncorrelated. The finding is not an arbitrary finite parameter or a restatement of marginal record-indicator independence.
+Under the i.i.d. atomless assumption the ranks form a uniform permutation. For i<j the prefixes and suffixes used by the flags are disjoint. For i=j the joint probability is the beta integral, and the truncated pivot is strictly stochastically smaller than uniform if i>1, giving strict negative covariance if also i<n. The endpoint flags A_1 and B_n are constants. For i>j, after conditioning on A_i, the pivot M has Beta(1,i) law, and the j-through-(i-1) maximum is M+(1-M)Z with independent Z~Beta(i-j,1). Its argmax is uniform in that block and the n-i subsequent draws are independent. Thus the conditional probability of B_j is at least 1/(n-j), strictly above 1/(n-j+1), even when i=n; expansion and beta moments give exactly the displayed factorial sum. For the shifted matrix, deleting row k and column j in a leading k-minor leaves a block triangular minor with factors D_(j-1) and the superdiagonal h_(t,t+1), j<=t<k. Their signs cancel the cofactor sign, so every term in the last-row recurrence is positive, including the 1x1 case. This proves sign-nonsingularity, not just nonsingularity of one numerical matrix.
 
-## Closest literature and limitations
-Gnedin (2006), arXiv:math/0611538; Gnedin and Gorin (2012), arXiv:1202.3680; Jin (2022), arXiv:2210.08789. The 1995 Borovkov–Pfeifer paper was identifiable but its full text was not inspected. Some broader positional record enumerations might imply components of the theorem. Probabilistic independence and non-i.i.d./discrete regimes are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported addition is the complete position-indexed law for opposite scans of the same permutation, with the forced invertibility of its nonconstant cross-covariance pattern. The nearest prior generating function marks the correct two counts but cannot separate positional entries or certify the sign pattern; the nearest indexed catalogue finding uses a different pair of permutation statistics. The Hessenberg argument is standard and is not itself credited as new.
+
+## value
+
+PASS
+
+These are two classical and naturally paired record processes. Position indexing exposes a directional pattern of exact independence, negative shared-pivot dependence and positive separated-pivot overlap that joint counts suppress. The sign pattern rules out any nonzero linear contrast invisible to all reverse records and gives robustness without estimating determinant magnitudes. This is a useful finite-size dependence law, not just a single enumerated determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

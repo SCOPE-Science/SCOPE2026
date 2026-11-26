@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:00:20.283434Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof's distinct-side zero-set classification (RESULT.md line 37) is false and leaves out configurations needed for its compactness argument. For example, in the triangle with vertices (0,0),(1,0),(0,1), select (1/2,0) on the bottom edge and select (0,0),(1,0) on its two neighboring edges. This is a zero-area triple on three selected sides with no coincidence. Zero endpoint probability does not justify ignoring its neighborhoods in a sublevel-volume bound. The theorem itself is not contradicted. The atom follows from collinearity on a common supporting face, not from coincidences. The incident repeated-edge integral is exactly 2x log(1/x)+x^2 for x=2t/(ab sin theta) in (0,1); the assignment weight 3a^2b/L^3 gives the stated constant. Nonincident pairs have altitude bounded below. A valid repair of the distinct-side estimate would include both coincidence lines and the lines with the middle point on the supporting side and its endpoints occupied from the neighboring sides. On a coincidence line at V, the two incident-direction derivatives cannot both vanish since the third point is not V. On the omitted line, writing the middle point as (aw,0) on a side of length a, the inward arclength derivatives of signed doubled area at the other two points are a(1-w)E_y and aw F_y, with both inward heights E_y,F_y positive. Thus at least one derivative is nonzero everywhere on the compact zero set. A finite local cover and one-coordinate sublevel integration then give the O_K(t) needed by the theorem. The frozen checker was inspected, not executed; it only checks finite coefficient/atom normalization and cannot establish this bound. No corrected finding is submitted because the unchanged claim is covered in full.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 25 finding gives an entire normalized area law for an arbitrary triangle with weight q0=sum p_i^3 and repeated-side weight q1=3 sum p_i^2(1-p_i); the repeated component has CDF x^2-2x log x.",
+          "The November 22 finding adds a sharp normalized coefficient inequality and a marked conditional limit beyond the overlap for m>=4.",
+          "Reitzner–Schütt–Werner address expected face counts and expected missing volume as sample size grows."
+        ],
+        "reasoning": "The first two findings dominate the two complementary polygon classes. General random-polytope expectation theorems alone would not imply this fixed-three-sample distribution.",
+        "searches": [
+          "Resultary: full shape-dependent triangle boundary area distribution and fixed-polygon small-area law",
+          "2026/10/25 ...b972c9513f97 Finding and component CDF",
+          "arXiv:1911.05917 Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and the matched October 25 and November 22 mirrored findings",
+        "arXiv:1804.11007v1",
+        "arXiv:1911.05917"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maesumi's one-per-side law has small normalized-area tail O(x^2 log(1/x)), and omits both repeated-side components and the atom.",
+          "The October 25 mixture includes the one-per-side law and an exact repeated-side CDF, so its positive-area asymptotic has leading coefficient 2q1 in threshold x=t/|K|."
+        ],
+        "reasoning": "For triangles, sin(theta_i)=2|K|/(ell_(i-1)ell_i), so C_K|K|=6 sum_i p_i^2(1-p_i)=2q1. Using t/|K| instead of t/L^2 only changes the O_K(t) term. With the November record's exact m>=4 statement, no regime of the stated law is left uncovered. The 2018 one-per-side result alone does not imply the repeated-side law.",
+        "searches": [
+          "Maesumi arXiv:1804.11007v1 §4 eq. (8)",
+          "Mirrored triangle CDF and polygon theorem in the two catalogue findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 22 finding assumes the same independent normalized-Euclidean-arclength sampling and fixed genuine polygon for m>=4. It states sum (ell_i/P)^3 for the atom and (12/P) sum (ell_(i-1)+ell_i)/sin alpha_i times s log(1/s)+O_K(s) for s=A-threshold/P^2."
+        ],
+        "reasoning": "Set s=t/P^2 and P=L. This gives exactly the frozen coefficient, logarithm, remainder and atom for m>=4. The comparison is to a distinct record, not a match of the assignment to itself.",
+        "searches": [
+          "Resultary: small positive areas for three arclength-uniform boundary points on convex polygons; collinear atom and logarithmic corner coefficient",
+          "2026/11/22 ...6a7df9f0eb62 original Finding, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue claims include the explicit same polygon coefficient for m>=4 and a symbolic CDF for the m=3 area distribution, not just numerical examples."
+        ],
+        "reasoning": "There is no finite table needed; the exact catalogue formulas furnish direct coverage after dimensional normalization and, for triangles, extraction of the small-area term.",
+        "searches": [
+          "Local Resultary catalogue search for the exact atom and tail",
+          "Mirrored RESULT.md Findings of ...6a7df9f0eb62 and ...b972c9513f97, offset 0"
+        ]
+      },
+      "rationale": "Two distinct indexed findings together cover the entire frozen claim: the November 22 general-polygon record states exactly the atom and small-area law for m>=4, and the October 25 complete boundary-triangle law implies the case m=3. This is demonstrated statement coverage, not a claim about who was first: both catalogue paths are dated later than the frozen assignment path, and neither date ordering nor the mathematical match establishes derivation or historical priority. The narrower 2018 OA paper alone would not justify this failure.",
+      "residual_risks": [
+        "Catalogue statement coverage is established; historical priority and direction of derivation remain undetermined.",
+        "The bounded primary-literature query was uninformative; no claim is made that these are the earliest equivalent formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent atom and tail on m>=4, plus stronger additional claims",
+          "evidence": [
+            "Same sampling and angle hypotheses; C(K)=12/P sum (ell_(i-1)+ell_i)/sin alpha_i in squared-perimeter units."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-universal-logarithmic-small-area-law-for-polygon-boundary-tria--6a7df9f0eb62/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0, plus triangle exclusion comparison around offset 8556",
+          "method": "Local Resultary and mirrored original statement, with explicit rescaling",
+          "title": "A universal logarithmic small-area law for polygon-boundary triangles",
+          "trigger": "Matching polygon area asymptotic for m>=4"
+        },
+        {
+          "assessment": "Stronger result implies the triangle specialization",
+          "evidence": [
+            "q0=sum p_i^3; repeated-side weight q1=3e2-9e3 and CDF x^2-2x log x; remaining component is the one-per-side area."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-area-law-ordering-and-shape-reconstruction-for-triangles-s--b972c9513f97/RESULT.md",
+          "material_read": "Finding and proof of component CDFs, offsets 0–4812",
+          "method": "Local Resultary and mirrored original statement, extracting and matching asymptotic",
+          "title": "Sharp area-law ordering and shape reconstruction for triangles sampled by boundary arclength",
+          "trigger": "Complete law of the same perimeter-sampled area on triangles"
+        },
+        {
+          "assessment": "Covers only one point per distinct side",
+          "evidence": [
+            "Normalized CDF is 3x^2 log(1/x)+(9/2)x^2+O(x^3 log(1/x)) as x tends to zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1804.11007v1",
+          "material_read": "Sampling model and §4 equation (8), offsets 0 and about 10800",
+          "method": "OA HTML statement and CDF expansion",
+          "title": "Triangle Inscribed-Triangle Picking",
+          "trigger": "Earlier exact area CDF on a triangle boundary"
+        },
+        {
+          "assessment": "Different observable and asymptotic parameter",
+          "evidence": [
+            "Expected face counts and expected missed volume as N increases, not an area lower tail at fixed N=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Introduction and Theorems 1.1–1.2 around OA offset 7900",
+          "method": "OA text, comparison of observables and quantifiers",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Same boundary sampling in a broader random-polytope model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The theorem itself is mathematically meaningful: it separates a collinearity atom from an angle-dependent logarithmic cusp in a natural geometric sampling law. An independently useful shape or conditional-limit refinement would be a different claim; no such refinement is contained in the frozen record. This intrinsic value does not cure the proof defect or the demonstrated coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

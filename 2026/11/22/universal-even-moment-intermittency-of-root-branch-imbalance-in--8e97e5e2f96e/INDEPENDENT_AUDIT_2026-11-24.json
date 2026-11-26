@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:05.167646Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The process is nonexplosive: the root rings finitely often on each finite interval, and growth between rings is Yule. Polynomial moments and the generator identities are justified by localization using the bound G(1+S^k) ≤ const_k(1+S^k) in each order and a higher moment for uniform integrability. The total-mass generator has diagonal λ_r=r+2^r−1, strictly larger than every lower-order diagonal; its lower coefficients are nonnegative, giving a finite positive leading coefficient. At a root ring the common daughter size is S_{s−}+1. The frozen last-ring identity uses Poisson intensity at s and the independent future no-ring event; the pre-event size has the unconditioned law at deterministic s by the Poisson compensator, not by independence of total size from past rings. The centered Yule family expansion has pairing coefficient (2r−1)!![2e^u(e^u−1)]^r, with uniform error of order (1+N^(r−1))e^(2ru). The no-ring and error exponents are strictly smaller even at r=1. Substitution e^(−u) gives the displayed beta integral. As another check, in the generator grading w=a+m of S^a Δ^(2m), the band w=r for m≥1 has diagonal r+m−1 and coupling binom(2m,2) to m−1; all other terms have lower weight. The normalized leading coefficient is therefore the product of binom(2m,2)/(2^r−m) for m=1,…,r, agreeing with the beta formula. The low-order generator yields E[S]=3e^(2t)−1, E[S²]=12e^(5t)−9e^(2t)+1, C_3=264/5, and E[Δ²]=3e^(2t)−4e^t+1; these and the ratios give the other stated examples.",
+      "replay": "python3 /tmp/opencode/frozen_review_1_5.py (independently written; exact top-weight coefficient checks for r=1,…,10). The frozen verify_moments.py was inspected but not executed; its recorded 284 assertions are for finite cases through r=6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper covers the root clock and Yule embedding; the indexed Oct. 18 weak-limit result gives a law and moments for normalized total size at growth steps."
+        ],
+        "reasoning": "Neither controls the mixed daughter moments nor the time since the last common reset under annealed moment weighting. Knowledge of total size alone cannot recover the antisymmetric moments.",
+        "searches": [
+          "arXiv:2501.18466, Proposition 1.1, Remark 1.2 and §4.3",
+          "Resultary: root-doubling recursive tree weak limit and explicit moments"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2501.18466",
+        "Resultary 8e97e5e2f96e (same record), 4e2a44bfd188, 44066511e588, ce3de3d99038"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known model inputs specify independent post-ring Yule evolution but not the exponentially time-weighted pairing coefficient or the top-weight mixed-moment generator closure."
+        ],
+        "reasoning": "The total-mass exponent itself is readily obtained from the known generator. What is not supplied by the compared results is the matching imbalance exponent and positive explicit relative coefficient at every fixed order; this requires control of the post-reset difference, for example via the weighted moment band verified here.",
+        "searches": [
+          "arXiv:2501.18466 §4.3, Poisson clock and Yule growth",
+          "Resultary entry 4e2a44bfd188, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's B_n/n is total non-root size at discrete events. Its almost-sure log N(t)/t limit is 1+log 2, not an exponent of expectations or a difference statistic.",
+          "The Nov. 8 indexed imbalance is 2L_t−N_t (leaves versus nonleaves), not X_t−Y_t (two entire daughter branches)."
+        ],
+        "reasoning": "Changing normalization or replacing the discrete index by physical time does not turn a total-size or leaf-count law into a moment comparison of the two daughter masses.",
+        "searches": [
+          "Resultary: root-doubling tree, daughter-subtree imbalance and moment exponent",
+          "arXiv:2501.18466, Introduction and §4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed entry 8e97e5e2f96e is the assigned record itself. Distinct same-day entry ce3de3d99038 studies binary weak-composition terminal chunks. The nearest distinct root-doubling entries are 4e2a44bfd188 and 44066511e588."
+        ],
+        "reasoning": "None of the distinct entries tabulates or derives the same fixed-order daughter moment constants; the identical indexed record supplies no independent evidence of prior coverage.",
+        "searches": [
+          "Resultary: root branch imbalance; beta ratio and r+2^r−1",
+          "Resultary: balanced terminal size contrast"
+        ]
+      },
+      "rationale": "The supported distinction is the fixed-order whole-daughter difference moment relative to total-mass moments, in continuous physical time. Neither the primary model paper's normalized total-size results nor the nearest indexed leaf-imbalance transform gives this ratio or its annealed daughter-moment exponent. No independent equivalent statement was identified in the bounded comparisons.",
+      "residual_risks": [
+        "Bounded search; a general branching-with-reset moment theorem in other terminology was not ruled out. No claim of historical priority or of a typical-path or limiting distribution result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the model and covers total-size and pathwise growth, not the claimed imbalance moment comparison in the inspected sections.",
+          "evidence": "Normalized total non-root size B_n/n; log N(t)∼(1+log 2)t; independent root clock and Yule growth.",
+          "identifier_or_url": "https://arxiv.org/html/2501.18466",
+          "material_read": "Introduction, Proposition 1.1 and Remark 1.2 (HTML text offsets 0–6984); §4.3 clock/growth passage (offsets 86500–91500)",
+          "method": "OA primary HTML, bounded text comparison",
+          "title": "A random recursive tree model with doubling events",
+          "trigger": "Original model and strongest candidate for total-size and growth overlap"
+        },
+        {
+          "assessment": "Same root-doubling model but different observable and result.",
+          "evidence": "I_t=2L_t−N_t, a root-count tilted transform and a variance asymptotic.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-poisson-tilted-leaf-imbalance-in-a-random-tree-with-root-d--4e2a44bfd188",
+          "material_read": "Finding",
+          "method": "Resultary and mirror text",
+          "title": "Exact Poisson-tilted leaf imbalance in a random tree with root doubling",
+          "trigger": "Closest distinct imbalance match"
+        },
+        {
+          "assessment": "Concerns a normalized total-size law, not the two daughter branches.",
+          "evidence": "Weak limit and moments of B_n/n.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-weak-limit-for-the-root-doubling-recursive-tree-via-a-contract--44066511e588",
+          "material_read": "Finding",
+          "method": "Resultary and mirror text",
+          "title": "A weak limit for the root-doubling recursive tree via a contraction",
+          "trigger": "Potential stronger total-size distribution result"
+        },
+        {
+          "assessment": "Different random tree and contrast.",
+          "evidence": "Terminal chunk counts in a binary uniform weak-composition tree.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-balanced-terminal-size-contrast-removes-logarithmic-variance-i--ce3de3d99038",
+          "material_read": "Finding",
+          "method": "Resultary and mirror text",
+          "title": "A balanced terminal-size contrast removes logarithmic variance",
+          "trigger": "Distinct same-day balance hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The whole-branch difference is a natural contrast erased exactly at each root duplication. Its growth despite those repeated equalizations distinguishes typical symmetry from annealed high-order behavior. The explicit ratio to total-size moments gives a useful benchmark beyond total-size growth and variance alone: the exponents are shared while the constants differ strongly across moment orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

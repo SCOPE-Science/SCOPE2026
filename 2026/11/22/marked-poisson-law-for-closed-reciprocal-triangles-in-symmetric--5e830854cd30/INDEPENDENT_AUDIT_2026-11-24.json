@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:38:55.774619Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The probability-integral transform yields iid uniform edge weights and preserves the finite rankings almost surely even for a continuous CDF with flat intervals. With internal order statistics a≤b≤c on [0,1], the endpoints of c have threshold c and the third vertex has threshold b. All 3(n−3) outside edges are distinct, so the closure probability conditional on the internal weights is (1−b)^(n−3)(1−c)^(2n−6). Multiplying the integral by 6 and integrating first over a and then c gives 6/(2n−5) times ∫_0^1 b(1−b)^(3n−8) db, hence the stated finite mean after multiplication by binom(n,3). It gives 1 at n=3 and 4/15 at n=4. Distinct triples sharing a vertex cannot both be closed by outdegree two. For r disjoint ordered triples, edges to the n−3r outside vertices impose their own single-endpoint thresholds, and the finitely many edges between selected triangles impose maxima of two thresholds, each such edge counted just once. Under the scale n, the latter factors tend to one for any assignment of the sorted marks to the three edges. The former tend jointly to the product of exp(−b−2c). The number (n)_{3r}/6^r of tuples cancels the sorted density 6^r/n^(3r) in the limit. For n≥6r, domination by exp(−sum(b+2c)/2) on the product of ordered cones controls all fixed factorial integrals; in particular the first moment gives tail tightness for the whole finite measure. Joint factorial moments of continuity-set counts identify the Poisson law, and the bounded first moments and tight marks yield the finite point-process convergence. The intensity integrates to (1/2)∫_0^∞ b exp(−3b) db=1/18. Its mass for c≤t has derivative exp(−2t)−(t+1)exp(−3t) and value zero at t=0, matching the stated formula. The frozen VERIFICATION.md and CHECKER.py were inspected, not executed; the source's finite n=4 computation does not establish the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-date four-cycle-variance result concerns mutual minima of an edge at its two endpoints and their covariances on triangle-free regular graphs.",
+          "Ball's strict reciprocal graph comes from a spatial Poisson point process with distance-dependent geometric weights and addresses connectivity thresholds."
+        ],
+        "reasoning": "Mutual first-choice pairs in a triangle-free host cannot specialize to a three-vertex sink of the symmetric top-two complete-graph experiment. Geometric reciprocity likewise does not give independent transformed edge weights. Neither inspected statement includes the supported profile law.",
+        "searches": [
+          "Resultary: rare motifs in symmetric rank-choice models and sorted edge profiles",
+          "Ball arXiv:1406.0716v1",
+          "Resultary 463d6459f20a, reciprocal nearest-neighbor edge indicators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "Resultary 5e830854cd30 (same finding) and 463d6459f20a (distinct)",
+        "Cooper–Frieze abstract and CMU preprint opening",
+        "Ball arXiv:1406.0716v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The green-edge graph includes choices by either endpoint. The isolated-component event therefore has incoming-edge restrictions in addition to all requirements of directed closure.",
+          "The nearest inspected separate records concern other observables; no inspected result states the conditional law of sorted internal edges for all closed triples."
+        ],
+        "reasoning": "An isolated-triangle intensity integrates a stricter event; using it to recover the closure law would require an independent step removing the incoming constraint at the conditional level. The published abstract and inspected opening do not do this. The proof of the present statement also needs the multi-triple limit and global mark tail bound, not just a one-triple weight integral. A stronger result in the unread derivation remains possible.",
+        "searches": [
+          "Cooper–Frieze preprint and publisher abstract; triangle, isolated component and triangle intensity",
+          "Resultary: internal-edge mark process for top-two closed directed motifs",
+          "Ball, definitions and connectivity statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected opening uses the same iid symmetric edge lengths and the union of edges that some endpoint places in its k shortest incident edges.",
+          "The exact closed-triple catalogue hit is the assigned record itself, not an independent record."
+        ],
+        "reasoning": "For k=2, a directed closed triple is an absorbing triangle, not necessarily an isolated triangle in the union graph. At n=4 an outside vertex necessarily chooses two of the three triangle vertices, so a closed triple can occur but an isolated triangle in that graph is impossible. Thus substituting k=2 into an isolated-component law is not an alias for this finding.",
+        "searches": [
+          "Resultary: directed closed reciprocal triangles; exact sink-triple expectation; isolation versus closure",
+          "Cooper–Frieze DOI 10.1017/S0963548300001711 and CMU preprint opening"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's exact rational-mean hit is the assigned record, not a distinct source for the same formula.",
+          "The closest classical count comparison concerns isolated components rather than all incoming-allowed closed triples; its detailed triangle integral was not legibly retrieved."
+        ],
+        "reasoning": "A finite invariant lookup would have to concern directed closure under symmetric edge rankings, not an undirected component count. Even a finite n count match would not establish the all-n mean and marked scaling law. The unread component derivation leaves a risk for the finite formula, not evidence that it is or is not present.",
+        "searches": [
+          "Resultary: exact mean for incoming-allowed closed triangles in symmetric two-nearest-neighbor networks",
+          "Cooper–Frieze: triangle and component passages, DOI and CMU preprint"
+        ]
+      },
+      "rationale": "The closest primary model match is Cooper–Frieze's symmetric random k-nearest-neighbor graph. The stated distinction between directed closure and undirected isolation is mathematical, not terminological: the latter adds the requirement that no outside vertex point into the triangle. The supported finding counts all directed closed triples including incoming arcs, and gives their full quantile-edge law. The original paper's exact isolation calculation was not recovered legibly; I do not exclude overlap with an ancillary calculation and do not rely on the isolation intensity quoted by the frozen record. The distinct same-date reciprocal-nearest-neighbor result has a different outdegree and concerns edge indicators and a variance, not closed directed triangle profiles.",
+      "residual_risks": [
+        "Cooper–Frieze's primary triangle derivation was not recovered in a readable form; an intermediate unconditioned closure calculation or stronger ancillary statement cannot be excluded.",
+        "Bounded catalogue and primary-source comparisons do not exclude an unlocated theorem on symmetric rank-choice motifs; the identical catalogue entry is not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definite base-model overlap and event distinction; exact extent of component-calculation overlap unresolved",
+          "evidence": "The opening colors the k shortest edges incident to each vertex green and defines a graph of those green edges. That convention imposes absence of both incoming and outgoing cross choices for an isolated component. The frozen record's numerical isolated-triangle intensity was not independently verified.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548300001711; https://www.math.cmu.edu/~af1p/Texfiles/ok.pdf",
+          "material_read": "Publisher abstract and identifiable wording from the opening of the CMU preprint on the complete graph and the union of green edges; no legible triangle derivation",
+          "method": "Publisher abstract and lawful OA preprint; literal passage searches and limited recovery of font-encoded text; identified public alternatives did not supply a readable triangle passage",
+          "title": "On the connectivity of random k-th nearest neighbour graphs",
+          "trigger": "Same symmetric weight model, top-k choices, and potentially overlapping triangle calculation"
+        },
+        {
+          "assessment": "Different choice rank, host and statistic",
+          "evidence": "Studies edges that minimize weight at both endpoints, covariances and a four-cycle variance on triangle-free regular graphs, rather than symmetric top-two directed sink triples.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-four-cycle-variance-law-for-reciprocal-nearest-neighbor-edges--463d6459f20a",
+          "material_read": "Mirrored RESULT.md opening finding, offset 0",
+          "method": "Local Resultary search and bounded mirror inspection",
+          "title": "A four-cycle variance law for reciprocal nearest-neighbor edges",
+          "trigger": "Distinct same-date result on reciprocal choices in a symmetric weighted host"
+        },
+        {
+          "assessment": "Different geometric model and main event",
+          "evidence": "Points form a spatial Poisson process in a square; mutual k-nearest adjacencies are studied in relation to connectivity, not an independent-edge marked sink-triple law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1406.0716v1",
+          "material_read": "PDF pp. 1–2, offsets 0, 2375, 5996; model, reciprocity definition and connectivity scope",
+          "method": "OA primary PDF, targeted passages",
+          "title": "A strict undirected model for the k-nearest neighbour graph",
+          "trigger": "Reciprocal k-nearest-neighbor conventions and possible motif coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Directed sink triples are a natural minimal closed motif at outdegree two, including those hidden by an undirected isolation requirement. The quantile-weight profile quantifies their occurrence at every maximum-edge threshold, and the disjointness and joint Poisson law describe the population beyond a finite expectation or a single boundary check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

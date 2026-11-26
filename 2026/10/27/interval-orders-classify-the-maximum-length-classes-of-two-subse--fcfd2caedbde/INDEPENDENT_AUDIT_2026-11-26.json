@@ -1,0 +1,193 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:19:00.868432Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Retaining each letter's first and last positions preserves singletons, diagonal pairs, and every distinct pair ab because ab is present exactly when first(a)<last(b). The resulting word has length at most 2q, with equality in the minimum precisely when all aa are present. Minimum representatives then have exactly two occurrences per letter; arbitrary representatives need only have at least two. Among these classes the only variable observations are ordered pairs of distinct letters, with ab missing exactly when last(b)<first(a). This identifies the observation set with the reversed complement of the strict interval order on distinct letters and proves both injectivity and reversal of inclusion. For surjectivity the strict predecessor sets in a (2+2)-free poset are nested: incomparable sets would supply a predecessor of each upper vertex missing below the other, giving an induced (2+2). For an element x let i be its predecessor-set index and j the first index of a set containing x, or one past the end. Then j>i and the interval [2i,2j−1] has the right strict comparisons; perturb ties within endpoint type without crossing an endpoint of the other type and read the endpoints in order. This yields the desired doubled word. Renaming commutes with the bijection; q=1 yields one deepest class, represented by aa. The independent endpoint enumeration gives 1,3,19,207,3451 signature/order classes through q=5; replay: python3 /workspace/branches/44766552-aa02-4b69-ae48-315dc237b573/independent_endpoint_check.py. This is not a reproduction of the frozen verifier's all-signature traversal. The denominators 152 and 2326 are from Table B.1 of arXiv:1310.1278; the labelled Brightwell–Keller asymptotic on p. 2 has 12√3/π^(5/2), (q!)²√q, exponential base 6/π² and relative error O(1/q), as stated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The binary Simon-congruence characterization and the earlier exact ternary longest-minimum result cover different or narrower parameters: binary alphabets, or three letters at subsequence bound four. The general shortlex algorithm computes a representative of a class supplied by a word."
+        ],
+        "reasoning": "The general algorithm does not give a classification of the classes with maximum minimum length or a correspondence of the complete layer with interval orders. The binary theorem covers the binary data but does not extend its statement to arbitrary q. The ternary depth-four theorem does not imply the depth-two statement.",
+        "searches": [
+          "Simon two-subsequence equivalence maximum length shortest representative all letters doubled interval order (Resultary)",
+          "arXiv:2306.14192, Theorems 23 and 25",
+          "DOI 10.4230/LIPIcs.MFCS.2018.62, shortest-representative algorithm",
+          "Resultary de813ccb624e, Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.1278",
+        "arXiv:2306.14192",
+        "10.4230/LIPIcs.MFCS.2018.62",
+        "arXiv:1111.6766",
+        "arXiv:2608.22125",
+        "OEIS A079144",
+        "Resultary 176c90a6c83d",
+        "Resultary de813ccb624e",
+        "Resultary 4000b9c33a86",
+        "Normal_form.pdf (attempted; full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brightwell–Keller give the labelled asymptotic directly; Claesson gives the interval-order series without a Simon-congruence layer in the inspected passage. Earlier binary classification implies the three signatures at q=2. The nominally relevant normal-form paper was not recovered."
+        ],
+        "reasoning": "The asymptotic and numerical assertions follow from existing interval-order results once the canonical correspondence is proved. The inspected statements do not supply the all-alphabet extremal criterion together with that correspondence and its order structure. Earlier normal forms could conceivably make more of this implication explicit; no assessment of the inaccessible paper's whole scope is made.",
+        "searches": [
+          "maximum shortest words for Simon's congruence two letters repeated twice interval orders observation signature (Resultary)",
+          "arXiv:1111.6766, labelled main result",
+          "arXiv:2608.22125, introduction and equation (2)",
+          "Normal form for the words under Simon’s congruence (full-text retrieval attempts)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Claesson reviews the interval and (2+2)-free formulations and enumerates the labelled species. The later Resultary rank-two FO record uses pointed letter profiles. The earlier binary fixed-content record classifies the words with two 1s and a prescribed zero count."
+        ],
+        "reasoning": "A missing distinct-letter pair encodes endpoint separation in the opposite direction; known interval-order definitions alone do not identify which Simon classes form this layer. Full FO rank two is different: aa and aaa have the same two-subsequence signature but a different pointed-profile signature. The fixed-content binary result is an exact match on the binary deepest layer only.",
+        "searches": [
+          "Simon rank 2 congruence classes all letters occur twice interval orders maximum minimum representative length (Resultary)",
+          "\"Simon congruence\" interval orders classes length 2-subsequence doubled letters (each letter occurs twice) maximum shortest representative; prior characterization enumeration",
+          "arXiv:2608.22125, introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table B.1 gives 16,152,2326 as total depth-two indices for 2,3,4 letters. A079144 is exactly the number of labelled interval orders; its offset-zero terms begin 1,1,3,19,207,3451. The fixed-content binary record at two zeros and two ones gives the three binary deepest classes."
+        ],
+        "reasoning": "Existing enumeration already supplies the interval-order counts and the binary deepest-layer count. The total-index table is not stratified by minimum representative length. The new content under review is why the entire extremal Simon stratum realizes the known sequence, not a new sequence or new asymptotic theorem for posets.",
+        "searches": [
+          "Karandikar–Kufleitner–Schnoebelen arXiv:1310.1278, Table B.1",
+          "OEIS A079144, title, terms and offset",
+          "Resultary 176c90a6c83d, depth-two fixed-content counts"
+        ]
+      },
+      "rationale": "The supported distinct result is the canonical all-alphabet identification of the deepest two-subsequence layer with labelled interval orders, including reverse inclusion and behavior under renaming. The interval-order characterization, exact counts and asymptotic are existing results transported by that identification; the binary layer is also covered by a prior special case. No absolute priority is asserted.",
+      "residual_risks": [
+        "The normal-form paper could not be checked from a lawful working copy. Earlier normal-form or interval-encoding results under different terminology may make part or all of the correspondence explicit; this is a best-of-knowledge judgment on the inspected statements, not historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts all classes, not the maximum-minimum-length stratum",
+          "evidence": [
+            "The parameter C_k(n) records the total number of depth-n classes on k letters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.1278",
+          "material_read": "Introduction p. 1 and Appendix B, Table B.1, p. 6 (OA offset 37800)",
+          "method": "OA PDF passage inspection",
+          "title": "On the index of Simon’s congruence for piecewise testability",
+          "trigger": "Exact count table for the same equivalence"
+        },
+        {
+          "assessment": "Binary classification and count, not an all-alphabet layer theorem",
+          "evidence": [
+            "The full characterization is for the binary case; the abstract identifies ternary results as partial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.14192",
+          "material_read": "Abstract p. 1; Theorems 23 and 25, pp. 10–11",
+          "method": "OA PDF passage inspection",
+          "title": "Alpha-beta Factorization and the Binary Case of Simon’s Congruence",
+          "trigger": "Potential exact structural characterization on small alphabets"
+        },
+        {
+          "assessment": "General algorithm for an individual representative",
+          "evidence": [
+            "It constructs a shortlex representative from a given word rather than identifying a bijection of the extremal classes across all words."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2018.62",
+          "material_read": "Abstract p. 1 and shortlex passage p. 3",
+          "method": "OA PDF passage inspection",
+          "title": "Testing Simon’s congruence",
+          "trigger": "General shortest-representative result with potential stronger coverage"
+        },
+        {
+          "assessment": "Exact coverage of the labelled-poset asymptotic; not a Simon classification",
+          "evidence": [
+            "The leading constant for labelled interval orders is 12√3/π^(5/2); the nearby rigid-order formula has a different constant and does not apply here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.6766",
+          "material_read": "PDF p. 2, OA offsets 5900–7655, labelled main statement and distinct rigid-order theorem",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotic Enumeration of Labelled Interval Orders",
+          "trigger": "Exact normalization of the transferred growth law"
+        },
+        {
+          "assessment": "Known interval-order structure and enumeration",
+          "evidence": [
+            "The introduction gives Fishburn's (2+2)-free characterization and separates the labelled series from the unlabelled one; the labelled coefficients are A079144."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.22125",
+          "material_read": "Introduction, OA offsets 2930–5248, definition and equations (1)–(2)",
+          "method": "OA PDF passage inspection",
+          "title": "The species of interval orders",
+          "trigger": "Earlier structural interval-order enumeration and potential equivalent encoding"
+        },
+        {
+          "assessment": "Exact database coverage of values as poset counts",
+          "evidence": [
+            "The first value is at n=0; the values for n=1 through 5 are 1,3,19,207,3451."
+          ],
+          "identifier_or_url": "https://oeis.org/A079144",
+          "material_read": "Heading, list of terms and offset (offsets 360–1142)",
+          "method": "OA webpage inspection",
+          "title": "Number of labeled interval orders on n elements: (2+2)-free posets",
+          "trigger": "Exact count sequence cited by the frozen record"
+        },
+        {
+          "assessment": "Exact binary specialization of the layer count",
+          "evidence": [
+            "At depth two there are three classes for any positive number of zeroes and exactly two ones; with two zeroes, the six input words are exactly the deepest layer's minimum representatives."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-fixed-content-simon-congruence-classes-for-binary-two-mark--176c90a6c83d",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Exact fixed-content Simon congruence classes for binary two-marker words",
+          "trigger": "Earlier claim on doubled-letter words at the same depth"
+        },
+        {
+          "assessment": "Exact result for a different depth and fixed alphabet",
+          "evidence": [
+            "It gives 18 extremal classes of minimum length 18 for three letters at depth four."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-length-bound-and-symmetry-types-for-ternary-level-four-sim--de813ccb624e",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Sharp length bound and symmetry types for ternary level-four Simon congruence",
+          "trigger": "Same extremal shortest-length problem"
+        },
+        {
+          "assessment": "Later and different equivalence relation",
+          "evidence": [
+            "Full FO rank two is classified by pointed profiles and has sharp bound q(q+2), not 2q."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-quadratic-rank-two-word-kernels-over-arbitrary-finite-alph--4000b9c33a86",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp quadratic rank-two word kernels over arbitrary finite alphabets",
+          "trigger": "Nearby arbitrary-alphabet rank-two kernel theorem"
+        },
+        {
+          "assessment": "Exact prior implication unresolved for this source",
+          "evidence": [
+            "No full-text or theorem-level assertion about its coverage can be based on the search title."
+          ],
+          "identifier_or_url": "https://cs.bme.hu/~ppp/publications/Normal_form.pdf",
+          "material_read": "Search title only; no scientific passage recovered",
+          "method": "OA original URL and alternate www host; certificate verification failed",
+          "title": "Normal form for the words under Simon’s congruence",
+          "trigger": "Potential earlier characterization by canonical representatives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The layer is selected by an intrinsic extremum, not by a convenient small alphabet. The identification gives an all-alphabet structural description with an order-theoretic interpretation of inclusion, and transfers counts, asymptotics and letter-renaming orbits. It is useful independently of the first few enumerated values; those values and the poset asymptotic alone are not the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

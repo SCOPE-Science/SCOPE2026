@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:34:24.566985Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distinct answers require injective signatures. Seven or fewer bits cannot encode 256 vertices. At eight bits a bijection would require 128 ones in each column, but a closed radius-three ball contains 1+8+28+56=93 vertices. At nine bits the total weight is 837; the exactly 256 words of weight at most four have total weight 837 and form the unique minimizing set (the next available words have weight at least five). Thus all those signatures are forced, and any two columns have 1+7+21=29 simultaneous ones. For distinct centers c,d, translation by c⊕d pairs points of the intersection without fixed points, so it has even size; with identical centers the intersection has size 93, not 29. Independent direct XOR enumeration of all 32,640 pairs of distinct centers (`python -B /workspace/branches/replay_records_1_3_4_5.py`, section 3) confirms the frozen table 93,58,58,38,38,20,20,0,0 by increasing distance including the identical case. The proof is for nonadaptive, fixed closed radius-three balls and gives only a lower bound; it does not supply a ten-ball system or determine the exact optimum. The erroneous arXiv identifier in reference 2 is bibliographic, not an input to the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Q7 radius-three case has a Fano-plane construction of seven separating balls; for the covered variant Kim et al. report eight. Katona's general separating theorem yields 256 log(256)/(93 log(e·256/93)), about 7.6. Janson–Laihonen give asymptotic identifying-code results with coverage."
+        ],
+        "reasoning": "The Q7 construction uses an odd-dimensional antipodal complement special to that case, and is not a Q8 lower bound. The general finite Katona bound only rounds up to eight here; asymptotic rates do not decide this finite equality obstruction.",
+        "searches": [
+          "arXiv:1405.7508, Lemma 2.1 and Katona Theorem 3.3",
+          "Janson–Laihonen, arXiv:0804.3029, identifying-code setup and ℓ=1 asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_bound.py",
+        "arXiv:1405.7508",
+        "arXiv:0804.3029",
+        "doi:10.1016/j.ejc.2009.03.032 (bibliographic/secondary only)",
+        "Resultary bbbd20b813f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Q7, Kim et al. use uniform pair intersections as a necessary condition at the information-theoretic limit; in Q8, a nine-bit injection is not a bijection, so the condition of 29 does not follow from information capacity. It follows from saturating the minimum-weight nine-bit signature profile."
+        ],
+        "reasoning": "The general incidence bounds alone are insufficient; the extremal signature computation allows nine and needs the intersection obstruction to rule it out. A verified exact fixed-radius entry or a covering-identifying lower bound of at least 11 would change the prior-coverage assessment, but none was established in the passages read.",
+        "searches": [
+          "arXiv:1405.7508, Lemma 2.1 and nearby Q7 intersection argument; Theorem 3.3 around OA offset 24000",
+          "Charon–Cohen–Hudry–Lobstein, doi:10.1016/j.ejc.2009.03.032, attempted primary retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper defines M(G,r) as nonadaptive identification by closed balls of radius r and explicitly drops the covering requirement, unlike an (r,≤1)-identifying code. It distinguishes varying the radius up to r as M(G,≤r)."
+        ],
+        "reasoning": "Separation permits exactly one empty signature at most. If I is the minimum additionally covering code size, then M≤I≤M+1: add the lone uncovered vertex as a center if necessary; adding a coordinate preserves uniqueness. The displayed introductory inequality in the arXiv text is inconsistent with its own Q7 example and is not used. To imply M≥10 by this reduction alone an identifying-code lower bound of at least 11 is needed.",
+        "searches": [
+          "Kim et al., arXiv:1405.7508, pp. 2–3 definitions and p. 6, Lemma 2.1",
+          "External: M(Q_8,3) radius-three Hamming-ball search separating signatures lower bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest relevant Resultary hit, bbbd20b813f0, calculates a different size-ten invariant, the maximum cardinality of a binary length-eight (2,1)-separating/2-frameproof code, equivalently gp(Q8).",
+          "The external table search surfaced covering-code and linear-code tables, not a verified entry for fixed-radius nonadaptive ball separation or an identifying-code bound transferring at (8,3). The named Charon et al. article was not available as full text."
+        ],
+        "reasoning": "A size bound on a subset of vertices with a three-word frameproof property does not give a minimum number of closed balls separating all 256 vertices. Covering alone and minimum distance of a linear code are also different parameters. This comparison does not rule out an unlocated finite identifying-code table.",
+        "searches": [
+          "Local Resultary: Q8 radius-three Hamming-ball search separation lower bound",
+          "External: binary hypercube identifying code online table best bounds radius 3 length 8 I_3 Q_8 Lobstein",
+          "External: Charon Cohen Hudry Lobstein ‘New identifying codes in the binary Hamming space’ PDF radius 3 length 8 table"
+        ]
+      },
+      "rationale": "In the checked evidence, the near-half-radius Q7 construction and general uniform-size separating bounds do not yield the two extra queries at Q8. Requiring both uniqueness and coverage changes the problem; no inspected same-parameter covered-code result implies this lower bound. The new step beyond the signature weight bound is an equality-case incompatibility with Hamming-ball intersections. This is a bounded best-of-knowledge decision, not a historical priority claim.",
+      "residual_risks": [
+        "The Charon et al. full text could not be inspected, and an identifying-code lower bound of eleven at (8,3) would imply this result. Its existence is not established by the searches.",
+        "Ranked catalogue and bound/table searches were targeted rather than exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact parameter match; the inspected statements give adjacent Q7 and a weaker general bound, not this Q8 lower bound",
+          "evidence": [
+            "Lemma 2.1 gives seven fixed radius-three queries on Q7 via Fano lines; Theorem 3.3 yields only an integer lower bound of eight for these Q8 ball sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.7508",
+          "material_read": "pp. 2–3 definitions, offsets 5300–9500; pp. 6–7 Lemma 2.1 and proof, offsets 17400–23234; p. 8 Theorem 3.3, around offset 24000; bibliography references to Charon et al. and Janson–Laihonen",
+          "method": "Lawful OA arXiv PDF, bounded passages",
+          "title": "Identifying codes and searching with balls in graphs",
+          "trigger": "Same ball-search parameter; adjacent exact construction and possible general lower bounds"
+        },
+        {
+          "assessment": "The arXiv ID is Janson–Laihonen, not the Charon et al. article; no applicable finite entry established from these passages",
+          "evidence": [
+            "The inspected rate formula is a limit for r=⌊ρn⌋ in a covering-identifying formulation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0804.3029",
+          "material_read": "Title and abstract on p. 1; pp. 2–3 identifying-code discussion including the ℓ=1 asymptotic bound",
+          "method": "Lawful OA arXiv PDF, bounded passages",
+          "title": "On the Size of Identifying Codes in Binary Hypercubes",
+          "trigger": "Identifier in frozen reference 2; potential stronger identifying-code result"
+        },
+        {
+          "assessment": "Unresolved finite-table risk, not a claim of noncoverage",
+          "evidence": [
+            "Kim et al. cite this separate Charon–Cohen–Hudry–Lobstein paper for i_3^(1)(Q7)=8; the Q8 entry was not verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2009.03.032",
+          "material_read": "Bibliographic reference and the secondary report for Q7 in Kim et al.; publisher redirect only, no primary full text",
+          "method": "DOI and lawful OA/publisher retrieval attempts and exact-title search",
+          "title": "New identifying codes in the binary Hamming space",
+          "trigger": "Most plausible uninspected finite table; reported Q7 covered-code result"
+        },
+        {
+          "assessment": "Different object and direction of extremum",
+          "evidence": [
+            "Maximum size ten of a length-eight binary (2,1)-separating/2-frameproof code; no radius-three ball query count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0/RESULT.md",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact length-eight binary (2,1)-separating systems",
+          "trigger": "Closest surfaced length-eight, size-ten separation entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dimension eight at the same radius is the immediate neighbor of the information-theoretically sharp seven-query Q7 example. The bound rules out even a one-query overhead over the eight-bit capacity threshold; equal ball sizes alone do not rule out nine via the first moment. Rigidity of the extremal signature set and its incompatibility with Hamming-ball pair intersections give a substantive, checkable obstruction, without claiming the optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

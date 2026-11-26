@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The positivity-preserving heat discretization is derived from two explicit centered interface fluxes. The fixed-point equation has a unique root, while a symbolic exact factorization supplies every fixed point of the increasing two-step map, so the global basins follow from monotonicity and signs. The critical Taylor expansion gives the universal inverse-square rate. Damping is stated only as sharp uniform **local linear** stability; no global damping assertion is made. The included symbolic and numerical checker supports algebra and examples, not an infinite proof.
+## correctness
 
-## Originality
-PASS, subject to the stated external-literature risk. The 2026 motivating source specifies quadratic-conductivity heat flow and frozen-coefficient iteration but does not supply an exact one-node global Picard bifurcation, critical coefficient or sharp uniform local damping frontier. Nearby published findings on backward-Euler positivity, order-reversing rational iteration, and relaxation of other fixed-point solvers have distinct update maps or claims. General monotone-map and rational-recurrence literature may subsume part of the dynamics; no equivalent full package has been established from the inspected sources. Human bibliographic review remains advisable.
+PASS
 
-## Mathematical value
-PASS. Nonlinear inner-solver convergence determines whether an unconditionally stable implicit heat step can actually be computed. The sharp threshold, stable false solver two-cycle, critical slowdown and exact local damping ceiling explain a concrete failure and mitigation mechanism for the nonlinear heat model considered in the motivating paper. It is a complete natural minimal-grid classification rather than an arbitrary parameter slice.
+Squaring the specified average y/2 at either face and taking the centered flux divergence gives −y³/(2h²), so freezing the coefficient in backward Euler gives exactly F_T after division by b. The cubic z+Tz³−1 is strictly increasing and has one positive root s. Expanding F_T∘F_T verifies the factored displacement in RESULT.md; its denominator is positive and the quadratic changes root count at T=4. For T≤4 the displacement points toward s on both sides. For T>4 the two roots p_± satisfy p_++p_−=1 and Tp_+p_−=1 and are exchanged by F_T, hence straddle s. The displacement points toward p_− below s and p_+ above s; because F_T² is increasing, iterates are trapped between the start and the attracting fixed point of F_T² on that side. This clarifies the proof's shorthand 'bounded by fixed points': an outer bound can be the starting value, not another fixed point. Chain differentiation on the cycle gives 4/T. At T=4 the quadratic is 4v² for v=z−1/2, the cubic is 4v+O(v²), and the denominator is 8+O(v); thus v advances to v−2v³+O(v⁴) per two steps. The inverse-square increment tends to 4, so jv_(2j)²→1/4, and the odd-to-even deviation ratio tends to −1. The full-index limit is 1/2 for every nonfixed positive start, including the assigned start 1. The damped multiplier is 1−ω(3−2s), with s→0 as T→∞; precisely 0<ω≤2/3 gives strict local linear stability at every finite T. This proves no globally damped convergence assertion. The supplied verification files were inspected; the frozen code was not run.
 
-## Closest work and limits
-M. A. Botchev, arXiv:2610.14884v1, equations (6),(7),(10), addresses the class of nonlinear heat schemes but not this exact one-node classification. General difference-equation and fixed-point methods are relevant potential antecedents. Only the specified one-node model and exact arithmetic are claimed; higher grids and global behavior of underrelaxation are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+There is exact catalogue coverage of the undamped threshold, attracting cycle and multiplier after rescaling; those features are not credited as distinct recurrence results. The supported contribution in the bound heat-solver statement is the critical relaxation constant in the physical normalization and the sharp stiffness-uniform local damping ceiling, with the exact reduction for this centered-flux heat step. The matching wave record and the broader primary iteration do not supply those quantitative boundary/stabilization results. This is not a priority judgment based on catalogue dates.
+
+## value
+
+PASS
+
+The exact positive heat-step diagnosis distinguishes failure of a practical nonlinear iteration from loss of positivity or failure of the implicit update itself. The nonhyperbolic rate explains slow convergence at the threshold even when the iteration converges in exact arithmetic. The parameter-independent damping ceiling gives a sharp local remedy for the entire stiffness range without claiming global behavior. These are meaningful solver distinctions beyond a reparameterized cycle threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

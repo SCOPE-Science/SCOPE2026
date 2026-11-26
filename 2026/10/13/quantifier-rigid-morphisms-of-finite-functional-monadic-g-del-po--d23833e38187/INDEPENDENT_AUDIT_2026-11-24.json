@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:27:36.559430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each target coordinate, a bounded lattice map into a nontrivial chain sends exactly one source Boolean coordinate vector e_i to 1 and all others to 0: their join is 1 and their pairwise meets are 0. Expanding x as the join of e_i∧constant(x_i) gives the unique coordinate map and chain homomorphism (restriction to constants preserves implication). Commutation with either quantify operation sends source constants to target constants, so all coordinate chain maps coincide. Existential preservation on e_i or universal preservation on its Boolean complement forces coordinate i to be used, and a common monotone chain map and a surjective coordinate choice then preserve both global extremes. For x>y, preservation of x→y forces strict increase whenever the image of y is below 1. Thus the first t positive proper levels go strictly increasingly to t proper nonzero target levels, and only a final segment can collapse to 1. Choosing those levels gives the binomial count, including t=0, and multiplying by the coordinate surjection count gives the total and enumerator with image size (t+2)^m. An embedding requires both n>=m and k<=ell, consistent with the zero Stirling factor in the theorem; Step 4's chain-size condition is read after the preceding coordinate-surjection condition. Surjectivity of the algebra map is different from surjectivity of sigma: repetitions impose equal target coordinates, so one needs m=n and the unique onto chain map for k>=ell. Endomorphism composition uses the opposite permutation order in the coordinate factor (identified with S_n by inversion). A chain endomorphism is levelwise >= identity; raising a proper level to a strictly higher proper level prevents idempotence by strict increase below 1. Precisely the k-1 threshold retractions remain and the index permutation must be the identity. All arguments apply at k=2, ell=2 or a singleton index set. Independent bounded reproduction python -B reviews/check_godel.py exhaustively checked the two quantifiers separately and the image profiles in eight finite configurations by direct operation tables. The frozen script was inspected, not executed; its target tuple tests require both quantifiers and hence do not independently test one-quantifier rigidity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The duality specializes mechanically for morphisms already assumed to preserve both: the p-morphism sends each target component into one source component, and commutation with the equivalence-class operations gives the common level map and component coverage.",
+          "The ordinary counting chapter is closely relevant but only bibliographic evidence was recovered in this review; DOI and alternate lawful routes did not expose its full text."
+        ],
+        "reasoning": "Give full credit to duality for the both-quantifier classification and resulting simple counts; its stated general theorem does not by itself force the two independent one-quantifier preservation conditions to be equivalent. Ordinary Heyting counts without quantifiers do not count either of these subcategories.",
+        "searches": [
+          "arXiv:2006.10180 Definitions 3.1 and 3.7, Theorem 3.8",
+          "Aguzzoli–Mordonini ordinary finite Gödel homomorphism counting, DOI 10.1007/978-3-031-74000-8_30 and institutional handle 2434/1166075"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_morphisms.py",
+        "arXiv:2006.10180",
+        "arXiv:2310.15806",
+        "Resultary entries 9b6e18173e8b and a18bba40b457",
+        "Bibliographic identity only for DOI 10.1007/978-3-031-74000-8_30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published both-quantifier characterization is a complete specialized prior implication for that weaker part of the result; surjection count times chain-map count then follows routinely.",
+          "The single-quantifier proof independently forces a common diagonal map and complete coordinate coverage using either minimum or maximum alone. This is not a general quantifier-preservation fact for monadic Gödel chains: with rounding to {0,1} on C_3, embedding its middle level as the lower proper element of C_4 with rounding to {0, upper proper level, 1} preserves floors but not ceilings; swapping the roles of lower/upper levels gives the converse example."
+        ],
+        "reasoning": "The general monadic duality does not characterize homomorphisms assumed only to preserve one of the quantifiers. The full-power rigidity mechanism identifies those maps with both-quantifier morphisms; it is the precise remainder not already implied by the inspected stronger-background results.",
+        "searches": [
+          "MG-morphism axioms and functional meet/join representation in arXiv:2006.10180 and arXiv:2310.15806; ordinary p-morphism classification in 9b6e18173e8b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the dual frames the k-1 levels of the m chains are grouped by level. The same object appears as a pointwise function power with global extrema in arXiv:2310.15806, Proposition 3.6.",
+          "The MG-morphism definition in arXiv:2006.10180 is pullback preservation of both quantified up-set operations plus the local upward p-morphism property. Its quantifiers are not assumptions of the single-quantifier theorem under review."
+        ],
+        "reasoning": "The dual object corresponds to the same finite full power; the issue is not notation or a different model, but the stronger morphism statement under a strictly weaker stated hypothesis.",
+        "searches": [
+          "Published finite monadic Gödel functional powers, morphisms, global quantifier preservation and p-morphisms; arXiv:2006.10180 §3; arXiv:2310.15806 §3",
+          "Local Resultary: ordinary and quantified finite chain powers, retractions and morphism census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9b6e18173e8b classifies ordinary Heyting idempotents; the C_3^2 image polynomial 2z²+4z³+z⁴+2z⁶+z⁹ counts 10, whereas the monadic power has 2 (sizes 4 and 9).",
+          "a18bba40b457 uses the very same quantified powers but counts generating tuples, not morphisms. No matching one-quantifier characterization or its identical Hom table was found in the checked records."
+        ],
+        "reasoning": "There is same-object overlap, but ordinary idempotent counts and monadic generator counts do not give the one-quantifier Hom sets. The same-day dates establish no order or priority.",
+        "searches": [
+          "Local Resultary: idempotent retractions of finite Gödel chain powers, generating tuples of finite monadic Gödel powers, either-quantifier morphisms",
+          "Resultary entries 9b6e18173e8b and a18bba40b457"
+        ]
+      },
+      "rationale": "Credit prior mechanical coverage of the both-quantifier structure and its routine enumerative consequences after finite specialization. The supported distinct claim is the rigidity under preservation of just one named quantifier, and hence the identification of both a priori larger one-quantifier Hom sets with the monadic Hom set and its census. No priority is assigned to the underlying functional objects or the classical duality.",
+      "residual_risks": [
+        "The ordinary counting chapter was not available for statement-level inspection; a related ordinary argument or quantified corollary remains possible. The pass is scoped to the one-quantifier strengthening relative to the available general duality and local records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers both-quantifier structural result by specialization, not the single-quantifier premise",
+          "evidence": [
+            "The existential and universal up-set operators respectively take classes meeting the set and classes contained in the set.",
+            "Definition 3.7 requires the local upward p-morphism condition and preservation of both operations by pullback; Theorem 3.8 states dual equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.10180",
+          "material_read": "§3, Definitions 3.1 p. 7 and 3.7 and Theorem 3.8 p. 9; OA offsets 29025–35508",
+          "method": "OA primary passages and finite level-equivalence specialization",
+          "title": "An algebraic study of S5-modal Gödel logic",
+          "trigger": "General published duality for the same signature, plausible mechanical coverage"
+        },
+        {
+          "assessment": "Same functional construction, not a Hom result",
+          "evidence": [
+            "The quantifiers are constant functions at the global infimum/supremum of the input function."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.15806",
+          "material_read": "§3, Proposition 3.6 pp. 8–9, OA offset 25219",
+          "method": "OA source passage and object comparison",
+          "title": "One-variable fragments of first-order logics",
+          "trigger": "Functional lattice objects with both global quantifiers"
+        },
+        {
+          "assessment": "Coverage by this chapter unresolved, not negative evidence",
+          "evidence": [
+            "The title is about finite Gödel algebras; no retrieved statement established treatment of the single-quantifier subclass."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-74000-8_30; https://air.unimi.it/handle/2434/1166075",
+          "material_read": "Title and bibliographic identity; no primary mathematical passage recovered",
+          "method": "Lawful DOI, Springer chapter/PDF and repository routes; redirects or 403 prevented retrieval",
+          "title": "Counting Homomorphisms Between Finite Gödel Algebras",
+          "trigger": "Strong topic match for ordinary finite Gödel Hom enumeration"
+        },
+        {
+          "assessment": "Ordinary reduct, materially different census",
+          "evidence": [
+            "Unique bounded p-morphism gives the dual description without either global quantifier; the ordinary C_3^2 census is 10."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-idempotent-retraction-spectra-of-powers-of-finite-g-del-chains--9b6e18173e8b/RESULT.md",
+          "material_read": "Opening Finding, local-mirror offset 0",
+          "method": "Local-mirror signature and census comparison",
+          "title": "Idempotent retraction spectra of powers of finite Gödel chains",
+          "trigger": "Same-day indexed classification on the same ordinary powers"
+        },
+        {
+          "assessment": "Same objects but generator enumeration, not a morphism result",
+          "evidence": [
+            "Uses global minima/maxima and classifies generating tuples."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-generator-rank-and-census-for-finite-monadic-g-del-powers--a18bba40b457/RESULT.md",
+          "material_read": "Finding, local-mirror offset 605",
+          "method": "Local-mirror object and conclusion comparison",
+          "title": "Exact generator rank and census for finite monadic Gödel powers",
+          "trigger": "Same-day indexed result on the same expanded powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Preservation of one global operation rather than both is a useful structural rigidity result on a standard functional semantics, not an automatic redundancy for arbitrary monadic Gödel algebras. It gives a complete test of either one-quantifier hom-set, with explicit image and retraction sizes useful when using these powers as models. The bare both-quantifier specialization and binomial arithmetic alone are not the reason for passing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

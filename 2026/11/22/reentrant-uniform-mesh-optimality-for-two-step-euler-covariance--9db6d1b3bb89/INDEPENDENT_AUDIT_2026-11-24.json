@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:45:54.771965Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52",
+        "Frozen VERIFICATION.md and verify.py (read, not run)",
+        "/workspace/independent_checks.py, selection 3"
+      ],
+      "rationale": "The centered Euler second moment multiplies by E[(1-h+(sigma/sqrt(lambda))*sqrt(h)*Z)^2]=f_d(h), so independent increments give the stated product. Expanding in z=h1*h2 at fixed sum T gives f_d(T)+z^2-2z0*z with z0=(2-d^2+dT)/2. The interval of attainable products is exactly [0,T^2/4]; clipping z0 is the unique minimizer in z. The zero and equal-step thresholds follow from z0=0 and (T-d)^2<=4-d^2 respectively; for d>sqrt(2), T_- - T_c=2/d-sqrt(4-d^2)>0 by squaring. The boundary equalities yield one unordered split, including the collapsed endpoints, which are only approached in the open mesh. For large T, the smaller step is 2z*/(T+sqrt(T^2-4z*))=d/2+O(1/T), so the optimal product is (1-d^2/4)T^2+O(T), while the equal product is T^4/16+O(T^3). Taylor expansion gives the stated bias; at d=sqrt(2) the quadratic term vanishes and the cubic term is positive. For independent bounded corroboration, `python /workspace/independent_checks.py 3` checked the reduction and optimum inequality on 32,300 rational grid points; the continuous classification is algebraic.",
+      "residual_risks": [
+        "Two deterministic step lengths and scalar centered variance only; this is not an optimization of strong error or an adaptive controlled SDE."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pilipovsky's method uses a state-transition/mild update with a frozen diffusion term and controls the final covariance, rather than minimizing a fixed-horizon standard EM covariance product.",
+          "The available Fang–Giles retrieval did not expose the article text."
+        ],
+        "reasoning": "The inspected broader steering formulation has a different propagator, variables and objective; the unavailable adaptive EM paper is not treated as excluded by full-text comparison.",
+        "searches": [
+          "arXiv:2603.14868, introduction, problem statement and §§IV-C–D",
+          "doi:10.1214/19-AAP1507 (lawful access attempt)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/SCOPE a7be6c7ddb05 and the assigned entry",
+        "arXiv:2603.14868",
+        "arXiv:1411.5515",
+        "doi:10.1214/19-AAP1507 (attempt only)",
+        "Focused primary-literature search as recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The audited result gives all equality, collapse and unequal regimes plus closed/open attainment and the sharp large-T ratio.",
+          "The closest inspected results concern strong approximation error, restricted final covariance under stochastic control, or observation-design error."
+        ],
+        "reasoning": "None of the compared statements yields the minimum under this two-step Euler covariance objective or implies the collapse/reentrant thresholds simply by restricting parameters.",
+        "searches": [
+          "arXiv:1411.5515, Example 2.1",
+          "arXiv:2603.14868, §§IV-C–D",
+          "Resultary/SCOPE a7be6c7ddb05, theorem passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Centered terminal variance is the numerical second moment, so the equivalent problem is minimizing a two-factor amplification product under a fixed sum.",
+          "Hoel–Häppölä–Tempone optimize terminal solution MSE for geometric Brownian motion in Example 2.1; that MSE includes a cross-moment with the true solution."
+        ],
+        "reasoning": "The equivalence with second-moment minimization does not transfer the MSE optimum, and the search did not show another calculation with the same amplification product and global phase boundaries.",
+        "searches": [
+          "Resultary: symmetric two-factor quadratic; finite-budget covariance mesh optimization",
+          "Web: \"Euler–Maruyama\" two-step multiplicative noise terminal variance optimal time steps fixed horizon covariance",
+          "arXiv:1411.5515, Example 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical Euler-covariance entry is the assigned record, not another prior finding.",
+          "The strongest distinct retrieved mesh record (a7be6c7ddb05) gives equal sensor precision and a spacing transition at P=n for OU Bayesian quadrature."
+        ],
+        "reasoning": "The distinct same-date record has unresolved within-day ordering, but its actual optimized variables are sensor sites and precisions, and the loss is integration error; it is not a table or formula for EM step lengths or covariance bias.",
+        "searches": [
+          "Resultary: symmetric two-factor quadratic; finite-budget covariance mesh optimization",
+          "Resultary/SCOPE a7be6c7ddb05, RESULT.md, offsets 0–6864"
+        ]
+      },
+      "rationale": "Bounded prior comparison supports the exact finite-horizon covariance phase diagram for standard two-step Euler–Maruyama. Neither a uniform-mesh result for strong solution error, free-final-time covariance steering, nor a fixed-budget observation-mesh theorem covers this objective and these thresholds.",
+      "residual_risks": [
+        "Unindexed elementary allocations of a product of two quadratic factors or a broader fixed-budget EM result could subsume this classification.",
+        "Fang–Giles article text was not obtained in the bounded retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different update and optimization problem",
+          "evidence": [
+            "Time dilation, terminal moments as constraints, final time and controls optimized; state-transition and diffusion-integrand projection update."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.14868",
+          "material_read": "Introduction/problem statement offsets 0–4097 and 4300–9873; §§IV-C–D, offsets 14500–25920",
+          "method": "Bounded primary full-text passages",
+          "title": "Free Final Time Adaptive Mesh Covariance Steering via Sequential Convex Programming",
+          "trigger": "Closest adaptive multiplicative-noise covariance mesh paper"
+        },
+        {
+          "assessment": "Uniform grid for terminal strong MSE, not minimum computed variance",
+          "evidence": [
+            "Example 2.1 uses dX=X dt+X dW with X0=1, T=1 and fixes N for the solution-error objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1411.5515",
+          "material_read": "Example 2.1, offsets 58200–64368",
+          "method": "Bounded primary full-text passage",
+          "title": "Construction of a Mean Square Error Adaptive Euler--Maruyama Method with Applications in Multilevel Monte Carlo",
+          "trigger": "Directly related uniform time-mesh result for a multiplicative scalar SDE"
+        },
+        {
+          "assessment": "Distinct objective and variables; no same-day priority assumed",
+          "evidence": [
+            "OU integral estimation with noisy point observations has a precision-budget threshold at P=n, not a time-step split for a numerical SDE."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-globally-optimal-precision-budgets-and-observation-meshes-for-or--a7be6c7ddb05",
+          "material_read": "RESULT.md, offsets 0–6864 including statement",
+          "method": "Indexed search and local full-text passage",
+          "title": "Globally optimal precision budgets and observation meshes for OU quadrature",
+          "trigger": "Strongest distinct indexed fixed-budget mesh comparison"
+        },
+        {
+          "assessment": "No whole-paper exclusion",
+          "evidence": [
+            "Frozen reference describes general adaptive strong-error and moment results, not evidence of coverage or noncoverage of this optimizer."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/19-AAP1507",
+          "material_read": "Only an 83-character page was returned; article text not inspected",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "Adaptive Euler–Maruyama Method for SDEs with Nonglobally Lipschitz Drift",
+          "trigger": "Broader adaptive EM method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–29 and 40–57",
+        "Pilipovsky, arXiv:2603.14868, §§IV-C–D",
+        "Hoel–Häppölä–Tempone, arXiv:1411.5515, Example 2.1"
+      ],
+      "rationale": "Although the key minimization is elementary, the full phase diagram fixes a meaningful failure mode of numerical covariance as an objective: with low noise, the closed optimum starts collapsed, moves to unequal interior steps, becomes uniform, then leaves the uniform grid. The open-mesh nonattainment and unbounded long-time penalty for equal steps are exact test cases for mesh optimization, not claims about the best mesh for solution accuracy.",
+      "residual_risks": [
+        "Practical implications remain confined to this surrogate and scalar two-step setup."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

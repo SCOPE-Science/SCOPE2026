@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:48:28.450751Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rechecked the corrected summable-spectrum claim and proof in repairs/2/RESULT.md. Full-support one-coordinate laws have the stated weak isotropy; sketch magnitude and sign do not affect the coordinate range. Independence and Tonelli give sum_j j^(-rho)(1-pi_j)^L. For L>=2 the cutoff equation has a unique root because its sum is continuous, strictly increasing above 1, and unbounded. Supporting-line slopes at the cutoff law are -L t^(-rho) on the support and at least this slope off it. Derivative sums are absolutely convergent by the probability l1 bounds. Strict coordinate convexity gives the unique closed-simplex optimizer, with finite support; full-support mixtures approach it by dominated convergence and cannot attain it. Substituting yields (m-1)t^(-rho) plus the squared-singular-value tail. The root diverges but is O(1/delta); a decreasing-function integral comparison bounds the discretization error by delta(1+log t), so t delta tends to 1. Thus the contributions inside and outside support have leading coefficients 1 and 1/(rho-1) in units of t^(1-rho). The best rank-L residual is the tail after L, giving the required ratio rho^rho. The original two-draw identity also checks: t^rho=1+2^rho lies strictly between 2^rho and 3^rho. The original checker and notes were inspected, not executed; finite coupon and floating-point checks are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lynch-Davies–Webb explicitly give the one-coordinate isotropic construction; Saibaba–Międlar discuss coupon-collector limitations, not a sharp reoptimized spectral-design loss.",
+          "General coverage counts in Błaszczyszyn–Giovanidis cover the fixed-L stationarity rule; Lee–Ji–Molisch Section V covers exponent greater than one at the order level in a different network objective."
+        ],
+        "reasoning": "Prior broad optimization contains the exact allocation, so no novelty credit for that rule. Turning its cutoff into the sharp constant for a fixed summable tail requires control of the root in the large-L limit and the leading mass on both sides of the cutoff.",
+        "searches": [
+          "arXiv:2610.31333v1 Example 2.13",
+          "arXiv:2308.05814 Section 3.4",
+          "arXiv:1409.7626 Theorem 1",
+          "wireless caching Zipf gamma > 1 outage probability one file cache optimal random caching Ji exact asymptotic cluster pure Zipf"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1409.7626",
+        "arXiv:1302.2168",
+        "arXiv:1312.2637",
+        "arXiv:2005.05149v2",
+        "arXiv:2610.31333v1",
+        "arXiv:2308.05814",
+        "arXiv:0909.4061 p. 62",
+        "7e357d032a8b",
+        "33674298e324",
+        "729402e120b0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geographic-caching theorem directly implies the truncated law after setting the coverage count and unit budget. The iid sketch finite-budget error is then substitution.",
+          "For gamma<1, Ji–Caire–Molisch evaluate a hit fraction proportional to gamma^gamma (g_c/m)^(1-gamma), where m is a diverging catalogue size. That does not imply a gamma>1 coefficient in an infinite tail normalized by best rank-L approximation.",
+          "Lee–Ji–Molisch equation (9) uses exponential miss factors and Theorems 8 and 10 give order estimates, which do not determine the constant under this normalization."
+        ],
+        "reasoning": "The repaired claim does not relabel covered stationarity as new. It resolves the residual-to-rank optimum comparison in the summable regime by a two-contribution asymptotic. A shared exponent, or gamma^gamma in a complementary nonsummable scaling, does not by itself prove the fixed-spectrum ratio.",
+        "searches": [
+          "arXiv:1409.7626 equations (7), (12)–(14)",
+          "arXiv:1302.2168 Theorem 2 equation (12)",
+          "arXiv:1312.2637 model assumption 0<gamma<1 and Theorem 4",
+          "arXiv:2005.05149v2 Lemma 1 and Section V; NSF lawful copy 10294391"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1409.7626 equations (3), (7) and (12)–(14): pick capacity K=1, coverage count L almost surely, and Zipf weights a_j proportional to j^(-rho). Its miss objective is precisely the sketch error up to positive normalization; the optimal b_j is [1-(mu/(L a_j))^(1/(L-1))]_+.",
+          "arXiv:1302.2168 Theorem 1 and arXiv:1312.2637 Theorem 4 directly give the same truncated law for the fixed number of iid cache selections in their model."
+        ],
+        "reasoning": "Use cache misses as missing sampled coordinates, not merely analogous terms. Normalizing weights leaves the optimizer invariant. A cutoff supported below J solves all finite catalogues once J contains the cutoff, so extension to the closed infinite simplex does not make the finite-budget law new.",
+        "searches": [
+          "Optimal Geographic Caching in Cellular Networks Błaszczyszyn Giovanidis arxiv deterministic coverage theorem cache hit probability",
+          "The Throughput-Outage Tradeoff of Wireless One-Hop Caching Networks Ji Caire Molisch arxiv",
+          "optimal distributed caching iid Zipf fixed number caches optimal caching distribution weighted miss"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected Resultary coupon-majorization, exchangeable-magnitude one-vector, and covariance-Gaussian records. They concern uniform coupon packets, a distinct class of one-vector sketches, and finite-dimensional Gaussian covariance design, respectively.",
+          "The primary cache results contain the exact cutoff and, in the earlier finite-catalogue regime, an exponentiated exponent in the leading hit fraction. The inspected gamma>1 pure/shifted Zipf throughput–outage statements give Theta of a power, not the rank-normalized coefficient."
+        ],
+        "reasoning": "No finite table indexes this infinite-dimensional limit. The exact-formula comparison uses the catalogue and the precise primary allocation and scaling statements, not merely matching keywords or constants.",
+        "searches": [
+          "Resultary IDs 7e357d032a8b 33674298e324 729402e120b0",
+          "arXiv:1302.2168 Theorems 1–2 and arXiv:2005.05149v2 Section V Theorems 6, 8, 10"
+        ]
+      },
+      "rationale": "Pass applies only to the repaired sharp Hilbert–Schmidt ratio for a fixed summable infinite spectrum. The original framing of the exact finite-budget allocation as part of the novelty does not survive: it is the deterministic-coverage, one-slot specialization of Błaszczyszyn–Giovanidis and is displayed in equivalent truncated form by Ji–Caire–Molisch. The repaired text cites this exact overlap and uses the allocation as a proof ingredient. In the strongest inspected asymptotic comparisons, the explicit gamma^gamma hit constant is for 0<gamma<1 with a growing finite catalogue; the gamma>1 bounds are order estimates for throughput–outage with an exponential miss objective. Neither result provides the sharp error relative to the rank-L tail in the summable regime. The countably infinite, full-support formulation is necessary for the question but by itself is not the novelty.",
+      "residual_risks": [
+        "Related caching models may contain a sharp summable-regime miss constant in an unlocated derivation or appendix; no blanket priority claim is made.",
+        "The correction already credits exact weighted placement and nonsummable related gamma^gamma scaling. It claims neither a new KKT design nor a new orderwise scaling law for networks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of original finite-budget optimizer",
+          "evidence": "Weighted no-hit probability sum_j a_j sum_m p_m(1-b_j)^m with sum b_j=K. At p_L=1 and K=1, stationarity and cutoff give the exact same allocation.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.7626",
+          "material_read": "IID placement assumption around offset 9281, Zipf weights and unit capacity around 14300, equation (7) at 21700 and Theorem 1 with equations (12)–(14) at 25270",
+          "method": "OA PDF full-text passages",
+          "title": "Optimal Geographic Caching in Cellular Networks",
+          "trigger": "Exact weighted-miss equivalence and broader general-coverage theorem"
+        },
+        {
+          "assessment": "Same finite truncated law; sharp constant is under different assumptions and normalization",
+          "evidence": "With L=g_c-1 the cutoff rule is [1-nu/P_r(f)^(1/(L-1))]_+; the gamma^gamma constant in the stated hit fraction uses 0<gamma<1 and a finite growing library.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.2168",
+          "material_read": "Theorems 1–2 and equations (8) and (12), offsets 22800–27093",
+          "method": "OA ar5iv full-text rendering of the same paper",
+          "title": "Optimal Throughput-Outage Trade-off in Wireless One-Hop Caching Networks",
+          "trigger": "Explicit iid Zipf allocation and a related sharp constant"
+        },
+        {
+          "assessment": "Exact allocation; inspected scaling proof treats the nonsummable Zipf regime",
+          "evidence": "Theorem 4 uses exponent 1/(M(g_c-1)-1), with M=1 giving the one-slot case; its analyzed demand law has 0<gamma<1.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.2637",
+          "material_read": "Model assumption at offset 22439, Theorem 4 at 46700, and Appendix D bounds (63)–(64) at 114000",
+          "method": "OA PDF full-text passages",
+          "title": "The Throughput-Outage Tradeoff of Wireless One-Hop Caching Networks",
+          "trigger": "Extended primary work on exactly the same iid weighted coverage"
+        },
+        {
+          "assessment": "Related gamma>1 asymptotic regime, no sharp rank-normalized constant established by statements read",
+          "evidence": "Equation (9) sums exponential misses; Section V yields outage order for bounded shift and discusses pure Zipf. Further Appendix L passage retrieval was not successful and is not treated as evidence about its contents.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.05149v2",
+          "material_read": "Lemma 1 and Theorem 1 at 41600, Proposition 3 and Corollary 3 at 50530, Section V Theorems 6, 8, 10 at 72300 and 76600; NSF alternate citation trail for Appendix L",
+          "method": "OA PDF full-text passages and lawful NSF alternate",
+          "title": "Optimal Throughput-Outage Analysis of Cache-Aided Wireless Multi-Hop D2D Networks – Derivations of Scaling Laws",
+          "trigger": "Strongest inspected summable Zipf asymptotic comparison"
+        },
+        {
+          "assessment": "Framework input, no exact power-law benchmark in the example",
+          "evidence": "Coordinate probability 2^(-j), with compensating amplitude 2^(j/2) and random sign.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.31333v1",
+          "material_read": "Example 2.13, p. 8, offset 24317",
+          "method": "OA PDF full-text passage",
+          "title": "Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD",
+          "trigger": "Same one-coordinate isotropic sketch framework"
+        },
+        {
+          "assessment": "Finite-dimensional performance/necessity discussion, not the exact benchmark here",
+          "evidence": "Coordinate and leverage-score sampling and logarithmic coupon-collector dependence in random low-rank approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05814",
+          "material_read": "Section 3.4, pp. 10–11 near offsets 35581 and 40447",
+          "method": "OA PDF full-text passages",
+          "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+          "trigger": "Spectral sampling and coupon-collector analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinct sharp constant quantifies the price of repeated iid coordinate selection relative to the best rank-L approximation on the same summable spectrum. Even after per-budget optimization the factor can be large; it gives a calibration that a mere decay order, cutoff rule, or coupon-collector example cannot supply. The retained and unretained parts both contribute at leading order, so this benchmark is not obtained by identifying effective support alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

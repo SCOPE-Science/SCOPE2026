@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:34:12.401030Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3 the four distance multiplicities at a_i are (x_i,q−y_i,p−x_i,y_i), with the symmetric formula at b_i. Within each shore two equal membership pairs collide, giving n≤4. At n=4 all four pairs are used, yielding p=q=2 and a cross-shore collision at the (0,0) index. At n=3 the two balanced three-pattern choices collide at (0,0) or (1,1), respectively, and all six histograms for each unbalanced choice are distinct. There are 2·3! sets. The frozen verifier and recorded output were inspected, not executed. A fresh Floyd–Warshall and subset-enumeration implementation tested every subset of each Cr_3 through Cr_8 (87,360 total): exactly twelve size-three sets at n=3, none thereafter, and each individual subset agreed with the stated predicate. This corroborates rather than proves the unbounded conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 gives ordinary multiset dimension 3 for every cycle of length at least six and exhibits a triple; the general diameter-at-most-two obstruction alone does not apply to crowns.",
+          "The earlier outer theorem gives every admissible landmark set for all n≥3, not only minimal cardinalities.",
+          "The same-day adjacency-bases record addresses labeled adjacency codes, not unordered distance histograms."
+        ],
+        "reasoning": "The cycle theorem covers the boundary dimension but does not itself state the complete classification. The earlier all-set outer theorem, unlike adjacency bases, supplies the data sufficient for the complete ordinary result.",
+        "searches": [
+          "arXiv:1711.00225, Theorem 4.1 and Lemma 3.1",
+          "Resultary: multiset dimension crown graphs K_{n,n} minus perfect matching ID-coloring cycle C6 resolving triples diameter 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Earlier Resultary outer multiset classification and same-day adjacency Finding",
+        "arXiv:1711.00225",
+        "arXiv:2607.28813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum outer size 2n−3; three omitted vertices are allowed exactly for shore sizes (2,1) or (1,2) with one common matching index."
+        ],
+        "reasoning": "Apply the prior bound to W and V\\W; adding yields 2n≥4n−6. In the equality case n=3 the prior omission criterion applies and is invariant under complement, giving both pattern families and 12 sets. Nothing remains uncovered in the frozen finding.",
+        "searches": [
+          "2026/10/12/SCOPE-outer-multiset-dimension-and-all-resolving-sets-of-crown-graphs--da0d84b6e408, exact Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/12/SCOPE-outer-multiset-dimension-and-all-resolving-sets-of-crown-graphs--da0d84b6e408, Finding and Proof, local mirror offset 0"
+        ],
+        "reasoning": "Ordinary resolution is equivalent on these constant-full-histogram graphs to the conjunction of the two complementary outer tests. It is not equivalent to only one outer test.",
+        "searches": [
+          "Resultary: multiset dimension crown graphs K_{n,n} minus perfect matching ID-coloring cycle C6 resolving triples diameter 3",
+          "Resultary: multiset resolving sets crown graphs deleted matching hypercube cube distance histogram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Allikvere's order-at-most-11 census uses an extremal-value filter for the large-order scan: outside the surviving graphs a size ≤n−2 and infinity are not distinguished by that filter. Table 2 reports aggregates, not labeled crown resolving sets. The order-at-most-seven algorithm enumerates all subsets."
+        ],
+        "reasoning": "The finite census cannot give all orders and the aggregate table does not establish the exact crown classification. The earlier outer theorem supplies an exact enumerator and the complement argument identifies precisely which of its sets are ordinary resolving.",
+        "searches": [
+          "Allikvere arXiv:2607.28813, literal crown and census; §4.2 and Table 2 by offset"
+        ]
+      },
+      "rationale": "The entire result is a direct consequence of the October 12 crown outer-multiset classification after a complement reduction, not merely a similar result for a differently defined invariant. Crown vertices have the same full distance histogram (1,n−1,n−1,1). Thus W resolves all vertices iff both W and V\\W are outer multiset resolving: zero distinguishes membership across the two parts of this partition; within W, taking the common total histogram minus the histogram to V\\W gives precisely the needed equality test. The earlier result gives both sizes ≥2n−3, hence n≤3; for n=3 both sizes equal three. The earlier outer criterion for W then says the omitted shore sizes are (2,1) or (1,2) with one common index. This gives exactly one doubly absent index, one singleton index, and one doubly selected index. Its complement automatically meets the same criterion. This recovers both exact membership collections and the count twelve. The scalar boundary also follows independently from the 2017 cycle theorem.",
+      "residual_risks": [
+        "Allikvere ancillary files were not inspected for individual crown entries.",
+        "The Bong–Lin DOI route did not yield readable full text; whether it also covers any of these cases was not established. Neither limitation affects the explicit prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen theorem by complementary outer resolution.",
+          "evidence": "Exact outer size distribution z^(2n)+2n z^(2n−1)+2n(n−1)z^(2n−3), with the stated index intersections for minimum sets.",
+          "identifier_or_url": "2026/10/12/SCOPE-outer-multiset-dimension-and-all-resolving-sets-of-crown-graphs--da0d84b6e408",
+          "material_read": "Finding, assumptions and displayed histogram/obstruction argument at offset 0.",
+          "method": "Local Resultary search and bounded local-mirror text.",
+          "title": "Outer multiset dimension and all resolving sets of crown graphs",
+          "trigger": "Same crown family and multiset codes; strongest local hit."
+        },
+        {
+          "assessment": "Different resolving invariant; not the basis for the coverage decision.",
+          "evidence": "Adjacency dimension n−1 and classification of adjacency bases, not ordinary multiset resolution.",
+          "identifier_or_url": "2026/10/13/SCOPE-adjacency-bases-of-crown-graphs--7667ce13f106",
+          "material_read": "Finding opening and invariant in local index and matching passage.",
+          "method": "Local search and local-mirror Finding locator.",
+          "title": "Adjacency bases of crown graphs",
+          "trigger": "Distinct same-day crown resolving-invariant hit."
+        },
+        {
+          "assessment": "Covers the scalar finite boundary; the read cycle theorem provides a construction rather than all sets.",
+          "evidence": "Theorem 4.1: md(C_n)=3 for n≥6, with W={v0,v1,v3}.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.00225",
+          "material_read": "Lemma 3.1 and Theorem 3.1 locator on p. 5; §4 p. 7 around offset 20370.",
+          "method": "Lawful OA PDF locate and bounded text by offset.",
+          "title": "The multiset dimension of graphs",
+          "trigger": "Foundational paper and exact boundary C6."
+        },
+        {
+          "assessment": "Primary text accessible; aggregate extremal census is not the all-crown theorem.",
+          "evidence": "Connected graphs through order 11; large-order filtering and aggregate reporting as in §4.2 and Table 2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.28813",
+          "material_read": "§4.2 and Table 2 around offset 18260, plus data availability locator.",
+          "method": "Lawful OA PDF locate and bounded text by offset.",
+          "title": "The Multiset Dimension of Graphs: Extremal Values and King Grids",
+          "trigger": "Earlier computational census cited as potentially covering small crowns."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Ordinary multiset resolution on a canonical diameter-three family is a natural question, but in this case the entire proposed contribution is mechanically recoverable from the earlier all-set theorem by a single histogram subtraction and the exact size bound. The bounded reproduction and independent elementary argument do not supply a separate new invariant, general theorem, or unresolved boundary to retain.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

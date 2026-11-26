@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checks
+# Independent mathematical audit
 
-The theorem is analytic. To reproduce the finite continuum tests, install NumPy and run `python reproduce_gap_law.py` from the extracted package. The code enumerates space-time Poisson proposals, implements head-only acceptance using an exact interval union, and computes all maximal uncovered gaps inside a central observation interval.
+## correctness
 
-At constant head intensity \(R=1\) and \(t=2\), a two-length law \(0.17/1.7\) with asymmetric orientation probability \(0.3\) gave 35,196 sampled gaps and mean length 0.491605 versus the theoretical 0.5. The measured length-weighted tail ratios at thresholds 0.1, 0.3, 0.6, and 1.0 were 0.816012, 0.543597, 0.296893, and 0.132783, versus 0.818731, 0.548812, 0.301194, and 0.135335.
+PASS
 
-For a time-dependent head input \(R(s)=2s\), with exposure \(\Lambda(1.5)=2.25\), a two-length law \(0.15/2\) and orientation probability \(0.82\) gave 20,637 sampled gaps and mean 0.445951 versus the theoretical 0.444444. Measured tail ratios were 0.799412, 0.511936, 0.262605, and 0.107785 versus 0.798516, 0.509156, 0.259240, and 0.105399. Both scripted scenarios pass the stated tolerances.
+At fixed finite t, bounded mark reach gives a graphical construction: for heads in a bounded window, the expected number of time-ordered backward chains of k+1 proposals is at most the window length times Λ(2ℓ₊)^k Λ^k/(k+1)!. Thus there are no infinite ancestry chains, locally the relevant Poisson graph is finite, and chronological acceptance is well defined. Survival of a fixed interval requires no interior proposal, since any head there would be accepted until the first hit. Until the first contact with the test interval, connected intervals from opposite sides cannot influence each other's decisions; the two killed half-line processes and the absent interior proposals are independent. Applying the same split at one point gives F=S₋S₊, so the interval survival probability is F exp(-Λx). Fixed endpoints have probability zero of being deposition endpoints by spatial diffuseness. All proposal heads are covered by time t, including rejected heads, so the spatial Poisson heads of positive intensity bound every vacant component on both sides. Bounded reach also gives locally finite boundary intensity and F≥exp(-2ℓ₊Λ)>0. The length-g gap contributes (g−x)₊ to the measure of possible test origins; the stationary Campbell identity and its second distributional derivative give q_t(dx)=FΛ² exp(-Λx)dx and its claimed normalization. The proof does not infer independence of gaps or a temporal stationary law. The supplied Monte Carlo script is diagnostic, not needed for the proof.
 
-The decisive mathematical checks are the independent Poisson split into head locations inside, left, and right of the tested interval, the independent half-line killing construction, and the identity between empty-interval probabilities and count-intensity gap lengths. Simulations do not prove distributional identities, and the finite observation window does not implement the infinite line literally. No external scientific validation has been performed.
+## originality
+
+PASS
+
+Only the generality is credited: the fixed-length, orientation-symmetric constant-rate head-only void law and the normalized gap law are already known. The inspected sources do not cover the full marked head-only claim or its factorization argument.
+
+## value
+
+PASS
+
+Exact universality of the count-sampled law when the mark-dependent coverage fraction and kinetics can change is useful. The proof explains which acceptance mechanism, rather than any closure specific to fixed lengths, controls the gap law. It separates the length distribution from both coverage and correlations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

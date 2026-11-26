@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:26:04.499331Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The update is a contraction in sup norm (row sums d_i/(a+d_i)<1), and the Laplacian equation preserves the innate mean. Reproduced the exact lower bound independently of the frozen adjugate code. Relabel the nonedge as 01; enumerate all connected masks on the remaining pairs with no graph-isomorphism quotient, and all nonzero binary opinions with s_0=0 by complement symmetry. In difference coordinates y_i=z_i-z_0, solve (a I+Q)y=a(s_i-s_0)_{i>0}, where Q_ij=L_ij-L_0j for i,j>0. Compute polarization as sum y_i^2-(sum y_i)^2/n. For each rational difference that is not identically zero, remove powers of a from its reduced numerator, test that the numerator has no positive Sturm roots, and check that Delta(1)<0; the rational function has no positive pole since the original Laplacian resolvents are nonsingular. This gave (graphs, identically zero, strictly negative) = (1,1,2) for n=3 and (14,18,80) for n=4, with n<=2 vacuous. Replay: python3 /workspace/check_opinion.py (independent SymPy reproduction, unexecuted frozen verifier). For the specified five-vertex witness, reflecting 0 with 2 and 4 with 3 leaves the symmetric component unchanged under the edge update. On antisymmetric coordinates at 0 and 4, the system has matrix with diagonals (a+2,a+1), off-diagonal -1, and input (-a/2,a/2); the new edge replaces a+2 by a+4. Subtracting twice the squared solution norms produces the stated rational difference. Exact evaluations yield 2/405 and -496/34969; the quartic's one sign variation and its opposite signs at 1 and 2 give the unique positive crossover (approximately 1.32018042507931). The obstruction is binary and homogeneous; it does not assert monotonicity for arbitrary real opinions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhalla–Lechowicz–Musco's inspected monotonicity is for P+D. Rácz–Rigobon give formulas for pure polarization under a single weighted edit and a three-agent increase with nonbinary opinions."
+        ],
+        "reasoning": "Neither monotonicity of the combined objective nor a nonbinary witness determines the binary order obstruction. A general formula is useful for computing the sign, but does not assert it under this graph/order restriction.",
+        "searches": [
+          "Primary-literature search for minimal binary edge-addition polarization increases and anchoring",
+          "arXiv:2111.14020 §3.1",
+          "arXiv:2206.08996 §4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2111.14020",
+        "arXiv:2206.08996",
+        "Resultary 2813b8ffcfee and a08cbb8278fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unit-anchor catalogue theorem varies neither the original graph weights nor the uniform anchor, and the false-twin criterion concerns safety for all opinions, a different quantifier. The general weighted-update formula does not give the finite continuum sign check or the witness quartic without additional computation."
+        ],
+        "reasoning": "Do not credit the standard update formula, the qualitative phenomenon, or the already indexed unit-anchor threshold as separate distinct results. The uniform finite-order obstruction and sign reversal survive the implication comparison.",
+        "searches": [
+          "2813b8ffcfee, Finding and Assumptions",
+          "a08cbb8278fa, Finding",
+          "arXiv:2111.14020 Lemma 5 and Corollary 6",
+          "arXiv:2206.08996 Lemma 4.3 and Figure 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At a=1, record 2813b8ffcfee gives the same binary path test. Replacing 0/1 by -1/+1 multiplies squared centered polarization by four, matching 8/405 to 2/405. Also the a-sweep is exactly common scaling of all graph weights by 1/a at unit anchoring."
+        ],
+        "reasoning": "A sweep of only the inserted edge's weight does not implement a common scaling of the base graph and that edge. A relevant equivalent result would need the simultaneous scaling, or a broader theorem covering it.",
+        "searches": [
+          "Resultary: five vertices sharp binary Friedkin–Johnsen edge insertion and polarization; false twins polarization",
+          "arXiv:2206.08996, equations (3.1)–(3.3), (4.6), (4.8)–(4.9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2 record 2813b8ffcfee proves the sharp a=1 threshold, exhibits the same path and classifies two orbits at that anchor. Its continuous parameter is the new tie's weight. Related 2026/11/8 record a08cbb8278fa gives a nonbinary four-vertex increase at unit anchoring."
+        ],
+        "reasoning": "There is exact partial catalogue coverage; it does not give the uniform anchor obstruction and crossover. The indexed dates do not establish historical provenance.",
+        "searches": [
+          "Resultary: exact binary sharp five-vertex FJ threshold; anchor reversal; safe edge insertion"
+        ]
+      },
+      "rationale": "Pass for the sharp obstruction simultaneously for every positive common anchor, and the unique reversal in the specified path as that anchor varies. The indexed unit-anchor threshold and witness match exactly after opinion re-encoding. General weighted-edge formulas and prior increases for real innate opinions are antecedents, not the all-anchor binary theorem or the exact crossover.",
+      "residual_risks": [
+        "Exact unit-anchor overlap limits credit for the threshold and witness as standalone fixed-parameter facts.",
+        "Another weighted-resolvent analysis may already specialize to the continuum binary sign certificate; bounded primary-passage comparison cannot establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected edge-addition monotonicity is for a different objective",
+          "evidence": "Combined polarization-plus-disagreement index decreases under edge addition; no binary order threshold is provided by these formulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.14020",
+          "material_read": "Section 3.1, p. 5, Lemma 5 and Corollary 6, PDF offsets 35000–36300",
+          "method": "OA PDF passage inspection",
+          "title": "Local Edge Dynamics and Opinion Polarization",
+          "trigger": "Closest candidate cited as not fully accessed in the original"
+        },
+        {
+          "assessment": "General update and small nonbinary increase, not binary minimum",
+          "evidence": "Anchoring normalized to one in a weighted model. The illustrated three-agent innate vector is (0,0.4,1).",
+          "identifier_or_url": "https://arxiv.org/abs/2206.08996",
+          "material_read": "Full-text §3.1 Eqs. (3.1)–(3.3), §4.2 Fig. 4.1, Lemma 4.3 and Eqs. (4.6), (4.8)–(4.9)",
+          "method": "OA HTML passage inspection",
+          "title": "Towards consensus: Reducing polarization by perturbing social networks",
+          "trigger": "Pure-polarization edge-update formula and small example"
+        },
+        {
+          "assessment": "Exact partial overlap at unit anchoring",
+          "evidence": "No increase through n=4, same five-path witness up to relabeling and opinion scaling, and two increasing orbits at n=5. Its t changes the new edge only, keeping the anchor and base graph fixed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-five-vertices-are-the-sharp-binary-opinion-edge-insertion-polari--2813b8ffcfee",
+          "material_read": "RESULT.md, Finding, Assumptions and parameter comparison",
+          "method": "Local mirrored source",
+          "title": "Five vertices are the sharp binary-opinion edge insertion polarization threshold",
+          "trigger": "Exact small-order threshold hit"
+        },
+        {
+          "assessment": "Different opinion domain and anchoring scope",
+          "evidence": "The four-agent increase uses s=(0,0,1/2,1); all-opinions safety at unit anchoring is not this binary question.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-false-twin-rigidity-of-polarization-under-a-new-social-tie--a08cbb8278fa",
+          "material_read": "RESULT.md, Finding and four-vertex witness",
+          "method": "Local mirrored source",
+          "title": "False-twin rigidity of polarization under a new social tie",
+          "trigger": "Related all-opinions safe-insertion characterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform obstruction rules out counterexamples below five agents at every positive homogeneous anchor, not merely at the standard unit normalization. The path example then identifies a true reversal under global social-to-innate scaling, with an exact threshold that separates improvement from worsening in a minimal example. The binary restriction is substantive in view of smaller nonbinary examples; no empirical claim follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

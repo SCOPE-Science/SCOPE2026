@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:00.628786Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reflection counts the middle bridge between two fixed admissible boundaries. With t=2n-a-b and binomial offsets d1=(y-x)/2, d2=(y+x+2)/2, the fixed-offset Stirling expansion has correction -(2d^2+1/4)/t, so the leading difference uses d2^2-d1^2=(x+1)(y+1); dividing by the Catalan count gives the stated product with O(n^-1) error, including odd t. Under fair independent letters a linear set of disjoint interior blocks makes any fixed type fail saturation with exponentially small probability, and dividing by the polynomial Dyck probability preserves exponential decay. Hanf locality on the bounded-degree directed successor path (with the unary colour) then leaves only truncated neighbourhoods determined by finite endpoint windows. Every admissible pair has positive mass, which both terminates the finite search for saturated completions and forces exponentially small errors for limits 0/1. In even prefix length 2m≥4 the numerator weights are odd; two weights 1 and at least one of each increasing odd weight ensure the sorted subset-sum interval condition, proving surjectivity onto all dyadics. First prefix UD has limit 1/4. This proof is for fixed sentences in the given signature, not full order or matching. Independent bounded replay: python3 /workspace/branches/reproduction/dyck.py; DP matched the reflected formula at 5084 positions and verified the sorted-weight criterion through length 20; the finite checks are not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Regular-language machinery for small permutation classes does not range over this nonregular Dyck language.",
+          "Koponen's general random-expansion remark assumes control of base-vocabulary probabilities rather than deriving the Dyck base law.",
+          "The effective bounded-degree Hanf theorem applies as a proof ingredient only."
+        ],
+        "reasoning": "The broader locality theorem supplies a reduction to local counts but gives neither the limiting Dyck count law nor the boundary arithmetic.",
+        "searches": [
+          "arXiv:2610.22218v1 Theorem 1(5)",
+          "arXiv:2610.16163v1 Remark 2.15",
+          "arXiv:1703.01122 Theorem 3.2 and Corollary 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_dyck_fo.py",
+        "Resultary 62bb62931601 (local-mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:2610.22218v1",
+        "arXiv:2210.05537",
+        "arXiv:2610.16163v1",
+        "arXiv:1703.01122"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Lyndon theorem has O_phi(log n/sqrt n) and one-sided terminal randomness, while the Dyck proof requires two positive height-weighted windows and excursion conditioning.",
+          "Albert et al. give density, not the exact arithmetic set, and a zero-limit exponential bound in TOTO."
+        ],
+        "reasoning": "Neither prior theorem mechanically yields the frozen claim: the measure-specific bridge and subset-sum calculations are needed, and the convergence statements cannot simply be transferred through a set bijection.",
+        "searches": [
+          "Lyndon RESULT.md, Finding and proof (local mirror)",
+          "arXiv:2210.05537 Theorem 1 and pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Markström–Räty Introduction, pp. 1–2, explicitly distinguishes a counting bijection to Dyck paths from a truth-preserving logical translation.",
+          "Albert et al. pp. 3–4 use two linear orders on permutations rather than successor and a colour on letters."
+        ],
+        "reasoning": "A Catalan counting correspondence is not by itself an interpretation of one relational structure in the other; no examined equivalence transfers the full claim.",
+        "searches": [
+          "Resultary searches for uniform Dyck-word and Catalan-conditioned successor-language limit laws",
+          "arXiv:2610.22218v1 Introduction and Theorem 1",
+          "arXiv:2210.05537 Theorem 1 and TOTO signature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Lyndon record gives the same exact spectrum for uniform binary Lyndon words, but its fixed-zero prefix and fair-bit terminal window with forced final 1 are not the Dyck boundary distribution.",
+          "No matching Dyck logical classification was found in the inspected results."
+        ],
+        "reasoning": "This is an all-sentence spectrum with claims about a specific measure and rates, not a Catalan or prefix count table. The matching numerical set is material antecedent evidence but does not determine the probabilities under the Dyck measure.",
+        "searches": [
+          "Resultary catalogue and local-mirror record 2026/10/26/SCOPE-dyadic-first-order-limits-for-uniformly-random-binary-lyndon-wor--62bb62931601",
+          "Focused primary-literature search for uniform Dyck/conditioned-word first-order limit laws"
+        ]
+      },
+      "rationale": "The exact Dyck-specific logical law is distinct on the inspected evidence. The same dyadic spectrum and much of the proof architecture are already present for binary Lyndon words, and a Catalan-counted permutation class already has convergence and exponential decay of zero-limit events in a different logic. The new content here is the uniform Dyck successor/letter law with its two-sided height-dependent boundary measure, O(n^-1) rate, and constructive dyadic classification in that model, not the numerical set of dyadics or Hanf locality in isolation.",
+      "residual_risks": [
+        "A general logical limit theorem for conditioned nonregular languages, or another logical interpretation preserving the relevant measure, could give additional coverage; the inspected sources do not establish it.",
+        "No priority claim for classical endpoint asymptotics, Hanf locality, or the abstract dyadic numerical spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial overlap, different distribution and rates",
+          "evidence": [
+            "RESULT.md offsets 0–7633: fixed initial zeros, terminal fair bits with forced 1, effective dyadic law and O_phi(log n/sqrt n)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-dyadic-first-order-limits-for-uniformly-random-binary-lyndon-wor--62bb62931601",
+          "material_read": "RESULT.md, bounded excerpt containing finding and proof mechanism",
+          "method": "Configured Resultary search and local-mirror statement comparison",
+          "title": "Dyadic first-order limits for uniformly random binary Lyndon words",
+          "trigger": "Same signature and exact spectrum"
+        },
+        {
+          "assessment": "No Dyck successor/letter theorem in the inspected scope",
+          "evidence": [
+            "PDF pp. 1–2 distinguish bijections from logical isomorphisms; p. 5 grants TOTO convergence for small permutation classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22218v1",
+          "material_read": "Introduction and Theorem 1(5)",
+          "method": "Original PDF passage comparison",
+          "title": "Logical isomorphism and logical limit laws for small permutation classes and regular languages",
+          "trigger": "Dyck correspondences and regular-word convergence"
+        },
+        {
+          "assessment": "Different objects and vocabulary; density rather than spectrum equality",
+          "evidence": [
+            "PDF p. 3: convergence, exponential zero cases, density; p. 4: position and value linear orders."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.05537",
+          "material_read": "Theorem 1 and TOTO definitions",
+          "method": "Original PDF passage comparison",
+          "title": "A logical limit law for 231-avoiding permutations",
+          "trigger": "Catalan class and quantitative logical convergence"
+        },
+        {
+          "assessment": "Base-vocabulary limits are separate inputs; no Dyck law from this passage",
+          "evidence": [
+            "PDF p. 7, Remark 2.15, discusses base-language limits and sufficient conditions for 0/1 convergence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.16163v1",
+          "material_read": "Remark 2.15",
+          "method": "Bounded original PDF passage",
+          "title": "A characterization of the finite model property for omega-categorical theories",
+          "trigger": "Possible general conditioned-model convergence"
+        },
+        {
+          "assessment": "Supports the locality input, not the probability law",
+          "evidence": [
+            "PDF pp. 12–13: effective normal forms under bounded degree, including ordinary first-order sentences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.01122",
+          "material_read": "Theorem 3.2, Corollary 3.3",
+          "method": "Original PDF theorem inspection",
+          "title": "First-Order Logic with Counting: At Least, Weak Hanf Normal Forms Always Exist and Can Be Computed!",
+          "trigger": "Effective locality required for the algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural globally constrained word ensemble, it identifies exactly what every fixed first-order observer in a basic local vocabulary can detect, quantifies exceptions, and gives both an exact spectrum and a constructive realization argument. The nonuniform two-end law is useful even when the dyadic set is known from other models.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

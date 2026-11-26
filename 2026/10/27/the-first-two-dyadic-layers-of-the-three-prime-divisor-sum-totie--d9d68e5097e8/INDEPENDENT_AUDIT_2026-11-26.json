@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:03:22.341173Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Multiplicativity reduces the two cases to H_p(b)H_q(c)=4/3 or 8/7. Each H_r(t) increases in t with minimum (r+1)/(r−1) and strict upper limit (r/(r−1))²; both endpoints decrease in r. Exact reproduction with python3 /workspace/audit_evidence/dyadic.py checks the bounds that restrict the prime search, obtains exactly (11,19) for a=1 and 13 possible supports for a=2, and verifies the five equality supports. On five supports the lower endpoint already equals the target, forcing both exponents to be one. On seven other supports the b=1 upper bound lies below target and b≥2 lower bound lies above. The last two require b≥3, so p divides the right side of σ=4φ. Since p∤σ(4)σ(p^b), it must divide σ(q^c), requiring c+1 divisible by the order of q modulo p (16 and 18 respectively). Substitution into the increasing lower bound rules out both tails. This covers arbitrary positive exponents and gives exactly the five printed integers; the frozen bounded scan is not used as an unbounded exclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broughan–Zhou p. 11 treats even members with two distinct primes and odd members with three distinct primes. Their introduction and p. 13 discuss even three-prime cases without solving the target exponent question."
+        ],
+        "reasoning": "Neither proven subdomain contains the even three-prime domain. No theorem in the inspected passages identifies which exponents are possible for these two layers.",
+        "searches": [
+          "Broughan–Zhou, Properties of R_4, Lemmas 9 and 10",
+          "Resultary 2^a p^b q^c unrestricted exponents"
+        ]
+      },
+      "checked_sources": [
+        "Broughan–Zhou, JIS 17 (2014), 14.9.2",
+        "OEIS A068390",
+        "OEIS A292422",
+        "Targeted Resultary and literature searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The p. 13 observation that examples found were of form 2^e pq is stated empirically. The paper also records examples with e=23."
+        ],
+        "reasoning": "Prior knowledge settles the five positive examples, not the negative statement for unbounded b,c. The frozen claim does not imply any exclusion for e≥3.",
+        "searches": [
+          "Broughan–Zhou pp. 1–2 and 11–13",
+          "Resultary repeated-prime exclusions and five-solution comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Broughan–Zhou use the class R_4 of integers with σ/φ=4 and refer to even numbers with ω(n)=3, giving the five numerical examples on p. 13."
+        ],
+        "reasoning": "That formulation restricts to the frozen domain on imposing v_2(n)=1 or 2; it does not impose that the odd part is already squarefree. The examples cover existence only.",
+        "searches": [
+          "Resultary exact equation, five values, and repeated odd-prime powers",
+          "number theory sum of divisors Euler’s totient quotient four Broughan Zhou sigma 4 phi three distinct prime factors repeated prime powers 418 3596 even dyadic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All five values are listed in the earlier literature. A292422 concerns n=2^k pq with distinct odd primes; A068390 records the general equality."
+        ],
+        "reasoning": "A292422 starts with b=c=1 rather than deriving it. Term lists do not certify that no repeated odd prime factors occur at v_2=1,2.",
+        "searches": [
+          "OEIS A068390",
+          "OEIS A292422",
+          "Broughan–Zhou p. 13 examples"
+        ]
+      },
+      "rationale": "Pass for proving that all quotient-four solutions in the two specified three-prime layers have both odd exponents one. All five individual solutions and the squarefree odd-part family are known. Broughan–Zhou place the even three-prime case outside their relevant proved classification; their list is examples, not a proof against repeated odd-prime powers. The primary-literature and Resultary searches surfaced no inspected earlier result settling these two unrestricted layers.",
+      "residual_risks": [
+        "Bounded indexing and inspected papers do not rule out a separate unindexed proof. No claim of new numerical solutions or of a classification for v_2≥3 is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior numerical examples and related proven cases, not two-layer unrestricted exclusion",
+          "evidence": "Lemma 9 is for even ω=2; Lemma 10 for odd ω=3. The five even ω=3 examples are followed by an ellipsis; the observed form is not asserted as an exhaustive theorem.",
+          "identifier_or_url": "https://www.kevinbroughan.nz/papers/sopFour.pdf",
+          "material_read": "Abstract and introduction pp. 1–2; Properties of R_4 p. 11 and even three-prime examples p. 13 (PDF text offsets 0, 1713, 28500 and 31900)",
+          "method": "Lawful OA author PDF; indexed journal copy corroborated by literature search",
+          "title": "On the Ratio of the Sum of Divisors and Euler's Totient Function II",
+          "trigger": "Same equation and even three-prime exception"
+        },
+        {
+          "assessment": "Existing integer sequence, no proof of odd-exponent rigidity",
+          "evidence": "Lists values for the general equation.",
+          "identifier_or_url": "https://oeis.org/A068390",
+          "material_read": "Sequence definition and opening entry",
+          "method": "Public OEIS page",
+          "title": "Numbers satisfying σ(n)=4φ(n)",
+          "trigger": "Exact equation sequence"
+        },
+        {
+          "assessment": "Strictly narrower exponent domain",
+          "evidence": "The definition presupposes a product of two distinct odd primes to the first power.",
+          "identifier_or_url": "https://oeis.org/A292422",
+          "material_read": "Sequence definition and opening terms",
+          "method": "Public OEIS page",
+          "title": "Numbers of the form n=2^k pq with two odd prime factors and σ(n)/φ(n)=4",
+          "trigger": "Known values in precisely the restricted odd-prime family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two lowest positive valuations of 2 are a natural complete boundary in the already posed even quotient-four three-prime case. The work upgrades an observed exponent pattern to a rigorous classification over two unbounded odd exponents. The order constraints resolve the supports that endpoint bounds alone do not eliminate; merely recomputing the five previously known values would not suffice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

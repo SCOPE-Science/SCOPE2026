@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:46:32.718753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian integration gives the exact Z_T. Ground-state conjugation gives a confining Schrödinger operator with locally bounded potential (V′ is continuous, so there is no interface delta) and the usual one-node characterization of the gap. On each exterior half-line the weighted square-integrable solution is the recessive parabolic-cylinder branch; its origin ratio is −√2 Γ((1−ν)/2)/Γ(−ν/2), which reduces to the stated positive gamma quotient. For 0<ν<1 the recurrence in terms of the two lower, negative-order cylinder functions makes it positive throughout the outward half-line. Left and right logarithmic derivatives have opposite signs in the global coordinate. The interior cosine starts at phase arctan r_- and ends at π−arctan r_+, with exactly one interior zero. With u=√T the implicit equation is smooth near (k,u)=(π/L,0) and its k derivative tends to L>0. The tail gamma expansion contributes log 2 and the cubic arctangent subtracts (π/2)/3, giving the stated B; B>0. With k0=π/Z_T the shift is −B k0³ T^(3/2)/Z_T+O(T^(5/2)), so expanding T k² and replacing Z_T by L in the correction gives the stated O(T³) error. As a separate finite check, solved the half-interval odd-state condition for L=κ_-=κ_+=1 using a midpoint Dirichlet condition and a Tricomi U tail evaluated near the interface. The measured/predicted correction ratios at T=10⁻³,10⁻⁴,10⁻⁵,10⁻⁶ were approximately 0.684567, 0.883831, 0.961323, 0.987564. These values test sign and coefficient, not the asymptotic proof. Replay RESULT.md:35–72. Frozen check_spectrum.py was inspected, not executed; its recorded PASS counts are finite evidence only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Nov. 2 theorem gives λ_j(old)=(jπ/2)²/A_n²−2d(jπ/2)^4/(A_n^5 n^(3/2))+O(n^(−5/2)) for every fixed j, with A_n=a+√(π/2)n^(−1/2) and d=√(π/2)(log 2−π/6).",
+          "Darapaneni's abstract and introduction §1.2(C) give the Gibbs law/reflected limit and total-variation time scale, not this coefficient."
+        ],
+        "reasoning": "The prior Resultary theorem is stronger in mode index and retained correction denominator in the symmetric class. Substituting Z_T=2A_n and B=2d and multiplying by T gives the frozen formula with L in the denominator after the permitted O(T³) simplification. The primary model paper's weaker mixing information is not the evidence of spectral coverage.",
+        "searches": [
+          "Nov. 2 Resultary fixed-mode spectral theorem",
+          "Darapaneni arXiv:2610.35145v1, projection-diffusion mixing"
+        ]
+      },
+      "checked_sources": [
+        "Nov. 2 Resultary spectral expansion and proof",
+        "arXiv:2610.35145v1",
+        "frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier single-wall phase has the expansion β k n^(−1/2)+d k³ n^(−3/2)+O(n^(−5/2)), independent of the opposite wall.",
+          "The free-interval equation f″+k²f=0 with outward ratios kr_± has endpoint phases δ_- = arctan r_- and π−δ_+ at the one-node root."
+        ],
+        "reasoning": "Divide the frozen generator by T and use the earlier half-tail with n_j=κ_j/T at each endpoint. Then kL+δ_-+δ_+=π simply replaces 2δ by the sum. The coefficient of k√T is β∑κ_j^(−1/2), the coefficient of k³T^(3/2) is d∑κ_j^(−3/2), and expanding the root yields the claimed gap. This is the entire unequal-wall extension and does not require a new spectral estimate.",
+        "searches": [
+          "Nov. 2 local-mirror RESULT.md Finding and §4 Expansion (around offset 4850)",
+          "Frozen RESULT.md:49–72"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Finding states ak+arctan(√n R(k²/n)/k)=jπ/2 with exactly the same gamma quotient R.",
+          "Its assumptions explicitly give the time-rescaling relation for the penalty-one process at T=1/n."
+        ],
+        "reasoning": "With a=L/2, n=1/T, λ_j(old)=λ_j(frozen)/T, j=1 and κ_-=κ_+=1, doubling the prior phase equation is exactly the frozen matching equation. No boundary convention or eigenvalue index changes.",
+        "searches": [
+          "Resultary: log 2 minus pi/6 soft-wall dispersive spectral correction",
+          "2026/11/2/SCOPE-square-root-soft-wall-shift-and-dispersive-spectral-correction-f--10e79aeb504f, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The separate earlier indexed article explicitly prints the exact symbolic coefficient, effective width, remainder and gamma-ratio matching equation; the coefficient is not merely a similar entry or finite approximation."
+        ],
+        "reasoning": "There is no computational table to exhaust: the exact symbolic claim is already present for the matched subcase in the catalogue. The current item is not being used as its own precedent.",
+        "searches": [
+          "Resultary: square-root soft-wall shift, Gaussian walls, spectral coefficient log 2−π/6",
+          "Nov. 2 local-mirror RESULT.md Finding and §4"
+        ]
+      },
+      "rationale": "The Nov. 2 published Resultary expansion gives the same beyond-mass coefficient for the exact symmetric subcase, more strongly for every fixed mode with an unexpanded effective denominator and a sharper remainder. It also supplies the complete one-wall impedance and its cubic phase coefficient. Equal nonunit stiffness amounts to rescaling; at unequal stiffnesses the very same two single-wall phases merely add in the flat interval, as shown below. No distinct dispersive coefficient or new mechanism survives narrowing to unequal walls. This is verified prior coverage and a routine extension, not a verdict based on a missing article.",
+      "residual_risks": [
+        "Earlier independent or more general piecewise Gaussian spectral treatments might also contain the coefficient. The focused primary-literature search yielded no useful additional comparison, which is not evidence of absence.",
+        "The priority judgment is based on the inspected earlier Resultary statement and its demonstrable implications, not on a global historical claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier symmetric result; supplied one-wall law extends mechanically to the unequal case.",
+          "evidence": [
+            "Theorem for each fixed j; the same gamma-ratio phase and log 2−π/6 factor; explicit time rescaling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-square-root-soft-wall-shift-and-dispersive-spectral-correction-f--10e79aeb504f/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0; §4 Expansion at offset around 4850",
+          "method": "Local Resultary file mirror",
+          "title": "Square-root soft-wall shift and dispersive spectral correction for penalized interval diffusion",
+          "trigger": "Strongest exact coefficient and phase-equation overlap"
+        },
+        {
+          "assessment": "Prior same dynamics and mixing-scale work; the inspected statements do not give the coefficient.",
+          "evidence": [
+            "Reflected-Brownian limit, invariant law and bounds on total-variation mixing."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.35145v1",
+          "material_read": "PDF abstract and introduction §1.2(C), pp. 3–4 around offset 13214",
+          "method": "Open-access PDF passages",
+          "title": "Zero temperature versus long time for diffusions driven by metric projections onto convex sets",
+          "trigger": "Same unit-stiffness projection diffusion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The negative beyond-mass term is a scientifically natural invariant, but it is not newly obtained in this record. After excluding the earlier all-fixed-mode result, the change is just substituting the two stiffnesses in a known local boundary formula and adding phases. There is no new, nonmechanical remainder to preserve by narrowing the result or by adding numerical corroboration.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

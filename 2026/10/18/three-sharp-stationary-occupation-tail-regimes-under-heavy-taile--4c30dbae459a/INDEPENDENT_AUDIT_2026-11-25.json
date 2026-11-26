@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:47:18.442683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Nonexplosive linear birth–death–immigration and the independent continuous renewal clock give a proper regenerative stationary law since ET=b/alpha; integrating the interval survival gives exactly the stated age tail, not the inter-reset tail. Substitution of Theta'=lambda+(lambda-mu)Theta and k=u/lambda verifies the forward PGF equation and its zero-state initial condition. Gamma mixing of the Poisson rate then gives the same PGF. Below criticality the ratio to the limiting negative-binomial mass has a factor [(1-x)/(1-qx)]^n with x=exp(-(mu-lambda)A) and bounded prefactor (1-qx)^(-k). Ages below (1-epsilon)log(n)/(mu-lambda) give an exponentially small ratio; above (1+epsilon)log(n)/(mu-lambda) it tends uniformly to one. The intermediate relative probability goes to zero on first letting n grow and then epsilon decrease, proving the local-mass equivalent with its constant. At criticality the product tail can also be checked directly: x^alpha E[(1+x/(b lambda G))^(-alpha)] converges by domination by (b lambda G)^alpha, whose expectation is the claimed Gamma ratio. Above criticality restrict G to [n^(-epsilon),n^epsilon], neglect its polynomially small complement, and use log(1+gn/(lambda G))/g as the age cutoff, where g=lambda-mu. Conditional Poisson Chernoff bounds at (1±eta)n transfer the two mixing-rate tails by regular and slow variation, respectively. Layer-cake summation gives the stated moment conditions including equality at criticality. These are analytic checks for fixed positive parameter tuples, not uniform through the critical point. The frozen checker was inspected, not executed; its reported finite residual and quadrature checks do not prove these asymptotics or constitute formal verification or expert attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Masó-Puigdellosas–Campos–Méndez give the generic finite-mean renewal-age mixture; the example is a diffusion.",
+          "Grange's global resetting renewal equation uses Poisson resets.",
+          "Resultary 27fc344e6840 mixes the same kind of negative-binomial transient law over Poisson reset ages and near-critical fitness to get a Pareto tail. Resultary bc4c6f0acef0 mixes over Pareto renewal ages but computes the spatial tail of an expanding cloud."
+        ],
+        "reasoning": "Each covers a component or changes the observable. None of those reductions gives the local mass controlled by a near-equilibrium negative-binomial parameter at a logarithmic cutoff in age.",
+        "searches": [
+          "arXiv:2205.01613 Eqs. (11), (19)",
+          "arXiv:1910.05991 §5.1",
+          "Resultary 27fc344e6840 and bc4c6f0acef0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.01613",
+        "arXiv:2311.12414",
+        "arXiv:1910.05991",
+        "arXiv:2007.13507",
+        "Tavaré, The Genealogy of the Birth, Death, and Immigration Process §3.1 p. 42",
+        "Resultary acc4e1d8cd5c, 27fc344e6840, bc4c6f0acef0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Renewal-age weighting applies directly to the classical BDI process; the critical Gamma prefactor is a direct product-tail calculation plus Poisson concentration.",
+          "The related random-environment results do not give the age threshold and coefficient here.",
+          "The known BDI kernel and renewal formula do not alone evaluate the subcritical mass ratio: it needs a growing-age cutoff bound with matching upper and lower constants."
+        ],
+        "reasoning": "Credit the direct stationarity and critical product-tail specializations. The local-versus-survival comparison and the subcritical logarithmic correction with its exact prefactor are not mere parameter substitutions in the inspected results.",
+        "searches": [
+          "arXiv:2205.01613 Eqs. (11), (19)",
+          "Tavaré, The Genealogy of the Birth, Death, and Immigration Process, §3.1",
+          "Breiman (1965) product-tail lemma as cited in the record",
+          "arXiv:2007.13507 Theorems 1.2–1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grange arXiv:2311.12414 treats independent local Poisson reset terms in a coupled zero-range model. Its waiting-time distribution is not Lomax.",
+          "Foss–Korshunov–Palmowski Eqs. (12), (15)–(17) give related integrated tails evaluated at log population size for generation-wise random environments, not renewal returns to zero.",
+          "The same-date Resultary Poisson-age branching record acc4e1d8cd5c studies a rare-immigration logarithmic-mass limit, not the stationary occupation of this resetting chain."
+        ],
+        "reasoning": "The log asymptotic here comes from deterministic age-dependent growth of the mixed-Poisson scale. An equivalent formulation would need the same independent equilibrium renewal-age law or cover it after a documented change of variables, not merely another source of logarithmic tails.",
+        "searches": [
+          "Resultary: renewal catastrophes and heavy-tailed resetting for BDI stationary occupations",
+          "arXiv:2311.12414 Eq. (24)",
+          "arXiv:2007.13507 Theorems 1.2–1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact formulas refer to either exponential renewal clocks or a different population environment; no matching local-mass equivalent was identified.",
+          "The nearest occupation-tail catalogue record uses a fitness mixture rather than the equilibrium Lomax age."
+        ],
+        "reasoning": "An integer sequence table is inapplicable to a continuum-parameter family of asymptotic equivalents. Exact overlap here would be a closed local-mass or survival-tail formula for the same kernel-age mixture or a broader one that covers it.",
+        "searches": [
+          "Resultary comparisons by subcritical point-mass correction, critical Gamma prefactor, supercritical logarithmic survival",
+          "arXiv:2007.13507 Eqs. (12), (15)–(17)",
+          "arXiv:2311.12414 Eq. (24)"
+        ]
+      },
+      "rationale": "The age-mixture construction, BDI transition kernel and generic product-tail tools are established. The supported distinct result is the explicit tail comparison for this independent renewal-Lomax reset law, principally the subcritical local negative-binomial mass times the logarithmic age factor and its contrast with the critical and supercritical survival-tail equivalents. The critical formula is a standard product-tail specialization and is not independent novelty in isolation.",
+      "residual_risks": [
+        "The comparison is bounded; unlocated literature on regenerative population models or heavy-tailed complete catastrophes could overlap, especially on the subcritical point-mass factor. No publication priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Age-mixture device covered, not the model's occupation asymptotics",
+          "evidence": [
+            "The finite-mean stationary propagator is an age-weighted diffusion mixture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.01613",
+          "material_read": "PDF p. 3, Eqs. (11) and (19), extracted offset from 15500",
+          "method": "Open PDF text, bounded passages",
+          "title": "Conditioned backward and forward times of diffusion with stochastic resetting: a renewal theory approach",
+          "trigger": "Potential general renewal-reset stationary law"
+        },
+        {
+          "assessment": "Poisson resetting in a coupled model",
+          "evidence": [
+            "The local reset term reflects a constant reset rate, not an iid Lomax renewal duration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.12414",
+          "material_read": "PDF p. 9 Eq. (24), offset about 31120",
+          "method": "Open PDF text, bounded passages",
+          "title": "Local resetting in non-conserving zero-range processes with extensive rates",
+          "trigger": "Same demographic ingredient in a resetting study"
+        },
+        {
+          "assessment": "Global Poisson reset equation, not Lomax occupation tails",
+          "evidence": [
+            "The renewal equation uses Poisson reset times for distributions and expectations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.05991",
+          "material_read": "§5.1 PDF p. 14 Eqs. (54)–(59), offset about 47900",
+          "method": "Open PDF text, bounded passages",
+          "title": "Non-conserving zero-range processes with extensive rates under resetting",
+          "trigger": "Distribution-level reset comparison for the same motivating process"
+        },
+        {
+          "assessment": "Logarithmic-tail analogue, not renewal resets or the displayed constant",
+          "evidence": [
+            "The integrated tail at log population size is that of the random environment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.13507",
+          "material_read": "PDF pp. 4–5 Theorems 1.2–1.3, Eqs. (12), (15)–(17), offset from 10600",
+          "method": "Open PDF text, bounded passages",
+          "title": "Branching processes with immigration in atypical random environment",
+          "trigger": "Plausible broad logarithmic population tail coverage"
+        },
+        {
+          "assessment": "Poisson age and near-critical fitness mechanism differ",
+          "evidence": [
+            "Tail mixing over fitness yields a Pareto exponent under exponential reset ages."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-pareto-fitness-mixture-tails-from-locally-reset-zero-range-dynam--27fc344e6840",
+          "material_read": "Finding and Proof 1–4, mirror RESULT.md",
+          "method": "Local Resultary mirror, bounded passages",
+          "title": "Pareto fitness-mixture tails from locally reset zero-range dynamics",
+          "trigger": "Shared occupation kernel, resetting and explicit tails"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The reset-free dynamical threshold provides a natural parameter split. The theorem explains why finite mean reset intervals guarantee a proper law but need not guarantee any positive occupation moment, and identifies a sharp measurable subcritical correction to the reset-free equilibrium. The common age mechanism produces three different tail classes with explicit constants, without asserting a result for interacting sites or general reset laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

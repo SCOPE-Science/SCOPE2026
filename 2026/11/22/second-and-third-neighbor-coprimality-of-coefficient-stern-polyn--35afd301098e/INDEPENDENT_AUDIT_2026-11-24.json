@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:49:24.485613Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated monic coefficient prefixes, P_0=1 and all other cases reduce by the coefficient shift to the two- or three-term remainder. Adjacent Stern values are coprime by reducing both recurrences to a smaller neighboring pair; positivity and the same recurrences give s(k)=1 exactly at powers of two. The ratio s(k+1)/s(k) is below 1 at odd k>1, is 1 at k=1, and at even k=2r equals 1+s(r+1)/s(r), giving the binary-length bound. By Eneström–Kakeya in descending-coefficient convention, roots of P_n for 1≤n≤2^h−1 have modulus at most h. For offset two a common root is the reduced rational −s(n+3)/s(n+2), hence an integer by monicity. Its denominator forces n+2=2^h and its numerator is h+1, outside the root bound. For offset three at n=2r the remainder factors as (X+1)(s(r+1)X+s(r+2)); the two roots are real but the exact even decomposition P_2r=(1+X+X^2)P_(r−1)(X^2)+s(r+1) is positive on the real axis (r>=1). At n=2r+1 the quadratic has coefficients u+v,v,v+w for adjacent positive Stern values u,v,w, is primitive by gcd(u,v)=1 and irreducible by its negative discriminant. Its leading coefficient is larger than one; by Gauss's lemma it cannot divide a monic integer polynomial. This excludes all common complex roots, hence also zero resultants, with no finite-range assumption. Independently ran 160 rational gcds against the short remainders, n=0..79 at both offsets, in /workspace/frozen_review_arithmetic.py (SymPy). Read the frozen verification note and script without executing it; the latter instead uses finite modular witnesses with degree preserved by monicity. Neither regression extends the domain of the proof or asserts nonvanishing over all finite fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen relationship section credits Res(P_n,P_(n+1))=s(n+2)^n to Prop. 20 in the exact coefficient-family paper; this is adjacent only. Its formula is also immediate from P_(n+1)=XP_n+s(n+2) and monicity.",
+          "The prior consecutive-resultant index describes values of consecutive resultants, not a universal statement for gaps two and three. The same-day GCD entry uses n=2^r+1 and 2^r+3 and a different evaluated (0,1) family."
+        ],
+        "reasoning": "No accessed statement gives all-pairs or both nonadjacent offsets for the coefficient family. The adjacent formula is not a broader pairwise result. Exact scope of the coefficient-family paper beyond the available passages remains an access risk.",
+        "searches": [
+          "Dilcher–Ericksen article 21.10.3, targeted passage attempts for Proposition 20 and general resultants",
+          "Resultary 1aada4c0d6d8, consecutive Stern-polynomial resultants",
+          "Resultary 071acf8ddd34, dyadic offset-two GCD"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Dilcher–Ericksen JIS article PDF pp. 1–2",
+        "Resultary 071acf8ddd34, 1aada4c0d6d8 and exact assigned-record hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d=1 the remainder is a nonzero constant. For d=2,3 it is a genuinely variable linear or quadratic polynomial; its roots must be ruled out using Stern arithmetic, root location, or integrality. Nonzero adjacent resultants alone impose no such exclusion.",
+          "A consecutive-resultant law taking every positive integer as an absolute value cannot literally be the monic coefficient-prefix adjacent law s(n+2)^n: for example 3 is impossible for n>=2 and the n=0,1 values are 1 and 2. The precise family in that index could not be confirmed, but the indexed law is not evidence of coverage of these offsets."
+        ],
+        "reasoning": "Credit the published starting family and its adjacent and root facts. The proof here applies a length-two modulus argument and a parity split for length three; the verified antecedents do not make either conclusion a parameter substitution.",
+        "searches": [
+          "Frozen RESULT.md offsets two and three proof and prior-work section",
+          "Dilcher–Ericksen pp. 1–2 and attributed adjacent resultant",
+          "071acf8ddd34 and 1aada4c0d6d8 indexed statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For these monic integer polynomials, coprimality in Q[X], no common complex root, and nonzero Sylvester resultant are equivalent.",
+          "The p. 1 introduction of Dilcher–Ericksen distinguishes their coefficient family from earlier families preserving the binary structure. The indexed dyadic GCD record concerns integer evaluations, not symbolic gcds of the same coefficient polynomials."
+        ],
+        "reasoning": "Compared both polynomial and resultant language, and both meanings of Stern polynomials. An integer gcd at some evaluations or of mod-two coefficients is not equivalent to the characteristic-zero polynomial gcd.",
+        "searches": [
+          "Resultary: coefficient Stern polynomial coprimality, offsets two and three, and adjacent resultants",
+          "Dilcher–Ericksen, Polynomials Whose Coefficients Are Stern Numbers, p. 1 and §1",
+          "Exact parameter GCDs for dyadic Stern (0,1)-polynomial pairs, 071acf8ddd34"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact both-offset indexed result is the assigned record itself. The neighboring catalogue entries differ by offset, interpretation of gcd, or family.",
+          "The printed table is of Stern coefficients, not of pairwise resultants or a proof of their nonvanishing."
+        ],
+        "reasoning": "The catalogue was checked for the exact symbolic gcd/resultant fact. A coefficient table or finite enumeration does not cover the universal claim.",
+        "searches": [
+          "Resultary: all-index coefficient-Stern second and third neighbors; consecutive-resultant value records",
+          "Dilcher–Ericksen p. 2, equations (1)–(2), Stern sequence table and recurrence (the coefficient data, cited as OEIS A002487 in the frozen record)"
+        ]
+      },
+      "rationale": "The result concerns the monic coefficient-prefix family over Q[X] simultaneously at offsets two and three, not the positive integers obtained by evaluating a dyadic subfamily of Stern (0,1)-polynomials. The coefficient family and its adjacent resultant, root bound, and even-degree positivity are antecedents, not contributions here. The available evidence does not cover the universal two- and three-offset exclusion of common roots. The assertion of distinct content is based on the actual difference of objects and remainders; it is not a claim of historical priority.",
+      "residual_risks": [
+        "Decisive later passages in the JIS article on arbitrary pairwise resultants were not independently accessible through the passage reader. The exact scope of uninspected remarks and other follow-up work remains open.",
+        "The two related indexed records could be compared from their available statements, not their full texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family match; credit attributed adjacent formula, not an exclusion of anything the unread parts may contain",
+          "evidence": "The abstract describes a sequence P_n with Stern numbers as coefficients. Section 1 distinguishes two previously defined binary-structure families and explains that this family is of a different type. Frozen RESULT.md lines 79–85 give the adjacent formula and attribution to Prop. 20.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Dilcher/dilcher51.pdf",
+          "material_read": "Primary PDF abstract and start of §1, printed pp. 1–2, including equations (1)–(2). Exact Prop. 20/further resultant discussion not retrieved independently.",
+          "method": "Targeted OA literal passage queries and lawful journal-hosted PDF preview",
+          "title": "Polynomials Whose Coefficients Are Stern Numbers",
+          "trigger": "Identical coefficient-defined family with root and resultant results"
+        },
+        {
+          "assessment": "Different stated objects, quantifier and gcd domain, not priority by date",
+          "evidence": "Index describes gcds of evaluated integer values at indices 2^r+1 and 2^r+3, r>=2, for Stern (0,1)-polynomials.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-parameter-gcds-for-dyadic-stern-0-1-polynomial-pairs--071acf8ddd34",
+          "material_read": "Resultary statement; exact mirrored passage unavailable",
+          "method": "Resultary and targeted OA mirror lookup",
+          "title": "Exact parameter GCDs for dyadic Stern (0,1)-polynomial pairs",
+          "trigger": "Same day and a numerically two-apart Stern pair"
+        },
+        {
+          "assessment": "Covers consecutive pairs as indexed; precise family unresolved but not the exact monic adjacent law here",
+          "evidence": "The summary says absolute consecutive resultants achieve every positive integer infinitely often; it does not assert offsets two and three.",
+          "identifier_or_url": "2026/11/2/SCOPE-every-positive-integer-occurs-infinitely-often-as-a-consecutive--1aada4c0d6d8",
+          "material_read": "Resultary statement only; mirror passage unavailable",
+          "method": "Resultary and targeted OA mirror lookup",
+          "title": "Every positive integer occurs infinitely often as a consecutive Stern-polynomial resultant",
+          "trigger": "Stern resultants and exact occurrence statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The offsets are the first cases in which the coefficient-prefix resultant no longer reduces to a nonzero constant remainder; this is a natural test of pairwise coprimality beyond adjacency. The theorem proves that no exceptional index occurs in either family, with genuinely different mechanisms for a linear remainder and for each parity of the quadratic remainder. It supplies a usable exact common-factor exclusion, not a proposed pattern from finite data or a claim for larger gaps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

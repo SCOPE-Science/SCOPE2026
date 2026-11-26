@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:01:26.855989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof 1–5",
+        "VERIFICATION.md and verify.py (source inspected, not executed)",
+        "Independent exact cofactor checks: (3,4) gives ratios 1,13/27,73/243,79/243 for the four classes and total 12297692033065156608; (4,3) gives ratios 1,5/8,13/32,103/256 and total 189978847362366308352; direct word check (3,2) gives 20"
+      ],
+      "rationale": "A distinct-window cyclic word is a labeled Euler circuit in the surviving graph, modulo cyclic shift, and its missing edges must be balanced. Three distinct balanced edges decompose into three loops, a loop and a two-cycle, or a three-cycle. For m≥2 all tails in every class are distinct: the double-symbol primitive three-cycle already has three different length-two phase prefixes. The orbit counts are binomial(q,3), q binomial(q,2), q(q−1), and 2 binomial(q,3). The undeleted shift has P^m=Π, hence the rooted cofactor is q^(q^m−n). The rank update for balanced deletion may be computed before showing connectivity because det(L_E+Π)=q^m τ_E also holds when the tree cofactor is zero. The inverse on zero-sum vectors is the finite geometric sum divided by q. Cell probabilities depend on suffix/prefix overlap, with extra matches only at one-letter overlap for the repeated-symbol period-three cycle. For a length-three cycle, multiplying the update determinant on the right by qI−R gives numerator det((q−1)I+xB_s) and denominator q³−1, where s=m mod 3. For three distinct symbols B_s=(I−R)R^s has trace (3,0,−3) by residue and sum of principal two-minors 3. For phase pattern (a,a,b), let U have the two nonzero entries U_01=U_10=1 in zero-based indices. Then B_s=(I−R)R^(s−1)[(I+U)R−qU]. Its trace by residue is (2−q,q,−2), and the principal two-minor sum is −q²−2q: for s=0 the three minors are −q²,−q,−q and R acts with determinant one on the zero-sum plane, leaving the product there invariant. Both matrices have determinant zero. Expanding in x and canceling q−1 yields exactly the two rows by residue in the frozen table. For d=2 the nonconstant shift eigenvalue −1 yields R₂ directly. All ratios are positive for q≥3 and x≤q⁻², so balance plus an in-tree gives strong connectivity. Fixing any surviving first edge in BEST counts each edge tour modulo rotation once; the distinct-window condition also excludes periodic words. At n=2 the uniform transition gives ratios 1−2/q and 1−3/q+3/q² on the two nonloop cycle types, but a loop at a two-cycle vertex changes one factorial twice; combining the four weights gives the separate claimed formula. All (n−1)-windows survive at least once because every vertex has positive degree, and distinct n-windows imply distinct longer windows, giving the stated maximal distinct-factor complexity. Independently enumerated deletion sets and exact cofactors for (q,n)=(3,4),(4,3) corroborated all four types; direct enumeration for (3,2) gave 20. The finite checks supplement the proof.",
+      "residual_risks": [
+        "No all-parameter claim is based only on the finite checks. Alphabets remain labeled; reflections, symbol permutations and multiplicity-balanced restrictions are not imposed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Kitaev–Sun, Theorem 4.1: exact cyclic existence probability for two deletions, not a three-deletion multiplicity-weighted count.",
+          "0692287bae41, Proof 5 (mirror offset 5200 onward): binary repeated-symbol three-cycle with a final one-bit matching correction and distinct expressions by m mod 3.",
+          "91541f51dfe4, Finding and Limitations: nonbinary labeled necklaces with precisely two deletions."
+        ],
+        "reasoning": "The binary cofactor method is close and directly relevant to the repeated-symbol component; its formulas at q=2 neither supply the additional q≥3 deletion types nor the order-two factorial collision. The two-deletion case yields no length-three deleted cycle. A general matrix-tree counting prescription alone does not evaluate the closed-form ratios and weights.",
+        "searches": [
+          "arXiv:1908.01116, Theorem 4.1 and deletion probabilities",
+          "Resultary 0692287bae41 and 91541f51dfe4, Findings and determinant proofs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1903.05442",
+        "arXiv:1908.01116",
+        "arXiv:2108.07759",
+        "OEIS A330307",
+        "0692287bae41",
+        "91541f51dfe4",
+        "152536a5a424"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected exact binary determinant has the same one-letter ambiguity for (a,a,b), so that mechanism is not claimed as an exclusive new technique. The order-three nonbinary tree ratios require both that correction at general q and a separate distinct-symbol period-three computation."
+        ],
+        "reasoning": "Positive feasibility for a deleted set does not say how many circuits it leaves. Extending the binary method requires recomputing q-dependent minors, treating missing types absent over a binary alphabet, and combining their multiplicities and degrees, not replacing one numerical alphabet label in a known total.",
+        "searches": [
+          "Gabric–Holub–Shallit §4 exact-enumeration discussion",
+          "Chen–Kitaev–Sun Theorem 4.1",
+          "0692287bae41 Proof 5; 91541f51dfe4 Finding and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabric–Holub–Shallit p. 3 characterize generalized de Bruijn words via maximal distinct factors, using two consecutive lengths.",
+          "Nellore–Ward Proposition 1.1 imposes near-equal multiplicities for all blocks of the same length.",
+          "152536a5a424 counts binary triples permitting a linear universal word, not circular edge tours."
+        ],
+        "reasoning": "For q^(n−1)≤q^n−3<q^n, distinct n-windows with all (n−1)-windows is exactly the Gabric–Holub–Shallit notion. Balanced multiplicities impose more than coverage, and a linear universal word may allow trail endpoints and counts feasible deletions rather than necklaces.",
+        "searches": [
+          "Resultary lookup for three missing windows, reduced de Bruijn graphs and exact necklace counts",
+          "External lookup for nonbinary near-power generalized de Bruijn enumeration",
+          "arXiv:1903.05442; arXiv:2108.07759"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A330307 lists 20 at length six, exactly T_(3,2); its displayed sequence ends at length 22, before the order-three defect-three length of 24.",
+          "Gabric–Holub–Shallit gives selected finite tables with varying alphabet and quotient conventions, including a binary table. Chen–Kitaev–Sun tables report binary deletion probabilities."
+        ],
+        "reasoning": "The known 20 is acknowledged and carries no novelty weight. Finite tables with this entry, other lengths, or different counting conventions do not determine a two-parameter exact formula.",
+        "searches": [
+          "OEIS A330307: ternary generalized de Bruijn necklace counts by length",
+          "arXiv:1903.05442 §4 Tables 2 and 4; arXiv:1908.01116 Tables 1.1–1.3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-order, nonbinary exact necklace count at defect three with its type-dependent tree weights. The definition, existence-versus-Euler-count distinction and BEST/matrix-tree tools are prior. Some numerical entries are known. The closest binary exact result has analogous periodic overlap machinery, but lacks both the three-loop class and the distinct-symbol three-cycle class; the neighboring nonbinary defect-two result provides two-cycle machinery but neither period-three cofactor. The inspected sources do not subsume the full closed count.",
+      "residual_risks": [
+        "A bounded search does not establish historical priority. The nonbinary three-defect formula, rather than individual known terms or the general cofactor machinery, is the scope of this pass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same complexity criterion and finite precedents, not this count formula in inspected material",
+          "evidence": "Defines gamma_i as min(k^i,N); Table 4 is binary and exact enumeration is discussed as open.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.05442",
+          "material_read": "PDF p. 3 around offset 7300; §4 pp. 11–12 around offsets 32300–34700, tables and exact-enumeration discussion",
+          "method": "OA full-text excerpts",
+          "title": "Maximal State Complexity and Generalized de Bruijn Words",
+          "trigger": "Primary definition and closest exact enumeration tables"
+        },
+        {
+          "assessment": "Different objective and defect in general exact theorem",
+          "evidence": "P_c(n,k,2)=k(k−1)/binomial(k^n,2) measures existence after two deletions, not the number of surviving Euler circuits.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01116",
+          "material_read": "PDF pp. 2–3, Tables 1.1–1.3; p. 11, Theorem 4.1",
+          "method": "OA full-text excerpts and statement comparison",
+          "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+          "trigger": "Exact deletion counts for de Bruijn universal cycles"
+        },
+        {
+          "assessment": "Stronger class; not identified with this one",
+          "evidence": "Requires substring multiplicities as evenly distributed as possible, not only maximal distinct counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.07759",
+          "material_read": "PDF p. 2, Proposition 1.1 around offset 6800",
+          "method": "OA full-text excerpt",
+          "title": "Arbitrary-Length Analogs to de Bruijn Sequences",
+          "trigger": "Possible equivalent generalized arbitrary-length necklace class"
+        },
+        {
+          "assessment": "Known order-two ternary entry",
+          "evidence": "The length-six term is 20; length 24 is not displayed.",
+          "identifier_or_url": "https://oeis.org/A330307",
+          "material_read": "Entry definition and displayed terms through length 22",
+          "method": "Public entry comparison",
+          "title": "Ternary generalized de Bruijn necklaces",
+          "trigger": "Exact database likely to contain small matching counts"
+        },
+        {
+          "assessment": "Strong overlap in methods, binary scope only",
+          "evidence": "The binary repeated-symbol calculation distinguishes one-bit from longer overlap and takes three residue cases. Binary alphabets cannot contain three distinct missing loops or three distinct cycle symbols.",
+          "identifier_or_url": "Resultary 0692287bae41",
+          "material_read": "Finding, Proof 5 around mirror offset 5200 onward and scope limitations near 9952",
+          "method": "Resultary and local-mirror statement and proof excerpts",
+          "title": "The exact three-window deficit count for binary de Bruijn cycles",
+          "trigger": "Exact same defect with similar missing-edge determinant"
+        },
+        {
+          "assessment": "Neighboring defect; does not count three missing windows",
+          "evidence": "Its exact two-class decomposition is based on pairs of missing windows and has no primitive length-three deleted cycle.",
+          "identifier_or_url": "Resultary 91541f51dfe4",
+          "material_read": "Finding; computational and relationship notes around offset 6900; larger defect limitations near 9351",
+          "method": "Resultary and local-mirror excerpts",
+          "title": "Exact two-window defect enumeration of nonbinary de Bruijn necklaces",
+          "trigger": "Same alphabet and census convention, adjacent defect"
+        },
+        {
+          "assessment": "Different alphabet, feasible-set count and linear convention",
+          "evidence": "For binary n≥4 it counts 10·2^n−56 triples admitting a linear universal word.",
+          "identifier_or_url": "Resultary 152536a5a424",
+          "material_read": "Finding",
+          "method": "Resultary and local-mirror statement comparison",
+          "title": "Exact universal-word probability after three binary factor deletions",
+          "trigger": "Same deletion size in near-complete de Bruijn graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof 1–5",
+        "Gabric–Holub–Shallit, §4 on exact enumeration"
+      ],
+      "rationale": "This is a natural boundary case of exact near-power necklace enumeration, not a single hand-picked computed entry. The closed expression counts labeled rotation classes for every nonbinary alphabet and order at deficit three, and separates the structurally different missing cycles. Its residue dependence and the repeated-letter overlap correction explain why feasible deletion sets with the same number of edges can have different numbers of tours.",
+      "residual_risks": [
+        "No general enumeration for larger deficits, all necklace lengths, or multiplicity-balanced necklaces is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

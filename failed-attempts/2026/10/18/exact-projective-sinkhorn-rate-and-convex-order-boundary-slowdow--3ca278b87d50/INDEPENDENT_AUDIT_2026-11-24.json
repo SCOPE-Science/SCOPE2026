@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:37:09.132534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The row KL projection is an exponential tilt, preserving √(u_-u_+)/u_0; for means ±a the same strictly increasing Q_a fixes the common endpoint total r and gives reflected rows for arbitrary strictly positive input weights. Column rescaling changes the projective invariant by T(1−r)/[(1−T)r]; row multipliers and martingale tilts persist as gauges. Entropy strict convexity and reflection identify π_T as the unique optimum, not the only feasible joint law. For z=log q the cycle derivative is a²(1−r)/[r(r−a²)] in (0,1) with limit 1 as r↓a. The map is increasing and its increment has sign T−r, giving global monotone trapping and a unique fixed point; the derivative at r=T gives the exact asymptotic ratio in both coordinates. The forward KL divergence to π_T vanishes quadratically with positive second derivative T/(T²−a²)+1/(1−T), giving the squared ratio on nonstationary trajectories only (at a stationary initialization the displayed ratio is undefined). Finally 1−λ=(T²−a²)/[T(T−a²)] gives the fixed-a boundary coefficient, not a claim about the iteration at T=a. The supporting checker was inspected but not run; these are symbolic deductions, not an extrapolation from its seeded tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Kazeykina–Ren–Wang bound assumes convex terminal support, absent here. Chen et al. give general non-explicit rates; Eckstein–Lakhal give operator-angle and condition-number bounds. Bifronte et al. use a gradient step in place of this exact multiplier update.",
+          "The published two-by-three statement treats a≤b<1, includes the same exact interior factor and adds the sharp global Lipschitz factor in t and a separate reciprocal-time boundary law at b=a."
+        ],
+        "reasoning": "The broader research papers inspected do not establish the evaluated factor for this grid. The closer published grid result directly establishes it and treats a larger regime in the same model.",
+        "searches": [
+          "arXiv:2609.18850 Theorem 2.10",
+          "arXiv:2407.14186v3 Theorem 2.11 and Remarks 2.12, 3.2",
+          "arXiv:2502.20264 §4.2",
+          "arXiv:2610.26504 §3",
+          "Published strict and feasible-boundary result 2026/11/8/…--c650ce09469b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "Published two-by-three boundary-slowdown record",
+        "Primary arXiv papers 2609.18850, 2407.14186v3, 2502.20264 and 2610.26504"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limiting positive derivative in t and F(t)∼Lt as t→∞ give tF'(t)/F(t)→1; hence the lack of a strict global log-projective contraction follows as well.",
+          "For positive interior plans the two KL directions have the same positive quadratic term; the published rate gives the forward ratio by the same immediate Taylor expansion.",
+          "The exact matched rate yields 1−ρ=(b²−a²)/[b(b−a²)], hence the asserted first-order coefficient by differentiation. The other paper's actual boundary result kH→a(1−a)/4 is a different limit and is not equated with that coefficient."
+        ],
+        "reasoning": "These are coordinate changes, direct local KL expansions and differentiation of a known exact factor; they do not separate the bound scientific claim from the inspected result. Its catalogue date is later than the frozen path date, which establishes neither priority nor source dependence.",
+        "searches": [
+          "Published 2026/11/8/…--c650ce09469b, Steps 2–4 and exact square-root recurrence",
+          "Frozen proof lines 61–94"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Set its b=T and t=1/q. Its center probability q_0(t) is 1−r; its map is t^+=t[(1−T)r]/[T(1−r)], exactly the reciprocal of the frozen cycle.",
+          "Any positive terminal vector can be changed to (1,t,1) by a common scaling and an exponential affine tilt in y, absorbed by each row projection."
+        ],
+        "reasoning": "This matches the iteration for all projective initializations, not merely the same marginals or a one-trajectory numerical coincidence. Its published formula and Lipschitz estimate hold for all t>0. The same λ follows by differentiation under reciprocal or log coordinates.",
+        "searches": [
+          "Resultary: two-by-three martingale Sinkhorn, exact projective rate and convex-order boundary slowdown",
+          "Published 2026/11/8/…--c650ce09469b, Finding and Steps 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published mathematical catalogue gives ρ=a²(1−b)/[b(b−a²)] and the exact strict-regime KL ratio ρ²."
+        ],
+        "reasoning": "There is no separate scalar table expected for this continuous two-parameter dynamical claim; the matched catalogue finding supplies the entire function, not a sample rate.",
+        "searches": [
+          "Local Resultary exact martingale grid rate and boundary slowdown lookup",
+          "Published 2026/11/8/…--c650ce09469b, strict-regime display"
+        ]
+      },
+      "rationale": "An inspected distinct published result covers the main scalar map and rate in reciprocal coordinates and proves a stronger boundary analysis. The differences in initialization, forward versus reverse interior KL, log-coordinate Lipschitz behavior, and writing out the strict-side Taylor coefficient do not supply a distinct scientific finding here. The coverage determination is not a priority or lineage judgment.",
+      "residual_risks": [
+        "The bounded comparisons do not settle the chronology or relationship between the two records, nor exhaust unindexed literature. Scientific coverage follows from the explicit match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent strict-regime recurrence and factor; also covers the boundary itself",
+          "evidence": [
+            "Terminal center-to-endpoint variable t and exact scalar column update.",
+            "Exact ρ and its squared reverse KL ratio; optimal global L in t; boundary 1/k law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-convex-order-boundary-slowdown-in-a-two-by-three-martingal--c650ce09469b/RESULT.md",
+          "material_read": "Finding and Assumptions, Steps 1–4, offsets 0–6534",
+          "method": "Published local mirror",
+          "title": "Sharp convex-order boundary slowdown in a two-by-three martingale Sinkhorn iteration",
+          "trigger": "Same symmetric two-by-three exact projection and exact rate"
+        },
+        {
+          "assessment": "Does not cover this nonconvex support or evaluate this rate",
+          "evidence": [
+            "Convex terminal support assumption; reverse-entropy exponential bound with unspecified α."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.18850",
+          "material_read": "§1 p. 2, offset about 8050; Theorem 2.10 p. 8, offset about 25850",
+          "method": "OA PDF text passages",
+          "title": "Exponential convergence of Sinkhorn algorithm for entropy martingale optimal transport",
+          "trigger": "Primary competing martingale Sinkhorn convergence theorem"
+        },
+        {
+          "assessment": "Qualitative comparison, not the evaluated rate",
+          "evidence": [
+            "The exponential bound uses non-explicit constants; separation is discussed qualitatively."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.14186v3",
+          "material_read": "Theorem 2.11 pp. 8–9; Remarks 2.12 and 3.2 pp. 9–10, offsets about 27750, 30950, 35550",
+          "method": "OA PDF text passages",
+          "title": "Convergence of Sinkhorn's Algorithm for Entropic Martingale Optimal Transport Problem",
+          "trigger": "Potential exact convergence or separation result"
+        },
+        {
+          "assessment": "Provides bounds and angles, not the exact finite-grid recurrence in the inspected passages",
+          "evidence": [
+            "Condition-number/angle analysis for martingale information projections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.20264",
+          "material_read": "§4.2 pp. 22–25, offsets about 67900 and 75600",
+          "method": "OA PDF text passages",
+          "title": "Exponential convergence of alternating information projections",
+          "trigger": "General information-projection rate machinery"
+        },
+        {
+          "assessment": "Different update rule",
+          "evidence": [
+            "Replaces exact minimization of a martingale multiplier by a gradient update."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26504",
+          "material_read": "§3, p. 3, offset about 11065",
+          "method": "OA PDF text passage",
+          "title": "Martingale Sinkhorn gradient-step comparison (Bifronte, Ley and Sylvestre)",
+          "trigger": "Plausibly related martingale Sinkhorn iteration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The smallest nontrivial martingale grid and its sharp deterioration near feasibility are intrinsically useful exact benchmarks. But relative to the covered recurrence and rate, the record's differences are gauge normalization, using the other interior KL direction, and differentiating the known rate at the boundary. None supplies a further exact invariant or boundary phenomenon beyond the inspected grid result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

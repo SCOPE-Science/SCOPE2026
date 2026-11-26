@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:41.460049Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exactly the nonempty first-site-vacant states T have reset edges, and every such edge leaves T. Finite stationary tree polynomials have degree at most |T|. A degree-|T| in-tree rooted at the singleton e1 exists: choose one reset from each T, advance and remove the rightmost downstream particle from occupied-first-site states without disturbing site 1, and inject from empty. Each slow step in an occupied-first-site state strictly decreases the sum of downstream distances to removal. Roots in T lose one possible reset factor; with any other root, including empty, selecting all reset factors forces the disallowed e1 to z2 to e1 two-cycle. Normalization therefore gives pi(e1)=1+O(1/r) and other masses O(1/r). No reset enters T, and the only O(1) ordinary inflow from e1 is to z2, whose reset rate is r. Thus pi(z2)=1/r+O(1/r^2) and other T masses are O(1/r^2). The empty probability is beta/alpha times pi(z_L), contributing at order 1/r if and only if L=2. Stationary particle-count conservation gives both extraction and injection currents, including the stated coefficients and remainders. Independently `python /workspace/branches/audit_checks.py reset` solves the finite Poisson equation for the stationary extraction rate at symbolic L=2 and at L=3,4 with alpha=2,beta=3; it confirms both leading branches. The frozen diagnostic was inspected, not executed. No estimate uniform in growing L or vanishing boundary rates follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pelizzola–Pretti use exactly the open local-reset model but focus on MF/KMC and scaled large-size regimes, including an R=rL strong-reset bulk profile.",
+          "The periodic resetting studies and the periodic discussion in the review do not have this boundary current.",
+          "The distinct indexed Poisson extraction theorem gives the same mean current for every fixed L>=2 and alpha,beta>0, alongside the full counting process and the variance rate."
+        ],
+        "reasoning": "Large-system phenomenology does not give the exact fixed-size law. The broader extraction-noise record actually establishes the mean as a separate regenerative consequence, not just by weak convergence of a rescaled count.",
+        "searches": [
+          "arXiv:2402.13698v1 §§2–3",
+          "arXiv:2012.10993 strong-reset discussion",
+          "arXiv:2305.16955 §3.3",
+          "Resultary 47dac99575d9 Finding and Proof §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 47dac99575d9, 0821d74585d9 and dc9245657979",
+        "arXiv:2402.13698v1",
+        "arXiv:2012.10993",
+        "arXiv:2305.16955"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "47dac99575d9 gives E[M_r]=c_L/r+O(r^{-2}), E[C_r]=1+O(r^{-1}), and J_r=E[M_r]/E[C_r]. These imply J_r=c_L/r+O(r^{-2}) without appealing to point-process convergence or a uniform-in-L claim.",
+          "Even its stated limit would imply the same remainder because the finite stationary current is rational in r by tree polynomials and hence admits a Taylor expansion in 1/r at the removable point after matching the finite leading limit.",
+          "Earlier exact L=3 weights imply rJ_3->1 at alpha=1,beta=1/10 and rJ_3->1/2 at alpha=1/2,beta=1/6; those comparisons alone would not prove all L>=3 and all rates."
+        ],
+        "reasoning": "The stated O(r^{-2}) remainder is not a distinct surviving claim, and the two-site anomaly is covered in the same size comparison. The tree proof is a different route to the same statement. No chronology beyond the earlier dated finite-matrix examples is inferred.",
+        "searches": [
+          "Resultary 47dac99575d9, Proof equations (2)–(3) and §4; 0821d74585d9 Proof §§1–3; dc9245657979 Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The limit of stationary extraction count divided by physical time equals beta P(last site occupied), which equals alpha P(first site vacant) by conservation.",
+          "The exact two-site law in 0821d74585d9 gives J_2=(alpha+beta)/(r+beta/alpha+alpha/beta+alpha+beta+1), including the remainder.",
+          "47dac99575d9 defines its regenerative mean using the same stationary extraction observable and coefficient branches."
+        ],
+        "reasoning": "Rephrasing extraction intensity as stationary throughput or first-site vacancy does not distinguish the claim. The open boundary conditions, unit hop rate, vacancy gate for resets, and limiting parameters coincide.",
+        "searches": [
+          "Resultary: fixed finite open local-reset TASEP strong-reset throughput, first-site vacancy, exact finite-state solutions and extraction noise",
+          "Resultary 0821d74585d9 Proof §1 and 47dac99575d9 Finding and Proof §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0821d74585d9 (2026-10-25) provides all four stationary weights for L=2 at arbitrary positive alpha,beta and exact L=3 weights at (1,1/10).",
+          "dc9245657979 (2026-11-02) gives exact L=3 weights at (1/2,1/6).",
+          "47dac99575d9 is a distinct same-day match for the whole coefficient law, not a search self-match. It describes the mean law as previously established but does not there identify an earlier source for it."
+        ],
+        "reasoning": "The two-site data already determine one entire branch, the three-site matrices determine genuine special cases, and the distinct same-day result supplies full scope. Date alone provides no order between the same-day records.",
+        "searches": [
+          "Resultary: exact two-site and three-site stationary matrices, strong-reset current coefficients and Poissonian extraction"
+        ]
+      },
+      "rationale": "The leading law is demonstrably covered at the exact same fixed-size and rate quantifiers by a distinct indexed same-day extraction-noise record, which proves the mean-current estimate from regeneration as part of a larger result. Its equations (2)–(3) and the reward-ratio formula even give the O(r^{-2}) remainder. Independently an earlier exact two-site law already implies that entire branch. This is a failure of scientific distinctness, not a conclusion that the frozen proof is wrong or that the same-day record has established calendar priority. No distinct surviving scientific claim within the frozen Finding was identified.",
+      "residual_risks": [
+        "The precise historical order or origin of the full mean-current law is not established by the inspected same-day records. The verdict is based on demonstrable overlap, not an attribution of precedence.",
+        "The comparisons are bounded and do not exclude additional earlier sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the complete frozen current expansion; same-day priority unresolved",
+          "evidence": [
+            "Same two c_L branches, same fixed chain and rates; equations (2) and (3) estimate cycle reward and duration, and §4 divides these to get the stationary mean. Finding and prior-work discussion call the mean law established and distinguish the process/noise contribution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-poissonian-extraction-noise-from-strongly-recycling-exclusion-ch--47dac99575d9/RESULT.md",
+          "material_read": "Finding at offset 0, Proof at offsets 3000 and 5400, prior-work/references at offset 7850",
+          "method": "Resultary search and local-mirror statement and proof inspection",
+          "title": "Poissonian extraction noise from strongly recycling exclusion chains",
+          "trigger": "Exact same-day coefficient and stronger extraction-statistics study"
+        },
+        {
+          "assessment": "Exact earlier all-rate two-site coverage and special-rate three-site coverage by implication",
+          "evidence": [
+            "Two-site weights proportional to (beta/alpha,1,alpha+beta+r,alpha/beta) in order 00,01,10,11. For L=3 the displayed distal mean is 20(100r^2+825r+1281)/D(r), D(r)~200r^3, with beta=1/10."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-smallest-locally-resetting-exclusion-chain-with-two-covarian--0821d74585d9/RESULT.md",
+          "material_read": "Proof §§1–3, including §1 at offset 2400",
+          "method": "Resultary search and local-mirror passage inspection",
+          "title": "The smallest locally resetting exclusion chain with two covariance reversals",
+          "trigger": "Exact stationary distributions of the matching finite chain"
+        },
+        {
+          "assessment": "Exact special-rate case, not general L or rates",
+          "evidence": [
+            "At alpha=1/2,beta=1/6 the exact law gives P(last site occupied)~3/r."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-reentrant-distal-occupation-correlations-in-a-three-site-exclusi--dc9245657979/RESULT.md",
+          "material_read": "Proof §1, offset 2350",
+          "method": "Resultary search and local-mirror passage inspection",
+          "title": "Reentrant distal occupation correlations in a three-site exclusion chain",
+          "trigger": "Another exact three-site law with matching dynamics"
+        },
+        {
+          "assessment": "Defines the matching model and analyzes a different scaling regime; does not establish this exact fixed-finite-size law in the inspected passages",
+          "evidence": [
+            "Unit right hops and injection/extraction with resets into empty site 1; MF and KMC, with strong-reset R=rL and a logarithmic bulk-profile scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.13698v1",
+          "material_read": "Abstract, §2 offset 5000 and §3 offsets 48000–52453",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Totally asymmetric simple exclusion process with local resetting and open boundary conditions",
+          "trigger": "Same open model and strong-reset regime"
+        },
+        {
+          "assessment": "Periodic setting, does not supply open boundary throughput",
+          "evidence": [
+            "The inspected periodic TASEP local-reset treatments use rL scaling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.10993; https://arxiv.org/pdf/2305.16955",
+          "material_read": "Original abstract p. 1 and strong-reset discussion p. 6; review §3.3 p. 54",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Simple Exclusion Processes with Local Resetting; Stochastic resetting in interacting particle systems: A review",
+          "trigger": "Strong reset exclusions and literature review"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact fixed-size boundary effect is scientifically meaningful, and the tree argument is clear. But the audited claim is only the already-covered leading throughput and its automatic fixed-size remainder. No distinct order, uniform regime, or structural conclusion beyond the covered current law is claimed that could justify a surviving contribution in this record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

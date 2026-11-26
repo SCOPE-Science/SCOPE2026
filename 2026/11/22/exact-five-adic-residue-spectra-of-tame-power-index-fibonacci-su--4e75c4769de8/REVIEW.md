@@ -1,16 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem specifies every nonzero residue, the zero fiber, the minimum index period, and the five-adic closure for each fixed exponent not divisible by five. The critical claims have been reconstructed from the Fibonacci binomial expansion, the exact matrix congruence \(Q^{20}\equiv I+5B\pmod{25}\), the valuation isometry within a fixed index modulo four, and the fact that the power map on each unit class is an isometry when \(5
-mid d\). The proof counts the four modulo-four branches with correct multiplicities, proves minimal periods, and obtains Haar measure by summing disjoint valuation shells. A separate exact Python checker tests finite samples. Finite checks are not a substitute for the infinite arguments.
+## correctness
 
-## Originality — PASS, with priority qualification
-The closest source, Erlebach and Vélez (1983), proves exact equidistribution of ordinary Fibonacci indices in each modulo-four progression. That result is a strong prerequisite but does not state the restricted power-index image, the two-tier exponent bifurcation, its finite fibers or Haar measure. Medina and Rowland (arXiv:0910.2907v1) record the classical valuation rule, which alone cannot specify the leading units. Moss and Ward (arXiv:2011.13068v1) study almost realizability of square/power-index Fibonacci samples rather than prime-power residue images. OEIS A054783 records the square-index sequence. A published exact-result record about shifted even-power Fibonacci subsequences also concerns almost realizability. No identical theorem was located by the recorded searches, but the result uses elementary consequences of strong earlier arithmetic-progression equidistribution, and an implicit equivalent or unsearched prior formulation remains possible.
+PASS
 
-## Mathematical value — PASS
-The full image and all output multiplicities at every depth for a natural infinite family of polynomially sampled classical recurrence sequences resolve a concrete local-representability problem; valuation data alone do not settle the admissible units. In particular the distinction between exponents \(d\equiv0\pmod4\) and other tame exponents gives a nontrivial obstruction, and exact periods and measures quantify it. This is a natural classification rather than an arbitrary numerical slice. It does not claim an analytic framework new to the literature.
+Reconstructed the all-depth argument for d>=1, 5 not dividing d. In the binomial expansion of F_m/m the term indexed by j>=1 has a factor 5 after dividing by (2j+1)!, so the leading quotient on the four index classes is (2,1,3,4) modulo five (F_0 is treated separately). For the companion matrix Q, (F_21,F_20,F_19)=(10946,6765,4181) gives Q^20=I+5B mod 25 with B=((4,3),(3,1)); the (1,2) entries of Q^r B mod 5 for r=0,1,2,3 are (3,4,2,1), and Q^4 B=B mod 5. Binomial lifting gives exact difference valuation for indices in the same mod-four class, including index zero by the matrix or residue formula. On a fixed mod-four branch and input unit class u0 mod 5, the factor in (u^d-v^d)/(u-v) is a unit, so the normalized output map on each finite level bijects that ball with its leading-unit output ball. The CRT and the d-th-power map on F_5^* give respectively four or eight unit-branch preimages depending on 4|d; each has 5^((d-1)a) lifts, while the zero fiber consists exactly of multiples of 5^ceil(k/d). For period minimality the comparison at n=0 forces 5|T. At n=1 the mod-five quotients force 4|T for odd d or 2|T for even d; within those permitted classes the same isometry and 5 not dividing d force 5^k|T. These shifts are periods. The compatible shell images give the closure and the geometric-series Haar measure, including 5/6 and 125/312 at d=2 and d=4.
 
-## Limits and independently unresolved matters
-No claim is made for exponents divisible by five, first occurrence bounds, other primes, or full historical-priority certification. The article by Erlebach–Vélez is dated August 1983 without evidence for a particular first-publication day. The 2009-10-15 date denotes a verified day-specific supporting-source posting, not a claim that the older article was unavailable. A human independent literature and proof audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the explicit classification of the power-index images and fibers for d>1, together with the transformed least periods and resulting closure. Ordinary Fibonacci equidistribution (and hence the d=1 case here) and the valuation rule are classical, and the five-adic analytic interpolation and general Haar-density method are also prior. The claim is an elementary development of those tools, not a new interpolation theory. No inspected theorem gives the full restricted classification.
+
+## value
+
+PASS
+
+The tame family is defined by the natural nonsingularity condition for unit lifting. The problem asks which residue classes can be represented by a classical recurrence under nonlinear sampling, not just whether Fibonacci valuations take prescribed values. The change in allowable leading units and fiber size at 4|d and the even-exponent period halving distinguish actual effects of sampling; the formulas resolve the image and counting problem at every depth for the entire tame family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

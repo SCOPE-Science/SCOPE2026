@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** For every \(0<a<R\), the exact ray criterion follows by maximizing the absolute cylindrical radial coordinate over the sphere chord. The concave horizontal superlevel argument excludes additional bounded complementary components. The center-hole is exactly an ellipse intersection; direct integration gives the area, and the local expansion gives both sharp exponents and constants. Isotropic viewing reduces to the uniform absolute axial cosine. The independent numerical program passed 6,824 diagnostics. The finite tests are not the proof.
+## correctness
 
-**Originality (PASS, with residual historical-priority risk).** Actual semantic search comparisons, the accessible preceding geometric claims, and primary references were compared on implications, not titles. The classical drilled-sphere references give volume, not projected-hole areas. The convex projected-area theorem does not apply to this nonconvex solid. The closest published torus-shadow result has a similar hole-collapse exponent but concerns a tubular circular torus; its projected ellipse erosion cannot directly yield the sphere-minus-cylinder ellipse-overlap law. General projection/penetration drawing texts remain possible unindexed priority sources.
+PASS
 
-**Value (PASS).** The theorem goes beyond an isolated numerical statistic: it gives the full hole geometry and area profile, a sharp topological transition and singular exponent, the exact isotropic law, and a natural inverse result that resolves the familiar height-only volume degeneracy for classical napkin rings.
+For the closed solid, on each horizontal half-chord of the projected ball the ray meets material iff c|p|+s sqrt(R²−p²−y²) ≥ sqrt(a²−y²) for |y|<a; for |y|≥a every ray through the ball meets material. The left-hand side is concave in |p| with maximum sqrt(R²−y²)>sqrt(a²−y²). The inner crossing, when present, is p=c sqrt(a²−y²)−sh: the projected point lifts along the ray to the rim x=sqrt(a²−y²), z=h at its positive endpoint. The central gap is the open intersection of two filled ellipses, with boundary entirely in the shadow; any other missing point within the ball's projected disk can reach the unbounded exterior along its horizontal section. At criticality the origin hits the rim, so there is no remaining bounded component. The axial and side-on cases follow directly from the ray test. Integrating the inner width proves the area and strict nesting. The lens factor is the integral of 2 sqrt(1−t²) from τ to 1, giving 4 sqrt(2)/3 times (1−τ)^(3/2) with the stated error. Combining τ'(θc)=R²/(ah) and cos θc=h/R gives the stated angular constant; converting by c−h/R~(a/R)(θc−θ) yields B. Uniform viewing cosine then gives the atom, inverse CDF, 2/3 onset and, with the classical volume, unique recovery. Reconstruct from RESULT.md §§1–4; VERIFICATION.md and verify_napkin.py were inspected, not executed. In the checker the tally counts all sampled rays, though only samples in the proposed hole invoke the occupancy assertion. This does not affect the proof. The critical topology uses the stated closed material, not an arbitrary convention that deletes rim points.
 
-**Limits.** The claim is for centered through-bores, orthographic projection, and fixed positive radii. No offset-bore, perspective, or uniform degenerating-radius statement is made. Review is scientific and not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact projected bounded component and the induced area law for the spherical drilled solid. The lens integral, classical volume law, and generic contact exponents are not independently new. No equivalent or applicable stronger exact shadow theorem was found in the inspected sources.
+
+## value
+
+PASS
+
+This is an exact directional topology and area classification for a classical nonconvex solid. A ray obstruction does not in general follow from projected rim outlines alone; the proof makes the bounded/exterior distinction and gives an observable visibility statistic independent of the classical volume datum. The explicit dependence and invertible pair make this more than a generic lens asymptotic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

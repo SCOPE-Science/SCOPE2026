@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof is self-contained through four reductions: divisible residues, extremal cyclic zero-sum sequences, symmetric gap reflection for a two-generated subsemigroup, and uniqueness of the remaining defective tuple. The full proof appears in RESULT.md.
+## correctness
 
-`verification.py` performs an independent finite experiment using Kunz coordinates, an additive decomposition test for minimal generators, and exhaustive Apéry-level tuple checks. The program checks 2,344 semigroups (multiplicities 3 through 7) and prints `VERIFY_OK 2344`. Those finite tests do not certify the infinite assertion; the proof handles unbounded multiplicity and unbounded semigroup elements.
+PASS
 
-No computer algebra, unpublished downloaded paper or external certificate is required. Historical literature overlap cannot be ruled out categorically, and independent mathematical auditing has not occurred.
+Independently establish the unrestricted theorem using the Apéry set at m. If a tuple fails, its total belongs to the Apéry set, and each partial sum does too: subtracting m from a partial sum in S would give the same possibility at the total. From zero through the total these are m strictly increasing elements, exhausting the m residue representatives. All but the first positive partial sum are decomposable, so there is only one generator other than m (at least one by cofiniteness). Write S=<m,a>, a>m and gcd(m,a)=1. If any tuple member uses a copy of m, subtraction succeeds directly. Otherwise all entries are positive multiples of a; a total containing m or more copies of a admits replacing m of them by a copies of m. The only remaining tuple is the all-a tuple, whose defective sum is the greatest of the residue-class gaps ja−m, 0≤j<m, and hence is Frobenius. This independently gives the same exact witness as the frozen zero-sum and gap-reflection route. Inspection also confirms that the supplied Kunz checker is bounded (multiplicities 3–7, coordinates 1–4, recorded 2344 cases); it was not executed and was not needed for the universal proof.
+
+## originality
+
+PASS
+
+Restrict credit to the uniform penultimate-level classification paired with the exact unique ordered obstruction and its Frobenius value. Prior work defines the hierarchy, gives the endpoint and explicit m=5 examples, and supplies the zero-sum, two-generator and Apéry ingredients. The inspected sources did not give the resulting uniform equivalence with ordinary embedding dimension and unique witness. An Apéry exhaustion argument is short and natural, but the cited prior results are ingredients rather than a classification or a direct lookup of this last proper tier.
+
+## value
+
+PASS
+
+The last proper level of an existing hierarchy is a natural uniform boundary, not an arbitrary finite slice. A simple invariant decides it for every multiplicity, and the theorem describes precisely which tuple fails and what gap it produces. This links hierarchy membership to an elementary generator test while explaining the entire extremal obstruction, beyond the previously exhibited examples or the all-semigroup endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

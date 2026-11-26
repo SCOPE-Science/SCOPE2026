@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. On the Hodge-good locus, every \(E_i=R^{2i}f_*\mathcal O\) is a line bundle with arbitrary base change, and the cup map \(E_1^{\otimes i}\to E_i\) is fibrewise nonzero, hence an isomorphism. Relative Frobenius is multiplicative, so its induced maps commute with cup product and therefore satisfy \(h_i=h_1^{\otimes i}\). On an integral base where the section is not identically zero, the local equation changes from \(a\) to \(a^i\), proving \(D_i=iD_1\). Zou's top-degree criterion and Hodge-good dichotomy identify the common support exactly as stated.
+## correctness
 
-## Originality
-PASS. The initiating paper supplies the cup-product line bundles and top Frobenius map but does not state the all-degree tensor-power identity or the resulting Cartier-divisor multiplicities. The closest inspected Hasse-vanishing-order literature treats Calabi--Yau-type \(F\)-zips and K3 moduli; it does not imply this higher-dimensional coherent comparison. Exact, alias, broader-coverage, and implication searches found no covering statement.
+PASS
 
-## Value
-PASS. The statement upgrades equality of Frobenius-splitting supports to exact scheme-theoretic multiplicities. In particular, it shows that the top coherent Hasse divisor is intrinsically nonreduced by a factor \(n\) whenever the primitive degree-two divisor is present, and it determines every higher even-degree vanishing order from the degree-two one. This is structurally relevant because Hasse vanishing orders carry geometric information beyond their support.
+This verdict is for the replacement RESULT.md and VERIFICATION.md under /workspace/repairs/3/. The frozen proof invoked Zou's Lemma 6.1 outside its noetherian setup and relied on line bundles beyond the reduction used in its proof. The repaired argument keeps the tensor-power and Cartier conclusions at the stated generality. For a smooth proper morphism, Stacks Lemma 36.30.1 makes Rf_*O perfect and gives arbitrary derived base change. Over a local ring at a point cancel unit differentials in a bounded finite free representative, lifting the finite changes of basis to a neighborhood. Its minimal complex has fibre with zero differentials; Hodge-goodness forces all odd free terms to be zero and all indicated even terms to have rank one. Thus the remaining differentials vanish over the actual base and all E_i are lines with underived base change there. The cup-power maps are isomorphisms by testing every fibre. Relative Frobenius on O preserves cup product, so h_i·F_S^*c_i=c_i·h_1^{⊗i} as morphisms over S, including on a nonreduced base. Locally the zero ideals are (a^i), with a regular when S is integral and the geometric splitting locus is nonempty. On geometric fibres the top map detects splitting; Zou's fibrewise Corollary 4.16 gives the height dichotomy (also used in Theorem 6.7). The replacement removes the unqualified claim that an empty splitting locus implies identically zero sections: pointwise vanishing only implies locally nilpotent coefficients on a nonreduced base. No computation is required.
 
-The divisor conclusion requires an integral base and a nonempty Frobenius-split locus; no claim is made about reducedness or geometry of the primitive divisor itself.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired claim has the same section and Cartier-multiplicity content. Zou supplies the graded algebra and the fibrewise splitting/height criterion, not the cross-degree equality of coherent Frobenius sections over the base. The substantive comparison is one of scheme structures, not the already known equality of supports. The strongest inspected vanishing-order results and catalogue hit control a different Hasse invariant, with no identified implication for these graded coherent maps.
+
+## value
+
+PASS
+
+The top coherent Frobenius section is already a natural detector of geometric splitting. Its zeros alone leave their scheme structure undetermined. On a family where the Cartier divisor is present the exact equality with nD1 shows that it is a nonreduced thickening and identifies every higher local vanishing ideal from degree two, separating multiplicity forced by cup power from any intrinsic multiplicity of D1. This gives useful scheme-level information even though the comparison proof is short and makes no claim about reducedness of the defining lower divisor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

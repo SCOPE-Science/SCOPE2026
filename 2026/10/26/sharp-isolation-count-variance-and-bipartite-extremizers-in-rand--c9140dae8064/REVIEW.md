@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact joint-isolation integrals distinguish adjacent from nonadjacent pairs. The ordered codegree identity and elementary extremal inequality produce the advertised finite-size coefficient. Equality analysis forces complete bipartite connected components, including the degree-one boundary. The asymptotic optimality uses actual extremizers, not simulations. The standalone checker completed 125 exact finite checks. The proof does not use numerical extrapolation.
+## correctness
 
-## Originality — PASS on inspected evidence
-Fox–Luo–Pham, *On random irregular subgraphs*, arXiv:2207.13651v1, Theorem 2.1, gives the broad but non-sharp variance bound \(17n/(d+1)\). Its Section 2 derives a coarse codegree comparison, not the exact isolation covariance, sharp \(R_d\) or complete extremizer classification. Alon–Wei, *Irregular subgraphs*, arXiv:2108.02685, develops degree multiplicities and marginal uniformity, not this extremal covariance. Semantic searches of equivalent isolation, codegree and complete-bipartite formulations revealed no stronger covering result. Older implicit derivations are possible; independent priority verification is outstanding.
+PASS
 
-## Value — PASS
-Isolated vertices are the natural boundary class of the uniform degree-count problem. Improving the relevant variance constant from \(17\) to an optimally bounded \(2\), identifying its exact degree-dependent value, and classifying all equality hosts give precise extremal information for second-moment estimates. This is not merely a reparameterization of the earlier universal bound.
+The repair explicitly assumes n>0 for the strict universal inequality and corrects attribution of the mark model. In the repaired proof I checked the nonadjacent conditional integral by splitting at y=z, and the adjacent integral by the beta integral on the excluded triangle y+z≤1. At d=2 the one-common-neighbor joint probability is 2/15 and the adjacent one is 5/24; subtracting 1/9 gives 1/45 and 7/72. Ordered codegree sum is nd(d−1); individual variance cancels the subtraction across ordered edges. For a nonzero codegree the sharp summand bound is attained iff t=d, so any two neighbors of a vertex are false twins; their common neighborhoods create degree-saturated K_{d,d} components. The d=1 endpoint gives R_1=1 and matchings. The exact coefficient deficit is positive after the central-binomial correction and vanishes as d grows, with equality hosts certifying optimality of the limit constant. Read the frozen script and verification note; the recorded 125 comparisons are finite corroboration, not used for the general proof. The complete repaired RESULT.md has the corrected assumptions, proof and attribution.
 
-## Limitations
-This does not improve the \(k>0\) degree cases or settle concentration beyond variance. The full historical literature is not exhaustively certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The mark model and one-vertex law are explicitly credited to earlier work. The supported remainder has the two exact isolate-indicator laws, the sharp finite-degree coefficient and a complete equality characterization in the triangle-free class. The inspected primary results and matching catalogue records concern coarser bounds or different observables, not a theorem implying this exact extremal variance.
+
+## value
+
+PASS
+
+Isolation is a canonical degree-count statistic in the dependent threshold model. The exact finite-degree coefficient sharply improves the published all-degree variance scale on this class, distinguishes the role of codegrees from shared edges, and identifies degree-saturated extremizers. The result can be used as a sharp second-moment benchmark without making unsupported high-probability or other-degree claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

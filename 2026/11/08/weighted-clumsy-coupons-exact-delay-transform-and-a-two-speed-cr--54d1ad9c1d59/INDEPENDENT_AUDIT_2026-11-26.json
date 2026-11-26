@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:26:03.562826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:7–49,53–148",
+        "Repaired /workspace/repairs/2/RESULT.md:5–88",
+        "Frozen VERIFICATION.md:21–31; verify.py:135–179 (inspected, not executed)",
+        "Independent reproduction: four states indexed by present-type subsets; solve (I-zP_UU)g=zP_U0 with g(all present)=1, and (I-P_UU)h=1 on the other three states; average from the product stationary or empty state."
+      ],
+      "rationale": "Both the original mathematical proof and the narrowed claim check out. Given the draws up to ordinary cover, last marks occupy distinct indices and remain independent with the stationary success probability; completion cannot occur earlier. The conditional residual law is independent of cover. The stationary renewal identity and unselected-subset expansion give the finite PGF and mean (take the first-order difference at z=1). The finite strict inequalities follow by strict convexity/concavity of the two log factors under majorization, with no stochastic-majorization assertion. For the repaired limit, w̄_m=1+O(1/m), so the slow-group exponential maximum yields exp(-θ exp(-x)) at time (m/a)(log m+x); the fast factor tends to one. A cover union bound and conditional interarrival variance imply an o_P(m) de-Poissonization error. In the delay transform and mean, the grouped coefficients are bounded by (2c)^{j+k}/(j!k!); the denominators after scaling converge to s+aj+bk or aj+bk respectively. The inverse limit transform is exactly the stationary-to-zero renewal resolvent of the two-class process: starting at zero its zero probability is exp(-c+C_1 e^{-at}+C_2 e^{-bt}). The repaired proof shows the transform tends to one as s decreases to zero, excluding an infinite hitting time, and its first-order term gives the same mean. The stationary time-zero mass is e^{-c}, and finite independence passes to the joint limit. Strict Jensen at positive times with weighted speed mean one proves the strict equal-rate delay comparison. An independent four-state rational solve at q=(1/3,2/3), p=1/4, z=1/2 returned E[z^D]=180/271, ED=29/18, E[z^T]=27/271, ET=46/9, matching the finite formulas.",
+      "residual_risks": [
+        "The exact rational replay is one finite input; it is not the asymptotic proof. No full completion moment limit, arbitrary rate-array limit, or stochastic majorization is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest critical limit in the paper is a Gumbel plus the stationary single-rate first-zero time for uniform draws. Heterogeneous erasures in the indexed project are still paired with uniform draw rates.",
+          "Long's unequal probabilities are in the global-reset model; his selected-type overwrite discussion uses uniform sampling. The earlier monotone coupon work has no post-cover loss delay."
+        ],
+        "reasoning": "The distinct rates a,b are per-type draw speeds and become distinct death rates in the residual queue. Neither a single-rate critical law, a multi-loss model with uniform deaths, nor a global reset implies this joint scaling theorem. Classical renewal formulas supply the queue transform once the correct limit has been identified.",
+        "searches": [
+          "Attrill–Garoni arXiv:2605.14206v1, Lemma 4.9 and Theorem 4.10",
+          "Resultary: 2026/11/2/SCOPE-poisson-dust-and-finite-exceptional-loss-modes-in-clumsy-coupon--94997b0a46f8",
+          "arXiv:2605.14511v1 §§3.6,4.1; arXiv:1402.5245v1 abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Primary inspections listed above",
+        "arXiv:1402.5245v1 pp. 1–2, offsets 0–3102",
+        "Critical-window coupling 1b01ecaec5e5 Finding, offsets 0–2843",
+        "Repaired /workspace/repairs/2/RESULT.md:29–31,94–111"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older finite formula contains both cover and delay contributions and its strict overall balancing assertion is identical. The uniform critical theorem has stationarity but a single rate, so merging the two classes works there only at a=b.",
+          "The repaired theorem uses b/a>1 to remove the fast class from ordinary cover while keeping that class's b-weighted ages in the delay transform. The factorial bound and positive-rate mean bound are used to justify distinct large-m limits."
+        ],
+        "reasoning": "The novel part is not the stationary renewal identity, general queue transform, or full finite Schur-convexity. It is the simultaneous identification of the slow ordinary-cover fluctuation and the two-death-rate stationary emptying limit, with an independent coupling in distribution and a strict limiting mean penalty. The examined finite completion formula and single-rate scaling do not state or mechanically specialize to this conclusion.",
+        "searches": [
+          "d79ee5d7e4b4 Finding and proof, local-mirror offsets 0–7734",
+          "Attrill–Garoni Theorem 4.10, offsets 66350–69336",
+          "Repaired /workspace/repairs/2/RESULT.md:56–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The old indexed finite note studies exactly the same full first completion T with unequal draw probabilities, one-type overwrite, and common loss; its mean equals EC+ED here.",
+          "Lemma 4.2 uses cover/delay independence in the uniform version. The proof by last marks extends without change to nonuniform draws."
+        ],
+        "reasoning": "Once independence is established by the same argument, the full completion PGF and ordinary-cover PGF give the delay PGF as a quotient, and the full mean minus EC gives ED. There is no stand-alone new finite contribution in the repair. The repair concerns the joint asymptotic law and its exact delay comparison.",
+        "searches": [
+          "Resultary: 2026/10/18/SCOPE-exact-first-passage-transform-and-strict-balancing-law-for-nonun--d79ee5d7e4b4",
+          "arXiv:2605.14206v1 Definition 1.1, Lemma 4.2",
+          "RESULT.md finite stationary-start hitting-time formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed finite overlap d79ee5d7e4b4 was examined and removed as a stand-alone claim. The critical-window coupling record uses the uniform clumsy limit as input and adds a coupling to a different model. Retrieval of the interlacing record's primary passage timed out; only its finite-law indexed description was seen."
+        ],
+        "reasoning": "For a continuum of two-speed parameters there is no finite coefficient table to consult; the relevant exact database comparison is a formula-level indexed theorem search. The unresolved indexed title is not taken as either proof of coverage or proof of absence.",
+        "searches": [
+          "Resultary first-passage/strict-balancing d79ee5d7e4b4, Poisson-dust 94997b0a46f8, critical-window-coupling 1b01ecaec5e5, and interlacing-geometric-factors e70c1ed505c4"
+        ]
+      },
+      "rationale": "The original's presentation of finite strict balancing for mean completion as a distinct contribution fails: indexed record d79ee5d7e4b4 treats exactly the same nonuniform common-loss refresh model, gives the full completion transform and mean, and proves strict Schur-convexity and the unique uniform minimizer. This is established statement overlap, not a retrieval issue or an order inference from dates. Its mean minus the ordinary cover mean also gives the finite delay mean. The repaired Finding withdraws that finite contribution, retains finite identities as attributed preparation, and claims only the joint two-speed critical law, its exact limiting delay and convergent mean, and the strict speed-dispersion penalty in that limit. The checked uniform-sampling critical results have a single death rate, whether or not the loss marks are heterogeneous, and the exact nonuniform finite prior has no two-speed limit. Deriving the shifted slow-class extreme-value limit, decoupling it from the stationary two-rate hitting law, and controlling the scaled delay mean are beyond a direct parameter substitution in those results. The pass applies only to the re-audited repaired claim.",
+      "residual_risks": [
+        "A broader unlocated nonuniform critical theorem could subsume the repaired claim. The interlacing record's primary passage was unavailable; its indexed finite scope is not treated as proof of noncoverage. Makowski TR 2001-9 could not be inspected; no originality is credited for the queue resolvent or comparison as stand-alone queue theory. Only an abstract of arXiv:2302.01963 was retrieved; no general hitting-time coverage inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full finite mean and strict balancing directly overlap; no two-speed critical theorem in the compared claim",
+          "evidence": "Same positive nonuniform draw probabilities and common loss; exact T transform and strict Schur-convex ET.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-first-passage-transform-and-strict-balancing-law-for-nonun--d79ee5d7e4b4/RESULT.md",
+          "material_read": "Finding and finite proof, local-mirror offsets 0–7734",
+          "method": "Primary local-mirror text",
+          "title": "Exact first-passage transform and strict balancing law for nonuniform clumsy coupons",
+          "trigger": "Strong exact overlap in the finite same-model claim"
+        },
+        {
+          "assessment": "Matches uniform ordinary cover/delay independence and equal-rate critical limit, not the repaired unequal-rate law",
+          "evidence": "Uniform draws; one stationary Poisson(c) immigration–death coordinate in the theorem.",
+          "identifier_or_url": "arXiv:2605.14206v1",
+          "material_read": "Definition 1.1 p. 1, Lemma 4.2 p. 11, Lemma 4.9 and Theorem 4.10 pp. 14–16; OA offsets 50700, 61350, 66350–69336",
+          "method": "Primary OA PDF text",
+          "title": "The clumsy coupon collector's problem",
+          "trigger": "Closest published critical law and independence result"
+        },
+        {
+          "assessment": "Heterogeneity is in erasure, not sampling speed",
+          "evidence": "Exact delay PGF and Gumbel-plus-queue limit for uniform draw probabilities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-poisson-dust-and-finite-exceptional-loss-modes-in-clumsy-coupon--94997b0a46f8/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–3218",
+          "method": "Primary local-mirror text",
+          "title": "Poisson dust and finite exceptional loss modes in clumsy coupon collection",
+          "trigger": "Indexed heterogeneity and critical queue limit"
+        },
+        {
+          "assessment": "Unequal-probability formulas are global reset; unrelated to this overwrite limit",
+          "evidence": "Reset clears all types, whereas clumsy refresh changes only the selected type.",
+          "identifier_or_url": "arXiv:2605.14511v1",
+          "material_read": "p. 3 mechanism definitions; §3.6 pp. 16–17, Cor. 3.14 and Remark 3.15; §4.1 clumsy model; OA offsets 13200 and 51800–55037",
+          "method": "Primary OA PDF text",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Unequal probabilities in a plausible clumsy antecedent"
+        },
+        {
+          "assessment": "Primary scope unresolved; no negative conclusion is drawn",
+          "evidence": "Search description reports an exact finite law with type-dependent erasures, not evidence one way or the other about two-speed selection limits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-interlacing-geometric-factors-and-sharp-loss-budgets-in-clumsy-c--e70c1ed505c4/RESULT.md",
+          "material_read": "Indexed description only; direct bounded local-mirror passage requests timed out",
+          "method": "Resultary search; attempted primary local-mirror retrieval",
+          "title": "Interlacing geometric factors and sharp loss budgets in clumsy coupons",
+          "trigger": "Same-date exact first-completion result with heterogeneous losses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/2/RESULT.md:3–31,56–98",
+        "/workspace/repairs/2/SLOGAN.txt",
+        "Frozen RESULT.md:18–45"
+      ],
+      "rationale": "Two positive fixed fractions are the simplest sampling heterogeneity in which rare slow first arrivals and residual missing types have different governing information. The Gumbel part sees only the slow class, while the independent queue delay sees both, even though the total average selection speed remains one. The exact transform, delay moment convergence and strict comparison measure a heterogeneity effect that the ordinary cover law or the finite total mean alone does not characterize. This is meaningful without a general rate-distribution theorem. The replacement mathematical statement and slogan were inspected and preserve the source evidence.",
+      "residual_risks": [
+        "The effect is a post-cover delay comparison, not a comparison of centered Gumbel locations or a stochastic ordering of full collection times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:17:29.650609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 30–59",
+        "Frozen VERIFICATION.md and verify_weighted_clique_maximal.py (inspected, not executed)",
+        "Independent small spectral, grid and counting-measure checks, with unweighted 2≤n≤9",
+        "Repaired RESULT.md, Analytical input and Complexity proof"
+      ],
+      "rationale": "The original weighted mathematics is correct: at high-set mass t the two-block quadratic form has trace 2−t and determinant (1−t)². Its positive top eigenvector realizes the high/low ratio in the Finding, and equality in the blockwise Cauchy–Schwarz inequalities enforces constancy on both blocks. In the repaired question only the universal-bound equality is needed: det((4/3)I−B(t))=(t−1/3)² and the lower diagonal entry is positive, so equality requires t=1/3, and the values 4 and 1 are an exact witness. A nonzero maximizer exists by finite-dimensional compactness. In the reduction the masses sum to 3L; the last mass exceeds L, and the original masses alone total less than L, so the subset must include L−T and the original target is exactly T. Descending subset-sum updates and the subset certificate give the claimed weak NP-completeness and decision bound.",
+      "residual_risks": [
+        "The finite checks are not an exhaustion of all integer inputs or real masses; the analytic and complexity proofs are decisive. The repaired question concerns exact equality, not approximation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Before maximizing over k, §3.1 proves the bound with squared coefficient Φ(k/n) for a fixed active set. The two block constants and their ratio follow from equality in (3.1) and (3.2).",
+          "The same-day weighted-star record's limit as hub mass tends to zero is max Φ(k/q) on q equal-mass leaves. This verifies an exact shared analytical specialization, not the binary-input complexity assertion."
+        ],
+        "reasoning": "For integer masses clone each atom to its mass in indistinguishable counting-measure vertices. Rational masses follow by rescaling, and the same two-block inequality holds for arbitrary positive reals by replacing the within-block sums with mass-weighted ones; the equality conditions are unchanged. The analytically broad coverage supplies the criterion but does not prove a reduction polynomial in the compressed mass encoding.",
+        "searches": [
+          "arXiv:2005.03146v3, proof of Theorem 4, equations (3.1)–(3.3) and ensuing equality calculation",
+          "arXiv:2011.02630v1, Introduction",
+          "Resultary f8fc708d0559"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2005.03146v3, Theorem 4 and §3.1",
+        "arXiv:2011.02630v1, introduction",
+        "Resultary/local mirror f8fc708d0559, 7051b95c80b8, 8722a458892c, 4e3307d2e8c5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior sharp per-fraction estimate and equality conditions imply the analytical portion, including the equality point t=1/3 and the 4-to-1 witness.",
+          "The repaired proof gives a many-one reduction for the exact decision with binary masses and a pseudo-polynomial algorithm, not an unweighted cardinality test or the complexity of expanded clones."
+        ],
+        "reasoning": "Mechanical analytic implication is explicitly credited. Norm equality on an explicitly listed counting-measure clique is determined by n modulo three; indivisible weighted atoms change the computational problem. The arithmetic padding and encoding analysis are the distinct assertion.",
+        "searches": [
+          "arXiv:2005.03146v3, §3.1 and Corollary 5",
+          "Resultary f8fc708d0559 and 4e3307d2e8c5, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditional expectations of |f| onto the trivial and full atomic sigma algebras are its weighted mean and |f| itself, so the two-time Doob maximal operator on this filtration is identical after probability normalization.",
+          "The norm hits the universal bound exactly when whole atoms of total probability 1/3 can be selected, not when arbitrary fractions of atoms can be selected."
+        ],
+        "reasoning": "The two-time maximum and graph versions are the same operator. The exact decision reduces to a fixed-fraction subset-sum problem, and the positive-integer padding explicitly reduces ordinary SUBSET SUM in the other direction. No distinct coverage is attributed to merely renaming the operator.",
+        "searches": [
+          "arXiv:2005.03146v3, Theorem 4 and §3.1",
+          "Resultary: weak NP completeness of deciding if a finite weighted complete graph or two-stage Doob maximal L2 norm attains 2/sqrt(3); atomic one-third mass subset sum rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed star record evaluates an equal-leaf limiting case; the biclique and Petersen records concern different graphs with counting measure.",
+          "The opened crown-graph record proves NP-completeness of attaining variance 1/2 for an inclusion from a Lipschitz space, with symmetric atom pairs; its Finding is not a maximal-averages norm."
+        ],
+        "reasoning": "The indexed exact cases do not determine the bit-complexity of deciding norm equality over arbitrary binary lists; the closest computational result uses a different operator and partition target. No exact-invariant table is used to draw a novelty conclusion.",
+        "searches": [
+          "Resultary complete/weighted maximal graphs and exact sharp-bound equality; f8fc708d0559, 7051b95c80b8, 8722a458892c",
+          "Resultary exact threshold complexity via partition discrepancies; 4e3307d2e8c5"
+        ]
+      },
+      "rationale": "The original exact norm and optimizer characterization cannot be credited as a distinct analytical finding: the decisive prior proof gives the sharp coefficient and equality conditions for each active fraction before optimizing, so the mass-weighted analytic extension is mechanical. The repaired Finding is the explicitly stated decision-complexity result alone, retaining the credited one-third criterion as an analytical input. The inspected mathematical and indexed coverage did not establish the complexity of this specific norm-equality problem. This is not a pass for the original analytical headline or a claim of exhaustive priority.",
+      "residual_risks": [
+        "A separately formulated complexity result for exact attainment in a two-time maximal inequality may remain unindexed or unlocated; the bounded checks do not certify publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analytical portion covered by direct adaptation of the fixed-fraction result",
+          "evidence": "Equations (3.1)–(3.3) bound the norm for each k by Φ(k/n); the equality calculation forces two constants with the ratio fixed by the optimized AM–GM weight, yielding high value 4 when k=n/3.",
+          "identifier_or_url": "https://arxiv.org/html/2005.03146v3",
+          "material_read": "Theorem 4; §3.1, fixed-active-set derivation and equality conditions (OA text offsets 91850–99849)",
+          "method": "Legal OA original; bounded heading and proof inspection",
+          "title": "Sharp inequalities for maximal operators on finite graphs",
+          "trigger": "Exact unweighted clique comparison and potentially mechanically transferable proof"
+        },
+        {
+          "assessment": "Opened passages discuss counting measure and point back to exact unweighted clique norm and extremizers",
+          "evidence": "The graph averages there use counts, not a compact binary mass list.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.02630",
+          "material_read": "Definitions and introduction around offset 3790",
+          "method": "OA original passage inspection",
+          "title": "Sharp inequalities for maximal operators on finite graphs, II",
+          "trigger": "Follow-up possibly extending the norm to vertex measures"
+        },
+        {
+          "assessment": "Exact analytical overlap in an equal-mass limiting case, without inference about same-day priority",
+          "evidence": "The squared norm tends to max_{1≤k<q} Φ(k/q) as hub mass tends to zero; this does not address binary masses on a clique.",
+          "identifier_or_url": "2026/11/2/SCOPE-mass-ratio-phase-changes-for-centered-l-2-maximal-averages-on-we--f8fc708d0559",
+          "material_read": "Finding and zero-hub-mass limit in mirrored RESULT.md",
+          "method": "Resultary and local mirror passage inspection",
+          "title": "Mass-ratio phase changes for centered L² maximal averages on weighted stars",
+          "trigger": "Strongest same-day indexed formula overlap"
+        },
+        {
+          "assessment": "Different operator and decision predicate",
+          "evidence": "The squared centered Lipschitz embedding norm is expressed through signed partition discrepancies; the stated hard problem is variance at least 1/2 on a crown graph, not the one-third rule for two-time maximal averages.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-weighted-lipschitz-spread-on-crown-graphs-two-partition-di--4e3307d2e8c5",
+          "material_read": "Finding and Assumptions and scope, mirrored RESULT.md offset 0",
+          "method": "Targeted Resultary search and local mirror passage inspection",
+          "title": "Exact weighted Lipschitz spread on crown graphs: two partition discrepancies and exceptional pairs",
+          "trigger": "Closest indexed analogous hardness at a weighted sharp norm threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Complexity proof",
+        "Prior counting-measure Theorem 4 and Corollary 5 in arXiv:2005.03146v3"
+      ],
+      "rationale": "The repaired statement answers whether one can recognize saturation of the sharp bound efficiently from the natural compact mass representation. The graph geometry is fixed by the number of atoms, yet equality detection distinguishes a trivial cardinality test from a weakly NP-complete arithmetic obstruction. The encoding distinction and pseudo-polynomial boundary are useful independently of claiming a new norm formula.",
+      "residual_risks": [
+        "The hard problem is sharp-bound attainment, not approximate evaluation or strong NP-hardness; no broader complexity claim is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

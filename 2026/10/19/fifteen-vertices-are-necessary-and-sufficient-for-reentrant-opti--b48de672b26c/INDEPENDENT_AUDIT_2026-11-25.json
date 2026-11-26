@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:30:08.739480Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§1–4",
+        "Frozen verify_reentry.py, requirements.txt and VERIFICATION.md (inspected, not executed)",
+        "Independent replay: python /workspace/branches/audit-trees.py (SymPy required)"
+      ],
+      "rationale": "By independence along the unique tree path and linearity of expectation, each origin score is its distance-count polynomial, including the common constant 1. Independently enumerated all unlabelled trees through order 14 by adjoining one leaf to every vertex of each previous representative and merging equal canonical rooted codes at the tree centers. Removing a leaf establishes completeness inductively; equal canonical codes imply isomorphism and the center set is invariant. The shape counts for orders 1–14 are 1,1,1,2,3,6,11,23,47,106,235,551,1301,3159. Checked exact score comparisons after factoring out p(1-p). A fixed strict Bernstein sign removes a globally dominated score; at most one Descartes variation makes each surviving dominance set an interval. Grouped equal score profiles so ties cannot masquerade as unique winners. For the six order-13 and seventeen order-14 exceptions, independently isolated the roots of one square-free rational polynomial per shape covering all nonidentical surviving comparisons (16 and 44 interior roots respectively), and evaluated the full set of maximum scores at exact rational points in every intervening open cell. All discrepancies near isolated roots are covered by the adjacent constant-sign cells; isolated points cannot themselves furnish an open reentry interval. No smaller tree reenters. For the specified 15-vertex witness only 1 and 2 survive, with the stated profiles. The difference quartic is positive at both endpoints, negative at 1/2 and strictly convex on (0,1), with the two indicated roots. Origin 1 beats every other noncandidate strictly on the full open domain, confirming the 1,2,1 sequence and both two-way ties.",
+      "residual_risks": [
+        "This is an exact finite census with an independent tree generator and rational polynomial calculations, not proof-assistant verification. It does not bound reentry for larger or cyclic graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "58308e3188a3 has sharp order five for a passive sentinel on paths under a positive nonuniform source distribution",
+          "3410a6689b6b uses the same independent homogeneous-edge objective but has a clique and therefore cycles",
+          "The 2025 article concerns stability of complete rankings; the 2026 full text was unavailable"
+        ],
+        "reasoning": "Allowing nonuniform vertex weights changes the objective, and allowing cycles changes the graph class and the computation of reach. The inspected results therefore do not furnish the same sharp bound even though they illustrate related top-rank behavior.",
+        "searches": [
+          "Resultary: weighted sentinel reentry, homogeneous edge influence on graph classes, global winner with two crossings",
+          "2025 and 2026 Rupnik Poklukar–Žerovnik decay-stability papers"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary index and cited mirror findings",
+        "Coroničová Hurajová et al. (2018)",
+        "Tsakas working paper 04-2016",
+        "Rupnik Poklukar–Žerovnik 2025 article and 2026 bibliographic record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tsakas reports predominantly one-threshold simulation patterns, not an exact all-tree assertion on the interior parameter range",
+          "The 2018 construction controls one pair's sign pattern but gives no comparison against every alternative origin",
+          "The 2025 total-order criterion and instability conjecture address the entire ranking"
+        ],
+        "reasoning": "Endpoint identities and changing complete rankings do not imply reentry of a unique maximizer. The global dominance proof for the witness and exact small-tree exclusions are the distinct ingredients.",
+        "searches": [
+          "Tsakas, On Decay Centrality, empirical threshold passage",
+          "Coroničová Hurajová et al., prescribed thresholds",
+          "Rupnik Poklukar–Žerovnik 2025 Theorem 1 and 2026 DOI record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Expected reach equals decay centrality plus the common constant 1",
+          "The 2018 paper constructs a seven-vertex graph that is a tree with one top-node change and prescribes repeated pairwise crossings in larger trees",
+          "51f5bbdc1318 proves order seven sharp for a pairwise ranking reversal, not global reentry"
+        ],
+        "reasoning": "A change or repeated switches between two arbitrary scores need not correspond to both reaching the maximum; a single switch at the top does not show returns to a unique maximum.",
+        "searches": [
+          "Resultary: reentrant decay centrality, top seed reentry, exact tree order, epidemic influence threshold and repeated reversals",
+          "Coroničová Hurajová–Gago–Madaras pp. 40–44"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Queried catalogue minima concern pairwise order seven or weighted passive sentinel order five, or give a cyclic witness",
+          "The 2018 tree census treats full decay ranking stability, not reentry of a global maximizer"
+        ],
+        "reasoning": "An unstable tree in a census of all rankings can have a fixed best vertex; failure of stability alone cannot tabulate the minimum order for strict reentry.",
+        "searches": [
+          "Resultary: 15-vertex strict reentry and tree-related exact thresholds",
+          "On Decay Centrality in Graphs, tree stability census"
+        ]
+      },
+      "rationale": "Existing work covers decay centrality, one top-ranked switch, prescribed pairwise crossings or full-ranking instability. The strongest inspected catalogue analogues use nonuniform source weights on paths or the same homogeneous expected-reach objective on graphs with cycles. None establishes the sharp order-15 boundary for the exact homogeneous tree model and strict global reentry. A closely related subscription article remains an explicitly unresolved source, not evidence for or against coverage.",
+      "residual_risks": [
+        "The 2026 article could contain stronger results in uninspected text. No priority or exhaustive absence claim is inferred from catalogue dates or bounded retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "closest weighted analogue; not same objective",
+          "evidence": "On a five-vertex path, the witness has source weights (6,5,6,1,5)/23, unlike the frozen uniform sum.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-five-vertex-threshold-for-reentrant-epidemic-sentinel-placemen--58308e3188a3",
+          "material_read": "mirrored RESULT.md, Finding, offset 0",
+          "method": "configured Resultary search and local mirror",
+          "title": "A five-vertex threshold for reentrant epidemic sentinel placement",
+          "trigger": "sharp reentry threshold for an optimization on trees"
+        },
+        {
+          "assessment": "same influence objective beyond trees",
+          "evidence": "Gateway and star center are competitive; nine-vertex example with a clique has two switches.",
+          "identifier_or_url": "2026/11/8/SCOPE-re-entrant-single-seed-influence-on-a-clique-star-bridge--3410a6689b6b",
+          "material_read": "mirrored RESULT.md, Finding, offset 0",
+          "method": "configured Resultary search and local mirror",
+          "title": "Re-entrant single-seed influence on a clique-star bridge",
+          "trigger": "same homogeneous independent-edge influence and strictly reentrant seed"
+        },
+        {
+          "assessment": "sharp result for pairwise ranking only",
+          "evidence": "One interior crossing per minimal pair; explicitly no claim that either seed is globally best.",
+          "identifier_or_url": "2026/11/8/SCOPE-seven-vertices-are-sharp-for-transmissibility-dependent-epidemic--51f5bbdc1318",
+          "material_read": "mirrored RESULT.md, Finding, offset 0",
+          "method": "configured Resultary search and local mirror",
+          "title": "Seven vertices are sharp for transmissibility-dependent epidemic ranking reversal",
+          "trigger": "same tree and transmissibility model with exact minimum order"
+        },
+        {
+          "assessment": "same score and prior threshold constructions; different sharp comparison",
+          "evidence": "Seven-vertex example has top change at 1/2; rational q_i,r_j prescribe preserving/reversing order for a pair of adjacent vertices.",
+          "identifier_or_url": "https://journals.msp.org/mscand/article/download/263/262/291",
+          "material_read": "pp. 40–41 and 43–44, including pairwise construction around offsets 10000–14000",
+          "method": "OA publisher PDF passage inspection",
+          "title": "On Decay Centrality in Graphs",
+          "trigger": "same score, concrete top-rank switch, and repeated pairwise phenomena"
+        },
+        {
+          "assessment": "empirical guidance, not theorem of fixed or reentrant optimum for all trees",
+          "evidence": "Describes intermediate values as unanswered by endpoint results and reports typical maximum degree-to-closeness behavior in simulations.",
+          "identifier_or_url": "https://papers.econ.ucy.ac.cy/RePEc/papers/04-16.pdf",
+          "material_read": "simulation discussion, pp. 3–4 around offsets 5740–7252",
+          "method": "OA working paper PDF passage inspection",
+          "title": "On Decay Centrality",
+          "trigger": "maximum-decay dependence and single-threshold motivation"
+        },
+        {
+          "assessment": "covers complete ranking stability / path product examples, not global reentry in inspected passages",
+          "evidence": "The total-order criterion tests all ranking changes; the almost-all-trees instability assertion is a conjecture in this 2025 paper.",
+          "identifier_or_url": "https://doi.org/10.3390/math13060939",
+          "material_read": "abstract p. 1, stability definition p. 3, Theorem 1 p. 4, tree conjecture p. 7",
+          "method": "OA publisher PDF passage inspection",
+          "title": "Generalized Closeness and Decay Stability of Some Graphs",
+          "trigger": "complete ranking stability and possible stronger tree results"
+        },
+        {
+          "assessment": "full theorem and secondary results unresolved; not used as negative evidence",
+          "evidence": "Publisher led to restricted access and no lawful open full text was located. The known title alone does not establish or preclude global reentry coverage.",
+          "identifier_or_url": "https://doi.org/10.2140/mscand.2026.132.1",
+          "material_read": "bibliographic identification only; no article passage independently retrieved",
+          "method": "publisher and metadata retrieval attempts, plus targeted search for lawful same-text alternative",
+          "title": "Almost All Trees Are Decay-Unstable",
+          "trigger": "strongest plausible uninspected full-ranking result on trees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Tsakas working paper, empirical threshold discussion",
+        "Coroničová Hurajová et al., pairwise and one-switch phenomena"
+      ],
+      "rationale": "The natural optimization problem distinguishes complete rankings or nonoptimal crossings from an actual change in the best seed. Its smallest counterexample to absence of strict global reentry is a useful sharp boundary: the exact finite lower bound rules out every smaller unweighted tree, and the explicit witness identifies the two switches rather than sampling or relying on pairwise reversals.",
+      "residual_risks": [
+        "No implications are established for multiple origins, heterogeneous transmission, arbitrary graphs, or empirical policies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

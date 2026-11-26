@@ -1,23 +1,21 @@
-# Review of a sharp Poisson-separation profile for two-colour multiset matches
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite matching count is exactly an affine hypergeometric variable, with explicit support, mean and variance. Compact-uniform local Gaussian expansions follow from Stirling's formula with positive limiting proportions; the central-limit meshes are two for matches and one for the Poisson comparator. Chebyshev tightness justifies summation outside growing central windows. The parity-conditioned comparison uses the exact Poisson parity probability. Both density-crossing formulas have been re-derived from the normal densities. Sharpness and strict uniqueness follow by applying a strictly positivity-improving Gaussian Markov kernel to the signed normal differences. The bundled independent enumeration checked 660 exact finite arithmetic assertions. Finite checks supplement but do not replace the infinite proof.
+PASS
 
-## Originality — PASS against examined sources
+The hypergeometric count X of first-symbol sites in the first block gives W=b−a+2X. Its exact mean, variance and span are as stated. Set p=a/n, z=(X−a²/n)/√n. Stirling in the two numerator binomials uses proportions p+z/(p√n) and p−z/((1−p)√n). The entropy linear terms cancel, the quadratic term is −z²/[2p²(1−p)²], and the prefactor is 1/(√(2πn)p(1−p)); the error is uniform on bounded z because p stays away from 0 and 1. The resulting span-two local mass for W is 2φ_v/√n, while Stirling for Poisson at the exact centering gives φ_h/√n on both parities. Bounded rescaled variances control the tails; conditioning Poisson costs a bounded factor since the retained mass tends to 1/2. The retained-lattice and forbidden-lattice contributions give D=(1+∫|2φ_v−φ_h|)/4, and conditioning gives R=∫|φ_v−φ_h|/2. Solving the two density crossing equations gives t and s, and independent evaluation gives 0.5332306879600328 and 0.16606407498351272 in the balanced case. The strictly positive Gaussian transition kernel strictly contracts both signed differences (each has positive and negative mass), while v/h=4[c(1−c)]²/(1−2c(1−c)) is maximized uniquely at balance. The singular small-variance limit gives D→1; it is a limit of the profile, not a uniform endpoint limit for the discrete laws. Verification metadata, script and captured log were inspected without running the script; their finite checks are supplementary.
 
-The motivating 2026 multiset fixed-point paper analyzes Poisson bounds and first moments but does not give the macroscopic two-colour whole-law total-variation profile. The published all-multiplicity support theorem proves the parity restriction, not its strictly larger total-variation constant or the parity-corrected residual. The published one-large-block Poisson–Charlier expansion concerns a different scaling with a bounded mean and vanishing error. Targeted searches for the exact hypergeometric/Poisson comparison and its Gaussian crossings did not find equivalent statements. Generic hypergeometric and Poisson local limit tools underlie the proof, so an unlocated general lattice total-variation theorem could still imply some or all of the profile; historical priority has not been independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-Poisson fixed-point approximation is natural for multiset shuffling, but no uniform Poisson approximation is possible with just two macroscopically occupied colours. The result quantifies that failure, proves a nontrivial *sharp universal minimum* \(0.533230687960\ldots\) across all asymptotically positive binary proportions, and separates the parity obstruction from a second irreducible variance mismatch. Even after removing parity, the optimal universal residual is \(0.166064074983\ldots\). These precise gap constants and their extremizers provide benchmarks for whether an approximation respecting the support is necessary, rather than just restating a qualitative parity counterexample.
+The supported distinction is the exact lattice-sensitive whole-law separation in the two-macroscopic-colour regime, including the parity-conditioned profile and sharp composition minima, not the model, moments, parity constraint or local Gaussian approximation.
 
-## Closest literature and limitations
+## value
 
-- D. Stark, *Poisson approximations of the number of fixed points in random multiset permutations* (2026), https://arxiv.org/abs/2608.00710 . Full HTML text of its Sections 1–4 inspected.
-- *Exact fixed-point support and constructive mismatch spectrum for multiset permutations*, published result https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-fixed-point-support-and-constructive-mismatch-spectrum-for--3698ed40fe98 . Full RESULT.md inspected; proves the relevant parity support but no probability profile.
-- *Sharp Poisson approximation for one square-root multiset block*, published result https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-poisson-approximation-for-one-square-root-multiset-block--b21e06270e4c . Full RESULT.md inspected; bounded-mean distinct-singleton scaling, not the macroscopic two-colour regime.
+PASS
 
-Only interior limiting proportions are covered. There is no finite-size convergence rate, multicolour classification, or uniform endpoint theorem. An independent historical-priority or mathematical audit has not been performed.
+The result resolves how far Poisson approximation fails for a natural macroscopic matching model, separates an exact parity obstruction from the surviving variance obstruction, and supplies attained sharp universal constants over all interior proportions. The conditioned limit is substantive even after the previously known support issue is removed.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

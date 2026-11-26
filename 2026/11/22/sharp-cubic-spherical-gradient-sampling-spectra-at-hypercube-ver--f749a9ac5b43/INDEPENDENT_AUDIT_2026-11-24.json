@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:36:07.084229Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For exact-degree harmonic cubics the sphere Laplacian eigenvalue is 3(d+1); both sphere and corner measures are probability-normalized. The singleton sign-character block consists of x_i(a x_i²+Σ_{j≠i} b_j x_j²) with 3a+Σ b_j=0. Off-axis permutations split it into the line Z_i and the zero-sum contrasts Q_{i;jk}, of dimension d−2. Each triple character supplies the single square-free line R_{ijk}. For both Hermitian forms signs separate distinct characters, the permutation-invariant pairing of the line with contrasts is zero, and each contrast Gram form is scalar on the standard zero-sum coordinate space. Permutations also identify ratios across blocks of a given type. At a corner the projected gradient of Z_i is (3/d−3/(d+2))(e_i−x_i x), giving energy 36(d−1)/(d³(d+2)²); Q vanishes at corners but has ambient (already tangent) energy 8/d²; R has ambient energy 3/d² and radial squared component 9/d³. The sphere squared norms of these representatives computed from degrees two, four and six are respectively 6(d−1)/(d(d+2)²(d+4)), 4/(d(d+2)(d+4)), and 1/(d(d+2)(d+4)). Dividing by 3(d+1) times these norms verifies all three branches including d=3 and their multiplicities. Only R vanishes for d=3, hence rank six. The ratios T/Z=d(d+2)/3 and S/Z=(d−3)(d+2)/2 exceed one for d≥4, and T/S=2d/[3(d−3)] gives the exact tie at 9. The condition numbers refer respectively to the ratio of squared singular values and its square root. RESULT.md, VERIFICATION.md and check_cubic_gradient.py were inspected, not executed; the reported d=3–7 Gram checks do not supply the arbitrary-dimensional argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f5a84d916bec gives all-k scalar sampling eigenvalues on the same sectors; at k=d its transverse value eigenvalue is zero. The all-degree Walsh classification similarly has cubic scalar rank d+choose(d,3).",
+          "Moore–Russell average scalar Fourier energy over random rotations, not the exact fixed-node tangent-energy form."
+        ],
+        "reasoning": "Broader scope in orbit support or harmonic degree is for scalar data. The corner gradient spectrum cannot be read by setting k=d or cubic degree in those results: the transverse sector has positive gradient energy despite identically zero scalar data.",
+        "searches": [
+          "Resultary f5a84d916bec, signed constant-weight orbits, Finding and proof §§1–2",
+          "Resultary 6c86ac9d380a, exact-degree Walsh rank, Finding",
+          "Moore–Russell arXiv:1408.5425, §5 equation (27) and Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verification package",
+        "Local Resultary index and listed mirror Findings",
+        "arXiv:1705.01032",
+        "arXiv:1408.5425",
+        "arXiv:2303.05365",
+        "arXiv:2302.08381",
+        "HAL hal-03202236"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The point-value and two-supported gradient results do not state a common gradient law across support sizes. The design paper differentiates the design objective, and sphericart gives derivative evaluation rather than sampling eigenvalues."
+        ],
+        "reasoning": "The full scalar Gram form can be used as input to a gradient calculation by inserting each rotation generator on both slots and summing. Those generators mix the scalar sectors, so their individual sector transfer energies must still be computed; scalar eigenvalues and sector multiplicities alone do not give an eigenvalue-by-eigenvalue implication or the rank/crossover. In particular the type-D spectrum is not the k=d case of a stated gradient theorem in these passages. Credit is for the evaluated gradient spectrum, not the already available cubic-sector split.",
+        "searches": [
+          "f5a84d916bec scalar concentration operator at k=d versus 8e508c0bff34 type-D gradient operator",
+          "Xiao–Zhuang arXiv:2303.05365 abstract/introduction; Bigi et al. arXiv:2302.08381 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit f749a9ac5b43 is the target. The cubed-sphere method uses a different, resolution-dependent grid and scalar values; manifold Hermite–Birkhoff interpolation uses chart derivative and value data and is not the pure harmonic cubic operator."
+        ],
+        "reasoning": "Tangential gradient samples can equivalently be represented by the redundant rotation-derivative samples x_i∂_j f−x_j∂_i f at a unit node, whose squared norms sum to the same tangent energy. Neither the known point-value map nor scattered chart interpolation is this observation operator or a renormalization of it.",
+        "searches": [
+          "Resultary: exact cubic gradient-only Dirichlet frame at Boolean cube corners; Walsh/point-value versus tangential-gradient sampling",
+          "arXiv:1705.01032, pp. 1–3; Bellet–Brachet–Croisille, §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the target matches the exact node set and data. The same-day three-sector gradient spectrum 8e508c0bff34 uses (±e_i±e_j)/sqrt(2), the two-supported type-D roots, whereas the target uses all d coordinates."
+        ],
+        "reasoning": "Same sector labels or multiplicities are not a lookup for the target's eigenvalues. The node sets differ in support and cardinality; the dates do not establish priority and the claims were compared on their mathematical content.",
+        "searches": [
+          "Resultary: gradient-only hypercube cubic spectrum and type-D tangential gradient frame"
+        ]
+      },
+      "rationale": "Best of current knowledge, the exact gradient-only spectrum on the full-support signed cube is distinct. Same-node scalar results and a same-day different-node gradient result are strong method-level overlaps, not the same spectral result.",
+      "residual_risks": [
+        "The checked literature and catalogue comparisons are bounded. An unindexed exact gradient specialization or a general spectral transfer formula could cover the computation; no such statement was identified. No priority claim for the cubic-sector basis or standard moment method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": "Same cube, normalization and three gradient branches.",
+          "identifier_or_url": "Resultary f749a9ac5b43",
+          "material_read": "Indexed statement and frozen Finding",
+          "method": "Local Resultary comparison",
+          "title": "Sharp cubic spherical-gradient sampling spectra at hypercube vertices",
+          "trigger": "Exact spectral match"
+        },
+        {
+          "assessment": "Strong framework overlap; scalar only",
+          "evidence": "The displayed operator is the average of f(x) conjugate(g(x)), not a gradient pairing; its k=d transverse eigenvalue is zero.",
+          "identifier_or_url": "Resultary f5a84d916bec",
+          "material_read": "Finding, assumptions and proof §§1–2 (mirror offset 0 through 4419)",
+          "method": "Targeted local mirror read",
+          "title": "Cubic harmonic sampling on signed constant-weight spheres: exact spectra and a five-design blind resonance",
+          "trigger": "Stronger orbit family with same three sectors"
+        },
+        {
+          "assessment": "Scalar rank only",
+          "evidence": "Cubic point values have Walsh weights one and three and rank d+choose(d,3).",
+          "identifier_or_url": "Resultary 6c86ac9d380a",
+          "material_read": "Finding",
+          "method": "Targeted local mirror read",
+          "title": "Two exceptional Walsh obstructions in exact-degree harmonic interpolation on the hypercube",
+          "trigger": "Same cube, larger degree scope"
+        },
+        {
+          "assessment": "Different orbit",
+          "evidence": "Samples type-D roots rather than cube corners, notwithstanding identical multiplicity labels and source norm.",
+          "identifier_or_url": "Resultary 8e508c0bff34",
+          "material_read": "Finding",
+          "method": "Targeted local mirror read",
+          "title": "A sharp cubic tangential-gradient frame on type-D root systems",
+          "trigger": "Same-day exact gradient three-sector calculation"
+        },
+        {
+          "assessment": "Different interpolation space and data",
+          "evidence": "Chart-based derivative/Taylor data and geodesic-distance cardinal functions are not the Dirichlet-normalized pure cubic map.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.01032",
+          "material_read": "pp. 1–3, OA offsets 601, 5863 and 11401",
+          "method": "Targeted OA PDF read",
+          "title": "Hermite–Birkhoff interpolation on scattered data on the sphere and other manifolds",
+          "trigger": "General derivative interpolation on a sphere"
+        },
+        {
+          "assessment": "Rotationally averaged scalar-value energy",
+          "evidence": "No fixed cube tangential-gradient spectrum follows from the displayed random-rotation expectation.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.5425",
+          "material_read": "§5 equation (27) and Lemma 1, OA offset 28261",
+          "method": "Targeted OA paper read",
+          "title": "Heat and Noise on Cubes and Spheres: The Sensitivity of Randomly Rotated Polynomial Threshold Functions",
+          "trigger": "Hypercube harmonic sampling energy identity"
+        },
+        {
+          "assessment": "Different gradient",
+          "evidence": "Design optimization gradients and construction of framelets, not observation of each cubic's gradient.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.05365",
+          "material_read": "Abstract and introduction, OA offsets 325 and 11765",
+          "method": "Targeted OA paper read",
+          "title": "Spherical framelets from spherical designs",
+          "trigger": "Spherical frames and gradients"
+        },
+        {
+          "assessment": "Different grid and scalar observations",
+          "evidence": "Lagrange interpolation on a resolution-dependent equiangular S² grid, not corner gradients in all dimensions.",
+          "identifier_or_url": "https://hal.science/hal-03202236/document",
+          "material_read": "pp. 2–3, §3.1 equation (10), OA offsets 1892, 6580 and 10650",
+          "method": "Targeted lawful HAL PDF inspection",
+          "title": "Interpolation on the Cubed Sphere with Spherical Harmonics",
+          "trigger": "Similar cubed-sphere interpolation name"
+        },
+        {
+          "assessment": "Evaluation method; no exact spectrum in inspected material",
+          "evidence": "Efficient Cartesian derivative evaluation as opposed to fixed-node frame bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.08381",
+          "material_read": "Abstract, OA offset 1548",
+          "method": "Targeted OA abstract read",
+          "title": "Fast evaluation of spherical harmonics with sphericart",
+          "trigger": "Computational spherical-harmonic derivative results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cube is a natural orbit and gradient-only reconstruction is materially different from scalar interpolation. The exact branches quantify the rank recovery in d≥4, the surviving cubic blind mode in d=3, and the transition determining the sharp upper bound and condition growth. These are directly usable quantitative recovery bounds for the specified nodes and norm; finite full-rank checks, scalar interpolation ranks or a general derivative evaluation algorithm do not give them.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

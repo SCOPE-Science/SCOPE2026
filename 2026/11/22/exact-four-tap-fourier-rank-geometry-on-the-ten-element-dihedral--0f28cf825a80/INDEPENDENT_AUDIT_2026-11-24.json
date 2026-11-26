@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:32:58.550261Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5; VERIFICATION.md; check_dihedral.py; check_regular.py; VERIFIER_OUTPUT.txt; requirements.txt",
+        "Independent replay: python /tmp/opencode/frozen_review_1.py"
+      ],
+      "rationale": "The regular block multiplicities are 1,1,2,2. In every mixed case the 2x2 blocks are nonzero even when singular: either a reflection monomial is nonzero at each root or the two rotation evaluations cannot both vanish at reciprocal roots. For 3+1, simultaneous nontrivial determinant zeros give q1=q2, and a zero at frequency zero would then give 5ac=0. In the parallel case, any two of the three distinct-slope equations imply X=Y-Z=0; in the skew case, two nontrivial zeros imply Z=-Y and X=Y, hence L0=5Y≠0. These implications and the possible number of scalar zeros exclude all unlisted mixed ranks. In the pure case the normal form is a cubic, so there are at most three distinct fifth-root zeros. Common dilation and independent shifts of the two coset origins, plus coset exchange, are induced by rank-preserving operations. An independently written script built the regular matrices from the group law and computed exact number-field ranks and nonzero taps for all 19 normal-form witnesses. It independently enumerated the four support classes and checked orbit exhaustiveness, obtaining 10,100,50,50 and precisely the listed rank sets.",
+      "residual_risks": [
+        "The supplied SVD output was inspected as recorded evidence, not used to establish exact ranks or exclusions. The claim is specific to the order-ten group and four nonzero complex coefficients."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized-dihedral progression-plus-opposite-coset theorem gives nullities 0,q,2q,3q,4q at order m≥5. Here m=5 and q=1, and each three-one support has the required progression. The general uncertainty result gives a product inequality; the three-tap catalogued results change support size."
+        ],
+        "reasoning": "Credit exact broader coverage for one row, with no extension of the progression-plus-singleton theorem to the two-two hypotheses.",
+        "searches": [
+          "Resultary a3fc2dc5d3d1; eb09d9b17153; 2bbf4bdce108",
+          "arXiv:math/0608702, Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a3fc2dc5d3d1, d4787ab578c7, eb09d9b17153, 2bbf4bdce108",
+        "Alagic–Russell arXiv:math/0608702",
+        "Arezoomand–Taeri EJC 20(3), P57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General factorization produces blocks but leaves their joint vanishing conditions unresolved. Unit taps show only particular attainments. Rank 5 is attainable in the parallel class only, and rank 7 distinguishes skew from parallel among two-two supports."
+        ],
+        "reasoning": "The simultaneous-vanishing exclusions with variable complex coefficients are the distinct part, not the rank identity, the cubic case, or the progression specialization.",
+        "searches": [
+          "Alagic–Russell Theorem 2; Arezoomand–Taeri Corollary 9; Resultary d4787ab578c7 and a3fc2dc5d3d1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted Cayley nullity version is nullity=10−rank. The three-one nullity specialization agrees exactly; the balanced indicator theorem fixes all four weights to one."
+        ],
+        "reasoning": "Translate the claims to the same regular-representation nullity and distinguish a fixed kernel from all exactly supported kernels.",
+        "searches": [
+          "Resultary four-tap generalized-dihedral nullity records a3fc2dc5d3d1 and d4787ab578c7",
+          "Arezoomand–Taeri, EJC 20(3), P57"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched an exact three-one subtable and a unit-coefficient balanced spectrum, not the entire support-conditioned table. The narrow external query gave unrelated results and is not negative evidence."
+        ],
+        "reasoning": "The available records do not give a complete earlier two-two classification for variable coefficients.",
+        "searches": [
+          "Resultary four-tap and three-tap dihedral rank/nullity comparisons: a3fc2dc5d3d1, d4787ab578c7, eb09d9b17153, 2bbf4bdce108",
+          "Literature search for four-tap dihedral parallel/skew attainable rank"
+        ]
+      },
+      "rationale": "Pass for the complete fixed-support classification and in particular the free-coefficient parallel/skew rank diagrams, not a priority claim for each row. An exact same-day Resultary theorem already covers the entire three-one row by specialization; its relation in time to this record is not established. The pure row is elementary cyclic Fourier analysis. Neither that specialization, the fixed-unit balanced result, nor the general block or uncertainty results supplies the complete free-coefficient diagram or the two-two rank exclusions.",
+      "residual_risks": [
+        "Same-day exact coverage of one whole row; priority not assigned.",
+        "Unindexed weighted group-algebra or finite Cayley tables could contain a broader equivalent. No inference of novelty from search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the whole three-one row; same-day priority unresolved. Does not cover two-two.",
+          "evidence": "For fixed {xh⁻¹,x,xh,y} and all four taps nonzero, h of order m≥5 gives nullities {0,q,2q,3q,4q}, q=|H|/m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-five-arithmetic-nullity-strata-for-four-tap-convolution-on-gener--a3fc2dc5d3d1",
+          "material_read": "Mirrored RESULT.md, Finding and Assumptions and scope, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and bounded local mirror reading",
+          "title": "Five arithmetic nullity strata for four-tap convolution on generalized dihedral groups",
+          "trigger": "Strongest overlapping free-coefficient theorem"
+        },
+        {
+          "assessment": "Covers a specific coefficient slice, not the rank diagram.",
+          "evidence": "Two points in each coset; kernel is the support indicator.",
+          "identifier_or_url": "Resultary d4787ab578c7",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, offset 0",
+          "method": "Resultary index and local mirror",
+          "title": "Balanced four-tap generalized-dihedral convolution: three nullity strata and a sharp quadratic spectral gap",
+          "trigger": "Same support split"
+        },
+        {
+          "assessment": "General inequality, not the exact finite table.",
+          "evidence": "The support measure times the dimension-weighted sum of Fourier ranks is ≥1.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0608702",
+          "material_read": "Theorem 2, PDF p. 2, extracted offset about 5056",
+          "method": "OA PDF passage",
+          "title": "Uncertainty Principles for Compact Groups",
+          "trigger": "Rank-weighted Fourier support"
+        },
+        {
+          "assessment": "Block spectral machinery, not simultaneous rank restrictions for free taps.",
+          "evidence": "The characteristic polynomial factors via the index-two cyclic subgroup.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/",
+          "material_read": "Corollary 9, PDF p. 9, extracted offset 31444",
+          "method": "OA PDF passage",
+          "title": "On the Characteristic Polynomial of n-Cayley Digraphs",
+          "trigger": "Cyclic-index-two spectral theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md support table and exact exclusions",
+        "Resultary d4787ab578c7 and a3fc2dc5d3d1 for comparison"
+      ],
+      "rationale": "The natural invariant is the rank reachable with a prescribed sparse support, not a random coefficient census. The two balanced support shapes have identical tap count and coset split but different attainable ranks and different minimum ranks, so the classification gives exact attainable information loss that a support-size bound or fixed-unit spectrum cannot supply.",
+      "residual_risks": [
+        "No claim of rank conditioning or generalization to larger groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

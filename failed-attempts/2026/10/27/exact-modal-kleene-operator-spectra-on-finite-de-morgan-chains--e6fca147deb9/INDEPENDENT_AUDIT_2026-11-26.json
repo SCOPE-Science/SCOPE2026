@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:28:57.504890Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under exactly MK, Pos and Con, meet preservation is monotonicity and Pos at p=ceil((n-1)/2) is equivalent to f(p)>=p. For t<=floor((n-1)/2) and x<t, Con is automatic unless 2f(t)>n-1; in that case it forces f(x)=f(t). In even size the last lower input is either mapped below m or forces a constant raised prefix; in odd size the middle input is pinned at m or forces that prefix including itself. Counting weakly increasing tuples and summing over the raised prefix value gives the stated binomial squares and common additive term. Fixing the last output removes one free upper value; the dominant top-preserving proportion is m/(2m-1) in even size and 1/2 in odd size, with lower order corrections. The m=1 counts are (2,2) and (5,3). Inspected VERIFICATION.md and checker.py without executing the frozen code. Independent bounded replay: python3 /workspace/independent_checks.py tests all maps for n=2..7 and returns the stated pairs through (415,210); the structural argument proves the unrestricted result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary introduction and Definition 3.5 supply the variety and representation setting; the located passages do not give a census",
+          "October 18 Finding gives the same iff criterion for finite involutive chains"
+        ],
+        "reasoning": "An order isomorphism from any finite involutive chain to the standard chain conjugates the negation to i->n-1-i, so the prior criterion specializes without any additional classification. General categorical representation alone would not establish the enumerators.",
+        "searches": [
+          "arXiv:2608.10937 primary PDF: chain, enumeration, binomial, counting",
+          "Local Resultary: SCOPE 82f94da52ef8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8660881b40c5",
+        "Resultary 82f94da52ef8",
+        "arXiv:2608.10937v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both count the boundary-respecting branch and raised constant-prefix branch; October 18 explicitly gives limiting density 1/2."
+        ],
+        "reasoning": "Even if the density were omitted, it follows from the prior exact subcounts by comparing the central binomial factors. No part of the frozen theorem survives as an uncovered claim in this comparison.",
+        "searches": [
+          "Local Resultary: October 13 and October 18 RESULT.md, midpoint branch proofs and top-preserving census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 13 SCOPE 8660881b40c5 and October 18 SCOPE 82f94da52ef8, Finding and Assumptions and scope: same binary meet, Pos and Con conditions without top preservation",
+          "Definition 3.5 lists these three axioms, with no top equation"
+        ],
+        "reasoning": "The papers count unary maps on the same chain with its order-reversing involution. Normality is the optional top equation, not an extra hypothesis on the unrestricted maps.",
+        "searches": [
+          "Local Resultary comparison: finite-chain modal Kleene operators, parity-sensitive counts and top-preserving subcounts",
+          "arXiv:2608.10937 Definition 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed records give the two squared-binomial-plus-binomial expressions for M and algebraically identical formulas for N (called U in the October 18 record)."
+        ],
+        "reasoning": "These are complete symbolic censuses for both parities and every chain size in the claim, not a few coincident table entries.",
+        "searches": [
+          "Local Resultary: SCOPE 8660881b40c5 and SCOPE 82f94da52ef8, RESULT.md Finding and Proof"
+        ]
+      },
+      "rationale": "Two distinct earlier indexed Resultary statements cover the same finite-chain operator class, midpoint/constant-prefix normal form and all four census formulas. The October 18 text also states the limiting top-preserving proportion. This is verified equivalent coverage rather than an inference from title similarity or an unavailable paper.",
+      "residual_risks": [
+        "No separate journal version was verified, and the targeted PDF inspection does not establish whole-document noncoverage. The two explicit indexed equivalents are sufficient for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage of the census and normal form",
+          "evidence": [
+            "Same three axioms; both midpoint branches and four equivalent formulas"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-parity-sensitive-binomial-census-of-modal-kleene-operators-on--8660881b40c5",
+          "material_read": "RESULT.md Finding, Assumptions and scope, Proof",
+          "method": "Configured Resultary lookup and local mirror reading",
+          "title": "A parity-sensitive binomial census of modal Kleene operators on finite chains",
+          "trigger": "Same parity-sensitive counts and optional top equation"
+        },
+        {
+          "assessment": "Direct coverage, including the density",
+          "evidence": [
+            "Midpoint and constant-prefix iff rule; identical M and U formulas; limiting top-preserving proportion 1/2"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-two-regime-normal-form-and-exact-enumeration-of-finite-chain-mod--82f94da52ef8",
+          "material_read": "RESULT.md Finding, Assumptions and scope, Proof",
+          "method": "Configured Resultary lookup and local mirror reading",
+          "title": "Two-regime normal form and exact enumeration of finite-chain modal Kleene operators",
+          "trigger": "Same two-regime theorem and exact enumerators"
+        },
+        {
+          "assessment": "Verified the exact axiom package; no census located in passages read",
+          "evidence": [
+            "Definition 3.5 displays binary MK, Pos and Con with no top equation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.10937",
+          "material_read": "Abstract and introduction pp. 1–2; Definition 3.5, p. 7 (text offset 14367); targeted census terms",
+          "method": "Lawful arXiv PDF via OA reader",
+          "title": "A Modal Expansion of Kleene Algebras via Twist Structures",
+          "trigger": "Primary definition could normalize top or already classify chains"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The census of a natural variety, including the prevalence of non-top-preserving maps, would be worthwhile if uncovered. This package repeats an already available full normal form, formulas and density without an additional invariant, explanation or application that resolves a distinct mathematical gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:03.086640Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prefix-count recurrence Z(j)=j−Z(floor(j/2)) yields the base-four weights 0,1,−1,0. In a carry-free addition of m_t, the increments are −2 to +1, with extremes realized at i=m_t and i=0. A remaining carry costs a digit with increment zero, offsetting the one higher-tail increment. Lower equality then requires the first carry at the last digit, because a digit receiving a carry cannot contribute −2; for t=1 its initial 3 string ends at a digit 1, giving odd valuation of i+1. At upper equality a carry from digit zero must persist with +1 increments until its higher increment at a 0 or 2, yielding even valuation. Thus the extreme factors have the required initial bits. Recurrence and unit sliding steps supply each interior zero count with both initial bits. Palindromic prefixes give reversal closure, so the terminal endpoint at even source starts adds no vectors. The arbitrary-length carry bound is logarithmic and the geometric subsequence gives the matching lower running maximum. A separate check in /workspace/branches/5728e89d-7db6-44fb-bb13-de493e568f0a/independent_spectrum_check.py and independent_spectrum_check_output.txt matched the exact spectra at all starts 0–131071 for t=1–7; this is finite corroboration only. The frozen code and its log were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parreau et al. Lemma 27 proves the exact power-of-two zero-count extrema. Lemma 29 gives exact additivity of both extrema at 2^l+r, 0≤r≤2^{l−1}, l≥2. Proposition 25 gives the range-width recurrence including the complementary range",
+          "Campbell–Currie–Rampersad study the reduced invariant but their evaluation concerns paperfolding; Machacek Thm. 5.4 relates ordinary period-doubling Abelian complexity to a group-action count"
+        ],
+        "reasoning": "The published zero-count extrema for the block sequence resolve the translated invariant, whereas a count of classes for another word or without the relevant statistic would not. The width recurrence gives Δ_0(N)=O(log(N+1)): at r≤2^{l−1} it adds two and reduces to r; at larger r a reflection first returns to that additive range. Hence arbitrary n has at most 2(Δ_0(n−1)+1) reduced vectors.",
+        "searches": [
+          "arXiv:1405.3532, Prop. 25, Lemmas 27 and 29–31",
+          "arXiv:2509.16034",
+          "arXiv:2509.26613, Thm. 5.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "arXiv:1405.3532",
+        "arXiv:2509.16034",
+        "arXiv:2509.26613",
+        "Resultary 1ab89cbe47d7 and 0c35eb394ad7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write N_t=2m_t−1. N_1=1 has block zero-count extrema 0 and 1. For t≥2, N_t=2^{2t−1}+N_{t−1} with remainder in the Lemma 29 range. Lemma 27 at odd l yields min_0(2^l)=(2^l−2)/3 and max_0(2^l)=(2^l+4)/3"
+        ],
+        "reasoning": "Summing the known additive increments gives min_0(N_t)=a_t and max_0(N_t)=(2m_t+4t−3)/3. The transition counts j=N_t−#0 run through every integer from 2a_t to 2b_t−1. The parity map produces exactly the two frozen vector families and cardinality 2t, not just an upper estimate or a numerical coincidence. Since lengths grow geometrically, this and the published logarithmic width bound also give the claimed running maximum. The focused general search returned no additional results and is not relied on for the failure.",
+        "searches": [
+          "period-doubling word Abelian complexity exact factor zero-count intervals Parreau Rigo Rowland Vandomme 2-regularity Theorem 21",
+          "arXiv:1405.3532, proof of Prop. 20 and Lemmas 27, 29"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1ab89cbe47d7 concerns Thue–Morse; 0c35eb394ad7 concerns a cyclic Burrows–Wheeler transform, not factorwise reduction",
+          "Parreau–Rigo–Rowland–Vandomme Sec. 4 uses x=block(p,2) coded by 00→0, 01→1, 10→2"
+        ],
+        "reasoning": "For a p-factor of length n, its x-factor of length n−1 contains j nonzero letters exactly when the p-factor has j transitions and j+1 runs. When n is even, endpoints cannot both be 1 since all 1s occur at odd indices. Thus j=2z gives (z+1,z) and j=2z−1 gives (z,z), including the case j=0. For arbitrary n a given j yields at most two vectors. The attainable j form an interval by the zero-count sliding property used in the proof of Proposition 20.",
+        "searches": [
+          "Resultary: reduced Abelian complexity period doubling; base-four repunits",
+          "arXiv:1405.3532, overlapping 2-block coding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact matches are for a different word or transform. Lemma 27 contains exact Parikh sets of block factors at every power of two, including the odd-exponent base values needed by Lemma 29"
+        ],
+        "reasoning": "No finite table of values could establish the all-t statement on its own; the existing published exact base cases and recurrences supply the endpoints uniformly. The frozen seven-case table is corroboration, not novelty evidence.",
+        "searches": [
+          "Resultary: period-doubling reduced Abelian spectrum; 1ab89cbe47d7 and 0c35eb394ad7",
+          "arXiv:1405.3532, Lemma 27"
+        ]
+      },
+      "rationale": "The full spectrum and global bound follow directly from the published exact endpoint recurrences for zero counts of the overlapping 2-block word of the same period-doubling sequence. A different complexity name does not prevent this implication. The two similar indexed findings inspected are not themselves equivalent.",
+      "residual_risks": [
+        "The comparison shows a mathematical implication from specific published results; it does not assert that those authors named this run-reduced invariant, nor historical priority for any distinct proof technique."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published stronger ingredients mechanically imply all parts of the claim",
+          "evidence": [
+            "Exact odd-exponent power-of-two extrema and both endpoint recurrences, not just regularity; contiguous zero counts and the length n−1 block correspondence give the exact spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.3532",
+          "material_read": "Sec. 4 introduction; Prop. 20 proof pp. 14–15, Prop. 25 p. 15, Lemma 27 p. 17 and Lemma 29 pp. 18–19, OA offsets 38140, 45400, 52500; also Thm. 21 and Sec. 5 endpoint-sensitive results",
+          "method": "OA primary PDF text by bounded offset",
+          "title": "A new approach to the 2-regularity of the ℓ-Abelian complexity of 2-automatic sequences",
+          "trigger": "Overlapping 2-block coding can count transitions"
+        },
+        {
+          "assessment": "Inspected evaluation is for a different word",
+          "evidence": [
+            "Reduced-Abelian paperfolding evaluation, not the period-doubling formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.16034",
+          "material_read": "p. 1 and paperfolding lemmas pp. 10–11, offsets 850 and 21500",
+          "method": "OA primary PDF text",
+          "title": "Reduced complexities for sequences over finite alphabets",
+          "trigger": "Same run-reduced Abelian invariant"
+        },
+        {
+          "assessment": "Inspected theorem relates a different invariant",
+          "evidence": [
+            "Group-action factor complexity of a ternary word relates to ordinary period-doubling Abelian complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.26613",
+          "material_read": "Thm. 5.4 p. 12, offset 38735",
+          "method": "OA primary PDF text",
+          "title": "Group Actions and Some Combinatorics on Words with vtm",
+          "trigger": "Same period-doubling word"
+        },
+        {
+          "assessment": "Different word",
+          "evidence": [
+            "Sharp reduced-Abelian maxima for Thue–Morse."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-four-adic-envelope-and-first-peak-of-reduced-abelian-compl--1ab89cbe47d7",
+          "material_read": "Mirrored RESULT.md offset 0",
+          "method": "Indexed match and mirrored text",
+          "title": "Sharp four-adic envelope and first peak of reduced Abelian complexity",
+          "trigger": "Exact same reduced invariant and radix"
+        },
+        {
+          "assessment": "Different invariant, irrespective of date",
+          "evidence": [
+            "Cyclic transform of finite iterates, not counts of runs in original contiguous factors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-cyclic-burrows-wheeler-transform-of-dyadic-period-doubling--0c35eb394ad7",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Indexed match and mirrored text",
+          "title": "Exact cyclic Burrows–Wheeler transform of dyadic period-doubling iterates",
+          "trigger": "Same period-doubling substitution and runs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Factorwise run collapse is natural and a complete spectrum would be useful if it added substantive information. Here the exact result is the parity recoding of a previously determined interval at a prescribed length sequence; the global bound is also inherited. The alternative digit proof does not establish a new invariant or further scope in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

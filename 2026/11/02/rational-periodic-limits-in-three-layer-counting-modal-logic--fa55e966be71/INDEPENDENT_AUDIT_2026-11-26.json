@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:59:42.996179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof, lines 5–133",
+        "Frozen VERIFICATION.md and checker.py (read-only inspection)"
+      ],
+      "rationale": "The displayed formulas are integer linear comparisons and use #top, not an n-dependent constant or a modulo connective. At a depth-one test the independent letter counts are binomial. The probability that a specified pair is the unique tied maximum is the sum of the squared binomial mass times the (m−2)nd power of the strict lower cdf. On z=(2t−n)/√n the lattice spacing is 2/√n, giving 2I_m/√n from the local CLT and Riemann sum. Uniform maximum binomial mass O(n^(-1/2)) controls the tails of the rescaled squared mass by the binomial tail, and bounds the probability of any specified triple tie by O(n^(-1)). This gives the claimed delta_m. The #B_m count is binomial by subtree independence. Its integer target exists exactly on the chosen residue class (for n≥r); there it differs from the mean by delta_m√n+o(√n). Stirling's formula with u_m(n) bounded away from 0 and 1 gives the displayed local mass and alpha_m. The n independent tests amplify it, with n times the squared local mass bounded. The disjoint unique-winner events in the fresh-letter gate have total probability a u_b(n); the endpoint gates are constants. Freshness makes detector and gate independent even without disjoint vertex sets. Exactly one residue can contribute, giving each rational limit at depth at most three. The finite checker was read but not executed; no portion of the limiting proof rests on it.",
+      "residual_risks": [
+        "All moduli and all gates are fixed before the limit. The stretched-exponential rate is for detector failure on its own residue, not for convergence of an arbitrary rational output gate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 28 proves convergence for the modified recursion that replaces subformula proportions by limits. Propositions 36–37 treat density of ordinary limits, with dyadic constants in the density proof.",
+          "94852620c36e treats conditional one-step proportions."
+        ],
+        "reasoning": "Neither modified convergence nor density for ordinary single limits implies exact rational subsequential profiles of ordinary root probabilities; conditional proportions have a different target.",
+        "searches": [
+          "arXiv:2610.26187, Definition 26, Example 27, Theorem 28, Propositions 36–37",
+          "Resultary 94852620c36e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.26187 §§3, 4.2, 6.1–6.3",
+        "Resultary d24b2d8bffee, 1d3fc2bb6d15, 94852620c36e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 25 already amplifies a local central-binomial mass on odd n to a square-root exponential decay. d24b2d8bffee likewise gives failure (1−c_n)^n with c_n asymptotic to 1/√(πn) in its k=t=1 case.",
+          "The frozen construction obtains a Bernoulli parameter with center 1/m and a controlled O(n^(-1/2)) tie deficit, then tests a target integer that is available only in one residue class."
+        ],
+        "reasoning": "Once the local mass is known, amplification is standard and already present in these sources. It is not a substitute for all-moduli selection: the unique-plurality construction and its tie correction provide a new ingredient for the exact target mass and constant. The indexed dates do not establish priority.",
+        "searches": [
+          "arXiv:2610.26187 Proposition 25 and proof",
+          "Same-day Resultary d24b2d8bffee Finding; Resultary 1d3fc2bb6d15 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghosh–Schwarzentruber use the same counting comparisons and uniformly labelled n-branching trees; their Proposition 25 produces an ordinary binary parity profile already at depth two.",
+          "Resultary 1d3fc2bb6d15 realizes every rational parity pair, with a shallower depth and one proposition."
+        ],
+        "reasoning": "Parity is precisely modulus two, and its whole rational-profile subcase is documented separately. An arbitrary-period profile, for example an indicator of one residue modulo three, cannot be encoded as a parity pair in the same branching variable.",
+        "searches": [
+          "arXiv:2610.26187 §§3, 4.2 and 6.1–6.3",
+          "Resultary: counting-modal branching limits, congruence/residue profiles and parity-limit spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1d3fc2bb6d15 is an exact spectrum for a balanced parity fragment, not a spectrum or realization theorem for general moduli. d24b2d8bffee supplies the amplification rate scale in a different formula family."
+        ],
+        "reasoning": "The catalogue hit on exact profiles has real coverage for modulus two. No inspected table or exact characterization gives the all-moduli construction; this is an infinite realization family rather than a finite table.",
+        "searches": [
+          "Local Resultary catalogue search for ordinary residue profiles, parity spectra and depth-two/three amplification; records 1d3fc2bb6d15, d24b2d8bffee, 94852620c36e"
+        ]
+      },
+      "rationale": "The surviving claim is the uniform construction for each prescribed finite modulus and rational profile in ordinary probabilities, with the explicit detector constant for every modulus. It is not the invention of parity oscillation, rare-event amplification, or exact parity pairs in isolation.",
+      "residual_risks": [
+        "The bounded primary-literature search is not evidence of historical priority. Parity and the amplification mechanism are covered in inspected work; the pass is for the general modulus theorem and its quantitative construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine parity and amplification overlap, and density rather than exact rational-period universality.",
+          "evidence": "Proposition 25 displays a depth-two parity example, Theorem 28 concerns modified limits, and Propositions 36–37 construct dyadic examples for density.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.26187",
+          "material_read": "PDF pp. 4–7 and 11–16; §§3, 4.2, and 6.1–6.3",
+          "method": "OA primary PDF passages",
+          "title": "On Counting Graphs for Modal Logic with Counting",
+          "trigger": "Same logic, depth, tree model and limit questions"
+        },
+        {
+          "assessment": "Same rate scale and mechanism; no arbitrary modulus selection.",
+          "evidence": "The k=t=1 case already has failure (1−c_n)^n with the tie mass c_n asymptotic to 1/√(πn).",
+          "identifier_or_url": "d24b2d8bffee",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "Poisson amplification and a counterexample to the recursive limit",
+          "trigger": "Same-day result, amplification in the same tree model"
+        },
+        {
+          "assessment": "Direct m=2 coverage, not m>2 or the stated detector constant for general m.",
+          "evidence": "Depth-two one-letter formulas realize the entire rational even/odd spectrum.",
+          "identifier_or_url": "1d3fc2bb6d15",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "Parity limit spectrum and quarter-power boundary for balanced counting",
+          "trigger": "Exact rational subsequential profiles"
+        },
+        {
+          "assessment": "Different observable and depth.",
+          "evidence": "Limit proportions conditioned on one-step counts, not ordinary rational profiles at the root.",
+          "identifier_or_url": "94852620c36e",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary mirror",
+          "title": "A parity phase diagram for conditional one-step counting modal proportions",
+          "trigger": "Adjacent parity and counting-modal limit claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–38 and 69–133",
+        "arXiv:2610.26187 §6",
+        "Resultary 1d3fc2bb6d15"
+      ],
+      "rationale": "The result shows that the failure of an ordinary limiting probability is not restricted to a parity pathology: even without congruence syntax, three fixed counting layers realize arbitrary finite residue profiles. The explicit detector failure rate explains why the arithmetic support survives with probability tending to one. This is a structural expressivity result, beyond producing additional individual oscillation examples.",
+      "residual_risks": [
+        "No depth-three optimality, full classification of possible limit behaviors, or irrational realization is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

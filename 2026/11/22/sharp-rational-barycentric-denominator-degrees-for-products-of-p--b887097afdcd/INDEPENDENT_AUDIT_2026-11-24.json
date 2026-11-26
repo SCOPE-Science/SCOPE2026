@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:40:09.063409Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 18–49",
+        "VERIFICATION.md",
+        "verification.py",
+        "/workspace/branches/frozen_review_checks.py"
+      ],
+      "rationale": "Nonnegativity and affine precision force every off-facet coordinate to vanish on that facet. Taking limits from the dense domain of the quotients gives the corresponding polynomial numerator vanishing even where q vanishes. The supporting form divides that numerator. At an intersection of nonadjacent nonparallel side lines of one factor, each product vertex misses one of the two facets; hence every numerator and their sum q vanish on the entire residual cylinder. Coefficient extraction puts each coefficient in the corresponding two-variable ideal. On a given side line the residual intersections are distinct: a point outside a convex polygon admits at most two supporting lines through it, and an adjacent endpoint is not residual. There are m-3 residual intersections per line with no parallel sides, and m-4 in the centrally symmetric case; restriction forces a polynomial of smaller degree to have all the side forms as factors. A non-parallelogram quadrilateral has at least one residual point, including a trapezoid. For additivity, take a top-degree monomial of q and extract coefficients of its complementary-block monomial in turn. Each extracted coefficient is nonzero, belongs to its factor ideal, and has degree exactly the chosen monomial's block degree. Summing gives the required lower bound for arbitrary representations. Attainment can be checked directly: with inward side forms L_i(x)=det(e_i,x-v_i), the numerator at v_i is det(e_{i-1},e_i) times the product of the nonincident L_j. Dividing the precision identity by the product of all L_j reduces it to the telescoping sum of e_i/L_i-e_{i-1}/L_{i-1}. This bounds deg q by m-3, and centered symmetry cancels the odd top degree m-3 for a centrally symmetric polygon. The sum of the numerators is positive even on the boundary because at least one incident vertex numerator is positive. Products preserve the required identities and degree sums; invertible affine pullback preserves total degree. The exact independent replay `python3 /workspace/branches/frozen_review_checks.py` (section 1, passes) checked residual ranks and planar identities on six rational examples including a triangle, and product precision on a generic quadrilateral times a trapezoid. The bundled script was inspected, not executed.",
+      "residual_risks": [
+        "The examples do not prove the universal minimum; the residual-cylinder and top-degree coefficient arguments supply it. No inference was made for excluded polygon classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.5(i) is adjoint degree additivity and Corollary 4.6 is the planar degree drop (frozen AUDIT.json lines 95–106), both giving the product Wachspress candidate's degree.",
+          "Baumbach–Winter Conjecture 4.1 proposes m-2d, which would be 0, not k, on the specified quadrilateral products. The projective adjoint results in arXiv:2511.13537 prescribe stricter vanishing multiplicities not established for general affine rational denominators."
+        ],
+        "reasoning": "The adjoint product law is not an all-denominator minimum theorem. Neither the conjectural facet-count expression nor projective uniqueness of adjoints supplies the sharp simultaneous-block minimum.",
+        "searches": [
+          "Rational generalized barycentric denominator minimum for Cartesian products using residual arrangements",
+          "arXiv:2508.04275 Theorem 3.5(i) and Corollary 4.6",
+          "arXiv:2511.13537 Theorems 1.3–1.4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary b887097afdcd (self), 7b4aad67706d and e258bd0f4da6",
+        "arXiv:2611.02110",
+        "arXiv:2508.04275",
+        "arXiv:2511.13537",
+        "Frozen RESULT.md lines 51–66 and AUDIT.json lines 82–139"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior product constructions plus factor minima show an upper bound by the sum and individual lower bounds by slicing. Individual bounds need not add: e.g. x_1+x_2 has positive degree in both blocks but total degree one.",
+          "The compulsory residual conditions instead apply to every coefficient when expanded in complementary-block monomials. The chosen top monomial's block contribution must meet each lower bound at the same time. Neither the reported one-factor result nor the indexed join claim states this product implication."
+        ],
+        "reasoning": "The top-monomial argument closes a real gap between the available prior upper bounds and all-representation sharpness.",
+        "searches": [
+          "Compare arXiv:2611.02110 Example 2.4 and Lemma 2.13, arXiv:2508.04275 Theorem 3.5(i), and Resultary 7b4aad67706d and e258bd0f4da6 with RESULT.md lines 28–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original's minimum rational-GBC degree is defined with the same coordinate framework as the motivating preprint (RESULT.md lines 51–52). Product coordinate construction and forced residual vanishing are prior facts.",
+          "Affine changes of the product do not change the invariant; the lower bound may be formulated as minimum degree subject to compulsory vanishing on disjoint-block residual cylinders in the stated factor classes."
+        ],
+        "reasoning": "The equivalent residual formulation here relies on proving both that every admissible denominator belongs to the simultaneous ideal constraints and that the corresponding degree minimum is attained by valid coordinates. Vanishing by itself does not identify the simultaneous minimum.",
+        "searches": [
+          "Resultary: minimum common denominator degree for products of polygons and quadrilaterals",
+          "Baumbach–Winter arXiv:2611.02110, Example 2.4 and Lemma 2.13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record b887097afdcd is the assigned finding itself. Earlier 7b4aad67706d gives the exact minimum for one polygon, including factors outside this review's product classes. Same-day e258bd0f4da6 states an exact degree k for affine joins of k quadrilaterals and distinguishes the Cartesian product."
+        ],
+        "reasoning": "The single polygon check is exact precoverage only at k=1. For k>1 an affine join of k two-dimensional factors has dimension 3k-1 rather than 2k, and is not affine-equivalent to the product. Its equal numerical degree is not the same invariant instance. The date gives no inference about priority or uninspected discussion.",
+        "searches": [
+          "Resultary: planar Wachspress denominator minimum; exact common denominator degrees on quadrilateral joins and products"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for Cartesian-product minimum degree over arbitrary nonnegative rational representations, not for product coordinates, adjoint product degree, residual vanishing itself, or the single-factor theorem. The new lower bound needs blockwise degree control: restriction to one factor, even using the full planar minimum theorem, gives at most separate lower bounds and not their sum.",
+      "residual_risks": [
+        "The linked same-day join proof and exact primary sections could not be independently retrieved; the positive conclusion rests on available claims and recorded passages, not exclusion of unseen results.",
+        "Older terminology for equivalent tensorization or ancillary statements in a related paper may hide additional coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known inputs; no full-text exclusion beyond the compared claims",
+          "evidence": [
+            "Products and residual forcing, plus conjectural m-2d bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02110",
+          "material_read": "New search abstract and the exact Example 2.4, Lemma 2.13 and Conjecture 4.1 comparison reported in frozen AUDIT.json lines 82–94; exact text retrieval timed out",
+          "method": "Targeted literature lookup and compare available statement-level evidence",
+          "title": "Rational barycentric coordinates and low degree adjoints",
+          "trigger": "Same minimum and product/residual setup"
+        },
+        {
+          "assessment": "Candidate denominator covered; general minimality not established by the compared statements",
+          "evidence": [
+            "Adjoint product additivity and planar drop."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.04275",
+          "material_read": "Theorem 3.5(i) and Corollary 4.6 comparison recorded in frozen AUDIT.json lines 95–106; current exact retrieval unsuccessful",
+          "method": "Compare the recorded adjoint statements with the optimized quantity",
+          "title": "The canonical form, scissors congruence and adjoint degrees of polytopes",
+          "trigger": "Potentially stronger exact degree for products"
+        },
+        {
+          "assessment": "Single-factor precoverage, not a product claim",
+          "evidence": [
+            "Minimum m-4 for central polygons and m-3 otherwise."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, 7b4aad67706d",
+          "material_read": "Indexed claim and frozen AUDIT.json lines 107–118 including the prior scope; linked body unavailable in this retrieval",
+          "method": "Local Resultary and statement comparison",
+          "title": "Wachspress denominators have minimum degree on every convex polygon",
+          "trigger": "Exact factorwise minimality"
+        },
+        {
+          "assessment": "Substantial nearby claim for joins, not equivalent to products; unexamined proof overlap remains possible",
+          "evidence": [
+            "Indexed degree k pertains to an affine join of k quadrilaterals."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, e258bd0f4da6",
+          "material_read": "Indexed statement only; exact linked RESULT unavailable",
+          "method": "Compared affine dimensions and construction against the indexed claim",
+          "title": "Exact common denominator degree on affine joins of quadrilaterals",
+          "trigger": "Same numerical degree and quadrilateral invariant in a distinct indexed record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–17 and 28–46",
+        "arXiv:2611.02110 Conjecture 4.1 comparison"
+      ],
+      "rationale": "This is a structural sharp formula for a natural high-dimensional family. The quadrilateral examples show exact positive degree k with the same d=2k and m=4k for which the conjectured general expression m-2d vanishes; replacing the factors by parallelograms instead gives degree zero with identical counts. Thus denominator complexity detects geometry invisible to those parameters. The reusable blockwise lower bound, not the known Wachspress construction alone, is the value added.",
+      "residual_risks": [
+        "Does not prove the general facet bound or product additivity for arbitrary polygons or polytopes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

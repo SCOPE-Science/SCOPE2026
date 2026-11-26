@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:52:15.778398Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–71",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "branches/frozen_review_checks.py"
+      ],
+      "rationale": "Send a semicircle with endpoints u<v to the imaginary axis by (z−u)/(v−z), then take |Re|/Im to obtain the claimed hyperbolic sine of distance. On the designated side z=iy, set x=y/√λ. The distance envelope in these units is min{x,x⁻¹,(x+x⁻¹)/(λ−1)}. By reciprocity restrict to x≤1, where the first neighbor suffices and the opposite side becomes active only for x>(λ−2)^−1/2 when λ>3. The envelope increases to this switch and then strictly decreases to x=1, making its reciprocal pair the only maxima. For λ≤3 the maximum is only at x=1, where all three contacts tie exactly at λ=3. The half-turn exchanges opposite sides. Relabeling cyclically via λ(z−1)/((λ−1)z) gives the other side type with τ=λ/(λ−1). At κ=max(λ,τ), the larger-type value dominates the smaller-type value κ/(κ−1), strictly unless κ=2, where all four sides share it. Thus the two pieces of sinh²δ meet at κ=3 and respectively increase and decrease, giving the unique extremizing shape and the limiting value. Independent checks using the minimum of a direct cosh-distance function verified sampled side peaks and contact multiplicities; replay with python3 -I -B branches/frozen_review_checks.py from /workspace.",
+      "residual_risks": [
+        "The sample check is supplementary; the continuous envelope proof establishes the theorem. There are two maximizing points per maximizing side above κ=3, not two points globally. At the square all four sides maximize."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison describes Tselekidis as treating geodesic-polygon slimness and coarse bounds rather than a cross-ratio profile.",
+          "Resultary 0556528fd074 gives arsinh(2 cos(π/n)) at side midpoints for regular ideal n-gons; n=4 is exactly the square case. Resultary e6f6ea228861 concerns compact regular polygons and a vertex-to-perpendicular-foot contact change for n≥5."
+        ],
+        "reasoning": "The regular ideal theorem is broader in side count and restricted in moduli, overlapping only κ=2 at four sides. The finite-radius regular transition changes the type of nearest contact rather than the number of maximizing points on an ideal side.",
+        "searches": [
+          "Focused literature search: exact ideal-quadrilateral slimness cross-ratio profile",
+          "arXiv:2611.05429v1 §§2.2, 3–5",
+          "Resultary 0556528fd074 and e6f6ea228861"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0556528fd074, e6f6ea228861, d1cc535bff44, 94e6734758c9 (indexed summaries)",
+        "arXiv:1908.10389 (literature search hit)",
+        "Frozen RESULT.md and AUDIT.json recorded comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recorded literature comparison concerns infimal distances between opposite sides. For the side 0∞ the opposite-side distance alone is minimized at y=√λ, where its hyperbolic sine is 2√λ/(λ−1). Above λ=3 the maximizing side points for the assigned envelope instead lie off that center.",
+          "The clearance summary places its parabolic pinch at a scaled deformation threshold λ=2^(−3/4), with a different sampling variable and optimization domain."
+        ],
+        "reasoning": "Pairwise distances may encode shape information, but neither an opposite-side infimum nor an interior-clearance optimum computes the location of the switch between neighboring and opposite sides in this new maximization. The optimization does substantive work beyond substituting a cross ratio into those formulas.",
+        "searches": [
+          "Wang–Vuorinen–Zhang, arXiv:1908.10389, Theorem 1.2",
+          "Vuorinen–Wang, DOI:10.5186/aasfm.2013.3845, Corollary 1.4",
+          "Resultary d1cc535bff44 exact indexed statement and attempted decisive mirror passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 5–34 define the invariant as the largest point-to-union distance on a side excluding that side. At the profile level this is the maximized minimum of three full-geodesic distances.",
+          "Resultary d1cc535bff44 samples interior points uniformly and studies proximity to maximum clearance from the boundary; its pinch is a scaled limit for deformations near the square."
+        ],
+        "reasoning": "Interior clearance takes a minimum that includes every side and maximizes over interior points. With the designated side included, clearance is identically zero on that side. Its near-maximum sampling law is not the side-restricted invariant nor an equivalent parameterization of its κ=3 transition.",
+        "searches": [
+          "Resultary: ideal quadrilateral boundary clearance side slimness sup minimum distance to three other sides cross ratio kappa equals 3",
+          "arXiv:1908.10389",
+          "arXiv:2611.05429v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact full profile was returned as the assigned record itself. Distinct indexed 0556528fd074 supplies the regular-square value, while d1cc535bff44 and 94e6734758c9 concern interior boundary clearance and maximal inscribed disks respectively."
+        ],
+        "reasoning": "The available distinct results do not tabulate or cover the exact unmarked side-slimness curve or its maximizing side points. The same-day overlap for regular shapes does not by itself establish date order.",
+        "searches": [
+          "Resultary: ideal hyperbolic quadrilateral side slimness cross ratio κ=3 and arsinh √3 maximizing points"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-shape side-slimness envelope, the sharp nonregular class and the change in side-point maximizers. The regular ideal-square case and the general notion of side slimness are credited overlaps. The strongest available comparisons concern either a restricted regular shape, interior clearance, a different contact condition, or infimal opposite-side distances; none yields this side-restricted envelope in the material inspected.",
+      "residual_risks": [
+        "The matching mirror and relevant primary passages could not all be independently retrieved. An uncatalogued exact side-profile calculation or a stronger covering theorem using another convention remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coarse polygon slimness background as recorded; unread material is not ruled out",
+          "evidence": [
+            "The frozen comparison specifies geodesic polygons and coarse dimension results."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.05429v1",
+          "material_read": "Frozen RESULT.md lines 81–93 and recorded §§2.2, 3–5 comparison; primary passage not independently obtained",
+          "method": "Recorded source comparison and attempted OA retrieval",
+          "title": "Logarithmically Slim Polygons",
+          "trigger": "Same slimness notion and possible stronger polygon theorem"
+        },
+        {
+          "assessment": "The reported opposite-side infimum has different quantifier order",
+          "evidence": [
+            "Recorded theorems optimize infimal distances between opposite sides, not the maximum of three-way nearest distances from a designated side."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.10389; https://doi.org/10.5186/aasfm.2013.3845",
+          "material_read": "Literature search hit and frozen RESULT.md line 83, Theorem 1.2 and Corollary 1.4 attribution; no independently retrieved relevant passage",
+          "method": "Literature search, recorded comparison and attempted OA retrieval",
+          "title": "On cyclic quadrilaterals in Euclidean and hyperbolic geometries; Hyperbolic Lambert quadrilaterals and quasiconformal mappings",
+          "trigger": "Same ideal shapes and potentially equivalent distance optimization"
+        },
+        {
+          "assessment": "Exact regular-square overlap; compact regular contact transition is different",
+          "evidence": [
+            "Regular ideal formula at n=4 gives arsinh√2 at midpoints. Compact regular n≥5 has vertices versus perpendicular feet as the nearest-contact types."
+          ],
+          "identifier_or_url": "Resultary 0556528fd074; e6f6ea228861",
+          "material_read": "Indexed statements, no mirror full text",
+          "method": "Resultary search and attempted passage retrieval",
+          "title": "Exact side slimness of regular ideal hyperbolic polygons; Exact slimness and a contact transition for compact regular hyperbolic polygons",
+          "trigger": "Strongest exact same-invariant catalogue comparisons"
+        },
+        {
+          "assessment": "Interior clearance sampling and side slimness are distinct optimizations",
+          "evidence": [
+            "The summary quantifies the clearance of a uniformly sampled point, with a critical √h deformation away from the square and a conditional-geometry pinch."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-two-scale-boundary-clearance-law-and-parabolic-pinch-for-ideal--d1cc535bff44",
+          "material_read": "Indexed statement; targeted full-text passage unavailable",
+          "method": "Resultary comparison and targeted OA mirror retrieval attempt",
+          "title": "A two-scale boundary-clearance law and parabolic pinch for ideal hyperbolic quadrilaterals",
+          "trigger": "Same ideal families and apparent one-to-two transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–28, 45–71",
+        "Resultary regular-polygon and boundary-clearance comparisons"
+      ],
+      "rationale": "The slimness of ideal geodesic polygons is natural, but a regular-square calculation does not predict even the extremizing quadrilateral shape. The full one-dimensional profile reveals a sharp nonregular maximum, contacts with all three other sides exactly there, and two maximizing points per active side beyond it. That is a useful exact benchmark for shape dependence and nearest-side geometry, beyond a coarse slimness bound or an opposite-side separation formula.",
+      "residual_risks": [
+        "No extension to nonideal quadrilaterals or variable curvature is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Scientific review: reciprocal-slope periodic decomposition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes exact branches, endpoint conventions, a full real parameter interval \(k>1\), and an explicit normalization. Four half-open intervals permute cyclically, with pointwise fourth-return identity; they exhaust all four-cycles. The complementary strips alternate if they avoid the periodic set, and the two-step affine expansion with slope \(k^2>1\) forces the unique repelling pair \(\{-k/(k+1),k/(k+1)\}\). Explicit treatment of three leftover boundary points closes the global argument. Affine inverse slopes prove an exact finite-time survivor measure \(2/k^{n+1}\); dividing by normalized domain length establishes the entrance-time law. Poincaré recurrence plus the canonical interval selector yields every invariant probability. Symbolic identities and rational interval calculations were independently checked with the packaged source, but finite tests are not used as infinite proofs.
+PASS
 
-## Originality — PASS within inspected evidence
+The conjugacy uses a=kb₁ and domain [−k,k]. On J₀ the four iterates run through k(u−1), u−t, ku+1, u, with the half-open images exactly as claimed, so all four phases are distinct, including the orbit of zero. Off P the three endpoint exceptions are k→t→−1→0. Every orbit that avoids P forever therefore alternates on (t,1) and (−1,−t); the affine return on the positive strip has fixed point p with multiplier k² and no other orbit staying bounded there for all future returns. It follows that the only avoiding points are ±p and every other point outside P is transient. The open strips have total length 2/k, and each inverse step from either entire target strip fits into the opposite strip and divides length by k. The finitely many endpoint preimages at any fixed n have length zero, so the survivor length is 2/k^(n+1). Dividing by domain length 2k and summing the resulting tail gives the exact probability and mean. For the invariant law, write Q=P∪{−p,p}; Q is Borel and forward invariant, and the increasing preimages g⁻ⁿ(Q) exhaust the domain. Invariance and continuity from below give μ(Q)=1, including any potentially atomic measure on an exceptional endpoint. Equal masses on the two-cycle and pushforward of the restriction on J₀ to the other three phases give the displayed unique mixture (with ρ immaterial at α=1). Ergodicity reduces to a point mass on the Borel selector, or to the two-cycle measure.
 
-The 2021 defining paper and 2023 full open-access follow-up provide the PWL family, fixed-point absence, selected chaotic parameter conditions and numerical bifurcations. A prior restricted-itinerary result on the same map already establishes a continuum of four-cycles precisely when the slopes are reciprocal; that component is explicitly excluded from the novelty claim. Its restricted statement does not imply that *all* other orbits eventually enter those cycles, that there are exactly two non-four-periodic points, that the nonentrance probability has a geometric law, or that every invariant probability has the stated orbit-mixture decomposition. A prior three-cycle census for the same family addresses a different invariant, and a prior sharp derivative-expansion bound assumes a disjoint parameter regime. Related periodic-zeta and neutral-fiber results concern different maps. Targeted literature, indexed finding and parameter-alias searches revealed no statement covering this combined global classification.
+## originality
 
-The substantial residual originality risk is incomplete access to the original 2021 defining paper. Only its abstract and first-page information were accessible, although the complete accessible 2023 follow-up was inspected. The 2022 comparative chapter was also abstract-only. These risks require later expert or full-text verification before any external publication-priority assertion.
+PASS
 
-## Mathematical value — PASS
+The map and the open continuum of identity four-returns are already known, and absence of period three at resonance also follows from a separate catalogue result. Credit only what survives those comparisons: the exhaustive spectrum including the one repelling pair, finite-time entrance for every other point with exact geometric tails, endpoint treatment, and complete invariant-probability description. The strongest inspected matching statements do not cover this global complement analysis. Full text of the original 2021 article and the comparative chapter was not accessible, leaving a priority risk but not negative evidence.
 
-A codimension-one reciprocal-slope cancellation sits at the edge of the empirically observed period-four region. The complete transient-versus-periodic decomposition turns an incomplete local itinerary calculation into an exact global account of every orbit and every invariant measure. The geometric entrance law gives a natural finite-time metric for how rapidly generic starting points fall into the neutral four-cycle continuum, and its mean \(1/[k(k-1)]\) diverges at the sharp nonexpanding boundary \(k\downarrow1\). These are dynamical questions that numerical Lyapunov diagrams and the existence of four-cycles alone do not answer. The contribution is a complete natural classification with a sharp probabilistic transient law, not the already-known period-four identity in isolation.
+## value
 
-## Scope and limitations
+PASS
 
-The theorem concerns exact real arithmetic on the reciprocal-slope curve only, not arbitrary slopes, finite-precision devices, or security claims. The distribution law assumes uniform initialization in the normalized state interval. The 2021 source and 2022 comparative chapter were not read in full. No external mathematical validation has been performed.
+The reciprocal locus is the natural multiplier-one boundary, not an arbitrary slice: a known neutral periodic band coexists with genuine expansion of its complementary survivor dynamics. The classification tells whether every other itinerary escapes, precisely how fast typical initial points enter, and what all invariant laws can be. Those facts are useful beyond the already known identity return or a few orbit computations.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

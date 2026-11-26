@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:59:50.895247Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Frozen VERIFICATION.md, verification_output.txt and verify.py (inspected, not executed)",
+        "Independent direct composition with a largest-prime-factor sieve"
+      ],
+      "rationale": "A composite always goes to a smaller prime, and a prime increases by k>0. In a two-cycle there is one prime p, and return requires P(p+k)=p. This gives p|k; conversely p+k=p(1+k/p) is composite and has largest prime p precisely when 1+k/p has no prime factor larger than p. The largest-prime-factor notation on this cofactor has its usual meaning for prime as well as composite inputs. Distinct p give distinct cycles. In a three-cycle there must be exactly one composite (two composites cannot be adjacent cyclically, and all-prime steps strictly increase). Rotate to p, p+k, p+2k, ending at the return to p. Then p|2k, and odd p would divide the strictly larger prime p+k, so p=2. The return requires 2(k+1) to be a power of two; the intervening integer 2^a+1 must be prime. These conditions suffice, and the three points are distinct, including k=1. A nontrivial odd factor of a would give a proper sum-of-odd-powers divisor of 2^a+1. Thus a is a power of two; no assertion about which Fermat numbers beyond known examples are prime is needed. Independently sieving largest prime factors up to 6500, composing the map twice and three times for 1<=k<=500 and 2<=n<=5000, and keeping only the smallest point of each exact cycle gave zero mismatches, 495 two-cycles in total, and three-cycle parameters 1,3,15,255. This bounded check corroborates, but does not replace, the proof.",
+      "residual_risks": [
+        "No classification of periods greater than three and no determination of the Fermat primes is claimed. The finite replay uses the stated cutoffs, the least representative of each cycle, and at most three steps per start."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das proves eventual periodicity and finiteness of loops for fixed k.",
+          "Dubickas proves broader boundedness and gives the prime-subsequence recurrence.",
+          "The indexed even-parameter result bounds a prime in each cycle and the number of cycles. The later exact indexed theorem includes period four in addition to the assigned periods."
+        ],
+        "reasoning": "Neither earlier general boundedness nor an even-parameter locator identifies or counts the exact short cycles. The broader exact indexed result covers this claim mathematically but is dated later; it does not demonstrate prior dissemination.",
+        "searches": [
+          "Das arXiv:2312.06629v1 Theorems 2.5 and 2.7",
+          "Dubickas DOI:10.3390/axioms13020107, pp. 1–2",
+          "Resultary even-parameter least-missing-prime cycle bound and exact short-period classification"
+        ]
+      },
+      "checked_sources": [
+        "Das, arXiv:2312.06629v1",
+        "Dubickas, DOI:10.3390/axioms13020107",
+        "Three matching local Resultary/SCOPE findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The recurrence p_(i+1)=P(p_i+k) describes successive primes but does not resolve which transitions are also composite excursions or classify their exact lengths.",
+          "The finite example k=15 follows from the full Fermat-prime criterion and not conversely."
+        ],
+        "reasoning": "A recurrence or a finite bound does not provide the exact solution set. The new short-cycle arithmetic excludes every odd returning prime for period three and resolves the remaining parameter condition; it does not simply restate the prior recurrence.",
+        "searches": [
+          "Dubickas, pp. 1–2, largest-prime-factor specialization",
+          "Das, pp. 1–3, definitions and cycle examples",
+          "Indexed least-missing-prime cycle bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later SCOPE record ending 9c96b12d92f9 states (p,pm) with k=p(m-1) and all prime factors of m at most p, and (2,2^a+1,2^(a+1)) with k=2^a-1 and 2^a+1 prime.",
+          "Das gives the equivalent rotation (17,32,2) for the single parameter k=15."
+        ],
+        "reasoning": "Substituting m=1+k/p makes the later two-cycle statement identical, and the three-cycle formulas agree identically. This is real later overlap, rather than merely related terminology. The earlier one-parameter example is not a classification.",
+        "searches": [
+          "Resultary lookup for exact short periods in the shifted largest-prime-factor map",
+          "Das arXiv:2312.06629v1: map definition, Fermat, k/p+1",
+          "Dubickas, Axioms 13 (2024), 107: prime-subsequence recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite 36-loop finding tabulates a period distribution at k=20735 consisting of periods 4,6,8,10,12.",
+          "The later 9c96b12d92f9 record is an exact symbolic match, not an earlier parameter table."
+        ],
+        "reasoning": "The inspected finite table and examples cannot establish an exact classification for all k. No earlier exact indexed classification was identified in the bounded lookup.",
+        "searches": [
+          "Local Resultary search for exact period-two/period-three and Fermat-prime cycles of Das's map",
+          "Resultary SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete two- and three-cycle classification, not the definition, general periodicity, isolated examples, or the classical factorization of Fermat numbers. The strongest exact indexed overlap is in a later-dated record; no evidence found makes it prior coverage. The checked earlier statements provide only ingredients and examples.",
+      "residual_risks": [
+        "An obscure or unpublished earlier observation could exist, particularly given the elementary proof. The later indexed overlap is recorded as such; its date and the inspected passages do not establish any earlier circulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior ingredients and an example only in the checked passages",
+          "evidence": "S(17,15)=17,32,2,...; the two theorems give eventual periodicity and finiteness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.06629v1",
+          "material_read": "Definition p. 1; examples p. 2 (offsets about 5100–5500); Theorems 2.5 and 2.7, pp. 3 and 5",
+          "method": "Lawful OA PDF, bounded passages and literal locators",
+          "title": "A Family of Iterated Maps on Natural Numbers",
+          "trigger": "Same map and short-cycle examples"
+        },
+        {
+          "assessment": "Broader qualitative coverage, not an exact short-cycle classification",
+          "evidence": "Uses p_(i+1)=P(p_i+k) for the deterministic specialization.",
+          "identifier_or_url": "https://epublications.vu.lt/object/elaba:198003867/198003867.pdf",
+          "material_read": "Introduction and prime-subsequence recurrence, pp. 1–2, offsets 0 and about 3000",
+          "method": "Lawful institutional-repository PDF",
+          "title": "A Class of Bounded Iterative Sequences of Integers",
+          "trigger": "More general dynamics can specialize to the same map"
+        },
+        {
+          "assessment": "Equivalent at periods two and three; broader through period four, dated later",
+          "evidence": "Its m-parameterization and 2^a formulas give both assigned criteria, including uniqueness at each parameter for period three.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-short-period-classification-for-a-shifted-largest-prime-fa--9c96b12d92f9",
+          "material_read": "Finding at offset 0 and proof around offset 1900",
+          "method": "Local Resultary lookup and local mirror passages",
+          "title": "Exact short-period classification for a shifted largest-prime-factor map",
+          "trigger": "Exact indexed hit for both periods"
+        },
+        {
+          "assessment": "Related, neither implies the classification",
+          "evidence": "One bounds cycles for even k; the other enumerates loops at a single odd k.",
+          "identifier_or_url": "2026/10/4/SCOPE-even-parameter-cycle-bound-from-the-least-missing-prime-rho-k--644ecc618762; 2026/10/4/SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b",
+          "material_read": "Findings at offset 0",
+          "method": "Local Resultary lookup and local mirror passages",
+          "title": "Even-parameter cycle bound from the least missing prime; Thirty-six distinct loops for Das's map at k=20735",
+          "trigger": "Nearby indexed cycle bounds and census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Das's cycle examples and fixed-parameter finiteness result",
+        "Frozen short-period classification and proof"
+      ],
+      "rationale": "The short exact periods are natural invariants of Das's map. The result turns isolated period-three examples into a restriction to Fermat-prime parameters with one orbit at each admissible parameter, and gives an exact count for period two. The complete converse and the exclusion of all other parameters supply useful information even though the proof is elementary.",
+      "residual_risks": [
+        "The result gives no general method for classifying all longer periods."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

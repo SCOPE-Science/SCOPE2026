@@ -1,18 +1,21 @@
-# Review: sharp softmax local-step disagreement and its angular safeguard
+# Independent mathematical audit
 
-## Correctness — PASS
-The two local minimizers follow from exact differentiation. The cosine identity is Cauchy--Schwarz with its equality condition; the ternary rational formula, derivative factor, unique optimizer and small-probability constant have analytic proofs in `RESULT.md`. The standalone checker confirms symbolic identities and 34,581 diagnostic statements using exact rational arithmetic where applicable. Tests do not substitute for the quantified proof.
+## correctness
 
-## Originality — PASS, qualified
-The motivating source [1] introduces the estimators and pruning; the comparison theorem and sharp ternary extremum are new deductions from those definitions, not established claims of [1]. The closest full-text related paper [2] decomposes multiclass Gauss--Newton curvature without comparing closest-softmax steps. The other inspected paper [3] addresses Taylor convergence radii rather than ratios of local surrogate minimizers. Record and literature searches did not identify a covering theorem. Historical priority may be affected by uncatalogued equivalents, especially an independently derived Cauchy--Schwarz reformulation.
+PASS
 
-## Value — PASS
-The result precisely quantifies how two contemporaneous learning-rate heuristics can differ on low-probability labels, and shows that the source's angular pruning has an exact upper-bound interpretation in the same limiting model. The sharp constrained frontier and 1/12 coefficient are not consequences of merely knowing that two formulas exist.
+For the stated one-hot, one-example logit path d=e₁−q, the second-order cross-entropy loss and first-order softmax squared residual minimize at ‖d‖²/(dᵀHd) and (dᵀHd)/‖Hd‖². The covariance form is positive on zero-sum nonzero d, giving the reciprocal squared cosine. Proportionality requires all incorrect probabilities equal, since (Hd)_j/d_j=q_j+qᵀd for j>1 and the remaining component is determined by zero sum; thus binary always gives one. Independently, in the ternary case with v=1−p, imbalance t and u=t², resolve Hd along d and the orthogonal zero-sum vector w=(t,(3−t)/2,−(3+t)/2). Conditional covariance over true versus incorrect classes gives dᵀHd=v³D/4 and wᵀHd=−3v²t(1−u)/4, where D=p(u+3)²+u(1−u); the norm ratio ‖d‖²/‖w‖²=v²/3 then gives R=1+3u(1−u)²/D². Differentiation gives the stated sign factor p(u+3)(u²−12u+3)−u(1−u)². On (0,6−sqrt(33)) the critical equation's map Φ(u) increases strictly from zero to infinity by its positive derivative; after this interval the sign factor is negative. This proves a unique interior maximizing u for every p, up to exchanging the two incorrect classes. Φ(u)/u→1/9 gives u_p/p→9 and pR(p,u_p)→27/18²=1/12. For each fixed K>3, continuity by assigning additional classes arbitrarily small positive masses transfers arbitrarily large ternary ratios. The rule cosφ≥c gives the exact sharp ceiling c⁻², attained at an interior ternary distribution by continuity from u=0 to a larger ratio; the ceiling 16 is an all-retained-samples zero-probe bound, not a rare-p asymptotic. The mathematics applies to the explicitly specified local estimates and cutoff; attribution to the exact source equations and strict rejection wording could not be independently resolved. If the comparison used strict retention, the same supremum would hold by approach, without equality. Read RESULT.md:3–93, VERIFICATION.md and verify.py; did not execute submitted code. No finite-probe, minibatch, parameter-Jacobian or actual-step claim follows.
 
-## Limitations
-Only one example, identity logits, logit-gradient direction, and zero-probe limits are treated. Large raw-estimator disagreement is not actual optimization instability; the extreme displayed example is excluded by the source's filter. No claim is made about minibatches or the final learning-rate schedule. Independent validation is outstanding.
+## originality
 
-## Closest sources
-[1] Bauwens--Krivodub--Zhang, arXiv:2611.05191v1 (estimators and pruning); [2] Korbit--Zanon, arXiv:2605.06081 (multiclass curvature); [3] Sao, arXiv:2603.13552v1 (complex Taylor radius).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinctive claim is the exact worst-case ternary law at fixed true-class probability, its unique imbalance and its sharp 1/(12p) growth, together making precise when the two defined local rate estimates can disagree and whether the angular ceiling can be saturated. The estimator definitions, rejection rule, and elementary angle algebra are not independently credited as novel. Attribution and broader priority are qualified by actual access below.
+
+## value
+
+PASS
+
+The comparison is between two independently motivated local surrogates for the same learning step. The binary agreement does not generalize: a fully sharp ternary law identifies both the probability imbalance causing arbitrarily large disagreement and its precise leading rate. This separates empirical averaged agreement from pointwise guarantees, and makes the local safeguard sharp rather than merely conservative, without overclaiming loss descent or training stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

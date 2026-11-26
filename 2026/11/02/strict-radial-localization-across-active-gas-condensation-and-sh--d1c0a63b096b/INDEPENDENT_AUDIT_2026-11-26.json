@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:04:13.564209Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the specified stationary branch, the dimensionless unnormalized remaining half-line mass is U(y)=R_m(g(y)) in gas because U'=-g and U(infinity)=0. The source flux matching gives U(L)=1; the core has U=q exp(-my) and density mU, so L=log(q)/m and survival is U/q. This proves the three quantile formulas, including their joins. From the endpoints of J_m the gas-regime derivative is (H_m(qs)-H_m(q))/(mq), the exterior derivative is (H_m(qs)+1-m)/(mq), and the core derivative is zero. The first two are negative; hence positive y_q/q decreases strictly, even as log(q)/q initially increases for the width. Coupling by a common uniform survival level gives strict expectations of strictly increasing integrable observables. At q=1 the scaling-factor derivative cancels, leaving the stated s-independent kink; H_m is continuous at m=4 even with a singular spatial gas slope. For coexisting stationary profiles subtract the two quantiles: the difference integrates 1/H_m(u)-1/(mu)>0 from max(1,qs) to q. The endpoint q=m/4 is valid for the explicit gas profile, with a one-sided cusp, not a dynamical stability claim. For strong reset the core agrees identically with Exp(m), and translating the exterior multiplies both mass-one densities by 1/q. For weak reset, H_m(q)exp(-2H_m(q)/m)=q-q^2/m+O(q^3); the inverse of h exp(-2h/m) is a+2a^2/m+O(a^3), uniformly at a=O(q exp(-y)). Dividing by q and integrating the absolute first-order correction yields q/(4m), since integral_0^1 |2u-1|du=1/2. Replay: RESULT.md lines 73–146. As a separate bounded check of the strong coefficient, solve log(h/m)+m[log(H_m(1)/h)-2(H_m(1)-h)/m]=0 for h in (0,H_m(1)) by bisection (the expression tends to +infinity at zero, is negative at H_m(1), and has at most one interior minimum). The density crossing gives Delta_m=h(1-(1+h)/m), yielding 0.378426, 0.472058, 0.676129 and 0.804631 for m=4,5,10,20. The frozen verification code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest matching full text is Grange, with the same nonlinear mean-field model. The separate renewal-approach hit provided no evidence of a theorem for coexisting gas and dense branches."
+        ],
+        "reasoning": "No inspected stronger statement established these across-branch comparisons. Linear or noninteracting resetting results cannot be assumed to apply to this choice of interacting stationary profile.",
+        "searches": [
+          "Run and tumble particle under resetting: a renewal approach",
+          "arXiv:2610.26149v2 §§3–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_quantile.py",
+        "Grange arXiv:2610.26149v2",
+        "Resultary record 87e6f4c012d9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grange gives the profiles and nonmonotonic droplet width. Eq. 45 states an open supersaturation range, and Eqs. 41–43 give gas existence including its upper endpoint. Eq. 14 allows equality m=4 in the matching relation, while §4.1 uses m>4 for coexistence."
+        ],
+        "reasoning": "The known profiles fix the comparison objects but not the signs of all physical quantile changes, the shared kink, or the sharp L1 corrections. These require mass inversion, control across phase boundaries, exact tail cancellation, and an integrable first-order expansion. The record's m=4 result is for the defined marginal profile, not a new physical phase-selection or stability theorem.",
+        "searches": [
+          "arXiv:2610.26149v2 Eqs. 12–15, 19, 22, 28, 33, 36–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grange §§3.1–3.3 and 4.1 derives both spatial densities, flux matching, and the width, giving normalized survival via integrated mass."
+        ],
+        "reasoning": "Comparing an interface location or core mass is not equivalent to comparing all radial survival levels. In physical coordinates the width initially moves in the opposite direction to all the quantiles.",
+        "searches": [
+          "arXiv:2610.26149v2, quantile; stochastic order; total variation",
+          "Run-and-tumble density under local reset: cumulative half-line mass, stochastic order, exponential scaling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8 record 87e6f4c012d9 uses the pure-gas profile to study a truncated-Pareto positional score, Fisher information and Hellinger behavior."
+        ],
+        "reasoning": "Same model but different random variable and exact invariants; its score result does not compare the physical radius across reset rates or condensate branches.",
+        "searches": [
+          "Resultary: active gas local resetting run-and-tumble radial order, droplet, stationary quantiles and total variation"
+        ]
+      },
+      "rationale": "The phase selection, solution profiles, existence conditions, and width are known Grange inputs, not distinct findings. The supported distinct results are full-law physical radial order, its quantile kink, branch comparison, and sharp total-variation formulas on those profiles.",
+      "residual_risks": [
+        "An equivalent profile comparison under another cumulative-mass formulation may exist beyond the bounded literature search.",
+        "The source uses inconsistent marginal-case wording; the result at m=4 is justified only for the explicitly matched limiting profile. The coexistence endpoint q=m/4 refers to existence of the explicit stationary solutions, not metastability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Profiles, width and feasibility already known; the law comparisons and corrections are distinct",
+          "evidence": "Flux matching sets R_m(g(b+))=1; b=log(M chi/2)/(m chi); gas existence M chi<=m/2. Width is not monotone.",
+          "identifier_or_url": "https://arxiv.org/html/2610.26149v2",
+          "material_read": "§§3.1–3.3: Eqs. 12–15, 19, 22, 28, 33 and width Eqs. 36–38 (HTML offset around 12350; PDF p. 8 around 25400); §4.1 Eqs. 40–45 (HTML offsets around 21600 and 22800)",
+          "method": "Direct OA HTML and PDF passage reading",
+          "title": "Motility-Induced Phase Separation of Run-and-Tumble Particles under Local Stochastic Resetting",
+          "trigger": "Identical model and exact stationary solutions; strongest candidate for prior coverage"
+        },
+        {
+          "assessment": "No duplicate exact claim",
+          "evidence": "The law analyzed is the gas position score, not the radius or its comparison with the droplet branch.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-truncated-pareto-position-scores-and-a-singular-location-informa--87e6f4c012d9",
+          "material_read": "Finding on positional-score density and information",
+          "method": "Local Resultary search and mirrored passage inspection",
+          "title": "Truncated Pareto position scores and a singular location information law",
+          "trigger": "Closest catalogue hit using the same stationary model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves an operational localization question that droplet width and phase mass do not settle: all physical radii decrease even while the core widens. The kink and exact or sharp TV terms quantify distinct transition and scaling behavior for the whole normalized mass profile.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every real invisible perturbation is a single primitive harmonic, whose cyclic gradient has the same harmonic support and antipodal signs. A strict top-mass inequality is sufficient for universal TV uniqueness; the zero-sum signed-gradient construction proves necessity, including equality/nonuniqueness. A piecewise fractional-linear phase argument collapses the continuum maximum to two phase grids. Uniform quadrature of the top-mass variational formula proves the limiting one-third threshold. The standalone checker passed 89,056 finite comparisons, subordinate to the proof.
+## correctness
 
-## Originality
-PASS with residual historical risk. Deterministic single-pair Fourier erasure, a finite two-phase exact nullspace test and the sharp one-third limit differ from the compared random-Fourier (Candès–Romberg–Tao and Poon) and Gaussian (Cai–Xu) sparse-gradient recovery guarantees. Closest public research records concern sparse phase retrieval, Fourier frames, or cyclic projection norms, not TV minimization after one deleted coefficient pair. The relevant 2013/2014 preprint full texts were inaccessible in this environment; their available author abstracts and bibliographic statements were inspected, not entire papers. Unindexed prior equivalents remain possible.
+PASS
 
-## Value
-PASS. An almost-complete Fourier data set is a practical spectral-erasure stress test for convex edge-sparse recovery. The theorem gives a finite exact decision procedure for every even dimension and a surprising strict macroscopic threshold: approximately one third of the cyclic edges may jump while uniform recovery remains valid. This is a natural quantitative boundary for the specific erasure problem, not an arbitrary test instance or mere code output.
+The observed DC component fixes the mean; the only real invisible modes are sine and cosine at k. Cyclic differentiation is invertible on that span, coprimality permutes its sample phases, and even n makes y_(j+n/2)=−y_j. The usual triangle inequality shows strict uniqueness if the mass on every s-set is strictly below half. For necessity, choose a maximum phase and a top set containing a nonzero antipodal pair, which is possible for s≥2, and take a gradient supported at the selected nonzero sites with signs opposite y and total zero (each sign class is weighted by the size of the other). This integrates to a cyclic signal and gives the directional TV change ||y||_1−2||y_S||_1, including nonuniqueness or nonoptimality at equality. For s≤1 a top magnitude is strictly less than half: its antipode contributes equally and other magnitudes are nonzero. For fixed signs and ordering the ratio is a quotient of two linear trigonometric forms; the derivative numerator is constant and the denominator positive. Nonidentical absolute ties and sample zeros are at multiples of π/n, while shifting by 2π/n only permutes samples. Therefore the two grids give the global maximum, including breakpoints and constant pieces. The top-s variational identity and uniform Riemann sums yield the upper-p fraction of the |cos| mass, sin(πp/2) (including p=0,1); monotonicity and comparison at p=1/3±δ give the first-failure limit. At n=6 both grids have top-two fraction 1/2. Replay from the frozen proof, RESULT.md lines 37–68; the floating-point checker was inspected, not executed, and its sampled ceil(n/3) observation is not needed or credited as the stated theorem.
 
-## Limits
-No noisy-data guarantee, odd-grid theorem, nonprimitive-frequency theorem or closed-form finite critical-index identity is asserted. An accessible preprint full-text comparison would further reduce the historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the previous cyclic differentiation/Fourier reduction and standard sparse-gradient nullspace methodology. The supported distinct part is the exact two-grid evaluation of top-s mass for this deterministic primitive conjugate-pair erasure, with a realizable cyclic-gradient failure witness and a sharp one-third limit. A near-complete Fourier set under deterministic erasure is not the probabilistic recovery regime of the inspected Fourier theorems.
+
+## value
+
+PASS
+
+Asking how sparse gradients must be for uniform uniqueness after minimal real Fourier information is removed is a natural deterministic recovery question. The exact finite criterion is independent of the primitive missing frequency, and the one-third boundary and explicit feasible witnesses quantify a nontrivial uniform obstruction even though almost all measurements are kept.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

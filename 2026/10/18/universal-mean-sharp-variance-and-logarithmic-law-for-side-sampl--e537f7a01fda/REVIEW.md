@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact corner-area identity is a deterministic four-term decomposition. Affine diagonal normalization gives the coefficients \((p,q,1-p,1-q)\) and proves that all \(0<p,q<1\) are realizable. Uniform edge-variable moments give the covariance \(-1/48\) of neighboring corner deficits, establishing the complete variance and both sharp equality regimes. The parallelogram factorization reduces the law to a product of independent triangular distributions, whose integral, CDF, moments and endpoint behavior were derived directly. Exact rational computations and seeded Monte Carlo tests passed, and neither is relied on to establish the universal quantifiers.
+PASS
 
-## Originality — PASS, subject to bibliographic uncertainty
+Corner removal gives R=1−sum_i c_i(1−t_(i−1))t_i. In diagonal coordinates the absolute normalized corner areas are p,q,1−p,1−q, so sum c_i=2 and sum c_i c_(i+1)=1. With x_i=t_i−1/2, the centered area is the sum of linear terms (c_(i+1)−c_i)x_i/2 and bilinear terms c_i x_(i−1)x_i. These terms are pairwise orthogonal by independence and centering; their variance is sum (c_(i+1)−c_i)^2/48+sum c_i^2/144, giving exactly the claimed expression. Every (p,q) in the open unit square occurs, so the extrema and equality statement follow. At equality the two sums of opposite uniform parameters minus one give the independent triangular factors. Integrating the product density gives the quoted CDF, including H(0)=0 and H(1)=−1/2; expanding the bracket at z=1 gives (1−z)^3/6 and hence the integrated lower-tail coefficient 4/3. The centered moments follow from integrating the triangular density. The coordinate chart in the frozen proof has clockwise rather than counterclockwise turns in the usual orientation; all turns have the same nonzero sign and the computation uses absolute areas, so the slip does not change convexity, admissibility, or the formula.
 
-The 2017 original by Maesumi (viXra:1703.0273v1; later arXiv:1804.11007) supplies random triangles with one point per triangle side, not four-sided quadrilaterals or a diagonal-ratio variance theorem. Reitzner–Schütt–Werner (arXiv:1911.05917) treats iid whole-boundary sampling in general polytopes and its large-sample asymptotics, not four-point stratified sampling or its finite exact law. Direct equivalence, broader-coverage, numerical-constant, and implication searches of mathematical research records returned no covering theorem; closest published neighboring work and its actual observables were compared. No search certifies worldwide novelty; an unindexed or inaccessible historical derivation remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The independent one-per-side model is a natural quadrilateral counterpart of the published inscribed-triangle-picking problem. The exact affine variance defect singles out and characterizes parallelograms, while the complete, shape-independent equality-case distribution has a logarithmic interior cusp and sharp quartic tails. This determines a nontrivial two-parameter shape classification rather than a merely illustrative moment computation.
+Credit the explicit one-step shape-sensitive variance and extremizers, and the full parallelogram law rather than the sampling construction or the elementary half-area mean. The strongest newer indexed records materially overlap: one gives the entire one-step moment result in different variables and the other gives the same parallelogram law and more. Their exact coverage is documented, but the inspected sources do not establish them as antecedents of the frozen October record. The established earlier identical update construction concerns iterated flattening, not these quantitative one-step conclusions.
 
-## Scope and verification limits
+## value
 
-General non-parallelogram area densities are not obtained, and the upper variance extremum requires degeneration. Checker experiments are reproducibility tests and not exhaustive proof; the proof is self-contained. Complete related publication coverage or independent validation is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural stratified experiment the variance is an exact scalar measure of failure of diagonal bisection, including a sharp degenerating supremum. At the unique minimum family the complete density identifies a logarithmic center and a quartic rare-event law. These are useful benchmarks for one-step polygon subdivision beyond the elementary mean or a square-only calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

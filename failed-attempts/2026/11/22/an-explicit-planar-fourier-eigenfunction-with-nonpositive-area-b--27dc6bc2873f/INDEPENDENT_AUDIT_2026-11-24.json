@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:34:55.368964Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–88; accompanying CHECK.py and VERIFICATION.md inspected, not executed; independent coefficient-transform and integer endpoint calculations."
+      ],
+      "rationale": "The two-dimensional Gaussian transform sends the parameter t of the ordinary Laguerre generating function to -t; even indices and L_j(0)=1 give a real nonzero self-Fourier Schwartz function vanishing at 0. The finite binomial expansion gives zQ(z)/8!. An independent integer sign check uses D_[a,b](t)=(1+t)^7 Q((a+bt)/(1+t)); on [0,4] its coefficients in increasing order have signs -------+, so Descartes' rule and the endpoint signs give one zero in (0,4). The minimum coefficients in the same test for [4,7], [7,10], [10,16], [16,24], [24,26], [26,28], [28,32] are respectively 83223, 83223, 3469440, 19229184, 1105024, 1105024, 42986496. All coefficients of Q(32+t) are positive. Integer Horner evaluation gives Q(73/20)=-4366428590023/1280000000 and Q(183/50)=85807489517127/781250000000. Thus the sign change is unique, the origin is a zero, and the nonpositive set is the full closed disk with area rho/2 in the stated interval. This proves the inequality, not historical improvement.",
+      "residual_risks": [
+        "No unrestricted optimality or degree-minimality is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edwin poses the unrestricted definite-set problem and gives a lower bound. Giraud–Peschanski describe the Laguerre Fourier basis and Sturm tests; Cohn–Gonçalves use the same admissible Laguerre class to optimize sign radius across dimensions."
+        ],
+        "reasoning": "Neither the lower bound nor the method alone implies the witness, but the constructive older sign-radius optimization in dimension two does imply a stronger area bound.",
+        "searches": [
+          "Edwin arXiv:2611.08224v1, Problem 1.6",
+          "Giraud–Peschanski arXiv:math-ph/0504015, Eqs. (17)–(20)",
+          "Cohn–Gonçalves §4"
+        ]
+      },
+      "checked_sources": [
+        "Cohn–Gonçalves arXiv:1712.04438v3; Edwin arXiv:2611.08224v1; Giraud–Peschanski arXiv:math-ph/0504015; local Resultary references above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Older certified R<0.757 gives area < (22/7)(757/1000)^2 ≈1.80102, already below the entire interval (1.825,1.83) for this witness."
+        ],
+        "reasoning": "The stronger prior result proves the unrestricted strict inequality directly, even though it was cast as sign uncertainty. A different exact sample polynomial with larger area does not recover the claimed improvement.",
+        "searches": [
+          "Cohn–Gonçalves Problem 1.1 and §4 numerical construction, Table 4.1 and certification paragraph; compare frozen Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Problem 1.1 uses the same Fourier convention and g in real L1, self-Fourier, nonzero and g(0)=0, with eventual nonnegativity. Section 4 chooses g=e^(-pi |x|^2)p(2pi |x|^2)."
+        ],
+        "reasoning": "Area minimization is not globally equivalent to last sign radius; however an analytic radial polynomial witness with radius R has its nonpositive area at most pi R², because the zeros outside the disk are a finite union of circles. This one-way implication suffices.",
+        "searches": [
+          "Resultary: unrestricted planar Fourier definite-set bound 183/100, threshold interval and Laguerre coefficients 22 20 -4 1",
+          "Cohn–Gonçalves arXiv:1712.04438v3, Problem 1.1 and Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4.1 lists 0.756207 and the prose below says all reported numerical upper bounds are proved with exact rational arithmetic. Section 4 states the d≤2 table entries use k=5. The indexed planar and dimension-general quartic records give lower bound 2 within degree ≤4; the angular stability record also stays inside the quartic class."
+        ],
+        "reasoning": "The exact table entry, not an extrapolation or numerical conjecture about the optimum, dominates the headline. Different degree cutoffs do not prevent application to the unrestricted admissible set. The identical Resultary self-hit adds no independent evidence.",
+        "searches": [
+          "Cohn–Gonçalves arXiv:1712.04438v3 §4 Table 4.1, d=2 row",
+          "Resultary 7fbca0facafa, e978760b78fd, 637249742702"
+        ]
+      },
+      "rationale": "Cohn–Gonçalves, arXiv:1712.04438v3, Problem 1.1 and §4, give a rigorously certified planar +1 eigenfunction sign-radius bound 0.756207 in Table 4.1, using Gaussian–Laguerre polynomials with g(0)=0. In their class the zero set has area zero. Their admissible witness therefore gives nonpositive area at most pi times its squared radius, in particular less than pi(0.757)^2 < 73/40 < 183/100. This proves the headline unrestricted bound with a stronger value. The exact tuple (22,20,-4,1) was not found in the inspected text; the prior implication is numerical and structural, not a claim of identical coefficients.",
+      "residual_risks": [
+        "Exact identity of the new coefficient tuple with a prior polynomial was not established and is unnecessary to the rejection of the headline implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger prior bound",
+          "evidence": "Table d=2: 0.756207, exact rational verification of upper bounds, Gaussian–Laguerre witnesses vanishing at the origin. The authors distinguish the certified bounds from conjectural sharpness.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.04438v3",
+          "material_read": "Problem 1.1 p. 2 (around offset 5939); §4 pp. 16–17 (54132–59308), including Table 4.1 and certification paragraph; p. 19 (63050–65480)",
+          "method": "Lawful OA PDF, targeted passages",
+          "title": "An optimal uncertainty principle in twelve dimensions via modular forms",
+          "trigger": "Potentially dominating planar sign-radius bound despite title"
+        },
+        {
+          "assessment": "Problem and lower bound, not this particular upper witness",
+          "evidence": "Defines the unrestricted infimum for Fourier eigenfunctions vanishing at zero and gives a general lower bound.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08224v1",
+          "material_read": "§1 Problem 1.6 and adjoining lower bound/remarks, offsets 16827 and 19010",
+          "method": "Lawful OA HTML",
+          "title": "Fourier inequalities and sign uncertainty II",
+          "trigger": "Statement of the definite-set problem"
+        },
+        {
+          "assessment": "Methods precede this work",
+          "evidence": "Radial Laguerre eigenbasis and Sturm positivity testing, not the stated degree-16 witness.",
+          "identifier_or_url": "https://arxiv.org/pdf/math-ph/0504015",
+          "material_read": "PDF pp. 9–11, Eqs. (17)–(20) around offset 22600 and conclusion",
+          "method": "Lawful OA PDF",
+          "title": "On positive functions with positive Fourier transforms",
+          "trigger": "Earlier Laguerre and exact sign techniques"
+        },
+        {
+          "assessment": "Finite-band comparison only",
+          "evidence": "Sharp bound 2 in dimension two for degree at most four; no unrestricted claim in those records.",
+          "identifier_or_url": "2026/11/16 7fbca0facafa; 2026/11/22 e978760b78fd and 637249742702",
+          "material_read": "Local-mirror RESULT.md Finding and Assumptions passages (offset 0)",
+          "method": "Configured local search and mirror",
+          "title": "Resultary quartic negative-set estimates and angular stability",
+          "trigger": "Closest earlier and same-day planar comparisons"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Limitations; Cohn–Gonçalves Table 4.1 and Section 4"
+      ],
+      "rationale": "A small rational example is pedagogically usable, and unrestricted definite-set minimization is well motivated, but the frozen contribution is presented as a strict improvement for that problem. An older exact construction gives a better area bound, and the package has no sharp degree cutoff, constrained new optimum, or other independently justified need for this particular larger-area tuple.",
+      "residual_risks": [
+        "A distinct, scientifically motivated finite-band problem would require a new claim and audit, not a repair by relabeling this inequality."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

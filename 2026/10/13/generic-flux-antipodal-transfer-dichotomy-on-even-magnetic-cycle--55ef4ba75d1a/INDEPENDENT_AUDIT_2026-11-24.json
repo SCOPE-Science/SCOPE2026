@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:13:50.455436Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–69; frozen VERIFICATION.md and verify.py, especially check_fourier_matrix",
+        "Corrected complete files /workspace/repairs/1/RESULT.md and /workspace/repairs/1/verify.py; inspected changes and Python syntax without executing the supplied script",
+        "Independent pointwise right-shift check (10,384 mode-coordinate comparisons on even orders 4..24 and four phases), using equivalent positive-exponent indexing and 2 cos(phi−2πk/n): for n=4, phi=.174, k=1 the positive mode has eigenvalue +.3462466483, not −.3462466483. Independently sampled half-flux zero and the bound for the odd primes in this range."
+      ],
+      "rationale": "The frozen proof assigns 2 cos(phi+2πk/n) to the positive-exponent mode, but the specified right shift acts on column-vector coordinates by (Tf)(j)=f(j-1). The frozen check_fourier_matrix instead evaluates the opposite shift, so its stated check does not catch this. The replacement files use the negative-exponent mode with the original eigenvalue and the target phase ζ^(jk), and the checker now exercises the stated right shift. For the corrected proof, the balanced relation criterion follows from continuous-time Kronecker on frequency differences, including possible degeneracy. The ± eigenpairs force n|2j. For every odd prime divisor p, the two disjoint length-p cosets based at 0 and 1 have zero eigenvalue sums and opposite target parities. Their rotated phase products differ by 2 in modulus; telescoping and Cauchy–Schwarz bound that difference by 2 sqrt(pn(1-|A|)), giving the stated gap. For power-of-two n and transcendental tangent, rational frequency relations split into two algebraic sums, so cyclotomic divisibility by x^(n/2)+1 forces equal coefficients on the paired indices. As n/2 is even, every balanced relation satisfies the antipodal parity test. At exact transfer two eigenvalue pairs would make 4t cos(phi) and 4t sin(phi) integer multiples of 2π, contrary to transcendental tangent. The parity-reversing index involution k↦n−1−k still cancels antipodal terms at phi=π/n. Algebraic tangent values and poles exclude at most countably many phases, also after projecting to total flux. No theorem hypothesis, conclusion, or quantitative constant changes in the repair.",
+      "residual_risks": [
+        "Finite checks are supplementary and do not certify asymptotic PGST. Algebraic-tangent phases in the power-of-two case are not classified. No sharpness or time-to-transfer claim is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron et al. study Hermitian circulants and give a universal PGST family on oriented prime-order cycles. Acuaviva et al. give Hermitian spectral machinery and rooted-product cases. Coutinho et al. treat integral Hamiltonians. The indexed wheel results involve a hub, unweighted or with hub potential."
+        ],
+        "reasoning": "General relation criteria require finding the balanced relations and proving the uniform quantitative obstruction; the primeness, integrality or hub hypotheses of the closest concrete results do not specialize to the frozen claim.",
+        "searches": [
+          "Hermitian circulant and spectral PGST methods: arXiv:1310.3885v1, 2301.01473v1, 2208.08971v1; Resultary b76f2b2b4572 and 6f4a37aafeb5"
+        ]
+      },
+      "checked_sources": [
+        "Named arXiv and Resultary sources; corrected RESULT.md Finding and assumptions (unchanged scope)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unphased power-of-two PGST plus spectral compatibility already yields generic power-of-two PGST after observing that transcendental tangent makes a magnetic relation annihilate the real cosine part separately. The indexed half-flux calculation gives an exact exceptional phase."
+        ],
+        "reasoning": "Credit the positive case's dependence on known PGST and the relation criterion; failure at zero or half flux does not exclude transfer at other fluxes, much less quantify it. The p-coset construction and product defect estimate add a uniform result not supplied by those implications.",
+        "searches": [
+          "Pal–Bhattacharjya §2 and the general spectral criteria of Cameron et al. and Acuaviva et al.; Resultary 10f1e5181e0b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pal–Bhattacharjya §2 give the antipodal power-of-two criterion for unphased C_n. Sett et al. §III give phase-induced zero transfer on even cycles, including a C4 example. Resultary 10f1e5181e0b gives exact antipodal cancellation at the same uniform phase π/n."
+        ],
+        "reasoning": "The unphased theorem addresses only a fixed phase. The cancellation at total flux π is an equivalent isolated-flux statement, already excluded from the novelty claim. Neither yields the arbitrary-flux obstruction or quantitative bound.",
+        "searches": [
+          "Resultary: magnetic cycles, arbitrarily close antipodal transfer, odd-prime gap and generic no-PST; arXiv:1607.03598v1; arXiv:1902.11115v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest uniform magnetic entry, 10f1e5181e0b, explicitly states U_pi/n(t)_{u,u+n/2}=0 for all t and studies detuned average mixing. The other noted entries concern wheels or absorbing traps."
+        ],
+        "reasoning": "The exact indexed zero is credited; the single flux and time-averaged mixing data do not supply an all-t all-phi cap for odd-prime orders or the generic bare-cycle dichotomy. Sample verifications are not a prior exact classification.",
+        "searches": [
+          "Local Resultary exact magnetic/half-flux and antipodal PGST coverage, notably 10f1e5181e0b, b76f2b2b4572, 6f4a37aafeb5, 84c3bc481be5"
+        ]
+      },
+      "rationale": "For the corrected finding, the distinct contribution is the uniform magnetic-cycle dichotomy including the phase- and time-uniform p-dependent cap for every odd prime divisor. The unphased criterion, general Hermitian spectral principles and exact half-flux cancellation have verified antecedents and are not credited as distinct contributions. The strongest inspected statements do not establish the full magnetic classification and cap; no uncatalogued equivalent is ruled out.",
+      "residual_risks": [
+        "Bounded ranked catalogue and named-source comparison, not an exhaustive search; a differently formulated magnetic bound may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unphased coverage only",
+          "evidence": "Power-of-two cycle orders and antipodal targets for ordinary C_n.",
+          "identifier_or_url": "https://arxiv.org/html/1607.03598v1",
+          "material_read": "Abstract and §2 passages, offsets 890, 10569, 13169",
+          "method": "Bounded OA text",
+          "title": "Pretty Good State Transfer on Circulant Graphs",
+          "trigger": "Unphased antipodal dichotomy"
+        },
+        {
+          "assessment": "Relevant methods and a different order regime",
+          "evidence": "Universal PGST on prime-order oriented cycles with imaginary weights.",
+          "identifier_or_url": "https://arxiv.org/html/1310.3885v1",
+          "material_read": "Offset 5954",
+          "method": "Bounded OA text",
+          "title": "Universal State Transfer on Graphs",
+          "trigger": "General Hermitian circulants and phase-weighted cycle family"
+        },
+        {
+          "assessment": "Method and adjacent examples",
+          "evidence": "Spectral compatibility and rooted-product settings, not the uniform-cycle cap.",
+          "identifier_or_url": "https://arxiv.org/html/2301.01473v1",
+          "material_read": "Offsets 4896, 6249",
+          "method": "Bounded OA text",
+          "title": "State Transfer in Complex Quantum Walks",
+          "trigger": "Complex weights and transcendental parameters"
+        },
+        {
+          "assessment": "Methodological antecedent",
+          "evidence": "Integral Hamiltonian setting does not include arbitrary uniform flux.",
+          "identifier_or_url": "https://arxiv.org/html/2208.08971v1",
+          "material_read": "Scope statement at offset 581",
+          "method": "Bounded OA text",
+          "title": "Irrational quantum walks",
+          "trigger": "Spectral number-theoretic decision method"
+        },
+        {
+          "assessment": "Phase-induced cancellation antecedent",
+          "evidence": "C4 with phase on one edge and existence of phases giving zero transfer on even cycles; moving phases by gauge preserves vanishing at fixed flux.",
+          "identifier_or_url": "https://arxiv.org/html/1902.11115v1",
+          "material_read": "§III and even-cycle discussion, offsets 12561, 26754, 27943",
+          "method": "Bounded OA text",
+          "title": "Zero Transfer in Continuous Time Quantum Walks",
+          "trigger": "Exceptional even cycles"
+        },
+        {
+          "assessment": "Exact overlap for the credited half-flux illustration only",
+          "evidence": "Antipodal amplitude vanishes identically at uniform π/n; other statements concern detuned mixing.",
+          "identifier_or_url": "Resultary 10f1e5181e0b",
+          "material_read": "RESULT.md Finding and cancellation passage, offsets 0 and 3602",
+          "method": "Bounded OA local-mirror text",
+          "title": "Detuning bottleneck and sinc crossover for quantum mixing on half-flux cycles",
+          "trigger": "Same magnetic cycles and exact antipodal zero"
+        },
+        {
+          "assessment": "Different Hamiltonians",
+          "evidence": "Wheel rim with a coupled hub; the latter treats a five-vertex wheel with a hub potential.",
+          "identifier_or_url": "Resultary b76f2b2b4572; 6f4a37aafeb5",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Bounded OA local-mirror text",
+          "title": "Antipodal pretty good state transfer on wheel graphs; A hub-only potential restores antipodal pretty good transfer on a wheel",
+          "trigger": "Power-of-two criterion and generic no-PST analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md Finding and odd-prime estimate; Pal–Bhattacharjya's unphased criterion; exact half-flux comparison"
+      ],
+      "rationale": "Uniform flux is a natural perturbation of the familiar unphased cycle. The correction preserves a phase-uniform robust obstruction with an explicit numerical margin for every odd prime divisor, as well as the contrast with PGST at almost all fluxes on power-of-two cycles. A qualitative failure at selected fluxes is insufficient for this quantitative stability distinction. The already known half-flux cancellation serves only to show why almost-everywhere cannot be replaced by everywhere.",
+      "residual_risks": [
+        "The cap is not claimed sharp and no effective time estimate follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The domain is the fifteen-vertex line graph of the Petersen graph with open-neighbourhood total domination and separation of vertices outside the selected set. A direct component-label argument proves that any three-path factor with one isolated vertex works. Two independent graph representations and programs prove the converse by inspecting each of the 5005 six-edge sets; all 32768 possible subsets are inspected for minimum and full polynomial. Both graph models are checked isomorphic, with all line-graph neighbourhoods of size four. Both verifiers exhaust the exchange moves and breadth-first distances. No inference from sampled subsets is used. Residual risk is ordinary implementation error, partly mitigated by distinct implementations.
+## correctness
 
-## Originality: PASS
-The closest published primary source arXiv:1506.02623 provides the exact locating-total predicate and general line-graph upper bounds but not the Petersen sharp six, the all-six-set forest characterization, full polynomial or exchange geometry. arXiv:1107.0207 uses closed signatures and a five-edge perfect matching; that matching cannot totally dominate. A publicly accessible enumeration of 246 five-edge *ordinary* locating-dominating sets on this same line graph lacks the selected-vertex domination requirement and has a different optimum space. Equivalent predicates and stronger-looking code concepts were checked; none of the inspected texts implies this result. The residual risk of an unindexed earlier calculation remains, and a negative search alone is not proof of novelty.
+PASS
 
-## Value: PASS
-The extra requirement that selected detector edges themselves have selected neighbours changes the Petersen-line optimum from 246 ordinary five-sets to 110 six-sets and forces a precise three-path component factorization. The complete polynomial and connected 210-edge exchange graph quantify cost and flexibility in one canonical fifteen-vertex, four-regular graph. The classification is a natural complete finite invariant, rather than an arbitrary selected coefficient or mere substitution into a bound. It does not assert a general family theorem.
+The open-neighborhood total requirement applies to selected edges as well; separation is tested only on the complement. There is also a direct proof of the structural necessity. Vertices incident to no selected edge form an independent set (an edge between two would have empty signature). Two such vertices in the Petersen graph would have a common neighbor, since two intersecting Kneser 2-subsets have a disjoint 2-subset in the complement of their union. The common neighbor has at most one selected incident edge by cubicity, and has at least one since the uncovered set is independent. The two edges to it would thus have identical singleton signatures. At least nine original vertices must therefore be covered. Each nontrivial selected component has at least two edges by total domination; with k edges it covers at most k+floor(k/2) vertices. This rules out k≤5 and forces equality for k=6: three two-edge trees and one isolated vertex. Conversely, component labels distinguish centers and leaves of the selected paths. The Petersen graph is triangle-free, so any unselected edge meets two different components and its nonempty signature reconstructs its endpoints (including the single possible isolated vertex). A fresh exact enumeration of all labeled subsets, direct automorphisms preserving adjacency and nonadjacency, symmetric one-edge exchanges, and BFS from each optimum verified the ten enumerator coefficients, all 5005 size-six equivalences, 110 optima with eleven per isolated vertex, orbit sizes (10,40,60), 210 exchange edges and all three stated profiles, including radius 6 and diameter 7.
 
-## Limits and closest literature
-The proof is an exact computer-assisted finite result with two complete standalone checkers; neither independent scholarly audit nor historical priority certification is asserted. Closest sources: Foucaud–Henning, arXiv:1506.02623; Foucaud et al., arXiv:1107.0207; and the public ordinary Petersen-line locating-domination classification cited in the main result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest same-graph exact work addresses ordinary edge-location-domination or closed edge identification. The same-predicate general primary work provides upper bounds, not the optimum and complete structural and exchange classification on this graph. No distinct matching exact result was established by the bounded comparison.
+
+## value
+
+PASS
+
+This is a natural complete finite classification on a canonical graph, not just an upper bound or a numerical optimum. The total condition forces a three-path factor, and the census and orbitwise exchange profiles resolve different questions about how many solutions exist and how they can be changed. The common-neighbor proof explains the effect of the total constraint independently of the enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

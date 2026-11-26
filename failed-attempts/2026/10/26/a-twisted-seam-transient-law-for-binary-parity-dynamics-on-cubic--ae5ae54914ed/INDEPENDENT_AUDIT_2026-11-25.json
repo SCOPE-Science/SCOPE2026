@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:13:04.944196Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52",
+        "VERIFICATION.md",
+        "verify.py (read, not executed)",
+        "verification_output.txt (recorded)",
+        "independent_check.py and independent_check_n6.txt (separate direct reproduction)"
+      ],
+      "rationale": "For the stated distinct open neighbors the ladder multiplies by z⁻¹(1+z²+z^(n+1)) modulo z^(2n)+1. At modulus roots only Φ=z²+z+1 can divide the numerator, and precisely if 3 divides n. Its exponent in the modulus is 2k; the numerator has exponent one for even n by its ordinary derivative and exactly two for odd n by the second Hasse derivative, which at a primitive cube root is either 1 or the root itself. On the prism, B²=(Φ/z)²I and local Smith factors (1,(Φ/z)²) give binary kernel dimensions 4 min(2r,k) at time 2r and 2[min(2r,k)+min(2r+2,k)] at 2r+1. These reduce to the claimed parity-specific growth and sharp entry times. The nilpotent part is 4k-dimensional in both graphs when present; its complement is invertible and recurrent, so each specified recurrent state has a fibre of cardinality 2^(4k) at a fixed sufficiently late time. For ladder fixed points, multiplying F^r−I by the unit z^r gives the stated gcd; divisor inversion counts primitive cycles. Independent direct finite-state checks at n=3 and 6 verified the odd and even shell distributions. Invertibility was checked at n=4,5 and the ladder gcd formula was checked by direct fixed-state counts for 3≤n≤6 and 1≤r≤8. The all-size conclusions come from the algebra, not the finite checks.",
+      "residual_risks": [
+        "Phase fibres are for one recurrent configuration at a fixed time, not full cycle basins. No statement here covers the self-toggle rule, or supplies simplified primitive-period existence criteria."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sutner treats the finite binary additive-CA nilpotent/regular split in general, not the two graph valuations in this comparison.",
+          "Resultary 812449181a9b states the full nilpotent partitions, sharper fixed-point information, and power-of-two order and period data; Resultary 98fe0217a715 separately covers the prism transient census."
+        ],
+        "reasoning": "The general algebra alone does not compute the graph-specific valuations, but the exact stronger partitions already determine all the entry-time and fibre data claimed here.",
+        "searches": [
+          "Sutner, Decomposition of Additive Cellular Automata, §I",
+          "Resultary 812449181a9b",
+          "Resultary 98fe0217a715"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 812449181a9b and 98fe0217a715",
+        "Sutner (2001), §I"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The partitions are prism (2,2) and Möbius (1,1,1,1) for odd n, and prism (k,k,k,k) and Möbius (2k,2k) for even n when 3 divides n.",
+          "The match states the exact fixed-power gcd and arithmetic inversion, not just an existence criterion for periods."
+        ],
+        "reasoning": "A block of length s contributes min(t,s) to kernel dimension at time t. Adding these contributions and the recurrent dimension gives the frozen formulas; at saturation rank–nullity gives the phase fibre 2^(4k). The fact that the odd numerator has full polynomial multiplicity exactly two rather than at least two adds no information about this map: the odd modulus already truncates at exponent two.",
+        "searches": [
+          "Resultary 812449181a9b, Finding and proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The match uses precisely the three independent open-neighbor terms on the same labelled graphs and the same first-periodic-entry time.",
+          "It states the exact Möbius shells and gives the prism Jordan partition in both parity regimes."
+        ],
+        "reasoning": "The cumulative counts are equivalent to shells after summation and follow directly from Jordan block sizes. The self-toggle convention is not needed to obtain the match.",
+        "searches": [
+          "Resultary 812449181a9b",
+          "Open adjacency A_G versus self-toggle A_G+I; prism C_n × K_2 and Möbius ladder M_(2n)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Finding of 812449181a9b gives the same parity laws 2 versus 1 and k versus 2k, the cube-root reversibility test, identical recurrent counts and the same Möbius gcd period census.",
+          "The separate prism census 98fe0217a715 covers the untwisted case."
+        ],
+        "reasoning": "Actual statements, not names or dates, establish overlap. The distinct match is not the frozen record returned under a different search phrase.",
+        "searches": [
+          "Published Resultary parity dynamics/graph transient census matches 812449181a9b and 98fe0217a715"
+        ]
+      },
+      "rationale": "The published Resultary result 812449181a9b covers the same open-neighbor maps, including the prism–Möbius seam comparison, and gives the nilpotent Jordan partitions for both. It also states exactly the Möbius fixed-power gcd and primitive-cycle inversion, and goes further with explicit special cases. The frozen cumulative formulas and stable fibre counts follow from the matching partitions. This is demonstrable coverage by a distinct record, not a claim about which was proved first.",
+      "residual_risks": [
+        "No priority conclusion is inferred from directory dates; the relationship of the distinct records is not established beyond their scientific overlap. Several earlier additive-automata papers cited in the frozen record were not obtained in full; that did not decide the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full frozen mathematical finding, with stronger Jordan and special-period information",
+          "evidence": "Full prism and Möbius nilpotent partitions; shell counts; formula using H_n=z^(2n)+1 and Q_n=z^(n+1)+z²+1 for every fixed power.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-m-bius-ladder-parity-dynamics-exact-transient-shells-and-jordan--812449181a9b/RESULT.md",
+          "material_read": "Finding, assumptions, proof §§1–3, starting at offset 0",
+          "method": "Local mirror",
+          "title": "Möbius-ladder parity dynamics: exact transient shells and Jordan-chain fusion under a twist",
+          "trigger": "Exact comparison of the same two linear graph updates"
+        },
+        {
+          "assessment": "Covers prism reversibility, transients and period formulas, not the crossed comparison alone",
+          "evidence": "Prism parity rule and its modulo-three/two-adic transient census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-modulo-three-reversibility-and-a-two-adic-transient-census-for-p--98fe0217a715",
+          "material_read": "Finding in RESULT.md",
+          "method": "Local mirror",
+          "title": "Modulo-three reversibility and a two-adic transient census for prism parity dynamics",
+          "trigger": "Exact circular prism census"
+        },
+        {
+          "assessment": "Classical general machinery; exact graph-specific coverage is evidenced separately",
+          "evidence": "Polynomial quotient rings and the regular/nilpotent split for finite additive automata.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/13-3-4.pdf",
+          "material_read": "Abstract and §I, pp. 245–246, passage at text offset 284",
+          "method": "Lawful OA PDF",
+          "title": "Decomposition of Additive Cellular Automata",
+          "trigger": "Prior algebraic finite-field automaton decomposition"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Resultary 812449181a9b Finding"
+      ],
+      "rationale": "Comparing nilpotent chains under a crossed seam is a motivated problem. Here, however, the same opposite odd/even transient response and every claimed dynamical invariant are already supplied by or mechanically implied by the stronger comparison of these exact maps. Repackaging Jordan data as cumulative counts or fixed-time fibre sizes does not leave a distinct scientific contribution to accept.",
+      "residual_risks": [
+        "The verdict concerns this exact finding, not the value of seam comparisons for other maps or graph families."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

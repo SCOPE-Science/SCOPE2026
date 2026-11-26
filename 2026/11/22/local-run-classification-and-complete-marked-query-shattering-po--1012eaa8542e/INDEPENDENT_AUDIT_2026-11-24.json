@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:47:06.675414Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–72",
+        "Frozen VERIFICATION.md, check_cycle_marks.py, and checks_output.txt (read as source evidence)",
+        "Independent replay: python -B /workspace/review-evidence/3.py"
+      ],
+      "rationale": "For a fixed marked equality-query support, two positive answers at one vertex are incompatible; an all-positive trace forces different targets across selected edges. A 101 trace forces equal outer targets on a selected triple: if all three targets are distinct, the middle must be the very colour it is forbidden to use. Overlap makes four consecutive targets alternate, and 1001 forces equal adjacent middle colours. The fully selected triangle has only six colourings and cannot realize eight traces. Conversely, the displayed path traces for the allowed runs all work, and each nonempty gap can be filled greedily until its final interior vertex, which has at most two forbidden colours, even when the two boundary positions refer to the same selected vertex. The empty support extends by any proper colouring. Counting ordered marked-run/positive-gap lists with a distinguished run start gives exactly n/r, also for periodic patterns; expanding yields both coefficient formulas. For n at least 4 a selected triple induces two edges in n cases and exactly one edge in n(n-4) cases, giving the stated cubic coefficient. Blocks of three selected plus one gap, with at most one shorter block in the remainder, attain the rank bound. For even cycles of order at least six, a one-query extension in an alternating gap exists precisely when its two selected endpoint targets agree, giving twice the number of proper ternary colourings of the auxiliary cycle. An independent trace-bitset implementation agrees for all one-query-per-vertex supports through n=9 and directly verifies alternating facets at n=6,8,10,12 (12,36,60,132). The multi-query obstruction and all-n classification rest on the proof, not finite tests.",
+      "residual_risks": [
+        "Exact for the stated finite simple cycles, three named colours, and fixed binary equality queries; not an extension to other graphs, palettes, or adaptive shattering."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Structure learning from random proper colourings instead treats unknown graphs; the zero-set and tree-shattering references concern different classes or general bounds. A graph VC-dimension search match, arXiv:2608.24623, treats maximal H-free graph classes."
+        ],
+        "reasoning": "Representing the problem as constrained lists would not by itself classify when every assignment of singleton and complementary two-colour lists is feasible. No inspected broader source supplies that quantified cycle criterion.",
+        "searches": [
+          "arXiv:1708.05118",
+          "arXiv:2109.04805",
+          "arXiv:2203.12211",
+          "Focused search on VC shattering for proper graph colourings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 22fcc09464b4, 5ed55547f077, 6dd09fced05e, 93e100e6b782, 69c08503d33f, aefde1d2679b",
+        "arXiv:1708.05118, 2109.04805, 2203.12211, 2608.24623 (bounded relevance checks)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous proofs use four-run obstruction and one rank-attaining support construction, not arbitrary markings with both necessary and sufficient trace conditions."
+        ],
+        "reasoning": "Credit the known obstruction as a proof ingredient. The exact one/two/three-run alternatives and joining independent runs, followed by rooted cyclic enumeration, are necessary extra work; rank alone supplies neither polynomial coefficients nor sizes of smaller maximal faces.",
+        "searches": [
+          "Resultary 22fcc09464b4, Finding, Proof and Limitations",
+          "Resultary 5ed55547f077, Proof and comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cycle record uses the identical equality-query concepts and excludes four-consecutive selections, but its limitations explicitly exclude a full individual support classification.",
+          "The path record uses the same query syntax; the tree comparison projects away the choice of marking."
+        ],
+        "reasoning": "Passing from existence of a suitable marking or a maximum support size to the exact family of named marked supports loses essential information; neither determines the current iff statement.",
+        "searches": [
+          "Resultary 22fcc09464b4 (exact cycle VC and Littlestone ranks)",
+          "Resultary 5ed55547f077 (path shattering)",
+          "Resultary 6dd09fced05e (tree shattering)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day double-star source gives an exact marked polynomial but only for double-star trees; the complete bipartite source gives its own marked classification and polynomial. The projected double-star record identifies a different complex and topology."
+        ],
+        "reasoning": "Neither the catalogue analogues nor the prior cycle rank record give the all-order cycle table or facet count. The complete bipartite family includes C4, which is an overlapping special order, not coverage of all cycles. Equal record dates are not a priority inference.",
+        "searches": [
+          "Resultary 93e100e6b782 (double-star marked polynomial)",
+          "Resultary 69c08503d33f (complete bipartite marked polynomial)",
+          "Resultary aefde1d2679b (projected double-star complex)"
+        ]
+      },
+      "rationale": "The prior same-family scalar VC rank and four-consecutive-query obstruction are credited and excluded from the originality decision. The full iff criterion for marked supports, its coefficientwise enumerator, and the alternating nonpurity count are distinct on the inspected evidence.",
+      "residual_risks": [
+        "One literature lookup was unavailable; this supplies no negative evidence.",
+        "Equivalent unindexed marked-list or shattering results remain possible. This is a statement-level comparison, not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact baseline overlap, narrower than the new claim",
+          "evidence": "Establishes floor(3n/4) and four-run obstruction; states it does not classify individual supports.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-vc-and-littlestone-ranks-for-proper-three-colourings-of-fi--22fcc09464b4",
+          "material_read": "RESULT.md Finding and proof opening; Limitations around offset 6100",
+          "method": "Local published-record mirror",
+          "title": "Exact VC and Littlestone ranks for proper three-colourings of finite cycles",
+          "trigger": "Same concept family and proved rank"
+        },
+        {
+          "assessment": "Credits path obstruction, not complete cyclic classification",
+          "evidence": "Four-consecutive obstruction and construction for ranks, under path rather than cyclic boundary conditions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-three-colour-palette-threshold-for-vc-and-online-shatter--5ed55547f077",
+          "material_read": "RESULT.md offsets 0–8324, rank proof and construction",
+          "method": "Local published-record mirror",
+          "title": "A sharp three-colour palette threshold for VC and online shattering of path colourings",
+          "trigger": "Possible transfer of local path lemma"
+        },
+        {
+          "assessment": "Different object and quantifiers",
+          "evidence": "Classifies vertex sets admitting some marking for trees of at most seven vertices, with an exception involving a spider.",
+          "identifier_or_url": "Resultary 6dd09fced05e",
+          "material_read": "RESULT.md offsets 0–3506",
+          "method": "Local published-record mirror",
+          "title": "The first branching obstruction to three-colouring shattering on trees",
+          "trigger": "Potential broader exact classification"
+        },
+        {
+          "assessment": "Analogue on double stars; no inference from date alone",
+          "evidence": "Parameters describe the two leaf classes of a double-star tree, not selected runs of a cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-marked-query-shattering-polynomial-for-three-colourings--93e100e6b782",
+          "material_read": "RESULT.md offsets 0–8265, theorem and enumeration",
+          "method": "Local published-record mirror",
+          "title": "Complete marked-query shattering polynomial for three-colourings of double-star trees",
+          "trigger": "Close title, query model and enumerator"
+        },
+        {
+          "assessment": "Distinct class with at most a special-order cycle overlap",
+          "evidence": "Classification and polynomial for complete bipartite graphs; among cycles only C4 is complete bipartite.",
+          "identifier_or_url": "Resultary 69c08503d33f",
+          "material_read": "RESULT.md offsets 0–4635",
+          "method": "Local published-record mirror",
+          "title": "Exact shattering polynomial and palette transition for complete bipartite graphs",
+          "trigger": "Exact same query format and polynomial on another family"
+        },
+        {
+          "assessment": "Different graph and vertex-projected complex",
+          "evidence": "Four facets and S² homotopy type of the projected complex, not named marked alternating cycle facets.",
+          "identifier_or_url": "Resultary aefde1d2679b",
+          "material_read": "RESULT.md offsets 0–3460",
+          "method": "Local published-record mirror",
+          "title": "A universal two-sphere in the projected shattering complexes of double-star trees",
+          "trigger": "Potential exact facet overlap"
+        },
+        {
+          "assessment": "Different scientific question",
+          "evidence": "Learns a graph from random colouring observations, not shattering of fixed equality tests on a given cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.05118",
+          "material_read": "Page 1, statement of learning problem",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Structure Learning of H-colorings",
+          "trigger": "Graph-colouring learning literature"
+        },
+        {
+          "assessment": "No matching assertion in inspected material",
+          "evidence": "Studies zero sets for linear combinations; no marked ternary cycle classification in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Page 1, object and scope",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Potential general shattering theorem"
+        },
+        {
+          "assessment": "General bounds do not determine this exact enumerator",
+          "evidence": "Upper bounds in general shattering settings do not specify feasible cycle markings coefficientwise.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+          "material_read": "Page 1, stated tree-shattering bounds",
+          "method": "Lawful open-access primary-text inspection",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "Potential general counting theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–50 and 55–72",
+        "Same-family rank record Resultary 22fcc09464b4"
+      ],
+      "rationale": "The known rank answers only how large a shattered support can be. The iff characterization decides every concrete marked support, the polynomial records exact frequencies by size, and nonpurity exhibits systematically smaller inclusion-maximal supports. These are natural structural questions for the same learning concept, not arbitrary finite examples or a recomputation of the rank.",
+      "residual_risks": [
+        "The result is cycle- and palette-specific and does not claim an analogous adaptive classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:11:13.703784Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–77",
+        "Frozen VERIFICATION.md:18–22 and check.py:15–130, inspected without execution",
+        "Independent scalar bisection of the stated cubic: ρ≈0.013159993562048, lower endpoint ≈675.842088113977"
+      ],
+      "rationale": "Global phase and argument rotation uniquely set the first two coefficients to 1. For w=V/U, Parseval applied to P_m^4 splits into blocks [mj,mj+4]. In the separated-block Laurent polynomial the phase exponent difference is at most two, and the second harmonic comes only from j=2, exponent offset 2, with coefficient 6²=36. At w=1 the sum of squared binomial coefficients gives 70²=4900. At w=−1 the circle averages of |1+z|^(8−2j)|1−z|^(2j) are 70,10,6,10,70; multiplying by the corresponding squared binomial weights gives 676. These fix the remaining Laurent coefficients and yield 2644+2112 Re(w)+144 Re(w)², strictly increasing in Re(w). At m=4 the four adjacent overlaps add 2 Re(UK(w)), with coefficients 4,24,24,4. For h=|1+w| the absolute value is 4h(h²+3); maximizing or minimizing in U therefore yields the stated two envelopes. The upper envelope increases to 5012. The lower derivative divided by 24 is the strictly increasing cubic 6h³−h²+76h−1, with its root in (0,1/75) and a value strictly below 676 at h=1/76. Equality forces the stated unique U for each of the two w values. The normalized torus is connected, so there are no gaps in the ranges. The primitive cubic is irreducible by the rational-root bound and is not monic, so ρ is not integral; a root of unity w would make ρ²=2+w+w^(-1), hence ρ, integral. Normalizing root-of-unity phases retains root-of-unity phases. Binary phases have minimum 676. Frequency differences in |P_m|^8 are at most 4(m+1), verifying the stated finite-sampling condition.",
+      "residual_risks": [
+        "The exact endpoint is the algebraic expression, not the printed decimal. Other supports, variable magnitudes, and lower sampling cutoffs are not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Fourier extension theorem expresses even moments using additive coincidences, but gives no optimized adjacent-pair phase range.",
+          "The phase-order theorem on the two-torus applies to 1+z+y(U+Vz). For m≥5 no alias in the eighth moment is created by y=z^m; the two-torus phase ordering does carry over there."
+        ],
+        "reasoning": "At m=4 this specialization is not nonaliasing: the four nonzero correlations depend on U at fixed w. The two-torus phase ordering and extension identity do not determine their phase optimization.",
+        "searches": [
+          "arXiv:2609.25404 §§8.2 and 9.1",
+          "Resultary four-character Fourier rectangle b28d10ed4d3f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, entries 6989b70094e0, b28d10ed4d3f, 5598303b6ef1, 9634c4847397, 9b5f6b229334",
+        "arXiv:2609.25404"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cubic moments lack the new quartic terms; the three-tone {0,1,4} collision is present when the fourth tone is removed; the two-torus law lacks all four adjacent-block cross terms."
+        ],
+        "reasoning": "The prior methods identify where collisions occur, but the specific four-term interference, exact lower envelope and nonintegral cubic are not their stated consequences for this support. The separated case is not needed to establish distinctness.",
+        "searches": [
+          "Resultary 6989b70094e0, b28d10ed4d3f, 5598303b6ef1 and 9634c4847397 Findings and assumptions",
+          "Iosevich–Li–Yu §9.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first cubic-resonance theorem concerns the identical support but fourth and sixth moments; its m≥4 sixth-moment range is [112,400].",
+          "The four-geometric-tone theorem has a non-cyclotomic optimizer at its first resonance, but its eighth-moment member has support {1,3,9,27}, which is not an affine frequency change or reversal of {0,1,4,5}."
+        ],
+        "reasoning": "Neither earlier optimization is the claimed four-tone eighth-moment optimization; phase-alphabet frustration in itself is not new.",
+        "searches": [
+          "Resultary adjacent-pair/two-block phase-only moments and first fourth-order resonance: 6989b70094e0, b28d10ed4d3f, 5598303b6ef1, 9634c4847397"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two entries optimize an L8/L2 maximum for three characters with variable magnitudes; the third has a different frequency set and optimizer.",
+          "No inspected catalog theorem supplies the m=4 lower envelope or its cubic for {0,1,4,5}."
+        ],
+        "reasoning": "The closest catalog records were compared at statement level, not by matching the resonance order or by treating a search miss as evidence of priority.",
+        "searches": [
+          "Resultary exact eighth-moment and first-resonance entries 5598303b6ef1, 9b5f6b229334 and 9634c4847397"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparison is the resonant m=4 lower endpoint, equality cases, and arithmetic obstruction for the adjacent-pair support. Even-moment convolution and the phase ordering in the separated rectangle case are established methods/results; no originality credit is assigned to those ingredients or to phase alignment at the maximum. The closest indexed resonance and phase-frustration results address materially different supports or objectives.",
+      "residual_risks": [
+        "The primary literature search was noisy; unindexed work on sparse phase optimization could overlap. No priority claim beyond the actual comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method, not covering endpoint optimization",
+          "evidence": "Fourth Fourier moment and even extension moments are related to additive solution counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.25404",
+          "material_read": "§8.2, pp. 25–26, (8.1)–(8.2); §9.1, pp. 28–29, Theorem 9.1 and (9.2)–(9.5); offsets 121037 and 131734",
+          "method": "Primary OA PDF",
+          "title": "Spectral synthesis, Fourier extension, and arithmetic in Z_N^d",
+          "trigger": "Broad even-moment/additive-collision theorem"
+        },
+        {
+          "assessment": "Lower moment only",
+          "evidence": "Fourth and sixth moments are solved; the sixth-moment alias occurs at m=3, not m=4.",
+          "identifier_or_url": "SCOPE-the-first-cubic-resonance-threshold-for-phase-only-two-block-fou--6989b70094e0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "The first cubic-resonance threshold for phase-only two-block Fourier polynomials",
+          "trigger": "Identical support and unit-phase model"
+        },
+        {
+          "assessment": "Relevant to m≥5, not the resonant lower endpoint",
+          "evidence": "Two-dimensional torus with independent characters, not the diagonal specialization with aliasing.",
+          "identifier_or_url": "SCOPE-a-sharp-phase-order-transition-for-the-four-character-fourier-re--b28d10ed4d3f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp phase-order transition for the four-character Fourier rectangle",
+          "trigger": "Broader torus and general p phase law"
+        },
+        {
+          "assessment": "Different support, magnitudes and objective",
+          "evidence": "Three-frequency {0,1,4} sharp L8/L2 maximum, not a four-tone phase-only minimum.",
+          "identifier_or_url": "SCOPE-sharp-eighth-moment-norm-at-the-first-fourth-order-resonance--5598303b6ef1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp eighth-moment norm at the first fourth-order resonance",
+          "trigger": "Exact same moment and quartic collision"
+        },
+        {
+          "assessment": "Known analogous obstruction, distinct support and optimizer",
+          "evidence": "Support {1,b,b²,b³}, with eighth moment at b=3 and different equality conditions.",
+          "identifier_or_url": "SCOPE-universal-phase-frustration-at-the-first-resonance-of-four-geome--9634c4847397",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Universal phase frustration at the first resonance of four geometric Fourier tones",
+          "trigger": "Four-tone exact resonant ranges and failure of every root-of-unity alphabet"
+        },
+        {
+          "assessment": "Does not encompass the four overlapping contributions and phase minimum",
+          "evidence": "One collision for three characters and a sharp L8/L2 maximum with variable magnitudes.",
+          "identifier_or_url": "SCOPE-exact-eighth-moment-cost-of-one-isolated-quartic-torsion-collisi--9b5f6b229334",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact eighth-moment cost of one isolated quartic torsion collision",
+          "trigger": "Possible general isolated-collision result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:39–77",
+        "Resultary 6989b70094e0 and 9634c4847397"
+      ],
+      "rationale": "The adjacent-pair support has a natural first unresolved alias at the eighth moment. What matters is not the small numerical gain over 676: the optimizing relative phase moves off the antiphase point, and no finite root-of-unity alphabet recovers the exact optimum even though binary phases solve the separated case. The exact endpoint and equality conditions identify when this arithmetic distinction first appears for the support.",
+      "residual_risks": [
+        "No claim of a universal obstruction across supports or at arbitrary moments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:36:59.337394Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently verified all mass polynomials, not just finitely many pairs (n,t). Represent lattice points by triples (i,j,-i-j). For a generic translation take coordinate fractional parts f=(x,y,{-x-y}); they sum to 1 or 2, and central inversion exchanges the two halves without changing the count. On f_1+f_2+f_3=1 they are uniform on the simplex. Removing the integers from the translation makes the counting triples sum to 1, with coordinate bounds [-n+b_i,n+a_i], b_i=1_{f_i>t}, a_i=1_{f_i>1-t}. Let B=sum b_i. Counting via three-variable stars-and-bars and subtracting single upper-bound violations gives C(3n+3-B,2)-sum_i C(n+2-B+b_i-a_i,2); double violations are impossible and the displayed ordinary binomial arguments are nonnegative for n>=1. A box in the simplex specified by intervals between 0,t,1-t,1 has normalized area sum_{J subset {1,2,3}}(-1)^|J|(1-sum of the three endpoints)_{+}², choosing upper endpoints only in J. Only the ordering at 1/2 and the nonpermanent events sum of endpoints=1 at 1/3,1/2,2/3 can change this polynomial labeling. In checks/3.py (Python 3 and SymPy) I enumerated the interval labels and aggregated exact coefficient pairs (coefficient of n, constant term) for the support and exact quadratic coefficients for the masses. All four tables, transitions, endpoints, means and variances agree, with no restriction to tested n or t. Counts converge almost surely as t approaches a transition since the finitely many count-change boundaries at that t have zero area. All listed positive masses are supported on distinct counts for n>=1 on the open phases. The scaling limit follows on dividing each support shift by n and merging coincident limiting atoms. The frozen interpolation argument should read its triple-intersection statement as referring to changes of incidences, not permanent concurrences; the separate exact simplex calculation resolves the event and uniform-in-n checks directly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Freyer–Hofstätter decompose the translational counting function for integer multiples of a lattice polytope and give uniqueness and span results.",
+          "Tokmachev's constant-count results apply to centrally symmetric integer polygons and integer zonotope dilations, so directly cover the two endpoints.",
+          "Huxley–Žunić full text was not retrievable by identified lawful routes; a source-specific risk remains."
+        ],
+        "reasoning": "The cited integer-radius constancy fails to extend even as a qualitative claim at fractional radius. A general count representation is not itself the complete level-area distribution. Using a finer lattice for a rational fraction would change which lattice coset is being counted and does not supply this fixed-lattice law from the integer-dilate statement.",
+        "searches": [
+          "arXiv:2610.26523v2 Theorems A and B and translated integer-dilate decomposition",
+          "arXiv:2507.09355v1 Statement 1(6), Statement 3, Corollary 1",
+          "DOI 10.1112/plms/pdt011 and identified article page"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.26523v2",
+        "arXiv:2407.09878v1",
+        "arXiv:2507.09355v1",
+        "Resultary 65d288844643",
+        "Resultary 8d4e2bfedcef (assigned record)",
+        "10.1112/plms/pdt011 (full text not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tokmachev gives constant laws at integral radii, not fractionally dilated hexagons. The triangle marginal distributions cannot be combined as independent counts for pieces with the same translation.",
+          "The relevant known count frameworks and the diamond law do not supply the exact events 1/3,1/2,2/3 or their associated count-level areas on the three-strip arrangement."
+        ],
+        "reasoning": "The new part requires computing the correlated strip-label areas and grouping them by the correct count polynomial. The checked prior results supply related tools, other bodies or limits but do not directly specialize to that calculation.",
+        "searches": [
+          "arXiv:2610.26523v2 pp. 2–4",
+          "arXiv:2507.09355v1 pp. 2–3",
+          "arXiv:2407.09878v1 pp. 6–7",
+          "Resultary 65d288844643 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent descriptions include the distribution of a torus periodization and a three-strip count in sum-zero lattice coordinates. The external search surfaced Freyer–Hofstätter and a circle-counting question for A2, a different body and not the target distribution.",
+          "The distinct same-day diamond result 65d288844643 concerns the l1 diamond with four facets, not the six-facet three-strip hexagon."
+        ],
+        "reasoning": "An invertible affine map preserves the number of facets; the diamond law is not a reparametrization of this law. An A2 circle count is not a Haar law for this norm ball.",
+        "searches": [
+          "Local Resultary: Haar lattice counts, fractional dilations, hexagonal norm and A2",
+          "Targeted external search: fractional translation-count distributions, A2 lattice, hexagonal norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching 8d4e2bfedcef entry is the assigned record itself. The distinct 65d288844643 entry tabulates a complete at-most-four-atom phase law for a fixed-orientation planar diamond, with a different set of facet constraints.",
+          "Tokmachev gives an exact distribution for an integer triangle in terms of sums of discrete uniforms under affine-side-length hypotheses, not a hexagon table."
+        ],
+        "reasoning": "The adjacent exact tables are not the same statistic over the same translated body; none of the inspected tables gives the fractional hexagon masses. A websearch miss is not evidence of absence.",
+        "searches": [
+          "Local Resultary: exact phase laws for uniformly translated lattice polygons, 8d4e2bfedcef and 65d288844643",
+          "arXiv:2407.09878v1 Section 4, Theorem 3"
+        ]
+      },
+      "rationale": "The supported distinct result is the full fractional-radius law for the specified hexagon and lattice, with all transition locations and quadratic masses. The mean and integer-radius count constancy are known and earn no separate novelty credit. Prior integer-polytope translation theory does not mechanically give the fractional laws, and the same-day planar diamond law is for a non-affinely-equivalent body. This is a bounded judgment; unresolved full-text access to Huxley–Žunić is recorded explicitly.",
+      "residual_risks": [
+        "The 2013 Huxley–Žunić article was unavailable at the inspected lawful routes.",
+        "An older exact table under a root-lattice, strip-count, or periodic multiplicity formulation remains possible. The targeted literature lookup is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uniqueness, span and lattice-polytope integer dilations; not the asserted fractional table",
+          "evidence": [
+            "t_{mP} decomposes into translation coefficients for lattice P and integer m>=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.26523v2",
+          "material_read": "Theorems A and B and integer dilate decomposition, PDF pp. 2–4, OA offsets 5700,7300,10800",
+          "method": "Bounded open PDF passage reading",
+          "title": "Counting Lattice Points in Translations: Uniqueness and Existence Results",
+          "trigger": "General translation count and dilation theory"
+        },
+        {
+          "assessment": "The nearest distribution theorem is for integer triangles and does not directly imply the three-strip law",
+          "evidence": [
+            "Theorem 3 gives X_T as a sum of discrete uniforms under an affine-side-length coprimality hypothesis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.09878v1",
+          "material_read": "Abstract and Section 4 Theorem 3, PDF pp. 1,6–7, OA offsets 0,13200",
+          "method": "Bounded open PDF passage reading",
+          "title": "Lattice points inside a random shifted integer polygon",
+          "trigger": "Exact distribution of shifted planar lattice counts"
+        },
+        {
+          "assessment": "Directly covers the integral-radius endpoints; not the nonintegral phases",
+          "evidence": [
+            "A centrally symmetric integer polygon has constant shifted count almost surely; integer zonotopes and their integer scaling obey the analogous law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.09355v1",
+          "material_read": "Statement 1 property 6, Statement 3, Corollary 1, PDF pp. 2–3, offset near 5000",
+          "method": "Bounded open PDF passage reading",
+          "title": "On integer points inside a randomly shifted polyhedron",
+          "trigger": "Potential constant or exact count law for centrally symmetric polygons"
+        },
+        {
+          "assessment": "Unresolved; not counted as a noncoverage result",
+          "evidence": [
+            "The identified publisher access returned HTTP 403; no evidence-based exclusion of the article is made."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/plms/pdt011",
+          "material_read": "No full-text passage retrieved",
+          "method": "Attempted lawful DOI and identified publisher article routes; alternate lookup did not locate another copy",
+          "title": "The number of configurations in lattice point counting II",
+          "trigger": "Earlier planar translation/dilation lattice-count literature"
+        },
+        {
+          "assessment": "Material analogy but different body, not a dominance result",
+          "evidence": [
+            "The at-most-four-atom law is for an l1 diamond at fixed orientation, not the six-facet hexagon."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-four-atom-lattice-count-laws-for-uniformly-translated-planar-dia--65d288844643",
+          "material_read": "Local RESULT.md Finding, offset 21",
+          "method": "Local Resultary mirror after catalogue search",
+          "title": "Four-atom lattice-count laws for uniformly translated planar diamonds",
+          "trigger": "Same-day exact fractional-radius translated planar count law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In a natural six-facet lattice norm, area and integer multi-tiling identify the mean and integer endpoints but not the translated occupancy fluctuations. This uniform law gives the exact generic four-atom statistic and its distinct phase boundaries for all scales, including collapse to two or three atoms at the transitions. It is an exact, useful case for studying fractional departure from lattice multi-tiles, not just a sampled variance or single-radius recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

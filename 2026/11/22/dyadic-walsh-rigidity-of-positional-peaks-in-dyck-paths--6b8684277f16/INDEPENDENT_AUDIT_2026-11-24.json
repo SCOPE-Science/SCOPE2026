@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:00:08.472572Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–68; VERIFICATION.md and verify.py inspected but not executed.",
+        "Independent exact replay: python3 /workspace/branches/d50af9fc-71e5-4ed3-bad8-3472be6cf638/check_record3.py. All 10,922 characters for n=1–7 matched the formula, including odd valuations and the even full-support zero."
+      ],
+      "rationale": "For any nonadjacent set J of prescribed UD start positions, delete the disjoint blocks. Reinserting them at the designated slots in the original word is uniquely defined and preserves the height constraint, so there are exactly C_(n-|J|) realizations; adjacent prescribed starts are impossible. Expanding the product of the selected Walsh signs proves the formula on all 2n-1 coordinates. Put N=n+1. For j>=2, s2(N)<=s2(N-j)+s2(j)<=s2(N-j)+j-1. For odd n, N is even and s2(N-1)>=s2(N), which supplies the j=1 case. With v2(C_m)=s2(m+1)-1, every nonempty term is divisible by 2^s2(N), whereas the empty term has precisely one fewer factor of two. This includes n=1 and C_0. At even n the Narayana symmetry pairs peak counts of opposite parity; the full-support eigenvalue is zero. The orthogonal Walsh basis gives invertibility, determinant valuation and inverse-norm bound with the specified unnormalized kernel. The phrase 'zero-frequency counts' at lines 64–67 is to be read as counts of vanishing multipliers, not as the multiplier at the empty frequency.",
+      "residual_risks": [
+        "The reproduction is finite. It does not establish complete even-order nullities or sharp real spectral gaps; the all-order claim rests on the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved §5 gives the peak/descent correspondence, not a joint arithmetic congruence. Height-marked peak enumeration and peak-count enumeration aggregate different data."
+        ],
+        "reasoning": "A general joint signed-descent identity with a valuation theorem could cover this result; the available results inspected do not supply it. The targeted search returned no material additional source, which does not establish absence.",
+        "searches": [
+          "Primary literature search on positional UD peaks, Walsh signs and alternating Narayana counts",
+          "Adin–Roichman SLC 51 B51d §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6b8684277f16 and dad7987841a3",
+        "SLC 51 B51d §5",
+        "Narayana symmetry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Narayana symmetry implies the even full-support zero. The descent correspondence encodes peak positions, but its retrieved statements do not isolate the valuations of the arbitrary restricted signs."
+        ],
+        "reasoning": "Credit the even cancellation fully. The odd result uses the simultaneous-position counts and strict binary divisibility of all nonempty terms; it does not follow from the number-of-peaks distribution or the positional bijection alone.",
+        "searches": [
+          "Adin–Roichman SLC 51 B51d §5",
+          "Classical Narayana formula, also derived in frozen RESULT.md lines 51–58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day first-band finding uses single step coordinates, not adjacent UD peaks, and excludes higher supports. Adin–Roichman identify the two halves of the peak set with descent data of a permutation and its inverse."
+        ],
+        "reasoning": "The descent encoding translates the statistic, but the located theorem does not give the valuation of the signed sums at arbitrary joint selections of positions. The first-step-band finding is not that translated theorem.",
+        "searches": [
+          "Local Resultary positional UD peak-incidence / Dyck Walsh search; distinct hit dad7987841a3",
+          "Adin–Roichman SLC 51 B51d §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6b8684277f16 is the assigned record itself. The distinct hit dad7987841a3 limits itself to support-one step coefficients."
+        ],
+        "reasoning": "The identical record is not corroborating prior coverage; the distinct exact catalogue result has different coordinates and scope. A small-order peak spectrum would not cover the all-order, all-character claim.",
+        "searches": [
+          "Local Resultary hits 6b8684277f16 and dad7987841a3"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact congruence and valuation for every Walsh sign set at every odd semilength and the resulting invertibility classification. The classical Narayana full-support cancellation at even orders is prior input, not a new result. The closest accessible positional-peak literature and catalogue comparison do not cover the uniform valuation.",
+      "residual_risks": [
+        "An equivalent valuation via a joint descent-set or multivariate positional-peak identity outside the inspected material remains possible; the search establishes no universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant equivalence of data, no covering valuation in material inspected",
+          "evidence": "Adjacent UD step starts correspond in the two halves to descents of the permutation and its inverse.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/s/s51adin.pdf",
+          "material_read": "§5, pp. 9–12, text offsets 17000–25464",
+          "method": "OA bounded PDF text",
+          "title": "Equidistribution and Sign-Balance on 321-Avoiding Permutations",
+          "trigger": "Exact same positional peak statistic via descent-set equivalence"
+        },
+        {
+          "assessment": "Different coordinate statistic and smaller frequency scope",
+          "evidence": "Individual step coordinates in a 2n-coordinate word; no support-two-and-higher or full rank classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-catalan-gradient-rigidity-of-the-first-walsh-band-on-dyck-words--dad7987841a3",
+          "material_read": "Mirrored RESULT.md opening statement and scope at offset 0",
+          "method": "Local catalogue and bounded mirror read",
+          "title": "Catalan-gradient rigidity of the first Walsh band on Dyck words",
+          "trigger": "Same-day distinct result on Dyck Walsh rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–23 and 28–59",
+        "Adin–Roichman §5 on the positional-peak statistic"
+      ],
+      "rationale": "Adjacent UD is a canonical local observable on the Catalan ensemble. A uniform valuation for an exponentially large spectrum gives an exact recovery boundary, not just total Catalan parity or the Narayana histogram. For example C_5=42 is even, but every multiplier is nonzero of valuation one. The determinant and norm consequences are useful corollaries, not independent novelty claims.",
+      "residual_risks": [
+        "No sharp condition number or stable-recovery algorithm beyond the stated inverse-norm bound is demonstrated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

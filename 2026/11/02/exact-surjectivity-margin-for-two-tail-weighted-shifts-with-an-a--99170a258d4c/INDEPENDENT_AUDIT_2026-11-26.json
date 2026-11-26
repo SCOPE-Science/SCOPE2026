@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:44:35.322978Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–69",
+        "Frozen VERIFICATION.md and verify_gap.py (read, not executed)",
+        "/workspace/branches/frozen_replay.py, selector 5"
+      ],
+      "rationale": "The diagonal phase change reduces λ to r=|λ|, with the full operator only multiplied by a scalar of unit modulus. In the adjoint the left tail rows use precisely the coordinates n≤0 and the right rows use n≥1. On the left the vector (βy_{n+1})_{n≤−1} has norm β times the full left-half norm, and (ry_n)_{n≤−1} has norm at most r times it; on the right (ry_n)_{n≥1} has norm r times the full right-half norm and the shifted term has norm at most α times it. The reverse triangle bounds therefore give δ=min(β−r,r−α) without using the interface row. Expanding each half yields the published gradient and boundary terms, which are nonnegative beyond δ² times the squared norm. Equality forces both half-lines constant, hence both zero in ℓ². Blocks supported strictly within either tail have squared quotient (w−r)²+2rw/L, so the lower bound is sharp without a minimizer. A bounded-below adjoint implies closed and dense range for B. The kernel recurrence fixes both geometrically summable tails from x₀ and yields exactly one free parameter. The positive inverse (BB*)⁻¹ gives the stated norm for B†, and norm attainment would give a bottom eigenvector of BB*. Perturbations of norm less than δ preserve the positive adjoint bound. Replacing a nearest full tail by weight r costs exactly δ and makes long phase-matched adjoint blocks have norm tending to 0, ruling out surjectivity. Either tail works at the midpoint. Independent replay `python3 /workspace/branches/frozen_replay.py 5` checked both ordinary and critical-tail squared quotients for complex λ=3+4i, multiple interfaces and lengths 1–6.",
+      "residual_risks": [
+        "Finite quotient checks corroborate but do not prove the limit or surjectivity. No claim at either endpoint or with multiple arbitrary interface links."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Messaoudi et al. give a qualitative shadowing characterization involving surjective spectra; Bayart gives weighted-shift growth, shadowing and stability results.",
+          "Eisenberg–Hedlund Example 4 computes spectral and point/approximate-point information for a concrete two-tail shift and its adjoint."
+        ],
+        "reasoning": "The exact numerical bound for every r and arbitrary nonzero κ, including no attained bottom and the particular tail perturbation, is not furnished by those statements. The classical example and qualitative facts are not new here.",
+        "searches": [
+          "arXiv:2608.17021 Theorem 2.3 and Corollary 3.6",
+          "arXiv:2101.02989 Theorem 1.1 and Corollary 1.2",
+          "DOI 10.2140/pjm.1970.34.647, Example 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9e82c0bd87fa",
+        "DOI 10.2140/pjm.1970.34.647",
+        "arXiv:2511.12272, 2608.17021, 2101.02989",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A constant-tail block gives only the upper bound for m(B*). The lower bound requires controlling the whole space including y₀,y₁.",
+          "For onto B, the polar form B*=U|B*| with isometry U yields a general nearest perturbation E*=−m(B*)U. This does not prescribe a weighted shift or preserve all but one tail."
+        ],
+        "reasoning": "General functional analysis accounts for the distance once the modulus is known and even for an unstructured minimizer. It does not supply defect-independence, lack of a bottom eigenvector, or the structured one-tail minimizer. None of the inspected statements already establishes those parts.",
+        "searches": [
+          "Pituk Proposition 2.1 and local 9e82c0bd87fa",
+          "Frozen RESULT.md lines 30–66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pituk characterizes surjectivity by exclusion from the adjoint approximate point spectrum.",
+          "For onto B, m(B*)²=min σ(BB*) and ||B†||=1/m(B*); the adjoint lower modulus is the surjectivity distance.",
+          "At either constant tail the Jacobi symbol of BB* is w²+r²−2wr cos(t)."
+        ],
+        "reasoning": "Qualitative exclusion means strict positivity, not its exact value. The constant-tail symbols fix the essential lower edge, but finite interface changes can in general create a lower discrete eigenvalue, and bottom nonattainment requires exclusion of an edge eigenvector as well. The present interface estimate addresses both.",
+        "searches": [
+          "Resultary: step weighted bilateral shifts, exact adjoint modulus, and shadowing constants",
+          "arXiv:2511.12272 Proposition 2.1",
+          "Web: bilateral weighted shift two constant tails norm of right inverse surjectivity minimum modulus \"Eisenberg\" \"Hedlund\" exact lower bound Jacobi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9e82c0bd87fa gives exact two-sided ℓ_p shadowing constants; after aligning shift conventions its profile corresponds to κ=α.",
+          "The classical numeric step profiles in Pituk and Eisenberg–Hedlund are spectral examples, not a table of m((T−λI)*)."
+        ],
+        "reasoning": "The exact records concern a different norm or invariant even where their weight profiles coincide. No inspected catalogue or numerical example gives this exact all-interface modulus.",
+        "searches": [
+          "Resultary 9e82c0bd87fa, mirrored RESULT.md offsets 0 and 5400",
+          "Pituk Example 1.8 in v1 / Example 1.9 in v3",
+          "Eisenberg–Hedlund pp. 653–654"
+        ]
+      },
+      "rationale": "The exact defect-independent bottom of BB*, its nonattainment, and a nearest non-surjective shift obtained by changing just one constant tail are the supported contribution. Classical step-shift examples and shadowing or surjective-spectrum theorems supply qualitative structure, not this modulus for all interface weights. The norm of the right inverse, the numerical distance once the modulus is known, and existence of some nearest perturbation among unrestricted bounded operators are not in themselves novelty. The corpus match computes a different quantity, the two-sided ℓ_p shadowing constant for a step shift.",
+      "residual_risks": [
+        "Bounded literature search, not a historical-priority finding. A less directly identified weighted-shift or Jacobi result might supply an equivalent interface bound; generic finite-rank essential-spectrum invariance alone does not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model on one interface slice, different exact invariant",
+          "evidence": "Exact two-sided ℓ_p shadowing constants and annular point spectrum in the inward-tail regime, not the adjoint norm minimum or distance to nonsurjectivity.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-two-sided-shadowing-constants-for-a-two-regime-bilateral-w--9e82c0bd87fa",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 5400",
+          "method": "Resultary and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp two-sided shadowing constants for a two-regime bilateral weighted shift",
+          "trigger": "Exact result for a shared step profile"
+        },
+        {
+          "assessment": "Qualitative comparison",
+          "evidence": "Concrete classical step weights with annular spectral behavior; proposition characterizes surjectivity through absence from adjoint approximate-point spectrum.",
+          "identifier_or_url": "arXiv:2511.12272v1 and v3",
+          "material_read": "v1 Example 1.8, pp. 3–4, offset 8950, and Proposition 2.1, p. 4, offset 12097; corresponding v3 Example 1.9 and Proposition 2.1",
+          "method": "Primary OA PDF text",
+          "title": "Spectral characterization of shadowing for linear operators on Hilbert spaces",
+          "trigger": "Cited two-tail shift and adjoint spectrum criterion"
+        },
+        {
+          "assessment": "Qualitative spectral precursor with concrete tail weights",
+          "evidence": "The weighted bilateral shift is used to distinguish uniform expansivity and adjoint point/approximate-point spectrum. The example treats one two-tail shift and does not state the sharp annular surjectivity margin with arbitrary interface.",
+          "identifier_or_url": "10.2140/pjm.1970.34.647; https://msp.org/pjm/1970/34-3/pjm-v34-n3-p05-p.pdf",
+          "material_read": "Example 4, pp. 653–654, extracted offset 15150 onward",
+          "method": "Lawful publisher PDF reached through the issue; OA VPN retrieval",
+          "title": "Expansive automorphisms of Banach spaces",
+          "trigger": "Original classical two-tail example attributed by Pituk"
+        },
+        {
+          "assessment": "Qualitative results",
+          "evidence": "Characterizes shadowing via surjective spectrum on the unit circle and supplies a weighted-shift stability/shadowing equivalence.",
+          "identifier_or_url": "arXiv:2608.17021v1",
+          "material_read": "Theorem 2.3 p. 4 offset 13800 and Corollary 3.6 p. 6 offset 18600",
+          "method": "Primary OA PDF text",
+          "title": "On Generalized Hyperbolicity, Stability, and Shadowing for Linear Operators",
+          "trigger": "Surjective spectra and weighted-shift stability"
+        },
+        {
+          "assessment": "Qualitative criteria",
+          "evidence": "Growth conditions and stability/shadowing equivalence, not the exact all-interface modulus.",
+          "identifier_or_url": "arXiv:2101.02989",
+          "material_read": "Theorem 1.1 and Corollary 1.2 p. 2 offset 4500",
+          "method": "Primary OA PDF text",
+          "title": "Two problems on weighted shifts in linear dynamics",
+          "trigger": "Earlier bilateral shift criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–25 and 28–66",
+        "Pituk Example 1.8 and Proposition 2.1",
+        "Resultary 9e82c0bd87fa"
+      ],
+      "rationale": "Two opposed constant tails are the natural model for an annulus of eigenvalues on which T−λI is still onto. The exact margin quantifies the largest guaranteed norm-stability radius, and invariance even under arbitrarily large or small single-link weights is not explained by the qualitative spectrum or by tail symbols alone. A nearest perturbation inside the same simple shift family specifically identifies how surjectivity fails at that radius.",
+      "residual_risks": [
+        "This is not a formula for quantitative shadowing constants or for general nonconstant tails."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

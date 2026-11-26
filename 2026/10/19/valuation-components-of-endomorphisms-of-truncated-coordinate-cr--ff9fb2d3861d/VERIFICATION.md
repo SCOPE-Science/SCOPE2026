@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite checks and proof boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` with an ordinary Python 3 interpreter from this directory. It has no third-party dependencies. Its successful final line is `VERIFY_OK_CROSS_ENDOMORPHISMS`.
+## correctness
 
-The verifier performs ten exhaustive calculations of pairwise-truncated polynomial products in finite prime fields: branch counts from two through four and truncation degrees two through four. It then enumerates complete endomorphism images in four cases and checks the associated linear coefficient matrix over the field for invertibility. The following observed whole-map counts are independent direct enumerations: `(r,d,q)=(2,2,2)` gives 144 endomorphisms and 32 automorphisms; `(2,2,3)` gives 2025 and 648; `(2,3,2)` gives 1024 and 128; `(3,2,2)` gives 32768 and 3072. In all tests, these match the formulas.
+PASS
 
-For every integer pair with two through five branches and truncation degree two through six, the verifier builds **all** valuation vectors satisfying the pairwise constraints, then independently finds the coordinatewise-minimal ones. These agree with the proved component list and equidimensionality condition.
+The positive-degree output branches multiply independently, and no further truncation equations arise. In a branch, multiplication modulo t^N is zero exactly when the two orders sum to at least N. If the minimum order a is below N/2 it is unique and imposes order ≥N−a elsewhere. Otherwise the central component suffices for even N; for odd N the all-high tuple lies in each space associated to a=(N−1)/2. The lower-bound vectors of the listed spaces are incomparable. The reduction/product step is valid here even over imperfect k: modulo any prime containing the coefficient equations, apply the valuation test in the fraction field of the domain quotient, so that the prime contains one of the listed coordinate primes in each branch. The radical is the intersection of the resulting coordinate primes; flat field extension preserves that finite intersection. This justifies geometric components without invoking a general rule about products of reduced schemes. Their dimensions follow by counting free coordinates. For even N the gap between the central space and a=1 when r,d≥3 is (r−2)(N/2−1); for odd N compare a=1 and a=2. Invertible tangent matrices are monomial, selecting exactly the permutation products of a=1 spaces. For counting, the all-high stratum contributes q^(r floor(N/2)), and fixing the unique low index and exact valuation a contributes (q−1)q^(d+(r−2)a). These counts are disjoint; independence gives the r-th power. All field-valued algebra maps preserve augmentation because each generator image is nilpotent.
 
-Checks are finite. They neither establish the infinite-parameter theorem, prove prior-work novelty nor determine the possible nonreduced structure of the universal Hom scheme. Those claims rely on the separately written algebraic argument, and independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Credit the complete valuation-component description and endomorphism count for arbitrary d, not the same-family automorphism theorem. The inspected prior work does not cover the noninvertible endomorphism geometry and count. There is an exact overlap on small truncation lengths in a later indexed record, not evidence of earlier coverage.
+
+## value
+
+PASS
+
+End rather than Aut records which degenerations and noninvertible maps occur in this natural family of finite-dimensional singular algebras. A complete list of its geometric components, the exact equidimensionality boundary, and the fact that automorphism-bearing components can be smaller than components without automorphisms are useful geometric information distinct from the group. The uniform point count gives a comparable exact invariant over all finite fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

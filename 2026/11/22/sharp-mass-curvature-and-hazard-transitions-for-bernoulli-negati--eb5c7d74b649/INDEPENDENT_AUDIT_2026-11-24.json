@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:06:50.253524Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The convolution gives m_0=(1-q)^nu/(1+r) and m_k as stated. For an independent tail sign check, write d=(nu-1)q/(q+r)>-1. For k>=1 the ratio R_k/q factors into [1+(nu-1-d)/(k+d)] [1+d/(k+1)]. Both factors are positive; their corrections to one have the sign of nu-1, so both strictly decrease with k if nu>1, both increase if nu<1, and both equal one if nu=1. This agrees with the all-index difference in RESULT.md, whose tail range is k>=1, not k=0. Directly R_0=nu q+r and R_1=q nu[q(nu+1)+2r]/[2(nu q+r)]; subtracting gives the first-triple quadratic and positive root L. The convergent survival-to-mass sum compares term by term, with strictness from one-factor terms whenever the first compared ratios are distinct. For nu=1 this gives h_0=(1-q)/(1+r), h_k=1-q for k>=1. For nu<1, h_0>=h_1 reduces to r(r+nu q)<=1-(1-q)^nu-nu q, with strictly positive right side by the strict tangent inequality. The monotone quadratic gives D. At L the compared first factors tie but the two-factor term is strictly larger at k=1, proving h_0>h_1 and L<D. The stated example gives the curvature numerator 3/400 and hazard test 7/200<3/4-1/sqrt(2) by squaring. Replay: RESULT.md proof steps 1–5 and the factorization above. The supplied SymPy checker was inspected, not executed; its finite examples are not used for the universal statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison reports that Ong et al. assert log-concavity and IFR on nu>0 using convolution closure, which requires the NB factor to be log-concave. Independently checked strict tail log-convexity and strictly decreasing tail hazards for nu<1 contradict such blanket conclusions.",
+          "The older wider convolution-power results, as described in the available evidence, distinguish when powers have nonnegative coefficients, not whether adjacent positive masses have increasing ratios or whether the initial hazard comparison flips."
+        ],
+        "reasoning": "Convolution closure covers the log-concave regime nu>=1 but cannot imply the reversed regime and sharp thresholds. No covering implication from the real-power statements was identified.",
+        "searches": [
+          "Primary literature for NB–shifted-NB decreasing and one-peaked hazards",
+          "Ong et al. §§2.2 and 2.6",
+          "Letac–Malouche–Maurer Theorems 2.1 and 3.1",
+          "Ben Salah DOI 10.1080/03610926.2021.1879863"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and AUDIT.json",
+        "Resultary ccc124e0694b and 41c5de93e28d (indexed statements)",
+        "10.3390/stats6030059 (publisher snippet and cited sections as recorded)",
+        "10.1090/S0002-9939-02-05352-2 and 10.1080/03610926.2021.1879863 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For nu<1 the first curvature sign depends on r even though every later sign is fixed. The survival comparison produces a different quadratic from the first-triple curvature quadratic; it also distinguishes a decreasing hazard from an initial rise followed by strict decrease.",
+          "The log-concavity-only indexed conclusion does not suffice for the log-convexity and hazard quadratics, and no same-family threshold on hazards was verified in the older material."
+        ],
+        "reasoning": "The supported originality lies in solving both low-shape transitions and proving that they separate; even a full prior log-concavity characterization does not subsume that result.",
+        "searches": [
+          "Resultary ccc124e0694b statement",
+          "Ong et al. §2.6; Letac–Malouche–Maurer DOI 10.1090/S0002-9939-02-05352-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ong et al. §2.2 is cited for the NB–shifted-NB mixture; shifting the NB variable by one with probability p multiplies its pgf by 1-p+pz, giving exactly the law under review.",
+          "Letac–Malouche–Maurer use the same Bernoulli/NB convolution, as identified by the title and the frozen comparison."
+        ],
+        "reasoning": "Exact identity of the family is established by the pgf, not claimed as new. An equivalent covering result would further determine the first hazard comparison and curvature cutoff below nu=1.",
+        "searches": [
+          "Resultary: same Bernoulli–negative-binomial family with NB–shifted-NB aliases and shape boundaries",
+          "10.3390/stats6030059 §§2.2 and 2.6",
+          "10.1090/S0002-9939-02-05352-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day ccc124e0694b result explicitly claims the global log-concavity cutoff and a thinning self-decomposability cutoff in this exact family; do not credit global log-concavity novelty here.",
+          "Indexed 41c5de93e28d concerns feasibility of factorial cumulants, not mass ratios or hazards. The only indexed match observed for L and D jointly is this record itself."
+        ],
+        "reasoning": "A global log-concavity cutoff, which for this family is nu>=1, is not the low-shape global log-convexity cutoff L; failure of log-concavity at a tail triple says nothing about the sign of h_0-h_1. The separate record is not dismissed by its date.",
+        "searches": [
+          "Resultary: Bernoulli negative binomial sharp curvature and hazard thresholds",
+          "Resultary: Sharp thinning and log concavity boundaries for Bernoulli negative binomial distributions ccc124e0694b"
+        ]
+      },
+      "rationale": "Credit the previously known distribution, the general mass-ratio comparison, and the separate catalogue result on global log-concavity. The supported distinct contribution is the sharp global log-convexity and first-hazard thresholds, all-index hazard classification for 0<nu<1, and the strict separation of those boundaries. The two older convolution-power references concern a different property in the available material. Access limitations and potential priority overlap are recorded below.",
+      "residual_risks": [
+        "The full same-day log-concavity record and the relevant passages of the older same-family sources could not be independently retrieved; broader overlapping shape claims elsewhere remain possible.",
+        "The precise Section 2.6 attribution relies on the frozen source inspection. The mathematical regime classification does not rely on that attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Global log-concavity overlaps; thinning is a different invariant. The indexed result does not exhibit either low-shape threshold under review.",
+          "evidence": [
+            "The summary identifies sharp thinning/self-decomposability and global log-concavity cutoffs and correction of the 2023 shape claim."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-thinning-and-log-concavity-boundaries-for-bernoulli-negati--ccc124e0694b",
+          "material_read": "Indexed mathematical summary; full result text not retrieved.",
+          "method": "Resultary statement comparison; targeted local-mirror retrieval attempted.",
+          "title": "Sharp thinning and log-concavity boundaries for Bernoulli–negative-binomial counts",
+          "trigger": "Strong same-family shape overlap."
+        },
+        {
+          "assessment": "Construction predates this work. The recorded blanket shape assertion does not give the supported sharp thresholds; the alleged source assertion was not independently passage-verified.",
+          "evidence": [
+            "Section 2 publisher excerpt identifies a mixture of negative binomial and shifted negative binomial. The frozen account locates the model at §2.2 and the curvature/reliability assertion at §2.6."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/stats6030059",
+          "material_read": "Publisher search excerpt identifying the mixture, and frozen accounts of §§2.2 and 2.6; not independent reading of those sections.",
+          "method": "Focused literature search, attempted publisher/alternate PDF and webpage retrieval, and exact pgf and sign comparison.",
+          "title": "A Family of Finite Mixture Distributions for Modelling Dispersion in Count Data",
+          "trigger": "Same distribution and allegedly blanket log-concavity and increasing hazards."
+        },
+        {
+          "assessment": "The described real-power coefficient and Jørgensen-set results address a different invariant; no whole-document exclusion.",
+          "evidence": [
+            "Frozen AUDIT.json identifies Theorems 2.1 and 3.1 as real convolution-power positivity statements."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-02-05352-2",
+          "material_read": "Bibliographic title and frozen description of Theorems 2.1 and 3.1; no independent full passage retrieved.",
+          "method": "Attempted AMS and alternate lawful public copy; statement-level comparison uses the evidence available.",
+          "title": "The Real Powers of the Convolution of a Negative Binomial Distribution and a Bernoulli Distribution",
+          "trigger": "Same distribution with a potentially stronger older theorem."
+        },
+        {
+          "assessment": "Available description concerns generalized real convolution powers, not the present first hazard or mass curvature test.",
+          "evidence": [
+            "The frozen account identifies generalized convolution powers and Jørgensen sets."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2021.1879863",
+          "material_read": "Citation and frozen abstract-level account only; publisher passage unavailable.",
+          "method": "Attempted OA/publisher retrieval and compared recorded target invariant.",
+          "title": "Generalized Convolution Product of an Infinitely Divisible Distribution and a Bernoulli Distribution",
+          "trigger": "General construction covering a Bernoulli factor and infinitely divisible laws."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is already used as a count model and its shape affects reliability conclusions. The result decides every hazard comparison, distinguishes immediate decline from a single initial rise, and identifies a strictly nonempty band where the hazard decreases despite failure of global log-convexity. That complete separation is useful beyond detecting an erroneous blanket curvature claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

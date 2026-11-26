@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:27.919852Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A rank-one B-self-adjoint map is a·uB(u,·); nonzero square-zero maps of this form are precisely the (q−1) scalar choices at each isotropic line. Verified the odd-space zero count by the hyperbolic-plane recurrence, giving N projective points. Normalize the representative of a neighbor by B(u,w)=1; in a hyperbolic decomposition around u this leaves one free residual vector and uniquely determines the coefficient of u, giving K neighbors. For common neighbors of distinct nonorthogonal lines, the coefficient of the second line is fixed and nonzero by this normalization, and being nonorthogonal to the second line means the coefficient of the first is nonzero. The quadratic equation then excludes exactly the q^(2r−2) residual isotropic vectors (including zero), giving (q−1)D. For orthogonal lines use two hyperbolic pairs: the second dual coordinate is freely nonzero, one original coordinate is determined, the other arbitrary, and the residual dimension is 2r−3, giving the same count. Thus A²=DI+(q−1)DJ, with eigenvalue K on constants and A²=D on the zero-sum space. It yields exactly the displayed powers; their constant J terms are integers by comparison with integer entries. A surviving ordered product is a walk with the two endpoint lines fixed, and for any walk the target fixes exactly one scalar after the other k−1 are chosen. Counting all surviving walks gives the zero fiber by subtraction. Trace is the endpoint pairing times the nonzero scalar, and A² is everywhere positive, proving the sharp two/three-factor distinction within the stated target class. For mixing, the conditional endpoint law is A^(k−1)/(NK^(k−1)), times an independent uniform scalar. Subtract J/N² and sum absolute entries: for an even exponent the diagonal contribution is governed by 1−1/N, and for an odd exponent K marked entries per row give 1−K/N times the odd power's residual rate. D/K²=q^(−2r), giving both displayed rates, including k=2. Inspected check.py, VERIFICATION.md and verification_output.txt, without executing code. The dense finite checks compute all products in their sample; pair assertions are histogram/support-size checks, and triple assertions check one scalar per endpoint plus the full multiplicity histogram. This is not a direct test of each scalar's target-specific frequency at each length; scalar symmetry and the symbolic proof supply the full assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brouwer–Gow–Sheekey count one self-adjoint nilpotent operator at a time, including Jordan-type information.",
+          "The unrestricted all-length formula assigns every rank-one target a count using only trace strata (the trace-zero versus nonzero difference has alternating sign), and its TV expression is in unrestricted projective parameters. The self-adjoint zero-product record concerns AB=0 and prescribed ranks rather than nonzero all-length targets."
+        ],
+        "reasoning": "A count in the broader orbit is an aggregate, not a count with a constraint on each factor. The unrestricted formula may give the same value for distinct trace-zero targets with equal or distinct endpoints, whereas the frozen odd-length law separates them. Known zero-pair rank fibers cover at most a special zero-output quantity and not the pair of parity classes or mixing law.",
+        "searches": [
+          "Brouwer–Gow–Sheekey, Counting Symmetric Nilpotent Matrices",
+          "Same-day Resultary unrestricted minimal nilpotent orbit product theorem",
+          "Indexed self-adjoint zero-product rank fibers"
+        ]
+      },
+      "checked_sources": [
+        "Ihringer arXiv:1606.05898 §2.2",
+        "Brouwer–Gow–Sheekey EJC 21(2) P2.4",
+        "Resultary exact self hit, unrestricted all-length companion and self-adjoint zero-pair record",
+        "Frozen RESULT.md, VERIFICATION.md, check.py and verification_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complementing the classical orthogonal point-collinearity parameters supplies A² exactly. Powers, mixing of the graph walk and positivity of its second power are familiar consequences, not credited as standalone novelties.",
+          "In the unrestricted proof an image line and an annihilating row functional may vary independently subject to nilpotency; self-adjointness instead requires the row line of each factor to be B-paired to its own image line. The unrestricted projection to projective lines averages over the very choices eliminated by this restriction."
+        ],
+        "reasoning": "The specialization needs a new factor-to-polar-point identification and a different fiber geometry; substituting dimensions into the unrestricted trace formula or the known graph theorem does not by itself supply the restricted statement. Once the reduction is established, the downstream TV and width calculations are short; the contribution is the exact rank-one restricted multiplication description rather than new polar geometry.",
+        "searches": [
+          "Compare classical e=1 strong-regularity parameters and unrestricted orbit proof with frozen product reduction and parity split"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant graph is the simple complement of perpendicularity on singular projective points. The product word is its nonorthogonal walk plus a single multiplicative equation on k independent labels in F_q^×.",
+          "Known polar parameters give this walk-count problem exactly once that reduction has been made; the single external lookup did not identify the matrix-fiber theorem."
+        ],
+        "reasoning": "Graph adjacency and powers are shared input, but a walk theorem without the scalar constraint and rank-one endpoint identification is not the prescribed matrix fiber theorem. Search limitations do not establish priority.",
+        "searches": [
+          "Focused literature lookup for ordered products of rank-one B-self-adjoint square-zero nilpotents and finite-field word-map fibers",
+          "Ihringer, arXiv:1606.05898 §2.2, classical orthogonal point collinearity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact self match 2026/11/22/SCOPE-all-length-products-of-minimal-self-adjoint-nilpotents-a-parity--692f990df98a.",
+          "Distinct closest hit 2026/11/22/SCOPE-all-length-multiplication-fibers-and-exact-alternating-mixing-fo--c7286e4b73ec is unrestricted, and 2026/11/8/SCOPE-rank-fibers-and-component-intersections-of-self-adjoint-zero-pro--f1e2a7d07826 is zero-only."
+        ],
+        "reasoning": "The exact hit is the frozen record itself. The other hits change respectively the factor set or the target and length quantifiers; no matched independent exact table establishes the whole restricted fiber law.",
+        "searches": [
+          "Local Resultary search for all-length self-adjoint nilpotent multiplication and conditional mixing"
+        ]
+      },
+      "rationale": "The geometric matrix identity and its graph-walk consequences are not separately novel, nor is the method for unrestricted minimal nilpotents. The supported distinct result is the complete restricted matrix-product fiber law, where two different endpoint invariants alternate, together with the exact conditional law. The closest same-day claim is compared by statement rather than presumed to precede or follow this one.",
+      "residual_risks": [
+        "A prior unindexed specialized word-map theorem or an earlier equivalent polar-walk transfer may exist. No historical ordering is inferred from the same-day catalogue records.",
+        "The known adjacency identity and resulting walk formulas are credited fully; remaining originality is in the restricted matrix interpretation and complete target law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the known geometric square identity at e=1 but not the restricted matrix-fiber interpretation",
+          "evidence": [
+            "Collinearity of distinct points is perpendicularity; O(2d+1,q) has e=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.05898",
+          "material_read": "§2.2, p. 3, OA offset around 6900, definitions and parameters",
+          "method": "Lawful OA passage and specialization/complement of the graph",
+          "title": "A Switching for all Strongly Regular Collinearity Graphs From Polar Spaces",
+          "trigger": "Classical input could already give walk and mixing formulas"
+        },
+        {
+          "assessment": "The stated positive coverage is one-operator enumeration, not a word-map count",
+          "evidence": [
+            "Counts nilpotent matrices self-adjoint for a nondegenerate symmetric bilinear form."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3810",
+          "material_read": "P2.4 PDF p. 1, abstract at OA offset 1173, statement of enumerated objects",
+          "method": "Lawful OA passage, compared the counted objects rather than citing a word search as absence",
+          "title": "Counting Symmetric Nilpotent Matrices",
+          "trigger": "Same self-adjoint nilpotent operators"
+        },
+        {
+          "assessment": "Closely analogous but different factor set, walk reduction, target strata and conditional law",
+          "evidence": [
+            "Factors are all rank-one square-zero matrices.",
+            "The only invariant in nonzero fibers is whether the rank-one trace is zero, with a parity-dependent sign."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-all-length-multiplication-fibers-and-exact-alternating-mixing-fo--c7286e4b73ec",
+          "material_read": "Finding, scope and start of proof through projective reduction, mirrored RESULT.md offsets 0–3695",
+          "method": "Local mirror; compared hypotheses, target strata and scalar formula",
+          "title": "All-length multiplication fibers and exact alternating mixing for minimal nilpotent matrices",
+          "trigger": "Strongest distinct indexed hit with all-length fibers, parity and exact TV"
+        },
+        {
+          "assessment": "Potential special zero-pair overlap only",
+          "evidence": [
+            "Its fibers are rank strata of AB=0 for self-adjoint A,B."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-rank-fibers-and-component-intersections-of-self-adjoint-zero-pro--f1e2a7d07826",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror and comparison of target and length",
+          "title": "Rank fibers and component intersections of self-adjoint zero-product pairs",
+          "trigger": "Indexed same-self-adjointness product result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact word-map invariant for a natural orthogonal-equivariant rank-one factor set, not an arbitrary data slice. It explains a genuine change of the controlling target invariant with parity, shows sharp three-factor coverage, and gives the complete conditional decay profile. The spectral algebra is elementary once the reduction is known, but neither the unrestricted mixing formula nor the individual nilpotent counts answer these restricted target questions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

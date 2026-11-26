@@ -1,25 +1,21 @@
-# Review of the exact-start BDF2 positivity phase theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For real positive scalar decay, the characteristic roots are explicitly real-positive through \(z=1/2\) and complex conjugates beyond that threshold. The exact starter \(e^{-z}\), rather than backward Euler, produces the stated phase shift \(\phi(z)\). Direct differentiation proves the strict inequality \(\theta'(z)-\phi'(z)>0\) for every \(z>1/2\), using \(e^{-z}+z-1>0\). The phase therefore crosses precisely \(\lfloor k/2\rfloor\) cosine zeros, all transversely. There are no other zeros. The spectral mass of a star-center basis vector proves each scalar negative interval yields a separated negative finite-graph self-return interval for sufficiently large star size, with positivity between and outside. At the second stage the unique minimum of \(g_2\), spectral-mass lower bound, and explicit thirteen-vertex star show sharp diagonal positivity through twelve vertices. The proof covers all positive timesteps and all indicated integer stages; finite scans do not substitute for its quantifiers.
+PASS
 
-## Originality — PASS, with publication-priority limitations
+Below z=1/2 the scalar characteristic roots are positive and the interpolation from the smaller root gives a positive solution since e^-z>r_- and r_+>r_-. At z=1/2 the repeated-root solution has positive bracket 1+k(2e^(-1/2)-1). Above 1/2 the conjugate-root solution has positive amplitude and cosine phase F_k=k theta-arctan((a e^-z-2)/sqrt(b)), with a=3+2z and b=2z-1. Writing E=e^-z and D=b+(aE-2)^2=a-4aE+a^2E^2, the numerator of theta'-phi' over a sqrt(b)D simplifies to 2a^2 E(E+z-1), strictly positive by E>1-z. Thus F_k increases from the excluded -π/2 to the excluded kπ/2, crossing exactly floor(k/2) odd half-period targets transversely. Since g_k(0)=1, the signs alternate, giving the stated negative components and parity for the tail. On an unweighted n-vertex star, the hub basis vector splits into squared masses 1/n at eigenvalue 0 and (n-1)/n at n. A large enough finite n shifts each of the finitely many selected negative samples to a negative hub value, while the separating scalar roots give 1/n, and both step endpoints have positive limits. This proves at least the stated number of bounded components (no fixed-star uniformity claimed). The unique g_2 minimum at e^{z_*}=10+4z_* equals -1/(5+2z_*); 3<z_*<3.5 gives -1/11<m_*<-1/12. The spectral mass at zero is 1/n at each vertex of any connected symmetric weighted Laplacian, so (1+(n-1)m_*)/n is a strict positive lower bound through n=12 in the sense that this bound itself is positive. The 13-star at h=3/13 gives (16e^-3-1)/39<0, and equality in the spectral bound requires the nonconstant component to be a single eigenvector, equivalent to equal positive conductances from the given vertex to every other vertex at the stated scaling. Independent replay: python3 /workspace/checks/frozen_replay.py 4; scaled scalar recurrence sign counts sampled over a fixed log grid through stage 40, and rational Taylor enclosures certify e^3>16, e^3<22 and e^3.5>24. The phase proof, not the grid, gives the all-stage count.
 
-Hundsdorfer (1998), *Partially Implicit BDF2 Blends for Convection Dominated Flows*, analyzes general positivity and starting procedures but not the exact-stage zero count as timestep varies under exact exponential startup. Hundsdorfer, Ruuth and Spiteri (2002), *Monotonicity-Preserving Linear Multistep Methods*, prove step restrictions and address starter choices, not separated graph-star negativity windows or the sharp exact-start diagonal cutoff. A public record, *Exact delayed sign loss just beyond BDF2's positivity boundary* (2026), obtains the first negative **stage index** at fixed timestep with **backward-Euler startup**: neither its starter nor quantified independent variable matches this theorem, and its statement does not imply this exact-start all-index zero count. A Richardson-extrapolated backward-Euler record gives a network diagonal extremum for a different one-step transfer function, and TR-BDF2 literature concerns another one-step method. The root-count derivative cancellation and its graph consequence were not found in the inspected primary full texts or searched published records. Historical equivalent formulas in older multistep literature remain a real priority risk; absence of search hits alone is not treated as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The result provides a complete all-index zero-count theorem for the classical multistep response with a physically natural exact heat-step starter. It shows an unbounded number of separated failures and restorations of nonnegative self-transition on finite networks despite scalar absolute stability, with a constructive graph family, and a sharp finite-size 12/13 boundary at the first BDF2 output. These phenomena matter when assessing positivity by isolated timestep tests or short-horizon numerical experiments; they are not arbitrary parameter substitutions or isolated floating-point artifacts.
+The supported distinct contribution is the exact fixed-stage timestep zero count for classical constant-step BDF2 with exponential startup, its separated negativity-window consequence on finite stars, and the sharp stage-two 12/13 diagonal cutoff. Characteristic-root analysis and spectral diagonal extremization are precedented methods, not independent originality claims.
 
-## Boundaries and closest literature
+## value
 
-The diagonal criterion is not a claim of full matrix positivity. The all-stage root theorem is for exact startup; it cannot be transferred to backward-Euler startup without a new proof. The star theorem establishes existence and a lower bound on the number of negative components, not a complete fixed-star classification. Published investigations of BDF2 positivity precede this result; future specialist literature review could still identify equivalent zero-count theorems.
+PASS
 
-- W. Hundsdorfer, CWI report MAS-R9831 (1998): https://ir.cwi.nl/pub/4596/04596D.pdf
-- W. Hundsdorfer, S. J. Ruuth, R. J. Spiteri, CWI report MAS-R0210 (2002): https://ir.cwi.nl/pub/4231/04231D.pdf
-- L. Bonaventura, A. Della Rocca (2015): https://arxiv.org/abs/1510.04303
-- Related BDF2 stage-index result: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14
-- Related Richardson graph-diagonal result: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-the-sharp-28-29-self-transition-barrier-for-richardson-accelerat--56edd79ad0f3
+An exact sign count for a standard integrator with a natural starter answers a question not captured by absolute stability. The graph consequence shows positivity of even a diagonal entry can be lost and recovered repeatedly as step size varies at one stage, and a sharp minimal graph order at the first BDF2 stage gives a reproducible benchmark. It does not claim universal entrywise positivity at small graph orders, or exactly that many star windows.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

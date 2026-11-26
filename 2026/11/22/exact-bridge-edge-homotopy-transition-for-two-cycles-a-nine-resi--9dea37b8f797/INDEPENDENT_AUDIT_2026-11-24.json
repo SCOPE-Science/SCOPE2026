@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:04:39.551492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting one bridge endpoint u and then its closed neighborhood gives the base D=Ind(P_(p-1))*Ind(C_q) and link L=Ind(P_(p-3))*Ind(P_(q-1)), with Y the homotopy cofiber of L→D. When p≡1 the link is contractible; when p≡2 the base is contractible. When p≡0 and p>=6 the inclusion in the first path factor is null because it is a map from a sphere of dimension a-2 to one of dimension a-1; at p=3 the link maps through the equatorial Ind(C_q) in its suspension, which cones off. A join with the null first-factor map is null. Substitution of the path/cycle formulas gives rows (3,2,1), (2,1,1), (1,1,0) with all sphere summands in the claimed dimension. The removed simplices for bridge insertion are precisely those containing {u,v}; the closed star in X meets Y along its edge boundary joined with R=Ind(P_(p-3))*Ind(P_(q-3)). If a residue equals 1 this intersection and the star are both contractible, so the inclusion is an equivalence by a pushout along cofibrations, not merely by inferring equivalence from a contractible quotient. Otherwise the quotient is the double suspension of R, with (3,3) interpreted literally as an interval with its endpoints identified. The long exact sequence gives H_d(Y)→H_d(X) injective with free rank-one cokernel, using reduced homology for d=1; its splitting is integral, not canonical. Inspected `verify.py`, `verification_output.txt` and `VERIFICATION.md`. Their 72 absolute and 36 relative GF(2) results are the recorded bounded checks, not an integral or homotopy proof; the proof also handles the vacuous wedge and empty path.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cactus graphs give wedges of spheres, with at least two spheres in the divisible-by-three cycle case without leaves. Ternary graphs give contractible/single-sphere outcomes in the cases with no induced cycle of length divisible by 3. Adamaszek gives the two general cofiber sequences."
+        ],
+        "reasoning": "The broad graph-class theorems give qualitative or partial constraints but not all nine ranks and degrees or the map on integral homology. The general edge sequence determines the cofiber but not, on its own, the maps from absolute to relative homology.",
+        "searches": [
+          "arXiv:1608.03002, Propositions 3.12 and 3.15",
+          "arXiv:2101.07131, Theorem 1.1",
+          "arXiv:1106.6250v4, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1106.6250v4, 1608.03002, 2101.07131, 2303.08798v2",
+        "Resultary 9dea37b8f797 (self-match) and fa6ec0fb3f7e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting the closed edge neighborhood into Eq. (2) immediately gives the bridge cofiber from the path formulas, including why removal of the edge induces an equivalence for residue 1. The prior qualitative results do not compute the absolute wedge summands or the integral map."
+        ],
+        "reasoning": "The further steps are to control the vertex-link inclusion by a nullhomotopy of one join factor (or contractibility in the other residues), evaluate the wedge summands including the triangle cases, and use the support degrees to force the short exact sequence. The exact absolute classification plus primitive loss is not stated or obtained by direct parameter substitution in the inspected results.",
+        "searches": [
+          "arXiv:1106.6250v4, p. 1 Eqs. (1)–(2)",
+          "arXiv:2303.08798v2, §2 Theorems 2.12–2.13",
+          "arXiv:1608.03002, Propositions 3.12 and 3.15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A matching-complex Resultary result fa6ec0fb3f7e treats these very bridge graphs, but matches edges rather than choosing independent vertices. Daundkar–Panja–Prasad join cycles by identifying one vertex, not by adding a new edge between disjoint cycles. Adamaszek's edge removal inclusion is the same map, with the original graph taken to be B_(p,q)."
+        ],
+        "reasoning": "A matching complex is the independence complex of a line graph, not that of the starting bridge graph. The vertex identification problem also has different deletion links. The edge-removal formalism does apply and must be credited for the relative cofiber method.",
+        "searches": [
+          "Resultary: two-cycle bridge homotopy classification and cycle independence complexes",
+          "arXiv:2303.08798v2 §3",
+          "arXiv:1106.6250v4, Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact independence-bridge title 9dea37b8f797 is the frozen record itself. The matching-complex near-hit fa6ec0fb3f7e and the cycle vertex-wedge theorem are actual distinct classifications with different objects."
+        ],
+        "reasoning": "None of these supplies the nine-residue rank/dimension table for the vertex independence complex of two disjoint cycles joined by one edge.",
+        "searches": [
+          "Resultary: exact bridge edge transition, two cycles",
+          "arXiv:2303.08798v2, Theorem 3.5"
+        ]
+      },
+      "rationale": "The general vertex and edge cofiber methods are prior art. In particular, the bridge's absolute cofiber and the equivalence when either residue is 1 are direct applications of Adamaszek and the classical path formulas (with the elementary augmented-case convention). The supported distinct contribution is the full multiplicity and dimension table together with the integral primitive-loss conclusion, not the cofiber formula on its own.",
+      "residual_risks": [
+        "This was a bounded statement-level comparison. An unindexed exact cut-edge classification or a general theorem supplying the absolute wedge type and the induced map together could change priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY_IMPLIES_COFIBER_SUBCLAIM",
+          "evidence": [
+            "Eq. (2) gives Ind(G)→Ind(G-e) with cofiber double suspension of Ind(G minus N[e]); Eq. (1) gives the analogous vertex-link sequence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1106.6250v4",
+          "material_read": "p. 1 equations (1)–(2), definition of closed edge neighborhood and null-map splitting discussion (OA offset 1000 onward)",
+          "method": "Lawful OA PDF bounded text",
+          "title": "Splittings of Independence Complexes and the Powers of Cycles",
+          "trigger": "General natural cofiber sequences for precisely these vertex/edge inclusions"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Cactus wedge property and at least two spheres if all cycles are divisible by three and there are no degree-one vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.03002",
+          "material_read": "Propositions 3.12 and 3.15, pp. 12 and 14 (OA offsets 29213 and 33115)",
+          "method": "Lawful OA full-text passages",
+          "title": "Homotopy type of circle graphs complexes motivated by extreme Khovanov homology",
+          "trigger": "Cactus-graph wedge theorem includes the target graph"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Contractible-or-sphere dichotomy for the induced-subgraph complexes of ternary graphs, not exact bridge case or map."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2101.07131",
+          "material_read": "Theorem 1.1, p. 1 (OA offset 2103)",
+          "method": "Lawful OA full-text passage",
+          "title": "The homotopy type of the independence complex of graphs with no induced cycles of length divisible by 3",
+          "trigger": "Strong classification for the ternary subset of parameters"
+        },
+        {
+          "assessment": "DIFFERENT_GLUING_AND_STANDARD_INPUTS",
+          "evidence": [
+            "Theorem 3.5 concerns a shared vertex; the earlier numbered formulas describe individual paths and cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2303.08798v2",
+          "material_read": "Theorems 2.12–2.13 and 3.5 (OA offsets 9866 and 19575)",
+          "method": "Lawful OA HTML bounded passages",
+          "title": "Independence complexes of wedge of graphs",
+          "trigger": "A nearby two-cycle table and classical path/cycle inputs"
+        },
+        {
+          "assessment": "DIFFERENT_COMPLEX",
+          "evidence": [
+            "The theorem is for ordinary edge matching complexes, not vertex independence complexes."
+          ],
+          "identifier_or_url": "Resultary fa6ec0fb3f7e",
+          "material_read": "Finding in mirrored RESULT.md, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror",
+          "title": "Bridge-sensitive homotopy classification of two-cycle matching complexes",
+          "trigger": "Identical graph family and bridge-sensitive classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Connecting two cycles is a natural first nontrivial test of how homotopy and integral homology change when a bridge is inserted in a cactus. The full table distinguishes equivalence, loss of one primitive direct summand, and even sphere-to-contractible behavior. This gives information that a qualitative wedge result or knowledge of a relative cofiber alone leaves unresolved; no applicability to longer bridges or arbitrary cactus families is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-For fixed \(N\ge3\), \(1\le k\le N\), and positive edge rate, exactly two active edges per nonempty seed gap give independent Gamma gap clearance times. The exact all-time product CDF follows from disjoint clocks. Strict Poisson upper-tail log-concavity justifies each balancing transfer, including zero-length gaps. Marked uniform seeds give uniformly distributed weak compositions. Inclusion–exclusion computes maximum-gap counts, and fixed factorial moments yield the discrete Gumbel law. Conditional Gamma Chernoff bounds uniformly over \(k\) gaps transfer this to infection times provided \((N/k)/(\log k)^2\to\infty\). No numerical limit is used as a proof. The standalone checker independently evaluated 15,742 finite assertions (exact CTMC Laplace transforms, strict balancing and inclusion–exclusion). Boundary cases with \(k=1\) or \(k=N\) are included in the finite law.
+## correctness
 
-## Originality (PASS, with residual historical risk)
-The closest complete source inspected, Leskelä and Ngo [1], concerns large random configuration graphs of minimum degree at least three and mostly one-source flooding. Its theorem does not imply this deterministic cycle multi-source placement result. Jankowski et al. [2] use discrete independent-cascade seeding for ultimate reach, a different model and objective. Schlemm [3] establishes the classical continuous circular maximum-gap Gumbel limit, which is prior art and is not individually claimed as novel. The specific simultaneous combination of the exact gap-clearance law, strict all-deadline placement extremum, and discrete uniform-seed SI Gumbel flooding penalty was not identified in the examined literature or accessible earlier claim comparisons. Nearby models using expanding Poisson balls and single-root infection on complete bipartite graphs lack the cycle fixed-source implications. Earlier classic FPP, randomized sensor placements and extreme-spacing results pose a real priority risk; the literature comparison is not an independent novelty certification.
+PASS
 
-## Value (PASS)
-This is a natural, finite-size distributional network-design optimization: every completion deadline, not only the mean, is improved by exactly balanced simultaneous seeding. The random-seed extreme-value law establishes the magnitude and fluctuations of the placement penalty, identifying when reliable placement matters by an unbounded \(\log k\) factor. The coupling of exact finite placement optimality with a random-placement asymptotic is useful for spatial spreading protocols. No downstream theorem outside the specified model is asserted.
+While a nonempty gap persists, its susceptible interval has two distinct active boundary edges even for a one-vertex remainder or a single initial seed on a simple cycle. Memorylessness makes the successive waits Exp(2λ); disjoint edge sets give independent clearances conditional on the seed set. This yields the product of Gamma CDFs, with shape zero a point mass (including all vertices seeded and t=0). For z>0 the Poisson tail-to-mass ratio strictly decreases in the threshold, by termwise comparison of its factorial series. Hence Q_(m+1)/Q_m decreases strictly; a one-unit transfer between gaps differing by at least two strictly raises the product. Such transfers decrease the sum of squared gap sizes until every gap differs from any other by at most one. These balanced multisets have the same CDF and are realizable. Marking a uniformly chosen seed gives exactly N rooted realizations per ordered weak composition, so the uniform composition law and the exact inclusion–exclusion coefficient are valid without gap independence. For m=floor(d(log k+x))+1 and fixed j, the logarithm of the binomial ratio in the jth factorial moment is −j(log k+x)+O_j((log k)/d+(log k)^2/k+1/d). In particular the finite-population correction to the linear term is o(1); the source's informal linear-term wording means an additive o(1), not convergence to a fixed constant. The alternating Bonferroni bounds for no exceedance then converge to the Gumbel CDF. Conditional on max gap ≤2d log k, unit-exponential Chernoff tails at εd are bounded by 2 exp(−c_ε d/log k) per gap, since their shapes are at most 2d log k. A union bound is o(1) under the stated d/(log k)^2→∞; thus passage from gaps to scaled flooding time is valid at the Gumbel fluctuation scale. Balanced gaps are d+O(1) and the same bound gives concentration. After dividing the random time by d log k in rate-2λ units and the balanced time by d in the same units, both limits are 1, which proves the ratio under any coupling. These are analytic checks, not extrapolations from finite experiments.
 
-## Closest literature and limitations
-[1] L. Leskelä and H. Ngo, arXiv:1806.09568 (first public 2018-06-25), https://arxiv.org/html/1806.09568v3.
-[2] J. Jankowski et al., arXiv:1809.06656 (first public 2018-09-18), https://arxiv.org/abs/1809.06656.
-[3] E. Schlemm, arXiv:1405.6114 (first public 2014-05-23), https://arxiv.org/abs/1405.6114.
-The theorem excludes nonexponential or nonuniform contact rates and other graph families; random-seed asymptotics require \((N/k)/(\log k)^2\to\infty\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The reviewed distinct claim is the exact finite completion law and strict all-deadline placement theorem for multiple simultaneous seeds on the simple cycle, together with the comparison to a uniform discrete seed set. The continuous maximum-spacing Gumbel law is established prior work and is not credited as a novelty. The closest catalogue balance theorem with the same graph and clock model optimizes first detection, not last clearance.
+
+## value
+
+PASS
+
+A strict placement theorem that simultaneously optimizes every deadline is stronger than optimizing a mean or a selected quantile. The exact law also links two natural benchmarks, balanced and uniform random placement, and quantifies their logarithmic separation rather than treating ordinary fluctuations and initial spacing as the same effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

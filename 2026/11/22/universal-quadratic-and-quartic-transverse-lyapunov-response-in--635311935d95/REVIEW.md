@@ -1,15 +1,21 @@
-# Scientific review: weak-forcing fiber Lyapunov expansion
+# Independent mathematical audit
 
-## Correctness (PASS)
-The primary formula is verified by a contracting analytic graph transform at every fixed \(0<\varepsilon<1\), a four-wave dissociation lemma for the cat-map Fourier frequencies, explicit second/fourth moments of the first graph response, and a cubic graph correction. The proof states both the original-time normalization and the parameter-local limitation. Symbolic polynomial identities and finite frequency cross-checks execute in the attached checker. A finite frequency test is not treated as a proof of the infinite lemma; the Fibonacci recurrence argument is independent of it.
+## correctness
 
-## Originality (PASS within inspected evidence)
-The originating 2023 paper provides the map, the exact fiber derivative and numerical Lyapunov curves, not an exact weak-forcing fourth-order expansion. A separate existing mathematical finding on the same map gives sharp spatial regularity of the *first* invariant-graph response, which does not state or imply the nonlinear fourth-order averaged fiber exponent without additional moment and cubic-response work. Other indexed items on Möbius periodic points and phase-lift cumulants concern different parameter regimes and different invariants. An i.i.d. random-matrix Möbius paper provides background perturbation theory but not a cat-driven circle graph. The full original article was read; the indexed smoothness finding was compared using its public summary because the full linked text could not be fetched. General higher-order response literature may contain an unindexed derivation and remains a residual priority risk.
+PASS
 
-## Mathematical value (PASS)
-This is a nontrivial quantitative calculation in a parameter family introduced to study chaos-driven phase synchronization: its quadratic Lyapunov response does not depend on either the Möbius contraction strength or phase, despite a contraction-dependent graph variance. Its next nonzero coefficient is a positive explicit rational function of the contraction parameter, again independent of phase, because the cat frequencies have no resonances through fourth order. This sharpens the numerical Lyapunov observables used in the originating model and identifies how local transverse attraction weakens under small deterministic chaotic forcing.
+For fixed 0<ε<1, the odd analytic graph transform is a contraction on a small sup-norm ball and its linearized graph equation I−qC_(A^-1), q=(1−ε)/(1+ε), is invertible by a Neumann series. Thus the small graph is attracting, analytic and odd in μ; ergodicity gives the exponent in one iterate of the original map. Independently, project the integer frequency vectors onto the expanding eigendirection of A^-T: their nonzero projections are proportional to powers of λ=(3+√5)/2. After pair cancellations, a largest term can occur only once in a signed sum of at most four, and reaching it requires three positive lower powers. Three copies of the preceding power overshoot; two leave a residual strictly between the two preceding powers, since 1/λ<λ−2<1; at most one undershoots since 1/λ+2/λ²<1. This validates the all-index moment reduction, not just a finite scan. With κ=1−q², the derivative is q/(1−κ sin²(πx)); its cubic map coefficient is qκπ²/3 and its log-derivative coefficients are κπ² and π⁴(κ²/2−κ/3). The first graph response has second moment 1/(2κ) and fourth moment 3/(4κ²)−3/(8(1−q⁴)). Its cross moment with the cubic graph response is q²π²/3 times that fourth moment, by splitting off the first j kicks against the backward shift. Substitution gives π²/2 and π⁴(1+3q²)/(16κ), the latter exactly the frozen quartic coefficient. Analytic evenness controls the remainder for each fixed ε; no endpoint uniformity is assumed.
 
-## Limitations
-Local small-forcing theorem only for fixed \(\varepsilon\in(0,1)\); no uniform endpoint assertion, global statistical classification or independently verified publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model, derivative and unforced exponent are antecedent. The inspected exact-family and nearby results do not furnish the two nonlinear response coefficients or a stronger theorem giving them. The distinct claim is the exact deterministic quadratic and quartic expansion on the attracting graph, not the base family or the use of Fourier dissociation itself.
+
+## value
+
+PASS
+
+The transverse exponent is a stability observable of an independently studied deterministic collision model. The exact curvature is a parameter-universal benchmark, whereas fourth order quantifies how contraction first changes that response without phase dependence. This provides analytic information beyond the unforced value and numerics without claiming a global basin or collision threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

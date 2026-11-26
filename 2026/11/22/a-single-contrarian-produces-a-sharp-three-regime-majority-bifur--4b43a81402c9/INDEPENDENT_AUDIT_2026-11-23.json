@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:36:22.501345Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final repaired finding preserves all census formulas. At a=1 the opposite shore is uniform after one update and the two surviving bits obey (c,d)→(1−d,c), giving one four-cycle. At a=2 the opposite shore freezes whenever S=1; an initially unanimous first shore instead forces its sign on the opposite shore at step one. Splitting the fixed points by strict nonunanimous, unanimous, and tied opposite-shore patterns gives the three basin sizes; the step-two count is twice (2^b+H_b)/2. At a≥3, the two canonical first-shore patterns have strict signs, so two strict signs swap and two tied shores are fixed. The frozen proof reversed which pattern updates in the exactly-one-tie case: the tied shore becomes canonical and the strict shore holds. The repair makes this explicit; it implies the strict shore needs a second step exactly when noncanonical, producing the stated N2. No ties can return once lost, so doubly tied states have no distinct predecessors. Complementation gives the polar basin counts. The ordinary rule has the same strict-sign swap and single-tie resolution, giving configuration-wise invariance. Independent direct labeled replay: python3 /workspace/branches/review_checks.py (15,876 states, both sizes 1–6; checks entrance and individual basin counts and ordinary membership). Supplied scripts inspected but not executed; docs corrected to Python 3.10+ for int.bit_count. The proof, not finite tests, establishes the unbounded result. No formal verification. Corrected complete affected files: /workspace/repairs/3/RESULT.md and VERIFICATION.md.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 permits periods 1, 2 and 4, including when both shores are odd. With a loop encoding even-degree inertia, Theorem 3 permits a wider period set.",
+          "Cannings (2009) text not accessible at checked routes."
+        ],
+        "reasoning": "Neither theorem provides exact realized periods, a two-step bound, or basin sizes for the claimed family. No full-text claim about Cannings (2009) is made.",
+        "searches": [
+          "Haslegrave–Cannings arXiv:1606.05496v1 §§1,3",
+          "Cannings DOI 10.1109/GAMENETS.2009.5137464"
+        ]
+      },
+      "checked_sources": [
+        "Bound RESULT.md lines 5–75 and accompanying verification files",
+        "Haslegrave–Cannings arXiv:1606.05496v1",
+        "Cannings 2009 retrieval routes",
+        "Three Resultary records identified above; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The undeleted benchmark explicitly says a two-cycle is reached exactly for strict and opposite initial shore signs.",
+          "Theorem 2 allows four-cycles but does not require them or classify their basins."
+        ],
+        "reasoning": "Credit the ordinary criterion as already stated; its persistence under a contrary site is not implied by the ordinary or edge-deletion recurrence. The repaired local update supplies the new classification.",
+        "searches": [
+          "One-edge majority defect, Undeleted benchmark, mirror offsets 8050–9050",
+          "Haslegrave–Cannings, Theorem 2, PDF p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2 assumes loopless threshold conformers, whereas tie retention on an even open degree depends on the old self-bit.",
+          "The exact mixed-majority Resultary clique studies have within-shore neighbors, not the biclique's two-step cross-shore rule."
+        ],
+        "reasoning": "Minority and nonconformist terminology overlap; rule dependence and the graph prevent identifying these results with the labeled biclique census.",
+        "searches": [
+          "Local Resultary: one nonconformist / mixed majority-minority biclique basin census",
+          "Haslegrave–Cannings arXiv:1606.05496v1, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/17/SCOPE-a-one-vertex-parity-shift-of-four-cycles-in-mixed-majority-minor--c24f14340783 and 2026/11/1/SCOPE-exact-oscillatory-basins-for-a-balanced-complete-graph-majority--6d2b4fc7152d have exact census formulas for cliques.",
+          "2026/11/1/SCOPE-a-one-edge-majority-defect-has-three-exact-basin-responses--4c37e2b972d1 §4 tables/baseline treat ordinary majority and edge removal."
+        ],
+        "reasoning": "There is a natural exact-census index comparison; the concrete graph or defect differs in the nearest inspected entries.",
+        "searches": [
+          "Local Resultary: exact oscillatory basins, majority/minority on complete and complete-bipartite graphs"
+        ]
+      },
+      "rationale": "The retained contribution is the exact all-size labeled census and oscillation-basin invariance for a one-vertex rule change. General period restrictions and the known undeleted criterion are not new. The strongest inspected comparisons do not give the census; this is a best-of-current-evidence judgment, not priority certification.",
+      "residual_risks": [
+        "Cannings (2009) original text inaccessible; exact biclique coverage there remains unresolved.",
+        "Single public lookup did not yield an additional relevant original; unindexed prior work not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial broader period coverage; no exact implication",
+          "evidence": "Theorem 2 assumes no loops and no edges among distinct neighbors of v1, and allows 1-, 2-, or 4-cycles; Theorem 3 is weaker with loops.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.05496",
+          "material_read": "Formal threshold setting p. 2, §3 p. 4, offsets around 7400 and 13600–17777",
+          "method": "OA original PDF, bounded text",
+          "title": "Majority dynamics with one nonconformist",
+          "trigger": "Same one-site defect; potential general theorem"
+        },
+        {
+          "assessment": "Access-limited; plausible historical risk",
+          "evidence": "EUDL 403; IEEE 202 without article text.",
+          "identifier_or_url": "https://doi.org/10.1109/GAMENETS.2009.5137464",
+          "material_read": "No usable original abstract or full text in this pass",
+          "method": "OA EUDL landing and PDF, IEEE landing alternate",
+          "title": "The majority and minority models on regular and random graphs",
+          "trigger": "Earlier mixed majority/minority graphs potentially containing a biclique classification"
+        },
+        {
+          "assessment": "Exact undeleted baseline coverage, not the marked rule change",
+          "evidence": "Basin condition is strict opposite signs; perturbation removes an edge rather than inverting one agent.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-one-edge-majority-defect-has-three-exact-basin-responses--4c37e2b972d1",
+          "material_read": "Finding and §4 Undeleted benchmark, offsets 8050–9050",
+          "method": "Local Resultary and mirrored original",
+          "title": "A one-edge majority defect has three exact basin responses",
+          "trigger": "Same biclique, exact oscillation basins"
+        },
+        {
+          "assessment": "Adjacent exact invariants on complete graphs",
+          "evidence": "The first concerns parity and four-cycles on K_N; the second equal-size conformist/contrarian groups on K_{2k}. Neither is the biclique update.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-one-vertex-parity-shift-of-four-cycles-in-mixed-majority-minor--c24f14340783; 2026/11/1/SCOPE-exact-oscillatory-basins-for-a-balanced-complete-graph-majority--6d2b4fc7152d",
+          "material_read": "Mirrored Finding/Assumptions near offset 0 for each",
+          "method": "Local Resultary and mirrored originals",
+          "title": "Mixed majority–minority clique censuses",
+          "trigger": "Closest local exact orbit/basin results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single contrary rule on a natural symmetric graph changes the realized primitive period sharply at shore sizes 1 and 2, but at 3 and above preserves the precise set of oscillating initial configurations. Exact basin and time-to-attractor formulas quantify those statements for every finite size and tie parity; they are more informative than a period upper bound or a small census. Scope is deterministic, synchronous and tie-retaining, not arbitrary local faults.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

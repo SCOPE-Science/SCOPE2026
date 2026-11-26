@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:42:52.973344Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two-step returns the edge dot-product proof shows reversal: each summand (d+d′)(sgn d+sgn d′) is nonnegative and strictly positive whenever the sign sum is nonzero, even on a cycle. Reversal bounds each signed gap by the given interval, closure imposes sum zero, and total conservation makes periodicity modulo translation actual periodicity. The repaired proof uses this prior census; checked elimination in the eight-state block independently: eliminating six coordinates gives determinant (X−Y)(X+Y)/(λ⁴−1), whose factors cancel λ²+1 and λ²−1 to give the displayed quartics. Trace powers and [z^0](1+z+z⁻¹)^k give the Newton/trinomial formula. Cycles of lengths 2 and 3 in the irreducible block give primitivity, and the polynomial weight z+z²+z³ makes the Perron comparison strict at every nonzero angle. The simple real branch has log curvature −σ² by implicit differentiation, the other contributions are uniformly exponentially bounded, and the Gaussian integral gives the stated constant. Independent check /workspace/branches/54b4f905-8ecc-4681-9c2f-e0a1ad917f00/independent_check.py (logs small_run.txt and full_run.txt there) gives direct counts through n=8, Laurent and Newton checking through n=17, and the exact symbolic determinant. The reproduced values ρ=3.609570902223896, σ²=0.470215736086587, and prefactor 0.581783615600867 are not a proof of asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Duffy et al. address eventual periodicity on cycles/paths; Long–Narayanan establish the period-one-or-two theorem on finite graphs. Mullen–Cox–Nowakowski count path states up to isomorphism."
+        ],
+        "reasoning": "General eventual-period results separate the periodic states from transient objects but do not count them. A path recurrence does not impose a zero gap sum on a cyclic sign word.",
+        "searches": [
+          "arXiv:1609.05792 p. 6",
+          "arXiv:1704.04295 Theorem 1.1",
+          "arXiv:2010.04750 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; independent direct and Laurent calculations",
+        "Earlier Resultary b28ddab7ef35",
+        "arXiv:1609.05792; arXiv:1704.04295; arXiv:2010.04750"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier record supplies the 9-state Laurent matrix, not a two-quartic reduction. The primitive block and entry with successive powers decide uniqueness of the contributing saddle; implicit differentiation of its quartic gives the explicit prefactor."
+        ],
+        "reasoning": "The input makes subsequent analysis possible, but the exceptional factorization and evaluated nonlattice-obstruction check and constants require new algebra beyond specializing the published census or period theorem. Standard Perron and Gaussian-saddle principles are not priority claims.",
+        "searches": [
+          "Resultary b28ddab7ef35 transfer census and zero-sum bijection; arXiv:2010.04750 path recurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing each nonzero gap as bq turns the earlier weight bound q≤1−b(a+c) into precisely the original intervals. Both require zero gap sum, use labelled cycles, and give R_n=1+2N_n. Earlier Finding and Limitations do not give the quartics and prefactor."
+        ],
+        "reasoning": "The exact-census overlap is genuine mathematical equivalence, not two different quotient conventions. The repair asks for the spectral reduction of that very operator and precise growth of its constant term.",
+        "searches": [
+          "Resultary: b28ddab7ef35; zero-winding/recurrent integer diffusion on cycles",
+          "arXiv:2010.04750 path period-two configurations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier table has the same 19,47,171,… for n=3 onward and follows the identical transfer. The inspected finding and comparison sections state the earlier contribution as the finite census, and targeted searches located no quartic or asymptotic passage."
+        ],
+        "reasoning": "Identical counts corroborate the transfer overlap but finite terms do not determine the spectral factorization or asymptotic; the bounded checks do not prove absence of another exact source.",
+        "searches": [
+          "Resultary: b28ddab7ef35 Finding offset 0; literal quartic/asymptotic within prior RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the repaired quartic factorization, evaluated polynomial-only count and sharp asymptotic. The identical census input is marked prior, not counted as a contribution.",
+      "residual_risks": [
+        "Further equivalent prior spectral calculations or a broader enumeration treatment are not excluded by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of census and orbit count, not of the repaired spectral and asymptotic findings in inspected material",
+          "evidence": "Formula N_n=([z^0]tr(T(z)^n)−1)/2 with the same entries; tabulates recurrent classes through n=12.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-zero-winding-transfer-law-for-recurrent-integer-diffusion-on-c--b28ddab7ef35/RESULT.md",
+          "material_read": "Finding offset 0, closure proof offset 4475, prior-work and limitations offset 8050; targeted quartic and asymptotic lookups",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A zero-winding transfer law for recurrent integer diffusion on cycles",
+          "trigger": "Same cycle transfer and finite sequence"
+        },
+        {
+          "assessment": "Background, not evaluated count",
+          "evidence": "Eventual periodicity of diffusion on paths and cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.05792",
+          "material_read": "p. 6, offset 20057",
+          "method": "OA PDF",
+          "title": "A Variation on Chip-Firing: the diffusion game",
+          "trigger": "Cycle diffusion primary result"
+        },
+        {
+          "assessment": "Known period restriction, not count or asymptotics",
+          "evidence": "Eventual period one or two on finite graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.04295",
+          "material_read": "p. 1, Theorem 1.1",
+          "method": "OA PDF",
+          "title": "Diffusion on graphs is eventually periodic",
+          "trigger": "General eventual-period theorem"
+        },
+        {
+          "assessment": "Different graph and quotient",
+          "evidence": "Period-two path recurrence up to isomorphism, no cycle closure condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.04750",
+          "material_read": "p. 1, offset 0",
+          "method": "OA PDF",
+          "title": "Counting Path Configurations in Parallel Diffusion",
+          "trigger": "Prior diffusion configuration enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The central count for periodic points on a labelled cycle is a natural invariant. The repair determines its actual exponential rate, the single zero-winding penalty n^−1/2, and the leading constant, none supplied by counting orientations or by eventual periodicity. The quartics give a practical exact polynomial-only enumerator and the curvature controlling the asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

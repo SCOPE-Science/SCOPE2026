@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:56:11.971944Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–53; check_biclique.py; VERIFICATION.md",
+        "Independent exact Schur-block calculation and branches/correctness_checks.py"
+      ],
+      "rationale": "Independently eliminated the landmark block: with F the complement, the only nonzero Nyström residual block is ((tI+L)_{FF})^{-1}. For a,b surviving vertices on the two shores, the within-shore contrast eigenvalues are t+n and t+2 with multiplicities a−1,b−1 when both shores remain, and the constant-on-shore block is [[t+n,−b],[−a,t+2]]. This gives residuals R_A=n/(t+2), R_B=1/(t+n)+(n−3)/(t+2)+(2t+n+2)/(t²+(n+2)t+4), and R_C=(n−2)/(t+2)+(2t+n+2)/((t+1)(t+n+1)). Exact subtraction independently reproduces all three numerators (workspace/branches/correctness_checks.py, traces). The signs give A vs C at alpha and A vs B at beta; the quartic has all positive coefficients for n=3 and only its constant negative for n≥4. The sign of n³−8n²+16n−12 is negative at 3,4,5 and positive from 6 onward by monotonicity on [4,∞). Thus for n=4,5 gamma<beta<alpha, and for n≥6 alpha<beta<gamma. This verifies endpoint, optimizer and multiplicity statements including the n=3 exception. Uniform convergence of P_n/n³ on bounded intervals and sign bracketing give gamma→√2. ‘No other ties’ means optimal ties, not all equality points of suboptimal scores. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "Only the stated positive shift, combinatorial Laplacian, unweighted graph and exactly two columns are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0fb94c2e184c Finding and Proof §§2–3 (offsets 0–6281): same score on K_{p,q}, phase theorem p≥3; notes degenerate p=2 limit. Fornace–Lindsey, pp. 1–3, general nuclear scores and graph-Laplacian reduction."
+        ],
+        "reasoning": "Neither general approximation theory nor a phase theorem expressly restricted to p≥3 settles the sharp transition between two and three motifs for every n in the excluded p=2 case.",
+        "searches": [
+          "Resultary 0fb94c2e184c; arXiv:2407.01698"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 0fb94c2e184c, 3151e2186be2, 3040bc2335f8",
+        "arXiv:1303.1849; arXiv:2407.01698"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=2, the comparator's V_{p,q} is the frozen quartic and its U_{p,q} factors by (t+q)²(t+2) times 2−(q−2)t. The comparator's lower limiting polynomial has zero, not a positive root, in that specialization. Gittens–Mahoney addresses general approximation error bounds."
+        ],
+        "reasoning": "Pairwise formulas specialize, but the p≥3 phase theorem cannot simply be specialized. The all-size result requires comparing crossing order and treating sizes where the mixed-shore optimum vanishes; it is not a new general score identity.",
+        "searches": [
+          "0fb94c2e184c Proof §§2–3; arXiv:1303.1849 pp. 1–2; 3151e2186be2 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3151e2186be2 Finding gives noiseless finite-leader allocation for the unshifted grounded inverse trace; 3040bc2335f8 Finding gives gain-budget optimization, not selection of two vertices."
+        ],
+        "reasoning": "Grounded precision trace is exactly the Nyström objective after adding tI by block inversion; the t=0 leader formula does not yield the changes as t varies. Continuous diagonal gains are a different optimization even on the same graph.",
+        "searches": [
+          "Resultary: two-landmark Nyström, complete bipartite graph, and grounded inverse trace; 3151e2186be2; 3040bc2335f8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct entries 0fb94c2e184c and 3040bc2335f8 give exact parameters for different regimes/objectives, not a table or threshold statement for this p=2 objective."
+        ],
+        "reasoning": "An exact table would have to use the same shift, pair budget and residual norm; nearby size-six transitions do not identify the same optimization.",
+        "searches": [
+          "Resultary exact 2-landmark screened K_{2,n} and complete bipartite Nyström phase comparisons"
+        ]
+      },
+      "rationale": "Pass for the exact all-n optimal phase diagram, including the degenerate small shore, sharp n=6 frontier and small-size alternative. The same-day general-biclique record supplies much of the score algebra in broader parameters but its phase theorem and finite-size test are stated for p≥3, and do not give the full p=2 frontier or fallback A/B phase. Credit the shared formula framework without inferring priority from date.",
+      "residual_risks": [
+        "Comparisons do not certify priority, including between same-day records.",
+        "External-paper checking was targeted rather than exhaustive; exact positive-shift allocations could be indexed as covariance experimental design or damped leader selection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantially overlapping algebra, not the p=2 all-n theorem",
+          "evidence": "Exact U,V furnished; stated finite-size phase criterion requires 3≤p<q, and p=2 lower limit is degenerate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-three-nystr-m-landmark-phases-on-highly-asymmetric-complete-bipa--0fb94c2e184c/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–3, offsets 0–6281",
+          "method": "Local mirror passage reading and p=2 specialization",
+          "title": "Three Nyström landmark phases on highly asymmetric complete bipartite graphs",
+          "trigger": "Exact same objective and three orbits on a broader family"
+        },
+        {
+          "assessment": "General bounds, no exact orbit thresholds in inspected material",
+          "evidence": "SPSD sketches, spectral/Frobenius/trace error bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1849",
+          "material_read": "pp. 1–2, passages at offsets 1600,3900",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Revisiting the Nyström Method for Improved Large-Scale Machine Learning",
+          "trigger": "Cited Nyström trace background"
+        },
+        {
+          "assessment": "Relevant general algorithms and theory; no stated exact K_{2,n} phase diagram in inspected passages",
+          "evidence": "Graph reduction and inverse Laplacian scores; stationary mode handled by a limiting convention.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.01698",
+          "material_read": "pp. 1–3, passages at offsets 8000,9900",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Column and row subset selection using nuclear scores",
+          "trigger": "Graph-inverse Nyström and nuclear objective"
+        },
+        {
+          "assessment": "Unshifted counterpart",
+          "evidence": "Leader allocation minimizes tr(L_FF^{-1}); no positive parameter.",
+          "identifier_or_url": "Resultary 3151e2186be2",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage reading",
+          "title": "Exact leader allocation and a square-root law on complete bipartite networks",
+          "trigger": "Equivalent grounded-block formulation at zero shift"
+        },
+        {
+          "assessment": "Distinct continuous-design objective",
+          "evidence": "Optimizes tr[(L+diag g)^{-1}] over gains, not a two-element landmark set.",
+          "identifier_or_url": "Resultary 3040bc2335f8",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror passage reading",
+          "title": "Reentrant optimal hub grounding on two-hub bipartite networks",
+          "trigger": "Same graph and comparable exact frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and crossing proof",
+        "Resultary 0fb94c2e184c Finding and proof"
+      ],
+      "rationale": "This exact fixed-budget design example distinguishes a genuine two-transition optimizer from a single-transition optimizer at a sharp size cutoff. It gives every minimizer and tie for the smallest nontrivial shore; the vanishing lower threshold and surviving upper threshold are quantitatively different from the p≥3 limit. The grounded-block calculation alone does not give that frontier.",
+      "residual_risks": [
+        "The phenomenon is demonstrated for the specified graph family and objective, not arbitrary graphs or landmark budgets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:36:00.678139Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected RESULT keeps the positive-integer affine recurrence and exact polynomial. The difference of two floor sums changes each old term only at divisors of n, with increment c; subtracting the d=1 contribution gives s(n)=-1-c times the proper-divisor sum over d>1. Multiplying the convolution equation by mu and setting L=epsilon-mu gives s*(epsilon+tL)=epsilon+(t-1)L. L(1)=0 ensures coefficientwise finite inversion. Each squarefree factorization has the same sign, and inclusion-exclusion counts exactly the occupancy assignments with no empty slots. A prime of exponent E forces at least E slots and makes all E occupied, and K slots must all be prime, verifying the exact lowest and highest degrees and all signs. The already-covered prime threshold is correctly presented as a corollary: even K has positive sign, odd composite K>=3 has magnitude at least (c-1)^(K-1)>=4 for c>=3, and n=30 at c=1 and n=8 at c=2 give the failures. The frozen verifier and recorded output were inspected, not executed. Independent replay: python3 /workspace/branches/independent_probes.py 4; 648 exact floor versus first-factor calculations on 2<=n<=163 for c=1,2,3,4 with the two boundary counterexamples. This is bounded corroboration, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arbitrary-input recurrence paper gives the divisor conversion, not a sign or slope-factorization theorem; its composite implication varies f.",
+          "The sharp-threshold record covers c=0 as well, obtains a congruence for arbitrary n, and a full formula on squarefree n and on prime powers."
+        ],
+        "reasoning": "Modulo c-1 does not control higher coefficients or the multiplicity E-1 on mixed exponents. A squarefree specialization and a separate prime-power formula do not determine mixed-exponent cases by multiplicativity; s_c is not multiplicative in general.",
+        "searches": [
+          "arXiv:2609.25628v1 §1 and Proposition 1",
+          "Resultary 2026/10/18/24815ca37533 §§2–4",
+          "Local Resultary and Dirichlet-convolution primary literature query"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.25628v1",
+        "Resultary 24815ca37533, e1be936699e5, b7d42340c3a6, 353a3129b3e9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The constant-one obstruction concerns c=0 only. The threshold paper already proves the c>=3 prime test, including the c=1,2 counterexamples, and its congruence corresponds to the polynomial's constant coefficient."
+        ],
+        "reasoning": "The repaired conclusion is not the old threshold in new words: it evaluates every coefficient, including for nth inputs with repeated exponents at multiple primes, using Möbius support and same-sign convolution terms. Formal inversion alone is an ingredient, not that coefficient count and its exact extremal degrees.",
+        "searches": [
+          "arXiv:2609.25628v1 Theorem 1 converse",
+          "Resultary 2026/10/4/e1be936699e5",
+          "Resultary 2026/10/18/24815ca37533 §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/18/24815ca37533 proof §§1–4 duplicates the threshold in the frozen record, but its squarefree EGF uses just the number of distinct prime factors and cannot be evaluated on a mixed vector of exponents.",
+          "Resultary 2026/10/18/b7d42340c3a6 and 2026/11/22/353a3129b3e9 count unrestricted ordered factors; that counts a different set, e.g. includes a one-factor term for p^2 q."
+        ],
+        "reasoning": "Compared the direct floor formulation, proper-divisor recursion, squarefree factorizations and unrestricted length polynomials. Only the threshold is an equivalent claim in the strongest matching source; it is now expressly non-novel.",
+        "searches": [
+          "Local Resultary: affine generalized Möbius / fixed-function slope threshold and ordered factorization polynomials",
+          "Web: \"ordered squarefree factorizations\" number-theoretic function Dirichlet convolution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed threshold is an exact result, credited; neighboring factor-length records use unrestricted ordered factors.",
+          "A numeric table on squarefree n or a fixed slope would not certify the claimed symbolic coefficients jointly in all exponents and slopes."
+        ],
+        "reasoning": "No exact index/table coverage found for the repaired universal coefficient theorem; this is a limited comparison, not a claim of exhaustiveness.",
+        "searches": [
+          "Local Resultary: same affine recurrence and signed ordered squarefree length polynomials; Resultary b7d42340c3a6 and 353a3129b3e9"
+        ]
+      },
+      "rationale": "The corrected files limit the distinct claim to the full signed polynomial for arbitrary exponent vectors, its explicit coefficient counts and sharp vanishing order. They credit the exact threshold overlap and acknowledge squarefree EGF, prime-power and constant-term coverage. No inspected statement supplies the mixed-exponent expansion or yields it by simple restriction of one of those special cases.",
+      "residual_risks": [
+        "A differently indexed local coefficient formula could have appeared in the Dirichlet inverse literature; search coverage is bounded.",
+        "The relative priority or provenance of the two threshold proofs is not established by the catalog dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and divisor relation; no fixed-input affine coefficient theorem.",
+          "evidence": [
+            "The composite proof concludes the value is not identically -1 across admissible inputs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.25628v1",
+          "material_read": "OA text offsets 0–4494 and 9750–14382: §1, Proposition 1, converse proof",
+          "method": "Bounded primary text inspection",
+          "title": "A surprising generalization of the Möbius function",
+          "trigger": "Identical recurrence and proposed prime criterion"
+        },
+        {
+          "assessment": "Same frozen threshold; only partial coverage of the repaired coefficient claim.",
+          "evidence": [
+            "§2 reduces mod c-1; §3 treats the Boolean subset lattice of squarefree n; §4 computes prime powers and proves the same sharp threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-affine-slope-threshold-for-fixed-function-m-bius-primality--24815ca37533/RESULT.md",
+          "material_read": "Local mirror, Finding and proof §§1–4 (offsets 0–4513), relations 4513–6099",
+          "method": "Exact indexed record and mathematical comparison",
+          "title": "Sharp affine slope threshold for fixed-function Möbius primality",
+          "trigger": "Same affine recurrence and c>=3 threshold"
+        },
+        {
+          "assessment": "Covers f=1 and exposes the quantifier issue, not the surviving polynomial.",
+          "evidence": [
+            "The constant input yields -1 for all n>=2."
+          ],
+          "identifier_or_url": "Resultary:2026/10/4/SCOPE-a-constant-function-obstruction-to-a-generalized-m-bius-primalit--e1be936699e5",
+          "material_read": "Local mirror, RESULT.md offsets 0–2991",
+          "method": "Exact indexed record inspection",
+          "title": "A constant-function obstruction to a generalized Möbius primality criterion",
+          "trigger": "Prior correction to the same original prime criterion"
+        },
+        {
+          "assessment": "Unrestricted factor lengths, not the squarefree-factor coefficient theorem.",
+          "evidence": [
+            "Each uses ordered factors >1 without requiring that the factors be squarefree."
+          ],
+          "identifier_or_url": "Resultary:2026/10/18/b7d42340c3a6; Resultary:2026/11/22/353a3129b3e9",
+          "material_read": "Local mirror, Findings and assumptions; offsets 0–2139 and 0–2310 respectively",
+          "method": "Statement-level indexed comparison",
+          "title": "Finite ordered-factorization fingerprints recover the prime-exponent multiset; Jacobi zeros and Gaussian lengths for two-prime ordered factorizations",
+          "trigger": "Exact length-polynomial and exponent aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact coefficients explain Liouville signs at every positive shifted slope and quantify how the Möbius zeros disappear: degree detects total prime multiplicity and order at slope one detects maximal prime multiplicity, with both coefficients known explicitly. This addresses the natural affine family on arbitrary exponent patterns, rather than offering only another proof of the threshold or claiming a faster prime test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact conditional recurrence is derived by testing a free element of the interval of order ideals, with the yes/no branches represented by the two ideal-boundary updates. The free set strictly contracts, validating induction. The ideal-count bound controls the dynamic program, while an explicit independent-product subfamily of the two-row grid supplies an online tree of depth \(2k\). The entire class has fewer than \(2^{2k+1}\) hypotheses and at least \(2^{2k}\), giving the matching upper bound. Direct checking reproduces the recurrence on all labeled posets through order four and verifies 30 grid ranks. There is no unproved infinite extension from enumeration.
+## correctness
 
-**Originality — PASS within inspected coverage.** The 2021 zero-set theorem concerns linear-functional zero sets; the 2021 closure theorem concerns Boolean compositions and gives bounds, not exact ranks of order-ideal classes. Poset ideal enumerators do not automatically evaluate Littlestone mistake-tree ranks. A single finite chain-interleaving rank or rooted-tree ideal census does not imply the uniform bounded-width algorithm or the infinite two-row dyadic equality. Searches for 'Ferrers', 'Young diagrams', 'ordered two thresholds', 'monotone staircase', and 'poset ideals' with Littlestone terminology did not identify exact coverage. Absence from search is not conclusive; an unpublished or differently phrased priority remains possible.
+PASS
 
-**Value — PASS.** The claim provides an algorithmic consequence for an entire parameterized family of finite hypothesis classes rather than a selected numerical rank. The width-bounded dynamic program replaces a priori exponentially many residual subsets by polynomially many order-ideal intervals. The dyadic family gives an exact and unbounded separation between VC and online rank at fixed width, with information-bound saturation and all-parameter proof, furnishing sharp adversarial-learning benchmarks. The generic recursion, threshold binary search, and finite enumerations alone are not claimed as the contribution.
+The actual domain is membership queries on all lower ideals of an explicitly given finite poset. Starting with [∅,P], an available x∈U\L genuinely splits the interval: after a positive label the lower endpoint is L∪↓x, and after a negative label the upper endpoint is U\↑x. Each free set shrinks, so induction gives the maximum over root queries of one plus the lesser branch rank (a singleton has rank 0, including for an empty poset). The number of ideals is bounded by counting antichains of maximal elements, including the empty antichain. Thus there are at most (Σ_{j≤w} binom(n,j))² endpoint pairs and at most n queries at each; checking and updating bitsets and preprocessing the order is polynomial overhead. This establishes XP, not FPT. VC shattering is equivalent to being an antichain: comparable points forbid the upper-only pattern, and the downclosure of chosen positives realizes every labeling on an antichain. On the two-row grid the ideals are exactly pairs 0≤b≤a≤n. For each t, the rectangle t≤a≤n, 0≤b≤t is a product of threshold classes with n−t+1 and t+1 concepts; median queries give the sum of the floors of their binary logarithms by concatenation, even when one factor is a singleton. At n=2^(k+1)−2 and t=2^k−1 this gives 2k. The whole grid has 2^(2k+1)−2^k ideals, so the binary leaf count gives the upper bound 2k for every k≥1. Taking t nearest n/2 also proves the all-n logarithmic estimate without claiming the formula holds at every n. This is a full proof replay (RESULT.md §§1–5); the supplied verify.py and its finite coverage were inspected, not run.
 
-Residual limitations: XP rather than FPT complexity; no exact closed formula for arbitrary two-row lengths; possible prior coverage under different terminology. The available review is not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the earlier exact polynomial-state two-row recurrence and finite grid census to Resultary 6262182a47f2. The distinct claims supported here are the explicit endpoint-state transition bound for all finite bounded-width posets and the uniform sharp dyadic rank, not the width-two four-endpoint recurrence, its sample values, the generic Littlestone recurrence or the VC-width identity. The earlier exact computation evaluates every fixed grid but does not give the universal dyadic equality without a separate all-k tree construction.
+
+## value
+
+PASS
+
+The result gives tractable exact online-rank evaluation throughout the natural class of posets of each fixed width, rather than just one structured grid. The rank certificate on the infinite dyadic family realizes the information upper bound in a class with fixed VC dimension; it gives a concrete, quantitative comparison of static and adaptive complexity and an exact benchmark for algorithms. The bounded-width transition estimate and the uniform exact subsequence, not the already available width-two rank table or the elementary VC formula, supply the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

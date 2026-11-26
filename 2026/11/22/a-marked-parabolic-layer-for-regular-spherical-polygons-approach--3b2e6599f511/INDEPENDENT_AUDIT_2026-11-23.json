@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:36:37.830842Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and Steps 1–5",
+        "Frozen verify_spherical_layer.py and VERIFICATION.md, inspected, not executed",
+        "Replay: python3 /workspace/branches/5ca46769-9968-491d-a363-4cb7940440aa/polygon_check.py (ranges and output in adjacent findings.md and polygon_check_output.txt)"
+      ],
+      "rationale": "Use normalized uniform area on the polygon as stated in the scope, so the denominator tends to 2π rather than the whole sphere's 4π. In a folded sector the gnomonic side line is at planar distance tan(R)cos(α); a ray at offset φ meets it at tan(r_max)=tan(R)cos(α)/cos(φ). Its minimum over a sector gives the centered incircle. The spherical inward unit normals to the supporting great circles have equal polar coordinate, with their horizontal directions opposite the side midpoint meridians. For an interior point the smallest signed margin, and hence smallest supporting-circle distance, is to the side of closest midpoint longitude. A shortest segment to a minimizing circle ends in the polygon: the open ball with radius the minimum of the circle distances is contained in every supporting hemisphere. This verifies the use of actual side arcs and the vertex-meridian folds up to area-null ties. Write δ=π/2−ρ=arctan(tan(ε)sec(α)). An independent spherical-excess calculation on 2n right triangles gives polygon area 2π−2n arcsin(sin(α)sin(δ)); subtracting the incircle area gives layer area 2π sin(δ)−2n arcsin(sin(α)sin(δ)). Expanding yields 2n C_α ε+O_n(ε³) before normalization, hence the stated ε coefficient and O_n(ε²) probability remainder. For total variation, the uniform expansions of arctan(tan(ε) cos(φ)/cos(α))/ε and δ/ε give O_n(ε²) boundary shifts; the Jacobian ε cos(εx) has relative error O_n(ε²) on the bounded layer. The limiting band area is exactly 2C_α, so changes in support, density and normalization give the stated L¹ error; rotational symmetry makes the sector index exactly uniform and independent. Vertical and horizontal slices give the displayed first-limit marginals with the proper supports. For the second limit, the transformed lower boundary (cos(αu)−cos α)/(1−cos α) equals 1−u²+O(α²) uniformly; the upper boundary stays 1 and the transformed area is 2/3+O(α²). The second L¹ bound and the density 3/2 follow. Integrating slice lengths gives the quoted two marginals, radial CDF, and mean 7/10. Independent bounded numerical quadrature agreed with spherical excess within 8.6×10^−16 in the tested cases, and direct integrations checked the marked marginal formulas. The numerical check is not a proof of either TV rate.",
+      "residual_risks": [
+        "The O_n constants in the first limit can depend on side count. Only the successive second limit is audited. Near-degenerate floating-point results are diagnostic, not interval-certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spherical cyclic existence/uniqueness and standard polygon area methods describe more general geometric inputs. The candidate already concedes static cap-overlap coverage by Wang's algorithms; the cited dissertation PDF did not load for this audit. The exact layer area also follows by spherical excess without using the conditional distribution."
+        ],
+        "reasoning": "A scalar area or static cap-intersection algorithm does not itself imply a total-variation convergence rate for a joint area-normalized mark; that requires control of the moving support and Jacobian in the new coordinates. No broader inspected marked theorem was found. Unavailable dissertation text is not a finding of non-coverage.",
+        "searches": [
+          "Kouřimská–Skuppin–Springborn arXiv:1506.08069, Theorem 2 and §3",
+          "Lin Wang RFID in Supply Chains 2009 University of Pittsburgh 6276 spherical cap intersection PDF Chapter 8 WangLin_Feb6_2009",
+          "regular spherical polygon incircle area trigonometric formula near equator difference regular polygon and inscribed cap joint longitude colatitude Wang Lin thesis cap intersection"
+        ]
+      },
+      "checked_sources": [
+        "Khalid–Durrani arXiv:1207.5857",
+        "Kouřimská–Skuppin–Springborn arXiv:1506.08069",
+        "Wang thesis cited PDF attempt only",
+        "October 25, November 1 and November 17 published Resultary findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The farthest-point result is on the same geodesic polygons but maximizes distance from one specified vertex, with its own radius threshold. The planar tangential-polygon formulas recover an unordered multiset of normal-angle gaps from the marginal radial law. Neither measures the joint angular–radial mass of a shrinking near-equatorial complement."
+        ],
+        "reasoning": "The reported deterministic and scalar results do not specify the two-dimensional normalized density or its many-sided limit. Even knowing the exact scalar layer probability gives no angular disintegration.",
+        "searches": [
+          "October 25 Resultary, A sharp farthest-point transition on regular spherical polygons",
+          "November 1 Resultary tangential-polygon radial law",
+          "Khalid–Durrani arXiv:1207.5857v1 and Kouřimská et al. arXiv:1506.08069"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event can be written as the difference between a polygon and its centered spherical cap, or as an outer radial gap after folding by the nearest supporting side. The planar radial literature uses the same secant fan geometry; the gnomonic image is planar but carries the nonuniform spherical area density (1+|p|²)^(−3/2), not Euclidean uniform area."
+        ],
+        "reasoning": "A coordinate identification of side lines does not identify the induced sampling law. The planar results examined treat the radial pushforward, not this rescaled joint longitude and pole-distance conditioned outside a spherical incircle.",
+        "searches": [
+          "regular spherical polygon centered incircle uniform random point near hemisphere parabolic layer sector radial distribution asymptotics",
+          "Khalid–Durrani arXiv:1207.5857v1, introduction and side-distance/fan geometry",
+          "November 1 Resultary, Radial-distance laws classify tangential polygons up to cyclic ordering, Steps 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact semantic hit was the assigned record. The November 17 record gives closed formulas and threshold powers for the number of equal caps containing a sphere-uniform point at regularly spaced equatorial sites."
+        ],
+        "reasoning": "That cap count on the full sphere, even at its equatorial threshold, is not a conditioned point inside a pole-centered regular polygon and outside its incircle, and does not tabulate the joint continuous marks or the parabolic band.",
+        "searches": [
+          "Resultary: regular spherical polygons hemisphere incircle marked parabolic layer uniform area",
+          "November 17 Resultary, Exact all-depth spherical-cap laws for regular equatorial point sets, Finding and Proof"
+        ]
+      },
+      "rationale": "Provisional for the marked spherical conditional total-variation limits and accompanying sharp rarity, not for finite spherical polygon area, classical trigonometry, or a finite radial distribution. The local geometric calculation is elementary, but the compared work does not give the conditional joint law or its successive parabolic normalization under the same measure and geometry.",
+      "residual_risks": [
+        "Unindexed spherical stochastic-geometry work could contain equivalent marked thin-layer limits; Wang's older cap-area chapter was unavailable on this route. No priority is asserted for the static area/cap geometry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Euclidean radial law; does not yield the stated spherical conditional marked limit in the compared material.",
+          "evidence": [
+            "The CDF is constructed from overlap of a Euclidean disk centered at the reference location with the regular polygon."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.5857",
+          "material_read": "Abstract, introductory explanation of disk–polygon overlap and geometric side-distance setup",
+          "method": "Primary arXiv PDF text",
+          "title": "Distance Distributions in Regular Polygons",
+          "trigger": "Regular-polygon distance-from-center CDF and side-sector aliases"
+        },
+        {
+          "assessment": "Existence/classification and geometric reduction, not area probability in the compared statements.",
+          "evidence": [
+            "Theorem 2 requires the extra spherical inequality; Proposition 3.2 relates spherical and Euclidean central angles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.08069",
+          "material_read": "Theorem 2 and material from §3 comparing spherical central angles with Euclidean ones",
+          "method": "Primary arXiv PDF text",
+          "title": "A variational principle for cyclic polygons with prescribed edge lengths",
+          "trigger": "Potential stronger spherical polygon geometry"
+        },
+        {
+          "assessment": "Static area coverage conceded; full-text possibility of a closer statement remains unresolved, not treated as negative evidence.",
+          "evidence": [
+            "The candidate cites Chapter 8 for spherical-cap intersection area methods, not as the origin of the marked conditional limits."
+          ],
+          "identifier_or_url": "https://d-scholarship.pitt.edu/6276/1/WangLin_Feb6_2009.pdf",
+          "material_read": "The frozen record's bibliographic and chapter description; exact OA PDF request returned 404",
+          "method": "Reference inspection, independent repository search and exact OA request",
+          "title": "RFID in Supply Chains",
+          "trigger": "Chapter 8 could give more general spherical-cap overlap calculations"
+        },
+        {
+          "assessment": "Same geometric domain, different vertex-based extremal observable.",
+          "evidence": [
+            "Its odd-case transition specifies farthest maximizers among vertices, an entire edge, or its midpoint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-farthest-point-transition-on-regular-spherical-polygons--6f9e3488fec9/RESULT.md",
+          "material_read": "Finding, assumptions, and boundary and threshold proof",
+          "method": "Published Resultary mirror",
+          "title": "A sharp farthest-point transition on regular spherical polygons",
+          "trigger": "Identical geodesic regular polygon class"
+        },
+        {
+          "assessment": "Euclidean radial law and inverse invariant, not the nearby hemispherical marked probability.",
+          "evidence": [
+            "Its side-fan formula is ρ(φ)=r/cos(φ−arg n_i); its area sampling uses a cone Jacobian proportional to the Euclidean radial scale."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-radial-distance-laws-classify-tangential-polygons-up-to-cyclic-o--682fa94d6003/RESULT.md",
+          "material_read": "Finding, scope, and Proof Steps 1, 3 and 4",
+          "method": "Published Resultary mirror",
+          "title": "Radial-distance laws classify tangential polygons up to cyclic ordering",
+          "trigger": "Incenter-centered area-uniform polygon laws and secant side geometry"
+        },
+        {
+          "assessment": "Different sampling event and output; does not cover the centered incircle-exterior conditional law.",
+          "evidence": [
+            "Computes the entire distribution of the multiplicity of containing caps at fixed equatorial sites for a point sampled on S²."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-all-depth-spherical-cap-laws-for-regular-equatorial-point--1f86ecf5421c/RESULT.md",
+          "material_read": "Finding, scope, conditional longitude approach and threshold discussion",
+          "method": "Published Resultary mirror",
+          "title": "Exact all-depth spherical-cap laws for regular equatorial point sets",
+          "trigger": "Whole-sphere regular equatorial coverage near a hemisphere threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and both TV limits",
+        "Planar and spherical prior records compared under originality"
+      ],
+      "rationale": "The polygon and its canonical incircle approach the same hemisphere, so the last piece of area between them is a natural singular geometric object. The joint law shows where that area actually sits: it avoids the side midpoint and concentrates toward vertices, a distinction inaccessible from the scalar rarity. The second scale gives a quantitative and explicit parabolic law as the sectors shrink. This provides interpretable geometry beyond recomputing the area of a fixed polygon.",
+      "residual_risks": [
+        "The conclusion is not a noisy reconstruction or general irregular-polygon result, and no simultaneous limit is evaluated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

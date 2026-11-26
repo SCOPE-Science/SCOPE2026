@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:49:19.555788Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–84",
+        "Frozen VERIFICATION.md and verify.py: finite labelled recursion, exact count recursion, and truncated numerical critical-window comparisons"
+      ],
+      "rationale": "The complete-graph race at k≥2 gives singleton probability q_k=2ε/(k−1+2ε), with a deterministic final singleton at k=1. The decreasing vacancy path cannot skip both members of {2j,2j−1}; the first member visited is selected using only uniforms in higher states. Its uniform is fresh, so the shared-threshold comparison indicators with probabilities ε/j are independent. Subtracting the thresholds and summing gives first-visit error at most 2ε(ζ(2)−1). A second voluntary monomer in a pair contributes at most q_{2j}q_{2j−1}; summation gives at most 4ε²(1−log 2). The initial unpaired odd state and vacancy two contribute at most (5/2)ε together. Adding the Bernoulli-to-Poisson error ≤2ε²(ζ(2)−1), the coefficient after division by ε is at most 4.420 for ε≤1/4. Parity repairs the voluntary count pathwise and deterministic pushforward contracts total variation. The harmonic sum, Poisson mean coupling and a rounding error of at most one give the critical window, PGFs, parity-minimal regime and CLT. For convergence of the actual means, total variation alone is insufficient, but the same uniforms give K_n^{mon}≤1+Σ_{k=2}^n 1{U_k≤q_k}; the independent sum has mean bounded by 2εH_{n−1} and bounded second moment in the critical window. This gives uniform integrability and justifies the stated mean limits. Vertex permutation symmetry yields the uniform label set conditional on every positive-probability count. Frozen exact and numerical tests were inspected, not rerun; the uniform 5ε bound follows analytically.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cadilhe–Privman pp. 1–2 use a pre-treated Bethe lattice.",
+          "Penrose–Sudbury Theorem 7 gives normal approximation for bounded-maximum-degree graph processes, assuming one of its specified deposition or annihilation rules.",
+          "Pippenger's primary full text was not retrieved from the DOI or the identified alternate copy."
+        ],
+        "reasoning": "Neither inspected kinetic theorem covers growth of the degree as n−1 in this mixed-clock process, or gives a uniform terminal count estimate in the critical Poisson window. Pippenger remains an unresolved possible broader lead, not a negative result.",
+        "searches": [
+          "arXiv:cond-mat/0311190",
+          "arXiv:math/0503519 §2.7, Theorem 7",
+          "Pippenger DOI 10.1137/0402034 and identified Citeseer copy"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0311190",
+        "arXiv:math/0503519",
+        "arXiv:1506.08484",
+        "Pippenger DOI 10.1137/0402034, citation and retrieval evidence only",
+        "Resultary …27cbb78034e7, …8fcef0aa0356, …627ac68ff87a, …f4873316c9a6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen studies a stationary imitative mean-field Gibbs model rather than the vacancy chain.",
+          "The impurity law is driven by weak edges incident to designated vertices, and the bridge law by dimers between cliques, not monomers. Neither has the compulsory k=1 singleton giving the pathwise upward rounding formula."
+        ],
+        "reasoning": "Graph-level or qualitative similarities do not yield the decreasing vacancy transition q_k or its rounded count. A Gaussian occupied-count theorem alone would also not imply the uniform TV estimate or the non-Gaussian window.",
+        "searches": [
+          "Chen, arXiv:1506.08484, model/abstract",
+          "Resultary parity-selected impurity and Poisson bridge adsorption records …8fcef0aa0356 and …627ac68ff87a, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At k vacant vertices one can first select a uniform pivot, then keep it single with weight 2ε or match it to one of the k−1 remaining vertices of unit weight each. Averaging over the pivot gives the same single- and pair-event law as the clock race.",
+          "Resultary …f4873316c9a6 gives conditional inversion statistics of uniform involutions with a prescribed number of two-cycles."
+        ],
+        "reasoning": "The pivot procedure is an equivalent sequential random involution with a random singleton count. An involution conditioned on its number of pairs has no information about the kinetic mixing distribution over that number.",
+        "searches": [
+          "Primary-literature lookup: sequential matching with randomized singleton choices",
+          "Resultary: uniform involutions and monomer–dimer matching laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary …27cbb78034e7 treats equilibrium precision/covariance parity on the complete graph.",
+          "Resultary …8fcef0aa0356 gives a parity-selected Poisson-binomial law for remaining weak impurity vertices; …627ac68ff87a counts bridges adsorbed across two cliques, with parity-sensitive jamming."
+        ],
+        "reasoning": "The exact results use different laws or observables from sequential homogeneous singleton clocks on one clique. Their dates do not determine priority, and their Poisson/parity motifs do not identify the terminal monomer distribution.",
+        "searches": [
+          "Resultary: exact complete-graph monomer–dimer laws, and weak-rate logarithmic parity-Poisson adsorption"
+        ]
+      },
+      "rationale": "Best of current knowledge for the irreversible terminal count and its uniform upward-rounded Poisson approximation. Published kinetic and equilibrium results, exact complete-graph catalogue results, and same-date weak-rate Poisson phenomena were compared at their model and observable level. None of the inspected results states or was shown to imply this bound.",
+      "residual_risks": [
+        "Pippenger's full text remains uninspected; an older general sequential matching result with singleton choices or a less visible duplicate could alter the priority assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close kinetic family, not the complete-graph theorem",
+          "evidence": "The stated substrate is a pre-treated Bethe lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0311190",
+          "material_read": "pp. 1–2, offsets 0 and 3198",
+          "method": "Primary PDF passage inspection",
+          "title": "Random Sequential Adsorption of Mixtures of Dimers and Monomers on a Pre-Treated Bethe Lattice",
+          "trigger": "Competitive irreversible two-species adsorption"
+        },
+        {
+          "assessment": "Normal approximation under different model and bounded-degree hypothesis",
+          "evidence": "The theorem treats occupied-site counts for blocking RSA, dimer RSA or annihilation on bounded-degree graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503519",
+          "material_read": "p. 1 and §2.7 Theorem 7, pp. 11–12, offsets 0 and 31800",
+          "method": "Primary PDF passage inspection",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "General graph RSA limit theorem"
+        },
+        {
+          "assessment": "Equilibrium rather than kinetic",
+          "evidence": "The limit theorems are for the complete-graph imitative monomer–dimer Gibbs law.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.08484",
+          "material_read": "p. 1, offset 0, model and abstract",
+          "method": "Primary PDF passage inspection",
+          "title": "Limit Theorems in the Imitative Monomer-Dimer Mean-Field Model via Stein's Method",
+          "trigger": "Complete-graph monomer–dimer limit laws"
+        },
+        {
+          "assessment": "Unresolved full-text risk",
+          "evidence": "DOI access returned 403 and the identified alternate copy timed out. No claim of noncoverage from that failure.",
+          "identifier_or_url": "10.1137/0402034",
+          "material_read": "Bibliographic evidence; primary text not retrieved",
+          "method": "DOI open-access attempt and identified alternate Citeseer copy attempt",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Closest general sequential graph-adsorption lead for matching"
+        },
+        {
+          "assessment": "Different measure and observable",
+          "evidence": "Equilibrium inverse-covariance limits, not kinetic terminal monomer count.",
+          "identifier_or_url": "Resultary 2026/10/25/…27cbb78034e7",
+          "material_read": "Finding, offset 0",
+          "method": "Published-record mirror passage comparison",
+          "title": "A parity reversal in complete-graph monomer-dimer precision",
+          "trigger": "Same graph and species, parity"
+        },
+        {
+          "assessment": "Different clock model and count",
+          "evidence": "Surviving impurity vertices under weak impurity-to-clique dimer clocks.",
+          "identifier_or_url": "Resultary 2026/10/26/…8fcef0aa0356",
+          "material_read": "Finding",
+          "method": "Published-record mirror passage comparison",
+          "title": "Logarithmic weak-impurity adsorption and the parity-selected Poisson law",
+          "trigger": "Logarithmic weak-rate adsorption with parity and a Poisson law"
+        },
+        {
+          "assessment": "Different graph model and Poisson variable",
+          "evidence": "Poisson count is accepted bridge dimers between two complete blocks.",
+          "identifier_or_url": "Resultary 2026/10/26/…627ac68ff87a",
+          "material_read": "Finding",
+          "method": "Published-record mirror passage comparison",
+          "title": "Poisson bridge adsorption and parity-dependent jamming in two cliques",
+          "trigger": "Kinetic Poisson and parity crossover on complete components"
+        },
+        {
+          "assessment": "Does not identify the singleton-count law",
+          "evidence": "Treats inversion statistics conditional on a prescribed number of two-cycles.",
+          "identifier_or_url": "Resultary 2026/11/2/…f4873316c9a6",
+          "material_read": "Finding, offset 0",
+          "method": "Published-record mirror passage comparison",
+          "title": "Spatial inversion law and monotone matching coupling for uniform involutions",
+          "trigger": "Involution reformulation of final singleton/pair partition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Primary and same-date adsorption comparisons under originality"
+      ],
+      "rationale": "The terminal monomer count is intrinsic to the competitive irreversible process. The uniform error across n isolates a genuinely different parity mechanism from conditioning and identifies the logarithmic crossover (including its zero/one probabilities) and both adjacent regimes. The complete graph is a useful mean-field kinetic case rather than a reparametrization of Gibbs matching fluctuations.",
+      "residual_risks": [
+        "No extension to sparse or geometric graphs or nonvanishing-rate count fluctuations is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

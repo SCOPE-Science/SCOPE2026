@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:14:25.173400Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the linear word P^k# with q,k>=2, distinct letters, and r_i>=2, a factor containing # occurs only once. Every other nonunary factor has a unique phase modulo |P|, since its first ordered letter change fixes that phase. It is right-maximal exactly when it is a suffix of P^(k-1): it then occurs both before the final # and at the previous period boundary before a_0. A unary factor shorter than its run has the self follower and its cyclic successor, and if it belongs to the last run it can also have #. The full unary last run has the two boundary followers a_0 and #, whereas the other full unary runs have only one. These cases, including the empty word, place every extension under a listed candidate in suffix order. The candidates are all extensions and have distinct last two symbols (the two long ones end in a_(q-1)a_0 and a_(q-1)#), so none is a suffix of another. This also supplies the suffix direction intended in the aside about a_0 in proof step 2. Each short candidate has one end offset per period, distinct between the first and last positions of any run by r_i>=2. The long candidates have just the last-period first position and the terminal position as their respective single endings. Every smallest set chooses one from each disjoint end class, giving 2q+1 positions and k^(2q-1) sets. For attractors, the q+1 one-letter factors give the lower bound. Choose each last run position of the first period and #. A nonunary factor without # can be shifted so that its first ordered change aligns with the first-period occurrence of that change: the leading unary segment fits in the chosen first-period run, so the shifted occurrence stays inside the text and meets the selected run end. Unary factors end-align there, and marked factors meet #. The supplied literal-substring verifier and captured output were inspected, not run: 246 parameter instances, 12358 extensions and four direct counts of minimum sets corroborate the proof; these are not infinite certificates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General definitions, upper bounds, and SRE constructions apply to arbitrary strings. Fujimaru et al. give an explicit two-set, size-four classification for the terminated Fibonacci family of order n>=6."
+        ],
+        "reasoning": "The general results give the endpoint selection rule, not its inputs in this family; the Fibonacci classification is for different words and does not specialize to arbitrary numbers of distinct runs or periods here.",
+        "searches": [
+          "Cenzato et al., Suffixient Arrays and arXiv:2312.01359v3",
+          "Fujimaru et al. arXiv:2506.05638v7, Lemma 16, and Cenzato et al. arXiv:2506.08225v2, page 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6c84ea8eb81b, 7fb760d3d179 and the assigned e99246fc12d2",
+        "arXiv:2312.01359v3",
+        "arXiv:2506.08225v2",
+        "arXiv:2604.27548",
+        "arXiv:2506.05638v7",
+        "DOI 10.1007/s00224-026-10287-6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The SRE theorem implies the count once the SRE list and its multiplicities are proved. The unmarked attractor theorem, with the compulsory sentinel position, already implies the ancillary marked attractor size for its q>=3 regime."
+        ],
+        "reasoning": "Credit those implications. The periodic-phase classification, the precise competition between unary and boundary extensions, and the resulting count are not supplied by those premises alone.",
+        "searches": [
+          "Köppl–Kucherov, Section 2; Cenzato et al., Lemma 35; 7fb760d3d179, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior suffixient characterization covers marked right-maximal extensions and constructs minimum sets by selecting endings of SREs. The Resultary attractor theorem uses the identical unmarked period family, but hits some occurrence of each factor at an arbitrary position rather than ending right extensions."
+        ],
+        "reasoning": "There is an equivalence between the SRE and minimum-suffixient formulations, but not between attractors and suffixient sets. The general equivalence leaves the family-specific extension list and occurrence counts to establish.",
+        "searches": [
+          "Resultary: smallest suffixient sets, supermaximal right extensions, distinct cyclic runs, sentinel-terminated powers",
+          "Köppl–Kucherov arXiv:2604.27548, Section 2; Cenzato et al. DOI 10.1007/s00224-026-10287-6, Definition 33 and Lemma 35"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 6c84ea8eb81b enumerates binary edit sensitivity through length 14, including small binary instances of the present family as a finite measurement overlap. The 7fb760d3d179 statement counts optimum attractors of unmarked P^k for q>=3. The assigned record itself was also returned and is not independent coverage."
+        ],
+        "reasoning": "Neither result tabulates the exact minimum suffixient position sets for the full marked family; no chronological precedence was inferred for the same-day result.",
+        "searches": [
+          "Resultary: exact minimum suffixient census and complete binary suffixient extremizers",
+          "Resultary 6c84ea8eb81b and 7fb760d3d179"
+        ]
+      },
+      "rationale": "The general correspondence between supermaximal extensions and optimum suffixient sets and the attractor comparison are not the distinct contribution. The supported contribution is the explicit SRE list and exact minimum-set census for the entire marked distinct-run family. The closest retrieved sources give general methods, unrelated symbolic families, or finite binary coverage rather than this parameterized theorem.",
+      "residual_risks": [
+        "A focused catalogue and primary-literature comparison cannot exclude an unindexed equivalent theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework, not the explicit family census",
+          "evidence": [
+            "Correspondence between SRE ending positions and minimum suffixient sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.27548",
+          "material_read": "Section 2, p. 3, offset 6540",
+          "method": "OA primary text",
+          "title": "Smallest suffixient set maintenance in near-real-time",
+          "trigger": "General minimum SRE characterization"
+        },
+        {
+          "assessment": "Known structural equivalence",
+          "evidence": [
+            "One representative per distinct SRE gives an optimum, without the SRE census for these powers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00224-026-10287-6",
+          "material_read": "Definition 33 and Lemma 35, pp. 21–22, offset 66560",
+          "method": "OA primary text",
+          "title": "Suffixient Arrays: A New Efficient Suffix Array Compression Technique",
+          "trigger": "General exact method for computing smallest suffixient sets"
+        },
+        {
+          "assessment": "Exact classification for the separate Fibonacci family",
+          "evidence": [
+            "Terminated Fibonacci words in the stated range have two smallest sets, each of size four."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2506.05638v7",
+          "material_read": "Lemma 16, p. 24, offset 55785",
+          "method": "OA primary text",
+          "title": "Smallest Suffixient Sets: Effectiveness, Resilience, and Calculation",
+          "trigger": "Explicit minimum-set classifications for repetitive families"
+        },
+        {
+          "assessment": "Finite overlap, not an exact parametric census",
+          "evidence": [
+            "Exhaustive binary edit-sensitivity profile through length 14; 16 directed extremizing pairs at the first +6 increase."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-first-six-unit-binary-suffixient-sensitivity-jump-and-its-co--6c84ea8eb81b/RESULT.md",
+          "material_read": "Finding and scope, offsets 0 and 5053",
+          "method": "Resultary lookup and local mirror",
+          "title": "The first six-unit binary suffixient sensitivity jump and its complete length-fourteen extremizers",
+          "trigger": "Exact suffixient computation on terminated binary words"
+        },
+        {
+          "assessment": "Covers the unmarked attractor problem, not suffixient sets",
+          "evidence": [
+            "For q>=3, attractor size q and 2k^(q-1)(k-1) optima with nonsingleton runs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-cyclic-bigram-certificates-and-all-minimum-attractors-of-distinc--7fb760d3d179/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Cyclic bigram certificates and all minimum attractors of distinct-run powers",
+          "trigger": "Same period family and related position-set invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinct contiguous letter runs isolate local within-run branching from periodic phase and sentinel branching, making this a natural family in which to understand exact suffixient complexity. The theorem does more than compute the size: it exhibits every optimum, explains why varying run lengths does not affect their number, and distinguishes this suffix-ending condition from the attractor invariant on the same text.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

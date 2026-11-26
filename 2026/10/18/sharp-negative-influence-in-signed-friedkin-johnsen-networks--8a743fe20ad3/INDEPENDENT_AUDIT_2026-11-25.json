@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:31:14.651153Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97, VERIFICATION.md and verify_signed.py (uploaded script inspected, not executed).",
+        "Independent replay: python3 /workspace/branches/c958cc5d-e240-43e8-bcb8-19e0c3e1206a/census_det.py --n 4; census_det_n4.txt and census_det_n4.time in the same directory. Exact Cramer/Bareiss check on all 624 connected assignments found 104 negatives, eight relabeling classes with the stated representatives and sizes, and minimum -1/5; n=3 gave 20 connected, no negative, minimum zero."
+      ],
+      "rationale": "The opposing edge quadratic forms make I+L_sigma symmetric positive definite; symmetry gives the aggregate coefficient h and strict absolute row contraction gives the stated equilibrium. For a distinguished vertex, the grounded signed and unsigned blocks have the same diagonal. The normalized off-diagonal matrices have absolute row sums strictly less than one, so termwise Neumann-series comparison gives |C^{-1}|<=C_+^{-1}. In the signed Schur quotient, the denominator is positive and at least the unsigned Schur denominator D_+, and the numerator is at least 2-D_+, by the unsigned row-sum identity. If the signed numerator is negative the direction on comparing denominators gives h_i >= 2/D_+-1; otherwise h_i>=0. The unsigned inverse is bounded below in Loewner order by the anchored complete-graph inverse, whose diagonal is 2/(n+1). Thus the lower bound follows also at n=3. The negatively joined universal hub with only positive edges among the leaves attains the bound by the two displayed centralities. The n=1 and n=2 cases give nonnegative entries directly, and e_hub is the nonnegative innate vector attaining -1/5 at n=4. The first-layer criterion and the labeled and unlabeled counts were exhaustively checked by an independent exact determinant calculation. As a separate count given the criterion, hub negative degree three gives 4*8=32 graphs; degree two gives 4*3*3*2=72 because the nonneighbor leaf must be connected to at least one of the other two leaves.",
+      "residual_risks": [
+        "The census does not cover larger orders; the all-order sharp bound instead follows from the analytic comparison. Weighted edges and heterogeneous anchors are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi et al. give both Laplacian conventions and a gauge transform for structurally balanced dynamics. Razaq–Altafini's accessible wisdom-of-crowds paper uses signed degree and L1=0, and studies variance concentration. The CDC primary text was not retrieved."
+        ],
+        "reasoning": "Changing the signed Laplacian convention changes the all-ones response; in particular L1=0 makes the anchored all-ones response equal to 1 when invertible. Results for that convention or for only balanced signs do not supply the opposing-Laplacian bound over all signs.",
+        "searches": [
+          "Shi–Altafini–Baras arXiv:1706.03362, opposing/repelling definitions and gauge transformation",
+          "Razaq–Altafini arXiv:2510.19123v1, repelling Laplacian and variance objective",
+          "Razaq–Altafini CDC 2023 DOI 10.1109/CDC49753.2023.10383479"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1463cbd63c7f",
+        "arXiv:2407.10680v2, 2410.00456v1, 1706.03362 and 2510.19123v1",
+        "CDC 2023 DOI 10.1109/CDC49753.2023.10383479 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sign discussion in §V-A uses a negative coefficient if present; the gauge passage changes to standard consensus only under structural balance. The catalogue result concerns entrywise inverse signs, not row sums."
+        ],
+        "reasoning": "Switching by S=diag(epsilon) sends the aggregate coefficient to S(I+L)^(-1)epsilon, rather than preserving the all-ones solve. Switching the unsigned graph by negating only the chosen hub does explain equality (its row sum becomes 2G_ii-1), but does not prove a uniform lower bound over all signings. That requires the comparison controlling the numerator and the grounded-feedback denominator together, plus a separate classification at n=4.",
+        "searches": [
+          "Zhou et al. §V-A; Shi et al. balance and gauge section; Resultary 1463cbd63c7f RESULT.md finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhou et al. define h=(I+L)^(-1)1 and h^T s and explicitly discuss negative h_i. Shrinate–Tripathy instead sum absolute influence coefficients for the perturbed agent."
+        ],
+        "reasoning": "The first is the same invariant and receives full priority credit for its definition and qualitative sign effect. An absolute sum is not the signed aggregate and cannot give the exact signed bound or sign census without a further argument.",
+        "searches": [
+          "Resultary: opposing signed Laplacian, hostile hub, sharp negative structure centrality and frozen title",
+          "Zhou et al. arXiv:2407.10680v2, definitions and §V-A",
+          "Shrinate–Tripathy arXiv:2410.00456v1, Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The substantive Resultary hit 1463cbd63c7f gives a threshold for negativity of inverse entries for a path with two antagonistic shortcuts. In the accessible primary signed-FJ passages the reported observation is that h_i can be negative, rather than a census over the 624 connected assignments."
+        ],
+        "reasoning": "An inverse-entry sign threshold in one family does not encode the all-ones inverse row-sum classification, even for the particular path. No directly comparable table was located; text misses are not proof of its absence.",
+        "searches": [
+          "Resultary bound and census queries for hostile hub, four-vertex signed graphs, and structure centrality",
+          "Exact bound/count and hostile-center wording sought in retrieved signed FJ full texts"
+        ]
+      },
+      "rationale": "The nearest primary source establishes precisely the same structure centrality and already observes that it can be negative. The accepted distinct content is the sharp all-order barrier with attaining graphs, the first possible order for a negative aggregate with nonnegative opinions, and the full structural census at that order. No inspected statement was shown to cover that content.",
+      "residual_risks": [
+        "The cited CDC primary paper could not be compared at statement level. A broader signed-resolvent result could imply part of the sharp lower bound; the search does not exclude this or an unlocated prior census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent of the centrality and negativity observation, not demonstrable coverage of the quantitative bound or census.",
+          "evidence": [
+            "Opposing L=B^T B; h=(I+L)^(-1)1 is structure centrality; h_i<0 means lowering innate opinion i increases the equilibrium sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.10680v2",
+          "material_read": "HTML offsets 12100, 74450 and §V-A near 77600",
+          "method": "OA primary text",
+          "title": "Friedkin-Johnsen Model for Opinion Dynamics on Signed Graphs",
+          "trigger": "Same opposing Laplacian and signed aggregate coefficient"
+        },
+        {
+          "assessment": "Different invariant.",
+          "evidence": [
+            "Total perturbation influence is sum_k |Theta_ki|, not the signed column sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.00456v1",
+          "material_read": "Theorem 3, HTML offsets 74200–75693",
+          "method": "OA primary text",
+          "title": "Absolute centrality in a signed Friedkin-Johnsen based model",
+          "trigger": "General signed influence and centrality"
+        },
+        {
+          "assessment": "Standard opposing quadratic form and balanced-gauge argument; the latter does not establish the all-ones extremum.",
+          "evidence": [
+            "Opposing quadratic form uses (x_i-x_j)^2 on positive edges and (x_i+x_j)^2 on negative edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1706.03362",
+          "material_read": "PDF p. 2 Definition 1 near offset 7900 and p. 7 gauge transformation near 22265",
+          "method": "OA PDF text",
+          "title": "Dynamics over Signed Networks",
+          "trigger": "Switching and Laplacian comparison as potential broader coverage"
+        },
+        {
+          "assessment": "Different Laplacian and dispersion objective.",
+          "evidence": [
+            "Repelling L=D-A uses signed in-degree, L1=0; collective accuracy and variance concentration are the objectives."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.19123v1",
+          "material_read": "Abstract and HTML offsets 6836 and 12100",
+          "method": "OA primary text",
+          "title": "Wisdom of Crowds Effects under Antagonistic Interactions and Correlated Opinions",
+          "trigger": "Potentially broader same-model result on aggregate effects"
+        },
+        {
+          "assessment": "Different graph family and entrywise positivity question.",
+          "evidence": [
+            "Endpoint entries of a path resolvent with two equal antagonistic shortcuts change sign at a threshold while positive definiteness persists."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-remote-first-loss-of-inverse-positivity-under-two-symmetric-anta--1463cbd63c7f/RESULT.md",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Remote first loss of inverse positivity under two symmetric antagonistic shortcuts",
+          "trigger": "Strongest related Resultary signed-resolvent hit"
+        },
+        {
+          "assessment": "Unresolved comparison, not negative evidence.",
+          "evidence": [
+            "No substantive primary passage was available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/CDC49753.2023.10383479",
+          "material_read": "No primary text obtained",
+          "method": "DOI attempt returned HTTP 202; OA recovery did not locate a repository copy",
+          "title": "Propagation of Stubborn Opinions on Signed Graphs",
+          "trigger": "Cited signed stubborn-opinion dynamics paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–15 and 77–93",
+        "Zhou et al. arXiv:2407.10680v2 §V-A"
+      ],
+      "rationale": "Knowing that negative influence is possible leaves open both how large the sign reversal can be and whether it can reverse the total with nonnegative innate opinions at very small orders. The sharp barrier and attaining family answer the magnitude question for every order, and the exact first-layer criterion gives a compact graph explanation rather than just a list of examples. These are substantive differences from the known existence of negative centralities.",
+      "residual_risks": [
+        "No inference about individual opinion signs, polarization or weighted signed dynamics is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

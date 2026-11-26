@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. All definitions refer to the two-zero parity-check code over the displayed field. An exact rank-10 elimination gives dimension 232, the distinct-root argument excludes weights 1 and 2, a direct support census excludes weight 3, and both an exhaustive signed-pair count and an independent exhaustive support count give the same positive weight-four coefficients. The multiplicity-to-support division uses distance four to rule out nonproportional words on one support.
+## correctness
 
-## Originality
-PASS for the precise minimum-weight spectrum comparison, subject to the literature risk below. The two primary papers establish the constructions and optimal [242,232,4] parameters; their inspected construction statements, tables, and worked examples do not give these three A4 coefficients. Searches of published records yielded no statement of the same values or a stronger result that immediately implies them. The related three-weight dual-code paper arXiv:1308.5373 gives a full weight distribution at exponent 182 for extension degree 5, not at exponents 2, 16 or 20; its dual MacWilliams coefficient agrees numerically with our baseline at exponent 2, so indirect prior coverage of the baseline is a residual risk. Neither of the two new exponent-specific counts is stated there.
+PASS
 
-## Value
-PASS. Among the three canonical exponent constructions that otherwise have identical basic code parameters, the exact multiplicities quantify genuinely different populations of nearest nonzero words and therefore different minimum-distance error-event multiplicities; they also supply a rigorous monomial-inequivalence invariant. This is a complete natural three-family comparison, not a modified normalization or a random finite slice. The finding does not assert improved distance, all-weight distributions, or a general theorem in every extension degree.
+An independent field implementation verified the primitive power cycle and rank 10 for the two-zero parity checks on 242 coordinates. Matching oriented pairs of signed two-position syndromes with inverse syndromes on disjoint supports gave 145200, 203280, 261360 ordered matches. Every weight-four word has exactly three unordered two-plus-two partitions and two orders of the parts, hence the exact counts are 24200, 33880, 43560. As a second calculation, enumerating each 3^10-word dual and independently evaluating the ternary MacWilliams coefficients for weights 0 through 4 gave (1,0,0,0,24200), (1,0,0,0,33880), (1,0,0,0,43560), respectively. This also confirms minimum distance four without inferring it from the pair-bucket calculation alone. If two codewords of weight four on a common support were independent, a linear combination would cancel a nonzero position and give a nonzero word of weight at most three. Thus each support has exactly two scalar representatives, giving the three asserted support counts. Monomial maps preserve weight multiplicities, so the distinct counts establish pairwise inequivalence among the three codes.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass for the comparative claim, with explicit partial prior coverage: the e=2 multiplicity is already implied by an earlier full dual spectrum for the monomially equivalent exponent v=182, not merely by a coincident number. The weight-four counts for e=16 and e=20 and the resulting three-way distinction are not supplied or implied by the inspected construction theorems, tables, and spectrum examples. Their independent computation adds nonredundant facts; this is not a novelty pass for all three coefficients separately.
+
+## value
+
+PASS
+
+The choice is a comparison of canonical distance-four construction families at a common small nondegenerate admissible extension degree, not a search for an arbitrary anomalous length. At equal length, dimension and minimum distance, the exact leading weight coefficient tracks the multiplicity of minimum words and supports, and here separates three codes up to monomial equivalence by a concrete invariant. The previously covered e=2 value serves only as a baseline. The two residual exact coefficients and their inequivalence consequences are useful for identifying and comparing optimal constructions even without a general weight-distribution theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

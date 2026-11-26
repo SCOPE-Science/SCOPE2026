@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:40:04.630263Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–38",
+        "Frozen VERIFICATION.md and check_friendship.py (inspected, not executed; standard-library replay path in the source)",
+        "Independent exact enumeration of labeled selectors at m=1,2,3"
+      ],
+      "rationale": "For nonnegative inputs the maximal map is represented by independent row choices; its norm is the largest selector norm because every selector is dominated coordinatewise on nonnegative inputs, and its top singular input may be chosen nonnegative. The hub-singleton/all-triangle selector has the two-dimensional constant-outer block given in the source, with Gram trace (2m+13)/9 and determinant 4/9. Its other singular sectors have squared norms at most 4/9. The positive row-Gram eigenvector (r,1,…,1) satisfies 1<r<3 and λr=r+2m/3. For m≥5, comparison to this vector works row by row: triangle rows have same-pair overlaps at most 1/3 and other-triangle overlaps at most 1/9; global rows have weighted sum (r+2m)/(2m+1); leaf singleton rows are bounded by 4/3+(2m−2+r)/(2m+1)<7/3<λ₅; the hub singleton is bounded by λr. For m=4 and a singleton hub the leaf singleton bound drops to 2. With a global hub the all-ones row comparison gives at most 19/9<λ₄, with the triangle and global rows bounded by 13/9 and one. The m=1,2,3 threshold tests were reproduced independently for all 18, 162 and 1,458 labeled selectors, using the symmetric shifted Gram characteristic coefficients in the exact quadratic field. Nonnegative coefficients of the monic det(xI+λI−AAᵀ) preclude a positive root, exactly the required bound, since eigenvalues are real. The original checker uses the same exact test with a scaling and removes only permutations of whole pairs, retaining both orders within a pair. The right singular input h/a=(9λ−4)/2 activates the stated selector; expanding the radical gives the stated asymptotic.",
+      "residual_risks": [
+        "The exhaustive exact computations cover only m≤3. The higher-m bound is justified separately by the analytic row comparisons.",
+        "The input attains the norm but the result does not classify all maximizing inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Soria–Tradacete general sharp inequalities in the inspected opening concern 0<p≤1, not this exponent.",
+          "Theorems 4 and 6 of arXiv:2005.03146v3 apply to complete and star graphs. The sequel's inspected opening also concerns those families."
+        ],
+        "reasoning": "Neither the general bounds at other exponents nor the exact complete/star statements specialize to the target graph with m≥2.",
+        "searches": [
+          "Soria–Tradacete arXiv:1410.6204v1",
+          "González-Riquelme–Madrid arXiv:2005.03146v3 and arXiv:2011.02630v1"
+        ]
+      },
+      "checked_sources": [
+        "Soria–Tradacete arXiv:1410.6204v1",
+        "González-Riquelme–Madrid arXiv:2005.03146v3 and arXiv:2011.02630v1",
+        "Resultary 7051b95c80b8, 31e1847f046d, 64e84c2d1e15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete/star values do not bound sharply for each choice of the extra size-three local rows; neither the unbalanced-bipartite theorem nor the isolated wheel example includes this family.",
+          "Computing the top singular value of a proposed selector is only a lower bound; sharpness here additionally controls every competing selector."
+        ],
+        "reasoning": "The distinction is the matching-rim all-m maximum, not the use of a two-dimensional symmetric block alone.",
+        "searches": [
+          "González-Riquelme–Madrid Theorems 4 and 6, Corollary 5",
+          "Resultary 7051b95c80b8 and 31e1847f046d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is the windmill of triangles or cone over a matching, not a star: each outer vertex has one paired neighbor, so its local ball is of size three rather than two.",
+          "For m=1 this is K₃ and Corollary 5 gives exactly √(4/3). Record 64e84c2d1e15 has the same graph but an edge-variation heat-flow norm instead of a centered vertex maximal norm."
+        ],
+        "reasoning": "The exact equivalence at m=1 is credited. Changing the star by adding a matching changes the actual averaging rows, and a heat-flow estimate for the same graph is not a determination of this norm.",
+        "searches": [
+          "Resultary: friendship graph, windmill, hub-join and strong ℓ² maximal averaging",
+          "González-Riquelme–Madrid arXiv:2005.03146v3 §1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date 7051b95c80b8 treats eventual exact centered strong ℓ² norms for unbalanced K_{a,b}; 31e1847f046d treats the pentagonal wheel K₁∨C₅; 64e84c2d1e15 treats friendship graph heat variation."
+        ],
+        "reasoning": "The retrieved exact neighboring cases were compared on graph and operator. Complete bipartite graphs have no triangles, and the rim in the wheel is not a matching. The heat-flow result concerns a different invariant.",
+        "searches": [
+          "Resultary: windmills, graph-ball averaging, Hilbert/maximal-operator exact norms"
+        ]
+      },
+      "rationale": "The accepted claim is the exact centered ℓ² constant and displayed extremizer for m≥2 on the hub joined to disjoint pairs. The m=1 complete-graph benchmark and general existence of centered finite graph maximal inequalities are credited to prior work. The closest different graph/operator claims and exact star result do not determine these norms. The search establishes a bounded statement-level distinction, not priority over all possible windmill or cone formulations.",
+      "residual_risks": [
+        "Specialist work on cones over matchings or equivalent ball systems may not be indexed by the terms searched. No priority inference is made from same-date records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, inspected general bound is for other exponents",
+          "evidence": "The sharp range there is 0<p≤1, with complete/star extremal cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.6204v1",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage, offset 0",
+          "title": "Best constants for the Hardy–Littlewood maximal operator on finite graphs",
+          "trigger": "General finite-graph centered bounds"
+        },
+        {
+          "assessment": "Covering at m=1 only among the assigned family",
+          "evidence": "Exact ℓ² norms on complete and star graphs; √(4/3) for K₃.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.03146v3",
+          "material_read": "§1.3 p. 5, Theorems 4 and 6 and Corollary 5",
+          "method": "OA PDF passage, offset 16484",
+          "title": "Sharp Inequalities for maximal operators on finite graphs",
+          "trigger": "Same exponent and closely related vertex-symmetric examples"
+        },
+        {
+          "assessment": "Same complete/star focus in the inspected summary",
+          "evidence": "Limiting p-norms and extremizers for those families, not a friendship claim in the passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.02630v1",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF passage, offset 0",
+          "title": "Sharp inequalities for maximal operators on finite graphs, II",
+          "trigger": "Follow-up exact estimates and extremizers"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Sufficiently unbalanced K_{a,b}, not K₁∨(mK₂).",
+          "identifier_or_url": "Resultary 2026/10/26 record 7051b95c80b8",
+          "material_read": "RESULT.md finding and assumptions, offset 0",
+          "method": "Local mirror",
+          "title": "Eventual exact Hilbert norms of maximal averages on unbalanced bipartite graphs",
+          "trigger": "Close same-date norm claim"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "K₁∨C₅ has a cycle rim and different graph balls.",
+          "identifier_or_url": "Resultary 2026/11/1 record 31e1847f046d",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact centered–uncentered maximal separation on the pentagonal wheel",
+          "trigger": "Exact centered norm for a hub join"
+        },
+        {
+          "assessment": "Different operator and invariant",
+          "evidence": "Normalized heat flow and edge-sum variation rather than the maximal-average ℓ² norm.",
+          "identifier_or_url": "Resultary 2026/11/17 record 64e84c2d1e15",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local mirror",
+          "title": "Exact normalized heat variation amplification and a four-triangle threshold",
+          "trigger": "Same friendship graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–14 and 21–35",
+        "González-Riquelme–Madrid arXiv:2005.03146v3 §1.3"
+      ],
+      "rationale": "Friendship graphs are a natural companion to stars and wheels in which a common hub combines with nontrivial local averaging inside each pair. An all-size sharp Hilbert norm, a matching input and its exact asymptotic clarify the effect of the local triangles; the value is not just a new small example or numerical spectral guess.",
+      "residual_risks": [
+        "No assertion for arbitrary windmills, weighted graphs, other exponents or the uncentered operator."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

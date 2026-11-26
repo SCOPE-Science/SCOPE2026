@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:11:09.773549Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the stationary last-reset age a, the free sign segment from the last reset to observation starts in equilibrium for each protocol, and position starts at zero. Its law together with the independent Brownian increments is identical, including the final sign. Mixing over Exp(r) gives equality of the full position–diffusivity law; the scalar characteristic function follows from the two-state Feynman–Kac resolvent. Full reset regenerates; for P the independent sign chains can be coupled to coalesce, followed by a shared position reset. All used moments are finite since the age has exponential tails and diffusivity is bounded. Independently, write J_a=∫₀ᵃ S_u du; conditional on the segment, position is centered Gaussian of variance 2da+2hJ_a. Stationary sign correlations e^(−2k|u−v|) give E[J_A S_A]=1/(r+2k) and E[J_A²]=2/[r(r+2k)] on averaging over A. Thus E[X²]=2d/r, E[X²S]=2h/(r+2k), and its squared-position variance is V as displayed. At lag t, the original squared position contributes e^(−rt)X_0² to conditional mean, and the noise injected at time u contributes conditional mean 2(d+h E[S_u|S_0])du times e^(−r(t−u)), the probability of no subsequent reset. Future resets after u are independent of the sign history up to u in both models. The sign mean is S_0 e^(−λu), with λ=2k for P and λ=r+2k for F. Centering and averaging yields the claimed convolution coefficient B. Its P-minus-F integrand has the additional positive factor 1−e^(−ru), while V,B>0. Evaluating the convolution gives the two rates, the t e^(−rt) term at r=2k, and all ratio asymptotics for r,k>0 and d>h>0. The supplied symbolic and matrix-exponential checker was inspected, not rerun; the path calculation is exact.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grebenkov §3 Eqs. (45)–(48) gives switching-state propagation for first passage, not paired reset interventions.",
+          "Bressloff is the closest named switching-resetting paper. Stationary/resolvent coverage is credited in the frozen record, but the audit could not retrieve lawful full text through the DOI/publisher or find a repository copy."
+        ],
+        "reasoning": "The switching-state propagator is a known tool. The distinct post-reset time generators for the two protocols and covariance ordering are not supplied by that propagator alone. Bressloff overlap beyond accessible information is unresolved, not ruled out.",
+        "searches": [
+          "Bressloff, Switching diffusions and stochastic resetting, DOI 10.1088/1751-8121/ab97e0",
+          "Grebenkov, arXiv:1812.07249v1 §§2–3, integrated diffusivity and switching propagators"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and CHECK.py",
+        "Resultary f3cc5401e836, 0738c1f8fc1e and 1927f7539a31",
+        "Grebenkov arXiv:1812.07249v1",
+        "Kumar–Sadekar–Basu arXiv:2008.03294v1",
+        "Bressloff DOI 10.1088/1751-8121/ab97e0, full text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The run-and-tumble record anticipates the broad pattern of identical stationary laws and a temporal crossover. Its exact temporal formula concerns the drift-coupled signed position under a flip protocol.",
+          "Full-reset stationary densities or no-reset integrated-diffusivity moments cannot discriminate these protocols from equal-time data."
+        ],
+        "reasoning": "The temporal separation is a consequence of protocol-specific propagation of S, combined with the common nonzero mixed moment E[X²S]. It is not a stationary-law implication or a direct substitution in the inspected drift-model covariance. Stationary-law methods and the generic competition of exponents are not claimed as novel in themselves.",
+        "searches": [
+          "Run-and-tumble static state blindness and temporal memory, Resultary f3cc5401e836",
+          "Switching diffusion first-passage/renewal propagators, arXiv:1812.07249v1 and DOI 10.1088/1751-8121/ab97e0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/8, f3cc5401e836: stationary position–direction law independent of reset direction-flip probability and a strictly ordered ordinary position covariance for a thermal run-and-tumble particle.",
+          "Kumar–Sadekar–Basu arXiv:2008.03294v1 §II compares position-only resetting to simultaneous position–orientation resetting in active Brownian dynamics."
+        ],
+        "reasoning": "The prior run-and-tumble direction couples to drift, whereas here sign couples to diffusivity; parity means X has no sign forcing and X² does. Relabeling the hidden states or the reset marks does not identify either generator/observable pair. The active-Brownian intervention resets orientation under a different law and generally distinguishes the stationary spatial distributions.",
+        "searches": [
+          "Resultary: reset protocol retaining vs refreshing the hidden state, invariant one-time law and temporal memory crossover",
+          "Resultary: position-only/full reset, telegraph diffusivity, energy or squared-position autocovariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0738c1f8fc1e classifies stationary positional inverse ambiguity for full renewal and uses a positive-lag ordinary position covariance to recover reset rate.",
+          "1927f7539a31 gives an exact stationary spatial-tail trichotomy for position-only resets with continuously distributed independent diffusivity refreshed on another clock."
+        ],
+        "reasoning": "The exact regimes compared are functions of lag for X², not stationary spatial tails or position covariances in one protocol. The distinct same-day records were compared by actual results, not presumed priority.",
+        "searches": [
+          "Resultary: resetting switching diffusion exact stationary geometry, covariance and inverse ambiguity",
+          "Resultary identifiers 0738c1f8fc1e and 1927f7539a31"
+        ]
+      },
+      "rationale": "The stationary framework and the general phenomenon of static blindness with temporal separation are not new. The supported distinct result is the equality for these two interventions in a switching diffusion, with exact strictly ordered squared-position covariances and a critical r=2k energy-relaxation law. The strongest prior analogue uses a different transport mechanism and observable.",
+      "residual_risks": [
+        "Bressloff's full text could contain additional temporal results not visible in the available material. The closely analogous drift-model result limits any claim of conceptual priority for static blindness or exponent competition generally. No absolute priority is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue, distinct model and observable",
+          "evidence": "Thermal run-and-tumble drift, position reset with a probabilistic direction flip, and ordinary position covariance rather than a diffusive-energy witness.",
+          "identifier_or_url": "Resultary 2026/11/8, f3cc5401e836",
+          "material_read": "Finding and protocol assumptions",
+          "method": "Resultary and OA local mirror",
+          "title": "Static state blindness and a sharp temporal memory crossover under resetting",
+          "trigger": "Same structural phenomenon and exact crossover"
+        },
+        {
+          "assessment": "Distinct exact classification",
+          "evidence": "Full renewal only; compares different parameters via the stationary marginal, and uses Cov(X₀,X_t).",
+          "identifier_or_url": "Resultary 2026/11/22, 0738c1f8fc1e",
+          "material_read": "Finding and reset definition",
+          "method": "Resultary and OA local mirror",
+          "title": "A sharp twofold stationary inverse ambiguity in resetting switching diffusion",
+          "trigger": "Same model family and temporal identifiability"
+        },
+        {
+          "assessment": "Different environment and invariant",
+          "evidence": "Continuously distributed diffusivity with refresh on another clock; stationary spatial tails rather than lagged covariance.",
+          "identifier_or_url": "Resultary 2026/11/22, 1927f7539a31",
+          "material_read": "Finding and model assumptions",
+          "method": "Resultary and OA local mirror",
+          "title": "Sharp stationary spatial-tail trichotomy under independent diffusivity refresh",
+          "trigger": "Independent reset clocks, diffusivity, exact trichotomy"
+        },
+        {
+          "assessment": "Stationary coverage credited, exact paired-temporal coverage not determined from this source",
+          "evidence": "The frozen record attributes stationary joint resetting to its inspected preview; independent access was insufficient to verify the detailed protocol or any covariance passage.",
+          "identifier_or_url": "10.1088/1751-8121/ab97e0",
+          "material_read": "Bibliographic information and frozen description; full text not retrieved",
+          "method": "Lawful DOI, publisher and OA-repository attempts",
+          "title": "Switching diffusions and stochastic resetting",
+          "trigger": "Closest primary stationary model with switching and resetting"
+        },
+        {
+          "assessment": "Framework, not the paired reset comparison",
+          "evidence": "Integrated diffusivity and a propagator for switching state dynamics; no paired-reset covariance in these passages.",
+          "identifier_or_url": "https://arxiv.org/html/1812.07249v1",
+          "material_read": "§2 offset 7400, §3 offset 33480 including Eqs. (45)–(48)",
+          "method": "OA arXiv passages",
+          "title": "A unifying approach to first-passage time distributions in diffusing diffusivity and switching diffusion models",
+          "trigger": "General switching-diffusivity formulation and possible implicit coverage"
+        },
+        {
+          "assessment": "Different active-particle model and orientation reset rule",
+          "evidence": "Compares position and orientation resets for self-propelled motion, not retaining versus equilibrium redraw of a diffusivity sign.",
+          "identifier_or_url": "https://arxiv.org/html/2008.03294v1",
+          "material_read": "§II, offset 5500",
+          "method": "OA arXiv protocol passage",
+          "title": "Active Brownian Motion in two-dimensions under Stochastic Resetting",
+          "trigger": "Position-only versus joint resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two physically interpretable reset interventions cannot be distinguished even by measuring the stationary joint position and diffusivity. The exact squared-position witness works at every positive lag and tells when the reset clock ceases to set the long-lag decay under retention, including the critical polynomial prefactor. It is more informative than merely finding that some transition statistics differ, and is not a finite-sample identification claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

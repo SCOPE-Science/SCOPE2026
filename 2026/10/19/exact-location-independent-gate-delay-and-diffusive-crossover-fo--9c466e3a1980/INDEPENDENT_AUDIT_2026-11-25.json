@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:20:47.846848Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen VERIFICATION.md and verify_antiphase.py, inspected but not executed",
+        "Independent folded-chain reproduction: /tmp/opencode/frozen_oct19_checks.py, block 4"
+      ],
+      "rationale": "The killed chain has a unique finite mean: with positive probability bounded uniformly over its finitely many transient states, the walker reaches the open endpoint before any gate flip within a fixed time. The backward equations use total walk rate two only at interior sites, and include κ in the lost rate at the reflecting endpoint when its flip kills. Reflection gives M₀=M_N=C; the interior average solves ΔM=−1 and thus M_i=i(N−i)/2+C, while the half-difference solves ΔH=2κH with H₀=−C and H_N=C. Substituting H₁/C=sinh θ coth(Nθ/2)−cosh θ into the reflecting endpoint equation gives 2C[κ+sinh θ coth(Nθ/2)]=N+1. The same boundary balance gives C₁=1/[2(1+κ)] when there are no interior points. The derivative of the hyperbolic part, multiplied by 2sinh²(Nθ/2), is cosh θ sinh(Nθ)−N sinh θ>0; the κ part increases as well. For fixed N the hyperbolic term tends to 2/N at zero rate and is asymptotic to κ at large rate. At κ=c/N², Nθ→√(2c) and Nκ→0, yielding the stated crossover and its limiting constants. As a separate check, I folded the process into the frame where 0 is open: a flip sends i to N−i and the chain is killed at 0. Fifteen rational rate/order solves (N=1,2,3,7,11; κ=1/7,2,27/13) gave the location differences exactly and matched the hyperbolic delay at 65 decimal places. The backward-equation proof handles all N and κ.",
+      "residual_risks": [
+        "The cancellation is for a uniform gate initialization, not either conditional profile. Neither higher moments nor other edge or gate rates are treated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The switched diffusion literature sets up coupled backward BVPs, and the alternating planar gates paper gives narrow-window asymptotics. General renewal approaches for continuous- and discrete-time gated network reactions use a fixed target with a reactive or nonreactive state."
+        ],
+        "reasoning": "These precedents supply approaches to write governing equations or decompose reaction times. The inspected statements do not evaluate the site-resolved finite difference solution for a pair of complementary endpoints.",
+        "searches": [
+          "DOI 10.1137/100817103 §2 equations (2.2), (2.4)–(2.7), §5 equations (5.1)–(5.3)",
+          "arXiv:1602.07398v1 §1",
+          "arXiv:2101.05124 pp. 1–2",
+          "arXiv:2109.05593 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 37deb7951bd0",
+        "DOI 10.1137/100817103",
+        "arXiv:1602.07398v1",
+        "arXiv:2101.05124",
+        "arXiv:2109.05593"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuum complementary interval BVP with generator Δ and rate c has average M″=−1 and half-difference H″=2cH. Mixed boundary conditions give M(0)=tanh(√(c/2))/(2√(2c)), exactly the limit of C_N/N² at κ=c/N².",
+          "The continuum boundary derivative does not contain the discrete κ killing term from a gate flip while the walker sits at the endpoint, nor the finite lattice factor N+1."
+        ],
+        "reasoning": "The limit can be obtained by direct solution in the existing BVP framework; it is not independent evidence of novelty. That continuum solution does not imply the site-independent discrete correction or its exact finite-size/rate dependence, which remains distinct on the inspected evidence.",
+        "searches": [
+          "DOI 10.1137/100817103 coupled backward BVP and narrow-gate expansions",
+          "arXiv:1602.07398v1 switched boundary BVP framework",
+          "Resultary 37deb7951bd0 exact formula and model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed antipodal-trap theorem uses a clockwise directed 2k-cycle, uniform initial site and gate, and a mean M_k(g)=(k−1)/2+k(1+2g)^(k−1)/(1+(1+2g)^k).",
+          "Ammari et al. average over the symmetric gate and apply Dirichlet conditions on whichever boundary arc is open and Neumann conditions on the other."
+        ],
+        "reasoning": "The directed cycle has a first-order spatial walk and only a spatially averaged mean; folding the bound path instead produces a symmetric second-difference operator with one reflecting endpoint. The continuum analogue with fixed Δ retains the gate rule, but replaces that discrete operator and its reflecting endpoint equations. Neither is an equivalent finite model.",
+        "searches": [
+          "Resultary: random walk mean exit finite chain reflecting endpoint killing upon gate flip hyperbolic cotangent exact additive delay Poisson path with two complementary endpoints",
+          "Resultary 37deb7951bd0, RESULT.md Finding, Assumptions and Proof",
+          "DOI 10.1137/100817103, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected directed-cycle record supplies an exact formula but for different graph, motion and start averaging. No inspected result or table in this bounded check supplies the path's rational recurrence or C_N, including its N=1 normalization."
+        ],
+        "reasoning": "A numerical or qualitative rate effect would not determine this formula. The directed-cycle law even has a nonmonotone delay for k≥3, so it gives no identity for this strictly decreasing correction.",
+        "searches": [
+          "Configured Resultary search on complementary endpoints and profile; repeated only with the specific endpoint update and hyperbolic term",
+          "Resultary 37deb7951bd0 mathematical finding",
+          "Targeted literature lookup for exact complementary absorbing/reflecting interval escape"
+        ]
+      },
+      "rationale": "The closest inspected exact discrete result uses a directed cycle and a spatially averaged mean. The closest continuum antecedent has alternating boundary gates and supplies the switching-boundary framework; the crossover profile is the explicit interval solution of that framework. Neither covers the closed all-size undirected lattice path profile with reflecting vertices, instantaneous killing on a flip, and uniform initial gate. The distinct supported result is the finite-size endpoint correction and site-independent delay, with controlled convergence to the continuum expression; not a new switched BVP or a novel continuum model.",
+      "residual_risks": [
+        "The independent inspection could not settle comparisons to DOI 10.1063/1.474037 or DOI 10.1088/1751-8113/49/24/245601. Neither inaccessibility nor a search miss establishes novelty.",
+        "An earlier exact finite path calculation under different terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and direct continuum analogue, not an exact discrete path law",
+          "evidence": [
+            "Mean averaged across gate states; mixed Dirichlet/Neumann backward problems on a planar domain; position independence of a leading narrow-window asymptotic term, not an exact finite lattice delay."
+          ],
+          "identifier_or_url": "https://josselin-garnier.org/wp-content/uploads/2013/12/escape.pdf",
+          "material_read": "§2 pp. 818–820, eqs. (2.2), (2.4)–(2.7), text offsets 6200–11831; §5 pp. 824–825, eqs. (5.1)–(5.3), offsets approximately 23700–28668",
+          "method": "OA author PDF and independent continuum interval specialization",
+          "title": "The Mean Escape Time for a Narrow Escape Problem with Multiple Switching Gates",
+          "trigger": "Same antiphase symmetric switching and initially uniform gate"
+        },
+        {
+          "assessment": "Different walk, topology, initialization and rate behavior",
+          "evidence": [
+            "Clockwise directed cycle, antipodal traps, spatially averaged formula; an interior maximum for at least six vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exact-finite-size-trapping-delay-resonance-for-alternating-an--37deb7951bd0",
+          "material_read": "RESULT.md Finding, Assumptions and Proof",
+          "method": "Local published-record mirror",
+          "title": "An exact finite-size trapping-delay resonance for alternating antipodal gates on a directed cycle",
+          "trigger": "Closest exact alternating-trap result on a finite graph"
+        },
+        {
+          "assessment": "General continuum switching BVP framework, not the finite path formula in the inspected passage",
+          "evidence": [
+            "Hitting and exit statistics with stochastically switching reflecting and absorbing boundary conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.07398v1",
+          "material_read": "Section 1, p. 2, OA offsets 4350–8309",
+          "method": "OA primary PDF passages",
+          "title": "Boundary Value Problems for Statistics of Diffusion in a Randomly Switching Environment: PDE and SDE Perspectives",
+          "trigger": "General backward equations could imply a closed limiting solution"
+        },
+        {
+          "assessment": "Method antecedents for a fixed target, not an evaluated complementary endpoint pair",
+          "evidence": [
+            "Network reaction at a fixed target requires its designated reactivity state."
+          ],
+          "identifier_or_url": "arXiv:2101.05124 and arXiv:2109.05593",
+          "material_read": "Model and renewal setup, pp. 1–2 of each; offsets 0–12975 and 7000–16199 respectively",
+          "method": "OA primary PDF passages",
+          "title": "Gated Reactions on Networks (continuous- and discrete-time results)",
+          "trigger": "General discrete graph gating and first-passage formulations"
+        },
+        {
+          "assessment": "Unresolved; not used as negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1063/1.474037",
+          "material_read": "Bibliographic identification only; no accessible full text",
+          "method": "Publisher and DOI retrieval attempts; no lawful repository copy located in bounded check",
+          "title": "Survival of a walker in gated trapping systems",
+          "trigger": "Potentially closer older gated trapping result"
+        },
+        {
+          "assessment": "Unresolved independently; no exclusion inferred from lack of access",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1088/1751-8113/49/24/245601",
+          "material_read": "Bibliographic identification; decisive full text not available on inspected routes",
+          "method": "Publisher and author-upload retrieval attempts",
+          "title": "Diffusion on a Tree with Stochastically Gated Nodes",
+          "trigger": "Gated interval/tree comparison cited by the frozen source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–20 and 25–63",
+        "DOI 10.1137/100817103 §2"
+      ],
+      "rationale": "An all-site finite-path mean is a natural benchmark for random walks with switching endpoints. It identifies an exact invariant of start positions despite stochastic boundary switching, supplies a simple rational evaluation, and distinguishes fast, quasistatic and diffusion-scale switching effects. The finite correction is meaningful even when the continuum profile is obtained by established methods.",
+      "residual_risks": [
+        "The invariant is a mean-time statement for the chosen geometry and uniform initial gate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

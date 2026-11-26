@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:45:05.920400Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Because the center is the derived line, write F(z)=λz and F(v)=Av+c(v)z. Bracket preservation gives ω(Av,Aw)=λω(v,w), and idempotence gives A²=A, λ²=λ and cA+λc=c. Over any field λ is 0 or 1. At λ=1, nondegeneracy forces A injective, hence the identity by idempotence, and then c=0. At λ=0, A is a projection onto an isotropic U and c=ηA is determined by its restriction η to U; conversely these data suffice. Thus the image is the specified graph, has rank r=dim U≤n, and meets the center trivially. Every r≤n occurs by selecting vectors from a symplectic basis. Counting ordered isotropic bases gives q^(2n−j)−q^j extensions at stage j; divide by the ordered-basis count to obtain I_(n,r). Graphs over each U are distinct for distinct η, and a fixed graph leaves exactly the choice of a complement to U in V, parametrized by Hom(V/U,U). This verifies the rank formula, the per-image multiplicity, the zero and full-rank cases, and both example polynomials. No division by 2 is used. A fresh replay enumerated all 512 binary 3×3 matrices, tested the bracket on basis pairs and F²=F, and counted spans of the columns: 64 Lie endomorphisms, with retraction counts (1,12,0,1) by rank and two retractions for each of six rank-one images. This is a bounded check, not the unbounded proof. The bound VERIFICATION.md, REVIEW.md and artifacts/check_heisenberg.py were inspected; the uploaded script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "ca6c766006fb gives a classification and size for each (r,s) automorphism orbit of all retractions. f9d95246e6b5 enumerates all linear Lie endomorphisms, but by itself does not refine its census to this idempotent subset.",
+          "The other inspected Resultary records give the rank polynomial and explicitly use the same complement count, with additional geometry, concentration, or orbit data."
+        ],
+        "reasoning": "The earlier orbit census is directly stronger for the idempotent collection. An all-endomorphism count would not alone imply the needed restricted counts, and later-catalogued overlap is not needed to establish the failure.",
+        "searches": [
+          "Resultary ca6c766006fb Proof §§1–5; f9d95246e6b5 Finding and normal form",
+          "Resultary 9cf8810a2ae3, db14d084cc2c, 3dde01a4dc7f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and artifacts/check_heisenberg.py",
+        "Resultary ca6c766006fb, f9d95246e6b5, 9cf8810a2ae3, db14d084cc2c and 3dde01a4dc7f",
+        "Adjacent primary-literature opening passages: arXiv:1206.5867 (faithful representations), arXiv:1503.00169 (isotropic/coisotropic pairs), arXiv:1303.3376 (real low-dimensional automorphisms)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In ca6c766006fb §1 the central functional has fA=f and is arbitrary on W; §5 counts q^(r(2n−r)) complements K for fixed W. For given graph functional η, each such complement fixes A and then f=ηA is the only choice.",
+          "A graph over W is different for each of the q^r choices of η, and every such choice occurs."
+        ],
+        "reasoning": "The specified-image fiber formula is a direct conditioning of the exact prior classification, requiring no new classification, stabilizer count, or rank argument. The graph count follows by multiplication with the same isotropic-subspace count.",
+        "searches": [
+          "Resultary ca6c766006fb §§1 and 5 (isotropic projections, free functional, complements)",
+          "Resultary 9cf8810a2ae3 §§1–4 (complement and functional factorization)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ca6c766006fb uses the same alternating form construction, F²=F condition and all prime powers, including characteristic two. Its parameter m is the audited n, and each pair (r,s) has image dimension r.",
+          "It gives the same dichotomy: identity or isotropic projection with a free functional on its image."
+        ],
+        "reasoning": "The rank variable merely packages its rank counts; conjugacy refines, rather than changes, the underlying collection of maps. No difference of Lie group/ Lie algebra or scalar field removes the overlap.",
+        "searches": [
+          "Resultary retraction rank spectrum, specified isotropic graph image, finite Heisenberg Lie algebra idempotents",
+          "Resultary ca6c766006fb, Finding, scope and Proof §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The orbit record's exact census has rank-r summand I_(n,r)(q) q^(r(2n−r+1)), plus identity. The other inspected rank-spectrum records state the rank polynomial explicitly."
+        ],
+        "reasoning": "This is a symbolic catalogue of all coefficients, not coincidence of evaluated small examples. Rank zero and the singular-rank gap also follow from that catalogue and the identity orbit.",
+        "searches": [
+          "Resultary exact rank polynomial for Heisenberg Lie retractions; ca6c766006fb rank strata and §5",
+          "Resultary db14d084cc2c and 3dde01a4dc7f rank polynomials"
+        ]
+      },
+      "rationale": "The prior Resultary record ca6c766006fb is on the identical composition-idempotent objects and field range, not merely on automorphisms as objects. It already classifies these maps in finer automorphism orbits and gives the same coefficient in each rank. Its normal form and complement count also imply the entire specified-graph claim by fixing the free functional, rather than summing it over q^r choices. This is verified coverage, not a conclusion from title similarity or from an unavailable paper.",
+      "residual_risks": [
+        "The audit establishes concrete textual coverage, not the first historical discovery or any conclusion about how the works were produced.",
+        "The adjacent primary passages and bounded search do not rule out still earlier results; failure does not depend on finding them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of all ranks and mechanically implies specified-image fiber",
+          "evidence": [
+            "Proof §1 characterizes the maps by W,K,f as above; §5 counts the exact complements and rank-r coefficient.",
+            "Census and orbit sizes include all finite fields and characteristic two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/13/SCOPE-automorphism-orbit-spectrum-of-heisenberg-lie-algebra-retraction--ca6c766006fb/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–5, mirrored offsets 0–8099",
+          "method": "Resultary search and local-mirror full-text passage reading",
+          "title": "Automorphism-orbit spectrum of Heisenberg Lie algebra retractions over finite fields",
+          "trigger": "Earlier-catalogued census of the same retractions"
+        },
+        {
+          "assessment": "Adjacent normal form and count for a larger set, not the decisive earlier result",
+          "evidence": [
+            "The count is not restricted by F²=F."
+          ],
+          "identifier_or_url": "Resultary f9d95246e6b5",
+          "material_read": "Finding and derivation of rank contributions, offsets 0–4696",
+          "method": "Resultary search and mirrored text",
+          "title": "Rank gaps and an automorphism-density transition in finite Heisenberg Lie algebras",
+          "trigger": "Broader rank census for all Lie endomorphisms"
+        },
+        {
+          "assessment": "Matching rank census and complement/functional factors, with additional geometry; later catalogue entry",
+          "evidence": [
+            "It factors the rank count using q^(r(2n−r)) complements and q^r choices of the functional."
+          ],
+          "identifier_or_url": "Resultary 9cf8810a2ae3",
+          "material_read": "Finding and Proof §§1–4, offsets 0–8198",
+          "method": "Resultary search and mirrored text",
+          "title": "Heisenberg Lie retractions: isotropic affine strata and a rank-dominance transition",
+          "trigger": "Same retractions and rank factorization"
+        },
+        {
+          "assessment": "Same census with additional large-field conclusion; later catalogue entry",
+          "evidence": [
+            "The complete rank formula and complement count agree."
+          ],
+          "identifier_or_url": "Resultary db14d084cc2c",
+          "material_read": "Finding and Proof §§1–3, offsets 0–3920",
+          "method": "Resultary search and mirrored text",
+          "title": "Rank spectrum and large-field concentration of retractions of finite Heisenberg Lie algebras",
+          "trigger": "Exact retraction rank spectrum"
+        },
+        {
+          "assessment": "Same rank polynomial and finer orbit data; later catalogue entry",
+          "evidence": [
+            "Counts exact orbit strata in addition to the rank polynomial."
+          ],
+          "identifier_or_url": "Resultary 3dde01a4dc7f",
+          "material_read": "Finding and Proof §§1–5, offsets 0–8346",
+          "method": "Resultary search and mirrored text",
+          "title": "Orbit strata and exact rank counts for Heisenberg Lie algebra retractions",
+          "trigger": "Exact retraction ranks and orbits"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The retraction rank gaps and specified-image multiplicities are natural and could guide work on the endomorphism monoid. In this record, however, the rank enumeration is covered and the proposed refinement is just fixing one of the already free graph functionals while retaining the already counted complements. The tiny examples are checks and do not supply a distinct worthwhile result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

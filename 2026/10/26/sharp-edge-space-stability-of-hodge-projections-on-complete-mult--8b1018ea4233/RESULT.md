@@ -1,125 +1,52 @@
-# Sharp edge-space stability of Hodge projections on complete multipartite graphs
+# The worst complete multipartite graph for edge-gradient fitting at fixed vertex and part counts
 
 ## Finding
-Let \(G=K_{a_1,\ldots,a_r}\) be an unweighted complete multipartite graph, with \(r\ge2\) nonempty parts, positive integer part sizes, and \(N=\sum_i a_i\). Orient its edges arbitrarily and form the edge-to-vertex incidence matrix \(B\), the combinatorial vertex Laplacian \(L=BB^\top\), and the Euclidean edge-space projections
-\[
-P=B^\top L^\dagger B,\qquad Q=I-P.
-\]
-Thus \(P\) projects edge data onto gradients and \(Q\) onto divergence-free flows. Measure both as maps on the real coordinatewise maximum-norm edge space. Define, for integers \(1\le s<N\),
-\[
-F_{\kappa,N}(s)=\frac{s}{N}-\frac{\kappa(N-1)}{N(N-s)}.
-\]
-For an output edge connecting parts of sizes \(a\) and \(b\), **every absolute row sum is exact**:
-\[
-\sum_f|P_{ef}|=2+F_{2,N}(a)+F_{2,N}(b),\qquad
-\sum_f|Q_{ef}|=3+F_{4,N}(a)+F_{4,N}(b).
-\tag{1}
-\]
-Writing \(a_{(1)}\ge a_{(2)}\) for the two largest part sizes gives the sharp operator norms
-\[
-\boxed{\|P\|_{\infty\to\infty}=2+F_{2,N}(a_{(1)})+F_{2,N}(a_{(2)})},
-\tag{2}
-\]
-\[
-\boxed{\|Q\|_{\infty\to\infty}=3+\max_{i<j}\{F_{4,N}(a_i)+F_{4,N}(a_j)\}}.
-\tag{3}
-\]
-The maximizing edge for \(P\) joins two largest parts; the maximizing edge for \(Q\) joins two parts with the largest **scores** \(F_{4,N}(a_i)\), which may instead be the smallest parts.
 
-For every fixed \(2\le r\le N\), the unique part-size multiset maximizing \(\|P\|_{\infty\to\infty}\) is
+Fix integers \(N\ge 2\) and \(2\le r\le N\). Among unweighted complete multipartite graphs with \(N\) vertices and exactly \(r\) nonempty parts, the unique part-size multiset maximizing the coordinatewise maximum-norm amplification of the Euclidean edge-gradient projection is
 \[
-\left\{\left\lfloor\frac{N-r+2}{2}\right\rfloor,
-\left\lceil\frac{N-r+2}{2}\right\rceil,
-\underbrace{1,\ldots,1}_{r-2\ \mathrm{parts}}\right\}.
-\tag{4}
+\{a,b,\underbrace{1,\ldots,1}_{r-2}\},\qquad
+a=\left\lfloor\frac{N-r+2}{2}\right\rfloor,\quad
+b=\left\lceil\frac{N-r+2}{2}\right\rceil.
 \]
-The corresponding exact maximum is (2) evaluated at the two displayed large parts, and for fixed \(r\) as \(N\to\infty\),
+The optimized value is
 \[
-\max\|P\|_{\infty\to\infty}=3-\frac{r+6}{N}+O_r(N^{-2}).
-\tag{5}
+\mathcal M_{N,r}=2+\frac{N-r+2}{N}
+-\frac{2(N-1)}{N}\left(\frac1{N-a}+\frac1{N-b}\right)
+=3-\frac{r+6}{N}+O_r(N^{-2})
 \]
-Always \(\|P\|_{\infty\to\infty}<3\) and \(\|Q\|_{\infty\to\infty}<4\), with both upper bounds asymptotically sharp. For the balanced bipartite graph \(K_{m,m}\),
-\[
-\|P\|_{\infty\to\infty}=3-\frac4m+\frac2{m^2},\qquad
-\|Q\|_{\infty\to\infty}=4-\frac8m+\frac4{m^2}.
-\tag{6}
-\]
-For the tripartite graph \(K_{N-2,1,1}\), \(N\ge4\),
-\[
-\|P\|_{\infty\to\infty}=2-\frac2N,\qquad
-\|Q\|_{\infty\to\infty}=3-\frac6N,
-\tag{7}
-\]
-and the \(Q\)-extremizing edge connects the **two singleton parts**, rather than the dominant part.
+as \(N\to\infty\) at fixed \(r\). The exact formula holds also at the smallest admissible orders. Uniqueness is a statement about the graph up to part permutation, not the choice of the output edge realizing its norm.
 
 ## Assumptions and scope
-All graph edges have unit weight, each part is nonempty, \(r\ge2\), and all vector spaces and induced norms are real. Either edge orientation is allowed: changing orientation only changes the signs of rows and columns and leaves absolute row sums and operator norms unchanged. Here \(L^\dagger\) denotes the Moore–Penrose inverse, the usual graph gradient orientation is specified by \(B\), and \(\|A\|_{\infty\to\infty}=\max_e\sum_f|A_{ef}|\) for a finite real matrix. Each stated inequality concerns these particular orthogonal projections, not the optimal norm over all projections onto the same subspace. Part-size optimization holds for a fixed number of vertices \(N\) and parts \(r\), with \(2\le r\le N\).
+
+Each edge has unit weight, and all part sizes are positive integers. With any orientation, use the real vertex-by-edge incidence matrix \(B\) and combinatorial Laplacian \(L=BB^\mathsf T\). The fitted edge flow is \(Pj=B^\mathsf T L^\dagger Bj\), with \(L^\dagger\) the Moore–Penrose inverse, and the amplification is \(\|P\|_{\infty\to\infty}\) for the unweighted maximum of the absolute edge coordinates. Changing orientation does not affect this norm. Both graph counts \(N,r\) are prescribed; there is no optimization over other linear projections or over edge conductances.
 
 ## Proof
-**1. A two-source Green potential.** Fix an output edge \(e=(u,v)\) joining distinct parts \(A\), \(C\) of sizes \(a,b\). Put
-\[
-p=\frac1{N(N-a)},\quad q=\frac1{N(N-b)},\quad
-U=\frac1N+(a-1)p,\quad V=\frac1N+(b-1)q.
-\]
-Define a vertex potential \(\phi\) by \(\phi_u=U\), \(\phi_x=-p\) at the other \(a-1\) vertices of \(A\), \(\phi_v=-V\), \(\phi_y=q\) at the other \(b-1\) vertices of \(C\), and \(\phi=0\) outside \(A\cup C\). Its sum on \(A\) is \(1/N\), its sum on \(C\) is \(-1/N\), and its total sum is zero. For a zero-mean potential on a complete multipartite graph, at a vertex \(z\) in a part of size \(s\),
-\[
-(L\phi)_z=(N-s)\phi_z+\sum_{y\text{ in the same part}}\phi_y.
-\]
-Substituting the displayed values gives \(L\phi=\delta_u-\delta_v\). Connectivity and mean zero therefore imply \(\phi=L^\dagger(\delta_u-\delta_v)\). For every input edge \(f=(x,y)\), the projection-matrix entry is \(P_{ef}=\phi_x-\phi_y\), with the chosen edge orientations.
 
-**2. Exact absolute row counts.** Let \(c=N-a-b\) be the number of vertices outside the two selected parts. Since \(q\le1/N\le U\) and \(p\le1/N\le V\), every absolute value is resolved by the potential's explicit ordering. Separate edges linking (i) \(u\) and \(v\), (ii) \(u\) to the other \(b-1\) vertices of \(C\), (iii) the other \(a-1\) vertices of \(A\) to \(v\), (iv) the remaining \((a-1)(b-1)\) cross edges, and (v) edges from \(A\cup C\) to the \(c\) outside vertices. Edges between two outside parts contribute zero. The absolute \(P\)-row sum is exactly
+The preceding complete-multipartite endpoint result [1, Finding and Proof §§1–4] gives the exact absolute row sum for an edge joining parts of sizes \(u,v\):
 \[
-\begin{aligned}
-S_P={}&(U+V)+(b-1)(U-q)+(a-1)(V-p)\\
- &+(a-1)(b-1)(p+q)\\
- &+c\,[U+(a-1)p+V+(b-1)q].
-\end{aligned}
+2+f_N(u)+f_N(v),\qquad
+f_N(s)=\frac{s}{N}-\frac{2(N-1)}{N(N-s)}.
 \]
-Elementary simplification yields
+The reference gives absolute column sums for its cut projector, which is this same symmetric matrix. The induced maximum norm is the largest such row sum. Since every pair of distinct parts has edges between them, it suffices to optimize the score over all feasible pairs, accounting for which graphs can attain the optimal pair.
+
+Put \(t=u+v\). Necessarily \(2\le t\le T=N-r+2\). At each fixed \(t\), the strictly concave function \(f_N\) has \(f_N''(s)=-4(N-1)/[N(N-s)^3]<0\). Thus the maximum pair score at sum \(t\) occurs only at the most balanced integer split up to order: if the larger entry exceeds the smaller by at least two, transferring one unit from the larger to the smaller increases the score strictly. Call this balanced score \(g_N(t)=f_N(\lfloor t/2\rfloor)+f_N(\lceil t/2\rceil)\).
+
+For \(r=2\), the sum is forced to equal \(N\). For \(r\ge3\) and \(N\ge5\), the allowed successive increments \(g_N(t+1)-g_N(t)\), with \(t<T\), equal \(f_N(k+1)-f_N(k)\), where \(k=\lfloor t/2\rfloor\le (N-2)/2\). Their signs are the signs of
 \[
-S_P=2+\frac{a+b}{N}-2R,
-\qquad
-R=P_{ee}=U+V=\frac{N-1}{N}\left(\frac1{N-a}+\frac1{N-b}\right).
-\tag{8}
+(N-k)(N-k-1)-2(N-1)
+\;\ge\;\frac{N(N+2)}4-2(N-1)=\frac{(N-2)(N-4)}4>0.
 \]
-The edge resistance \(R\) is between zero and one: \(P\) is an orthogonal projection, and \(R=\langle P\delta_e,\delta_e\rangle\in[0,1]\). For \(f\ne e\), \(Q_{ef}=-P_{ef}\); on the diagonal \(Q_{ee}=1-R\). Thus
-\[
-S_Q=S_P+1-2R.
-\]
-Inserting (8) establishes both identities in (1). Maximizing an absolute row sum gives (3) immediately.
+Hence an optimal pair must use the full feasible sum \(T\), leaving \(r-2\) singleton parts. Conversely, the balanced pair of sum \(T\) and those singleton parts form an admissible graph and attain the bound. For \(r\ge3, N\le4\), each allowed \((N,r)\) has only one multiset, which agrees with the stated one. This proves uniqueness and the exact expression by substitution. Finally \(a,b=N/2+O_r(1)\), so the sum of reciprocals in the formula is \(4/N+O_r(N^{-2})\), giving the displayed expansion.
 
-**3. Largest parts optimize the gradient projection.** For \(a\ge b\), a direct factorization shows
-\[
-F_{2,N}(a)-F_{2,N}(b)=
-\frac{(a-b)[(N-a)(N-b)-2(N-1)]}{N(N-a)(N-b)}.
-\tag{9}
-\]
-When \(r\ge3\), any two distinct parts satisfy \(a+b\le N-1\), so \((N-a)(N-b)\ge 2(N-1)\). Hence the sign in (9) is nonnegative, and part sizes and their \(F_{2,N}\)-scores have the same weak order. For \(r=2\) there is only one pair. This proves (2), including the attaining edge.
+## Reproducibility and relationship to prior work
 
-**4. Unique fixed-size optimizer.** Consider \(F_{2,N}\) on \((0,N)\); direct differentiation gives \(F_{2,N}''(s)<0\), so the sum of its values at two positive integers with fixed sum is uniquely maximized (up to interchange) by the most balanced split. Let
-\[
-h_N(t)=F_{2,N}(\lfloor t/2\rfloor)+F_{2,N}(\lceil t/2\rceil).
-\]
-For \(2\le t<N\), its successive increments are increments of \(F_{2,N}\) at \(k=\lfloor t/2\rfloor\). Exactly,
-\[
-F_{2,N}(k+1)-F_{2,N}(k)
-=\frac{(N-k)(N-k-1)-2(N-1)}{N(N-k)(N-k-1)}\ge0
-\]
-when \(k\le\lfloor(N-2)/2\rfloor\). These increments are strictly positive except at \(N=4,k=1\). If \(r\ge3\), the sum of the two largest parts is at most \(N-r+2\le N-1\); choosing all other parts singleton makes this sum maximal, and balancing the largest two makes the \(F_{2,N}\)-sum maximal. Uniqueness follows from strict concavity and the positive increments, including the exceptional \(N=4\) case where the fixed part-count constraint leaves only the displayed maximizing multiset. For \(r=2\) the two parts already sum to \(N\), and strict concavity gives the same balancing conclusion. The statement (4) follows. Expanding the two \(F_{2,N}\) terms at these balanced sizes for fixed \(r\) yields (5).
-
-**5. Universal upper bounds and contrasting edges.** The fixed-\(r\) maximum in (4) is at most the balanced bipartite maximum at the same \(N\); inserting its even or odd balanced integer parts into (2) gives a quantity strictly below \(3\). Every \(P\)-row sum is therefore strictly below \(3\). Since \(R>0\), equation (8) gives \(S_Q=S_P+1-2R<4\). Formula (6) proves that both bounds are sharp as limiting supremums. For \(K_{N-2,1,1}\), the two part-score values for \(Q\) are \(F_{4,N}(N-2)=-1\) and \(F_{4,N}(1)=-3/N\); their pairwise comparison selects the singleton-to-singleton edge for \(N\ge4\), proving (7).
-
-## Verification
-The accompanying self-contained Python 3 script `verify.py` performs exact-rational grounded-Laplacian inversion and constructs both full projection matrices independently of the closed forms. For all integer multipartite part partitions of \(2\le N\le10\), it verifies the claimed entries, every absolute row sum, the sharp \(P\) and \(Q\) norms, symmetry, a projection-matrix identity, and the fixed-part-count upper bound. The completed run reported `MULTIPARTITE_GRADIENT_EXACT_OK 174858 configurations 128 edge_rows 2926`. Those finite computations corroborate, but do not replace, the all-size algebraic proof given above. Run `python3 verify.py` with only the Python standard library.
-
-## Relationship to prior work
-Jiang, Lim, Yao and Ye (2008) describe the orthogonal graph Hodge/gradient decomposition for ranking data, establishing the underlying \(L^2\) geometry. Kassel and Wu (2013) give the related transfer-current / Green-kernel representation. The new statement does not claim originality for the formula \(P=B^\top L^\dagger B\) or for Hilbert-space norm-one contractivity. Its subject is the **exact induced edge-coordinate maximum norm** for complete multipartite graphs, the two competing edge types for gradient and circulation projection, and the fixed-part-count sharp maximizers. No theorem implying these exact quantities was located in the sections of the two primary texts inspected.
-
-Adjacent exact findings in finite metric geometry concern the Euclidean inradius of complete multipartite symmetric edge polytopes, the Euclidean distortion of complete bipartite transportation spaces, or optimized projections in clustered Lipschitz-free spaces. Those objects are different from the *canonical orthogonal edge-flow projector* here; their sharp constants do not algebraically determine (1)–(7). Previous exact computations on theta networks, wheels, and weighted Boolean cubes concern other graph classes, and the prior complete-multipartite biharmonic-heat result concerns an unrelated semigroup. This is a best-knowledge source comparison, not a proof of global bibliographic uniqueness.
+The finite-graph calculation [1] supplies the per-edge scores, both complementary norms, and a comparison of their norming edge orbits. Those are prior results, not asserted here as new. The extremal question here instead fixes the number of parts and asks which graph realizes the worst amplification among the possible part-size multisets. The optimization in the proof is discrete and includes uniqueness and all boundary orders. As a supplementary finite check, enumerate integer partitions of each \(N\le30\) into \(2\le r\le N\) positive parts, score each pair using the rational formula above, and compare the maximizing multisets. This was checked for all 435 such \((N,r)\) cases; finite enumeration is not the proof. A later companion [2] optimizes over all part counts at fixed vertex count; that does not classify the extremizers at an arbitrary prescribed part count.
 
 ## Limitations
-The graph must be simple, finite, connected, complete multipartite, and unweighted. The theorem does not give these constants for arbitrary graphs or heterogeneous conductances. The maximum in (3) is a simple score comparison; no monotonicity in part size is asserted for the circulation projector. No independent mathematical review or complete historical-priority certification has occurred. Older electrical-transfer-impedance literature could express an equivalent computation using different terminology.
+
+The extremum is for canonical orthogonal gradient fitting on the indicated unweighted graph class, not the projection constant minimized over all projections. The result does not assert uniqueness of a norming edge, or guarantee historical priority beyond the sources compared.
 
 ## References
-1. X. Jiang, L.-H. Lim, Y. Yao, Y. Ye, *Statistical ranking and combinatorial Hodge theory*, arXiv:0811.1067, first publicly posted 2008-11-07, https://arxiv.org/abs/0811.1067.
-2. A. Kassel and W. Wu, *Transfer current and pattern fields in spanning trees*, arXiv:1312.2946, first publicly posted 2013-12-10, https://arxiv.org/abs/1312.2946.
+
+1. *Exact endpoint Hodge norms and an edge-orbit reversal for complete multipartite graphs*, Resultary, 18 October 2026, record `745e7b0c399e`, [Finding and proof](https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-endpoint-hodge-norms-and-an-edge-orbit-reversal-for-comple--745e7b0c399e).
+2. *Sharp endpoint norms of complete multipartite electrical gradient projections*, Resultary, 17 November 2026, record `0f6b407e194c`, [Finding and proof](https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-sharp-endpoint-norms-of-complete-multipartite-electrical-gradien--0f6b407e194c).

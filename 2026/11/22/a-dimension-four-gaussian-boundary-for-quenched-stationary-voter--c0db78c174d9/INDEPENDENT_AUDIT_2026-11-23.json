@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:53:44.898655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Tracing one ancestor backwards at rate-one copying, with independent constant reset hazard r, gives k_r and the fixed-environment conditional mean. Reset before time s makes the future conditional mean term independent of the past spin field; the surviving ancestry gives exp(-rs)P_s, so conditional covariance is bounded by exp(-rs) and the average has conditional variance <=2/(rT). Tonelli and p_s*p_t(0)=p_(s+t)(0) give V_d/r^2 as the Laplace transform of t p_t(0). The walk has coordinate variance t/d, giving the stated local CLT prefactor; integrating the t^(1-d/2) tail gives the Gamma constants below four, the 4/pi^2 logarithm at four, and the finite squared Green norm above four. The maximum weight is k_r(0) by the symmetric semigroup Cauchy–Schwarz bound. Its size relative to sqrt(V_d) tends to zero exactly in the asserted Gaussian regimes; log of the product of cosines gives -u^2/2 plus error O(u^4 max_x k_r(x)^2/V_d), an independent check for the countable array. In d>=5 domination in l2 gives the stated common-field limit; Rademacher fourth cumulants add to -2 sum of fourth powers, with strict negative sign. At d=4, one can also show l4 summability without a spatial Green bound: ||p_t||_4 <= p_t(0)^(3/4), whose tail is O(t^-3/2), so Minkowski gives G_4 in l4. The exact fourth cumulant then gives -2/(4/pi^2)^2=-pi^4/8 multiplying the fourth-power Green sum. For d=1 differentiating the elementary integral of 1/(1+r-cos theta) gives the exact squared-resolvent variance. The supplied verifier and supporting files were inspected as evidence, not executed. An independent bounded check verifies the exact C3 coordinate generator against the resolvent and sign-averaged fourth moments at rates 1/2 and 3/2 (variances 3/8 and 1/2; fourth moments 9/32 and 19/54) and checks five line spectral integrals to within 6e-17 absolute error. These are consistency checks, not substitutes for the infinite proof.",
+      "replay_paths": [
+        "/workspace/branches/voter_resolvent_replay.py"
+      ],
+      "residual_risks": [
+        "Result is a distribution over environments after the conditional stationary time limit; no joint r,T scaling or quenched Gaussian fluctuation in physical time is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grange's model and Fourier kernel are the very same; §3.2 and Appendices B–C concern annealed domain walls. Pymar–Rivera study finite graph spatial stationary mass with fresh rerandomization. The finite-ring corpus comparison concerns annealed pair correlations under two noise mechanisms."
+        ],
+        "reasoning": "A single-time spin conditioned on the environment is still binary; the law here is that of the conditional mean sampled across environments. Neither the fresh-noise density CLT nor annealed pair correlations provide that law.",
+        "searches": [
+          "Grange arXiv:2207.08590v6 §3.1 and Appendices B–C",
+          "Pymar–Rivera arXiv:2112.01478v2 §§1.1–1.3",
+          "Resultary indexed Fixed-opinion memory strictly enhances voter correlations on every finite ring"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.08590v6 §§2.2,3.1–3.2, Appendix B–C",
+        "arXiv:2112.01478v2 §§1.1–1.3",
+        "Resultary indexed finite-ring fixed-memory comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The domain-wall expansion uses only the squared-resolvent integral and a cosine-weighted version. The new fourth cumulant uses sum_x G_4(x)^4, rather than the square of the Green function summed at the same order or a two-point domain-wall quantity."
+        ],
+        "reasoning": "Knowing the mean kernel and squared norm provides essential prior inputs. To identify the law still requires a dominance/no-dominance argument for the normalized independent coefficients, a common-field convergence argument above four and the separate fourth-power Green pairing. The inspected voter Gaussian theorem has a different observable, scaling parameter and noise law.",
+        "searches": [
+          "Grange arXiv:2207.08590v6 §3.1 and Appendix C",
+          "Pymar–Rivera arXiv:2112.01478v2 Theorem 1 and §1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The object equals r(r-L)^(-1) applied to iid signs and evaluated at a site; after normalization this is a Rademacher convolution with the massive lattice Green kernel. Literature hits on random-conductance free fields and random hard-wall constraints concern different disorder mechanisms or covariance kernels."
+        ],
+        "reasoning": "This equivalent formulation is the key potential overlap, not just the words voter time average. The results returned do not supply the law for this independent-source convolution; the limited searches do not exclude a general convolution theorem.",
+        "searches": [
+          "Resultary: fixed original opinion quenched voter local resetting stationary random Green function dimension four Gaussian fourth cumulant",
+          "Literature: random field massive Green function convolution independent disorder weak mass central limit dimension four lattice random field Poisson equation Gaussian non Gaussian single site random massive membrane model voter resetting time average Grange",
+          "Literature: harmonic crystal quenched random external field mean Green function non Gaussian dimension four random interface variance critical d=4 random field Gaussian free field massive disorder distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At unit copy rate, Parseval gives V_d(r)=-4r^2 I'_d(2r) with precisely Grange's integral I_d. Appendix C treats its finiteness above four and its critical logarithmic divergence. Grange's Eq. (21) already gives the 1D geometric weights, whose squared sum immediately yields the quoted variance formula."
+        ],
+        "reasoning": "The principal constants of second-order normalization are tied to known integrals; they are not independent novelty. No returned source tables the law of the normalized conditional mean or its lattice fourth-power Green coefficient.",
+        "searches": [
+          "Grange arXiv:2207.08590v6 Eqs. (21),(97),(142)–(144), Appendix C",
+          "Resultary: fixed original opinion quenched voter local resetting stationary random Green function dimension four Gaussian fourth cumulant"
+        ]
+      },
+      "rationale": "The surviving assessed novelty is the distribution over original fields of the stationary local time-average, including the sharp critical fourth cumulant. The same reset mechanism, resolvent, d=1 kernel and d=4 singular integral boundary already appear in Grange. The variance scaling and Green summability threshold should not be positioned as stand-alone new results. No covering distributional statement or critical fourth-cumulant asymptotic was found in the inspected material.",
+      "residual_risks": [
+        "An unindexed generic theorem about the same massive Green-function random field could give the same distributional conclusion. Search results do not rule it out.",
+        "Originality is limited to the claimed distributional and fourth-order increment and is not a priority claim for the dimension of squared-resolvent divergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers mean kernel, 1D normalization by geometric summation and the squared-resolvent mechanism of the critical dimension; inspected scope is not the field-to-field limit law",
+          "evidence": [
+            "Eq. (21) is the same 1D kernel at tau=1. Eq. (143) is exactly the negative squared denominator with epsilon=2r. Appendix C distinguishes d=4 logarithmic divergence from d>=5 differentiability in the domain-wall calculation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.08590v6",
+          "material_read": "Primary HTML definition, §§2.2 and 3.1–3.2, Eqs. (21),(25),(97),(142)–(144), Appendix C introduction and C.1–C.2",
+          "method": "Matched the one-point kernel and identified its squared Fourier multiplier with a derivative of the prior lattice integral",
+          "title": "Voter model under stochastic resetting",
+          "trigger": "Exact same model, four-dimensional boundary and relevant appendix"
+        },
+        {
+          "assessment": "Different noise and observable; does not imply the frozen claim",
+          "evidence": [
+            "§1.2 freshly rerandomizes at each selected noise update. S is the weighted spatial sum of the stationary configuration on a finite graph; graph size grows in the CLT."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01478",
+          "material_read": "Public v2 PDF text §§1.1–1.3, including Theorem 1 statement/qualitative conditions",
+          "method": "Compare formal reset rule and stationary random variable",
+          "title": "Asymptotic behaviour of the noisy voter model density process",
+          "trigger": "Plausibly broader voter Gaussian transition"
+        },
+        {
+          "assessment": "Reported theorem concerns paired stationary correlations, not the disorder law",
+          "evidence": [
+            "Summary states strict enhancement over fresh resets and a nearest-neighbor domain-wall correction in the finite-ring diffusive rate scaling."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-fixed-opinion-memory-strictly-enhances-voter-correlations-on-eve--6fc6c892fbed",
+          "material_read": "Indexed theorem summary",
+          "method": "Compare observable, finite versus infinite geometry, and limits",
+          "title": "Fixed-opinion memory strictly enhances voter correlations on every finite ring",
+          "trigger": "Same opinion memory mechanism in the published corpus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A local long-time observable conditioned on fixed reset memory need not exhibit the distribution of an annealed current spin. The theorem explains exactly when the accumulated disorder behaves Gaussian and when individual sites retain macroscopic normalized weights. The sharp signed slow logarithmic fourth-order correction at the borderline and explicit non-Gaussian series on the other side add information not supplied by known stationary pair correlations or the resolvent divergence alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:18:48.249562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: proof §§1–4",
+        "Frozen VERIFICATION.md and verify_multipartite.py (inspected, not run)",
+        "/workspace/branches/reproduce_45.py, multipartite()"
+      ],
+      "rationale": "The displayed edge potential sums to zero, with part sums 1/N and -1/N at the two endpoint parts and zero elsewhere. The multipartite Laplacian therefore sends it to the unit source-sink divergence. Signed edge gradients give the cut column; summing the disjoint cross-endpoint-part and endpoint-to-other-part types, using (N-1)/(N-a) >= 1/(N-b) and its reverse, gives F_N(a)+F_N(b). The cut diagonal is (N-1)/N times [1/(N-a)+1/(N-b)], and the complementary norm changes the column sum by 1-2Q_ee. Both matrices are symmetric. For x=N-a and y=N-b in actual distinct parts, x,y>=2 and x+y>=N+1, so xy-2(N-1)=(x-2)(y-2)+2(x+y-N-1)>=0; this gives the two-largest cut rule. In K_(k,2,1), H_N(2)-H_N(1)=(N-6)/(N(N-2)) and H_N(1)-H_N(k)=F_N(k)-F_N(1)=(k-1)/(3N). Thus the cycle maximizing pair is unique even at k=3, when the two selected component scores tie; the strict cut ranking and the two rational norms also check. Independent rational grounded systems reproduced both column sums and cut diagonals on all 780 columns in 45 graphs, with direct maximizing-edge tests including k=3,4,5,6,8,13, via python3 /workspace/branches/reproduce_45.py 4.",
+      "residual_risks": [
+        "The independent computations corroborate the proof; they are not the all-size argument. The conclusion is for the canonical Euclidean projections, not optimization over other projections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier --745e7b0c399e treats r>=2; restriction to r>=3 retains all frozen cases, including the reversal.",
+          "Record --455756fd66a8 is balanced and concerns minimum projection norms; later --0f6b407e194c gives the same cut score and a graph-wide sharp maximum but not the cycle theorem."
+        ],
+        "reasoning": "The earlier r>=2 theorem dominates the actual frozen scope; restricting the hypotheses is not a new case.",
+        "searches": [
+          "Resultary --745e7b0c399e scope and proofs",
+          "Resultary balanced complete multipartite projection norms and sharp electrical-gradient norms"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --745e7b0c399e, --455756fd66a8 and --0f6b407e194c",
+        "arXiv:1611.09457 Corollary 2.6",
+        "arXiv:2305.12582",
+        "arXiv:2610.36276 §1.6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the earlier table F_N(N-3)-F_N(1)=(4N-7)/(3N)-(N-1)/N=(N-4)/(3N), and H_N(1)-H_N(N-3)=(N-3)/N-(2N-5)/(3N) is the same. The unchanged size-2 terms cancel from each comparison.",
+          "The resistance result of Bapat–Karimi–Liu yields Q_ee by simplifying its cross-part resistance, not directly the full column sums and their maximizers."
+        ],
+        "reasoning": "The margin is an immediate arithmetic consequence of the earlier exact projection theorem, whether or not highlighted there. The narrower electrical-resistance paper is not being mistaken for explicit norm coverage.",
+        "searches": [
+          "Resultary --745e7b0c399e Step 4 versus the matched-margin equation",
+          "Bapat–Karimi–Liu arXiv:1611.09457 Corollary 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record --745e7b0c399e Finding and proof Steps 2–3 use F_N(s)=1+s/N-2(N-1)/(N(N-s)) and H_N(s)=1+s/N-4(N-1)/(N(N-s)). Multiplying by N(N-s) gives exactly the frozen numerators. Its C=I-Q is the frozen P.",
+          "arXiv:2610.36276 §1.6 concerns vertex-Laplacian eigenspace projectors, not these edge projections."
+        ],
+        "reasoning": "The equivalent score forms and change from N to k=N-3 identify the same theorem; the unrelated vertex-projector result does not enter the rejection.",
+        "searches": [
+          "Resultary complete multipartite endpoint Hodge/cut/cycle norms and edge reversals",
+          "External lookup of complete multipartite transfer-current and norm formulas"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record --745e7b0c399e Step 4 lists the scores at N-3, 2 and 1, their exact rankings and the sole H-score tie at N=6. Its Finding lists both family norms, which agree after N=k+3."
+        ],
+        "reasoning": "This is a verified exact match to the table and family values, not a match inferred from a nearby example or invariant.",
+        "searches": [
+          "Resultary exact F_N, H_N and K_(k,2,1) reversal score table"
+        ]
+      },
+      "rationale": "Earlier catalog record --745e7b0c399e explicitly covers both scores for every edge, both operator norms, the largest-part cut rule, and the same strict reversal with the family norm values. It even treats two parts, which the frozen result excludes. The frozen matched-margin statement is immediate from the very same score table, and no distinct mathematical remainder is established. This is demonstrated equivalent coverage, not a conjecture from titles or date alone and not a determination of personal provenance.",
+      "residual_risks": [
+        "The local record dates are catalog evidence, not proof of historical authorship. Neither incomplete external coverage nor later catalog matches affect the earlier demonstrated overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier catalog coverage in a broader range",
+          "evidence": "Steps 2–3 state the individual absolute column sums; Step 4 proves the same part-size comparison and gives the reversal table for all N>=6. The recorded 2026-10-18 path predates the frozen path.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-endpoint-hodge-norms-and-an-edge-orbit-reversal-for-comple--745e7b0c399e/RESULT.md",
+          "material_read": "Finding and Proof Steps 1–4, mirror offsets 0–7783",
+          "method": "Resultary followed by local-mirror statement and proof passages",
+          "title": "Exact endpoint Hodge norms and an edge-orbit reversal for complete multipartite graphs",
+          "trigger": "Exact multipartite formulas and same reversal family"
+        },
+        {
+          "assessment": "Prior diagonal term, not by itself direct endpoint-norm coverage",
+          "evidence": "The cross-part resistance is (N-1)(2N-a-b)/[N(N-a)(N-b)], i.e. Q_ee.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.09457",
+          "material_read": "Corollary 2.6, PDF p. 4, around OA offset 13000",
+          "method": "OA PDF targeted reading",
+          "title": "Kirchhoff index and degree Kirchhoff index of complete multipartite graphs",
+          "trigger": "Exact prior electrical formulas for same graphs"
+        },
+        {
+          "assessment": "Projection context and other graph families",
+          "evidence": "The inspected results concern invariant/minimal cycle projections for discrete tori and Hamming graphs rather than arbitrary multipartite edge scores.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Abstract and relevant Hamming/cycle projection passages, offsets 33200–36400 of the consulted text",
+          "method": "OA targeted reading",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "Prior cycle and cut projection norms"
+        },
+        {
+          "assessment": "Later cut-side coverage",
+          "evidence": "The same F_N score appears with a graph-wide sharp maximum but not the complementary cycle reversal theorem.",
+          "identifier_or_url": "2026/11/17/…--0f6b407e194c",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Sharp endpoint norms of complete multipartite electrical gradients",
+          "trigger": "Same exact cut-score formula"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md matched margins and reversal family",
+        "Resultary --745e7b0c399e Finding and Step 4"
+      ],
+      "rationale": "The original mathematical invariant and contrasting extremizers are worthwhile, but they are already available in the earlier, broader theorem. The only separately foregrounded quantitative comparison is one subtraction from its table and does not yield a new useful classification, witness or invariant. Exact rechecking adds confidence without a distinct finding that can support a repair.",
+      "residual_risks": [
+        "This assesses what survives comparison in this frozen result, not the value of the earlier mathematical result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

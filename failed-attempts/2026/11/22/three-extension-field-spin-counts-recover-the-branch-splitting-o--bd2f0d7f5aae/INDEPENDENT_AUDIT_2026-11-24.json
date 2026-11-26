@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:24:30.300057Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In odd characteristic the hyperelliptic pencil H is fixed and even, K∼2H, and 2P_i∼H at each ramification point. The even-subset description of J[2] modulo complement, translated by H, gives the equivariant labels: 28 distinct pairs P_i+P_j (odd, since effective with one section and not the pencil), and H plus 35 complementary four-subset pairs (even). On the nth power of a branch permutation, a fixed pair is two fixed points or a 2-cycle. An invariant 4-subset is a union of whole cycles; a 4-subset sent to its complement is alternating on each cycle and exists exactly when all cycle lengths are even. These events are disjoint, and each fixed unordered complementary pair contributes two sets. This gives the stated exact fixed counts. Independent `python3 /workspace/reviews/reproduce_2_3_5.py` uses the powered cycle lengths d/gcd(d,n), subset-sum counts, and divisor inversion rather than following the frozen orbit traversal. It matches all 22 rows, both complete spectra and six counts in the frozen CSV. The joint prefix counts are 15,19,22, with exactly the three stated degree-two collisions; the separate parities have 19 and 21 distinct spectra, respectively (the text's 19 and 21 are numbers of spectrum values, not numbers of partitions individually identified). For (1,7) and (3,5), the first two pairs coincide at (0,1), while cubing the latter permutation fixes its three 3-cycle points and gives (3,1), unlike (1,7). Products of distinct irreducibles of degrees 1 and 7 or 3 and 5 give squarefree degree-eight covers over every odd field. No realization of all abstract partitions in each field is needed or claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct same-day record 32e887a65762 gives three-degree separation on all 30 symplectic classes and uses exactly the same hyperelliptic sharpness pair over every odd field; bd2f0d7f5aae is the assigned record itself.",
+          "Braden–Disney-Hogg Table 6 prints automorphism-group orbits for selected curves, not a uniform finite-field reconstruction; Bruin–Poonen–Stoll's Galois-equivariant theta/Arf correspondence is general."
+        ],
+        "reasoning": "The larger-group theorem alone does not invert branch cycle types without checking class fusion, nor does it explicitly list the parity-alone collisions. Use the published stabilizer map for the actual stronger input here, not the shared date.",
+        "searches": [
+          "Resultary 32e887a65762 and bd2f0d7f5aae",
+          "Braden–Disney-Hogg v1 Table 6",
+          "Bruin–Poonen–Stoll Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Dolgachev §5.2.3",
+        "Bruin–Poonen–Stoll Theorem 5.1",
+        "ATLAS class and both representation pages",
+        "GAP CTblLib A8.2 and S6(2) pages and GAP Reference Manual §73.3-3",
+        "Braden–Disney-Hogg v1 Table 6",
+        "Resultary bd2f0d7f5aae (identical) and 32e887a65762 (distinct)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let f be the stored fusion and χ28,χ36 the two ATLAS permutation characters. For a branch class λ the six numbers are (χ28(f(λ^n)),χ36(f(λ^n))) for n=1,2,3. The corresponding formula for all n gives the individual spectra by divisibility inversion.",
+          "The sibling uses the same degree-1/2 collision and degree-3 resolution on actual hyperelliptic curves over every odd finite field. Even without that sibling, the arithmetic realization follows by choosing two ordinary squarefree products of irreducibles once the colliding rows are read."
+        ],
+        "reasoning": "The use of natural branch and spin invariants makes the question meaningful, but the proposed exact new data come from direct table restriction and routine irreducible existence. It is not a new construction of the fusion or an independent beyond-table obstruction.",
+        "searches": [
+          "CTblLib A8.2→S6(2) fusion; ATLAS 28 and 36 actions",
+          "Dolgachev §5.2.3; Resultary 32e887a65762 sharpness proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dolgachev's §5.2.3 gives the hyperelliptic subset/parity model modulo complements. The all-permutation action on the 28 pairs is faithful. Its action on the theta refinements comes from the mod-two symplectic representation; the pencil is a fixed even form.",
+          "ATLAS's index-36 stabilizer of a plus-type form is S8 (order 40320, also explicitly listed by CTblLib). The branch action embeds a group of that same order, so it is the full stabilizer. Identifying it with the natural symmetric group causes no ambiguity of cycle labels through an exceptional outer automorphism, since S8 has none."
+        ],
+        "reasoning": "The branch permutation is precisely the element of the tabulated stabilizer, with the two theta actions restricted from the whole group. The two-subset and complementary-four-subset formulations do not escape these exact tables.",
+        "searches": [
+          "Resultary: genus-three hyperelliptic branch splitting, two-subset/complementary four-subset theta actions, three extension counts",
+          "Dolgachev §5.2.3; ATLAS S62G1-p36B0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "CTblLib lists the subgroup A8.2 at index 36 in S6(2); the A8.2 page identifies SymmetricGroup(8) and under Stored class fusions from this table explicitly lists S6(2), backed by the reciprocal entry on the S6(2) page. This is class-level data for this embedding, not merely a list of the names of subgroup classes. The documented GetFusionMap operation retrieves a stored source-to-destination class map.",
+          "ATLAS provides the 30 class words on shared standard generators for the degree-28 and degree-36 actions, explicitly naming their characters 1+27 and 1+35b. The raw generator files and the entries of the stored fusion map were not replayed; the 22 spectra and counts were independently checked directly from branch cycles."
+        ],
+        "reasoning": "Given the existing fusion entry of a symmetric class, the paired theta action is read from that ATLAS class in the two existing representations; subgroup powers or the powers of the same representative give the six counts. Cycles can be read directly or by integer inversion of fixed-power counts. Hence whether the columns separate, how many equal spectra occur, and which partitions collide require only a finite comparison of existing class-linked data.",
+        "searches": [
+          "GAP CTblLib S6(2) and A8.2 table info, Stored class fusions",
+          "GAP Reference Manual §73.3-3 GetFusionMap",
+          "ATLAS standard-generator 28- and 36-point representations and 30 class words"
+        ]
+      },
+      "rationale": "This is not just a reduction to the symmetric group and a risk that an equivalent table might exist. The identified S8 really is the index-36 stabilizer of an even theta form in Sp6(2), and the published GAP Character Table Library explicitly stores the class fusion from this stabilizer to Sp6(2). ATLAS supplies class-aligned data for both complete parity actions. Together these give the 22 branch rows by a restriction along a stored class map, followed by counting fixed points of powers and comparing rows. The individual parity collisions are obtained from the same restricted cycle data, not from an additional arithmetic structure. Dolgachev supplies the classical parity identification, and the sharpness examples use ordinary existence of irreducibles with distinct prescribed degrees. No primary text was found printing the exact verbal theorem; the negative assessment is concrete implicit coverage. The accompanying same-day general record also overlaps exactly on the two sharpness examples, but its date is not evidence of priority and the general statement alone does not identify branch partitions without the fusion.",
+      "residual_risks": [
+        "The published fusion's actual numeric entries were not independently replayed; existence and endpoints were verified, and the branch computation supplies the numerical check without relying on this metadata.",
+        "No primary passage inspected prints this exact finite-field theorem, and the paired same-day record is not asserted to have priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical geometric action, not the printed 22-row arithmetic result",
+          "evidence": "Describes hyperelliptic theta classes by branch subsets modulo complement and gives parity.",
+          "identifier_or_url": "https://sites.lsa.umich.edu/idolga/wp-content/uploads/sites/1334/2024/08/CAG.21.pdf",
+          "material_read": "§5.2.3, printed pp. 214–216, OA offsets 576445–583279",
+          "method": "Bounded OA PDF passages",
+          "title": "Classical Algebraic Geometry: a modern view",
+          "trigger": "Standard hyperelliptic branch parity and complement identification"
+        },
+        {
+          "assessment": "Verifies existence and exact endpoints of the stored fusion; map entries were not replayed",
+          "evidence": "SymmetricGroup(8) A8.2 lists S6(2) as fusion destination; S6(2) explicitly lists A8.2 at index 36 and S8 as fusion source. The S6(2) table page gives ATLAS provenance and a 2025 creation date.",
+          "identifier_or_url": "https://www.math.rwth-aachen.de/~Thomas.Breuer/ctbllib/ctbltoc/data/A8.2.html ; https://www.math.rwth-aachen.de/~Thomas.Breuer/ctbllib/ctbltoc/data/S6(2).html",
+          "material_read": "A8.2 Stored class fusions from this table near text offset 1392; S6(2) Maximal subgroups and Stored class fusions to this table",
+          "method": "OA website source inspection",
+          "title": "GAP Character Table Library ordinary table information: A8.2 and S6(2)",
+          "trigger": "Decisive class fusion for the exact stabilizer, rather than assuming all subgroups give the same profiles"
+        },
+        {
+          "assessment": "Explains retrieval of the numerical class fusion",
+          "evidence": "For two ordinary character tables the operation looks for a record for the destination in ComputedClassFusions and returns the map component.",
+          "identifier_or_url": "https://docs.gap-system.org/doc/ref/chap73.html",
+          "material_read": "§73.3-3 GetFusionMap, text around offset 22882",
+          "method": "Bounded OA website passage",
+          "title": "GAP Reference Manual: Maps Concerning Character Tables",
+          "trigger": "Verify that a stored fusion supplies a map rather than only a subgroup name"
+        },
+        {
+          "assessment": "Direct arithmetic input after restriction, not an explicitly printed branch theorem",
+          "evidence": "Both actions are on the same standard generators; the characters are 1+27 and 1+35b, and the latter point stabilizer is S8.",
+          "identifier_or_url": "https://brauer.maths.qmul.ac.uk/Atlas/clas/S62/ ; https://brauer.maths.qmul.ac.uk/Atlas/v3/permrep/S62G1-p28B0 ; https://brauer.maths.qmul.ac.uk/Atlas/v3/permrep/S62G1-p36B0",
+          "material_read": "Standard generators, Representations and 30 Conjugacy class representatives; both representation details at offset 0",
+          "method": "Bounded OA website passages",
+          "title": "ATLAS: Symplectic group S6(2)",
+          "trigger": "Class-aligned parity actions"
+        },
+        {
+          "assessment": "Substantial overlap without inferred date priority; different target and no individual branch spectrum collision list in its statement",
+          "evidence": "All-30 mod-two symplectic reconstruction and the same all-fields (7,1)/(5,3) sharpness examples.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-extension-degrees-recover-genus-three-frobenius-from-parit--32e887a65762",
+          "material_read": "Finding, geometry, all-30 certificate and hyperelliptic example proof",
+          "method": "Resultary/local mirror and frozen companion comparison",
+          "title": "Three extension degrees recover genus-three Frobenius from parity-separated theta characteristics",
+          "trigger": "Exact overlap on paired counts and sharpness witnesses"
+        },
+        {
+          "assessment": "Related selected-curve data, not the exhaustive branch comparison",
+          "evidence": "Table 6 tabulates selected curves' automorphism-group orbits.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.09890v1",
+          "material_read": "Introduction and Table 6, PDF pp. 23–24",
+          "method": "OA PDF passages",
+          "title": "Orbits of Theta Characteristics",
+          "trigger": "Possible earlier full orbit profile computation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The branch and spin schemes are canonical and the cutoff is a correct interpretation. However, after identifying the known index-36 stabilizer the joint and separate exact data are mechanically implied by existing class fusion and the two prior permutation actions. The finite-field sharpness construction needs no additional nonroutine arithmetic. A new tabulation or a narrowing to the parity-alone counts does not yield a distinct valuable remainder here. No repair was made.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

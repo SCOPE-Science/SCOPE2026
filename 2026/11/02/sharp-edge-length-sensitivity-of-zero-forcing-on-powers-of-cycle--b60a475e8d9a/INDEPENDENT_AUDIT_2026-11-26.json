@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:10:32.385150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A forcing seed smaller than n must permit a first force, which consumes at least the degree of its source in initial black vertices. Only the two deleted-edge endpoints have degree 2k-1. A size-(2k-1) seed that forces must therefore be its first source plus all but one of that endpoint's surviving neighbors; in particular the other endpoint is absent, so there is no ambiguity about the first source. Center at 0. After the first move the black set is [-k,k] minus d. For d<k, 0 has no white neighbor. Black x in [2,k] sees the two white vertices k+1,k+2; the negative side is reflected. For black x=1 use k+1 and d, and for x=-1 use -k-1 and d, with d+1<=k. The gap outside [-k,k] has at least two vertices (n>=2k+3), so the indicated neighbors remain white and distinct modulo n. Thus the process stalls. The interval [-k,k-1] grows clockwise using sources 0,1,...,n-2k-1, each with exactly one white neighbor at distance k, avoiding any shorter deleted edge. For d=k the post-first-force set is already this same interval, and grows in the opposite direction using sources -1 through -(n-2k); none equals 0 or k modulo n, so none uses the deleted edge. Reflection handles the other center. The 2k-1 omitted-neighbor choices per center are distinct, and the two centers' families cannot meet since each member contains its own endpoint but not the other. At k=1 this gives the two endpoints of the resulting path. Checked the all-parameter argument in RESULT.md lines 19–36 and inspected the supplied finite verifier without executing it. The recorded 80 cases and 341272 subsets are only corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abiad et al. use the same intact baseline and interval method. The frozen record cites the general one-edge bound in Edholm et al.; the attempted OA copy was unavailable. Even granting the bound, it controls the possible values but not which cyclic distance realizes the drop. Deaett–Meyer's inspected abstract is about minimum rank and minimum circulant rank, not the edge-deleted zero-forcing problem."
+        ],
+        "reasoning": "Neither an absolute spread bound nor the intact minimum rank/zero-forcing value gives the length classification or the complete minimum families of the edited graph. No whole-text absence claim is made for the inaccessible paper.",
+        "searches": [
+          "arXiv:2610.03892v1 Proposition 8",
+          "DOI 10.1016/j.laa.2010.10.015 Theorem 2.17",
+          "arXiv:1511.07920v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03892v1",
+        "Resultary 27af5da49cb2",
+        "Resultary 8f1eaf3a981b",
+        "Resultary 816bf7a10356",
+        "DOI 10.1016/j.laa.2010.10.015 (identification only)",
+        "arXiv:1511.07920v1 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The intact interval construction can be directed away from the removed edge for length k and reused for the upper bound when the edge is shorter. First-force degree rigidity alone only identifies candidates in either regime. It does not show that all the candidates stall after a shorter deletion; that requires the frozen proof's distinct two-white-neighbor argument."
+        ],
+        "reasoning": "Reuse of the intact block argument is credited, but the decisive necessity distinguishing short and long deletions is not a corollary of the inspected intact classification or a parameter substitution. No priority inference is made from the same-day dates.",
+        "searches": [
+          "Abiad et al., Proposition 8, forcing sequence",
+          "Resultary 2026/11/2/816bf7a10356, cycle-power proof and exact multiplicities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest catalogue statements give sets N[v] minus one neighbor in the intact graph, of size 2k, and their n(2k-1) count. In the frozen exceptional family the graph has an edge missing and each set has size 2k-1; losing an adjacency and omitting a surviving neighbor are separate operations."
+        ],
+        "reasoning": "The equivalent spread formulation is Z(C_n^k)-Z(C_n^k-e)=1 exactly for length k and zero otherwise. An intact minimum-seed theorem, even for the same n and k, is not equivalent to this edge-by-edge predicate.",
+        "searches": [
+          "Resultary semantic lookup for one-edge-deleted powers of cycles and minimum zero-forcing seeds",
+          "arXiv:2610.03892v1 Proposition 8",
+          "zero forcing edge spread one edge deletion powers of cycles C_n^k Edholm Hogben Huynh LaGrange Row Theorem 2.17 arxiv"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All three closest exact catalogues tabulate or characterize seed sets of intact cycle powers. In particular the same-day distinct record's Cycle powers: exact multiplicities section concerns n(2k-1) intact sets and their dihedral orbits, not 4k-2 size-(2k-1) sets after deletion."
+        ],
+        "reasoning": "Comparison is with parameterized exact catalogues, not an integer sequence without the graph and edge-length parameters. No inspected exact table identifies the edited-family invariant.",
+        "searches": [
+          "Resultary 2026/10/18/27af5da49cb2",
+          "Resultary 2026/10/26/8f1eaf3a981b",
+          "Resultary 2026/11/2/816bf7a10356"
+        ]
+      },
+      "rationale": "The closest indexed results classify minimum seeds on the intact cycle power. The distance-sensitive one-edge spread and the complete smaller seed family in the degree-deficient graph are the distinct contributions. The general edge-spread bound and the intact value and interval forcing method are not claimed as new.",
+      "residual_risks": [
+        "The most plausible general edge-spread paper was not accessible in full text; its broader coverage remains imperfectly checked.",
+        "The bounded catalogue and primary literature lookup do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Intact baseline and common interval construction",
+          "evidence": "Z(C_n^k)=2k for n>=2k+1 via a consecutive seed, not an edge-deletion result.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03892v1",
+          "material_read": "Proposition 8, p. 6, PDF offset 18927",
+          "method": "OA proposition and proof inspection",
+          "title": "The Zero Forcing Number of Graph Powers",
+          "trigger": "Strongest published baseline for the same graphs"
+        },
+        {
+          "assessment": "Distinct intact-graph count and orbits",
+          "evidence": "The result counts size-2k intact sets via overlap of length-(2k+1) intervals; its omitted neighbor is not the deletion of an edge from the graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-optimal-zero-forcing-seed-classifications-for-powers-of-pa--816bf7a10356/RESULT.md",
+          "material_read": "Finding and cycle-power proof, offsets 0 and 4659, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror passage inspection",
+          "title": "Exact optimal zero-forcing seed classifications for powers of paths and cycles",
+          "trigger": "Same-day indexed exact seed classification"
+        },
+        {
+          "assessment": "Covers intact minimum seed form and count only",
+          "evidence": "For n>=2k+3 the intact graph has n(2k-1) seeds of the form N[v] minus one neighbor.",
+          "identifier_or_url": "Resultary 2026/10/18/SCOPE-minimum-zero-forcing-set-census-and-token-jumping-connectivity-o--27af5da49cb2",
+          "material_read": "Finding and sparse-cycle proof, offsets 0 and 3917, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror passage inspection",
+          "title": "Minimum zero-forcing set census and token-jumping connectivity",
+          "trigger": "Closest older indexed census"
+        },
+        {
+          "assessment": "Covers a different graph invariant on the intact power",
+          "evidence": "Uses the intact value and seed classification to study connectedness, without the shorter-edge stall or longest-edge deletion theorem.",
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-a-connectivity-dichotomy-for-minimum-zero-forcing-on-powers-of-p--8f1eaf3a981b",
+          "material_read": "Finding and Cycles: all minimum sets and connectedness, offsets 0 and 4546, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror passage inspection",
+          "title": "A connectivity dichotomy for minimum zero forcing on powers of paths and cycles",
+          "trigger": "Same cycle-power minimum sets in reconfiguration"
+        },
+        {
+          "assessment": "Full coverage not assessed",
+          "evidence": "The cited general absolute bound is distinguished from the length classification; no conclusion about the rest of the paper is inferred from access failure.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2010.10.015",
+          "material_read": "Bibliographic identification and cited locator Theorem 2.17; no full text retrieved",
+          "method": "Attempted lawful OA, including an identified repository copy that timed out",
+          "title": "Vertex and edge spread of zero forcing number, maximum nullity, and minimum rank of a graph",
+          "trigger": "Potential general edge-deletion criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural question is which edge classes attain the nontrivial extreme of the known deletion bound on a standard graph family. Resolving every admissible distance, and giving all minimizing seeds precisely when the drop occurs, is structurally useful beyond recomputing the intact value. The argument stays within its sparse-cycle boundary n>=2k+3.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

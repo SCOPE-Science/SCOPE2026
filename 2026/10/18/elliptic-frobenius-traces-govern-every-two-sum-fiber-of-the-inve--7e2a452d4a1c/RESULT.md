@@ -23,13 +23,13 @@ M_2&=\frac{q-1}{4}(q+3+2\varepsilon+2\delta+a_q),
 M_0&=q^2-M_1-M_2-M_3-M_4.
 \end{aligned}
 \]
-Thus the **exact additive energy** and sumset size are
+Thus the **exact sumset size** is
 \[
-\boxed{E(C)=(q-1)(3q-10-2\varepsilon-2\delta-a_q)},
-\qquad
 \boxed{|C+C|=\frac{q-1}{8}(3q+5+2\varepsilon+2\delta+a_q-2\gamma)}.
 \]
 Moreover the four-representation fibers first appear precisely at \(q=17\): \(M_4=0\) for \(q\in\{5,7,11,13\}\), while \(M_4>0\) for every eligible prime power \(q\ge17\).
+
+The exact energy \(E(C)=(q-1)(3q-10-2\varepsilon-2\delta-a_q)\) is also given in [4]. It is included below for context and as a check on the distribution, not as an additional claim of originality.
 
 ## Assumptions and scope
 
@@ -76,13 +76,11 @@ The slice \(s=0\) contributes \(2(q-1)\) to the additive energy, because its \((
 E(C)=(q-1)(3q-10-2\varepsilon-2\delta-a_q).
 \]
 
-**4. Recover the complete multiplicity distribution.** All ordered pairs give
+**4. Recover the complete multiplicity distribution.** Each fourfold fiber consists of two distinct product parameters of weight two. It contributes \(2\cdot 2\cdot 2=8\) to the off-diagonal contribution (the product parameters can be ordered in two ways). The sole possible odd fiber of size three consists of parameters of weights one and two, and contributes \(4\). No other fiber contributes: any other pair of distinct parameters has a weight-zero member, and a fixed or unpaired parameter cannot be counted off the diagonal. Consequently (including the zero-sum slice, which has no threefold or fourfold fibers)
 \[
-\sum_{j=0}^4jM_j=(q-1)^2,
-\qquad
-\sum_{j=0}^4j^2M_j=E(C).
+8M_4+4M_3=(q-1)(q-7-2\varepsilon-2\delta-a_q).
 \]
-After inserting the already determined \(M_1\) and \(M_3\), subtract twice the first identity from the second to obtain \(8M_4=E(C)-2(q-1)^2+M_1-3M_3\). This gives the displayed \(M_4\). Substitution into the first identity gives \(M_2\). Finally \(\sum_{j=0}^4M_j=q^2\) gives \(M_0\), and \(|C+C|=q^2-M_0\) simplifies to the stated formula. These are exact integer identities for every eligible prime power.
+Insert \(M_3\) to obtain the displayed \(M_4\). The identity \(\sum_{j=0}^4 jM_j=(q-1)^2\) then gives \(M_2\), and \(\sum_{j=0}^4M_j=q^2\) gives \(M_0\) and the sumset size. These are exact integer identities for every eligible prime power.
 
 **5. Sharp onset of four-representation targets.** Hasse's elliptic-curve bound \(|a_q|\le2\sqrt q\) yields
 \[
@@ -106,7 +104,7 @@ For any fixed nontrivial additive character \(\psi\), character orthogonality ad
 
 ## Relationship to prior work
 
-The 2024 finite-field sharp-extension work of González-Riquelme and Oliveira e Silva treats paraboloids, quadratic cones, and hyperbolic paraboloids and motivates the fourth-moment/convolution question; its listed surfaces do not include the inverse-square curve. The related finite-field multiplicative hyperbola \((t,t^{-1})\) concerns a degree-two affine curve, not \(t^2y=1\), and its known sharp fourth-moment result does not supply these elliptic-trace fibers. A published fifth-power polynomial-graph two-sum classification concerns \((t,t^5)\); no affine change of variables preserves sums while identifying that polynomial graph with the inverse-square cubic. The present result is a distinct **complete representation spectrum**, with a genuinely variable elliptic Frobenius trace and the sharp fourfold-fiber threshold.
+The finite-field sharp-extension work of González-Riquelme and Oliveira e Silva treats paraboloids, quadratic cones, and hyperbolic paraboloids. The related multiplicative hyperbola \((t,t^{-1})\) is not the inverse-square curve. Reference [4] treats the very same inverse-square graph, including the exact energy, its elliptic trace and the product-parameter collision calculation; it also has energy formulas outside this note's characteristic range. The contributions here are the **complete target-multiplicity distribution** and the sharp fourfold-fiber onset. In particular the second moment in [4] is not itself the spectrum: separating the odd fiber from the even fibers is necessary to use the off-diagonal count.
 
 ## Limitations
 
@@ -117,3 +115,4 @@ The theorem makes no assertion about all complex-weight extremizers or the sharp
 1. C. González-Riquelme and D. Oliveira e Silva, *Sharp extension inequalities on finite fields*, arXiv:2405.16647 (first publicly available 2024-05-26), https://arxiv.org/pdf/2405.16647.
 2. J. Hickman and J. Wright, *The Fourier restriction and Kakeya problems over rings of integers modulo N*, Discrete Analysis (2018), arXiv:1801.03176, https://arxiv.org/abs/1801.03176 (broader restriction context, not this curve).
 3. Hasse's theorem for elliptic curves over finite fields: \(|a_q|\le2\sqrt q\) (standard elliptic-curve point-count bound).
+4. *Elliptic Frobenius traces in the additive energy of the inverse-square graph*, Resultary record 32ae2e4d9598, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-elliptic-frobenius-traces-in-the-additive-energy-of-the-inverse--32ae2e4d9598.

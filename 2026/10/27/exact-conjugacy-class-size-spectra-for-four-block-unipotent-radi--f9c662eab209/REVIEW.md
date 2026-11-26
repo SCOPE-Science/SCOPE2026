@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fixing the middle scalar block yields two exhaustive cases. The rank of the linear commutator is the sum of the rank in the \((13),(24)\) blocks and the dimension of the residual image in the \((14)\) tensor block. In the nonzero-scalar case the residual tensor space is \(u\otimes W+U\otimes w\); in the zero-scalar case it is \(\langle u,p\rangle\otimes W+U\otimes\langle w,t\rangle\). Intersection dimensions give both rank formulas without assumptions on field characteristic. Exact counts of ordered pairs with given span dimension prove the generating polynomial; orbit-stabilizer gives class size. The independent elimination checker matched all rank strata in ten finite tests and checked direct commuting-pair counts in three. Finite checks corroborate but are not the general proof.
+## correctness
 
-**Originality — PASS within examined coverage.** Hennecart–Perry's explicit quiver radical counts cover maximal oriented path length two, whereas the present four-block group has path length three and asks for the entire element class-size distribution. Pak–Soffer and earlier unitriangular work cover general total class numbers and the basic \(a=c=1\) specialization. Yang's 2025 paper covers irreducible character-degree numbers for the four-block family, which already subsume total conjugacy-class information but not the sizes of individual conjugacy classes. The present originality claim is restricted to the closed full element-size spectrum as \(a,c\) vary, not any total-class count or small special case. The full text of Yang's article could not be inspected; that is a meaningful residual priority risk.
+PASS
 
-**Value — PASS.** Element class-size profiles are natural, finer finite-group invariants that encode the complete centralizer distribution. The formula treats two unbounded block parameters and every finite field, resolving a genuine class-three tensor interaction rather than a routine isolated computation. It can be specialized to calculate all conjugacy strata and moments, in contrast to already-tabulated total counts.
+Centralizing 1+x in 1+J is exactly the homogeneous linear equation xy-yx=0 for y, so the size exponent is the additive commutator rank over the original field, without a characteristic restriction. Multiplying blocks gives exactly the (13), (24), (14) outputs in the proof; the (14) input block is free. For b!=0, projection onto the first two outputs is surjective, with kernel on (u',b',w') consisting of multiples of (u,b,w). On that kernel the remaining tensor image is u tensor W plus U tensor w, because the multiple contributes only p tensor w minus u tensor t. Its dimension is epsilon*c+delta*a-epsilon*delta. For b=0 the first projected rank is 1 iff u or w is nonzero, and the remaining rank is that of span(u,p) tensor W plus U tensor span(w,t). Their intersection is precisely the tensor product of the two spans, as is seen by extending bases of both spans, so the rank is i*c+a*j-i*j. The count for each span/status is given by choosing the first vector, then choosing the second inside or outside its span; it also handles dimension one and zero vectors. Multiplying the counts, including the central factor q^(ac), gives both sums. The hand check a=c=1 gives coefficients (2,6,32,24) at q=2 and total class-number formula 2q^3+q^2-2q. The frozen artifacts/check.py and checker_output.txt were inspected, not executed; their ten recorded prime-field cases are finite corroboration, not a check of arbitrary prime powers.
 
-**Limits.** No formula for unrestricted four-block dimensions is asserted. Sources outside inspected coverage might contain an equivalent profile, especially ancillary results in the inaccessible 2025 four-block character paper. No independent validation has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit is for the complete element class-size distribution in this family, principally the individualized zero-middle-block ranks and their multiplicities. The same-family October 25 Resultary result already gives the exact class number and its proof yields the nonzero-middle-block ranks by fixing the first input. It does not give the zero-middle-block rank distribution: its method sums over a joint matrix built from both members of a commuting pair. The exact overlap in the nonzero stratum and total number is not a prior full histogram. Other inspected sources cover aggregate class counts, a different truncated algebra, or a different invariant. Yang's highly relevant paper remains a source-access limitation, not a finding of noncoverage.
+
+## value
+
+PASS
+
+A four-block radical with scalar middle blocks is a natural untruncated chain with an actual length-three product. Knowing how many elements lie in classes of every size separates behavior that exact total class numbers cannot distinguish. The fixed-element tensor-rank analysis for a vanishing middle block identifies precisely how the two outer spans control these centralizers. The resulting finite polynomial computes this invariant throughout the family and across field characteristics, rather than just reworking prime-field examples or the already known aggregate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review: An exact altitude reduction for Liu's Oppenheim-ratio conjecture on isosceles triangles
+# Independent mathematical audit
 
-## Correctness
-PASS. In normalized coordinates the two side distances satisfy \(r_2+r_3=2(h-y)/\sqrt{1+h^2}\). For fixed height, the sum \(R_2+R_3\) is even and strictly convex in the horizontal coordinate, while \(-2r_1/R_1\) is also strictly increasing with its absolute value. The defect therefore has its unique horizontal minimum on the altitude. There it rationalizes to a positive denominator times \((hy-1)^2\). Equality and the interior condition are then exact.
+## correctness
 
-## Originality
-PASS with residual indexing risk. The 2012 primary source was inspected through its statement of Conjecture 3.12 and equality discussion. The 2016 full-text follow-up was inspected at its Oppenheim-refinement theorems and open-problem section; it treats different inequalities and does not state or imply this ratio theorem. Exact-statement, equality-phrase, alias, and implication searches did not locate a covering published result. The remaining risk is an unindexed or differently worded solution.
+PASS
 
-## Value
-PASS. The theorem resolves the complete natural symmetry class explicitly named in the conjecture's proposed equality condition, and it determines the previously unspecified altitude point together with the precise condition under which that point is interior. The proof also gives a quantitative square-factor defect, rather than only a yes/no verification.
+The prior independent proof check stands, using Liu's sideline convention. With t=h−y>0, the two equal-side lines give r2+r3=2t/sqrt(1+h²). The triangle inequality applied to (1+x,y) and (1−x,y) gives R2+R3≥2sqrt(1+y²), with equality only when x=0 because y>0. Also −2y/R1≥−2y/t, strictly unless x=0. At x=0 the defect has numerator sqrt((1+h²)(1+y²))−h−y over t. Rationalization gives the stated numerator (hy−1)² and positive denominator. Thus equality in the stronger bound is exactly on the altitude; equality in the original inequality is at y=1/h, interior iff h>1. This is the orthocenter since the altitude from B has slope 1/h. Restoring the half-base shows its height is (BC)²/(4h_a). The proof is analytic, not a conclusion from the supplied numerical stress test.
 
-## Closest literature and limitations
-The closest source is Liu's 2012 conjecture itself. Liu's 2016 Oppenheim/Erdős--Mordell refinements are related in subject but have different implication structure. The theorem does not address scalene triangles.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Liu's original statement explicitly leaves the equality point on the isosceles altitude unidentified. The comparison found related cyclic-sum refinements and a different optimal symmetric weight, not a covering result for the exact fixed-vertex ratio, its sharp height-dependent defect, and the interior orthocenter equality. The exact catalogue hit is the audited record itself. The pass is limited to this isosceles reduction; it does not credit the conjecture itself or a solution for all triangles.
+
+## value
+
+PASS
+
+The isosceles subclass is motivated by Liu's conjectured equality, not an arbitrary slice. The sharp horizontal minimization gives the exact lower bound at each fixed height and identifies the previously unspecified altitude point as the orthocenter when it is interior. This settles the full symmetric equality regime even though it leaves the scalene case open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

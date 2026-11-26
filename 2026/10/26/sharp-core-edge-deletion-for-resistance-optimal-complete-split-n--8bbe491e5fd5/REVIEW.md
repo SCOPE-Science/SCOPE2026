@@ -1,19 +1,21 @@
-# Scientific review: resistance-optimal complete split networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, feasible budget and connectedness boundary are explicitly defined. The Laplacian has exact nonzero eigenvalues \(ra+sb\) (multiplicity \(r-1\)), \(rb\) (multiplicity \(s-1\)), and \((r+s)b\), yielding \(\mathcal K=n(r-1)/(ra+sb)+s(n-1)/(rb)\). Strict convexity of \(\operatorname{tr}(L+J/n)^{-1}\) and injectivity of the edge-to-Laplacian map prove uniqueness and justify global automorphism reduction. The Cauchy–Schwarz equality ratio \(H=\sqrt{nr(r+1)/(n-1)}\) is clipped at the feasible boundary \(ra+sb\ge sb\). The exact signs at \(s=r\) and \(s=r+1\), together with monotonicity, establish the sharp phase for every admissible integer. Independent symbolic and matrix implementations check finite instances but are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual risk
+On the budget simplex the trace inverse on 1-perp gives n tr(L+) and diverges when the algebraic connectivity tends to zero. Its second directional derivative is strictly positive for every nonzero symmetric Laplacian direction (trace of a nonzero positive semidefinite square against a positive definite matrix). The simple-edge weights map injectively to Laplacians; the connected domain is convex. Thus the unique optimizer must respect the two edge orbits. Independently diagonalizing on core zero-sum, peripheral zero-sum and part-constant subspaces gives ra+sb (r−1), rb (s−1), nb (1). In x=ra+sb the linear budget is (r−1)x/2+s(r+1)b/2=B. Minimizing A/x+D/b gives x/b=H by Cauchy–Schwarz when feasible; otherwise the unique optimum is x=sb (the other endpoint b=0 has infinite objective). The inequality for H>s is strictly monotone in s with opposite strict signs at s=r,r+1. The resulting substitution yields both value branches, including a=b at s=1. Spot checks at B=1 give 11+6√2 for (r,s)=(2,2), with positive core weight, and 46 for (2,3), with zero core weight. Inspected verify_split.py and the finite recorded output without executing the supplied script; the proof, not the sampled asymmetric comparisons, establishes global uniqueness.
 
-Ghosh–Boyd–Saberi (2006 proceedings; 2008 expanded article) prove the general convex optimization framework and give analytic examples for trees, wheels, and barbells, but their inspected material does not state this complete-split optimum. Yang (2014, §2.1) establishes a unit-conductance complete-split index extremum under a graph-structure constraint, not allocation of a conductance budget. Sedlák–Slavík (2025, §3.3) evaluate fixed unit-resistance split joins, not the optimum over allowed edge weights. Searches for core/periphery aliases, join spectra, edge-deletion support, and fixed-budget trace-inverse design did not reveal a dominating result. Strongly related fixed-weight results were compared by implication rather than by title. The possibility of specialized prior optimization under another terminology is an explicit residual risk; failed searches do not prove absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete split graph is a canonical core/periphery topology: a fully interconnected core serves otherwise independent vertices. The precise relative population of those groups controls which edges should receive scarce conductance. The theorem shows that **every** core edge receives exactly zero investment once the periphery is larger than the core, whereas **all** core edges are strictly beneficial when the periphery is not larger. The all-allocation uniqueness, exact resource shares and sharp discrete support transition provide a natural topology-design rule; this is not a mere unweighted Kirchhoff-index evaluation or an arbitrary small numerical slice.
+General resistance minimization, uniqueness and use of edge orbits are prior; the finding supported here is the particular exact positive-weight solution, integer deletion boundary and minimum for all complete split sizes. The same-day clique-book result is a real conductance-design overlap in mechanism, not equivalent family coverage. Fixed unit weights and walk optimization on the same underlying graph are not this objective or feasible region.
 
-## Boundaries and literature risk
+## value
 
-The theorem assumes \(r\ge2\), \(s\ge1\), uniform per-unit cost, nonnegative weights, and total budget \(B>0\). Disconnected weighted supports have infinite objective. Positive lower bounds on all available edge weights change attainability in the deletion regime. The source-date upper bound is inferred from the dated July 2006 conference proceedings rather than an identified daily timestamp. Full literature exhaustiveness and independent verification have not been established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact solution of a standard electrical-network design objective on a natural graph family is independently useful: it determines when all edges in an existing orbit should be removed, and identifies the unique allocation and its cost without solving a numerical program. The sharp one-vertex change across s=r and s=r+1 is not supplied by generic convexity, by knowing the optimum is orbit-constant, or by the unit-weight index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

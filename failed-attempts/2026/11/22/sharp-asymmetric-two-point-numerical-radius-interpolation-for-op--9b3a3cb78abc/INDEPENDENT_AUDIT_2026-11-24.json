@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:13:20.053223Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–37, independently reconstructed",
+        "VERIFICATION.md:19 and verify_asymmetric.py:1–23, inspected without execution"
+      ],
+      "rationale": "For D=diag(1,-1), the projection T↦(T-DTD)/2 preserves the data and is contractive for numerical radius by unitary invariance and convexity. On the off-diagonal slice w=(|p|+|q|)/2, as seen by maximizing the expectation over relative vector phase and equal coordinate moduli. Hence the scalar (p-q)/(2m) is Schur for cost m>0; Schwarz–Pick gives rho≥2m(a+b)/(4m²+ab). The quadratic is negative at m=max(a,b)/2 and opens upward, forcing the displayed larger root. At that root u=a/(2m) and v=-b/(2m) lie strictly in (-1,1). The frozen B sends the two normalized nodes to u and v, and the two linear identities involving u+1/u and v+1/v give the exact prescribed values. The boundary envelope H lies strictly between 0 and 1 since A>2 and C<-2. Thus |p|+|q|=2m on the circle and is at most 2m in the disk by subharmonicity; taking radial limits gives the uniform supremum m. The disk automorphism sending the original nodes to 0,rho transports the rational map back by composition.",
+      "residual_risks": [
+        "Finite diagnostic checks neither establish the analytic theorem nor address novelty; the proof does not classify arbitrary matrix data."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ellipsoid classification is an explicit two-point geodesic parametrization covering the exact needed ellipsoid.",
+          "Kosiński–Zwonek's general convex-domain result gives existence/equality of intrinsic distances, and Ahmed et al. give general factorization and a balanced exact example; these alone were not the decisive formula coverage."
+        ],
+        "reasoning": "The explicit p_j=1/2 parametrization is stronger prior coverage: requiring the two coordinate functions to vanish at the opposite prescribed nodes makes the specialization immediate.",
+        "searches": [
+          "Numdam ASNSP_1993_4_20_4_535_0, Thm. 1 and proof at p_j=1/2",
+          "Edigarian arXiv:math/9503201 Thm. 4, Remark 5",
+          "Ahmed et al. arXiv:2611.19189 Thms. 2.4, 4.3 and Examples 2.5, 4.6",
+          "Kosiński–Zwonek arXiv:1303.0482 Thm. 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Jarnicki–Pflug–Zeinstra 1993, Thm. 1 and endpoint proof; Edigarian arXiv:math/9503201, Thm. 4 and Rem. 5",
+        "arXiv:2611.19189 and arXiv:1303.0482 at listed passages",
+        "Resultary records 0788935d5422 and a9d34c42618c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Put the normalized nodes at 0,t and coordinate zeros at alpha_1=t, alpha_2=0, with both r_j=1. The earlier family gives p(z)=c_1(z-t)(1-tz)/(1-alpha_0 z)² and q(z)=c_2 z/(1-alpha_0 z)². Comparing the constant and linear coefficients in the prior normalization gives alpha_0=|c_1|t=u and |c_2|=(1-u/t)(1-ut). Hence v=q(t)=(t-u)/(1-ut). Conversely at t=(u+v)/(1+uv), the coefficients c_1=-u/t, c_2=(1-u/t)(1-ut)>0 are admissible and that source supplies a rational geodesic.",
+          "Substitution u=a/(2m), v=b/(2m) gives t=2m(a+b)/(4m²+ab); solving for the larger root gives exactly the frozen cost. The resulting off-diagonal map has that cost, so rational attainment is also covered."
+        ],
+        "reasoning": "This uses only contractive projection, endpoint evaluation and a quadratic rescaling of a known exact geodesic. No additional extremal principle or new asymmetric parameter estimate survives.",
+        "searches": [
+          "Jarnicki–Pflug–Zeinstra Thm. 1 at p1=p2=1/2; Edigarian arXiv:math/9503201 p. 3 displayed family and normalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projection onto off-diagonal entries is contractive and gives exact w-unit slice |p|+|q|≤2.",
+          "For (u,0),(0,v) in the open complex ℓ1² ball, the pseudohyperbolic form of the prior geodesic separation is (u+v)/(1+uv). Homogeneity scales these points to a/(2m), b/(2m)."
+        ],
+        "reasoning": "The numerical-radius interpolation cost is exactly the least m for which the rescaled cross-axis Kobayashi distance does not exceed the source disk distance; the boundary cases where a or b equals 2m are excluded by scalar maximum modulus and distinct data.",
+        "searches": [
+          "Resultary numerical-radius opposite units/swapped nilpotents",
+          "Complex ℓ1² cross-axis Kobayashi/Lempert distance",
+          "Jarnicki–Pflug–Zeinstra Theorem 1; Edigarian Theorem 4 and Remark 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0788935d5422 gives the balanced exact threshold 4t/(4+t²) and uniqueness assertions; a9d34c42618c gives a factor-two guarantee and balanced asymptotic defect. Same-day dates alone imply no priority.",
+          "The classical ellipsoid formula, rather than a numeric table or either matched record, gives the exact same general parameter result."
+        ],
+        "reasoning": "A directly evaluable analytic parametrization counts as formula coverage; the balanced record by itself is not an unequal-amplitude table.",
+        "searches": [
+          "Resultary exact swapped-nilpotent interpolation and numerical-radius Pick relaxation"
+        ]
+      },
+      "rationale": "The correct formula and rational attainment are mechanically covered by the earlier complex ellipsoid geodesic classification. The whole matrix interpolation problem for these data is exactly the off-diagonal ℓ1 slice by the contractive projection; there is no separate matrix feasibility obstruction. Jarnicki–Pflug–Zeinstra's theorem includes p1=p2=1/2, not just strictly convex Euclidean ellipsoids. The general geodesic formulas verified in Edigarian's m=1 specialization supply the exact cross-axis curve for unequal positive amplitudes, not only the balanced case.",
+      "residual_risks": [
+        "The older paper is not claimed to use matrix language or to literally print M. The coverage is a demonstrated implication through an isometric slice and a contractive projection. Priority between the matching-date matrix records is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage by specialization, not a general existence result alone",
+          "evidence": "Classification of complex geodesics in E(p) including p_j=1/2; unique geodesics modulo disk automorphisms under the stated hypotheses.",
+          "identifier_or_url": "https://www.numdam.org/item/ASNSP_1993_4_20_4_535_0.pdf",
+          "material_read": "Theorem 1, printed p. 536; proof addressing p_j=1/2, printed pp. 541–542",
+          "method": "Primary PDF passages; displayed formula illegible in its text extraction, corroborated from Edigarian's explicit account",
+          "title": "Geodesics for convex complex ellipsoids",
+          "trigger": "Strongest plausible earlier exact cross-axis distance coverage"
+        },
+        {
+          "assessment": "Confirms the exact m=1 form and its sufficiency for convex E(p) attributed to the 1993 classification",
+          "evidence": "Each component contains (z-alpha_j)/(1-conj(alpha_j)z) to power r_j and the outer fraction to power 1/p_j. The displayed polynomial normalization specializes to alpha_0=Σ |c_j|alpha_j and 1+|alpha_0|²=Σ |c_j|(1+|alpha_j|²) at p_j=1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9503201",
+          "material_read": "Theorem 4 and Remark 5, p. 3 (text offset 6908 ff.)",
+          "method": "Bounded primary PDF passage with displayed formula",
+          "title": "On extremal mappings in complex ellipsoids",
+          "trigger": "Verify exact formulas suppressed in the 1993 PDF extraction"
+        },
+        {
+          "assessment": "General criterion and balanced example, not itself the frozen asymmetric norm",
+          "evidence": "Balanced interpolant at 0,4/5 is extremal and rational; at 0,1/2 the necessary Pick test passes despite impossibility.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.19189v1",
+          "material_read": "Thms. 2.4, 4.3 and Examples 2.5, 4.6, pp. 6–7,20,25–26 (offsets 19309,23846,66858,85639)",
+          "method": "Bounded primary PDF passages",
+          "title": "Interpolation, Factorization, and Approximation in the Numerical Radius Unit Ball",
+          "trigger": "Same matrix interpolation setting and balanced opposite units"
+        },
+        {
+          "assessment": "Existence and metric comparison, not the explicit formula",
+          "evidence": "Lempert/Carathéodory equality and complex-geodesic existence for bounded convex domains.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.0482",
+          "material_read": "Thm. 2.1, p. 3 (offset 8895)",
+          "method": "Bounded primary PDF passage",
+          "title": "Nevanlinna–Pick Problem and Uniqueness of Left Inverses in Convex Domains, Symmetrized Bidisc and Tetrablock",
+          "trigger": "General convex geodesic connection"
+        },
+        {
+          "assessment": "Balanced exact overlap, not decisive for unequal amplitudes",
+          "evidence": "Threshold 4t/(4+t²) and uniqueness at equality for equal prescribed strengths.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-extremal-numerical-radius-interpolation-for-swapped-nilpo--0788935d5422",
+          "material_read": "RESULT.md Finding",
+          "method": "Published-record mirror",
+          "title": "Unique extremal numerical-radius interpolation for swapped nilpotents",
+          "trigger": "Closest indexed same-day matrix theorem"
+        },
+        {
+          "assessment": "Related relaxation bound, not same finite asymmetric formula",
+          "evidence": "Universal factor-two bound and balanced sharp asymptotic defect.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-optimal-factor-two-guarantee-for-numerical-radius-pick-inter--a9d34c42618c",
+          "material_read": "RESULT.md Finding",
+          "method": "Published-record mirror",
+          "title": "The optimal factor-two guarantee for numerical-radius Pick interpolation",
+          "trigger": "Indexed matrix interpolation overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–37",
+        "1993 ellipsoid Theorem 1; Edigarian Theorem 4 and Remark 5"
+      ],
+      "rationale": "The interpolation question is natural, but this exact invariant is a rescaling of a known explicit geodesic. The rational formula is not a different attainment mechanism beyond that geodesic, and no independent new estimate, extension, or classification remains after the reduction.",
+      "residual_risks": [
+        "A pedagogical direct proof could still be useful; that is not a surviving distinct scientific finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

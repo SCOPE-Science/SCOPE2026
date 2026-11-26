@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The compression characteristic polynomial follows from the codimension-one cofactor identity, with coefficients \(u\) and \(\bar u\). The unique discriminant zero inside the spectral triangle is \(u=0\), where the compression has squared Frobenius norm one and is therefore a nonzero Jordan block. The unit-column condition-number formula follows from a direct two-by-two Schur eigenvector computation. Haar squared-coordinate weights have Dirichlet \((1,1,1)\) or \((1/2,1/2,1/2)\) laws, respectively, yielding local densities \(4/(3\sqrt3)\) and \(1/\pi\). Local gap and condition-number expansions prove the fourth-power limits and the moment frontier. The supplied checker passed 5,436 finite identity and simulation checks, which supplement rather than substitute for the limiting proof.
+PASS
 
-## Originality — PASS, qualified
+The rechecked result uses the cofactor identity to give z²+uz+conj(u) and D²=|u²−4conj(u)|. Since |u|≤1, the unique discriminant root is the weight barycenter. Modding out the normals by one global phase or sign gives respectively a two-torus or four planes at that point, and diagonal phases/signs commute with A. The Frobenius identity gives norm one at the barycenter, so this is a nonzero nilpotent, not a scalar. Schur triangle eigenvector overlap ν/√(ν²+D²) gives unit-column κ=(√(ν²+D²)+ν)/D, with ν²=1+(|u|²−D²)/2. Compactness excludes other tail contributions. Near zero, D∼2√|u| and κ∼|u|^(−1/2); the affine Jacobian 3√3/2 and Dirichlet weights give center densities 4/(3√3), 1/π. Disks of radii asymptotic to ε²/4 and R^(−2) give the four constants, and the positive R^(−4) tail via layer cake proves the p<4 cutoff including divergence at p=4. Independent script /workspace/branches/d316504f-57b8-4fb1-ad94-dd09de05eafe/independent_check.py and independent_check.txt there give 372 exact barycentric checks and 1,000 direct assertions across 200 planes, including center nilpotence and the conditioning formula. Limits are analytic, not fitted.
 
-The 2026 workshop explicitly raises distributions of non-Hermitian Ritz values for random subspaces. Shah's 2025 full-text pseudospectral-area estimates do not entail the fixed three-dimensional eigenvalue-gap and normalized-eigenvector tails; the prominent corollary concerns much smaller compression ranks. Carden–Hansen's known geometric characterization and Malamud's inverse-spectral perspective cover deterministic Ritz geometry, which is treated as an ingredient rather than a novel claim. Comparisons against available mathematical literature and published claim summaries did not identify the present two-field sharp constants or fourth-moment threshold. The complete Carden–Hansen paper was not accessible, leaving residual priority uncertainty, and no exhaustive literature search can establish uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Even a compression of a **normal unitary** input can be arbitrarily close to a defective two-by-two output. The exact power-four law quantifies the frequency and severity of this eigenvector instability for both real and complex Haar trial spaces, and the finite-moment frontier is relevant when stochastic Ritz eigenvectors are averaged or stability is assessed in moments. Exact constants for a canonical three-point spectrum serve as a meaningful benchmark against general high-dimensional pseudospectral estimates.
+Best-of-knowledge pass for the exact complex/real gap and condition tails in the equilateral compression, not for the shadow densities, cofactor geometry, or the multiplicity correction as a standalone novelty claim.
 
-## Closest prior literature and limitations
+## value
 
-The closest sources are Amsel and coauthors (2026, Section 3.3), Shah (2025), Carden–Hansen (2013), and Malamud (2003). The proof does not address arbitrary spectra or actual Krylov-subspace sampling. Carden–Hansen's full text could not be checked, so probabilistic overlap with uninspected material remains a specific risk. All statements are in exact arithmetic and independent review has not yet occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest nontrivial orthogonal compression of a symmetric three-level unitary spectrum is a concrete benchmark for nonnormal behavior from a fixed normal input. Almost-sure simplicity conceals a precise fourth-moment obstruction; comparing real and complex trial planes at the same input isolates distinct quantitative constants. The simultaneous gap and unit-vector conditioning laws give more information than the feasible Ritz region or generic warning about near-defectiveness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

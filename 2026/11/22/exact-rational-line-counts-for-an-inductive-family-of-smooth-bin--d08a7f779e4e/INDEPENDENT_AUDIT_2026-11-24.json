@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:24:08.971273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The family uses the F2-linear invertible change (a,b,c,d) to (a,b,c+d,c), not the untransformed starting polynomial in the induction. Lemma 9.2 proves smoothness before the change, Definition 9.3 transfers it, Lemma 9.4 verifies the section, and Proposition 9.1 applies. Space-filling follows as each phi vanishes on binary coordinates. The line test is polynomial containment, not vanishing on the three rational points. Every rank-two word gives one parametrization, the GL2 action is free with size six, and phi restricts to det(u,v) st(s+t). Checking the 256 base words and each of 16 successor states confirms the five per-state orbit counts and every transfer entry. More directly than a series fit, v3=16·1+(6,-2,2,2,-2), with the two summands 4- and 2-eigenvectors. The zero-residual functional is (1,0,3,0,0), so K_(m+3)=64·4^m+12·2^m for all m>=0. The three dependent-word families intersect only at zero, giving 3·2^(n+1)-2 exclusions. Division by six, geometric-series summation, and the ordered-independent-pair count of ambient lines yield the claimed formula, generating function, and density. Independent bounded certificate: python3 -B /workspace/evidence/check_5.py (base, all transitions, and the two eigenvectors); the fixed matrix gives the unrestricted result. No geometric or extension-field enumeration is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The initiating paper constructs and proves smoothness of the exact transformed family.",
+          "The inspected characteristic-two K3 upper bound and transversality results concern a dimension-specific bound or different incidence predicates, not these contained lines across dimensions."
+        ],
+        "reasoning": "A result computing the line scheme or its binary points for this family would cover the finding. Point-filling, smoothness, transversality and a bound for quartic surfaces do not give that count.",
+        "searches": [
+          "arXiv:2611.15768 §9, Proposition 9.1, Lemmas 9.2 and 9.4, Theorem 9.5",
+          "arXiv:1606.02135",
+          "arXiv:1903.08845",
+          "arXiv:2409.05248"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof",
+        "arXiv:2611.15768 §9",
+        "arXiv:1606.02135",
+        "arXiv:1903.08845",
+        "arXiv:2409.05248",
+        "Resultary d08a7f779e4e, 9ab1f1514068, 7fca5e0ad7be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 9.1 preserves smoothness and space-filling under a specified added term, not line counts. The base Fano observations provide only the base containment count."
+        ],
+        "reasoning": "Space-filling already forces all three rational points of every line onto the hypersurface; an identically zero restriction requires two more residual coefficients to vanish. Knowing L3 does not determine how their distribution is correlated with the last coordinate in the induction.",
+        "searches": [
+          "arXiv:2611.15768 §9 and Resultary records 9ab1f1514068 and 7fca5e0ad7be"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9ab1f1514068 counts all five geometric lines on B and shows they are all rational over F2; B and H are F2-projectively equivalent.",
+          "7fca5e0ad7be gives the same base lines and their incidence and Picard lattice."
+        ],
+        "reasoning": "A binary projective coordinate change preserves rational-line containment in the base exactly. It does not compare the higher-dimensional quartics to any counted family in these two records.",
+        "searches": [
+          "Resultary: rational lines on the transformed base",
+          "Resultary: explicit recurrence for rational-line counts of the smooth binary induction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mathematical match for the full sequence is the indexed copy of this finding (d08a7f779e4e). The two distinct inspected matches concern the dimension-three count."
+        ],
+        "reasoning": "The indexed copy is not independent coverage. A single exact base value, even with its geometric Fano scheme, is not an all-dimensions table or formula.",
+        "searches": [
+          "Resultary: exact formula (2·4^n−9·2^n+4)/12",
+          "Resultary: generating function for the line counts with Bourgeois-Conti, Moon, Perez and Warren"
+        ]
+      },
+      "rationale": "Best of available evidence for the uniform enumeration across dimensions. Credit the construction and smoothness to Bourgeois-Conti et al. and give no distinct originality credit to L3=5: a distinct same-day record proves the stronger five geometric lines, all binary, on the projectively equivalent base. Neither that record nor the inspected primary material covers L_n for n>=4. The boundary-state transfer, not vanishing on points or the base line count alone, determines the sequence. No priority order is inferred from same-day posting.",
+      "residual_risks": [
+        "Same-day base matches show overlap, not publication order.",
+        "The bounded Resultary and targeted literature comparison does not settle priority or exclude unindexed work or uninspected stronger statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers base and smoothness induction, not the line enumeration in inspected passages",
+          "evidence": [
+            "The added term is (X_n+X_(n+1))phi_(n,n+1); the section is obtained via H=F(X0,X1,lambda X2+X3,X2), with b=c=lambda=1 allowed over F2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15768",
+          "material_read": "§9 bounded PDF passages, pp. 14–18: Proposition 9.1, Lemma 9.2, Definition 9.3, Lemma 9.4 and inductive statement",
+          "method": "OA PDF locate and read around offsets 41362, 45730 and 50946",
+          "title": "Space-Filling Hypersurfaces",
+          "trigger": "Exact family and most plausible stronger primary claim"
+        },
+        {
+          "assessment": "Equivalent coverage of L3, not the higher-dimensional induction",
+          "evidence": [
+            "Exactly five geometric lines, all rational over F2, on B."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-split-five-point-fano-scheme-of-a-binary-space-filling-k3-qu--9ab1f1514068",
+          "material_read": "Finding and base equation",
+          "method": "Resultary match and local mirrored record at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The split five-point Fano scheme of a binary space-filling K3 quartic",
+          "trigger": "Same binary quartic, with potentially stronger geometric count"
+        },
+        {
+          "assessment": "Another base overlap; distinct Picard calculation",
+          "evidence": [
+            "Five rational lines and their incidence on B; rank-six lattice of discriminant -132."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-five-rational-lines-and-their-picard-lattice-on-a-binary-spa--7fca5e0ad7be",
+          "material_read": "Finding including count and Picard invariant",
+          "method": "Resultary match and local mirrored record at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The five rational lines and their Picard lattice on a binary space-filling quartic",
+          "trigger": "Same base quartic and number of lines"
+        },
+        {
+          "assessment": "The inspected bound is not the binary induction count",
+          "evidence": [
+            "Upper bound 68 for the characteristic-two K3 quartic setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.02135",
+          "material_read": "Abstract",
+          "method": "OA paper",
+          "title": "Characteristic-two quartic K3 line bounds (Veniani)",
+          "trigger": "Geometric quartic-line comparison in characteristic two"
+        },
+        {
+          "assessment": "Different predicate",
+          "evidence": [
+            "Lines meeting the surface transversely, rather than lines contained in the hypersurface."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.08845",
+          "material_read": "Statements about transverse lines",
+          "method": "OA paper",
+          "title": "Transverse lines to surfaces over finite fields",
+          "trigger": "Possible stronger finite-field incidence statement"
+        },
+        {
+          "assessment": "Different scope and incidence statistic in inspected material",
+          "evidence": [
+            "Tangent and transverse-free incidence does not supply the displayed contained-line count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.05248",
+          "material_read": "Passages identifying the tangent and transverse-free conditions",
+          "method": "OA paper",
+          "title": "Transverse-freeness in finite geometries",
+          "trigger": "Potential overlap from space-filling incidence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Contained binary lines are an intrinsic incidence statistic beyond the point count, which is fixed by space-filling. The all-dimensional formula and density are useful for comparing this existing smooth family to other space-filling quartics. The exact transfer handles a real obstruction (residual polynomial vanishing), not just a conversion of the already covered base count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

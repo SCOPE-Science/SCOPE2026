@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:14:50.076388Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–55, independently reconstructed",
+        "Frozen RESULT.md, line 59; VERIFICATION.md, line 19; verify.py, lines 3–47, inspected, not executed"
+      ],
+      "rationale": "Admissibility keeps operating resources nonnegative, so the proportional clearing update maps [0,1]^n into itself. The row-wise Lipschitz constants are lambda_i<1; hence the fixed point exists uniquely. In deficits put Lambda_i=product_{j=0}^{i-1} lambda_j and T_i=sum_{j=1}^i s_j/Lambda_j. Induction along the unshocked banks gives d_i=Lambda_i(d_0-T_i)_+; the induction uses s_i>0 to absorb the outer positive part. If sigma<=s_0+T_{n-1}, the candidate d_0=(sigma-s_0)_+ has d_{n-1}=0 and satisfies the fixed-point equations. Since the T_i strictly increase, exactly the stated prefix defaults, with equality at tau_i leaving bank i solvent. If sigma>s_0+T_{n-1}, the actual fixed point has d_0>=sigma-s_0>T_{n-1}, which forces every downstream deficit positive. In this branch closing the ring gives the stated derivative 1/(1-product_i lambda_i) at bank 0 and its downstream attenuations. The full-cascade interval can be empty, and even at its boundary the last bank still pays in full. This proof does not assume a feasible shock reaches a formal threshold.",
+      "residual_risks": [
+        "The recorded exact-rational run concerns two points in a four-bank example only. The proof, not the example, establishes the statement for general n and at the interval boundaries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eisenberg–Noe describes the general proportional clearing framework and fixed-point existence and uniqueness under regularity.",
+          "Eboli's homogeneous-cycle Theorem 8 gives first and last thresholds; the later ring analysis focuses on the first and the extrema of final thresholds versus loss allocation."
+        ],
+        "reasoning": "A general clearing fixed point does apply to the specified liability topology. Neither inspected Eboli passage displays a heterogeneous all-depth ladder, and their loss-flow comparisons are not a substitute for proportional clearing with one localized shock.",
+        "searches": [
+          "Eisenberg–Noe, DOI 10.1287/mnsc.47.2.236.9835, primary abstract and attempts at original full text",
+          "Eboli 2019, §7.1.4; Eboli et al., pp. 170–171, 178–179"
+        ]
+      },
+      "checked_sources": [
+        "Eisenberg–Noe, DOI 10.1287/mnsc.47.2.236.9835, abstract only",
+        "Eboli, DOI 10.1016/j.jedc.2019.04.007, OA submitted version; Eboli et al., DOI 10.1007/s10436-022-00416-9",
+        "Resultary same-day exact Finding and ranked searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every unshocked bank's payment has one proportional predecessor. After taking deficits one obtains the affine hinge, and positive slacks ensure composition introduces no new segment except clipping at zero.",
+          "The one hinge for bank i is at d_0=T_i. If the predecessor of the shocked bank pays fully the loop term vanishes, whereas above the last hinge all deficits are positive."
+        ],
+        "reasoning": "Unrolling this scalar recursion and substituting it into the final clearing equation mechanically produces all formulas, the ordering and equality convention. The original is not rejected for resemblance to the endpoint papers; its entire claimed sequence follows directly from the established clearing setup once restricted to one predecessor per node.",
+        "searches": [
+          "Proportional-clearing fixed-point framework of Eisenberg–Noe; compare with frozen RESULT.md, lines 19–55; Eboli cycle endpoint statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The homogeneous-cycle source calls the first secondary default the first contagion threshold. Its ordinal counterpart here is tau_1, not the standalone shock bank boundary tau_0.",
+          "Proportional payment shortfalls are propagated by d_i=(lambda_{i-1}d_{i-1}-s_i)_+, so the claimed thresholds are the successive zeros of the scalar propagated deficit."
+        ],
+        "reasoning": "Distinguish first default from first secondary default and read the boundaries in deficit variables. These sources share a cycle geometry, but model and parameterization matter for termwise equivalence.",
+        "searches": [
+          "Resultary lookup for directed unilateral ring or cycle cascade depth, single-bank shock, and proportional clearing thresholds",
+          "Eboli 2019 repository copy, §7.1.4, Theorem 8; Eboli et al. 2022 DOI 10.1007/s10436-022-00416-9, ring analysis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day sharp distributional boundary record states S((m+1)x)>=S(x)^(m+1) in an acyclic star with equal net worth and independent shocks (original Finding, offsets 0–4288).",
+          "No ranked finding with the exact heterogeneous ring formula was located."
+        ],
+        "reasoning": "The exact inequality is a probabilistic comparison, not a list of deterministic default depths or a cyclic-network table. The date neither supplies nor rules out coverage; this conclusion is based on the actual model and statement.",
+        "searches": [
+          "Resultary ranked lookup for the exact single-shock heterogeneous thresholds and other one-source Eisenberg–Noe contagion findings"
+        ]
+      },
+      "rationale": "The heterogeneous all-depth formula is more explicit than the related homogeneous-cycle and ring endpoint statements inspected. It is nevertheless a mechanical specialization of proportional clearing: each unshocked node has a single incoming payment, and each scalar positive-part affine deficit map has positive slope and negative intercept. Composing them gives a single hinge with a back-discounted sum for its break point; applying the closing equation below and above the final hinge gives the whole claimed classification. This is direct implication, not a claim that the exact heterogeneous list was found in prior literature. A missing lawful full-text copy of Eisenberg–Noe is not the grounds for failure.",
+      "residual_risks": [
+        "Full-text Eisenberg–Noe comparison remains unavailable; no negative whole-document inference is made.",
+        "The Eboli 2019 passage is from a submitted version; numerical equivalence of its endpoint parameterization to the homogeneous proportional-ring specialization was not established. Neither limitation removes the direct implication from the clearing recursion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General clearing context supported; no whole-document claim about ring formulas",
+          "evidence": [
+            "The abstract states that clearing is formulated as a fixed point and that the vector is unique under mild regularity conditions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/mnsc.47.2.236.9835",
+          "material_read": "Publisher/indexed abstract only; original full text not retrieved",
+          "method": "Lawful OA DOI lookup and independently identified alternate public record at ResearchGate; full-text routes returned HTTP 403 or no OA copy",
+          "title": "Systemic Risk in Financial Systems",
+          "trigger": "Primary proportional clearing framework and plausible direct antecedent"
+        },
+        {
+          "assessment": "Cycle with homogeneous inputs; first-secondary and final thresholds, not the displayed heterogeneous intermediate sequence",
+          "evidence": [
+            "Its cycle example uses identical balance sheets and equal link weights and restricts to idiosyncratic shocks."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jedc.2019.04.007",
+          "material_read": "§7.1.4 and Theorem 8, pp. 23–24 of the OA submitted version, text offsets 68766 and 71703",
+          "method": "Lawful OA repository PDF at https://www.econstor.eu/bitstream/10419/78710/1/756798876.pdf",
+          "title": "A flow network analysis of direct balance-sheet contagion in financial networks",
+          "trigger": "Closest published localized cycle threshold comparison"
+        },
+        {
+          "assessment": "Different loss-flow setup with a shock-allocation dimension; reports first and extremal final thresholds",
+          "evidence": [
+            "A ring passes losses to its sole creditor neighbor; the final thresholds vary with allocations of external shocks."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10436-022-00416-9",
+          "material_read": "Threshold definitions and ring discussion, pp. 170–171 and 178–179, text offsets 3769 and 32500",
+          "method": "Lawful OA DOI-resolved paper passages",
+          "title": "Connectivity, centralisation and ‘robustness-yet-fragility’ of interbank networks",
+          "trigger": "Earlier ring work with threshold and tractability discussion"
+        },
+        {
+          "assessment": "Different network, stochastic question and scope",
+          "evidence": [
+            "Analyzes an acyclic star with equal net worth under independent shocks and compares survival probabilities via S((m+1)x)>=S(x)^(m+1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-distributional-boundary-for-default-contagion-under-log--49a66e29944c/RESULT.md",
+          "material_read": "Original RESULT.md, Finding and scope, offsets 0–4288",
+          "method": "Local mirror original passage",
+          "title": "A sharp distributional boundary for default contagion under log-convex shock survival",
+          "trigger": "Closest indexed overlapping Eisenberg–Noe contagion finding"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–55 and 61–67",
+        "Eboli 2019, §7.1.4; Eboli et al., ring threshold discussion"
+      ],
+      "rationale": "Thresholds for contagion depth are a natural quantity, and the expression is a convenient benchmark for a toy topology. In this model the sole-predecessor and single-shock restrictions reduce the entire question to serial evaluation of one scalar hinge and a one-equation closure once every bank defaults. The exact thresholds are mechanically implied, and the finding adds no nonroutine multi-path effect, previously unresolved comparable-model threshold mechanism, or distinct structural result beyond this calculation.",
+      "residual_risks": [
+        "The judgment concerns this precise serial proportional-clearing example; it does not apply to other ring models, heterogeneous networks with multiple creditors, or multi-source shocks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

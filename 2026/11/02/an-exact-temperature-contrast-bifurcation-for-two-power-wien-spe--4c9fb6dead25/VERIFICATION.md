@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility and limits
 
-Run `python verify.py` with Python 3, SymPy, NumPy and SciPy. The bundled script verifies the derivative factorization, logarithmic derivative, strict-convexity expression, algebraic resultant factorization, shifted quartic, critical root, representative crossing counts and the near-critical window-opening coefficient. A completed execution returned `PASS` and 85 diagnostic test groups.
+The unchanged `verify.py` can be run with Python 3, SymPy, NumPy and SciPy. It checks the derivative and background cubic resultant and samples the leading window-opening law. The recorded 85 diagnostic groups pertain to those checks, not to a numerical bound on the remainder. In particular, finite numerical samples do not justify an asymptotic error order. The proof of the remainder in `RESULT.md` uses analyticity and the exact reflection symmetry in the scaled coordinates. To reproduce the leading coefficient, solve \(H_r(x)=\partial_x H_r(x)=0\) near \((r,x)=(2.15664,5.63959)\), and use \(k=-\partial_r H_r(x)\), \(h_2=\partial_x^2 H_r(x)\) at that point in \(K=(4k/3)\sqrt{2k/h_2}\).
 
-The proof in RESULT.md is the infinite-domain argument; numerical sampling does not establish universal quantifiers and has not been presented as an independent check. The approximation is Wien, not full Planck; no observation, laboratory experiment, or independent audit is claimed.
+This package gives an analytic result for an ideal Wien spectrum, not an observation, laboratory experiment or formal proof certificate.

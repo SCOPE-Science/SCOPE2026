@@ -1,12 +1,21 @@
-# Review of the five-step Chebyshev positivity frontier
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes a finite connected unweighted regular bipartite graph, an exact interval \([\mu,\mu+2d]\), and final Chebyshev iterates from zero. Dividing \(T_m(z)-T_m(P)\) by \(zI-P\) gives explicit polynomials; positive coefficients prove degrees one through four and fifth-step sufficiency. At degree five, a negative coefficient becomes a genuinely negative neighboring graph entry on sufficiently high-dimensional hypercubes, with its exact three-step-walk count and strictly positive right-hand-side perturbation proved. Independently replayed finite exact-rational checks confirm the identities but are not used as an all-dimension proof. No external mathematical certification is asserted.
+## correctness
 
-## Originality — PASS (provisional)
-The closest published full text, *Condition three is the sharp positivity frontier for the degree-three Chebyshev semi-iterate*, is about all Stieltjes matrices at **degree three** and expressly leaves higher degrees open. Its condition-three frontier does not imply the fifth-step \(9+4\sqrt5\) frontier for regular bipartite graph matrices, nor the all-condition-number degree-four immunity. The 2018 graph-linear-system paper and 2021 Chebyshev-iteration treatment provide known definitions, methods and motivation, but the read sections do not present this positive-cone cutoff. Relevant queries for the exact constant, graph case, polynomial aliases, and hypercube witnesses found no implication-equivalent claim. This is a search-supported assessment, not a proof of absolute historical novelty. Residual risk: broader classical nonnegative polynomial iteration literature may cover the bound under different terminology.
+PASS
 
-## Value — PASS
-The exact positivity failure boundary distinguishes a Chebyshev approximation's strong spectral convergence from its preservation of the nonnegative solution cone for natural homogeneous diffusion-network linear systems. The first failing iteration number and sharp condition-number barrier are structurally defined, and a family of genuine positive-data counterexamples demonstrates necessity rather than a negative intermediate algebraic coefficient alone. The result does not claim faster algorithms, positivity of internal stages, or a classification beyond iteration five.
+For H=d(zI−P), the endpoints are exact because the regular bipartite graph has P-eigenvalues ±1. The optimal interval residual gives C_m=D_m(z,P)/(d T_m(z)), with D_m the Chebyshev divided difference. The first four expansions have nonnegative coefficients for z>1. At m=5 only the P and P² coefficients can become negative, and both are nonnegative exactly when z≥√5/2, equivalent to κ≤9+4√5, including equality. For Q_d the adjacent entry of D_5 sees only P and P³: the three-step count is 3d−2 versus one direct edge. Consequently after removing a positive prefactor its sign is that of z²−5/4+(3d−2)/d². This is negative for every fixed forbidden z as soon as d is sufficiently large. The positive constant row sum allows a strictly positive perturbation of a basis vector. Exact evaluation at Q32, z=21/20 gives T_5=503601/200000, the entry −17825/49113088 and the stated positive perturbation leaves output −17825/98226176. The Neumann series shows the exact inverse is strictly positive.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The sharp degree-five graph-uniform bound, and unconditional positivity of the first four final iterates in this class, are distinct from the strongest retrieved positivity bounds. The Chebyshev residual construction and coefficientwise sufficient test themselves are not credited as new.
+
+## value
+
+PASS
+
+For graph diffusion and inverse problems the exact inverse preserves positivity, but minimax acceleration need not. This identifies a precise regime where a common accelerated polynomial is safe across a natural class, shows an unconditional guarantee for four final steps, and proves when that guarantee fails even for strictly positive data. The high-degree hypercube witnesses make the boundary necessary at every supercritical condition number, not merely a coefficient-bound estimate or a single failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

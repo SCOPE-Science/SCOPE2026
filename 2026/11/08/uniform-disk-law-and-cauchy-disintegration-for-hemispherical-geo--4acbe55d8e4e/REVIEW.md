@@ -1,19 +1,21 @@
-# Scientific review: hemispherical geodesic-midpoint law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses a one-to-one, almost-everywhere midpoint/separation/tangent parameterization of an ordered spherical endpoint pair. For two unrestricted points on the round sphere, its joint Jacobian is spherical area times uniform tangent angle times \(\sin(2t)\,dt\). The condition that both endpoints lie north of the equator is exactly \(0<w<z^2/[z^2+(1-z^2)\cos^2\phi]\) for \(w=\sin^2t\). Normalizing by the \(1/4\) hemisphere-endpoint event gives the constant density \(1/(2\pi^2)\). Integrating \(w\) and \(\phi\) gives the midpoint surface density \(z/\pi\), which cancels the orthogonal projection Jacobian and gives uniform Euclidean area in the disk. A tangent-variable transformation gives the conditional Cauchy law. Direct spherical-lune counting gives the separation density and moment formulas; pole-density comparison and strict monotonicity of a gamma ratio prove dimension uniqueness.
+PASS
 
-The executable independent sample checks of 660,000 directly generated hemisphere endpoint pairs and 340,000 factorized samples completed successfully. The finite simulation checks are auxiliary only; the infinite statements rest on the explicit calculations. Probability-zero antipodes, equator and singular reference frames are correctly excluded.
+For the repaired theorem (repairs/1/RESULT.md), first take full-sphere endpoints and condition on the half-separation T. Orthogonal invariance on ordered orthonormal pairs gives a uniform midpoint and a conditionally uniform unit tangent, with the two discrete choices included when d=2. The conditioning event has probability 1/4. At height z, its conditional probability A(m) is between P(√(1−z²)sin T≤z cos T) and 1, since |V_d|≤√(1−z²). Dominated convergence as z→1 proves the needed continuous value at the pole, rather than treating a density at an isolated, measure-zero point as identified. In projection coordinates divide the spherical density 4A(m)/σ_(d−1) by z. Uniformity would force the continuous center value to equal 1/κ_(d−1); this requires σ_(d−1)/κ_(d−1)=4. The ratio has bases π and 4 at d=2 and d=3 and increases by factor (d+1)/d on stepping d→d+2, with r(4)=3π/2>4. Sufficiency follows from the correctly normalized, now credited dimension-three calculation: w=sin²T is uniform before truncation; endpoint positivity gives the cap q(z,φ); integrating the conditioned constant 1/(2π²) gives z/π in spherical area and 1/π in the disk. The modulo-π Cauchy transform, fair lift for ordering, conditional uniform w, and angle moments were also checked as explanatory formulas. The standalone length statement was removed from the repaired finding; its checker remains auxiliary. No uploaded script was run.
 
-## Originality — PASS on accessible evidence, provisional historical priority
+## originality
 
-Bárány–Hug–Reitzner–Schneider, *Random points in halfspheres*, arXiv:1505.04672v1 (2015), studies convex hulls/facets/mean width/volume and approximation for independent hemisphere samples, not their pairwise geodesic midpoint pushforward. Gille, *Chord Length Distributions of the Hemisphere* (2005), DOI 10.3844/jmssp.2005.24.28, evaluates straight-line chord distributions of a solid hemisphere sampled by invariant lines, not a midpoint of geodesics whose endpoints are surface-uniform. Both primary PDF texts were inspected: the first by sections and targeted midpoint terminology, the second across all five pages. The paper-level comparison is one of mathematical objects, sampling models and implications, not titles.
+PASS
 
-Searches for spherical midpoint, orthogonal projection, uniform hemisphere, Lambertian disk, geodesic endpoint-pair laws, and conditional Cauchy angles returned no equivalent complete identity in the checked literature or accessible earlier mathematical records. Previous related studies of hemisphere geodesic containment concern endpoint visibility, not the pushforward midpoint. This is positive *best-knowledge* originality only, not an independence or all-literature guarantee. An older directional-statistics/disintegration identity could dominate the calculation; independent historical verification remains appropriate.
+This is a PASS for the substantively narrowed theorem only. The original's headline disk law fails originality: the 2012 accepted answer gives the exact equivalent midpoint spherical density, not just a similar question. The repaired finding is dimension rigidity via the all-dimension center-density obstruction. It uses the previously known d=3 law only for sufficiency, and treats the explicit dimension-three disintegration as a supporting calculation, not a separate new theorem. No inspected antecedent covers the uniqueness of d=3 or the higher-dimensional pole argument. This is a bounded assessment, not an absolute priority claim.
 
-## Mathematical value — PASS
+## value
 
-The result determines the full midpoint pushforward and an exact endpoint-pair disintegration for a natural curved sampling space. The Euclidean-area-uniform disk law is an unexpectedly simple geometric transform; the conditional Cauchy/uniform coordinates permit exact reconstruction and sampling of ordered endpoint pairs; the sharp dimension-three rigidity shows this simplicity is not a generic consequence of hemispherical symmetry. These are structural distributional statements rather than just a numerical probability or a special-case normalization check. No claim is made for arbitrary caps or projections.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result explains the precise dimensional exception for a natural surface-sampling operation, rather than rediscovering its known d=3 marginal. An exact local invariant of the midpoint pushforward eliminates all other dimensions without deriving their full densities. It provides a structural reason not to generalize the disk sampler by simply increasing ambient dimension. The explicit known-dimensional conditional formulas make clear what remains available in the exceptional case, without supplying novelty in place of the dimension theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

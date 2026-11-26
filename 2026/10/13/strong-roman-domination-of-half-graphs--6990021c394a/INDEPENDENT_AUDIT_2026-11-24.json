@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:09:41.196300Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–222; VERIFICATION.md lines 18–53; verify.py (inspected, not run); verify_output.txt lines 1–8",
+        "Independent bounded enumeration: /workspace/branches/33f97e85-1aad-4df3-abcc-a6302a91a59c/independent_half_graph_check.py and its independent_n3.txt, independent_n4_n5.txt, independent_n6_n7.txt outputs"
+      ],
+      "rationale": "The defender of the least-index zero in B necessarily sees every B-zero, and the defender of the greatest-index zero in A sees every A-zero. Thus for positive-support sizes α,β, the weight is at least g_n(α)+g_n(β) with g_n(t)=ceil((n+t)/2), also when one side has no zeros. A zero support on one side forces full support on the other, giving weight at least n+ceil(n/2); this is strictly above the target for odd n≥3, and for even n it ties at n=4 and exceeds the target thereafter. With both supports nonempty the bound gives n+1 for odd n and n+2 for even n. For odd n equality forces one positive on each side. If a1 is not the positive A-vertex, b1 must be the sole positive B-vertex, forcing all a2,…,an positive and contradicting n≥3; duality forces bn. Equality fixes their labels. The endpoint function attains both bounds, and for n=2q the alternate label q at a2 covers exactly the n−2 B-zeros, while q+1 at bn covers all n−1 A-zeros; its weight is n+2. All labels respect the cap. An independent support/composition enumeration checked 449,345 labelings at orders 3–7, with values 4,6,6,8,8 and respective optimizer counts 1,28,1,49,1.",
+      "residual_risks": [
+        "All orders are covered by the proof, not finite extrapolation. The even-order alternate is a witness of nonuniqueness, not an exhaustive optimizer list."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational paper gives general bounds, bipartite NP-completeness and tree results; H_n has a 4-cycle for n≥3. Xu–Wang's graph families have different definitions and the inspected sections give upper bounds. The p-strong Roman paper identifies p=2 with the standard rule but its subsequent complete-bipartite result takes p≥3.",
+          "The Resultary multipartite formula assumes at least three parts; H_n is bipartite and not complete bipartite."
+        ],
+        "reasoning": "None of these stronger-looking graph-family or parameter statements covers the actual family and invariant, much less the equality classification.",
+        "searches": [
+          "Strong Roman domination for chain/bipartite graphs; arXiv:1502.03933",
+          "Xu–Wang, doi:10.12988/ams.2018.8351, section 3",
+          "Valenzuela-Tripodoro et al., doi:10.37394/23206.2024.23.104, p. 1008 and Proposition 15",
+          "Resultary 28025f4386ef"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.03933; doi:10.12988/ams.2018.8351; doi:10.37394/23206.2024.23.104",
+        "Resultary 7142cc8623f8 and 28025f4386ef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-order lower bound uses defenders of extremal zero vertices on both sides and equality involves support sizes on both sides. Prior general bounds, tree results and complete-multipartite values do not provide that equality information; [k]-Roman lacks this neighbor-dependent strong-Roman load rule."
+        ],
+        "reasoning": "The result is neither a renaming of [k]-Roman endpoint uniqueness nor a direct application of a prior broad bound. The nested-neighborhood equality argument is needed for the asserted parity-sensitive optimizer conclusion.",
+        "searches": [
+          "Resultary 7142cc8623f8 and 28025f4386ef compared with the exact Finding; arXiv:1502.03933, definition and general/theorem statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent staircase Ferrers incidence has nested neighborhoods, reversed by the graph's part-swapping reversal of indices. The same-day [k]-Roman record gives 2(k+1) and one endpoint optimizer for k≥2, n≥3, under a different defense rule. Already at k=2,n=3 its value 6 differs from the strong Roman value 4."
+        ],
+        "reasoning": "Shared graph, endpoint positions and occasional numerical coincidences do not equate the label conditions or entail the parity law.",
+        "searches": [
+          "Strong Roman domination of half graphs, chain graphs and Ferrers graphs",
+          "Resultary same-graph query; 7142cc8623f8",
+          "Álvarez-Ruiz et al., arXiv:1502.03933, definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby indexed half-graph values are for [k]-Roman, not strong Roman. The bounded 3–7 table in the frozen evidence and independently enumerated output agrees; it is verification of this record, not evidence of prior publication."
+        ],
+        "reasoning": "No exact same-invariant table or sequence giving these values and optimizer property was located. A finite table would not alone cover the all-order statement.",
+        "searches": [
+          "Resultary exact half-graph strong Roman values/optimizers, including same-day 7142cc8623f8",
+          "Inspected exact graph-family and construction results in the cited papers"
+        ]
+      },
+      "rationale": "The standard invariant and its label rule are prior. The supported distinct claim is the exact parity-dependent strong Roman value on the staircase half-graph family together with the exact uniqueness split. The strongest same-graph indexed result has a different domination constraint, and the strongest same-invariant indexed result has incompatible graph hypotheses. The inspected primary works do not provide this specialization.",
+      "residual_risks": [
+        "The primary-literature search returned noisy results. A differently named chain-graph classification or unindexed exact result remains possible; this is a statement-level comparison of the located material, not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits definition and general background; inspected theorems do not yield this half-graph law",
+          "evidence": "General bounds and bipartite hardness are distinct from the exact value; Theorem 18 is a tree result.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.03933",
+          "material_read": "Abstract p. 1; definition pp. 3–4; Theorem 18 p. 17; OA offsets 2300, 11000–12426 and 62000",
+          "method": "Bounded OA manuscript passages",
+          "title": "On the strong Roman domination number of graphs",
+          "trigger": "Foundational same-invariant work, potential exact bipartite or broader bound"
+        },
+        {
+          "assessment": "Different graph families",
+          "evidence": "Section 3 treats D_(p,C_q), spider-web graphs and middle graphs of fan graphs, with upper bounds.",
+          "identifier_or_url": "https://www.m-hikari.com/ams/ams-2018/ams-9-12-2018/p/xuAMS9-12-2018.pdf",
+          "material_read": "Introduction pp. 535–536, OA offsets 1469–5069; section 3 pp. 537–540, offsets 6400–15957",
+          "method": "Bounded publisher OA PDF passages",
+          "title": "Note on Strong Roman Domination in Graphs",
+          "trigger": "Same-invariant exact and special-family work"
+        },
+        {
+          "assessment": "The potentially relevant complete-bipartite theorem does not apply",
+          "evidence": "Identifies p=2, studies 3≤p≤Δ−1 subsequently, and gives Proposition 15 for complete bipartite graphs in that range.",
+          "identifier_or_url": "10.37394/23206.2024.23.104",
+          "material_read": "p. 1008 and Proposition 15 p. 1012, offsets 25200 and 55000",
+          "method": "Bounded OA passages",
+          "title": "p-Strong Roman Domination in Graphs",
+          "trigger": "Generalization containing the standard p=2 rule"
+        },
+        {
+          "assessment": "Distinct invariant despite same graph and endpoint optimizer",
+          "evidence": "Its Finding uses [k]-Roman domination and claims 2(k+1), not a quantity depending in this way on n or on the strong-Roman zero-neighbor load.",
+          "identifier_or_url": "2026/10/13/SCOPE-unique-minimum-k-roman-functions-of-half-graphs--7142cc8623f8",
+          "material_read": "Mirrored RESULT.md offsets 0–5156",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Unique minimum [k]-Roman functions of half graphs",
+          "trigger": "Strongest same-graph and same-endpoint indexed match"
+        },
+        {
+          "assessment": "No broader coverage of this half graph",
+          "evidence": "The value ceil((N+m)/2) is for complete multipartite graphs with at least three parts, excluding the bipartite case.",
+          "identifier_or_url": "2026/10/4/SCOPE-strong-roman-domination-of-complete-multipartite-graphs-with-at--28025f4386ef",
+          "material_read": "Mirrored RESULT.md offsets 0–2612",
+          "method": "Resultary search and bounded local mirror read",
+          "title": "Strong Roman domination of complete multipartite graphs with at least three parts",
+          "trigger": "Same-invariant indexed graph-family formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 71–222 and 233–245",
+        "Foundational definition and bipartite setting in arXiv:1502.03933"
+      ],
+      "rationale": "The half graph is the canonical nested-neighborhood bipartite family, so it tests how a neighbor-load constraint changes both the exact optimum and its stability under changing graph order. The parity law distinguishes consecutive orders and, more substantially, determines when the two extreme defenders are forced versus when the same minimum admits different support patterns. This exact invariant and optimizer split are independently useful benchmarks rather than a small-table recomputation.",
+      "residual_risks": [
+        "No claim of a complete even-order census or a strong Roman algorithm for all chain graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact noise-conditioned density evolution closes on three populations, two telegraph-weighted nearest-neighbor coherences, and one cross-weighted end-to-end coherence. Reflection decomposes the population dynamics into an independently verified quadratic and cubic sector. Two strict shifted Routh--Hurwitz tests prove that the quadratic sector always relaxes more slowly. The distinct initial-state projections then select different sectors. The quadratic optimum is explicit; discriminant analysis and two strict root-derivative inequalities give a unique cubic optimum at its double slow root. The full four-noise-state stochastic-Liouville calculation was checked at 100 points against the reduced system. No finite grid is substituted for the analytic global inequalities.
+## correctness
 
-## Originality — PASS, subject to priority risk
-The closest motivating source, Benedetti et al., arXiv:1510.08652, analyzes randomly switching hopping links on longer lattices using numerical averaging. Rossi et al., arXiv:1707.01441, consider spatially correlated noise; Kurt et al., arXiv:1909.00167, treat a three-site system but fluctuate the diagonal site energies and add environmental baths. Those statements do not provide the two exact population-sector optimizers for independent bond signs in a symmetric three-site chain. Focused mathematical-record searches for stochastic-Liouville sector factors, telegraph trimer relaxation, and exceptional-point optima found no equivalent. Such searches do not establish absolute novelty: a presently unidentified general finite-state telegraph-spectrum analysis could contain the result as a specialization.
+PASS
 
-## Value — PASS
-The three-site chain is the smallest path with two independently switching noncommuting hopping terms. Its exactly soluble reduction demonstrates that the environmental switching rate which optimizes observable relaxation changes substantially with the localized preparation, and that the center optimum sits at a genuine spectral exceptional point. Thus the sharp rates are a meaningful physical calibration example, not arbitrary polynomial roots. No claims are made for arbitrary chains, correlated fluctuators, finite-time mixing, or transport efficiency with measurement overhead.
+An independent closure uses G=diag(ξ₁,1,ξ₂) and σ=GρG. Between flips the Hamiltonian of σ is the fixed hopping matrix; a flip conjugates σ by the deterministic diagonal reflection on the corresponding endpoint. Since each flip intensity is λ independently of the state, averaging gives the fixed commutator plus λ times each reflection-conjugation minus identity. The diagonal is unchanged, and the damping is 2λ for each imaginary nearest-neighbor coherence and 4λ for the real end-to-end coherence. This yields the closed real system with c_jk=−Im σ_jk, D=Re σ₁₃, and the two reflection-sector factors. Both factors are Hurwitz for all λ>0. The two shifts in RESULT.md lines 48–57 give strictly positive cubic Routh–Hurwitz margins 8a²λ and 4λ(6λ−5δ_Q)(2λ−δ_Q). Endpoints excite the slower quadratic: its transform is proportional to (z+2λ)/Qλ(z), with no cancellation. At the center this sector is absent, and Pλ(z)=z[(z+2λ)(z+4λ)+2a²]+6a²(z+4λ), which excludes a common root with the center numerator. A noncancelled multiple pole produces the polynomial prefactor; the limsup yields the real-part exponent even with oscillatory zeros. Below the unique discriminant crossing the real root is −u with 3λ<u<4λ (evaluate Pλ at these two endpoints). Writing w=u/λ−3 gives t²=8w/[(3+w)(1−w²)], increasing on (0,1), and normalized cubic gap t(3−w)/2. The derivative of its square with respect to w has sign 9(1−w)+7w²+9w³. Above the crossing the depressed cubic has two positive y roots and one negative y root. The largest z root −g therefore has 0<g<2λ. Its simple-root derivative has the sign of −g(3g²−16λg+24λ²)/(3λ−g), strictly negative. At the crossing the positive double y root is the slow root, with a genuine double pole proving defectiveness. Independent bisection of 32+t²(−21+t²(24−4t²)) on [2,3], then evaluation of 2t−sqrt((4t²−8)/3), gives t≈2.3008118172002835, gap≈2.505998025926741, versus √2≈1.4142135623730951. No finite-grid inference is used. The supplied verifier was inspected, not run; its counter of 100 includes 90 population comparisons and ten spectral checks (its printed label overstates the number of population comparisons).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the combined exact observable-sector result: localized endpoint versus center on the equal-hop, independently switching, stationary telegraph chain, with distinct unique optimizers of the logarithmic ensemble population exponent and a center slow-root collision. The noise model, stochastic Liouville method and the broad principle that noise optima can depend on preparation are not claimed as new. Closest indexed analogues optimize a different observable or channel. No equivalent or implying theorem was found in the inspected material; this is not a historical priority guarantee.
+
+## value
+
+PASS
+
+The same physical generator has different optimal observable relaxation rates when localized preparation suppresses its slower reflection sector. The two strict global optima and their exact values, and the center exceptional point visible without relying on numerics, supply a concrete benchmark for when a generator-gap optimization mispredicts an experiment that measures populations. This is a distinct, motivated exact result even for three sites.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

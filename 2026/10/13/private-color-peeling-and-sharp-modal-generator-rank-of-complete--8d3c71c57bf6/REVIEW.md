@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The private-color witness formula defines each removed part because its selected color occurs in no other still-undiscovered part; a nonempty subset of one part is seen by every vertex outside that part and no vertex inside. The complementary direction is supplied by an explicit color-preserving bisimulation on all remaining core parts, valid because each core color occurs in at least two core parts. This reconstructs all atoms. The generator bound is a matching sequential-witness lower bound and a suffix-palette construction. Modal-depth propagation is proved inductively and independently tested in finite cases. The finite verifier is corroborative rather than an infinite proof.
+## correctness
 
-## Originality — PASS, with limitations
-The inspected 2022 Hennessy–Milner paper addresses general correspondence between modal formulas and bisimulation, not an exact multipartite-frame peeling quotient, sharp generating-set rank, or depth bound. Alon–Fachini–Körner's older locally thin set-family concept overlaps with the all-subfamilies private-color criterion and is explicitly acknowledged as prior work. Searches for the exact specialized modal/algebraic theorem, including semantic research-index searches, did not identify a dominating result. An antecedent hidden in earlier distinguishing-coloring, locally thin, or graph-bisimulation literature remains a material residual risk, and the second paper's full text was not read.
+PASS
 
-## Mathematical value — PASS
-The result solves a natural finite modal-algebra generation question for every complete multipartite frame, including arbitrary highly unbalanced part sizes. The exact rank formula is a genuinely sharp structural invariant rather than an example or small-case census; it also gives a complete and constructive atom classification and a sharp depth bound independent of part sizes. These facts clarify the distinction between existence of separating propositions and modal definability of all states.
+For a nonempty witness set in one part, the complement of its diamond is exactly that part. Successive Boolean exclusion of earlier peeled parts makes such witnesses definable. On the core, every used color has representatives in at least two core parts, so every successor color can be matched while avoiding the current part. Matching peeled successors in the same peeled part proves bisimulation; the definable parts and color tests distinguish all proposed classes. Hence the atom and cardinality formulas hold. Injectivity within each part is also required for full generation: the all-subfamilies private-color test in the Finding is read as an equivalence for empty core, as its proof specifies. A sequential peeling order forbids its first i-1 distinct witness colors in part i. Exchanging any ascending pair of sizes minimizes the maximum n_i+i-1 in descending order; suffix palettes containing their designated witness attain the bound. This handles k=1 and zero generators. Depth is bounded by one new diamond per round, using complementation for a final singleton part. In the chain example each still-unsplit repeated color is visible from every part; only the part with a private current type is detected in the next refinement, splitting just the next chain color. This yields exactly k-1 strict steps, including the final two-part step.
 
-## Limits
-No independent audit, exhaustive search of all older locally thin literature, or claim of a full census of generating valuations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the specialization to a single ordinary diamond on loopless complete multipartite frames: exact color-class quotient, optimal palette size, and worst-case depth with a matching family. Generic bisimulation and private elements are credited, not claimed as inventions.
+
+## value
+
+PASS
+
+The quotient gives modal observability for every valuation, not only valuations attaining the generator minimum. It replaces generic partition refinement by an explicit support calculation and yields both a tight resource threshold and a sharp depth bound even when parts are tiny. Those answer natural classification and optimization questions about this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

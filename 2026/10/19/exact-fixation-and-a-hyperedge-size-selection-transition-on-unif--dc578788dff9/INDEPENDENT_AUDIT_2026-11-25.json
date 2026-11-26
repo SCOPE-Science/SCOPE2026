@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:11:39.254635Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44 and 48–93; VERIFICATION.md; check_general.py; verify_exact.py",
+        "Independent full labeled absorption-equation check, independent_sunflower_chain.py"
+      ],
+      "rationale": "Under whole-hyperedge copying, homogeneous petals stay homogeneous. With j mutant petals, a resident hub changes the petal count downward at relative rate j/m, and flips to mutant at rate srj; a mutant hub changes the count upward at rate r(m-j)/m and flips at rate s(m-j). All share the corresponding total-fitness denominator, so the harmonic equations give the geometric ratio q for the gap between the two hub-conditioned fixation probabilities. The boundaries u_0=0 and v_m=1 give v_0=H. A hub-only sequence that visits every petal provides a positive-probability path to absorption from any homogeneous configuration. For peripheral initialization the first event reaching that petal either fixes its type as mutant, with probability r/(r+s-1+1/m), and takes the chain to v_1=H(1+sm/r), or causes extinction. Averaging over the sm+1 sites proves the uniform formula. The one-petal case simplifies to r/(r+s); at neutrality q=1 and uniform fixation equals 1/(sm+1). Differentiating the finite geometric sum gives the stated weak-selection slope and the Moran-minus-sunflower difference; the numerator polynomial in the proof is −(m−1)^3 at s=1, positive for s=2, and positive for s≥3 (the only negative coefficient to check there is −m at s=3). For fixed r>1, the exact geometric-sum simplification H=(r²−1)/(r²+smr−(1+smr)q^m) yields the limit and at s=2 the relative first-order correction −1/2−1/(r+1), yielding precisely the stated coefficient. Independent full labeled chains through N=7 matched the fixation formulas within 1.3e−15 and independent differentiated chains matched the slope within 1.9e−15 in four tested cases. Replay: python3 /workspace/branches/a765d51b-25cf-4de1-88e9-d6055527ea2c/independent_sunflower_chain.py. The supplied scripts were inspected rather than executed.",
+      "residual_risks": [
+        "The numerical chain check is bounded to N≤7. The analytic derivations, not the numerics, certify the unbounded statements. The m→∞ expansion is for fixed r>1, not uniform as r approaches 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Masuda define Model 1 on general hypergraphs, then give exact analyses for specific families with a distinct three-uniform star topology.",
+          "The indexed loose-star record includes additional deleterious-fitness and m=2 comparisons, but fixes petal size at two."
+        ],
+        "reasoning": "A transition rule valid on all hypergraphs is not an exact fixation theorem. The dense-star simplification does not transfer because each dense-star peripheral parent has N−2 edge choices and the selected edge can span two statuses not confined to a permanent petal. The loose-star analysis cannot give the group-size transition by specialization.",
+        "searches": [
+          "arXiv:2301.05343v2, Model 1 and dense-star reduction",
+          "Resultary:06bbb4fef2a9, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.05343v2",
+        "Resultary:06bbb4fef2a9",
+        "Frozen RESULT.md lines 95–109"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sunflower's peripheral initial event has relative rates r, s−1, 1/m, and stable homogeneous petals subsequently contribute total mutant reproduction weight sr per petal.",
+          "Known ordinary-star formulas concern s=1; the later exact loose-star formula gives s=2, including equality with the limiting Moran baseline."
+        ],
+        "reasoning": "The model and two familiar special cases do not give the fixation factor for arbitrary petal size or show the strict change for s≥3. No inspected prior exact theorem supplies both the homogeneous jump chain with multiplicity s and its entrance law plus the size-dependent comparison.",
+        "searches": [
+          "arXiv:2301.05343v2, pp. 8–10 and Supporting Text I",
+          "Resultary:06bbb4fef2a9, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The dense star contains every hub and leaf-pair triple; its one-mode projection has hub-leaf weight N−2 and leaf-leaf weight 1 with one-neighbor replacement.",
+          "The loose three-uniform star has disjoint petals of size two and uses whole-hyperedge copying, and its formulas at s=2 coincide exactly."
+        ],
+        "reasoning": "Neither the dense-star chain nor the projected graph is a relabeling of the sunflower. The later loose-star record is equivalent for s=2, m≥2 only. On homogeneous configurations an effective pairwise star can reproduce the jump chain if leaf parents have weight s times the ordinary leaf fitness, but this representation does not implement the pre-homogenization single-peripheral-mutant step.",
+        "searches": [
+          "arXiv:2301.05343v2, Model 1, star analysis and Supporting Text I",
+          "Resultary:2026/10/25/SCOPE-exact-fixation-and-selection-scale-asymptotics-on-loose-three-un--06bbb4fef2a9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Finding and Proof contain exact location-specific and uniform probabilities and the same fixed-r>1 first correction on loose three-uniform stars."
+        ],
+        "reasoning": "The overlap is of formulas, not just data, but is restricted to s=2 and a later catalog date. No numerical table for isolated population sizes would settle the full two-integer family or the limit comparison.",
+        "searches": [
+          "Resultary:2026/10/25/SCOPE-exact-fixation-and-selection-scale-asymptotics-on-loose-three-un--06bbb4fef2a9"
+        ]
+      },
+      "rationale": "The ordinary graph-star case and the update mechanism are prior; the exact arbitrary-petal-size fixation and size transition survive the comparison. The closest earlier primary paper uses the same Model 1 but a dense three-uniform star, not disjoint petals. Its weighted projection is also not equivalent. A later indexed loose-star result is an exact partial overlap at s=2, not full arbitrary-s coverage. This is a bounded originality assessment, not a priority certification.",
+      "residual_risks": [
+        "An unlocated weighted-star or disjoint group-replacement result could give a closer predecessor. The partial exact overlap does not establish a priority relationship between the dated records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same update family; distinct exact star theorem and distinct weighted projection",
+          "evidence": "Every hub–leaf-pair triple occurs in the dense star; weighted projection then copies to one neighbor rather than an entire group.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.05343v2",
+          "material_read": "PDF pp. 2–3 Model 1 (text offsets 10555–15501), pp. 8–9 dense star (38700–46936), p. 10 and Supporting Text I p. 29 weighted projection (46828–50016 and 131782–135869)",
+          "method": "Primary open PDF, targeted pages",
+          "title": "Fixation dynamics on hypergraphs",
+          "trigger": "Same Model 1 and apparently matching star topology"
+        },
+        {
+          "assessment": "Exact s=2 partial overlap; later catalog date, no inference of causal priority",
+          "evidence": "Hub, peripheral and uniform probabilities and the fixed-r>1 1/m correction coincide with the s=2 specialization; other results there concern different selection regimes at s=2.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-fixation-and-selection-scale-asymptotics-on-loose-three-un--06bbb4fef2a9",
+          "material_read": "Finding and proof, RESULT.md text offsets 0–10506",
+          "method": "Local index and mirrored record",
+          "title": "Exact fixation and selection-scale asymptotics on loose three-uniform hyperstars",
+          "trigger": "Strongest exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44 and 83–103",
+        "arXiv:2301.05343v2, model and star sections",
+        "Resultary:06bbb4fef2a9"
+      ],
+      "rationale": "Disjoint petals isolate the effect of the broadcast group size from overlap between hyperedges. The exact formulas distinguish the location effect (which holds for every fitness) from the weak-selection and fixed-advantage comparisons; they identify a three-person threshold and a finite-size deficit at that threshold. The arbitrary-size result, including strict suppression relative to the asymptotic reference for groups of four or more, gives a useful model benchmark beyond the ordinary star and a single fixed petal size.",
+      "residual_risks": [
+        "Not a global finite-size comparison for every r, a selection statement for unrelated group-update rules, or a general result for larger overlapping hyperedges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

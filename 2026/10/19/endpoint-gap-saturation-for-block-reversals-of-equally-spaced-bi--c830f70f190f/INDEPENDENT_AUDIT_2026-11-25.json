@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:49.264517Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Replayed RESULT.md lines 21–44 for the precise operation (reverse block order, not letters). A suffix of the source ends at a 1 and starts with at most m zeros, while a prefix starts at a 1 and ends with at most m zeros. Hence no joining to another block can extend the initial or final zero run beyond the respective bound. For any permitted p,q,r,s let A=m−s, B=m−p. Then q+r=A+B. Take i=max(0,q−B), j=B+i−q; the bounds 0≤i≤A and 0≤j≤B follow from 0≤q≤A+B. The five pieces 1·0^s, 0^(A−i), 0^i·1·0^j, 0^(B−j), 0^p·1 concatenate to the source, and reversing their order gives the prescribed gaps because B−j+i=q and A−i+j=r. Dropping any empty zero-only pieces preserves both concatenations, also at m=0. The gaps describe distinct outputs uniquely, so the count is Σ_{p,s=0}^m(2m−p−s+1)=(m+1)^3; subtracting the two disjoint endpoint violations from the unrestricted stars-and-bars count agrees. The ratio tends to 3/4. Independent enumeration of all 256 masks for m=3 gave exactly the 64 predicted words, not merely the same size (bounded replay: /workspace/branches/543fc415-d8b7-470d-b666-98df41c39a0a/independent_m3.py). Frozen check.py was read, not executed; its m≤7 range is finite and limited to equal gaps despite a helper function taking two parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 paper studies when all block reversals are rich; its conclusion explicitly poses an upper bound on binary block-reversal set size as future work. The foundational 2021 paper is an exact topical match, but its full text was not available; its landing material and citation are not sufficient to classify its theorems."
+        ],
+        "reasoning": "Conditions for richness of images do not imply sufficiency of the endpoint inequalities. The 2023 open upper-bound question does not exclude a family-specific result in 2021.",
+        "searches": [
+          "arXiv:2302.02109v1 §4, Theorem 4.7 and conclusion",
+          "DOI 10.1016/j.tcs.2021.06.046, lawful full-text and repository-copy attempt"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and accompanying record evidence",
+        "Resultary 7b8f6d07cd68 and 489f1ecb7528",
+        "arXiv:2302.02109v1, DOI 10.1016/j.tcs.2021.06.046 (limited), OEIS A000578"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected richness theorem constrains a different property, and the indexed maximum-unique-factor theorem imposes equal interior gaps on its outputs, unlike the full endpoint polytope here."
+        ],
+        "reasoning": "Neither is a stronger theorem with this result as a specialization. The all-m implication from endpoint constraints to a realizable partition is the distinct part; the subsequent stars-and-bars algebra is not claimed in isolation.",
+        "searches": [
+          "arXiv:2302.02109v1 §4 p. 9 and conclusion p. 17; Resultary 7b8f6d07cd68, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7b8f6d07cd68 has superficially similar endpoint restrictions but characterizes shortest-unique-factor maximizers with equal interior gaps. 489f1ecb7528 studies reconstruction from substring-composition information."
+        ],
+        "reasoning": "Marker-gap descriptions are common to all these word questions, but the two alternative objects are not block-reversal images: interior gaps q,r in the audited result need not agree, and the proof concerns partitions, not substring factors or histograms. Ordinary reversal and conjugacy also do not encode all partitions.",
+        "searches": [
+          "Local Resultary semantic lookup: binary three-marker block reversals, attainable endpoint gaps, exact image count",
+          "Resultary 7b8f6d07cd68 and 489f1ecb7528, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000578 tabulates a(n)=n³, so values match at n=m+1; its inspected heading and table do not attach the block-reversal interpretation. The relevant inspected Resultary counts are for different word operations or invariants."
+        ],
+        "reasoning": "The numerical count is not new as a sequence. A catalogue of integers without the same model does not subsume the exact all-m block-reversal set or its counting interpretation.",
+        "searches": [
+          "OEIS A000578, entry heading and values (offset 400)",
+          "Resultary exact three-marker block-reversal size or image language lookup"
+        ]
+      },
+      "rationale": "Pass for the all-m output characterization and its count, not for the block reversal operation or the cube sequence. The inspected related literature and indexed records do not state or subsume this exact reachability theorem. The foundational 2021 full text remains an explicit access risk, not evidence of either coverage or novelty.",
+      "residual_risks": [
+        "Full text of the 2021 foundational paper was not located lawfully; a special-case theorem, table or broader reachability result therein is not excluded.",
+        "Bounded catalogue and primary searches do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material full-text gap; result neither excluded nor established from this source",
+          "evidence": "TCS 894 (2021), pp. 135–151, identified; no lawful readable copy located in bounded search.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2021.06.046",
+          "material_read": "Only landing/abstract-level material and bibliographic reference in the 2023 paper, p. 17 ref. 18; no theorem passage",
+          "method": "DOI resolver, publisher PDF attempt (403), lawful repository lookup",
+          "title": "Block reversal on finite words (Mahalingam, Maity, Pandoh and Raghavan)",
+          "trigger": "Foundational study of exactly the same operation; possible prior extremal or size results"
+        },
+        {
+          "assessment": "Different invariant; no coverage established from inspected passages",
+          "evidence": "Theorem about richness; conclusion asks for a binary upper bound, not the equal-gap image characterization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.02109v1",
+          "material_read": "Abstract and §4, especially Thm. 4.7 p. 9, and conclusion p. 17 (parsed offset 52300)",
+          "method": "Lawful OA primary PDF",
+          "title": "Rich Words in the Block Reversal of a Word (Mahalingam, Maity and Pandoh)",
+          "trigger": "Same operation with binary input"
+        },
+        {
+          "assessment": "Distinct extremal family",
+          "evidence": "Characterizes shortest-unique-factor maximizers with equal interior gaps, not block reversal reachability.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-shortest-unique-factor-extrema-for-binary-three-marker-wor--7b8f6d07cd68",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp shortest unique factor extrema for binary three-marker words",
+          "trigger": "Same marker count and endpoint inequalities"
+        },
+        {
+          "assessment": "Reconstruction from compositions, not images under reversal of block order",
+          "evidence": "The classified data are substring-composition multispectra.",
+          "identifier_or_url": "2026/11/8/SCOPE-three-marker-rigidity-for-substring-composition-reconstruction--489f1ecb7528",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Three-marker rigidity for substring-composition reconstruction",
+          "trigger": "Same gap encoding and classification setting"
+        },
+        {
+          "assessment": "Numerical overlap only",
+          "evidence": "Lists 0, 1, 8, 27, 64, … by the cube formula.",
+          "identifier_or_url": "https://oeis.org/A000578",
+          "material_read": "Heading, definition and values, offset 400",
+          "method": "OA public page",
+          "title": "The cubes: a(n)=n³",
+          "trigger": "Exact count sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated small-weight but unbounded family for a standard word operation. The structural result is saturation of the whole endpoint-constrained set, not a few counts or an arbitrary sample. It gives both a witness partition for every reachable word and an exact benchmark for the density among all words of the same weight.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

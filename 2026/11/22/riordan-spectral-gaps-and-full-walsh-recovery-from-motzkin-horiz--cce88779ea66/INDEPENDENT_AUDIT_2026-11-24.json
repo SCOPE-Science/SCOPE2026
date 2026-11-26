@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:29:49.483738Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–63",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Deleting horizontal steps gives Catalan multiplicities depending only on profile weight, so weights index the entire spectrum. The half-line adjacency A counts the signed walks via factors A+I and A-I, which commute. Pairing opposite signs gives B=A^2-I, entrywise nonnegative including at height zero, and W_n(r) is the (0,0) entry of (A+I)^(n-2r)B^r. The difference W_n(r)-W_n(r+1)=2W_(n-1)(r) in the lower-half range is nonnegative by the same representation. B on even heights, with heights divided by two, forbids only the ground-level loop, so the central moment is R_floor(n/2); the extra factor A in odd length contributes zero by height parity. Every allowed profile has weight congruent to n modulo 2, proving complement sign reflection. R_0=1, R_1=0, and an up step, internal level steps and down step give R_m>0 for m>=2. The weight lists at n=0,1,2,3 are (1), (1,-1), (2,0,2), (4,0,0,-4), which give the claimed ranks and nullities by binomial multiplicity. At n=10 the Catalan count is 2188 and at m=5 the Riordan count is 6 (one internal three-level-step path and five paths with two up steps). Walsh orthogonality and comparison with the total mass give the signs, inverse norm and condition number in counting normalization. Inspected but did not run verify.py; python3 verify.py replays the reported finite checks, not the all-size proof.",
+      "residual_risks": [
+        "The proof relies on the unrestricted-height ordinary Motzkin class and all horizontal positions, with multiplicities. It makes no claim for the other encodings or a normalized kernel."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Deng–Yang identify the Riordan path counts. Sun–Ma weight horizontal steps by their height (on/off the axis). Cameron–Sullivan's inspected signed objects concern a substitution/involution for marked level steps in peakless paths."
+        ],
+        "reasoning": "These passages do not supply bounds on all independent positional Walsh signs for unrestricted Motzkin excursions. The central count is classical; identifying it as the minimum absolute signed multiplier uses a different argument.",
+        "searches": [
+          "Chen–Deng–Yang arXiv:math/0602298",
+          "Sun–Ma arXiv:1305.2015",
+          "Cameron–Sullivan, Peakless Motzkin paths with marked level steps"
+        ]
+      },
+      "checked_sources": [
+        "Three distinct local Resultary records (5e973760c6a6, 9a9307c97d86, cb620cbd1dd6)",
+        "arXiv:math/0602298",
+        "arXiv:1305.2015",
+        "Cameron–Sullivan, Peakless Motzkin paths with marked level steps"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Catalan coefficients evaluate each multiplier as an alternating sum. The peak record's all-frequency identity instead sums over nonconsecutive subsets of forced peaks. The new extremal step for horizontal profiles is replacement of opposite signs by the entrywise nonnegative B=A^2-I, giving a monotone lower half and exactly the Riordan central value."
+        ],
+        "reasoning": "The finite signed-sum expression alone does not certify any absence of cancellations uniformly in n or locate the minimum. Classical Riordan recurrence supplies the value after, not before, the signed comparison and identification.",
+        "searches": [
+          "Catalan deletion formula in frozen RESULT.md, lines 20–27, compared with the signed transfer proof and local Resultary cb620cbd1dd6, equation (1)",
+          "Chen–Deng–Yang arXiv:math/0602298"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-bit length-ten record uses h_i=1+u_i+d_i, so W_horiz(S)=(-1)^|S| W_two-bit(S,S).",
+          "The sharp-peak record counts adjacent UD, not steps H, and is positive at all nonexceptional lengths including odd ones; it uses n-1 bits and different exceptional ranks. The length-thirteen Riordan record fixes the same horizontal statistic but forbids ground-level horizontal steps, breaking the unrestricted Dyck-deletion symmetry."
+        ],
+        "reasoning": "There is an exact affine restriction at length ten, not a spectrum equivalence at all lengths. Neither the different path class nor the adjacent-peak profile is a relabelling of the frozen problem.",
+        "searches": [
+          "Local Resultary: horizontal-step Walsh spectra, Motzkin Fourier positivity, Riordan gaps and two-bit Motzkin resonance (5e973760c6a6, 9a9307c97d86, cb620cbd1dd6)",
+          "Primary signed-Motzkin literature lookup: signed or position-dependent level steps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The length-ten full spectrum on two bits per step reports 67,312 zeros and minimum nonzero magnitude 2 across all modes. A finite full spectrum can recover its diagonal values; 2 is not the reported minimum on that diagonal. The Riordan census has 176 zeros at length thirteen in a different path class."
+        ],
+        "reasoning": "No novelty is assigned to the classical values R_m themselves or finite length-ten diagonal coefficients obtainable from a full table. Neither finite census establishes an all-length comparison or the exact list of singular lengths.",
+        "searches": [
+          "Local Resultary 5e973760c6a6 length-ten full spectrum and 9a9307c97d86 length-thirteen Riordan census",
+          "Classical Riordan count source arXiv:math/0602298, p. 1"
+        ]
+      },
+      "rationale": "The supported distinct content is the monotone lower-half Walsh spectrum with a sharp central Riordan gap, the exact singular-length classification and counting recovery on ordinary Motzkin horizontal profiles for all lengths. Classical counts and a diagonal restriction at one length are credited. The strongest compared local findings either treat only length ten on a larger group, change the underlying path class, or change the statistic and the spectrum. This is a best-of-knowledge assessment.",
+      "residual_risks": [
+        "A stronger unlocated signed moment or multivariate path theorem might imply the same bounds. The bounded inspection does not establish historical priority, especially among records with the same catalog date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite superset of diagonal modes, not all-length restricted extremum",
+          "evidence": [
+            "Two-bit encoding H=(0,0), U=(1,0), D=(0,1), length ten; minimum nonzero magnitude 2 over the whole group."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-the-first-post-cubic-walsh-resonance-and-exact-fourier-range-pro--5e973760c6a6/RESULT.md",
+          "material_read": "Finding and encoding, starting at offset 0",
+          "method": "Local mirror excerpt",
+          "title": "First post-cubic Walsh resonance and exact Fourier range projection for length-ten Motzkin paths",
+          "trigger": "Ordinary Motzkin path Walsh spectrum"
+        },
+        {
+          "assessment": "Different statistic, sharp bound and mechanism",
+          "evidence": [
+            "Indicators are adjacent UD; minimizer at the full frequency set for n>=6; odd spectra are positive, unlike here."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-strict-fourier-positivity-and-sharp-stability-of-motzkin-sharp-p--cb620cbd1dd6/RESULT.md",
+          "material_read": "Finding, scope and proof equation (1), offset 0–2700",
+          "method": "Local mirror excerpt",
+          "title": "Strict Fourier positivity and sharp stability of Motzkin sharp-peak profiles",
+          "trigger": "Same Motzkin class and singular lengths"
+        },
+        {
+          "assessment": "Different path class and fixed-length analysis",
+          "evidence": [
+            "No ground-level H; 176 zeros at n=13, no claim beyond that order."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-fifth-order-fourier-blind-spot-in-thirteen-step-riordan-paths--9a9307c97d86/RESULT.md",
+          "material_read": "Finding, scope and initial proof, offset 0–2200",
+          "method": "Local mirror excerpt",
+          "title": "A fifth-order Fourier blind spot in thirteen-step Riordan paths",
+          "trigger": "Same statistic, Riordan and Walsh"
+        },
+        {
+          "assessment": "Classical Riordan interpretation, not an extremal Walsh statement in the inspected material",
+          "evidence": [
+            "No horizontal steps on the x-axis is the classical Riordan restriction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0602298",
+          "material_read": "p. 1, abstract and definition around extracted offset 840",
+          "method": "Lawful OA paper passage",
+          "title": "Riordan Paths and Derangements",
+          "trigger": "Classical central count and possible weighted formulation"
+        },
+        {
+          "assessment": "Inspected weighting concerns height, not fixed independent position signs",
+          "evidence": [
+            "Separate weights x and y on and off the axis, and minors of weighted partial Motzkin arrays."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1305.2015",
+          "material_read": "p. 1 abstract, starting at offset 0",
+          "method": "Lawful OA paper passage",
+          "title": "Minors of a Class of Riordan Arrays Related to Weighted Partial Motzkin Paths",
+          "trigger": "Potential stronger weighted-path theorem"
+        },
+        {
+          "assessment": "Inspected signed substitution/involution is not positional Fourier analysis of these ordinary paths",
+          "evidence": [
+            "Positive or negative signs on steps of the marked paths enter a combinatorial substitution."
+          ],
+          "identifier_or_url": "Cameron and Sullivan, Peakless Motzkin paths with marked level steps",
+          "material_read": "p. 1 introduction and p. 9 signed-path definition around extracted offset 24267",
+          "method": "Primary literature search and OA excerpts",
+          "title": "Peakless Motzkin paths with marked level steps",
+          "trigger": "Signed Motzkin enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and transfer proof",
+        "Resultary 5e973760c6a6 and cb620cbd1dd6 for genuinely different observables"
+      ],
+      "rationale": "Recoverability from natural count profiles is not settled by parity of the total count. The theorem identifies every exceptional length and gives the sharp noise amplification in the invertible cases, not merely a finite list of computed spectra. The link between a central Walsh mode and a different classical excursion class explains the entire spectral minimum.",
+      "residual_risks": [
+        "The recovery and norms are Hilbert-space spectral statements; no endpoint L^1 or L^infinity inverse estimate is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:42:54.729629Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Steps 1–3",
+        "Frozen VERIFICATION.md and checker.py, inspected; their reported finite exact-rational and numerical checks were not rerun"
+      ],
+      "rationale": "Write π=2^(-d), λ=1-2a/d, and u(k)=[(1+λ^k)/2]^d. For each k the stationary probability π of being at zero is the convolution of the first-entrance law (including time zero) with u. Thus F(z)=π/[π+(1-z)G(z)], where G(z)=π Σ_{j=1}^d binom(d,j)/(1-zλ^j). Taking the derivative at one gives exactly the stated mean. I verified the signed correction also by expanding the return kernel in time, independently of the proof's Taylor expansion around the binomial mean. For k≤C log d, u(k)=e^(-ak)[1+a²(k²/2-k)/d+O_a((1+k)^4/d²)], from expanding d log((1+λ^k)/2). Subtracting π costs O(π log d) in this range. The remaining Green sum from K onward is E[λ^(JK)/(1-λ^J); J≥1], J binomial(d,1/2), bounded by O_a(e^(-aK/2)+d exp(-c d)) by splitting at J=d/4. Choosing C sufficiently large controls the truncated series and yields a summed O_a(d^(-2)) error. With r=e^(-a), Σ_{k≥0}r^k(k²/2-k)=r(3r-1)/(2(1-r)^3), verifying the coefficient and eventual sign for a≠log 3. For z=e^(-sπ), the spectral sum gives 0≤G(1)-G(z)≤(1-z)G(1)/(1-λ)=o(1). Substitution into F gives the stated exponential Laplace limit, including the trivial s=0 case; at t=0 the tail is 1-π. The geometric run counts the entry visit and ends at the first clock step with any flip, with exact parameter 1-(1-a/d)^d by the Markov property.",
+      "residual_risks": [
+        "Fixed a>0 and one specified corner with stationary initialization. The vanishing first-order correction at a=log 3 does not determine the side there. There is no marked process limit or uniformity in a."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixed-chain hypotheses in Tanzi–Tenaglia, pp. 5–6 (OA text offsets 15750–25455)",
+          "Indexed abstract at DOI 10.1007/s10955-013-0875-9 describes a general exponential hitting-time theorem; OA retrieval did not yield its full text"
+        ],
+        "reasoning": "The present one-bit spectral gap 2a/d tends to zero, unlike a fixed component. General stationary hitting-time identities and exponential approximation may give the form of the limiting law when the mean and mixing conditions are supplied; they do not by themselves evaluate the rate on the 2^d scale or give the d^(-1) term. The uninspected text is not evidence against broader coverage.",
+        "searches": [
+          "arXiv:2609.10178 Thms. 2.1–2.2 and hypotheses",
+          "doi:10.1007/s10955-013-0875-9, rare-event exponential approximation",
+          "Kemperman, The Passage Problem for a Stationary Markov Chain (1961), as cited in the record"
+        ]
+      },
+      "checked_sources": [
+        "Tanzi–Tenaglia arXiv:2609.10178",
+        "Černý–Gayrard math/0611242",
+        "Nestoridi arXiv:1507.05690",
+        "Peixoto–Marcondes arXiv:1709.02359",
+        "Resultary original Finding of the matching record",
+        "Indexed abstract for doi:10.1007/s10955-013-0875-9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quoted exact mean follows by a standard stationary renewal argument with the tensor-product return kernel",
+          "Fixed one-coordinate chains and nearest-neighbor, lazy one-coordinate, or fixed-size flip models do not have the specified dimension-dependent return kernel"
+        ],
+        "reasoning": "Even a general exponential limit rescaled by the true mean would not give the asymptotics of that mean. The coefficient here combines the drift in the return kernel and fluctuation of its eigenvalue exponents (or the k and k² terms in time), neither obtained by evaluating a cited fixed-chain theorem or substituting parameters into the different cube-walk models.",
+        "searches": [
+          "Tanzi–Tenaglia §2, Thms. 2.1–2.2",
+          "Černý–Gayrard §1",
+          "Peixoto–Marcondes arXiv:1709.02359 §1",
+          "Nestoridi arXiv:1507.05690 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tanzi–Tenaglia arXiv:2609.10178 §§2, Thms. 2.1–2.2, pp. 5–6: products of a fixed coordinate chain",
+          "Černý–Gayrard math/0611242 §1: one-coordinate simple random walk and target clouds",
+          "Nestoridi arXiv:1507.05690 §1: uniformly chosen fixed-size sets of flips"
+        ],
+        "reasoning": "Credit the stationary-passage and rare-event formulations; changing to 'product chain' or 'hypercube walk' does not identify the models. For example the present transition has a binomial number of flips per step and nonzero holding, while fixed-size kernels have neither that transition law nor the same corner persistence.",
+        "searches": [
+          "Resultary semantic queries for simultaneous-coordinate flip stationary passage and corner Green-function asymptotics",
+          "Literature search on product chains, hypercube point passages, and extremal-index hitting laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-the-persistent-corner-passage-law-and-its-signed-finite-dimensio--93dd688a2c65, original Finding: same kernel, normalization, rate and signed correction; identical assigned record"
+        ],
+        "reasoning": "No separate matching catalogue entry surfaced in the bounded searches. The identical record is not independent corroboration or evidence of earlier priority; no absence claim is made.",
+        "searches": [
+          "Two focused Resultary searches on independent bit flips and the signed finite-dimensional hitting-time correction"
+        ]
+      },
+      "rationale": "The stationary renewal identity, spectral computation of the exact mean, and exponential approximation framework are classical or standard specializations. The supported distinct contribution is the explicit asymptotic analysis of the Green sum in the triangular array with flip probability a/d, in particular its signed correction and crossover. The closest statement-level comparisons do not give that calculation.",
+      "residual_risks": [
+        "The full general rare-event paper at doi:10.1007/s10955-013-0875-9 and Kemperman's stationary-passage monograph were not read. Broader historical treatment of the rate or specialization remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different hypotheses; does not supply the correction",
+          "evidence": "Small holes in products of a fixed mixing component; dimension-independent component contraction fails for λ_d→1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.10178",
+          "material_read": "§2 and Theorems 2.1–2.2, pp. 5–6 (text offsets 15750–25455)",
+          "method": "OA primary PDF text",
+          "title": "Stability of quasi-stationary measures in high-dimensional products of mixing Markov chains",
+          "trigger": "Potential exact general product-chain coverage"
+        },
+        {
+          "assessment": "Different walk and emphasis",
+          "evidence": "Nearest-neighbor cube walk and random percolation clouds, not independent synchronous coordinate flips.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611242",
+          "material_read": "§1 p. 1, excerpts at offsets 0 and 3100",
+          "method": "OA primary PDF text",
+          "title": "Hitting time of large subsets of the hypercube",
+          "trigger": "Cube hitting-time laws"
+        },
+        {
+          "assessment": "Fixed count of flips and a mixing result",
+          "evidence": "A fixed-size set of coordinates is chosen each step, rather than thinning coordinates independently.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.05690",
+          "material_read": "§1 p. 1",
+          "method": "OA primary PDF text",
+          "title": "A non-local random walk on the hypercube",
+          "trigger": "Multiple coordinate flips"
+        },
+        {
+          "assessment": "Different kernel",
+          "evidence": "One-coordinate-at-a-time update; simultaneous multiple flips of the present array are absent.",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.02359",
+          "material_read": "§1 p. 1",
+          "method": "OA primary PDF text",
+          "title": "Stopping Times of Random Walks on a Hypercube",
+          "trigger": "Exact cube hitting/return times"
+        },
+        {
+          "assessment": "Exact scope not verified",
+          "evidence": "Abstract indicates exponential hitting-time results; does not establish coverage of the signed product-array correction.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-013-0875-9",
+          "material_read": "Indexed abstract only",
+          "method": "Index; attempted OA full-text retrieval encountered redirects",
+          "title": "General exponential hitting-time comparison",
+          "trigger": "Possible broader rare-event theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Tanzi–Tenaglia arXiv:2609.10178, fixed-coordinate comparison"
+      ],
+      "rationale": "The independent flip array is a natural regime with O(1) mean flips, increasing dimension, and vanishing one-coordinate gap. Return clusters change the entrance clock by a nontrivial rate factor relative to stationarity mass. The explicit first correction resolves which side the finite-dimensional normalized mean approaches from, and its zero is not accounted for by the geometric run length alone.",
+      "residual_risks": [
+        "The result resolves a single fixed corner, not large sets, nonstationary starts or dependent coordinate dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

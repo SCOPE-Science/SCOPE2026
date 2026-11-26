@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:25:37.818212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized monomials sqrt(k+1) z^k diagonalize the radial positive compression by angular orthogonality. Squared radius s has uniform normalized area density, and s=t/(1+t) maps the first Cantor-stage t bands exactly onto S=[0,a]∪[b,c] with 0<a<b<c<1 for all R>0. The eigenvalues are a^{k+1}+c^{k+1}−b^{k+1}; the rational simplification for L=a+c−b was independently checked symbolically. To verify strict comparison, the sign of H(b)=a−bL is positive iff a/b>(c−b)/(1−b). The two ratios are (2R+3)/(2(R+3)) and R/(3(R+1)); cross multiplying gives the strictly positive difference 4R²+9R+9. The distribution discrepancy H(s)=|S∩[0,s]|−Ls is linear between endpoints, increases inside S, decreases outside, has H(0)=H(1)=0 and H(b)>0. Hence H(s)>0 for every 0<s<1. Integrating H' against (k+1)s^k gives λ₀−λ_k=k(k+1)∫H(s)s^{k−1}ds>0 for all k≥1. The positive diagonal operator consequently has norm L, and the equality condition for a unit vector is precisely support on the constant basis element. Since λ_k≤a^{k+1}+c^{k+1}→0, the top eigenvalue is also isolated. This proves the all-real-R and all-degree statements; the exact-rational frozen verifier was inspected, not run, and its finite checks are not used as a proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "63edb9579ca8 proves constant-mode dominance for 3^m C_{2m}, m≥2, via a uniform high-mode bound and a four-cylinder lower bound. Those hypotheses require depth ≥4 and the prescribed dilation.",
+          "2162b1a3ca94 treats infinite critical-scale high-mode behavior; 23a4c7691d0b concerns limiting norm along balanced-annulus subsequences.",
+          "The primary theorem's norm bounds and lower bound on λ₀ do not bound all other modes strictly below λ₀."
+        ],
+        "reasoning": "None of these cases specializes to depth one at all R, and the different comparisons or known norm bounds alone do not imply that ordering.",
+        "searches": [
+          "Resultary: critical Cantor–Bergman localization unique vacuum, log-periodic high-mode Cantor spectral thresholds, balanced annuli",
+          "arXiv:2201.11705 Theorem 2.1 and Propositions 4.1, 4.4–4.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.11705",
+        "arXiv:2203.04170",
+        "Resultary 63edb9579ca8, fc35fc8a6ac7, 2162b1a3ca94, 23a4c7691d0b and 006121c65ee5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-mode integration formulas determine each eigenvalue but are not an ordering theorem. Independently, the squared-radius mask [0,1/100]∪[9/10,19/20] gives λ₀=0.06 and λ₁=0.0926, so radial diagonalization and the presence of a central disk cannot prove the claim.",
+          "fc35fc8a6ac7 supplies exact two-component examples with first excited winner of degree 4 or arbitrarily large, and 006121c65ee5 is about disk geometry rather than this disconnected mask."
+        ],
+        "reasoning": "The geometry-dependent positivity of the cumulative discrepancy performs the missing all-degree comparison and is not supplied by the cited spectral bounds.",
+        "searches": [
+          "arXiv:2201.11705 §§4.1–4.3; arXiv:2203.04170 Eq. (3.3)",
+          "Resultary: unbounded mode skipping in two-component Bergman concentration, radial rigidity for the disk"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At the motivating paper's α=1/2, its beta-prime density is (k+1)t^k/(1+t)^{k+2}, and C_1(R;ℝ)=[0,R/3]∪[2R/3,R]. Substitution s=t/(1+t) gives the identical unweighted radial moments.",
+          "A centered disk has λ_k=c^{k+1}, while an annulus [a,b] has λ₁/λ₀=a+b, so disk monotonicity is not equivalent to the two-band claim."
+        ],
+        "reasoning": "Comparison is at identical measures, dilation, β-prime parameters and normalization. The spectral formula is equivalent; upper-vs-lower mode ordering is a separate all-degree inequality.",
+        "searches": [
+          "Abreu–Mouayn–Voigtlaender arXiv:2201.11705 §§2–4, beta-prime radial Cantor localization",
+          "Rozenblum–Vasilevski arXiv:2203.04170 §3, radial Bergman Toeplitz eigenvalues",
+          "Resultary: first-stage Cantor-Bergman vacuum maximizer, radial two-band concentration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact indexed formula 63edb9579ca8 gives an integral norm only for its own discrete family. fc35fc8a6ac7 gives exact norms and top eigenspaces with an outer squared-radius band [3/4,7/8] or with a separately constructed family of outer bands."
+        ],
+        "reasoning": "The relevant exact lookup is an indexed formula for the operator family, not a numerical list at sample R. The matched exact formulas belong to different parameter sets; for instance, the first Cantor-stage b=3/4 requires R=9/2, then c=9/11≠7/8. No exact matched all-R formula in the checked coverage is evidenced apart from the frozen finding itself.",
+        "searches": [
+          "Resultary: exact finite-stage Bergman Cantor norm, maximal monomial and exact two-component mode selection"
+        ]
+      },
+      "rationale": "The primary Bergman Cantor theorem supplies the exact beta-prime spectral representation and norm bounds, not strict comparison of modes. The strongest indexed vacuum theorem uses critical dilation at even depths 2m≥4, not the first stage at arbitrary dilation. Exact indexed two-component comparisons use different families and can prefer high modes. Thus the distinct supported claim is the strict first-stage maximizing-mode law, exact norm and equality case for all positive R, not eigenvalue integration or broader priority.",
+      "residual_risks": [
+        "The bounded catalogue and accessible primary-paper comparisons do not rule out an equivalent first-stage statement or a stronger all-parameter radial-ordering theorem under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact spectral background; norm bounds do not establish the maximizing degree",
+          "evidence": "β-prime integral in the same unweighted normalization, upper bounds and a zeroth-mode lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.11705",
+          "material_read": "§2 Eqs. (2.2)–(2.3), pp. 4–5; §3 Eqs. (3.1)–(3.2), pp. 8–9; §4, Props. 4.1, 4.4–4.5, pp. 10–14 and Theorem 2.1",
+          "method": "OA primary paper passages",
+          "title": "A fractal uncertainty principle for Bergman spaces and analytic wavelets",
+          "trigger": "Same hyperbolic annular Cantor support and exact eigenvalue formulas"
+        },
+        {
+          "assessment": "Diagonalization formula in the inspected passage, not a disconnected-mask order theorem",
+          "evidence": "In unweighted area the moment formula is (k+1) times the kth squared-radius moment of the symbol.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.04170",
+          "material_read": "§3 Eq. (3.3), pp. 7–8",
+          "method": "OA primary paper passage",
+          "title": "Toeplitz operators in Bergman space with radial symbols",
+          "trigger": "Possible broader radial spectral ordering"
+        },
+        {
+          "assessment": "Not covering the bound first-stage statement",
+          "evidence": "Unique vacuum theorem is for 3^m C_{2m}, m≥2, with four shifts 0,2,6,8 in the lower-bound proof, not arbitrary R C_1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-critical-cantor-bergman-localization-has-a-unique-vacuum-maximiz--63edb9579ca8/RESULT.md",
+          "material_read": "Finding, scope and Proof Steps 1–5, offsets 0–7001",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Critical Cantor–Bergman localization has a unique vacuum maximizer",
+          "trigger": "Strongest matching indexed vacuum claim"
+        },
+        {
+          "assessment": "Countercomparison on different parameter families; does not cover the Cantor curve",
+          "evidence": "Degree 4 can maximize uniquely, and degree M can tie or defeat degree zero for arbitrarily large M, for the specified independently parametrized bands.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unbounded-mode-skipping-in-two-component-bergman-concentration--fc35fc8a6ac7/RESULT.md",
+          "material_read": "Finding, scope and start of proof, offsets 0–3335",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Unbounded mode skipping in two-component Bergman concentration",
+          "trigger": "Exact mode comparison for a disk with one outer annulus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first disconnected iterate of the published hyperbolic Cantor model is a natural test case, not an arbitrary cutoff. The finding determines a sharp norm and all extremizers across the full dilation axis. Generic two-band masks can select nonconstant modes and the prior exact integrals and two-sided norm bounds do not mechanically settle the maximization. The cumulative criterion is a short but substantive solution to that specific spectral comparison, without claiming all stages or all radial symbols.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

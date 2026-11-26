@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:18:39.115742Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the canonical incidence representation, a cover-supported power has the product along a unique path at each possible entry, with no cancellation. For fixed k, rows from one depth have disjoint descendant supports; rows from different depths end at different depths. Thus rank X^k counts vertices whose longest open descent is at least k, and second rank differences give the exact Jordan multiplicities through size h+1. In the polynomial recursion, at cutoff j each child independently contributes its unrestricted assignment with a closed edge, or its root-length-at-most-j-1 assignments with one of q-1 nonzero connecting weights. The difference of consecutive cumulative polynomials therefore counts the exact root length with nonnegative coefficients, including j=0; marking the root and starting with the single leaf proves the full census and coefficient sum q^E. For the maximal index, root survival is the stated branching recurrence; strict concavity and bt>1 give the unique positive fixed point and iteration from 1, with the binary formula by solving the quadratic. At (2,2) the reciprocal increments tend to 1/4, proving p_a~4/a. The global deficit is h-max_v L(v): for a descent of length h-k only depths through k are possible, giving the union bound, while the b^k disjoint depth-k subtrees give independent opportunities. At k=floor(log_2 h)-L and +L these bounds give opposite tail estimates of order 2^(-L) and exp(-c 2^L) for sufficiently large h at fixed L; a positive survival lower bound yields uncentered tightness in the other fixed regimes. This is tightness, not convergence to a critical lattice law. In the whole radical a strict chain of h steps must increase depth by one at each step from the root, so all noncover coefficients are free for the top-power count only; R=sum d b^d counts strict ancestors. Inspected frozen programs and recorded outputs; the separate bounded `python3 -B /workspace/review_evidence/small_field_checks.py` computed actual matrix powers and ranks for all 4096 F4 binary-height-two edge assignments and matched the five exact rank pairs. This does not stand in for the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fuchs–Kirillov's P_lambda(q) counts all strictly upper triangular matrices of prescribed Jordan type; Proposition 3.1 is a recurrence for these totals using partitions one cell smaller.",
+          "The layered radical uses ordinal sums of antichains and counts maximal power rather than the all-power cover census."
+        ],
+        "reasoning": "An unrestricted Jordan-type count sums over supports so cannot be specialized by setting selected entries to zero in the total. The layered result uses dense consecutive blocks, whereas the ancestry-tree graph has a unique parent per nonroot vertex and disjoint rows at a given power. The inaccessible asymptotic paper is not used to rule out broader coverage.",
+        "searches": [
+          "arXiv:2204.00066, Abstract and Proposition 3.1",
+          "Resultary: 89b75cde9cfe",
+          "DOI 10.1007/s10958-017-3419-z (access attempt)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 3245390fc987, 89b75cde9cfe, 16580d5c7ebd",
+        "arXiv:1510.04036",
+        "arXiv:2204.00066",
+        "DOI 10.1007/s10958-017-3419-z (access attempts, not full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The open-root-to-leaf event and threshold 1/b are antecedents; the layered result already studies maximal-index counts in a different full radical."
+        ],
+        "reasoning": "Grant the survival recursion and standard critical survival estimate. The additional all-starting-vertices argument compares a union over early levels with independent trials in disjoint subtrees, locating the relevant logarithmic depth shift. The Jordan census needs rank independence, and a weighted profile counting the descent length of every vertex, neither of which is supplied by a single branching survival probability or the unrestricted triangular division recurrence.",
+        "searches": [
+          "arXiv:1510.04036, §3 tree percolation",
+          "arXiv:2204.00066, Proposition 3.1",
+          "Resultary: 89b75cde9cfe, Finding and related work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wedge result counts Jordan strata in a different height-two sparse incidence family; the Cesàro shift result studies power norms of infinite-dimensional shifts on rooted trees.",
+          "The tree percolation paper defines success by a root-to-leaf open path."
+        ],
+        "reasoning": "Rank of every power is equivalent to Jordan type, but neither an infinite-dimensional power norm nor a scalar root-survival event fixes those ranks. The maximum over all vertices is not equivalent to the root event; e.g. a closed root level can coexist with a long open descent below it.",
+        "searches": [
+          "Resultary cover-supported Jordan census and weighted tree-shift checks: 3245390fc987, 16580d5c7ebd",
+          "arXiv:1510.04036, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned-record identity is not independent coverage. The closest distinct Jordan entry is a two-cycle wedge enumeration, and the closest whole-radical entry is a layered top-power census."
+        ],
+        "reasoning": "Neither table is for arbitrary heights and all powers of the complete rooted b-ary cover-supported subspace. A top-power count, even if also obtained by trivial lifting from cover data, does not recover lower ranks or their joint law.",
+        "searches": [
+          "Resultary: fcd29ef31ec1, 3245390fc987, 89b75cde9cfe, 16580d5c7ebd"
+        ]
+      },
+      "rationale": "The supported distinction is the full finite-field Jordan census of the cover-supported tree operators and its link to the deficit from the longest open descent starting anywhere. Classical root survival and the branching threshold are prior, as are Jordan enumeration in other incidence or triangular families. The inspected broader statements neither specialize to the given support restriction nor identify the all-starting-vertices deficit.",
+      "residual_risks": [
+        "A general weighted-tree-shift rank theorem or an equivalent all-starts percolation extreme-value result may cover more than the inspected passages. The Petrov–Sokolov full text was unavailable; the broad external search is not evidence of absence. No publication-priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct analogue for a different poset, no coverage of the ancestry-tree family",
+          "evidence": [
+            "The rank polynomial is for two joined even cycles in a height-two incidence setting."
+          ],
+          "identifier_or_url": "Resultary: 3245390fc987",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Two-cycle wedge rank polynomials and Jordan strata of finite incidence algebras",
+          "trigger": "Closest local sparse incidence Jordan census"
+        },
+        {
+          "assessment": "Different posets and only top power",
+          "evidence": [
+            "Uses ordinal sums of antichains and determines top-power ranks and maximal-index frequencies in the whole radical."
+          ],
+          "identifier_or_url": "Resultary: 89b75cde9cfe",
+          "material_read": "RESULT.md Finding and related work, local mirror offsets 0 and 7453",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Exact maximal nilpotency-index census in layered incidence-algebra radicals",
+          "trigger": "Closest local incidence-radical power result"
+        },
+        {
+          "assessment": "Not finite-field Jordan enumeration",
+          "evidence": [
+            "Power norms and dynamical thresholds for an infinite-dimensional rooted-tree shift do not give the weighted finite-field power ranks."
+          ],
+          "identifier_or_url": "Resultary: 16580d5c7ebd",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Tree-universal power norms and dynamical thresholds for level-balanced Cesàro shifts",
+          "trigger": "Possible tree-shift implication searched under different operator terminology"
+        },
+        {
+          "assessment": "Root-survival and threshold antecedent, not an all-starts deficit law in the inspected passage",
+          "evidence": [
+            "Percolation here means an open path from the root to a leaf; the branching critical value is 1/b when the branching factor is b."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.04036",
+          "material_read": "§3, PDF pp. 6–7, OA offsets approximately 19400–20300",
+          "method": "Targeted lawful OA primary text",
+          "title": "The algebraic method in tree percolation",
+          "trigger": "Potential direct coverage of the critical regime and path statistic"
+        },
+        {
+          "assessment": "Its known division recurrence enumerates entire strictly triangular matrices, not the tree-supported conditional counts",
+          "evidence": [
+            "The abstract defines P_lambda(q) on all strictly upper triangular matrices; Proposition 3.1 recurs over deleting a removable cell of lambda for this P_lambda(q)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.00066",
+          "material_read": "Abstract and introduction, OA offset 0; §3 Proposition 3.1, offsets 25300 and 28850, PDF p. 5 for the proposition",
+          "method": "Lawful OA primary text with locator and bounded offset reading",
+          "title": "Jordan types of triangular matrices over a finite field",
+          "trigger": "A broader ambient Jordan census might include the support-restricted result"
+        },
+        {
+          "assessment": "Possible scope overlap unresolved; no inference from title alone",
+          "evidence": [
+            "The layered-radical record cites this paper in its references (local mirror offset 9808); its applicable support or law was not independently verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10958-017-3419-z",
+          "material_read": "Citation/title; substantive theorem passages unavailable",
+          "method": "Bounded lawful DOI and Springer attempts following the local citation",
+          "title": "Asymptotics of the Jordan Normal Form of a Random Nilpotent Matrix",
+          "trigger": "Asymptotic Jordan-statistic reference in the layered-radical record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-power Jordan type is a natural invariant of this canonical family of sparse radical elements; the exact positive recursion avoids rank enumeration over field labels and provides the joint profile law rather than just top connectivity. The logarithmic critical deficit versus bounded supercritical deficit locates a difference in typical largest blocks not captured by the root percolation threshold alone. The whole-radical lifting is useful within its explicitly limited maximal-index scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

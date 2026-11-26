@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:52:30.221364Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–52",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review-replays/4.py",
+        "Bruin–Lukina arXiv:2101.00868, definitions and Theorem 1.4"
+      ],
+      "rationale": "For cells of length 1/56, Rπ permutes 7 blocks of 8 cells preserving the internal offset. The first three branches of a are rigid translations aligned with cell boundaries, and its tail on [7/8,1) is exactly the scaled a mapping onto [0,1/8). The three rigid branch ranges avoid that section, so the first tail edge ends each first-return path. I independently computed paths and cycles by applying each branch to exact rational cell boundaries, matching all listed rows and the periodic cycles. For k=0,1,4, complete tower coverage persists along the stated recurring words. Iterating the complete first returns shows every point visits every depth section, with least first return at depth r at least 2ʳ; a finite periodic orbit would meet every section and therefore contain zero, contradicting these growing minimum return times. For k=5,6 the rigid cycles return whole half-open cells by an exact translation with net displacement zero. For k=2,3 the same argument holds in the induced map after one full covering step, so gives nonempty periodic intervals for the original map. Half-open branches justify the endpoint claim, not just almost-everywhere recurrence. Bruin–Lukina Theorem 1.4 gives precisely the stated Lebesgue ergodicity equivalence for this composition and domain.",
+      "residual_risks": [
+        "Incomplete rows do not define a full covering induction for that state; only the exact cycles are needed there. The proof does not determine the full periodic sets or ergodic decompositions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general return-induction framework reduces to a preperiodic sequence of induced permutations and substitutions, with worked examples. The tree-action structure theorems have q a power of two."
+        ],
+        "reasoning": "General induction is a known way to compute the classification, but leaves the decisive orbit states and covering/noncovering outcomes to be evaluated. The structural tree results for dyadic denominators do not include 7.",
+        "searches": [
+          "Bruin–Lukina arXiv:2101.00868, §§5.4–5.5, Theorem 1.4 and q=7 examples",
+          "Bruin–Lukina arXiv:2104.05420, Theorems 1.5–1.6"
+        ]
+      },
+      "checked_sources": [
+        "Bruin–Lukina arXiv:2101.00868 and arXiv:2104.05420",
+        "Resultary babaefe7889f, 2ca2b8e52666, e9c85c4972f9, 9204ca208d5c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The k=6 incomplete tower is already known; the k=2 row induces that known state after a full first return. The k=1 and k=4 cases require identifying a covering cycle (including the induced nontranslation word 4562301), while the periodic-side proof uses explicit rigid cycles."
+        ],
+        "reasoning": "Some deductions are immediate once these finite data are given. Neither the general induction theorem nor Example 5.20 alone supplies the needed return data for the seven shifts; the completed comparison is an explicit application of the known framework.",
+        "searches": [
+          "Bruin–Lukina arXiv:2101.00868, successive induced maps in §§5.4–5.5 and Example 5.20",
+          "Resultary e9c85c4972f9 and 2ca2b8e52666, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses the same half-open dyadic map and Fπ=a∘Rπ. Its cycle notation (0654321) is the shift by −1/7, not a one-line permutation word; it is the target's k=6.",
+          "Theorem 1.4 identifies Lebesgue ergodicity with absence of periodic points for this family."
+        ],
+        "reasoning": "After matching conventions exactly, Example 5.20 is independently prior coverage of k=6. The measure classification is equivalent to the pointwise dichotomy via the prior theorem, so it is not separate novelty.",
+        "searches": [
+          "Bruin–Lukina arXiv:2101.00868, §§1 and 5, Theorem 1.4 and Example 5.20",
+          "Resultary: cyclic translations by k/7, rotated odometers and q=7 return induction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary babaefe7889f is the same frozen record. The distinct indexed classifications 2ca2b8e52666 and e9c85c4972f9 concern denominator five; 9204ca208d5c concerns three pieces.",
+          "Example 5.20 gives one exact cyclic q=7 match, and Propositions 8.6 and 8.8 concern the nontranslation cycles (0516234) and (0361425)."
+        ],
+        "reasoning": "Other-denominator tables and selected seven-interval examples do not cover all seven translations. The k=6 match is real prior coverage, not merely a common parameter.",
+        "searches": [
+          "Resultary: seven cyclic rotated odometers, exact aperiodicity, periodic intervals",
+          "Bruin–Lukina arXiv:2101.00868, Example 5.20 and Propositions 8.6, 8.8"
+        ]
+      },
+      "rationale": "The supported distinct claim is the combined seven-shift classification and its explicit return certificates, not a new induction technique or seven individually new cases. The identity shift is the ordinary odometer. Bruin–Lukina Example 5.20 already explicitly identifies the k=6 case as periodic and contains the same incomplete tower profile. Credit that example and the prior general criterion; no inspected source gives the combined seven-shift classification.",
+      "residual_risks": [
+        "The frozen literature comparison should be read as denying a known complete seven-shift classification, not denying the explicit k=6 prior example. A full prior enumeration outside the inspected material cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same definitions and induction; exact prior overlap at k=6, no complete prior seven-shift table in inspected passages",
+          "evidence": "Example 5.20 displays (0654321) inducing itself, return-word lengths (8,1,1,1,1,1,1) summing to 14 rather than 56, and states that each section contains a periodic subinterval.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.00868",
+          "material_read": "pp. 1–3 (including Theorem 1.4 at offset 11340), §§5.4–5.5 near offset 58407, Example 5.20 pp. 21–22 offsets 78036 and 80212, Propositions 8.6 and 8.8 near offsets 118671 and 125502",
+          "method": "OA PDF passages, including reinspection of the decisive example and its conclusion",
+          "title": "Rotated odometers",
+          "trigger": "Identical family and q=7 examples; possible known exact classification"
+        },
+        {
+          "assessment": "Different denominator hypothesis",
+          "evidence": "The results concern partitions with q=2ᴺ, which excludes q=7.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.05420",
+          "material_read": "Theorems 1.5 and 1.6, pp. 3–4, near offset 10214",
+          "method": "OA PDF passages",
+          "title": "Rotated odometers and actions on rooted trees",
+          "trigger": "Potential stronger structural coverage for permuted intervals"
+        },
+        {
+          "assessment": "Analogous classifications, not identical or dominating parameters",
+          "evidence": "Both treat rotations by j/5; the first identifies periodic shifts 2 and 4 and neither classifies shifts by sevenths.",
+          "identifier_or_url": "Resultary 2ca2b8e52666 and e9c85c4972f9",
+          "material_read": "RESULT.md Findings from offset 0",
+          "method": "Local mirror passages",
+          "title": "Exact periodic mass and directional asymmetry for all five fifth-rotations; Five cyclic rotated odometers: exact quarter return laws",
+          "trigger": "Closest distinct indexed classifications for cyclic rotations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and return table",
+        "Bruin–Lukina arXiv:2101.00868, Theorem 1.4 and Example 5.20"
+      ],
+      "rationale": "Cyclic translations form a natural subgroup slice of the permuted-interval family. Its full exact seven-case dichotomy gives both recurrent covering examples and explicitly certified nonergodic examples, and exhibits two distinct initial shifts entering the same recurrent induction and others entering a noncovering state. Exact endpoint-inclusive completeness is useful as a test of induction for non-dyadic rational rotations. Neither the already known k=6 case nor the generic criterion alone supplies that benchmark.",
+      "residual_risks": [
+        "This is a complete cyclic slice at one denominator, not a classification of all 7! permutations or a new general induction theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

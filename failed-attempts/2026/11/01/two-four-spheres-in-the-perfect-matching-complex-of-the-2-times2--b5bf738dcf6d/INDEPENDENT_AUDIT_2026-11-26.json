@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:01:12.669457Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent reconstruction from the polygon and exact triangle incidences gave 32 graph vertices and 41 edges, with 50 perfect matchings (also confirmed by bipartite DP and MacMahon's product). The complete union of their subsets has 2,517,788 faces including the empty face. Replay of all 41 pivots gives 1,258,893 disjoint covering pairs and the two critical dimension-four faces {1,11,12,21,35} and {1,10,16,20,37}. Acyclicity can be seen directly: upward arrows in a directed cycle cannot be consecutive since matched endpoints are disjoint, and the numbers of up and down steps must coincide, so the cycle would alternate. Let e be the earliest pivot of any upward arrow on a putative cycle. The label e must also be lost on a downward arrow somewhere on the cycle. Both endpoints of that downward arrow belong to upward pairs of stage at least e, hence were still available at pivot e and should have been paired across the arrow, a contradiction. Restrict to the ordinary face poset by discarding the empty face and its pair, leaving its paired vertex critical. Forman's CW theorem then gives one vertex and two four-cells, with attaching maps to that vertex; this proves the integral wedge rather than just a Betti number census. Replay: python3 /workspace/branches/e0c365fa-9569-4bd2-b20b-8659e84c2a61/reconstruct_honeycomb.py --sides 2 2 3 (saved h223_reproduction.json in that directory).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 17 gives H_{2×2×2} ≃ S³∨S³, and the conclusion identifies it as their only computed case with all sides at least two; Theorems 6 and 8 provide general Morse tools.",
+          "Chandrakar–Singh cover line tilings and two-row grid work rather than this hexagonal array."
+        ],
+        "reasoning": "Neither the earlier journal family scopes nor the general Morse theorem alone compute the critical cells of this complex. Coverage here comes instead from an exact separate prior record.",
+        "searches": [
+          "arXiv:2209.02803v1, Theorems 6, 8, 17 and conclusion",
+          "arXiv:2407.05809v2 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bc0202f43949",
+        "arXiv:2209.02803v1",
+        "arXiv:2407.05809v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October record states and proves the same homotopy equivalence and the same integral homology consequence, with a different pivot procedure.",
+          "The H_{2×2×2} theorem alone has different parameters and dimension."
+        ],
+        "reasoning": "The October record establishes the complete present invariant with the same hypotheses. The later certificate is a corroboration, not a new theorem or a stronger cutoff.",
+        "searches": [
+          "Resultary bc0202f43949, Finding and exhaustive Morse proof",
+          "arXiv:2209.02803v1 Theorem 17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bayer–Jelić Milutinović–Vega define facets as perfect matchings on graph edges.",
+          "Resultary bc0202f43949 defines the same dual of a 2,2,3,2,2,3 lattice hexagon with 32 graph vertices and 41 edges and the same facet definition."
+        ],
+        "reasoning": "Simplices extendible to a perfect matching are exactly the downward closure of those facets; labeling the unit triangles does not change the simplicial complex. The tiling language describes the same perfect matchings of the planar dual.",
+        "searches": [
+          "Resultary H_{2×2×3} perfect-matching complex wedge of two four-spheres",
+          "arXiv:2209.02803v1 PDF p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored Finding explicitly states M_p(H_{2×2×3}) ≃ S⁴∨S⁴ and integral reduced H₄=Z².",
+          "The exhaustion passage reports 50 facets, 2,517,787 nonempty faces, and critical cells in dimensions 0,4,4."
+        ],
+        "reasoning": "This is an exact catalog match for the theorem and census, not merely a homology rank coincidence or a count of lozenge tilings.",
+        "searches": [
+          "Resultary exact triple and four-sphere wedge",
+          "2026/10/18 Resultary bc0202f43949 RESULT.md offset 0 and offset 4200"
+        ]
+      },
+      "rationale": "An earlier-dated, distinct Resultary entry (2026-10-18, bc0202f43949) establishes the exact same integral homotopy equivalence for the same dual honeycomb graph and complex. Its proof also uses exhaustive finite simplicial data and an acyclic Morse matching. Different pivot labels/order and using the empty face do not change the result. This is demonstrated prior coverage, not a conjecture based on a title or inaccessible source.",
+      "residual_risks": [
+        "The journal numbering was not independently checked against the arXiv version; this does not affect the acyclicity argument or the exact catalog overlap. No global priority determination is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage",
+          "evidence": "The same dual graph and perfect-matching facets; 50 facets and exactly the same wedge of two four-spheres via a Morse witness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-2-times2-times3-honeycomb-perfect-matching-complex-is-a-wedg--bc0202f43949/RESULT.md",
+          "material_read": "Finding and assumptions (offset 0), exhaustion and Morse proof (around offset 4200)",
+          "method": "Configured local mirror, bounded passage inspection",
+          "title": "The 2×2×3 honeycomb perfect-matching complex is a wedge of two four-spheres",
+          "trigger": "Exact semantic match on side lengths, complex and homotopy type"
+        },
+        {
+          "assessment": "Same invariant and standard proof tool; classifies a distinct nearby triple",
+          "evidence": "H_{2×2×2} is a wedge of two three-spheres; successive element matchings are acyclic.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.02803",
+          "material_read": "p. 1, p. 6 Theorems 6 and 8, p. 14 Theorem 17, pp. 23–24 conclusion (arXiv v1)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Original definition and strongest nearby published honeycomb classification"
+        },
+        {
+          "assessment": "Different graph families",
+          "evidence": "Polygonal line tilings and the two-row grid are not the specified hexagonal array.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.05809v2",
+          "material_read": "p. 1 scope statements",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Potential classification of larger related perfect-matching complexes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The topology of the first enlarged side-two honeycomb is a well-motivated exact invariant, but its precise homotopy type and finite census were already computed and proved. This record reperforms that known finite computation with another Morse witness of the same critical dimensions; it does not establish a new invariant, classification, or structural improvement that addresses a remaining gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

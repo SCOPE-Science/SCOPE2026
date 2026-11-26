@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:52:21.829236Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the residue ring the invariant weight is τ_i/S: each oriented edge flux is p/S or q/S. This gives V=n(p−q)/S for the lifted displacement. The centered Poisson equation has periodic slope d_i with sum zero and p d_i−q d_{i−1}=(p−q)(nτ_i/S−1). The corrected displacement is a martingale with jump increments 1+d_i and −1−d_{i−1}. Its time-averaged bracket gives (p+q)(n+Σd_i²)/S; a bounded corrector changes the variance only by O(√t)+O(1), and the finite residue chain gives the bracket-rate limit from each initial residue. Iterating the slope recurrence gives the geometric convolution divided by 1−r^n. For a shift s, splitting its cyclic autocorrelation at s gives (1−r^n)(r^s+r^(n−s))/(1−r²). Expand Σd_i², cancel diagonal and centering terms, and count each unordered pair twice to obtain the claimed positive prefactor and variance difference. For each m the k m-step spans sum to mn, so strict integer convex smoothing gives equality exactly when they differ by at most one. Floor positions simultaneously realize these spans. On the real gap simplex the m=1 sum provides strict convexity; only vertices can maximize, they are feasible integer gaps and all represent one contiguous block up to rotation. At p=q the corrector is constant, and at q=0, 1+d_i=nτ_i/S, giving the stated placement-independent rates. The argument assumes fixed multiplicities and strict bias for the comparison, not general site-dependent biases. Inspected VERIFICATION.md and checks/check_transport.py: the independent tilted-generator calculation and finite exact rational placements are support, not the universal proof; the frozen code was not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koza covers arbitrary periodic rates and reports Derrida's exact general nearest-neighbor formulas",
+          "The older ground-state theorem applies to strictly convex repulsive potentials including r^d",
+          "The local heat trace and Kirchhoff/Kemeny records concern different operators/observables."
+        ],
+        "reasoning": "Broader computation does not by itself give the placement equality and strictness for two clock levels. The ground-state theorem covers the energy minimum; not the variance identity or maximum. Grounded-cycle heat trace and reversible weighted-ring Kemeny results are not dispersion at fixed nonzero unwrapped drift.",
+        "searches": [
+          "Koza arXiv:cond-mat/9909204 Introduction and §IV",
+          "Jędrejewski–Miękisz arXiv:cond-mat/9903163, definition and Theorem 0",
+          "Local Resultary 20df106d32f1 and 962eb926e664"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks/check_transport.py",
+        "arXiv:cond-mat/9903163; arXiv:cond-mat/9909204",
+        "Local Resultary 20df106d32f1, 962eb926e664 and indexed target 475d65773aec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lattice-gas minimum applies once the placement-dependent variance has been reduced to E_r. Generic periodic transport determines numerical variances but does not state the positive cyclic interaction reduction or its design law.",
+          "Grounded-cycle heat trace has the same optimal arrangement words for a different objective; the reversible weighted-ring record has the opposite arrangement conclusion for another objective."
+        ],
+        "reasoning": "Credit the established general transport and ground-state steps. The useful additional implication comes from identifying the placement-dependent variance with the periodized geometric energy (including its exact positive coefficient) and then combining the lower law with the strict upper law. Simplex strict convexity supplies the latter, not a new general rearrangement method.",
+        "searches": [
+          "Compare cond-mat/9909204 §IV and cond-mat/9903163 Theorem 0 with frozen geometric-response and gap-simplex steps",
+          "Resultary 20df106d32f1 and 962eb926e664 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The periodically repeated defect pattern with exponentially decaying potential r^d has energy per period [E_r(A)+kr^n]/(1−r^n), up to any overall energy normalization",
+          "At density k/n its all-neighbor most-homogeneous criterion equals the frozen all-cyclic-m-span condition: periods add a deterministic multiple of n."
+        ],
+        "reasoning": "The older lattice-gas minimization and equality criterion carry over exactly to the geometry after the transport-to-energy identity. This is real prior coverage of one component, not merely a resemblance or a new rearrangement principle. The original physical observable is a different invariant.",
+        "searches": [
+          "Resultary: periodic two-holding-time defect spacing, transport drift, dispersion and cyclic balance",
+          "arXiv:cond-mat/9903163, most-homogeneous configurations and Theorem 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the assigned result itself; the distinct nearest records give different invariants, and the supplied small-period table is generated by the frozen check."
+        ],
+        "reasoning": "The sought exact entry is an arbitrary-period placement law rather than an isolated diffusion coefficient. A rate-by-rate evaluation or catalog of balanced patterns would not cover the transport rearrangement and rigidity.",
+        "searches": [
+          "Resultary exact periodic-site defect arrangement/variance coefficient and observable search, including indexed target 475d65773aec"
+        ]
+      },
+      "rationale": "The standalone minimization of a strictly convex repulsive energy by most-homogeneous positions is established and should not be presented as new. General periodic drift/diffusion formulas are also established. The supported distinct theorem connects unwrapped displacement variance in this common-bias two-clock walk to an exact positive cyclic interaction, and uses it for the full two-sided placement and equality laws at unchanged drift. No inspected comparator states or directly gives this transport conclusion without the specialized variance reduction.",
+      "residual_risks": [
+        "Derrida's original PDF could not be read directly in the bounded attempts; scope credited via Koza. The 1978 Hubbard and Pokrovsky–Uimin sources are credited through the inspected 1999 statement rather than directly.",
+        "The bounded comparison does not rule out an earlier explicit two-clock diffusion specialization. Same-day local records do not establish relative priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the energy-minimum component, not the full transport theorem",
+          "evidence": "Most-homogeneous configurations balance every m-th-neighbor distance; at a fixed density these give the ground-state measure for strictly convex repulsive forces.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9903163",
+          "material_read": "Definition and Theorem 0, pp. 5–6, OA offsets 17500–22964; Hubbard and Pokrovsky–Uimin references, p. 24, offset 82000",
+          "method": "Original OA PDF bounded passages",
+          "title": "Ground states of lattice gases with 'almost' convex repulsive interactions",
+          "trigger": "Strong broader ground-state theorem for exactly the same gap balance after periodization"
+        },
+        {
+          "assessment": "Broad upstream method, not arrangement classification",
+          "evidence": "Characteristic-polynomial derivatives give drift and diffusion for arbitrary periodic rates, including nearest-neighbor hopping; introduction describes Derrida's exact formulas.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9909204",
+          "material_read": "Abstract and Introduction p. 1, offsets 1000 and 3500; nearest-neighbor §IV, from p. 8, offsets 41000–46227",
+          "method": "Original OA PDF bounded passages",
+          "title": "General technique of calculating drift velocity and diffusion coefficient in arbitrary periodic systems",
+          "trigger": "General computation of the same transport quantities"
+        },
+        {
+          "assessment": "General formulas credited; direct-passage access unresolved",
+          "evidence": "Koza reports exact velocity and diffusivity expressions for arbitrary nearest-neighbor periodic rates; no specific claim about defect placement inferred from the failed retrieval.",
+          "identifier_or_url": "https://www.lps.ens.fr/~derrida/PAPIERS/1983/jsp1983-vitesse.pdf",
+          "material_read": "No direct full text obtained; Koza Introduction p. 1 reports its scope",
+          "method": "Lawful direct and VPN PDF attempts timed out; accessible scientific attribution in Koza",
+          "title": "Velocity and diffusion constant of a periodic one-dimensional hopping model",
+          "trigger": "Original general nearest-neighbor transport formulas"
+        },
+        {
+          "assessment": "Same arrangement pattern, different observable",
+          "evidence": "Optimizes heat trace for grounded cycles, not a clock-dependent unwrapped variance.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-time-schur-convexity-of-grounded-cycle-heat-traces-and-exact--20df106d32f1",
+          "material_read": "RESULT.md Finding and objective",
+          "method": "Local Resultary search and mirror",
+          "title": "All-time Schur-convexity of grounded-cycle heat traces",
+          "trigger": "Same balanced-minimum/consecutive-maximum arrangement conclusion"
+        },
+        {
+          "assessment": "Related not covering",
+          "evidence": "Kirchhoff/Kemeny functional under a different model and reversed optimizing arrangements.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-defect-spacing-laws-for-continuous-time-diffusion-on-weigh--962eb926e664",
+          "material_read": "RESULT.md Finding and objective",
+          "method": "Local Resultary search and mirror",
+          "title": "Sharp defect-spacing laws on weighted rings",
+          "trigger": "Weighted ring diffusion and defect arrangement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A general formula predicts the variance for a specified period; it does not settle how to design that period at unchanged transport speed. The theorem isolates the full arrangement-sensitive term, turns multiplicity-preserving rate design into a known geometric problem, and identifies both optimal and worst layouts with strict equality cases and the bias endpoints where all layout differences disappear. Its value is in this transport conclusion, not in repeating the classical lattice-gas minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

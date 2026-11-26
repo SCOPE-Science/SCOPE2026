@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:00:11.973469Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 48–121",
+        "Frozen VERIFICATION.md and verify_cycle_squarezero.py (read, not executed)",
+        "Private replay: /workspace/branches/d68836af-08a1-4388-83db-b68f65b60c7e/independent_cycle_check.py"
+      ],
+      "rationale": "Truncated path concatenation gives the two stated equations and leaves the length-three coefficients free. The adjacent-pair equation forces independent arrow support. The nonzero entries in the middle-layer constraint matrix form disjoint edges and two-edge stars: a row and column of degree two cannot meet, because this would require consecutive occupied indices. Each nonempty matrix block has rank one, uniformly in the nonzero coefficients and the field, so summing the resulting kernel sizes gives the point count. The transfer trace counts labeled cyclic words with the declared weights. Independently, each nonempty support decomposes into gaps of length at least two; after normalizing by q^(2n), it has activity (q−1)/q² per occupied vertex and factor q per gap of length two or three. Writing t=(q−1)/q², the gap generating function is A(z)=t(qz²+qz³+z⁴/(1−z)). The weighted labeled-support series is zA′(z)/(1−A(z)) in positive degrees for nonempty supports, by marking a starting occupied site and dividing by the number of occupied sites. Adding the empty support and undoing the normalization yields the characteristic denominator 1−q²x−q³(q−1)x²+q⁶(q−1)²x⁴, in agreement with the given trace recurrence. For the geometry, each fixed-support stratum is a vector bundle over a torus and is irreducible; its dimension is 2n−|S|+p₂+p₃. The bound p₂+p₃≤|S| is sharp exactly for the empty support or when every circular gap has length two or three. Distinct such stratum closures differ because the identically zero arrow coordinates recover the support. An irreducible closure of maximal dimension is a component, and the finite stratification accounts for every top component. Marked-gap counting gives the stated multiplicity. The characteristic-two group interpretation follows from (1+x)²=1+x² and the nilpotence of the radical.",
+      "residual_risks": [
+        "Independent row-reduction counts matched 640, 3584, 17408, 18225, 255879 for (n,q)=(4,2),(5,2),(6,2),(4,3),(5,3). The recurrence replay used q=2,3,5 through n=12; gap supports were enumerated for 4≤n≤15. These do not certify the infinite statements.",
+        "No assertion about the unreduced quadratic scheme or lower-dimensional components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Han–Jiang treat Hochschild cohomology for truncated quiver algebras, including truncated cycles. Wolf studies nilpotent representations and their Hall algebra. The later exact Resultary theorem applies for n≥3 but expressly does not claim the component theorem."
+        ],
+        "reasoning": "The first two cover wider or related families but compute different invariants. The later result does dominate the frozen enumeration in n; it does not dominate the full geometric conclusion and is later dated.",
+        "searches": [
+          "Xu–Han–Jiang, arXiv:math/0509202v1",
+          "Wolf, arXiv:0709.4348v1",
+          "Resultary Loewy-length-four cyclic Nakayama Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Loewy-length-four record above",
+        "Resultary earlier power-map record above",
+        "arXiv:math/0509202v1",
+        "arXiv:0709.4348v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=k=2 the J² power-map formula counts q^m identity roots, where m counts arrows. The cohomology and Hall-algebra passages make no elementwise radical rank assertion."
+        ],
+        "reasoning": "The J² radical squares identically to zero; it discards exactly the products that impose the independent-support and mixed-coefficient constraints in J⁴. Passing to a quotient cannot give the sizes of square-zero lifts or their components. Neither classical enumeration of maximal independent sets nor a point count on its own yields the geometric component theorem.",
+        "searches": [
+          "Resultary complete power-map fibers, Finding at offset 0",
+          "Xu–Han–Jiang p. 2",
+          "Wolf p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later Finding counts elements of the whole algebra, then restricts automatically to the radical. The earlier Finding counts power-map roots for J².",
+          "Top nonempty supports are exactly the maximal independent sets of the cycle (gaps two or three)."
+        ],
+        "reasoning": "The semisimple quotient is a product of fields, so every square-zero element lies in the radical: the later enumeration is genuinely equivalent on the frozen range. In characteristic two, square-zero in the radical is equivalent to g²=1 in the algebra group, but the earlier analogous group count uses a different radical. The known combinatorics of maximal independent sets does not identify them with top components without the new rank calculation.",
+        "searches": [
+          "Resultary 2026/11/2/SCOPE-square-zero-elements-in-loewy-length-four-cyclic-nakayama-algebr--25984f72c584",
+          "Resultary 2026/10/25/SCOPE-complete-power-map-fibers-in-radical-square-zero-quiver-unit-gro--1c150d6b326e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local-mirror Finding at offset 0 states the same p₂+p₃ weighted support sum and fourth-order recurrence. Limitations at offset 7000 exclude the component claim."
+        ],
+        "reasoning": "This is an exact census overlap, not just a matching initial sequence. The later dating relative to the frozen record does not establish earlier priority; no exact older match was found in the inspected sources.",
+        "searches": [
+          "Resultary exact Loewy-length-four square-zero census, ID 2026/11/2/SCOPE-square-zero-elements-in-loewy-length-four-cyclic-nakayama-algebr--25984f72c584"
+        ]
+      },
+      "rationale": "An exact Resultary match dated later contains the support formula and recurrence (even with one additional n), and should be recognized as equivalent on the shared range; that date is not evidence of prior coverage. It expressly does not include the component theorem. Earlier inspected claims involve a different truncation or invariant. The supported contribution is the exact point count for J⁴ and especially the relation between kernel-rank strata and top components, not the classical enumeration of two-or-three circular gaps itself.",
+      "residual_risks": [
+        "Dependence or provenance of the two exact enumeration records is not established by their dating.",
+        "Cibils's cited full paper was not inspected; the bounded comparison is not a global historical-priority conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine exact overlap on point counts, later dated; not evidence of prior coverage",
+          "evidence": "Same weighted support sum and recurrence; n≥3; no component theorem claimed.",
+          "identifier_or_url": "2026/11/2/SCOPE-square-zero-elements-in-loewy-length-four-cyclic-nakayama-algebr--25984f72c584",
+          "material_read": "Finding, offset 0; Limitations, offset 7000",
+          "method": "Bounded local mirror read",
+          "title": "Square-zero elements in Loewy-length-four cyclic Nakayama algebras",
+          "trigger": "Exact formula and recurrence match"
+        },
+        {
+          "assessment": "Related group invariant at J², not J⁴",
+          "evidence": "For p dividing k the identity-root count specializes to q^m at p=k=2.",
+          "identifier_or_url": "2026/10/25/SCOPE-complete-power-map-fibers-in-radical-square-zero-quiver-unit-gro--1c150d6b326e",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "Complete power-map fibers in radical-square-zero quiver unit groups",
+          "trigger": "Earlier group-root formulation"
+        },
+        {
+          "assessment": "Same algebras in broader scope; different invariant in inspected text",
+          "evidence": "Hochschild cohomology calculation for truncated algebras.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0509202",
+          "material_read": "p. 2, OA offset 3000",
+          "method": "Bounded OA PDF read",
+          "title": "Hochschild cohomology of truncated quiver algebras",
+          "trigger": "Prior general truncated quiver theorem"
+        },
+        {
+          "assessment": "Different object in the inspected statement",
+          "evidence": "Hall algebra of nilpotent representations and generic extensions, rather than fixed-algebra radical elements.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.4348",
+          "material_read": "p. 1, OA offset 0",
+          "method": "Bounded OA PDF read",
+          "title": "The Hall algebra of a cyclic quiver at q=0",
+          "trigger": "Cyclic-quiver nilpotence under different terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Resultary Loewy-length-four Finding and Limitations"
+      ],
+      "rationale": "The fourth truncation is the first where the arrow support interacts with a free-but-constrained next path layer in the square. The result gives both a compact exact recurrence for the rational-point census and a geometric interpretation of the leading supports as components, rather than just a routine transfer of a known count. The answer applies in all characteristics and gives, in characteristic two, an exact census of the identity and involutions of the associated algebra group.",
+      "residual_risks": [
+        "No structural claim about lower-dimensional components, nilpotent scheme structure, or larger Loewy length."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:34:42.191494Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For row minimum r_j (n for the empty row), an upset pair with p<q fails exactly at rows satisfying p<=r_j<q; for p>=q there are no failures. The output is the upset immediately after the last failing row, or the full chain if none fail. Adjacent pairs recover each last index, and each row can be last for at most one label. A partial injection is realized by its prescribed arrows (f(p),p); those arrows are forced in every realization, proving unique minimum size, including the empty domain. In a prescribed row there are 2^(n-1-p) supersets with minimum p; all other rows independently choose the empty set or a minimum whose prescribed final row is strictly later. This yields the full fibre product. Counting partial injections and using rigidity of the finite Heyting chain gives the stated labeled operation and isomorphism counts. The frozen scripts and finite verification notes were inspected, not executed; the symbolic proof covers every n>=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.10 preserves the complex algebra under target-upward closure, which preserves each chain row minimum; it does not eliminate earlier repeats of a minimum.",
+          "The inspected persistence result uses the same normal form under an additional axiom, not for all operations here.",
+          "The 2015 weak-Heyting expansion count is broader in subject, but accessible information did not establish the specific representation or its fibres."
+        ],
+        "reasoning": "A normalization to upset rows is weaker than deleting all but the last representative row for each minimum. Likewise a count of all algebraic expansions of a lattice need not count or distinguish operations with this particular fixed-chain relational realization.",
+        "searches": [
+          "de Groot–Litak, arXiv:2603.28402v2, §3–4",
+          "Alizadeh–Joharizadeh, DOI 10.1093/jigpal/jzu033",
+          "2026/10/18/SCOPE-persistence-filtered-rook-normal-form-for-finite-chain-flat-heyt--2943661dd297/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_all_relations.py",
+        "Both cited Resultary records",
+        "de Groot–Litak arXiv:2603.28402v2",
+        "Alizadeh–Joharizadeh 10.1093/jigpal/jzu033 (limited access)",
+        "OEIS A002720 and A144084"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching representative is inclusion-least in the indexed result, in addition to its semantic classification, count and identical unrestricted fibre formula."
+        ],
+        "reasoning": "Inclusion-least implies unique fewest arrows, and is also immediate from the frozen proof because each prescribed arrow is mandatory. Neither adjusting the minimality phrasing nor restricting attention to fibres leaves an uncovered assertion. The different record identifier establishes a distinct indexed comparison; date labels alone do not establish authorship, priority, or direction of derivation.",
+        "searches": [
+          "2026/11/2/SCOPE-last-occurrence-matchings-and-exact-realization-fibers-for-finit--4c5d5d5150e4/RESULT.md, Finding, Assumptions and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed unrestricted result uses the last occurrence of each row minimum, recovers it from adjacent upset pairs, realizes all partial injections, and gives the same fibre product over forced and unforced rows."
+        ],
+        "reasoning": "Both classifications have arbitrary relations on a fixed n-world chain with the identical semantic equivalence. The matching/rook encoding and the fibre statistics are mathematically the same, not just equal counts.",
+        "searches": [
+          "Resultary: flat Heyting–Lewis finite chains, last occurrence partial matching, exact realization fibres",
+          "2026/11/2/SCOPE-last-occurrence-matchings-and-exact-realization-fibers-for-finit--4c5d5d5150e4/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A002720 lists the total partial-permutation counts, including 2,7,34,209,1546,13327; A144084 counts partial bijections of height k."
+        ],
+        "reasoning": "The numerical totals and size-refined counts are standard rook counts. Neither table establishes their identification with strict implications or the counts of raw relations representing each operation.",
+        "searches": [
+          "https://oeis.org/A002720",
+          "https://oeis.org/A144084"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record gives the same unrestricted chain classification and exact realization fibres, and states that the canonical relation is inclusion-least. The failed originality finding is about demonstrated equivalent coverage in the checked corpus, not a claim of publication priority or of dependence. The separate persistence theorem, known rook counts, and de Groot–Litak normalization are relevant but are not the decisive overlap.",
+      "residual_risks": [
+        "The 2015 paper's full text was inaccessible, so its treatment of any chain specialization is not established.",
+        "The scientific equivalence of the distinct Resultary record is established; public or private priority between the records is not adjudicated here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent coverage, with inclusion-least representative explicitly stated",
+          "evidence": "Identical adjacent-input recovery, all partial injections, total count and unrestricted fibre product.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-last-occurrence-matchings-and-exact-realization-fibers-for-finit--4c5d5d5150e4",
+          "material_read": "RESULT.md, Finding, Assumptions and Proof",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Last-occurrence matchings and exact realization fibers for finite flat Heyting–Lewis chains",
+          "trigger": "Same arbitrary-relation fixed-chain normal form and exact fibres"
+        },
+        {
+          "assessment": "Relevant restricted classification, not decisive for unrestricted fibres",
+          "evidence": "Last-occurrence encoding and the same operation formula under a persistence axiom.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-persistence-filtered-rook-normal-form-for-finite-chain-flat-heyt--2943661dd297",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Local Resultary mirror",
+          "title": "Persistence-filtered rook normal form for finite-chain flat Heyting–Lewis implication",
+          "trigger": "Related matching encoding with an additional restriction"
+        },
+        {
+          "assessment": "Provides the semantics and general target-upward-closure result; the inspected statements do not classify fixed-chain sparse realizations",
+          "evidence": "R replaced by R composed with the target preorder preserves the complex algebra; the segment-model construction addresses completeness and can use more states.",
+          "identifier_or_url": "https://arxiv.org/html/2603.28402v2",
+          "material_read": "Definitions 3.1 and 3.5 and Lemma 3.6 (offsets 20522, 25347); Remark 3.8 (27013); Proposition 3.10 (28697); §4 segment models (38398)",
+          "method": "OA article, bounded offset reads",
+          "title": "Relational Semantics for Flat Heyting-Lewis Logic",
+          "trigger": "Primary source for the flat semantic clause and normalization"
+        },
+        {
+          "assessment": "No whole-paper coverage inference",
+          "evidence": "The accessible description concerns all weak-Heyting expansions of finite distributive lattices rather than the particular realization problem.",
+          "identifier_or_url": "10.1093/jigpal/jzu033",
+          "material_read": "Bibliographic/abstract scope; full text not obtained",
+          "method": "Lawful OA attempts at DOI, including an alternate configured route (HTTP 403); no repository copy located",
+          "title": "Counting weak Heyting algebras on finite distributive lattices",
+          "trigger": "Counting a broader class of expansions, possibly with a chain specialization"
+        },
+        {
+          "assessment": "Numerical overlap only",
+          "evidence": "Partial permutations, or square binary matrices with at most one 1 per row and column; rank k corresponds to a partial bijection of height k.",
+          "identifier_or_url": "https://oeis.org/A002720 ; https://oeis.org/A144084",
+          "material_read": "A002720 offset 197; A144084 offset 161, interpretations and counts",
+          "method": "OA literal-query passages",
+          "title": "Partial permutations and partial bijections by height",
+          "trigger": "Exact matching total sequence and rank counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical result (apart from originality) solves a natural fixed-carrier representation problem. It recovers a canonical minimal frame from only adjacent operation values and quantifies exactly how many raw frames represent every operation, including loss of row and arrow information. These are useful structural statements beyond evaluating a familiar binomial sum. They do not leave a distinct uncovered remainder under this comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

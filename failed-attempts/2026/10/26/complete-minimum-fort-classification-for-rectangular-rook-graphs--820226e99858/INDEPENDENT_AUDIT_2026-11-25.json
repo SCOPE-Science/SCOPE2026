@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:23:31.225750Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At an unselected cell the selected-neighbor count is exactly the row occupancy plus the column occupancy. It is one precisely when that cell meets an empty line and a line occupied once. For p,q>=2, the four support cases (neither dimension has a vacancy, column vacancy only, row vacancy only, both have vacancies) therefore require at least q, 2p, 2q and 4 cells respectively. In the last case equality leaves exactly two occupied rows and columns and fills their four intersections. For q<=3 only full support can be minimal; the labeled onto assignments from columns to rows give counts 2, 6, 6. For q>=4 a rectangle attains four. For p=2 any independent pair of choices of two cells per row is valid, with or without column vacancies. A four-cell fort outside that class must occupy all columns, so q=4 and both rows must be occupied; the 1+3 and 3+1 row splits give exactly eight extra. For p>=3 any four-cell fort with vacancies is a rectangle; full support requires q=4 and gives 36 surjections at p=3 and 24 permutations at p=4. For p=1 the graph is K_q and every pair, but no singleton, is a fort when q>=2; the lone vertex at q=1 is a fort. The stated growth rates follow from these exact formulas. The bundled exact checker and recorded output were inspected, not run. They are consistent with the unrestricted support proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier all-fort enumerator sums over occupied supports, weighting each rectangular zero-one matrix by its number of ones and using the same degree thresholds, for every positive pair of side lengths.",
+          "Pelayo–Abara state F(K_n square K_m)=nm-4 for n>=4,m>=2, with attribution to Fetchie–Jacob–Saavedra, giving the scalar minimum by complementation.",
+          "The other inspected fort papers discuss Cartesian product bounds, inclusion-minimal forts or minimum forts of hypercubes; those distinctions matter for the count."
+        ],
+        "reasoning": "The first nonzero degree of the all-fort polynomial and its coefficient determine the minimum and labeled count. The older scalar identity alone does not enumerate the shapes, and inclusion-minimality is not minimum cardinality.",
+        "searches": [
+          "Resultary 10cceec37c9c Finding and Proof Step 1",
+          "arXiv:2202.04997v1 Theorem 3.7",
+          "arXiv:2310.17904v3 p. 1; arXiv:2404.05963 p. 4; arXiv:2507.10826 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 10cceec37c9c and 5cfd0c4c21bc",
+        "arXiv:2202.04997v1",
+        "arXiv:2310.17904v3",
+        "arXiv:2404.05963",
+        "arXiv:2507.10826"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier enumerator a nonfull column support imposes minimum occupied-row degree two and a nonfull row support imposes minimum occupied-column degree two. At weights at most four these are exactly the frozen support constraints.",
+          "The exact-match extremizer theorem explicitly classifies the two-row choices, the extra transversals, and the rectangle family, rather than providing just a polynomial to evaluate."
+        ],
+        "reasoning": "The broader formula implies all exact coefficients, and the piecewise formulas and shapes themselves are covered by the complementary theorem. The growth orders follow immediately from those known counts. The p=1 extension is the immediate K_q calculation.",
+        "searches": [
+          "Compare the occupied-support matrix enumerator in 10cceec37c9c and the extremizer theorem in 5cfd0c4c21bc with the frozen case split"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complement of a fort is stalled. Any failed set of maximum size is already stalled, since a legal force would enlarge it to another failed set. Complementation therefore bijects minimum forts and maximum failed sets.",
+          "5cfd0c4c21bc gives the extremal family in these complementary terms.",
+          "The incidence stopping-set condition would prohibit every row or column of selected degree one, whereas rook forts may have such rows and columns at full support; the 2x3 three-cell forts exemplify the distinction."
+        ],
+        "reasoning": "The complement is an exact bijection preserving labeled counts and translating every extremal shape. Passing to the line graph L(K_p,q) preserves the rook problem; passing instead to the incidence Tanner graph stopping-set problem does not.",
+        "searches": [
+          "Resultary rook-graph minimum forts and maximum failed zero forcing; 5cfd0c4c21bc Finding",
+          "arXiv:2507.10826, p. 2",
+          "Rook graphs as line graphs of complete bipartite graphs; comparison with incidence stopping sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5cfd0c4c21bc lists 2, 6, 44, 54, 60, the eventual binom(q,2)^2 and binom(p,2)binom(q,2) counts, and their corresponding shapes for 2<=p<=q.",
+          "10cceec37c9c explicitly gives the degree-four rectangle coefficient for both sides at least six, and its all-fort formula determines the remaining cases."
+        ],
+        "reasoning": "This is an exact symbolic database match, not just agreement on the finitely checked boards. For example, the fixed counts 44, 54 and 60 are precisely the indicator-corrected values on 2x4, 3x4 and 4x4.",
+        "searches": [
+          "Resultary 5cfd0c4c21bc Finding (local mirror, offset 0)",
+          "Resultary 10cceec37c9c Finding (local mirror, offset 0)"
+        ]
+      },
+      "rationale": "The equivalent maximum failed zero-forcing classification in indexed record 5cfd0c4c21bc gives the same sizes, counts and every shape on 2<=p<=q. Its later record date does not establish priority in either direction; it does establish equivalent coverage. Moreover, the earlier all-fort polynomial record 10cceec37c9c gives the same row/column support lemma and an exact polynomial covering these counts, explicitly stating the rectangle coefficient in the large-board regime. The generic scalar minimum was proved in the failed zero-forcing literature. For p=1 the frozen statement adds only the complete-graph singleton and pair cases.",
+      "residual_risks": [
+        "The external literature searches were bounded and several queries were deferred; historical priority between exact classifications is not resolved.",
+        "The finding does not address counts of all inclusion-minimal forts, general zero forcing variants, or stopping sets with different adjacency rules."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage for 2<=p<=q, with extra thin-board symmetry counts; no priority inference from record dates",
+          "evidence": "The theorem states the three nontrivial minimum sizes and the full case split for maximum failed-set counts; its white complements have exactly the frozen minimum-fort patterns.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-maximum-failed-zero-forcing-of-rectangular-rook-graphs-complete--5cfd0c4c21bc/RESULT.md",
+          "material_read": "Finding and assumptions, local mirror offset 0 through 3216",
+          "method": "Direct comparison of the theorem and all extremizer shapes",
+          "title": "Maximum failed zero forcing of rectangular rook graphs: complete extremizer classification and counts",
+          "trigger": "Exact extremal classification under the failed-set complement"
+        },
+        {
+          "assessment": "Broader counting coverage for all positive dimensions; the first nonzero coefficient gives the target count",
+          "evidence": "The occupied-support sum uses row lower bound 1+indicator(column support not full) and the dual column lower bound; the degree-four coefficient is stated explicitly when both dimensions are at least six.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-fort-polynomial-of-rook-graphs-and-its-degree-five-gap--10cceec37c9c/RESULT.md",
+          "material_read": "Finding, assumptions and Proof Step 1 at local mirror offset 0",
+          "method": "Direct comparison of the all-fort coefficient formula and occupancy characterization",
+          "title": "Fort polynomial of rook graphs and its degree-five gap",
+          "trigger": "Earlier broader rook-graph fort enumerator"
+        },
+        {
+          "assessment": "Covers the generic minimum size, not the explicit counts in the inspected statement",
+          "evidence": "The theorem reports the formula nm-4 for the maximum failed set when n>=4,m>=2, with attribution to Fetchie–Jacob–Saavedra.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.04997v1",
+          "material_read": "Theorem 3.7, p. 8",
+          "method": "Open-access theorem passage inspection",
+          "title": "Failed zero forcing numbers of Cartesian products of graphs",
+          "trigger": "Prior scalar minimum via the complement relation for products of cliques"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Minimum fort obstructions and the thin-board change in the enumerating degree are mathematically natural. As a separate contribution, however, the frozen exact invariant is obtained from the earlier occupancy enumerator, and its labeled extremizer census and shape distinction are also explicitly covered by the complementary indexed theorem. The complete-graph one-row cases and asymptotic restatement leave no distinct substantial result in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

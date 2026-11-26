@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:59:10.758513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With t=h/(2π) the exact fixed-point equation is K_N u∈Z^N, |u_i|≤t and sin z_i=u_i/t. Distinct u have disjoint torus preimages, with a factor of two per strict coordinate and one per saturated coordinate. The boundary values u_0=u_m=0 force all successive differences equal modulo one to k/m; conversely this residue condition suffices. Order d=m/gcd(k,m)>1 supplies each nonzero fraction of denominator d exactly m/d times, so the class's first radius is floor(d/2)/d. The nonzero integral vectors first enter at 1 and cannot minimize. If m has any odd factor, the uniquely minimizing order is the least odd prime p; each of its p−1 classes has one representative and 2m/p saturated coordinates. If m is a power of two, all m−1 nonzero classes minimize at 1/2; a class of order d has m/d half-coordinate ties, and the 2^(m/d) representatives exactly cancel the 2^(m/d) loss of sine multiplicity at threshold. Above threshold all coordinates are strict and no further lattice vectors enter until a positive norm gap, by discreteness for fixed m. This proves both formulas, also at m=2 and in the m=3,4 examples. The frozen exact-rational verifier checks small residue classes, not the infinite claim; it was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strict Lyapunov condition excludes additional fixed points through h<2/λ_max(K_N). The bounded external search did not yield a further candidate."
+        ],
+        "reasoning": "The Lyapunov bound is much smaller than the sharp wrapped thresholds ≥2π/3 and supplies no multiplicities. No stronger result was found in the inspected evidence.",
+        "searches": [
+          "arXiv:2610.10993v1 Prop. 3.4, §5.2",
+          "Bounded literature lookup on fixed points with nonzero lift displacement and prime-divisor onset"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10993v1",
+        "Resultary 2b21d21838bf",
+        "Resultary 6551b6fac988"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior map gives the integer lift equation; previously inspected results bound small-step dynamics or characterize derivative/temporal bifurcations."
+        ],
+        "reasoning": "These statements do not determine the shortest nonzero vector in the lift lattice or its coordinate saturations. The residue orders and angular multiplicities are separate from criticality, invertibility and period doubling.",
+        "searches": [
+          "Buescu–D’Aniello–Oliveira §5.2 and comparison with 2b21d21838bf and 6551b6fac988"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (40) has exactly the same K_N torus map; Cor. 5.4 counts critical fixed points in the small-step Morse–Smale range."
+        ],
+        "reasoning": "A noncritical torus fixed point of this map is precisely a nonzero integral lift displacement. The prior fixed-point assertion is on the parameter range before the wrapped phenomenon.",
+        "searches": [
+          "Resultary uniform sinusoidal path, wrapped/noncritical fixed point and lift displacement comparisons",
+          "arXiv:2610.10993v1 §5.2, Eq. (40) and Cor. 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected same-map entries, 2b21d21838bf and 6551b6fac988, treat loss of invertibility and a flip, respectively."
+        ],
+        "reasoning": "A table or formula for extra preimages of a target or for a period-two branch does not tabulate fixed points of the map. No matching fixed-point census surfaced.",
+        "searches": [
+          "Resultary for exact prime-divisor onset and multiplicity formulas and related sinusoidal path findings"
+        ]
+      },
+      "rationale": "The map and small-step absence of noncritical fixed points are prior. The actual comparisons do not cover the first large-step appearance of nonzero lift displacements or their geometric multiplicities. This conclusion is limited to best available evidence.",
+      "residual_risks": [
+        "The lookup was bounded and may miss work using different terminology for modulo-angle fixed points or integer lift vectors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact map and small-step theory are prior; parameter and point classes differ",
+          "evidence": "Strict potential descent for h<2/λ_max; Cor. 5.4 gives 2^N critical fixed points for h<1/λ_max.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10993v1",
+          "material_read": "§5.2, Eq. (40) around OA offset 50084 and Cor. 5.4 discussion at 51103–52352",
+          "method": "OA HTML bounded passages",
+          "title": "Morse–Smale dynamics in discrete Huygens networks",
+          "trigger": "Identical path map and a prior fixed-point count"
+        },
+        {
+          "assessment": "Extra inverse images, not a fixed-point census",
+          "evidence": "First singular derivative at 1/λ_max, endpoint homeomorphism and extra target preimages.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-cubic-loss-of-invertibility-in-sinusoidal-path-networks--2b21d21838bf/RESULT.md",
+          "material_read": "Finding and map/parameter setting",
+          "method": "Local Resultary mirror",
+          "title": "Sharp cubic loss of invertibility in sinusoidal path networks",
+          "trigger": "Identical map and a threshold with extra solutions"
+        },
+        {
+          "assessment": "Period-two result, not the wrapped fixed-point theorem",
+          "evidence": "An attracting period-two orbit at the flip threshold 2/λ_max.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-supercritical-flip-onset-and-explicit-eigenmode-profile-in-finit--6551b6fac988/RESULT.md",
+          "material_read": "Finding and same path setting",
+          "method": "Local Resultary mirror",
+          "title": "Supercritical flip onset and explicit eigenmode profile in finite paths",
+          "trigger": "Identical map and a later new orbit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This locates the first genuine departure from the critical-point fixed-set picture of a standard path model, not merely a sufficient small-step bound. The least odd factor or power-of-two distinction changes the threshold and the multiplicity jump; knowing the lift order alone does not give the geometric count at a fold of the sine inverse. The count on both sides of the first birth is a meaningful exact benchmark for large-step dynamics, without stability or cycle claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

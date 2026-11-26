@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,8 @@
   "schema_version": 1
 }
 ---
-# Verification record
+# Reproduction scope
 
-The independently implemented `verify_rank_one.py` program creates all rank-one square-zero matrices by outer products over finite fields (including \(\mathbb F_4\)), directly multiplies every pair, checks the equivalence between commuting and pairwise annihilation, then counts ordered tuples using exact bitset recursion. It independently evaluates the closed Gaussian-binomial formula using integer arithmetic.
+The companion `verify_rank_one.py` uses outer products to construct the finite-field rank-at-most-one, square-zero matrices on the tested instances, verifies commuting versus mutual annihilation by pair multiplication, and uses exact recursion to compare the number of ordered tuples with the Gaussian-binomial formula. It includes the cases \((n,r,q)=(4,2,2)\) and \((4,3,2)\), with expected counts 2836 and 38536; the formula is presented as a corollary of broader known coverage, not as the original contribution. The script also checks the index and dimension arithmetic on a finite parameter grid. Expected successful output ends with `VERIFY_OK_MINIMAL_NILPOTENT_TUPLES`.
 
-The checks completed for thirteen \((n,r,q)\) configurations, including \((4,2,2)\) with count \(2836\), \((4,3,2)\) with count \(38536\), and \((3,2,4)\) with count \(9136\). The script also tested the component-index and dimension formulas on the parameter grid \(2\le n\le15\) and \(1\le r\le15\).
-
-Reproduce by running `python3 verify_rank_one.py` in the directory containing the file. Success prints `VERIFY_OK_MINIMAL_NILPOTENT_TUPLES`. The output is only corroboration in finite cases: the general irreducibility and exact count rest on the accompanying proof, and the scheme structure remains unverified.
+The full reduced component classification is proved by the incidence construction and noncontainment witnesses in `RESULT.md`. Finite count or dimension-arithmetic tests do not establish this classification or any scheme-theoretic assertion.

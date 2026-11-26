@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim reduces the continuous local-basis optimization to an exact collision formula derived from the complete Pauli correlation tensors of the Higuchi–Sudbery state. The Boolean-cube Parseval normalization was reconstructed explicitly. The four-vector Gram determinant identity and the frame-operator bound imply the global inequality \(\sum_s p_s^2\le1/6\) for arbitrary unit Bloch axes, not merely sampled axes. Equality analysis is also complete: saturation forces rank one of the frame operator, hence a common Bloch line, and such bases attain the bound. The included standard-library checker independently evaluates all required Pauli tensors exactly and verifies the Gram polynomial identity.
+## correctness
 
-## Originality
-**PASS.** The 2015 defining paper reports \(S^{\mathrm{RIU}}_2(HS)=\log6\) in a section explicitly based on further numerical tests, and the 2016 survey marks the same table entry as conjectured from numerical calculations. The accepted contribution is therefore not the numerical value itself, but an exact proof over all local product bases plus a complete equality characterization. The original Higuchi–Sudbery work concerns average bipartition entropy, while geometric-measure work concerns the largest single product overlap, not the order-two collision sum. Targeted searches using RIU, decomposition-entropy, collision/index-of-coincidence, local-basis, and \(1/6\) aliases found no implication-equivalent analytic proof. Residual risk remains that a later derivation is poorly indexed or uses different terminology.
+PASS
 
-## Value
-**PASS.** The source identifies order-two RIU entropy with an experimentally meaningful two-copy coincidence statistic, while the exact HS value was left at the numerical/conjectural level. The theorem removes the continuous four-local-unitary numerical optimization for this canonical four-qubit state and replaces it with a short invariant Gram inequality. The equality classification additionally identifies all optimal measurement geometries. This is a substantive structural certification rather than a recomputation of a table entry.
+An independent exact Pauli calculation from the six amplitudes checked normalization plus 12, 54, 108 and 81 components at orders one through four. They agree with the frozen tensors. Walsh Parseval for the product-projector expansion gives 16C=1+(S+3T+Q^2)/9. For the Gram identity, writing H for the sum of the four triangle products and R for the sum of the three four-cycle products, det G=1-S+2H+P-2R=0, T=4-2S+2H and Q^2=P+2R, giving the stated identity. For M=sum n_i n_i^T, trace M=4, trace M^2=4+2S and det M=T. Thus S+2T<=6 reduces to 2 product(lambda)<=sum_{i<j} lambda_i lambda_j. The rank-three case is strict since sum 1/lambda_i>=9/4>2; the rank-two case is strict from the one positive pair product. Equality requires rank one. With P<=3 this gives S+3T+Q^2<=15; at rank one, the unit axes are collinear and P=3, so the bound is attained. In particular the computational basis has six outcomes each of probability 1/6. This proves the claimed natural-log entropy and all equality cases up to outcome swaps (basis-vector phases do not affect projectors). The supplied exact-checker source was inspected, not executed; the continuous optimization is analytic, not from sampling.
 
-## Closest literature and limitations
-The closest source is arXiv:1506.04788, which defines the functional and reports the HS order-two value numerically. The 2016 survey DOI:10.1088/1742-6596/698/1/012003 explicitly marks that value as numerically conjectured. arXiv:quant-ph/0005013 and arXiv:0905.2094 optimize different entanglement quantities and do not imply the product-basis collision bound. The present result does not establish the broader global-maximizer conjecture for \(q\ge2\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The order-two value was previously reported numerically for the same state, not newly predicted here. The supported distinct contribution is a continuous-basis proof and the necessary-and-sufficient common-line equality condition. No equivalent proof or optimizer classification was found in the inspected closest literature or indexed Resultary matches.
+
+## value
+
+PASS
+
+This turns a previously numerical fixed-state product-measurement optimum into a sharp theorem and determines every measurement attaining it. The rigidity is useful beyond the single entropy number: it separates relative-axis alignment from a coincidence at the computational basis and gives an exact benchmark for continuous local-basis optimization. It does not resolve the larger optimization over states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

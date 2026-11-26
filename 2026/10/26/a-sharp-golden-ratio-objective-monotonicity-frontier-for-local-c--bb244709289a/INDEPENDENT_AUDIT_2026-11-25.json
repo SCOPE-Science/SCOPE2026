@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:52:58.328549Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(x)=||x||²/2 and known f*=0 the LCD3 localization set is the C-ellipsoid centered at x−C⁻¹x with squared C-radius xᵀC⁻¹x−||x||². C-metric projection gives the frozen square-root step, also when the radius is zero. C≼I≼C+(1−1/κ)I establishes admissibility. If m and q are the first and second moments of B=C⁻¹ in the squared spectral weights of x, the exact ratio is 1−2αm+α²q. The chord bound q≤(κ+1)m−κ is sharp at every m in [1,κ] via a mixture of eigenvectors for 1 and κ, which are present for each allowed C. For u=√(1−1/m) substitution gives κu²(1−u)/(1+u); its derivative after division by κ is 2u(1−u−u²)/(1+u)². Hence the maximizing u is the stated clipped inverse golden ratio and the branch switches at κ=φ. For κ=1 the iterate is zero; at κ=φ the branches agree; above φ the envelope is κ(5√5−11)/2, attaining one exactly at (11+5√5)/2. Below φ the product κF(uκ) increases to a value less than one. The endpoint mixture with weight (φ−1)/(κ−1) on κ gives equality in the upper branch, including a strict witness at κ=12. The result concerns one step under the absolute eigenvalue normalization, not convergence or arbitrary scaling. The frozen verification notes and script were inspected, not executed; the sharp proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "LCD3 is defined on a broader admissible class but its explicit quadratic conclusion uses curvature equal to the Hessian",
+          "The preconditioned stochastic Polyak projection is onto a linearized interpolation hyperplane"
+        ],
+        "reasoning": "General definition of the method is not a sharp objective bound. The quadratic/Newton conclusion requires a matrix equality that fails for κ>1 in the frozen setting; stochastic preconditioning of the linear Polyak projection changes the map.",
+        "searches": [
+          "arXiv:2405.16574v1 §2 Assumption 2.1, §3.3 and Appendix C.2",
+          "NeurIPS 2025 published version §3.3 and Appendix D.2",
+          "arXiv:2310.02093v1 §5 Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof; VERIFICATION.md; verify.py",
+        "Richtárik et al., arXiv:2405.16574v1 and NeurIPS 2025",
+        "Abdukhakimov et al., arXiv:2310.02093v1",
+        "Resultary 169a05cdc789"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Preprint derives the square-root rule and identifies one-step termination in the Hessian-matched case",
+          "Stochastic Polyak step uses f_i/||∇f_i||² in a variable norm and has no corresponding square-root factor"
+        ],
+        "reasoning": "The prior rule supplies the starting expression, but sharpness requires optimizing over the moment pairs actually realizable for a fixed C, then over the feasible nonlinear step. Hessian matching gives only the trivial normalized κ=1 boundary here.",
+        "searches": [
+          "arXiv:2405.16574v1 Appendix C.1–C.2",
+          "NeurIPS 2025 Appendix D.2",
+          "arXiv:2310.02093v1 §5 Lemma 1 (23)–(24)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2405.16574v1 §3.3 and Appendix C.1 identify LCD3 with projection in the curvature metric",
+          "169a05cdc789 gives a scaled scalar Polyak update and a different sharp envelope"
+        ],
+        "reasoning": "Changing metric without changing the objective or projection set is consequential here. The known scalar Polyak result changes the update itself and does not become this projection by renaming the condition number.",
+        "searches": [
+          "Resultary meaning searches for LCD3 with isotropic objective and anisotropic lower matrix, golden-ratio threshold, κF envelope, and generalized ellipsoid projection",
+          "Literature: Local Curvature Descent 3 one-step objective increase anisotropic curvature exact monotonicity threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed scalar-Polyak frontier has factor 1−γ+γ²(κ+1)²/(16κ), not the clipped-inverse-golden-ratio law"
+        ],
+        "reasoning": "The older record is not a table of these values or an equivalent formula; its condition number belongs to the objective Hessian rather than a distinct normalized lower matrix.",
+        "searches": [
+          "Resultary meaning searches for exact κF formula and golden-ratio monotonicity frontier",
+          "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789, RESULT.md"
+        ]
+      },
+      "rationale": "The exact projection rule and the Hessian-matched Newton special case are known. The supported distinct result is the attainable all-direction envelope and the resulting monotonicity frontier for a separately chosen admissible lower matrix. The closest indexed sharp Polyak-step frontier has a different step law; no inspected source gives or entails the present envelope as a stated specialization. This is a scoped best-of-current-knowledge decision.",
+      "residual_risks": [
+        "Equivalent sharp variables or an unpublished result under generalized ellipsoid projection terminology are not ruled out.",
+        "No claim of priority for LCD3 or for the elementary possibility of nonmonotonicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm and Hessian-matched special case covered; not the stated envelope",
+          "evidence": "Lower and upper supports differ by L_C I with L_C≥0; C.1 gives the square-root projection; C.2 takes curvature equal to the least-squares Hessian.",
+          "identifier_or_url": "https://arxiv.org/html/2405.16574v1",
+          "material_read": "§2 Assumption 2.1 (offset 10251), §3.3 (18042), Appendix C.1 (79042) and C.2 (84610)",
+          "method": "Original OA full-text passages",
+          "title": "Local Curvature Descent: Squeezing More Curvature out of Standard and Polyak Gradient Descent",
+          "trigger": "Original update, admissibility and closest quadratic theorem"
+        },
+        {
+          "assessment": "Confirms distinction from Hessian-matched Newton case",
+          "evidence": "The update and lack of a general LCD3 convergence theorem are stated in §3.3; Appendix D.2 treats least squares with Hessian curvature.",
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/107aaa54d9481515e981e332e2e115b1-Paper-Conference.pdf",
+          "material_read": "§3.3 pp. 5–6; Appendix D.2 p. 24",
+          "method": "Original OA PDF passages",
+          "title": "Local Curvature Descent, published NeurIPS version",
+          "trigger": "Potential theorem added in published version"
+        },
+        {
+          "assessment": "Different projection set and step",
+          "evidence": "Weighted projection uses the stochastic linearized interpolation hyperplane.",
+          "identifier_or_url": "https://arxiv.org/html/2310.02093v1",
+          "material_read": "§5 Lemma 1, equations (23)–(24), offset 18219",
+          "method": "Original OA full-text passage",
+          "title": "Stochastic Gradient Descent with Preconditioned Polyak Step-size",
+          "trigger": "Comparable variable-metric Polyak projection"
+        },
+        {
+          "assessment": "Different update and spectral data",
+          "evidence": "Scaled scalar Polyak gradient step on an SPD quadratic, sharp factor 1−γ+γ²(κ+1)²/(16κ).",
+          "identifier_or_url": "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+          "material_read": "RESULT.md, Finding from offset 0",
+          "method": "Resultary search followed by local-mirror reading",
+          "title": "Polyak objective monotonicity frontier",
+          "trigger": "Closest indexed exact objective frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The objective can increase even when the true Hessian is the identity and both quadratic support assumptions hold. The sharp frontier distinguishes when using the lower-curvature metric is and is not safe for one-step descent, gives explicit worst-case directions at every condition number, and quantifies unbounded one-step loss. It is stronger and more useful than an isolated counterexample or the known exact-Hessian Newton case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

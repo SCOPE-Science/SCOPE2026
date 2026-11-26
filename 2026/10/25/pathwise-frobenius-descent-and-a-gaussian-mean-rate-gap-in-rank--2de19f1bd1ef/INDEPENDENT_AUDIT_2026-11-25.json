@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:38:34.617049Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the frozen Aω≠0 regime, only the positive seed-supported eigenvalues enter the normalized weights p_i∝ω_i²a_i^(2q); the sole nonzero approximation eigenvalue is their weighted harmonic mean λ. For T=f(λ), U=Σp_i f(a_i), the error is tr(f(A)^2)+T²−2TU. Jensen for t↦f(1/t) gives T≤U. Differentiating the power weights gives twice the covariance with log a; this makes U nondecreasing and the weighted mean of 1/a nonincreasing, hence T nondecreasing. Local absolute continuity on the supported positive spectral interval justifies differentiating the error almost everywhere; E′=2(T−U)T′−2TU′≤0. In the continuous nonconstant operator-monotone subclass the integral representation makes the reciprocal profile convex, and strict increase gives U′>0 and T>0 on multispectral support. One distinct supported eigenvalue gives a constant error. The fixed-seed leading term follows from f(a)−U at order (b/a)^(2q) while (f(a)−T)² is smaller. Independently, for the two-dimensional Gaussian model the half-Cauchy ratio produces the stated rational integrals (the squared-denominator integral is −∂_a of the first at fixed r,b). Their average has a nonzero linear term in r=(b/a)^q, versus the almost-sure quadratic term. The exact counterexample gives λ₁=200/197 and λ₂=65/53 and errors 1 and 98/65. The u_q/ν_q notation in the spectral calculation is a harmless typo. The frozen script was inspected, not run, and no finite check is used for the real-power quantifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structural monotonicity comparison is not confined to rank one, but uses operator monotonicity and sketch rank hypotheses. Theorem 3.4 is a probabilistic bound with k,p,q≥2, not the exact rank-one Gaussian risk.",
+          "The near-optimality-transfer examples address a different guarantee from increasing the transformed error from q=1 to q=2."
+        ],
+        "reasoning": "A broader sketch-rank result within operator monotonicity does not subsume descent for reciprocal-convex non-operator-monotone functions such as f(t)=t². Failure of near-optimality transfer is not the same as pathwise power reversal.",
+        "searches": [
+          "arXiv:2209.11023 Theorem 3.4, §3.2.1",
+          "arXiv:2311.14023 §1.2 Table 1; §3.1 Remark 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_rankone_funnystrom.py (inspection only)",
+        "arXiv:2209.11023",
+        "arXiv:2311.14023",
+        "Resultary 9bb62c848ba0, 799984e751a1 and 33674298e324"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On normalizing by b, the indexed trace formula is 1+(κ−1)/(1+κ^(q−1/2)), κ=a/b, i.e. the residual trace is b+(a−b)X_s with E X_s=s/(1+s), s=κ^(1/2−q).",
+          "For the Gaussian absolute ratio W, X_s=1/(1+(W/s)^2), and s∂_s X_s=2X_s(1−X_s). This gives E X_s²=E X_s−(s/2)∂_s E X_s; the rank-one PSD residual has squared Frobenius error equal to the square of its trace."
+        ],
+        "reasoning": "The trace formula yields the needed first moment on 0<s<1 already by varying κ at q=1, so differentiation legitimately recovers the frozen squared expectation and its order in q. The fixed-seed order follows from X_s=O(s²) with a nonzero almost-sure leading coefficient. By contrast the known unit-step inequalities and the trace moment do not supply the broader reciprocal Jensen/covariance argument or its monotone-only boundary example.",
+        "searches": [
+          "Resultary 9bb62c848ba0, θ=1 exact formula",
+          "arXiv:2209.11023 equations (9)–(10)",
+          "Frozen RESULT.md steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Persson–Kressner use the same power approximation and bracket the range-projection error between the transformed errors at q+1 and q, proving the unit-step inequality in their setting.",
+          "Persson–Meyer–Musco's monotonicity remark concerns the untransformed error. A related same-day indexed result uses orthogonal-range projection with exchangeable seed weights, not the nonlinear Nyström approximation."
+        ],
+        "reasoning": "The first implication is a real overlap, not merely a matching application; squaring the nonnegative norm does not change the order. It does not yield the full reciprocal-convex class or compare arbitrary distinct real powers by the displayed unit-step inequalities. Orthogonal projection replaces the harmonic Nyström eigenvalue and does not give the same path or counterexample.",
+        "searches": [
+          "arXiv:2209.11023 §2 equation (3), §3.2.1 equations (9)–(10)",
+          "arXiv:2311.14023 §3.1 Remark 1, item 1",
+          "Resultary 33674298e324, RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9bb62c848ba0 gives the exact first trace moment in the same two-eigenvalue Gaussian model; 799984e751a1 treats nuclear error for power functions on a Gaussian spike.",
+          "33674298e324 treats expected squared-Frobenius error but for a different sketch estimator. No exact catalogue match to the reciprocal-convex pathwise theorem or monotone-only reversal was found in the inspected hits."
+        ],
+        "reasoning": "Catalogue observable and sketch distinctions matter: a trace first moment is not literally a squared Frobenius moment, but in this special rank-one residual the complete trace first-moment formula is enough to recover the second moment. The indexed sketch-ordering theorem does not cover the surviving main claim.",
+        "searches": [
+          "Resultary ranked search for one-column funNyström pathwise descent and Gaussian Frobenius rate",
+          "Resultary IDs 9bb62c848ba0, 799984e751a1, 33674298e324"
+        ]
+      },
+      "rationale": "Credit Persson–Kressner's deterministic one-step transformed Frobenius descent under their operator-monotone structural hypotheses, and credit the earlier rank-one Gaussian trace formula as a close antecedent from which the squared-risk formula can be recovered by a moment identity. The supported distinct contribution is the all-real-power, all-admissible-seed rank-one descent principle for the broader reciprocal-convex scalar class, with strictness and a specific monotone-only failure witness. Do not present the operator-monotone unit step or the Gaussian rate mechanism in isolation as new.",
+      "residual_risks": [
+        "The comparisons are bounded; no claim of priority for the entire operator-monotone descent statement or Gaussian mechanism is warranted.",
+        "An equivalent formulation of the wider scalar Jensen ordering or power-step counterexample may exist outside the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deterministic one-unit overlap for the operator-monotone case; probabilistic bound is not the frozen Gaussian equality",
+          "evidence": [
+            "The range-projection error is no greater than the q transformed error and no smaller than the q+1 transformed error under the stated hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.11023",
+          "material_read": "§1 p. 3, §2 p. 5 equation (3), §3.2 Theorem 3.4 p. 9, §3.2.1 p. 10 equations (9)–(10)",
+          "method": "OA paper passage inspection",
+          "title": "Randomized low-rank approximation of monotone matrix functions",
+          "trigger": "Original funNyström definition and transformed Frobenius comparisons"
+        },
+        {
+          "assessment": "Untransformed descent and a different function-transfer question",
+          "evidence": [
+            "The monotonicity remark controls the untransformed low-rank error; Table 1 concerns transfer of near-optimality, not comparison of neighboring powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.14023",
+          "material_read": "§1.2 Table 1 p. 6, §3.1 Remark 1 item 1 p. 15",
+          "method": "OA paper passage inspection",
+          "title": "Algorithm-agnostic low-rank approximation of operator monotone matrix functions",
+          "trigger": "Nearby iteration monotonicity and counterexamples"
+        },
+        {
+          "assessment": "Same trace-risk model and first moment, strong equivalent-implication overlap for the Gaussian subclaim",
+          "evidence": [
+            "At θ=1 the first trace moment is 1+(κ−1)/(1+κ^(q−1/2)); the second moment is recoverable by the scale derivative identity above."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-one-column-funnystr-m-has-a-sharp-gaussian-trace-error-crossover--9bb62c848ba0",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "One-column funNyström has a sharp Gaussian trace error crossover",
+          "trigger": "Same Gaussian model and exact risk formula"
+        },
+        {
+          "assessment": "Nuclear error with a power transform and fixed-q large-spike asymptotics",
+          "evidence": [
+            "The transform is f(t)=t^β and its main comparison uses the spike size, not a fixed-spectrum pathwise descent over q."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-function-power-boundary-for-unoversampled-gaussian-funny--799984e751a1",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "A sharp function-power boundary for unoversampled Gaussian funNyström",
+          "trigger": "Nearby expected Gaussian error boundary"
+        },
+        {
+          "assessment": "Different estimator and comparison variables",
+          "evidence": [
+            "It orders orthogonal-range-projection sketches with exchangeable squared seed magnitudes against a flat-sign sketch, not f(N_q) at two powers for one fixed seed."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-distribution-ordering-and-spectral-filter-reversal-for-one--33674298e324",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "Sharp distribution ordering and spectral-filter reversal for one-vector sketches",
+          "trigger": "Same-day power filtering and squared Frobenius comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving pathwise theorem provides a useful weaker condition than operator monotonicity for a nonlinear randomized low-rank construction and applies deterministically to every admissible rank-one seed and real power. A small exact counterexample identifies the failure of simple scalar increase, rather than only exhibiting a numerical anomaly. The mean versus typical calculation illustrates why pathwise improvement does not imply its pathwise exponent for Gaussian risk, while the value verdict does not depend on treating that mechanism as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

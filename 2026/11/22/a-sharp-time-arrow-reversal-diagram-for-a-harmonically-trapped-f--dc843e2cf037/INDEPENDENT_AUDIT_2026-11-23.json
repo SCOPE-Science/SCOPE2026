@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:11:22.068067Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected as evidence)",
+        "Independent stationary-generator resolvent and positive-kernel analysis"
+      ],
+      "rationale": "The motor generator sends S to −aS and S² to c−(a+c)S², with stationary E[S²]=c/(a+c). The causal stationary solution has all required moments. An independent symbolic stationary balance and polynomial resolvent calculation reproduces the stated Laplace numerator and denominator, including cancellation of diffusivity. A direct check of that cancellation writes X=Y+Z, with Z a centered independent stationary Gaussian OU process: the two-noise terms agree by covariance and equal-time variance symmetry of the two processes, the four-noise terms agree by Wick's rule, and odd-noise terms vanish. The positive exponential convolutions H,J give an inverse transform even when rates coincide. Log-concavity of H makes H(t−u)/H(t) nondecreasing in t for fixed 0<u<t; extending the interval of integration with positive integrand makes J/H strictly increasing. The small-time ratio is asymptotic to t/4. For m=min(a,b), e^{mt}H(t) is nondecreasing since one factor becomes the indicator of t≥0 and the others remain nonnegative. Thus H(t−u)/H(t)≤e^{mu}, an integrable majorant after weighting by e^{−(a+b+c)u}. The slowest-pole asymptotic gives the ratio's limit 1/(max(a,b)+c), including double multiplicity at a=b. The limits are not attained at finite time, which verifies the strict signs on both boundary cases. If a≤c the constant term is strictly negative and the coefficient of J/H nonpositive; otherwise the sign function increases strictly and crosses exactly once only for B_0<0<B_infinity. For the quoted witness (2,1,1,1), H=e^{−t}(1−e^{−t})³/6 and J=e^{−4t}∫_0^t(expm1(s))³ ds/6; separate scalar bisection of −H+5J gives 1.132906609052125. The frozen checker was inspected, not executed.",
+      "residual_risks": [
+        "The numerical crossing is a supplementary floating-point reproduction, not the proof of uniqueness. Sign invariance applies only to independent Gaussian noise in this model, and the observable is not an entropy-production rate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Ye–Podgornik compute active-velocity correlation contributions at arbitrary time sets from run/tumble diagrams, then integrate over a common observation horizon for even position moments.",
+          "Sun–Ye–Chen use conditional velocity correlations to compute position moments/distributions; Basu et al. give a stationary one-time distribution."
+        ],
+        "reasoning": "The active-velocity formula truly supplies the unfiltered input to a two-time calculation. Its displayed integrated diagram rule has a single filter endpoint, whereas X_0³X_t and X_0X_t³ require differently truncated filters and their cancellation. The all-lag sign and strict uniqueness theorem is not a specialization of the inspected diagram or single-time moment statements.",
+        "searches": [
+          "arXiv:2409.00578v2, pp. 2–4, correlation diagrams, equations (9)–(19)",
+          "arXiv:2610.24961v2, pp. 1 and 3",
+          "arXiv:1910.10083v1, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.00578v2",
+        "arXiv:2610.24961v2",
+        "arXiv:1910.10083v1",
+        "Resultary dc843e2cf037, 1e0612824cd5, 524859d41e8b, 0d6063747558"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-motor correlation diagrams can be integrated against four causal filters at two times in principle; the paper's stated diagram law multiplies factors for gaps with the common observation time t.",
+          "The neighboring sign theorems omit either the position-only statistic or positive finite rest durations."
+        ],
+        "reasoning": "Knowing the motor correlations determines all filtered moments indirectly. It does not mechanically give the sign classification: it still takes a new cancellation to organize the two-endpoint integral into H and J and a strict ratio monotonicity argument, including repeated rates and equality at the phase boundaries. No stronger prior sign or zero-count result covering these parameters was found in the inspected passages.",
+        "searches": [
+          "arXiv:2409.00578v2, pp. 3–4 (active-velocity correlations and single-endpoint integration)",
+          "Resultary 524859d41e8b and 1e0612824cd5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-state telegraph record uses the same position-only observable but has no positive-duration rests and proves negative sign at all rates.",
+          "The finite-rest motility/energy record uses Cov(S_0²,U_t²)−Cov(U_0²,S_t²) and proves positivity. The dimension-seven result has instantaneous isotropic redraw without rests and an indicated redraw-rate specialization."
+        ],
+        "reasoning": "Suppressing rest is a different motor or a singular limit (as c→∞ for fixed a the present diagram is on its negative side), not a reparametrization of all positive finite rates. The mixed statistic contains a hidden motor-state indicator and is not the quartic position asymmetry, as is also shown by the incompatible signs at finite rest.",
+        "searches": [
+          "Resultary dc843e2cf037 (exact position-arrow hit)",
+          "Resultary 1e0612824cd5, 524859d41e8b, 0d6063747558 (telegraph, mixed motility/energy, and instantaneous redraw arrows)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record is the frozen one itself. Distinct neighboring records have different observables or motor dynamics, including both relevant same-day findings."
+        ],
+        "reasoning": "Neither a self-match nor a dated cluster establishes priority. No distinct inspected catalogue entry covers the finite-rest position-only sign boundaries B_0 and B_infinity.",
+        "searches": [
+          "Resultary dc843e2cf037, 1e0612824cd5, 524859d41e8b and 0d6063747558, Finding/Assumptions"
+        ]
+      },
+      "rationale": "The strongest prior covers the same motor, including general active-velocity correlations and a Laplace diagram law for filtered single-time moments. A distinct class of prior records uses the same position statistic with no finite rest, or a different observable with the same rest dynamics. None of the inspected results supplies the position-only two-time phase diagram. Credit goes to the sharp finite-lag sign classification and its positive-kernel reduction, not to the motor model, general correlation method, or use of a quartic arrow.",
+      "residual_risks": [
+        "A two-observation-time filtered-position calculation using the published motor diagram methodology could exist outside the passages and entries inspected. The prior general velocity correlations should be acknowledged explicitly in any subsequent literature account; this is not a claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same motor and more prior correlation machinery than a stationary-moment comparison alone suggests; not the two-time position sign theorem",
+          "evidence": "Equations (9)–(19) use run-duration and intervening-tumble contributions to multipoint velocity correlations and give their integrated factors for the even moments at one observation endpoint.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.00578v2",
+          "material_read": "Abstract (offset 1774), p. 2 model (10929), pp. 3–4 correlation diagrams and single-endpoint Laplace rules (23299, 27600)",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Exact moments for a run and tumble particle in a harmonic trap with a finite tumble time",
+          "trigger": "Same finite-duration rest model and arbitrary-time motor correlations"
+        },
+        {
+          "assessment": "Correlations and single-time position results; distinct from the exact sign diagram",
+          "evidence": "Conditions the active velocities on the final motor state to construct moments and distributions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.24961v2",
+          "material_read": "p. 1 offset 2229 and p. 3 offset 12552",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Run-and-tumble particles in a harmonic external field: constructing the solution of the Fokker-Planck equation from the equations of motion",
+          "trigger": "Finite-tumble model with conditional velocity correlations brought into position calculations"
+        },
+        {
+          "assessment": "Single-time stationary distribution, not the lag-asymmetric fourth moment",
+          "evidence": "Computes stationary position properties of the three-state trapped motor.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10083",
+          "material_read": "p. 1, offset 0",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Three-state stationary harmonic model"
+        },
+        {
+          "assessment": "Different two-state process; same day does not determine priority",
+          "evidence": "State space is {−1,+1}; the position quartic arrow is strictly negative without finite rests.",
+          "identifier_or_url": "Resultary 1e0612824cd5",
+          "material_read": "Finding/Assumptions at offset 0",
+          "method": "Local Resultary mirror text inspection",
+          "title": "A strictly negative all-rate fourth-order time arrow for a trapped telegraph particle",
+          "trigger": "Same position statistic, potentially overlapping sign result"
+        },
+        {
+          "assessment": "Different observable; same day does not determine priority",
+          "evidence": "The positive statistic is a mixed asymmetry of R=S² and U², not X³ versus X.",
+          "identifier_or_url": "Resultary 524859d41e8b",
+          "material_read": "Finding/Assumptions at offset 0",
+          "method": "Local Resultary mirror text inspection",
+          "title": "A one-sided motility-energy time arrow in finite-tumble harmonic dynamics",
+          "trigger": "Same finite-rest dynamics and an explicit time-arrow sign result"
+        },
+        {
+          "assessment": "Instantaneous isotropic direction redraws, not the finite rest motor",
+          "evidence": "No finite zero-speed rest state; dimension threshold at the indicated redraw rate γ=2a.",
+          "identifier_or_url": "Resultary 0d6063747558",
+          "material_read": "Finding/Assumptions at offset 0",
+          "method": "Local Resultary mirror text inspection",
+          "title": "A sharp dimension-seven threshold for the quartic time arrow of trapped run-and-tumble motion",
+          "trigger": "Quartic position arrow with explicit sign transition"
+        },
+        {
+          "assessment": "Identical frozen record, not an independent antecedent",
+          "evidence": "Same finite-rest motor, position-only statistic, convolution identity, and endpoint tests.",
+          "identifier_or_url": "Resultary dc843e2cf037",
+          "material_read": "Finding/Assumptions at offset 0",
+          "method": "Local Resultary mirror text inspection",
+          "title": "A sharp time-arrow reversal diagram for a harmonically trapped finite-tumble particle",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, parameter diagram and scope",
+        "Resultary 1e0612824cd5 and 524859d41e8b",
+        "arXiv:2409.00578v2"
+      ],
+      "rationale": "A position-only statistic that detects temporal order can change sign when only the observation lag changes. This is a substantive distinction from the strictly negative telegraph example and the positive mixed-observable result. The exact boundary tells when an experiment with inaccessible hidden motor states can in principle see a reversal; the resonance-safe formula rules out extra reversals and identifies equality cases even with arbitrary independent thermal diffusion. This is a statement of mathematical visibility, not a guarantee of finite-sample detection or a proxy for entropy production.",
+      "residual_risks": [
+        "Independent thermal diffusion leaves the expectation unchanged but can greatly increase sampling uncertainty; no robustness to a correlated bath, nonharmonic confinement, or different motor waiting laws is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

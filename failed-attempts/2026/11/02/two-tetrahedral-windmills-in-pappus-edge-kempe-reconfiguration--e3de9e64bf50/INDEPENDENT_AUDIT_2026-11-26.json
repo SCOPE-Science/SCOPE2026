@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:33:26.642912Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Frozen VERIFICATION.md and supplied enumeration methods",
+        "Independent reconstruction and results: /workspace/branches/3866214e-bb16-4b0e-8f00-7d22997765f7/independent_pappus_kempe.py and independent_pappus_kempe.json"
+      ],
+      "rationale": "In the specified cubic graph a named proper coloring is an ordered partition into three perfect matchings. An independent implementation (not executing or loading the frozen verifier/certificate) constructed the graph from the LCF offsets, enumerated 42 perfect matchings, 20 factorizations and 120 named states, and traversed each bichromatic two-factor to exhaust the moves. Every switch changes a nonempty set of edges, and its activated pair and support distinguish it from other moves out of the same coloring. There are two 60-state components, each with 162 edges and degree counts 54 at five and six at nine; the supplied base-graph automorphism exchanges them. Since all bichromatic cycles have length six or eighteen, each switch flips the local color-permutation sign at three or nine vertices on one fixed side of the bipartite base graph, so the product sign changes. All-source distances reproduce the spheres (1,5,17,25,12) and (1,9,27,21,2) for the two degrees, radius and diameter four, and pair counts (162,540,738,330) in each component. Canonicalizing the palettes and removing loops gives two ten-state windmills, each with one universal vertex and three disjoint triangles upon deleting it. The Finding uses three individually named edge colors; incidental wording about six vertex colours in the limitations is not the mathematical definition.",
+      "residual_risks": [
+        "The proof is for the specified finite graph and moves; metric values apply only to pairs in the same named-color component."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2017 result gives general triangle-freeness for the named Kempe graph, not Pappus-specific self-centered radius four. The 2012 planar bipartite cubic graph theorem does not supply this instance.",
+          "The 2021 bipartite census gives an aggregate distribution of class counts, not the Pappus transition graph or its metric."
+        ],
+        "reasoning": "These broad theorems and census results do not cover the full metrics on their own. The demonstrated coverage comes instead from the Pappus-specific published exact data.",
+        "searches": [
+          "Belcastro–Haas 2017, Proposition 2.1 and color-label passage",
+          "arXiv:1209.1730, Corollary 4.3",
+          "arXiv:2105.01363v1, Table 2 and supplementary scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 81d0af0022f9 RESULT.md and classification_certificate.json",
+        "Belcastro–Haas 2017 and arXiv:1209.1730",
+        "arXiv:2105.01363v1, Table 2; Zenodo 4707697 and Aalto landing scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The palette action is free and commutes with Kempe switches. Swapping each entire alternating cycle on a listed representative and applying each palette permutation to both endpoints exhausts all 324 named edges in the 120 lifted states without assigning colors or searching for factorizations.",
+          "All-source BFS of the lift gives both order-60 components and exactly the frozen sphere multiplicities and distance counts. A standard adjacency-preserving permutation search on the earlier edge list yields, for example, the sector-exchanger (0,1,2,13,12,17,16,9,8,7,14,15,4,3,10,11,6,5). Bipartiteness also follows directly from the previously published six- and eighteen-cycle profiles and the sign argument."
+        ],
+        "reasoning": "This is not a reconstruction from quotient adjacency alone, which discards switch-label information. The previous certificate's complete representatives and full edge list recover that information by the deterministic move rule; the remaining metric calculation asks for standard data of an already specified finite lift.",
+        "searches": [
+          "Resultary 81d0af0022f9 RESULT.md proof stages 1–2 and limitations",
+          "Direct lift of the canonical_color_vectors and graph_edge_list in 81d0af0022f9/classification_certificate.json"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "81d0af0022f9 uses the identical repeated LCF offsets and full global palette equivalence, with just one entire bichromatic cycle switched before renaming. It explicitly states two K_1 join 3K_3 components.",
+          "Fixing a root palette while also prohibiting root-cycle moves can change adjacency; it is not the same definition as this full palette quotient."
+        ],
+        "reasoning": "The old explicit quotient is scientifically identical to the frozen quotient. It is not identical to the named graph as an abstract graph, so the named claim was checked by lifting the prior complete data, not by equating those conventions.",
+        "searches": [
+          "Resultary for Pappus edge-Kempe, three-edge-coloring and windmill quotient",
+          "Resultary 81d0af0022f9 RESULT.md, offset 0",
+          "Belcastro–Haas 2017, named and vertex-fixed conventions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier certificate supplies twenty canonical color vectors in explicit graph-edge order, all twenty quotient-neighbor rows, full orbit-level cycle profiles and both quotient components.",
+          "At order 18 the 2021 Table 2 is aggregate (149 connected bipartite cubic graphs, with maximum 16 classes), not an indexed Pappus two-class metric entry. The linked dataset is described as containing maximum-class graphs and code; the files were not accessible in the lawful retrieval attempts."
+        ],
+        "reasoning": "The exact Resultary certificate is the decisive table, not an inference from the uninspected census files. The measured Pappus count is two, not the maximum described by the supplement link.",
+        "searches": [
+          "Resultary 81d0af0022f9, RESULT.md and classification_certificate.json",
+          "arXiv:2105.01363v1, Table 2 and data link (offset 31200)",
+          "Zenodo 4707697 and Aalto landing page"
+        ]
+      },
+      "rationale": "The October 26 Resultary record 81d0af0022f9 already states the exact palette quotient for the same graph and moves, including its two windmills and its two cycle profiles. It expressly does not claim a theorem about the all-named graph, but its earlier certificate supplies the ordered graph edges and all twenty canonical color words. These data determine the full named graph by a direct palette lift, with no fresh coloring enumeration. I lifted that certificate: from one representative per orbit, swap each cycle before normalization and take all six translates of each resulting edge. The two components, bipartition and complete distance data follow by ordinary BFS on the lift. A standard adjacency-preserving permutation search of the same supplied base graph also gives a component-exchanging isomorphism. Thus the quotient is explicitly covered and the remaining narrow named-state statistics are mechanical readouts of the earlier exact data; they are not asserted to be explicit in the earlier theorem's text.",
+      "residual_risks": [
+        "The inaccessible census supplement could contain more explicit data, and literature naming conventions can hide other examples. Neither uncertainty is used as evidence against originality; the decisive prior certificate was available and the lift was checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact quotient coverage; the wording of the finding excludes the full named graph.",
+          "evidence": "Same 27-edge Pappus graph, one bichromatic cycle per move, modulo all global palettes; two copies of K_1 join 3K_3 and the same two cycle profiles.",
+          "identifier_or_url": "Resultary 2026/10/26, 81d0af0022f9",
+          "material_read": "RESULT.md offsets 0–5303 and 6460–8589 (Finding, assumptions, enumeration, limitations)",
+          "method": "Resultary local mirror primary record",
+          "title": "Two windmill components in the Pappus graph three-edge-coloring interchange graph",
+          "trigger": "Exact named graph and windmill quotient overlap"
+        },
+        {
+          "assessment": "Sufficient for all the named-state graph and metric assertions by routine finite operations.",
+          "evidence": "Each of the twenty listed words expands into six distinct palette images. Lifting moves before normalization gives both BFS components, distance profiles and a checkable sector-exchanging base automorphism.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-windmill-components-in-the-pappus-graph-three-edge-coloring--81d0af0022f9/classification_certificate.json",
+          "material_read": "JSON, in particular canonical_color_vectors, graph_edge_list, adjacency, components and pair_cycle_profiles",
+          "method": "Resultary local mirror, parsed as finite data and lifted via the stated switch rule",
+          "title": "Pappus palette quotient classification certificate",
+          "trigger": "May encode enough to recover the full named lift and metric"
+        },
+        {
+          "assessment": "General named-graph property rather than exact Pappus metric.",
+          "evidence": "Single-chain switch graph with named colors is triangle-free; that does not impose triangle-freeness after taking palette orbits.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+          "material_read": "Opening definition, color-name convention at offset 5877 and Proposition 2.1, p. 200, offset 7219",
+          "method": "Primary OA PDF passages",
+          "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+          "trigger": "Potential named-Kempe graph theorem or convention overlap"
+        },
+        {
+          "assessment": "Planar hypothesis does not cover the given Pappus graph.",
+          "evidence": "The inspected result gives one edge-Kempe class for planar bipartite cubic graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.1730",
+          "material_read": "Corollary 4.3, p. 11, offset 23527",
+          "method": "Primary OA PDF passage",
+          "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+          "trigger": "Potential prior structural count for bipartite cubic graphs"
+        },
+        {
+          "assessment": "Aggregate class-count context only.",
+          "evidence": "The order-18 row groups 149 graphs without listing Pappus-specific moves or distances, and gives 16 as the maximum class count.",
+          "identifier_or_url": "https://arxiv.org/html/2105.01363v1",
+          "material_read": "Table 2, offsets 26500–30498, and downloadable-example scope around offset 31200",
+          "method": "Primary OA HTML passages",
+          "title": "Switching 3-Edge-Colorings of Cubic Graphs",
+          "trigger": "Connected bipartite cubic graph census includes order 18"
+        },
+        {
+          "assessment": "No file-level coverage decision from unavailable data; this does not bear on the independent earlier Resultary overlap.",
+          "evidence": "The paper describes downloadable maximum-class examples. The attempted Zenodo requests did not provide the files.",
+          "identifier_or_url": "Zenodo 4707697 and corresponding Aalto landing page",
+          "material_read": "Paper's data scope statement and landing-level description only; underlying files not read",
+          "method": "Lawful OA requests to record/API and Aalto landing-page comparison",
+          "title": "Switching 3-Edge-Colorings of Cubic Graphs, linked data and code",
+          "trigger": "Possible exact Pappus instance beyond the aggregate published table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Resultary 81d0af0022f9 and direct named-state lift of its certificate"
+      ],
+      "rationale": "The named/unnamed distinction and the different metric geometries on a canonical cubic graph are mathematically meaningful. As a proposed new exact result, however, the frozen contribution combines an already stated quotient with routine expansion and metric computation from its earlier complete configuration certificate. No additional structural theorem or otherwise nonmechanical invariant survives this comparison.",
+      "residual_risks": [
+        "This does not rule out value in a different theorem for a larger graph family or a conceptual theory of these lifts; neither is claimed here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

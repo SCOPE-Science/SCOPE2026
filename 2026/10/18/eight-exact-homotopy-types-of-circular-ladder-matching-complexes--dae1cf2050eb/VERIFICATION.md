@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible mathematical verification
+# Independent mathematical audit
 
-Execute `python3 verify_prism.py` with Python 3 and no external packages. The script generates the complete graph-edge matching complex for each integer \(3\le n\le10\), rather than loading a precomputed incidence list. All face masks and dimensions are rebuilt on each execution. The complete directed Hasse graphs after reversal of matched edges are topologically sorted; any directed cycle triggers an assertion.
+## correctness
 
-The signed Morse boundary is calculated over integers using an acyclic, cached gradient-flow recursion with standard simplicial incidence signs. The two nonzero Morse boundary ranks are \(1\) at \(n=8\) and \(2\) at \(n=9\); the exact integer pivots are units, with the residual matrices checked to vanish. The values \(n=3\) through \(n=10\) have respectively \(32,108,342,1104,3544,11396,36626,117732\) total faces including the empty face. Their full directed face-incidence counts are \(48,252,1020,4002,15022,55272,199890,714010\).
+PASS
 
-As a separate test of the original simplicial complex, exact mod-two boundary eliminations directly recompute its reduced Betti ranks for all eight inputs, agreeing with the integral Morse classifications. Euler characteristics and complete critical-cell counts are also independently asserted against the homotopy table.
+I rebuilt the rim/rung graph and independently enumerated matchings by treating the lowest available graph vertex as either unmatched or joined to one available neighbor. The repaired toggling rule gives 117732 faces including the empty face, 714010 nonempty-poset cover incidences, 58845 matched pairs, and only one critical vertex and forty six-cells at n=10. In a directed cycle the disjoint matching forces alternation of up and down steps. The earliest used toggle must be undone by a downward step whose two faces were both available at that stage; that cover would instead have been matched. Thus the repaired proof supplies a direct acyclicity argument. Discrete Morse theory gives a one-point skeleton below dimension six, so the six-cells each attach trivially and the space is a wedge of forty S^6. This is 5-connected but not 6-connected; the covered smaller cases have nonzero reduced integral homology in some degree at most five. As a check on the frozen table I also reduced integral incidence relations in topological order, obtaining the zero 2x2 matrix at n=5, the identical nonzero rows (1,0,−1,0,0,0,0,0) at n=8 and an identity minor in rows 3 and 14 at n=9. Unit pivots cancel corresponding sphere–cell pairs: attaching maps to the lower d-sphere wedge are determined by degrees via Hurewicz (d≥2), and unimodular basis changes are realized by wedge homotopy equivalences of source and target. This substantiates the integral homotopy claims, not just the reported mod-two homology. No recurrence is inferred.
 
-These checks are finite and exhaustive for each stated graph. They do **not** prove a conjecture for all circular ladders or provide an independent human or external audit. The research uses the integral cellular boundary and elementary homotopy cancellations; mod-two ranks alone would not establish integral homotopy.
+## originality
+
+PASS
+
+The narrowed contribution is the exact n=10 type and its place as the first 5-connected case. Exact earlier-range types are explicitly credited. The named open classification problem, closest exact tables and relevant neighboring complexes do not imply the ten-rung certificate.
+
+## value
+
+PASS
+
+The ordinary circular-ladder problem is identified before the computation. Ten follows the covered consecutive range, exhibits a new first connectivity threshold, and supplies an exact compact-certificate checkpoint for conjectures in a family whose smaller cases alternate between pure and mixed sphere dimensions. The claim is not a palette change, an arbitrary parameter slice, or a mod-two table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

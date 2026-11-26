@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:26:01.244530Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–103",
+        "Frozen VERIFICATION.md, check.py and check_output.txt"
+      ],
+      "rationale": "Subtracting the two Gaussian tails from the full Fourier transform gives the stated real-erf identity. With x=L+v/L the endpoint integral has remainder at most 1/(4L^2) in the bracket and partial-xi derivative O(L^-3), by the integrable v^2 and v^3 exponential bounds. Substituting the boundary coordinate y gives the factor sqrt(pi) exp(-y), amplitude 1/sqrt(2), phase shift pi/4 and the compact-uniform error, also for the y derivative. The Gaussian term dominates the global bound on both tails through y=-2 for large L; a point with cosine one between y=4 and 4+2pi is strictly negative. Thus the first zero is in a bounded y-window. Simultaneous profile and derivative vanishing require y=log(2sqrt(pi)) and theta=-y mod 2pi; the second derivative is 1 there. At that phase, to the left of this point twice the profile is exp(u)-cos(u)-sin(u)>0 for u>0. At every other phase the first profile zero crosses, and the global lower bound and uniform convergence exclude earlier zeros. There is no assertion of convergence at the exceptional phase. At each fixed L, integrating by parts in the exact formula for xi F_L and separately in its derivative provides eventual sine and cosine dominance, giving one simple zero per lattice neighborhood and only finitely many remaining zeros. The packaged check.py and check_output.txt were inspected, not rerun. Numerical examples are corroboration only; all decisive claims were checked analytically.",
+      "residual_risks": [
+        "The count is eventual at fixed L; it does not enumerate all smaller zeros or classify complex zeros.",
+        "No actual first-zero limit at the exceptional phase is asserted or verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Csordas passages treat admissible kernels and the Riemann-xi kernel, not the moving first zero of a discontinuously cut-off Gaussian.",
+          "The same-day 6dcf0f2a0db3 gives phase quantization for the Fourier transform of exp(-|t|^p) as p tends to infinity. Prior-day 2a4957817055 gives a square-root-logarithmic escape law as p decreases to 2."
+        ],
+        "reasoning": "These are different limits and families. Even when a super-Gaussian approaches an indicator, varying its power does not give the competition between an untruncated Gaussian term and an endpoint term as the hard-cutoff length tends to infinity.",
+        "searches": [
+          "Csordas arXiv:1309.0055, introduction and §4",
+          "Resultary: phase crossover and first Fourier-zero escape, records 6dcf0f2a0db3 and 2a4957817055"
+        ]
+      },
+      "checked_sources": [
+        "Lonke Proposition 1",
+        "DLMF §§7.2 and 7.13",
+        "Csordas arXiv:1309.0055, p. 1 and §4",
+        "Resultary records 6dcf0f2a0db3 and 2a4957817055",
+        "Frozen prior-work comparisons for Ross et al. and Tallis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lonke guarantees positivity through 2L and relevant error-function estimates inform a stronger lower bound. The frozen first-zero result also requires a matching negative point in a bounded rescaled window, global exclusion of earlier crossings, and the first-root tangency analysis.",
+          "Tallis is known here only for truncated-normal transform background from the source's abstract-level comparison. The frozen partial-text report identifies a truncated-Gaussian example in Ross et al.; lawful full-text recovery for the audit did not succeed."
+        ],
+        "reasoning": "A transform identity, sector positivity, or the leading tail expansion alone does not resolve the first crossing and phase selection. Do not infer absence of an equivalent result in the inaccessible Ross chapter.",
+        "searches": [
+          "Lonke Proposition 1",
+          "Ross–Fiddy–Nieto-Vesperinas (1980), DOI 10.1007/978-3-642-81472-3_2",
+          "Tallis (1961), DOI 10.1111/j.2517-6161.1961.tb00408.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For z=L+i xi/2 the real-zero equation is Re erf(z)=0, equivalently Re(exp(-z^2) w(iz))=1 using DLMF Eq. 7.2.3.",
+          "Lonke's proposition is a sign restriction on that real part in |arg z|<=pi/4."
+        ],
+        "reasoning": "Zeros of the complex erf or w are not the zero level of the real part along all relevant vertical lines. The sector result gives a lower bound for the right object but cannot establish the phase-resolved first crossing.",
+        "searches": [
+          "NIST DLMF §§7.2, 7.13; real part of erf, complementary error function and Faddeeva formulations",
+          "Lonke arXiv:2101.07369, Proposition 1",
+          "Focused literature lookup on first real Fourier zeros of the hard-truncated Gaussian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF §7.13 describes the complex zeros of entire erf and erfc and related functions, not all roots of Re erf(L+i xi/2) for a varying real L.",
+          "The nearest inspected indexed findings concern the two different super-Gaussian limits listed above."
+        ],
+        "reasoning": "Even the complex erf zeros, which provide some real-part zeros on selected lines, cannot give the earliest real-part zero on every such line or its generic phase limit. The ranked catalogue hits do not establish absence outside the inspected material.",
+        "searches": [
+          "NIST DLMF §7.13, error-function zero tables/asymptotics",
+          "Resultary semantic searches for truncated-Gaussian first zeros and phase asymptotics (ranked sets of 50, 50, 20)"
+        ]
+      },
+      "rationale": "The supportable distinction is the matched first-real-zero law and phase-selected first-zero limit with a single explicitly identified tangency of the limiting profile. The Gaussian transform identity, endpoint asymptotics as a method, the zero-free sector |xi|<=2L, and the elementary fixed-cutoff endpoint census are not the basis of this originality judgment. Neither the closest inspected special-function result nor the strongest related same-day indexed theorem covers the onset and phase selection for this hard cutoff. This is a bounded comparison, with a specific unresolved risk in earlier finite Fourier transform work.",
+      "residual_risks": [
+        "The Ross–Fiddy–Nieto-Vesperinas chapter remains the principal uninspected priority risk. Tallis was likewise not checked beyond bibliographic and recorded abstract-level material.",
+        "Ranked catalogue and bounded primary-source comparisons are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact sector overlap, not a matching first-zero upper bound or phase-resolved law.",
+          "evidence": "Re erf(z)>0 for nonzero z in |arg z|<=pi/4, so F_L is strictly positive for |xi|<=2L.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.07369",
+          "material_read": "p. 2, Proposition 1, offset about 1800.",
+          "method": "OA primary PDF, bounded passage.",
+          "title": "The real part of the complementary error function",
+          "trigger": "Closest prior real-part positivity for exactly the special function used."
+        },
+        {
+          "assessment": "Different zero equations.",
+          "evidence": "The w definition translates the equation to Re(exp(-z^2)w(iz))=1; the tabulated entire-function zeros are not that level set.",
+          "identifier_or_url": "https://dlmf.nist.gov/7.13",
+          "material_read": "§§7.2 and 7.13, including Eq. 7.2.3; bounded portions of §7.13 near offsets 0–3900.",
+          "method": "OA HTML passage reading.",
+          "title": "DLMF: Error Functions",
+          "trigger": "Plausible exact zero table/asymptotic under erf, erfc and w formulations."
+        },
+        {
+          "assessment": "General context; no hard-cutoff comparison theorem in inspected passages.",
+          "evidence": "The inspected conditions and Riemann-xi application do not give the uniform hard-Gaussian first-zero displacement.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.0055",
+          "material_read": "p. 1 and §4, PDF offsets 0 and 37600.",
+          "method": "OA primary PDF, bounded passages.",
+          "title": "Fourier transforms of positive definite kernels and the Riemann xi-Function",
+          "trigger": "General Fourier-kernel zero results."
+        },
+        {
+          "assessment": "Related mechanism, mathematically different family and limiting parameter; no inference of priority from date.",
+          "evidence": "Gamma-argument quantization for the first O(p) super-Gaussian zeros as p tends to infinity.",
+          "identifier_or_url": "2026/10/26/SCOPE-gamma-phase-crossover-for-super-gaussian-fourier-zeros--6dcf0f2a0db3",
+          "material_read": "RESULT.md offset 0, theorem.",
+          "method": "Local mirror, bounded passage.",
+          "title": "Gamma phase crossover for super-Gaussian Fourier zeros",
+          "trigger": "Strongest same-day phase/zero-asymptotics catalogue hit."
+        },
+        {
+          "assessment": "Unresolved named priority risk, not negative evidence.",
+          "evidence": "The frozen record identifies a truncated-Gaussian example. That does not show whether the phase-resolved first-real-zero limit is covered.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-81472-3_2",
+          "material_read": "Bibliographic access and frozen partial-text characterization only; no decisive chapter passage independently accessible.",
+          "method": "DOI/publisher OA attempt and frozen comparison.",
+          "title": "The Inverse Scattering Problem in Structural Determinations",
+          "trigger": "Potential earlier finite Fourier transform analysis of a truncated Gaussian."
+        },
+        {
+          "assessment": "Transform background; no whole-source novelty inference.",
+          "evidence": "Abstract-level comparison identifies truncated-normal MGF formulas, not an inspected zero theorem.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1961.tb00408.x",
+          "material_read": "Bibliographic access and frozen abstract-level comparison only.",
+          "method": "Lawful publisher/DOI retrieval attempt; no full text obtained.",
+          "title": "The Moment Generating Function of the Truncated Multi-Normal Distribution",
+          "trigger": "Potential equivalent characteristic-function formulation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, phase and first-zero statements and proof",
+        "Lonke Proposition 1 as the zero-free baseline"
+      ],
+      "rationale": "This locates the first failure of the positive Gaussian Fourier profile caused by a sharp aperture. The moving first crossing is not captured by the classical fixed-aperture large-frequency census. The exact log-scale displacement, phase dependence, and isolated possible tangency describe quantitatively why a naive constant-offset or universally continuous phase limit is inadequate.",
+      "residual_risks": [
+        "No finer exceptional-phase transition or complete small-zero spectrum is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

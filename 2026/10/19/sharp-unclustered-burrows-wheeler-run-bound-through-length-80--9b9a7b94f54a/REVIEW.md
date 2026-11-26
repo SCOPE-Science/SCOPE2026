@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The universal lower bound uses the published factor-two amplification theorem for the Lyndon representative of a primitive necklace, whose linear and cyclic run counts agree. For the upper bound, every one of the 67 witnesses in `witnesses.json` was checked against the full stable-rank BWT reconstruction and against independently sorted circular rotations by `verify.py`. The actual program and its recorded success output are included. The claim is limited to the explicitly certified integer interval and its extension to larger alphabets by inclusion.
+## correctness
 
-## Originality (O): PASS within inspected evidence
-The closest direct work is Kumallagov (2026), which states the conjectured all-length sharpness and proves a universal lower bound, initial cases, and arithmetic subsequences. Fici et al. (2026) establish totally unclustered outputs but do not impose the minimum-run inverse condition. Mantaci et al. (2017) establish the half-length lower bound but not existence in every length. Full-text inspection of Fici et al. and of the Mantaci author postprint supports these distinctions. Indexed published-result and literature searches for the exact invariant, single-cycle characterization, finite ranges, and conjecture did not reveal coverage of the consecutive interval from 14 through 80. The central 2026 preprint was available as an abstract and indexed technical summary, not as readable full text, leaving a specific residual duplication risk. Selected lengths in the interval can already be covered by its arithmetic constructions; the independently assessed contribution is the *whole consecutive interval*, not those instances individually.
+PASS
 
-## Value (V): PASS
-The theorem certifies 67 consecutive, exact extremal values in a natural optimization problem recently isolated as a conjecture. A single seed family or an isolated next integer would provide weak evidence; this complete initial window is a stronger reproducible benchmark for proposed constructive proofs and indicates no finite exceptions through 80. Its certificate is compact, deterministic, and independently replayable, yet no infinite generalization is claimed.
+The exact same U_q(n) lower bound is established in Kumallagov Proposition 3.2 by applying the factor-two BWT amplification inequality to the Lyndon rotation, whose endpoints differ and thus whose linear and cyclic run numbers agree. For the upper bound an independent bounded program parsed the witness file with duplicate-key rejection and checked the exact set of 67 keys. For each row it verified length, ternary support and n-1 unequal adjacent output pairs; reconstructed a candidate by traversing Psi, the inverse of stable-ranked LF; verified n distinct length-n rotations and recovered the stated BWT by sorting them and extracting last letters; and counted exactly ceil(n/2) cyclic input changes including the closing edge. The checks are exact for every listed length. A ternary solution embeds in every ordered q-letter alphabet for q>=3 without changing the order of its rotations or any run count.
 
-## Limits and bibliography
-It remains possible that a source not available in full, an appendix, or another database contains an equivalent consecutive-window computation. This does not give a general existence construction for all lengths. The lower-bound proof uses Mantaci et al. (2017), and the motivation and competing partial coverages are Fici et al. (2026) and Kumallagov (2026), bibliographically identified in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The actual primary preprint establishes the identical lower bound, small values and eight sharp lengths in this window: 28,29,36,37,52,53,60,61. It does not establish sharpness at the remaining 59 lengths, starting at 14; its all-length formula is a conjecture and its all-length relaxation omits one-cycle realizability. Later distinct Resultary entries cover the exact numeric assertion on 14–64 and go beyond it there in some respects; one even has the exact same length-14 certificate. Credit that overlap without inferring independent discovery or priority. The complete finite interval, in particular its tail 65–80 beyond those later consecutive ranges, was not already established by the inspected statements.
+
+## value
+
+PASS
+
+This closes the first consecutive block of unchecked lengths after the previously established small cases for a named natural extremal problem, rather than choosing isolated favorable parameters. Relative to the primary preprint it fills 59 explicit gaps; the checked neighboring records still do not cover the continuous tail 65–80. The full prefix is a compact exact testbed for potential constructive proofs and rules out any counterexample at the certified lengths. The numerical endpoint is a certificate extent, not a claimed phase transition or an extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:22:17.582015Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, scope, histogram and representatives; VERIFICATION.md; certificate.json; verify.cpp and verify.py (inspected, not executed)",
+        "/workspace/branches/188198ce-6307-43d4-a7ca-ecda14f71dca/independent_census.py and independent_full.txt (bounded independent full enumeration)",
+        "/workspace/branches/188198ce-6307-43d4-a7ca-ecda14f71dca/full_replays.txt (scalar shortest-word paths)"
+      ],
+      "rationale": "Properness and the one-cluster condition jointly force exactly one total letter and require its functional graph to have one directed cycle. As an independent count check, classify total maps by the cycle length: the cycle choices times the number of rooted forests feeding the prescribed cycle vertices give 625, 500, 300, 120 and 24 for lengths 1–5, hence 1,569. There are 6⁵−5⁵=4,651 partial nontotal maps, so the ordered candidate total is 2·1,569·4,651=14,594,838 without duplication. A letter edge in the subset graph exists only if every active state has a defined image; each visited set is nonempty. BFS from the full set thus gives the shortest careful length exactly when some singleton is reachable. Reverse multisource BFS in the companion code verifies distances by a second traversal but shares its transition routine. A separate bounded independent implementation exhausted the full candidate set and matched all histogram entries and the sync total 8,206,270. The maximum finite length is 13, with 1,200 labeled cases. Canonicalization under S5 and letter exchange matched all five representatives and sizes 240; separate scalar BFS replay confirmed the five shortest words, including the three copies of bbababbbababb. Nonsynchronizing inputs have no finite threshold; complete DFAs are excluded even if one-cluster.",
+      "residual_risks": [
+        "The independent exhaustive census used one forward distance engine and separately checked the representative paths, not a second independent exhaustive reverse census. No claim for larger state sets, larger alphabets, or different presentation equivalence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Bondt, Don and Zantema give spectrum 1–15 for proper binary PFAs on five states without the one-cluster condition.",
+          "Ruszil uses the same one-cluster restriction but the inspected comparison gives no five-state equality census. The closest indexed one-cluster census uses eight-state complete DFAs and a prime five-cycle restriction."
+        ],
+        "reasoning": "The marginal spectrum of a larger class only gives an upper bound and does not say which thresholds survive the restriction. The opposite catalogue restriction has different state order and no undefined letters.",
+        "searches": [
+          "arXiv:1801.10436v1, §3.3",
+          "arXiv:2311.15020v1, §2 and scope of one-cluster synchronization",
+          "Resultary 2026/9/7/SCOPE007, RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Targeted literature lookup (unrelated results are not evidence of absence)",
+        "Resultary lookup and the relevant local-mirror records",
+        "Primary passages in de Bondt–Don–Zantema and Ruszil as listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader spectrum contains 13 but also 14 and 15. It neither certifies a one-cluster example at 13 nor excludes 14 and 15 among one-cluster automata. The known one-cluster definition says how to filter but supplies no labeled count or orbit classification."
+        ],
+        "reasoning": "The established subset-search method is reusable, but applying the filter to every relevant case and obtaining the exact census is additional mathematical computation, not a numerical corollary of the printed range.",
+        "searches": [
+          "arXiv:1801.10436v1, §3.3",
+          "arXiv:2311.15020v1, §2",
+          "Frozen complete restricted histogram and independent full replay"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ruszil defines the one-cluster condition via the digraph of a total letter. For proper binary PFAs this reduces to one weakly connected total map and one nontotal map. Paths in the defined nonempty subset graph to any singleton are the careful reset words."
+        ],
+        "reasoning": "The graph language expresses exactly the same restriction, not a new one-cluster definition. Complete DFA reset and avoiding thresholds are distinct from careful synchronization with undefined transitions.",
+        "searches": [
+          "Resultary: five-state binary carefully synchronizing proper one-cluster PFAs",
+          "Targeted literature lookup for careful reset thresholds of small binary one-cluster PFAs",
+          "Ruszil, arXiv:2311.15020v1, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published row n=5 gives 1–16 for binary DFAs and 1–15 for proper binary PFAs. It lists possible lengths, not individual transition pairs or their frequencies and not one-cluster status. The adjacent source-code reference [4] appears before the PFA section and concerns the DFA work.",
+          "The closest indexed complete five-state table concerns threshold 8 for avoiding one state, with 960 pairs and four orbits; the indexed eight-state one-cluster table uses complete DFAs and an imposed five-cycle."
+        ],
+        "reasoning": "The printed broader table lacks the data required for filtering and counting. No same-statistic database or individual-automaton list was identified in the inspected material; raw earlier data could overlap if available.",
+        "searches": [
+          "arXiv:1801.10436v1, §3.3 printed table at PDF text offset 37205 onward",
+          "arXiv:1801.10436v1, source-code context at offset 24824 and reference [4]",
+          "Resultary local mirror: add2e90918b8 and 2026/9/7/SCOPE007"
+        ]
+      },
+      "rationale": "The supported distinct finding is the exact five-state restricted threshold and equality census. The total-letter functional-graph definition, finite power-automaton method and broader binary PFA enumerations are prior; no inspected source gives the joint one-cluster/proper filter's maximum and classes.",
+      "residual_risks": [
+        "Unindexed individual-automaton data or earlier source computations might permit exact filtering; the published range does not. Bounded retrieval cannot establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader possible-length spectrum, not filtered census",
+          "evidence": "Five-state proper binary range 1–15, with no class counts or one-cluster split in the table. Source-code note points to earlier DFA work.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.10436v1",
+          "material_read": "§3.3, pp. 11–12, offset 37205 onward; source-code note and adjacent §3 heading around offset 24824; ref. [4]",
+          "method": "Lawful OA PDF passages, including full range table layout as text",
+          "title": "Lower Bounds for Synchronizing Word Lengths in Partial Automata",
+          "trigger": "Exact five-state proper binary PFA range in a broader enumeration"
+        },
+        {
+          "assessment": "Same structural definition; no exact five-state restriction in the inspected comparison",
+          "evidence": "One cluster in the functional digraph of a total letter.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.15020v1",
+          "material_read": "§2, p. 4, OA offset 8900",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Careful Synchronization of One-Cluster Automata",
+          "trigger": "Same one-cluster PFA notion and careful synchronization"
+        },
+        {
+          "assessment": "Different objective and complete maps",
+          "evidence": "960 complete DFA cases at 1-avoiding threshold 8, in four orbits.",
+          "identifier_or_url": "2026/10/4/SCOPE-four-extremal-five-state-binary-avoiding-threshold-classes--add2e90918b8",
+          "material_read": "RESULT.md Finding and Assumptions from offset 0",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Four extremal five-state binary avoiding-threshold classes",
+          "trigger": "Exact five-state binary census with same relabeling action"
+        },
+        {
+          "assessment": "Complete eight-state prime-cycle slice, not covered here",
+          "evidence": "In particular certifies a reset length 34 witness and the maximum within its other-letter-permutation sub-slice.",
+          "identifier_or_url": "2026/9/7/SCOPE007",
+          "material_read": "RESULT.md Definitions and Result from offset 0",
+          "method": "Resultary lookup and local-mirror passage inspection",
+          "title": "Slow-reset census for binary one-cluster synchronizing automata on 8 states with a prime 5-cycle",
+          "trigger": "One-cluster shortest-reset census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ruszil's structural definition and de Bondt–Don–Zantema's five-state benchmark",
+        "Frozen extremizer census and independent shortest-word replays"
+      ],
+      "rationale": "One-cluster structure arises naturally in synchronization theory: a total letter with one basin is a standard structural competitor to unrestricted transitions, and properness separates careful reset from familiar complete examples. The exact drop from the unrestricted five-state proper-binary maximum 15 to 13 and the equality classes quantify the effect of that restriction and give reusable test cases for proposed bounds or algorithms. This is a meaningful small-order benchmark, not a general upper-bound theorem.",
+      "residual_risks": [
+        "The exact benchmark is finite; it should not be presented as evidence of growth rates or an asymptotic one-cluster penalty."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

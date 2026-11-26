@@ -1,11 +1,21 @@
-# Review of the endomorphism classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The algebra square is intrinsic and has the basis \(u,v\); requiring its preservation forces precisely two restrictions for every endomorphism. The images of \(w\) then satisfy three explicit scalar equations, proved necessary and sufficient by checking every basis product. Resolving these equations gives the four finite-field rank polynomials and composition-idempotent counts. The statements have no hidden assumption of algebraic closure or odd characteristic. Two self-contained verifiers exhaust all maps over \(\mathbb F_2,\mathbb F_3,\mathbb F_4\) and test all normal-form candidates over four further prime fields. Finite checks are corroboration, not the proof for arbitrary fields.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Hu–Wen (arXiv:2609.25023v1) determines element idempotents and a stable square, not all endomorphisms. The full published statement *A single symmetry jump in the \(E_\lambda\) evolution-algebra family* treats only invertible maps; its result is exactly the rank-three stratum here. The published *Complete subalgebra lattices and two distributivity transitions in a non-solvable evolution-algebra family* determines possible images, but not the maps, counts, or rank-refined endomorphism monoid. The 2017 three-dimensional classification provides isomorphism types, not singular endomorphism counts. Meaning-based research searches and targeted literature searches did not identify a stronger covering result; this failure does not prove absolute uniqueness. An unindexed calculation or implication from a more general endomorphism theorem remains a risk.
+PASS
 
-**Mathematical value — PASS.** The classification is complete for every field and every nonzero family parameter, rather than a small ad hoc example. It resolves how singular self-maps behave in a non-solvable, non-perfect evolution-algebra family that already has independently interesting element-idempotent, automorphism, and subalgebra transitions. The sharp fact that nonzero rank-two maps exist only at \(\lambda=4\), with exactly \(q-1\) of them, and the four rank/retraction profiles give usable structural invariants. These counts are not consequences of the known automorphism or subalgebra classifications alone.
+The given basis has square S=Ku+Kv and the square-zero locus of S is exactly Ku, in every characteristic since lambda is nonzero. Thus T(u)=au and T(v)=cu+dv. The uv and v² relations give d²=d, a(d−1)=0 and a+(2d−lambda)c=d². The v coefficient in T(w)² forces T(w)=su+rw. The remaining uw, vw, w² identities give exactly the two disjoint, sufficient families. In A the equation r(2s+r)=0 gives q maps in characteristic two or 2q−1 otherwise, including zero and otherwise rank one. In B with a≠0 one has r=1 and (lambda−4)c=0; with a=0 one needs lambda≠2, s=−(1+c)r and ((lambda−4)/(lambda−2))r²=0. These equations give each rank coefficient, including the q−1 rank-two maps precisely at lambda=4. In A the only nonzero composition-idempotent requires r=1 (possible only in odd characteristic); in singular B idempotence is equivalent to r=0 or r=1, and the only invertible idempotent is the identity. The resulting totals, in the stated order, are 3, 3, 5, 4. Integers 2 and 4 are field elements, so neither exceptional parameter occurs in characteristic two. These are composition-idempotent maps, not element idempotents.
 
-**Limitations and comparisons.** The result is specific to this family and to ordinary linear endomorphisms. It does not classify endomorphism schemes, higher-dimensional evolution algebras, or general homomorphisms between different parameters. The 2017 classification has a long case-by-case appendix, and a hidden special-case implication cannot be ruled out solely from its stated objectives and the inspected sections.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected evidence gives the family, its invertible stratum and the exceptional plane, but not the classification of singular maps or the field- and parameter-dependent rank and retraction census. The invertible stratum and the image plane are credited as known; the distinct contribution is the singular map and composition-idempotent classification.
+
+## value
+
+PASS
+
+For a fixed non-solvable family with stable square, the complete map census answers which subalgebra dimensions actually arise as endomorphism images, and which such images are retracts. It isolates the additional singular-map transition at lambda=2 that automorphisms alone cannot detect and handles characteristic two and extension fields uniformly. The value lies in the exact singular and retraction data, not in repeating the known automorphism group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

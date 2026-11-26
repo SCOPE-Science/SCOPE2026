@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:06:54.087917Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:4–91, including the exact Jacobi product and local expansion",
+        "Frozen VERIFICATION.md and verify_gaussian.py inspected, not executed",
+        "Independent common-zero coverage and quadratic minimization; separate compactness/Taylor check for the global step"
+      ],
+      "rationale": "The unitary Zak transform and Parseval on the unit torus give the exact multiplier Σ_j ∏_i |z_{β_i}(x_i−a_{j,i},ω_i)|², with no window normalization factor. The Jacobi product isolates a single zero (1/2,1/2), and differentiating its vanishing factor gives the stated negative spatial derivative and its nonzero imaginary frequency counterpart. The common-zero criterion is a coordinate cover: distinct residues let d coordinates kill at most d windows; a repeated residue kills two, leaving d−1 windows for the other coordinates. For the lower bound the open danger arc contains at most one residue per coordinate. For the remaining window the isolated factor has modulus at least 1−q_i^{ρ_i}; the first sequence of other factors is bounded by 1−q_i^{2n−1}, and the second sequence starting at n=2 by 1−q_i^{2n−3}, which gives the second copy of the odd product. The upper series bound follows by separating the two terms closest to x in a unit cell from both tails. For the planar family the common zero at ε=0 is unique modulo the periods. The nonvanishing factors there have modulus ℓ_β (by half-frequency evenness and unit-modulus quasi-periodicity). The local squared linear terms minimize at u=ε/2 and s=v=t=0, with value ℓ_β²D_β²ε²/2. Uniform convergence first localizes the global minimizers by compactness. In that neighborhood the quadratic term is bounded below by c||y||²−Cε² in local displacement y, so the Taylor error can be absorbed and the trial point forces ||y||=O(ε). Thus the Taylor error at any minimizer is o(ε²), proving the global sharp coefficient.",
+      "residual_risks": [
+        "Finite Zak-series diagnostics do not prove the classification or global limit. The explicit bounds are conservative and the collision coefficient is for the specified planar family at fixed β only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two papers supply broader window-number existence/obstruction results, which include the integer-lattice threshold d+1. The Hermite paper uses different window and lattice hypotheses."
+        ],
+        "reasoning": "Existence of some smooth Zak tuple (or a Parseval tuple) is not a classification of all d+1-tuples of pure Gaussian shifts. An obstruction for at most d windows does not select the solutions at d+1.",
+        "searches": [
+          "de Dios Pont–Liehr–Taylor arXiv:2606.26052, Thms. 1.2–1.3",
+          "Caragea–Pfander arXiv:2609.06255, Thms. 1.5, 1.8, 1.10 and Cor. 1.12",
+          "Luef–Testorf–Wang arXiv:2405.08415, Thm. 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.26052; arXiv:2609.06255; arXiv:2405.08415; Janssen open PDF abstract",
+        "Resultary 5647d8629fe5, 2b8a9154bdc7 and 0be38cf97cd8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Caragea–Pfander construct frame windows via sufficiently close finite Gaussian time-frequency sums in the relevant single-window approximation argument, but this is not an arbitrary tuple of pure time translates. The topological theorem yields common-zero obstruction in low window count regardless of window shape."
+        ],
+        "reasoning": "Prior Zak theory and the Gaussian zero supply ingredients; they do not state the coordinate-cover result. The explicit separation estimate and sharp local-to-global coefficient are not consequences of the general existence claim or the mere fact that the collision yields a common zero.",
+        "searches": [
+          "Caragea–Pfander Remark 1.4 and its proof, and Theorem 1.5",
+          "de Dios Pont–Liehr–Taylor Thm. 1.3",
+          "Janssen single Gaussian Zak zero"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janssen already gives the unique one-dimensional Gaussian Zak zero. The earlier Gaussian scale-mixture record covers that ingredient more broadly. The hat-spline result has a residue criterion for a different non-Gaussian one-dimensional window."
+        ],
+        "reasoning": "A no-common-zero formulation is classical. The multi-coordinate zero cover produces an exact prescribed-tuple criterion here; neither the single-window conclusion nor replacing the triangular spline by a Gaussian gives the quantitative theorem.",
+        "searches": [
+          "Janssen open PDF, abstract p. 2",
+          "Resultary 5647d8629fe5 and 2b8a9154bdc7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Poisson-window record gives exact bounds and a quadratic collapse for coalescing frequency cosets. The hat-spline record gives a different exact defect law. Neither is the Gaussian time-displacement coefficient or a table of these prescribed Gaussian frame bounds."
+        ],
+        "reasoning": "The coefficient here depends on the Gaussian Zak value at 1/6 and derivative at 1/2. A quadratic law for another window or defect does not supply those quantities or the competition between the three summands.",
+        "searches": [
+          "Resultary 0be38cf97cd8, 2b8a9154bdc7 and 5647d8629fe5",
+          "Luef–Testorf–Wang arXiv:2405.08415 Thm. 1.1"
+        ]
+      },
+      "rationale": "Pass the classification of a prescribed minimal tuple of single time translates of a tensor Gaussian, together with its explicit bounds and planar boundary coefficient. Do not credit the minimum number of Schwartz windows in general, the Zak characterization, or uniqueness of the one-dimensional Gaussian Zak zero as new. The earlier existence theorems and related window families examined do not classify this exact prescribed family or give its sharp coefficient.",
+      "residual_risks": [
+        "The bounded primary and catalogue searches do not exclude an older equivalent pure-translate theorem or a quantitative stability result. The standard Zak ingredients and general minimal-window threshold are not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General window-count and Zak common-zero overlap; not prescribed-translate classification",
+          "evidence": [
+            "At most d continuous Zak-quasiperiodic functions have a common zero; smooth tuples without one exist above d."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.26052",
+          "material_read": "PDF pp. 3–5, Thms. 1.2–1.3; OA offsets 10203 and 13686",
+          "method": "OA PDF passage inspection",
+          "title": "On the existence problem of regular Gabor frames",
+          "trigger": "Minimal Gabor window threshold and common zeros"
+        },
+        {
+          "assessment": "Existing Schwartz threshold; Gaussian finite-sum approximation is not prescribed pure translates",
+          "evidence": [
+            "The integer lattice specializes the indices to 1 and the minimum to d+1; the proof of Remark 1.4 approximates an existing M¹ frame window using a finite Gaussian time-frequency sum and a frame-bound stability estimate."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.06255",
+          "material_read": "Thm. 1.5 pp. 6–7 offset 19889; Thm. 1.8 p. 9 offset 30287; Thm. 1.10/Cor. 1.12 pp. 11–12 offset 38339; Remark 1.4 p. 5 and proof p. 77 offsets 17793 and 299395",
+          "method": "OA PDF locate and bounded passages",
+          "title": "Schwartz-Class Gabor Windows and the Balian-Low Classification",
+          "trigger": "Stronger minimum-window theorem and Gaussian approximation construction"
+        },
+        {
+          "assessment": "Different window family/lattice criteria",
+          "evidence": [
+            "Its s=0 case is a single Gaussian, not several prescribed time translates at the critical integer lattice."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.08415",
+          "material_read": "PDF p. 2, Thm. 1.1, OA offset 6105",
+          "method": "OA PDF passage inspection",
+          "title": "On the transcendentality condition for Gaussian Gabor frames and Hermite super/multiwindow frames",
+          "trigger": "Gaussian/Hermite multiwindow classification"
+        },
+        {
+          "assessment": "Direct prior overlap on the single-zero ingredient",
+          "evidence": [
+            "States the single Gaussian Zak zero at (1/2,1/2)."
+          ],
+          "identifier_or_url": "https://pure.tue.nl/ws/files/3079889/Metis235352.pdf",
+          "material_read": "PDF p. 2, abstract, OA offset 2673",
+          "method": "OA abstract passage",
+          "title": "On generating tight Gabor frames at critical density",
+          "trigger": "Gaussian Zak-zero lemma"
+        },
+        {
+          "assessment": "Structural parallel, different object and coefficient",
+          "evidence": [
+            "Poisson window and merging frequency cosets instead of pure Gaussian time translates."
+          ],
+          "identifier_or_url": "Resultary 0be38cf97cd8",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local mirror",
+          "title": "Exact two-coset Poisson Gabor frame bounds and optimal frequency placement",
+          "trigger": "Sharp quadratic frame-bound collapse"
+        },
+        {
+          "assessment": "Distinct one-dimensional triangular-spline result; no same-day priority inference",
+          "evidence": [
+            "Different window and defect identity."
+          ],
+          "identifier_or_url": "Resultary 2b8a9154bdc7",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Local mirror",
+          "title": "An exact positive cubic gap defect for multiwindow hat-spline Gabor frames",
+          "trigger": "Multiwindow translates, residue criterion and exact defect"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:8–44 and 72–91; prior existence theorems above"
+      ],
+      "rationale": "The criterion gives an exact feasibility check and explicit designs among all prescribed minimal pure-Gaussian tuples, not simply the prior existential threshold. The quantitative estimate supplies a practical positive bound from coordinate separations, and the planar law identifies the leading effect of a near-collision on the best lower frame bound. The exact coefficient captures more than detecting a common zero or observing decay on a grid.",
+      "residual_risks": [
+        "The general lower estimate is not claimed optimal, and the sharp law does not cover arbitrary Gaussian or lattice perturbations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

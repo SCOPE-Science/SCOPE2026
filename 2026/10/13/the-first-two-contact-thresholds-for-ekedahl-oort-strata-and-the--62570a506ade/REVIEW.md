@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is all integers \(g\geq3\), algebraically closed fields of odd characteristic, and the Siegel moduli space of principally polarized abelian varieties. The published dimension formula and supersingular containment criterion reduce the first two layers to exactly three exceptional EO types. The cycle formula gives a unique unreachable bad cycle for the two singleton increment types, and all good cycles for the two-increment type. Both existential and negative conclusions use the equivalence in Muller, Theorem 1.7, not finite enumeration. The standalone finite check reproduces published tables through genus \(14\), providing a nonessential cross-check.
+## correctness
 
-## Originality — PASS, with limitations
-Görtz–Yu's Proposition 2.5 (citing Oort and Harashita) already proves the containment criterion; this established fact is an input, not an originality claim. Muller and Shimada independently give much stronger *individual-type intersection criteria*, which apply here. Shimada explicitly supplies a single-one disjoint example at position \(2\), covering the smallest-genus instance of the first gap; Groen–Lupoian–Parker independently enumerate the genus-five cases. Examination of their relevant proofs, tables and statements did not locate the simultaneous **sharp first and second dimension layers, uniqueness of the first disjoint stratum, and uniqueness of the first mixed stratum** for every genus. Those exact all-genus conclusions require the additional support-weight and cyclic-parity analysis provided here. The strongest residual risk is that the result is an unrecorded straightforward consequence of the published general criteria or appears in another specialized source.
+PASS
 
-## Value — PASS
-The least dimensions and unique exceptional EO types identify natural sharp contact thresholds in the interaction of Newton and EO stratifications. The distinction between wholly supersingular, disjoint, and mixed strata is geometrically meaningful, and a uniform classification of the first two possible boundary layers goes beyond a finite numerical census. No characterization of intersection components, characteristic-two extension, or more distant EO layers is asserted.
+Görtz–Yu Proposition 2.5 recalls the elementary-sequence containment equivalence φ_h=0 with h=g−floor(g/2). Muller's (1) and (5) match the permutation and dimension; Definitions 1.3–1.5 and Theorem 1.7 confirm the arrow direction, good-to-bad reachability requirement and odd-characteristic nonemptiness test. The first h indices have weights at least k+1; the only exceptions to containment at weights k+1 and k+2 are e_h, then e_(h−1) and e_h+e_g. For e_j, j≤h, the alternating orbit runs 1,g,2,g−1,…,j (singleton when j=1); π(j)=1 and the unique one leaves 2j−2 zeros. This is bad and no other cycle has a source one. Turning on g in e_h changes no permutation value, since both rules send g to 2. Now h→1→g is one intervening zero and the returning arc has 2h−4 zeros, so the cycle is good and all other cycles have no ones. This gives contact but not containment (φ_h=1). For g=3 the singletons and (1,3,2) give the same disjoint and mixed decisions without degeneracy. The finite checker is corroborative, not used as the general proof.
 
-## Closest literature and scope
-Görtz–Yu, arXiv:0807.1229, Proposition 2.5; Muller, arXiv:2609.15024, Definitions 1.3–1.5 and Theorem 1.7; Shimada, arXiv:2609.27198, Proposition 3.1, Section 3.1 and Table 1; Groen–Lupoian–Parker, arXiv:2509.19878, genus-five Table 1 and Corollary 2. The general prior criteria are strictly broader as decision procedures; the claimed contribution is the nontrivial uniform evaluation of their first two dimension boundaries. Exact historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing containment, intersection criteria and small-genus results are credited. The distinct claim is the uniform extremal classification, with the two first-contact dimensions and exact exception types obtained by an exhaustive weight argument and symbolic analysis of the changing cycle.
+
+## value
+
+PASS
+
+The first dimensions at which contact and containment diverge give exact, uniform geometric cutoffs beyond the known containment boundary. The unique first mixed stratum in particular supplies a systematic minimal test case without scanning all EO types of each genus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

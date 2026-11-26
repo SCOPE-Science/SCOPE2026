@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:38.087609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–116; VERIFICATION.md; verify.py (read only)",
+        "Independent analytic block conjugation, trace identities and ordered-spacing integral above"
+      ],
+      "rationale": "I checked the infinitesimal reduction by rotating the block matrix in the plane-plus-normal basis: conjugate by exp(epsilon S), with S skew and upper-right block U^T D u, so the first-order off-diagonal blocks cancel. Weyl's inequality gives the two leading eigenvalues of the compression T=U^T D U with an O(epsilon^2) error, even for a repeated eigenvalue. Separately, the plane coordinate of the unit dominant eigenvector satisfies (lambda_3 I-epsilon T)y=epsilon U^T D u times its normal coordinate. Thus the norm of y, exactly the bottom-space projector residual, is epsilon||U^T D u||+O(epsilon^2). For coordinate probes p_i=u_i^2, the gap is 1-p_i and the squared leakage is p_i(1-p_i), excluding any zero p_i and forcing the common ratio squared (1-p_i)/p_i to be 2 for every i. For the balanced case, tr T=2 sum(d)/3 and tr(T^2)=sum(d_i^2)/3+(sum d)^2/9; using 2 tr(T^2)-(tr T)^2 and ||P D u||^2 gives the two claimed coefficients. I checked the CDF independently using consecutive spacings a,b of the ordered uniforms: their density is 6(1-a-b), and G^2=4(a^2+ab+b^2)/9. In q=a+b/2, r=sqrt(3)b/2 this integrates over a disk sector of angle pi/3 and radius R=3g/2; for g<=1/sqrt(3) the truncation a+b<=1 is automatic. The integral is (2pi/sqrt(3))R^2-(8/3)R^3, which is exactly F(g). There are no atoms at either boundary, so convergence of the joint event follows, including g=sqrt(2) ell and g>sqrt(2) ell.",
+      "residual_risks": [
+        "The result is infinitesimal and concerns the exact bottom eigenspace, not computed Lanczos iterates or finite-amplitude equality.",
+        "The lower-branch CDF has the specified threshold only. The supplied Monte Carlo uses successive draws from one seeded generator, not five individually seeded generators as worded in VERIFICATION.md; this does not affect any analytical result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Repulsion holds with high probability for uniform random diagonal splitting; nullspace quality has a separate deterministic bound. Classical block perturbation identifies first-order coefficients separately. The known uniform sample-variance CDF is broader in the marginal threshold, and its lower branch is exactly the frozen F after transforming variables."
+        ],
+        "reasoning": "The broader results explain the geometry and probability ingredients, but do not classify the projector normals admitting a samplewise identity. The known marginal CDF is explicitly credited rather than counted as an originality claim.",
+        "searches": [
+          "Kressner–Shao v1 Theorems 4 and 6 and revised v2 analysis; classical invariant-subspace perturbation background; Osan–Chu–Yu Eq. (35); Royen arXiv:0810.1572 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Kressner–Shao arXiv:2407.04634v1/v2; Osan–Chu–Yu arXiv:2609.25333v1; Royen arXiv:0810.1572; Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting n=3 and a rank-one projector in the earlier bounds gives two inequalities, not a universal equality, necessary balance or a sharp ratio. Writing the unbiased sample variance as s^2, the frozen balanced identity gives G^2=4s^2/3, so the known marginal CDF transfers exactly with y=3g^2/4."
+        ],
+        "reasoning": "The probability formula is a consequence once the frozen structural identity is proved; the earlier CDF alone cannot recover the joint law. The classification and pointwise coupling, not the variance marginal, support originality.",
+        "searches": [
+          "Kressner–Shao v1 Theorems 4 and 6, revised v2, and Osan–Chu–Yu Eq. (35)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a rank-one orthogonal projector the unsquared operator residual is the sine of the angle between the dominant perturbed eigenvector and u; the first-order gap is the spread of the compression to u-perp. The earlier diagonal-splitting work compares small gaps and residuals in the same setup but by separate bounds."
+        ],
+        "reasoning": "Neither a sine-angle bound nor a marginal gap theorem forces pointwise equality between the quantities for every fixed D. The coordinate-probe necessity plus balanced sufficiency is the distinct statement.",
+        "searches": [
+          "Resultary: rank-one Gram matrix diagonal splitting; first-order spectral gap and nullspace residual proportionality; balanced projector orientation",
+          "Kressner–Shao arXiv:2407.04634v1 §§2.1–2.2 and v2 §§2.1–2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1 concerns sample variance, not spectral coupling. The same-day Gauss–Seidel residual-illusion and Gaussian Nyström half-moment records concern different algorithms, norms and limits. The two-step pivoted Cholesky and one-node stochastic Lanczos orientation results are expectations of different quantities."
+        ],
+        "reasoning": "The ranked hits were compared by their actual quantities, not discarded by their dates; none supplies the exact deterministic proportionality or its iff statement. There is no finite data table on which the theorem depends.",
+        "searches": [
+          "Resultary exact and equivalent gap–leakage queries, and rank-one diagonal splitting"
+        ]
+      },
+      "rationale": "The supported distinct claim is the deterministic, all-diagonal, balanced-only proportionality of first-order gap and unsquared nullspace residual, including the coefficient and its application to a joint event. The conventional perturbation reductions, separate repulsion/residual estimates and uniform variance CDF are not new. The inspected strongest matches do not state or yield the joint rigidity merely by parameter substitution. This is a best-of-knowledge judgment, not proof of priority.",
+      "residual_risks": [
+        "Rietz (1931) and Stewart–Sun were not directly retrieved. The former is credited via the modern derivation, and general perturbation ingredients are not claimed as new. An equivalent orientation theorem in uninspected literature or under a different parametrization cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same problem family, but separate bounds, not the frozen rigidity",
+          "evidence": "High-probability lower bound on small-eigenvalue gaps and a separate perturbation-norm bound on the residual; no samplewise proportionality in these passages.",
+          "identifier_or_url": "https://arxiv.org/html/2407.04634v1 and https://arxiv.org/html/2407.04634v2",
+          "material_read": "v1 §2.1 Theorem 4 around offset 14368, §2.2 Theorem 6 around 19909; v2 §§2.1–2.2 around 18703 and 24153",
+          "method": "Original OA HTML passages",
+          "title": "A randomized small-block Lanczos method for large-scale null space computations; revised On a randomized small-block Lanczos method for large-scale null space computations",
+          "trigger": "Identical diagonal splitting and both numerical quality metrics"
+        },
+        {
+          "assessment": "Exact coverage of the marginal CDF; not a spectral rigidity result",
+          "evidence": "Lower branch 2sqrt(3)pi*y-8sqrt(3)y^(3/2) for 0<=y<=1/4; the historical uniform-parent result is credited there to Rietz (1931).",
+          "identifier_or_url": "https://arxiv.org/html/2609.25333v1",
+          "material_read": "Eq. (35), around offset 47500; introduction around 11558–12250",
+          "method": "Original OA HTML passages",
+          "title": "Closed forms and open obstructions: the sample variance of three observations",
+          "trigger": "Prior exact uniform three-sample marginal"
+        },
+        {
+          "assessment": "Variance background, not the joint gap–leakage statement",
+          "evidence": "The inspected theorem gives asymptotics for power-law densities in the 0<p<1 regime.",
+          "identifier_or_url": "https://arxiv.org/html/0810.1572",
+          "material_read": "Theorem 3 around offset 35555",
+          "method": "Original OA passage",
+          "title": "The exact distribution of the sample variance from bounded continuous random variables (Royen)",
+          "trigger": "Related sample-variance law and lower-tail asymptotics"
+        },
+        {
+          "assessment": "Related sample-variance asymptotics, different claim",
+          "evidence": "Small-y behavior of unbiased three-sample Beta variance, including the regular uniform case; no spectral metrics.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1",
+          "material_read": "RESULT.md Finding around offset 71",
+          "method": "Resultary and local mirror",
+          "title": "Exact lower-tail phase diagram for the three-sample beta variance",
+          "trigger": "Closest indexed probability overlap"
+        },
+        {
+          "assessment": "Different mechanisms and objectives",
+          "evidence": "Fixed sweeps versus dimension and coefficient residual versus energy error in the first; randomized Nyström near a small eigenvalue in the second.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-fixed-sweep-gauss-seidel-residual-illusion-for-rank-one-gram-s--65682c1c69b9; 2026/10/18/SCOPE-a-universal-half-moment-transition-for-unoversampled-gaussian-ny--6a0180b3e23e",
+          "material_read": "RESULT.md Findings around offsets 77 and 82",
+          "method": "Resultary and local mirror",
+          "title": "A fixed-sweep Gauss–Seidel residual illusion for rank-one Gram systems; a universal half-moment transition for unoversampled Gaussian Nyström",
+          "trigger": "Same-day matches for residuals and rank/small-eigenvalue setting"
+        },
+        {
+          "assessment": "Different expectation-level targets",
+          "evidence": "Expected two-pivot trace residual and expected one-node log-determinant estimate, respectively; neither is the samplewise identity for a diagonal perturbation.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-orientation-sensitivity-of-two-step-randomly-pivoted-chole--8657b8293542; 2026/11/8/SCOPE-sharp-orientation-bifurcation-for-one-node-stochastic-lanczos-lo--e04bd1997837",
+          "material_read": "RESULT.md Findings",
+          "method": "Resultary and local mirror",
+          "title": "Sharp orientation sensitivity of two-step randomly pivoted Cholesky; sharp orientation bifurcation for one-node stochastic Lanczos log estimates",
+          "trigger": "Balanced orientations and spectral randomized methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact theorem and proof; Kressner–Shao gap and residual analyses; prior uniform variance law"
+      ],
+      "rationale": "The two quality metrics have distinct numerical roles: splitting a null cluster helps separate its eigenvalues but degrades its status as an exact nullspace. Three coordinates are the smallest rank-one setting with a two-dimensional null cluster, and treating all orientations is not an arbitrary slice. The iff theorem and sharp pointwise ratio show exactly when these metrics are locked and when no orientation-independent-in-D ratio exists. This is a motivated structural calibration beyond the known marginal variance calculation, even though the proof is elementary.",
+      "residual_risks": [
+        "No higher-rank or dimension theorem and no finite-iteration performance prediction follows directly."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

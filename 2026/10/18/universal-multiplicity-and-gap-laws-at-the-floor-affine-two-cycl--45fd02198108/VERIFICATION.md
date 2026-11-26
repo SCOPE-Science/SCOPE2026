@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or newer. It requires only the standard library. The script independently evaluates the floor-affine map and its second iterate using `fractions.Fraction`, and counts primitive two-cycles as unordered integer pairs. It compares this direct count to the asserted tower-membership and uniform triangular phase-error rules at ordinary phases and at exact half-open endpoints. It then partitions the entire fundamental parameter interval into rational atoms, exactly integrates the direct cycle census, and compares each tail mass with the claimed formula. Output: `PASS 3208 exact-rational independent cycle and survival checks`, plus `PASS 16 exact-rational near-critical orbit-gap moment comparisons`.
+## correctness
 
-The derivation from interval intersections, nesting, and the Lipschitz estimate for the distribution functions supplies the all-real proof. The program checks rational examples only and cannot by itself prove an identity for every real parameter. No external or independent audit has been performed.
+PASS
+
+For positive gap k, the two floor equations give two unit half-open intervals whose displacement has magnitude k*epsilon. Their intersection is empty at and beyond k*epsilon=1. Choosing the smaller endpoint x=−floor(k/2) places the nonempty phase window wholly within [0,q); other x translate it by integer multiples of q and do not intersect that interval. The even windows [j*epsilon,1−j*epsilon) and the sign-dependent odd windows are nested on disjoint phase ranges. Thus N>=m is exactly the union of the even window at gap 2m and the odd one at 2m−1, including the endpoint convention. Counting integers with the resulting weak lower-window and strict upper-window tests gives a floor or ceiling count within one of the triangular height divided by epsilon, with the odd cutoff shifted by at most one mesh cell; [2,q) on the expanding side contributes zero. Setting m=floor(t/epsilon)+1 in the survival formula proves the stated CDF bound by Lipschitz continuity of positive part, and the bounded support gives moment convergence. On N>0 the available gaps are the first N even or odd gaps; coupling the rank to ceil(NV) makes the error relative to 2*epsilon*N*V at most 2*epsilon. The zero-cycle probability tends to zero, so conditioning does not affect the phase limit. Rescaling the phase to [0,2) gives the uniform triangular height independently of V, proving the joint law and the product-of-uniforms marginal. Independent direct iteration also agreed throughout 748 rational phase cells, with 2,534 profile/survival checks in addition to direct gap-list and half-open-cell checks.
+
+## originality
+
+PASS
+
+Do not credit the fixed-offset periodic-orbit census. Credit the explicit two-sided parameter-ensemble law, pointwise profile and, in particular, the joint gap limit for uniform-within-phase cycle sampling. The strongest exact comparator repeats the contraction-side count formula and leading profile on a narrower parameter range; its later index date is reported without assigning historical priority. Its result does not state the two-sided law or the joint mark limit.
+
+## value
+
+PASS
+
+A natural uniform translation-conjugacy phase turns the proliferation of periodic orbits near slope −1 into an exact finite-parameter law, including the different normalizations on the two sides. The marked law adds geometric information: the gaps are asymptotically uniform up to the phase-dependent maximum, while mixing over phases creates a logarithmic singularity. The within-phase sampling distinction makes this more than a restatement of the fixed-parameter census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

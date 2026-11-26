@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:25:02.908307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For curvature −1 the radial measure is |S⁴|sinh⁴(r)dr. With a>4 the convolution kernel is integrable, and spherical Plancherel diagonalizes it with continuous radial multiplier supported on the full principal spectrum. Positivity of the operator and finite-point PSD agree by integration and approximate point masses; a negative value at λ=0 also produces negative values at positive λ by continuity. Dimension raising of sin(λr)/(λ sinh r), integration by parts (with vanishing endpoints), and the Laplace-sine identity give 24z divided by the three quadratic factors before multiplying by |S⁴|. As an algebra cross-check, the conjugate denominator is (v²+X)³+8(X−v²)(v²+X)+16(v²+X), v=conj(z), and Re(zv^(2j))=(a²+W)Re(v^(2j−1)) for j≥1. This reproduces the sign polynomial with a positive squared denominator. Its constant-factor quadratic C changes sign before both a²/3 and a²−4 and is negative from the lower root to a²−4. Up to that lower root the coefficient of X is 3(a²+W)(a²−3W)+16>0, as are the higher coefficients, so equality has only the zero at X=0. Beyond the root, X=0 is a witness below a²−4, and X=W−a²+4 gives −8a(a²−4)(W+2)(W+4)<0 otherwise. At a=6 the lower root is 16/5. The proof establishes the global statement; the symbolic and quadrature checks in check_h5.py and VERIFICATION.md are recorded supporting diagnostics, not a fresh numerical run or a formal certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hall–Mitchell use shift/inversion calculus on H^(2n+1) but the inspected passages are not an admissibility theorem for complex Laplace modulation.",
+          "The CND geodesic-distance characterization proves the unmodulated case for hyperbolic dimensions, not positive modulation."
+        ],
+        "reasoning": "General methods and a theorem covering a smaller slice of the family do not furnish the required all-frequency inequality.",
+        "searches": [
+          "Hall–Mitchell arXiv:1507.03569, introductory shift discussion and Thm. 5",
+          "Feragen–Lauze–Hauberg arXiv:1411.0296, Thm. 4 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 99a263d091a0",
+        "Resultary 166a83b9217d",
+        "arXiv:1411.0296",
+        "arXiv:1507.03569",
+        "Frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restriction H⁵→H³ gives a necessary H³ inequality but does not lift H³ sufficiency; the explicit lower root and the nonzero high-frequency witness require the H⁵ sign analysis.",
+          "Spherical shift calculus and the positive-multiplier criterion do not themselves solve that sign problem."
+        ],
+        "reasoning": "The closest results do not imply the asserted sharp five-dimensional boundary or its two obstruction regimes.",
+        "searches": [
+          "Resultary 99a263d091a0, Finding and proof",
+          "arXiv:1411.0296 Theorem 4",
+          "arXiv:1507.03569 Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The H³ cosine record studies the same e^(−ar)cos(ωr), but its inequality is 3ω⁴+2(a²+1)ω²≤(a²−1)² for a>1; its scope explicitly excludes other dimensions.",
+          "The H³ affine-mixture record studies e^(−ar)(1+b cos r) with a>2 and has a different cone and spectral-notch statement."
+        ],
+        "reasoning": "Transform positivity is the appropriate equivalent formulation; neither a change of parameters in the H³ theorem nor adding a constant component yields the H⁵ equivalence.",
+        "searches": [
+          "Local Resultary: damped geodesic cosine, hyperbolic covariance and spherical transform positivity",
+          "Resultary 99a263d091a0 and 166a83b9217d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed cutoff located was for H³ (99a263d091a0); the other indexed cone was also H³ and for a different kernel.",
+          "The focused primary search yielded no decisive H⁵ match; this is not evidence of absence."
+        ],
+        "reasoning": "A generic tabulation of zonal transforms would give inputs, not the requested range and boundary classification, unless it also resolves the positive-real-part condition.",
+        "searches": [
+          "Local Resultary threshold/covariance records",
+          "Focused exact H⁵ damped-cosine admissibility literature search"
+        ]
+      },
+      "rationale": "The strongest catalogue entry gives a complete threshold for the identical family on H³, not H⁵. Neither restriction nor the prior analytic machinery supplies the five-dimensional sign result. The distinct content supported here is the fast-decay five-dimensional if-and-only-if condition, boundary spectrum and explicit obstructions, not the transform criterion or dimension shift themselves. This is a bounded, best-of-knowledge assessment.",
+      "residual_risks": [
+        "A prior equivalent sign classification under covariance or transform terminology outside the inspected material is not excluded.",
+        "Date-coded catalogue paths were not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kernel, dimension-three classification only",
+          "evidence": "Uses a dimension-three transform and quadratic sign polynomial; exact cutoff differs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-oscillation-threshold-for-exponentially-damped-geodesic-co--99a263d091a0/RESULT.md",
+          "material_read": "Finding offsets 0–2586 and proof offsets 2500–5096",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp oscillation threshold for exponentially damped geodesic cosines",
+          "trigger": "Strongest same-family match"
+        },
+        {
+          "assessment": "Related but different mixture and dimension",
+          "evidence": "It treats e^(−ar)(1+b cos r) on H³ and explicitly distinguishes the pure cosine.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-a-sharp-two-sided-covariance-cone-and-a-nonzero-spectral-notch-o--166a83b9217d/RESULT.md",
+          "material_read": "Finding at offset 0 and comparison at offset 8150",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-sided covariance cone and a nonzero spectral notch",
+          "trigger": "Modulated covariance and spectral zeros"
+        },
+        {
+          "assessment": "Covers ω=0 only among the inspected claims",
+          "evidence": "PD for all positive scales is equivalent to CND of distance; hyperbolic intrinsic metrics are CND.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.0296",
+          "material_read": "Theorem 4, p. 4 (offset 16000), and §4, p. 8 (offset 33600)",
+          "method": "OA PDF text via lawful alternate access",
+          "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+          "trigger": "General hyperbolic geodesic exponential admissibility"
+        },
+        {
+          "assessment": "Framework, no target cutoff in the inspected material",
+          "evidence": "The results address odd-dimensional shift/inversion/isometry, not the sign of the damped-cosine density.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.03569",
+          "material_read": "p. 3 (offset 10000) and Theorem 5, pp. 6–7 (offset 19000)",
+          "method": "OA PDF text via lawful alternate access",
+          "title": "The Segal–Bargmann Transform for Odd-Dimensional Hyperbolic Spaces",
+          "trigger": "General odd-dimensional shift calculus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A practitioner choosing a geodesic oscillatory covariance gets an exact allowed region and, when inadmissible, an explicit spectral obstruction. H⁵ is the next odd dimension after the close H³ precedent but the cubic and the returning sign at λ=0 require a distinct necessity argument. The endpoint is a multiplier zero, not a claim about singularity of finite Gram matrices. The decay restriction is essential to the reviewed scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

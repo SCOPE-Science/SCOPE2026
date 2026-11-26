@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:47:51.000317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For i≠j the common neighbors of a_i and a_j are exactly B minus {b_i,b_j}, nonempty for n≥3. If at most two vertices of B are omitted from X, choose those two excluded indices (padding the pair if necessary); that distance-two pair fails. Conversely three omissions in B defeat every such obstruction, and analogously for A. Adjacent pairs require no internal vertex. For a_i,b_i the shortest length is three: choose omitted b_j with j≠i, then omitted a_k with k≠i,j, obtaining an X-avoiding interior. Thus the feasible choices are independent by part; their enumerator is the squared truncation, the top degree is 2n−6, and each maximal set leaves exactly three omissions per part, giving binom(n,3)^2. At n=3 the graph is C6 and only the empty set qualifies. The frozen verifier independently walks shortest paths by BFS distances for n=3,…,8 and its recorded replay covers 87360 subsets, including degree, coefficients and maximality. I inspected the code and recorded output, not executed it; the proof is unbounded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.2 holds beyond diameter three and applies unchanged to crowns. The diameter bound alone gives only 2n−2; the bypass result characterizes a different invariant level.",
+          "The later catalogue treatment of proper matching deletions gives the factor (1+z)^r−z^r−tz^(r−1)−binom(t,2)z^(r−2), and its proof's omitted-unmatched-vertex or three-omission criterion agrees at the crown boundary."
+        ],
+        "reasoning": "The earlier distance-two theorem directly covers feasible sets. The later proper-matching theorem formally excludes the full crown; its overlap is through its proof and boundary specialization, not evidence of earlier priority.",
+        "searches": [
+          "arXiv:2412.03066v1 Theorems 5.2–5.3",
+          "DOI 10.1007/s40840-023-01590-3 Propositions 2.1–2.2",
+          "Resultary 12d94857e295, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2412.03066v1, 2210.07835v2",
+        "DOI 10.1007/s40840-023-01590-3",
+        "OEIS A390404",
+        "Resultary 12d94857e295, bc3fc492b96b, 7d7547a11288"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distance-two pairs of the crown are precisely the within-part pairs, with common neighborhoods obtained by deleting the two indexed vertices in the opposite part. These run over every (n−2)-subset, giving independent obstructions by side.",
+          "The distinct same-day catalogue result is on dual visibility coloring in a crown with an added universal hub."
+        ],
+        "reasoning": "Apply the theorem and count all subsets of each part of size ≤n−3. Its top coefficient already counts all inclusion-maximal sets because every smaller part-size can be increased. No new distance-three lemma or separate counting argument is necessary.",
+        "searches": [
+          "arXiv:2412.03066v1, Theorem 5.2 pp. 15–16",
+          "Resultary 7d7547a11288, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 5.2 says N(u)∩N(v) must not be contained in X for each distance-two pair, i.e. X is independent in the hypergraph of these common neighborhoods.",
+          "Catalogue record bc3fc492b96b counts hitting sets for maximal geodesics and packings, not sets for which every vertex pair has some geodesic with clean interior."
+        ],
+        "reasoning": "The equivalent hypergraph here is the disjoint union of two complete (n−2)-uniform hypergraphs; a set is independent iff it uses at most n−3 vertices per part. A transversal of every maximal geodesic is a different property.",
+        "searches": [
+          "Resultary: total mutual visibility distance two common neighborhood convex P3 bypass vertex diameter three characterization",
+          "Resultary: total mutual visibility hypergraph obstructions geodesic transversal open packing mutual visibility",
+          "arXiv:2412.03066v1 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A390404 lists an ordinary mutual-visibility polynomial for crowns, not total visibility (already 36 versus 1 sets at n=3). Proposition 3.2 gives the total polynomial of the undeleted balanced biclique.",
+          "Catalogue record 12d94857e295 yields the same truncated factor and maximal-set count on formally putting p=q=t=n, while its stated domain is proper matching deletions."
+        ],
+        "reasoning": "Do not treat ordinary/dual visibility or the undeleted case as an exact match. The failure rests on direct implication, not an assertion that the exact display is in an earlier table.",
+        "searches": [
+          "Resultary: total mutual visibility polynomial crown graph perfect matching deletion exact polynomial",
+          "OEIS A390404, COMMENTS",
+          "arXiv:2412.03066v1, Proposition 3.2"
+        ]
+      },
+      "rationale": "Bujtás–Klavžar–Tian, Theorem 5.2, already characterizes precisely these feasible sets in every connected graph by the distance-two common-neighborhood obstructions. On the crown these obstructions are all (n−2)-subsets of each part. Their independence conditions give exactly the claimed sets and all enumerations by direct counting. The original formula need not occur verbatim in the prior paper for this implication to cover it.",
+      "residual_risks": [
+        "Searches were bounded. The linked Howroyd item was not separately retrieved; two further matching-deletion catalogue hits on ordinary visibility or edge-open packing were summary-only. The failure is based on the positive prior implication, not those gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 5.2 directly implies the crown criterion",
+          "evidence": "Equivalence to requiring all distance-two pairs to have an omitted common neighbor; Proposition 3.2 separately counts the undeleted complete bipartite graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.03066v1",
+          "material_read": "§3 Proposition 3.2 p. 7 and §5 Theorems 5.2–5.3 pp. 15–16; OA offsets 18013 and 37939–41930",
+          "method": "OA PDF passages",
+          "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+          "trigger": "Same invariant and general obstruction theorem"
+        },
+        {
+          "assessment": "Later result, formally excludes the full crown, but boundary proof specializes exactly",
+          "evidence": "Each side needs an omitted unmatched vertex or at least three omissions. At a perfect deletion the first option disappears.",
+          "identifier_or_url": "2026/10/25/Resultary 12d94857e295",
+          "material_read": "RESULT.md offsets 0–7141, Finding, scope, criterion and maximal sets",
+          "method": "Catalogue mirror text",
+          "title": "Total mutual-visibility enumerators after deleting a proper matching",
+          "trigger": "Same polynomial and more general matching deletion"
+        },
+        {
+          "assessment": "Different visibility property",
+          "evidence": "The formula credited to Howroyd counts sets requiring visibility only between members, not all vertex pairs.",
+          "identifier_or_url": "https://oeis.org/A390404",
+          "material_read": "COMMENTS around OA offset 539",
+          "method": "OA HTML passage",
+          "title": "Number of ordinary mutual-visibility sets in crown graphs",
+          "trigger": "Exact same graph and named polynomial"
+        },
+        {
+          "assessment": "Different operator and graph",
+          "evidence": "Dual visibility coloring and hub-containing sets in K1 joined to the crown.",
+          "identifier_or_url": "2026/10/13/Resultary 7d7547a11288",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Catalogue mirror text",
+          "title": "Dual mutual-visibility coloring of crown cones",
+          "trigger": "Same-day crown visibility result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The natural graph family and explicit enumeration make a clear illustration, but the exact invariant follows mechanically from a published general characterization and counting two independent bounded subsets. The maximal-set count and degree add no separate mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

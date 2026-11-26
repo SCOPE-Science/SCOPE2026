@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The polynomial identity \(P_h-2Q_h=(2x+y)(x-2y-1)(x+3y+1)\) is an exact necessary condition for equilibrium, and the three line restrictions of \(Q_h\) are exact sufficient equations. Cubic discriminants give all branchwise counts for arbitrary real \(h\). All three lines are concurrent at exactly one point, counted only when \(h=1/6\). The only possible degeneracies in the nine-point window occur at explicit determinant-zero values lying on excluded endpoints, and the source/sink signs can be fixed at \(h=1/10\). The packaged standalone exact checker confirms the critical identities, endpoint computations and hyperbolic 5/2/2 sample. Finite checks are corroborative; the proof gives the full quantifiers.
+## correctness
 
-## Originality — PASS within inspected evidence
-Gasull–Giacomini (arXiv:2210.15803, DOI 10.1007/s12346-023-00746-7), equation (16), establish a no-periodic-orbit result but do not state the three-discriminant equilibrium census or the sharp Bézout-saturating 5/2/2 window in inspected material. Llibre–Zhao (2007, DOI 10.1088/1751-8113/40/47/012) develops related algebraic-cycle constructions; relevant inspected text does not supply this classification. Targeted literature and mathematical-record comparisons showed other polynomial systems, not stronger statements concerning the same \(P_h,Q_h\). Generic complex Bézout bounds do not imply attainability by nine real hyperbolic equilibria on an explicit interval. Unindexed earlier equivalent classifications remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-For a canonical example of an invariant-algebraic-curve cubic flow without periodic orbits, determining all stationary states is the next natural global dynamical invariant: their number, hyperbolic types and bifurcation cutoffs organize possible separatrix and basin geometries. The result exhibits the sharp full-real intersection count of nine and an exact, structurally nontrivial 5/2/2 partition rather than choosing an arbitrary numerical parameter slice. Endpoint classifications are supplied by the exact count formula. No global basin or separatrix classification is claimed.
+Expanding P−2Q gives the three concurrent line factors; the restricted Q cubics give all equilibria in both directions. Their critical values (or discriminant signs) give the three stated open intervals. Each derivative has two distinct zeros, so at zero discriminant there is a double root, not a triple root. The common point (1/5,−2/5) satisfies Q=1/6−h and contributes exactly two duplicate counts at h=1/6. The interval ordering gives nine exactly in the asserted window and the stated counts 8, 6, and 7 at its lower endpoint, upper endpoint, and just above it. The top-degree factors are three distinct directions and each restricted Q has a nonzero cubic term, ruling out intersections at infinity. On a line x=my+b, the determinant reduces to (P−2Q)_x times the derivative of the restricted Q; determinant zeros thus require a critical value or the concurrent point. The full trace is 5x−5x²+(15/2)y². Its zeros on lines one and two occur at parameter values 0, 1/30, or 1/6 only. For line three, writing c=y+1, positive determinant requires |c|>√13/5 and then 15c²−12c+1>0, so the trace is negative. Consequently no positive-determinant branch can cross the imaginary axis. Independent exact sign brackets at h=1/10 establish 5 saddles, 2 sources, and 2 sinks; the types persist throughout the window.
 
-## Scope and limitations
-Only finite real equilibria are classified. The hyperbolic type partition is for the strict nine-point interval. Literature comparison does not establish absolute publication priority or an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The family, invariant cubic, and absence of periodic orbits are prior work. The distinct supported contribution is the exact all-real-parameter distinct-equilibrium census, including the radical window, coincidence correction, and local types inside the maximal window. The inspected near matches do not supply that claim or a theorem implying it. This is a best-of-knowledge assessment, not a priority guarantee.
+
+## value
+
+PASS
+
+This is a full parameter classification for a naturally identified, previously studied no-cycle family, not a chosen sample or arbitrary slice. It identifies exactly when the complex intersection ceiling is realized by distinct hyperbolic real points and resolves both a fold endpoint and the three-line coincidence where naïve addition overcounts. The sharp window and type split give usable constraints for further phase-portrait analysis without claiming a global classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

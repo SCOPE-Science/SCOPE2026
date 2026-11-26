@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The conditional exceedance tail is derived for both tide signs and both sides of the moving threshold. The normalized difference derivative is strictly positive because the arcsine phase law has mass in every subinterval of \((0,1)\); its signs at zero and at the largest tide crest are explicit. The asymptotic root equation is exact, the small-tide localization is justified before the boundary expansion, and the square-root crest density gives the claimed \(5/3\) law with its constant. Supplementary checks replay separate probability formulas. Risk: physical assumptions deliberately restrict the theorem; numeric checks are not infinite-domain proofs.
+PASS
 
-## Originality (O): PASS, with residual historical risk
+With W=|cos Φ| the conditional positive and negative tides are equiprobable. Normalizing H_A by exp(h/σ) gives (exp(h/σ)+exp(-AW/σ))/2 below AW, and cosh(AW/σ) at and above AW. The branches meet, their slopes are bounded on compact threshold ranges, and the law of W has no atoms. The normalized difference thus has derivative exp(h/σ)Pr(A1 W<h<A2 W)/(2σ)>0 throughout (0,A2), including when A1=0; its endpoint values have strictly opposite signs, and it is a positive constant beyond A2. For fixed rho<1 at x=h/σ=ca with rho<c<1 the smaller cutoff is zero and the larger cutoff is a E[(W-c)_+]/2+O(a²), which dominates the O(a²) Bessel increment. Thus x/a tends to one and eventually exceeds rho. At the root the balance is (1-rho²)a²/4+O(a⁴) against the large cutoff. Put d=a-x and u=1-W; over 0<u<d/a the exponential difference is (d-au)(1+O(a)), by the mean-value theorem. Multiplying by the endpoint arcsine density and half the sign weight gives 2sqrt(2)d^(3/2)/(3πsqrt(a))(1+o(1)). Equating gives exactly the stated positive C_rho and a^(5/3) gap. The finite benchmark agrees to reported precision (root 0.533675162945678 for σ=A2=1, A1=0.5).
 
-The 2014 Sweet–Park and 2016 Williams primary articles study coastal exceedances and skew-surge independence, respectively. FEMA's 2016 guidance and the 2020 and 2021 joint-probability studies explicitly cover the underlying convolution and the two-crest approximation but do not report the exact comparative single-crossing plus a continuous-sinusoid \(5/3\) near-crest law in the material inspected. Palmer et al. (2024) examine the empirical role of tide changes but do not supply this exponential/arcsine limiting theorem. Related published-index records concern different tide geometry or stormwater dynamics; previously accessible local finding statements did not match this model and claim. General stochastic-order and total-positivity results may subsume the qualitative crossing, and a historical explicit formula may have been missed: originality is provisional rather than certified.
+## originality
 
-## Value (V): PASS
+PASS
 
-A sharp comparison of flood threshold exceedance under different tide amplitudes resolves the sign of bias across the entire threshold range under a transparent idealization. The noninteger \(5/3\) near-crest correction is a quantitatively specific boundary effect of sinusoidal residence time near tidal maxima, not a routine mean-variance or Jensen calculation. It gives a reproducible benchmark against which simpler high/low-tide approximations can be tested. Limit: it is not an operational flood forecast; broader waveforms or surge tails require separate analysis.
+The convolution and phase weighting are familiar. The supported distinct contribution is the precise all-amplitude strict crossover together with the fixed-amplitude-ratio near-crest scale and its coefficient for the full arcsine phase law. No separate retrieved statement implies that combination. Qualitative sign-change reasoning has broader mathematical analogues and is not claimed as an entirely new stochastic-order principle.
 
-## Closest literature and limitations
+## value
 
-See RESULT.md references and AUDIT.json for claim-vs-prior comparisons and material inspected. Neither source search nor the lack of a matching title establishes priority. The same stochastic convolution method is known, and the analytic contribution claimed is the combination of exact global ordering with the sharp sinusoidal weak-amplitude threshold asymptotic.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The calculation gives a controlled benchmark for comparing tide amplitudes at a fixed instantaneous level. The tail ordering can reverse, and a crest boundary layer shows why replacing a waveform by its extrema changes the threshold and misses the leading correction. This is substantively more informative than simply evaluating a convolution at fixed parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

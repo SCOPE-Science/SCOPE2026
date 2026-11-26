@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:10:21.434429Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under atomless i.i.d. sampling every relative order on a window union is equiprobable, and disjoint windows give zero cross-covariance. Summing all ordered lags with finite-sample multiplicities K and (K−h)_+ gives the asserted limiting covariance, unchanged by using K=n−3 rather than n as divisor. Independent linear-extension subset recursion for two chain constraints (`python /workspace/branches/replay_ordinal.py`) reconstructs the integer D and matches the full characteristic polynomial in exact arithmetic, with trace 17064. A separate exact Newton trace calculation agrees. The zero multiplicity is six, and positive semidefiniteness of the covariance makes the other 18 roots positive. The finite-dependent vector CLT and continuous mapping give 24 times the covariance eigenvalues, hence r/840 as stated. This is an asymptotic test law, not finite-sample calibration. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elsinger gives the general limiting covariance and rank bound, here at most 18.",
+          "Bandt discusses a full three-point spectrum and selected four-point contrasts; the canonical four-point contrasts are a separate problem.",
+          "The exact four-point covariance and kernel are already supplied by f8ca541f3362."
+        ],
+        "reasoning": "The general formulas or rank bound alone do not give exact factors. It is the earlier exact covariance certificate for this case, together with the known CLT, that supplies the claimed invariant and law mechanically.",
+        "searches": [
+          "Elsinger (2010) OeNB Working Paper 165 pp. 10–11",
+          "arXiv:2212.14386 pp. 14,22–23,30",
+          "Resultary f8ca541f3362"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_spectrum.py",
+        "Resultary f8ca541f3362 RESULT.md and COVARIANCE_MATRIX.json",
+        "Elsinger Working Paper 165",
+        "arXiv:2212.14386",
+        "Weiß Chaos 32:093107 (access attempt and secondary discussion)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The archived comparator already proves the matching Gaussian limit and states it does not supply explicit eigenvalues.",
+          "Exact reconstruction proves equality of the matrices independently of both frozen and comparator verification scripts. Taking and factoring the characteristic polynomial, followed by the standard Pearson diagonalization, gives all of the asserted new content."
+        ],
+        "reasoning": "The implicit conclusion is immediate for a supplied concrete matrix, not an extension to four-point eigenvectors or canonical contrast structure. No claim about earliest priority is needed.",
+        "searches": [
+          "Resultary f8ca541f3362, Gaussian limit and limitations, RESULT.md offsets 4699–9020",
+          "arXiv:2212.14386 length-four discussion",
+          "Chaos 32:093107 (2022), identified via Bandt p. 43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same iid atomless null, uniform window permutations, all 24 consecutive rank categories, and normalization 20160.",
+          "Independent entrywise comparison with the archived JSON: 24×24, scale 20160, all 576 entries match, trace 17064."
+        ],
+        "reasoning": "Neither permutation indexing nor the substitution n−3 for n changes the limit; the earlier explicit matrix is exactly the input for the claimed polynomial.",
+        "searches": [
+          "Resultary: complete covariance kernel classification for consecutive four-point ordinal frequencies",
+          "Resultary f8ca541f3362 RESULT.md and COVARIANCE_MATRIX.json"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored matrix file explicitly stores L=20160 and the entire matrix.",
+          "The exact polynomial is not printed in the comparator. All its factors are reproducible from the matching 24×24 integer matrix with standard symbolic routines, not by inferring an unverified match from a rank bound."
+        ],
+        "reasoning": "The available exact matrix table is a full standard computational specification of the requested spectrum; a separate printed spectrum table is unnecessary for coverage.",
+        "searches": [
+          "Resultary f8ca541f3362/COVARIANCE_MATRIX.json",
+          "Elsinger length-three eigenvalues and Bandt discussion of corresponding higher-length eigenvalues"
+        ]
+      },
+      "rationale": "The decisive distinct Resultary record already gives this exact 24-category covariance limit, including all 576 integer entries at scale 20160, the rank and the Gaussian limit. All 576 entries were independently compared in the same lexicographic rank-vector convention, with zero discrepancies. Its text expressly does not report the explicit eigenvalues; nevertheless the claimed coefficients and their factorization are obtained directly by standard exact charpoly and factor on its already packaged matrix. The Pearson weights are then the polynomial roots divided by 840. This is mechanical implication for the exact same matrix, not just a general formula requiring a new specialization or the detection of an identical source record.",
+      "residual_risks": [
+        "The later serial-dependence article and the separate source on two contrasts were not fully checked as primary text; this does not weaken the exact matrix comparison.",
+        "The comparison establishes coverage, not historical attribution. Exact finite-sample Pearson calibration and canonical eigenvectors were not claimed or verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by standard operations on the already reported matrix; it does not print the new factorization",
+          "evidence": [
+            "Same iid model, rank 18 and Gaussian limit; JSON exact match in all 576 entries at 20160 scale."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-covariance-kernel-classification-for-consecutive-four-p--f8ca541f3362",
+          "material_read": "RESULT.md offsets 0–9155 in bounded passages; COVARIANCE_MATRIX.json at offset 0 (3320 characters, parsed and checked entrywise)",
+          "method": "Local mirror, plus independent linear-extension entry comparison",
+          "title": "Complete covariance kernel classification for consecutive four-point patterns",
+          "trigger": "Identical model, dimension, scale and reported exact covariance"
+        },
+        {
+          "assessment": "General construction, test limit and rank bound; inspected examples do not give this factorization",
+          "evidence": [
+            "Rank at most m!−(m−1)!; approximate eigenvalue discussion at m=3."
+          ],
+          "identifier_or_url": "https://www.oenb.at/dam/jcr:5390f35e-bf75-43c4-9d1a-248a26728d2a/wp165_screen_tcm16-208851.pdf",
+          "material_read": "Printed pp. 10–11, extracted offsets 28616 and 33987",
+          "method": "Official OA PDF passages",
+          "title": "Independence Tests based on Symbolic Dynamics",
+          "trigger": "Primary source on ordinal covariance and asymptotic Pearson tests"
+        },
+        {
+          "assessment": "Length-three results and selected contrasts; not the full length-four case in the inspected text",
+          "evidence": [
+            "Need for eigenvalues at larger pattern lengths; length-four canonical contrast problem and two selected contrasts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.14386",
+          "material_read": "PDF pp. 14,22–23,30,43; extracted offsets 31210,49185,53669,66687,68392,97068",
+          "method": "OA PDF passages",
+          "title": "Statistics and modelling of order patterns in univariate time series",
+          "trigger": "Length-three spectrum and scope of earlier length-four results"
+        },
+        {
+          "assessment": "Unresolved external-priority risk, not the reason for failure",
+          "evidence": [
+            "Secondary account describes the m=3 test and need for eigenvalues at larger m."
+          ],
+          "identifier_or_url": "Chaos 32:093107 (2022), C. H. Weiß",
+          "material_read": "Citation and secondary description in Bandt pp. 14,43; no primary full-text passage retrieved",
+          "method": "Publisher OA attempt returned 403; secondary PDF comparison only",
+          "title": "Non-parametric tests for serial dependence in time series based on asymptotic implementations of ordinal-pattern statistics",
+          "trigger": "Possible later exact eigenvalue calculation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The calibration observable itself is natural and the exact weights are convenient, but the claimed advance is limited to computing and factoring the characteristic polynomial of an identical already disclosed small exact matrix and rescaling its roots. It does not derive a structural spectral decomposition, classify contrasts, or establish a new test property. As stated, this is a routine exact-invariant recomputation rather than a distinct valuable mathematical gap; availability of an independent replay does not change that judgment.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

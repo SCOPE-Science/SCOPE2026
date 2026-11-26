@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:38:08.965225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–55",
+        "VERIFICATION.md",
+        "check.py (inspected, not executed)"
+      ],
+      "rationale": "A weight-3k source containing t>=3 has a forbidden read: keep that part at s=max(3,t-k) and choose weight 2k-s from the other parts, which can realize every weight up to 3k-t. This works for k>=2; the four compositions of 3 directly give the k=1 fiber. The all-two and all-one reads then force k twos and k ones. For the two-zero-gap obstruction, index the skipped source two by j in 1,...,k; it merges old gaps j-1,j into retained gap j-1 and contributes just one symbol there. For nonadjacent zero gaps p<q, the target requires ones in retained gaps p and q-1. If j>p+1, retained gap p equals old empty gap p; if j<=p+1, retained gap q-1 equals old empty gap q. For adjacent zeros the one required retained gap is empty unless j=p+1, when it has only one symbol for two requested ones. Therefore exactly one gap is empty, and each other gap contains one one, giving the entire displayed list. Conversely greedy earliest embedding gives d(empty)=1, d(2v)=1+d(v), and d(12v)=min(1+d(2v),2+d(v))=2+d(v) for the least missing positive read weight. At 21 the least missing weight is 3; stripping 21 ahead of a leading 2 adds two, so all listed sources have d=2k+1. None can read a part of size at least three. Finally the number of weight-2k compositions on parts 1,2 is F_(2k+1) by the ordinary recurrence with f_0=f_1=1.",
+      "residual_risks": [
+        "Finite source checks are supporting only; the all-k argument was independently reconstructed.",
+        "The set-valued claim has no automatic multiset analogue and does not bound other fiber sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vatter abstract proves reconstruction at n>=3k+1 and states sharpness by a collision at n=3k; the frozen reference credits (12)^k and (21)^k with this deck.",
+          "The same-day one-deletion sphere finding gives maximum 2k with k+1 maximizers at size 3k."
+        ],
+        "reasoning": "A sharp reconstruction threshold and a collision witness are weaker than an exact inverse list for that collided deck. A scalar maximum for a different deletion depth does not prescribe the full lower-weight set.",
+        "searches": [
+          "Vatter arXiv:math/0610477v1, sharp threshold and critical boundary",
+          "Resultary 0d29c1ef3c8e, one-deletion sphere spectrum"
+        ]
+      },
+      "checked_sources": [
+        "Vatter arXiv v1 passage and frozen attribution in RESULT.md",
+        "Raykova p. 1",
+        "Resultary target bd47d6c96416 and distinct entries 0d29c1ef3c8e, 4137b27333a1, e75b073e3080"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the frozen family the distinct one-deletions consist of one for each of the k twos and one for each of the k nonempty one-gaps, so these are indeed the k+1 sphere maximizers if the catalogue count is used.",
+          "The frozen proof requires a specific missing weight-2k read when two gaps are empty and proves universal embeddability for the remaining family."
+        ],
+        "reasoning": "Even recognizing the same maximizers from the prior count and volume formula does not give equality of the k-deletion deck or exclude other sources from that fiber without a bridge between the two observations. The proved bridge and the exact bidirectional deck statement are the remainder.",
+        "searches": [
+          "Vatter critical example as cited in RESULT.md lines 61–65",
+          "Resultary one-deletion sphere finding and volume formula 0d29c1ef3c8e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vatter arXiv:math/0610477v1 p. 1 defines the set of all weight-(n-k) subcompositions.",
+          "Raykova p. 1 discusses sets and multisets of permutation minors in the layered setting.",
+          "Resultary 4137b27333a1 is a two-common-single-minor graph, not complete k-deck equality."
+        ],
+        "reasoning": "Layered minors realize the ordered subcomposition model, but sharing a fixed number of single-deletion reads is not equality of weight-2k sets. Multiplicity-preserving contiguous substring-composition reads (record e75b073e3080) are not the same observation at all.",
+        "searches": [
+          "Composition reconstruction at the critical boundary n=3k, Vatter and layered permutation reconstruction",
+          "Resultary: layered-permutation deletion decks, exact fibers, and composition reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact frozen self-match ending bd47d6c96416; distinct hits 0d29c1ef3c8e, 4137b27333a1, e75b073e3080 do not state the same deck/fiber in inspected findings."
+        ],
+        "reasoning": "A table of the familiar Fibonacci read counts would count the reads, not the sources. The equal k+1 count for maximizers of a different observable needs an implication check, not a priority inference.",
+        "searches": [
+          "Resultary search for the Fibonacci composition deck's exact inverse fiber and layered deletion counts"
+        ]
+      },
+      "rationale": "Pass for the complete inverse fiber, not for the threshold or the extreme collision credited to Vatter. The closest same-day entry concerns one-deletion sphere volumes and can single out the same family at weight 3k, but does not give the exact weight-2k deck or characterize its preimages by the stated volume formula. No priority is assigned from the catalogue dates. Available primary and catalogue statements do not cover both directions of the exact fiber theorem; older or additional uninspected statements cannot be excluded.",
+      "residual_risks": [
+        "Exact Vatter body wording and any explicit same-day sphere maximizer-list wording were not verified in accessible passages.",
+        "An earlier full-fiber result in reconstruction terminology or layered disguises remains possible; no absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified threshold and existence of boundary collision; credited exact endpoint pair as attributed in frozen record, not as an independently inspected body statement",
+          "evidence": "The abstract states recovery from the set of k-deletions at n>=3k+1 and existence of distinct colliding compositions of 3k.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0610477",
+          "material_read": "Public arXiv v1 p. 1 abstract and beginning of introduction; exact body passage about the composition witness not accessible in the bounded retrieval",
+          "method": "Public arXiv abstract/PDF preview; attempted passage reader and identified public HTML alternate",
+          "title": "Reconstructing Compositions",
+          "trigger": "Original sharp composition reconstruction theorem and boundary example"
+        },
+        {
+          "assessment": "Antecedent formulation; the inspected passage does not state this fiber",
+          "evidence": "Frames reconstruction from sets or multisets of permutation minors and treats layered permutations.",
+          "identifier_or_url": "https://www.cs.columbia.edu/~mariana/papers/perm_reconstruct.pdf",
+          "material_read": "Page 1 abstract",
+          "method": "Lawful public source",
+          "title": "Permutation Reconstruction from Minors",
+          "trigger": "Layered-permutation formulation of the same reconstruction problem"
+        },
+        {
+          "assessment": "Same family identifiable for another observable, but no stated complete Fibonacci deck characterization",
+          "evidence": "Single-deletion volume maximum 2k attained by k+1 layered permutations at weight 3k.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-one-deletion-sphere-spectrum-and-gaussian-law-for-layered--0d29c1ef3c8e",
+          "material_read": "Finding and one-deletion volume formula; exact prior extremizer-list wording unresolved",
+          "method": "Configured Resultary comparison",
+          "title": "Exact one-deletion sphere spectrum and Gaussian law for layered permutations",
+          "trigger": "Same size 3k and k+1 extremizers for a deletion observable"
+        },
+        {
+          "assessment": "Different overlap predicate",
+          "evidence": "Two distinct common standardized one-entry-deletion outputs do not define the present full k-deck.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-two-read-common-minor-graph-of-layered-permutations-exact-co--4137b27333a1",
+          "material_read": "Indexed statement",
+          "method": "Configured Resultary search",
+          "title": "The two-read common minor graph of layered permutations",
+          "trigger": "Same class and deletion-minor relationship"
+        },
+        {
+          "assessment": "Different input and observation model",
+          "evidence": "Counts multiplicities of indexed contiguous substring compositions rather than the set of componentwise subcompositions at one weight.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-saturation-and-exact-fibers-for-length-at-most-three-binar--e75b073e3080",
+          "material_read": "Indexed statement",
+          "method": "Configured Resultary search",
+          "title": "Sharp saturation and exact fibers for length-at-most-three binary substring composition reads",
+          "trigger": "Similar language of composition reads and exact fibers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 25–55 and 61–69",
+        "Vatter abstract's reconstruction boundary"
+      ],
+      "rationale": "This measures an entire natural ambiguity class at the sharp recovery boundary, replacing a known two-witness collision with the exact linearly growing list and an explicit missing-read obstruction for other candidates. The shortest-missing-weight proof is a structural explanation of why every listed source—not merely the endpoint pair—produces the same complete observation.",
+      "residual_risks": [
+        "No claim about the largest possible ambiguity at the boundary or its distribution across all decks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

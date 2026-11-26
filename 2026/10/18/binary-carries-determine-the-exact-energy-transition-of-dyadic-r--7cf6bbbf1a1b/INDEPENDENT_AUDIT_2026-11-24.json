@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:21:57.773251Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Haar averaging over the two lifts of a residue changes the sign of the next cosine, giving consistent positive cylinder masses 2^(-N)R_N. Squaring each factor gives digit weights h_0=1+a²/2, h_±1=a, h_±2=a²/4. In the Fourier sum, the congruence is modulo 2^N, so all three terminal carries, not just zero, count. The even digit-plus-carry transition yields states -1,0,1, with the two signed states having equal weight, and gives the stated matrix, trace and determinant. The characteristic polynomial is positive at 0, negative at 1 and positive at 2; S_0=1 and S_1=1+a² fix the two-root formula and the positive leading weight. The level-N collision probability is 2^(-N)S_N and tends to zero. Telescoping the kernel between adjacent scales gives a nonnegative energy sum with multiplier 1-2^(-s), also valid truncated at N by capping the valuation. The generating function, convergence threshold, pole and linear critical truncation all follow from the two roots; the smaller root contributes boundedly at criticality. An independent finite computation at a=1/2, N=4 gave S_4=4633/2048 via all 625 digit tuples and agreed with the direct residue average and the transfer. Source: /workspace/branches/c70fc0f0-dc2e-4174-ac8c-981994cb03fb/independent_carry_check.py. The frozen checker was inspected, not executed; no finite check establishes the all-level theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Liao proves general energy identities and gives a general p-adic Fourier-dimension formula. Its introduction distinguishes the earlier odd-prime treatment from the dyadic case; the Fan–Zhang paper itself was not read in full."
+        ],
+        "reasoning": "A general energy identity expresses the answer in terms of quantities still needing computation. Odd-prime dissociation does not remove the adjacent-conductor carry terms mod 2^N.",
+        "searches": [
+          "Liu–Liao arXiv:2609.22881, Theorems 1.1–1.3 and 1.7",
+          "Fan–Zhang DOI 10.1007/s00041-009-9059-z"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.22881",
+        "Resultary c21b5651cd7f",
+        "Resultary e02bef66608e",
+        "DOI 10.1016/j.jmaa.2009.03.067 (bibliographic only)",
+        "DOI 10.1007/s00041-009-9059-z (secondary comparison only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known general energy representations would turn an already known collision sequence into energies, but do not determine that sequence. The catalogue higher-moment claim does not include this p=2 finite dyadic quotient problem."
+        ],
+        "reasoning": "The new ingredient supported here is summing every terminal carry to get the exact finite-level moment. The critical pole and truncated growth are consequences of that evaluated sequence and not independent novelty claims.",
+        "searches": [
+          "arXiv:2609.22881, pp. 2–3 and 19",
+          "c21b5651cd7f, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Liao covers p=2 and consecutive conductors, giving Fourier dimension zero for constant a, whereas the collision dimension audited here is positive.",
+          "c21b5651cd7f computes circle Riesz product higher moments for p≥4 and bases q=p−1,p, with circle integration rather than the dyadic congruence. e02bef66608e studies moments of lacunary Dirichlet kernels, not this measure."
+        ],
+        "reasoning": "The same product does not make the two dimensions equivalent. The carry-method relatives work with different weights, hypotheses or terminal conditions and do not establish the asserted dyadic formula.",
+        "searches": [
+          "Liu–Liao arXiv:2609.22881, Theorem 1.7 and Proposition 4.7",
+          "Resultary dyadic Riesz product carry search: c21b5651cd7f and e02bef66608e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related exact spectral evaluations in the indexed records are of different moment problems. The historical dyadic article DOI was identified, but full results were not accessible to check for an S_N recurrence or an equivalent evaluable formula."
+        ],
+        "reasoning": "No matching exact table or expression was established by those comparisons; the inaccessible article and the non-decisive external query do not show that none exists.",
+        "searches": [
+          "Resultary exact carry-growth and critical energy search: c21b5651cd7f, e02bef66608e",
+          "Zhang DOI 10.1016/j.jmaa.2009.03.067"
+        ]
+      },
+      "rationale": "The supported distinction is the exact L² transfer and evaluated energy of the constant real-amplitude consecutive dyadic measure. Generic energy/Fourier identities and a Fourier-dimension theorem for the same object are antecedents, not this evaluation. The most plausible historical same-object full-text comparison remains unresolved; there is no verified prior equivalent in the material inspected.",
+      "residual_risks": [
+        "Zhang 2009 may contain an exact or equivalent carry or energy computation; its full text could not be inspected.",
+        "Equivalent transfer evaluations in other Riesz-product or transfer-operator literature are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object appears, but the specialized dimension theorem is for Fourier dimension; energy identities do not evaluate the collision norm",
+          "evidence": [
+            "Theorem 1.7 gives Fourier dimension zero in the constant-amplitude consecutive dyadic case; Proposition 4.7 considers adjacent conductor indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.22881",
+          "material_read": "PDF pp. 2–3 Theorems 1.1–1.3 and 1.7, and p. 19 Proposition 4.7 proof, consecutive conductors",
+          "method": "Open arXiv PDF, bounded passages",
+          "title": "P-adic s-energy and Fourier dimension",
+          "trigger": "Same dyadic products and general energy theorems"
+        },
+        {
+          "assessment": "Unresolved same-object comparison",
+          "evidence": [
+            "The title and citation make this material to priority; the failed retrieval does not exclude a binary carry or energy theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2009.03.067",
+          "material_read": "Bibliographic identification only, no proof or statement of an exact collision theorem read",
+          "method": "Lawful DOI lookup; full-text route denied and no identified open copy retrieved",
+          "title": "Riesz products on the ring of dyadic integers",
+          "trigger": "Strong historical same-object match"
+        },
+        {
+          "assessment": "Secondary evidence distinguishes the cited earlier treatment from p=2; not a full-content finding",
+          "evidence": [
+            "Liu–Liao says the earlier cited p-adic results did not treat p=2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-009-9059-z",
+          "material_read": "Identification and description in Liu–Liao PDF pp. 3 and 20; not the original full text",
+          "method": "Lawful DOI/PDF attempts and open secondary discussion",
+          "title": "Some Properties of Riesz Products on the Ring of p-Adic Integers",
+          "trigger": "Classical p-adic Riesz-product results, potentially broader"
+        },
+        {
+          "assessment": "Close method, different parameter range and circle moment problem; later catalogue entry",
+          "evidence": [
+            "The integer moments are p≥4 and the bases q=p−1,p, not the dyadic-group squared norm."
+          ],
+          "identifier_or_url": "Resultary c21b5651cd7f",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary search and mirrored text",
+          "title": "Two-state carry laws at the first two dependence thresholds",
+          "trigger": "Closest indexed exact carry-transfer result"
+        },
+        {
+          "assessment": "Different object and digits despite analogous moment counting",
+          "evidence": [
+            "The binary case concerns a Dirichlet-kernel fourth moment."
+          ],
+          "identifier_or_url": "Resultary e02bef66608e",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Local Resultary search and mirrored text",
+          "title": "The first carry moment transition for binary lacunary Dirichlet kernels",
+          "trigger": "Exact binary carry-moment overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first dependent conductor regime changes the scale of pair collisions on a natural compact group. An exact transfer determines both the energy threshold and its sharp coefficient, quantifying behavior that Fourier dimension zero does not describe. This is more useful than a finite numerical norm or a general unevaluated energy identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

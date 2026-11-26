@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:41:16.008625Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n=1 the graph is K_m and a nonempty dominating set must leave at most k vertices out. For n≥2, the word rule gives at most one link per vertex, tied to the symbol preceding its maximal constant suffix, and exactly one link per adjacent pair of quotient prefixes. The omitted-set relation has k residues per row (the symmetric ± offsets, plus a common diagonal bit if k is odd) with no duplicate offsets because 2 floor(k/2)≤m−1. The last two symbols of linked words are either transposes or both diagonal, so no link crosses membership. Every row clique has m−k selected vertices; domination and the limitedness bound follow inside each row. For the lower bound a nonempty row requires at least m−k selections; an empty row forces every linked endpoint on the other side to be selected and gives each neighboring row at least m−k+1 selections. In a quotient clique of size m at most one row can be empty, and then (m−1)(m−k+1)=m(m−k)+(k−1). Summation proves equality for all stated parameters. I independently reconstructed word adjacencies and checked constructions on nine instances and all smaller subsets on six of them, including S(2,4) for every k; replay: python3 /workspace/checks/frozen_review_checks.py sierpinski. The proof, not these tests, establishes the universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected foundational abstract concerns general bounds; Tepeh's abstract addresses products and Liu's concerns different domination parameters",
+          "Resultary a700d19c9c6e and 9efdac7d121b give optimizer classifications for n=2, not all depths"
+        ],
+        "reasoning": "These leads alone would not cover the full arbitrary-depth equality. However, 023a3f7ea943 covers it directly, without needing a corollary from a stronger theorem.",
+        "searches": [
+          "arXiv:2606.22422",
+          "arXiv:2606.22428",
+          "arXiv:2008.09807",
+          "Resultary: Sierpiński k-limited extremizers, n=2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:023a3f7ea943",
+        "Resultary:a700d19c9c6e",
+        "Resultary:9efdac7d121b",
+        "arXiv:2610.01584v1",
+        "arXiv:2606.22422 (abstract)",
+        "arXiv:2606.22428 (abstract)",
+        "arXiv:2008.09807 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Comparator Proof Step 1 proves at most one empty row and charges m−k+1 to the others, giving the same surplus k−1 per block",
+          "Proof Steps 2–3 use a symmetric regular relation with constant diagonal indicator, selected by the final two letters"
+        ],
+        "reasoning": "The original conjecture and its partial proofs would leave a gap; the distinct indexed comparator closes it and already proves the proposed construction in equivalent form. The additionally checked quotient description does not produce an additional claimed invariant or family.",
+        "searches": [
+          "023a3f7ea943, Proof Steps 1–3",
+          "arXiv:2610.01584v1, Conjecture 12 (p. 9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "023a3f7ea943 defines both the word adjacency rule and k-limitedness identically",
+          "Its degree-(m−k) selected relation and the frozen degree-k omitted relation use the same symmetry and uniform diagonal mechanism"
+        ],
+        "reasoning": "The comparison is not between similarly named domination parameters: both impose the same outside-neighbor bound at every dominating vertex. The last-two-symbol relation is written for selected rather than omitted vertices in the comparator.",
+        "searches": [
+          "Resultary: exact k-limited domination of every Sierpiński graph, Conjecture 12",
+          "arXiv:2610.01584v1, Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparator's Finding explicitly gives γ_k^L(S(n,m))=(m−k)m^(n−1) for n≥1, m≥2, 1≤k≤m−1 and identifies it as the full Conjecture 12",
+          "The arXiv v1 theorems give k=1 and m=3, not the full result"
+        ],
+        "reasoning": "The indexed evidence is an exact all-parameter result, not a finite table or a shared title; its theorem includes every claimed new range.",
+        "searches": [
+          "Resultary 023a3f7ea943, Finding, assumptions and proof",
+          "arXiv:2610.01584v1, Theorems 10–11 and Conjecture 12"
+        ]
+      },
+      "rationale": "Resultary 023a3f7ea943 establishes the identical conjecture, on the same classical word graph, definition and complete parameter range. It gives both an explicit final-two-symbol circulant-type construction and the same charge for an empty row within each two-level block. Complementing the selected/omitted relation and expressing the block as a quotient clique do not identify a distinct theorem or materially different mechanism. The overlap is demonstrable without adjudicating publication timestamps or authorship; the comparator's indexed path is earlier, not proof of priority by itself.",
+      "residual_risks": [
+        "Catalogue dates are not independent publication timestamps and no priority claim is made. The search also surfaced GitHub issue the-omega-institute/trureturing#12456 about preregistration; the full issue was not retrieved and the snippet was not used as proof or coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage, including essential proof mechanisms",
+          "evidence": [
+            "Same range and equality; proof charges (m−1)(m−k+1) to a block with one empty row; construction uses symmetric ± offsets and a uniform diagonal"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-limited-domination-of-every-sierpi-ski-graph--023a3f7ea943/RESULT.md",
+          "material_read": "Finding, assumptions, proof of the two-level lower bound and circulant construction",
+          "method": "Local Resultary mirror, original RESULT.md, offset 0 onward",
+          "title": "Exact limited domination of every Sierpiński graph",
+          "trigger": "Exact indexed title and all-depth formula"
+        },
+        {
+          "assessment": "Same problem; special cases proved and full statement conjectured in v1",
+          "evidence": [
+            "Theorem 10: k=1; Theorem 11: m=3; Conjecture 12 gives the full range"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01584v1",
+          "material_read": "Theorems 10–11 (p. 8) and Conjecture 12 (p. 9)",
+          "method": "Lawful OA primary PDF",
+          "title": "On k-limited domination: complexity and Sierpiński graphs",
+          "trigger": "Original conjecture and known cases"
+        },
+        {
+          "assessment": "No arbitrary-depth implication in the inspected passages; depth-two statements concern a restriction",
+          "evidence": [
+            "Product bounds or different domination definitions in the inspected abstracts; optimizer classifications impose n=2"
+          ],
+          "identifier_or_url": "arXiv:2606.22422, arXiv:2606.22428, arXiv:2008.09807; Resultary a700d19c9c6e and 9efdac7d121b",
+          "material_read": "Primary abstracts for the three arXiv papers; statements of the indexed depth-two results",
+          "method": "OA paper and local mirror",
+          "title": "Related domination papers and depth-two classifications",
+          "trigger": "Possible general theorem or optimizer classification implying the result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Resolving the full conjecture is mathematically worthwhile, but the frozen submission offers no substantial increment over the inspected all-depth solution: it neither classifies minimizers nor extends the parameter range, and its quotient formulation recasts the same empty-row charge and regular-relation construction. A second presentation of those arguments is not a distinct scientific result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

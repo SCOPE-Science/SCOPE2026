@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:42:11.622492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Projection of a diagonal subsemigroup gives a meet-closed support containing the diagonal. Each nonempty group-coordinate fiber is a subgroup since it is a finite subsemigroup of G×G. Multiplication by the diagonal at the semilattice top gives Δ_G in every such fiber. The subgroup H containing Δ_G is reconstructed uniquely from N={g:(g,1_G)∈H}; conjugation by Δ_G gives normality and right multiplication by (h⁻¹,h⁻¹) converts (g,h) into (gh⁻¹,1_G). Multiplication by the identity in a lower fiber forces reverse inclusion and that reverse inclusion suffices for multiplicative closure at meets. For a congruence the support is exactly its trace on identities, and translating along same-group-coordinate cross-level pairs forces all labels on a trace class to coincide. Quotient antitonicity follows by comparing a∧b to b whenever [a]≤[b]; the converse from the quotient labels follows from normality and antitonicity. For the chain, the congruence blocks are intervals and a k-block quotient has k+1 threshold labels, giving the binomial sum (n+3)2^(n−2), including 2 at n=1. A strict upper pair in a support has an initial segment of permitted second coordinates for fixed smaller first coordinate, forced by meeting with the diagonal; similarly below the diagonal. For sufficiency, if a meet is a strict upper pair use an input attaining its smaller first coordinate and the initial-segment rule, and reverse coordinates for a strict lower pair. This gives (n!)² supports. The n+1 diagonal cutoffs give distinct ideals in each support, so the ratio bound is strictly below χ(C_n) for n≥2. Independent NextClosure enumeration and a maximal-element downset recurrence, not the uploaded code's prefix enumeration and ambient ideal intersections, reproduced (2,17,337,12152,696076) through n=5. Replay: /workspace/branches/2b8eb76b-c8f8-4a40-9764-c0de1e1f2612/independent_d_counts.py and independent_d_counts.txt in that directory. Enumeration only checks the indicated finite counts, not the general theorem. The uploaded verifier was inspected and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 4 gives the exhaustive classical congruence reconstruction ρ_{N,τ} by kernel and trace, but Lemma 4.1 gives only an injection for diagonal subsemigroups and the discussion gives a counterexample to general surjectivity.",
+          "Theorem 4.2 bounds χ(S) above by χ(Y) for finite Clifford semigroups."
+        ],
+        "reasoning": "Identity connecting maps make Eq. (11) force equality of kernels for comparable trace-equivalent elements, hence for each trace class by meeting. This covers the congruence formula. In the diagonal injection a cross-cell label is inherited from the semilattice meet, but dropping transitivity allows additional labels; the general bound does not classify them.",
+        "searches": [
+          "arXiv:2602.17286 §4 Lemma 4.1, Eq. (11), and Theorem 4.2",
+          "Classical strong-semilattice kernel–trace construction cited in Barber–Ruškuc §4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2602.17286",
+        "arXiv:2504.02428",
+        "Resultary 1403ce12a3f1, 5c30b91e1fb0, b965c42c49d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With a simple-group fiber, the classical kernel families and supports yield (n+1)(n!)² injected relations, but their labels depend only on the meet coordinate. Already at n=2 support-cell ideals give extra relations.",
+          "The chain support profile and kernel–trace congruences alone give neither the exact sum of induced-poset ideal counts nor the extra off-diagonal freedom."
+        ],
+        "reasoning": "The group case and the Clifford injection check natural reductions and boundaries. Neither supplies or forces the new exhaustive antitone labeling on the support square; combining the stated prior enumerations does not evaluate those missing fibers.",
+        "searches": [
+          "arXiv:2602.17286 §4 and arXiv:2504.02428 Proposition 1.2",
+          "Resultary 1403ce12a3f1 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2504.02428 Proposition 1.2 supplies the subgroup case of the diagonal relation/congruence correspondence. Applied to a fiber this is the normal subgroup step, not a support theorem.",
+          "Resultary 5c30b91e1fb0 classifies the special two-level E₂×G product, with the two diagonal and two optional off-diagonal cells. It is catalogued later and does not cover arbitrary Y."
+        ],
+        "reasoning": "Compatible reflexive relations are precisely the diagonal subsemigroups being counted. The two-level parameters are the four cell labels in this case; the general lattice-order formula depends on all support cells and reverse inclusions.",
+        "searches": [
+          "Resultary diagonal compatible relations, group–semilattice products, and two-level Clifford monoids",
+          "Barber–Ruškuc arXiv:2504.02428 group diagonal subsemigroups",
+          "Barber–Ruškuc arXiv:2602.17286 §4 strong semilattice of groups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 1403ce12a3f1 gives (n!)² for C_n without the group labels. Later 5c30b91e1fb0 concerns the two-level product, not the sequence for general chains.",
+          "Barber–Ruškuc Lemma 4.1 produces only 12 relations for C₂ times a nontrivial simple group, vs. the reproduced exact 17."
+        ],
+        "reasoning": "The same-day theorem covers an exact support count but not an ideal count summed over those supports. No matching full D_n formula or exact five-term sequence was identified among the inspected hits; that is not proof of absence.",
+        "searches": [
+          "Resultary: exact diagonal subsemigroup count chain times finite simple group D_n 2 17 337 12152 696076 normal subgroup lattice downset",
+          "Resultary 1403ce12a3f1 and 5c30b91e1fb0 exact special cases"
+        ]
+      },
+      "rationale": "The distinct contribution is the exhaustive normal-lattice formula for diagonal subsemigroups of the finite constant-group product and its exact chain/simplicity specialization and quantitative DSC bound. The congruence parametrization is a direct specialization of classical kernel–trace theory; the unlabelled chain support count is also covered. Neither is a distinct originality claim here.",
+      "residual_risks": [
+        "Classical kernel–trace coverage was read in the §4 account; the original Scheiblich, Green, Petrich and Howie sources cited there were not read independently.",
+        "An older equivalent exhaustive relation theorem under strong-semilattice or subgroup-family terminology is possible. Catalogue path dates alone do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the congruence reduction and earlier inequality, but diagonal construction is not exhaustive",
+          "evidence": "Kernel–trace congruence pairs reconstruct all congruences; the diagonal-family map is expressly only an injection and yields χ(S)≤χ(Y).",
+          "identifier_or_url": "https://arxiv.org/abs/2602.17286",
+          "material_read": "§4, printed pp. 13–15, including Eq. (11), Lemma 4.1, non-surjectivity discussion and Theorem 4.2; OA offsets 39000–45390",
+          "method": "OA PDF text",
+          "title": "Comparing Numbers of Diagonal Subsemigroups and Congruences for Semigroups",
+          "trigger": "General finite Clifford semigroup and DSC theorem"
+        },
+        {
+          "assessment": "Covers the needed group-fiber facts",
+          "evidence": "Diagonal subgroups of a group square are the group congruences, and nonempty subsemigroups in the periodic group setting are subgroups.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.02428",
+          "material_read": "Proposition 1.2, PDF p. 1, OA offset 2500, and p. 5 periodic-group passage, offset 10800",
+          "method": "OA paper text",
+          "title": "Semigroup Congruences and Subsemigroups of the Direct Square",
+          "trigger": "Group-square baseline"
+        },
+        {
+          "assessment": "Covers the unlabelled chain-semigroup part, not the group-product result",
+          "evidence": "Two independent prefix systems give the exact count (n!)² and χ(C_n); no group-valued fibers in that theorem.",
+          "identifier_or_url": "Resultary 1403ce12a3f1",
+          "material_read": "RESULT.md Finding and chain parameterization",
+          "method": "Local Resultary mirror",
+          "title": "Diagonal relations of finite meet-chains: a product-of-chains theorem",
+          "trigger": "Distinct same-day result with exact chain support count"
+        },
+        {
+          "assessment": "Material narrower overlap with a later catalogue date",
+          "evidence": "Nested diagonal labels and two optional intermediate normal subgroups; no arbitrary semilattice or all-chain count.",
+          "identifier_or_url": "Resultary 5c30b91e1fb0",
+          "material_read": "RESULT.md Finding on E₂×G",
+          "method": "Local Resultary mirror",
+          "title": "Diagonal compatible relations and the sharp density exponent for two-level Clifford monoids",
+          "trigger": "Exact compatible-relations theorem for the same product at two levels"
+        },
+        {
+          "assessment": "Overlaps the congruence specialization, not arbitrary diagonal relations",
+          "evidence": "Gives the chain case of the ordinary congruence normal form along with different orbit and enriched counts.",
+          "identifier_or_url": "Resultary b965c42c49d8",
+          "material_read": "RESULT.md Finding, ordinary-congruence clause",
+          "method": "Local Resultary mirror",
+          "title": "Congruence, orbit, and enriched density laws for chain-group Clifford semigroups",
+          "trigger": "Exact normal form in the chain-group case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exhaustive model explains why different finite groups with the same normal lattice give the same inclusion lattice of compatible reflexive relations on this product. It makes exact counts and stronger quantitative bounds possible where the general Clifford result gives only an injection and inequality. The simple-group chain specialization identifies genuinely extra relations and reduces large relation counts to tractable support and ideal counts; no unrestricted Clifford classification is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

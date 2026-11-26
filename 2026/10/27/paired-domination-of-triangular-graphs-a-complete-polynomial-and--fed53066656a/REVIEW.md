@@ -1,19 +1,21 @@
-# Scientific review: paired domination of triangular graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem addresses precisely the simple graph \(T_n=L(K_n)\) for integers \(n\ge3\). The ordinary-domination part is equivalent to at most one isolated vertex in the selected-edge graph. The perfect-matching part is equivalent to even edge count in each edge-containing component; the proof supplies a constructive rooted-tree algorithm for pairing adjacent edges in every connected even-edge graph. Consequently the component characterization is both necessary and sufficient. The formal labeled-graph exponential formula follows from the connected-component decomposition, and the optimum census follows by sharply bounding component defects \(3r-v\) in every cardinality-minimum solution. Actual finite original-definition verifiers pass through seven original vertices, and the residue-class minimum counts also pass at eight vertices. The infinite assertions stand on the proof, not on the finite checks.
+PASS
 
-## Originality — PASS with residual priority risks
+An unselected edge of the clique is undominated exactly when both endpoints are unused, so at most one unused label is necessary and sufficient. A perfect matching in the selected line graph pairs selected edges at common endpoints. In a connected component, assign every non-tree edge to one endpoint and process a rooted spanning tree from its leaves: pair all currently available assigned and child edges if there are an even number, passing the parent edge up, or consume the parent edge in one pair and pair the rest if there are an odd number. At the root the unpaired count is even by global parity, proving sufficiency. In the labeled exponential formula, log A selects connected graphs, averaging its z and −z forms keeps those with an even number of edges, and (1+x)e^(−x) replaces unrestricted singleton isolates by zero or one. No perfect matching multiplicities enter. For the minimum, each edge pair covers only three labels, so b pairs must cover at least n−1 labels, giving b≥ceil((n−1)/3). Disjoint paths attain equality in the first two residue classes; in the third, two wedges sharing exactly one label form a four-edge tree and the remaining wedges are disjoint. For a component with 2r edges and v labels, the nonnegative defect 3r−v is at least r−1; total defect 3b+i−n is at most two. The only zero defect component is P3. The possible positive-defect components are a five-vertex tree (defect one), a four-edge graph on four labels (defect two), and a seven-vertex tree (defect two). This gives the listed component multisets for each residue class and choice of isolate. The factors 3/3!=1/2, 125/5!, 15/4!, and 7^5/7! count component types on blocks of labels; dividing by multiplicity factorials for repeated types gives the displayed terms across the three formulas, with the stated omissions. Boundaries n=3,4,5 are included.
 
-The research comparison included Johnson graph, triangular graph, line graph, paired domination, edge-pairing and polynomial aliases. Jiang et al. (2021, DOI 10.3934/math.2022069) discuss upper paired-domination and complexity; Lu et al. (2019, DOI 10.1016/j.dam.2018.09.005) establish general claw-free upper bounds; and the 2016 paired-domination-polynomial source introduces the invariant rather than this exact family formula. Published complete-multipartite and chain-graph polynomial records do not cover the triangular-graph family. These implications were checked by mathematical graph class and statement rather than by title alone. A general claw-free bound does not entail an all-set polynomial or optimizer counts. The two closely matched published record summaries are not full-text exclusions; an inaccessible or unindexed equivalent statement remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result solves the entire paired-domination-set classification and polynomial for a standard infinite graph family, not just its minimum. The minimum-family census reveals a nontrivial periodic classification involving arbitrary five- and seven-vertex trees and four-edge four-vertex graphs, all derived from a tight structural inequality. The formula links a natural constrained graph-placement invariant to parity-refined exponential generating functions of connected graphs. No independent audit or priority certification is claimed.
+The supported distinct result is the complete enumerator and all-residue minimum census, particularly the minimum component profiles and multiplicities for n≡0 and n≡2 mod 3. The edge-pairing criterion is a consequence of classical perfect-matching theory, and the exact n≡1 minimum type, cardinality and count are already in a distinct earlier Resultary record. Neither part is credited as new. The article's proof of those parts is useful for making the wider census self-contained.
 
-## Limitations and closest literature
+## value
 
-The theorem is specific to \(L(K_n)\) and ordinary paired domination; the polynomial and exact minimum counts are not established here for arbitrary line graphs or higher Johnson graphs. A general bound for claw-free graphs and polynomial results for nonisomorphic graph classes provide context, not proof of this result. Some plausible published sources were available only as abstracts or indexed summaries. Finite exhaustive verification is not a proof for all orders.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full counting invariant for a natural line-graph family tracks which sizes occur and with what frequency, rather than just bounding the optimum. The genuinely distinct minimum census identifies all equality configurations in the two other residues: it separates unused labels, cycles in four-edge components, and larger sparse trees. Those structural distinctions and counts are useful for studying the space of optima, as illustrated by the separate slide-graph work in the previously covered residue. The standard parity reduction or the n≡1 count alone would not support this value finding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:14:52.709506Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–83; VERIFICATION.md and verify.py (inspected, not executed)",
+        "evidence/04_order_statistics.py and evidence/04_order_statistics.txt: fixed-mask rank enumeration k=2..4, 110 rational sum comparisons, and 12 exact coupled-map moment calculations including sub-chance agreement"
+      ],
+      "rationale": "By exchangeability the two-version probability of a prescribed diagonal choice is a/k and of a prescribed off-diagonal choice is (1−a)/(k(k−1)). For the cross moment the same-cell, nonattacking, same-row and same-column contributions respectively are a_m b_n, (m−1)(n−1)/(mn), (1−b_n)/m and (1−a_m)/n. Subtracting one gives the covariance product; the variance follows from nonattacking pairs in one version. For distinct cells with repeated rows or columns, a compatible fixed mark assignment forces two singleton-version cells in any repeated row or column, in opposite versions, with off-diagonal paired-choice probability at most 1/(k(k−1)); common marks cannot participate in a repeated row or column. Multiplying over independent rows and columns bounds each fixed r-cell joint event by O_r((mn)^−r); the proportion of non-nonattacking tuples is O_r(1/m+1/n). Nonattacking tuples give precisely the product rare-event factorial moments in the limit. The same argument for marks in disjoint spatial rectangles yields their independent Poisson limits by Riemann sums. First moments bound total mass on the compact square, giving tightness, and boundary-null rectangles determine the limit. No ratio condition is used. Independently reconstructing the payoff refresh formula, with j of the candidate's competitors refreshed, a retained candidate must be largest in a pool of k+j independent draws. For a refreshed candidate, the pool has k+j+1 draws, its two draws include the global maximum with probability 2/(k+j+1), and conditional on which one wins its partner must rank first among the other version's k draws, with probability 1/k. Summing over j gives the frozen finite expression. With L retained out of k, this also gives common-argmax probability E[(L+2(k−L)/k)/(2k−L)]. The binomial concentration of L/k about q, the uniform bound of 2/k on the second contribution, and bounded continuity of x/(2−x) prove the limit including q=0,1. Substituting yields the three stated intensities and their bivariate Poisson consequences, including 1/9 shared intensity at half retention. Independent exact rank and map checks passed.",
+      "residual_risks": [
+        "The finite checks are corroboration, not the proof of the point-process limit. The limit needs both grid sizes to diverge. The refresh specialization needs independent atomless draws with common law within each table."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mimun et al. vary dependence between players' payoffs at each cell of one game, changing the marginal mean; this target keeps independent players and changes inter-version agreement",
+          "Powers and Stanford single-game results are discussed in Amiet et al.; Heinrich et al. likewise discuss Poisson(1) marginals; 620ffec54467 supplies a stronger finite PGF for one antisymmetric game"
+        ],
+        "reasoning": "A stronger theorem about the single marginal in a different model does not dominate the joint claim. Paired choice maps, their exchangeable within-pair agreement parameters and the two-version factorial moments are the additional machinery actually needed.",
+        "searches": [
+          "arXiv:2209.12967 pp. 7–9 and Proposition 3.1; arXiv:1905.10758v2 p. 4; Heinrich et al. DOI 10.1007/s00182-023-00837-4 p. 712",
+          "Resultary 620ffec54467 exact finite law"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md relationship to prior work",
+        "Resultary 278e7537a80c and 620ffec54467",
+        "arXiv:1905.10758v2, 2209.12967, 2307.01516, Heinrich et al. DOI above, and attempted Stanford full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent versions and identical versions have the same one-game law but distinct overlap and covariance",
+          "The matching result concerns overlap only in a different model; the finite argmax law here depends on ordering the retained/fresh pool and is not a consequence of a single uniform argmax"
+        ],
+        "reasoning": "Neither one-game counts nor one-game argmax exchangeability determines persistence. Standard Poisson limit and marking techniques do not supply the rate without the sparse collision bound and pair law. No stronger located theorem was found to imply this finite factorization plus the specified spatial or refresh conclusions.",
+        "searches": [
+          "Compare the coupling assumptions in arXiv:2209.12967 and arXiv:2307.01516 with the Poisson(1) passages in Heinrich et al. and Amiet et al.",
+          "Compare Resultary 278e7537a80c with every mark in the assigned claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest exact catalog hit is the assigned record. Distinct Resultary 278e7537a80c counts overlaps of independent label-exchangeable matchings",
+          "Varsos–Flouris–Bitsaki arXiv:2307.01516 pp. 1,4 examines payoff misinformation via additive structured noise and centers on 2×2 games"
+        ],
+        "reasoning": "Relabeling games as paired reciprocal choice maps preserves the claim; relabeling matchings as equilibrium maps does not give the requisite coupled law. Additive payoff perturbation also has a different pair law from independent coordinate retention.",
+        "searches": [
+          "Resultary: coupled best-response equilibrium overlap, agreement factorization, dependence across random games",
+          "Primary literature: common argmax under independent coordinate refresh and marked spatial Poisson overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "278e7537a80c gives Poisson(2/9) overlap for independent circle nearest-neighbor matchings; 620ffec54467 gives a single-game finite PGF for an antisymmetric game",
+          "The inspected evidence did not provide a separate exact finite agreement/refresh table or the marked intensity profile (ab,1−ab,1−ab) for the stated model"
+        ],
+        "reasoning": "The matching intensity and the single-game PGF are real exact comparisons, but their objects and hypotheses differ. Neither evaluates the finite cross-geometry covariance or the retention expression, including the half-retention equilibrium intensity 1/9.",
+        "searches": [
+          "Resultary: exact equilibrium count, overlap means and limiting overlap intensities",
+          "Resultary 278e7537a80c and 620ffec54467; primary refresh-argmax searches"
+        ]
+      },
+      "rationale": "The strongest inspected parallels give a single-game count law, within-game dependent payoffs, different perturbations, or overlaps of independent matchings. They do not supply the two-version agreement product, independent common and exclusive spatial populations, and coordinate-retention specialization for these reciprocal maps. The familiar one-game Poisson marginal and abstract bivariate Poisson construction are not awarded novelty by themselves.",
+      "residual_risks": [
+        "Unlocated general coupled-map Poisson or extreme-argmax concurrence work may cover some components. Stanford primary access was unavailable; the assessment records only the secondary scope actually inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Independent matching overlap, not reciprocal response maps across refresh",
+          "evidence": [
+            "Circle nearest-neighbor matchings yield a Poisson 2/9 overlap limit"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-distribution-free-overlap-calibration-and-multiscale-limits-for--278e7537a80c",
+          "material_read": "Opening finding",
+          "method": "Local published-record mirror",
+          "title": "Distribution-free overlap calibration and multiscale limits",
+          "trigger": "Exact overlaps and Poisson limits for exchangeable combinatorial maps"
+        },
+        {
+          "assessment": "Stronger for one antisymmetric game only",
+          "evidence": [
+            "Finite marginal PGF for game A,−Aᵀ"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-finite-size-equilibrium-count-law-in-random-antisymmetric--620ffec54467",
+          "material_read": "Opening finding",
+          "method": "Local published-record mirror",
+          "title": "Exact finite-size equilibrium count law in random antisymmetric games",
+          "trigger": "Exact equilibrium-count PGF potentially stronger than the finite moments"
+        },
+        {
+          "assessment": "Single-game marginal",
+          "evidence": [
+            "Poisson(1) count in one random game"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00182-023-00837-4",
+          "material_read": "PDF p. 9 (journal p. 712)",
+          "method": "OA passage inspection",
+          "title": "Best-response dynamics, playing sequences, and convergence to equilibrium in random games",
+          "trigger": "Poisson prediction in large random games"
+        },
+        {
+          "assessment": "Secondary source for earlier marginal work",
+          "evidence": [
+            "Cites Powers' single-game Poisson(1) limit and Stanford's finite/symmetric-game results"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.10758v2",
+          "material_read": "p. 4",
+          "method": "OA PDF passage inspection",
+          "title": "Amiet et al., random-game equilibrium and best-response dynamics",
+          "trigger": "Powers and Stanford earlier count theorems"
+        },
+        {
+          "assessment": "Primary text unavailable from attempted routes; no inference of absence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1287/moor.21.3.726",
+          "material_read": "No primary full-text passage from the DOI; scope supported by the Amiet et al. passage",
+          "method": "Bounded direct and alternate-route OA retrieval attempts",
+          "title": "The Limit Distribution of Pure Strategy Nash Equilibria in Symmetric Bimatrix Games",
+          "trigger": "Cited exact antecedent"
+        },
+        {
+          "assessment": "Correlation between players inside one game, not two games",
+          "evidence": [
+            "Mean number of equilibria changes with within-cell payoff correlation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.12967",
+          "material_read": "pp. 7–9, including Proposition 3.1",
+          "method": "OA PDF passage inspection",
+          "title": "Best-Response Dynamics in Two-Person Random Games with Correlated Payoffs",
+          "trigger": "Correlation and equilibrium fluctuations could overlap"
+        },
+        {
+          "assessment": "Different perturbation and grid regime",
+          "evidence": [
+            "Additive structured white noise; focus on 2×2 bimatrix games"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.01516",
+          "material_read": "pp. 1 and 4",
+          "method": "OA PDF passage inspection",
+          "title": "Noisy Games: A Study on the Effect of Noise on Game Specifications",
+          "trigger": "Equilibrium persistence after payoff perturbation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md finite formula, marked limit, half-retention example and assumptions; inspected single-game and within-game comparisons"
+      ],
+      "rationale": "Equilibrium robustness cannot be read off unchanged marginal counts. The exact factorization makes that dependence measurable by two observable agreement probabilities, while the limit distinguishes shared equilibria from appearances and disappearances with locations. The distribution-free refresh specialization quantifies the cost of perturbation in natural independent-payoff games, even for highly unbalanced growing action grids.",
+      "residual_risks": [
+        "No extension to correlated player tables, ties, additive perturbations, fixed one-sided dimensions or other stability notions is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

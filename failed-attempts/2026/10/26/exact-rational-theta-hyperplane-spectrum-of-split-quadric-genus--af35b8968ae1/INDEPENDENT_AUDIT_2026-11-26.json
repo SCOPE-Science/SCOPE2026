@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:41:47.125786Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–34, VERIFICATION.md, orbit_certificate.json, verification_output.txt and the five attached Python files; uploaded scripts inspected only",
+        "Independent reproduction: python3 /tmp/opencode/theta_check.py /workspace/source/2026/10/26/*theta-hyperplane-spectrum*/orbit_certificate.json"
+      ],
+      "rationale": "On each chart write f=a(x)+b(x)y+c(x)y^2+d(x)y^3. In characteristic two f=f_y=0 is equivalent to a+cY=b+dY=0 for Y=y^2. Where d is nonzero substitute Y=b/d into f_x squared; where c is nonzero use Y=a/c. The cross condition is ad+bc=0; a univariate polynomial gcd, saturated away from the chosen denominator, detects any common geometric root. At a=b=c=d=0, f_x has a geometric root in y iff it is nonconstant or identically zero. This supplies an exact geometric smoothness check independent of the source's Gröbner bases. The six invertible bilinear planes give graph conics: evenness is exactly the vanishing of the three odd binary-sextic coefficients. On each of the nine rank-one planes, the odd-degree restriction to either ruling must have its only odd multiplicity at their intersection; dividing by that point's linear factor leaves a nonzero square. Smooth ampleness gives irreducibility, so no hyperplane contains the curve or a ruling component; adjunction gives the canonical polarization. Independent bit-polynomial code and orbit closure under swaps and shears regenerated all five certificate fields for every orbit row: 1,075 orbits covering 65,535 equations, including 252 smooth orbits with 16,020 equations. It independently returned (5208,8076,2556,120,60) and extremal (mask, size, conic/rulings split) (0x29e3,18,2/2), (0x2de6,36,3/1), (0x7889,6,4/0).",
+      "residual_risks": [
+        "Exact finite verification in this domain, not formal proof certification. The domain counts fixed-coordinate split-quadric forms, not abstract curves or nonsplit forms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day 7cf51394236d reports an even-contact histogram on the nonsplit quadric for 27,060 smooth cubic classes. This is a different domain, not evidence about the split statistic.",
+          "The older paired total-ramification record involves the same split-curve domain and a different statistic. Pacini–Testa give geometric counts for general curves, and Xarles gives isomorphism-class equations and other invariants."
+        ],
+        "reasoning": "The general geometric theta-hyperplane count does not determine rational counts, and neither changing the ambient quadric nor the weighting works. The joint table from the older split record does dominate the frozen fixed-coordinate histogram.",
+        "searches": [
+          "Resultary 7cf51394236d, a013937b8ce5, 6b3c6b41e8c6",
+          "arXiv:2004.00955 pp. 12–13",
+          "arXiv:2007.07822 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a013937b8ce5, 7cf51394236d, 6b3c6b41e8c6",
+        "arXiv:2007.07822 and 2004.00955, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier script visits the same sorted representative f and orbit orb, and in the loop sets w=len(contact[f]), t=tangent_contact(f), even=w+len(t). Selecting even=4 immediately gives f, len(orb), w and len(t).",
+          "The earlier output already explicitly labels 10723 (0x29e3) and its even split (2,2) as side information for its own proper extremum."
+        ],
+        "reasoning": "The other two label/split rows need not have been printed before for the result to be mechanically implied: selection and projection in the existing exact census require no new smoothness, orbit or incidence computation beyond what that code already performs.",
+        "searches": [
+          "Resultary a013937b8ce5 verify_full_census.py offsets 2870–6224; full_census_output.txt offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pacini–Testa define a theta-hyperplane by even geometric multiplicities, regardless of distinctness.",
+          "a013937b8ce5 explicitly separates evenness from the squarefree/distinctness test and counts both: even = len(contact[f]) + len(tangent_contact(f))."
+        ],
+        "reasoning": "The relevant comparator is the earlier program's even column, not the proper-tritangent count in its title. It uses exactly the same geometric predicate and fixed-coordinate domain as the frozen theorem.",
+        "searches": [
+          "Resultary a013937b8ce5 RESULT.md and verify_full_census.py",
+          "arXiv:2004.00955 Definition 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier joint table marginal at even=0 is 5208; at even=1 it is 4788+3288=8076; at even=2 it is 612+1692+252=2556; at even=3 it is 48+36+36=120; at even=4 it is 6+36+18=60. No even count above four appears.",
+          "The companion Xarles data could not be read, but this affirmative earlier table is independently decisive."
+        ],
+        "reasoning": "The row is a complete weighted joint table, not a partial sample of smooth forms. Summing out the proper variable exactly gives the new table and the extremal equation count.",
+        "searches": [
+          "Resultary a013937b8ce5 full_census_output.txt, PROPER_VS_EVEN row",
+          "Xarles companion repository Censusforgenus4curvesoverF2"
+        ]
+      },
+      "rationale": "The earlier proper-tritangent record has a different headline predicate, but its released full_census_output.txt already tabulates the joint fixed-coordinate counts of proper and even-contact planes. Marginalizing the even coordinate gives exactly the advertised histogram, including the maximum and the number attaining it. Its accompanying enumerator already computes each smooth orbit representative, orbit size and constituent even-plane counts; the new extremal orbit labels and split are a direct selection of existing per-orbit quantities, with no new contact calculation.",
+      "residual_risks": [
+        "Uninspected Xarles companion data may contain older equivalences; finding the earliest appearance is not necessary to reject the present novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Affirmative exact coverage by computational attachments despite a different headline invariant",
+          "evidence": "PROPER_VS_EVEN output has the exact five-bin marginal; the existing per-orbit variables encode the further labels and splits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-three-plane-proper-tritangent-bound-for-smooth-3-3-curves--a013937b8ce5",
+          "material_read": "RESULT.md contact tests and exhaustion, offsets 2750–6650; VERIFICATION.md audit passage; verify_full_census.py exact loops, offsets 2870–6224; full_census_output.txt at offset 0",
+          "method": "Local Resultary mirror; read code without execution, then marginalized its published joint output",
+          "title": "Sharp three-plane proper-tritangent bound for smooth (3,3) curves",
+          "trigger": "Identical split domain and related proper-contact count; checked the treatment of nonreduced contacts"
+        },
+        {
+          "assessment": "Different finite domain; no priority inference from the date",
+          "evidence": "Bins (5680,13580,7020,320,460), seven maximal orbits, and five rather than nine rational quadric points.",
+          "identifier_or_url": "Resultary 7cf51394236d",
+          "material_read": "Finding and statement contrasting the split and nonsplit quadrics",
+          "method": "Local Resultary mirror",
+          "title": "Rational theta-hyperplanes of genus-four curves on the nonsplit quadric over F2",
+          "trigger": "Exact same contact predicate and same-day bound of four"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Pairs the ramified fibers of the degree-three projections, not all even canonical hyperplane divisors.",
+          "identifier_or_url": "Resultary 6b3c6b41e8c6",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Paired total-ramification spectra of binary genus-four trigonal curves",
+          "trigger": "Same split curve domain"
+        },
+        {
+          "assessment": "No target histogram in passages read; companion-file coverage unresolved and not needed for verdict",
+          "evidence": "Equations up to isomorphism and tables for point counts and L-polynomials; no verified theta column in inspected text.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07822",
+          "material_read": "p. 1 and §3 pp. 7–8; companion repository metadata only",
+          "method": "Open paper passages; attempted lawful repository and identified data-file retrieval without a readable copy",
+          "title": "A census of all genus 4 curves over the field with 2 elements",
+          "trigger": "Isomorphism census potentially covering the finite data"
+        },
+        {
+          "assessment": "Same geometric contact predicate; different counting field and scope",
+          "evidence": "Even hyperplane divisors qualify; the generic algebraically closed characteristic-two count 2^g−1 does not fix rational incidences.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.00955",
+          "material_read": "Definition 3.10 and ensuing discussion, pp. 12–13, OA offset 44297",
+          "method": "Open paper passage",
+          "title": "Complex and tropical counts via positive characteristic",
+          "trigger": "Characteristic-two definition and broader geometric count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Earlier a013937b8ce5 full_census_output.txt and verify_full_census.py"
+      ],
+      "rationale": "The fixed-coordinate rational contact distribution is a natural exact invariant. Here it is the marginal of a released exact table, and the extremal refinements are an elementary extraction from the same published per-orbit classification computation. Independent recomputation adds confidence but does not fill a new mathematical gap.",
+      "residual_risks": [
+        "This decision is claim-specific and does not rule out value for a new invariant of the census not supplied by the prior data and calculations."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

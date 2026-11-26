@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:47:14.096760Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–64; VERIFICATION.md and verify.py inspected, not executed",
+        "Complete corrected RESULT.md and SLOGAN.txt under /workspace/repairs/5/; analytic replay via the displayed comparison and profile derivations"
+      ],
+      "rationale": "Re-audited the narrowed theorem in repairs/5/RESULT.md. The displayed divergence follows from differentiating rP and completing the square; at the maximum allowed mu its zero set is one point, so recurrence exclusion by strictly negative area integral still holds, including a loop through the hyperbolic saddle. The positive-radius equilibrium determinants have opposite signs and the second trace is negative; the axis equilibrium is a sink. If a reversed stable branch stays below sqrt(5), bounded radial forcing allows infinite continuation, and once |z|>1 the sign of the linear height equation traps it there and the positive lower bound for P forces radial growth. Otherwise the branch would be bounded in both directions and the planar limit-set alternatives force a backward equilibrium. Neither forward sink can be a nonstationary backward limit, and the remaining saddle would give a forbidden homoclinic loop. This works separately for both branches. Past sqrt(5) radius is increasing; it reaches sqrt(10) since z cannot diverge at finite time under bounded radial forcing. For r^2>=10, (r^2-5)(21r^2-20)>=19r^4/2, giving reversed radial growth at least (19*mu/42)r^5. This bounds both the remaining time and the integral of r^2 up to the endpoint, so variation of constants yields a finite z_*. Then h=r^(-4) has derivative 4*mu+O(r^-2); integration first gives h comparable to Delta and then h=4*mu*Delta+O(Delta^(3/2)). Integrating the height equation gives the claimed negative coefficient, and the exact identity theta+ez-t=constant gives the positive signed phase coefficient (for e=0 the phase increment is exactly Delta). Both ends going to unbounded radius prove properness; the planar Jordan separation argument and rotation give the stated cylinder and common boundary. The axis is interior to the origin basin. The proof needs no finite trajectory simulation.",
+      "residual_risks": [
+        "The big-O constants are not uniform as mu tends to zero; the endpoint heights and times are branch-dependent. No assertion of Cartesian Hurwitzness throughout the dynamical parameter range is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day paper gives forward boundedness, convergence to the origin or one of the circles, the saddle stable set and asymptotic phase throughout 0<mu<=1764/15625 for positive angular parameter. Its Dulac argument excludes homoclinic polygons as well as periodic orbits."
+        ],
+        "reasoning": "The parameter bound strictly dominates the frozen one for the forward theorem; e drops out of the planar equations, so permitting zero and negative e does not salvage that part as a contribution. Recurrence exclusion helps the new backward argument, but the checked proof does not analyze the reversed height/radius escape alternatives or derive time singularity profiles. No same-day priority is inferred.",
+        "searches": [
+          "2026/10/18/SCOPE-an-optimal-power-dulac-certificate-extends-the-global-two-cycle--50f7b9fa53d4, Finding, Assumptions and Proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "The OA motivating paper and four exact local-mirror records above; bounded primary search using family and backward-separatrix wording",
+        "Repaired RESULT.md Finding and Relationship to prior work, and repaired SLOGAN.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first gives no periodic or homoclinic recurrence and the global forward limit sets. The two gauge records study angle conjugacy; the latter gives an outer-basin phase function."
+        ],
+        "reasoning": "The phase correction is a direct consequence of the conserved angle-height combination once the height endpoint expansion is established, and is not claimed as a separate gauge discovery. Forward limits and angular conjugacy alone do not force radial escape or height integrability in backward time; the surviving result requires the bounded-radius exclusion and quantitative r^5 growth comparison for both stable branches.",
+        "searches": [
+          "Power-Dulac same-day record, offsets 0–6625",
+          "2026/10/26/SCOPE-analytic-gauge-conjugacy-and-hurwitz-spectral-noninvariance-in-a--5bc2762ee4ff",
+          "2026/11/1/SCOPE-global-analytic-phase-gauge-conjugacy-and-a-sharp-hurwitz-obstru--41e7de6a0455"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Section 4 of the motivating paper states the stable separatrix separates two basins in the illustrated case, with mu=1/1000 and e=1/10.",
+          "The Gaussian high-altitude theorem controls the same separatrix on fixed rescaled height windows z=U/sqrt(mu) as mu decreases, with an expansion of its log radius."
+        ],
+        "reasoning": "Both refer to the same stable manifold, but neither decisive passage states both complete reversed trajectories' finite endpoint times, radial blow-up or the sharp profiles in Delta. An expansion in rescaled height at small mu is not an endpoint expansion in time at fixed mu.",
+        "searches": [
+          "Resultary: Castañeda–Rebollo-Perdomo stable separatrix finite-time backward escape, radius blow-up and exact profiles",
+          "arXiv:2610.09176v1 and paper/author search with stable separatrix backward blow-up",
+          "2026/10/25/SCOPE-gaussian-high-altitude-basin-boundary-and-asymmetric-correction--03361c09e75e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The motivating illustration uses one parameter example and gives the separating role; the later small-mu theorem gives a distinct height-window expansion. No inspected coefficient table or exact endpoint formula matches the repaired statement."
+        ],
+        "reasoning": "One sample diagram of the separator and a small-parameter graph do not specify the finite backward maximal times or the cited Delta powers and coefficients. The absence of a matching retrieved table is not an exhaustive absence claim.",
+        "searches": [
+          "Resultary queries for finite backward ends and radial/height/phase profile coefficients",
+          "arXiv:2610.09176v1 Section 4 (numerical illustration)",
+          "Gaussian high-altitude basin boundary Resultary Finding and scope"
+        ]
+      },
+      "rationale": "For the repaired claim only: both complete saddle stable branches have finite backward escape, with the three exact endpoint profiles; properness and the boundary geometry are stated as consequences. The frozen record presented the parameter-wide forward classification as part of its additional contribution. That part lacks independent distinctness: the same-family power-Dulac result establishes the forward conclusion over a larger interval for positive e, and e enters only through the angle identity. The repair removes that forward originality claim and gives explicit credit without inferring priority from same-day catalogue dates. The checked stronger theorem provides recurrence exclusion, not the two-ended backward continuation and endpoint estimates. The finite-time and profile remainder survived the bounded statement and implication checks.",
+      "residual_risks": [
+        "The search was bounded, so an unindexed equivalent backward profile theorem remains possible. The same-day forward record establishes substantive overlap, not intraday priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Periodic and qualitative basin statements covered; no backward endpoint theorem in compared passages",
+          "evidence": "Two hyperbolic cycles on the stated interval; the section labelled Numerical Illustration gives the separating stable set for the illustrated parameters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.09176v1",
+          "material_read": "Lemma 1, p. 4; Section 4, pp. 12–13",
+          "method": "OA PDF passage comparison",
+          "title": "A family of Hurwitz polynomial vector fields in R^3 having non-constant periodic orbits",
+          "trigger": "Exact motivating flow and qualitative separatrix"
+        },
+        {
+          "assessment": "Dominates the claimed forward theory for positive e; does not give backward escape/profile theorem",
+          "evidence": "Exact upper bound 1764/15625, no homoclinic polygon, and boundedness, stable-set and phase classification as t grows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-an-optimal-power-dulac-certificate-extends-the-global-two-cycle--50f7b9fa53d4/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §§1–3; offsets 0–6625",
+          "method": "Local mirror; direct assumption, theorem and proof comparison",
+          "title": "An optimal power-Dulac certificate extends the global two-cycle regime of a polynomial three-flow",
+          "trigger": "Same-day stronger whole-parameter phase portrait"
+        },
+        {
+          "assessment": "Different asymptotic variable and limit",
+          "evidence": "At z=U/sqrt(mu), gives log-radius expansion uniform for bounded U; no infinite-radius finite-time endpoint formula in these passages.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-gaussian-high-altitude-basin-boundary-and-asymmetric-correction--03361c09e75e/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–3500, 3300–6300",
+          "method": "Local mirror",
+          "title": "Gaussian high-altitude basin boundary and asymmetric correction",
+          "trigger": "Exact asymptotic theorem for the same stable separatrix"
+        },
+        {
+          "assessment": "Gauge overlap, not the two backward ends",
+          "evidence": "Real angular parameter conjugacy is treated independently of any backward radial singularity.",
+          "identifier_or_url": "2026/10/26/SCOPE-analytic-gauge-conjugacy-and-hurwitz-spectral-noninvariance-in-a--5bc2762ee4ff",
+          "material_read": "RESULT.md offsets 0–2838",
+          "method": "Local mirror",
+          "title": "Analytic gauge conjugacy and Hurwitz spectral noninvariance",
+          "trigger": "Same angular parameter and exact gauge reduction"
+        },
+        {
+          "assessment": "Conjugacy and forward outer-basin phase, not the endpoint theorem",
+          "evidence": "Gives real-parameter gauge conjugacy and an outer-basin phase function.",
+          "identifier_or_url": "2026/11/1/SCOPE-global-analytic-phase-gauge-conjugacy-and-a-sharp-hurwitz-obstru--41e7de6a0455",
+          "material_read": "RESULT.md offsets 0–3077",
+          "method": "Local mirror",
+          "title": "Global analytic phase-gauge conjugacy and a sharp Hurwitz obstruction",
+          "trigger": "Phase and lift comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired endpoint theorem and proof; motivating paper's stated numerical illustration; stronger forward-only power-Dulac theorem"
+      ],
+      "rationale": "The surviving theorem quantifies the two complete ends of a basin boundary in a standard polynomial counterexample family, separating backward incompleteness from bounded forward dynamics. It rules out trapping and height escape at bounded radius on either entire branch, and identifies the anisotropic endpoint behavior: diverging radius, finite height, and finite lifted phase. The result is not just the already described separator role or another finite radius plot.",
+      "residual_risks": [
+        "No sharp dynamical parameter threshold or formulas for the branch-specific endpoint data are supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:10.430557Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–62",
+        "VERIFICATION.md; both supplied Python scripts and recorded .out files (inspected)",
+        "python3 replay/2.py (independent reconstruction and all-pairs exchange distances)"
+      ],
+      "rationale": "The incidence graph between two- and three-subsets realizes the double cover by complementing the negative side. At a landmark, sign parity distinguishes opposite sides, while within a side the three distance classes 0,1,2 of Petersen projections map injectively to the lifted distances. Thus resolving is equivalent to resolving the projection; two distinct projected landmarks have collisions in both intersecting and disjoint cases. On five points three distinct edges have only the star, triangle, path and path-plus-edge types. The listed collision pairs exclude every nonstar type, and all seven off-landmark signatures of the star are distinct. Unique centers are preserved by a single exchange because the shared pair of distinct spokes fixes the center. Within a center, replace the differing spoke if necessary, then fix mismatched signs; each move adds exactly one shared signed vertex, proving distance 3-|S∩T| and connectivity. The shell counts follow by fixing the omitted spoke (sign choices) or changing it (three choices of newly omitted spoke, two signs on the formerly absent spoke). Independent incidence-graph Floyd–Warshall and pair-separation-mask replay verified the GP(10,3) isomorphism, the lift distance table, all 190 pairs and 1140 triples, the exact 160 bases, and every exchange distance including disconnection. It gave five 32-vertex components, degree 9, 720 total edges and shells 1,9,15,7 at every basis.",
+      "residual_risks": [
+        "The findings concern vertex metric bases of this graph and unconstrained single-landmark replacements within the bases, not redundant resolving sets or other reconfiguration moves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boutin tests a particular failed exchange for a Petersen star, and discusses inclusion-minimal sets",
+          "Frozen RESULT.md line 66 identifies the dimension of GP(10,3) as known and cites family papers; their theorem passages were not accessible in this review"
+        ],
+        "reasoning": "A failed exchange for a prescribed entrant does not imply disconnected minimum-basis reconfiguration. A scalar metric dimension formula for a broader family does not specify all optimizers or their adjacency; unread family-paper passages could still contain stronger statements.",
+        "searches": [
+          "Boutin arXiv:0808.1427 §3",
+          "Shao et al., DOI:10.1155/2018/4531958; lawful OA attempts via DOI/publisher/repository lookup",
+          "Imran et al., Ars Combinatoria 117 (2014) 113–130, family paper retrieval query"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0808.1427",
+        "arXiv:2107.04877",
+        "DOI:10.1155/2018/4531958 (access limitation)",
+        "Ars Combinatoria 117 (2014), 113–130 (access limitation)",
+        "Resultary IDs 5e4cc13d96d8, 445764726c21, 41c380ebfefc, bca08969e064, 2073aedeea3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 445764726c21 is about minimum decycling in Pappus",
+          "Resultary 2073aedeea3c proves the same distance formula for the connected basis jump graph of the truncated tetrahedral graph"
+        ],
+        "reasoning": "The common distance formula is downstream of an instance-specific basis classification; exchange failure or a partition-matroid metric in another graph cannot establish the Desargues star-center invariant or count its components.",
+        "searches": [
+          "Resultary: disconnected minimum-set exchange, exact metric-basis exchange distance",
+          "Boutin Example 1 compared to RESULT.md lines 27–56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boutin Example 1 uses the projected K5 stars on Petersen",
+          "Resultary 5e4cc13d96d8 uses the same 20-vertex graph but reconfigures edge colorings",
+          "Resultary bca08969e064 uses the same graph but edge-multiset resolving sets"
+        ],
+        "reasoning": "The graph aliases coincide, but vertex distance signatures, edge-multiset signatures and proper edge colorings define different state spaces; neither alternative reconfiguration statement translates into this minimum-landmark theorem. Petersen has no covering signs, so its star example is not the signed lift characterization.",
+        "searches": [
+          "Resultary: Desargues metric basis exchange, GP(10,3), Petersen bipartite double, signed K5 star triples",
+          "Websearch: Desargues graph metric dimension metric bases exchange graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tables 14 and 15 in the survey concern edge and mixed metric dimensions, for GP subfamilies other than this instance; p. 9 concerns strong metric dimension",
+          "Boutin p. 5 counts determining sets, not resolving bases",
+          "Resultary 41c380ebfefc reports 160 edge-resolving triples of a different 40-vertex double generalized Petersen graph"
+        ],
+        "reasoning": "None of these exact tables enumerates the signed vertex metric bases or their exchange graph. A matching count under a different metric on a different graph does not cover the claim.",
+        "searches": [
+          "Resultary exact 160 bases and five 32-vertex components",
+          "Kuziak–Yero arXiv:2107.04877v1, pp. 9,35,39"
+        ]
+      },
+      "rationale": "Credit the previously reported scalar dimension and Boutin's Petersen star example; neither is claimed as new. The distinct supported claim is complete signed classification and exchange geometry of Desargues metric bases. The closest inspected matches are materially related, but none states or supplies this exact claim.",
+      "residual_risks": [
+        "The two cited GP-family works were not independently accessible in decisive text; a stronger uninspected enumeration or an unindexed exact table cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Petersen star example and a particular exchange obstruction, not the Desargues classification",
+          "evidence": "The resolving star at 1 uses 12,13,15. The specified entrant 24 cannot replace any one landmark in that example.",
+          "identifier_or_url": "https://arxiv.org/abs/0808.1427",
+          "material_read": "§3 Example 1, printed p. 4, targeted passage at offset 11500; p. 5 determining-set comparison",
+          "method": "Primary PDF text",
+          "title": "Determining sets, resolving sets, and the exchange property",
+          "trigger": "Closest projected star and exchange precursor"
+        },
+        {
+          "assessment": "Access limitation; not used as evidence of noncoverage",
+          "evidence": "The record credits the scalar value to this work; attempted publisher routes blocked access and no OA repository copy was recovered.",
+          "identifier_or_url": "https://doi.org/10.1155/2018/4531958",
+          "material_read": "Bibliographic lead and reporting in frozen RESULT.md line 66; no theorem passage",
+          "method": "DOI, publisher and lawful OA recovery attempts",
+          "title": "The Metric Dimension of Some Generalized Petersen Graphs",
+          "trigger": "Known scalar dimension; possible stronger family result"
+        },
+        {
+          "assessment": "Residual possibility of stronger coverage; not independently ruled out",
+          "evidence": "No decisive theorem passage was available from this lead; the focused query returned unrelated material.",
+          "identifier_or_url": "Ars Combinatoria 117 (2014), 113–130",
+          "material_read": "Bibliographic reference and scientific comparison in frozen RESULT.md; no independently located full text",
+          "method": "Bibliographic identification and focused retrieval search",
+          "title": "On Metric Dimension of Generalized Petersen Graphs P(n,3)",
+          "trigger": "Exact generalized Petersen family including this graph"
+        },
+        {
+          "assessment": "Inspected tables are different invariants",
+          "evidence": "Strong, edge and mixed metric dimensions do not catalog ordinary vertex metric bases or their exchange graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.04877",
+          "material_read": "pp. 9,35,39; Tables 14–15",
+          "method": "Primary PDF targeted table inspection",
+          "title": "Metric dimension and related topics: a survey on combinatorial, computational and applied results",
+          "trigger": "Possible exact database or family table"
+        },
+        {
+          "assessment": "Different state graph, not exact coverage; no priority inferred from shared date",
+          "evidence": "Proper three-edge-colorings modulo colors and cycle switches form D disjoint union 6K_2.",
+          "identifier_or_url": "Resultary/2026/2026/10/26/5e4cc13d96d8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local record text",
+          "title": "A Desargues component inside the Desargues edge Kempe graph",
+          "trigger": "Same-day result with the same underlying graph and a reconfiguration decomposition"
+        },
+        {
+          "assessment": "Same kind of distance formula on a different graph",
+          "evidence": "The 156 bases of the truncated tetrahedral graph form a connected jump graph.",
+          "identifier_or_url": "Resultary/2026/2026/11/22/2073aedeea3c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local record text",
+          "title": "Exact metric-basis exchange and slide geometry of the truncated tetrahedral graph",
+          "trigger": "Identical pairwise exchange distance formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 25–62",
+        "Boutin Example 1",
+        "Independent all-pairs distance replay"
+      ],
+      "rationale": "A scalar dimension or failure of one exchange leaves open whether optimal landmarks can be repositioned without ever using more of them. For a canonical bipartite cover, the proof answers that question exactly: the projected star center is the persistent obstruction, while within each center the metric attains the obvious overlap lower bound. This makes the classified state space useful beyond its raw size.",
+      "residual_risks": [
+        "No assertion that other double covers or generalized Petersen graphs share the exchange structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

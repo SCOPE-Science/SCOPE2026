@@ -1,19 +1,7 @@
-# Self-review
+# Scientific review of the corrected claim
 
-## Correctness — PASS
+**Correctness — PASS.** Almost-sure rank follows from the Vandermonde determinant. The all-node collision event yields a power lower bound, including for the strict threshold used in the layer-cake integral. Conditional rotational invariance makes the square-tail law independent of a common first node. Exactly \(N-1\) windows depend on each remaining variable, so ordinary iterated Hölder bounds their simultaneous bad event without assuming they are independent. The resulting power agrees with the lower bound and gives exact moment thresholds including divergence at equality. The statistical interpretation requires the stated conditional noise second moment; independence only among the noise coordinates does not suffice.
 
-The claim addresses unnormalized consecutive Fourier sampling at \(N\ge3\) with independent Haar nodes. The collision lower estimate uses a unit coefficient vector with a zero of multiplicity \(N-1\), and its probability exponent is exactly \((m-1)/(2N-2)\). The complementary upper bound uses an exact Lagrange inverse, a stochastically dominated gamma variable, and the sum of \(k\) independent positive Gram matrices. The resulting inverse moments hold only for \(p<k/2\), never at the endpoint. The checker completed 5715 finite assertions. No finite sample is used as an infinite proof.
+**Originality — PASS, qualified.** Square inverse-tail estimates and their disjoint-block consequence are supporting facts, not the new exact rectangular result. The square and two-mode precedents do not state the matching tail power and moment threshold for rectangular systems with \(N\ge3\). Xu–Shen Theorem 6 makes the opposite assertion in the oversampled regime, using a row-pair bound invalid for tall matrices. The older random sampling literature examined in secondary full-text statements provides high-probability estimates around well conditioning; the full Bass–Gröchenig original was not available and priority remains provisional.
 
-## Originality — PASS relative to inspected material
-
-Xu–Shen (2026, Theorem 6, Appendix A.2) assert divergence in the same iid random-sampling model; the new tall-frame result gives a rigorous contrary finite regime at \(m\ge3N\). The earlier published exact square inverse-moment theorem covers \(m=N\) and can be combined with an elementary Gram-block argument to deduce a sufficient tall-model condition; that direct derivative connection is explicitly acknowledged. The two-mode circular sketch is a separate \(N=2\) result, and the Kunis–Nagel cluster estimate addresses a different row/column setting. The Bass–Gröchenig paper has a plausible title and condition-number abstract, but its full text could not be reviewed. Earlier implied coverage remains an explicit priority risk, not proof of original worldwide priority.
-
-## Value — PASS
-
-Unconditionally finite or infinite mean squared reconstruction error is a structural sampling-design distinction, not merely a fitted numerical improvement. The theorem supplies a uniform, dimension-scaled finite-risk regime and an all-cluster divergent regime, identifying a concrete limitation of universal-collision heuristics. The gap \(2N\le m<3N\) remains open by this method; no optimal threshold is claimed.
-
-## Verification and limitations
-
-The exact proof is in RESULT.md, with an independent supplementary executable CHECK.py. The sample size condition \(m\ge3N\) is sufficient only. A complete review of the older Bass–Gröchenig article was not possible. This review is not independent validation.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value — PASS.** The adaptation to overlapping blocks closes the intermediate sampling interval and gives the exact threshold for every negative moment. It distinguishes a genuine rank-loss event from isolated close pairs of rows, and turns the existence of some finite-risk regime into a precise sample requirement in the given model. It does not assert dimension-uniform risk estimates or an optimal logarithmic factor.

@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:36:29.661995Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof, Limitations; VERIFICATION.md and verify.py inspected",
+        "Independent replay: python3 /workspace/branches/repro-12.py (Swap output)"
+      ],
+      "rationale": "With common degree d=(m-1)k, the red and blue gain for exchanging a red in part i and a blue in part j is (r_i-r_j-1)/d for each. A gap of at least two guarantees both requisite seats exist; within-part swaps have zero gain. The directed monochromatic neighbor count is a constant minus 2 sum_i r_i^2, so the same balancing move strictly improves welfare by 4(r_i-r_j-1)/d; all balanced vectors have the same welfare. Choosing the larger parts and their red subsets proves the census, with endpoints R=0 and R=mk covered. For k=2, writing b<=m for a chosen minority (either color at a tie), the number of opposite monochromatic pairs is m-b+T, so every improving step consumes one of each kind until T=0. Pair-category enumeration and two- and four-seat inclusion probabilities give the law and its moments. Independently checked 4,928 labeled colorings in four networks with exact adjacency-based rational payoffs, explored all terminal path lengths for 205 two-seat colorings, and verified the unequal-part and three-seat boundary witnesses. No uploaded scripts were executed.",
+      "residual_risks": [
+        "The bounded enumeration is corroboration, not a proof for unlimited m and k. The hypotheses of equal parts, two colors, full occupancy and strict bilateral improvement are material."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Regular-graph price of stability and general inefficiency bounds do not imply payoff equality of all equilibria",
+          "daacffb64d12 gives min(P,Q) on K_{a,b} for arbitrary types, not on multipartite graphs with at least three parts; 53610bc7b976 uses closed-neighborhood single-peaked utility on K_{n,n}"
+        ],
+        "reasoning": "The closest broader results relax different axes at once. Neither biclique clock dominates the graph family here, and changing preferences affects admissible moves. No same-day priority is inferred.",
+        "searches": [
+          "arXiv:1909.02421 §4; Bilò et al., DOI 10.1007/s10458-022-09573-7, pp. 7–9; arXiv:2105.06561 p. 1",
+          "Resultary: daacffb64d12 and 53610bc7b976"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1909.02421",
+        "DOI 10.1007/s10458-022-09573-7",
+        "arXiv:2105.06561",
+        "Resultary 35b4a89b1bc4, daacffb64d12, 53610bc7b976"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite improvement or equality at a potential maximizer does not determine the number of improving steps; the frozen proof needs the specific two-seat decrement",
+          "A hypergeometric allocation model alone says nothing about the swap graph"
+        ],
+        "reasoning": "The potential result and known sampling identities give pieces, not the assertion linking every maximal path to one exact initial statistic on this topology.",
+        "searches": [
+          "Agarwal et al. Theorem 4.4; Bilò et al. pp. 7–9; catalogue biclique convergence statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4.4 identifies the welfare and potential objectives up to degree on regular graphs, but concludes price of stability one",
+          "35b4a89b1bc4 uses u(q)=-|2q-1|, not own-color utility"
+        ],
+        "reasoning": "A regular potential maximum supplies an optimal equilibrium. The target further proves each local equilibrium globally optimal by reducing it to exchange minimization of a separable quadratic. The balanced-preference game has genuinely different improving exchanges.",
+        "searches": [
+          "Resultary: equal multipartite Schelling swaps, balanced occupancies and exact convergence",
+          "Agarwal–Elkind–Gan–Voudouris arXiv:1909.02421, §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "35b4a89b1bc4 gives a labeled census for three parts with half-and-half neighborhood preference, not the target equilibrium census",
+          "The stated probability is a standard uniform allocation calculation after the hitting time is identified with the count of doubly occupied pairs"
+        ],
+        "reasoning": "The target is an arbitrary-parameter formula rather than a finite table. Its exact numerical contribution is identification of the occupancy count with the actual hitting time of every admissible path, not an independent novelty claim for a sampling law.",
+        "searches": [
+          "Resultary local catalogue: equilibrium census and exact swap lengths; inspected 35b4a89b1bc4, daacffb64d12 and 53610bc7b976"
+        ]
+      },
+      "rationale": "Credit the equal-part exact equilibrium/optimum identification with the two-seat dynamical clock, not the known regular-graph potential or the textbook occupancy law. The closest inspected catalogue records change the utility or the graph and do not give this conclusion for every population on the stated multipartite networks.",
+      "residual_risks": [
+        "Best-of-knowledge result. No independent primary search-engine hits were available in the admitted wave; the comparison rests on the inspected primary and catalogue passages, not keyword misses.",
+        "Same-day record ordering is unresolved; mathematical differences, not timing, separate the claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers existence of an optimal equilibrium, not all-equilibrium optimality or the clock",
+          "evidence": "PoS=1; welfare equals the potential divided by degree and a global potential maximizer is stable.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.02421",
+          "material_read": "OA PDF §4, Theorem 4.4 p. 12 (text offsets 48,800–51,300)",
+          "method": "Bounded primary-text inspection",
+          "title": "Swap Stability in Schelling Games on Graphs",
+          "trigger": "Same strict swap model, theorem for all regular graphs"
+        },
+        {
+          "assessment": "Overlapping potential and inefficiency background",
+          "evidence": "Discusses regular-graph PoS and general bounds, without the equal-part characterization in the passages checked.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-022-09573-7",
+          "material_read": "OA full-text pp. 7–9",
+          "method": "Bounded primary-text inspection",
+          "title": "Topological Influence and Locality in Swap Schelling Games",
+          "trigger": "Broader regular topology and convergence"
+        },
+        {
+          "assessment": "Contextual, not evidence about every part of the paper",
+          "evidence": "States computational-hardness and edge/vertex-deletion robustness results.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.06561",
+          "material_read": "OA PDF p. 1",
+          "method": "Bounded primary-text inspection",
+          "title": "Equilibria in Schelling Games: Computational Hardness and Robustness",
+          "trigger": "Related strict swap model"
+        },
+        {
+          "assessment": "Distinct utility, three-part census",
+          "evidence": "Utility is -|2q-1| in opposite-color fraction q.",
+          "identifier_or_url": "Resultary 35b4a89b1bc4",
+          "material_read": "Mirrored result statement, offset 0",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Equilibrium hyperplanes and an exact census for balanced neighborhoods",
+          "trigger": "Identical part topology and exact census"
+        },
+        {
+          "assessment": "Matching dynamical question on a non-dominating topology",
+          "evidence": "On fully occupied K_{a,b}, every maximal path has length min(P,Q) for its defined imbalances.",
+          "identifier_or_url": "Resultary daacffb64d12",
+          "material_read": "Mirrored result statement, offset 0",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Order-independent swap lengths for multitype Schelling games on bicliques",
+          "trigger": "Same utility and every-path length"
+        },
+        {
+          "assessment": "Different topology, populations and payoff",
+          "evidence": "Balanced K_{n,n}, closed-neighborhood single-peaked utility.",
+          "identifier_or_url": "Resultary 53610bc7b976",
+          "material_read": "Mirrored result statement, offset 0",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "A three-regime equilibrium and exact convergence law for balanced bicliques",
+          "trigger": "Convergence and random starts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Proof, Limitations; exact bounded replay"
+      ],
+      "rationale": "The characterization closes the distinction between some equilibrium and every equilibrium in a natural regular family. The two-seat theorem determines exactly how many swaps even an adversarial choice of improvements must use, and therefore yields the exact random-start law without a stochastic swap rule. The three-seat witness shows why strict welfare increase alone is inadequate for that prediction.",
+      "residual_risks": [
+        "No exact clock is asserted for general part sizes or dynamics outside the stated game."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

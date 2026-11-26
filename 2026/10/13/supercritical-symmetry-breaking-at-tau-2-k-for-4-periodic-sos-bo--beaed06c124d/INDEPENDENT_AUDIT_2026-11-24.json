@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:25:35.912473Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–112, VERIFICATION.md and verify.py",
+        "Haydarov–Rozikov arXiv:2110.10078v1 Eq. (2.2), Lemmas 2–3",
+        "Henning et al. arXiv:1902.04909 Eq. (3.23)",
+        "Henning–Külske arXiv:2002.09363 Theorem 5"
+      ],
+      "rationale": "The published system and its larger shared root are the ones in the Finding. In s=(a+b)/2 and d=(a−b)/2, the two equations are equivalent to G=0 and dH=0, with G,H polynomials in s,u=d²,τ after extending the divided difference. At (x,0,τ₂), put B=k−(k−1)x² and use x^(k−1)B=1 and k(2x−τ₂)x^(k−1)=−τ₂. Direct differentiation gives G_s=2x/B, G_τ=x(1−1/B), G_u=−k/x²; H_s=2k/B−2k/x², H_τ=1−k/B, H_u=−k(k−2)/(3x³), including the vanishing k=2 term. Hence the (s,τ) determinant is 2(k−1)[k−(k+1)x²]/(xB)>0. Cramer's rule gives τ'(0)=(H_s G_u−G_s H_u)/det=C_k exactly as printed; the denominator and numerator are positive since x²<k/(k+1). Inverting this analytic local curve gives exactly two positive unequal ordered solutions above the threshold and none at or below within the neighborhood, with amplitude 2/√C_k and error O((τ−τ₂)^(3/2)). The symmetric diagonal persists by G_s>0. Swapping is a shift by two height classes; unequal a,b force minimal period four. The Henning–Külske identifiability theorem independently certifies that the resulting GGM cannot also arise from a law of smaller minimal period. Independent high-precision bisection eliminated τ using the exact divided difference at fixed d and solved the remaining original equation for k=2,3,4,8,40,120; at d=10^(−12) all six estimates (τ−τ₂)/d² matched C_k with relative discrepancy below 5×10^(−21), and the k=4 values were τ₂≈3.497359313898, A₄≈0.452949755970. The frozen checker was inspected, not executed. Its amplitude comparison builds d from the predicted amplitude and thus is not an independent estimate of it; neither computation replaces the analytic proof.",
+      "residual_risks": [
+        "Local branch count and period identification only; no counts of other measures or remote solutions follow."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 2 leaves the global unequal-solution problem open for k≥4. Henning et al. gives explicit k=2 branches, including just above τ₂(2); Rozikov 2022 reviews the same family with known k=3 results and a separate q=4 system.",
+          "Resultary b45a6edf60f8 classifies a non-mirror q=5 block at k=2."
+        ],
+        "reasoning": "Small-order explicit branches cover small-order special cases, not arbitrary k. The q=5 partition is not a broader classification of these q=4 laws.",
+        "searches": [
+          "Haydarov–Rozikov Remark 2; Henning et al. §4.2 Prop. 2; Rozikov mirror symmetry q=4",
+          "Resultary: periodic SOS phase partitions across periods"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.10078v1, 1902.04909, 2203.11446, 2002.09363",
+        "Resultary f0b1042ed90f and b45a6edf60f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source computes where polynomials share roots but does not determine the sign of τ'(d²) there for general k.",
+          "Identifiability and common measures for cyclic shifts are known once a periodic law has been constructed."
+        ],
+        "reasoning": "Coincidence alone does not force a local supercritical branch, much less its amplitude; these require the transverse calculation. The measure conclusion is an application of the earlier characterization, not a new identifiability theorem.",
+        "searches": [
+          "Haydarov–Rozikov Eq. (2.2), Lemmas 2–3, Remark 2",
+          "Henning–Külske Theorem 5; Henning et al. Eq. (3.23)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Haydarov–Rozikov Eq. (2.2) is exactly the frozen system; Lemmas 2–3 give its coincidence of symmetric and unequal-cycle polynomials.",
+          "Resultary f0b1042ed90f gives reciprocal branches at θ=2/(k−1) for alternating magnetism, normalized pattern [1,1,r,r]."
+        ],
+        "reasoning": "The shared-root equality is the same algebraic starting point in the cited paper; the catalogue result cannot be mapped solely by cyclic relabeling, since it has different interactions, pattern, equations and threshold.",
+        "searches": [
+          "Resultary: 4-periodic standard SOS larger τ₂, side, normal form and amplitude",
+          "Web: later all-k or local 4-periodic alternating boundary laws near τ₂"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited paper gives τ₂ and illustrative small-order thresholds; the exact indexed analogue f0b1042ed90f has a different control parameter and family.",
+          "No inspected exact table or primary theorem gives the all-k A_k for this τ₂ in the standard model."
+        ],
+        "reasoning": "An intersection value is not a table of branch derivatives or a proof that positive unequal branches occur immediately above it. The limited search does not prove absence.",
+        "searches": [
+          "Resultary: τ₂(k) local symmetry breaking and square-root coefficient",
+          "Haydarov–Rozikov Lemma 3 and Remark 2 numeric threshold examples"
+        ]
+      },
+      "rationale": "The shared root, cyclic identification and small-order explicit branches are credited to prior work. The distinct contribution is the all-order local continuation for the standard ferromagnetic equations, with a positive coefficient and the explicit onset amplitude, in particular for k≥4. The closest catalogue pitchfork is for a different interaction and pattern. No equivalent all-order result for these equations was established in the material inspected.",
+      "residual_risks": [
+        "A local equivalent in alternate boundary-law coordinates or in weakly indexed work remains possible. The focused web search supplied bibliographic leads but no decisive new comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algebraic setup and shared-root identification, not an all-order local normal form",
+          "evidence": [
+            "The larger threshold is τ₂(k)>2(k+1)/(k−1) and the shared root is 2k/((k−1)τ₂). Remark 2 is about the full unequal-solution problem for k≥4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.10078v1",
+          "material_read": "p. 6 Eq. (2.2); pp. 8–9 Lemmas 2–3 and Remark 2",
+          "method": "OA primary PDF passages, equation and threshold comparison",
+          "title": "Gradient Gibbs measures of a SOS model on Cayley trees: 4-periodic boundary laws",
+          "trigger": "Same model, equations and larger root"
+        },
+        {
+          "assessment": "Binary special case and known shift equivalence",
+          "evidence": [
+            "Explicit binary order branches at the known threshold; cyclic shifts and positive rescaling give the same gradient measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.04909",
+          "material_read": "p. 10 Eq. (3.23); §4.2 pp. 19–20 Eqs. (4.14)–(4.16) and Proposition 2",
+          "method": "OA primary PDF",
+          "title": "Gradient Gibbs measures for the SOS model with countable values on a Cayley tree",
+          "trigger": "Explicit earlier branches and cyclic equivalence"
+        },
+        {
+          "assessment": "Same family discussed with small-order results; no all-order local amplitude in inspected passages",
+          "evidence": [
+            "Alternating odd-height law has the frozen system in (2.18), distinguished from (2.19)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.11446",
+          "material_read": "p. 3 Remark 1; p. 10 Eq. (2.18) and neighboring Eq. (2.19)",
+          "method": "OA primary PDF passages",
+          "title": "Mirror symmetry of height-periodic gradient Gibbs measures of a SOS model on Cayley trees",
+          "trigger": "Later classification of the same period and identifiability locator"
+        },
+        {
+          "assessment": "Supplies the minimal-period inference",
+          "evidence": [
+            "Equal GGMs from spatially homogeneous periodic boundary laws for the same symmetric Q must have the same minimal periods and representatives related by shift and positive scaling."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.09363",
+          "material_read": "§3.5 Theorem 5 and Corollary 1, p. 13, offsets 37850–39319",
+          "method": "OA primary theorem statement",
+          "title": "Coexistence of localized Gibbs measures and delocalized gradient Gibbs measures on trees",
+          "trigger": "Whether minimal law period genuinely determines the measure period"
+        },
+        {
+          "assessment": "Different interaction, not equivalent",
+          "evidence": [
+            "Reciprocal branches of [1,1,r,r] at θ=2/(k−1), not the standard ferromagnetic τ₂ and law (1,b,1,a)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-sharp-all-degree-threshold-for-a-4-periodic-alternating-magnetis--f0b1042ed90f",
+          "material_read": "Local mirrored Finding and scope",
+          "method": "Lawful local mirror, comparison of equations and pattern",
+          "title": "Sharp all-degree threshold for a 4-periodic alternating-magnetism boundary-law family",
+          "trigger": "Closest all-degree catalogue pitchfork"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Haydarov–Rozikov Lemma 3 and Remark 2",
+        "Frozen analytic branch calculation",
+        "Henning–Külske Theorem 5"
+      ],
+      "rationale": "The larger intersection is singled out by the published equations rather than chosen arbitrarily. Determining the local side and amplitude converts an algebraic crossing into actual period-four gradient-measure existence for all k≥4 in a stated regime, without claiming a global classification. The local mechanism and onset coefficient are meaningful data for subsequent branch analysis.",
+      "residual_risks": [
+        "The result does not count more distant solutions or classify all Gibbs measures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

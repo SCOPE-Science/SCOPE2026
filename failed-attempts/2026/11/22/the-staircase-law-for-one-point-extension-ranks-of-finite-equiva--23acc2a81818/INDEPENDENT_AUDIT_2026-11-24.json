@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:50:58.731591Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–47",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "/workspace/branches/independent_checks.py, staircase(); replay: python -B /workspace/branches/independent_checks.py 3"
+      ],
+      "rationale": "For the specified relative one-point game, an abstract move either extends a represented class or creates a new class. At depth t the first kind requires at least t unused points in each represented class independently; the second must use an untouched class of size at least t and leave the depth-(t−1) staircase among the other untouched classes. Conversely, if the depth-t capacities and staircase hold, using a point in the requested represented class or starting a largest untouched class leaves the depth-(t−1) conditions. This proves the exact local equivalence by induction including t=0 and F empty. Summing the row lower bounds forces t(t+1)/2; equality leaves exactly the staircase with distinct sizes, giving the stated multinomial. Enlarging the largest block (for t>0) fills every allowed larger order without increasing the rank beyond t, since only t classes exist. Replayed an independently written profile-game recursion for all partitions of orders 0–12 and all 71,820 choices of occupied sizes in those profiles; it agreed with the formula and the maximum rank at each order.",
+      "residual_risks": [
+        "The replay is corroboration rather than the all-size proof. Only finite structures and the extension game relative to the age of all finite equivalence relations are assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-20261122-c6b1f4492328, Finding—General component-rank theorem, treats a class partitioned into equivalence components carrying structures in a base class, not just a named family of examples.",
+          "The indexed hit for arXiv:2604.14461 identifies the defining paper but did not return a decisive passage; the bounded attempts at arXiv HTML/PDF timed out."
+        ],
+        "reasoning": "The age of all finite sets, including the empty set, with no extra relations satisfies the base pure-set specialization. Equipping the resulting components with the partition relation produces exactly the target age. The verified broader coverage does not depend on inferring contents from the inaccessible defining paper.",
+        "searches": [
+          "Resultary: component-rank staircase theorem finite unions of chains independent equivalence components local one-point-extension rank",
+          "Web: \"A rank function for Fraïssé classes and the rank property\" equivalence relations Definition 2.3 López-Callejas Navarro-Castillo 2604.14461"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 23acc2a81818, c6b1f4492328, 3296ad94c3b0 and 9ed7bdcfaad0",
+        "arXiv:2604.14461 (access limited as stated)",
+        "Frozen RESULT.md lines 5–43"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specialization gives the exact sorted-untouched-cardinalities test and every represented-class capacity test, at every F and t. Setting F empty proves the global formula. The broader source need not state the labelled census to determine it: at equality all blocks have forced distinct sizes, so their label assignments are a multinomial."
+        ],
+        "reasoning": "The triangular minimum, unique isomorphism type and maximum rank by order follow directly from the specialized formula. The label assignments are a routine count of the already determined type, not an independent additional rank phenomenon. Relative posting order was not established and is not inferred from the date.",
+        "searches": [
+          "SCOPE-20261122-c6b1f4492328, RESULT.md Finding—General component-rank theorem",
+          "SCOPE-20261122-3296ad94c3b0, RESULT.md Finding and Assumptions and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261122-c6b1f4492328, Finding—General component-rank theorem: rank at least t iff every occupied component has local rank at least t and unoccupied ranks dominate the depth-t staircase.",
+          "SCOPE-20261122-3296ad94c3b0 instead includes a unary root with at most one root per class and obtains minimum t(t+3)/2, so it is not a second copy of the unmarked formula."
+        ],
+        "reasoning": "In a pure-set component the only abstract base extension adds an unused point, so local rank equals the unused cardinality and the empty-base rank equals the full cardinality. This translation identifies every local condition in the frozen law with the component theorem's condition.",
+        "searches": [
+          "Resultary: finite equivalence relations one-point-extension rank class sizes staircase partition rank",
+          "Resultary: local extension rank represented equivalence classes unused points untouched classes staircase",
+          "Resultary: rooted staircase rank law finite partial-transversal equivalence relations exact relative rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact unmarked staircase/minimum catalogue hit at 23acc2a81818 is the target itself. Distinct hits include the explicit broader formula at c6b1f4492328, the rooted variant at 3296ad94c3b0, and the automorphism-extension-defect result at 9ed7bdcfaad0."
+        ],
+        "reasoning": "The self-match is not independent evidence, and the defect threshold is a different invariant. A separate exact table is unnecessary to establish mathematical coverage because the broader all-profile formula specializes to this very table.",
+        "searches": [
+          "Resultary: minimum size maximum rank finite equivalence relation one point extension rank",
+          "Resultary: staircase law one-point-extension rank whole age finite equivalence relations class sizes exact formula"
+        ]
+      },
+      "rationale": "A distinct published component-rank staircase theorem already provides mathematical coverage: with pure sets inside the equivalence components, it gives the full frozen local assertion, not just the case of the empty base or the same numerical threshold. The elementary extremal counting consequence does not give a materially distinct remainder. This establishes coverage in the published corpus; it does not establish which of the two same-day versions appeared first or whether either was independently discovered.",
+      "residual_risks": [
+        "Posting order within the shared publication day is unresolved. Scientific overlap is verified independently of order.",
+        "Further equivalence-relation results in the defining paper were not ruled out by the attempted retrievals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage after specializing to finite pure sets",
+          "evidence": [
+            "Occupied component ranks each at least t; sorted unoccupied component ranks dominate (t,t−1,...,1)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-component-rank-staircase-theorem-and-sharp-kernels-for-finite--c6b1f4492328",
+          "material_read": "RESULT.md, Finding—General component-rank theorem",
+          "method": "Resultary and local scientific-source inspection",
+          "title": "A component-rank staircase theorem and sharp kernels",
+          "trigger": "Plausible stronger theorem for the same rank and partition structure"
+        },
+        {
+          "assessment": "Related but different structured age and extension types",
+          "evidence": [
+            "At most one unary root per class; represented classes must be rooted for the stated positive-depth criterion; minimum t(t+3)/2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-rooted-staircase-rank-law-for-finite-partial-transversal-equiv--3296ad94c3b0",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Resultary and local scientific-source inspection",
+          "title": "A rooted staircase rank law for finite partial-transversal equivalence relations",
+          "trigger": "Similar exact local formula for equivalence relations"
+        },
+        {
+          "assessment": "No whole-paper conclusion; not the basis of the coverage finding",
+          "evidence": [
+            "The frozen paper cites Definition 2.3 for the rank; the web result confirms the article identity, not its examples."
+          ],
+          "identifier_or_url": "arXiv:2604.14461",
+          "material_read": "Indexed title and link only; Definition 2.3 and examples not independently retrieved",
+          "method": "Focused literature search and bounded OA HTML/PDF attempts",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Defining source and possible broader examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–21 and 41–43",
+        "SCOPE-20261122-c6b1f4492328, Finding—General component-rank theorem"
+      ],
+      "rationale": "The rank of this non-free-amalgamation age is a natural example and the staircase theorem is informative. But as a standalone increment over the verified broader theorem, the local and global laws are exact substitutions. The extremal size and unique type follow by row summation and equality; the only extra presentation, a multinomial for that same type and the inverse triangular bound, does not leave an independently valuable new finding to repair.",
+      "residual_risks": [
+        "An independently motivated extension beyond the current claim might be valuable; none is asserted here. No historical priority conclusion is needed for this incremental-value assessment."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

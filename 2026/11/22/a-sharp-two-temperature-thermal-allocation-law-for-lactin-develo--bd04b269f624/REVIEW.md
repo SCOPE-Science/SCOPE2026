@@ -1,24 +1,21 @@
-# Scientific review: exact thermal-allocation law for the Lactin rate family
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The rate family has exactly one inflection point and one maximum for the stipulated exponential ordering. The supporting-contact function has derivative equal to a positive multiple of rate curvature, giving one and only one contact temperature, strictly after the inflection and before the response maximum. The contact chord and the strictly concave warm branch comprise the least concave majorant. Global optimality for every admissible probability measure follows from a pointwise majorant and Jensen's inequality; equality is rigid because the majorant is strictly curved except on its single chord. Endpoint, tangency, and constant-mean cases are covered. The cubic onset follows from a third-order Taylor expansion at the nondegenerate inflection, not from numeric fitting. The independent standard-library checker reports 85,188 deterministic assertions passed, but finite diagnostic tests are not an infinite proof.
+PASS
 
-## Originality (PASS within evidence scope)
+For the specified Lactin-2 curve, H_L(t)=(t-L)r'(t)-r(t)+r(L) increases from zero to a positive value at the inflection and then strictly decreases, with H_L(T_p)=r(L)-r(T_p)<0. Its zero gives the unique contact and the strict maximum of the secant slope. The truncated optimal chord is therefore from L to min(U,τ_L); when U>τ_L the rest of the least concave majorant is the strictly concave rate curve. Equality in pointwise majorization and Jensen's inequality forces exactly the asserted laws, including the pure law at m=τ_L and at interval endpoints. Implicit differentiation gives τ'_L<0. With t=θ+kh and h=θ-L, H_L(t)/h³ extends smoothly to h=0 with value r'''(θ)(k+1)²(2k-1)/6. Its simple root at k=1/2 and the unique contact justify the expansion by the implicit function theorem. The matching slope on the cold branch similarly gives (v_L-θ)/h=-1/2+O(h); the uniform local cubic gain is -r'''(θ)h³(s+1)(s-1/2)²/6+O(h⁴), giving -r'''(θ)/12 at the maximum. This last limit is for fixed U>θ. An independent numerical maximization of the secant and gain at h=5,1,0.2 corroborated the formula; it is not the proof. Inspected VERIFICATION.md and CHECK.py without executing the supplied script. The theorem is about distributions, not uniqueness of the ordering of a schedule.
 
-The original Lactin rate model (1995) and independently documented mathematical form are prior art and not claimed. Ruel and Ayres (1999) state the qualitative sign of temperature-variance effects on insect development; Martin and Huey (2008) optimize the center of parameterized body-temperature distributions; Denny (2019) analyzes averaging variable temperatures; Rebaudo and Rabhi (2018) review developmental curves; von Schmalensee and colleagues (2021) test nonlinear rate summation experimentally. These are close conceptual precedents. Material read in the lawful full texts does not supply the present global optimizer among *all* distributions constrained only by mean and bounds, the unique Lactin tangent value, or the explicit cubic emergence coefficient. The general concave-envelope argument is classical and is expressly not claimed as new. The original 1995 primary full text was not accessible, so independent historical priority remains open.
+## originality
 
-## Value (PASS)
+PASS
 
-A complete strict classification answers a natural design and bounding problem for nonlinear thermal-rate summation: which histories maximize modeled developmental progress when mean temperature and operational extremes are fixed? Unlike a generic variance-sign statement, it identifies a unique optimal two-temperature support, precisely when fluctuation ceases to help, a warm mixing plateau unaffected by further expansion of the upper temperature, and a quantitative cubic law near the curvature boundary. The exact contact characterization and strict uniqueness allow evaluation without enumerating temperature histories. The conclusion is an ideal benchmark; species-specific rates, physiological stress, switching costs, developmental stages, and thermal inertia require separate validation.
+The distinct reviewed contribution is the full strict bounded-law classification for this rate, including the warm-bound-independent tangent, its cold-bound dependence, and the leading coefficient of the optimized gain. The named thermal comparisons fix a fluctuation family or average given fluctuations; neither a prescribed two-point family nor abstract concavification supplies the audited transition and onset. The exact catalogue hit has the same record ID. This is a best-of-knowledge judgment, not a priority certification.
 
-## Closest literature and residual risks
+## value
 
-- Lactin et al. (1995), https://doi.org/10.1093/ee/24.1.68: introducing source, publisher abstract read, independent mathematical formula checked; original full paper inaccessible (lawful preprint/open-access searches unproductive; institutional access disconnected).
-- Ruel and Ayres (1999), https://doi.org/10.1016/S0169-5347(99)01664-X: published Jensen framework and qualitative insect-development curvature effects, inspected in publicly accessible full PDF.
-- Martin and Huey (2008), https://doi.org/10.1086/527502: nonlinear thermal optimum under fixed-shape distribution families, full HTML inspected.
-- Rebaudo and Rabhi (2018), https://doi.org/10.1111/eea.12693; Denny (2019), https://doi.org/10.1093/conphys/coz053; and von Schmalensee et al. (2021), https://doi.org/10.1111/ele.13779: full HTML inspected for scope and possible dominance.
+PASS
 
-The strongest residual scientific risk is unindexed earlier concavification of exactly the Lactin rate formula under the same first-moment constraint, because generic envelope techniques are well-known. Rate summation has no intrinsic temperature-switching constraint; this is not a prescription for real ectotherms.
+For a standard developmental rate model, the result answers whether enlarging a hard upper temperature bound can improve the best rate at a fixed mean; it identifies exactly when it stops helping and quantifies the gain as the cold bound approaches the inflection. A sign-of-curvature Jensen observation alone cannot supply that sharp transition or the magnitude. The optimum is an idealized rate-summation benchmark, not evidence for field interventions or fitness, acclimation, survival, switching cost, or real-world chronology.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

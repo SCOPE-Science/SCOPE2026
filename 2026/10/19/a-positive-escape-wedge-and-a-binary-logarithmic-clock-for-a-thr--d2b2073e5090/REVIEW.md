@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem identifies a genuine nonempty open wedge and proves its forward invariance by strict coordinate inequalities. The activation lower bound produces unbounded growth and divergent consecutive-iterate ratios. Exact flux and recovery recurrences then yield the lag limits, which determine the sharp asymptotic coefficient. Conjugating the logarithmic recurrence to characteristic roots \(2\) and \(-1\) proves existence and finiteness of the growth height; a separate positive comparison gives its strict positivity. The standalone numerical checker reproduced the relevant inequalities in three contrasting parameter regimes. The argument covers only the stated sufficient region and exact arithmetic.
+PASS
 
-## Originality — PASS
+PASS applies only to /workspace/repairs/1/RESULT.md. Frozen correctness FAIL: choose a=1/2, b=k=β=k1=1, k2=α=k0=c=0, Y=0, Φ=−2, R=3. Then K=1, B=9/4 and all frozen inequalities hold. But (4,−1,0) lies in the frozen wedge and maps to activation 16e^(−5)<3, violating forward invariance and growth. The repair expressly requires Φ>0. Now 3kβφ²>4 gives x'>3x, y'<Y by recovery and Kx≤φ'≤k1x<3Kx<Kx' by flux. This supplies Kx_{n−1}≤φ_n≤k1x_{n−1}, the delayed lower bound B x_n x_{n−1}², and hence x_n/x_{n−1}→∞. The shifted recovery is O(1+x_{n−2}), and the previous flux O(x_{n−2}); dividing their updates by x_{n−1} proves the two stated lag limits. Dividing the activation by x_n x_{n−1}² leaves precisely A in the limit, because y_n<Y suppresses the exponential. In the logarithmic recurrence the exact projection 2^(−n)(z_n+z_{n−1}) has summable increments; inversion on the other component is a contraction with signed coefficient −1/2 after normalization. The B-shifted lower comparison starts with two strictly positive values and the homogeneous roots are 2 and −1, giving H≥(log x0+log x1+log B)/3>0. Monotone two-sided bounds on log x_n then give the bounded-error hitting clock. The frozen code always chooses the positive square root for Φ, so its recorded 36 finite steps and nine lag-ratio triplets cannot address the original defect and are not a convergence proof. It was inspected, not executed.
 
-The motivating original 2022 paper discusses diverging initial states graphically and examines multistability and bifurcations, but does not state an invariant escape wedge, a delayed-cubic ratio, or an exact positive \(2^n\) logarithmic height. An exact result on compact recurrent states of the zero-bias two-dimensional Chialvo map concerns a different transformation and cannot imply the three-dimensional positive-flux escape theorem. Generic superexponential-growth mechanisms may overlap analytically but no identified prior source contains the specific parameter-uniform wedge plus orbitwise sharp scale. Residual priority risk: as-yet-unindexed specialist results and supplementary material.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A numerical color denoting divergence gives no rigorous escape basin or time scale. Here a checkable open set is guaranteed to escape, while the flux-memory lag changes the effective amplification order: the logarithmic rate is base \(2\), not the base \(3\) suggested by instantaneous-flux substitution. The first-level hitting clock provides a quantitative invariant for computational diagnostics and for comparing dynamical escape to slower recurrent behavior. No global basin classification is asserted.
+The repaired finding concerns the full, quadratic-memductance three-coordinate map and establishes an explicit positive-flux invariant wedge with a binary logarithmic growth clock. Its recurrence is published and numerical escape was known. In the inspected primary and indexed statements, neither that escape region nor the orbitwise lag asymptotics are already covered. Priority beyond the bounded search is not established.
 
-## Closest literature and limitations
+## value
 
-Muni–Fatoyinbo–Ghosh (arXiv:2201.03219), full primary text; Ghosh's 2024 equation slide; Muni–Fatoyinbo–Ghosh's related numerical network follow-up (arXiv:2206.04234, abstract), and the published compact-recurrence result for the two-dimensional zero-bias Chialvo map. The sufficient cone does not describe negative-flux or nonpositive memconductance parameters, nor all initial data. Independence from pre-existing specialized tables is not certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the repaired range this settles real divergence and its precise logarithmic scale on a natural explicit open set for a published model. It explains why the true live-flux lag has binary rather than instantaneous cubic scaling. This distinguishes mathematical escape from numerical overflow without purporting to classify the entire basin.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

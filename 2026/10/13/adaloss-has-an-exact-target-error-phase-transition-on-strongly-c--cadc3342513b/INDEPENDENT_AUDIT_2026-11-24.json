@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:19:19.644817Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The deterministic recurrence matches Algorithm 1, including the updated b in the gradient step. The assumption b_0>ηL keeps the modal factors in (0,1), so the gap is bounded above by its initial value. From b_k²≤b_0²+α(|ℓ⋆−c|+G_0)k one can take b_k≤M√k for k≥1 (rescaling M in the displayed bound), giving modal decay exp(−Ω(√t)) and a summable gap. At c=ℓ⋆ this first bounds b_∞, then yields geometric bounds and summable deviations of the multipliers from their positive limits, giving nonzero prefactors. For nonzero δ, the stated basin ensures a fixed sign in the overestimate case; the sum of signed gap increments converges, giving b_t²=Dt+B+o(1), D=αδ. Expanding the logarithm of the product, the inverse-b term gives 2√t/√D, the inverse-b² term gives (log t)/D, and the centered errors and cubic terms have convergent sums. This gives the stated signed modal prefactors and, after squaring, the objective-gap asymptotic dominated by the lowest active eigenvalue, also for repeated eigenvalues. No result outside the stated overestimate basin or for stochastic/nonquadratic objectives is needed. The finite check was inspected, not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AdaLoss proves linear convergence in realizable regression with the correctly centered residual.",
+          "AdaGrad-Norm accumulates squared gradients; stochastic Polyak uses a ratio of a present gap to a squared gradient, with no cumulative discrepancy."
+        ],
+        "reasoning": "The regression theorem covers the matched-target convergence class but not a nonvanishing loss discrepancy. Neither neighboring recurrence carries over the effect of a fixed additive target error to the AdaLoss accumulator.",
+        "searches": [
+          "AdaLoss arXiv:2109.08282v1, Corollary 3.1",
+          "Xie–Wu–Ward PMLR 108, Algorithm 1 and Theorems 1–2",
+          "Loizou et al. PMLR 130, Eq. (2)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2109.08282v1",
+        "PMLR 108, Xie–Wu–Ward",
+        "PMLR 130, Loizou et al.",
+        "2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1",
+        "2026/10/12/SCOPE-l4-s-denominator-regularizer-creates-an-exact-inverse-linear-los--2ce79203d70f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining algorithm fixes the discrepancy update but does not supply a mismatched-target asymptotic. A prescribed t^−1/2 leading term alone does not ensure summable deviations in the first-order term of the logarithmic expansion."
+        ],
+        "reasoning": "Obtaining a finite nonzero normalized coefficient requires the stronger trajectory-derived control, not just the generic expected stretched-exponential rate. No reviewed theorem supplies that control for this nonzero mismatch.",
+        "searches": [
+          "AdaLoss arXiv:2109.08282v1, Algorithm 1 and Corollary 3.1; compared with prescribed t^−1/2 quadratic gradient steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2109.08282v1 Algorithm 1 is the same update under deterministic specialization.",
+          "With a prescribed inverse-square-root schedule a quadratic modal product has the same rate form. No corresponding endogenous misspecification result was identified in the inspected material."
+        ],
+        "reasoning": "Shifting the loss relative to a fixed target is equivalent to perturbing that target and does not change the Hessian. A prescribed schedule neither proves that this shift creates linear drift in the squared accumulator nor determines its coefficient α|ℓ⋆−c|.",
+        "searches": [
+          "Resultary: fixed nonzero target error AdaLoss loss-value accumulator convergence",
+          "Resultary: endogenous inverse square root stepsize exact stretched exponential with logarithmic power correction quadratic gradient descent",
+          "Web: \"AdaLoss\" \"target\" \"optimal loss\" convergence loss accumulator mismatch c target error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local Findings inspected: 2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1; 2026/10/12/SCOPE-l4-s-denominator-regularizer-creates-an-exact-inverse-linear-los--2ce79203d70f."
+        ],
+        "reasoning": "The former has an exact terminal rate for a scalar squared-gradient accumulator; the latter has a geometric versus inverse-linear contrast associated with an L4 denominator regularizer. Neither is the same recurrence and mismatch law. The catalogue lookup is bounded.",
+        "searches": [
+          "Resultary: AdaLoss target c surrogate optimum loss accumulator",
+          "Resultary: AdaGrad-Norm Polyak step size objective optimum value convergence"
+        ]
+      },
+      "rationale": "The algorithm and matched-target linear convergence class are prior work. The distinct content supported here is the persistent-error drift and sharp modal law for the endogenous loss-based accumulator, including its log-power correction and the comparison with exact targeting under the stated hypotheses. The inspected prior sources do not cover that claim.",
+      "residual_risks": [
+        "The scoped lookup is not exhaustive; a less indexed result about the exact same loss accumulator or a more general endogenous inverse-square-root schedule could overlap.",
+        "The prescribed-schedule rate shape and the correctly centered linear class are not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algorithm and matched-target rate class are known; no persistent mismatch law in the compared results.",
+          "evidence": "Algorithm 1 adds α|f_ξ(w)−c| to b², then uses η/b_new. Corollary 3.1 uses realizable linear regression and bounded scale.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.08282v1",
+          "material_read": "PDF pp. 3–5, Algorithm 1 and Corollary 3.1, text offsets near 14600, 15508 and 21558.",
+          "method": "Primary PDF passages and recurrence comparison.",
+          "title": "AdaLoss: A Computationally-Efficient and Provably Convergent Adaptive Gradient Method",
+          "trigger": "Identical loss-target algorithm and matched-target analysis."
+        },
+        {
+          "assessment": "Different accumulator; not a target-shift result.",
+          "evidence": "Algorithm 1 uses squared gradient norms, invariant under adding a constant to the objective.",
+          "identifier_or_url": "https://proceedings.mlr.press/v108/xie20a.html",
+          "material_read": "Algorithm 1 and Theorems 1–2, PDF pp. 3, 5.",
+          "method": "Primary PDF passage comparison.",
+          "title": "Linear Convergence of Adaptive Stochastic Gradient Descent",
+          "trigger": "Adaptive accumulator and linear convergence."
+        },
+        {
+          "assessment": "Different recurrence with no historical loss accumulator.",
+          "evidence": "The step divides the current sample gap by c times the squared gradient norm.",
+          "identifier_or_url": "https://proceedings.mlr.press/v130/loizou21a.html",
+          "material_read": "Eq. (2), PDF p. 3.",
+          "method": "Primary PDF passage comparison.",
+          "title": "Stochastic Polyak Step-size for SGD",
+          "trigger": "Use of optimum loss values in a step size."
+        },
+        {
+          "assessment": "Related exact geometric endpoint, not an antecedent of the mismatch law.",
+          "evidence": "The scalar accumulator depends on squared gradients.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-terminal-step-window-and-rate-nonuniformity-for-scalar-ada--aa4bf1ea51f1",
+          "material_read": "Local mirror RESULT.md Finding, beginning at offset 0.",
+          "method": "Comparison of updates and rates.",
+          "title": "Sharp terminal step window and rate nonuniformity for scalar AdaGrad-Norm",
+          "trigger": "Sharp limiting rate for an adaptive quadratic recurrence."
+        },
+        {
+          "assessment": "Analogue, not a special case or implication.",
+          "evidence": "Regularization in the locked L4 recurrence yields a t^−1 loss tail, not discrepancy-driven linear drift in b².",
+          "identifier_or_url": "2026/10/12/SCOPE-l4-s-denominator-regularizer-creates-an-exact-inverse-linear-los--2ce79203d70f",
+          "material_read": "Local mirror RESULT.md Finding, beginning at offset 0.",
+          "method": "Comparison of perturbations, denominators and rate laws.",
+          "title": "L4's denominator regularizer creates an exact inverse-linear loss tail",
+          "trigger": "Perturbation produces a different convergence class in another loss-based method."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The target is an input to AdaLoss rather than a known physical constant. The result shows, with unchanged gradients and Hessian, when misspecifying it changes the convergence class and gives explicit sensitivity in the curvature and error, not just an iteration bound. The basin and SPD quadratic limitations keep the result a precise diagnostic rather than an unsupported general robustness claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

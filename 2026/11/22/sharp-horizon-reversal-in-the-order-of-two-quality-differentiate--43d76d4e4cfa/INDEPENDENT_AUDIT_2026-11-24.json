@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:43:20.515960Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41, 45–79; VERIFICATION.md and verify.py inspected, not executed.",
+        "OPENBLAS_NUM_THREADS=1 python /workspace/checks/frozen_checks.py 2; /workspace/checks/frozen_checks.out C2 lines. The test includes H=d, q_L=0 and all three rate regimes."
+      ],
+      "rationale": "Independently write B/m=e^(−at)+1_{t≥d}e^(−a(t−d)) and the swapped quality difference (Q_HL−Q_LH)/(mΔq)=e^(−bt)−1_{t≥d}e^(−b(t−d)). Their product integrates on [0,d] to E/c and on [d,H] to −(1+e^(−ad))(1−e^(−bd))(1−z)/c, where z=e^(−c(H−d)). This proves the contrast, including H=d, since (1+e^(−ad))(1−e^(−bd))=E+D>0. The contrast decreases strictly for H>d from m²Δq E/c>0 to −m²Δq D/c. Thus it crosses once iff a<b; when a=b it stays positive at finite H and tends to zero. Solving for z=D/(E+D) gives the claimed H_c and cancellation of mass and quality. As d→0, E/d→c and D/d→b−a, giving log(2b/(b−a))/c, while the contrast is O(d) uniformly on H≥d. As d→∞, D=e^(−ad)(1−e^(−(b−a)d)) and log(1+E/D)=ad+o(1), giving the other stated limit. Four-term numerical convolution quadrature independently agrees with both displayed response pairs and sampled boundary/regime cases.",
+      "residual_risks": [
+        "Correctness is within the two prescribed pulses and the defined zero-background bilinear proxy; no empirical or arbitrary-calendar validation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "An exact generic two-kernel identity makes the derivative after d proportional to [f(H)+f(H−d)][g(H)−g(H−d)]. Even under decreasing g, at-most-one crossing does not settle existence or its horizon: the entire integrated contrast must have negative limit.",
+          "The published ecology comparator is characterized in the frozen relationship section as a richer quantity/quality model with simulated transients; no independently read passage was available to support a stronger same-model theorem."
+        ],
+        "reasoning": "Representation permits solving the specialized problem but is not itself a proven ordering law. Available indexed kernel material does not determine the lifetime contrast, the a<b condition, or the explicitly evaluated small-gap threshold.",
+        "searches": [
+          "OA passages for DOI 10.1002/ecy.4023, DOI 10.1002/ecy.2734, DOI 10.1007/s00442-011-2209-4 and DOI 10.3390/a13120328",
+          "Web literature: bilinear systems Volterra impulse-response kernel; indexed arXiv:1812.05360"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 81–94 as attributed background; Resultary 43d76d4e4cfa (self), 83a5a46641b6 and 2eb46436a2c9; indexed arXiv:1812.05360; OA attempts for cited primary papers."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The monotone-kernel reduction yields the terminal normalized contrast as ∫[f(s)g(s+d)−f(s+d)g(s)]ds, an antisymmetric cross-overlap not fixed by general monotonicity.",
+          "For the given rates that integral is −D/c; the cutoff and its positive small-gap limit additionally need the exact finite-horizon integral. None of the available comparison statements includes these conclusions."
+        ],
+        "reasoning": "The single-switch architecture is a simple consequence of monotone memory, but neither general representation nor a different control order implies the evaluated rate threshold and singular limit on the reviewed subfamily. Full-text absences are not asserted.",
+        "searches": [
+          "Resultary comparison with 83a5a46641b6 and 2eb46436a2c9",
+          "Indexed arXiv:1812.05360 and exact DOI 10.1002/ecy.4023 passage attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polarity of the swap is determined by the integral of (f(t)+1_{t≥d}f(t−d))(g(t)−1_{t≥d}g(t−d)); this is also a two-input kernel formulation of the exact problem.",
+          "Resultary's asymmetric pulse staggering/phase-only invasion switch 83a5a46641b6 involves decaying residues and periodic staggering, not assigning quality labels at two fixed times."
+        ],
+        "reasoning": "An equivalent formulation must compare the same causal label swap and accumulated product from zero initial conditions. Decaying states and bilinear interactions alone do not identify that formulation.",
+        "searches": [
+          "Resultary: two equal-mass ecological impulses with quality labels, exponential memory, and cumulative horizon order reversal",
+          "Web literature: exponential pulse ordering and bilinear/Volterra response with finite observation horizon"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact index match 43d76d4e4cfa is the assigned record itself, not independent coverage.",
+          "Distinct close hits include 83a5a46641b6 and the delayed unequal Bateman input record 2eb46436a2c9, whose indexed result classifies peak counts, not integrated bilinear order."
+        ],
+        "reasoning": "Neither a peak count nor a periodic phase optimum evaluates the given finite-horizon order contrast. No distinct exact tabulation or symbolic law for these inputs and objective was identified in the examined index.",
+        "searches": [
+          "Resultary meaning-based lookup for equal-mass exponential quality-label swap and unique finite horizon threshold"
+        ]
+      },
+      "rationale": "The supported distinct result is the full sign law and the explicit singular crossover limit for this exact continuous-time quality-swap proxy, not the impulse-response algebra, general one-switch behavior, or a solution of the cited food-web model. The strongest indexed analogues compare different controls or objectives. General kernel representations supply an evaluation framework but no identified statement covers the specific sign and thresholds. The literature decision is provisional given inaccessible material.",
+      "residual_risks": [
+        "Primary ecology and bilinear/Volterra comparison full passages were not independently retrieved. A specialized equivalent result in input-ordering language or an unread comparator remains possible; this is not a claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant scientific motivation; stronger same-object order theorem not established by available evidence",
+          "evidence": [
+            "The frozen relationship section attributes transient nutrition/quantity modelling, not the equal-mass two-label comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ecy.4023",
+          "material_read": "Frozen characterization at lines 81–87; the original full text was not obtained independently",
+          "method": "Exact OA DOI passage attempt and lawful publisher HTML alternate (403)",
+          "title": "Cascading impacts of changes in subsidy quality on recipient ecosystem functioning",
+          "trigger": "Primary quality/quantity subsidy motivation"
+        },
+        {
+          "assessment": "Context only; no whole-document finding",
+          "evidence": [
+            "The frozen text distinguishes general pulse dynamics and varied resource amount/type/frequency from a fixed two-pulse quality swap."
+          ],
+          "identifier_or_url": "DOI 10.1002/ecy.2734; DOI 10.1007/s00442-011-2209-4",
+          "material_read": "Citation and scope as reported in frozen lines 81–94; no independent full passage obtained",
+          "method": "OA DOI passage retrieval timed out",
+          "title": "A theory of pulse dynamics and disturbance in ecology; Concurrent effects of resource pulse amount, type, and frequency on community and population properties of consumers in detritus-based systems",
+          "trigger": "Pulse design, resource type and timing"
+        },
+        {
+          "assessment": "Indexed evidence describes kernel relationships; cannot exclude more specialized results in unread full text",
+          "evidence": [
+            "A general input-output expansion does not as stated classify the sign of this two-pulse objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.05360; DOI 10.3390/a13120328",
+          "material_read": "Search-index description for arXiv result; frozen generic-method citation for DOI",
+          "method": "Web literature query and pointed OA passage attempts; full passages did not load",
+          "title": "Bilinear-systems impulse-response/Volterra kernel study; Kernel Identification of Non-Linear Systems with General Structure",
+          "trigger": "Potentially covering impulse response representation"
+        },
+        {
+          "assessment": "Summary overlaps mathematical ingredients, not finite-horizon swap intervention; full text did not load",
+          "evidence": [
+            "Periodic staggering and invasion/phase objectives differ from the two fixed pulses and cumulative finite-horizon proxy."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 83a5a46641b6",
+          "material_read": "Indexed summary",
+          "method": "Resultary comparison and exact local-mirror attempt",
+          "title": "Sharp asymmetric pulse staggering and phase-only invasion switch",
+          "trigger": "Distinct indexed exact decay and bilinear pulse comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–41 and concrete reversal at line 79; independent quadrature C2."
+      ],
+      "rationale": "Holding times, total mass and qualities fixed isolates a genuine reversal in the cumulative observable, not an instantaneous-rate crossing or a comparison of different doses. The short-gap limit is useful for interpreting what a model or numerical study can detect: vanishing effect size does not push the crossover to zero. The theorem is elementary but supplies a fully solved benchmark for time-window sensitivity in a motivated two-memory model.",
+      "residual_risks": [
+        "No optimization over actual ecological schedules or general pulse calendars, and no calibration or field inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

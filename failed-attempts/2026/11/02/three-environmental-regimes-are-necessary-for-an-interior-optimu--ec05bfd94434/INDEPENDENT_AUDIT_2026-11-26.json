@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:51:11.676696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof (lines 4–65)",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Independent symbolic six-state generator calculation: python3 /tmp/opencode/frozen_review_calcs.py, section 3"
+      ],
+      "rationale": "The stationary environment marginal is independent of the speed. With row generator qG and s_i=c_i+e_i, the occupied joint masses solve (diag(s)−qGᵀ)u=diag(π)c. One regime is constant. In two regimes the positive determinant s₁s₂+q(bs₁+as₂) gives a fractional-linear function of q with derivative sign that of (s₁−s₂)(c₁/s₁−c₂/s₂), including both constant cases. For equal off-diagonal rates the rank-one structure gives u_i=(c_i/n+qP)/(s_i+nq); summing yields the claimed weighted ratio. An independent exact solve of the full six-state stationary equations reproduces P(q)=5/8+9q/[8(9q²+39q+28)]. Thus the two endpoint limits, strict improvement at all positive finite q, unique maximum by the sign of 28−9q², and the attained value are all correct. The limits do not assert ergodicity at q=0.",
+      "residual_risks": [
+        "Only stationary occupancy under autonomous switching and fixed local rates. No transient, multisite or field behavior is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The reservoir original proves an n−2 bound on interior critical points of a nonconstant stationary mean under reversible common-speed switching and supplies a sharp three-state interior maximum. Its weighted moment balance is (D−κGᵀ)m=diag(π)u with positive forcing and turnover.",
+          "Sinzger-D’Angelo, Startceva and Koeppl give the exact stationary-mean resolvent including the scalar form on p. 10 and credit an earlier queueing result."
+        ],
+        "reasoning": "Set reservoir forcing to colonization and relaxation rate to colonization plus extinction. The occupied masses and indicator-weighted mean concentration solve the same invertible system. Both the two-state obstruction (all irreducible two-state chains are reversible) and the bound of one critical point at three reversible regimes transfer. The reservoir's own witness has unequal endpoints and a path generator; it alone is not the exact complete-symmetric witness.",
+        "searches": [
+          "2026/11/22/SCOPE-environmental-state-complexity-bounds-for-extrema-of-reservoir-p--0b48c5f4ae13",
+          "10.1007/s00285-023-01973-x, §3.2 Theorem 3 and Eq. (14)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary abd89036d558, 0b48c5f4ae13, 07228a2b2f91 and 835f26b1f409",
+        "Sinzger-D’Angelo et al., 10.1007/s00285-023-01973-x",
+        "arXiv:2504.20396v1",
+        "Frozen RESULT.md prior-work and references sections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the two-habitat proof choose the benchmark 5/8 and turnover rates (2,8,14). Its interpolation basis evaluated for the target polynomial q yields coefficients (−1,8,−7)/108; scaling by 27 gives the benchmark-centered deviations (−1/4,2,−7/4). The prescribed positive-rate inequalities hold, giving exactly c=(1,7,7), e=(1,1,7). The numerator over the cleared denominator is 27q; the denominator is 24(9q²+39q+28).",
+          "The choice of polynomial uses the same printed interpolation identity for any polynomial of degree ≤2; it does not require treating 0 or infinity as admissible strictly positive benchmark crossings in the stated theorem."
+        ],
+        "reasoning": "No new Markov analysis or witness construction is needed: the linear monomial is a direct choice in the existing polynomial interpolation proof. Its missing constant and quadratic terms yield identical slow and fast endpoints, and elementary differentiation yields the maximum. The two-state no-maximum result is also immediate from the prior rational degree bound (numerator and denominator degrees at most one). Thus narrowing to the completely symmetric equal-endpoint example would not rescue originality.",
+        "searches": [
+          "Local mirror abd89036d558, rank-one formula and interpolation proof, offsets 0–7405",
+          "Local mirror 0b48c5f4ae13, balance and reversible bound proof, offsets 0–7824"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-habitat record has autonomous behavioral modes with generator sQ; movement B→A occurs at rate v_i and A→B at u_i. It explicitly derives (D−sQᵀ)x=diag(v)π for the joint masses in A."
+        ],
+        "reasoning": "Map A to occupied, B to empty, mode to environment, s to q, and (v_i,u_i) to (c_i,e_i). This is an isomorphism of the full finite chain, not just an analogy about environmental variation.",
+        "searches": [
+          "Resultary: stationary occupancy equal slow and fast switching limits strict intermediate boost complete symmetric three environmental regimes colonization extinction exact",
+          "2026/11/22/SCOPE-arbitrarily-many-habitat-ranking-reversals-from-fixed-frequency--abd89036d558"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-habitat construction uses the exact complete generator with unit off-diagonal base rates and a general interpolation basis. It prints a different worked example, with two interior crossings. The ternary-mode transition record concerns modality of a continuous stationary density, and the succession circulation record uses time reversal of a discrete-time chain."
+        ],
+        "reasoning": "Neither an exact numerical tabulation of the rates nor a match of titles is decisive. The more general exact construction recovers the witness even though its displayed example is different. The other checked records do not establish the same observable under the same speed change.",
+        "searches": [
+          "Resultary: stationary occupancy equal slow and fast switching limits strict intermediate boost complete symmetric three environmental regimes colonization extinction exact",
+          "Resultary abd89036d558, 0b48c5f4ae13, 07228a2b2f91 and 835f26b1f409"
+        ]
+      },
+      "rationale": "The threshold and even the complete-symmetric, equal-endpoint witness reduce to already indexed results under exact relabeling. Most decisively, a separate two-habitat result gives the same chain, the same complete-generator ratio and a numerator interpolation construction. Using that construction for the polynomial q instead of a polynomial with two interior roots generates the exact frozen rates and occupancy excess, as detailed below. The reservoir theorem also gives the general two-state obstruction and sharp reversible onset after identifying stationary first-moment equations. This is a statement-level coverage finding, not a historical priority judgment based on the catalogue dates.",
+      "residual_risks": [
+        "No inference about historical priority from the dates of related records. Scientific failure is based on demonstrable coverage in the available sources.",
+        "The full texts of the cited Yackulic and Fidino papers were not obtained in bounded lawful retrieval, and only abstract evidence was available for Smith. No whole-paper negative conclusions are drawn from these limitations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mechanical coverage including the equal-endpoint witness",
+          "evidence": [
+            "Same joint chain under A=occupied, with a complete-graph construction in which the polynomial numerator is specified through distinct-turnover interpolation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-arbitrarily-many-habitat-ranking-reversals-from-fixed-frequency--abd89036d558",
+          "material_read": "Finding, Assumptions, resolvent, degree argument, rank-one and interpolation construction, offsets 0–7405",
+          "method": "Resultary lookup and local mirror original RESULT.md",
+          "title": "Arbitrarily many habitat-ranking reversals from fixed-frequency behavioral switching",
+          "trigger": "Exactly equivalent two-location/mode process with complete switching"
+        },
+        {
+          "assessment": "Matching stationary first-moment equation and stronger reversible bound; different witness",
+          "evidence": [
+            "The resolvent with positive diagonal turnover has at most n−2 critical points for reversible regimes. The explicit example uses a three-state path."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-environmental-state-complexity-bounds-for-extrema-of-reservoir-p--0b48c5f4ae13",
+          "material_read": "Finding and proof from moment balance through sharpness, offsets 0–7824",
+          "method": "Local mirror original RESULT.md",
+          "title": "Environmental-state complexity bounds for extrema of reservoir pollutant concentration",
+          "trigger": "Same stationary common-speed extremum-count phenomenon"
+        },
+        {
+          "assessment": "More general stationarity method; not the specific equal-endpoint optimization theorem in the passage read",
+          "evidence": [
+            "Eq. (14) uses the linear stationary-mean resolvent; the remark gives its scalar reduction and cites O’Cinneide–Purdue (1986), which was not independently read in full."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01973-x",
+          "material_read": "p. 10, §3.2 Theorem 3, Eqs. (12)–(15), offsets 27180–30372",
+          "method": "OA original publisher PDF",
+          "title": "Bye bye, linearity, bye: quantification of the mean for linear CRNs in a random environment",
+          "trigger": "Possible general stationary-mean formula"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Mode count of a stationary density for linear relaxation, not stationary occupancy as a function of speed."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-three-to-one-stationary-mode-transition-for-symmetric-tern--07228a2b2f91",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror original RESULT.md",
+          "title": "Sharp three-to-one stationary-mode transition for symmetric ternary switching",
+          "trigger": "Same complete symmetric three-regime environment"
+        },
+        {
+          "assessment": "Different Markov model and perturbation",
+          "evidence": [
+            "Discrete-time environment reversal rather than rescaling all rates of an autonomous continuous-time environment."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-circulation-area-law-for-occupation-under-three-stage-habitat--835f26b1f409",
+          "material_read": "Finding, Assumptions and stationarity setup, offsets 0–4300",
+          "method": "Local mirror original RESULT.md",
+          "title": "A circulation–area law for occupation under three-stage habitat succession",
+          "trigger": "Same ecological subject and regime count"
+        },
+        {
+          "assessment": "Adjacent ecological context",
+          "evidence": [
+            "Deterministically varying rates and persistence/extinction criteria, not binary-patch stationary occupancy with Markov speed modulation."
+          ],
+          "identifier_or_url": "arXiv:2504.20396v1",
+          "material_read": "Abstract and introduction from offset 0",
+          "method": "OA original HTML",
+          "title": "Generalizing the Levins metapopulation model to time varying colonization and extinction rates",
+          "trigger": "Time-varying colonization/extinction literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary abd89036d558 exact construction",
+        "Resultary 0b48c5f4ae13 critical-point theorem"
+      ],
+      "rationale": "An interior occupancy gain with identical fast and slow limits is a sensible ecological question. Here the regime-count boundary transfers from an equivalent response, and even the refined witness is just a low-degree choice in an existing construction for the same model. No separate new ecological mechanism or mathematical boundary remains. The result can serve as an illustrative example, but not as an independent scientific finding under the review standard.",
+      "residual_risks": [
+        "The verdict does not address the value of an empirically constrained model or a more general stationary-response theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:27:03.758369Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definition counts nonempty distinct linear complete returns, allowing overlapping occurrences. Unary powers contribute the two respective maximum run lengths. A nonunary border must match its first transition at different transitions in its two occurrences; this excludes two-run closed factors and forces a two-run border in a four-run factor. Three-run factors are closed only with equal terminal lengths, and their zero-ended families overlap exactly when b=d. For five-run factors a border containing a 1 must center on different full 1-runs, hence requires b=d and both outer zero lengths at most c. Otherwise a unary zero border occurs just twice precisely when both outer lengths equal that border length and exceed c. The summed run counts give the formula. With x=max(u,v), y=min(u,v), the zero-run total is at least 2x+y; substitution in the equal-one-run branch and completing the square give the n^2/8 excess bound, and the unequal branch gives at most (n-1)^2/12. The stated witness yields 8t^2+6t, and padding its final zero run gives the lower limit at all lengths. The equality correction can vanish when u=v=1. The supplied enumeration was inspected, not run: its 9,592 count includes repeated tuples across two loops, and the ten witness checks in lines 45–50 are formula evaluations, not fresh direct counts. The all-parameter proof does not depend on these checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 paper gives the unrestricted asymptotic n^2/6 and names a five-run quadratic family. The 2013 paper proves a quadratic lower bound using a five-block construction. The matching catalogue entry adds rigidity to the exact five-run count and asymptotic."
+        ],
+        "reasoning": "The unrestricted leading constant and individual constructions do not yield the restricted envelope; the matching catalogue theorem actually treats it and is stronger.",
+        "searches": [
+          "arXiv:2111.00863, Example 1, Proposition 8 and conclusion",
+          "arXiv:1305.6395, Theorem 25",
+          "SCOPE-20261025-26670ba71617"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, METADATA.json, VERIFICATION.md and verify_closed_five_runs.py",
+        "SCOPE-20261025-26670ba71617",
+        "arXiv:1305.6395",
+        "arXiv:2111.00863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older papers count the empty word; adjusting by one neither gives the equality correction nor turns a general extremum into a restricted one. The catalogue match directly gives n^2/8+O(n) and uses the identical witness; the precise witness count follows from its exact formula."
+        ],
+        "reasoning": "There is documented equivalent coverage, but no established precedence between the two catalogue records. Both metadata files associate first_public_date 2021-11-01 with an entry citing arXiv:2111.00863; the inspected 2021 paper does not contain this exact five-run result, so that field cannot establish its date.",
+        "searches": [
+          "Closed-factor convention and construction in arXiv:1305.6395",
+          "Five-run example versus unrestricted optimum in arXiv:2111.00863",
+          "SCOPE-20261025-26670ba71617/RESULT.md and METADATA.json"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matching Finding writes C_+=h+j+x+y-Iz+t+t(x+y)+Ixy+r. Its identities h+x+y+r=a+c+e and j+t=b+d reduce this to n+t(x+y)+I(xy-z), with x=u, y=v, z=min(u,v), t=min(b,d), and I indicating b=d."
+        ],
+        "reasoning": "The same convention, five positive run lengths and correction apply. The rearrangement is an algebraic equivalence on the entire parameter domain, not agreement on a few instances.",
+        "searches": [
+          "Resultary semantic search for exact distinct closed-factor counts and sharp density in five-run binary words",
+          "SCOPE-20261025-26670ba71617/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue contains an exact all-lengths symbolic result at SCOPE-20261025-26670ba71617. The web query gave no useful mathematical evidence."
+        ],
+        "reasoning": "This is a symbolic five-parameter formula rather than a finite signature; the catalogue formula is more decisive than a numerical table.",
+        "searches": [
+          "Resultary exact five-run count / sharp density comparison",
+          "Web query: \"closed factors\" \"five runs\" binary words exact number closed factors"
+        ]
+      },
+      "rationale": "Distinctness in the catalogue is not established: a separate Resultary record contains the same exact formula and the same sharp five-run asymptotic and witness, and adds rigidity. This is a verified statement-level overlap, not a suspected match or a conclusion from a failed lookup. The 2026-10-25 path does not show that its result preceded the 2026-10-18 frozen record, nor establish which was independently obtained first. The older identified literature does not give the full result. No mathematically distinct part of the frozen Finding survives the exact match.",
+      "residual_risks": [
+        "Actual precedence and relationship of the two catalogue records are unestablished; the review identifies overlap, not misattribution.",
+        "Further textual equivalents may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage plus a rigidity conclusion; precedence unestablished",
+          "evidence": [
+            "Finding C_+=h+j+x+y-Iz+t+t(x+y)+Ixy+r; also the same n^2/8 leading term and witness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617",
+          "material_read": "RESULT.md Finding and run identities, and METADATA.json date/source fields",
+          "method": "Local repository mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Closed-factor spectrum and sharp density for five-run binary words",
+          "trigger": "Strongest exact same-object catalogue match"
+        },
+        {
+          "assessment": "Earlier construction, not the exact family theorem",
+          "evidence": [
+            "Uses a^k b^k a^k b^k a^(n-4k) and gives at least (k+1)(k+2)/2 factors."
+          ],
+          "identifier_or_url": "arXiv:1305.6395",
+          "material_read": "Theorem 25, PDF p. 9 (text offset 24100), and closed-factor convention",
+          "method": "Primary OA PDF text",
+          "title": "On the Number of Closed Factors in a Word",
+          "trigger": "Earliest identified five-run construction"
+        },
+        {
+          "assessment": "Quadratic example and unrestricted maximum only in the inspected statements",
+          "evidence": [
+            "Example 1 mentions a^n b a^n b a^n; the unrestricted maximum is asymptotic to n^2/6."
+          ],
+          "identifier_or_url": "arXiv:2111.00863",
+          "material_read": "Example 1, PDF p. 4; Proposition 8 and conclusion, PDF pp. 14–15",
+          "method": "Primary OA PDF text",
+          "title": "Finite and infinite closed-rich words",
+          "trigger": "Five-run example and strongest unrestricted result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical question is worthwhile independently of priority: the exact low-run formula isolates the effect of equal interior runs and the restricted sharp extremum discriminates run complexity from unrestricted quadratic growth. The submission does not add a distinct result to the matched catalogue theorem, as recorded under originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

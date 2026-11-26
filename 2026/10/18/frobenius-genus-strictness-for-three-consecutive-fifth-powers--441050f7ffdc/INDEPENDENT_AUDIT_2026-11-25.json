@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:58.637524Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected RESULT.md uses only the necessity direction of the classical three-minimal-generator theorem and proves minimality before applying it. The frozen proof quoted a shared-factor equivalence without explicitly imposing minimality or checking it in the odd branch. The unrestricted reading is false: ⟨12,21,2⟩=⟨2,21⟩ is symmetric although 2∉⟨4,7⟩ for d=3. At odd n=2m+1≥5 the middle generator w is odd; the smallest cannot be redundant; and an expression for the largest 32v using 32u and w forces the coefficient of w to be a multiple of 32. It would give v=Au+Bw; w>v forces B=0, impossible since u=m^5>1 and gcd(u,v)=1. The unique gcd pair is therefore the outer pair with gcd 32, and symmetry would imply (2m+1)^5=A m^5+B(m+1)^5. Modulo m and m², B=1+jm with 0≤jm≤30 and j≡5 mod m, excluding m≥7. In the even case there is no common-divisor pair and only the largest could be redundant; the required A≡−1 mod n exceeds ((n+1)/(n−1))^5 for n≥8. Independent replay `python3 /workspace/reproductions/fifth_powers.py` confirms all remaining odd and even candidate remainders and computes F=7501, g=3751 for ⟨32,243⟩. The residue bounds prove the infinite tails; the replay is not an infinite search. The equality/strictness statement then follows by reflecting membership about F/2. The replacement states the same valid Finding but supplies the missing applicability argument; the frozen source and its bounded verifier remain unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fel proves classifications at exponents 2, 3 and 4, with quartics symmetric at n=3,5,7. Its later discussion of fifth and higher powers contains a bounded search and questions, not a theorem encompassing all fifth-power indices. Watanabe's necessary structure concerns minimal generators and does not evaluate the membership condition for consecutive fifth powers."
+        ],
+        "reasoning": "The cubic symmetry set happens to have the same sole index, but this is not a reduction across exponents. Nothing in the inspected broader structural theorem eliminates all fifth-power solutions without the explicit arithmetic.",
+        "searches": [
+          "arXiv:1608.08693, §§1.1, 5",
+          "DOI:10.1017/S0027763000015312, Proposition 3",
+          "DOI:10.1016/j.jnt.2011.05.011"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md",
+        "arXiv:1608.08693",
+        "DOI:10.1017/S0027763000015312",
+        "DOI:10.1016/j.jnt.2011.05.011 (limited access)",
+        "Resultary 18e43142e5df, e2d53bad3bc7 (index only), 5449523f59ed, c4b91e506e07"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fel's conjecture deals with polynomial minimal-relation matrices and asymptotics, while Question 1 asks for higher-power data. Watanabe's Proposition 3 treats the complete-intersection structure of embedding dimension three, with symmetry equivalence noted in Remark 2."
+        ],
+        "reasoning": "Neither the conjectural context nor the classical reduction settles the fifth-power membership test. The repaired result proves the fifth-power case for all n, with an exact parity-based cutoff, not just an instance computed within the prior odd scan.",
+        "searches": [
+          "arXiv:1608.08693, §5, Conjecture 1 and Question 1",
+          "Watanabe Proposition 3 and Remark 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equality 2g=F+1 is equivalent to symmetry by reflection, so prior symmetry classifications were compared directly. The correct minimally three-generated gluing necessity reduces the odd case to membership in ⟨m^5,(m+1)^5⟩; in the pairwise-coprime even branch the necessary test is redundancy."
+        ],
+        "reasoning": "The structural reformulations do not give the fifth-power modular exclusions or even-index minimality. Centered squares, ordinary pentagonal numbers and arithmetic progressions of step two are not alternative parameterizations of these triples.",
+        "searches": [
+          "arXiv:1608.08693, equation (1.4), Lemma 1 and Sections 1.1 and 5",
+          "DOI:10.1017/S0027763000015312, Proposition 3 and Remark 2",
+          "Configured Resultary comparison: 18e43142e5df, 5449523f59ed, c4b91e506e07"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fel reports only the exponent-11 and exponent-13 examples at n=5 in its finite scan of odd n=2p+1 with 2≤p≤50 and 5≤k≤103. The same-day indexed centered-square record is for n²+(n−1)². The accessible pentagonal comparison uses n(3n−1)/2, and the fifth-degree terminology hit concerns representation counts for ⟨a,a+2,a+4⟩. The mirror for e2d53bad3bc7 was unavailable."
+        ],
+        "reasoning": "The scan gives bounded evidence consistent with the fifth-power claim but omits all remaining odd indices and the even family. The returned indexed Findings that could be read have different generating families or a different notion of symmetry.",
+        "searches": [
+          "arXiv:1608.08693, §5 computational range",
+          "Configured Resultary comparison: 18e43142e5df, e2d53bad3bc7, 5449523f59ed, c4b91e506e07"
+        ]
+      },
+      "rationale": "The repaired proof establishes the all-index fifth-power classification, including the even indices. Fel's closest prior work gives classical structural criteria, exact results at other exponents, and a bounded higher-power scan. The classification does not follow from those without the fifth-power coefficient exclusions. No inspected result gives the full fifth-power theorem; inaccessible sources and ranked-search limits are recorded separately.",
+      "residual_risks": [
+        "The review does not establish historical priority or rule out an unlocated broader all-power theorem. The Rosales–Branco full text and one pentagonal mirror entry were unavailable, so no full-text noncoverage inference is drawn from them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classifies other exponents; finite fifth-power evidence only. The Lemma 1 wording as printed should not be read as an unrestricted necessity without minimality.",
+          "evidence": [
+            "Propositions 1–3 cover the lower powers; Section 5 reports a bounded odd scan and asks higher-power questions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.08693",
+          "material_read": "Abstract p. 1, equation (1.4), Lemma 1 and Section 1.1 p. 2 (offsets 5250–9487); Section 5 p. 18 (offsets 68250–70812)",
+          "method": "OA primary PDF passages",
+          "title": "Numerical semigroups generated by squares, cubes and quartics of three consecutive integers",
+          "trigger": "Closest classification and higher-power comparison"
+        },
+        {
+          "assessment": "Supports the precise minimally three-generated formulation used in the repair; not an exact fifth-power result.",
+          "evidence": [
+            "Proposition 3 assumes emb(H)=3 and gives H=⟨a,bH₁⟩ with the conditions of Lemma 1; those include a∈H₁ and gcd(a,b)=1. Remark 2 notes the complete-intersection/symmetry equivalence in this case."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0027763000015312",
+          "material_read": "Proposition 1 p. 103; Lemma 1 and Proposition 3 pp. 103–104; proof and Remark 2 p. 105 (offsets 5730, 7200 and 12400 in the Cambridge PDF)",
+          "method": "Lawful publisher OA primary PDF",
+          "title": "Some examples of one dimensional Gorenstein domains",
+          "trigger": "Verify the exact scope of the gluing necessity used in the proof"
+        },
+        {
+          "assessment": "Detailed coverage unresolved for this cited source.",
+          "evidence": [
+            "The accessible material was insufficient to assess an exact or implicit fifth-power classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jnt.2011.05.011",
+          "material_read": "Landing page or abstract only; no readable full text retrieved",
+          "method": "Bounded lawful OA retrieval",
+          "title": "The Frobenius problem for numerical semigroups",
+          "trigger": "Cited related Frobenius/genus methods"
+        },
+        {
+          "assessment": "Different generating families or meaning of symmetry.",
+          "evidence": [
+            "Centered squares are n²+(n−1)²; ordinary pentagonal numbers are n(3n−1)/2; the fifth-degree record concerns counts for an arithmetic progression of step two."
+          ],
+          "identifier_or_url": "Resultary 18e43142e5df, 5449523f59ed, c4b91e506e07",
+          "material_read": "Local-mirror Finding at offset 0 for each",
+          "method": "Configured Resultary comparison and local mirror passages",
+          "title": "Related indexed symmetry and representation-count Findings",
+          "trigger": "Closest terminology and same-day overlap checks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exponent five is the first exponent beyond the explicit square/cube/quartic classifications, and the disappearance of the quartic exceptions n=5 and n=7 is not a monotonicity consequence. The symmetry question is a natural sharp boundary for the genus inequality. The proof reduces an infinite fifth-power family to a small explicit set of residues with separate structural reasons for the two parities, replacing prior bounded odd-index evidence with an all-index theorem. It does not claim exact Frobenius or genus values beyond the single symmetric case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

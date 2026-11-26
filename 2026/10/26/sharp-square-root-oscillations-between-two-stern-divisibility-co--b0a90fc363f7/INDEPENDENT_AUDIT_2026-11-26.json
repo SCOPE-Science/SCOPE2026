@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:51:15.060188Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–41; VERIFICATION.md; verify.py (inspected, not executed)",
+        "/workspace/replay/stern.py (exact characteristic-polynomial computation and reduced rational functions)"
+      ],
+      "rationale": "Independently used all primitive residue pairs (24 for modulus 6 and 48 for modulus 8), not projective states. The two digit maps send the root pair (0,1) through all Stern pairs with indices 0≤n<2^r after r steps, including leading zero digits. Exact characteristic polynomials and the induced Cayley–Hamilton recurrences give both dyadic prefix generating functions. Their difference cancels to 2z⁵(1−z)/L(z), and each prefix series has coefficient 1/12 at the simple 1/(1−2z) term. The reduced difference has simple poles: −1 and ten distinct nonreal poles of modulus 1/√2, none cancelled by the numerator. After normalization, partial fractions give a finite sum of distinct unit-frequency exponentials with nonzero coefficients and an exponentially decaying error. Its limiting Cesàro mean is zero and its mean square is strictly positive. If either sign had no excursion bounded away from zero arbitrarily late, the corresponding positive or negative part would have vanishing Cesàro mean; the zero mean then forces both parts to vanish on average, contradicting the positive mean square by boundedness. This checks the all-index identity and both strict limits.",
+      "residual_risks": [
+        "No exact limsup or liminf constant is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reznick gives modular densities for general moduli and power-saving errors; Resultary triple and quadruple laws give natural densities and related support counts for consecutive residues."
+        ],
+        "reasoning": "These results concern density or general concentration. Neither the cancellation of the leading term nor its stated error gives the exact reduced pole structure and signed excursions at the square-root scale.",
+        "searches": [
+          "Reznick Theorem 16 and Corollary 17 on block distribution",
+          "Resultary 2ccf8df2e88c and ee10caa284d0, consecutive-residue laws"
+        ]
+      },
+      "checked_sources": [
+        "Reznick, JIS 11 (2008), Article 08.4.1",
+        "Author's publications page",
+        "Resultary 67fcd3f4bd6d, 2ccf8df2e88c, ee10caa284d0 and cc102e6b5370",
+        "OEIS A002487",
+        "Defant, EJC 23 (2016), P4.8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reznick specifies that a fixed-modulus count has a characteristic equation dividing a state-matrix minimal polynomial; the published passage does not determine the poles and residues of the difference.",
+          "The author's publications page lists A Stern introduction to combinatorial theory as a book in preparation, with no manuscript in the inspected passage.",
+          "Resultary 67fcd3f4bd6d gives order-2^{r/2} absolute fluctuation for modulo-eight residues."
+        ],
+        "reasoning": "The general recurrence sets up the computation, but neither it nor one input's fluctuation rules out leading spectral cancellation or gives the two-sided sign result for the difference. Exact scalar spectral calculation is needed.",
+        "searches": [
+          "Reznick p. 15 (minimal polynomial and announced continued work)",
+          "Bruce Reznick's publications page and exact-title search for A Stern introduction to combinatorial number theory",
+          "Resultary 67fcd3f4bd6d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reznick explicitly distinguishes T(2^r;8,0) from T(2^r;6,0) as sequences. He also describes fixed-modulus recurrences; the inspected passage does not give these two scalar recurrences.",
+          "Resultary cc102e6b5370 concerns exact dyadic shell generating functions and equality for moduli 22 and 27."
+        ],
+        "reasoning": "A shell difference converts to the dyadic-prefix series by multiplication by z/(1−z), with the common n=0 count cancelling. The shell equality at different moduli and the qualitative inequality at 6 and 8 do not give the specific signed prefix formula.",
+        "searches": [
+          "Resultary Stern dyadic divisibility GF, mod 6 and mod 8",
+          "Reznick, JIS 11 (2008), pp. 3 and 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The modulo-eight catalogue's C_{r,0} series equals the independently reconstructed T_r(8) series exactly, including the factor (1−z²+4z⁴) and the numerator term −8z⁸.",
+          "A002487 tabulates Stern values, including early dyadic rows; this is not a table of the exact discrepancy for all r."
+        ],
+        "reasoning": "The modulo-eight result materially covers one of the exact inputs, regardless of date; it gives neither the other input nor the subtraction and its noncancellation.",
+        "searches": [
+          "Resultary 67fcd3f4bd6d (complete modulo-eight residue spectra)",
+          "OEIS A002487, Stern sequence and dyadic rows"
+        ]
+      },
+      "rationale": "The equal densities, the fact that the dyadic sequences are not identical, and the finite-state recurrence framework are prior results. The supported distinction is the exact difference and its strict two-sided sharp-scale fluctuations. The inspected modulo-eight catalogue covers one of the two inputs, not their difference, and the inspected general modular distribution theorem does not give the two-sided conclusion.",
+      "residual_risks": [
+        "Reznick's announced in-preparation work may contain more specialized recurrence data; no lawful manuscript was located in the focused search.",
+        "The Calkin–Wilf full text was not inspected. The search does not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers densities, nonidentity and generic recurrence framework, not the exact discrepancy theorem",
+          "evidence": [
+            "I(6)=I(8)=12; T(2^r;8,0) and T(2^r;6,0) are not identical.",
+            "A fixed-modulus characteristic equation divides the appropriate minimal polynomial."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Reznick/reznick4.pdf",
+          "material_read": "Printed pp. 3, 10–11, 15; density comparison, Theorem 16 and Corollary 17, recurrence discussion",
+          "method": "OA PDF passage inspection",
+          "title": "Regularity Properties of the Stern Enumeration of the Rationals",
+          "trigger": "Direct discussion of both moduli and dyadic modular distributions"
+        },
+        {
+          "assessment": "Exact overlap for T_r(8), not E_r",
+          "evidence": [
+            "C_{r,0} has numerator 1−2z+2z³−z⁴−6z⁵+6z⁶−8z⁸ and denominator (1−z)(1+z)(1−2z)(1−z+2z²)(1−z²+4z⁴)."
+          ],
+          "identifier_or_url": "2026/11/2/67fcd3f4bd6d",
+          "material_read": "Indexed RESULT.md finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Complete modulo-eight residue spectra of Stern's diatomic sequence",
+          "trigger": "Exact all-residue generating functions include the zero-residue prefix series"
+        },
+        {
+          "assessment": "Natural densities/support, not exact dyadic-prefix discrepancies",
+          "evidence": [
+            "Consecutive triples and quadruples, all moduli."
+          ],
+          "identifier_or_url": "2026/10/18/2ccf8df2e88c; 2026/10/18/ee10caa284d0",
+          "material_read": "Both indexed RESULT.md findings, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Exact three-term congruence law and exact four-term residue densities",
+          "trigger": "Broader modular results"
+        },
+        {
+          "assessment": "Method precedent at a different pair",
+          "evidence": [
+            "Common shell GF for 22 and 27."
+          ],
+          "identifier_or_url": "2026/10/18/cc102e6b5370",
+          "material_read": "Indexed RESULT.md finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Resolution of the Stern 22–27 dyadic divisibility conjecture",
+          "trigger": "Exact comparison of equal-density Stern divisibility sequences"
+        },
+        {
+          "assessment": "Manuscript not obtained; no inference about its mathematics",
+          "evidence": [
+            "A Stern introduction to combinatorial theory, book in preparation."
+          ],
+          "identifier_or_url": "https://reznick.web.illinois.edu/reznickrpubs.html",
+          "material_read": "In-preparation bibliography, page marked updated 2023-04-02",
+          "method": "Author website passage inspection and title search",
+          "title": "Bruce Reznick Research Publications",
+          "trigger": "Reznick's 2008 paper points to an in-preparation sequel for explicit recurrence results"
+        },
+        {
+          "assessment": "Input sequence only",
+          "evidence": [
+            "Recurrence, initial values and row listings through row 6."
+          ],
+          "identifier_or_url": "https://oeis.org/A002487",
+          "material_read": "Opening recurrence and early dyadic rows",
+          "method": "Database passage inspection",
+          "title": "Stern's diatomic series",
+          "trigger": "Exact sequence tabulation"
+        },
+        {
+          "assessment": "Concerns upper bounds for Stern-related values, not this modular discrepancy",
+          "evidence": [
+            "Partition interpretations and upper bounds for sequence values."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/5342",
+          "material_read": "PDF p. 1 abstract",
+          "method": "OA primary PDF inspection",
+          "title": "Upper Bounds for Stern's Diatomic Sequence and Related Sequences",
+          "trigger": "Frozen cited Stern sequence result"
+        },
+        {
+          "assessment": "Not used as negative coverage evidence",
+          "evidence": [
+            "Reznick cites it as Recounting the rationals."
+          ],
+          "identifier_or_url": "Calkin–Wilf, American Mathematical Monthly 107 (2000), 360–363",
+          "material_read": "Bibliographic reference in Reznick; full text not retrieved",
+          "method": "Lawful publisher and alternate-copy retrieval attempted",
+          "title": "Recounting the rationals",
+          "trigger": "Background citation for pair dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Reznick, JIS 11 (2008), p. 3",
+        "Frozen RESULT.md lines 3–12 and 24–38"
+      ],
+      "rationale": "The moduli are motivated by Reznick's explicit equal-density but unequal dyadic comparison, not an arbitrary pair. The calculation resolves how large that specific discrepancy is, including persistent excursions of both signs, with an exact all-index series usable for recurrences or further fluctuation analysis.",
+      "residual_risks": [
+        "The result resolves the cited pair, not a general classification of equal-density moduli."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

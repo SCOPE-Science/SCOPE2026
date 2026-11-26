@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:02:31.528607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the environmental phase retained at reset, the single-attempt expected-duration vector is L1 and the reset kernel is LR, where L=A^(-1)(I-E). Its row sums are at most 1-exp(-a sqrt((m+delta)/D)), by comparison to the maximal reset intensity. The resulting finite mean vector is (L^(-1)-R)^(-1)1=(Q+g(A))^(-1)1 for g=1/f. Since (L^(-1)-R)(I-E)=Q+RE, this also verifies the exact matrix order and invertibility in the finding. At nu=0 the two means are f(m-delta) and f(m+delta). The numerator of 4r^3 f''(r) is e^y(y^2-5y+8)-8 for y=a sqrt(r/D); it vanishes at zero and has positive y-derivative e^y(y^2-3y+3), giving strict Jensen. In the symmetric/antisymmetric phase basis the low eigenvalue is m-delta^2/(2nu)+O(nu^-3), its symmetric-sector weight is 1-O(nu^-2), and g of the high eigenvalue is exponentially small in sqrt(nu). Thus the symmetric diagonal of Q+g(A) is g of the low eigenvalue to O(nu^-2); the Schur correction is O(nu^-3) because the off-diagonal is O(nu^-1) and the antisymmetric diagonal is at least 2nu. Stationary averaging gives H=f(m)-delta^2 f'(m)/(2nu)+O(nu^-2). The sign of f' follows from the single positive zero of e^z(z-2)+2, whose derivative is e^z(z-1). Continuity gives the finite crossing in the stated regime, not its uniqueness or a classification at the critical threshold.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arutkin–Reuveni study persistent stochastic resetting but explicitly leave first passage as an extension. Barman–Nandi–Das use the same reset rate in the two phases. The later finite-speed optimum record has rates 0 and rho only."
+        ],
+        "reasoning": "The first source explains the protocol, the second shares methods without switching the reset intensity, and the third is a boundary regime rather than a stronger theorem for general strictly positive rates.",
+        "searches": [
+          "arXiv:2509.25365v1 PDF pp. 3 and 13",
+          "arXiv:2410.06933 backward survival equations",
+          "Resultary 62ce19fec6eb"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py (inspection, no run)",
+        "arXiv:2509.25365v1",
+        "arXiv:2410.06933",
+        "Resultary e307799ab9d0 and 62ce19fec6eb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later scalar formula for e307799ab9d0 is (2nu+(1-c)h_-+c h_+)/(h_-h_++2nu[c h_-+(1-c)h_+]), with c=(1+nu/sqrt(nu^2+delta^2))/2. It is strong enough to rederive the frozen speed limits, but is distinctly later and its stated sign comparison is in L. For 62ce19fec6eb the coefficient -rho^2 f'(rho/2)/(8nu) agrees at m=delta=rho/2; its slow limit diverges."
+        ],
+        "reasoning": "Distinguish actual algebraic implication from stated comparison and priority. Neither the protocol nor a constant-reset drift-switch model proves the claimed strict comparisons; the overlapping later formula and boundary expansion are not evidence of an earlier covered result.",
+        "searches": [
+          "arXiv:2509.25365v1 p. 13",
+          "arXiv:2410.06933 p. 3",
+          "Resultary e307799ab9d0 §§Finding and Proof 1–2; 62ce19fec6eb §Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e307799ab9d0 uses a search from zero toward L on the opposite half-line; reflection/translation gives the same model with L=a and r=m. Its h_L is 1/f, and its symmetric resolvent is algebraically equivalent to the frozen matrix mean."
+        ],
+        "reasoning": "Recognize the exact MFPT equivalence independently of the coordinate convention or form of the resolvent. The later record's comparison theorem takes near/far distance limits at fixed nu, so it is not a second statement of the fixed-distance speed reversal.",
+        "searches": [
+          "Resultary: persistent two-state reset clock, Markov-modulated/telegraph stochastic resetting and first-passage reversal",
+          "arXiv:2509.25365v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later distance-reversal record supplies an exact general mean, and the later zero-rate record supplies a matching boundary fast coefficient. The familiar numerical z_* is just the classical constant-rate optimum."
+        ],
+        "reasoning": "This is a continuum-parameter sign and asymptotic theorem, not a table of numerical crossings or thresholds. The matching exact formula is credited, while the decimal z_* and the frozen finite example do not support novelty.",
+        "searches": [
+          "Resultary e307799ab9d0 and 62ce19fec6eb",
+          "arXiv:2509.25365v1 first-passage outlook"
+        ]
+      },
+      "rationale": "The distinct claim supported by the comparison is the fixed-distance, fixed-mean reversal as a function of switching speed, with the finite Jensen penalty and signed rapid-switch correction for two strictly positive rates and arbitrary admissible contrast. The resetting protocol and constant-rate benchmark are prior. A closely related later catalogue record gives the exact same mean in scalar form, so the exact underlying observable is not unique to this record, but that later analysis varies distance, not switching speed. The later zero/positive-rate result is a boundary regime with a different slow limit. No inspected earlier source establishes the claimed conjunction.",
+      "residual_risks": [
+        "A bounded broader search produced no usable direct first-passage match; that is not negative evidence of priority. A prior general reset-resolvent treatment or unindexed explicit speed comparison could still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rate-memory principle but not the first-passage comparison",
+          "evidence": [
+            "The rate evolves independently of spatial reset; p. 13 identifies first passage as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.25365v1",
+          "material_read": "PDF p. 3, offset 6425, and p. 13, offset 39825",
+          "method": "OA primary PDF passages",
+          "title": "Diffusion with doubly stochastic resetting",
+          "trigger": "Same persistent rate protocol; possible first-passage theorem"
+        },
+        {
+          "assessment": "Related backward method, different model",
+          "evidence": [
+            "Same reset rate r in both environmental states, with state-dependent motion rather than state-dependent reset intensity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.06933",
+          "material_read": "PDF p. 3, offset 27550, backward survival equations",
+          "method": "OA primary PDF passages",
+          "title": "Optimizing search processes in systems with state toggling",
+          "trigger": "Exact switched-environment first-passage analysis"
+        },
+        {
+          "assessment": "Later exact formula equivalence; different comparison theorem",
+          "evidence": [
+            "Matrix h_L(B)-Q gives the identical mean under reflection; the theorem compares distances for each fixed nu."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-distance-driven-reversal-of-search-efficiency-under-a-persistent--e307799ab9d0/RESULT.md",
+          "material_read": "Mirrored RESULT.md, offsets 0–5981, Finding, Assumptions and Proof 1–2; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue and exact mirrored file",
+          "title": "Distance-driven reversal of search efficiency under a persistent two-state reset clock",
+          "trigger": "Same strictly positive phase-preserving reset family and exact mean"
+        },
+        {
+          "assessment": "Later boundary-case overlap with a different slow limit",
+          "evidence": [
+            "Rates 0 and rho, divergent slow mean, and fast coefficient -rho^2 f'(rho/2)/(8nu)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-square-root-search-barrier-and-a-finite-speed-optimum-for-tele--62ce19fec6eb",
+          "material_read": "Mirrored RESULT.md passages at offsets 0 and 2500",
+          "method": "Local catalogue and mirror",
+          "title": "A square-root search barrier and a finite-speed optimum for telegraph-modulated resetting",
+          "trigger": "Same switching-speed comparison and optimal-rate threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed average reset intensity, the environmental correlation time alone can reverse a strict first-passage comparison. The slow-switch convexity mechanism and the rapid-switch effective-rate shift give opposite effects in a specified physical regime, for all nontrivial admissible contrasts. This goes beyond a stationary localization result or recomputing the constant-rate optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

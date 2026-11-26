@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:05:59.142126Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; repaired RESULT.md Finding and Proof",
+        "Frozen VERIFICATION.md and verify_descents.py, inspected not executed",
+        "Replay: python3 /workspace/review-evidence/check_semigroup.py; exact bounded order and drop checks passed for n=2..24"
+      ],
+      "rationale": "The final statement clarifies that the list is complete on both sides of the conductor, not that no listed descents are past it. The canonical form for s=nt+r is (t−r)n+r(n+1), so membership is t≥r. Splitting the summands' canonical residues produces a no-carry contribution (t−r+1)(r+1) and a one-carry contribution (n−1−r)max(t−r−n,0), with no other residue sums. For an interior successor, subtraction yields t−2r−1 through t=n+r and +1 from t=n+r+1, including at the carry change. A block ends at r=min(t,n−1); the next residue is zero and the difference is +1 both before and from t=n−1. Thus a drop occurs exactly for 1≤r≤n−2 and r+1≤t≤2r; for fixed r these drop sizes are r through 1. Summing gives the count, histogram and total drop. The largest t,r give the final descent 2n²−3n−2, which exceeds n(n−1) by n²−2n−2>0 when n≥3; n=2 has none. For the smallest nontrivial case, conductor 6 and ν_3(7)=4, ν_3(8)=3 explicitly witness the distinction.",
+      "residual_risks": [
+        "The independent bitset calculation is finite corroboration only; the complete successor and carry analysis proves the unbounded assertion. Ordered summands are counted, not distinct factorizations or code minimum distances."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.3 gives the final descent index in terms of the conductor, subconductor and dominant. The symmetric specialization in Proposition 6.6 gives 2c−2−λ_1. Theorem 43 of Delgado et al. gives E(S,r)=ρ_r for embedding dimension two."
+        ],
+        "reasoning": "The last-index result specializes exactly to this record's last location but gives no preceding locations or sizes. Higher-weight order results concern stable generalized invariants and do not supply the finite nonmonotonic sequence.",
+        "searches": [
+          "Bras-Amorós arXiv:2307.16448, Theorem 6.3 and Proposition 6.6",
+          "Delgado et al. arXiv:1306.2862, Theorem 43",
+          "Kirfel–Pellikaan 1995, Theorem 3.8 via Bras-Amorós Proposition 6.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c841c594f01d",
+        "Bras-Amorós arXiv:2307.16448, pp. 5–6",
+        "Delgado et al. arXiv:1306.2862, pp. 2, 16, 19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting c=n(n−1) and λ_1=n into 2c−2−λ_1 gives 2n²−3n−2, so that conclusion adds no novelty. A universal divisor-count expression still contains a nontrivial count that must be evaluated in this family. The new finite difference must address both within-block carries and consecutive-nongap boundaries before producing the histogram."
+        ],
+        "reasoning": "Neither the terminal index nor the uncomputed universal identity supplies the two-regime adjacent formula by direct parameter replacement. The surviving result classifies every strict drop, including its size and occurrence multiplicity.",
+        "searches": [
+          "arXiv:2307.16448, Proposition 6.1, Theorem 6.3 and Proposition 6.6",
+          "arXiv:1306.2862, p. 2 and Theorem 43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The divisor set of a semigroup element counts exactly ordered decompositions via u ↦ (u,s−u). Proposition 6.1 expresses that number using the semigroup index, gaps and a further gap-pair set. The Delgado et al. manuscript instead treats higher-weight Feng–Rao numbers E(S,r)."
+        ],
+        "reasoning": "Divisors and ordered decomposition counts are equivalent, but rewriting the count as a gap-pair count does not yet evaluate the adjacent differences or their frequency across all parameters. Higher-weight numbers are not those adjacent differences.",
+        "searches": [
+          "Resultary c841c594f01d (triangular descent spectrum of Feng–Rao multiplicities)",
+          "Web query: Hermitian numerical semigroup explicit formula nu sequence Hermitian curve Feng Rao number of divisors multiplicity (a+1)(b+1) order bound Campillo Farran Høholdt",
+          "Bras-Amorós arXiv:2307.16448, Proposition 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching complete location-and-histogram Resultary entry is the assigned record itself. The inspected exact prior formula covers the terminal descent only; no distinct all-n table for the complete drop spectrum was identified."
+        ],
+        "reasoning": "A last-descent table or fixed-field numerical example is not the exact triangular spectrum. The bounded searches do not certify historical priority.",
+        "searches": [
+          "Resultary c841c594f01d",
+          "Focused Hermitian divisor-count and Feng–Rao spectrum literature searches",
+          "arXiv:2307.16448, Theorem 6.3"
+        ]
+      },
+      "rationale": "On inspected evidence the entire exact location-and-magnitude spectrum is distinct, not the last descent or the underlying divisor-count definition. The repaired prior-work comparison explicitly credits the last descent to Bras-Amorós's June 2004 publication; the 2023 date is for its arXiv copy. The mathematical statement retains only the clarified original scope.",
+      "residual_risks": [
+        "The 2010 and 1995 sources were not independently available in full; no claim is made that they are excluded outside the actual secondary passages. An unindexed Hermitian-code multiplicity calculation may already contain a stronger exact closed formula or spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact overlap for last descent, not all drops",
+          "evidence": "Acute-semigroup last-index characterization; symmetric formula translates to 2c−2−n. The PDF identifies publication in IEEE Transactions on Information Theory 50(6), June 2004.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16448",
+          "material_read": "Opening publication line; PDF pp. 5–6, Proposition 6.1, Theorem 6.3 and Proposition 6.6",
+          "method": "lawful OA arXiv PDF",
+          "title": "Acute Semigroups, the Order Bound on the Minimum Distance and the Feng-Rao Improvements",
+          "trigger": "known last-descent theorem and divisor counts"
+        },
+        {
+          "assessment": "different generalized invariant",
+          "evidence": "Theorem 43 gives E(S,r)=ρ_r; the introduction attributes its Hermitian-like special case to Farrán–García-Sánchez–Llena.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.2862",
+          "material_read": "PDF pp. 2, 16 and 19, earlier Hermitian-like comparison, Theorem 43 and bibliography",
+          "method": "lawful OA arXiv PDF",
+          "title": "On the weight hierarchy of codes coming from semigroups with two generators",
+          "trigger": "broader two-generator Feng–Rao formulas"
+        },
+        {
+          "assessment": "known described result is for generalized numbers; other content unverified",
+          "evidence": "The accessible citing paper describes E(S,r)=ρ_r for Hermitian-like semigroups. The cited online copy returned HTTP 403.",
+          "identifier_or_url": "https://www.academia.edu/54015844/On_the_Feng_Rao_numbers",
+          "material_read": "Independent full text unavailable; accessible attribution in arXiv:1306.2862 pp. 2 and 19",
+          "method": "bounded lawful retrieval; cited description only",
+          "title": "On the Feng-Rao numbers",
+          "trigger": "earlier consecutive-generator paper"
+        },
+        {
+          "assessment": "general count as reproduced; possible additional coverage unverified",
+          "evidence": "Bras-Amorós reproduces the index-minus-gaps plus gap-pair count identity; the identified IEEE route yielded no readable full text.",
+          "identifier_or_url": "Kirfel–Pellikaan, IEEE Transactions on Information Theory 41 (1995), Theorem 3.8",
+          "material_read": "Independent full text unavailable; citation and reproduced formula in Bras-Amorós Proposition 6.1, PDF p. 5",
+          "method": "bounded lawful retrieval; inspected indirect source",
+          "title": "The minimum distance of codes in an array coming from telescopic semigroups",
+          "trigger": "general divisor-count formula for telescopic semigroups"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md theorem and complete adjacent-transition proof",
+        "Bras-Amorós Theorem 6.3 and Proposition 6.6 for comparison"
+      ],
+      "rationale": "For this natural consecutive-generator family, the result identifies precisely where monotone reasoning on the Feng–Rao divisor-count sequence breaks and how large each failure is. The complete triangular spectrum and aggregate variation are global exact information not supplied by the terminal index. The result is not a claim of a new minimum-distance bound or novelty for the already known last drop.",
+      "residual_risks": [
+        "The utility is the exact nongap-ordered arithmetic spectrum in this family, not asserted improvement for a particular code or extension to arbitrary coprime generators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

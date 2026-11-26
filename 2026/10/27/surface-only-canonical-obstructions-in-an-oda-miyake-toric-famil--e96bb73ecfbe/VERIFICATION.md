@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 artifacts/verify_toric_example.py` with Python 3; the script uses only standard-library `fractions` and `collections`.
+## correctness
 
-The script reconstructs the eight lattice generators and twelve maximal cones, verifies that each chosen maximal determinant has absolute value one, enumerates all eighteen codimension-one cones, identifies their two opposite rays, solves their exact integral relations, and compares \((-K)\)-degrees to the eighteen expressions listed in `RESULT.md`. It also checks the positive convex identity at \(v_7\), the five toric intersection numbers of the restricted canonical class, and the genus and zero-degree identities for example values \(d=0,1,2,3,4,5,6,11,31,103\) (with the nonvanishing and positivity checks applied only for \(d\ge2\)).
+PASS
 
-The expected successful output is:
+The exact wall replay uses Cramer determinants with only the last row varying in d; the common unimodular denominators are the same at 0 and 1, so stay constant, and the numerator degrees are affine. The nonconstant degrees d, 1−d, d+5, −d−2 and all constants have no zero for d≥2. The convex identity is positive with coefficients summing to one. On D7 the successive projected rays give the single subdivision of the product fan, and the degrees on E, Fx, Fy give K restricted as (d−1)Fx−2Fy+3E. The two opposite signs on the nef ruling classes exclude pseudo-effectivity for either sign. The (d−1,2) system is very ample; a general smooth irreducible member avoids p, so the exceptional term contributes zero. The two ruling terms cancel and adjunction gives d−2. Nonzero ambient wall degrees rule out invariance.
 
-```
-VERIFY_OK smooth_cones=12 walls=18 sample_parameters=10 canonical_zero_walls_for_d_ge_2=0
-VERIFY_OK ray7_convex_obstruction=true star_surface=blowup_P1xP1
-VERIFY_OK restriction_intersections=true zero_degree_curves=true unbounded_genus=true
-```
+## originality
 
-In this fan every ray varies only in its **third** coordinate, affinely in \(d\). Every three-vector determinant is therefore affine in \(d\); the listed maximal-cone determinants are constant \(\pm1\), and Cramer’s rule makes each wall coefficient and wall degree affine in \(d\). Consequently, checking their table at \(d=0,1\), together with this determinant argument, also gives an exact symbolic certificate of the wall formulas for all integral \(d\). The infinite range \(d\ge2\) is proved in `RESULT.md` through the **symbolic** wall table, the universally valid convex combination and the Picard intersection pairing. Checking finitely many values alone would not establish this infinite-range theorem. The fan's completeness and the canonical tensor-generation criterion rely on their cited published proofs; the script checks the explicit local calculations but not those general theorems or historical priority.
+PASS
+
+For the repaired finding only: the full-family classification and wall degrees are prior, and even the same invariant blowup surface was used to answer the invariant-curve question on a different slice. The retained construction uses the opposite nef signs of the restricted class to obtain moving smooth zero-degree curves from a product linear system that avoids the exceptional locus, with genus growing in d.
+
+## value
+
+PASS
+
+The surviving result diagnoses the obstruction geometrically rather than retesting the known ambient criterion. The two nef rulings of opposite canonical sign explain why the obstruction accommodates moving degree-zero curves that miss the exceptional locus, contrasting with the effective restriction and curve through p in the previously exhibited slice. The genus formula makes this distinction explicit over the complete displayed range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:00:54.293379Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The epsilon-free NFA accepts exactly by choosing a b with the correct prefix residue and checking the suffix residue. A word with T letters a leaves a unique C index i=T mod r; each D index is T-t mod s for an eligible b at a-count t, with r|t. Thus all D indices lie in J_i defined by i mod g. For reachability fix T congruent to i and at least lcm(r,s)-1. For each j in the desired subset J_i, CRT gives one t in [0,lcm(r,s)-1]; these t are distinct since their residues modulo s differ. Mark exactly those positions. This yields exactly r*2^(s/g) reachable subsets. Distinct D sets are separated by rotating a symmetric-difference element to zero. For equal unsaturated D sets, including the empty set in different classes, use CRT to rotate a missing eligible D position to zero and precisely one of the two C phases to zero; the final b then adds D_0 only to that phase. If equal D sets are saturated, the classes must coincide (they are nonempty), and rotation preserves saturation while b adds nothing; acceptance is controlled only by the rotated class. Exactly g classes result from saturation, proving the minimal complete formula even for r=1, s=1, and r=s. The NFA never loses its C state, and there is no missing sink state to count. From the submitted scripts and logs I confirmed their stated methods and ranges without executing them. My separate python3 -B /workspace/reviews/modular_check.py uses Brzozowski double reversal and compares the quotient map and merging blocks on all 49 pairs through 7. Reached/minimized pairs include (r,s)=(1,7):128/128, (7,1):14/8, (6,4):24/20, (6,6):12/12, (6,7):768/763; 8176 direct binary word comparisons matched. The finite check supports, but is not used in place of, the CRT and right-language proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baburin–Cotterell establish general hardness and semigroup/subset-construction upper bounds; none of the inspected highlighted results supplies the required lower bound or equivalence classes of this family.",
+          "Jirásek–Jirásková's binary multiple concatenation theorem provides a lower bound for other particular witnesses, and their gcd-sensitive Theorem 22 concerns unary cyclic languages and Frobenius bounds. The marker in this binary language cannot be erased for right-language purposes.",
+          "The frozen bibliography's permutation concatenation comparison concerns two permutation-language factors; grouping the required marker on the left or on the right prevents that factor from being a permutation language. The full text of this reference was not accessed."
+        ],
+        "reasoning": "Writing L=A_r b B_s with permutation languages on either side does not make b disappear or make b itself a permutation language. In particular, erasing b would yield a unary number-of-a question and lose positions of eligible marks. The stronger generic scopes provide bounds or other witnesses, not the saturation quotient for this recognizable family.",
+        "searches": [
+          "arXiv:2611.10911v1 §§3–8, especially Theorems 21–22, Corollary 23 and §§6–7",
+          "arXiv:2511.03814v1 Theorems 6, 19, 20, 22",
+          "Hospodár–Mlynárčik DOI 10.1007/978-3-030-48516-0_10 (lawful open-text attempt unsuccessful)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.09891v1 and v6",
+        "arXiv:2611.10911v1",
+        "arXiv:2511.03814v1",
+        "Resultary indexed equivalents and web literature query",
+        "Frozen NFA proof and independent bounded double-reversal check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A suffix-only witness accounts for r=1 but cannot distinguish competing first-cycle phases when r>1.",
+          "Unary concatenation controls total a length only, whereas two prefixes with the same a count can encode different eligible marker residues. Competing unsaturated first-cycle phases require the CRT a^t b suffix; saturation gives the exact mergers."
+        ],
+        "reasoning": "Neither a general exponential upper bound nor the existence of a worst-case lower-bound witness implies that exactly the saturated subsets merge. That extra comparison, and the attendant explicit gcd dependence, is the substantive result.",
+        "searches": [
+          "Baburin–Cotterell Eq. (2) and semigroup/subset bound sections",
+          "Jirásek–Jirásková Theorems 19 and 22 and the displayed binary witnesses",
+          "Resultary permutation-quotient and modular-counter related results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (2) allows an empty prefix or a prefix ending in b, with no arithmetical guard. L_MF is exactly the left quotient b^{-1}L_{1,s}: the inserted b accounts for the empty-prefix alternative. Thus the known 2^s lower bound transfers to the free-prefix boundary; L_{1,s} itself requires a marker.",
+          "Reversing the exact language swaps r and s, not the constrained-prefix family with a free-prefix one. Resultary's exact hit was the frozen record; modular scattered-counter results count occurrences, rather than existence of an eligible split."
+        ],
+        "reasoning": "The classical boundary equivalence in complexity is real, but two independent modular guards give a strictly more detailed quotient question: the allowed residue class and saturated mergers cannot be specified by the one-guard case. Reversal does not remove a guard.",
+        "searches": [
+          "Resultary: modular marker automata state complexity a-count before b gcd permutation concatenation Meyer Fischer one nondeterministic transition",
+          "Web: state complexity concatenation unary periodic modulo counters arbitrary b marker occurrences one nondeterministic transition Meyer Fischer Moore gcd automata r(2^s-1) determinization",
+          "Baburin–Cotterell arXiv:2407.09891v6 §3 Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest results besides the same record concern minimal modular subsequence counters, permutation right quotients and arithmetic separation of block words, all with different acceptance or transduction tasks.",
+          "The published concatenation counts are worst-case or unary cyclic formulas, not tabulations of this language or this two-cycle NFA."
+        ],
+        "reasoning": "The checked exact-count variants do not encode the existential guarded b split; a finite automaton table would in any case not settle the two-variable census without a structural statement. This is a bounded search, not a claim about every census.",
+        "searches": [
+          "Resultary modular marker automata and gcd state-complexity query",
+          "arXiv:2511.03814v1 related exact-count and unary-cycle theorems"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the two independently variable guards, the exact arithmetic quotient and its full list of identifications. The known modular-suffix exponential example is not itself original or needed as a priority claim. The paper's generic hardness motivation and the use of CRT, subset construction and Myhill–Nerode theory are prior tools.",
+      "residual_risks": [
+        "No exhaustive published-table or historical priority certification; an unindexed treatment of the guarded modular suffix witness may exist.",
+        "Permutation-paper full text was not available on the attempted route; comparison is to its described scope, not all statements in it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive prior coverage of the free-prefix exponential mechanism, not of the new all-positive two-guard quotient.",
+          "evidence": [
+            "Example 1: x from {epsilon} union {a,b}*b, and suffix a-count 0 mod n; Fig. 1 caption gives state complexity 2^n for n>=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.09891v6",
+          "material_read": "Open manuscript PDF text, §§2–3, especially Eq. (2), Example 1 and caption of Fig. 1; original v1 background and semigroup bound discussion also checked.",
+          "method": "Compare witness languages by the explicit b left-quotient relation and compare the presence of both guards.",
+          "title": "A Close Analysis of the Subset Construction",
+          "trigger": "Closest classic exponential modular-suffix witness."
+        },
+        {
+          "assessment": "General hardness and bounding framework, not the specialized exact quotient.",
+          "evidence": [
+            "Theorems 21–22, Corollary 23; §§6–7 distinguish semigroup complexity, subset automaton size and state complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.10911v1",
+          "material_read": "Open PDF text: introduction and relevant theorem and section passages (runtime hardness of general determinization and semigroup/subset complexity comparisons).",
+          "method": "Check whether the results compute or only bound reachable/minimal state counts and whether their hypotheses apply to the branching entry.",
+          "title": "Towards A Parametrized Complexity of Determinization",
+          "trigger": "Recent motivating general determinization bounds and complexity measures."
+        },
+        {
+          "assessment": "Different witnesses and upper/lower bounds; the closest arithmetic theorem has a unary alphabet and no marker.",
+          "evidence": [
+            "Theorems 6, 19–20 and 22; the last gives a unary cycle and tail bound using gcd and a Frobenius number."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.03814v1",
+          "material_read": "Open PDF text in relevant parts: abstract and introduction; valid-state counting, binary and ternary witness bounds, and unary cyclic concatenation sections.",
+          "method": "Compare alphabet, existence-of-witness statements, joint state constraints, and the unary reduction's invariant.",
+          "title": "State Complexity of Multiple Concatenation",
+          "trigger": "Broader binary concatenation and exact gcd-sensitive unary results."
+        },
+        {
+          "assessment": "The described scope does not directly cover this decomposition; other full-text results remain unchecked.",
+          "evidence": [
+            "An obligatory initial or final b is not a permutation-language condition: any finite permutation action of b allows some power of b to act as identity, or a nonempty suffix-changing letter power can be appended without changing an accepted state."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-48516-0_10",
+          "material_read": "Frozen audit's bibliographic account and description of the theorem class only; the lawful direct open-text attempt did not produce full text.",
+          "method": "Check applicability of the described two-permutation-factor assumption to either grouping involving the marker.",
+          "title": "Operations on Permutation Automata",
+          "trigger": "Permutation-language concatenation could cover the modular factors."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This naturally parameterized one-branch determinization example separates reachable subset count from minimal DFA count and explains every residual-language identification. It exposes which parameter, s/g, governs exponential growth, including linear growth when s/g stays bounded, and gives a reusable exact witness for congruence effects in restricted determinization. The joint structural classification, not the familiar free-prefix exponential example or a small table, carries the value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:24.545663Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–46; independent expansion, inverse and branch analysis",
+        "Frozen VERIFICATION.md, lines 19–25 and source inspections of symbolic_four_sample.py, verify_four_sample.py and finite_grid_check.py (not executed)"
+      ],
+      "rationale": "For a,b,c arbitrary in C, expand on z^4=1: the value Fourier coefficients at frequencies 0,1,2 are S=|a|²+|b|²+|c|², U=b conjugate(a)+c conjugate(b), T=2 Re(c conjugate(a)); the derivative ones are H=|b|²+4|c|² and V=2c conjugate(b) at 0,1, with frequency 2 zero. Conjugate symmetry recovers the rest; the aliased frequency 2 of the value channel retains only the real part. For b≠0, gauge b>0. With x=|b|², A=U−V/2 and C=V/2, each positive common solution of x²−Sx+|A|²+|C|²=0, x²−Hx+4|C|²=0, and Tx=2 Re(AC) reconstructs exactly one class. Two distinct roots force the monic quadratics to be identical and T=Re(AC)=0. For c≠0 the second root is 4|c|², giving exactly the stated partner and a collapse iff |b|=2|c|. With c=0, H fixes x. For b=0 the two moduli and cosine fix the phase difference up to reflection, distinct exactly when its sine is nonzero; zero coefficients leave no relative phase. A crossover requires U=V=0, forcing the b≠0 representative to be a pure middle monomial, and matching H,S,T then gives exactly the two quadrature partners with |a|²=3|c|². At the stated witness all eight intensities are 1 by direct substitution. Zero is uniquely recovered, and the nonuniqueness locus is contained in the proper real-algebraic zero set of |b|²(|a|²−3|c|²). This exhausts the nonempty fibers without any numerical assumption.",
+      "residual_risks": [
+        "The bounded Gaussian-integer enumeration cannot establish sharpness over C: a/c=±i√3 is not a ratio of Gaussian integers. Sharpness follows from the exact witness. The numerical inverse loop uses a skip condition and is not an exhaustive test or stability guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.2 uses 2N−1 samples in each channel (five for degree two), while Proposition 3.4 proves existence of ambiguities at smaller counts, not fiber sizes. Question 3.5 asks about almost-everywhere uniqueness.",
+          "The shifted Euler derivative result uses zP′−αP and a 5/3 split for quadratics; the two-polygon result concerns two concentric regular grids with value data only."
+        ],
+        "reasoning": "Uniqueness for strictly more samples supplies no bound for a fiber after deleting samples. Neither a differently shifted derivative operator and sampling split nor a two-polygon values criterion specializes to the 4/4 design.",
+        "searches": [
+          "Jaming–Rathmair §3.1 Proposition 3.2, Proposition 3.4 and Question 3.5",
+          "Resultary general polynomial fiber and derivative-channel comparisons, including 5eacb0f56b82 and 0026bf390afd"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2205.08753 §3.1",
+        "Published records 0e882b9f0b96, 07160f8e3fce, 5eacb0f56b82, 0026bf390afd, 5454fe769fbc; later value-only near neighbors 52ff35f3bc92 and 3fb4e5186c60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the real/conjugation-symmetric grid, the second quadrature partner at the constant-intensity witness can readily be checked once Lemma 3.3 is known. Prior existence does not bound any other fiber or recover the b≠0 two-root mechanism."
+        ],
+        "reasoning": "The contribution is exhaustive control of the positive-root and zero-middle-coefficient branches and their intersections, not merely appending one phase class to a known witness.",
+        "searches": [
+          "arXiv:2205.08753 §3.1 Lemma 3.3 through Question 3.5; compare to frozen RESULT.md lines 30–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For p(e^{2πix}), differentiation in x changes derivative magnitudes by the common factor 2π relative to ordinary complex differentiation on the unit circle; squaring preserves equality. Lemma 3.3 thus gives a collision for exactly the audited data, not merely a related example.",
+          "Indexed 0e882b9f0b96 uses the same two channels but at six roots for cubics; 07160f8e3fce uses continuous two-line modulus data without this derivative channel; 5454fe769fbc has a maximum of three for continuous Fourier intensities of four taps with fixed magnitudes."
+        ],
+        "reasoning": "None of the latter measurement maps restricts to the audited four-root quadratic map while preserving its fibers. The genuinely equivalent primary example covers only existence of a collision.",
+        "searches": [
+          "Resultary semantic searches by title, four fourth-root value/derivative channel design, exact fibers, and the explicit z versus (z²+i√3)/2 collision",
+          "Jaming–Rathmair arXiv:2205.08753 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected cubic record catalogs fourteen ambiguity planes in a different degree/grid, and the others index different measurement problems. No retrieved catalog provides entries for the audited 4/4 fibers."
+        ],
+        "reasoning": "A numerical coincidence in an extremum or the same number of scalars is not equivalence of data maps. The comparison is to available top-ranked records, not proof that no equivalent catalog exists.",
+        "searches": [
+          "Resultary title/claim/collision retrieval; opened strongest published records by indexed IDs 0e882b9f0b96, 07160f8e3fce, 5eacb0f56b82, 0026bf390afd and 5454fe769fbc"
+        ]
+      },
+      "rationale": "The four-sample obstruction, the published collision z versus (z²+i√3)/2, and the universal five-sample threshold are prior art. Credit is limited to the sharp three-class bound, complete fixed-design inverse, and classification of all exceptional fibers, including the distinct fully supported scaling mechanism. No inspected stronger or equivalent result supplies that census.",
+      "residual_risks": [
+        "The comparison is bounded; an unlocated treatment of the same sampling map or an equivalent low-dimensional lifted matrix completion problem could cover the census. No absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the threshold and collision, not the inverse classification",
+          "evidence": "For degree two, five samples ensure universal recovery; the four-point example is z and (z²+i√3)/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08753",
+          "material_read": "§3.1, PDF pp. 11–12; Proposition 3.2, Lemma 3.3, Proposition 3.4, Question 3.5",
+          "method": "Open-access PDF, located and read by passage (offsets 39569–43047)",
+          "title": "Uniqueness of phase retrieval from three measurements",
+          "trigger": "Same four-node data and published explicit collision"
+        },
+        {
+          "assessment": "Different measurement map",
+          "evidence": "Degree three on the six sixth roots, not degree at most two on the four fourth roots.",
+          "identifier_or_url": "2026/10/18/SCOPE-fourteen-ambiguity-planes-for-six-sample-cubic-fourier-phase-ret--0e882b9f0b96",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Published-record local mirror",
+          "title": "Fourteen ambiguity planes for six-sample cubic Fourier phase retrieval",
+          "trigger": "Same channels and a complete ambiguity classification"
+        },
+        {
+          "assessment": "Neither an equivalent nor a dominating sampling scheme",
+          "evidence": "Uses zP′−αP with 2d+1 value and 2d−1 derivative samples.",
+          "identifier_or_url": "2026/10/18/SCOPE-resonance-walls-and-two-point-fibers-in-shifted-euler-derivative--5eacb0f56b82",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Published-record local mirror",
+          "title": "Resonance walls and two-point fibers in shifted Euler derivative phase retrieval",
+          "trigger": "Exact fibers of related derivative data"
+        },
+        {
+          "assessment": "Different data and fiber formula",
+          "evidence": "Continuous modulus on two lines with a sharp power-of-two bound.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-polynomial-phase-retrieval-fibers-on-two-rational-angle-li--07160f8e3fce",
+          "material_read": "RESULT.md Finding (offset 0)",
+          "method": "Published-record local mirror",
+          "title": "Exact polynomial phase-retrieval fibers on two rational-angle lines",
+          "trigger": "Prior sharp polynomial fiber census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md classification and inverse, lines 5–46",
+        "Jaming–Rathmair, arXiv:2205.08753 §3.1, particularly Lemma 3.3 and Question 3.5"
+      ],
+      "rationale": "At the natural sample count where universal recovery first fails for quadratics, identifying exactly when the fixed measurements nonetheless recover a unique polynomial is useful for interpreting noiseless inverses. The sharp size bound, exact partners and distinction between relative-phase reflection and the full-support scaling branch supply substantially more information than a known obstruction or a generic uniqueness statement.",
+      "residual_risks": [
+        "No robustness or conditioning guarantee, and no extension to higher degree or other grids is validated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

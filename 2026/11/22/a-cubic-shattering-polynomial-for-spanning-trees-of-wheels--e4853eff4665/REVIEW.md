@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact support criterion follows from the existence of positive- and negative-trace trees; planar cycle-cut duality turns complement connectivity into dual acyclicity. Both rim-run counting processes are encoded by explicit cyclic transitions, with exactly two bad all-rim indicator words contributing two spurious states apiece. The determinant of the exact 16-state matrix is a cubic polynomial; symbolic verification covers the entire polynomial identity, while the trace-log determinant formula gives the generating function. Exhaustive independent graph enumerators agree with every coefficient through rim size nine. The VC and online dimension upper bounds respect the uniform tree size, and the claimed nonpure five-rim witness was separately checked.
+## correctness
 
-## Originality — PASS, qualified
-Full-text comparisons explicitly credit the earlier published general forest/complement-connectivity criterion and the all-order complementary wheel-tree count; neither is claimed new. The closest wheel paper determines peripheral exchange-tree counts but no coefficients below top degree, while the closest shattering polynomial concerns complete bipartite rather than wheel graphs. The full forest-count paper studies one-sided enumerators rather than the joint wheel restriction. Targeted published research searches for the same object, duality description, cubic polynomial, and recurrence found no stronger covering statement. Priority is not certified against all unindexed literature.
+PASS
 
-## Value — PASS
-The all-size cubic recurrence/rational bivariate generating function counts a natural family of simultaneously primal- and dual-acyclic wheel edge sets, upgrading the known top-degree count to all support sizes. The first nonpure boundary distinguishes the shattering complex from matroid independence complexes, and the exact total-count growth constant is a useful consequence. The family and invariant are naturally motivated by spanning-tree concept learning and planar matroid intersection; no external downstream theorem is required for that value.
+The all-positive and all-negative traces force a forest S and a connected complement, and each partial positive trace extends to a tree after deleting the other queried edges. Plane duality gives the second forest test, with f_i the face-to-face rim edge F_(i−1)F_i. At a zero in each rim word, the corresponding accumulator resets, giving one state assignment exactly when no rim path has two spokes. If either rim word is all ones, summing its recursion forces the opposite word all zeros and leaves exactly two constant choices for the nonresetting accumulator; this produces the four weighted exceptions. Independently compress the state using (a,d)=(rc,d). The only successor states are 00,01,11 since a'=RC≤R≤D=d'. For those states the weighted matrix (rows and columns in that order) is [[1+z,z,z²],[1,2z,0],[1,0,z]]. Each edge-labelled closed walk lifts uniquely to the original states because the new c and d are determined by its source compressed state and its chosen R,S. Its trace, sum of principal two-minors and determinant are 1+4z, 2z+4z² and z² respectively, proving the cubic and p_0=3 exactly. Newton identities and removal of formal m=1,2 terms give the displayed recurrence and series. The leading coefficient of p_m solves a_m=4a_(m−1)−4a_(m−2) with a_1=4, a_2=8, so subtracting 4 gives 2^(m+1)−4 at degree m. Fixed tree size bounds the all-yes branch of the online tree; repeated queries on a branch cannot occur in a complete mistake tree, and a shattered m-set realizes depth m. The roots at z=1 are the three distinct squared positive eigenvalues of the six-vertex path, giving the stated closed form and growth.
 
-## Limits and nearest literature
-The earlier wheel exchange census implies the top coefficient, and complete bipartite spanning-tree work implies the general criterion, so those are not originality claims. The 2020 forest/connected-subgraph paper and 2019 matroid-constrained packing work supply neighboring but not equivalent results. The five-rim facet count is finite, with no asserted all-size facet classification. Historical overlap could remain in unpublished or unindexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving originality is the size-refined wheel enumeration, the identification of its ungraded count with an old numerical sequence minus four, and the labelled nonpure boundary. The general forest/coforest criterion, complementary-tree count, numerical cubic power-sum sequence at z=1, and its numerical trigonometric formula are not original as standalone results. The known univariate sequence warrants explicit credit; it does not determine the joint wheel polynomial or prove the combinatorial identification. Priority is conditional on inspected evidence.
+
+## value
+
+PASS
+
+The exact invariant is motivated by labelled edge queries and simultaneous graph/dual forest constraints, and gives information not recoverable from the ordinary tree count, tree-pair census, or the known ungraded numerical terms. A fixed cubic supplies a compact formula at all rim sizes and reveals an explicit nonpure complex despite the matroid structure on either side. These features are the value, not recomputation of a path-walk table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

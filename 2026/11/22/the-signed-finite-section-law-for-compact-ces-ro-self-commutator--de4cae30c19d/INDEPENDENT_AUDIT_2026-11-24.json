@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:02:23.412852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4) and §§1–5",
+        "Frozen VERIFICATION.md and checker.py (inspected)",
+        "audit-checks/cesaro.py (independently written and run)"
+      ],
+      "rationale": "The infinite Gram products give (1) with the stated sign, and sum of squares makes C_t Hilbert–Schmidt for fixed t<1. For s=m+k, the first two terms of the scaled kernel are -t^k[A_0 k sqrt(m/s)+(ms)^{3/2}Delta_s], with s^3 Delta_s tending to 2A_1 by the bound 2l and dominated summation; the third, t^k A_0 q^m sqrt(ms), tends uniformly to zero on the remote block. Fixed diagonals converge uniformly there, and the row-sum tails are controlled by summable (1+k)t^k. Thus the comparison is in norm after a congruence, not after a similarity preserving eigenvalue magnitudes. The Fourier series equals -t times the t-derivative of (1-2t cos(theta)+t^2)^(-1), giving (4) and its two isolated zeros. Banded circulant comparison (rank at most 2K), norm bounds, and counting at thresholds on either side of zero establish the limiting sign proportions; interlacing loses at most floor(epsilon N) signs of either type on adding back the omitted head. Both positive densities imply infinite inertia by the spectral theorem. Finally C_t tends to C_0 in Hilbert–Schmidt norm (the squared off-diagonal norm is at most t^2/(1-t^2) times sum (n+1)^(-2)); the ideal product inequality gives trace-norm convergence, not uniformity of the sign law. The independent numerical check in audit-checks/cesaro.py compares two separate Gram/kernel constructions and the Fourier coefficients; at N=320 it obtains negative fractions 0.4375, 0.334375, 0.20625 at t=0.2, 0.5, 0.8. Neither this nor the frozen checker's approximated geometric tail is used as proof of the limits.",
+      "residual_risks": [
+        "Fixed t only; no estimate uniform at t=0 or t=1, and no individual eigenvalue-magnitude asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-infinite-two-sided-commutator-inertia-of-compact-power-decaying--4dad66f8063e, theorem at mirror offsets 0–5684: constant-in-row entries a_n with power-decaying ratio, qualitative infinite inertia of each sign.",
+          "arXiv:2610.00193 concerns an order/denominator-parameter family and hyponormality rather than geometric off-diagonal damping."
+        ],
+        "reasoning": "The same-day Rhaly theorem is a material analogue, not a stronger theorem on these matrices; its ratios and constant rows do not encompass the target, and its conclusion is nonquantitative.",
+        "searches": [
+          "Resultary: signed inertia of compact Cesàro and power-decaying Rhaly self-commutators",
+          "arXiv:2610.00193, page 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and related signature hits",
+        "arXiv:2305.04805",
+        "arXiv:2302.08750",
+        "arXiv:2610.00193",
+        "SCOPE IDs 4dad66f8063e, f33d5c640367, 1d9ae52b1d38"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The symbol principle supplies sign distribution only after identifying a congruently scaled remote block with the concrete derivative symbol. Compactness or bounded trace gives neither that block nor the proportions.",
+          "The Rhaly comparison does not yield a sign density or this Toeplitz symbol."
+        ],
+        "reasoning": "The operator-specific scaled kernel, uniform remote-block approximation, and symbol evaluation supply the non-covered implication. Infinite inertia is a consequence of the new distribution law here, not the sole novelty claim.",
+        "searches": [
+          "arXiv:2305.04805 and arXiv:2302.08750, defining and spectral material",
+          "Szegő finite Toeplitz distribution principle cited in frozen RESULT.md §§3–4",
+          "SCOPE-infinite-two-sided-commutator-inertia-of-compact-power-decaying--4dad66f8063e, theorem and limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Albanese–Bonet–Ricker (1.1) and Curbera–Ricker p. 1 give the same t^(n-j)/(n+1) operator, not just a namesake.",
+          "The ordinary N-by-N truncated commutator differs from this compression by a rank-one tail Gram term: for n>=N and j<N, t^(n-j)/(n+1) separates into a row factor and a column factor. Thus a matching prior limit for the truncated commutator would cover the claimed limit too; none was identified in the targeted comparison."
+        ],
+        "reasoning": "Match the operator by entries and distinguish exact matrices from equivalent limiting inertia laws. Neither spectral results about C_t itself nor the different additive-shift deformation give that law.",
+        "searches": [
+          "Resultary: damped Cesàro self-commutator, signed finite-section inertia and arccosine law",
+          "Primary-literature lookup: geometrically damped Cesàro self-commutator sign/inertia law",
+          "arXiv:2305.04805, arXiv:2302.08750"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog match was the assigned record itself, not separate coverage.",
+          "The classical t=1 catalog result concerns positive cubic spectral decay; the nonreal-shift catalog result gives a qualitative negative-index trichotomy for 1/(n+1+alpha)."
+        ],
+        "reasoning": "Neither endpoint or other-family entry gives the exact density of signs of the damped family, and the self-match provides no priority evidence.",
+        "searches": [
+          "Resultary: exact Cesàro arccos(t)/pi sign law",
+          "Resultary related records 1d9ae52b1d38, f33d5c640367, 4dad66f8063e"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit limiting sign proportions for this geometrically damped family. Operator definition and compactness are known; qualitative inertia of related families and the classical Toeplitz principle do not identify this rescaled commutator or evaluate its zero crossing. No independently matching law appeared in the bounded comparison.",
+      "residual_risks": [
+        "Bounded literature and catalog search; an unindexed or differently phrased finite-section law or stronger applicable kernel theorem is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known definition and spectral/compactness context; no matching inference found in inspected material",
+          "evidence": [
+            "Equation (1.1) defines precisely the geometrically damped entries; abstract concerns spectra and sequence-space properties. The commutator locator returned no hits, which is not proof of whole-paper absence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.04805",
+          "material_read": "p. 1 abstract and (1.1); full-text literal commutator locator",
+          "method": "Open PDF text by page/offset and locate word in extracted text",
+          "title": "Spectral properties of generalized Cesàro operators in sequence spaces",
+          "trigger": "Exact operator family"
+        },
+        {
+          "assessment": "Same operator and different inspected spectral conclusions",
+          "evidence": [
+            "The opening defines C_t and treats compactness and spectra of C_t itself; the commutator locator returned no hits."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08750",
+          "material_read": "p. 1 opening/definition; full-text literal commutator locator",
+          "method": "Open PDF by page/offset and locate word in extracted text",
+          "title": "Fine spectra and compactness of generalized Cesàro operators in Banach lattices",
+          "trigger": "Exact operator family"
+        },
+        {
+          "assessment": "Different family and qualitative conclusion",
+          "evidence": [
+            "Constant row entries and s>1 power decay, with qualitative two-sided inertia and quantitative asymptotics not claimed."
+          ],
+          "identifier_or_url": "SCOPE-infinite-two-sided-commutator-inertia-of-compact-power-decaying--4dad66f8063e",
+          "material_read": "Theorem and assumptions, offsets 0–5684; limitations from offset 6200",
+          "method": "Read bounded passages in the local mirror",
+          "title": "Infinite two-sided commutator inertia of compact power-decaying Rhaly operators",
+          "trigger": "Closest distinct catalog signature theorem"
+        },
+        {
+          "assessment": "Endpoint and other deformation",
+          "evidence": [
+            "One concerns the classical positive commutator at t=1; the other concerns additive nonreal shifts in the denominator."
+          ],
+          "identifier_or_url": "SCOPE-cubic-spectral-decay-of-the-classical-ces-ro-self-commutator--1d9ae52b1d38; SCOPE-infinite-negative-inertia-under-nonreal-shifts-of-the-ces-ro-mat--f33d5c640367",
+          "material_read": "Opening Finding passages at offset 0 in both records",
+          "method": "Read local mirror",
+          "title": "Classical and nonreal-shift Cesàro self-commutator findings",
+          "trigger": "Same named operator and endpoint/deformation overlap"
+        },
+        {
+          "assessment": "Different definition and question",
+          "evidence": [
+            "Order/denominator family rather than t^(n-j) damping."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00193",
+          "material_read": "p. 1 near offset 350",
+          "method": "Open indexed PDF passage",
+          "title": "Generalized Cesàro hyponormality comparison",
+          "trigger": "Primary search hit on generalized Cesàro self-commutator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–5",
+        "Albanese–Bonet–Ricker, (1.1)",
+        "SCOPE-infinite-two-sided-commutator-inertia-of-compact-power-decaying--4dad66f8063e, Finding"
+      ],
+      "rationale": "The family interpolates from a commuting compact diagonal operator to classical Cesàro at the other endpoint. A sharp continuous signature fraction for finite principal compressions gives information not captured by compactness, trace zero or existence of both signs. In particular the limiting half-negative behavior as t decreases to zero is not predicted by trace-norm convergence to zero. The invariant is natural for comparing signed compressions, and the proof requires identifying its operator-specific symbol rather than merely reusing the Toeplitz theorem.",
+      "residual_risks": [
+        "The value is a comparative signature law, not a claimed asymptotic for eigenvalue magnitudes or a result for the classical endpoint."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

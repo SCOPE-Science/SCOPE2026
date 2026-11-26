@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The concrete invariant is defined for all coalitions and all fixed-action partial profiles, without upward closure. For one/two players, the two-by-two Boolean matrix classification accounts for all action-flip classes. At three players the explicit tables have the same eight coalition signatures but three and two positive entries, which cannot be made equal even under agent and outcome exchange. A standard-library exhaustive verifier checks all \(256\) three-player tables and independently computes action-flip representatives; its three counts are \(41\) signatures, \(46\) orbits and \(3\) ambiguous signatures, with orbit multiplicities \(2,2,4\). Burnside's independent orbit formula gives \(46\). Finite exhaustivity is sufficient because the theorem's exact census explicitly concerns this finite domain.
+PASS
 
-## Originality — PASS, with material residual risk
+The invariant tracks a set of nonempty ranges for each labelled coalition, not an upward closure or a multiset. At k=1 the occurring outcomes determine the flip orbit. At k=2 the constants, the cases with one exceptional entry, and the three two-ones configurations are separated: a singleton coalition sees both singleton outcomes for the corresponding stripe, only the mixed range for the transverse stripe and both checkerboard directions, and a singleton plus a mixed range for an exceptional entry. At k=3 the displayed tables have the same range families, and have three and two ones respectively, so even cube coordinate and outcome permutations cannot identify them. A fresh exhaustive calculation partitioned all 4, 16 and 256 Boolean tables by translation orbit and constructed range families by grouping profiles by their fixed coordinate tuples. It obtained 3/3, 7/7 and 41/46 signatures/orbits respectively; the only ambiguous signatures contain 2, 2 and 4 orbits with 12, 12 and 32 labelled tables. Burnside independently gives 46: (256+7*16)/8. Replay with python3 /workspace/branches/independent_checks.py 1; the uploaded verifier was inspected, not executed. This tests exactly the specified fixed action/outcome sizes and k<=3, not higher dimensions or any broader invariant.
 
-The full 2026 article *Inquisitive Action Logic*, Theorem 2.2, characterizes representability of individual-agent actual-effectivity systems, not this reconstruction of action classes from all exact coalition outcome ranges. Earlier state/path coalition effectivity models and the Stanford survey explain abstract game-representation nonuniqueness, predominantly for upward-closed powers, which is acknowledged as known rather than asserted new. Targeted search of possible cube-face-range aliases and the published mathematical database did not identify the 41/46 fixed-alphabet census. Wang's 2026 *Value Coalition Logic* explicitly studies the same type of coalition value-range hypergraphs, and its **full text could not be inspected**. An equivalent finite census there or in earlier combinatorics cannot be excluded; this is the leading remaining novelty risk. The audit records actual comparison queries, the source material inspected, and the statement-level distinctions.
+## originality
 
-## Value — PASS
+PASS
 
-Reconstruction of concrete action profiles from abstract exact coalitional observations is an important semantic question, particularly because exact non-monotone outcome sets appear to retain much more information than classic coalition powers. The smallest nontrivial binary action/outcome domain is fully classified: first loss of faithfulness at three agents, an explicit robust obstruction and exact collapse statistics. This provides a precise structural boundary rather than an arbitrary data table and does not purport to resolve general representability.
+The exact range-family object is already present in Wang. The supported distinct contribution is the faithful-versus-nonfaithful boundary for the fully labelled binary signature under action flips and the complete first-layer census, not the definition or the broad fact that monotone effectivity can lose information.
 
-## Limits
+## value
 
-Results are local and deterministic, with two actions per agent, two labelled outcomes and at most three agents for the census. Exact range families omit action multiplicity, which is essential to the negative result. The numerical classification comes from a fully enumerated 256-case certificate; the proof does not give a noncomputational generating formula for the 41 signatures. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Keeping every exact attainable range rather than just the monotone closure naturally raises a faithfulness question. This result says exactly when that finer abstraction first loses information in the binary setting, shows the loss survives enlarged relabelling, and identifies how much ambiguity the first possible failure can hide. Those facts are relevant to recovering concrete game forms rather than just deciding whether signatures can be realized.
 
+The dated certificate retains the supplied scientific assessment, sources and limitations.

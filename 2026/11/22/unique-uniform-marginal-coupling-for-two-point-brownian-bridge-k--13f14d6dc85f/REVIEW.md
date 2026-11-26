@@ -1,15 +1,21 @@
-# Scientific review: uniform-marginal Brownian-bridge two-site coupling
+# Independent mathematical audit
 
-## Correctness — PASS
-For any ordered observations \(a\le b\), the Gaussian bridge Markov property reduces the conditional integral variance to \([a^3+(b-a)^3+(1-b)^3]/12\), including coincident/end sites by continuity. The proposed one-variable dual function \(\phi\) yields the **global** inequality \(12V(x,y)\ge\phi(x)+\phi(y)\) for every \((x,y)\) in the full closed square. The mixed-half deficit factors as \((y-x-1/2)^2(y-x+1)\); in one half the deficit is nondecreasing in its smaller argument and its minimum at zero equals \((2-y)(y-1/2)^2\). Reflection handles the other half. Uniform marginals force the lower bound \(3/16\) for the twelvefold risk. Equality requires exactly half-unit separation, uniquely specifying the cyclic translation map almost everywhere. No finite experiment is used as proof of this infinite-dimensional coupling optimum. The exact rational standalone verifier independently checks critical formulas, finite rational instances, conditioning and benchmark integrals.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Briol et al. (2017) optimize a sampling *marginal distribution* in a different kernel-quadrature objective, not all copulas with both marginals fixed. Santin (2022) proves deterministic equally spaced interpolation sites minimize a *maximum pointwise power function*, not the present integrated posterior-variance dependence problem. Cai et al. (2022) prove rate bounds, and Hayakawa et al. (2023) treat general Nyström and convex quadrature bounds. The published 2026 *Unique optimal i.i.d. two-node design for Brownian-bridge kernel quadrature* addresses the same fixed-site cubic-gap loss but optimizes a common iid marginal \(\mu\) in \(\mu\otimes\mu\); it explicitly does not cover correlated designs. Here the marginals are fixed uniform and arbitrary dependence is optimized. Queries of published research records for aliases, parameters, circular shifts, antithetics, Brownian-bridge coupling, and exact cubic spacings found no same or stronger statement. A historical optimal-transport or randomized-QMC theorem might imply the result via an unrecognized reformulation; this is recorded as residual risk, not dismissed by an absence of matching search titles.
+PASS
 
-## Value — PASS
-Individually uniform sites are a natural calibration constraint for randomized quadrature: each point has the target sampling law, while the pair can exploit dependence. The result identifies the **unique** minimum over all such joint distributions and gives an exact, easily implemented design with expected integrated posterior variance \(1/64\), \(37.5\%\) below two independent uniforms. It also identifies a structural pitfall: reflection antithetics produce \(5/192\), which is worse than independence \(1/40\). This is not a claim that the half-period shifted grid is a newly invented construction or that it beats unconstrained deterministic placement. A full copula-level dual optimality certificate is substantive beyond a routine evaluation of a known lattice rule.
+Noiseless conditioning on the sites, independently of the process, leaves independent residual bridges on the three gaps. Each integrated covariance is h³/12; direct symbolic Schur complementation agrees on distinct interior sites. Collisions and endpoints simply remove zero gaps. The RKHS interpretation uses the Brownian-bridge Dirichlet-energy norm. For the scaled cost 12V, the mixed-half dual deficit is (d-1/2)²(d+1). On the lower same-half triangle the deficit increases in x (strictly away from the corner of separation 1/2), and at x=0 it is (2-y)(1/2-y)². Reflection and exchange give equality exactly at separation 1/2. The dual integral is 3/32, hence every Borel coupling has expected risk at least 1/64; equality support and atomlessness of the first marginal make the shift law unique. Independently, the sum of gap cubes equals 6 times the integral of (t-s) over empty intervals (s,t). The empty-interval probability is at least max(0,1-2(t-s)) by the marginal constraints, and the half-shift realizes this pointwise lower envelope. Integration gives the same sharp bound. Exact independent integrals give 1/40 and 5/192 for independence and reflection. Replay: python /workspace/independent_checks.py 4 (SymPy); original verification notes and script inspected, not executed.
 
-## Closest literature and remaining limits
-The closest exact scientific comparator is the 2026 published iid Brownian-bridge two-node distributional design, whose loss is identical but feasible laws are distinct and whose result does not imply the present optimum. The 2017 sampling-distribution formulation and 2022 deterministic Brownian-bridge interpolation theorem similarly address different quantifiers. Classical shifted-lattice and optimal-transport literature remains a plausible source of prior equivalences not exhaustively excluded. The theorem covers exactly two noiseless nonadaptive sites with uniform individual marginals and the expected squared fixed-site worst-case/Bayes error; no higher-site, noisy or all-integrands-after-randomization extension is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the sharp all-uniform-couplings optimum and equality classification for the Brownian-bridge posterior integral variance, not the shifted lattice, the cubic spacing cost in isolation, or abstract transport duality. The strongest exact overlaps reuse the cost under a different admissible law or the same shift under a different loss. The bounded comparison cannot establish absolute priority.
+
+## value
+
+PASS
+
+This is a natural constrained design benchmark: only dependence may be optimized, so it gives a precise test of the benefit of dependence without changing sampling marginals. The sharp bound and equality structure rule out every alternative joint law, not just common competitors. The reductions against independence and reflection are meaningful under the fixed-site posterior criterion; no minimax-over-integrands-after-randomization claim follows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

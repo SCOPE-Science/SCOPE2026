@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:26:15.014677Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the repaired scope, each clique column has 0, 1 or m omissions because any selected vertex sees all omitted neighbors in its clique. A full run has length at most two and gaps between runs have length at least two. A singleton cannot be at distance one or two from a full column; distance two makes the intervening column empty and violates the cap in the singleton's row. If there are f full columns in b blocks, then n≥f+2b≥2f and n=4q+2 excludes f=2q+1 since it would require b≥q+1. Thus f≤h. The gap bound gives at most (n−f−2b−2)_+ singleton columns, at most 2(h−f) since n−2h≤2. Therefore |S|≤mh−(m−2)(h−f) and equality with a full column requires f=h and no singleton. Without full columns |S|≤n, with a tie n=mh only at (3,6) in the repaired scope, where consecutive singleton rows must agree and all three fixed rows are feasible. The allowed binary words are feasible by the direct conditions. Counting a distinguished block and dividing by b gives n in residues 1 and 3 and n(q+1)/2+nq/2=n²/4 in residue 2. This also proves attainment. The original n=3 tie and residue-zero counts agree with the credited results. The supplied finite-check source was inspected, not executed; the all-size conclusion is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cor. 8 gives the cycle value n−h. Thm. 7 gives the m(n−h) upper bound and the general lower bound; they meet when 4|n. Tepeh treats exact grids separately and Prop. 6 gives the scalar at K_3□K_3.",
+          "Radić matched passages concern general bounds and the capacitated-domination relation, not the specific rigidity statement."
+        ],
+        "reasoning": "The upper bound supplies a construction but not a matching lower bound in the asserted residues under the compared bounds, much less that all optimum sets are lifted or in the exceptional row family.",
+        "searches": [
+          "Božović et al. DOI:10.1007/s40314-026-03902-2 Cor. 8",
+          "Tepeh arXiv:2606.22428v2 §4",
+          "Radić arXiv:2610.01442 Thms. 1,4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and four distinct related records above",
+        "DOI:10.1007/s40314-026-03902-2",
+        "arXiv:2606.22428v2",
+        "arXiv:2610.01442 matched excerpts",
+        "Indexed description of On Total Domination Sets and Polynomials of Cycles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At 4|n equality of the scalar bounds forces the cross-cut edges to be a perfect matching (neither side can have a vertex incident to zero or more than one cross edge). A split clique of size ≥3 contradicts that bound on both sides; all words then repeat 1100. At n=3 a graph isomorphism transfers the full rook classification.",
+          "The same-day cyclic-clique three-path-cover record restricts the induced maximum degree of the complement (dissociation), not the number of neighbors in the complement seen by the selected set."
+        ],
+        "reasoning": "Both directly implied slices are outside the repaired finding. The equality argument at mn/2 does not apply when 4∤n. The gap/exclusion bound is needed to prove rigidity in those residues; the different complement degree cap in the three-path result cannot replace it.",
+        "searches": [
+          "arXiv:2606.22428v2 Thm. 7 and Prop. 6",
+          "SCOPE-3f6b93fa9eef minimizer classification",
+          "SCOPE-84be1c32ab09 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-3f6b93fa9eef covers K_m□K_3 exactly. With C_3≅K_3 its minima and counts coincide with the entire excluded n=3 claim.",
+          "On a bare cycle C_n, a set D is 1-limited dominating iff every cycle vertex has a neighbor in D, i.e. D is total dominating; a cyclic omission word then avoids 101 and 111. A candidate dedicated cycle polynomial paper was identified but not retrieved in full."
+        ],
+        "reasoning": "The same bare-cycle word count is not a separate contribution. The equivalence on degree-two cycles does not hold for arbitrary sets of the clique product: ordinary total domination there does not impose the one-omission cap. Product rigidity is additional.",
+        "searches": [
+          "Resultary: rook-graph low-capacity rigidity, limited domination on cyclic clique products, circular ladders",
+          "web: total domination polynomial cycles minimum total dominating sets cyclic count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-3f6b93fa9eef gives the known counts three for m>3 and six for m=3 when n=3. SCOPE-4d83cdec888e gives exact labelled circular-ladder minima at m=2, including row minima for all n and additional column patterns at 4|n.",
+          "SCOPE-b0e1531dac94 enumerates K_n□K_2, not K_m□C_n. A bare-cycle total-domination polynomial supplies base word counts, not the clique-product classification or the (3,6) addition."
+        ],
+        "reasoning": "No inspected indexed exact enumeration covers the asserted product range. Neither related product table includes these hypotheses, and the product count needs the full-column rigidity independent of any known base count.",
+        "searches": [
+          "Resultary: exact limited-domination counts and polynomials for cycle products and clique prisms",
+          "web: On total domination sets and polynomials of cycles"
+        ]
+      },
+      "rationale": "For the corrected claim only, the strongest inspected sources cover the base cycle, bounds, the excluded rook slice and neighboring variants, but do not determine the clique-cycle optimum and rigidity for m≥3, n≥5, 4∤n. The base word count is not claimed to be independently original.",
+      "residual_risks": [
+        "The total-domination cycle paper was not accessible in full; its base counts might be explicit, and the repair claims no novelty for them.",
+        "Radić source reopening was unavailable after obtaining the reported matched passages. Comparisons do not certify absolute priority, and same-day indexing does not establish order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known base value",
+          "evidence": "γ₁ᴸ(C_n)=floor(n/2)+ceil(n/4)−floor(n/4)=n−h.",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-026-03902-2",
+          "material_read": "Corollary 8, p.8, OA PDF offsets 25280–28606",
+          "method": "Bounded OA PDF passages",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Exact base-cycle value and same domination definition"
+        },
+        {
+          "assessment": "General scalar bounds and particular products, not retained rigidity claim",
+          "evidence": "The product upper and lower bounds meet at 4|n; K_3□K_3 scalar and exact grid results do not give the retained minimizers.",
+          "identifier_or_url": "https://arxiv.org/html/2606.22428v2",
+          "material_read": "§4, Thm. 7 and Prop. 6, about offsets 25000–38960; Thm. 10, offsets 38975–45975",
+          "method": "Bounded OA HTML passages",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Same graph product and cap"
+        },
+        {
+          "assessment": "Entire n=3 result covered; excluded from repair",
+          "evidence": "Three slab minima for m>3 and six in both orientations at m=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-limited-domination-and-low-capacity-rigidity-for-rectangul--3f6b93fa9eef",
+          "material_read": "RESULT.md Finding and k=1 minimizer classification",
+          "method": "Local mirror passages",
+          "title": "Exact limited domination and low-capacity rigidity for rectangular rook graphs",
+          "trigger": "Equivalent graph family at n=3"
+        },
+        {
+          "assessment": "Different clique size outside hypotheses",
+          "evidence": "For m=2, min size n, always two whole layers and four additional patterns if 4|n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-one-limited-domination-polynomial-of-circular-ladders--4d83cdec888e",
+          "material_read": "Finding and minimum-set consequences",
+          "method": "Local mirror passages",
+          "title": "Complete one-limited domination polynomial of circular ladders",
+          "trigger": "Exact polynomial on adjacent clique-size family"
+        },
+        {
+          "assessment": "Different product family",
+          "evidence": "Enumerates K_n□K_2, not the repaired cycle family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-full-limited-domination-distributions-of-clique-prisms--b0e1531dac94",
+          "material_read": "Finding",
+          "method": "Local mirror passage",
+          "title": "Full limited domination distributions of clique prisms",
+          "trigger": "Related exact labelled enumerator"
+        },
+        {
+          "assessment": "Different constraint, not an equivalent complement",
+          "evidence": "Complements of three-path covers are dissociation sets; the intended constraints apply to different neighbors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-minimum-three-path-covers-of-cyclic-clique-products-an-exact-kne--84be1c32ab09",
+          "material_read": "Finding and object definition",
+          "method": "Local mirror passages",
+          "title": "Minimum three-path covers of cyclic clique products",
+          "trigger": "Same graph family and exact cardinality question"
+        },
+        {
+          "assessment": "General bounds and relation in read text; no whole-paper conclusion",
+          "evidence": "The read passages concern general bounds and relation to capacitated domination.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01442",
+          "material_read": "Matched excerpts at Thm. 1, p.3, offset 9792, and Thm. 4, p.5, offset 14676",
+          "method": "OA PDF match excerpts; bounded reopening unavailable",
+          "title": "An improved lower and upper bound of the k-limited domination number",
+          "trigger": "Potential sharper general implication"
+        },
+        {
+          "assessment": "Potential exact base word count; no paper-level coverage conclusion",
+          "evidence": "Ordinary cycle total-domination coefficients encode the same base count by the proved equivalence, but they do not encode nonfiber optima in a clique product.",
+          "identifier_or_url": "https://www.researchgate.net/publication/259894713_ON_TOTAL_DOMINATION_SETS_AND_POLYNOMIALS_OF_CYCLES",
+          "material_read": "Indexed description defining the cycle total-domination generating function; full text not retrieved",
+          "method": "Literature discovery and OA access attempt; no identified accessible same-paper copy",
+          "title": "On Total Domination Sets and Polynomials of Cycles",
+          "trigger": "Equivalent base-cycle enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving structured classification resolves whether product minimizers must arise from base-cycle patterns even when generic capacity bounds do not meet. It also identifies a genuine smallest exception outside the rook slice, where a different geometric shape ties, and supplies exact labelled counts for future extremal and enumeration work.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

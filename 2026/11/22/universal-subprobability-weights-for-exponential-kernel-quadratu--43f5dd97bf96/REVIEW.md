@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete claim is established by four complementary exact arguments. The ordered exponential kernel has nonnegative two-site-supported cardinal functions whose sum is at most one. Its tridiagonal Markov precision is positive definite with nonpositive off-diagonals and strictly positive row sums. For any nonnegative diagonal nugget, an inverse-positive Stieltjes similarity makes the quadrature weights nonnegative and the row-sum identity makes their total no larger than the target mass. A two-node off-domain atom proves strict negative-weight failure for every smoother power-exponential exponent. All boundaries are stated: distinct sites, positive decay, arbitrary finite nonnegative target measure, finite diagonal nuggets, and smoothness exponents only in \([1,2]\). The exact-rational script passed 1,299 checks and has been run from the specified file, though the proof is analytical rather than a finite enumeration.
+PASS
 
-## Originality — PASS on inspected comparisons
+For an atom inside a gap the only nonzero noiseless cardinal coefficients are the two positive sinh ratios; exponential multiplicativity extends the two-node equations to all nodes. Their cosh-ratio sum is at most one, as is the single exterior exponential, so integration covers any finite nonnegative Borel measure including atoms or zero. The Markov quadratic form gives the inverse Q with nonpositive off-diagonals and strictly positive row sums; each interior sum is (1-rho_left rho_right)/((1+rho_left)(1+rho_right)), and the endpoints and n=1 obey the same strict sign. Write M=I+QD=B-E with diagonal B>0 and E>=0 off diagonal. The column sums of M are 1+d_j(Q1)_j>=1, so E B^{-1} has column norm less than one and M^{-1}=B^{-1} sum_{k>=0}(E B^{-1})^k>=0, with positive diagonal even if some nuggets vanish. This proves the full-support strict case; when all nuggets are positive the neighboring entries connect the chain, and the inverse is strictly positive, proving the nonzero-measure strict case. Summing the equation gives 1^T(v-w)=(Q1)^TDw>=0, where v=K^{-1}b, and equality at a noiseless node atom proves sharpness. For 1<alpha<=2, the sign of the first weight for the exterior atom at a+b is the sign of (1+d_2)-exp(lambda[(a+b)^alpha-a^alpha-b^alpha]); the exponent tends to infinity for fixed a>0, including any prescribed finite nugget. The two-site determinant is positive. An independent exact check (`python /workspace/branches/audit_checks.py ou`) includes mixed zero and positive nuggets and an exact Gaussian weight -127/29360128; the frozen checker was inspected, not executed. Nothing here covers non-diagonal noise or exponents below one.
 
-The 2018/2019 Karvonen–Kanagawa–Särkkä paper explicitly says its total-positivity arguments do not establish positivity for Matérn, including exponential covariance; its claims assume different kernels/design conditions. Prior Ornstein–Uhlenbeck optimal-node theory analyzes posterior integral *variance*, not all-node kernel quadrature weight signs with heterogeneous nuggets or a subprobability bound. Random exponential-kernel precision tail work analyzes matrix conditioning, not weight signs. The closest power-exponential two-node study concerns random collision/noise moments and does not cover arbitrary integration measures or universal negativity of smooth kernels. The 2012 Huszár–Duvenaud paper establishes the Bayesian quadrature weighting framework. The novelty claimed here is the **complete universal sign-and-mass theorem together with the sharp within-family obstruction**, not the familiar OU precision matrix, the Stieltjes inverse positivity lemma, or direct two-by-two inversion. Residual risk: older Gaussian-Markov/spline interpolation literature may implicitly contain this corollary; human publication-priority review remains necessary.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question addresses a recognized gap in stability of kernel quadrature with finite-smoothness Matérn priors. The theorem certifies positivity without optimizing nodes or imposing a density on the integration measure, and still applies under arbitrary heteroscedastic diagonal measurement nuggets. Its total-weight bound controls the range and the evaluation-noise amplification in the \(\ell_\infty\) sense for any fixed target mass. The sharp counterexample shows the structural significance of the Markov exponent instead of offering merely a numerically safe special design. It does not assert exact integration of constants or an integration-accuracy guarantee.
+Do not credit the classical noiseless OU bridge, integrated-cardinal-function method, or M-matrix inverse theory as new. Checked evidence supports the combined arbitrary-measure, arbitrary finite heteroscedastic diagonal-nugget subprobability theorem and the sharp power-exponential obstruction with preassigned nuggets. The closest indexed and published results concern noiseless design, selected optimal designs, positivity under narrower hypotheses, or correlated noise.
 
-## Principal sources and limitations
+## value
 
-Huszár–Duvenaud, arXiv:1204.1664 (2012); Karvonen–Kanagawa–Särkkä, arXiv:1812.08509 (2018/2019); full published research on OU integral design, OU inverse-matrix collision tails, and power-exponential random-node quadrature (2026), as referenced in RESULT.md. The comparison is based on accessible inspected source text and does not certify that every earlier implicit consequence has been discovered. Independent verification and publication-priority certification are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The subprobability bound supplies a directly usable sup-norm stability guarantee for an unconstrained noisy quadrature rule with arbitrary nodes and measures, not just at optimized sites. The lack of any finite diagonal-nugget protection for all exterior targets when alpha>1 is a motivated stability boundary and distinguishes smoothness from robustness. Positivity is not mistaken for small integration error or good matrix conditioning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:42:04.712855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–97",
+        "VERIFICATION.md:19–25",
+        "checker.py:29–165",
+        "Independent order-four replay: /workspace/branches/d08bc317-3984-4478-9be7-b59d3b166793/independent_small_check.py"
+      ],
+      "rationale": "The equivariant profile preserves colours by evaluation at the identity, and every coloured G-automorphism fixes profiles. On Gx with stabilizer H, the right-period subgroup K of the profile contains H; normality of H makes right multiplication on G/H by b in K well-defined, giving a coloured orbit automorphism moving x if b is outside H. Thus rigidity forces H=K. Equal profiles on one orbit then come from the same point; across two orbits they give equal point stabilizers and a coloured orbit isomorphism, hence a forbidden swap. Conversely every invariant subset with evaluation colouring has identity profile. Its union-of-orbits description gives the product, unique full-shift maximum, complement symmetry, and n! labellings because all automorphisms are trivial. Words fixed by H are constant on the sets gH (left cosets in standard terminology; left and right cosets coincide here), so Möbius inversion gives the stated exact counts; all conjugates of H are H, so division by [G:H] counts orbits. The q=1 and empty-object cases also work. Direct bounded reproducers for the two order-four examples gave orbit multiplicities (2,1,3) and (2,3,2) at sizes 1,2,4. The non-Dedekind example is valid: S3 on three points has trivial centralizer, and its extra fixed point cannot be swapped with that orbit.",
+      "residual_risks": [
+        "The finite reproduction corroborates the examples only. The coset terminology in the proof is harmless under normality; the statement with normality omitted is false."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cofree actions and their Burnside fixed-word method work for broader groups. Kuželka gives an orbit-stabilizer reduction of isomorphism counting by marking an arbitrary automorphism, not a characterization of the trivial-automorphism objects. The commuting-involution record enumerates uncoloured counting types."
+        ],
+        "reasoning": "None of these checked statements selects the rigid exactly by embedding into the universal cofree action. The profile of the one-colour S3 example rules out treating the claim as an unrestricted consequence valid for all finite groups.",
+        "searches": [
+          "Murphy-Hernandez arXiv:2608.23866v1, cofree action and fixed words",
+          "Kuželka arXiv:2608.30580, automorphism-marking passage at offset 11680",
+          "Resultary 83c7d95173f7, commuting involutions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.23866v1, 2608.30580, 1610.03808",
+        "Resultary a14c729a8c1b, 83c7d95173f7, 4d19fd7927e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard normalizer-quotient formula controls internal equivariant automorphisms of G/H; distinct copies of a coloured orbit can be exchanged. Under Dedekind normality any extra profile period already lies in the normalizer and so is an actual colour-preserving symmetry. The local necklace theorem implements both symmetry tests in the cyclic case."
+        ],
+        "reasoning": "The all-Dedekind claim requires applying normality to identify profile periods with available automorphisms and establishing equality of profiles across distinct orbits as a second obstruction. This yields one canonical universal representative. The growth bound and product are immediate after this step, but are not implied by a general fixed-word count or the known divisor-restricted cyclic case alone.",
+        "searches": [
+          "Murphy-Hernandez arXiv:2608.23866v1, cofree adjunction",
+          "Resultary a14c729a8c1b, automorphism product and exact rigid enumeration",
+          "RESULT.md:70–93, comparison with the standard transitive orbit normalizer formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shift with evaluation is the cofree G-set on the colour set. On a cyclic orbit its colour profile is a necklace; rigidity there is just a primitive necklace, and different orbits must carry different necklace types."
+        ],
+        "reasoning": "The cyclic rigidity classification is genuinely equivalent on the fixed cyclic action after restricting cycle lengths to divisors of the generator order. Cofreeness by itself grants an equivariant profile, not the equivalence between injectivity and absence of coloured equivariant automorphisms.",
+        "searches": [
+          "Murphy-Hernandez arXiv:2608.23866v1, p. 2",
+          "Resultary coloured unary permutations a14c729a8c1b, proof and rigid enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact rigid product found is the coloured-permutation product through primitive necklaces. The two other local results count different classes. Band–Harrison–Sepanski give the classical related count of words with strictly decreasing Lyndon factorization."
+        ],
+        "reasoning": "The cyclic product is known and specializes directly to a fixed cyclic group. Neither it nor the other tables/products computes the rigid types for a general Dedekind group or distinguishes the equal-order examples through their different subgroup lattices.",
+        "searches": [
+          "Resultary exact rigid enumeration: coloured unary permutations a14c729a8c1b, commuting involutions 83c7d95173f7, and coloured idempotent models 4d19fd7927e8",
+          "Band–Harrison–Sepanski arXiv:1610.03808, Theorem 2"
+        ]
+      },
+      "rationale": "Credit the standard cofree construction, subgroup inversion and cyclic primitive-necklace rigidity. The checked predecessors cover those ingredients or the cyclic case, not the profile as a complete invariant for all rigid named-colour actions of each finite Dedekind group, with every invariant subset realized and a unique maximum. The subgroup count is not judged new on its own. The originality judgment is for the all-Dedekind equivalence and its resulting exact rigid census.",
+      "residual_risks": [
+        "Comparison is to the inspected passages and exact-result records, not universal historical priority; an equivalent generalized-necklace or cofree-action formulation elsewhere remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the construction, not of the rigidity criterion in inspected passages",
+          "evidence": [
+            "X^G=Hom(G,X) with translation of the domain; fixed-word counting is standard in this construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.23866v1",
+          "material_read": "p. 2 at offset 4000, cofree construction and context of fixed-word counts",
+          "method": "OA full-text passage",
+          "title": "The Cofree Functor on G-Sets and Its Approximations",
+          "trigger": "The same shift, profile construction, and orbit enumeration"
+        },
+        {
+          "assessment": "Exact cyclic case coverage, not arbitrary Dedekind groups",
+          "evidence": [
+            "Wreath product of rotation and exchange symmetries of coloured cycles; rigid structures select primitive pairwise distinct cycle necklaces once each."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/a14c729a8c1b",
+          "material_read": "RESULT.md proof at offset 3300 and exact enumeration at offset 6500",
+          "method": "Local Resultary mirror",
+          "title": "A finite-group limit law for coloured unary permutations",
+          "trigger": "Rigid coloured structures built from actions of cyclic groups"
+        },
+        {
+          "assessment": "Classical cyclic word overlap",
+          "evidence": [
+            "Theorem 2 counts strictly decreasing Lyndon factorizations; the application concerns primitive pseudo-orbits on q-nary graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.03808",
+          "material_read": "pp. 1–2 and Theorem 2, p. 5 at offset 11431",
+          "method": "OA full-text passages",
+          "title": "Lyndon word decompositions and pseudo orbits on q-nary graphs",
+          "trigger": "Primitive-necklace enumeration"
+        },
+        {
+          "assessment": "Related counting framework, not the frozen rigid census",
+          "evidence": [
+            "Each isomorphism class contributes n! models with one marked automorphism because the usual n!/|Aut| factor cancels with the number of available automorphisms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30580",
+          "material_read": "pp. 3–4, offset 11680",
+          "method": "OA full-text passage",
+          "title": "Unary Functions, Automorphisms, and Unlabeled First-Order Model Counting",
+          "trigger": "General model counting with automorphisms marked"
+        },
+        {
+          "assessment": "Related uncoloured enumeration, not rigid coloured actions",
+          "evidence": [
+            "Counts types for commuting involutive relations, not rigid named-colour isomorphism types."
+          ],
+          "identifier_or_url": "Resultary:2026/10/18/83c7d95173f7",
+          "material_read": "RESULT.md classification of counted types",
+          "method": "Local Resultary mirror",
+          "title": "Stirling–Gaussian enumeration of counting types for commuting involutions",
+          "trigger": "Nearby named commuting finite action"
+        },
+        {
+          "assessment": "Different class",
+          "evidence": [
+            "The single idempotent-map structures are rooted stars, not group actions."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/4d19fd7927e8",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp rigidity capacity and exact census of coloured idempotent unary models",
+          "trigger": "Identical rigidity and capacity questions for another unary algebraic class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:7–54,64–97",
+        "Resultary a14c729a8c1b",
+        "Murphy-Hernandez arXiv:2608.23866v1"
+      ],
+      "rationale": "The meaningful gain is a single canonical host classifying all rigid coloured actions of a fixed group, not a new orbit-counting identity. It supplies exact counts at every size and a sharp unique capacity; the two order-four examples show that the polynomial detects subgroup distinctions missed by the maximum alone, and the S3 example shows why the classification needs a group hypothesis. The cyclic cases and each individual counting tool are standard, but their Dedekind synthesis gives an explicit invariant for the broader natural class.",
+      "residual_risks": [
+        "No general classification of arbitrary non-Dedekind actions is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

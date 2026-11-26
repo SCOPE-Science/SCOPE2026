@@ -1,19 +1,21 @@
-# Scientific review: even-cycle powers and marked colour refinement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain, synchronous update convention, and round-zero marker are explicit. The proof reconstructs every round: transitivity hides the marker outside the current radius; coordinate-reflection/permutation symmetry prevents premature splitting within histograms; predecessor multisets distinguish histograms on the new shell. The weighted predecessor identity handles the extra backward edge at an even antipode. Its reconstruction is invertible for total predecessor multiplicity at least three, with the one- and two-predecessor exceptions treated separately. The induction, unique last shell, and the \(C_4\)/hypercube factorization establish sharp depths, class sizes, and exact colour counts. The external finite experiments are corroboration only.
+PASS
 
-## Originality — PASS, with explicit residual risk
+Through round k, vertices beyond distance k stay homogeneous by regularity and locality of the root marker. Independent coordinate reflections and permutations preserve every histogram fibre. To split the newly reached shell, let N be the multiplicity sum of inward neighbours; summing their histograms gives B_r=(N-2)m_r and B_j=(N-1)m_j+w_{j+1}m_{j+1} for 1≤j<r with w_r=2 and other positive weights one. Inversion works for N≥3. If N=1, one nonzero coordinate is determined by the shell; at N=2 one antipodal coordinate can collide only with two nonantipodal coordinates summing to r, and for r≥3 decreasing one of those coordinates of size at least two leaves two positive coordinates, distinguishing the predecessor multisets. This proves the induction without a higher-round assumption. The final antipodal shell is a singleton, but it is combined with the penultimate shell one round earlier. The histogram orbit sizes follow from coordinate position choices and signs, and their distance enumerator is the partition rectangle Gaussian polynomial. For r=2 the graph is a hypercube: all vertices in a shell have the same inward and outward degrees, and each successive shell separates when first reached until only the singleton antipode remains unseen. Exact direct refinement on eight independent test cases, including C_6^5 and C_4^5, matched every partition and the least stable round. The frozen verifier's recorded 21 full-graph configurations include six supplemental r=1 cases with duplicated cyclic neighbour moves, outside the theorem; these checks are not evidence about simple C_2 factors.
 
-The earlier odd-cycle Cartesian-power formula does not imply the even-cycle claim: antipodal vertices have twice the predecessor multiplicity, and the smallest even cycle fails to preserve coordinate profiles. An earlier marked two-dimensional toroidal-grid result proves the stable orbit partition but does not determine the full roundwise refinement profile or higher powers. Generic colour-refinement papers establish the algorithm and broad links to equitable partitions, not this cycle-specific characterization. Actual searches compared cycle-product aliases, rooted or individualized 1-WL, orbit-exact refinements, hypercube collapse, and round complexity. No equivalent covering theorem was identified; relevant specialized literature may be indexed incompletely. No absence-of-search-result claim is taken as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural uniform family of high-dimensional periodic graphs. The result identifies exactly what rooted colour refinement learns after every round and explains a sharp structural obstruction at four-cycles, separating Cartesian-coordinate information from total Hamming distance. The Gaussian-binomial trajectory and sharp diameter-minus-one stabilization depth supply precise finite-model-theoretic refinement data beyond a scalar stable-orbit count. The nontrivial antipodal injection lemma and exceptional four-cycle boundary make this more than substituting even for odd parameters.
+The supported distinct core is the exact all-round profile in arbitrary powers of even cycles of length at least six. The stable d=2 case and the hypercube comparison are covered, and the odd-cycle analogue has essentially the same conclusions but a different inward-neighbour hypothesis. The frozen work does not claim novelty for the hypercube shell partition; its role here is to identify the exceptional boundary. The finding does not obtain the main scope by parameter substitution into the inspected material.
 
-## Literature comparison and limitations
+## value
 
-Grohe et al. (arXiv:1307.5697) cover general equitable/refinement foundations; Arvind et al. (arXiv:1502.01255) address refinability, compactness and graph isomorphism; Kiefer–McKay (arXiv:2005.10182) study worst-case iteration bounds. None of the material inspected implies the stated all-round even-cycle-power theorem. Prior special-family results on odd-cycle Cartesian powers, marked two-dimensional tori and hypercubes were compared at the level of their claims and implications. Mixed cycle lengths, multiple markers and higher-dimensional WL remain unproved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A roundwise description gives strictly more than orbit-exactness or a depth bound. It resolves when coordinate structure becomes visible and why the extra antipodal neighbour multiplicity destroys it only for the four-cycle factors. The low-multiplicity collision analysis is useful in deciding when shell-by-shell refinement proofs transfer to other products.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review — five-layer triangular-cylinder matching complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is explicitly the Cartesian product \(C_3\square P_5\), with fifteen vertices and twenty-seven edges. The proof constructs all \(11977\) nonempty simplices and checks an independent vertex-deletion matching-polynomial count. The twenty-seven-edge pivot algorithm yields \(5937\) disjoint matched Hasse pairs, and a full topological sort of all \(55209\) directed codimension-one relations proves acyclicity. Only one zero-cell and \(102\) four-cells remain. Forman's standard theorem therefore gives the asserted integral wedge homotopy type without invoking approximate homology computations. All twelve induced symmetry maps preserve the graph, and two separate methods give the same signed reduced Lefschetz traces. Character inner products give nonnegative integral irreducible multiplicities with the correct total dimension. Replay of the standalone checker succeeded.
+## correctness
 
-## Originality — PASS, with residual risk
-Chauhan–Sharma–Shukla, arXiv:2609.27366 (2026-09-23), treats the open three-row grid \(P_3\square P_n\), not the triangle-closed cylinder \(C_3\square P_5\). Its connectivity result and finite-width table do not identify the latter's homotopy type or symmetry action. Bayer–Jelić Milutinović–Vega, arXiv:2211.12559, treats polygonal line tilings formed from edge-sharing cycles; the five triangular layers here are edge-disjoint and connected by three longitudinal links, so that theorem is inapplicable. Published indexed calculations for the rectangular four-by-four grid and the cuboctahedral graph concern different matching complexes. No exact statement, equivalent model, dominating theorem, or recorded parameter table covering this five-layer cylinder was identified in the completed queries and material read. Searches cannot exclude unindexed or inaccessible prior computations; this remains a genuine risk.
+PASS
 
-## Mathematical value — PASS
-The three-by-five triangular cylinder is a natural cyclic-boundary comparison to the emerging homology problem of three-row rectangular matching complexes. Its full complex has dimension six yet collapses to a wedge of \(102\) four-spheres; this is a homotopy statement strictly stronger than Euler characteristic or Betti-number computation. The complete \(S_3\times C_2\) character distinguishes the row permutations and column reversal and has six nonzero irreducible rational constituents, none determined by the known open-grid results. The precise finite classification and transparent exhaustive certificate provide a benchmark for attempts to understand the infinite family of triangular cylinders, without claiming to solve that family.
+I independently generated every matching by deleting the least remaining vertex or pairing it with one of its remaining neighbors. Using the specified edge order and pivots, batch pairing followed by independent depth-first cycle detection gave face counts including the empty simplex (1,27,279,1399,3558,4338,2100,276), 5937 disjoint covers, all 11977 nonempty faces and 55209 directed incidences visited without a directed cycle, and critical counts one in degree 0 and 102 in degree 4. Forman's theorem now gives a CW complex with those cells: every four-cell attaches to a point, yielding the integral wedge, not merely a homology computation. The five triangles are the only triangle cycles and their adjacency graph is P5; the longitudinal matching fixes the row bijection on all columns once chosen on one column, giving precisely S3 times C2. For a fixed face with j edges and k permutation orbits, its contribution to the reduced simplicial trace is (-1)^(j-1)(-1)^(j-k)=(-1)^(k-1), also correct for the augmented empty face. A separate recursion on disjoint permitted edge orbits recovered the six traces (102,0,0;12,2,0); concentration in even degree four identifies them with the homology character. Inner products over the six classes give (10,7,9,8,19,15); all irreducibles are realized over Q. Independent exact replay: python3 /workspace/review_work/reproduce_5.py. The frozen checker was inspected, not executed.
 
-## Closest literature and limits
-The essential comparisons are Chauhan–Sharma–Shukla (arXiv:2609.27366, introduction and concluding conjecture), Bayer–Jelić Milutinović–Vega (arXiv:2211.12559, definition and theorem for polygonal line tilings), Braun–Hough (2017, narrow rectangular grids), and public matching-complex calculations for other small graphs. The published rectangular-grid conjecture is not proved or disproved here. No independent validation, integral representation splitting, or all-length extrapolation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected matching-complex classifications concern materially different graph families. Neither the integral homotopy type nor the action on degree-four rational homology is supplied by the closest open-grid, triangle-line, or neighboring cylinder results.
+
+## value
+
+PASS
+
+This is a finite boundary-condition benchmark for the width-three matching-complex problem: at the same five layers the indexed open strip has sixteen four-spheres, while closing the width-three section yields 102. The exact acyclic certificate distinguishes a wedge from homology-only evidence, and the full row/reversal action makes it an equivariant benchmark as well. For example, the row action alone is seventeen copies of the regular rational S3 representation, but the trace 2 at transposition times reversal is additional information not available from this restriction or the rank. No claim for all lengths is needed for this precise comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

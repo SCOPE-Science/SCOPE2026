@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The degree bound gives \(\gamma_t(G)\ge10\). The verified Coxeter intersection array supplies a 10-vertex total dominating set about each center, hence equality. An exhaustive C++ enumeration visits exactly \(13{,}123{,}110\) ten-subsets and finds \(28\) valid ones; an independent first-uncovered Python backtracking search visits \(2{,}281\) nodes and finds the identical \(28\) bit masks. All are the distance-shell sets. A separate program verifies all pairwise exchange counts and the complete breadth-first distance profile of the threshold-four graph. The exact code and outputs are embedded.
+## correctness
 
-## Originality — PASS (qualified)
-The directly relevant 2016 Jeyanthi–Hemalatha article was inspected in full-text form at Lemma 2.2, Definition 1.2 and its Coxeter-related subdivision section. Its asserted optimum is \(14\), whereas an explicit ten-set disproves that assertion. Its exhibited fourteen-set is an upper bound, not a lower-bound argument. General total-domination bounds and aggregate-minimum-set literature do not give this graph's complete classification or its four-exchange threshold. Targeted research-record searches and graph-reference comparisons found no covering result; unindexed or inaccessible tables may overlap. No priority certification is asserted.
+PASS
 
-## Value — PASS
-The corrected numerical optimum is a four-vertex change to an expressly published Coxeter-specific value, not a routine strengthening of an abstract bound. More importantly, the complete 28-configuration geometric characterization and the sharp threshold between total single-exchange rigidity and global connectivity explain the space of optimal total dominating configurations of a canonical distance-transitive cubic graph. The finite graph is natural and the exchange limit is exact, with potential usefulness for comparison of optimal domination reconfiguration in symmetric graph families.
+The graph defined by disjoint noncollinear triples is cubic on 28 vertices, so a total dominating set has size at least 10. The shell transitions show that S0∪S1∪S4 has size 10 and covers every vertex by open neighborhoods, with a unique triply covered center. An independent lexicographic 10-subset traversal discarded only branches where fewer than three new vertices per remaining choice would not suffice even at the maximum of three (equivalently, uncovered > 3 times remaining). It reached 3730 leaves after safe pruning, returned 28 covers, and verified equality of the full sets of masks with the 28 shell witnesses. It also computed all 378 pair costs, with (distance,cost,count)=(1,6,42),(2,9,84),(3,7,168),(4,4,84), and all distance-four graph profiles (1,6,15,6). This proves the sharp exchange threshold under simultaneous replacements preserving optimality at endpoints. Replay: python3 /workspace/reproductions/finite_checks.py 4.
 
-## Closest literature and limitations
-Jeyanthi–Hemalatha (2016), Lemma 2.2, directly contradicts the numerical result but provides no covering classification. MathWorld supplies the classical graph intersection array; Henning (2000) and Henning–Yeo (2007) give general bounds, not these exact finite configurations. Godbole–Jamieson–Jamieson (2013) concerns general extremal numbers of minimum sets and was inspected at abstract level only. Residual risk: unindexed graph-property databases or publications. The exchange graph definition allows simultaneous swaps and requires optimality only at endpoints.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical graph and distance regularity are prior knowledge. The inspected sources do not cover the complete minimum open-neighborhood cover family and its exchange geometry. The reported numerical disagreement with Jeyanthi–Hemalatha is not used as decisive novelty evidence because Lemma 2.2 was not independently retrieved.
+
+## value
+
+PASS
+
+This is a complete optimum-family classification in a canonical symmetric cubic graph, not an isolated number produced by enumeration. Each optimum has a geometric center, and the complete exchange obstruction makes the gap between no moves and connectivity at four replacements precise. The result is useful independently of whether the reported prior numerical error is confirmed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

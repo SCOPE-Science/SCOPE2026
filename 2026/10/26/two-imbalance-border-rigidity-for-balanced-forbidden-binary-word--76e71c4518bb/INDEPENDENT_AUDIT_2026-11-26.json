@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:07:20.376471Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–58; VERIFICATION.md and nested verification/check_border_density.py and checker_output.txt",
+        "/workspace/review-evidence/3_replay.py (independently written bounded replay, run with Python 3/NumPy)",
+        "arXiv:2409.09024, Proposition 3.5; arXiv:2606.06655, Fact 2.9"
+      ],
+      "rationale": "Balanced words of length at least four avoid the four binary reducibility exceptions of Chandgotia–Marcus–Richey–Wu, and the loop at the start state for the symbol opposite to the first bit gives primitivity. The loop state also has an edge to a different state, giving λ>1 from its positive eigenvector; independent length-k blocks give λ≤(2^k−1)^(1/k)<2. Hence λ is an irrational algebraic integer. If a positive power were rational, every conjugate would have the same power and hence modulus λ, contrary to strict Perron domination since all conjugates occur in the integer matrix spectrum. The weighted overlap identity follows by splitting appended forbidden words at their first occurrence; the possible overlaps are exactly the nonempty borders. Marking ones gives ρ=λ′(1)/λ, by analytic Perron perturbation, and at x₀=1/λ the derivative combination 2H_y−x₀H_x is the sum of Δ(b)λ^|b| divided by the square of the border polynomial. The Perron pole is simple with positive residue in the (1−x/x₀)^−1 normalization, so H_x(x₀,1)<0. With the full border balanced, no one-term cancellation is possible and two terms would require a rational positive power of λ. For the family, the only possible internal occurrence of 10001 other than the terminal suffix is across the middle zero run when m=3; it disagrees at the sixth bit with the original prefix. The only proper borders are therefore 1 and 10001, and λ−λ⁵<0 gives the stated positive frequency bias. Independent bounded replay using a failure-link automaton and the stationary distribution of its Perron-normalized transition chain checked the 348 balanced words at lengths 4,6,8,10 (no mixed-sign cases there), family border lists for 0≤m≤100, and positive limiting biases numerically for m=0 through 4. It reproduced λ≈1.999514450410 and ρ≈0.500000885746 for m=0.",
+      "residual_risks": [
+        "Floating-point replay only corroborates finite examples; the proof uses exact derivatives and Perron algebraicity. Three or more imbalanced proper borders, and the stopped-process statistic, are not assessed by this proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.5 treats the case when all borders have the same weak imbalance sign. The ternary-and-larger theorem compares the longest distinguishing border using a dominant singularity x₀<1/2. The binary long-border theorem requires both ends 11 and at least one strict opposite-signed long border, yielding at least three imbalanced proper borders in its balanced case."
+        ],
+        "reasoning": "Complementation only flips all signs, so the published one-sided condition cannot apply to two opposite imbalances. At binary x₀>1/2, the inspected larger-alphabet proof's lower bound 1−x₀²/(1−x₀)² is not positive. The binary long-border class is not the frozen hypothesis and does not cover the family, whose ends are not 11.",
+        "searches": [
+          "arXiv:2606.06655, Theorem 3.5 and Conjecture 6.1",
+          "Local mirror c9bf3b88e6a1, Finding and proof §4",
+          "Local mirror 1a5dfd679652, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and mirror records 1a5dfd679652, c9bf3b88e6a1, 8ab1bd835fc2",
+        "arXiv:2606.06655",
+        "arXiv:2409.09024",
+        "Guibas–Odlyzko (1981) only via references/discussion in the inspected papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fact 2.9 gives the exact generating function; Proposition 3.3 proves balanced-border sufficiency; the one-sign theorem gives necessity only under its sign restriction. The graph paper supplies irreducibility, not a frequency bias theorem."
+        ],
+        "reasoning": "The overlap identity reduces the mixed case to a signed evaluation but does not exclude cancellation. That requires the extra strict Perron argument ruling out all rational positive powers, not a specialization of the inspected sign or larger-alphabet theorem.",
+        "searches": [
+          "arXiv:2606.06655, Fact 2.9, Proposition 3.3, Theorem 3.5 and Conjecture 6.1",
+          "arXiv:2409.09024, Proposition 3.5",
+          "Local mirror c9bf3b88e6a1, equation (6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conjecture explicitly discusses inability of differently signed borders to cancel, but the text separates uniform finite avoiders (ρ) from the stopped i.i.d. process (q). The indexed stopped-process Parikh theorem addresses q, not ρ."
+        ],
+        "reasoning": "An equality of proportions for the first-hit process does not imply an equality for counts weighted uniformly over fixed-length avoiders. The mirror for the same fixed-length statistic requires alphabet size at least three.",
+        "searches": [
+          "Local Resultary exact-title, family, w₀ and mixed-sign border searches",
+          "arXiv:2606.06655, Definitions 2.4–2.5 and Conjecture 6.1",
+          "Local mirrors c9bf3b88e6a1 and 8ab1bd835fc2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published example 100011110001 has border polynomial x^12 y^6+x^5 y²+xy; Remark 4.6 states that exact calculation confirms ρ(w₀)>1/2. No matching full parametric family or restricted theorem surfaced in the inspected catalogue results."
+        ],
+        "reasoning": "Credit exact prior coverage of w₀ and its direction of bias. The claimed distinct output is the all-length two-imbalance theorem and the infinite family, not that already determined example or a new table of letter frequencies.",
+        "searches": [
+          "Local Resultary theorem, example and parametric family searches",
+          "arXiv:2606.06655, post–Theorem 3.5 example and Remark 4.6"
+        ]
+      },
+      "rationale": "The generating function, implication from all borders balanced, one-sided imbalance criterion and sign for the explicit word w₀ are prior. The supported contribution is the no-cancellation result for the mixed two-border case of the uniform-avoidance density conjecture, and the infinite family with that border profile and strict bias.",
+      "residual_risks": [
+        "The classical overlap paper was not independently read in full; no global priority conclusion follows from bounded search. The exact w₀ result is already known and not counted toward originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior overlap but not the mixed two-border theorem or the full family",
+          "evidence": "Weighted border formula, one-sign result, w₀ and its exact direction of bias, plus the more general conjecture for two different statistics.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.06655",
+          "material_read": "Definitions 2.4–2.5 (pp. 3–4); Fact 2.9 (p. 5, offset 17230); Proposition 3.3 and Theorem 3.5 (p. 9); example (pp. 9–10, offsets 35134–36991); Remark 4.6 (p. 15, offset 58018); Conjecture 6.1 (p. 20, offset 80498)",
+          "method": "Primary OA bounded passage inspection",
+          "title": "Letter frequency in shifts of finite type with one forbidden word",
+          "trigger": "Direct motivating paper with exact framework, criteria, conjecture and matching example"
+        },
+        {
+          "assessment": "Prior graph input, not the density criterion in the compared statement",
+          "evidence": "Lists exactly the four reducibility exceptions for the binary graph; balanced words here are not exceptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.09024",
+          "material_read": "Proposition 3.5, p. 10, offset 33136",
+          "method": "Primary OA text",
+          "title": "Shifts of finite type obtained by forbidding a single pattern",
+          "trigger": "Required irreducibility input and plausible broader single-forbidden-word work"
+        },
+        {
+          "assessment": "Related ordering theorem outside the binary case",
+          "evidence": "The sign bound uses a dominant pole strictly below 1/2, unlike the binary case. The statement expressly requires at least three symbols.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-reverse-border-parikh-ordering-of-letter-frequencies-in-single-w--c9bf3b88e6a1/RESULT.md",
+          "material_read": "Finding and assumptions at offsets 0–2408, proof §4 at offsets 5480–7471",
+          "method": "Local mirror, exact theorem and decisive inequality",
+          "title": "Reverse border-Parikh ordering of letter frequencies in single-word avoidance",
+          "trigger": "Strongest same-statistic plausible dominating theorem"
+        },
+        {
+          "assessment": "Different structural hypothesis",
+          "evidence": "Begins and ends 11; controls balanced or zero-heavy borders of length at least three with one strict case; does not cover the given family or the frozen two-imbalance class.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-long-border-domination-of-letter-bias-for-binary-one-word-shifts--1a5dfd679652",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local mirror",
+          "title": "Long-border domination of letter bias for binary one-word shifts",
+          "trigger": "Closest matching binary uniform-avoidance bias claim"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Concerns first-hit proportions, not fractions among uniformly sampled fixed-length avoiders.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-border-parikh-lexicographic-ordering-of-first-hit-letter-proport--8ab1bd835fc2",
+          "material_read": "RESULT.md, finding at offset 0",
+          "method": "Local mirror",
+          "title": "Border-Parikh lexicographic ordering of first-hit letter proportions",
+          "trigger": "Potentially equivalent all-border criterion for binary words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Bóna–Maga–Richey, Conjecture 6.1 and the earlier isolated example"
+      ],
+      "rationale": "This is a nontrivial restricted resolution of the uniform-avoidance half of an explicit conjecture. It decides the first mixed-sign case outside the published sign criterion for all lengths and supplies an infinite family exhibiting it. The mechanism—algebraic conjugacy of the growth root excluding two-term cancellation—explains why relative signs alone do not lead to an exact tie.",
+      "residual_risks": [
+        "The singleton example has no separate new value; no claim of solving the full density or stopped-process conjecture is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

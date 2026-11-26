@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:24:47.415745Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reverse preimages of b can add just 0 (set contains 1 but not 0); omitting any nonincreasing inverse b preserves ultimate full coverage by monotonicity. Starting at a target singleton, productive steps leave circular intervals starting at 0. To expand again the interval must start at 1, requiring n-1 inverse rotations. The n-1 growths and n-2 minimal internal runs force W_n at equality. One extra letter is at a rotation boundary or gives an insertion of b into W_n. In the j-th split, the reverse interval at the insertion has length n-j and first point t+1 modulo n. Its endpoint is 0 precisely at t=j; shrinking makes coverage impossible with n total b's. Other interior offsets fix the interval; t=0 doubles b harmlessly, while t=n-1 represents the next doubling or W_nb. This verifies the single-factor family rather than relying on finite testing. On C_3 the post-initial set is {1,2}; a^2 b collapses, while a^0 b and a^1 b fix the set. In a nondivisible split, t=2 mod 3 collapses immediately, t=0 does not, and t=1 collapses exactly when the remaining exponent is 2 mod 3 (n=1 mod 3). Boundary extensions cannot help. At n=3 both factors share unique W_3=baab; n=4,5 and all later nondivisible cases have the eligible (n-2,n-3) split. Of the (3k-1)*2k or 3k*k pairs exactly 2k or k violate t!=j, giving the stated counts. Inspected verify.py and its recorded CHECK_OK; subset-pair BFS n=3..16 and witnesses through 200 are not all-size proof and the uploaded script was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Product reset language is an intersection; general max-to-sum bounds are in Prop. 7 of the checked PDF. The single-factor list has no simultaneous filter."
+        ],
+        "reasoning": "Generic length bounds do not determine which words achieve the optimum. The broader single-factor characterization is an input, with a real new comparison on three states needed for the intersection.",
+        "searches": [
+          "Fernau–Rystsov arXiv:2611.09136 PDF §§3 and 4.1",
+          "Resultary one-letter-slack rigidity 61d8f6568fe8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eddab2697de1, 46765b03d598 and 61d8f6568fe8",
+        "arXiv:2611.09136v1",
+        "Focused outbound synchronization literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One source supplies an eligible split and the other supplies candidate insertions for C_n. Some candidates fail C_3, with distinct eligibility residues for n=1 and 2 modulo three."
+        ],
+        "reasoning": "An additional word-language computation is required: at residue 1 both nonzero classes of t collapse, whereas at residue 2 only class 2 does, with the diagonal exclusion separately enforced. The inspected claims are not equivalent to the resulting enumeration.",
+        "searches": [
+          "eddab2697de1 RESULT.md Finding and Limitations",
+          "61d8f6568fe8 RESULT.md one-letter-slack theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "eddab2697de1 uses b(k-1)=0, conjugate by cyclic +1 relabeling. Both use a shared letter in each coordinate; conjugacy preserves literal words."
+        ],
+        "reasoning": "Different state labels do not distinguish the known threshold or witness. The surviving count is invariant under that conjugacy and is not stated in that comparison record.",
+        "searches": [
+          "Resultary: C_n by C_3 modulo-three synchronization; simultaneous shortest or common reset words; single-factor slack"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table row m=3 gives 10,17,25,37,50,64,82,101 for n=4..11. Same-day record gives the full n>=4 threshold and witnesses, explicitly not all shortest words."
+        ],
+        "reasoning": "Neither a table of distances nor one witness per size gives shortest path multiplicity. The repaired result claims neither of those already recorded results as new.",
+        "searches": [
+          "Resultary exact simultaneous Černý thresholds through eleven, 46765b03d598, table.csv",
+          "Resultary full modulo-three product claim, eddab2697de1"
+        ]
+      },
+      "rationale": "The repaired claim is the literal shortest-word classification and multiplicity, not a new threshold or a new single-factor candidate list. The inspected threshold, table and single-factor antecedents do not provide the exact modular intersection.",
+      "residual_risks": [
+        "No priority ordering inferred from same-day dating. A further exact intersection or counting result under different automata terminology could have escaped the bounded checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers threshold and witnesses, not full class/count",
+          "evidence": "n>=4 threshold and the split j=n-2,t=n-3; explicitly excludes counting all shortest words.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-modulo-three-synchronization-law-for-products-of-ern-aut--eddab2697de1",
+          "material_read": "RESULT.md offsets 0–2213 and 5650–8557, especially Finding, Assumptions and Limitations",
+          "method": "Primary local mirror; compare transitions, formulas, and limits",
+          "title": "A sharp modulo-three synchronization law for products of Černý automata",
+          "trigger": "Exact product and threshold hit"
+        },
+        {
+          "assessment": "Exact finite thresholds only for this comparison",
+          "evidence": "The eight entries for n=4..11 agree with the threshold formula.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-simultaneous-reset-thresholds-for-pairs-of-ern-automata-th--46765b03d598",
+          "material_read": "table.csv m=3 row and result scope",
+          "method": "Primary local mirror table comparison",
+          "title": "Exact simultaneous reset thresholds for pairs of Černý automata through eleven states",
+          "trigger": "Prior exact table"
+        },
+        {
+          "assessment": "Covers candidate list for one factor, not modular filter",
+          "evidence": "One-letter overrun gives boundary extensions and b-split words in C_n alone.",
+          "identifier_or_url": "2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8",
+          "material_read": "RESULT.md single-factor theorem",
+          "method": "Primary mirror; compare with inverse interval reconstruction",
+          "title": "One-letter slack rigidity in the Černý reset language",
+          "trigger": "Complete near-minimal candidate list"
+        },
+        {
+          "assessment": "General bound and intersection identity, no model-specific count in these passages",
+          "evidence": "Prop. 7 bounds by maximum and sum; the inspected Černý discussion is single-factor.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.09136v1",
+          "material_read": "§3 pp. 5–6 offset 13926 and §4.1 pp. 11–12 offset 29816",
+          "method": "Bounded primary PDF passages",
+          "title": "Shortest Synchronizing Words on Product Automata",
+          "trigger": "Potential broader product result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A shortest threshold gives no measure of how many optimal common controls there are. The complete residue-dependent classification reveals one word versus two different quadratic growth laws, uniformly in the larger factor, for the first nontrivial fixed small Černý factor. The count survives independently of the credited latency formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

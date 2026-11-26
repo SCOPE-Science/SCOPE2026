@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:39.799176Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on a fixed vertex being isolated leaves the uniform m-edge graph on n-1 vertices. A copy cannot include the isolated vertex because H has no isolated vertices. Hence E[I X_H]=E[I] E_{n-1,m}[X_H]. Dividing the conditional and unconditional copy means gives (n-k)/n times (N)_e/(B)_e; subtracting one gives the displayed bracket, whose sign (not magnitude) is independent of m when both means are positive. Below e or above B one count is identically zero. In G(n,p) only the copy-placement ratio (n-k)/n remains because the edge presence probabilities cancel. Multiplying the fixed-edge brackets by n(B)_e gives the two stated opposite two-edge factors and the stated cubic for (k,e)=(5,3). The latter is negative at 6 and 7, increases for x>=8, and takes -30 at 10 and 64 at 11. An independently written standard-library replay, /workspace/branches/replay_5.py, checked exact moments for 837 graphs on five vertices (two motifs per graph) and 30,706 graphs on six vertices, and the three factorizations through n=200. The infinite claims use the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary proof permits arbitrary no-isolate motifs, including disconnected ones, and n>=s, with e<=m<=B.",
+          "Eq. (1.1) gives the marginal embedding mean, not the joint covariance."
+        ],
+        "reasoning": "Despite its tree title the earlier Resultary theorem covers all motifs and the narrower n>k range of this record. The marginal literature identity alone is weaker evidence than this direct statement.",
+        "searches": [
+          "Oct. 12 Resultary RESULT.md Assumptions and scope and general calculation in Proof",
+          "Goldschmidt–Griffiths–Scott arXiv:1902.06830 §1 Eq. (1.1)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "Resultary Oct. 12 31f9a6c25945, Oct. 26 64233f5c7bc0 and Nov. 2 1e5e3790c555",
+        "arXiv:1902.06830",
+        "arXiv:1804.11327"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting (s,e) to (3,2), (4,2), (5,3) in the earlier bracket gives the same two quadratic-factor comparisons and cubic sign test after clearing the positive denominator."
+        ],
+        "reasoning": "The threshold n=11 need not have been expressly listed; it follows by elementary evaluation and monotonicity of the specialized polynomial with no new lemma.",
+        "searches": [
+          "Oct. 12 Resultary RESULT.md general sign bracket; frozen Proof lines 30–43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct. 12 RESULT.md Finding and Proof explicitly use E[UX]/(E[U]E[X])=(n-s)/n times (N)_e/(B)_e for non-induced copies."
+        ],
+        "reasoning": "The normalized mixed moment equals the normalized covariance plus one. U=I and s=k are only notation changes.",
+        "searches": [
+          "Resultary isolate–motif covariance in fixed-edge random graphs; 2026/10/12/SCOPE-a-universal-host-to-tree-threshold-for-isolate-motif-covariance--31f9a6c25945"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 12 Finding and Proof are an exact indexed closed form at the target parameters. The same-day factorial isolate/tree comparison offers overlapping tree cases and does not establish precedence by date."
+        ],
+        "reasoning": "A general closed form playing the role of an exact database is decisive; a separate table listing motifs is unnecessary.",
+        "searches": [
+          "Resultary Oct. 12 exact theorem; Oct. 26 SCOPE-universal-macroscopic-tree-covariance-threshold-in-fixed-edge-ra--64233f5c7bc0"
+        ]
+      },
+      "rationale": "The earlier Oct. 12 Resultary record states and proves the identical fixed-edge covariance and m-independent sign for every non-induced motif with no isolated vertices, not just trees. The three named instances are direct substitutions into that exact formula; the independently sampled-edge comparison is standard edge independence. This is verified coverage, not an inference from the earlier title or a failure to fetch a source.",
+      "residual_risks": [
+        "External publication priority is not certified; the earlier exact indexed record already settles coverage for this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core formula and sign statement in full; directly implies the motif examples.",
+          "evidence": [
+            "The Finding says the exact identity also holds for arbitrary fixed non-induced motifs with no isolated vertices.",
+            "The Proof gives E[UX]=E[U]E[X](n-s)/n times (N)_e/(B)_e and explicitly excludes dependence of the sign on m or topology beyond (s,e)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-universal-host-to-tree-threshold-for-isolate-motif-covariance--31f9a6c25945/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and finite-motif portion of Proof (mirror offsets 200–1397 and 1430–3749)",
+          "method": "Configured local mirror, exact text",
+          "title": "A universal host-to-tree threshold for isolate–motif covariance",
+          "trigger": "Plausibly the same covariance, even if the title suggests trees only"
+        },
+        {
+          "assessment": "Marginal motif mean on dividing embedding counts by the automorphism order; inspected passage does not state the joint covariance.",
+          "evidence": [
+            "Eq. (1.1) is (n)_k (m)_e/(N)_e for embeddings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.06830",
+          "material_read": "§1, Eq. (1.1), PDF p. 3",
+          "method": "Lawful OA full text, relevant passage",
+          "title": "Moderate deviations of subgraph counts in the Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "Exact fixed-edge subgraph moments in the named prior"
+        },
+        {
+          "assessment": "Same uniform labeled model; background rather than the decisive covariance comparison.",
+          "evidence": [
+            "Uniform among graphs on n vertices having exactly m edges."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.11327",
+          "material_read": "p. 1, definition of G(n,m)",
+          "method": "Lawful OA full text, relevant passage",
+          "title": "A large deviation principle for the Erdős–Rényi uniform random graph",
+          "trigger": "Named fixed-edge model reference"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An m-invariant sign for natural motif counts would be a useful structural result, but the entire invariant and its range are already recorded. The examples only substitute three small parameter pairs into that same closed form; there is no independently established new structural or motivated exact claim to retain as a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

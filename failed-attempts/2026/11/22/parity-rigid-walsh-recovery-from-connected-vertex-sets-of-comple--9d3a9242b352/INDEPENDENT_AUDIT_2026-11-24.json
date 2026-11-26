@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:21:11.004889Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The excluded supports are the empty set and the size-at-least-two subsets of each individual part, disjointly. On an entire part the character sum is 2^n_i for a zero block and zero otherwise, while the singleton sum is n_i−2w_i. Subtraction gives the stated unnormalized eigenvalues and the strictly positive trivial eigenvalue d. The feasible all-blocks-nonzero weights are all integers from t through N. They include (N+t)/2 for eigenvalue −1 in the even N−t case, and (N+t−1)/2 and (N+t+1)/2 for eigenvalues 0 and −2 in the odd case (N≥t+1). Parity gives the matching lower bounds and the triangle inequality gives maximum d. Generating polynomials enumerate the disjoint proper-zero-block classes. In the singular case their aggregate differs from the central weight layer by at most twice the number of frequencies missing some part; the union bound and central binomial estimate give the stated limit. Independent replay: python3 /workspace/reproduce_reviews.py 5 used graph searches on induced vertex subsets, direct signed sums and multiplicities of block-weight vectors on seven profiles (through N=8); for K_{2,3} and K_{2,2,2} it gave nullities 12 and 24. This computation corroborates the finite examples, not the infinite theorem or asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parallel record allows fixed r and min n_i≥cN and gives the same leading density with explicit errors; fixed balanced parts satisfy its hypotheses.",
+          "The classical subgraph-component join theorem supplies scalar counts but not the full spectral classification."
+        ],
+        "reasoning": "The parallel record strictly extends the claimed asymptotic range, while the older scalar join formula by itself is not the character-resolved theorem.",
+        "searches": [
+          "d7e6a3c493c0 Finding and proof §6",
+          "Tittmann–Averbouch–Makowsky arXiv:0812.4147 Theorem 18 and Corollary 19"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and published SCOPE mirror d7e6a3c493c0",
+        "arXiv:0812.4147",
+        "arXiv:1311.6856",
+        "Trevisan, CS294 Lecture 15 (2016-03-16)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parallel record states gap 1 in the invertible case. Its full multiplier formula gives even multipliers in the singular case and gives −2 at an all-blocks-nonzero weight (N+r+1)/2, feasible because N≥r+1 there. The trivial multiplier is d, the largest modulus by the triangle inequality."
+        ],
+        "reasoning": "Although singular gap 2 is not separately advertised in the comparison Finding, no additional structural input is needed to get it or d/2. General Cayley diagonalization explains why absolute multipliers give singular values, but is not itself the family-specific formula.",
+        "searches": [
+          "d7e6a3c493c0 Finding and parity argument",
+          "Trevisan, Abelian Cayley graphs, §3 Lemma 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record uses the same indicator and unnormalized convolution, and gives N+r−1−2K−sum_{i:k_i=0}2^n_i away from the trivial character; the empty-frequency count agrees after expansion.",
+          "Its N+r even criterion equals N−t even with r=t."
+        ],
+        "reasoning": "Replacing S by its indicator frequency, K by w, and zero block indices Z by J is a bijective relabeling of the same theorem.",
+        "searches": [
+          "Resultary claim search: nonempty induced-connected vertex sets, complete multipartite graph, unnormalized XOR Walsh spectrum and nullity",
+          "SCOPE-a-parity-dichotomy-and-complete-walsh-nullity-formula-for-connec--d7e6a3c493c0, RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For every proper Z the parallel record extracts [z^K_Z] product_{i not in Z}((1+z)^n_i−1) and sums, obtaining exactly the same rank and nullity for every shape."
+        ],
+        "reasoning": "The indexed theorem is an exact symbolic specification of every nullity and all multipliers, stronger evidence than matching sample tables.",
+        "searches": [
+          "Resultary returned d7e6a3c493c0 for the exact multipartite spectral/nullity claim; RESULT.md proof §5"
+        ]
+      },
+      "rationale": "A distinct published same-day record covers the complete central theorem. Its full spectrum and weight interval also directly imply the only apparent add-on, the singular positive gap 2 and hence d/2 conditioning. This is demonstrable mathematical coverage, not a claim about the order of publication or authorship on that day.",
+      "residual_risks": [
+        "Relative same-day priority is not established; the compared record is distinct, and equation-level coverage does not depend on deciding that order.",
+        "No exhaustive historical exclusion is claimed; bounded checks of older sources do not support whole-document novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central theorem explicitly, with singular gap and restricted condition number immediate consequences",
+          "evidence": [
+            "‘invertible precisely when N+r is even’; exact spectrum and coefficient formula in Finding; asymptotic assuming min_i n_i≥cN in Finding and §6."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-parity-dichotomy-and-complete-walsh-nullity-formula-for-connec--d7e6a3c493c0/RESULT.md",
+          "material_read": "Finding at mirror offset 111; proof §§5–6 at offset 4606, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Read original Markdown via local mirror and compared equations and quantified hypotheses",
+          "title": "A parity dichotomy and complete Walsh nullity formula for connected sets of complete multipartite graphs",
+          "trigger": "Resultary match with identical object and claims"
+        },
+        {
+          "assessment": "Covers the connected support decomposition and unweighted counts, not the explicit parity, singular values or zero frequencies in these passages",
+          "evidence": [
+            "Theorem 18 partitions joint subsets into each single side and the connected subsets meeting both sides."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4147",
+          "material_read": "Theorem 18 and Corollary 19, PDF page 12",
+          "method": "OA PDF locate and bounded read",
+          "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+          "trigger": "Closest cited classical graph-family enumeration"
+        },
+        {
+          "assessment": "Q-uniqueness result on an unweighted invariant, not the multiplier theorem",
+          "evidence": [
+            "‘The complete bipartite graph K_{m,n} is Q-unique.’"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.6856",
+          "material_read": "§4.1 Theorem 4.5, PDF page 7",
+          "method": "OA PDF locate and bounded read",
+          "title": "Note on the subgraph component polynomial",
+          "trigger": "Alternative complete-bipartite graph-polynomial result"
+        },
+        {
+          "assessment": "Standard character eigenbasis and character sums for any symmetric connection set",
+          "evidence": [
+            "All characters of the underlying finite Abelian group are linearly independent eigenvectors; the proof applies one translated character at a time."
+          ],
+          "identifier_or_url": "https://lucatrevisan.wordpress.com/2016/03/16/cs294-lecture-15-abelian-cayley-graphs/",
+          "material_read": "§3 Lemma 10 and its proof",
+          "method": "OA website passage",
+          "title": "CS294 Lecture 15: Abelian Cayley graphs",
+          "trigger": "Underlying character diagonalization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact recovery and nullity for this natural support are worthwhile invariants in themselves, but as an independent contribution this record adds no substantive exact invariant to the overlapping full spectrum, parity, nullity and stronger density result. The additional singular conditioning number follows mechanically from evenness and attainability at the next feasible weight; it is not a surviving valuable repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -60,11 +60,11 @@ For this digit map, \(\mu=5/3<2\), \(\sigma=\sqrt{26}/3<2\), \(\sqrt2\sigma<3\),
 \[
 \begin{split}
 28+12\cdot3^{5m/8}&<3^{m-1},\\
-6&<3^{3m/8},\\
+7&<3^{3m/8},\\
 8(7+3^{3m/4}+3\cdot3^{5m/8})&<3^{m-1}.
 \end{split}
 \]
-The supplied executable verifies these inequalities directly. They majorize the left sides of (B1), (B2), and (B3), respectively, using the preceding elementary bounds on the digit parameters.
+The supplied executable verifies these inequalities directly. They majorize the left sides of (B1), (B2), and (B3), respectively. In (B2), Gilmer's left side is \(\sqrt{3\mu b}\,\sigma\); its square here is \(3(5/3)3(26/9)=130/3<49\), so it is strictly less than \(7\). For (B1) and (B3) the preceding elementary bounds on the digit parameters suffice.
 
 **3. Infinite density transfer.** Gilmer's general theorem [1, Theorem 4.1] yields, for a sufficiently long \(m\)-strict interval \(I\) with density \(d_C(I)\) of numbers eventually entering a chosen union of cycles \(C\), the upper natural density lower bound
 \[
@@ -93,7 +93,7 @@ Run `python3 ternary_happy_density_checker.py` using only the Python standard li
 Gilmer [1, Sections 2--5] developed the density-transfer method and proved nonexistence of natural density for decimal square-digit happy numbers, decimal cubic-digit basins, and an example with a nonpower digit rule in base seven. In particular, [1] already supplies the general theorem and the digit-polynomial counting method; neither is claimed as new here. The new specific input is an exact verified pair of distant ternary square-digit shells with contrasting densities, together with the rigorously checked hypotheses that turn those data into the stated **base-three nonexistence** result. Grundman and Teeple [2] study long progressions of generalized happy numbers in small bases, including ternary parity, but do not establish this density dichotomy in their inspected article.
 
 ## Limitations
-The result does not determine the sharp limsup or liminf, their existence as exact constants, or the full set of subsequential accumulation values. It does not prove a corresponding theorem for other bases or other digit powers. The argument relies on the validity of Gilmer's proven density-transfer theorem, rather than reproving that substantial analytic result. No exhaustive guarantee that an equivalent base-three density result is absent from unindexed literature is asserted; the closely relevant 2022 survey [3] was accessible only at abstract and bibliographic level in this examination. An independent mathematical audit has not been performed.
+The result does not determine the exact limsup or liminf or the full set of subsequential accumulation values. It does not prove a corresponding theorem for other bases or other digit powers. The argument relies on Gilmer's density-transfer theorem rather than reproving it. No exhaustive guarantee that an equivalent base-three density result is absent from unindexed literature is asserted; the closely relevant 2022 survey [3] was accessible only at abstract and bibliographic level in this examination.
 
 ## References
 [1] Justin Gilmer, *On the Density of Happy Numbers*, arXiv:1110.3836 (first public version 2011-10-17), subsequently *Integers* **13** (2013). https://arxiv.org/pdf/1110.3836 — especially Definition 3.1, the hypotheses (B), Theorem 4.1, and the application tables in Section 5.

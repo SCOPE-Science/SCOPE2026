@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-state process is lumpable into three transient classes with generator displayed in RESULT.md. The first-step equations give exact rational Laplace transforms. Positive diagonal symmetrizability and an explicit secular equation order the three poles; the residue signs establish all hazard shapes. The sole potential subtlety—uniqueness of a peak when the starting part is faster—is resolved by a strictly decreasing two-exponential expression for the sign of the hazard derivative, with positive initial slope and negative asymptotic limit. At rate equality the middle pole cancels, and monotonicity remains strict. The recorded full ordered-pair checker provides 426 exact-rational transform comparisons and 18 spectral sample classifications; the infinite-family conclusion rests on proof.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-Zhang–Tan–Krishnamachari (arXiv:1408.2005v1, relevant pages 1–5) treat homogeneous discrete-time regular-graph meeting means, not site-dependent continuous-time rates or hazards. Ohwa (DOI:10.1186/s40736-015-0016-2, sections 1–4) derives general meeting-time transform methods and evaluates stars, cycles and complete graphs with *walker-specific* rather than *location-dependent* rates; the present complete bipartite coefficient signs and shape threshold were not found in that inspected text. Relevant earlier phase-type hazard work considers general absorbing chains, but did not establish this identified topological and mobility equivalence in inspected sections. A closely related homogeneous-rate balanced-multipartite result gives increasing same-part and decreasing different-part hazards, but no faster-part unimodal regime. The literature search cannot rule out every unlocated general phase-type theorem or specialized collision study; independent bibliographic audit remains needed.
+PASS
 
-## Mathematical value — PASS
-Exact hazard shape is a sharper observable than mean encounter time. The all-size theorem isolates a single *kinetic*, not geometric, criterion—the ordering of residence-time rates—that creates or removes a unique finite-time peak. The criterion is universal for every positive pair of part sizes, separates all three start geometries, and supplies the full Laplace transforms. The answer can guide interpretation of encounter/first-reaction waiting times on mobility-heterogeneous two-community networks, without asserting broader impact unproved by the result.
+The class exit rates from a particular ordered pair, not just an average, are 2α from A and 2β from B to D; from D the rates into A, B and absorption are p, q and κ as given. At each visit to D there is positive chance κ/(α+β) of absorption on the next jump; no-jump events ensure positive survival at any finite time. First-step equations give the three stated rational transforms with common denominator det(sI−Q). For −Q the reversible weights π_D=1, π_A=p/(2α), π_B=q/(2β) give the positive quadratic form p(x_A−x_D)^2+q(x_B−x_D)^2+κx_D^2. For unequal rates the secular function is strictly decreasing between poles with opposite signs across each root bracket, giving the strict interlacing. For equal rates the middle eigenvalue is 2α and its residue cancels in all three laws. Residue division by λ_j gives D all positive nonzero survival coefficients (at least two), hence a strictly negative hazard derivative. In a slow starting part the survival after factoring out exp(−λ1 t) is positive, increasing and strictly concave, so its log is strictly concave and the hazard increases. In a fast starting part the derivative, up to positive factors, is a strictly negative constant plus two positive decreasing exponentials. It starts positive because Q²1 gives h′_A(0)=2ακ (or h′_B(0)=2βκ) and ends negative, so there is exactly one positive critical time. The leading residue is positive in all cases. The limiting positive λ1 is the smallest eigenvalue of −Q as explicitly defined in the proof, not an eigenvalue of Q with that sign. Frozen verify.py and VERIFICATION.md were inspected, not run. Their recorded 426 rational identities and 18 numerical shape samples are corroboration, not the general proof.
 
-## Residual risks and limitations
-The broad phase-type and reliability literature may contain stronger general hazard-sign criteria from which this family follows; precise historical priority is therefore not guaranteed. Initial site rates are tied to the occupied part, not to the identity of the walker. All finite-state checks are corroborative; the complete analytic proof carries the infinite-size and all-rate conclusions. General graphs and more than two walkers are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the strict monotone/one-peak classification under unequal location-dependent rates, with exact threshold α=β for arbitrary m,n≥2. Existing equal-rate meeting laws, general backward methods, and differently meaningful collision rates were credited rather than treated as new.
+
+## value
+
+PASS
+
+The statistic answers how the prospective encounter risk changes with elapsed nonencounter time, which a mean or limiting decay rate cannot determine. A unique peak in just the faster starting part, with a kinetic equality threshold independent of both part sizes, is a structural classification over a natural graph family and nontrivial parameter range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

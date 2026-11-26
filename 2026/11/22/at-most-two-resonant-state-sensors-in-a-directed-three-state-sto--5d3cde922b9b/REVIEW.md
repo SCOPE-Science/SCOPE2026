@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The diagonal resolvent and the stationary covariance transform give an exact spectrum with full two-sided normalization. A one-dimensional rational derivative proves each peak condition, a sum-of-discriminants identity proves the at-most-two theorem, and a cubic factorization establishes the full two-equal-rates reentrance. `checker.py` independently verifies exact symbolic relations and 3,600 numerical resolvent evaluations. All positive rates and boundary equalities are accounted for. Finite checks supplement, not replace, the analytic proof.
+## correctness
 
-**Originality — PASS, qualified.** Jia (2026) studies universal oscillation-efficiency limits and a two-equal-rate construction, not a three-indicator, arbitrary-rate, simultaneous visibility classification. The abstract of Chen (2007) describes three-state spectral formulas and criteria for the existence of a nonmonotone *real observable*, but its complete text was inaccessible; explicit specialization, coverage of multiple sensors together, or equivalent results remain a significant priority risk. Targeted searches of indexed mathematical records and source/alias queries found related results on spectral abscissae, correlation modes and counted jumps, but no simultaneous binary-sensor census. This does not prove uniqueness.
+PASS
 
-**Value — PASS.** A chemical-cycle sensor commonly reports occupancy of one biochemical state, not an arbitrarily selected weighted combination. The result establishes which states can reveal spectral resonance, a strict at-most-two sensor limit, and a reentrant zero–two–zero–one transition including an interval of complex relaxation eigenvalues with no resonant occupancy sensor. This is a complete, testable detection classification rather than a generic resolvent evaluation.
+Flux balance gives pi_i r_i=abc/P. Independently, for Re(s)>0 the transform of the return probability to i is [1/(s+r_i)]/[1−product_j r_j/(s+r_j)], by exponential holding and renewal after each full clockwise trip. Centering subtracts pi_i/s from the return transform; multiplying by pi_i and taking twice the real part gives the stated two-sided normalization (the covariance is even). Exponential decay gives the value at zero by continuity. Symbolic simplification recovers the exact numerator, with coefficient 2abc/P, and denominator ω⁴+Lω²+P². As a function of z=ω², the derivative's numerator is Δ_i−2H_i z−z², so it has one strictly positive zero iff Δ_i>0; if Δ_i=0 the leading spectral decrement is −(2abc/P)H_i ω⁴/P⁴. The sum of the three discriminants is (P−L)(3P+2L)≤0, and H_i−H_j=(r_j−r_i)(a+b+c). Hence resonance is a suffix ordered by exit rate, with ties respected. At every z>0 the normalized profile is strictly decreasing in H_i; if the better sensor has a positive-frequency maximum, comparing at the worse sensor's positive maximizer, or comparing against its zero-only gain 1, proves the claimed strict ranking for unequal rates. The Δ factors at (t,1,1) are (t−1)(t+5) and two copies of −(t−1)(t³+2t²+t−1). The cubic is strictly increasing for positive t, and the relaxation discriminant t(t−4) is negative throughout 0<t≤theta. Replay: `python /workspace/review-evidence/reproduce.py 4` reconstructs the full Fourier rational identity from renewal and checks the exact factorizations.
 
-**Closest literature and limitations.** Chen Jia, arXiv:2610.23310 (2026-10-16), full HTML manuscript including end matter inspected; Yong Chen, Fluctuation and Noise Letters 7 (2007), 181–192, abstract inspected only, with unavailable full-text comparison. The theorem is restricted to irreducible directed three-state cycles, stationary observations and noiseless single-state indicators. The generator is not thermodynamically reverse-edge consistent. Independently validated novelty and correctness remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General fluctuation spectral methods and a prior one-indicator, one-fast-rate formula are credited. The supported distinction is the simultaneous census at arbitrary positive exit rates, the exact relative ranking of the three fixed sensors, and the full two-equal-rate count including the zero/two transition on the slow-rate side. One sensor's spectrum, an all-observable efficiency bound, or existence of some nonmonotone observable is not that joint classification.
+
+## value
+
+PASS
+
+An experiment measuring just one occupation indicator need not have access to an optimized real observable. The joint all-rate bound, rate ordering and reentrant phase determine which of the actual binary channels can show a peak. The nonreal relaxation regime without any binary peak is a clear obstruction to reading spectral modality off the eigenvalues. This is a useful all-rate structural classification rather than the previously known one-sensor calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

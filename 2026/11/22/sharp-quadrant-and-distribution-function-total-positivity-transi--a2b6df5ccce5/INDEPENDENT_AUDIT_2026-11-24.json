@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:44:06.222840Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The transform is a copula: take componentwise maxima of independently sampled baseline pairs, with independent positive geometric sample size, and transform each maximum by its continuous marginal CDF g_p. In preimage coordinates put A=1+θz and F=xyA. Clearing the three positive denominators reduces K−uv to p[F(p+qz)−pxy], hence to pxyz(q+pθ+qθz). All z in (0,1) occur in the open square; the affine endpoint signs give both sharp thresholds, including their closed equality boundaries and the unique interior sign-contour coordinate in the mixed regime. At p=1,θ=0 both orders hold; at θ=−1 there is no PQD. For CDF-TP2, log(g_p(F)) has mixed derivative (log F)_xy/(1−qF)+qF_xF_y/[F(1−qF)^2], with (log F)_xy=θ/A². Substituting F_x=y[A−θx(1−y)] and F_y=x[A−θy(1−x)] gives numerator θ+q A[A(1−θ+2θz)+2θ²xyz] over the positive A²(1−qF)^2. It is nonnegative for θ≥0. For θ=−t the two factors 1−tz and 1+t−2tz are at least 1−t; the nonnegative remainder and the limit x,y→0 give the exact infimum (1−t)^3 for the product multiplying q. Thus the weak threshold includes equality; failure gives a negative mixed derivative on an interior rectangle. Integrating the mixed derivative establishes the determinant sign, extending it to the boundary by continuity. At t=1 the infimum is zero and necessity excludes all p>0. For t in (0,1), q<1 is why the root of (1−t)^3=t must be excluded from the existence range. Independent numerical evaluation gives 0.31767219617198067263 for that root. No density-TP2 assertion is involved, and no frozen script was used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison reports pre-existing-order preservation for the original transform and points to thesis Propositions 3.4.5 and 3.4.8 and Remark 3.4.6. These are locator leads, not independently retrieved passages.",
+          "A negative θ gives a baseline that is NQD and has strictly negative mixed log derivative in the interior, so the reported PQD and CDF-TP2 preservation hypotheses both exclude the regime that needs classification."
+        ],
+        "reasoning": "Even a theorem for arbitrary PGFs with those preservation hypotheses does not supply recovery under geometric compounding when they are absent. Counterexamples to general NQD preservation would not give the exact boundary.",
+        "searches": [
+          "DOI 10.1515/ms-2024-0076; DSpace handle 123456789/14632; author thesis Chapter 3",
+          "DOI 10.3390/sym12122108, broader PGF and Archimedean construction (frozen reference)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and prior-comparison evidence",
+        "Local Resultary match a2b6df5ccce5",
+        "DOI 10.1515/ms-2024-0076; DSpace article metadata lead and author-thesis retrieval attempt",
+        "DOI 10.3390/sym12122108 (frozen comparative reference)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original-family record is a lead on the same objects and parameters, not a competing model. The reported preservation results account for the already nonnegative baseline but give no reported necessity for negative θ.",
+          "As a concrete separating point, θ=−1/8 and p=3/4 satisfy (1−p)(1+θ)^3>1/8, and hence the transformed CDF is TP2 even though the baseline is not."
+        ],
+        "reasoning": "For negative parameters, preservation from a TP2 input cannot license even that example. Determining the whole range requires the sharp infimum and the separate affine endpoint-sign argument.",
+        "searches": [
+          "RESULT.md lines 54–64; DSpace 123456789/14632; thesis Chapter 3 locator; Resultary a2b6df5ccce5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match a2b6df5ccce5 is the target itself, not another result.",
+          "Marginal coordinate changes preserve the sign of CDF-TP2 minors; here the equivalent local test is the sign of the mixed logarithmic derivative of g_p∘C_θ, not a density positivity condition."
+        ],
+        "reasoning": "This identifies the same claim under compounding and marginal-reparametrization terminology and avoids conflating CDF minors with density minors. The family itself is not claimed new.",
+        "searches": [
+          "Resultary: geometric–FGM sharp quadrant dependence and CDF-TP2, threshold (1−p)(1+θ)^3",
+          "Primary literature: Zachariah Arshad Pathak geometric FGM and negative-baseline TP2 threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available catalogue evidence did not yield a distinct exact four-region table.",
+          "The frozen inspection describes the cited table as Spearman rho values, not the complete pointwise or CDF-minor sign diagram."
+        ],
+        "reasoning": "A scalar rank-correlation table does not determine the sign throughout the square, let alone the sign of every ordered CDF minor. The table could not be independently read here.",
+        "searches": [
+          "Resultary: geometric PGF FGM negative-parameter four-region dependence table",
+          "Zachariah thesis Eq. 3.21 and Table 3.2, as identified in frozen AUDIT.json"
+        ]
+      },
+      "rationale": "The geometric PGF construction and geometric–FGM family are prior. The supported distinct result is the complete sharp phase diagram, in particular the sharp recovery of PQD and CDF-TP2 and the mixed-sign contour for negative baselines. Available comparisons did not establish an equivalent or broader theorem containing those thresholds. The original paper and author chapter were sought but their primary passages could not be retrieved in this audit, so historical coverage is not certified.",
+      "residual_risks": [
+        "The primary 2024 article and its author-thesis analogue could not be inspected independently at full-text level; incidental exact negative-parameter coverage is not excluded.",
+        "The catalogue comparison is bounded and does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family is prior; no independent original passage confirms or rules out matching exact thresholds",
+          "evidence": [
+            "The frozen record credits this paper with the geometric–FGM formula and PQD and CDF-TP2 preservation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/ms-2024-0076 ; https://dspace.iiti.ac.in/handle/123456789/14632",
+          "material_read": "Bibliographic lookup and the frozen description at RESULT.md lines 54–58; journal full text not independently retrieved",
+          "method": "Primary literature search and lawful OA attempts at the DOI and institutional record",
+          "title": "A new family of copulas based on probability generating functions",
+          "trigger": "Original paper with the same transformed copula and dependence-order results"
+        },
+        {
+          "assessment": "Reported preservation propositions are narrower in the input order; whole-document coverage not assessed",
+          "evidence": [
+            "The reported preservation of PQD and CDF-TP2 does not apply to a strictly negative FGM baseline."
+          ],
+          "identifier_or_url": "https://dspace.iiti.ac.in/bitstream/123456789/16598/1/TH_745_Swaroop_Georgy_Zachariah_2001241009.pdf",
+          "material_read": "Frozen source's Eq. 3.21, Propositions 3.4.5 and 3.4.8, Remark 3.4.6 and Table 3.2 locators; PDF text was not independently retrieved",
+          "method": "Attempted OA passage lookup and separate public PDF text retrieval",
+          "title": "Dependence and Uncertainty, Chapter 3",
+          "trigger": "Alternative author text reproducing the original family and propositions"
+        },
+        {
+          "assessment": "Identical assigned item, not distinct prior coverage",
+          "evidence": [
+            "Same PQD/NQD/mixed and CDF-TP2 phase thresholds."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-quadrant-and-distribution-function-total-positivity-transi--a2b6df5ccce5",
+          "material_read": "Catalogue summary and corresponding frozen statement",
+          "method": "Local semantic search and source comparison",
+          "title": "Sharp quadrant and distribution-function total-positivity transitions in geometric–FGM copulas",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an order-selection question in an already used copula family, not an arbitrary scan of parameter values. Exact thresholds tell which parameters produce global quadrant order, which afford the stronger CDF-TP2 property, and when no global quadrant order describes the same copula. The crossing contour and strict separation of the thresholds make the distinction usable even when simpler summaries such as rank correlation do not resolve it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

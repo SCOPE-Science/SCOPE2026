@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:13:59.023865Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I independently enumerated all subsets through size four on the duad–syntheme incidence graph using exact integer weights in units of 2⁻²⁸; replay: python3 /workspace/audit_work/record2.py. The counts of porous dominating sets at sizes 0–4 are (0,0,0,0,45), with precisely the sets obtained from flags. Blocked distances cannot be shorter than porous distances, so it suffices to recheck these 45 sets with all other sources deleted separately for each distance term. Every one has the same outside weight multiset: sixteen 9/8, eight 21/16 and two 3. This proves both minima and both classifications without relying on the supplied scripts. All 990 unordered comparisons gave 540 intersections of size zero and 450 of size one. For each state the 20 neighbors and their neighbors reach all 45 states, giving the distance profile (1,20,24), and hence radius and diameter two. For the analytic e=1 case at RESULT.md line 28, once the unique disjoint pair is 01,34 the two remaining duads must come from 03,04,13,14 and meet each other, so they are all equivalent to 13,14 by relabeling preserving the unordered pair of blocks. The listed second representative includes an extra disjoint pair and is extraneous; the first covers all actual e=1 cases. This does not affect the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bessy–Ochem–Rautenbach define the blocking convention and discuss bounds for subcubic graphs and the porous variant.",
+          "Héger–Hernandez Lucas classify minimum sets for ordinary domination, with a bound sharp at equal orders."
+        ],
+        "reasoning": "The inspected general bound statements do not give this precise classification; the ordinary-incidence domination cost is different. The rejection rests on the exact graph-specific coverage, not the general literature.",
+        "searches": [
+          "arXiv:1511.01398 pp. 1–2",
+          "arXiv:1510.08749 p. 1",
+          "DOI:10.26493/1855-3974.2106.423 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and both supplied graph checkers, recorded outputs and VERIFICATION.md",
+        "Resultary 9fe747acb02d",
+        "arXiv:1511.01398",
+        "arXiv:1510.08749",
+        "Héger–Hernandez Lucas DOI:10.26493/1855-3974.2106.423",
+        "Attempted lawful OA retrieval of Dankelmann et al. DOI:10.1016/j.disc.2008.06.040"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The necessity argument in the matching record uses porous weights and therefore restricts porous four-sets as well as blocked ones; it proves blocked sufficiency for all flags. Its distinct optima share at most one and there are 450 one-intersection pairs by its regular degree."
+        ],
+        "reasoning": "Porous sufficiency follows from the blocked verification, so naming porous optima separately does not provide a remainder. The two-bin histogram is determined by 450 edges among 990 unordered pairs and the at-most-one intersection property.",
+        "searches": [
+          "Resultary 9fe747acb02d proof Steps 4–6 and replacement verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored theorem names the same Tutte–Coxeter incidence graph and uses the same deleted-source distance. Its flag formula takes the other two points on the flag line and the other two lines through the flag point.",
+          "It excludes one- and two-replacements and gives exactly the same 20-regular three-replacement graph on those states."
+        ],
+        "reasoning": "The optima identify by source set, not merely by numerical parameters. At most three and exactly three induce identical adjacency on these states.",
+        "searches": [
+          "Resultary Tutte–Coxeter, GQ(2,2), and flag/replacement searches",
+          "Resultary 9fe747acb02d finding (offset 0) and proof Steps 4–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed finding gives the blocked histogram (16 at 9/8, 8 at 21/16, 2 at 3), porous counts (0,0,0,0,45) and exchange graph degree 20, edges 450, radius and diameter 2."
+        ],
+        "reasoning": "This is exact source-level coverage, not a keyword hit or a conjecture based on another cage. The focused primary lookup produced no usable evidence; that absence is not a priority finding.",
+        "searches": [
+          "Focused primary literature search for Tutte–Coxeter exponential and porous domination",
+          "Resultary 9fe747acb02d theorem, proof and exact checks"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary finding, 9fe747acb02d, demonstrably covers the same graph, both conventions, the identical 45 flag-selected sets and weight profile, and the complete exchange statement. Its at-most-three convention equals the frozen exact-three convention since there are no smaller exchanges. Its path is later-dated; the decision is that the mathematical finding is already equivalently covered in the index, not that the other record had historical priority or that the frozen work was copied. No substantive distinct remainder was identified.",
+      "residual_risks": [
+        "The catalogue overlap establishes equivalence, not authorship, derivation or first publication. Dankelmann et al. was not accessible through the attempted OA route; any still earlier graph-specific coverage remains unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent scientific coverage by a distinct indexed record; no publication priority inferred",
+          "evidence": "Same flag map, porous lower bound, blocked profile, minimum-state set and exchange graph. The record-path date differs; dates alone do not resolve the relationship between the two records.",
+          "identifier_or_url": "2026/11/22/SCOPE-flag-rigidity-and-a-three-replacement-threshold-for-exponential--9fe747acb02d",
+          "material_read": "RESULT.md Finding/Assumptions (offset 0), porous flag necessity, blocked weights and exchange proof (offsets 3800–7485), exact-census passage",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Flag rigidity and a three-replacement threshold for exponential domination in the Tutte–Coxeter graph",
+          "trigger": "Exact matching object and optimum classification"
+        },
+        {
+          "assessment": "Relevant definitions and bounds, not exact coverage in the inspected passages",
+          "evidence": "The paper defines blocking and distinguishes porous domination, but the passages do not give a census for this graph.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.01398",
+          "material_read": "pp. 1–2, offsets 1750 and 6900",
+          "method": "OA original PDF passage inspection",
+          "title": "Exponential Domination in Subcubic Graphs",
+          "trigger": "Closest general result on cubic instances"
+        },
+        {
+          "assessment": "General scope; no exact implication established from the material read",
+          "evidence": "The opening statements give bounds rather than the flag configurations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.08749",
+          "material_read": "p. 1 definition and statements; limited literal Tutte-Coxeter lookup",
+          "method": "OA original PDF passage inspection",
+          "title": "Bounds on the Exponential Domination Number",
+          "trigger": "General bounds for the same invariant"
+        },
+        {
+          "assessment": "Ordinary, not exponential, domination",
+          "evidence": "The abstract gives the 2st+1 ordinary-domination bound sharp at s=t and classification in that setting.",
+          "identifier_or_url": "https://doi.org/10.26493/1855-3974.2106.423",
+          "material_read": "p. 61 abstract/front matter",
+          "method": "Publisher OA passage inspection",
+          "title": "Dominating sets in finite generalized quadrangles",
+          "trigger": "Same incidence geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result, the natural cage has a complete structural classification linking two domination notions to its flag geometry; the exchange obstruction and connected three-replacement graph are substantive, not just a one-number census. That value describes the theorem and does not confer distinctness on a second equivalent finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:13:50.390714Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With ||r_0||=1 and β_j>0 through k, T_j=I+iJ_j is invertible because its Hermitian part is I. Widlund residual r_j is a multiple of the next Lanczos vector, and the corner cofactor gives ||r_j||=∏_{l≤j}β_l/|D_j|. The nonzero Galerkin residuals for j=0,…,k are orthogonal and affinely span r_0−AK_k; minimizing the norm of an affine combination gives the Rapoport inverse-square sum, also verified in Higgins–Reed–Szyld Eq. (10). Equality with the min residual bound means every Widlund norm equals one. The continuant D_j=(1+ia_j)D_{j−1}+β_{j−1}²D_{j−2} then gives |z_j|=β_j for z_j=D_j/D_{j−1}, so z_j=1+ia_j+conj(z_{j−1}) and Re(z_j)=j, starting at z_1=1+ia_1. Thus β_j≥j. With the positive unit Perron vector w of B_k and its alternating-sign copy, the two Rayleigh quotients of the leading block are d±2∑β_j w_j w_{j+1}, where d is their common diagonal contribution. The larger absolute quotient is at least 2∑β_jw_jw_{j+1}≥ρ_k, with strict inequality if any coupling is greater than j. The full norm bounds this compression. B_k attains the bound by the factorial continuant and sign symmetry of its spectrum. In dimension k+1, equality forces every β_j=j and hence a_1,…,a_k=0 by the quotient recurrence; the two Rayleigh quotients then differ from ±ρ_k by a_{k+1}w_{k+1}², forcing a_{k+1}=0. Valid for exact arithmetic, common initial iterate and the specified no-breakdown setup; no near-saturation rate is established. The uploaded script was inspected, not executed: it checks canonical small cases and one explicit 2-by-2 characteristic polynomial, not the first four norm polynomials or perturbed matrices as described in RESULT.md line 29. This supplemental evidence mismatch does not affect the analytic all-k proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 presents the OR/MR inverse-square connection, referring to the broader OR/MR Theorem 3.12 it specializes; Eq. (10) is the direct residual-norm form.",
+          "Theorem 3 is existential, constructing H=I, S=iΣ with Σ exactly B_k and r_0=e_1."
+        ],
+        "reasoning": "A theorem about general OR/MR residuals and a single optimal comparison example imply neither a componentwise constraint on every saturating J nor optimality of that example for a different objective.",
+        "searches": [
+          "Resultary: Hermitian-positive near-optimal comparison and Lanczos equality",
+          "Higgins–Reed–Szyld arXiv:2611.23829v1, §2 Theorems 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Higgins–Reed–Szyld arXiv:2611.23829v1, §2",
+        "Local Resultary searches for exact OR/MR saturation and skew-norm rigidity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq. (10) yields all residuals flat under equality by equality in a max versus mean bound. Theorem 3 proves factorial determinants only for canonical weights. It does not assert the complex quotient condition for arbitrary diagonals or the spectral-norm rigidity comparison."
+        ],
+        "reasoning": "The bridge is that the flat residual constraint makes the continuant fraction a complex conjugate, fixing Re(z_j)=j even with arbitrary diagonal phases. The two-sign Perron comparison and its strictness turn this into the sharp norm barrier and force the full minimizing diagonal. These arguments supply a necessary structural result, not parameter substitution into the primary sharpness example.",
+        "searches": [
+          "Higgins–Reed–Szyld §2 Eq. (10) and Theorem 3 proof, compared to frozen RESULT.md lines 14–26",
+          "Resultary: inverse-square identity and canonical Jacobi path"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higgins–Reed–Szyld §2 Theorem 1 states min_{j≤k}||r_j^W||_H≤√(k+1)||r_k^R||_H. The positive-definite Hermitian part is I in the frozen specialization; Widlund and Rapoport here are the OR/FOM and MR/GMRES pair on the shared Krylov space.",
+          "The returned exact local statement belongs to the identical assigned record 42c8d0673781."
+        ],
+        "reasoning": "Many equivalent descriptions of the comparison exist, but equality in the comparison is the constraint and the least possible norm of J under it is the new objective, not another wording of the comparison.",
+        "searches": [
+          "Resultary: Widlund–Rapoport/Lanczos equality; spectral norm and rigidity in shifted-skew systems",
+          "Focused literature lookup for Widlund near-optimal and equality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The canonical path itself is explicitly present in the primary theorem. No distinct exact norm-minimum classification was present in the leading local results; the matching entry is the frozen record."
+        ],
+        "reasoning": "This is an all-k variational theorem, not the numerical evaluation of a known Jacobi eigenvalue table. Even an eigenvalue formula for B_k would not lower bound any other equality example.",
+        "searches": [
+          "Resultary: exact skew spectral norm minimum, weighted Jacobi path 1,…,k, and equality rigidity",
+          "Compare primary Theorem 3's explicit path"
+        ]
+      },
+      "rationale": "The comparison, inverse-square relation, cofactor method for the example, and the actual attaining path are acknowledged existing results and are not credited here. The distinct contribution is the universal lower bound on all couplings, its sharp norm obstruction for every saturating system, and uniqueness of the norm minimizer in minimal dimension. The strongest primary comparison, Theorems 1–3 and their proof, gives the relationship and one sharpness example but not the necessity for arbitrary Jacobi diagonals/couplings or the norm minimization. The matching local indexed hit is the assigned record itself, not independent evidence. The judgment is limited to the checked scope.",
+      "residual_risks": [
+        "Other sources could formulate the necessary part in Galerkin/minimum-residual terminology. The leading indexed results and the decisive primary comparison passages do not establish such coverage; this is not an exhaustive absence claim.",
+        "The primary source was checked in its arXiv version, with no journal-status claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the comparison and exact attaining path; the inspected proof gives existence, not norm-minimality or necessity",
+          "evidence": "Eq. (10) gives ||r_k^R||_H²=(∑_{j≤k}1/||r_j^W||_H²)^−1. Theorem 3 fixes H=I, S=iΣ with Σ zero-diagonal and couplings 1,…,k, and computes d_j=j! and all Widlund norms one. The section then turns to the residual relation and numerical implementations.",
+          "identifier_or_url": "https://arxiv.org/html/2611.23829v1",
+          "material_read": "PDF page 1 abstract; HTML §2 around offsets 7650–11350 and 11900–16849, Theorems 1–3, Eqs. (7)–(11), and proof of Theorem 3",
+          "method": "Bounded lawful OA literal-query retrieval and relevant offsets",
+          "title": "Near-Optimal Convergence of Widlund’s Method and Numerical Exploration of Different Implementations",
+          "trigger": "Exact comparison and known attaining example in the same model"
+        },
+        {
+          "assessment": "Identical assigned record, not independent priority evidence",
+          "evidence": "Same necessary β_j≥j, minimum ρ_k, and uniqueness in dimension k+1.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-skew-norm-rigidity-of-equality-in-widlund-rapoport-near-op--42c8d0673781",
+          "material_read": "Indexed finding and the bound frozen RESULT.md",
+          "method": "Resultary and exact source comparison",
+          "title": "Sharp skew-norm rigidity of equality in Widlund–Rapoport near-optimality",
+          "trigger": "Exact match in local search results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp example by itself does not say whether the worst comparison factor can arise with a small skew part. The theorem makes the skew spectral norm a necessary resource for exact saturation, gives an attainable barrier at each iteration, and singles out the minimal-dimensional system that uses the least such norm. This is a natural structural and extremal question following the original comparison, not just another verification of its saturating example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:53.950182Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In odd characteristic a two-dimensional subalgebra is nonabelian (a noncentral traceless matrix has one-dimensional centralizer in the Lie algebra). If its derived line is spanned by E and [H,E]=E, invariance of trace gives tr(E²)=0. Since 2 is invertible, E is square-zero, and the subalgebra is the stabilizer of ker E. Thus a nonzero seed has one, two, or no such planes according to its rational eigenlines. For both sampling measures, a prescribed Borel has mass 1/q: among square-zero matrices its intersection is exactly the nilpotent line. The intersection of two such Borels, or the line of a nonsplit seed, has mass 1/q² for either measure (only zero contributes on the cone). This yields all nonzero-seed cases by inclusion–exclusion. In characteristic two, the bracket on the two-dimensional quotient by the center is a nondegenerate alternating form, so generation is equivalent to spanning the quotient. Each quotient vector (b,c) has the unique square-zero lift with diagonal coordinate sqrt(bc), and the lift is linear along each quotient line. This proves identical spanning probabilities for both measures, including central seeds, and excludes dimension two for unseeded nilpotent tuples. In odd characteristic the same exclusion follows from the nilpotent line in each Borel. Counting nonzero tuples on the q+1 nilpotent lines gives the dimension-one mass; the all-zero tuple gives q^(−2k). For unrestricted sampling in either characteristic there are q+1 subalgebra planes (in characteristic two they are the preimages of quotient lines), and the number of spanning tuples on each plane is (q^k−1)(q^k−q). Counting planes, lines and zero separately gives the stated unseeded success probability and dimension-two count. For an odd field and fixed Δ, the count of (a,b,c) with a²+bc=Δ is q(q−1)+q times the number of solutions of a²=Δ, giving the four type counts after isolating zero. Summing the geometric failure tails, including failure at k=0, gives the means. The frozen checkers and logs were inspected as small-field evidence and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chistopolskaya gives existence of a nilpotent mate for each nonzero nilpotent seed over infinite fields of characteristic not 2, and explicitly asks about finite fields.",
+          "Random generation of the special linear Lie algebra gives asymptotic full-sampling pair generation; Two-generation of traceless matrices gives existence with exceptions; Random Lie bracket starts from a generating pair."
+        ],
+        "reasoning": "These results overlap in motivation but do not yield equality of the two sampling success probabilities for all finite-field seeds, in characteristic two, and at every tuple length. A mate-existence theorem alone does not give the conditional law.",
+        "searches": [
+          "arXiv:1804.09457, Theorem 1 and finite-field comment",
+          "arXiv:2606.31747, Theorem 1.1",
+          "arXiv:2404.11240, introduction p. 2",
+          "arXiv:2503.16175, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify_nilpotent.py and their logs",
+        "arXiv:2605.09583, 1804.09457, 2606.31747, 2404.11240 and 2503.16175",
+        "Resultary 0c4c7f02cc9c, b218c9e63003, b129fbee5502 and bdb9dd323642",
+        "DOI 10.1007/s10801-026-01620-w"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older plane-count result gives q+1 planes for a perfect three-dimensional algebra; the stronger comaximal-graph propositions identify exactly which seed types meet how many Borels.",
+          "Under unrestricted sampling, a plane and a line have masses q^(−1) and q^(−2), so the all-k conditional formulas in odd characteristic follow directly from the earlier incidence statement. The earlier unseeded enumeration gives no restricted-sampling counts."
+        ],
+        "reasoning": "Matching these obstruction masses on the square-zero cone uses additional measure-specific counting, including the single-point intersection with nonsplit lines. In even characteristic the exact comparison uses the bijective lift to the center quotient, not an odd-field Borel specialization. The dimension-stratum distinction is also outside the earlier full-generation counts.",
+        "searches": [
+          "arXiv:2605.09583, §4.3, pp. 19–20",
+          "Resultary plane-count record 0c4c7f02cc9c and direct-power record b218c9e63003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comaximal graph paper counts Borel incidences of projective seed lines: nonsplit 0, nilpotent 1, split 2. For pairs this describes the proper-subalgebra obstructions to generation.",
+          "The nilpotent graph paper instead puts an edge where the generated subalgebra is nilpotent, and its explicit finite-field calculation is for upper-triangular 2×2 matrices."
+        ],
+        "reasoning": "For traceless 2×2 matrices, square-zero is precisely matrix nilpotence, but it is not the nilpotence condition on a generated Lie subalgebra. Quotient and projectivized generation viewpoints account for the known incidence data without equating this exact two-measure comparison to a graph edge predicate.",
+        "searches": [
+          "arXiv:2605.09583, §4.3 Propositions 4.11–4.12",
+          "Web: finite field sl2 Lie algebra generation probability uniform nilpotent matrices square zero sampling generating pairs nilpotent cone fixed seed generating tuples",
+          "DOI 10.1007/s10801-026-01620-w, abstract and §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Finding b218c9e63003 gives q^r(q^r−1)(q^r−q) for one factor of sl2 at length r, exactly the unrestricted unseeded count in this record.",
+          "The same-day b129fbee5502 tabulates a fixed-seed spectrum on sl3(F_2), and bdb9dd323642 gives unseeded laws for a five-dimensional Borel in sl3."
+        ],
+        "reasoning": "The one-factor match covers unrestricted sampling with zero or no seed but not the square-zero cone. The other two named records are materially related in method or objective, but concern different algebras; there is no priority inference from same-day dating.",
+        "searches": [
+          "Resultary exact generator tuples for direct powers of sl2; b218c9e63003",
+          "Resultary generating-partner spectra and exact Borel tuple probabilities; b129fbee5502 and bdb9dd323642"
+        ]
+      },
+      "rationale": "The passing claim is the simultaneous full-vs-square-zero sampling comparison for every fixed seed and length (and the contrasting unseeded generated-dimension behavior). The full-sampling no-seed count is an exact earlier specialization. In odd characteristic the unrestricted fixed-seed counts are immediate from already published Borel incidence and should be credited to it as consequences, not claimed as new incidence or as independently novel counts. The restricted-sampling comparison, with its characteristic-two lift and its dimension-distribution distinction, is not covered by the compared generation-existence, exact full-sampling, or graph results.",
+      "residual_risks": [
+        "Targeted searches and inspected passages do not certify priority for the finite-field sampling comparison; older works on maximal subalgebras or prescribed generators could contain an unindexed equivalent.",
+        "The prior odd-field incidence and prior unrestricted unseeded law are affirmative coverage, not merely suspected overlap; the originality pass does not extend to those ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior incidence; implies unrestricted odd-field conditional formulas, not the cross-measure theorem as stated",
+          "evidence": "Nonsplit semisimple lines belong to no Borel, nilpotent lines to one, and split semisimple lines to two.",
+          "identifier_or_url": "arXiv:2605.09583",
+          "material_read": "§4.3 Propositions 4.11–4.12, pp. 19–20, offsets 51200 and 53600",
+          "method": "OA full-text passage inspection",
+          "title": "The comaximal graph of a finite-dimensional Lie algebra",
+          "trigger": "Exact seed and Borel incidence for sl2 over odd fields"
+        },
+        {
+          "assessment": "Exact coverage of the unseeded unrestricted clause at one factor",
+          "evidence": "N_{q,1}(r)=q^r(q^r−1)(q^r−q) for all prime powers.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-generator-tuple-counts-for-direct-powers-of-mathfrak-sl-2--b218c9e63003",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local index and mirror text",
+          "title": "Exact generator-tuple counts for direct powers of sl2",
+          "trigger": "Exact unrestricted all-length generation count"
+        },
+        {
+          "assessment": "Infinite-field existence theorem, not finite-field sampling",
+          "evidence": "Hypotheses are an infinite field of characteristic different from two and a nonzero nilpotent seed; finite-field extension posed as a problem.",
+          "identifier_or_url": "arXiv:1804.09457",
+          "material_read": "Theorem 1, p. 1, offset 2202; final finite-field note, p. 5, offset 16614",
+          "method": "OA full-text passage inspection",
+          "title": "On nilpotent generators of the Lie algebra",
+          "trigger": "Square-zero/nilpotent generating mates"
+        },
+        {
+          "assessment": "Full-sampling asymptotic rather than exact conditional finite-field comparison",
+          "evidence": "High-probability generation by a random pair as the algebra grows, with exceptions.",
+          "identifier_or_url": "arXiv:2606.31747",
+          "material_read": "Theorem 1.1, p. 1",
+          "method": "OA full-text passage inspection",
+          "title": "Random generation of the special linear Lie algebra over finite fields",
+          "trigger": "Closest primary random-generation result"
+        },
+        {
+          "assessment": "Different dimension and scope",
+          "evidence": "Seven similarity-class counts for fixed seeds in the 3×3 binary algebra; 49 nonzero seeds without a mate.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-generating-partner-spectrum-of-mathfrak-sl-3-mathbb-f-2--b129fbee5502",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local index and mirror text",
+          "title": "Exact generating-partner spectrum of sl3(F_2)",
+          "trigger": "Same-day exact conditional generation record"
+        },
+        {
+          "assessment": "Different algebra and sampling problem",
+          "evidence": "Unseeded tuples in the five-dimensional traceless upper-triangular algebra with a characteristic-three exception.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-generating-tuple-probabilities-for-the-rank-two-borel-lie--bdb9dd323642",
+          "material_read": "RESULT.md Finding, offsets 0 and 424",
+          "method": "Local index and mirror text",
+          "title": "Exact generating-tuple probabilities for the rank-two Borel Lie algebra",
+          "trigger": "Same-day exact all-length result"
+        },
+        {
+          "assessment": "Different predicate and finite-field example",
+          "evidence": "Edges correspond to generation of a nilpotent subalgebra, not sampling from square-zero matrices; explicit computation is for t(2,F_q).",
+          "identifier_or_url": "https://doi.org/10.1007/s10801-026-01620-w",
+          "material_read": "PDF abstract and §1, pp. 1–2",
+          "method": "OA publisher PDF passage inspection",
+          "title": "The nilpotent graph of a finite-dimensional Lie algebra",
+          "trigger": "Primary hit for nilpotence and finite-field Lie generation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Restricting each draw to a natural subset of relative size 1/q preserves every fixed-seed success probability and waiting-time law, even though it removes an entire generated-dimension stratum for unseeded tuples of length at least two. This is a substantive distinction between success probability and the distribution of what is generated. The odd-characteristic incidence mechanism and the characteristic-two quotient mechanism make the exact, uniform-in-q assertion useful beyond an isolated small-field probability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

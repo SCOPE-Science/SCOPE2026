@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The method's coefficients follow by substituting the two-stage, zero-damping Chebyshev parameters into the published equations. Independent stage client curvatures produce an exact bilinear random multiplier. Because its square is at most quadratic in each independent curvature, its expectation depends only on the curvature mean and variance. Expanding gives the displayed product of two polynomials and proves all necessary and sufficient cases, including the special mean-four line and equality. The four ordered two-client outcomes reconstruct the entire finite law without approximation; an iid strong law proves the separate negative almost-sure exponent. Exact symbolic and finite rational checks of the derived identities are reproducible from the embedded verifier. No finite computation is treated as an infinite proof.
+PASS
 
-## Originality — PASS (qualified best-knowledge assessment)
+With B_i=1−C_i/4, the first stage is B_1x_n and the macro-step multiplier is M=2B_1B_2−1. Put b=E B=1−μ/4 and d=E B²=b²+v/16. Independence within a macro-step gives E M=2b²−1 and Q−1=4(d²−b²)=4(d−b)(d+b), giving both factors with the denominator 64. Independence across macro-steps gives geometric first and second moments for deterministic initial data. When μ<4 the second factor is positive and the sign changes at v=μ(4−μ); when μ>4 the first is positive and the sign changes at v=(μ−4)(8−μ). At μ=4 both factors equal v, including the v=0 neutral case. These thresholds lie within the feasible range 0≤v<μ(8−μ) imposed by the open support. For shared draws the multiplier is 2B²−1, strictly inside (−1,1) except at C=4. The stated no-atom condition is sufficient (indeed any positive mass away from 4 suffices). The 1,6 example gives ordered multipliers 1/8, −7/4, −7/4, −1/2, hence the displayed first and second moments and shared second moment. Their absolute product is 49/256. Its fourth root is √7/4 and the strong law for the log-magnitudes proves almost-sure decay despite strictly growing second moment. The zero initial condition is identically zero and is not an instability example.
 
-The closest primary work is Stillfjord–Williamson (arXiv:2201.12782v1), equations (3.1)–(3.2), section 3.4, and the same-batch experimental implementation in section 4. That publication establishes the source recurrence, its deterministic stability principles, and convergence conditions with diminishing steps. It specifies one shared minibatch per full Runge–Kutta step and therefore does not present the independent-client-per-stage random curvature product or the exact variance frontier here. Bochacik et al. (arXiv:2006.12131) provide a more general randomized Runge–Kutta mean-square stability background, but with stage-time randomization and a different information model; generic iid-multiplier stability alone does not state the exact sharp coefficient product or shared-versus-fresh contrast. Relevant neighboring mathematical results address deterministic stagewise-safe Richardson steps or mean-square stability of different stochastic optimization schemes and do not imply the derived Chebyshev boundary. Residual risk: an older general random-coefficient Runge–Kutta treatment may already derive an equivalent Chebyshev identity under different terminology; mathematical priority remains independently unvalidated.
+## originality
 
-## Value — PASS
+PASS
 
-The result provides a complete necessary-and-sufficient distribution-free criterion for mean-square stability of a natural sampling modification to a published stabilized stochastic optimizer. The two-client instance exhibits simultaneous stability of all deterministic fixed-client updates, first-moment convergence, almost-sure exponential convergence, and exponential expected-loss explosion, whereas the original shared-minibatch update contracts in mean square. The distinction offers a concrete numerical-design safeguard: the common-batch choice cannot casually be replaced by per-stage independent batches while relying on deterministic RKC stability intuition. The motivating choice of staging and the exact phase boundary give the result structural relevance beyond a one-off numerical example.
+The published SRKCD method uses one sample for every stage of a macro-step. Its stability and earlier shared-sample results on moment explosion with typical-path decay are not claimed here as new. The closest randomized two-stage ODE work also uses scalar multiplier stability, but its independent random variables perturb stage time rather than draw separate client curvatures in this Chebyshev recurrence. No inspected source supplies the mean–variance boundary for the fresh-client recurrence or the same-versus-fresh contrast for identical marginals. The best-of-knowledge pass is for this explicit change of sampling and its sharp law, not the general expected-square or log-growth criteria.
 
-## Closest literature and limits
+## value
 
-The sharp frontier is specific to two-stage undamped unit-step scalar quadratics with independent stage sampling. It does not invalidate Stillfjord–Williamson's same-client algorithm or claim a problem in their diminishing-step convergence theorem. The full SRKCD primary source was inspected; randomized Runge–Kutta ODE stability sources and neighboring numerical stability records were compared at the level of their mathematical objects, randomness, and implications. The stochastic Brownian forcing literature is less directly comparable and has not been exhaustively excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A plausible implementation change leaves all deterministic per-client scalar tests intact but can reverse mean-square behavior, even when the mean and typical paths decay. The exact distribution-free first-two-moments criterion and the explicit same-law comparison isolate sampling across stages as the cause. This is a motivated warning about what can be inferred from deterministic stability or average trajectories, not a failure claim about published shared-batch SRKCD.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

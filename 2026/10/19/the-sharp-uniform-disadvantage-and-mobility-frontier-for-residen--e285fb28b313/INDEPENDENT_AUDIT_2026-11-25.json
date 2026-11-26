@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:01:08.350043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Assumptions and scope, Proof",
+        "VERIFICATION.md and verify.py, read as evidence; analytic and exact-moment checks reconstructed without executing package code"
+      ],
+      "rationale": "The no-flux balance gives ∫Qr=0, and r≡0 iff m/P is constant (test the homogeneous weighted Neumann equation by m/P). With v=Qw the operator is self-adjoint in L²(Q dx). The trial w=1+εr has a positive linear term 2ε∫Qr² against a quadratic diffusion cost, so the eigenvalue is strictly positive for each finite d. A constant positive principal eigenfunction would force r constant; the Rayleigh upper bound is therefore strict and the derivative is the strictly negative normalized Dirichlet energy. Interior bumps arbitrarily close to a maximizer give the d↓0 endpoint even for a boundary maximum. Normalize w=1+u with weighted mean u zero. On the mean-zero subspace the Neumann operator B=−Q⁻¹ div(a∇) has a bounded inverse; projecting the eigen-equation gives dBu=r+(I−Π)ru−Λu. The bounded potential and bounded Λ imply u=h/d+O(d⁻²) in weighted L². The mean equation gives Λ=∫Qru/∫Q=C/d+O(d⁻²), with C=∫a|∇h|²/∫Q>0. Constant c shifts the eigenvalue by −c exactly; strict monotonicity and the limits give the stated unique cutoff and cd_c→C. Direct cosine moments in the witness give potential, energy and norm squared per π equal to 1/16, 1/32 and 35/32; capacity minima are 5/12 and 61/150, and C=1/32.",
+      "residual_risks": [
+        "The zero eigenvalue at the cutoff has no asserted nonlinear consequence; a spatially varying loss would not be a constant spectral shift."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.4 requires a carrying-capacity advantage strict somewhere. Appendix A supplies a principal-eigenvalue variational characterization."
+        ],
+        "reasoning": "A nonzero advantage gives a positive constant-trial bound. At zero advantage that trial gives only 0: nonconstant resident residual and its zero weighted mean must be combined with the perturbed test. General spectral tools are prior; they are not a separately stated ecological frontier.",
+        "searches": [
+          "Braverman–Lawson Theorem 3.4 and Appendix A; primary lookup on resident-profile invasion and principal-eigenvalue mobility laws"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.10898v1",
+        "Resultary 2026/11/22/SCOPE-sharp-invasion-threshold-for-resident-profile-dispersal--11f1cbbc8e6d",
+        "PMC11103478 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper separately asks linear invasion (1a) and universal exclusion (1b); the strict advantage theorem does not include equality.",
+          "The indexed scalar multiplier theorem holds the movement profile/coefficient fixed and does not analyze the singular large-d limit."
+        ],
+        "reasoning": "A fixed-coefficient threshold or a sufficient condition under positive advantage does not imply strict positivity for the coupled equal-capacity profile plus the entire additive inverse curve with a sharp rate. The rate uses resident balance and the corrector; no nonlinear exclusion is claimed.",
+        "searches": [
+          "arXiv:2512.10898v1 pp. 9, 17, 22 and the indexed resident-profile result's Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed resident-profile result uses Q=u* but m₂=κm and a fixed movement coefficient.",
+          "Open Problem 1(a) asks about the same fixed resident target and identical capacities when m and P are linearly independent."
+        ],
+        "reasoning": "Identical capacities are a shared case; proportional loss is not a constant eigenvalue shift for inhomogeneous m. Neither comparison gives a mobility cutoff or its asymptotic.",
+        "searches": [
+          "Resultary: resident-profile dispersal, equal carrying capacities, principal eigenvalue and invasion threshold",
+          "Braverman–Lawson arXiv:2512.10898v1, Open Problem 1(a)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed mathematical finding gives equal-capacity invasion and a scalar multiplier threshold at fixed movement coefficient, not an additive-loss d_c or its C/d law."
+        ],
+        "reasoning": "The strongest exact-object catalog hit overlaps the equal-capacity conclusion but not the additive mobility continuum or corrector. Path dates do not establish priority.",
+        "searches": [
+          "Resultary: resident-profile dispersal and sharp invasion threshold; checked 2026/11/22/SCOPE-sharp-invasion-threshold-for-resident-profile-dispersal--11f1cbbc8e6d"
+        ]
+      },
+      "rationale": "Equal-capacity invasion substantially overlaps a distinct indexed result and is explicitly an open question in the cited primary paper, not a new general spectral principle. The supported distinction is the entire additive-loss/mobility frontier for the prescribed resident target, including its Neumann corrector and inverse scaling; neither that primary paper's advantage theorem nor the indexed fixed-mobility proportional-loss threshold establishes it.",
+      "residual_risks": [
+        "A general weighted Neumann spectral result or unindexed ecology work could cover more of the parameter law; no priority claim.",
+        "Zahan et al. §3 was not available for statement-level comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage of framework; explicitly asks equal-capacity case",
+          "evidence": [
+            "Theorem 3.4 uses a strict somewhere capacity advantage; Open Problem 1(a) asks identical-capacity invasion by the resident-target strategy; Appendix A supplies the Rayleigh formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.10898v1",
+          "material_read": "Theorem 3.4, p. 9; Open Problem 1(a,b), p. 17; Appendix A variational formula, p. 22",
+          "method": "Bounded OA PDF passages",
+          "title": "Trimming to Coexistence: How Dispersal Strategies Should Be Accounted for in Resource Management",
+          "trigger": "Same directed-dispersal model and claimed open question"
+        },
+        {
+          "assessment": "Exact overlap on equal capacity, distinct disadvantage and mobility conclusions",
+          "evidence": [
+            "m₂=κm with fixed invader mobility; no additive-loss inverse mobility curve or Neumann-corrector expansion in the statement compared."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-invasion-threshold-for-resident-profile-dispersal--11f1cbbc8e6d/RESULT.md",
+          "material_read": "Finding and carrying-capacity parametrization",
+          "method": "Local Resultary search and bounded mirror comparison",
+          "title": "Sharp invasion threshold for resident-profile dispersal",
+          "trigger": "Closest indexed equivalent target and threshold"
+        },
+        {
+          "assessment": "Unresolved comparison, not negative evidence",
+          "evidence": [
+            "The relevant Section 3 text was unavailable in those attempts."
+          ],
+          "identifier_or_url": "PMC11103478",
+          "material_read": "Bibliographic identification only; Section 3 not retrieved",
+          "method": "Bounded PMC and Europe PMC retrieval attempts",
+          "title": "Evolution of dispersal and the analysis of a resource flourished population model with harvesting",
+          "trigger": "Related harvesting model and principal-eigenvalue arguments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and exact witness",
+        "Braverman–Lawson Open Problem 1(a,b)"
+      ],
+      "rationale": "The theorem answers a model-specific linear-invasion question for an explicit prescribed dispersal target and quantifies the tradeoff between a uniform ecological disadvantage and movement, rather than merely showing existence of some favorable strategy. The corrector predicts the mobility cutoff for small losses and the exact positive-disadvantage witness rules out an interpretation confined to equality.",
+      "residual_risks": [
+        "Neither the cutoff nor the example measures nonlinear coexistence or field outcomes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

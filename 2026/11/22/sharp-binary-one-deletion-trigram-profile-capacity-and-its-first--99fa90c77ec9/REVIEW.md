@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The interior deletion formula is an exact cancellation of three lost and two created three-bit substrings. Exhaustive tabulation of the 32 neighborhoods yields precisely ten unique changes; the four boundary positions add at most four. The explicit word family realizes fourteen distinct changes at every length at least twenty, with the ten interior and four boundary types listed. A finite-state recurrence exhaustively covers all words at every smaller length, with no loss of relevant information. An independent direct deletion/recount C++ enumeration of every word at lengths 1–19 reproduced the same maxima. Both source programs were executed successfully from their packaged paths.
+## correctness
 
-## Originality — PASS against inspected and searched evidence
-The 2015/2016 DNA-profile theory develops the profile observation and global and noisy-channel questions but does not supply this local one-deletion trigram extremum. A published two-gram one-deletion result determines the analogous but different six-class phenomenon; the statement explicitly leaves longer gram lengths outside its scope. Published global three-gram profile enumeration counts all possible profiles, not the number reached from one source word. Semantic searches of the public finding database using one-deletion, trigram, histogram, profile-ball, and sharp-threshold formulations did not return an implication covering fourteen and twenty. The 2026 substring-count hashing paper was only inspectable via its abstract and metadata; an unindexed equivalent or result within that full text remains a genuine risk. No search absence is treated as proof of novelty.
+PASS
 
-## Value — PASS
-An exact, sharp upper bound on the number of distinguishable deletion outcomes under length-three read histograms is a natural local-noise invariant in profile-based coding. The bound differs from both the six-outcome length-two result and the unbounded number of raw distinct deletion descendants. The ten interior perturbation classes and four boundary classes explain the information bottleneck, while the nontrivial first saturation length twenty and infinite explicit maximizers resolve the exact universal extremal problem. These are useful structural facts independently of the as-yet-unknown complete size distribution or a downstream code theorem.
+This counts distinct overlapping multiplicity-preserving trigram profiles of linear binary words after exactly one deletion, including both ends. Subtraction of the original profile is injective. Recounting the 32 five-bit contexts gives ten distinct interior deltas with multiplicities 8,8,4,4,2,2,1,1,1,1; the first and last two deletions contribute at most four additional deltas, giving 14. The fixed first four and last four bits of the witness give four distinct non-interior deltas. In the witness, 01000 uses the first three zeros of the extended run, 00100 its final two zeros plus 100, and 01001 its final zero plus 1001. The other seven required factors occur entirely in the fixed suffix. This corrects the misplaced location of 01001 in the proof text, not the claim or witness. For n<=3 all profiles are zero. For 4<=n<=20 the DP legitimately remembers the prefix, suffix, and exact set of interior deltas and covers every word. Independently ran python3 /workspace/review_evidence/recompute5.py in bounded slices 1–14, 15–17, and 18–20: each descendant was reconstructed and all its triple counts tallied from scratch in eight separate five-bit lanes (no carries because n-3<=17). Complementation permutes coordinates, so one leading-bit class is exhaustive modulo that invariant. The exact maxima were 1,1,1,4,4,6,6,7,8,8,9,10,10,10,11,12,12,12,13,14, with 48 extremizers at length 19 and 32 at length 20. The infinite claim rests on the verified contexts in the witness, not the finite run.
 
-## Limitations and closest prior results
-Only binary linear length-three profiles, full overlap multiplicity, and a single source-symbol deletion are addressed. The complete profile-ball distribution is not claimed. The 2016 DNA-profile foundation, published two-gram deletion-profile spectrum, global three-gram profile enumeration, and September 2026 substring-hash code construction are the closest inspected or partly accessible comparisons; the latter was not available in full and may affect priority assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: the short-length binary spectrum, the first attainment at 20, and the explicit sharp family starting there are distinct from the inspected literature. The separate q-ary record genuinely recovers the binary maximum 14 and its interior counting argument, credits earlier binary work, and does not establish early binary saturation. The maximum is not credited as distinct from that recovery, and same-day index dates do not establish priority.
+
+## value
+
+PASS
+
+For a natural equivalence on deletion descendants, the exact maximum and shortest witness resolve when the ten interior and four boundary signatures can actually coexist. The threshold and the complete short-length profile-ball maxima provide a meaningful binary baseline not supplied by larger-alphabet covering bounds or counts of raw descendants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

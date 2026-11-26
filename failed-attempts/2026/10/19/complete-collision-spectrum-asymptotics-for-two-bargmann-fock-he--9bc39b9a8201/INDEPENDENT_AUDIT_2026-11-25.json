@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:51:20.288035Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, assumptions and proof §§1–5; VERIFICATION.md, verify.py, verification_output.txt inspected without executing frozen code",
+        "Independent bounded reproduction, ordinal 5"
+      ],
+      "rationale": "The two Weyl-covariant orthonormal blocks give complementary 1±σ(C) eigenvalues. For leakage T=(I−P)W_w|_{E_m}, unitarity gives C*C=I−T*T; positivity at w≠0 also follows because a nontrivial exponential times a polynomial cannot be a polynomial. Rotate to a=|w|. Expanding the displaced monomials directly gives the leakage coefficients a^{k−j}(sqrt(k!/j!)/(k−j)!+O(a²)) for k≥m>j. In exterior order r, the unique lowest possible minor takes the first r rows and last r columns, with exponent r². Multiplying reciprocal-factorial rows by (r+i)! changes them to monic falling factorial polynomials, giving the Vandermonde and positive D_{m,r}. For complex a near zero, e^{az}(z−a)^j e^{−a²/2} and its local derivatives are dominated in Fock norm by a polynomial times e^{R|z|} for bounded |a|. This gives a norm-analytic finite family, then a Hilbert–Schmidt analytic exterior map; after removing the unique leading entry, the rest has Hilbert–Schmidt norm O_m(a^{r²+1}). The leading entry's own even correction and the squared Hilbert–Schmidt bound give the relative O_m(a²) for the product of the first r singular values. Taking ratios gives powers 2r−1 for T and 4r−2 for the small Gram eigenvalues. Cancelling the products gives the stated extremal constants. The independent 110-digit full Gram diagonalization by direct Taylor coefficient construction for m=1..6 and a=0.01,0.02 confirmed all tested coefficients to within 0.00060 relative error and checked pairing (python3 /workspace/reviews/evidence/reproduce.py 5, requires mpmath).",
+      "residual_risks": [
+        "No uniform large-m conclusion, unequal-multiplicity case or unnormalized derivative statement is proved. The independent finite checks do not prove the asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Fock interpolation literature inspected gives global density, geometric separation and related sampling statements; the RBF/Fock paper gives point evaluation and a kernel regression result.",
+          "The exact indexed comparator additionally has an all-separation m=2 formula and a relative O_m(r²) error for κ₂."
+        ],
+        "reasoning": "The qualitative and global results are not the source of the sharp coefficients, but the indexed all-channel theorem covers the full frozen claim and includes more.",
+        "searches": [
+          "arXiv:2004.12922 §1.1; arXiv:1508.03932 Thms. 1.1/1.3; arXiv:2405.19945 Thms. 4–5; arXiv:2604.22165v2 §§2,4; 6b173840b97e Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6b173840b97e RESULT.md and METADATA.json",
+        "arXiv:2004.12922, 1508.03932, 2405.19945, 2604.22165v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The overlap-block SVD provides complementary pairs; the unique minimum exterior minor argument is applied for every order p. In the last channel, rewriting the central binomial coefficient gives the same (m−1)!⁴/[2(2m−1)!(2m−2)!²]."
+        ],
+        "reasoning": "Formulas and block structure directly imply every element of the frozen Finding, including κ₂ and the sample m=3 leading terms. There is no substantive uncaptured assertion to repair by restatement.",
+        "searches": [
+          "6b173840b97e, RESULT.md offsets 0–10641, Finding and proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The other entry uses the same Gaussian exponent, normalized monomials and Weyl operator; its distance r is the frozen |w| after translating the common center.",
+          "For channel p both give λ⁻=γ²|w|^{4p−2}(1+O_m(|w|²))/2, since D_{m,p}/D_{m,p−1}=[(p−1)!]² sqrt((m+p−1)!/(m−p)!)/((2p−1)!(2p−2)!)."
+        ],
+        "reasoning": "The normalizations, all channels, exponents, constants and error orders agree. This is not only the same parameters or a coincident least eigenvalue.",
+        "searches": [
+          "Resultary: two equal Bargmann–Fock jet clusters, Fock Hermite collision spectrum, Weyl displacement canonical angles",
+          "Resultary 6b173840b97e, RESULT.md, Finding, scope and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact formula in the 6b173840b97e Finding; its record ID and run ID differ from the frozen entry, which has record ID ending 9bc39b9a8201. The result text includes additional m=2 information."
+        ],
+        "reasoning": "The hit is a separate indexed result, not an echo of the frozen record itself or a table of a few test cases. Catalogue ordering is not used to infer scientific priority.",
+        "searches": [
+          "Resultary indexed collision hierarchies and sharp least-eigenvalue constants",
+          "Distinct match verified in 6b173840b97e/RESULT.md and METADATA.json via local mirror"
+        ]
+      },
+      "rationale": "Exact coverage in a distinct indexed finding, SCOPE-20261108-6b173840b97e. It gives the identical normalized Gram hierarchy for every fixed m, every channel and the same relative error, as well as the same least-eigenvalue coefficient and a stronger relative-error form for the condition number. Its block reduction also gives exact pairing. There is no distinct residual claim in the frozen Finding. The other entry is catalogued later than this frozen entry; the failure is for demonstrated equivalent coverage in the catalogue, not a claim of earlier publication, authorship, or derivation from the later entry.",
+      "residual_risks": [
+        "Older displaced-number-state or confluent Gaussian kernel coverage and historical priority were not resolved; the exact indexed equivalence does not depend on resolving either."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the entire frozen Finding; not evidence of chronological priority",
+          "evidence": "Same unitary Weyl definition and λ⁻_{m,p}(r)=γ_{m,p}²r^{4p−2}(1+O_m(r²))/2 for all p≤m, with exactly the factorial ratio in the frozen record.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-collision-hierarchy-for-two-equal-bargmann-fock-jet-cluste--6b173840b97e",
+          "material_read": "RESULT.md Finding, Assumptions and proof §§1–4 (offsets 0–10641); METADATA.json distinct record ID and catalogue publication date",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp collision hierarchy for two equal Bargmann–Fock jet clusters",
+          "trigger": "Exact apparent same-object and all-channel match"
+        },
+        {
+          "assessment": "Related global theory, not sharp two-site constants in the passages read",
+          "evidence": "Characterizations via weighted Beurling densities.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.12922",
+          "material_read": "Abstract and §1.1 pp. 1–2",
+          "method": "OA PDF passage inspection",
+          "title": "Multiple sampling and interpolation in weighted Fock spaces of entire functions",
+          "trigger": "Broader covariant jet sampling"
+        },
+        {
+          "assessment": "Qualitative array conditions rather than fixed-m spectral asymptotics",
+          "evidence": "Geometric separation and overlap/density requirements.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03932",
+          "material_read": "Theorems 1.1/1.3 pp. 4–5",
+          "method": "OA PDF passage inspection",
+          "title": "Geometric conditions for multiple sampling and interpolation in the Fock space",
+          "trigger": "Separation and unbounded multiplicities"
+        },
+        {
+          "assessment": "Geometric asymptotic array conditions, not the collision hierarchy",
+          "evidence": "Conditions concern polynomial-space sampling and interpolation arrays.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.19945",
+          "material_read": "Theorems 4–5 p. 8",
+          "method": "OA PDF passage inspection",
+          "title": "Multiple sampling and interpolation in a space of polynomials",
+          "trigger": "Related Fock-limit array problem"
+        },
+        {
+          "assessment": "Kernel and point-value regression comparison, no fixed-m Hermite collision constants in inspected passages",
+          "evidence": "Uses point evaluation representers and a Gaussian RBF/Fock kernel relation.",
+          "identifier_or_url": "https://arxiv.org/html/2604.22165v2",
+          "material_read": "§2 eq. (2.2); §§4.1–4.2 eqs. (4.18)–(4.21), Thm. 4.3",
+          "method": "OA HTML passage inspection",
+          "title": "Fock and Gaussian RBF kernels (Alpay, De Martino and Diki)",
+          "trigger": "Gaussian point kernel and Fock normalization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md fixed-m hierarchy; arXiv:2004.12922 global interpolation context; exact comparator 6b173840b97e"
+      ],
+      "rationale": "As mathematics, the fixed-m two-site spectrum quantifies conditioning channel by channel and supplies the sharp worst-direction constant, beyond a qualitative separation requirement. This is substantive spectral information, not a normalization check or a small special-case census. This assessment of the theorem's mathematical utility does not credit an equivalent record as a second original contribution.",
+      "residual_risks": [
+        "No multi-site interpolation theorem or large-m stability bound is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

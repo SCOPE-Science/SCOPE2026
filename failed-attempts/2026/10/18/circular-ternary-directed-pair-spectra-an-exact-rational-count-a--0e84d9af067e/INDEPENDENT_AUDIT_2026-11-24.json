@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:46:19.430774Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–79, VERIFICATION.md, verify.py inspected as text",
+        "Independent replay: python3 /workspace/branches/reproduce_frozen.py 3"
+      ],
+      "rationale": "A length-n circular presentation uses exactly n ordered edges including closure, with a one-letter word giving a single loop. Balanced nonzero multigraphs are realized by Euler circuits exactly when their active undirected support is connected. The three net differences are a single signed triangle flux; together with the three opposite-pair minima and the three independent loop counts it parametrizes each balanced matrix uniquely. Summing gives F(z), where the zero flux is counted once. The excluded types are two active loop singletons and an inactive vertex, an active reciprocal pair and a loop singleton, or three active loop singletons, in addition to the zero matrix. Each correction has the stated multiplicity. At z=1 the principal constants are 1/12 for the order-seven balanced pole and 3/2 for the order-four disconnected pole, giving 1/8640 and 1/4 in the respective coefficients and 2160 in their ratio. At z=−1 the numerator 1+z^3 cancels one of the three factors from 1−z^2, leaving a double pole, which corrections with at most a simple pole cannot remove. Primitive third-root poles also persist; the pole orders and locations yield degree six and minimal eventual quasiperiod six. Selecting one word per attainable matrix gives the maximum deterministic zero-error count. A fresh weak-composition enumeration of unconstrained nine-entry tables, filtering for balance and connectivity, matched coefficients through n=14 (3960 at n=14), and all its retained matrix sets matched a direct circular-word scan through n=9.",
+      "residual_risks": [
+        "Finite confirmation only covers the stated ranges; the all-length results follow from the exact series and pole analysis. The alphabet is labeled and there is no restriction to words using all three labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2012 manuscript, p.7 equation (11) and p.9 Remark: partition by connected components; P=e^u E, F=exp(E)−1, with u exponential in the alphabet size. The exact balanced m=3 function on p.15 equals the frozen F(z).",
+          "2026/10/26/SCOPE-support-refined-enumeration-of-ternary-cyclic-dinucleotide-profi--8ada8bf40720 gives a bivariate series counting the same profiles refined by off-diagonal support size, and explicitly specializes u=1 to the same unrefined sequence and code capacity."
+        ],
+        "reasoning": "The earlier component formulas apply to all labeled alphabet sizes. The later result dominates in an additional statistic. Neither comparison depends on a title match or claiming any chronological priority for the later record.",
+        "searches": [
+          "Jacquet–Knessl–Szpankowski 2012 DOI 10.1109/TIT.2012.2191476, component and P (z, u) locators; §§2.1, 2.2, 3.1",
+          "Resultary: unrefined enumeration ternary cyclic Markov types directed pair-count matrices Eulerian flows",
+          "8ada8bf40720 RESULT.md, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Jacquet–Knessl–Szpankowski proceedings and expanded author-hosted manuscript",
+        "Exact OEIS query and listed Resultary mirror passages",
+        "Bernardini et al.; Ota–Manada"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let q=B_1=1/(1−z) and let E_m be the exact full-label connected component series, including the inactive one-label graph in E_1. For m=2 the published partition identity gives E_2=B_2−q^2=z^2/((1−z)^2(1−z^2)). For m=3 it gives E_3=B_3−3E_2 q−q^3. Restoring inactive labels yields positive-length T=E_3+3E_2+3(q−1).",
+          "Therefore B_3−1−T=3E_2(q−1)+3(q−1)^2+(q−1)^3, exactly the three frozen corrections. Its largest pole is (3/2)(1−z)^−4, so the leading coefficient 1/4 and ratio constant 2160 follow directly. Eq. (40) prints the leading coefficient for P_n(3)."
+        ],
+        "reasoning": "This computes the exact implication from the known identities, rather than assuming general Euler feasibility alone enumerates the spectra. Removing the zero constant is necessary because T concerns positive lengths. Pole and code calculations leave no separate unestablished scientific remainder to repair.",
+        "searches": [
+          "2012 manuscript p.7 equation (11), p.9 exact component Remark, p.15 balanced formula",
+          "2010 Counting Markov Types DOI 10.46298/dmtcs.2768 pp.2–3,8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacquet–Knessl–Szpankowski, IEEE TIT 2012, §2.1 pp.6–9: P_n(m) counts cyclic types with an active subset of the m labeled vertices, identified with Eulerian connected digraphs on that subset. Isolated inactive labels do not restrict P_n(m).",
+          "2026/10/18/SCOPE-ternary-length-two-composition-profiles-and-their-finite-alphabe--08e655a29220 identifies ij and ji as compositions and has a different ternary sequence (3,6,18,...)."
+        ],
+        "reasoning": "Closing the last pair and counting all directed multiplicities gives the same matrices as cyclic Markov types on three labels, not undirected compositions or types required to use all three symbols. The same-day composition record does not overlap at the claimed object level.",
+        "searches": [
+          "Resultary: circular ternary words directed adjacent-pair multiplicity spectra exact rational generating function",
+          "Resultary: unrefined enumeration ternary cyclic Markov types directed pair-count matrices Eulerian flows",
+          "Jacquet–Knessl–Szpankowski 2010 cyclic string/frequency definitions and 2012 §§2.1–2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact OEIS query returned no matching terms; it does not exclude an equivalent entry indexed differently.",
+          "The support-refined result explicitly lists 3,6,11,...,2775 and the next terms 3960 and 5531, and gives the exact generating function that certifies the equality at all n.",
+          "Jacquet–Knessl–Szpankowski give the exact balanced F_3* and the 1/(12·6!) leading coefficient for P_n(3)."
+        ],
+        "reasoning": "The table supports, but is not needed for, the exact implication. For the compared balanced series, the apparent numerator difference is the cancellation 1+z^3=(1+z)(1−z+z^2).",
+        "searches": [
+          "OEIS exact terms: 3,6,11,24,48,95,174,306,510,819,1266,1901,2775",
+          "Resultary exact coefficient string 3,6,11,24,48,95,174,306,510,819,1266,1901,2775",
+          "2012 manuscript p.15 Eq. (40) and surrounding displayed F_3*",
+          "8ada8bf40720 RESULT.md Finding offset 0"
+        ]
+      },
+      "rationale": "The exact count is the m=3 cyclic Markov-type count of Jacquet–Knessl–Szpankowski (2012). Their exact balanced series and connected-component coefficient identities imply the entire connected correction by elementary m=3 extraction. They explicitly give the same leading coefficient. The cubic deficit constant and period need not be printed to be covered: they are direct pole read-offs of the implied rational function. The exact same realizable-profile count also appears by specializing the later support-refined catalogue result. The earlier published theorem, not the later date or the negative OEIS search, is decisive.",
+      "residual_risks": [
+        "The stand-alone expanded T series and cubic coefficient were not located verbatim in the 2012 article; the failure is an explicit implication, not a quotation claim.",
+        "The later catalogue overlap does not decide provenance or priority. Other indexed formulations are possible but not necessary to the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact stronger theorem, with a direct symbolic implication of the frozen equations",
+          "evidence": [
+            "P=e^u E and E=log(1+F).",
+            "F_3*=(1−z+z^2)/((1−z)^7(1+z)^2(1+z+z^2)); Eq. (40) gives P_n(3) ~ n^6/(12·6!)."
+          ],
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf (DOI 10.1109/TIT.2012.2191476)",
+          "material_read": "§2.1 pp.6–9, including Eq. (11) near offset 21100 and Remark near offset 28400; §3.1 p.15 exact m=3 function and Eq. (40) near offset 49650",
+          "method": "Primary PDF locators and bounded passages, including direct examination of the author-hosted expanded manuscript",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Exact cyclic types and stronger component theorem"
+        },
+        {
+          "assessment": "Earlier cyclic normalization and exact balanced ternary series; the expanded paper gives the decisive exact component relations",
+          "evidence": [
+            "Pairs close cyclically and frequency matrices are balanced; the exact m=3 balanced generating function is given."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2768",
+          "material_read": "Proceedings PDF pp.2–3 and 8",
+          "method": "OA primary passages",
+          "title": "Counting Markov Types",
+          "trigger": "Earlier paper under alternate terminology"
+        },
+        {
+          "assessment": "Exact later stronger coverage; no inference of chronological priority from it",
+          "evidence": [
+            "Same three-label circular profile, repeated ordered pairs counted with multiplicity; explicit specialization and matching first fifteen totals."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-support-refined-enumeration-of-ternary-cyclic-dinucleotide-profi--8ada8bf40720",
+          "material_read": "Mirrored Finding and scope (offset 0), comparison and references near 6945",
+          "method": "Resultary and local mirror",
+          "title": "Support-refined enumeration of ternary cyclic dinucleotide profiles",
+          "trigger": "Exact same directed cyclic matrix count at support marker 1"
+        },
+        {
+          "assessment": "Different observation",
+          "evidence": [
+            "Identifies ij with ji and counts multisets of compositions, not directed circular transitions."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-ternary-length-two-composition-profiles-and-their-finite-alphabe--08e655a29220",
+          "material_read": "Mirrored Finding offsets 198 and 994",
+          "method": "Resultary and local mirror",
+          "title": "Ternary length-two composition profiles",
+          "trigger": "Same-date ternary profile census"
+        },
+        {
+          "assessment": "Reconstruction/listing for a fixed input, not all profiles",
+          "evidence": [
+            "Eulerian-trail modeling for a supplied multiset."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2022.16",
+          "material_read": "p.3 discussion of given length-k multiset",
+          "method": "OA primary passage",
+          "title": "On Strings Having the Same Length-k Substrings",
+          "trigger": "Frozen citation for Eulerian observation model"
+        },
+        {
+          "assessment": "Binary reconstruction scope, not ternary type enumeration",
+          "evidence": [
+            "Frequencies are input to a reconstruction criterion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1587/transfun.2023TAP0015",
+          "material_read": "p.2 setup and reconstruction context",
+          "method": "OA primary passage",
+          "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+          "trigger": "Frozen citation involving exact circular substring frequencies"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "2012 manuscript Eq. (11), exact component Remark, and Eq. (40)",
+        "Support-refined Finding 8ada8bf40720"
+      ],
+      "rationale": "The realizability deficit and exact channel size are motivated invariants, but this package supplies no distinct scientific gap once the earlier balanced and connected Markov-type formulas are combined. Extracting the ternary component partition and comparing dominant poles mechanically yields even the quoted sharp deficit; one representative per type is immediate. A cleaner self-contained derivation can be useful exposition without qualifying as a separate new result.",
+      "residual_risks": [
+        "The finding is mathematically correct; this is rejection for overlapping, directly implied content, not falsification or an access failure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

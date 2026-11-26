@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:35:10.979180Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48; VERIFICATION.md and checker.py inspected, not executed",
+        "Independent enumeration: all 66,066 attack matrices of sizes 1–4, comparing direct definitions on candidate sets with both index criteria, the defense prefix and the conflict-free cutoff; all 17,576 monotone profiles through n=8 checked for realization and fixed-position census; sharp witness checked through n=8. Replay procedure: enumerate masks of n² attacks, test closure and structural conflict on each subset, test each direct attacker of each subargument and its counterattack, and compare to the running-minimum cutoff criteria; separately enumerate weakly decreasing n-tuples in [0,n].",
+        "Liao arXiv:2601.12038v3 Definitions 6–8 and 10, fixed-point theorem"
+      ],
+      "rationale": "In the stated SAF semantics, an attacker in row i hits the subarguments of j exactly when its first target is <=j. Thus attacks by E_k form the suffix starting after h(k), conflict-freeness is h(k)>=k, and undefended arguments are those hit by a row not counterattacked by E_k, namely a row through h(k). Their complement is E_{h(h(k))}. Closure forces all admissible sets to be prefixes, and stability combines coverage of the outside suffix with conflict-freeness, so h(k)=k. A nonincreasing map of n+1 states has at most one fixed point, and its square's fixed points are just fixed points and two-cycle pairs. Only the lower index of a nontrivial pair passes conflict-freeness. Iterating the nondecreasing h^2 from 0 gives a fixed point k; taking min(k,h(k)) establishes existence of a complete prefix. The disjoint cycles give the bound and the ordered prefixes give a unique largest complete extension. The antidiagonal attack realizes h(k)=n-k, attaining the bound also at n=1. Every weakly decreasing n-tuple in [0,n] is realized by the one-target/empty-row construction. For a stable profile at k, choose the k-1 preceding values from [k,n] and the n-k trailing values from [0,k] as multisets; this gives the stated binomial product. The unique fixed-point property makes the summation disjoint, and Vandermonde gives the half count.",
+      "residual_risks": [
+        "The finite enumeration is limited to the stated ranges and is not the all-n proof; the result uses a single chain and the specified structure-sensitive semantics, not arbitrary attack propagation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general SAF theorem characterizes completeness using conflict-freeness and defense fixed points; its projection gives a conventional framework. The inspected threshold/Ferrers definitions characterize adjacency structure."
+        ],
+        "reasoning": "Those statements apply to the ambient setting and explain why a fixed-point formulation should exist. They do not identify the defense image as a composition of the same cutoff with itself, classify admissible two-cycle endpoints, or count the number and distribution of profiles satisfying the stable condition.",
+        "searches": [
+          "Liao arXiv:2601.12038v3 fixed-point theorem and projection",
+          "Reilly–Scheinerman–Zhang Random Threshold Digraphs, §3.4, Definition 16"
+        ]
+      },
+      "checked_sources": [
+        "Liao arXiv:2601.12038v3; Reilly–Scheinerman–Zhang DOI 10.37236/4050; 1982 Ferrers characterization (access limited); catalogue records 3d211752e469 and 512316b4c61c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liao does give the general completeness criterion, so that criterion alone is covered. The inspected structural and cyclic-gap results do not supply a scalar cutoff dynamics or the profile realization."
+        ],
+        "reasoning": "A chain-specific attack/defense reduction is needed before the general theorem yields the classification. The counting is then elementary: in a lattice path from (0,n) to (n,0) encode h(k) as the height of the kth right step. Stability is arrival at the unique diagonal vertex by a right step; fixing its coordinate k gives the same binomial product. This identifies what is already standard combinatorics and what is new about its interpretation, rather than claiming the path counts as a standalone discovery.",
+        "searches": [
+          "Liao v3 pp. 3–5 and p. 12; Reilly et al. pp. 14–15; Resultary 3d211752e469"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liao's one-sided effective attack has a suffix in each row on this chain. Propagating the source as well for closed sets makes row i the suffix after h(i), ordered in the same vertex order as the target columns.",
+          "Reilly et al. §3.4 discusses the distinction between threshold and Ferrers digraphs including loops, not an extension census for this simultaneous ordering."
+        ],
+        "reasoning": "The fully propagated graph is a Ferrers-type upper set in both coordinates, with possible loops. Its stable sets in the outward-coverage convention are kernels of the converse. This is a genuine equivalence for the stable question: a set with largest member k attacks exactly the suffix after h(k), so independence and covering omitted vertices force h(k)=k and membership of all vertices through k. Merely knowing the rows are nested (possibly after a different order of source and target) does not assert the classified stable-profile counts of this subclass.",
+        "searches": [
+          "Liao arXiv:2601.12038v3 projection and semantics",
+          "Ferrers digraph kernels; threshold digraphs; Reilly–Scheinerman–Zhang DOI 10.37236/4050; Ferrers digraphs and threshold graphs (1982)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3d211752e469 classifies extensions on loop-free bidirected cycles by cyclic gaps; 512316b4c61c concerns one-source chords on directed cycles and a parity-based stable count. Neither counts monotone cutoff profiles.",
+          "The central-binomial numbers are classical counts of monotone paths; the submitted count concerns their interpretation as stable or nonstable realizable profiles, not a new binomial table."
+        ],
+        "reasoning": "A sequence match to central binomial coefficients would not imply the claimed interpretation; no materially matching catalogue entry for the position-refined stable-profile count was verified.",
+        "searches": [
+          "Resultary search for chain subargument argumentation, Ferrers/stable and complete-extension counts; local mirror 3d211752e469 and 512316b4c61c"
+        ]
+      },
+      "rationale": "The SAF semantics, general defense fixed-point theorem, Ferrers row nesting, and binomial identities are not new. The supported distinct result is their chain-specific reduction to an antitone state variable with an exact sharp extension census and position-refined profile census. The strongest inspected SAF and nested-neighborhood literature supplies ingredients but no equivalent combined law or directly covering result. This conclusion is limited by incompletely accessible older Ferrers literature.",
+      "residual_risks": [
+        "Equivalent older results on kernels or monotone Ferrers relations may use different terminology. The inaccessible older characterization and keyword misses do not establish priority or noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers semantics and general fixed points, not the audited chain law in the inspected passages",
+          "evidence": "Defense tests attacks on an argument's subarguments and counters on the attacker's subarguments; admissibility enforces structural closure.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.12038v3",
+          "material_read": "Definitions 6–8 and 10 (pp. 3–4, offsets 20760 and 25130), fixed-point theorem (p. 4, offset 26000), projection (p. 5, offset 31280; p. 12, offset 79276)",
+          "method": "Bounded original PDF-text passages; supplementary literal keyword locations",
+          "title": "Subargument Argumentation Frameworks: Separating Direct Conflict from Structural Dependency",
+          "trigger": "Exact semantics, stronger fixed-point theorem and projection candidate"
+        },
+        {
+          "assessment": "Relevant structural correspondence, not equivalent semantics or counts in these passages",
+          "evidence": "Threshold definition via weights and Ferrers comparison concerning loops.",
+          "identifier_or_url": "https://doi.org/10.37236/4050",
+          "material_read": "Definition p. 1 (offset 800); §3.4 pp. 14–15 (offsets 35160 and 35400)",
+          "method": "Original PDF-text passages",
+          "title": "Random Threshold Digraphs",
+          "trigger": "Possible graph-theoretic form of the stable-profile law"
+        },
+        {
+          "assessment": "Unresolved beyond indexed description; not treated as noncoverage",
+          "evidence": "Search surfaced structural characterization; no readable passage supports a stronger assessment.",
+          "identifier_or_url": "Ferrers digraphs and threshold graphs (1982)",
+          "material_read": "Indexed title/description; no primary full text read",
+          "method": "Literature search and OA retrieval attempt (403)",
+          "title": "Ferrers digraphs and threshold graphs",
+          "trigger": "Older plausible Ferrers characterization candidate"
+        },
+        {
+          "assessment": "Different relations and counted objects",
+          "evidence": "Cycle gap classifications and a chorded-cycle parity count, not nested prefix defense or a census of cutoff profiles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-cyclic-gap-classification-and-exact-complete-extension-polynomia--3d211752e469 ; https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-dung-semantics-for-one-source-chorded-directed-cycles--512316b4c61c",
+          "material_read": "Both findings, local mirror offset 0",
+          "method": "Configured catalogue and bounded local-mirror pages",
+          "title": "Cyclic-gap classification and exact complete-extension polynomials; Exact Dung semantics for one-source-chorded directed cycles",
+          "trigger": "Closest retrieved extension-classification records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–23 and 25–48; Liao's general SAF definitions and fixed-point theorem"
+      ],
+      "rationale": "A total subargument chain is a natural test case for how closure and attack projection constrain extensions. One cutoff gives all three semantics, makes the largest complete extension unique despite potentially many complete extensions, and quantifies exactly how stable existence varies across realizable profiles. This replaces reasoning over arbitrary attack matrices by a complete, sharp classification. The elementary binomial evaluation is not the sole contribution.",
+      "residual_risks": [
+        "The stable fraction is uniform over profiles, not over raw attack matrices or equivalence classes, and should not be interpreted as a stability probability for a random SAF without specifying that measure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

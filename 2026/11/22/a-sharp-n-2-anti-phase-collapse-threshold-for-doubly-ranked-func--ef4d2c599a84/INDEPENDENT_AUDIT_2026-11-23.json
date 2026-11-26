@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:07:37.362121Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both pooled rank vectors are permutations almost surely. If the arithmetic summaries are constant, their common value is (N+1)/2, forcing complementary ranks. For the average of the pointwise logit scores, antisymmetry makes the common value zero, and injectivity forces the same complementarity. This is not the logit of the average rank. Ranking the negatives of the noisy X_i shows complementarity iff no pair inverts. For a pair with densities p,q, condition on its positive gap, apply both orientations, and substitute gap=sigma·t. Bounded densities and the integrable N(0,2) upper tail justify the limit; the first moment of its positive part is 1/sqrt(pi), giving 2 sigma∫pq/sqrt(pi)+o(sigma). The fixed equal group counts give N²sigma(∫h²/sqrt(pi)+o(1)). For k distinct inversion edges with v vertices and b connected components, condition on the Gaussian marks and a root in each component; spanning-tree edge constraints confine other X's to intervals of length at most twice sigma times the corresponding absolute mark differences. Integrating leaf by leaf gives O(sigma^(v−b)), since all fixed products of Gaussian differences have finite moments. At criticality each component of size at least three makes the tuple contribution O(N^(2b−v)) vanish. The vertex-disjoint tuples contribute the k-th power of the mean asymptotically by independence: the omitted tuples in the product-of-marginals sum are O(N^(2k−1) sigma^k). This proves the Poisson factorial-moment limit, and an interval around 0 with noninteger endpoints gives convergence of the zero atom. Markov and the shared-vertex second-moment estimate cover the outer regimes. Completing the square gives Lambda=(1+e^(−a²))/(4pi); at a=3 and c=4pi, the collapse probability is 0.36783404404296… and the resulting bound is on limsup power (or on the limiting power if it exists), not an assertion that every test has a limiting power. Replay RESULT.md Steps 1–5. The supplied checker and VERIFICATION.md were inspected, not executed; their simulations are illustrative. The result needs equal fixed group sizes, two raw equally weighted times, the stipulated noise and density hypotheses, and non-rejection on constant scores for the test implication. It does not extend that implication to randomized rejection at ties or order-changing preprocessing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In the fixed-N i.i.d. case Jeong–Dytso–Cardone give a small-noise error slope which simplifies to N(N−1)∫p²/sqrt(pi).",
+          "Decreusefond–Schulte–Thäle provide general kernel-image Poisson approximation controlled by the intensity and overlap. Their i.i.d. setup captures the rare pair mechanism; fixed labels with independent unequal densities require adaptation or a non-i.i.d. dependency-graph argument.",
+          "The Silverman–Brown primary passage was not retrievable from the inspected OA route."
+        ],
+        "reasoning": "Credit the order-error slope in its fixed-dimension regime and the general Poisson machinery; neither alone establishes the two-group critical limit or its exact simultaneous conversion into test-summary collapse. Taking limits in the fixed-N slope cannot justify a finite positive crossing mass without error control as N grows.",
+        "searches": [
+          "Jeong–Dytso–Cardone Theorem 2 and Eqs. (17), (19)",
+          "Decreusefond–Schulte–Thäle arXiv:1406.5484v3 Theorem 3.1 and triangular-array setup",
+          "Silverman–Brown Short distances, flat triangles and Poisson limits (OA retrieval attempted)"
+        ]
+      },
+      "checked_sources": [
+        "Meyer arXiv:2306.14761",
+        "Jeong–Dytso–Cardone arXiv:2105.03015",
+        "Decreusefond–Schulte–Thäle arXiv:1406.5484v3",
+        "Silverman–Brown DOI 10.2307/3213436 (primary text unavailable)",
+        "Local Resultary entries ef4d2c599a84 (target), 97c75e627dc5, 5f1e6c70b9c8 and c9c169e84f60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Additive Gaussian errors reverse a pair when its original gap lies within a Gaussian-mark-dependent interval; the mixed-density pair intensities then sum with weights fixed by the two deterministic group sizes.",
+          "The exponential-clock result uses consecutive rate ratios at scale 1/n; the sparse-refresh result counts altered adjacent comparisons and descent changes at np→lambda."
+        ],
+        "reasoning": "Neither indexed phase variable is a reparameterization of the stated additive-noise model with arbitrary f,g, and neither relates it to raw time-averaged functional ranks. Standard dependency-graph approximation can also yield the Poisson step once its model-specific hypotheses and intensity are checked; no general probabilistic novelty is claimed. Same-day dates do not establish priority.",
+        "searches": [
+          "arXiv:2105.03015 §IV-B, versus frozen Steps 2–4",
+          "arXiv:1406.5484v3 Theorem 3.1, versus the marked Gaussian inversion kernel",
+          "Resultary 97c75e627dc5 and 5f1e6c70b9c8, RESULT.md opening claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meyer's pointwise pooled ranks and half-corrected logit followed by a subject average are precisely A and U when used at two raw times; the method then re-ranks the summaries for testing.",
+          "Negating the second time recasts collapse as noisy exact order recovery. The exact same Resultary entry ending ef4d2c599a84 is the target; distinct ordering hits end 97c75e627dc5 and 5f1e6c70b9c8."
+        ],
+        "reasoning": "The observation transformation gives the same order-event in the common-distribution case as in noisy sorting. But the fixed group composition and triangular joint limit are not equivalent to the cited fixed-dimension theorem, and the two rank-collapse characterizations concern Meyer's particular summaries.",
+        "searches": [
+          "Meyer, arXiv:2306.14761 §§2.3, 3, 3.1 Eq. (3), 3.2",
+          "Jeong–Dytso–Cardone, arXiv:2105.03015 §IV-B",
+          "Resultary: anti-phase collapse, noisy exact ordering, and marked Poisson rank perturbations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 97c75e627dc5 gives a Poisson exact-ranking crossover for exponential clocks; record 5f1e6c70b9c8 gives a joint marked-Poisson law for sparse score-refresh changes; c9c169e84f60 concerns local displacement marks in uniform permutation plots."
+        ],
+        "reasoning": "These are genuine related indexed limits, not exact records of the same Gaussian fixed-group model or of both summary vectors. The claimed formula ranges over bounded continuous f,g and critical c; a finite simulation or tabulated Gaussian example cannot furnish that general classification.",
+        "searches": [
+          "Resultary: exact ranking transitions and anti-phase rank collapse, including 97c75e627dc5, 5f1e6c70b9c8 and c9c169e84f60"
+        ]
+      },
+      "rationale": "The score definitions, i.i.d. fixed-dimension Gaussian order-error slope, and marked rare-pair Poisson machinery are prior. The supported distinct contribution is the explicit two-fixed-group, joint growing-sample/vanishing-noise collapse law for both raw rank summaries and the resulting nonconsistency bound in a fixed alternative. The closest inspected indexed results have different perturbation models or statistics, not just different names.",
+      "residual_risks": [
+        "Precise full-text coverage in Silverman–Brown was not assessed; stronger prior marked-pair applications and other noisy order results may overlap the Poisson component.",
+        "The priority assessment is limited to the sources and statements checked and is not a claim of novelty for the estimators, rank antisymmetry, or the general Poisson proof method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the score definitions, not the joint anti-phase collapse theorem in these passages",
+          "evidence": [
+            "Pooled pointwise ranks are followed by an arithmetic average or average of half-corrected logit scores."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.14761",
+          "material_read": "§§2.3 and 3, pp. 5–6 (around offset 18800); §3.1 Eq. (3), p. 7 (around 26000); §3.2 p. 8 (around 27400)",
+          "method": "Lawful OA PDF, localized passages",
+          "title": "Doubly ranked tests of location for grouped functional data",
+          "trigger": "Same two rank statistics and testing procedure"
+        },
+        {
+          "assessment": "Fixed-dimension i.i.d. small-noise coverage, not the joint fixed-two-group scaling in the frozen result",
+          "evidence": [
+            "The spacing-density coefficient yields N(N−1)∫p²/sqrt(pi) for i.i.d. density p when N is held fixed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.03015",
+          "material_read": "§IV-B, Theorem 2 and Eqs. (17), (19), pp. 4–5; OA offsets around 29000 and 34500",
+          "method": "Lawful OA PDF, localized passages",
+          "title": "Retrieving Data Permutations from Noisy Observations: High and Low Noise Asymptotics",
+          "trigger": "Noisy ordering with additive Gaussian errors and potentially the same critical regime"
+        },
+        {
+          "assessment": "General kernel Poisson approximation; does not state the fixed-two-group collapse law or its testing consequence",
+          "evidence": [
+            "Intensity and overlapping-tuple error terms govern the approximation for kernels on tuples of i.i.d. points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.5484v3",
+          "material_read": "Triangular-array setup, pp. 2–3 (around offset 5000); Theorem 3.1, pp. 13–14 (around 37000)",
+          "method": "Lawful OA PDF, localized passages",
+          "title": "Functional Poisson approximation in Kantorovich–Rubinstein distance with applications to U-statistics and stochastic geometry",
+          "trigger": "A broader marked rare-pair Poisson theorem can cover the probability mechanism"
+        },
+        {
+          "assessment": "Precise theorem coverage unassessed; an access residual, not negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.2307/3213436",
+          "material_read": "Bibliographic identification only; no primary theorem read",
+          "method": "Cambridge OA and linked-open-copy retrieval attempts via configured routes",
+          "title": "Short distances, flat triangles and Poisson limits",
+          "trigger": "Classical short-distance Poisson limit that could overlap after marking"
+        },
+        {
+          "assessment": "Same kind of rare-ordering event, different sampling/noise law and no functional-summary identity",
+          "evidence": [
+            "Poisson neighboring inversions for exponential clocks with consecutive rate ratios of order 1/n."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-spatial-poisson-errors-and-the-sharp-exact-ordering-transition-f--97c75e627dc5",
+          "material_read": "Local RESULT.md opening result, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Spatial Poisson errors and the sharp exact ordering transition",
+          "trigger": "Closest earlier indexed exact-ranking crossover"
+        },
+        {
+          "assessment": "Different noise and rank statistic; date alone settles neither coverage nor priority",
+          "evidence": [
+            "Independently refreshed scores lead to a marked law for changes in descent counts and adjacent comparisons, not complete score equality under anti-phase measurements."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sparse-refresh-noise-creates-silent-descent-errors-in-uniform-ra--5f1e6c70b9c8",
+          "material_read": "Local RESULT.md opening result, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sparse refresh noise creates silent descent errors in uniform rankings",
+          "trigger": "Distinct same-day rank perturbation and cancellation limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Anti-phase time courses can cancel a pooled-rank reduction even when first-time values separate the groups consistently. The exact nonvanishing tie probability quantifies a failure mode of two existing score choices rather than just giving a noiseless counterexample, with an interpretable conditional ceiling on rejection. This can inform time aggregation and tie handling without purporting to rank arbitrary functional tests.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

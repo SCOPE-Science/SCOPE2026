@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the MUPS census
+# Independent mathematical audit
 
-The theorem concerns all strictly positive integers \(a,b,c\); no finite program by itself certifies this infinite domain. The proof in `RESULT.md` exhaustively distinguishes palindromic factors containing zero, one, or two markers, and then proves their occurrence/miminality conditions.
+## correctness
 
-The standalone script `verify_mups_bruteforce.py` enumerates literal contiguous substrings independently of the proof template and compares every palindrome string and interval against the proposed three-family list for \(3375\) triples. It additionally compares the three-valued count classification. The exact program output is in `verify_mups_bruteforce_output.txt`.
+PASS
 
-The script `verify_mups_census.py` independently creates a map from each palindromic factor to all its positions and counts MUPS without calling the list formula. For every length from \(5\) through \(50\), it exhausts all positive gap compositions (\(17296\) triples in all) and checks the closed counts implied by the rational generating functions. Its program output is in `verify_mups_census_output.txt`.
+For positive a,b,c every nonempty palindrome uses zero, one or two ones. The unique unary factor must be the unique longest run (its length-two trim is empty or repeats). At a marker the allowed radii are 0 through min(a,b) or min(b,c); the first radius absent at the other marker is the only minimal unique one. The two-marker palindrome is always unique, but positive padding leaves both markers in its trim; with zero padding the central zero run repeats iff an outer run is at least as long. These give the three indicators and the four cases b≤a, a<b<c, b=c, b>c for a<c (reversal handles a>c). Equality a=c yields one, and the minimum sum for a strict ordering is 1+2+3, giving length eight. Positive-composition summation gives all three series and the six strict order chambers have equal counts, with O(n) ties amongst Θ(n²) words. The condition on the central trim agrees with the standard MUPS definition, including overlapping occurrences and nonunique empty trim. The independent bounded literal replay matched every string/interval for 3,375 triples and every coefficient for 17,296 triples at lengths 5–50, including exactly the two claimed length-eight witnesses. At n=50 the counts were (23,720,338).
 
-Reproduce with `python3 verify_mups_bruteforce.py` and `python3 verify_mups_census.py` in the directory containing the four checker files. Python 3 standard library only. Both checks finished successfully. No independent scientific audit was performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the parameterized identity/census and length statistics, not for the MUPS predicate, run-based candidate reduction or ability to compute MUPSs of a given word. The open author version of the 2024 paper was accessible and its relevant sections were inspected, closing the specific access limitation recorded in the frozen self-review at the preprint level. The general RLE antecedent is closer than the maximal-palindrome index and should be cited in a future exposition.
+
+## value
+
+PASS
+
+A canonical sparse test family for MUPS indexing now has exact positional witnesses and output counts at all lengths. The limit distribution distinguishes this palindrome-specific statistic from both ordinary uniqueness and a single query's SUPS multiplicity. The contribution is modest but reusable as a sharp exact benchmark, not a claimed speedup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

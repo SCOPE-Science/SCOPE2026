@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:30:58.807859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Proof and Verification",
+        "Frozen VERIFICATION.md and check_pairwise_finite.py (inspected, not executed)",
+        "Corrected /workspace/repairs/2/RESULT.md"
+      ],
+      "rationale": "Re-audited /workspace/repairs/2/RESULT.md. The frozen three-agent proof had the wrong attaining comparator (both endpoints of the shortest edge can incur v, not u; e.g. 0,1,4). The repair pairs one endpoint with the third report. The triangle-inequality lower bound then gives OPT_2=u, and the ratio formula follows from N=u(2v+w) and v<=w. For four agents, the repair uses a fixed nonempty assignment with total assigned distance K no greater than the ORIGINAL comparison cost, even after relocating an unused center. In the 1+3 split, the cross contribution is at most PD−sum D_i e_i and the inside contribution at most P²+sum d_ij min(D_i,D_j). Sorting the D_i makes the cancellation inequality follow from (v−w)(D_q−D_p)+u(D_r−D_p)>=(u+v−w)(D_q−D_p)>=0. Hence N<=PZ<=2KZ. In the 2+2 split cross-pair costs are at most u+v and either within-pair sample costs at most H, the cross-distance sum; thus N<=2(u+v)H<=2KZ. Taking the infimum covers nonattainment and OPT_2=0; Z=0 is handled separately. Independent enumeration of pair costs on (0,T,T+1,T+2) gives cross costs (3,2,3) and inside costs (T+1,T+1,T+2) in increasing pair order, so N=12T+13 and Z=3T+7, with OPT_2=2 by the clustered median and the shared-center lower bound. The sharp distinct-report line families give the two suprema.",
+      "residual_risks": [
+        "Finite verifier examples are corroborative only; the proof is against arbitrary continuous comparison centers. No strategyproofness or larger-n conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma–Peng give 3+h(x) at an attained optimum and exact Euclidean factor four over populations; Chan–Lin–Wang provide factor four over arbitrary metrics; Jia gives the tight 2k bound when k counts facilities, not agents."
+        ],
+        "reasoning": "The broader bounds are weaker at these fixed populations. Their worst-case examples with other population sizes neither determine nor contradict the improved factors.",
+        "searches": [
+          "Ma–Peng Thm. 3.3 and App. D.5",
+          "Chan–Lin–Wang §1.1",
+          "Jia pp. 1–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.09061v1, 2608.22484v1, 2608.19633v1",
+        "Resultary local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; matches 100028d5c3f5, 57ea40341f63, e3c37f844010, 8bb73a39e611",
+        "Corrected RESULT.md Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First surplus implies the sharp n=3 line factor. Exactly three occupied sites can witness line lower bounds at n=3,4, but excludes four distinct reports at n=4. Arbitrary metrics can have off-report centers and non-collinear four-report configurations."
+        ],
+        "reasoning": "These results supply part of sharpness but not the tight universal upper bounds. No reduction from arbitrary metric-space comparators to those known line domains was found; the proof uses triangle inequalities through comparison centers, not line order.",
+        "searches": [
+          "Compared matched Resultary statements 100028d5c3f5, 57ea40341f63, e3c37f844010 to the corrected finite-population claim",
+          "Ma–Peng Thm. 3.3 and Chan–Lin–Wang §1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three papers define or identify the identical unordered pair lottery at two facilities, since the Product-Gap weight is a single interreport distance when k=2."
+        ],
+        "reasoning": "The names and line product formulation are equivalent for two facilities. The contribution is the exact fixed-population analysis against unrestricted centers, not a new lottery.",
+        "searches": [
+          "arXiv:2608.09061v1 §3 Def. 3.1",
+          "arXiv:2608.22484v1 §1.1",
+          "arXiv:2608.19633v1 pp. 1–3",
+          "Resultary Global Pair, Pairwise-Distance and Product-Gap aliases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "100028d5c3f5 and 57ea40341f63 give line k−1/2 at k+1 distinct reports, so 3/2 when k=2. e3c37f844010 gives both constants with exactly three occupied sites on the line. 8bb73a39e611 concerns n=5 on the line, ratio 9/4."
+        ],
+        "reasoning": "The two three-agent line constants and the restricted three-site specializations are real coverage, not purely numerical resemblance. The inspected index entries do not extend to arbitrary metric centers or supply the unrestricted four-distinct-report bound.",
+        "searches": [
+          "Resultary searches for exact three/four-agent factors under all three rule names",
+          "Resultary exact match checks 100028d5c3f5, 57ea40341f63, e3c37f844010 and 8bb73a39e611"
+        ]
+      },
+      "rationale": "The repaired result credits the established rule and the indexed line-case overlap. The distinct surviving result is the exact unrestricted metric-space comparison at three and four agents, including sharpness at four distinct line reports. The strongest inspected indexed hits constrain the domain to line first surplus or exactly three occupied line sites.",
+      "residual_risks": [
+        "Bounded searches do not certify priority; same-day indexed records are credited without ordering. The external exact-small-population search produced an unrelated hit and is not evidence of nonexistence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rule, looser/general-population cost statement",
+          "evidence": [
+            "3+h(x) comparison assuming attained optimum; exact factor 4 for each Euclidean dimension using 2m+1-agent profiles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.09061v1",
+          "material_read": "§3 Def. 3.1 p. 6, Thm. 3.3 p. 8 and App. D.5 p. 20",
+          "method": "OA primary PDF comparison",
+          "title": "Breaking the 4-Approximation Barrier in Strategyproof Two-Facility Location",
+          "trigger": "Same mechanism and performance question"
+        },
+        {
+          "assessment": "Broader population scope, not the exact small-n constants in the inspected statement",
+          "evidence": [
+            "Pairwise-Distance selects pairs proportional to distance with all-metric factor 4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.22484v1",
+          "material_read": "§1.1 p. 3 rule and approximation statement",
+          "method": "OA primary PDF comparison",
+          "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+          "trigger": "Same rule on arbitrary metrics"
+        },
+        {
+          "assessment": "Line mechanism overlap; k is facility count",
+          "evidence": [
+            "2k guarantee tight at fixed k over general agent populations; identifies Global Pair at k=2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.19633v1",
+          "material_read": "pp. 1–3 product definition, bound, and two-facility specialization",
+          "method": "OA primary PDF comparison",
+          "title": "Product Gap Mechanisms for Multi-Facility Location",
+          "trigger": "Line alias"
+        },
+        {
+          "assessment": "Covers 3/2 line specialization",
+          "evidence": [
+            "Exact nonattained k−1/2 supremum for k facilities and k+1 distinct line reports."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-one-omission-approximation-frontier-for-product-gap-facili--100028d5c3f5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary match, local mirror",
+          "title": "Exact one-omission approximation frontier for Product-Gap facility location",
+          "trigger": "Direct n=3 line-case overlap"
+        },
+        {
+          "assessment": "Same n=3 line overlap, no priority inferred from same-day posting",
+          "evidence": [
+            "k−1/2 on the line, including k=2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-first-surplus-approximation-ratio-for-the-product-gap-faci--57ea40341f63",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary match, local mirror",
+          "title": "Sharp first-surplus approximation ratio for the Product-Gap mechanism",
+          "trigger": "Same numerics via first surplus"
+        },
+        {
+          "assessment": "Substantial restricted-support line overlap, not the all-metric theorem",
+          "evidence": [
+            "Exactly three occupied line sites; substitution at n=3,4 yields 3/2 and 2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-finite-population-phase-transition-for-three-site-distance--e3c37f844010",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–690",
+          "method": "Resultary match, local mirror",
+          "title": "Exact finite-population phase transition for three-site distance-proportional facility location",
+          "trigger": "Both constants from a general n expression"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md proofs for three and four agents and sharpness families",
+        "Chan–Lin–Wang §1.1; Ma–Peng §3"
+      ],
+      "rationale": "Three and four agents are the first nontrivial population and the first allowing both nonempty 1+3 and 2+2 comparison partitions. Resolving the first two tight guarantees for a known rule against potentially off-report optimum locations materially improves the general factor four on these populations; the cancellation bound for the triple cluster explains why the stronger guarantee is metric rather than line-specific.",
+      "residual_risks": [
+        "Small-population efficiency only; no new mechanism, general-n bound, or incentive claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

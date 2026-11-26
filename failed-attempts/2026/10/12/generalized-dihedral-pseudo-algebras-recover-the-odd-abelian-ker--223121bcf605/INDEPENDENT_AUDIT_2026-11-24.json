@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:33:16.935169Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 100–296",
+        "Frozen VERIFICATION.md and artifacts/verify.py, read as source",
+        "Independent bounded root-of-unity exponent computation"
+      ],
+      "rationale": "Squares generate the odd abelian kernel A, so the commutator subgroup is A and the quotient C₂ gives two linear codegrees 1 and 2. For a nontrivial linear character λ of A the inversion orbit has length two. On A the induced representation is diagonal with entries λ(a), λ(a)⁻¹, and outside A it is antidiagonal and not the identity. Its kernel is exactly ker λ. These representations are irreducible (the distinct diagonal characters' lines are exchanged by the involution), distinct by inversion pair, and exhaust by the degree-square sum. Each contributes codegree |A:ker λ|=ord(λ). The dual group has A's order distribution, so nontrivial multiplicities are halved, with no collision at 1 or 2. Counting p-power codegrees with missing multiplicities zero yields |Aₚ[pᵏ]|; differences of successive base-p logs count cyclic factors of exponent at least pᵏ. This reconstructs the kernel internally, including A trivial, and its isomorphism extends to the inversion semidirect product. A bounded exact check counted kernels directly using root-of-unity exponents in the displayed two-dimensional representations (enumerating A×{0,1}); for example the order-nine kernels C₉ and C₃² gave nonlinear multiplicities {3:1,9:3} and {3:4}, respectively.",
+      "residual_risks": [
+        "The packaged verifier builds predicted pseudo-algebras from kernel element orders, so it is not an independent irreducible-character computation. It was not executed. The bounded direct-kernel check corroborates examples, not the arbitrary-group theorem.",
+        "The conclusion is internal to the stated generalized-dihedral family and does not classify other groups with the same pseudo-algebra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed Frobenius result gives full dual-character orbits and |K:∩ₕker(θʰ)| as the induced codegree. Lewis–Yan reports the published finite-abelian determination theorem."
+        ],
+        "reasoning": "The larger Frobenius setting controls induced codegrees; it does not assert rigidity for all such groups. The published abelian reconstruction controls precisely the remaining determination step after extracting the order histogram.",
+        "searches": [
+          "Resultary 2f18f19a3bf8, Finding and proof offsets 2415, 4300",
+          "Lewis–Yan arXiv:2402.12648, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2f18f19a3bf8 and 7f6e8dc6f972",
+        "Lewis–Yan arXiv:2402.12648",
+        "Moretó DOI 10.1112/blms.12724, citation-level only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For θᵗ=θ⁻¹, ker θᵗ=ker θ. Each nonprincipal orbit has two elements. The two quotient characters have codegrees 1 and 2. An abelian group's multiplicities determine its isomorphism type."
+        ],
+        "reasoning": "Counting full orbits by their now constant linear-character order immediately halves the dual histogram. Doubling it restores the abelian determination invariant. The written successive logarithmic differences are the standard count of cyclic p-factors from their torsion sizes.",
+        "searches": [
+          "2f18f19a3bf8, proof of the orbit and kernel formulas",
+          "Lewis–Yan, p. 1, abelian determination attributed to Moretó"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inversion involution is fixed-point free off the identity on odd A, so the family is the complement-two case of abelian-kernel cyclic Frobenius groups, apart from the immediate trivial-kernel case. The known finite-abelian pseudo-algebra records element orders in the dual."
+        ],
+        "reasoning": "Replacing A by its dual preserves the order histogram; conjugate dual characters are exactly {λ,λ⁻¹}. Thus the frozen odd codegrees encode the abelian pseudo-algebra by a fixed factor of two.",
+        "searches": [
+          "Local Resultary: abelian-kernel cyclic Frobenius groups, 2f18f19a3bf8; scalar affine Frobenius groups, 7f6e8dc6f972",
+          "\"group pseudo-algebra\" Moretó \"codegree\" dihedral Frobenius multiplicities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier scalar-affine calculation specializes exactly to the multiplicities for elementary-abelian kernels with complement order two; its hypotheses do not cover mixed primes or higher prime powers. The cyclic-Frobenius record does not print the target's exact pseudo-algebra table."
+        ],
+        "reasoning": "Distinguish literal table coverage on a subfamily from direct implication on the full family. The absence of a verbatim mixed-order table does not prevent the latter.",
+        "searches": [
+          "Resultary 7f6e8dc6f972, Finding at offset 0",
+          "Resultary 2f18f19a3bf8, induced-character formula"
+        ]
+      },
+      "rationale": "The character and codegree formula is mechanically covered by the full-orbit and induced-kernel formula for abelian-kernel cyclic Frobenius groups in a distinct indexed record, from the same date (relative priority unresolved). For inversion the intersection collapses to one kernel, the orbits have length two, and reconstruction is the known finite-abelian order-spectrum argument applied to the recovered multiplicities. An earlier indexed scalar-affine result also states the exact formula on the elementary-abelian subfamily. The failure is established implication, not a claim that the complete frozen theorem appeared verbatim or that the same-day record came first.",
+      "residual_risks": [
+        "Relative priority of the two same-day records is unresolved.",
+        "The inaccessible Moretó full text leaves its exact scope on Frobenius groups unverified; the verdict relies on the independent indexed general formula and the abelian determination result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers by specialization of the proof; stated result concerns prime-support witnesses, not Sylow reconstruction. Same UTC date alone does not settle priority.",
+          "evidence": [
+            "Full-length orbits; induced degree |H|, kernel ∩ₕker(θʰ), codegree |K:∩ₕker(θʰ)|."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-abelian-kernel-cyclic-frobenius-groups-satisfy-moret-s-converse--2f18f19a3bf8",
+          "material_read": "Mirrored RESULT.md Finding and proof near offsets 2415 and 4300",
+          "method": "Local statement and proof comparison",
+          "title": "Abelian-kernel cyclic Frobenius groups satisfy Moretó's converse",
+          "trigger": "General Frobenius induced-character computation"
+        },
+        {
+          "assessment": "Exact elementary-abelian subfamily at complement order two, not all odd abelian kernels",
+          "evidence": [
+            "Scalar inversion over odd characteristic supplies multiplicity (pᶠ−1)/2 at p, plus the two quotient codegrees."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-scalar-affine-frobenius-groups-are-rigid-under-the-group-pseudo--7f6e8dc6f972",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local statement comparison",
+          "title": "Scalar affine Frobenius groups are rigid under the group pseudo-algebra",
+          "trigger": "Exact family-level pseudo-algebra and rigidity result"
+        },
+        {
+          "assessment": "Reports Moretó's finite-abelian determination result; inspected passage does not address odd generalized-dihedral kernels",
+          "evidence": [
+            "Equality of pseudo-algebras determines the isomorphism type of finite abelian groups, as attributed to Moretó."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.12648",
+          "material_read": "OA PDF p. 1, near offset 2926, with targeted searches for dihedral, Frobenius and inversion",
+          "method": "Primary OA passage and literal query",
+          "title": "On the group pseudo-algebra of finite groups",
+          "trigger": "Structural determinations using pseudo-algebras"
+        },
+        {
+          "assessment": "Unresolved whether the same original paper treats related Frobenius cases; not the basis of the failure",
+          "evidence": [
+            "Lewis–Yan reports the abelian result; publisher was inaccessible and no repository copy was identified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms.12724",
+          "material_read": "Bibliographic identification and Lewis–Yan's attribution; original full text not inspected",
+          "method": "Publisher and lawful repository retrieval attempts; bounded secondary passage",
+          "title": "Multiplicities of character codegrees of finite groups",
+          "trigger": "Original group pseudo-algebra introduction and abelian determination"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 2f18f19a3bf8 and 7f6e8dc6f972",
+        "Lewis–Yan arXiv:2402.12648, p. 1"
+      ],
+      "rationale": "Internal rigidity is a natural question for this invariant, but here the general induced-codegree calculation and known abelian determination mechanism already supply it without a new kernel obstruction. Packaging the inversion-orbit factor of two and the standard torsion-log differences is a routine specialization, not a distinct structural result beyond that coverage.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

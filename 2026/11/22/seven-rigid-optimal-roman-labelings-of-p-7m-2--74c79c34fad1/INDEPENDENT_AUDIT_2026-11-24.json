@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:06:42.354866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–4",
+        "VERIFICATION.md",
+        "verification/potential.txt",
+        "verification/verify_potential.py",
+        "verification/derive_potential.cpp",
+        "verification/enumerate_small.cpp"
+      ],
+      "rationale": "A closed walk of length n with fixed starting index is in bijection with a named feasible cyclic labeling: overlaps recover the columns, and the middle-column test sees all three neighbors of either kind of vertex. I reconstructed all 48,681 edges on 6,561 states in independent Python and synchronously relaxed the integer costs from zero. After ten changing rounds the potential stabilized (range -26 to 0), matching all entries in verification/potential.txt. I checked every reduced cost and pruned the 6,099-edge tight graph by repeatedly deleting sources and sinks. The surviving induced graph consists of exactly seven vertices forming the stated directed cycle, so there is no other tight closed walk. Telescoping gives the bound 7w >= 8n, the cycle realizes equality, and following it from any of its seven states gives exactly the seven distinct labeled minima for every m >= 1. The support intersections per period are one for shifts +/-1 and zero for every other nonzero shift, giving exactly 2m and 3m replacements respectively. This supports the all-order result, not an extrapolation from sizes 7 and 14.",
+      "residual_risks": [
+        "No claim for a different residue class or for intermediate labelings under a different reconfiguration rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader exact weight theorem gives ceil(8n/7) for n >= 5. Shi–Koh give general exponential-time counting algorithms for minimum Roman functions."
+        ],
+        "reasoning": "The broader weight theorem covers the scalar optimum; a general counting algorithm is not a formula for the number of optima at unbounded n or a classification of which supports occur.",
+        "searches": [
+          "arXiv:1103.2419v1 Theorem 2.12",
+          "arXiv:1403.1019v2 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and comparison records above",
+        "arXiv:1103.2419v1",
+        "arXiv:1403.1019v2",
+        "Primary-literature search for generalized Petersen ordinary Roman equality cases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The discharging proof treats local low-charge windows and neighboring charge constraints, with Lemma 2.11 deriving the scalar lower bound. Lemma 2.3 selects an optimum minimizing the number of twos. The proof does not close the global tight-window classification for all minima."
+        ],
+        "reasoning": "Those inspected consequences alone do not force each optimum into a single primitive seven-cycle. Once exhaustivity has been proved, the exchange graph is an elementary support-intersection consequence, not a separate difficult theorem.",
+        "searches": [
+          "arXiv:1103.2419v1 Lemmas 2.3 and 2.8–2.11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. give the same witness with support {v_0,u_3,u_4} per period, an index shift of {v_4,u_0,u_1}; their one-label support shifts accordingly. The same-date optimizer-collapse record uses [1,2]-dominating sets on GP(8,2) and GP(9,2), not Roman functions on the 7m family."
+        ],
+        "reasoning": "Identifying all shifts of the known witness does not rule out other words. The same-date problem uses a different feasibility condition and family, not a relabeling of this census.",
+        "searches": [
+          "Resultary: P(7m,2) Roman domination optimum counts and classification",
+          "arXiv:1103.2419v1 Lemma 2.1",
+          "2026/11/22/SCOPE-an-optimizer-collapse-transition-in-generalized-petersen-dominat--d1ef168d9922"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match is the frozen record's own mirror, not corroborating prior coverage. The distinct same-date Resultary hit does not tabulate Roman functions in the assigned family; the accessible Shi–Koh statement is a generic algorithm."
+        ],
+        "reasoning": "The evidence supplies no distinct table or database establishing a seven-minimum count across all m.",
+        "searches": [
+          "Resultary: generalized Petersen Roman minimum labelings and optimizer exchange",
+          "2026/11/22/SCOPE-seven-rigid-optimal-roman-labelings-of-p-7m-2--74c79c34fad1",
+          "arXiv:1403.1019v2 p. 1"
+        ]
+      },
+      "rationale": "The supported distinction is exhaustivity of the seven named minima for all m and the resulting exact reconfiguration graph. The minimum weight and the exhibited word up to shift are already known, so even the existence of seven optima and the exchange distances among those known witnesses are not independent discoveries. No inspected source covers the exhaustivity step.",
+      "residual_risks": [
+        "An unlocated classification might settle all equality cases.",
+        "The recent perfect-Roman paper was not available for full-text comparison; incidental ordinary-Roman results are unchecked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known weight and witness, not established all-optima coverage",
+          "evidence": "Lemma 2.1's periodic witness is a shift of the displayed word; the selected optimum and local charge constraints in the lower bound do not enumerate all equality cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/1103.2419v1",
+          "material_read": "Abstract; Lemma 2.1 pp. 2–3; Lemma 2.3; Lemmas 2.8–2.11 pp. 5–8; Theorem 2.12 p. 8",
+          "method": "OA PDF passage inspection",
+          "title": "Roman domination number of Generalized Petersen Graphs P(n,2)",
+          "trigger": "Exact family and potentially tight proof"
+        },
+        {
+          "assessment": "Generic counting method, no explicit coverage shown",
+          "evidence": "The accessible statement gives exponential-time algorithms for general graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.1019v2",
+          "material_read": "p. 1, accessible algorithmic statement",
+          "method": "OA PDF inspection",
+          "title": "Counting the Number of Minimum Roman Dominating Functions of a Graph",
+          "trigger": "Exact counting invariant on general graphs"
+        },
+        {
+          "assessment": "Different optimization problem",
+          "evidence": "The claim is about [1,2]-dominating sets at sizes 8 and 9, rather than Roman functions at all sizes divisible by seven.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-optimizer-collapse-transition-in-generalized-petersen-dominat--d1ef168d9922",
+          "material_read": "Finding and graph/labeling conditions",
+          "method": "Local Resultary mirror comparison",
+          "title": "An optimizer collapse transition in generalized Petersen domination",
+          "trigger": "Same-date indexed optimizer rigidity result"
+        },
+        {
+          "assessment": "Identical record, not distinct priority evidence",
+          "evidence": "Same seven named functions and capacity regimes.",
+          "identifier_or_url": "2026/11/22/SCOPE-seven-rigid-optimal-roman-labelings-of-p-7m-2--74c79c34fad1",
+          "material_read": "Finding and exchange thresholds",
+          "method": "Local Resultary mirror comparison",
+          "title": "Seven rigid optimal Roman labelings of P(7m,2)",
+          "trigger": "Identical indexed statement"
+        },
+        {
+          "assessment": "No full-paper conclusion; advertised invariant differs",
+          "evidence": "The description uses exactly one strong neighbor at zero vertices, not the at-least-one Roman condition.",
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/18/11/1942",
+          "material_read": "Accessible search description only; paper retrieval unsuccessful",
+          "method": "Primary-literature search and OA retrieval attempt",
+          "title": "Perfect Roman Domination Number of Generalized Petersen Graphs",
+          "trigger": "Recent similarly named theorem on the same graph class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite certificate resolves a natural all-orders equality-case question for a known sharp domination bound. The result identifies the whole optimum state space and explains why small support moves cannot connect any of the minima as the graph grows; a known weight or sample optima do not tell a reconfiguration researcher this. The support-exchange graph is a useful consequence of the rigidity, rather than the main basis for value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

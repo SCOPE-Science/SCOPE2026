@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:18:22.598269Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Symmetry of adjacency gives A⊆f²(A) for every support A, and antitonicity gives the reverse comparison needed for f³=f. In an isolate-free graph only the empty support maps to the full support; the preimages of empty are exactly the total dominating supports. Hence the full principal basin has size T+1. Directly for arbitrary r, split a state into base support S and clique support U. If U is empty and S is nonempty, the next state is (f_H(S),∅); exactly the nonprincipal base basins avoid empty forever, preserving the trajectories and labelled basins. The empty state maps to all vertices. If U is nonempty, the update gives zero except when S is empty and U is a singleton, in which case it gives that same singleton. This proves the complete dictionary, including no external predecessors to the singleton fixed points, and adds precisely 2^{n+r}−2^n−r states to the original principal count. At r=1 the principal basin size 2^n+T(H) is already strictly above half, and the excess strictly grows on further lifts. Division by 2^{n+r} gives the claimed limit; r=0 reduces to the base. The example total-domination counts 4,9,11 give all the displayed basin sizes. RESULT.md lines 21–37 provide a replay via one hub. Both uploaded checkers were inspected, not executed. CHECKS.txt labels 262 as the random base count, but the code prints a count bounded by 150 there; 262 is the number of attachment experiments for 131 accepted random draws, consistent with the total 1890. This is a nonmaterial supporting-transcript discrepancy, not an all-size proof issue.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Filomat §4.1 gives D_t(G₁∨G₂;z)=D_t(G₁;z)+D_t(G₂;z)+((1+z)^{|G₁|}−1)((1+z)^{|G₂|}−1). Evaluating at z=1 with G₂=K_r supplies the principal-size expression once one uses the known short-transient property. The leaf-corona record explicitly credits f³=f as background for symmetric open-neighborhood NOR. Dominant-vertex reduction gives eventual agreement from agreement on a dominant set over the necessary time interval, not exact join-predecessor counts."
+        ],
+        "reasoning": "Known statics and transient structure suffice for the special oscillator count but do not identify the individual nonprincipal basins for the coned graph. Private pendant leaves are a different state-space coupling.",
+        "searches": [
+          "Subramanian–Selvakumar DOI:10.2298/FIL2501267S Theorems 2.2–2.3 and §4.1",
+          "España–Funez–Ugalde arXiv:2509.03654v2 Theorem 1",
+          "Resultary 4014de6cfb9f Relationship to prior work"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKS.txt and both verify_coning scripts",
+        "Resultary wheel cd612bc79ea6, odd-ring 9b825fd6faf8, corona 4014de6cfb9f",
+        "Subramanian–Selvakumar, Filomat 39:1 §4.1",
+        "España–Funez–Ugalde arXiv:2509.03654v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The total-domination formula plus the f³=f identity gives the advertised principal size directly, and the cyclic proof anticipates exactly the one-hub mechanism. For arbitrary H, the remaining assertion needs the state-space identification on all unjoined supports plus the exclusion of every new active-hub support from those predecessor fibers, except the separately identified singleton basins."
+        ],
+        "reasoning": "The verified earlier statements are either static, about a cyclic base, or about a different graph operation. The all-base labelled basin identification is not a parameter instance of those statements; it uses a general NOR argument and universal-clique decomposition, not a new claim about arbitrary Boolean dynamics.",
+        "searches": [
+          "cd612bc79ea6 local RESULT.md offset 1601 onward versus frozen RESULT.md lines 26–37",
+          "Filomat §4.1 evaluated at z=1 versus frozen exact count and transport"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wheel result gives exactly 2^n+T(C_n) for one hub, and writes the same update in the coordinates of a rim word and wheel hub. It proves confinement of nonoscillator trajectories on the zero-hub slice, but quantifies only over cycles and explicitly does not assert individual nonprincipal basin sizes. Fixed supports are maximal independent sets, so the fixed-point count alone is already the static join count."
+        ],
+        "reasoning": "The full orbit/predecessor statement for an arbitrary graph and any number of hubs is stronger than a count of fixed supports or the exact characterization inside a wheel. The shared one-hub mechanism is acknowledged.",
+        "searches": [
+          "Resultary open-neighborhood NOR graph join universal vertices basin preservation",
+          "NOR graph Boolean network attraction basin join universal vertices wheel total dominating sets maximal independent sets negative conjunctive network Galois polarity periodic points basin",
+          "cd612bc79ea6 RESULT.md scope and basin characterization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The wheel's closed Lucas formula is exact prior coverage of the numerical cycle+one-hub specialization. The odd-ring finding supplies the unjoined odd-cycle principal count. The leaf-corona finding supplies all basins for the private-leaf operation, not universal hubs. No exact matched general-basin formula appeared in these catalogue comparisons."
+        ],
+        "reasoning": "Neither the tabulated special orbit counts nor bounded graph enumeration exhaust arbitrary base graphs and r. A same-day distinct wheel record warrants credit for its exact covered statement regardless of its precise order.",
+        "searches": [
+          "Resultary exact attraction basins for NOR wheels, rings and universal clique attachments",
+          "2026/11/22/SCOPE-a-dominant-nor-oscillator-on-every-wheel-an-exact-parity-sensiti--cd612bc79ea6",
+          "2026/11/2/SCOPE-fibonacci-fibers-and-the-uniquely-dominant-lucas-basin-for-odd-r--9b825fd6faf8",
+          "2026/11/1/SCOPE-exact-attraction-basins-of-nor-leaf-coronas-and-a-cycle-clique-c--4014de6cfb9f"
+        ]
+      },
+      "rationale": "Pass is for the exact labelled nonprincipal basin transport under arbitrary clique coning on every isolate-free base, with the added basins identified. Do not credit the one-step NOR transient bound, the principal-basin count in isolation, maximal-independent-set counting, or the wheel specialization as separate original results. The wheel proof already contains the one-hub update and zero-hub confinement for its cyclic base; it is a close methodology overlap.",
+      "residual_risks": [
+        "The substantive novelty judgment is bounded to the full arbitrary-base transport; even an earlier equivalent general NOR join classification not found by these checks could change it.",
+        "Not all historical fixed-point and parallel-dynamics references were available in full; in particular the Aledo et al. 2020 DOI did not return the full text. This is an access limitation, not evidence of noncoverage.",
+        "The theorem assumes open-neighborhood synchronous NOR and an isolate-free base; it does not classify arbitrary base dynamics or other local conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact special-case count and same one-hub method; not a general base theorem",
+          "evidence": "F(h,x)=(1_{x=0},(1−h)g(x)) on the wheel, with basal Lucas count and nonzero-rim confinement.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-dominant-nor-oscillator-on-every-wheel-an-exact-parity-sensiti--cd612bc79ea6",
+          "material_read": "Finding offset 0; scope and proof including basin characterization offset 1601 onward",
+          "method": "Resultary search and original local mirror",
+          "title": "A dominant NOR oscillator on every wheel",
+          "trigger": "Identical oscillator for H=C_n and r=1"
+        },
+        {
+          "assessment": "Exact coverage of the needed static count",
+          "evidence": "The total domination polynomial of a join equals the sum of the two polynomials plus the product enumerating supports meeting both sides.",
+          "identifier_or_url": "https://doi.org/10.2298/FIL2501267S",
+          "material_read": "Theorems 2.2–2.3, pp.269–270; §4.1 p.272 around OA offset 23450",
+          "method": "OA publisher PDF",
+          "title": "Total domination and minimal total domination polynomial of H-join graphs",
+          "trigger": "Broader exact join invariant computing the principal contribution"
+        },
+        {
+          "assessment": "Different hypotheses and conclusion",
+          "evidence": "Dominance and Dynamics gives eventual equality of trajectories from a dominant-set agreement window.",
+          "identifier_or_url": "https://arxiv.org/html/2509.03654v2",
+          "material_read": "Abstract and Theorem 1, offset 16690 onward",
+          "method": "OA original HTML",
+          "title": "Dominant vertices and attractors’ landscape for Boolean networks",
+          "trigger": "Potentially general basin transport under reduction"
+        },
+        {
+          "assessment": "Different attachment; general short transient is prior background",
+          "evidence": "One private leaf per base vertex; f³=f for symmetric open-neighborhood NOR is explicitly acknowledged.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-attraction-basins-of-nor-leaf-coronas-and-a-cycle-clique-c--4014de6cfb9f",
+          "material_read": "Finding, proof near offset 4531 and related-work passage near 9745",
+          "method": "Resultary search and original local mirror",
+          "title": "Exact attraction basins of NOR leaf coronas and a cycle–clique crossover",
+          "trigger": "Exact all-basin result for a related graph operation"
+        },
+        {
+          "assessment": "Unjoined odd-cycle specialization",
+          "evidence": "The empty/full odd-cycle basin is f_{n−1}+f_{n+1}+1.",
+          "identifier_or_url": "2026/11/2/SCOPE-fibonacci-fibers-and-the-uniquely-dominant-lucas-basin-for-odd-r--9b825fd6faf8",
+          "material_read": "Finding offset 0",
+          "method": "Resultary search and original local mirror",
+          "title": "Fibonacci fibers and the uniquely dominant Lucas basin for odd-ring Rule 5",
+          "trigger": "Exactly the odd-cycle base oscillator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Clique joining is a natural graph operation. Preserving the actual labelled basins of every old nonprincipal orbit, not just counting attractors or computing the principal mass, lets one transfer any base classification under arbitrarily many new vertices without recomputation. That structural information is what survives the known total-domination formula and the wheel example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

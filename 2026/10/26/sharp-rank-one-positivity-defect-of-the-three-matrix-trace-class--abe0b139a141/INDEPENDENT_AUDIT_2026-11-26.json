@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:53:47.038801Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof, and CHECK.py and VERIFICATION.md as static evidence",
+        "Jiao–Luo–Wu arXiv:2610.21445v1 §3, formula (3.2)"
+      ],
+      "rationale": "The exact formula agrees with the convention in Jiao–Luo–Wu (3.2). At A=0 the two products inside the real part are adjoints. On the span of u,v, put H=B−C, h=a−b and k=2ab(1−r²)/q. For 0<r<1 the signed eigenvalues (h±q)/2 give |H|=(h/q)H+kI. Expanding det(kI+(1+h/q)B+(1−h/q)C) gives k(a+b+q); in coordinates u=e1, v=(r,s) the adjugate numerator in u*D⁻¹v is rk. The result with complex phases follows by undoing the rephasing. The phase-normalized u±v diagonalize the symmetrized product, giving r(r±1) before scaling. Orthogonal ranges give zero and coincident ranges give min(a,b)P by direct pseudoinversion. In dimension one the formula gives the scalar median (sort by permutation invariance). The half-angle substitution gives derivative with sign (t−1)(t³+t²+3t−1), with the cubic strictly increasing; common scalar translation leaves D fixed and shifts the spectrum. Thus the algebraic threshold and the strict-positive witness are correct for the stated families. The last displayed decimal digits of κ are slightly off: κ≈0.06744224886812295177; the exact formula and the threshold are unaffected.",
+      "replay": "python3 /workspace/review_checks/independent_checks.py 3 (SymPy): five exact 2×2 cases via a different positive-square-root identity, including complex phases and singular endpoints; exact derivative/polynomial and witness sign checks and high-precision root isolation. Not a universal certificate; the algebra establishes the infinite family. Frozen script not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The actual three-input map has a trace-norm distance bound to an input. The indexed comparators concern lower-triangular Schur truncation in dimension three and positivity of projected exponential Euler with best-rank truncation, respectively."
+        ],
+        "reasoning": "The norm bound does not determine the spectrum or the output's cone membership; the other operators do not specialize to (3.2).",
+        "searches": [
+          "Jiao–Luo–Wu Lemma 3.2 and (3.5)",
+          "Resultary 2026/10/11/SCOPE-sharp-positivity-restricted-triangular-truncation-in-dimension-t--93bae48b8121",
+          "Resultary 2026/10/25/SCOPE-rank-one-immunity-and-a-sharp-rank-two-positivity-transition-in--3b462c0cdecb"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21445v1",
+        "arXiv:2602.14007v2",
+        "Resultary 93bae48b8121, 3b462c0cdecb and dd061a1ac88f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "(3.2) fixes the map, and permutation invariance and a bound on distance to B are established there; no signed eigenvalue information is furnished by the bound."
+        ],
+        "reasoning": "Specializing the definition to A=0 reduces the question to a symmetrized product but does not evaluate u*D†v. It takes a signed absolute-value computation and an overlap extremization to obtain the general spectrum and optimal shift.",
+        "searches": [
+          "arXiv:2610.21445v1 §3 (3.2), Lemma 3.2, (3.5)",
+          "arXiv:2602.14007v2 introduction and stated scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "(3.2) uses the real part of two explicit pseudoinverse products; Nakagawa starts from minimizers of the sum of Riemannian distances on the positive-definite cone."
+        ],
+        "reasoning": "The two maps coincide as the scalar median but the Riemannian construction stays in the positive-definite cone, unlike the displayed two-dimensional witness. This is not a renaming of that median's monotonicity problem.",
+        "searches": [
+          "Resultary focused comparisons for rank-one mixing, PSD preservation and projection threshold",
+          "arXiv:2610.21445v1 §3",
+          "arXiv:2602.14007v2 §§1,3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby projection invariant is a positive-Gram-matrix question for Tr[(PQP)^r] on two bases, not the least eigenvalue of a three-input output as a function of overlap."
+        ],
+        "reasoning": "No matching exact invariant surfaced in the inspected index results. A dimension-indexed table is not a natural source for an optimization over a continuous overlap parameter, and the nearby threshold does not encode this one.",
+        "searches": [
+          "Resultary rank-one projection positivity and threshold comparison",
+          "Resultary 2026/11/22/SCOPE-entropy-cusps-and-positivity-thresholds-for-two-basis-trace-powe--dd061a1ac88f"
+        ]
+      },
+      "rationale": "The defining operation, symmetry and trace-norm estimate are prior. Neither that estimate, the different optimization-defined median, nor the checked Resultary positivity results supply the sharp signed spectrum and common shift for this map. The distinct claim passes on the inspected evidence, not as a priority guarantee.",
+      "residual_risks": [
+        "Targeted rather than exhaustive search. An earlier equivalent rank-one identity in a different noncommutative product formulation is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exactly the same operation; inspected results do not cover cone behavior or the overlap optimization",
+          "evidence": "D is the sum of the three Hermitian absolute differences, and (3.5) bounds ||Φ−B||₁ by the geometric mean of the two distances to B.",
+          "identifier_or_url": "https://arxiv.org/html/2610.21445v1",
+          "material_read": "§3 around text offsets 24000–28800; (3.2) at about 24422, Lemma 3.2 from about 24746",
+          "method": "OA HTML, targeted passage inspection",
+          "title": "The Sharp Scale Inequality for the Schatten Trace Class",
+          "trigger": "Original definition, possible coverage by its own theorem"
+        },
+        {
+          "assessment": "Different construction, not an equivalent formula",
+          "evidence": "F₁(X;A) is the arithmetic mean of the Riemannian distances to the inputs; the selected median is positive definite.",
+          "identifier_or_url": "https://arxiv.org/html/2602.14007v2",
+          "material_read": "Abstract and introduction, including the displayed F₁ minimization and statement of the §3 definition (offsets 2100–4700)",
+          "method": "OA HTML, locate and read passage",
+          "title": "The Riemannian Median Of Positive-Definite Matrices",
+          "trigger": "Median analogue on positive matrices"
+        },
+        {
+          "assessment": "Different operators and invariants",
+          "evidence": "Triangular Schur truncation, dynamical low-rank truncation, and Gram-kernel positivity respectively; none tests the spectrum of (3.2).",
+          "identifier_or_url": "93bae48b8121; 3b462c0cdecb; dd061a1ac88f (Resultary)",
+          "material_read": "Indexed statements and scope descriptions",
+          "method": "Local Resultary statement comparison",
+          "title": "Indexed comparators on triangular truncation, projected exponential Euler, and two-basis trace-power positivity",
+          "trigger": "Closest indexed rank-one and positivity parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a symmetric scalar-median extension defined algebraically on Hermitian matrices, positivity is a natural structural question. Dimension two already disproves it even in the interior of the positive cone. The whole rank-one overlap classification identifies exactly where the negative direction occurs and supplies a dimension-free optimal remedy on the equal-amplitude projection family, not just a numerical negative witness. It neither weakens the published trace-norm theorem nor claims a remedy for arbitrary matrices.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

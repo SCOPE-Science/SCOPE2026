@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:46:17.845257Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–105, VERIFICATION.md line 19, verify.py lines 45–111 (read, not executed)",
+        "Ghosh–Boyd–Saberi §4.2 and §5.1"
+      ],
+      "rationale": "For tree edge e let b_e be its two side sizes multiplied. The tree index is sum b_e/g_e; Cauchy–Schwarz with total expenditure 1 gives g_e^0=sqrt(b_e/c_e)/S and K^0=S², with S=sum sqrt(b_ec_e). Old-edge derivatives are −S²c_e. On the mean-zero subspace the new edge direction is beta beta^T, giving derivative −N times the squared norm of the mean-zero unit-current potential. The potential is the centered version of S sum sqrt(c_i/b_i) 1_(U_i), since only path edges carry current. For i<j the centered indicator inner product is s_i(N−s_j)/N, giving the stated threshold and eliminating S. The feasible directional derivative per unit z from the best tree-only allocation is S²(tau−Theta). Strict convexity of trace-inverse on connected support follows from positivity of its second directional derivative and injectivity of the simple-edge Laplacian map. As support disconnects at least one positive mean-zero eigenvalue tends to zero, giving lower semicontinuity on the compact budget simplex and existence. Hence the threshold includes equality in the unique zero-chord regime, and a negative directional derivative forces purchase. Every positive cross coefficient is less than one and tends to one under symmetric endpoint leaf additions. For two hops, squared correlation is ab/((N−a)(N−b)); it strictly increases in each end size, giving a=b=1 as the unique minimum profile and middle size one at the maximum. With a+b=N−1 it is ab/(ab+N), maximized exactly at the balanced splits. The odd/even formulas and N=6 example follow, and for N=3 the two profiles coincide. Off-path edges are bridges: their contribution is a sum b_e/g_e separate from the cycle block, which is homogeneous of degree −1 in its conductances. Optimizing the block expenditures allocates them in proportion to the square roots of their unit-expenditure objective minima, so changing one off-path price rescales positive cycle conductances without changing the purchase decision.",
+      "residual_risks": [
+        "Recorded exact-rational examples cover selected trees and prices, not global optimization over all trees. The script checks the lower strict bound and finite two-hop arithmetic; the strict upper bound follows from analytic cut correlations, not a fresh checker run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi give unit-budget gradient inequalities with equality on the active support and the tree allocation formula. Using the priced budget supplies the cost-vector KKT test, not a published theorem of two-hop extremizers.",
+          "The catalog theorem handles any finite offered chord set and exactly determines when the tree retains all the support; its strongest overlapping formula is identical to the assigned one.",
+          "The heterogeneous-cost augmentation preprint keeps existing edge weights fixed. The inspected Predari abstract concerns greedy selection of k edges to reduce resistance."
+        ],
+        "reasoning": "The general optimization framework and the stronger simultaneous-support certificate are existing coverage and are credited. Neither the framework's derivative test nor the compared catalog Finding characterizes which two-hop cut profiles give the extrema over all N-vertex trees. Fixed-weight augmentation is not a broader theorem of shared reallocation.",
+        "searches": [
+          "Ghosh–Boyd–Saberi, §4.2 eqs. (28)–(30) and §5.1 eqs. (36)–(37)",
+          "Local Resultary stronger all-chord price-certificates theorem",
+          "arXiv:2609.29790v1 weighted candidate sizing; Predari et al. arXiv:2309.08271v1"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi 2008, §4.2 and §5.1",
+        "Strongest later Resultary exact all-chord finding and examples",
+        "arXiv:2609.29790v1 and arXiv:2309.08271v1, passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute the tree solution into the established trace-inverse optimality conditions; this gives a derivative threshold in terms of the potential norm. Evaluating it by nested cut covariances exposes the off-path cancellation and sharp global envelope.",
+          "Even given the exact catalog cut formula, the two-hop classification uses monotonicity over all feasible triples, the strict reduction to k=1 for the maximum, and a discrete balanced-product optimization to characterize all equality profiles."
+        ],
+        "reasoning": "The numerical screen from a given tree is directly covered by the stronger catalog theorem. The distinct claim optimizes the screen over trees and proves the sharp parity-dependent ranges and attaining profiles. That is a finite-integer extremal argument over a whole class, not a change of parameters in the catalog star example or in the general KKT test.",
+        "searches": [
+          "Ghosh–Boyd–Saberi gradient and tree passages compared with the frozen nested-cut and extremal arguments",
+          "Resultary all-chord Finding compared with the frozen fixed-N two-hop classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a fixed N, Kirchhoff index equals N trace(L^+), so these objectives have identical optimizers. Setting the catalog budget B to 1 and offering one chord gives exactly the frozen threshold for N≥4, with identical equality treatment.",
+          "Fixed-existing-weight insertion problems choose the new conductances without reoptimizing the old ones; this is not the same feasible set."
+        ],
+        "reasoning": "The catalog reformulation is genuinely equivalent for one chord on its common domain, not ruled out by a title or by using trace instead of Kirchhoff index. The two-hop result also optimizes the threshold over all component profiles at a fixed N and is not just a different objective normalization.",
+        "searches": [
+          "Local Resultary exact weighted tree/chord threshold, cut-based certificate, and two-hop extremal price window",
+          "Compared total Kirchhoff index and trace(L^+) formulations in the strongest mirrored all-chord Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest matching record has the exact nested-cut expression, sharp priced star leaf-pair value c_i+c_j+2 sqrt(c_ic_j)/(N−1), and an end-to-end four-vertex path example. It states a support criterion and does not give the full order-dependent two-hop interval in its Finding.",
+          "The frozen two-hop extrema require all positive integer triples a,k,b with a+k+b=N, not a lookup of one star or one path."
+        ],
+        "reasoning": "The catalog is exact coverage of the threshold formula on its domain and even supplies a case attaining the lower end of the two-hop window. A matching example is not an extremal theorem with the equality profiles across all trees and both parities.",
+        "searches": [
+          "Local Resultary matching formula lookup; exact comparison of October 18 all-chord RESULT.md Finding and scope, including star and path examples"
+        ]
+      },
+      "rationale": "Credit the general trace-inverse optimization framework, optimality inequalities and tree solution to Ghosh–Boyd–Saberi; the weighted derivative test alone is a standard adaptation. There is exact catalog overlap on the entire single-chord cut formula with a later, stronger simultaneous-chord record, not merely a related weighting model, so the threshold is not credited as distinct from that catalog theorem. The independently supported distinct content is the path cut-profile price analysis, most concretely the sharp finite-N two-hop window with complete minimizing and maximizing profiles. The inspected stronger catalog Finding gives the star case and selected path examples but not that classification over all trees at fixed N. Its later date is not taken to establish a priority relationship.",
+      "residual_risks": [
+        "This comparison does not establish priority for the shared cut formula. Unindexed fixed-N price-window classifications or further applications of the general allocation framework remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General convex/gradient framework and unpriced tree allocation are prior, not a fixed-size two-hop extremal classification",
+          "evidence": "Optimality requires gradient components shifted by the objective to be nonnegative with equality on active edges; tree costs are minimized by square-root edge loads.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf; DOI 10.1137/050645452",
+          "material_read": "§4.2 eqs. (28)–(30), PDF offsets 51120–54603; §5.1 eqs. (36)–(37), offset 69150",
+          "method": "OA PDF decisive statements and specialization",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Foundational primary result plausibly implying purchase tests and tree optimum"
+        },
+        {
+          "assessment": "Exact single-chord equivalence for N≥4 and stronger simultaneous criterion; later catalog date, priority unresolved; no matching two-hop extremal theorem in the inspected statements",
+          "evidence": "Same cut expression; every chord remains zero iff each price is at least its threshold; star example explicitly yields the lower-window value.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-all-chord-price-certificates-for-resistance-optimal-tree-b--17feee4e7fc8",
+          "material_read": "RESULT.md Finding and assumptions, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0–4000",
+          "method": "Configured local Resultary search and local-mirror statement read",
+          "title": "Exact all-chord price certificates for resistance-optimal tree backbones",
+          "trigger": "Strongest exact and broader catalog overlap"
+        },
+        {
+          "assessment": "Different model, fixing all existing weights",
+          "evidence": "The original edges and their weights remain fixed; sizing applies only to new edges.",
+          "identifier_or_url": "https://arxiv.org/html/2609.29790v1",
+          "material_read": "Introduction, offset around 5000",
+          "method": "OA HTML comparison of feasible sets",
+          "title": "Continuous candidate-edge sizing under cost and cardinality constraints",
+          "trigger": "Pricing and continuous conductances in a closely related resistance augmentation problem"
+        },
+        {
+          "assessment": "Different posed greedy discrete augmentation problem in the inspected statement",
+          "evidence": "Selects k edges to reduce effective resistance, seeking faster greedy computation, not the priced fixed-N component classification.",
+          "identifier_or_url": "https://arxiv.org/html/2309.08271v1",
+          "material_read": "Abstract, offset around 790",
+          "method": "OA HTML objective and selection rule comparison",
+          "title": "Greedy Optimization of Resistance-based Graph Robustness with Global and Local Edge Insertions",
+          "trigger": "Closely named resistance-based augmentation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen two-hop Finding and proof §5; comparator all-chord Finding and star case"
+      ],
+      "rationale": "A planner deciding whether to buy a two-hop shortcut needs to know when purchase is forced or ruled out irrespective of branching elsewhere, for known N and arbitrary positive path prices. The attained endpoints give exactly that robustness window; the equality profiles distinguish leaf-to-leaf stars from balanced branch masses separated by a degree-two middle vertex. This is useful beyond the known generic derivative test and the matched catalog's evaluation of a specified tree; no positive optimizer formula or simultaneous active-set determination is claimed.",
+      "residual_risks": [
+        "The value is for exact screening and extremal profiles, not the full optimal design once a shortcut is active or for multiple simultaneously active chords."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

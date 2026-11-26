@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact identity \(M_K(v)=[m(m+K)-v]/[(m+K)^2-v]\) follows by averaging the two Monod levels. All four factors in \(H(v)\) are positive for \(0\leq v\leq m^2\). The strictly increasing comparison \(H(v)\), positive-zero-variance derivative only for \(m^2>K_1K_2\), and negative-highest-variance derivative prove the single-maximum criterion. Two sign changes of \(D(v)\) occur precisely when the relative maximum growth coefficient \(a_2/a_1\) lies between \(R(0)\) and its unique interior maximum. This is an analytic result, not inferred from numerical samples.
+## correctness
 
-`check.py` can be run using Python 3 with no external package. At preparation it passed 10,906 exact-rational assertions, checking symbolic equivalence of the rational witness, strict signs, exact root brackets and 1,800 seeded positive rational parameter choices. The complete script is embedded with the scientific files. The checker does not prove absence of unknown results in prior literature or validate ecological feedback and stochastic environments.
+PASS
 
-No independent audit or experimental validation has been performed. The full Grover 1990 article remained inaccessible and is an explicit historical-priority risk.
+The per-period log growth difference is the difference of the two equally weighted Monod averages; common mortality cancels, and the last incomplete period contributes a bounded error to the log ratio. All four factors in the logarithmic derivative are positive even when the low level is zero. The ratio H of the two quadratic factors is strictly increasing, so R' has at most one zero. Its sign at v=0 is the sign of m^2-K1*K2 and its sign at v=m^2 is strictly negative. Equality in the first test gives strict decrease in the open interval, not a second crossing. The endpoint heights satisfy R(m^2)<R(0); hence in the single-maximum case the two interior sign changes occur exactly for R(0)<a2/a1<R(v*). The lower endpoint does not count as an interior switch, and the maximum gives a tangency. Independent substitution and root calculation reproduce 0.1851993002684 and 0.7405149854459 and the stated sign order; at maximal variance the witness net exponents are 39/110 and 7/15, the minima on the interval. The proof is uniform over the stated domain, with no feedback assumption hidden in the averaging. The supplied check.py was inspected, not executed; the independent algebra and numerical evaluation are distinct from its reported rational tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the sharp variance criterion in the prescribed two-level nutrient model, not for Monod concavity, averaging itself, or fluctuation-driven changes of competitive outcomes in general.
+
+## value
+
+PASS
+
+Concavity makes each mean growth response decline as variance grows, but does not order the declines. The theorem gives a sharp, interpretable boundary for reentrant relative growth, including an exact witness where both species still have positive net exponents. This is a useful benchmark for fluctuation models; it neither predicts coexistence or exclusion in a coupled system nor provides empirical validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

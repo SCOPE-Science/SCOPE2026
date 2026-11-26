@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:20:43.550943Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For real symmetric stochastic kernels the objective on the constants' orthogonal complement is the convex norm ||P−J||₂; automorphism averaging is legitimate even if the optimizer itself is not orbit-invariant. There are precisely two orbit weights a≤1/q and b≤1/p, with subdivision holding nonnegative throughout their rectangle. Decomposing the p×q edge-vertex array into constant, row-only, column-only and doubly centered parts yields the stated dimensions and spectra. At saturation the nonstationary constant-sector eigenvalues are 0 and −s, with s=1/p+1/q; row and column blocks have off-diagonals 1/√q and 1/√p and common diagonal pair 0, 1−s. Hence the saturated SLEM is max(F,s), where F is the positive root of x²−(1−s)x−1/p. The sign polynomial 2s²−s−1/p is negative throughout the allowed s interval for p≥3 (convex with both endpoints negative), and for p=2,q≥4 (increasing there, with value −1/8 at 3/4). It is positive in precisely the two stated exceptions. For any orbit weights the saturated F-eigenvector with entries 0 on U, t_j on V, and Ft_j on W for nonzero zero-sum t tests the Laplacian. Its squared edge differences summed in each orbit are strictly positive since 0<F<1; lowering either weight strictly reduces its quotient below 1−F. Thus saturation is uniquely optimal among averaged weights in the main range and every unrestricted optimizer has zero original holding, by nonnegativity of the averaged diagonals. In the exceptions adding a small identity component strictly decreases the unique active modulus −s, while all others have strict slack; zero original holding would average back to the nonoptimal saturated matrix. Implicit differentiation at 1/q=0 gives the coefficient p/(p+1). No unrestricted matrix uniqueness or exceptional optimum values are assumed. The frozen spectral/threshold verifier was inspected but not executed; the exact decomposition and Rayleigh argument prove the result for all parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General FMMC admits a convex SDP and an optimum in the automorphism-fixed set. The complete-bipartite calculation treats the unsplit graph; the general vertex-conductance result gives bounds, not these closed forms."
+        ],
+        "reasoning": "These frameworks apply to or motivate the problem, but do not by themselves establish the exact parameter threshold or optimal face.",
+        "searches": [
+          "Boyd–Diaconis–Xiao, SIAM Review 46 §7.1",
+          "Boyd–Diaconis–Parrilo–Xiao arXiv:0709.0955 §1.3 and §3.1.2",
+          "Websearch for fastest mixing on subdivisions with holding; arXiv:2111.05816 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Boyd–Diaconis–Xiao SIAM Review 46",
+        "arXiv:0709.0955",
+        "arXiv:1008.2588",
+        "arXiv:2111.05816 abstract",
+        "Resultary 9e788ca7bde4, 203d7ad904b3, 3f462d76a1a1 and 45dc9950cb66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Averaging guarantees existence in the fixed subspace, not that every optimizer saturates even one orbit's diagonals. The pendant rigidity result uses leaves with private degree-one incidences; subdivision vertices here have degree two and are shared by precisely two originals."
+        ],
+        "reasoning": "The new implication uses strictness of a Rayleigh quotient simultaneously in both edge orbits and a negative eigenvalue comparison depending on s. Neither follows merely from solving generic FMMC by SDP, from the unsplit edge-transitive formula, nor by substituting the degrees into a pendant-leaf theorem.",
+        "searches": [
+          "arXiv:0709.0955 §1.3 orbit averaging; §3.1.2 bipartite spectrum",
+          "Resultary 9e788ca7bde4 and 203d7ad904b3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph here is the vertex–edge incidence graph of K_p,q, which inserts a different degree-two vertex for each pair. The closest indexed complete-bipartite result, 203d7ad904b3, uses quadratic Laplacian kernels on the unsplit graph. Jafarizadeh's layered graphs use full connections between specified layers."
+        ],
+        "reasoning": "An unsplit graph with one edge orbit or a restriction to quadratic polynomials in the unsplit Laplacian is not an alias for the subdivided one-step model. Holding and the negative constant-sector eigenvalue are measured on a different state space.",
+        "searches": [
+          "Resultary semantic lookup for subdivision/incidence-graph fastest mixing and zero holding",
+          "arXiv:0709.0955 §3.1.2",
+          "arXiv:1008.2588 κ-PPDR networks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact thresholds found for Cartesian products (3f462d76a1a1), split graphs (45dc9950cb66), pendant-leaf extensions (9e788ca7bde4), and unsplit quadratic kernels (203d7ad904b3). The cycle special case S(K_2,2)=C8 belongs to the known FMMC examples."
+        ],
+        "reasoning": "The finding is an all-integer exact formula and support classification, not a lookup of a specific small graph. None of the compared entries supplies the claimed table or formula on this family. The known C8 case alone does not cover the threshold.",
+        "searches": [
+          "Resultary searches for exact fastest mixing and holding transitions on subdivisions",
+          "Known FMMC family examples in arXiv:0709.0955 §3.1"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the two-exception original-row saturation classification (including the all-optimizer conclusion) and exact optimum in the main range, for single-edge subdivisions of complete bipartite graphs. Convexity, orbit reduction, and the eight-cycle exception as a cycle instance are not distinct contributions. The strongest inspected catalog and literature comparisons change the graph or the allowed kernel family, or give general optimization methods rather than the exact result.",
+      "residual_risks": [
+        "The bounded searches do not exclude a stronger theorem indexed under incidence or biregular graph mixing, or unindexed prior literature.",
+        "Same-day overlap was compared by mathematical scope, not treated as evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework; unsplit complete bipartite graph",
+          "evidence": "One edge variable on unsplit K_m,n, with eigenvalues 1, 1−mp, 1−np and 1−(m+n)p in the example.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "PDF pp. 684–685, especially §7.1, OA offset 57000",
+          "method": "Targeted primary PDF text",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General framework and complete bipartite example"
+        },
+        {
+          "assessment": "Related reduction, different example",
+          "evidence": "An optimum is found among orbit parameters; the complete-bipartite example has no added edge-vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "§1.3 p. 4 and §3.1.2 pp. 9–10, OA offsets 13926, 32291 and 33308",
+          "method": "Targeted primary text",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Symmetry reduction and exact bipartite calculation"
+        },
+        {
+          "assessment": "Graph hypotheses differ",
+          "evidence": "Full connections between successive layers, not edge-indexed pair-specific incidences.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.2588",
+          "material_read": "Abstract and network definition/results on p. 6, OA offset 13690",
+          "method": "Targeted primary text",
+          "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+          "trigger": "Plausibly related layered multipartite design"
+        },
+        {
+          "assessment": "Different underlying graph structure",
+          "evidence": "Transitive core with private pendant leaves and fixed pendant edge probabilities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-fastest-mixing-and-pendant-edge-rigidity-on-vertex-and--9e788ca7bde4",
+          "material_read": "RESULT.md, offsets 734, 1165, 1420",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal fastest mixing and pendant-edge rigidity on vertex and leaf extensions",
+          "trigger": "Closest analogous all-optimizer holding statement"
+        },
+        {
+          "assessment": "Different kernel and state space",
+          "evidence": "A two-parameter polynomial in the unsplit Laplacian and threshold at (p−2)q=p².",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-positivity-transition-for-quadratic-fastest-mixing-kernels--203d7ad904b3",
+          "material_read": "RESULT.md offsets 34, 1961, 4971",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp positivity transition for quadratic fastest-mixing kernels",
+          "trigger": "Closest complete-bipartite holding threshold"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Cartesian products of complete graphs rather than edge subdivisions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-unrestricted-fastest-mixing-and-holding-transitions-on-heterogen--3f462d76a1a1",
+          "material_read": "RESULT.md offsets 34, 889, 1363",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Unrestricted fastest mixing and holding transitions on heterogeneous products",
+          "trigger": "Same-date exact holding classification"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "The join of a clique and an independent set, with equal cross-weights and an optimal-face calculation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-rigidity-and-spectral-freedom-of-all-fastest-mixing-chains-on-co--45dc9950cb66",
+          "material_read": "RESULT.md offsets 2246, 5293, 6348",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rigidity and spectral freedom of all fastest-mixing chains on complete split graphs",
+          "trigger": "Same-date exact rigidity conclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact fastest-mixing solution on this natural family decides when complete use of the original rows is optimal, even for optimizers that break graph symmetries. The two smallest exceptions isolate the competing negative mode, and the explicit formula resolves the fixed-small-part gap scale. This is more than a finite numerical minimization or an orbit count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:25:42.526173Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen CHECKS.txt, lines 1–8",
+        "Frozen check_franel.cpp, inspected but not executed"
+      ],
+      "rationale": "Cubing numbers modulo three leaves them unchanged, so f_n reduces to (−1)^n. For B=3^L, Lucas on B−1 gives the exact interior binomial valuation L−v_3(j). Cubing implies f_B≡2 mod 27, which makes f_B have order 2·3^{k−1} modulo 3^k. At precision 3^k and q=3^{L−k+1}, a Vandermonde summand can survive only if its high-block index is a multiple of q; a<q forces the low summand index to equal the target index mod q. Cubing and summing gives the separated product including endpoints. Repetition of one generator in infinitely many spaced positions, using between 1 and h=2·3^{k−1} of them, gives every unit with a positive sparse ternary witness and arbitrarily large witnesses. Among h(h−1)+1 positions one residue occurs at least h times, proving the bound. The closure and measure follow from coverage at every precision and exclusion of nonunits. An independent modular-Pascal replay verified 4,908 block identities through k=7 and full unit coverage through modulus 243, with incomplete coverage at 729 and 2187 in the finite sample of indices below 6561. This incompleteness does not contradict the all-index theorem.",
+      "replay_paths": [
+        "/workspace/branches/f6df6c57-ee41-4f9a-b1a7-2c989f867e9a/franel_independent_check.py",
+        "/workspace/branches/f6df6c57-ee41-4f9a-b1a7-2c989f867e9a/franel_independent_check_notes.md"
+      ],
+      "residual_risks": [
+        "The replay is bounded and does not test infinite recurrence. The proof is needed for all k and for indices exceeding the sample cutoff."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For constant terms of any Laurent polynomial with origin the sole interior lattice point, the Dwork congruence says b_{n+mp^s} b_{⌊n/p⌋}≡b_n b_{⌊n/p⌋+mp^{s−1}} mod p^s. The original primary source gives the digit formulation; Mellit–Vlasenko explicitly state the n,m formulation and credit Samol–van Straten.",
+          "Beukers provides p-linear schemes for prime-power residues. The mere existence of such schemes does not determine the images or infinite fibers."
+        ],
+        "reasoning": "The general Dwork theorem applies at p=3 to the displayed Λ; because its Franel values are units, the quotients can be divided and iterated. This uniform congruence, not an unspecified automaton, covers the needed separated-block relation.",
+        "searches": [
+          "Samol–van Straten arXiv:0911.0797v1, Theorem 3.3 and (3.1)",
+          "Mellit–Vlasenko arXiv:1306.5811, equation (3)",
+          "Beukers arXiv:2211.15240, Definition 1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0911.0797v1",
+        "arXiv:1306.5811",
+        "arXiv:2211.15240",
+        "arXiv:1401.1444",
+        "Schulte–van Schalkwyk–Yang (2014) research report",
+        "Resultary 6ea940ca2aa7",
+        "Resultary 5775cfe75cfb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p=3 write a_j=⌊a/3^j⌋. Equation (3) with n=a_j, m=1, s=L−j shows f_{3^{L−j}+a_j}/f_{a_j}≡f_{3^{L−j−1}+a_{j+1}}/f_{a_{j+1}} mod 3^k whenever L−j≥k. If a<3^{L−k+1}, carry this through j=L−k; the final ratio is f_{3^{k−1}}. The same argument with n=0 identifies it with f_{3^L} mod 3^k. This is exactly the submitted all-level separated-block law.",
+          "Taking n=0 in the prior congruence also gives stabilization f_{3^L}≡f_{3^{L−1}} mod 3^L, hence f_{3^L}≡f_3=56≡2 mod 9 for all L≥1. The stabilized unit is a full-order generator by the elementary valuation of its square minus one. Thus choose any t≤h spaced positions with L≥k, multiply the same generator t times, and move the positions arbitrarily far out. Taking the first h positions (k+1)j already gives the stronger bound n<3^{(k+1)h+1}."
+        ],
+        "reasoning": "The previous theorem supplies both the separated product and a single common eventual generator. Iterating the product gives all the frozen coverage, sparsity, bound, and recurrence conclusions using elementary group exponentiation, with no further congruence analysis. The elementary Vandermonde proof is correct, but an alternate proof does not establish originality of the stated finding.",
+        "searches": [
+          "arXiv:1306.5811 p. 2 equation (3), PDF offset 0 passage spanning pp. 1–2",
+          "arXiv:0911.0797v1 p. 4 Theorem 3.3, offset 12700"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Franel f_n=[Λ^n]_0 for Λ=(1+x)(1+y)(1+(xy)^{−1}), since the three binomial indices must agree. The Newton polygon lies in [−1,1]² and contains the origin in its interior, so no other integral point is interior.",
+          "Krattenthaler–Müller's generalized Apéry congruence identifies the Franel case and describes ternary digits modulo nine only.",
+          "All unit residues at every precision is equivalent to the closure being Z_3^×, but does not by itself assert a bound on sparse positive indices."
+        ],
+        "reasoning": "The constant-term alias exposes an applicable general theorem about the same sequence. The coverage objection is not based on the modulo-nine theorem alone.",
+        "searches": [
+          "Resultary: Franel numbers all ternary unit residues and prime-power Franel congruences",
+          "arXiv:1306.5811, pp. 1–2, equation (3)",
+          "arXiv:1401.1444, §3 Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest earlier indexed prime-power record states v_3(f_{3^a}−2)=3 and analyzes f_{p^a} modulo p⁴ for p≥5. This includes the generator input but not the full value set.",
+          "The distinct same-day Franel progression result concerns indices nondivisible at 5. The assigned finding itself was an identical record, not earlier evidence.",
+          "The modulo-nine primary source applies to Franel numbers at a single fixed modulus."
+        ],
+        "reasoning": "These sources do not tabulate all ternary images or infinite fibers. The known single-block input overlaps exactly, and the absence of a printed combined table does not rebut the prior implication.",
+        "searches": [
+          "Resultary 6ea940ca2aa7 finding from offset 0; 5775cfe75cfb finding from offset 82",
+          "arXiv:1401.1444 §3 Theorem 3"
+        ]
+      },
+      "rationale": "The all-level sparse-witness statement is mechanically implied by the previously published Dwork quotient congruence specialized to the Laurent constant-term expression for Franel numbers. This is stronger evidence than the existence of p-automata or isolated digit congruences. The implication below even gives a smaller witness bound. No identical printed statement was found in the inspected sources.",
+      "residual_risks": [
+        "Historical priority of a printed Franel image or infinite-fiber statement remains open. This finding of prior coverage is by explicit deduction from the checked primary theorem, not by claiming the specialized wording occurs there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General theorem with hypotheses met by the Franel Laurent polynomial",
+          "evidence": "Theorem 3.3 gives the all-prime, all-depth congruence for sequences of constant terms when 0 is the unique interior lattice point.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.0797v1",
+          "material_read": "p. 1 explanation of the quotients offset 2600; p. 4 Theorem 3.3 and equation (3.1), offset 12700",
+          "method": "OA PDF, targeted location and bounded passages",
+          "title": "Dwork congruences and reflexive polytopes",
+          "trigger": "Original general theorem on digit quotients of Laurent constant terms"
+        },
+        {
+          "assessment": "Decisive implication for separated blocks, stabilization and thus sparse coverage",
+          "evidence": "Equation (3) compares b_{n+mp^s}/b_n and b_{floor(n/p)+mp^{s−1}}/b_{floor(n/p)} when denominators are units.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.5811",
+          "material_read": "pp. 1–2, Theorem 1 and equation (3), text from offset 0; reference [4], offset 27530",
+          "method": "OA PDF passages",
+          "title": "Dwork's congruences for the constant terms of powers of a Laurent polynomial",
+          "trigger": "Direct n,m,s form of the congruence and its provenance"
+        },
+        {
+          "assessment": "Framework, not the explicit image implication used here",
+          "evidence": "Names Franel-type sequences and describes prime-power reductions with finite p-linear schemes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.15240",
+          "material_read": "v3 pp. 1–3, introduction and Definition 1.2, offsets 0 and about 6700",
+          "method": "OA PDF passages",
+          "title": "p-Linear schemes for sequences modulo p^r",
+          "trigger": "General higher-power residue machinery for related sequences"
+        },
+        {
+          "assessment": "Modulo-nine overlap, not an explicitly stated all-level result",
+          "evidence": "The generalized sequence at (3,0) is the Franel sequence; the congruence has modulus 9.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.1444",
+          "material_read": "p. 1 Franel identification, offset about 2000; p. 6 §3 Theorem 3, offset about 21000",
+          "method": "OA PDF passages",
+          "title": "Generalised Apéry numbers modulo 9",
+          "trigger": "Primary exact fixed-depth Franel congruence"
+        },
+        {
+          "assessment": "Identifies the known obstruction and tools without the full image statement in the inspected passages",
+          "evidence": "Gives f_n≡(−1)^n mod 3 and prime-power congruence and automata results.",
+          "identifier_or_url": "Schulte–van Schalkwyk–Yang, 2014 MSRI-UP research reports",
+          "material_read": "§2.1 pp. 130–131 offset about 330800; §2.2.5 Theorem 2.37 offset about 368800; §2.3.1 Theorem 2.39 p. 147",
+          "method": "OA report PDF passages",
+          "title": "On the divisibility and valuations of the Franel numbers",
+          "trigger": "Franel-specific obstruction and prime-power congruences"
+        },
+        {
+          "assessment": "Explicitly overlaps the single-block generator step",
+          "evidence": "States the exact valuation v_3(f_{3^a}−2)=3, in addition to its results for p≥5.",
+          "identifier_or_url": "6ea940ca2aa7",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Prime-power Franel residues and the Wolstenholme-prime criterion",
+          "trigger": "Closest distinct indexed exact ternary generator input"
+        },
+        {
+          "assessment": "Different prime and observable",
+          "evidence": "Counts progression overlap of index sets selected by nondivisibility at 5.",
+          "identifier_or_url": "5775cfe75cfb",
+          "material_read": "RESULT.md finding, offset 82",
+          "method": "Resultary and local mirror",
+          "title": "Sharp three-term progression overlap among five-nondivisible Franel indices",
+          "trigger": "Same-day indexed Franel distribution work"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Steps 2–5",
+        "arXiv:0911.0797v1, Theorem 3.3",
+        "arXiv:1306.5811, equation (3)"
+      ],
+      "rationale": "All-level value images and sparse witnesses are natural questions, and the submitted proof is compact. But for this sequence the exact conclusions are elementary consequences of a previously available uniform congruence, including a stronger explicit bound by the same argument. The checked result does not add an independent invariant or a stronger witness conclusion beyond that readout of prior results.",
+      "residual_risks": [
+        "This assessment does not address index densities, optimum witness sizes, or analogous results for sequences outside the prior constant-term criterion."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

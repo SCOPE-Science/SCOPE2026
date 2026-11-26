@@ -1,15 +1,10 @@
-# Self-review
+# Scientific assessment of the corrected finding
 
 ## Correctness
-PASS. The algorithm was reconstructed with its source normalization, vertex minimization, clipped line coefficient, update, and stopping test. The proof gives forward-invariant rectangles, unique alternating minimizers, strict activation of the \(9/10\) cap, negative stopping values for all iterates, and the exact affine two-step contraction. Exact rational verification supports the boundary calculations.
+Algorithm 2 in Matsuno (2026), p. 4696, permits the stated vertex start. The two rational rectangles give strict unique selection, strict clipping at \(9/10\), negative stopping values, and an invariant affine alternation. Its exact two-step contraction yields the orbit; strictness near the two orbit points gives local attraction. Theorem 3.2 on the same page allows negative support. For the normal \((-100,1)\) the common edge has support \(-150\), and the displacement \(45(9/10)^k\) satisfies the stated decay. The example demonstrates failure to find a separator, not failure of the theorem's hypothesis or conclusion.
 
 ## Originality
-PASS. The primary source proves convergence only after adding a fixed-support-face condition. Published-finding searches using NSA, LP-Newton, minimum-norm, Frank--Wolfe/Gilbert, fixed-step, clipped-line-search, periodic-orbit, and nontermination aliases found no implication-equivalent result. The closest LP-Newton predecessors use different projection, binary-search, or finite-termination mechanisms. A related-risk remains that generic constant-step conditional-gradient literature may contain qualitative oscillation examples, but no inspected result implies this exact source-specific triangle theorem.
+The primary paper gives the rule and a scalar convergence statement, neither of which states or implies this specific nonterminating trajectory. As conditional gradient on the norm objective, the example uses the lower move bound imposed by the source's clipping. General constant-step oscillation and different LP-Newton projection or minimum-norm methods are related, but are not credited here as giving the explicit allowed initialization, invariant cycle and stopping obstruction for this rule. Bounded comparisons do not establish priority across all fixed-step literature.
 
 ## Value
-PASS. This is a motivated boundary result for a recent numerical optimization method. It shows on the smallest nontrivial polygonal geometry that the algorithmic cap can defeat convergence despite strict separation, and it pinpoints why the theorem's extra premise matters.
-
-## Closest literature and limitations
-The closest literature consists of the 2026 NSA paper itself, earlier LP-Newton projection variants, the 2025 finite-termination replacement, and Wolfe minimum-norm complexity work. The finding is limited to one admissible \(\eta\), one triangle, and one initialization; it does not classify all parameter regimes and does not contradict the conditional theorem when its added hypothesis holds.
-
-Self-review: passed. Independent audit: not yet performed.
+An exact attracting orbit in a strictly separable input tests whether the rule returns a separator, while illustrating that the conditional face-distance conclusion can hold perfectly. The quantitative obstruction uses negative selected dot products, so it is not an artifact of too demanding a positive tolerance.

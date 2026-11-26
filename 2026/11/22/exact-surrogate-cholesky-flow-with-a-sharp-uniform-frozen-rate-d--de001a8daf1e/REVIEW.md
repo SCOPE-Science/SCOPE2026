@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the entire domain \(\alpha\ge0\), \(s\ge\alpha\), \(s>0\), \(T>0\) and differentiates the purported exact coefficient against the non-autonomous linear ODE. The elementary logistic representation controls \(\alpha T\le pT\le\alpha T+1/2\). Strict log-convexity of the Laplace integral gives the global sharp ratio, with a strictly positive-pivot sharpness sequence. The standard Schur complement plus the bound \(\alpha g^2<1\) proves recursive positive semidefiniteness, including the zero-pivot case. Deterministic checks reproduce scalar ODE integration and matrix examples; finite checks are not substitutes for the global proof.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+Set p=ℓ². Then (1/p)'=2−2α/p gives the stated positive reciprocal formula, including α=0. More directly, h=g/ℓ satisfies h'=1−αh and h(0)=0, proving the exact coefficient and uniqueness on the full stated domain. The reciprocal formula gives 0≤(p(T)−α)T≤1/2, also at α=0. Φ is decreasing and (log Φ)'' is the variance under exponential tilting, so the ratio Φ(αT+1/2)/Φ(αT) is smallest at αT=0. Taking s=1, α=T⁻² as T→∞ gives p(T)T→1/2, proving sharpness at positive pivots. Squaring the exact ratio gives the rank-one fraction, attained in the limit with the given nonzero-residual PSD examples. For α>0, αg²≤(1−exp(−αT))/(1+exp(−αT))<1; comparison with the ordinary Schur complement preserves PSD. For α=0, the off-diagonal residual vanishes by PSD. The verification text's reference to ‘indefinite-stage recursion’ is a wording error; neither proof nor Finding covers indefinite matrices.
 
-The cited primary full text gives the same surrogate ODE but evaluates its off-diagonal coefficient by freezing the terminal diagonal; the exactly integrated coefficient and the sharp \(q=2(1-e^{-1/2})\) comparison are not stated there. The paper's positive-definite well-definedness proof applies to the frozen version; the present proof establishes a different PSD-safe update. Searches for aliases such as the exact non-autonomous logistic off-diagonal solution, frozen-rate error and coefficient bias, as well as published findings on pivoted and incomplete Cholesky, did not reveal a statement implying the sharp bound. Searches alone cannot establish priority, and comprehensive historical coverage is not asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The correction replaces one scalar evaluation rather than introducing numerical ODE solves. The sharp possible \(21.31\%\) relative coefficient deficit, \(38.07\%\) rank-one update deficit and the PSD guarantee identify an operationally meaningful finite-time modeling bias, particularly at nearly singular pivots, which are a central motivation for the underlying numerical algorithm. This does not claim whole-matrix error improvement or numerical backward stability.
+The closest primary paper gives exactly the surrogate ODE, initialization and the terminal-frozen expression, presenting the latter as a solution. The proposed exact formula differs from that expression when the rate varies. The primary treatment of Schur complements concerns the frozen coefficient, not the larger exactly integrated one. The strongest matching Resultary item is the assigned item itself; two inspected distinct Cholesky entries address different objectives. The supported distinct content is the correction, sharp uniform deficit and PSD compatibility of the corrected update, not the ODE model or Schur-complement technique.
 
-## Source comparison and limitations
+## value
 
-Closest primary source: Manavalan and Schönlieb, *Finite-time Cholesky factorization*, arXiv:2611.09706v2, Section 2.2, Algorithms 1–2 and Section 2.3. Its frozen coefficient is not the exact solution of the time-varying surrogate unless the diagonal remains constant. Related published randomized-pivot and incomplete-factorization work has different mathematical objects. The residual risk is unindexed equivalent analysis of this scalar linear equation or its particular algorithmic consequences.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The paper's terminal freezing can lose over a fifth of a nonzero off-diagonal coefficient and nearly 38.1% of its squared update in the sharp limit. Quantifying that discrepancy and proving the same pivot-free PSD recursion can use the corrected coefficient answers a specific algorithmic question that solving the scalar ODE alone does not. The comparison is useful without a downstream reconstruction-error theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is each fixed integer \(d\ge3\), real \(q>2d/(d-1)\), with actual sphere surface measure and the unnormalized Fourier transform. The finite-exponent sharpness and mode ordering are established published premises [1, Theorems 1.2--1.3]. The proof explicitly computes the shared critical residue \(A_d\), proves conditional convergence and differentiability in exponent of the adjacent-mode difference \(L_d\) via a zero-mean periodic phase and a uniform integrable Hankel remainder, uses [1, Theorem 3.9] to establish strict positivity at the critical exponent, and derives the fractional law and the sharper relative linear law algebraically. Crucially, positivity does not follow merely from strict positivity at exponents above critical; it follows from positive finite Bessel-zero cells at the endpoint and convergence along those cells. The numerical code passes two-dimension and six-near-endpoint checks but is non-certifying and not the basis for the infinite conclusion.
+PASS
 
-## Originality — PASS under inspected evidence
+For fixed d≥3 and q>q_d, Xu's Theorems 1.2–1.3 identify the stated sharp norm and sharp global squared-distance deficit in the same Fourier and surface-measure normalization. Write a=(d−1)/2 and epsilon=q−q_d. The shared periodic mean of the leading Hankel tails gives (2/pi)^(q_d/2)m(q_d)/(a epsilon), while the signed periodic difference has zero mean. Integration by parts against r^(−1−a epsilon) makes the difference continuous and Lipschitz at epsilon=0, since the differentiated integrated weight is O((1+log r)/r²), the differentiated periodic factor also has zero mean, and |x|^q log|x| is uniformly Lipschitz on bounded x for q near q_d. The Bessel remainders then have integrable logarithmic derivatives and the origin is regular. Xu's Theorem 3.9 proof, not mere positivity of fixed-cutoff sums, gives positive individual cells for q>2, including q_d. Therefore the finite-part limit along the zeros is bounded below by the first cell. Using I0=A_d/epsilon+O(1) and I0−I1=L_d+O(epsilon) gives the absolute epsilon^(1/d) law with relative O(epsilon |log epsilon|) error. Taking the quotient first gives the linear relative gap with O(epsilon²), since the common pole cancels without raising it to a varying power. The exact endpoint is unbounded. The supplied quadrature was inspected, not executed or used as an enclosure.
 
-Xu [1] proves the exact finite-exponent stability coefficient but neither its critical fractional-power vanishing rate nor the renormalized limiting constant. His circle calculation keeps a common critical moment pole explicit to obtain modal ordering, which is not an asymptotic sharp-global-stability theorem. Carneiro--Oliveira e Silva--Sousa [2] provide the earlier modal reduction, and Ciccone--Sousa [3] treat different modal optimization regimes; no inspected result entails the stated \(1/d\) sharp stability coefficient asymptotics. Previously known large-exponent asymptotics have a different endpoint and do not imply the critical limit. Relevant published research index records about spherical modes, critical Fourier kernel norms, and Bessel Turán inequalities concern different domains or invariants. Similarity searches are negative evidence only, not a proof of novelty. Residual risk: equivalent historical or unpublished endpoint renormalizations.
+## originality
 
-## Value — PASS
+PASS
 
-The exact optimal global stability coefficient is the stability modulus of a sharp Fourier extension inequality; its behavior becomes singular at the natural critical integrability threshold. Showing \(\Gamma\asymp(q-q_d)^{1/d}\) for every fixed dimension, identifying a positive finite-part coefficient and proving a different linear *relative* collapse describes the boundary of the full-dimensional sharp result rather than a routine substitution. The dimension-dependent exponent and the coexistence of norm blow-up with absolute stability decay are informative for understanding near-critical inequalities. No claim of a new endpoint inequality is made.
+Pass is for the stated quantitative endpoint expansions, not exclusive discovery of the leading fractional or relative law. Two distinct indexed November 22 records materially cover the leading finite-part law, and one explicitly gives both leading laws with the same constants. Their comparison texts and metadata show catalogue publication dates later than the frozen record's November 2 publication metadata, not proof of historical priority; the first_public_date field shared with these records matches their cited Xu input and does not establish earlier exposure of the expansions. Neither comparison states the two quantitative remainder orders. Xu supplies the exact finite-exponent identity and cutoff positivity, but its inspected results do not give the lower-critical error control; its endpoint stability theorem concerns q=infinity.
 
-## Limits and closest literature
+## value
 
-The theorem uses Xu's exact global finite-exponent spectral identity and Bessel zero-cell positivity. It applies neither to the plain unmixed norm nor to dimension two, where a different highest nonconstant mode may govern the sharp gap. Source [1] contains critical-tail cancellation in the circle but not this coefficient limit. The earlier high-exponent asymptotic works at the opposite exponent endpoint. Literature indexing is incomplete. No independent external mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the natural integrability threshold the optimal absolute and normalized deficits vanish on very different scales while the norm diverges. Quantifying both convergence errors, including the absence of a quadratic logarithmic loss in the relative gap, makes the sharp expansion useful beyond a limiting equivalent. The constant is positive in every fixed dimension and there is no claim of a bounded endpoint inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

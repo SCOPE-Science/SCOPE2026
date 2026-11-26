@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:01:40.797789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In complex coordinates T(h)=[[1−2ih,ih],[1,0]]. The product T(v)T(u) has trace 1−4uv−i(u+v) and determinant −uv. For roots ξ,η of z²+Az+B, the Schur margin (1−|B|²)²−|A−BĀ|² factors as (1−|ξ|²)(1−|η|²)|1−ξ conjugate(η)|². Under |B|<1 the last factor is positive and the roots cannot both be outside. This proves the strict test and the neutral/expansive alternatives without a continuity argument. Here the margin is Δ. When Δ<0, uv<1, the expansive eigenvalue is simple and its coefficient is nonzero off a proper real subspace; the expansive eigenvector has nonzero first component since M₁₂=(1−2iv)iu≠0, so even iterates themselves grow. The constant-step factor and the negative rational witness agree. At a fixed ratio write r=ab t² and C=(a+b)²/(ab). The leading bracket is 6−C, and when C=6 the exact bracket is 3r(3−10r−5r²)>0 for sufficiently small r. Hence both endpoints are stable in the stated small-step sense. The source checker was inspected, not run; its finite ratio samples are not equality certificates. `python3 /workspace/branches/review_reproduction.py 5` independently passed exact rational transfer-matrix, margin, witness and critical-bracket tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general bilinear constant-step theorem is broader in the game matrix, not in the schedule; de Montbrun–Renault explicitly fixes the stepsize in time.",
+          "The two-period reflected-splitting comparison treats A=B=LJ and includes (I+tJ)⁻¹ at each step."
+        ],
+        "reasoning": "A fixed-step theorem for more games cannot be applied to the product of two different step matrices by separate stability checks. Setting the implicit operator to zero is not a specialization of the inspected two-period theorem with A=B=LJ.",
+        "searches": [
+          "arXiv:2010.03211 Thm. 3.1",
+          "arXiv:2208.03085 Thm. 2.4 and Remark (e)",
+          "Resultary two-period reflected splitting on skew rotations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_ogda.py",
+        "arXiv:2010.03211; arXiv:2208.03085; arXiv:2212.13955",
+        "Resultary 689d5e743c56 and 40a3f498bcf9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed steps in the published theorem, a nonidentity resolvent in the two-period record, and extrapolation plus safeguards in adaptive GRAAL all differ from unrestricted naive current-step substitution."
+        ],
+        "reasoning": "Quadratic Schur stability is the generic test, not a prior statement of the schedule-dependent margin. The positive term at C=6 and existence of unstable alternating steps at arbitrarily small scale do not follow from the fixed-step corollary or from the resolvent case.",
+        "searches": [
+          "arXiv:2010.03211 Thm. 3.1; 40a3f498bcf9 original Finding and Assumptions and scope; arXiv:2212.13955 rule (3) and §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constant-step OGDA update coincides; the cited sharp condition specializes to h<1/√3 on unit rotation.",
+          "GRAAL at φ=2 is identified with unconstrained fixed-step OGDA, whereas adaptive GRAAL uses an extrapolated state and a safeguarded step rule."
+        ],
+        "reasoning": "The fixed-step identification does not allow freely varying the common scalar on both gradient terms. The inspected adaptive algorithm is not the claimed recurrence.",
+        "searches": [
+          "Anagnostides–Penna arXiv:2010.03211 §2 equation (3) and Thm. 3.1",
+          "de Montbrun–Renault arXiv:2208.03085 §2 equation (2), Thm. 2.4 and Remark (e)",
+          "Alacaoglu–Böhm–Malitsky arXiv:2212.13955 §§1.1, 2.2, 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "689d5e743c56 studies A=γLJ, B=LJ at fixed step. So γ=0 includes the constant-step cutoff as a specialization.",
+          "40a3f498bcf9 studies the same rotation and periodic schedule but the current-scaled rule is followed by the resolvent and has boundary 4ab<1."
+        ],
+        "reasoning": "The later record has neither the same transfer matrix nor the same criterion; the earlier one covers only the known diagonal of the stability region. The catalog dates are not themselves the scientific test of overlap.",
+        "searches": [
+          "Local Resultary search for two-period OGDA/FRB on skew rotations",
+          "Resultary 689d5e743c56 and 40a3f498bcf9"
+        ]
+      },
+      "rationale": "The sharp constant-step cutoff and the Schur test are known and are not credited. The distinct claim is the explicit two-period stability/instability region for this current-step-scaled explicit method and its closed ratio boundary at vanishing scales. The strongest inspected period-two comparison has an extra resolvent, with a different stability region.",
+      "residual_risks": [
+        "The bounded comparison does not exclude equivalent formulas in other time-varying recurrence or multistep stability literature; no priority certification is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the constant-step part exactly",
+          "evidence": [
+            "The nonsingular game cutoff for the fixed η is 1/(√3‖A‖)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.03211",
+          "material_read": "Primary PDF §2 equation (3), Thm. 3.1 p. 6",
+          "method": "OA PDF",
+          "title": "A Robust Framework for Analyzing Gradient-Based Dynamics in Bilinear Games",
+          "trigger": "Known sharp OGDA stability on bilinear games"
+        },
+        {
+          "assessment": "Covers fixed-step rates, not the alternating matrix product",
+          "evidence": [
+            "Remark (e) says the step does not evolve with time."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.03085",
+          "material_read": "Primary PDF §2 equation (2), Thm. 2.4 p. 7, Remark (e) p. 8",
+          "method": "OA PDF",
+          "title": "Optimistic Gradient Descent Ascent in Zero-Sum and General-Sum Bilinear Games",
+          "trigger": "Bilinear OGDA convergence and schedule scope"
+        },
+        {
+          "assessment": "Fixed-step equivalence; safeguarded adaptive variant differs",
+          "evidence": [
+            "The adaptive rule evolves an extrapolated state and a different sequence of steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.13955",
+          "material_read": "Primary PDF pp. 2–5 rule (3), §1.1, §2.2; §4 p. 12",
+          "method": "OA PDF",
+          "title": "Beyond the Golden Ratio for Variational Inequality Algorithms",
+          "trigger": "Potential equivalent adaptive method"
+        },
+        {
+          "assessment": "Different operator splitting and margin",
+          "evidence": [
+            "The recurrence uses (I+tJ)⁻¹ with A=B=LJ; the current-scaled boundary is 4ab<1."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-two-period-stability-frontiers-for-two-reflected-splitting--40a3f498bcf9",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offsets 340 and 1454–1764",
+          "method": "Local Resultary search and mirror read",
+          "title": "Exact two-period stability frontiers for two reflected splitting schemes",
+          "trigger": "Closest period-two indexed comparison"
+        },
+        {
+          "assessment": "Includes the known fixed-step specialization",
+          "evidence": [
+            "For A=γLJ, γ=0 recovers the explicit rotation recurrence at a constant step."
+          ],
+          "identifier_or_url": "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+          "material_read": "RESULT.md Statement; Consequences for the sharp stability family, offsets 220 and 4762",
+          "method": "Local Resultary search and mirror read",
+          "title": "Rate-optimal forward-reflected-backward method on skew rotations",
+          "trigger": "Known exact region for a related rotation iteration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nonconstant periodic schedule is a natural test of whether fixed-step safeguards carry over to the explicit historical-gradient substitution. The sharp relative-step restriction gives a concrete negative answer even for arbitrarily small step sizes, and resolving the closed endpoints is important for that criterion. The finding gives a meaningful boundary for one precise optimizer, not a claim against safeguarded variable-step methods.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

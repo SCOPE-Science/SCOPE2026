@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:16:21.087220Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Symmetry fixes uniform stationary mass but leaves the edge probabilities adjustable. For connected support, L+Q is positive definite with Q the stationary projection. The trace of its inverse has strictly positive second directional derivative on every nonzero symmetric direction (write it in an eigenbasis, where it is a sum of positive multiples of squared entries). The feasible connected class is convex; its compact closure and divergence of the inverse trace at a disconnected support give existence and strict convexity gives uniqueness. Averaging or uniqueness under permutations then justifies the orbit reduction even for arbitrary competitors. In addition to the leaf and ordinary-clique contrasts, use the block-constant Laplacian on the ordinary clique, gateway and leaves. Its diagonal entries are a,(n-1)a+rb,b; the sum of its principal two-minors is Nab, so its two nonzero eigenvalues contribute ((r+1)b+na)/(Nab). Adding the contrast inverses gives precisely the three-term formula. At fixed a it strictly decreases in b and c, so saturating the two independent row bounds is valid. The reduced objective is strictly convex with endpoint barriers; its derivative gives the stated equation and the root forces all allowed nonloop weights positive, no holds except at leaves, and positive holds even for r=1. For fixed r, the third term differs from n-3 by O(1/n) uniformly in z since (n-2)^2=(n-1)(n-3)+1; the other two positive terms keep minimizers away from the endpoints. Compact uniform convergence therefore gives the stated z-limit, b-limit and additive asymptotic cost. Substituting equal maximum-degree weights produces the stated finite benchmark and fixed-r ratio. The bounded independent `python3 -B /workspace/review_evidence/kemeny_checks.py` probe compared 36 exact rational inverse traces including connected examples with c=0; the frozen script was inspected, not executed. No joint-growth limit is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Problem 1 and Theorem 4 provide the broader fixed-stationary, fixed-support convex program and SDP.",
+          "The two corona findings treat leaf attachment at all vertices of a transitive core, with r leaves or one leaf at each core vertex."
+        ],
+        "reasoning": "The convex program contains this feasible class but is not a classification of its optimizer. Removing all but one pendant star from the corona destroys the core transitivity used to share row budgets and does not give the one-gateway result as a parameter case.",
+        "searches": [
+          "Patel–Agharkar–Bullo, DOI 10.1109/TAC.2015.2426317, Problem 1/Theorem 4",
+          "Resultary: 6e4ca784153c, be6e5140bd15"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 6e4ca784153c, be6e5140bd15, 2240321d233d, 30d4b04d1192",
+        "DOI 10.1137/S0036144503423264",
+        "DOI 10.1109/TAC.2015.2426317",
+        "arXiv:2108.01061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyd et al. supply the benchmark weights, and Patel et al. supply convex design. The corona result has a matching limiting leaf probability on clique cores, not the one-gateway scalar root or penalty."
+        ],
+        "reasoning": "The extra steps are the exact one-gateway block spectrum, saturation of different row budgets, the scalar optimum including boundary behavior, and comparing the benchmark's cost with that optimized value. None follows solely from a benchmark definition, a general SDP formulation, or the corona's square-root allocation.",
+        "searches": [
+          "Boyd–Diaconis–Xiao, DOI 10.1137/S0036144503423264, §§1.1.1 and 1.2.1",
+          "Patel–Agharkar–Bullo, Problem 1 and Theorem 4",
+          "Resultary: 6e4ca784153c, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two clique-pendant SLEM records concern this graph for r>=2 or r=1 respectively but optimize a different eigenvalue functional.",
+          "The graph Kemeny one-separation formula uses the degree vector in the resistance average for a fixed simple random walk."
+        ],
+        "reasoning": "The same graph and a spectral objective are not enough: SLEM controls the largest nonstationary eigenvalue modulus, not the inverse-gap sum. The degree-weighted resistance formulation for an unweighted graph is likewise not the uniform-stationary variable-conductance problem.",
+        "searches": [
+          "Resultary exact one-gateway Kemeny and same-graph SLEM checks: 2a686ba50bfb, 2240321d233d, 30d4b04d1192",
+          "arXiv:2108.01061, Lemma 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact one-gateway optimizer and penalty hit is the assigned record. The strongest distinct Kemeny match uses a leaf corona and shares the clique-core limiting pendant weight but not the evaluated one-gateway classification. The matching pineapple topology hits contain SLEM data."
+        ],
+        "reasoning": "Neither the identical entry, nor a shared limit on a different family, nor exact values for a different objective count as independent coverage. No reliance on same-day publication order.",
+        "searches": [
+          "Resultary exact one-gateway Kemeny and maximum-degree penalty checks: 2a686ba50bfb, 6e4ca784153c, be6e5140bd15; same-graph checks: 2240321d233d, 30d4b04d1192"
+        ]
+      },
+      "rationale": "The supported distinct claim is exact one-gateway Kemeny optimization with unrestricted symmetric competitors, including support, holds and the fixed-r benchmark limit. Generic fixed-stationary design, the maximum-degree walk, and SLEM solutions of the same graph are antecedents. A same-day corona result even shares a limiting leaf probability on clique cores, so that limit alone is not the distinction; its assignment is to every core vertex and its cost and penalty are different.",
+      "residual_risks": [
+        "Primary-text checks were targeted to the closest known sources and local comparisons; no broad literature-priority claim. An unindexed inverse-resistance design result for clique-star attachments or a stronger graph-specific formula may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material limiting overlap, not equivalent exact coverage",
+          "evidence": [
+            "Attaches r leaves to every vertex of a transitive core; for K_n it gives the same limiting pendant probability but a different maximum-degree penalty growth."
+          ],
+          "identifier_or_url": "Resultary: 6e4ca784153c",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "A universal square-root Kemeny allocation law for symmetric walks",
+          "trigger": "Closest distinct same-day Kemeny allocation and maximum-degree penalty"
+        },
+        {
+          "assessment": "Different pendant distribution",
+          "evidence": [
+            "One leaf at every core vertex, not all leaves at one gateway."
+          ],
+          "identifier_or_url": "Resultary: be6e5140bd15",
+          "material_read": "Local RESULT.md graph scope and optimizer comparison",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Sharp Kemeny regret and optimal stochastic walks on transitive leaf coronas",
+          "trigger": "Related exact Kemeny and benchmark regime"
+        },
+        {
+          "assessment": "Same graph; different optimization",
+          "evidence": [
+            "A cutoff in SLEM design and a unique orbit-invariant hub-edge pair do not determine minimum inverse-gap sum."
+          ],
+          "identifier_or_url": "Resultary: 2240321d233d",
+          "material_read": "RESULT.md Finding, local mirror offset 0",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Sharp fastest-mixing transition on pineapple graphs",
+          "trigger": "Same support family for r>=2"
+        },
+        {
+          "assessment": "SLEM optimizer face, not Kemeny minimizer",
+          "evidence": [
+            "Covers single pendant attachment and fastest mixing only."
+          ],
+          "identifier_or_url": "Resultary: 30d4b04d1192",
+          "material_read": "Local RESULT.md scope and optimizer statement",
+          "method": "Ranked Resultary lookup and local mirror statement reading",
+          "title": "Fastest mixing on a clique with one pendant vertex: a complete optimizer face",
+          "trigger": "Same graph at r=1"
+        },
+        {
+          "assessment": "Gives benchmark rule, not the evaluated Kemeny penalty",
+          "evidence": [
+            "Minimizes SLEM; the maximum-degree chain uses nonloop weights 1/d_max with residual holding."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "PDF §§1.1.1 and 1.2.1, pp. 2 and 4, OA offsets 6355 and 10279",
+          "method": "Targeted lawful OA primary text",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Classical benchmark and graph-constrained design"
+        },
+        {
+          "assessment": "Antecedent for fixed-support convex design",
+          "evidence": [
+            "Fixed graph and stationary law, with detailed balance, convexity and an SDP; the inspected statements do not evaluate the pineapple family."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2015.2426317",
+          "material_read": "Problem 1 and Theorem 4, PDF p. 4 and following formulation, OA offset 24070",
+          "method": "Targeted lawful OA primary text",
+          "title": "Robotic surveillance and Markov chains with minimal weighted Kemeny constant",
+          "trigger": "General Kemeny optimization including fixed uniform stationary law"
+        },
+        {
+          "assessment": "The inspected formula is for fixed simple random walks with degree-stationary law",
+          "evidence": [
+            "K(G)=d^T R d/(4m) weights the resistance terms by the degree vector."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.01061",
+          "material_read": "PDF p. 2, Lemma 1.1, OA offset 7920",
+          "method": "Targeted lawful OA primary text",
+          "title": "A 1-Separation Formula for the Graph Kemeny Constant and Braess Edges",
+          "trigger": "The clique-star support is a one-vertex separation, with possible known Kemeny identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-vertex cut concentrates competing demands for transition mass at a single row. The exact classification establishes how that bottleneck should be weighted and which permitted edges can be dropped (none at the optimum), not simply that an SDP could solve the problem. The fixed-r clique limit isolates an arbitrarily large penalty across the family for the standard maximum-degree heuristic, even though each n-limit keeps r fixed. This is informative for comparing designs on networks with a large tightly connected core and a localized peripheral star.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

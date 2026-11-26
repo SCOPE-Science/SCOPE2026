@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:00:43.810494Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the error space H=1⊥, the kernel of a block projection consists of vectors vanishing on that block. Projection preserves the in-block coordinates and distributes their negative sum uniformly outside, verifying the displayed quadratic form. The phrase 'solution space' at RESULT.md line 28 means the ambient error space in the calculation; the actual consistent solution set is a point. Internal block contrasts give eigenvalues p_j for nonsingleton blocks. On the two-dimensional block-constant subspace the projection axes are normalized centered block indicators, and their squared mutual inner products are s_i s_j/[(m−s_i)(m−s_j)]. This verifies the stated determinant for the trace-one mean operator. With two singletons the opposite-singleton test and the large-block contrasts give min(x,m(1−x)/(2(m−1))) as an upper bound. Its unique maximum is t1; equal singleton masses make the tested unit vector an eigenvector of value t1, and the other mean eigenvalue is 1−t1. Conversely equality makes that test vector an eigenvector, and its mixed entry with the other mean direction is a nonzero multiple of the singleton mass difference. With one singleton the mean determinant is strictly decreasing in both large-block masses once both are at least 1/3: in the displayed notation K>B0,C0. At x=y=t2=(m+1)/(3m+1) the determinant equals t2(1−t2). The trace-one eigenvalue criterion and contrast lower requirements force these masses uniquely, and verify attainability. With no singletons all three contrasts bound the rate by min p; uniform masses attain 1/3 since the normalized projections of the orthonormal block indicators contribute at least the identity before multiplying by 1/3. Strict ordering and choosing the pair of singleton row indices yield the global classification and count, also at m=4 where only the two-singleton profile exists. The frozen symbolic/rational checker was inspected but not executed; all-m correctness is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gower–Richtárik abstract explicitly includes blocks and importance sampling in a general linear-system framework. Frozen lines 73–74 credit general minimum-eigenvalue probability design, paving bounds and inconsistent least-squares extensions. Returned newer snippets concern convergence with distributions or extrapolated methods, not the exact fixed-size profile classification."
+        ],
+        "reasoning": "A bound for a supplied paving or general selection of sketch probabilities can include this objective without giving the exact optimum or its equality conditions. Such a general framework would cover the present result only if its conclusions determine the sharp rates and maximizing disjoint exhaustive partition or imply them mechanically.",
+        "searches": [
+          "Gower–Richtárik arXiv:1506.03296v5, §5.1 probability design",
+          "Needell–Tropp arXiv:1208.3805; Needell–Zhao–Zouzias arXiv:1403.4192",
+          "arXiv:2502.00882v1",
+          "arXiv:1902.09946"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 8a9678d341fa, 08c3cf76fd5b, 19551a189d65, 8cad78dc3e3a (index)",
+        "arXiv:1506.03296v5 (PDF abstract)",
+        "arXiv:2502.00882v1 and arXiv:1902.09946 (search snippets)",
+        "arXiv:1208.3805 and arXiv:1403.4192 (frozen comparative account; retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked decomposition combines contrast eigenvalues and a two-dimensional mean determinant; the single-singleton case requires strict monotonicity on the appropriate weight domain. The indexed row-cost problem compares a different feasible family."
+        ],
+        "reasoning": "The general expected-projection optimization alone does not settle the comparison between contrast and mean eigenvalues or enforce the mixed-entry equality conditions. Nor does a rate optimized per row cost imply an optimizer per block step.",
+        "searches": [
+          "Gower–Richtárik arXiv:1506.03296v5 abstract and frozen §5.1 comparison",
+          "Resultary 08c3cf76fd5b summary",
+          "RESULT.md lines 30–68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match is the assigned entry. The closest indexed result optimizes minimax row sampling per expected row cost on the same frame; adjacent entries concern inconsistent data or reshuffling. Gower–Richtárik's PDF abstract describes equivalent sketch-and-project formulations, blocks and importance sampling."
+        ],
+        "reasoning": "Maximizing the least eigenvalue of the expected exact projector is equivalent to minimizing the squared-error one-step contraction factor, and centered coordinate rows are the same frame. Replacing row-cost-normalized singleton sampling, epoch sampling or inconsistent-data amplification by an exhaustive partition into three exact projections changes the admissible operations or objective, not merely notation.",
+        "searches": [
+          "Resultary 8a9678d341fa, 08c3cf76fd5b, 19551a189d65, 8cad78dc3e3a",
+          "Literature query: regular simplex frames exact block randomized Kaczmarz optimal partition sampling probabilities orthogonal block projections three blocks m/(3m-2) Gower Richtarik optimizing probabilities",
+          "Gower–Richtárik arXiv:1506.03296v5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed table match is the target only. Frozen projector examples through eight rows check the formulas but are not a distinct prior table and do not cover the all-m optimizer. The nearby indexed noise-amplification study uses an inconsistent-data invariant."
+        ],
+        "reasoning": "The classification is a symbolic all-size profile table, not a finite cutoff. An equivalent table with these sharp one-step minima and masses for exhaustive partitions would constitute coverage; figures for expected error, amplification or finitely many block sizes would not suffice.",
+        "searches": [
+          "Resultary 8a9678d341fa / 08c3cf76fd5b / 19551a189d65 / 8cad78dc3e3a",
+          "RESULT.md lines 10–19 and check.py lines 77–89",
+          "Simplex-frame three-block rate and sampling literature lookup"
+        ]
+      },
+      "rationale": "The sharp worst-error projection criterion and general probability optimization are prior techniques. The supported novelty is the explicit joint partition-and-mass optimum, the strict ordering of every three-block profile by its number of singleton blocks, and the uniqueness in each case for this frame and step metric. No distinct inspected statement covers that conjunction. Passage access is limited, so this is not a priority finding.",
+      "residual_risks": [
+        "Closely related Resultary full text, the Gower–Richtárik probability-design section and the relevant newer full texts could not be compared at passage level. An explicit existing design theorem or further implication in uninspected material remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader spectral framework credited; decisive §5.1 passages could not be read",
+          "evidence": "Abstract states a consistent-system i.i.d. sketch-and-project framework including block and importance-sampling variants, and convergence results. It does not itself solve the simplex three-part design.",
+          "identifier_or_url": "https://arxiv.org/pdf/1506.03296",
+          "material_read": "v5 p. 1 PDF extract lines 1–24; frozen RESULT.md line 74 identifies §5.1",
+          "method": "OA query for the optimizing-probabilities passage via arXiv and published DOI attempted; extracted arXiv PDF abstract read",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Strong broader prior probability/expected-projection framework"
+        },
+        {
+          "assessment": "Restricted comparison",
+          "evidence": "Frozen account distinguishes uniform row paving and inconsistent least squares from the joint exact three-block consistent design.",
+          "identifier_or_url": "arXiv:1208.3805; arXiv:1403.4192",
+          "material_read": "Frozen comparison lines 73–82; no primary passages retrieved",
+          "method": "Read frozen citations; lawful targeted OA attempted",
+          "title": "Paved with Good Intentions; Randomized Block Kaczmarz Method with Projection for Solving Least Squares",
+          "trigger": "General prior block methods and convergence"
+        },
+        {
+          "assessment": "Same frame and partly related objectives, different as stated in available summaries",
+          "evidence": "Respectively: cost-normalized minimax row sampling including a threshold for omitting a row; inconsistent block noise; random reshuffling over an epoch.",
+          "identifier_or_url": "Resultary 08c3cf76fd5b; 19551a189d65; 8cad78dc3e3a",
+          "material_read": "Ranked indexed summaries; full related passages did not load",
+          "method": "Configured index search and attempted local-mirror retrieval",
+          "title": "A quadratic cost frontier for minimax randomized Kaczmarz sampling; exact block-size noise amplification for simplex Kaczmarz; exact reshuffling contraction on the regular simplex Kaczmarz frame",
+          "trigger": "Closest same-frame indexed records"
+        },
+        {
+          "assessment": "Adjacent based on available statements only",
+          "evidence": "Snippets describe convergence under sampling distributions and, in the latter work, selected constraint subsets with extrapolated steps; no exact three-block simplex design appears in the inspected snippets.",
+          "identifier_or_url": "https://arxiv.org/html/2502.00882v1; https://arxiv.org/abs/1902.09946",
+          "material_read": "Query-returned abstract snippets",
+          "method": "Focused literature search; OA query and public text attempt for arXiv:2502.00882v1",
+          "title": "Worth Their Weight: Randomized and Regularized Block Kaczmarz …; Faster randomized block Kaczmarz algorithms",
+          "trigger": "Modern block sampling or stronger rate comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural exact randomized projection design problem on a symmetric tight frame. At equal per-step cost, the sharp guarantee selects the most unbalanced partition and a unique nonuniform mass assignment, and the fixed-profile classification shows exactly which structural change improves the bottleneck. That qualitative design statement is more informative than the small asymptotic gain over uniform masses. It does not assert computational-cost, least-squares noise, or multistep optimality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

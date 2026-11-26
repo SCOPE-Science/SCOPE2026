@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The counting kernel factors as even-cycle and odd-cycle permutation numbers, with independently established labelled-cycle generating functions. The even-order multiplier identity is derived from the joint moment generating function of two independent products of standard normals; its coefficient reduces by Vandermonde to a positive binomial square, and a marked outside vertex establishes the odd-order recurrence. The coefficient ratios determine the exact extremizers, and Stirling's formula proves the asymptotic. Direct exhaustive permutation tracing and Walsh transforms through order eight, plus integer formula checks through order 200, ran successfully (47,911 assertions). The computation confirms instances but the analytic proof covers every order.
+PASS
 
-## Originality — PASS under bounded comparison
+For the unnormalized XOR operator on labelled supports of all permutations, the two restricted-cycle EGFs give the bivariate signed EGF (1+s+t)/sqrt((1-(s+t)^2)(1-(s-t)^2)), where s marks ordinary labels and t marks labels in the Walsh character. In its even part put u=s^2,v=t^2; expansion of ((1-u-v)^2-4uv)^(-1/2) gives the binomial-square coefficient by Vandermonde. The odd part gives the stated two-term recursion with exactly one nonzero term. Restoring labelled factorials proves the multiplier, signs, and parity of the nullspace. On odd orders the even-weight sequence is strictly decreasing, and complement symmetry gives the (n-1)! minimum; n=1 has both multipliers one. On even orders the sign of the successive positive-eigenvalue ratio minus one is the sign of 2r+1-m. Stirling at r=m/2+O(1) yields sqrt(pi*m)/2 for the nonzero-spectrum condition number, not a full inverse. Moore–Penrose and projection conclusions follow by orthonormal Walsh diagonalization. The supplied verifier was inspected, not executed. A separately written direct character-sum replay passed 1,234 exact checks (permutations through n=8, formula/extrema through n=200) at /workspace/branches/70be3bda-ef13-496d-974e-9dd364114f51/independent_replay.py; the finite replay does not establish the all-order result.
 
-Lugo (2009, arXiv:0907.5351, especially Sections 1 and 3) derives the standard restricted-cycle enumerators and expected cycle counts. Those ingredients are prior work; the claim is the signed subset-frequency theorem for unrestricted permutations and sharp all-order information-recovery constants. Comparisons with accessible studies of permutation cycle counts and previously recorded fixed-point, 2-cycle vertex and cyclic-support kernels did not identify an implication yielding the closed spectrum. Semantic database searches included aliases for cycle parity subsets, Walsh spectra, and Krawtchouk transforms. The decisive residual risk is an unindexed older equivalent signed subset transform; database searches cannot exclude it conclusively.
+## originality
 
-## Value — PASS
+PASS
 
-The parity of the ambient order changes exact recoverability of a natural distribution on the Boolean cube, while the surviving condition number has an explicit central binomial expression and a square-root law contrasting with exact linear conditioning in odd orders. The positivity and rank theorems quantify information loss and stable deconvolution beyond standard restricted-cycle enumeration.
+The best matched statements cover the restricted-count inputs and a different cycle statistic, not the full labelled-support transform and parity-sharp inversion. The binomial and Fourier tools themselves are classical; this judgment is on the exact all-order spectral and conditioning results for the specified kernel.
 
-## Limits
+## value
 
-Unnormalized convolution and Euclidean norms are used; singular even-order kernels have no full inverse. No independence or external certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The statistic is naturally induced by cycle parity and the exact law answers a useful inversion question: even sizes lose precisely the odd Walsh modes, whereas invertible odd sizes have a condition number growing faster than the restricted even-size inverse. Exact smallest eigenvalues locate the most poorly recovered modes; the singular-versus-invertible parity transition and the distinct stability scales are not just a computation of total cycle counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

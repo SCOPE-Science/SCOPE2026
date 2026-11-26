@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:09:39.155581Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84, VERIFICATION.md and verify_conference9.py (inspected, not executed)",
+        "/workspace/review_evidence/algebra.py, conference block",
+        "Fallon–Iverson, arXiv:2610.09169, Theorem 2.1"
+      ],
+      "rationale": "A sum of four unit phases can vanish only in antipodal pairs: when the midpoint of a pair is nonzero it determines the unordered pair uniquely and the other pair has the negative midpoint; when it is zero each pair is antipodal. Normalize f(1)=1 and pair it with one of f(2), f(3), f(4). In each case write f=A+zB with A,B real even vectors supported on the two pairs, z unimodular. Their DFTs are real, so the power spectrum is the DFT of P+2 Re(z)R with P=A*A+B*B and R=A*B (cyclic convolution). Independently formed those integer convolutions for each partner. Parseval gives the same polynomial 9 sum_s (P_s+2 Re(z)R_s)^2 = 792+432(Re z)^2 in all three cases, and the DC term is zero. Minimum 792 occurs exactly at z=±i, equivalent to the claimed permutations up to a common phase. Plancherel gives total power 72 in the eight nonzero frequencies, with flat-spectrum energy 648. For the unit-border matrix, row orthogonality against the border is C1=0, and the lower square block of MM* is J+CC*: hence the circulant core must have squared DFT eigenvalues 9 off DC, and symmetry of the circulant core is precisely evenness. The obstruction therefore applies to the prescribed class only. Exact replay: python3 /workspace/review_evidence/algebra.py (conference block).",
+      "residual_risks": [
+        "The optional numerical checker samples thirteenth roots of unity, not z=±i despite the description in RESULT.md line 84. The equality phases are certified by the exact polynomial identities and argument, not by that finite sampling. No claim is made outside the specified bordered symmetric core class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Problem 7.2(b) asks which cyclic groups admit even conference signals. The available other abstracts concern Fourier constructions, Hermitian circulants/related symmetric problems, and inverse-orthogonal Hadamard-related constructions, respectively."
+        ],
+        "reasoning": "A theorem in a Hermitian subclass, a construction of odd signals, or a general conference existence result would not by itself imply the sharp even-energy optimization for this core. No broader theorem supplying it was established in the material actually read.",
+        "searches": [
+          "arXiv:2610.09169, §3 and Problem 7.2(b), p. 21",
+          "arXiv:2406.11529; arXiv:1910.00586v2; arXiv:0901.0982v3 (available abstracts)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09169 decisive passages",
+        "arXiv:2406.11529, 1910.00586v2 and 0901.0982v3 (abstracts only)",
+        "Local Resultary matches 75ea2b6c0828, 1a272bbff389, bd4012acfc55"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ideal value 648 follows from flat power, but the matching paper's search table has no lower bound of 792 on the mean-zero even locus and no optimizer classification."
+        ],
+        "reasoning": "Even an independently proven n=9 obstruction alone would not give the exact positive gap or its equality cases. Here the content comes from reducing every admissible quadrilateral to three antipodal pairings and evaluating their energies exactly.",
+        "searches": [
+          "Compare arXiv:2610.09169 Theorem 2.1, Example 3.1 and Problem 7.2(b) to frozen RESULT.md Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.1 gives the autocorrelation and bordered-matrix equivalences, including the even and +1-border symmetry criterion. The submitted ideal-correlation defect and Fourier fourth moment differ by the given additive baseline and scale."
+        ],
+        "reasoning": "The Fourier, cyclic autocorrelation, and normalized symmetric circulant-core formulations are equivalent for the scope at issue. The stronger result would need to settle one of them at n=9, not merely provide the equivalence.",
+        "searches": [
+          "Resultary: even cyclic order-nine conference and sharp energy/equality",
+          "arXiv:2610.09169, Theorem 2.1, p. 3; §3 energy minimization, p. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 lists 12 observed normalized signals at n=9, all odd, and Example 3.1 notes that completeness is not claimed. Exact indexed match 75ea2b6c0828 is the assigned record. The other catalog hits concern an eighth-moment four-tone aperture and time/Fourier support incidence, respectively."
+        ],
+        "reasoning": "Nonexhaustive observed counts do not rule out even solutions. The distinct catalog entries address different objective functions or data, and the self-match is not independent evidence of coverage.",
+        "searches": [
+          "arXiv:2610.09169, Table 1 p. 5 and Example 3.1 p. 6",
+          "Resultary: exact 792 bound, excess 144, equality and even nine-cycle obstruction (75ea2b6c0828); related entries 1a272bbff389 and bd4012acfc55"
+        ]
+      },
+      "rationale": "The even cyclic conference-signal question, the energy framework and the bordered-matrix equivalence precede this result. The closest retrieved primary paper explicitly distinguishes its observed table from an exhaustive classification. Its zero observed even entries at order nine do not give a proof, still less the exact minimizing energy and all equality cases. The exact catalog match is the identical assigned record.",
+      "residual_risks": [
+        "Full-text examinations of the other cited papers and neighboring Resultary records were unavailable. The broader web query returned irrelevant results and does not exclude unlocated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the problem, equivalences and numerical observations, not the exact even optimization or n=9 proof in the inspected passages",
+          "evidence": [
+            "Table: zero observed even, 12 observed odd; Example 3.1 explicitly makes no completeness claim"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.09169",
+          "material_read": "Theorem 2.1 p. 3 (offset about 10100); §3 and Table 1 p. 5 (about 20100); Example 3.1 p. 6 (about 22000); Problem 7.2(b) p. 21 (about 99400)",
+          "method": "Bounded primary PDF text passages",
+          "title": "Conference signals: Applications, existence, and constructions",
+          "trigger": "Same admissible spectra, matrix equivalence, and n=9 table"
+        },
+        {
+          "assessment": "Abstract concerns Fourier-transform constructions; no whole-paper exclusion",
+          "evidence": [
+            "Frozen RESULT.md describes Section 7.2 as treating odd signals on nine points"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.11529",
+          "material_read": "Abstract only; Section 7.2 characterization in frozen prior-work comparison not independently confirmed",
+          "method": "Abstract index access; targeted OA full-text retrieval timed out",
+          "title": "Fourier transform in cyclic groups",
+          "trigger": "Potential cyclic-nine exact classification"
+        },
+        {
+          "assessment": "The available description concerns Hermitian circulants and related real symmetric problems; no whole-paper exclusion",
+          "evidence": [
+            "Hermitian is not the same condition as even complex symmetric for the prescribed core"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.00586v2",
+          "material_read": "Abstract only",
+          "method": "Abstract index access; targeted OA full-text retrieval timed out",
+          "title": "Circulant matrices with orthogonal rows and off-diagonal entries of absolute value 1",
+          "trigger": "Potential coverage through circulant classification"
+        },
+        {
+          "assessment": "The available description is of inverse-orthogonal constructions, not evidence of an exact cyclic-nine even bound",
+          "evidence": [
+            "Inverse-orthogonal/Hadamard constructions involving conference matrices"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0901.0982v3",
+          "material_read": "Abstract only",
+          "method": "Abstract index access; targeted OA full-text retrieval timed out",
+          "title": "Complex Hadamard matrices from Sylvester inverse orthogonal matrices",
+          "trigger": "Potential coverage through conference-matrix constructions"
+        },
+        {
+          "assessment": "First is a self-match, others study genuinely different data",
+          "evidence": [
+            "Distinct summaries report an eighth-moment aperture and support pairs rather than the even n=9 min-fourth-moment problem"
+          ],
+          "identifier_or_url": "Resultary entries 75ea2b6c0828, 1a272bbff389, bd4012acfc55",
+          "material_read": "Indexed scientific statements, with exact identity compared to the frozen Finding",
+          "method": "Local Resultary search; distinct full-record OA retrieval timed out",
+          "title": "Sharp fourth-moment obstruction to even conference signals on the nine-cycle; Quartic Fourier resonance and a non-cyclotomic optimal four-tone result; Exact positional Fourier support incidence on the cyclic nine-point group",
+          "trigger": "Exact indexed match and neighboring finite Fourier optimizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Steps 1–4",
+        "Fallon–Iverson Table 1, Example 3.1 and Problem 7.2(b)"
+      ],
+      "rationale": "Order nine is not an arbitrary truncation: it is an explicit cyclic case of the literature's open even-signal question with a published nonexhaustive zero count. The exact gap proves robust separation in this energy under the specified constraints, identifies all nearest candidates in the fourth-moment sense, and rules out the normalized symmetric circulant construction in that case. This is more than recomputing a numerical count or ruling out a guessed candidate.",
+      "residual_risks": [
+        "The gap is not a noise-stability theorem or a classification at other group orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

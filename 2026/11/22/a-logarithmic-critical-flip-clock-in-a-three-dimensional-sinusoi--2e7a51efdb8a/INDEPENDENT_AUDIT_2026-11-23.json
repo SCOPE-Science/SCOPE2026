@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:22:09.173093Z",
+  "axes": {
+    "correctness": {
+      "independent_replay": [
+        "reviews/evidence/4.py"
+      ],
+      "rationale": "The eigenvalues are -1 and ±√b with b>0; det DF_b=b cos z ensures a local diffeomorphism, and the other two directions contract. The normalized left eigenfunctional is ℓ(X)=(z-bx)/(1-b) for the right eigenvector (1,-1,1). Standard finite-smoothness center and strong-stable theory applies (C^7 suffices); oddness can be preserved by an equivariant local graph construction, or used to force the even Taylor coefficients to vanish by uniqueness of the finite center jet. An independent elimination uses the exact projected return ℓ(F_b(X))=-ℓ(X)+(z-sin z)/(1-b). Writing x(u)=u+A u³+B u⁵ on the normalized graph forces z(u)=u+bA u³+bB u⁵. With f(u)=-u+a u³+d u⁵, the identities x(f(u))=y(u) and y(f(u))=sin z(u) give (1-b)A=2a-1/6 and (1-b)B=2d-3a²+6aA-bA/2+1/120. The projection gives a=1/[6(1-b)] and d=(bA/2-1/120)/(1-b). Exact truncation reproduces the entire given cubic and quintic jet, and at b=1/2 the two scalar clock coefficients are 2/3 and 39/20. Along a nonzero sufficiently small center orbit, f reverses sign and shrinks magnitude since a>0. For v=u^(-2), its increment is 2a+(3a²+2d)/v+O(v^(-2)); thus v grows linearly, then v=2an+O(log n), and the differences 1/v_n-1/(2an) are summable. This yields a finite remainder constant, not merely O(1). The stable foliation gives exponential tracking; its origin leaf is the strong-stable manifold. Reduction and tracking give local asymptotic stability. An exponentially small perturbation of a nonzero shadow amplitude of order n^(-1/2) changes its reciprocal square by O(n^(3/2)θ^n)=o(1), so the actual ℓ amplitude has the same clock and is eventually nonzero. On the center graph z-u=O(u³), yielding the claimed physical z comparison after tracking. No inference about the global basin or b=0. The supplied symbolic script was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 model contains the exact map at α=μ=0, β=γ=b, δ=1. The 2024 zero-feedback model and its stability discussion use strict inequalities; at (β1,β2,γ)=(b,b,1), γβ1=β2 and -1 is a root. The antipodal-cycle report covers the larger zero-feedback family and discusses existence of cycles and return multipliers."
+        ],
+        "reasoning": "Containment in a broader dynamical model and a strict stability criterion do not prove stability on the equality boundary. A classification of nearby or remote two-cycles does not fix fifth-order drift of the zero equilibrium.",
+        "searches": [
+          "Rajagopal et al., Symmetry 15 (2023) 780, Eq. (1), §3",
+          "Almatroud et al., Symmetry 16 (2024) 1093, Eq. (2), §2 Proposition 1",
+          "Resultary: three-dimensional sine delay primitive period two cycles nilpotent return map equal coupling antisymmetric Mammeri"
+        ]
+      },
+      "checked_sources": [
+        "Mammeri 2017 public citation and model attribution; original full text unavailable",
+        "Rajagopal et al. Symmetry 15 (2023) 780",
+        "Almatroud et al. Symmetry 16 (2024) 1093",
+        "Resultary antipodal two-cycle report",
+        "Resultary critical cubic drift sine-delay report",
+        "Resultary sigmoid neutral-flip crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reciprocal-square expansion at a flip is standard given the cubic and quintic coefficients. The sigmoid comparison explicitly credits an earlier fixed-critical log law in that model. The sine-map proof independently computes the fifth jet, including a correction from the cubic coefficient of z(u), and uses exponential tracking to pass to the physical observable."
+        ],
+        "reasoning": "A universal inverse-square recurrence or known fixed-critical clock in an unrelated model is a proof method, not the model's required coefficients or the error transfer. A critical cubic drift alone leaves the logarithmic term undetermined. The inspected same-model numerical and strict spectral results do not supply those missing data.",
+        "searches": [
+          "Rajagopal et al. Eq. (1) and §§2–3",
+          "Almatroud et al. §2, strict Jury-based analysis",
+          "Resultary antipodal two-cycle report, Finding and prior-work comparison",
+          "Resultary sigmoid neutral-flip crossover, Proof §§1–4 and prior-work comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact scalar recurrence is z_{n+1}=b sin(z_{n-2})+b sin(z_{n-1})-sin(z_n). Odd symmetry permits sign alternation to turn the -1 multiplier into a +1 multiplier. In the coordinates given by diag(1,-1,1) after sign alternation, the map becomes (y,sin z,-b x+b y+sin z). The compared critical-cubic report uses (y,sin z,r x+B y-s sin z) and requires 0<s<r<1. Here r=-b, s=-1, outside that wedge."
+        ],
+        "reasoning": "A time-dependent sign change leaves reciprocal squares intact but does not move the parameter slice into the known +1 theorem. In any event that theorem proves a leading cubic relaxation rate, not the logarithm plus finite constant. The scalar delay expression is the same question rather than a different source of novelty.",
+        "searches": [
+          "Resultary: three dimensional sinusoidal discrete map flip boundary nonlinear local stability logarithmic decay inverse-square center manifold",
+          "Web: 'Symmetry and Periodic-Chaos in 3-D Sinusoid Discrete Maps' Mammeri BMAA9-1-1 plus critical nonhyperbolic flip origin inverse square logarithmic",
+          "Resultary critical cubic drift sine-delay Finding and Scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table-like relevant reports concern the same target, a model-specific nilpotent period-two sheet, a distinct +1 critical cubic law, or a fixed-critical inverse-square clock in a scalar sigmoid model with logarithmic coefficient 48/5."
+        ],
+        "reasoning": "The self-hit is not an antecedent. A period-two spectral table or the scalar sigmoid coefficients are not a table of sine-map neutral clocks in the specified physical amplitude. No matching table of 1/[3(1-b)] and (9b²+7b+4)/[20(1-b)²] was identified among the retrieved evidence.",
+        "searches": [
+          "Resultary: three dimensional sinusoidal discrete map flip boundary nonlinear local stability logarithmic decay inverse-square center manifold",
+          "Resultary: three-dimensional sine delay primitive period two cycles nilpotent return map equal coupling antisymmetric Mammeri"
+        ]
+      },
+      "rationale": "The map family and general neutral parabolic summation are not new. The inspected critical fixed-point, period-two and related flip results do not cover the fifth-order coefficient and whole local strong-stable versus algebraic stratification for this parameter slice. Earliest exact-parent full text was not recovered independently; this limits the priority assessment, not the correctness argument.",
+      "residual_risks": [
+        "The exact 2017 archive was unavailable here; an earlier nonlinear treatment of this boundary cannot be excluded by the available full-text evidence.",
+        "An unindexed neutral-flip computation in the same delay model could subsume the model-specific coefficients. No priority claim is made for the general Taylor or reciprocal method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known parent model by comparison sources, not counted as a full-text negative comparison",
+          "evidence": [
+            "Archive retrieval failed; the fixed-sine-amplitude specialization is explicitly attributed to Mammeri by the inspected same-model records."
+          ],
+          "identifier_or_url": "https://emis.muni.cz/journals/BMAA/repository/docs/BMAA9-1-1.pdf",
+          "material_read": "Public citation and account of the model in the compared open articles/records; original PDF contents not independently recovered",
+          "method": "Primary lookup and attempts at public archive and open copy",
+          "title": "Symmetry and Periodic-Chaos in 3-D Sinusoid Discrete Maps",
+          "trigger": "Earliest cited exact fixed-sine-gain parent map"
+        },
+        {
+          "assessment": "Exact model containment, with the inspected dynamics using numerical bifurcation and Lyapunov methods rather than a neutral fifth-order theorem",
+          "evidence": [
+            "Eq. (1) has the additional self-feedback term μz, which can be set to zero."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-15-00780/article_deploy/symmetry-15-00780.pdf",
+          "material_read": "Abstract, Eq. (1), model section and initial passages of §3",
+          "method": "Open publisher PDF text extraction",
+          "title": "Influence of Parametric Symmetry on the Dynamics of 3D Sinusoidal Discrete Systems",
+          "trigger": "Broader exact sine-map family"
+        },
+        {
+          "assessment": "The inspected strict stability criterion does not cover the boundary in the reviewed theorem",
+          "evidence": [
+            "Prop. 1 uses γβ1>β2; the reviewed slice is equality and its Jacobian is nonhyperbolic."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-16-01093/article_deploy/symmetry-16-01093.pdf",
+          "material_read": "Abstract and §2 model, fixed-point equation, Proposition 1, Jury argument and sample cases",
+          "method": "Open publisher PDF text extraction",
+          "title": "Multistability, Chaos, and Synchronization in Novel Symmetric Difference Equation",
+          "trigger": "Exact zero-feedback parent and fixed-origin stability"
+        },
+        {
+          "assessment": "Compares primitive two-cycle existence, nilpotence and spectral scaling, not generic origin relaxation at unit gain",
+          "evidence": [
+            "The sine-gain crossing concerns the existence of nonzero antipodal points, not the critical origin's fifth-order drift."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-antipodal-two-cycle-with-a-nilpotent-superattraction-sh--1546559d174a/RESULT.md",
+          "material_read": "Finding, assumptions, cycle proof and relationship discussion",
+          "method": "Local mirror full-text inspection",
+          "title": "A unique antipodal two-cycle with a nilpotent superattraction sheet in a three-dimensional sine map",
+          "trigger": "Same model and sine-gain boundary"
+        },
+        {
+          "assessment": "Different parameter wedge and no quintic log remainder law",
+          "evidence": [
+            "The theorem assumes 0<s<r<1 and gives linear growth of the reciprocal square to leading order only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-critical-cubic-drift-and-sharp-relaxation-in-a-three-dimensional--f8c78c1ec3a7/RESULT.md",
+          "material_read": "Finding, scope, critical projection and proof of algebraic and exponential convergence",
+          "method": "Local mirror full-text inspection",
+          "title": "Critical cubic drift and sharp relaxation in a three-dimensional sine-delay map",
+          "trigger": "Possible equivalent critical law after sign alternation"
+        },
+        {
+          "assessment": "Same general mechanism, different scalar map and coefficients",
+          "evidence": [
+            "At its fixed-critical parameter a=8 the slope and logarithm are 64/3 and 48/5, respectively; there are no transverse directions in that interval model."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-an-exponentially-weighted-logarithmic-crossover-at-the-neutral-f--ec7e4796f3ca/RESULT.md",
+          "material_read": "Finding, inverse-square proof and comparison to the prior fixed-critical theorem",
+          "method": "Local mirror full-text inspection",
+          "title": "An exponentially weighted logarithmic crossover at the neutral flip of a sigmoid interval map",
+          "trigger": "Same reciprocal-square asymptotic method at a neutral flip"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At a natural loss of strict spectral stability, distinguishing attraction from instability and algebraic relaxation from a codimension-one exponential exception is a meaningful local question. The model-specific logarithm and finite remainder improve on the leading critical power law and hold for the actual observable of all nearby off-leaf states, not only formal center orbits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The cyclic matrix \(I+wC\) is nonsingular for integer \(w\ge2\), so the vertices form an intrinsic lattice simplex. The pairwise extreme-coordinate comparison supplies the sharp universal lower bound \((w-1)(M-m)\). The only potential exceptional nonbinary equality case is \(w=2\) with coefficient range two; its five-transition graph has no odd nonconstant cyclic walk. Binary equality words are classified exactly, and the nonempty cycle-independent-set bijection gives the Lucas count. The packaged standard-library script performed 306,168 bounded exact integer comparisons. It supplies no proof beyond its finite range.
+PASS
 
-## Originality
+The orbit matrix has determinant 1−(−w)^n and column sum w+1, so the affine hull is the full sum hyperplane. Using the basis e_i−e_0 of its lattice differences gives all integer coefficient vectors modulo constants. An entry attaining M gives a predecessor evaluation at least m+wM; an entry attaining m gives one at most M+wm. Width is thus ≥(w−1)(M−m). Even order attains this at coefficient range one by alternation. At odd order the coordinate indicator gives width w and range ≥2 is excluded by the bound except for w=2, range two. In that exception width ≤2 forces the shifted evaluations into [2,4]; a 2 must be preceded by 0 and a 0 by 2. Following predecessors cyclically then forces even order, excluding the exception. For binary coefficients, the mixed transitions both occur and yield 1 and w; exactly one equal transition type gives width w, both give w+1, and no equal transitions yields the even alternating optimum. At odd n, complementing thus gives a unique nonempty no-11 representative modulo reversal; it is primitive because an intrinsic difference of coefficients is one. Splitting the independent-set count by occupancy of one vertex gives F_(n+1)+F_(n−1)=L_n; subtract the empty support. These arguments include n=3 and w=2. A separate bounded ternary enumeration at w=2 for n=3,4,5,7,9 gave counts 3,1,10,28,75, respectively. The frozen Python checker was inspected, not executed; finite results are not needed for the exhaustive symbolic classification.
 
-PASS on the available published record, with residual historical-priority risk. The 2026 weighted-oriented-edge-polytope paper defines these vectors but studies integer decomposition, not their lattice width. The 2025 circulant-width theorem uses the distinct generator \((1,m,0,\ldots,0,-m)\), and its stated conclusion neither entails the sharp odd/even width of the present nonnegative two-term family nor classifies its Lucas-number shortest normals. Targeted mathematical-result retrieval did not expose a dominating or equivalent theorem. The absence of a returned match is not proof of global uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. Lattice width controls the minimum number of integral parallel layers containing a polytope. Here a natural family from weighted graph geometry admits a sharp formula and, more significantly, a complete infinite-dimensional classification of all optimal lattice normals. The parity transition from one direction to exponentially many \(L_n-1\) directions distinguishes discrete geometric structure that volume and the number of vertices do not describe. The independent-set bijection supplies a usable exact combinatorial model for the normal directions.
+The same graph-polytope construction is known and the Doolittle–Katthän–Nill–Santos width theorem covers particular lattice-equivalent members, including P_(4,2) and P_(5,2). Those widths are not credited as new. The distinct contribution is the uniform width and complete primitive-direction classification for this weighted nonnegative orbit family, in particular the Lucas census rather than simply the value of the width. The compared circulant width theorem demonstrably does not transfer to the whole family and does not state this census.
 
-## Limits
+## value
 
-The statement excludes unit weights and nonconstant weights, and it concerns lattice rather than Euclidean width. The complete historical priority question is open to independent examination. No independent mathematical audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The simplices come from a known integer-polytope construction; the intrinsic width controls their thinnest integral slabs. The parity distinction is stronger for extremizing directions than for the width itself: on changing parity a unique unoriented direction becomes a canonical family of independent sets with exponential Lucas growth. The range-two obstruction at w=2 is necessary for completeness rather than a cosmetic special case. The reusable exact census and parity structure are not a rounded numerical or known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

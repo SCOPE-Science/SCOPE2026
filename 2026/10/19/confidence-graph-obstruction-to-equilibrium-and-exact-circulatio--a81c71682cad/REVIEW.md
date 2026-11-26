@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is a finite irreducible continuous-time Markov-chain statement. The three-state witness has six explicit single-site transition rates; checking their forward and reversed products proves failure of detailed balance for any social graph with minimum degree at least the group size. The converse for one-neighbor copying on a complete social graph is witnessed by an explicit reversible stationary distribution whose one-edge ratios are checked algebraically. For the smallest three-opinion system, all six stationary balance equations, the two directed cycle currents, and the entropy production are derived from the generator. The unique optimizer follows from an analytic second-derivative sign, not numerical search. The supplied checker independently reproduced 1479 exact rational identities. No claims about infinite populations depend on this finite enumeration.
+PASS
 
-## Originality — PASS, with residual risk
+A nonempty noncomplete undirected H has an opinion a with both a neighbor b and a nonneighbor c: otherwise any vertex incident to an edge would be universal, forcing every vertex incident and then H complete. Take all other vertices at opinion a and cycle the focal vertex through a,c,b,a. Only b→a has a conformity increment; unanimous a-neighbors occur with probability one for every allowed q. The forward/reverse rate-product ratio is (u+v)/u; positive reset rates ensure irreducibility. For q=1 on K_N the empty-confidence rates are symmetric, and the complete-confidence rates have the same ratio as the rising-factorial weight, including the subtraction of the changed vertex from the reverse target count. Uniform resampling at p=1 is separately reversible. On K₂ the count process is an exact lumping and its rates have the factor nᵢ for available changing vertices. The asserted masses sum to one and satisfy the balance equations, with opposite flows canceling outside the two oriented current triangles. Each triangle contributes J log((3−2p)/p); counting unordered edges prevents a factor-of-two error. Differentiating p(1−p) log((3−2p)/p) proves strict concavity on (0,1/2) and a negative derivative on [1/2,1), with zero endpoint limits. Independent replay, python3 /workspace/frozen_math_replay.py 3, reconstructs exact count flows by aggregating labeled transitions for four p values, then finds the peak p≈0.291984797141795 and rate ≈0.064719539702587. The bounded replay corroborates, not substitutes for, the symbolically valid reasoning.
 
-The closest identified source is Doniec–Lipiecki–Sznajd-Weron (2022, DOI 10.3390/e24070983): the microscopic three-state noise/conformity rules are already theirs. The inspected Model section, mean-field equations and Results describe phase transitions and stationary **concentrations**, not finite-configuration cycle affinities, a general confidence-graph reversibility classification, or the exact two-agent stationary current/entropy production. An earlier process (Radosz–Doniec 2021, DOI 10.1007/978-3-030-77967-2_24) restricts independent switching as well as conformist switching, changing the transition mechanism and precluding direct implication. Established Kolmogorov cycle and stochastic-thermodynamic identities supply methods and are not claimed as novel. The current comparison of accessible primary material and indexed related research did not identify a theorem implying the entire result. A less-visible general finite Markov-chain classification or model-specific nonequilibrium analysis might nevertheless cover part of this result; this risk remains explicit. No independent priority audit has been performed.
+## originality
 
-## Value — PASS
+PASS
 
-The natural question is whether symmetric independent opinion resampling restores thermodynamic equilibrium to socially asymmetric copying. A strong answer is provided: precisely which confidence relations force persistent microscopic probability circulation, uniformly over population size, network structure and group sampling size, and precisely which confidence graphs allow equilibrium in the natural one-neighbor mean-field social geometry. The two-person exact entropy production quantifies the effect and shows that strongest irreversibility occurs at an intermediate, nontrivial noise level. This distinguishes microscopic nonequilibrium steady states from mean-field concentration equilibria and supplies a reproducible minimal benchmark for social stochastic thermodynamics. Although general Kolmogorov criteria are classical, their application here identifies a structural mechanism and a sharp exact classification rather than a mere restatement of the criterion.
+This assessment credits the known noisy copying generators, standard Kolmogorov and entropy-production principles, and the familiar reversible complete-confidence product weights as ingredients. What is distinct on the inspected evidence is the graph- and q-independent partial-confidence obstruction with its exact affinity, the resulting sharp confidence-graph classification in the q=1 complete-social subfamily, and the evaluated K₂ count circulation law and maximum. The available sources do not contain these evaluated conclusions.
 
-## Scientific limits and literature
+## value
 
-The necessity-only part does not classify the complete-confidence case for arbitrary higher unanimity groups or sparse graphs. The entropy-production formula is specific to the two-person count chain, and the zero-noise boundary is excluded. The original three-state model and earlier restricted-independence counterpart are the strongest comparisons; standard stochastic thermodynamics and later imitation studies provide methodological context. Publication priority has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result separates social topology and unanimity from compatibility: the smallest possible directed cycle already witnesses microscopic irreversibility uniformly in both social parameters. The exact q=1 boundary and two-person current give natural benchmarks for when stationary opinion circulation persists and how it depends on uniform reset noise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

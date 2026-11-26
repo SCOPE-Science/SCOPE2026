@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The active-face KKT scalar multiplier is unique. Its Jacobian is an orthogonal hyperplane projection, giving exact absolute row sums. Every face is strictly attainable, and segment integration yields the global coefficient. The sorted-prefix reduction follows from the sign of \(a-\rho a^2\) under candidate additions/deletions, separately for the scalar row and a fixed spatial row. Exact factorization gives the planar branch transition and uniqueness. The standalone checker passed 13,838 supplementary assertions; these are not substitutes for the proof.
+## correctness
 
-## Originality — PASS, with residual historical-priority uncertainty
-The 2021 epigraphical projection source provides the scalar multiplier and general perspective framework, not an inspected exact globally optimized coordinate maximum-norm coefficient, prefix algorithm or golden-ratio phase. A 2015 paper directly analyzes derivatives of the *same* weighted epigraph cone. Its full text could not be accessed. No claim that its entire contents are noncovering is made; its potentially dominating derivative theorem is the principal unresolved historical source. Published records on fixed \(\ell_1\)-ball projection and Euclidean Lorentz-cone projection involve distinct sets or ambient objectives. Prior local derivatives are acknowledged rather than claimed as new.
+PASS
 
-## Mathematical value — PASS
-For a canonical nonsmooth convex cone, this is an exact perturbation budget with polynomial evaluation, a sharp contractivity classification, an unattained normalized design infimum and a two-dimensional nonmonotone phase boundary. These distinctions matter when comparing geometric encodings and choosing weights in epigraph-based projections.
+The KKT multiplier outside the cone is the unique positive root of tau+lambda=sum_j w_j(|y_j|-lambda w_j)_+. On a fixed strict signed cell the nonzero block is the Euclidean hyperplane projection I-vv^T/(1+S_I), v=(s_j w_j,-1); inactive rows vanish. The scalar and coordinate absolute row sums are exactly those claimed. The apex derivative is zero on the interior apex cell, not necessarily on its boundary; continuity and a finite subdivision of any input segment into closed affine cells suffice there. Every signed nonempty support occurs on an open cell, by prescribing positive active magnitudes, lambda=1, zero inactive inputs, and tau=weighted output level minus 1. A small displacement of the input with signs matching the maximizing row attains the row-sum quotient. For a positive optimal ratio rho (dividing out w_i in a fixed spatial row), adding or deleting a nonmandatory weight is controlled exactly by a-rho a². Hence all weights below the common threshold 1/rho are selected and those above are excluded, with equality weights interchangeable; a sorted prefix exists even with ties. Prefix sums of weights and squares plus a membership test give O(1) per candidate after sorting. The identity row covers nonpositive excesses. Singletons force all weights to be one for nonexpansivity, and the full support then gives 2n/(n+1), which is also the maximum since the unit-weight row sums are 2k/(k+1) at support size k. The product-one geometric family has largest weight M at each support; when M>=R the scalar excess is O(1/R), its largest coordinate has nonpositive excess, and all other weights are at most M/R² giving O(1/R²). When M<=1 at most one weight is 1 and the rest are O(R^-2). This proves the unattained infimum. In the plane the only potentially dominating rows reduce to A and B by the singleton and larger-weight comparisons. Their difference factors at 1 and the golden ratio, and the derivative numerator for B is strictly increasing on [1,infinity), negative at 1 and positive at the golden ratio. A decreases strictly past 1, and factoring B-1/3 proves the single nontrivial return before the switch. Independent bisection of the stated polynomials gives r_* about 1.203277832047, r_c about 1.485583997689 and L(r_*) about 1.363352315804, consistent with the frozen approximations.
 
-## Limitations and closest literature
-The statement applies to Euclidean nearest-point projection and the unweighted coordinate maximum norm, finite dimensions and strictly positive weights. The 2015 differential-properties article is the closest known potential historical overlap, full-text comparison outstanding; the 2021 perspective-epigraph paper and other related projector records were compared in scope and implication. Independent validation is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general proximal root formula and active-face projection calculus are not new; in this polyhedral problem the finite row-sum formulation is a direct consequence once all the faces are accessible. The supported contribution is the explicit global sensitivity analysis, in particular the normalized weight-design infimum and nonmonotone planar switch, with the prefix optimization for the full two-input map. The closest inspected catalogue results have a fixed level or a squared-norm proximal map. The closest 2015 paper on the same epigraph's differential properties was not obtainable as full text; it remains a specific priority caveat, not evidence of coverage or noncoverage.
+
+## value
+
+PASS
+
+The exact coordinate sensitivity answers a stability question not answered by Euclidean nonexpansivity, and the prefix reduction makes an otherwise exponential active-face maximum evaluable in quadratic arithmetic. The fixed-product design comparison is meaningful: stable limiting anisotropy is unattainable at finite weights, and even in two coordinates an initial departure from balance worsens amplification before the governing output row changes. These provide usable computation and a sharp counterpoint to weight-balancing intuition, not a new local calculus for its own sake.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

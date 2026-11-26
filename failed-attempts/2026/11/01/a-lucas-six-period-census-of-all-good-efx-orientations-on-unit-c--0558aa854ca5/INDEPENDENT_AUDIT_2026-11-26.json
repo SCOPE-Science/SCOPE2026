@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:25:02.331639Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–52; frozen VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/branches/abd9d3fe-65b3-486b-a43c-5220024fb263/independent_enumeration.py (separate direct check of deletion inequalities, every orientation and layer for 3≤n≤14)"
+      ],
+      "rationale": "A vertex with an incoming edge has own value at least one and values any other bundle at most one by simplicity. A vertex with none can fail EFX only by retaining its incident edge after removing a zero-valued edge at its recipient, which happens exactly when the recipient has at least two incoming edges. Thus on a cycle the forbidden direction triples are cyclic 010 and 101, equivalently adjacent changes. The set of change positions is independent on C_n and even, and any such set determines two indexed words by choosing the first bit. For k≥2 even, choose a labeled start of a run and its color and compose n into k ordered run lengths at least two; division by k removes the choice of distinguished run. This gives the stated binomial layer, with the two constant words counted at k=0. The parity-filtered trace has eigenvalues of t²−t−1 and t²−t+1, proving the Lucas-plus-cosine total and the exponential probability for unbiased independent orientations. This includes n=3 and does not apply to deleting only goods positively valued by the envier.",
+      "residual_risks": [
+        "The independent totals were 2,6,12,20,30,46,74,122,200,324,522,842; this finite enumeration is not proof for untested n or different valuations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moser allows a bound on alternating runs and explicitly identifies length-three alternating runs as the w=2 case studied already by Agur, Fraenkel and Klein.",
+          "Zeng and Zeng–Mehta address EFX orientation existence and classes of graphs rather than this census. Resultary 86ded86a095b treats the same all-good condition on uniform multicycles and includes q=1; it is indexed after the frozen record. The later 385079c4c473 explicitly uses the same equal-weight baseline in a perturbation calculation."
+        ],
+        "reasoning": "A broader string theorem applies at the exact required run bound. The EFX literature and the later Resultary generalization are useful scope comparisons but are not the evidence of earlier priority.",
+        "searches": [
+          "Moser 1993 theorem on alternating-run bounds",
+          "arXiv:2404.13527v2, 2609.36498, 2512.25033v1, 2409.13616v1",
+          "Resultary 86ded86a095b, 385079c4c473"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A007039 and A057079",
+        "Munarini–Zagaglia Salvi (2003), Integers 3 #A19",
+        "Moser (1993), Fibonacci Quarterly 31(1)",
+        "arXiv:2404.13527v2, 2609.36498, 2512.25033v1, 2409.13616v1",
+        "Resultary 86ded86a095b, 385079c4c473"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For w=2, Moser's transition map has even weight and no adjacent 1s, with precisely two preimages per transition set. Fixing weight k gives the usual circular no-adjacency count (n/k)·binom(n−k−1,k−1) for k>0, doubled for the preimages, with k=0 handled separately.",
+          "The known total on string space and the fair-orientation count agree under the 1-to-1 direction-bit map; division by 2^n and the dominant Lucas root immediately give the probability asymptotic."
+        ],
+        "reasoning": "The exact result follows from the known string enumeration and the direct local translation of EFX, without a new enumerative step. The transition layer is mechanically implied by the prior transition coding and gap formula even when the quantities are named differently.",
+        "searches": [
+          "Moser §2 (transition map, even/odd case and cyclic binomial coefficient)",
+          "Munarini–Zagaglia Salvi pp. 5–6 and p. 12 (maximal blocks)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Munarini–Zagaglia Salvi §1 defines indexed circular strings as distinct even under rotations, and for n≥3 identifies a zigzag with an occurrence of 010 or 101, including across the boundary.",
+          "Moser §2 uses the transition word of a binary circle, complementary preimages and even weight. This is precisely the counting reduction in the frozen proof once orientation directions are encoded in bits."
+        ],
+        "reasoning": "Both the prohibited triples and the labeling convention match exactly; this is not a necklace count up to rotation. The only model-specific step is identifying those triples from the EFX inequalities.",
+        "searches": [
+          "OEIS query 2,6,12,20,30,46,74,122,200,324,522,842",
+          "Munarini–Zagaglia Salvi, Circular Binary Strings without Zigzags",
+          "Moser, Cyclic Binary Strings Without Long Runs of Like (Alternating) Bits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A007039 is exactly the count of indexed cyclic binary strings with no alternating substring of length greater than two; the deposited formula gives Lucas plus the shifted period-six sequence, and the catalogue cites the 1995 Encyclopedia of Integer Sequences.",
+          "The 2003 paper prints the exact sequence and s_n=L_n+H_n−4δ_(n,0), with H_0=2, H_1=1 and H_(n+2)=H_(n+1)−H_n. This H_n is 2 cos(nπ/3)."
+        ],
+        "reasoning": "Verified the entry's mathematical definition and the original formula, not just an integer-prefix hit. The possible empty-string convention has no relevance to n≥3.",
+        "searches": [
+          "https://oeis.org/search?q=2%2C6%2C12%2C20%2C30%2C46%2C74%2C122%2C200%2C324%2C522%2C842",
+          "OEIS A007039 and A057079",
+          "Munarini–Zagaglia Salvi pp. 5–6, equations (8)–(9) and the following closed form"
+        ]
+      },
+      "rationale": "The indexed binary strings obtained from the EFX definition are exactly the previously counted circular strings without zigzags, not merely a class with numerically similar initial counts. The exact Lucas plus six-period formula and the transition coding with the even parity restriction predate the record. The layer and probability are direct consequences of that coding and standard cyclic gap counting. The fairness interpretation is distinguished from the already known census; it does not make this an independently new exact enumeration.",
+      "residual_risks": [
+        "Historical priority for the fairness interpretation itself is not established. Full text of the 2010 circular success-run distribution paper was inaccessible; a 2023 equal-weight K_(2,2) citation could not be verified. Neither is used to infer absence or to support rejection; exact earlier combinatorial coverage is independently established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier combinatorial coverage",
+          "evidence": "Counts circular strings with no 010 or 101 and explicitly gives the Lucas term plus the six-period term for positive lengths.",
+          "identifier_or_url": "https://math.colgate.edu/~integers/d19/d19.pdf",
+          "material_read": "Introduction p. 1; §2 pp. 5–6 including (8)–(9) and closed form, PDF text offsets 0–2479 and 13500 onward; p. 12 maximal-block passage",
+          "method": "Checked indexing, wraparound, the stated Lucas and periodic expressions, and compared with the frozen count",
+          "title": "Circular Binary Strings without Zigzags",
+          "trigger": "Exact same prohibited patterns and claimed count"
+        },
+        {
+          "assessment": "Earlier structural and broader enumerative coverage",
+          "evidence": "The change map records transitions with 1s, takes complementary words to the same change word, and is bijective from fixed initial bit to even change words. Alternating triples are the w=2 case.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/31-1/moser.pdf",
+          "material_read": "Theorem and §2, PDF text offsets 0–6084",
+          "method": "Specialized the run bound and compared forward coding, parity, complementary preimages and cyclic subset count",
+          "title": "Cyclic Binary Strings Without Long Runs of Like (Alternating) Bits",
+          "trigger": "Same transition encoding and a more general run-count theorem"
+        },
+        {
+          "assessment": "Exact database coverage",
+          "evidence": "Number of cyclic binary n-bit strings with no alternating substring of length greater than two; Lucas plus A057079(n+1).",
+          "identifier_or_url": "https://oeis.org/A007039",
+          "material_read": "Definition, values, references and formulas from the exact-prefix result; A057079 period and indexing",
+          "method": "Matched the object and identified the Lucas/cosine formula from the indexed period",
+          "title": "OEIS A007039",
+          "trigger": "Exact same integer sequence"
+        },
+        {
+          "assessment": "Related EFX framework, not the exact census passages",
+          "evidence": "The definition tests all goods in the recipient bundle; the inspected cycle statements guarantee existence.",
+          "identifier_or_url": "https://arxiv.org/html/2404.13527v2",
+          "material_read": "§1.1 and Definition 2.1, OA offsets 5813 and 12568",
+          "method": "Compared existence versus census and the universal deletion quantifier",
+          "title": "On the Structure of EFX Orientations on Graphs",
+          "trigger": "Same fairness definition on cycles"
+        },
+        {
+          "assessment": "Material later coverage, not earlier priority evidence",
+          "evidence": "The formula N_(n,q)=tr(T_q^n) is stated for all q≥1, with q=1 the single-good case.",
+          "identifier_or_url": "Resultary 2026/11/2, 86ded86a095b",
+          "material_read": "RESULT.md Finding and relationship passage at offsets 0 and 7300, local mirror",
+          "method": "Compared q=1, fairness quantifiers and census",
+          "title": "Exact all-good EFX orientation census on uniform multicycles",
+          "trigger": "A result covering the single-good cycle as a parameter specialization"
+        },
+        {
+          "assessment": "Exact later overlap at the baseline",
+          "evidence": "States L_n+2cos(nπ/3) at equal weights; the distinct result concerns an unequal edge.",
+          "identifier_or_url": "Resultary 2026/11/8, 385079c4c473",
+          "material_read": "RESULT.md Finding and relationship passages, offsets 0 and 6103, local mirror",
+          "method": "Separated the equal-weight baseline from the actual perturbation result",
+          "title": "A one-edge perturbation removes a fixed fraction of fair cycle orientations",
+          "trigger": "Same exact baseline on equally weighted cycles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Findings and Proof",
+        "Moser §2",
+        "Munarini–Zagaglia Salvi pp. 5–6",
+        "OEIS A007039"
+      ],
+      "rationale": "Fair orientation enumeration is a natural question, but the frozen census and refinement are a direct translation of the known indexed no-zigzag count and transition model. The model-specific equivalence is a useful local observation: read the orientation bits of the central edge and its two neighboring edges to detect the only possible violation. It does not by itself establish a distinct substantive classification, a new count, or an additional phenomenon beyond the known combinatorial object. The probability asymptotic rescales the same tabulated count.",
+      "residual_risks": [
+        "This is a standalone value decision for the frozen unit-cycle census; it does not deny the usefulness of the equivalence in studies of unequal weights or other graph families."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

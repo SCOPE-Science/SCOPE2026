@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:05:22.539561Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In characteristic 3 the partials e2−x_i e1+x_i² constrain coordinates to at most two values. For distinct a,b the two gradient conditions are equivalent to e1=a+b and e2=ab, and give (|S|−1)a=(|Sᶜ|−1)b=0 by the first two power sums. With one zero value, the nonzero support r is 1 mod 3 and the additional equation binom(r,3)=0 cuts it down to 1 mod 9. The all-equal nonzero case requires n≡1 or 2 mod 9. With two nonzero values, block sizes 1+3u and 1+3v give cubic u a³+v b³ by the degree-three coefficient of the block product. Equal nonzero residues yield the signed points; opposite nonzero residues force a=b; a single nonzero residue cannot give two nonzero values; both zero give entire partition lines. This exhausts geometric support and gives the counts and concurrence by unordered bipartitions. The homogeneous Hessian has off-diagonal entry e1−x_i−x_j and zero diagonal: its split blocks have rank n−1 for the node residues and n−2 at the other isolated points and along the distinct-value line locus. Dividing the radial direction out on a projective chart, rank n−1 gives a reduced ordinary double point. Rank n−2 gives gradient tangent dimension one; a two-block projective line lies in the gradient scheme through the point, forcing the local ring to be regular of dimension one and the line to be the whole local scheme there. Restriction of e3 is a nonzero cube at the isolated support, of length three, and identically zero at the generic line points, giving generic reducedness. This does not decide the scheme at the common diagonal in the line regime. Multilinearity partitions variables in any factorization; homogeneous factors would fix the number drawn from either side in every monomial, contradicted by exchanging a cross-part pair while keeping two other indices. Normality then follows by S2 and singular codimension at least two, including the first line case n=11. `python3 /workspace/branches/independent_checks.py 4` checked weighted projective F3 multiplicity types via block coefficient and deletion formulas for 4≤n≤40, reproducing 5, 43, 11, 2731 isolated points at n=5,8,10,14 and 11 and 92398 line components at n=11,20 by the verified point counts 34 and 277195. The finite check corroborates support and counts, not geometric exhaustiveness, Hessian length, or normality; the uploaded checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For d=p=3, Q=3^v3(n−2), Xie's Theorem 1.1 gives affine dim Z2=1+1_{Q>3}, so projective dimension jumps exactly when n≡2 mod 9.",
+          "Theorem 1.3 gives exactly the extremal two-block spaces with sizes 1 mod 9 and generic multiplicity one. Their projectivizations are the named lines; the count and pairwise concurrence are direct combinatorial implications.",
+          "Xie's Theorem 1.4 gives the generic axis local ring F_S[t]/(t^Q), with Q=3 when n≡5,8 mod 9 and Q=1 in the node residues. The disclaimed smaller-dimensional and embedded components are not thereby classified.",
+          "The earlier Orzel threshold would suggest a jump when 3 divides n−2; Xie identifies the correction for Z2 in this degree/characteristic. I do not use the ambiguous extracted converse of Orzel's lemma as coverage."
+        ],
+        "reasoning": "The general result is stronger for dimension and extremal components, including generic line reducedness; its coordinate subspace formulas do not handle the signed or larger-support isolated points. A dimension bound alone cannot exclude smaller-dimensional components in the line regime.",
+        "searches": [
+          "arXiv:2610.00259v1, Theorems 1.1, 1.3, 1.4 and §§2, 7",
+          "arXiv:2509.05009v3, Lemma 1.7",
+          "Focused primary-literature lookup for characteristic-3 e3 singular strata, partition components, and multiplicities"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and metadata/self-review",
+        "arXiv:2610.00259v1",
+        "arXiv:2509.05009v3",
+        "arXiv:1109.2265v1",
+        "Resultary entry 38a8b313cefd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A prior partition restriction is not the cubic equation on each block locus. Here that equation is ua³+vb³, which yields the signed point strata and their exact census.",
+          "The isolated local algebra at every support point requires the projective Hessian plus the cubic restriction along the smooth critical line; a generic coordinate-axis computation does not give this at a signed point or general indicator.",
+          "The full set in the line residue requires ruling out any remaining points off the partition lines. Integrality and normality by the dimension bound and elementary algebra are not credited as a novelty increment."
+        ],
+        "reasoning": "There is substantial exact prior coverage, not just thematic overlap. The frozen conjunction still determines geometric points and local types that do not follow as direct instances of the inspected prior theorems.",
+        "searches": [
+          "Xie arXiv:2610.00259v1, Theorems 1.1–1.4 versus frozen point list and curvilinear local algebra",
+          "Cafure–Matera–Privitelli arXiv:1109.2265v1, §3 Theorem 3.1 and Remark 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projectivization of Xie's affine Z2(e3), not of the gradient-only C1(e3), is the scheme here. In characteristic 3, Euler's identity does not let one remove the cubic equation.",
+          "Cafure–Matera–Privitelli's distinct-coordinate and partition-space approach covers the gradient reduction as a method but does not supply these support and local algebra formulas."
+        ],
+        "reasoning": "The earlier multiplicity-locus framework is exactly the right scheme after projectivizing; changing to projective language does not make its known dimension or block components new. The completeness and local algebras at the residual points have to be compared separately.",
+        "searches": [
+          "Resultary: e3 elementary-symmetric cubic Jacobian/multiplicity scheme, characteristic three, two-value partitions and signed singular points",
+          "Xie arXiv:2610.00259v1, §§1–2; Cafure–Matera–Privitelli arXiv:1109.2265v1, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-all-isolated-singular-points-of-elementary-symmetric-cubic-hyper--38a8b313cefd repeats the full isolated support and binomial counts, including n=8 with 43 points. It excludes n≡2 mod 9 and does not claim the local Jacobian lengths or normality.",
+          "Xie's theorem already supplies the line components whose distinct-split count is B_n/2."
+        ],
+        "reasoning": "The catalogue census is an exact overlap with the isolated support part, not a new name for a different family. It postdates the Oct. 18 frozen entry by listed publication dates, with no independent evidence about provenance or priority. No earlier exact census including the noncoordinate support and its scheme structure was found in this bounded search.",
+        "searches": [
+          "Resultary: exact isolated singular points of elementary-symmetric cubic in characteristic three, signed support modulo nine, n=8 count 43; partition lines and Jacobian schemes"
+        ]
+      },
+      "rationale": "Xie already gives the dimension cutoff, the precise extremal partition lines and their generic reducedness, and the coordinate-axis local rings in the isolated cases. The line count and concurrence follow immediately from those named lines, and normality is routine from integrality and the dimension estimate. The distinct supported increment is the complete geometric support including all noncoordinate strata and exhaustion away from the extremal strata, together with the node/curvilinear classification at every isolated point. A later-dated catalogue record overlaps the complete isolated point census, without deciding the local schemes or earlier priority.",
+      "residual_risks": [
+        "The later entry's origin and dependence on the frozen claim are not determined by catalogue dates.",
+        "An unindexed exact characteristic-three calculation or an uninspected specialization might overlap the noncoordinate isolated local-scheme results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Dimension, extremal partition spaces, generic reducedness, and coordinate-axis local rings are prior; completeness and other isolated loci are not stated there.",
+          "evidence": [
+            "For Z2 the requisite block modulus is the smallest p-power strictly greater than d, here 9; every extremal component is generically smooth and multiplicity one. Theorem 1.4 gives the axis Artinian local ring. The text explicitly disclaims classification of smaller-dimensional or embedded components."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00259v1",
+          "material_read": "Theorem 1.1 p. 2, Theorems 1.3–1.4 pp. 3–4 (offsets 8741–11918), §7 p. 9",
+          "method": "Original OA PDF passages",
+          "title": "Derivative and multiplicity loci of elementary symmetric polynomials in positive characteristic",
+          "trigger": "General theorem on exactly the relevant multiplicity scheme"
+        },
+        {
+          "assessment": "General restrictions, no full mod-nine support or scheme census in the inspected theorem.",
+          "evidence": [
+            "Restriction by number of distinct coordinate values and containment in partition spaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.2265v1",
+          "material_read": "§3 Theorem 3.1 p. 10 and Remark 3.2 p. 11",
+          "method": "Original OA PDF passages",
+          "title": "Singularities of symmetric hypersurfaces and an application to Reed–Solomon codes",
+          "trigger": "Earlier symmetric hypersurface singularity bounds and partition spaces"
+        },
+        {
+          "assessment": "Dimension-related antecedent, not an exact classification; apparent threshold needs correction in this specialization.",
+          "evidence": [
+            "Order-two locus bounds and a threshold involving n−2; no classification of signed points or length-three rings at them."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.05009v3",
+          "material_read": "Lemma 1.7 p. 6",
+          "method": "Original OA PDF passage; compared to correction in Xie",
+          "title": "Computing the Elementary Symmetric Polynomials in Positive Characteristics",
+          "trigger": "Earlier order-two dimension criterion"
+        },
+        {
+          "assessment": "Exact isolated support overlap; later listed date, no local scheme or positive-dimensional classification.",
+          "evidence": [
+            "Same indicator and signed sets and count 43 for n=8; excludes n≡2 mod 9."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-all-isolated-singular-points-of-elementary-symmetric-cubic-hyper--38a8b313cefd",
+          "material_read": "RESULT.md Finding in the local mirror",
+          "method": "Read local published snapshot",
+          "title": "All isolated singular points of elementary symmetric cubic hypersurfaces in characteristic three",
+          "trigger": "Exact overlap of point and count strata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local and support invariants refine a previously established dimension transition for a basic symmetric hypersurface. They detect the noncoordinate signed stratum (35 extra points already at n=8), distinguish reduced nodes from a length-three curvilinear singular scheme, and determine the full reduced geometry in the one-dimensional residue. The geometric census is meaningful even given prior dimension and generic coordinate results; the concurrent point's full scheme is not needed for the stated value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

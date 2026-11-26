@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:40:02.938229Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–53",
+        "Frozen VERIFICATION.md, verification_output.txt and verify.py inspected but not executed",
+        "Independent Python replay /workspace/branches/replay_projective_codes.py (executed successfully)"
+      ],
+      "rationale": "A full-rank binary generator with distinct nonzero columns is a set of projective points; coordinate permutations and change of basis identify exactly its GL orbit. An independent replay enumerated all ordered bases to generate GL(k,2) explicitly (rather than growing the orbit by transvections). For k=1 through 4 every subset was inspected or marked as an image in an orbit; a zero weight for a nonzero information vector detects lack of full rank. The resulting 1, 2, 6 and 36 full-rank classes have pairwise distinct sorted nonzero weight lists in each dimension. The dimension-zero projective case allows only length zero. For length ≤7 and dimension ≥5, an independent short proof replaces the frozen small-length census: the dual has dimension at most two and its enumerator is fixed by MacWilliams. In dimension two the three nonzero weights, assigned up to GL(2,2)=S_3, determine the three nonzero column multiplicities by the pairwise-sum equations and the common length then gives the zero multiplicity. Dual dimensions zero and one are immediate. Dualizing commutes with coordinate permutation. The two [8,5] witnesses are full-rank and projective, and direct exact enumeration confirms both the indicated polynomial and the weight-two information-vector sets {8,16,24} and {2,8,16}. Their different ranks force, under every isomorphism, both a stretch ≥3/2 on a source weight-two word and a stretch ≤2/3 for some target weight-two word's preimage. The stated independent basis images yield the full weight-pair table and exactly those extrema, proving 9/4. This value concerns the designated pair only; the exclusion census assumes projectivity.",
+      "residual_risks": [
+        "The replay exhausts the proved small-dimension regime and checks the designated pair, not every projective length-eight pair's distortion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older classification covers every projective binary code of dimension up to six. Lemma 4.1 is an exact brute-force distortion algorithm for arbitrary same-parameter linear codes."
+        ],
+        "reasoning": "The domain is indeed covered by the classification and the problem is within the scope of the algorithm; the inspected results do not prove the spectral separation of classes or give the specific pair's exact optimal ratio. The contribution is not a new orbit classification or algorithm.",
+        "searches": [
+          "Bouyukliev DOI 10.1016/j.dam.2006.03.004, abstract and Appendix 1",
+          "Bennett–Fox–Morrell arXiv:2607.26261v1, Definition and Lemma 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Bouyukliev (2006), abstract and Appendix 1; linked catalogue attempt",
+        "Ding, arXiv:2010.03184",
+        "Bennett–Fox–Morrell, arXiv:2607.26261v1",
+        "Resultary 17a2f2b6a09c and ceb01d6cdac7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier indexed distortion formula ((2t+2)/(2t+1))² is for a different, nonprojective binary family.",
+          "MacWilliams converts short high-rank instances to dual dimension ≤2; the remaining rank-four spectral rigidity requires comparing weight classes.",
+          "The lower bound 9/4 uses different ranks for the entire minimum-weight layers in the designated pair, and the exact attaining map is checked separately."
+        ],
+        "reasoning": "The pair is not a parameter specialization of the prior formula. Generic exhaustive computability is not the output or an explanation of this optimum; the analytic lower bound and explicit upper bound pin it down.",
+        "searches": [
+          "Bouyukliev Appendix 1",
+          "Bennett–Fox–Morrell Lemma 4.1",
+          "Resultary 17a2f2b6a09c §Finding",
+          "Frozen RESULT.md weight-layer ranks and distortion proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projective weight distributions equivalently arise from Walsh spectra; the associated function depends on a choice of basis.",
+          "The earlier binary dimension-three family uses repeated columns; the indexed quinary classification concerns dimension two over F_5, with first collision at six and distortion 36/25."
+        ],
+        "reasoning": "Translating to spectra does not remove the GL inequivalence question, and neither repeated-column binary configurations nor quinary projective points meet the hypotheses. Duality accounts for the elementary length-at-most-seven exclusion in dimensions above four.",
+        "searches": [
+          "Ding arXiv:2010.03184, Theorem 4 and following weight–Walsh passage",
+          "Resultary 17a2f2b6a09c, isospectral binary distortion",
+          "Resultary ceb01d6cdac7, projective quinary isospectral classification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published aggregate entries contain the 36 dimension-four classes and the dimension-five counts 1, 4, 8, 15 at lengths 5–8, including the five distance-one and ten distance-two length-eight classes.",
+          "The linked site returned a landing page, not individual code representatives or full enumerators."
+        ],
+        "reasoning": "Counts by distance and automorphism order do not settle collisions of full distributions. If the linked catalogue lists the actual full distributions, comparing those would be a direct comparison; no such entries were available to read.",
+        "searches": [
+          "Bouyukliev author manuscript q2_d6.pdf, Appendix 1 at OA offsets 14514 and 18393",
+          "Author's linked online projective code list (lawful website attempt)",
+          "Resultary projective spectrum cutoff and exact distortion matches"
+        ]
+      },
+      "rationale": "Credit the prior classes and aggregate counts entirely to Bouyukliev, and the general exact distortion problem to Bennett–Fox–Morrell. The short-length exclusion is also an elementary consequence of MacWilliams and the dimension-at-most-two dual calculation, not a standalone new classification. The supported distinction is the combined first projective binary full-enumerator collision boundary and the weight-layer rank obstruction and attaining map for the designated pair. The historical classification contains both classes and could be used as input to calculate the spectra, but the inspected aggregate tables do not determine the full spectra or their collisions, and the complete online representative data could not be inspected. A prior nonprojective isospectral distortion family does not violate or settle this boundary.",
+      "residual_risks": [
+        "The uninspected full historic online list may contain full weight distributions or code representatives making some or all of the threshold implicit. The published aggregates establish no such enumeration comparison by themselves.",
+        "A search miss for the literal ratio in the distortion literature is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior classification and matching counts; individual web catalogue weight data inaccessible in this check",
+          "evidence": "Table includes 36 dimension-four classes, and 15 distinct dimension-five length-eight classes with minimum distances one and two. The inspected table reports aggregates, not full Hamming enumerators.",
+          "identifier_or_url": "https://www.moi.math.bas.bg/moiuser/~iliya/q2_d6.pdf",
+          "material_read": "Abstract p. 1, OA offset 0; Appendix 1, OA offsets 14514, 18393; linked online catalogue landing page only",
+          "method": "Lawful author PDF and bounded website attempt",
+          "title": "On the Binary Projective Codes with Dimension 6",
+          "trigger": "Direct priority risk: complete classification with the exact dimensions and lengths"
+        },
+        {
+          "assessment": "Prior correspondence, not an implication of projective isospectral rigidity",
+          "evidence": "Every projective binary code has a Boolean-function representation whose Walsh spectrum gives the weight distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.03184",
+          "material_read": "Theorem 4, p. 4 offset 10814; weight–Walsh comparison pp. 5–6 offset 14729",
+          "method": "Lawful OA PDF passage read",
+          "title": "The construction and weight distributions of all projective binary linear codes",
+          "trigger": "Potential equivalent spectral formulation"
+        },
+        {
+          "assessment": "Prior framework and generic algorithm, not an evaluated optimum for this pair in those passages",
+          "evidence": "Enumerates generator matrices to compute exact minimum distortion; no specified pair of these projective [8,5] codes in the inspected result.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.26261v1",
+          "material_read": "Definition on p. 2 at offset 5912, Lemma 4.1 p. 19 at offset 69970, main results",
+          "method": "Lawful OA PDF passage read",
+          "title": "The Code Distortion Problem",
+          "trigger": "Definition and general exact result could cover computation"
+        },
+        {
+          "assessment": "Real thematic overlap, not projective or the same pair",
+          "evidence": "[6+7t,3] pairs have repeated columns and exact distortion ((2t+2)/(2t+1))².",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-distortion-of-an-isospectral-binary-code-family-in-dimensi--17a2f2b6a09c",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded source read",
+          "title": "Exact distortion of an isospectral binary code family in dimension three",
+          "trigger": "Earlier exact binary isospectral distortion"
+        },
+        {
+          "assessment": "Different field and dimension, later dated",
+          "evidence": "Rank two over F_5, enumerator 1+8z^4+8z^5+8z^6 at first collision and distortion 36/25.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quinary-rank-two-weight-isospectral-codes-a-complete-projective--ceb01d6cdac7",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and bounded source read",
+          "title": "Quinary rank-two weight-isospectral codes: a complete projective classification",
+          "trigger": "Indexed first projective ambiguity with exact distortion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–7",
+        "Bouyukliev aggregate comparison",
+        "Exact independent replay and low-dimensional dual proof"
+      ],
+      "rationale": "Weight enumerators are basic invariants and projectivity excludes multiplication of columns, a natural mechanism behind easy counterexamples. Giving both sharp exclusion axes and a smallest projective collision answers when this strong invariant first ceases to classify. In the first dimension and length, inequivalence has a compact geometric explanation in the minimum layer, which also provides the exact optimal distortion rather than merely detecting its difference from one. This ties the independently useful boundary to an intrinsic metric comparison; the class counts are not counted again as a contribution.",
+      "residual_risks": [
+        "Not a classification of all larger spectral collisions or a worst-case distortion claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

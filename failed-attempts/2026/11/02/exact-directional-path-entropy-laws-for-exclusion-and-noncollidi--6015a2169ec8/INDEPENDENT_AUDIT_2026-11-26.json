@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:07:12.724100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof, lines 5–87",
+        "Frozen VERIFICATION.md, verification_output.txt and verify.py, which report 8839 assertions (uploaded code inspected, not executed)",
+        "Independent /workspace/review_checks/check2.py: direct jump-generator KL sums for the 21 interior (n,k) configurations of sizes n=4..9 and two-particle gap checks"
+      ],
+      "rationale": "The centered Fourier determinant gives the same incoming and outgoing Vandermonde eigenvalue R, with the wrap-around signs canceling, and Cauchy–Binet normalizes NC. The stationary clockwise means of the adjacent-pair count are k(k−1)/(n−1) and (k²−R²)/n. The log jump-rate ratios telescope, and stationarity cancels the endpoint term in both directions; the initial stationary density ratio must remain. These calculations give the stated coefficients. A one-block configuration and a two-block configuration have different Ex exit rates, whereas the NC exit rate is constant, so the strict jump-rate entropy inequality applies in both directions. The sparse expansion and the two-particle limits follow: the uniform oriented gap is 1/(n−1) and the NC gap has mass 2 sin²(πd/n)/n, giving the reverse sine-product identity and the forward integrable beta-derivative limit 1−log 2.",
+      "residual_risks": [
+        "Numerical checks are corroborative; the finite-time laws and limits are justified by the analytical calculations, not extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 gives the general exclusion/noncollision change of measure and recovers Johnston’s ring formula. The earlier balanced-biclique record gives paired stationary traffic-to-path-KL formulas for a different graph."
+        ],
+        "reasoning": "The exact ring specialization is stronger than the claimed dynamic KL formulas as it supplies the path likelihood before expectation. The biclique result alone would not determine the ring stationary traffic.",
+        "searches": [
+          "Shiatis arXiv:2610.00741 Theorem 1.4 and TASEP specialization, pp. 4–5; Resultary directed-ring noncollision and traffic path entropy"
+        ]
+      },
+      "checked_sources": [
+        "Johnston arXiv:2207.13538",
+        "Shiatis arXiv:2610.00741",
+        "Resultary records 84ed4797c0f0, d328485c181a, ef4ea58edfd5",
+        "Frozen finding and proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact ring Ex/NC likelihood is h(S0)/h(St) times exp(∫(traffic−c)), with c=k−R. Johnston’s stationary mass is h²/n^k and the Ex stationary distribution is uniform. Its rank-k Fourier projection gives neighbor occupation (k²−R²)/n²."
+        ],
+        "reasoning": "Take expectations of the log likelihood under each stationary law: the endpoint logs cancel, giving alpha=c−E_NC traffic and beta=E_Ex traffic−c. The sparse scales are Taylor expansions. For k=2 the printed stationary law directly gives the normalized sine-squared gap mass, with the sine product and the Riemann sum of 2 sin²(log(2 sin²)) giving the two intercept limits. No genuinely separate stationary distribution, asymptotic parameter regime, or nontrivial estimate remains.",
+        "searches": [
+          "Johnston Theorems 1.11–1.12, Eq. (1.23)–(1.24); Shiatis Theorems 1.1 and 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior pair of processes has exactly the same legal moves, unit Ex edge rates and NC edge rates h(S')/h(S). The sign of the log likelihood reverses when exchanging numerator and denominator. The frozen laws start from separate stationary measures; this multiplies the common-start likelihood by the initial-state density ratio."
+        ],
+        "reasoning": "Different entropy direction and a stationary initial mixture do not change the underlying path comparison. The new mixture gives exactly the intercept, not a new dynamic formula.",
+        "searches": [
+          "Ring clockwise TASEP vs collision-conditioned walks, path-space relative entropy and traffic; Johnston arXiv:2207.13538 Theorems 1.11–1.12; Shiatis arXiv:2610.00741 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier hit 84ed4797c0f0 concerns balanced K_{m,m}; hit d328485c181a concerns unequal-rate noncolliding directed-ring walks without the KL comparison; later hit ef4ea58edfd5 concerns activity variance for symmetric exclusion."
+        ],
+        "reasoning": "None of these inspected records is the exact ring KL table. The graph, walk direction, and measured observable prevent equating those records with the candidate. The published likelihood gives independent positive implication evidence.",
+        "searches": [
+          "Resultary directional path KL exclusion noncolliding directed ring; exact traffic dynamics and path-space entropy; two-particle n² time scale"
+        ]
+      },
+      "rationale": "The paired stationary KL formulas are immediate consequences of the exact prior ring likelihood and squared Fourier-Vandermonde stationary law, with standard adjacent-site marginals. The k=2 residual intercept is not printed in the inspected prior sources but is a direct two-site evaluation of their explicit stationary law, not a separate nonmechanical result. This is a prior-implication verdict, not a claim of verbatim prior publication.",
+      "residual_risks": [
+        "No exact printed priority for the named alpha/beta formulas or the forward intercept was found; the fail rests on the displayed mathematical implication, not negative search evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides both the full change of measure and explicit stationary law used in the frozen KL calculation.",
+          "evidence": [
+            "Theorem 1.11 gives Vandermonde jump rates and squared Vandermonde stationary mass.",
+            "Theorem 1.12 gives the TASEP/NC path likelihood with endpoint ratio and integrated traffic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.13538",
+          "material_read": "PDF pp. 8–9, Theorems 1.11–1.12 and Eq. (1.23)–(1.24), OA text offsets approximately 31100–34900",
+          "method": "Bounded OA PDF passages",
+          "title": "Continuous Kasteleyn theory for the bead model",
+          "trigger": "Same directed-ring processes and exact likelihood"
+        },
+        {
+          "assessment": "Confirms the likelihood and its common-initial-state convention; the additional initial mass factor follows on changing the starts.",
+          "evidence": [
+            "Theorem 1.1 states the traffic functional, circular Vandermonde, and c=k−R.",
+            "Theorem 1.4 specializes to Johnston’s exponential traffic tilt."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00741",
+          "material_read": "PDF p. 2 Theorem 1.1 and pp. 4–5 Theorem 1.4 and TASEP specialization, around OA text offsets 6150 and 15700",
+          "method": "Bounded OA PDF passages",
+          "title": "Exclusion vs Noncolliding Dynamics in Markov Processes",
+          "trigger": "General change of measure with the exact ring specialization"
+        },
+        {
+          "assessment": "Same method and type of observable, but not the directed-ring formulas.",
+          "evidence": [
+            "The graph is balanced K_{m,m} and both walkers are specified, rather than the directed cycle with general k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-traffic-dynamics-and-path-space-entropy-for-two-noncollidi--84ed4797c0f0",
+          "material_read": "RESULT.md finding on both directional KLs and stationary traffic of the balanced biclique",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Exact traffic dynamics and path-space entropy for two noncolliding walkers (balanced biclique)",
+          "trigger": "Closest indexed paired directional path-entropy claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen sparse and k=2 assertions, lines 20–31 and 75–87",
+        "Johnston Theorems 1.11–1.12"
+      ],
+      "rationale": "The directional interpretation is useful, but here the exact slopes and sparse scales are routine stationary expectations and Taylor expansions of the published likelihood. Once removed, the independently worded two-particle remainder evaluates a fixed elementary gap density by the sine product and a beta integral; it does not supply a substantive new invariant beyond these explicit prior laws.",
+      "residual_risks": [
+        "The result can serve as a convenient exposition of an information-theoretic consequence; this does not establish independent scientific value."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

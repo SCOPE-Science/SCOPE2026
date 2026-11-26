@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:28:36.104310Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Greedy arches give both a witness for universality and an absent word one letter longer (take the successive arch-ending letters and then a letter missing from the remainder). Appending binary digits gives the four-state substitution in the record. The level-four transfer table reproduces the two empty-state counts, the effects of the three incoming states, and the common outgoing state for each block type. Concatenation gives a_(k+1)=a_k+b_k+e_k, b_(k+1)=a_k+b_k+1-e_k and e_(k+1)=1-e_k; solving gives the exact parity correction. Aligned blocks at each scale j>=4 contribute at most one unit of error from 5*2^j/16 even when a symbol is pending. The combined lower scales have length at most 15, so the log bound also covers N<16. Separately, an independent bounded script confirmed the transfer through level 17, compared the two word constructions through length 131072, checked the bound on every prefix through that length and exhaustively compared subsequence universality through length 16. Replay: branches/7abd93d6-5bec-4a48-b94b-8f9bd4a25f3a/independent_check.py. The frozen checker was inspected, not executed; finite checks corroborate rather than replace the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The uniform-density Finding includes the exact prefix formula and extends logarithmic discrepancy at density 5/16 to every contiguous factor.",
+          "Lü et al., PDF p. 1, treat abelian complexity and its recurrence for contiguous-factor Parikh vectors."
+        ],
+        "reasoning": "The catalog's stated all-factor bound is 2*floor(log2 N)+2. Its Step 3 proves an error of at most one per aligned block at every level and in every incoming state. Restricting that proof to prefixes uses at most one block per level, giving floor(log2 N)+1, which also covers the frozen additive constant of 16. Abelian factor complexity is a different statistic and is not an explanation of the coverage.",
+        "searches": [
+          "Resultary 893531ec9160",
+          "arXiv:1606.06935v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 893531ec9160 and 1ffd6b13dc1b",
+        "arXiv:2108.13968",
+        "arXiv:1606.06935v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform-density Finding gives the dyadic index directly and applies to prefixes by taking factors starting at zero.",
+          "The exact-absence Finding gives the dyadic index and additionally counts absent strings; general arch theory alone does not evaluate this word's counts."
+        ],
+        "reasoning": "It is the specialized published statements, not the mere availability of a greedy algorithm, that cover the contribution.",
+        "searches": [
+          "Resultary 893531ec9160",
+          "Resultary 1ffd6b13dc1b",
+          "arXiv:2108.13968"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al., printed p. 216, characterize a shortest absent subsequence using completed arches.",
+          "The two Resultary Findings use binary scattered subsequence universality for the same Rudin–Shapiro normalization and give the same dyadic arch count."
+        ],
+        "reasoning": "Changing between the arch count, universality index and shortest absent length changes only terminology or adds one, not the specialized theorem. Ordinary run count is not equivalent.",
+        "searches": [
+          "arXiv:2108.13968",
+          "Resultary 893531ec9160",
+          "Resultary 1ffd6b13dc1b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both matched Findings give the actual parity-dependent index, not merely the initial sequence 4,10,19,40,79."
+        ],
+        "reasoning": "The indexed match is exact as a law for every k>=4, stronger evidence than a match of a finite numerical table.",
+        "searches": [
+          "Resultary 893531ec9160",
+          "Resultary 1ffd6b13dc1b"
+        ]
+      },
+      "rationale": "The frozen mathematical claim is covered in the inspected published catalog: the uniform Rudin–Shapiro factor theorem gives the identical dyadic formula and a logarithmic discrepancy bound on the larger domain of all factors, and a separate published record also gives the same dyadic index. There is no distinct result left in the frozen statement relative to that coverage. Both catalog dates are later than the frozen record's date; this is a finding of claim coverage, not an inference that those records were first or that this proof was copied.",
+      "residual_risks": [
+        "The catalog comparisons establish coverage, not provenance or historical priority. No inference of priority is made from the dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct dyadic coverage; density and explicit prefix bound implied by the uniform block estimate",
+          "evidence": "Both even/odd prefix cases coincide. Step 3 bounds each block error by one, including small levels, so a prefix has error at most floor(log2 N)+1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-uniform-5-16-subsequence-universality-density-in-the-rudin-shapi--893531ec9160/RESULT.md",
+          "material_read": "Finding and Steps 3–5, mirror text offsets 79 and 4400",
+          "method": "Resultary lookup and bounded local mirror inspection",
+          "title": "Uniform 5/16 subsequence universality density in the Rudin–Shapiro word",
+          "trigger": "Closest indexed overlap in exact formula and density"
+        },
+        {
+          "assessment": "Same dyadic index; further counting claims",
+          "evidence": "States the same dyadic index and adds counts of distinct shortest absent words.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-scattered-subsequence-universality-and-absence-counts-for--1ffd6b13dc1b/RESULT.md",
+          "material_read": "Finding in the mirrored original",
+          "method": "Resultary lookup and local mirror statement inspection",
+          "title": "Exact scattered subsequence universality and absence counts",
+          "trigger": "Exact index and absent-subsequence match"
+        },
+        {
+          "assessment": "General structural antecedent; no specialization in the inspected passage",
+          "evidence": "Arch-based SAS construction and algorithms for testing SAS/MAS.",
+          "identifier_or_url": "arXiv:2108.13968",
+          "material_read": "Printed p. 216, extracted PDF near offset 58000, including Theorem 4.5",
+          "method": "Bounded original PDF text inspection",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Arch characterization and shortest absence equivalence"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Recurrence and 2-regularity for abelian factor complexity.",
+          "identifier_or_url": "arXiv:1606.06935v1",
+          "material_read": "Abstract, PDF p. 1, near offset 950",
+          "method": "Bounded original PDF text inspection",
+          "title": "On the abelian complexity of the Rudin–Shapiro sequence",
+          "trigger": "Same automatic word and an exact complexity theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact parity correction and the uniform prefix error quantify a natural scattered-subsequence invariant of a classical automatic word. They are not routine consequences of letter frequencies or abelian complexity; the transfer analysis needs control of the state across block boundaries. The result is useful mathematically even though the same claim is now covered by the published catalog.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

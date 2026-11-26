@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The theorem is a consequence of an explicit common probability-space construction from independent exponential first-arrival order statistics and post-arrival Poisson counts. The proof verifies the moving-index lower-Poisson-tail estimate uniformly away from its mean, isolates early spacing indices using a strict exponent gap, obtains the pathwise conditional-mean integral and its endpoint factor, and uses conditional variance bounds for joint convergence. An independent exact finite moment identity and uniform-integrability argument give the limiting mean. The embedded diagnostic checks test finite identities but are not substituted for these asymptotic arguments. The strict domain \(0<\alpha<1\) is essential.
+## correctness
 
-**Originality (PASS, subject to independent priority verification).** Long (arXiv:2606.29635) gives the common top-spacing coupling but proves exponential limits only for fixed sibling indices, and expressly leaves varying indices outside its theorem. The current logarithmically growing index theorem has a different power-of-exponential limit law, finite-dimensional shared-amplitude profile, and a Gamma mean constant; these are not implications of a fixed-index limit. Doumas–Papanicolaou (arXiv:1412.4346 and 2005.05270) establish fixed-index expected-deficit and first-sibling asymptotics, respectively, while Doumas–Spektor (arXiv:2606.21591) treat finite-sample extremality. Targeted mathematical-record searches surfaced no theorem covering these moving-index claims. The dominant residual originality risk is an earlier unindexed occupancy limit at a logarithmic sibling index.
+PASS
 
-**Value (PASS).** The motivating work identifies growing sibling indices as a natural unsolved extension. The theorem settles a substantial interior regime, establishes a nonexponential change of universality class relative to fixed siblings, identifies the full finite-dimensional dependence profile, and matches the exact expected-deficit asymptotic with the random limit. The constants and limiting laws describe the missing-album population at a genuinely new scale, not an arbitrary small parameter example.
+Final claim and proof checked in repairs/4/RESULT.md. The original Step 4 claimed uniform convergence of the denominator factor on a fixed relative neighborhood of L=log N. At t=(1−ε)L with fixed ε>0 it instead tends to 1/(1−α/(1−ε)), so that step was not justified as written. The replacement uses [L−sqrt(L),L], on which k/(t−log W) tends uniformly to α, and an explicit exponential upper bound on the complementary power mass. The claim and scope are unchanged. In the simultaneous gap representation S_l−log l converges almost surely by summable centered gap variances; l exp(−S_l) has the exponential limit by the exact maximum law, giving the same W across all coordinates. For m=j−1, k=m−1, the tail series divided by its last term converges uniformly to the geometric sum when k/S_l is bounded below 1. Choose α<δ<β=α(1−log α) so l≤N^δ contributes o(b_N) and the other l stay in that uniform tail regime. The repaired cell derivative bound and window estimate give conditional mean b_N W^(1−α)/(1−α) to relative o(1) almost surely; conditional variance ≤ mean and a finite union bound give the asserted convergence in probability. As a cross-check, conditional on the largest first-arrival time t=L+g, each nonlast type is missing independently with probability Pr(1≤Pois(t)≤m)/(1−e^(−t)); dividing the conditional mean by b_N gives exp(−(1−α)g)/(1−α)+o(1) uniformly for compact g, matching the shared Gumbel amplitude. For expectations the repaired proof sums the Gamma(m,1) arrival tail against the S_l laws, getting E[M_N^m]/m! exactly. The bound Pr(M_N−L>x)≤e^(−x) and pγ<1 for some p>1 and α<γ<1 give uniform integrability. The mean Γ(1−α) and the marginal CDF then follow by the exponential law. This replay is analytic; frozen verify.py was inspected, not executed, and its finite checks alone do not test the growing-index conclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The repaired result retains the distinct subcritical logarithmically moving-index joint limit. Fixed-index coupling and means are recognized inputs, not contributions. Neither the exact expectation formula nor the critical-window fluctuation theorem supplies the shared Weibull-power distribution at fixed subcritical ratios.
+
+## value
+
+PASS
+
+The subcritical logarithmic scale is a natural moving threshold in the sibling model: its Poisson cutoff is a fixed fraction of the completion-time scale. The final theorem gives the exact normalizer and a nonexponential law, with the same latent amplitude but different powers across sibling levels and matching mean. That is a useful regime classification between fixed indices and the critical window, rather than a finite-binomial recomputation or a normalizer change without a distributional effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

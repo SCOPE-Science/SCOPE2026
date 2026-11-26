@@ -1,19 +1,21 @@
-# Scientific review: confined sluggish-walk spectral gap
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact reversible Dirichlet form follows from neighboring conductances \(w_kP(k,k+1)=1\). Discrete Sturm oscillation and reflection parity identify the first nonconstant mode as odd. A half-chain variational principle, an explicitly bounded mass-quadrature expansion, and simple-eigenvalue perturbation of a weighted Sturm–Liouville problem prove the two-term finite-volume law, including the nonzero coefficient. The Airy equation supplies an unambiguous first positive root. The supplied verifier checks transition normalization, detailed balance, both spectral reductions and numerical constants; finite enumeration is not used as the proof of the asymptotic claim.
+PASS
 
-## Originality
+Detailed balance gives unit edge conductances against the masses |k|+2 and normalization L²+5L+2. The first excited Jacobi mode has one sign change; reflection and simplicity rule out an even mode. Its odd restriction gives the stated half-chain quotient, including the single incident edge at L. With h=1/L the scaled gap is the stiffness divided by the right-endpoint mass sum. On each linear cell the L¹ norm of (xf²)'' is bounded in aggregate by a constant times the stiffness, so trapezoidal quadrature has a uniform O(h²) mass remainder relative to stiffness. The order-h mass consists of the endpoint trace f(1)²/2 and the bulk 2∫f², with both signs positive. Differentiation of the simple continuum eigenvalue gives −μ b₁(u)/b₀(u); interpolation and the eigenfunction weak identity bound the discrete eigenvalue error by O(h²) at the scaled level, giving O(L⁻⁵) after rescaling. The stationary limit follows by a Riemann sum; the relaxation parameter is the smallest positive eigenvalue of I−P, equivalently the Poissonized rate. Independent replay: python -B /workspace/review_replay.py 3, using a power-series solution rather than Airy evaluation and half-chain eigenvalues at L=16,64,256,1024. The numerical checks corroborate, not prove, the asymptotic.
 
-**PASS within inspected literature, subject to independent priority review.** The closest source [1] establishes the unconstrained sluggish walk and its \(t^{1/3}\) scaling, but its inspected text does not treat finite symmetric reflecting boxes or spectral-gap corrections. The general HCTRW analysis [2] permits finite reflecting graphs and general spectral representations but does not already state the Airy spectral constant or its order-\(L^{-4}\) lattice correction. The later direct sluggish-walk successor [3] concerns unbounded arcsine path observables. Searches using aliases for reflecting birth–death chains, space-dependent diffusivity, weighted Sturm–Liouville eigenvalues and the numerical constant found no exact coverage in the accessible evidence. A more specialized, unlocated source or an implicit derivation from general theory remains possible.
+## originality
 
-## Scientific value
+PASS
 
-**PASS.** A finite trap is a natural regulator for the spatially increasing waiting times in [1]. The result gives the *exact leading finite-size relaxation scale and its first nonuniversal correction*, a physically measurable equilibration time beyond the unbounded spreading exponent. The correction separates the microscopic trap-weight offset from the reflecting boundary half-cell, permitting quantitative comparison between lattice and hydrodynamic descriptions. It is not a mere recomputation of the source's position density, nor a small unmotivated numerical slice.
+Best-of-knowledge pass for the two-term rejected-boundary box gap, specifically the lattice-sensitive L⁻⁴ term. The walk and its unconfined Airy behavior are known; neither is credited as new. The methods and source comparisons do not establish exhaustive priority.
 
-## Scope and limitations
+## value
 
-The result is for the finite, symmetric, rejected-outward-step confinement of the exact \(1/(|k|+2)\) model. Changed wall conventions and other power-law exponents are not covered. General finite-chain spectral machinery applies, so independent review should particularly investigate whether a previous paper has already performed this precise weighted Airy limit and first correction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite-box relaxation time is a natural measurable invariant of an existing subdiffusive walk. Its exact first correction distinguishes rejected endpoints and the microscopic waiting law from continuum models with the same spreading exponent and leading scale. The coefficient is useful as a finite-size benchmark, not merely another finite numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

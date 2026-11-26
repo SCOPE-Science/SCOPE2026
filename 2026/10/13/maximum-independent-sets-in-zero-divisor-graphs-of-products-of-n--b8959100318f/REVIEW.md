@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every maximum independent set saturates each support cell it meets, reducing the graph problem to a positive-weight intersecting-family problem on nonempty proper supports. Complementary supports give a universal upper bound. Because every \(q_i-1>1\), logarithmic support weights are strictly positive: two heavier-than-complement supports cannot be disjoint; a heavier support cannot be disjoint from a tied support; and two disjoint tied supports must be exact complements. This proves attainability, equality classification, the independence formula, and the count \(2^\tau\). The packaged verifier exhausts all complement-pair choices in several cases through five factors and agrees with the known three-factor formula.
+PASS
 
-## Originality
+A nonzero zero-divisor has nonempty proper support. Products vanish exactly for disjoint supports, so support cells are independent and duplicating a selected vertex within its cell creates no edge. A maximum independent set therefore takes whole cells, and the admissible support families are pairwise intersecting. Each complement pair gives a separate upper bound by the larger cell weight. Independently of logarithms, put P=∏a_i. A heavier or tied cell has weight at least √P. If two such supports are disjoint, their weight product equals the weight of their union and is at most P; because every a_i>1, equality requires a full union and two ties. Thus the only conflicts among heavier or tied supports are the tied complementary pairs themselves. Selecting exactly the stated sides achieves the bound, with all choices at ties independent; positivity forces every equality case to have this form. Summing the two weights of each pair counts N, and passing from unordered to ordered supports yields the factor 1/4. At (3,4,7) the two strict-heavy cells contribute 12 and 18 and the one tied pair contributes 6, giving 36 and two maximizers.
 
-PASS. The closest direct paper inspected in full is Alikhani–Mirvakili, arXiv:1301.1452. Its Theorem 4 gives a lower bound for arbitrary products, while Theorems 5–7 give exact case analyses only for three, four, and five factors. No arbitrary-factor exact formula or classification of all maximum independent sets was located there. Direct database searches for exact arbitrary-factor independence, maximum independent sets, support-weight formulations, and complement-pair formulations returned other invariants or different algebraic graph constructions. Searches of broader weighted-intersection literature located product-measure theorems in different parameter regimes, but no statement found implies this positive-odds complement-pair classification.
+## originality
 
-## Value
+PASS
 
-PASS. Independence number is a standard invariant of zero-divisor graphs, and the prior literature explicitly pursued exact formulas by factor count. The theorem turns the three-, four-, and five-factor casework into a uniform arbitrary-rank rule, identifies every extremizer, and isolates the nonbinary condition as the exact mechanism making complement choices compatible. The result is self-contained and reusable for further extremal questions on finite reduced ring graphs.
+Credit the support-cell setup and exact independence numbers in ranks two through five, and the known arbitrary-rank lower bound, to earlier work. The supported contribution is the closed sharp formula without a rank constraint for heterogeneous nonbinary products, together with the complete equality classification and exact tied-choice multiplicity. The closest inspected broader and indexed results did not cover that increment.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Maximum independent sets in direct products of fields are natural ring-graph objects. The result gives an exact arbitrary-rank rule for both optimal size and nonuniqueness, and explains how multiplicative balance of field-unit counts governs nonuniqueness without separate rank-by-rank casework. Knowing exactly which cells persist or can switch is useful beyond the scalar independence number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

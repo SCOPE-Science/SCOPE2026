@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification and reproducibility
 
-Run `python3 verify.py` using standard-library Python 3. The code compares direct weighted enumeration of every parent-choice tree with the exact conditional-martingale covariance formula at all n=3,...,7, i<n, and alpha=-2,-1,0,1,2 (100 independent exact-rational identities); 99 sign checks and five additional limit/constant checks total 204. The program was executed against its actual packaged path successfully.
+Run `python3 verify_limit.py` with standard-library Python 3. It tests the finite telescope in equation (3) exactly and compares the resulting finite covariance to direct parent-sequence enumeration for orders 2 through 6 and exponents −3, −2, −1, 0, 1, 2, for 90 exact comparisons. It also checks the rational constants of the explicit sign-reversal example at exponent −2. The original `verify.py` is unchanged; it covers the finite covariance identity and selected checks for the linearly weighted example, not the endpoint rearrangement.
 
-These finite checks do not establish a theorem at arbitrary real alpha or infinite n; these are shown analytically in RESULT.md. The public scientific literature provides the original weighted tree model and known total-path-length innovation structure; neither an independent proof audit nor an independent novelty assessment has taken place.
+The infinite-size and large-label conclusions use the analytic argument in `RESULT.md`. In particular, the finite telescoping term in (3) and the Cesàro term in (2) must be combined before reading off the boundary contribution when the total weight is finite.

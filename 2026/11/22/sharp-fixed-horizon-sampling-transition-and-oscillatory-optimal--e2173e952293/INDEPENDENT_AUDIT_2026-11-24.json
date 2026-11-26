@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:05:35.518509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–110; VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/review-checks/analytic_sanity.py, record 1 spot checks"
+      ],
+      "rationale": "Cauchy–Binet gives the sum of three squared minors including a zero minor for coincident times, so independent replicates yield equal objective values at the endpoints. The reduced objective has derivative with the sign pattern of an affine sinusoid of period π: its amplitude strictly exceeds the offset by the squared-amplitude test, since sinh(ηΦ)>η|sin Φ|. The endpoint derivative signs force only a minimum in the short interval; at Φ=θ the terminal zero crosses downward, so it is positive immediately to the left and there is still no interior maximum. For θ<Φ<π the negative terminal derivative beats both equal endpoints; there is at most one interior downward crossing. For Φ≥π the multiplicative decay per π excludes every later period from positive global optimality, and the test x=θ strictly beats the endpoints of [0,π], including resonances. For Φ=π (and all integral multiples) factoring the sin² gives x=θ directly. Uniform convergence to the limiting objective and F₀′(θ)=−2 then give an O(q) root displacement; Taylor expansion and the uniformly bounded phase derivative of the perturbation give the stated first-order term and O(q²) remainder. Fixing small positive and negative residual phases makes that leading sign alternate on unbounded sequences. An independent direct Gram-matrix calculation spot-checked the reported two interior examples and a multiple-period resonance.",
+      "residual_risks": [
+        "Nonmaterial proof typo at line 98: f(π)≤f(0), not always strict; equality occurs when sin Φ=0. The strict dominance f(θ)>f(0) in (9) already supplies the needed conclusion in both cases.",
+        "The expansion is for fixed positive η; the finite diagnostic does not certify all horizons."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The retrieved semigroup-frame abstract concerns continuous frame characterization; the complex OU abstract concerns a stochastic trend/parameter design and reports equidistant sampling; the discrete sample-observability abstract concerns state reconstruction with sparse observations."
+        ],
+        "reasoning": "None of the inspected statements computes the D-criterion here: known generator, deterministic amplitudes, independent measurement noise, and exactly two pinned and one free event. This is a claim-level comparison, not a ruling about all results in those papers.",
+        "searches": [
+          "arXiv:2611.13867v1, 1704.05719v1, 2204.06451v3; first-page abstracts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 112–129",
+        "Resultary 718ab126a5c2, fd2b83b9ab32, 8ad879b45d26, f516fee65ff8, 6b4e061b93c9",
+        "arXiv:1704.05719v1, 2611.13867v1 and 2204.06451v3 (abstracts)",
+        "Focused external literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jordan and real-exponential cases do show comparable endpoint-to-interior transitions but with at T=a⁻¹ and a logarithmic-mean threshold, respectively. Neither states an amplitude-versus-offset inequality in the oscillatory case, period dominance or sign-changing phase correction."
+        ],
+        "reasoning": "The strongest overlap is the occurrence of a threshold in related designs. It does not mechanically yield the new threshold from the endpoint derivative, or the all-horizon uniqueness and signed offset, which use the specific damped sinusoidal objective.",
+        "searches": [
+          "Resultary Finding passages 718ab126a5c2, fd2b83b9ab32, 8ad879b45d26; frozen proof lines 55–104"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact design can be recast as two exponentially damped sine/cosine regressors with independent scalar errors. Resultary 718ab126a5c2 shares the regressors, scalar output, event count and determinant, but chooses the spacing in (0,h,2h) rather than varying t at fixed T.",
+          "The pinned Jordan and real-exponential records 8ad879b45d26 and fd2b83b9ab32 share the determinant design template, not the rotational regressors."
+        ],
+        "reasoning": "Equal spacing fixes t=T/2 at a given T, so that optimizer cannot classify replication or an independently movable third time. Real-mode and Jordan formulations do not preserve the damped periodic minors.",
+        "searches": [
+          "Resultary: three-time damped oscillator observability, pinned-endpoint D-optimal sampling for a damped semigroup",
+          "Focused literature search: pinned/free-time three-event D-optimal design for initial coordinates of a damped oscillator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest records 718ab126a5c2, fd2b83b9ab32, 8ad879b45d26 were compared on their available Finding passages. Also compared indexed f516fee65ff8 and 6b4e061b93c9: two-time worst-direction and least-frame-bound optimizations, respectively."
+        ],
+        "reasoning": "No distinct inspected catalogue claim has the three-event determinant with pinned endpoints and a free placement. Same-day records were checked on content, not assumed to be earlier or later.",
+        "searches": [
+          "Resultary: pinned, strong-damping, and optimal-spacing records for planar rotations and nonoscillatory frames"
+        ]
+      },
+      "rationale": "Qualified pass for the exact horizon partition and unique all-horizon interior optimizer with signed oscillatory drift under the stated three-event design. The closest prior conclusions either constrain the times to a different design or use different mode families or objectives. The determinant reduction and perturbation methods alone are standard.",
+      "residual_risks": [
+        "Expanded mirror reads timed out; the arXiv comparisons are abstract-level and do not rule out body-level results.",
+        "An earlier equivalent specialization could be phrased in exact-design or oscillatory regression literature; no historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-regressor statement, different sampling constraint",
+          "evidence": "Equally spaced 0,h,2h and strong-damping spacing/envelope rather than fixed T with free t.",
+          "identifier_or_url": "718ab126a5c2",
+          "material_read": "local-mirror RESULT.md Finding, character offset 85",
+          "method": "Resultary and local mirror; expanded read timed out",
+          "title": "Sharp strong-damping observability envelope for three-time oscillator sampling",
+          "trigger": "same oscillator, scalar output, three-event determinant"
+        },
+        {
+          "assessment": "Structural analogue, different signal family",
+          "evidence": "Two real decay rates and a logarithmic-mean transition, with no periodic phase.",
+          "identifier_or_url": "fd2b83b9ab32",
+          "material_read": "local-mirror RESULT.md Finding, character offset 82",
+          "method": "Resultary and local mirror",
+          "title": "A sharp horizon transition for pinned observations of two exponential modes",
+          "trigger": "same pinned-endpoint design geometry"
+        },
+        {
+          "assessment": "Structural analogue, different signal family",
+          "evidence": "Damped Jordan threshold aT=1, not an oscillatory rotation.",
+          "identifier_or_url": "8ad879b45d26",
+          "material_read": "local-mirror RESULT.md Finding, character offset 78",
+          "method": "Resultary and local mirror",
+          "title": "A sharp horizon bifurcation for pinned damped-Jordan observation timing",
+          "trigger": "same pinned-endpoint design geometry"
+        },
+        {
+          "assessment": "Retrieved design statement concerns another statistical model",
+          "evidence": "Equidistant designs for estimation in a complex OU process with trend, not initial-amplitude regression with independent measurement errors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.05719v1",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF reader",
+          "title": "D-optimal designs for complex Ornstein–Uhlenbeck processes",
+          "trigger": "plausible complex oscillator D-optimal design overlap"
+        },
+        {
+          "assessment": "Available statement not an exact finite design optimization",
+          "evidence": "Continuous semigroup frames and cogenerator descriptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13867v1",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF reader",
+          "title": "Frames Associated with C₀-Semigroups",
+          "trigger": "possible general frame result"
+        },
+        {
+          "assessment": "Available statement addresses reconstructibility, not this noisy D-optimum",
+          "evidence": "Sparse/discrete samples for state reconstruction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.06451v3",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF reader",
+          "title": "Sample-based observability of linear discrete-time systems",
+          "trigger": "sparse sampling observability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–37 and 76–120"
+      ],
+      "rationale": "The exact threshold resolves whether to spend a third real measurement on replication or on a new sample, and the first-period conclusion avoids a global search over an arbitrary number of periods. The sign of the long-horizon bias is a substantive distinction from monotonically approaching an optimal placement. These conclusions are naturally tied to the information design and not fine-tuned examples.",
+      "residual_risks": [
+        "Exactly three homoscedastic independent scalar events and known generator; no conclusion about correlated noise, jointly free larger designs, or other optimality criteria."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

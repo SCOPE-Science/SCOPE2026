@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:10:19.943246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent square-matrix diagnostic (κ=4)",
+        "Bourin, arXiv:math/0601543v1, Corollary 2.6"
+      ],
+      "rationale": "Put X=GB⁻¹=P₁Y with Y=(XᵀX)^(1/2) positive definite. Then G=P₁YB; the two denominators equal tr B and the alignments are tr(YB)>0 and ||G||*=||YB||*. Thus the ratio is exactly (tr(YB)/||YB||*)². The thin polar maximizer is unique at full rank, so upper equality means P₀=P₁, equivalently YB is symmetric positive definite. This is equivalent to H=(GᵀG)^(1/2) commuting with B: in one direction H=YB when YB is positive definite; in the other direction GB⁻¹=P₀HB⁻¹ has positive definite right factor. For each unit v, put a=vᵀBv and b=vᵀB²v. The endpoint polynomial gives b≤(L+μ)a−Lμ, and a²−[4Lμ/(L+μ)²][(L+μ)a−Lμ]=(a−2Lμ/(L+μ))²≥0. Expanding Y=Σσⱼvⱼvⱼᵀ gives tr(YB)≥[2√(Lμ)/(L+μ)]Σσⱼ||Bvⱼ||≥[2√(Lμ)/(L+μ)]||YB||*, which proves the lower bound. For B=diag(1,κ), v=(√κ,1)/√(1+κ), take Yε=vvᵀ+ε(I−vvᵀ). It is SPD for all ε>0; in the rank-one limit the trace and nuclear norm tend to 2κ/(1+κ) and √κ. This supplies full-rank sharpness by continuity. The lower bound is strict at full rank for κ>1: the alternative bound ||YB||*≤√(tr Y tr(YB²)) is Frobenius Cauchy–Schwarz applied to Y^(1/2)Q and Y^(1/2)B at the maximizing square orthogonal Q. Equality requires B to be proportional to Q, hence scalar by positivity, and the normalized spectral weights give (tr(YB))²≥[4κ/(1+κ)²]tr Y tr(YB²). For scalar B the ratio is one. Expanding the positive quadratic along the direction and completing the square gives decrease S_B/2. An independent diagnostic at κ=4 and ε=0.1, 0.001, 10⁻⁶ found ratios 0.763407707911, 0.641437929468, 0.640001439998, against 0.64; the commuting test gave one. The claimed all-input inequality is analytic, not certified by these checks or the recorded verifier output. The uploaded script was not executed.",
+      "residual_risks": [
+        "Does not compare anisotropic output curvature, other learning rates, or multiple steps; the ratios near the infimum are numerical diagnostics only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bourin includes semidefinite first factors and obtains comparison of absolute products up to unitary conjugacy for monotone pairs, not merely total trace. Choosing both members of the pair to be Y^(1/2) gives the stronger comparison for YB versus Y^(1/2) B Y^(1/2).",
+          "The later Quadratic Lens Theorem 3 instead bounds p(X)=||HX||*²/[tr(H)tr(HXXᵀ)] by a Kantorovich factor for κ(X), using weighted moments in eq. (32). PolarGrad's relevant section is method and trace/nuclear scaling context."
+        ],
+        "reasoning": "The older Bourin theorem covers the matrix inequality underlying the frozen claim in greater generality. The later Theorem 3 shares a moment inequality, and its p≤1 at H=Y, X=B supplies an intermediate upper bound on ||YB||*², but p itself is not the two-direction score ratio and its equality case is different. The decision is independent of the later paper's date.",
+        "searches": [
+          "arXiv:math/0601543v1, Theorems 2.5 and 2.7 and Corollary 2.6",
+          "arXiv:2610.30280, Theorem 3 and eq. (32)",
+          "arXiv:2505.21799, §3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "arXiv:math/0601543v1, especially Corollary 2.6",
+        "arXiv:2604.01472v1, arXiv:2610.30280, arXiv:2505.21799",
+        "Resultary 0eec6412acfe and 7aae3ae6dda3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bourin explicitly recovers sharpness of Theorem 2.5 with identical rank-one projections. At Z=diag(1,κ) take the real rank-one projector vvᵀ with v=(√κ,1)/√(1+κ); its sole nonzero eigenvalue in the product is vᵀZv and its sole nonzero singular value is ||Zv||. Their ratio is exactly 2√κ/(1+κ).",
+          "Adding ε times the orthogonal complementary projector gives the submitted full-rank approach to the same endpoint. Positivity of the product spectrum and uniqueness of the polar trace maximizer give the upper comparison, equality only if the two positive factors commute."
+        ],
+        "reasoning": "The lower bound and the source's limiting sharp example are already contained in the old componentwise comparison and its rank-one proof, followed by continuous restriction to the full-rank domain. The upper equality is the textbook uniqueness criterion, not a surviving independent contribution. The reference optimizer paper need not itself give the bound for that coverage to hold.",
+        "searches": [
+          "arXiv:math/0601543v1, p. 13 following Corollary 2.6",
+          "Frozen RESULT.md, lines 27–53",
+          "arXiv:2604.01472v1, §4 and Appendix E"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equal score denominators give (tr(YB)/||YB||*)², where Y is the positive right factor of GB⁻¹. Conversely every real Y≻0 is allowed by choosing GB⁻¹=P₁Y.",
+          "YB is similar to Y^(1/2) B Y^(1/2)≻0, so tr(YB) is the eigenvalue sum and the nuclear norm is the singular-value sum.",
+          "Bourin's Corollary 2.6 gives sⱼ(AZ)≤(a+b)/(2√ab) λⱼ(AZ) for every j, using minimum and maximum eigenvalues a,b of Z."
+        ],
+        "reasoning": "The optimizer ratio is exactly a trace versus trace-norm ratio for a product of positive factors. Summation and squaring of the older componentwise inequality give its lower comparison without further mathematical restrictions. The notation change does not distinguish the claim.",
+        "searches": [
+          "Web: \"Kantorovich\" \"eigenvalues\" \"singular values\" Bourin positive operators products comparison",
+          "arXiv:math/0601543v1, Theorem 2.5 and Corollary 2.6",
+          "arXiv:2604.01472v1, eq. (19) and Appendix E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 0eec6412acfe gives a tight 4κ/(1+κ)² lower bound for the Cauchy-versus-optimal trust-region decrease ratio, a vector problem.",
+          "Same-day record 7aae3ae6dda3 gives the sharp raw-norm-versus-uniform sampling gain 4√κ/(1+√κ)² for reflected-block least squares. The same scalar function after reparameterization does not match the polar comparison.",
+          "Finite frozen tests are samples of a continuum; the decisive coverage is a primary inequality, not an indexed table."
+        ],
+        "reasoning": "The retrieved catalogue matches are related constants, not substitutes for the studied ratio. No finite table establishes the all-input comparison; the affirmative existing-coverage evidence is Bourin's theorem.",
+        "searches": [
+          "Resultary polar, nuclear-norm and Kantorovich comparisons, exact IDs 0eec6412acfe and 7aae3ae6dda3"
+        ]
+      },
+      "rationale": "Demonstrable older coverage, not a search or access failure. Bourin (2006), Corollary 2.6, bounds every singular value of AZ by ((a+b)/(2√ab)) times its corresponding positive eigenvalue, for A≥0 and Z>0 of extreme eigenvalues a,b. In the record write GB⁻¹=P₁Y. Then the score ratio is exactly the square of the eigenvalue sum divided by the singular-value sum of YB. The specialization A=Y, Z=B and summation therefore give the same lower bound directly from a stronger result. Bourin's rank-one sharpness already gives the limiting family by continuity in real dimension two. The upper endpoint and its commutation test follow from uniqueness of the ordinary polar maximizer. The optimizer framing does not make these facts a distinct sharp inequality.",
+      "residual_risks": [
+        "The historical priority of the exact optimizer interpretation is not decided by these checks. The equivalent mathematical bound and its sharpness mechanism are already covered regardless of that interpretation's priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitive broader coverage, including rank-one sharpness",
+          "evidence": "Corollary 2.6 gives (2√ab/(a+b))λⱼ(AZ)≤sⱼ(AZ)≤((a+b)/(2√ab))λⱼ(AZ). The following paragraph uses equal rank-one projections to recover the sharp Kantorovich inequality from Theorem 2.5.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0601543",
+          "material_read": "Title page (offsets 0–1962); pp. 12–13, Theorem 2.5, Corollary 2.6, following rank-one sharpness paragraph and Theorem 2.7 (offsets 29400–33731)",
+          "method": "Lawful OA primary PDF; located singular-value terminology then read the bounded original passage",
+          "title": "Matrix Versions of some Classical Inequalities",
+          "trigger": "Kantorovich comparison of singular values and positive product eigenvalues is exactly the relevant norm inequality"
+        },
+        {
+          "assessment": "Method and score predecessor, not decisive for the matrix inequality",
+          "evidence": "Compares polar(G) and polar(G(ZZᵀ)⁻¹); Appendix E's baseline specialization assumes isotropic activation and does not theoretically compare Newton–Muon there.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.01472",
+          "material_read": "§4.1 eq. (19), §4.2 and Appendix E.1–E.2, OA text near offsets 50628 and 112025",
+          "method": "Lawful OA arXiv full-text passages",
+          "title": "The Newton–Muon Optimizer",
+          "trigger": "Original two directions and exact-line-search score"
+        },
+        {
+          "assessment": "Related later result with the same weighted Kantorovich ingredient but different progress coefficient and sharpness construction",
+          "evidence": "Its p(X) is decrease relative to the current quadratic objective for one standard-polar update; the proof gives p(X)≤1 by Schatten Hölder and a lower bound in terms of κ(X). Its upper equality is XXᵀ scalar identity, not the frozen commutation condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.30280",
+          "material_read": "Theorem 3, eqs. (14)–(17), p. 9, and proof Steps 2–5 with eq. (32), pp. 31–32; offsets 37400–41477, 127700–136014",
+          "method": "Lawful OA PDF, bounded theorem and proof passages",
+          "title": "A Quadratic Lens on Muon’s Polar Update",
+          "trigger": "Close same-factor nuclear-norm and exact-line-search theorem"
+        },
+        {
+          "assessment": "Related optimizer context, not the decisive antecedent",
+          "evidence": "Discusses polar-factor preconditioning and trace/nuclear-norm scaling.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.21799",
+          "material_read": "§3.3, HTML offsets 27702–34597",
+          "method": "Lawful OA arXiv full-text passage",
+          "title": "PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective",
+          "trigger": "Polar preconditioning and trace/nuclear scaling"
+        },
+        {
+          "assessment": "Different ratio, vector trust-region problem",
+          "evidence": "D_C/D_*≥1/[(uᵀBu)(uᵀB⁻¹u)]≥4κ/(1+κ)², sharp in two dimensions.",
+          "identifier_or_url": "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe",
+          "material_read": "Local mirror RESULT.md, offsets 0–5971",
+          "method": "Resultary and local mirror",
+          "title": "Cauchy trust-region optimal-decrease ratio",
+          "trigger": "Closest indexed exactly equal scalar coefficient"
+        },
+        {
+          "assessment": "Same scalar shape, different mathematical comparison",
+          "evidence": "Sharp 4√κ/(1+√κ)² for raw gradient-norm sampling against uniform sampling in reflected-block least squares.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-conditioning-penalty-for-gradient-norm-sampling-in-symmetr--7aae3ae6dda3",
+          "material_read": "Local mirror RESULT.md, offsets 0–6371, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and local mirror",
+          "title": "Sharp conditioning penalty for gradient-norm sampling in symmetric least squares",
+          "trigger": "Same-day indexed sharp conditioning penalty"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and proof",
+        "arXiv:math/0601543v1, Theorem 2.5 and Corollary 2.6",
+        "arXiv:2604.01472v1, quadratic score"
+      ],
+      "rationale": "The named optimizer comparison is a natural question, and the interpretation can be useful as exposition. But with the score normalization common to both directions, the claimed sharp invariant is an immediate trace specialization of the known stronger singular-value bound with its existing rank-one sharpness mechanism. Full-rank approximation and polar commutation add no separate substantive fact here. No noncovered comparison, such as one with anisotropic output curvature where the denominators differ, is proved in the frozen result.",
+      "residual_risks": [
+        "This is a judgment on the frozen mathematical contribution, not on the practical use of the optimizer observation or on future curvature-dependent comparisons."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

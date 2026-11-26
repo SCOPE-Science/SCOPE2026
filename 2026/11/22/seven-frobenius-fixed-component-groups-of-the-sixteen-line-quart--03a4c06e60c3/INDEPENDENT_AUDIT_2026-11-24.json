@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:20:30.708325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83, VERIFICATION.md and verify.py",
+        "Independent replay: python3 /workspace/review-evidence/4_clebsch.py (SymPy over ZZ); output /workspace/review-evidence/4_clebsch.txt",
+        "Shokrieh, arXiv:0907.4764 Theorem 3.4 and §5"
+      ],
+      "rationale": "The classes E_i, L_ij and the unique conic give off-diagonal intersection numbers 0 or 1, so intersecting smooth components meet transversely. No three can meet: the graph of disjoint index pairs and their incidences with exceptions and the conic has no triangles. It is connected with 16 vertices, 40 edges and genus 25. The fixed conic splits degree off the Laplacian cokernel. Its rooted reduced Laplacian is symmetric and Frobenius-equivariant, so its rational inverse defines a Frobenius-invariant perfect pairing modulo Z on the torsion cokernel; thus the fixed group is dual to the coinvariants. Independently formed the full integral relation matrix [L | σ−I] on even subsets of five labels (adjacency: symmetric difference of size four), computed exact Smith forms, and split off the single free degree factor. All seven torsion lists match, including (8,32) versus (2,4,32) at order 256. Raynaud's regular semistable component-group description is equivariant and the rational points of the finite étale group scheme are the Frobenius invariants, so this verifies the conditional interpretation without assuming split components.",
+      "residual_risks": [
+        "The table classifies the specified S5 action fixing the conic, not all Weyl-group twists. It does not assert realization at every q or existence of a smoothing. The component-group statement only uses regular semistable smoothings with unit thickness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hassett–Kresch–Tschinkel describe the five-point blowup and sixteen geometric (−1)-curves. Shokrieh proves perfect graph Jacobian duality and describes Raynaud's semistable graph component group.",
+          "The bounded public query did not produce a distinct exact seven-case source; this alone carries no negative implication."
+        ],
+        "reasoning": "The general results justify the object, reduction and geometric interpretation. Applying them does not give the seven integral Smith types without computing the integral permutation relations.",
+        "searches": [
+          "arXiv:1312.6734 p. 3; arXiv:0907.4764 Theorem 3.4 and §5; focused public search for Clebsch critical groups with S5 automorphisms"
+        ]
+      },
+      "checked_sources": [
+        "Tamimi 2022, Table 1.1",
+        "arXiv:1312.6734 pp. 3; arXiv:0907.4764 pp. 5, 8",
+        "Resultary 03a4c06e60c3, abfdc25baaee, 5411549db544 and a4eb7b40a586"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The split group gives the underlying finite module's abstract type, the pairing gives a method to replace invariants by dual coinvariants, and the Picard torus record computes a different finite-field group. The two order-256 rows have different invariant factors even within this same graph and action family."
+        ],
+        "reasoning": "None of those prior statements fixes the quotient by σ−I on this critical group. In particular, neither an order coincidence nor the general semistable theorem gives the requested equal-order nonisomorphism.",
+        "searches": [
+          "Tamimi Table 1.1; arXiv:0907.4764 Theorem 3.4 and §5; Resultary abfdc25baaee, a4eb7b40a586 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "abfdc25baaee treats T(F_q) for the rank-25 connected Picard torus of the same boundary; 5411549db544 treats the connected torus for a five-cycle. a4eb7b40a586 does give Frobenius-fixed critical groups for the same cycle indexing, but on the ten-vertex Petersen graph."
+        ],
+        "reasoning": "Torus point groups are not the thickness-one finite Néron component group; they depend on finite-field norm factors involving q, whereas these critical groups depend only on the action on the graph. The Petersen fixed-critical-group problem has another Laplacian and different answers, for example a trivial (3,2) subgroup rather than C_8 ⊕ C_32.",
+        "searches": [
+          "Resultary: Frobenius fixed Clebsch critical/sandpile group and sixteen-curve del Pezzo boundary; abfdc25baaee, 5411549db544 and a4eb7b40a586"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tamimi Table 1.1 lists the untwisted Clebsch sandpile group; the text extraction loses some formatting, and the frozen record credits C_4^4 ⊕ C_8 ⊕ C_32^4. The exact Clebsch seven-row catalogue hit is the assigned record itself; the distinct seven-row fixed-group entry is for Petersen."
+        ],
+        "reasoning": "The split row is prior work. An abstract untwisted group without its action, and a table for a different graph, do not identify the six nontrivial-type fixed groups.",
+        "searches": [
+          "Tamimi thesis Table 1.1, Clebsch graph; Resultary 03a4c06e60c3 self-match and fixed-group comparator a4eb7b40a586"
+        ]
+      },
+      "rationale": "The split Clebsch group and the general tools are prior work. The supported distinct claim is the seven fixed subgroups for base-point-permuting Frobenius, including two nonisomorphic groups of equal order. The closest same-boundary record gives a connected Picard torus invariant, and the closest fixed-critical-group record is on another graph.",
+      "residual_risks": [
+        "An equivariant Clebsch or folded-cube Smith computation under other terminology could cover some or all rows; bounded source inspection does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Split result, not a tabulation of action-dependent invariants; superscripts and subscripts are degraded in extraction.",
+          "evidence": "Table 1.1 explicitly has a sandpile group row for the Clebsch graph.",
+          "identifier_or_url": "https://repository.essex.ac.uk/33230/1/baha_tamimi_phd_thesis_05_08_2022.pdf",
+          "material_read": "PDF p. 29 Table 1.1, offset about 62247",
+          "method": "Lawful OA thesis passage",
+          "title": "The Sandpile & Smith Groups of Certain Classes of Graphs",
+          "trigger": "Direct tabulation for the same graph"
+        },
+        {
+          "assessment": "Geometry and larger symmetry are known, not the asserted seven-case table.",
+          "evidence": "Degree-four del Pezzo surfaces are geometrically blowups of five points, with sixteen (−1)-curves and D5 primitive Picard lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.6734",
+          "material_read": "PDF p. 3, offset about 6695",
+          "method": "Lawful OA PDF passage",
+          "title": "On the Moduli of Degree 4 Del Pezzo Surfaces",
+          "trigger": "Same surface, lines and possible geometric actions"
+        },
+        {
+          "assessment": "Perfect pairing and Néron interpretation are prior ingredients, not the integral Clebsch calculation.",
+          "evidence": "Theorem 3.4 gives a symmetric bilinear nondegenerate pairing; §5 relates the graph Jacobian to the geometric component group in the semistable setting.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.4764",
+          "material_read": "Theorem 3.4 and §5, PDF pp. 5, 8; offsets about 13297, 22856",
+          "method": "Lawful OA PDF passages",
+          "title": "The Monodromy Pairing and Discrete Logarithm on the Jacobian of Finite Graphs",
+          "trigger": "General mechanism for fixed groups and semistable interpretation"
+        },
+        {
+          "assessment": "Same invariant for a different graph; no exact coverage here.",
+          "evidence": "Uses the ten-line Petersen graph and has trivial (3,2) fixed group.",
+          "identifier_or_url": "Resultary 2026/11/22/a4eb7b40a586",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed local mirror",
+          "title": "Frobenius-fixed Petersen component groups of the ten-curve quintic boundary",
+          "trigger": "Same seven Frobenius labels and fixed-critical-group question"
+        },
+        {
+          "assessment": "Different invariant of the very same divisor.",
+          "evidence": "T is defined as Pic⁰(D), a rank-25 torus, and the listed groups are T(F_q), not fixed critical groups.",
+          "identifier_or_url": "Resultary 2026/11/22/abfdc25baaee",
+          "material_read": "RESULT.md Finding and invariant definition",
+          "method": "Indexed local mirror",
+          "title": "Seven integral rational-point groups of the quartic del Pezzo sixteen-line boundary",
+          "trigger": "Same surface, same boundary and all seven types"
+        },
+        {
+          "assessment": "Connected torus for the five-cycle, not the Néron component group.",
+          "evidence": "Computes a decomposition of the connected Picard torus for one Frobenius type.",
+          "identifier_or_url": "Resultary 2026/11/2/5411549db544",
+          "material_read": "RESULT.md Finding",
+          "method": "Indexed local mirror",
+          "title": "Five induced quintic tori for the sixteen-line boundary of a quartic del Pezzo",
+          "trigger": "Earlier Frobenius arithmetic of the quartic boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and limitations",
+        "Tamimi Table 1.1",
+        "Independent integer Smith forms, /workspace/review-evidence/4_clebsch.txt"
+      ],
+      "rationale": "The full exceptional boundary is natural, and the seven cases are the complete base-point permutations, not selected small examples. The exact invariant factors are needed to distinguish rational component-group structures that a component count alone cannot distinguish. The two order-256 rows provide a concrete instance, and the same table can be used in every regular unit-thickness smoothing with this boundary.",
+      "residual_risks": [
+        "This value does not rest on the previously tabulated split row, or on any promised extension to other quartic twists."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

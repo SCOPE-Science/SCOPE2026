@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:29:50.449713Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed space and its orthogonal complement reduce the surjective linear isometry. On the complement the residual bound is equivalent to the upper bound h=1-1/(2kappa²) on the selfadjoint real part of its complexified unitary. The spectrum therefore lies on the unit-circle arc Re(z)<=h, and each point's modulus is witnessed on a real plane by its conjugate-pair rotation (or by -I at the real endpoint). The Ishikawa step is p(U) for the probability triple a=1-alpha, b=alpha(1-beta), c=alpha beta; every triple is feasible. Dividing p(z) by z gives squared modulus [b+(1-b)u]²+(a-c)²(1-u²) with u=Re(z). At u=-1 and u=h this proves a lower bound max(|1-2b|,|h+(1-h)b|). It is strictly larger than (1+h)/(3-h) for b below or above (1-h)/(3-h), respectively. At that b equality at h forces a=c since 1-h²>0. For a=c=1/(3-h) the modulus is the absolute value of an affine function of u and is bounded by that same value, with both ends attained. Converting back gives the stated tuning and positive sharp contraction; the unique triple lies away from the alpha=0 parametrization degeneracy. Normality gives ||p(U)^n||=||p(U)||^n on the complement, so minimizing the worst-case factor for any positive fixed horizon n gives the same optimizer and sharp factor q^n. The endpoint kappa=1/2 is rightly excluded; there only u=-1 remains and b=1/2 leaves a,c nonunique. Replay: spectral reduction and two-endpoint identity in RESULT.md; inspected the frozen verification notes and checker without executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamid et al. give a Fejér contraction sqrt(1-delta/kappa²) under the general residual bound and optimize that estimate in Remark 3.5. Example 3.8 gives exact |p(e^(i theta))| and exact residual constant for an individual planar rotation. The inexact Krasnosel'skii–Mann paper gives iteration and residual bounds under different assumptions."
+        ],
+        "reasoning": "Example 3.8 is substantial prior coverage of the witness calculation, not the optimization uniformly over the full allowed arc. The general Fejér estimate does not imply the exact constant or the stated optimal parameters by specialization.",
+        "searches": [
+          "Hamid et al. DOI 10.22436/jnsa.019.02.06, Theorem 3.3, Remark 3.5, Example 3.8",
+          "Bravo, Cominetti and Pavez-Signé arXiv:1705.09340 §4.2",
+          "Circular arc minimax normalized at p(1)=1"
+        ]
+      },
+      "checked_sources": [
+        "Hamid et al. DOI 10.22436/jnsa.019.02.06 §3",
+        "Bravo et al. arXiv:1705.09340 §4.2",
+        "DLMF §3.11(i)",
+        "Resultary 486b3694d0f0 and identical item d201eb6f61a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact rotation formula is for a specified angle and tuning, and the journal's optimization concerns a different estimated rate. The frozen proof explicitly balances two independently attainable endpoints and shows nonsymmetric coefficient triples strictly lose at the nonreal endpoint."
+        ],
+        "reasoning": "An exact one-rotation rate, half-disk result, or interval minimax method is not the sharp unique tuning of the full residual-bounded orthogonal class. Normality then gives the fixed-horizon statement without any new horizon-specific result or changing-parameter claim.",
+        "searches": [
+          "Hamid et al. §3, Remark 3.5 and Example 3.8; Resultary 486b3694d0f0 main theorem and lower-bound proof; DLMF §3.11(i)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Average p(z) with z²p(1/z) for real coefficients; this preserves the normalization and cannot increase the unit-circle modulus. The symmetric subproblem divided by z is the degree-one normalized extremal (2u+1-h)/(3-h) on [-1,h]."
+        ],
+        "reasoning": "The reduced polynomial is exactly the classical affine Chebyshev solution, not a new extremal principle. Ordinary interval alternation does not decide whether a nonsymmetric feasible predecessor ties it. Equality at the nonreal endpoint and realizability of both spectral constraints are needed for this claim.",
+        "searches": [
+          "Normalized residual minimax on circular arcs, reciprocal quadratic and Chebyshev",
+          "NIST DLMF §3.11(i), minimax alternation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical item d201eb6f61a7 is not independent coverage. The strongest separate entry 486b3694d0f0 states and proves the exact quadratic bound on K_delta={Re z>=delta, |z|<=1} with p(0)=1, using a real chord midpoint and a nonreal arc endpoint."
+        ],
+        "reasoning": "The half-disk formula is exact for its own domain and extremal normalization. Even when h<0 and reflecting overlaps the arc portion of that domain, scaling that optimizer does not transfer its lower certificate from the chord midpoint to -1 under normalization at 1. The theorem does not cover arbitrary h in (-1,1) or Ishikawa uniqueness.",
+        "searches": [
+          "Resultary: Ishikawa orthogonal residual-error-bound worst case, degree-two normal spectral minimax"
+        ]
+      },
+      "rationale": "The surviving claim is the exact, attained and uniquely parameterized worst-case constant over the stated residual-bounded orthogonal class. The journal article supplies exact fixed-parameter rates for individual rotations as well as a broader nonsharp subregularity rate. Chebyshev alternation supplies the affine interval extremal after symmetrization. Neither establishes the full operator-class minimax and the equality condition ruling out nonsymmetric triples; the strongest distinct indexed degree-two result uses a different spectral problem.",
+      "residual_risks": [
+        "An earlier arc-polynomial filtering formulation covering real nonsymmetric quadratics could imply the result; the bounded comparisons did not locate one. The previously noted lack of access to the motivating journal article was resolved for its relevant rate and rotation sections, not by an abstract-only comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact single-rotation calculation and general rate, not class-level sharp tuning in the relevant sections",
+          "evidence": [
+            "Example 3.8 uses the same degree-two polynomial for plane rotations and computes kappa=1/sqrt(2(1-cos theta)). Theorem 3.3 gives the Fejér rate with delta from the parameter choices rather than optimizing the true normal-polynomial norm."
+          ],
+          "identifier_or_url": "https://doi.org/10.22436/jnsa.019.02.06",
+          "material_read": "Journal PDF pp.173–176: Theorem 3.3, Remark 3.5, Examples 3.7–3.8; offsets 13100, 18300, 22700",
+          "method": "Lawful publisher PDF via identified download URL; literal locate and bounded pages",
+          "title": "Convergence rates and applications of Ishikawa iteration under metric subregularity",
+          "trigger": "Closest primary source, including exact orthogonal-map example"
+        },
+        {
+          "assessment": "Different residual-rate theory",
+          "evidence": [
+            "Ishikawa is treated within inexact Krasnosel'skii–Mann, with residual convergence and bounds for sequence assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.09340",
+          "material_read": "Abstract and §4.2, PDF p.11 around offset 42141",
+          "method": "Lawful OA PDF passages",
+          "title": "Rates of convergence for inexact Krasnosel'skii–Mann iterations in Banach spaces",
+          "trigger": "Related Ishikawa convergence and iteration bounds"
+        },
+        {
+          "assessment": "Classical interval extremal principle, not prior operator-class uniqueness",
+          "evidence": [
+            "Uniform interval minimax uniqueness and alternation explain the symmetric affine solution."
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/3.11",
+          "material_read": "§3.11(i), HTML offsets 950–3946",
+          "method": "Lawful public source passage",
+          "title": "Approximation Techniques",
+          "trigger": "Exact alternation equivalence for symmetrized polynomials"
+        },
+        {
+          "assessment": "Related but distinct minimax domain and constraints",
+          "evidence": [
+            "The fixed sharp spectrum includes a real chord point and a conjugate pair; p(0)=1 and the domain contains the chord, unlike the normalized orthogonal arc problem."
+          ],
+          "identifier_or_url": "Resultary 486b3694d0f0",
+          "material_read": "Setting, main theorem, upper and lower bounds, local mirror offset 0",
+          "method": "Local mirror source file",
+          "title": "Exact degree-two minimax and asymmetric extragradient on normal strongly monotone systems",
+          "trigger": "Strongest distinct indexed exact degree-two polynomial theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The residual-bound constant is a natural specification available without knowing a particular spectrum. A class-wide unique tuning and an exactly attained contraction give a usable benchmark for the named two-evaluation scheme beyond general subregularity estimates or a single rotation. Indeed its factor (1+h)/(3-h) is strictly smaller than (1+h)/2, the sharp worst factor of two successive optimally tuned Mann steps with the same evaluation budget, for h<1. The strength is in the class-wide certificate and equality classification, not novelty of interval minimax or finite-horizon exponentiation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

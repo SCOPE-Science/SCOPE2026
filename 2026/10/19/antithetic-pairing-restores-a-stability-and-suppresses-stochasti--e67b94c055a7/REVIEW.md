@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact paired rational multiplier obeys a strict squared-modulus identity throughout the left half-plane. A uniform analytic Taylor expansion, exact moments of the uniform antithetic parameter, an iid central limit theorem, and exponentiation give both centered Gaussian fluctuation limits. Reproduction by `check.py` corroborates identities and variance asymptotics but finite tests are not proofs.
+## correctness
 
-## Originality — PASS (subject to stated residual risk)
-Bochacik and Przybyłowicz, arXiv:2404.19059, establish the independently randomized implicit RK2 multiplier and the bounded mean-square stability domain. They do not provide the complementary sampled-pair stochastic limit in the inspected sections. Symmetric/adjoint numerical-integrator composition is classical and is not itself claimed new; the proposed contribution is the specific mean-square stabilization together with exact stochastic fluctuation separation. The closest mathematical-record searches yielded only different RK, splitting, and momentum problems. Some general-composition texts were available only as overviews or abstracts, and one relevant article returned HTTP 429. No independent uniqueness certification is claimed.
+PASS
 
-## Value — PASS
-The known failure of mean-square A-stability is a motivated numerical stability gap. Antithetic coupling at the same evaluation cost restores pathwise pair-endpoint stability and reduces random fluctuations, quantified by exact nonzero Gaussian constants, without pretending to improve deterministic bias. The result is an interpretable scheme-design principle.
+The frozen proof used a real logarithm of the expected signed output while allowing negative x0. The complete repaired result specifies real x0, takes logs of positive amplification factors for h small, and retains the Gaussian statement for either sign. Factoring the denominator shows no pole in the open left half-plane; its squared-modulus advantage over the numerator is −4 Re(z)(1+u(1−u)|z|²)>0. Compactness in u yields a uniform contraction for each fixed z, and a uniformly bounded intervening factor yields odd-iterate decay without monotonicity. For the original independent method and z=−x with x>2, the phase interval 0≤u≤1/x gives E|R|²≥(x/2−1)²/x, which diverges. For real λh, independent expansion of the pair log gives 2λh+(2/3−2C)λ³h³+O(h⁵) with C=U(1−U), and the single-step log gives λh+(U−1/2)λ²h²+O(h³). The uniform moments Var(C)=1/180 and Var(U)=1/12 follow by integrating the polynomials. The centered independent remainder sums are O(√M h⁵) and O(√M h³) in L², negligible at their respective scales, with M=T/(2h) and T/h. The ordinary iid CLT yields the log variances Tλ⁶/90 and Tλ⁴/12. Jensen centering differs by M log E exp(W_h), for centered log increments W_h=O(h³) and O(h²); expanding the exponential makes those differences O(h⁵) and O(h³). The output exponential delta method multiplies by x0² exp(2λT). This avoids taking a log of the signed output or assuming away deterministic bias.
 
-## Limitations
-Only scalar linear Dahlquist A-stability is proved; intermediate unpaired steps can expand. The CLTs require independent uniform pair parameters and real negative decay rate. Potential equivalent literature and uninspected full texts remain residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The retained distinct claim is the centered fluctuation comparison with two exact variance constants for this implicit RK2 and these two couplings. The symmetric composition is standard and scalar pair contractivity follows directly from an equivalent midpoint factorization; an inspected later record explicitly gives the same B and contractivity, so these alone are not treated as the novel result. The closer fluctuation precedents have different schemes or coefficients and do not cover both quantitative limits.
+
+## value
+
+PASS
+
+Equal-cost complementary coupling removes leading stochastic error in a specific solvable test problem. The two centered Gaussian laws distinguish actual fluctuation improvement by one order from classical midpoint stability and from deterministic order restoration. Explicit nonzero variance constants make the comparison a reproducible benchmark for randomized integrators rather than an observation about a sampled stability plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

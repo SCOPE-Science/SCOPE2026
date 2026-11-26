@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Every bordered constrained word decomposes uniquely using its unbordered shortest border. The three disjoint classes (border 0, border 1, border of length >=2) give exactly the Mahler identity. The polynomial identity yields the scalar Fibonacci convolution. Fibonacci/Binet estimates and \\(u_n\\le F_{n+2}\\) justify the absolutely convergent density series and rigorous tail estimate. Complete direct enumeration at lengths 1..21 and an alternative polynomial decomposition through length 150 agree with the theorem. All n quantified by combinatorial proof, not experimental extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harju–Nowotka 2004/2005 studies arbitrary binary words with a fixed weight, not the intersection of being unbordered and avoiding 11.",
+        "Gabric–Shallit 2023 investigates unconstrained word block palindrome statistics; its stated recurrence and material on borders do not impose the no-11 language.",
+        "Nyblom 2013 concerns palindromic run-avoiding words, whose reflection symmetry is different from a zero-border condition."
+      ],
+      "reasoning": "General unconditioned results do not dominate the combined constrained statistic as a theorem of direct restriction. The two-marker and three-marker counts address fixed-sparse subsets, so summing their restricted formulas cannot recover arbitrary marker counts without an absent uniform theorem.",
+      "searches": [
+        "exact enumeration of unbordered binary words with no adjacent ones, Mahler Fibonacci recurrence, limiting proportion 0.15563",
+        "unbordered golden mean words longest proper border count exact recurrence",
+        "Fibonacci-admissible unbordered codewords border-free words count",
+        "unbordered Fibonacci-admissible binary words avoiding adjacent 11 exact weight-refined Mahler functional equation and probability 0.1556298471",
+        "https://oeis.org/A099766/internal",
+        "https://arxiv.org/abs/2302.13147"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A099766/internal",
+      "https://doi.org/10.1016/j.tcs.2005.03.040",
+      "https://arxiv.org/abs/2302.13147",
+      "https://studylib.net/doc/10375993/counting-palindromic-binary-strings-r-runs-of-ones-without",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-border-spectrum-and-limit-law-for-two-marker-binary-word--823f52624582",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-unbordered-conjugate-spectrum-of-binary-words-containing-t--15954dd9e6c4",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-the-four-marker-threshold-separating-ordinary-and-abelian-border--c794105bc5c8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The ordinary unbordered recurrence is u(2k)=2u(2k-1)-u(k), u(2k+1)=2u(2k); the constrained recurrence instead involves the Fibonacci adjacency transfer u(n-1)+u(n-2).",
+        "Abelian borders require identical symbol-count vectors rather than literal prefix/suffix equality and therefore do not imply exact literal-border-free counts."
+      ],
+      "reasoning": "The claimed weight-refined Mahler identity and density are strictly about literal borders under a local finite-type language constraint, and neither is a corollary of the compared unrestricted, sparse-content, or Abelian-border results.",
+      "searches": [
+        "unbordered words avoiding 11 Fibonacci strings exact enumeration generating function",
+        "self-synchronizing golden mean binary strings unbordered enumeration",
+        "https://doi.org/10.1016/j.tcs.2005.03.040",
+        "https://arxiv.org/abs/2302.13147",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-the-four-marker-threshold-separating-ordinary-and-abelian-border--c794105bc5c8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The OEIS entry A099766 provides the unrestricted weight-specific unbordered triangle, and explicitly identifies it with the 2004 Harju–Nowotka technical report.",
+        "The 2023 preprint states the classical no-restriction recurrence for unbordered words; the method uses unrestricted middle letters.",
+        "The constrained equation includes the forced-zero interface contribution and a two-variable substitution, absent from the unconditioned formula."
+      ],
+      "reasoning": "Replace general binary string enumeration by words avoiding 11. The classical recurrence cannot be specialized by setting a weight variable, because the occurrence of consecutive 1s is an adjacency property, not fixed letter count. Direct implication fails; the new local middle-language decomposition is necessary.",
+      "searches": [
+        "unbordered words avoiding 11 Fibonacci strings exact enumeration generating function",
+        "unbordered words over the golden mean shift forbidden adjacent ones",
+        "unbordered constrained binary words count n run limited",
+        "https://doi.org/10.1016/j.tcs.2005.03.040",
+        "https://arxiv.org/abs/2302.13147"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published A099766 table begins with unrestricted binary unbordered weight counts, which already differ from the no-11 counts (for example total length three 4 versus 2).",
+        "Nearby published indices describe the longest border for two-marker words and unbordered cyclic shifts of three-one words; neither lists the all-length unrestricted-weight no-11 sequence or the limiting density."
+      ],
+      "reasoning": "Matching isolated coefficients or the word \"border\" is insufficient. Checked tables use different ambient languages or fixed sparse content and do not enumerate the claimed constrained statistic.",
+      "searches": [
+        "exact enumeration of unbordered binary words with no adjacent ones, Mahler Fibonacci recurrence, limiting proportion 0.15563",
+        "unbordered Fibonacci-admissible binary words avoiding adjacent 11 exact weight-refined Mahler functional equation and probability 0.1556298471",
+        "border-free words in golden mean language exact count and asymptotic density of shortest border zero",
+        "https://oeis.org/A099766/internal",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-unbordered-conjugate-spectrum-of-binary-words-containing-t--15954dd9e6c4"
+      ]
+    },
+    "rationale": "The 2004 fixed-weight bordered-word triangle and 2023 unconstrained border-free recurrence do not imply the new weight-refined enumeration in the no-adjacent-11 language. The latter requires a boundary-sensitive shortest-border decomposition, and its density limit is absent from inspected comparable material. published-finding corpus and own-archive comparisons included fixed-marker, Abelian-border, and unconditioned sequences; none yields the same statement by parameter specialization or reduction. Earlier unindexed or uninspected publications remain a recorded priority risk.",
+    "residual_risks": [
+      "The 2004 Harju–Nowotka technical-report and 2005 journal full texts were not accessible; while indexed claims are unrestricted fixed-weight counts, an unindexed constrained corollary might have appeared inside.",
+      "Semantic search and inspected sources cannot establish global novelty over all unindexed, unpublished, or differently named literature.",
+      "A future exact integer-sequence match not surfaced by searched descriptions could establish earlier priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "TABLE_FOR_UNRESTRICTED_WORDS",
+        "evidence": [
+          "Defines the ordinary binary unbordered triangle; original author entry dated 2004-11-11; no adjacent-11 constraint in definition or recurrence."
+        ],
+        "identifier_or_url": "https://oeis.org/A099766/internal",
+        "material_read": "Entry definition, coefficients, linked papers, Maple recurrence, record date (lines 12–57).",
+        "method": "Read full available entry text.",
+        "title": "OEIS A099766: unbordered binary words by length and weight",
+        "trigger": "Closest explicit fixed-weight table and dated 2004 source."
+      },
+      {
+        "assessment": "POTENTIALLY_RELEVANT_FULL_TEXT_UNAVAILABLE",
+        "evidence": [
+          "2005 TCS 340 pages 273–279, DOI 10.1016/j.tcs.2005.03.040; OEIS identifies its unconditioned U(n,k) triangle."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2005.03.040",
+        "material_read": "Bibliographic record and OEIS author-linked 2004 technical-report description; full text not available after attempted technical-report retrieval.",
+        "method": "Inspected journal metadata and OEIS cross-reference; attempted open of older technical-report URL.",
+        "title": "Counting bordered and primitive words with a fixed weight",
+        "trigger": "Original primary mathematical predecessor to the weight-refined question."
+      },
+      {
+        "assessment": "DOES_NOT_CONTAIN_CLAIMED_RESTRICTED_ENUMERATION",
+        "evidence": [
+          "At introduction lines 9–14 states the classical unconstrained recurrence; the paper studies block palindrome factorization over arbitrary words."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.13147",
+        "material_read": "Arxiv HTML abstract, introduction, Section 2 and sections on width and borders; inspected general recurrence and definition (lines 0–32, relevant later text).",
+        "method": "Read HTML text with section search and full body inspection.",
+        "title": "Smallest and Largest Block Palindrome Factorizations",
+        "trigger": "Strongest accessible modern presentation of unrestricted border-free recurrence and border peeling."
+      },
+      {
+        "assessment": "DIFFERENT_EQUIVALENCE_RELATION",
+        "evidence": [
+          "Counts reverse-symmetric palindromes rather than strings without equal proper prefix and suffix."
+        ],
+        "identifier_or_url": "https://studylib.net/doc/10375993/counting-palindromic-binary-strings-r-runs-of-ones-without",
+        "material_read": "Online readable article body and palindromic/run-avoidance recurrence.",
+        "method": "Read available article text rather than only abstract.",
+        "title": "Counting palindromic binary strings without runs of ones",
+        "trigger": "Combination of global word symmetry and local run avoidance."
+      },
+      {
+        "assessment": "NOT_DECISIVE_SUMMARY_DIFFERENT_DOMAIN",
+        "evidence": [
+          "Exactly two one-symbol markers and longest-border limit law, instead of all possible numbers of ones with no adjacent ones."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-a-sharp-border-spectrum-and-limit-law-for-two-marker-binary-word--823f52624582",
+        "material_read": "Search index scientific summary, not entire paper.",
+        "method": "Read the published scientific record summary and compare exact domains, parameters, and implications.",
+        "title": "A sharp border spectrum and limit law for two-marker binary words",
+        "trigger": "Most similar indexed border statistic involving small Hamming weight."
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "491b08de-c094-4376-b1f0-e35a1ac114e2",
+  "value": {
+    "rationale": "Unbordered strings are canonical building blocks for overlap-free synchronization and word matching; imposing the no-consecutive-11 finite-type language is a natural source/channel constraint. The newly derived complete weight spectrum and explicit nonzero limiting density quantify how often such constrained strings are individually border-free. This exact constrained statistic cannot be obtained by a trivial variable substitution from unconstrained fixed-weight tables. The result does not overstate cross-bifix-free code capacity.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:38.489878Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–38; VERIFICATION.md, lines 19–25; verify.py",
+        "Corrected /workspace/repairs/3/RESULT.md, Finding, scope and Proof, especially Step 2",
+        "Independent Chebyshev recurrence spot checks at zero"
+      ],
+      "rationale": "Re-audited /workspace/repairs/3/RESULT.md. The frozen proof incorrectly asserted that every positive-entropy invariant measure gives zero mass to the countable precritical set; a mixture of the uniform-branch law with a fixed-point atom disproves that assertion. The repaired argument only requires this of maximizing measures and proves it by entropy affinity. The corrected finding also specifies smoothness of the arcsine density only in the interior, not at the endpoints. The precise map and numerical entropy formulas are unchanged. At degree d=2 mod 4 the joined jets have value -1 and first derivative 0. The cosine change of variables gives m/2 and n/2 affine full branches, with inverse widths 1/m and 1/n and N=(m+n)/2. At every depth r there are N^r monotone, full cylinders with disjoint interiors and alternating orientations, giving h_top=log N. Their diameter shrinks geometrically. Branch endpoints map into the endpoints {0,1}, so the countable precritical set E is completely invariant. The uniform branch Bernoulli measure gives at most 2N^(-r) mass to a point, hence avoids E and preserves its full-shift entropy. For a measure with mass a>0 on E the invariant restriction there has zero entropy; affinity bounds total entropy by (1-a)log N. Each maximizing measure thus lifts bijectively off E to the unique full-shift maximizer. Lebesgue cylinder masses are products of their inverse widths, giving the invariant iid branch law and trivial tail. Exactness gives uniqueness of the absolutely continuous invariant probability; the Lipschitz cosine sends null sets to null sets and pushes Lebesgue to arcsine. The two sign probabilities are sums over the left half branches: 1/2 for Lebesgue and (m/2)/N for the uniform branch law. The generating partition yields h_mu=(log m+log n)/2. Different almost-sure sign frequencies prove singularity when m differs from n, and fixing m=2 gives an unbounded gap. The original verifier was read, not run; independent recurrence spot checks of the value and first/second derivatives at the join for (2,2), (2,14), (6,18), and (10,22) agree and are not evidence for the all-degree entropy claims.",
+      "residual_risks": [
+        "No formal proof certification. The map is C^1, not asserted C^2 for unequal degrees; the density is not smooth up to the endpoints."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The target's all-ones transition matrix is within the general piecewise-linear Markov setting. The slope criterion addresses when the ACIP maximizes entropy.",
+          "Adler's introductory symbolic representation supplies coding context. Resultary 6361762d8fbd has a symmetric two-branch cusp map with a singular maximal measure and a unique ACIP."
+        ],
+        "reasoning": "General theorems and existing witnesses establish distinct invariant laws, and yield standard entropy calculations once the branches are supplied. They do not select the degrees and join that realize a common arcsine density with the requested two sign laws and growing gaps.",
+        "searches": [
+          "Byers–Góra–Boyarsky, Theorem 2, slope criterion",
+          "Adler arXiv:math/9607214, introductory Markov coding discussion",
+          "Resultary: full-branch ACIP versus MME and tunable physical entropy"
+        ]
+      },
+      "checked_sources": [
+        "Corrected /workspace/repairs/3/RESULT.md",
+        "Byers–Góra–Boyarsky (1990), Theorem 2",
+        "Adler arXiv:math/9607214, p. 1",
+        "Resultary 6361762d8fbd, 97f732604b51, dbf8a8af2337"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the conjugate, standard formulas recover the two branch measures and metric versus topological entropy from the inverse widths. Their half-group sums differ for the uniform branch law only because there are unequal branch multiplicities; for the Lebesgue law the sums coincide.",
+          "The cusp example has exactly two branches with maximizing mass 1/2 per half and topological entropy log 2, and the finite-window and fixed-topological-entropy examples do not have the target's simultaneous constraints."
+        ],
+        "reasoning": "The calculations after the conjugacy are not separately original. The explicit joining configuration is the witness: half-widths of 1/2 under the same cosine coordinate, different numbers of full branches, and matching polynomial values and derivatives. A general nonmaximality criterion is not a direct prior construction satisfying these constraints or its unbounded-gap conclusion.",
+        "searches": [
+          "Byers–Góra–Boyarsky, Theorem 2, on full-branch slope criterion",
+          "Resultary 6361762d8fbd, 97f732604b51 and dbf8a8af2337, exact Findings and scopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cosine conjugation converts the splice to a full-branch triangular-wave map with m/2 branches of slope magnitude m and n/2 of slope magnitude n; the observation is the left/right half rather than the entire branch code.",
+          "The 1990 Markov transformation paper treats the conjugate's slope framework; the two Chebyshev-related citations were identified, but their decisive passages were inaccessible."
+        ],
+        "reasoning": "Equivalence must retain both the measure change and the designated observing partition. The established full-branch formalism applies but does not specify this polynomial family and partition. A single-degree case gives uniform branch weights and zero gap, not the unequal-degree effect.",
+        "searches": [
+          "Resultary: glued Chebyshev halves, arcsine invariant measure, Bernoulli signs and entropy gap",
+          "Byers–Góra–Boyarsky DOI:10.1017/S0143385700005824, Theorem 2",
+          "Boyarsky–Góra DOI:10.1155/S1048953301000211; Kohda–Tsuneda, E77-A 1794–1800"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "97f732604b51 proves exactly seven consecutive independent fair signs in a zero-entropy toral example, explicitly not an all-time Bernoulli sign process.",
+          "6361762d8fbd gives a symmetric two-branch cusp and local dimensions, and dbf8a8af2337 fixes five affine branches and topological entropy while varying physical entropy and relaxation."
+        ],
+        "reasoning": "Exact comparison is theorem-level rather than numerical. Finite-window fairness is weaker than iid at all times; two full branches and a bounded topological entropy of log 2, or a fixed five-branch entropy, do not supply the unbounded-gap construction with the two specified sign laws.",
+        "searches": [
+          "Resultary: fair Bernoulli observations, entropy contrast, Chebyshev or full-branch examples"
+        ]
+      },
+      "rationale": "For the final corrected claim, the recognizable contribution is the explicit C^1 Chebyshev splice realizing all-time fair signs under one fixed arcsine physical law, a different Bernoulli law under the unique maximizing measure, and an arbitrarily large entropy gap. The general full-branch entropy and slope facts are established, as are examples with distinct physical and maximal measures. No inspected source gave the explicit observation-preserving Chebyshev construction or a result implying this whole comparison as a direct specialization. The two most relevant Chebyshev papers could not be fully inspected, so the assessment is qualified.",
+      "residual_risks": [
+        "Decisive passages of Boyarsky–Góra (2001) and Kohda–Tsuneda (1994) were not retrieved. Equivalent Chebyshev or binary-observation constructions remain a material priority risk.",
+        "The standard entropy and Bernoulli coding mechanisms are not independent novel claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework covers the maximality test, not the explicit observation-preserving construction",
+          "evidence": "Necessary and sufficient slope conditions for an ACIP to maximize entropy of a piecewise-linear Markov map.",
+          "identifier_or_url": "https://doi.org/10.1017/S0143385700005824",
+          "material_read": "Abstract, OA offset 821, and Theorem 2, PDF p. 5, offset 13945",
+          "method": "OA primary PDF passage inspection",
+          "title": "Maximal absolutely continuous invariant measures for piecewise linear Markov transformations",
+          "trigger": "General slope criteria apply to the piecewise-linear conjugate"
+        },
+        {
+          "assessment": "Substantive overlap unresolved; no inference from inaccessible source",
+          "evidence": "Frozen prior-work paragraph describes noninteger-degree Chebyshev maps; DOI/publisher routes returned 403 and no repository copy was found by the OA lookup.",
+          "identifier_or_url": "https://doi.org/10.1155/S1048953301000211",
+          "material_read": "Bibliography and frozen description; no decisive primary passage retrieved",
+          "method": "Bounded DOI/publisher and alternate OA retrieval attempts",
+          "title": "Invariant measures for Chebyshev maps",
+          "trigger": "Same Chebyshev family and invariant-measure topic"
+        },
+        {
+          "assessment": "No verified statement-level comparison; possible overlap remains",
+          "evidence": "IEICE returned 405 and J-STAGE 500; neither the scope of its bit partition nor an all-time iid statement was verified.",
+          "identifier_or_url": "IEICE Transactions E77-A (1994), pp. 1794–1800",
+          "material_read": "Bibliographic title and frozen comparison only",
+          "method": "Official IEICE and alternate J-STAGE retrieval attempts",
+          "title": "Explicit Evaluations of Correlation Functions of Chebyshev Binary and Bit Sequences Based on Perron–Frobenius Operator",
+          "trigger": "Chebyshev observations and plausible competing iid or correlation results"
+        },
+        {
+          "assessment": "General representation background rather than a matching Chebyshev example",
+          "evidence": "Discusses Markov coding, focusing on hyperbolic toral automorphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9607214",
+          "material_read": "PDF p. 1, offsets 700–3317",
+          "method": "OA PDF passage inspection",
+          "title": "Symbolic Dynamics and Markov Partitions",
+          "trigger": "Established symbolic-coding context"
+        },
+        {
+          "assessment": "Distinct family and invariant; no target sign bias or unbounded entropy gap",
+          "evidence": "Two symmetric cusp branches, entropy log 2 for the maximizing Bernoulli law, and local-dimension assertions for the singular maximal measure.",
+          "identifier_or_url": "Resultary 6361762d8fbd",
+          "material_read": "Finding and assumptions, offsets 0–2496",
+          "method": "Local Resultary mirror",
+          "title": "Exact local-dimension splitting and dense infinite slopes for a critical-cusp tent conjugacy",
+          "trigger": "Exact comparison with another ACIP/MME split for an interval map"
+        },
+        {
+          "assessment": "Finite-block fair signs on a different state space, not all-time iid",
+          "evidence": "Exactly seven consecutive independent fair signs; full process has zero entropy.",
+          "identifier_or_url": "Resultary 97f732604b51",
+          "material_read": "Finding and scope, from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Seven-block Bernoulli statistics in a zero-entropy cubic toral skew map",
+          "trigger": "Fair sign observations with an entropy contrast"
+        },
+        {
+          "assessment": "Different parameter family; fixed topological entropy and no matching sign or Chebyshev claim",
+          "evidence": "Five affine full branches and a constant-slope maximizing locus, with variable physical entropy and relaxation.",
+          "identifier_or_url": "Resultary dbf8a8af2337",
+          "material_read": "Finding, from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Fixed symbolic entropy with tunable exact physical relaxation",
+          "trigger": "Related piecewise-affine comparison of physical and maximal entropy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/3/RESULT.md, Finding and Steps 1–3",
+        "Byers–Góra–Boyarsky (1990), Theorem 2",
+        "Resultary 6361762d8fbd and 97f732604b51"
+      ],
+      "rationale": "The repaired construction is a concrete witness to how little a fixed observation can reveal about the underlying dynamics: the coordinate sign process has the same law at every time scale and the physical density is identical throughout the family, yet the exact entropy deficit is unbounded and sampling from the maximizing measure changes the observed sign bias. Retaining those constraints in an explicit C^1 polynomial splice is the mathematical purpose; re-deriving standard full-shift entropy by itself would not meet the bar.",
+      "residual_risks": [
+        "This is a motivated explicit witness for one observing partition, not a general entropy theorem for arbitrary smooth interval maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

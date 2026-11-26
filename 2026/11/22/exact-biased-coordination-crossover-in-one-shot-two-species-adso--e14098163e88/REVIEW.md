@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The infinite-volume rule is well-defined using a factorially decaying bound on strictly descending clock paths. The parent-deleted-tree cavity probabilities satisfy exact independent-branch ODEs. Their conserved first integral proves the all-time color-density difference. Equal bias integrates explicitly; unequal bias reduces to a bounded one-dimensional integral whose high-degree limit follows by dominated convergence. The embedded numerical checker passed 296 deterministic assertions, including comparison to the published one-dimensional exact formula. The analytic argument, not simulation, proves the infinite-degree asymptotics.
+## correctness
 
-**Originality — PASS (self-review, residual priority risk).** The parent 2023 publication solves the infinite line, not regular trees of arbitrary degree. The 2017/2018 tree RSA threshold model distinguishes only total active-neighbor counts, not the two-species opposing-color condition. The 2022/2023 two-species square-lattice work permits repeat proposals and yields a rare-minority first-order law, which this work does not claim new. Indexed recent results on finite rings, one-shot one-dimensional clusters, and repeated-proposal multipartite adsorption do not imply the full biased regular-tree cavity law or sharp fixed-bias high-degree minority coefficient. Some indexed recent full texts were inaccessible; a broader abstract theorem could subsume this result.
+PASS
 
-**Mathematical value — PASS.** Degree controls local kinetic competition on tree-like deposition substrates. The exact law determines all one-site species densities, including a strict degree dependence at balance and an explicit singular change in the high-coordination scale: \(2\log z/z\) total coverage at balance versus nonzero majority coverage and a \(1/z\) minority with an exact logarithmic coefficient at fixed imbalance. This distinguishes one-shot kinetic geometry from known repeated-proposal models and supplies a natural benchmark for locally tree-like networks. No claim is made about finite random regular graph convergence.
+At fixed finite degree z, a dependency path of length n must have n+1 strictly decreasing iid continuous times. Its union bound is z(z−1)^(n−1)/(n+1)! and tends to zero; countability gives simultaneous almost-sure construction. Conditioning on the root's own proposal makes its branches independent with the parent absent. Thus the cavity absence probabilities u=1−a and v=1−b satisfy u' = −p v^(z−1), v' = −q u^(z−1) with u(0)=v(0)=1, and full-root acceptance rates are p v^z and q u^z. The derivative of p v^z−q u^z is zero, giving the stated imbalance. Also (uv)'=−p v^z−q u^z, so total occupation is 1−uv. At balance u=v, and the scalar equation gives the displayed z=2 exponential and z>2 power law, with terminal asymptotic 2 log(z/2)/z. For fixed δ=p−q>0, p v^z=δ+q u^z and v≤1 give u(1)≤1−δ. Changing the minority integral to r=u^z gives zρ_B(1)=∫(q/p) r^(1/z)((δ+qr)/p)^(−(z−1)/z) dr from u(1)^z to 1. The lower endpoint tends to zero and the integrand extended by zero is bounded by q/δ, with pointwise limit q/(δ+qr) for r>0. Integrating gives log(p/δ); symmetry handles the other bias and p=0,1 are trivial. This is an infinite-volume proof, not a fit to the finite-depth simulation.
 
-Scientific limits include independent one-shot site proposals and a regular infinite tree. The one-dimensional special case and the leading small-minority coefficient of repeated-proposal models are acknowledged prior results. The label "new" concerns the combined tree characterization and its asymptotics, not those known subcases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The originality supported for the combined finding is the arbitrary-bias regular-tree characterization with its signed-density invariant and sharp fixed-bias minority limit. The line law is previously established. The balanced all-degree closed form and its elementary degree asymptotic are also covered by homogeneous monomer RSA via an exact parameter reduction, and must not be credited independently as new.
+
+## value
+
+PASS
+
+On the natural regular-tree extension of the one-shot line model, the signed invariant identifies precisely how much of the majority bias survives blocking, and the positive logarithmic coefficient resolves the smaller minority density at fixed bias. Together they distinguish order-one total density at nonzero fixed bias from vanishing balanced density and separate this effect from the different rare-minority retry regime. Value does not rely on the already covered balanced formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:37:57.474013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stipulated fixed panel, condition first on Z. The one- and two-assay within-primary conditional means are f and f^2 in the unoccupied class, and g=f+theta(p-f) and h=f^2+theta(p^2-f^2) in the occupied class. Cross-primary products factor in each class. Thus C-A^2=psi(1-psi)theta^2(p-f)^2 and D-AB=(p+f)(C-A^2); the two ordered roots, positive T=A-f, and those identities recover every parameter. Inclusion-exclusion on the eight cells proves equivalence of the interior feasibility criterion with the stated equal-marginal/exchangeability constraints. An independent exact forward-Jacobian determinant in the stated parameter order is psi^2 theta^4(p-f)^6(psi-1); the four example moments also agree. A single primary reveals only psi theta; one read per primary reveals only psi, f and g, hence exact continuous aliases with theta(p-f) unchanged. These exhaust fixed allocations with at most three binary assays drawn as stated. The uniqueness of the allocation is for a repeated fixed panel, not for recorded heterogeneous panels: for example, three distinct primaries on some sites give psi,f,g by the ordinary three-repeat binary mixture, and a within-primary pair on other sites then determines p from B=f^2+(A-f)(p+f). This is outside the fixed-panel theorem. Inspected the attached checker without executing it; it tests the discriminant against the generating contrast and then uses the known positive contrast in rational replay. This is not a blind inverse from arbitrary laws or a finite-sample performance test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rank sum is exactly 2+2+2=2r_classes+2 with two strictly positive class weights; each binary emission matrix has linearly independent rows here. The nongeneric corollary of Kruskal therefore covers every stated interior parameter, not only generic ones. Label order is fixed by p>f.",
+          "The earlier ecology model contains the same nested emissions, with an additional primary-stage false-positive parameter and multiple possible relabelings. Its unrestricted nonidentifiability is not a contradiction of the restricted theorem."
+        ],
+        "reasoning": "The decisive older coverage is the general positive-rank two-class identification theorem together with its exact tripod moment version. Comparing only the five-parameter ecological model misses this reduction.",
+        "searches": [
+          "Allman–Matias–Rhodes arXiv:0809.5032 §4 Corollary 2",
+          "Zwiernik–Smith arXiv:1004.4360 introduction, equations (2)–(3) and tree contraction",
+          "Guillera-Arroita et al. DOI:10.1111/2041-210X.12743, accepted manuscript §Identifiability issues and parameter estimation"
+        ]
+      },
+      "checked_sources": [
+        "Zwiernik–Smith arXiv:1004.4360",
+        "Allman–Matias–Rhodes arXiv:0809.5032",
+        "Guillera-Arroita et al. DOI:10.1111/2041-210X.12743",
+        "Resultary finite-population three-assay RESULT, fixed-count model",
+        "Pepe–Janes DOI:10.1093/biostatistics/kxl038 (abstract/index only; full-text access failed, not used for coverage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With K=D-A(B+2C)+2A^3, the frozen cross covariances are mu13=mu23=V and mu12=B-A^2. Tripod formula (2) gives K/V=(1-2r)delta. Thus L=2A+K/V=f+p.",
+          "Tripod (3) gives delta^2=(K^2+4(B-A^2)V^2)/V^2=L^2-4(LA-B), exactly the frozen discriminant. The recovered means give the frozen roots; recovering the upper ecological stages is the preceding two-division calculation (equivalently, V=(1-psi)(A-f)^2/psi).",
+          "The panel exclusions follow by reading off the parameter products or means for the two obvious homogeneous allocations; the feasibility condition is membership in the image of this explicit inverse, and the determinant just differentiates the forward map."
+        ],
+        "reasoning": "This is an exact construction of the same inverse from older formulas, not a comparison of broad descriptions. Fixed-panel placement is a useful interpretation but does not leave an independent nonroutine theorem in this record.",
+        "searches": [
+          "Substitute central moments from RESULT into formulas (2) and (3) of arXiv:1004.4360, pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For F=U1, with r=P(F=1)=psi theta and delta=p-f>0, X1, X2 and Y are mutually independent given F. Each X has conditional probability f or p. The two Y probabilities are g1=f+theta delta and g0=f+[psi(1-theta)/(1-psi theta)]theta delta, with g1-g0=(1-psi)theta delta/(1-psi theta)>0.",
+          "This is the ordinary binary tripod with two identical emission rows across the first two channels (not identical rows across latent classes). Its emissions and mixture weight determine theta=(g1-f)/delta and psi=r/theta."
+        ],
+        "reasoning": "A two-hidden-stage drawing is not a distinct three-observable likelihood once the intervening degree-two latent nodes are marginalized. The identifiability map between tripod parameters and this restricted occupancy instance is explicit and one-to-one.",
+        "searches": [
+          "Primary literature: three binary conditionally independent tests latent class diagnostic accuracy moment explicit closed form prevalence sensitivity specificity",
+          "Primary literature: latent class two classes three binary observed variables two identical tests exact algebraic formula moment determinant Jacobian Pepe Janes Zwiernik Smith tree cumulants",
+          "Resultary: nested repeated Bernoulli mixtures identifiability moment method between within cluster replicate covariance environmental DNA occupancy false positives two plus one"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact two-plus-one title retrieved is the assigned record. The identified neighboring exact three-assay RESULT uses a population of known size, three distinct draws without replacement, and negative covariance. It is not the same joint law.",
+          "The relevant exact prior formula is instead the published binary-tripod equation (3), not an exact-designed-panel database hit."
+        ],
+        "reasoning": "The absence of another matching design title or table does not overcome the analytic coverage. The finite-population comparator has fixed latent count and anti-correlation, whereas this law has positive cross covariance.",
+        "searches": [
+          "Resultary: nested occupancy site sample assay two plus one minimal asymmetric false positives unknown sensitivity method of moments",
+          "Resultary neighbor: Three distinct finite-population assays identify prevalence and both error rates without a gold standard, RESULT.md"
+        ]
+      },
+      "rationale": "The central identification and square-root reconstruction are a strict positive-rank instance of the published binary tripod, not merely analogous to it. Collapse the unobserved path from U1 to Y by conditioning on U1 itself. The remaining ecological inversion, fixed-panel exclusions, feasibility bookkeeping, and forward determinant are direct substitutions or differentiation. The frozen comparison misses this antecedent for the very same observable law and its inversion. No claim that the older tripod paper labels this ecological panel or parameterization is needed.",
+      "residual_risks": [
+        "Historical priority for the exact two-plus-one wording was not established; the negative originality determination rests on constructive prior mathematical implication, not search silence.",
+        "No comparison claims that full ecological operating characteristics follow from this population law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong direct coverage of the moment mechanism and discriminant.",
+          "evidence": [
+            "For nonzero product of pair covariances, (3) explicitly recovers each squared conditional contrast from squared third central moment plus four times the covariance product, divided by the square of the complementary pair covariance.",
+            "Equation (2) fixes the signed mixture contrast once the conditional contrast is ordered."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1004.4360",
+          "material_read": "Introduction and tripod Figure 1 description, central-moment definitions and equations (2)–(3), degree-two contraction notation, §5 fiber discussion",
+          "method": "OA manuscript text, checked the specialized algebra directly",
+          "title": "Tree cumulants and the geometry of binary tree models",
+          "trigger": "Exact conditional-independence reduction to a binary tripod"
+        },
+        {
+          "assessment": "The exact, pointwise sufficient rank inequality is met everywhere here.",
+          "evidence": [
+            "The sum of the three Kruskal ranks at least 2r+2 gives identifiability up to latent label swapping for positive mixing proportions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0809.5032",
+          "material_read": "§4 three observed variables, Kruskal ranks, rank theorem and its positive-class-proportion corollary; §5 Bernoulli-product discussion",
+          "method": "OA manuscript text",
+          "title": "Identifiability of parameters in latent structure models with many observed variables",
+          "trigger": "All-interior identifiability, not generic identifiability alone"
+        },
+        {
+          "assessment": "Direct model antecedent; the unrestricted error result does not rule out identification on the known-zero boundary.",
+          "evidence": [
+            "The paper allows false positives both upstream and in the observation stage and identifies five parameters before imposing extra restrictions."
+          ],
+          "identifier_or_url": "https://digital.csic.es/bitstream/10261/378740/3/dealing_false_positive_Guillera.pdf",
+          "material_read": "Manuscript summary, two-stage likelihood around equation (1), structural label-ambiguity discussion around the reference to Table 1",
+          "method": "OA repository manuscript, definitions also matched against primary title/DOI",
+          "title": "Dealing with false positive and false negative errors about species occurrence at multiple levels",
+          "trigger": "Same two-stage occupancy family with an additional primary-stage error rate"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The assay allocation is a clear teaching or design example for a well-specified problem, but the scientific increment after removing the covered tripod inversion is routine exclusion of the other fixed partitions plus differentiation and cell bookkeeping. The determinant displays possible singularity, not a new optimality, sampling-precision or robust calibration guarantee. No independently valuable, nonroutine remainder was established to repair as a finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

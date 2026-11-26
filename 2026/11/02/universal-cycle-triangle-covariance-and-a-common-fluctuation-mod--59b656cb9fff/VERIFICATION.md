@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Verification
 
-Run `python3 verify.py` from this directory using the Python standard library. The program independently represents tournaments by their edge-orientation masks and counts directed simple cycles from cyclic words. It compares exhaustive exact moments against the claimed rational formulas, tests the triangle outdegree identity, checks the mixed residual moment, and calculates Walsh coefficients up to degree two. The observed output reports 101745 passing assertions across all tournament sizes from 3 through 6.
-
-For unbounded sizes and fixed-length asymptotics, the proof in `RESULT.md`, not finite enumeration, supplies the argument. The remaining novelty uncertainty is the possible derivability from general random-tournament subgraph-count work. No independent audit has been performed.
+The proof in `RESULT.md` is analytic. The key checks are that no residual Walsh support on four vertices can occur for lengths at least five, that the contributing five-vertex supports are exactly the undirected four-edge paths, and that orienting and extending one such path gives its exact coefficient. Parseval bounds all larger supports. The quantitative claims are not inferred from simulation or extrapolation; the frozen package's finite `verify.py` addresses the triangle projection and is not a verifier of the five-vertex theorem.

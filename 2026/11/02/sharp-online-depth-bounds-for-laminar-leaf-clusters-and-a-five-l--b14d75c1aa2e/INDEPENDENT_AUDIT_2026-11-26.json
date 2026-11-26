@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:36:21.249542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, CHECK_LAMINAR.py, CHECK_LABELED.py, CHECK_OUTPUT.txt and VERIFICATION.md",
+        "Corrected RESULT.md, SLOGAN.txt, REVIEW.md and VERIFICATION.md in repairs/3",
+        "Independent replay: python /workspace/audit_reproduction.py (record 3), inverse leaf-deletion shape generator and direct Boolean shattering. Counts 1,1,2,5,12; exactly the three binary five-leaf shapes reach depth three."
+      ],
+      "rationale": "The frozen formulas are mathematically correct: a positive answer leaves at most H chain members, all ancestor thresholds are accessible by leaves in consecutive differences, and an opposite complete root-child subtree gives the required negative depth by induction. For the repaired finite claim, a leaf query can start depth three exactly when it has at least four ancestor clusters and misses a nonsingleton cluster. Indeed the positive chain needs four members and can then be bisected twice, while the negative branch either shatters a pair with the empty set and its two singletons or has only singleton and empty hypotheses. Hence a witnessing leaf has depth at least three with an off-path internal subtree, requiring at least five leaves. At equality its three off-path subtrees are two singletons and one cherry, giving exactly the three binary shapes. The root partition count 5+2+2+1+1+1 gives all twelve shapes. Ten hypotheses cannot support depth four. All pairs are statically shattered and laminarity forbids any triple.",
+      "residual_risks": [
+        "The repair does not assert the exact rank of arbitrary larger irregular hierarchies. The five-leaf classification is proved directly and does not require finite extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older cone result's uniform upper bound counts positive ancestors, and its regular-tree lower bound uses the positive chain and an opposite child subtree. Its side-branch prefix query 0^j1 can be extended to a leaf with the same trace on ancestor candidates; that extension works recursively in the opposite subtree, including the depth-one base needed at height two.",
+          "Menon et al. use the same descendant-leaf clusters for a clustering objective; Walker's general tree-dimension bounds involve other objects or general counting."
+        ],
+        "reasoning": "The cone proof materially covers the frozen regular-tree centerpiece, beyond a coincident formula, and the height-bound method is shared. It does not give the negative-branch criterion for the first irregular-tree threshold or classify the equality shapes; the repaired claim does not rely on rebranding that height law.",
+        "searches": [
+          "Resultary b12283818b44, Finding and Proof (offsets 0 and 1740)",
+          "Menon et al. arXiv:1909.09667, Definition 1",
+          "Walker arXiv:2203.12211v2, pp. 1–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b12283818b44, 51dd1a6204e5, 9d757d9b9c06, bf95851f8ef7, f1dfe91c8f00",
+        "arXiv:1909.09667, 2203.12211, 2611.26721",
+        "OEIS A000669 and A001190",
+        "Repaired RESULT.md, Relationship to prior work"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An ancestor chain of four gives a depth-two positive branch. A four-leaf comb already has such a chain, but lacks an off-path nonsingleton cluster for any query on its deepest cherry.",
+          "The known threshold-chain estimate only supplies the positive-branch depth. The old general cone result gives bounds for all vertices/no empty hypothesis and no first-leaf-count or attaining-shape theorem."
+        ],
+        "reasoning": "Height alone cannot separate the four-leaf comb from the rank-three five-leaf witnesses. The repaired classification requires a second structural condition and its equality case; it is not the table counts, regular rank formula or a consequence of dual rank bounds.",
+        "searches": [
+          "Resultary b12283818b44 exact regular-tree proof and VC section, offsets 1740–5193",
+          "Resultary 51dd1a6204e5 and 9d757d9b9c06 exact Findings",
+          "arXiv:2611.26721 Fact 2.4; OEIS A000669 and A001190"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Leaf clusters are vertex descendant cones restricted to the leaves, plus the empty concept; the unaugmented system is also the transpose of the leaf-path/vertex incidence relation.",
+          "The comb-path record gives VC one and a logarithmic rank for the transposed type of class; the clade and frontier records take different objects as hypotheses."
+        ],
+        "reasoning": "Neither transposing the incidence matrix nor changing the hypotheses to whole trees or frontiers preserves the desired dimension. Restriction plus a new empty row does not in general preserve the cone rank, but the closest regular-tree proof does transfer directly for heights at least two.",
+        "searches": [
+          "Resultary descendant cones b12283818b44, fixed comb paths 51dd1a6204e5, all rooted clades 9d757d9b9c06 and frontiers bf95851f8ef7",
+          "arXiv:2611.26721, duality and thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000669 lists 1,1,2,5,12 for series-reduced planted trees with one to five leaves; A001190 gives three unlabeled fully binary rooted shapes at five leaves.",
+          "The later exact support polynomial f1dfe91c8f00 counts supports of candidate clade queries over hypotheses that are whole trees."
+        ],
+        "reasoning": "Neither shape table measures depth. Their numbers recover the size of the attaining set only after proving that binarity is equivalent to depth three at five leaves. The all-tree support polynomial uses a different query universe.",
+        "searches": [
+          "OEIS A000669 and A001190",
+          "Resultary f1dfe91c8f00, exact support polynomial; 9d757d9b9c06, exact clade dimensions"
+        ]
+      },
+      "rationale": "The frozen originality claim fails as framed for its regular-tree centerpiece: the earlier descendant-cone record gives the same height law for regular trees at heights at least two, with a proof that directly adapts to leaf queries. The numerical shape counts themselves are independently known. The actual repair withdraws the height theorem as a contribution, credits it and the shape counts, and claims the first leaf-number threshold and its shape-by-shape adaptive rank classification. The compared height law gives only a range for irregular trees and does not control the negative branch required for that classification. No inspected claim supplies this retained result.",
+      "residual_risks": [
+        "The inspected comparisons do not exclude unindexed specialized classifications of low adaptive rank.",
+        "Only the five-leaf threshold and the classification of the attaining shapes are retained; the numerical counts and static rank alone are not novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior coverage of frozen headline; no coverage of the repaired depth-by-leaf-count classification",
+          "evidence": "Queries y=0^j1 split the ancestor chain, and the opposite child subtree supplies the negative class; extend y to a leaf without changing the trace. The proof applies inductively on the regular subtree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-one-bit-height-law-for-online-learning-of-rooted-tree-de--b12283818b44/RESULT.md",
+          "material_read": "Finding, assumptions, Upper bound, Sharpness on branching trees and VC bound; offsets 0 and 1740–5193",
+          "method": "Mirrored exact statement and proof, independently tested transfer of its witness construction",
+          "title": "A sharp one-bit height law for online learning of rooted tree descendant concepts",
+          "trigger": "Same geometric structure, same positive branch and regular height value"
+        },
+        {
+          "assessment": "Different hypothesis and query systems",
+          "evidence": "Path hypotheses on vertex queries transpose the cluster incidence; trees queried by clades and maximal-antichain hypotheses do not represent fixed-tree clusters.",
+          "identifier_or_url": "Resultary 51dd1a6204e5; 9d757d9b9c06; bf95851f8ef7; later support polynomial f1dfe91c8f00",
+          "material_read": "Each RESULT.md Finding and relevant assumptions from offset 0",
+          "method": "Mirrored statement comparison",
+          "title": "Resultary rooted comb paths, clade membership, and hierarchical frontiers",
+          "trigger": "Same-day dual or clade aliases and precise related ranks"
+        },
+        {
+          "assessment": "Object overlap, different invariant",
+          "evidence": "Intermediate vertices give descendant-leaf clusters, used for approximation of clustering cost or revenue.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.09667",
+          "material_read": "Definition 1, p. 3, offset about 9200",
+          "method": "Primary PDF definition and objective comparison",
+          "title": "Online Hierarchical Clustering Approximations",
+          "trigger": "Same descendant-leaf geometry"
+        },
+        {
+          "assessment": "General shattering framework, not the small hierarchy threshold",
+          "evidence": "Tree dimension for subsets of leaves and general shatter-function bounds do not give the off-path requirement.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.12211",
+          "material_read": "pp. 1–4, offsets 0, 3000 and 7800",
+          "method": "Primary PDF definition and bound comparison",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "Potential tree-dimension comparison"
+        },
+        {
+          "assessment": "Later general dual and threshold comparisons, not shape classification",
+          "evidence": "Duality exchanges points and hypotheses; a threshold sequence of length k gives rank at least floor(log2 k).",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.26721",
+          "material_read": "Duality definition, Theorem 1.1, Fact 2.4 (pp. 1–2 and 5)",
+          "method": "Primary PDF statement comparison",
+          "title": "Littlestone Dimension and Its Dual",
+          "trigger": "Test transfer via incidence duality or threshold sequences"
+        },
+        {
+          "assessment": "Twelve total and three binary shapes are known; adaptive ranks are not the tabulated invariant",
+          "evidence": "The tables enumerate the two unlabeled shape families by leaf count.",
+          "identifier_or_url": "https://oeis.org/A000669 and https://oeis.org/A001190",
+          "material_read": "Definitions, initial terms and A000669 examples",
+          "method": "Public database table and interpretation comparison",
+          "title": "Series-reduced planted trees and Wedderburn–Etherington numbers",
+          "trigger": "Exact five-leaf counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and Proof; known shape counts and comparison to the earlier cone height law"
+      ],
+      "rationale": "The repaired theorem identifies the first hierarchy size at which adaptive membership learning is strictly harder than fixed-support shattering, and specifies exactly which geometries give the gap at the minimum size. The path-plus-off-path-cluster condition explains why a long positive chain by itself is not enough. This is a motivated exact boundary, not a recomputation of the twelve shapes or a relabeling of the earlier regular-tree height bound.",
+      "residual_risks": [
+        "The scope is membership learning of one cluster of a fixed hierarchy, not learning an unknown whole rooted tree."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

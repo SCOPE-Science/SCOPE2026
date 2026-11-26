@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:38:45.984146Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The probability and uniqueness assertion is true. Independently, S=B^T B−B since B_ii=1. In row i, each term from k≠i is zero if B_ki=0 and otherwise counts two forced entries plus Bin(n−2,p). In column i the same term has just one forced entry, while row k=i contributes Bin(n−1,p) independently. This gives exactly the two moment-generating functions and K_R,K_C bounds in RESULT.md, including n=2 and p=1. Markov/union and ||S||_2≤sqrt(||S||_1||S||_∞) give the asserted norm event. The uniqueness criterion is Theorem 3.3 of Cheng–Deng–Ma's accessible proceedings text, not the cited Theorem 3.6 (equivalence of games); concavity of the clipped benefit plus c_0-strong convexity of cost gives the required c=c_0, and L_0=2b. The paper's older random threshold is Theorem 4.2, not 4.3. Its proof's one-sided norm inference is invalid in this model: B with rows (1,1,0,1),(1,1,1,0),(0,0,1,0),(0,0,0,1) gives ||S||_∞=3 but ||S(2,2,1,0)^T||²=82>9·9. The frozen argument does not make this error. A second proof of the equilibrium bound is the exact best-reply reduction below.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 4 gives a unique equilibrium on any directed network with Σ_j |G_ij|<1 for all i; no independent random edges are required. Here it applies as soon as D_max<1+c_0/(2b).",
+          "Lugosi–Mendelson–Zhivotovskiy's Theorem 1 concerns symmetric adjacency for p≥64 log(n)/n; Proposition 2 also treats a very sparse regime p≪1/n. Neither is the matched game theorem."
+        ],
+        "reasoning": "The deterministic criterion is already broad enough to cover the frozen finite-n probability via the ordinary outdegree tail; a result on nonsymmetric overlap norms is not required.",
+        "searches": [
+          "arXiv:1604.08910 §III-A Theorem 1 and Corollary 4",
+          "arXiv:1801.02157 Theorem 1 and Proposition 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and AUDIT.json",
+        "arXiv:2502.01001",
+        "arXiv:1604.08910",
+        "arXiv:1801.02157",
+        "Resultary: 2026/10/26/SCOPE-generic-equilibrium-uniqueness-and-exact-degeneracy-on-one-out-n--6579ff0ec939"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For D_i=Σ_{j≠i}B_ij, E exp(D_i)=[1+p(e−1)]^(n−1)≤exp(p_0(e−1)). With probability at least 1−n^(−q), max_i D_i≤L_n=(q+1)log n+p_0(e−1). Hence c_0/(2b)>L_n−1 suffices by Corollary 4, and L_n<u_n since K_C≥exp(p_0(e−1)) and K_R>0.",
+          "Cheng–Deng–Ma Theorem 4.2 prints an O(sqrt(n)) sufficient condition at probability 1/2 and its remark asks for polylogarithmic dependence via concentration; this gap in their overlap-based argument does not rule out the stronger best-reply implication."
+        ],
+        "reasoning": "This covers every allowed n,p_0,q and the entire frozen parameter region with at least the same probability, not just the asymptotic order.",
+        "searches": [
+          "arXiv:1604.08910 Corollary 4",
+          "arXiv:2502.01001 §4.2.1, Theorem 4.2 and Appendix A.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For outside effort y_i=Σ_{j≠i} B_ij x_j, the marginal payoff in Cheng–Deng–Ma is max(a−2b(x_i+y_i),0)−c_0 x_i. Its unique best reply is max(0,(a−2b y_i)/(2b+c_0)). The large, dominated upper endpoint of §4.2 is immaterial: even the unconstrained maximum reply is a/(2b+c_0), attained at y_i=0.",
+          "Naghizadeh–Liu Eq. (2) gives exactly this best-reply map with standalone target a/(2b+c_0) and G=(B−I)/(1+c_0/(2b)). An actual linear-cost representative is benefit 1−exp(−k) and marginal cost exp(−a/(2b+c_0)). Eq. (3) gives the identical complementarity problem. Their footnote 3 explicitly notes this form also arises with linear-quadratic payoffs."
+        ],
+        "reasoning": "The representative and the frozen game have identical fixed points, not just analogous inequalities; strict concavity in own action also rules out nondegenerate mixed best replies in the frozen model.",
+        "searches": [
+          "arXiv:2502.01001 §4.2",
+          "arXiv:1604.08910 Eq. (2), Eq. (3), footnote 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed record classifies equilibria under outdegree at most one and random heterogeneous thresholds. Its payoff and best-reply formulation explicitly exhibit the linear-cost representative, but its graph and randomness assumptions do not give the frozen Bernoulli claim. No matched explicit constants were identified in the inspected index results."
+        ],
+        "reasoning": "Index exactness is not decisive: the previously published stronger deterministic result gives coverage even without the frozen constants printed in a table or another record.",
+        "searches": [
+          "Resultary: sparse directed Bernoulli network digital public goods game Cheng Deng Ma equilibrium uniqueness logarithmic convex costs overlap row column concentration",
+          "Resultary: 2026/10/26/SCOPE-generic-equilibrium-uniqueness-and-exact-degeneracy-on-one-out-n--6579ff0ec939, Finding and Assumptions and scope"
+        ]
+      },
+      "rationale": "The frozen uniqueness result is mechanically implied, with a strictly better explicit sufficient threshold, by an existing diagonal-dominance result after exact best-reply reduction. Different payoffs do not imply different equilibrium equations here. The two-sided overlap-norm route does repair a defect of the older paper's route, but no overlap-norm theorem is separately claimed in the Finding.",
+      "residual_risks": [
+        "This is positive prior implication, not a claim that the exact frozen overlap constants were printed previously or that the literature search was exhaustive.",
+        "The matched game uses the homogeneous clipped benefit, quadratic cost and large effort space explicitly specified in §4.2; the argument does not classify heterogeneous games or arbitrary effort constraints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model. Earlier displayed random bound is weaker and uses an invalid one-sided bound for the nonsymmetric operator norm. The correct deterministic overlap criterion does apply to the frozen proof.",
+          "evidence": "Theorem 3.3 condition (3) uses c>L_0 σ_max(Σ); Theorem 3.6 equates equilibria of equivalent games; §4.2 gives the clipped quadratic benefit and c_0 x²/2; Theorem 4.2 gives the square-root bound; Appendix A.10 substitutes the overlap and uses ||Σ||_∞.",
+          "identifier_or_url": "https://arxiv.org/pdf/2502.01001",
+          "material_read": "Theorems 3.3 and 3.6 (PDF pp. 6–7); §4.2 and §4.2.1 (p. 8); Appendix A.10 (pp. 18–19)",
+          "method": "Read displayed conditions and payoff formulas, then differentiated the clipped payoff and checked the random-network proof step.",
+          "title": "Networked Digital Public Goods Games with Heterogeneous Players and Convex Costs",
+          "trigger": "Exact frozen model and its claimed prior scaling gap"
+        },
+        {
+          "assessment": "Covers the claimed uniqueness result, and quantitatively improves its sufficient condition with the same failure guarantee.",
+          "evidence": "Eq. (2) uses max(0,q̄_i−Σ_j G_ij x_j); Theorem 1 gives the P-matrix criterion; Corollary 4 explicitly gives uniqueness under strict diagonal dominance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.08910",
+          "material_read": "Best-reply equations (2)–(3) and footnote 3, PDF p. 4; Theorem 1, p. 6; Corollary 4 and its proof, p. 9",
+          "method": "Matched the exact equilibrium maps under weight rescaling and transferred the diagonal-dominance result with a binomial outdegree bound.",
+          "title": "Provision of Public Goods on Networks: On Existence, Uniqueness, and Centralities",
+          "trigger": "Candidate prior uniqueness result with a different utility formula"
+        },
+        {
+          "assessment": "Related equilibrium formulation, but its one-out graph restriction and random threshold mechanism do not imply the frozen claim.",
+          "evidence": "The theorem restricts to directed outdegree at most one; it classifies equilibrium intervals and asserts a.s. uniqueness for a threshold vector with a density.",
+          "identifier_or_url": "2026/10/26/SCOPE-generic-equilibrium-uniqueness-and-exact-degeneracy-on-one-out-n--6579ff0ec939",
+          "material_read": "Finding; Assumptions and scope; mirrored RESULT.md, offsets 90–2045",
+          "method": "Compared where randomness enters and checked allowed weights, degrees, and payoff form.",
+          "title": "Generic equilibrium uniqueness and exact degeneracy on one-out-neighbor public-goods networks",
+          "trigger": "Closest Resultary uniqueness hit for directed public goods"
+        },
+        {
+          "assessment": "Not the covering source: bounds concern the undirected symmetric adjacency process, not the stated overlap or the game criterion.",
+          "evidence": "Theorem 1 treats p≥64 log(n)/n; Proposition 2 treats certain p≪1/n ranges.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.02157",
+          "material_read": "Ranges and objects in Theorem 1 and Proposition 2, PDF pp. 4–5",
+          "method": "Compared edge model, matrix, and density regime.",
+          "title": "Concentration of the spectral norm of Erdős–Rényi random graphs",
+          "trigger": "Cited possible random-matrix coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a Nash-uniqueness finding, the claimed improvement is a looser sufficient condition than the one obtained by substituting the exact best-reply map into an existing directed-network criterion and taking a single binomial exponential-moment bound. The exact overlap constants are conservative proof intermediates, with no independent use or sharpness established in the Finding. Correcting theorem numbering or adding finite tests would not restore the purported contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

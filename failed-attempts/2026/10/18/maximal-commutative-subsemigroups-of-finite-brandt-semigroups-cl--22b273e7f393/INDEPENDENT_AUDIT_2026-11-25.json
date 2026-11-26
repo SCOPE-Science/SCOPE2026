@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:45:50.867596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked RESULT.md lines 4–52. A maximal commuting subset contains zero and is product-closed since products of commuting elements commute with every member. Two off-diagonal triples can commute only by both products being zero: if both are nonzero they occupy different diagonal fibers. Therefore sources and targets are disjoint; each index used by an off-diagonal triple excludes its entire diagonal fiber. Completing the rectangular block adds no conflicts, and the remaining fibers must be maximal pairwise commuting subsets of G, hence subgroups (products and inverses commute with all members). Conversely the diagonal identities block off-diagonal incidence at unused indices and the full rectangle blocks a source in T or a target in S; all remaining elements are included or forbidden by maximality in the pertinent group. This proves uniqueness and all scope cases, including G trivial and U empty. Independent choices give one factor z for zero, z^(|G|st) for the rectangle and H_G(z) for each unused index. Inclusion–exclusion leaves (a+2)^n−2(a+1)^n+a^n for the rectangular family; adding the diagonal family gives the stated total. The full formula uses |G| explicitly, in addition to the subgroup-size data. A separate finite check (python3 /workspace/review_checks.py 2) enumerated commuting cliques and tested product closure and size multiplicities including zero for 12 small cases over five groups: S3 gives totals 18 and 94 at n=2 and 3; the n=4 total 558 follows from the proved expression. The finite check is not a proof in arbitrary n or G; the frozen scripts were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem includes n=1 and gives maximum size and a Gaussian limit beyond the frozen statement.",
+          "Paulista's maximal-clique argument uses completely simple Rees matrix semigroups without zero; Margolis–Rhodes–Silva's facets are chains in a subsemigroup lattice, not commuting cliques."
+        ],
+        "reasoning": "The indexed result is strictly broader. The two primary comparison results do not account for the arbitrary-group zero-product rectangle and its complementary diagonal fibers.",
+        "searches": [
+          "4fb43e2cf90b, Finding and Assumptions and scope",
+          "arXiv:2412.06560v1, Corollary 3.5 and proof",
+          "arXiv:1705.04956v1, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4fb43e2cf90b",
+        "arXiv:2010.05000v1",
+        "arXiv:1705.04956v1",
+        "arXiv:2412.06560v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed diagonal and rectangular families use the identical multiplication with absorbing zero, actual maximal abelian subgroups (not conjugacy classes), and ordered disjoint source/target sets with all |G| labels. It states uniqueness for inclusion-maximality."
+        ],
+        "reasoning": "Restricting the comparator to n≥2 recovers every frozen case and the group-specific examples by substitution. Neither the handling of nonabelian labels nor order refinement survives as a distinct claim. This comparison does not establish which proof or version came first.",
+        "searches": [
+          "4fb43e2cf90b, RESULT.md, Diagonal family and Rectangular family",
+          "arXiv:2010.05000v1, §3",
+          "arXiv:2412.06560v1, Corollary 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal commuting cliques on nonzero elements, with zero restored, are precisely the maximal commutative subsemigroups. Lemma 3.10 gives A×B for a maximum off-diagonal clique in the trivial-group graph; the zero-product obstruction already works as a necessity for maximal cliques.",
+          "4fb43e2cf90b gives the exact maximal forms with arbitrary group labels, including the abelian groups in the unused diagonal fibers."
+        ],
+        "reasoning": "The clique formulation is not a separate invariant. The aperiodic graph theorem is partial coverage, whereas the indexed labelled normal forms coincide after renaming the partition classes.",
+        "searches": [
+          "Resultary: maximal commutative Brandt subsemigroups, group-labelled rectangles and order distribution",
+          "arXiv:2010.05000v1, Lemma 3.10 and Theorem 3.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "It gives F_{n,G}(t)=t[P_G(t)^n+Σ_{a,b≥1,a+b≤n} n!/(a!b!(n−a−b)!) t^{|G|ab}P_G(t)^{n−a−b}] and F_{n,G}(1)=(M+2)^n−2(M+1)^n+2M^n."
+        ],
+        "reasoning": "Under t=z, P_G=H_G and M=H_G(1), these are identical polynomials and totals, not just a match in examples or maximum cardinality.",
+        "searches": [
+          "4fb43e2cf90b, RESULT.md, Finding at offsets 460–1073"
+        ]
+      },
+      "rationale": "The distinct indexed Resultary record 4fb43e2cf90b directly covers the entire frozen classification, order polynomial and total for all finite G, with n≥1 rather than n≥2. Its extra extremal and asymptotic results do not leave a distinct remainder in the frozen record. This is a failure of distinct mathematical coverage, not a finding about chronological priority or derivation; the comparator's displayed catalogue date is later than the frozen item's directory date.",
+      "residual_risks": [
+        "The relationship between the two distinct indexed records and their original priority are not resolved by their directory dates. The comparison establishes coverage, not priority or provenance.",
+        "The inspected older results do not constitute an exhaustive bibliography."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage and broader scope",
+          "evidence": [
+            "Identical ambient multiplication, two unique normal forms, coefficient polynomial, and evaluation at one; n≥1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-maximal-commutative-subsemigroups-of-brandt-semigroups-exact-siz--4fb43e2cf90b/RESULT.md",
+          "material_read": "RESULT.md, Finding and both normal forms, offsets 0–3357",
+          "method": "Original published record through the local mirror",
+          "title": "Maximal commutative subsemigroups of Brandt semigroups: exact size spectra and a Gaussian law",
+          "trigger": "Direct match for all group labels and full order distribution"
+        },
+        {
+          "assessment": "Antecedent for the unlabelled obstruction; not the group-general size series",
+          "evidence": [
+            "Lemma 3.10 forms disjoint source and target sets A,B for a clique of maximum size without idempotents, then saturates A×B; Theorem 3.14 gives the clique number."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.05000v1",
+          "material_read": "PDF pp. 7–8, Lemma 3.10 and Theorem 3.14",
+          "method": "OA original passage inspection",
+          "title": "On the commuting graphs of Brandt semigroups",
+          "trigger": "Exact aperiodic graph and source/target obstruction"
+        },
+        {
+          "assessment": "Different complex and aperiodic scope in these statements",
+          "evidence": [
+            "The complex is constructed from chains in the subsemigroup lattice; its maximal faces are not defined by pairwise commutation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.04956v1",
+          "material_read": "PDF abstract and definition of facets, pp. 1–2",
+          "method": "OA original passage inspection",
+          "title": "On the subsemigroup complex of an aperiodic Brandt semigroup",
+          "trigger": "Potential maximal-facet equivalent on matrix units"
+        },
+        {
+          "assessment": "Related group-label result in the no-zero class, not the stated Brandt theorem",
+          "evidence": [
+            "The displayed result concerns maximum order; the proof uses inclusion-maximal cliques and maximal abelian subgroups in completely simple Rees matrix semigroups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.06560v1",
+          "material_read": "PDF Corollary 3.5 and its proof, pp. 7–8",
+          "method": "OA original passage inspection",
+          "title": "Commuting graphs of completely simple semigroups",
+          "trigger": "Rees matrix semigroups with group labels and maximal commutative subsets"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical result, the full inclusion-maximal size distribution for arbitrary finite Brandt semigroups is structurally useful: it reduces a semigroup clique census to a finite-group subgroup spectrum and a rectangle count, and distinguishes subgroup choices of different orders in nonabelian examples. A clique number alone would not supply this information. This assessment of the theorem's mathematical content does not supply a new contribution beyond the exact comparator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The compact-torus additive metric has exactly the antipodal locus as its radius maximizers, since every nonantipodal shorter arc either contains a grid site or lies in one grid gap. The uniform first variation of the two-coordinate power norm supplies the entropy penalty. A localization bound forces any competing maximizer to within order \(p-1\) of the antipodal locus. Two opposite semicircle test sites yield the global sharp upper variation; the compensating antipodal shift attains the lower variation, including the possible boundary-site case in even sizes. The midpoint-grid phase reduction and strict concavity yield the even/odd closed formulas. Finite computations merely corroborate the proof.
+PASS
 
-## Originality
+A shorter circle arc containing a grid site gives its length as the additive distance, and an arc in a grid gap gives an endpoint with sum at most 1/n. Thus for n≥3 the additive maximizing locus is exactly antipodality; each such point has a site with both coordinate distances positive, giving strict improvement for p>1 by compactness. The derivative of the ℓ_p norm at 1 is −(a+b)H(a/(a+b)); continuity of t^p log(t) through zero for p near 1 gives a uniform expansion near a+b=1/2. The optimizer has normal displacement δ=O(ε), because the short arc near antipodality contains a site and bounds F_1 by 1/2−|δ|. Select the site nearest each semicircle midpoint, a uniformly positive distance from the endpoints. For δ=εz, their affine coefficients are z−h_+ and −z−h_−, where h_±=H(1/2+2e_±)/2. Their minimum is at most −(h_++h_−)/2. At a minimizing phase this bound is attained to first order by z=(h_+−h_−)/2, since the other sites inside either arc have no larger entropy penalty. At the chosen odd phase x=−1/4 neither endpoint is a grid site; for even n, z=0 so endpoint sites keep distance 1/2. Even n gives e_+=e_− and maximizes both offsets at 1/(2n); odd n gives e_++e_−=1/(2n) and entropy concavity puts the minimum at the endpoints. Entropy Taylor expansion yields both size corrections. For n=2 the additive radius is at most 1/2 by averaging the two site distances, and (0,1/2) attains 1/2 for all p. Substituting n=3 gives the stated known coefficient. An independent 20,000-phase sample at each n=4,…,16 corroborated the reduced minimum only; the frozen script was inspected, not run.
 
-**PASS, provisional.** The first public motivating paper, Cieliebak–Cieliebak arXiv:2611.15599v1, was read at the introduction and the full discrete counterexample in Section 3. It does not treat a uniform diagonal design on a continuous torus, nor a one-sided exponent derivative or its parity dependence. An earlier three-site calculation already establishes the \(n=3\) specialization, which is expressly excluded from the new priority claim. Nearest indexed two-torus covering results fix two freely chosen centers and a Euclidean metric; Fourier-exact torus quadrature records impose unrelated constraints. Equivalence and stronger-coverage searches disclosed no dominating all-integer parity theorem. The residual risk is unindexed results in periodic \(\ell_p\) covering theory; absence from a database is not proof of historical uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a complete sharp first-variation invariant of a natural infinite family of periodic covering designs. Its parity split is not a relabeling of a three-site case: the two semicircular entropy maxima are coincident grid phases in even sizes but displaced by half a grid step in odd sizes, producing different asymptotic size corrections. It quantifies the geometric transition from an additive product distance to strict \(\ell_p\) smoothing. No stronger unrestricted optimality is suggested.
+Credit the three-site result and its first-variation method; the supported distinct claim is the sharp n≥4 fixed-diagonal classification and parity-dependent coefficients. The closest examined results do not resolve the general grid-phase minimum or the even/odd switch. This is a scoped conclusion from checked evidence, not a claim of exhaustive priority.
 
-## Scope and independent verification
+## value
 
-The exact radius for arbitrary fixed \(p>1\), and the best freely placed \(n\)-point configuration, are not claimed. Historical priority may require examination of further periodic covering literature. The accompanying script is supplementary, not an infinite certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact first-order radius for a natural prescribed torus design is useful beyond showing strict onset. In the odd case moving O(p−1) off the antipodal locus strictly improves the first-order optimum over restricting to that locus: the best purely antipodal penalty is H(1/2+1/(2n))/2, strictly above the mean of the two endpoint entropies divided by two by strict concavity. Even n instead requires no such displacement. This gives a concrete reason for the sharp distinction and its surviving finite-size correction without claiming optimal unconstrained placements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:59:03.442650Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify.py (read, not run)",
+        "Replay: python3 /workspace/audit-evidence/frozen_checks.py 5"
+      ],
+      "rationale": "Projection terms reduce to a single variable. In the nonprojection case, a noninvertible B=1−T gives the strict intermediate probability |ker B|/|A| for x*y=y. When B and T are invertible their inverses belong to the finite ring R=Z[T]=Z[B] by finite order. On the finite set of realized binary coefficients, the maps f↦Bf and f↦Bf+T are permutations. Composing the second with the inverse of the first and conjugating by powers of the first yields translations by B^jT. Their additive span is TR=R; starting with coefficient zero gives all of R without adding operations to the term language. A nonzero nonunit of R acts nontrivially but nonbijectively (a bijective endomorphism has a positive power equal to the identity), and so gives a two-variable strict intermediate probability. Conversely, if R is a field, any equation with a nonzero difference coefficient defines an onto linear map onto A and has exactly probability 1/|A|. A field R acts on A as a finite vector space and T generates it with scalar distinct from 0 and 1. For B invertible the displacement group acts by all additive translations: conjugating it forces an isomorphism fixing zero to be additive, then to intertwine T. Rational canonical form gives one class per allowed irreducible polynomial and centralizer GL_{m/d}(F_{p^d}); multiplying by the translation factor and using relabeling gives the stated formulas and the unique projection operation. Independently closed the actual binary operation truth vectors on (x,0) over ten small abelian groups and tested order-four and order-nine stabilizers on their tables; the order-nine nonprojection class orbit sizes were 840, 5040, 5040 and 5040, totaling 15960 before the projection.",
+      "residual_risks": [
+        "The bounded replay probes binary consequences, not all arities or sizes; the coefficient and surjectivity proofs establish those.",
+        "The complete proof distinguishes the two binary arguments and the opposite convention; the projection chosen here is x*y=y."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardó's groupoid result forces a quasigroup in the nonprojection idempotent case. Clone monotonicity together with ordinary field-linear surjectivity implies sufficiency.",
+          "Affine- and medial-quandle papers give the needed module/displacement and isomorphism framework; enumeration of medial quasigroups is already approached through conjugacy in automorphism groups of abelian groups."
+        ],
+        "reasoning": "The general probability results do not themselves classify Latin coefficient rings. Structural isomorphism results do not calculate probabilities, but they eliminate the need for a new isomorphism framework once the admissible operators are known.",
+        "searches": [
+          "Cardó arXiv:2603.19487 Theorem 4",
+          "Cardó arXiv:2604.08446 clone containment",
+          "Jedlička et al. arXiv:1708.02362 and arXiv:1409.8396",
+          "Distributive and trimedial quasigroups of order 243, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Resultary spectral search and exact earlier Latin-spectrum RESULT.md",
+        "Cardó arXiv:2603.19487 and arXiv:2604.08446",
+        "arXiv:1708.02362 and arXiv:1409.8396",
+        "Distributive and trimedial quasigroups of order 243, introduction and Hou reference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier elementary-abelian proof reaches every coefficient in F_p[T] and yields every probability by a binary term.",
+          "The frozen finite ring proof extends the same translation generation to Z[T]. For an abelian A that is not elementary abelian at any prime, multiplication by any prime divisor p of |A| has nontrivial kernel and nonzero image; the binary term with coefficient p witnesses the obstruction in the Latin case."
+        ],
+        "reasoning": "The principal positive Latin classification and elementary-abelian binary obstruction follow directly from the earlier full spectrum. The non-Latin case is precluded by the general prior structure theorem, with x*y=y providing a direct binary witness here. The earlier prime-field result does not literally cover nonelementary groups; the integer-multiplier argument is the real remaining reduction. Together with a routine orbit count it does not amount to a second independent classification.",
+        "searches": [
+          "Earlier Resultary Latin spectrum result, Finding and term-generation proof",
+          "Cardó arXiv:2603.19487 Theorem 4 and arXiv:2604.08446 clone principle",
+          "The Structure of Medial Quandles, Theorems 4.2 and 9.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Resultary Latin spectrum theorem gives minimal spectrum iff the minimal polynomial is irreducible, with repeated blocks allowed.",
+          "The Structure of Medial Quandles, §9 Theorem 9.1, cites the companion-matrix description of simple finite medial quandles."
+        ],
+        "reasoning": "For T on an elementary abelian group, Z[T]≅F_p[X]/(m_T), so the two criteria are equivalent. Swapping arguments for the opposite affine convention preserves all equational probabilities by swapping at each node of a term. The scalar-field modules are homogeneous powers of the simple field-affine example; simplicity by itself covers only one copy, not all multiplicities. The earlier spectrum theorem itself covers those powers.",
+        "searches": [
+          "Resultary spectral classification lookup for affine/Latin quandles",
+          "Primary-literature query for finite medial Latin affine quasigroups, strictly simple powers, irreducible minimal polynomials, automorphism counts and equational probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalogue record gives the exact elementary-divisor spectrum classification and realizes every value with binary terms, stronger than the corresponding portion of the frozen record.",
+          "The checked primary sources give broader structure or enumeration for other families; neither an exact filtered count table nor the printed filtered formulas were located in inspected material."
+        ],
+        "reasoning": "The exact spectrum coverage is decisive despite the missing count-table match. At each allowable degree d the earlier admissible operators have one conjugacy type per monic irreducible polynomial except X and X−1, with a centralizer GL_{m/d}(F_{p^d}); summing these types and their relabeling orbits recovers both formulas without a new census.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-equational-probability-spectra-of-finite-latin-affine-quandles--5e4215ffc0b3",
+          "Primary-literature search for the minimal-spectrum-filtered types and labeled counts"
+        ]
+      },
+      "rationale": "The earlier October 26 catalogue result already classifies the full spectrum of finite Latin affine quandles on elementary abelian groups. In particular it gives precisely the field/irreducible-minimal-polynomial criterion, explicitly allows multiplicity greater than one, and gives binary witnesses; this is established earlier coverage, not a speculative match. Cardó's more general theorem already forces Latinness of a nonprojection idempotent minimal-spectrum groupoid. The frozen proof correctly extends the coefficient argument to nonelementary groups and gives exact filtered counts, but those do not substantiate the principal classification as a distinct finding. The nonelementary exclusion reduces to an integer multiplier once the same finite ring-generation argument is applied, and the counts are routine consequences of the earlier positive cases, known affine-quandle isomorphism theory and orbit–stabilizer. No claim is made that the exact count formulas were located verbatim.",
+      "residual_risks": [
+        "Hou 2012 and the inaccessible listed sources were not read as full text; precise printed-formula priority for the counts is unresolved.",
+        "The failure rests on the affirmative earlier classification and concrete implications, not on access limitations or any claim that every part appeared verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger prior on elementary abelian Latin affine quandles; not a literal theorem for general finite abelian groups",
+          "evidence": "Full spectrum via elementary divisors, a binary realization for each value, minimal spectrum iff the minimal polynomial is irreducible, and repeated-block examples.",
+          "identifier_or_url": "2026/10/26/SCOPE-equational-probability-spectra-of-finite-latin-affine-quandles--5e4215ffc0b3",
+          "material_read": "RESULT.md Finding and proof, offsets 0–5516 and 5516–9543",
+          "method": "Local catalogue mirror passage inspection",
+          "title": "Equational probability spectra of finite Latin affine quandles",
+          "trigger": "Exact earlier match to the core field iff and binary obstructions"
+        },
+        {
+          "assessment": "Broader prior forcing the nonprojection Latin condition, not identifying the coefficient ring",
+          "evidence": "Quasigroups or constant/isocyclic alternatives; idempotence restricts the alternatives here to projections.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.19487",
+          "material_read": "PDF p. 2 offset 3690 and p. 7 Theorem 4 offset 19400",
+          "method": "Direct OA PDF passage inspection",
+          "title": "On semigroups and groupoids with minimal probabilistic spectrum",
+          "trigger": "General minimal-spectrum structure could force the projection/Latin dichotomy"
+        },
+        {
+          "assessment": "General mechanism implying field-case sufficiency with the elementary linear calculation",
+          "evidence": "Clone inclusion implies probabilistic-spectrum inclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.08446",
+          "material_read": "PDF p. 1, and clone containment at about p. 6, offset 16900",
+          "method": "Direct OA PDF passage inspection",
+          "title": "Probabilistic equational spectrum, primality and approximation in finite algebras",
+          "trigger": "Possible general probability theorem covering affine-field sufficiency"
+        },
+        {
+          "assessment": "Structural prior, no filtered probability enumeration in the inspected passages",
+          "evidence": "Affine quandles are module reducts; the displacement group acts by translations from Im(1−f).",
+          "identifier_or_url": "https://arxiv.org/abs/1708.02362",
+          "material_read": "PDF pp. 3–4, offsets 10100 and 14200, affine definitions and Theorem 2.3",
+          "method": "Direct OA PDF passage inspection",
+          "title": "Subquandles of affine quandles",
+          "trigger": "Module and displacement structure underlying the isomorphism count"
+        },
+        {
+          "assessment": "Covers simple constituents and the affine-mesh isomorphism framework, not the repeated-module probability criterion",
+          "evidence": "Simple medial quandles use irreducible companion matrices; indecomposable mesh sums are isomorphic iff the meshes are homologous.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.8396",
+          "material_read": "PDF p. 24, §9 and Theorem 9.1, offset 86400–89582; Theorem 4.2 isomorphism statement on p. 9",
+          "method": "Direct OA PDF passage inspection",
+          "title": "The Structure of Medial Quandles",
+          "trigger": "Simple component classification and broader isomorphism theory"
+        },
+        {
+          "assessment": "Confirms established conjugacy enumeration approach and identifies Hou; no exact minimal-spectrum filter in the inspected passage",
+          "evidence": "The introduction relates medial quasigroup enumeration to conjugacy of automorphisms of abelian groups and cites Hou on idempotent medial quasigroups.",
+          "identifier_or_url": "https://cs.du.edu/~petr/data/papers/distributive_and_trimedial_quasigroups_of_order_243.pdf",
+          "material_read": "PDF pp. 1–2, generation and classification discussion; reference [13] on p. 16",
+          "method": "Direct OA PDF passage inspection",
+          "title": "Distributive and trimedial quasigroups of order 243",
+          "trigger": "Possible alternate medial-quasigroup enumeration coverage"
+        },
+        {
+          "assessment": "Not used for any negative inference or the failure verdict",
+          "evidence": "No passage obtained.",
+          "identifier_or_url": "https://jedlicka.tf.czu.cz/publications/a/SI_med_quandle.pdf",
+          "material_read": "Search identification only; PDF not read",
+          "method": "OA retrieval attempted",
+          "title": "Subdirectly Irreducible Medial Quandles",
+          "trigger": "Possible characterization of relevant module building blocks"
+        },
+        {
+          "assessment": "Not used for any negative inference or the failure verdict",
+          "evidence": "No passage obtained.",
+          "identifier_or_url": "https://www.i-repository.net/contents/osakacu/sugaku/00306126-59-1-145.pdf",
+          "material_read": "Search identification only; PDF not read",
+          "method": "OA retrieval attempted",
+          "title": "Connected quandles of size pq and 4p",
+          "trigger": "Potential overlap with small-order exact counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, classification, enumeration and proof",
+        "Earlier Resultary full Latin spectrum classification",
+        "The Structure of Medial Quandles, affine-mesh isomorphism theorem"
+      ],
+      "rationale": "Minimal-spectrum classification is a natural question, and the frozen formulas are correct. But after crediting the earlier full Latin spectrum, the additional nonelementary exclusion is a direct prime-multiplier test, and counting the already determined positive class is irreducible-polynomial counting plus a standard centralizer and relabeling calculation. The record does not establish a separate nonroutine invariant, witness phenomenon or application in that remainder. No scientifically distinct repair is delivered.",
+      "residual_risks": [
+        "This does not rule out value in a stronger full spectral classification on nonelementary finite abelian groups; that claim is outside this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

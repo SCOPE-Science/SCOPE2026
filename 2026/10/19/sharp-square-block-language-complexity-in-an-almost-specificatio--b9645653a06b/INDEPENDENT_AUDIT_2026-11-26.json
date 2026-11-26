@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:16:10.434060Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–112",
+        "Kwietniak–Oprocha–Rams arXiv:1411.1989v1 pp. 7 and 9, Lemmas 5 and 9",
+        "Denisov–Foss–Korshunov arXiv:0808.3697 p. 2 Eq. (2)",
+        "VERIFICATION.md and verify.py (inspection only)"
+      ],
+      "rationale": "Partitioning by the first marker gives the disjoint count pq^n+G_n+p sum_{i=1}^{n-1} q^i G_{n-i}. The marker boundaries uniquely determine the free blocks, whose suffix counts depend only on cardinality of the restrictions. The nested sets ensure that truncated prefixes of restricted runs remain restricted; a factor starting inside a run starts with an unrestricted monochromatic prefix. Normalization gives total renewal mass 1/(1-rho) including g_0 and deficit p sum_{m>=n} g_m-g_n. Summing the square blocks exactly gives the displayed A_n, of order sqrt(n) q^{-sqrt(n)} uniformly in phase. Moving the index by h=floor(n^(1/3)) changes A_n by o(A_n), and the central convolution has sqrt(j)+sqrt(n-j)>=sqrt(n)+c sqrt(h), making it negligible even with the polynomial factor. The two edge tails give subexponentiality by matching upper and lower bounds. The cited light-tailed stopped-sum relation applies to the independent geometric count and identifies the renewal-tail constant (1-rho)^(-2). Consecutive tail equivalence makes g_n negligible. At p=2,q=4 the exact tail gives coefficient 1296/25 for the bracket, and s taking every integer from 0 to 2k realizes every limit in [864/25,3456/25].",
+      "residual_risks": [
+        "The original construction's Lemma 9 prints a count with overlapping marker terms. The proof reviewed here uses a disjoint first-marker partition instead. The frozen script tests lengths through five and finitely many exact tail sums, not the infinite asymptotic. No critical or supercritical renewal claim is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected stopped-sum relation applies to light-tailed stopping and subexponential increments. Pavlov's construction instead uses constant-sign blocks and spanning sets. The targeted search supplied no additional relevant result."
+        ],
+        "reasoning": "The general tail theorem is used explicitly, not claimed new. It does not identify this language's normalization, prove the required subexponentiality with square-block modulation, or state its phase function.",
+        "searches": [
+          "Denisov–Foss–Korshunov arXiv:0808.3697 p. 2 Eq. (2)",
+          "Pavlov arXiv:1411.2077 Theorem 1.2",
+          "Targeted primary-literature search for the normalized colored-marker complexity phase"
+        ]
+      },
+      "checked_sources": [
+        "KOR arXiv:1411.1989v1",
+        "Denisov–Foss–Korshunov arXiv:0808.3697",
+        "Pavlov arXiv:1411.2077",
+        "Resultary aa51104dddb1 and 1db74ef026b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The free/good recurrence already makes dependence only on restriction cardinality transparent. The KOR entropy calculation bounds growth on the exponential scale, while Eq. (2) permits the geometric renewal-tail reduction after verification of its hypotheses."
+        ],
+        "reasoning": "Neither entropy nor the abstract stopped-sum theorem gives the phase envelope by direct specialization alone. The disjoint deficit, block tail and uniform central-convolution estimate are needed to turn the known ingredients into the precise phase rather than only a growth rate.",
+        "searches": [
+          "KOR Lemmas 5 and 9, Remark 14, Propositions 15–16",
+          "Denisov–Foss–Korshunov Eq. (2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KOR introduced the same models and recurrence, and its Remark 14 evaluates the same square-cardinality series. Its two examples include p=2,q=4. Resultary aa51104dddb1 instead treats a binary two-adic spacing shift and oscillations in log p(n)/sqrt(n); 1db74ef026b2 concerns density-constrained square-gap entropy."
+        ],
+        "reasoning": "The two-adic and square-gap examples are different objects and observables. KOR is an exact model match, but the compared conclusions are entropy and specification, not sharp finite-length approach to the normalized count limit.",
+        "searches": [
+          "Local Resultary searches for colored-marker language complexity and square-root oscillations",
+          "Kwietniak–Oprocha–Rams arXiv:1411.1989v1 Lemmas 5 and 9, Remark 14 and Propositions 15–16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "KOR's formal expression is 1+pq^n+G_n+sum_{i=1}^{n-1}(1+pq^i)G_{n-i}; the extra marker-prefix terms overlap. At p=2,q=4,n=2, the three disjoint classes have counts 32,3,8, totaling 43, whereas the printed expression gives 45. The retrieved Resultary hits do not tabulate this language."
+        ],
+        "reasoning": "There is prior combinatorial counting machinery for the same object, but the printed formula cannot be used literally as exact count data, and no relevant exact database of the normalized deficit or phase was inspected.",
+        "searches": [
+          "KOR Lemma 9 and local Resultary search for an exact complexity or phase table for the model"
+        ]
+      },
+      "rationale": "Credit the language construction, free/good recurrence, square-root cardinality and both placements to Kwietniak–Oprocha–Rams, and the random-sum theorem to the heavy-tail literature. Count independence is an elementary consequence of the decomposition, not a standalone novelty claim. The supported distinct contribution is the sharp normalized deficit with its explicit nonconstant square-block phase and full limit interval.",
+      "residual_risks": [
+        "An earlier equivalent renewal calculation may remain unindexed. The bounded search does not establish priority; the standard combinatorial and probability ingredients are not original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model, recurrence and specification examples; not the inspected phase law",
+          "evidence": "Same recurrence and square-block series. The literal Lemma 9 formula double-counts marker prefixes, unlike the disjoint decomposition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.1989v1",
+          "material_read": "Lemma 5 p. 7 offset 24000; Lemma 9 p. 9 offset 30900–34617; Remark 14 and Propositions 15–16 pp. 10–11 offset 37000",
+          "method": "Bounded original OA PDF inspection and manual two-letter count",
+          "title": "On entropy of dynamical systems with almost specification",
+          "trigger": "Exact original construction, counts and concrete parameters"
+        },
+        {
+          "assessment": "Prior general theorem sufficient after proving the distribution is subexponential",
+          "evidence": "The light-tailed-count formula gives E[N] times the increment tail; the stronger S* assumption in the later random-walk theorem is not the needed hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/0808.3697",
+          "material_read": "p. 2 Eq. (2), OA offset 5600, and distinction from p. 3 Theorem 1",
+          "method": "Bounded original OA PDF inspection",
+          "title": "Asymptotics of randomly stopped sums in the presence of heavy tails",
+          "trigger": "Needed general tail theorem and possible coverage of renewal reduction"
+        },
+        {
+          "assessment": "Different construction",
+          "evidence": "Constant-sign blocks and 2-spanning word sets rather than these colored-marker free words.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.2077",
+          "material_read": "Theorem 1.2 and construction, pp. 15–16, offset 54336",
+          "method": "Bounded original OA PDF inspection",
+          "title": "On intrinsic ergodicity and weakenings of the specification property",
+          "trigger": "Related almost-specification counterexamples"
+        },
+        {
+          "assessment": "Different shift and asymptotic normalization",
+          "evidence": "Binary two-adic spacing and oscillations in log p(n)/sqrt(n).",
+          "identifier_or_url": "Resultary aa51104dddb1",
+          "material_read": "Mirrored Finding, offset 97",
+          "method": "Local Resultary mirror inspection",
+          "title": "Exact word growth and arithmetic square-root oscillations",
+          "trigger": "Strongest square-root word-growth oscillation hit"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Density-constrained entropy rather than the finite-length renewal deficit.",
+          "identifier_or_url": "Resultary 1db74ef026b2",
+          "material_read": "Mirrored Finding, offset 71",
+          "method": "Local Resultary mirror inspection",
+          "title": "A theta-cubic law for sparse marker entropy in the square-gap shift",
+          "trigger": "Related marker and square arithmetic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof",
+        "KOR Lemma 9 and Propositions 15–16"
+      ],
+      "rationale": "The exact leading error shows what usual entropy and a stretched-exponential rate miss: a changing prefactor across each square block, with a full nontrivial phase interval in the original model. It gives a quantitative invariant and a useful benchmark for finite-length word counts; equal counts in the two variants also show that word complexity cannot detect their prior weak-specification distinction. Value rests on the sharp deficit law, not on rederiving the recurrence or evaluating one numerical case.",
+      "residual_risks": [
+        "Limited to the specified square-root cardinality and subcritical mass. No new specification or measure-theoretic classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

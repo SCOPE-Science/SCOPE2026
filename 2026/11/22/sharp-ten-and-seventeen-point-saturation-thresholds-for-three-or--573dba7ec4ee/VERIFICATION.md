@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `checker.py` reconstructs the three strict linear orders and their exact directed successor relations from each two-order witness. It evaluates all reference-edge pair types independently from relational membership, verifies each full Cartesian profile set and its marginal frequencies, and tests explicit extensions through one hundred vertices. The final run returned `VERIFY_OK thresholds=10,17 extension_sizes=10..100,17..100, exhaustive_path_counts=[6, 24]`.
+# Independent mathematical audit
 
-The infinite family of larger models is justified by the append-at-end argument in `RESULT.md`; the program samples the finite initial segment of that construction only. The two lower bounds are elementary theorems based on the exact number of edges of a finite spanning successor path, not assertions drawn from enumeration. Both original witnesses and the executable source are included in the same scientific package. Independent auditing and historical-priority certification have not been performed.
+## correctness
+
+PASS
+
+A linearly ordered n-element carrier has n−1 directed reference edges, and each has exactly one two-coordinate profile, measured only in orders 2 and 3. The two Cartesian squares respectively force 9 and 16 edges, giving lower bounds 10 and 17 and the exact once-per-profile census at equality. The independent inverse-permutation witness check reproduces all 9 and 16 profiles on the stated witnesses (and the listed profile tables agree with the position differences). Appending fresh elements to the end of all three orders preserves both adjacencies and gaps between every old pair and hence every realized profile. The conjunction of existential pair formulas uses two nested quantifiers and quantifier-free tests in the corresponding signatures. No claim is made about a language that must axiomatize linear orders and their successors on arbitrary structures at rank two.
+
+## originality
+
+PASS
+
+The bounded comparisons support the two sharp exact spectra as distinct. Known asymptotic pair-pattern results, general finite satisfiability, tournament saturation and two-order permutation rank-two stabilization concern meaningful neighboring questions, not the two exact anchored three-path sizes on available evidence.
+
+## value
+
+PASS
+
+This is an exact finite-model budget for two natural signatures on the same objects. Although the lower bounds are counts, attaining them is constrained by simultaneously realizing each profile with three spanning directed paths. The two witnesses show that these constraints impose no extra vertices, and isolate the cost of exposing the orientation of a nonadjacent pair. The formulas and extension argument make the results useful as small finite-model benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

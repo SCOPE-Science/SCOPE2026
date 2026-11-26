@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identity for the integer Laurent quotient \(B_p=Q(x^p)/Q(x)\) follows from the cubic cyclotomic factorization for every \(p\ne3\). The freshman's-dream congruence and non-zero-divisor cancellation in the Laurent domain give integral \(A_p=(Q^{p-1}-B_p)/p\). Its support is strictly inside \((-p,p)\), so the constant-term extraction from the first-order binomial expansion has no cross-digit contributions. This proves the linearization for every multiplier, including multiples of the prime. Cao–Sun's base-index evaluation and Fermat's theorem yield the explicit formula; iteration yields the prime-power corollary. Exact integer computations passed all 372 tested pairs. No finite computation is used as a proof of an infinite assertion.
+PASS
 
-## Originality — PASS with residual literature risk
+For Q=1+x+x^(-1) and p>=5, Q(x) divides Q(x^p) integrally in Laurent polynomials by the action of p on primitive cube roots. Its quotient B has exponents strictly between -p and p, and constant term epsilon_p by extracting x^(p-1) from (1-x)/(1-x^3). Reducing Q^p=Q(x^p) modulo p and cancelling Q in the Laurent domain shows Q^(p-1)=B+pA with integral A of support likewise inside (-p,p). Expanding (Q(x^p)+pQA)^m and cancelling one exact Q, the terms containing at least two p factors remain divisible by p^2. The remaining polynomials give (B+mpA)Q(x^p)^(m-1). Only exponent zero of B and A can pair with an exponent divisible by p, yielding the first formula with p CT(A)=T_(p-1)-epsilon_p. The verified Cao–Sun base-index residue and (1+pu)^m=1+mpu modulo p^2 give the second formula for all positive m, including multiples of p, with no division by a trinomial coefficient. Iteration contributes r signs and total exponent p^r-1. An independent direct binomial summation (`python3 /workspace/reproduce.py`) checked 70 pairs including m=p and 2p, and 9 prime-power instances. The finite checks are not the proof.
 
-The closest specific earlier statement is Cao and Sun, Theorem 1.1(i), restricted to the one index \(p-1\). The present statement supplies an explicit prime-square lift to every index \(pm-1\). Mellit–Vlasenko's general Dwork congruences show a modulo-prime digit factorization and higher-power relations but do not state the claimed explicit first-order boundary evaluation. Pan and Sun's supercongruence concerns \(pn\), not \(pn-1\); Sun's systematic generalized-trinomial paper concerns different displayed congruences and sums. Targeted theorem/source/database searches did not locate an equivalent all-multiplier formula. This absence is not a proof of global uniqueness. Some relevant secondary literature was only inspected in its pertinent sections and may contain unlocated formulations.
+## originality
 
-## Value — PASS
+PASS
 
-A natural, already solved prime-index congruence becomes a uniform family over infinitely many multipliers. The first-order correction is controlled exactly by the initial digit's value, rather than by an unspecified error term. The resulting prime-power tower is an explicit consequence. The structural reason—the narrow support of a cubic-cyclotomic quotient—is mathematically informative and reproducible, beyond an arbitrary numeric extension.
+The inspected literature gives the m=1 base case, a general mod-p digit law, higher-power coupled relations, and stronger results on other indices. The supported distinct claim is the explicit mod-p^2 coefficient on the whole pm-1 family. The prime-power statement is credited as its iteration, not as independent novelty. The bounded comparisons do not establish absolute priority.
 
-## Closest literature and limits
+## value
 
-The derivation requires the cubic cyclotomic divisor property and the published Cao–Sun evaluation; it does not treat primes \(2,3\), arbitrary indices, or modulus \(p^3\). Comparisons were made with Cao–Sun, Sun's generalized-trinomial work, Mellit–Vlasenko, and Pan–Sun. The exact boundary identity has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact prime-square lift on a natural full index boundary, well beyond a numerical residue or the published isolated base case. The cyclotomic quotient explains why an entire residue class admits an explicit correction and gives a closed formula for strings of maximal base-p digits without any unit assumption on the smaller trinomial coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:19:18.358146Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This counts distinct overlapping multiplicity-preserving trigram profiles of linear binary words after exactly one deletion, including both ends. Subtraction of the original profile is injective. Recounting the 32 five-bit contexts gives ten distinct interior deltas with multiplicities 8,8,4,4,2,2,1,1,1,1; the first and last two deletions contribute at most four additional deltas, giving 14. The fixed first four and last four bits of the witness give four distinct non-interior deltas. In the witness, 01000 uses the first three zeros of the extended run, 00100 its final two zeros plus 100, and 01001 its final zero plus 1001. The other seven required factors occur entirely in the fixed suffix. This corrects the misplaced location of 01001 in the proof text, not the claim or witness. For n<=3 all profiles are zero. For 4<=n<=20 the DP legitimately remembers the prefix, suffix, and exact set of interior deltas and covers every word. Independently ran python3 /workspace/review_evidence/recompute5.py in bounded slices 1–14, 15–17, and 18–20: each descendant was reconstructed and all its triple counts tallied from scratch in eight separate five-bit lanes (no carries because n-3<=17). Complementation permutes coordinates, so one leading-bit class is exhaustive modulo that invariant. The exact maxima were 1,1,1,4,4,6,6,7,8,8,9,10,10,10,11,12,12,12,13,14, with 48 extremizers at length 19 and 32 at length 20. The infinite claim rests on the verified contexts in the witness, not the finite run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The q-ary record proves the oriented-profile upper bound from q+8 binom(q,2)+90 binom(q,3)+192 binom(q,4)+120 binom(q,5) interior deltas plus four boundaries; q=2 gives 14, and its verification also has a binary witness",
+          "The stated saturation construction uses a de Bruijn covering word and, for q>=3, end pattern 0012; the text expressly treats binary 14 as recovery and does not compute earliest saturation"
+        ],
+        "reasoning": "This is substantive coverage of the binary upper bound and maximum, not just a title match. It supplies neither the exact binary threshold 20 nor the length-by-length prethreshold maxima. Its attribution indicates recovery, not evidence that an earlier independent binary spectrum already existed.",
+        "searches": [
+          "Resultary q-ary saturation, record cac09d3624b5, Finding, Scope, Proof and Relationship to prior work",
+          "En Gad arXiv:2609.19493v2 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76, VERIFICATION.md, verify_trigram_dp.py, independent_brute.cpp, dp_output.txt and brute_output.txt",
+        "Resultary records ending cac09d3624b5, 294c530e44d7 and 7044900c1ee8",
+        "En Gad arXiv:2609.19493v2 and Kiah–Puleo–Milenkovic arXiv:1502.00517, passages as specified"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The DNA sequence profile paper's p(0000;2,2)=(3,0,0,0) demonstrates the same overlapping count convention",
+          "En Gad gives a local edit/restricted prefix-suffix reduction and coding redundancy, with near-end conflicts exceptional",
+          "The broad q-ary bound and its long binary witness can certify 14 as a universal capacity but cannot exclude saturation at 19 or certify saturation at 20"
+        ],
+        "reasoning": "The missing implication is exactly the tight short-length coverage/exclusion, requiring separate exact constraints on which combinations of interior and boundary types can coexist. Neither a global profile census, a coding hash, nor de Bruijn long-word coverage resolves it.",
+        "searches": [
+          "Kiah–Puleo–Milenkovic arXiv:1502.00517 §2",
+          "En Gad arXiv:2609.19493v2 Lemma 2.4 and §3",
+          "Resultary cac09d3624b5 Proof and Verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A profile ball equals the set of full integer signed deltas translated by the source profile",
+          "En Gad §3 sums random binary vectors using substring counts modulo two; Lemma 2.4 uses unique contexts and distance from both ends"
+        ],
+        "reasoning": "A cardinality of translated integer profiles is invariant under the translation, but a linear hash modulo two can merge them. Coding and local-hash bounds are not equivalent to this endpoint-inclusive exact spectrum.",
+        "searches": [
+          "Resultary: binary one-source deletion oriented trigram profile-ball capacity, maximum and saturation",
+          "En Gad arXiv:2609.19493v2 §2.3 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed comparator uses overlapping adjacent pairs, with maximum 6 at length 9",
+          "The second counts all realizable trigram histograms at a given word length, not the image of one source word's deletion positions",
+          "The q-ary record lists and recovers binary capacity 14 but supplies no matching short-length binary table"
+        ],
+        "reasoning": "None of the compared tables gives the same short-length extremal statistic under the same gram length, scope of deletion, and quantifier over a single source word.",
+        "searches": [
+          "Resultary one-deletion dinucleotide profile-ball distribution 294c530e44d7",
+          "Resultary exact binary length-three substring multispectra 7044900c1ee8",
+          "Resultary q-ary one-deletion trigram capacity cac09d3624b5"
+        ]
+      },
+      "rationale": "Best of current knowledge: the short-length binary spectrum, the first attainment at 20, and the explicit sharp family starting there are distinct from the inspected literature. The separate q-ary record genuinely recovers the binary maximum 14 and its interior counting argument, credits earlier binary work, and does not establish early binary saturation. The maximum is not credited as distinct from that recovery, and same-day index dates do not establish priority.",
+      "residual_risks": [
+        "Same-day q-ary overlap does not establish priority. The q-ary text calls the binary 14 a recovery; no separate prior derivation of the length-20 threshold or short-length table was identified.",
+        "The inspected sections do not constitute a complete priority determination against other substring-count or deletion-code work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the binary maximum as recovery; not the exact threshold or finite spectrum",
+          "evidence": "The binary specialization is included solely as a consistency check against earlier binary work; verification reports a binary witness; novelty is asserted for q>=3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-q-ary-one-deletion-trigram-profile-capacity-and-saturation--cac09d3624b5/RESULT.md",
+          "material_read": "Finding, Scope, Proof, Verification and Relationship to prior work, text offsets 300–8031",
+          "method": "OA passages via local mirror",
+          "title": "Sharp q-ary one-deletion trigram profile capacity and saturation",
+          "trigger": "Exactly the same statistic over a broader alphabet"
+        },
+        {
+          "assessment": "Local edit/hash methodology overlaps; the measured statistic, hypotheses and theorem differ",
+          "evidence": "Lemma 2.4 uses a k-unique source and at least 2(L+b) symbols on either side; §3 hashes counts modulo two and treats near-end conflicts separately.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.19493v2",
+          "material_read": "Abstract, Theorem 1.1 p. 2, Lemma 2.4 pp. 7–8, §3 p. 9 (offsets 0, 5989, 25700, 32949)",
+          "method": "OA full-text passage reads",
+          "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+          "trigger": "Plausible same local change argument"
+        },
+        {
+          "assessment": "Same overlapping count convention, not this single deletion extremum",
+          "evidence": "The vector p(0000;2,2)=(3,0,0,0) uses all three adjacent consecutive windows.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.00517",
+          "material_read": "§2 pp. 2–3, text offset 13000",
+          "method": "OA full-text passage read",
+          "title": "Codes for DNA Sequence Profiles",
+          "trigger": "Same integer profile statistic"
+        },
+        {
+          "assessment": "Adjacent predecessor; k=2 rather than k=3",
+          "evidence": "Maximum 6, first attained at source length 9 for adjacent-pair profiles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-complete-one-deletion-dinucleotide-profile-ball-distribution--294c530e44d7/RESULT.md",
+          "material_read": "Finding and linear-pair profile convention",
+          "method": "OA passages via local mirror",
+          "title": "The complete one-deletion dinucleotide-profile ball distribution for binary words",
+          "trigger": "Identical deletion quantifier with a shorter gram"
+        },
+        {
+          "assessment": "Global spectrum rather than a profile ball",
+          "evidence": "Counts all realizable profiles at a fixed length across source words.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-enumeration-of-binary-length-three-substring-multispectra--7044900c1ee8/RESULT.md",
+          "material_read": "Finding and statistic counted",
+          "method": "OA passages via local mirror",
+          "title": "Exact enumeration of binary length-three substring multispectra",
+          "trigger": "Exact trigram enumeration on binary words"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural equivalence on deletion descendants, the exact maximum and shortest witness resolve when the ten interior and four boundary signatures can actually coexist. The threshold and the complete short-length profile-ball maxima provide a meaningful binary baseline not supplied by larger-alphabet covering bounds or counts of raw descendants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:16:11.507201Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two prescribed windows each give a total order on positions and agree on the increasing chain of m shared positions. Private elements in different shared-position gaps are ordered by the separating shared positions. Within a gap any shuffle of the two private chains satisfies both window orders, and the full shuffle assigns ranks 1 through 3m uniquely. The alternating pattern has m−1 paired gaps of size (1,1). Moving rank 5 from the odd prefix to the suffix and rank 4 in the opposite direction gives paired nonunit gaps (2,1) and (1,2) and m−4 gaps of size (1,1). This yields 9·2^(m−4) versus 2^(m−1), including 9 versus 8 at m=4. Independently enumerating the first window's values and ranking the uniquely completed second window reproduces the two counts for m=4,…,7 (python3 /workspace/branches/independent_finite_checks.py 3). Definition 2.6 and Remark 2.7 of the cited v1 use prescribed starts and permit extra occurrences. Conjecture 7.1's stated odd/even ranks exhaust all ranks at K=2m, so the strict inequality refutes its maximizing assertion for j=2. The result does not establish minimality across all conjecture parameters or identify the true maximizers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier abstract describes a recursive counting formula and a conjecture on moment sequences; the 2026 paper treats the proposed maximum as a conjecture."
+        ],
+        "reasoning": "General recurrences can compute examples and the poset formalism is prior art. They do not supply the choice of a uniform counterexample or a theorem identifying this strict comparison.",
+        "searches": [
+          "Blitvić–Kammoun–Steingrímsson, 2023, Strathprints 85045",
+          "arXiv:2610.29846v1 definitions and Section 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and proof, verification notes and checker read",
+        "arXiv:2610.29846v1 exact definitions, conjecture and computational remarks",
+        "2023 precursor and arXiv:1801.08262 abstracts",
+        "Targeted Resultary comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stated maximizing choice at K=2m has odd prefix and even suffix. The exhibited pattern has ratio 9/8 to that exact choice."
+        ],
+        "reasoning": "This refutes rather than specializes a previously proved stronger extremal result. Established counting results are not contradicted.",
+        "searches": [
+          "arXiv:2610.29846v1 Conjecture 7.1, Section 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At d=K−m and j=2 the packing count is the count of linear extensions of the union of the two window orders; additional occurrences do not affect inclusion.",
+          "Dwyer–Elizalde's abstract concerns equality or equivalence of pattern statistics."
+        ],
+        "reasoning": "Prescribed cluster and two-chain formulations give the same invariant. Equality of the two specific counts cannot be a Wilf-equivalence consequence because the counts differ. No equivalent published strict family was located in the compared material.",
+        "searches": [
+          "arXiv:2610.29846v1 Definition 2.6 and Remark 2.7",
+          "Dwyer–Elizalde arXiv:1801.08262, consecutive-pattern cluster and Wilf-equivalence context",
+          "Resultary: consecutive-pattern overlapping packings, two chains, interleaved maximum, 9 versus 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Section 7 item 7 describes computations for K up to 12 and overlaps 1 through K−2, a range containing the base instance, but does not state the 9 versus 8 comparison. Item 9 offers code or data on request. No materially matching Resultary result was identified in the targeted comparison."
+        ],
+        "reasoning": "A reported computational range does not establish that actual results for these two patterns were published or that the computations found this contradiction. It cannot cover the all-m family on its own. The separate literature query produced no relevant evidence, which is not proof of absence.",
+        "searches": [
+          "Resultary: interleaved extremum in consecutive-pattern packings and strict two-occurrence counterexamples",
+          "arXiv:2610.29846v1 Section 7 items 7 and 9",
+          "\"Conjecture 7.1\" \"Patterns and Posets\" \"interleave\""
+        ]
+      },
+      "rationale": "The primary source provides the counting framework and explicitly conjectures the contrary extremal assertion, but the inspected passages do not give the strict counterexample or the infinite 9/8 family. The family is a new supported comparison on examined evidence, not a new linear-extension technique or a priority certification.",
+      "residual_risks": [
+        "The reported unpublished computation spans the base parameters; the underlying data and code were not inspected.",
+        "The 2023 and 2018 sources were compared only on accessible abstract evidence; an unindexed independent counterexample remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match to the conjecture; inspected computations commentary does not give the counterexample.",
+          "evidence": [
+            "Starts 1,1+d,… with d=K−m; m≤K/2 includes equality; odd/even minimal ranks; finite experimental range and author offer to share data."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.29846v1",
+          "material_read": "Definition 2.6 and Remark 2.7 (around text offset 18674); Section 7, Conjecture 7.1 and items 7 and 9 (offsets near 156000 and 159000)",
+          "method": "Open HTML statement, definition, and numerical-scope passages",
+          "title": "Permutations, Pattern Covers, Posets and Positivity: Part I: Patterns and Posets",
+          "trigger": "Exact proposed extremum and same counting convention"
+        },
+        {
+          "assessment": "Abstract supports prior recursive enumeration, not the later conjecture or counterexample; no full-text exclusion claimed.",
+          "evidence": [
+            "Recursive enumeration and conjectured moment positivity are named in the abstract."
+          ],
+          "identifier_or_url": "https://strathprints.strath.ac.uk/85045/",
+          "material_read": "Repository abstract; listed PDF unavailable at queried link",
+          "method": "Open repository bibliographic and abstract passage",
+          "title": "A new perspective on positivity in (consecutive) permutation patterns",
+          "trigger": "Earlier version of the enumeration framework by the same authors"
+        },
+        {
+          "assessment": "The stated focus is Wilf-equivalence; no full-text exclusion claimed.",
+          "evidence": [
+            "Refinement of consecutive-pattern equivalence relations via clusters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.08262",
+          "material_read": "Abstract",
+          "method": "Open arXiv abstract-level comparison",
+          "title": "Wilf equivalence relations for consecutive patterns",
+          "trigger": "Potential equivalent cluster formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The counterexample excludes a natural published maximizing rule in the simplest nontrivial prescribed-occurrence regime, for infinitely many admissible overlaps. It isolates the obstruction: a local redistribution replaces three factors of two by two factors of three. That structural explanation is a useful constraint on any replacement conjecture even without a maximizer theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

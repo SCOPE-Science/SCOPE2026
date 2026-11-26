@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:03:07.616859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–31 and 33–106",
+        "VERIFICATION.md",
+        "CHECK.py, especially lines 63–95"
+      ],
+      "rationale": "The connected Laplacians are positive definite on the orthogonal complement of the constants, and the trace of their inverses has positive second variation in every nonzero symmetric direction. Simple edges make the weight-to-Laplacian map injective; disconnection gives an infinite limit, and uniform scaling uses the full budget. Thus the global minimizer exists, is unique and must be invariant under rotations, including at the two endpoints. An independent endpoint evaluation is as follows. For the unit n-cycle let mu_k be its nonzero eigenvalues, S=sum(1/mu_k)=(n^2-1)/12, and J(d)=sum((2-2cos(2pi kd/n))/mu_k^2). Parallel-path resistance d(n-d)/n and its Fourier form give J(d+1)-2J(d)+J(d-1)=2S-d(n-d). With zero boundary values at d=0,n, this gives J(d)=d(n-d)[d(n-d)+2]/12. Thus leaving the first-only endpoint is unfavorable exactly at t>=J(2)/S=4(n-2)/(n+1). For odd n, in the second-neighbor cycle an original first step has distance (n-1)/2, and the second-only endpoint is optimal exactly at t<=S/J((n-1)/2)=16/(n^2+7). The even right endpoint is disconnected, and the objective has positive scalar second derivative on the connected interval, giving the stated unique mixed root and boundary classification. These exact computations cover all n>=5; no uploaded code was executed.",
+      "residual_risks": [
+        "The supplied test is finite (n=5 through 11); the trace-vs-Fourier comparison is floating point, while the derivative and matrix finite differences use rationals. The exact proof, not the test, bears the all-n claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi pp. 1, 5 give the general optimization formulation and strict convexity",
+          "Chair §4 gives the connected/disconnected parity distinction",
+          "Zhang–Yang full text was not accessible in the attempted lawful routes"
+        ],
+        "reasoning": "The general convex design framework substantially covers the method, and even parity rules out a second-only finite candidate by known connectivity. Neither inspected primary statement supplies the price at which a connected boundary becomes optimal. The accessible evidence does not resolve whether the Zhang–Yang paper involves a useful stronger moment evaluation.",
+        "searches": [
+          "Ghosh–Boyd–Saberi primary paper on conductance allocation",
+          "Chair primary paper on C_n(1,2)",
+          "Zhang–Yang DOI 10.1002/qua.21068 and lawful OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi (2006)",
+        "Chair, arXiv:1401.5628v1",
+        "Zhang–Yang, DOI 10.1002/qua.21068, access attempt only",
+        "Resultary 6dcff9aaa971"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior framework and rotation yield a convex scalar problem, but the transition requires the squared resolvent moment J(d)",
+          "The same-budget consensus record has class-uniform plateaus at its thresholds and does not classify all nonuniform optima"
+        ],
+        "reasoning": "Uniqueness once strict convexity is established, and exclusion of a disconnected support, are not separately new. The prior inspected statements do not mechanically give the exact second-neighbor endpoint derivative and its sign change for the inverse-trace objective; this needs an extra cycle moment evaluation. The spectral-gap phases do not imply it.",
+        "searches": [
+          "Ghosh–Boyd–Saberi pp. 1, 5; Chair pp. 3, 7, 10; Resultary 6dcff9aaa971 finding and phase classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chair arXiv:1401.5628v1, pp. 3, 7 and §4: fixed unit resistors and removal of one edge class",
+          "Resultary 6dcff9aaa971: same graph and price constraint, spectral-gap objective"
+        ],
+        "reasoning": "Total pairwise resistance, Kirchhoff index and n times the inverse Laplacian trace are equivalent on connected networks. The spectrum's smallest positive eigenvalue is not that trace. For example, at n=5 the resistance transitions are 1/2 and 2, not the consensus thresholds 4 sin²(pi/10) and 4−4 sin²(pi/5). A calculation for prescribed conductances also does not select the minimizer over them.",
+        "searches": [
+          "weighted two-hop cycle C_n(1,2) total effective resistance budget optimal conductance allocation price threshold parity",
+          "Resultary: two-hop cycle, two-price allocation and Kirchhoff index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact phase record returned was 2026/10/13/SCOPE-exact-price-phases-for-two-hop-consensus-on-cyclic-networks--6dcff9aaa971; its thresholds are trigonometric and for consensus"
+        ],
+        "reasoning": "The target is an all-n pair of symbolic thresholds plus uniqueness, not a finite numerical case in a table. No matching phase formula appeared in the bounded search; that is not evidence excluding unexamined tables or records.",
+        "searches": [
+          "Resultary semantic searches for the graph, two-price budget and Kirchhoff-index thresholds"
+        ]
+      },
+      "rationale": "Pass the exact total-resistance support thresholds and uniqueness for independently priced edge classes, not the conductance optimization framework, the Fourier reduction, the parity connectivity fact, or parity-dependent support for other objectives. The strongest same-graph, same-budget comparison optimizes a different function and has different thresholds and equality behavior.",
+      "residual_risks": [
+        "Zhang–Yang primary full text could not be verified. An unexamined exact weighted-circulant design or equivalent inverse-Laplacian-moment result could change the priority assessment; bounded queries do not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General formulation and strict convexity covered; no matched two-price theorem in inspected passages",
+          "evidence": "Fixed-total-conductance minimization is convex; strictness is given in the conductance variables.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "PDF pp. 1 and 5, offsets 1279, 5824 and 30074",
+          "method": "Primary PDF lookup and offset reading",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same general conductance optimization objective and budget"
+        },
+        {
+          "assessment": "Fixed-network resistance and parity covered; not price selection",
+          "evidence": "Unit-weight C_N(1,2), its total resistance and parity connectivity after first-edge removal are treated.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.5628v1",
+          "material_read": "PDF pp. 3, 7 and 10, offsets 5805, 27433 and 39498–40400",
+          "method": "Primary PDF offset reading",
+          "title": "The effective resistance of the N-cycle graph with four nearest neighbors",
+          "trigger": "Identical unweighted underlying graph and parity observation"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative coverage evidence",
+          "evidence": "No full theorem inspected.",
+          "identifier_or_url": "https://doi.org/10.1002/qua.21068",
+          "material_read": "Bibliographic identification only; publisher/DOI returned 403 and no repository copy was identified",
+          "method": "Publisher and lawful OA lookup",
+          "title": "Resistance distance and Kirchhoff index in circulant graphs",
+          "trigger": "Possible broader spectral coverage"
+        },
+        {
+          "assessment": "Materially overlapping model, but different objective, exact thresholds and equality behavior",
+          "evidence": "Maximizes the spectral gap; transitions at 4 sin²(pi/(2n)) (odd) and 4−4 sin²(pi/n); class-uniform endpoint plateaus.",
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-exact-price-phases-for-two-hop-consensus-on-cyclic-networks--6dcff9aaa971",
+          "material_read": "Mirrored RESULT.md, offsets 0 and 4935, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Semantic catalogue search and local mirror reading",
+          "title": "Exact price phases for two-hop consensus on cyclic networks",
+          "trigger": "Same topology, independent conductances and two-price budget"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result settles exactly when a whole edge class can be discarded in a standard cyclic network without worsening the globally optimal all-pairs resistance. The even and odd distinction and the different limiting price scales affect the design decision; exact support/equality thresholds and a unique interior characterization are useful beyond computing the resistance of one fixed allocation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:30:15.080424Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–71",
+        "VERIFICATION.md (recorded finite checks, no audit/Lean/expert attestation)",
+        "Independent finite deletion calculation for n=5, roots 2 and 3"
+      ],
+      "rationale": "The urn started with populations 1 and i-1 gives the stated falling-factorial law, uniformly i/n+O(n^-1) at fixed sizes in a bounded square-root window. Conditioning on the exact descendant set is a product restriction on parent choices: inside parents stay inside, outside parents stay outside, and the parent's choice at the deleted root disappears. Thus the increasing parent vector is uniform and the relabelled exterior is an independent recursive tree. Deleting the earliest nominated fringe leaves surviving later roots' fringes unchanged, shifts labels by at most K, and gives the induction main term. The contribution with m>=1 nested roots gains O(n^-m) from membership of specified labels in the bounded uniform descendant set; after the first-root factor and the exterior estimate its order is O(n^{-(r+m)/2}). The resulting uniform error sums to O(n^-1/2) at each fixed factorial-moment order. For disjoint marked windows, deletion of repeated labels from the product Riemann sum is negligible by the O(n^-1/2) one-label bound. The joint Poisson moments determine the limit, the local first-moment bound gives tightness, and diffuse intensity plus the diverging cumulative rate gives convergence of each fixed arrival prefix. Summing the shape intensities gives one x dx per size and proportional intensity gives independent marks. A direct finite conditional calculation gave P(|F_{5,2}|=2, |F_{5,3}|=1)=1/6 versus marginal product 1/8, consistent with the required nested-root treatment, not exact finite independence.",
+      "residual_risks": [
+        "The independence-of-counts wording at line 65 should be read for disjoint windows in the marked space, as in line 69; overlapping intervals of the same colour have shared Poisson counts, obtained by partitioning into disjoint atoms. This does not change the stated process limit.",
+        "Fixed K and fixed arrival prefixes only; colours are increasing parent vectors, not unlabelled rooted shapes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holmgren–Janson give Poisson approximation for total size/property counts and joint Gaussian statistics of fixed shape counts across the tree.",
+          "Feng–Mahmoud give a global fixed-shape Gaussian result and identify the unlabelled shape probability."
+        ],
+        "reasoning": "Those stronger global-count tools measure different statistics. Discarding original labels loses the early-rank location and cannot recover the joint rare-event limit by projection of a global count.",
+        "searches": [
+          "arXiv:1406.6883 Theorems 1.9 and 1.16",
+          "doi:10.1239/jap/1269610825 Theorem 1 and section 3",
+          "doi:10.1214/aoap/1177005874"
+        ]
+      },
+      "checked_sources": [
+        "Configured Resultary early-rank and fringe search and the three distinct records above",
+        "Holmgren–Janson Theorems 1.9 and 1.16",
+        "Feng–Mahmoud Theorem 1 and section 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier product identity is for simultaneous leaf events only.",
+          "The conditional one-tree shape probability and total counts do not supply a mixed law for prescribed early roots that can be nested."
+        ],
+        "reasoning": "The missing joint estimate uses conditional deletion and separates nested configurations from the main term; the new conclusion is not mechanical from the exact leaf identity or global count theorem.",
+        "searches": [
+          "Prior leaf record Finding and Proof section 1",
+          "arXiv:1406.6883 Theorem 1.9",
+          "doi:10.1239/jap/1269610825 section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A nonroot leaf is exactly a size-1 fringe subtree; the prior record's (i-1)/sqrt(n-1) and the frozen i/sqrt(n) yield the same limit.",
+          "Unlabelled shapes aggregate different increasing parent-vector counts; their coefficients are their recursive-tree shape probabilities, not automatically 1/(s-1)! each."
+        ],
+        "reasoning": "The leaf law is genuine equivalent coverage for K=1. The aliases subtree shape and birth frontier require matching both the mark and what is indexed.",
+        "searches": [
+          "Resultary: oldest leaves, early recursive-tree fringe subtrees and birth-rank frontiers",
+          "2026/10/18/SCOPE-the-oldest-leaves-of-random-recursive-trees-form-a-poisson-point--0a1a1c4bbf35",
+          "doi:10.1239/jap/1269610825"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October leaf result is an exact indexed special case.",
+          "Distinct same-day results measure direct offspring degree with logarithmically separated scales, or isolation of retained vertices after site percolation with scale n^{p/(1+p)}."
+        ],
+        "reasoning": "Neither distinct frontier gives an exact entry for the positive-size recursive fringe colours; a direct degree does not determine the full descendant tree. No priority follows from the common date.",
+        "searches": [
+          "Resultary: recursive-tree Poisson birth frontiers, first singleton and oldest leaves",
+          "2026/11/22/SCOPE-logarithmically-separated-poisson-birth-frontiers-for-fixed-offs--5c3c5ee3918e",
+          "2026/11/22/SCOPE-a-weibull-first-singleton-age-and-a-poisson-birth-frontier-in-si--124a4b657ab2"
+        ]
+      },
+      "rationale": "The K=1 case is an exact prior result, and global fixed-shape laws and conditional shape probabilities are established context. The supported distinct contribution is joint marked Poisson convergence for bounded fringe sizes on the early birth-rank scale, including positive sizes greater than one and exclusion of nonnegligible nested-root dependence in the limit.",
+      "residual_risks": [
+        "Mahmoud–Smythe full text was not retrieved; historical fixed-label subtree coverage remains a limitation. The passage comparisons and ranked index are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact K=1 overlap, credited",
+          "evidence": [
+            "Exact joint leaf identity and PPP(x dx) limit."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-oldest-leaves-of-random-recursive-trees-form-a-poisson-point--0a1a1c4bbf35",
+          "material_read": "Mirrored RESULT.md from offset 0, Finding and Proof section 1",
+          "method": "Configured Resultary search and mirror",
+          "title": "The oldest leaves of random recursive trees form a Poisson point process",
+          "trigger": "Exact prior size-1 case"
+        },
+        {
+          "assessment": "Offspring marks differ except degree zero",
+          "evidence": [
+            "Counts direct children explicitly, not descendants; degree r scale sqrt(n/(log n)^r)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-logarithmically-separated-poisson-birth-frontiers-for-fixed-offs--5c3c5ee3918e",
+          "material_read": "Mirrored RESULT.md, finding and offspring definition",
+          "method": "Configured Resultary search and mirror",
+          "title": "Logarithmically separated Poisson birth frontiers for fixed offspring degrees",
+          "trigger": "Same-day marked birth-frontier result"
+        },
+        {
+          "assessment": "Different observable and scale",
+          "evidence": [
+            "Singletons are isolated retained vertices in the percolated tree."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-weibull-first-singleton-age-and-a-poisson-birth-frontier-in-si--124a4b657ab2",
+          "material_read": "Mirrored RESULT.md, finding and percolation model",
+          "method": "Configured Resultary search and mirror",
+          "title": "A Weibull first-singleton age and a Poisson birth frontier in site-percolated recursive trees",
+          "trigger": "Same-day recursive-tree point process"
+        },
+        {
+          "assessment": "Total-count bounds and Gaussian limits, not indexed by early birth label",
+          "evidence": [
+            "The Poisson mean is n times the conditional property probability divided by k(k+1); fixed-type Gaussian limits are for global counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6883",
+          "material_read": "PDF pp. 5–6 Theorem 1.9, offset near 18900; p. 8 Theorem 1.16, near 29026",
+          "method": "Lawful OA PDF passages",
+          "title": "Limit Laws for Functions of Fringe Trees for Binary Search Trees and Recursive Trees",
+          "trigger": "General fringe Poisson and shape-count theory"
+        },
+        {
+          "assessment": "Global shape-count CLT and shape functional only in compared statements",
+          "evidence": [
+            "The shape functional is the probability of an unlabelled shape in the corresponding size recursive tree."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1269610825",
+          "material_read": "PDF p. 3 Theorem 1, offset near 10538; p. 4 section 3 Lemma 1, near 14300",
+          "method": "Lawful PDF passages",
+          "title": "On the Variety of Shapes on the Fringe of a Random Recursive Tree",
+          "trigger": "Same shape/fringe family"
+        },
+        {
+          "assessment": "Residual scope/priority risk, not evidence of noncoverage",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005874",
+          "material_read": "Full text not retrieved; no theorem exclusion based on abstract",
+          "method": "Bounded DOI, Project Euclid and JSTOR attempts",
+          "title": "On the Distribution of Leaves in Rooted Subtrees of Recursive Trees",
+          "trigger": "Fixed-root fringe/subtree literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–19 and 45–71",
+        "Prior earliest-leaf law and global fringe-count comparisons"
+      ],
+      "rationale": "The marked point process identifies the entire fixed-order arrival law for unusually early bounded fringe trees, not just their expected number or a single old leaf. The homogeneous mark proportions across the inhomogeneous arrival scale and the quantitative control of nested configurations add genuine dependence information for a natural model.",
+      "residual_risks": [
+        "No claim for growing K, increasing order of arrivals, or a global total-variation bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

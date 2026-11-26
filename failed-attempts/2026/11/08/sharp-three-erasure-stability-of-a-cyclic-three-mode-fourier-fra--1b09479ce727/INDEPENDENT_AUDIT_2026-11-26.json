@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:08:08.463323Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–76; frozen CHECK.py and VERIFICATION.md inspected, not executed."
+      ],
+      "rationale": "The columns are orthonormal, so the retained Gramian is I minus the erased Gramian. The latter has all three eigenvalues of the erased row Gramian, and diagonal dephasing gives N^(−1) times a matrix with diagonal 3 and kernel K. For a consecutive mask the odd reflection eigenvalue is 3−v and the even block has roots 3+(v±√(v²+8u²))/2; since u>v≥0 the plus root is largest. Subtracting the three scaled values from one gives exactly the displayed retained spectrum. If N≥8, every nonadjacent absolute kernel entry is ≤v; a nonconsecutive mask has at most one adjacent pair, so its absolute kernel matrix is bounded by edges (u,v,v), strictly below the consecutive matrix after alignment. The Rayleigh modulus inequality and strict nonnegative spectral monotonicity give the needed strict inequality. At N=6, the bound 4+√3 is less than 3+2√2. At N=7, t=2cos(2πs/7) satisfies t³+t²−2t−1=0 for s=1,2,3 by summing the seventh roots in conjugate pairs. Setting z=t+1 gives exactly the paper's cubic. Its signs locate the three ordered roots in (2,9/4),(0,1),(−5/6,−3/4); the small-root comparison and rational bound (9/4)²+8(5/6)²<(33/10)² put all nonconsecutive top eigenvalues below 29/5, while 3+2√2>29/5. Vandermonde minors show positive definiteness for each retained mask. Translation preserves distance, and for N≥6 the N consecutive translates are distinct.",
+      "residual_risks": [
+        "The finite checker corroborates the extremal values and masks, not the infinite proof or all three entries of the displayed spectrum. No upper frame-bound optimization is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Abreu–Speckbacher theorem compares integrals over measurable sets of given length on the circle. The inspected Zhu et al. and Dirckx et al. results restrict to contiguous time/frequency windows or submatrices.",
+          "The earlier periodic-prolate and interpolation primary texts could not be read in full."
+        ],
+        "reasoning": "The continuous theorem does not compare atomic, equally weighted three-site subsets of a prescribed grid, and a fixed-window spectrum does not optimize against all masks. A broader primary theorem supplying exact coverage was not established by these comparisons.",
+        "searches": [
+          "arXiv:2607.19192v1 Theorem 2.1; arXiv:1707.05344 Corollary 1; arXiv:2208.12583 §§1.1–2.1; periodic prolate DOI 10.1137/0145037 and DOI 10.1137/0144086"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 4 and 5; local Resultary 2b0922c7bba9, e1e03f96b6f0 and 1200745c9cae; primary or limited-access sources detailed in source_inspections."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record 4 explicitly gives the consecutive erased real Gram eigenvalues 3−e and 3+e/2±√(e²/4+2d²), and the retained identity I−V_E*V_E/N. Since the erased matrix is 3-by-3, its row and column Gramians have identical full spectra."
+        ],
+        "reasoning": "Applying μ↦1−μ/N to those three numbers gives the exact additional boxed formula, with no additional extremal argument or optimization. The scope excluding an upper frame-bound extremum is consistent with both reports.",
+        "searches": [
+          "Frozen record 4 lines 24–38, compare record 5 full spectrum in its Finding lines 18–24"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 4 writes a uniform energy-ratio inequality. Its infimum over nonzero c is λ_min(V_R*V_R); its d,e equal u,v, so 1−L_N/N=A_N. Both have exactly the N cyclic consecutive masks.",
+          "Record 2b0922c7bba9 has the conjugate coefficient-coordinate operator, which has the same spectrum, and uses a_N=u/3, b_N=v/3 so 3Λ_N=3+(v+√(v²+8u²))/2.",
+          "The 1b09479ce727 indexed hit is the identical record, not corroboration."
+        ],
+        "reasoning": "The exact agreement is in the model, normalization, lower squared singular-value objective, N≥6, three distinct rows, and strict classification. It is not an inference from identical terminology.",
+        "searches": [
+          "Local Resultary on worst three-row erasure masks, three consecutive Fourier modes and one-minus-concentration lower frame bounds",
+          "Frozen record 4 (486de14133a7), Finding and proof §§1–2; distinct record 2b0922c7bba9, Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two are all-N exact catalogue entries. The two October entries concern two-character adversarial erasures and squared condition-number minimization, respectively."
+        ],
+        "reasoning": "Changing erasure count or scaling in a two-character system cannot reproduce the three-mode problem. Transposing the Riesz system gives the same singular-value family but not the same objective; the ratio is minimized at nearly balanced gaps. The November entries provide exact coverage, not just a numerical match.",
+        "searches": [
+          "Resultary normalized cyclic erasure formulas: 486de14133a7, 2b0922c7bba9, e1e03f96b6f0 and 1200745c9cae"
+        ]
+      },
+      "rationale": "The sharp lower squared singular-value bound and the exact set of worst masks also appear in two distinct same-date Resultary records. The entire retained spectrum is already implied term by term by frozen record 4's explicit consecutive erased spectrum and its Gram-complement identity. This is demonstrable equivalent coverage, not an assessment of priority among same-day reports.",
+      "residual_risks": [
+        "Same-date archive paths do not establish within-day ordering or historical priority. Inaccessible classical full texts are not the reason for failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage, including a direct implication of the full retained spectrum",
+          "evidence": "Identical uniform energy bound, nonzero equality restricted to consecutive masks, and all three erased eigenvalues in closed form.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-three-erasure-robustness-for-three-frequency-cyclic-sampli--486de14133a7",
+          "material_read": "Frozen record 4 Finding and proof lines 4–52, especially lines 24–38",
+          "method": "Local Resultary hit cross-checked with assigned frozen text",
+          "title": "Sharp three-erasure robustness for three-frequency cyclic sampling",
+          "trigger": "Same Fourier minimax bound, with full erased spectrum in proof"
+        },
+        {
+          "assessment": "Exact equivalent lower-bound and mask coverage",
+          "evidence": "Identical normalized loss and exact equality after multiplying Λ_N by three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-consecutive-erasures-uniquely-minimize-stability-of-three-row-cy--2b0922c7bba9/RESULT.md",
+          "material_read": "Finding, scope and first proof step (offsets 0–2269)",
+          "method": "Local Resultary mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Consecutive erasures uniquely minimize stability of three-row cyclic harmonic frames",
+          "trigger": "Separate same-date exact mask optimization with different scaling"
+        },
+        {
+          "assessment": "Continuous analogue",
+          "evidence": "Compares concentration integrals on equal-measure subsets of the circle, not grid point masses.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.19192",
+          "material_read": "v1 Theorem 2.1, p. 3 (around offset 12150)",
+          "method": "OA primary PDF",
+          "title": "Optimal Concentration in the Paley–Wiener Space",
+          "trigger": "Sharp interval geometry for trigonometric polynomials"
+        },
+        {
+          "assessment": "Fixed contiguous restriction quantifier",
+          "evidence": "The corollary treats consecutive deleted rows and columns and does not establish strict extremality among three-site masks.",
+          "identifier_or_url": "https://arxiv.org/abs/1707.05344",
+          "material_read": "Corollary 1, p. 3 (around offset 21000)",
+          "method": "OA primary PDF",
+          "title": "The Eigenvalue Distribution of Discrete Periodic Time-Frequency Limiting Operators",
+          "trigger": "Discrete periodic Fourier concentration"
+        },
+        {
+          "assessment": "Inspected material treats contiguous singular systems, not arbitrary-mask optimization",
+          "evidence": "Computes singular systems for contiguous Fourier submatrices.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.12583",
+          "material_read": "§§1.1–2.1",
+          "method": "OA primary text",
+          "title": "On the computation of the SVD of Fourier submatrices",
+          "trigger": "Fourier submatrix singular spectra"
+        },
+        {
+          "assessment": "Different mode count",
+          "evidence": "Exactly two characters for arbitrary erasure counts; its one-difference formula is insufficient for this three-mode spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-adversarial-erasure-spectra-for-two-character-cyclic-harmo--e1e03f96b6f0/RESULT.md",
+          "material_read": "Finding (offsets 0–1843)",
+          "method": "Local Resultary mirror",
+          "title": "Exact adversarial-erasure spectra for two-character cyclic harmonic frames",
+          "trigger": "Adjacent exact worst-erasure theorem"
+        },
+        {
+          "assessment": "Different optimization",
+          "evidence": "Minimizes λ_max/λ_min over node triples and obtains nearly equally spaced nodes, not maximum erased λ_max.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-riesz-conditioning-for-consecutive-triples-on-finite-cycle--1200745c9cae/RESULT.md",
+          "material_read": "Finding, scope, initial Gram reduction (offsets 0–2290)",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Riesz conditioning for consecutive triples on finite cycles",
+          "trigger": "Transposed Fourier submatrix of the same size and shape family"
+        },
+        {
+          "assessment": "Residual older-literature risk, not decisive coverage or noncoverage",
+          "evidence": "No primary theorem statement suitable for the atomic arbitrary-mask comparison was recovered.",
+          "identifier_or_url": "DOIs 10.1137/0145037 and 10.1137/0144086",
+          "material_read": "Bibliographic material only; neither primary full text was retrieved",
+          "method": "Bounded lawful OA retrieval attempts",
+          "title": "Discrete prolate spheroidal wave functions and interpolation; On the periodic discrete prolate spheroidal sequences",
+          "trigger": "Possibility of a classical finite-prolate extremal comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen record 5 RESULT.md, lines 13–26 and 32–51; frozen record 4 RESULT.md, lines 24–38; Resultary 2b0922c7bba9."
+      ],
+      "rationale": "The sharp lower bound has genuine use as a worst-case stability constant, but the core claim is already covered by the matched records. The nominal extra spectral characterization is a direct affine transform of record 4's three existing eigenvalues, with no distinct invariant or further extremum established as a contribution of this record.",
+      "residual_risks": [
+        "This does not deny the scientific usefulness of the shared Fourier result or infer which report came first."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

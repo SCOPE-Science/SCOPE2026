@@ -1,19 +1,21 @@
-# Assessment of the type-\(D_5\) asymmetry transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finite domain has exactly \(2^4 5!=1920\) signed permutations. Coxeter lengths and each lower Bruhat interval are reconstructed exactly by shortest words and the subword criterion, not inferred from random samples. Poincaré duality for projective intersection cohomology and coefficientwise Kazhdan–Lusztig monotonicity imply three necessary lower-degree inequalities, independently derived in RESULT.md; they agree with the later Corollary 3.3 of Burrull–Li–Zeng–Zhang. Full enumeration finds 572 degree-four eligible permutations, a maximum fourth difference of 27, and seven equality candidates. The standard exact \(R\)- and Kazhdan–Lusztig recursions eliminate five, leaving exactly the displayed inverse pair. The degree-three screen has nine candidates and leaves the same pair. The independently replayed checker verifies all identities and source-table normalization checks. The result is finite and does not infer an all-rank theorem.
+PASS
 
-## Originality
+For P_{e,w}(1)=2, positivity, constant term one, and coefficientwise KL monotonicity give P_{x,w}=1 or 1+q^h for a common h≥1. If S_w records the ranks of the second class, palindromicity of P_w+q^h S_w gives d_k=[q^{k−h}]S_w−[q^{ℓ(w)−k−h}]S_w. For k<ℓ(w)/2 this is at most the full-flag coefficient at k−1, using rank unimodality when k−h≥0, and is at most zero otherwise. In D₅ the ranks (1,5,14,30,54) agree with the flag product with factor sizes 2,4,5,6,8. Independent exact replay via signed inversion length and transitive closure of decreasing reflections (not reduced subwords) lists all 1920 even signed permutations, longest length 20. At ℓ>6 with d₁≤1,d₂≤5, exactly nine have d₃=14 and none exceed it. At ℓ>8 with the additional d₃≤14, exactly 572 qualify, the largest d₄ is 27 and there are seven candidates. Direct KL right-descent recursion with μ corrections (not the bundled R recursion) gives P_{e,w}=1+q only for the given inverse pair among these candidates with evaluation 2; the remaining candidates all evaluate to 3 or 4. The length-16 vectors and d₀,…,d₇ agree entrywise, and direct inversion gives (−1,4,−2,−3,−5) from (−1,−3,−4,2,−5). The check is exhaustive for the equality sets because the filters are necessary, not a sample of KL classes. The supplied bar-identity implementation uses signed reversed R coefficients, equal to the ordinary R coefficients by R-polynomial reciprocity; this is consistent with its written description.
 
-**PASS, qualified.** The 2025 Li–Rietsch–Yang paper concerns the first opposite Betti-number defect and its factoriality interpretation, not the higher optimal defects classified here. The later arXiv:2611.24751v1 gives a general bound of 30 at degree four, with sharpness in types \(A\) and \(B\), not the optimal \(D_5\) bound 27 or its inverse-pair equality class. Goresky's indexed table supplies all type-\(D_4\) Kazhdan–Lusztig and Betti data but does not include \(D_5\). Exact claims were compared to accessible existing research records and searched in mathematical databases and on the public web. No matching type-\(D_5\) coefficient-four classification was located. This does not establish absence of unindexed literature.
+## originality
 
-## Value
+PASS
 
-**PASS.** The higher Betti-number symmetry defects extend the low-degree factoriality criterion of the 2025 simply-laced Schubert-variety study; a later general asymmetry inequality has a concrete sharpness gap outside its type-\(A\)/type-\(B\) constructions. The first rank-five type-\(D\) calculation locates a precise transition: the degree-three universal bound is sharp but degree four falls short by exactly three, with the same uniquely determined inverse pair attaining both extrema. This is a natural complete finite sharpness and equality classification, not an arbitrary isolated coefficient or a restatement of the general bound.
+The general inequality in degrees three and four is prior. The supported new content is the exact degree-four gap and the equality classification for both restricted D₅ maxima. The cited type A/B sharpness statements and available KL tables do not compute this type D₅ optimum. An exact group algorithm without its evaluated classification is not an existing numerical bound or census.
 
-## Limitations
+## value
 
-This is a rank-five finite result. Singular loci and higher-rank behavior are not determined. A preexisting but unindexed type-\(D_5\) computation remains the leading priority risk. Full independent audit of the exact finite calculation remains to be carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The opposite-degree Betti differences and the constraint P_{e,w}(1)=2 already arise in general Schubert asymmetry theorems, so this is a motivated extremal invariant on the full next simply-laced D rank, not an arbitrary slice of a lookup table. Knowing that the universal estimate is attained at degree three but loses three at degree four in the very same group, with the same unique inverse pair, gives concrete limits to the universal sharpness pattern. A researcher comparing types or investigating the sharpness mechanism can need precisely these exact values and witnesses; no infinite-rank implication is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

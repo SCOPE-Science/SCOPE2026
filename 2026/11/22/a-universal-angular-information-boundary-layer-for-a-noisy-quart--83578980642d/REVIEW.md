@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The independent beta/telegraph coordinates at equal switching and trap rates produce uniform athermal marginals; diffusion adds independent stationary Gaussians. The zero-noise angular formula follows from exact trapezoid convolution entropy. The nonzero-noise Fisher expansion follows from the explicitly calculated joint rotation score and vanishing marginal first derivatives. The singular-angle limit follows from two Gaussian-smeared uniform-support edges, and its limits follow from Gaussian-weighted dominated convergence. The mixed fourth cumulant certifies dependence despite zero covariance; exact distributional assumptions and all limit orders are stated. The companion deterministic checker numerically tests the key finite instances.
+PASS
 
-## Originality
+At per-transition quarter-turn rate γ=μ the diagonal telegraph signs are independent and the stationary beta exponent is zero; independent OU responses have variance h=D/μ. Here v₀ is the diagonal forcing amplitude specified by the SDE. Rotation preserves joint entropy and the marginal entropies agree. Integrating the trapezoid gives log(2a cos θ)+tan θ/2, yielding the stated information, derivative, and linear and cubic endpoints. At h>0 the second angular density derivative at zero is (xf)' + Var(U) f'', by differentiating smooth test-function expectations, and the first derivative vanishes. The densities and angular derivatives admit Gaussian envelopes after rotating the bounded uniforms and then adding the unchanged isotropic Gaussian. Entropy differentiation and integration by parts give the stated coefficient Var(U)J_h−1, strictly positive since the fourth cumulant excludes Gaussianity. The mixed fourth cumulant is −a⁴ sin²(2θ)/15 despite zero covariance, and strictness of Gaussian data processing follows from conditional Jensen on the likelihood ratio, since the positive kernel preserves access to every input set of positive product mass. For the entropy layer put L=A/√h and ρ(z)=G_b(z)−G_b(z+2L) on z≥−L. This is the normalized density on the right half; symmetry supplies the other half. For −L≤z≤0, −ρ log ρ≤1−ρ≤2G_b(−z); for z≥0, −ρ log ρ≤C√G_b(z). These envelopes are integrable uniformly for b in a bounded set. Thus the normalized entropy correction converges by dominated convergence and the cos θ prefactor contributes only O(ε²). Strict concavity gives positivity of the layer by averaging shifts. Differentiation at t=0 is dominated by shifted Gaussian bounds and Mills ratios; ∂²_tG_t at zero is G₀''/3 and integrating by parts gives K/3 for F(t)/t². Scaling z=tu gives the linear ramp, with Gaussian tail majorants outside |u|≤1 for t≥1, and hence F(t)/t→1. For the Fisher limit on the same half-axis at b=0, ρ≥cG₀(z) for L≥1 (separate z≤0 from z≥0 using the Gaussian tail ratio); |φ(z)−φ(z+2L)|≤φ(z). This gives the majorant φ²/G₀ and the two-edge coefficient K/a.
 
-**PASS, with residual publication-priority risk.** The source four-direction model and its exact independent beta-coordinate stationary law are acknowledged as established; neither is claimed as new. The assessed result is the explicit angle-resolved mutual-information formula and the singular weak-noise thermal boundary layer with an independent Fisher asymptotic. The inspected full primary preprints and standard entropy-based independent component analysis do not state this combined theorem. Results on spatial anisotropy, squared-position covariance and chirality do not imply the stated entropy limits without additional arguments. Generic entropy inequalities and unindexed geometric-probability literature remain possible sources of implicit coverage; this review is not independent literature certification.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result answers a motivated observation problem for a physically distinguished equal-rate trapped active-particle regime: whether zero Cartesian covariance hides observable nonlinear dependence and how much small thermal noise changes the information available to rotated sensors. The athermal cusp and the derived crossover function show where the compact-support description fails in relative information sensitivity, with a sharp resolution scale and constant. This is a structural continuum asymptotic, not a generic reformulation of an existing density or a single arbitrary numerical sample.
+The supportable distinction is the explicit angular-information benchmark together with its fixed-scaled-angle weak-noise law and matching limiting regimes. The stationary product law, angular entropy reduction, and edge-smoothing method themselves are not new. The basic athermal formula follows by integrating an elementary trapezoid; the main distinct claim is the quantitative noise crossover, not this integration alone.
 
-## Literature and limits
+## value
 
-- Smith et al., arXiv:2207.10445 (2022): exact four-direction stationary law and rotated independence, the necessary established premise.
-- Frydel, arXiv:2207.08695 (2022): trapped active-particle beta and thermal convolutions.
-- Miller and Fisher (2003): general rotation/entropy identity used in independent-component analysis.
+PASS
 
-The positive-noise global angular maximizer, arbitrary reorientation rates and a uniform-in-scaled-angle thermal expansion are not established. Source availability and generic entropy arguments leave residual novelty risk.
+For a natural exactly solvable active-particle model the result quantifies dependence that covariance misses. The resolved angular layer gives both a sharp scale for the change from an athermal cusp to a quadratic response and a function describing intermediate noise-angle ratios, which neither endpoint expansion can supply. This is a useful benchmark for static position information, independent of possible uses in trajectory inference.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

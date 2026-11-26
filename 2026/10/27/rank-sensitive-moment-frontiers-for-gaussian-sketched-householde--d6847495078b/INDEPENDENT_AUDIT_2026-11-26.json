@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:52:38.531094Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, model and Proof §§1–4",
+        "Frozen VERIFICATION.md lines 18–22 and verify.py, QR identities and finite chi-law checks"
+      ],
+      "rationale": "The positive-diagonal thin QR gives RᵀR=ZᵀZ and W is an isometry, so the reconstructed basis has norm 1/σ_min(Z); its Frobenius norm is between that norm and √m times it. After diagonalizing BᵀB, the Gaussian bottom-row covariance is (I−BᵀB)/ℓ, so the null-block columns form an iid ℓ-by-k matrix G independent of the remaining Gaussian columns U. For k>0, testing vectors supported on ker B gives σ_min(Z)≤σ_min(G). If r>0 the top block with smallest positive singular value η bounds the anchored part of a vector by η^{-1} times its image norm. Solving the bottom block with the pseudoinverse of G then gives the reverse inverse bound σ_min(Z)^{-1}≤η^{-1}+(1+‖U‖/η)σ_min(G)^{-1}. For r=0 there is equality. Independence and Gaussian moments make the two inverse norms equivalent for moment existence. In Gaussian QR the reciprocal last diagonal has a divergent p-moment precisely for p≥ℓ−k+1. Conversely each inverse triangular entry is a finite sum of products of independent Gaussian entries and reciprocals of distinct chi diagonals; all p-moments exist below that threshold. The Gram norm lies between ‖Q‖²−1 and ‖Q‖²+1, yielding the doubled-order criterion including its endpoint. Full anchoring instead gives the deterministic lower bound σ_min(B). At ℓ=m+1, the stated rank-zero versus rank-one mean-defect example follows directly. A common Gaussian coupling along B tending to zero and Fatou explain why a finite mean may grow without bound despite rank one.",
+      "residual_risks": [
+        "The reported 3,937 checks were not rerun; sampled chi-law or QR identities cannot prove critical divergence. No formal verification or numerical-roundoff certification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rudelson–Vershynin gives the iid rectangular least-singular-value exponent N−n+1 with an additive exp(−cN) term. It neither treats this partially deterministic matrix nor supplies the endpoint divergence.",
+          "No useful primary match came from the bounded deterministic-row search; the cited Anderson–Wells article was not retrievable in full text."
+        ],
+        "reasoning": "An iid rectangular high-probability estimate with an additive failure floor does not control arbitrarily deep lower tails by integration. The cutoff uses a two-sided anchored-to-null-block comparison and the known exact Gaussian exponent, not a claim of priority for that exponent.",
+        "searches": [
+          "arXiv:0802.3956, Theorem 1.1 and Eq. (1.10)",
+          "\"deterministic rows\" Gaussian matrix smallest singular value inverse moments rectangular Gaussian Wishart additive PSD",
+          "doi:10.1137/070698932 (OA attempt)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.10923",
+        "arXiv:0802.3956",
+        "Resultary 8e6624cf650a, 23a3fc6123ad and 94943c586d73",
+        "doi:10.1137/070698932 (bibliography only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Gaussian QR gives the k-column cutoff only after identifying the surviving k-column random block. Earlier sketch error formulas produce Gaussian denominators in their own regression and reconstruction settings."
+        ],
+        "reasoning": "Loewner monotonicity against the unanchored Wishart law gives at most the old m-column integrability guarantee. Testing ker B yields the sharp obstruction, while using the fixed block to control the complementary coordinates proves that no additional obstruction remains. Neither the recRHQR factorization nor the compared error laws gives this two-sided result as stated.",
+        "searches": [
+          "arXiv:2405.10923, Theorem 3.7 and §3.3",
+          "Resultary 8e6624cf650a and 23a3fc6123ad, exact moment cutoffs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The recRHQR source forms exactly the block-preserving stacked sketch; the positive-diagonal thin QR is its algebraic factorization up to harmless sign choices.",
+          "Writing ZᵀZ=BᵀB+CᵀΩᵀΩC identifies the equivalent smallest-eigenvalue inverse-moment question for a fixed positive semidefinite perturbation of a scaled Wishart matrix."
+        ],
+        "reasoning": "The construction and sketched orthogonality are established. The relevant question in either formulation is whether the random inverse moment exists when the fixed positive semidefinite term has nullity k; sketched orthogonality alone cannot give Euclidean conditioning or its moments.",
+        "searches": [
+          "arXiv:2405.10923, Theorem 3.7 and §3.3 Algorithm 6",
+          "Resultary: rank-sensitive moment cutoff partially deterministic Gaussian sketch reconstructed Householder QR basis Gram defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Krylov minimal-residual error has cutoff p<ℓ−k+1 for k equal to the Lanczos-space dimension. An indexed two-sided low-rank reconstruction has the corresponding half-exponent cutoff for its error statistic. A later reduced least-squares record identifies a chi-square denominator."
+        ],
+        "reasoning": "These exact results concern different error variables and dimensions, not tables or formulas for how rank(B) changes the reconstructed basis. The matching algebraic exponent alone is not equivalent coverage.",
+        "searches": [
+          "Resultary: partially deterministic Gaussian matrix smallest singular value inverse moments rank of deterministic block",
+          "Resultary 8e6624cf650a, 23a3fc6123ad and 94943c586d73, finding passages"
+        ]
+      },
+      "rationale": "The supported distinct result is rank-sensitive inverse-moment integrability for the reconstructed basis of the partially anchored sketch. The construction, the classical unanchored exponent, and Gaussian QR/Wishart laws are not original here. The checked related reconstruction and Krylov laws exhibit the same source of heavy tails but do not classify the effect of a deterministic top block on this basis and its Euclidean Gram defect.",
+      "residual_risks": [
+        "A prior exact partially deterministic Gaussian or additively regularized Wishart result could imply this cutoff; the bounded literature lookup and available full texts did not resolve all such possibilities. Priority is not established exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact construction overlap, not the anchored moment theorem",
+          "evidence": "Simultaneous factorization, sketch orthogonality and the QR of the stacked [B; ΩC].",
+          "identifier_or_url": "https://arxiv.org/abs/2405.10923",
+          "material_read": "Theorem 3.7 (p. 12), §3.3 and Algorithm 6 (pp. 16–17)",
+          "method": "OA full-text passage inspection",
+          "title": "Randomized Householder QR",
+          "trigger": "Identical QR/sketch construction"
+        },
+        {
+          "assessment": "Consistent iid exponent; does not give the partially deterministic exact cutoff",
+          "evidence": "Small-ball exponent N−n+1 in a probability bound with additive exponential error.",
+          "identifier_or_url": "https://arxiv.org/abs/0802.3956",
+          "material_read": "Theorem 1.1, p. 3, Eq. (1.10)",
+          "method": "OA full-text passage inspection",
+          "title": "The Smallest Singular Value of a Random Rectangular Matrix",
+          "trigger": "Potential general exact inverse-moment criterion"
+        },
+        {
+          "assessment": "Exact exponent overlap for a different statistic",
+          "evidence": "ℓ−k+1 is the cutoff for minimal-residual Krylov error, with k the Lanczos dimension, not the nullity of a deterministic sketch block.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-moment-separation-between-gaussian-sketched-galerkin-and-m--8e6624cf650a",
+          "material_read": "Mirrored finding, offset about 450",
+          "method": "Local Resultary search and mirrored passage",
+          "title": "Sharp moment separation between Gaussian-sketched Galerkin and minimal-residual Krylov methods",
+          "trigger": "Earlier exact exponent for a Gaussian-sketched output"
+        },
+        {
+          "assessment": "Related inverse-Wishart mechanism for two-sided low-rank reconstruction",
+          "evidence": "Its squared-error-type statistic R has q cutoff (ℓ−r+1)/2; its model does not preserve a prescribed deterministic B.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-residual-spectrum-convex-ordering-and-the-exact-gaussian-sketch--23a3fc6123ad",
+          "material_read": "Mirrored finding and cutoff passages, offsets 0 and 5814",
+          "method": "Local Resultary search and mirrored passages",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch failure law",
+          "trigger": "Earlier sharp half-exponent moment criterion"
+        },
+        {
+          "assessment": "Later related denominator distribution, different construction",
+          "evidence": "Chi-square denominator with ℓ−r+1 degrees of freedom for least-squares error.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-nullspace-inflation-for-gaussian-reduced-least-squares-pse--94943c586d73",
+          "material_read": "Mirrored finding, offset about 500",
+          "method": "Local Resultary search and mirrored passage",
+          "title": "Exact nullspace inflation for Gaussian reduced least-squares pseudoinverses",
+          "trigger": "Gaussian reduced nullspace moment law"
+        },
+        {
+          "assessment": "Detailed coverage unresolved; no inference of absence",
+          "evidence": "This standard Gaussian-law comparison is not needed for the correctness proof, which derives the threshold by QR.",
+          "identifier_or_url": "https://doi.org/10.1137/070698932",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful OA attempt yielded 403 and no repository copy",
+          "title": "The Exact Distribution of the Condition Number of a Gaussian Matrix",
+          "trigger": "Gaussian lower-tail background cited in original"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and minimal-oversampling example",
+        "Grigori–Timsit Theorem 3.7 and §3.3 for relevance to the actual factorization"
+      ],
+      "rationale": "This classifies a natural conditioning diagnostic for a specific basis construction. In particular, adding one arbitrarily weak but nonzero anchored direction changes whether the mean Gram defect exists in minimal oversampling, although it need not make conditioning typical or the finite mean small. That qualitative rank transition is not answered by an embedding probability bound.",
+      "residual_risks": [
+        "Fixed orthonormal input, exact arithmetic, iid Gaussian bottom sketch, and the stated oversampling range; no practical stability or solver guarantee. The cutoff depends only on rank, not the magnitude of moments below it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

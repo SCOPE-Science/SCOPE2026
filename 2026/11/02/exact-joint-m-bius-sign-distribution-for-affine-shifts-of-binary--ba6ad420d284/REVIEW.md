@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For monic cubics in characteristic two, the change \(T\mapsto T+a\) produces depressed coefficients \((B,C)\). A nonconstant affine shift supplies an independent second constant term because its nonzero linear coefficient makes \((a,b,c)\mapsto(B,C,C')\) bijective. Carmon's published cubic Berlekamp formula and characteristic-two Pellet identity give \(\mu(Y^3+BY+C)=(-1)^{m+1}\chi(B^3/C^2)\) for \(C\ne0\), while \(C=0\) is exactly the nonsquarefree locus. Additive-character orthogonality gives the two values of \(S(B)\) and their exact shifted correlation \(-q\). Expanding the sign-count products proves each of the nine entries and the boundary case \(q=2\). The standalone verifier independently enumerates actual polynomial roots and repeats each tested joint-count calculation without the character-sum formula.
+PASS
 
-## Originality — PASS, qualified
+Translation by the quadratic coefficient a gives B=b+a^2, C=c+ab and C'=C+ua+v; for u nonzero, (B,C,C') uniquely gives back (a,b,c). The repeated-root condition for a depressed cubic is exactly C=0, since its derivative is Y^2+B and its value at sqrt(B) is C. Verified the Berlekamp/Pellet polynomial specialization against Carmon's formulas. Also independently derived the signed sums by counting roots: for B=0, the cube map permutes the nonzero elements for odd m (one root per nonzero fiber), while for even m every nonzero fiber has zero or three roots. Thus S(0)=epsilon(q-1), epsilon=(-1)^(m+1). For B nonzero let A1,A3 count nonzero fibers of x^3+Bx with one and three roots. The zero fiber has two roots, so A1+3A3=q-2. Two different inputs with sum t!=0 collide exactly when z^2+z=1+B/t^2 with z=x/t. If the right-hand side has trace zero this gives two solutions, representing one unordered pair. As t varies, B/t^2 runs over the nonzero field, so the number of pairs is q/2-1_{Tr(1)=0}=1+3A3. It follows that S(B)=2A1-(q-1)=-epsilon. The total signed sum over B is zero. In the product sum S(B)S(B+u), two distinct exceptional B each contribute -(q-1), and the other q-2 each contribute 1, giving -q. At each B, one C gives zero sign, and (q-1+sS(B))/2 gives the other sign counts; multiplying and summing over B yields q[(q-1)^2-st]/4 for nonzero s,t, q(q-1)/2 for exactly one zero and q for two zeros. At q=2 the table has same-sign entries zero, opposite-sign entries one each, one-zero entries one each, and the double-zero count two. This is an independent symbolic proof for every m, not an extrapolation. Frozen verify.py and VERIFICATION.md were inspected but not executed; their recorded finite field checks are not needed for the quantifier.
 
-The closest primary source is D. Carmon's arXiv:1409.3694v1 (2014), whose full text gives the cubic Berlekamp identity and a general asymptotic correlation bound but does not present the stated exact nonconstant-affine-shift joint histogram. The Carmon–Rudnick predecessor arXiv:1205.1599 (2012) addresses odd characteristic; Sawin–Shusterman (2022) addresses broader Chowla phenomena, but only its publisher abstract was checked, so no entire-document exclusion is asserted. The stronger implication comparison is against actual statements: a general bound cannot determine these nine exact counts. A pre-existing exact enumeration of simultaneous squarefreeness for nonconstant affine shifts gives only the unsigned count \(q(q-1)^2\), which is not claimed as new and does not determine the signs of the squarefree factors. Related constant-shift cubic results do not cover the present nonconstant-shift signs. Unindexed equivalent elementary computations remain a genuine historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural nine-outcome joint distribution of a multiplicative number-theoretic function is completely classified, including nonsquarefree events, throughout an infinite field family and for every nonconstant affine shift. The exact negative correlation \(-q\) is stronger than generic large-field upper bounds and exposes a structural distinction between constant and nonconstant shifts. This is a motivated exact Chowla-type invariant, not an arbitrary finite sample; its value does not depend on a further downstream conjecture.
+The distinct claim is the sign-resolved joint law and exact negative correlation for nonconstant affine shifts, not the cubic Berlekamp formula, the unsigned squarefree total, or the affine normalization. No equivalent/stronger result covering that exact nonconstant-shift law was identified in the passages compared. The closely related indexed exact result is for constant shifts, and the cited general correlation estimates do not determine the finite numbers. This is a bounded scientific comparison, not a priority claim.
 
-## Verification boundaries
+## value
 
-The proof applies for every \(m\ge1\) and every \(u\ne0\). Finite verification covers only \(1\le m\le6\), with all shifts for \(q\le16\) and selected shifts above. The classification is not claimed for odd characteristic, other cubic leading coefficients, constant shifts, or other degrees. Historical literature coverage remains imperfect.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Monic cubics are a natural low-degree test of finite-field sign correlations. The exact joint probabilities distinguish equal from opposite signs and pin down the finite negative correction -q in a regime usually addressed by cancellation bounds. The coefficient separation applies to every nonconstant affine shift and every binary field size, including the smallest boundary, not to selected shifts or a few enumerated fields. It provides a substantive sign-resolved benchmark beyond an unsigned squarefree count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

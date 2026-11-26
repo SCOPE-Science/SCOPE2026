@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python verify_media.py` using a standard Python interpreter. The standalone script uses `fractions.Fraction` to calculate the exact count-chain transition rates and expected hitting times; it solves the original finite first-step systems separately using rational Gaussian elimination. It also reconstructs the update probabilities from individual configurations rather than assuming exchangeability, verifies the finite harmonic inequalities, and checks numerical trends toward the logarithmic rate.
+## correctness
 
-Recorded executed checks: 352 rational hitting-time-system comparisons; 2952 configuration-level transition comparisons; 1232 harmonic inequalities; and 24 numerical large-population logarithmic-rate trend comparisons. The code and all dependencies are embedded in the same research record.
+PASS
 
-Proof of the infinite-\(N\) statement is analytical: the double-product representation is sandwiched between one exponential term and at most polynomially many terms controlled by its positive logarithmic increments. A finite run cannot certify an infinite theorem or establish priority. No independent external audit has been performed.
+Van Santen et al. Eqs. (1)–(3) and the uniform one-vertex clock give the displayed kernels exactly on a loopless clique. All p_j>0 for j<N and N is absorbing, so finite blocks give a geometric absorption bound at fixed N. With v=N−j the active nudge down transition exactly cancels the two social terms in p_j−q_j and leaves h; when it is clipped to zero p_j≥hv/N. The conditional drop of H_v is p_j/v−q_j/(v+1)≥h/N. Deterministic-time telescoping followed by the tail-sum formula bounds the mean by NH_v/h. Any successful trajectory must select all initial B vertices, which gives the coupon-collection lower bound; α=1 is pure death at probability Ev/N, giving equality at the upper bound. Rechecked the contextual push proof: the first-step difference products give the full finite formula; all factors above one are precisely those after floor((N−1)E), and they form one summand available for every start. The lower and polynomial-times-upper sandwiches use the same positive-part Riemann sum. The alternative prior-theory comparison changes each fixed-profile positive product term by a bounded factor uniformly (one inverse death rate and at most N−1 ratios), and the Poisson clock changes means by N, so neither changes the log rate per vertex. The endpoint v=N has mean extra wait 1/(Nh) in the comparison chain. All parameter and time-unit hypotheses and the exclusion of initially unanimous A from the logarithmic statement are retained.
+
+## originality
+
+PASS
+
+Only the finite harmonic bounds uniformly over starts for the actual nudging rule, which identify the fast side for this pair, are credited in the repair. The verified prior push implication is explicitly excluded from new claims. The work on this exact pair's update rules located in the bounded comparison reports simulation-based prevalence rather than these nudging absorption-time estimates.
+
+## value
+
+PASS
+
+The count kernel includes possible reversions before consensus, so the coupon lower bound alone does not determine their cost. The matching finite upper scale shows that, for this concrete clipped rule and uniform selection, reversions do not change the coupon-collection order from any start, including one dissenter. This supplies a useful quantitative comparison with the known birth–death barrier for the other originally paired rule, in the same time units and for the same field parameters. No independent new value is assigned to the prior push law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

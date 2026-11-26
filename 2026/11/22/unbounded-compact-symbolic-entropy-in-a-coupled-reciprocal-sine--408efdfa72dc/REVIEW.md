@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The inverse formula exactly solves the first-coordinate equation. The index inequalities place all branch images strictly inside the same small rectangle; adjacent phase windows are disjoint. Derivative and transverse bounds go to zero as the rectangle approaches the excluded singular line, giving a uniform strict contraction on bounded orbit sequences. Continuity of the selected initial point follows from uniform Picard convergence, not a false sup-norm continuity assertion for the entire infinite-code operator. The disjoint bands define a continuous onto coding, and entropy follows by the factor inequality. An interval fixed-point argument supplies at least \(N^p\) actual points fixed by \(F^p\) for every \(p\). The numerical checker is supporting evidence only.
+## correctness
 
-## Originality — PASS within inspected evidence
-The source article's complete publicly accessible HTML develops numerical and applied results, not compact full-shift factors. The closest published same-map result establishes saddles in high reciprocal bands; isolated saddles do not entail exponentially many recurrent words. A previously available same-map targetwise inverse census addresses backward multiplicity, not forward trapping, and thus does not imply the constructed invariant factor. General symbolic horseshoe methods and results on other maps do not supply this all-positive-coupling construction. Unindexed equivalent proofs remain possible and require independent priority evaluation.
+PASS
 
-## Value — PASS
-This is a structurally motivated theorem for the paper's specific singular oscillatory coupling, not an arbitrary parameter slice: it proves rigorous symbolic complexity of arbitrarily high finite alphabet size at **every** positive coupling pair while keeping each symbolic subsystem compact and nonsingular. It identifies a sharp conceptual contrast between finite numerical complexity diagnostics and genuine mathematical full-shift factors; it makes no claims about cryptography or typical trajectories.
+For fixed a,b>0, let v tend to zero with u=v/2 and h=4(a+1)^2 v^2. Then the rectangle conditions hold, the two row-sum Lipschitz bounds tend to zero, and the number of integers between a/v+1 and 2a/v-1 diverges. For each such k the denominator of the inverse is strictly between a pi/v and 2a pi/v by the margins in k and bh<pi/4, so the inverse takes values in (u,v). The phase interval is a k-pi translate of [arcsin sqrt(u)-bh,arcsin sqrt(v)], of width less than pi; the reciprocal images for different k are separated. Differentiating the inverse gives the stated row-sum bound via x<=v and w in [u,v]; differentiating the second coordinate uses |sin(2t)|<=2|t|. The transverse update stays in [0,h/4]. In the sup metric on rectangle-valued one-sided sequences with y_0 reset to eta, the simultaneous backward x and forward y update is a strict contraction of a complete space. Its fixed points are genuine orbits in the chosen branches. Every fixed-point coordinate depends continuously on the code in the product topology and on eta, since finite Picard iterates only use finitely many symbols for that coordinate and convergence is uniform. The initial-state image is therefore compact, and shifting a fixed orbit exhibits forward invariance. The branch intervals are compact and pairwise separated; each code coordinate is recovered continuously from the corresponding iterate, so the itinerary map is continuous and onto, giving the entropy lower bound. A periodically repeated p-word yields a continuous self-map eta to y_p of [0,h]. A fixed eta and uniqueness of the coded orbit imply F^p fixes its starting state; distinct p-words give disjoint itineraries. These are fixed points of the iterate, not all necessarily of least period p. If invariant is taken to mean onto, the nested compact sets F^j(K_N) all retain onto coding and contain the constructed periodic points, and their intersection does too. The theorem does not extend the map continuously to the singular line or claim infinite entropy on a single compact subsystem. RESULT.md lines 18–59 are the analytic replay path; VERIFICATION.md and the finite mpmath checker were inspected, not executed.
 
-## Scope and literature risks
-The global phase square is not a compact continuous system because of \(x=0\). The theorem does not produce a single compact infinite-entropy subsystem or any physical invariant law. Complete full text of the nearest 2026 indexed mathematical note could not be retrieved from its listed repository path; its indexed statement and an earlier same-map inverse-count claim were compared by implication. Independent review is needed before treating originality as publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the exact Zhu planar recurrence at every positive parameter pair, with compact factors onto arbitrary finite one-sided full shifts and exponential iterate-fixed-point lower bounds. The same-day Resultary near-match proves full shifts for Chebyshev-deformed orders of a different symmetric recurrence; the exact equation comparison rules out direct coverage by that result.
+
+## value
+
+PASS
+
+The proof gives rigorous recurrent symbolic complexity at every positive parameter pair of a specific singular dynamical system. It goes beyond numerical entropy, one-step branch multiplicity and saddle counts: arbitrary words can be followed indefinitely on compact nonsingular sets, and periodic words lift to actual periodic trajectories. The separation between compact-subsystem entropy and undefined global compact dynamics is scientifically meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

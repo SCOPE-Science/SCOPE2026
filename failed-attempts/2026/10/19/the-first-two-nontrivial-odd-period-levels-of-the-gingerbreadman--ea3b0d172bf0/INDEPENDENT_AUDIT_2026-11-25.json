@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:01:45.442427Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a closed sign branch the map is affine with determinant-one linear part. A sign itinerary is feasible exactly when all branch inequalities hold along the affine iteration and (I−A_n)z=d_n. Weak inequalities retain the switching line; Fourier–Motzkin projection is valid even with missing bounds or singular return equations. Independent replay `python3 -B /workspace/reproduce_frozen.py 3` propagates the scalar recurrence, solves each exact rational closing system, and checks singular cases by two-dimensional feasibility via the closest feasible point to the origin (origin, projection onto an active line, or intersection of independent active lines). No singular itinerary was feasible. The point counts for n=1,3,5,7,9,11 are 1,1,11,1,1,23. Direct iteration verifies the unique fixed point (1,1), the four listed orbit representatives, their least periods and absence of zero first coordinates. The computed return traces 3,1 and 5,−5 give the stated elliptic or saddle types since the determinants are one. The uploaded transcript and verifier were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 11 finding proves least-period set {1,5,6,11} through 11 with no restriction on the initial state. It explicitly counts exactly two orbits each at 5 and 11.",
+          "Zolkin et al., p. 15, discuss the same McMillan–Hénon map f(q)=|q|+1 but the inspected material treats invariant regions and rational rotation behavior."
+        ],
+        "reasoning": "The older catalogue result has a broader period domain. Its caveat on non-isolated period-six families does not weaken its exact odd-period consequences. General rotation or density statements are not a substitute for the exact whole-plane census.",
+        "searches": [
+          "2026/10/11/SCOPE-exact-short-period-spectrum-of-the-gingerbreadman-homeomorphism--512812eb6d6f, RESULT.md",
+          "Primary literature: Devaney DOI 10.1016/0167-2789(84)90187-8 and Zolkin–Kharkov–Nagaitsev arXiv:2201.13133"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and CHECKS.txt",
+        "Resultary October 11 RESULT.md",
+        "Primary and related sources listed in source_inspections",
+        "Independent replay /workspace/reproduce_frozen.py, argument 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Filtering the older full short-period spectrum to odd periods leaves exactly {1,5,11}, with traces 1 and 3 at 5 and −5 and +5 at 11.",
+          "The earlier Lozi equation Lemma 2.4 already excludes least period 3 at α=1."
+        ],
+        "reasoning": "The complete frozen claim follows by restriction from the October 11 result. The Lozi result independently implies part, but not all, of the exclusions.",
+        "searches": [
+          "October 11 RESULT.md theorem and proof table",
+          "Abu-Saris–Al-Jubouri (2009), Lemmas 2.3 and 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/11/SCOPE-exact-short-period-spectrum-of-the-gingerbreadman-homeomorphism--512812eb6d6f uses the identical F(x,y)=(1−y+|x|,x). Its coordinate itineraries give the frozen representatives via (x_i,x_(i−1)).",
+          "Abu-Saris and Al-Jubouri (2009), p. 48, identify the map by y_(n+1)+y_(n−1)=1+|y_n| with parameters (1,−1,1)."
+        ],
+        "reasoning": "Recording a cyclic list of x values rather than pairs is equivalent because the second coordinate of each state is the preceding first coordinate. Renaming G to F or using the scalar recurrence does not change period or stability.",
+        "searches": [
+          "Resultary: Gingerbreadman exact short-period spectrum whole-plane odd-period census",
+          "Published Lozi-equation periodicity with Gingerbreadman parameters"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 11 census gives least-period orbit counts 1,0,2,0,0,2 for the odd rows 1,3,5,7,9,11 and lists all itineraries at 5 and 11; no odd row has feasible singular words.",
+          "MathWorld lists the familiar period-five orbit in a region discussion, not the matching complete table."
+        ],
+        "reasoning": "Converting the catalogued itineraries reproduces all four explicit reps; the return matrices there have the exact frozen traces. The unique fixed point is explicitly (1,1).",
+        "searches": [
+          "Resultary October 11 RESULT.md finite sign-word census and orbit coordinate tables",
+          "MathWorld Gingerbreadman Map, period-five discussion"
+        ]
+      },
+      "rationale": "An earlier catalogued, scientifically matching whole-plane result already determines the complete claimed odd-period inventory through eleven, including all four cycles and their stabilities. Restriction to odd periods leaves no distinct surviving scientific assertion. The unknown publication priority of other sources is a separate issue.",
+      "residual_risks": [
+        "Devaney’s 1984 full text could have additional priority evidence; it was not available through the attempted lawful routes. The demonstrated catalogue coverage stands independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers all frozen claims in a wider period range",
+          "evidence": "p≤11 least periods {1,5,6,11}; odd census rows, cyclic coordinates, exact return matrices and whole-plane quantifier agree.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-short-period-spectrum-of-the-gingerbreadman-homeomorphism--512812eb6d6f",
+          "material_read": "RESULT.md §§Finding, Assumptions and scope, Proof, offsets 0–5058",
+          "method": "Local Resultary mirror",
+          "title": "Exact short-period spectrum of the gingerbreadman homeomorphism",
+          "trigger": "Exact shorter-date census of the same map"
+        },
+        {
+          "assessment": "Earlier partial exclusion, not the matching census",
+          "evidence": "Identifies Gingerbreadman parameters and rules out least period three at α=1.",
+          "identifier_or_url": "https://www.acadsol.eu/en/articles/13/1/6.pdf",
+          "material_read": "p. 48, p. 50 Lemma 2.3, p. 51 Lemma 2.4; offsets 1741, 9122 and 11613",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "On the Periodicity of Lozi’s Equation",
+          "trigger": "Same map in recurrence coordinates; published restrictions on periods"
+        },
+        {
+          "assessment": "One familiar orbit; the scope of uniqueness is ambiguous and does not establish a global census",
+          "evidence": "Mentions hexagonal regions and lists a period-five itinerary.",
+          "identifier_or_url": "https://mathworld.wolfram.com/GingerbreadmanMap.html",
+          "material_read": "Opening regional and period-five discussion, offsets 0–1278",
+          "method": "Public page inspection",
+          "title": "Gingerbreadman Map",
+          "trigger": "Known period-five orbit"
+        },
+        {
+          "assessment": "Potential earlier coverage not assessed in full text",
+          "evidence": "Snippet states density of periodic points, which is not the finite census.",
+          "identifier_or_url": "10.1016/0167-2789(84)90187-8",
+          "material_read": "Indexed Proposition 7 snippet only; no full text read",
+          "method": "Literature search and lawful OA direct/VPN retrieval attempts (403)",
+          "title": "A Piecewise Linear Model for the Zones of Instability of an Area-Preserving Map",
+          "trigger": "Foundational 1984 study of the identical map"
+        },
+        {
+          "assessment": "Related dynamics; the inspected passage gives no matching finite census",
+          "evidence": "Discusses f(q)=|q|+1, invariant polygons and rational rotation.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.13133",
+          "material_read": "p. 15, offsets 57699–61635",
+          "method": "OA PDF passage inspection",
+          "title": "Machine-assisted discovery of integrable symplectic mappings",
+          "trigger": "Same map in McMillan–Hénon form"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A global short-period inventory and stability classification for this map are meaningful, but the frozen odd-only recomputation reproduces the same cycles, exclusions and traces from a wider exact inventory. The alternative smaller-dimensional implementation is corroboration, not a distinct scientific contribution in the stated finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

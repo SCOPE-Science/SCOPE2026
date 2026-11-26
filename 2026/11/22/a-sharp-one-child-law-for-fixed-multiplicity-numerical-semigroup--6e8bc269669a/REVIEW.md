@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the exact Kunz inequalities and the Apéry–minimal-generator correspondence. It covers all fixed integer multiplicities at least three, all sufficiently large integer genera, and both upper and matching lower polynomial orders. The hyperplane estimate counts at most one integer solution after the two independent equations; a positive-volume relative box produces enough two-child examples, with a separate parity treatment at multiplicity three. An independent definition-based checker agrees in 1,275 small finite cases. Finite checks support, but do not substitute for, the proof.
+## correctness
 
-**Originality — PASS, with priority limits.** The 2018 low-multiplicity study obtains the multiplicity-three child profile, the 2019 Kunz paper proves density one of maximal embedding dimension, and the 2026 paper supplies algorithms and related conjectures. The known 2019 density result does not imply exactly one child, since maximal embedding dimension allows simultaneous effective generators. The new conclusion gives a sharp all-multiplicity error order, including the matching lower bound from near-tied primitive Apéry elements. Targeted record searches did not identify that statement. The 2019 publisher full text could not be lawfully obtained in this review; its abstract and the 2022 full paper describing its consequence were inspected. This remains a historical priority risk, not a correctness uncertainty.
+PASS
 
-**Mathematical value — PASS.** One-child prevalence concerns the local offspring distribution of the numerical-semigroup tree, a natural statistic in the 2026 classification program. The theorem identifies a universal fixed-multiplicity branching law with a sharp exception scale, as opposed to a calculation at one multiplicity or genus. It also yields eventual internal-node predominance in every fixed-multiplicity stratum. It does not resolve the stronger finite-genus conjecture for arbitrary multiplicities.
+For fixed m and g≥m+1, F≥g>m; the only possible effective generators are the primitive nonzero Apéry representatives w_i=mx_i+i. They are primitive exactly when no nontrivial Kunz inequality with their residue on the right is an equality: a decomposition of w_i cannot use a positive multiple of m, and reducing each summand to its least representative must leave no added multiples of m. If there are no children, the largest representative w_r=F+m is decomposable. If there are at least two, two distinct representatives in (F,F+m] force a coordinate difference in {−1,0,1}. Each resulting equality is an affine hyperplane whose normal is independent of the all-ones genus equation: in a Kunz equality the result index differs from the two summand indices and has opposite sign, even when the summands have the same index. Two independent equations leave at most O_m(g^(m−3)) integer points by choosing the nonpivot coordinates in [1,g]. A proportional relative box about the balanced slice point gives Ω_m(g^(m−2)) strictly feasible vectors with max x_i<2 min x_i, and all positive compositions give the matching upper bound for N_m. For m≥4 use a proportional box on x₁=x₂ at the indicated positive profile; x_d (d=m−1≥3) has coefficient one in the remaining sum equation, so there is no congruence obstruction. The two tied maxima w₁,w₂ differ by one and are both primitive and effective. For m=3 the explicit even- and odd-genus pairs differ by one and two in Apéry value, also both effective for sufficiently large genus. Hence T_m, and therefore B_m, have the matching lower order for all sufficiently large g. At m=2 the unique semigroup has generators 2,2g+1 and F=2g−1, giving exactly one child when g≥2. A separate bounded tree enumeration, starting at the empty gap set with F=−1 and recursively adding each indecomposable present integer greater than F and ≤F+m+1 (m first positive nongap), gave the genus-14 profiles by degree for m=3: [0,4,1,0], m=4: [5,11,6,1,0], and m=5: [13,15,10,4,1,0]. Those are checks, not evidence for asymptotic extrapolation.
 
-Closest sources: Casas–Madrid–Rosales (2026); García-Sánchez–Marín-Aragón–Robles-Pérez (2018); Alhajjar–Russell–Steward (2019); DiPasquale–Gillespie–Peterson (2022). Limitations: implicit multiplicity-dependent constants, no varying-multiplicity regime, and outstanding historical-priority review of the complete 2019 text.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The main contribution is the sharp error order for one child and the matching multiple-child count for every fixed multiplicity, not the total count, maximal embedding dimension, or the small-m cases. Earlier indexed m=4 results are quantitatively stronger in that single multiplicity, and the primary m=3 theorem directly covers the exceptional child cases there. None of the checked statements furnishes the joint all-fixed-m law, including a matching lower bound for every sufficiently large genus.
+
+## value
+
+PASS
+
+It identifies the typical branching degree in a standard semigroup tree and gives the sharp exceptional probability across all fixed multiplicities, stronger in interpretation than a qualitative leaf/internal comparison. The multiple-child lower bound separates the phenomenon from merely counting degenerate Kunz boundary points and explains why maximal embedding dimension is insufficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

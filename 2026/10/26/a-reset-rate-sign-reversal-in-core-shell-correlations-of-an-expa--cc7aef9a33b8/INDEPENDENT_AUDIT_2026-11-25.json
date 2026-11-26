@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:03:07.336618Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md assumptions, mass fractions and proof of both limits; VERIFICATION.md and verify_core_shell.py inspected as evidence",
+        "python /workspace/replay/4-covariance.py (independent mpmath quadrature, using lambda=(1-s^2)^(-1) and factoring out exp(-r*t_c))"
+      ],
+      "rationale": "Integrating the normalized parabola over the symmetric windows gives the displayed fractions. The stationary age of the common Poisson clock is Exp(r), so the covariance is over one shared scalar, not over separate reset ages. Integrating the scale equation yields lambda'^2=2 omega^2(1-1/lambda), with the increasing branch lambda(t) asymptotic to sqrt(2) omega t. A and B are bounded with O(1/t) tails, and B is zero through t_c and positive afterward. AB is integrable and positive on a set of positive measure. Dominated convergence gives E[AB]/r -> C0; splitting each marginal mean at t=1/r gives O(r log(1/r)), so their product is negligible at order r. For strong resetting, shift the entire covariance integral to t_c, writing its integrand as B(t)(A(t)-E[A]) times the exponential-age density. For t just above t_c, let z=c/lambda(t); then B=(1-z)^2(z+2)/2, so it starts as (3/2)(lambda'(t_c)/c)^2(t-t_c)^2. The factor A(t)-E[A] tends locally to A(t_c)-A(0), strictly negative because A decreases and t_c>0. Scaling t-t_c by 1/r gives the factor 2 from the exponential second moment; the rest of the age integral is exponentially negligible. This yields the negative coefficient and its independence of fixed v>c. The Laplace integrals are real analytic for r>0, so opposite endpoint signs ensure a sign-changing zero, without implying uniqueness. The benchmark prefactor is 89/486 for omega=1; a separate high-precision quadrature in the scaled edge-speed variable reproduces the benchmark C0 and signs, as corroboration only.",
+      "residual_risks": [
+        "Only conditional-mean Thomas–Fermi mass fractions at fixed geometry and common Poisson reset age; no finite-particle shot noise, crossing uniqueness, or rate/geometry joint uniformity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary condensate treatment supplies the self-similar density and common-age mixture and calculates single-interval FCS. Brownian-gas work establishes common-reset induced correlations and conditional mixtures for independently diffusing particles. The perspective describes broader common-environment correlations."
+        ],
+        "reasoning": "These supply a framework and inputs, not a general theorem with the delayed quadratic shell onset and both rate limits for the Thomas–Fermi pair. Microscopic Brownian tail covariance and macroscopic surviving mass fraction need not have the same sign structure.",
+        "searches": [
+          "Mesquita et al. Thomas–Fermi expansion and stationary-age FCS, PDF pp. 21–22",
+          "Biroli et al. PRL 130, 207101 and de Mauro et al. PRE 113, 014120, primary openings",
+          "Majumdar–Schehr arXiv:2603.03162, overview"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37110 pp. 21–22; PRL 130, 207101; PRE 113, 014120; arXiv:2603.03162 overview",
+        "Resultary ...a02b45fafe32 and focused comparison to ...9d103ed80563 (summary only for the latter)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared age allows one to write a joint integral immediately. The small-r term nevertheless depends on the integrable product vs. slowly decaying marginal tails. The large-r term requires the shell's first nonzero age term and the contrast A(t_c)-A(0). The pointwise front concerns only one coordinate at the center, so it cannot be integrated over a finite core to produce the displayed coefficient directly."
+        ],
+        "reasoning": "The common-age representation makes these limits derivable, but neither simple substitution into a one-window FCS result nor integration of the stated point-center front yields both strict signs and the sharp exponential/polynomial law. The needed endpoint analysis uses the particular two-window geometry.",
+        "searches": [
+          "Cross-window moment comparison with arXiv:2609.37110 Eqs. (63)–(69)",
+          "Pointwise spatial covariance theorem in ...a02b45fafe32"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shell is the difference of two nested centered fractions, so the claim concerns Cov(F_u,F_v)-Cov(F_u,F_c) using the same age. The primary FCS describes one such fraction at a time. The indexed spatial anticorrelation front concerns central density versus a point density and varies distance at fixed r, not these two integrated variables and variation in r at fixed geometry."
+        ],
+        "reasoning": "The integrated covariance is a linear combination of joint moments, not of independent or purely marginal variances. A zero of a pointwise correlation as distance changes is a different assertion, with no core-window integral or shell-onset coefficient.",
+        "searches": [
+          "Resultary: exterior shell counting finite shell mass integrated covariance joint core shell Thomas Fermi resetting initially empty exterior shell high reset exponential threshold",
+          "Resultary ...a02b45fafe32, Finding and model",
+          "Mesquita et al. arXiv:2609.37110, Eqs. (63)–(69)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected explicit FCS is a one-window law, not an exact table of cross-window rate coefficients. The indexed spatial-front record gives thresholds for point densities. The exterior-shell search summary indicates a marginal shell law; full text was not accessible after targeted local-mirror requests, and the summary is not used to rule out coverage."
+        ],
+        "reasoning": "No inspected table provides the same joint covariance or its pair of limits. An exact marginal shell law, taken alone, does not provide cross-window moments; a marked age law linked to core mass and with relevant results could yield more, so the inaccessible record remains a risk.",
+        "searches": [
+          "Resultary exact shell mass/covariance query and ...a02b45fafe32",
+          "Mesquita et al. Eqs. (65)–(69) single-window law",
+          "Exterior shell counting ...9d103ed80563, exact local RESULT.md lookup attempted"
+        ]
+      },
+      "rationale": "The supported distinct claim is the integrated core–exterior-shell covariance, with weak-to-strong reset sign reversal for every stated geometry and both sharp asymptotics. The common-age mechanism and one-window mass fractions are established inputs. Neither the inspected one-window FCS nor the closest indexed spatial covariance result gives these disjoint-window rate limits. Searches and source access are bounded, not a historical priority guarantee.",
+      "residual_risks": [
+        "The exact exterior-shell RESULT.md was inaccessible in targeted mirror reads. Other joint-count analyses or an unlocated broader endpoint theorem could cover the claim; no such coverage is established in the checked material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct precedent for the model and one-window FCS, not the pair of rate asymptotics in the inspected passage",
+          "evidence": "Uses N times the integrated density on [-L,L] at a single random age and mixes its marginal law.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37110",
+          "material_read": "PDF pp. 21–22, near offset 70000, N_L definition, age mixture Eq. (64) and FCS Eqs. (65)–(69)",
+          "method": "Primary OA PDF statement/formula comparison",
+          "title": "Weakly interacting Bose-Einstein condensate with stochastic resetting",
+          "trigger": "Same Thomas–Fermi density and exponential-age reset theory"
+        },
+        {
+          "assessment": "Different pair of observables and different sign parameter",
+          "evidence": "Covariance of central density and local density has a single sign change with spatial distance at fixed r; no finite core–shell rate-limit theorem in that finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-unique-spatial-anticorrelation-front-in-a-reset-expanding-thom--a02b45fafe32/RESULT.md",
+          "material_read": "Finding at offset 0, observable and spatial-threshold asymptotics",
+          "method": "Local mirrored RESULT.md, bounded passage",
+          "title": "A unique spatial anticorrelation front in a reset-expanding Thomas–Fermi condensate",
+          "trigger": "Same model and a covariance sign result"
+        },
+        {
+          "assessment": "Exact claim coverage unresolved; no negative conclusion from inaccessible full text",
+          "evidence": "Summary discusses the marginal shell fraction's upper cutoff, zero atom and fold/edge behavior.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exterior-shell-counting-and-a-two-scale-fold-in-a-reset-thomas-f--9d103ed80563/RESULT.md",
+          "material_read": "Ranked local summary only; decisive RESULT.md retrieval timed out",
+          "method": "Local Resultary index and attempted lawful local-mirror paper read",
+          "title": "Exterior-shell counting and a two-scale fold in a reset Thomas–Fermi condensate",
+          "trigger": "Same exterior-shell observable and reset model"
+        },
+        {
+          "assessment": "Prior common-reset mechanism, different model and observables",
+          "evidence": "Simultaneously reset Brownian gas; focus on density and order/spacing statistics.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.130.207101",
+          "material_read": "OA primary PDF p. 1, offset 0, model and scope",
+          "method": "Primary OA opening passage",
+          "title": "Extreme Statistics and Spacing Distribution in a Brownian Gas Correlated by Resetting",
+          "trigger": "Common-clock induced correlations"
+        },
+        {
+          "assessment": "General common-environment mechanism, not the pair of limits for the interacting TF geometry",
+          "evidence": "Independently diffusing Brownian particles with simultaneous reset; conditional IID structure and interval FCS.",
+          "identifier_or_url": "https://doi.org/10.1103/vmhz-6h5s",
+          "material_read": "OA primary PDF p. 1, offset 0, overview of joint positions and conditional independence",
+          "method": "Primary OA opening passage",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "Joint positions and count-statistics framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen rate limits and model scope; independent asymptotic analysis; closest one-window and pointwise comparisons"
+      ],
+      "rationale": "Disjoint windows in a reset condensate probe joint spatial behavior that single-window counting does not reveal. The theorem shows opposite signs for every admissible core/exterior-shell geometry and identifies a sharp activated decay at strong resetting, with the onset set by the inner radius but not the outer radius. This distinguishes late-age overlap from rare shell entrance, rather than just supplying a numerical example or a new name for the common-age representation.",
+      "residual_risks": [
+        "Interpreted within the hydrodynamic approximation only, not as a finite-particle measurement prescription."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

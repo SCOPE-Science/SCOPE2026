@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:55:11.327798Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73; VERIFICATION.md; verify.py; verification_output.txt",
+        "/workspace/audit-evidence/replay.py, rec5"
+      ],
+      "rationale": "The claim is mathematically correct. A cyclic word gives balanced vertex incidence on the triple graph. For each uniform triple aaa there are three incident nonpalindromic reversal pairs and the selected incidence is even, so at most two selected edges meet it. In the potential certificate, the adjacency-equality masks 000, 010, 110/011, 101 and 100/001 partition the nonpalindromic words; mask 010 excludes equal outer letters. Substitution gives the five claimed local inequality values (1,1,1,2,1) and counts (108,24,24,12,72). Reversal exclusion bounds the lambda contribution by 90, uniform triples bound the charge by 16, and balance cancels the potential. The explicit 106-symbol cycle attains the bound. An independent replay (`python3 /workspace/audit-evidence/replay.py 5`) checked all 256 local words and all cyclic witness windows, including wraparound, with no collision or palindrome; distinct windows force a fundamental period of 106. The scope's edge characterization should not be read as a converse for arbitrary disconnected balanced edge sets: a single Eulerian tour additionally needs connectivity on the support. Only the forward implication is used.",
+      "residual_risks": [
+        "No claim of a formal proof-assistant check or classification of all optimizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At n=4 and even k, m <= (k^4-2k^2)/2; the conclusion distinguishes the unresolved even-alphabet case from tightness for odd k"
+        ],
+        "reasoning": "The correct general branch gives 112 at k=4, not 106; the odd case has different hypotheses.",
+        "searches": [
+          "Mitchell and Wild, arXiv:2507.02526, Theorem 2.22(iii) and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2507.02526",
+        "Resultary 341177c7af0a",
+        "Resultary c2f06fe02eed",
+        "Resultary 084ae521d155"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower-bound record leaves a gap of at most six to the primary theorem",
+          "c2f06fe02eed reports a witness plus a global optimization bound of 106, disclosing reliance on solver optimality without a solver-independent certificate"
+        ],
+        "reasoning": "The older bounds alone do not imply equality. The separate exact coverage instead asserts equality itself. A new analytic certificate is a strength of the frozen work but does not change its exact-value Finding.",
+        "searches": [
+          "Resultary 341177c7af0a, Finding and Limitations",
+          "Resultary c2f06fe02eed, Finding, Proof and Limitations",
+          "arXiv:2507.02526 Theorem 2.22(iii)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The c2f06fe02eed Finding explicitly maximizes the number of distinct cyclic length-four windows with reversals and palindromes excluded",
+          "084ae521d155 maximizes noncyclic length (113 letters/110 windows)"
+        ],
+        "reasoning": "The indexed cyclic claim is identical as an extremal statement under the de Bruijn edge encoding; the noncyclic problem is not equivalent because it lacks wraparound.",
+        "searches": [
+          "Resultary: quaternary orientable cycle/order four; reversal-free quaternary four-grams",
+          "arXiv:2507.02526 and Resultary c2f06fe02eed, 084ae521d155"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 7 reports known period 88 and bound 112",
+          "341177c7af0a asserts only the lower bound 106",
+          "c2f06fe02eed asserts the exact value 106"
+        ],
+        "reasoning": "The primary table and earlier construction do not contain the exact result, but the distinct indexed exact-value record does.",
+        "searches": [
+          "Mitchell and Wild, Table 7, row n=4 column k=4",
+          "Resultary 341177c7af0a and c2f06fe02eed"
+        ]
+      },
+      "rationale": "The exact frozen finding M_4(4)=106 is explicitly covered by a distinct indexed result with the same cyclicity, order, alphabet and reversal conditions. Its optimization proof differs from the frozen solver-independent proof. The catalog dating does not decide discovery priority, dependence, or authorship; the failure is exact claim-level overlap, not an accusation or a correctness failure.",
+      "residual_risks": [
+        "No historical-priority conclusion; later catalog dating is not evidence of derivation or copying.",
+        "The overlapping record's solver output was compared as stated claim/proof evidence, not independently certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only",
+          "evidence": "Even alphabet bound 112 with table entry 88 (112); unresolved even alphabet at order four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.02526",
+          "material_read": "Definition p. 1; Theorem 2.22(iii) p. 13; Table 7 and conclusion p. 29",
+          "method": "OA PDF, extracted passages",
+          "title": "New orientable sequences",
+          "trigger": "Primary definition, bounds and open-case table"
+        },
+        {
+          "assessment": "Covers lower bound only",
+          "evidence": "Explicit M_4(4)>=106, not maximality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-a-106-symbol-quaternary-orientable-cycle-of-order-four--341177c7af0a",
+          "material_read": "RESULT.md Finding and Limitations, offsets 154–387 and 3566–3786",
+          "method": "Local Resultary mirror",
+          "title": "A 106-symbol quaternary orientable cycle of order four",
+          "trigger": "Same alphabet/order and numerical value"
+        },
+        {
+          "assessment": "Exact claim coverage, distinct method",
+          "evidence": "Identical M_4(4)=106 under identical admissibility; solver-based upper bound with reported objective 106 and zero global gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-sharp-106-window-capacity-of-quaternary-orientable-four-gram--c2f06fe02eed",
+          "material_read": "RESULT.md Finding offset 0, proof offsets 862–4390, Limitations offset 4821",
+          "method": "Local Resultary mirror",
+          "title": "The sharp 106-window capacity of quaternary orientable four-grams",
+          "trigger": "Exact cyclic maximum candidate"
+        },
+        {
+          "assessment": "Not covering",
+          "evidence": "Linear words with non-wrapping windows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-maximum-length-of-four-letter-aperiodic-orientable-words-o--084ae521d155",
+          "material_read": "RESULT.md Finding and scope, offsets 143–975",
+          "method": "Local Resultary mirror",
+          "title": "Exact maximum length of four-letter aperiodic orientable words of span four",
+          "trigger": "Nearby exact optimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2507.02526 Table 7 and conclusion",
+        "Frozen RESULT.md lines 19–73",
+        "Resultary c2f06fe02eed Limitations"
+      ],
+      "rationale": "The even-alphabet order-four gap is explicitly motivated, and the solver-independent extremal argument is useful. But the frozen Finding is the narrow exact value 106, directly covered by a distinct indexed record. A different certificate is not a new exact invariant. No separate structural theorem beyond that value is asserted or audited as a surviving claim.",
+      "residual_risks": [
+        "No broader quantitative theorem or claim about other alphabet sizes is assessed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

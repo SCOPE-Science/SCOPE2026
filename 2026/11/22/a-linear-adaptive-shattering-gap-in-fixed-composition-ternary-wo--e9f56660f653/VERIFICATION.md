@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-From the package root, run `python3 checker/verify_online.py`. It reads the exact `checker/depth3_tree.json` leaf certificate; every one of the \(2^3=8\) answer paths is checked against its displayed fixed-composition realization, and the twelve-concept count excludes depth four. Expected output:
+## correctness
 
-```
-TERNARY_FIXED_CONTENT_DEPTH3_PASS 12 hypotheses 8 certified leaves
-BASE_VC_2_LITTLESTONE_3
-```
+PASS
 
-Optionally compile `g++ -std=c++17 -O2 checker/check_quota.cpp -o check_quota` and run `./check_quota`. Its complete output is in `checker/quota_output.txt`; it checks 61,481 candidate supports with at most the number of available positions through nine finite capacity profiles. The enumerator independently counts all realized binary traces and compares them with the capacity criterion. These finite checks do not verify an unbounded recursion automatically: the proof in RESULT.md supplies the full all-order argument by embedding a product of \(m\) independent seed blocks.
+A shattered support cannot have two distinct color tests at one position because the two yes answers are incompatible. For a larger-than-2m support, answering no to every A test and yes to all B/C tests forces more than 2m distinct non-A positions, an impossible trace. For the 2m distinct B/C tests split m and m, any trace is realized by putting the queried color at yes positions and A at no positions; this leaves nonnegative deficits of total 2m, exactly the number of free positions. The result's seed table uses a well-defined second test at each child of the root, and independent replay confirms all eight answer paths with distinct AABC witnesses. Depth four has 16 mutually incompatible paths, more than the 12 seed hypotheses. The m-fold construction concatenates the depth-three trees on disjoint four-position blocks, with exactly (2m,m,m) content across all blocks, so every depth-3m path is realized. This is a lower bound for the full class, not an equality beyond the seed. The independent replay /workspace/branches/2104168b-0132-418e-9e5e-b0da4746d807/seed_replay.py also enumerates all seed static supports and checks product paths for m=1,…,5; the product argument, not the finite check, gives the unbounded result. Supplied code was read, not executed: the online script checks the tree and seed-count obstruction, not a fresh computation of the VC number in its printed label.
 
-No external proof assistant, independent auditor, or formal verification is claimed. The research does not establish the optimal adaptive dimension for larger \(m\).
+## originality
+
+PASS
+
+Credits earlier exact-quota feasibility and static structure and does not claim tree concatenation as a novel operation. The particular depth-three tree on the exact AABC class and the resulting all-m adaptive gap for the full fixed-content class are not covered by the inspected statements.
+
+## value
+
+PASS
+
+Exact multiplicity is a natural global constraint on a categorical assignment, distinct from proper coloring or surjectivity. The result gives a 50% or greater increase in shatterable depth over the exact static benchmark, uniformly for a natural full parametric class, not just an artificially juxtaposed finite example. It provides a reusable depth-three witness and a gap of at least m without overstating the unrestricted online dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

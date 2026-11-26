@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:22:01.206932Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31 and 35–65; frozen VERIFICATION.md and verify.py (source inspection only)",
+        "Gould–Grau–Johnson arXiv:2307.11596v1 Theorem 2.1, Corollary 2.6, Lemma 2.8 and Proposition 3.4",
+        "/workspace/branches/49ff9575-5216-427e-b98e-015b1917bc47/independent_check.py and independent_check_output.txt"
+      ],
+      "rationale": "For n≥5 the cited classification reduces to the identity automorphism and the singular retractions with parameters (e,e), (1,e), and (t,e) with odd involutive t; (1,1) is the separate constant c, not the excluded identity endomorphism. Evaluating composition on odd, even and singular inputs gives the stated edges: c meets v and w, u meets v and w at the same e, v meets w there, and distinct w never commute. This makes c a cut vertex and forces distance four between u vertices with different labels; at least two labels exist. An odd transposition on two nonroots in one fiber exists for some e, so clique number three is attained. The equations te=et=e say that t fixes roots and preserves fibers, giving the stated signed product. The labeled block weight is z^(b+1)/b!, and the signed and unsigned involution EGFs give the two inner exponentials. The graphs at positive q(e) have exactly two triangles per page; only the two edges in a zero-page piece are maximal edges. H_n counts pairs with designated root and singleton blocks, excluding e=1 only when forming graph pieces. Independent labeled-block recurrence reproduces B_n coefficients through n=10 and I_5=196, B_5=180, H_5=81; the graph formulas then give 571,930,360,520. That independent check was arithmetic, not exhaustive composition testing.",
+      "residual_risks": [
+        "The recurrence is finite corroboration. Correctness of the infinite claim is based on the composition and rooted-fiber proof with the cited classification. No graph classification is extended to n=4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gould–Grau–Johnson give the classification, product table and retraction strata. The joint-rank comparison states complete commutation criteria for all singular endomorphisms, including the special b_0 that commutes with even and odd types, but with no other nonpermutation type."
+        ],
+        "reasoning": "Retain only the retraction parameters: the constant with value 1 is the special b_0=c, nonpermutation type contributes each u_e, even type contributes v_e (only parameter 1), and odd types contribute w_(t,e). The stronger pair criterion then gives every listed edge and excludes every other one. No algebraic issue remains because the identity endomorphism was stipulated to be omitted.",
+        "searches": [
+          "Resultary: commuting retractions full transformation semigroup parity involution rooted fiber exponential generating function",
+          "arXiv:2307.11596v1 Theorem 2.1, Corollary 2.6 and Lemma 2.8; 51c1b3fc0869 section 4"
+        ]
+      },
+      "checked_sources": [
+        "51c1b3fc0869",
+        "arXiv:2307.11596v1",
+        "Schein–Teclezghi DOI:10.1090/S0002-9939-98-04764-9 (bibliographic only)",
+        "05f93685b217",
+        "bbaf7fd89ffe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 6 of 51c1b3fc0869 gives the product-weight rule: a sum of product weights over labeled rooted fibers is n![z^n] exp(sum_s w_s z^s/(s−1)!). Taking its own weights b_s=U^+_(s−1) and c_s=U^-_(s−1) gives exp(z exp(z+z²/2)) and exp(z exp(z−z²/2)).",
+          "Its commutation criterion already prohibits any edges between different labels except through b_0, gives the odd vertices both same-label neighbors, and makes distinct odd vertices nonadjacent."
+        ],
+        "reasoning": "Half the difference of those already-specified transforms is exactly the advertised EGF, including low degrees by the combinatorial weight convention. The induced graph gives two triangles per odd vertex. The condition O_e=0 is just that no fiber admits a transposition of nonroots, hence all fibers have size ≤2 and the allowed rooted-block EGF is exp(z+z²). Each such nontrivial label leaves two maximal edges. These operations yield the maximal-clique formula and other counts without a new classification or enumerative step beyond the covered data.",
+        "searches": [
+          "51c1b3fc0869 Finding offsets 0–3591 and sections 4–6 at offsets 5500–10490",
+          "Gould–Grau–Johnson Corollary 2.6 and Lemma 2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "51c1b3fc0869 defines O_e=(B_e−C_e)/2, with B_e and C_e products of unsigned/signed involution counts on the nonroots of each fiber. This is the submitted q(e) under a shift of the fiber size index by one. Its odd-type parameters are exactly the odd-involution retraction parameters."
+        ],
+        "reasoning": "The two formulas count identical decorations on identical labeled fibers. Thus the all-label sum B_n is the number of odd-type parameters in the other census. It is not a new parity statistic just because each is interpreted as a page of a graph here. The other paper's H_n is its total pair count, not the zero-page count in this record.",
+        "searches": [
+          "Resultary: commuting retractions full transformation semigroup rooted fiber parity involution EGF triangles maximal cliques idempotent rank-three endomorphisms",
+          "51c1b3fc0869 Finding and sections 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local polynomial of the joint-rank census uses O_e for each odd diagonal term and for each odd/even commutation at label e. Its EGF uses separate universal transforms for B_e and C_e. The nearby minimal-generator records 05f93685b217 and bbaf7fd89ffe count conjugacy types or generator invariants, not this labeled graph."
+        ],
+        "reasoning": "The exact symbolic local and labeled-set counts already fix the submitted sequence, a stronger match than any small-n graph totals. The joint-rank numeric table counts all singular endomorphisms and is not expected to equal this graph table. No identity is inferred from the separate orbit enumerations. Whether Schein–Teclezghi tabulated the rank-three retraction sequence independently remains unresolved.",
+        "searches": [
+          "Resultary: A MacMahon correction and an exact minimal-generator formula for endomorphisms of finite transformation monoids",
+          "51c1b3fc0869 exact local type census and EGF",
+          "Primary: Endomorphisms of finite full transformation semigroups Schein Teclezghi 1998 PDF rank 3 idempotent count generating function"
+        ]
+      },
+      "rationale": "The essential edge criterion is the restriction of a previously published multiplication table, and the distinct same-day joint-rank census states the stronger commuting criterion and the very same local signed product q(e)=O_e. Its rooted-block EGF transform explicitly applies to both product weights in O_e, so the B_n generating function is a direct half-difference of two transforms already used there. The remaining graph invariants follow by inspecting the graph under this restriction and summing, and the zero-page correction follows by deleting blocks of size greater than two. This is verified claim coverage and mechanical implication, not proof that the same-day comparison preceded the assigned record and not a conclusion based on inaccessible literature.",
+      "residual_risks": [
+        "Same-day precedence is not established. The verified formula and implication overlap does not require determining chronology.",
+        "The 1998 full text remained inaccessible in the attempts made, so its exact scope on idempotent counts remains unverified. Neither catalogue generator hit was established as identical to the source's cited MacMahon title."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger edge classification and exactly the same local multiplicity; B_n is an immediate EGF specialization",
+          "evidence": "O_e=(B_e−C_e)/2 equals q(e). Sections 4–6 give the four multiplication cases and the product-weight rooted-block transform, explicitly including the unsigned and signed involution weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-joint-rank-census-of-commuting-singular-endomorphisms-of-full--51c1b3fc0869/RESULT.md",
+          "material_read": "Finding, offsets 0–3591; commuting classification, rank terms and exponential formula, offsets 5500–10490",
+          "method": "Local mirror bounded statements and proof passages",
+          "title": "A joint-rank census of commuting singular endomorphisms of full transformation semigroups",
+          "trigger": "Strongest exact same-day local statistic, same n regime and semigroup"
+        },
+        {
+          "assessment": "Direct prior algebraic coverage of the retraction strata and graph adjacency by restriction",
+          "evidence": "The normal forms are the permissible (t,e) pairs, and the four product actions distinguish odd, even, nonpermutation, and the special constant parameter.",
+          "identifier_or_url": "https://arxiv.org/html/2307.11596v1",
+          "material_read": "Theorem 2.1 offset 11600, Corollary 2.6 offset 54900, Lemma 2.8 offset 65400, Proposition 3.4 offset 86950; attribution offset 181789",
+          "method": "Bounded OA passages",
+          "title": "The structure of End(T_n)",
+          "trigger": "Cited primary classification and multiplication used to derive graph"
+        },
+        {
+          "assessment": "Historical enumeration risk unresolved, not used as evidence of absence or as reason for failure",
+          "evidence": "The later Theorem 2.1 credits the classification to this paper, but that does not establish what it enumerates about retractions.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-98-04764-9",
+          "material_read": "Bibliographic record and later paper's specific attribution; no 1998 full text read",
+          "method": "DOI/AMS PDF lawful OA attempts returned 403; identified JSTOR 119176 record/PDF route did not yield full text",
+          "title": "Endomorphisms of finite full transformation semigroups",
+          "trigger": "Primary classification and potential earlier rank-three idempotent generating function"
+        },
+        {
+          "assessment": "Counts conjugacy orbits and generator ranks, not the labeled graph or labeled sum B_n",
+          "evidence": "The key enumeration is of rank-three conjugacy orbits and essential rank-two orbits, rather than individual odd parameters over labeled fibers.",
+          "identifier_or_url": "05f93685b217",
+          "material_read": "RESULT.md offsets 0–2999",
+          "method": "Local mirror bounded text",
+          "title": "Plane partitions and exact generator ranks for endomorphism monoids",
+          "trigger": "Closest prior Resultary retraction-parameter/rooted-fiber arithmetic found in the named generator comparison"
+        },
+        {
+          "assessment": "Different ambient submonoid and invariant",
+          "evidence": "It studies identity-preserving generators and decoration types under conjugacy, not the labeled commuting graph with non-identity-preserving constants present.",
+          "identifier_or_url": "bbaf7fd89ffe",
+          "material_read": "RESULT.md offsets 0–2327 and 1450–4291",
+          "method": "Local mirror bounded text",
+          "title": "Minimal generators of the identity-preserving endomorphism monoid",
+          "trigger": "Related same-day involution-decorated fibers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md graph and enumerator proofs, lines 39–61",
+        "51c1b3fc0869 sections 4–6",
+        "Gould–Grau–Johnson Corollary 2.6 and Lemma 2.8"
+      ],
+      "rationale": "The commuting graph of this natural semigroup is a reasonable object. However, its submitted adjacency is a restriction of the known full criterion; its page statistic is literally the known local odd-type count and the same rooted-block transform determines the aggregate. The triangle and maximal-family counts require only multiplication by two and the elementary singleton/two-block exclusion from that explicit component diagram. There is no surviving independently useful new exact invariant beyond those mechanical consequences in the submitted scope. No rewrite or additional finite table would change this assessment.",
+      "residual_risks": [
+        "The judgment is specific to the submitted invariants; it says nothing against a different, substantively new graph question for these endomorphisms."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

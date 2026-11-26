@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-graph, ten-vertex statement was reconstructed from the open-neighborhood local rule with incumbent three-way ties. Two independent complete functional-graph algorithms enumerate all \(59{,}049\) ternary states per graph and agree on the exact period, first-entry, attraction-basin and color-support counts. The sharp depth-five and depth-seven witnesses are replayed. The binary baseline is independently re-enumerated for all \(1{,}024\) states on each graph. All arithmetic is finite and exact; no samples are promoted into a proof of a larger family.
+## correctness
 
-**Originality — PASS, qualified.** published-finding corpus queries for aliases, exact counts, pair comparison and tie-retaining rules, plus accessible historical scientific claim statements, were compared at the implication level. The full RESULT.md of the published binary generalized-Petersen transfer, exact same-pair refractory-excitation census and binary Petersen–Desargues study were read. Mossel–Neeman–Tamuz (2012) concerns weighted no-tie plurality in its period-two theorem, and Becchetti et al. (2013) random-neighbor polling. The known binary \(14/55\) equality is explicitly comparison context, not a new assertion. None of those results determines the ternary \(219/579\) fixed populations, \(1410/2175\) two-cycle populations, or the basin-volume inversion. Historical priority cannot be certified against an unindexed equivalent calculation.
+PASS
 
-**Value — PASS.** For a natural equal-order, equal-degree, classical graph pair with matching binary recurrent counts, a third opinion exposes a threefold contrast among genuinely trichromatic fixed points and an inversion between the number of oscillators and their total basin volume. This exact finite benchmark is a motivated structural distinction, not a routine incremental parameter change or an arbitrary slice.
+Independently built each neighborhood from the two shore strides and spoke, then used bitmasks of vertices per color to build each labeled transition map. At each vertex at most one color can occur twice; if no color occurs twice the corresponding bit is inherited from the current state. For each of 59049 ternary states per graph, exact iteration found the first x with F^2(x)=x; it was found by depth 5 (prism) or 7 (Petersen) in every case, excluding longer cycles without assuming any general period theorem. F(x)=x separates period one from primitive period two, whose labeled recurrent states are divided by two for orbit counts. The replay independently matches both frozen histograms and least-encoded witnesses. Binary enumeration of 1024 states per graph gives (14 fixed, 55 primitive two-cycles) on both. In order (fixed, primitive two-cycle orbits, fixed basin, two-cycle basin, unanimous basin, maximum preperiod), the ternary rows are (219,1410,17049,42000,12063,5) and (579,2175,37899,21150,33543,7). Fixed palettte counts are (3,36,180) and (3,36,540). Replay: python3 /workspace/branches/plurality_reproduction.py; the certificate is exact and exhaustive for these finite maps only.
 
-**Closest prior literature and limits.** Mossel, Neeman and Tamuz, arXiv:1207.0893; Becchetti et al., arXiv:1310.2858; the published binary generalized-Petersen majority transfer; the published GP(5,1)/GP(5,2) Greenberg–Hastings census; and the binary Petersen projection. The claim is limited to two indexed ten-vertex graphs and one deterministic rule. Reproducible exhaustive finite computation is the proof method. No universal graph-family statement and no independent scientific confirmation are asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the joint comparison of the two exact synchronous dynamics, especially the opposition of primitive-cycle count and total oscillatory basin population, not for the known binary baseline, each equilibrium number considered alone, or a general period-two principle. Indexed same-day static overlaps are material and credited; neither accessible statement covers the synchronous basin-period comparison.
+
+## value
+
+PASS
+
+These classical cubic ten-vertex graphs are a motivated comparison because the binary recurrent counts match exactly. The ternary census separates the two not just by a different count, but by a reversed ordering between number of oscillatory attractors and fraction of initial states cycling. The exact labeled basin and first-entry counts give a reusable complete benchmark for that distinction; no family-wide generalization or utility of arbitrary small graph enumerations is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

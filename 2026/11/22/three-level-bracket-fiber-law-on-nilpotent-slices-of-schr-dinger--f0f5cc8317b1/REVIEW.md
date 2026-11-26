@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The asserted count reduces exactly to the defining Lie bracket. The \(\mathfrak{sl}_2\) part has \(q(q^2-1)\) ordered preimages of \(e\); in each Heisenberg block, the linear output equation has rank two. A nonzero lower coordinate yields a free central-output translation; if every lower coordinate is zero, an explicit symplectic shear reduces the problem to a nondegenerate sum-of-squares equation. The Gauss-sum formulas yield the three levels with correct target multiplicities. Direct equation enumeration, including zero fibers, confirms all targets for six prime-field test cases. The proof covers arbitrary odd prime powers; finite tests alone would not.
+PASS
 
-## Originality — PASS (provisional priority)
+Independently, tr(X[X,Y])=tr(Y[X,Y])=0 forces X,Y upper triangular at [X,Y]=e. Their two coefficient rows (a,b),(d,f) have determinant 1/2, giving q(q²−1) ordered pairs. Both central input coordinates are free. Each block's vector equations have rank two, and translating (α,β) by (a,d)h changes ω by −s_i h, making c uniform when any s_i≠0. When all s_i=0, the lower coordinates are (α',β')=(a,d)t_i and aβ−dα=r_i+t_i/2; the block contributes −r_i t_i−t_i²/2 with q lifts per t_i. Completing the square gives sum_i(t_i+r_i)²=sum_i r_i²−2c. This proves the pointwise formula independently of the conjugating translation. The quadratic Gauss sum G²=χ(−1)q and additive orthogonality give the even correction χ((−1)^k)q^(k−1) times q−1 at zero and −1 otherwise, and the odd correction χ((−1)^k b)q^k. For fixed r, c runs through all b; each character class and the s≠0 branch have exactly the reported multiplicity. The lower level is zero only at n=1, and all three levels are distinct. Conjugation by g sends the vector blocks by g and z by det(g); one nonzero nilpotent Jordan block is GL₂-conjugate to e.
 
-The closest original source, Sosnov (arXiv:2611.16812v1, §§2–3), proves a qualitative bracket-width criterion and a support obstruction for the special targets \(e+c z\). It does not count ordered representations or treat arbitrary Heisenberg coordinates over the entire affine nilpotent slice. The previously published central-target census has zero \(\mathfrak{sl}_2\)-projection, and the separate centralizer census determines only zero brackets; neither implies the noncentral fibers given here. Established finite-field quadratic-form counts alone lack the Lie algebra reduction. No covering statement was identified in the inspected results, but unindexed historical computations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural quantitative strengthening of a newly studied bracket-width problem. It gives an all-dimensional exact classification of an entire prescribed-output slice, sharp noncommutator counts at the boundary, uniform fibers off a characteristic subspace, and a parity/square-class transition between three levels. The results are not a mere restatement of the known representability criterion or a single small-parameter enumeration.
+The qualitative obstruction and a recoverable subfamily are known; neither they nor the exact centerless or central-target censuses give the full center-refined three-level law on the nonzero nilpotent slice. Credit is restricted to that quantitative refinement, not to bracket width or the sum-of-squares reduction itself.
 
-## Limits and closest literature
+## value
 
-The theorem assumes odd finite-field characteristic and a nonzero nilpotent \(\mathfrak{sl}_2\) target. It does not describe every target in the full Lie algebra, and historical priority is not conclusively proved by indexed searches. Reference: G. Sosnov, *Uniqueness of addition in Schrödinger algebras*, arXiv:2611.16812v1 (2026); and the standard nondegenerate quadratic-form counts in Lidl–Niederreiter, *Finite Fields*.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The slice is singled out by the nilpotent commutator obstruction, not selected arbitrarily. The center-sensitive law distinguishes fibers flattened by the quotient and gives the precise obstruction frequency in the smallest dimension and the distribution after all targets become attainable. This is an independently usable quantitative refinement of existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

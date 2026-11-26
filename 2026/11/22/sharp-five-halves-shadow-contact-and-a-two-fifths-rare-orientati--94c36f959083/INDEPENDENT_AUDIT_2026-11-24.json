@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:44:12.721904Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orient u=(s,0,c) with c>=0. Projection area equals the integral of the positive normal flux; the flat base has outward normal -e3 and contributes zero. The spherical normal region clips the forward hemisphere at n3=h. For s<=|h| either the full cap patch is visible (h>0, integral pi*r^2*c), or the forward hemisphere is contained in the cap (h<0, integral pi). In the mixed case the positively oriented great-circle arc gives 2 arccos(h/s) to the u component of the vector-area line integral; the latitude arc runs from -beta to beta and contributes the integral of r^2*c-h*r*s*cos(phi). The factor 1/2 produces precisely the stated area. The moving-endpoint derivatives cancel because r^2*c-h*r*s*cos(beta)=c and sin(beta)=sqrt(s^2-h^2)/(rs). Hence dB/dalpha=-r^2*s*beta-h*r*c*sin(beta), strictly negative in the mixed region since for h<0 the bracket after division by r^2*s is beta-sin(beta)cos(beta)>0. The endpoint values and axial plateau follow, and |U3| is uniform, so inversion gives the CDF on its strictly monotone interval and the atom of size 1-r only for negative h. The equatorial derivative in c is pi*r^2/2; the exact terminal upper tails for positive h and the hemisphere follow from the affine branches. At contact, the absolute small-lobe correction on a latitude a distance v from tangent is the integral of the positive part of v/c-(sc/2)psi^2 plus terms O(v^2+v psi^2+psi^4). Both positive supports are O(sqrt(v)); the positive-part map is Lipschitz, so the slice error is O(v^(5/2)), and the leading slice integral is 4 sqrt(2)*v^(3/2)/(3 c^2 sqrt(s)). Integrating to delta gives the stated 5/2 coefficient and O(delta^(7/2)), with positive sign for the correction to the all-visible baseline and negative sign for the excluded part of the full disk. For regularity, scaling psi=sqrt(v)*y gives an analytic rescaled integrand in v and s near fixed nonzero contact, and its two leading roots are simple, hence analytic in those parameters. Integrating yields delta^(5/2) times a smooth factor, proving C^2 but not C^3, not merely a formal expansion. For h=-a, s-a=(r/a)(r-c)+O((r-c)^2), giving deterministic coefficient 8 sqrt(2)*sqrt(r)/(15 a^3) in c and its inverse power 2/5 in the continuous upper tail. The order estimate is only for fixed h, not at the hemispherical crossover. The frozen numerical verifier was inspected, not executed. A separate 50-digit flux quadrature on both sides of the clipping-height sign (python3 /workspace/review_checks.py 4) agrees with the mixed profile and confirms the contact coefficient and change of variable at the sampled heights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c05ab623ea0b reports a 5/2-power correction for random central capsule sections, not cap brightness. b4ab86a8f54b is a rhombic-dodecahedron shadow law with a different contact exponent.",
+          "Li is the cap surface area and volume comparison identified in the frozen record, not an orthographic shadow-law claim. The 2018 projection paper is the close same-object antecedent."
+        ],
+        "reasoning": "A probability exponent for a central section or a projection law for a different body does not imply this asymptotic with its clipping-height-dependent coefficients.",
+        "searches": [
+          "Resultary c05ab623ea0b and b4ab86a8f54b",
+          "doi:10.1111/cgf.13471; doi:10.3923/ajms.2011.66.70"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and check.py",
+        "Ureña–Georgiev doi:10.1111/cgf.13471 (abstract-level plus full-text retrieval attempts)",
+        "Li doi:10.3923/ajms.2011.66.70 as identified in the frozen comparison",
+        "Resultary 94c36f959083, c05ab623ea0b and b4ab86a8f54b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen comparison reports ellipse/lune and area formulas in the 2018 study. Those may determine the directional area profile and allow reconstruction of the basic atom law; neither is singled out here as novel in isolation.",
+          "The sharp contact expansion requires the leading tangent-lobe integral after lower-order contributions cancel, and its noninteger cutoff inversion with a height-dependent constant. These are not supplied by the available source statement."
+        ],
+        "reasoning": "A formula that determines the profile is a significant antecedent, but extracting the vanishing-order term, sharp coefficient and probability normalization is a separate local asymptotic calculation. The full-paper comparison at that order remains access-limited and is not represented as a whole-paper negative result.",
+        "searches": [
+          "Ureña–Georgiev Sections 3–4 and Eq. (29), identified by the frozen AUDIT.json; primary author PDF, publisher copy and Eurographics repository routes attempted",
+          "Frozen RESULT.md lines 52–77, 82–90"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The author/publisher abstract studies projection of a spherical cap onto a plane through the sphere's center and area-preserving maps for it; the projected patch and the brightness of the solid cap coincide here by positive normal flux, up to the source's specific normalization/parameters.",
+          "Equivalently the deterministic correction is the visible projected area of a small lobe between the cutoff latitude and the forward-hemisphere boundary; the negative-h probability coefficient is the inversion of that lobe's deterministic asymptotic."
+        ],
+        "reasoning": "These are alternate formulations of the actual contact, not evidence of new projected-cap geometry. The available abstract does not give a sharp lobe asymptotic.",
+        "searches": [
+          "Resultary: solid spherical cap orthographic projected-area contact 5/2 and random-direction brightness 2/5",
+          "Ureña Georgiev Stratified Sampling of Projected Spherical Caps 13471 Eurographics diglib repository PDF",
+          "doi:10.1111/cgf.13471"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching entry 94c36f959083 is the reviewed record itself. Separate exact catalogue hits concern different bodies or different geometric functionals.",
+          "The retrieved paper abstracts and targeted literature search produced no table giving the fixed-height bright-tail coefficient in the normalization of the frozen claim."
+        ],
+        "reasoning": "A directional profile or cap-volume table is not itself an exact published isotropic rare-orientation table. Nonretrieval is not evidence against an inaccessible table or statement.",
+        "searches": [
+          "Resultary: exact 5/2 contact and 2/5 rare-orientation coefficient for solid spherical cap",
+          "Resultary 94c36f959083, c05ab623ea0b, b4ab86a8f54b"
+        ]
+      },
+      "rationale": "Credit existing exact spherical-cap projection geometry as a substantive antecedent; the review does not validate a priority claim for the bare brightness formula, the silhouettes, or transition directions. The supported distinct result is the quantified fixed-height contact expansion, and its inversion as a sharp continuous probability correction next to the atom under isotropic viewing. The available related results do not supply that normalized asymptotic for this body. The closest projection paper is access-limited here, so formula-level priority uncertainty remains explicit.",
+      "residual_risks": [
+        "The closest 2018 primary formula could not be independently read; an equivalent coefficient calculation in that paper or other rendering/integral-geometry literature remains possible. Its same-object projection geometry is explicitly credited.",
+        "Related catalogues and the scoped literature search cannot certify global priority. No parameter-uniform law as h approaches zero is established or inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive antecedent for profile and silhouette; no whole-document assessment of coefficient-level coverage",
+          "evidence": [
+            "Available abstracts treat projected ellipse or more complex shapes and area-preserving maps, not an explicit orientation-randomized contact limit."
+          ],
+          "identifier_or_url": "doi:10.1111/cgf.13471; https://iliyan.com/publications/ProjectedSphericalCaps/ProjectedSphericalCaps_EGSR2018.pdf; https://diglib.eg.org/items/679cf792-b254-4a68-9b4a-8a13debd28ed",
+          "material_read": "Author and publisher abstract descriptions; frozen AUDIT.json identifies Sections 3.2, 4.1, 4.2, 4.4 and Eq. (29). The full relevant passages were not independently available after direct, publisher and repository attempts.",
+          "method": "Scoped primary abstract comparison and lawful full-text retrieval attempts on identified copies",
+          "title": "Stratified Sampling of Projected Spherical Caps",
+          "trigger": "Exact same projected geometry and potential derivation of the contact asymptotic"
+        },
+        {
+          "assessment": "Analogous structure, different body/functionals",
+          "evidence": [
+            "First: a 5/2 correction for capsule central sections. Second: rhombic-dodecahedron shadows with a 3/2 contact correction."
+          ],
+          "identifier_or_url": "Resultary:c05ab623ea0b; Resultary:b4ab86a8f54b",
+          "material_read": "Catalogue statements",
+          "method": "Local catalogue with hypotheses and exponents compared",
+          "title": "A sharp cap-contact singularity in random central sections of capsules; Exact random shadow law and first spherical-cap contact for the rhombic dodecahedron",
+          "trigger": "Distinct records with geometric singularities in random orientation"
+        },
+        {
+          "assessment": "Background measure formula, not an isotropic brightness result in the available comparison",
+          "evidence": [
+            "Ordinary cap areas and volumes are distinct from the pushforward of the uniform direction distribution by brightness."
+          ],
+          "identifier_or_url": "doi:10.3923/ajms.2011.66.70",
+          "material_read": "Frozen RESULT.md references and scope discussion, lines 82–91",
+          "method": "Comparison of the recorded volume/surface-measure invariant to directional projected area",
+          "title": "Concise Formulas for the Area and Volume of a Hyperspherical Cap",
+          "trigger": "Prior formula for a cap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-height transition is a natural silhouette tangency for a standard convex body. Resolving its 5/2-order contact explains the failure of C^3 regularity and quantifies how unusually bright continuous orientations accumulate at an actual point mass with a 2/5 power. This is a useful local law beyond evaluating a single directional projected area; it does not purport to resolve the joint h-to-zero crossover.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

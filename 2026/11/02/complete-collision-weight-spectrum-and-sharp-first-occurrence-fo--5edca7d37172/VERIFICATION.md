@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical proof is in `RESULT.md`; the runnable exact checker is `verify.py`. It uses only the Python 3 standard library and recreates all matrices and graphs from the stated Rule 30 local update. Invoke `python3 verify.py` in the extracted package directory. Successful completion prints `VERIFY_OK`.
+## correctness
 
-The program checks the full characteristic polynomials of the four-state and sixteen-state weighted transfer matrices at each of seventeen distinct integer values of the output-weight variable. Every coefficient's weight-variable degree is at most sixteen, so this finite exact-arithmetic check certifies the factorized identities over the integer polynomial ring. This is a polynomial-identity certificate, not a numerical approximation. The program also enumerates every simple cycle of the twelve-vertex off-diagonal graph and verifies its ten-cycle weighted census; that finite census plus decomposition of arbitrary closed walks and shared-vertex constructive cycles proves the support and first-circumference results for unbounded ring size.
+PASS
 
-As an additional independent check, all binary inputs at ring lengths one through fourteen are propagated directly by the local update. Their equal-output ordered-pair collision counts are grouped by output Hamming weight and compared with the derived formal-series coefficients. A separate graph walk dynamic program validates first circumferences through weight forty-five. These bounded enumerations are corroboration and do not replace the graph/proof argument.
+A based closed de Bruijn walk determines the indexed input and vice versa, also at n=1 and n=2: closure enforces the repeated bits. Matching one common output label per edge gives the pair weight, not twice the weight. The local equation determines the preceding bit from the next two and the output, so agreement on one pair-state forces equality around the ring. Thus distinct-input pairs correspond exactly to the off-diagonal closed walks, and their enumerator is the logarithmic derivative of the off-diagonal determinant. A separate exact polynomial calculation on all 12 off-diagonal states and 20 edges reproduced R=1-2z+z^2-2u^3z^3+2u^3z^4+(u^6-u^4)z^6. It reproduced all ten simple cycles and the two minimizing cycles with a common vertex, verifying the finite inputs of the proof. Independently, using a=z^3/(1-z), R=(1-z)^2(1-a(u^3+u^2))(1-a(u^3-u^2)). The log expansion adds the two signed m-th powers, leaving exactly an even number 2b of u^2 choices. Writing m=c+2b gives positive weight k=3c+4b with first exponent n=3m=k+2b. Minimizing over b congruent to k mod 3 gives the stated formula and excludes exactly 1,2,5. The factor (1-z)^2 gives two zero-weight collisions at each n>=1, starting with the ordered pair 0,1 and its reverse.
 
-Limitations: no multistep dynamics or cryptographic-security claim, and no independent scientific audit. Historical source comparisons were partial for some long-form older works, which remains a priority risk.
+## originality
+
+PASS
+
+Credit the explicit evaluated two-variable ordered-collision series and the sharp global support law, not the use of backward pair propagation, trace methods, per-target predecessor counts, or the unweighted image law. A same-day exact Rule 30 image record includes the labelled transformation automaton: its fixed-point counts allow a weighted terminal-state calculation, but the stated image recurrence and unevaluated automaton do not give the explicit reduced polynomial or the all-weight support/minimum without further analysis. The later signed-block record goes further: its theorem entails the positive-weight support law, and its actual proof gives the signed quotient from which the exact R can be evaluated. This very strong later overlap is not credited as an independent corroboration of priority or as evidence of coverage before the frozen entry.
+
+## value
+
+PASS
+
+The output weight makes the indexed predecessor ambiguity sensitive to density instead of only image size or total degree. The compact exact series and its support detect a global weight-five obstruction on all ring lengths, and determine the first possible circumference for every attainable weight. These structural consequences are not read off from a generic per-target counting method, one homogeneous example, or the known unweighted image law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

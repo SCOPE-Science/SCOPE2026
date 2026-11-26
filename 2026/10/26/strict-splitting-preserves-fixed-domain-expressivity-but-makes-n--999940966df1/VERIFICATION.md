@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The structural closure, semantics-invariant normal form and hypergraph reduction are proved in `RESULT.md`. The accompanying standalone Python 3 checker evaluates literal-level split semantics (with classical flat formulas represented by valuation masks), compares the reduction against exhaustive property-B colorings for every 3-uniform hypergraph on at most five vertices, checks the Fano obstruction, enumerates the three smallest strict expressivity profiles, and checks a strict nonlocality example.
+# Independent mathematical audit
 
-Replay: `python3 checker.py`. The executed output ended `ALL_CHECKS_OK` and displayed hypergraph instance totals 1, 2, 16, and 1024 and property-family counts 4, 11, and 42. These checks are finite corroboration, not proofs of general complexity or expressive completeness. No external independent audit is claimed. Reproducibility needs only the Python standard library.
+## correctness
+
+PASS
+
+Over the fixed finite valuation universe, each nonempty convex union-closed family is upward closed inside its maximum team. Conjunction preserves this description in a nonempty intersection. For strict splitting, a successful partition can be extended to any larger team in the union of the operands' maximum teams by allocating each additional row to one permitted side. This proves soundness without assuming that a pair of arbitrary overlapping witnesses can be disjointed. Conversely, a flat test constrains the team to its maximum, and hitting the complements of all maximal nonmembers describes the family there. Each hit is expressible by a nonempty flat witness and its leftover, so the formula works under either split convention; bottom conjoined with NE covers the empty family. For strict model checking, certificates give one subset per split occurrence, and the explicit team and syntax tree make verification polynomial. Encoding distinct hypergraph vertices by binary valuations makes each edge test a polynomial-size flat minterm disjunction. Under strict splitting, both sides must hit all edges, exactly property B of a 3-uniform hypergraph; the lax witnesses can both be the whole team. The published lax P result applies. Scope is fixed declared domain for expressivity, variable domain and explicit team for combined complexity; no claim of locality. The supplied checker was inspected, not run. Its three-row closure calculation concerns an abstract subuniverse of valuations rather than all valuations of an exact alphabet of size log2(3); the general proof applies to actual declared domains.
+
+## originality
+
+PASS
+
+Credit the known lax P baseline and the prior expressive-completeness construction (which already yields common-semantics witnesses). The supported distinct claim is the complexity separation, in particular strict NP-completeness on a single self-split of a conjunction of positive edge tests, despite fixed-domain expressive equivalence. No inspected source covers this restricted strict model-checking result.
+
+## value
+
+PASS
+
+The separation shows why equal expressive power on a fixed valuation domain is not a reliable guide to combined model-checking complexity. Hardness already emerges from a single outer redundant-looking disjunction of identical positive formulas: disjointness alone creates the two-colour obstruction. This identifies a sharply restricted source of complexity without attributing novelty to property B or to the previous lax results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

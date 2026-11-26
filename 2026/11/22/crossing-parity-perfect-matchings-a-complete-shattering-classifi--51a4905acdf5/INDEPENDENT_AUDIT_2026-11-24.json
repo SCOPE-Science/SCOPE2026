@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:27:39.338317Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–6 and n=2 boundary",
+        "Frozen VERIFICATION.md, verify_parity_matching.py and verification_output.txt (inspected; packaged verifier not executed)",
+        "Independent exact replay: /workspace/branches/e1e0566c-5cbd-4548-8ff6-f8702bda3f92/independent_parity_check.py and corresponding .out"
+      ],
+      "rationale": "All-positive labels require a matching, and a full matching fails a single-edge flip. Fixing any positive submatching multiplies the crossing sign of a completion by a constant: for each fixed chord, its crossings with free chords have parity equal to the number of free endpoints on one arc. Thus the local four-endpoint signs are +,−,+ even in the presence of fixed edges. For the six-endpoint avoidance lemma the two class sizes are 8 and 7 (their signed sum is 1 by the all-ones-upper-triangle Pfaffian). Inclusion–exclusion leaves at least 10 avoiders for one or two forbidden edges (15 for zero), and 8 for three; in the last case at least one positive matching is excluded because each forbidden chord extends to a positive matching on six endpoints. Fixing an allowed edge then inducts to more endpoints. This handles every labeling leaving at least six endpoints; with four and no forbiddens both signs occur. For size n−1 supports, all-positive forces the completion and each single-label flip reduces to the four-point switch: there is a sign-preserving alternative exactly when the omitted edge does not cross the flipped edge. The omitted edge is uniquely determined and must divide the remaining endpoints into even arcs. For each such chord the unsigned count is the product of the two double factorials and the signed count is 1 (the arc Pfaffian expansion alternates to 1 on each arc). Summing over odd endpoint differences gives the stated L_n and n² difference. A polygon side can be omitted in a matching of either sign for n≥3, while the only negative matching at n=2 has no shattered singleton. The resulting dimensions and the example coefficients agree.",
+      "residual_risks": [
+        "Independent enumeration covers all supports of size up to n−1 at n=2,3,4 (14, 242 and 7366 support/sign comparisons), and all 76 six-vertex forbidden matchings. It does not establish larger cases; those follow from the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Algorithmica contribution summary and Theorem 1 address existence and enumeration with a prescribed or bounded number of crossings over point sets without trace conditions.",
+          "The deranged-pairing record uses the complete graph minus one prescribed perfect matching, covers sizes up to n−2 of legal queried matchings, and has a distinct critical-face criterion."
+        ],
+        "reasoning": "Unconstrained crossing counts do not imply the two-sign extension with both required and forbidden chords. A classification on one edge-deleted host without a parity filter likewise does not classify all trace patterns in either sign class on the complete host.",
+        "searches": [
+          "Aichholzer et al., Perfect Matchings with Crossings, contribution summary and Theorem 1",
+          "Resultary 3a70e5b20052, Complete Boolean shattering of deranged pairings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1a75a2c4be87, e127590b865a, 3a70e5b20052",
+        "Aichholzer et al. doi:10.1007/s00453-023-01147-7",
+        "Matoya–Oki arXiv:1912.00620"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The noncrossing family is contained in the positive class, so all of its n² maximal shattered supports qualify there and its VC lower bound transfers.",
+          "The negative class has no such subclass. The sign sum of unrestricted matchings is classical but only gives the signed top-face count after the omitted chord is proved uncrossed and the count is factored over its arcs."
+        ],
+        "reasoning": "Credit the inherited positive-class dimension lower bound and the Pfaffian ingredient. Neither yields the complete criterion, the negative-class result, or the signed count of feasible omitted chords without the new labeling and isolation arguments.",
+        "searches": [
+          "Resultary 1a75a2c4be87 Finding and VC/Littlestone dimension/count",
+          "Compare the Pfaffian signed enumeration with the frozen four-endpoint sign switch and avoidance argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pfaffian sign for increasing endpoints equals crossing parity; fixing edges preserves the sign ratios of the free matching.",
+          "Matoya–Oki p. 1 uses Pfaffian parities for linear matroid counting, not this family of binary edge traces.",
+          "Resultary e127590b865a uses parity of block count and a co-membership query, not alternating chord endpoints in a perfect matching."
+        ],
+        "reasoning": "Translating to Pfaffian sign does not identify a prior trace theorem. A set partition filtered by block-count parity cannot be identified with sign-filtered perfect matchings: within perfect matchings the block count is fixed.",
+        "searches": [
+          "Resultary: crossing-parity shattering, deranged pairing shattering, noncrossing shattering",
+          "Primary literature: crossing parity and Pfaffian sign of perfect matchings with shattering/edge queries"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1a75a2c4be87 gives exactly n² maximum-size supports for the zero-crossing family.",
+          "The independent same-date comparisons e127590b865a and 3a70e5b20052 do not index the two crossing-sign face polynomials.",
+          "The Algorithmica table concerns numbers of k-crossing perfect matchings for small orders, not numbers of shattered edge supports."
+        ],
+        "reasoning": "The known n² counts top faces in a subclass of the positive family; the audited n² is the positive-minus-negative top count, not that subclass count. Matching-class sizes tabulated by crossing number are different statistics.",
+        "searches": [
+          "Resultary noncrossing perfect-matching face activity, parity-selective partition shattering, deranged pairing shattering",
+          "Aichholzer et al., Table 1 heading and crossing-count contribution summary"
+        ]
+      },
+      "rationale": "The parity-constrained trace problem is distinct from noncrossing matching shattering, ordinary crossing-count enumeration, and shattering on a host with deleted edges. The full two-class criterion and its top-coefficient difference survive those comparisons. Neither the Pfaffian sign nor the positive-class lower bound supplied by the noncrossing subclass is new.",
+      "residual_risks": [
+        "Bounded matched-source comparison; unindexed work under Pfaffian-sign, constrained matching or trace terminology may exist. No absence claim follows from a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial subclass coverage; not equivalent",
+          "evidence": "Under zero crossings, face activity determines shattering and the total number of top supports is n². The even-crossing class also allows positive even crossing counts; the odd class is not included at all.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-face-activity-characterization-of-shattered-chord-supports-in-no--1a75a2c4be87",
+          "material_read": "Mirrored RESULT.md, face-activity theorem and dimension/count, offsets 168–2487",
+          "method": "Local Resultary statement comparison",
+          "title": "Face-activity characterization of shattered chord supports in noncrossing perfect matchings",
+          "trigger": "Same queries and same top degree and n² expression"
+        },
+        {
+          "assessment": "Different concepts, parity and queries; no priority inference from date",
+          "evidence": "Noncrossing partitions are filtered by the number of blocks and queried for two elements to lie in the same block; the stated dimension is n−2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-parity-selective-shattering-of-noncrossing-partitions-and-connec--e127590b865a",
+          "material_read": "Mirrored RESULT.md, offsets 256–1865",
+          "method": "Local Resultary statement comparison",
+          "title": "Parity-selective shattering of noncrossing partitions and connected chord diagrams",
+          "trigger": "Distinct same-date indexed parity shattering result"
+        },
+        {
+          "assessment": "Overlapping low-degree structure, different host, no sign class; no priority inference from date",
+          "evidence": "The query host deletes a fixed perfect matching, and the top criterion is for unrestricted matchings avoiding those edges. The n=2 one-class polynomial is not the pair of sign polynomials.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-boolean-shattering-of-deranged-pairings-a-pure-complex--3a70e5b20052",
+          "material_read": "Mirrored RESULT.md, offsets 0–2735",
+          "method": "Local Resultary statement comparison",
+          "title": "Complete Boolean shattering of deranged pairings",
+          "trigger": "Distinct same-date matching trace classification with same lower-degree cutoff"
+        },
+        {
+          "assessment": "Prior existence/number results under crossing constraints, not a proof of sign-filtered trace extension",
+          "evidence": "Theorem 1 gives existence of a matching of crossing number k for sufficiently large even point counts and k in a range; Table 1 counts matchings by k. Neither imposes a required and forbidden edge labeling.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-023-01147-7",
+          "material_read": "OA primary PDF: abstract, contribution summary and Table 1 heading (offsets 5520–7104), Theorem 1 and proof opening (16100–17294)",
+          "method": "Read PDF passages by offset",
+          "title": "Perfect Matchings with Crossings",
+          "trigger": "Same geometric crossing statistic and convex host"
+        },
+        {
+          "assessment": "Related algebraic counting framework; not evidence of a trace theorem",
+          "evidence": "The stated object is linear matroid parity/intersection counts and algorithms, including standard matching specializations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.00620",
+          "material_read": "OA PDF p. 1, abstract, offsets 0–2525",
+          "method": "Read bounded primary abstract passage",
+          "title": "Pfaffian Pairs and Parities: Counting on Linear Matroid Intersection and Parity Problems",
+          "trigger": "Pfaffian/parity terminology and counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and two-sign avoidance and signed enumeration proofs; closest noncrossing and deranged trace classifications"
+      ],
+      "rationale": "This gives a complete trace classification for two natural sign classes, not only a common dimension. It locates the obstruction exactly at one missing pair and measures the imbalance at that degree, while showing that parity cannot distinguish their lower-dimensional face counts. The exact signed count is useful for comparing the two classes and is not determined by their unrestricted class sizes.",
+      "residual_risks": [
+        "No generalization to fixed crossing numbers, nonconvex hosts, or online dimensions is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

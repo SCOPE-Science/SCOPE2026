@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The readout recovers endpoints from unigram and directed-digram counts. Since all payload letters occur once, their forced paths have unique order, leaving only the order of distinct nonempty returns and repeated empty returns at the delimiter. This yields a bijection with sets of ordered lists, exact Lah stratum counts, and each fiber size \((r-1)!/(r-1-k)!\). The proof covers \(r\ge1\), \(s\ge0\), and coinciding fiber-size strata. The single dominant fiber and asymptotic follow from exact factorial ratios. Direct enumeration of 43 parameter pairs and an independent constructive list-partition checker of 56 pairs agree; experiments are not treated as the all-parameter proof.
+## correctness
 
-## Originality
-PASS, qualified. Karhumäki–Puzynina–Rao–Whiteland (arXiv:1605.03319, Proposition 4.7) already give a general formula for the size of an individual \(k\)-Abelian class, and Karhumäki–Saarela–Zamboni (arXiv:1301.5104) introduce the foundational framework. The unsigned Lah numbers and saturated numeric sequence OEIS A000262 are also known: neither the individual-class formula nor that sequence is claimed new. The present claim is the complete fixed-content quotient as a canonical list-partition object, with its two-parameter distribution of all fibers, sharp delimiter threshold, and exact asymptotic concentration in one profile. Published related results for scattered pair decks with distinct markers and for homopolymer-free ternary bigram readouts use different observations or source languages. Searches of known records and inspected full texts did not reveal an equivalent explicit constrained quotient classification. Unindexed specialized work or implicit enumeration in a stronger framework remains possible.
+PASS
 
-## Mathematical value
-PASS. This identifies a natural reconstruction boundary when one delimiter repeats but all payload labels are distinct. It gives exact zero-error distinguishable-profile capacity and every source ambiguity size, not only a single example or finite list. The sharp saturation result and the fact that one single profile absorbs asymptotically almost all source words despite the increasing source space give a structural account of information loss. The proof does not extend to multiple repeated payload types, noisy observations, or cyclic words.
+Subtracting outgoing or incoming edge counts from unigram counts recovers the last and first letters. Each singleton then has forced neighbors when present; since the observed trail comes from a word containing a, these forced chains recover the prefix, suffix, and unordered distinct nonempty returns at a. Conversely these lists along with r determine all edges, including r−1−k copies of aa. Combining the prefix and suffix into one ordered list with a distinguished separator gives exactly the sets of k+1 nonempty lists on s+1 atoms. Counting permutations and cuts then dividing by (k+1)! proves the Lah count. Ordering the distinct returns and indistinguishable empty gaps gives (r−1)!/(r−1−k)!. The largest stratum index is s and includes one profile, so missing it at r=s proves sharp saturation for s≥1. Dividing its fiber size by (r+s)!/r! gives the stated product and expansion; s=0 and r=1 obey the same formulas. At r=s+1 and s≥1 the k=s profile is not the unique largest fiber, because k=s−1 ties; this is allowed by the finding and does not affect fixed-s asymptotic dominance. Independent direct enumeration passed 14 cases, including saturation boundaries and coinciding sizes. For (r,s)=(4,3) the merged histogram was 1:24, 3:36, 6:13, with 210 words in 73 profiles.
 
-## Closest literature and limitations
-The most relevant primary paper is *On cardinalities of k-Abelian equivalence classes* (arXiv:1605.03319), especially Section 4 and Proposition 4.7. The unrestricted Euler-trail formula is prior art. OEIS A000262 already records the set-of-lists count. The related scattered-length-two result at https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-exact-two-deck-spectra-and-fiber-multiplicities-with-distinct-ma--26e221758afc was compared in complete accessible theorem/proof text; it does not use adjacent factors. The homopolymer-free ternary 2-Abelian result at https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-2-abelian-reconstruction-capacity-of-homopolymer-free-tern--9d4b0696d935 was likewise inspected, and its fixed three-letter language differs. The OEIS page was accessible in retrieved descriptions rather than in its entirety; the matched sequence is credited. No independent external review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit general individual-class enumeration and the known Lah numbers and saturated sequence to prior work. The distinct content is the full fixed-content quotient classification, not a new Euler-trail formula, a new combinatorial sequence, or an assertion that this saturated number is unknown. No equivalent classified source language was found in the inspected materials.
+
+## value
+
+PASS
+
+This is a natural fixed-content reconstruction model where the observation forgets ordering only at one repeated letter. The complete quotient and fiber-size spectrum, including degenerate and saturation regimes, are useful beyond the size of any single class. A distinguished list identifies precisely the retained information and explains how almost all words can concentrate on one fixed profile even when the number of possible profiles has stabilized at a nontrivial value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

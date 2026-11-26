@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:05:46.119366Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5-65",
+        "VERIFICATION.md and verify_area_spectrum.py (inspected, not executed)",
+        "Kühne–Monin arXiv:2209.08069 §§3, 5",
+        "Independent replay: python3 /workspace/branches/independent_replay.py 1, exactly checking exposability of candidate triples and squares via the slack inequalities and integer areas for n=3..7"
+      ],
+      "rationale": "The face criterion in Kühne–Monin gives exactly the doubled-index q_i,r_i triangles and the distinct-index triangles, excluding the two coherent triples at n=3, plus one degree-two node face per node. Independently, with the exposing maximum shifted to zero and a_i=-ell(x_i), b_i=-ell(y_i), the slacks require a_i>=0 and |a_i-a_(i+1)|<=b_i<=a_i+a_(i+1). With both a's positive, a tight p uses the upper endpoint, a tight single q or r imposes a strict order on the a's, and a tight q,r pair imposes equality and b_i=0. For triples the only ordering cycles are the two coherent n=3 choices. If a_i=0, its node square is forced; its opposite corners have midpoint x_i and its diagonals are orthogonal of squared length 8. Disjoint indices yield squared side 6, incident indices 4 or 8 according to the shared sign, and q_i,r_i have squared side 8. For n>=4 a triple of edge indices has 0, 1 or 2 adjacencies with counts n(n-4)(n-5)/6, n(n-4), n; respective triangle choices split 27; 15/12; and 8/14/5. Doubled edges yield 6n triangles of label 28 and 3n(n-3) of label 32, with label 4 area^2. At n=3, all agreements allow zero or one negative node (4 choices), all disagreements are exactly the 2 excluded cycles, and the total number of disagreements over the 27 assignments is 36; hence exactly 12 assignments have one disagreement and 9 have two. This recovers the three stated classes after adding the 18 doubled triangles. The face-count denominator, concentration coefficient and summed-area leading term agree with these counts, including absent classes at n=4,5.",
+      "residual_risks": [
+        "The replay is bounded to n=3..7 and matches square candidates; the full two-face classification uses the general face theorem, not only the replay. The metric must be the prescribed standard-coordinate one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kühne–Monin Definition 1.1 and Theorems 3.1, 5.1 cover the same hull realization and broader graphs, classifying and counting two-faces without assigning their metric areas in those statements. Older 099bd090b126 covers connected cosmological polytopes but only a Euclidean circumradius formula."
+        ],
+        "reasoning": "A general face-index criterion applies to cycles but is not a general area law. The specialization establishes which subsets to measure, not the evaluated all-n area multiplicities.",
+        "searches": [
+          "Resultary: all two-dimensional face Euclidean area multiset cosmological polytope arbitrary graph or cycle",
+          "Kühne–Monin arXiv:2209.08069, definition, face classification and dimension-two enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Resultary four targeted searches and matching inspections above",
+        "Kühne–Monin arXiv:2209.08069 §§1, 3, 5",
+        "Arkani-Hamed–Benincasa–Postnikov arXiv:1709.02813v1, coordinate passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source f_2 theorem specializes to 27 binom(n,3)+3n(n-1)+n minus 2 at n=3. Its proof identifies the quadrilaterals but not their area. In the same known coordinates, incident pairs can give squared length 4 or 8, and three edge indices with no adjacency give 6 on all sides."
+        ],
+        "reasoning": "The prior results make a finite metric calculation possible at each n, but finding all shells at once involves refining the counts by cyclic adjacency and evaluating the joint endpoint signs. In particular, the known total does not identify the dominant equilateral shell. Credit the coordinate model and combinatorics to the cited works.",
+        "searches": [
+          "Resultary: Kühne Monin Faces of Cosmological Polytopes Theorem 5.1 cycle f-vector face count Euclidean area implication",
+          "Arkani-Hamed–Benincasa–Postnikov arXiv:1709.02813, coordinate construction; Kühne–Monin §§3, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact hit a84f4820619e is the assigned record itself. Distinct same-date bb80f30e6676 concerns inradius of the same cycle family, not areas. The determinant or squared-side multiset formulation uses label 4 area^2 and has the same metric normalization."
+        ],
+        "reasoning": "Neither a metric radius nor an unweighted face enumeration determines the histogram of two-dimensional Euclidean measures. The calculation distinguishes triangle configurations within each known combinatorial family.",
+        "searches": [
+          "Resultary: canonical C_n cosmological polytope seven triangular area classes area-four square two-face",
+          "Websearch: Kühne Monin \"Faces of Cosmological Polytopes\" arXiv cycle two-faces Section 5 Euclidean area"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed area table is the same record. Distinct same-date ade82e931a0f gives an evaluated two-area table for complete-bipartite graphical zonotopes, a different construction. Kühne–Monin instead count triangular and quadrilateral faces, with total 46 at n=3."
+        ],
+        "reasoning": "A matching table must tabulate the area labels with multiplicities for cosmological cycles, not just sum those multiplicities or list area classes for another family.",
+        "searches": [
+          "Resultary: table multiplicities triangle area sqrt(15)/2 sqrt(23)/2 sqrt(39)/2 cosmological polytope",
+          "Kühne–Monin §5.1, Theorem 5.1 and proof; §5.2, Proposition 5.3"
+        ]
+      },
+      "rationale": "The combinatorial classification and f_2 were already known in the same object. The distinct claim is the evaluated metric area multiset for all cycle sizes, including the low-order changes and concentration. The strongest comparisons were made in the common embedding; the inspected sources supply the inputs but not the weighted geometric enumeration.",
+      "residual_risks": [
+        "Unindexed or implicit metric computations are not excluded by the bounded searches. Same-date distinct records were compared by claim, not assumed to have priority or to lack it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial combinatorial coverage, not the evaluated area law",
+          "evidence": "Same coordinates; only triangles and quadrilaterals at dimension two; degree-two node faces and coherent directed-cycle exclusions yield the prior total",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.08069",
+          "material_read": "Definition 1.1 p.1 near offset 1400; Theorems 3.1, 3.3, Props. 3.5, 3.6 and Cor. 3.8 pp.3–5 offsets near 13600, 19700, 21600; §5.1 Thm. 5.1 and §5.2 Prop. 5.3 pp.7–8 near offset 32800",
+          "method": "Targeted OA PDF reads",
+          "title": "Faces of Cosmological Polytopes",
+          "trigger": "Strongest same-model general face result"
+        },
+        {
+          "assessment": "Coordinate model only in inspected passages",
+          "evidence": "Same three signed-coordinate points per edge",
+          "identifier_or_url": "https://arxiv.org/pdf/1709.02813v1",
+          "material_read": "Construction on p.6 near offset 17050; graph-to-vertices passage p.32 near 107250",
+          "method": "Targeted OA PDF reads",
+          "title": "Cosmological Polytopes and the Wavefunction of the Universe",
+          "trigger": "Original coordinate realization"
+        },
+        {
+          "assessment": "Same record",
+          "evidence": "Same spectrum, not a distinct prior assertion",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-euclidean-two-face-area-spectrum-of-cycle-cosmological-pol--a84f4820619e",
+          "material_read": "Resultary summary and frozen Finding",
+          "method": "Local index and frozen file",
+          "title": "Exact Euclidean two-face area spectrum of cycle cosmological polytopes",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Different metric invariant",
+          "evidence": "Active facet transition at n=12 for the inradius",
+          "identifier_or_url": "2026/11/22/SCOPE-a-twelve-cycle-transition-in-the-intrinsic-euclidean-inradius-of--bb80f30e6676",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "A twelve-cycle transition in the intrinsic Euclidean inradius of cycle cosmological polytopes",
+          "trigger": "Distinct same-date metric claim on the exact cycle family"
+        },
+        {
+          "assessment": "Different polytope family",
+          "evidence": "Two face areas for complete-bipartite graphical zonotopes",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-area-law-and-a-thin-side-square-limit-for-complete-biparti--ade82e931a0f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror read",
+          "title": "A two-area law and a thin-side square limit for complete-bipartite graphical zonotopes",
+          "trigger": "Distinct same-date exact area spectrum analogue"
+        },
+        {
+          "assessment": "Circumradius rather than two-face measures",
+          "evidence": "R=sqrt(3-1/D) in the prescribed model",
+          "identifier_or_url": "2026/10/11/SCOPE-every-connected-cosmological-polytope-has-graph-independent-eucl--099bd090b126",
+          "material_read": "RESULT.md offsets 72 and 946",
+          "method": "Bounded local mirror read",
+          "title": "Every connected cosmological polytope has graph-independent Euclidean circumradius",
+          "trigger": "Broader connected cosmological Euclidean geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5-35, 41-65; Kühne–Monin Theorem 5.1 for the known unweighted count"
+      ],
+      "rationale": "A complete Euclidean face-measure histogram naturally refines the published two-face count in the canonical realization. Its particular values distinguish local adjacency patterns and the exceptional triangular cycle; it quantifies density and area of the dominant shell instead of simply enumerating faces. This is a useful exact benchmark for metric questions about graph-defined polytopes without treating a sum of planar areas as a surface area or intrinsic volume.",
+      "residual_risks": [
+        "The asymptotic concerns the equal-face measure and the fixed normalization, not arbitrary realizations, area-biased sampling, or general graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

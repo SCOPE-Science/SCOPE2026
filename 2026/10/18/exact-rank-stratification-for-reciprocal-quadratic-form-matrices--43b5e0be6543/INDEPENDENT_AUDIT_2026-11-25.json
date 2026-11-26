@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:00:23.609597Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pass for the corrected full claim in /workspace/repairs/1/RESULT.md, not for the original cubic illustration. For an independent rank derivation, multiply each nonzero-index column j by j². The nonzero-index block becomes 1/f(i/j), with eigenvectors j^r for 0≤r≤p−2 and eigenvalue −h_r, where h_r is the r-th coefficient of the degree ≤p−2 interpolant of 1/f. The row at index zero, constant 1/d on those columns, detects only r=0 and is nonzero there; the column at index zero is i^(p−3) on nonzero rows and zero at its top. These two boundary components together give rank two regardless of h_0,h_(p−3). The remaining eigenvalues count independently. Partial fractions and α^p=β give h_r=(α^(p−1−r)+β^(p−1−r))/(α−β)², so zeros are z^k=−1 for k in [1,p−2] excluding 2. Counting the class k≡t/2 mod t for even t gives the four stated cases: for t=2 only the endpoint p would be lost from the p+1-period count; for t=4 both p−1 and 2 are lost; for even t≥6 no endpoint or excluded 2 can contribute. Mod-p nullity gives the stated Smith-normal-form lower bound, not an exact integer valuation. Independent elimination checked all 1595 irreducible parameter pairs at p=5,7,11,13,17,19,23,29,31 and verified the p=19 ranks 15 and 17. Bareiss elimination of the actual integer matrix yields D_19(1,2)/19² ≡15 mod 19, disproving the frozen cubic claim. The corrected illustration uses 19² and the boundary-block explanation specifies all overlapping rows/columns. Replay: python3 /workspace/reproductions/full_rank.py. The supplied verifier was inspected, not executed. The finite reproduction corroborates, but does not replace, the all-prime argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Yang proves p² divisibility by rank at most p−2 under nonsquare d, not the irreducible-discriminant condition.",
+          "She–Sun has a full-index Jacobi-symbol divisibility theorem; Zhu–Ren's result supplies selected proper-subdeterminant divisibilities."
+        ],
+        "reasoning": "On the overlap, an upper bound of p−2 cannot distinguish e.g. rank 15 from rank 17 at p=19. Some irreducible forms also have square d, outside this nonsquare-d theorem.",
+        "searches": [
+          "arXiv:2605.19486 Theorem 1.1 and Proposition 3.4",
+          "arXiv:2407.04642 Theorem 1.1",
+          "arXiv:2409.07008 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.19486",
+        "arXiv:2407.04642",
+        "arXiv:2409.07008",
+        "Resultary a873211dce1c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior folding identity gives coefficient positions, but recovering the new scalar vanishings requires interpolation and the Frobenius relation.",
+          "Order four loses the expected exponent 2 to the border, and the exponent p−1 lies outside the allowable interval. The resulting rank and weighted nullity do not follow from the generic p² consequence."
+        ],
+        "reasoning": "The correction removes a false example, without changing the surviving exact-rank/guaranteed-divisibility theorem. The additional spectral zero rule and boundary treatment prove the quantitative difference from the inspected precedents.",
+        "searches": [
+          "Zhang–Yang coefficient reduction and rank upper bound; She–Sun nonzero-index determinant formulas; Zhu–Ren proper subdeterminants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang–Yang uses the same invertible evaluation change of basis and folds the same homogeneous coefficients; the zero-included rank is also the rank of a bordered multiplicative convolution.",
+          "She–Sun's similarly named D_p instead uses 1≤i,j≤p−1, and their smaller product formula omits index 1 as well."
+        ],
+        "reasoning": "The unbordered and restricted matrices are not equivalent to the full matrix; the border overrides the eigenvalues at r=0 and p−3. Known folding is credited, and its cited prior application bounds rank without the complete root-ratio zero rule.",
+        "searches": [
+          "Resultary: full zero-included reciprocal quadratic-form rank; rank by norm-one root-ratio order",
+          "arXiv:2605.19486 Lemma 3.3 and (3.4)",
+          "arXiv:2407.04642 Theorems 1.1–1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's reciprocal hyperbola rank result a873211dce1c is for a complex additive-character matrix on (F_p^×)^2, not finite-field reciprocal polynomial evaluation. No exact full-matrix order table was identified in the bounded comparison."
+        ],
+        "reasoning": "The nearest rank-table hit has different entries, rank field and index domain; it does not cover this matrix or the t-dependent formula. This search is not a uniqueness proof.",
+        "searches": [
+          "Resultary: order-indexed rank strata of reciprocal binary quadratic forms over prime fields; exact rank table and order-four exception"
+        ]
+      },
+      "rationale": "For the corrected claim, credit the prior coefficient folding and p² result. The distinct contribution established on the stated irreducible locus is the complete finite-field rank stratification on the full matrix, in particular the order-four exception, not the general divisibility theorem for nonsquare d or a claim of exact integer valuations.",
+      "residual_risks": [
+        "An unindexed cyclic interpolation or Lucas-sequence coefficient identity with the full boundary rank count could overlap.",
+        "One targeted web lookup returned no usable result; the primary-text and mirror comparisons, not that outcome, support the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers folding and nonsquare-d rank bound, not exact strata",
+          "evidence": [
+            "Theorem 1.1 has coefficient-symbol hypothesis (d/p)=−1; explicit reduced coefficient block and rank≤p−2 in proof."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.19486",
+          "material_read": "Theorem 1.1 PDF p. 2, Lemma 3.3 and (3.4) PDF pp. 6–7, Proposition 3.4",
+          "method": "OA primary text with indexed-formula comparison",
+          "title": "A Determinant Congruence Conjectured by Sun",
+          "trigger": "Same full zero-inclusive matrix and coefficient approach"
+        },
+        {
+          "assessment": "Related divisibility for full index and product formulas on restricted sets, not full exact rank",
+          "evidence": [
+            "[c,d]_n includes zero; D_p(c,d) runs 1≤i,j≤p−1; Theorem 1.3 uses 1<i,j<p−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.04642",
+          "material_read": "Index conventions PDF pp. 2–3, Theorems 1.1–1.3",
+          "method": "OA primary passages; compare full and restricted indices",
+          "title": "Some Determinants Involving Binary Forms",
+          "trigger": "Similar symbols for reciprocal determinants and coefficient product formulas"
+        },
+        {
+          "assessment": "Proper submatrix, selected divisibility, not full rank",
+          "evidence": [
+            "Indices satisfy 1<i,j<p−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.07008",
+          "material_read": "D_p^- definition and Theorem 1.1, PDF p. 2",
+          "method": "OA primary text",
+          "title": "On Some Determinant Conjectures",
+          "trigger": "Related special reciprocal determinant divisibilities"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": [
+            "Entries e_p(ast+b(st)^−1) over C with s,t nonzero; nonsquare-ab case has rank p−2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-exact-fourier-sampling-defect-on-reciprocal-hyperbolas-over--a873211dce1c",
+          "material_read": "Finding, offset 83",
+          "method": "Local Resultary mirror and entry/field comparison",
+          "title": "The exact Fourier sampling defect on reciprocal hyperbolas over prime fields",
+          "trigger": "Closest indexed reciprocal rank comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full rank refines a natural determinant congruence question to identify every rank deficiency, explaining when a stronger guaranteed power of p can be read off without computing the integer determinant. The order-four exception depends on the zero row/column boundary of the actual full matrix and is not an arbitrary special instance. The correction restores the square bound in the order-twenty example while leaving the genuinely sharper fourth-power example and the invariant intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Open-neighborhood collisions in the Cartesian clique cylinder are exactly the three restrictions stated in the proof: at most one landmark in a clique column; equal clique coordinates for adjacent occupied columns; unequal coordinates for columns two steps apart. The three-window inequality gives the sharp cardinality bound. The indexed cyclic-word transfer has precisely the states \((0,0)\), \((0,c)\), \((c,0)\), \((c,c)\). Its color-permutation decomposition yields the displayed determinants. Formal coefficient extraction, with a positive first allowable deficiency coefficient in each residue class, proves the closed census for all stated parameters. Three distinct checkers verify the symbolic determinant, the cyclic-word optimum profiles and directly constructed graph neighborhoods for finite cases. Finite replay is corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS, with remaining historical risk
+For m≥3 two vertices in one clique fiber have a third common neighbor. In neighboring fibers a mixed-label pair has a common Cartesian corner; a same-label pair does not. In fibers two steps apart the shared neighborhood is through an intervening fiber and requires matching labels. For n≥5 these cases exhaust common neighbors and give the exact cyclic-word characterization. No three successive fibers can be occupied, hence 3|S|≤2n. The directed two-symbol-state transfer uses exactly the allowed triples; its indexed closed walks correspond one-to-one to indexed packing words, with deficit 2n−3|S|. Splitting the color vector into constant and zero-sum parts, the off-diagonal color adjacency J−I acts by a and −1 respectively. The constant block has determinant (1−q²x)(1−a qx²−ax³)−m q³x³−m q²x⁴, which simplifies to the first factor of D_m; the zero-sum block gives 1+qx²+x³ with multiplicity a. The formal trace/logarithm identity then counts every size. Expanding through q² gives the three displayed coefficients at the least allowable deficits 0,1,2; each is positive for the stated k and a≥2, so the upper bound is sharp and the coefficients count precisely the maxima. An independently written subset- and series-check agreed in all sizes in three direct graph instances and with cyclic-word histograms for m=3, 5≤n≤12 and m=4, 5≤n≤10. Replay: python3 /workspace/branches/4b5697de-7e6a-4162-9e72-689c83c22fb0/independent_recheck_record3.py. These are finite corroboration. The frozen programs and logs were inspected, not executed.
 
-Mojdeh–Peterin–Samadi–Yero, arXiv:1901.06813, Theorem 3.4, already implies the scalar maximum size upon specializing to cycles; that scalar fact is expressly not the novelty claim. The full text inspected does not state the all-orders labelled minimum/maximum-set multiplicities or the entire cyclic generating determinant. Brešar–Klavžar–Rall, arXiv:2309.04963, concerns a two-vertex clique factor, not the present \(m\ge3\) product. A published result on clique-path open packings concerns \(P_n\), whose endpoint geometry does not give the cyclic closing counts. Separate circular-ladder enumerators cover only \(K_2\). A cyclic direct-product independent-domination formula involves different adjacency and a different property. No covering statement appeared in the indicated research records or targeted literature searches. A relevant path-product record was available only through its abstract-like summary, leaving residual historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Exact labelled optimizer multiplicities for an entire two-parameter family refine an established sharp scalar bound. The three residue classes exhibit constant-coefficient, alternating-sign exponential and linear-times-exponential phenomena from the cyclic closing constraint. The same structural transfer determines every smaller open packing, not merely the optimal layer; this supplies a natural finite-state enumeration for a standard graph-product invariant.
+Credit the known scalar maximum, the component-coloring construction, and the path transfer. The supported distinct contribution is the labeled cyclic all-cardinality determinant with its additional color factor and the resulting maximum census for every m≥3, n≥5. The strongest path and K₂-cycle comparisons do not supply that count.
 
-## Limits and closest literature
+## value
 
-The formula is for \(m\ge3\), \(n\ge5\), with labelled product vertices. It does not assert unlabeled orbit counts. Independent mathematical validation and exhaustive publication-priority clearance remain outstanding. Primary comparison: https://arxiv.org/abs/1901.06813. Motivating product-comparison paper: https://arxiv.org/abs/2309.04963. Related clique-path research record: https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-bivariate-open-packing-enumerator-and-extremal-multiplicities-fo--132e9b58cce6.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a standard product graph, the labeled optimum multiplicity and all-cardinality distribution refine the known optimum size in a way that distinguishes cyclic closure and the clique color count. Resolving the color-sensitive cyclic spectrum yields both exact polynomials and short residue-specific counts, a reusable enumeration rather than a recomputation of the scalar packing bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

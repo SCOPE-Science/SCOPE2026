@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Compile and execute `check_exhaustive.cpp` with a C++17 compiler (`c++ -O2 -std=c++17 check_exhaustive.cpp -o verify && ./verify`). This independently enumerates all \(33{,}867\) labelled simple graphs of orders one through six, checks every candidate closed-neighborhood witness certificate, and for all \(52{,}923\) certified graph-center pairs checks that four differently selected star-first vertex orders yield correct original distances on every prefix. Its observed output is `PASS all 33867 labeled graphs of order at most six; 52923 certified (graph, center) pairs; four star-first orders per pair.`
+## correctness
 
-Execute `python3 check_random.py` to reproduce an independently programmed seeded sample of 630 labelled graphs of orders seven through twenty; 6,015 center certificates pass, and all tested prefix distances agree with full graph distances. Observed output is `PASS 630 seeded random graphs; 6015 independently certified centers, every prefix BFS-checked`.
+PASS
 
-The all-order mathematical argument does **not** depend on extrapolating these finite experiments. The proof in `RESULT.md` directly establishes (a) the deterministic prefix-isometry criterion; (b) exact single-pair witness failures and the binomial union bound; (c) the asymptotic sufficient density condition; and (d) the Burnside comparison that legitimately transfers the uniform labelled property to unlabelled connected graph classes. A full combinatorial check of every \(G(n,p)\) outcome for arbitrary \(n\) is neither attempted nor needed.
+For prefixes within N[v], nonadjacent vertices see each other at distance two via v; for later prefixes the whole N[v] is available, and the certificate supplies a retained common neighbor for each nonedge. This works for every ordering within the two blocks. For a fixed nonedge involving v the n-2 candidate witnesses each use a distinct pair of edges. For a fixed nonedge avoiding v, the witness v uses two edges and the n-3 other candidates use disjoint triples of edges, also disjoint from the nonedge being tested. This gives the two exact witness-failure probabilities, not exact ordering-success probabilities. Union bounds over pairs and then centers give the stated B_n(p) and n B_n(p). Since p^2>=p^3, the exponential bounds give the two stated logarithmic conditions, and fixed p in (0,1) gives exponential convergence. In the labelled-to-unlabelled transfer, a permutation moving m vertices can fix only pairs of unmoved vertices and at most m/2 transposed pairs. At least m(n-2)/2 edge positions move, so the nonidentity contributions to normalized Burnside counts are bounded by sum_{m>=2}(n 2^{-(n-2)/4})^m=o(1). The labelled disconnection estimate also tends to zero, by bounding the k-th term by (n 2^{-n/2})^k for k<=n/2. This gives the proportion for uniform unlabelled connected classes, not general p-weighted classes. The nesting is stronger than existence of one isometric induced subgraph of every size.
 
-The probabilistic density threshold is sufficient, not sharp; priority outside the primary literature searched is uncertain. No independent scholarly audit is claimed.
+## originality
+
+PASS
+
+The supported distinction is the common star core for all pairs at a fixed center, the arbitrary-within-block ordering guarantee with explicit sparse-to-dense finite probability bounds, and the application to uniform unlabelled connected classes. The older distance-preserving property and conjecture, the star-prefix idea, and general random common-neighbor and orbit-counting methods are not first claims here.
+
+## value
+
+PASS
+
+The certificate makes nested isometry explicit with substantial ordering freedom, and the probability estimates apply down to densities vanishing with n. The same argument yields a concrete stronger conclusion for a natural almost-all graph-class question, with a quantified and independently checked transfer between labelled and unlabelled counting. These claims go beyond a census or proving generic two-step distances alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

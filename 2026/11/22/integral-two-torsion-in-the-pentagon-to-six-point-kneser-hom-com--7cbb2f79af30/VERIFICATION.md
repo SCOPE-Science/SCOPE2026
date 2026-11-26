@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction record
+# Independent mathematical audit
 
-Execute `python VERIFY.py` (Python 3.10 or later, SymPy), and compare its terminal output with `VERIFY_output.txt`. The script generates all multihomomorphisms from the labeled five-cycle into the six-point two-subset Kneser graph, calculates all codimension-one CW incidences, exhaustively removes unique-coface pairs, constructs signed two-cell boundaries, contracts a spanning tree, and performs integral unit-pivot reduction followed by exact SymPy Smith form on its seven-row residual.
+## correctness
 
-Verified cell count 104220 in dimensions zero through five; 32058 valid CW free-face pairs; remaining CW cells 6570, 19692 and 13842 in dimensions 0, 1 and 2. One connected component. Independent mod-two boundary rank 13113. Integral boundary rank 13114 with 13113 unit invariant factors and exactly one invariant factor 2. These imply first homology free rank 9 with one 2-torsion class and second homology free rank 728. The 0, 1, 2-dimensional ranks and absent higher-dimensional cells after collapse are explicitly checked by script assertions.
+PASS
 
-The finite computation is exhaustive for the specified finite complex. It is not an infinite-family proof or evidence of an independently verified mathematical audit.
+For an ordinary Hom cell take the union of underlying ground-set pairs in each nonempty coordinate. Coordinate support sizes are between 2 and 4, and adjacent coordinate supports must be disjoint, which is necessary and sufficient for all adjacent cross-pairs to be graph edges. Independently enumerating such cyclic supports, and every exact-support subfamily at each coordinate, gave cell counts (6570,28350,40500,22950,5400,450). Valid free facets with one current top coface removed all cells in grades 5, 4 and 3 with 450, 4950 and 18000 elementary pairs, respectively. Stopping before any grade-2 removals gave the different 2-complex with counts (6570,28350,22500). The one-skeleton is connected; its spanning-tree quotient has 21781 loops. With signed product boundaries, exact unit row/column elimination gave 21771 units. All residual columns are rational multiples of a nonzero column, verified by exact cross multiplication, and their entries have gcd 2, so there is one further nonzero Smith factor 2. Hence the boundary rank is 21772; H_1 has free rank 9 with precisely Z/2 torsion and H_2 is a free kernel of rank 728. H_0=Z and there are no higher groups. The independent method did not rely on the recorded mod-two calculation to determine integral torsion.
+
+## originality
+
+PASS
+
+The complete unreduced integral table for source C5 and target KG(6,2) is distinct from the verified close comparisons. These include the edge-source Kneser neighborhood case, the pentagon with a complete target, the pentagon with the smaller Petersen Kneser target, and other complexes on the same graph. This is a bounded assessment rather than a claim of global priority.
+
+## value
+
+PASS
+
+Six is the first ground-set size supporting three mutually disjoint pairs, so this is a natural next test beyond the Petersen target with the odd-cycle source fixed. The exact degree-one order-two obstruction in the ordinary, unquotiented Hom complex rules out a wedge-of-spheres type, which cannot be seen in its rational homology. Its accompanying ranks and vanishing give a concrete benchmark for odd-cycle Hom theory, beyond the edge-source classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

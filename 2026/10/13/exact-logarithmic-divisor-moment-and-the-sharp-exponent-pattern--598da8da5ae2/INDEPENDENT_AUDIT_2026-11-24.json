@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:14:39.806854Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:46–103",
+        "VERIFICATION.md",
+        "verify.py and recorded verification_output.txt (inspected, not executed)",
+        "/workspace/audit_replays/frozen_math.py 2"
+      ],
+      "rationale": "Uniform divisors correspond bijectively to the product of the integer intervals 0 through a_i. Their independent coordinates have means a_i/2 and variances a_i(a_i+2)/12; summing the second moment of log D gives the displayed factorization. Put b_i=a_i/(a_i+2), x_i=(a_i+2)log p_i and B=sum b_i. Then the excess of sum b_i x_i^2 over (sum b_i x_i)^2/B is sum_{i<j} b_i b_j (x_i-x_j)^2/B. Equality for two distinct primes would identify two positive prime powers, which is impossible. For fixed exponents choose disjoint intervals [exp((T+c_i)/(a_i+2)), 2 exp((T+c_i)/(a_i+2))] by separating equal-exponent offsets and using eventual separation for unequal exponents. Bertrand's postulate applied at the integer part of each large lower endpoint gives distinct primes with x_i=T+O(1). The normalized excess is O(T^-2); no equality is attained for r>=2. Substitution gives both specializations. Independent replay: python3 -I -B /workspace/audit_replays/frozen_math.py 2, with 2025 exact formal second-moment coefficient checks from trial divisors for 2<=n<=600.",
+      "residual_risks": [
+        "The frozen floating-point run and independent exact finite replay do not prove the unbounded infimum; it follows from the prime-interval proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sándor gives lower coefficient 1/4 and upper coefficient 1/2 uniformly, losing the positive exponent-dependent variance term.",
+          "Tóth–Sándor's similarly titled work concerns regular convolutions and trigonometric and gamma-function products.",
+          "The close indexed bounded-exponent hit concerns a Gaussian cutoff for Robin-type divisor-sum bounds rather than P3."
+        ],
+        "reasoning": "Broader arithmetic-product terminology or bounded-exponent regimes do not imply bounds for this moment with optimal coefficients for each fixed vector.",
+        "searches": [
+          "Sándor 2024, equation (1) and Theorem 6",
+          "Tóth–Sándor 1997, abstract and introduction",
+          "Resultary exponent-pattern search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local published index",
+        "Sándor 2024 DOI 10.7546/nntdm.2024.30.1.111-115",
+        "Tóth–Sándor 1997, NNTDM 3:159–166",
+        "Focused literature results including MathOverflow 160079 and DOI 10.1007/s40993-016-0056-4 (triage only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform lower bound follows from applying Cauchy–Schwarz to all log divisors; the reviewed bound instead exploits the exact coordinate-dependent quadratic term.",
+          "Sharpness requires approximating (a_i+2)log p_i by a common target while retaining pairwise distinct primes; the inspected prior inequality neither requires nor proves this."
+        ],
+        "reasoning": "The explicit moment alone is a straightforward deduction, but the fixed-pattern optimum and its unattained equality mechanism are not direct substitutions into the prior theorem.",
+        "searches": [
+          "Sándor 2024 Theorem 6, equation (16) and proof",
+          "Standard factorization of sum_{d|n} d^s"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P3's logarithm is sum_{d|n}(log d)^2 in Sándor's Theorem 6 proof; equivalently this is the second derivative at zero of sum_{d|n} d^s.",
+          "The inspected search results on second moments of the divisor function and correlations of divisor sums concern summation over n or zeta moments, not the per-integer fixed-pattern optimization."
+        ],
+        "reasoning": "Moment re-expression is equivalent and known at the level of the statistic. Differentiating the finite Euler product yields the moment formula by standard algebra; neither fact supplies the sharp fixed-pattern infimum over distinct prime bases.",
+        "searches": [
+          "Resultary searches for P3, sharp coefficient and divisor-log moments",
+          "Focused web search for divisor logarithms and second moments",
+          "Sándor DOI 10.7546/nntdm.2024.30.1.111-115"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary record matching the fixed-exponent infimum was identified; the same-day bounded-exponent item concerns a different statistic and cutoff."
+        ],
+        "reasoning": "The target is an exact symbolic infimum over unbounded prime bases, not a finite table entry. A table of divisor values or divisor counts would not establish that infimum or nonattainment.",
+        "searches": [
+          "Resultary semantic queries for the exact title, P3, divisor-log moments and the coefficient",
+          "2026/10/13/SCOPE-gaussian-threshold-and-lattice-transition-for-bounded-exponent-r--5d41b2f00a6c"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp exponent-pattern envelope, including the strict distinct-prime obstruction and limiting attainment, for the established P3 product. Neither the product, its interpretation as a second logarithmic divisor moment, nor the standard finite Dirichlet-polynomial moment machinery is credited as new in isolation. The strongest inspected same-product statement is Sándor's uniform inequality, not the fixed-exponent extremum.",
+      "residual_risks": [
+        "Equivalent moment or optimization results may occur under generalized divisor sums or random divisor terminology; absence from the inspected sources is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage of definition, moment interpretation and coarser bounds; not the sharp fixed-vector envelope in the inspected theorem",
+          "evidence": "P3=product d^(log d); Theorem 6 has 1/4 and 1/2 coefficients without a fixed exponent vector.",
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-30/NNTDM-30-1-111-115.pdf",
+          "material_read": "PDF p. 1 introduction equation (1), offset 1100; PDF p. 4 / printed p. 114 Theorem 6 equation (16) and proof, offset 14150",
+          "method": "Targeted lawful OA PDF text",
+          "title": "On certain arithmetical products involving the divisors of an integer",
+          "trigger": "Introduces the exact P3 object"
+        },
+        {
+          "assessment": "Different products in the inspected material",
+          "evidence": "Trigonometric and gamma-function products under regular convolutions, not log-divisor moments.",
+          "identifier_or_url": "https://nntdm.net/papers/nntdm-03/NNTDM-03-3-159-166.pdf",
+          "material_read": "Abstract PDF p. 1 offset 117; introduction PDF p. 2 offset 2531",
+          "method": "Targeted lawful OA PDF text",
+          "title": "On certain arithmetic products involving regular convolutions",
+          "trigger": "Closely titled earlier arithmetic-product paper"
+        },
+        {
+          "assessment": "Different claim at catalogue level; no same-object match indicated",
+          "evidence": "The indexed invariant is a Robin-type divisor-sum threshold, not P3.",
+          "identifier_or_url": "2026/10/13/SCOPE-gaussian-threshold-and-lattice-transition-for-bounded-exponent-r--5d41b2f00a6c",
+          "material_read": "Local catalogue title/summary",
+          "method": "Resultary semantic index",
+          "title": "Gaussian threshold and lattice transition for bounded-exponent Robin-type bounds",
+          "trigger": "Nearby indexed exponent-pattern claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:2–41, 73–103",
+        "Sándor 2024, Theorem 6"
+      ],
+      "rationale": "This determines the best coefficient in an existing named inequality on each natural prime-exponent layer, and says which layers attain it. It separates the uniform 1/4 bound from substantially stronger exact coefficients, for example 3/8 as the unattained two-prime squarefree infimum. The explicit gap pinpoints the prime-scale configurations that nearly minimize it. This is useful refinement of the established divisor product, not value attributed to an elementary variance computation alone.",
+      "residual_risks": [
+        "The result is a fixed-exponent optimization and makes no assertion about typical integers, near-minimizer frequency, or a new general method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:28:45.684530Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–29 and 31–67",
+        "Frozen VERIFICATION.md, lines 18–24",
+        "Frozen checker.py, lines 10–98 (inspected, not run)"
+      ],
+      "rationale": "The symmetric transition has diagonal entry 1−S at the left endpoint. The normalized centered endpoint vector x=(e_1−1/n·1)/sqrt(1−1/n) has Rayleigh quotient 1−nS/(n−1), giving the obstruction on 1^⊥ even if the chain is reducible. Equal feasible masses with S=1/2 give 1/2 on every diagonal and 1/[2(n−1)] off diagonal, hence d_n=(n−2)/[2(n−1)] on 1^⊥. For S=1/2 and δ the deviation from equal masses, Δ=P−P_* is a sum of distance-class Laplacians with coefficients −δ_s; each has degree at most two, so ||Δ||≤B=4sqrt(n−1)||δ||₂. At x its spectral measure has mean zero and second moment ||Δx||²=n||δ||₂²/(n−1) from the endpoint column. If a is the top centered eigenvalue of Δ, integrate (λ+B)(a−λ)≥0 to get this second moment ≤aB. This proves the stated linear deviation bound, with δ=0 handled separately. For S>0, reweight the feasible mass by 1/(2S): P=(1−2S)I+2S Q, so the largest centered eigenvalue gives the stated wasted-mass penalty and scaling cancels in the deviation term. S=0 gives P=I exactly. Either penalty is strict away from the proposed law. Powers, move probability and TV follow from the two orthogonal spectral projections, including the n=2 one-step case.",
+      "residual_risks": [
+        "The shape coefficient need not be sharp. The reduction uses support contained in the feasible displacements, not positivity at every feasible displacement. Finite checker output does not establish the all-size bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. allow edge-dependent symmetric kernels; on the complete graph Π is feasible",
+          "Tridiagonal optimization gives SLEM cos(π/n)",
+          "Continuous box optimization gives 1/2"
+        ],
+        "reasoning": "The broader graph program can encode extra constraints but does not solve the restricted program. Complete-graph Π violates the displacement-budget constraint for n>2 because giving every feasible nonzero displacement mass 1/n requires total 2(n−1)/n>1. The tridiagonal path excludes long proposals, and the continuum optimum does not settle a discrete, centered finite-chain spectrum.",
+        "searches": [
+          "Boyd, Diaconis & Xiao, Fastest Mixing Markov Chain on a Graph, PDF p. 1",
+          "Boyd, Diaconis, Sun & Xiao, Fastest mixing Markov chain on a path, PDF pp. 1–4",
+          "Chepelianskii et al., arXiv:2207.10488 and arXiv:2303.08535"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 06b2e2fbf0a3 (identical) and 5e4cc1ece151",
+        "Chepelianskii et al., arXiv:2303.08535 and arXiv:2207.10488",
+        "Boyd et al., graph and path papers at the locators above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous maximum-boundary-rejection bound Λ≥1/2, with equality for uniform jumps spanning the box",
+          "Same-day exact path SLEM cos(π/n) and squared-SLEM rigidity for symmetric tridiagonal kernels"
+        ],
+        "reasoning": "The known endpoint idea motivates the discrete proof but does not yield its projected endpoint Rayleigh quotient or the second-moment shape bound. Path stability controls a different variable and admissible set. The matching date alone gives no priority order.",
+        "searches": [
+          "arXiv:2303.08535, pp. 3, 4 and 6",
+          "Resultary 5e4cc1ece151, Finding and proof, offsets 0–6080"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 06b2e2fbf0a3 is the same record",
+          "Closest distinct Resultary match 5e4cc1ece151 optimizes symmetric stochastic tridiagonal path matrices",
+          "Chepelianskii et al., arXiv:2303.08535, Eq. (4)"
+        ],
+        "reasoning": "The equivalent distance-class Laplacian formulation has one common weight for all entries at each distance, not independent nearest-neighbor edge probabilities or arbitrary reversible kernels. A continuous proposal density on a box is another related but inequivalent model.",
+        "searches": [
+          "Resultary: fastest mixing symmetric rejected integer-displacement walk on a finite interval, SLEM uniqueness and stability",
+          "Primary literature: same displacement kernel with hard rejection on a finite path/box"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact match 06b2e2fbf0a3 equals the frozen record",
+          "Tridiagonal Resultary comparator 5e4cc1ece151 and the path paper give a different exact optimizer and value"
+        ],
+        "reasoning": "No numerical table of finite sizes could settle this all-size stability statement. The closest exact formulas inspected are for different admissible sets, with the elementary identical n=2 case not a distinct contribution.",
+        "searches": [
+          "Local Resultary: finite-interval rejected-displacement SLEM with exact optimum and stability",
+          "Exact optimizer statements in the Boyd path and Chepelianskii box sources"
+        ]
+      },
+      "rationale": "The all-size optimum and stability concern a structured family with one shared displacement weight per distance and rejection at the boundary. The continuous box already supplies the endpoint-obstruction mechanism and uniform-jump analogy. The finite correction, uniqueness over the full proposal-law class and quantitative two-part penalty are not stated or implied by the inspected neighboring results.",
+      "residual_risks": [
+        "The primary search supplied no further relevant source; that is not evidence of absence. Earlier unindexed finite-convolution or rejected-walk optimization could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps mechanism and continuum optimum; not finite integer proposal theorem",
+          "evidence": [
+            "Maximal boundary rejection gives Λ≥1/2, attained by a uniform distribution spanning the continuous box; only that length minimizes within the uniform-length family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.08535",
+          "material_read": "PDF p. 3 Eq. (4), p. 4 and p. 6; OA offsets 14200, 18200 and 29400",
+          "method": "Open-access PDF passages",
+          "title": "Singular relaxation of a random walk in a box with a Metropolis Monte Carlo dynamics",
+          "trigger": "Same rejection mechanism and closest optimal uniform jump analogous result"
+        },
+        {
+          "assessment": "Continuum relaxation and its approximation, not the discrete exact optimum",
+          "evidence": [
+            "The discretized calculations are distinguished from the continuous singular spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.10488",
+          "material_read": "PDF pp. 1, 5; OA offset 22800 for discretization distinction",
+          "method": "Open-access PDF passages",
+          "title": "Metropolis Monte Carlo sampling: convergence, localization transition and optimality",
+          "trigger": "Precursor using finite matrices in a related rejection model"
+        },
+        {
+          "assessment": "General optimization with larger admissible classes",
+          "evidence": [
+            "SLEM optimization of symmetric walks constrained by graph support, not common displacement masses with a budget."
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "PDF p. 1, formulation and abstract",
+          "method": "Open-access author copy",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "General formulation might cover same optimum"
+        },
+        {
+          "assessment": "Nearest-neighbor result with a different optimum",
+          "evidence": [
+            "Optimizes symmetric stochastic tridiagonal matrices and obtains q_i=1/2 and SLEM cos(π/n)."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc_path.pdf",
+          "material_read": "PDF pp. 1, 2 and 4, model and optimizer theorem",
+          "method": "Open-access author copy",
+          "title": "Fastest mixing Markov chain on a path",
+          "trigger": "Exact solution on the same ordered state set"
+        },
+        {
+          "assessment": "Different transition family and shape penalty",
+          "evidence": [
+            "Global squared-SLEM bound and alternating equality cases for symmetric tridiagonal kernels, not the long-range rejection family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-squared-slem-rigidity-and-equality-cases-for-fastest-mixin--5e4cc1ece151/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–6080",
+          "method": "Local Resultary mirror",
+          "title": "Sharp squared-SLEM rigidity and equality cases for fastest mixing on paths",
+          "trigger": "Same-day exact fastest mixing and stability on a finite interval"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–29 and 50–67",
+        "Chepelianskii et al., arXiv:2303.08535, pp. 3–4"
+      ],
+      "rationale": "The class isolates a practical Markov-chain constraint: one symmetric proposal law must work from every state despite boundary rejection. The exact finite optimum differs from both the unrestricted and continuous optima, and the stability bound separates losses from outright wasted mass and from choosing the wrong shape. These conclusions are useful beyond recomputing the proposed kernel's eigenvalues.",
+      "residual_risks": [
+        "No performance claim is made for alternative model classes or for the best possible deviation coefficient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

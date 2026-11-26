@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes the stopping time, the reset clock, Brownian diffusivity and the scope \(a,D,\tau_0,\beta>0\). The exact reflection-principle survival and first-hit density supply \(h(t)\) and the defective reset kernel \(k\) with mass \(q<1\). The incomplete-gamma formula for \(p=1-q\) follows from direct substitution and is checked by independent integration. The survival formula is the exact regenerative expansion. The nonstandard tail interchange is proved using an integrable power envelope for the entire defective renewal density, exploiting \(k(t)=O(t^{-\alpha-1})\) and support bounded below by \(\tau_0>0\). The same envelope proves fixed-reset-count localization, yielding a geometric conditional law, an asymptotically negligible last-reset epoch, and a Rayleigh spatial law by the absorbing heat kernel. Strict moment cutoffs follow from survival asymptotics, including the logarithmic boundary case. Finite numerical checks support normalization but are not used as an infinite proof.
+PASS
 
-## Originality — PASS, subject to independent priority review
+Writing h(t)=P(H>t,R>t) and k(t)=P(H>t)f_R(t), direct substitution a²/(4Du) in the two parts of the first-hit integral gives the displayed p, and ∫k=1−p. The kernel has density O(t^(−α−1)), h(t) is regularly varying of index −α with the stated coefficient, and the reset-renewal density u has finite mass q/p. For b=(1+t)^(−α−δ) as in the record, splitting k*b at t/2 proves (k*b)/b→q; since k/b→0 and k vanishes before τ₀, comparison in τ₀-sized time intervals gives u=O(b). The part of u*h past t/2 is o(h) because ∫₀^{t/2}h is bounded, logarithmic, or O(t^(1−α)) according to α, including equality. The early part gives (q/p)h by bounded regular-variation ratios. Replacing u by k^{*n} and inserting 1_{s≥εt} gives respectively q^n h and o(h); hence count tightness and σ(t)/t→0. The absorbing heat kernel in scaled coordinates, divided by erf(a/√(4Dv)), converges pointwise to y exp(−y²/4)/2; since both densities normalize, this also gives convergence in total variation for the one-segment law. The age v=t−σ is asymptotic to t under each fixed count, independent clock censoring leaves the spatial conditional law unchanged, and mixing gives the stated joint limit. Layer-cake integration gives the strict moment boundaries, including logarithmic divergence at equality.
 
-The closely related 2024 paper of Liu et al. numerically examines the Pareto-clock free Brownian first-passage distribution and reports an exponential-looking regime at high Pareto index, but its inspected model and Section 3 do not prove an all-index exact large-time survival equivalent or a conditional geometric–Rayleigh survivor law. The 2016 Nagar–Gupta paper treats power-law resetting and first-passage mean formulas without the inspected final-time marked survivor limit. Godrèche–Luck, Section 7, already gives a general renewal transform, **unconditional** geometric numbers of unsuccessful attempts, and the general mean criterion; these are acknowledged rather than counted toward originality. Linn–Lawley's frequent-reset asymptotics concern a different order of limits, and the time-since-reset conditionings of Masó-Puigdellosas et al. concern position observations without an absorbing target. The asserted contribution is restricted to the evaluated all-index algebraic tail plus conditional independence and endpoint law. Its relationship to generic subexponential renewal theory could make the refinement an implicit consequence of older results; this is the principal residual risk. No claim of independent or exhaustive priority validation is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The fixed-clock long-time tail directly answers whether even *finite-mean* Pareto resetting truly regularizes an unbounded Brownian target search to an exponential completion law. It quantifies the algebraic tail constant, distinguishes the time asymptotics from long preasymptotic exponential-looking simulation windows, and describes which trajectories dominate extreme delays. The geometric–Rayleigh decoupling is a structural survivor-selection statement, and the proof applies across a full continuum of resetting exponents. Moment thresholds alone and the general renewal equation are not credited as new.
+The supported distinction is the full late-survivor law for the independent Pareto-clock benchmark, in particular independence of the completed-reset count and the Rayleigh endpoint at the common observation time. Credit the older same-model renewal and mean laws, the generic random-sum route to the survival equivalent, and the earlier/parallel indexed wedge result's transferable renewal localization and geometric mechanism. Neither the wedge exit-side mark nor an unconditional lifetime reset count is the Pareto half-line endpoint law. This is not a priority claim for the scalar heavy-tail or renewal mechanism by itself.
 
-## Closest sources and residual limits
+## value
 
-- Liu et al. (2024), DOI 10.1002/cphc.202400313, Sections 2–3 and Figure 2(a): same Pareto clock and a free-Brownian first-passage benchmark, primarily finite-time numerical observations.
-- Nagar and Gupta (arXiv:1512.02092), first-passage Section and Appendix: exact older general setting, renewal and first moment, not a derived marked survivor law.
-- Godrèche and Luck (arXiv:2309.06997), §7: restart transform, unconditional geometric count and mean criterion, already prior; important theoretical foundation.
-- Masó-Puigdellosas, Campos and Méndez (arXiv:2205.01613), §IV: clock age conditioned on a measured *position*, not on no target hit.
-- Linn and Lawley (arXiv:2302.05409), §2: fast-resetting limit rather than long-time behavior of a fixed Pareto clock.
+PASS
 
-The theory excludes non-Brownian underlying motion, finite resetting latency, random reset positions and any assertion of a uniform large-index crossover scale. Independent publication-priority assessment and independent proof review remain unperformed.
+For a standard first-passage benchmark, the evaluated tail and the joint survivor law address different practical questions: mean reset time does not diagnose the tail, and a geometric lifetime count does not tell whether long survivors have undergone many resets. The marked theorem answers the latter at a fixed observation time and predicts the diffusive endpoint independently of the past count. This is useful beyond restating the renewal equation or mean threshold.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

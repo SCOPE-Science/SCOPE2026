@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:30:29.801373Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 22–69; VERIFICATION.md; verify_periodic_square_avoidance.py",
+        "/workspace/cyclic_short_square_check.py"
+      ],
+      "rationale": "A labeled word determines exactly one indexed closed walk by taking its length-five window at each residue. Conversely, overlapping successive windows on a closed walk forces every window coordinate to be the corresponding leading letter at a shifted index, even when n<5; thus the six-letter tests cover every cyclic forbidden square, including across more than one boundary. Hence c_n=tr(A^n), without any extra rotation factor. Independently ran python3 /workspace/cyclic_short_square_check.py (Python with SymPy): generated all admissible six-letter blocks and their five-letter overlaps, checked the complete state set (30 states, 42 edges), computed and factored the exact characteristic polynomial, reproduced every coefficient of the proposed det(I−zA) and the first twenty traces, directly counted n=1..9 by modular indexing, and tested the four stated loops at the common state 01210. The formal trace-log identity establishes the rational zeta expression for all n. The traces exclude exactly the six listed small candidates once the loop argument is applied: lengths 4 and 6 generate all even n≥4 and bases 11 and 13 plus the same semigroup give all odd n≥11. A rotation by j fixes exactly the repeats from a labeled word of length gcd(n,j), which proves Burnside's formula. Divisor inversion on least periods counts the primitive words, each giving one orbit per n distinct rotations. The source checker was inspected, not run. The stated positive spectrum concerns allowable circumferences, not an asserted spectrum of least periods.",
+      "residual_risks": [
+        "Only a ternary distinguished alphabet and root lengths 1,2,3 are covered; short n use the periodic-extension convention, not finite-once circular testing. The finite trace and count checks are not used as extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shur gives existence for fully square-free finite circular words at lengths other than 5,7,9,10,14,17. This gives many of the present existence lengths (at lengths ≥6 when the words avoid all wraps of length ≤6), but no full census of the weaker periodic condition; n=10 already differs. The two exact zeta records cited here are binary, with different forbidden root lengths. The length-36 extremal circular census's exact definitions could not be read from its mirror."
+        ],
+        "reasoning": "Fully square-free examples provide witnesses at many lengths; their absence need not obstruct short-square avoidance. Changing alphabet size or forbidden periods changes the state graph and traces. None of the inspected statements dominates the exact ternary periodic counts.",
+        "searches": [
+          "Shur, On Ternary Square-Free Circular Words, Theorem 1; Resultary 8b85129bcc79, 4c3beeb5d56e and 1bb8cf8ae7e2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.06561 and arXiv:1606.00397",
+        "Shur EJC 17 (2010) R140",
+        "Resultary 7b4e64e8b45a, 8b85129bcc79, 4c3beeb5d56e, 4884ed822a73, 1bb8cf8ae7e2",
+        "OEIS exact-term queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ternary linear recurrence uses the cubic x³−x²−1, whose reciprocal is one factor of the frozen determinant. The periodic determinant also contains the linear, quartic and squared degree-eight factors. Shur's theorem alone does not decide the short-square spectrum at omitted lengths, e.g. c₁₀=60 contrasts with no fully square-free circular example."
+        ],
+        "reasoning": "The linear recurrence and dominant growth root do not determine the full state trace, and a generic closed-walk identity does not supply the evaluated polynomial or the loop and gap classification. Burnside and Möbius are consequences once the new labeled counts are known, not independent originality claims.",
+        "searches": [
+          "Kovačević arXiv:1911.06561 eqs. (2.1)–(2.2), exact linear recurrence cited there; Shur Thm. 1; cyclic zeta findings 7b4e64e8b45a, 8b85129bcc79, 4c3beeb5d56e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kovačević defines exactly the forbidden patterns aa, abab, abcabc for linear irreducibles, and gives their linear-count recurrence and growth root. The corresponding periodic condition requires all cyclic windows to be legal. Resultary 7b4e64e8b45a treats a different ternary adjacent-anagram restriction (C₄=60 rather than c₄=12)."
+        ],
+        "reasoning": "The local language is the same in the short-duplication application, but ordinary path counts do not impose closed windows. Adjacent anagrams and equality of literal blocks are not equivalent forbidden conditions.",
+        "searches": [
+          "Resultary: ternary periodic short squares / 1-, 2-, 3-tandem duplication irreducibility / zeta polynomial and count prefix",
+          "Kovačević arXiv:1911.06561 §2; Jain et al. arXiv:1606.00397"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact OEIS identifier surfaced in the exact-term queries. Resultary 4884ed822a73 counts a restricted family at length 13 in a linear setting, not all labeled periodic words. The neighboring circular records examined give different counts or have a different alphabet or rule."
+        ],
+        "reasoning": "A finite census for a different family and a partial or transformed count are not the exact all-length table. An exact-term lookup miss does not prove absence.",
+        "searches": [
+          "OEIS exact supplied c₁..c₂₀ and contiguous list beginning at c₄; Resultary exact polynomial/sequence search, including 4884ed822a73"
+        ]
+      },
+      "rationale": "The distinct exact result is the full periodic trace and zeta determination for this particular ternary constraint, including explicit witnesses for the circumference classification. The linear forbidden language, constrained graph method, growth root, general trace-log and orbit identities are not new. Neither the strongest matching indexed findings nor the inspected linear and fully square-free sources give the same periodic determinant or exact counts.",
+      "residual_risks": [
+        "An equivalent factorization under another presentation of the shift may be unindexed. Exact-term lookup is limited; one related extremal census was unavailable in full. The originality conclusion is limited to the distinct evaluated periodic result and the material checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "LINEAR_RECURRENCE_AND_CAPACITY",
+          "evidence": [
+            "Iq(n) counts linear irreducibles. The recurrence and eq. (2.2) give x³−x²−1 for q=3, not the full periodic determinant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.06561",
+          "material_read": "Opening and §2, in particular pp. 3–4, offsets 11000–16313, and linear recurrence source at References [1]",
+          "method": "Primary OA PDF",
+          "title": "On the Maximum Number of Non-Confusable Strings Evolving Under Short Tandem Duplications",
+          "trigger": "Same local forbidden patterns; possible exact spectral formula"
+        },
+        {
+          "assessment": "LINEAR_CONSTRAINT_PRECEDENT",
+          "evidence": [
+            "The inspected passages concern duplication-correcting codes and linear constrained forms, not exact counts of indexed periodic words."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.00397",
+          "material_read": "Opening p. 1 and linear constraints around p. 7, offsets 0 and 34700",
+          "method": "Primary OA PDF",
+          "title": "Duplication-Correcting Codes for Data Storage in the DNA of Living Organisms",
+          "trigger": "Earlier constrained system and irreducibles"
+        },
+        {
+          "assessment": "RELATED_FULL_SQUARE_FREENESS",
+          "evidence": [
+            "Full finite circular square-freeness has exceptions 5,7,9,10,14,17; the frozen problem has 60 labeled words at n=10."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/412",
+          "material_read": "Theorem 1, p. 2 / offset 2700",
+          "method": "Primary OA PDF",
+          "title": "On Ternary Square-Free Circular Words",
+          "trigger": "Stronger local square avoidance and circular period theorem"
+        },
+        {
+          "assessment": "DIFFERENT_FORBIDDEN_RULE",
+          "evidence": [
+            "Adjacent anagrammatic two-blocks, with C₄=60; the frozen literal squares at root lengths 1–3 give c₄=12."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-ternary-circular-spectrum-of-adjacent-anagram-avoidance--7b4e64e8b45a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "The ternary circular spectrum of adjacent-anagram avoidance",
+          "trigger": "Closest indexed ternary periodic zeta"
+        },
+        {
+          "assessment": "DIFFERENT_ALPHABET_AND_LENGTH_SET",
+          "evidence": [
+            "Binary alphabet and only root length 3 prohibited. Indexed 4c3beeb5d56e instead prohibits lengths 2 and 3 over a binary alphabet."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-cyclic-fixed-period-three-square-avoidance-a-zeta-function--8b85129bcc79",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror text",
+          "title": "Exact cyclic fixed-period-three square avoidance",
+          "trigger": "Indexed cyclic short-square zeta"
+        },
+        {
+          "assessment": "FULL_TEXT_UNINSPECTED",
+          "evidence": [
+            "The summary describes a length-36 extremal census, not an all-length zeta; uninspected definitions are not used to draw a priority conclusion."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-complete-length-36-census-for-extremal-square-free-ternary-circular-words--1bb8cf8ae7e2",
+          "material_read": "Indexed summary only; full RESULT.md was unavailable",
+          "method": "Resultary search and attempted local-mirror read",
+          "title": "Complete length-36 census for extremal square-free ternary circular words",
+          "trigger": "Nearby indexed circular census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Kovačević arXiv:1911.06561 §2",
+        "Shur EJC 17 (2010) R140 Theorem 1"
+      ],
+      "rationale": "The forbidden lengths are motivated independently by short tandem-duplication irreducibility. Exact periodic counts are needed for rotation and least-period orbit counts, which cannot be recovered from a linear growth rate. The evaluated determinant, coefficients and explicit all-length witnesses provide reusable exact information beyond the generic transfer-matrix recipe or the known existence of many fully square-free circles; the gap pattern does not merely track the full circular square-free exceptions.",
+      "residual_risks": [
+        "No claim of a general alphabet theorem or downstream coding improvement; the applications claimed are exact periodic and orbit enumerations for this one natural constraint."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

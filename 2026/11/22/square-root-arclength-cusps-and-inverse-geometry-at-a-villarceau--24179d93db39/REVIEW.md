@@ -1,19 +1,21 @@
-# Scientific review — arclength cusp of Villarceau sections
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is the total one-dimensional Hausdorff length of the boundary-torus intersection with a central plane, not a solid-section area or orthogonal shadow. The exact quartic and polar arclength integral are derived independently. At the critical angle the quartic factors into two genuine radius-\(R\) circles intersecting at two transverse nodes. The node's weighted hyperbolic normal form has a universal regularized length defect given by \(-m F(p/m)\), proved through a convergent integral and complete elliptic identities. Counting four half-branches at each of two nodes and using \(k'(\beta_*)=2r\sqrt{R^2-r^2}\) gives both square-root coefficients and their signs. The positivity and strict monotonicity of \(F\) yield the exact \(\sqrt2\) ratio transition and inverse reconstruction. The checker passed 174 deterministic assertions; it supplements rather than proves the analytic statements. The rigorous asymptotics are pointwise in radii, not uniform in the thin or horn limits.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Inspected primary originals: Hirsch (2002) analyzes Villarceau circles; García Monera and Monterde (2011) derive bitangent-section geometry; Moroni (2017) presents algebraic toric sections. None of the materially read texts gives two-sided sharp length defects, a reciprocal-modulus elliptic-coefficient comparison, or shape recovery using only these defects. The closest published published-finding corpus record concerns a distinct *solid-section area* cusp of \((\beta-\beta_*)\log|\beta-\beta_*|\), not the present boundary length law of order \(\sqrt{|\beta-\beta_*|}\). A sphere-cylinder nodal-length record concerns a different intersection and does not determine torus geometry. Similar universal saddle local models are not, by themselves, coverage of this theorem. The searches and full-text comparisons support best-knowledge originality but do not prove absence of historical equivalents in all geometric literature.
+PASS
 
-## Value — PASS
-The classical Villarceau configuration is a highly natural boundary-topology switch. Its *total boundary length* has an explicit and surprisingly different singularity from the previously documented area logarithm. The equality threshold is a sharp dimensionless shape test, and the two coefficients recover both physical radii without separate scale information. This is a motivated geometric classification and inverse result rather than a routine length evaluation or arbitrary parameter slice.
+The frozen proof does not establish the Finding as written: equation (6) contains an extra factor a on both sides, inconsistent with the stated angular coefficients for general radii. The transition from a truncated node equation to the uniform length defect is also only sketched. This is a defect in the written proof, not evidence that the stated angular coefficients are false. The repaired proof has the same claim and derives the normalization from exact smooth node coordinates U=√(r²+k)u, V=(u²+v²−a²)/2+k. Direct substitution yields Q/4=V²−U²+a²k−k², with smooth metric having node weights 1/r, 1/a. With η=√|a²k−k²|, each quadrant is a half-hyperbola, with longitudinal weights exchanged across k=0. Subtracting the critical ray and its lost vertex segment and rescaling gives ηJ, with integrable lower singularity and quadratic tail. The stated elliptic change of variable and F′(t)=tK(t) give J=−mF(p/m). In the fixed chart squares, varying k in the metric costs O(|k|); the spatial metric correction for the difference of the smoothed and critical lengths is bounded by integrating Cη²(1/x+1/√(x²−η²)), including an O(η²) missing-segment correction. The regular complementary arcs have O(|k|) changes with one-sided smooth cutting points. There are eight half-branches total and mη∼(R/r)√|k|, with no additional factor a. The angular conversion k∼2ra(β−β*) then agrees with both original coefficients. Positivity and the side comparison follow from monotonic F; the ratio is strictly decreasing with endpoints ∞ and 0, and the recovered scale follows by substitution. Both endpoint sections and zero length of the two isolated crossings are consistent with the chosen measure. Fresh exact-radial-quadrature spot checks (not execution of the uploaded checker) at (R,r)=(2,1) predicted C_−≈6.04965949 and C_+≈20.00955644; approach ratios (4πR−L)/√ε at ε=10⁻³, 3·10⁻⁴, 10⁻⁴, 3·10⁻⁵ were respectively 5.70191, 5.86004, 5.94045, 5.98994 from below and 20.31699, 20.18700, 20.11469, 20.06806 from above. To replay, integrate both positive radial branches with the derivative density in (1), using quadrant symmetry and a quadratic substitution from the upper angular endpoint on the plus side. The repaired verification notes distinguish chord sums on the same radial parametrization from an independently derived contour; the original numeric source was inspected, not run.
 
-## Material sources and remaining risks
-- A. Hirsch (2002), *Extension of the “Villarceau-Section” to Surfaces of Revolution with a Generating Conic*: primary PDF pages inspected for geometry and tangent construction.
-- M. García Monera and J. Monterde (2011), *Building a Torus with Villarceau Sections*: primary PDF pages inspected for double tangency and circular critical section.
-- L. Moroni (2017), *The toric section: intersection of a torus with a plane*: text inspected for section equations and special cases.
-- *Logarithmic area cusp and Haar topology law at the Villarceau transition* (2026): full published RESULT.md inspected for coverage of the separate area observable.
-- Risks: equivalent older unindexed sectional-arclength treatment; no independent audit; numerical inversion stability not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired proof preserves the precise torus-specific boundary-length coefficients and the inverse determination of both radii from those coefficients alone. The distinct contribution is not the classical Villarceau circles, the elliptic functions, or square-root length behavior from general nodal smoothing. The closest indexed nodal-arclength paper is a genuine conceptual overlap; its available statement does not provide this torus normalization or recovery law. The plausible older geometry sources remain a bounded access risk.
+
+## value
+
+PASS
+
+At the classical change of topology the perimeter need not follow the area cusp. The exact torus coefficients quantify the two-sided loss, detect a particular equal-loss shape, and recover both geometric radii from local length observations alone. A mere square-root exponent or the classical circle configuration would not supply this inverse geometry. Repair preserves that motivated precise invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

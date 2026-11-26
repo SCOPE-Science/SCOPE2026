@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:15:47.820932Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Taking logs of the factorial likelihood ratio gives the stated deterministic correction; its difference from lambda_n is O(n^3/K^2). Uniform approximation by continuous-density cell averages gives K s_2 -> integral f^2, and boundedness gives s_h=O(K^(1-h)). For occupancy b at most 2 the log numerator is exactly log(2) times the pair count; for b>=3 the discrepancy is bounded by a constant times binom(b,3) and the expected triple count is O(lambda_n n/K). At the critical scale the disjoint ordered pairs have count (n)_{2r}/2^r; every overlapping factorial-moment graph has v>=2c+1 and contributes O(n^(2c-v)), so the factorial moments converge to those of the moment-determinate Poisson law. When lambda_n grows, independence of disjoint pairs and the joint probability s_3 for two pairs sharing one index give the displayed variance (three unordered pair-pairs on each index triple); this is o(lambda_n^2). When lambda_n tends to zero use Markov on the pair count. Integrating the cosine cell-wise gives the sinc-squared attenuation of the cosine amplitude; the grid mean of the cosine is zero and of its square is 1/2 for d>=3 (not d=2), yielding the exact stated energy and cutoff. A separately written bounded test passed 1808 checks of the finite likelihood-ratio identity, unit null mean, pair moments and grid energy; these do not establish any limiting assertions. The null transfer is via Henzi–Law's Proposition 1(iii), while the alternative, unscaled cutoff equality, and any grid-changing sequential interpretation are explicitly delimited in the frozen theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Henzi–Law §3.3 Theorem 2 assumes 40 d sqrt(log N) <= sqrt(N)/e and gives a KL-dependent bound for rejection by time N. This excludes d much larger than sqrt(N), as required here. Section 3.4 compares mixtures of grids, not the terminal triangular array.",
+          "The Stanford Bayesian birthday calculation studies the probability of any match under a random Dirichlet law, and compares it to iid uniform draws. It gives the exponent with the doubled collision intensity under the prior predictive for a zero-collision event, not the sign of log evidence under a fixed nonuniform f."
+        ],
+        "reasoning": "An overlapping phrase about growing dimensions or birthday probabilities would not imply the terminal statistic theorem. The fixed-grid power bound is outside all three asserted sparse-grid scalings and the prior-predictive probability is not a nonuniform iid-alternative power calculation.",
+        "searches": [
+          "https://arxiv.org/html/2305.13818#S3.SS3",
+          "https://web.stanford.edu/class/stats366/Mixt.html",
+          "https://doi.org/10.1002/rsa.20591 (cited birthday collision comparison)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2305.13818",
+        "https://web.stanford.edu/class/stats366/Mixt.html",
+        "Resultary indexed neighboring results (summaries only)",
+        "Frozen proof and verification files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the event of no triple, substituting the classical birthday-scale count into eq. (9) yields e^(-tau) 2^Z under the uniform null, and the zero-collision evidence value also follows directly from the ratio of the two no-match probabilities in the notes.",
+          "The many-collision range allows triples to be frequent in absolute number, so neglecting them requires the relative triple bound. Converting the collision LLN into log evidence compares a pair reward log(2) times the cell energy against a deterministic cost of 1 per unit lambda_n."
+        ],
+        "reasoning": "The classical collision results explain the critical law after controlling triple occupancies; they do not state the quantitative reduction for the whole sparse range or the non-null log-evidence sign. The same-paper null rank statement is a direct substitution and is not assessed as a new rank theorem.",
+        "searches": [
+          "https://arxiv.org/html/2305.13818#S3.SS2",
+          "https://web.stanford.edu/class/stats366/Mixt.html#id1",
+          "Frozen RESULT.md, proof Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistic is the ratio of the symmetric Dirichlet-one integrated multinomial probability to the uniform multinomial probability; Henzi–Law equations (9)–(11) state the exact identity. The common multinomial coefficient cancels if written for counts instead of sequences.",
+          "The Resultary lookup returned the assigned record itself and neighboring sparse Poisson limits for other observables, including null rank-one discrepancies and cyclic roughness; their indexed observables are not a ratio of Dirichlet-integrated cell-count likelihoods."
+        ],
+        "reasoning": "Rank evidence under the null and the categorical Bayes factor are exactly equivalent for deterministic grid/horizon. Under a fixed nonuniform oracle density the actual sampling law is iid categorical, not the Dirichlet-mixture model in the numerator; evidence in that setting is the additional question.",
+        "searches": [
+          "Resultary: Henzi Law sparse histogram e-value birthday collision terminal Dirichlet prior Poisson energy threshold",
+          "sparse multinomial uniformity Dirichlet mixture likelihood ratio Bayes factor birthday Poisson log 2 collision fine grid power limit Henzi Law (unavailable)",
+          "https://arxiv.org/html/2305.13818#S3.SS2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The birthday notes' numerical table gives finite prior-dependent 50% match thresholds, not the limit of M under iid observations.",
+          "The frozen audit flags a separate exact 5% four-cell finite-horizon calibration, whose indexed result fixes d=2. Its full text was not independently inspected here."
+        ],
+        "reasoning": "There is no isolated sequence entry or value claimed as original. The exact finite evidence formula is credited; the decimal copula amplitude is a calculation from the asserted limit threshold, not an independently original table value.",
+        "searches": [
+          "https://web.stanford.edu/class/stats366/Mixt.html#id1",
+          "Resultary published records on histogram evidence and sparse collision observables"
+        ]
+      },
+      "rationale": "Best of knowledge for the combined terminal sparse-grid statement, particularly the sign change in actual log evidence across a nonuniform energy boundary in the many-collision regime. The finite statistic, the underlying birthday scale, and Poisson collision approximation per se are not novel. The null birthday-scale transformation is especially close to a standard deduction and is not the only basis of this assessment.",
+      "residual_risks": [
+        "The primary keyword search was unavailable, not a zero-match result. An equivalent sparse Bayes-factor limit in multinomial testing or occupancy literature remains possible.",
+        "The cited journal birthday-collision article and the four-cell record were not independently inspected in full. The classical collision approximation is already credited; no claim of negative full-text coverage of these works is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers identity and null distribution of ranks exactly, and provides fixed-grid and mixture results; inspected power bound cannot apply on the asserted grids",
+          "evidence": [
+            "Proposition 1(iii)",
+            "equations (9) and (11)",
+            "Theorem 2 grid restriction"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.13818",
+          "material_read": "Introduction and §3.2–3.5, including Proposition 1, equations (6)–(12), Theorem 2 and Proposition 4",
+          "method": "Read published authors' preprint HTML and compare hypotheses",
+          "title": "A Rank-Based Sequential Test of Independence",
+          "trigger": "Exact statistic in the original rank procedure and potential varying-grid power coverage"
+        },
+        {
+          "assessment": "Covers the exact ingredients and zero-collision comparison, not a fixed-nonuniform-density evidence threshold",
+          "evidence": [
+            "uniform concentration-one prior and Bose–Einstein allocation",
+            "uniform and prior-predictive no-collision products"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/class/stats366/Mixt.html",
+          "material_read": "Dirichlet/multinomial and Polya predictive sections and the Bayesian and classical Birthday Problem derivations",
+          "method": "Read the Stanford course-note HTML",
+          "title": "Modelling Mixtures: the Dirichlet distribution",
+          "trigger": "Bayesian birthday calculation for the identical aggregate multinomial model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a non-Gaussian terminal calibration exactly where collision noise first survives. More importantly, it quantifies a real grid-resolution failure mode for this particular evidence functional: even positive analytic dependent oracle copulas can yield vanishing terminal evidence, with the precise energy at which that reverses. This is useful for comparing evidence procedures and interpreting a fine grid, without making power claims about empirical sequential ranks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

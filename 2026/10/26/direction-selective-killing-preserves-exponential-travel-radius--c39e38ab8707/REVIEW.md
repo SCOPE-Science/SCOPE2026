@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The finite-dimensional Markov-additive first-step resolvent is inverted explicitly; the resulting density is checked for normalization and positivity. The sharp parameter envelope follows from a quadratic inverse formula, and the lifetime ageing follows from an exact hyperbolic matrix semigroup. The standalone checker tests the formulas independently using matrix exponentials, Fourier integrals, sampled parameter grids, and simulated paths; finite tests are supportive rather than proof.
+## correctness
 
-**Originality: PASS under self-review, with material residual risk.** Orsingher and Marchione's 2026 article proves the single-probability killed telegraph law. The new claim addresses two distinct direction-dependent mortality probabilities and obtains the full endpoint independence, inverse characterization, and lifetime ageing together. Ratanov's general jump-telegraph framework supplies mathematical techniques but does not state the combined result in inspected sections. A chapter on asymmetric jump-telegraph processes could not be read in full; broad matrix-resolvent theory could imply parts of the conclusion. Independent priority assessment is outstanding.
+PASS
 
-**Value: PASS.** The exact inverse envelope permits endpoint-only inference of two hidden mortality parameters. Sign-radius independence and lifetime ageing distinguish directional mortality from homogeneous Poisson thinning, supplying physically motivated structural boundaries rather than a minor parametrization.
+For the repaired claim, the first-run equations g±=a±(p±+q±g∓) with a±=lambda/(lambda∓ikc) give a denominator proportional to lambda²d+c²k² and the averaged numerator lambda²d+ikc lambda delta. The transforms of the normalized positive half-line densities match; their identical conditional magnitude densities prove sign independence and exclude an atom. The inverse follows from d=2m−m²+delta²: the lower bound m>|delta| is equivalent to d>2|delta| and the upper bound m+|delta|<1 to d<1 on the admissible branch. At d=1 the inverse tends to probabilities 1 and 1−2|delta|; on the oblique edges it tends to d and 0, and at the vertex to 0 and 0. These limits establish all boundary assertions of the revised text. Independent Poisson parity summation uses survival weights r^(2j) and r^(2j)(q++q−)/2 for even and odd counts respectively. Differentiation using H″=H gives h′=(lambda r)²(A²−1)/H², with r²(A²−1)=delta². This proves the endpoints, strictness, and equality case under the stated assumptions.
 
-Scientific limitations: A fixed two-state speed, unbiased initial orientation, independent Poisson events, and constant strictly interior kill probabilities are essential; spatially dependent and non-Poisson killing are not treated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the model-specific unequal-probability results, especially the exact identifiable domain and its boundary. The equal-probability terminal law and exponential lifetime are known and expressly credited. Retrieved broad frameworks and indexed findings do not establish the final, repaired family-level claims.
+
+## value
+
+PASS
+
+The sharp inverse region is useful when only an exact terminal marginal is available: it both tests compatibility with the proposed asymmetric mechanism and uniquely identifies its directional probabilities at known speed and event rate. The exponential magnitude alone loses direction information, whereas the sign restores it; the lifetime's nonconstant hazard independently distinguishes asymmetric killing. The corrected boundary describes the degeneracies, not merely an example computed from a standard resolvent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

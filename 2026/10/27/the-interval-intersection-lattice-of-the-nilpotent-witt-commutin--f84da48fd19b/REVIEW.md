@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Explicit coefficient-bracket analysis reconstructs the centralizer of a filtered Witt element, identifies each positive-index component as the closure of a dense open set in an irreducible rank-one determinantal variety, and derives all intersections by nested filtrations. The index-zero component and its finite-field point count are handled separately. The statements are reduced and set-theoretic; they do not claim radical scheme intersections. Independent finite computations check small cases but are not used as infinite proofs.
+## correctness
 
-## Originality
-PASS, with an identified access risk. The 2013 component-classification source establishes the components, their dimensions, and generic centralizers; it does not give the complete interval intersection lattice, global determinantal presentations for higher intersections, or the codimension-one path graph. The present proof derives these additional conclusions, rather than rebranding the existing component classification. The 2014 paper concerns nilpotent orbits/counts, not the simultaneous component incidence geometry. Only the 2015 higher-tuple article abstract could be inspected; possible broader coverage remains a residual risk. An incomplete literature search does not establish worldwide priority.
+PASS
 
-## Value
-PASS. The incidence graph and full multiple-intersection lattice describe how the known irreducible components glue, a natural missing structural part of a reducible commuting variety's geometry. The sharp codimension formula and uniform determinantal models help investigate singular and boundary strata; exact finite-field intersection counts supply an additional precise arithmetic invariant. These are intrinsic across all components, not an arbitrary finite slice.
+For positive label i write r=i+1. In fg'-gf' a first nonzero term of g of exponent s<=p-r must satisfy s=r, since otherwise (s-r)f_r g_s is nonzero below degree p. After subtracting a multiple of f, all exponents are >=p-r+1, giving exactly the claimed centralizer. The locus in g_i^2 of rank <=1 on the interval of coefficient columns i+1 through p-1-i is the product of an affine space and an irreducible rank-one cone. The leading-nonzero stratum is dense in it and agrees with the cited positive-label stratum, so these are global reduced equations. For label zero the unit centralizer is one-dimensional (differentiate g/f); the unit locus is dense in the irreducible nilpotent cone, and scaling in either coordinate yields all dependent pairs of nilpotents. Intersecting with g_b^2 cuts off low columns, and projection of the surviving rank condition to any intermediate label preserves rank <=1. This gives the stated geometry, dimensions and path. The count of nonzero rank-one matrices follows by choosing their column line in F_q^2 and then a nonzero d-vector of coefficients; 'row-space' in the frozen proof is a terminology slip only. At label zero, when f(0)=0, triangularity shows p-nilpotency iff the linear coefficient vanishes. For f(0) nonzero, D^p is a scalar times D; the top coefficient enters that scalar with coefficient (p-1)! f(0)^(p-2), as only the top derivative term followed by p-1 constant derivative terms contributes a top-coefficient summand to D^p(x)(0). The resulting nilpotent count is q^(p-1), and scaling the nonzero dependent pairs gives the same point-count expression at (0,0). These arguments use equations and constructions over the prime field and count all extension-field points, not just prime-field checks.
 
-## Closest prior literature and boundaries
-Yao–Chang, arXiv:1301.5667 (full primary paper inspected); Chang–Yao, DOI:10.1007/s00025-013-0339-1 (abstract on finite-field nilpotent orbits inspected); Yao, DOI:10.1016/j.jpaa.2015.02.005 (abstract only, unresolved stronger-coverage possibility). Scheme-theoretic intersection multiplicities are outside this finding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing component and centralizer theorems are ingredients. The supported contribution is the simultaneous reduced intersection classification, including the interval rule, determinantal models, dimensions and extension-field counts. The related low-characteristic census does not give that classification, and the strongly relevant accessible passages stop at the component/stratum level.
+
+## value
+
+PASS
+
+A reducible commuting variety is not understood solely by listing its components. The uniform global rank conditions give a usable model of how these components glue, produce a codimension-one path rather than just a component count, and provide exact simultaneous-intersection counts useful even when several strata contribute. These are natural structural invariants of the family, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

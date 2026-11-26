@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(a\ge b>0\), \(c>0\), the proof uses the exact upper-bild coordinate image \(x=-cp_2\), \(y^2=(d+st)^2/4+ab(p_0^2+p_1^2)\). At fixed \(x\), the independent coordinates fill the closed ball \(t^2+p_0^2+p_1^2\le1-x^2/c^2\); the minimum occurs at zero transverse variables and the maximum is at the correct endpoint of a convex quadratic. This proves the full fiber, not only its extremes, because the parameter ball section is connected. Quaternionic similarity supplies every imaginary direction. Each outer sphere at fixed real part is present, so the concave upper envelope generates exactly the convex hull. Integrating the difference of three-ball volumes gives \((\pi c s^3/3)I(r)\); substituting \(\sin\theta=rt\) gives the manifestly positive integral and the exact quintic constant. The source's ball-filling lemma is material to the proof, and the computation is independently supplemented by 50,396 finite assertions. Risks: independently verify the adopted normalization of the published coordinate formula; the source formulas and the direct quaternionic sampling agree.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-Carvalho (arXiv:2610.18096, Oct. 13, 2026) already establishes full upper-bild convexity and a general five-ball parametrization, from which this particular geometry can be derived; that prior work is specifically **not** displaced or represented as unknown. So (1998, Theorem 2.2) already gives a general criterion for convexity; Chien–Nakazato (2019) already give boundary-generating algebraic curves; Carvalho–Diogo–Mendes (2020) treats complex-entry matrices. The distinct asserted new quantitative claim is the *exact four-dimensional convexification-volume defect*, its universal anisotropy profile, and the nonzero fifth-order leading constant. Those conclusions were not identified in the inspected source texts or targeted mathematical-index queries. An exact image formula determines volume in principle; the comparison therefore admits residual uncertainty about independent discovery of the integrated closed form. The older 1996 original was not fully accessible and could encode an equivalent example.
+PASS
 
-## Value — PASS
-Quaternionic numerical ranges can fail convexity despite convex upper bild, making the four-dimensional volume lost under convexification a natural geometric severity invariant. A canonical two-level matrix family separates commuting (convex) and noncommuting (nonconvex) regimes; the sharp fifth-order law quantifies *how quickly* nonconvexity appears under arbitrarily small spectral anisotropy, beyond a Boolean criterion. The exact closed integral, strict monotonicity and volume scaling provide useful benchmarks for future quantitative studies. The fact is neither an arbitrary coordinate sample nor a rephrasing of the So criterion. No theorem for arbitrary matrices is claimed.
+Use right unit-quaternion multiplication to make the first vector coordinate u real and nonnegative (the zero case is allowed). For the other coordinate q, put t=u^2-|q|^2 and p=2u q in real coordinates; the whole sphere t^2+|p|^2=1 is attained, including t=-1. The Hermitian off-diagonal part contributes x=2cu Re(jq)=-cp_2. The i coefficient of conjugate(q) i q is 2(q_0^2+q_1^2)-|q|^2, giving |v|^2=(d+st)^2/4+ab(p_0^2+p_1^2). Since p_3 is invisible, its square fills any sphere slack: at fixed x the feasible (t,p_0,p_1) form the closed radius-R ball with R=sqrt(1-x^2/c^2). Its connected image gives an interval. Minimizing takes p_0=p_1=0 and clips the lower endpoint at zero; maximizing takes p_0^2+p_1^2=R^2-t^2 and then t=R by convexity of the resulting quadratic and d>=0. The endpoints are L=max(0,d-sR)/2 and U=(d+sR)/2, valid also at x=±c and d=0. Quaternionic conjugation fills all imaginary directions. Concavity of U and the convex hull of each outer sphere establish the proposed convex hull. The missing section has volume 4 pi L^3/3; symmetry, the factor 1/8 from cubing L and x=c cos(theta) give the prefactor pi c s^3/3. The stated elementary antiderivative expression vanishes at zero and its derivative 3r^2+2-(r^2+2)sqrt(1-r^2)-3r arcsin(r) equals the differentiated integral. Rescaling sin(theta)=rt gives I(r)=r^5(1/20+O(r^2)); the positive integral and its monotone integrand verify strict increase of the normalized profile and the sharp coefficient pi c/(60 s^2) multiplying d^5. The zero deficit occurs exactly at d=0.
 
-## Limits and closest sources
-The closest implication is Carvalho's general five-coordinate representation; all steps from that representation are reconstructed explicitly in the proof. So 1998 supplies exact convexity detection but not this volume; Chien–Nakazato 2019 studies algebraic boundary curves, not a displayed convexification-volume asymptotic. The original So–Thompson 1996 full text and potentially unindexed special cases could not be exhaustively compared. The executable checker validates finite instances and an algebraic identity, not mathematical uniqueness or an infinite theorem by itself.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general upper-bild representation and the earlier yes/no convexity criterion. The supported distinct contribution is the exact four-dimensional convexification deficit for this family, including its normalized profile and sharp quintic onset, not a new general numerical-range representation or a new convexity criterion. No verified equivalent coverage of the quantitative result was established in the bounded search.
+
+## value
+
+PASS
+
+A full-range convexity criterion is qualitative. The four-volume quantifies how much nonconvexity remains in a natural two-level family as skew anisotropy breaks the convex case. Its quintic law distinguishes the simultaneous collapse of the two cap widths and the radial cavities and gives a sharp coefficient, not just a nonconvex example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

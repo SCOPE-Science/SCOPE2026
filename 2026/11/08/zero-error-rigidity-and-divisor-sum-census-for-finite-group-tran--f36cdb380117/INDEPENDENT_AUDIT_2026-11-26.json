@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:10:32.141539Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The concept family is the distinct translates of one fixed subset of a finite abelian group, not the union of all coset families. For a pair with difference d, traces 11 and 00 require d in A-A and in B-B, respectively; both mixed traces occur exactly when translation by d fails to stabilize A, because the two directed set differences have equal size. There are |G| ordered pairs per qualifying nonzero d; divide by two even when d has order two, since each unordered pair still corresponds to two distinct ordered pairs. Quotienting by the stabilizer preserves traces across distinct fibers while a pair within a fiber cannot be shattered. In the quotient every nonzero d has both mixed traces; the larger of the two parts has the entire difference set if its size is greater than half, and at equality the two overlap counts agree for every d. Thus if the other part has two distinct points there is a shattered pair. A singleton part pulls back to a coset or its complement, and coset partitions and their Boolean complements realize no shattered pair. Each coset determines its subgroup, and a coset can equal another subgroup's coset complement only in the index-two case, with the same subgroup; exactly two subsets are then counted twice. This proves the census and the cyclic divisor specialization. Least positive period n means trivial stabilizer; singleton and co-singleton sets give 2n distinct words for n>=3, coincide as classes at n=2 (two words), and both constant words count at n=1. Counting indexed words, not necklaces, is essential. Separate direct trace and census checks passed for all 8190 cyclic subsets through order twelve and the three abelian groups of order eight (counts 28, 48, 88). Replay: /workspace/branches/9b848638-bf6e-421b-8e58-27713b32bf36/audit_vc_translate_new.py and audit_full.log. These are bounded checks, not the general proof. Frozen verification artifacts were inspected, not executed; no formal or external attestation is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conant–Pillay–Terry use the same translate VC notion and give subgroup structure up to an epsilon-dependent exceptional set for bounded exponent. Sisask gives approximation by a subset plus a Bohr set in finite abelian groups.",
+          "The available abstract and introductory locator for the random-subsets paper concern the almost-sure asymptotic VC dimension, not the exact list of individual seeds at dimension one. The full relevant statement comparison there was limited by timeouts."
+        ],
+        "reasoning": "Bounded-VC regularity for arbitrary k and typical behavior of random subsets are broader topics, but the inspected conclusions do not specify single cosets, a complement dichotomy, a subset census or an exact pair count. Taking epsilon small enough that the regularity errors vanish still permits a union of cosets, including the trivial partition by singletons.",
+        "searches": [
+          "arXiv:1802.04246 p. 2 and Theorem 3.2",
+          "arXiv:1802.02836 Theorem 1.4",
+          "DOI 10.1002/rsa.70089; OA alternate arXiv:2506.14219"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and frozen verification package",
+        "arXiv:2101.06490, 1802.04246 and 1802.02836",
+        "DOI 10.1002/rsa.70089 and arXiv:2506.14219 (limited reading)",
+        "Resultary bff8250ec326 and 1fc256f3fe53"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a cyclic seed replace it by its smaller side (complementation preserves shift-VC). On two ordered coordinates i<j, if the all-substrings family shatters them, traces 11 and 01 must already arise from full windows, since a shorter string omitting j cannot have a 1 there. Equal window marginals give 10 whenever 01 occurs. The number of 00 windows is the number of 11 windows plus n minus twice the smaller-side size, so 00 also occurs. Thus for a sparse periodic seed Johnson's all-substrings dimension is at most one exactly when shift-VC is at most one. Lemma 9 forces a nonconstant such periodic sequence to have one 1 per least period. Complementing back gives the cyclic classification, from which the two cyclic counts follow by counting periods and offsets.",
+          "The same reduction does not turn a general noncyclic abelian group with an arbitrary seed into the orbit of one cyclic shift, nor does Johnson give the number of shattered pairs for arbitrary group seeds."
+        ],
+        "reasoning": "The cyclic consequences have substantive prior implication and are credited accordingly. The distinct general zero-error endpoint requires the stabilizer and group-difference argument; the exact arbitrary-seed pair statistic is not an asymptotic regularity conclusion.",
+        "searches": [
+          "Johnson arXiv:2101.06490 Section 2 Propositions 1–3 and Lemma 9 p. 13",
+          "Conant–Pillay–Terry Theorem 3.2",
+          "Sisask Theorem 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Translate VC equals the neighborhood VC of the bipartite Cayley incidence relation P(x-y); the forbidden trace on two distinct query points is the full set of four adjacent/nonadjacent patterns on that side.",
+          "For the infinite periodic repetition of a cyclic seed, Johnson's sliding-window (equivalently mask) dimension equals the cyclic shift VC dimension. His all-substrings dimension also permits short strings and is not in general identical."
+        ],
+        "reasoning": "The relation and periodic-window formulations are genuine aliases; simply changing terminology cannot establish novelty. The distinction with Johnson's all-substrings dimension matters, but for the cyclic claim it can be bridged as below.",
+        "searches": [
+          "Web: finite groups translate VC dimension one coset or complement 2-NIP Cayley bipartite regular graph VC dimension 1 exact classification",
+          "Web: classification biregular bipartite graphs VC dimension one shattering identical disjoint neighborhoods complement complete bipartite forbidden induced configuration equal degree set system",
+          "arXiv:2101.06490 Section 2 and Lemma 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact seed-translation hit was the assigned record itself. The distinct cyclic catalogue hit has a complete shattered-support polynomial for the family of all nonempty cosets; the dihedral hit gives a corresponding polynomial with VC dimension three for all subgroup cosets of D_(2p)."
+        ],
+        "reasoning": "These count supports in other concept families, not seeds whose single translate family has small VC dimension. They provide neither this finite-abelian census nor the pair-count statistic as a function of a given seed.",
+        "searches": [
+          "Resultary: fixed-subset translate VC dimension one, cyclic divisor-sum and subgroup coset shattering comparisons",
+          "bff8250ec326 and 1fc256f3fe53, RESULT.md Findings"
+        ]
+      },
+      "rationale": "Credit only the supported distinct contribution: the exact zero-error classification and subgroup census uniformly over finite abelian groups, together with the pair-count statistic for arbitrary seeds. The cyclic classification and the derived cyclic word counts are mechanically recoverable from the periodic specialization of Johnson's low-VC analysis and elementary counting; they are not relied on as separate new theorems. No inspected source states or implies the general result or the arbitrary-seed statistic at the same level of specificity. The general classification is elementary and may occur under an unrecognized matrix or group-theoretic formulation.",
+      "residual_risks": [
+        "An equivalent exact classification under transitive incidence matrices or regular neighborhood families may exist; the bounded searches do not prove absence.",
+        "The later passages of the random-subsets paper were not assessed after bounded retrieval attempts; the abstract alone does not exclude incidental low-dimensional remarks.",
+        "The cyclic corollaries are not credited as independent novelty given the explicit Johnson reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the cyclic endpoint after reducing to the smaller side and comparing window traces, but not the general abelian or quantitative pair statement",
+          "evidence": [
+            "Proposition 3 equates mask and window dimensions; Lemma 9 classifies all-substrings VC dimension one and leaves regularly spaced individual ones in the nonconstant periodic case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.06490",
+          "material_read": "Section 2 definitions and Propositions 1–3, PDF extraction offsets 10100–15489; Lemma 9 and Theorem 3 near offset 36391, p. 13",
+          "method": "Open primary PDF bounded passages",
+          "title": "Binary strings of finite VC dimension",
+          "trigger": "Strongest one-dimensional translation alias and direct periodic restriction"
+        },
+        {
+          "assessment": "Broader approximate structure, not the endpoint classification",
+          "evidence": [
+            "The theorem represents the set modulo a small error by a union of subgroup cosets outside another small exceptional set, not one coset or its complement with arbitrary seed pair counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.04246",
+          "material_read": "Definition of k-NIP on p. 2, around offset 5659; Theorem 3.2, p. 14, bounded passage at offset 50600",
+          "method": "Open primary PDF passages",
+          "title": "Structure and regularity for subsets of groups with finite VC-dimension",
+          "trigger": "Exact same translate families and possible zero-error special case"
+        },
+        {
+          "assessment": "Related approximation, not exact rigidity or enumeration",
+          "evidence": [
+            "Approximates A by A_0+H for a Bohr set H with error at most epsilon times the group size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.02836",
+          "material_read": "Theorem 1.4 and following interpretation, p. 3, from offset 7920",
+          "method": "Open primary PDF passage",
+          "title": "Convolutions of sets with bounded VC-dimension are uniformly continuous",
+          "trigger": "Same finite abelian setting and structure theorem"
+        },
+        {
+          "assessment": "Reported asymptotic random result differs; not a whole-text exclusion",
+          "evidence": [
+            "The introductory material identifies a law of large numbers for random sets, not an exact deterministic low-dimensional census."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.70089; arXiv:2506.14219",
+          "material_read": "Abstract scope and PDF introduction locator around offset 698; further focused retrieval timed out",
+          "method": "Publisher lookup and identified lawful arXiv alternate; bounded primary inspection only",
+          "title": "The VC-Dimension of Random Subsets of Finite Groups",
+          "trigger": "Same Cayley translate concept family"
+        },
+        {
+          "assessment": "Different family, despite overlap in shattering terminology",
+          "evidence": [
+            "Both enumerate across all subgroup cosets, not the translates of one fixed seed; their scope does not supply the finite-abelian seed census or s_2(A)."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 records bff8250ec326 and 1fc256f3fe53",
+          "material_read": "Both RESULT.md Findings at offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Prime-private shattering and the complete coset profile; complete coset shattering polynomial for prime dihedral groups",
+          "trigger": "Closest distinct catalogue hits on exact coset shattering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "VC dimension one is the first nonconstant level, and giving its exact group-theoretic structure rather than approximate regularity is a natural complete classification. The general subgroup census distinguishes groups of the same order (e.g., 28, 48, and 88 qualifying subsets in the three abelian groups of order eight), and the exact pair statistic quantifies departures from the classification for every seed using differences and periods. This value does not rely on treating the cyclic specialization or divisor-sum inversion as a separate discovery.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

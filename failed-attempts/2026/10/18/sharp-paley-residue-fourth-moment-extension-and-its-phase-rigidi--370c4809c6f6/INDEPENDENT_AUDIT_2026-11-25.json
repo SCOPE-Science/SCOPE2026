@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:31.086901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Paley autocorrelation count is (q-3)/4 on each nonzero difference, by cancellation of the two linear character sums and the squarefree quadratic sum -1. Additive orthogonality gives q k^{-4} times the autocorrelation energy under the stated target counting and source 1/k normalizations. Subtracting the fiber Cauchy–Schwarz identities and the variance of |f|^2 gives the two exact nonnegative terms, with sharp constant q(q^2-2q+5)/(q-1)^3 and constant-function witness. For q=3 the support is a singleton; q=7 has singleton nonzero difference fibers, leaving all phases of flat-modulus inputs unconstrained. Otherwise equality gives flat modulus and a well-defined phase ratio c_d on each nonzero difference. A point common to D,D+a,D+a+b gives c_(a+b)=c_a c_b; inversion covers the zero cases. Hasse's squarefree cubic bound gives triple intersections at least (q-15-2 sqrt(q))/8, positive from q=27, valid over extensions as well as primes. The exact reviewer replay `python3 /workspace/review-evidence/3.py` checks all 306 and 462 distinct ordered shift pairs at q=19,23 (minimum one in each), and derives and checks the order-11 normalized torus relation determinant -11. Its index is 11; 11 distinct normalized character restrictions attain equality. Finally d↦psi(ad) exhausts the additive dual: the parameter map is injective by surjectivity of multiplication by each nonzero a and nontriviality of psi, and the dual has order q. D-D=F_q proves uniqueness up to the specified scalar. The finite replay does not verify Hasse's theorem or prove the all-order result; the analytic steps do. Frozen artifacts/verify.py inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked theorem for every finite abelian difference set gives R=1+lambda(1-1/k), the exact deficit lambda(Q-M^2/k)+sum_{g!=0}(lambda B_g-|A_g|^2), and the intrinsic flat-amplitude/repeated-difference phase equality condition."
+        ],
+        "reasoning": "Apply it to the additive Paley set using (q,k,lambda). The amplitude variance is its first term and the sum of squared pair differences is exactly lambda B_g-|A_g|^2 in each fiber. Writing the existing terms explicitly as sums of squares is an algebraic equivalence. The general theorem does not by itself imply character rigidity.",
+        "searches": [
+          "Resultary: f000b50fe5d9 exact deficit finite abelian difference sets fourth moment amplitude phase dispersion",
+          "SCOPE-sharp-fourth-moment-extension-and-exact-deficit-for-finite-abeli--f000b50fe5d9, RESULT.md offset 0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, artifacts/verify.py",
+        "SCOPE-sharp-paley-fourth-moments-and-the-phase-rigidity-threshold--e3652915658c",
+        "SCOPE-sharp-fourth-moment-extension-and-exact-deficit-for-finite-abeli--f000b50fe5d9",
+        "Monico–Elia lookup (not obtained)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prime record explicitly expands the same three translates, removes the same root error of at most 12 and invokes the squarefree cubic bound to get p-15-2 sqrt(p). Its final cyclic-character identification follows after multiplicativity is already proved. The Monico–Elia manuscript route failed; it is not relied on for coverage."
+        ],
+        "reasoning": "In every odd finite field the squarefree cubic bound is the identical Hasse bound, and q-15-2 sqrt(q)>0 at the smallest admissible nonprime order q=27 and increases thereafter. Replacing the last cyclic identification by the injective q-element additive dual parametrization gives the extension-field rigidity with the same proof. This is not merely observing similar conjectures on different domains.",
+        "searches": [
+          "Paley prime record RESULT.md proof §3, offset 2600",
+          "Reference to Monico–Elia qnr-charv5.pdf (historical Freiman/representation check)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prime-field Paley Finding uses a differently scaled Fourier moment but the same orthogonality-normalized energy coefficient 1+lambda(1-1/k), flat magnitude with arbitrary phases at p=7, and character restrictions for p>=11. It formulates the same difference-phase relations and triple intersections."
+        ],
+        "reasoning": "Conversion of the Fourier measure multiplies the energy by q and the operator by k^{-1}, while the input squared norm is M/k. The asserted constants and optima match, rather than merely being numerically close.",
+        "searches": [
+          "Resultary: Paley fourth-moment extension, quadratic residues and equality via Freiman phases",
+          "SCOPE-sharp-paley-fourth-moments-and-the-phase-rigidity-threshold--e3652915658c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected text prints the same complete q=19,23 triple-incidence histograms and tests q=11 by four equal-sum relations with torus index 11. Its fourth relation differs from the frozen fourth relation."
+        ],
+        "reasoning": "Changing one relation in the index-11 certificate does not change the already exact classification. Independently reproducing the histogram and determinant supports correctness but not a new finite invariant.",
+        "searches": [
+          "SCOPE-sharp-paley-fourth-moments-and-the-phase-rigidity-threshold--e3652915658c, RESULT.md exact finite histograms and prime eleven certificate"
+        ]
+      },
+      "rationale": "Two checked catalogue statements together cover the norm, deficit and prime-field rigidity. For nonprime fields the earlier Paley proof's only prime-specific character step is the parametrization of the additive dual. The same squarefree cubic Hasse–Weil bound and the same numerical positivity check work verbatim from q=27, the first admissible extension order; the standard additive dual parametrization finishes. No new incidence or rigidity lemma is needed. This is mathematical coverage by exact specialization and direct implication, not a priority adjudication.",
+      "residual_risks": [
+        "An older exact Freiman-phase result may exist; that question is not needed for the demonstrated catalogue coverage.",
+        "No inference of historical priority or dependence from catalogue dating."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit prime-field coverage; its incidence proof extends without new input to the admissible extension fields",
+          "evidence": "Same cubic Hasse–Weil estimate and triple-point multiplicativity argument; same q=19,23 histograms and q=11 determinant magnitude.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-paley-fourth-moments-and-the-phase-rigidity-threshold--e3652915658c/RESULT.md",
+          "material_read": "Finding, proof §§2–4 and small-shift histograms, offsets 0, 2600 and 4000",
+          "method": "Read actual catalogue RESULT.md, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp Paley fourth moments and the phase-rigidity threshold",
+          "trigger": "Same Paley support, exact sharp constant and phase transition"
+        },
+        {
+          "assessment": "Gives sharp bound and equivalent exact deficit in a strictly larger class; no assertion that all coherent phases in that class extend to characters",
+          "evidence": "Exact amplitude nonuniformity and Cauchy–Schwarz fiber gaps; normalization conversion and elementary pair identity give the frozen formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-fourth-moment-extension-and-exact-deficit-for-finite-abeli--f000b50fe5d9/RESULT.md",
+          "material_read": "Finding, scope and proof, offset 0",
+          "method": "Read actual catalogue RESULT.md, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp fourth-moment extension and exact deficit for finite abelian difference sets",
+          "trigger": "Candidate broader exact deficit covering Paley double counts"
+        },
+        {
+          "assessment": "Historical scope unresolved and not used to decide failure",
+          "evidence": "Unsuccessful-access outcome only.",
+          "identifier_or_url": "https://www.math.ttu.edu/~cmonico/research/qnr-charv5.pdf",
+          "material_read": "No primary theorem text obtained",
+          "method": "Lawful OA URL lookup, DNS failure",
+          "title": "Note on an Additive Characterization of Quadratic Residues Modulo p",
+          "trigger": "Possible older connection to additive or Freiman formulations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact rigidity is a meaningful mathematical question, but the submitted additions to the checked results consist of putting the known deficit into a termwise square form and applying the same rigidity argument with the standard additive dual for extension fields. The finite certificates repeat known cases and no further quantitative or structural conclusion survives as a separately useful new claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

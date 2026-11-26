@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:13:10.113524Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The trace identity and both limits hold in the stated Gaussian normalization, for fixed d and fixed nonzero a. Unitary rotation reduces to a positive real displacement in one coordinate, with a tensor dilation of norm one in the others. Independently, in one coordinate D_r W_a D_r W_a* has multiplier exp(r(1-r)z conjugate(a) - (1-r)|a|²) and affine symbol r²z+(1-r)a. Integrating its kernel on the diagonal gives the cross trace (1-r²)^(-1) exp(-|a|²(1-r)/(1+r)). For t=1-r, the skew generator is conjugate(a) M_z - a ∂_z before rotation (the formula in the proof agrees after its real-displacement reduction). Its commutator with D_r is self-adjoint and has adjacent weights of magnitude |a|t√(n+1)r^n. The maximum weight times two bounds the unitary conjugation difference; finite-rank truncations justify integration since the boundary error is O(√N r^N) at fixed r. The maximizing n is asymptotic to 1/(2t); the absolute difference of the two coherent expectations at a/(|a|√(2t)) matches the upper bound. Squaring and dividing the two expansions gives e/2^(d+1). The analytic checks are decisive; the archived finite sampler was inspected, not executed. The excluded a=0 case has zero commutator and undefined squared-norm ratio.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The affine result covers general Schatten exponents and counting for its own unweighted difference. Chalendar–Partington and Kisil supply semigroup and displacement frameworks; Alpay et al. study weighted-shift commutators. Marian–Marian directly covers the trace overlap."
+        ],
+        "reasoning": "Neither trace products, single weighted compositions, nor the one-sided affine boundary layer give the sharp operator norm of this two-sided weighted commutator; the upper/lower matching step has mathematical content not supplied by those statements.",
+        "searches": [
+          "Primary-literature search on Fock Weyl heat commutators, displaced thermal overlap and semiclassics",
+          "arXiv:2106.00427, 2108.13710, 2208.03394 and 1111.7067",
+          "Resultary affine Fock Schatten boundary layer, d5150b8e2957"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 of proof, VERIFICATION.md, CHECK.py",
+        "Local Resultary: 4b9748d4c1ef (self-hit), d5150b8e2957 (distinct)",
+        "arXiv:1111.7067, 2108.13710, 2106.00427, 2208.03394",
+        "DOI:10.1063/5.0155981 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit covariance substitution recovers the exact trace term. In contrast, matching the affine norm coefficient by choosing displacement difference 2a yields the wrong squared Hilbert–Schmidt limit, so a direct substitution of that result cannot recover stable rank."
+        ],
+        "reasoning": "Credit the exact overlap component. The surviving conclusion is the sharp weighted operator-norm limit and its stable-rank consequence; no inspected result furnishes the latter by parameter substitution or the same theorem with wider parameters.",
+        "searches": [
+          "Marian–Marian Eq. (3.1)",
+          "d5150b8e2957 Finding and leading weighted-shift proof",
+          "2108.13710 Section 4 Weyl composition formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Right multiplication by W_a* identifies the commutator with a difference of equal-temperature displaced oscillator heat operators. The normalized operators (1-r)^d D_r and its displacement have common covariance (1+r)I/[2(1-r)] and mean separation squared 2|a|²; Eq. (3.1) then specializes exactly to the cross trace after undoing normalization.",
+          "The distinct affine-composition Resultary record uses f(qz+(1-q)u) with no Weyl weights. At the same dilation parameter its one-dimensional stable-rank coefficient is e/2, not e/4."
+        ],
+        "reasoning": "The exact squared Hilbert–Schmidt formula is a consequence of known Gaussian overlap. The weighted difference, whose leading commutator has both first diagonals, is not identified by the unweighted result, whose first-order term is a single backward shift.",
+        "searches": [
+          "Resultary: Fock heat dilation, Weyl displacement, stable rank and affine Fock differences",
+          "Marian and Marian, arXiv:1111.7067, Gaussian state trace-product Eq. (3.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact normalized stable-rank statement is the assigned record's self-match. The nearest distinct exact catalogue result is for affine composition differences and has different normalization and constants."
+        ],
+        "reasoning": "This is a continuous-parameter operator invariant, not a combinatorial sequence or tabulated experimental quantity; direct formula/catalogue comparison is the relevant exact lookup.",
+        "searches": [
+          "Local Resultary exact and semantic Fock-commutator lookup (4b9748d4c1ef; d5150b8e2957)"
+        ]
+      },
+      "rationale": "Pass for the sharp operator-norm coefficient and the resulting stable rank of the weighted Weyl heat difference, not for the displaced-thermal overlap alone. No inspected stronger theorem gives both spectral norms for this weighted difference. The closest same-day independent catalogue entry gives a distinct unweighted operator boundary layer and is not dismissed on chronological grounds.",
+      "residual_risks": [
+        "Earlier treatments of oscillator semiclassics or displaced thermal differences may evaluate the same operator-norm limit under a different parametrization; the positive trace-overlap antecedent is already established.",
+        "Catalogue date alone does not order the two distinct results; no claim of exhaustive priority or full-document comparison where only specified passages were read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXACT_HILBERT_SCHMIDT_COMPONENT",
+          "evidence": "Eq. (3.1) gives the determinant of the sum covariance to power -1/2 and the exponential of minus one half the inverse-covariance quadratic form of mean separation. No operator-norm bound is provided by this formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.7067",
+          "material_read": "Primary PDF p. 3, Eqs. (2.12) and (3.1), text near offset 17050",
+          "method": "Equation lookup and bounded passage, followed by thermal-covariance substitution",
+          "title": "Uhlmann fidelity between two-mode Gaussian states",
+          "trigger": "Gaussian trace overlap can cover the exact Hilbert–Schmidt term"
+        },
+        {
+          "assessment": "RELATED_NOT_EQUIVALENT_AT_SAME_DILATION",
+          "evidence": "Squared Hilbert–Schmidt limit |u-v|²/4 and norm divided by √(1-q) limit |u-v|/√(2e) give e/2, with different operators and a one-sided leading shift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-critical-schatten-boundary-layer-for-differences-of-affine-foc--d5150b8e2957/RESULT.md",
+          "material_read": "Local mirror RESULT.md, Finding, scope and first proof paragraph, offset 0–2757",
+          "method": "Read original formulas, compare constants and leading weighted shifts",
+          "title": "A critical Schatten boundary layer for differences of affine Fock composition semigroups",
+          "trigger": "Material same-day Schatten, sharp norm and implied stable-rank overlap"
+        },
+        {
+          "assessment": "FRAMEWORK",
+          "evidence": "The passage identifies Weyl displacement and its composition law, not a small-time heat commutator estimate.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13710",
+          "material_read": "Primary PDF p. 21, Eqs. (4.17)–(4.20)",
+          "method": "Bounded inspection of displacement passage",
+          "title": "Cross-Toeplitz Operators on the Fock–Segal–Bargmann Spaces and Two-Sided Convolutions on the Heisenberg Group",
+          "trigger": "Weyl formulation and reductions"
+        },
+        {
+          "assessment": "RELATED_SCOPE",
+          "evidence": "The abstract describes iteration, semigroups and generators of weighted composition operators.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.00427",
+          "material_read": "Abstract, primary p. 1",
+          "method": "Abstract scope comparison only",
+          "title": "Weighted composition operators on the Fock space: iteration and semigroups",
+          "trigger": "Contraction semigroups of Fock compositions"
+        },
+        {
+          "assessment": "RELATED_SCOPE",
+          "evidence": "The abstract focuses on weighted shifts and their commutators, a different setup from thermal displacement.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.03394",
+          "material_read": "Abstract, primary p. 1",
+          "method": "Abstract scope comparison only",
+          "title": "Commutators on Fock spaces",
+          "trigger": "Potential Fock commutator coverage"
+        },
+        {
+          "assessment": "ACCESS_LIMIT",
+          "evidence": "Publisher text unavailable; no negative statement about the full article follows.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0155981",
+          "material_read": "No independently accessible full-text passage",
+          "method": "Publisher route attempted",
+          "title": "Superoscillations and Fock spaces",
+          "trigger": "Cited Weyl-operator background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A canonical translation versus smoothing problem has vanishing operator norm but nonvanishing or diverging Hilbert–Schmidt mass. The sharp norm, combined with the available trace scale, gives the actual effective dimension e/(2^(d+1)t^d), rather than only an order estimate. The coefficient separates this weighted two-sided problem from the nearby affine boundary layer and is useful for quantifying spectral mass; value is not assigned to routine Gaussian overlap recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

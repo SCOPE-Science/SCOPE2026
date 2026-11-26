@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:01:08.812908Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Proof lines 16–43",
+        "VERIFICATION.md, verify.py and check_ternary.cpp (read)",
+        "Independent replay: python3 audit_palindromes.py"
+      ],
+      "rationale": "A palindrome abba is exactly a fixed point a of the diagonal successor permutation at bb. The loop bbb cannot follow itself in a tour of q³>1 edges, so at least two letters move at every bb. Conversely, when b moves, every edge entering bb from off the diagonal has a forced exit; just the entrance from σ_b⁻¹(b) first traverses bbb. These paths cover each diagonal incident edge exactly once. Along with the off-diagonal edges they form a balanced macrograph: the forced paths permute the off-diagonal exits at each b. The unchanged subgraph is the directed line graph of the complete loopless digraph, strongly connected even for q=2. Euler traversal and expansion therefore respect all prescribed transitions, including wrap-around. For each b, a cycle on q−f≥2 letters including b fixes exactly f letters, so summing the q independent choices gives every integer 0 through q(q−2). As a bounded independent calculation, audit_palindromes.py applies directed matrix-tree and BEST to the contracted graphs for every admissible tuple at q=2 and q=3, with the first macroedge fixed to be the one containing 000. It gives two binary cycles with no palindromes and the ternary counts 55296, 165888, 124416, 27648, totaling 373248. The proof, not this finite test, covers all q.",
+      "residual_risks": [
+        "The spectrum counts palindromic length-four factors in cyclic order-three words. It is not a count of the tours with each spectrum value for general q, or a realization theorem for transitions at arbitrary vertices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The pairing law is broader in order but restricted to the binary alphabet. The cited primary passages by Nellore–Ward generalize the length and factor-frequency problem.",
+          "The Chee et al. and Anisiu et al. full texts could not be inspected; their coverage is unresolved."
+        ],
+        "reasoning": "Broader order or alternative frequency constraints do not by themselves dominate the alphabet size and simultaneous prescribed-transition quantifier. The classical unconstrained Euler theorem applies after, not instead of, proving the contracted graph remains connected for every permitted assignment.",
+        "searches": [
+          "Resultary 2cd798b75b90, general pairing law",
+          "Nellore–Ward arXiv:2108.07759v2, abstract and definitions",
+          "Chee et al. DOI 10.1109/TIT.2021.3112300; Anisiu–Anisiu–Kása, Properties of palindromes in finite words"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2cd798b75b90 and 771617892c96",
+        "Nellore–Ward arXiv:2108.07759v2; Chee et al. and Anisiu et al. access attempts as documented above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At binary order three every length-two palindromic center is constant; the earlier theorem excludes all such palindromes. The binary transitions are uniquely forced swaps. For q>2, moving b does not force a unique permutation at bb.",
+          "Balanced factor frequencies do not establish that prescribed entrance–exit bijections at multiple vertices can be implemented by one tour."
+        ],
+        "reasoning": "The binary case is already covered, as is the general Euler-tour framework. The new implication requires ruling out hidden obstructions for every simultaneous permitted assignment; the connected off-diagonal macrograph supplies that step here.",
+        "searches": [
+          "Resultary 2cd798b75b90, Finding and Proof step 1, text offsets 0–3642",
+          "Nellore–Ward arXiv:2108.07759v2, §§1.1–1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2cd798b75b90, Proof step 1, identifies palindrome factors with fixed points of transition bijections at palindromic centers, for binary alphabets.",
+          "Nellore–Ward arXiv:2108.07759v2, §§1.1–1.2, studies cyclic sequences with balanced factor frequencies, not the simultaneous diagonal permutation claim in the passages read."
+        ],
+        "reasoning": "Euler-tour and cyclic-word statements represent the same object. At order three, palindromic centers are exactly the diagonal vertices; loops exclude a fixed center letter. The existing binary argument does not show that arbitrary permitted permutations for q>2 can coexist in one tour.",
+        "searches": [
+          "Resultary: palindrome spectrum in order-three de Bruijn cycles, even-palindrome pairing, and prescribed diagonal transitions",
+          "Primary literature search: palindromic length-four factors and constrained Euler/de Bruijn tours"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2cd798b75b90 tabulates length-six palindrome sets at binary order five. 771617892c96 classifies length-24 linear binary words that are themselves palindromes and contain all four-mers."
+        ],
+        "reasoning": "These exact censuses refer to different objects or parameter regimes. A table for a fixed alphabet cannot by itself supply the all-q existence claim. No exact all-alphabet theorem was found in these catalogue checks.",
+        "searches": [
+          "Resultary: exact spectra and classifications involving de Bruijn cycles and palindromic four-mers; 2cd798b75b90 and 771617892c96"
+        ]
+      },
+      "rationale": "The binary constant-center obstruction and the fixed-point interpretation already occur in an earlier Resultary theorem; specializing to binary order three forces P=0 and leaves only the transposition at each diagonal vertex. The supported distinct part is the simultaneous realization for larger alphabets, where there are multiple choices at each diagonal vertex, and the resulting full arbitrary-alphabet spectrum. No inspected prior statement or implication settles that claim. Closely titled literature that was inaccessible remains an access risk, not evidence of noncoverage.",
+      "residual_risks": [
+        "The primary comparison is bounded and two plausible cited sources were not readable. An earlier equivalent constrained-Euler result or a larger-alphabet palindrome classification cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the binary special case and transition/fixed-point framing",
+          "evidence": "No palindrome of length n+1 with constant middle; all palindromic middles at n=3 are constant. The table treats n=5 only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-even-palindrome-pairing-in-binary-de-bruijn-cycles-and-the-compl--2cd798b75b90/RESULT.md",
+          "material_read": "Finding, scope and Proof step 1, text offsets 0–3642",
+          "method": "Published record text",
+          "title": "Even-palindrome pairing in binary de Bruijn cycles and the complete order-five joint spectrum",
+          "trigger": "Strong preceding catalogue match"
+        },
+        {
+          "assessment": "Distinct object",
+          "evidence": "Six shortest globally palindromic linear words containing every four-mer, not cyclic de Bruijn factors.",
+          "identifier_or_url": "Resultary 771617892c96",
+          "material_read": "Finding, initial text passage",
+          "method": "Published record text",
+          "title": "Complete shortest binary palindromic four-mer universal words",
+          "trigger": "Binary four-mer palindrome classification"
+        },
+        {
+          "assessment": "Different constraints in the inspected passages",
+          "evidence": "Cyclic words with balanced factor frequencies and an arbitrary-length construction.",
+          "identifier_or_url": "arXiv:2108.07759v2",
+          "material_read": "Abstract and §§1.1–1.2, PDF pp. 1–2",
+          "method": "Primary PDF passage",
+          "title": "Arbitrary-Length Analogs to de Bruijn Sequences",
+          "trigger": "Generalized de Bruijn construction"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "No verified full-text basis for a coverage determination.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2021.3112300",
+          "material_read": "Bibliographic identification only; no readable primary full-text passage",
+          "method": "DOI/publisher access and an alternate-copy attempt",
+          "title": "Locally-Constrained de Bruijn Codes",
+          "trigger": "Plausible related result on constrained de Bruijn words"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "No verified full-text basis for a coverage determination.",
+          "identifier_or_url": "Anisiu–Anisiu–Kása, Pure Mathematics and Applications 17 (2006), 183–195",
+          "material_read": "Bibliographic identification only; primary PDF inaccessible",
+          "method": "Direct and alternate-route access attempts",
+          "title": "Properties of palindromes in finite words",
+          "trigger": "Cited palindrome and de Bruijn reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and independent realization lemma",
+        "Resultary 2cd798b75b90, binary obstruction"
+      ],
+      "rationale": "The exact spectrum addresses a natural local-factor statistic on a standard universal-cycle family. More importantly, the realization lemma identifies the only obstruction to arbitrary diagonal transitions and supplies a constructive extension; merely finding tours at the two extremes would not give this control. The new value is in the multiple-choice alphabet regime, not the already known binary case.",
+      "residual_risks": [
+        "The argument is tied to order three and diagonal vertices. It does not establish a higher-order or arbitrary-local-constraint extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

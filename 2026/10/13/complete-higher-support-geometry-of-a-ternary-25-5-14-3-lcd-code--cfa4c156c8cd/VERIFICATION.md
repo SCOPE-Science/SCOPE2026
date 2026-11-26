@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify.py` uses only Python 3 standard-library integer operations and modular arithmetic over \(\mathbb F_3\). From the published \(5\)-by-\(25\) generator it rebuilds all \(243\) codewords, checks the ordinary weight enumerator and the Euclidean LCD Gram criterion, and enumerates each of the \(121,1210,1210,121,1\) coefficient subspaces exactly once via unique reduced-row-echelon representatives. It checks all \(N_r(s)\) entries against their Gaussian-binomial totals, the six minimum-support two-spaces with their common-zero coordinate sets, and the four projective word weights in each.
+# Independent mathematical audit
 
-A separate geometric census enumerates all \(1210\) vector three-spaces, tests membership of each of the \(25\) projective columns by rank, and checks the maximum-plane sextuples, their pairwise intersections, and their coordinate-incidence multiplicities. Run `python3 verify.py`; a successful run prints `VERIFY_OK`. This is an exhaustive finite computation for this one code and a transparent, replayable certificate, not an exhaustive search over all ternary LCD codes or an external/independent scientific audit.
+## correctness
+
+PASS
+
+The five rows match Proposition 4.1. Independent hyperplane/coset augmentation (not the frozen RREF enumeration) generated 121, 1210, 1210, 121, 1 nonzero-dimensional ternary message spaces. Summing all word weights on each and dividing by 2·3^(r−1) exactly reproduced every histogram bin and hierarchy (14,19,22,24,25). The Gram map is nonsingular, and the 25 projective columns are distinct. Independent incidence counting on every 3-space reproduced all six labeled common-zero sets, the plane histogram, five incidences at coordinate 2 and the pair counts 7, 2, 6. The four projective word weights in each optimum are 14,14,14,15; each occupied coordinate contributes to three weights, proving the general lower bound 19.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the complete labeled incidence pattern of the six extremal planes in this exact code. The construction and d1 are published. The November catalogued record is a real overlap for the whole histogram, hierarchy and six-plane count, not independent evidence of earlier priority and not coverage of the six labeled sets or their intersection pattern. Do not credit the census alone as distinct from that indexed record.
+
+## value
+
+PASS
+
+The six labeled sets classify all extremal two-dimensional support configurations of a published LCD example. They let a user identify the erasure-position patterns and see the concentrated incidence and pair overlaps, distinctions a distance table or histogram loses. This is value of the exact geometry, not of recomputing the overlapping aggregate table alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

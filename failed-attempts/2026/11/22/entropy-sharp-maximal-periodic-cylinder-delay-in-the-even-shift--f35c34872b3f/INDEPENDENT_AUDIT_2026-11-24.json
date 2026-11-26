@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:08:56.548385Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–38",
+        "VERIFICATION.md and check.py, inspected",
+        "Independent replay: cd /workspace && python3 -I reproductions/3.py"
+      ],
+      "rationale": "A word with ones closes by appending zero or one zero as dictated by its exterior parity, while the all-zero cylinder contains a fixed point. For n even the single-one witness and for n odd the leading-two-ones witness are unbordered with odd exterior parity, ruling out periods below n by the border condition and period n by the wrap gap. The marker construction has length 2L+7 plus the total odd-part length, correct internal gaps and odd exterior parity. Borders of lengths 1–3 fail the explicit endpoints; lengths 4 through 2L+2 have prefix ending 00 and suffix ending 10; longer proper borders would recur the unique 110^(2L)1 marker. Gap parsing is injective. The odd-part composition generating function has a simple positive dominant pole and no other pole of the same modulus (part 1 enforces zero phase in equality in the triangle inequality). Fixing L gives the lower exponential bound at every sufficiently large n; the roots then tend to the golden-ratio root of the infinite odd-part sum. The two-state even-shift graph counts every word with a one exactly once, and counts the all-zero word twice, yielding F_(n+3)−1 for the matching upper bound. This proves a growth rate, not density by itself. Independent verification reconstructed indexed cylinders by closed labelled graph walks, treating the zero fixed point separately, and found Q_2 through Q_14 equal to 2,2,4,4,8,10,18,24,42,62,104,158,262; it also checked all 1,960 specified sampled marker words by direct border and parity tests.",
+      "residual_risks": [
+        "The reproduction is finite; the proof of the growth rate is analytic. No formal verification or expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The modular proof uses residue classes, a shortest border, and a noncancelling dominant pole; none of these steps requires m>2. Its accompanying finite checks explicitly span m=2.",
+          "At m=2 the resulting pole is at q=1/φ. With oriented enumerator U, (1−z−z²)U(z)+zU(z²)=z² and U(z) is bounded coefficientwise by z²/(1−z−z²). At q, q U(q²)≤q²/2, so the numerator stays positive and the pole is simple.",
+          "The SFT-only short-period deficit and fixed-offset results do not directly address this strictly sofic labeled language."
+        ],
+        "reasoning": "The modular argument gives exact counts and positive limiting fraction at m=2, strictly stronger than the asserted entropy exponent. Its separate large-m asymptotic is immaterial. The SFT results are background only.",
+        "searches": [
+          "Resultary fb6f7b997adb Proof §§1–4 and Verification",
+          "Resultary 22e18f2d92a1 and 178df22e69e4",
+          "arXiv:2611.13416v1 Prop. 2.27"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror fb6f7b997adb, ce7ef1cd5963, 22e18f2d92a1, 178df22e69e4, 491b08dec094 (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:2611.13416v1",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Modular §§1–2 give the exact maximum after specializing to m=2; §§3–4 give the stronger positive limiting fraction.",
+          "Under the recurrence transfer, Q_n/(F_(n+3)−1)=P_(n+1) F_(n+3)/(F_(n+3)−1), which tends to the same positive p_* as the golden-mean law."
+        ],
+        "reasoning": "Both frozen conclusions are implied by available stronger arguments without further restrictions. The date does not determine who had the argument first; it does not remove mathematical overlap.",
+        "searches": [
+          "Resultary fb6f7b997adb Proof §§1–4, Verification and Relationship to prior work",
+          "Resultary ce7ef1cd5963 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pannipitiya's least period of any periodic point in the cylinder is the same statistic.",
+          "The even shift is exactly X_2 of the modular gap family, with the same indexed binary words and temporal periods.",
+          "At m=2 the exterior-gap congruence in the modular proof becomes odd parity. A bordered odd-parity word with zero endpoints closes by deleting one zero; with unequal endpoints its shortest border gives an admissible shorter cyclic root."
+        ],
+        "reasoning": "The SFT bound alone does not solve the even-shift problem, but the modular closing proof at m=2 identifies precisely the same maximizers and gives the sharp n+1 witness 1^(n−1)0 for every n≥2.",
+        "searches": [
+          "arXiv:2611.13416v1 periodic penetration definition and Prop. 2.27",
+          "Resultary: even shift unbordered words and maximal periodic penetration",
+          "Resultary fb6f7b997adb Proof §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen mirror hit f35c34872b3f is a self-match. The distinct golden-mean record gives (1−z−z²)T(z)+T(z²)=z² and P_n=2t_n/F_(n+2).",
+          "The distinct modular result gives the recurrence for maximizers; specializing to m=2, the exact solution satisfies T(z)=z²+zU(z), as substitution and coefficient uniqueness show. Thus Q_n=2t_(n+1) at n≥2.",
+          "The weight-refined border-free Fibonacci record studies unbordered no-11 words, not the even-shift max-delay statistic as formulated."
+        ],
+        "reasoning": "The golden-mean table or recurrence does not visibly have the same indices. The proved shift identifies the complete even-shift sequence, not just a numerical coincidence.",
+        "searches": [
+          "Resultary: golden mean cylinder shortest periodic penetration extremal maximal delay Fibonacci Mahler recurrence unbordered words limiting proportion",
+          "Resultary ce7ef1cd5963 Finding and Proof §§1–2",
+          "Resultary fb6f7b997adb Proof §3",
+          "Resultary 491b08dec094"
+        ]
+      },
+      "rationale": "The distinct indexed modular-gap record fb6f7b997adb states its main theorem for m≥3, but its exact closing, shortest-border and density proofs (§§1–4) apply unchanged at m=2 and its verification explicitly includes m=2. This is demonstrable stronger coverage, not a title match or an inference of chronological priority. Its m=2 recurrence also reduces exactly to the enumerator in the distinct golden-mean record ce7ef1cd5963 after an index shift. The assigned record's explicit marker proof is a different proof of the weaker conclusion, not an additional new extremal law.",
+      "residual_risks": [
+        "No chronology within the shared catalogue date was established; the verdict rests on stronger mathematical coverage, not on a historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger mathematical coverage although the headline theorem states m≥3",
+          "evidence": [
+            "The proof characterizes the maximal cylinders by residue one and unborderedness, derives their exact recurrence and a strictly positive simple-pole density. Verification expressly includes modulus two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-maximal-periodic-penetration-delays-and-their-lambert-w-de--fb6f7b997adb/RESULT.md",
+          "material_read": "Assumptions; Proof §§1–4; Verification; Relationship to prior work (mirror offsets 1171, 1725–10445)",
+          "method": "Local Resultary mirror and proof specialization at m=2",
+          "title": "Sharp maximal periodic-penetration delays and their Lambert-W density law in modular gap shifts",
+          "trigger": "Same extremal statistic on the modulus family"
+        },
+        {
+          "assessment": "Different shift and maximum, but exact count and limiting fraction transfer after matching recurrences",
+          "evidence": [
+            "The oriented enumerator T obeys a Mahler relation and P_n tends to p_*=0.1556298471…; the verified transformation is T=z²+zU."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-golden-mean-periodic-cylinders-a-mahler-law-and-a-sharp-parity-s--ce7ef1cd5963/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof §§1–2, offsets 0–4591",
+          "method": "Local Resultary mirror; exact change of generating series",
+          "title": "Golden-mean periodic cylinders: a Mahler law and a sharp parity split",
+          "trigger": "Modular record points to coincident golden-mean recurrence and constant"
+        },
+        {
+          "assessment": "Same invariant but its mixing finite-type upper bound does not establish this labeled sofic count",
+          "evidence": [
+            "η_f(U) minimizes the least period of periodic points in U; the proposition bounds standard one-symbol mixing-SFT cylinders by n+K−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.13416",
+          "material_read": "p. 2 definition; p. 21 Prop. 2.27",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Local Periodic Orbit Penetration in Dynamical Systems",
+          "trigger": "Original general source for this invariant"
+        },
+        {
+          "assessment": "Different finite-type vertex languages and either short-period deficits or a different fixed-offset example",
+          "evidence": [
+            "The first treats (n−η)_+; the second includes a three-symbol SFT example with a positive limiting fraction for n+1, not the binary even shift."
+          ],
+          "identifier_or_url": "Resultary 22e18f2d92a1 and 178df22e69e4",
+          "material_read": "Findings, assumptions and initial proof sections",
+          "method": "Local Resultary mirror",
+          "title": "Entropy-sharp periodic cylinder closure and parity-oscillating short-period counts; Perron border law and bounded periodic closing fluctuations",
+          "trigger": "Closest other closing-spectrum results"
+        },
+        {
+          "assessment": "No-11 language, not the even-shift maximal-delay count without a transfer",
+          "evidence": [
+            "Counts unbordered words in the golden-mean language by a shortest-border decomposition."
+          ],
+          "identifier_or_url": "Resultary 491b08dec094",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Local Resultary mirror",
+          "title": "A weight-refined border-free spectrum for Fibonacci-admissible binary words",
+          "trigger": "Related Fibonacci unbordered-word sequence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Proof, especially the bounded-gap composition construction",
+        "Resultary fb6f7b997adb §§1–4"
+      ],
+      "rationale": "The worst-case closing statistic on this standard strictly sofic system is well motivated, and the explicit marker families give a valid alternate proof. As submitted, however, the exact maximum and the entropy exponent are weaker consequences of a checked covering argument that gives the full recurrence and positive density. The frozen finding does not establish a separate classification or substantively stronger conclusion specific to the marker method; the alternate proof alone is insufficient under the value criterion for a narrow covered invariant.",
+      "residual_risks": [
+        "The frozen result itself proves neither an exact count nor a positive density; the stronger conclusions cited in the originality decision come from the separate comparison."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

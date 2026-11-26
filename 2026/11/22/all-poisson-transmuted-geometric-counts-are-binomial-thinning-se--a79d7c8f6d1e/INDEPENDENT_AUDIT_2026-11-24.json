@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:19:28.169514Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original positive-domain theorem is true: factorization of the marginal PGF gives the stated logarithmic coefficients, with the Poisson contribution only at j=1. The all-index endpoint estimate holds both when the beta kernel f_j(x)=x^j(1-x) is monotone on [q^2,q] and when it is maximized there; in the latter case the two endpoints each exceed half its maximum by the two displayed exact ratios. Thus w_j=a_j-a_(j+1)>0 even at alpha=0,1 and lambda=0. I separately checked the original unrelated-rate failure: at survival ratios 1/6 and 5/6 the numerator factor is 1-(13/18)z and a_3-a_2=35/5832. For the repaired claim, differentiating along phi_t(z)=1-e^(-t)+e^(-t)z gives the telescoping series sum_j w_j(1-phi_t(z)^j); integrating its negative yields the log innovation quotient. Expanding each power binomially gives nonnegative rates with total at most (-log c)a_1. The ell=j term supplies the strictly positive lower bound w_j(1-c^j)/j; factoring each affine substitution gives exactly the claimed closed rates. The worked positive-domain signed partial fractions are checked by the residues at 2, 4 and 19/4 and the limiting constant 2/5. In particular the coefficient of G_(1/4) is -3/10. At the negative witness r=-4/11 and the second canonical increase is -11/64+240/1331=719/85184; differentiating the z^2 coefficient at t=0 gives its negative and rules out an innovation for sufficiently small positive t. These are exact analytic checks, not assertions inferred from a grid. The replacement is in /workspace/repairs/1; its verification program is an optional standard-library replay and was not used to establish the infinite claims. The frozen script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general discrete theorem gives the equivalence between SD of an infinitely divisible count law and monotonicity of its canonical sequence; general mixtures of geometricals need not satisfy it.",
+          "Bouzar's mixing transfer uses every Poisson mixture scale, not a single count law. The 2016 parent-law result establishes ordinary infinite divisibility for the positive range, not the strict innovation rates under arbitrary thinning."
+        ],
+        "reasoning": "The monotonicity criterion and generic Poisson thinning identities are inputs credited as prior. Ordinary divisibility and mixture representation do not supply an all-index positive innovation construction. The repaired proof verifies the nonstandard strict inequality and explicitly integrates nonnegative jump terms.",
+        "searches": [
+          "Bouzar, Semi-self-decomposable distributions on Z_+, Proposition 1 and Lemma 1",
+          "Pakes, Mutant Number Laws and Infinite Divisibility, Definitions 2–3, 6 and Facts 3, 6, 9",
+          "Chakraborty–Bhati 2016, §3.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and self-review",
+        "Replacement RESULT.md, SLOGAN.txt, VERIFICATION.md and verify.py",
+        "Ghodake et al. 2025 §2 and Appendix A.1",
+        "Nandi–Chakraborty–Biswas arXiv:2306.07219 §§2–3",
+        "Chakraborty–Bhati 2016 §3.2",
+        "Pakes 2022 Definitions 1–3, 6 and Facts 3, 6, 9",
+        "Bouzar 2008 Proposition 1 and Lemma 1",
+        "Resultary 2fdc7de1a76a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For q=alpha=1/2 and c=2/5, the G_(q^2) term in Eq. (8) has negative sign: ((1-c)q-c)/((1-c)q-alpha c)=-1. Exact decomposition of the quotient gives the unique pole weight -3/10. Appendix A.1 starts with the recursion and assumed innovations, so the stationary-series argument does not prove coefficient positivity.",
+          "The repair proves the log innovation coefficients are all strictly positive, uniformly, and gives their closed form and a manifestly positive integral, neither of which is provided by a signed geometric decomposition. The interior negative example disproves blanket validity of the construction for arbitrary signs."
+        ],
+        "reasoning": "Earlier literature asserted the same positive-domain existence, so the original theorem is not credited as a first statement. The distinction is a valid new corrective proof and exact positive jump spectrum, not an assertion that the valid theorem was disproved by a negative partial-fraction weight. That negative weight refutes only that representation as a mixture; the negative-transmutation witness, by contrast, refutes universal existence there.",
+        "searches": [
+          "Ghodake et al. §2 Eq. (8), Theorem 1, Appendix A.1; compare the signed mixture to the required quotient",
+          "Resultary 2fdc7de1a76a, Relationship to prior work, offset 7510 and References offset 10360"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghodake et al.'s X_t= c binomial-thin(X_(t-s))+epsilon_t has the same transmuted geometric marginal at every time and independent innovations. At season one its required marginal PGF quotient is exactly the thinning self-decomposition quotient.",
+          "The later Poisson convolution has quotient exp(lambda(1-c)(z-1)) times the parent quotient; conversely its universal assertion over lambda>0 would imply the parent by the limit lambda->0.",
+          "Continuous self-decomposability of the latent exponential mixture is not equivalent to fixed-rate discrete thinning. At q=1/50, alpha=49/100 the latent Lévy factor e^(-49x)+e^(-2499x)-e^(-98x) is increasing at x=1/98, although the count innovation satisfies the discrete theorem."
+        ],
+        "reasoning": "Stationary own-marginal INAR existence is genuine earlier statement-level coverage, not an innovation-marginal coincidence. The Poisson convolution is a routine deduction once parent existence is asserted. The repair instead provides a positive construction for the innovation where the prior supposed positive representation has mixed signs. The claim is not an application of a continuous mixed-exponential criterion.",
+        "searches": [
+          "A Seasonal Transmuted Geometric INAR Process innovation marginal pdf 2334",
+          "Ghodake et al., DOI 10.3390/math13152334, §2 and Appendix A.1",
+          "Pakes DOI 10.3390/axioms11110584, discrete criterion and mixed-exponential and geometric mixtures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The positive PoiTG hit a79d7c8f6d1e is the identical frozen record, not a separate source. The distinct same-day 2fdc7de1a76a result has an exact negative-range criterion, explicitly excludes positive transmutation, and refers to earlier positive self-decomposability without a specific positive-range source in its references.",
+          "The closest prior explicit positive-range formula found is the Ghodake et al. innovation quotient and purported geometric PMF, not a table of positive compound-Poisson rates. The quote-level earlier positive claim is credited independently of the sibling record."
+        ],
+        "reasoning": "No date ordering is inferred from the shared catalogue date. Negative witnesses are credited as consequences of the broader negative-range classification, not as a new classification here. The repair's question is the uniform positive-domain innovation construction, not a recomputation of tabulated values.",
+        "searches": [
+          "Resultary: transmuted geometric INAR innovation positive compound Poisson all thinning coefficient innovation PGF Ghodake Awale signed geometric mixture correction",
+          "Resultary negative-range two-index criterion 2fdc7de1a76a"
+        ]
+      },
+      "rationale": "This PASS is for the substantive corrective result in the replacement, not for the advertised originality of the frozen claim. The frozen claim does not pass as a new existence assertion: Ghodake et al. (2025), Definition 1 and Eqs. (6)–(10), already posit the transmuted-geometric marginal itself for binomial INAR thinning with unrestricted retention in [0,1), and give precisely the same required PGF quotient. Specialize to their positive transmutation domain and take season one; convolving an independent Poisson just adds a Poisson innovation of rate lambda(1-c). Crucially, the earlier assertion is not an established proof of positivity: its geometric-mixture interpretation gives a negative weight at a positive interior parameter point, and its unrestricted negative-range construction fails. The separate replacement identifies that substantive gap, proves validity throughout the nonnegative range, and provides the strictly positive compound-Poisson innovation rates, including an explicitly nonnegative construction where the older signed decomposition cannot certify anything. Neither the erroneous mixture interpretation nor the general discrete criterion gives that positive-domain verification by specialization. No novelty is attributed to the signed PGF quotient, the underlying model, the general criterion, or the distinct same-day negative-domain classification.",
+      "residual_risks": [
+        "The earlier positive existence assertion is verified; no first-assertion claim is made. Another lawful, published correction or explicit proof of positivity may exist outside the inspected passages and bounded searches.",
+        "The corrective novelty is not the generic log-ratio representation itself; it is the model-specific proof of positivity and the precise separation of the signed-decomposition error from true negative-domain nonexistence.",
+        "The repair does not classify negative transmutation or assert continuous self-decomposability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior same-marginal existence assertion and exact quotient, but the claimed positive geometric mixture is invalid at positive interior parameters",
+          "evidence": "Definition 1 specifies transmuted geometric marginals with independent innovations and c in [0,1). Eq. (8) calls a signed geometric decomposition an innovation law. Its q^2 weight is strictly negative at q=alpha=1/2 and c=2/5.",
+          "identifier_or_url": "https://doi.org/10.3390/math13152334",
+          "material_read": "PDF pp. 3, 5–7: PGF, Definition 1, Eqs. (6)–(10), Theorem 1; Appendix A.1 opening and convergence argument (offsets 10400, 18000, 25990, 108166)",
+          "method": "Bounded passages in the publisher's lawful static PDF at https://mdpi-res.com/d_attachment/mathematics/mathematics-13-02334/article_deploy/mathematics-13-02334.pdf",
+          "title": "A Seasonal Transmuted Geometric INAR Process: Modeling and Applications in Count Time Series",
+          "trigger": "Same parent marginal can imply the entire original thinning claim"
+        },
+        {
+          "assessment": "Covers the model and PGF, and depicts unimodality",
+          "evidence": "Same positive domain lambda>0, 0<q,alpha<1; the cited PGF is the one used here.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07219",
+          "material_read": "Sections 2, 3.1 and 3.2, eq. (9), offsets 8900, 12400 and 31300",
+          "method": "Open full-text passages",
+          "title": "A new count model based on Poisson-Transmuted Geometric convolution",
+          "trigger": "Original PoiTG distribution and generating function"
+        },
+        {
+          "assessment": "Already gives ordinary infinite divisibility at positive transmutation",
+          "evidence": "The established parent result also notes decreasing mass; it is weaker than all-retention thinning.",
+          "identifier_or_url": "https://www.idescat.cat/sort/sort401/40.1.7.chakraborty-bhati.pdf",
+          "material_read": "§3.2, p. 158, offset 10400",
+          "method": "Open author/publisher PDF passage",
+          "title": "Transmuted geometric distribution with applications in modeling and regression analysis of count data",
+          "trigger": "Prior structural property of the same parent law"
+        },
+        {
+          "assessment": "Standard criterion and mixing transfer, not model-specific positivity",
+          "evidence": "Canonical monotonicity characterizes discrete SD; the mixing equivalence requires all rate scales.",
+          "identifier_or_url": "Bouzar, Annals of the Institute of Statistical Mathematics 60 (2008), pp. 905–917",
+          "material_read": "Proposition 1 p. 906, offset 12400; Lemma 1 p. 910, offset 22450",
+          "method": "Open PDF passages",
+          "title": "Semi-self-decomposable distributions on Z_+",
+          "trigger": "General discrete criterion and comparison to continuous Poisson mixing"
+        },
+        {
+          "assessment": "General criteria and mixture representations, distinct from the explicit positive rates and correction",
+          "evidence": "Continuous Lévy-density monotonicity and discrete canonical monotonicity are separate sufficient-and-necessary tests in their respective settings.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms11110584",
+          "material_read": "Definitions 1–3 and 6, Facts 3, 6 and 9, approximately offsets 16400–68000 in separate passages",
+          "method": "Bounded open text passages",
+          "title": "Mutant Number Laws and Infinite Divisibility",
+          "trigger": "Potential more general mixed-geometric characterization"
+        },
+        {
+          "assessment": "Negative half-line criterion; not the positive correction. Earlier positive result mentioned but not specifically cited there",
+          "evidence": "States a two-index criterion for -1<=alpha<0, and expressly does not repackage the positive result.",
+          "identifier_or_url": "Resultary:2fdc7de1a76a",
+          "material_read": "Finding and scope; Relationship to prior work and References, offsets 7510 and 10360",
+          "method": "Published local mirror",
+          "title": "A two-index thinning self-decomposability criterion with reentrant negative-transmutation phases",
+          "trigger": "Material same-model, same-day comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result addresses a real model-existence issue, rather than renaming the old quotient or inferring probability weights from a formal rational identity. It yields a valid positive simulation representation for every retention and jump size throughout the nonnegative transmutation range and a concrete interior case where the published geometric-mixture reading fails although existence is true. The second example distinguishes that proof error from actual nonexistence when negative transmutation is allowed. The repair is independently useful for fixed-marginal count autoregressions even with no claim of full negative-range classification or novelty of the original existence statement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

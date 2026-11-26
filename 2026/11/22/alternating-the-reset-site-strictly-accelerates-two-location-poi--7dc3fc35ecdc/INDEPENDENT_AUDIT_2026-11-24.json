@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:11:46.274569Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With independent fresh attempts and rate r, a fresh attempt at site i succeeds with probability p_i and has mean duration (1−p_i)/r, including an infinite reset-free arrival time. A geometric bound on the probability of reaching each attempt (using min(a,b)>0) gives finite total mean. For x=1−a, y=1−b and d=bx+ay=a+b−2ab, inversion of the two renewal equations gives Δ=ab+cd and M=(d+4cxy)/(2rΔ). The identity d²−4abxy=(bx−ay)²=(a−b)² gives the derivative including its strictness. Subtracting at c=1/2 and 1 using Δ_(1/2)=(a+b)/2 and Δ_1=a+b−ab gives the exact gain. Uniform initialization preserves the unconditioned pre-generated chain marginal, including at c=0 where uniform need not be the unique invariant law; the surviving marginal is not asserted equal. The ring boundary-value problem D u″=r u with unit data at both absorbing ends gives the stated cosh ratio, so equality of transforms holds exactly for coincident or reflected sites. An independent numerical evaluation gave 0.105246747557, 0.102741917381, 0.101382055515 for the three reported protocols. The frozen symbolic, rational and killed-generator test code in verify.py was inspected, not executed; the derivation, rather than the tests, establishes the arbitrary renewal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalogue of 52c5a945cec1 describes equal-marginal random-phase cycling through at most four sites versus iid in Laplace-transform order, apparently including two sites. The actual file was unavailable in the configured mirror, so its exact hypothesis and strictness were not confirmed.",
+          "The 93b40506411d catalogue describes stationary-averaged hazards for Lévy escape in an expanding interval, an asymptotic regime."
+        ],
+        "reasoning": "Laplace dominance, under matching hypotheses and finite means, entails weak mean improvement by taking the transform parameter to zero. It does not by itself establish strict mean improvement or give comparisons between all intermediate transition kernels. The Lévy asymptotic is not a general finite exact comparison.",
+        "searches": [
+          "Local Resultary 52c5a945cec1, four-site Laplace dominance",
+          "Local Resultary 93b40506411d, Markov-correlated Lévy resetting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.08414v1",
+        "doi:10.1103/PhysRevE.109.044134",
+        "Resultary 52c5a945cec1 and 93b40506411d (catalogue only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-PDF iid renewal lacks a state transition kernel; the ring transform and iid mean are recovered directly. The closest indexed cycle-vs-iid Laplace result does not in its available statement give the exact all-c negative square or equality classification."
+        ],
+        "reasoning": "A generic matrix renewal representation is standard and not claimed original. The distinct comparison is the exact, globally signed response to that particular family of kernels (and the resulting strictness), not a relabeling of the fixed marginal.",
+        "searches": [
+          "Julián-Salgado et al., §IV",
+          "Méndez et al., doi:10.1103/PhysRevE.109.044134, §II",
+          "Local Resultary 52c5a945cec1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equations (27)–(30) average over the same reset distribution used for the initial site and reduce to the equal-weight iid result at c=1/2; the other c values have different serial laws.",
+          "A deterministic two-site cycle with uniformly chosen initial phase is exactly c=1, not a different protocol."
+        ],
+        "reasoning": "Matching the initialization and law by reset index identifies the precise intersection. Matching only a one-index marginal would conflate different protocols.",
+        "searches": [
+          "arXiv:2605.08414v1, two random resetting locations, Eqs. (27)–(30)",
+          "Local Resultary: Markov-correlated reset sites, deterministic cycles versus iid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact continuum-valued result is not a finite catalogue; the closest exact benchmark found is the previously displayed iid mean (one fixed kernel), and the nearby cycle-vs-iid comparison covers a pair of kernels if its scope matches."
+        ],
+        "reasoning": "Neither benchmark tabulates a mean at general c or a sharp derivative, and numerical ring examples are not the original claim.",
+        "searches": [
+          "Local Resultary 52c5a945cec1, endpoint protocol pair",
+          "arXiv:2605.08414v1, Eq. (27) and two-site Eqs. (29)–(30)"
+        ]
+      },
+      "rationale": "Pass for the distinct exact dependence and strict ordering across the entire symmetric two-site Markov family with fixed uniform initialization, and its quantitative specialization. The iid Brownian-ring baseline is known. The same-day cycle-vs-iid work is material overlap at the endpoints and should temper any claim that the alternation-vs-iid comparison alone is new; no verified coverage of the full interpolation was found.",
+      "residual_risks": [
+        "The unavailable exact text of 52c5a945cec1 may further clarify or broaden the apparent endpoint overlap.",
+        "An earlier equivalent comparison for a two-state modulated renewal or killed chain remains possible. Priority is bounded by the material actually examined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the iid case, not the Markov family",
+          "evidence": "The average over the reset density is stated and then specialized to two sites with fixed weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.08414",
+          "material_read": "v1 §IV, p. 6, Eqs. (27)–(30); PDF extraction offsets 37100 and 41900",
+          "method": "OA PDF and specialize equal weights",
+          "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+          "trigger": "Same ring, two sites, identical initial and reset weights"
+        },
+        {
+          "assessment": "Background fixed-PDF reset rule, not temporally correlated site draws",
+          "evidence": "Reset destinations are drawn from a fixed spatial density.",
+          "identifier_or_url": "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2024/04/128.pdf",
+          "material_read": "§II, p. 1, PDF extraction offset 6000",
+          "method": "Authors' OA version; inspect reset rule",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Independent distributed resets and renewal mean"
+        },
+        {
+          "assessment": "Material apparent endpoint overlap; full-family coverage unestablished, no priority inferred from date",
+          "evidence": "Available summary compares random-phase cycling through at most four sites with iid drawing at equal marginals in Laplace order.",
+          "identifier_or_url": "Resultary 2026/11/22/52c5a945cec1",
+          "material_read": "Catalogue statement; RESULT.md unavailable through local mirror",
+          "method": "Local search and direct local-mirror retrieval attempt; match c=1 and c=1/2",
+          "title": "A four-site Laplace dominance and a sharp five-site obstruction",
+          "trigger": "Potentially stronger cycle-vs-iid statement at the endpoints"
+        },
+        {
+          "assessment": "Asymptotic hazard in a distinct search problem; no general coverage inferred",
+          "evidence": "Expanding-interval Lévy escape rather than an exact fixed-rate two-state mean.",
+          "identifier_or_url": "Resultary 2026/11/2/93b40506411d",
+          "material_read": "Local catalogue statement only",
+          "method": "Compare problem and regime",
+          "title": "Markov-correlated reset sites have a stationary-averaged Lévy escape law",
+          "trigger": "Same Markov-correlation vocabulary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed clock rate and fixed proposed one-index site distribution, the result isolates the influence of serial correlation and provides its exact sensitivity, optimizing protocol and strictness criterion for any renewed attempt law. It is not an optimization achieved by changing the sites or their marginal weights. The result concerns only the mean in this family, not optimality over general reset schedules or a full distributional order.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

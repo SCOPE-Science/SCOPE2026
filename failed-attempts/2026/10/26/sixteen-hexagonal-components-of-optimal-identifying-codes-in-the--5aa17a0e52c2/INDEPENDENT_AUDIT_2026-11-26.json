@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:43:26.959252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Sixteen distinct nonempty traces require at least five code vertices since 2^4−1=15. Independent enumeration (python3 /workspace/review_checks.py 4) used the six specified differences, compared all sixteen closed-neighborhood traces for each of the 4368 five-subsets, and found exactly the 96 distinct sets obtained by taking the three other vertices of the root's parity coset plus an edge of its open neighborhood. An independent exchange construction indexed the accepted sets by their four-element subsets; it gave degree two at each vertex and precisely sixteen connected groups of size six. There is also a direct check that distinct roots cannot exchange: for distinct cosets their cores are disjoint and an adjacent pair meets either specified coset in at most one vertex. To have intersection four would require both extra vertices of each code in the opposite core, so this is impossible. In the same coset distinct cores intersect in two, so intersection four would require a common adjacent pair in both root neighborhoods. For each nonzero parity-coset displacement (2,0), (0,2), (2,2), the two common neighbors are opposite and nonadjacent. For a fixed root the six edges of the neighborhood cycle give their line graph, again a six-cycle. These checks use the labeled graph, nonempty traces and unrestricted replacement exactly as specified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 7b3432c6fd0d treats both the Shrikhande graph and the 4×4 rook graph and states the full Shrikhande theorem.",
+          "Theorem 1 of Gravier–Moncel–Semri gives floor(3n/2) for K_n square K_n; Gravier et al. discuss general identifying-code bounds."
+        ],
+        "reasoning": "Restricting the two-graph Resultary result to its Shrikhande conclusions already gives this entire Finding. The 2008 rook result alone cannot imply the Shrikhande statement via cospectrality; the general bounds inspected do not classify all codes.",
+        "searches": [
+          "Resultary 7b3432c6fd0d Finding and proof",
+          "Gravier–Moncel–Semri (2008) Theorem 1",
+          "Gravier et al. (2015) manuscript, discussion of strongly regular graphs and resolving sets"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7b3432c6fd0d",
+        "Gravier–Moncel–Semri (2008) Theorem 1",
+        "Gravier et al. (2015) author manuscript",
+        "arXiv:1312.4973 Table 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching record gives size five and 96 sets, proves the converse for its unique templates, and explicitly gives the disjoint union of sixteen C6 exchange components under a single replacement."
+        ],
+        "reasoning": "This supplies the iff for being a minimum code and the exact exchange isomorphism with the same move, so it covers both classification and structural conclusions, not just their numeric shadows. The available date does not order the two publications.",
+        "searches": [
+          "Resultary 7b3432c6fd0d RESULT.md, Finding and proof at offsets 0 and 3300–6156"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 7b3432c6fd0d Finding gives C(q,e)=((q+H) minus {q}) union e with e an edge in the neighbor cycle, and explicitly says the representation is unique."
+        ],
+        "reasoning": "Set q=x and e={a,b}. The two formulas define identical labeled sets in the same Cayley graph with closed-neighborhood identifying traces; this is a renaming, not a new parameterization.",
+        "searches": [
+          "Local Resultary search for Shrikhande optimal identifying codes and exchange geometry",
+          "Focused primary-literature lookup for Shrikhande identifying codes and swaps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 7b3432c6fd0d gives the exact count and a generating description of every set, stronger than a count table.",
+          "Bailey's Table 1 gives metric dimension 4 for the Shrikhande graph, not an identifying-code census."
+        ],
+        "reasoning": "The exact catalog match suffices to recover the code family on the named vertex labels. The metric table instead concerns distances and cannot certify coverage or separation by closed-neighborhood traces.",
+        "searches": [
+          "Local Resultary catalog for the exact 96-set census",
+          "arXiv:1312.4973 Table 1"
+        ]
+      },
+      "rationale": "A distinct public Resultary record, 7b3432c6fd0d, explicitly covers every asserted Shrikhande conclusion: the minimum five, all 96 labeled optimum sets, the unique parity-coset and neighborhood-edge formula, and the exchange graph 16 C6. No mathematically distinct finding is established for this record relative to that coverage. Both records are dated the same day; which came first is not established. This is a failure to establish distinct contribution, not a finding that the theorem is false or a claim about priority or derivation.",
+      "residual_risks": [
+        "The available evidence does not establish within-day priority, common authorship, or derivation.",
+        "The frozen reference to a possibly relevant inaccessible item does not identify it sufficiently for a comparison; the verdict rests on the accessible exact match, not this access gap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the Shrikhande claim plus a rook-graph analysis; same-day chronology unresolved",
+          "evidence": "Minimum size 5, exactly 96 codes C(q,e) with unique parameters, and a disjoint union of sixteen six-cycles under single-vertex replacement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-optimal-identifying-code-exchange-geometry-of-the-shrikhande-and--7b3432c6fd0d",
+          "material_read": "RESULT.md Finding at offset 0 and converse and exchange proof at offsets 3300–6156",
+          "method": "Local Resultary mirror",
+          "title": "Optimal identifying-code exchange geometry of the Shrikhande and 4×4 rook graphs",
+          "trigger": "Exact plausible match to the entire Finding"
+        },
+        {
+          "assessment": "Covers the rook minimum, not the Shrikhande theorem",
+          "evidence": "For K_n square K_n the minimum is floor(3n/2), giving six at n=4.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v15i1n4",
+          "material_read": "Theorem 1, p. 2",
+          "method": "Open-access primary text",
+          "title": "Identifying codes of Cartesian product of two cliques of the same size",
+          "trigger": "Closest classical optimal identifying-code comparison on the cospectral rook graph"
+        },
+        {
+          "assessment": "Inspected discussion provides general bounds, not this exact classification",
+          "evidence": "Discussion distinguishes general identifying-code questions and related resolving-set results; a keyword miss does not establish that the whole work lacks an implication.",
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/186885/1/identifying_codes_arXiv.pdf",
+          "material_read": "Author manuscript p. 2 (offset 3966) and literal Shrikhande lookup",
+          "method": "Open-access author manuscript",
+          "title": "Identifying codes in vertex-transitive graphs and strongly regular graphs",
+          "trigger": "Broader strongly regular setting"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The Shrikhande entry gives metric dimension 4, not identifying-code size or the exchange graph.",
+          "identifier_or_url": "arXiv:1312.4973",
+          "material_read": "Table 1 p. 6, offsets 17687–21064",
+          "method": "Open-access primary text",
+          "title": "On the metric dimension of imprimitive distance-regular graphs",
+          "trigger": "Possible exact tabulated datum on the same graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exchange classification itself is a useful structural invariant: a bare optimum size does not imply disconnectedness or the parity obstruction. But the assigned record offers no separate useful mathematical increment over the exact same labeled classification and exchange structure in the distinct matching record. Its numerical replay validates the fact rather than supplying a new invariant or an improved structural result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

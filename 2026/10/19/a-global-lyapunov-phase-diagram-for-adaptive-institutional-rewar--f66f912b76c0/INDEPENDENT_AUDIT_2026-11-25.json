@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:38:27.909555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the factorization x'=P(x)(a-Aδ(x)), a'=(1+u)Q(a)(h-x) and the Lyapunov argument. S_N decreases strictly from N to 1 and 0<h<1, so comparing Aδ at 0,h,1 with the two reward bounds gives the four strictly ordered thresholds and the five displayed choices. For the selected point (xe,ae), differentiating the separable integrals gives V'/(1+u)=−(x−xe)(Aδ(x)−Aδ(xe))+(x−xe)(ae−Aδ(xe))+(a−ae)(h−xe). The first summand is strictly negative for x≠xe; the second is zero except in the two endpoint regimes, where the displacement and selection inequality give opposite signs; the last is zero at xe=h and otherwise nonpositive with equality only at ae. These signs do not require strict threshold inequalities. The integrands have removable singularities at a selected boundary coordinate and logarithmic barriers at every other endpoint; the extended finite sublevels are compact and forward invariant, since selected boundary faces are invariant and V' extends there. At xe=h the only trajectory held on V'=0 has a=Aδ(h), because P(h)>0. Otherwise V'=0 already gives the selected point. LaSalle therefore applies even at the four nonhyperbolic thresholds. The branch is continuous by inversion of S_N, with exactly the stated monotonic pieces. No nonconstant interior cycle can stay in the zero-dissipation set. The frozen wording 'strict decrease ... off the selected point' should not be interpreted as pointwise V'<0 on x=h in the central regime; the invariant-set proof is valid and supplies the conclusion. The recorded finite numerical checks are ancillary; no submitted script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hua–Liu impose 0<ε≪1, analyze equilibria using Jacobian eigenvalues and give five representative cases.",
+          "The cited exact-model Resultary findings remove the ε restriction but assume the reward at coexistence is strictly inside the bounds."
+        ],
+        "reasoning": "All feedback speeds at strict coexistence do not subsume boundary-attractor selection or handle the nonhyperbolic equality surfaces. A different feedback law does not prove this claim without a checked specialization.",
+        "searches": [
+          "Resultary: global convergence and entropy Lyapunov for adaptive institutional rewards",
+          "arXiv:2308.09530v1 §§3.3, 4; compared against the two exact-model Resultary findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2308.09530v1",
+        "Resultary records 3e23082835b1 and fa72dd75e9d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Multiplying the factorized flow by 1/(PQ) gives interior Dulac divergence −Aδ'(x)/Q(a)<0, so interior nonoscillation is a routine consequence of the old equations.",
+          "The inference from local signs to all interior trajectories, especially when an equilibrium lies on an invariant face at a zero eigenvalue, is not supplied by a local phase table or just the Dulac sign."
+        ],
+        "reasoning": "Credit the readily implied no-cycle observation and the known local equilibria; the nontrivial remaining contribution is the uniform boundary-aware global selection proof.",
+        "searches": [
+          "Hua–Liu Eq. (6) and §4 local-stability statements",
+          "Relative-entropy dissipation and all-speeds coexistence records, findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2308.09530v1 §3.2–3.3 Eq. (6) agrees after writing rc/N−c=−k and u(1−x)−x=(1+u)(h−x).",
+          "Both exact-model Resultary matches use the same factors and equilibrium after renaming k; their scopes are restricted to δ1<δ<δ2."
+        ],
+        "reasoning": "Equivalent normalizations agree, but neither the examined source-model analysis nor the two exact-model catalogued results gives all five global limits including the boundary equalities.",
+        "searches": [
+          "Resultary: exact Hua–Liu institutional-reward model, phase diagram, Lyapunov/Dulac",
+          "Web: \"Coevolutionary dynamics of population and institutional rewards in public goods games\" Hua Liu equilibrium stability equation 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior figures illustrate five cases at example parameter sets, and the indexed exact-model records give only the open central regime; neither is a table of the full parameter-to-global-limit map."
+        ],
+        "reasoning": "The relevant analogue of an exact table here is a phase diagram classified for all parameters, not a database of numerical equilibria. The proof at the four transition surfaces is not contained in the inspected phase portraits.",
+        "searches": [
+          "Resultary: exact model and phase diagram; exact-model hits 3e23082835b1 and fa72dd75e9d8",
+          "Hua–Liu §4 case figures and equilibria"
+        ]
+      },
+      "rationale": "The complete global five-regime selection theorem, including boundary and equality cases at arbitrary positive ε, is distinct from the original model analysis and from the strongest exact-model comparisons. The ODE, central equilibrium, local stability analysis and representative phase portraits are not original to this result.",
+      "residual_risks": [
+        "Targeted external search was unavailable, not a negative literature result.",
+        "A separate indexed Dulac hit for a different nonlinear feedback setting could not be read; no all-literature exclusion or priority conclusion is made.",
+        "Published exact-model overlaps are dated later on their records; dates alone do not establish derivation or independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equation and substantial local/illustrative overlap, not full global coverage in inspected sections",
+          "evidence": "Eq. (6) and 0<ε≪1; Fig. 2 convergence discussion is tied to its parameter case, and §4 describes Jacobian stability conditions.",
+          "identifier_or_url": "https://arxiv.org/html/2308.09530v1",
+          "material_read": "§3.2–3.3 near offset 13900; §4 near offsets 18700–19700",
+          "method": "Primary arXiv HTML",
+          "title": "Coevolutionary dynamics of population and institutional rewards in public goods games",
+          "trigger": "Exact model and prior equilibrium classification"
+        },
+        {
+          "assessment": "Strong overlap in strict central regime, not the other four regimes or equality boundaries",
+          "evidence": "Every ε>0 and every strict interior start are included when α<a*<β.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-relative-entropy-dissipation-law-for-adaptive-institutional-re--3e23082835b1",
+          "material_read": "RESULT.md Finding and Assumptions from offset 0",
+          "method": "Published local mirror",
+          "title": "A relative-entropy dissipation law for adaptive institutional rewards",
+          "trigger": "Exact-model entropy and global convergence"
+        },
+        {
+          "assessment": "Same strict coexistence convergence; extra node-to-focus threshold is about ε and is a different claim",
+          "evidence": "α<a*<β is required, with a*=k/[δ S_N(h)].",
+          "identifier_or_url": "2026/11/2/SCOPE-global-convergence-of-adaptive-institutional-reward-public-goods--fa72dd75e9d8",
+          "material_read": "RESULT.md Finding and Assumptions from offset 0",
+          "method": "Published local mirror",
+          "title": "Global convergence of adaptive institutional-reward public-goods games at all feedback speeds",
+          "trigger": "Potential all-parameter duplicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It replaces parameter-specific portraits and local stability with a single global prediction at every speed for a published feedback model. In particular, compactness at selected faces and convergence at nonhyperbolic thresholds resolve questions that linearization cannot decide. The continuous monotone response branches are useful consequences within the exact model, not claims about policy or modified feedback.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

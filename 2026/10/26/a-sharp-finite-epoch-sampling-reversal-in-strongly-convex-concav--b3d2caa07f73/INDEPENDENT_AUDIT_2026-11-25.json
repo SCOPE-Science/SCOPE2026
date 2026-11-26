@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:50:15.221298Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, four products, sign analysis and rational example",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed"
+      ],
+      "rationale": "Use P=diag(u,v), u=1-ah, v=1-bh, and Q=P+K with K=tJ, t=ch, J the skew unit rotation. Uniform sampling yields four times the IID-minus-RR matrix as the sum of the Gram matrices of P² and Q² minus those of PQ and QP. Expand with A=P², B=PK, C=KP, E=K²=-t²I: Q²=A+B+C+E, PQ=A+B, QP=A+C. The surviving terms are 2AE+E²+B^TC+C^TB because B+C is skew; B^TC=C^TB=t²uvI. Thus 4D=t⁴I+2t²uvI-2t²P², giving the displayed polynomial. For 0<h<1/b the y coefficient is positive and the x coefficient has its only positive-step zero at h_*=2(b-a)/(2a(b-a)+c²). Its placement inside the interval is equivalent to c²>2(b-a)², with all-direction weak RR dominance at equality and strict away from the x axis there. Substitution at the three rational steps gives all the recorded diagonal entries. The example Frobenius bound sqrt(45)/2<4 ensures h<1/l at 1/10 and 1/4; the contraction defects have positive leading minors (for Q their determinants are 1421/40000 and 65/1024, respectively).",
+      "residual_risks": [
+        "This is a two-evaluation, fixed-start squared-distance comparison. The step example uses the component-Lipschitz inequality h<1/l and direct contraction, not all hypotheses of a cited rate theorem. No endorsement of an untested parameter range or longer horizon is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das et al. and Cho–Yun study convergence-rate bounds for shuffled minimax algorithms. Emmanouilidis et al. use an extrapolation map. De Sa and Liu treat product comparisons or rate bounds in convex minimization, not this pointwise saddle risk."
+        ],
+        "reasoning": "A rate upper bound, even in a broader problem class, does not compare exact risks after two calls; an extragradient iteration and a symmetric minimization map are different operators.",
+        "searches": [
+          "arXiv:2206.02953 §3.1",
+          "arXiv:2210.05995 §2.2",
+          "arXiv:2403.07148 Thm. 2.1",
+          "De Sa 2020 Thm. 1 and Cor. 1",
+          "arXiv:2606.32005 Thm. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 241542a71cef, 402dad3ef2fc, 55f14a7583b6",
+        "arXiv:2206.02953, 2210.05995, 2403.07148, 2606.32005",
+        "De Sa (NeurIPS 2020)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The literal general identity in 55f14a7583b6 requires M_- = M_+^T and gives nonnegative isotropic RR-minus-IID risk as one fourth the squared commutator norm. Its anisotropic scalar comparison applies to opposite couplings.",
+          "In the assigned family the additional t⁴I contribution to 4D can make IID-minus-RR positive definite; the component maps are not adjoints and the isotropic sign can be opposite."
+        ],
+        "reasoning": "The closest broader matrix identity cannot be specialized to this pair. Elementary expansion of general path products does not already supply the sign crossover inside the contractive example or a small-step directional disadvantage at a common saddle.",
+        "searches": [
+          "55f14a7583b6, Assumptions and proof Steps 1–2",
+          "De Sa 2020, symmetric matrix and small-step passages",
+          "arXiv:2206.02953 §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "241542a71cef has exact directional risk for SPD minimization components at unit steps. 402dad3ef2fc has a scalar minimization step threshold with different component optima.",
+          "55f14a7583b6 compares the same sampling laws and saddle loss but with opposite couplings, so the update matrices are transposes."
+        ],
+        "reasoning": "Neither minimization family has this nonsymmetric SGDA map. A simultaneous orthogonal coordinate change cannot turn P,Q into an adjoint pair, since one is symmetric and the other is not. Opposite couplings give a different sign law. No priority is inferred from the dates.",
+        "searches": [
+          "Resultary: two-step reshuffling risk, directional reversal, common-saddle SGDA",
+          "241542a71cef",
+          "402dad3ef2fc",
+          "55f14a7583b6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact comparisons are 241542a71cef, 402dad3ef2fc and 55f14a7583b6, which do not give the same family or crossover."
+        ],
+        "reasoning": "This is a symbolic statement over a continuum of parameters and starting vectors, not a finite table census. The proper exact-catalog check is whether a recorded identity specializes to this matrix. The rational witnesses in the package are corroboration only.",
+        "searches": [
+          "Resultary: one-epoch variance reversal, angular pointwise risk and two-step strongly convex–concave reversal"
+        ]
+      },
+      "rationale": "The exact common-saddle simultaneous-SGDA risk matrix and the sharp all-direction crossover for one uncoupled and one coupled component remain distinct after comparing the closest formulations. Credit earlier directional and step-size reversals in minimization and opposite-coupling saddle games as material related coverage; the generic possibility of reshuffling underperformance and the four-path expectation identity are not new claims.",
+      "residual_risks": [
+        "A broader unpublished or unlocated matrix comparison for arbitrary non-adjoint update pairs might imply this family. Priority is not established. Do not generalize originality to all one-epoch reversals or directional comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Meaningful prior finite directional comparison, different operator",
+          "evidence": [
+            "SPD quadratic minimization, unit step, angular threshold rather than this SGDA h_*."
+          ],
+          "identifier_or_url": "241542a71cef",
+          "material_read": "Mirrored RESULT.md Finding and model assumptions",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp angular–imbalance frontier for pointwise random-reshuffling risk on two SPD quadratics",
+          "trigger": "Earlier exact fixed-start two-step risk direction threshold"
+        },
+        {
+          "assessment": "Scalar minimization with differing optima, not common-saddle directional risk",
+          "evidence": [
+            "Threshold eta(lambda_1+lambda_2)=2 for a start at the minimizer of the average; also an equal-curvature all-start specialization."
+          ],
+          "identifier_or_url": "402dad3ef2fc",
+          "material_read": "Mirrored RESULT.md Finding and model assumptions",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp one-epoch variance-reversal threshold for two-component random reshuffling",
+          "trigger": "Earlier exact step-size crossover at two updates"
+        },
+        {
+          "assessment": "Different opposite-coupling family with adjoint constraint; not a stronger result implying the assigned identity",
+          "evidence": [
+            "For isotropic starts, RR-minus-IID gap = ||MM^T-M^TM||_F²/4 with M_-=M_+^T. Scalar directional cone and strict contraction example are also given."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-two-step-reshuffling-reversal-for-strongly-convex-concav--55f14a7583b6",
+          "material_read": "Mirrored RESULT.md Finding, assumptions and proof Steps 1–3, including offset 2000",
+          "method": "Local mirror passage inspection and operator comparison",
+          "title": "A sharp two-step reshuffling reversal for strongly convex–concave quadratic games",
+          "trigger": "Closest exact same-domain catalog statement"
+        },
+        {
+          "assessment": "Multi-epoch rates, not fixed-start finite risk comparison",
+          "evidence": [
+            "Epoch-based GDA-RR studied in the strongly convex–strongly concave setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.02953",
+          "material_read": "PDF p. 1 abstract and p. 4 §3.1",
+          "method": "OA primary passage inspection",
+          "title": "Sampling without Replacement Leads to Faster Rates in Finite-Sum Minimax Optimization",
+          "trigger": "Same strongly convex–concave shuffled GDA setting"
+        },
+        {
+          "assessment": "Complexity estimates, no matching exact risk relation in inspected passages",
+          "evidence": [
+            "Simultaneous and alternating rules with separate descent and ascent steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.05995",
+          "material_read": "PDF p. 3 Algorithm 1 and §2.2, p. 5 Theorems 1–2",
+          "method": "OA primary passage inspection",
+          "title": "SGDA with shuffling: faster convergence for nonconvex-PŁ minimax optimization",
+          "trigger": "Closely related SGDA algorithms"
+        },
+        {
+          "assessment": "Different operator and convergence criterion",
+          "evidence": [
+            "Extrapolation followed by correction, not simultaneous single-evaluation SGDA."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07148",
+          "material_read": "PDF p. 2 method and p. 5 Theorem 2.1",
+          "method": "OA primary passage inspection",
+          "title": "Stochastic Extragradient with Random Reshuffling: Improved Convergence for Variational Inequalities",
+          "trigger": "Candidate broader variational-inequality RR result"
+        },
+        {
+          "assessment": "Prior failure of universal RR superiority; symmetric minimization results do not imply the asserted saddle matrix",
+          "evidence": [
+            "Counterexamples and small-step asymptotic comparison under symmetric assumptions."
+          ],
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+          "material_read": "PDF p. 1 abstract, p. 6 Theorem 1, pp. 7–8 Definition 1 and Corollary 1",
+          "method": "OA primary passage inspection",
+          "title": "Random Reshuffling is Not Always Better",
+          "trigger": "Known counterexamples and small-step product comparisons"
+        },
+        {
+          "assessment": "Different loss and conclusion",
+          "evidence": [
+            "Convex minimization bound on averaged-iterate objective, not last-iterate saddle distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.32005",
+          "material_read": "PDF p. 1 abstract, p. 5 Theorem 1",
+          "method": "OA primary passage inspection",
+          "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+          "trigger": "Potential broader claim of rate dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and step-size example",
+        "55f14a7583b6 opposite-coupling comparison",
+        "Das et al. convergence-rate setting"
+      ],
+      "rationale": "This is a minimal and motivated test of whether common saddle, strong curvature and stable component maps suffice for a uniform finite-epoch sampling order. They do not even as h tends to zero. Moreover the exact cutoff and the same-instance contractive crossover show that increasing rather than decreasing the step can restore the desired pointwise ordering. That is a useful quantitative boundary, not just an arbitrary two-by-two multiplication or a claim of asymptotic superiority.",
+      "residual_risks": [
+        "Use is limited to the specified two-component single-epoch risk; the example need not predict longer-run rankings or behavior of other saddle algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

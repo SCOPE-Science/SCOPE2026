@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Run `python verify_graph2.py` using the Python standard library; no external mathematical packages are required. The checker formally constructs the polynomial ring in three independent indeterminates, recomputes the complete squared-distance gap from the two direct coordinate formulas, expands the five nonnegative coefficient polynomials, and checks their exact identity and that all 41 nonzero monomial coefficients are strictly positive with the claimed zero locus. This is a finite exact-algebra certificate for the general inequality, not experimental evidence in finitely many dimensions.
+## correctness
 
-It also independently reconstructs vertices by maximizing every connected-subset simplex under all strict coordinate orders for \(q=2,3,4,5,6\); it checks exact rational centers and squared radii, counts all vertices and all contacts, and compares with the claimed formulas. The reproducible reference output is:
+PASS
 
-```text
-POSITIVE_POLYNOMIAL_CERTIFICATE_PASS monomials=41
-EXHAUSTIVE_PASS q=2 vertices=20 contacts=4 R2=18
-EXHAUSTIVE_PASS q=3 vertices=92 contacts=8 R2=19928/375
-EXHAUSTIVE_PASS q=4 vertices=498 contacts=26 R2=1465/12
-EXHAUSTIVE_PASS q=5 vertices=3142 contacts=122 R2=82610/343
-EXHAUSTIVE_PASS q=6 vertices=22766 contacts=722 R2=164521/384
-TWO_HUB_2_GRAPH_SPHERE_PASS
-```
+Each vertex is uniquely exposed by some strict coordinate order, which assigns each eligible simplex to its largest coordinate. Counting the singleton, edge and connected-triple contributions yields the hub and leaf formulas of RESULT.md:36–44. The two endpoint patterns have equal squared distance to the proposed center. An independent exact re-expansion from the squared coordinate sums (python /workspace/independent_checks.py 4) checks both endpoint distances, the barycentric coefficient and 41 positive gap monomials in (s,k-s,q-k). All monomials contain k-s or s(q-k), with both of those monomials present, so the equality locus is exactly the two endpoints. Strict convexity excludes nonvertices. The proposed center is a strict convex mixture of the two orbit means; averaging squared distances gives R_q^2+||z-c_q||^2 for any alternative center z, proving uniqueness. RESULT.md:85 should say squared radius, not radius, is bounded below by this average; the preceding identity gives the intended result. The two unequal hub values identify (s,k) except at (0,0); precisely the first s leaves are indistinguishable. This yields the stated exact vertex count including q=2, and summing the factorial series yields the asymptotic contact fraction. No uploaded checker was executed.
 
-The finite enumeration is not a proof by exhaustion over all dimensions. The theorem's generality instead follows from its symbolic positive-coefficient identity, vertex parametrization and contact-barycenter argument. The verification is self-review only; independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact enclosing ball and complete vertex/contact classification of this coefficient-one Euclidean realization. The nearest indexed precedents change either the graph or the summands, while the defining paper's documented construction and combinatorial theorems are inputs rather than a Euclidean optimization result. Unavailable full texts are an access risk, not negative evidence.
+
+## value
+
+PASS
+
+The first connected-triple stage and the smallest nonstar complete bipartite family are natural tests of whether known zonotope and star metric behavior extends to a new canonical realization. The solution gives all extremizers rather than a size-by-size radius computation, with a factorial contact orbit plus a distinct two-point orbit and a vanishing contact fraction. The strict gap certificate decides the global metric problem and may be used without enumerating orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

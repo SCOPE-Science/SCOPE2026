@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:13:07.389302Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Constructed P independently as ∑_{j=0}^4 (−1)^j x^(4−j)L4^(j)(t) from the collocation residual. P(x,0)>0, and Gaussian quadrature applied to the difference V of two candidate polynomials gives V(1)^2/2+x∑ b_i V(c_i)^2=0, proving uniqueness (at x=0 use V′≡0). The endpoint numerator has the stated strictly positive sum-of-squares identity. For x>0, the derivative of e^(xt)Y_x is a positive multiplier of L4, so only node sign changes can change the interval root count. Any zero at a node is exactly double, since the derivative of L4 is nonzero there. The resultant of L4 and P−x⁴L4 in t, made monic in x, was independently computed as F(x²); exact Sturm variations at 0,26,27,104,105,+∞ are 4,4,3,3,2,2, and the roots are simple. The resultant as a product of node values excludes simultaneous contacts. Rational interval evaluation in the isolated Gauss nodes gives sign patterns ++++, +++−, +−+− at x=1,6,12. Thus between the two parameter contacts the fourth node alone is negative, and after the second the second node is negative too. Strict monotonicity on each nodal span and positive endpoints give all claimed zero counts, the c4 then c2 contacts, and nonnegativity precisely on [0,x1] (strict positivity only for x<x1). Replay `python3 /workspace/branches/independent_certificates.py 2`; the exact certificates and argument, not sample-based extrapolation, cover the continuum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The SSP theorem's positive-SSP extension assumptions give order at most two, not a scalar frontier for the Gauss polynomial.",
+          "Blanes et al. discuss method-class positivity order barriers on broader systems; Nüßlein et al. modify weights after stage computation to enforce bounds.",
+          "The inspected latest arXiv:2506.16809 passage addresses composition structure of higher-order Gauss methods, not the stated false roots."
+        ],
+        "reasoning": "Broader positivity barriers or positivity achieved by modifying a method do not imply exactly two contacts and their locations for this fixed unmodified scalar extension.",
+        "searches": [
+          "arXiv:1605.02429, Theorem 3",
+          "arXiv:2102.08242, positivity barrier discussion",
+          "arXiv:2005.06268",
+          "arXiv:2506.16809, higher-order Gauss methods"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "Resultary 32b43eef67b0, 183c626111c5, c28e5a33f66c and e419b9fd10fc",
+        "arXiv:1605.02429, 2005.06268, 2102.08242, 2506.16809",
+        "DOI 10.1016/j.apnum.2023.07.023 and university PDF attempt; full text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked two-stage Markov result controls stage maps versus rate imbalance, not the four-node scalar time profile.",
+          "Exact-endpoint cubic Hermite interpolation matches different constraints and has a different degree and discriminant.",
+          "The general test using monotonicity after an integrating factor still requires algebraic information on the four Gauss nodal values."
+        ],
+        "reasoning": "None of the compared results mechanically yields the two positive roots of F or labels c4 and c2; differences in interpolation constraints and problem class matter mathematically.",
+        "searches": [
+          "Resultary cubic Hermite 183c626111c5 and two-stage Gauss c28e5a33f66c",
+          "arXiv:1605.02429, Theorem 3, PDF p. 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same scalar IVP, the interpolant here is the one satisfying the four Gauss derivative equations and the initial value, not any fourth-order continuous output.",
+          "The indexed cubic Hermite result uses exact endpoint values and slopes and exhibits a single false-zero pair.",
+          "SSP dense-output results are about uniform strong stability of specific continuous formulas, not scalar root counts."
+        ],
+        "reasoning": "The alias dense output does not identify the same polynomial. Endpoint equality to a Padé ratio is not a functional identity for all time in the step.",
+        "searches": [
+          "Resultary: sharp positivity and spurious zero events in scalar decay dense output",
+          "10.1016/j.apnum.2023.07.023",
+          "arXiv:1605.02429"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "32b43eef67b0 is the identical item, not a precedent.",
+          "The strongest distinct indexed hits are cubic Hermite with one bifurcation; two-stage Gauss Markov stage positivity; and weighted Boole quadrature weights with two sign losses.",
+          "The cited Falini et al. §5.2 could not be read after DOI, publisher and lawful university-copy attempts."
+        ],
+        "reasoning": "The checked indexed statements do not tabulate either parameter root for the raw four-stage collocation extension. No negative exclusion is drawn for the uninspected spline examples.",
+        "searches": [
+          "Resultary: 32b43eef67b0, 183c626111c5, c28e5a33f66c, e419b9fd10fc",
+          "Falini Mazzia Sestini Hermite–Birkhoff spline Quasi-Interpolation 107023 OA PDF"
+        ]
+      },
+      "rationale": "The supported distinct finding is the full-step scalar sign and root classification for the raw four-stage Gauss collocation polynomial. Endpoint Padé positivity, generic SSP barriers and event bifurcations in other interpolants or Markov stage maps are known but not equivalent. The most plausible inaccessible spline dense-output source remains an explicit priority risk.",
+      "residual_risks": [
+        "Falini et al. is the most plausible uninspected source for examples using the raw Gauss interpolant. Access failures do not rule out an exact example or a covering result; other prior scalar sign censuses could also be unindexed.",
+        "The audit does not generalize the frontiers to other Gauss stages, different dense outputs or systems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible close source; specific raw-collocation examples not independently excluded",
+          "evidence": "Title establishes Gauss-specific dense-output scope; alternate OA PDF returned 403, so no section-level negative inference.",
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2023.07.023",
+          "material_read": "Bibliographic title and frozen citation to §5.2; primary full text unavailable",
+          "method": "OA DOI, ScienceDirect PDF, repository routes and identified University of Bari copy, https://ricerca.uniba.it/retrieve/67ffb28e-6e0c-4803-82ed-6d3ff77d76e5/1-s2.0-S0168927423002064-main.pdf",
+          "title": "Hermite–Birkhoff spline Quasi-Interpolation with application as dense output for Gauss–Legendre and Gauss–Lobatto Runge–Kutta schemes",
+          "trigger": "Closest titled study of Gauss dense output, including the raw interpolation baseline cited by the finding"
+        },
+        {
+          "assessment": "SSP restrictions rather than raw four-stage scalar root classification",
+          "evidence": "Within its SSP assumptions the order of dense output is at most two.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.02429",
+          "material_read": "Theorem 3, PDF p. 11, offset 25900",
+          "method": "OA PDF passage",
+          "title": "Dense output for strong stability preserving Runge–Kutta methods",
+          "trigger": "Possible broad order/positivity theorem for dense output"
+        },
+        {
+          "assessment": "Modified weight approach, different object",
+          "evidence": "Weights are adapted after computing stages to enforce bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.06268",
+          "material_read": "Abstract, PDF p. 1, offset 1000",
+          "method": "OA PDF passage",
+          "title": "Positivity-Preserving Adaptive Runge–Kutta Methods",
+          "trigger": "Runge–Kutta positivity in a nearby formulation"
+        },
+        {
+          "assessment": "No match to scalar four-stage raw dense-output boundaries",
+          "evidence": "Discusses positivity order barriers for general method/problem classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+          "material_read": "Abstract and discussion, PDF pp. 1,5–6, offsets 0 and 18300",
+          "method": "OA PDF passages",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Possible coverage by broad positivity barriers"
+        },
+        {
+          "assessment": "One contact for different interpolation conditions",
+          "evidence": "Cubic Hermite uses exact endpoint values and slopes, then has one tangency and false zero pair.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-positivity-threshold-and-spurious-event-bifurcation-for-cu--183c626111c5",
+          "material_read": "Finding and assumptions in RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp positivity threshold and spurious event bifurcation for cubic Hermite interpolation",
+          "trigger": "Closest exact indexed scalar decay false-event result"
+        },
+        {
+          "assessment": "Two-stage Gauss for two-state Markov chains, not continuous raw scalar output",
+          "evidence": "Unsafe rate-dependent interval for stage maps and a positive end map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-rate-imbalance-threshold-and-reentrant-internal-stage-posi--c28e5a33f66c",
+          "material_read": "Finding and assumptions in RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp rate imbalance threshold and reentrant internal-stage positivity",
+          "trigger": "Indexed Gauss positivity result with unequal stage/endpoint behavior"
+        },
+        {
+          "assessment": "Different object regardless of publication order",
+          "evidence": "Quadrature weight sign loss, not zeros of time-continuous scalar-decay output.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-sharp-sign-loss-transitions-for-exponential-weighted-boole-q--e419b9fd10fc",
+          "material_read": "Finding in RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "Two sharp sign-loss transitions for exponential-weighted Boole quadrature",
+          "trigger": "Same-day indexed hit with two sign transitions in a quadrature object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A classical stiff scalar test exposes a meaningful failure of numerical event detection: a method whose end value never becomes negative can introduce two false event pairs inside a single raw step. The exact thresholds, nodal locations and distinction between nonnegativity and strict positivity make this a usable diagnostic for the natural unmodified method, not a mere recomputation of Padé endpoint positivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

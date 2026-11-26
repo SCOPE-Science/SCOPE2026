@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is established by exact Gaussian flow and Euler product formulas, exhaustive quadratic root classification with unique scalar threshold crossings, and a complete analytic median-separation argument using concavity, Jensen, and elementary strict inequalities. The positive-profile strict-contraction extension follows from two simple nondegenerate roots, the implicit-function theorem, and continuity of the quantile. All parameter boundaries and the distinction between terminal marginal equality and paired-sample equality are explicit. `check.py` ran successfully after extraction from the package; its finite checks are supplemental and cannot certify the continuum claim by themselves.
+PASS
 
-## Originality — PASS, with bounded historical-priority risk
+Exact evolution scales the input by exp(-cs²/2); Euler at s=0 does nothing and the second step scales by M=1-ct(1-t). For centered scalar Gaussian laws, including the zero-variance point mass, W2 is the absolute distance between standard deviations, which uses |M|. The attainable multiplier interval is [1-c/4,1). If +r is not attainable, the interval is wholly above +r and the midpoint is optimal. Roots for +r and -r exist exactly when their respective quadratics have nonnegative discriminant; +r and -r roots are disjoint and the merged roots are counted once. The two threshold functions are respectively strictly convex with negative derivative at zero (and positive eventually) and strictly increasing; their indicated endpoint signs yield the claimed phase counts. At a negative root the shared-input particle discrepancy is 4r². For the residual, material acceleration is (lambda'+lambda²)x and is already a Wasserstein gradient; its half-norm is |lambda'+lambda²| sigma/2. Dilation to the terminal law scales a standard-deviation perturbation by sigma(1)/sigma(s), giving the stated propagated weight. At c=4 the unique equal-mass split satisfies 1/2<q<2/3: the first half has mass pi/8, smaller than the chord bound sqrt(3)/4 for the second half; the mass up to 2/3 is bounded below by pi/8+sqrt(7)/36>4/9, which is an upper Jensen bound on the remaining mass. Therefore the surrogate has strictly positive exact terminal error while the interior quadratic roots attain zero. For the perturbation, the exact roots at epsilon=0 are simple, hence persist by the implicit function theorem. Simultaneous small epsilon and positive delta give uniform convergence of weights and cumulative masses; strict increase of the limiting cumulative mass gives continuity of the median. The positive error persists, even though delta regularizes only the weight and not the ODE. No explicit uniform perturbation interval or finite-N failure of the source's local-surrogate theorem is asserted. Independent replay: python3 /workspace/reproductions/frozen_checks.py gaussian evaluates an exact primitive on the upper half, giving q about 0.63916669265747 and error about 0.05786580985574. Frozen verification code and notes were inspected, not executed.
 
-The motivating 2026 source proves *local-surrogate* quantile optimality and explicitly cautions against reading it as terminal-error optimality. It also studies propagation-related surrogate loss, while the present claim is an exact nonasymptotic terminal-error phase diagram plus a strictly contracting, positive-profile construction disproving every finite terminal-error approximation factor. Gaussian Wasserstein identities are known from the 2024 precursor and are used, not presented as new. Related published schedule-optimization and mesh-acceleration statements were checked by objects, parameter regimes, and implications. A broader classical two-step scalar-flow result, if found, could subsume the classification; priority is therefore not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite-N theorem gives a sharp structural boundary for what a local density-error surrogate can guarantee about the terminal marginal. The four-grid regime exhibits multiple exact marginal meshes, including sign-reversing particle maps, and the positive-profile, strictly contractive construction rules out the trivial interpretation that only an isolated vanishing residual or a noncontractive drift causes failure. This delineates the correct role of local quantile schedules and motivates explicit terminal-error checks when the solver budget is extremely small; no broader claim about high-NFE performance is made.
+The Gaussian W2 identity, Euler scheme and propagated-residual quantile minimization of a local surrogate are known. The distinct findings are the variable-split phase classification with signed multipliers and the terminal-W2 noncompetitiveness witness at fixed budget including the strictly contractive perturbations. The source's surrogate theorem expressly does not compare against the best full endpoint grid; this result does not contradict it.
 
-## Primary comparisons and limitations
+## value
 
-Obzherin–Khrulkov, arXiv:2610.29475v1, Sections 4–7 and Appendices G/H/N: exact finite-N surrogate optimizer, Gaussian local-Wasserstein formulas, and a different surrogate-ratio separation; not an exact two-step terminal-error phase diagram. Pierret–Galerne, arXiv:2405.14250v1: general Gaussian error formulas, but no displayed root-count thresholds or propagated-residual quantile obstruction. Pei–Hu–Gu, arXiv:2503.21774v1: reference-trajectory schedule optimization, not a universal bound for the local surrogate. The result is restricted to a scalar contracting Gaussian ODE and two Euler steps; no external expert audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At a motivated fixed step budget, a simple exact witness separates a source-motivated local allocation from a law-level terminal objective, even with contraction and positive allocation weights. The sign-sensitive phases show a genuine distinction from strong paired-particle accuracy. The witness and its robustness are more substantive than evaluating an error formula on a single grid.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

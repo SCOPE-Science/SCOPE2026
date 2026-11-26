@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:30.515089Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Put m=(q−1)/3. The cyclic subgroup H has order 4m, with intersection with F^× of order gcd(4m,3m)=m, exactly its cubic subgroup C. The Frobenius ratio h^(q−1) has order four because the kernel of this power map on H is C. Consequently its sum with its inverse is zero, and T²/N=2 for trace T and norm N∈C. In the order-three group F^×/C, squaring is invertible, so T lies in C exactly when 2 does. Modulo the subfield, h² projects to Tu by its quadratic equation, and h³=h⁴(T−h)/N projects to −(h⁴/N)u, a scalar in C times u since −1 is a cube. Projection is a bijection on each nonzero coset onto its corresponding cubic coset. For each x, a given h' in its projection fiber contributes exactly one representation, with a=x−h'. This yields the stated zero-fiber count, the nonzero counts 3 or 2 and 1, and the cardinalities and complements after multiplying by q. This argument works in every permitted characteristic and for nonprime base fields. Independent exact check: python3 /workspace/branches/independent_checks.py 2, output /workspace/branches/independent-2.txt; it covers every additive quotient fiber for q=7,31,343, both branches, and a nonprime base (q=343 gives 39,445 covered elements). These examples are corroboration, not an exhaustive proof. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first gives a necessary covering condition, the second an error bound for shifted subfield residue counts, and the third a covering theorem for different sums in one field."
+        ],
+        "reasoning": "None evaluates the needed projection fibers at this changing index. A bound or conditional uniqueness for a cover cannot give the exact number of omitted fibers or distinguish the cubic-residue branches.",
+        "searches": [
+          "arXiv:2610.25228v1, Proposition 5.3",
+          "arXiv:2403.04312, Theorem 1.3",
+          "arXiv:2512.16942, Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and indexed related findings",
+        "Zhou–Wu arXiv:2610.25228v1",
+        "Martin–Yip arXiv:2403.04312",
+        "Zhou–Danchev–Wu arXiv:2512.16942"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The family attains equality in the necessary covering inequality d+gcd(d,q+1)≤q+1, but it does not cover. The order-four Frobenius ratio gives the additional identity T²=2N; the relative cubic classes then decide whether the three projected cosets occupy one or two classes."
+        ],
+        "reasoning": "Equality in the prior necessary inequality gives no sufficient criterion here. The additional projection overlap and its cubic test require an actual exact evaluation, not substitution into an existing equality.",
+        "searches": [
+          "arXiv:2610.25228v1, Proposition 5.3 and Example 5.4",
+          "arXiv:2403.04312, Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No materially matching Resultary statement surfaced in the targeted searches.",
+          "Zhou–Wu Example 5.4 counts in the quotient-order-three case d=2(q+1)/3, not the order-four case."
+        ],
+        "reasoning": "The quotient projection reframes the set sum as the image of H union {0}, while representation counts are the fiber sizes. The same projection technique is prior, but its published order-three outcome is not a reparameterization of the cubic classes for an order-four quotient.",
+        "searches": [
+          "Resultary: exact subfield–subgroup sumsets; fourth-order quotients and cubic residue of 2; projection and Waring formulations",
+          "arXiv:2610.25228v1, Proposition 5.3 and Example 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The semantic search did not identify a matching table or exact family. The nearby exact example in the primary text has different d and quotient order."
+        ],
+        "reasoning": "The comparison is for exact profiles over an infinite family, not isolated coincident small-field counts. Unindexed computations or exact tables remain possible.",
+        "searches": [
+          "Resultary: exact subfield translates, quotient-order-four multiplicative subgroup profiles and cubic-residue dependence",
+          "arXiv:2610.25228v1, Example 5.4"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact quartic-quotient cubic-class fiber law, not the projection method or the general necessary covering bound. The nearest explicit example classifies a different subgroup and does not supply this distribution. No checked source covers the claim; this is a bounded comparison, not a priority certificate.",
+      "residual_risks": [
+        "Unindexed exact small-index residue tables or an earlier equivalent projection computation may exist. The literature comparison is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general framework; not exact coverage of this family.",
+          "evidence": "Necessary covering inequality and conditional uniqueness; exact order-three result for d=2(q+1)/3.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.25228",
+          "material_read": "v1 PDF p. 15, Proposition 5.3 and Example 5.4 (text offset 51103).",
+          "method": "Lawful OA primary PDF, relevant passage.",
+          "title": "Covering finite fields by translates of multiplicative subgroups",
+          "trigger": "Same subfield–multiplicative-subgroup covering problem and adjacent exact case."
+        },
+        {
+          "assessment": "Related estimate, not a dominating exact classification.",
+          "evidence": "Shifted-subfield residue counts with error terms; no evaluation of the three order-four quotient cosets.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.04312",
+          "material_read": "PDF p. 2, Theorem 1.3 (text offset 4634).",
+          "method": "Lawful OA primary PDF, relevant passage.",
+          "title": "Distribution of power residues over shifted subfields and maximal cliques in generalized Paley graphs",
+          "trigger": "Counts power residues on shifted subfields."
+        },
+        {
+          "assessment": "Different summand conditions and conclusion.",
+          "evidence": "Covering bound for sums of special subsets within one field, not exact projected fiber counts for this subgroup of a quadratic extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.16942",
+          "material_read": "PDF p. 2, Theorem 2.1 (text offset 5852).",
+          "method": "Lawful OA primary PDF, relevant passage.",
+          "title": "Finite fields whose members are the sum of a potent and a 5-potent",
+          "trigger": "Potentially broader finite-field sumset covering result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the next natural projective quotient size after the cited order-three covering example, and a family at the boundary of the prior necessary covering bound. The result resolves not only failure of that bound to be sufficient but the size, location and ordered representation counts of the deficient fibers, distinguishing two persistent arithmetic regimes. These are useful precise data for the subfield-translate problem; no classification at other indices is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the projective singular support with corank-at-least-two matrices using the diagonal adjugate gradients. For a path-pattern matrix, each maximal block with nonzero edge coordinates has kernel dimension at most one. This forces two singular blocks separated by a zero edge and yields precisely the stated cut components. The primitive linear-in-diagonal recurrence proves every block determinant irreducible; the equations of arbitrary component intersections reduce to the determinants of the two outside blocks and the selected cut coordinates, giving prime complete intersections. An explicit rational normal slice gives the exact node equation \(ir(uv-w^2)\). Serre's criterion proves normality. The exact-arithmetic checker verifies low-dimensional identities and finite-field classifications; finite data are expressly not substituted for the universal proof.
+## correctness
 
-## Originality — PASS, qualified
-General symmetric determinantal hypersurfaces, rank conditions, continuant recurrences, and the codimension-three rank-drop degree are established literature. In particular the total degree \(\binom{n+1}{3}\) is not independently new. The contribution claimed is the complete path-pattern decomposition into exactly \(n-1\) irreducible components, equality of the stated intersection ideals for **all** subsets, and associated individual dimensions/degrees and generic local models. Kerner–Vinnikov, Piontkowski, Huang and Benito et al. were compared on scope and implication. Their inspected statements treat general or generic determinant representations, low-dimensional symmetroids, generic multilinear forms, or fixed-edge continuants and cluster algebras, rather than proving this complete free-edge path arrangement. Published mathematical-record searches found no equivalent indexed claim. A residual risk is an implicit special case of broader determinant-degeneracy or cluster-degeneration theory, or an unindexed explicit prior classification.
+PASS
 
-## Mathematical value — PASS
-The full singular-support decomposition and arbitrary intersection scheme of a natural infinite family are meaningful algebraic-geometric invariants, not merely a low-order enumerated invariant or a rephrased recurrence. The theorem distinguishes this special sparse linear section from the irreducible generic symmetric rank-drop locus; its maximally intersecting arrangement has unexpectedly codimension-\((s+1)\) intersections for \(s\) chosen components, with a uniform irreducible complete-intersection structure. These descriptions can guide resolution and degeneration studies of continuant and sparse determinantal varieties. Neither the exact Jacobian singular scheme nor nongeneric completed local rings are determined.
+Reconstructed the uniform proof for n≥3 over the stated field. The continuant recurrence is primitive linear in the last diagonal variable: the previous determinant is irreducible and cannot divide either the new edge variable or the lower-degree determinant. At corank one the symmetric adjugate is a nonzero multiple of vv^t, so a diagonal derivative is nonzero; at higher corank all cofactors vanish. Cutting all zero edges gives blocks of nullity at most one by the successive row equations, so corank at least two is equivalent to a cut with singular blocks on both sides. Each Z_i is the prime complete intersection of a cut variable and two integral block determinants on disjoint variables; each has points with every other edge nonzero, so no components are repeated or contained. For a set of cuts, work modulo their linear ideal: every prefix or suffix determinant in the sum of component ideals is a product containing the first or last block factor respectively, and those end factors are themselves among the equations. Thus the ideals, not just their zero sets, coincide. The two surviving factors use disjoint coordinates, so the homogeneous ideal is prime and saturated; the complete-intersection degrees and dimension yield the nonempty intersections and full simplex, including for n=3. For the generic node write the cut identity F=L R−b_i² P Q with P,Q the end cofactors; on the open where they are units, L/P and R/Q are the two boundary diagonal coordinates translated by functions independent of them. Together with b_i they give the exact transverse equation uv−w². Nonemptiness of that open follows from the displayed cofactor construction. The integral hypersurface has S2 and its singular strata have codimension two in it, giving R1 and normality. Summing the component degrees gives the stated binomial coefficient.
 
-## Sources and residual risks
-The primary geometric comparisons include Kerner–Vinnikov (arXiv:0906.3012, §§1 and 5), Piontkowski (*Linear Symmetric Determinantal Hypersurfaces*, introduction and Proposition 1.5), Huang (Caltech thesis introduction and Theorem 1.0.1), and Benito et al. (Section 3 and Theorem C). All have different stated objects or implications. A general determinantal degree theorem explains the same total degree but not the component arrangement. The searched mathematical record can miss unstated corollaries; originality therefore remains qualified rather than independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete path cut arrangement, especially the arbitrary-subset reduced-component scheme-intersection formula. Do not credit the general symmetric corank condition, continuants, or the numerical corank-two degree as new. The closest spider result calls the path an established boundary case without identifying the source; priority for path support and nodes taken alone remains uncertain.
+
+## value
+
+PASS
+
+The path is the canonical sparse symmetric matrix pattern. Knowing that the general corank-drop degree persists says nothing about how this specialization splits. The complete intersection law describes every overlap, even its scheme and degree, and the generic node identifies the singularity of each component. These are useful structural invariants for comparing determinant hypersurfaces across sparsity patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

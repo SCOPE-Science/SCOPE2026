@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem concerns exactly \(2\le n\le14\). Both standalone checkers enumerate all \(2^n\) words, all \(n-1\) cuts, and all candidate MCS intervals, comparing every proper border for an exact two-occurrence condition and both available one-character extensions. Exact maxima are \((1,1,2,2,3,3,4,4,5,5,6,7,8)\); exactly four length-14 pairs have eight crossings. The proof is exhaustive in a finite domain; no finite-to-infinite leap occurs. The eight witnessing intervals and their borders are additionally explicit. Both programs were replayed from the package.
+## correctness
 
-**Originality — PASS against inspected evidence.** Faro–Marino–Pavone, arXiv:2611.11552v1, Section 7 (full text, pp. 12–13), establishes the universal \(3(n-1)\) bound and a near-half-density construction but leaves the sharp constant open. This does not assert the first crossing of \(\lceil n/2\rceil\), enumerate the finite maxima through fourteen, or classify the four extremal pairs. Fischer–Köppl, arXiv:2610.38114v1, develops MCS enumeration machinery but not a worst-case cut-density census. Searches of published records for fourteen-bit gap crossing, MCS cut extremizers, and matching binary witnesses did not surface an equivalent. The absence of matches is not a novelty proof; prior code or unpublished enumeration may exist. The 2022/2026 original MCS result was read at abstract/metadata level only.
+PASS
 
-**Value — PASS.** The motivating 2026 local-density problem currently has a lower construction of approximately one-half the length and an upper bound three times the length. The precise finite question of the first length exceeding the natural ceiling-half benchmark has a sharply determined answer, length fourteen, together with the complete unique symmetry orbit. This establishes an exact boundary and a nontrivial minimal stress test for potential improved global extremal inequalities or data structures. It is not just a recomputation of a published table, and it does not claim to improve the asymptotic leading constant.
+The claim concerns positional occurrences and one-based internal cuts in indexed binary words. The proof tests all proper borders at all starting positions (including overlaps), then rules out closed one-letter extensions only on available sides. For a zero-based interval [i,j] the crossed one-based cuts are i+1 through j inclusive, so the difference marks at i+1 and j+1 count exactly the desired occurrences. A freshly written exact enumeration independently exhausts all words at lengths 2 through 14 and gives (1,1,2,2,3,3,4,4,5,5,6,7,8). The only pairs at eight crossings at length 14 are 00101110100011@8, 00111010001011@6, 11000101110100@6 and 11010001011100@8; reversal with g mapped to 14-g and complementation give the four distinct pairs from the first. The maximum at length 13 equals, rather than exceeds, its ceiling-half benchmark. This proves the finite first threshold and rigidity, not an asymptotic statement.
 
-**Residual scientific risks.** The first-threshold theorem is strictly finite; it does not settle the open optimal constant or offer any infinite extrapolation. Priority remains subject to papers, software, or unpublished datasets not located in the reported search. General MCS enumeration methods can independently recompute the finite answer but do not logically subsume its explicit complete classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact unrestricted finite maxima, the exclusion of earlier ceiling-half excesses, and the exhaustive classification at 14 survive the closest comparisons. The same-day persistent-density record already supplies F₂(14)≥8 and one representative of the very same orbit (hence all four witnesses by symmetry); no independent originality or chronological priority is credited for that construction. The construction does not show maximality, uniqueness, or absence of earlier excesses.
+
+## value
+
+PASS
+
+The binary cut-extremal function is the same local-density observable as in the published bounds. The stronger rounded half benchmark asks exactly when a cut first supports more than ceiling-half many occurrences. The first excess and the unique extremizer orbit distinguish an exact finite boundary from merely producing high-density examples, and supply a useful benchmark for future structural bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

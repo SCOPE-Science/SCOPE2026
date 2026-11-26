@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:21:39.154590Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Brownian generator d²/dx² the time-changed zero-start cycle is the integral of |B|^alpha up to the first hit of ±L. The even Feynman–Kac solution of u''=s|x|^alpha u with u(±L)=1 yields the reciprocal hypergeometric transform. Its linear term gives m=L^p/[p(p-1)], p=alpha+2, and expansion of the reciprocal at zero gives Var(Z)=1/(b+1) after normalizing Z=cycle/m. The Bessel product F_b(z)=prod_k(1+z/zeta_{b,k}) identifies Z as a sum of independent exponentials of rates zeta_{b,k}. This gives a continuous nonlattice law, exponential moments below the first rate, and an exact logarithmic survival exponent -zeta_{b,1} by a first-term lower bound and Chernoff bounds. On z>-zeta_{b,1}, (log F_b)'=sum_k 1/(z+zeta_{b,k}) strictly decreases from infinity to zero, so the analytic SCGF inverse has increasing slopes from zero to infinity. The exponentially tilted renewal kernel has mass one and finite mean; e^(-lambda u) P(Z>u) is continuous and exponentially bounded because lambda>-zeta_{b,1}. The key renewal theorem yields the claimed SCGF for every real tilt. Gärtner–Ellis gives the good rate at speed t/m, with the zero-current value also verified by the survival event. Strict convexity on the effective domain follows from strict increase of the optimizing tilt, and the exact upper-tail limit follows by continuity of the good rate and monotonicity above one. The modified Bessel asymptotic gives lambda(theta)~theta²/(4b); bounding it between nearby quadratics and maximizing gives I_b(j)~b j². The positive-power coefficients at every order >=2 increase strictly with b, forcing a smaller positive-tilt SCGF for larger b; evaluating the second transform at the first model's positive optimizer proves strict rate ordering for every j>1. The standard renewal mean and variance asymptotics apply to this continuous law with exponential moments, giving the Fano factor. An independent rational check reproduced the moment normalization and coefficient ordering (four b values, orders 2–12); at j=1.5 reproduced rates ranged from 0.172791253322 at b=1/2 to 0.206209753518 at b=3/4. These are corroboration only. The frozen verifier was inspected, not run; its reported 286 checks are not formal verification or independent attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frimpong et al. obtain the same threshold-reset cycle mean and a reset renewal relation.",
+          "Martin et al. analyze Bessel exit with an absorbing origin in the relevant bounded-interval passage; the coordinate reduction in arXiv:2610.34568v2 yields dimension 2b but analyzes different reset/extremal observables."
+        ],
+        "reasoning": "General Bessel and renewal tools supply proof inputs. The inspected results do not state a general normalized strict rate ordering that covers the present one.",
+        "searches": [
+          "arXiv:2610.21962v1, Eq. (26) and threshold renewal equation",
+          "arXiv:1007.4588, §IV.5.3",
+          "arXiv:2610.34568v2, §2.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21962v1",
+        "arXiv:2610.19233v1",
+        "arXiv:1007.4588",
+        "arXiv:2610.34568v2",
+        "Resultary e990596a9b02",
+        "Resultary 5f67338ca3a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known cycle transforms together with generic inverse-renewal LDP theory give the SCGF equation by substitution. Bessel asymptotics explain the two edges.",
+          "The strict comparison needs ordering F_b for every positive tilt, not just first or second moments."
+        ],
+        "reasoning": "The prior implications establish substantial supporting pieces, but none of the checked statements entails the central strict comparison by mere parameter substitution. It comes from coefficient ordering and evaluating at a common, positive Legendre tilt.",
+        "searches": [
+          "Clark Eq. (4) and Frimpong et al. threshold-renewal passages",
+          "Resultary e990596a9b02, §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clark's zero-start Bessel exit transform becomes F_b(z)^(-1) upon taking nu=b-1 and multiplying the exit time by 2b.",
+          "Resultary e990596a9b02 gives the same cycle transform when the two absorbing levels are symmetric."
+        ],
+        "reasoning": "These equivalences cover the clock distribution, not its inverse-renewal profile or the strict order of the normalized count rates. The source does not claim a new cycle transform.",
+        "searches": [
+          "Threshold-reset count large deviations, normalized Bessel exit clock, renewal rate ordering",
+          "arXiv:2610.19233v1, Eqs. (1)–(4)",
+          "Resultary search for sluggish-diffusion reset current and deviations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e990596a9b02 overlaps on the nonreset two-boundary transform; 5f67338ca3a7 treats centered occupation-cycle variance rather than count deviations."
+        ],
+        "reasoning": "The strongest catalogue overlaps are on a known transform and a different normalized statistic, not an exact count-rate profile in b. The same-day dates do not resolve priority.",
+        "searches": [
+          "Resultary: threshold reset current, normalized count Fano factor, Bessel cycle deviations and burst suppression"
+        ]
+      },
+      "rationale": "The cycle transform and mean are covered, and the count SCGF mechanism is standard renewal theory. The supported distinct claim is the explicit normalized reset-count deviation profile, notably its strict all-upper-tail rate comparison in sluggishness. None of the checked closest results supplies that comparison or the full count profile. Priority is not certified.",
+      "residual_risks": [
+        "A stronger unlocated comparison theorem for normalized Bessel exit laws could imply the strict positive-tilt order.",
+        "Same-day catalogue dates do not establish priority among related cycle-law analyses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL COVERAGE: renewal model and cycle mean",
+          "evidence": [
+            "Eq. (26) gives the mean L^(alpha+2)/[(alpha+1)(alpha+2)]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21962v1",
+          "material_read": "Threshold renewal equation and Eq. (26), OA offsets 34500 and 37148",
+          "method": "Read bounded OA passages",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Identical symmetric threshold-reset model"
+        },
+        {
+          "assessment": "COVERS the cycle law, not the inspected claim about count rates",
+          "evidence": [
+            "Reciprocal 0F1(;b;lambda/2) with an instantaneously reflecting origin for -1<nu<0."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19233v1",
+          "material_read": "§1, Eqs. (1)–(4), pp. 1–2, OA offset 1800",
+          "method": "Read bounded OA passage",
+          "title": "Moment-optimal Gamma approximation of Bessel Process exit times",
+          "trigger": "Possible equivalent exit law or normalization comparison"
+        },
+        {
+          "assessment": "RELATED, different relevant origin condition",
+          "evidence": [
+            "Exit from a finite interval with absorption at its origin endpoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1007.4588",
+          "material_read": "§IV.5.3, OA offset 66500",
+          "method": "Read bounded OA passage",
+          "title": "First-passage and first-exit times of a Bessel-like stochastic process",
+          "trigger": "Classical spectral results for closely related exit times"
+        },
+        {
+          "assessment": "COVERS the Bessel mapping, not the count-current result",
+          "evidence": [
+            "The coordinate change gives Bessel dimension 2b."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.34568v2",
+          "material_read": "§2.2, Eqs. (6)–(9), OA offset 13000",
+          "method": "Read bounded OA passage",
+          "title": "Sluggish diffusion with Poisson-reset extrema",
+          "trigger": "Same power-coordinate reduction and reset renewal machinery"
+        },
+        {
+          "assessment": "COVERS the one-cycle transform by symmetry, not the threshold-reset count comparison",
+          "evidence": [
+            "Setting a=b=L in the nonreset first-exit transform gives the frozen cycle transform."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-joint-bilateral-excursion-extremes-and-logistic-spatial-imbalanc--e990596a9b02",
+          "material_read": "RESULT.md finding and §1, expression for H_u(a,b)",
+          "method": "Read the local indexed mirror passage",
+          "title": "Joint bilateral excursion extremes and logistic spatial imbalance",
+          "trigger": "Strongest catalogue overlap on nonreset symmetric exit law"
+        },
+        {
+          "assessment": "NOT COVERING; different observable",
+          "evidence": [
+            "The variance is for a centered occupation reward, not the rate profile of the cycle count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-universal-centered-cycle-variance-for-threshold-reset-sluggish-d--5f67338ca3a7",
+          "material_read": "RESULT.md finding",
+          "method": "Read the local indexed mirror passage",
+          "title": "Universal centered cycle variance for threshold-reset sluggish diffusion",
+          "trigger": "Same reset protocol and cycle variance terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At each model's own mean reset rate, the theorem contrasts the cost of both moderately and arbitrarily elevated currents, not just their local variance. It resolves which process is exponentially less likely to sustain any fixed j>1, and separates the physical clock scale from shape effects by giving both sharp rate edges. This is useful specifically for the threshold-reset observable; it does not assert an ordering at equal unnormalized currents or for the lower tail.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

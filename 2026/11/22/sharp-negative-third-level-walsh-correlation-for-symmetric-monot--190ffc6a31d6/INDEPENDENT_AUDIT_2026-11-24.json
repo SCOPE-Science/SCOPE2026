@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:55:58.831041Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–72: normalization, threshold reduction, extremal lattice indices, equality and asymptotics",
+        "Frozen VERIFICATION.md and check_level3.py inspected as support, not executed",
+        "Independent exact finite replay: for n=3,…,8 sum (−1)^|x∩S| over cube vertices of weight at least t for every threshold and every triple S, divide by 2^n, then minimize the resulting threshold-pair sums. This checked 882 coefficients with their formulas and all threshold minima and ties. The minima in order were −1/32, −1/64, −5/256, −5/512, −35/2048 and −105/8192."
+      ],
+      "rationale": "With the stated normalized Walsh convention, symmetry makes the triple coefficients common. For T_t, summing the signs over the three distinguished bits gives coefficients −1, 2, −1 at remaining weights t−1,t−2,t−3, respectively, and zero elsewhere. Rewriting the three binomials over the common binomial of order m=n−1 gives −F_m(t−1)/[2^n m(m−1)]. A monotone symmetric function is a constant plus nonnegative threshold increments of total mass at most 1. The triple coefficient therefore lies in the interval with opposite-sign endpoints −P_m/[2^n m(m−1)] and Q_m/[2^n m(m−1)]. For j=m−2k>1, the difference of successive F_m's has the sign of j²−2j−3m, so the left positive maximum is at the first lattice point at or below the positive root 1+√(3m+1), clipped to k≥0. Equality of the adjacent values occurs exactly at that root; j=1 instead accounts for odd-center reflection. The negative minimum is at the central index or pair, since both the binomial and the positive factor m−j² are largest there in the negative band. The minimum coefficient product is the product of opposite endpoints, and equality requires unit threshold mass supported only on the indices giving the respective endpoints. This proves the exact bound and all equality cases, including ties. At the positive peak j=√(3m)+O(1); Stirling gives P_m/2^m=2m√(2/(πm))e^(−3/2)(1+O(m^−1/2)) and Q_m/2^m=m√(2/(πm))(1+O(m^−1/2)). The factor 2^(2n)=4·2^(2m) then gives the claimed limit −e^(−3/2)/(6π) with the stated error, and the location scales follow from the same lattice estimate.",
+      "residual_risks": [
+        "The independent finite reproduction used n=3,…,8; it does not certify arbitrary dimensions or the limit. Both are covered by the analytic argument. No formal verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Li–Wang–Wang give a third-level lower bound on a broader increasing class using W_1 and variances and give a three-variable example for their ratio",
+          "Chang's covariance inequality uses a weighted sum of products of squared Fourier coefficients"
+        ],
+        "reasoning": "Neither bound as inspected sharpens to the stated negative cross-level-three extremum on the symmetric subclass. The former depends on other statistics and the latter concerns full covariance and squared coefficient products, which discard the signs that determine this optimum.",
+        "searches": [
+          "arXiv:2611.08289, Theorem 1.3 and §6",
+          "arXiv:2606.08958, abstract and displayed headline bound"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work discussion",
+        "Exact mirrored Resultary self-match, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2611.08289 and arXiv:2606.08958 passages cited above",
+        "Documented lawful Bernasconi access attempts and alternate-copy search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ratio example in §6 does not certify an absolute all-n optimum, and the spectral covariance bound is not a signed W_3 optimization."
+        ],
+        "reasoning": "Obtaining the proposed equality set and limit requires the two signed endpoint optimizations and the local binomial asymptotics. The inspected prior inequalities do not imply those calculations or exact outputs; the self-hit has no independent priority or coverage bearing.",
+        "searches": [
+          "arXiv:2611.08289, Theorem 1.3 and §6 ratio problem; arXiv:2606.08958, abstract; compared local exact Resultary hit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the same record",
+          "Theorem 1.3 uses first-level cross-correlation and individual variances; §6 treats a different sharp ratio, C*",
+          "Claimed Krawtchouk representation comparison in the frozen text; the underlying Bernasconi passage was not accessible"
+        ],
+        "reasoning": "Symmetry reduces the objective to a scalar coefficient product; after monotonicity is imposed, its endpoints are maxima of signed binomial-weighted quadratic values. This is not equivalent to optimizing a ratio involving the first level and variances, which vary with the function pair. Re-expressing the third coefficient via a Krawtchouk identity would give a representation, but not automatically the signed maximization and equality classification. Whether that paper itself includes the optimization was not resolved.",
+        "searches": [
+          "Local Resultary search for the sharp negative third Walsh-level cross-correlation of symmetric monotone functions",
+          "\"Harmonic analysis and Boolean function complexity\" Bernasconi 149 186 full text pdf symmetric threshold Krawtchouk",
+          "arXiv:2611.08289, Theorem 1.3 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact formula, index families and limit are a self-match, with no distinct matching entry surfaced",
+          "Any standard table of Walsh or Krawtchouk coefficients would list coefficient values; no independent exact signed-peak/equality table was located in accessible evidence"
+        ],
+        "reasoning": "A coefficient table would allow finite evaluation but would not establish which two signed peaks optimize the product for every n, especially at lattice ties. No inference about the contents of the inaccessible article is made from the lookup.",
+        "searches": [
+          "Local Resultary exact Walsh correlation and symmetric threshold search; matching mirrored RESULT.md",
+          "Bernasconi article DOI and lawful full-text lookup as recorded below"
+        ]
+      },
+      "rationale": "The evidence supports as distinct the exact absolute minimum in the bounded symmetric monotone class, with its explicit equality families and limiting constant. General spectral or covariance bounds and standard threshold coefficient representations are not the distinct contribution. The Bernasconi full-text comparison could not be completed and is not counted as evidence against prior coverage.",
+      "residual_risks": [
+        "Bernasconi's article could not be read in full text; prior coverage of the specialized level-three signed peak or equality classification there remains unresolved. Access failure is not evidence of novelty.",
+        "The bounded local and public searches and targeted passages do not certify historical priority or exclude an equivalent unindexed formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent corroboration",
+          "evidence": "Same sharp value, equality class and limiting constant.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-negative-third-level-walsh-correlation-for-symmetric-monot--190ffc6a31d6",
+          "material_read": "Mirrored RESULT.md finding and matching claim",
+          "method": "Local Resultary search and local mirror",
+          "title": "Sharp negative third-level Walsh correlation for symmetric monotone functions",
+          "trigger": "Exact semantic search hit"
+        },
+        {
+          "assessment": "Related cross-level bound and different sharpness question",
+          "evidence": "The third-level bound is expressed via the first level and variances; §6 studies a ratio C* with a three-variable example and leaves its sharp value open.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.08289",
+          "material_read": "Theorem 1.3, PDF p. 3 around offset 10000; §6, p. 19 around offset 82000",
+          "method": "Lawful OA primary PDF, targeted passages",
+          "title": "Fourier level inequalities on the discrete cube via complex hypercontractivity and Riesz transforms",
+          "trigger": "Direct third-level inequality and sharpness discussion"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "The cited Academia copy returned HTTP 403 and publisher routes did not yield text. The alternate search did not identify another readable copy. The frozen account attributes a Krawtchouk representation to this source, but is not primary verification of its scope.",
+          "identifier_or_url": "https://doi.org/10.1007/S100920050014",
+          "material_read": "Bibliographic identification only; no primary mathematical passage verified",
+          "method": "Lawful OA lookup via the cited Academia copy and publisher routes; targeted alternate-copy search",
+          "title": "Harmonic analysis and Boolean function complexity",
+          "trigger": "Potential prior symmetric-threshold coefficient and peak calculation"
+        },
+        {
+          "assessment": "Different invariant and conclusion",
+          "evidence": "The statement treats covariance bounded via weighted products of squares of Fourier coefficients, with a separate pointwise inequality; it does not state the signed third-level absolute extremum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.08958",
+          "material_read": "PDF p. 1, abstract around offset 0",
+          "method": "Lawful OA primary PDF, targeted headline statement",
+          "title": "A spectral correlation inequality for increasing Boolean functions",
+          "trigger": "Potential covering spectral correlation inequality for increasing functions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 43–72",
+        "arXiv:2611.08289, Theorem 1.3 and §6, for the related but different level-three sharpness problem"
+      ],
+      "rationale": "Exact cross-correlations at one Walsh level are relevant because nonnegative total covariance for monotone inputs does not force nonnegative levelwise correlations. On the natural symmetric subclass this result quantifies how negative level three can be, supplies all equality shapes (including nongeneric lattice ties), and shows that the negative value persists at order one in high dimension. That separates a structural extremal phenomenon from a one-off small counterexample or a coefficient identity.",
+      "residual_risks": [
+        "The useful precise constant and equality classification are confined to bounded symmetric monotone inputs; they do not give the unrestricted monotone optimum or the prior ratio constant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

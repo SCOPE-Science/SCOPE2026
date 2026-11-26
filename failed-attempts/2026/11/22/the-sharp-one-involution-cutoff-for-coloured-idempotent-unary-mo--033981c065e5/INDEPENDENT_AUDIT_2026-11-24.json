@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:18:45.962460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Idempotence makes each component a fixed root with leaves. An isomorphism preserves root colour and the multiset of leaf colours. For k copies of a type with leaf multiplicities m_i the automorphism factor is k! times (product m_i!)^k. Order two thus comes only from one doubled leaf colour in one component, or one doubled rigid component type; all other leaf and component multiplicities must be at most one. This gives the two nonnegative terms in the polynomial. A sorted list of rigid weights contains every size 1 through q+1; at each step the next weight is at most one plus the preceding sum, so subset sums contain the entire interval through N_q. The internal defect can add every size from 3 through q+2; the external defect supplies size 2 and adds at most q+1 to the maximum rigid inventory. At the top size, all rigid types are present and precisely two independent colours (root and repeated leaf) specify the defect. The empty and one-point models are rigid. Orbit–stabilizer gives n!/2 labelled copies per class. Direct polynomial arithmetic gives the stated q=1 coefficients and the q=2 total 256(8+4)=3072. See RESULT.md lines 28–48 and checker.py lines 30–52, 80–125 for the frozen polynomial construction and finite diagnostic; the checker was inspected, not executed, and the all-q derivation does not require it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The marked-automorphism identity counts all automorphisms of each model and gives a route to unlabelled counting, not the order-two stratum.",
+          "Proof §1 of 4dcdd3147eb1 begins 'Fix any rooted hierarchy with children grouped by isomorphism type'; §2 uses only child size and the rigid and order-two inventories."
+        ],
+        "reasoning": "The second source, unlike the first, supplies a stronger applicable order-two census construction; weights may count any additive child sizes because the automorphism formula is independent of the weights.",
+        "searches": [
+          "arXiv:2608.30580 §4.1 Theorem 2",
+          "Resultary 4dcdd3147eb1 Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and technical verification notes",
+        "Resultary 4dcdd3147eb1",
+        "Resultary 4d19fd7927e8",
+        "arXiv:2608.30580"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With leaves alone, rigid multisets including the empty one have polynomial (1+t)^q; order-two leaf multisets have polynomial q t²(1+t)^(q−1) by the prior height-one rule.",
+          "Multiply each by qt for a mandatory root of any named colour; the child inventories are A=qt(1+t)^q and B=q²t³(1+t)^(q−1). For P=product_s(1+t^s)^([t^s]A), the prior order-two multiset rule is P(B+sum_s [t^s]A t^(2s)/(1+t^s))."
+        ],
+        "reasoning": "P=R_q and substitution yields exactly the frozen polynomial. Its internal term has contiguous support from 3 to deg(P)+q+2 by the prior rigid support, and leading coefficient q². The duplication term starts at 2 and has degree only deg(P)+q+1. The full claimed order-two classification, not merely the rigid cases, is a direct specialization.",
+        "searches": [
+          "Resultary 4dcdd3147eb1 whole recurrence, Proof §§1–3",
+          "Resultary 4d19fd7927e8 Finding and Proof §§1–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rigid census identifies identical rooted-star isomorphism types, including the distinction between root and nonroot colours.",
+          "Nested-equivalence Proof §§1–2 identifies a rooted hierarchy with its child-type multiset and counts order two by one order-two child or by two copies of one rigid child."
+        ],
+        "reasoning": "Use a top node with the coloured rooted stars as children, and count the root but not the top node. This is an exact isomorphism- and automorphism-preserving weighted hierarchy encoding. It is not an identification with the unrestricted q-colour univariate counts.",
+        "searches": [
+          "Resultary: sharp rigidity capacity for coloured idempotent unary models (4d19fd7927e8)",
+          "Resultary: sharp one-involution capacity for coloured nested equivalences (4dcdd3147eb1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-class census explicitly gives R_q and its sharp gap-free rigid cutoff N_q but does not tabulate the order-two counts.",
+          "The nested-equivalence table gives a different q=2, K=1 cutoff (7 rather than 20) for an unrooted class; it is not a matching numerical table."
+        ],
+        "reasoning": "The available inventories were compared at statement level rather than treating related numerical data as the same table. The absence of a matching displayed table does not undo exact formula-level coverage.",
+        "searches": [
+          "Resultary same-class rigid census 4d19fd7927e8",
+          "Resultary nearby order-two census 4dcdd3147eb1"
+        ]
+      },
+      "rationale": "The univariate numbers for unrestricted nested equivalences differ, but the prior rooted-multiset order-two result is stated for any rooted hierarchy and its polynomial construction applies to any inventory of admissible child types. A coloured rooted star is a chosen root colour plus the prior height-one leaf multiset, now allowing it to be empty and adding one counted vertex for the root. Substituting those two child polynomials gives the entire proposed F_q, not just an analogy, and its support and extremal multiplicity follow directly from the resulting positive products and the already-known gap-free rigid inventory. This is demonstrated prior implication, not failure to locate an exact displayed formula or to obtain a paper.",
+      "residual_risks": [
+        "No claim that the exact displayed formula previously appeared verbatim. The fail rests on the proven implication, independent of other possible literature or priority claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the assigned census by specialization of its general proof, although the displayed unrestricted equivalence model is different",
+          "evidence": "Any rooted hierarchy admits the exact product over child automorphism orders and multiplicity factorials; its order-two polynomial depends only on rigid and order-two child types by size.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-one-involution-capacity-for-coloured-nested-equivalences--4dcdd3147eb1/RESULT.md",
+          "material_read": "Finding recurrence and Proof §§1–3; direct reading at offset 3000 covers the universal factorization and both polynomial terms",
+          "method": "Resultary index and original Markdown via the local mirror",
+          "title": "Sharp one-involution capacity for coloured nested equivalences",
+          "trigger": "Same order-two problem on rooted multisets; generality of the recurrence is decisive"
+        },
+        {
+          "assessment": "Supplies exact rooted-star encoding and rigid inventory but not alone the order-two enumerator",
+          "evidence": "Same R_q, degree N_q, contiguous rigid support; same root-colour/leaf-multiset component identification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-rigidity-capacity-and-exact-census-of-coloured-idempotent--4d19fd7927e8/RESULT.md",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Resultary index and original Markdown via the local mirror",
+          "title": "Sharp rigidity capacity and exact census of coloured idempotent unary models",
+          "trigger": "Identical model class and component inventory"
+        },
+        {
+          "assessment": "The marking theorem is not the needed order-two inventory",
+          "evidence": "FOMC with a marked automorphism equals n! times UFOMC; it sums rather than separates orders.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.30580",
+          "material_read": "§4.1, Theorem 2, p. 11 (text offset 38300)",
+          "method": "Lawful OA PDF passage",
+          "title": "Unary Functions, Automorphisms, and Unlabeled First-Order Model Counting",
+          "trigger": "General automorphism marking could cover the exact stratum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The cutoff is natural and the explicit census is convenient, but it repackages the prior generic two-defect rule with the directly shifted height-one inventories. The endpoints and top count are immediate degree and interval consequences of the same substitution. No independently unknown exact invariant or further obstruction survives this overlap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

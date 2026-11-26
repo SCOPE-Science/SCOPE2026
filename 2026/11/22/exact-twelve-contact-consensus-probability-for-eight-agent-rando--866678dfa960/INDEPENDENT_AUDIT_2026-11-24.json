@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:17:02.091375Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and Proof §§1–3",
+        "VERIFICATION.md and verify.py inspected but not executed",
+        "Independent perfect-matching and linear-extension enumeration"
+      ],
+      "rationale": "All coefficient rows stay dyadic and sum to one; general position and mean conservation identify opinion consensus with every row equal to the uniform row. The sum of Shannon entropies must increase from 0 to 24, while mixing two rows gives at most 2 bits by conditioning on a fair input-source bit. Equality identifies the source from the sampled label, i.e. disjoint supports. Starting at the terminal uniform rows and reversing, disjointness forces each contributing parent to be uniform on exactly half of the merged support. Thus at length 12 every agent participates once at each of the three support-doubling stages. Conversely twelve valid equal-cardinality disjoint unions reach entropy 24 and hence consensus; no shorter word qualifies. I independently reproduced the count using triples of perfect matchings and exact linear-extension counts, not the frozen forward state recurrence. For a fixed first matching, 384 viable triples each admit 49,920 words and 96 each admit 51,200. There are 105 choices of the first matching by relabeling. Thus 105*(384*49920+96*51200)=2528870400, and exact reduction after division by 28^12 gives 225/20661046784. The same method gives 24 of 1296 four-agent words.",
+      "replay": "Recursively list matchings by pairing the least remaining label with each possible partner. Fix the first matching; for each of the following two stages loop over all matchings and retain those joining disjoint supports of their endpoints, replacing each endpoint support by the union. For each retained triple put one node per contact and add precedence from each endpoint's contact at the previous stage. Record its parent set p_j. On the performed-node subset B set E(full)=1 and E(B)=sum E(B union {j}) over j not in B with p_j subset B; tally E(empty) over triples. Disjoint-agent contacts cannot affect one another's inputs, so every such order is legal, and a chronological word uniquely determines each agent's three ranks and the triple. Independent Python replay ran this algorithm; the stated histogram is the output.",
+      "residual_risks": [
+        "The count is finite and label-sensitive, with no claim for sixteen agents or non-general-position inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shi et al. give the general kn/2 pair-event lower bound and a fastest construction for n=2^k.",
+          "Krapivsky and Plakhov's Section IV explicitly describes the minimum-event probabilities as known only through k=2 at the time of that paper."
+        ],
+        "reasoning": "An optimum and a witness do not count all realizations of that optimum. Retrieved indexing pages for the compromise paper add no independent enumeration.",
+        "searches": [
+          "“Finite-time consensus in a compromise process” mu_k minimal horizon hitting probability eight agents pair averaging exact enumeration",
+          "arXiv:1206.0992, §§2.3–2.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.01024v3",
+        "arXiv:1206.0992",
+        "Resultary:43d4bc8e974e",
+        "Resultary:866678dfa960 (assigned item)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Canonical staging preserves the product and edge support but discards original interleavings. The independent chronological-order count has two different extension counts with frequencies 384 and 96, not the topology frequencies 144 and 336."
+        ],
+        "reasoning": "The same-day classification is a real structural overlap and an alternative starting point for the count, not its evaluation. Even within at least one of its topology classes the extension count varies, so multiplying the published class totals by a common factor does not recover the claim. The additional weighted enumeration, or the frozen direct word-state recurrence, is the distinct result. Same-day order is unknown.",
+        "searches": [
+          "Resultary:2026/11/22/SCOPE-two-and-only-two-shortest-consensus-edge-topologies-on-eight-age--43d4bc8e974e, Proof §§2–3 and Verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior random compromise model defines mu_k=P_k(m_k) with m_k=k2^(k-1), uses the same pair sampling, and gives mu_2=1/54 but no mu_3.",
+          "Resultary's distinct same-day topology study uses the same support-doubling rule and orders the contacts into three perfect-matching stages up to commuting independent contacts."
+        ],
+        "reasoning": "A probability over all chronological labelled words is not the probability over topology classes, triples of stage matchings, or synchronized matching rounds.",
+        "searches": [
+          "Resultary: Krapivsky Plakhov mu_3 minimal horizon; eight-agent gossip; shortest-time probability; pair averaging",
+          "arXiv:2509.01024v3, Section IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact numerator hit with suffix 866678dfa960 is the assigned record itself.",
+          "The distinct topology record with suffix 43d4bc8e974e tabulates 480 matching pairs after fixing the first stage: 144 cube and 336 Wagner. It does not tabulate chronological word counts.",
+          "The primary paper tabulates the four-agent probability; its data are not the eight-agent numerator."
+        ],
+        "reasoning": "The published topology counts and the four-agent probability concern different observables; neither is the exact eight-agent table sought.",
+        "searches": [
+          "Resultary exact count 2528870400 and shortest consensus topology searches",
+          "arXiv:2509.01024v3, Sections IV and V.1"
+        ]
+      },
+      "rationale": "The count of ordered twelve-contact words, and hence the eight-agent minimum-time probability, is distinct on the evidence examined. Minimum length and a staged matching reduction are not credited as distinct; a same-day structural result materially overlaps those parts but does not count the orderings.",
+      "residual_risks": [
+        "Resultary retrieval and primary searches are bounded; an unindexed order-sensitive enumeration could exist. No priority ordering is inferred between the same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports the prior minimum horizon and open eight-agent case; not a covering enumeration",
+          "evidence": [
+            "mu_k=P_k(m_k); m_k=k2^(k-1); mu_2=1/54, and k>2 is not evaluated."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.01024v3",
+          "material_read": "Introduction, Section IV equations (15)–(17c), and Section V.1",
+          "method": "Open primary full-text passages and statement comparison",
+          "title": "Finite-time consensus in a compromise process",
+          "trigger": "Exactly the same uniform random averaging model"
+        },
+        {
+          "assessment": "Minimum length and existence, not all shortest chronological words",
+          "evidence": [
+            "At n=8 the kn/2 contact lower bound equals 12 and is attained."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1206.0992",
+          "material_read": "Sections 2.3–2.4",
+          "method": "Open primary full-text passages",
+          "title": "Finite-time Convergent Gossiping",
+          "trigger": "Earliest minimum-time and fastest schedule construction for symmetric gossip"
+        },
+        {
+          "assessment": "Material same-day overlap in rigidity and admissible stages, not the ordered count",
+          "evidence": [
+            "The study replaces words by three consecutive perfect matchings for topology, yielding 144 cube and 336 Wagner cases per fixed first matching."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-and-only-two-shortest-consensus-edge-topologies-on-eight-age--43d4bc8e974e/RESULT.md",
+          "material_read": "Finding and proof, particularly §§2–3 and Verification (local mirror offset 3700 onward)",
+          "method": "Read matching Resultary record in the local mirror; compared census against independent linear-extension counts",
+          "title": "Two and only two shortest consensus edge topologies on eight agents",
+          "trigger": "Same exact model, entropy rigidity and shortest horizon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2509.01024v3, Section IV",
+        "Frozen RESULT.md, Finding"
+      ],
+      "rationale": "The exact minimum-horizon probability was an explicit question for the same stochastic model, and eight agents are its first untreated size. The exact word-sensitive count is a meaningful benchmark for fastest possible uncoordinated averaging, not merely the minimum contact bound or a topology table.",
+      "residual_risks": [
+        "It is not a typical latency, general-size formula, approximate-consensus guarantee, or full hitting-time distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

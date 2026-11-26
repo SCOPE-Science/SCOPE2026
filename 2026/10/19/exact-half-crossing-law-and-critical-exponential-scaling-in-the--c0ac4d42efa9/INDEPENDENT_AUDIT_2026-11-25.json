@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:53:29.595243Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One exact replay is via binary digits, avoiding exceptional dyadic points: a uniform point of either half has a fixed first bit with an iid fair suffix. In a half, contraction prepends another copy of the current first bit and expansion deletes a copy. The run length of that first bit minus one is the shell depth; at entrance its law is P(K=k)=2^(−k−1). On crossing, the unrevealed suffix after the new first bit is again independent fair, even conditional on the previous shell history and waiting time. Thus the hitting probability of −1 from k is 1 for inward or zero drift and (v/u)^(k+1) for outward probability u>v. Averaging over K gives v/(2u−v), which equals ρ=(1−Δ)/(1+3Δ) on the favored half. The other half returns with certainty. Multiplying the conditional probabilities at successive crossings gives N=2G+s, with a geometric number of successful round trips, and at equality p=q every next crossing is certain. The geometric moments give 2ρ/(1−ρ)=(1−Δ)/(2Δ) on the favored side and one more elsewhere. Log ρ∼−4Δ gives the rate-2 limit for ΔN. On the original probability-one strong-law event for the map choices, removing the finitely many steps before the last crossing does not change the drift; translating depth to endpoint distance proves both logarithmic rates without assuming iid choices after conditioning on no future crossing. Read VERIFICATION.md and the two implementations in check.py; the 96 exact finite comparisons are frozen reports, not executed here or used to prove infinite behavior.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hata–Yano Thm. 1.1 expressly concerns p=1/2, and the following paragraph leaves p≠1/2 untreated.",
+          "Nakamura et al. assume equal choices and prove a generalized arcsine occupation limit, not biased total crossings.",
+          "The later indexed record also computes a transform of total occupation in the disfavored half and extends endpoint convergence to absolutely continuous starts; these separate results should not be confused with a crossing law for arbitrary initial data."
+        ],
+        "reasoning": "A broader class of maps at equal bias does not cover the off-critical parameter or observable, whereas the distinct later indexed work gives real same-object overlap.",
+        "searches": [
+          "arXiv:2108.01332 Eq. (1.10), Thm. 1.1 and following paragraph",
+          "arXiv:2206.00226v2 §1 and Thm. 1.2",
+          "Resultary 5028359ab319 Proof §§3–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFICATION.md, check.py",
+        "arXiv:2108.01332",
+        "arXiv:2206.00226v2",
+        "Resultary 5028359ab319"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An occupation-fraction weak limit for fair selection does not give successive escape probabilities or the terminal parity law for biased selection.",
+          "Classical hitting probabilities give only one excursion until the map-specific conditional reset is established. The actual later indexed return law directly implies the displayed total law up to fixed parity shifts and its critical scaling."
+        ],
+        "reasoning": "Credit the reset-to-biased-count inference over the older switch and occupation literature; do not treat a parity rewrite of the later published geometric count as a distinct invariant.",
+        "searches": [
+          "Off-critical implications of the original fair Hata–Yano theorem and the generalized core-map theorem",
+          "Resultary 5028359ab319 returns versus total crossing count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5028359ab319 states P(G=k)=(1−θ)θ^k with θ=(1−δ)/(1+3δ), and δG⇒Exp(4) for returns to the disfavored half from a uniform start there; N=2G+1 and hence δN⇒Exp(2).",
+          "In the opposite starting half, the disfavored start precedes a certain one-time crossing with a uniform reset. Dropping that first crossing recovers N=2G from the favored start, not a distinct new probability calculation."
+        ],
+        "reasoning": "Normalizing returns versus directed crossings and matching the two Bernoulli and initial laws shows the exact overlap, rather than relying on names or a geometric shape alone.",
+        "searches": [
+          "Biased Hata–Yano total half crossings, returns, excursion counts and geometric near-fair scaling",
+          "Resultary 5028359ab319 Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact geometric excursion-count formula appears in Resultary 5028359ab319. Its catalogue publication is 2026-11-08 UTC, after the frozen 2026-10-19 publication. No older exact crossing-count entry was verified in the bounded search."
+        ],
+        "reasoning": "There is an exact translated formula match, not just adjacent articles; its dated catalogue release does not establish antecedence.",
+        "searches": [
+          "Resultary search for exact biased Hata-map half-switch and excursion counts",
+          "5028359ab319 METADATA.json publication_date"
+        ]
+      },
+      "rationale": "The distinct supported contribution relative to the earlier inspected literature is the biased all-time crossing law, parity and near-fair scaling from uniform-half starts, not the maps, partitions or gambler’s-ruin formula. The strongest Resultary match is materially equivalent on the crossing law (for both starts via the reset), and has broader results on other observables. It has a later documented catalogue publication date, so it is not evidence that the frozen claim was previously established. This is an evidence-bounded finding, not a claim of unique historical priority.",
+      "residual_risks": [
+        "The cited 2019 Kyoto thesis was not inspected in full; an earlier excursion-count treatment there or under different terminology is not ruled out.",
+        "The later exact overlap is documented; no claim about its independent origin or the history of any unpublished version is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fair-choice occupation and return asymptotics; not the biased crossing law",
+          "evidence": [
+            "The paragraph after the theorem says they cannot say what happens when p≠1/2 because a Markov partition for the skew-product was not found."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.01332",
+          "material_read": "pp. 2–4: Eq. (1.10), Theorem 1.1 and following paragraph",
+          "method": "Primary OA text comparison",
+          "title": "Arcsine and Darling–Kac laws for piecewise linear random interval maps",
+          "trigger": "Original exact pair of maps and possible bias treatment"
+        },
+        {
+          "assessment": "Broader maps with equal selection; different occupation observable",
+          "evidence": [
+            "Choice probability 1/2 at every step; theorem gives an empirical occupation-fraction limit."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.00226v2",
+          "material_read": "pp. 2–5, choice setup and Theorem 1.2 Eq. (1.5)",
+          "method": "Primary OA text comparison",
+          "title": "Arcsine law for random dynamics with a core",
+          "trigger": "Broader family of core random maps"
+        },
+        {
+          "assessment": "Later exact coverage up to parity translation; stronger occupation information on a different observable",
+          "evidence": [
+            "Same θ as ρ, rate-4 limit for δG and exact geometric mass; N=2G+s translates these claims."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-biased-hata-maps-exact-excursion-counts-occupation-transform-and--5028359ab319/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§3–5 (offsets about 5300–9100), catalogue metadata",
+          "method": "Local mirror hypothesis and formula comparison",
+          "title": "Biased Hata maps: exact excursion counts, occupation transform and critical scaling",
+          "trigger": "Strongest same-model indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Total alternations are a natural measure of escape and persistence for this endpoint-intermittent pair, not a selected finite-time statistic. The exact biased renewal law locates the transition from finitely many alternations to almost-sure recurrent crossing, and its parameter scaling quantifies how trapping emerges. This useful exact fact was not given by the earlier fair-choice limit laws. Its scope does not include quenched initial points or the last-crossing time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:26:40.508718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof concerns a symmetric one-dimensional passive-scalar slab with a midplane sheet source of strength per unit horizontal area, not a three-dimensional point emitter. On either half the hyperbolic profile obeys the homogeneous ODE, with the Robin slope at the boundary and inward-coordinate slope Q/(2D) at the midplane, giving the correct source jump. Uniqueness follows from the homogeneous energy identity with positive bulk and boundary terms. The matched bulk value is Q/[2Dk(a+t)] in the paper's variables. Its ratio comparison uses a strictly increasing half-profile F with F(0)=1; (a+t)(B-1)=sinh(a)-a+t(cosh(a)-1)>0 and (a+t)(F(L/2)-B)=a cosh(a)-sinh(a)+t(a+t)sinh(a)>0. Hence there is exactly one crossing per half; the quadratic in exp(kz) is negative at 1 and increases through its larger root above 1, which is the displayed root. The exact mean sign follows independently by subtracting the two steady balances: rL times the mean difference equals 2Dkappa times the uniform value minus the wall value, strictly positive. The stated explicit mean follows by integrating the profile. For the switch-on claim in the proof, the passive Robin semigroup is sub-Markovian with the bulk factor exp(-rT), so the time integrals equal their steady values times T up to bounded remainders. Strict ordering is for each fixed height off the crossings, common positive breathing and a strictly increasing response, not a uniform exposure time or a claim at the crossings. The supplied finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bansal–Kaouri–Woolley compare uniform global removal with local Robin deposition in complex-room models and report global underestimation in the breathing zone.",
+          "Pretty et al. compare local purifiers to global ventilation: Fig. 5 gives opposite concentration signs near the purifier and source, and the mean comparison depends on configuration."
+        ],
+        "reasoning": "The prior model comparisons substantively cover the motivation and qualitative sign reversal, but do not provide an all-parameter theorem for the symmetric sheet-source slab with the specified surface-to-volume matching.",
+        "searches": [
+          "arXiv:2611.13372v2, abstract and secs. 2.1–2.2",
+          "arXiv:2309.16332, secs. 3–4 and Fig. 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.13372v2",
+        "arXiv:2309.16332",
+        "doi:10.1017/jfm.2024.294",
+        "Resultary: c3899ceabd4f (self-match)",
+        "Resultary: 1d30ea7555b9",
+        "Resultary: 81c86d36d15e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A central-overprediction or underprediction example does not fix both wall signs or the number of equalities. The local-ventilation equality contour neither fixes a count on the vertical interval nor guarantees a strict mean sign. The normalized survivor result has no matched global comparator."
+        ],
+        "reasoning": "The all-positive-parameter inequalities require comparing the monotone half-profile to the explicit matched uniform value and then using the steady flux balance. They are not parameter substitutions in the inspected comparison results.",
+        "searches": [
+          "Bansal–Kaouri–Woolley, model definitions and introduction",
+          "Pretty et al., Fig. 5 and preceding mean results",
+          "Aquino, JFM 985 A16, abstract and eq. (2.7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The half-slab is equivalently a homogeneous screened diffusion ODE with a Robin wall and a prescribed midplane flux, reflected to recover the sheet source.",
+          "Aquino uses Robin surface depletion for a transport equation but studies a normalized survivor distribution from an initial condition, not a prescribed steady flux compared with a uniform sink."
+        ],
+        "reasoning": "The Green-profile method and the boundary law are standard. The overlapping transport formulation does not identify the matched uniform comparison and its joint pointwise/mean ordering.",
+        "searches": [
+          "Resultary searches for steady one-dimensional Robin point-source profiles, wall loss versus matched bulk loss, and slab crossing plus mean bias",
+          "Primary literature search for steady Robin slab and matched bulk removal",
+          "Aquino, sec. 2, eq. (2.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c3899ceabd4f is the exact self-match. 1d30ea7555b9 gives exact point-source information on an unbounded line for inverse identification. 81c86d36d15e gives an exact reactive tail and survivor profile for a source-free transient."
+        ],
+        "reasoning": "These are the exact indexed analogues of a formula table here. Neither distinct result has both the forced finite slab and uniform comparator; the same-day record is distinct by subject, not excluded by its date.",
+        "searches": [
+          "Resultary steady Robin slab, wall-versus-bulk removal and exact crossover searches; c3899ceabd4f, 1d30ea7555b9, 81c86d36d15e"
+        ]
+      },
+      "rationale": "The models and the possibility of spatial sign reversals are not new. The inspected precedents do not supply the exact two-level crossing classification and simultaneously strict mean bias for every positive parameter in the stated matched symmetric slab.",
+      "residual_risks": [
+        "An unlocated applied diffusion or Green-function source could contain the equivalent calibrated slab comparison; ranked searches and inspected passages are not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model-class precedent, not this exact calibrated slab theorem",
+          "evidence": "Height-uniform removal model versus 3-D local boundary loss; the inspected passages report a breathing-zone direction, not an exact crossing count or strict matched mean bound.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13372v2",
+          "material_read": "Abstract; introduction around text offset 3780; secs. 2.1–2.2, offsets 6400–8957 and 11200–13448",
+          "method": "OA HTML passages",
+          "title": "Extending indoor airborne infection risk modelling to 3D, with local surface deposition",
+          "trigger": "Closest comparison of global removal with Robin deposition"
+        },
+        {
+          "assessment": "Substantive sign-reversal precedent, distinct mechanism and scope",
+          "evidence": "Numerical concentration differences change sign spatially and the mean difference is configuration dependent.",
+          "identifier_or_url": "https://arxiv.org/html/2309.16332",
+          "material_read": "Sec. 3, text offsets 25500–27840; sec. 4, Fig. 5, offsets 28800–31772",
+          "method": "OA HTML passages",
+          "title": "The effect of local ventilation on a spatiotemporal model of airborne disease transmission in indoor spaces",
+          "trigger": "Alternate local-versus-global model with sign reversals"
+        },
+        {
+          "assessment": "Relevant Robin boundary law but distinct survivor limit",
+          "evidence": "Constant surface depletion is a boundary law for an initial-value problem; equilibrium is a normalized surviving-mass distribution.",
+          "identifier_or_url": "https://doi.org/10.1017/jfm.2024.294",
+          "material_read": "PDF p. 1 abstract; p. 4 sec. 2 and eq. (2.7), text offsets 29400–32084",
+          "method": "OA PDF passages",
+          "title": "Equilibrium distributions under advection–diffusion in laminar channel flow with partially absorbing boundaries",
+          "trigger": "Robin transport result that could subsume the slab mathematics"
+        },
+        {
+          "assessment": "Different domain, comparator and invariant",
+          "evidence": "Unbounded-line inverse identification from observations under two flows, not a Robin finite slab.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-one-sided-concentrations-separate-diffusion-loss-drift-and--1d30ea7555b9",
+          "material_read": "RESULT.md Finding/Assumptions, offsets 0–2140",
+          "method": "Local published-record mirror",
+          "title": "Four one-sided concentrations separate diffusion, loss, drift and source parameters",
+          "trigger": "Distinct same-day point-source steady diffusion hit"
+        },
+        {
+          "assessment": "Distinct transient problem",
+          "evidence": "Source-free evolution with decaying wall reactivity and conditional survivor profile, not a steady forced comparator.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-reactive-tail-coefficient-and-universal-survivor-profile-f--81c86d36d15e",
+          "material_read": "RESULT.md Finding/Assumptions, offsets 0–1978",
+          "method": "Local published-record mirror",
+          "title": "Exact reactive-tail coefficient and universal survivor profile",
+          "trigger": "Closest indexed Robin profile result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model pair is motivated by whether replacing boundary losses with a matched volume loss preserves concentration ordering. The exact all-parameter result gives a concrete counterexample to a one-sided approximation: the model underestimates the mean while overestimating near both boundaries, with exactly determined sign regions. The simultaneous signs and exact count add usable information beyond the standard Green function or a numerical sign-reversal example. The value is limited to this passive, symmetric idealization, not a prediction for real rooms or a validation of an empirical calibration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

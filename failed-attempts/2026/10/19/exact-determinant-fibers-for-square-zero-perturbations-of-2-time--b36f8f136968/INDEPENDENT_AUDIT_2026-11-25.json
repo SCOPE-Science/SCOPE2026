@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:51.781010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–46; VERIFICATION.md, lines 19–32; verify.py, lines 4–86."
+      ],
+      "rationale": "For a nonzero square-zero matrix the image and kernel are the same line L. In a basis starting with L, each perturbation is tE12 with t nonzero, and det(A+tE12)=det A−ct, where c is the lower-left entry of A. Thus an invariant line supplies q−1 central points and any other line supplies one point to every off-center fiber; add N=0. Trace is fixed. In characteristic two, trace zero requires a scalar diagonalizable part and the unique scalar gives a square-zero difference by Cayley–Hamilton; nonzero trace gives q/2 split determinant values via the involution r↦s−r. In odd characteristic the split-distinct set has (q−1)/2 values by the discriminant test, and the scalar correction is one exactly when the original discriminant vanishes. Summing the corresponding fibers reproduces all case counts, including q=2 and q=3.",
+      "residual_risks": [
+        "The frozen exhaustive outputs for q=2,3,4,5,7,8 are recorded evidence, not a fresh execution. The projective-line proof applies to arbitrary finite fields independently of those tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The characteristic-two and odd-characteristic papers supply constructions or existence theorems, not counts in the inspected passages. The other catalogue records cover exact split-characteristic-polynomial fibers for a fixed three-dimensional Jordan block and existence for binary three-dimensional matrices, respectively."
+        ],
+        "reasoning": "Neither existence nor the different dimension alone covers the frozen counts. The earlier two-dimensional cone proof, rather than the superficially broader matrix decomposition literature, is decisive.",
+        "searches": [
+          "Danchev–García–Gómez Lozano arXiv:2604.15286v1, Proposition 2.2; arXiv:2507.05762v1, Section 2 and Theorem 2.2",
+          "Resultary d32bce017069 and 71d12e506077"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7b7188752131, d32bce017069 and 71d12e506077; arXiv:2604.15286v1 and 2507.05762v1; DOI 10.1080/03081087.2020.1862742 as quoted and attempted."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For trace s, each split determinant z=r(s−r) with distinct roots corresponds to the zero determinant fiber of (A−rI)+N, since square-zero perturbations preserve trace. Thus even the earlier d_q formula, applied to scalar shifts, supplies every distinct-split count. At a repeated root only a scalar is diagonalizable, contributing one exactly when the scalar difference is square-zero."
+        ],
+        "reasoning": "Both the all-z law and the complete ordered multiplicities follow by direct substitution and elementary characteristic-polynomial bookkeeping; no new count or structural obstruction is obtained.",
+        "searches": [
+          "Resultary 7b7188752131, Proof, offsets 1360–3167",
+          "Frozen RESULT.md, lines 35–43"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In dimension two the nilpotent cone is the square-zero cone; changing N to −N preserves it. Earlier proof identifies the kernel rays of L_A with precisely the A-invariant lines."
+        ],
+        "reasoning": "The old projective cone parametrization and the frozen description by common image and kernel index the same rays. The order-two determinant identity makes the remainder of the count independent of notation.",
+        "searches": [
+          "Resultary: exact determinant fibers square-zero perturbations 2x2 finite fields invariant lines",
+          "Resultary: diagonalizable plus square-zero decomposition exact multiplicities M2 finite field",
+          "Resultary 7b7188752131, Finding and Proof, offsets 0–3167"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier formula directly gives F_A(0)=q²−d_q(A) for every nonzero A. Its proof supplies q+1−e(A) at any prescribed nonzero level of L_A and 1+e(A)(q−1) at zero; A=0 is immediate."
+        ],
+        "reasoning": "The exact census is already encoded analytically. An explicitly named arbitrary-z table is unnecessary for coverage.",
+        "searches": [
+          "Resultary: exact determinant fibers square-zero perturbations 2x2 finite fields invariant lines",
+          "Resultary 7b7188752131, displayed d_q(A) formula and subsequent level-set argument"
+        ]
+      },
+      "rationale": "The earlier Resultary record 7b7188752131 already gives the complete needed level-set calculation in its proof. It expands det(A−N) as det A plus a linear form on the nilpotent cone, identifies precisely e(A) annihilated rays, and counts the zero and prescribed nonzero levels. Replacing the prescribed value −det A by z−det A gives the frozen fiber formula verbatim after changing N to −N. The decomposition multiplicities then follow mechanically from the degree-two split-polynomial count and the possible scalar correction. The difference between invertible and diagonalizable summands in the two headlines does not remove this implication.",
+      "residual_risks": [
+        "The 2022 original proof is inaccessible through the inspected lawful routes. That has no bearing on the demonstrated earlier coverage by 7b7188752131."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier proof covers the frozen fibers and implies the decomposition counts",
+          "evidence": "The determinant shift is L_A; e(A) rays annihilate it, while each other ray contributes one point at each prescribed nonzero value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-t-fine-decomposition-multiplicities-for-two-by-two-finite--7b7188752131/RESULT.md",
+          "material_read": "Finding, assumptions and Proof, offsets 0–3167, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror; explicit prescribed-value substitution",
+          "title": "Exact t-fine decomposition multiplicities for two-by-two finite-field matrices",
+          "trigger": "Same order-two cone, determinant and eigenline statistic"
+        },
+        {
+          "assessment": "Existence/construction, not the decisive exact-count overlap",
+          "evidence": "Proposition 2.2 constructs a decomposition for a nonderogatory order-two matrix; it does not enumerate all choices.",
+          "identifier_or_url": "https://arxiv.org/html/2604.15286v1",
+          "material_read": "Abstract near offset 1106; Proposition 2.2 near offset 10662",
+          "method": "OA arXiv text",
+          "title": "Matrices over finite fields of characteristic 2 as sums of diagonalizable and square-zero matrices",
+          "trigger": "Known square-zero decomposition predecessor"
+        },
+        {
+          "assessment": "Earlier existence result, no counted fibers in the inspected passage",
+          "evidence": "The article explicitly quotes existence in order two and proves an existence theorem for q≥5.",
+          "identifier_or_url": "https://arxiv.org/html/2507.05762v1",
+          "material_read": "Passage near offset 22370, Theorem 2.2, and bibliography near offset 39576",
+          "method": "OA arXiv text",
+          "title": "Matrices over finite fields of odd characteristic as sums of diagonalizable and square-zero matrices",
+          "trigger": "Odd-characteristic predecessor and quotation of earlier order-two theorem"
+        },
+        {
+          "assessment": "Original proof not inspected; not used to establish prior count coverage",
+          "evidence": "The accessible quotation states existence only.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087.2020.1862742",
+          "material_read": "Bibliographic citation and order-two theorem as quoted in arXiv:2507.05762v1",
+          "method": "Publisher request returned HTTP 403; lawful OA recovery did not locate its full text",
+          "title": "Decompositions of matrices into diagonalizable and square-zero matrices",
+          "trigger": "Original order-two existence reference"
+        },
+        {
+          "assessment": "Different dimension and parameter range",
+          "evidence": "Counts q² points per admissible distinct-split characteristic-polynomial fiber for the fixed J3(0) in even characteristic.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-affine-plane-fibers-of-diagonalizable-square-zero-perturbations--d32bce017069",
+          "material_read": "RESULT.md, offsets 0–8626",
+          "method": "Local mirror",
+          "title": "Affine-plane fibers of diagonalizable square-zero perturbations",
+          "trigger": "Close exact fiber-count analogue"
+        },
+        {
+          "assessment": "Existence boundary, not counts for a fixed A",
+          "evidence": "Classifies 380 of 512 binary order-three matrices as admitting a decomposition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-times-3-binary-boundary-for-diagonalizable-plus-square-z--71d12e506077",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact 3×3 binary boundary for diagonalizable plus square-zero decompositions",
+          "trigger": "Same decomposition question with a different matrix order"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–43; Resultary 7b7188752131, determinant-shift proof."
+      ],
+      "rationale": "The invariant is naturally motivated, but the submitted result makes no independent exact advance beyond the earlier ray-level calculation. The multiplicity recasting only sums its already-determined fibers over the split degree-two characteristic polynomials and adds the unique possible scalar term. This is useful exposition, not a surviving scientific claim under the exact-invariant standard.",
+      "residual_risks": [
+        "There is no higher-dimensional or otherwise independent result in the frozen scope to retain as a repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

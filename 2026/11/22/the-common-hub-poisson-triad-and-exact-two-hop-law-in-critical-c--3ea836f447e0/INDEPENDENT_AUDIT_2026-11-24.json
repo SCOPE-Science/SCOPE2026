@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:23:19.899392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is unchanged in /workspace/repairs/2/RESULT.md and the verification notes are consistent. For fixed finite tagged weights ≥1, the four external-neighbor marks are iid after integrating each independent Pareto weight and its two edge coins. With z=εW their averaging measure is αε^α z^(−1−α) dz on z≥ε. A single cap split at 1/w gives A_w=(ε^α w^α−αεw)/(1−α). For the joint mark the product is wv z², mz, and 1 in successive regions separated by 1/M and 1/m, giving the stated leading coefficient of ε^α and subtracting αwvε²/(2−α) for the omitted z∈(0,ε). This also works when the middle interval is empty, and the shared mean is strictly positive and less than both marginal means by comparing kernels on small positive z. nε^α→λ implies nε and nε² vanish. Raising the three-cell pgf with increments of order 1/n to n−2 yields independent Poisson components before assembling degrees. The independent direct edge vanishes for each fixed tag pair; exactly distance two requires its absence and nonzero codegree, giving 1−exp(−γ). The conditional zero-event ratio and equal-tag fraction follow from the pgf. Mixing uses bounded convergence. For the limiting pair and c=λ/(1−α), the independent means have exact tails c/y for y≥c. The joint exceedance lies between the probabilities both means exceed (1+δ)x and (1−δ)x, respectively, up to ±2exp(−aδx) by the two uniform conditional marginal Poisson bounds and a union bound. This proves the constant c² without joint conditional independence, and not a simultaneous size/threshold limit. The frozen script and its reported finite checks were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives the marginal mixed Poisson and one-degree tail c/k. Theorem 3 supplies the extreme-weight PPP; Theorem 6 handles D_n/n for extreme vertices. Proposition 1.4 is distance at most three in the largest component. The distance-at-most-two statement on p. 7 is for nε^α→∞, not fixed λ."
+        ],
+        "reasoning": "Rescaled extreme degrees and a high-probability distance bound do not cover fixed finite tags or an exact two-hop probability. The PPP does give the limiting weight environment and is credited as the basis of a short two-tag marking extension.",
+        "searches": [
+          "Resultary: In capped Pareto random graph, a prior result on common hubs / hub point process / dust establishes joint degree law for two tagged vertices or common-neighbor codegree",
+          "Websearch: \"2610.29564\" \"common hub\" Poisson point process theorem degrees connectivity Andreis Avena Hazra Matteini",
+          "OA arXiv:2610.29564, Theorems 1, 3, 6 and Proposition 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and corrected RESULT.md and VERIFICATION.md",
+        "AAHM arXiv:2610.29564; Avena et al. arXiv:2212.08462",
+        "Resultary 0f1726f44dd0 and assigned self hit 3ea836f447e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior weight PPP with intensity λα t^(−1−α) dt plus independent edge coins gives the 11/10/01 marks by ordinary thinning and small-weight truncation. This part is a direct extension, not new limit machinery.",
+          "The shared intensity must still be evaluated for the hard kernel using both saturation levels; the finite ε² correction is absent from the limiting PPP. AAHM's marginal power law and maximum-degree results do not themselves identify simultaneous exceedances. The soft paper poses its own two-degree tail factorization as (2.8), supported there by simulation, not as a theorem."
+        ],
+        "reasoning": "The two-hop limit is an immediate consequence once the kernel-specific shared intensity is known, not an independent novelty claim. The exact overlap is not obtainable by specializing the soft coefficient or the prior hard one-root mean; and the joint tail requires the additional uniform concentration comparison with two independent mixing weights.",
+        "searches": [
+          "OA arXiv:2610.29564, Remark 2.5 and Theorems 1 and 3; local mirror 0f1726f44dd0 Proof §§1, 3–4",
+          "OA arXiv:2212.08462, pp. 4–5 and 15–16, (2.8), (4.18)–(4.19)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The soft-kernel pair law in (4.19) is the weight mixture of a bivariate Poisson pgf: (4.18) gives conditional shared coefficient Γ(1−α)[w^α+v^α−(w+v)^α] at nε^α→1. This is not the capped coefficient.",
+          "The hard-model count of universal hubs in 0f1726f44dd0 is Pois(λ), not the common neighbors of two tags, which includes marks at other weights."
+        ],
+        "reasoning": "A pair-degree pgf conditional on two means identifies its shared coefficient, so it is a genuine equivalent description of the degree part. The inspected exact pgf uses another kernel, not a reparametrization that preserves the shared intensity as a function of the tagged weights.",
+        "searches": [
+          "Resultary: conditional joint limit of two degrees and their number of common neighbors in the capped-Pareto critical random graph; Poisson triad (U+C,V+C,C), evaluated shared-neighbor intensity gamma, exact distance-two probability, or x^-2 joint degree tail",
+          "OA arXiv:2212.08462, Eq. (2.2), (4.15)–(4.19)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 3ea836f447e0 is the assigned record. The distinct 0f1726f44dd0 supplies a one-root mean and a universal-hub count for the full-clustering atom, not an exact two-tag overlap or joint upper-tail census."
+        ],
+        "reasoning": "The self match is not a prior duplicate; the nearest exact formula describes another random count even in the same model.",
+        "searches": [
+          "Resultary: For critical hard-saturated infinite-mean random graphs, distinct Resultary finding on common-hub dependence of isolation events, hub counts, or codegree",
+          "Resultary: conditional joint limit of two degrees and their number of common neighbors in the capped-Pareto critical random graph; Poisson triad (U+C,V+C,C), evaluated shared-neighbor intensity gamma, exact distance-two probability, or x^-2 joint degree tail"
+        ]
+      },
+      "rationale": "For the corrected account, the distinct contribution is the exact hard-kernel overlap (including the finite lower-cutoff term), its two-hop consequence, and the joint-tail factorization in that model. The common-hub mechanism and one-root marking in the hard model are prior art, and the two-tag Poisson decomposition is a standard marking extension; the soft model already has an explicit bivariate limiting pgf. The frozen assertion to the contrary has been corrected. None of the inspected prior statements gives the exact hard two-tag intensities or the actual simultaneous upper-tail constant for the capped graph's limiting pair.",
+      "residual_risks": [
+        "The motivating preprint was obtainable for this review, but only the decisive statements and relevant passages were read, not every appendix; bounded comparison does not certify priority.",
+        "Some overlap follows readily from prior PPP/marking ingredients; only the specific evaluated hard-kernel formulas and actual capped tail statement are credited here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers prior marginal and extremal theory, not the same exact pair/capped overlap or fixed-tag distance-two claim",
+          "evidence": [
+            "Extreme-weight PPP has intensity λαt^(−1−α) dt; dust remark credits high weights as common neighbors; largest-component bound is ≤3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.29564",
+          "material_read": "p. 7 Thm. 1 and higher-density regime; pp. 9–10 Thms. 3, 6 and Prop. 1.4; pp. 16–17 Remark 2.5, offsets about 25100, 33400, 56531, 61700",
+          "method": "Direct lawful OA PDF, bounded statement/proof passages",
+          "title": "Inhomogeneous random graphs: how heavy tails reshape connectivity",
+          "trigger": "Exact critical capped-Pareto model and common hubs"
+        },
+        {
+          "assessment": "Material one-root marking overlap; different invariant",
+          "evidence": [
+            "One-root neighbor Poisson mean μ(w) and universal-hub count N=Π([1,∞)) of mean λ; full-clustering atom has condition N≥2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-an-exact-full-clustering-atom-for-hard-saturated-infinite-mean-r--0f1726f44dd0",
+          "material_read": "Finding/Assumptions offsets 0–2126; Proof §1 at 2200 and §§3–4 at 5700–7167",
+          "method": "Local mirror, bounded RESULT.md passages",
+          "title": "An exact full-clustering atom for hard-saturated infinite-mean random graphs",
+          "trigger": "Same law and one-root marking"
+        },
+        {
+          "assessment": "Explicit soft-kernel bivariate pgf and analogous tail conjecture, not same kernel or proven capped asymptote",
+          "evidence": [
+            "Kernel 1−exp(−εwv); conditional exponent in (4.18), mixed pgf in (4.19), actual joint exceedance factorization stated as a conjecture in (2.8)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.08462",
+          "material_read": "Model (2.2), Theorem 1 and (2.8) on pp. 3–5; proof (4.15)–(4.19), pp. 15–16, offsets 13800 and 53930 for bounded reads after literal locations",
+          "method": "Direct lawful OA PDF, exact statements and pgf derivation",
+          "title": "Inhomogeneous random graphs with infinite-mean fitness variables",
+          "trigger": "Two-tag degree dependence and possible tail coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "As corrected, the contribution goes beyond generic Poisson marking or the observation that common hubs create dependence. The hard saturation thresholds produce a specific two-weight overlap shared by both degrees and controlling exact two-hop access for typical finite-tag vertices. Moreover, a prior paper on a nearby model explicitly conjectures the corresponding simultaneous tail factorization: here there is a rigorous sharp constant despite positive conditional dependence, via concentration of each Poisson marginal around the independent tagged mean. This paired tail is not given by the marginal tail alone. No novel marking technology or resolution for the soft model is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

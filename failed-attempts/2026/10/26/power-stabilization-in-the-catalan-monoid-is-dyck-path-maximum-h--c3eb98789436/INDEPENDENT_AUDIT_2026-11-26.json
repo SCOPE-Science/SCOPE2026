@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:09:12.256477Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–49",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py, inspected not executed"
+      ],
+      "rationale": "Between two successive fixed points (or the final endpoint), monotonicity and regressiveness force all nonroots to have a smaller parent in the same interval. As parent labels are nondecreasing, visiting vertices in a queue produces exactly the consecutive labels within each component. Conversely componentwise breadth-first labelling of any plane forest gives a nondecreasing regressive map, including across component boundaries. Each vertex takes exactly its edge-depth many iterates to reach its fixed root. Equality of two successive powers is equivalent to every orbit having reached its root, and depth-first parenthesis nesting is edge-depth plus one for a nonempty forest. The empty map is counted separately with depth zero. A depth-k forest is a sequence of roots with child forests of depth at most k-1, giving the stated formal-series recurrence with F_0=1/(1-z). Its first three iterates give the displayed coefficient formulas. A chain of k+1 vertices and n-k-1 singletons realizes each k, and at k=n-1 only the chain occurs. For fixed k the even-step path-graph walk counts give the stated squared spectral radius, with positive endpoint projection and no cancellation on even powers.",
+      "residual_risks": [
+        "The displayed exponential growth is cumulative at fixed k. The verifier's depth routine uses the parent-depth recursion rather than an independent comparison of successive powers; the proof establishes that equality universally."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 22 indexed finding proves the forest-depth identity and counts jointly by rank and depth. The inspected sections of the earlier arXiv works identify the monoid and cover lattice-path structure and idempotents, but did not show the target power-depth result."
+        ],
+        "reasoning": "Summing the bivariate rank/depth enumeration over rank gives the univariate depth census. This is coverage by a distinct stronger indexed result, not a chronology claim. The classical monoid-identification theorems alone do not imply the statistic-preserving bijection.",
+        "searches": [
+          "Resultary: joint image-rank and stabilization-depth census of Catalan transformations",
+          "Ganyushkin–Mazorchuk arXiv:1006.0316v3 and Grensing–Mazorchuk arXiv:1211.2597v2"
+        ]
+      },
+      "checked_sources": [
+        "Sönmez–Ünlü university-hosted author-abstract excerpt and journal record; Yağcı–Korkmaz bibliographic identification and secondary attributions",
+        "Two arXiv passages and Resultary October 26 Dyck-height, November 8 harmonic power-rank and November 22 joint rank/depth findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The author abstract reports the bounded-depth tree correspondence and generating functions; both later catalogue entries attribute potency counts on the target monoid to Yağcı–Korkmaz. The latter attribution remains secondary, not independently verified from that full text."
+        ],
+        "reasoning": "If T_k(z) counts one-root maps of bounded stabilization depth, every general map is uniquely a sequence of shifted one-root interval maps, and it has bounded depth iff every component does; hence F_k=1/(1-T_k). The bounded-tree counts then pass to the full census and to Dyck height by standard encoding. The target's only plausible distinct remainder would be a genuinely different statistic-preserving construction with independent mathematical gain; none was established against the exact indexed breadth-first construction and the older substantive tree-depth comparison.",
+        "searches": [
+          "Sönmez–Ünlü author abstract on one-fixed-point potency and ordered-tree depth versus frozen fixed-point blocks",
+          "November 8 and November 22 Resultary prior-work passages on Yağcı–Korkmaz potency counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed author-abstract passage for Sönmez–Ünlü connects s-potent order-preserving maps with sole fixed point 1 to ordered trees of bounded depth. The November 8 harmonic power-rank finding uses the same componentwise breadth-first correspondence; the November 22 rank/depth finding states the same maximum-depth identity."
+        ],
+        "reasoning": "An order-preserving map with sole fixed point 1 is regressive: an increasing first step would force an orbit to another fixed point. For these acyclic maps the conditions f^(m+1)=f^m and idempotence of f^m for m>=1 have the same threshold because all images must already consist of fixed points. This identifies the mathematical overlap for either of those conventions, without asserting which exact convention the older paper uses. The offset of one in Dyck height is just counting the root's parenthesis.",
+        "searches": [
+          "Resultary: Catalan transformation monoid iterate stabilization, power ranks and breadth-first plane forests",
+          "Primary-literature targeted lookup of Sönmez–Ünlü DOI 10.1080/00927872.2012.716115 and Yağcı–Korkmaz DOI 10.1007/s40840-020-00899-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date Dyck finding gives the height-at-most-two count 2^(n-1) but does not identify power depth. The later joint census contains the entire depth table by marginalization. The recurrence and low-height coefficients are classical bounded-Dyck counts once depth is matched."
+        ],
+        "reasoning": "A matching 2^(n-1) alone would not establish prior coverage of the semigroup statistic; the joint census does cover all depths and the path recurrence entails the displayed numerical specializations.",
+        "searches": [
+          "Resultary: bounded Dyck height, stabilization-depth arrays and low-depth coefficient formulas",
+          "October 26 Dyck height and near-maximal subsequence universality finding"
+        ]
+      },
+      "rationale": "The claimed novelty of the stabilization-depth distribution and its ordered-tree identification is not established. Substantive pre-2026 author-abstract evidence already connects the bounded-potency one-fixed-point class of order-preserving maps to bounded-depth ordered trees and reports generating functions. The one-fixed-point class with root 1 is exactly the one-component Catalan class before imposing the potency bound. The general forest claim reduces to those components, with the standard parentheses encoding and classical bounded-height enumeration. A distinct indexed finding directly gives the same breadth-first forest identification and a stronger joint rank/depth census whose marginal is the frozen census. This comparison demonstrates mathematical coverage and strong prior-work overlap, but does not prove that the older full text literally states the precise breadth-first algorithm or the Dyck formulation, and the later indexed finding is not evidence of earlier public priority.",
+      "residual_risks": [
+        "Full texts of Sönmez–Ünlü and Yağcı–Korkmaz were not available in bounded lawful attempts, and Laradji–Umar and Solomon were not retrieved. The exact legacy exponent notation and explicitly published algorithm are not settled. The failure is based on substantive accessible coverage and lack of a substantiated distinct remainder, not those access limitations or a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive partial coverage evidence; exponent convention and exact construction not inspected",
+          "evidence": "The passage describes the s-potent subfamily of O_n with Fix(f)={1}, a correspondence to ordered trees on n nodes of bounded depth, and generating functions for fixed-point classes.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2012.716115; http://mat.msgsu.edu.tr/Etkinlikler/abstract-unlu.pdf",
+          "material_read": "Journal bibliographic record (Communications in Algebra 42, 2014, 332–342) and indexed passage from university-hosted author abstract, not full text",
+          "method": "Targeted literature lookup and bounded lawful OA attempts; author-abstract PDF retrieval timed out",
+          "title": "m-Potent Elements in Order-Preserving Transformation Semigroups and Ordered Trees",
+          "trigger": "Possible older bounded-potency ordered-tree correspondence"
+        },
+        {
+          "assessment": "Material residual risk; not used as stand-alone proof of priority",
+          "evidence": "The harmonic power-rank and joint rank/depth entries attribute m-potent counts, including counts under fixed-set restrictions, to Yağcı–Korkmaz.",
+          "identifier_or_url": "https://doi.org/10.1007/s40840-020-00899-7",
+          "material_read": "Bibliographic identification and later indexed citations; no primary full text obtained",
+          "method": "Bounded lawful publisher and alternate-copy attempts",
+          "title": "On Elements of Finite Semigroups of Order-Preserving and Decreasing Transformations",
+          "trigger": "Direct attribution of m-potent counts for the same monoid"
+        },
+        {
+          "assessment": "Construction matches; later indexed entry, not proof of historical priority",
+          "evidence": "Identical coordinate order and forest inverse; iterated images have a forest statistic; prior-work passage discusses published potency enumeration.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-harmonic-power-rank-law-for-uniformly-random-catalan-transform--26a48beb2bce",
+          "material_read": "RESULT.md offsets 0, 2150 and 6120",
+          "method": "Resultary local mirror",
+          "title": "A harmonic power-rank law for uniformly random Catalan transformations",
+          "trigger": "Exact breadth-first bijection and prior potency attribution"
+        },
+        {
+          "assessment": "Covers the depth census as a marginal and gives the same depth correspondence; no priority inference from its appearance in the index",
+          "evidence": "Power stabilization equals maximum forest depth; a bivariate recurrence refines the distribution by rank; the prior-work passage identifies classical potency counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-joint-image-rank-and-stabilization-depth-census-in-catalan-trans--2581ac4ddfd0",
+          "material_read": "RESULT.md offsets 0, 2500 and 4800",
+          "method": "Resultary local mirror",
+          "title": "Joint image-rank and stabilization-depth census in Catalan transformation monoids",
+          "trigger": "Stronger indexed rank/depth census"
+        },
+        {
+          "assessment": "Same object, no matching statistic in inspected passages",
+          "evidence": "Identifies the Catalan monoid with order-preserving order-decreasing transformations and discusses idempotents.",
+          "identifier_or_url": "https://arxiv.org/html/1006.0316v3",
+          "material_read": "Abstract and Section 1 Theorem 1.7(viii), HTML offsets about 597 and 8120",
+          "method": "OA HTML passage inspection",
+          "title": "On Kiselman quotients of 0-Hecke monoids",
+          "trigger": "Frozen monoid-identification reference"
+        },
+        {
+          "assessment": "Classical Catalan path bijection and idempotents; these passages do not supply the claimed depth statistic",
+          "evidence": "The monoid is defined on nondecreasing order-decreasing transformations; its enumeration is identified with lattice paths.",
+          "identifier_or_url": "https://arxiv.org/html/1211.2597v2",
+          "material_read": "Section 1 (offsets 0–1596) and Section 5.2 (about 47277)",
+          "method": "OA HTML passage inspection",
+          "title": "Categorification of the Catalan monoid",
+          "trigger": "Same object and older lattice-path model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–27 and 35–49",
+        "Sönmez–Ünlü author-abstract passage and November 22 indexed joint census"
+      ],
+      "rationale": "The invariant is natural and the proof is readable. The bounded-height recurrence, closed forms and transfer-matrix rate are classical after the tree-depth correspondence. Against the ordered-tree potency precedent and the exact indexed census and construction, no independent gain beyond a standard forest-to-parentheses re-encoding was established.",
+      "residual_risks": [
+        "A concise exposition has pedagogical value, but no materially distinct scientific remainder supports a repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

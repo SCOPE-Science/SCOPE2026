@@ -1,13 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The determinant coefficient equations exhaust possible constant Bloch eigenvalues, including the resonator poles; cyclicity excludes pole solutions. Positivity of the root spectral measure and strict monotonicity give precisely one energy in each of the first \(m\) interlacing gaps. An arrowhead spectral argument proves simplicity and uniform separation for all momenta; an explicit Bloch polynomial produces a minimal two-cell compact state. The included checker reproduces the key polynomial identities and selected Bloch examples.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Sabri–Youssef's full 2023 text and the Maimaiti generator papers establish related general recipes and flat-band CLS constructions. Their inspected results do not give this exact one-knob \(m\)-point tuning locus, complete band index and gap classification for a fixed cyclic resonator. Danieli et al. provide background on sawtooth tuning; the conventional sawtooth is a special case. A stronger implication of a general construction or an unlocated source remains possible; indexed searches do not establish absolute priority.
+PASS
 
-**Value — PASS.** The complete solution to a motivated finite-resonator device-design problem shows how one scalar onsite control selects any non-top band and guarantees spectral isolation, with exact and computable tuning values and a minimal localizing motif. This is not merely a parameter substitution into the classical two-band sawtooth.
+At z=-1 any flat energy equals u-2a or a resonator eigenvalue. Cyclicity makes the resonator eigenvalues simple and the root component of each eigenvector nonzero, so none of those eigenvalues survives in a fiber at z different from -1 (the projected lower equation forces backbone amplitude zero and the upper equation kills the resonator component). For nonresonant E the scalar Schur complement is (u-E-2a)+(a-b^2 G(E))|1+z|^2. Hence both coefficients vanish precisely at the proposed tuning. Equivalently the candidate energies are the eigenvalues of K-(b^2/a)ee^T; positivity of the spectral weights makes the interlacing strict, with one energy below the first pole and in each successive internal gap, none above the last. At a tuning, Schur congruence gives inertia equal to that of diag(0,K-E) at every z. There are exactly j-1 negative eigenvalues and one zero for E_j, proving the index and simplicity; continuity on the compact circle gives a global positive gap to all other bands. The eigenvector with backbone component 1 and resonator component -b(1+z)(K-E_j I)^{-1}e has exactly two occupied cells. Its lower block forces any constant-vector Bloch eigenfunction to be zero; its norm is bounded below and above, so translates span the full point eigenspace by Fourier density. The path characteristic and endpoint cofactor recurrences yield the stated Chebyshev equation with the correct sign and factor of c.
 
-**Limitations.** Cyclicity and strictly positive couplings are necessary assumptions for the stated theorem. The gap is positive for fixed data but no global quantitative lower bound is claimed. Computations are finite and support, rather than replace, the proof. No independent novelty or mathematical audit has been performed.
+## originality
 
-**Closest sources.** Sabri–Youssef, arXiv:2304.06465; Maimaiti et al., arXiv:1610.02970 and arXiv:1810.08199; Danieli et al., doi:10.1515/nanoph-2024-0135; classical sawtooth antecedent arXiv:0805.1151.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The supported distinction is the exact necessary-and-sufficient one-parameter design law for a fixed arbitrary cyclic resonator, with the placement, isolation and minimal cell support of each attainable band. Ordinary sawtooth examples, rank-one interlacing, and general compact-state generators are antecedents, not novel components themselves. The strongest inspected comparable classifications did not supply the whole claim.
+
+## value
+
+PASS
+
+With resonator and all hoppings frozen, the exact law gives both necessity and a constructive choice of a bottom-to-next-to-top isolated flat band by varying one scalar, including how to read the entire design list from a single finite matrix. The ordered isolation and exact minimal cell support go beyond existence or an ordinary sawtooth example. The interlacing step is textbook; its linkage to the full Bloch tuning and localization problem is the useful structural result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

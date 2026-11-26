@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The split/disjoint-function envelope equivalence is proved in the result. The 16 total-function pairs give 16 maximal 12-row satisfying teams, and their four-row complements are precisely the transversal constraints. Exhaustive checks of all 65,536 Boolean teams show 32,377 satisfiers and 132 inclusion-minimal failures; their size polynomial is \(12z^4+16z^5+96z^6+8z^8\). The nine-orbit obstruction certificate proves no minimal falsifiers were omitted. Independent 2-SAT and envelope checkers agree. The eight-row maximal minimal obstruction is explicit (`0x5a69`). All three included checkers executed successfully.
+## correctness
 
-## Originality — PASS within inspected evidence
-Fröhlich–Kolaitis–Meier (arXiv:2508.16146, DOI:10.4230/LIPIcs.CSL.2026.10) prove the unrestricted formula incoherent and give 2-SAT model checking; neither result states the exact fixed-binary 16-envelope/132-minimal-transversal classification or nine orbit sizes. Barlag et al. (arXiv:2605.31269) establish the general semantics and coherence/rewritability landscape, including generic bounds for Boolean teams. The exact minimal-obstruction polynomial is not entailed by the general statements alone. Relevant full-text sections were inspected, source-alias searches were conducted, and published similarity records were compared. A matching unindexed computation is a residual priority risk; no independent priority audit has been done.
+PASS
 
-## Mathematical value — PASS
-This is a complete classification of admissible and minimally forbidden tables for the smallest nontrivial alphabet under a natural split-functional-dependency integrity constraint. The eight-row local test is sharp, half the naive 16-row bound, and the nine symmetry classes organize all forbidden obstructions. Both the exact hereditary profile and its dual maximal-envelope system provide reusable finite constraint information beyond the general fact of unrestricted incoherence.
+A lax witness gives partial functions x→y and u→v that extend to total Boolean functions. Conversely, inclusion in the union of their two equality sets gives a valid lax witness, with overlaps permitted. The complements consist of exactly one row for each (x,u), determined uniquely by the two functions, so all sixteen size-12 envelopes are distinct, incomparable, and exhaust the maximal satisfying teams. Failure is hitting all sixteen complement rectangles. I independently maintained the antichain of minimal hitting sets while adding each edge: retain current members hitting the new edge, extend each missing member by every element of the edge, then delete supersets. This step is exact because every new transversal contains a previous minimal one. It returned 132 members with histogram 4:12, 5:16, 6:96, 8:8. Inclusion-exclusion over rectangle avoidance independently yielded 33,159 violating teams, hence 32,377 satisfying. All 32 symmetry actions were used; the fixed-point sum was 288, and the independently chosen minimum orbit masks and sizes matched every frozen table row. The eight-set witness is one of these irredundant blockers and therefore precludes any smaller uniform bound.
 
-## Scope and limitations
-The binary alphabet, four named attributes, set-valued teams, and lax disjunction are essential; no extension to larger alphabets or other formulas is asserted. Exhaustive enumeration is a proof only for the stated finite case. Historical priority beyond accessible sources remains unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving contribution is the exact labeled Boolean census and the finer obstruction spectrum and orbits for the specified team symmetry, not 2-SAT representability or the sharp eight-row cutoff on its own. In particular, the upper cutoff and attainability already follow from older theorems on minimally unsatisfiable 2-CNF through the four function-bit clause reduction. Those theorems do not supply the violating or satisfying census or the exact restricted subgroup profile without additional finite classification and counting.
+
+## value
+
+PASS
+
+The full Boolean cube is the canonical smallest propositional universe of the disjoint two-atom formula singled out in the coherence literature. Its minimal failures give precisely the forbidden basis, not only an instance test or a witness at the maximal size. The exact size distribution and natural equivalence classes provide a benchmark for comparing disjoint-attribute splits and their finite-size thresholds; the labeled satisfying count also measures the extent of overlap of the maximal teams. This value does not depend on crediting the already implied eight-row bound as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

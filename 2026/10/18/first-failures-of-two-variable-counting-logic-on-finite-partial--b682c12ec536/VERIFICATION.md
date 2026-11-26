@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with `witnesses.json` in the same directory. Only the Python 3 standard library is used; the computation requires no downloaded graph tables or external programs.
+## correctness
 
-The verifier generates all finite partial orders of size at most eight by adjoining a maximal element over each lower ideal and removes isomorphic duplicates by exact bijective backtracking preserving the strict-order relation. It rejects nontransitive generated relations, computes global colour-refinement signatures for all three off-diagonal order types, and tests the four explicitly listed witnesses against the two observed ambiguous classes.
+PASS
 
-Expected order totals: 1, 2, 5, 16, 63, 318, 2045, 16999. Expected distinct counting-logic signature counts: 1, 2, 5, 16, 63, 318, 2045, 16997. At eight elements, the generator visits 48,346 extensions and produces exactly two logical ambiguity classes, both of multiplicity two. The verifier performs both a direct signature check and an exact nonisomorphism check for every supplied pair.
+Removing a minimal element gives a smaller poset; its strict successors form an upper ideal, and adjoining a minimal point below every member of an upper ideal produces a poset. I used this dual enumeration instead of the supplied maximal-element program, deduplicating by the least full relation encoding over permutations within invariant in/out-degree blocks. Counts through eight were 1,2,5,16,63,318,2045,16999; 48346 candidate extensions entered the last deduplication. Joint exact refinement gave 1,2,5,16,63,318,2045,16997 classes and the only nontrivial class sizes were 2,2. For the poset signature, strict lower, strict upper, equality and incomparability exhaust pair types. Incomparability counts are recovered by subtracting the two strict counts and the diagonal from the colour histogram. If histograms differ at any round, the difference persists; when equal, these recovered counts therefore yield the same comparison as full pair-type refinement. Stable colours characterize the C² theories, and size is expressible by counting, so all possible finite competitors are included. I verified that the two frozen witness pairs are strict posets and that their canonical classes match exactly both collisions. Height-two connectivity and the height-three middle multiplicity matrices also distinguish the members without a computer.
 
-The mathematical justification is that the ideal-extension enumeration covers every poset, the full bijection test identifies precisely its isomorphism classes, and stable colour refinement over all three binary atomic relations captures exactly \(C^2\) equivalence. A run of the script is a finite exhaustive certificate within the stated cutoff, not a theorem for larger orders. The reference literature supplies the general \(C^2\)-equivalence theorem and the independent unlabeled-poset counts. This evidence has not been independently audited.
+## originality
+
+PASS
+
+The result is distinct from earlier examined work on general C² identification and from the poset object census. There is exact overlap with the later-dated November 8 Resultary record, which also proves an all-larger-orders existence statement; this is not an unmatched finding in the current index. On the available evidence the later match does not preempt the frozen October 18 result, and no earlier result inspected already gives the restricted cutoff and complete collision layer. This is not a priority certificate or a determination that the two records were independently obtained.
+
+## value
+
+PASS
+
+It fixes the first loss of expressive separation for a canonical logic on a standard relational class, and identifies all minimal counterexamples rather than a selected pair. In particular the two witness mechanisms distinguish regular incidence from different middle-incidence multiplicities despite full in/out counting. The exact census and explicit witnesses are usable benchmarks for algorithms and structural classification at the minimal size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

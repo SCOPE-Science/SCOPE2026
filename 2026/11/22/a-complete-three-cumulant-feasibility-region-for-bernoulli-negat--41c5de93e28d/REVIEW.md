@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The law and parameter domain are explicit. Differentiation of the product probability-generating function gives three exact factorial cumulants. The first two uniquely solve \(a\) and \(\nu\) in terms of \(p,m,v\), leaving one strictly increasing scalar equation, with derivative positive on its entire feasible domain. Its two endpoint limits produce the exact necessary and sufficient region. The underdispersion inequality and binomial incompatibility follow from strict positivity; rational identities check a nontrivial first-two-moment matching example. The checker validates 204 exact identities or exact-rational instantiations. No finite simulation is used as proof.
+PASS
 
-## Originality — PASS (historical-priority risk remains)
+The pgf about 1 factors as (1+pz)(1-az)^(-nu), a=theta/(1-theta). Its log yields m=p+nu*a, v=-p^2+nu*a^2, and t=kappa_[3]/2=p^3+nu*a^3. For fixed m,v the positivity of A=m-p and B=v+p^2 together with 0<p<1 is equivalent to max(0,sqrt(max(0,-v)))<p<min(1,m); this interval is nonempty exactly under the two stated strict prerequisites. Positivity gives the unique inverse a=B/A, nu=A^2/B. The third-coordinate function F=p^3+B^2/A has derivative 3p^2+4pB/A+B^2/A^2>0. At p=0 (v>=0) or p=sqrt(-v) (v<0) its limiting values are v^2/m and (-v)^(3/2). At the upper end m<=1 there is a genuine divergence since v+m^2>0, including m=1; for m>1 the limit is 1+(v+1)^2/(m-1). This proves strict necessity and sufficiency and uniqueness; the implicit function theorem with positive F' yields smoothness also at v=0 or m=1 at interior parameter points. For feasible negative v, approaching p=sqrt(-v) gives a->0, nu*a->m-sqrt(-v)>0, so the negative-binomial term tends to a Poisson term by its pgf and t tends to the unattained lower limit. Bin(N,q) has t/(-v)^(3/2)=1/sqrt(N), proving the stated incompatibility. The rational match has (m,v,t)=(1/2,-1/8,61/800), versus t=1/32 for Bin(2,1/4). Scope: population factorial cumulants of the strictly interior independent convolution, not a sample or boundary-model theorem.
 
-The 2023 model paper (full HTML, Sections 2.1–2.6 and 3.1) gives the convolution/PGF and basic moment and dispersion relations, but no complete image of its three-factorial-cumulant map or unique inversion theorem. The general factorial-cumulant article treats classical component formulas, not the composite moment-feasibility region. Closest published mathematical records concern Poisson-binomial cumulant hierarchies and zero-inflated negative-binomial infinite divisibility, neither implying the characterization. Accessible prior local claims were screened for matching combinations and did not contain this result. The PGF differentiation itself is standard; priority of the *complete image/uniqueness and sharp obstruction together* is not independently established. Related constrained-moment-map literature remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The three-parameter family was expressly proposed for under-, equi- and overdispersed count data and fitted numerically. A necessary and sufficient three-cumulant feasibility criterion clarifies whether a direct moment fit can even exist and proves its parameter uniqueness when it does. The sharp strict third-order restriction shows that fitting underdispersion is not equivalent to fitting the canonical binomial shape: even an exact mean–variance match can fail at third order. This is a natural complete identifiability/feasibility classification, not an arbitrary finite subcase. It does not replace likelihood inference or supply finite-sample error bounds.
+Best-of-knowledge pass for the explicit image and unique smooth three-cumulant inversion with the sharp binomial obstruction, not for the count law, its PGF, or standard component cumulant calculus.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a specifically proposed count model, the attainable set determines whether a three-moment fit exists and whether its parameters are unique, including near the underdispersed boundary. The sharp obstruction distinguishes the family from multi-trial binomials even when the first two moments can match. This is a useful complete feasibility result, not merely the standard log-PGF derivative calculation or a claim about estimation from finite samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

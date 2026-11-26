@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:26:25.797618Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict interior apex projection makes the hull the union of two pyramids along the ring, with exactly the ring edges and apex-to-ring edges. Almost every central plane avoids vertices; its ring-line cut crosses exactly two ring edges, and each section vertex is a crossing of a genuine edge. Opposite apex signs give n spoke crossings; same signs give twice the number of opposite ring signs. Antipodal pairs then yield even rigidity. For odd n=2q+1 the two possible ring majorities alternate on the n half-circle azimuth intervals. Agreement with the common apex sign is precisely (-1)^q sgn(cos(n psi))=+1 on that half-circle. Conditional on azimuth the Haar vertical coordinate is uniform on [-1,1], giving the stated weight for same-sign apices. Its antiderivative is arcsin(k sin psi); summation with the alternating signs gives the endpoint formula and total mass 2 arctan(lambda)/pi. The differentiated odd sine expansion is absolutely convergent for k<1 (the coefficient sum of each sine power is bounded, and each differentiation costs at most its degree). Integration against the square wave picks only frequencies (2m+1)n: the signs (-1)^q, (-1)^m and (-1)^(q+mn) cancel. The positive coefficient series establishes strict bias; its first term has degree n, and k=lambda+O(lambda^3), giving the exact leading coefficient and next-order remainder. The exceptional intervals each have positive length and strictly increasing positive weight; counting q+1 versus q intervals and dominated convergence give the limits. The inverse formula applies only to the odd law. An independent 80-digit angular quadrature reproduced the endpoint law to 1e-65 at 18 n/lambda combinations and checked the leading coefficient at lambda=.001 for n=3,5,7,9 (ratios within 2.48e-6 of one). Replay: /workspace/branches/33f027af-1a20-4b04-a3bd-6db3813a6af6/independent_replay.py. It is a bounded integration check, not an independent hull simulation or proof of positivity; the all-order proof is analytic. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The De Loera et al. method is not confined to extremizers: §4 explicitly considers all possible slices. Its conclusions in the inspected passages concern attainable affine slices and their combinatorics.",
+          "The two historical random-section sources have a plausible broader subject but could not be inspected substantively."
+        ],
+        "reasoning": "An enumeration of all affine slice possibilities is stronger for existence than a maximum-count theorem, yet it does not determine angular weights of central slices or how they change with s/h. The uninspected historical scope is not used as a noncoverage finding.",
+        "searches": [
+          "De Loera–Lopez-Campos–Torres arXiv:2412.12419, sections on vertex-slice sequences and §4 poset method",
+          "Voss 1982 DOI and Sukiasyan 1982 MathNet PDF lookup"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–80, VERIFICATION.md and check_skew_bipyramid.py inspected",
+        "Target and related central-section Resultary records",
+        "arXiv:1404.2443; arXiv:2412.12419; Voss DOI and Sukiasyan MathNet metadata/access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cut and chamber perspective supports the starting formula for counts but the inspected work does not give the distribution of same-sign apex planes over alternating azimuth cells.",
+          "Generic expected-crossing geometry would give a route to the imbalance once the three-value support is known, but would leave an angular sum to evaluate; it does not by itself establish positivity or cancellation to degree n for every odd n."
+        ],
+        "reasoning": "The evaluated probability and strict bias require the parity-dependent integrals and harmonic selection, not just a reindexing of known slice extrema or a generic integration algorithm.",
+        "searches": [
+          "arXiv:1404.2443, pp. 4–5",
+          "arXiv:2412.12419, p. 9 §4",
+          "Resultary 876d50cda45d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The direct index match 98b71c23211a is the frozen finding itself, not a separate source. Same-day 876d50cda45d treats the regular truncated icosahedron, not variable skew bipyramids.",
+          "Padrol–Pfeifle give a graph-cut construction for a hexagonal section of a triangular bipyramid. Voss and Sukiasyan are candidate frequency/random-section comparators but no substantive passage was independently retrieved."
+        ],
+        "reasoning": "An evaluated solid-angle distribution for the sign chambers of this apex/ring arrangement would be equivalent coverage; existence of a section of a certain count is not a calculation of its angular mass. Uniform central normals, rather than translated affine-plane sampling, are part of the exact claim.",
+        "searches": [
+          "Resultary exact target 98b71c23211a and related Haar central-section type laws",
+          "arXiv:1404.2443, triangular-bipyramid section construction",
+          "DOI 10.1111/j.1365-2818.1982.tb00443.x; MathNet dan45193"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Haar central-section laws for a truncated icosahedron (counts 10,12,14,16,18) and related prism laws use other objects. The only exact index hit was the target itself.",
+          "The slice-count examples and sequences in the inspected De Loera et al. sections are not tables of probabilities for this shear family."
+        ],
+        "reasoning": "Even exact counts or frequencies for fixed other polytopes do not specialize to this parametric family; an equivalent table would need the central Haar law as a function of odd order and shear ratio.",
+        "searches": [
+          "Resultary central-section polygon-type laws; 98b71c23211a and 876d50cda45d",
+          "arXiv:2412.12419, pp. 3 and 6"
+        ]
+      },
+      "rationale": "Existence and combinatorial classification of plane sections, and general methods that reduce central slices to sign chambers, are not new here. The supported distinct claim gives evaluated Haar weights for the vertex-aligned skew bipyramid family, their parity dichotomy, and a strictly signed exceptional imbalance with explicit cancellation order and coefficient. The relevant accessible statements did not supply those conclusions. The 1982 section-frequency sources are material but unresolved priority risks, not evidence either for or against coverage.",
+      "residual_risks": [
+        "Voss and Sukiasyan could not be compared by checked theorem statements. Their relevance to this specific model remains unresolved.",
+        "Section frequencies under another sampling measure or for a different object cannot be assumed to imply this law. Earlier equivalent harmonic or solid-angle computations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object at n=3 for a related existence question",
+          "evidence": "Hexagon/intersection-complexity construction analyzes a graph cut, not a shear-dependent probability.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.2443",
+          "material_read": "PDF pp. 4–5, discussion starting near offset 11273",
+          "method": "Primary PDF passage inspection",
+          "title": "Polygons as sections of higher-dimensional polytopes",
+          "trigger": "Triangular bipyramid and existence of a hexagonal section"
+        },
+        {
+          "assessment": "Broader attainable slices, no matching Haar law in passages inspected",
+          "evidence": "Vertex-slice sequences and all-possible-slices poset, not central Haar measures.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.12419",
+          "material_read": "PDF p. 3 (offset 9753), p. 6 (19524), p. 9 §4 (27521)",
+          "method": "Primary PDF passage inspection",
+          "title": "On the Number of Vertices in a Hyperplane Section of a Polytope",
+          "trigger": "General slice vertex-count results"
+        },
+        {
+          "assessment": "Unresolved risk, neither coverage nor exclusion established",
+          "evidence": "The frozen record reports abstract-level information, not independently verified; the title does not specify the probability measure or this family.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2818.1982.tb00443.x",
+          "material_read": "Bibliographic identity only; no independently checked abstract or full-text passage",
+          "method": "Lawful OA DOI retrieval and alternate route attempted; no accessible repository copy located",
+          "title": "Frequencies of n-polygons in planar sections of polyhedrons",
+          "trigger": "Historical direct overlap by topic"
+        },
+        {
+          "assessment": "Scope and implications unresolved",
+          "evidence": "Bibliographic entry for Doklady 263(4), 809–812; it identifies a PDF but supplies no checked theorem statement.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/dan45193",
+          "material_read": "MathNet metadata, offset 0; PDF unavailable",
+          "method": "OA metadata and PDF retrieval attempts",
+          "title": "On random sections of polyhedra",
+          "trigger": "Historical random-section result potentially covering the sampling model"
+        },
+        {
+          "assessment": "Different polyhedron and no shear parameter",
+          "evidence": "Support 10,12,14,16,18 for the truncated icosahedron, not the bipyramid support or asymmetry.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-haar-polygon-type-law-for-central-sections-of-the-regular--876d50cda45d",
+          "material_read": "Indexed law and object statement",
+          "method": "Resultary comparison",
+          "title": "Exact Haar polygon-type law for central sections of the regular truncated icosahedron",
+          "trigger": "Same kind of Haar section statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full vertex-count distribution gives information beyond combinatorial attainability: an even-order invariant, a parameter-identifying odd-order probability, and a surprisingly high exact order of the bias between the other two outcomes. The strict sign and sharp coefficient expose how the base symmetry suppresses all lower harmonics and are meaningful geometric information for this natural family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

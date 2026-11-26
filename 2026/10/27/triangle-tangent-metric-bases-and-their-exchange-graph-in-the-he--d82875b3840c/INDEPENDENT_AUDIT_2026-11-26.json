@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:46:00.723692Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, verify_incidence.py and verify_distance.py (inspected, not executed)",
+        "Replay: python3 /workspace/branches/96a0e847-ce6a-470f-9ba1-d6afdf809873/replay_heawood.py --out /workspace/branches/96a0e847-ce6a-470f-9ba1-d6afdf809873/replay_heawood.json; the JSON records the bases, edges and triangles."
+      ],
+      "rationale": "In each bipartition class a selected vertex is distinguished by its zero coordinate; two unselected vertices are distinguished exactly by their incidence patterns to the opposite selected class. Opposite classes have different distance parities. For a four-set, take the side having at least two selected vertices: with 2, 3 or 4 selected there, respectively 5, 4 or 3 unselected vertices must be separated by at most 4, 2 or 1 patterns. For a five-set only the 3+2 split can work by the analogous pigeonhole bound. Two selected lines partition points into incidence classes of sizes 1,2,2,2. The three selected points must take one from each two-element class. A collinear point triple would give only four line-signature types, too few for the five unselected lines. A noncollinear triple gives all seven distinct line-signature types (three secants, three tangents, one external). The two lines must therefore be distinct single-incidence tangents, which also suffice; dualize for the other split. This gives 28 times 3 bases on each side. The independently run replay checks the classification on all 3,473 sets of sizes 0–5; it builds edges by the shared four-subsets and gives 168 vertices, degree 5, 420 edges, 56 triangles exactly those of the canonical partition, and distance layers (1,5,18,49,71,24) from each vertex. In particular all eccentricities are five. These are exact finite checks on the intended token-jump graph.",
+      "residual_risks": [
+        "Result and finite replay concern only the Heawood graph and give no classification for larger planes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Héger–Takáts give incidence criteria and a large-order optimum classification (q at least 23), with an explicit q=2 dimension remark but not its full optimum family. The Cal Poly project URL was inaccessible on attempted retrieval; it is cited as general context, not relied on as a theorem."
+        ],
+        "reasoning": "The hypothesis of the broader optimum classification does not specialize to q=2. General signature criteria are the tools for the two-line and collinear-triple analysis, not a table of these bases or of their exchanges.",
+        "searches": [
+          "Héger–Takáts, Resolving sets and semi-resolving sets in finite projective planes, Theorem 2 and §3",
+          "Metric Basis Reconfiguration, Cal Poly Pomona project description"
+        ]
+      },
+      "checked_sources": [
+        "Héger–Takáts, EJC 19(4) P30",
+        "Bailey arXiv:1312.4973",
+        "November 8 Resultary edge-metric finding",
+        "Attempted Cal Poly project-page access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Héger–Takáts provide one minimum example at q=2. The exact edge-basis finding specifies the same 168 five-sets and the same token-jump adjacency rule."
+        ],
+        "reasoning": "Once the basis family is shared, triangle and distance-layer data are computations on the same graph, not fundamentally new structures independent of the comparator. The new content relative to the inspected statements is the exact vertex resolving-set characterization, including exclusion of extra vertex bases.",
+        "searches": [
+          "Héger–Takáts Remark 11/Figure 1 and Proposition 7",
+          "2026/11/8/SCOPE-edge-metric-bases-of-the-heawood-graph-and-octagonal-slide-recon--d4a919fbecfd, Finding, Proof steps 2–3 and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 8 Finding uses minimum distance to an edge endpoint and distinguishes 21 edges; its same geometric family induces the same 168-state jump graph. The frozen record distinguishes the 14 vertices using distances to vertices."
+        ],
+        "reasoning": "Point–line duality relates the two families inside each calculation, not vertex and edge resolution. An edge resolver on Heawood does resolve vertices: an unresolved same-side pair has a common neighbour, giving two unresolved edges, and opposite sides are distinguished by parity. That implication certifies the edge bases as vertex bases given the dimension, but does not exclude extra vertex bases. The classification supplies that converse, so the same state family is a proved coincidence of the optima, not an equivalence of definitions.",
+        "searches": [
+          "Resultary: Heawood metric and edge-metric bases, basis exchange and token jump/slide",
+          "Héger–Takáts: Fano-plane resolving sets and incidence signatures, Remark 11 and Proposition 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bailey lists 14 vertices, underlying graph diameter 3 and metric dimension 5. The November 8 exact edge-metric computation gives 84+84 geometric bases, 420 jump edges, degree five, and radius and diameter five."
+        ],
+        "reasoning": "The dimension table cannot determine the optima or jump transitions. The indexed edge-metric computation is exact coverage for the same unlabeled jump graph once the equality of the state families is established, but is not a vertex-metric basis catalogue.",
+        "searches": [
+          "Bailey arXiv:1312.4973, Table 3, Heawood",
+          "Resultary: Heawood edge-metric bases and octagonal slide reconfiguration, d4a919fbecfd"
+        ]
+      },
+      "rationale": "Credit is for the exhaustive classification of minimum sets distinguishing vertices, with their exchange structure. The dimension value and a witness are known. A distinct indexed edge-metric finding has exactly the same landmark set family and hence exactly the same jump graph, including the basic graph invariants. This is material coverage of the graph as a combinatorial object, not credit for a separate graph discovery. The surviving distinction is why precisely that family, and no additional five-set, distinguishes the vertices rather than the edges. The inspected sources do not supply this converse, and no priority between the related records is assigned by their dates.",
+      "residual_risks": [
+        "Unindexed vertex-basis catalogues or a Heawood-specific reconfiguration treatment remain possible. The inaccessible project page is not negative evidence.",
+        "The edge-metric record's date and mathematical overlap do not establish provenance or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known dimension and witness, different scope for the general all-optima statement",
+          "evidence": [
+            "Fano metric dimension 5; all-optima theorem for q at least 23. The arXiv version labels the Fano remark 2.6."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/2582",
+          "material_read": "Published Remark 11 and Figure 1, pp. 5–6; Theorem 2 p. 2 and classification scope in §3, PDF text offsets 13600 and 3950",
+          "method": "OA journal PDF excerpts",
+          "title": "Resolving sets and semi-resolving sets in finite projective planes",
+          "trigger": "Same Fano incidence graph and metric dimension, plus general criteria"
+        },
+        {
+          "assessment": "Known numerical dimension, not the basis classification",
+          "evidence": [
+            "Heawood: 14 vertices, diameter 3, metric dimension 5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.4973",
+          "material_read": "Table 3 p. 8, PDF text offset 25000",
+          "method": "OA PDF text",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Exact dimension table for the Heawood graph"
+        },
+        {
+          "assessment": "Identical jump graph on edge bases as a set family, distinct resolution predicate",
+          "evidence": [
+            "Exactly the two tangent families for distinguishing edges; jump replacement graph has 168 states and 420 edges. Its separate token-slide claim 21C8 concerns a different exchange rule."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-edge-metric-bases-of-the-heawood-graph-and-octagonal-slide-recon--d4a919fbecfd/RESULT.md",
+          "material_read": "Finding and scope offset 0; exhaustive classification and replacement proof offset 2871; prior-work discussion offset 7028",
+          "method": "Local mirror statement and bounded proof excerpts",
+          "title": "Edge-metric bases of the Heawood graph and octagonal slide reconfiguration",
+          "trigger": "Same family of landmarks and jump-graph invariants"
+        },
+        {
+          "assessment": "Unresolved access, no evidential conclusion about coverage",
+          "evidence": [
+            "The frozen record cites the project for the general operation only."
+          ],
+          "identifier_or_url": "https://www.cpp.edu/camp-reu/research_projects.shtml",
+          "material_read": "None at the project URL; retrieval returned 404",
+          "method": "Bounded OA attempt",
+          "title": "Metric Basis Reconfiguration",
+          "trigger": "Possible Heawood-specific metric-basis reconfiguration coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Complete finite replay",
+        "November 8 Resultary comparator's metric definitions and state family"
+      ],
+      "rationale": "For a canonical small incidence graph, describing every optimum vertex-landmark placement makes a dimension value into a structural classification. It decides that these optima coincide with the independently specified edge-metric family and gives exact reconfiguration information, including the maximum swap distance and how many states occur at each distance. The object, optimum placements and token-jump rule are natural without choosing a parameter after computation.",
+      "residual_risks": [
+        "No general reconfiguration theorem or new metric-dimension value is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

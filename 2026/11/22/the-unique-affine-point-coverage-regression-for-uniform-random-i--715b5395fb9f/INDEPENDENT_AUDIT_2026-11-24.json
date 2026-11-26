@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:02:06.799677Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition first on the labels of the covering intervals. Conditional on those labels, the intervals remain independent, and the noncovering intervals fall left/right with probabilities t^2/s and (1-t)^2/s. The unordered pair overlap probabilities are 1 for two covering intervals, 2/3 for mixed pairs (three iid endpoint ranks on the side of contact), and q=(2/3)(t^4+(1-t)^4)/s^2 for two noncovering intervals. Summing gives the same conditional mean for every label choice of size k. Its second difference is 1-4/3+q=(s^2-c^2)/(3s^2)=(2t-1)^2/(3s^2). Since K_t is Bin(n,c) with c in (0,1/2], every k is attainable and for n=2 the single second difference already tests affineness. At the midpoint the mean is n(n-1)/6+(n-1)k/3. For a vertex-edge incidence, the difference between pair-overlap probabilities when that vertex covers and when it does not is c/3+s(2/3-q)=c/(3s). Hence its covariance with the coverage indicator is cs*c/(3s)=c^2/3; there are n(n-1) incidences and all other pairs are independent. For edges sharing a vertex, put L=left endpoint and U=one minus right endpoint of the shared interval. The conditional overlap is g=1-L^2-U^2. Under the density 2 on L,U>=0, L+U<=1, the moments of L^2, L^4 and L^2 U^2 are respectively 1/6,1/15,1/90. These give E[g]=2/3, E[g^2]=22/45 and Var(g)=2/45. Each edge has variance 2/9; disjoint edges are independent; the 3 binom(n,3) unordered shared-vertex pairs each contribute twice. This gives Var(E_n)=n(n-1)(2n+1)/45. Substitution verifies the exact squared correlation. The factor c^3/(1-c) is strictly increasing, and c has its unique maximum at the midpoint. There the affine conditional mean is the unrestricted L^2 projection as well, and the ratio tends to 5/8. No maximization of the unrestricted ratio off the midpoint is needed or attributed to the record. Continuous strictly increasing endpoint CDF transport preserves the endpoint order and coverage. The finite rational source checker was read, not executed; the analytic reconstruction, not its finite sample cases, covers all t and n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diaconis–Holmes–Janson give Scheinerman's edge-count leading term n^2/3 and general clique/chromatic convergence, not a conditional edge law.",
+          "Iliopoulos gives exact mean n(n-1)/3, an O(n^3) variance bound for concentration, and maximal one-point coverage at the midpoint."
+        ],
+        "reasoning": "Even together these read marginal and limit statements do not determine the finite covariance with depth, the regression coefficients, or the affineness property. Retain uncertainty about other results in the original unavailable article.",
+        "searches": [
+          "arXiv:1102.2841v1 sections 2.3 and 4",
+          "arXiv:1507.06275v1 sections 3.3 and 5.1",
+          "doi:10.1007/BF02189092"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.06275v1",
+        "arXiv:1102.2841v1",
+        "doi:10.1007/BF02189092 (full text unavailable)",
+        "SCOPE-joint-gaussian-fluctuations-of-edge-count-and-chromatic-number-i--8c529d0fb0ca",
+        "SCOPE-the-unique-affine-point-coverage-regression-for-uniform-random-i--715b5395fb9f (identical record)",
+        "Dense and Nondense Limits for Uniform Random Intersection Graphs, pp. 2 and 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion computes Var(g)=2/45 and Cov(Z,g)=1/12 at midpoint for one covering indicator Z; those identities give the midpoint covariance by incidence and the limiting 5/8. The exact edge variance also follows from the shared contact-kernel moments and a count of variance terms.",
+          "Iliopoulos establishes midpoint-maximal coverage 2t(1-t), whereas the linear edge prediction criterion needs its covariance as a function of t."
+        ],
+        "reasoning": "Credit the common moments, limiting ratio and the previously acknowledged midpoint regression; same-day indexing does not decide priority. The finite t-dependent conditional quadratic, unique zero curvature and exact linear efficiency ordering require additional conditional contact analysis beyond these passages.",
+        "searches": [
+          "SCOPE-joint-gaussian-fluctuations-of-edge-count-and-chromatic-number-i--8c529d0fb0ca/RESULT.md, midpoint decomposition and relationship to prior work",
+          "arXiv:1507.06275v1 section 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-point coverage is point depth and forms a clique, but is not the maximal depth/graph clique number in a realization.",
+          "The same-day joint-Gaussian record takes the adaptive maximum and has limiting squared correlation 5/8. It also gives a midpoint linear projection in the limiting Gaussian model and credits the exact finite midpoint regression without claiming it as new."
+        ],
+        "reasoning": "Equality of limiting coefficients for both predictors is genuine overlap, not equivalence of their finite conditional laws. In particular the asymmetric quadratic profiles and vanishing curvature only at the midpoint do not follow from the maximum-process statement.",
+        "searches": [
+          "conditional expected edge count given point coverage in uniform random interval graphs affine midpoint regression",
+          "indexed point-coverage nonlinear regression interval graph edge count",
+          "random interval graph edge count conditional on clique number maximum point coverage nonlinear regression"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit with the finite all-k polynomial is the identical assigned record 715b5395fb9f, not an independent match.",
+          "The inspected companion 8c529d0fb0ca contains exact midpoint contact integrals and the limiting 5/8 but not the table of all finite t,k conditional profiles."
+        ],
+        "reasoning": "No distinct read table supplied the joint finite conditional results. The web lookup did not locate one and is not evidence of absence.",
+        "searches": [
+          "conditional expected edge count given point coverage in uniform random interval graphs affine midpoint regression",
+          "\"uniform random interval graph\" conditional expected number of edges given number of intervals covering a point regression midpoint variance covariance 5/8"
+        ]
+      },
+      "rationale": "The distinct claim supported by comparison is the whole finite fixed-point regression, its unique affine point and the exact all-t linear-prediction formula. The older verified overlap is the uniform model, first-order edge and clique statistics, and midpoint-maximal single-interval coverage. The joint-Gaussian catalogue record overlaps on midpoint moments and the value 5/8 but treats the adaptive maximum and expressly does not claim the finite midpoint regression as new. The whole original 1988 paper remained unavailable; this is not a historical-priority certification.",
+      "residual_risks": [
+        "The original 1988 article was inaccessible through lawful routes tried; its full historical coverage is unresolved.",
+        "Same-day publication does not determine ordering between the finite regression and joint-Gaussian records. Unindexed equivalents may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers mean edges, concentration and marginal midpoint coverage, not the fixed-depth conditional law in the passages read",
+          "evidence": [
+            "Mean n(n-1)/3 and variance O(n^3); probability 2t(1-t) is maximized at 1/2; clique number n/2+o(n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1507.06275v1",
+          "material_read": "Sections 3.3 and 5.1, HTML offsets 5400, 8800 and 46600",
+          "method": "Open-access theorem and formula passages",
+          "title": "Random Interval Graphs",
+          "trigger": "Same graph model, edge statistic, midpoint and clique"
+        },
+        {
+          "assessment": "First-order edge asymptotics and normalized clique convergence, not finite regression",
+          "evidence": [
+            "Reports n^2/3+o_p(n^2) edges for the model; Theorem 4.2 concerns chromatic and clique numbers under limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1102.2841v1",
+          "material_read": "Section 2.3 around offset 7700 and Theorem 4.2 around offset 32556",
+          "method": "Open-access theorem and exposition passages",
+          "title": "Interval graph limits",
+          "trigger": "More general limits on same object and classical edge count"
+        },
+        {
+          "assessment": "Material historical-priority risk, no positive evidence from the inaccessible text",
+          "evidence": [
+            "Later treatment credits Scheinerman for leading edge density and basic model results."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02189092",
+          "material_read": "Bibliographic identification and later attribution in Interval graph limits, section 2.3; original full text not read",
+          "method": "Attempted lawful OA DOI/full-text retrieval; compared available later attribution",
+          "title": "Random interval graphs",
+          "trigger": "Foundational older article on the same model"
+        },
+        {
+          "assessment": "Partial overlap of ingredients and limiting number; maximum statistic and joint limit differ from all-t finite regression",
+          "evidence": [
+            "Uses the adaptive maximum C_n(t), computes E[g^2]=22/45 and E[Zg]=5/12 at midpoint, and states that the exact midpoint regression and limiting 5/8 are not newly claimed."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-joint-gaussian-fluctuations-of-edge-count-and-chromatic-number-i--8c529d0fb0ca",
+          "material_read": "RESULT.md Finding, proof of midpoint projection (offsets 1950–4456), prior-work and limitations (6100 onward)",
+          "method": "Local mirror, read assumptions, proof identities and statement",
+          "title": "Joint Gaussian fluctuations of edge count and chromatic number in random interval graphs",
+          "trigger": "Same-day exact midpoint ingredients and 5/8 limit"
+        },
+        {
+          "assessment": "Distinguishes graph models and gives background; no regression in passages read",
+          "evidence": [
+            "The paper places Scheinerman's interval graph model in context and distinguishes it from random unit-interval graphs."
+          ],
+          "identifier_or_url": "Dense and Nondense Limits for Uniform Random Intersection Graphs, OA PDF pp. 2, 4",
+          "material_read": "Page 2 around offset 4869 and page 4 around offset 10772",
+          "method": "Open-access PDF comparison of model passages",
+          "title": "Dense and Nondense Limits for Uniform Random Intersection Graphs",
+          "trigger": "Potential overlap returned by external search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single fixed-point depth count is a simple natural local statistic and the total edge count is global. The exact curvature obstruction distinguishes the midpoint from every competing fixed location, and the finite efficiency curve measures the quality of a one-statistic linear predictor, with the midpoint predictor additionally optimal among all functions of its count. This goes beyond the already known midpoint coverage maximum and is not a claim about adaptive clique size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

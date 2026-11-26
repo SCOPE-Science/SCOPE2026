@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:56:11.532659Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–25",
+        "Frozen VERIFICATION.md, lines 19–21",
+        "Frozen verify.py, lines 27–74 (read, not executed)",
+        "Estaji–Imrich–Kalinowski–Pilśniak, Distinguishing Cartesian Products of Countable Graphs, Theorem 1 and Eq. (1)"
+      ],
+      "rationale": "At round zero colors are uniform. At each step in the product, the H-neighbors add exactly d copies of the old color of g to the G-neighbor multiset. Because the old color is included in the signature, compare only equal old colors, for which subtracting those copies restores the G signature. This gives equality of partitions at every round and equality of the first stable round, including d=0 and a singleton factor. In the connected relatively prime case the Imrich–Miller automorphism formula permutes only isomorphic Cartesian primes, so no coordinate crosses the G/H split; orbits are Cartesian products, proving the reverse implication. For sufficiency the coordinatewise subgroup already acts transitively on each color class even without that prime hypothesis. For P_m let δ be distance to the nearer endpoint: round t has classes given by min(t,δ). The first split when m≥3 is by degree; subsequently the saturated class splits off δ=t as exactly the vertices meeting the δ=t−1 class whenever t is below max δ. Reflection preserves final equal-δ pairs, so the depth is floor((m−1)/2), including m=2. For the witness apply lifting to P_m times the union C_n ⊔ C_3 ⊔ C_{n−3}. This equals the disjoint union of the two compared products, so their actual joint-refinement colors have equal multiplicities, not just their unordered block sizes. Connectedness distinguishes the graphs. The cycle symmetries and path reflection prove refinability.",
+      "residual_risks": [
+        "The supplementary cylinder test compares sorted class-size multisets from separate runs, not aligned colors on a disjoint union, and the product tests compare depths of factors/products rather than checking the closed path depth formula directly. The analytic arguments above independently establish both stronger statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arvind et al. prove a strict hierarchy including amenable strictly contained in refinable.",
+          "The independently inspected automorphism formula permits permutations of isomorphic primes and coordinatewise isomorphisms, not arbitrary intermixing of prime coordinates."
+        ],
+        "reasoning": "The hierarchy already proves existence of the separation, and the factor theorem supplies the orbit product when no primes are shared. Neither determines the roundwise color partition. The theorem about colors, combined with standard orbit structure, yields the stated equivalence.",
+        "searches": [
+          "arXiv:1502.01255, refinable/amenable hierarchy",
+          "Graph Cartesian product automorphisms and prime factors; Estaji et al., MD 079, Theorem 1",
+          "DOI:10.1002/jgt.20190; DOI:10.1016/j.ejc.2005.07.001"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1502.01255",
+        "Estaji et al. MD 079, Theorem 1",
+        "Local Resultary 19dfa9d1dbd4 and index comparisons 4ecb820297ab and 407aa7f7ab20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The automorphism theorem fixes the geometric part under relative primality. The known regular comparison shows what happens for the cycle factors without the path. The path-product result gives related depth/orbit claims.",
+          "Neither of the checked product-orbit/depth and hierarchy sources supplies the cancellation of d old-color copies for every factor and every round."
+        ],
+        "reasoning": "The incremental scientific claim is the general lifting argument and its consequences, not the cited structural group theorem or the fact that a regular graph retains one color. The synchronized nonisomorphism witness follows using lifting on a union; a single base-cycle comparison does not by itself give that transfer.",
+        "searches": [
+          "Imrich–Miller automorphism formula, Estaji et al., Theorem 1 p. 3 (PDF p. 5)",
+          "arXiv:1502.01255, p. 12",
+          "Resultary 19dfa9d1dbd4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The checked rectangular-grid result gives orbit recovery and exact depth for P_m□P_n, with the same depth expression on squares.",
+          "Arvind et al. give the relevant definitions and compare the regular C₇ and C₃⊔C₄."
+        ],
+        "reasoning": "The grid result is a material overlap in technique and exact depth, but path-by-path does not state roundwise lifting over arbitrary regular factors or nonamenability of cylinders. The cycle comparison is a known base example, not the family or the lifting property.",
+        "searches": [
+          "Local Resultary: uniform-start 1-WL of Cartesian products with regular factors and exact cylinder depth; 19dfa9d1dbd4",
+          "arXiv:1502.01255, pp. 2–3 and p. 12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected 19dfa9d1dbd4 entry gives exact depth for rectangular grids; the exact cycle comparison is C₇ versus C₃⊔C₄.",
+          "Two index leads concern unmarked powers of paths and root-marked cycle–clique products; their matched full records were not available in the local mirror."
+        ],
+        "reasoning": "Even coincident depth expressions for other objects or starts do not determine the cylinder sequence or the all-round law. No checked exact catalogue gives those claims; the two index-only leads are not treated as full-text exclusions.",
+        "searches": [
+          "Local Resultary exact-depth search: 19dfa9d1dbd4, 4ecb820297ab, 407aa7f7ab20",
+          "arXiv:1502.01255, p. 12 exact cycle pair"
+        ]
+      },
+      "rationale": "The refinability/amenability distinction, regular cycle comparisons, Cartesian automorphism theorem and related exact depths on products of paths are established. The distinct contribution is the all-round regular-factor partition law, its exact orbit criterion under Cartesian relative primality, and a connected nonamenable but refinable family of unbounded exact depth. The checked closely related statements do not cover that combination or the general lifting law.",
+      "residual_risks": [
+        "An earlier equitable-partition or 1-WL product statement may subsume the lifting law and was not found in the bounded comparison. The cited DOI full-text sections and the two index-only entries remain uninspected; these gaps are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions, strict hierarchy and regular-cycle example, not the lifting law in the checked statements",
+          "evidence": "Amenability is distinction against every nonisomorphic graph; refinability is orbit equality; C₇ is indistinguishable from C₃⊔C₄.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "PDF pp. 2–3, offsets 6780, 10400, 11400, and p. 12, offset 37450",
+          "method": "Open primary PDF text",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Original refinable/amenable framework and a close nonamenability witness"
+        },
+        {
+          "assessment": "Supplies the group-structure dependency, not a 1-WL result",
+          "evidence": "Every product automorphism permutes mutually isomorphic primes and applies a separate isomorphism in each coordinate; with no shared primes between the two factors these operations cannot cross the factor split.",
+          "identifier_or_url": "https://ii.uj.edu.pl/documents/12980385/26042491/MD_79.pdf",
+          "material_read": "Theorem 1, Eq. (1), and layer discussion, PDF p. 5, text offsets 4930–6568",
+          "method": "University-hosted open preprint PDF",
+          "title": "Distinguishing Cartesian Products of Countable Graphs",
+          "trigger": "Independent accessible statement of the decisive Cartesian automorphism theorem"
+        },
+        {
+          "assessment": "Material overlap on path-by-path grids but not the bound general law or cylinder examples",
+          "evidence": "Exact uniform-start 1-WL orbit classes and depths on P_m□P_n; depth on square grids is floor((m−1)/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-colour-refinement-depth-of-rectangular-grid-graphs--19dfa9d1dbd4",
+          "material_read": "Local mirror RESULT.md, offsets 0 and 3986",
+          "method": "Published-finding mirror",
+          "title": "Exact colour refinement depth of rectangular grid graphs",
+          "trigger": "Strongest exact-depth/product overlap"
+        },
+        {
+          "assessment": "Exact cited passages unresolved; the dependency was verified independently in MD 079",
+          "evidence": "No originality inference is made from the unavailable passages.",
+          "identifier_or_url": "DOI:10.1002/jgt.20190; DOI:10.1016/j.ejc.2005.07.001",
+          "material_read": "No relevant full-text section recovered; second source landing/abstract only",
+          "method": "Bounded lawful publisher/repository retrieval",
+          "title": "Distinguishing Cartesian Powers of Graphs; Cartesian powers of graphs can be distinguished by two labels",
+          "trigger": "Exact original citations for product automorphisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–22",
+        "arXiv:1502.01255",
+        "Estaji et al. MD 079, Theorem 1"
+      ],
+      "rationale": "The law is a reusable exact transformation covering arbitrary first factors, disconnected regular factors and every finite refinement depth. It links color dynamics to the full product orbit structure under a precise hypothesis. The cylinder application exhibits a connected family in which 1-WL recovers orbits at arbitrarily large, explicitly known depth but fails graph identification; neither notion is interchangeable with the other.",
+      "residual_risks": [
+        "The general separation of refinability and amenability was already known. No classification of noncoprime reverse implications or connected-to-connected indistinguishability witnesses is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

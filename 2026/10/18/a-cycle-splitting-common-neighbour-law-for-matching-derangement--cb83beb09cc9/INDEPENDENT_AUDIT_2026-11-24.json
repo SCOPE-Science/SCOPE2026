@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:47:34.145685Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 20–84",
+        "VERIFICATION.md, verify_switch.py and verify_graph.py inspected as frozen evidence",
+        "Godsil–Meagher arXiv:1506.08770, Lemma 10.1",
+        "Independent replay: python3 /workspace/reviews/replay_math.py matching"
+      ],
+      "rationale": "Use the simple forbidden union, counting each common edge once. Selecting j disjoint forbidden edges leaves (2n−2j−1)!! possible extensions, while an overlapping selection has zero extensions. Inclusion–exclusion therefore applies the signed odd-double-factorial functional to the product of the matching-generating polynomials of the union components. For a cycle of length l≥4 the trace of T^l with T=[[1,z],[1,0]] counts the weighted cyclic binary edge selections with no adjacent 1s. Cayley–Hamilton or the two-eigenvalue identity yields tr(T^{2m})²−tr(T^{4m})=2 det(T^{2m})=2z^{2m}; multiplication by the residual polynomial and shifting the functional produces exactly 2d(ρ), including sign and empty residual. The complement of the residual forbidden union has minimum degree ≥2r−3≥r for r≥3, so Dirac yields a Hamilton cycle and hence a perfect matching. For r=2 the complement has a perfect matching in both types; r=0 and r=1 give 1 and 0 respectively. For ρ=(1) the witnesses are non-neighbours of A. After one complete round there are the three classes {A}, N(A), and its remaining non-neighbours. A witness has zero adjacency into {A}; common-neighbour equality and regularity determine both other counts. Thus the second-round colours coincide. The natural full automorphism action follows from Godsil–Meagher Lemma 10.1 and preserves the cycle type, so the witnesses are in distinct full rooted orbits. Independent bounded counts give 33 versus 31 for n=4 and 328 versus 328 for n=5; they are consistency checks only.",
+      "residual_risks": [
+        "No all-n classification of collisions or upper bound of three rounds",
+        "Finite graph computations are not needed for the general identity or two-round lower bound"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil–Meagher explicitly give the scheme and prove the natural full automorphism group, not the cancellation in common-neighbour counts in the inspected portions",
+          "The spectral paper was identified but no readable full passage was obtained in bounded lawful retrieval",
+          "Kersting et al. give general equitable refinement and orbit context, not this example"
+        ],
+        "reasoning": "The scheme puts the function in a known algebra; the full automorphism theorem is a decisive prior ingredient. Neither verifies a stronger structural comparison of the specified entries. Lack of access to a spectrum paper is a limitation, not originality evidence.",
+        "searches": [
+          "Godsil–Meagher arXiv:1506.08770 §§4 and 10.1",
+          "On the spectrum of the perfect matching derangement graph, DOI 10.1007/s10801-021-01105-y",
+          "Kersting et al., DOI 10.1609/aaai.v28i1.8992"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.08770",
+        "DOI 10.1007/s10801-021-01105-y (discovery only)",
+        "DOI 10.1609/aaai.v28i1.8992",
+        "Resultary f8a1b71171f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior automorphism theorem already yields the orbit distinction and is credited",
+          "The transfer-matrix trace identity is standard; its application to the forbidden cycle factorization and shifted inclusion–exclusion shows the exact residual law, forcing equality only at residual (1)"
+        ],
+        "reasoning": "A way to enumerate or compute general intersection numbers is not by itself a verified structural split/join formula. The audited refinement obstruction uses the newly identified cancellation and cannot be read from the general refinement rule or the unmarked two-relation result.",
+        "searches": [
+          "arXiv:1506.08770 §4 and Lemma 10.1",
+          "Resultary f8a1b71171f2 Finding",
+          "Kersting et al. p. 1904"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common-neighbour counts are entries of the square of the matching derangement adjacency matrix, hence sums of intersection numbers of the partition-indexed scheme",
+          "Resultary f8a1b71171f2 uses two named matching relations on the underlying points, no shared edge, and no marked element"
+        ],
+        "reasoning": "In a fused adjacency-square formulation the sought identity is the difference between entries indexed by (m,m)⊔ρ and (2m)⊔ρ. A stable one-colour result on an unmarked two-relation structure on points is not a two-round collision between matching vertices with one shared edge to an anchor.",
+        "searches": [
+          "Matching derangement graph, cycle splitting and association-scheme intersection numbers",
+          "Resultary matching counting logic and colour refinement; inspected f8a1b71171f2",
+          "arXiv:1506.08770 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest ranked catalogue overlap f8a1b71171f2 has its first orbit failure at ten underlying points for partition (3,2), not the n=5 pair of orbit types (2,2,1) and (4,1)",
+          "The scheme passage gives the framework, not a table containing the parameter-uniform comparison"
+        ],
+        "reasoning": "The shared scale of ten points and the same date do not establish mathematical equivalence or priority. Any finite table at n=5 could corroborate 328=328 but would not by itself cover the all-odd-size rooted obstruction.",
+        "searches": [
+          "Resultary matching-derangement cycle splitting and counting-logic results",
+          "Godsil–Meagher §4 partition-indexing description"
+        ]
+      },
+      "rationale": "The association scheme, the full natural automorphism group, and the transfer and refinement tools are prior. The inspected comparisons did not cover the single-shift identity with its unique exceptional residual and explicit odd-size rooted refinement obstruction. A same-day distinct record exhibits a genuine counting-logic overlap but on different objects and without a marked vertex.",
+      "residual_risks": [
+        "An uninspected specialist intersection-number formula might contain an equivalent structural comparison",
+        "No exhaustive priority claim"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior scheme and full natural action; no split–join comparison in inspected portions",
+          "evidence": "Relations indexed by alternating cycle partitions; the proof recovers the line graph of the underlying complete graph and shows all automorphisms come from point permutations for n≥3.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.08770",
+          "material_read": "§4 pp. 5–6, extracted offsets 9600–14878; §10.1 Lemma 10.1, p. 19 near offset 40000",
+          "method": "OA primary PDF text",
+          "title": "An algebraic proof of the Erdős–Ko–Rado theorem for intersecting families of perfect matchings",
+          "trigger": "Same graph, scheme and automorphisms"
+        },
+        {
+          "assessment": "Does not settle coverage",
+          "evidence": "Excerpt identifies the union of relations and eigenvalue formulas, insufficient to assess implication of the split–join law.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10801-021-01105-y",
+          "material_read": "Discovery excerpt only; no accessible primary passage after bounded OA attempts",
+          "method": "Literature lookup and OA retrieval",
+          "title": "On the spectrum of the perfect matching derangement graph",
+          "trigger": "Possible exact association-scheme formulas"
+        },
+        {
+          "assessment": "General background only in inspected portion",
+          "evidence": "Defines and motivates colour refinement/equitable partition, without the rooted matching graph example.",
+          "identifier_or_url": "https://doi.org/10.1609/aaai.v28i1.8992",
+          "material_read": "p. 1904, extracted text at offset 0",
+          "method": "OA primary text",
+          "title": "Power Iterated Color Refinement",
+          "trigger": "General method and orbit recovery"
+        },
+        {
+          "assessment": "Conceptual overlap, mathematically distinct setting",
+          "evidence": "Structures on points with two named edge-disjoint matchings form one C²-equivalence class without marking; the present vertices are matchings, the anchor is marked, and the witnesses share one edge with it.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-complete-two-matching-counting-logic-fibre-and-its-sharp-fir--f8a1b71171f2",
+          "material_read": "Mirrored RESULT.md, Finding, offsets 0–4928",
+          "method": "Resultary search and local mirror text",
+          "title": "The complete two-matching counting-logic fibre and its sharp first obstruction",
+          "trigger": "Strongest distinct indexed matching/logic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Godsil–Meagher Lemma 10.1 for the existing symmetry baseline"
+      ],
+      "rationale": "The formula isolates an exact local change in a natural graph under a natural equal-cycle split, identifying when the second-round rooted count loses a real orbit distinction. It gives an explicit all-odd-size finite-round lower bound in a graph family with known but nontrivial symmetry; neither the finite counts alone nor the old automorphism theorem gives that lower bound.",
+      "residual_risks": [
+        "Says nothing about the even-size case, eventual refinement, or whether all odd sizes separate at round three"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

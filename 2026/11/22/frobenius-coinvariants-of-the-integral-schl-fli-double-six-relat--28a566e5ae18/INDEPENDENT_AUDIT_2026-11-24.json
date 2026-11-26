@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:55:10.865200Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The six pivot lines together with the anticanonical vector form a unimodular Picard basis, so projecting onto the other 21 coefficients gives integral kernel coordinates. I generated the double-sixes by the skew-row and complementary cross-incidence conditions, rather than by the stated roots. This yielded 36 supports, each summing to 4(-K), and the sorted 21-column minor had determinant -65536. Integer Smith reduction gave 1^6,2^14,4, and Smith reductions of the augmented coinvariant presentation agreed for all eleven partitions. The pair map has the stated mod-two rank 15, annihilates the double-six columns and is equivariant by its index formula. The coefficient sum modulo four descends because 12 is divisible by 4, is invariant, and is onto because one kernel vector has odd sum. It forces one order-four summand to survive in every coinvariant quotient; there cannot be a second since 2Q has order two. Mod-two coinvariants and the pair-orbit count give the remaining summands. The arithmetic proof uses only the induced S6 action of the stable sextuple; it does not assert that every partition is realized over each field. Independent replay: python3 /workspace/branches/reproductions/double_sixes.py (SymPy 1.14.0).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elsenhans–Jahnel §§1.1–1.3 describe the action on the lines and invariant double-sixes. The Segre quotient uses a node–plane incidence matrix with a different integral group and a quotient-by-constants mod-two module."
+        ],
+        "reasoning": "Permutation geometry supplies input to the quotient but is not a general computation of its module. The Segre formula is for a different presentation and does not cover this as a case.",
+        "searches": [
+          "Cubic surfaces with a Galois invariant double-six, DOI 10.2478/s11533-010-0036-1",
+          "Integral Frobenius coinvariants of the Segre cubic node–plane incidence, record be1de342035c"
+        ]
+      },
+      "checked_sources": [
+        "0aac314408f8",
+        "be1de342035c",
+        "351be78ff276",
+        "doi:10.2478/s11533-010-0036-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known geometric Smith type and action on lines are inputs; the rank-15 equivariant map and invariant coordinate-sum quotient require checking on the actual kernel and double-six sublattice."
+        ],
+        "reasoning": "The coinvariant formula is a short deduction after those checks, but neither the geometric Smith type nor knowledge of the action on its generators states or immediately supplies the key module calculation.",
+        "searches": [
+          "0aac314408f8, limitations and geometric quotient",
+          "Elsenhans–Jahnel, §§1.1–1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 0aac314408f8, RESULT.md offsets 535 and 6900, has the same K/L and order 65536 but explicitly leaves Galois modules outside scope."
+        ],
+        "reasoning": "The geometric quotient as an abelian group is identical, not new. That abstract group does not specify even its mod-two permutation representation.",
+        "searches": [
+          "Resultary: Schläfli double-six integral reconstruction obstruction; cubic surface double-six relation lattice Frobenius coinvariants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "be1de342035c computes a different coinvariant formula; the distinct same-day record 351be78ff276 treats the critical group of the Segre node–plane graph, not the 27-line relation lattice."
+        ],
+        "reasoning": "No equivalent eleven-partition table was established from those records. Difference of mathematical objects, not date, excludes the Segre graph result.",
+        "searches": [
+          "Resultary: integral Frobenius coinvariants Schläfli double-six and Segre incidence"
+        ]
+      },
+      "rationale": "The underlying abelian group is prior work. The supported distinct result is the S6-equivariant pair-module identification together with its uniform integral coinvariant consequence. The closest inspected material does not supply the module identification or calculate this arithmetic invariant.",
+      "residual_risks": [
+        "An earlier unindexed equivariant or coding-theoretic description of this exact incidence quotient could affect priority; the comparison is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers geometric abelian group only",
+          "evidence": "Index 65536 and the stated abelian group; limitations exclude Galois modules.",
+          "identifier_or_url": "0aac314408f8",
+          "material_read": "RESULT.md offsets 535 and 6900",
+          "method": "Published record mirror",
+          "title": "The order-four integral reconstruction obstruction for Schläfli double-sixes",
+          "trigger": "Same K/L"
+        },
+        {
+          "assessment": "Different quotient",
+          "evidence": "10-by-15 incidence and mod-two quotient V/<1>.",
+          "identifier_or_url": "be1de342035c",
+          "material_read": "RESULT.md offsets 0 and 3315",
+          "method": "Published record mirror",
+          "title": "Integral Frobenius coinvariants of the Segre cubic node–plane incidence",
+          "trigger": "Similar arithmetic quotient"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Critical group of the 25-vertex graph rather than the Schläfli incidence quotient.",
+          "identifier_or_url": "351be78ff276",
+          "material_read": "RESULT.md initial claim",
+          "method": "Published record mirror",
+          "title": "Frobenius descent of the Segre cubic node–plane graph Jacobian",
+          "trigger": "Nearby same-day arithmetic classification"
+        },
+        {
+          "assessment": "Underlying geometric and permutation input",
+          "evidence": "Describes actions on lines and invariant sixers/double-sixes, not the quotient of integral relations.",
+          "identifier_or_url": "https://doi.org/10.2478/s11533-010-0036-1",
+          "material_read": "OA PDF p. 1, §§1.1–1.3, offsets 519 and 1388",
+          "method": "OA text and section comparison",
+          "title": "Cubic surfaces with a Galois invariant double-six",
+          "trigger": "Primary Galois double-six source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit module map explains, for every stable sextuple, why only orbits on pairs determine the surviving number of cyclic factors, while a four-torsion obstruction always survives. This is a useful arithmetic refinement of a naturally motivated integral reconstruction obstruction, not just another calculation of the geometric index or a table of Smith forms. It does not identify Q with Picard or Brauer torsion or extend the classification to general W(E6) actions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:05:42.792821Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and proof lines 5–86 and benchmark line 92",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent direct two-soil calculation described above"
+      ],
+      "rationale": "The strict monotonicity and unique positive-runoff crossover hold under the stated fixed-lambda, uniform-rainfall law. For every active storm, the support contains retentions with two distinct runoff values: the low-retention end is active and the other value is strictly smaller, even if it is zero. The local law is C^1 across the activation threshold. With a=1-lambda and z=(P-lambda*s)/(P+a*s) on the active branch, q_s=-2*lambda*z-a*z^2<0 and q_P=2*z-z^2. At a fixed P the map H(z)=P*z^2/(lambda+a*z) is strictly convex increasing, so q_P as a function of q, including zero, is strictly concave. Implicit differentiation and strict Jensen therefore give s_eff'(P)>0 without excluding atoms at the respective local activation thresholds. At onset, s_-<=s_eff<P/lambda. At large P the uniform identity q=P-(1+lambda)*s+s^2/(P+a*s) gives the limit E[S] and the stated bias limit. The arithmetic-CN retention lies strictly between s_- and E[S] by strict Jensen for the reciprocal. Thus it is met exactly once, necessarily after aggregate and composite activation. The two-soil example was independently replayed by substituting s=(254,254/9) with composite retention 3302/37, and bisecting the direct runoff difference on [60,500]; it gives 228.09380830096 mm and biases +7.74932556 and -6.11611651 mm at 50 and 350 mm, respectively.",
+      "residual_risks": [
+        "The numerical check is illustrative, not a proof of the universal theorem. Compact support strictly inside (0,1), fixed initial abstraction, and noninteracting area-weighted runoff are essential to the scope reviewed; field validity is not tested."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected HESS section is a two-class argument. The indexed distinct retention record's abstract compares the runoff ranking of two fixed rainfall orders for two green-roof systems as initial saturation varies; the exact record text was not retrieved.",
+          "The Her et al. full mathematical treatment remains uninspected."
+        ],
+        "reasoning": "Neither a two-class trend nor reversals under a change in initial saturation furnish a theorem for arbitrary probability laws of classical local CNs at fixed abstraction under uniform storm depth. The inaccessible averaging article is a residual priority risk, not negative evidence.",
+        "searches": [
+          "Soulis & Valiantzas (2012) §2.3.2",
+          "Resultary record 2026/11/22/SCOPE-three-exact-storm-order-reversals-across-two-heterogeneous-reten--56bb6286d54f",
+          "Her et al. averaging article by DOI and identified alternate listing"
+        ]
+      },
+      "checked_sources": [
+        "Soulis & Valiantzas (2012), OA §2.3.2",
+        "Her, Seong & Jeong (2016), citation and lawful access attempts only",
+        "Resultary assigned entry and distinct --56bb6286d54f summary",
+        "Frozen proof and prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-CN formula is compatible with the result, but the inspected passage compares effective CN as P moves, not distributed versus arithmetic-composite runoff over all P. Retention averaging represents the large-P limit, not the same arithmetic CN.",
+          "The submitted Jensen argument controls q_P at the averaged response even with inactive subareas, and the endpoint comparisons then imply the sign classification."
+        ],
+        "reasoning": "One cannot average already inferred two-class CNs using fixed arithmetic weights to obtain the equivalent response of an arbitrary law: inversion is nonlinear and depends on storm depth. Endpoint values alone force existence, not uniqueness. The inspected material does not subsume the strict response-order argument.",
+        "searches": [
+          "HESS (2012) low-P behavior and envelope-curve passage",
+          "Frozen theorem proof §§2–4 versus Her et al. DOI 10.1061/(ASCE)IR.1943-4774.0001021 and the Resultary comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Soulis & Valiantzas explicitly describe the increase in calculated CN as P decreases for a two-CN system and identify its low-P threshold. Increasing equivalent retention is equivalent to decreasing inferred CN by the reciprocal transform.",
+          "Her et al. is an especially pertinent representative-CN averaging comparison, but no usable mathematical passage was recovered."
+        ],
+        "reasoning": "The two-class trend is overlapping evidence, not a generic all-law result. Naming the equivalent single CN does not in itself establish its strict derivative or its unique meeting with the arithmetic spatial average.",
+        "searches": [
+          "Resultary semantic search for heterogeneous equivalent/composite curve number and storm-runoff bias",
+          "Soulis & Valiantzas (2012), DOI 10.5194/hess-16-1001-2012, §2.3.2",
+          "Her, Seong & Jeong (2016), DOI 10.1061/(ASCE)IR.1943-4774.0001021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact result returned as the assigned record itself, not as independent coverage. The distinct roof entry reports a different storm-order comparison."
+        ],
+        "reasoning": "The target is a continuum-law theorem and not a table lookup for a particular hydrologic soil group or the two-soil numerical example. The indexed record match does not supply an independent theorem.",
+        "searches": [
+          "Resultary semantic search: assigned record 2026/11/22/SCOPE-a-universal-monotonicity-theorem-and-unique-composite-bias-rever--4ea127307d38 and distinct retention result --56bb6286d54f"
+        ]
+      },
+      "rationale": "Credit the prior two-CN equivalent-response trend, low-storm behavior and storm-dependent averaging, not as distinct contributions here. The supported contribution is strict monotonicity for every admissible spatial law including partial activation, with an exact one-crossing classification relative specifically to the arithmetic composite CN. The strongest inspected primary passage gives the two-CN trend, not that joint conclusion; best-of-knowledge assessment, not an assertion of historical priority.",
+      "residual_risks": [
+        "The complete 2016 averaging analysis could contain stronger relevant statements; its text was not recovered. The distinct roof result was compared only at the summary level. Historical originality is bounded by inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit special-case overlap; not evidence of an all-law arithmetic-composite crossing.",
+          "evidence": "For a two-CN system, as P decreases the calculated values of CN increase; below P0=lambda*S_a runoff vanishes and CN is undefined.",
+          "identifier_or_url": "https://hess.copernicus.org/articles/16/1001/2012/hess-16-1001-2012.pdf",
+          "material_read": "§2.3.2, Low-P behaviour—Envelope curve, printed pp. 1005–1006",
+          "method": "Primary OA PDF passage",
+          "title": "SCS-CN parameter determination using rainfall-runoff data in heterogeneous watersheds – the two-CN system approach",
+          "trigger": "Same equivalent runoff and heterogeneous curve-number mechanism"
+        },
+        {
+          "assessment": "Mathematical coverage unresolved",
+          "evidence": "The title establishes the topic; the exact and quadratic methods are described in the frozen bibliography comparison but not independently confirmed from its full text.",
+          "identifier_or_url": "https://doi.org/10.1061/(ASCE)IR.1943-4774.0001021",
+          "material_read": "Citation listings only; publisher and identified alternate page did not provide a readable passage",
+          "method": "Targeted literature lookup and lawful OA attempts at the DOI and identified ResearchGate listing",
+          "title": "Alternative CN Averaging Methods for Determining the Representative CN of a Watershed",
+          "trigger": "Exact representative-CN averaging could cover part of the theorem"
+        },
+        {
+          "assessment": "Different advertised comparison, full-text scope unresolved",
+          "evidence": "Ranks rainfall orders at variable initial saturation for two heterogeneous retention roofs, rather than comparing arithmetic and equivalent CN across storm depths.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-exact-storm-order-reversals-across-two-heterogeneous-reten--56bb6286d54f",
+          "material_read": "Resultary summary; full text not retrieved",
+          "method": "Local Resultary search and attempted mirror read",
+          "title": "Three exact storm-order reversals across two heterogeneous retention systems",
+          "trigger": "Closest distinct indexed result about hydrologic reversal"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen assumptions, theorem and benchmark",
+        "HESS two-CN comparison"
+      ],
+      "rationale": "An operationally common choice—arithmetic averaging of curve numbers—gets a complete directional error classification, not merely examples. The strict response-speed comparison handles arbitrary heterogeneity and partial runoff activation and rules out additional reversals, a conclusion neither endpoint heuristics nor a single two-soil calibration provide.",
+      "residual_risks": [
+        "No claim that the classical lumped runoff law predicts field behavior, or that the conclusion persists with changing initial abstraction or spatially varying rainfall."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

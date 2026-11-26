@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:08:25.318422Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A_i=2P_iJ each one-step matrix is I−ηA_j+η²A_jA_i. A_i²=0, while the two complementary products are −4 times their respective corrector-coordinate projections. The two same-coordinate Gram matrices average to (1+2η²)I; the complementary average is (1−2η²+8η⁴)I. Weighting by the balanced pair probabilities and conditioning on the current iterate gives the exact factor q_r and its kth power. q_r−1=2η²(1−2r+4rη²); at zero step or the positive endpoint the error moment is constant, not converging to the saddle for a nonzero start. Mean iteration uses the averaged matrix (1−2rη²)I−ηJ, whose squared norm factor is (1−2rη²)²+η². At r=1/2 this tends to zero under iteration precisely for 0<η<1 despite second-moment growth for every η>0. Marginal oracle unbiasedness is for fixed inputs; no conditional unbiasedness at the random predictor is assumed for coupled pairs. The supplied check was inspected but not run. /workspace/branches/61ea2ef6-f9c3-4247-b7c9-d90de9e9e5b0/replay_frozen_coordinate_gram.py is a separate 1,760-case exact-rational replay with boundary checks; continuum validity comes from the symbolic Gram identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gorbunov et al. define independent samples in SEG. Du et al. §3 expressly uses independent extrapolation/update samples with bounded noise variance and studies averaged/restarted rates. Beznosikov et al. use a full operator for the predictor in coordinate EG."
+        ],
+        "reasoning": "These broader algorithms/analyses do not by those statements give an exact dependence on complementary coupling of two rank-one queries. The two calls and do-not-reuse pairing are substantive changes, not a parameter choice in a full-predictor algorithm.",
+        "searches": [
+          "arXiv:2111.08611, p. 2 offset 13124",
+          "arXiv:2206.08573, §3, offsets 37600–39874",
+          "arXiv:2201.12206, Appendix A.4 Algorithm 4, p. 42 offset 101426"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting VERIFICATION.md / check_pair.py",
+        "Resultary scalar-frontier records and alternate coordinate aliases",
+        "arXiv:1904.08598, 2201.12206, 2111.08611, 2403.07148, 2206.08573 (specified passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chavdarova et al.'s sampled block updates both matched player coordinates. Their quadratic correction in (27) depends on shared components I∩J and disappears in (26) when the batches are disjoint. The coordinate model here reverses that mechanism: same-coordinate composition vanishes and complementary composition is nonzero."
+        ],
+        "reasoning": "Independent-sample divergence and generic moment recursion are established ideas, but the earlier block mechanism, a full predictor, or a scalar-slope formula does not imply the frozen threshold by substitution.",
+        "searches": [
+          "arXiv:1904.08598, Theorem 1; Appendix C.1 eqs. (25)–(30), offsets 61400–64616",
+          "arXiv:2201.12206, Appendix A.4 Algorithm 4",
+          "SCOPE-20261012-1eae25261845, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest exact scalar-slope frontiers use full skew updates. The random-reshuffling paper describes reusing the same component for both stages while varying the component over steps."
+        ],
+        "reasoning": "Neither antithetic full-vector slopes nor across-step reshuffling generates the within-step product of two opposing rank-one coordinate projections.",
+        "searches": [
+          "Resultary: single-coordinate, disjoint cross-player coordinates, alternate/antithetic coordinate extragradient, coupled stochastic extragradient",
+          "SCOPE-20261012-1eae25261845 and SCOPE-20261025-2b6eab28d021",
+          "arXiv:2403.07148, p. 2 offset 11131"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned exact coupling records give moment factors or stability thresholds for scalar coefficients of J. The closest prior finding's printed assumptions require that form. The additional hits include scalar-slope typical-path and one-half reuse thresholds, not a match to the frozen q_r for the rank-one model."
+        ],
+        "reasoning": "Matching half-probabilities or a quartic factor in a different family do not give coverage; the oracle law and joint factors would have to agree or imply the coordinate result.",
+        "searches": [
+          "Resultary: complementary coordinates, pairing threshold, sample reuse, variance-reduced extragradient",
+          "SCOPE-20261012-1eae25261845; SCOPE-20261025-2b6eab28d021; SCOPE-20261101-002177710edb; SCOPE-20261108-7e624dada25f"
+        ]
+      },
+      "rationale": "The closest inspected coupling frontier concerns multiplying a full skew field by a scalar slope. Its nonzero oracle matrices have rank two and its transition matrices lie in the commuting algebra span{I,J}; neither describes the rank-one nilpotent coordinate factors or their noncommuting products. Prior divergence for independent stochastic extragradient is not the novelty. The supported distinction is the exact necessary-and-sufficient pairing window and simultaneous mean/second-moment separation for the two-stage single-coordinate oracle.",
+      "residual_risks": [
+        "Literature and catalogue coverage are bounded. Several lookups returned only decisive snippets after offset timeouts, not whole-document exclusions.",
+        "A more general exact theorem for correlated random matrix or coordinate oracles may subsume the result; none was established in the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong conceptual precedent; different oracle family",
+          "evidence": "Two full-field scalar slopes X,Y in F_s(z)=sJz yield an exact coupling-dependent factor. Rank-one coordinate maps are not members of that family.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-a-sharp-coupling-reversal-frontier-for-stochastic-extragradient--1eae25261845/RESULT.md",
+          "material_read": "RESULT.md offset 0, Finding and Assumptions",
+          "method": "Local mirror primary passage",
+          "title": "A sharp coupling reversal frontier for stochastic extragradient",
+          "trigger": "Closest explicit mean-square coupling frontier in the index"
+        },
+        {
+          "assessment": "Divergence prior art; sampled matched-player blocks, not opposing single coordinates",
+          "evidence": "Equations (25)–(27) update both θ and ϕ, and an I∩J term gives the second-order correction.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.08598",
+          "material_read": "Theorem 1 locator p. 3 offset 14090; Appendix C.1 eqs. (25)–(30), offsets 61400–64616",
+          "method": "OA PDF theorem locator and primary appendix passage",
+          "title": "Reducing Noise in GAN Training with Variance Reduced Extragradient",
+          "trigger": "Constructed stochastic EG divergence and a potentially equivalent disjoint-stage effect"
+        },
+        {
+          "assessment": "The predictor alone distinguishes the settings",
+          "evidence": "Predictor evaluates full F(w_k), whereas both frozen stages query a single scalar.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12206",
+          "material_read": "Appendix A.4 Algorithm 4, p. 42 locator excerpt near offset 101426 (corrector clipped)",
+          "method": "OA PDF targeted passage",
+          "title": "A Unified Analysis of Variational Inequality Methods: Variance Reduction, Sampling, Quantization and Coordinate Descent",
+          "trigger": "Named coordinate extragradient algorithm"
+        },
+        {
+          "assessment": "General independent-sample setting, not the paired-coordinate claim in inspected material",
+          "evidence": "Independent ξ_1k and ξ_2k are specified.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.08611",
+          "material_read": "Independent-sampling definition at p. 2, locator offset 13124",
+          "method": "OA PDF targeted passage",
+          "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+          "trigger": "General sampling analysis might imply exact threshold"
+        },
+        {
+          "assessment": "Across-step shuffling rather than within-step complementary calls",
+          "evidence": "Same component used in extrapolation and update.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.07148",
+          "material_read": "p. 2 locator excerpt, offset 11131",
+          "method": "OA PDF targeted passage",
+          "title": "Stochastic Extragradient with Random Reshuffling: Improved Convergence for Variational Inequalities",
+          "trigger": "Candidate equivalent pairing under reshuffling"
+        },
+        {
+          "assessment": "Independent-sample averaged/restarted algorithm, not the frozen sharp coupling law",
+          "evidence": "States that Algorithm 1 reduces to independent-sample EG in bilinear case (7), with separate samples at the two stages and bounded noise variance.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.08573",
+          "material_read": "§3, offsets 37600–39874, through opening of Theorem 3.1",
+          "method": "OA PDF primary passage",
+          "title": "Optimal Extragradient-Based Bilinearly-Coupled Saddle-Point Optimization",
+          "trigger": "Broader bilinear convergence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete stability classification of a minimal nontrivial one-coordinate-per-call model, with identical call marginals but qualitatively different second-moment behavior depending on pairing. The mean/moment split shows why a first-moment analysis misses instability. The practical interpretation is limited to this bilinear test problem and does not claim a general optimizer guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

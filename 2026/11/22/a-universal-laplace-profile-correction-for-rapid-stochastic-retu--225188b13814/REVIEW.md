@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stated theorem concerns \(\Phi_r(s)=\mathbb E e^{-sT_r}\) for each fixed \(s>0\), not a density expansion or uniform-in-\(s\) claim. A discounted Dynkin identity expresses its departure from the pure-return transform exactly as \((k_2-k_1)A_{r,s}/(1-Q_{r,s})\). The boundary-value solution \(\phi_s\) is smooth across the home position, while the discounted return-to-home function \(q_s\) has a positive derivative jump \(C_s\). Gaussian short-time asymptotics give \(A_{r,s}\sim s\phi_s(0)\mathbb EW^2/r^2\) and \(1-Q_{r,s}\sim C_s\mathbb E\sqrt W/(\sqrt{\pi r})\). Uniform domination follows from bounded killed-domain observables and the stipulated finite second clock moment. Their quotient is the theorem. Independently constructed finite-rate renewal and discounted-potential integrals agree in the packaged checks (217 PASS). The proof, not those checks, establishes infinite-rate and arbitrary-clock scope.
+PASS
 
-## Originality
+Reconstructed the discounted-cycle identity: subtracting the pure-return transform from the renewal quotient and applying stopped Dynkin to the return potential yields (k2-k1) times the killed search integral of exp(-st) x phi_s'(x), divided by the discounted home-return deficit. The integrating-factor identity (exp(-k2*x^2/2) phi_s')'=s exp(-k2*x^2/2) phi_s and the bounded negative-tail solution give |x phi_s'| bounded by the Gaussian Mills bound. The time-changed Brownian representation of search makes the short-time killing error exponentially small. The centered OU variance is 2t+O(t^2) and phi_s''(0)=s phi_s(0), giving expected integrand 2s phi_s(0)t+o(t). The one-sided home slopes give deficit C_s sqrt(t/pi)+O(t); the left slope is positive from the positive hitting transform and its integrating factor, and the right slope must be negative since q_s<=1 and a zero slope would give q_s''(0+)=s>0. Global bounds by constants times t and sqrt(t), respectively, justify both dominated-convergence steps for the assigned independent W, giving exactly the stated coefficient. The ratio 4/sqrt(pi) compares clock factors (or actual leading amplitudes at unequal stiffness); equal stiffness gives exact equality in law. No uniform-in-s, inversion or moment-interchange claim is accepted. Inspected VERIFICATION.md and CHECKER.py: their Brownian-search, harmonic-return finite-rate integrals corroborate but do not prove the arbitrary-clock result; the packaged script was not executed.
 
-**PASS, qualified.** The strongest directly matching prior statement is published-finding corpus's public November 8, 2026 \(r^{-3/2}\) **mean** asymptotic, with precisely the same two-moment clock factor; it is acknowledged and not reasserted as new. The present result provides the nonconstant all-\(s>0\) profile \(s\phi_s(0)/C_s\), which a first mean derivative does not determine. Original primary articles by Dubey and Pal (2026), Biswas, Kundu and Pal (2023), Biswas, Dubey, Kundu and Pal (2024), and Frydel (2025) were inspected for the same stochastic-return physics. They supply renewal and mean-first-passage frameworks but no evaluated sharp all-\(s\) transform correction. A strong implicit result in broader renewal or diffusion literature remains possible; source searches are not uniqueness proofs.
+## originality
 
-## Value
+PASS
 
-**PASS.** Full-transform response quantifies a continuum of discounted completion-time observables, retaining distributional information lost in the already known mean correction. Its factorization establishes a simultaneous, quantitative clock-protocol comparison across observation scales, rather than one extra scalar moment. The home-return derivative cusp explains why the correction exponent is fractional. This is a motivated finite-time reliability observable for stochastic return protocols, with a provably nonzero coefficient whenever the two stiffnesses differ.
+The supported distinct contribution is the sharp fixed-positive-s transform coefficient across all stated clocks and search stiffnesses. The known mean correction, renewal machinery, and leading transform limit are credited and are not accepted as new. The closest exact renewal formula still needs a higher-order cancellation/short-time calculation, and its displayed asymptotics do not give that calculation or the clock law.
 
-## Closest literature and limitations
+## value
 
-The 2026 initiating study establishes the model and Poisson MFPT, and the 2026 published-finding corpus mean-law statement covers the \(s=0\) derivative only. General renewal theory can supply initial identities but does not explicitly supply the distributional boundary-layer coefficient. The reported theorem is pointwise in \(s>0\), requires \(k_2>0\) and \(\mathbb EW^2<\infty\), and has not been proved uniform in \(s\) or inverted to a density asymptotic. Comparisons may miss an implicit general theorem; independent audit and publication-priority verification are outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result separates the effect of the clock law from a genuinely distribution-level diffusion response, with sharp sign and order and a comparison between equally paced periodic and Poisson alarms. The mean law alone leaves that response undetermined, and neither a bound on the mean nor the leading convergence in law could calibrate these fixed-s corrections. The value is the sharp pointwise profile, not a claim about uniform error, density inversion, or engineering performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

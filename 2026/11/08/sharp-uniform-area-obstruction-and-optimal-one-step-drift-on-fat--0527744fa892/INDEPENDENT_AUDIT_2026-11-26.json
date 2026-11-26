@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:24:49.717026Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Since βL=L+1 and L≥2, at least one digit is legal everywhere. All three inverse points (w+q_i)/β exist; the normalized-area transfer density is β^−2 times the sum of the three selection weights. The sets of additional eligible digits at inverse points 0, 1 and 2 are, respectively, {1 if x>1, 2 if y>1}, {0 if x+y<L−1, 2 if y>1}, and {0 if x+y<L−1, 1 if x>1}, away from the partition lines. Thus the origin and upper corner regimes have weights 3−2p and 1+2p on positive-area sets, including at β=3/2. Equality to β² would force p=1/2 and β=√2. At √2, the seven nonempty cells in the frozen order have weights 3−2p, 3, 1+u, 2, 1+t, 1+2p, 1+s. The second cell is a triangle with leg 2−√2, giving positive excess (2−√2)²/[2(1+√2)²]=17−12√2. No other cell contributes positive excess when p=1/2, independent of the triple coin; otherwise the first or sixth adds strictly positive excess. TV of probabilities is the mass of the positive part, and kernel contraction plus the triangle inequality gives the stationary bound, not a sharp stationary distance. The frozen decimal script was inspected, not rerun; the table and radical identity are exact. On the background existence assertion, the 2022 paper states the endpoint for a fair coin only. Its proof method extends to biased p: at β=3/2 the triple cell is a singleton of zero area, and the least- and greatest-admissible maps with constant probabilities p and 1−p represent the position kernel a.e. For any fixed n the common itinerary refinement consists of finitely many convex polygonal interiors; all boundary lines are horizontal, vertical or slope −1 since every branch is a positive dilation and translation. Their minimum corner angle is uniformly bounded below by π/4, giving the uniform positive angular parameter a in the paper's Theorem 5.1, while the minimum segment length δ_n is positive for each finite refinement. The n-step branch probabilities sum to one and every inverse derivative is β^−n times the identity, so c_n in that inequality can be taken 2β^−n for n large. A block iterate has variation coefficient c_n(1+1/a)<1. Its Cesàro averages of normalized area have uniformly bounded BV norm and an L¹-convergent subsequence by BV compactness. The limit is fixed for the block iterate by L¹ contraction, and averaging its first n one-step iterates yields a one-step AC stationary law. This establishes the background existence at the endpoint without attributing biased-coin coverage to Remark 5.8.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 paper has the same six-branch probability mechanism in (5.1). Theorems 5.3 and 5.7 give AC invariant probability in the interior regime and Remark 5.8 discusses fair binary coins at 3/2. The 2024 chapter text was not retrieved, and the 2007 lookup timed out."
+        ],
+        "reasoning": "An existence theorem via a general transfer inequality does not compute the one-step positive excess, show its strict dependence on binary bias, or rule out flat density across the parameter interval. No conclusion about the uninspected 2024 text is warranted.",
+        "searches": [
+          "Zhang–Dajani–Li 2022, Theorems 5.1, 5.3 and 5.7, Remark 5.8",
+          "Dajani–Li–Zhang DOI 10.1090/conm/797/15932; Dajani–de Vries DOI 10.4171/JEMS/76"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verify_density.py",
+        "Resultary exact self-match 0527744fa892",
+        "arXiv:2201.07560v1 §§3 and 5",
+        "2024 chapter DOI and 2007 JEMS DOI, retrieval limitations noted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existence theorem provides a fixed density, not its TV gap from area. The half-bound follows by a generic Markov contraction once the positive one-step constant has been computed."
+        ],
+        "reasoning": "Neither general existence nor normalization forces a positive defect, still less the sharp constant and complete minimizers. The half-bound is not claimed sharp and depends on the exact one-step obstruction.",
+        "searches": [
+          "arXiv:2201.07560v1, §5 AC stationary-measure results and reference normalization",
+          "Resultary: non-flat stationary density and quantitative distance from area"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest Resultary match 0527744fa892 is the assigned record itself. The 2022 paper uses normalized area as reference and proves an AC density exists; it does not identify it with area or exclude area in its stated existence conclusion."
+        ],
+        "reasoning": "Absolute continuity and stationarity of normalized area are different. The latter is the exact condition that the sum of inverse selection probabilities be the constant β² a.e.",
+        "searches": [
+          "Resultary: normalized Lebesgue stationary/random triangular beta-expansions, flat density, one-step total variation at √2",
+          "arXiv:2201.07560v1, §§3 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked prior table (5.1) describes branch probabilities for forward position maps, not the seven target-plane cells' inverse weights or the resulting TV minimum. The exact-index search surfaced the target record itself."
+        ],
+        "reasoning": "A forward branch table makes the calculation possible but is not a census of excess regions and minimizing coins. The decisive region is a coin-independent density-3/2 region, with additional excess if and only if p is biased.",
+        "searches": [
+          "Resultary: β=√2, 17−12√2, optimal one-step variation and triangular overlap probabilities",
+          "arXiv:2201.07560v1, §5 transfer operator and (5.1)"
+        ]
+      },
+      "rationale": "The model and AC-existence machinery are prior work. The distinct verified claim is all-parameter flat-density exclusion and the exact optimized one-step TV defect with its full minimizer family. The half-bound is a consequence, not an independently novel contraction principle.",
+      "residual_risks": [
+        "The revised 2024 chapter full text was not accessible in the checked routes; the 2022 text is the decisive inspected comparator.",
+        "The comparison does not rule out unindexed earlier computations of the one-step density."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and AC-existence proof are prior; inspected statements do not supply defect or minimizer claim",
+          "evidence": "Theorem 5.7 states the interior interval; Remark 5.8(i) displays probabilities 1/2 at the endpoint. Theorem 5.1 controls variation by c(1+1/a).",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.07560",
+          "material_read": "§3 pp. 4–5; §5 pp. 16–20 and 24–25, including (5.1), Theorems 5.1, 5.3, 5.7 and Remark 5.8; offsets 12850, 49500, 51100–69151, 75200–80188",
+          "method": "OA PDF passage comparison",
+          "title": "Random β-transformation on fat Sierpinski gasket",
+          "trigger": "Same position process and prior AC existence"
+        },
+        {
+          "assessment": "Unresolved residual risk",
+          "evidence": "Contemporary Mathematics 797 (2024), pp. 15–35; no verified scientific passage from this edition.",
+          "identifier_or_url": "https://doi.org/10.1090/conm/797/15932",
+          "material_read": "Bibliography only; full text not recovered via publisher or attempted AMS route",
+          "method": "Lawful OA retrieval attempt",
+          "title": "Random beta-transformations on fat Sierpinski gaskets",
+          "trigger": "Revised account for the same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Normalized area is the natural reference probability in this random expanding system. Ruling it out throughout the fat regime is a useful constraint on invariant densities. At the Jacobian-two scale, the exact positive defect and all coin minimizers distinguish binary bias from the wholly free triple coin, quantitatively beyond an existence theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

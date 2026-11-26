@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof fixes the complete-DFA convention, excludes the unique dead sink from the state count, uses a topological ordering of the non-dead states, and bounds the accepted suffix count by the chain completion. The case split for final-state patterns and the first deviating transition gives the exact gap. Explicit constructions attain every case. The finite checker is supplementary and is not treated as an infinite proof.
+## correctness
 
-## Originality
-PASS on the reviewed evidence. The closest literature enumerates minimal or acyclic automata and studies their structural ranks, but the reviewed material does not state the conditional accepted-language cardinality spectrum or its exact second-largest gap. published-finding corpus searches returned no direct match. Search failure is not a proof of novelty; the earlier conference precursor to the acyclic-automata enumeration literature and unmaterialized historical records remain residual risks.
+PASS
 
-## Value
-PASS. The result gives an exact capacity bound and the first discrete gap below it for a natural finite-language automaton model, with explicit extremizers. The gap is a structural stability invariant, not merely a finite table or a computational novelty claim.
+In the minimal complete DFA for a finite nonempty language, remove the unique empty-right-language sink; a directed cycle among remaining states would give arbitrarily long accepted words. They are all reachable and coaccessible, so the initial state can be placed first and the last state is accepting. For fixed acceptance bits e_i, backward induction gives suffix count at v_i at most B_i=Σ_{j≥i}e_j q^(j−i), since these chain counts strictly decrease and every live transition goes forward. Maximizing B_0 gives the last-f pattern. A different admissible pattern costs at least q^(n−f)−q^(n−f−1), and is possible only for 2≤f<n. If the pattern is extremal, the first skipping letter from v_i is reached by q^i distinct prefixes and costs at least q^i(B_{i+1}−B_{i+2}), using B_n=0 at the final eligible transition. The loss equals at least q^(n−2) when v_{i+1} is in the accepting block, and at least q^(n−f−2)(q^f−1) otherwise (that branch is used only when i+1<n−f). For f≥2 the latter exceeds (q−1)q^(n−f−1) since q^f−1>q(q−1). For f=1 and n≥3 it is exactly (q−1)q^(n−3), whereas n=2 allows only deletion of one terminal transition for the smallest gap. For f=n only the q^(n−2) case applies. Each specified modification preserves at least one letter to every successive state, so all live states are accessible and their maximum accepted suffix lengths n−1−i distinguish them and the sink. This proves both attainability and the strict second-largest bound. Independently enumerated forward complete transition tables for (q,n)=(2,2),(2,3),(2,4),(3,2),(3,3),(4,2),(4,3), computing literal accepted-word sets of lengths 0 through n−1 for reachability/minimality-filtered states and every accepting-state stratum; the top two agree (e.g. at q=4,n=3: (16,13),(20,17),(21,17)). Read VERIFICATION.md and verify_small_cases.py; the source's finite census is separate recorded evidence.
 
-## Closest literature and limitations
-The closest sources are the enumeration of minimal acyclic automata via generalized parking functions (arXiv:1411.4757) and Liskovets's exact enumeration of acyclic deterministic automata (2006). Their reviewed parameters concern automata counts and structural ranks, not the number of accepted words conditional on both state and accepting-state counts. The theorem is limited to complete deterministic automata, finite languages, alphabet size at least two, and at least two non-dead states.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact first loss conditional on both state budgets and the corresponding witnesses, not the familiar unrestricted maximum from bounding longest accepted word length. Inspected finite-automata enumeration and structural sources do not give the conditional gap or a stronger result that implies it mechanically.
+
+## value
+
+PASS
+
+The conditional first gap tells how much cardinality is sacrificed by any departure from extremality when two natural automaton resources are held fixed. It distinguishes acceptance placement from transition shortcuts and separates the single-final, mixed, and all-final cases, where the controlling scale changes. The independent constructive sharpness matters for language-size feasibility; the claim is not a census of all intermediate sizes or just the depth-based maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

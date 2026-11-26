@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:04:50.838997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently rebuilt the integer compressed-walk matrix B for each half-separation from the coin/shift, keeping the full ordered matrix-unit space rather than using the frozen symmetry reduction. For each B its exact characteristic polynomial P(z) is coprime with z^deg(P) P(2/z); a root of modulus sqrt(2) would supply a common root by conjugation. As B/sqrt(2) is a contraction, this certifies strict spectral radius less than one and geometric survival tails. Using F=2I-B^T⊗B^T, solved Fv=2vec(I) and Fw=2v exactly over the rationals; at the index of the initial diagonal matrix unit, v gives the mean and 2w-v the second moment. Obtained (mean, second, variance, slope) equal to (1,1,0,0), (4,24,8,2), (9,145,64,4), and (16,560,304,-32). A single, zero-cost reset attempt succeeds with generating-function weight f(1-r)/(1-r), and lasts on average [1-f(1-r)]/r; expansion gives (mean^2-mean-variance)/2. The quotient as written applies for 0<r<1; at r=1 with L>1 detection is impossible, and L=1 is always detected in one step. This endpoint does not alter the stated weak-reset finding. The classical Dirichlet equations give m_1(x)=L^2-x^2 and m_2(x)=(x^4+(2-6L^2)x^2+5L^4-2L^2)/3, so the slopes are 0,2,12,40. Replay is given by the backward linear systems above and the specified basis and one-step coefficients in RESULT.md; frozen verify_variance.py was inspected, not run. No claim is checked beyond the four sizes or about a global optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite-channel mean/variance work is a plausible methodological antecedent; exact examples could not be inspected. Indexed Chełminiak et al. evidence concerns mean absorption and quantum resetting advantage.",
+          "The classical Resultary model has a sharp inequality N^2-5(N-2i)^2+20<0, with charged resets and no coin."
+        ],
+        "reasoning": "Generic resolvent machinery does not itself give the moments for these four widths. The classical threshold is not transferable to monitored quantum states or to the zero-time renewal clock.",
+        "searches": [
+          "Moori and Lardizabal mean and variance absorbing quantum walks channels DOI 10.1142/S021974992650005X",
+          "Chełminiak, Wójcik and Wójcik quantum first detection variance and reset",
+          "Resultary finite gambler's ruin weak-reset threshold b2c6e0d0575c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_variance.py",
+        "arXiv:2510.27377v2",
+        "DOIs 10.1103/PhysRevE.111.044143 and 10.1142/S021974992650005X (limited access)",
+        "Resultary b2c6e0d0575c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An equality of no-reset means cannot settle the required reset derivative because the second moment enters with independent sign. The no-reset operator provides the starting point, but four distinct rational second-moment systems have to be evaluated and signed."
+        ],
+        "reasoning": "Neither a known first-moment formula nor an example of an advantage at L=5 mechanically settles which of the first four widths shows a local instantaneous-reset advantage.",
+        "searches": [
+          "Wójcik arXiv:2510.27377v2 Eq. (16) and Appendix B",
+          "DOI 10.1142/S021974992650005X absorbing-channel moment methodology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wójcik uses the same unreset walk and localized initial state. His K0=sqrt(1-p)U and reset Kraus operators are alternative branches per counted step. His Appendix B gives a restarted mean for L=5.",
+          "Embedding his updates at successive unitary moves recovers Bernoulli reset of the incoming state between moves with probability p, but actual elapsed iterations include the skipped moves. His mean equals the zero-time-reset mean divided by 1-p under this coupling; consequently the weak slope adds the no-reset mean."
+        ],
+        "reasoning": "The effect of time counting is a concrete algebraic distinction even when the embedded trajectory agrees. The L=5 formula does not give an L=1–4 table or its first improving width.",
+        "searches": [
+          "Wójcik arXiv:2510.27377v2, Eqs. (7)–(9), (15)–(18), Appendix B",
+          "Discrete-time walk on one-dimensional lattice under stochastic resetting, DOI 10.1103/PhysRevE.111.044143"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact accessible Appendix B rational expression concerns L=5 and the per-iteration reset rule. The closest retrieved Resultary comparison is the classical gambler's-ruin criterion rather than a quantum table."
+        ],
+        "reasoning": "No retrieved same-model four-width exact table provides the threshold. This is a bounded comparison, not evidence of universal absence.",
+        "searches": [
+          "Resultary exact title, centered monitored coined walk second-moment table and quantum first-detection variance",
+          "Wójcik arXiv:2510.27377v2 Appendix B"
+        ]
+      },
+      "rationale": "Credit the four-size exact second-moment/local-threshold classification for the specified post-nondetection, zero-time reset rule, not the known no-reset mean or the general reset-advantage concept. The closest source counts reset updates as elapsed steps; the frozen relationship note's claim of protocol equivalence needs that qualification. Relevant inaccessible articles leave a specific residual risk for second-moment tables, not evidence of coverage.",
+      "residual_risks": [
+        "Chełminiak et al. and Moori–Lardizabal full text could not be lawfully retrieved in this review; specialized small-width moment results could be present.",
+        "Priority is assessed only against inspected evidence. The time-convention qualification is important when citing the Wójcik comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No-reset model and mean covered; charged reset mean at L=5 is distinct from the finding",
+          "evidence": "Kraus operator K0 is sqrt(1-p)U and the reset operators are separate branches; Fig. 6 and Appendix B fix the symmetric targets at ±5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.27377v2",
+          "material_read": "PDF pp. 3–5 Eqs. (7)–(9), (15)–(18); Appendix B pp. 9–10 Eqs. (28)–(29)",
+          "method": "OA primary full-text passages",
+          "title": "Revisiting quantum walk advantages: A mean hitting time perspective",
+          "trigger": "Same monitored walk, candidate restarted mean"
+        },
+        {
+          "assessment": "Relevant mean and advantage antecedent; exact tables and assumptions unresolved",
+          "evidence": "Index identifies mean time to absorption for a discrete-time quantum walk with two absorbing sites.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.111.044143",
+          "material_read": "Indexed abstract record and Wójcik's discussion; no full text",
+          "method": "Index plus lawful DOI/OA and alternate-copy lookup",
+          "title": "Discrete-time walk on one-dimensional lattice under stochastic resetting: Advantage of quantum over classical scenario",
+          "trigger": "Plausibly same coin/reset physics and width comparison"
+        },
+        {
+          "assessment": "Potential exact-table risk, no whole-document conclusion",
+          "evidence": "Title establishes plausible overlap on mean/variance for absorbing walks and channels; no example could be read.",
+          "identifier_or_url": "https://doi.org/10.1142/S021974992650005X",
+          "material_read": "Bibliographic metadata only; publisher and identified alternate listing did not provide full text",
+          "method": "Lawful DOI/OA and alternate-copy lookup",
+          "title": "Mean and variance for the visit time of absorbing quantum walks and channels",
+          "trigger": "Possible variance specialization or exact width table"
+        },
+        {
+          "assessment": "Adjacent classical criterion, not quantum or the same time convention",
+          "evidence": "Benefit inequality is stated for centered or off-center classical gambler's ruin with resets consuming a step.",
+          "identifier_or_url": "Resultary 2026/10/18/b2c6e0d0575c",
+          "material_read": "RESULT.md Finding and assumptions at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "When can resetting accelerate finite gambler's ruin?",
+          "trigger": "A smaller-size reset onset in a closely related classical model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The four consecutive smallest widths are an exhaustive, motivated search for the onset of a qualitative sign reversal, not arbitrary table entries. The matched classical calculation shows that equal no-reset mean times can coexist with opposite local reset effects. The precise threshold is useful when selecting small benchmark systems; the value is limited to this coin, preparation, monitoring and reset rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

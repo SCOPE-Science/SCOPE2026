@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** For the unconstrained quasi-linear objective implicit in the inverse-demand first-order conditions, the matrix has eigenvalues \(1-\gamma\) on \(\mathbf1^\perp\) and \(1+(n-1)\gamma\) along \(\mathbf1\). In the paper’s branch \(2+(n-1)\gamma<0\), the latter is negative. Substitution of \(q=t\mathbf1\) makes the consumer objective grow quadratically to \(+\infty\), so a global maximizer does not exist there.
+## correctness
 
-## Originality
-**PASS, with residual bibliographic risk.** The full text of the source paper was inspected at its consumer microfoundation and its explicit complement branch. Claim-specific semantic literature/database searches returned no matching curvature-domain correction; the nearest retrieved oligopoly findings concern different dynamic stability calculations. The older Vives paper is relevant background, but only its accessible abstract was read, so it is not used to assert noncoverage. An unindexed erratum or correspondence could exist.
+PASS
 
-## Mathematical value
-**PASS.** The issue removes an entire parameter branch from the economic interpretation of a published microfounded model: for \(n\ge4\), the analyzed branch \(2+(n-1)\gamma<0\) is incompatible with the representative-consumer optimization that is supposed to generate inverse demand. This is more than a numerical or terminological change because it distinguishes formal map stability from consumer-choice equilibrium.
+On the choice set expressly stipulated in the frozen assumptions, the all-goods ray t1 is feasible for all t≥0. The price-adjusted utility along it is t times the sum of α_i−p_i minus (n/2)(1+(n−1)γ)t². On 2+(n−1)γ<0 the quadratic coefficient is strictly positive for every finite price vector, proving unboundedness and therefore no global optimum. The branch is nonempty under |γ|<1 precisely for some γ when n≥4. The other n−1 eigenvalues are 1−γ>0, so strict concavity holds exactly when 1+(n−1)γ>0. The proof invalidates this unconstrained optimization interpretation, not an algebraic model with inverse demand taken as primitive. The source package identifies §2 for the first-order conditions and §3.1 for the branch; these reported locations were not independently recovered, and the verdict does not certify that the actual article rules out budget constraints.
 
-## Closest literature and limitations
-Matsumoto and Szidarovszky (2014), especially Sections 2 and 3.1, is the direct source. Vives (1985) is related differentiated-oligopoly background, but the accessible abstract does not settle this specific matrix-curvature issue. The correction does not dispute the algebraic recurrence when inverse demand is treated as primitive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct contribution on the available evidence is the diagnosis for the particular differentiated-oligopoly branch as specified in the frozen record. The spectrum and ordinary concavity criterion are standard and not credited as new. The frozen claim is already explicitly limited to the unconstrained interpretation; an erratum about the paper's literal model or an unrestricted-prices demand theorem is not established.
+
+## value
+
+PASS
+
+This distinguishes a formally analyzable firm's best-response branch from a branch implementable by the specified representative consumer. It rules out an open parameter region, not a degenerate test point. The result helps prevent interpreting a dynamical stability calculation as a consumer-founded equilibrium without checking demand's admissible domain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

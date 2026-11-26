@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:09:13.201989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–103",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py (inspection only)"
+      ],
+      "rationale": "The reflection-principle hitting law gives density sqrt(t0/pi) h^(-3/2) exp(-t0/h) and its exponential discount gives q_N=N^(-2 sqrt(a)). The time substitution h=t0 z/log N exposes the constrained rate inf_{0<z<=y}(1/z+a z). The moving cutoff beyond a^(-1/2) contains the unique saddle, so the truncated probability divided by q_N tends to one. I checked the second-moment bound: under a pair of prescribed starts s<u, the earlier discounted success event is cut off no later than u, and its reset data use only the interval before u; the later event uses independent data after u. Brownian excursion marks are independent. The earlier marginal probability is bounded by q_N(delta) and the later is q_N(delta). Integrating ordered reset pairs and pairs with the initial start gives (r_N w)^2+2r_N w times q_N(delta)^2. Thus the count bounds do not assume unconditionally independent successful starts. Below threshold, N multiplying the first-attempt lower bound and the O(log N) multiple upper bound separates y below and above the smaller root of 1/y+a y=1. At a=1/4, y<2 has rate >1; y>2 allows a cutoff c in (2,y), true success probability asymptotic to 1/N, and order log N starts, with negligible pair correction. Above threshold at t=z/(Nr_Nq_N), take any cutoff c t0/log N with c>a^(-1/2); it is negligible relative to t and the pair correction is O(N^(-2)). Hence N p_N(t) tends to z and survival tends to exp(-z). At a=0 the first-attempt bounds coincide. Scope is fixed a with independent resetting; the script's finite checks are supplementary and were read, not run.",
+      "residual_risks": [
+        "No assertion on critical windows, moment convergence, or other reset protocols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley Theorem 1 gives convergence of rp_0 T for a single searcher at fixed normalized time as r increases.",
+          "The mortality/recruitment result concerns Poisson arrivals and independent death, with no renewal of killed walkers by a per-walker reset clock."
+        ],
+        "reasoning": "Neither framework states the simultaneous fastest-of-N law for independently resetting walkers; common rare-event terminology is not coverage.",
+        "searches": [
+          "arXiv:2302.05409, §2 and Theorem 1",
+          "Resultary 2f684bcae431 (first-arrival mortality/recruitment threshold)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.18012 §III",
+        "arXiv:2302.05409 Theorem 1 and Remark 1",
+        "Resultary e4e14c0b0be5 and 2f684bcae431"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact renewal transform determines finite-N distributions but requires analysis at the three joint scales.",
+          "Theorem 1 in Linn–Lawley gives pointwise exponential convergence on the individual scale, whereas the minimum probes normalized times of order 1/N and probabilities o(1) of order 1/N."
+        ],
+        "reasoning": "Pointwise weak convergence gives no error of order o(1/N) there. Uniform rare-event bounds, including the one-attempt saturation and the many-start argument at criticality, are distinct substantive steps. The synchronized theorem cannot supply them for the independent protocol.",
+        "searches": [
+          "arXiv:2303.18012 §III",
+          "arXiv:2302.05409 Theorem 1, equations (14)–(16)",
+          "Resultary e4e14c0b0be5 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2303.18012 factors survival as Q_r(t)^N only for the independent protocol.",
+          "Resultary e4e14c0b0be5 uses one common clock and matches 1/(Nr_Nq_N) for a>1, but differs at a=1 by a factor two and has a different threshold."
+        ],
+        "reasoning": "The common-clock law conditions on shared reset history and does not factor as Q_r(t)^N. Matching the far-supercritical scale is real overlap, not an equivalence of the models or the three-regime theorem.",
+        "searches": [
+          "Resultary independent and synchronized Brownian resetting/extreme first-arrival matches",
+          "arXiv:2303.18012 §III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close finite count N=7 relates to optimizing mean absorption, whereas the asserted 1/4 is a rate coefficient for N tending to infinity."
+        ],
+        "reasoning": "No finite exact table can exhaust the joint limit in a; the pertinent catalogue lookup is for an exact asymptotic formula with the same clocks, not a table of sample parameters.",
+        "searches": [
+          "Resultary first-arrival/resetting catalogue comparisons e4e14c0b0be5 and 2f684bcae431",
+          "arXiv:2303.18012 §III"
+        ]
+      },
+      "rationale": "The finite-N identical-model renewal formula and the single-walker frequent-reset exponential law are prior results. An indexed same-day synchronized-reset theorem also recovers the same leading supercritical normalization and exponential law on a>1, but its common-clock dependence, transition at a=1, and critical normalization differ. The supported distinct claim is the joint three-regime independent-clock theorem, especially the critical value and the entire supercritical range a>1/4. This is a bounded determination, not a priority certificate.",
+      "residual_risks": [
+        "The literature lookup did not yield an additional decisive source; this does not exclude further joint asymptotic analyses of the known renewal formula.",
+        "The common-clock result gives genuine overlapping far-supercritical asymptotics under different hypotheses; date alone does not assign priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite-N predecessor, not the classified triangular array",
+          "evidence": [
+            "S_{r,N}(t)=Q_r(t)^N in the independent model, followed by renewal/Laplace solution for Q_r; the finite-N objective is mean first-hit optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.18012",
+          "material_read": "§III, PDF pages 4–5, OA offsets 11382–18009 (relevant survival, renewal and optimization passages)",
+          "method": "Lawful primary OA passage inspection",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Identical Brownian independent-resetting model"
+        },
+        {
+          "assessment": "Prior single-searcher limit, no small-argument control at the crowd scale in the cited statement",
+          "evidence": [
+            "rp_0 T converges in distribution to rate-one exponential as r increases; survival convergence is stated for each fixed x>=0."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05409",
+          "material_read": "Theorem 1 and Remark 1, pp. 5–6, OA offset 14280",
+          "method": "Locate by literal theorem name then read the statement and adjacent scope",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "Exponential law under frequent resetting"
+        },
+        {
+          "assessment": "Partial overlap in the law for a>1; different protocol and transition, same-day ordering not inferred",
+          "evidence": [
+            "Common resets; for a>1 p_N~N^(1-2 sqrt(a)); at a=1 p_N~1/(2N)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-gamma-to-gaussian-phase-transition-for-synchronized-resetting--e4e14c0b0be5",
+          "material_read": "Finding and relevant proof statements (RESULT.md, OA offset 0)",
+          "method": "Resultary lookup and local-mirror passage read",
+          "title": "A gamma-to-Gaussian phase transition for synchronized resetting",
+          "trigger": "Same log-squared reset regime and overlapping scale"
+        },
+        {
+          "assessment": "Different process with births and killing, not independent resets",
+          "evidence": [
+            "New independent searchers arrive by Poisson immigration and are subject to mortality."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-mortality-recruitment-threshold-for-first-arrivals-of-inde--2f684bcae431",
+          "material_read": "Finding (RESULT.md, OA offset 0)",
+          "method": "Resultary lookup and local-mirror passage read",
+          "title": "Sharp mortality–recruitment threshold for first arrivals",
+          "trigger": "Adjacent threshold and exponential first-arrival limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–25, 75–103",
+        "arXiv:2303.18012 §III",
+        "Resultary e4e14c0b0be5 Finding"
+      ],
+      "rationale": "The threshold separates a fastest time shrinking as 1/log N from a fastest time growing polynomially despite the increasing number of independent searchers. The exact critical constant shows where the saturated one-attempt saddle and the number of fresh attempts must be treated jointly rather than extrapolating either regime. It is a motivated nonuniform limit for the standard independent-reset model, not an optimization claim.",
+      "residual_risks": [
+        "Value concerns independent clocks and fixed a, not uniform design claims or observed reset systems outside the model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

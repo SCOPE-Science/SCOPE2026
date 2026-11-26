@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional binomial law follows from the two-coordinate rectangular neighbor condition; differentiation of the beta integral gives the full finite harmonic degree distribution. For the isolation variance, the proof conditions on two tagged vertices, separates the negligible direct mutual-edge event, rescales the coordinate products and logarithmic aspect ratios, and evaluates an explicitly dominated exponential-overlap integral equal to two. This yields a total leading variance of three times the logarithm. The exact rational checker independently reconstructs the finite mixture and neighbor-rectangle identities, and the finite random simulations are explicitly separated from the asymptotic proof.
+PASS
 
-## Originality — PASS (qualified historical priority)
+Conditional on the tag coordinates, neighbors are independent and the hit area is xy. The product-uniform beta mixture gives (H_n-H_k)/n; equivalently, the number m of labels satisfying one cross inequality is uniform on 0,…,n−1, and mixing over the other uniform tagged coordinate gives degree uniform on 0,…,m conditional on m. For the variance, the two tagged rectangles have intersection min(X1,X2)min(Y1,Y2); excluding the direct edge and taking the (n−2)nd power of the complement of their union is exact. When both tag products are ≤ε=10 log(n)/n, a direct edge forces one pair of coordinates near 0 and the other near 1 in one of two opposite boxes of volume O(ε⁴); elsewhere the union area gives a negligible exponential upper bound. The independent-baseline exponent adjustment is O(log²(n)/n) after n² rescaling. With t_i=nX_iY_i and u_i=−log X_i the Jacobian is 1/n per tag; after integrating out the common translation, its allowed length divided by log n tends to one. The rescaled overlap term is dominated by a constant times (1+|log t1|) max(t1,t2) exp(−|u1−u2|) exp(−max(t1,t2)/2), which is integrable. Averaging the limiting kernel over the independent exponential t_i gives exp(−|u1−u2|), of integral two. Hence the pair term contributes 2 log n+o(log n), and the one-tag term contributes log n+O(1); Chebyshev proves the stated concentration. Read RESULT.md, VERIFICATION.md and checker.py. The recorded finite and simulated checks were not rerun and do not certify the limit.
 
-The closest primary source is Reilly–Scheinerman–Zhang, *Random Threshold Digraphs* (Electronic Journal of Combinatorics, 2014, DOI: https://doi.org/10.37236/4050). Its model is identical, but its studied in/out-degree laws and the at-least-one-arc undirected graph do not imply an expression for degrees in the **both-directions** subgraph. The inspected original full text does not state the harmonic reciprocal-degree spectrum or its threefold logarithmic isolation variance. The reciprocal-degree null-model work arXiv:1210.5288 concerns a distinct Chung–Lu-type sampling construction that matches prescribed degree distributions; the inspected model is not this threshold graph. General inhomogeneous-graph connectivity criteria do not directly specify this variance. Multiple published-finding searches also produced only different reciprocal-edge and threshold models. The remaining historical risk is a specialized symmetrization result or a broader graphon theorem not recovered by the searches.
+## originality
 
-## Value — PASS
+PASS
 
-Reciprocal links require two directions, which are empirically and theoretically distinct from weak undirected adjacency. A model with uniformly distributed individual outdegrees can have a harmonic expected number of reciprocal isolates, and those rare isolates have a threefold relative-to-Poisson variance coefficient: \(3\log n\) rather than a naive \(\log n\). The multiplicative variance correction depends on a nontrivial integral over common-neighbor rectangles; it is not a renamed ordinary degree result or a single substitution into an existing isolated-vertex formula. This quantifies a natural failure mode of mutual-confirmation networks and informs uncertainty estimates.
+The underlying random digraph and the mutual-edge convention both have prior coverage. The finite harmonic law is an elementary distributional calculation in that model. The substantive supported distinction is the logarithmic reciprocal-isolation variance, including the overlap contribution of two, not an originality claim for the parent model or the beta integral.
 
-## Closest literature and limits
+## value
 
-Reilly–Scheinerman–Zhang (2014, DOI: https://doi.org/10.37236/4050) is the defining source. Durak–Kolda–Pinar–Seshadhri (2012, arXiv:1210.5288) treats a different reciprocal-network null model. Hladký–Viswanathan (2026, DOI: https://doi.org/10.1002/rsa.70098) provides general inhomogeneous-graph connectivity context. No independent human or external theorem validation has been performed. The asymptotic proof is not interchangeable with finite simulation, and novelty is subject to historical-priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The variance quantifies the failure of the independent rare-isolation approximation in the reciprocal graph of an established random digraph. The one-vertex law alone predicts only the marginal unit of logarithmic variance, while the actual shared-neighbor geometry adds two more. The exact coefficient distinguishes dependence mechanisms at the natural isolation scale; the elementary degree calculation is not the sole value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

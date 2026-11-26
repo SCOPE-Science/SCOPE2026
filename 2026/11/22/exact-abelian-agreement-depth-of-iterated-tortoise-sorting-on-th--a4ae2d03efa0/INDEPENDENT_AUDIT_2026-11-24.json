@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:21:38.852981Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting the first k original ones and appending k ones sorts a word if its weight is at most k; if its weight is k+1, its image is determined by its trailing zero count. The complementary pairs (t_{2i},t_{2i+1}) contain one one each. Thus no factor shorter than 2k has weight above k, and an exceptional weight-(k+1) factor of length 2k must start odd and end in 1, so it sorts too. At 2k+1, the weight is k or k+1; for weight k+1 the terminal one is in one of the final two places by start parity. The proposed i=2^r-k with r congruent to s_2(k-1) modulo 2 gives t_i=0 and t_{i+k}=1 by r-bit complementation. Starts 2i and 2i+1 realize the sorted and interrupted high-weight outputs, and a zero as the extra aligned symbol realizes the low-weight output. This proves exactly three images in two weight classes at first divergence, including k=1; the empty factor has one image and one weight. A separate direct deletion-and-append check on a length-2048 prefix, k=1..8, matched the entire tested threshold profile; it is finite corroboration only. Frozen verify.py and its stored output were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6 computes one-pass complexity for n>=10 using one-pass collision theory. Section 7 proposes the corresponding agreement-depth question for the Thue–Morse word.",
+          "Record d15dd17f32d1 counts two-pass images through an exact deficit identity for n>=18."
+        ],
+        "reasoning": "Neither the one-pass large-n theory nor a length>=18 formula for two passes determines the first divergence at 2k+1 for arbitrary k. No stronger covering result was established in the inspected material.",
+        "searches": [
+          "Campbell–Rampersad v3 §§6–7, especially Theorems 4–6 and §7 p. 20",
+          "Published-result search for iterated tortoise complexity and full image counts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; verify.py and verification-output.txt",
+        "arXiv:2604.25811v3 §§3, 6, 7",
+        "Published-record IDs d15dd17f32d1, 5c1539333494, and exact self hit a4ae2d03efa0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record 5c1539333494 gives a maximum two-pass fiber size of two at n>=10, not the number of nonempty fibers at n=5 or at variable 2k+1.",
+          "The primary source provides complementary-pair machinery and one-pass results, not the k-dependent existence of both high-weight threshold images."
+        ],
+        "reasoning": "A maximum fiber size does not give total image count without the full multiplicity distribution. One-pass collisions do not determine the images of further passes on words outside the input factor set. The pair identity is prior; using it at the boundary and realizing both terminal patterns for every k is the additional argument.",
+        "searches": [
+          "Read findings of published two-tortoise records d15dd17f32d1 and 5c1539333494",
+          "Compare one-pass factor-collision results and open direction in Campbell–Rampersad v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Campbell–Rampersad Definition 2 counts image classes under the k-fold tortoise map, and equation (14) defines the last initial agreement length."
+        ],
+        "reasoning": "The invariant is the same whether formulated in terms of the first n with more images than weights or the last n before that disagreement. The frozen theorem computes that existing invariant rather than rebranding it.",
+        "searches": [
+          "Primary search for Thue–Morse iterated tortoise and Abelian-agreement depth",
+          "Campbell–Rampersad arXiv:2604.25811v3, §3, Definitions 1–2 and equations (11)–(14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match a4ae2d03efa0 is the assigned record itself.",
+          "The primary lists give Abelian counts 2,3,2,3,... and one-pass counts 2,3,3,6,..., already yielding abel_t(1)=2."
+        ],
+        "reasoning": "The one-pass table is exact prior coverage for k=1 but not a table or formula for the iterated cutoff. The identical record is not independent prior coverage.",
+        "searches": [
+          "Published-result search for the sequence abel_t(k), the linear cutoff and the first divergence image set",
+          "Campbell–Rampersad v3 §6, initial complexity lists"
+        ]
+      },
+      "rationale": "The supported contribution is the all-k cutoff and complete first-divergence image set. The k=1 depth is already exhibited by the prior complexity lists. The primary source defines the exact general invariant and proposes its Thue–Morse evaluation; inspected two-pass studies do not resolve its all-iterate value.",
+      "residual_risks": [
+        "An independently derived or unindexed all-iterate formula may exist; the literature and catalogue comparisons are bounded.",
+        "Neither the theorem nor this review determines post-cutoff complexity at all lengths."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact invariant and k=1 depth already known; Thue–Morse all-k evaluation proposed",
+          "evidence": "The one-pass counts first split from Abelian counts at 3; the later one-pass theorem does not answer the suggested iterated question.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.25811v3",
+          "material_read": "§3, Definitions 1–2 and equations (11)–(14), PDF pp. 6–8; §6 complexity lists and Theorems 4–6; §7 p. 20",
+          "method": "Lawful OA PDF passages",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Defines exactly the claimed invariant and may have computed it"
+        },
+        {
+          "assessment": "Same operator and word, but different range and quantifier",
+          "evidence": "Exact deficit for two passes at n>=18, not initial agreement or its first split.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-two-tortoise-complexity-of-the-thue-morse-word-from-length--d15dd17f32d1",
+          "material_read": "RESULT.md, Finding",
+          "method": "Published-record mirror",
+          "title": "Exact two-tortoise complexity of the Thue–Morse word from length eighteen",
+          "trigger": "Plausible exact image count overlap"
+        },
+        {
+          "assessment": "Different invariant and fixed iterate",
+          "evidence": "Maximum fiber size is two for n>=10, which does not count the fibers or give the all-k cutoff.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-maximal-two-tortoise-fiber-spectrum-of-thue-morse-factors--5c1539333494",
+          "material_read": "RESULT.md, Finding",
+          "method": "Published-record mirror",
+          "title": "Exact maximal two-tortoise fiber spectrum of Thue–Morse factors",
+          "trigger": "Plausible overlap on fibers of the operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This answers an explicitly proposed evaluation of a natural sorting-complexity invariant for a canonical automatic word. The all-iterate exact cutoff shows precisely where the number of ones ceases to determine the iterated image; the three-image profile identifies the surviving positional information. It is not merely an extrapolation from numerical tables or a restatement of the one-pass result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

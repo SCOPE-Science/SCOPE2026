@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:14:15.449327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unique maximum split has an ascent into the maximum and a descent out of it when the relevant block is nonempty. Reconstructing the signed series by left-block size gives the displayed recurrences; in the {1,3} series, the length-two left block contributes zero (its signed singleton counts cancel), and the length-three block contributes -z^4 C. With 1-zC=1/C, the series differ only by the z^3 correction, and the Catalan ratios give the factor (n-2)(n-9) on the claimed n>=4 domain. An independent integer descent-mask recursion and direct signed character sum through order nine reproduced no two-coordinate zero at orders 2–8, the four listed two-coordinate zeros at nine, and no singleton zero at nine. This is exhaustive for the stated band and orders, not a classification beyond nine. The frozen checker compares transforms but prints rather than asserts the expected zero lists, contrary to the stronger wording of VERIFICATION.md; the independent reproduction checks the lists directly. The uploaded script was inspected, not executed.",
+      "replay_path": "/tmp/opencode/ordinal1_profile_walsh.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mansour Theorems 1.1–1.2 and 2.1–2.2 study extremal positions and inversion sign. Reifegerste characterizes the diagram by a partition and identifies its corner rows."
+        ],
+        "reasoning": "These are legitimate counting machinery, and extremal statistics capture some boundary events, but they do not supply both specified XOR moments and the exhaustive zero location.",
+        "searches": [
+          "132 avoiding permutations descent set enumeration exact number each descent set Catalan determinant prescribed positions Dyck path Kreweras",
+          "Mansour B51e; Reifegerste Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Reifegerste arXiv:math/0208006",
+        "Mansour SLC B51e",
+        "Resultary f516d96e4111 and f9b612ba445d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Inversion-incidence rank is on all position-pair comparisons; the tomography result is row rank of an observation map built from position-symbol indicators on 231-avoiders."
+        ],
+        "reasoning": "The latter kernel problem does not fix even a single signed descent-profile multiplier. The former embeds the present coordinates but does not extend its exhaustive order bound.",
+        "searches": [
+          "Resultary inversion-incidence rank separation and quadratic Walsh tomography, exact RESULT.md files"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bijection preserves the entire support of descent/excedance positions, so the signed moments are identical to 321-avoider fixed-excedance-position moments."
+        ],
+        "reasoning": "This is an exact reformulation, not a new invariant under transport; the inspected proposition does not evaluate the transported moments.",
+        "searches": [
+          "132 avoiding permutations exact descent set distribution prescribed positions two descents Reifegerste Catalan joint Walsh signed 9 132 avoidance descent positions bijection excedance 321",
+          "arXiv:math/0208006, Proposition 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed item is the assigned result itself. The earlier inversion-incidence record enumerates all frequencies only through n=5."
+        ],
+        "reasoning": "Adjacent inversion coordinates restrict to descent coordinates, so the earlier full small-order calculation covers the overlapping finite data, not the order-nine zero list or all-n formula.",
+        "searches": [
+          "Resultary: 132 avoiding permutations descent profile Walsh two-coordinate first cancellation ninth order 321 excedance sign fixed positions Catalan"
+        ]
+      },
+      "rationale": "The bijection and inversion-coordinate embedding give genuine overlap at the representation and small-order data levels. Neither inspected source states or gives the all-length identity and first complete quadratic-band cancellation census. The originality judgment is limited to that combined contribution.",
+      "residual_risks": [
+        "An unindexed evaluation under Dyck valley, partition-corner or 321-excedance coordinates could cover the signed moments or census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the distribution correspondence, not the evaluations",
+          "evidence": "E(pi)=D(Phi(pi)); corner row i corresponds to excedance position i.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0208006",
+          "material_read": "Introduction and Section 2 through Proposition 2.4",
+          "method": "OA full-text passages",
+          "title": "On the diagram of 132-avoiding permutations",
+          "trigger": "Exact descent-set dual formulation"
+        },
+        {
+          "assessment": "Overlapping decomposition but different signed statistic and observables",
+          "evidence": "The sign weights belong to sign(pi); fdes, ldes, fris, lris record extrema, not fixed-pair descent XOR.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/s51mansour.pdf",
+          "material_read": "Definitions, Theorems 1.1–1.2, and Section 2 maximum-split and extremal-statistic theorems",
+          "method": "OA full-text passages",
+          "title": "Equidistribution and sign-balance on 132-Avoiding Permutations",
+          "trigger": "Signed enumerations in the same class"
+        },
+        {
+          "assessment": "Partial small-order coverage",
+          "evidence": "All comparison-coordinate frequencies are computed at n<=5, not n=9.",
+          "identifier_or_url": "2026/11/16/SCOPE-first-walsh-rank-separation-and-endpoint-stability-contrast-for--f516d96e4111",
+          "material_read": "Finding, assumptions, exact census and limitations",
+          "method": "Local Resultary mirror",
+          "title": "First Walsh-rank separation and endpoint stability contrast for 123- and 132-avoiding permutations",
+          "trigger": "Direct overlap on the adjacent inversion coordinates"
+        },
+        {
+          "assessment": "Different Walsh domain and operator",
+          "evidence": "Rows are permutations and columns are quadratic position-symbol observations of arbitrary signed laws.",
+          "identifier_or_url": "2026/11/16/SCOPE-quadratic-walsh-tomography-of-stack-sortable-permutations-first--f9b612ba445d",
+          "material_read": "Finding, assumptions and sharp noninjectivity argument",
+          "method": "Local Resultary mirror",
+          "title": "Quadratic Walsh tomography of stack-sortable permutations: first failure at six positions",
+          "trigger": "Quadratic Walsh language in a Catalan permutation class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quadratic character band directly tests which pair-parity observables can be recovered by descent-profile convolution. Its exact first lost modes, with the linear band still intact at that order, are a natural low-band cutoff rather than an arbitrary table. The all-length equality for adjacent versus nonadjacent position pairs explains two zeros exactly and distinguishes an isolated cancellation from a generic rank statement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

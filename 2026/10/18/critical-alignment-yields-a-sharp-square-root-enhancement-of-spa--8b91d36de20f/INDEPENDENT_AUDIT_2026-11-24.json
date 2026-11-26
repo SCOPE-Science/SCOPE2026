@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:05:28.342345Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating the mass-one PDE gives m'=2(sinh m-m cosh m); this is strictly negative for m>0, and uniqueness and the sign imply positive m decreases to zero. The expansion is -(2/3)m^3-(1/15)m^5+O(m^7). Then u=m^(-2) satisfies u'=4/3+2/(15u)+O(u^(-2)); first u~4t/3, then u=4t/3+O(log t), and reinserting yields u=4t/3+(log t)/10+O(1). In particular the integrated m and m^2 terms have finite constant remainders after subtracting sqrt(3t) and (3/4)log t. The Fourier matrix has trace -2 cosh m and half diagonal difference sinh(m)-ik. Since k=2pi n>1, its root taking value i omega at zero is i omega-(k/omega)m+i m^2/(2 omega^3)+O(m^3). Thus the real parts are -1±(k/omega)m-m^2/2+O(m^3), and the gap is positive of order t^(-1/2). In analytic eigenvector coordinates the remainder R=-P^(-1)P_m m' is O(t^(-3/2)). Incorporate R_ii into the diagonal; the real gap retains its bound. The slow and fast graph ratios satisfy Riccati equations with respective negative and positive real linear coefficients and off-diagonal forcing O(t^(-3/2))(1+|ratio|^2). The forward slow integral from a large t0 with zero initial ratio and backward fast integral from infinity are contractions in a small bounded ball. For the forward kernel split at t/2: the early part decays exponentially in sqrt(t), while the near part has width O(sqrt(t)); for the backward kernel substitute v=(sqrt(t)+y)^2. Both yield graph ratios O(t^(-1)). The two independent graph amplitudes have integrable logarithmic-derivative corrections, so their leading constants are finite and nonzero; the fast line pulls back uniquely by invertibility. Integrating the slow real part gives -t+(sqrt(3)k/omega)sqrt(t)-(3/8)log t+C+o(1), and the divergent integrated gap ensures dominance outside the line. At fixed positive means the Fourier map can be perturbed in all four real directions by small sine and cosine waves, so the exceptional condition is real codimension two. At m0=0 a nonzero coefficient has order e^(-t) by bounded diagonalizing oscillations; a zero coefficient remains zero. Exchanging orientations and reflecting x covers negative m0. This is fixed mode and deterministic hydrodynamic time, not a uniform or microscopic asymptotic.",
+      "reproducibility": "VERIFICATION.md and verify.py were inspected; the uploaded script was not executed. Independent algebraic replay: square i omega+a m+b m^2 and match coefficients -2ik and 1 to get a=-k/omega and b=i/(2 omega^3). Expanding the magnetization drift through degree five gives the stated u expansion. This is distinct from the recorded finite-time rescaled-ODE trend, which cannot certify the exact limit or exceptional line. The infinite-time graph steps were checked analytically; frozen expert, independent-audit and Lean channels report not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked hydrodynamic limit theorem is on finite intervals and supplies the dynamics and scalar reduction, not a mode-by-mode long-time theorem.",
+          "Stationary fluctuation and reversibility works use stationary/constant internal-state models and address different limits and statistics."
+        ],
+        "reasoning": "Even though the deterministic PDE is an input, deducing the exact large-time asymptotic requires integrating a vanishing real spectral gap with control on the coupled channels; the prior types of limit do not give it.",
+        "searches": [
+          "DOI 10.1007/s10955-026-03609-y §2.1",
+          "DOI 10.61102/1024-2953-mprf.2024.30.2.003 Abstract and §1",
+          "DOI 10.1007/s10955-021-02787-1 Abstract and §1.1"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s10955-026-03609-y / arXiv:2509.22254v1",
+        "DOI 10.61102/1024-2953-mprf.2024.30.2.003",
+        "DOI 10.1007/s10955-021-02787-1",
+        "Resultary 13e6ecfe4092",
+        "Resultary 6537bca3d71d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limiting Fourier generator has two eigenvalues with equal real part. Inserting the limiting generator alone predicts e^(-t) but neither the sqrt(t) correction nor the one-line exception.",
+          "The known magnetization law and model provide inputs; the time integral of the first two real shift terms and the asymptotic control of the fast channel supply the distinct sharp result."
+        ],
+        "reasoning": "General ODE asymptotic integration is known and not claimed anew. No inspected source states a formula for this feedback model that would mechanically supply the constants and the solution selection, as opposed to general proof methods for obtaining them.",
+        "searches": [
+          "arXiv:2509.22254v1 / DOI 10.1007/s10955-026-03609-y §2.1",
+          "DOI 10.1007/s10955-021-02787-1 §1.1",
+          "Resultary 6537bca3d71d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The PDE from Pulvirenti–Redig–van Wiechen is the same once speed, time and mass have the frozen normalization. Total/difference coordinates and orientation/reflection yield equivalent Fourier systems.",
+          "The two-state Fourier–Laplace calculation in the reversibility paper is for constant-in-time internal Markov switching, not for self-consistent m decreasing algebraically."
+        ],
+        "reasoning": "Sensitivity to an evolving critical mean field and splitting of real eigenvalue exponents are not coordinate or notation changes in the constant-rate transport problem.",
+        "searches": [
+          "arXiv:2509.22254v1; DOI 10.1007/s10955-026-03609-y Theorem 2.1 and Corollary 2.2",
+          "DOI 10.1007/s10955-021-02787-1",
+          "Resultary critical run-and-tumble Fourier spatial relaxation comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "13e6ecfe4092 recovers the Fourier power of an external force from diffusivity versus a telegraph tumbling rate.",
+          "6537bca3d71d identifies a spatial spectral staircase for position-dependent tanh reversal rates on the line."
+        ],
+        "reasoning": "Neither checked entry has the same global feedback or fixed-mode law. The same date of the first does not establish dependence, and search results do not exhaust priority.",
+        "searches": [
+          "Resultary run-and-tumble Fourier relaxation and critical mean-field comparisons",
+          "Resultary 13e6ecfe4092",
+          "Resultary 6537bca3d71d"
+        ]
+      },
+      "rationale": "Credit the deterministic PDE, Curie–Weiss flip law, autonomous magnetization and generic techniques of asymptotic integration as prior. The checked literature does not identify the precise critical fixed-spatial-mode norm asymptotic, its logarithmic exponent, or its exceptional fast subspace for that PDE. Diagonalization at m=0, scalar critical magnetization decay, or diffusion in a stationary run-and-tumble model is not this assertion.",
+      "residual_risks": [
+        "The targeted primary-source comparison and indexed search are not exhaustive; shared outbound lookup limits reduced the breadth of external search.",
+        "A result on nonautonomous or critical telegraph relaxation with equivalent mean-field dynamics remains possible. No such covering statement was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of model and magnetization reduction; no inspected fixed-mode tail statement",
+          "evidence": "Hydrodynamic limit on [0,T]; autonomous magnetization with Curie–Weiss switching rates.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-026-03609-y; arXiv:2509.22254v1",
+          "material_read": "Published PDF §2.1, p. 6, Theorem 2.1 offset 18831 and Corollary 2.2/Remark 2.3 around offset 19940",
+          "method": "Lawful OA paper passages",
+          "title": "Hydrodynamic Limit and Large Deviations for Run-and-Tumble Particles with Mean-Field Switching Rates",
+          "trigger": "Same process, PDE, mean-field feedback and critical coupling"
+        },
+        {
+          "assessment": "Different model and limiting statistic",
+          "evidence": "Independent and exclusion-interacting particles; stationary fluctuation fields and Ornstein–Uhlenbeck limit.",
+          "identifier_or_url": "https://doi.org/10.61102/1024-2953-mprf.2024.30.2.003",
+          "material_read": "Published PDF p. 1, Abstract and §1",
+          "method": "Lawful OA paper passages",
+          "title": "Stationary Fluctuations of Run-and-Tumble Particles",
+          "trigger": "Related spatial run-and-tumble relaxation statistics"
+        },
+        {
+          "assessment": "Stationary internal-state process, not critical mean-field feedback",
+          "evidence": "Diffusion and large deviations of displacement with stationary Markov state; no result for this time-varying Fourier system in inspected passages.",
+          "identifier_or_url": "https://doi.org/10.1007/s10955-021-02787-1",
+          "material_read": "Publisher PDF p. 1, Abstract and §1.1",
+          "method": "Lawful OA paper passages",
+          "title": "Run-and-Tumble Motion: The Role of Reversibility",
+          "trigger": "Two-state Fourier–Laplace analysis"
+        },
+        {
+          "assessment": "Different driving mechanism and observable",
+          "evidence": "Exogenous telegraph forcing in a passive-tracer spectroscopy problem.",
+          "identifier_or_url": "Resultary 13e6ecfe4092",
+          "material_read": "Mirrored RESULT.md opening Finding, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Exact finite rate spectroscopy of Fourier force power in a telegraph-driven tracer",
+          "trigger": "Related same-day Fourier/run-and-tumble catalogue result"
+        },
+        {
+          "assessment": "Different geometry and rates",
+          "evidence": "Whole-line, position-dependent tanh switching and Schrödinger spatial spectrum.",
+          "identifier_or_url": "Resultary 6537bca3d71d",
+          "material_read": "Mirrored RESULT.md opening Finding, same snapshot",
+          "method": "Resultary semantic lookup and local mirror passage",
+          "title": "Spectral staircase and finite-gradient relaxation plateau",
+          "trigger": "Related catalogue relaxation tail and spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a sharp asymptotic in a physically distinguished critical regime of an existing evolution: the zero mode is only algebraic, whereas a fixed nonzero mode has an exponential law with a frequency-dependent subexponential enhancement and a universal power. The separate exceptional line and the contrast with exactly zero mean prevent mistaking a formal eigenvalue shift for a law of all perturbations. These dynamics are not determined by the spectral abscissa of the limiting matrix alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

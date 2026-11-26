@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:55:16.033224Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mixing density puts weights 1-q and q on gamma shapes one and three; Poissonization gives the stated mixture with common NB parameter q and normalizes at one. Complex-root factorization shows b_n=q^n[3-2 Re(u^n)]>0 with summable b_n/n. For the analytic pgf, thinning at c approaching one forces each b_n-b_(n+1)>=0 by expanding the quotient to first order in 1-c. Conversely, if those differences are nonnegative, integrate (v-1)(log G)'(v)=sum_n (b_n-b_(n+1))(v^n-1) along v=1-s+sz for c<=s<=1 with weight ds/s; the logarithm of the quotient has nonnegative summable positive-degree coefficients. This verifies the criterion independently in this setting. Directly using Re(u) and Re(u²) gives b_1-b_2=q(1-q)P(q)/(1+d)^2. Substitution q=(1+theta)^(-1) gives the quartic, strictly increasing for positive theta; the signs at q=7/10 and 71/100 locate the unique boundary. For every n>=2 the conjugate term is bounded by |u|^n |1-qu| and yields the sufficient strict inequality 9(1-q)(1+q(1-q))³>4, which holds for 0<=q<=71/100 by the derivative's one interior maximum and exact endpoint bounds. Thus all later comparisons are strict everywhere in the surviving region, including the first-term tie at the boundary. At theta=2/5, b_1-b_2=-2390/170569 while p_(n+1)-p_n=-8q^n(5(n-1)²+4)/16807<0 for every n>=0. Independent exact checks and output: branches/1733d608-ca72-4d03-9d19-fc070f81b70c/independent_check.py and independent_check.log; the frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "669cf2e9718e Step 1 gives precisely the same compound-Poisson expansion when p=1-q; Steps 3–5 prove a uniform threshold, a high-q obstruction at fixed p, and a distinct finite late-index witness at (p,q)=(1/5,99/100)",
+          "Altun et al. public excerpt says the count model is applied as the distribution of the innovations of the INAR(1) process"
+        ],
+        "reasoning": "The analytic criterion establishes which infinite list to test but not that the first difference is decisive along the xgamma curve. The earlier distribution and use as independent innovation at chosen rates are not all-rate stationary-marginal classification.",
+        "searches": [
+          "669cf2e9718e RESULT.md proof Steps 1–5",
+          "Altun–Cordeiro–Ristić DOI 10.1080/02664763.2021.1884846",
+          "Steutel–van Harn Theorem 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and REVIEW.md",
+        "Resultary 7dbcedd43d57, 669cf2e9718e and 6076ca6aa947",
+        "Para–Jan–Bakouch metadata, Altun–Cordeiro–Ristić excerpt, Steutel–van Harn Theorem 2.2 lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform theorem gives a sufficient xgamma range q<=5/9, while this result proves membership through q_*>7/10 and exclusion throughout q>q_*",
+          "Its nonuniform necessity fixes p and lets q tend to one; the witness (1/5,99/100) is not on p=1-q",
+          "The xgamma example simultaneously certifies every PMF difference and the exact negative canonical difference"
+        ],
+        "reasoning": "The earlier all-degree estimate is a useful method and its compound-Poisson representation specializes directly, but the interval beyond the uniform range and the exact quartic require the new first-difference and uniform later-index calculations. Neither the published model formulas nor the verified uniform theorem mechanically gives the full pointwise claim.",
+        "searches": [
+          "669cf2e9718e Finding, proof Steps 3–5 and stated scope",
+          "Para–Jan–Bakouch DOI 10.3233/MAS-200484; Altun–Cordeiro–Ristić PMC9225500"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "669cf2e9718e Finding and scope: G=p NB(1,q)+(1-p) NB(3,q), all-q thinning criterion p=0 or p>=4/9",
+          "6076ca6aa947 Finding: adjacent gamma shapes m and m+1"
+        ],
+        "reasoning": "The exact xgamma map is p=1-q with q=1/(1+theta); all-q validity at fixed p is not pointwise validity on this curve. The adjacent-gamma theorem requires a shape gap of one, not the xgamma shape gap of two.",
+        "searches": [
+          "Resultary: Poisson xgamma thinning canonical and geometric negative-binomial shape-three mixture",
+          "669cf2e9718e and 6076ca6aa947 local mirrors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 7dbcedd43d57 is the exact frozen target. The strongest distinct match 669cf2e9718e supplies the uniform weight 4/9 and a different rational witness, not the quartic or a pmf-monotonicity witness."
+        ],
+        "reasoning": "The exact title/number hit is not independent. A numerical root table would not itself certify that all higher canonical differences stay positive, and no distinct evaluated phase law was found in the inspected material.",
+        "searches": [
+          "Resultary: Poisson–xgamma quartic 0.4253264084492916 and decreasing pmf that fails thinning"
+        ]
+      },
+      "rationale": "The distinct geometric/shape-three mixture record 669cf2e9718e is exact broader coverage of the compound-Poisson baseline, not of the pointwise thinning frontier or the decreasing-mass witness. Its theorem is uniform over q at a fixed mixture weight. The xgamma specialization instead follows a curve of changing mixture weights p=1-q, and the surviving sharp boundary is outside its uniform guarantee. Credit the compound-Poisson formula as overlapping context, not an independent new claim. The quartic frontier and the full-support witness survive the comparison.",
+      "residual_risks": [
+        "Primary distribution-paper comparisons are not whole-body exclusions; an unlocated earlier pointwise classification could change priority.",
+        "The broad mixture record and the target are same-day; no chronology is inferred. The overlap in compound-Poisson representation is exact regardless of order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers compound Poisson and a sufficient subrange, not the pointwise xgamma quartic or monotone-PMF witness",
+          "evidence": [
+            "Finding expressly does not classify every fixed parameter pair; the necessity proof fixes the weight and produces a moving-index failure as q tends to one"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-uniform-thinning-threshold-in-geometric-negative-binomia--669cf2e9718e/RESULT.md",
+          "material_read": "Finding, assumptions, proof Steps 1–5 and relationship section, offsets 0 and 4650",
+          "method": "Local mirror",
+          "title": "A sharp uniform thinning threshold in geometric–negative-binomial mixtures",
+          "trigger": "Exact encompassing NB(1)/NB(3) mixture"
+        },
+        {
+          "assessment": "Adjacent shapes only, so does not cover geometric/shape-three xgamma mixing",
+          "evidence": [
+            "Mixing family s Gamma(m,theta)+(1-s) Gamma(m+1,theta)"
+          ],
+          "identifier_or_url": "Resultary 6076ca6aa947",
+          "material_read": "Finding, scope and proof Step 2, offsets 300 and 4600",
+          "method": "Local mirror",
+          "title": "Poissonization restores thinning self-decomposability in adjacent-gamma mixtures",
+          "trigger": "Broader-looking mixed-Poisson result"
+        },
+        {
+          "assessment": "Evidence for model and INAR innovation use, not sufficient for body-level exclusion of broader results",
+          "evidence": [
+            "Altun et al. excerpt says the proposed distribution is used as the distribution of innovations of the INAR(1) process"
+          ],
+          "identifier_or_url": "10.3233/MAS-200484; https://pmc.ncbi.nlm.nih.gov/articles/PMC9225500/",
+          "material_read": "Publisher metadata and accessible Altun et al. excerpt; no independent decisive body passage recovered",
+          "method": "Published bibliographic records, indexed excerpt and lawful OA attempted for body passages",
+          "title": "Poisson Xgamma distribution: A discrete model for count data analysis; An one-parameter compounding discrete distribution",
+          "trigger": "Primary distribution introductions and possible INAR classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this applied count family, the result reduces an infinite marginal-feasibility test to a single sharp parameter boundary with its equality structure, and the exact monotonically decreasing PMF on the excluded side shows why elementary shape and ordinary compound-Poisson structure do not suffice. The improvement over a sufficient uniform-in-rate region is a pointwise classification, not a numerical refinement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

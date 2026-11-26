@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:02:00.266458Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The binomial expansion in Proof 1 satisfies the initial values and the recurrence by Pascal's identity. For n=2m+1 its mod-eight terms are B^m and, for m≥1, binom(m+1,2)P²B^(m−1); all higher terms vanish. For t=1, the four residues at m≡0,1,2,3 are 1,B+4,5,B including m=0; for t≥2 only B^m remains. For s≥1, writing V_k=α^k+β^k for the roots of X²−PX−B gives U_{2k}=U_kV_k and V_{2k}=V_k²−2(−B)^k. V_2/2=P²/2+B is odd; V_4≡2 (mod 16) and V_{2^j}≡2 (mod 16) for j≥2 by doubling and B^4≡1 (mod 16). Thus U_{2^s} has valuation t+s−1 and the odd unit a c_s, with empty companion product for s=1. For k=2^s the quotient U_{ku}/U_k is the integer recurrence with trace V_k≡±2 (mod 8) and subtractive coefficient (−B)^k≡1 (mod 8); at ±2 its u-th value is (±1)^(u−1)u, equal to u for odd u. This proves the claimed uniform even-index residues. Legendre excludes exactly even valuations with unit 7, giving the stated disjoint classes. The s odd/even geometric sums are 1/12 and 1/24, respectively, and the odd-index part adds 0, 1/8, or 1/4 as printed. Each progression contributes error at most one; the sum of expected counts for s>⌊log₂N⌋ is bounded absolutely, giving the uniform logarithmic error. The Pell row reduces to even s≥2 and odd multiplier 5 mod 8. These are analytic checks of the all-index theorem; check.py and its finite scope were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 gives valuation zero on odd n and ν₂(n)+ν₂(P)−1 on even n, exactly as here. Corollary 5.2 gives strict 2-automaticity of last nonzero digits, not their uniform values.",
+          "Theorem 5.4 gives finite unions of 2^r π l+j and 2^(r+2k)π(8l+c) with π=4 when A is even. In its proof, the deep branch uses a period of the digit and valuation sequences of g and c≡7ℓ_(2,3)(g(0))^(−1) mod 8."
+        ],
+        "reasoning": "These results ensure the structural shape and permit computing a fixed sequence's density given its data. They do not evaluate those data as functions of P,B, determine the odd-index residue classes, or yield the five-value phase diagram by direct specialization.",
+        "searches": [
+          "Sobolewski Theorem 5.1, Corollary 5.2 and Theorem 5.4, pp. 12–15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Sobolewski, arXiv:2202.09922, §5",
+        "Latushkin–Ushakov primary article",
+        "Local Resultary Lucas and generalized-derangement matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof reduces to periods and factors of a 2-adic interpolant, and expresses the deep index residue using ℓ_(2,3)(g(0)); it explicitly evaluates the Pell case.",
+          "Here the extra arithmetic is V_{2^j}/2≡1 mod 8 for j≥2, the separate V_2/2 term, and U_{2^su}/U_{2^s}≡u mod 8 for odd u, plus an explicit evaluation of U_{2m+1} mod 8."
+        ],
+        "reasoning": "These are evaluations of last-unit data not specified by the prior valuation or periodicity statements. With them, Legendre and geometric sums yield the exact indices and all density values; the density summation itself is routine and is not the distinct contribution.",
+        "searches": [
+          "Sobolewski Proof of Theorem 5.4, eqs. (5.2)–(5.5), Example 5.1",
+          "Frozen RESULT.md Proofs 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sobolewski writes u_{n+2}=Au_{n+1}+Bu_n, so A=P and his B is the same B; in the conventional U(P,Q) notation Q=−B. The frozen positive family meets nondegeneracy, nonnegativity and odd B.",
+          "His Pell example yields exactly n=4^(j+1)(8l+5); Latushkin–Ushakov treat the classical Fibonacci and Lucas sequences, not general pairs (P,−B)."
+        ],
+        "reasoning": "Parameter conventions neither exclude this family from the broad prior theorem nor turn the classical Pell instance into new work. The even-trace, odd-additive-coefficient family remains larger than those explicit classical examples.",
+        "searches": [
+          "Sobolewski, arXiv:2202.09922, §5 definitions, Theorem 5.4 and Example 5.1",
+          "Latushkin–Ushakov, DOI 10.1134/S0001434612050070, definition and Theorem 5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit identifies the assignment itself. The closest independent Resultary density record has generalized derangements D_n^(v), an index-dependent recurrence, and density values 1/24 and 1/6.",
+          "The inspected exact literature instances are the Pell progression and classical Fibonacci and Lucas residue classifications, not a table of all even P and odd B."
+        ],
+        "reasoning": "A shared Legendre criterion or a shared numerical density does not imply identical indices or parameter families; the Pell case is credited as exact previously known coverage.",
+        "searches": [
+          "Local Resultary exact title and Lucas three-square obstruction queries",
+          "Resultary 2026/11/22/SCOPE-exact-three-square-obstruction-densities-for-every-higher-even-g--ca60adc2684c",
+          "Sobolewski Example 5.1; Latushkin–Ushakov classical index classifications"
+        ]
+      },
+      "rationale": "Sobolewski already covers this family for the obstruction-set structure, exact two-adic valuation (crediting Sanna), and digit automaticity. His Pell example overlaps exactly at P=2, B=1. The supported distinct result is the explicit uniform evaluation of the last units, including s=1 and all odd indices, and the resulting full parameter-dependent density values. The earlier theorem leaves family-specific periods and residues unevaluated; this is a bounded comparison, not a claim to invent the obstruction criterion, index-set shape, or valuation law.",
+      "residual_risks": [
+        "The cited Sanna result was inspected as reproduced by Sobolewski, not in Sanna's own full text.",
+        "Earlier unindexed explicit last-unit congruences or an equivalent family classification could change priority. The bounded comparison does not certify absence of such results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers family structure, valuation, automaticity and Pell, not the actual uniform residue evaluation in the inspected passages",
+          "evidence": [
+            "Theorem 5.4 sets π=4 for even trace and states finite-union forms (5.2) and (5.3). Proof eqs. (5.4)–(5.5) keep the period and residue of g sequence-specific.",
+            "Example 5.1 computes exactly the same Pell obstruction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.09922",
+          "material_read": "§5: Theorem 5.1 and Corollary 5.2, PDF pp. 12–13, offsets 38500–45777; Theorem 5.4 and Proof, pp. 14–15, offsets 46011–50198; Example 5.1, pp. 15–16, offsets 49400–54007",
+          "method": "Bounded OA PDF passages, with direct statement and implication check",
+          "title": "On k-regularity of sequences of valuations and last non-zero digits",
+          "trigger": "General three-square theorem, valuation and digit laws, and exact Pell instance for first-kind Lucas sequences"
+        },
+        {
+          "assessment": "Explicit fixed classical sequences rather than general even trace and odd additive coefficient",
+          "evidence": [
+            "The article defines classical Fibonacci and Lucas numbers; Theorem 5.1 gives residue classes for the classical Lucas numbers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S0001434612050070",
+          "material_read": "Russian original Math. Zametki 91, p. 711 definition and pp. 718–719 Theorem 5.1",
+          "method": "Open primary article, bounded passage comparison",
+          "title": "On the Representation of Fibonacci and Lucas Numbers as the Sum of Three Squares",
+          "trigger": "Classical Lucas three-square residues under similar terminology"
+        },
+        {
+          "assessment": "Different sequence family and no implication",
+          "evidence": [
+            "The recurrence for D_n^(v) depends on n, unlike the fixed-coefficient Lucas recurrence, and the density values reported are 1/24 and 1/6."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-square-obstruction-densities-for-every-higher-even-g--ca60adc2684c",
+          "material_read": "RESULT.md statement, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-square obstruction densities for every higher even generalized derangement",
+          "trigger": "Close Resultary exact-density analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural class of Lucas sequences the uniform congruences turn an existence/periodicity result into an exact decision rule using only small residues, without generating the sequence values. They explain how the index parity and the two-adic trace order combine with the companion residue to change the asymptotic proportion of three-square obstructions. The complete parameter diagram adds content beyond the classical Pell case or one computed automaton.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

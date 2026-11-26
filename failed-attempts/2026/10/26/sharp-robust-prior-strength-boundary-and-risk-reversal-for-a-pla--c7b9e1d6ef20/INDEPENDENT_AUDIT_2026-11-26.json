@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:01:52.694342Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the stated real invertible 2×2, finite-strength, one-Gaussian-probe domain, diagonalizing the covariance gives an axis projector moment α/(α+β) for axis standard deviations α,β, by the elementary angular integral; the off-diagonal moment vanishes by symmetry. The trace of the complementary projector against AAᵀ then gives the claimed squared Frobenius risk. I reconstructed the baseline-gap factor, derivative quadratic and discriminant, and the exact (3,1,2/5) witness including the crossing at 7/3. The derivative sign at and between c1 and 1/2 follows from the leading, linear and constant signs and the value at r=1. The worst alignment is c0 by denominator monotonicity for r>1. With k=a²c0+b²(1−c0), writing the risk divided by ab in s=r−1 gives a weighted average of the coefficient ratios 1, (a+b)²/[2(k+ab)] and ab/k. The middle ratio is strictly above the smaller endpoint ratio, and both the constant and linear coefficients matter at finite s>0. This gives the stated minimax value and strict finite-attainment rules including k=ab. Replay exact checks with python /workspace/branches/math_checks.py 2; the frozen verifier and recorded angular diagnostics were inspected, not rerun. The mathematical result is not rejected for a proof error.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bivariate spatial-sign formula gives square-root eigenvalue normalization for general elliptical data and therefore the Gaussian projector moment exactly.",
+          "The inspected covariance-aware randomized range/Nyström bounds use oversampling or multiple sketch columns and do not imply the finite one-probe exact risk or minimax decision."
+        ],
+        "reasoning": "Separate the exact broader moment, which supplies the risk by tracing against the target, from the approximation-error bounds, which do not yield equalities or strict reversals in the planar model.",
+        "searches": [
+          "arXiv:1606.02274, Section 2 equation (1)",
+          "arXiv:2105.13052, Theorem 2 and Proposition 6",
+          "arXiv:2206.08793, Theorem 3.17",
+          "arXiv:2404.00960, Theorems 2.1 and 2.5",
+          "arXiv:0909.4061, Theorem 10.5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9b107129ef7d",
+        "Resultary 739d1784d937",
+        "Resultary 24d8f4bb643c",
+        "Resultary 729402e120b0",
+        "arXiv:1606.02274",
+        "arXiv:2105.13052",
+        "arXiv:2206.08793",
+        "arXiv:0909.4061",
+        "arXiv:2404.00960"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nyström proof §4 with t=sqrt(condition number) displays the same risk quotient and derivative quadratic and proves the decreasing/increasing/unique maximum alternatives. Its Finding explicitly observes that moderate anisotropy can hurt while extreme anisotropy helps.",
+          "The Nyström threshold θc=arctan((λ1/λ2)^(1/4)) for λ1=a² and λ2=b² turns into cos²θc=b/(a+b), with the same endpoint values and finite-strength strictness."
+        ],
+        "reasoning": "The explicit root and finite-baseline crossing formulas merely solve polynomials already determined by the covered curve. They do not leave a scientifically distinct remainder warranting repair.",
+        "searches": [
+          "Resultary 9b107129ef7d, Finding equations (4)–(5) and proof §4, local mirror offsets 550 and 6020",
+          "Gaussian spatial sign covariance exact eigenvalues two dimensions square-root covariance formula spatial sign covariance matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9b107129ef7d, Finding equations (1)–(2) and proof §1: one-column Gaussian Nyström expected residual trace on a planar positive-definite matrix, as a function of the Gaussian covariance.",
+          "The Nyström residual trace tr(B−Bg(gᵀBg)⁻¹gᵀB) equals the frozen loss sample by sample upon setting B=AᵀA."
+        ],
+        "reasoning": "The two probes induce exactly the same objective and minimax uncertainty set after the substitutions. This is equivalence, not just a similar spectral threshold.",
+        "searches": [
+          "Resultary: exact planar Gaussian one-probe range finder squared Frobenius risk covariance anisotropy alignment crossover minimax prior strength",
+          "Resultary: planar one-column Gaussian range finder exact covariance-dependent expected squared Frobenius residual risk alignment prior anisotropic Gaussian covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9b107129ef7d supplies the exact error curve, worst-angle minimax value, isotropic versus singular-concentration switch, and equality behavior.",
+          "Resultary 739d1784d937 and 24d8f4bb643c compare Gaussian and Rademacher laws, sharing an isotropic baseline but not this anisotropic decision; 729402e120b0 treats a higher-dimensional tail-block majorization comparison."
+        ],
+        "reasoning": "There is a distinct exact formula/theorem match, not just a table of test values or neighboring titles. Same-day or later catalogue path dates do not resolve order of discovery.",
+        "searches": [
+          "Resultary: one-probe Gaussian range approximation exact risk with anisotropic covariance aligned with leading right singular vector, rank-one tilt, minimax threshold",
+          "Resultary 9b107129ef7d, Finding equations (1)–(5) and statement following equation (5)"
+        ]
+      },
+      "rationale": "There is exact equivalent catalogue coverage of the risk law, the certified-alignment minimax switch, its finite-attainment behavior and the strength-profile mechanism. For B=AᵀA and g=ω, samplewise the range-finder squared Frobenius loss is tr(B)−gᵀB²g/(gᵀBg), exactly the residual trace for one-column Nyström on B. Every planar positive-definite B is of this form. Use B eigenvalues a²,b², covariance condition number r² and c=cos²θ. The Nyström Finding equations (1)–(5) and proof §4 then give the laws at issue, not merely an estimate. The finite crossover and exact maximizing-strength expression not printed there follow by factoring the same quadratic risk difference and solving the same derivative quadratic. The exact risk also follows mechanically from the earlier bivariate spatial-sign covariance moment. The exact matching catalogue item has a later path date; the decision credits demonstrable equivalent coverage in the audited corpus and does not assert that that item was historically first or that the frozen record copied it.",
+      "residual_risks": [
+        "Historical priority between exact equivalent formulations is not resolved by the catalogue dates. Earlier exact formulations outside the bounded searches may also exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage including the risk shape and minimax threshold, not a historical-priority determination.",
+          "evidence": [
+            "One-column residual trace; exact quotient and derivative polynomial in t; strict finite versus infinite strength conclusions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-angular-information-threshold-for-planar-gaussian-nystr--9b107129ef7d",
+          "material_read": "RESULT.md Finding equations (1)–(5), assumptions and proof §§1, 4; mirror offsets 550 and 6020 for exact comparison",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp angular-information threshold for planar Gaussian Nyström covariance design",
+          "trigger": "Potentially equivalent loss and certified-angle switch"
+        },
+        {
+          "assessment": "Bivariate projector moment covered; not itself a range-finder design theorem.",
+          "evidence": [
+            "Spatial-sign covariance eigenvalues are √λᵢ/(√λ₁+√λ₂) in the covariance axes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.02274",
+          "material_read": "Section 2, p. 2, equation (1)",
+          "method": "OA original PDF passage",
+          "title": "The spatial sign covariance matrix and its application for robust correlation estimation",
+          "trigger": "Possibly known normalized Gaussian projector moment"
+        },
+        {
+          "assessment": "Oversampled bounds, not an exact one-column theorem.",
+          "evidence": [
+            "The theorem and proposition use p≥4 and p≥2 respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.13052",
+          "material_read": "Theorem 2 p. 2 and Proposition 6 p. 12",
+          "method": "OA original PDF passages",
+          "title": "A generalization of the randomized singular value decomposition",
+          "trigger": "Covariance-aware range finder"
+        },
+        {
+          "assessment": "The inspected theorem does not cover rank two with one sample.",
+          "evidence": [
+            "It requires 2<p≤min{rank(A),rank(Cov(Z))}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.08793",
+          "material_read": "Theorem 3.17 p. 14",
+          "method": "OA original PDF passage",
+          "title": "A general error analysis for randomized low-rank approximation methods",
+          "trigger": "Potential broader Gaussian error coverage"
+        },
+        {
+          "assessment": "Expected Frobenius norm bound, not exact squared one-probe risk.",
+          "evidence": [
+            "Target rank k≥2, oversampling p≥2 and k+p Gaussian vectors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+          "material_read": "§10, Theorem 10.5 p. 56",
+          "method": "OA original PDF passage",
+          "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+          "trigger": "Classical exact-error or Gaussian benchmark coverage"
+        },
+        {
+          "assessment": "General bounds with oversampling, not the one-column equality.",
+          "evidence": [
+            "Inspected statements compare approximation-error bounds for correlated sketches."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.00960",
+          "material_read": "Theorems 2.1 and 2.5, pp. 5 and 8",
+          "method": "OA original PDF passages",
+          "title": "Randomized Nyström approximation of non-negative self-adjoint operators",
+          "trigger": "General correlated-Gaussian Nyström coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying decision problem is natural, and the threshold and reversal are useful. As a distinct finding here, however, the reported sharp curve and robustness conclusion are the same mathematical design problem under a samplewise loss identity. The remaining explicit crossing, derivative root and numeric witness are routine evaluations of that already complete curve, with no distinct access-model theorem, setting, or structural conclusion. A change from trace loss notation to squared Frobenius notation does not supply an independent scientific gain.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

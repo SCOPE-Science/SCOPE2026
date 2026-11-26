@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:59:13.034382Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof",
+        "Frozen VERIFICATION.md and verify.py (read only)",
+        "review_checks/finite_checks.py, case 2"
+      ],
+      "rationale": "For W=aI+bJ, put R²=a²+b². Then the balanced metric operator is N R^(2−2/N) times the identity. At a scaled orthogonal matrix, left/right orthogonal invariance of entropy forces its ambient gradient to be radial (reduce by orthogonal multiplication to RI and use conjugation invariance there). The pair quotient at equal singular values is N R^(2−2/N); scaling gives the gradient (d−1)(1−1/N)W/(2R²). Combining this with the diagonal gradient gives the two ODEs with the claimed c. The boundaries 1 and the positive solution of Na(a−1)=c trap a, while B=|b| keeps its positive initial value as a lower bound and satisfies B′≤c B^(1−2/N). Thus the orbit is complete, invertible, and B diverges, since bounded B would have a positive lower bound on B′. In the clock dτ=R^(2−2/N)dt, the stable equation for a−1 has forcing ca/R²→0, so a→1; the equation for B²(a−1) has limiting damping N and forcing c, giving the stated lag. In physical time (B^(2/N))′→2c/N, hence B has the asserted equivalent. This yields the full-rank normalized direction, loss equivalent, and log coefficient −d(d−1)(N−1)/(4β), with no claim of generic behavior. Independent finite checks (`python3 review_checks/finite_checks.py 2`) compared ambient entropy directional derivatives and integrated with log(B/B₀) as clock in depths 2, 3 and 5. These are normalization and rate checks, not substitutes for the asymptotic proof.",
+      "residual_risks": [
+        "The analysis concerns only the specified even-width isosingular family with nonzero b₀, finite β and N≥2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Treviño proves generic unboundedness for N>2; §12.4 asks about rates, loss and directions, and §12.5 treats depth two separately. Chen–Kotwal–Menon's nonspectral matrix-completion discussion does not state an applicable trajectory theorem."
+        ],
+        "reasoning": "Generic unboundedness supplies none of the sharp equivalents, neither guarantees anything on this lower-dimensional family nor supplies the depth-two result. The present theorem does not settle those generic questions.",
+        "searches": [
+          "arXiv:2610.05551v1, §1.1 and §§12.4–12.5",
+          "arXiv:2512.06137v1, §8.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05551v1",
+        "arXiv:2512.06137v1",
+        "arXiv:2509.09088v3",
+        "Resultary record 713e0c3cb184"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Menon–Yu give the entropy formula and extension to repeated singular values. Treviño's static shear makes free energy unbounded below without giving the dynamics or diagonal relaxation."
+        ],
+        "reasoning": "The published geometry is an input, but the conformal invariance, global trapping, and stable forced lag yielding the loss equivalent are separate steps. The precise limit and rates are not a direct specialization of the inspected prior conclusions.",
+        "searches": [
+          "arXiv:2509.09088v3, §3.3, Theorem 4, (3.6)–(3.7), Remark 5",
+          "arXiv:2610.05551v1, Proposition 5.1 and Theorem 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Treviño's zero-loss family I+a e₁e₂ᵀ is static, not a finite-temperature trajectory. The special 2×2 families in §§11.3–11.4 concern zero-temperature endpoints under a limit in initialization scale."
+        ],
+        "reasoning": "Neither a parameterized path of matrices nor an initialization-scale endpoint law is equivalent to a finite-β long-time orbit with ||W|| growing like t^(N/2) and loss decaying like t^(−2N).",
+        "searches": [
+          "arXiv:2610.05551v1, §§5, 11.3–11.4, 12.2, 12.4–12.5",
+          "Resultary semantic search for finite-temperature entropic diagonal-completion escape and its rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest returned record inspected treats bounded-latent rectified rank-two approximation of a one-zero 3×3 matrix. It is not a gradient-flow theorem and its scale is not flow time."
+        ],
+        "reasoning": "No matching indexed exact result was identified. A finite numerical table could not encode the continuum of initial scales and all-time asymptotics in this claim.",
+        "searches": [
+          "Resultary semantic search for invariant isosingular skew families and polynomial escape in entropic diagonal completion",
+          "Resultary 2026/10/26/SCOPE-sharp-latent-budget-escape-law-for-one-zero-relu-matrix-completi--713e0c3cb184"
+        ]
+      },
+      "rationale": "The shared entropy and flow geometry, generic unboundedness for N>2, and unboundedness of the free energy on a static zero-loss family are prior. In the inspected sources, none gives or implies the joint quantitative asymptotics for this finite-temperature conformal-skew trajectory. The pass is for the trajectory and its rates and direction, not for the entropy formula or an assertion about generic escape.",
+      "residual_risks": [
+        "A separately published special isosingular family or equivalent reduced dynamics may not have surfaced; the checks do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior flow and unboundedness; does not cover the quantitative orbit in the inspected passages",
+          "evidence": "Static shear in §5; zero-temperature special cases in §§11.3–11.4; finite-temperature rate/direction and depth-two questions in §12.",
+          "identifier_or_url": "https://arxiv.org/html/2610.05551v1",
+          "material_read": "§1.1; Proposition 5.1 and Theorem 5.2; §§11.3–11.4 and 12.2, 12.4–12.5",
+          "method": "Primary arXiv HTML, bounded statement and discussion passages",
+          "title": "Failure of entropic selection for diagonal matrix completion in deep linear networks",
+          "trigger": "Same finite-temperature model and plausible explicit families"
+        },
+        {
+          "assessment": "Context, not covering",
+          "evidence": "The discussion stresses the coupling to singular vectors in nonspectral loss and does not give this special trajectory.",
+          "identifier_or_url": "https://arxiv.org/html/2512.06137v1",
+          "material_read": "§8.2 on nonspectral losses and matrix completion",
+          "method": "Primary arXiv HTML, bounded passage",
+          "title": "Entropic regularization in the Deep Linear Network",
+          "trigger": "Matrix completion under the same entropic regularization"
+        },
+        {
+          "assessment": "Covers entropy input, not the claimed flow asymptotics",
+          "evidence": "Gives the pairwise singular-value entropy and prescribes the limit at coincident singular values.",
+          "identifier_or_url": "https://arxiv.org/html/2509.09088v3",
+          "material_read": "§3.3, Theorem 4, (3.6)–(3.7), Remark 5",
+          "method": "Primary arXiv HTML, bounded theorem and remark",
+          "title": "An entropy formula for the Deep Linear Network",
+          "trigger": "Entropy at repeated singular values"
+        },
+        {
+          "assessment": "Distinct optimization problem",
+          "evidence": "Rectified rank-two bounded-latent approximation, not a finite-temperature time evolution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-latent-budget-escape-law-for-one-zero-relu-matrix-completi--713e0c3cb184",
+          "material_read": "RESULT.md finding, beginning of file",
+          "method": "Resultary semantic search and bounded mirrored result passage",
+          "title": "Sharp latent-budget escape law for one-zero ReLU matrix completion",
+          "trigger": "Indexed match for matrix-completion escape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "arXiv:2610.05551v1, §§12.4–12.5"
+      ],
+      "rationale": "The conformal-skew family is selected by the compatibility of equal singular values and a skew perturbation of the observed diagonal, not by a numerical parameter choice. The result gives an explicit benchmark where every singular value escapes, completion loss nevertheless tends to zero at a sharp rate, and the normalized limit has full rank. In particular it supplies concrete finite-temperature depth-two trajectories without purporting to address general depth-two or generic dynamics.",
+      "residual_risks": [
+        "The result does not establish basin stability or typicality of this direction or these rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

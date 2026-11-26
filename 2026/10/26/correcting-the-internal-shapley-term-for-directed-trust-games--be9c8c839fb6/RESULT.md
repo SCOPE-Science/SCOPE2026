@@ -1,53 +1,61 @@
-# Correcting the internal Shapley term for directed trust games
+# The efficiency defect of the printed Shapley formula for directed trust games
 
 ## Finding
 
-Let \(G=(N,E)\) be a finite simple directed graph with arc weights \(a_{pq}\in[0,1]\). In the trust game of Ryzák and Kroupa, write the coalition worth as \(v=v_{\mathrm{int}}+v_{\mathrm{ext}}\), where
+Let \(\widehat\phi\) be the allocation given by the displayed formulas (8)–(9) in Corollary 3.3 of Ryzák and Kroupa, arXiv:2605.18157v1. For every directed trust game in their Definition 2.1, its shortfall from Shapley efficiency is exactly the total weight of the one-way arcs:
 
 \[
-v_{\mathrm{int}}(S)=\sum_{(p,q)\in E,\ p,q\in S}a_{pq}
+v(N)-\sum_{i\in N}\widehat\phi_i
+=\sum_{(i,j)\in E:\ (j,i)\notin E} a_{ij}.
 \]
 
-is the internal term and \(v_{\mathrm{ext}}\) is the stated external-minimum term. For every player \(i\in N\), the internal contribution to the Shapley value is
-
-\[
-\phi_i(v_{\mathrm{int}})=\frac12\sum_{j:(i,j)\in E}a_{ij}+\frac12\sum_{j:(j,i)\in E}a_{ji}.
-\]
-
-Thus every directed arc contributes half its weight to each endpoint, whether or not its reverse arc exists. The first term displayed in Corollary 3.3 of the 2026 preprint counts only reciprocal pairs and omits positive one-way arcs. In the directed cycle \(1\to2\to3\to1\) with every arc weight equal to \(1\), the displayed formula gives \(0\) for each player, whereas the exact Shapley value is \(1\) for each player.
-
-Equivalently, the corrected total value is \(\phi_i(v)=\phi_i(v_{\mathrm{int}})+\phi_i(v_{\mathrm{ext}})\), with the internal term replaced by the all-incident-arcs expression above. This finding concerns that internal term; it does not assert a correction to every other formula in the source.
+In particular, any positive-weight one-way arc forces the printed formula to fail. For the directed unit-weight cycle \(1\to2\to3\to1\) the printed vector is \((0,0,0)\), whereas the Shapley value is \((1,1,1)\). The defect is in the reciprocal-arc restriction in the printed internal term. The all-incident-arc formula for the internal contribution was already given by Bandhana, Kroupa, and García (2024, Proposition 3.6).
 
 ## Assumptions and scope
 
-The graph is finite and loopless; arc weights are nonnegative. The characteristic function is the trust game defined in Definition 2.1 of Ryzák and Kroupa (2026), whose internal component sums the weights of all directed arcs with both endpoints in the coalition. The Shapley value is the standard transferable-utility value. The result is independent of tie-breaking among equal incoming weights because the internal term does not use the incoming-weight ordering.
+The graph is finite, simple, directed and loopless, with weights \(a_{ij}\in[0,1]\) on its arcs. A coalition receives the sum of its internal arc weights plus, for each coalition member, the minimum weight of incoming arcs from outside the coalition, with the empty minimum interpreted as zero. The Shapley value uses the ordinary uniform distribution over player orders. The claim compares a particular printed formula with the game's grand-coalition worth; it makes no assertion about formulas outside Corollary 3.3 of the specified version.
 
 ## Proof
 
-For each arc \((p,q)\in E\), define the two-player unanimity game \(u_{\{p,q\}}(S)=1\) when \(p,q\in S\), and \(0\) otherwise. Then
+Fix a target \(j\). Use the preprint's ordering of its \(m_j\) incoming arcs by nondecreasing weight, with ordered weights \(b_j(t)\) and \(b_j(0)=0\); put \(\Delta_j(t)=b_j(t)-b_j(t-1)\). From (8), the printed external term for target \(j\) itself is
 
 \[
-v_{\mathrm{int}}(S)=\sum_{(p,q)\in E}a_{pq}u_{\{p,q\}}(S).
+\sum_{t=1}^{m_j}\frac{\Delta_j(t)}{t}-\frac{b_j(m_j)}{m_j+1}.
 \]
 
-By linearity of the Shapley value, it suffices to compute the value of one summand. In a unanimity game supported on two distinct players, each of those players is pivotal in exactly half of the two possible relative orders; equivalently, the Shapley value assigns \(1/2\) to each endpoint and \(0\) to every other player. Hence arc \((p,q)\) contributes \(a_{pq}/2\) to player \(p\) and \(a_{pq}/2\) to player \(q\). Summing over all arcs proves the formula.
+From (9), the external contribution associated with target \(j\) for its rank-\(r\) in-neighbor is
 
-The source's Corollary 3.3 instead includes only arcs whose reverse is also present. On the directed 3-cycle with unit weights, the internal value is \(1\) for each player: each vertex is incident to two directed arcs, each contributing \(1/2\). For the external component, every singleton coalition has value \(1\), every two-player coalition has external value \(1\), and the grand coalition has external value \(0\). The external Shapley value is therefore \(0\) for each player (the marginal contributions across the three positions are \(1,0,-1\)). The full coalition worths are \(v(\varnothing)=0\), \(v(\{i\})=1\), \(v(\{i,j\})=2\), and \(v(N)=3\); each player's marginal contribution is \(1\) in every position, so the exact total Shapley value is \(1\). With no reciprocal arcs, the printed internal term is zero, giving the stated discrepancy.
+\[
+\sum_{t=r+1}^{m_j}\frac{\Delta_j(t)}{t}-\frac{b_j(m_j)}{m_j+1}.
+\]
+
+No other player receives an external contribution associated with \(j\). For each \(t\), the term \(\Delta_j(t)/t\) appears once for the target and once for each of the \(t-1\) earlier in-neighbors. The last term appears \(m_j+1\) times. Hence summing over the players gives \(\sum_{t=1}^{m_j}\Delta_j(t)-b_j(m_j)=0\); this also holds when \(m_j=0\) and for any ordering of ties. The printed external terms thus sum to zero.
+
+The first sum in (8) includes a pair only if both arcs exist. For each unordered reciprocal pair the term \((a_{ij}+a_{ji})/2\) appears for each of its endpoints. The sum of the resulting allocations is therefore the weight of all arcs having a reverse arc. Since \(v(N)\) is the weight of **all** arcs and \(v(\varnothing)=0\), this establishes the identity and its strict positivity if any one-way arc has positive weight.
+
+The internal term can be corrected using the existing formula
+
+\[
+\phi_i(v_{\mathrm{int}})=\tfrac12\sum_{j:(i,j)\in E}a_{ij}+\tfrac12\sum_{j:(j,i)\in E}a_{ji}.
+\]
+
+Indeed, each arc is its weight times the unanimity game on its two endpoints; each endpoint is the later player in half the orders. This explains the difference between the internal expressions without making a novelty claim for the all-incident-arc identity.
+
+For the unit directed triangle, every player contributes one external term from (8) of \(1-1/2\) and one from (9) of \(-1/2\). The printed first term vanishes, giving the zero vector. Evaluating the game directly gives \(v(\varnothing)=0\), \(v(\{i\})=1\), \(v(\{i,j\})=2\), and \(v(N)=3\). Thus each player's marginal worth is one in every position.
 
 ## Verification
 
-The included `verify_trust_game.py` uses exact rational arithmetic. It checks all eight coalitions of the three-player witness, enumerates all six player orders, computes the internal and external Shapley components separately, and confirms that the corrected formula gives \(1\) per player while the reciprocal-only term gives \(0\). The computation is a finite exact check of the witness; the general identity is proved above by unanimity-game linearity.
+The all-graph identity follows by counting the multiplicities in the displayed sums, with no numerical assumption. The accompanying `verify_trust_game.py` enumerates all eight coalitions and all six player orders exactly for the unit-cycle witness. It checks the coalition values and the internal and external Shapley allocations separately. Substitution into (8)–(9), as above, checks the printed allocation directly; the script does not parse the paper or check the all-graph identity.
 
 ## Relationship to prior work
 
-Bandhana, Kroupa, and García (AAMAS 2024) introduced the same trust-game construction and define internal trust as the sum of local trust weights on all arcs within a coalition. Ryzák and Kroupa (arXiv:2605.18157v1, 18 May 2026) restate this internal term and express it as a sum of two-player unanimity games in Lemma 3.2, but the reciprocal-edge-only term in their Corollary 3.3 does not account for one-way arcs. The correction follows from the standard Shapley value of a two-player unanimity game; the source-specific contribution here is the exact identification of the omitted term and the three-cycle witness. published-finding corpus semantic searches and the accessible research ledger found no directly matching correction; those searches do not establish global novelty.
+Bandhana, Kroupa, and García define this trust game and explicitly give the all-incident-arc Shapley identity in Proposition 3.6. Ryzák and Kroupa reuse the definition and give an internal unanimity summand in Lemma 3.2, but the reciprocal restriction appears in Corollary 3.3. The result here identifies this inconsistency and quantifies the resulting failure of the printed full allocation. It does not claim novelty for Shapley efficiency, the underlying game, or the all-incident-arc formula.
 
 ## Limitations
 
-The result corrects the internal contribution in the displayed Corollary 3.3 and demonstrates its consequence on one exact witness. It does not assess unrelated claims in the preprint, establish any empirical effect on peer-ranking data, or constitute an independent audit. A later author revision or correction could change the source text; the inspected version is arXiv v1.
+This is a correction scoped to arXiv:2605.18157v1. A later revision may change the display. The efficiency diagnostic is silent when all one-way arcs have zero weight; efficiency alone is not a proof of an allocation formula. The literature comparison is bounded.
 
 ## References
 
-1. David Ryzák and Tomáš Kroupa, “A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value,” arXiv:2605.18157v1, first public version 18 May 2026. Relevant locations: Definition 2.1, Lemma 3.2, and Corollary 3.3.
-2. Arti Bandhana, Tomáš Kroupa, and Sebastián García, “Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network,” Proceedings of the 23rd International Conference on Autonomous Agents and Multiagent Systems (AAMAS 2024), pp. 132–140, DOI 10.5555/3635637.3662860. Relevant location: Section 3, Definition 3.1.
-3. Mathematics Subject Classification 2020, code 91A12 (Cooperative games).
+1. David Ryzák and Tomáš Kroupa, “A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value,” arXiv:2605.18157v1, https://arxiv.org/pdf/2605.18157v1. Definition 2.1, Lemma 3.2 and Corollary 3.3, equations (8)–(9).
+2. Arti Bandhana, Tomáš Kroupa, and Sebastián García, “Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network,” AAMAS 2024, pp. 132–140, DOI:10.5555/3635637.3662860, https://www.ifaamas.org/Proceedings/aamas2024/pdfs/p132.pdf. Definition 3.1 and Proposition 3.6.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for the zero-target spectral Kemeny objective with a *uniform stationary law*. On a tree, every edge is compulsory for irreducibility and the Kirchhoff-index decomposition is a strictly convex sum of cut-pair counts divided by independent edge transition probabilities. This proves the uniqueness and orbit invariance of the **unrestricted** optimum, not just a symmetric ansatz. Row constraints reduce to the root cap and one saturated child constraint. The resulting scalar objective has a strictly positive second derivative, an exact radical minimizer, and a completely evaluated boundary branch. For the proposed integer threshold \(t=k^2-3k+4\), polynomial substitution gives \(F_k(t)=4\) and \(F_k(t-1)=3-kt<0\); an upward quadratic with a unique positive zero therefore yields exactly the claimed integer activation set. The scaling and equal-edge comparison follow by direct asymptotics. The bundled Python verifier runs 1,484 finite checks, including independent Laplacian inversion, but the all-size proof is analytical.
+PASS
 
-## Originality — PASS on available inspected evidence
+For a symmetric irreducible chain, L=I-P is the weighted Laplacian, including when P is periodic. Summing effective resistances over unordered pairs gives N tr(L^+), and deleting a tree edge puts exactly s(N-s) pairs across it. Each edge must be positive for irreducibility; a sublevel of the resulting sum of positive reciprocal terms bounds every edge away from zero. The row-capacity polytope is bounded and the positive-edge objective strictly convex, so a minimizer exists and is unique before imposing orbit symmetry. The automorphisms then force the two weights x,y. Leaf capacity is slack since y=(1-x)/m<1; this saturation of each child's capacity minimizes cost for fixed x. Minimizing A/x+B/(1-x) on (0,1/k] gives the stated weights and branch costs. The sign controlling strict root holding is F_k(m); its negative constant term gives exactly one positive zero. At t=k²-3k+4 the values F_k(t)=4, F_k(t-1)=3-kt<0 straddle that zero, including k=2 where t=2. No integer tie occurs. For R=m sqrt(b/a), (R/k)^2=m²/[k((k-1)m+k)]→rho, giving the stated crossover even at rho=1. At fixed k the interior cost and equal-edge cost are asymptotic to km² and (2k-1)m², respectively, and the common step 1/(m+1) is feasible once m+1≥k. The one-unit target convention causes no shift in the displayed formulas.
 
-Hunter (2012) provides the Kemeny framework. Patel, Agharkar and Bullo (2015) treat general convex optimization over reversible transition matrices with prescribed stationary measure; their equations and examples do not state the exact two-level-tree allocation or the strict integer threshold. Zeng (2021) treats natural weighted random walks and fixed-multiset tree-shape extremization, which does not maintain uniform stationary measure when free weights vary. Durastante, Gnazzo and Meini (2026) develop reversible fixed-pattern optimization and general algorithms but do not classify this particular family in the inspected text. Searches of published mathematical records, aliases of this two-level tree, and closely related previous exact tree-walk claims did not reveal an implication establishing the quadratic threshold. Residual priority risks include unindexed papers, alternate names for two-level trees, and formulations not captured by the search terms.
+## originality
 
-## Value — PASS
+PASS
 
-The threshold answers a structural question about **where an optimal uniformly stationary walk should wait**, not merely about objective evaluation: although children never hold, the root changes from zero holding to strictly positive holding at the exact integer boundary \(m=k^2-3k+4\). Its joint scaling limit gives a nondegenerate profile \((1-\rho^{-1/2})_+\) across leaf densities of order \(k^2\). In addition, the asymptotic penalty \(2-1/k\) quantifies the cost of a standard feasible equal-edge alternative. These properties are natural family-design facts rather than arbitrary finite parameter samples. The result does not claim a theorem for arbitrary trees or policies.
+The design objective, prescribed-stationary reversible formulation, and tree resistance identity are not new. What survives comparison is the explicit unique optimizer with its exact no-tie integer holding cutoff and quantitative limits on this two-generation family. No inspected source mechanically supplies that cutoff or its consequences; the result adds a family-specific capacity and integer-sign calculation.
 
-## Closest literature and limitations
+## value
 
-Relevant antecedents: J. J. Hunter, arXiv:1208.4716; R. Patel, P. Agharkar and F. Bullo, *IEEE Transactions on Automatic Control* 60 (2015); J. Zeng, arXiv:2109.09249; F. Durastante, M. Gnazzo and B. Meini, *BIT Numerical Mathematics* 66 (2026). The verified archival focal date is 2012-08-23, the arXiv posting of Hunter's Kemeny study. A specialist literature audit might find an equivalent theorem not captured by the inspected sources. No independent validation has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first branching tree with repeatable identical depth-one branches is a natural test of where a free-holding uniform-stationary design spends capacity. The exact integer location and the distinct quadratic scaling profile answer a design question that a generic convexity result does not; the equal-edge ratio gives a nonvanishing comparison to a standard feasible allocation. This is not a claim about faster mixing or about arbitrary tree designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:34:15.724768Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–76",
+        "Frozen VERIFICATION.md, icosa_exact.py and icosa_checker.py",
+        "Replay: python /workspace/audit_replay.py 2; /workspace/review-evidence/2.txt"
+      ],
+      "rationale": "Differentiation of parity gives opposite-point tangent gradients related by (-1)^(ell+1), leaving six independent tangent planes. Two tangent derivatives of the addition kernel give precisely the stated two-term Gram block and the diagonal ell(ell+1)/2 in orthonormal frames. I independently evaluated exact harmonic Cauchy extensions of the z^0 and z^1 coefficient data through degree 14: their gradients on the six representatives reproduce the entire rank vector including the rank-nine defect. A separate explicit Legendre polynomial expansion gave nonzero Gram determinants mod 10141 at every degree 15 through 99. The denominators are invertible there, so these are characteristic-zero lower bounds of 12. For ell≥100, the Bernstein bound at ±1/√5 gives |P_n|<0.09 for n≥99, and the derivative identity gives |P'_ell|<27ell/160. The resulting five-block off-diagonal row sum is strictly less than the diagonal ell(ell+1)/2. Hermitian block diagonal dominance establishes positivity for the whole infinite tail.",
+      "residual_risks": [
+        "The replay's finite-field check is for nonvanishing, not proof of exact deficient ranks; those were checked by characteristic-zero solid-harmonic evaluation.",
+        "Rank gives existence of interpolation in the parity-compatible target, not bounds on conditioning or joint value-gradient interpolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weniger's regular-solid-harmonic differential operator is general machinery, not a node-based interpolation rank theorem.",
+          "The accessible Cambridge material for Cohan concerns spherical harmonics with icosahedral symmetry; the article itself could not be inspected.",
+          "Resultary 7107a3e08106 covers scalar values on 31 icosahedral symmetry axes, including the vertex axes; the node superset does not supply gradient data."
+        ],
+        "reasoning": "A theorem on representation multiplicities, concentration eigenvalues or scalar values cannot be read as full rank of the specific derivative intertwiner. Cohan remains plausible for more detailed formulas, not established coverage.",
+        "searches": [
+          "Weniger arXiv:math-ph/0505018",
+          "Cohan DOI 10.1017/S0305004100033156",
+          "Resultary spherical exact-degree and gradient interpolation"
+        ]
+      },
+      "checked_sources": [
+        "Weniger, Hitchin, Plattner–Simons, Cohan metadata",
+        "Resultary 5142078e64c3, 23de31ea3def, 7107a3e08106, 5e30c4d0afca, 9cecf358239c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar and tangent-gradient Gram matrices involve P_ell and the pair of first and second derivatives respectively, and the dodecahedral table also changes the sampling axes.",
+          "As an A5 module, the six-plane target contains the natural 3, the 4 and the 5, once each (its trace at a vertex-axis rotation is the tangent-plane trace). At degree 14 all three already occur in the domain with multiplicities 1, 2 and 3, from the angle character sum over m=−14,…,14; their presence does not force a rank-nine map."
+        ],
+        "reasoning": "Character multiplicities and general kernel formulas alone do not give the extra vanishing at degree 14. No inspected theorem gives the rank either directly or by specialization. The infinite cutoff additionally requires nonvanishing across finite and infinite degree ranges.",
+        "searches": [
+          "Cohan Cambridge record",
+          "Hitchin arXiv:0706.0088, pp. 1–2",
+          "Resultary 5142078e64c3 Finding",
+          "Frozen RESULT.md Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hitchin's cubic theorem involves containment of vertices in a zero set, not first derivatives.",
+          "Vector spherical-harmonic concentration is a regional eigenproblem, not the rank of evaluations of one exact-degree gradient field at vertices.",
+          "Later Resultary 5e30c4d0afca records rank four for the gradient-only component of its cubic cubature problem on these same nodes, a genuine one-degree match."
+        ],
+        "reasoning": "Six independent gradient planes are exactly equivalent to the original twelve planes with antipodal parity. Neither pointwise value sampling nor a combined first-jet map is equivalent to this derivative-only map. The retrieved cubic match does not imply other degrees.",
+        "searches": [
+          "Resultary exact-degree icosahedral tangent-gradient and spherical Hermite sampling comparisons",
+          "Hitchin arXiv:0706.0088",
+          "Plattner–Simons arXiv:1306.3201"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day record 5142078e64c3 has rank defects at 8 and 14 with cutoff 15 for scalar values at ten dodecahedral lines; its rank sequence, data and rank ceiling 10 differ from the frozen claim.",
+          "Same-day 23de31ea3def concerns the nearest-direction distribution on the twelve vertices, not derivatives.",
+          "Later 9cecf358239c is gradient-only at 30 icosidodecahedral vertices and treats degrees 1–6."
+        ],
+        "reasoning": "The shared 8/14 exceptions and cutoff require comparison and are more than a title match, but do not identify the full rank invariant. No exact table for the same derivative-only map was established. The common index date is not a priority ordering.",
+        "searches": [
+          "Local Resultary rank comparisons 5142078e64c3, 23de31ea3def, 7107a3e08106, 5e30c4d0afca, 9cecf358239c"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-degree derivative-only classification on the six antipodal icosahedral vertex axes, especially the final rank-nine defect at degree 14. The strongest retrieved rank-pattern match concerns scalar values on ten dodecahedral axes and is not the same sampling map. The older symmetry-harmonic full-text access gap remains explicit; no equivalent rank theorem was established from accessible evidence.",
+      "residual_risks": [
+        "The Cohan full text was unavailable; a historical derivative rank table or equivalent explicit analysis cannot be excluded.",
+        "A ranked index search is not exhaustive. The same-day resemblance does not determine provenance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General harmonic differential framework",
+          "evidence": [
+            "Defines Y_lm(∇) by replacing coordinates of a regular solid harmonic with derivatives."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0505018",
+          "material_read": "PDF pp. 6–7, OA offset 12789",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "The Spherical Tensor Gradient Operator",
+          "trigger": "Possible general spherical derivative interpolation theorem"
+        },
+        {
+          "assessment": "Value zero-set geometry, not the derivative map",
+          "evidence": [
+            "Studies which harmonic cubics vanish on vertices of a regular icosahedron."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0706.0088",
+          "material_read": "PDF pp. 1–2, OA offset 871",
+          "method": "Lawful OA PDF, theorem scope check",
+          "title": "Spherical harmonics and the icosahedron",
+          "trigger": "Exact icosahedron nodes and harmonic cubic constraints"
+        },
+        {
+          "assessment": "Regional concentration, no whole-document exclusion based on abstract",
+          "evidence": [
+            "Bandlimited vector-field energy concentration is formulated as an eigenproblem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1306.3201",
+          "material_read": "Abstract, PDF p. 1, OA offset 635",
+          "method": "Lawful OA PDF, scope only",
+          "title": "Spatiospectral concentration of vector fields on a sphere",
+          "trigger": "Gradient vector harmonics"
+        },
+        {
+          "assessment": "Material unresolved access risk, neither supporting nor excluding coverage",
+          "evidence": [
+            "The accessible description confirms the regular-polyhedron symmetry topic, not a gradient interpolation rank statement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100033156",
+          "material_read": "Accessible Cambridge description and bibliographic record only; full pp. 28–38 not accessible via attempted lawful routes; no OA repository copy identified",
+          "method": "Publisher page and lawful-copy check",
+          "title": "The spherical harmonics with the symmetry of the icosahedral group",
+          "trigger": "Historical same-group harmonic tables, potentially relevant to degree 14"
+        },
+        {
+          "assessment": "Substantive resemblance but different exact invariant",
+          "evidence": [
+            "Ranks 9 at degrees 8 and 14, and rank 10 from 15 onward, for scalar values on ten dodecahedral axes."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-complete-degree-wise-harmonic-interpolation-on-the-ten-dodecahed--5142078e64c3",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror, actual map and rank comparison",
+          "title": "Complete degree-wise harmonic interpolation on the ten dodecahedral axes",
+          "trigger": "Distinct same-day record with identical last exceptional degrees and cutoff"
+        },
+        {
+          "assessment": "Different nearest-direction problem",
+          "evidence": [
+            "Gives a Voronoi distribution, not derivative data."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-exact-nearest-direction-law-of-the-regular-icosahedron--23de31ea3def",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The exact nearest-direction law of the regular icosahedron",
+          "trigger": "Distinct same-day record on exactly the 12 vertices"
+        },
+        {
+          "assessment": "Later scalar rank theorem, no derivative implication",
+          "evidence": [
+            "Value interpolation has maximal rank 31 with permanent full rank starting at 75."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-the-last-harmonic-interpolation-gap-on-the-31-icosahedral-symmet--7107a3e08106",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The last harmonic interpolation gap on the 31 icosahedral symmetry axes",
+          "trigger": "Superset of vertex-axis sampling nodes"
+        },
+        {
+          "assessment": "Later and exact overlap at ell=3 only",
+          "evidence": [
+            "Uses mixed value and gradient forms; the derivative component has rank four."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-derivative-repaired-parseval-cubature-for-cubic-spherical-harmon--5e30c4d0afca",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Derivative-repaired Parseval cubature for cubic spherical harmonics",
+          "trigger": "Same gradient functional and same nodes in one degree"
+        },
+        {
+          "assessment": "Different nodes and only small degrees",
+          "evidence": [
+            "Gives gradient ranks at the 30 edge-midpoint vertices for degrees 1–6."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-tangential-gradient-blind-harmonic-on-the-30-icosidode--9cecf358239c",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The first tangential-gradient-blind harmonic on the 30 icosidodecahedral vertices",
+          "trigger": "Same type of gradient-only data on adjacent Platonic geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Steps 1–4",
+        "Resultary 5142078e64c3 scalar comparison"
+      ],
+      "rationale": "Exact-degree tangent interpolation on the vertex set of a Platonic solid is a concrete inverse problem. The result tells when all parity-compatible measurements are independently attainable, pinpoints three remaining compatibility conditions at degree 14 despite full rank just below it, and certifies that no later obstruction occurs. This information is not determined by the basic dimension count or by the available symmetry multiplicities.",
+      "residual_risks": [
+        "No claims about the explicit compatibility subspace, numerical stability or other Platonic node sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

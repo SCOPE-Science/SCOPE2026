@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The vertex and edge-midpoint witness formula is exhaustive at integral metric radius two: interior-edge membership is constant because vertex-to-endpoint distances are integers. Complete face generation yields exactly 399 nonempty simplices, a face vector of \((10,45,114,134,74,20,2)\), and exact mod-two boundary ranks \((9,36,76,56,18,2)\). Independent row and column elimination agree. Two separately generated seven-cycle nerves form a verified subcomplex with only two third-degree classes. These computations directly imply the single stated homology and non-equivalence claim. Risk: this proof is finite and relies on the completely replayable algorithm; no integral groups are inferred.
+## correctness
 
-**Originality — PASS against inspected sources.** The 2017 graph metric-gluing paper proves a Vietoris–Rips short-path principle, not this Čech calculation; its short-path hypothesis does not include a length-three overlap in two seven-cycles. The 2022 Čech hypercube paper supplies the relevant closed-metric-ball definition and works on hypercubes, not theta graphs. A published fourth-arm theta Rips result uses a different complex and does not imply this Čech homology. Searches of related published mathematical records and ordinary literature under synonyms yielded no equivalent assertion. Risk: novelty is relative to accessible and searched work, not a guarantee against unindexed literature.
+PASS
 
-**Value — PASS.** The standard issue in metric-gluing persistent topology is whether topological invariants of the pieces determine the glued filtration. This smallest investigated symmetric long-overlap theta configuration yields two new degree-two mod-two cycles that are absent from the union of its two cycle Čech nerves. Exact coefficients, graph, scale, and inclusion obstruction make it a transparent, reusable finite counterexample rather than an arbitrary face-count calculation. Risk: it neither establishes a sharp threshold nor extends uniformly to other arms or radii.
+Independently derived the radius-two witness sets for the unit metric graph. On an open edge ab, integer endpoint distances give precisely N_1[a] union N_1[b], contained in each of N_2[a] and N_2[b], so vertex witnesses alone suffice here, though the underlying definition allows all points of an edge. Replayed with sets: generate edges from the three listed arms; square the closed-neighborhood relation, retain all nonempty subsets of each radius-two ball, and do exact GF(2) row elimination on incidence supports indexed by consecutive face sizes (combine rows by symmetric difference, pivoting on the least surviving column). All ten listed facets matched. For the full nerve the face vector was (10,45,114,134,74,20,2), ranks of boundaries from degree 1 upward (9,36,76,56,18,2), and reduced Betti vector (0,0,2,2,0,0,0). Repeating on each intrinsic cycle separately and unioning faces on common labels gave (10,36,66,55,14), ranks (9,27,39,14), and reduced Betti vector (0,0,0,2,0). The cycle-nerve intersection is exactly the simplex on {0,1,2,3}. Their union is contained in the theta nerve, both by finite subset testing and because any cycle witness persists when metric distances can only shorten after adding the other arm. The degree-two discrepancy proves that the natural inclusion is not a homotopy equivalence. It does not identify the map in degree three or determine integral or full homotopy types. Inspected the frozen verifier as text.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge pass for the concrete higher-homology mismatch and consequent failure of the inclusion, not for the even-scale neighborhood identity or cycle-nerve computation in isolation. The prior gluing work gives genuine Čech results and a related obstruction to one proof criterion, but not the homology mismatch asserted here.
+
+## value
+
+PASS
+
+An exact ten-vertex example isolates where gluing the constituent Čech nerves can miss genuine homology: each piece and their union have no degree-two classes, while the glued metric graph has two. The common path is a natural overlap of two heptagons outside the short-overlap Rips guarantee. The calculation is small enough to serve as an exact test for candidate graph-gluing principles and algorithms. Its value is as a counterexample at this scale and with these centers and coefficients, not as a minimality, threshold or classification claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:59:51.527150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The KL chain rule with common random labels counts one marginal log 2 per first-round reveal and conditional entropy per second-round reveal, minus the joint entropy. Nearest revealed flanks screen distant observations, with the double correction at distance d counted at each of d−1 interior positions. Exponential decay at fixed ρ justifies the thermodynamic gap series. Expanding I_d in positive geometric modes yields the displayed factored positive second derivative; termwise differentiation is uniform in p for fixed ρ<1 since the denominators are bounded below by 1−ρ². The endpoint derivative at 0 is negative and that at 1/2 positive. In the geometric-flank representation, the linear and linear-log-scale terms of the small-argument binary entropy cancel. For p=t√δ the rescaled geometric flanks have uniform exponential tails on compact t-intervals, justifying the log-moment remainder and expectation convergence. The leading homogeneous bracket at independent unit exponentials is (U+V)h(U/(U+V)); the gamma sum has mean 2 and the independent uniform ratio has mean binary entropy 1/2. Thus the limiting scaled objective is t log 2+1/(2t). Its interior point has smaller value than either fixed bracketing endpoint, which by convexity localizes the true minimizers and proves convergence of values and minimizers. Bounded convergence at fixed p gives p log 2 and the stated relative penalty. These are forward path KL statements in nats; the length-first limit is essential. Replay: RESULT.md steps 1–5; checker.py inspected, not executed (finite identities and diagnostics only).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-round theorem minimizes the same path cost over cumulative Bernoulli reveal fractions p_j for every fixed m≥2, with optimal value m(log 2)^(1/m) f^((m−1)/m) and p_j~(f/log 2)^((m−j)/m).",
+          "Baule Eq. (22) gives a broader exact error framework; the geodesic schedule instead takes a many-round regime, not this strong-order limit at fixed m=2."
+        ],
+        "reasoning": "At m=2 the first cumulative fraction equals the first Bernoulli probability, and both asymptotics agree exactly after converting δ~2f. This is a stronger result directly covering the claim, unlike the large-N geodesic approximation.",
+        "searches": [
+          "Resultary: fixed-round geometric unmasking, b351c0c06698, RESULT.md Finding and Assumptions",
+          "Baule arXiv:2611.07845v1 §§IV.1 and V.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "Resultary 349d75d8a2fe and b351c0c06698",
+        "Baule arXiv:2611.07845v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-p limit of the exact two-round formula follows by dominated convergence in its geometrically weighted mutual-information sums, with I_d→log 2: it equals p log 2. At p=1/2 the numerator of the relative penalty is thus (log 2)/2.",
+          "The already-covered optimum yields the frozen ratio √(ξ log 2/8) immediately. Baule's superficially similar uniform coefficient is for B/L≈U/N and requires N≫ξ, so that coefficient by itself is not evidence for a two-round theorem."
+        ],
+        "reasoning": "There is no distinct surviving quantitative conclusion merely because the known comparison was not separately written as a ratio. The conditional-geometric-entropy argument is a different route to a profile already given by Eq. (6).",
+        "searches": [
+          "349d75d8a2fe exact objective and proof §3 Eq. (6)",
+          "b351c0c06698 Finding, m=2",
+          "Baule arXiv:2611.07845v1 §§I, II, IV.1, V.1, VI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-pass source has a fair binary chain with switch probability f and correlation λ=1−2f; it uses the same Bernoulli first wave, exact conditional marginals and forward path divergence, with L→∞ first.",
+          "Its Eq. (6) states b=p log 2+(1−λ)/(2p)+o(√(1−λ)) locally uniformly on the square-root scale; the resulting p_*~√(f/log 2) and minimum ~2√(f log 2) are explicit."
+        ],
+        "reasoning": "Set ρ=λ. Since −log ρ~1−ρ=2f, the other parameterization leaves the locally uniform profile and both sharp constants unchanged.",
+        "searches": [
+          "Resultary: two-pass/two-round Bernoulli Markov unmasking; square-root seeding and strong correlation",
+          "349d75d8a2fe, RESULT.md, Finding and §3, offsets 4500 and 6678"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two-pass record explicitly records the full pair of constants, not just a numerically observed exponent; the fixed-round record supplies them in closed form for all m≥2.",
+          "Both are different record IDs from fd70e5caa9d2; all have the same UTC record date, and the inspected snapshot does not provide reliable intra-day priority."
+        ],
+        "reasoning": "These are exact theorem hits, not numerical tables or a title match; neither is the identical frozen record.",
+        "searches": [
+          "Resultary statement matches 349d75d8a2fe and b351c0c06698, opened RESULT.md in local mirror"
+        ]
+      },
+      "rationale": "Two distinct indexed same-day findings directly cover the claimed scientific result. The two-pass finding gives the exact same minimum, optimizer, and locally uniform scaled objective under equivalent parameters; the all-fixed-round theorem also gives both optimizer and minimum at m=2. The date alone does not establish priority or which finding came first. The arithmetic uniform-schedule ratio and shorter conditional-entropy derivation do not establish a distinct scientific claim. This is demonstrated material overlap, not lack of access or a conjectural prior.",
+      "residual_risks": [
+        "Intra-day order among the distinct same-day records is not established. The decision does not assert publication priority or dependence among the records.",
+        "No exhaustive historical literature priority determination was attempted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent exact two-round result; proof even gives the local first derivative asymptotic and a weak-correlation expansion.",
+          "evidence": [
+            "Eq. (6): b=p log 2+δ/(2p)+o(√δ) at p=c√δ, δ=1−λ.",
+            "p_*~√(f/log 2); minimum ~2√(f log 2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-two-pass-scheduling-and-a-square-root-seeding-law-for-bin--349d75d8a2fe/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, proof §§1,3; relevant text offsets 0, 4500–6678 and 6678",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Unique two-pass scheduling and a square-root seeding law for binary Markov data",
+          "trigger": "Direct two-round constants, regime and profile match"
+        },
+        {
+          "assessment": "Direct broader coverage with fixed m and the same order of limits.",
+          "evidence": [
+            "Every fixed m≥2; per-site path relative entropy; every global minimizer; independent selections conditional on not yet selected; L→∞ then f↓0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-fixed-round-geometric-unmasking-law-in-a-strongly-corr--b351c0c06698/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, text offset 0–2666",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal fixed-round geometric unmasking law in a strongly correlated Ising chain",
+          "trigger": "Stronger schedule theorem containing exactly two rounds"
+        },
+        {
+          "assessment": "Exact finite-round framework, but the inspected geodesic result is not the fixed-two-round strong-correlation assertion.",
+          "evidence": [
+            "λ=1−2f; ξ=−1/log λ; B=D_KL(P||Q).",
+            "The many-round uniform coefficient U tends to (log 2)/2 in B/L≈U/N under a large-N requirement."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.07845v1",
+          "material_read": "§I Eqs. (1)–(5), §II Eq. (12), §IV.1 Eq. (22), §§V.1 and VI; HTML offsets 6500, 11500, 32500, 41500 and 49500",
+          "method": "OA original HTML passages",
+          "title": "Masked diffusion as random sequential adsorption: an exactly solvable model for parallel decoding",
+          "trigger": "Original Markov forward-KL framework and possible stronger schedule result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp optimizer and minimum are useful facts for comparing reveal schedules, but the frozen record adds no independently useful mathematical conclusion over the direct two-pass and fixed-round statements. The equal-round ratio is an immediate consequence of the exact two-round objective and the covered constants. The alternative derivation is expository and is not a substantive surviving finding as presented.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

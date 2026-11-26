@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:40:39.235042Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–46",
+        "Frozen verify.py, VERIFICATION.md and verification_output.txt (inspected; frozen script not executed)",
+        "Independent standard-library replay: python3 /workspace/review_evidence/4/record4_independent_check.py --full; observed finite-certificate output preserved in /workspace/review_evidence/4/record4_independent_check_output.txt"
+      ],
+      "rationale": "The displayed morphism is prolongable on 0, reaches all letters, and creates exactly the adjacent pairs obtained by closing the internal pairs under image boundaries. Every length-L factor fits inside two image blocks of length 4^k≥L, and every such image of an occurring adjacent pair appears at an aligned boundary. Thus the exact enumeration and its residues modulo 4 describe the infinite language. Independently reproduced: 10 adjacent pairs, 100 state factors of length 15 and 186 binary factors of length 29 with unique phases, 1,301 factor checks excluding state overlaps for p=1..13, and 592 binary length-85 factors giving maxima (2,10,6,10,10,26,14,18,17,18,18,26,20,36). For a hypothetical state overlap of smallest period p≥14, equal length-15 windows at offsets 0,p force p=4q. Comparing first letters of images for the next q aligned blocks and, if the first image is partial, its last letter, produces a state overlap of period q; both the first-letter and last-letter maps are injective. In a binary cube with p≥15, 29-symbol windows fit at offsets 0,p and similarly give p=4q≥16. The four coded images are distinct. The complete aligned blocks therefore give period q on 3q state symbols if the first block is complete, or 3q−1 if it is partial; both lengths are at least 2q+1. This contradicts overlap-freeness. The length-85 census then captures all shorter periodic factors (extend right to length 85), and no periodic factor of length at least 85 for p≤14 can escape because its initial 85 letters would contradict the listed maxima. Only p=2,6 reach 3p, and their maximal lengths are 10 and 26. Exponent uses least period: any factor exceeding exponent 5 would contain a cube of its least period, impossible by those maxima. The alternating factor at index 2 has least period 2 and length 10.",
+      "residual_risks": [
+        "The direct-prefix comparison is a cross-check only; completeness comes from the adjacent-pair language proof. The independent replay checks the finite premises, not the infinite reductions by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schaeffer–Shallit give a general rational-or-infinite computability result for critical exponents of automatic words. Campbell–Cloitre obtain linear-order factor complexity for this word."
+        ],
+        "reasoning": "The computability theorem includes this automatic input but does not evaluate it; applying the general algorithm would require actual input-specific calculation. Factor complexity counts different length-n factors without distinguishing their periods. Neither inspected result gives the concrete invariant or the cube classification.",
+        "searches": [
+          "arXiv:1104.2303v3, abstract",
+          "arXiv:2602.23395, §5.2 and Example 35"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked catalogue and d762b0b804a1",
+        "arXiv:2602.23395",
+        "arXiv:1104.2303v3",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sources give the input morphism, computability, complexity data and, in a distinct later record, palindromic data. The present proof supplies phase recognition and a period descent, together with exact finite periodic-run evidence."
+        ],
+        "reasoning": "Decidability is not evaluation, and a palindrome classification does not control all repetitions. Even a bound or value for the critical exponent alone would not specify the full set of cube periods and the two sharp run lengths.",
+        "searches": [
+          "arXiv:1104.2303v3, abstract",
+          "arXiv:2602.23395, Corollary 16 and §5.2",
+          "Resultary 2026/10/27/d762b0b804a1, opening RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 16 yields M1 by the exact displayed uniform morphism and coding 0,2→0 and 1,3→1. Resultary d762b0b804a1 uses the same word but studies palindromes."
+        ],
+        "reasoning": "M1 and the coded fixed point are aliases, not separate objects. The same-word palindrome spectrum is a different predicate and supplies neither all periods of cubes nor bounds on general periodic runs.",
+        "searches": [
+          "Campbell–Cloitre arXiv:2602.23395, Corollary 16",
+          "Resultary queries by M1, morphism 0112/1230/2301/3023, exponent 5 and periods 2 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest ranked entry is the same-word palindrome spectrum, not a repetition table. Example 35 tabulates factor complexity. The inspected OEIS references are A039982 for a different sequence T and A298952 for the auxiliary Quarto sequence Q."
+        ],
+        "reasoning": "A word identification, its factor-count table, or data for related binary words is not an exact periodic-run table. No matching entry was identified in the bounded checks; these do not exhaust the catalogue or OEIS.",
+        "searches": [
+          "Resultary ranked lookups for M1, its morphism, exact exponent 5, cube periods and maximal lengths",
+          "arXiv:2602.23395, Example 35 and OEIS cross-references at Example 4 and Definition 7"
+        ]
+      },
+      "rationale": "The word, coding and study of its factor complexity are known; general computability of its critical exponent is also known. The supported distinct result is the specific exponent and complete list of cube periods with exact maximal lengths. No equivalent statement was found in the inspected work and ranked catalogue results.",
+      "residual_risks": [
+        "Unindexed or differently described prior repetition results remain possible; an absence of keyword hits is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the word, coding and factor complexity. The inspected statements do not give the periodic run lengths or cube periods.",
+          "evidence": [
+            "Corollary 16 identifies the coded fixed point with M1.",
+            "§5.2 gives p_M1(n)=Theta(n); Example 35 lists initial complexity values.",
+            "OEIS identifiers in the inspected passages refer to T and Q, not a table of M1 repetitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.23395",
+          "material_read": "Corollary 16 (p. 10, offset near 25000); §5.2 and Example 35 (p. 17, near 43400); Example 4 p. 5 and Definition 7 p. 6 at the OEIS cross-references.",
+          "method": "Targeted OA PDF passages.",
+          "title": "Meta-automatic Sequences",
+          "trigger": "Original paper defining and analyzing the exact word."
+        },
+        {
+          "assessment": "Algorithmic coverage, not an evaluation of this input in the inspected material.",
+          "evidence": [
+            "An automatic sequence's critical exponent is rational or infinite and computable."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1104.2303v3",
+          "material_read": "Abstract, p. 1.",
+          "method": "Targeted OA PDF passage.",
+          "title": "The Critical Exponent is Computable for Automatic Sequences",
+          "trigger": "General theorem encompassing the displayed automatic word."
+        },
+        {
+          "assessment": "Distinct invariant; date alone is not a priority test.",
+          "evidence": [
+            "28 distinct nonempty palindromic factors, maximum palindrome length 16, and prefix palindromic defect N−28 for N≥196."
+          ],
+          "identifier_or_url": "Resultary 2026/10/27/d762b0b804a1",
+          "material_read": "RESULT.md offsets 0–726 and 550–2060.",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "title": "The complete palindromic spectrum of a meta-automatic binary word",
+          "trigger": "Identical M1 fixed point and exact factor invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43",
+        "Campbell–Cloitre, Corollary 16 and §5.2",
+        "Schaeffer–Shallit, abstract"
+      ],
+      "rationale": "M1 is a specific word introduced independently in the study of meta-automatic recurrences, and critical exponent is a canonical measure of repetition for such words. The exact answer and short list of allowable cube periods settle more than whether repetitions exist: they distinguish the repeated patterns left by a noninjective coding from the overlap-free state sequence. This gives a concrete, reusable exact repetition profile for comparison with other automatic words and a human-checkable reason no large periods survive.",
+      "residual_risks": [
+        "Specific to the stated word and coding; no classification of noncubic fractional powers or of Campbell–Cloitre's second word is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

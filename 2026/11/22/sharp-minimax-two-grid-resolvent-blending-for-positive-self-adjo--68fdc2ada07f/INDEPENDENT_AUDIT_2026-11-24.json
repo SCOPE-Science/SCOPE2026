@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:46:05.786150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Functional calculus at x≥0 reduces the normalized error to [L(z)−a tanh(z)]/4 with z=h(lambda+x)/4 and a=w−1. Differentiation gives sech²(z)(J(z)−a). Re-expanding the stated hyperbolic quotient in z² cancels the constant and linear terms and gives positive denominator coefficients b_n and numerator ratios 4^n/[(2n)(2n−1)]−1 for n≥2. The ratios strictly increase, so cross-multiplying the series derivative and pairing indices gives strictly positive terms (m−n)b_m b_n(r_m−r_n) for m>n. Thus J increases from 1/3 to infinity. For 1/3<a<1, the error falls from 0 to one negative minimum then rises to 1−a; the height of the negative minimum is continuous and strictly increasing in a, and crosses 1−a exactly once. To prove the global minimax immediately, every Re(a)<a_* worsens the limit at infinity and every Re(a)>a_* worsens the finite negative contact, regardless of imaginary part. At Re(a)=a_* a nonzero imaginary part already worsens the modulus at infinity. These contacts are available in essential supremum on the multiplication model whenever h*lambda/4≤z_*, including equality by continuity in x. For all other spectra only the universal upper bound is asserted. At w=4/3 the real error is increasing to 2/3 in scalar units, giving exactly h/6 on the unbounded model. Independent Decimal bisection reproduces the displayed z_*, w_*, C_* and improvement ratio (python3 /workspace/reviews/evidence/reproduce.py, output 4); the uploaded diagnostic was read but not executed. The analytic proof, not finite sampling, covers the whole half-line.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Castillo's Proposition 5.10(a) gives the sharp one-grid norm T/2 with Langevin scalar error; Corollary 5.2 gives cancellation weights and rates on smoother domain vectors.",
+          "Berrut–Trummer p. 1 concerns jump-integrand equispaced quadrature; Dahal p. 413 derives Richardson weights by evaluating an interpolating polynomial in an even-power error expansion.",
+          "The OUP paper Quadrature formulas from rational approximations was identified, but its decisive text could not be accessed."
+        ],
+        "reasoning": "Canceling small-z terms produces w=4/3 but does not solve an operator norm that samples unbounded z. General alternation suggests the strategy; it does not by itself verify the derivative ratio, the unique negative contact, or its algebraic pairing with the tail. Unread broader work is not excluded.",
+        "searches": [
+          "arXiv:2611.15563v1 Proposition 5.10(a) and Corollary 5.2",
+          "10.1007/s11075-022-01462-0",
+          "Dahal, A Matrix-Based Perspective on Multi-Level Richardson Extrapolation, §3–4",
+          "Primary literature search for related minimax quadrature; 10.1093/imanum/draf138 surfaced"
+        ]
+      },
+      "checked_sources": [
+        "Castillo arXiv:2611.15563v1",
+        "01335bd735e8",
+        "33b30d8de2cf",
+        "5fe679bc2f74",
+        "Berrut–Trummer DOI 10.1007/s11075-022-01462-0",
+        "Dahal §3–4",
+        "10.1093/imanum/draf138, indexed description only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-grid T/2 and the Romberg weight are prior; the Schatten source derives the sinh symbol specifically at w=2."
+        ],
+        "reasoning": "These facts supply benchmarks and one endpoint of the candidate family, not the minimax over real or complex affine weights. The same-day date supplies no priority information; the comparison rests on the two actual mathematical objectives.",
+        "searches": [
+          "Castillo Proposition 5.10(a), Corollary 5.2; Resultary 01335bd735e8 Finding and proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mirror 01335bd735e8 Finding, Assumptions and proof §1 (offsets 0–3914) defines the fixed combination 2Q_{h/2}−Q_h and studies its ideal errors under a compact-resolvent Weyl law.",
+          "Mirror Findings 33b30d8de2cf and 5fe679bc2f74 (offset 0): norm constants for one corrected sampled resolvent in different spectral damping regimes."
+        ],
+        "reasoning": "Rewriting the Schatten blend shows that it coincides with the candidate w=2, not the optimal blend. For example, its positive tail contact is zero, while w_* equioscillates a nonzero positive tail and a negative finite contact. One-grid aliases do not implement that comparison.",
+        "searches": [
+          "Resultary: two-grid sampled resolvents, sharp Schatten–Weyl errors (01335bd735e8), first alias universality (33b30d8de2cf), first-alias law with slowly varying damping (5fe679bc2f74)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit for the exact optimization is the assigned record itself. The distinct exact-identity match 01335bd735e8 gives a fixed combination and Weyl constants, not the optimizing transcendental root."
+        ],
+        "reasoning": "The invariant is a function-space minimization constant, not a sequence/table entry. A numerically coincident constant without the same objective, or an exact fixed-weight identity, would not establish coverage.",
+        "searches": [
+          "Resultary exact positive self-adjoint two-grid minimax weight and constant; assigned ID 68fdc2ada07f and distinct 01335bd735e8, 33b30d8de2cf, 5fe679bc2f74"
+        ]
+      },
+      "rationale": "The trapezoid correction, Langevin representation and first-order phenomenon already appear in Castillo. The distinct same-day Schatten–Weyl work analyzes an exact member of this blend family: 2Q_{h/2}−Q_h=2P_{h/2}−P_h=R_h(2), since the corrections cancel. It does not optimize the weight and does not dominate the audited result. The supported contribution is the exact unique full-spectrum uniform operator-norm weight and sharp constant with its contact model, not a new grid-sampling identity or first-order rate.",
+      "residual_risks": [
+        "Potential implicit coverage in rational approximation or optimal quadrature remains, notably the inaccessible 10.1093/imanum/draf138.",
+        "The same-day comparisons distinguish claims but do not resolve first-circulation order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-grid sharp spectral norm and classical smooth-domain extrapolation, not full-spectrum optimization of two weights.",
+          "evidence": "Proposition 5.10(a) uses coth(u)−1/u and gives exact norm T/2 on an unbounded nonnegative self-adjoint spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15563",
+          "material_read": "Corollary 5.2, p. 7 and Proposition 5.10(a), pp. 10–11",
+          "method": "OA PDF offsets 31500 and 47500",
+          "title": "Sampled resolvents of C_0-semigroups: aliasing and sharp rates on the Crandall–Pazy scale",
+          "trigger": "Same corrected resolvent and sharp spectral norm example"
+        },
+        {
+          "assessment": "Precisely w=2 in the audited family, but fixed weight, different norms and Weyl hypotheses.",
+          "evidence": "The symbol h/[2 sinh(h(lambda+A)/2)] is the error comparator at that fixed weight; the claims treat strong and weak ideals.",
+          "identifier_or_url": "01335bd735e8",
+          "material_read": "Finding, Assumptions and exact cancellation proof §1",
+          "method": "Resultary mirror, offsets 0–3914",
+          "title": "Two-grid sampled resolvents: sharp Schatten–Weyl errors and a critical weak endpoint",
+          "trigger": "Distinct same-day two-grid resolvent with same uncorrected levels"
+        },
+        {
+          "assessment": "Different scalar integration problem.",
+          "evidence": "Euler–Maclaurin and extrapolation with discontinuities in the integrand.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01462-0",
+          "material_read": "Abstract and introduction, p. 1",
+          "method": "OA PDF offset 0",
+          "title": "Extrapolation quadrature from equispaced samples of functions with jumps",
+          "trigger": "Broader Romberg-style quadrature"
+        },
+        {
+          "assessment": "Polynomial extrapolation for smooth asymptotic expansions, not the infinite spectral objective.",
+          "evidence": "Describes evaluating at zero in the even-power expansion and discusses truncation/roundoff.",
+          "identifier_or_url": "https://www.siam.org/media/ixnd5ck3/s185720r.pdf",
+          "material_read": "§3 into §4, p. 413",
+          "method": "OA PDF offset 13700",
+          "title": "A Matrix-Based Perspective on Multi-Level Richardson Extrapolation",
+          "trigger": "Possible general optimum for multilevel extrapolation"
+        },
+        {
+          "assessment": "Unresolved, not ruled out.",
+          "evidence": "Description links quadrature rule construction and rational approximation; no verified statement at the audited objective.",
+          "identifier_or_url": "https://doi.org/10.1093/imanum/draf138",
+          "material_read": "Indexed description only",
+          "method": "Literature search; OA and public-page attempts returned 403",
+          "title": "Quadrature formulas from rational approximations",
+          "trigger": "Possible general rational-approximation coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Smooth-vector cancellation and full-spectrum operator error are competing objectives for a natural, already used two-grid rule. The sharp universal constant and uniqueness quantify that distinction: the optimum improves the classical unbounded-spectrum error constant by a factor about 2.61 without promising a higher rate. The fixed continuous-spectrum model explains which scales force the optimum. The guarantee does not address finite time truncation, sampling noise or general nonnormal semigroups.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

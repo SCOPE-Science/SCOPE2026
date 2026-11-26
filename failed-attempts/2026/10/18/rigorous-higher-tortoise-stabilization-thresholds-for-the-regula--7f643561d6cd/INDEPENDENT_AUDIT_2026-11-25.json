@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:52:55.764758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17 and 23–59; VERIFICATION.md; certificate.json; verify.py (read only); verification_output.txt",
+        "Independent exact finite scan: node /workspace/branches/check-4.js"
+      ],
+      "rationale": "For any length-N prefix containing k+1 ones the iterate deletes exactly the first k original ones. Equal images identify the position of the (k+1)st one by the leading zero count and identify the suffix after it. Truncating the originals at N then gives equal prefix images, so injectivity at N forces equality of the originals. For the critical finite checks I used actual factors from the recurrence f(2j)=f(j), f(2j+1)=j mod 2, rather than executing the supplied wildcard code. If P=2^r and n<=P, choose the representative start 1<=a<=2P. All nonexceptional positions are invariant on translating by 2P. The sole multiple of P, if any, has quotient 1 or 2 in that representative window; translating by 2P or 4P respectively gives quotient 3 or 6 and flips its bit. Thus starts 1 through 6P cover every factor. The scan matched all eight counts and collision classes and all four explicit witness starts. At N=13,14,25,26 the respective minima of ones are 5,5,10,11, so the lifting argument applies, and the four predecessor collisions prove sharpness. 'First injective length' in the table means onset of permanent injectivity, not necessarily the first isolated injective length.",
+      "residual_risks": [
+        "The scan certifies the critical lengths only; the all-length result is analytical. No result is audited for k>=6."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact all-length theorem covers 1<=k<=31, with proof Steps 2–4: exhaustive factor model, prefix deletion inheritance, predecessor collision."
+        ],
+        "reasoning": "The broader theorem specializes to every claimed k. Its propagation requires at least k ones, so it also subsumes the submitted at-least-k+1 version.",
+        "searches": [
+          "Resultary arity-specific threshold searches; mirrored RESULT.md of 2026/11/2/SCOPE-exact-paperfolding-tortoise-injectivity-thresholds-through-31-it--64aa07482c20"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.25811v2",
+        "Defant–Kravitz, Australas. J. Combin. 77(1) (2020), Definition 1.1",
+        "Resultary 2026/11/2/SCOPE-exact-paperfolding-tortoise-injectivity-thresholds-through-31-it--64aa07482c20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 of the paper proves the single-iterate tail; the higher values only 'appear to hold.' The indexed proof proves the same finite completeness, all-longer-length criterion and minimality, with no additional hypothesis needed for the four rows."
+        ],
+        "reasoning": "Original literature predictions are not theorem-level coverage, but the separate indexed theorem directly implies the frozen finding.",
+        "searches": [
+          "Campbell–Rampersad Section 5, Theorem 3 and following paragraph",
+          "Indexed broader theorem and proof, mirror offsets 710–5462"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each factor image counts once; equality with |F_n| is equivalent to injectivity. For n>=7 the paperfolding factor count is 4n. Both indexed formulations use the same binary map and unrestricted one-sided starting positions."
+        ],
+        "reasoning": "No difference arises from the complexity versus injectivity wording or the known 4n factor count.",
+        "searches": [
+          "Defant–Kravitz Definition 1.1",
+          "Campbell–Rampersad arXiv:2604.25811v2 Section 5",
+          "Resultary: regular paperfolding, iterated tortoise and eventual injectivity for k=2,3,4,5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-exact-paperfolding-tortoise-injectivity-thresholds-through-31-it--64aa07482c20 ranks as the material match for all four searches; its theorem table has rows 2→13, 3→14, 4→25, 5→26. Campbell–Rampersad p. 13 already list those four expectations."
+        ],
+        "reasoning": "The broader table is supported by a proof for all lengths, not merely a matching table of finite trials.",
+        "searches": [
+          "Resultary: paperfolding tortoise thresholds k=2 at 13, k=3 at 14, k=4 at 25, k=5 at 26"
+        ]
+      },
+      "rationale": "Exact claim and proof-level coverage in a distinct indexed record. Its stated range k=1 through 31 contains all four assignments; its periodic skeleton and all-length prefix argument prove the same sharp thresholds, with a weaker minimum-ones hypothesis. This is a finding of mathematical coverage, not a determination of which proof was first, copied, or independent. The indexed path for the broader result is later than the assigned source path. Campbell–Rampersad alone do not settle the four cases: they give the numerical predictions but not the proofs.",
+      "residual_risks": [
+        "The relationship and priority of the two records are not established by index paths. General web search added no relevant source; this is not evidence about unseen literature. Neither limitation affects the verified theorem-level overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical predictions covered; not theorem-level coverage at k=2 through 5",
+          "evidence": "Theorem 3 proves k=1 for n>=8; the immediately following higher values are qualified as computations and threshold existence is assumed there.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.25811v2",
+          "material_read": "Section 5, p. 13, around extracted offset 29350",
+          "method": "Original OA PDF passage",
+          "title": "Subword enumeration up to stack-sorting equivalence",
+          "trigger": "Exact named thresholds and cited predecessor theorem"
+        },
+        {
+          "assessment": "Definition, not coverage of paperfolding thresholds",
+          "evidence": "Tortoise reduces on the binary alphabet to the first-one removal and append operation.",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/77/ajc_v77_p051.pdf",
+          "material_read": "Definition 1.1, p. 53 (PDF page 3)",
+          "method": "Original OA PDF passage",
+          "title": "Stack-sorting for words",
+          "trigger": "Check the underlying transformation"
+        },
+        {
+          "assessment": "Complete coverage of frozen claim; no priority inference",
+          "evidence": "Same map and factors, four exact rows proved by exhaustive periodic factor enumeration and prefix inheritance, within a larger range.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-paperfolding-tortoise-injectivity-thresholds-through-31-it--64aa07482c20",
+          "material_read": "RESULT.md Finding and table, scope, proof Steps 1–4; offsets 710–5462",
+          "method": "Resultary search and local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact paperfolding tortoise injectivity thresholds through 31 iterations",
+          "trigger": "Exact indexed overlap for all four rows"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof; Campbell–Rampersad Section 5; exact indexed comparison above"
+      ],
+      "rationale": "An all-length proof of these proposed sharp stabilization cutoffs is a meaningful automatic-word problem, not just reproduction of the numerical table. Complete factor enumeration plus prefix propagation is a useful finite-to-infinite mechanism. This assesses the scientific problem and proof, not whether the assigned result adds distinct coverage to the index.",
+      "residual_risks": [
+        "No general threshold law is established by this four-case proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

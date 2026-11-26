@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:31:53.680876Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Frozen verify_octagon_quotient.py (read, not executed)",
+        "/workspace/branches/5763a9b9-a3f8-4605-accc-894948f95408/independent_orbit_homology.py and full-run.txt (independent exact replay)",
+        "Deshpande–Singh arXiv:2001.05448, Theorem 4.6; Taylan arXiv:1501.06754, Theorem 5.2"
+      ],
+      "rationale": "The claim is about ordinary geometric orbits of the no-cyclic-triple vertex complex under all 16 symmetries, and asserts homotopy type, not homeomorphism. In a subdivision chain the vertices have distinct ranks; two points in one closed simplex identified by a symmetry must have the same support and barycentric coefficients. The orbit cells therefore have the signed face-deletion boundaries used in the computation. An independent exact enumeration reproduced 130 nonempty faces, cell counts (15,81,183,177,60), boundary-square zero, and 257 integral unit-pivot chain cancellations leaving ranks (1,0,0,1,0) with zero differential. Splitting off unit pivots removes contractible chain summands and detects integral torsion; it is not a topological collapse. Simple connectivity of the input also follows directly: its 1-skeleton is complete, every missing triangle {i,i+1,i+2} has its boundary filled by coning it to i+4 modulo 8, and these triangular loops normally generate the relations needed to make the complete graph simply connected. Every even-axis reflection fixes a vertex and every odd-axis reflection fixes an adjacent-edge midpoint. These reflections generate the group, so Armstrong's theorem gives trivial orbit fundamental group. Hurewicz yields a generator represented by a map from S^3, and homological Whitehead upgrades that integral homology isomorphism to a homotopy equivalence of simply connected CW complexes.",
+      "residual_risks": [
+        "The replay is an exact finite integral chain computation, not formal verification or a proof of simple connectivity by itself. The independent reading of Armstrong's cited paper was access-limited; the standard finite-action theorem is applied with the fixed-point-generating hypothesis checked directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both general cycle theorems give a wedge of three 3-spheres at n=8 for the space before taking orbits.",
+          "The all-subgroup classification is for subgroup fixed spaces; the all-n sphere quotient theorem applies to cyclic nonmatching complexes."
+        ],
+        "reasoning": "Neither broad family specializes to the integral ordinary orbit claim for Ind_2(C8).",
+        "searches": [
+          "Deshpande–Singh Theorem 4.6",
+          "Taylan Theorem 5.2",
+          "Resultary efdae8142d23 and 97d699d064c0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Relationship to prior work",
+        "Resultary local mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, entries specified above",
+        "Taylan and Deshpande–Singh primary OA passages",
+        "Primary web search for octagonal dihedral higher-independence orbit topology; no useful exact match returned"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known simple connectivity of the input plus fixed reflections does imply simple connectivity of the orbit by Armstrong.",
+          "Rational invariants do not exclude torsion, and the cited fixed-space results give no integral orbit differential or torsion calculation."
+        ],
+        "reasoning": "Credit the standard orbit fundamental-group deduction. The integral computation is needed for the homotopy-type conclusion and is not an application of the reported rational rank alone.",
+        "searches": [
+          "Resultary c6fb124adaa6 and efdae8142d23",
+          "Deshpande–Singh Theorem 4.6",
+          "Armstrong, DOI 10.1017/S0305004100042845"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taylan's D(C8;P3) and Deshpande–Singh's Ind_2(C8) are the same vertex complex and their cited theorems concern that complex before quotienting.",
+          "The cyclic nonmatching theorem uses edge subsets with no 3-edge matching: 97 faces including empty at n=8, against 131 for the no-three-consecutive vertex complex. Identifying cycle edges with their starting vertices does not identify admissibility."
+        ],
+        "reasoning": "Equivalent input definitions were compared at the quotient level; the nonmatching result with the same sphere output has no verified identification of the input or quotient with this one.",
+        "searches": [
+          "Resultary semantic search for octagon D8 two-independence, devoid complex and quotient topology",
+          "arXiv:2001.05448",
+          "arXiv:1501.06754",
+          "Resultary 97d699d064c0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned catalogue entry is the same record. The exact n=8 rational entry gives one rational degree-three class, not integral groups. The distinct same-day tolerance-complex record concerns a filled square cycle complex and rational acyclicity, not the target."
+        ],
+        "reasoning": "No distinct inspected entry tabulates the same integral quotient or its ordinary homotopy type; same-day entries were compared by claims, not ordered by date.",
+        "searches": [
+          "Resultary semantic search for the exact C8 geometric D8 quotient; read bound same-day hit and distinct local-mirror hits c6fb124adaa6, c8c728a95571 and 97d699d064c0"
+        ]
+      },
+      "rationale": "The strongest inspected prior claim on exactly this ordinary quotient gives rational topology only; other same-complex sources classify the unquotiented space or subgroup fixed spaces. A sphere homeomorphism of a superficially similar eight-cycle quotient is for a different face condition. The integral homology and resulting homotopy equivalence are supported distinctions, not claims of exhaustive historical priority.",
+      "residual_risks": [
+        "Equivalent unindexed integral orbit computations may exist; no inference of novelty from the unproductive web search.",
+        "No readable copy of Armstrong's cited DOI was retrieved; the theorem is explicitly credited and is not claimed original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers input topology, not orbit topology",
+          "evidence": "d=4, k=2, n=8 yields the wedge of three 3-spheres.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.05448",
+          "material_read": "Theorem 4.6, p. 10, OA offset 33413",
+          "method": "Primary OA PDF passage",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "General family with the exact unquotiented complex"
+        },
+        {
+          "assessment": "Covers the equivalent unquotiented complex",
+          "evidence": "The D(C8;P3) case has the same sphere wedge.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.06754",
+          "material_read": "Theorem 5.2, p. 14, OA offset 46977",
+          "method": "Primary OA PDF passage",
+          "title": "Matching Trees and Homotopy Type of Devoid Complexes of Graphs",
+          "trigger": "Devoid-complex alias and dominating cycle-length theorem"
+        },
+        {
+          "assessment": "Covers rational orbit data only",
+          "evidence": "For n=8 one rational degree-three class survives; quotient assertions are over Q.",
+          "identifier_or_url": "2026/11/1/...c6fb124adaa6",
+          "material_read": "RESULT.md, offset 800, quotient statement",
+          "method": "Resultary lookup and local mirror",
+          "title": "Dihedral homology characters and rational quotient topology of cycle two-independence complexes",
+          "trigger": "Exact underlying object, group and orbit construction"
+        },
+        {
+          "assessment": "Classifies fixed sets, not ordinary orbit spaces",
+          "evidence": "Geometric fixed-space formulas for subgroup types do not state integral orbit homology.",
+          "identifier_or_url": "2026/11/8/...efdae8142d23",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror",
+          "title": "Dihedral subgroup fixed spaces of two-independence complexes of cycles",
+          "trigger": "Same action and group family"
+        },
+        {
+          "assessment": "Same output but different input complex",
+          "evidence": "NM_3(C_n) excludes 3-edge matchings and acts on the cycle-edge universe; its quotient is S^3 for n≥6.",
+          "identifier_or_url": "2026/11/8/...97d699d064c0",
+          "material_read": "RESULT.md offsets 0 and 1950",
+          "method": "Resultary lookup and local mirror",
+          "title": "Dihedral fixed spaces, lens quotients, and sphere quotients of cyclic nonmatching complexes",
+          "trigger": "Broad sphere homeomorphism covering n=8 for a cyclic complex"
+        },
+        {
+          "assessment": "Different complex and conclusion",
+          "evidence": "The tolerance complex of the filled square C8^2 has a rationally acyclic full quotient.",
+          "identifier_or_url": "2026/11/22/...c8c728a95571",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary lookup and local mirror",
+          "title": "The octagonal one-tolerance complex: three two-spheres and a dihedral quotient",
+          "trigger": "Distinct same-day eight-cycle quotient hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Exact independent quotient-chain replay",
+        "Resultary c6fb124adaa6 and efdae8142d23"
+      ],
+      "rationale": "A full integral homotopy classification of the ordinary quotient at the natural eight-cycle case resolves information genuinely absent from its known rational quotient and its fixed-set classifications. The computation excludes torsion and gives an orbit-space test case a researcher can reuse; the separate simple-connectivity argument turns that calculation into a complete sphere homotopy classification.",
+      "residual_risks": [
+        "The result is only a homotopy equivalence for n=8. It identifies neither a manifold/homeomorphism type nor a uniform family pattern."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

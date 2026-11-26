@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:42:09.674479Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At 1<=t<=2 the axial facet is a diamond of area 2(t-1)^2 and the diagonal facet is an octant triangle with three disjoint corners removed; for 2<=t<=3 axial facet area loses four right triangles, and the diagonal facet is a cut-corner triangle with area sqrt(3)(3-t)^2/2. Removing six disjoint caps from the octahedron or eight tetrahedra from the cube gives the two V(t) formulas. Cauchy's area formula pairs antipodal facets, giving the three axial and four diagonal symmetric generators with the specified coefficients and no residual factor of two. I enumerated determinant magnitudes using the alternate diagonal representatives (1,±1,±1); the independent sum is 8a^3+96a²b+192ab²+128b³. The replay python /workspace/reproduce_frozen.py independently factors both derivatives and gives their common t=2 value 108/125. The two displayed bijective rational substitutions give one coefficient sign change each, with opposite signs at the interval endpoints; this proves exactly one critical point in each interval. The denominators have opposite signs before cubing, producing the asserted decrease/increase/decrease. As an independent upper-bound check on [2,3], set s=3-t. The profile is (8-3s^4+3s^6/4)/(1-s³/6)^2; subtract its numerator from nine times the denominator to obtain 1-3s³(1-s)-s^6/2, at least 47/256 on [0,1] since s³(1-s)<=27/256. Hence the value 9 is unique at 1. Monotonicity, P(3/2)=127/16<8, P(2)=207/25>8 and P(3)=8 give the unique global minimum and both level-eight crossings, including no additional crossings strictly after t=2. The diagonal facet vertices for 1<t<2 are the permutations of (1,t-1,0); their centroid is (t/3,t/3,t/3) and central symmetry forces t=3/2, so the strict interval contains nonzonotopes. The independent replay confirms all displayed critical/crossing approximations; root counts are analytical, not inferred by numerical sampling. Frozen checker inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saroglou's accessible 2014 paper reproduces the prior three-dimensional zonoid upper bound P(K)<=8 as Theorem A and discusses Brannen's counterexamples to the proposed bound for general centrally symmetric bodies.",
+          "Full texts of the original 2011 paper and Brannen's 1996 paper were not obtained; the bounded topic search did not provide a decisive primary match."
+        ],
+        "reasoning": "The class upper bound explains the eight benchmark, but a bound on zonoids says nothing about which nonzonotopes on this path are below eight. The quoted general results do not isolate either critical parameter or crossing. Full-text gaps are not evidence of noncoverage.",
+        "searches": [
+          "arXiv:1409.4347 Theorem A and discussion before it",
+          "DOIs 10.1112/S0025579311001860 and 10.1112/S002557930001175X, including identified publisher routes",
+          "Focused primary search for normalized projection volume of cube–octahedron interpolants"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.2597 §II",
+        "arXiv:1409.4347 Theorem A",
+        "Saroglou 2011 DOI/OA check",
+        "Brannen 1996 DOI/OA check",
+        "Resultary f41e9f8b3783",
+        "Resultary ef8f8ba8bf3f",
+        "Resultary 85ddb6ffe228",
+        "Resultary 37a615ec3089",
+        "Resultary 2cbe10fe2324"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first brightness branch determines the seven-generator zonotope, and determinant volume mechanically gives its numerator; combined with the known geometric volume it determines the first P(t) branch.",
+          "The brightness extremizer switches there occur at t about 1.6076 and 1.9083, not at t_-=1.5741 or at the level-eight crossings. The brightness result is restricted to 1<t<2. The known t=3/2 value gives a sub-eight witness; by continuity it also implies a local sub-eight neighborhood, but not the complete interval or critical-point counts."
+        ],
+        "reasoning": "The novelty is not a sub-eight example or merely the existence of an open neighborhood. The second branch and the exact stationary equations, global extremum comparison, and exclusion of all further crossings require the additional calculation and sign proofs.",
+        "searches": [
+          "f41e9f8b3783 Proof §1",
+          "ef8f8ba8bf3f Finding and Proof §§1,4",
+          "arXiv:1412.2597 Eq. (1)",
+          "arXiv:1409.4347 Theorem A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gantapara et al. parametrize the same family up to scale. Matching signed-permuted vertices gives t=3-2s for truncation s<=1/2 and t=1/s for s>=1/2.",
+          "The f41e9f8b3783 directional brightness formula with its r=t-1 has coefficients 2r² and (1+2r-2r²)/2 on the axial and paired diagonal terms: it is exactly h_(Pi K_t) for 1<t<2."
+        ],
+        "reasoning": "A new parameter name does not make a new family, and knowing all brightness directions fixes the whole projection body in the first regime, even without a volume table. The prior thermodynamic phases and brightness-extremizer transitions are not the stationary points of the volume ratio.",
+        "searches": [
+          "Gantapara–de Graaf–van Roij–Dijkstra arXiv:1412.2597 §II Eq. (1)",
+          "Resultary f41e9f8b3783 Proof §1: brightness of cube–octahedron intersections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ef8f8ba8bf3f computes vol(Pi T)=8128 for T=2K_(3/2), hence vol(Pi K_(3/2))=127 and the same P(3/2)=127/16. The exact Platonic table 85ddb6ffe228 gives cube P=8 and octahedron P=9.",
+          "37a615ec3089 gives a different six-normal design profile decreasing from 27/2 to 8; 2cbe10fe2324 gives a fixed rhombic triacontahedron value (48-4sqrt(5))/5<8."
+        ],
+        "reasoning": "The discrete same-body and endpoint values are already covered; the other family and fixed solid do not establish the joint phase and level-set structure of K_t. Distinct same-date findings are not ordered by date alone.",
+        "searches": [
+          "Resultary exact projection-volume findings: ef8f8ba8bf3f, 85ddb6ffe228, 37a615ec3089, 2cbe10fe2324"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct result is the full two-branch classification with globally compared stationary phases and a precise strict sub-eight interval. The first-branch support function and mechanically determined volume numerator, the regular truncated octahedron value, and the endpoint values are credited as covered components. The originality verdict is not for any of those components alone.",
+      "residual_risks": [
+        "The original 2011 Saroglou and 1996 Brannen texts were not read in full; the 2014 restatement supports only the comparison recorded above. An older exact family profile in unindexed work could overlap.",
+        "Semantic search and the focused primary search are not a comprehensive priority census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent underlying family, different observables",
+          "evidence": "Unit-volume signed-permutation vertex families for the two truncation regimes and thermodynamic simulation scope.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.2597",
+          "material_read": "PDF p. 2 §II Eq. (1), shape parameter and signed-permutation vertex formulas",
+          "method": "Primary OA PDF passage, offset 10600",
+          "title": "Phase behavior of a family of truncated hard cubes",
+          "trigger": "Same interpolation in another parameter"
+        },
+        {
+          "assessment": "Class bound and counterexamples, not a profile in the inspected passage",
+          "evidence": "Three-dimensional zonoids have P(K)<=8; proposed broader symmetric bound disproved by Brannen.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.4347",
+          "material_read": "PDF pp. 2–3, introduction, Theorem A and neighboring Brannen discussion",
+          "method": "Primary OA PDF passage, offset 7000",
+          "title": "On the shape of a convex body with respect to its second projection body",
+          "trigger": "Same invariant and prior zonoid bound"
+        },
+        {
+          "assessment": "Class theorem credited; full comparison limited",
+          "evidence": "No lawful readable original full text from attempted routes; Theorem A in arXiv:1409.4347 gives the earlier bound.",
+          "identifier_or_url": "https://doi.org/10.1112/S0025579311001860",
+          "material_read": "Bibliographic citation; theorem quoted in author's 2014 OA paper, original paper not read in full",
+          "method": "DOI/OA retrieval and identified Cambridge publisher route",
+          "title": "Volumes of projection bodies of some classes of convex bodies",
+          "trigger": "Older exact invariant/class results"
+        },
+        {
+          "assessment": "Plausible historical overlap unresolved",
+          "evidence": "No lawful readable full text from attempted routes; class counterexample attribution inspected in Saroglou.",
+          "identifier_or_url": "https://doi.org/10.1112/S002557930001175X",
+          "material_read": "Bibliographic citation and discussion in Saroglou's 2014 text; no primary full-text inspection",
+          "method": "DOI/OA and identified publisher PDF retrieval",
+          "title": "Volumes of projection bodies",
+          "trigger": "Earlier exact examples or upper bounds for this invariant"
+        },
+        {
+          "assessment": "Equivalent first-branch support function; implies its volume via classical formulas",
+          "evidence": "Axial absolute-value sum with 2r² and signed diagonal absolute-value sum with half of (1+2r-2r²)/2; directional switch parameters differ.",
+          "identifier_or_url": "Resultary f41e9f8b3783",
+          "material_read": "RESULT.md Proof §1, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Two sharp brightness transitions and an exact anisotropy plateau in cube–octahedron intersections",
+          "trigger": "Same family and complete support function"
+        },
+        {
+          "assessment": "Exact t=3/2 match",
+          "evidence": "V(Pi T)=8128 when T=2K_(3/2), projection-body volume scales by 2^6.",
+          "identifier_or_url": "Resultary ef8f8ba8bf3f",
+          "material_read": "RESULT.md Finding and Proof §§1,4, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Sharp shadow-area extrema and projection-body volume of the regular truncated octahedron",
+          "trigger": "Exact special-member normalization"
+        },
+        {
+          "assessment": "Exact endpoint matches only",
+          "evidence": "P(cube)=8 and P(octahedron)=9.",
+          "identifier_or_url": "Resultary 85ddb6ffe228",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "The exact affine projection-volume spectrum of the five Platonic solids",
+          "trigger": "Exact table lookup of endpoint values"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Monotone quotient from 27/2 to 8 in the six-normal design family.",
+          "identifier_or_url": "Resultary 37a615ec3089",
+          "material_read": "RESULT.md Finding and Proof §§2–4, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "Sharp projection-body volume and reversed volume order for six-normal spherical designs",
+          "trigger": "Plausible equivalent exact parametric profile"
+        },
+        {
+          "assessment": "Fixed different solid",
+          "evidence": "P=(48-4sqrt(5))/5.",
+          "identifier_or_url": "Resultary 2cbe10fe2324",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Semantic search and local mirror",
+          "title": "The projection body of the rhombic triacontahedron",
+          "trigger": "Prior exact sub-eight value"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The interpolation joins two canonical solids and crosses a facet-combinatorics change, and the eight benchmark is independently motivated by the sharp zonoid bound. An exact two-regime classification detects a nonregular minimizer and a secondary maximum while isolating all sub-eight members. This is substantially more than tabulating endpoints, recomputing the regular special member, or inferring an unspecified neighborhood from continuity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

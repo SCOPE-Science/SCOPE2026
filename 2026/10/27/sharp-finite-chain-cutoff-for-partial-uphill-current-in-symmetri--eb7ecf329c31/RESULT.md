@@ -2,100 +2,73 @@
 
 ## Finding
 
-For the boundary-driven hard-core two-species reaction-diffusion chain of Casini, Giardinà and Vernia, consider a symmetric diffusivity matrix with diagonal coefficient \(a>b>0\), off-diagonal coefficient \(b\), and reaction parameter \(U\ge 2b\). Let the chain consist of \(N\ge1\) sites; put \(L=N+1\). Fix physical reservoir densities whose **total** particle density falls by \(\delta>0\) from left to right while the difference between species A and B increases from \(-m\) to \(+m\). Here \(m>\delta/2\), so the A density at the right reservoir exceeds that at the left reservoir. Write
-
+Consider the boundary-driven hard-core two-species reaction-diffusion chain of Casini, Giardinà and Vernia with diagonal diffusivity \(a>b>0\), off-diagonal diffusivity \(b\), and reaction parameter \(U\ge 2b\). Let \(N\ge1\) be the number of sites and \(L=N+1\). Suppose the total reservoir density falls by \(\delta>0\) from left to right, while the A-minus-B reservoir density rises from \(-m\) to \(+m\), where \(m>\delta/2\). Thus the right reservoir has the greater A density. Define
 \[
 \lambda=\operatorname{arcosh}\left(1+\frac{U}{a-b}\right),\qquad z=e^{-\lambda},\qquad
 R=\frac{a+b}{a-b}\frac{\delta}{m},\qquad
 F_L=L(1-z)\frac{1+z^{L-1}}{1-z^L}.
 \]
+The stationary discrete Fickian A-current is strictly left-to-right on every link, including the two reservoir links, if and only if \(F_{N+1}<R\). The function \(F_L\) increases strictly from \(F_2=2\) to infinity, so there is a unique real crossing for \(R>2\), yielding an exact integer chain-length cutoff. If \(F_{N+1}=R\), both reservoir-link currents are zero and every interior link (if any) has positive current. If \(F_{N+1}>R\), both reservoir-link currents are negative. When also \(R\ge2\), at least one interior link still has positive current. If \(R\le2\), all-link strict uphill current is impossible at any length; for \(R<2\) an interior positive current beyond the cutoff criterion is not guaranteed.
 
-The stationary discrete Fickian species-A current on **every link including both reservoir links** points from left to right, against the A boundary density increase, **if and only if** \(F_{N+1}<R\). For \(R>2\), \(F_L\) increases strictly from \(F_2=2\) to infinity; hence there is a unique sharp chain-length transition. At the equality \(F_{N+1}=R\), both reservoir-link currents vanish and all remaining link currents are positive. When \(F_{N+1}>R\), the two reservoir-link currents are negative, yet at least one interior link current is positive. If \(R\le2\), strict uphill current on all links is impossible for every \(N\ge1\).
-
-For the exact physical parameters \(a=1\), \(b=1/2\), \(U=1\), \(m=1/4\), \(\delta=3/10\), and average reservoir total density \(t=1/2\), the threshold lies strictly between \(N=3\) and \(N=4\): \(F_4=10/3<R=18/5<F_5=170/41\). The four currents at \(N=3\) are \(1/240,11/240,11/240,1/240\), whereas the five at \(N=4\) are \(-7/1025,147/4100,43/1025,147/4100,-7/1025\).
+For \(a=1\), \(b=1/2\), \(U=1\), \(m=1/4\), \(\delta=3/10\), and average reservoir total density \(t=1/2\), the crossing lies strictly between \(N=3\) and \(N=4\): \(F_4=10/3<R=18/5<F_5=170/41\). The currents in order from the left reservoir are \((1,11,11,1)/240\) at \(N=3\) and \((-28,147,172,147,-28)/4100\) at \(N=4\).
 
 ## Assumptions and scope
 
-Each site of \(\{1,\dots,N\}\) has state \(0\) (vacant), A, or B, with at most one particle. For any adjacent pair, exchange the pair at rate \(a\), and exchange while simultaneously swapping A and B (fixing vacancies) at rate \(b\). One may also include the nonnegative left/right colour-mutation rates \(U-2b-h\) and \(h\), respectively, where \(0\le h\le U-2b\), and use the associated boundary generator in equations (42)–(43) of [1]. These choices have the same exactly closed one-point equations, so the assertion is independent of \(h\). For the exact example and checker take \(h=0\), \(U=2b\), so there is no separate interior mutation rule.
+Sites have states vacant, A or B, with at most one particle per site. An interior pair exchanges its two states at rate \(a\) and exchanges them after interchanging A and B (fixing vacancies) at rate \(b\). Additional single-site colour mutations from the two nearest-neighbour contributions have rates \(U-2b-h\) and \(h\), where \(0\le h\le U-2b\). Use the associated boundary generator in [1, Eqs. (41)–(43)]; if \(N=1\), both boundary operators act on the sole site and the bulk sum is empty. The stationary one-point equations are independent of \(h\). In the exact example, \(h=0\) and \(U=2b\).
 
-Write \(\rho_j^A\) and \(\rho_j^B\) for stationary one-point occupations, setting the fictitious sites \(j=0\) and \(j=L\) to prescribed reservoir densities. Set \(T_j=\rho_j^A+\rho_j^B\) and \(M_j=\rho_j^A-\rho_j^B\). The four reservoir conditions are
-
+Let \(\rho_j^A,\rho_j^B\) be the stationary one-point densities, with fictitious sites \(j=0,L\) encoding the reservoirs. Put \(T_j=\rho_j^A+\rho_j^B\) and \(M_j=\rho_j^A-\rho_j^B\). The data are
 \[
 T_0=t+\delta/2,\quad T_L=t-\delta/2,\quad M_0=-m,\quad M_L=m,
+\qquad m+\delta/2\le t\le1-\delta/2.
 \]
-
-where \(m+\delta/2\le t\le1-\delta/2\); these inequalities ensure physical, nonnegative reservoir A, B and vacancy densities. The condition \(m>\delta/2\) is precisely \(\rho_L^A>\rho_0^A\). This is a natural anti-aligned pair of density gradients (falling total occupation but rising A-B imbalance), not an assumption on the unknown stationary profile.
-
-Define the **discrete constitutive (Fickian) component** of the mean A current on link \(j\to j+1\) by
-
+These bounds ensure nonnegative A, B and vacancy densities at the reservoirs. The current is the discrete constitutive component
 \[
 J_{A,j}=a(\rho_j^A-\rho_{j+1}^A)+b(\rho_j^B-\rho_{j+1}^B),\qquad 0\le j\le N.
 \]
-
-The local A continuity equation also contains a reaction term; this is not a claim that A particle count is conserved. The first and last links encode reservoir fluxes through the imposed boundary values. The precise statement pertains to this constitutive current and **not** to unlabelled total-particle current or to a putative pure A-tracer crossing count of the swap-and-mutation transition.
+The A continuity equation also contains a reaction term. This current is not the total-particle current and is not a pure A-tracer crossing count of the swap-and-mutation transition.
 
 ## Proof
 
-1. **Exact stationary closure.** Equations (28)–(30) of [1] give, for \(1\le j\le N\),
-   \[
-   a\Delta\rho_j^A+b\Delta\rho_j^B+U(\rho_j^B-\rho_j^A)=0,\qquad
-   b\Delta\rho_j^A+a\Delta\rho_j^B+U(\rho_j^A-\rho_j^B)=0,
-   \]
-   where \(\Delta f_j=f_{j-1}-2f_j+f_{j+1}\). Adding and subtracting gives \(\Delta T_j=0\) and \((a-b)\Delta M_j-2UM_j=0\). Since the coefficients and boundary values fix a nonsingular Dirichlet problem, the unique mean solution is
-   \[
-   T_j=t+\delta/2-\delta j/L,\qquad
-   M_j=m\frac{\sinh(\lambda(j-L/2))}{\sinh(\lambda L/2)},
-   \]
-   with \(\cosh\lambda=1+U/(a-b)\). These expressions also show \(T_j\in[0,1]\) and \(\lvert M_j\rvert\le m\le T_j\), so all stationary species densities are physical.
+The stationary one-point equations [1, Eqs. (28)–(30)] give
+\[
+\Delta T_j=0,\qquad (a-b)\Delta M_j-2UM_j=0\quad(1\le j\le N),
+\]
+where \(\Delta f_j=f_{j-1}-2f_j+f_{j+1}\). This Dirichlet problem has the unique solution
+\[
+T_j=t+\delta/2-\delta j/L,\qquad
+M_j=m\frac{\sinh(\lambda(j-L/2))}{\sinh(\lambda L/2)}.
+\]
+In particular \(|M_j|\le m\le T_j\le1\). Substitution yields
+\[
+J_{A,j}=\tfrac12\left(\frac{(a+b)\delta}{L}-(a-b)(M_{j+1}-M_j)\right),\qquad
+M_{j+1}-M_j=\frac{2m\sinh(\lambda/2)\cosh(\lambda(j+1/2-L/2))}{\sinh(\lambda L/2)}.
+\]
+By symmetry and strict increase of \(\cosh\) on the positive half-line, the two boundary links tie for the largest increment, \(mF_L/L\), and every interior link has strictly smaller increment. For \(N=1\) there are just the two boundary links. Hence the sign of the minimum current is the sign of \(R-F_L\), with strict improvement on every interior link. The telescoping identity
+\[
+\sum_{j=0}^{N}J_{A,j}=\tfrac12(a-b)m(R-2)
+\]
+shows that when \(F_L>R\ge2\), the sum of interior currents is strictly positive: the total is nonnegative and both boundary terms are strictly negative. This guarantees an interior positive current, including the case \(R=2\) and \(L>2\). The argument gives no such guarantee for \(R<2\).
 
-2. **Current and boundary extremality.** Substitution gives
-   \[
-   J_{A,j}=\frac12\left(\frac{(a+b)\delta}{L}-(a-b)(M_{j+1}-M_j)\right),
-   \]
-   and
-   \[
-   M_{j+1}-M_j=\frac{2m\sinh(\lambda/2)\cosh(\lambda(j+1/2-L/2))}{\sinh(\lambda L/2)}>0.
-   \]
-   The largest increment occurs **only** on \(j=0,N\) for \(N\ge2\) (both links tie when \(N=1\)). Its exact value is
-   \[
-   m(1-z)\frac{1+z^{L-1}}{1-z^L}=\frac{m}{L}F_L.
-   \]
-   The two boundary-link currents therefore attain the minimum, which is positive exactly when \(F_L<R\). At equality, the strictly smaller interior colour increments give positive interior currents. Beyond equality, both boundary currents are negative; if \(R>2\), at least one interior current remains positive because
-   \[
-   \sum_{j=0}^{N}J_{A,j}=\tfrac12((a+b)\delta-2(a-b)m)=\tfrac12(a-b)m(R-2)>0.
-   \]
+With \(c=\lambda/2>0\), the formula extends to real \(L\ge2\) as \(F_L=2L\sinh c\,\cosh((L-1)c)/\sinh(Lc)\). Its logarithmic derivative is
+\[
+\frac{d}{dL}\log F_L=\frac1L-\frac{c\cosh c}{\sinh(Lc)\cosh((L-1)c)}>0,
+\]
+since \(\sinh(Lc)>Lc\) and \(\cosh((L-1)c)\ge\cosh c\). Also \(F_2=2\), and \(F_L\sim L(1-z)\) at infinity.
 
-3. **Strict finite-size monotonicity.** With \(c=\lambda/2>0\), extend the boundary functional from integer lengths to real \(L\ge2\):
-   \[
-   F_L=\frac{2L\sinh c\cosh((L-1)c)}{\sinh(Lc)}.
-   \]
-   Logarithmic differentiation yields
-   \[
-   \frac{d}{dL}\log F_L
-   =\frac1L-\frac{c\cosh c}{\sinh(Lc)\cosh((L-1)c)}>0,
-   \]
-   because \(\sinh(Lc)>Lc\) and \(\cosh((L-1)c)\ge\cosh c\) for every \(L\ge2\). Direct evaluation gives \(F_2=2\), while \(F_L\sim2L\sinh c\,e^{-c}=L(1-e^{-2c})\to\infty\). Thus every \(R>2\) has a unique real crossing and a sharp integer-chain cutoff. The case \(R\le2\) follows from \(F_L\ge2\).
+In the exact example the reservoirs have \((\rho^A_0,\rho^B_0)=(1/5,9/20)\) and \((\rho_L^A,\rho_L^B)=(3/10,1/20)\). The imbalance recurrence is \(M_{j+1}-6M_j+M_{j-1}=0\), with \(z=3-2\sqrt2\). Solving it gives the threshold values and currents in the finding.
 
-4. **Exact example.** For \(a=1,b=1/2,U=1\), the recurrence is \(M_{j+1}-6M_j+M_{j-1}=0\), giving \(z=3-2\sqrt2\). The parameter choices yield reservoirs \((\rho_0^A,\rho_0^B)=(1/5,9/20)\) and \((\rho_L^A,\rho_L^B)=(3/10,1/20)\). Exact rational evaluation yields \(F_4=10/3\), \(F_5=170/41\), and the current vectors stated in the finding.
+For illustration of the scope of the last sign statement, take instead \(\delta=1/100\), keeping \(a,b,U,m,t\) as in the example, and take \(N=2\). Then \(R=3/25\), and \(M_1=-m/7\), \(M_2=m/7\). The smallest increment is \(2m/7\), so even the maximal (interior) current is \(\tfrac12(1/200-1/28)=-43/2800<0\). This example has physical reservoirs and \(\rho_L^A>\rho_0^A\).
 
 ## Verification
 
-The standalone `check.py` solves the finite stationary difference problem using rational arithmetic for \(1\le N\le60\), evaluates every link current, verifies the cutoff on those sizes, and independently constructs the **full** three-state-per-site continuous-time Markov generator from the pair and reservoir transition rules at \(N=1,2,3,4\). It solves the stationary distributions (up to \(3^4\) states) and checks all one-point means against the exact recurrence. It also checks strict increase of the real-length threshold functional at 1,000 points and the exact rational transition example. Running `python check.py` with the dependencies in `requirements.txt` produces the output stored in `checker_output.txt`; there are 1,445 passed assertions. These finite tests confirm normalization and dynamics, but the all-\(N\) result relies on the above exact proof, not numerical sampling.
+The unchanged supporting `check.py` and `checker_output.txt` concern the numerical example with \(R=18/5\), not a universal assertion of positive interior current when \(F_L>R\). The checker solves the finite recurrence with rational arithmetic through \(N=60\), compares to full stationary Markov one-point means at \(N=1,2,3,4\), and samples the real-length functional. The formulas, cutoff and stated sign regimes follow from the exact argument above.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Casini, Giardinà and Vernia [1], initially publicly available on 2022-10-04, construct exactly the hard-core, boundary-driven cross-diffusion/reaction process used here, derive its closed finite-chain one-point equations and establish the possibility of partial uphill diffusion on a lattice and its disappearance in the hydrodynamic limit. Their continuum stationary profile (their equation (10)), duality theorem and hydrodynamic results are prior work. The result here adds the **evaluated sharp length criterion for the finite discrete chain with opposing total and colour boundary gradients**, strict monotonicity of its threshold, and the precise sign-changing boundary-link regime. The continuum profile is not substituted for a finite-difference solution.
-
-Floreani, Giardinà, den Hollander, Nandan and Redig [2] analyze a two-layer switching model with different layerwise exclusion rules and characterize global uphill transport and boundary layers. Their switching model allows distinct layer occupancies and is not the same one-site hard-core cross-diffusion generator; its bulk/total-current results do not imply the present species-A all-link cutoff.
-
-The discrete closure in [1] is the essential starting point, so the result is an explicit extension of established equations, not a claim to have invented the model, the phenomenon of partial uphill current, the hyperbolic solution method, or finite-size effects generally. A mathematically equivalent length criterion derived in other literature remains a priority risk; independently verified priority is not claimed.
-
-## Limitations
-
-The threshold is exact for symmetric positive-definite two-species diffusivity, physical reservoirs in the stated anti-aligned family, and the constitutive species-A current including both reservoir links. It does not classify general asymmetric matrices, arbitrary reservoir values, raw microscopic species-transfer counting across swap-and-flip events, stochastic current fluctuations, or hydrodynamic joint scalings. The model's previously published one-point closure is an assumed and cited ingredient. All results here concern mean stationary currents, not sample paths.
+Casini, Giardinà and Vernia [1] construct the model and derive its closed one-point equations. They analyze local uphill current in the continuum equations in Sec. 5 and prove a hydrodynamic limit in Sec. 6. Their work supplies the starting finite-chain closure. The contribution here is the evaluated sharp finite-length sign criterion on **all** links, its strict length monotonicity, and the resulting boundary reversal even with a positive sum of discrete constitutive A-currents. The continuum calculation does not give the exact integer crossing or the signs on the reservoir links. The total-current and boundary-layer results of [2] concern a different two-layer model. This work addresses a symmetric diffusivity matrix and the specified opposing reservoir gradients; it does not classify raw microscopic transfer counts, fluctuations, or general asymmetric parameters. Literature-wide priority is not established.
 
 ## References
 
-[1] F. Casini, C. Giardinà and C. Vernia, *Uphill in reaction-diffusion multi-species interacting particles systems*, arXiv:2210.01514v1 (first public 2022-10-04), later *Journal of Statistical Physics* (2023), DOI 10.1007/s10955-023-03141-3. https://arxiv.org/abs/2210.01514 and https://doi.org/10.1007/s10955-023-03141-3
+[1] F. Casini, C. Giardinà and C. Vernia, *Uphill in reaction-diffusion multi-species interacting particles systems*, arXiv:2210.01514v1; DOI 10.1007/s10955-023-03141-3.
 
-[2] S. Floreani, C. Giardinà, F. den Hollander, S. Nandan and F. Redig, *Switching Interacting Particle Systems: Scaling Limits, Uphill Diffusion and Boundary Layer*, *Journal of Statistical Physics* 186, 33 (2022), DOI 10.1007/s10955-022-02878-7. https://doi.org/10.1007/s10955-022-02878-7
+[2] S. Floreani, C. Giardinà, F. den Hollander, S. Nandan and F. Redig, *Switching Interacting Particle Systems: Scaling Limits, Uphill Diffusion and Boundary Layer*, *Journal of Statistical Physics* 186, 33 (2022), DOI 10.1007/s10955-022-02878-7.

@@ -1,15 +1,21 @@
-# Scientific review: dihedral positive-type optimizer faces
+# Independent mathematical audit
 
-## Correctness — PASS
-For all \(n\ge3\), the irreducible representation matrices (including reducible endpoint blocks) give an exact necessary-and-sufficient Fourier-positivity criterion. The support-preserving group automorphism permits symmetrization without reducing the optimum. The two-positive-contact dual certificate proves the unique symmetric optimum whenever \(3\nmid n\); a factorized polynomial and endpoint constraints prove the complete optimal segment otherwise. Saturated full Fourier blocks force \(\operatorname{Im}f(r)=0\) and \(f(s)=f(sr)\) for **every** optimum, not just an averaged one. The standalone checker ran successfully for every order from 3 through 120, including 120 interval witnesses and independent two-variable LP vertex checks. Numerical experiments are corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, subject to residual risk
-Bachoc–Pêcher–Thiéry (arXiv:1103.0444, especially Sections 2–3) already give the scalar theta values for cycle powers; the dihedral Cayley graph is a cycle square, so no new scalar maximum is claimed. The new statement determines all noncommutative complex **group-positive-type** equality cases, and shows the precise uniqueness/interval bifurcation and the forced disappearance of complex and reflection-asymmetric parameters. The inspected 2011 primary text constructs a real translation-symmetric optimum and proves the numerical value, but does not classify this complex nonabelian equality face. Nearby results on cyclic five-point Turán supports or dihedral harmonic ranks do not logically imply it. A hidden equality-face theorem in earlier graph semidefinite-program work remains a genuine possibility.
+PASS
 
-## Mathematical value — PASS
-Determining a theta value and determining all positive-type optimal kernels are different problems. The theorem solves the latter for a natural, nonabelian, five-element support class, identifies when optimization uniquely reconstructs a positive-type function, and gives a precise arithmetic transition to a one-parameter family. The noncommutative Fourier rigidity argument is needed to rule out asymmetric and complex solutions that scalar symmetrization does not exclude.
+Fourier decomposition of the kernel f(g⁻¹h) gives the stated 2×2 Hermitian blocks: the rotation diagonal terms are 1+2u cosθ ∓2v sinθ and the reflection terms are b+c exp(∓iθ). Frequencies 0 and π (when present) split into the required one-dimensional representations. The support-preserving automorphism averages to real equal reflection values without altering the mass. The exact symmetric constraint uses 2|t|z; the missing absolute-value qualification in (2) is harmless for maximizing, since multiplying by the sign character (r↦1, s↦−1) preserves feasibility and strictly improves mass if t<0. Thus (2) can be used with t≥0. For 3∤n, α and β exist, β is in (1/2,1), and the two-root witness is feasible. The two displayed positive multipliers satisfy λα+μβ=1 and λ(4α²−2)+μ(4β²−2)=−2, giving the mass gap; the two distinct contacts determine the unique u,t. For 3|n, contact at 1/2 fixes t=1−u, and sign changes of the factorized polynomial give exactly the nearest-sample endpoints. For n=3 only 1/2 and 1 occur; the sample at 1 imposes u≥1/4 and t≥0 imposes u≤1, including the feasible t=0 endpoint. At β or 1/2, respectively, the unaveraged square-root inequality at an interior angle is already saturated by its (b+c)²z² term, so (b−c)²(1−z²) and 4v²sin²θ vanish separately; this works even when b+c=0. The frozen numerical LP checker was inspected, not executed; the exact Fourier and dual certificates were checked algebraically.
 
-## Scope of verification
-No assertion is made about non-group-invariant theta SDP matrices or a general classification of dihedral neighborhoods. The statements are self-contained apart from the standard Fourier positivity criterion; the attached checker confirms only finitely many instances. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar mass is existing theta-value coverage, not a novelty. The supported distinct claim is the complete optimizer set for complex positive-type functions on the dihedral group with the specified support. The closest primary text supplies an invariant optimum and a scalar dual bound but does not resolve all equality directions for the allowable dihedral-invariant Hermitian kernels. The frozen argument uses an active interior block to exclude complex or asymmetric equality cases, including the n=3 endpoint.
+
+## value
+
+PASS
+
+For a natural two-reflection, two-rotation support, the equality classification distinguishes recovery of one function from a genuine interval of solutions. It settles whether symmetrization loses extremizers and gives the arithmetic transition and endpoints. These are concrete stability and reconstruction benchmarks for this group problem beyond the prior scalar value; no claim about the whole graph SDP is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

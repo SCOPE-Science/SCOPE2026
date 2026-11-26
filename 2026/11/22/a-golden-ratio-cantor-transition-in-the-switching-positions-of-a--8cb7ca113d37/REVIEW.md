@@ -1,19 +1,21 @@
-# Scientific review: golden-ratio switching-location transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicitly solved deterministic positive and negative runs give four independent affine contractions with slopes \(q^{m+n}\). Direct endpoint substitution proves the unique invariant hull; exact factorization of all three adjacent image gaps gives the sole threshold \(1-q-q^2=0\). Below it the four intervals satisfy strong separation, validating the classical self-similar set and measure dimension formulas, with cylinder entropy \(\log4\) and mean logarithmic contraction \(3\log q\). At and above it the image union fills the hull. A renewal-reward occupation formula and a uniform strictly positive speed bound establish bounded density at physical time. The independently extracted checker reproduces 187 rational/numeric identities and finite-code invariants, not a purported infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Reflecting the position after each run gives decreasing contractions G_m(z)=−1+q^m(1−z), so the positive-start return map is F_mn=G_n∘G_m. The attractor for {G₁,G₂} is also the attractor of its twofold composition by uniqueness. On the stated hull I, G₂(h)=ℓ and G₁(ℓ)=h, and G₂<G₁ pointwise. The interval gap G₁(h)−G₂(ℓ)=2q(1−q−q²)/(1+q+q²) is positive precisely below φ⁻¹. It gives strict separation there, single-endpoint contact at equality, and interval coverage thereafter. Independent exact algebra also verifies the three four-map signed gaps and canonical q=1/2 intervals. The middle two images need not have ordered left endpoints above threshold, but the reverse overlap inequality F₁₁(h)−F₂₂(ℓ)=2q(q⁴−q+1)/(1+q+q²)>0 confirms that the stated chain covers the hull. The similarities satisfy (q^s+q^{2s})²=1 and the iid equally weighted pair has entropy log 4 and Lyapunov exponent 3 log(1/q), giving the two distinct dimensions under strong separation. In equilibrium physical time, each two-run cycle of mean 3τ starts in the embedded stationary law; each of its two monotone runs has normalized speed at least 2κq²/(1+q+q²)>0. Occupation time in a set is therefore bounded by a constant times its length, yielding an essentially bounded physical-time density independently of the event measure's regularity.
 
-Farago and Smith (arXiv:2401.01576) establish the underlying renewal run-and-tumble model and solve stationary densities numerically for three continuous run-time distributions. Their discussion explicitly leaves discrete-clock application open. The complete published results and proofs of *Sharp variance envelope for harmonically trapped alternating-renewal swimmers* and *Sharp dwell-time noise bounds and trap-spectroscopic recovery for alternating-renewal propulsion* address temporal correlations and stationary second moments; neither supplies the two-run binary event section, four-map gap factorization, Cantor/interval threshold, or exact event-versus-physical sampling regularity contrast. The previous local literature result associated with the motivating paper concerns Erlang-waiting edge probabilities, not atomic-run event-section geometry. The golden-ratio coincidence with unrelated IFS problems cannot establish coverage. Risk: an unindexed specialist result could have the same affine section, and general IFS theory supplies the dimension mechanism once the specific maps are known.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two-point run law is a natural, controllable non-Markovian switching protocol; the object is its experimentally sampleable reversal-location distribution. The exact golden-ratio boundary separates singular fractal event locations from an interval of possible event locations, and the strict distinction between singular event-time and bounded-density physical-time statistics warns against inferring one sampling law from the other. The two distinct Hausdorff dimensions quantify nonuniformity beyond mere support topology. This is a motivated structural boundary, not an arbitrary finite enumeration or relabeling of a known stationary variance.
+The alternating-renewal harmonic-trap model, generic IFS methods and the distinction between tumbling and physical-time occupation are established background. Credit the distinct exact binary-clock event-section phase diagram and the contrast of its two dimensions with bounded equilibrium physical-time density. Farago–Smith's primary text treats tumbling positions but leaves discrete-law checks for future work; the examined general and indexed statements do not provide this section's gap calculations or quantitative threshold.
 
-## Limitations
+## value
 
-The threshold is established only for fair independent run durations in a two-to-one ratio under strict alternating propulsion and harmonic confinement. The singular-measure dimension formula applies only below the strong-separation boundary. The proof uses standard IFS dimension theorems without claiming them as new. The physical-time result guarantees bounded density but not its explicit form. Literature comparison is qualified, not a claim of exhaustive publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two binary dwell times give a natural test of event-sampled versus time-sampled steady-state data in a standard trapped-particle model. The exact boundary, the separate measure and support dimensions, and a speed-based density bound quantify a failure of physical-time measurements to reveal singular switching geometry. This is a complete benchmark for this clock, not just an isolated fractal example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

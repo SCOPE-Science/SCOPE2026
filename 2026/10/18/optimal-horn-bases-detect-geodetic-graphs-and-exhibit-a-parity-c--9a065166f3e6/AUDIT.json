@@ -1,119 +1,116 @@
 {
   "correctness": {
-    "rationale": "Soundness and minimality of 3M use singleton-closure forcing. Equality for geodetic graphs is proved by induction on shortest-path distance. In nongeodetic graphs the first ambiguous-distance pair cannot be completed by a one-consequence rule without leaving its selected shortest path. Even-cycle antipodes require hits on both semicircles and a two-output rule achieves exactly four literals; all other rule costs are three. Counting yields the factorial formulas. Direct finite verifier ran successfully for 231 cycle bases and 771 connected labelled graphs; finite testing alone is not the proof. Exact n=3..10 cost list is in VERIFICATION.md.",
+    "rationale": "The corrected theorem uses forced nonedge premises, convexity of unique-geodesic paths, and disjoint antipodal rule groups on even cycles, including larger premises. The crown basis gives a counterexample to the removed converse. The finite model and optimum checks in verify.py corroborate the proof.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arXiv:2603.14615 theorem covers convex geometries and order-convex poset systems; this does not encompass cycle geodesic convexity failing anti-exchange.",
-        "arXiv:2211.08524 proves NP-hardness for optimum convex-geometry bases, not an all-graph structural classification."
+        "The latter optimum characterization requires anti-exchange, which already fails in the four-cycle."
       ],
-      "reasoning": "Any overlap with tree/order-convex special cases is acknowledged. C4 and C5 violate the anti-exchange condition needed for the recent general convex-geometry results; therefore they do not subsume the even-cycle odd-cycle parity enumeration.",
+      "reasoning": "General optimization results for convex geometries do not imply the entire cycle census.",
       "searches": [
-        "web: \"Characterizing the optimum bases of a convex geometry using quasi-closed hypergraphs\"",
-        "arxiv:2603.14615 §4.1",
-        "arxiv:2211.08524 Theorem 3"
+        "Bichoupan arXiv:2211.08524 Theorem 3",
+        "Meunier–Nourine–Vilmin arXiv:2603.14615 Theorem 1"
       ]
     },
     "checked_sources": [
-      "arxiv:2211.08524 full text",
-      "arxiv:2405.07512 §4.3.1",
-      "arxiv:2603.14615 introduction and §4.1",
-      "Mathematical research-record queries are recorded above",
-      "public search phrases recorded above"
+      "arXiv:2211.08524",
+      "arXiv:2405.07512",
+      "arXiv:2603.14615",
+      "arXiv:1504.07753",
+      "doi:10.1016/j.tcs.2022.04.022",
+      "Resultary 5074ded0ed82, 1ecaeca96ad2, 369daf4b0d28"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Prior convex-geometry optimization statements alone require anti-exchange, disproved for C4 geodesic closure.",
-        "Prior paper on graph geodesic convexity discusses existence/polynomial size of bases but not optimum weighted size."
+        "Full nonedge hulls and Hamiltonicity of the crown complement imply tightness from the hydra theorem. Unique key Horn functions concern determination by a key graph, not minimum grouped literal costs."
       ],
-      "reasoning": "General theories may explain portions of the lower-bound argument, but the asserted if-and-only-if geodetic criterion plus the sharp two-consequent antipodal rule and exact all-bases parity formulas are distinct and not supplied by the inspected material.",
+      "reasoning": "Crown tightness is explicitly credited and not a novelty claim. The hydra result is not applicable to the shorter nonedge intervals of general cycles.",
       "searches": [
-        "arxiv:2211.08524 pp. 1-8",
-        "arxiv:2405.07512 §4.3.1",
-        "arxiv:2603.14615 §4.1"
+        "Resultary 369daf4b0d28 Finding and proof (1)–(3)",
+        "arXiv:1504.07753 Proposition 3.3",
+        "doi:10.1016/j.tcs.2022.04.022 Theorem 9"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Graph-geodesic interval closure and definite Horn implications are equivalent descriptions by rule validity; searches included shortest-path, geodesic convexity and Horn aliases.",
-        "Chepoi arXiv:2405.07512 §4.3.1 defines graph-convex implication bases but does not optimize their total literal weights."
+        "Rule-based and geodesic fixed-point models agree for a basis; a hydra representation instead specifies full hulls for its key pairs."
       ],
-      "reasoning": "No matching optimum literal cost = 3M iff geodetic plus exact cycle bases was retrieved. Search absence is not uniqueness proof. The optimum is defined over all set-valued implications, not only unit implicates.",
+      "reasoning": "The hydra formulation explains the full-hull case, not the shorter proper geodesic hulls and mixed-size clauses in cycles.",
       "searches": [
-        "geodesic convexity graph Horn implicational bases optimum size literal count 3 times nonedges iff graph has unique shortest paths geodetic",
-        "odd even cycles shortest path closure logic minimum implicational basis count factorial antipodal pairs",
-        "minimum key Horn representation of geodesic convexity closure graph intervals optimal implications shortest paths",
-        "minimum Horn basis convexities geodetic graph interval operators distance based product enumerate optimum bases"
+        "Chepoi arXiv:2405.07512 §4.3.1",
+        "Sloan–Stasi–Turán arXiv:1504.07753 Definition 2.1 and Proposition 3.3"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "No matched prior table of cycle minimum literal costs or optimum-basis factorial counts in checked results.",
-        "The independently calculated values for cycles with 3-10 vertices come from verify.py and are not imported literature."
+        "The indexed Hamming result counts prime unit rules for a single pass. The indexed box result minimizes rule count and overlaps at the four-cycle."
       ],
-      "reasoning": "No exact matching table or database was found; an incomplete indexed search cannot establish absolute originality.",
+      "reasoning": "Neither gives the total literal costs or the odd/even census over unrestricted bases.",
       "searches": [
-        "odd even cycles shortest path closure logic minimum implicational basis count factorial antipodal pairs",
-        "web: \"geodesic convexity\" \"implicational base\" graph",
-        "web: \"cycle\" \"optimal\" \"implicational bases\" geodesic"
+        "Resultary 5074ded0ed82 and 1ecaeca96ad2",
+        "Resultary crown geodesic closure and literal optimization"
       ]
     },
-    "rationale": "Actual mathematical research-record searches and accessible historical claims were compared with the exact pair-premise tightness criterion and cycle factorial enumeration. Closest public full-text works concern general convex-geometry optimization or graph-geodesic semispace enumeration; the full theorem, especially even-cycle optimum bases outside anti-exchange, is not directly implied. Alternative graph-betweenness Horn literature remains a residual novelty risk.",
+    "rationale": "The scoped assessment concerns all optimum bases on geodetic graphs and the exact total-literal costs and census for both cycle parities. Crown tightness is included only as an example and receives prior-work credit.",
     "residual_risks": [
-      "Potential older coverage under shortest-path transit functions, graph betweenness implications, or reduced Horn formulas not recovered in search.",
-      "The semispace paper was materially read in its relevant implications section but not exhaustively page-by-page in all sections.",
-      "Independent priority or publication review has not been performed."
+      "Equivalent grouped-literal counts might appear under graph betweenness, transit-function bases or Horn minimization. The targeted comparisons are not exhaustive."
     ],
     "source_inspections": [
       {
-        "assessment": "The paper establishes NP-hardness and basis-shortening facts for convex geometries, but contains no graph-geodesic shortest-path optimum-cost or cycle-basis enumeration. The finding does not claim NP-hardness is new.",
+        "assessment": "Implies tightness once a crown has full nonedge hulls; that full-hull hypothesis is not available for the entire cycle census.",
         "evidence": [
-          "arXiv 2211.08524v1 pp. 1-3 defines total literal-weight optimum basis",
-          "Theorem 3 on pp. 5-6 is NP-hardness for convex geometries; Theorem 4 is a convex geometry recognition result"
+          "Hamiltonian graphs are single-headed in Definition 3.2's sense."
         ],
-        "identifier_or_url": "https://arxiv.org/pdf/2211.08524",
-        "material_read": "Eight-page article: introduction, definitions, Theorems 1, 3, 4, their proofs and references, including pp. 1-8",
-        "method": "Read parsed PDF text and inspected page image at page 2 (one-indexed)",
-        "title": "Complexity Results for Implication Bases of Convex Geometries",
-        "trigger": "Same literal-weight optimum-basis optimization and possible dominating general theorem"
+        "identifier_or_url": "https://arxiv.org/pdf/1504.07753",
+        "material_read": "Definition 2.1, Definition 3.2, Proposition 3.3, Theorem 4.2",
+        "method": "OA PDF passages",
+        "title": "Hydras: Directed Hypergraphs and Horn Formulas",
+        "trigger": "One unit rule per nonedge for full pair hulls"
       },
       {
-        "assessment": "The relevant section uses implications to represent convexity and studies enumerating semispaces; no optimum weighted Horn basis cost or exact all-optimum counting is furnished there. Remaining chapters were not exhaustively searched for all alternate terminology.",
+        "assessment": "Representation and semispace enumeration, not total-literal optimization.",
         "evidence": [
-          "§4.3.1 remarks that graph-geodesic convexity has bounded-arity implication bases and poses semispace translation questions",
-          "Theorem 9 concerns semispace enumeration in S3 graphs, rather than minimization of literal count"
+          "Discusses translation of implicational bases into semispace representations."
         ],
         "identifier_or_url": "https://arxiv.org/pdf/2405.07512",
-        "material_read": "Section 4.3.1 on implications and semispace translation, PDF pp. 21-23, plus abstract and surrounding theorem statements",
-        "method": "Opened searchable original arXiv PDF and inspected actual result and discussion",
+        "material_read": "§4.3.1 p. 22",
+        "method": "OA PDF passage",
         "title": "Separation axiom S3 for geodesic convexity in graphs",
-        "trigger": "Same geodesic graph convexity and explicit reference to implicational bases"
+        "trigger": "Graph-geodesic implication bases"
       },
       {
-        "assessment": "Its general characterization is conditional on anti-exchange convex geometries. Graph geodesic convexity of cycles C4 and C5 violates anti-exchange; it cannot directly imply the cycle theorem. It may cover some tree/poset special cases, which are not claimed independently novel.",
+        "assessment": "Does not directly apply to cycle closures that fail anti-exchange.",
         "evidence": [
-          "§4.1 treats order-convexity of posets, not all-shortest-path graph closure",
-          "Explicit C4 anti-exchange failure: closed {0,1}, adding 2 forces 3 and adding 3 forces 2"
+          "Uses minimum hitting sets of quasi-closed hypergraphs for convex geometries."
         ],
         "identifier_or_url": "https://arxiv.org/pdf/2603.14615",
-        "material_read": "Abstract, Introduction, Theorems 2 and 3, §4.1 on double-shelling convex geometries and the minimum hitting-set construction",
-        "method": "Opened original preprint and inspected search hits for geodesic and graph",
+        "material_read": "Theorem 1 p. 3, definitions p. 5",
+        "method": "OA PDF passages",
         "title": "Characterizing the optimum bases of a convex geometry using quasi-closed hypergraphs",
-        "trigger": "Potentially dominating general 2026 optimum-basis characterization"
+        "trigger": "All optimum bases for the same cost convention"
+      },
+      {
+        "assessment": "Gives the full-hull observation used in the crown example, not the general cycle basis census.",
+        "evidence": [
+          "Its t=1 case applies with at least five vertices per shore and one missing opposite-shore neighbor per vertex."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-bipartite-defect-threshold-for-geodesic-convexity-rigidity--369daf4b0d28/RESULT.md",
+        "material_read": "Finding and Proof (1)–(3)",
+        "method": "Published source mirror",
+        "title": "Sharp bipartite defect threshold for geodesic-convexity rigidity and online shattering",
+        "trigger": "Full nonedge hulls for crowns"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "self_review",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "9a065166-f3e6-491e-9946-c9e5635b907d",
-  "self_review_status": "passed",
   "value": {
-    "rationale": "Optimization of Horn representations is a natural hard problem. Geodesic graph closure provides a canonical finite logic where the global optimum is controlled exactly by a shortest-path uniqueness property, including a converse obstruction. Complete classification and multiplicative enumeration of optimum bases for all geodetic graphs and both parity families of cycles, with a nontrivial antipodal literal penalty, are mathematically motivated structural invariants rather than routine numerical instances. The result does not claim a general nongeodetic algorithm.",
+    "rationale": "The exact arbitrary-rule cost and all-optima descriptions quantify how ambiguity of shortest paths affects efficient descriptions on cycles. The distinct even-cycle effect persists for all sizes; the counterexample prevents interpreting it as a universal metric characterization.",
     "status": "PASS"
   }
 }

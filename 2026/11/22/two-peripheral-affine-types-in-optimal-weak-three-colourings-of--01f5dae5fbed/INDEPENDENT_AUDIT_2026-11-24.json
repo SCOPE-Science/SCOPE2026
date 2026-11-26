@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:30:54.852794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A five-point cap would use all four lines through every one of its points to meet its four other points. Then no line meets it once, and the four lines through an exterior point partition the five points into subsets of even size, a contradiction. Two colours cannot cover nine points by caps, and valid three-colour assignments exist. Inclusion–exclusion over subsets of the 12 monochromatic-line events uses q to the number of equivalence classes forced by selected lines; all 4096 subsets independently gave nonzero (degree, coefficient) pairs (9,1),(7,−12),(5,66),(4,−72),(3,−4),(2,27),(1,−6), with the stated factorization. The independent implementation tested every named word of length nine, generated all 432 affine maps and six palette permutations, and performed BFS from every state with edges exactly the proper single-point changes. It reproduced 3762 vertices, 16848 edges, and orbit (size, sorted class sizes, rainbow signature, degree, eccentricity) rows (144,333,0003,9,10), (162,144,0000,8,10), (864,333,0111,9,9), (1296,234,0002,9,9), (1296,234,0011,9,9). All searches reached all vertices. Each of exactly 306 peripheral states has two distance-ten antipodes, producing exactly 306 unordered diametral pairs; the full unordered histogram also matches. Replay: python3 /workspace/branches/6d4f8982-35b5-444e-9a4a-3c5d8b945a3e/verify_independent.py; its exact output is independent_run.txt in that directory. Supplied checker sources were inspected, not run. The argument exhausts the stated plane, palette and move rule; it is not an extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozik–Shabanov give sufficient degree bounds for simple uniform hypergraphs; Bhattiprolu–Guruswami–Lee study proper hypergraph colouring and approximation/complexity.",
+          "Bonsma–Paulusma define single-vertex adjacency for graph colouring; ordinary graph colouring prohibits pair equality along graph edges, unlike this weak triple constraint."
+        ],
+        "reasoning": "Existence and general reconfiguration frameworks are not an evaluated chromatic polynomial, graph metric, or antipode classification. No applicable general theorem yielding the target values by specialization was identified. The focused lookup was bounded and not proof of absence.",
+        "searches": [
+          "arXiv:1409.6921",
+          "arXiv:1509.06357",
+          "arXiv:1506.06444",
+          "Focused primary-literature lookup for exact affine-plane weak-colouring counts and recolouring"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_orbits.py, verify_all_pairs.cpp",
+        "Resultary 01f5dae5fbed, d7d2f7c0a1ae, 8979f0047aa2, 7bff204e2bc4",
+        "arXiv:2004.04514v2, 1409.6921, 1509.06357, 1506.06444"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The compressed affine/palette orbits plus metric require exhaustive coverage of this particular triple constraint and edges; the present computation establishes that coverage.",
+          "The deleted-plane results concern weak/strong chromatic numbers and blocking sets. The comparisons give neither distances on the full-plane state space nor an identified implication for the two eccentricity-ten types."
+        ],
+        "reasoning": "The use of standard inclusion–exclusion and BFS is not itself novel, and a weak chromatic number alone has no metric implications. The distinct information is the full evaluation and the classification of slow-to-connect pairs by intrinsic signatures.",
+        "searches": [
+          "Erskine–Griggs–Širáň arXiv:2004.04514v2, configuration and results passages",
+          "Bonsma–Paulusma arXiv:1509.06357, graph adjacency",
+          "Resultary 8979f0047aa2 and d7d2f7c0a1ae Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Erskine–Griggs–Širáň's weak colouring is the same no-monochromatic-block rule, but their 8_3 configuration deletes a point and its incident blocks from AG(2,3).",
+          "The lean-colouring record d7d2f7c0a1ae instead requires every line to be monochromatic or rainbow; its three-name specialization in order 3 gives 24, not 3762."
+        ],
+        "reasoning": "Neither changing the admissibility condition nor deleting a point gives an equivalent labelled space. A weak colouring of the deletion need not have a specified number of valid extensions, and a path in the deletion does not determine paths in the full plane.",
+        "searches": [
+          "Resultary semantic lookup for affine-plane and Steiner triple configuration weak colouring counts and recolouring orbits",
+          "Resultary d7d2f7c0a1ae",
+          "arXiv:2004.04514v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "01f5dae5fbed is the identical assigned record; the exact catalogue hit is not independent priority evidence.",
+          "8979f0047aa2 gives 120 AG(2,4) named bicolourings connected under six-point changes, radius and diameter three and a complement antipode. The Fano-plane record 7bff204e2bc4 counts 882 weak named three-colourings with Fourier data. The lean spectrum counts different assignments."
+        ],
+        "reasoning": "The AG(2,4) comparison is an exact metric for a different plane, palette and adjacency, and the Fano and lean tables do not give this space. Same-day catalogue dating cannot determine priority; these are materially different claims.",
+        "searches": [
+          "Resultary for the labelled AG(2,3) weak proper three-colouring census, full chromatic polynomial and recolouring diametral pairs",
+          "Resultary 01f5dae5fbed, 8979f0047aa2, 7bff204e2bc4, d7d2f7c0a1ae"
+        ]
+      },
+      "rationale": "The supported distinction is the exact full-plane named-colouring census and the orbit-resolved single-point metric, not the weak colouring definition, the cap obstruction in isolation, or the generic notion of a recolouring graph. No compared statement established the joint affine peripheral criterion and distances or the enumerative package.",
+      "residual_risks": [
+        "An unindexed exact census of affine nine-point (Steiner triple) colourings, or an older exhaustive table of the labelled reconfiguration graph, could bear on priority. Bounded queries and relevant passages do not establish global absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rules match; deletion and chromatic/blocking invariants differ",
+          "evidence": [
+            "No block is monochromatic; the unique 8_3 configuration is obtained by deleting a point and its blocks from AG(2,3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.04514",
+          "material_read": "v2 PDF pp. 1–2, OA offsets 3600, 6170, 7850",
+          "method": "OA primary paper text",
+          "title": "Colouring problems for symmetric configurations with block size 3",
+          "trigger": "Same weak colouring rule and nearby affine configuration"
+        },
+        {
+          "assessment": "Sufficient colourability bounds, not exact metric or counts",
+          "evidence": [
+            "Proper hypergraph colouring and edge-degree bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.6921",
+          "material_read": "PDF p. 1, offsets 444 and 1650",
+          "method": "OA paper text",
+          "title": "Improved algorithms for colorings of simple hypergraphs and applications",
+          "trigger": "Broad same-rule hypergraph colouring literature"
+        },
+        {
+          "assessment": "Related adjacency, ordinary graph constraints",
+          "evidence": [
+            "Solution graph connects ordinary proper k-colourings by single-vertex changes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.06357",
+          "material_read": "PDF p. 1, offset 4300",
+          "method": "OA paper text",
+          "title": "Using Contracted Solution Graphs for Solving Reconfiguration Problems",
+          "trigger": "General recolouring solution-space machinery"
+        },
+        {
+          "assessment": "Complexity/approximation, not the claimed finite census",
+          "evidence": [
+            "Proper hypergraph colouring under promises."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.06444",
+          "material_read": "PDF p. 1, offset 700",
+          "method": "OA paper text",
+          "title": "Approximate Hypergraph Coloring under Low-discrepancy and Related Promises",
+          "trigger": "Broader same-rule hypergraph colourability"
+        },
+        {
+          "assessment": "Different admissibility; not exact or implied coverage",
+          "evidence": [
+            "Every line monochromatic or rainbow; three-name lean count 24 in order 3."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-parallel-class-rigidity-and-full-lean-colouring-spectrum-of-fini--d7d2f7c0a1ae",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2701 and 1950–3634",
+          "method": "Resultary local mirror",
+          "title": "Parallel-class rigidity and full lean colouring spectrum of finite affine planes",
+          "trigger": "Strongest earlier catalogue match: affine plane, named-palette polynomial and classification"
+        },
+        {
+          "assessment": "Different affine order, palette, and move rule",
+          "evidence": [
+            "120 named bicolorings in AG(2,4), six-point changes, radius=diameter=3, unique complement antipode."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-six-point-recolouring-of-affine-plane-bicolorings--8979f0047aa2",
+          "material_read": "RESULT.md Finding offsets 0–2559 and six-flip passage 6600–8361",
+          "method": "Resultary local mirror",
+          "title": "Sharp six-point recolouring of affine-plane bicolorings",
+          "trigger": "Closest catalogue metric overlap"
+        },
+        {
+          "assessment": "Different incidence structure and Fourier invariant",
+          "evidence": [
+            "882 weak proper three-colourings of the seven-point Fano plane."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-complete-ternary-fourier-recovery-for-weak-colourings-of-the-fan--7bff204e2bc4",
+          "material_read": "RESULT.md Finding, offsets 0–1867",
+          "method": "Resultary local mirror",
+          "title": "Complete ternary Fourier recovery for weak colourings of the Fano plane",
+          "trigger": "Small plane, same palette and weak colouring rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This smallest affine plane with triple lines is a canonical symmetric test of optimal weak-colouring dynamics, not a specially selected input graph. Connectivity, exact worst-case change count and antipode multiplicity distinguish the metric from mere feasibility. Recovering the extremal states from intrinsic colour-class and parallel-rainbow structure makes the census useful for questions about small symmetric reconfiguration spaces; the polynomial and complete orbit table provide coherent exact baselines. No higher-order conclusion is assumed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

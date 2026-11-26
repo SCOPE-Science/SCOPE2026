@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:29:30.965386Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Prue–Scrimshaw, Theorem 3.2 and the paragraph following it, explicitly give the sufficient subdivision criterion for unlabeled configurations. After one subdivision every path between distinct essential vertices has length at least two and every homotopically essential closed path has length at least six, satisfying the bounds two and four for three particles. In the resulting unordered cubical complex, three-cells are precisely 3-edge matchings, there are no four-cells, and the boundary has the six signed endpoint replacements. I independently generated the signed row incidence, obtaining (c2,c3)=(1386,432),(3840,1296),(8190,2880),(14976,5400). Sparse elimination over F3 (the frozen verifier uses F2) returned ranks 432,1296,2880,5398, bounding the rational nullities by 0,0,0,2. For the two alternating face triples the factors are vertex-disjoint squares, so their subdivided products embed in the cubical configuration space and represent the proposed geometric tori. The two signed 512-term chains have zero integer boundary, and top-rim coordinate evaluations on the two chains give the identity matrix. The rational upper bound is attained, and these integer-valued evaluations force integer coefficients on every integral cycle in this rational span. Thus the generators are a full integral basis, not only independent modulo a prime. Replay: python3 /workspace/review-evidence/topology.py prism; output prism.log. No lower degrees or larger circumferences audited.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The asymptotic theorem is over a field with the particle count tending to infinity for a fixed graph. Section 5.6 of Maciążek–Sawicki gives higher homology results on K_{2,p}, a different host family."
+        ],
+        "reasoning": "An asymptotic leading term does not imply the dimension or integral basis at three particles; K_{2,p} and the circular prisms have different edge and valence structure.",
+        "searches": [
+          "Asymptotic homology of graph braid groups arXiv:2005.08286v2 Theorem 1.1",
+          "Maciążek–Sawicki 10.1007/s00220-019-03583-5 §5.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0909.5511 Theorem 3.2",
+        "arXiv:2005.08286v2 Theorem 1.1",
+        "doi:10.1007/s00220-019-03583-5 Table 1 and §5.6",
+        "2026/11/22/SCOPE-first-third-homology-in-circular-ladder-general-position-complex--66956fa3cd10",
+        "2026/11/22/SCOPE-cuboctahedral-three-particle-top-homology-and-the-sharp-hexagon--13180a65bc87",
+        "2026/10/18/SCOPE-dihedral-and-layer-swap-homology-of-two-particle-prism-configura--ee54b24c1698"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stable equivalence gives a cubical model but not the kernel dimension or lattice basis; two-particle prism results and product cycles in the cuboctahedral graph do not identify which three-cell products span in a six-prism."
+        ],
+        "reasoning": "Existence of disjoint product cycles alone supplies a lower bound, not the vanishing in smaller prisms nor their spanning and saturation in H3 at six.",
+        "searches": [
+          "Prue–Scrimshaw arXiv:0909.5511 Theorem 3.2 and unlabeled extension",
+          "An–Drummond-Cole–Knudsen Theorem 1.1; Resultary ee54b24c1698, 13180a65bc87, 66956fa3cd10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stable equivalence identifies the subdivided unordered cubical configuration space with the continuous configuration space under stated subdivision conditions.",
+          "The similar circular-ladder general-position record 66956fa3cd10 uses a geodesic avoidance complex on graph vertices, not stationary or moving particles on a geometric graph."
+        ],
+        "reasoning": "Both labeled versus unlabeled particles and geodesic avoidance versus pairwise distinct positions change the problem; the valid unordered cubical model is a reformulation, not an existing computation of its homology.",
+        "searches": [
+          "Resultary unordered three-particle prism graph braid homology, circular ladder and product tori",
+          "Prue–Scrimshaw arXiv:0909.5511, Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching catalogue entry is the assigned record itself. The distinct ee54b24c1698 entry concerns two particles and H2 on these prisms, and 13180a65bc87 treats three particles on the cuboctahedral graph. Table 1 reports selected K4, K3,3, and K5 values; the triangular prism is not K3,3 (it contains triangles)."
+        ],
+        "reasoning": "The consulted exact computations do not contain the same graph/particle/degree combination in a distinct source.",
+        "searches": [
+          "Resultary exact three-unordered-particle H3 of C_n square K2; alternating square tori",
+          "Maciążek–Sawicki Table 1, PDF offset 89150"
+        ]
+      },
+      "rationale": "The strongest inspected matching topics differ by point configuration versus geodesic general position, by graph, by number of particles, or by fixed-size versus asymptotic range. The exactly matching Resultary hit was this same record. Neither the subdivision theorem nor existing general asymptotic results supply the claimed finite integral ranks and primitive basis.",
+      "residual_risks": [
+        "An unindexed exact small-graph computation, especially a census of unordered graph configuration homology, could contain these prism cases; the bounded comparison does not establish comprehensive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Applies to the model, no prism rank or lattice calculation supplied",
+          "evidence": "Requires paths between distinct essential vertices of length at least particle count minus one, and homotopically essential loops of length at least particle count plus one; explicitly extends to unlabeled spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/0909.5511",
+          "material_read": "Theorem 3.2, PDF p. 2, and the immediate unlabeled extension, offset 9770–10808",
+          "method": "OA PDF primary passage",
+          "title": "Abrams's stable equivalence for graph braid groups",
+          "trigger": "Exact cubical-to-continuous equivalence and sufficient subdivision"
+        },
+        {
+          "assessment": "Wrong parameter regime to settle the finite integral finding",
+          "evidence": "Fixed graph and particle count tending to infinity over a field.",
+          "identifier_or_url": "https://arxiv.org/html/2005.08286v2",
+          "material_read": "§1, Theorem 1.1, HTML offset 1400",
+          "method": "OA full-text source, bounded theorem passage",
+          "title": "Asymptotic homology of graph braid groups",
+          "trigger": "Plausibly broader results on configuration homology"
+        },
+        {
+          "assessment": "Nearby graph families, not these prisms",
+          "evidence": "Table 1 covers selected complete and complete bipartite graphs, and the general formula in §5.6 concerns K_{2,p}.",
+          "identifier_or_url": "https://doi.org/10.1007/s00220-019-03583-5",
+          "material_read": "Table 1, PDF offset 89150 and §5.6, printed p. 965, PDF offset 138800",
+          "method": "Primary PDF, targeted table and theorem passages",
+          "title": "Non-abelian Quantum Statistics on Graphs",
+          "trigger": "Computes higher graph configuration homology and includes tables"
+        },
+        {
+          "assessment": "Different topological space",
+          "evidence": "Uses geodesic general-position faces, reporting vanishing through circumference seven and rank four at eight, not the unordered configuration of three points.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-third-homology-in-circular-ladder-general-position-complex--66956fa3cd10",
+          "material_read": "RESULT.md Finding and object definition",
+          "method": "Resultary and local-mirror statement comparison",
+          "title": "First third homology in circular-ladder general-position complexes",
+          "trigger": "Near-exact title, same graph and degree"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first four prisms are a natural fixed-particle progression in which vanishing precedes a concrete change in the geometry of simultaneous motions. At six, the two alternating square products account for all integral three-dimensional homology. This is more useful than just a Betti number: the primitive basis identifies actual simultaneous motions that could be used in studying actions or homology pairings, and absence of hidden classes in smaller prisms does not follow merely from the lack of these tori.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:20:52.094572Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–3; VERIFICATION.md and verify.py inspected as submitted evidence"
+      ],
+      "rationale": "The conjugacy (u,v)=(cx,y) is invertible for either sign of the nonzero c. Closure in the second coordinate of a two-step orbit forces u_1=-u_0; if u_0=0 it is a fixed point. Otherwise each scalar first-coordinate factor must be -1. The two v coordinates have equal square -a/2-1 but differ, so they are opposite and nonzero. This gives a single geometric orbit for a<-2 and none at or above -2, including the collision at a=-2. At its two points the one-step Jacobian is the same matrix with diagonal -1,1 and off-diagonal entries -8t^2/(1+t^2),1. Squaring yields the claimed scalar lambda=-7-16/a, independently of c. Its modulus is below one exactly on (-8/3,-2); the smooth return contracts there and is locally expanding with nonsingular derivative for a<-8/3. At -8/3 the double multiplier is -1 and no nonlinear stability is inferred. For the zero multiplier at a=-16/7, expand the first component u g(v)g(v+u) at (-2t,t), with t=1/sqrt(7), g(±t)=-1, g'(t)=sqrt(7)/2 and g''(±t)=7/4. The quadratic terms for increments (h,k) are sqrt(7)(3h^2/4+hk+k^2), giving exactly the stated nonzero Hessian. Odd symmetry transfers the degeneracy to the other point. The exact algebra verifies the all-real statement independently of the sampled parameters in the supplied verifier.",
+      "residual_risks": [
+        "Neither the nonlinear behavior at a=-8/3 nor cycles of least period greater than two are classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang et al. calculate the fixed-line stability and report numerical two-cycle and higher-period behavior",
+          "The candidate Tikjha–Muni study focuses on a different rational map, and its full text was not recovered",
+          "The indexed Rulkov and Duffing results are family-specific classifications"
+        ],
+        "reasoning": "Known fixed-point stability and portraits do not imply global exhaustiveness for primitive two-cycles or an exact matrix identity at them. No covering general theorem was identified in the actual compared material.",
+        "searches": [
+          "Zhang et al. Case I and bifurcation discussion",
+          "Literature lookup for explicit planar rational-map two-cycles, return multipliers and bifurcations",
+          "Resultary exact census and stability comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Zhang et al. DOI:10.1088/1674-1056/ac4025",
+        "Local Resultary cc95e26c74ab, 7ffcf1ae63a3, 2ce947f222b3 and 7b5d143a6371",
+        "Tikjha–Muni citation and access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The numerical onset and transition are near the two exact boundaries",
+          "The same-family Resultary record separates positive-quadrant escape regimes at a=-1 and excludes cycles there"
+        ],
+        "reasoning": "The exact bounds are not obtained merely by rounding the numerical transitions. The return constraint forces opposite positions and equal trace-zero Jacobians, which additionally provides a double scalar multiplier and a unique zero-matrix return. Neither the numerical data nor the monotonicity result in a disjoint slice supplies that implication.",
+        "searches": [
+          "Zhang et al. Case I (publisher PDF pp. 4–5)",
+          "Resultary 7b5d143a6371 and cc95e26c74ab"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang's Case I is exactly the zero-drive map; the numerical diagrams use c=0.1, which is conjugate to any nonzero c by scaling x",
+          "Tikjha–Muni's displayed map has a different first-coordinate factor and y drift",
+          "Resultary 7b5d143a6371 uses the same zero-drive family but at a=-1 and in the positive quadrant"
+        ],
+        "reasoning": "The positive studied coupling is not a new equivalent map, and no novelty is credited for rescaling it. Coverage in the exact same map is numerical or confined to a different region and parameter, not the exact cycle theorem. No conjugacy to the Tikjha–Muni model is established by the available material.",
+        "searches": [
+          "Local Resultary: primitive/prime period-two orbit census and scalar Floquet multiplier for planar rational maps",
+          "Zhang et al. DOI:10.1088/1674-1056/ac4025",
+          "Tikjha and Muni DOI:10.1007/s40435-025-01673-y"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zhang et al. plot a two-cycle at a=-2.1, c=0.1 and report a transition near a=-2.667",
+          "Resultary cc95e26c74ab gives a 0,1,2,1 orbit census and two sink bands for a different fixed-point-free quadratic map",
+          "7ffcf1ae63a3 gives a Rulkov census with at most two cycles; 2ce947f222b3 gives a Duffing sink boundary with return multipliers -1 and -b^2"
+        ],
+        "reasoning": "The plots do not certify exact counts or boundaries throughout the real parameter range. The exact indexed results cover different maps and do not give a scalar identity or the zero matrix at a=-16/7 here. No relative priority is inferred from the same catalog date.",
+        "searches": [
+          "Local Resultary search for exact cycle counts, exact parameter boundaries and scalar Floquet degeneracy",
+          "Zhang et al. Fig. 2"
+        ]
+      },
+      "rationale": "The zero-drive model and numerical appearances of period two are already known. No inspected same-model source supplies the whole-plane exact census, scalar return identity, exact local stability interval, or exact quadratic degeneracy. The closest indexed classification analogues act on different maps; the later same-family escape result uses a disjoint parameter regime and restricted initial states.",
+      "residual_risks": [
+        "The full Tikjha–Muni article was not retrieved; possible broader coverage there remains unresolved. The searches do not establish historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map and relevant numerical evidence; no exact primitive-cycle theorem in the relevant sections",
+          "evidence": "Numerical period-two orbit at (a,b,c,d)=(-2.1,0,0.1,0) and reported higher-period transition near -2.667; fixed-line analysis is a different linearization.",
+          "identifier_or_url": "https://doi.org/10.1088/1674-1056/ac4025",
+          "material_read": "Publisher PDF p. 4, printed p. 030503-3, Case I, and p. 5, printed p. 030503-4, Fig. 2 caption",
+          "method": "Open publisher paper and statement/parameter comparison",
+          "title": "A class of two-dimensional rational maps with self-excited and hidden attractors",
+          "trigger": "Original paper using exactly the zero-drive map and reporting period-two behavior"
+        },
+        {
+          "assessment": "Different map and overlapping classification objective, not equivalent coverage",
+          "evidence": "Counts 0,1,2,1 across exact boundaries with two sink bands; the zero-drive rational map instead has a line of fixed points and at most one primitive two-cycle.",
+          "identifier_or_url": "Resultary:cc95e26c74ab",
+          "material_read": "Local indexed RESULT.md finding",
+          "method": "Local mirror statement comparison",
+          "title": "Two disjoint attracting two-cycle bands in a fixed-point-free quadratic map",
+          "trigger": "Same-date whole-plane primitive-two census and exact sink intervals"
+        },
+        {
+          "assessment": "Different rational family and stability structure",
+          "evidence": "At most two real prime-two orbits and coexistence of a stable fixed point with an attracting and a saddle two-cycle at parameters (2,5,1/1000).",
+          "identifier_or_url": "Resultary:7ffcf1ae63a3",
+          "material_read": "Local indexed RESULT.md finding",
+          "method": "Local catalog statement comparison",
+          "title": "Exact prime-two orbit census and coexistence wedge for the Rulkov map",
+          "trigger": "Earlier exact rational-map census"
+        },
+        {
+          "assessment": "Duffing-map theorem; not a specialization to this rational map",
+          "evidence": "Boundary multipliers -1 and -b^2, rather than the scalar return identity on an interval.",
+          "identifier_or_url": "Resultary:2ce947f222b3",
+          "material_read": "Local indexed RESULT.md finding",
+          "method": "Local catalog statement comparison",
+          "title": "Complete prime-period-two spectrum and the sharp sink boundary",
+          "trigger": "Exact sink boundary and return multipliers in a planar map"
+        },
+        {
+          "assessment": "Different regime and theorem",
+          "evidence": "Positive-quadrant initial states at a=-1 and c>0; trichotomy at cxy=1 and exclusion of nonconstant periodic orbits in that quadrant.",
+          "identifier_or_url": "Resultary:7b5d143a6371",
+          "material_read": "Local indexed RESULT.md finding",
+          "method": "Local mirror statement comparison",
+          "title": "An exact hyperbolic escape boundary with square-root critical motion",
+          "trigger": "Indexed result on the same parent map and zero-drive slice"
+        },
+        {
+          "assessment": "Different displayed map; any broader result remains unverified",
+          "evidence": "Displayed map is (-alpha*x/(1+y^2), x+beta*y), without the additive x contribution in the first component.",
+          "identifier_or_url": "https://doi.org/10.1007/s40435-025-01673-y",
+          "material_read": "Available citation and defining-map description only",
+          "method": "DOI/publisher and alternate lawful-copy access attempts did not recover full text",
+          "title": "Explicit 2-cycle solutions and bifurcation structures in a non-invertible planar rational map",
+          "trigger": "Plausible earlier exact rational-map two-cycle analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof §§1–3",
+        "Zhang et al. Case I and Fig. 2"
+      ],
+      "rationale": "The zero-drive slice is the same fixed-line regime previously studied by numerical bifurcation diagrams. The complete low-period census and exact endpoints turn those observations into a global count and a local stability classification. The scalar return is more informative than coincident numerical eigenvalues: it vanishes at a definite parameter and gives genuine quadratic attraction. The simple algebra addresses a motivated question about this published model rather than an arbitrary isolated slice or parameter sample.",
+      "residual_risks": [
+        "The result does not explain the nonlinear neutral transition or classify higher-period dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

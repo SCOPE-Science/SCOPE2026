@@ -1,15 +1,21 @@
-# Scientific review: cyclic looped Cayley evolution algebras
+# Independent mathematical audit
 
-## Correctness — PASS
-The original product is \(xy=(I+S)(x\circ y)\), and the kernel of \(I+S\) in characteristic two is precisely the constant-coordinate line. For a multiplicative map the nonzero images of distinct basis vectors must have coordinatewise product either zero or a nonzero constant vector. If one pair has nonzero product, the three-column argument and injectivity of Frobenius force every image into the constant line; the square equation then makes all image scalars equal. If every cross-product vanishes, all \(n\) nonempty column supports are disjoint in \(n\) positions, giving a monomial map; the original square equations force a cyclic rotation with all coefficients one. These two classes are disjoint and exhaust all maps, proving the rank count and full composition law. The only nonzero proper ideal is the square ideal. Its complement is square-zero only in odd dimension because the vector of all ones lies outside the square ideal exactly in odd dimension. Direct exhaustive original-identity checks cover all 512, 65,536 and 262,144 linear maps in the stated three finite cases. The proof, not finite enumeration, establishes the general statement. Boundary hypotheses \(n\ge3\), characteristic two, nonunital algebra and unrestricted endomorphisms are explicit.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The Cayley evolution algebra construction and 2022 motivating paper are credited; its regularity hypothesis excludes the singular two-support cyclic matrix considered here. The preexisting general natural-basis/monomial-rigidity results are likewise credited and are not restated as novel. The inspected complete endomorphism classification for nilpotent chain evolution algebras has a different multiplication law and, crucially, every intermediate positive rank, so it cannot imply the present exact rank gap. Perfect permutation-cycle results require invertible structure matrices; random singular evolution algebra rigidity is probabilistic and concerns automorphisms rather than the full endomorphism monoid. General ideal-theoretic work does not determine the parity of this extension's algebra section. Search coverage does not imply global uniqueness, and specialized non-indexed classifications remain a risk.
+PASS
 
-## Mathematical value — PASS
-This is a complete all-dimensional endomorphism-monoid classification for a natural nonperfect, strongly connected cyclic Cayley family. Its forbidden intermediate ranks, complete composition table, three-element ideal lattice and parity-dependent splitting give an exact structural counterpart to established perfect and nilpotent evolution-algebra families. All these are natural invariants of the same object, rather than arbitrary slices or small computational improvements.
+The basis-product constraints are equivalent to the original bilinear multiplicativity identity. The square equations propagate any zero column around the cycle. Otherwise the product of any two distinct columns is coordinatewise constant. A nonzero such product forces one column and then every other column to be everywhere nonzero; using two different other columns forces its inverse coordinates to have the same square. This uses n≥3 and injectivity, not surjectivity, of squaring. The square equations then force the constant-column images to agree. In the other branch all n supports are nonempty and disjoint in n positions, so each is a singleton. Comparing the square equation first at the support positions and then at their coefficients gives exactly rotations with unit coefficients. Both families preserve the defining products. The rank and count follow; composition of two line maps multiplies their scalars by n in the field. Multiplying an element of a nonzero ideal by one basis element and iterating gives every basis square; their span is the coordinate-sum hyperplane. The square-zero line is the constant line, which gives an algebra section precisely in odd dimension, and the monoid calculation gives exactly the listed idempotent retractions.
 
-## Closest literature, limits and risks
-Costoya–Muñoz–Tocino–Viruel, arXiv:2207.01335v1 (2022-07-04); Boudi–Cabrera Casado–Siles Molina, arXiv:2006.14460; the published complete nilpotent-chain endomorphism result (https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-endomorphism-monoid-and-reduced-endomorphism-variety-of-chain-ev--bb8c934f4813); and random singular evolution-algebra rigidity (https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-random-singular-evolution-algebras-are-asymptotically-rigid-over--6c834a318056). The result is restricted to characteristic two and cycle length at least three. The general endomorphism scheme and broader historical priority remain unproved. Independent mathematical validation remains absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Cayley construction and monomial automorphism rigidity are known. The inspected results do not give the full unrestricted endomorphism monoid of this singular family, in particular the rank-one branch, its parity-dependent multiplication and the square-ideal splitting. Priority is assessed relative to the evidence inspected.
+
+## value
+
+PASS
+
+This determines a natural invariant not captured by automorphism results: in a strongly connected but singular family it simultaneously rules out every intermediate rank and determines multiplication of the nonunits. The parity switch has a concrete algebraic consequence, the existence of a complementary zero-product subalgebra to the square ideal. The finite-field count is a useful exact consequence rather than the sole contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,121 +1,73 @@
-# A finite-mean-risk regime for independently sampled Fourier frames
+# The exact inverse-moment threshold for independently sampled Fourier frames
 
 ## Finding
 
-Let \(N\ge3\) and \(m\ge N\) be integers. Draw \(Z_1,\ldots,Z_m\) independently and uniformly from the complex unit circle. Form the unnormalized consecutive-frequency sampling matrix
+Fix integers \(m\ge N\ge3\). For independent Haar-uniform points \(Z_1,\ldots,Z_m\) on the complex unit circle, put
 \[
-A_{m,N}=(Z_j^k)_{1\le j\le m,\ 0\le k<N},\qquad
-\Lambda_{m,N}=\lambda_{\min}(A_{m,N}^*A_{m,N}),\qquad
-R_{m,N}=\operatorname{tr}((A_{m,N}^*A_{m,N})^{-1}).
+A=(Z_j^k)_{1\le j\le m,\ 0\le k<N},\qquad
+\Lambda=\lambda_{\min}(A^*A),\qquad R=\operatorname{tr}((A^*A)^{-1}).
 \]
-The inverse exists almost surely. The following opposing, all-dimension sampling regimes hold:
+The Gram matrix is invertible almost surely. Define \(d=N-1\), \(M=m-1\), and \(\alpha=M/(2d)\). For fixed \(m,N\), there are positive constants \(c,C,s_0\) such that for \(0<s<s_0\),
+\[
+c s^{\alpha}\le \Pr(\Lambda\le s)\le C s^{\alpha}\bigl(1+\log(1/s)\bigr)^{(N-2)M/d}.
+\]
+In particular, for every \(p>0\),
+\[
+\mathbb E[\Lambda^{-p}]<\infty\quad\Longleftrightarrow\quad
+\mathbb E[R^p]<\infty\quad\Longleftrightarrow\quad p<\alpha.
+\]
+The endpoint \(p=\alpha\) diverges. **Mean inverse-Gram risk is finite exactly when \(m\ge2N\)** in the stated range. For three modes the transition is from \(m=5\) (infinite) to \(m=6\) (finite).
 
-**(A) Collision-forced divergence.** For \(N\le m\le2N-1\),
-\[
-\mathbb E[\Lambda_{m,N}^{-1}]=\mathbb E[R_{m,N}]=\infty.
-\]
-More precisely, for fixed \(m,N\), there is \(c_{m,N}>0\) such that
-\[
-\Pr\{\Lambda_{m,N}\le s\}\ge c_{m,N}s^{(m-1)/(2N-2)}
-\]
-for all sufficiently small positive \(s\).
+## Model and statistical interpretation
 
-**(B) Independent-block regularization.** Whenever \(k\ge1\) is an integer and \(m\ge kN\), there is \(C_{N,k}<\infty\), independent of \(m\), such that
+The matrix is unnormalized and uses consecutive integer frequencies. Translating the band multiplies each row by a scalar of modulus one and preserves the Gram matrix. Let \(y=Ax+e\), with \(\mathbb E[e\mid A]=0\) and \(\mathbb E[ee^*\mid A]=\nu I_m\) almost surely for a fixed \(\nu>0\). In particular, these assumptions hold for centered independent noise entries with common variance \(\nu\) when the noise vector is independent of the design. For least squares, \(\widehat x-x=A^\dagger e\) almost surely, so
 \[
-\Pr\{\Lambda_{m,N}\le s\}\le C_{N,k}s^{k/2}
-\bigl(1+\log(1/s)\bigr)^{k(N-2)},\qquad 0<s< s_{N,k},
+\mathbb E[\|\widehat x-x\|_2^2\mid A]
+=\operatorname{tr}\bigl(A^\dagger\mathbb E[ee^*\mid A](A^\dagger)^*\bigr)=\nu R.
 \]
-and hence
-\[
-\mathbb E[\Lambda_{m,N}^{-p}]<\infty\quad\text{for every }0<p<k/2.
-\]
-In particular, for every \(N\ge3\) and \(m\ge3N\),
-\[
-\boxed{\mathbb E[R_{m,N}]<\infty.}
-\]
-For the first nontrivial centered three-frequency model \(N=3\), the average inverse-Gram noise risk is thus infinite for \(m=3,4,5\) but finite for every \(m\ge9\). The interval \(6\le m\le8\) is **not** classified here. The sufficient threshold \(3N\) is not asserted to be optimal.
-
-## Assumptions and scope
-
-The angles are independent Haar-uniform on \([0,2\pi)\); the matrix is complex, unnormalized, and uses consecutive frequencies \(0,\ldots,N-1\). Translating the frequency band by an integer only multiplies rows by unimodular factors and does not alter the Gram spectrum. This includes the centered odd-frequency band used in the motivating study after a harmless frequency translation. All finite-moment constants depend on fixed \(N,k,p\), never on \(m\ge kN\). The assertions concern fixed finite dimensional matrices, not limits in which \(N\) grows. Whenever the additive observation noise has independent centered complex coordinates with common variance \(\nu>0\), the conditional least-squares coefficient error has mean squared norm \(\nu R_{m,N}\). Thus the expectation in (B) gives finite unconditional noise risk; no signal prior is required for full-column-rank least squares.
+Thus its unconditional mean squared error is finite exactly at the threshold above. No prior on \(x\) is needed. Independence among noise coordinates alone does not justify conditioning on the design.
 
 ## Proof
 
-**1. Almost-sure rank.** Any \(N\) rows with distinct nodes form a square Vandermonde matrix of determinant \(\prod_{i<j}(Z_j-Z_i)\). Independence and continuity make the first \(N\) nodes distinct almost surely, so the full matrix has column rank \(N\).
+**Rank and lower tail.** The first \(N\) rows form a square Vandermonde matrix with distinct nodes almost surely, proving full column rank. Write \(B_N^2=\binom{2N-2}{N-1}\). Take the polynomial \(P(z)=(z-Z_1)^d/B_N\), which has unit coefficient norm by the binomial-square identity. When every other node is within circular angular distance \(0<\delta<1\) of \(Z_1\), all chord distances to \(Z_1\) are at most \(\delta\) and
+\[
+\Lambda\le\|AP_{\rm coef}\|_2^2\le m\delta^{2d}/B_N^2.
+\]
+The event has probability \((\delta/\pi)^M\) by conditioning on \(Z_1\). Taking \(\delta=(s B_N^2/(2m))^{1/(2d)}\) gives the lower bound even for \(\Pr(\Lambda<s)\).
 
-**2. Divergence via a multiple-zero test polynomial.** Fix the first sample \(Z_1\). For \(0<\delta<1\), consider the event \(E_\delta\) where every other angle differs from that of \(Z_1\) by at most \(\delta\) in circular angular distance. Its probability is exactly \((\delta/\pi)^{m-1}\). Put
+**Square-subframe estimate.** For a square Vandermonde matrix \(V\) of order \(N\), the \(i\)-th column of \(V^{-1}\) is the coefficient vector of the Lagrange basis polynomial at node \(Z_i\). Its numerator is \(\prod_{j\ne i}(z-Z_j)\), whose coefficient norm is at most \(B_N\) by the triangle inequality for each elementary symmetric sum. For \(L=\lambda_{\min}(V^*V)\),
 \[
-P_\delta(z)=\frac{(z-Z_1)^{N-1}}{\sqrt{\binom{2N-2}{N-1}}}.
+L^{-1/2}\le \|V^{-1}\|_{\mathrm F}\le B_N\sqrt N\max_i\prod_{j\ne i}|Z_i-Z_j|^{-1}.
 \]
-Its coefficient vector has squared Euclidean norm one, by the binomial-square identity and \(|Z_1|=1\). On \(E_\delta\), every \(|Z_j-Z_1|\le\delta\), hence the Rayleigh principle gives
+With \(N\) independent Haar nodes, condition on \(Z_i\) for each term of the maximum. The rescaled distances \(U_j=|Z_i-Z_j|/2\) are conditionally independent with distribution function \((2/\pi)\arcsin u\le u\) on \([0,1]\), using convexity of \(\arcsin\). Hence \(-\log U_j\) is dominated in the usual stochastic order by a rate-one exponential. The sum of \(d\) independent such exponentials has survival function \(e^{-t}\sum_{a=0}^{d-1}t^a/a!\) for \(t\ge0\). Apply the union bound to the maximum and use \(\prod_{j\ne i}|Z_i-Z_j|^{-1}=2^{-d}\exp(\sum_{j\ne i}-\log U_j)\). At threshold \(L\le s\) the sum must be at least \(\log(2^d/(B_N\sqrt{Ns}))\) for one of the \(i\). It follows that for all sufficiently small \(s>0\),
 \[
-\Lambda_{m,N}\le\sum_{j=1}^m|P_\delta(Z_j)|^2
-\le\frac{m\delta^{2N-2}}{\binom{2N-2}{N-1}}.
+q_N(s):=\Pr(L\le s)\le C_N\sqrt{s}(1+\log(1/s))^{N-2}.
 \]
-For sufficiently small \(s\), take \(\delta=(s\binom{2N-2}{N-1}/m)^{1/(2N-2)}\). This proves the displayed small-eigenvalue lower bound. Finally, for \(\Lambda>0\), the layer-cake identity gives
-\[
-\mathbb E[\Lambda^{-1}]
-\ge\int_{1/s_0}^{\infty}\Pr\{\Lambda<1/t\}\,dt;
-\]
-this diverges when \((m-1)/(2N-2)\le1\), precisely \(m\le2N-1\). Since \(R\ge\Lambda^{-1}\), its expectation also diverges.
+The same square law holds when one of the \(N\) nodes is fixed arbitrarily and all others remain independent Haar. Indeed, a common rotation of the nodes multiplies the columns by unit phases; for any fixed first node, rotating it to 1 leaves the remaining iid Haar law unchanged. Thus the conditional distribution given the first node is constant and equals the unconditioned one.
 
-**3. Square-block inverse-tail lemma.** Let \(V\) be an \(N\times N\) Vandermonde matrix from \(N\) independent uniform nodes, and set \(L=\lambda_{\min}(V^*V)\). The coefficient vector of the \(i\)-th Lagrange polynomial is the \(i\)-th column of \(V^{-1}\). Its numerator coefficient squared norm is at most
-\[
-B_N^2=\sum_{r=0}^{N-1}\binom{N-1}{r}^2=\binom{2N-2}{N-1}.
-\]
-Writing \(Q_i=\prod_{j\ne i}|Z_i-Z_j|^{-1}\), it follows deterministically that
-\[
-L^{-1/2}=\|V^{-1}\|_{\mathrm{op}}
-\le\|V^{-1}\|_{\mathrm F}\le B_N\sqrt N\max_i Q_i.
-\]
-Conditional on \(Z_i\), the \(N-1\) variables \(U_j=|Z_i-Z_j|/2\) are independent with
-\[
-\Pr\{U_j\le u\}=\frac2\pi\arcsin u\le u,
-\qquad0\le u\le1.
-\]
-Thus \(-\log U_j\) is stochastically no larger than a standard exponential variable. The sum of \(N-1\) independent standard exponentials has exact gamma tail
-\[
-\Pr\{G_{N-1}\ge t\}=e^{-t}\sum_{r=0}^{N-2}\frac{t^r}{r!},\qquad t\ge0.
-\]
-Since \(Q_i=2^{-(N-1)}\prod_{j\ne i}U_j^{-1}\), conditioning and the union bound show, with \(H_N(s)=2^{N-1}/(B_N\sqrt{Ns})\), that whenever \(H_N(s)\ge1\),
-\[
-\Pr\{L\le s\}
-\le\frac{N}{H_N(s)}\sum_{r=0}^{N-2}
-\frac{(\log H_N(s))^r}{r!}.
-\tag{1}
-\]
-Consequently \(\Pr\{L\le s\}\le C_N\sqrt{s}(1+\log(1/s))^{N-2}\) for small \(s\). This is a genuine finite-dimensional, square-block estimate; it is not a claim of independence between the Lagrange columns.
+**Overlapping cyclic windows after conditioning.** Condition on \(Z_1\). Index the remaining \(M\) sample variables cyclically. For each of the \(M\) possible start indices, choose the cyclic window of \(d\) successive residual variables and adjoin the first node. This gives \(M\) square subframes \(V_i\); each residual coordinate occurs in exactly \(d\) windows. This holds even at \(M=d\), when windows use the same set of nodes. Because \(A^*A\succeq V_i^*V_i\), a small eigenvalue \(\Lambda\le s\) implies every event \(E_i=\{\lambda_{\min}(V_i^*V_i)\le s\}\).
 
-**4. Multiple independent square blocks.** If \(m\ge kN\), partition the first \(kN\) sample rows into \(k\) disjoint blocks \(V_1,\ldots,V_k\) of \(N\) rows. The positive Gram decomposition gives
+For nonnegative bounded functions \(f_i\) each of only the variables in window \(i\), the product law on the residual variables gives
 \[
-A_{m,N}^*A_{m,N}\succeq\sum_{b=1}^{k}V_b^*V_b,
-\qquad\Lambda_{m,N}\ge\sum_{b=1}^k L_b,
+\mathbb E\!\left[\prod_i f_i\mid Z_1\right]
+\le\prod_i \left(\mathbb E[f_i^d\mid Z_1]\right)^{1/d}.
 \]
-where \(L_b=\lambda_{\min}(V_b^*V_b)\) are independent. Therefore
+To prove this, hold all but one residual variable fixed and apply Hölder of exponent \(d\) to its \(d\) incident functions, pulling out the other factors. Replace each incident factor by the \(d\)-th root of its integral to power \(d\) in that variable. Iterate over the residual variables. When the same factor is integrated in a second variable its root and the new power cancel, so its final value is precisely its full \(L^d\) norm. This argument does not assume independence of window events.
+
+Take \(f_i=1_{E_i}\). All conditional one-window probabilities are \(q_N(s)\) by the preceding rotation argument. Therefore
 \[
-\Pr\{\Lambda_{m,N}\le s\}
-\le\prod_{b=1}^k\Pr\{L_b\le s\},
+\Pr(\Lambda\le s\mid Z_1)\le q_N(s)^{M/d}.
 \]
-which together with (1) proves (B)'s explicit power-logarithm bound. Its layer-cake integral for \(\Lambda^{-p}\) converges whenever \(p<k/2\). Taking \(k=3\) and \(p=1\), and using \(R_{m,N}\le N\Lambda_{m,N}^{-1}\), gives finite expected noise amplification for every \(m\ge3N\). This completes the theorem. \(\square\)
+Removing the conditioning proves the asserted upper estimate with the same exponent \(\alpha\) as the lower bound. By the layer-cake formula, the small-\(s\) contribution to \(\mathbb E[\Lambda^{-p}]\) is determined by the integral of \(p s^{-p-1}\Pr(\Lambda<s)\); it is finite if \(p<\alpha\) and infinite if \(p\ge\alpha\). The endpoint divergence follows already from the power lower bound. The inequalities \(\Lambda^{-1}\le R\le N\Lambda^{-1}\) then give the trace conclusions. For \(p=1\) the strict inequality \(m-1>2N-2\) is equivalent to \(m\ge2N\).
 
-## Verification
+**Uniform disjoint-block corollary.** For integers \(k\ge1\) with \(m\ge kN\), partition the first \(kN\) rows into \(k\) disjoint square blocks. The full Gram matrix dominates their summed Grams and its smallest eigenvalue is at least the sum of their least eigenvalues, by the Rayleigh principle. A small full eigenvalue forces all \(k\) block eigenvalues to be small; those block events are independent. This gives the separate bound \(C_{N,k}s^{k/2}(1+\log(1/s))^{k(N-2)}\) for small \(s>0\), uniform over \(m\ge kN\). This corollary does not replace the fixed-\(m,N\) sharp moment result.
 
-The standalone `CHECK.py` evaluates the Vandermonde, Lagrange inverse, binomial normalization, positive Gram-block sum, and eigenvalue bounds for deterministic random configurations and checks the exact gamma-tail and angular-chord formulas. Its computations are supplementary: the infinitely quantified results follow from the binomial identity, Haar angular law, independent-block Gram positivity and layer-cake integrals. Run `python CHECK.py` with NumPy installed in the extracted package directory.
+## Verification and scope
+
+The proof is analytic. `CHECK.py` checks the finite window incidence pattern and threshold arithmetic for bounded sizes and verifies the column-index identity in the design-dependent example \(e_j=Z_j\) on an exact fixture. Such checks do not establish the continuous probability laws. The constants in the two-sided tail bound are for fixed \(N,m\); the exact logarithmic correction or leading coefficient of the tall tail is not determined. No claim is made for nonconsecutive bands, nonuniform or dependent nodes, or dimension-asymptotic constants.
 
 ## Relationship to prior work
 
-Xu and Shen (arXiv:2609.29286v1, September 24, 2026) study exactly independent uniform circle nodes in Fourier–Vandermonde regression. Their Theorem 6 asserts divergence of the expected inverse least singular value across sample counts, citing a minimum-pair-separation argument. The conclusion of (B) gives a contrary finite expectation for the overdetermined regime \(m\ge3N\); a collision between two *rows* need not destroy full *column* rank after sufficient oversampling. This comparison is a mathematical conflict of statements, not a claim that all other results of the paper are incorrect.
-
-An earlier published square-matrix result, *Critical inverse moments and logarithmic tails of random Fourier interpolation* (2026), obtains sharp fractional-moment and logarithmic-tail laws for \(m=N\). The present proof rederives only the square tail estimate needed as a lemma and then treats a distinct, oversampled \(m\ge3N\) regime by independence of multiple subframes. Another published result, *Sharp small-singular tails and inverse-moment thresholds for a circular Fourier sketch* (2026), determines the complete two-frequency case, whereas the present theorem addresses every \(N\ge3\). Deterministic clustered-Vandermonde bounds by Kunis and Nagel address singular-value geometry, not unconditional inverse-moment integrability of an oversampled random design. The earlier Bass–Gröchenig paper studies random trigonometric sampling condition-number distributions; its full text could not be accessed for a theorem-level comparison. No worldwide novelty certification is claimed.
-
-## Limitations
-
-The sufficient finite-risk bound \(m\ge3N\) is not proved optimal, and the intermediate interval \(2N\le m<3N\) remains unresolved by this argument. The result does not claim precise small-eigenvalue leading constants, uniform-in-\(N\) estimates, arbitrary frequency sets, or correlated nodes. The square-block bound is a relatively direct application of Lagrange interpolation and the addition of independent positive Gram matrices, although the resulting opposing risk regimes address a substantive open comparison in the motivating model. Earlier stronger sampling estimates could imply the same sufficient condition. The full Bass–Gröchenig article remained inaccessible through the available channels, so priority over an equivalent older result remains a specific risk. No independent mathematical audit has been conducted.
-
-## References
-
-1. H. Xu and Y. Shen, *Non-asymptotic Analysis of Expected Reconstruction Risk for Trigonometric Polynomial Models*, arXiv:2609.29286v1, first public September 24, 2026. https://arxiv.org/abs/2609.29286
-2. *Critical inverse moments and logarithmic tails of random Fourier interpolation*, published November 8, 2026. https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-critical-inverse-moments-and-logarithmic-tails-of-random-fourier--323dcae74731/RESULT.md
-3. *Sharp small-singular tails and inverse-moment thresholds for a circular Fourier sketch*, published November 2, 2026. https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24/RESULT.md
-4. S. Kunis and D. Nagel, *On the smallest singular value of multivariate Vandermonde matrices with clustered nodes*, arXiv:1907.07119v1 (July 16, 2019). https://arxiv.org/abs/1907.07119
-5. R. F. Bass and K. Gröchenig, *Random Sampling of Multivariate Trigonometric Polynomials*, SIAM J. Math. Anal. 36 (2004/05), 773–795. https://doi.org/10.1137/S0036141003432316
+- Xu and Shen, [arXiv:2609.29286v1](https://arxiv.org/html/2609.29286v1), §1.1 and Theorem 6, use the same model in odd dimension after a frequency translation. Their Theorem 6 asserts unconditional inverse-**squared** least positive singular-value divergence for iid uniform sampling without restricting \(m\). Proposition 5, Eq. (19), and its use in §5.2 rely on a bound from a closest pair of rows. In §6.3 the row difference belongs to the domain of \(A^*\) rather than \(A\); even with the adjoint, the test vector need not be orthogonal to \(\ker A^*\) for a tall matrix. For example, two nodes may merge while at least \(N\) distinct nodes remain, in which case the least singular value stays strictly positive. The present mean-risk threshold contradicts that unrestricted divergence for odd \(N\) in the finite regime. It does not assess their other sampling schemes.
+- Tucci and Whiting, [arXiv:1202.3184v2](https://arxiv.org/html/1202.3184v2#S3), Theorems 3.1 and 3.3, give inverse Vandermonde formulas and inverse-moment divergence for square matrices. The earlier [*Critical inverse moments and logarithmic tails of random Fourier interpolation*](https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-critical-inverse-moments-and-logarithmic-tails-of-random-fourier--323dcae74731) gives sharp square-tail information, including the \(1/2\) cutoff. The square estimate above is a supporting lemma, and stacking independent square blocks is a direct corollary of such a lemma. The contribution here is the sharp rectangular threshold using anchored overlapping windows, together with the matching power lower bound. The earlier [two-frequency circular Fourier sketch](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-small-singular-tails-and-inverse-moment-thresholds-for-a-c--5fb2ea549d24) treats the distinct case \(N=2\).
+- Gröchenig, Pötscher, and Rauhut, [arXiv:math/0701781v2](https://arxiv.org/html/math/0701781v2), §2 Theorems 2.1–2.2 and §3 Corollary 3.3, give probability estimates near the well-conditioned regime, not the displayed vanishing upper power law as \(s\downarrow0\) with sample count fixed. They summarize relevant estimates of [Bass and Gröchenig](https://doi.org/10.1137/S0036141003432316). The latter full original text was not available for independent comparison. Historical priority for an equivalent threshold remains provisional.

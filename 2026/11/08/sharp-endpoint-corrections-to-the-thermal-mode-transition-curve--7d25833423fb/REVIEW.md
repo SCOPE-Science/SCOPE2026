@@ -1,12 +1,21 @@
-# Review: sharp thermal modal-boundary corrections
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary decomposition is a standard harmonic stochastic-convolution identity. The proof differentiates the actual beta–Gaussian density, derives the positive derivative at every critical root from Kummer's equation, and establishes monotone root movement under likelihood-ratio ordering. Gaussian variation diminution bounds the number of stationary modes; the negative fourth derivative proves the boundary is a quartically flat maximum. Both endpoint corrections follow from uniform beta and Laplace expansions, and all constants are explicit. The included checker passes 67 independent deterministic diagnostics. Such finite checks supplement but do not replace the analytic proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2024 telegraphic-center source (arXiv:2404.02480, equations (93)–(97), figure 3) gives the equivalent Gaussian-convolved beta density and the hypergeometric critical curvature equation. The 2026 harmonic RTP source (arXiv:2602.08436, equations (90)–(97)) further gives the leading inverse-logarithmic vanishing of the thermal threshold. The 2022 beta–Gaussian study and the 2026 exact-convolution study independently cover the stationary representation. None is represented as a new discovery. The presently assessed, more precise claim is the global strict geometry, quartic coefficient and the explicit subleading endpoint expansions. Available record searches did not find a covering proof; unindexed special-function results remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The transition separates density accumulation near the two run-and-tumble turning points from accumulation at the trap center. The \((3/2)\log\log\) correction and additive constant sharpen critical thermal-noise predictions where the previous leading law is slow to converge. The other endpoint's explicit initial slope and the proof of strict monotonicity are natural physical parameters of the same phase boundary. The scope is stationary, one-dimensional, harmonic, symmetric switching and Gaussian thermal noise; finite-sample or multidimensional claims are not made.
+Re-audited the endpoint-only RESULT.md. The normalizations s=D*kappa/v^2 and lambda=1/(2s) lead to the curvature integral H=-2lambda J'-J. The hypergeometric ODE gives g'= (1-a)/lambda at a zero of g=H/J, while H(0)<0 and its fixed-a large-lambda leading term is (1-a)sqrt(pi)lambda^(-3/2). At small a the endpoint-subtracted J has uniform leading term exp(-lambda)/a and the numerator of 1-m differs from its a=0 value by O(a). The sign bracket places the root near 1/2; s_c=m at that root makes lambda=1/2+O(a), allowing evaluation of the first coefficient at 1/2 with O(a^2) error. Near a=1, H_1=-2 exp(-lambda) exactly, the first perturbative gamma integral is epsilon sqrt(pi)lambda^(-3/2), and the error on [1/2,1) is uniformly O(epsilon(1+lambda)exp(-lambda/2)) by the integrable logarithmic bound. This preserves the epsilon factor needed at the exponentially small crossing. Comparing at (1±delta)L brackets the root; taking logarithms and refining gives the 3/2 coefficient, constant and O(log(L)/L) remainder. Separate endpoint-subtracted quadrature and critical moment checks passed at four shapes including a=10^-4 and 1-a=10^-16 (`python3 /workspace/audit_evidence/reproduce.py 1`). The frozen script was inspected, not run; the repair retains its verification front matter verbatim and updates the scientific notes only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The corrected finding claims only the small-a slope of s_c and the log-log and constant correction for lambda_a near a=1, with remainder bounds. It explicitly credits the already-established boundary geometry and quartic coefficient, along with the curvature equation and the leading inverse-log behavior. No equivalent statement or covering result for the surviving increments was found in the strongest inspected sources.
+
+## value
+
+PASS
+
+The narrowing retains two distinguished asymptotic regimes, set by approach to the persistent two-state limit and disappearance of the thermal transition. An explicit slope quantifies the first departure from the limiting variance; near disappearance the unbounded subleading log-log term and the fixed normalization constant refine a slowly converging leading prediction. These precise, proved corrections are useful in comparing theory and numerical phase diagrams without re-claiming the previously established mode geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

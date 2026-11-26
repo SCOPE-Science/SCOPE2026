@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:49:02.021438Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–61, VERIFICATION.md, and verify_catalan5_recovery.py (uploaded program inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/81461662-75d9-4ee9-9f2b-37d74d9020fc/check_catalan5_exact.py; full integer signed histogram, all predicted zero masks, and exact dyadic inversion at all 1024 points"
+      ],
+      "rationale": "The up-step weight attaches once when extending each legal prefix; the state recurrence therefore returns the unnormalized signed sum at height 0 after ten steps. An independent exhaustive direct sum over all 42 ballot bases and all 1024 masks reproduced the histogram and parity partition: the sole all-zero normalized row is (1,1,1), with 32 entries, and every other row is nonzero entrywise. First and last steps supply two free endpoint-frequency bits. Thus the rank is 896, the sharp nonzero gap is 2, and the top magnitude is 42. The disjoint odd-parity blocks force minimum weight three with 2·2·4 choices at that weight. Odd base counts 1 and 5 exclude zeros at semilengths one and three. For Z=s₀+U⊥, character orthogonality gives the inverse multiplier of 1_Z as (1/8)(−1)^{s₀·x}1_U; subtraction from δ₀ gives the exact signs and mass 7/4. An average of translation conjugates of any projection still has image in the same range and fixes it pointwise. It is diagonal under Walsh transform and thus is the unique spectral projection. Translations are isometries at both endpoints, and a delta or a sign-matched input attains the corresponding kernel-mass bound.",
+      "residual_risks": [
+        "The computation is exhaustive only for the ten-step spectrum (and checks semilength three separately). Global projection optimality uses the analytical averaging argument, not the enumeration. No larger-order classification follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant et al. give the global projection-constant formula for arbitrary character subspaces.",
+          "The modulo-four theorem detects that the four middle positions must have odd parity for a real zero, but does not determine which such frequencies vanish."
+        ],
+        "reasoning": "The general projection theorem takes the surviving frequency set as input. Modulo four identifies 512 candidate frequencies, of which 384 are nonzero multiples of four in the exact computation; it cannot supply the missing two parity constraints.",
+        "searches": [
+          "Defant et al., arXiv:2302.00233 Theorem 3.1",
+          "Resultary exact modulo-four Walsh spectrum, 84ddf083bb47"
+        ]
+      },
+      "checked_sources": [
+        "Ardila p. 6",
+        "Defant et al. Theorem 3.1",
+        "Resultary 84ddf083bb47, 51de04f7e6b4, bd8b6ff286b5 and the identical self-match 66429c48a810"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The block of positions 4–7 is the zero-based central interval {3,4,5,6} of the mod-four formula. Within its odd class, only the normalized (1,1,1) class vanishes over the integers."
+        ],
+        "reasoning": "The residues impose one necessary constraint, whereas the real spectrum calculation determines two additional independent parities and excludes every other frequency. Projection optimality follows from a general theorem after this exact support calculation, not before it.",
+        "searches": [
+          "Defant et al. Theorem 3.1 proof",
+          "Resultary 84ddf083bb47 Finding and Limitations",
+          "Independent full signed-spectrum comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ardila p. 6 identifies Dyck up-step sets as matroid bases.",
+          "Resultary's sampling record uses a degree-bounded Walsh sampling Gram matrix at semilength four; the height-three record uses 34, not 42, bases at semilength five, with rank 808 rather than 896."
+        ],
+        "reasoning": "Dyck up-step and Catalan-base descriptions give the same input. Changing the step-height cutoff changes the indicator, while a restricted sampling Gram operator is not its ambient counting convolution.",
+        "searches": [
+          "Ardila, arXiv:math/0209354; primary search on Dyck up-step signed enumerators, Catalan-matroid Walsh zeros and XOR convolution",
+          "Resultary records 84ddf083bb47, 51de04f7e6b4 and bd8b6ff286b5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "66429c48a810 has the identical Finding; it is the frozen record's own index entry.",
+          "84ddf083bb47 limits its table to residues and says exact vanishing and rank remain undetermined.",
+          "51de04f7e6b4 reports 216 zeros for the height-three restriction at semilength five."
+        ],
+        "reasoning": "The apparent exact hit is a self-match. The comparable exact table is for a strict subset and cannot certify or contradict the full-basis spectrum.",
+        "searches": [
+          "Resultary: exact Catalan-matroid Walsh zeros and ranks, semilength five; 66429c48a810, 84ddf083bb47, 51de04f7e6b4, bd8b6ff286b5"
+        ]
+      },
+      "rationale": "The supported distinction is the exact affine real zero locus for the full semilength-five basis family. The general projection theorem is prior; the eight-shift kernel and evaluated sharp constant are consequences of the new Fourier support, not a new general optimality principle.",
+      "residual_risks": [
+        "Bounded primary lookup and statement-level comparison cannot exclude unindexed numerical tables or historical calculations of the same signed enumerator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying family is known",
+          "evidence": "Bases are the up-step position sets of the Dyck paths.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0209354",
+          "material_read": "p. 6, extracted offset around 11964",
+          "method": "OA PDF passage",
+          "title": "The Catalan matroid",
+          "trigger": "Exact basis-family alias"
+        },
+        {
+          "assessment": "Covers the general projection formula, not the Catalan spectrum",
+          "evidence": "Projection constants equal the averaged absolute character sum for the given character set.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.00233",
+          "material_read": "Theorem 3.1, p. 9, offset about 29341 and proof",
+          "method": "OA PDF passage",
+          "title": "Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces",
+          "trigger": "General theorem might dominate the optimality claim"
+        },
+        {
+          "assessment": "Necessary residue restriction only",
+          "evidence": "Leaves real zeros and exact rank undetermined.",
+          "identifier_or_url": "Resultary 84ddf083bb47",
+          "material_read": "Finding and Limitations, offsets 0 and continuation about 4938",
+          "method": "Local RESULT.md mirror",
+          "title": "A binary-digit parity law and the mod-four Walsh spectrum of Catalan matroid bases",
+          "trigger": "Same indicator and Walsh operator"
+        },
+        {
+          "assessment": "Non-equivalent indicator",
+          "evidence": "34-path family; 216 zeros and rank 808 at this semilength.",
+          "identifier_or_url": "Resultary 51de04f7e6b4",
+          "material_read": "Restricted family and semilength-five rank table",
+          "method": "Local Resultary comparison",
+          "title": "Fourier recovery and a cubic minimum-zero threshold for height-three Dyck paths",
+          "trigger": "Exact semilength-five table for a possible alternative formulation"
+        },
+        {
+          "assessment": "Different operator and semilength",
+          "evidence": "Sampling Gram matrices for bounded Walsh degree, not XOR convolution.",
+          "identifier_or_url": "Resultary bd8b6ff286b5",
+          "material_read": "Operator and semilength in Finding",
+          "method": "Local Resultary comparison",
+          "title": "Sharp quadratic and cubic Walsh sampling spectra at the first Catalan-matroid tomography obstruction",
+          "trigger": "Similar Fourier recovery language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and §§1–2",
+        "Resultary modulo-four Finding and Limitations",
+        "Defant et al. Theorem 3.1"
+      ],
+      "rationale": "The full ten-step base family is the first singular case among odd semilengths, not a chosen arbitrary subset. Its exact missing characters partition into a simple affine coset, supplying both a sharp inverse gap on the surviving modes and an eight-shift, endpoint-optimal way to excise the null modes. Those exact data are useful for testing Fourier recovery and distinguishing genuine degeneracy from mere divisibility.",
+      "residual_risks": [
+        "Value is specific to this initial obstruction; it does not predict a comparable formula for other semilengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

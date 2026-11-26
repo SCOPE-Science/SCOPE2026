@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Reproducibility of the \(GP(25,2)\) result
+# Independent mathematical audit
 
-The package contains two standalone source files. No unpublished data or external services are required to reproduce the exact finite checks.
+## correctness
 
-The first was compiled with `g++ -O2 -std=c++17 gp25_independent.cpp -o gp25_independent` and executed with `./gp25_independent`. It generated the graph and breadth-first-distance matrix; checked all \(1225\) unordered vertex pairs against direct strong resolution for an explicit \(34\)-vertex witness; verified the full MMD difference table; and exhaustively enumerated the relevant independent-set cardinalities by monotone backtracking. Its output was:
+PASS
 
-```
-uu=125 vv=50 cross=0 direct_pairs=1225 unresolved=0
-independent U6=25 U7=0 V10=5 V11=0
-minimum strong metric dimension=34 minimum bases=125
-```
+For a mutually maximally distant (MMD) pair, a resolving vertex other than either endpoint would extend a geodesic at one endpoint and contradict MMD. Conversely a longest geodesic containing the geodesic subpath between a given pair has MMD endpoints, so a vertex cover of the MMD graph resolves that pair. Therefore complements of maximum independent sets are exactly strong metric bases. I independently constructed the graph, computed integer distances by Floyd–Warshall and reconstructed every MMD edge. Counts were 125 outer, 50 inner, no cross edges, and the complete difference table matched. Pivoted Bron–Kerbosch on the entire complement (no assumed classification or orbit truncation) enumerated 21,000 maximal cliques, with maximum size 16 and exactly 125 maximum cliques. Their actual vertex sets equal the 25×5 claimed patterns; direct evaluation of the distance equality for all 1,225 pairs and each of the 125 complements also passed. Replay: python3 /workspace/reviews/evidence/gp25-independent.py. Both uploaded implementations and the verification notes were inspected but not executed. This certifies the specific graph, not the family. For k=6, 34 contradicts the proposed equality at 35, not the proved upper bound.
 
-The independent Python implementation was executed with `python3 gp25_crosscheck.py` and used its own shortest-path construction, MMD checks, translated outer-layer enumeration, and pentagon-product inner-layer enumeration. Crucially, it also tested all \(125\) proposed strong resolving sets against the original distance definition. Its output was:
+## originality
 
-```
-MMD edges 175 anchored outer six 6 anchored outer seven 0 outer maxima 25 inner maxima 5 strong metric bases 125
-```
+PASS
 
-The outer finite certificate checks each of the \(2002\) possible five-subsets and \(3003\) six-subsets of the precisely identified fourteen candidates after fixing vertex zero by translation. The inner finite certificate considers all \(3125\) ways to choose two vertices from each of five explicitly given vertex-disjoint five-cycles. Both searches are exhaustive within the fully specified \(50\)-vertex graph. The general MMD/vertex-cover equivalence has a separate mathematical proof in the result document.
+The inspected Petersen-graph source conjectures the wrong equality at this index and does not tabulate it; neither nearby indexed invariant nor the standard MMD reduction gives the sharp value or the bases. No claim of exhaustive historical priority.
 
-**Limits:** The checks certify no unbounded family of generalized Petersen graphs and do not independently establish historical novelty. Independent scholarly audit has not been performed.
+## value
+
+PASS
+
+The graph and order are motivated before computation by a published family proposal. This case gives a directly checkable counterexample and an exact sharp value, not just a stronger upper bound. The Cartesian pattern of all minimum bases separately answers a natural structural question and makes the phenomenon reproducible without requiring any all-order extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:13:17.981430Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for /workspace/repairs/3/RESULT.md, not the frozen Finding's assertion that every stochastic gradient has the same marginal variance if read along actual iterates. With deterministic x_0, g_1 has random part ξ_1−η_0 ξ_0, so Var(g_1)/σ²=1+η_0²−2ρη_0. In the note's own positive-correlation optimum this is 19/25 versus Var(g_0)/σ²=1. The corrected Finding explicitly fixes equality only for the additive oracle errors; the mathematical schedule and hypotheses remain unchanged. Reconstructed the repaired proof: unrolling yields terminal bias coefficient 1−Σw and weights w_j=η_j∏_{l>j}(1−η_l). The stationary AR(1) covariance is strictly positive definite since the innovation transformation ξ↦(ξ_0,ξ_1−ρξ_0,…), invertible triangular, has diagonal covariance with σ² and σ²(1−ρ²)>0. Multiplying by the tridiagonal precision gives C⁻¹1=b/(1+ρ). The unique stationary point of the strictly convex risk is w=kb, with 1−Σw>0, hence each rate is reconstructed uniquely in (0,1) by telescoping. The stationarity equation gives risk/σ²=t(1−Σw). The equal interior weights give strictly decreasing interior rates; positive-denominator cross-multiplication gives the first difference sign t+ρ(1+ρ) and the last upturn sign ρ(1+ρ)−tP_N. P_N(0)=1, P_N(1)=−1 and its upward leading coefficient force one root in (0,1), the other above 1; rationalizing the smaller root gives r_N=2/(N+sqrt(N²−4(N−2))) and the asymptotic. Checked strictness, ties, N=3 and independence. Independently propagated exact Fraction coefficients of uncorrelated innovations for the two witnesses and recovered risks 1/17 and 3/8 and the variance counterexample (private replay: python3 -B /tmp/opencode/frozen_two_reviews_check.py, block record3). Inspected frozen verify.py and VERIFICATION.md without executing them. The repaired verification description correctly identifies some diagnostic perturbations as outside the weight simplex, e.g. subtraction of 0.001 from an interior weight at N=9, ρ=0.9, t=0.01. That is a valid unconstrained quadratic check, not a feasible schedule comparison. No finite probe supports the universal result by itself.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grimmer–Shen's broad smooth-convex worst-case theorem has conditionally centered oracle noise, not a general correlated exogenous covariance.",
+          "The inspected correlated-noise linear-algorithm papers analyze convergence or asymptotic covariance ordering, not exact finite-horizon free rate selection and upturn boundaries in this class."
+        ],
+        "reasoning": "A larger objective class does not dominate when its oracle assumption excludes the nonzero-ρ examples. The inspected time-asymptotic or bound-based results do not yield exact finite-horizon risk minimizers.",
+        "searches": [
+          "arXiv:2610.42048v1 conditional centering and minimax schedule",
+          "Koloskova et al. arXiv:2302.01463 pp. 2–3",
+          "Hu–Doshi–Eun arXiv:2209.07446 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and corrected RESULT.md, frozen VERIFICATION.md and verify.py",
+        "arXiv:2610.42048v1, arXiv:2302.01463, arXiv:2209.07446",
+        "Hermans et al. DOI and institutional copy attempted, no decisive primary passage retrieved",
+        "Resultary 3db9e0ceb6be, b6e07361803f, 2f7a38830384"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conventional common-mean GLS fixes sum of weights to one; in this problem nonzero initial deterministic error leads to a bias-variance compromise with sum strictly below one. The initial and terminal differences depend on distinct denominators in that sequential map.",
+          "At fixed-ladder bias the correlated-noise comparison can vary with ρ, but contains no information choosing the best ladder and varying t."
+        ],
+        "reasoning": "Credit the classical precision and optimization templates, and the existing correlated permutation phases. The checked prior statements do not mechanically yield the unique continuously optimized schedule's two distinct sharp signal-to-noise transition laws.",
+        "searches": [
+          "Hermans et al. DOI 10.1080/03610918.2017.1316395 and UHasselt open copy",
+          "arXiv:2610.42048v1 pp. 1–5",
+          "Resultary 3db9e0ceb6be, b6e07361803f and 2f7a38830384 statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With q=b/S_N and λ=tS_N/(1+ρ+tS_N), w*=λq is a shrunken GLS mean estimator with residual weight on the initial iterate. For a given w with sum below one, the step sequence follows by exact inverse telescoping.",
+          "The same-date record uses the same covariance and terminal scalar objective but chooses only a permutation of {x,2x,4x}. The admissible decision sets are not equivalent."
+        ],
+        "reasoning": "The GLS/weight equivalence accounts for substantial algebraic content and limits novelty. It does not provide the actual step-order phase boundaries without evaluating the sequential denominators and comparing both ends.",
+        "searches": [
+          "Hermans et al. DOI 10.1080/03610918.2017.1316395; UHasselt open repository 1942/25871",
+          "arXiv:2610.42048v1 pp. 1–5",
+          "2026/11/22/SCOPE-three-exact-noise-correlation-phases-for-the-optimal-order-of-a--3db9e0ceb6be"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fixed-ladder correlation phases do not provide the D²/σ² boundaries because the bias is invariant under a permutation of the fixed multiset. Heterogeneous conditionally centered schedules have a different source of reversal; descending spectral steps assumes independent noise."
+        ],
+        "reasoning": "The strongest exact three-step table is neither a table for arbitrary schedules nor for variable N. One cannot compare chronology from the shared date alone.",
+        "searches": [
+          "2026/11/22/SCOPE-three-exact-noise-correlation-phases-for-the-optimal-order-of-a--3db9e0ceb6be",
+          "2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f",
+          "2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384"
+        ]
+      },
+      "rationale": "Reassessed the narrower, corrected claim: the GLS weight pattern, the scalar shrinkage optimization and telescoping machinery are ingredients, not innovations. The useful distinct claim is classification of the complete optimal-step order for finite-horizon scalar SGD with equal marginal additive-noise variances and AR(1) correlation: first versus last jump with its exact bias/correlation/horizon boundary. The same-date fixed-ladder result is distinguished expressly in the correction. No priority assertion is made over all possible older sequential representations.",
+      "residual_risks": [
+        "An older shrinkage/sequential-estimation analysis could yield equivalent rate comparisons; the closest cited GLS equation was not directly checked in the primary paper.",
+        "No within-day priority order is asserted for the fixed-ladder comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conditional-zero-mean smooth convex minimax setting; not this scalar exogenous dependent problem",
+          "evidence": [
+            "Step optimality under conditional centered bounded variance, not just equality of marginal additive variances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.42048",
+          "material_read": "PDF pp. 1–3 (offsets 0–14105), p. 5 (17800–21225)",
+          "method": "Open primary hypotheses and minimax theorem comparison",
+          "title": "Exact Theory and Optimal Stepsizes for Stochastic Gradient Descent in Smooth Convex Minimization",
+          "trigger": "Exact finite-horizon SGD optimal schedule and monotonicity"
+        },
+        {
+          "assessment": "Classical weight pattern credited; no negative inference about uninspected paper",
+          "evidence": [
+            "Normalized C⁻¹1 derived independently is b/S_N, consistent with the cited common-mean estimator; equation locator itself not independently checked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03610918.2017.1316395",
+          "material_read": "No decisive passage independently retrieved from publisher or UHasselt repository PDF 1942/25871",
+          "method": "Direct/VPN lawful DOI and open institutional alternative retrieval attempts; algebraic identity separately reconstructed",
+          "title": "Fast, Closed-form, and Efficient Estimators for Hierarchical Models with AR(1) Covariance and Unequal Cluster Sizes",
+          "trigger": "Closest cited AR(1) inverse covariance formula, especially Eq. (5)"
+        },
+        {
+          "assessment": "Convergence bounds and correlated-noise design; no matching phase diagram shown in inspected parts",
+          "evidence": [
+            "Broad linear class includes schedules independent of gradients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.01463",
+          "material_read": "PDF pp. 2–3, offsets 7600–17698",
+          "method": "Open primary problem and algorithm passages",
+          "title": "Gradient Descent with Linearly Correlated Noise: Theory and Applications to Differential Privacy",
+          "trigger": "Correlated noise and broad deterministic linear algorithms"
+        },
+        {
+          "assessment": "Asymptotic covariance ordering, not the exact finite-terminal-risk choice",
+          "evidence": [
+            "General driving stochastic sequences and asymptotic criteria."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.07446",
+          "material_read": "PDF p. 1, offsets 0–4425",
+          "method": "Open primary introductory passages",
+          "title": "Efficiency Ordering of Stochastic Gradient Descent",
+          "trigger": "Dependent-noise ordering in SGD"
+        },
+        {
+          "assessment": "Same model but only permutations of one prescribed rate multiset, N=3",
+          "evidence": [
+            "Correlation phases for {x,2x,4x} do not solve arbitrary continuous rate choice."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-exact-noise-correlation-phases-for-the-optimal-order-of-a--3db9e0ceb6be",
+          "material_read": "Local-mirror RESULT.md offsets 0–5044 and 5044–8612",
+          "method": "Compare exact optimization domains, thresholds and quantifiers",
+          "title": "Three exact noise-correlation phases for the optimal order of a three-rate ladder",
+          "trigger": "Strongest same-date statement on optimal order under this exact scalar quadratic and AR(1) covariance"
+        },
+        {
+          "assessment": "Different conditional noise model and minimax objective",
+          "evidence": [
+            "Reversal from unequal variance ceilings, not the AR(1) covariance."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-minimax-sgd-schedules-with-heterogeneous-oracle-noise-and--b6e07361803f",
+          "material_read": "Local-mirror RESULT.md offsets 0–5196",
+          "method": "Statement and assumptions comparison",
+          "title": "Exact minimax SGD schedules with heterogeneous oracle noise and a sharp step-order reversal criterion",
+          "trigger": "Exact prior step-order reversals"
+        },
+        {
+          "assessment": "Independent errors and fixed permutations, not the correlated free-rate problem",
+          "evidence": [
+            "Cross-time independence excludes the colored stationary noise with ρ≠0."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-descending-spectral-steps-minimize-every-terminal-quadratic-nois--2f7a38830384",
+          "material_read": "Local-mirror RESULT.md offsets 0–4574",
+          "method": "Statement and assumptions comparison",
+          "title": "Descending spectral steps minimize every terminal quadratic noise risk",
+          "trigger": "Prior terminal-risk schedule ordering"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired equal-marginal-additive-noise finding isolates temporal dependence from time-varying error variance, making a motivated stress test of descending optimal steps. The initial/terminal distinction, horizon-independent negative-correlation boundary and horizon-dependent positive-correlation threshold answer an exact sequential design question beyond the GLS fit. No general optimizer, adaptive-step or empirical training claim is made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

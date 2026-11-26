@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,12 +21,10 @@
 
 # Reproducibility and mathematical checks
 
-Theorem inputs are: \(n\ge2\), simple horn \(\Omega\) of order \(a>n+1\), \(X^*\in S^+_\varepsilon\), monomial degree cutoff \(m=\max\{j:j<a-n\}\), and positive integrals \(c_p=\|z^p\|_{A^2(\Omega)}^{-2}\). This proof does not require measured or guessed coefficients: \(c_p\) are exactly defined by convergent domain integrals.
+The inputs are a simple horn in dimension \(n\ge2\), of order \(a>n+1\), and an outer-slice threshold \(R\) as in Definition 2.1 of arXiv:2610.17527v1. All curves or paths used in the ray-tail proof are restricted to radii \(t>R\); this inclusion follows from (2.3) and Reinhardt invariance and does not require anything about intermediate radii. The integrable monomials are those of degree below \(a-n\) by Theorem 3.1; their constants \(c_p\) are defined by their squared norms, not numerical approximations.
 
-1. Theorem 3.1 of arXiv:2610.17527v1 identifies precisely the integrable monomials. Orthogonality follows by integrating phase variables of the Reinhardt domain.
-2. The Fubini--Study Gram formula implies \(\|\gamma_\theta'(t)\|_B^2=\operatorname{Var}_{w(t)}(|p|)/t^2\), with \(w_p(t)=s_pt^{2|p|}/\sum_{|q|\le m}s_qt^{2|q|}\). The same formula gives \(\|\partial_u\gamma_{\theta+uv}(t)|_{u=0}\|_B^2=\operatorname{Var}_{w(t)}(p\cdot v)\).
-3. Expand the exact polynomial denominator \(P(t)=A_mt^{2m}(1+(A_{m-1}/A_m)t^{-2}+O(t^{-4}))\). The total degree variance is \((A_{m-1}/A_m)t^{-2}+O(t^{-4})\), yielding speed \(\sqrt{A_{m-1}/A_m}t^{-2}+O(t^{-4})\) and integrated tail \(\sqrt{A_{m-1}/A_m}t^{-1}+O(t^{-3})\). Positivity of both adjacent degree layers follows from \(m\ge1\), \(x_j>0\), and positivity of monomial norms.
-4. Check the torus relation by comparing top-degree coordinates \(me_i\) and \((m-1)e_i+e_j\). Their exponent difference is \(e_i-e_j\), which detects every phase difference. The same comparison identifies the one-dimensional covariance kernel. Projective distance gives the needed lower bound on intrinsic distance.
-5. As an algebra diagnostic, substituting \(P(t)=1+ut^2+vt^4\) gives the variance expression in RESULT.md and its \(u/v\) limit. This is a finite consistency check, not the proof for all \(m\).
+1. Use the projective pullback formula for the diagonal kernel and the Gram speed formula. The two squared speeds are \(t^{-2}\operatorname{Var}_{w(t)}(|p|)\) and \(\operatorname{Var}_{w(t)}(p\cdot v)\), with \(w_p(t)=s_pt^{2|p|}/\sum_{|q|\le m}s_qt^{2|q|}\).
+2. The squared radial speed for \(m=1\) is exactly \(A_0A_1/(A_0+A_1t^2)^2\). For any \(m\ge1\), expanding the probability of degree \(m-1\) gives the general leading term \((A_{m-1}/A_m)t^{-4}\) for the squared speed, with remainder \(O(t^{-6})\).
+3. Diagonal rotation at fixed radius costs \(O(t^{-1})\) for a bounded angle, while unequal phase classes are separated by ratios of the top-degree projective coordinates at exponents \(me_i\) and \((m-1)e_i+e_j\). The projective distance is only a lower bound on the intrinsic distance. The same exponent differences identify the kernel of the limiting covariance.
 
-**Limits:** No full completion classification, geodesic minimality claim, or intrinsic completed-boundary metric is verified. Independent audit has not been performed.
+No full completion classification, ray minimality, or intrinsic boundary metric is asserted. The degree-one calculation checks the normalization; the proof in RESULT.md addresses all allowed degrees.

@@ -1,15 +1,21 @@
-# Scientific review: conditional compound-Poisson telegraph travel time
+# Independent mathematical audit
 
-## Correctness
-The theorem is established by the independently derived telegraph Fourier--Laplace resolvent. Dividing its weighted endpoint density by the positive Laplace endpoint marginal yields a conditional Laplace transform. Two positive integrable Lévy kernels reproduce that transform exactly, using Frullani's integral and the modified-Bessel \(I_1\) transform proved in the result. Finite jump measures justify the two compound-Poisson components, and their first two cumulants yield the conditional moment formulas. The ballistic atom agrees independently with the no-surviving-reversal joint boundary mass in the motivating paper. A source-path verification program passed 72 numerical cross-checks; they support but cannot replace the proof.
+## correctness
 
-## Originality
-The closest primary source, Orsingher--Marchione (arXiv:2610.15094v1), proves the complete joint law of position and killing time, so neither the joint density nor its Bayes conditional ratio is claimed as novel. The additional explicit finite compound-Poisson decomposition, separate Lévy jump laws, and endpoint-distance convolution semigroup are not stated in its inspected Sections 2--4 and Appendix A; these require the positive Bessel factorization beyond the joint-density formula. Cinque (arXiv:2202.01904) treats a different conditional telegraph setup. The literature searches returned no exact decomposition, while older transform and first-passage works create a material residual possibility of an implicit equivalent result. The separation from the available joint-density theorem must be interpreted as a structural law, not a new marginal distribution.
+PASS
 
-## Mathematical value
-The posterior time needed to explain a measured final displacement is a natural inverse observable in velocity-jump transport. The result identifies an unexpected finite-jump representation rather than just a complicated Bessel conditional density, providing a direct sampling construction, a monotone coupling in observation distance, exact ballistic probabilities and linear conditional moments. These are structurally motivated and do not depend on arbitrary finite choices of parameters.
+Independent exponential killing permits evaluation of the symmetric telegraph resolvent at s=γ+u. The two velocity equations give (s+2α)/(s(s+2α)+c²k²); multiplication by γ and inverse Fourier transformation give g_u, with g_0 strictly positive of total mass one. Its density ratio has log equal to the half-log ratio plus −|x|[h(u)−h(0)]/c, h(u)=√((γ+α+u)²−α²). Frullani gives ν₀. Integration by parts of the I₀ transform gives h′(u)−1=α∫e^{−(γ+α+u)t}I₁(αt)dt; Tonelli and integration in u give ν₁ and the deterministic drift. Both positive kernels are bounded near zero and integrable at infinity. Frullani and the limit h(u)−u→γ+α give the claimed intensities. The resulting compound-Poisson construction is weakly continuous in |x| by the finite increment rate and continuous drift. Its Laplace transforms disintegrate the joint law by uniqueness, specifying the version also at zero. No positive jumps is exactly the boundary atom, giving the displayed prefactor and exponent; −(log L_x)′(0) and (log L_x)″(0) give the stated moments. The supplied checker and verification notes were inspected, not executed; their quadrature is finite corroboration, not necessary for the analytic conclusion.
 
-## Scope and unresolved risks
-The result assumes a symmetric initial direction, equal speed magnitudes, constant surviving-switch rate, and independent exponential killing. It is not a planar or general-reversal-rate theorem. Prior exact joint-density coverage is explicitly acknowledged, and an unlocated older resolvent or bridge result could contain the same finite Lévy factorization. An external mathematical audit is still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the explicit posterior decomposition into an endpoint-independent finite-activity delay and a distance-indexed compound-Poisson delay with deterministic drift, yielding one coupling for every endpoint distance. The matching joint distribution, ballistic mass by density division, and known first-passage law are not novel. The checked statements do not supply the posterior finite-activity factorization; identifying the extra fixed-delay factor as positive and finite and assembling the conditional family goes beyond restating or renormalizing either antecedent law.
+
+## value
+
+PASS
+
+The explicit finite jump laws turn a posterior given by a mixed joint density into independent sampling components and make ordering in endpoint distance pathwise. The useful contribution is the posterior stochastic structure, not the pre-existing marginal, isolated atom, or routine differentiation of the transform.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

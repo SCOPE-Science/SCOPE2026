@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The edge definition identifies \(GP(10,2)\) unambiguously. Every graph vertex subset is checked for independence using an exact recurrence; every maximal independent set is obtained by its exact domination test or, independently, by maximal cliques in the complementary graph. All eligible supports are tested by literal Boolean traces, and supports with nine or more vertices are excluded by the 295-concept cardinality bound. Facets are determined by single-vertex extensions. Two independently implemented exact boundary calculations agree on all six mod-two ranks. The distance-three tetrahedra are independently enumerated by breadth-first search. The exact proof scope is finite and reproducible.
+## correctness
 
-## Originality
-PASS within the checked evidence. The closest 2024 published lemma bounds the VC dimension of maximal-independent-set concept families but does not enumerate their faces or homology. A 2023 paper already identifies ten dodecahedral distance-three tetrahedra; that fact is explicitly credited and is not asserted as new. The ordinary dodecahedral independence-complex homotopy results concern a larger complex, and the whiskered-graph shattering realization theorem does not cover this unwhiskered graph. Searches using the aliases and numerical signature found no prior complete shattering polynomial or corresponding mod-two homology. Priority risk remains from possibly unindexed prior work.
+PASS
 
-## Mathematical value
-PASS. This is a full, motivated finite classification in a canonical Platonic graph, not merely a scalar VC-dimension computation. Three facet cardinalities reveal nonpurity, the small facets coincide with independently studied geometric tetrahedra, and the resulting shattering complex has nontrivial homology in three degrees, unlike the ordinary independence complex. The complete face and boundary data are reusable exact invariants for finite incidence systems.
+For the specified GP(10,2), an independent support is necessary because the all-positive trace on an adjacent pair is impossible. An independent set is inclusion-maximal exactly when it dominates every unselected vertex. Testing all independent supports against the resulting full concept set via the cardinality of their traces is exact. Single-vertex extensions suffice to find facets by downward closure. The independent replay over all 2^20 masks gave 295 concepts, face counts (1,20,160,660,1470,1572,310,0,0) by cardinality, and facets 10,672,310 at cardinalities 4,5,6. BFS tested all four-sets and verified equality, not just equal count, with the ten sets of pairwise distance three. The exact augmented mod-two boundary ranks (1,19,141,519,941,305) and the chain condition give reduced Betti numbers 10,326,5 in degrees 3,4,5, and zero otherwise. The last consistency check at RESULT.md line 41 uses cardinality signs on both sides: its -311 is the negative of the conventional reduced Euler characteristic, which is +311. This does not change the homology statement.
 
-## Scope and risks
-The assertion is graph-specific; it makes no general theorem for other cubic graphs or any integral-homology claim. The finite computation is fully specified but not replaced with a human-only closed-form case analysis. The ten tetrahedra are previously known geometric objects. Residual priority uncertainty and lack of external audit remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the exact maximal-independent-set shattering complex census, the distance-three tetrahedra's specific role as the complete class of smaller size-four facets, and the mod-two topology. The prior tetrahedra construction and ordinary independence census are not distinct claims. The catalogue self-match is not independent prior coverage.
+
+## value
+
+PASS
+
+The maximal-extension trace constraint has genuine geometry beyond the independence complex. For this standard symmetric cubic graph the result quantifies the gap, identifies the ten exceptional smallest facets by distance rather than merely by enumeration, and gives nonzero homology in three consecutive degrees. Those are useful exact comparison data for shattering by independent dominating sets on symmetric graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

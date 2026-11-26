@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:55:42.723009Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the stated independent-site model, Poisson thinning and conditioning on suitability give the product of site failure probabilities. The negative log of each factor has strictly positive first derivative and strictly negative second derivative for 0<c<1, giving budget exhaustion and the unique equal allocation by Jensen. The perspective score J(m) has J''=B^2 g''(B/m-h)/m^3<0, vanishes at the ends of the open relaxation (0,B/h), and has a unique maximizer. If the relaxation retains the bound m>=1, this maximizer is clipped at 1. Restricting to the actual integer interval gives the two adjacent candidates, clipped to the feasible endpoint when needed. The ratio of the marginal integrands v_r(t) for greater versus smaller r=(1-c)/c increases strictly with t, so the ratio of the two integrated scores for any larger and smaller positive efforts decreases strictly with c. Thus for every pair of counts the relative comparison moves strictly toward the larger count. Adjacent equality can occur only if the higher count wins strictly in the leading (1-c) score at c=1: equality only at that endpoint does not give an interior crossing. A tie of adjacent scores is global by strict concavity, which also prevents nonadjacent ties and skipped steps. For y=px, the equation G_r(y)/v_r(y)-y=ph has a left side strictly increasing in y and strictly decreasing in r. At r approaching zero it converges pointwise to exp(y)-1-y, and fixed brackets on either side of the limit root give convergence. At large r, z=r exp(-y) satisfies the exact rearrangement at RESULT.md:94; moving z log(1+1/r) to the left bounds z=O(log r), then the remaining terms give z~log(r)/(ph). This verifies both limits. Separately, python3 /workspace/branches/review-1-probability.py replays a 60-digit calculation of all nine feasible scores for each displayed example: 3 at c=0.1 (P=0.99343192921475848540), 5 at c=0.9 (P=0.27854962250500966199). These are examples only; the proof, not the packaged diagnostic assertions, establishes the quantified claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Duncan et al. excerpt discusses environmental heterogeneity modifying single-site establishment curves; the Canessa et al. DOI supplies bibliographic metadata only. The 6c42718054c6 index states budget activation thresholds for quorum r>=3 with expected successful sites as the objective."
+        ],
+        "reasoning": "A site establishment curve is an input, not a theorem optimizing a variable count with fixed opening costs. Maximizing a sum of site-success probabilities need not optimize an at-least-one probability, which instead sums negative log failures. The r>=3 result would not subsume r=1 as indexed even if the criteria agreed. A general reliability allocation theorem with stronger scope remains a residual risk.",
+        "searches": [
+          "Literature search on independent Poisson founders, environmental heterogeneity and multi-site opening-cost optimization",
+          "10.1111/2041-210X.12288",
+          "10.1111/1365-2664.12253",
+          "2026/11/22/SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:11–40, 69–96, 102–116",
+        "Record summaries 9af56973f262, 6c42718054c6, 34c909dd7ca2",
+        "Duncan et al. 10.1111/2041-210X.12288 (excerpt)",
+        "Canessa et al. 10.1111/1365-2664.12253 (metadata)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weak-patch entry concerns activating a weaker option to secure at least two established habitats among three; the indexed quorum results use different success events. The readily implied equal-allocation result follows from strict log-failure concavity."
+        ],
+        "reasoning": "Neither a threshold about activating a weaker site nor Jensen implies that the relative scores of distinct identical-site counts have exactly the stated single-crossing behavior under variation of c. The new comparison uses monotone relative marginal integrands and both endpoint laws; equal allocation and the generic perspective recipe are not separately credited.",
+        "searches": [
+          "2026/11/2/SCOPE-a-budget-independent-weak-patch-threshold-for-two-site-establish--34c909dd7ca2",
+          "Duncan et al. DOI 10.1111/2041-210X.12288",
+          "Resultary quorum staircase entries 9af56973f262 and 6c42718054c6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary entry for 9af56973f262 describes an ordered count staircase for equally funded independent introductions with success requiring at least two Poisson founders in a receptive episode."
+        ],
+        "reasoning": "The product-of-failures transformation is shared in shape, but at least two founders give a Poisson tail with no linear term in effort at zero, unlike the at-least-one-lineage factor. The summarized introduction-count theorem does not supply the catastrophe-risk comparison for the one-lineage law. Exact companion text was not retrievable; shared dating does not settle priority.",
+        "searches": [
+          "Resultary: independent Poisson founding, site-opening cost, catastrophe/unsuitability risk, allocation staircase",
+          "2026/11/22/SCOPE-an-exact-introduction-count-staircase-under-two-founder-threshol--9af56973f262"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned catalogue summaries describe other policy thresholds, not c-crossover data for this model. The accessible Duncan excerpt describes empirical/model founding curves, not an optimal site-count table."
+        ],
+        "reasoning": "This is a result for continuous parameters. No identified table covers the exact policy; recomputing a few budget/risk examples cannot establish the crossover law. The original contributions credited here are not numerical example values.",
+        "searches": [
+          "Resultary records 9af56973f262, 6c42718054c6 and 34c909dd7ca2",
+          "Duncan et al. DOI 10.1111/2041-210X.12288"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact risk-ordered integer policy with its strict endpoint criterion and relaxed-effort limits for the specified independent one-lineage model, not Poisson thinning, equal allocation via Jensen, or the general idea of opening several sites. There is identifiable structural overlap with quorum-based activation staircases, but the accessible statements do not establish equivalent coverage; primary and exact companion-record access limits remain.",
+      "residual_risks": [
+        "Full texts of the closest quorum companion records and primary ecology comparators were not independently reachable; their summaries do not establish exact coverage or priority.",
+        "A stronger reliability or resource-allocation theorem could subsume the exact schedule; no such statement was established by the available comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap; exact full-statement comparison unresolved",
+          "evidence": "Summary describes a two-founder requirement and first-split threshold, not the binary-unsuitability risk crossover for at least one lineage.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-introduction-count-staircase-under-two-founder-threshol--9af56973f262",
+          "material_read": "Resultary catalogue summary; exact local-mirror file not retrieved",
+          "method": "Semantic catalogue search and exact mirror lookup",
+          "title": "An exact introduction-count staircase under two-founder threshold",
+          "trigger": "Same staircase shape and Poisson introduction model"
+        },
+        {
+          "assessment": "Related but distinct as indexed; exact comparison unresolved",
+          "evidence": "Quorum r>=3, expected success count and varying budget rather than at-least-one objective and varying unsuitability risk.",
+          "identifier_or_url": "2026/11/22/SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6",
+          "material_read": "Resultary catalogue summary; exact local-mirror file not retrieved",
+          "method": "Semantic catalogue search and exact mirror lookup",
+          "title": "Consecutive habitat activation thresholds for Poisson founder quorum",
+          "trigger": "Same discrete activation language and Poisson resource allocation"
+        },
+        {
+          "assessment": "Related model; statement at summary level has materially different objective",
+          "evidence": "Three candidate habitats with differing efficiencies and at least two establishments.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-budget-independent-weak-patch-threshold-for-two-site-establish--34c909dd7ca2",
+          "material_read": "Resultary catalogue summary",
+          "method": "Semantic catalogue search",
+          "title": "A budget-independent weak-patch threshold for two-site establishment",
+          "trigger": "Budget-independent site allocation rule"
+        },
+        {
+          "assessment": "Evidence of shared mechanism only; not a whole-paper noncoverage determination",
+          "evidence": "Excerpt says environmental heterogeneity changes the relationship between establishment probability and founding population size.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12288",
+          "material_read": "Search excerpt only; publisher text and identified Folia OA copy not extracted",
+          "method": "Literature search, attempted publisher passage and OA PDF https://folia.unifr.ch/documents/304139/files/bac_qir.pdf",
+          "title": "Quantifying invasion risk: the relationship between establishment probability and founding population size",
+          "trigger": "Single-site founding and unsuitability mechanism"
+        },
+        {
+          "assessment": "Unresolved full-text comparison",
+          "evidence": "The frozen comparison describes structured-population scheduling; article text was not verified independently.",
+          "identifier_or_url": "https://doi.org/10.1111/1365-2664.12253",
+          "material_read": "DOI bibliographic metadata only",
+          "method": "Publisher/OA passage attempt",
+          "title": "Optimal release strategies for cost-effective reintroductions",
+          "trigger": "Potential broader optimization of reintroduction effort"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A positive opening cost and imperfect common site suitability pose a substantive diversification tradeoff not resolved by equal allocation for a fixed count. The theorem identifies exactly which successive counts can interchange, rules out reversal and skipped integer steps, and quantifies the limiting per-site allocation. It is useful as a solvable baseline for independent-site conservation models, without predicting a real species or claiming validity under correlated risks, discrete effort, or quorum effects.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

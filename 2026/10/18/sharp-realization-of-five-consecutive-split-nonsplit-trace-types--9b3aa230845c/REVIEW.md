@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is about trace-discriminant sign words over prime fields. The proof explicitly removes the nine zero-discriminant traces, applies the quadratic Weil bound to every nonempty subset, and handles the one double root shared by the first and fifth polynomials. These give \(32N_p\ge p-113\sqrt p-152\), sufficient above \(14000\). `verify.py` exhaustively covers the other \(1651\) odd primes and cross-checks the first \(250\) by an independently implemented character test. The numerical computation does not substitute for the infinite-range bound. Limit: there has been no independent formal proof verification.
+## correctness
 
-**Originality — PASS subject to independent priority checking.** Primary full-text sections checked: Wright (arXiv:1111.2236, especially pp. 1–4, 9–10) treats linear-residue supports and general asymptotic occurrence; Buchaev–Tsfasman (arXiv:2607.17418, especially definitions and the five-word formulas) treats consecutive single linear character values; Cohen (arXiv:2402.10737, pp. 1–4) treats triples and quadruples of linear square/nonsquare classes. None states the present full, sharp five-coordinate product-character cutoff. Focused web and semantic research-record searches found no equivalent cutoff or dominating finite theorem. The residual risk is an unindexed calculation or a stronger general effective pattern theorem with this exact exception set; no absolute novelty is claimed.
+PASS
 
-**Value — PASS.** The object is the natural split–nonsplit classification of regular semisimple \(2\times2\) determinant-one matrices by consecutive traces. Length five is structurally singled out as the first window with intersecting discriminant roots. The theorem supplies the complete exceptional-prime set and the sharp uniform realization threshold; the missing all-nonsplit word at the boundary is a motivated finite obstruction, not an arbitrary slice or normalization check.
+For each u the determinant-one companion matrix has trace u; its characteristic polynomial splits with distinct roots or stays irreducible exactly according to the nonzero discriminant sign. The sign proof in RESULT.md lines 25–59 concerns one common starting trace t. For p>8 the union of roots is the nine distinct values −6 through 2, with only f_0 and f_4 sharing a root (−2). Off those roots the indicator product is either 32 or 0; on the roots it is at most 16. In the product expansion the nonempty subsets are nonsquares: eight containing {0,4} have precisely one repeated root, whose removal lowers the number of distinct simple roots in the squarefree kernel by two relative to nominal degree and adds at most one to the sum error. The others are squarefree. Summing the Weil coefficients gives 129−16=113 and summing both errors gives 144+8=152. Thus 32N≥p−113sqrt(p)−152, strictly positive at 14000 and increasing thereafter. Independent Python 3 replay at /workspace/branches/5aa5a643-178d-4769-bfe7-a3c43841a834/independent_check.py (output run.log) used Euler character values and the two translated linear factors, and exhausted all t for all 1651 odd primes below 14000, including 3, 5 and 7 where the analytic distinct-root assumption does not apply. It reproduced the complete forty-prime exception list, the sole all-minus gap at 233, and full support at 229 and 239. The next prime after 233 is 239. The replay verifies the bounded range, and the analytic inequality is needed for the infinite range. VERIFICATION.md and the supplied verify.py were inspected without executing author code.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the simultaneous sharp prime cutoff, exceptional set and boundary obstruction for the five consecutive trace discriminants with their shared root. Nonzero discriminant classification and Weil expansion are established ingredients. The closest inspected indexed character-universality results use different polynomials or ordinary shifted linear arguments. No inspected statement supplies this exact five-product classification; this is not a proof of historical priority.
+
+## value
+
+PASS
+
+Five is the first short consecutive window with an actual branch-root collision when p>8, giving a natural scope rather than an arbitrary slice. The exact prime cutoff and exception set determine when every five-coordinate sequence of regular split and nonsplit types is available at consecutive traces, which a generic asymptotic character bound does not decide. The unique last obstruction is a useful precise boundary witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:31:21.064310Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In T(F_n), hub and spokes form a clique and are all within two steps of every element. The three peripheral elements of each triangle are a clique. Across distinct triangles, peripheral vertices are distance 2, while each rim edge is distance 3 from the other triangle's peripheral vertices and rim edge (via the endpoint formulas). Hence diameter is 2 at n=1 and 3 otherwise; maximum color-1 packing has n+1 elements, attained by hub plus all rims, and any radius-2 packing has at most n elements, attained by all rims. For n=1 only color 1 can repeat, giving 5. For n>=2, at q=0 count at most n+1 in color 1 and one in each other label, and realize equality. At q=1 the additional cap of n in color 2 gives 3n+2, realized by color 1 on s_1 and all b_i and color 2 on all rims. For q>=2, the 4n+1 hub, spokes and peripheral vertices are pairwise within two steps, so only color 1 can repeat on them and at least 3n+1 labels are needed. Keeping the q=1 color-1 set and using {a_1,r_2,...,r_n} and {a_2,r_1} for colors 2 and 3 attains that bound with the remaining labels singleton; this also works at n=2. The savings statement is for n>=2; all labels beyond 1 remain singleton at n=1. The frozen verify_friendship.py and verification_output.txt were inspected, not executed; they report finite BFS, construction checks, and packing-size search, ending ALL_CHECKS_PASS. The analytic argument proves all n,q, and the original attestation/audit/Lean fields were not_performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7 allows nondecreasing sequences but only on K_{m,n}; every two elements there have distance at most 2.",
+          "The closest Resultary record has a complete-multipartite domain; F_1=K_3 is in it but F_n for n>=2 is not (nonadjacency of peripheral vertices across triangles is not transitive)."
+        ],
+        "reasoning": "The more general S hypotheses in Theorem 7 do not compensate for its different graph and diameter. Neither an exact bipartite nor a complete multipartite result covers this graph family.",
+        "searches": [
+          "arXiv:2609.10107 abstract and Theorem 7 exact statement and proof opening",
+          "Resultary f776798be6f8 exact auxiliary formula and family"
+        ]
+      },
+      "checked_sources": [
+        "Ferme et al. arXiv:2609.10107",
+        "Ferme–Mesarič Štesl arXiv:2508.08691",
+        "Resultary f776798be6f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diameter-two singleton argument in Theorem 7 does not control the two reusable radius-2 classes at diameter three.",
+          "The q=0 computation is the generic |T|-alpha(T)+1 formula specialized here, but the q>=2 optimality needs a distance-two set of size 4n+1 plus simultaneous disjoint packings of two radius-2 labels."
+        ],
+        "reasoning": "The known frameworks and easy q=0 reduction leave the optimum and saturation of the mixed-radius regime unresolved; no inspected theorem mechanically implies that joint packing result.",
+        "searches": [
+          "Ferme et al. arXiv:2609.10107, definition and Theorem 7",
+          "Ferme–Mesarič Štesl arXiv:2508.08691, ordinary equivalence",
+          "Resultary f776798be6f8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The founding S-packing paper identifies the distance with that in T(G) and states the generalized equivalence; the earlier paper does this for ordinary packing total coloring.",
+          "For diameter at most 3, q=1 is exactly the ordinary packing-total regime because radii 3 and greater all force singleton classes."
+        ],
+        "reasoning": "Those equivalences map the problem to valid alternative formulations but do not compute the friendship-graph values. Ordinary packing-total results, even if available for the relevant family, would address only q=1 (and the degenerate n=1 case).",
+        "searches": [
+          "arXiv:2609.10107 pp. 2–3, and literal friendship search",
+          "arXiv:2508.08691 pp. 1 and 4; literal friendship and windmill searches",
+          "Primary-literature query for friendship and windmill S-packing total coloring and S-packing of the total graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected catalogue hit covers complete multipartite criticality and mentions the K_{m,1,1} ordinary value 2m+3, which for K_3 includes the value 5.",
+          "The retrieved broader search material did not give a candidate numerical table for the full parameter pair (n,q)."
+        ],
+        "reasoning": "The n=1 ordinary value is a known overlap, not a distinct discovery. No inspected table supplies the q-dependent classification or its saturation for n>=2.",
+        "searches": [
+          "Resultary: friendship graph / triangular windmill exact packing total color number; total graph of friendship graph, mixed radius sequence",
+          "Resultary 2026/10/4/f776798be6f8",
+          "Primary-literature query for the friendship graph and its total graph"
+        ]
+      },
+      "rationale": "The general notion, its total-graph formulation, and the ordinary packing-total regime are established. The supported distinction is the exact friendship-graph classification, including the second radius-2 class giving exactly one additional saving and the obstruction to any further saving. The directly relevant founding preprint was accessible and its strongest related statements were checked.",
+      "residual_risks": [
+        "A differently named windmill or derived-graph prior result is not exhaustively ruled out. Keyword misses in the inspected PDFs and unhelpful general web results do not establish absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes framework and exact formula on another family, not the inspected friendship classification",
+          "evidence": "Theorem 7 takes K_{m,n}; its proof uses total-element diameter at most 2.",
+          "identifier_or_url": "arXiv:2609.10107",
+          "material_read": "PDF p. 1 abstract (offset 1276), pp. 2–3 distance and equivalence (offset 6330), Theorem 7 and proof opening p. 7 (offset 24089); friendship locator",
+          "method": "OA original full-text PDF",
+          "title": "On S-packing total colorings",
+          "trigger": "Founding source, same definitions and possible broader theorem"
+        },
+        {
+          "assessment": "Equivalent framework for the ordinary radii, not the full sequence classification",
+          "evidence": "Ordinary radii are 1,2,3,...; ordinary coloring is packing coloring of T(G).",
+          "identifier_or_url": "arXiv:2508.08691",
+          "material_read": "Definition p. 1 (offset 3000), total-graph equivalence p. 4 (offset 13390); friendship and windmill locators",
+          "method": "OA original full-text PDF",
+          "title": "On packing total coloring",
+          "trigger": "Ordinary problem agrees with q=1 on this graph"
+        },
+        {
+          "assessment": "Known degenerate overlap at K_3 and different domain for n>=2",
+          "evidence": "Auxiliary ordinary value 2m+3 for K_{m,1,1} in discussion of the exceptional edge deletion.",
+          "identifier_or_url": "Resultary 2026/10/4/f776798be6f8",
+          "material_read": "Mirrored RESULT.md, offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Packing-total criticality of complete multipartite graphs",
+          "trigger": "Closest exact-value catalogue entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Friendship graphs are a natural diameter-three total-graph family, where the distinction between radius 2 and radius 3 has an exact operational effect. The theorem gives the full tradeoff: a first reusable radius-2 label saves n-1, a second saves only one, and an intrinsic diameter-two obstruction shows why no later label helps. The exact boundary and explicit optimal allocations provide a benchmark beyond the ordinary or no-reuse cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

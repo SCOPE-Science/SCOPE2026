@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The benefit for closing a root gateway is exactly the expected occupied count in the severed branch, \(G_i(p)=\sum_{k\ge1}b_{i,k}p^k\), by the unique path property and linearity of expectation. Every realizable branch-width profile corresponds exactly to one ordered composition of the number of sites after its first vertex. The complete size-restricted pair census contains \(3056\) distinct profile comparisons, each with at most one sign variation after the exact rational-root-preserving substitution. Descartes' rule therefore excludes two interior crossings on at most 13 vertices. A fully explicit 14-vertex directed tree has the exact factorization \(-p^2(2p-1)(p^2+p-1)\), proving two strict crossings. The standalone checker was executed from the package path and passed.
+PASS
 
-## Originality — PASS on inspected evidence
+In the fixed-root out-tree each downstream vertex contributes exactly p^depth to expected occupation. Closing its gateway removes that contribution, and no other branch is affected. A feasible branch profile starts with 1 and the remaining widths form an arbitrary positive composition of its remaining size; assigning every vertex at each level a parent in the preceding level realizes every profile, including the singleton with empty composition. Every admissible tree is therefore represented by a pair of profiles whose sizes sum to n−1; identical profiles give a tie. The fractional-linear map p=t/(1+t) sends the open unit interval bijectively to the positive half-line and clearing denominators gives the stated integer coefficients; Descartes' bound applies after ignoring zeros. Independently, I enumerated compositions by cut combinations, visited unequal-sized profile pairs once and equally sized pairs by combinations, removed endpoint factors and counted distinct roots by exact Sturm sequences. Across orders 3–13, 3056 distinct profile pairs were checked and none had more than one interior root. Orders below 3 cannot support two gateways. At 14 the listed graph has profiles (1,1,4) and (1,2,1,1,2). Their benefit difference factors as −p²(2p−1)(p²+p−1), with exactly two simple interior roots and signs negative, positive, negative. The preferred closure is indeed the one with greater benefit.
 
-Carter et al. (2024) concerns empirical spatial invasion-control planning, not this sharp tree theorem. Enns et al. (2012) is undirected graph partitioning without probabilistic parameter crossovers. Khorramzadeh et al. (2015) establishes reliability-dependent edge rankings and multiple possible intersections in general; those generic effects, and any golden-ratio numerical coincidence, are explicitly **prior art**. Published results on undirected uniform-seed epidemic edge cuts, variance across seed locations and extinction-driven rooted-phylogeny diversity concern mathematically different objectives and admissible profile classes; none of their statements implies a two-gateway fixed-source, expected-occupation cutoff of 14. Source texts and mathematical implications were compared, not merely titles. Priority remains subject to differently indexed or unpublished finite-graph work.
+## originality
 
-## Value — PASS
+PASS
 
-Managers choosing which one of two controllable entry corridors to block face a natural discrete prioritization question. At low transmission, more near-gateway habitat favors blocking branch B; at moderate transmission, a concentrated depth-three cluster makes branch A preferable; at high transmission, the larger total downstream branch B becomes preferable again. This example shows that monotonicity of transmission does **not** make the intervention ranking single-crossing. Establishing 14 as the sharp minimum is a complete structural boundary for a well-defined model, rather than an arbitrary numeric case. No empirical validation or real-world recommendation is claimed.
+Changing reliability rankings, reliability polynomials, and even the two individual threshold values are known. The supported distinct claim is the sharp least total order for two strict changes in the single-root, two-gateway expected-size comparison. The strongest inspected source-ranking near-match shares the same adjacent-endpoint mechanism but establishes only a one-switch result and enumerates only through seven vertices. The inspected random-source, variance and phylogenetic results do not yield the required two-crossing minimum.
 
-## Closest prior mathematics and limitations
+## value
 
-References and source comparison: Carter et al., DOI:10.1002/eap.2982; Enns et al., DOI:10.1016/j.mbs.2011.11.006; Khorramzadeh et al., arXiv:1403.7074; published finite-tree edge-cut and variance-crossing results cited in `RESULT.md`. The result does not cover multiple independent invasion origins, heterogeneous transmission, other link-removal choices, non-tree networks or field data. No finite checker establishes historical novelty by itself.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rooted reliability rankings and parameter-dependent edge importance are independently motivated by prior network-reliability work. The fixed-root, two-gateway restriction isolates whether ranking can return to its initial order with a single varying probability even when site values and intervention costs are identical. The exact 14-site boundary and explicit strict preference intervals answer that question more sharply than an isolated reversal or example without minimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

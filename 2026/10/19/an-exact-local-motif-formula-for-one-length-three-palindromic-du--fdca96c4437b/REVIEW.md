@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The equality of outputs from two length-three duplication sites is equivalent to a length-three word equation. Overlapping sites force constant symbols, while disjoint sites force a period-three corridor and a palindromic cyclic rotation. Reduction by three positions eliminates every distant collision between consecutive equal-output sites. The sole local nonconstant edges occur at distances three, four, and five, yielding exactly the stated patterns. Counting consecutive edges in output-equivalence classes proves the exact formula; linearity gives the mean. The packaged verifier independently checked descendant sets, edge identities, and exact uniform averages on 745,596 words; finite enumeration is not substituted for proof.
+PASS
 
-## Originality — PASS (with residual uncertainty)
+Precisely one length-three reversal copy is appended to its source factor, with no complement or wraparound. Cancelling untouched prefix/suffix gives AB=BV^R even for overlapping factors. Gaps 1 and 2 force a constant span. At gap d≥3, B must be a prefix of A repeated; the tail condition requires the rotation of A by d modulo 3 to be palindromic. A nonconstant A has at most one such rotation. A gap d≥6 cannot join consecutive indices in an equality class because d−3 gives the same collision. The residual nonconstant gaps 3, 4, 5 give exactly abaaba, baaaaba, bbaabbab, and the unique possible residue prevents an intervening collision. Constant consecutive collisions are exactly the gap-one aaaa windows. Each equality class contributes size minus one consecutive edges; subtracting all edges therefore handles multiple collisions without overcounting. Window probabilities q^(−3) and (q−1)/q^(d+2) give the mean by linearity, including absent patterns at small n. The frozen verifier and metadata were inspected, not executed. A separately written bounded exact check tested direct descendants, consecutive collision edges and rational means on 23,452 words (q=2 through n=12, q=3 through n=8, q=4 through n=6; starting at n=3). Replay: /workspace/branches/bd9fa510-af55-420e-bcc8-8b4fda581296/reproduce_pal3.py. The all-length conclusion uses the proof, not that finite test.
 
-Lenz, Wachter-Zeh and Yaakobi, arXiv:1707.00052 §3.3/Appendix 0.A, and their expanded arXiv:1712.09345 §3/Appendix B, give the channel definitions and general collision equations, exact lengths one and two, and a length-three nonconstant example; at higher lengths they give a bound, not the four-pattern equality. Coding-capacity analyses such as arXiv:2312.00394 and construction/redundancy analyses such as arXiv:2602.01151 do not imply this one-step degree formula. Relevant other research results for palindromic length-two and tandem channels address different parameters. An equivalent unindexed derivation remains a legitimate risk; database search is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first duplication length where nonconstant long-gap coincidences appear is a natural structural threshold. The result completely resolves the per-word sphere size for every finite alphabet and length and gives its exact average. It replaces a run-only upper bound with a finite-motif identity and explains the exceptional nonconstant collisions. This is a meaningful general classification rather than a routine numerical extension.
+The general palindromic-duplication collision criterion and a nonconstant gap-three example were already known. The supported contribution is the complete list of consecutive collision motifs for length three, the exact forward count and its uniform mean, not the collision criterion itself.
 
-## Limits
+## value
 
-Exactly one length-three reversal duplication with immediate insertion is considered. No independence verification, multistep result, or optimal code size is claimed. The self-review does not replace independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Length three is the first case beyond the known exact short-length sphere calculations in which separated nonconstant collisions obstruct a run-only formula. The exact finite-motif census is an input-dependent quantity relevant to one-error sphere calculations, eliminates duplicate counting from long collision chains, and gives an exact average without needing a model for dependent overlapping windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

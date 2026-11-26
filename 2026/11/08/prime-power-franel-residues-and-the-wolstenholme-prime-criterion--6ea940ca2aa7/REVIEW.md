@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every interior binomial coefficient in row \(p^a\), Lucas's theorem and \(\binom{p^a}k=(p^a/k)\binom{p^a-1}{k-1}\) give the exact valuation \(a-\nu_p(k)\). Thus only the \(p-1\) indices \(jp^{a-1}\) contribute modulo \(p^4\). Their normalized units are \((-1)^{j-1}/j\pmod p\); cubing reduces the calculation to one alternating reciprocal-cube sum. Bernoulli-polynomial summation proves the coefficient \(B_{p-3}/2\pmod p\). The separate \(p=2,3\) cases and prime-power obstruction are checked explicitly. The embedded Python verifier independently passes 581 finite checks; finite tests are corroboration, not the unrestricted proof.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The new assertion is the \(a\)-independent leading Franel residue at **every prime-power index**, and its exact equivalence to Wolstenholme-prime exceptional divisibility. Sun's arXiv:1112.1034 (initial 2011) studies Franel congruences, notably weighted partial sums and base prime divisibility. Straub's arXiv:1401.0854, Example 3.6 (first posted 2014), proves a **stronger height-stability congruence** for Franel numbers, so that part is prior work; neither inspected source gives the Bernoulli leading coefficient \(B_{p-3}/2\) or the new Wolstenholme exception criterion. Meštrović's arXiv:1108.4178 (initial 2011) studies Wolstenholme primes and central binomial coefficients, not Franel sums; the Bernoulli criterion itself is classical and not new. OEIS A000172 contains a March 2013 primality conjecture and the forward prime direction, not this uniform local classification. A related archival historical record concerns **row \(p^q-1\)** and a varying binomial exponent, which does not imply the present row \(p^a\), fixed cube exponent claim. Published mathematical-finding searches were performed on prime-power Franel, Bernoulli, and Wolstenholme aliases; the closest located records involve generalized Domb sums and unrelated binomial prime-base congruences, not this implication. Remaining risk: an unlocated proof or a general congruence that subsumes the present statement.
+PASS
 
-**Mathematical value — PASS.** The question is motivated by the recorded Franel congruence \(f_p\equiv2\pmod{p^3}\), a proposed Franel-based primality characterization, and the classical exceptional Wolstenholme primes. The theorem **identifies** the exact coefficient stabilized by the existing prime-power supercongruences, ties its zero set to a classical exceptional-prime class, and excludes nonexceptional proper prime powers from the recorded primality conjecture. The specific new information is the Bernoulli/Wolstenholme identification, not the already-proved existence of a stable residue at higher powers. It does not resolve the remaining Wolstenholme or general composite cases.
+For 0<k<p^a, the remaining binomial coefficient in C(p^a,k)=(p^a/k)C(p^a-1,k-1) is a unit by Lucas, so the valuation is a-v_p(k). Only k=jp^(a-1) can contribute modulo p^4 after cubing, and at these indices C(p^a,k)/p reduces to (-1)^(j-1)/j. The endpoints sum to 2. For p≥5 the full reciprocal-cube sum is zero modulo p, leaving -1/4 times the half sum. Setting m=p-3, that half sum is (B_m((p+1)/2)-B_m(0))/m by Faulhaber's formula. The coefficients are p-integral since all Bernoulli indices are below p-1. The half-argument formula B_m(1/2)=(2^(1-m)-1)B_m and 2^(1-m)=8 mod p give the half sum -2B_m, hence the frozen coefficient B_m/2. Glaisher's classical binomial congruence detects the same Bernoulli zero modulo p. At p=2 the surviving unit sum is 1, and at p=3 it is 2 modulo 3, giving exact valuation 3 at every height. Divisibility by the cube of p^a for a≥2 requires valuation at least six, so only the stated nonexceptional cases are excluded by the frozen modulus.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the explicit Bernoulli coefficient for the Franel residue, its identification with the Wolstenholme exception and the small-prime valuations. The prime-power stability itself is covered by Straub's stronger theorem for p≥5, and the binomial/Bernoulli Wolstenholme criterion is classical. No independent matching statement for the remaining Franel coefficient was established in the strongest available comparisons; this is a bounded judgment, not a claim of historical priority.
+
+## value
+
+PASS
+
+At canonical input indices for a known primality-test conjecture, this is an exact obstruction, not generic height stability: it explains why essentially the entire prime-power problem falls at valuation three and isolates the precise classical irregularity that can make that obstruction vanish. The small-prime valuations cover the boundary not covered by the cited general odd-prime height-stability theorem. This is useful even though the exceptional case requires finer digits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

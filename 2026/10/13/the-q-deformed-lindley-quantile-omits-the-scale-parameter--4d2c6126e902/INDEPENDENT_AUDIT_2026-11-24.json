@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:58:23.656796Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Proposition 2, Eq. (6) uses Aθ=1+(3−2q)θ; Theorem 1, Eq. (9) instead defines A=4−2q and specifies the real lower branch. With b=(2−q)θ, z=−bx and q′=1/(2−q), the true inverse satisfies (z−Aθ)exp_q′(z)=−Aθ(1−u). Setting κ=1+(1−q′)A, substitution w=(z−A)/κ verifies that the printed expression solves this equation with A=4−2q rather than Aθ: the two positive bases factor as 1+(1−q′)z=κ[1+(1−q′)w]. When κ>0 and A>1, z<0 implies w<−A/κ<−1/(2−q′), the decreasing (lower) branch, whose endpoint value at z=0 corresponds to u=0 and whose other endpoint to u=1. The printed κ is positive throughout the admissible q intervals. Subtraction gives the stated exact residual, strictly signed as θ−1 for 0<u<1. As an exact check, for (θ,q)=(2,4/3) the printed inverse at u=3/8 gives x=3/2 but the true CDF there is 9/20. With the corrected Aθ, κ=(3−2q)[1−(q−1)θ]/(2−q); the shift divides by zero at κ=0 and loses its positive base at κ<0. Neither prevents monotone numerical CDF inversion: for s=1+(q−1)θx and p=(2−q)/(q−1)>1 on the unbounded side, the survival derivative in s has the sign of (1−p)s−(Aθ−p)<0 for s≥1, regardless of κ. On the bounded side, s=1−(1−q)θx decreases from 1 to 0, and s^p[1+(p/Aθ)(1−s)] for p=(2−q)/(1−q)>1 is strictly increasing in s on (0,1). The four reported medians were independently reproduced by bisection (python /workspace/checks/independent_formula_checks.py); supplied checker inspected without execution. No inference is made about private simulation code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Da Silva–Ramos define Wq by Wq(z)exp_q(Wq(z))=z, a general inversion tool.",
+          "Theorem 1 uses that device with A=4−2q, not with the constant from its own CDF."
+        ],
+        "reasoning": "The general device supplies the technique and does not identify any qDL parameter loss, the two-CDF residual, or the qDL restriction on the shifted expression. No originality is assigned to defining Wq or to the general substitution rule.",
+        "searches": [
+          "10.1016/j.physa.2019.03.046; arXiv:1810.09530, Lambert–Tsallis inverse definition",
+          "10.3390/math14081364, Theorem 1 and proof"
+        ]
+      },
+      "checked_sources": [
+        "Publisher PDF of 10.3390/math14081364",
+        "arXiv:1810.09530 (DOI 10.1016/j.physa.2019.03.046)",
+        "Resultary ae5453f215d4, mirrored RESULT.md",
+        "Frozen RESULT.md, VERIFICATION.md and verify_qdl_quantile.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general inverse relation takes the argument as given and cannot select a source-specific normalizer.",
+          "The LAPFr proof concludes F(Qsurrogate)<u and saturation, whereas the qDL residual changes sign at θ=1 and the shifted repair loses its base only for an explicit part of the unbounded qDL domain."
+        ],
+        "reasoning": "The analogous substitute-and-test method and the special function are known; neither prior delivers the formula-level comparison to this article or corrects its published sampler. The supported distinct claim is this comparison and its consequences, not a new inversion theory.",
+        "searches": [
+          "arXiv:1810.09530",
+          "10.3390/math14081364 Eqs. (6) and (9)",
+          "Resultary ae5453f215d4 proof steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The focused literature lookup surfaced the qDL article and issue listing, not an independent correction. Proposition 2 retains θ while Theorem 1 explicitly omits it.",
+          "Resultary ae5453f215d4 concerns ordinary Lambert W for an intentionally approximate LAPFr VaR formula, not the Lambert–Tsallis inverse for qDL."
+        ],
+        "reasoning": "Rewriting quantile failure as F(Qprint(u))≠u or as the law of Qprint(U) checks equivalently for the same alternate survival function. The closest analogous result uses a different generator, replaces log(1+g) by g, and its error always undercovers. That formula cannot yield the θ-dependent sign reversal here.",
+        "searches": [
+          "Resultary: Lambert Tsallis Lindley El-Awady Haj Ahmad Mathematics 1364 10.3390/math14081364 quantile A theta inverse wrong normalizer",
+          "Primary literature lookup for q-deformed Lindley 10.3390/math14081364 quantile correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The article lists the four parameter pairs and cites Eq. (9) for inverse transformation; none has θ=1.",
+          "The compared indexed LAPFr result gives a limiting coverage interval for a different VaR approximation. It contains no qDL median comparison."
+        ],
+        "reasoning": "No external catalogue is expected for the exact coverage residual of an erroneous printed inverse. The illustrative median entries are reproducible consequences of the residual, not an independent novelty claim; the article's simulation outputs are not a verification of Eq. (9).",
+        "searches": [
+          "10.3390/math14081364, simulation design at PDF offset 86231",
+          "Local Resultary search for qDL quantile, Lindley and Tsallis aliases"
+        ]
+      },
+      "rationale": "No checked distinct result covers the source-specific wrong constant, the resulting exact coverage error across the admissible parameters, or the limitation of the shifted remedy. The Lambert–Tsallis inversion device is prior and not credited as new. This is a best-of-evidence determination, not a comprehensive priority claim.",
+      "residual_risks": [
+        "Independent corrections not indexed under the searched terms, or silently revised software, were not excluded. The verified claim is restricted to the printed specification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the formula mismatch and explicit use of Eq. (9) in the published sampler.",
+          "evidence": [
+            "Eq. (6) contains 1+(3−2q)θ; Eq. (9) defines A=1+(3−2q), with the lower branch and both minus signs as used in the audit.",
+            "The Monte Carlo section cites Eq. (9) and gives (θ,q)=(1.5,1.1),(0.75,0.85),(0.4,1.4),(0.15,−0.5)."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/mathematics/mathematics-14-01364/article_deploy/mathematics-14-01364.pdf",
+          "material_read": "PDF pp. 2, 4, 7–8 and 16: offsets 8079, 20108, 31354 and 86231",
+          "method": "Publisher PDF, targeted locators and passage reads",
+          "title": "The q-Deformed Lindley Distribution: Properties, Statistical Inference, and Applications",
+          "trigger": "Same distribution, alleged quantile defect and identified simulation use"
+        },
+        {
+          "assessment": "Supplies inversion technique, not the model-specific quantile discrepancy.",
+          "evidence": [
+            "Wq solves Wq(x)exp_q(Wq(x))=x; the method takes this input as specified."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1810.09530",
+          "material_read": "Submitted paper, opening definition and equation, offsets 285–1100",
+          "method": "OA arXiv copy resolved from DOI 10.1016/j.physa.2019.03.046",
+          "title": "The Lambert–Tsallis Wq Function",
+          "trigger": "General result could supply the inversion and its domain"
+        },
+        {
+          "assessment": "Not covering: different model, transform, error mechanism and conclusions.",
+          "evidence": [
+            "The LAPFr expression comes from replacing log(1+g) by g and has F(Qsurrogate)=u log(1+z)/z<u. It uses W0, not the real lower Lambert–Tsallis branch."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-bounded-lambert-w-var-surrogate-for-a-heavy-tailed-log-adjuste--ae5453f215d4",
+          "material_read": "Mirrored RESULT.md, finding, assumptions and proof steps 1–2, offset 0",
+          "method": "Local Resultary search and mirror passage read",
+          "title": "A bounded Lambert-W VaR surrogate for a heavy-tailed log-adjusted Fréchet model",
+          "trigger": "Closest same-method indexed correction in a distinct record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies the law that the published sampler actually generates if implemented literally, rather than just correcting notation. All four simulation designs are affected; for example the nominal median in the fourth design has actual coverage approximately 0.379. The exact residual and the real-domain boundary tell implementers both when the error occurs and when a simple constant replacement must be replaced by a different inversion method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

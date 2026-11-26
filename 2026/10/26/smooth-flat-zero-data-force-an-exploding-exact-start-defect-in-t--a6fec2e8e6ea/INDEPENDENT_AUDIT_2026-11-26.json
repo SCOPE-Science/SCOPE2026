@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:58:06.320466Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 18–82; VERIFICATION.md, lines 19–25; verify.py",
+        "Gu, Chen and Jung, arXiv:2403.08253v1, Eqs. (12), (15), Theorem 4.1"
+      ],
+      "rationale": "The original Gaussian method's Eq. (12) and Eq. (15) use the stated exponential stage and signed squared shape parameter; a negative value is allowed. The smooth affine-in-state IVP has exact solution g and state Lipschitz constant 1. For h=1/N and t=ceil(N tau)/N, irrationality gives 0<delta=t-tau<h, and t+h<tau+2h<1 for N>=4. At the exact datum the numerator f_t+f_v f equals g'', with g''/g=4/delta^6-6/delta^4. The logarithm of the amplified g is (h^2/delta^6)(8/9-4 delta^2/3-delta^4/h^2). The parentheses exceed 1/2 when h<=1/4 (lower bound 107/144), uniformly for every mesh offset, so the logarithm is at least 1/(2h^4). The amplified term enters the update with positive coefficient 3h/4; the rest of the defect depends only on bounded g and g' at points in [0,1], so an N-independent K exists. This establishes a nonuniform local defect at a moving exact-data node, not failure of pointwise consistency at a fixed nonzero datum, propagated global divergence, or a contradiction of the original bounded-shape convergence theorem. The frozen checker was read, not run; its finite log-domain diagnostics are not used in the bound.",
+      "residual_risks": [
+        "No conclusions about finite-precision overflow, regularization, or other stages."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 assumes bounded squared shape, with a uniform bound used in the proof. The three-stage Gaussian schemes are separate formulas and Theorem 4.2 also uses bounded shape parameters.",
+          "Frozen references describe denominator issues or remedies in older adaptive RBF work; the decisive passages of those papers could not be retrieved for independent inspection."
+        ],
+        "reasoning": "A bounded-shape convergence theorem cannot give an unbounded-shape counterexample. A singular quotient, remedy, or result for another stage scheme does not by itself cover a finite-at-each-node, divergent all-mesh exact-step defect.",
+        "searches": [
+          "arXiv:2403.08253v1, Section 4, Theorems 4.1 and 4.2",
+          "DOI:10.1016/j.cam.2020.113036; DOI:10.1007/s10915-020-01140-0, publisher and OA retrieval attempts"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.08253v1",
+        "Resultary catalogue comparison",
+        "Frozen RESULT.md, prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boundedness of epsilon_n^2 is assumed rather than deduced from smoothness and Lipschitz continuity.",
+          "At the tested mesh nodes the denominator is nonzero, and the positive exponential grows faster than the exact datum decays."
+        ],
+        "reasoning": "Dropping an assumption does not imply failure, and unbounded shape does not alone imply an unbounded step because its coefficient may tend to zero. The new witness controls the product and the sign, simultaneously on every sufficiently fine uniform mesh without alignment or division by zero.",
+        "searches": [
+          "Original convergence proof, arXiv:2403.08253v1, pp. 13–15",
+          "Frozen RESULT.md, proof and comparison with adaptive Gaussian RBF methods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (12) uses v_n exp(-epsilon_n^2(a_21 h)^2)+h a_21 k_1. Equation (15) gives the exact derivative quotient; the coefficients are a_21=c_2=2/3, b_1=1/4, b_2=3/4.",
+          "The original method permits imaginary epsilon, so the frozen signed-square formula is the same Gaussian method, not a changed integrator."
+        ],
+        "reasoning": "Identifying the method under either signed-square or imaginary-parameter notation fixes the target of comparison. The frozen claim concerns amplification that survives multiplication by the exponentially small exact datum, not just the singularity of the quotient.",
+        "searches": [
+          "arXiv:2403.08253v1, Eqs. (12), (15), and Theorem 4.1",
+          "Focused literature lookup: Gaussian RBF Runge–Kutta unbounded shape near a flat zero and local defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest surfaced title, Resultary 3c8b1dae290d, concerns Gaussian Nyström compression for rotational Runge–Kutta endpoints, based on its catalogue description."
+        ],
+        "reasoning": "The catalogue hit concerns randomized compression rather than the RBF stage exponent or an ODE near an irrational flat zero. This is a theorem-level comparison, not an exact numerical table lookup; no exact match was identified in the checked results.",
+        "searches": [
+          "Resultary: Gaussian radial-basis-function Runge–Kutta, shape parameter and flat-zero exact-start defect"
+        ]
+      },
+      "rationale": "The method, quotient, and bounded-shape convergence condition are prior work; the contribution is the quantitative positive divergent exact-start defect on every fine uniform mesh for one smooth globally state-Lipschitz problem with no zero denominator at the tested nodes. Available sources do not establish that result; the older adaptive RBF singularity literature was not fully accessible, so priority is qualified.",
+      "residual_risks": [
+        "The older adaptive RBF papers were not inspectable in full text. Related uncapped-method counterexamples in inaccessible or unindexed literature remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method; bounded-shape result does not cover the witness",
+          "evidence": "Second-stage datum has exp(-epsilon_n^2(a_21 h)^2); imaginary shape is allowed; convergence uses bounded epsilon_n^2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.08253",
+          "material_read": "v1 pp. 6–8, Eqs. (12), (15), extraction offsets 18540 and 21112; pp. 13–15, Theorems 4.1–4.2 and boundedness use",
+          "method": "OA PDF passage inspection",
+          "title": "Explicit radial basis function Runge-Kutta methods",
+          "trigger": "Exact original method and its convergence hypothesis"
+        },
+        {
+          "assessment": "Unresolved source-level overlap; no negative coverage inference from access failure",
+          "evidence": "The frozen record identifies a denominator issue; publisher access returned HTTP 403, and no lawful repository text was found in the bounded lookup.",
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2020.113036",
+          "material_read": "No decisive full-text passages; bibliographic identification and frozen comparison only",
+          "method": "Publisher/DOI and bounded lawful alternate-copy lookup",
+          "title": "Adaptive Gaussian radial basis function methods for initial value problems: Construction and comparison with adaptive multiquadric radial basis function methods",
+          "trigger": "Plausible earlier Gaussian denominator issue or remedy"
+        },
+        {
+          "assessment": "Unresolved as to detailed statements",
+          "evidence": "Frozen comparison describes related multiquadric methods, not the present Gaussian two-stage witness; full text was not reached.",
+          "identifier_or_url": "https://doi.org/10.1007/s10915-020-01140-0",
+          "material_read": "No decisive full-text passages; identification and frozen comparison only",
+          "method": "Publisher/DOI and bounded lawful alternate-copy lookup",
+          "title": "Adaptive Radial Basis Function Methods for Initial Value Problems",
+          "trigger": "Related adaptive RBF shape literature"
+        },
+        {
+          "assessment": "Indexed description indicates a different Gaussian mechanism; not a full-text negative assessment",
+          "evidence": "The description concerns compressed rotational-flow RK endpoints, not a deterministic RBF stage with a derivative-based shape quotient.",
+          "identifier_or_url": "Resultary 3c8b1dae290d",
+          "material_read": "Local index description only",
+          "method": "Local Resultary search",
+          "title": "Sharp moment-integrability phases for Gaussian Nyström compression of rotational Runge–Kutta steps",
+          "trigger": "Closest catalogue terminology hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 2–4",
+        "arXiv:2403.08253v1, Eq. (15) and Theorem 4.1"
+      ],
+      "rationale": "This is a motivated sharp failure mode for a specific published numerical integrator. It shows why even unusually benign smooth, state-Lipschitz solution data cannot replace uniform shape control: the exact-start defect can grow without a mesh node ever hitting the zero. The grid-uniform positive lower bound makes the phenomenon stronger and more actionable than warning of an undefined formula at a zero.",
+      "residual_risks": [
+        "The result is a worst-case witness for the uncapped scheme and does not assess the performance of a particular remedy."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

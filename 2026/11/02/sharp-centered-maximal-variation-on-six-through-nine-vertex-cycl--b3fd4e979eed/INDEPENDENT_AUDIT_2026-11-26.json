@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:14:38.329314Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45",
+        "Frozen VERIFICATION.md lines 19–27",
+        "Frozen verify_cycles6to9.py lines 9–95, inspected only",
+        "Frozen cycles6to9_dual_certificates.json, independently exhausted"
+      ],
+      "rationale": "Taking absolute values cannot increase the input edge variation; if the absolute values are constant the output variation is zero. For nonnegative data subtraction of the minimum, rotation, and scaling give f₀=0 and variation at most one. The signed edge expression has vertex coefficients σᵢ₋₁−σᵢ. At its positive vertices expand the radius choice, and at its negative vertices use a majorant of every average, which attains the optimum at the maximum. This gives the exact LP decomposition; weak duality requires both nonnegative multipliers and one inequality for each nonnegative variable. I wrote and ran a separate checker using shortest-arc graph distances and direct t, z, and f coordinate inequalities rather than the frozen matrix builder. It exhausted branches 730, 2186, 12032, 38912 and respectively checked 9494, 33514, 213760, 782464 dual coordinates, in addition to each dual objective and each witness. The least radius containing the point mass gives 1/min(2k+1,n) at distance k, so the values telescope around both arcs, attaining the upper bound. Exact replay: python3 /tmp/opencode/scope_independent_cycle_audit.py; it reads the frozen JSON data, not the supplied executable checker.",
+      "residual_risks": [
+        "The replay is an exact finite certificate check, not a formal proof-assistant check. No upper bound of this form has been verified here beyond nine vertices or for weighted cycles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph census proves the four-vertex theorem, and reports results through five only; its all-size path statement is a conjecture, not a cycle theorem.",
+          "Complete/star graph results are sharp but do not cover C₆–C₉. The recent line bounds for separated step functions and transference do not give an arbitrary finite-cycle bound."
+        ],
+        "reasoning": "No checked broader theorem with the present hypotheses dominates the sharp coefficient on these cycle sizes. The arbitrary graph problem does not have a universal contraction at this coefficient.",
+        "searches": [
+          "arXiv:2603.12462: Theorems 2 and 4, Conjecture 5 and five-vertex computations",
+          "arXiv:2005.03146 sharp finite-graph variation",
+          "arXiv:2407.06734 centered discrete variation"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records --e3a2f5b97b74 and --0238b85542de",
+        "arXiv:2603.12462, 2005.03146, 1005.3030, 2107.12404, 2407.06734, 2611.15377"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The point-mass lower bound holds at every size, but gives no upper bound.",
+          "The equal-weight special case is outside the indexed weighted theorem's length range. The valley-profile path theorem has endpoints and restricted data. Sharp star inequalities with matching coefficients do not apply to cycles."
+        ],
+        "reasoning": "Identical expressions in different regimes are not implications. The genuinely new part supported here is the universal upper bound at these four consecutive sizes, matched to the existing witness mechanism.",
+        "searches": [
+          "Resultary --e3a2f5b97b74 and --0238b85542de findings",
+          "arXiv:2005.03146 finite-graph inequalities",
+          "arXiv:2611.15377 Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equalizing weights in indexed record --e3a2f5b97b74 gives exactly the normalized coefficient 1−1/n, but its lengths are 3, 4, 5.",
+          "Bober et al. give the sharp uncentered line variation contraction; Bilz–Weigt give a centered line theorem only for indicators."
+        ],
+        "reasoning": "Neither the underlying topology, the centered/uncentered choice, nor the full input class can be changed silently. A known indicator inequality does not give the required optimal finite-cycle upper bound for arbitrary data.",
+        "searches": [
+          "Resultary: centered maximal variation cycles, weighted cycles, valley profiles",
+          "arXiv:1005.3030",
+          "arXiv:2107.12404"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue formula is restricted to cycles of length at most five; indexed path result --0238b85542de has valley-shaped inputs.",
+          "The published five-vertex census records only smaller graphs and cautions that its optimizer does not guarantee a global maximum."
+        ],
+        "reasoning": "Neither exact same-size tabulation nor a certified entry for n=6,7,8,9 was found in the checked corpus; the table comparison has a definite scope cutoff.",
+        "searches": [
+          "Resultary: centered graph-ball sharp cycle variation C6 C7 C8 C9",
+          "arXiv:2603.12462 computational graph census through five vertices"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the four upper bounds on arbitrary real centered cycle data, not for the point-mass lower bound or the formula in general. The strongest indexed overlap gives the identical formula after equal-weight specialization, but only for cycles of length three through five; the strongest literature graph census also stops at five. Neither these nor the other inspected statements justify the four upper bounds by specialization. The same-day relationship is not a priority determination.",
+      "residual_risks": [
+        "Ranked catalogue and literature checks are bounded; unindexed equivalent calculations are possible.",
+        "Same-day catalogue dating does not resolve relative priority; no priority claim rests on it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equal-weight formula at different sizes",
+          "evidence": "Finding: C₃,C₄,C₅, positive masses, constant 1−w*/W with minimum-mass indicator attaining it.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-weighted-variation-of-centered-maximal-averages-on-cycles--e3a2f5b97b74",
+          "material_read": "RESULT.md offsets 0–7592",
+          "method": "Configured local mirror",
+          "title": "Sharp weighted variation of centered maximal averages on cycles",
+          "trigger": "Strongest same-day indexed match"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": "Finite paths, valley data, not arbitrary cycle data.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-centered-maximal-variation-for-valley-profiles-on-finite-p--0238b85542de",
+          "material_read": "RESULT.md offsets 0–7548",
+          "method": "Configured local mirror",
+          "title": "Sharp centered maximal variation for valley profiles on finite paths",
+          "trigger": "Identical coefficient at unbounded n"
+        },
+        {
+          "assessment": "Does not cover four sizes in question",
+          "evidence": "Theorem 2 includes C₄; computations through five; Conjecture 5 is for paths.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.12462",
+          "material_read": "Abstract and pp. 3–5, offsets 0–6416 and 7800–15222; C₄ discussion p. 10 near offset 30633",
+          "method": "OA PDF passages",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Graph-class and exact census comparison"
+        },
+        {
+          "assessment": "No implication",
+          "evidence": "Complete and star graphs in stated p ranges including p=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.03146",
+          "material_read": "p. 3, offsets 9300–13792",
+          "method": "OA PDF passage",
+          "title": "Sharp inequalities for maximal operators on finite graphs",
+          "trigger": "Matching coefficient for other graph families"
+        },
+        {
+          "assessment": "Different inequality",
+          "evidence": "Sharp Var(Mf)≤Var(f) for uncentered Z; the centered result has an ℓ¹ input bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.3030",
+          "material_read": "p. 1 abstract and context, offsets 350–2481",
+          "method": "OA PDF passage",
+          "title": "On a discrete version of Tanaka's theorem for maximal functions",
+          "trigger": "Potential line-to-cycle implication"
+        },
+        {
+          "assessment": "Distinct topology and input class",
+          "evidence": "Indicator functions on R and Z; equality for intervals.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.12404",
+          "material_read": "Theorems 1.1 and 1.3, offsets 0–4964 and 7795 onward",
+          "method": "OA PDF passages",
+          "title": "Bilz–Weigt, centered maximal variation for indicator functions",
+          "trigger": "Centered discrete maximal variation comparison"
+        },
+        {
+          "assessment": "No finite arbitrary-cycle theorem in inspected statements",
+          "evidence": "Specified separated step-function classes and Z-to-R transference.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.06734",
+          "material_read": "pp. 2–4, offsets 3900–14526",
+          "method": "OA PDF passages",
+          "title": "Hagelstein–Kosz–Stempak, centered maximal variation",
+          "trigger": "Discrete transference or general bound"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Stars Sₙ with n≥4 and 0<p≤1, not cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15377",
+          "material_read": "Theorem 1.3, p. 5, offsets 18100–21439",
+          "method": "OA PDF passage",
+          "title": "Liu–Lian–Wang, sharp maximal variation on stars",
+          "trigger": "Same sharp n-dependent factor on finite graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and exact certificate reduction",
+        "arXiv:2603.12462, scope of previous small-graph census"
+      ],
+      "rationale": "Cycles are the natural periodic analogue of paths for one-dimensional maximal variation, and the optimal contraction rather than any bound is a meaningful benchmark. These are the two full next diameter levels beyond the five-vertex census, including both even and odd saturation of graph balls. The result tests the same point-mass conjectural mechanism across those next levels and certifies the precise arbitrary-data invariant rather than repeating a numerical or witness-only computation. No general-cycle theorem is needed to make those exact benchmarks useful.",
+      "residual_risks": [
+        "This does not identify all extremizers or prove the formula for larger cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

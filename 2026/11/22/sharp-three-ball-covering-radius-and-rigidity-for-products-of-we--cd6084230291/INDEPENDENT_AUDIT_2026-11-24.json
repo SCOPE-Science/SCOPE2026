@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:53:49.513645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted cycle vertex metric is the two-bit weighted Hamming metric. Assume a≥b and set R=(a^p+b^p)^(1/p). Below R, a ball can leave its own long-bit fiber only for a neighbor with unchanged short label. A long-bit fiber omitted by the three centers therefore receives at most three labels and cannot be covered. At R the proposed complementary pair in one fiber and a center in its opposite cover both occupied fibers and all short labels in the two remaining fibers; this works also at p=1. For a>b and p>1 an R-ball consists of its own fiber and one two-point line in each adjacent fiber. Any pair intersects: equal fibers share their full fiber; for adjacent fibers use one center's own full fiber and the other's line there (clarifying the intermediate-fiber wording at line 28); for opposite fibers the two lines in a common adjacent fiber are perpendicular. Two eight-point balls cannot cover. Three distinct occupied fibers leave perpendicular lines in the missing fiber; two adjacent occupied fibers would require at least two centers in each; one occupied fiber cannot reach its opposite. For two opposite occupied fibers the repeated short labels must differ in both bits, giving 4×2×4=32 triples. For a=b and p>1 balls are 3×3 toroidal neighborhoods and pairwise intersections have at least four points. The minimum-distance graph is Q4 and its isometries act by bit translations and coordinate permutations: a zero-fixing automorphism is determined by the four neighbors, since distance to those and zero recovers every support. True metric distances 2a and 2^(1/p)a distinguish paired directions among the two-bit displacements, leaving exactly 128 maps. The fresh exhaustive replay over all 560 triples yielded 96 equal-edge covers with orbits of 32 and 64 under those maps, and checked the unequal count and two-center exclusion. Replay: python3 /workspace/branches/1dbfcd14-2b89-4a1d-864a-4f11e0ade3b9/record4_replay.py; saved output is record4_replay.txt in the same directory. The analytic threshold reduction is separate from this replay; the frozen script was not executed. Finally a≤R<a+b for p>1 so the factor needs exactly two balls, whereas the product needs three.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison identifies an equal-edge example and a sum-metric result in the covering paper. It describes the domination-polynomial paper as dealing with a Cartesian torus and a nonperiodic king graph. Decisive primary passages were unavailable."
+        ],
+        "reasoning": "An unweighted covering witness or a product inequality does not classify which thresholds and center configurations survive arbitrary two-weight deformations. A table covering the strong product of two four-cycles could be relevant to the equal-case counts, not to the asymmetric weighted family without further work.",
+        "searches": [
+          "Cieliebak–Cieliebak arXiv:2611.15599v1, Example 3.4 and Lemma 3.5",
+          "Mertens Article 24.7.6, torus/king comparison",
+          "RESULT.md lines 39–47"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Independent replay and output /workspace/branches/1dbfcd14-2b89-4a1d-864a-4f11e0ade3b9/",
+        "Resultary cd6084230291 and 98f41306ac40 (index)",
+        "arXiv:2611.15599v1 and Mertens JIS 24.7.6 (frozen comparative account; OA attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equal-weight attainment and the three-ball phenomenon are already credited. In that case strictly smaller balls have at most five sites and cannot cover sixteen with three centers; thus the equal-weight radius alone is not credited as a distinct advance."
+        ],
+        "reasoning": "The covering witness and equal-weight size argument do not imply the strict-radius threshold for arbitrary weights, where the fiber obstruction replaces the five-site count, or enumerate all optimizing triples and their orbits.",
+        "searches": [
+          "RESULT.md lines 15–40",
+          "arXiv:2611.15599v1 Example 3.4 as attributed in the frozen record",
+          "Resultary 98f41306ac40 summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record; the closest two-weight four-cycle summary concerns numerical radius, a different invariant. The known equal-edge covering construction is credited in the frozen record. At the p>1 threshold the equal-edge case is a three-vertex domination problem on the toroidal king graph."
+        ],
+        "reasoning": "The graph-domination formulation is equivalent for the equal-edge counts, but Cartesian adjacency is not king adjacency and a nonperiodic king graph omits wraparound. Numerical-radius rearrangement is not the graph-domination reformulation of this metric problem.",
+        "searches": [
+          "Resultary cd6084230291 and 98f41306ac40",
+          "arXiv:2611.15599v1 Example 3.4, focused search and OA routes",
+          "Mertens JIS 27 (2024), Article 24.7.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct indexed item with the 32 unequal-edge or 96 equal-edge count was returned. The primary Example 3.4 and relevant table passages could not be read; absence from available summaries is not evidence of absence from the papers."
+        ],
+        "reasoning": "The cubic coefficient of the domination polynomial of the actual toroidal king graph would cover the 96 alone if available. It would not assign triples to metric-isometry orbits or describe the changed balls when a≠b. The reproduction confirms the counts but supplies no priority evidence.",
+        "searches": [
+          "Resultary cd6084230291 exact hit and 98f41306ac40 related hit",
+          "arXiv:2611.15599v1 Example 3.4 exact-case lookup",
+          "Mertens JIS 24.7.6 (torus and king exact-table possibility)"
+        ]
+      },
+      "rationale": "The distinct contribution is the sharp formula across alternating positive weightings, the complementary-pair classification, and the optimizer counts and equal-weight orbit structure. Do not credit the equal-edge three-ball counterexample as new. The strongest cited primary example was not retrievable; its further exact coverage remains a risk.",
+      "residual_risks": [
+        "The closest Example 3.4 and table passages were not accessible, so prior equivalent finite counts or broader weighted coverage in full texts cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equal-edge precedent credited from the frozen comparison; possible further overlap unresolved",
+          "evidence": "Frozen citation assigns the p>1 square counterexample to Example 3.4 and the sum-metric boundary to Lemma 3.5.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15599v1",
+          "material_read": "Frozen RESULT.md lines 39–40; no primary Example 3.4 or table passages retrieved",
+          "method": "Focused literature query and OA retrieval attempts on arXiv HTML/PDF and lawful ar5iv copy",
+          "title": "Covering numbers of metric spaces",
+          "trigger": "Known close four-cycle example; possible exact finite overlap"
+        },
+        {
+          "assessment": "The distinction is based on the frozen account, not verified exhaustively in the article",
+          "evidence": "Frozen line 40 distinguishes a Cartesian torus and the nonperiodic king graph from the needed toroidal king graph.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens12.html",
+          "material_read": "Frozen comparative passage and citation; literal torus query in public article timed out",
+          "method": "Read frozen comparison; attempted journal OA page retrieval",
+          "title": "Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph",
+          "trigger": "Possible exact domination count under an equivalent graph model"
+        },
+        {
+          "assessment": "Different stated problem",
+          "evidence": "Spatial numerical radius for weight arrangements, not vertex metric covering or domination.",
+          "identifier_or_url": "Resultary 98f41306ac40",
+          "material_read": "Indexed summary",
+          "method": "Configured search; local mirror retrieval attempted",
+          "title": "Global rearrangement rigidity for two-weight four-cycle numerical radii",
+          "trigger": "Two-weight cycle index match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The product-cover obstruction motivating the unweighted example survives a full natural family of alternating anisotropies at an exact threshold, including an analytic p=1 boundary. The asymmetric classification and exact jump at equality describe how many optimal three-center arrangements persist or become available, beyond a re-run of the known three-ball witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

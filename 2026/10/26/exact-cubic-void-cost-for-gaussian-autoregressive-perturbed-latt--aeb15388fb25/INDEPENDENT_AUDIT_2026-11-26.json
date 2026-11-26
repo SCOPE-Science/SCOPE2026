@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:25:12.450287Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–24 and 26–115",
+        "VERIFICATION.md lines 3–14 and 18–23",
+        "check.py lines 9–76"
+      ],
+      "rationale": "The shift yields stationarity: translating by t sends U to its fractional part after adding t and reindexes by the integer part, which preserves the displacement law even conditional on U. Sitewise Gaussian tails give local finiteness. For integer N, a hole requires a squared displacement sum over 0,…,N at least N³/12+O(N²), uniformly in U. Nonnegative correlations give a covariance norm at most Λ by absolute row sums; Gaussian diagonalization gives the stated determinant bound with dimension loss only O(N) at fixed ε. This gives the lower bound on −log V. Conversely the evacuation box forces the protected sites outside, and its center has squared norm N³/12+O(N²) and squared differences O(N²), including the central jump. With both ends zero, expanding the AR energy gives (1−ρ)² times the squared norm plus ρ times the squared differences. The bounded coordinate error changes this energy by O(N²); initial density, volume, and fixed shift restriction have at most O(N) log cost. Dividing by twice the innovation variance gives the matching N³/(24Λ). Conditional on the block and shift, both exterior chains have bounded means and variances, by stationarity and AR(1) reversibility. Entry thresholds grow at least as N+k−1 at distance k, so the sum of conditional tail probabilities is uniformly o(1); no exterior independence is needed. Positivity for all finite L follows by containment in a sufficiently large integer window with positive void probability. Strict inequality from one follows from the positive chance for a single Gaussian-displaced site to land in any positive-length window. Monotonicity gives real lengths and ρ=0 yields the independent constant without a singular step. The recorded exact-rational checks illustrate the algebra; the script was inspected, not run, and the infinite-volume assertion follows from the analytic bounds.",
+      "residual_risks": [
+        "Remainders are pointwise for fixed σ>0 and 0≤ρ<1; no claim about negative correlations, joint parameter limits, or finer asymptotics was validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flimmel's exponentially mixing case gives an upper bound of order exp(−c t^{d/(d+1)}) for growing test sets; Proposition 2 uses a product in the iid case. Elboim–Spinka–Yakir bound hole probabilities by two powers of the iid tail, giving cubic logarithmic order in the one-dimensional Gaussian case."
+        ],
+        "reasoning": "The mixing model is broader, but its bound neither fixes a cubic order nor its leading coefficient for AR(1); the iid order bounds lack a sharp coefficient and do not cover dependence.",
+        "searches": [
+          "Flimmel arXiv:2610.24650v1, Theorem 2, Corollary 1, Proposition 2",
+          "Elboim–Spinka–Yakir arXiv:2506.16873, Lemma 2.5"
+        ]
+      },
+      "checked_sources": [
+        "The three passages in source_inspections; frozen RESULT.md lines 121–140"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known product identity requires independent displacements, while the general mixing estimate loses the cubic exponent. The reviewed proof uses both the sharp row-sum upper energy estimate and a matching low-gradient AR path with controlled exterior."
+        ],
+        "reasoning": "Neither substitution into an iid rate nor specialization of the stated mixing bound mechanically gives this correlated coefficient. A more general sharp Gaussian obstacle principle is a residual risk, not an inspected equivalent theorem.",
+        "searches": [
+          "Flimmel arXiv:2610.24650v1, Theorem 2, Corollary 1 and independent-product discussion",
+          "Elboim–Spinka–Yakir arXiv:2506.16873 Lemma 2.5",
+          "Resultary asymmetric Weibull-tail void finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Gaussian independent case in the asymmetric Weibull-tail catalogue finding gives 1/(24σ²); its displacements are iid. The AR(1) correlated coefficient is 1/(24Λ), with Λ=σ²(1+ρ)/(1−ρ)."
+        ],
+        "reasoning": "Rewriting the coefficient in terms of long-run variance does not make the law iid; eviction constraints concern the displacement coordinates, not their independent innovations. The sole exact matched specialization has ρ=0.",
+        "searches": [
+          "Local Resultary lookup for sharp Gaussian perturbed-lattice interval void and hole rates",
+          "Flimmel arXiv:2610.24650v1, Gaussian perturbations and growing-set bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closely matching exact catalogue entry contains the Gaussian iid specialization; the inspected primary statements give no family of exact coefficients at positive ρ."
+        ],
+        "reasoning": "The catalogue theorem is stronger than a table at ρ=0 but cannot populate the correlated parameter range. The exact coefficient is asymptotic in L, not a finite enumeration.",
+        "searches": [
+          "2026/11/1/SCOPE-sharp-void-exponent-for-asymmetric-weibull-tail-perturbed-lattic--011f8addc9f5",
+          "Resultary local lookup for exact correlated Gaussian lattice void exponent"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact positive-correlation AR(1) interval-hole rate. An inspected matching catalogue result covers the independent specialization, and the inspected independent and dependent primary results do not give the sharp constant at positive ρ. The known independent coefficient is not credited as an independent novelty.",
+      "residual_risks": [
+        "Bounded local catalogue and primary comparison only; an unlocated exact dependent Gaussian hole result or general sharp obstacle principle remains possible. Overlap on the iid case is acknowledged without assigning priority from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap only on iid subclass",
+          "evidence": "Uses iid one-sided Weibull-tail displacements; Gaussian specialization gives 1/(24σ²) on the cubic scale, without positive AR correlation.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-void-exponent-for-asymmetric-weibull-tail-perturbed-lattic--011f8addc9f5",
+          "material_read": "RESULT.md, offsets 0–7020 including assumptions and Gaussian specialization",
+          "method": "Local Resultary mirror",
+          "title": "Sharp void exponent for asymmetric Weibull-tail perturbed lattices",
+          "trigger": "Exact lattice hole exponent catalogue hit"
+        },
+        {
+          "assessment": "Independent logarithmic order, not correlated sharp coefficient",
+          "evidence": "For iid displacements, p(r)^{C r^d}≤h(r)≤p(r)^{c r^d} gives the Gaussian log-order.",
+          "identifier_or_url": "https://arxiv.org/pdf/2506.16873",
+          "material_read": "Abstract and introduction p. 1; Lemma 2.5 pp. 7–8, offset 23432",
+          "method": "Direct OA PDF passages",
+          "title": "Optimal matchings of randomly perturbed lattices",
+          "trigger": "Earlier Gaussian void order result"
+        },
+        {
+          "assessment": "Broader dependence assumptions, substantially weaker quantitative conclusion",
+          "evidence": "Exponential mixing yields exp(−c t^{d/(d+1)}) type bound; cubic order is discussed in the independent Gaussian setting, and the product formula is for iid fields.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24650v1",
+          "material_read": "Theorem 2 and Corollary 1, HTML offsets 13125–17263; Proposition 2 at offset 17265 and nearby iid comparison",
+          "method": "Direct OA full-text passages",
+          "title": "Void probabilities for perturbed lattices under mixing",
+          "trigger": "Same dependent stationary lattice framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 26–115 and 121–133",
+        "Flimmel Theorem 2 and Corollary 1",
+        "Elboim–Spinka–Yakir Lemma 2.5"
+      ],
+      "rationale": "The rate for a stationary rare-event model is motivated before calculation by lattice void estimates and the gap between mixing bounds and iid logarithmic order. For a fixed positive correlation the result determines exactly how dependence changes the cost, replacing marginal variance by integrated covariance. The two sides require a displacement threshold and a path attaining its leading energy while all external sites are controlled. An exact coefficient in a simple correlated benchmark is useful for comparison with future dependent-field bounds; the independent specialization alone is not the contribution.",
+      "residual_risks": [
+        "The interpretation as a long-run-variance cost is established only for this AR(1) family, not arbitrary Gaussian covariances or other windows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

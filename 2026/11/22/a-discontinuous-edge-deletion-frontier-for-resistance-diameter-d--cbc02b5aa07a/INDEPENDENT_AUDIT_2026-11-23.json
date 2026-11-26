@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:41:56.862437Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The endpoint benchmark holds with or without a positive ordinary path: the 0–m conductance is x+1/H with H=Σ1/a_i, or just x if the path is broken. It is at most x+Σa_i/m² by Cauchy–Schwarz. At c≥m² the bound is attained by the uniform open path; for c>m² endpoint equality forces x=0 and uniform saturated a_i. At c=m² a missing ordinary edge could tie the endpoint bound only if all ordinary conductances were zero, which disconnects the graph for m≥2. Otherwise equality forces uniform y. Independently, the grounded path Laplacian with ordinary weights y has inverse entries min(i,j)/y, and the closing edge adds x e_m e_m^T. The rank-one inverse formula gives R_k=k/y - x(k/y)^2/(1+xm/y); comparison to R_m gives (m-k)(kx/y-1)≤0. This yields exactly x∈[0,B/(m(2m-1))]. For c<m² the uniform open path perturbed by small x lowers R_m while all other pairs retain a strict gap, so no open path can be optimal. Connected support gives continuous pair resistances by a grounded inverse; a cut whose summed conductance tends to zero gives divergent cross-cut resistance by the unit-voltage energy bound. This proves the needed lower semicontinuity and existence. Normalize all saturated optimizers to the critical simplex. For ε=m²-c the rescaled objective there is (1-εx/B)Δ. Comparing the upper endpoint to the constant lower bound m²/B forces normalized x≥x_* and Δ→m²/B. Compactness and the critical classification then force every normalized limit to be the same upper endpoint; the rescaling tends to one. As an exact check at m=3,B=1, the critical endpoint has R_1=6, R_2=R_3=9; at c=8, x=1/15 and y=7/45 give Δ=135/16<9. Read the frozen result, audit, review, verification note, metadata, slogan and rational arc verifier without executing it. The proof and grounded inverse above give the all-parameter replay, not the packaged finite count. Below threshold this checks retention and the limit, not a closed optimizer formula or uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 51ff8fe407b5 is a priced star with a distinct dominant-price law; 3fc79dfade71 optimizes a matching-priced complete bipartite graph.",
+          "Ghosh–Boyd–Saberi give general conductance convexity and resistance quadratic forms. For minimax, bounding each such form by a common scalar via Schur complements gives an SDP."
+        ],
+        "reasoning": "The SDP covers formulation but does not classify all optimizers as a symbolic function of price and cycle size. Star edges are bridges and cannot be deleted in a finite-diameter design, while a closing cycle edge can be. The bipartite theorem is not an arbitrary-cycle theorem.",
+        "searches": [
+          "Resultary: exact dominant price threshold for resistance diameter design on stars continuous conductance maximum pair resistance",
+          "Resultary: priced cycle minimax effective resistance resistance diameter conductance budget closing edge square price critical face Kirchhoff spectral gap"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://doi.org/10.1007/s40314-025-03154-6 (abstract)",
+        "Resultary b8eae264de71, 4f89042df17b, 7f96525dec6d, 51ff8fe407b5, 3fc79dfade71 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed mass-weighted cycle result b8eae264de71 has both a spectral threshold (Σ√price)^2 and a critical segment with a generalized eigenvalue endpoint.",
+          "For the unweighted-mass four-node path, maximizing λ₂ uses ordinary weights (3B/10,2B/5,3B/10), unlike the audited uniform optimizer. Indeed even in the symmetric path family (a,b,a), λ₂=a+b−√(a²+b²), and the uniform path gives strictly less than the 3:4:3 design."
+        ],
+        "reasoning": "The closer same-cycle theorem is not a restatement under a monotone transform of the objective; the optimizers already differ at high prices. Known circuit relations give the endpoint bound but not alone the active pair constraints or the all-minimizer limiting selector.",
+        "searches": [
+          "Resultary: Mass-independent edge screening and complete critical optimizers for priced reversible cycles generalized spectral gap",
+          "Ghosh–Boyd–Saberi, Minimizing Effective Resistance of a Graph, primary PDF definitions and formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Ghosh–Boyd–Saberi reduced-Laplacian quadratic form is the same electrical metric; their main optimized objective is its sum over pairs.",
+          "Sardar–Iqbal–Xu (2025) explicitly use maximum resistance distance and include cycle experiments; the public statement describes numerical graph-neural-network edge selection."
+        ],
+        "reasoning": "The minimum worst voltage drop for unit point-to-point current is an equivalent alias. A numerical edge-selection result or a sum-of-voltage-drops optimum is not the continuous weighted-budget worst-pair equality classification.",
+        "searches": [
+          "Web: minimum maximum pairwise effective resistance optimally weighted cycle priced conductance resistance diameter cycle optimization budget Ghosh Boyd Saberi priced edge threshold",
+          "Web: minimum resistance diameter graph edge weights minimax effective resistance optimal allocation one expensive edge cycle unsplittable priced cycle critical optimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this exact finding as its own indexed record, cbc02b5aa07a.",
+          "The four-cycle spectral-gap record 7f96525dec6d also has cutoff 9, whereas the Kirchhoff-index record 4f89042df17b has a different asymptotic cutoff."
+        ],
+        "reasoning": "The self-hit does not corroborate priority. The meaning of a cutoff must be checked alongside the objective and optimizing set; the inspected exact values do not provide a prior table of the resistance-diameter critical face.",
+        "searches": [
+          "Resultary: priced cycle minimax effective resistance resistance diameter conductance budget closing edge square price critical face Kirchhoff spectral gap",
+          "Resultary: Mass-independent edge screening and complete critical optimizers for priced reversible cycles generalized spectral gap"
+        ]
+      },
+      "rationale": "The generic maximization over pair resistances is known as an objective, and close results optimize other graph families or optimize different functionals on exactly this cycle. The complete minimax critical segment and universal one-sided selection survive the statement comparisons. Priority is qualified by access and search limits.",
+      "residual_risks": [
+        "The subscription article was inspected only to its public abstract; it is not excluded in full.",
+        "Indexed corpus statements distinguish their advertised theorems but do not rule out incidental results in their full texts; unindexed minimax network design may contain an equivalent certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established shared metric and general convex machinery; the inspected allocation problem optimizes a sum of pair values",
+          "evidence": [
+            "Journal equations (1)–(2) define and minimize total resistance; conference equation (5) expresses pair resistance via grounded inverse."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Primary journal PDF abstract and Sections 1–2 introductions/definitions; conference primary PDF §§I–II including reduced inverse formula",
+          "method": "Read extracted primary PDF passages",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "General continuous allocation and effective resistance objective"
+        },
+        {
+          "assessment": "Visible abstract describes numerical edge selection; inaccessible body not excluded as a whole",
+          "evidence": [
+            "Abstract lists Laplacian/resistance matrix, network training, optimal edge selection and visualization, with numerical and graphical results."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40314-025-03154-6",
+          "material_read": "Publisher abstract and access notice only",
+          "method": "Publisher public preview",
+          "title": "RDDGN: minimizing the total resistance distance and diameter using graph neural networks",
+          "trigger": "Same diameter objective and cycles in examples"
+        },
+        {
+          "assessment": "The indexed theorem is spectral-gap design, not minimax pair resistance",
+          "evidence": [
+            "Threshold is the square of the sum of ordinary price square roots and the critical endpoint is set by a generalized eigenvalue cutoff."
+          ],
+          "identifier_or_url": "Resultary b8eae264de71",
+          "material_read": "Published indexed theorem statement",
+          "method": "Resultary semantic search and direct objective comparison",
+          "title": "Mass-independent edge screening and complete critical optimizers for priced reversible cycles",
+          "trigger": "Same graph family, critical price and segment phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Worst-pair resistance is a natural robust design objective. The useful part is not just the simple sufficient price bound; it is the complete degenerate segment and proof that every sequence of optimal designs approaching from below selects its positive endpoint. That distinction matters when using a critical-cost optimum as a limit of perturbations and is not provided by a finite solver run.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

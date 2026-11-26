@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_wheel.py` with Python 3.9+ and no third-party packages. The checker enumerates every nontrivial cut and computes exact rational squared width for all wheel sizes \(3\le m\le9\); verifies 3-connected cut inequalities and the complete minimizing cut-type multiplicities at those sizes; independently enumerates every spanning tree for \(m=3,4\) and confirms the greedy rank-support width identity for all nonconstant objective vectors in \(\{-1,0,1\}^{2m}\); and checks a constructed balanced two-separation of matroid connectivity two for \(3\le m\le64\). The success marker is `WHEEL_SPANNING_TREE_WIDTH_EXACT_PASS`.
+## correctness
 
-# Analytical verification and limits
+PASS
 
-The proof in RESULT.md supplies the exact all-dimensional greedy support identity, norm comparison with strict equality, the published wheel three-connectivity premise, the explicit balanced-cut witness in both parities, and the comparison \(m^2-8m+4\le0\). Thus finite tests support the proof but are neither infinite certification nor substitutes for the argument. The source comparison and self-review are recorded separately; independent review remains unperformed.
+In the orthonormal edge metric and intrinsic sum-zero direction space, greedy optimization in both orders gives width as the sum of the nonnegative sorted level jumps times the rank connectivity of their prefix cuts. The same jumps expand the direction in centered indicators, so the triangle inequality reduces the minimum to a normalized cut ratio. Distinct proper nested centered indicators are not parallel, giving the claimed rigidity. Wheel-matroid 3-connectivity gives the singleton value and the lower bound two on connectivity for larger cuts. For m=2b the displayed balanced cut and its complement have b components each; for m=2b+1 they have b+1 and b, counting isolates. Both have m edges and rank connectivity two. Maximization of the centered cut norm at m edges and the crossing at 4+2√3 establish both regimes, including m=3, and exclude integer ties. The analytic argument establishes all real directions, not just those checked by enumeration.
+
+## originality
+
+PASS
+
+No inspected distinct source gives or implies the exact wheel base-polytope formula and the transition in all its minimizing directions. The constituent greedy method and connectivity input are not novelty claims.
+
+## value
+
+PASS
+
+Exact Euclidean thickness of the canonical spanning-tree polytope is intrinsic geometric information not provided by spanning-tree counts or typical-direction measures. Wheels form a standard matroid family, and the complete sharp switch from individual edges to balanced connectivity cuts explains which directions are thinnest across the family, not just at a few orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

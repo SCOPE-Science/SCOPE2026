@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:41:22.438832Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–109; VERIFICATION.md lines 19–23; verify.py inspected, not executed",
+        "Guéneau–Majumdar–Schehr arXiv:2306.09453v2 §3.1.1 Eq. (11) and §4 Eqs. (33), (36)–(37)",
+        "Exact replay for monotonicity and phase averaging: the two one-dimensional integrals above; no numerical certificate required."
+      ],
+      "rationale": "In the stationary renewal construction the interval at a random observation time is length-biased and its age is uniform conditional on its length. For lag s≥0, only same-interval Brownian increments contribute; conditional covariance is 2Da at age a with a+s<L. Integrating gives C_L(s)=(D/m)E[(L−s)_+²], and symmetry gives negative lags. The finite second moment bounds that covariance, permits the L¹ kernel's mean-square convolution and its variance integral, and makes the convex-order comparison valid for nonnegative kernels. For the exponential kernel the two-sided integral reduces to μ^{−1}∫₀^∞e^{−μs}C_L(s)ds; integrating over s≤L gives the stated clock functional. Its bracket has second derivative 2(1−e^{−μL})>0, so Jensen is strict away from the point mass. The proposed two-point law preserves m and sends the second moment to infinity while the remaining terms in the bracket have bounded expectations. The periodic random-phase and equal-mean exponential laws give the two stated variances. Independently, writing H=2/R and integrating (1+z)∫₀¹e^{−zu}(1−u)²du by parts gives H=1−∫₀¹e^{−zu}(1−u²)du. Its derivative is ∫₀¹u(1−u²)e^{−zu}du>0 and H tends to 1/3 and 1 by dominated convergence, giving the strict 6-to-2 ratio. An exact phase check uses g(a)=2a−3+4e^{−a}−e^{−2a}: averaging the within-cycle variance yields Dμ^{−3}[∫₀^z g(a)da+g(z)/2]/z, equal to the claimed V_per, not the epoch variance.",
+      "residual_risks": [
+        "The original verification's 369 finite checks were reported, not independently rerun. Strict comparison here applies to equal means and harmonic or the specified nonnegative linear response, not arbitrary signed filters, position resetting, or nonrenewal clocks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 renewal-reset autocorrelation framework expresses complete resetting via survival and renewal density and includes the Brownian Poisson specialization.",
+          "d0a2199c1680 explicitly gives the same stationary all-clock variance functional and deterministic minimizer in the same persistent harmonic model."
+        ],
+        "reasoning": "These give or imply the covariance/clock-law component, not a comparison theorem establishing strict monotonicity and both sharp constants on all z>0 in the inspected passages. The exact clock-law overlap is credited without inferring priority from record dates.",
+        "searches": [
+          "Taźbierski–Metzler–Magdziarz DOI 10.1088/1367-2630/adee40 §3.1 Eq. (32), §3.2.2 Eq. (40)",
+          "Resultary d0a2199c1680 Finding and relationship-to-prior-work section"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.09453v2; DOI 10.1088/1367-2630/adee40; Resultary d0a2199c1680; arXiv:2310.06416 abstract and opening"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can derive the individual variances from the prior clock functional or prior same-model data plus phase averaging. Neither the fixed-mean clock minimizer nor the Poisson covariance orders the ratio as z varies."
+        ],
+        "reasoning": "The formulas alone are not credited as a distinct result. The sharp comparison requires analyzing the normalized two-protocol ratio; for example the positive integral for (2/R)′ proves a strict global ordering not provided by fixed-z covariance or Jensen comparisons.",
+        "searches": [
+          "GMS arXiv:2306.09453v2 §3.1.1 Eq. (11) and §4 Eqs. (33), (36)–(37); Taźbierski et al. Eq. (32); d0a2199c1680 RESULT.md offsets 1300 and 9700"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "GMS §3.1.1 Eq. (11) evaluates the variance of x_n, not the uniform-phase variance. In §4 the Poisson forcing is scaled by rate r=1/m; its diffusivity must be D_target/r² to match the present unscaled forcing.",
+          "Magdziarz–Taźbierski arXiv:2310.06416 abstract is on Poisson resetting of the underlying process and jump-diffusion statistics; that source is not taken as a full-text exclusion."
+        ],
+        "reasoning": "Matching the force units recovers the Poisson input. Periodic reset-epoch sampling cannot be identified with stationary random-time sampling by a change of symbols, so taking the ratio of the two printed GMS formulas does not prove this theorem.",
+        "searches": [
+          "Local Resultary: Brownian reset force, harmonic or OU response without position reset, stationary random phase versus periodic reset-epoch sampling, sharp 6-to-2 ratio",
+          "Primary search: Brownian resetting noise harmonically trapped particle Guéneau Majumdar Schehr Poisson periodic resetting random phase stationary variance ratio six two deterministic renewal clock optimum covariance Brownian force"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d0a2199c1680, RESULT.md offsets 1300 and 9700, is an exact functional/minimizer match but focuses on Pareto tails and moment thresholds. An equivalent sharp ratio was not located in the inspected passages."
+        ],
+        "reasoning": "This is a quantified function and optimization claim, not a numerical table entry. Even exact variances in the two limits or at sample parameters would not encode the strict global ratio theorem; the catalogue's exact functional does overlap a supporting component.",
+        "searches": [
+          "Local Resultary semantic lookup for the exact harmonic Poisson/periodic variance ratio, its endpoint constants and arbitrary-clock functional"
+        ]
+      },
+      "rationale": "Credit is limited to the explicit strict sharp Poisson-to-periodic variance ratio at stationary random times and matched mean. The covariance mechanism, stationary filtering and basic convexity are prior or direct consequences. A distinct catalogue record has the exact clock functional and deterministic minimizer but the inspected passages do not settle the ratio. The closest primary treatment of the same harmonic dynamics gives a periodic epoch statistic and a separately normalized Poisson statistic, not the same comparison.",
+      "residual_risks": [
+        "The frozen record does not identify a specific primary source for the precise earlier compact arbitrary-renewal covariance; no novelty is credited to it here. A bounded comparison cannot certify priority, and an equivalent ratio in unlocated literature is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material model and exact statistics overlap; sampling and force normalization differ",
+          "evidence": "Periodic expression is an epoch variance; Poisson force r y_r has covariance 2D_GMS r exp(−r|τ|).",
+          "identifier_or_url": "https://arxiv.org/html/2306.09453v2",
+          "material_read": "Introduction, §3.1.1 Eq. (11), §4 Eqs. (33), (36)–(37), OA offsets 9688, 18000, 36500",
+          "method": "Lawful OA HTML",
+          "title": "Active particle in a harmonic trap driven by a resetting noise (Guéneau, Majumdar, Schehr)",
+          "trigger": "Same persistent harmonic system and resetting protocols"
+        },
+        {
+          "assessment": "Prior autocorrelation framework; not the filtered sharp comparison in the inspected passages",
+          "evidence": "General zero-mean complete-reset autocorrelation via survival and renewal density, with Poisson Brownian specialization.",
+          "identifier_or_url": "https://doi.org/10.1088/1367-2630/adee40",
+          "material_read": "§3.1 Eq. (32) and §3.2.2 Eq. (40), p. 9, OA offsets 36735 and 40522",
+          "method": "Lawful OA PDF text",
+          "title": "Series representation approach to stochastic processes with complete and incomplete renewal resetting (Taźbierski, Metzler, Magdziarz)",
+          "trigger": "General renewal covariance covering the reset force"
+        },
+        {
+          "assessment": "Exact functional and fixed-mean minimizer match; distinct stated main conclusion",
+          "evidence": "Same all-renewal harmonic variance and deterministic minimizer; its focus is Pareto positional tails and moment cutoff.",
+          "identifier_or_url": "Resultary d0a2199c1680",
+          "material_read": "RESULT.md Finding and relationship section, offsets 1300 and 9700",
+          "method": "Local catalogue mirror",
+          "title": "Pareto positional tails from renewal-reset Brownian forcing in a harmonic trap",
+          "trigger": "Same unreset response under arbitrary clocks"
+        },
+        {
+          "assessment": "Scope check only; not a negative full-text finding",
+          "evidence": "The abstract treats jump-diffusions, statistics of Brownian resetting and time-inhomogeneous Poisson resetting, not the claimed protocol ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.06416",
+          "material_read": "OA PDF p. 1 abstract and opening of §I",
+          "method": "Lawful arXiv PDF alternate after public-page access failure",
+          "title": "Stochastic representation of processes with resetting (Magdziarz, Taźbierski)",
+          "trigger": "Focused primary search for renewal resetting statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; GMS same-model epoch and stationary Poisson passages; exact overlap on clock formula in d0a2199c1680"
+      ],
+      "rationale": "The ratio quantifies a physically motivated choice of clock for the same mean reset effort and unchanged harmonic response. It distinguishes the variance penalty when many resets fit within a relaxation time from that when resets are sparse, gives exact limiting penalties and orders the entire interpolation. Those conclusions cannot be obtained from merely knowing that the deterministic clock minimizes variance at any one relaxation rate. The random-time rather than epoch requirement matters to using these values as stationary observables.",
+      "residual_risks": [
+        "Value is assigned to the sharp dimensionless comparison in this model, not to more general reset design or new equilibrium-renewal machinery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

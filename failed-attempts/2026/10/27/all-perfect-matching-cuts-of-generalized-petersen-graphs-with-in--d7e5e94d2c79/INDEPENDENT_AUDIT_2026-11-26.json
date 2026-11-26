@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:04:11.096532Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–51; VERIFICATION.md, both frozen verifier sources and both frozen outputs inspected",
+        "Independent replays: /workspace/branches/3ce1a215-9a88-4569-993f-d42aa966e334/independent_gp_n2_check.py and .out: 256 states, 160 arcs, two loops and two five-cycles, and complete labelled solutions for 5<=n<=19 matched against the specified words"
+      ],
+      "rationale": "The outer cut indicators p have no adjacent ones and force the spoke discrepancy s_i=1-p_(i-1)-p_i. Substituting b_i=a_i XOR s_i in b_i XOR b_(i+2) cancels the interior p terms and gives p_(i-1) XOR p_(i+2). The inner equation forces p_(i-3)=p_(i+2) for each admissible adjacent pair: if both p's are zero, both outer bits must also be zero; otherwise the inner equation reduces to equality of those outer bits. Thus p has period five; when 5 does not divide n, gcd(n,5)=1 forces p=0. On a five-cycle a singleton 1 violates the zero-pair rule; the five rotations of (1,0,1,0,0) each meet it (the only adjacent zero pair is between its two trailing zeros). The empty and two-one patterns have even parity, so integration around the ring closes and leaves only a global colour flip. Reconstruction gives the stated template up to shift and complement, also at n=5. For a connected graph the crossing-edge indicators determine all colours once one vertex colour is fixed. Thus the cut enumeration is precisely half the labelled count.",
+      "residual_risks": [
+        "The direct check only covers the listed finite orders; the period argument and closed-walk characterization are all-order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karami's Theorem 1 gives occurrence of the quotient matrix for all allowed n,k",
+          "SCOPE-20261026-43beb49dfa00 counts two-class total domination partitions, allowing one or two opposite neighbours",
+          "Castonguay et al. use the exact crossing perfect-matching notion, while Bouquet–Picouleau's problem permits containment of a cut in a matching"
+        ],
+        "reasoning": "Neither existence nor a total-domatic aggregate is the exact census. A 2-factor complement characterizes an exact cut only if contracting its cycles yields a bipartite multigraph, so disconnected-2-factor existence alone also cannot count these cuts. The actual dominating statement is the companion record's exact classification for skips one and two.",
+        "searches": [
+          "Perfect colourings / completely regular codes in GP(n,k)",
+          "arXiv:2606.14190v1",
+          "arXiv:2210.06714v1",
+          "arXiv:2011.03318v2",
+          "Resultary: total domatic partitions in GP(n,2)"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261027-d218a251c534",
+        "SCOPE-20261102-07ff361ad99e",
+        "SCOPE-20261026-43beb49dfa00",
+        "SCOPE-20261025-28850ff52d3f",
+        "arXiv:2606.14190v1",
+        "arXiv:2210.06714v1",
+        "arXiv:2011.03318v2",
+        "arXiv:2110.03978v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The companion's equality case directly implies both exact counts and the exhaustive templates; Karami describes the older 2016 paper as enumerating perfect two-colourings at skip two but states quotient-matrix occurrence himself"
+        ],
+        "reasoning": "Dividing by two using connectedness is a direct corollary, not a new count. The period-five outer-bit conclusion follows from the companion's complete template list, although obtaining it directly is a useful proof route. Uncertainty about the older paper is not the basis for failure.",
+        "searches": [
+          "d218a251c534 RESULT.md Finding and Proof",
+          "Karami arXiv:2606.14190v1 introduction and Theorem 1; Alaeiyan–Karami DOI 10.1007/s12044-016-0285-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261027-d218a251c534, RESULT.md lines 8–27: exact-one opposite neighbour characterizes every minimum set and gives the same two period-five orbits"
+        ],
+        "reasoning": "Labelling the minimum set 1 is a bijection with the colouring maps. The first word of that record rotates to (11,00,00,11,10) and its second word rotates to the complement. In a connected graph the cuts are exactly the complementary pairs. This recovers every number and every template in the frozen finding.",
+        "searches": [
+          "Resultary: exact Petersen matching cuts, perfect (2,1;1,2) two-colourings, minimum 1-limited dominating sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day d218a251c534 gives the exact count for all n and all words. SCOPE-20261102-07ff361ad99e later restates the same skip-two result",
+          "Zhao's perfect-matching forcing statistic counts by forcing number at finite orders; SCOPE-20261025-28850ff52d3f counts induced dominating matchings of size 3n/5"
+        ],
+        "reasoning": "The companion covers the exact objects, not merely matching counts or numerical agreement at one n. The later match is not evidence of antecedence. The induced matching statistic concerns different sizes and constraints.",
+        "searches": [
+          "Resultary: exact cuts of GP(n,2) and equivalent domination/matching enumerators",
+          "arXiv:2110.03978v1"
+        ]
+      },
+      "rationale": "The entire finding is already covered in the distinct indexed companion SCOPE-20261027-d218a251c534 under its minimum 1-limited dominating set formulation. This is mathematical equivalence and same-day corpus duplication, not a claim that either record historically preceded the other. The alternative proof does not leave an independent new census or invariant.",
+      "residual_risks": [
+        "The relationship of the 2016 full text to the map census remains unresolved. Same-date equivalence is established without assigning priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete coverage of the skip-two scope; no priority order inferred",
+          "evidence": "Two constant words and exactly two period-five orbits; equality at size n means exactly one opposite neighbour at each vertex.",
+          "identifier_or_url": "SCOPE-20261027-d218a251c534",
+          "material_read": "RESULT.md Finding, assumptions and proof, lines 4–47",
+          "method": "Frozen package and statement-level equivalence",
+          "title": "All minimum one-limited dominating sets of two generalized Petersen families",
+          "trigger": "Distinct same-day equivalent result"
+        },
+        {
+          "assessment": "Classifies quotient matrices, not the individual maps in the cited theorem",
+          "evidence": "The (2,1;1,2) matrix occurs for every family member; the introduction attributes an enumeration at skip two to the 2016 paper.",
+          "identifier_or_url": "arXiv:2606.14190v1",
+          "material_read": "Abstract and introduction pp. 1–2; Theorem 1 p. 3",
+          "method": "OA passages",
+          "title": "Intersection Arrays of Completely Regular Codes of Covering Radius One in Generalized Petersen Graphs",
+          "trigger": "Potentially broader perfect-colouring enumeration"
+        },
+        {
+          "assessment": "Unresolved whether enumerating types or maps; no whole-paper exclusion",
+          "evidence": "The 2026 introduction's wording leaves material ambiguity; frozen self-review reports a layer-constant construction.",
+          "identifier_or_url": "DOI 10.1007/s12044-016-0285-4",
+          "material_read": "Citation and attribution, not the original theorem text",
+          "method": "OA attempts at publisher, IAS and identified alternate; redirects/access denials",
+          "title": "Perfect 2-colorings of the generalized Petersen graph",
+          "trigger": "Direct older objects and parameters"
+        },
+        {
+          "assessment": "Later exact skip-two overlap, not earlier-priority evidence",
+          "evidence": "The same two labelled counts and their halves occur according to divisibility by five.",
+          "identifier_or_url": "SCOPE-20261102-07ff361ad99e",
+          "material_read": "RESULT.md Finding, near offset 300",
+          "method": "Resultary and local mirror",
+          "title": "All perfect matching cuts of generalized Petersen graphs with second inner step",
+          "trigger": "Exact matching-cut catalog hit"
+        },
+        {
+          "assessment": "Does not distinguish the exact-one subclass",
+          "evidence": "Every open neighbourhood must see both colours, allowing either one or two opposite neighbours.",
+          "identifier_or_url": "SCOPE-20261026-43beb49dfa00",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "Complete total domatic partition counts for GP(n,2)",
+          "trigger": "Earlier complete partition census for identical graphs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 19–47",
+        "SCOPE-20261027-d218a251c534 RESULT.md lines 19–47"
+      ],
+      "rationale": "A periodic classification of exact matching cuts would be a worthwhile graph-theoretic census in isolation, and the short intrinsic argument is useful corroboration. Here the exact census is already supplied by a distinct equivalent record and the edge count is its immediate quotient. The outer-bit restatement does not identify an independent surviving result.",
+      "residual_risks": [
+        "No claim that the direct symbolic proof is identical to the finite-state argument; their conclusions cover the same configurations."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

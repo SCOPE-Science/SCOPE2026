@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the two-parameter recurrence, the exact solution \(f_n=q^n u_n\) has a three-periodic nonzero weight. For each column width and generalized-binomial shift, cancellation of common normalizers gives the valuation identity \(\nu_p(B_{C_c}(m+k,k))=\nu_p(q)ckm+\nu_p(t)E_2+\nu_p(t+1)E_0\). The complete residue table establishes \(E_0\ge0\), \(E_2\ge-1\), with \(ckm\ge4\) whenever \(E_2=-1\). This proves sufficiency for every prime and all indices if \(t\mid q^4\). The exact coefficient \(B_f(4,2)=-q^4(t+1)/t\) establishes necessity, and the direct \(f_2\)–\(f_4\) comparison proves nondivisibility when \(t\nmid q^2\). The standalone checker reconstructs columns from the recurrence and confirms the finite residue lemma. It does not substitute for the unbounded proof. No unresolved mathematical premise is used.
+PASS
 
-## Originality — PASS within examined sources
+On dividing by q^n the recurrence reduces to u_(n+2)+u_(n+1)+u_n=0, giving the nonzero period-three weights −(t+1),1,t in residues 0,1,2. In a width-c column coefficient B_(C_c)(m+k,k), the normalization of the column cancels and shifting the ck factors by m gives q^(ckm). At each prime p the remaining contribution is ν_p(t)E_2+ν_p(t+1)E_0. Complete blocks of three in either sum contribute zero to each difference. Recounting the four nontrivial rectangle shapes, the pairs (E_0,E_2) at shifts 1,2 are: for 1×1, (0,1),(1,0); for 1×2 and 2×1, (1,0),(1,−1); for 2×2, (1,−1),(0,−1). Thus E_0≥0 and the only negative E_2 is −1 and requires ckm≥4. The case m=0 or k=0 gives one. This proves sufficiency at every width for t|q⁴, including each column entry (k=1). The witness B_f(4,2)=−q⁴(t+1)/t proves necessity by coprimality. Index divisibility forces t|q² via indices 2,4; conversely the only weight needing cancellation is t in a denominator at index i≡2 mod 3, and a proper multiple j supplies q^(j−i) with j−i≥2. For (q,t)=(2,8), f_2=32 and f_4=16 prove nondivisibility. Shapiro's Definition 4 and Corollary 10 confirm the all-level definition; §4.4 allows this recurrence (P=−q,Q=q²), and the integer sequences in Definition 1 may be signed. Frozen artifacts/check.py and its output were inspected, not run; arbitrary widths are handled by the exact residue argument.
 
-Shapiro's original full paper introduces all-level binomidness and explicitly asks whether it forces divisibility for second-order recurrence sequences. An earlier public cyclotomic-family proof provides exactly the base-level classification \(t\mid q^4\) and the divisibility cutoff \(t\mid q^2\), but expressly leaves the higher-level property undetermined. This result resolves that missing higher-level property for every column width, and produces an all-level nondivisible recurrence. The published interlaced-divisor-chain criterion cannot cover the example because it requires \(f_2\mid f_4\), while the periodic-recurrence recognition theorem excludes exponentially growing sequences. The 2024 work of Caalim and Tanaka concerns lexicographically minimal binomid prime-exponent indexes, not the simultaneous all-column recurrence property. Exact source comparisons and associated remaining priority risks are in AUDIT.json. As always, incomplete indexing cannot establish absolute novelty; an implicit earlier all-level statement may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The all-level counterpart of the nondivisibility question is stated explicitly in the primary 2023 literature and was left unresolved by the earlier base-level example. An exact if-and-only-if condition on a natural infinite cyclotomic order-two family, coupled with a small explicit counterexample, answers that stronger question negatively. The structural three-residue argument explains why the same fourth-power threshold persists at every column width rather than merely providing more examples of base-level integrality.
+The earlier theorem already gives the same parameter threshold at level one, all-level necessity and the divisibility classification. New in the compared material is the all-level sufficiency for the signed, exponentially growing family, which upgrades the earlier example to answer the all-level divisibility question negatively in Shapiro's stated setting.
 
-## Limitations and closest literature
+## value
 
-This does not classify all second-order recurrences, establish the all-level property for every ComboSum sequence, nor exhibit an everywhere-positive counterexample. The finite checks are corroborating only. The directly overlapping prior cyclotomic-family proof is explicitly credited for the original base-level criterion; Shapiro (2023), Caalim–Tanaka (2024), the public interlaced-chain proof, and the public eventual-periodic recognition theorem were inspected. No independent scientific validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp all-level integrality across arbitrary column widths gives a concrete negative answer to the divisibility implication in a published question for signed nonzero integer sequences. The threshold is complete on this family and distinguishes all-level integrality from divisibility without claiming a positive-term counterexample or a general order-two classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

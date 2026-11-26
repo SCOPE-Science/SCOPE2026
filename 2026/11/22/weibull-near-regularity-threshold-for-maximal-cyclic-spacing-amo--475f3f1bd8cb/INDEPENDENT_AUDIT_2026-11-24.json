@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:12:50.021123Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–95",
+        "Frozen VERIFICATION.md and check.py, inspected only",
+        "Arratia–Goldstein–Gordon dependency-graph Poisson approximation, DOI 10.1214/aop/1176991491"
+      ],
+      "rationale": "Anchoring the labeled subset at its first point and ordering the other m−1 clockwise offsets produces the factor (m−1)! with unit gap Jacobian. Shifting by the minimum allowable gap leaves simplex mass mε; all its points differ from a rotated regular polygon by O_m(ε), giving the exact uniform probability and the Lipschitz O(ε) error in the density integral. Thus the mean differs from the claimed limiting intensity by O(n^−1). Conditional on a shared anchor, all 2m−k−1 other coordinates for a k-label overlap are independently confined to fixed arcs of total length O(ε); summation gives exponent −(m−k)/(m−1). Disjoint label sets give independence from all non-neighbors together, so the dependency-graph TV bound with mean adjustment has the stated rate. Zero count is exactly the strict survival event; at x=0 a regular selected subset has probability zero. The Fourier example follows by strict AM–GM or Jensen, and for m=3 only the paired harmonics survive integration. Independent replay: python3 /workspace/branches/independent_replay.py 2 (mpmath 1.3.0); integrates the m=2,3 Fourier densities and finite widths. The all-n claim follows from the argument, not this check or the supplied simulations.",
+      "residual_risks": [
+        "No uniformity in growing m, x, or varying f has been inferred; the upper bound is not a sharp-error asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nikitin–Simarova require C³ smoothness near a maximum and a nondegenerate Hessian; the minimum-gap kernel fails these requirements.",
+          "The earlier perimeter/area law for inscribed polygons has (m−1)/2 endpoint exponent and n^−2m/(m−1) scale."
+        ],
+        "reasoning": "Neither the geometric examples nor the smooth theorem proves the nonsmooth limit. The generic dependency-graph framework is broader, but the joint-event overlap, small-simplex mean, and resulting rate have to be established for this kernel.",
+        "searches": [
+          "arXiv:2010.04460, Theorem 4.1 and Conditions A5–A6",
+          "arXiv:1301.1360, Theorem 1 and Lemmas 2.1, 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d6f6950242b9, 11cd17ea6b20, 01f619f9c5ed",
+        "arXiv:1301.1360",
+        "arXiv:2010.04460",
+        "arXiv:2606.04837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Rips event imposes an upper-gap threshold at fixed polygon size; the present event uses a lower bound on all gaps and grows the number of possible subsets.",
+          "The smooth U-max result neither handles the corner nor supplies the present overlap bound."
+        ],
+        "reasoning": "The shared density product and the exact uniform probability are credited and do not themselves imply the multi-subset near-regular count. The shared-anchor localization is what turns an established one-configuration volume mechanism into the stated quantitative limit.",
+        "searches": [
+          "Resultary d6f6950242b9, fixed-size upper-gap simplex",
+          "arXiv:2010.04460, §§4–5",
+          "arXiv:2606.04837, introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cunden et al., p. 1, retain both extremes on a line and use a renewal/reset-walk formulation.",
+          "Koroleva–Nikitin Theorem 1 concerns arbitrary inscribed subsets but maximizes perimeter. The circular scan record considers short arcs of consecutive observations."
+        ],
+        "reasoning": "Minimum cyclic gap also equals the smallest circular pair distance in a subset; for m=2 it is a monotone transform of the chord length, so the extreme is a diameter reformulation. For m≥3 the minimum gap is not a transform of perimeter or area: their endpoint deficits are quadratic, versus a linear corner here, and the short-cluster/consecutive scan searches different configurations.",
+        "searches": [
+          "Maximal minimal spacing among selected points: arXiv:2606.04837",
+          "Inscribed polygon U-max: arXiv:1301.1360",
+          "Resultary circular scan record 01f619f9c5ed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-size Rips record gives exactly the same regular-spacing density integral and uniform simplex volume after h=mε; the finite-width nonuniform integrals need not agree.",
+          "The fixed-size endpoint-correction record explicitly separates its own problem from maxima over polygons of a growing cloud."
+        ],
+        "reasoning": "These are concrete matches for scalar subexpressions, not entries for the growing-sample count or TV rate. No numerical sequence table is pertinent to a law indexed by a continuous density and threshold; the published findings search supplies the pertinent exact-result check.",
+        "searches": [
+          "Resultary: near-regular circular subsets, polygon endpoint tails, circular scans; local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Resultary records d6f6950242b9, 11cd17ea6b20, 01f619f9c5ed"
+        ]
+      },
+      "rationale": "The one-subset volume and regular-polygon density factor are prior tools, and no novelty is credited to those constants in isolation, the Poisson method, or the elementary two-point correspondence with diameter. The supported distinction is the growing-cloud arbitrary-subset minimum-gap extreme and count with a quantitative fixed-m TV bound and explicit nonuniform intensity. No inspected prior statement was found to cover that package or mechanically imply its nonsmooth m≥3 law.",
+      "residual_risks": [
+        "The literature search is bounded; an unlocated circle-packing or nonsmooth geometric U-statistic result might cover part of the distinction. An empty keyword lookup is not evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covered one-configuration density product and matched uniform volume; different event and asymptotic regime",
+          "evidence": [
+            "h^(m−1) times a rotated density-product simplex average; h=mε gives the same uniform volume."
+          ],
+          "identifier_or_url": "Resultary 2026/11/1/d6f6950242b9",
+          "material_read": "Fixed-size finding, uniform formula, and Dirichlet integral",
+          "method": "Local published mirror",
+          "title": "Quadratic onset and harmonic resonance of nonuniform random-circle Rips loops",
+          "trigger": "Strongest exact local match"
+        },
+        {
+          "assessment": "Genuine antecedent for another kernel",
+          "evidence": [
+            "Quadratic endpoint laws for perimeter and area, not minimum gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1301.1360",
+          "material_read": "pp. 4–5 and 11, Theorem 1 and Lemmas 2.1 and 2.3",
+          "method": "Open-access primary PDF",
+          "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+          "trigger": "Arbitrary-subset regular polygon maxima"
+        },
+        {
+          "assessment": "Does not apply at the minimum-gap corner",
+          "evidence": [
+            "C³ and nondegenerate Hessian hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.04460",
+          "material_read": "pp. 5–6 and 8, Conditions A5–A6 and Theorem 4.1",
+          "method": "Open-access primary PDF",
+          "title": "Generalized Limit Theorems For U-max Statistics",
+          "trigger": "Potential stronger theorem"
+        },
+        {
+          "assessment": "Different sampling geometry and endpoint constraints",
+          "evidence": [
+            "Line sample with fixed extreme endpoints."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.04837",
+          "material_read": "p. 1, abstract and introduction defining the problem",
+          "method": "Open-access primary PDF",
+          "title": "Maximal Minimal Spacing for Random Points",
+          "trigger": "Closest optimization wording"
+        },
+        {
+          "assessment": "Fixed-size tails, not a growing-cloud minimum-gap extreme",
+          "evidence": [
+            "Explicitly separates fixed polygons from scanning a growing sample."
+          ],
+          "identifier_or_url": "Resultary 2026/11/17/11cd17ea6b20",
+          "material_read": "Offsets 0 and 7869, finding and scope",
+          "method": "Local published mirror",
+          "title": "Positive second-order endpoint corrections for areas and perimeters",
+          "trigger": "Related indexed endpoint formulas"
+        },
+        {
+          "assessment": "Consecutive close clusters, not approximately equidistant selected labels",
+          "evidence": [
+            "Shortest arc containing k consecutive points."
+          ],
+          "identifier_or_url": "Resultary 2026/10/12/01f619f9c5ed",
+          "material_read": "Finding at offset 53",
+          "method": "Local published mirror",
+          "title": "First signed finite-size correction for rare circular scan clusters",
+          "trigger": "Related circular scan with a finite-size estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and proof",
+        "Smooth inscribed-polygon U-max laws and fixed-size Rips comparator"
+      ],
+      "rationale": "The minimum gap is the natural best-separation objective when selecting a fixed-size subset. The result identifies its different cusp scaling, quantifies how a nonuniform sample changes the chance of finding a well-spaced subset, and gives a finite-size error for the actual number of feasible subsets, not just the optimum. In particular the rate accounts for overlapping candidate subsets; neither a fixed-polygon calculation nor an elementary upper bound on the optimum gives this information.",
+      "residual_risks": [
+        "No algorithmic, growing-subset, or optimality-of-rate claim is supported or needed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

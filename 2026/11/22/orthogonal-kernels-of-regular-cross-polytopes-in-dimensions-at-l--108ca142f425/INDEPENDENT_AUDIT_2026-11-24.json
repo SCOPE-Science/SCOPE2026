@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:36:55.279116Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32 and 34–94",
+        "Frozen CHECKER.py and VERIFICATION.md, inspected as recorded finite evidence; not executed",
+        "Fresh exact d=4 check, /workspace/branches/63bf6331-7def-4cf8-a5cf-1258cc79bbb5/check_record3.py: 625 rational grid points, 80 candidate vertices against all 64 halfspaces and active-normal rank 4"
+      ],
+      "rationale": "For a signed m-vertex face on S, the Euclidean foot has x_i=b_i+s_i(1−Σ_{j∈S}s_j b_j)/m on S and zero elsewhere. Positivity of the i-th signed barycentric coordinate for all sign choices is equivalent to (m−1)|b_i|+Σ_{j∈S∖{i}}|b_j|<1, because the signs at i and at the other coordinates can be chosen independently. The full-support inequalities dominate every smaller support and imply interior membership, giving exactly the stated strict kernel. Its closure is the corresponding weak ball by radial scaling. Each of the d·2^d given normals uniquely supports a facet at a point of the chosen signs with unique absolute maximum at its distinguished index. Signed order chambers give all possible vertices s/(d−2+|supp s|); the listed candidates are extreme because the active-normal differences generate d−1 directions perpendicular to the point (off-support flips and on-support changes of distinguished index), and one active normal supplies the last direction. The origin is interior. The order-difference coordinates give a simplex with volume 1/[d!∏_{j=1}^d(d−2+j)]; counting all 2^d d! chambers gives the volume and fraction. The central-binomial asymptotic at d−1 recovers 4√(πd)/4^d. At d=4 the volume is 2/45 and the fraction is 1/15.",
+      "residual_risks": [
+        "The new computation is only a bounded check in dimension four. The general result follows from the proof, not a finite sample. The problem uses the stated regular Euclidean realization, not arbitrary affine cross-polytopes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic orthogonal kernel and face active regions are already defined. Pavlík's kernel-to-tiling equivalence is dimension three; the companion's cross-polytope supplies a different interval realization, with 3^d+1 vertices.",
+          "The OWL atomic formulation gives the convex hull of signed permutations of constant-prefix vectors with value 1/(w₁+…+w_k), i.e. 1/(d−2+k) for the weights here. This is real broader coverage of the hull representation, not a prior all-face kernel theorem. With repeated weights minimality does not follow from the general strict-decrease criterion alone.",
+          "The same-day Resultary a129853e89b6 computes axial three-dimensional octahedron kernels and includes the regular d=3 case; 4c637740730d computes parallelotope kernels using the Gram matrix, for a different polytope class."
+        ],
+        "reasoning": "The broader norm theorem supplies the ball form once weights are specified, but not the projection-based derivation of those weights. Neither the distinct d=3 axial family nor the parallelotope result covers regular higher-dimensional cross-polytopes.",
+        "searches": [
+          "Pavlík arXiv:2611.14277v1, §6, and companion arXiv:2611.13896v1, Theorem 5.8 and Remark 5.9",
+          "Nasonov–Panina–Siersma arXiv:2406.01773, §1",
+          "Zeng–Figueiredo arXiv:1409.4271, §II-C and Theorem 1",
+          "Local Resultary a129853e89b6 and 4c637740730d"
+        ]
+      },
+      "checked_sources": [
+        "Actual mirrored Resultary passages for octahedra, signohedra and parallelotopes listed above",
+        "Pavlík's two cited v1 papers, Nasonov–Panina–Siersma, Black–De Loera and Zeng–Figueiredo primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "OWL gives the signed-prefix hull; coefficient-one signohedra also give the same combinatorial counts. The chamber volume for general coefficient a is a routine calculation 2^d/∏(a+j) from ordered gaps, so substitution a=d−2 does not itself create an original theorem.",
+          "The passage that all signed proper-face strict inequalities are dominated by the full-support ones in the Euclidean cross-polytope is the kernel-specific step. Monotone-path signohedron results do not address that condition."
+        ],
+        "reasoning": "The known convex body theory and explicit d=3 computations do not identify the allowed ambient anchors in the higher-dimensional cross-polytope; the dimension-linked dominance gives precisely that and transfers the volume to a geometric all-face probability.",
+        "searches": [
+          "Compare the earlier octahedron and canonical-signohedron proofs with frozen RESULT.md proof steps 1–5",
+          "Zeng–Figueiredo Theorem 1/§II-C versus the proposed chamber description",
+          "Black–De Loera arXiv:2102.01237v2, Theorem 1.1(d),(e), §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closed body is the ordered weighted ℓ₁ ball with ordered absolute-value weights (d−1,1,…,1), or the polar of the Minkowski sum of the cube and (d−2) times the cross-polytope, by support-function duality.",
+          "Record 596428720a97's full-normal locus is the same geometric condition for the octahedron and gives precisely the d=3 mixed ball and 1/4 fraction.",
+          "The coefficient-one canonical signohedra in records c04451515c1c and e75d55d70549 are the same mixed-norm family at a fixed coefficient; equality with this kernel occurs at d=3, not d≥4."
+        ],
+        "reasoning": "Equivalent locus terminology fixes the exact earlier overlap in d=3. Changing the norm-ball notation or coefficient alone is not originality; the projection geometry must select the weights (d−1,1,…,1) in the original embedding.",
+        "searches": [
+          "Resultary local search for full-normal loci, orthogonal/projection kernels, and signohedra",
+          "Zeng–Figueiredo arXiv:1409.4271, §II-C and Theorem 1",
+          "Pavlík arXiv:2611.14277v1, §6 Definition 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact earlier d=3 values and coefficient-one norm-ball combinatorics and volume exist. The same geometric d=3 point is also in the axial octahedron record. The uploaded four-through-six-dimensional comparisons are frozen-record evidence, not external prior tables."
+        ],
+        "reasoning": "A table for a related ball at coefficient one or a dimension-three kernel cannot certify the geometric identification for d≥4. A known ball volume may be specialized once the kernel identity is established and is not claimed independently here.",
+        "searches": [
+          "Resultary local search for volume fraction, kernel vertex/facet formula and exact canonical signohedron shells",
+          "Mirrored records 596428720a97, c04451515c1c, e75d55d70549 and a129853e89b6"
+        ]
+      },
+      "rationale": "The supported distinct result is the identification of the all-face Euclidean projection kernel for regular cross-polytopes in dimensions d≥4 and its resulting geometric probability law. The d=3 exact case is already known; the mixed-norm body and signed-prefix atom representation are covered much more generally by ordered weighted ℓ₁ geometry, so the norm-ball calculations are not credited as independent novelty.",
+      "residual_risks": [
+        "The bounded normal-locus search cannot rule out prior exact identification under alternate terminology. The known weighted-norm geometry is explicitly credited, and a missing higher-dimensional hit is not evidence of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact d=3 overlap, outside new range",
+          "evidence": [
+            "Standard octahedron locus is the strict ℓ₁+ℓ∞ ball and has fraction 1/4."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-regular-octahedron-s-full-normal-locus-has-one-quarter-volum--596428720a97",
+          "material_read": "Mirrored RESULT.md Finding and Proof, offset 0",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "The regular octahedron's full-normal locus has one-quarter volume",
+          "trigger": "Equivalent locus under alternate name"
+        },
+        {
+          "assessment": "Material generic body overlap, not the d≥4 projection locus",
+          "evidence": [
+            "At coefficient one the vertices are signed prefix patterns with magnitude 1/(k+1), facet count d·2^d, and volume 2^d/(d+1)!."
+          ],
+          "identifier_or_url": "Resultary c04451515c1c; e75d55d70549",
+          "material_read": "Mirrored Findings at offset 0; e75d55d70549 relationship around offset 5728",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "Canonical signohedra are tangential with exact radial shells; Strict isotropic deficit and logarithmic-squared limit for canonical signohedra",
+          "trigger": "Matching shape, face counts and volume formula at fixed coefficient"
+        },
+        {
+          "assessment": "Related geometry; different dimension or family, no priority inferred from the date",
+          "evidence": [
+            "Axial octahedra have the known regular d=3 case; the other result concerns parallelotopes."
+          ],
+          "identifier_or_url": "Resultary a129853e89b6; 4c637740730d",
+          "material_read": "Mirrored Findings at offset 0",
+          "method": "Local Resultary search and mirror passage reading",
+          "title": "Axial anisotropy induces a sharp orthogonal-kernel phase transition; Gram diagonal dominance classification of all-face projection kernels",
+          "trigger": "Same-day all-face kernel computations"
+        },
+        {
+          "assessment": "Kernel concept and distinct interval realization, not a formula for this kernel",
+          "evidence": [
+            "The equivalence theorem is three-dimensional. The companion counts vertices and facets for the apex interval realization rather than the locus of anchor points."
+          ],
+          "identifier_or_url": "arXiv:2611.14277v1; arXiv:2611.13896v1",
+          "material_read": "Thales §6 Definition 6.1 and Theorem 6.6 (HTML offsets 56275 and 66480); companion Theorem 5.8 and Remark 5.9",
+          "method": "OA primary text",
+          "title": "Thales’s theorem in higher dimensions; Face lattices of polytopes and bipolar polytopes",
+          "trigger": "Primary kernel definition and different cross-polytope bipolar construction"
+        },
+        {
+          "assessment": "Covers signed-prefix hull representation after weight specialization; does not identify the regular cross-polytope projection kernel",
+          "evidence": [
+            "Convex-hull atoms are signed permutations of prefix vectors of height (Σ_{j≤k}w_j)⁻¹; repeated weights can make the general atom set nonminimal."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1409.4271",
+          "material_read": "Theorem 1 and equations (9)–(13), PDF p. 3, offsets 17130 and 19620; atom-minimality qualification pp. 3–4",
+          "method": "OA primary PDF, bounded equation and adjacent passage reading",
+          "title": "The Ordered Weighted ℓ1 Norm: Atomic Formulation, Projections, and Algorithms",
+          "trigger": "Broader mixed-norm ball geometry with arbitrary decreasing weights"
+        },
+        {
+          "assessment": "Relevant frameworks, not a verified equivalent locus computation",
+          "evidence": [
+            "The first defines face active regions; the second studies monotone-path combinatorics."
+          ],
+          "identifier_or_url": "arXiv:2406.01773; arXiv:2102.01237v2",
+          "material_read": "First work §1 offset 4300; second Theorem 1.1(d),(e) and §3 offsets 4200 and 16000",
+          "method": "OA primary passages",
+          "title": "Concurrent normals problem for convex polytopes and Euclidean distance degree; Monotone Paths on Cross-Polytopes",
+          "trigger": "Broader normal-locus and signohedron results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, projection dominance and volume checks",
+        "Earlier octahedron and OWL comparisons for the scope of the new geometric conclusion"
+      ],
+      "rationale": "The natural all-face admissibility test ranges over exponentially many faces. In the original regular Euclidean embedding it reduces to two norms, and the exact volume determines how rare simultaneous relative-interior feet are for uniform anchors in high dimension. The point is this geometric identification and the associated probability, not a renaming of a known mixed-norm ball.",
+      "residual_risks": [
+        "No higher-dimensional bipolar tiling implication or arbitrary affine kernel computation follows from this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

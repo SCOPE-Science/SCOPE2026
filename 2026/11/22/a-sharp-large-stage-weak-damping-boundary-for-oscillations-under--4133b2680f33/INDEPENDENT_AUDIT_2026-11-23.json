@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:21:32.399358Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–64",
+        "Frozen VERIFICATION.md and verify.py (inspection only; documented output was not independently rerun)",
+        "Weng–Yu–Zhu arXiv:2610.37425v1, Theorem 5.2"
+      ],
+      "rationale": "The classical row recurrence gives R_s=1−c_s+c_s q_s^s. Write ε=1/s, p=δ_s−γ_s, g=γ_s. Then p+g=ε/c_s and p−g=1/c_s−1. On a fixed bounded complex z-domain, log(1+pz)−log(1−gz) starts at εz; its ε³ coefficient is z/2−z²/4+z³/12, by the linear, quadratic and cubic logarithmic terms. It is odd in ε, with uniform remainder O(ε⁵) by analyticity near ε=0; division by ε and exponentiation give an even R_s expansion through ε². Evaluating at iω−ηε² gives the stated squared-modulus coefficient F(ω)−2η and uniform O(ε⁴). Strict |sin u|<|u| for u≠0 proves the positive defect. On a fixed small real λ interval, the analytic estimates also give convergence of the λ derivative of the squared modulus to 2e^(2λ) by Cauchy estimates. The crossing is unique there for sufficiently large s; the residual at λ=−F/(2s²) is O(s⁻⁴), hence so is the root error. At ω=0 the root is exactly 0. Multiplying the logarithmic squared modulus by floor(Ts²) proves the claimed energy limit. The source's SSP optimality premise is correct for the displayed family, with tableau uniqueness understood up to stage permutations.",
+      "residual_risks": [
+        "Uniformity is only on fixed compact (ω,η) sets. The sign at exactly η=F(ω)/2 is not determined by the leading term. No growing-frequency, nonnormal or nonlinear stability claim is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The optimality theorem identifies precisely this tableau within a broad implicit class. The nonnegative-coefficient third-order algebraic-stability obstruction is qualitative and does not evaluate scalar oscillatory drift."
+        ],
+        "reasoning": "Absolute monotonicity optimality and a general impossibility for algebraic stability specify neither the sign for every fixed nonzero ω at large s nor its nonpolynomial coefficient.",
+        "searches": [
+          "Weng–Yu–Zhu Theorem 5.2 and Ferracina–Spijker §3.3",
+          "Gottlieb et al. arXiv:2611.07981v1 §5, Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 60906ae1b586, fe5e63971970, 196f2a8f1f8b",
+        "Weng–Yu–Zhu",
+        "Ferracina–Spijker",
+        "Fekete–Horváth",
+        "Gottlieb et al."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof §5 expands γ_s, δ_s and its own odd-stage endpoint variable to obtain the stiff parity limits ±e and real-axis endpoint scale 4s²+O(1). It does not establish a bounded-complex expansion of R_s. The coefficients given there can be inputs to the new log-transfer expansion, but the real-axis endpoint limit is a different limit with growing |z|."
+        ],
+        "reasoning": "The closed transfer enables the analysis but does not itself evaluate the first nonzero uniform error relative to e^z. Controlling the even-order correction and identifying its real-part cancellation and positive frequency profile are needed before either the boundary or the repeated-step law follows. No earlier stronger evaluated all-compact expansion was identified.",
+        "searches": [
+          "60906ae1b586 RESULT.md, Proof §§1 and 5, including mirror offset 4150",
+          "Targeted literature search for the oscillatory SSPIRK asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "60906ae1b586 Proof §1 is literally the same complex-z stage transfer after c_s=(sδ_s)⁻¹. The earlier exact classification is for z=−x, x≥0. Fekete–Horváth plots the four-stage region; it has no all-stage coefficient at λ=−η/s² in the inspected passage."
+        ],
+        "reasoning": "The transfer is exact overlap, but a real-axis or fixed-stage region is not equivalent to a weakly damped bounded-frequency boundary and accumulated amplification.",
+        "searches": [
+          "Resultary search for SSP-optimal third-order implicit RK, imaginary-axis amplification, weak damping and modal energy; real-axis record 60906ae1b586",
+          "Fekete–Horváth §2.2, Figure 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed result is the frozen record itself. The distinct Jensen record compares random and deterministic step sizes for explicit Taylor RK; the antithetic record treats stochastic curvature error in a fourth-order two-derivative method."
+        ],
+        "reasoning": "The same-day analogues are genuinely different in method, scaling and observable; neither contains this coefficient or energy limit.",
+        "searches": [
+          "Local Resultary: SSP third-order imaginary-axis boundary, large stages and weak damping; distinct same-day fe5e63971970 and 196f2a8f1f8b"
+        ]
+      },
+      "rationale": "The exact complex stage-transfer representation and the SSP-optimal family are known and credited. The strongest matched record uses that transfer for a negative-real stability interval and stiff large-stage endpoints. Its theorem, coefficient expansions and finite-stage alternatives do not give an evaluated bounded-complex weak-damping layer or the quadratic-step energy defect. The new result is the uniform asymptotic analysis of the transfer in that distinct regime, not the tableau or transfer itself.",
+      "residual_risks": [
+        "Bounded literature and corpus coverage, not a priority certification. An unlocated uniform modified-stability expansion for the same tableau could imply the boundary result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same analytic starting point; evaluated solution for a different spectral regime",
+          "evidence": "R_s=1+(q_s^s−1)/(sδ_s), negative-real cutoff X_s and stiff ±e limit; no bounded-complex transfer expansion in the large-stage section.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-real-axis-stability-frontier-of-ssp-optimal-third-order-im--60906ae1b586/RESULT.md",
+          "material_read": "Proof §§1 and 5, mirror offsets 2100–5400",
+          "method": "Local mirror bounded passages",
+          "title": "Exact real-axis stability frontier of SSP-optimal third-order implicit Runge–Kutta methods",
+          "trigger": "Same tableau, transfer and large-stage terminology"
+        },
+        {
+          "assessment": "Establishes the premise rather than the new spectral result",
+          "evidence": "Unique optimum up to stage permutations and specified constant diagonal, strict-lower coefficient and weights.",
+          "identifier_or_url": "https://arxiv.org/html/2610.37425v1",
+          "material_read": "Theorem 5.2, OA offset 62925",
+          "method": "OA primary passage",
+          "title": "Phase-type representations for Strong Stability Preserving Runge–Kutta methods",
+          "trigger": "Primary result identifying the optimum"
+        },
+        {
+          "assessment": "Precursor for the coefficients",
+          "evidence": "Earlier candidate for order-three optimum with numerical/conjectural status at s≥3, not the boundary asymptotic.",
+          "identifier_or_url": "https://math.leidenuniv.nl/reports/files/2007-11.pdf",
+          "material_read": "§3.3, pp. 6–7",
+          "method": "OA primary PDF passage",
+          "title": "Strong Stability of Singly-Diagonally-Implicit Runge-Kutta Methods",
+          "trigger": "Earliest cited coefficient family"
+        },
+        {
+          "assessment": "Finite-stage figure and embedded schemes, not uniform weak damping",
+          "evidence": "Four-stage region, with qualitative mention of similar plots for increasing s.",
+          "identifier_or_url": "https://imrefekete.web.elte.hu/files/2019_FH_ECMI.pdf",
+          "material_read": "§2.2 and Figure 2, pp. 5–6, offsets 9200 and 11400",
+          "method": "OA primary PDF passages",
+          "title": "Some Embedded Pairs for Optimal Implicit Strong Stability Preserving Runge–Kutta Methods",
+          "trigger": "Same family and direct complex-plane figure"
+        },
+        {
+          "assessment": "Qualitative obstruction only for this comparison",
+          "evidence": "Rules out third-order algebraic stability with nonnegative coefficients; no oscillatory coefficient.",
+          "identifier_or_url": "https://arxiv.org/html/2611.07981v1",
+          "material_read": "§5, Theorem 9, OA offset 65424",
+          "method": "OA primary passage",
+          "title": "A stability order barrier and SSP bound for Runge–Kutta methods with non-negative coefficients",
+          "trigger": "Potentially stronger general stability obstruction"
+        },
+        {
+          "assessment": "Distinct randomized or two-derivative schemes",
+          "evidence": "Random-step Taylor RK and stochastic fourth-order two-derivative error respectively; neither is a fixed SSP DIRK large-stage limit.",
+          "identifier_or_url": "Resultary fe5e63971970; Resultary 196f2a8f1f8b",
+          "material_read": "Finding in each mirrored RESULT.md, offset 0",
+          "method": "Local mirror bounded passages",
+          "title": "A sharp Jensen threshold for random-step third-order Runge–Kutta damping; A sharp antithetic coupling threshold for a three-stage two-derivative Runge–Kutta oscillator step",
+          "trigger": "Same-day oscillator/damping matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the boundary and energy scaling",
+        "60906ae1b586 negative-real comparison",
+        "Fekete–Horváth §2.2"
+      ],
+      "rationale": "SSP optimality is not a modal energy guarantee. The defect establishes a concrete cost for a standard optimal family: even fixed undamped nonzero frequencies amplify, and a specific weak damping threshold is needed to offset the artificial energy drift. The first nonzero, frequency-dependent defect matters because its effect is order one after O(s²) steps. This differs from both finite-stage plotting and stiff scalar real-axis decay and gives a quantitative, testable calibration for the intended modal regime.",
+      "residual_risks": [
+        "No assertion about practical nonlinear performance, nonnormal systems or implementation costs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

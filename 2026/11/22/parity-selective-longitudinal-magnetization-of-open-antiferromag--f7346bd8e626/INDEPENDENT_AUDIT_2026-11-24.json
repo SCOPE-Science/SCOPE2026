@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:51:23.318268Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–64; frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "/workspace/branches/b8b28f4a-b9f3-4a28-8b4c-60eda36a26ae/replay_record5.py: independently enumerated all labeled spins for m=2 through 8 at x=0, 3/2, 2, 5/2, 4, 9/2; exact energies, degeneracies and the specified transition sectors matched in 42 instances"
+      ],
+      "rationale": "In the specified m-triangle open graph each bond belongs to exactly one triangle, so the normalized exchange is −m+4 times the monochromatic-triangle count. At zero field each mixed triangle independently gives three choices conditional on its first base spin, yielding 2·3^m. For 0<x<2 a monochromatic triangle can lower its energy by changing its private tip. The least number of down spins among mixed configurations on any base word is d+u, where d is the count of down bases and u the count of consecutive up-base pairs; this equals the base length L=m+1 minus the number of up runs. At maximal run count, odd L gives the unique up-ended alternating word. Even L=2r has one surplus site beyond the minimum needed for r up runs: it can lengthen one of r up runs or fill one of r+1 down gaps, giving L+1 base words. At x=2 only the tip on an up-up base pair can freely change, gaining two magnetization units for one extra monochromatic triangle. There is none for odd L, and exactly one such pair in each of the r up-run extensions for even L, giving the two stated odd-m sectors. For x>2 the all-up comparison removes all down spins outside the degree-four interior path; an occupied component of length greater than one costs more than its singleton replacement by 2J(x−2) per removed site. For 2<x<4, the maximizing cardinality is floor(m/2), with binomial path counts giving the two degeneracies. At x=4 all independent sets tie; a size-k set has M=2m+1−2k and count binomial(m−k,k), totaling F_(m+1). Above x=4 only the fully polarized state survives. Energies and entropies follow from these reductions; the positive-field 2J crossing is a finite-size distinction, not a claim about a finite-temperature or bulk transition.",
+      "residual_risks": [
+        "Finite replay corroborates but does not replace the all-size proof. Open boundaries and equal antiferromagnetic couplings are essential hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest classical paper gives a canted ferrimagnetic solution with magnetization Eq. (11) and saturation h_sat=4α−2. The other delta-chain transfer treatment is periodic and transverse; the free-boundary transverse study supplies the classical zero-field count. Resultary broader parity tables concern a clique truncation, a cubic Möbius ladder, or a three-colour Potts model."
+        ],
+        "reasoning": "Neither continuous-spin transfer integrals nor periodic/transverse transfer matrices give the finite-open, longitudinal Ising branches or their tied counts. A transfer-matrix technique is a method; this comparison asks whether the stated result actually covers the boundary, field and coupling regime.",
+        "searches": [
+          "arXiv:1911.03081 §II Eq. (2), §§II.A–B ground state and integral transfer operator",
+          "Priour–Gelfand–Sondhi arXiv:cond-mat/0005185, free and periodic counts",
+          "Kunisada–Fukumoto arXiv:0712.4306, transfer matrix and boundary conditions",
+          "Resultary 9d1b3f7893a4, 7e14a56d13ba, c77e48421fca, matched findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1911.03081; arXiv:cond-mat/0005185; arXiv:0712.4306; arXiv:cond-mat/0404204",
+        "Resultary 9d1b3f7893a4, 7e14a56d13ba, c77e48421fca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-field degeneracy is directly covered. Once the all-up comparison proves the interior-path hard-core constraint, its Fibonacci count follows from the standard path formula; related quantum entropy is prior. The closest classical field result minimizes a continuous spin Hamiltonian with unequal-sign couplings, and the indexed ladders have a different adjacency and boundary identification."
+        ],
+        "reasoning": "The combinatorial implications are credited rather than repackaged as novelty. The nontrivial remaining step is determination of which patterns minimize for the actual Ising graph and longitudinal field at every size, especially the run-parity effect and its tied magnetization counts at 2J. The compared statements do not mechanically yield that step.",
+        "searches": [
+          "Priour–Gelfand–Sondhi p. 2 and p. 8 footnote",
+          "Derzhko–Richter p. 2, localized-magnon exclusion map",
+          "Dmitriev et al. Eq. (2) and Eqs. (7)–(14)",
+          "Resultary 7e14a56d13ba and c77e48421fca, exact field/boundary assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest classical field source uses continuous unit vectors and apical-basal coupling −1, basal-basal α. The quantum saturation analogue uses mutually nonoverlapping localized magnons represented as hard dimers. Local Resultary matches include classical Ising parity staircases on clique truncations and Möbius ladders; neither graph is the open delta chain."
+        ],
+        "reasoning": "The same triangle-chain picture or Fibonacci mechanism is not an equivalence of state spaces and energies. Restricting vector spins to Ising values changes the minimization and even reversing the tips to switch apical signs would change a uniform field into a staggered-sign field. The auxiliary independent-set equivalence here holds on a path of precisely m−1 interior base sites at saturation; it does not impose the sub-saturation crossing in the other models. The frozen record's own search hit is not prior work.",
+        "searches": [
+          "Resultary open classical delta-chain longitudinal phase classification, odd m at 2J, and saturation hard-dimer/Fibonacci equivalence",
+          "Dmitriev–Krivnov–Schnack–Richter DOI 10.1103/PhysRevB.101.054427, matching preprint arXiv:1911.03081",
+          "Derzhko–Richter arXiv:cond-mat/0404204, saturation on the sawtooth chain"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact zero-field count is already 2·3^m for the open chain, and the same source gives 3^m+(-1)^m for periodic boundaries. The related hard-dimer solution has the same limiting golden-ratio entropy rate. The nearest indexed magnetization tables have different graphs or spins; e.g., the Möbius Ising ladder has crossing at |h|=J for even half-circumference and saturation at 3J."
+        ],
+        "reasoning": "Known Fibonacci values are not the database target; the scientific identification concerns which field and which finite set of labeled states that sequence counts. Neither the exact entries for other graphs nor the univariate Fibonacci sequence encode the odd-m tied magnetization populations.",
+        "searches": [
+          "Resultary exact longitudinal parity and coexistence tables 9d1b3f7893a4, 7e14a56d13ba, c77e48421fca",
+          "arXiv:cond-mat/0005185, exact classical free/periodic degeneracies",
+          "arXiv:cond-mat/0404204, exact hard-dimer saturation mapping"
+        ]
+      },
+      "rationale": "The zero-field free-boundary degeneracy and the golden-ratio entropy mechanism in related quantum systems are established. A particularly close classical field paper was recovered in OA and treats continuous unit-vector spins with ferromagnetic apical couplings, not this finite open equal-bond Ising model. The distinct supported claim is the full classical longitudinal open-chain classification, including the odd-only 2J crossing and its resolved multiplicities. The exact saturation count has a standard independent-set interpretation, which is not itself claimed novel.",
+      "residual_risks": [
+        "A bounded search does not exclude a less accessible finite open Ising transfer-matrix result. Neither the known zero-field result nor a quantum hard-dimer entropy rate is counted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related graph and field, different spin space and signs; inspected classification does not cover the finite Ising result",
+          "evidence": "Equation (2) uses unit vectors with apical-basal interaction −1 and basal-basal interaction α. Its ground state below h_sat=4α−2 is described by spin angles in the ferrimagnetic regime; the transfer equation integrates over continuous spins.",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.03081 (DOI 10.1103/PhysRevB.101.054427)",
+          "material_read": "Authorized OA preprint, pp. 5–7, offset 12195–17680; §II Eq. (2), Ground state Eqs. (5)–(12), and Partition function Eqs. (13)–(14)",
+          "method": "Publisher page blocked; DOI scholarly metadata identified the corresponding arXiv open paper; located Hamiltonian and inspected full decisive passages",
+          "title": "Exact magnetic properties for classical delta-chains with ferromagnetic and antiferromagnetic interactions in applied magnetic field",
+          "trigger": "Strongest possible same-model longitudinal-field precursor"
+        },
+        {
+          "assessment": "Covers the credited zero-field count, not the present longitudinal-field table",
+          "evidence": "Free boundaries give 2·3^m mixed-triangle configurations and periodic boundaries give 3^m+(-1)^m; the perturbation studied is transverse.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0005185",
+          "material_read": "PDF p. 2 around offset 8900 and p. 8 footnote around offset 63450",
+          "method": "OA primary-text passages",
+          "title": "Disorder from Disorder in a Strongly Frustrated Transverse Field Ising Chain",
+          "trigger": "Same Ising triangle graph and exact zero-field count"
+        },
+        {
+          "assessment": "Periodic transverse-susceptibility calculation, a different boundary and field problem",
+          "evidence": "The Hamiltonian imposes periodic boundaries and the stated transfer treatment concerns transverse response.",
+          "identifier_or_url": "https://arxiv.org/pdf/0712.4306",
+          "material_read": "PDF pp. 1–2, around offsets 700 and 6189",
+          "method": "OA primary-text passages",
+          "title": "An exact calculation of the transverse susceptibility for an antiferromagnetic Ising Delta chain",
+          "trigger": "Same geometry and transfer-matrix precedent"
+        },
+        {
+          "assessment": "Known analogous entropy and hard-dimer mechanism, not a finite-open classical Ising classification",
+          "evidence": "Localized quantum magnons on the sawtooth chain map to monomer/dimer configurations and give limiting per-spin growth exponent log(phi)/2.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0404204",
+          "material_read": "PDF p. 2, offsets about 9600–13500",
+          "method": "OA primary-text passages",
+          "title": "Finite low-temperature entropy of some strongly frustrated quantum spin lattices in vicinity of the saturation field",
+          "trigger": "Closest saturation-entropy and Fibonacci mechanism"
+        },
+        {
+          "assessment": "Different graphs or spin space, not an exact equivalent or dominance result",
+          "evidence": "The models are clique truncations of K_n, a cubic Möbius Ising ladder, and a three-colour Potts Möbius ladder; none is the open chain of m corner-sharing triangles.",
+          "identifier_or_url": "Resultary 9d1b3f7893a4, 7e14a56d13ba, c77e48421fca",
+          "material_read": "All three local-mirror RESULT.md findings, starting at offset 0",
+          "method": "Resultary discovery and local-mirror statement inspection",
+          "title": "Resultary exact parity staircase, Möbius Ising ladder, and three-colour coexistence comparators",
+          "trigger": "Adjacent exposed longitudinal-field parity and exact coexistence counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–35 and 37–64; zero-field and quantum saturation comparisons"
+      ],
+      "rationale": "Free boundaries and equal frustrated bonds make this a natural finite chain, not an arbitrary exact slice. The result resolves how its boundary parity changes the highest-magnetization mixed configurations, the competing population at 2J, and the way saturation coexistence supports extensive residual entropy. The value is the combined exact energies and labeled-sector classifications, not a new Fibonacci identity or a claim that the finite-size crossing survives as a distinct bulk plateau.",
+      "residual_risks": [
+        "Do not infer a positive-temperature transition or extend open-boundary counts to rings or vector/quantum spins."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

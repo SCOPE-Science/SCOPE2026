@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:18:42.086324Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5; frozen VERIFICATION.md, verify.py and verify_output.txt inspected, scripts not executed",
+        "Independent bounded replay at B=1: enumerate subsets of rho edges and retain those that are acyclic by union–find (thus spanning trees); accumulate each product and each derivative by omitting the differentiated edge factor, including the derivative at zero shortcut. For lengths (2,3), (2,2,2), (2,2,2,3), and (3,4,5,6,7), the direct log-det derivatives were respectively 4, 4, 5.026334038989729, and 21 to rounding, versus rho=4,4,6,21. Positive-edge derivative deviations were below 7e-12 and budget errors below 1e-12. The strict deletion case gave xi=1.193712943361397."
+      ],
+      "rationale": "A tree retains exactly one complete terminal path (possibly the direct edge); every other long path must lose exactly one edge to avoid cycles without isolating internal vertices. This gives the multiaffine path polynomial even at zero weights. A positive design exists, and on the positive-determinant domain the reduced Laplacian depends injectively on conductances of this simple graph. Off-diagonals recover nonroot edge weights, then diagonals recover root edge weights. Strict log-det concavity gives uniqueness, and polynomial invariance under intra-path permutations then forces equal weights within each path. The common weights are positive because deleting a whole long path isolates internal vertices. With path budget coordinates x_i and V=x_0+sum(c_i x_i), c_i=1/ell_i^2, the objective up to constants is sum((ell_i-1)log x_i)+log V. The stationarity multiplier is rho by summing coordinate derivatives against the allocation. If x_0 is positive, V=1/rho and x_0=(1-S)/rho; that solution also satisfies complementary slackness when S=1. On the zero-shortcut face, xi=rho V must solve sum((ell_i-1)c_i/(xi-c_i))=1 above max(c_i). This sum is strictly decreasing there and takes value S at xi=1. The root satisfies the omitted-edge inequality 1/V<=rho exactly when S>=1. The stationarity formula budgets correctly: sum((ell_i-1)xi/(xi-c_i))=sum(ell_i-1)+1=rho. Converting back gives both stated weight formulas and determinant factors, which agree at equality. The concavity argument makes the feasible KKT solution globally optimal and unique.",
+      "residual_risks": [
+        "The tree-enumeration replay is finite and used floating-point bisection and products. It is corroboration; the proof covers arbitrary path lengths and budgets. The frozen SLSQP run was not rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected MAXDET relaxation optimizes selectors for adding candidates with fixed edge weights. Cheng's indexed opening discusses the graph extremal problem for given numbers of vertices and edges; the full paper was not available for inspection.",
+          "The heterogeneously priced two-route and book-network entries generalize prices but restrict route count or route lengths."
+        ],
+        "reasoning": "General computation frameworks do not supply a graph-family-specific closed solution; the two wider-price subfamilies cannot encode arbitrary heterogeneous lists of three or more long paths.",
+        "searches": [
+          "Khosoussi et al. arXiv:1604.01116 §4.4",
+          "Cheng 1981 exact-title primary-source query; publisher, CORE 82547595 and identified public Academia copy",
+          "Resultary general conductance-allocation and price variants"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 93ce11e266fa, 5c6919e0a97f, 2a811aac5bfa, 6bfa0d131382, c59a748e9280",
+        "Khosoussi et al. arXiv:1604.01116; Boyd 2006; Ghosh–Boyd–Saberi",
+        "Cheng 1981 (abstract/index indications and documented access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With ell_i=2 the graph is a cone over a star, whereas as soon as a long path has length at least three there is no universal vertex in the graph. The simple-cycle case is m=1; the two-route study has m=2.",
+          "Generic KKT/electrical designs supply a framework, but the deletion test here accumulates the contributions of all heterogeneous paths and the boundary root couples them."
+        ],
+        "reasoning": "Combining isolated subfamily formulas does not give the classification with three or more routes of heterogeneous lengths. Distinct coverage is judged by hypotheses and mathematical implication, not by dates alone.",
+        "searches": [
+          "Local Resultary same-criterion exact findings and scope for the unicyclic, cone, two-route and book-network cases",
+          "Khosoussi et al. §4.4 and Ghosh–Boyd–Saberi p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted tree enumerator and reduced-Laplacian determinant are the same objective; the theta count aside in Resultary c59a748e9280 is unweighted.",
+          "The fixed-budget total-effective-resistance problem of Ghosh–Boyd–Saberi is on similar variables but uses a different objective."
+        ],
+        "reasoning": "The determinant problem can also be expressed as a D-optimal incidence design and the derivative as an effective resistance; minimizing the sum of such resistances is not equivalent, and enumeration alone does not optimize weights.",
+        "searches": [
+          "Resultary searches for D-optimal/weighted tree determinant, parallel paths, theta graphs, shortcut deletion",
+          "Khosoussi et al. arXiv:1604.01116 weighted Matrix–Tree Theorem and §4.4",
+          "Boyd 2006 graph-Laplacian eigenvalue optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The equal-price unicyclic record gives B/(ell_1+1) per edge at m=1. The cone-over-tree record includes the three-leaf star case, where the shortcut vanishes and the six long-path edges each receive B/6.",
+          "Two later exact price-constrained entries cover m=2 and all ell_i=2, respectively; at equal prices their formulas agree with the frozen result in those subfamilies."
+        ],
+        "reasoning": "These are real exact overlaps for their subfamilies and should be credited. None is a table or formula giving the arbitrary heterogeneous case.",
+        "searches": [
+          "Local Resultary formula and graph-family checks: 93ce11e266fa, 5c6919e0a97f, 2a811aac5bfa, 6bfa0d131382, c59a748e9280"
+        ]
+      },
+      "rationale": "Exact overlap exists in restricted graph families, notably the unicyclic case and cone-over-star cases. The distinct claim credited here is the heterogeneous, arbitrary-number parallel-path allocation and its shortcut criterion, not the determinant objective, effective-resistance calculus, unweighted theta count, or previously solved subcases. No inspected result covered both arbitrary path counts and the heterogeneous lengths with these closed formulas.",
+      "residual_risks": [
+        "Bounded comparisons do not settle priority. Full Cheng text was unavailable; it was not counted as a negative inspection. A differently phrased electrical or design-theory result for this graph family could still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Criterion and selection relaxation, not the exact fixed-support budget allocation in the inspected material",
+          "evidence": "The weighted Matrix–Tree Theorem identifies the determinant; §4.4 varies edge selectors rather than all conductances subject to the scalar budget here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.01116",
+          "material_read": "Abstract p. 1 offset 849, pp. 4–5 offset 10480, §4.4 p. 10 offset 26840, references p. 18 offset 55540",
+          "method": "Located OA PDF passages",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Potential general D-optimal graph result covering weighted parallel-route allocation"
+        },
+        {
+          "assessment": "Title and abstract establish relevance, but full statement-level scope remained unverified; not a whole-document exclusion",
+          "evidence": "The indexed opening poses the graph extremal question with given vertex and edge counts. The abstract also connects it to D-optimum incomplete block design; that does not alone determine the fixed-support continuous allocation.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0095895681800287",
+          "material_read": "Publisher/index abstract and indexed opening only; no primary full text read",
+          "method": "Exact-title primary-literature search; identified CORE PDF 82547595 and Academia public-page routes tried via OA reader (unavailable)",
+          "title": "Maximizing the Total Number of Spanning Trees in a Graph: Two Related Problems in Graph Theory and Optimum Design Theory",
+          "trigger": "Cheng's graph-extremal/D-optimal connection could conceal a family solution"
+        },
+        {
+          "assessment": "General optimization background",
+          "evidence": "Describes graph-Laplacian eigenvalue objectives, including minimum total effective resistance; no theta-family conductance formula established by the inspected passage.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "Abstract and p. 1",
+          "method": "Located OA PDF passage",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "General continuous Laplacian optimization"
+        },
+        {
+          "assessment": "Similar constraint, different objective",
+          "evidence": "Minimizes total effective resistance instead of maximizing a reduced determinant.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/206-RWG/RWGpapers/ghosh_boyd.pdf",
+          "material_read": "p. 1, around offset 3560",
+          "method": "Located OA PDF passage",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Same free conductances and additive budget on a fixed graph"
+        },
+        {
+          "assessment": "Exact coverage when m=1, not when multiple long paths are present",
+          "evidence": "Equal prices on the cycle give a uniform B/(ell_1+1) allocation, the corresponding frozen solution.",
+          "identifier_or_url": "Resultary 93ce11e266fa",
+          "material_read": "Finding and graph-family assumptions",
+          "method": "Bounded local Resultary comparison",
+          "title": "Exact D-optimal conductances on heterogeneously priced unicyclic networks",
+          "trigger": "Exact same objective on cycles"
+        },
+        {
+          "assessment": "Exact family overlap with the cone-over-star geometry, not heterogeneous long paths",
+          "evidence": "A three-leaf star cone has m=3 and all ell_i=2; the earlier solution gives the zero hub-to-center conductance at equality and B/6 on each other edge.",
+          "identifier_or_url": "Resultary 5c6919e0a97f",
+          "material_read": "Finding and cone-over-tree scope",
+          "method": "Bounded local Resultary comparison",
+          "title": "Sharp degree-controlled spoke deletion in determinant-optimal tree cones",
+          "trigger": "Exact deletion boundary on an overlapping family"
+        },
+        {
+          "assessment": "Covers m=2 at equal costs, not arbitrary m",
+          "evidence": "The price-sensitive two-route problem matches the positive-shortcut formula at equal prices, where S<=2/3.",
+          "identifier_or_url": "Resultary 2a811aac5bfa",
+          "material_read": "Finding and two-long-route scope",
+          "method": "Bounded local Resultary comparison",
+          "title": "A sharp shortcut-deletion frontier for determinant-optimal two-route designs",
+          "trigger": "Exact shortcut allocation with heterogeneous route pricing"
+        },
+        {
+          "assessment": "Restricted-family overlap, all long paths length two",
+          "evidence": "At equal prices the shortcut disappears precisely for m>=3, agreeing with S=m/3.",
+          "identifier_or_url": "Resultary 6bfa0d131382",
+          "material_read": "Finding and equal-price specialization",
+          "method": "Bounded local Resultary comparison",
+          "title": "Four exact support regimes for price-constrained D-optimal conductances",
+          "trigger": "Exact shortcut regimes in book networks"
+        },
+        {
+          "assessment": "Unweighted enumerative overlap, not conductance optimization",
+          "evidence": "The generalized theta count is a sum of products of all but one path length; the finding treats Fourier gaps and invertibility.",
+          "identifier_or_url": "Resultary c59a748e9280",
+          "material_read": "Theta graph count and finding scope",
+          "method": "Bounded local Resultary comparison",
+          "title": "Parity classification and sharp Fourier gaps for spanning trees",
+          "trigger": "Generalized theta graph spanning-tree count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact KKT boundary and heterogeneous optimum",
+        "Exact restricted-family comparisons in Resultary"
+      ],
+      "rationale": "Uniform-cost budgeted D-optimality is a natural criterion on parallel routes. The solution predicts a support transition that a generic determinant formulation does not locate, and distinguishes threshold equality from strict deletion by the direct-edge marginal gain. The exact heterogeneous reciprocal-length rule and single-root allocation are useful beyond the previously covered cycle, short-route and book cases; they decide both whether a shortcut is worth any budget and how to allocate the rest without an edge-by-edge optimization.",
+      "residual_risks": [
+        "The result does not classify heterogeneous edge prices, route intersections beyond common terminals, or other design criteria."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

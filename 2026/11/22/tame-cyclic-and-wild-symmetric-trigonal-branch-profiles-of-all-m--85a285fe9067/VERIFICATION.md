@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The embedded program `verify_filling43_branch.py` is standalone and requires only Python 3 and SymPy. From the extracted package directory run:
+## correctness
 
-```text
-python verify_filling43_branch.py
-```
+PASS
 
-It exhausts the binary linear space of 2048 filling forms, tests all nonzero forms for geometric smoothness by the four affine Jacobian ideals, computes all 36 ambient coordinate symmetries, and checks the branch polynomials, their factorization, repeated-root criterion, and fiberwise deck transformations for each of four representatives. The expected terminal marker is `FILLING43_RAMIFICATION_VERIFIED equations=2048 smooth=66 orbits=4 cyclic_tame=12 S3_wild=54 branch_cycle_profiles=(8)x3,(2+6)x1`.
+Independent enumeration imposed direct evaluations on the entire 20-bit coefficient space, obtained 2047 nonzero filling forms, and closed 99 ruling-preserving orbits using swaps and translations. Four-chart Jacobian ideals on orbit representatives gave exactly the stated 66 smooth sections in four orbits. Independent binary discriminant, factorization, triple-root and orbit-stabilizer computations gave all four listed rows, including the polynomials and deck orders. On a smooth positive-bidegree divisor, distinct components could be disjoint only if all belonged to one ruling, so the curves here are geometrically integral. The first projection is finite of odd degree three, hence separable. The binary cubic discriminant is the normalized resultant (divide the affine resultant by its leading coefficient); its square root has degree eight after homogenization and is nonzero at infinity. It is coprime to the leading cubic coefficient on the branch support. Thus ordinary cubic root multiplicities give the stated geometric indices, and a nontrivial order-three fiber automorphism gives a cyclic Galois map in the tame cases; index two excludes cyclic geometric monodromy in the wild cases. Genus six and Riemann–Hurwitz give 16 as the total different degree, forcing each of the eight local exponents to be two. For the geometric degree-two local extensions this means the second ramification group is trivial.
 
-The local different exponent is deduced from the explicitly checked branch support and genus-six Riemann–Hurwitz, not inferred solely from finite extension point searches. The conclusion is limited to the first-ruling degree-three covers of the specified geometrically smooth binary filling curves. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The 66-count, four embedded classes and explicit forms were already given. The supported distinct claim is their full geometric branch profile and arithmetic splitting, not the orbit census, stabilizers, or Weil polynomials. The compared prior statements do not provide the discriminant factorization and repeated-fiber data, and a bounded search cannot establish absolute priority.
+
+## value
+
+PASS
+
+The branch data are an intrinsic invariant of the natural trigonal morphism on the entire minimal filling family. They separate two kinds of monodromy, determine where the local wild extensions are weakly ramified, and identify the exceptional (2,6) closed-point profile in the cyclic family. This distinguishes covers in a way not supplied by section counts or curve zeta data, and gives exact input for comparisons of characteristic-two trigonal covers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

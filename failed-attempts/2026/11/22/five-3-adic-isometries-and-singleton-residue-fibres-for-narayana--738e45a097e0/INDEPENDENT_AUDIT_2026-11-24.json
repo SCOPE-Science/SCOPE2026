@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:51:20.854383Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–58, VERIFICATION.md and check_narayana.py inspected",
+        "Independent reconstruction: /workspace/review-evidence/correctness.md §1",
+        "Fresh recurrence-state replay: python3 /workspace/review-evidence/narayana_orbit.py; /workspace/review-evidence/narayana_orbit.txt (levels 1–7)"
+      ],
+      "rationale": "The state transition M(x,y,z)=(y,z,x+z) has eighth power I+3B with the stated integer B. For T=M^8, cubing inductively gives T^(3^j)=I+3^(j+1)(B+3C_j) with integral C_j. Raising to a positive 3-adic unit u preserves uB as the leading coefficient modulo 3. The starting block shift T^s is the identity modulo 3, so the first scalar coefficient at branch r is (a_(r+8)−a_r)/3, giving (3,4,6,9,13,19,28,41). Its five units give the claimed valuation for all distinct s,t, with swapping resolving negative t−s. The modulo-three word has unique 2, hence least period eight. The lift gives period 8·3^(k−1), and an arbitrary period 8d must return the branch-1 value, which requires 3^(k−1)|d. Each unit branch injects onto a whole mod-3 residue class within that period, by matching cardinalities. Only branch 4 is over 2, while 5 and 7 are over 0 and 1 and 6 are over 1. This proves the multiplicities and infinite recurrence, including when k=1.",
+      "residual_risks": [
+        "The finite replay is a check of period, branch images and fibres only through k=7, not a substitute for the binomial proof or a complete count for the other residue classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full fibre record gives every N_k(y), including small levels k=1,2,3 and a formula for k≥4. The cycle census 9ad248be318f treats all state seeds, with maximal period 8·3^(k−1). Guadalupe Proposition 3.1 lifts three index classes; Lang–Lang Proposition 5.1 is for a second-order recurrence."
+        ],
+        "reasoning": "The exact-fibre record subsumes the scalar result. The all-seed cycle census concerns state periods, not scalar value fibres; the older index congruences and Pell theorem are not themselves that subsumption.",
+        "searches": [
+          "Resultary: exact ternary fibre frequencies and exact three-adic cycle census, IDs e37859da9078 and 9ad248be318f",
+          "Narayana sequence modulo powers of 3 index lifting valuation arbitrary differences residue classes period third order recurrence Guadalupe Kirthi"
+        ]
+      },
+      "checked_sources": [
+        "Direct statement comparison with Results e37859da9078, 9ad248be318f and 6cf95f0aa11e",
+        "Guadalupe, Ismail–Rihane–Anwar, Lang–Lang, Kirthi, Kuloğlu–Özkan–Shannon, and OEIS A271953 at the locators above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older papers supply fixed-target valuation or modular-period tools. In e37859da9078, the frequency baseline b(y) equals one exactly over 2 and two otherwise, and every additional term is nonnegative and supported elsewhere; the record also explicitly states T_k and the regular branch law."
+        ],
+        "reasoning": "The stronger record implies all-fibre lower bounds and the singleton contrast even without the exact extra counts. It also supplies valuation and bijection; periodic repetition then gives infinite occurrences. Earlier fixed-target results were not confused with a two-index valuation law.",
+        "searches": [
+          "Guadalupe arXiv:2112.06187 Thm. 1.1 and Prop. 3.1; Ismail–Rihane–Anwar arXiv:2206.09174 Props. 3.3–3.4 and Thms. 3.5–3.6",
+          "Kuloğlu–Özkan–Shannon §2 Thm. 2.1 and Ex. 2.2",
+          "Direct inspection of e37859da9078 Finding and Proof first portion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact ternary fibre frequencies, ID e37859da9078, Finding and first part of Proof (RESULT.md offset 0–3582): same recurrence and exact identity v3(A_r(t)−A_r(s))=1+v3(t−s) for r=1,4,5,6,7 and t≠s, followed by one preimage per regular branch in its residue ball.",
+          "ID 6cf95f0aa11e concerns the third Narayana column polynomial, not this sequence."
+        ],
+        "reasoning": "Restrict the stronger interpolation to nonnegative integral indices. Its branch statement specializes verbatim, while the unrelated Narayana polynomial is excluded by the recurrence definition.",
+        "searches": [
+          "Resultary: Narayana numbers 3-adic isometry pairwise valuation progression residue fibres period modulo powers of 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS computes/tabulates modular periods and has a prime-power lcm formula. Kirthi records period eight modulo 3 in a prime-modulus classification. The separate Resultary record provides the exact least period and complete all-level fibre formulas."
+        ],
+        "reasoning": "The period entries are limited overlap individually. The exact stronger result settles all moduli in the target and the fibre contrast, not merely sampled values.",
+        "searches": [
+          "OEIS A271953 (least modular periods)",
+          "Kirthi arXiv:1509.05745 p. 3, Table 1",
+          "Resultary e37859da9078, Finding"
+        ]
+      },
+      "rationale": "A distinct indexed record, e37859da9078, covers the entire frozen claim with the same initial conditions and period normalization. Its Proof explicitly states the same five-branch two-point valuation law (and extends it to 3-adic arguments), plus the per-branch residue-bijection consequence; its Finding supplies the same least period and strictly stronger full multiplicities. The overlap is established directly from the text, not from a title or date. The shared date does not establish historical priority in either direction. No separate mathematical conclusion survives beyond the stronger statement; a shorter elementary derivation here does not make the frozen theorem distinct.",
+      "residual_risks": [
+        "Within-day order and relationship of e37859da9078 and the frozen item are not established. This does not weaken the verified full coverage; no historical-priority attribution is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full mathematical subsumption, without within-day priority determination",
+          "evidence": "Same initial triple and T_k; same five-branch law and preimages; full N_k(y), exactly the residues 2 mod 3 singleton.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-ternary-fibre-frequencies-of-the-narayana-recurrence--e37859da9078/RESULT.md",
+          "material_read": "Finding, Assumptions and opening Proof, offset 0–3582",
+          "method": "Published local mirror, bounded decisive passage",
+          "title": "Exact ternary fibre frequencies of the Narayana recurrence",
+          "trigger": "Distinct indexed exact match on period, branches and multiplicities"
+        },
+        {
+          "assessment": "State-space emphasis, not exact scalar fibre classification",
+          "evidence": "All recurrence-state seeds modulo 3^k; maximum length 8·3^(k−1).",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-adic-cycle-census-for-the-narayana-recurrence--9ad248be318f",
+          "material_read": "RESULT.md offset 0–2990",
+          "method": "Published local mirror",
+          "title": "Exact three-adic cycle census for the Narayana recurrence",
+          "trigger": "Same recurrence and period scale"
+        },
+        {
+          "assessment": "Different sequence",
+          "evidence": "F(n)=n(n−1)^2(n−2)/12, not the stated third-order recurrence.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-residue-fibers-and-singular-valuation-layers-of-th--6cf95f0aa11e",
+          "material_read": "RESULT.md offset 0–3649",
+          "method": "Published local mirror",
+          "title": "Exact ternary residue fibers and singular valuation layers of the third Narayana column",
+          "trigger": "Terminology alias candidate"
+        },
+        {
+          "assessment": "Fixed-target valuations and restricted index-lifting congruences",
+          "evidence": "Valuations of a_n and congruences for indices 8s·3^n+i, i=0,1,2.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.06187",
+          "material_read": "PDF pp. 2–3, Thm. 1.1 and Prop. 3.1",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "On the 3-adic valuation of the Narayana numbers",
+          "trigger": "Primary antecedent on valuations and lifting"
+        },
+        {
+          "assessment": "Point valuations, not arbitrary differences",
+          "evidence": "Three-class lifts and valuations of a_i−1 and a_i+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.09174",
+          "material_read": "PDF pp. 2–5, Props. 3.3–3.4 and Thms. 3.5–3.6",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Narayana Sequence and The Brocard-Ramanujan Equation",
+          "trigger": "Closest fixed-target comparison at ±1"
+        },
+        {
+          "assessment": "Exact modulo-three overlap; stated theorem is for primes",
+          "evidence": "Period at p=3 is 8, not an all-prime-power fibre theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.05745",
+          "material_read": "PDF p. 3, period theorem and Table 1",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Narayana Sequences for Cryptographic Applications",
+          "trigger": "Potential exact modular period coverage"
+        },
+        {
+          "assessment": "Different order recurrence",
+          "evidence": "w_n=q w_(n−1)+w_(n−2), with Pell and Pell–Lucas results.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.7463",
+          "material_read": "PDF abstract and p. 5, Prop. 5.1",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Three term recurrence and residue completeness",
+          "trigger": "Potential broader residue completeness theorem"
+        },
+        {
+          "assessment": "General periodicity and period eight at modulus three, not these scalar fibres",
+          "evidence": "Finite-state periods, lcm reduction and an explicit mod-three example.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/60-5/kologlu.pdf",
+          "material_read": "§2, Thm. 2.1, prime-power lcm reduction and Ex. 2.2, printed p. 213",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "The Narayana Sequence in Finite Groups",
+          "trigger": "Public lookup surfaced matching period questions"
+        },
+        {
+          "assessment": "Period evidence only",
+          "evidence": "Modular periods and lcm reduction across primes; does not provide all-level scalar multiplicities.",
+          "identifier_or_url": "https://oeis.org/A271953",
+          "material_read": "Definition, values and formula field",
+          "method": "Public webpage, bounded passage",
+          "title": "Period of the Narayana sequence modulo n",
+          "trigger": "Exact period table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; exact-fibre record e37859da9078 Finding and opening Proof"
+      ],
+      "rationale": "The theorem is intrinsically a meaningful structural result about a classical recurrence. As a distinct finding, however, it adds neither an unknown exact invariant nor a new boundary: the stronger exact-fibre record explicitly gives all five isometries and the same least-period fibre contrast, with a complete census beyond it. The binomial version is a useful elementary exposition, but the frozen claim does not establish a separate reusable theorem or a scientific gain beyond that covered result.",
+      "residual_risks": [
+        "This is not a claim that the isometries or fibre information lack mathematical interest, nor that one of the same-day items necessarily appeared first."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

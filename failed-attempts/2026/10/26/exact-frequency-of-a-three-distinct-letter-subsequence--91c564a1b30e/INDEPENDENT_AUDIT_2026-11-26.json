@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:34:35.911730Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a ternary word the count is the sum, over middle letters 1, of the product of the number of earlier 0s and later 2s. A total of two forces one positive contribution (1,2) or (2,1), or two (1,1) contributions. In the last case no 0 or 2 and no third contributing 1 can intervene. Locating the first earlier 0 and last later 2 separates the free binary prefix/suffix from the forced middle, giving the disjoint OGF contributions x^4/((1-2x)^2(1-x)^3) twice and x^4/((1-2x)^2(1-x)^2) once. The neutral-letter gaps, including both ends, give F_m(x)=F_3(x/(1-(m-3)x))/(1-(m-3)x), exactly the stated expression. Independently reproduced the full rational identity with symbolic m: run python3 /workspace/checks/subsequence_automaton.py (SymPy). It caps the two proper-prefix counts at 3, rejects full-count overflow and eliminates self-loops of the monotone state graph. This is an exact series comparison, not an extrapolation of the supplied finite table; the accepted series starts at n=4.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 9f3da85d996d covers length L>=2 targets with unequal adjacent letters, q>=3, exactly two indexed scattered occurrences. Bruda's stated theorem is binary and §4.1 treats the m-ary case as a conjectural structural formula, not this exact OGF."
+        ],
+        "reasoning": "The distinct indexed general theorem directly includes all frozen targets; the older binary literature does not.",
+        "searches": [
+          "Resultary: double-occurrence subsequence languages, unequal adjacent letters, m-ary generating function",
+          "arXiv:2607.02578v1, Theorem 1.4 and §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Resultary 1f976e548caa and 9f3da85d996d",
+        "arXiv:2306.07870v1, 2607.02578v1, 1905.05646v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With L=3 and interior-palindrome parameter 0, 9f3da85d996d gives x^4/((1-(q-1)x)^2(1-(q-2)x)^2) times (2/(1-(q-2)x)+1/(1-(q-3)x)). Menon–Singh's exact-two result applies only over a binary alphabet."
+        ],
+        "reasoning": "Combining the two fractions gives exactly the numerator 3-(3q-8)x and the frozen denominator, for every q=m>=3. No separate m>3 remainder survives. This implication concerns coverage, not chronology.",
+        "searches": [
+          "Resultary 9f3da85d996d Finding and exact OGF; arXiv:2306.07870v1 §3.1, Proposition 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1f976e548caa states F_3(x)=x^4(3-x)/((1-x)^3(1-2x)^2) for exactly two scattered copies of 012, up to renaming the three letters. The automata in arXiv:1905.05646v1 count order-isomorphic occurrences instead."
+        ],
+        "reasoning": "Indexed scattered literal copies are the same object as the frozen claim after alphabet renaming; order-isomorphism is a different convention.",
+        "searches": [
+          "Resultary: exactly two indexed literal occurrences of 012; ternary words; exact scattered-subsequence OGF",
+          "arXiv:2306.07870v1 literal occurrence convention",
+          "arXiv:1905.05646v1 order-isomorphic convention"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1f976e548caa supplies the exact ternary OGF and values 3,20,83,276,807,2172,5523,13484 for lengths 4 through 11. Its first five nonzero values agree with the frozen verification output."
+        ],
+        "reasoning": "Coverage here follows from the exact equality of series, not the coincidence of five coefficients.",
+        "searches": [
+          "Resultary: ternary exact series and values 3,20,83,276,807"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary theorem gives exactly the whole arbitrary-alphabet result as a special case, and a second record gives the exact ternary case. This is demonstrable existing coverage, not proof that someone published the formula before the frozen record or that the frozen authors derived it from these records. Both matching entries have later date labels.",
+      "residual_risks": [
+        "DOI 10.1016/j.jcta.2022.105596 did not yield a validated full-text inspection; its exact overlap was not decided.",
+        "Later record labels and statement equivalence do not determine historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ternary coverage",
+          "evidence": "Identical F_3 and literal occurrence convention.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-scattered-copies-of-a-three-distinct-letter-pattern-exact-te--1f976e548caa",
+          "material_read": "RESULT.md, Finding and coefficient list, offsets 0 and 3861",
+          "method": "Local Resultary mirror",
+          "title": "Two scattered copies of a three-distinct-letter pattern",
+          "trigger": "Direct ternary match"
+        },
+        {
+          "assessment": "Entire arbitrary-alphabet finding is a special case",
+          "evidence": "Substitute L=3, interior-palindrome parameter 0 and q=m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-double-occurrence-subsequence-languages-are-classified-by-palind--9f3da85d996d",
+          "material_read": "RESULT.md, assumptions and OGF, offsets 0 and 4000",
+          "method": "Local Resultary mirror",
+          "title": "Double-occurrence subsequence languages are classified by palindromic structure",
+          "trigger": "Potential general theorem"
+        },
+        {
+          "assessment": "Matching convention and count, different alphabet scope",
+          "evidence": "The exact-frequency formulas concern binary words.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.07870v1",
+          "material_read": "pp. 2–5, §3.1 and Proposition 3.4",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "Subsequence frequency in binary words",
+          "trigger": "Closest published exact-frequency formulas"
+        },
+        {
+          "assessment": "Binary structural theorem and m-ary conjecture, not this OGF",
+          "evidence": "The passage mentions work in preparation without establishing its method or exact conclusions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.02578v1",
+          "material_read": "Theorem 1.4 and pp. 18–19, §4.1",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "Enumerating binary words restricted by subsequence frequency",
+          "trigger": "Possible m-ary theorem"
+        },
+        {
+          "assessment": "Different occurrence convention",
+          "evidence": "Uses order-isomorphic patterns, not a fixed literal 012 target.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.05646v1",
+          "material_read": "Definition of occurrence; §2.2, pp. 5–7",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+          "trigger": "General fixed-occurrence transfer-matrix enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact frequencies of literal subsequences over nonbinary alphabets are a natural counting problem, but the frozen formula and all its parameters are already supplied by the distinct broader indexed theorem. As an independently useful exact addition to the indexed results it has no remaining scope; its short derivation is not a separate scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:20:43.958983Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The next accepted edge is uniform among edges of the current free-vertex graph: all those edges have survived in the unexplored order and eligibility can only be lost. The three transition weights are ab, ac, bc. For a fixed free C vertex, the chance of matching on the next acceptance is 1/(ab/(a+b)+c) >= 1/(s+r), s=min(a,b). Before s first drops below h the chain must traverse every level from n to h, so conditioning at the first departure attempt at each level gives the telescoping survival bound (h+r-1)/(n+r). Union over r vertices. Pre-sample independent uniforms for the successive C matches and use the same uniforms for fair coins, whether or not each uniform ends up being used. The endpoint probability differs from 1/2 by at most r/(4h) whenever s>=h because |a-b|<=r. The probability of any early mismatch is at most r^2/(4h). On the good event, c=0 and A-B matches exhaust the smaller part, leaving the absolute coin imbalance. This proves the stated TV bound for every admissible integer h including h=n and covers small n by the same inequality, even when vacuous. h near sqrt(nr) gives the growing-r estimate; the binomial CLT and TV contraction under scaling transfer the half-normal limit. The r=2 graph admits a perfect matching by using one third-part vertex with each principal part and matching the remaining principal vertices. Read the frozen verification note and script: exact count-state and labeled-state recurrences, three exhaustive order tests, and finite rational inequalities; reported counts were not independently replayed and are not required for the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Turban PDF p. 3 (offset 8300) uses unrestricted k-site subsets; for dimers the substrate has no multipartite restrictions.",
+          "Arnosti introduction and prior-work section describe random-edge matching in bipartite random input graphs and performance guarantees; no corresponding deterministic three-part vacancy law in these passages.",
+          "Attempts to access the Evans and Dyer–Frieze texts did not retrieve them. No finding about their full coverage is based on the retrieval failure."
+        ],
+        "reasoning": "General algorithms or broader process definitions alone do not imply a nontrivial terminal-defect estimate in this geometry. The closest actual theorem is the distinct indexed tripartite result.",
+        "searches": [
+          "Resultary same-model and dense greedy matching comparisons",
+          "arXiv:1908.00940",
+          "Arnosti, Greedy Matching in Bipartite Random Graphs, author manuscript",
+          "DOI:10.1002/rsa.3240020104",
+          "DOI:10.1103/RevModPhys.65.1281"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and verify_model.py",
+        "Resultary e1c1b8b5cc81 and 3b9a8257a10c (local mirror)",
+        "Turban arXiv:1908.00940",
+        "Arnosti author manuscript"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator states fixed-r folded-binomial convergence and the growing-r half-normal limit. Its displayed bound with M=ceil(sqrt(rn)) is O(r^{3/2}/sqrt(n)) in the dilute scaling, the same leading order yielded by choosing h near sqrt(nr) in the frozen result. Both use clearance before a threshold and couple to fair coins."
+        ],
+        "reasoning": "The indexed theorem already gives both limits with the same quantitative convergence scale. The extra choice of cutoff in the frozen inequality can affect numerical estimates, but no improved asymptotic regime or distinctive consequence is established by it. The literal inequalities have not been asserted to dominate one another pointwise.",
+        "searches": [
+          "Indexed e1c1b8b5cc81 RESULT, comparison of Finding and proof offsets 1800–4232"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed RESULT Finding and assumptions, offsets 0–2139: complete tripartite K_{n,n,k}, random-edge matching, folded-binomial |k-2B_k|; TV estimate kM/n+k^2/[4(M-k)], M=ceil(sqrt(kn)), n>=16k; same two limit regimes."
+        ],
+        "reasoning": "The adsorption and random-edge greedy descriptions reduce to exactly the same acceptance process. Replace k by r; changing the sign before taking the absolute value changes nothing.",
+        "searches": [
+          "Local Resultary semantic search for complete-tripartite random greedy matching / dimer adsorption, binomial vacancies and half-normal fluctuations",
+          "2026/11/2/SCOPE-a-binomial-obstruction-to-random-greedy-matching-under-a-rare-tr--e1c1b8b5cc81"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct 2026/11/2 indexed RESULT e1c1b8b5cc81 contains the joint object and law directly. Same-date split-graph RESULT 3b9a8257a10c, offsets 0–1808, uses a clique joined to an independent set and obtains a positive limiting vacancy fraction and centered Gaussian fluctuations."
+        ],
+        "reasoning": "An indexed theorem comparison is the relevant database test for this law over unbounded parameters; a numerical count table or a classical binomial table alone would not identify the finite-graph process. Neither the different date nor the same date decides coverage.",
+        "searches": [
+          "Local Resultary query for the tripartite model and folded-binomial terminal law"
+        ]
+      },
+      "rationale": "A distinct published index entry covers the same central theorem: same uniform random-edge greedy process on K_{n,n,r}, same folded-binomial TV target and fixed-r limit, and same r=o(n^{1/3}) half-normal regime. Both give finite-size coupling estimates of the same effective scale by early depletion and endpoint coupling. The frozen h-dependent inequality has different constants and formal range; the comparator does not state that literal inequality, but this difference does not supply a distinct substantive vacancy law or convergence regime. This is a judgment of strong material catalogue overlap, not of chronological priority, copying, or identity of the records.",
+      "residual_risks": [
+        "Priority or dependence between the indexed results is not established by repository dates.",
+        "Full classical Evans and Dyer–Frieze texts were not available in the bounded access checks; their scope does not determine the failure verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Materially equivalent central theorem, distinct finite-size formula and record",
+          "evidence": "Same K_{n,n,k} model, folded binomial TV target with finite-size bound, and same fixed/growing range limits.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-binomial-obstruction-to-random-greedy-matching-under-a-rare-tr--e1c1b8b5cc81",
+          "material_read": "RESULT Finding and assumptions, offsets 0–2139; proof 1800–4232; prior work 7000–9558",
+          "method": "Bounded local mirror read, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A binomial obstruction to random greedy matching under a rare third part",
+          "trigger": "Same process and limiting law in Resultary"
+        },
+        {
+          "assessment": "Different model and conclusion",
+          "evidence": "Complete split graph with fixed positive independent-set fraction; vacancy fraction and central fluctuations rather than an absolute finite imbalance.",
+          "identifier_or_url": "2026/10/18/SCOPE-gaussian-jamming-fluctuations-on-complete-split-graphs--3b9a8257a10c",
+          "material_read": "RESULT Finding and assumptions, offsets 0–1808",
+          "method": "Bounded local mirror read",
+          "title": "Gaussian jamming fluctuations on complete split graphs",
+          "trigger": "Close indexed RSA result"
+        },
+        {
+          "assessment": "Different edge eligibility and observable in inspected setup",
+          "evidence": "Uniform k-site sets on one complete substrate and covering-time distributions.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.00940",
+          "material_read": "PDF p. 3, offset 8300, model description",
+          "method": "OA PDF passage",
+          "title": "Random sequential adsorption of k-mers on the fully-connected lattice",
+          "trigger": "Dense fully connected adsorption comparison"
+        },
+        {
+          "assessment": "Related algorithm, different setting and claim",
+          "evidence": "Random-edge matching on bipartite random graphs, also references sparse and tree models.",
+          "identifier_or_url": "https://nickarnosti.com/ResearchPapers/Arnosti_GreedyMatching.pdf",
+          "material_read": "Offsets 0, 1644, and 17400 (prior work, p. 5)",
+          "method": "Author-posted OA PDF passages",
+          "title": "Greedy Matching in Bipartite Random Graphs",
+          "trigger": "Prior RANDOM-EDGE analysis"
+        },
+        {
+          "assessment": "Full scope not independently determined",
+          "evidence": "Arnosti attributes a worst-case RANDOM-EDGE guarantee; this is not a read of the original theorem set.",
+          "identifier_or_url": "10.1002/rsa.3240020104",
+          "material_read": "No primary passage retrieved; Arnosti's introductory account only",
+          "method": "Bounded OA attempt, access refused",
+          "title": "Randomized greedy matching",
+          "trigger": "Classical same-algorithm paper"
+        },
+        {
+          "assessment": "Full scope not independently determined",
+          "evidence": "Retrieval failure is not negative coverage evidence.",
+          "identifier_or_url": "10.1103/RevModPhys.65.1281",
+          "material_read": "No primary passage retrieved",
+          "method": "Bounded OA attempt, access refused",
+          "title": "Random and cooperative sequential adsorption",
+          "trigger": "Canonical RSA review"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The law isolates a nonvanishing jamming defect in a natural dense, perfectly matchable (for r=2) perturbation of a balanced graph. It predicts finite-size fluctuations and quantifies convergence that vacancy fractions and parity alone cannot see. This is substantive mathematical value of the theorem as a result, not originality credit for a second formulation or for changes in constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

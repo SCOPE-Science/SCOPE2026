@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain-equals-image step follows from finite injectivity and the square-identity condition. Every induced path is a contiguous interval; an involutive automorphism permutes equal-length components by transpositions and fixed points, with one or two compatible local orientations. Counting those actions gives \(A\), \(B\), and the coefficient formula; independent gap-placement stars-and-bars gives the binomial factor. The asymptotic sandwich bounds use only the classical symmetric-group involution count, a maximal-independent-set lower bound, and component-count upper bounds. The event count proves the announced concentration exponent. A separate exhaustive partial-permutation test matched every coefficient for \(1\le n\le9\), comprising \(1{,}112{,}082\) enumerated candidates.
+## correctness
 
-## Originality — PASS within examined sources
-The closest full-text paper, Dimitrova–Fernandes–Koppitz–Quinteiro (arXiv:2101.12468), proves a total cardinality formula for path partial automorphisms and their Green and generator structure, but does not enumerate square-identity elements by rank or establish a half-domain law. Known symmetric-inverse-monoid involution numbers do not impose graph adjacency and so do not give the path count. Research on graph partial isometries and on involution matchings has different defining objects. The interval-component automorphism decomposition is standard background, not an originality claim. A general graph cycle-index treatment could still cover the displayed enumerator, and priority cannot be guaranteed.
+PASS
 
-## Value — PASS
-For this natural inverse monoid, identifying the complete rank-resolved self-inverse spectrum is more informative than its already-known total cardinality. The asymptotic calculation shows a sharp separation in the \(n\log n\) growth rate between the self-inverse and unrestricted parts and identifies where almost all self-inverse elements sit: domains are nearly half the chain and almost all of their components are isolated. These are intrinsic questions about the group-bound elements of graph partial-automorphism monoids, rather than arbitrary numerical slices.
+The square-one equation for a partial bijection forces its image to equal its domain, so the calculation is on automorphism groups of induced subgraphs, not on partial isometries. On r ordered runs, a fixed component admits one orientation at length 1 and two at larger lengths. An exchanged pair must have equal lengths and has one or two choices for the first isomorphism, the second being its inverse. These give A and B with the indicated exponents. Choosing j disjoint exchanged pairs gives the coefficient in J_r; placing the runs after reserving r−1 mandatory gaps gives the binomial factor. The empty map contributes 1. An independent bounded check over 125,672 subset/permutation candidates verified all coefficients for 1≤n≤8; replay: python3 /workspace/branches/fe709d21-dd54-4146-a3d8-e3d9776a4775/check_profiles.py. The asymptotics are proved separately: for m=ceil(n/2), alternating vertices give lower bounds i_m and m! for U_n and T_n, respectively; counting subsets or ordered subset pairs and allowing all component permutations with at most two choices per component gives upper bounds 2^(n+m)i_m and 4^n 2^m m!. Here i_m is the symmetric-group involution count, with log i_m=(m/2)log m+O(m) by its pairing sum. A rank deviation forces r≤(1/2−ε)n+1 via r≤min(k,n−k+1); the same counting bound with this cap proves the domain tail, and the component lower tail follows directly. The component upper tail is eventually empty for each fixed ε because of the deterministic cap; no finer fluctuation law is verified.
 
-## Scientific limitations
-The result does not resolve second-order asymptotics or finer rank fluctuations. Search coverage is necessarily incomplete, especially for possible general cycle-index formulations; no priority guarantee or independent mathematical audit is asserted. The finite checker corroborates but cannot prove infinite statements.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the rank series for square-one partial automorphisms of the undirected path and their logarithmic abundance and domain/component concentration. Total path-monoid enumeration and the component-wreath-product method are not new. The closest prior fixed-point/two-cycle enumeration is for alternating fence posets and does not give these path-graph coefficients or the square-one concentration. This is not an assertion of absolute priority.
+
+## value
+
+PASS
+
+The square-one locus is a natural subset of this inverse monoid. The rank profile distinguishes it from ordinary partial automorphisms; the same analysis quantifies the rarity of square-one maps among all maps and shows why their domains must be near half-full and mostly separated into runs. This is more than evaluating a usual involution polynomial on a small graph. The total-monoid scale on its own is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

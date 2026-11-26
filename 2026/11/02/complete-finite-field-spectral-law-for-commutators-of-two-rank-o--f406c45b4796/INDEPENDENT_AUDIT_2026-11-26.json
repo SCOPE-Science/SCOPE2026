@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:21:01.574629Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/reproductions/4.py; actual matrix multiplication in similarity strata, rank from elimination and Delta from second principal-minor coefficient. Reproduced the seven recorded (q,n) cases and checked (3,4), (4,3) and (8,2); used eigenkernel dimension to independently check the characteristic-two split."
+      ],
+      "rationale": "For X=uv^T and Y=st^T write a=v^Ts, b=t^Tu, d=t^Ts and e=v^Tu. The products vanish together for a=b=0 (A choices of Y per X); the only other cancellation is a nonzero multiple of an X of nonzero trace. Two nonzero summands give rank two exactly when both image and row pairs are independent. The restriction to the image span(u,s) has trace zero and determinant −ab(ab−ed). At Delta=0 it is nonzero since ab≠0, so C² has rank one and C³=0, forcing exactly J_3; rank one has square zero by the trace identity. At Delta≠0 the image and kernel split. For the exact count at e=0 take X=E_12 and normalize s_2=1; t_1=ab is nonzero with 2n−2 free coordinates, and Delta=(ab)². In characteristic two the restriction is scalar precisely when d=0; that condition fixes t_2 uniquely given the other coordinates and leaves q^(2n−3) matrices. For e≠0 take X=eE_11 and normalize s_1=1; t_1 is nonzero and s',t' in the remaining coordinates are nonzero. Delta=−e²t_1(t'·s'), with q^(n−2) possible t' for a nonzero dot product and q^(n−2)−1 for zero for each s'. The off-diagonal entry −be forbids a scalar restriction in characteristic two. These counts and the trace-stratum sizes give all rank and spectral formulas, including the vanishing rank-two nilpotent count at n=2.",
+      "residual_risks": [
+        "Finite replay is a consistency check; symbolic counting supplies the full quantification over finite fields and n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Feit–Fine generating function quoted by Fulman–Guralnick counts commuting pairs of unrestricted matrices; it has neither fixed input rank nor nonzero-commutator fibers.",
+          "The fixed-nilpotent census permits higher-rank nilpotent J, but requires the other input to be square-zero rank one; it does not permit an input of nonzero trace.",
+          "The Britnell–Wildon title is relevant to commuting types; full text was not retrieved."
+        ],
+        "reasoning": "Neither broader condition that could be verified dominates the mixed, generally noncommuting rank-one problem.",
+        "searches": [
+          "arXiv:1611.05499, §1 Theorem 1.1",
+          "Resultary 9ca4dfd9ead7, Finding",
+          "Britnell–Wildon, DOI 10.1112/jlms/djq088"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact tables 42456512d337 and 9ca4dfd9ead7",
+        "Pang arXiv:2610.29240v1",
+        "Fulman–Guralnick arXiv:1611.05499",
+        "Cheng–Liang and Britnell–Wildon access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After scaling and rank-one specialization, the separate prior tables still lack even the nontrivial repeated-root blocks at q=2,n=2: one explicit mixed example is X=E_12, Y with second row (1,1) and first row zero, giving C=[[1,1],[0,1]]."
+        ],
+        "reasoning": "Accounting for mixed pairs and adding fibers is new work rather than relabeling either prior distribution. Same-date indexing is not an ordering or priority claim.",
+        "searches": [
+          "Resultary 42456512d337 and 9ca4dfd9ead7, Findings; arXiv:1611.05499 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If e=tr X≠0 then X/e is a rank-one idempotent; scaling both inputs scales C by the trace product and Delta by its square.",
+          "For rank-one trace-zero J, the fixed-nilpotent census has b=n−1, d=n, A=0, B=q^(2n−3) and s=tr(J²X)=0, so t≠0 gives Delta=t², with scalar image in characteristic two.",
+          "The norm comparison over complex matrices does not encode ordered finite-field multiplicities."
+        ],
+        "reasoning": "The normalizations exhibit exact coverage of the two homogeneous trace strata, not of the mixed stratum or the aggregate distribution.",
+        "searches": [
+          "Resultary: rank-one commutator spectra, primitive idempotents and nilpotent trace moments; 42456512d337 and 9ca4dfd9ead7",
+          "arXiv:2610.29240v1, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The idempotent record's Finding gives the complete per-type table with parameter c(c−1); the nilpotent Finding gives the exact joint (t,s) moment table.",
+          "Both restrictions exclude mixed trace. At q=2,n=2 both idempotents yield no nonzero Delta, and both nilpotents only give a diagonalizable nonzero rank-two block; the all-pairs law gives 12 nontrivial Jordan blocks at Delta=1."
+        ],
+        "reasoning": "Exact indexed tables are credited, but do not enumerate the full object or capture a concrete additional fiber.",
+        "searches": [
+          "Resultary exact similarity-type tables 42456512d337 and 9ca4dfd9ead7"
+        ]
+      },
+      "rationale": "There are substantial exact subfamily overlaps. The earlier primitive-idempotent table covers both-nonzero-trace pairs after scaling and mixing over traces. The distinct same-date nilpotent record covers both-trace-zero pairs for n≥3; its specialization supplies the characteristic-two scalar contribution in that range once one proves that a scalar restriction forces both traces to vanish. Neither covers mixed-trace pairs, and the full aggregated rank/Delta/Jordan law is not implied by the two same-stratum censuses. Pass the all-input law, not priority for either subfamily or the standalone nilpotent scalar count.",
+      "residual_risks": [
+        "The Cheng–Liang and Britnell–Wildon full texts were not available, and unindexed finite-field work may contain related counting identities. Bounded best-of-knowledge judgment, not a priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact narrower coverage after scaling",
+          "evidence": "Multiplicities list zero, J_2(0), J_3(0), and a cyclic T²−c(c−1) companion; both inputs must be rank-one idempotents.",
+          "identifier_or_url": "2026/10/25/SCOPE-similarity-spectra-of-commutators-of-primitive-idempotents-over--42456512d337",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–3075",
+          "method": "Local Resultary mirror",
+          "title": "Similarity spectra of commutators of primitive idempotents over finite fields",
+          "trigger": "Strongest exact table for nonzero-trace input pairs"
+        },
+        {
+          "assessment": "Material special-case coverage for n≥3, not a mixed-input theorem",
+          "evidence": "Fixed nilpotent J and X rank one with X²=0; in characteristic two the (t≠0,s=0) fiber gives diag(t,t,0,…), with count A+B.",
+          "identifier_or_url": "2026/11/2/SCOPE-first-two-nullity-control-of-rank-one-nilpotent-commutator-spect--9ca4dfd9ead7",
+          "material_read": "RESULT.md Finding, offsets 0–2193",
+          "method": "Local Resultary mirror",
+          "title": "First-two-nullity control of rank-one nilpotent commutator spectra",
+          "trigger": "Strongest exact moment and Jordan table for two nilpotent inputs"
+        },
+        {
+          "assessment": "Adjacent analytic result, not the finite-field law",
+          "evidence": "Sharp weighted Frobenius norm bound and equality pairs for complex rank-one inputs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.29240v1",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary OA PDF",
+          "title": "A sharp weighted commutator inequality for rank-one matrices",
+          "trigger": "Same input rank and operator"
+        },
+        {
+          "assessment": "Unrestricted zero-commutator counting, not the required fibers",
+          "evidence": "G_n counts all commuting pairs of n×n matrices over the field and the theorem gives its generating function.",
+          "identifier_or_url": "https://arxiv.org/pdf/1611.05499",
+          "material_read": "Abstract and §1 Theorem 1.1, p. 1",
+          "method": "Primary OA PDF",
+          "title": "Enumeration of Commuting Pairs in Lie Algebras over Finite Fields",
+          "trigger": "Exact broader finite-field commuting-pair count"
+        },
+        {
+          "assessment": "Potential structural antecedent not resolved from title",
+          "evidence": "Bibliographic scope is 2×2 rank-one commutators; no specific result was independently checked.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/view/4955",
+          "material_read": "Bibliographic title only; full text unavailable",
+          "method": "Tried journal PDF and article page; alternate MaRDI route also did not yield text",
+          "title": "Singular Values, Eigenvalues and Diagonal Elements of the Commutator of 2 x 2 Rank One Matrices",
+          "trigger": "Same operator and exact small dimension"
+        },
+        {
+          "assessment": "Unresolved overlap for commuting strata, not evidence of noncoverage",
+          "evidence": "No particular theorem from this paper is relied on.",
+          "identifier_or_url": "https://doi.org/10.1112/jlms/djq088",
+          "material_read": "Bibliographic title only",
+          "method": "DOI and journal retrieval attempted; no readable paper passage",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Potential algebraic classification of commuting finite-field pairs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Jordan information; local primitive-idempotent and nilpotent spectra tables; independent replay at q=2,n=2"
+      ],
+      "rationale": "This gives exact random-pair benchmarks for all rank-one inputs, not only whether a given spectrum is possible. In particular the mixed stratum completes the finite-field law and the repeated-root characteristic-two split reveals types that either homogeneous stratum can miss. The result distinguishes nilpotency of index three, split versus nonsplit factors and scalar versus Jordan restrictions uniformly in dimension and field.",
+      "residual_risks": [
+        "No count of simultaneous-conjugacy classes of input pairs or generalization to higher input ranks is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

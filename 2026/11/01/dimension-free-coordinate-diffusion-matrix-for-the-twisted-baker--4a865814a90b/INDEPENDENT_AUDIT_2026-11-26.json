@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:27.300179Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated fixed dimension and stationary normalized product measure, both inverse branches have weight 1/2. Applying them to the centered coordinates gives the invariant affine span and matrix B. Mixing implies B^n→0 since the coordinate Gram matrix is invertible, and the displayed H satisfies (I−B)H=B (interior rows reduce to successive differences, with the two end rows giving the asymmetric coefficients). As a direct check on the joint limit, the Poisson increment on the left inverse branch at y is ((y₁−1)/2, u₂(y)+(y₁+1)/4, …, u_M(y)+(y₁+1)/4); on the right it is its negative because Pd=0. Product Lebesgue second moments give 1/3, −1/12, 1/6 and 1/12 for the four covariance-entry classes, respectively. Ergodicity gives the averaged conditional variances for the bounded reverse-martingale CLT, applied to every linear projection; the bounded telescoping corrector does not alter the limiting covariance or distribution. The passive correlations are for distinct indices, with no such pair at M=2. The two-dimensional block has trace M+4 and determinant 3M+1 in units of 1/12, giving the eigenvalues and the fixed-order versus large-M limits as claimed. Read the frozen exact-arithmetic verify.py and its recorded replay instructions; the finite range was not rerun and does not establish the all-M argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original paper supplies the model, normalized Lebesgue invariance, mixing and Bernoulli premises. The indexed scalar proof supplies the full affine transfer matrix B but evaluates only the (1,1) resolvent entry for its temporal law."
+        ],
+        "reasoning": "Mixing or a generic CLT does not evaluate any cross-coordinate diffusion. The matrix representation is an antecedent for the joint computation, not a stronger evaluated fluctuation theorem.",
+        "searches": [
+          "Saiki–Takahasi–Yorke arXiv:2202.04304v3, map definition, Theorems C–D and Remark 3.1",
+          "Resultary 765a4f4ba4c8, Proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Saiki–Takahasi–Yorke arXiv:2202.04304v3",
+        "Resultary 765a4f4ba4c8 and 11d620ed5ef6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The B representation and general Green–Kubo identity make the covariance computable, and the scalar martingale corrector is known for x₁."
+        ],
+        "reasoning": "The full theorem requires solving all rows of the Poisson system in closed form, or equivalently identifying the vector branch increment. Neither the scalar resolvent nor the derivative CLT gives the sign and equality cancellations across all passive and mixed entries by parameter substitution. The multivariate CLT and eigenvalues then follow by standard methods from that calculation.",
+        "searches": [
+          "765a4f4ba4c8, Proof §§1 and 3–4; arXiv:2202.04304v3, Remark 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "765a4f4ba4c8 gives the scalar x₁ covariance generating function, diffusion 1/3 and scalar CLT.",
+          "11d620ed5ef6 gives a Gaussian for log derivative singular values rather than for position sums."
+        ],
+        "reasoning": "The first-coordinate observable overlaps exactly with one entry. Log derivative stretches are different observables, with a different and singular covariance on the sum-zero space, not a normalization of the positive-definite spatial covariance.",
+        "searches": [
+          "Resultary: twisted baker spatial coordinate covariance, first-coordinate memory and singular-value Gaussian laws",
+          "Web: \"twisted baker map\" coordinate covariance central limit theorem Green-Kubo Saiki Takahasi Yorke"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact first-coordinate generating function in 765a4f4ba4c8 fixes D₁₁ and all of that scalar autocovariance sequence; it does not provide a table of mixed or passive Green–Kubo coefficients."
+        ],
+        "reasoning": "An isolated numerical dimension or scalar entry cannot match the full dimension-uniform invariant. The strongest exact indexed match was read at statement and proof level.",
+        "searches": [
+          "Resultary spatial covariance and first-coordinate memory comparison; external exact-map Green–Kubo query"
+        ]
+      },
+      "rationale": "The supported distinct claim is the evaluated full joint covariance for spatial-coordinate sums, including exchangeability, mixed signs and dimension dependence of the eigenvalues. The dynamics, affine transfer operator, scalar first-coordinate variance, and general martingale method are not distinct contributions.",
+      "residual_risks": [
+        "An equivalent joint affine-observable computation might exist under different terminology. The same-map scalar overlap is real, but the indexed date does not substantiate the frozen record's temporal attribution of prior work or establish discovery order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational premises, not the full coordinate-sum covariance in the inspected results",
+          "evidence": "Lebesgue invariance, mixing and Bernoulli property for this map.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.04304",
+          "material_read": "v3 p. 2 map; p. 5 Theorems C–D; p. 12 Remark 3.1",
+          "method": "Open primary PDF passages",
+          "title": "The twisted baker map",
+          "trigger": "Original exact map and measure"
+        },
+        {
+          "assessment": "Verified scalar overlap and reuse of the full state matrix, not evaluation of the full covariance",
+          "evidence": "Uses the same affine B and its principal resolvent entry for x₁; variance 1/3 and scalar bounded corrector.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-oscillatory-coordinate-memory-and-dimension-free-variance-in-the--765a4f4ba4c8/RESULT.md",
+          "material_read": "Finding and proof offsets 0–7868, especially transfer-matrix/cofactor calculation and scalar CLT",
+          "method": "Local mirrored full-text passages",
+          "title": "Oscillatory coordinate memory and dimension-free variance in the twisted baker map",
+          "trigger": "Exact overlapping observable and variance"
+        },
+        {
+          "assessment": "Different observable and covariance invariant",
+          "evidence": "Centered log derivative stretches with covariance (log 2)²(I/M−11ᵀ/M²), not centered spatial coordinates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-isotropic-gaussian-splitting-of-finite-time-singular-values-in-t--11d620ed5ef6/RESULT.md",
+          "material_read": "Finding, beginning at offset 0",
+          "method": "Local mirrored full-text passage",
+          "title": "Isotropic Gaussian splitting of finite-time singular values in the twisted baker map",
+          "trigger": "Same map and multivariate Gaussian limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact matrix quantifies the anisotropic spatial fluctuations of a concrete map despite its deterministic ordering of passive coordinates. A common diffusive passive mode and a negative coupling to the active coordinate cannot be inferred from scalar variance or mixing. The joint invariant is useful without claiming a new martingale theorem or a growing-dimension CLT.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

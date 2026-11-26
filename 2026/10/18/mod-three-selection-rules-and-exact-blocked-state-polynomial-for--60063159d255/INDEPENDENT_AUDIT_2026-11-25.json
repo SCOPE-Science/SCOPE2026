@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:38:37.264361Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97",
+        "VERIFICATION.md lines 19–25",
+        "verify.py (inspected, not executed)",
+        "/workspace/repairs/3/RESULT.md",
+        "/workspace/review_evidence/3-check.py"
+      ],
+      "rationale": "Checked the repaired statement and proof with the original mathematical formulas unchanged. A flip changes exactly three terms even at N=3, so a strictly blocked word has at most one defect in every cyclic triple. Over F_2 the homogeneous relation gives b_{i+3}=b_i, hence a trivial kernel if 3 does not divide N and a two-dimensional kernel otherwise. In the latter case each of the three defect residue sums equals the total spin-bit sum; these are two independent compatibility constraints, hence sufficient by the kernel calculation. A cyclic admissible word corresponds to exactly one closed memory-state path (the all-plus word stays in the last state). On divisible lengths the four-term projector precisely cancels the fourfold spin preimage factor, and the three nontrivial weights are cyclic rotations of the signed three-step transfer block. This proves the blocked polynomial. Two physical defects at divisible lengths must be in a single residue class; their cyclic gaps are at least three, giving 4 times 3 binom(N/3,2) blocked first excitations for N>=6. The N=3 excited word is all minus and is not blocked. The unrestricted polynomial follows by dropping the local constraint, consistent with the cited prior transfer calculation. The characteristic polynomials u^3-u^2-1 and u^3-u-1 each have one real root greater than one; their two conjugate roots have modulus the inverse square root of that root by the product relation. Since lambda^3>2>p, the stated error and common entropy follow. Independent direct enumeration by bitwise products and individual flips agreed coefficient by coefficient with both polynomial formulas for N=3 to 14. Replay: python3 /workspace/review_evidence/3-check.py.",
+      "residual_risks": [
+        "The independent enumeration is finite; arbitrary-size validity follows from the parity and transfer argument.",
+        "Counts are for labeled periodic spin configurations, not for orbits or dynamical trapping probabilities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Turban's §3 covers all interaction lengths dividing the ring size, with an unrestricted partition sum; his Appendix A gives the three-spin site-transfer eigenvalues.",
+          "De Smedt–Godrèche–Luck consider kinetically constrained chains mapped to adsorption models, not the periodic three-spin energy flip condition."
+        ],
+        "reasoning": "The unrestricted partition function weights all spin configurations by defect count, with no stated restriction to local minima. The signed memory-state product and its spectrum require exactly that restriction; they are not a specialization in Turban's interaction length or temperature parameters.",
+        "searches": [
+          "arXiv:1605.05199v2 §3 and Appendix A: periodic Ising chain with general consecutive multispin interaction",
+          "arXiv:cond-mat/0202465v2: blocked energy distributions in one-dimensional spin systems"
+        ]
+      },
+      "checked_sources": [
+        "/workspace/repairs/3/RESULT.md",
+        "arXiv:1605.05199v2",
+        "arXiv:cond-mat/9408060v1",
+        "arXiv:cond-mat/0202465v2",
+        "Resultary entry 3cb90da9e8be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For N=3m, multiplying Turban's Z by e^(-KN) with z=e^(-2K) gives (1+z)^N+3(1-z)^(2m)(1+z)^m. For other N the three phase-shifted site eigenvalues cancel, leaving (1+z)^N.",
+          "Kisker's n_L=n_(L-1)+n_(L-3) gives the leading root lambda about 1.46557, but the displayed finite rule does not evaluate the signed periodic sector or the p correction."
+        ],
+        "reasoning": "Credit the full unrestricted polynomial and its energy multiplicities as established or direct corollaries. Even knowing the parity projector and the local blocking rule leaves the blocked signed-sector evaluation: the unrestricted factors cannot be used after imposing adjacent-site exclusion. The repaired proof evaluates the noncommuting signed transfer block and derives its separate spectral contribution.",
+        "searches": [
+          "arXiv:1605.05199v2 Eq. (3.13) and Appendix A Eq. (A.2)",
+          "arXiv:cond-mat/9408060v1 metastable-state recurrence",
+          "Resultary ID 3cb90da9e8be"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Turban's products of adjacent residue-class bond variables equal +1, exactly saying that all three residue-class defect sums have the same parity; the fourfold spin multiplicity is included in his Eq. (3.8).",
+          "Kisker–Rieger–Schreckenberg already introduce the same bond variables and exclude more than one negative bond in any consecutive triple."
+        ],
+        "reasoning": "The parity projection and local exclusion are known individually. The corrected calculation evaluates their conjunction in the cyclic blocked-word transfer matrix, rather than claiming either ingredient itself as new.",
+        "searches": [
+          "Resultary: mod-three periodic defect-image rules, three-spin Ising ring blocked-state polynomial",
+          "arXiv:cond-mat/9408060v1 pp. 3–4",
+          "arXiv:1605.05199v2 Eqs. (3.5)–(3.9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3cb90da9e8be contains exact energy-graded blocking counts and the same cubic-root constant p for weak blocking on an antiferromagnetic wheel.",
+          "No examined catalogue entry states the exact corrected ferromagnetic three-spin periodic blocked polynomial. The exact unrestricted count is instead covered by Turban's primary literature."
+        ],
+        "reasoning": "The plastic constant alone is not a match: its role as a leading wheel entropy base differs from the subleading term 3p^(N/3) in a labeled ferromagnetic chain.",
+        "searches": [
+          "Resultary: exact periodic blocked polynomials and first excitation bands",
+          "Resultary: unrestricted three-spin DOS with parity correction",
+          "Resultary: subleading plastic-constant correction to periodic Ising blocking",
+          "Resultary ID 3cb90da9e8be"
+        ]
+      },
+      "rationale": "The frozen presentation overcredited the periodic-image rule to the new calculation and omitted a directly equivalent unrestricted enumeration. Turban already gives the same parity projector and multiplicity on divisible lengths; the unrestricted density polynomial follows for all lengths from his equations. The corrected principal claim is the parity-projected transfer matrix restricted to strictly blocked physical spin states and its explicit subleading plastic-constant term. The repaired file credits the known inputs, reports the excitation counts as consequences, and corrects its description of Kisker's discussion of the ground states. The scoped principal claim is not explicitly stated or already evaluated in the compared sources.",
+      "residual_risks": [
+        "The comparison does not establish historical uniqueness of an equivalent signed periodic blocked-state calculation. The repaired novelty does not include the periodic projector, full DOS, or leading entropy considered in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior periodic constraints, projector, and unrestricted DOS implications; no blocked restriction in these formulas",
+          "evidence": "Eq. (3.5) equates adjacent residue parities; Eqs. (3.8)–(3.9) apply the same binary projector with multiplicity; (3.13) and (A.2) give both periodic size classes' unrestricted count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.05199v2",
+          "material_read": "§3 and Fig. 3, pp. 4–7, Eqs. (3.5)–(3.13) (notably offsets 15600–24609); Appendix A, p. 14, Eqs. (A.1)–(A.4) (offset 45300 onward)",
+          "method": "Open-access PDF passage inspection and substitution z=e^(-2K)",
+          "title": "One-dimensional Ising model with multispin interactions",
+          "trigger": "Exact periodic compatibility and unrestricted finite-volume partition-function comparison"
+        },
+        {
+          "assessment": "Prior local blocking and leading growth; no evaluated parity correction for the physical-spin blocked polynomial in the compared passages",
+          "evidence": "Periodic model, four ground patterns (period-three for the nonuniform states), at most one minus bond in any triple, and the recurrence with the stated leading growth. The examined passage does not explicitly impose a length divisible by three.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9408060v1",
+          "material_read": "Printed pp. 3–4, including ground configurations, metastability criterion and counting recurrence (offsets about 3900–9571)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Escape from Metastability via Aging: Non-Equilibrium Dynamics in a One-Dimensional Ising Model",
+          "trigger": "Same-ring metastability and growth prior"
+        },
+        {
+          "assessment": "Different models",
+          "evidence": "The constrained chains are mapped to monomer, dimer and hollow-trimer adsorption, not the three-spin periodic ring.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0202465v2",
+          "material_read": "Abstract, p. 1",
+          "method": "Open-access PDF passage inspection",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Potential exact blocked-energy polynomial for a related model"
+        },
+        {
+          "assessment": "Distinct graph, interaction and blocking condition",
+          "evidence": "Weak one-/two-/three-spin stability on an antiferromagnetic wheel, with plastic constant for weak one-spin entropy, not the signed periodic transfer correction for this ring.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-three-spin-cooperative-blocking-on-the-antiferromagnetic-i--3cb90da9e8be/RESULT.md",
+          "material_read": "Finding and proof passages, offsets 0–9094",
+          "method": "Configured local mirror passage inspection",
+          "title": "Exact three-spin cooperative blocking on the antiferromagnetic Ising wheel",
+          "trigger": "Closest indexed blocking polynomial and occurrence of plastic constant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/3/RESULT.md Finding, proof §§3–5 and Relationship to prior work",
+        "arXiv:cond-mat/9408060v1 pp. 3–4",
+        "arXiv:1605.05199v2 §3 and Appendix A"
+      ],
+      "rationale": "The corrected result determines the exact energy-resolved number of strictly blocked physical states, not merely the admissible local words or the equilibrium partition function. This is a natural finite-size invariant for a classic metastable chain: commensurability removes entire physical sectors, and the signed transfer quantifies an exponentially growing subleading blocked-state term that does not change the known entropy. Neither a small exception nor a recomputation of the unrestricted formula is the surviving contribution.",
+      "residual_risks": [
+        "The census does not predict frequencies of blocked configurations under a quench or positive-temperature escape rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

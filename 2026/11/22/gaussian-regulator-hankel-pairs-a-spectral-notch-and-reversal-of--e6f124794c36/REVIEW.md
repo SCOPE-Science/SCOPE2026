@@ -1,19 +1,21 @@
-# Scientific review of the Gaussian-regulator Hankel pair
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For integer \(m\ge1\), \(\beta>0\), the two bounded symbols are angular monomials times a radial Gaussian. Orthogonality of distinct angular frequencies makes both \(H^*H\) operators diagonal, and exact Gamma moments give every singular-channel square. The Hilbert–Schmidt identity follows from a convergent binomial series. Scaled factorial/logarithm expansions yield the two complementary regulator profiles, and the stated uniform exponential majorants control all Schatten powers \(p>0\) and the norm maxima. The special first-mode trace integrals and maxima check exactly. Independent supplementary finite checks passed; numerical truncations are not the mathematical proof.
+PASS
 
-## Originality — PASS (historical priority qualified)
+The Hankel outputs for distinct monomials have distinct angular frequencies. Gaussian radial moments give A_n, and analytic projection takes only the coefficient at degree n±m, vanishing for the minus symbol when n<m. This gives exactly B_{n,±} and the squared singular channels by Pythagoras. At finite β the residuals are nonzero because their radial factor is not the analytic monomial factor. Both are bounded, with a polynomial times exponentially decaying channel majorant; the binomial generating function and the reindexing n=m+k for the minus projection sum yield the stated common Hilbert–Schmidt square. With u=nβ→u_0>0, β^m A_n→u_0^m exp(-2u_0). The plus loss logarithm is (n+m+1)d_β, d_β=log(1+β²/(1+2β)); divided by β it tends to u_0. The minus loss logarithm adds the factorial term m²/n+O_m(n^-2) and subtracts m log(1+2β), so after division by β its limit is u_0+m²/u_0-2m=(u_0-m)²/u_0, including at the notch. The loss is 1-exp(-log loss) in each channel, where log loss denotes the nonnegative negative log of B/A. The envelope with v=β(n+1) bounds the minus spectrum by a constant times (v^(m-1)+v^(m+1))exp(-cv), and the plus by v^(m+1)exp(-cv). This follows from 1-exp(-x)≤x and the factorial logarithm bound O_m(1/(n-m+1)), treating n<m directly. It gives zero endpoints at u=0 except minus m=1: there fixed n gives 1 directly, and when n→∞, nβ→0 implies n times the minus logarithm tends to 1 and A_n/n→1. These sequential limits give compact-uniform convergence on the grid; the exponential bounds control Riemann-sum tails for every fixed p>0 and the suprema. For m=1 the two trace integrals are 1 and 2/e and the maxima 1/e and 1, giving the strict reversal. The frozen numerical checker was inspected, not executed.
 
-The inspected Hu–Virtanen papers and Asghari–Hu–Virtanen establish membership and Berger–Coburn relations, not this explicit paired vanishing-Gaussian-regulator profile or its trace/operator ranking reversal. Bauer's known Hilbert–Schmidt identity covers the equal-norm corollary; it is deliberately excluded from the claimed novelty. Fan–Wang–Zeng's generalized singular-value criteria allow comparability but supply no evaluated constants for this family in the inspected results. The most pertinent published exterior-Laurent Fock Hankel finding concerns inverse-power symbols outside a disk, as confirmed by reading its RESULT.md; it neither includes these Gaussian-cutoff monomials nor implies the claimed regulator limits. The own accessible research claims on Fock transfer, Hausdorff multipliers and Weyl commutators are separate operators. Older specialized Gaussian-regulator formulas could exist outside the indexed literature, so priority is provisional pending independent review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A central question around the Berger–Coburn phenomenon is how conjugate symbols compare across operator ideals. The finding resolves a natural, smoothly regularized analytic/anti-analytic test family at the level of the **entire critical singular spectrum**, not only membership. Its conjugate spectral notch, sharp Schatten mass for every \(p>0\), and opposite rankings in trace and operator norms despite exact Hilbert–Schmidt balance show why ideal membership/equality cannot be substituted for quantitative spectral comparison. This is an interpretable and reusable benchmark for Fock Hankel estimates rather than an arbitrary finite calculation.
+Credit existing Fock Hankel ideal criteria, the known equality of Hilbert–Schmidt norms for this Lebesgue-square-integrable symbol, and prior diagonal methods. The supported distinct result is the sharp paired Gaussian-regulator profiles and their contrasting Schatten/maximum consequences, not ideal membership or equality at p=2.
 
-## Limitations
+## value
 
-Only Gaussian monomial regulators on the standard one-variable Fock space are treated; the analytic cutoff parameter tends to zero with \(m,p\) fixed. General Berger–Coburn conjectures and arbitrary radial regulators are not covered. Published source coverage is not a proof of historical uniqueness; the principal residual risk is an older special-case diagonal moment calculation giving the same complete constants. The exact known Hilbert–Schmidt identity is context, not a novel claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A Gaussian regulator turns a natural unbounded monomial pair into bounded all-Schatten test symbols. The exact notch and norm-ranking reversal exhibit how conjugation redistributes singular mass while preserving its Hilbert–Schmidt total. Sharp profiles across every fixed p and at the maximum make this a useful quantitative example beyond qualitative membership or constant-factor comparison; it is not a general solution of Berger–Coburn questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

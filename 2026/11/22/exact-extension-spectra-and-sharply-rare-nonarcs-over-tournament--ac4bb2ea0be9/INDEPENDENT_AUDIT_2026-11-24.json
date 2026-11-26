@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:30:17.714168Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof",
+        "Frozen verify.py, verification_output.txt and VERIFICATION.md, inspected and not executed: replay entry point verify.py; reported ternary-diagram checks at nr+binom(r,2)<=12 in the tested cases, and weighted spectra through r=5"
+      ],
+      "rationale": "Take the universal homogeneous limit of the finite I_3-free oriented digraphs, as specified in the assumptions. Its strong amalgamation is obtained by inserting arcs between the two new sides, so no independent triple can span both. Each admissible finite diagram is realized, and homogeneity identifies diagrams with complete types over pointwise named parameters. The nonarcs among new vertices form a triangle-free graph H. For any named base vertex, its nonneighbors must form an independent set in H, with two orientations for each remaining pair. A triple with at least two base vertices already has a tournament arc, so there are no other restrictions and the product W(H)^n is exact, even at n=0. Counts on no edges, one edge, adjacent edge pairs and disjoint edge pairs give the four bases. A triangle-free graph with at least three edges contains a three-edge star, path, path plus edge, or matching; all four have weights strictly below the two-disjoint-edge bound at the same arity. Every extra edge strictly lowers W. Dividing by the edgeless term as leading denominator gives the rare-nonarc exponent, since (8/9)^2<22/27; dividing the multiple-nonarc mass by the single-nonarc leading term gives the 11/12 conditional rate. For r=2 the conditional event is exact, not an asymptotic claim. All growth comparisons are at fixed r.",
+      "residual_risks": [
+        "Printed small-arity weight multiplicities are corroboration only, and the code does not explicitly assert every higher multiplicity. The general result is supported by the finite-diagram proof and extremal comparison, not by extrapolating those tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-model global theorem says almost all unconditioned labelled I_3-free digraphs are bitournaments.",
+          "The homogeneity/classification material and Aranda's Proposition 1.3 cover the ambient structure, not fixed-base extension counts."
+        ],
+        "reasoning": "A probability for all labelled objects does not control the ratio on the restricted space obtained by requiring an induced named tournament of size n with r outside points. Realizability of all admissible diagrams is known, not the sharp multiplicity decomposition.",
+        "searches": [
+          "Aranda arXiv:1505.00235 Theorem 2.1; deposited thesis Theorems 1.4.8 and 4.0.7",
+          "Cherlin, Homogeneous Directed Graphs. The Imprimitive Case; Aranda thesis discussion of Henson and Cherlin"
+        ]
+      },
+      "checked_sources": [
+        "Aranda arXiv:1505.00235 and OA thesis",
+        "Galanis et al. arXiv:1105.5131",
+        "Local Resultary comparisons, including c4b8a3505ee0 full statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aranda's step 4 gives eight choices in the unconstrained case for attaching a specified nonarc pair to an old vertex; in the other cases it uses four or six under additional conditions. The eight-choice mechanism specializes to the pair component over a tournament base.",
+          "The frozen proof handles simultaneous constraints from all new-new nonarcs by an independent-set weight, then compares the weighted contributions of small forbidden-pair configurations."
+        ],
+        "reasoning": "Credit the structural encoding, the local pair counting ingredient, and easy one-/two-arity consequences. The global asymptotic or that local pair calculation does not give the full spectrum or determine which weight layers dominate for arbitrary fixed r. The additional diagram and weight comparisons are substantive.",
+        "searches": [
+          "Aranda arXiv:1505.00235 Remark 1.2, Prop. 1.3, Thm. 2.1, and Lemma 2.10 proof (step 4 and Eq. (2), offset 26500)",
+          "Galanis et al. arXiv:1105.5131 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementary nonarcs form a triangle-free graph in Aranda's encoding; 2^r Z_H(1/2) uses standard hard-core notation.",
+          "The catalogue's exact match ac4bb2ea0be9 is the assigned record. Distinct same-day c4b8a3505ee0 omits cyclic directed triangles, not independent triples."
+        ],
+        "reasoning": "Translating the graph language to nonarc complements and the weight language to independent sets exposes related formulations, but does not identify the named-base spectrum with global labelled digraph enumeration or with directed-cycle avoidance.",
+        "searches": [
+          "Local Resultary comparison of ordered extension types over tournaments, forbidden independent triples, and hard-core weights",
+          "Aranda arXiv:1505.00235, Remark 1.2 and Proposition 1.3",
+          "Galanis et al. arXiv:1105.5131, definition of Z_G"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c4b8a3505ee0 gives each directed-edge channel n(n+9)4^n/8+3^n and a nonadjacent channel (n+2)^2 4^(n-1) over transitive bases. Its adjacency fraction tends to 1/2, not 1.",
+          "No distinct catalogue match for the exact forbidden-independent-triple spectrum was identified."
+        ],
+        "reasoning": "The comparison does not depend on date ordering: even for transitive bases the prior structure imposes a different forbidden pattern, producing different formulae and limiting probabilities.",
+        "searches": [
+          "Local Resultary exact one- and two-type formula search and named-base spectrum comparison; c4b8a3505ee0 original RESULT.md"
+        ]
+      },
+      "rationale": "The supported distinct finding is the exact all-arity fixed-tournament-base spectrum together with its successive weight layers and local nonarc probabilities. This uses known structural facts and the standard hard-core polynomial; the prior global enumeration even contains the eight-choice local mechanism for a specified nonarc pair.",
+      "residual_risks": [
+        "The finite-age reduction is natural and may have appeared implicitly in other enumerations. The comparison did not retrieve Henson's primary paper; structural classification precedent was assessed via the cited thesis and Cherlin introduction, not used as proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct structural and local-count precedent, different asymptotic ensemble",
+          "evidence": "Thm. 2.1 states |F(n)|=|T(n)|(1+o(1)) for all labelled I_3-free digraphs and bitournaments. Step 4 supplies a local eight-choice count as one case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.00235",
+          "material_read": "pp. 2–3 Remark 1.2, Prop. 1.3 and Thm. 2.1 (offsets 6975, 7336, 9709); Lemma 2.10 proof, step 4 and Eq. (2) at offset 26500",
+          "method": "Lawful OA PDF",
+          "title": "Asymptotic Enumeration of I_3-free Digraphs",
+          "trigger": "Same Fraïssé class and same nonarc encoding"
+        },
+        {
+          "assessment": "Same unconditioned enumeration precedent",
+          "evidence": "The two cited theorems give the global bitournament asymptotic.",
+          "identifier_or_url": "https://etheses.whiterose.ac.uk/id/eprint/7838/",
+          "material_read": "pp. 25, 117 Thms. 1.4.8, 4.0.7 (offsets 59600, 249700); pp. 38, 67 structural background",
+          "method": "Lawful repository full text",
+          "title": "Omega-categorical simple theories",
+          "trigger": "Thesis with same model and broader structural framework"
+        },
+        {
+          "assessment": "Defines a standard ingredient, not the type-spectrum transfer",
+          "evidence": "Z_G(lambda) is the sum of lambda^|I| over independent sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1105.5131",
+          "material_read": "p. 1, OA offset 3177",
+          "method": "Lawful OA PDF",
+          "title": "Improved Inapproximability Results for Counting Independent Sets in the Hard-Core Model",
+          "trigger": "Equivalent name for the weight polynomial"
+        },
+        {
+          "assessment": "Not equivalent: directed three-cycle exclusion, and a transitive base",
+          "evidence": "The assumptions explicitly forbid the cyclic directed triangle. The nonadjacent pair count is (n+2)^2 4^(n-1), not 8^n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-type-spectra-over-transitive-tournaments-in-the-direct--c4b8a3505ee0/RESULT.md",
+          "material_read": "§§Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-type spectra over transitive tournaments in the directed-triangle-free homogeneous oriented graph",
+          "trigger": "Distinct same-day extension-spectrum title with overlapping base scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations",
+        "Aranda's unconditioned enumeration for comparison"
+      ],
+      "rationale": "A pointwise named tournament is a natural finite base because no forbidden independent triple can contain two base points. The exact ordered extension spectrum is an intrinsic orbit-count statistic. The hard-core reduction separates base size from new arity, and its sharp hierarchy explains quantitatively why a nonarc is rare and usually unique when present, facts not supplied by an unconditioned bitournament asymptotic.",
+      "residual_risks": [
+        "The method's stated asymptotics are not uniform in growing arity, and do not treat arbitrary nontournament bases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

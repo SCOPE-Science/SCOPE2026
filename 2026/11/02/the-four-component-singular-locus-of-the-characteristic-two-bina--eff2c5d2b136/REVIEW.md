@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof checks the exact three-bilinear section system on \((\mathbb P^1)^3\), its elimination polynomial, the irreducibility of the characteristic-two cubic, and the absence of boundary discriminant components using the irreducible universal Jacobian incidence. Its matrix-trace normal form gives all Jacobian equations without assumptions on matrix ranks. The rank stratification is exhaustive: invertible members force two zero matrices, and rank-at-most-one members lie in the projective-bundle image. The latter image is generically one-to-one, and the coefficient extraction in the projective-bundle push-forward gives degree \(14\). A standalone symbolic and finite-field script checks key algebra identities and the finite enumeration, but does not purport to prove the infinite geometric assertions.
+## correctness
 
-## Originality — PASS, with historical risk
-Emiris–Vidunas (2016), §5, already give the sextic as an integral quadratic discriminant and a \(6\times6\) determinant; reduction to a square in characteristic two is a direct deduction, not a new theorem. Abo–Portakal–Sodomaco (2025), §3.2, determine the complex degree-six locus and its singular strata; Neuhaus–Portakal–Sodomaco–Tung (2026) treat complex degrees across formats. Neither inspected article states the four reduced characteristic-two singular components, the degree-\(14\) nonlinear component, and its exact quadric attachments. General circular-complex representation-variety theory might imply parts of the rank stratification, but an exact dominating formula for this discriminant and its nonlinear component degree was not identified. Overlap searches cover the full text of the central three sources, existing accessible research findings, and relevant mathematical-record searches. Absence of a hit is not a priority certificate.
+PASS
 
-## Mathematical value — PASS
-The discriminant of the minimal nontrivial three-player balanced bilinear system is a natural parameter hypersurface. In characteristic two its reduced geometry changes drastically from the classical complex sextic, and the theorem describes *all* singular strata of the reduced hypersurface, not merely a factorization: it distinguishes three linear boundary components from a nonlinear fivefold, determines the latter's exact enumerative degree, and identifies how the components meet. These are natural structural and intersection-theoretic invariants potentially useful in comparing bad reductions or extending mixed discriminants to larger formats. No numerical improvement or arbitrary parameter slice is asserted.
+For invertible A and B the first two bilinear equations globally give y and x by their kernel lines over P1_z. Substituting in the third gives the homogeneous binary quadratic P; its derivative vanishes at a repeated zero in characteristic two exactly when its middle coefficient Q is zero, including the identically zero case. Expansion gives tr(AJB^TJCJ). Its coefficient of c0 is the irreducible 2×2 determinant a2b3+a3b2, which does not divide the coefficient of c1, so the linear polynomial in C is primitive and irreducible. The universal nontransverse incidence is irreducible: at a fixed base point three evaluations are independent and the six active derivatives freely specifiable; their sparse determinant is the irreducible binomial of disjoint triple products. This fibre description is locally trivial over the three P1s. The incidence image is closed by projectivity and meets the invertible open at F1=y+z, F2=x+z, F3=xy. Its intersection there agrees with V(Q), so the global reduced image equals V(Q). In the gradient, the trace pairing identifies sets of four derivatives with UV, VW and WU. If a matrix is invertible the other two vanish. Otherwise every rank is at most one and each intermediate line can be chosen between the incoming image and outgoing kernel. These choices yield the rank-three projective bundle of the record; generically the lines are recovered by the images of nonzero matrices, giving a rational inverse and dimension five. In its Segre class coefficient, the six ordered (2,1,0) exponent patterns contribute two each, the (1,1,1) pattern contributes two, and pure cubes vanish. Thus the degree is fourteen. Restricting to one nonzero block leaves its rank-one determinant quadric; the coordinate spaces are disjoint. The integral quadratic discriminant specializes to Q²; its primitivity can also be seen from the coefficient 1 on a2²b3²c0² in p1²−4p0p2.
 
-## Sources and limitations
-Main primary sources: arXiv:1607.01496v1 §5; arXiv:2504.03456v1 §3.2; arXiv:2610.29889v1 §§2,3,5. The general circular-complex literature is a residual priority risk. The result only describes reduced singular supports in characteristic two; the Jacobian ideal may be nonradical, and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the global identification and exhaustion of the first reduced singular locus of the characteristic-two Nash discriminant, including how the components meet there. The older literature already gives the primitive sextic, the same factorized degree-fourteen family in characteristic zero, and the same three coordinate strata there. Neither the number fourteen for that family nor the existence of those coordinate loci deserves separate originality credit. The first reduced singular locus in characteristic two is a distinct assertion, not the characteristic-zero singular-locus table carried over by substitution.
+
+## value
+
+PASS
+
+This identifies what replaces the first singular stratification of a well-studied discriminant after bad-characteristic reduction. The collapse of the defining sextic to a square would make a specialized sextic gradient uninformative; the reduced cubic has a substantially different first singular locus, with the surviving strata and their incidences specified. This gives geometric information beyond the elementary square factorization or the already recorded degree of one shared stratum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

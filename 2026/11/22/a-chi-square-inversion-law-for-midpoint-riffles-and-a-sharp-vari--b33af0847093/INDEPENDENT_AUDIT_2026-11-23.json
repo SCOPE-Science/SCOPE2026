@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:12:45.207948Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, checker and captured output",
+        "branches/ef471fe9-2ace-42c7-8020-cc0d624fd728/riffle_check.py",
+        "arXiv:2611.02092v1 §§2–4"
+      ],
+      "rationale": "At every nonempty cut, reflecting both midpoint grids changes x and y to 1−x and 1−y. This pairs the strictly inverted and strictly noninverted cross pairs; ties are disjoint, and a tie coin affects only the order of its tied pair. Empty cuts give zero. For odd deck sizes midpoint equality is impossible by parity and the cut masses combine two at a time, since k(n−k) is strictly increasing on the lower half of the cut range. The centered cut W has E(W²)=n/4 and Var(W²)=n(n−1)/8. Total variance gives the stated n(n−1)/32 plus E(T)/4, and T≤n gives L²-negligible coin noise on scale n; the cut CLT gives (1−Z²)/8 with the exact centering. For GSR the label-word probability is 2^(−n) for every word, as the binomial probability of the cut cancels the uniform-interleaving denominator. Expanding the pair count gives the indicated linear weights and centered quadratic term. Odd moments give orthogonality; the sum of squared linear coefficients gives variance n(n²−1)/48, and the quadratic variance is n(n−1)/32. Their sum and the normalized Lindeberg bound give the stated comparison. Independently constructed exact enumeration passed 220 midpoint and 18 GSR checks for sizes 2–10. The frozen checker was read, not run; bounded enumeration is corroboration only.",
+      "residual_risks": [
+        "Only one shuffle from ordered input; weak convergence is not an assertion of a total-variation or local limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The GSR and its general-cut extensions discussed by Jiang choose uniformly among interleavings; fixed-cut q-binomial inversion counts apply to that choice.",
+          "Jiang's block interpolation for positive adhesion can lack reflection symmetry at a fixed partition; the indexed odd-deck work concerns the generated group, not the one-step statistic."
+        ],
+        "reasoning": "Neither a broad uniform-interleaving theorem nor a statement about support and convergence of the same shuffle fixes its one-step inversion distribution.",
+        "searches": [
+          "arXiv:2611.02092v1 §§1.2, 2 and 3.1",
+          "Resultary midpoint riffle lookup above"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.02092v1",
+        "Indexed odd-deck midpoint group theorem",
+        "Frozen prior-work comparison for the classical GSR benchmark"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source explicitly proves that ties are disjoint and tie decisions are independent. At the balanced cut its Thorp description already makes the alternating-pair special case immediate.",
+          "For general cuts an additional order-reversing involution pairs the strict comparisons. This collapses the conditional inversion count to a quadratic cut contribution plus tie noise, rather than merely applying the prior gcd formula.",
+          "The GSR benchmark can be recovered by the standard uniform binary-word law and is not claimed as new."
+        ],
+        "reasoning": "The reflection identity is elementary but a distinct invariant of the exact midpoint grids, not a statistical consequence of a tie count or of general mixing. The complete two-parity limit and the sharp ratio quantify the new comparison.",
+        "searches": [
+          "arXiv:2611.02092v1 Eq. (6), Prop. 3.2 and Lemma 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jiang calls the same zero-adhesion model the binomial-cut proportional shuffle.",
+          "The exact law is equivalently the conditional inversion polynomial z^((k(n−k)−T)/2)((1+z)/2)^T; the known seed entropy and mixing bounds describe different statistics."
+        ],
+        "reasoning": "Neither a rename of the proportional shuffle nor the inversion-generating-polynomial representation would constitute novelty. The inspected model/tie/entropy statements do not give the conditional inversion polynomial.",
+        "searches": [
+          "Resultary: odd deck midpoint riffles symmetric group inversion law proportional deterministic midpoint interleaver chi square",
+          "midpoint riffling shuffle inversion alternating discrepancy Jiang interleaving inversions digital straight line",
+          "arXiv:2611.02092v1 §§3–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-model tie count is already exact for every cut, including zero ties on odd decks; the known balanced-cut estimate controls E(T) on even decks.",
+          "The nearest indexed odd-deck theorem addresses generating permutations, not a table of one-step inversion masses."
+        ],
+        "reasoning": "The exact tie table is prior and not an inversion table: it does not give the contribution of strict cross-pair comparisons. Unseen full text of the indexed record was not ruled out.",
+        "searches": [
+          "arXiv:2611.02092v1 Lemmas 4.1–4.2",
+          "Resultary midpoint riffle lookup above"
+        ]
+      },
+      "rationale": "The best-of-knowledge finding is the midpoint inversion distribution and the associated change of scale and limit relative to GSR. The shuffle, tie formula and classical comparator are prior. No covering result for the distinctive midpoint distribution was identified in the inspected material.",
+      "residual_risks": [
+        "The linked odd-deck full text was not available in this review. The web query returned no material comparison beyond the primary and indexed records inspected; this does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model, fair tie mechanism, tie counts and tie averages; inspected results address mixing and information rather than this inversion law",
+          "evidence": [
+            "Definition 3.1 uses the same binomial cut.",
+            "Lemma 4.1 gives the gcd/parity count; Lemma 4.2 already bounds the tie correction scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.02092v1",
+          "material_read": "§§1–5 relevant passages including §3.1 Eq. (6), Prop. 3.2, Lemmas 4.1–4.2 and information moments",
+          "method": "Primary HTML examination and clause-by-clause model/statistic comparison",
+          "title": "Adhesive riffle shuffles: simple one-parameter models, interpolation, and parameter-dependent mixing bounds",
+          "trigger": "Defines exactly the nonadhesive midpoint shuffle and its tie law"
+        },
+        {
+          "assessment": "Stated group theorem is not the inversion law; unread text not ruled out",
+          "evidence": [
+            "The first, last and second cuts are used for generation, irreducibility and convergence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-odd-deck-midpoint-riffles-generate-the-full-symmetric-group--49bcc566d45d",
+          "material_read": "Indexed theorem synopsis; direct full-text retrieval did not succeed",
+          "method": "Resultary search and comparison of the stated invariant",
+          "title": "Odd-deck midpoint riffles generate the full symmetric group",
+          "trigger": "Same odd-deck shuffle and generators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Jiang, arXiv:2611.02092v1 §§1.2 and 3.1",
+        "Frozen RESULT.md exact law and classical comparison"
+      ],
+      "rationale": "Inversions are a natural quantitative measure of departure from an ordered deck. Holding the entire random cut law fixed isolates the effect of the midpoint interleaver: exact cancellation of all strict within-cut inversion fluctuations leaves only the squared cut fluctuation and smaller tie noise, giving a one-sided limit and a precise order-n reduction in variance compared with GSR. This is useful as an observable distinguishing these two models without claiming a mixing consequence.",
+      "residual_risks": [
+        "The result does not compare repeated shuffles, mixing time, or positive adhesion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

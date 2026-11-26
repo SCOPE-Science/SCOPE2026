@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `verify.py` is a self-contained exhaustive certificate. Run `python3 verify.py`; it enumerates all generator tuples for the three specified free monoids, compares two implementations of their multiplication and endomorphism idempotence tests, and asserts equality to every coefficient displayed in RESULT.md. The verified terminal marker is `FIRST_FREE_LRB_RETRACTION_RANK_GAP_CERTIFIED`.
+# Independent mathematical audit
 
-Limits: The script checks all finite cases claimed (\(n=1,2,3\)); it does not examine \(n\ge4\). No independent external mathematical audit has been performed. Publication priority is qualified by incomplete access to one closely related older submonoid paper.
+## correctness
+
+PASS
+
+For the unital free left-regular band the injective words, including the empty word, are the normal forms. Substitution of arbitrary generator images respects first-occurrence reduction: a repeat of a generator cannot introduce any letter not already introduced by its first image. Thus the generator-image tuples parametrize all and only the unital endomorphisms. Independent bounded Python enumeration evaluated the entire map for each of the 2, 25, and 4096 tuples, tested its composition square on every word, and counted distinct outputs including the unit. The full three histograms match the frozen polynomials. The totals are 2, 17, and 535; the first two supports are intervals, and the third omits 11, 13, 14, and 15, with six maps of image size 12. Replay: python3 /workspace/branches/1e44eec6-9e30-47c8-8300-25f862a6659d/reproduce_census.py; captured output in the same directory, replay.txt. This verifies only the stated finite unital census.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the exact census and resulting first gap, not for the injective-word model, substitution, or the enumeration method. The exact local index hit points back to the frozen result itself. No distinct matching census or dominating rank classification was established by the bounded comparisons.
+
+## value
+
+PASS
+
+Whether image sizes interpolate between the trivial and full retract is a natural structural question, and the census goes beyond exhibiting isolated examples. The first gap rules out interpolation at the smallest failing number of generators; it identifies both an interior forbidden size and a sharp proper-image maximum of 12 versus the full size 16. These exact obstructions and counts are useful small-rank constraints on proposed structural descriptions. No general-rank claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

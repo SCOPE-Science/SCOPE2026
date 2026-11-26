@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:51:45.513148Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rechecked result uses the cofactor identity to give z²+uz+conj(u) and D²=|u²−4conj(u)|. Since |u|≤1, the unique discriminant root is the weight barycenter. Modding out the normals by one global phase or sign gives respectively a two-torus or four planes at that point, and diagonal phases/signs commute with A. The Frobenius identity gives norm one at the barycenter, so this is a nonzero nilpotent, not a scalar. Schur triangle eigenvector overlap ν/√(ν²+D²) gives unit-column κ=(√(ν²+D²)+ν)/D, with ν²=1+(|u|²−D²)/2. Compactness excludes other tail contributions. Near zero, D∼2√|u| and κ∼|u|^(−1/2); the affine Jacobian 3√3/2 and Dirichlet weights give center densities 4/(3√3), 1/π. Disks of radii asymptotic to ε²/4 and R^(−2) give the four constants, and the positive R^(−4) tail via layer cake proves the p<4 cutoff including divergence at p=4. Independent script /workspace/branches/d316504f-57b8-4fb1-ad94-dd09de05eafe/independent_check.py and independent_check.txt there give 372 exact barycentric checks and 1,000 direct assertions across 200 planes, including center nilpotence and the conditioning formula. Limits are analytic, not fitted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shah gives expected pseudospectral area bounds and its named corollary requires sketch size ℓ≤n/2−8; (n,ℓ)=(3,2) does not meet it. Malamud characterizes which spectra can arise in codimension one. The workshop document poses randomized Ritz-distribution questions. The Carden–Hansen abstract describes geometric constraints for pairs of Ritz values in dimension three, but the full text was unavailable."
+        ],
+        "reasoning": "Deterministic feasibility describes support, not the pushforward Haar measure near a defective point. Expected pseudospectral area bounds do not supply these exact gap or condition tails, even aside from the size assumption.",
+        "searches": [
+          "arXiv:2501.01418v1 Corollary 1.1 and §1.2",
+          "arXiv:math/0304158 Introduction and Theorem 3.7 description",
+          "arXiv:2602.05394v3 §3.3",
+          "Carden–Hansen DOI 10.1016/j.laa.2012.12.030"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions, Proof and Verification; VERIFICATION.md",
+        "Resultary c2d3482ece75, 8f78f56cee13, 56cf8c2fea12, d5149592abbc, 416e750ea372",
+        "arXiv:1010.4189; arXiv:1409.4941; arXiv:math/0304158; arXiv:2501.01418v1; arXiv:2602.05394v3; Carden–Hansen abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse compression spectral formula supplies cofactor weights and shadow work specifies their distribution. The probability evaluation also needs local uniqueness and square-root splitting of the discriminant zero, and the Schur off-diagonal limit and overlap for conditioning."
+        ],
+        "reasoning": "The underlying laws and geometric formulas recover ingredients, but do not state a more general tail theorem from which these estimates specialize. In particular the spectral support and shadow law alone do not treat the relation between the gap and unit-column conditioning. The novelty basis is the evaluated probabilistic limits and fourth-moment barrier, not the algebraic ingredients singly.",
+        "searches": [
+          "Dunkl et al. arXiv:1010.4189 Lemma 4.1 and arXiv:1409.4941 §§2, 4",
+          "Malamud arXiv:math/0304158 (1.2) and Theorem 3.7 description",
+          "Shah arXiv:2501.01418v1 Corollary 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit is the frozen record itself. Shadow-loss and Haar regression optimize prediction of a quadratic measurement rather than estimating a singular functional of the compression. The neighboring real-Gaussian Petrov–Galerkin and near-repeated symmetric Ritz records concern different maps and events."
+        ],
+        "reasoning": "The common scalar shadow is a known coordinate on the ensemble, but the target event is a discriminant sublevel set or an eigenvector-overlap tail. A regression loss, or chance to become nonreal under a different perturbation, does not give those probabilities.",
+        "searches": [
+          "Resultary: c2d3482ece75, 8f78f56cee13, 56cf8c2fea12, d5149592abbc, 416e750ea372",
+          "Haar normal 3×3 equilateral two-dimensional compression Ritz gap discriminant defective numerical shadow"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact catalogue result was identified. The primary shadow formulas give the weight laws (uniform simplex for the complex normal case; the half-parameter Dirichlet and real-shadow comparison) rather than a table of any of the four tail constants."
+        ],
+        "reasoning": "The density inputs are already known and credited. They apply to v*Av, not directly to the compression gap or condition number; no standalone exact constant table for those observables was identified.",
+        "searches": [
+          "Resultary: c2d3482ece75; 8f78f56cee13; 56cf8c2fea12",
+          "arXiv:1010.4189 Lemma 4.1",
+          "arXiv:1409.4941 §§2, 4, Figure 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact complex/real gap and condition tails in the equilateral compression, not for the shadow densities, cofactor geometry, or the multiplicity correction as a standalone novelty claim.",
+      "residual_risks": [
+        "Carden–Hansen full text was unavailable through bounded lawful retrieval; an equivalent probability calculation elsewhere is not excluded. The output makes no general priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers complex scalar distribution input",
+          "evidence": "The shadow of a normal matrix is the pushforward of the uniform simplex measure under the spectral barycentric map.",
+          "identifier_or_url": "https://arxiv.org/pdf/1010.4189",
+          "material_read": "PDF p. 7, Lemma 4.1, offset 24640",
+          "method": "OA primary PDF",
+          "title": "Numerical shadows: measures and densities on the numerical range",
+          "trigger": "Exact complex Haar weight distribution for a normal matrix"
+        },
+        {
+          "assessment": "Covers Dirichlet input and shadow method, not defect tails",
+          "evidence": "Comparison of flat and half-parameter simplex density; Figure 1 compares real/complex shadows for a normal example; eq. (23) gives the real symmetric shadow law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1409.4941",
+          "material_read": "§2 eq. (4), offsets 8910ff.; §4 and Fig. 1, offsets 20800–27409",
+          "method": "OA primary PDF",
+          "title": "Real numerical shadow and generalized B-splines",
+          "trigger": "Exact real weight distribution and comparison to complex shadow"
+        },
+        {
+          "assessment": "Deterministic inverse geometry",
+          "evidence": "Geometric characterization of possible spectra and a polynomial-product test for given spectral pairs, not Haar tail evaluation.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0304158",
+          "material_read": "p. 2, offset 3350: Theorem 3.7 description and (1.2)",
+          "method": "OA primary PDF",
+          "title": "Inverse Spectral Problem for Normal Matrices and a Generalization of the Gauss–Lucas Theorem",
+          "trigger": "Normal matrix codimension-one Ritz geometry"
+        },
+        {
+          "assessment": "Plausibly close deterministic precedent; exact contents unresolved",
+          "evidence": "Abstract describes Ceva geometric relations for two Ritz values of a 3×3 normal matrix. Full-text attempts did not yield content (202/403).",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2012.12.030",
+          "material_read": "Rice indexed abstract; no full-text passage retrieved",
+          "method": "Publisher and lawful Rice repository access attempts",
+          "title": "Ritz Values of Normal Matrices and Ceva's Theorem",
+          "trigger": "Same dimension and Ritz-pair object"
+        },
+        {
+          "assessment": "Different statistic, main corollary outside size regime",
+          "evidence": "Expected pseudospectral area bounds; ℓ≤n/2−8 in the corollary. The accessed HTML date is different from the year in the frozen citation; compared by arXiv ID and statement.",
+          "identifier_or_url": "https://arxiv.org/html/2501.01418v1",
+          "material_read": "§1.2 and Corollary 1.1, offsets 6300 and 4050",
+          "method": "OA HTML",
+          "title": "The Pseudospectrum of Random Compressions of Matrices",
+          "trigger": "Broader probabilistic random compression theory"
+        },
+        {
+          "assessment": "Problem context, not exact tails",
+          "evidence": "Discusses open questions about Ritz-value distributions for randomized non-Hermitian compressions.",
+          "identifier_or_url": "https://arxiv.org/html/2602.05394v3",
+          "material_read": "§3.3, offset 70455",
+          "method": "OA HTML",
+          "title": "Linear Systems and Eigenvalue Problems: Open Questions from a Simons Workshop",
+          "trigger": "Motivation for exact randomized Ritz laws"
+        },
+        {
+          "assessment": "Same measurement family, different statistic",
+          "evidence": "Optimal nonlinear mean-square prediction of X*BX given X*AX, not compression spectral tails.",
+          "identifier_or_url": "Resultary 8f78f56cee13",
+          "material_read": "Mirror RESULT.md Finding offset 0",
+          "method": "Local mirror",
+          "title": "Exact conditional numerical-shadow loss for normal three-level matrices",
+          "trigger": "Strongest overlap in the normal three-level Haar shadow"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Prediction from a numerical-range measurement, not separation or eigensystem condition of a two-dimensional compression.",
+          "identifier_or_url": "Resultary 56cf8c2fea12",
+          "material_read": "Mirror RESULT.md Finding offset 0",
+          "method": "Local mirror",
+          "title": "An exact Haar regression criterion for numerical information",
+          "trigger": "Potential broader normal Haar-shadow prior result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest nontrivial orthogonal compression of a symmetric three-level unitary spectrum is a concrete benchmark for nonnormal behavior from a fixed normal input. Almost-sure simplicity conceals a precise fourth-moment obstruction; comparing real and complex trial planes at the same input isolates distinct quantitative constants. The simultaneous gap and unit-vector conditioning laws give more information than the feasible Ritz region or generic warning about near-defectiveness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

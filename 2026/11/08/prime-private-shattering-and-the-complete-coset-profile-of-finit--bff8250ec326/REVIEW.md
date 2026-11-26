@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies precisely the co-singleton traces needed for shattering, establishes uniqueness of each prime's private label, and obtains an iff criterion. The count \(B_r(p^a)\) follows from a full stratification by the common \(p\)-adic prefix of \(r-1\) coordinates; CRT and inclusion–exclusion establish the stated polynomial for all positive moduli. Singleton and empty-trace boundaries at \(n=1,2\) are explicit. The independent direct-trace and local enumerations in `VERIFY.py` match the formulas.
+## correctness
 
-**Originality — PASS within accessible comparisons.** Sisask (arXiv:1802.02836, Proposition 4.7) shows the *relative* VC dimension of a fixed coset is zero. Conant–Pillay–Terry (arXiv:1802.04246) study structure and regularity for translates of one fixed subset. The present union of coset classes over **all** subgroups and its rank-by-rank counts are different statements; the former results do not imply the latter without a new prime-private analysis. Searches for equivalent congruence-fiber and residue-range formulations found no dominating theorem. A not-yet-indexed equivalent source remains a risk.
+PASS
 
-**Mathematical value — PASS.** The problem is an unrestricted algebraic range-space classification motivated by the interaction between subgroup lattices and VC dimension. The private-prime criterion converts shattering to a local arithmetic condition, yielding every coefficient for arbitrary \(n\); its sharp top coefficient on squarefree moduli is \(n\varphi(n)\). This is a substantive structural enumeration rather than a finite computation or a normalization change.
+For r≥3, each co-singleton trace requires a divisor modulus at which the omitted point differs from all the others; some primary factor of the modulus already witnesses this, so each label needs a private prime. A prime cannot serve two labels: compare their witness levels at the smaller level using a third point and obtain contradictory congruences. Conversely, intersect the witness fibers for the omitted labels; for a nonempty trace the intersection is nonempty and is exactly a coset of the lcm modulus. The empty trace is provided by a singleton outside the support, since r≤ω(n)<n. The upper bound is attained when ω(n)≥3 by taking the individual unit vectors in CRT coordinates; pairs are shattered for all n≥3 using singletons, the whole group and an outside singleton. For n=1 no singleton support is shattered; for n=2 singletons are shattered but the full support cannot realize the empty trace. Locally, fix an outlier label and use the first digit k where it differs: choose q values for an anchor among the other coordinates, p^((a-k)(r-2)) for the remaining coordinates agreeing through k digits, and (p-1)p^(a-k) for the outlier agreeing through k-1 but not k. Summing gives q(p-1) times the sum of p^(b(r-1)) over b=0,...,a-1. This counts the same disjoint events as the frozen expression partitioned instead by the maximal common exponent of the non-outliers. By CRT, prescribed j labels all lacking a private prime give the stated product of q^r-jB_r. Inclusion–exclusion counts ordered tuples with all labels served; these tuples have no repeats, so division by r! is exact. At r=t each prime serves one distinct label, giving t! assignments that cancel the denominator, and squarefree factors then give nφ(n).
 
-**Limitations.** These results concern single cosets in finite cyclic groups and classical VC dimension. No claim is made for unions of cosets, noncyclic groups, or online dimension. Finite checks do not certify the all-modulus theorem, and historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The verified distinct near matches count shattered supports on other concept families, not all cosets of the cyclic subgroup lattice. Classical intersection closure and CRT are not credited as new. The supported distinct claim is the exact cyclic shattering criterion together with the coefficientwise census from primary-coordinate outlier counts, not an assertion of priority for general box shattering.
+
+## value
+
+PASS
+
+This counts all shattered supports of a canonical arithmetic concept class, not just the largest support size. The finite polynomial exposes the different roles of distinct primes and their exponents: the number of primes limits the rank, while exponents alter the number of witnesses at each rank. The private-label criterion explains the restriction and gives a direct test without enumerating all Boolean traces; the exact top coefficient and the boundary at n=1,2 give additional concrete information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:04:22.238986Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and Proof lines 25–62",
+        "Frozen verify.py and VERIFICATION.md, inspected without execution"
+      ],
+      "rationale": "Let r_a=sqrt(p_a), P0 the projector on r tensor r, and let A have entries A_(ab,cd)=r_a delta_(bc) r_d. Directly counting zero and one lags gives W_L=L(I-P0)+(L-1)(A+A^T-2P0): longer lags do not overlap. A sends g tensor r to r tensor g and annihilates the sector with second tensor factor perpendicular to r; in particular A(r tensor r)=r tensor r. Thus constants vanish, the doubly perpendicular sector has eigenvalue L, and the two additive placements for every g perpendicular to r form a block with diagonal L and off-diagonal L-1. Its antisymmetric and symmetric eigenvalues are 1 and 2L-1, each q-1 times. Their dimensions and the (q-1)^2 interaction dimension exhaust the pair space. The unit mode is exactly a telescoping endpoint difference of pair scores. Positive D transfers the rank to the unweighted covariance by congruence; the condition number 2L-1 is for W_L, not in general for the raw covariance. At L=1 all positive eigenvalues coincide. Taking tr(W_L)/L gives q^2-1. The bounded centered 1-dependent vector satisfies a fixed-dimensional CLT, also in the degenerate directions by scalar projections. The limiting Pearson-normalized Gaussian has variances 0,0,1,2 in the four sectors. Taking its squared norm gives the stated sum of two independent chi-squares. The arguments require fixed strictly positive known p and fixed q for the limit, and do not assert a distribution-free Q_L law at finite L.",
+      "residual_risks": [
+        "The reported rational assertion count is frozen evidence, not an independently executed check. The all-parameter result follows from the analytical operator calculation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general chain MGF includes every raw moment in principle but has no quoted probability-invariant diagonalization.",
+          "The uniform k-word theorem has eigenvalues k/q^k and (k-d)/q^k with respective multiplicities q-1 and (q-1)^2 q^(d-1), and q^(k-1) zeros. At k=2 and after q^2 Pearson weighting its limiting spectrum is exactly 2,1,0 with frozen limiting multiplicities."
+        ],
+        "reasoning": "The uniform theorem is broader in word length but not in the distribution regime or length-exact endpoint spectrum. Both overlaps are credited; neither states a uniform-in-positive-p finite spectral invariance principle.",
+        "searches": [
+          "arXiv:2201.00582v1, finite-time pair count MGF",
+          "2026/10/25/SCOPE-exact-non-gaussian-fixed-cylinder-pair-collision-law-for-full-sh--0ded5372fff8, uniform k-word full covariance spectrum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.00582v1",
+        "Resultary records 0ded5372fff8, 09ebdb81d232 and 4e1ebdd17a01"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For uniform p and k=2, Q_L=(q^2/L)(2U_L+L)-L. The indexed collision theorem therefore yields the exact trace and Pearson limit there, not just a qualitative Gaussian approximation. Its lag-orthogonality argument also gives the finite uniform two-placement block by counting the L-1 common summands.",
+          "For nonuniform p the collision identity no longer represents Q_L; one must form the p-weighted score basis and determine the lag block in that metric. The MGF covers the raw moments but does not itself show the invariant spectrum, endpoint variance or eigenvalue multiplicities."
+        ],
+        "reasoning": "The remaining finite all-positive-p result is not a parameter specialization of the inspected uniform theorem. The proof extension is short but reveals a meaningful probability-invariant weighted decomposition rather than replacing a parameter in an existing formula. A one-query primary search was unavailable, not evidence of no older result.",
+        "searches": [
+          "Compare the cylinder collision Finding and Proof offsets 0 and 2850 against frozen finite and asymptotic conclusions",
+          "Compare Carugno–Vivo–Coghi finite-time MGF and its reference trail to Dawson–Good (1957) and Goodman (1958)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carugno–Vivo–Coghi PDF pp. 2 and 5 define empirical pair occupation and its finite-time multivariate moment-generating function. Setting the transition matrix rows equal to p and using initial law p makes this exactly the sliding iid model.",
+          "The fixed-cylinder collision record makes its observation windows the same as the frozen pairs at k=2."
+        ],
+        "reasoning": "Empirical transition counts and sliding word histograms are the same raw vector in the appropriate specializations. The frozen object is not the covariance of independent multinomial cells or a Pearson statistic fitted from the same sequence.",
+        "searches": [
+          "Resultary/SCOPE queries on sliding categorical bigrams, pair-occupation counts, Pearson calibration, and overlapping-word histograms",
+          "Carugno–Vivo–Coghi arXiv:2201.00582v1; finite Markov transition counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-cylinder record gives exact limiting spectral entries for uniform p, which are substantive overlap.",
+          "The same-date ordinal-pattern record's Finding computes asymptotic nullspaces for three-point ordinal patterns rather than the full finite pair table. The October 13 Pearson-covariance record is about uniform multinomial Pearson X^2 and additive cell statistics, without temporal window overlap."
+        ],
+        "reasoning": "Grouped or ordinal observables can use related covariance ideas but are not the full q-by-q ordered alphabet histogram. No exact finite positive-p spectrum is supplied by these comparisons.",
+        "searches": [
+          "Resultary/SCOPE: exact pair-frequency covariance and Pearson spectrum",
+          "Resultary/SCOPE ordinal-pattern covariance and Pearson covariance comparison records 09ebdb81d232 and 4e1ebdd17a01"
+        ]
+      },
+      "rationale": "The supported distinction is the exact probability-invariant Pearson-weighted spectrum for arbitrary strictly positive p at finite L, notably the nonzero bounded endpoint sector; the exact trace and arbitrary-p calibration follow. The uniform asymptotic spectrum and uniform Pearson limit are already implied by a close indexed k-word collision theorem. Its product-score method also essentially contains the finite-L uniform calculation and suggests extending the basis argument to nonuniform p. Its stated covariance theorem is asymptotic and uniform; it is not a general positive-p finite weighted spectral theorem. The broad Markov generating-function result encodes the unweighted joint pair counts, but evaluating the p-weighted covariance and identifying its invariant sectors requires a separate computation. No novelty is assigned to pair-count moments in general or to the uniform limit in isolation.",
+      "residual_risks": [
+        "Uninspected classical Markov count or Pearson treatments could give an equivalent weighted diagonalization. Related two-point ordinal primary material was not retrieved. Uniform limiting coverage is established, not a priority claim based on catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full raw count framework, not explicit spectral formula in inspected passages",
+          "evidence": "Defines the pair-count law and finite generating function; cites older exact and asymptotic Markov count papers.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00582v1",
+          "material_read": "PDF p. 2, offset 9300 (counts); p. 5, offset 23854 (MGF); references around offset 69262",
+          "method": "OA primary text bounded passages",
+          "title": "Graph-combinatorial approach for large deviations of Markov chains",
+          "trigger": "Exact finite-time pair occupation law for general Markov chains"
+        },
+        {
+          "assessment": "Uniform limit fully subsumed, uniform finite calculation closely implied; nonuniform finite weighted spectrum not stated",
+          "evidence": "Uniform product basis groups equal shifted supports, yielding the limiting all-ones blocks for histogram counts; exact collision first moment also gives uniform Pearson mean.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-non-gaussian-fixed-cylinder-pair-collision-law-for-full-sh--0ded5372fff8",
+          "material_read": "RESULT.md Finding, assumptions and proof at offsets 0 and 2850",
+          "method": "Local published-record mirror",
+          "title": "Exact non-Gaussian fixed-cylinder pair-collision law for full shifts",
+          "trigger": "Strong uniform sliding-word covariance and quadratic-law overlap"
+        },
+        {
+          "assessment": "Different pattern statistic, with a plausible related reference",
+          "evidence": "Three-point ordinal pattern nullspaces are not full pair-table eigenvalues. It points to two-point ordinal covariance in Weiß and Schnurr (2023), whose DOI and attempted repository alternative did not yield readable lawful primary text.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-covariance-nullspaces-of-three-point-generalized-ordinal-p--09ebdb81d232",
+          "material_read": "RESULT.md Finding at offset 0 and relationship section at offset 6800",
+          "method": "Local published-record mirror",
+          "title": "Exact covariance nullspaces of three-point generalized ordinal patterns",
+          "trigger": "Same-date overlapping-pattern covariance record"
+        },
+        {
+          "assessment": "Different experiment",
+          "evidence": "Uniform multinomial Pearson X^2 and additive cell statistics do not model pair-window overlap.",
+          "identifier_or_url": "2026/10/13/SCOPE-pearson-covariance-is-exactly-a-binomial-average-of-discrete-cur--4e1ebdd17a01",
+          "material_read": "Indexed Finding on uniform multinomial Pearson covariance",
+          "method": "Local published-record comparison",
+          "title": "Pearson covariance is exactly a binomial average of discrete curvature",
+          "trigger": "Exact Pearson covariance terminology"
+        },
+        {
+          "assessment": "Potential priority risk, not counted as negative evidence or established coverage",
+          "evidence": "The inspected modern general source attributes prior work on exact and asymptotic Markov count laws to these references; no passage of the older work is used as proving or disproving spectral priority.",
+          "identifier_or_url": "Dawson–Good, Annals of Mathematical Statistics 28 (1957), 946–956; Goodman, Annals of Mathematical Statistics 29 (1958), 476–490",
+          "material_read": "Bibliographic references in Carugno–Vivo–Coghi, p. 11, around OA offset 69262; not the original full texts",
+          "method": "Primary paper reference trail and limited literature lookup",
+          "title": "Exact Markov probabilities from oriented linear graphs; Exact probabilities and asymptotic relationships for some statistics from m-th order Markov chains",
+          "trigger": "Closest classical references in the exact Markov count framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Uniform cylinder comparator 0ded5372fff8"
+      ],
+      "rationale": "The ungrouped overlapping-pair statistic is a natural goodness-of-fit diagnostic. The exact bounded-variance endpoint sector versus two distinct bulk sectors explains why the ordinary multinomial calibration is wrong despite its correct mean. The effect persists for arbitrarily nonuniform positive category laws after Pearson weighting, with explicit finite spectral information in addition to an asymptotic correction. That is useful beyond the known uniform collision setting or a computation of pair-count moments alone.",
+      "residual_risks": [
+        "This is a fixed-q, known-p null result, not calibration for fitted probabilities, sparse growing alphabets or dependent letters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

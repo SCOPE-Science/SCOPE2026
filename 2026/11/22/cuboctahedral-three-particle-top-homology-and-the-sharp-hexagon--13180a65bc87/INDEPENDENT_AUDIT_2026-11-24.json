@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:43:50.149981Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–42; VERIFICATION.md, checker_results.json and verify_cuboctahedral.py inspected, not executed",
+        "Independent exact replay: /workspace/branches/f47feeaa-421d-4cfb-9bbb-7644fe55ff58/independent_check.py and independent_check_summary.md",
+        "Maciążek–Sawicki DOI 10.1007/s00220-019-03583-5, §4 reduced model, §4.1 Definition 3, §5.1 product cycles"
+      ],
+      "rationale": "In the integral reduced Świątkowski model, each weight-three degree-three generator uses one of three local half-edge differences at each of three distinct vertices. Removing one factor replaces it by the incident-edge difference with the Leibniz sign. There is no weight-three degree-four group. A fresh exact reconstruction gives 5940 top columns, 14256 possible rows of which 14040 are used, and 5916 unit pivots. Each original pivot column is reduced using only earlier pivot columns, so all nonpivot columns are integral combinations of the original pivot columns; the kernel projects isomorphically to Z^24 on nonpivot coordinates. The local oriented half-edge cycle is the standard one-particle class. On the disjoint union of the three simple cycles its tensor product is the product fundamental class; inclusion into G gives the embedded torus class with the tested ordering signs. Exhaustive cycle and disjointness tests recovered 1422 simple cycles and 60 triples, of types (3,3,3):8, (3,3,4):12, (3,3,5):24, (3,3,6):16. All 60 signed products are closed. The exact 24-class determinant −1 gives an integral basis. The 20 classes of length cutoff four have a unit 20-minor; the 44 classes of cutoff five have rational rank 20, so primitivity implies they span the identical integral lattice. The quotient is therefore Z^4, and the length-six bound is sufficient and sharp.",
+      "residual_risks": [
+        "The replay reconstructs the reduced complex independently but uses the same standard model theorem, not a second model of configuration space.",
+        "The frozen replay note says Python 3.8 or newer, but its use of int.bit_count requires Python 3.10 or newer. This is a runtime prerequisite of the supplied script, not a defect in the mathematical certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maciążek–Sawicki describes disjoint O/Y product cycles in both models. The listed generation theorems include wheels, K3,3 outside degree three, second homology for certain simple graphs, and earlier tree and two-particle results. The cuboctahedron has degree four at all twelve vertices and is not one of these families."
+        ],
+        "reasoning": "A chain algorithm is not an evaluated top integral lattice theorem. The listed cases and low-degree results do not cover three-particle degree three on this graph or constrain the minimum length of geometric factors.",
+        "searches": [
+          "Maciążek–Sawicki §4 and product-cycle results in §5.1, offsets 67501–70574 and 84514",
+          "Local Resultary: product-torus generation for three particles on polyhedral graphs"
+        ]
+      },
+      "checked_sources": [
+        "Maciążek–Sawicki full text, cited sections; matching Resultary passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The icosahedral finding also has sharp length six but rank 110, with 100 triangle generators and ten missing directions supplied by triangle–triangle–hexagon triples. The dodecahedral threshold is ten with short rank 20 and full rank 26. The truncated-cube threshold is twelve with full rank 96."
+        ],
+        "reasoning": "The common question form and, for the icosahedron, identical cutoff do not establish an implication between different graphs. This claim includes a graph-specific primitive rank-20 square cutoff and a pentagon plateau. The evidence does not infer priority from the shared date.",
+        "searches": [
+          "Inspected same-day Resultary findings 058cd66178aa, 1f6dc454009e, 026e59b869b0 and standard product-cycle theorem scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Unordered configuration space, Abrams cubical chains after suitable subdivision and the reduced Świątkowski chains are equivalent ways to compute the same graph braid homology. Length cutoff here means lengths in the original graph, not lengths after subdivision.",
+          "The same-graph finding 490b97e2f079 computes Ind₂(C) as a wedge of 32 three-spheres; it is a different topological space."
+        ],
+        "reasoning": "An integral table from a cubical model on an equivalent graph would count as a rank precedent. To cover the lattice claim it would also need to identify the subgroup of the geometric cycle products with this original edge-length convention. The independence-complex result does not supply either.",
+        "searches": [
+          "Local Resultary: cuboctahedral and L(Q3) three-particle graph braid top homology, products and hexagon threshold",
+          "Maciążek–Sawicki DOI 10.1007/s00220-019-03583-5, §4 and §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9bf90b9f8ec6 gives the dodecahedral rank 26; 46c2ddc89f89 gives Heawood rank 1; c4a56081fd7e gives a four-class truncated-tetrahedral symmetry basis; 4a7f5ab15bea gives octahedral H3=0. The same-graph result found concerns Ind₂(C)."
+        ],
+        "reasoning": "These are genuine neighboring exact invariants, but none is a table entry for unordered triples on the cuboctahedron or an integral length filtration for it. No distinct exact equivalent was located.",
+        "searches": [
+          "Local Resultary focused graph and graph-braid homology queries; mirrored findings on cuboctahedral independence, octahedral, dodecahedral, Heawood and truncated-tetrahedral spaces"
+        ]
+      },
+      "rationale": "The distinct claim is the integral cuboctahedral top homology together with the saturation and sharp geometric length filtration of its torus generators. Existing chain models and product-cycle ansätze are credited. The analyses of other graphs do not supply evaluated ranks, unit lattice minors, or a cutoff for this specific graph.",
+      "residual_risks": [
+        "A focused primary web lookup was unavailable; this was not treated as negative evidence. Unindexed exact computations or inaccessible equivalent work may exist.",
+        "No ordering or historical priority is asserted relative to same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies model and cycles; listed generation theorems do not cover the claim",
+          "evidence": "Reduction uses half-edge differences; O-cycles sum these along each simple cycle; products on mutually disjoint subgraphs are tori. The stated generation cases are restricted families or lower homological degrees.",
+          "identifier_or_url": "https://doi.org/10.1007/s00220-019-03583-5",
+          "material_read": "§4 pp. 942–943 at offsets 67501–70574; §4.1 Definition 3 at 76000; §5.1 pp. 947–948 at 84514",
+          "method": "Springer open PDF",
+          "title": "Non-abelian Quantum Statistics on Graphs",
+          "trigger": "Integral model and geometric product cycles; possible broader generation theorem"
+        },
+        {
+          "assessment": "Different topological object",
+          "evidence": "Ind₂(C) is a wedge of 32 copies of S³.",
+          "identifier_or_url": "2026/11/1/SCOPE-cuboctahedral-two-independence-thirty-two-three-spheres-and-the--490b97e2f079",
+          "material_read": "Mirrored finding",
+          "method": "Local mirror",
+          "title": "Cuboctahedral two-independence: thirty-two three-spheres",
+          "trigger": "Same graph and top dimension"
+        },
+        {
+          "assessment": "Same invariant type and cutoff, different graph and lattice",
+          "evidence": "Icosahedral H3 rank 110 and short subgroup rank 100, with ten hexagon directions.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-hexagon-threshold-for-integral-three-particle-icosahed--058cd66178aa",
+          "material_read": "Mirrored finding",
+          "method": "Local mirror",
+          "title": "The sharp hexagon threshold for integral three-particle icosahedral homology",
+          "trigger": "Strongest matching length threshold and product question"
+        },
+        {
+          "assessment": "Different graph and length filtration",
+          "evidence": "Full rank 26 and stabilization from length five to eight at rank 20, before the length-ten cutoff.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-ten-edge-integral-torus-threshold-for-three-particle-dod--1f6dc454009e",
+          "material_read": "Mirrored finding",
+          "method": "Local mirror",
+          "title": "A sharp ten-edge integral torus threshold for three-particle dodecahedral homology",
+          "trigger": "Same short rank and particle count"
+        },
+        {
+          "assessment": "Different graph and length filtration",
+          "evidence": "Full rank 96 and cutoff twelve.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-twelve-edge-product-torus-threshold-for-three-particles-on--026e59b869b0",
+          "material_read": "Mirrored finding",
+          "method": "Local mirror",
+          "title": "Sharp twelve-edge product-torus threshold for three particles on the truncated cube",
+          "trigger": "Exact comparable geometric generation question"
+        },
+        {
+          "assessment": "Different graph and rank",
+          "evidence": "Octahedral H3 is zero.",
+          "identifier_or_url": "2026/11/8/SCOPE-integral-three-particle-octahedral-graph-homology-and-its-comple--4a7f5ab15bea",
+          "material_read": "Mirrored finding at offset 0",
+          "method": "Local mirror",
+          "title": "Integral three-particle octahedral graph homology",
+          "trigger": "Close polyhedral graph comparison"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Dodecahedral H3 is Z^26.",
+          "identifier_or_url": "2026/11/8/SCOPE-twenty-six-top-degree-integral-cycles-in-the-three-particle-dode--9bf90b9f8ec6",
+          "material_read": "Mirrored finding at offset 0",
+          "method": "Local mirror",
+          "title": "Twenty-six top-degree integral cycles in the three-particle dodecahedral graph",
+          "trigger": "Possible comparable evaluated rank"
+        },
+        {
+          "assessment": "Different graph and invariant",
+          "evidence": "Heawood H3 is Z and its primitive top chain has 3136 nonzero coefficients.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-invariant-primitive-three-cycle-in-the-heawood-three-particle--46c2ddc89f89",
+          "material_read": "Mirrored finding at offset 0",
+          "method": "Local mirror",
+          "title": "An invariant primitive three-cycle in the Heawood three-particle configuration space",
+          "trigger": "Possible related primitive top-class computation"
+        },
+        {
+          "assessment": "Different graph and symmetry question",
+          "evidence": "Four three-torus classes form a permutation basis.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-tetrahedral-symmetry-of-the-three-particle-truncated-te--c4a56081fd7e",
+          "material_read": "Mirrored finding at offset 0",
+          "method": "Local mirror",
+          "title": "Integral tetrahedral symmetry of the three-particle truncated-tetrahedral configuration space",
+          "trigger": "Another integral product-torus basis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and lattice proof; independent rank and unit-minor checks; icosahedral and dodecahedral comparisons"
+      ],
+      "rationale": "On a standard polyhedral graph the result identifies an entire integral group by explicitly embedded geometric generators. The filtration tests how local those generators can be. The plateau from squares to pentagons and the four missing directions supplied by hexagons are not consequences of counting the available tori, or of rational ranks alone. The primitive quotient makes the exact finding a useful integral benchmark for comparisons of graph-configuration spaces and geometric generation.",
+      "residual_risks": [
+        "No automorphism-equivariant basis or broader generation theorem is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

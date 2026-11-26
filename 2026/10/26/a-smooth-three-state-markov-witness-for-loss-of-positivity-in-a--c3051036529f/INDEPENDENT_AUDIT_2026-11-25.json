@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:15:48.199923Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof fails as written: its displayed product (RESULT.md lines 78–80) reverses the printed chronologies x6 then y_(n+1) in (3.19), and its A3 sample is not the one displayed in the accessible preprint. In fact the frozen displayed product gives y₂=(e^(−s)−e^(−2αs))/C and y₃=[C−(C+1)e^(−s)+e^(−(C+1)s)]/C>0 for s>0, with leading term (C+1)s²/2. Its checker evaluates only the desired closed form, so cannot detect the error. The repair uses the actual printed sequence and defines A on the whole real line, identically zero for t≤0, resolving the negative A3 evaluation. Supports are disjoint: (b_++δ)/100 is below the first positive node d₀ and 100(b_−−δ)>1; the remaining same-scale sample distances exceed δ. This also works with the upper in-interval half-step Gauss node. Local finiteness and O(t^(4−k)) derivative bounds for k≤3 yield bounded C³ regularity across zero; the triangular integral formulas give nonnegativity, and column sums preserve mass. With U=e^(−βs), V=e^(−αs), the actual first stage gives (U, β(U−V)/C) in coordinates 1 and 2; the second produces (UV,U(U−V)/C). Then UV=e^(−s), U²=e^(cs), and the stated y₃ follows by mass. Its negative numerator has opposite sign to the strictly increasing e^(cs)+ce^(−s)−(1+c), whose leading term is cCs²/2. This retains the arbitrary shrinking sequence and the exact h_n^10 law. All corrected scientific files are in repairs/1. Replay `python3 /workspace/repairs/1/verify.py`: five stage-propagation and reversal comparisons passed; n=1 gives −1.933754005405e−12 ordered and +2.693361511695e−11 reversed. The sign proof is analytic, not an extrapolation from those runs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The main method paper notes that β<0 so positivity is not assured; its displayed formula gives the two chronological stages used by the repair. The closest 2020 article was identified but its technical text could not be read in the attempted access."
+        ],
+        "reasoning": "A warning based on negative coefficients supplies a possible mechanism, not an exact stage-composition witness on a single C³ generator recurring at arbitrarily small steps. The uninspected related article remains an access limitation, not negative evidence.",
+        "searches": [
+          "arXiv:2102.08242, §3.5, Eqs. (3.18)–(3.19)",
+          "doi:10.21914/anziamj.v61i0.15169",
+          "Resultary: commutator-free Magnus integrator positivity Markov generator negative transition probability"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, AUDIT.json, REVIEW.md, METADATA.json and SLOGAN.txt",
+        "Repaired RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2102.08242, §3.5; access attempts on related DOI/article sources",
+        "Resultary 7b7614ca94fa and 414ee797c218, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The actual stage product gives a negative third coordinate; even the reversed order with the same signed combinations supplies a positive third coordinate. The compared internal findings concern different update maps and, respectively, step-dependent inputs or loss of positivity away from small steps."
+        ],
+        "reasoning": "The proof needs both the exact chronological composition and a simultaneous interpolation of stage samples at an infinite sequence of scales. Those implications are not obtained just from the sign warning or positivity counterexamples for distinct maps.",
+        "searches": [
+          "arXiv:2102.08242, §3.5 pp. 16–17, paragraph after (3.18) and displayed (3.19)",
+          "7b7614ca94fa and 414ee797c218, local-mirror Findings at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source has a sufficient condition in terms of its weighted graph Laplacians. The closest indexed record in the Magnus family (7b7614ca94fa) instead uses a two-term truncated Magnus exponential on four states with row/right-acting dynamics and a step-dependent pulse construction."
+        ],
+        "reasoning": "Transposing the Markov convention can change how composition is written, not turn one truncated Magnus exponential into (3.19); it does not remove the differences in dimension and fixed-generator quantifier. Violating a sufficient sign condition does not by itself establish a negative output.",
+        "searches": [
+          "Resultary: fixed smooth three-state Markov generator positivity counterexample seven-exponential third-order commutator-free Magnus method h_n",
+          "Resultary: seven-exponential third-order commutator-free Magnus method (3.19) Blanes Iserles Macnamara fixed C3 Markov generator exact negative coordinate sequence step sizes",
+          "Web: \"commutator-free\" Magnus positivity-preserving method counterexample time-dependent Markov generator negative coefficient graph Laplacian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7b7614ca94fa is a four-state two-term Magnus threshold. 414ee797c218 is a fixed three-state autonomous pure-birth generator for fifth-order Radau IIA, with negativity only in a bounded step interval separated from zero."
+        ],
+        "reasoning": "A finite list of negative outputs cannot cover the h_n→0 quantifier on a fixed nonautonomous generator. Exact indexed counterexample formulas could apply if algorithm, setup, and small-step behavior matched; these do not.",
+        "searches": [
+          "Resultary: seven-exponential third-order commutator-free Magnus method (3.19) Blanes Iserles Macnamara fixed C3 Markov generator exact negative coordinate sequence step sizes",
+          "Resultary records 7b7614ca94fa and 414ee797c218, RESULT.md, Findings"
+        ]
+      },
+      "rationale": "The repaired claim is the fixed-generator, three-state, arbitrarily-small-step counterexample with exact third coordinate for the chronological method (3.19) in the accessible primary preprint. It is not the known warning about signed stage combinations, a local generator sign test, or a positivity interval for another integrator. The compared indexed and primary statements do not cover this claim; residual access and indexing limits remain.",
+      "residual_risks": [
+        "The published typesetting of (3.19) was not independently verified. The repaired result is anchored to the inspected preprint and explicitly treats the natural alternative in-interval A3 node with the same chronology.",
+        "Unindexed equivalent witnesses and the technical contents of the inaccessible 2020 article remain possible sources of closer coverage; no publication-priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method and warning are established antecedents; frozen product and preprint A3 transcription need correction, but the specific witness survives the corrected stages",
+          "evidence": [
+            "x6 uses α B2+β B1; output then applies β B2+α B1. The preprint prints the third initial node as −(1/6−sqrt(3)/12). The discussion after (3.18) notes β<0 and that positivity is not assured."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.08242; doi:10.1051/m2an/2022042",
+          "material_read": "Preprint PDF §3.5, pp. 16–17, (3.18) discussion and (3.19); exact layout text at offsets 59400–64231, method number near 61277. Publisher version not recovered. An additional lawful archive item lookup returned no copy.",
+          "method": "Trace x6 and y_(n+1) in chronological order; compare exact A3 and final sampled generators",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Exact method stage order, sample abscissae and positivity caveat"
+        },
+        {
+          "assessment": "Material source remains an access risk; detailed coverage not independently judged",
+          "evidence": [
+            "Bibliographic identification only; no technical passage verified."
+          ],
+          "identifier_or_url": "doi:10.21914/anziamj.v61i0.15169",
+          "material_read": "Identified official article title and authors; technical full text not obtained in the attempted access",
+          "method": "Follow official source and seek accessible substantive text",
+          "title": "Simulation of bimolecular reactions: Numerical challenges with the graph Laplacian",
+          "trigger": "Related commutator-free Magnus positivity discussion"
+        },
+        {
+          "assessment": "Different method and quantifiers",
+          "evidence": [
+            "Two-term truncated Magnus with smooth four-state reverse-ordered pulses and small integrated-rate negativity; Q_h varies with h."
+          ],
+          "identifier_or_url": "Resultary 7b7614ca94fa",
+          "material_read": "Mirror RESULT.md, Finding and scope, offset 0",
+          "method": "Compare operator, orientation, dimension and whether the input varies with step size",
+          "title": "A sharp four-state positivity recovery threshold for the two-term Magnus exponential",
+          "trigger": "Closest indexed signed time-dependent Magnus witness"
+        },
+        {
+          "assessment": "Does not cover the repaired family",
+          "evidence": [
+            "Autonomous fifth-order Radau IIA with a bounded negativity interval, approximately (4.8084,17.7285), not negativity arbitrarily close to zero."
+          ],
+          "identifier_or_url": "Resultary 414ee797c218",
+          "material_read": "Mirror RESULT.md, Finding and scope, offset 0",
+          "method": "Compare update maps and positivity as h→0",
+          "title": "A sharp three-state positivity window for fifth-order Radau IIA",
+          "trigger": "Fixed low-dimensional Markov-generator positivity witness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact positivity is a necessary probability invariant. With one smooth generator, rather than a different generator for every step, this witness shows that taking sufficiently small steps is not a universal remedy for the named method on bounded C³ generators. It quantifies the defect and distinguishes it from an order or stability failure; its h_n^10 scale limits practical impact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

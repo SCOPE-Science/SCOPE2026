@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:42:13.913021Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniqueness and horizontal reflection force the unrestricted John ellipsoid to have zero horizontal center and zero horizontal–vertical cross block. At each z between apices the body section is min(1+z/a,1−z/b)B: the base weight in a convex combination is at most both affine bounds and the smaller one is realized by using only the apex on that side. For a horizontal middle ellipsoid E_0, containment thus depends only on the smallest u with E_0⊂uB; replacing E_0 by uJ(B) preserves feasibility and strictly improves the determinant unless E_0 already equals uJ(B). Taking support maxima on the upper unit semicircle gives the two root constraints √(a²u²+v²)≤a+c and √(b²u²+v²)≤b−c, including the axial endpoint requirements. Their summed bound must be tight by scaling and then fixes c. For t=v/u the objective is proportional to t/(X+Y)^d, whose log derivative is 1/t−dt/(XY). The ratio XY/t² decreases strictly from infinity to 1; this gives a unique interior optimum and the positive quartic root with the displayed scales. The sign follows from b²X²−a²Y²=(b²−a²)t², and the determinant gives the volume. For fixed positive u,v and a+b, the sum of the two roots is strictly convex and symmetric as a function of a, hence increases strictly with imbalance. The imbalanced optimizer is strictly feasible at a more balanced pair, where joint dilation improves the objective. Section integration gives the constant host volume, and the stationary equation at a=b and in the one-sided limit gives the stated sharp ratio and sqrt(e d)/2 asymptotic. The cone endpoint is excluded from the positive-height class. The frozen `python3 verify.py` was inspected, not executed: its 6,132 batches sample identities, nearby aspect ratios and profiles in d=2 through 15 at numerical tolerances. The additional three-dimensional optimizer comparisons are reported without a replay program in this package and are not needed by the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The revolution paper gives general inclusion and volume bounds and a cone optimizer in a family of cones, not a two-apex John optimizer. The ellipsoidal-cone paper characterizes cones over ellipsoids by sections. Frustum formulae cover arbitrary base shape and can set the top scale to zero; they do not cover sections with an interior maximum and two independently sloped sides. The planar theory covers arbitrary convex quadrilaterals."
+        ],
+        "reasoning": "The broader sources settle actual subcases or provide useful methods. None of the inspected statements simultaneously covers two positive opposing axial heights and the fixed-sum optimization of the John determinant in all dimensions.",
+        "searches": [
+          "arXiv:2507.06947 Theorem 1.7 and Proposition 4.3",
+          "arXiv:1204.3947 p. 1",
+          "arXiv:0907.1647 Theorems C–D",
+          "Resultary b5af3bdeb35c, 976839cd459e, 07410bf05003 Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0907.1647",
+        "arXiv:2507.06947",
+        "arXiv:1204.3947",
+        "Resultary b5af3bdeb35c, 976839cd459e, 07410bf05003, d98e8b7c23bd, 7d704c692dd7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniqueness in the quadrilateral formula identifies the same d=2 ellipse. The frustum cone value is precisely the vanishing-height endpoint, but frustum monotonicity varies the scale of a second base, not the location of an interior maximal section. Santaló and Mahler conclusions do not identify John contact or volume."
+        ],
+        "reasoning": "Endpoint values do not imply strict order between two positive imbalances. Nor does optimizing the separate one-sided problems determine a common maximal ellipsoid: the two roots must share the center budget a+b. That coupled constraint, its unique optimized determinant, and its strict order supply scientific content beyond substituting parameters into the compared statements.",
+        "searches": [
+          "arXiv:0907.1647 Eq. (5) and maximizer",
+          "arXiv:2507.06947 Theorem 1.7 and Proposition 4.3",
+          "07410bf05003 RESULT.md Finding",
+          "d98e8b7c23bd RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With a segment base the suspension is a kite, including the rhombus at equal heights, so its ellipse is covered by the general planar quadrilateral maximizer. With a Euclidean-ball base it is a right bicone. The same arbitrary-base bipyramid in d98e8b7c23bd is studied for Santaló displacement and Mahler response, not the contained John ellipsoid."
+        ],
+        "reasoning": "Identify the equivalent planar and rotational forms and distinguish objective functions. An arbitrary centrally symmetric base need not be an affine image of a ball; the horizontal John reduction is required to pass from the bicone problem to that base.",
+        "searches": [
+          "arXiv:0907.1647 Theorems C–D and Eq. (5)",
+          "arXiv:2507.06947 fixed-axis-of-revolution optimization",
+          "Resultary d98e8b7c23bd Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frustum catalogue contains the exact cone-limit transverse radius √((d−1)/(d+1)) and vertical radius H/(d+1). The planar fractions π/4 at the rhombus and π/(3√3) at the cone triangle yield 3√3/4. The same-family Santaló finding tabulates a different functional law; none of these exact comparisons supplies the coupled positive-height parameters and strict John-volume law."
+        ],
+        "reasoning": "This is a continuum formula, not a table lookup; overlapping exact endpoint values and the planar maximizer are credited, without treating the later catalogue dates as evidence of precedence.",
+        "searches": [
+          "Resultary b5af3bdeb35c, 976839cd459e, 07410bf05003, d98e8b7c23bd",
+          "arXiv:0907.1647 pp. 1,3,5"
+        ]
+      },
+      "rationale": "Credit the planar John-ellipse instance and endpoint comparisons to the broader quadrilateral theory, the cone limit and shape reduction for frusta to the corresponding cone/frustum results, and general extremality and uniqueness to John's theory. The supported distinct content is the exact coupled two-apex optimizer for positive unequal heights, including d≥3 and arbitrary origin-symmetric bases, and the strict fixed-total-height decrease of its John filling fraction with the sharp general-dimensional factor. The closest inspected matches concern one-sided cones or frusta, planar quadrilaterals, or a different extremal invariant of the same bipyramid. This judgment is bounded by the inspected sources.",
+      "residual_risks": [
+        "Earlier specialist general-dimensional bicone formulas may be unindexed. The Hayes quadrilateral study and a referenced 2024 inellipse monograph were not read; further planar overlap is possible.",
+        "The proposed focused web lookups were deferred. The judgment rests on inspected primary passages and catalogue findings, not negative evidence from those lookups or a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct planar optimizer coverage and exact planar endpoints, not the all-dimensional imbalance claim",
+          "evidence": "Ellipse parametrization and area profile identify the maximum on every convex quadrilateral; triangle and parallelogram fractions give the planar ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.1647",
+          "material_read": "P. 1 Theorems C–D (OA offsets 4351–4770) and triangle fraction; p. 3 bound (offset 10000); p. 5 Eq. (5) and maximizing center (offset 14800)",
+          "method": "Primary OA PDF passages",
+          "title": "An Area Inequality for Ellipses Inscribed in Quadrilaterals",
+          "trigger": "Kite and rhombus instances and exact endpoint ratio"
+        },
+        {
+          "assessment": "General bounds and different cone optimization, not exact two-height formula in these passages",
+          "evidence": "Section, inclusion and volume bounds; maximum-volume right cone in a family of cones.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.06947",
+          "material_read": "P. 2 fixed-axis formulation (offset 6325), p. 4 Thm. 1.7 (13874), p. 14 Prop. 4.3 (49515)",
+          "method": "Primary OA passages",
+          "title": "John Ellipsoids of Revolution",
+          "trigger": "Same class for ball-base surfaces, possible stronger cone theorem"
+        },
+        {
+          "assessment": "Different object characterization",
+          "evidence": "Sections characterize cones over ellipsoids; no determination of the positive-height bipyramid maximizer in that statement.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.3947",
+          "material_read": "P. 1 primary theorem scope, offset 0",
+          "method": "Primary OA passage",
+          "title": "Two characterizations of ellipsoidal cones",
+          "trigger": "Cone and bicone context"
+        },
+        {
+          "assessment": "Cone-limit overlap, different positive-height bodies",
+          "evidence": "Frusta with an arbitrary base and a homothetic top, including the cone.",
+          "identifier_or_url": "b5af3bdeb35c",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local mirror primary statement",
+          "title": "A universal John ellipsoid contact transition for homothetic frusta",
+          "trigger": "Related shape-independent optimizer and exact cone endpoint"
+        },
+        {
+          "assessment": "Cone-limit overlap, no two opposed apices",
+          "evidence": "Homothetic sections with a single scale slope between the end planes.",
+          "identifier_or_url": "976839cd459e",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local mirror primary statement",
+          "title": "Base-independent John ellipsoids of homothetic frusta",
+          "trigger": "Potentially dominating base-independent formula"
+        },
+        {
+          "assessment": "Same cone formula; different deformation parameter and shape",
+          "evidence": "Strictly increasing factor as the top scale of a frustum increases, not fixed-sum opposite-apex imbalance.",
+          "identifier_or_url": "07410bf05003",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local mirror primary statement",
+          "title": "Universal John ellipsoids of homothetic frusta",
+          "trigger": "Potentially equivalent monotonicity statement"
+        },
+        {
+          "assessment": "Different extremal functional",
+          "evidence": "Santaló point and affine volume product change with imbalance, not a John optimizer or its volume.",
+          "identifier_or_url": "d98e8b7c23bd",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local mirror primary statement",
+          "title": "Universal Santaló displacement and sharp Mahler response of unequal-height suspensions",
+          "trigger": "Same family of unequal-height bipyramids and fixed-sum comparison"
+        },
+        {
+          "assessment": "Different comparison; cites potential specialist planar antecedents",
+          "evidence": "Uses Horwitz's ellipse area profile in a stochastic comparison and cites Hayes's 2016 study of specific quadrilaterals.",
+          "identifier_or_url": "7d704c692dd7",
+          "material_read": "Mirrored RESULT.md relationship-to-prior-work passage near offset 6009",
+          "method": "Local mirror bibliographic and scope passage",
+          "title": "Sharp stochastic area dominance and trapezoid rigidity for quadrilaterals",
+          "trigger": "Nearby planar inellipse comparison and references"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The horizontal determinant reduction treats nonsmooth and nonround bases without a new optimization for each shape. The height law is a strict extremal comparison across a natural family with equal host volume, with an attained symmetric maximum and a sharp limiting loss of order √d. This compares full deformations, not just known isolated cone or planar endpoints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

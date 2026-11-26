@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:59:01.635895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the clock and killed-kernel argument. The refresh-epoch transform is (1+u^alpha/n)^(-n), equivalently the independent product S_alpha (G_n/n)^(1/alpha). Mellin integration gives the stated negative moments and bounded moments of any fixed negative order for large n, as well as the uniform positive orders p<alpha. For the kernel estimates, write p_s(k) for the rate-one free transition probability and telescope the reflected difference into h terms p_s(k-1)-p_s(k+1)=2k p_s(k)/s at k=j-h+1,j-h+3,...,j+h-1. Applying the ordinary free lattice local CLT to these terms proves the derivative-scale kernel limit without subtracting two uncontrolled CLT errors. Survival telescopes exactly to sum_{k=1-h}^h p_s(k), giving the stated constant and uniform bound. For the endpoint tails, a global pointwise Gaussian bound is neither required nor valid at arbitrarily distant Poissonized sites: for s>=1 the free walk W_s satisfies E exp(±W_s/sqrt(s))=exp(s[cosh(1/sqrt(s))-1])<=C. The telescoping identity then controls every rescaled killed polynomial tail, and sup_k p_s(k)<=C/sqrt(s) controls the small endpoint range. This justifies the local-limit Riemann sums and the asymptotic M_q(s) with the stated Rayleigh coefficient. Negative moments control clock mass near zero, and the survival bound controls large clocks. The resulting inverse-square-root tilt is normalized by the stated A_alpha. At any t>0 the finite positive weighted sum of rates has 1-Laplace(u) asymptotic to a positive constant times u^alpha; the fractional-moment integral proves finiteness precisely below alpha, including divergence at equality. For q>1 use M_q(s) of order s^((q-1)/2); for q<=1 use the stopped first moment h. A larger still-subcritical moment gives uniform integrability; q=1 follows directly from conservation. This also checks all Gamma constants and the alpha=1/2 boundary. Replay: RESULT.md §§1–4 with the Bessel recurrence and exponential tail argument above. Inspected VERIFICATION.md and VERIFY.py; their numerical checks are only finite corroboration and were not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Angstmann et al. derive the same exponent in different compounded-step dynamics; Iafrate–Orsingher study conditioned Brownian occupation functionals. The Rayleigh endpoint for the Brownian meander is a classical input."
+        ],
+        "reasoning": "Neither the inspected compounded-walk result nor Brownian-meander conditioning supplies convergence under the survivor-biased refresh-clock mixture and its moment bounds.",
+        "searches": [
+          "Angstmann et al. arXiv:2511.18256",
+          "Iafrate–Orsingher arXiv:1909.13569v1",
+          "Durrett–Iglehart–Miller DOI 10.1214/aop/1176995895"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "arXiv:2609.26925v1",
+        "arXiv:2511.18256",
+        "arXiv:1909.13569v1",
+        "Resultary 19a39864f876 and 50200fbcdf63"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Their exact kernel and clock transform are sufficient starting data. Passing to a conditioned joint law needs uniform control of the small-clock amplification by survival conditioning and endpoint truncation; convergence of conditional moments additionally needs uniform integrability and the sharp operational-time moment order."
+        ],
+        "reasoning": "The joint theorem is derived from known ingredients but is not just a parameter substitution into the published survival law. The independent content is the conditioning and tail analysis, not a new subordinated kernel.",
+        "searches": [
+          "Levit–Reuveni arXiv:2609.26925v1, first-passage derivation and refreshed-rate analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior propagator retains the random operational time before averaging; the published survival asymptotic determines the total normalizing mass, not the clock marginal under survival.",
+          "A killed-Brownian stable time change has the same limiting structure, but is not the finite lattice walk with a rate refreshed in physical time."
+        ],
+        "reasoning": "The claimed limit is the joint law of the normalized prelimit clock and endpoint under survival, not the unconditioned stable-clock limit or a statement about the FPT distribution.",
+        "searches": [
+          "Levit–Reuveni arXiv:2609.26925v1 Eqs. (1)–(4)",
+          "Resultary comparison: survivor-conditioned stable clock and endpoint under fluctuating jump rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 22 Finding derives the fixed-time survivor-position tail exponent 1+2alpha for regularly varying refreshed rates and explicitly gives the same fixed-time cutoff and, in the Mittag–Leffler case, moment reversal. It does not state the joint refresh-epoch endpoint/clock theorem.",
+          "The Nov. 8 index synopsis concerns a distance-scaled first-passage law; full mirror text was unavailable."
+        ],
+        "reasoning": "Direct overlap is credited for the threshold and reversal, not extrapolated to a joint limit in another scaling experiment. The indexed dates alone do not establish priority.",
+        "searches": [
+          "Resultary 2026/11/22 SCOPE-sharp-survivor-cloud-tails-under-fluctuating-jump-rates--19a39864f876",
+          "Resultary 2026/11/8 SCOPE-universal-distance-scaled-first-passage-law-for-fluctuating-jump-rates--50200fbcdf63"
+        ]
+      },
+      "rationale": "Supported distinct contribution: the refresh-epoch survivor-conditioned joint endpoint/clock limit and actual normalized conditional-moment convergence. Do not credit the rate law, killed propagator, survival exponent or mean-absorption transition as new. The fixed-time cutoff and reversal also occur in a distinct later-dated record; no priority/order beyond the displayed dates is inferred, and the later result does not give the joint limit.",
+      "residual_risks": [
+        "A general survivor-conditioned subordination theorem beyond the inspected sources could subsume the joint theorem.",
+        "The Nov. 8 record was accessible only at index-synopsis level; the Durrett–Iglehart–Miller article was not available as full text through the attempted route."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, conditional propagator and survival transition; no survivor joint convergence in the decisive material",
+          "evidence": "Propagator is first conditional on accumulated rate and then averaged; S(t|x0) has exponent 1/(2alpha), and mean FPT is finite iff alpha<1/2.",
+          "identifier_or_url": "https://arxiv.org/html/2609.26925v1",
+          "material_read": "Rate law and first-passage derivation, offsets 11089–15799, Eqs. (1)–(4)",
+          "method": "OA primary full-text passages",
+          "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+          "trigger": "Same killed walk and rate law"
+        },
+        {
+          "assessment": "Direct overlap for the fixed-time moment cutoff and dispersion reversal, not the long-time joint limit",
+          "evidence": "Fixed-time spatial survivor tail has exponent 2alpha+1, giving the same iff moment cutoff.",
+          "identifier_or_url": "Resultary 2026/11/22/19a39864f876",
+          "material_read": "RESULT.md, offsets 0–8402",
+          "method": "Local Resultary mirror",
+          "title": "Sharp survivor-cloud tails under fluctuating jump rates",
+          "trigger": "Identical moment boundary in the same model"
+        },
+        {
+          "assessment": "Adjacent, not a matching model in the inspected material",
+          "evidence": "Different compounded-step construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.18256",
+          "material_read": "Abstract/model synopsis, offsets 700–2583",
+          "method": "OA primary text",
+          "title": "First-Passage Times for the Space Fractional Fokker-Planck Equation",
+          "trigger": "Stable-clock scaling with the same survival exponent"
+        },
+        {
+          "assessment": "Meander occupation functionals rather than refreshed random-rate endpoint and clock",
+          "evidence": "Studies sojourn time of a conditioned Brownian object.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.13569",
+          "material_read": "Abstract, offsets 46–1054",
+          "method": "OA primary text",
+          "title": "On the sojourn time of a Generalized Brownian meander",
+          "trigger": "Conditioned diffusion/meander overlap"
+        },
+        {
+          "assessment": "Classical input credited; no whole-paper noncoverage conclusion",
+          "evidence": "Landing identifies the Brownian-meander convergence setting.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176995895",
+          "material_read": "Landing metadata only; full text not inspected",
+          "method": "Lawful OA lookup",
+          "title": "Weak Convergence to Brownian Meander and Brownian Excursion",
+          "trigger": "Classical Rayleigh endpoint input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The law of the operational time among survivors differs substantially from the population clock, even at the limiting scale. The joint limit makes the selection effect quantitative and explains which survivor spatial moments can be used; the exact finite-time moment boundary prevents an inference about spatial dispersion from the mean absorption time alone. These are meaningful consequences for this specified model without asserting a conditioned path-space theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

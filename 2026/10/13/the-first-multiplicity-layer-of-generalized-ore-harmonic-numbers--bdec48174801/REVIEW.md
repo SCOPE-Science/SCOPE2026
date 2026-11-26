@@ -1,20 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The condition is evaluated exactly on the complete list of factorization types allowed by \(\Omega(n)\le2\). Prime and prime-square cases fail by coprimality. For \(pq\), the harmonic quotient is an integer strictly between \(1\) and \(4\), so only \(2\) or \(3\) are possible. Those two values give the exact factor equations
-\[
-(x-1)(y-1)=2
-\]
-and
-\[
-(x-3)(y-3)=12,
-\]
-and only the first produces prime powers with a common exponent, namely \(x=2,y=3,k=1\). A fresh exact finite replay agrees with the theorem.
+## correctness
 
-## Originality
-PASS, with a clearly stated source-access risk. Cohen--Deng introduced the same generalized object and are reported by Sándor to have excluded proper examples only up to \(10^{10}\). Their original 1998 full text was not available through the inspected open routes, so it is not declared non-covering. The closest published modern result excludes all even two-prime-support proper cases, but it does not state the complete \(\Omega\le2\) classification and does not cover the odd semiprime branch by implication. The ordinary Ore-number database covers only \(k=1\).
+PASS
 
-## Value
-PASS. The existence of proper \(k\)-harmonic numbers is an explicitly studied question, and the source literature reports only a large finite nonexistence computation. The theorem turns the first multiplicative-complexity layer into an unrestricted statement: any hypothetical proper example must have at least three prime factors counted with multiplicity. This is a structural boundary rather than a numerical search cutoff.
+For k≥1 and n>1 the Ω≤2 factorizations are p, p² and distinct pq. For x=p^k, the prime and prime-square denominators x+1 and x²+x+1 are coprime to x, so integrality requires them to divide 2 and 3, respectively, impossible already at x=2. For x=p^k and y=q^k, 1<4xy/((x+1)(y+1))<4, leaving 2 or 3. The first gives (x−1)(y−1)=2 and therefore {x,y}={2,3}, k=1 and n=6; the ratio at 6 is 2. The second gives (x−3)(y−3)=12: zero factors cannot occur and if both factors were negative they would both equal −1 since x,y≥2, giving product 1. Thus the three unordered positive-factor pairs give (x,y)=(4,15),(5,9),(6,7). The first and last have a non-prime-power member; in (5,9) the exponents 1 and 2 differ. This proves the exact unbounded classification and the necessary Ω≥3 consequence for proper k. The uploaded checker was inspected but not run; its finite sweep is not needed for this proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The harmonic exception 6, the generalized definition, the earlier finite negative search and the earlier even two-prime support exclusion are not new. The distinct part is the uniform exact multiplicity-two classification, including exclusion of odd squarefree semiprimes for every k≥2. No inspected result establishes that missing branch for unbounded primes. The unavailable original generalized Ore paper remains a substantive access risk.
+
+## value
+
+PASS
+
+Generalized Ore harmonicity has an open existence question for proper k; the two smallest nontrivial multiplicity layers are natural to exhaust. Closing the odd semiprime case uniformly gives an exact unconditional restriction on the prime factorizations of any hypothetical examples, complementing a stronger prior bound that applies only to even two-prime support. This is a modest structural classification, not a numerical search extension or a new existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

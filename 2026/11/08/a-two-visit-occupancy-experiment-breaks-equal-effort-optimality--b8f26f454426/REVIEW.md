@@ -1,19 +1,21 @@
-# Review: two-visit occupancy information design
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four binary histories have explicitly normalized probabilities. Direct differentiation gives all three Fisher information entries and the determinant in equation (1). For fixed total effort the determinant is maximized by the scalar objective \(f(x)+f(\theta-x)\). The proof obtains strict small-budget concavity from a uniform analytic expansion, an exact non-equal-budget witness by rational arithmetic, and the universal short-probe asymptotic by compactness and uniqueness of the maximum of \(f\). The finite symbolic and rational checks in `verify.py` independently reproduce the critical algebra; they do not substitute for the continuum proof.
+PASS
 
-## Originality — PASS within inspected evidence, provisional
+An independent information derivation separates the Bernoulli event of any detection from the history conditional on a positive result. Write k=exp(-lambda T), alpha=1-k, q=1-psi alpha, and S=sum_j t_j^2/(exp(lambda t_j)-1). The any-detection contribution is the rank-one outer product of (alpha, psi T k), divided by psi alpha q. The positive-history conditional score involves only lambda and is orthogonal to the Bernoulli score. In the fully occupied subexperiment its information J satisfies S=T^2 k/alpha+alpha J; thus in the mixture the extra lambda-lambda entry is psi alpha J. This yields det I=(alpha S-T^2 k)/q exactly. Both positive-duration visits give J>0 because P(11)/P(10)=exp(lambda t_2)-1 has nonzero derivative; endpoints give determinant zero by continuity. At fixed budget only f(x)+f(theta-x) matters. Its small-budget strict concavity follows from f''(0)=-1 and continuity, with symmetry giving the unique equal split. At 10 log 2, exact operations on powers of 2 reduce the two scaled numerators to 715639/455168 and 775/512 (gain 3333/56896, about 3.8701%). The sign of f' is the sign of 2(1-exp(-u))-u, whose strictly decreasing derivative after its sole critical point gives the unique positive root a_*. For long budgets the competitor (a_*,theta-a_*) approaches f(a_*); unbounded shorter legs would make both f terms vanish, and every limit point of the bounded shorter legs must equal a_*. Finally f(a_*)=a_*(2-a_*), and direct simplification at equality gives (theta^2/2)(exp(-theta/2)-exp(-theta)), yielding both determinant limits for fixed interior psi and fixed lambda.
 
-MacKenzie–Royle (2005) treat occupancy-estimator precision and allocation across sites and replicate counts. Guillera-Arroita–Ridout–Morgan (2010) explicitly treat D-optimality of *replicate counts* under identical detection probabilities, making them the closest known source, but do not establish fixed-two-visit, unequal-duration D-optimality or its universal occupancy-prevalence independence and large-budget short-probe law. Moore and colleagues (2014, 2016) optimize detection probability under stochastic between-visit detection conditions; Bornand and colleagues (2014) exploit observed detection times, which are not available under the present binary data reduction. The 2020 Reich paper is highly relevant to occupancy design but emphasizes MSE for occupancy and alternative visit policies, not the same joint-information objective in its accessible descriptions. An older equivalent specialization in experimental-design or cure-mixture literature remains possible. Neither nonmatching titles nor unsuccessful searches establish historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The simultaneous estimation of occupancy and detectability is a real motivation for replication in ecological monitoring. With exactly two budgeted binary survey opportunities, the theorem identifies a counterintuitive departure from equal allocation, supplies exact quantitative improvement at a natural budget, and derives the asymptotically unique short-probe scale. The optimized duration split is insensitive to the unknown occupancy prevalence even though inference for both parameters remains the objective. The result provides a mathematical benchmark for protocol comparison, not a direct prescription for field surveys with heterogeneity, overhead, or scarce site counts.
+The supported distinct finding is the fixed-budget geometry for two positive binary visits, with unknown prevalence and one shared Poisson rate and no false positives: exact prevalence separation in the split criterion, strict small-budget symmetry, finite counterexample to equal allocation, and the universal normalized short leg. Joint design and occupancy likelihoods are antecedents rather than novelty claims. The strongest inaccessible comparisons remain explicit limitations, not inferred mismatches.
 
-## Limitations and closest literature
+## value
 
-The conclusion assumes independent Poisson detections with a common rate, closed site occupancy, no false positives, predetermined two-visit binary observations, and fixed local Fisher D-optimality. It does not establish a globally unique finite-budget bifurcation threshold or independent priority. Closest inspected literature: https://doi.org/10.1111/j.2041-210X.2010.00017.x ; https://doi.org/10.1111/j.1365-2664.2005.01098.x ; https://doi.org/10.1371/journal.pone.0115345 ; https://doi.org/10.1111/2041-210X.12564 ; https://doi.org/10.1111/2041-210X.12171 .
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Balancing two visits is a natural design default. This fixed-effort benchmark proves when that default works at small budgets, shows a concrete finite failure independent of prevalence, and gives a principled long-budget allocation with exponentially higher determinant than the balanced split. The mathematical motivation is the change in optimal design and its asymptotic efficiency, not the small size of the single finite witness gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:55:40.880116Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lucas factorization of the cubed binomial sums gives residues (1,2,0,1,1) for one digit and exactly the alphabet {0,1,3,4}. For equality of ordinary integers, the difference of digit pair-sums plus the incoming signed carry must be five times the outgoing carry. Starting at zero, only -1,0,1 occur; zero terminal carry is necessary and sufficient by telescoping. The pair-sum multiplicities (1,2,1,2,4,2,1,2,1) give carry rows (17,28,6), (8,36,8), (6,28,17), hence reflection-even trace 59 and determinant 380. The middle entry starts at 1,36, giving the required resolvent and root expansion, with the polynomial negative by 484/25 at 256/5. The contiguous digit sum range 0..8 yields overlapping translated prefix intervals and hence the full integer sumset at every depth, including depth zero. The independent residual tail in the continuous sum lands on either side of 1 with probability 1/2 by non-atomicity and reflection; hence grid masses are the averages of neighboring truncated masses. Their square sum is between one half and one times E_r/256^r. This proves the five-adic grid exponent and violates the uniform L² bound obtained by applying cellwise Cauchy–Schwarz to a putative density. /workspace/evidence/reproduce_other_checks.py independently verified direct Franel residues through n=200, prefix-sum histograms and grid energy bounds through r=8, and the reported dimension decimal. The analytic bounds, not these finite checks, prove the limiting assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu provides general machinery for L^q spectra; 0a6383f8b10e evaluates the analogous uniform base-four {0,1,3} problem and gets trace 25 and determinant 90."
+        ],
+        "reasoning": "The matrix machinery applies in principle. The inspected statement does not specify this numerical eigenvalue or compare it to 256/5, and the base-four calculation uses different transition weights and carry multiplicities. Applying the method here requires evaluating the actual carry system and checking its continuous grid-mass interpretation.",
+        "searches": [
+          "Wu arXiv:2201.01909 abstract, finite-type matrix representations",
+          "Resultary: digit convolution energy and correlation dimension"
+        ]
+      },
+      "checked_sources": [
+        "Ash et al., Appendix Theorem 2",
+        "0a6383f8b10e",
+        "d1c4b8a11bf4",
+        "135609b4a49e",
+        "arXiv:2201.01909",
+        "arXiv:1112.1034",
+        "arXiv:1508.00297"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Franel congruence work supplies the arithmetic context and classical Lucas explains the support; exact interval-sum work fixes coverage, not weights; the other Franel finding reports signed unwrapped shifts, not the ordinary four-variable support count."
+        ],
+        "reasoning": "Knowledge of the support or of its full sumset alone does not give any exact multiplicity variance. The compared statements do not supply the relevant positive digit-pair difference law or its growth constant.",
+        "searches": [
+          "Sun arXiv:1112.1034",
+          "Malik–Straub arXiv:1508.00297",
+          "Ash et al. Appendix Theorem 2",
+          "Resultary d1c4b8a11bf4 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Appendix studies precisely the real base-five alphabet {0,1,3,4} and proves continuum-many sum decompositions for 0<x<2. The distinct Franel record d1c4b8a11bf4 studies signed fixed-shift character correlations."
+        ],
+        "reasoning": "A real point having many unweighted representations does not determine finite prefix multiplicity squares or the law of two independent uniform digit strings. A character-weighted fixed-shift statistic is not the unweighted support sum energy.",
+        "searches": [
+          "Resultary: exact ordered Franel mod-five support energy and uniform base-five digit-Cantor correlation dimension",
+          "Ash–Catoiu–Ríos-Collantes-de-Terán, Appendix Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 682a0f21ef72 is the assigned record itself; the distinct tables in 135609b4a49e and 0a6383f8b10e concern binary even-parity prefixes and a base-four digit set respectively. The targeted web query returned no results."
+        ],
+        "reasoning": "Neither the self match nor the different tables establish earlier exact coverage; the keyword miss has no force as a uniqueness claim.",
+        "searches": [
+          "Resultary: exact five-adic Franel additive-energy series and transfer spectrum",
+          "Primary search: \"1-23z\" \"1-59z+380z^2\" Franel additive energy"
+        ]
+      },
+      "rationale": "Support congruences, interval coverage, and the matrix method are not the supported novelty. The reviewed contribution is the evaluated exact sequence for ordered additive collisions on the mod-five Franel support and its computed grid dimension and strict L² obstruction.",
+      "residual_risks": [
+        "An unindexed or differently formulated finite-type evaluation of this digit law may exist.",
+        "The primary search was exact and bounded, and the cited general paper was checked at the abstract, not every example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers real interval-sum property, not weighted energy or grid dimension",
+          "evidence": [
+            "Every x in (0,2) has continuum-many representations as the sum of two points of the same digit set."
+          ],
+          "identifier_or_url": "https://math.depaul.edu/mash/quant-n.pdf",
+          "material_read": "Appendix Theorem 2, p. 17, PDF offset 59194",
+          "method": "Open PDF passage",
+          "title": "On the nth quantum derivative",
+          "trigger": "Identical four-digit base-five set"
+        },
+        {
+          "assessment": "Closest exact analogue, not identical or dominating",
+          "evidence": [
+            "Base four; E_1=15, recurrence coefficients 25 and -90; the dimension uses (25+sqrt(265))/2."
+          ],
+          "identifier_or_url": "0a6383f8b10e",
+          "material_read": "RESULT.md Finding and proof from offset 0",
+          "method": "Local mirror",
+          "title": "Exact correlation dimension and an L² obstruction for a three-digit four-adic convolution",
+          "trigger": "Exact all-depth energy and D₂ by the same type of method"
+        },
+        {
+          "assessment": "Signed shift correlations, not the finite prefix support energy or continuous convolution law; relative priority not inferred",
+          "evidence": [
+            "Uses chi_5(F_n) and signed unwrapped fixed-shift correlations."
+          ],
+          "identifier_or_url": "d1c4b8a11bf4",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local mirror",
+          "title": "A complete signed correlation spectrum for Franel numbers modulo five",
+          "trigger": "Identical arithmetic sequence and modulus; distinct same-day record"
+        },
+        {
+          "assessment": "Different digit system and invariant values",
+          "evidence": [
+            "Binary even-digit-sum prefix support and its carry-based energy."
+          ],
+          "identifier_or_url": "135609b4a49e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact dyadic additive energy of the evil-number set",
+          "trigger": "Exact additive-energy table for digit prefixes"
+        },
+        {
+          "assessment": "Framework for matrix representation and spectra; inspected passage is not an exhaustive exclusion of exact examples",
+          "evidence": [
+            "General finite-type machinery for computing L^q spectra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.01909",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Open paper passage",
+          "title": "Matrix representations for some self-similar measures on R^d",
+          "trigger": "Potential broader finite-type result"
+        },
+        {
+          "assessment": "Congruence context, not evidence of an evaluated energy",
+          "evidence": [
+            "Studies congruences for Franel numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.1034",
+          "material_read": "Abstract, p. 1, offset 0",
+          "method": "Open paper passage",
+          "title": "Congruences for Franel numbers",
+          "trigger": "Same arithmetic sequence"
+        },
+        {
+          "assessment": "Arithmetic Lucas context, not evaluation of the digit-convolution law",
+          "evidence": [
+            "Uses Franel numbers in deriving a Lucas property for another sequence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.00297",
+          "material_read": "p. 10 passage at offset 29543",
+          "method": "Open PDF passage",
+          "title": "Divisibility properties of sporadic Apéry-like numbers",
+          "trigger": "Franel and Lucas-type congruences"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The support is specified by a natural divisibility invariant and its interval sumset is a good case in which to ask whether representations are nevertheless concentrated. The exact all-depth energy quantifies an exponentially growing excess over the uniform-distribution bound. The eigenvalue also resolves a near-threshold L² regularity question for the natural equal-weight convolution, without claiming singularity or a new general algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

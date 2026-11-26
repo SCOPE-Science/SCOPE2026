@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses an exact shortest-path distance table, a complete enumeration of degree-two length-three generators and degree-three/four length-four generator types, with signed integral boundary relations. At length three the presentation is an augmentation quotient of a specified bipartite relation graph. At length four, the degree-three cocycle equations are solved over every abelian coefficient group after a unique boundary normalization; the degree-two homology is shown zero so the universal coefficient theorem gives the integral answer without assuming torsion freeness. The included checker independently derives shortest paths, enumerates chain tuples and computes finite-field ranks for four sizes and integer Smith normal forms for two sizes. These experiments test the proof but are not substituted for its arbitrary-parameter steps.
+## correctness
 
-**Originality — PASS, qualified.** Gu's published even-cycle classification covers the six-cycle exception and is credited, while the cube case at four matched pairs is already diagonal by the Cartesian-product Künneth theorem. The new uniform calculation concerns every crown with at least five matched pairs. Crown aliases, product reductions, existing published exact first off-diagonal calculations on other graphs, and stronger sufficient criteria were checked. The cited pawful theorem does not apply. Cartesian-product Künneth applies to the exceptional four-pair cube but gives no general crown result for five or more matched pairs. No dominating prior statement was identified in the inspected material; an unindexed equivalent theorem or unnoticed stronger source remains a residual risk. These are implication comparisons, not an argument from absence of search hits.
+PASS
 
-**Value — PASS.** The crown family is a natural, highly symmetric progression from the six-cycle. Every larger crown contains isometric six-cycle subgraphs, yet both low integral off-diagonal groups disappear abruptly at the first possible larger order. This is a sharp topological behavior for a natural metric graph family, with a uniform all-parameter proof; it is not a renamed finite census and does not assert full diagonality.
+The length-three chains split by ordered opposite-part endpoints. At a matched pair the image identifies labels along the off-matching bipartite relation graph on 2(n−1) labels, so the augmented quotient is free of rank one for n=3 and zero for n≥4; at distinct indices each generator is individually a boundary. At length four the three degree-three step patterns are (1,1,2), (1,2,1), (2,1,1); the degree-four steps are all 1. Direct deletion gives the signs and indicator conditions in (1)–(2). The degree-three differential is onto degree two by the listed pivot tuples (at distinct endpoints P_{b,a}↦Y, R_{b,a}↦−Z, P_{b,k}↦Y−X_k). For coincident endpoints the cocycle relations kill Q and leave only the X_k coboundaries. For distinct endpoints these pivots normalize away the coboundaries over an arbitrary abelian group: k=a or b in the degree-four relations eliminates the listed classes, and for each k∈S a second l∈S kills the remaining R_{k,l}, P_{l,k}, R_{k,a}, Q_{b,a}. When |S|=1 the two residual coefficients have only the equality R_{k,a}=Q_{b,a}; the cohomology functor is naturally the coefficient group. Since H₂ at length four is zero, universal coefficients identify these functors with Hom of the sought integral H₃ and exclude torsion. Thus n=3 has 6 matched and 12 distinct ordered same-part classes in the respective bidegrees; n≥4 has none contributing. The distance table also proves each three-index six-cycle is isometric and its map has zero target. Independent bounded Smith checks verify chain composition and endpoint ranks for n=3,4,5; those checks do not prove the all-n statement.
 
-**Scientific limitations.** No other magnitude-homology bidegrees, all-length diagonal property or symmetry representation are determined. The code checks only finite representative sizes; the paper proofs are uniform. Originality is subject to unindexed or inaccessible mathematical publications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the n≥5 integral vanishing in both bidegrees and resulting loss of the two nonzero C₆ groups upon isometric inclusion in larger crowns; the n=3 ranks and n=4 vanishing themselves are credited to known results. Inspected strongest broader criteria and same-family homology records do not cover the claimed two-group transition.
+
+## value
+
+PASS
+
+This is an exact integral boundary for two natural near-diagonal groups in a canonical infinite family. The sharp small-to-large transition exhibits failure of detection of these groups by an isometrically embedded cycle within the same family; that is more informative than field ranks or a computation for a few crowns. No value is assigned merely to redoing the known cycle and cube cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

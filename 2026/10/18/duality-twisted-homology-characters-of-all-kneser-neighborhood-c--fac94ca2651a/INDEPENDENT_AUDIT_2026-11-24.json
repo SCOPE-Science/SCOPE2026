@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:39:23.162898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nonempty face F the union has size in [k,n-k]; applying common neighbors twice closes F to the family of all k-subsets of that union. This closure is equivariant and restricts the duality to set complementation. Rank-selection shellability gives concentration in degree r, also with reduced H_0 when r=0. The ribbon formula is the augmented alternating character normalized by (-1)^r to give the top character. An explicit check of its Schur expansion uses standard tableaux with descent set {k,k+1,...,k+r}: entries through k are in row one, and the next r+1 entries start successive lower rows. The remaining row indices cannot increase, so no row below the second can be extended (it would require a prior extension of a higher row). Filling j-1 further boxes of row two and then finishing row one gives one tableau for every j=1,...,k, of the claimed shape. For the mixed trace, a setwise fixed chain is reversed and each vertex is sigma^2-invariant. For even chain size its lower half must end at A strictly contained in complement(sigma A), equivalent to A disjoint from sigma A and |A|<n/2; this gives exactly the weighted signed parity orbits. For odd chain size the middle set chooses one parity half of every cycle, possible exactly when every cycle is even, and the lower chain is a chain of subsets of these halves. The reversal sign (-1)^(t(t-1)/2), simplex Euler sign (-1)^(t-1) and augmented -1 give the stated bracket; the top-degree sign is (-1)^r. For n=2k only middle sets can contribute, as required for a discrete complex. Direct bounded chain checks give traces 1 for (n,k,sigma)=(4,1,(12)) and 3 for (4,2,(12)(34)). The frozen checker was inspected, not executed; neither the case checks nor its recorded test plan are used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozlov proves the wedge-of-spheres type for the same rank selection.",
+          "McNamara–van Willigenburg give broader multiplicity-free ribbon theory.",
+          "The inspected rank-span Resultary Finding uses the full proper Boolean lattice with permitted rank span at most two and degree-two homology."
+        ],
+        "reasoning": "Shellability and the general descent representation explain the ordinary part; the rank-span theorem is about a different subcomplex. Neither gives the simultaneous permutation and order-reversal chain counts on this interval.",
+        "searches": [
+          "arXiv:0712.2424",
+          "Kozlov Prop. 17.28",
+          "Resultary a68d321e2fa8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Kozlov Sec. 17.3",
+        "arXiv:0712.2424",
+        "doi:10.4153/CMB-2008-053-9",
+        "Resultary 3149846c6464, a68d321e2fa8 and summaries 86f60f09af73 and d6bd47d26e6c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covering model and untwisted constituents use the known rank-selection and ribbon machinery.",
+          "The fixed-chain relation in the frozen proof is U_i=complement(sigma(U_(t+1-i))), requiring sigma^2 invariance and orientation reversal; it yields distinct even- and odd-chain terms."
+        ],
+        "reasoning": "Hopf trace on a known poset gives a general prescription to enumerate full chains, not the compact evaluation in terms of at most 3^e configurations. The middle-set condition, weighted signed lower chains and augmentation jointly evaluate all mixed conjugacy classes, not just the trace of duality alone.",
+        "searches": [
+          "Kozlov Props. 17.23–17.25 and 17.28",
+          "arXiv:0712.2424",
+          "Resultary 3149846c6464"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kozlov describes common-neighbor duality on the face poset and the rank-selected Boolean model.",
+          "Csorba compares Lovász, neighborhood, box and Hom complexes and describes shore exchange; his neighborhood equivalence qualification does not identify the requested mixed traces."
+        ],
+        "reasoning": "The twist becomes sigma followed by complementation on the rank-selected Boolean poset. Changing to a shore-exchange or other complex model could in principle compute the same invariant, but none of the inspected comparison passages supplies the weighted parity-orbit trace or a dominating equivariant character formula.",
+        "searches": [
+          "Kozlov Combinatorial Algebraic Topology Sec. 17.3.2 and 17.3.4",
+          "10.4153/CMB-2008-053-9",
+          "rank selected Boolean lattice order reversing complement homology character symmetric group trace complement permutation invariant chains evacuation representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day 3149846c6464 Finding gives exactly S^(2,2,1^(n-4)) plus S^(3,1^(n-3)) at k=2, n>=7.",
+          "The summaries of 86f60f09af73 and d6bd47d26e6c concern ordinary k=2 and ordinary n=2k+1 actions respectively, not the twist."
+        ],
+        "reasoning": "These are formula matches on genuine specializations of the ordinary part. The test for the claimed mixed gain is a statement evaluating characters of c*sigma, which cannot be read off an ordinary character table without knowing the duality eigenvalues.",
+        "searches": [
+          "Resultary 3149846c6464",
+          "Resultary 86f60f09af73",
+          "Resultary d6bd47d26e6c"
+        ]
+      },
+      "rationale": "The distinct contribution is the explicit mixed character for all permutations and parameters, not the known Boolean model, the duality construction, or the ordinary character via a ribbon. The strongest same-day indexed match gives exactly part of the ordinary character (k=2), not the character on cosets involving duality. The inspected general topological sources give the action or its underlying homotopy model without evaluating these mixed traces. No claim about priority of the ordinary specialization is made.",
+      "residual_risks": [
+        "The full 86f60f09af73 record was unavailable; the comparison to it is only at summary level.",
+        "The bounded comparison does not rule out an equivalent computation in literature on symmetric rank selection, complement actions or graph Hom complexes. The same-day date gives no priority information."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model, homotopy type and duality construction",
+          "evidence": "Propositions 17.23–17.25 discuss the order-reversing map and its involution; Proposition 17.28 uses the Boolean selection k<=|S|<=n-k.",
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kozlov.pdf",
+          "material_read": "Sections 17.3.2 and 17.3.4, pp. 302–303 and 314–315, text near offsets 736250 and 743000",
+          "method": "Bounded primary PDF text inspection",
+          "title": "Combinatorial Algebraic Topology",
+          "trigger": "Exact Kneser model and common-neighbor involution"
+        },
+        {
+          "assessment": "General ordinary representation background",
+          "evidence": "Multiplicity-free ribbon expansions; the inspected material does not give duality traces.",
+          "identifier_or_url": "arXiv:0712.2424",
+          "material_read": "PDF p. 1 near offset 650",
+          "method": "Bounded primary PDF text inspection",
+          "title": "Positivity results on ribbon Schur function differences",
+          "trigger": "Ribbon Schur representation and multiplicity-free constituents"
+        },
+        {
+          "assessment": "Related topological models, not a mixed character computation",
+          "evidence": "Compares the graph complexes and describes the shore exchange, with a qualification about the neighborhood complex and the meaning of equivalence there.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-2008-053-9",
+          "material_read": "Initial discussion, PDF pp. 1–2, extraction near offsets 396, 1605 and 5880",
+          "method": "Bounded primary PDF text inspection",
+          "title": "On the Simple Z2-homotopy Types of Graph Complexes and Their Simple Z2-universality",
+          "trigger": "Equivalent action through box complexes, Hom and shore exchange"
+        },
+        {
+          "assessment": "Exact ordinary k=2 specialization on a narrower n range",
+          "evidence": "For n>=7, the character is sgn(sigma)(f1^2-3f1+1), with precisely the two frozen k=2 constituents. The Finding does not assert mixed traces.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-uniform-symmetric-group-characters-of-kneser-neighborhood-homolo--3149846c6464",
+          "material_read": "Finding, mirrored RESULT.md at offset 0",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Uniform symmetric-group characters of Kneser neighborhood homology",
+          "trigger": "Strongest same-day match on Kneser homology characters"
+        },
+        {
+          "assessment": "Different Boolean subcomplex and homology degree",
+          "evidence": "Uses chains of rank span at most two in the full proper Boolean lattice.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-symmetric-group-characters-and-contractible-quotients-of-rank-sp--a68d321e2fa8",
+          "material_read": "Finding, mirrored RESULT.md at offset 0",
+          "method": "Resultary search and bounded local-mirror inspection",
+          "title": "Symmetric group characters and contractible quotients of rank-span Boolean complexes",
+          "trigger": "Possible general Boolean character and involution overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies the action of a natural involution jointly with all coordinate symmetries. It reduces a trace calculation on potentially enormous neighborhood complexes to weighted configurations from even cycles and resolves both duality eigenspace representations at once. The sign and middle-rank case are essential; this is more than a dimension calculation or a computation of the already understood ordinary action.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

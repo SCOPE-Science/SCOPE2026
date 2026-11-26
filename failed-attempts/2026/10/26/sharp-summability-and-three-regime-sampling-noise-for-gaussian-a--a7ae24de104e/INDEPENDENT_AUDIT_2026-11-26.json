@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:52:49.211530Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–115; VERIFICATION.md; CHECKER.py lines 36–58",
+        "Sun arXiv:2610.19409, (3.2), (5.2)–(5.4)"
+      ],
+      "rationale": "The Gaussian restriction has argument 2|sin(πx)|/σ, so normalization cancels exp(−2σ⁻²) and gives the stated Bessel ratio. With z=2σ⁻², I₀(2z)/I₀(z)² is asymptotic to √(πz), giving c=√(2π). The ratio minus one is the squared distance to the mean and positive because the factor is nonconstant. Thus σE(σ) has positive finite extrema on the interval after extension at zero. Distinct singleton terms are orthogonal, so the uniform two-sided bound follows. Activating each finite initial segment at small enough positive ρ proves necessity for the supremum over d,ρ, including nonsummable weights; no infinite-dimensional kernel is needed. With t=p/4 the finite sum is exactly Σ_{j≤floor(ρ^{−1/t})} E(ρj^t). The stronger uniform statement E(σ)=c/σ+O(1) on (0,1] gives, after multiplying by ρ, cΣj^{−t}+O(ρ floor(ρ^{−1/t})); this proves the first two limits. For t<1, with A=ρ^{−1/t}, the sum divided by A is a Riemann sum of E(u^t). The portion j/A≤δ has mass at most a constant times δ^{1−t} using the bound by u^{−t}; this justifies the positive finite improper integral and the floor at the upper end. Independence and translation invariance give the exact variance at f=1, where the bias is zero. For general square-integrable input the integrated variance is at most ||f||₂²||K||₂²/M, so the inference about the uniform variance rate is valid. The frozen checker was inspected, not executed: for p=2 it checks a range for scaled energy, not convergence to the stated integral constant. This limitation does not affect the analytic proof.",
+      "residual_risks": [
+        "The asymptotics use a supremum over finite dimensions, not growth at a fixed dimension. The sampling is iid uniform with no observation noise; the conclusion is about this fixed operator."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun (3.7) is an exact energy formula for general admissible radial φ, whose proof explicitly shows its integral tends to ||φ||₂² and A_σ→1; (5.7) is the orthogonal-support identity, and (5.14) is the exact stochastic decomposition.",
+          "Ebert–Pillichshammer's tractability exponent concerns optimal worst-case information complexity, not the variance of this operator."
+        ],
+        "reasoning": "The relevant broader match is Sun's exact formulas and proof, not a generic tractability result and not just his order bound. The one-coordinate leading coefficient and arbitrary finite-dimensional singleton energy are already determined by those formulas.",
+        "searches": [
+          "Z. Sun \"Weight-adapted ANOVA kernels for high-dimensional periodic approximation\" Proposition 5.1 Theorem 5.3",
+          "Sun arXiv:2610.19409, 'Theorem 3.6' passage then offset 34400",
+          "Ebert–Pillichshammer Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.19409 (3.2), (3.7) and proof, (5.2)–(5.4), (5.7), (5.14)",
+        "Di Marzio–Panzera–Taylor Theorem 1 and von Mises passage",
+        "arXiv:2102.01449 Theorem 1",
+        "Bounded Resultary queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.6 Eq. (3.7) and its proof establish σE(σ)→π∫₀∞|φ|²=√(2π) and give E at every σ; subtracting one does not change that limit. Strict positivity of the centered energy for the Gaussian extends the comparability to σ≤1.",
+          "The (5.7) identity and (5.14) variance formula transfer to each finite weight list by taking a summable positive extension. For p>4 use domination by j^{−p/4}; for p=4 split at δ/ρ and use the harmonic sum and the same known limit; for p<4 reindex the exact finite sum as A⁻¹Σ E((j/A)^{p/4}), A=ρ^{−4/p}, and use a Riemann sum with the already known integrable u^{−p/4} majorant."
+        ],
+        "reasoning": "These are direct operations on the exact previously available functions. The iff follows by activating longer finite initial segments in the lower bound, and the exact constant-input variance is directly in (5.14) after normalization. The subcritical integral is the Riemann integral of the earlier exact profile across the active index range, not a new estimate of that profile.",
+        "searches": [
+          "Sun arXiv:2610.19409, Theorem 3.6 proof at offset 34400; Proposition 5.1 offset 64850; Theorem 5.3 offset 75300"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun (3.2), (5.2)–(5.4) normalize the restriction and specify the bandwidth and threshold; m=2 leaves no additional cancellation moments.",
+          "Di Marzio–Panzera–Taylor p. 14 explicitly use the univariate von Mises factor, equivalent under θ=2πx, κ=2/σ²."
+        ],
+        "reasoning": "The Bessel formula rewrites the same normalized Gaussian restriction, and is not a different periodic kernel or normalization. The toroidal product density estimator itself does not address the weighted singleton truncation.",
+        "searches": [
+          "fourth-root summability Gaussian additive ANOVA kernel sampling variance Sun weight-adapted Proposition 5.1 Theorem 5.3",
+          "Sun Eq. (3.2) and moment condition at offsets 23200 and 18400; Di Marzio et al. passage query 'I0'"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalogue leads feb80935de99 and f2630b796e0e concern positivity for Korobov quadrature, and 6eba4b8f5a9c concerns random affine least-squares quadrature. The decisive exact specification is instead Sun's (3.7), (5.7), (5.14)."
+        ],
+        "reasoning": "No matched table of these limits was recovered by the bounded index queries. The selected mathematical coverage comes from the exact analytic formulas, not from a catalogue miss or quadrature datasets.",
+        "searches": [
+          "Sun Proposition 5.1 Theorem 5.3 kernel Phi q rho gamma_j weighted Korobov fourth root summability Gaussian additive ANOVA torus exact sampling variance power weights",
+          "fourth-root summability Gaussian additive ANOVA kernel sampling variance Sun weight-adapted Proposition 5.1 Theorem 5.3"
+        ]
+      },
+      "rationale": "The comparison must use more than Sun's headline upper bound. In the full proof of Sun's Theorem 3.6, Eq. (3.7) and the displayed integral limit already give lim σ||ψ_σ||₂²=π||φ||₂², exactly √(2π) for this Gaussian. Its finite-bandwidth energy is also given there. Proposition 5.1 gives the active singleton energy identity; any finite list of weights can be extended by a positive decreasing summable tail, so the identity and the exact variance decomposition apply to each needed finite kernel even if the tested original sequence is nonsummable. With this full known energy profile, the necessity and power-weight results are direct finite-partial-sum tests, p-series summations and a Riemann sum of the already specified profile. The exact constant-input variance formula is a direct substitution in Sun's Eq. (5.14). The explicit combined statement is correct, but no distinct mathematical result past these direct consequences is established.",
+      "residual_risks": [
+        "Sun does not print the combined Gaussian power-weight theorem in this form; the verdict is based on direct implication of inspected formulas, not an assertion of a verbatim match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent for kernel, energy profile, leading coefficient and variance; ensuing weighted limits are direct sum consequences",
+          "evidence": "Eq. (3.7) plus its explicit integral limit yields the coefficient, not just order comparability. Eqs. (5.7), (5.14) supply exact additivity and variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19409",
+          "material_read": "Moment condition; Eq. (3.2); full Theorem 3.6 and proof, pp. 8, offset 34400; Eqs. (5.2)–(5.4); (5.7); (5.14)",
+          "method": "OA primary PDF passage inspection",
+          "title": "Weight-adapted ANOVA kernels for high-dimensional periodic approximation",
+          "trigger": "Exact same kernel construction, energy and estimator"
+        },
+        {
+          "assessment": "Same univariate family and analogous variance, different weighted operator",
+          "evidence": "Exact MISE decomposition in toroidal density estimation and explicit von Mises kernel.",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/42947/8/taylorcc1.pdf",
+          "material_read": "Theorem 1 and integrated variance, pp. 6–8; von Mises passage p. 14",
+          "method": "OA manuscript passages, offsets 14000, 18000, 39249",
+          "title": "Kernel density estimation on the torus",
+          "trigger": "Von Mises energy and torus uniform-sample variance"
+        },
+        {
+          "assessment": "Different problem, not the source of the exact variance coverage",
+          "evidence": "Worst-case information complexity with a threshold in the weight-summability exponent.",
+          "identifier_or_url": "https://arxiv.org/pdf/2102.01449",
+          "material_read": "pp. 1, 3, 5 and Theorem 1",
+          "method": "OA PDF passages, offsets 590, 8390, 11700",
+          "title": "Tractability of approximation in the weighted Korobov space in the worst-case setting — a complete picture",
+          "trigger": "Potential stronger weighted approximation summability result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–6",
+        "Sun Theorem 3.6 with proof, Proposition 5.1 and Theorem 5.3"
+      ],
+      "rationale": "Diagnosing the boundary of dimension-independent noise for a fixed design is motivated. Here, however, the quantitative statement packages a known exact variance identity, a known exact radial energy profile and its known leading coefficient with routine power-series and Riemann-sum evaluations. There is no new mechanism, independent estimate, or nonmechanical boundary invariant beyond that specialization, so the frozen record does not establish a distinct valuable contribution.",
+      "residual_risks": [
+        "The useful interpretation in terms of sampling noise does not generalize to an information-complexity lower bound."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

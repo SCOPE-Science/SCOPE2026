@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hyperbolic radicand is globally positive for \(d>0\) and \(|r|<2\sqrt d\), and both square-root branches are globally \(\sqrt{d/(1+d)}\)-Lipschitz. This gives a unique bounded pullback state for every two-sided sign sequence and a unique stationary fair-branch law. Conditional centering of fresh signs yields vanishing odd moments and raw autocorrelations. The exact centered-square recursion \(Z_t=[d/(1+d)]Z_{t-1}+[r/(1+d)]X_{t-1}\), plus conditional orthogonality, proves every displayed square and mixed covariance. Multinomial expansion proves the moment hierarchy. Parameter inversion follows algebraically for \(r\ne0\). The standalone checker passed 210 exact-rational identities and 20 seeded finite-sample diagnostics. Numerical checks do not replace the proof.
+PASS
 
-## Originality — PASS, with priority limits
+Completing the square gives a positive radicand, and 4d(1+dx²+rx)−(2dx+r)²=4d−r² gives a global Lipschitz constant q=sqrt(d/(1+d))<1. Pullback gives the bounded shift-equivariant process and Bernoulli ergodicity. For uniqueness even without a finite moment assumption, any stationary solution satisfies |X_t|<=K+q^m|X_{t−m}|, K=1/[sqrt(1+d)(1−q)]; stationarity and the probability tail as m→∞ imply |X_t|<=K almost surely, and common-sign contraction then identifies it with the pullback. Fresh fair signs center every conditional odd power and give E[X_t²]=1 on averaging the defining equation. Writing a=d/(1+d), b=r/(1+d), the centered square obeys Z_t=aZ_{t−1}+bX_{t−1}. The cross term is zero in the variance and in its covariance with older squares, giving Var(Z)=b²/(1−a²) and the geometric square covariance. Its mixed covariance has initial term b then factors a at each lag; the reverse mixed covariance is zero by conditional centering. B_2/B_1=a for r≠0, yielding both claimed inverses. Reflection preserves the one-time marginal after changing r to −r, while r=0 gives the exact iid fair-sign solution and loss of identification. A multinomial expansion leaves d^k M_{2k} as the sole top-order term, verifying the triangular recurrence. The supporting verifier was inspected, not run; the finite diagnostics it records are not needed for the analytical check.
 
-The geometric hyperbola, branches and symbolic coding are already the results of Hampton–Meiss (arXiv:2305.06302v1, equations (9),(12), §§3,4.3), and are fully credited. Earlier Hampton–Meiss (arXiv:2107.09776) and Chen (arXiv:2402.10536) concern coding/contraction/continuation. Their inspected relevant full-text sections do not give the fair-symbolic stationary polynomial moment hierarchy, exact infinite covariance profile, or two mixed-lag parameter inversion. Broader conditional-heteroskedasticity techniques explain the recurrence but no source inspected was found to state or subsume this model-specific signature. An equivalent unindexed application remains a genuine priority risk; this is not a claim of exhaustive novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-For the precise natural fair symbolic measure of a source-motivated non-deterministic correspondence, the result separates binary symbolic independence from genuinely dependent geometric amplitudes and supplies a complete, explicit lagged statistic instead of a numerical signature. The sharp \(r=0\) collapse, sign-blind one-time marginal, and exact two-moment recovery of \(d,r\) solve a natural identifiability question about the model's observable coordinates. No extrapolation to the original finite-parameter diffeomorphism is asserted.
+Pass is for the fair-Bernoulli stationary dependence, moment hierarchy, and signed identification, not for the quadratic correspondence, wedge, or symbolic coding themselves. Source-level comparison supports this distinction; absolute historical priority is not established.
 
-## Closest literature and limitations
+## value
 
-The three primary articles listed in the result establish the correspondence and coding/continuation geometry. General autoregressive conditional-variance models are a methodological neighbor and could contain an unlocated equivalent specialization. The theorem assumes globally contracting hyperbolic branches, independent fair signs and population moments; it provides neither sampling error bounds nor physical-measure claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Bernoulli measure is a natural specified law on the known branch coding. Under that law the usual linear autocovariances vanish at every nonzero lag and the marginal cannot distinguish opposite r. Explicit mixed lag values resolve this exact ambiguity and give both parameters, while identifying the singular r=0 regime where no time-series statistic identifies d. This yields a usable population identification criterion and exact benchmarks for nonlinear dependence, rather than a restatement of symbolic existence or an arbitrary moment evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:49:36.547494Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–81: problem, path-mode, inertia, and continuum arguments",
+        "VERIFICATION.md and verify.py inspected without execution; their matrix checks are finite and floating-point"
+      ],
+      "rationale": "All augmentations have n edges and equal linear trace term. The trace of L² is the sum of squared degrees plus 2n. Hence the first difference from cycle closure is (d_a+d_b−2)t² with the original path degrees; only the endpoint pair makes this coefficient zero. For large time, rank-one interlacing caps the gap at Λ_n. Equality requires b orthogonal to the second positive path mode: otherwise the first two positive modes contain a vector orthogonal to b of Rayleigh quotient strictly below Λ_n. Equality of the two endpoint cosines of the second mode forces reflection centering. Write θ=2π/n and φ=(i+1/2)θ. On the odd-reflection subspace the shifted path Laplacian A has inertia (one negative, no zero, all others positive). Solving Ay=b_i uses c cos((j+1/2)θ) before the source and c cot(φ) sin((j+1/2)θ) after it on the left half; matching is exact at the source, and choosing c=−sin(φ)/sin(θ) gives jump residual 1. The odd reflection gives the other source −1, so b_i^T A^{-1}b_i=−sin((2i+1)θ)/sinθ. The block Schur complement with bottom entry −1 shows that 1+b_i^T A^{-1}b_i≤0 is exactly saturation, with equality giving an extra eigenvalue at Λ_n. This yields the displayed unit-weight index set. The first interior chord has 1+b_i^T A^{-1}b_i=2−4cos²θ<0 for n≥9, whereas cycle closure has equality. Thus the trace difference starts with −exp(−Λ_n t), and finite exponential-sum comparisons stabilize. A gap-saturating simple-gap eventual optimum must maximize the second positive eigenvalue. On the half interval scale a full discrete unit vector by sqrt(2n) and interpolate; its squared derivative norm is n² times the full path difference energy (including the central half-step for even n); its L² norm tends to 1 for bounded rescaled energy. The term 4n²|v_i|² forces the scaled interpolant to vanish at the limiting chord point. Compactness and lower semicontinuity give the minimum of the Neumann–Dirichlet and Dirichlet–Dirichlet eigenvalues. Sampling the first mode of the cheaper interval with a node at the actual chord vertex gives the matching upper bound, using the right interval alone when the limiting left interval degenerates. The next symmetric eigenvalue tends after scaling to 16π², above the maximum 9π² of this odd-sector limit. Comparing with an index near n/6 along every subsequence then proves the optimizer placement law.",
+      "residual_risks": [
+        "The time threshold is not determined; the limit takes n→∞ only after eventual optimization at fixed n. The second eigenvalue is a necessary comparison, not a complete tie-break rule at every n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh–Boyd was surfaced as algebraic-connectivity optimization by edge addition",
+          "Frozen RESULT.md lines 87–103 distinguish stationary inverse-Laplacian trace design and finite-time leader selection; attempted primary passages were unavailable"
+        ],
+        "reasoning": "Inverse trace integrates the nonconstant heat trace over all times and does not order traces pointwise. A leader-subset selector also does not optimize over shortcut chords. The scope distinctions are not assertions about uninspected appendices.",
+        "searches": [
+          "Ghosh–Boyd, Growing Well-connected Graphs",
+          "Summers et al. arXiv:1411.4884",
+          "Clark et al. arXiv:1306.4949"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search statements, including both strongest distinct matching catalog records",
+        "Frozen RESULT.md lines 59–105 and primary literature lookups"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior gap theorem includes both the cycle with a double gap and the interior chord with a simple gap",
+          "The same-day indexed statement concerns optimizing existing path-edge weights and does not introduce a long-range rank-one chord"
+        ],
+        "reasoning": "The known criterion determines a plateau of gap maximizers, not the second-mode Dirichlet-node problem whose two interval eigenvalues balance at one sixth. Reweighting the existing path cannot produce the nonzero off-diagonal shortcut entries; the identified weight-design theorem therefore does not specialize directly to this feasible set.",
+        "searches": [
+          "Resultary exact placement/weight theorem 189d704825c3",
+          "Resultary same-day horizon reversal f98b0bb4fa60",
+          "Frozen RESULT.md lines 40–81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3 states the reflection and sine threshold criterion for reaching Λ_n and floor(n/4) unit-link placements",
+          "RESULT.md lines 61–66 independently derive the unit-link known portion"
+        ],
+        "reasoning": "Spectral-gap optimization is equivalent to the first lexicographic comparison of positive Laplacian eigenvalues, not to comparing multiplicities at that gap or the remaining eigenvalues. It cannot select one sixth among equally saturating positions by the stated gap data.",
+        "searches": [
+          "Resultary: path shortcut heat-trace reversal and one-sixth eventual location",
+          "Resultary: Sharp conductance and placement thresholds for path shortcuts",
+          "Primary literature: one-edge path augmentation spectral gap and heat-trace optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact unit-gap count floor(n/4) is covered by 189d704825c3",
+          "2026/11/22/SCOPE-a-one-fifth-short-horizon-penalty-and-a-universal-edge-priority--f98b0bb4fa60 concerns fixed-budget weight design on the existing path"
+        ],
+        "reasoning": "The known index set and reversal vocabulary are real overlap, but neither is a table or statement of eventual unit-chord heat-trace optima or of i_n/n→1/6.",
+        "searches": [
+          "Resultary: exact conductance/placement threshold for path shortcuts",
+          "Resultary: path diffusion edge-priority reversal"
+        ]
+      },
+      "rationale": "The unit-weight gap-saturating placement classification is known and is not credited as new. The contribution supported by the comparisons is the heat-trace reversal for one added nonedge, the multiplicity splitting at a fixed optimal gap, and the second-mode eventual placement law. The same-day path heat-trace result changes weights on existing edges under a budget rather than adding a single edge, so the stated results concern different feasible sets.",
+      "residual_risks": [
+        "The prior and same-day matched records were compared at available indexed-statement level, not by full proofs. Primary full-text retrieval was incomplete; this is a bounded best-of-knowledge verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the gap placement subclaim; not the heat refinement on the statement available",
+          "evidence": "Reflection-centered chords attain Λ_n subject to a conductance sine threshold; unit conductance yields floor(n/4) such locations.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3",
+          "material_read": "Local index's exact gap threshold and unit-link statement; citation and comparison in frozen lines 61–66, 87–105",
+          "method": "Local Resultary search; bounded mirror retrieval attempted but not obtained",
+          "title": "Sharp conductance and placement thresholds for path shortcuts",
+          "trigger": "Exact known spectral ceiling and candidates"
+        },
+        {
+          "assessment": "Related heat objective and phenomenon, but a different design variable; no inference of date order",
+          "evidence": "Existing edge conductances vary under a fixed budget. The frozen record keeps them fixed and adds one unit nonedge.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-one-fifth-short-horizon-penalty-and-a-universal-edge-priority--f98b0bb4fa60",
+          "material_read": "Local-index statement describing the heat trace and fixed-budget edge-weight choice; not full text",
+          "method": "Local Resultary search and comparison of feasible sets",
+          "title": "A one-fifth short-horizon penalty and a universal edge-priority reversal in optimal path diffusion",
+          "trigger": "Strongest distinct heat-trace horizon-reversal match"
+        },
+        {
+          "assessment": "Known objectives/design variables differentiated at statement level; whole-document coverage unresolved",
+          "evidence": "Algebraic connectivity, stationary inverse-trace coherence, and leader-set selection are distinct from eventual single-shortcut heat trace.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/growing_fast_graphs.pdf ; arXiv:1411.4884 ; arXiv:1306.4949",
+          "material_read": "Available search descriptions and frozen comparisons at lines 87–103, not primary theorem passages",
+          "method": "Focused primary searches and lawful OA retrieval attempts",
+          "title": "Growing Well-connected Graphs; Topology Design for Optimal Network Coherence; Minimizing Convergence Error in Multi-Agent Systems via Leader Selection",
+          "trigger": "Plausible broader edge-addition and finite-horizon objectives"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–25 and 59–81",
+        "Prior gap plateau in Resultary 189d704825c3"
+      ],
+      "rationale": "There is a concrete design distinction: all sufficiently short horizons choose the cycle, while at long horizons another graph with the very same optimal gap beats it by changing the gap multiplicity. The limiting choice is not arbitrary on the known gap plateau; it balances two different boundary-value modes and fixes the macroscopic tail length. This gives a useful exact example where neither connectivity nor maximization of the gap by itself is enough for heat-trace design.",
+      "residual_risks": [
+        "No universal switching-time law or extension to general graphs or augmentations is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding is quantified over all positive integers \(i,j\) and proves both strict boundary failures, not merely finite examples. The proof directly identifies the shared outer neighbor at the mean boundary and enumerates the only four possible joint-gap offsets at the covariance boundary. The exact difference of the source covariance slope and the wrapped boundary law factors as a trace of excursion kernels and the Brownian-bridge covariance kernel. Strict positive *pointwise* kernels establish nonvanishing for all parameters without requiring a disputed spectral-positive-definiteness argument. A self-contained enumerator rechecked exact fractions for \((i,j)=(1,1),(1,2),(1,3),(2,2)\); independent Gaussian quadrature supports the integral normalization. The proof, not the finite computations, establishes the universal quantifiers.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The re-audited claim in repairs/2/RESULT.md assumes i.i.d. continuous ranks and defines ν consistently. Conditional on the peak priority, sorted admissible priorities on the two sides have factorial denominators; summing their count split gives the binomial in the excursion kernel. The triangular substitution yields mean defect a_i/(i+3) per site. At K₀, coincident equal gaps and the two shared-endpoint offsets have unchanged weights; different endpoint pairs require two separating arcs of length at least 2, hence exactly 2 each. The two conventional boundary offsets collide and the surviving joint probability is the four-kernel trace with M twice. Single means are unchanged, and expanding M−u⊗u yields the exact covariance defect. Positivity follows from the pointwise kernels, including the diagonal case, and does not presuppose operator definiteness of A_i. This also independently checks the slope by disjoint-window cancellation above the threshold. The supplied finite fractions and quadrature are diagnostic; the scripts were inspected, not executed.
 
-The closest full-text primary source, Matijasevick (2026), Proposition 3.1 and Remark 3.2, proves the sufficient size thresholds and documents sharpness by finite enumeration only; it does not give the all-index trace identity or universal strictness proof. Mansour, Rastegar and Roitershtein (2019) predates the all-index sufficient bounds. Searches of relevant mathematical records and source variants yielded no directly implying stronger theorem. The formula's ingredients are related to classical run and consecutive-pattern theory, so an implicit derivation in uninspected older technical literature remains a residual risk; independent historical verification is appropriate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating primary paper expressly leaves universal sharpness beyond finite checks unsettled. The result identifies the **exact optimal sample sizes** for natural moment formulas and isolates a new, strictly positive cycle-wraparound correction. Its Brownian-bridge factorization explains why no cancellation can save a boundary case, even for mixed covariances with different gap lengths. That structural finite-size insight is not a routine mere recalculation of the published slopes; it resolves the concrete parameter-uniform gap explicitly flagged by the source.
+The frozen novelty framing overcounts the mean contribution: the pre-freeze v2 of Matijasevick already proves universal strict mean failure, using precisely the shared-neighbor integral. The explicit mean equality is a companion evaluation of that known integral, not the basis for acceptance. The repaired finding claims the universal positive covariance/variance correction, for which v2 still reported only finite sharpness cases. The covariance contribution remains distinct after comparison at the level of hypotheses, offsets and conclusion.
 
-## Limits and closest literature
+## value
 
-No claim of new infinite-volume slopes or central limit laws is made. The theorem is restricted to uniform cyclic priorities and first/second moments. Closest sources: arXiv:2610.21094v1 (Proposition 3.1, Remark 3.2, Lemma 4.2); arXiv:1903.12548v2 (Sections 2–3); classical run-covariance antecedents remain a bibliographic priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The surviving correction proves the optimal exact-linear covariance and variance thresholds uniformly in both gap lengths, closing the specific all-index gap left by the source's experiments. The explicit positive bridge trace explains why neither mixed nor diagonal boundary deviations can cancel. It adds finite-size structure, not just more computed examples or a second derivation of known mean sharpness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

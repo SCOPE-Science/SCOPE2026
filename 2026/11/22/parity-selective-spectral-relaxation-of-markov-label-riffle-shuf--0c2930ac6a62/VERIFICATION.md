@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The proof uses a 4-state signed transfer and Cayley–Hamilton, exact parity counting at one and two label changes, and roots of a quadratic subsequence recurrence. The included `check.py` uses exact rational enumeration for lengths at most 11 and rare-switch combinatorics up to length 30. It passed 173 finite checks. Numerical or finite evidence does not establish the infinite identities; these are proved separately. No independent assessment was performed.
+Run `python3 check.py` with standard Python. The parameter is the literal retention probability. The script enumerates binary words up to length 11 at six rational retention probabilities (including both deterministic endpoints), compares the signed transfer, initial values and recurrence with these exact means, and checks rare-switch counts through length 30. It also compares the signed transfer with the stated limiting profiles on a finite growing-deck grid; this last test is numerical. The general recurrence, expansions and limits rely on the proof in `RESULT.md`, not on extrapolation from the checks.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:30:07.659393Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 4–27 and 29–60 concern distinct roots on the entire real input line, at fixed A, shift and level. Irrationality gives a dense torus orbit, while simultaneous attainment of the two same-sign sine extrema would force a rational frequency ratio; continuity gives the open image. For the proof's crossing-flux step, the needed control near tangencies can be verified by short-cell averaging: choose a small length h such that translation by h(α,β) is ergodic (exclude countably many lengths). The first, second and third time derivatives of sin(θ+αt)+sin(ψ+βt) cannot all vanish anywhere: the first and third force both cosines to vanish, and the second is then nonzero since α≠β. Compactness and Rolle therefore bound the distinct roots in every sufficiently short half-open cell by three, uniformly in the initial phases. The count as a function of initial phases is continuous off the endpoint-level curves and the backward sweeps of the finitely many tangent points; all these sets have area zero. Tangency finiteness follows from α²(1−s²)=β²(1−(c−s)²), a nonzero quadratic. Equidistribution applies to this bounded Riemann-integrable cell count, and the two incomplete cells contribute O(1). By the area formula on (p,t)↦p−t(α,β), p on the regular level and 0≤t<h, the mean cell count is h times the level flux with Jacobian |(α,β)·n(p)| on the curve. Thus multiple and exact tangent roots cause no unaccounted density. Averaging the four cosine sign pairs gives the maximum stated in the record; multiplying by the two arcsine densities gives the factor π^{-2}. At c=0 the sum-to-product factorization has two disjoint progressions, whose densities sum to max(α,β)/π. At c=2−δ, setting s=1−δx in the exact integral reduces the coefficient after division by √δ to (π²√2)^{-1} times the integral over [0,1] of max{α/√(1−x),β/√x}; dominated convergence applies and the two terms switch at x=β²/(α²+β²), giving integral 2√(α²+β²). Reflection gives the opposite edge. The frozen VERIFICATION.md and check.py were inspected, not executed: sign changes on a mesh can miss roots, and the numerical test for one frequency pair is not the proof of the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classical flux integral gives the density once the deterministic equidistribution and crossing-count hypotheses are checked. The inspected Rice treatment describes expected crossing intensity of stochastic processes; it does not establish this orbit's distinct-root limit at every level.",
+          "Only landing/abstract material was accessible for the Kurasov–Suhr zero-set rigidity reference; exact further implications were not determined."
+        ],
+        "reasoning": "The general principle is not new. The result adds the evaluation through independent cosine sign averages and arcsine laws, treats the critical central level separately, and computes the degeneration with the exact coefficient. No inspected broader statement was found that already gives all of this as a direct parameter substitution.",
+        "searches": [
+          "Resultary: torus flux and Rice crossings for irrational flow",
+          "Masoliver–Palassini, Phys. Rev. E 107, 024111, abstract and introduction",
+          "Kurasov–Suhr, DOI 10.1016/j.jmaa.2020.124049"
+        ]
+      },
+      "checked_sources": [
+        "Ali et al., publisher full text, §2.2",
+        "Assigned Resultary self-hit and two non-self Resultary matches above",
+        "Masoliver–Palassini, PRE 107, 024111, abstract/introduction",
+        "Kurasov–Suhr DOI landing/abstract; full text unavailable"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier result controls distinct fixed points when A→∞, uniformly in phase, with C equal to the torus average of |α cos θ+β cos ψ|. Its sign-change argument integrates over the slow target before taking the limit. The new coefficient satisfies ∫_{−2}^2 ν(c)dc=C.",
+          "The same-day result bounds expectations with integer frequencies and does not concern irrational-line root density."
+        ],
+        "reasoning": "A leading coefficient averaged over the target does not determine its dependence on each target, the central value, or the edge behavior. Short-cell counting ideas do transfer, and are not credited as new here.",
+        "searches": [
+          "2026/11/1/SCOPE-uniform-phase-independent-fixed-point-density-in-a-two-frequency--18dfa76342c1, Finding and proof Steps 2–5",
+          "2026/11/22/SCOPE-a-sharp-arithmetic-trichotomy-for-two-frequency-sine-equidistrib--c712ee7ad220, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ali et al. use the same sine sum under different frequency and shift symbols. Their §2.2 discusses irrationality and nonperiodicity and gives derivative/equilibrium conditions.",
+          "The count is equivalently the intersection intensity of a dense straight line with a fixed torus level, not a backward trajectory statistic."
+        ],
+        "reasoning": "The object and a general counting representation are known. Neither is the explicit fixed-level arcsine-max formula or the sharp level-dependent asymptotic.",
+        "searches": [
+          "Resultary: exact inverse-level density for the incommensurate Ali two-sine map; torus/Rice crossing density",
+          "Ali et al., DOI 10.1088/1572-9494/acf307, §2.2 equation (4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record was an exact self-hit. The closest non-self match is the earlier large-amplitude fixed-point density, with an integrated rather than level-resolved coefficient. The same-day arithmetic-trichotomy result treats integer frequencies and extremal sine expectations."
+        ],
+        "reasoning": "There is no relevant integer-sequence table test for a continuum of real levels and irrational frequency pairs; the explicit formula was compared with the indexed formula-level matches instead.",
+        "searches": [
+          "Resultary: exact density, square-root edge law, torus/Rice intersection count, and Ali-map fixed-point density"
+        ]
+      },
+      "rationale": "The supported distinct claim is the explicit level-resolved density and edge constant for the specified incommensurate sine sum. The underlying equidistribution, absolute flux and local extrema methods are standard; the same-map earlier fixed-point coefficient is materially related and credited.",
+      "residual_risks": [
+        "The Kurasov–Suhr full paper was inaccessible; the abstract is not grounds to rule it out.",
+        "The literature comparison does not exclude an equivalent explicit two-sine formula in almost-periodic zero-count or quasiperiodic crossing literature. The general crossing principle and the integrated same-model coefficient are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map, different mathematical question in inspected passage",
+          "evidence": "Map (4) and irrational-ratio discussion are followed by derivative and equilibrium analysis, not a fixed-target inverse density.",
+          "identifier_or_url": "https://ctp.itp.ac.cn/EN/PDF/10.1088/1572-9494/acf307",
+          "material_read": "PDF p. 4 §2.2, equations (4)–(6), extracted offsets 14600–19796",
+          "method": "OA publisher PDF, targeted passage",
+          "title": "A novel multi-stable sinusoidal chaotic map with spectacular behaviors",
+          "trigger": "Identical sinusoidal map and motivating model"
+        },
+        {
+          "assessment": "Material overlap in map, short-cell proof strategy and level-integrated flux; no pointwise density or edge coefficient in the inspected statement",
+          "evidence": "The coefficient is the unconditional torus mean of |α cos θ+β cos ψ|, obtained by integrating sign changes over the slowly varying fixed-point target.",
+          "identifier_or_url": "2026/11/1/SCOPE-uniform-phase-independent-fixed-point-density-in-a-two-frequency--18dfa76342c1",
+          "material_read": "RESULT.md Finding and proof Steps 2–5",
+          "method": "Resultary and frozen local mirror",
+          "title": "Uniform phase-independent fixed-point density in a two-frequency sine map",
+          "trigger": "Strongest same-map prior density comparison"
+        },
+        {
+          "assessment": "Different regime and statistic",
+          "evidence": "Integer-frequency expectation and maximizing measure problem, not irrational real root counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-arithmetic-trichotomy-for-two-frequency-sine-equidistrib--c712ee7ad220",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary and local mirror",
+          "title": "A sharp arithmetic trichotomy for two-frequency sine equidistribution",
+          "trigger": "Same-day two-sine equidistribution search match"
+        },
+        {
+          "assessment": "Methodological analogue, not a deterministic same-model theorem",
+          "evidence": "Expected crossing rates are derived for inertial stochastic processes.",
+          "identifier_or_url": "https://bpb-us-e1.wpmucdn.com/blogs.cornell.edu/dist/1/3347/files/2024/11/Masoliver-2023-counting-of-level-frossings.pdf",
+          "material_read": "Abstract p. 1 and introduction around extracted offset 5000",
+          "method": "OA full-text targeted passages",
+          "title": "Counting of level crossings for inertial random processes: Generalization of the Rice formula",
+          "trigger": "Possible general crossing-law coverage"
+        },
+        {
+          "assessment": "No full-text verdict; residual coverage risk",
+          "evidence": "The accessible material concerns zero-set asymptotics/rigidity; the article's full implications were not checked.",
+          "identifier_or_url": "10.1016/j.jmaa.2020.124049",
+          "material_read": "Landing/abstract only; PDF route inaccessible",
+          "method": "DOI and direct PDF attempt",
+          "title": "Asymptotically isospectral quantum graphs and generalised trigonometric polynomials",
+          "trigger": "Cited almost-periodic zero-set literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a published nonlinear map the exact density distinguishes how attainable targets vary in inverse abundance, going beyond both dense-range existence and the earlier level-integrated fixed-point coefficient. In particular the central density and the explicit square-root depletion at the formal endpoints give quantitative information unavailable from the aggregate. The value is for unrestricted one-step inversion, not for bounded backward histories, stability or chaos claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

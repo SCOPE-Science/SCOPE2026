@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:41:45.828485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44 and 48–105; VERIFICATION.md and VERIFY.py inspected, not executed",
+        "Independent replay: python3 /workspace/reproductions/01_03.py, record 1 output: 5 exact beta-moment eigen-equations; high-precision roots 0.8912898099509343540 and 1.1309462648000736302."
+      ],
+      "rationale": "Exact Bernstein beta moments give the shifted Legendre modes of degrees 0, 1, 2 with eigenvalues 1, 1/2, 1/10; these exhaust the degree-two range. With u=2x−1 and v=2y−1 the power kernel is 1+3·2^(-t)uv+(5/4)10^(-t)(3u²−1)(3v²−1). A negative value anywhere, including the boundary, gives negative output on a positive-measure interval for a nonnegative input supported in a nearby interval, so continuity really makes the pointwise minimum decisive. At fixed w=|uv|, opposite signs and u²+v²≤1+w² give the exact lower envelope 1−3·2^(-t)w+(5/2)10^(-t)(3w²−1), attained at u=1,v=−w. Its vertex is w=5^(t−1), yielding the first formula for t≤1 and the endpoint formula for t≥1. The first branch is strictly concave, negative at 0, zero at 1 with negative derivative there, so it has precisely one internal root. The second is zero at 1, has negative derivative there, and its derivative changes sign once from negative to positive; its limit is 1, yielding exactly one later root. Degree one has eigenvalues 1 and 1/3, so its kernel minimum is 1−3^(1−t), with no reentry. Zero eigenvalues do not contribute at any t>0.",
+      "residual_risks": [
+        "The root approximations are supporting diagnostics; strict derivative and convexity arguments establish the exact all-t classification. No positivity statement here for arbitrary Jacobi weight, higher degree, or semigroup continuity at t=0 on all of L²."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 2.3 states that x^α preserves the doubly nonnegative n×n matrix class iff α is a natural number or α≥n−2; at n=3 this includes all α≥1.",
+          "The frozen account describes Altomare's §6 as treating Markov approximation and integer iteration/large-degree limits. Available Berdysheva–Jetter abstract evidence concerns polynomial kernels for general weights, not the sign of their spectral powers."
+        ],
+        "reasoning": "The finite matrix theorem quantifies over entrywise nonnegative 3×3 matrices, not arbitrary matrix elements of a rank-three integral operator evaluated with a continuum of positive tests. Sampling the kernel and powering the resulting 3×3 matrix need not give sampled values of the powered operator. General positive Bernstein kernels do not by themselves dominate a fixed-degree real-power sign classification.",
+        "searches": [
+          "Guillot–Khare–Rajaratnam arXiv:1303.4701, Theorem 1.6 and Corollary 2.3",
+          "Altomare DOI 10.33205/cma.491601, §6 access attempts",
+          "Primary literature lookup for Bernstein–Durrmeyer spectral powers and weighted kernels"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 71ae2b5c6d47 (identical record), 9f55314ca99c, 7bbc01919259 and c564b7bcf603 (summary)",
+        "Guillot–Khare–Rajaratnam arXiv:1303.4701",
+        "Altomare DOI 10.33205/cma.491601 (access attempts, frozen account)",
+        "Berdysheva–Jetter DOI 10.1016/j.jat.2009.11.005 (abstract-level)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive integer iterates supply discrete examples, not persistence of positivity between them. The matrix theorem requires an entrywise nonnegative matrix in the working coordinates, whereas diagonalizing the operator only gives its spectral values, not the cone of nonnegative functions. The general-weight paper supplies background on the polynomial kernel."
+        ],
+        "reasoning": "A continuum sign classification requires an actual minimization in the evaluation variables and the sign analysis in real time. None of the available primary statements settles that behavior. Full-text access limits for two relevant approximation-theory sources prevent a stronger exclusion claim.",
+        "searches": [
+          "arXiv:1303.4701, Corollary 2.3 and Theorem 1.6",
+          "Resultary 9f55314ca99c and 7bbc01919259",
+          "Altomare §6 and Berdysheva–Jetter DOI 10.1016/j.jat.2009.11.005, closest literature access/abstract comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact search hit 71ae2b5c6d47 is the assigned finding itself. The same-day same-family finding 9f55314ca99c gives exact BV/oscillation norms and step extremizers for positive integer powers D_n^r.",
+          "The Dirichlet finding 7bbc01919259 concerns spectral-power trace asymptotics on simplices. The same-day summary c564b7bcf603 concerns disconnected positivity for a squared-cosine circle kernel; exact mirror text was unavailable."
+        ],
+        "reasoning": "Integer iterate norms and spectral traces are different invariants from the infimum of the pointwise spectral kernel at all real times. No operator equivalence between the indexed circle kernel and the specified quadratic Durrmeyer kernel was established; the circle comparison is limited to its available summary, not its whole theorem.",
+        "searches": [
+          "Resultary lookup for quadratic Bernstein–Durrmeyer noninteger spectral powers and disconnected order positivity",
+          "Resultary 9f55314ca99c and 7bbc01919259, RESULT.md Findings; c564b7bcf603, indexed summary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact transition pair and disconnected set identify the assigned record, not a distinct record. The two inspected distinct findings in the same family give integer-iterate BV values or trace asymptotics, respectively, not threshold times for order positivity."
+        ],
+        "reasoning": "This classification is an exact functional statement rather than a standard tabulated spectrum. Knowing the eigenvalues or trace does not identify the sign of the pointwise kernel; distinct matching arithmetic or threshold entries were not established by this lookup.",
+        "searches": [
+          "Resultary exact-object and semantic lookup, 71ae2b5c6d47, 9f55314ca99c, 7bbc01919259, c564b7bcf603"
+        ]
+      },
+      "rationale": "The positive original kernel, the low-degree eigensystem and generic spectral calculus are existing background. On the comparisons inspected, the supported distinct claim is the exact real-time order-positivity set for this unweighted quadratic operator, including the loss just after the positive Markov iterate at t=1 and subsequent recovery. No historical priority is certified.",
+      "residual_risks": [
+        "Altomare §6 and Berdysheva–Jetter full text were not independently accessible; the circle-kernel comparison is summary-only. Related historical results not hit in the bounded checks could overlap. No dating inference is made from same-day listings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact matrix-power result; not the integral-operator assertion",
+          "evidence": "Corollary 2.3 gives the critical value n−2 for conventional powers on DN_n, with positive integer powers also preserving DN_n.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.4701",
+          "material_read": "Theorem 1.6 (PDF p. 2, OA offset 6560) and Corollary 2.3 (p. 3, offset 8731)",
+          "method": "Lawful OA text passages",
+          "title": "The critical exponent conjecture for powers of doubly nonnegative matrices",
+          "trigger": "Potentially stronger power-positivity theorem"
+        },
+        {
+          "assessment": "Published precursor identified; independent scope beyond the frozen account unresolved",
+          "evidence": "The frozen prior-work comparison describes §6 as Markov approximation and integer iteration, not a real spectral-time classification. This is secondary evidence only.",
+          "identifier_or_url": "https://doi.org/10.33205/cma.491601",
+          "material_read": "Frozen RESULT.md line 113 and bibliographic §6 locator; independent §6 text unavailable",
+          "method": "Lawful OA publisher PDF and article path attempted; both timed out",
+          "title": "Iterates of Markov Operators and Constructive Approximation of Semigroups",
+          "trigger": "Same operator family, potentially closer semigroup comparison"
+        },
+        {
+          "assessment": "General polynomial kernel structure confirmed at abstract level; wider coverage unresolved",
+          "evidence": "The available description concerns Bernstein–Durrmeyer operators with arbitrary measures and polynomial integral kernels.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2009.11.005",
+          "material_read": "Indexed abstract-level description; full text not retrieved",
+          "method": "Primary literature lookup and lawful OA access attempt (HTTP 403)",
+          "title": "Multivariate Bernstein–Durrmeyer operators with arbitrary weight functions",
+          "trigger": "General kernel/eigensystem source for the same family"
+        },
+        {
+          "assessment": "Distinct even if no same-day priority ordering is assumed",
+          "evidence": "Exact BV/oscillation norms for positive integer powers D_n^r, with midpoint step extremizers, rather than a classification of sign at continuous spectral times.",
+          "identifier_or_url": "Resultary 9f55314ca99c",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Local published-finding mirror",
+          "title": "Sharp bounded variation norms of every Bernstein–Durrmeyer power",
+          "trigger": "Strongest distinct indexed same-family result"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Trace asymptotics for Dirichlet operators on simplices; trace sums eigenvalues rather than testing off-diagonal kernel values.",
+          "identifier_or_url": "Resultary 7bbc01919259",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Local published-finding mirror",
+          "title": "Spectral-power trace cancellation for Dirichlet Bernstein–Durrmeyer operators",
+          "trigger": "Same spectral-power terminology"
+        },
+        {
+          "assessment": "Apparent analogy but exact scope unresolved",
+          "evidence": "The available summary concerns a circle kernel rather than the unweighted quadratic Bernstein–Durrmeyer operator on the interval.",
+          "identifier_or_url": "Resultary c564b7bcf603",
+          "material_read": "Indexed summary only; mirror RESULT.md unavailable",
+          "method": "Local Resultary lookup and mirror attempt",
+          "title": "A sharp positivity bifurcation for spectral powers of a squared-cosine circle kernel",
+          "trigger": "Closest same-day positivity pattern on another space"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§2–4",
+        "Guillot–Khare–Rajaratnam Corollary 2.3, for comparison with finite matrices"
+      ],
+      "rationale": "The natural quadratic Markov averaging kernel gives a sharp counterexample to monotone persistence of order positivity along its canonical real spectral powers after t=1. Exact witnesses and thresholds locate both failure and recovery, and the degree-one comparison shows the low-degree boundary within the family. This distinction between order positivity and positive semidefiniteness is directly relevant to positive interpolation of a Markov iterate.",
+      "residual_risks": [
+        "This is a classification of the canonical spectral interpolation, not an obstruction to every possible embedding or a claim about general degree."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

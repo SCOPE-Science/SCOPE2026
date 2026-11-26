@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the literal geometric fixed set. The proof builds its barycentric edge-orbit triangulation directly from invariant positive coordinates, classifies all five possible edge-orbit types under independently acting full symmetric groups, and proves both necessity and sufficiency of the face condition. Two star orbits from one block produce a four-cycle; a size-two internal edge together with its star produces a triangle. Across different blocks all selected orbit forests are pendant or isolated trees, so no further circuit exists. The resulting simplicial join is an exact PL model. Matroid shellability and the published forest Euler formula yield the stated sphere dimensions and integral multiplicities, with separately checked empty, spherical and contractible boundary cases. The standalone finite enumerator verifies fourteen parameter configurations and independently recomputes \(B_3,B_4,B_5,B_6\). It is corroboration, not the proof for all parameter values.
+PASS
 
-## Originality — PASS, relative to inspected sources
+The replacement corrects the literal homology claim to reduced integral homology; in ordinary homology these nonempty connected wedges also have H0=Z. The join and homotopy type are unchanged. Fixed barycentric coordinates are constant on the edge orbits, and summing the coordinates on each orbit inverts its barycenter map simplex by simplex. Within a permuted block the internal complete graph is forbidden unless it is a single edge; between two permuted blocks K_{k_i,k_j} contains C4. Edges to a single fixed vertex are one star. Two distinct stars of one block form C4, and a star together with its internal edge forms a triangle. Conversely the allowed stars attach at only one vertex each, so the forest condition is precisely the asserted join, with D0 the empty-face-only factor. This verifies all m=0,1,2 conventions and both examples. Matroid shellability gives the sphere wedge; the join with D_s is a wedge of s-1 suspensions. The forest count also follows independently: the signed Euler sum gives B_m=-m![z^m]exp(-R+R²/2) where R=ze^R is the rooted-tree EGF and R-R²/2 counts unrooted trees. Lagrange inversion gives (m-1)![u^{m-1}](1-u)exp((m-1)u+u²/2). The H recurrence reduces this to (m-2)H_{m-3}(m-1), including 1,6,51,560 for m=3..6.
 
-The closest foundational published statements are Provan–Billera's matroid vertex decomposition theorem, Björner's matroid topology, and Jonsson's Section 13.1 summary and forest Euler formula. They determine the unsymmetrized \(\mathcal F_m\) but do not determine the fixed-point space of an independently block-permuting Young subgroup. Two closely related geometric fixed-point investigations concern ordinary **matching complexes**, where faces are pairwise disjoint edges, and **discrete Morse matching complexes**, where faces are directed rooted forests; those statements do not entail this graphic-matroid orbit classification. A published Young-subgroup fixed-point analysis of partial-partition complexes concerns a different poset. The exact join decomposition and exceptional fixed-space cases are not found among the inspected claims. Unindexed equivalence and inaccessible portions of published treatments remain priority risks, and no independence is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-This is an all-parameter classification for a canonical family of graph complexes and every full Young subgroup, not a numerical isolated case. The PL decomposition explains a notable block-size stability for all blocks of size at least three, separates the special contribution of doubleton blocks, and detects empty fixed sets, spheres, contractible spaces and high-rank integral sphere wedges. It supplies all integral homology groups and homotopy types while the ordinary forest complex itself already has substantial higher homology. These are natural equivariant-topology questions; the result does not require an unrelated downstream theorem for its value.
+The supported distinction is the explicit nonfree Young-block PL model and its complete classification, not the general orbit-barycenter construction or the ordinary forest-complex homotopy type.
 
-## Closest literature and limitations
+## value
 
-Provan and Billera (1980), Theorem 3.2.1, establish matroid vertex decomposability. Björner (1992) develops matroid topology. Jonsson (2008), Section 13.1, reports the forest-complex wedge type and exact Euler values, including Theorem 13.3 due to Novik and collaborators. Closely related fixed-point papers about matching complexes and rooted directed forest complexes were compared by their definitions and quantified claims, not just titles. The theorem does not address arbitrary transitive subgroups, the orbit quotient, or ambient equivariant homotopy. Finite test coverage does not assert an exhaustive computational classification beyond the tested cases.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a family-wide model of actual geometric fixed points for natural Young symmetries. The PL join identifies the dependence on block sizes, handles the empty and cone boundary cases, and isolates extra fixed points missed by selecting only individually fixed graph edges. Those are reusable structural conclusions rather than just a tabulation of ordinary forest counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

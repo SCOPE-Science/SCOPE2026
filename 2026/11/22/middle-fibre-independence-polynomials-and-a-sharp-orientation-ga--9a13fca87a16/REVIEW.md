@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The forced-middle lemma follows from strict increase along every arc. Mixed–mixed adjacency is impossible. Removing closed neighbourhoods of mixed vertices leaves only pure sources and pure sinks; the set of remaining vertices assigned to the middle level is precisely an independent set. This establishes the weighted formula bijectively. The stability inequality injects \(2^{|M|}\) copies of every residual independent set into the independent-set family of the whole underlying graph; strictness follows from a neighbour of a mixed vertex. The double-star tree proves the best possible universal factor and run-length enumeration proves the path formula. The all-size proof is independent of the finite checker (`VERIFY_OK 3473`).
+PASS
 
-## Originality: PASS within inspected evidence
+Strictly increasing levels force each mixed vertex to level two and its pure neighbors to the appropriate outer levels. Adjacent mixed vertices obstruct all maps. If they are independent, any independent set in the induced residual graph is a legal middle fibre there, and every legal assignment is obtained uniquely this way, with isolates and target-vertex choices contributing the stated factors. For p≠r the independence polynomial is evaluated with distinct vertex activities q/p and q/r on residual sources and sinks, not recovered from the ordinary univariate polynomial alone. Connectivity forces exactly two orientations without mixed vertices. In any other orientation with a legal map, adjoining arbitrary subsets of M to residual independent sets injects 2^|M| I_R(1) sets into I_G(1); the singleton of a neighbor of M is not in its image. The two-sided pendant tree realizes the ratio 1/[1+(1+2^(−N))²], which tends to 1/2 from below. On the n≥2 path, adjacent mixed vertices are equivalent to a run of three equal edge directions, giving 2F_n; each proper three-coloring determines a unique orientation, giving the total 3·2^(n−1). A separate bounded enumeration compared direct assignments of target vertices with subset counts for all 760 oriented-or-missing-edge inputs of order 1–4 at (1,1,1), (2,1,1), (1,2,2) and compared the 760 full middle-fibre coefficient vectors. It also checked 4750 orientations of 218 connected labelled bipartite graphs of order 2–5, all 510 path orientations of orders 2–9, and the pendant-tree counts for N=1–4. All matched.
 
-The closest 2026 paper by Meyer and Starke addresses Datalog and the existence of homomorphisms into transitive tournaments, rather than exact solution counts. Earlier oriented-homomorphic polynomial work does handle tournament homomorphisms in a general way, and the classical directed-path obstruction already determines whether a homomorphism exists. Those do not, in inspected material, state the closed-neighbourhood independence polynomial with the weighted three-layer template and sharp half-gap. Searches of published mathematical records and accessible earlier findings found no equivalent claim. Historical priority remains uncertain, especially for older fixed-template #CSP reductions.
+## originality
 
-## Value: PASS
+PASS
 
-The result replaces a yes/no constraint-satisfaction criterion with a complete weighted counting formula, and yields an orientation-level extremal rigidity principle with a sharp stability constant. The proof identifies the mixed-vertex closed neighbourhood as the exact controlling object and produces a natural independence-polynomial reduction suitable for exact counting and parameter studies. The asymptotic double-star extremizers show the gap is not merely a loose consequence of counting.
+Existence and the path run characterization are consequences of the known directed-path duality, and the summed path count is a proper-coloring identity. The distinct quantitative content supported by the inspected evidence is the fixed-target middle-fibre/weighted reduction and the sharp orientation gap with a strict finite inequality and near-extremal trees. The closest tournament-polynomial primary source aggregates over targets and does not preserve the middle statistic. No independent matching catalogue entry or wider theorem establishing the claimed quantitative gap was found in the bounded comparisons.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The canonical reduction separates forced choices from a standard graph count and preserves all middle-fibre sizes. More importantly, the stability theorem quantifies how much is lost by introducing mixed vertices in a natural orientation problem, with a universal factor that is sharp even for trees. The Fibonacci and summed-coloring identities are illustrative consequences, not the basis of value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

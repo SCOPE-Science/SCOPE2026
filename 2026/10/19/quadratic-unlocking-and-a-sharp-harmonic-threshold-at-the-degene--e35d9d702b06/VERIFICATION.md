@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,6 @@
   "schema_version": 1
 }
 ---
-# Verification and proof scope
+# Verification and scope
 
-Run `python3 verify.py` in the same directory. It requires only the standard Python library. The checker verifies the two local Taylor discriminants for exact rational parameters; verifies the exact critical-endpoint identity, the elementary frequency symmetry and the maximal coefficient; and compares finite-time translation-number estimates with the derived law for sample interior and exterior values. Expected run time is short on a standard interpreter.
-
-The exact mathematical argument is in RESULT.md. In particular, the infinite-iteration translation number and all parameter values are **not** verified by finite numerical orbits. Those are established by the completed-square positivity, local blow-up integrals and integral-clock telescoping. Numerical tests are non-certifying diagnostics. Independently checking the proof remains outstanding.
+The proof in `RESULT.md` is an exact substitution and sign comparison at two points, followed by the lift-iterate identity. It proves locking for both signs of the perturbation, not just the vanishing of a low-order drift coefficient. The unchanged accompanying `verify.py` includes finite numerical checks of the endpoint identity and half-translation conjugacy (lines 41–48), as well as diagnostics outside the stated endpoint claim. These diagnostics are not a proof of the endpoint theorem or a certification of rotation numbers from finite iterates.

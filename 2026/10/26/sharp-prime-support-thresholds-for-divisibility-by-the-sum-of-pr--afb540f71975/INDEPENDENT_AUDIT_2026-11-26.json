@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:56:35.111809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three odd primes the square sum is 3 modulo 4; when one is 2, half the square sum is 3 modulo 4. The resulting odd prime divisor l congruent to 3 modulo 4 cannot be a supported prime, since reducing modulo l would make the quotient of the other two squares equal to -1 in the field. For two primes the sum is coprime to n and exceeds one. For odd n the square sum is congruent to the support size modulo 2, so it can divide n only at odd support. Recomputed by trial division and exact arithmetic: 46206 = 2*3^2*17*151 and its sum is 23103 (quotient 2); 72105 = 3*5*11*19*23 and its sum is 1045 (quotient 69). These verify sharpness under the explicit exclusion of prime powers. The packaged 300000-integer scan was inspected, not executed; it is not used for the all-prime result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-object de Koninck–Luca paper is cited by A190882 for infinitude; primary full text could not be verified in this review.",
+          "The inspected Resultary finding concerns fixed points of a valuation-weighted map sum(e*p^2), with low-support fixed points 16 and 27, not support smoothness of the unweighted sum."
+        ],
+        "reasoning": "Infinitude does not yield a minimum and the weighted equality does not imply the proposed unweighted divisibility obstruction. The plausible same-object paper remains an access risk.",
+        "searches": [
+          "de Koninck–Luca, DOI 10.1016/j.jnt.2007.01.010",
+          "Resultary d6107575748c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–44, VERIFICATION.md, and verify.py (read only)",
+        "OEIS A190882",
+        "MathPages kmath126",
+        "Resultary d6107575748c",
+        "JNT DOI 10.1016/j.jnt.2007.01.010 bibliographic comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For triples containing 3, the MathPages reduction of k to 1 is essential to its proof: having 3 divide the product but not the sum is consistent with the sum dividing the product to unrestricted exponents.",
+          "Odd squarefree supports of size four are likewise excluded by the prior parity observation; an unrestricted size-three obstruction is still required."
+        ],
+        "reasoning": "The verified prior facts do not give the nonresidue outsider for every triple and hence do not deliver the full lower bounds. Once this gap is filled, the odd threshold follows by known parity and the known witness.",
+        "searches": [
+          "MathPages kmath126 offsets 840–2023 and squarefree witness section",
+          "OEIS A190882, comments/example",
+          "Resultary d6107575748c, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a fixed prime set P, existence of some eligible n is equivalent to P-smoothness of sum(p^2, p in P). Division of the squarefree product instead bounds each valuation by one.",
+          "MathPages reduces squarefree pqr=kS to k=1 and uses mod 3; its mod-3 argument directly gives the outsider 3 when none of the three primes is 3, but is not a smoothness obstruction for triples containing 3."
+        ],
+        "reasoning": "Compare full support realizability, not just a squarefree equation or a fixed point. Excluding divisibility of the squarefree product by the sum does not exclude arbitrary prime powers, as the four-prime witness demonstrates.",
+        "searches": [
+          "OEIS A190882",
+          "MathPages kmath126, CASE n=3",
+          "Resultary: prime square sums and prime-support smoothness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A190882 lists 46206 and 72105, gives the 46206 factorization/example, and states omega(n)>=3.",
+          "MathPages gives the very same odd witness [3,5,11,19,23] with quotient 3*23."
+        ],
+        "reasoning": "Credit the exact examples to the accessible prior record. Listing sequence values cannot exclude all three-prime supports, and a catalogue lookup without a hit is not independent evidence of novelty.",
+        "searches": [
+          "OEIS A190882",
+          "Resultary exact prime support divisibility and square-sum neighbors"
+        ]
+      },
+      "rationale": "The witnesses, sequence and squarefree case are prior. On the compared evidence, what survives is the exponent-independent exclusion of three distinct supported primes in the missing cases and the resulting sharp unrestricted and odd support minima. No verified comparison establishes that full claim. This is a bounded priority judgment, not a claim that the modular tools or witnesses are new.",
+      "residual_risks": [
+        "Same-object De Koninck–Luca primary text not independently retrieved; other equivalent formulations may be unindexed.",
+        "Only the proof and exact witnesses were independently checked, not the full optional finite scan."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same sequence, known upper witnesses, weaker support lower bound",
+          "evidence": [
+            "Both integers appear; the comments state omega(n)>=3."
+          ],
+          "identifier_or_url": "https://oeis.org/A190882",
+          "material_read": "Values, comments and example, OA offsets 250–1303 and 1227 onward",
+          "method": "OA public entry",
+          "title": "Numbers other than prime powers divisible by the sum of the squares of their prime divisors",
+          "trigger": "Exact divisibility sequence and witnesses"
+        },
+        {
+          "assessment": "Squarefree results and partial overlap of modular obstruction",
+          "evidence": [
+            "The triple proof first reduces pqr=kS to k=1 and then argues mod 3, separately for whether a prime equals 3.",
+            "The listed quotient for the odd witness is 3*23."
+          ],
+          "identifier_or_url": "https://www.mathpages.com/home/kmath126.htm",
+          "material_read": "Opening, CASE n=3 and start of CASE n=4 (offsets 840–2023), witness near offset 4783",
+          "method": "Bounded OA webpage passages",
+          "title": "Product Divisible By Sum of Squares",
+          "trigger": "Equivalent equation for squarefree n and three-prime obstruction"
+        },
+        {
+          "assessment": "Priority risk; no inference of noncoverage from inaccessibility",
+          "evidence": [
+            "The author PDF route timed out and the publisher PDF route was inaccessible; the OEIS entry cites the paper for infinitude."
+          ],
+          "identifier_or_url": "10.1016/j.jnt.2007.01.010",
+          "material_read": "Bibliographic and infinitude information in A190882; no primary theorem text independently retrieved",
+          "method": "Author-hosted OA and publisher OA availability attempts; secondary entry read",
+          "title": "Integers divisible by sums of powers of their prime factors",
+          "trigger": "Same beta-square divisibility family"
+        },
+        {
+          "assessment": "Different prime-factor function and fixed-point relation",
+          "evidence": [
+            "Its valuation-weighted T2(n) has low-support fixed points 16 and 27."
+          ],
+          "identifier_or_url": "Resultary d6107575748c",
+          "material_read": "Original Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Two-prime support rigidity for square-prime-factor fixed points",
+          "trigger": "Closest inspected published support classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a pre-existing divisibility sequence, this identifies which minimal sizes of prime support are possible even when prime powers are arbitrary. The stronger existence of a specific residue-class outsider gives a uniform local obstruction to realization of any three-prime support, rather than an observation about the first terms or a repeat of the squarefree result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

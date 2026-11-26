@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Over any finite field, the five-point blowup has the sixteen negative curves and their intersection graph is the five-regular, triangle-free Clebsch graph, with 40 nodes and genus 25. The unique conic through the five base points is fixed under Frobenius and produces a splitting of the degree map. The symmetric perfect graph monodromy pairing reduces fixed critical-group factors to coinvariants. Explicit integral vertex-orbit Laplacian presentations then prove the seven finite decompositions. The included exact-arithmetic verifier reconstructs the matrices, checks their determinants independently of their two-adic reductions, and checks all 7 cases. There is no infinite inference from finite numerical samples.
+## correctness
 
-**Originality — PASS, subject to historical priority.** The split Clebsch graph's critical group is explicitly known in Tamimi's Table 1.1, and is acknowledged as the known first row. Hassett–Kresch–Tschinkel's work covers degree-four del Pezzo moduli and line monodromy, Shokrieh covers monodromy pairing generally, and Suzuki treats Néron Galois descent. The closely related five-cycle Picard-torus computation classifies a connected algebraic torus, not the finite Frobenius-invariant component group. A search of indexed mathematical literature and related publicly indexed results did not locate the seven-type invariant-factor classification; absence from searches alone is not proof of priority. The remaining risk is a historical group-action computation indexed under Clebsch sandpiles, folded cubes, or arithmetic component groups.
+PASS
 
-**Mathematical value — PASS.** The complete exceptional-divisor boundary is a natural genus-25 stable degeneration of a quartic del Pezzo surface. Its component group's finite-field rational points cannot be recovered from the abstract split critical group without the integral Frobenius action. The seven-class table isolates this arithmetic structure, and the order-256 pair \((3,2)\), \((4,1)\) shows that even equal rational component counts can conceal different finite abelian groups. This is a natural complete finite classification, not a discretionary graph slice.
+The classes E_i, L_ij and the unique conic give off-diagonal intersection numbers 0 or 1, so intersecting smooth components meet transversely. No three can meet: the graph of disjoint index pairs and their incidences with exceptions and the conic has no triangles. It is connected with 16 vertices, 40 edges and genus 25. The fixed conic splits degree off the Laplacian cokernel. Its rooted reduced Laplacian is symmetric and Frobenius-equivariant, so its rational inverse defines a Frobenius-invariant perfect pairing modulo Z on the torsion cokernel; thus the fixed group is dual to the coinvariants. Independently formed the full integral relation matrix [L | σ−I] on even subsets of five labels (adjacency: symmetric difference of size four), computed exact Smith forms, and split off the single free degree factor. All seven torsion lists match, including (8,32) versus (2,4,32) at order 256. Raynaud's regular semistable component-group description is equivariant and the rational points of the finite étale group scheme are the Frobenius invariants, so this verifies the conditional interpretation without assuming split components.
 
-**Restrictions.** Not all \(W(D_5)\) twists are covered, and the semistable Néron statement assumes unit node thicknesses. No claim is made that all seven permutation types occur over every small finite field. Inaccessible relevant full text and older unindexed calculations remain a priority risk, not an assumed proof of originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The split Clebsch group and the general tools are prior work. The supported distinct claim is the seven fixed subgroups for base-point-permuting Frobenius, including two nonisomorphic groups of equal order. The closest same-boundary record gives a connected Picard torus invariant, and the closest fixed-critical-group record is on another graph.
+
+## value
+
+PASS
+
+The full exceptional boundary is natural, and the seven cases are the complete base-point permutations, not selected small examples. The exact invariant factors are needed to distinguish rational component-group structures that a component count alone cannot distinguish. The two order-256 rows provide a concrete instance, and the same table can be used in every regular unit-thickness smoothing with this boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

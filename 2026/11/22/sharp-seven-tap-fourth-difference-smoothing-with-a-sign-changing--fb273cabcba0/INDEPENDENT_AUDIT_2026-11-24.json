@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:38:51.031008Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The real symmetric unit-mass class is in bijection with q(y)=y²+a y³+b y⁴+c y⁵; Plancherel gives the induced norm 16||q||∞ on [0,1]. Bounded evaluation at three positive nodes gives existence. The extremal set has positive distance from zero; fewer than four alternating contacts allow a sign-correcting perturbation y³h(y), deg h≤2, with strict decrease. All but the possible right endpoint are interior stationary points; q′/y has degree at most three and is positive at zero. Thus precisely three interior extrema and the endpoint occur, with signs +,-,+,-. Signed positive-magnitude interpolation weights annihilate the perturbations at those nodes, proving optimality, uniqueness, and the converse for the ordered algebraic system. Independently replayed the numerical certification in review-work/minimax.py (not the frozen program): exact rational four-node dual bound, disjoint stationary brackets for the trial polynomial and a derivative Lipschitz upper bound give outer decimal displays 0.2029850838641552356566686… and 0.2029850838641552387168094…. The four weighted deficits bound the optimizer's coefficients within 2.052×10⁻¹⁶ of the trial coefficients; Laurent expansion then certifies positive taps and the strict negative symbol witness. For the constrained comparison, the interval nonnegative cubic representation P=(1−y)A²+yB² with linear A,B and A(0)=1 permits dropping the B term. The remaining problem is to minimize the squared uniform norm of f(x)=x(1−x²)A(1−x²), x=√(1−y). The polynomial −(2/5)tan(π/10)T₅(x cos(π/10)) is in this family (odd, f(1)=0, f′(1)=−2), and its two opposite contacts on (0,1) certify optimality because every perturbation is a multiple of x(1−x²)². After the factor 16 this is the stated benchmark and the resulting gain is 24.8944409688…%.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gaitán–Garzón–Madrid abstract explicitly restricts their fourth- and sixth-difference optima to nonnegative Fourier transforms.",
+          "The same-day 64e6a942b2b3 indexed result treats unrestricted five-site smoothing at every order. ec4a8b1168c3 is a fixed-radius large-order asymptotic, and 97ecaa4cd5e9 treats radius one."
+        ],
+        "reasoning": "Unlimited difference order at radius two, or unlimited radius under a spectral sign constraint, does not give the unrestricted fourth-difference radius-three optimum.",
+        "searches": [
+          "arXiv:2604.25074v1, abstract; Theorem 1.4 and Table 2 locators from the frozen record",
+          "Resultary 64e6a942b2b3, ec4a8b1168c3, 97ecaa4cd5e9"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.25074v1",
+        "arXiv:2310.09713",
+        "Resultary 64e6a942b2b3",
+        "Resultary ec4a8b1168c3",
+        "Resultary 97ecaa4cd5e9",
+        "Resultary fb273cabcba0 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact negative Fourier value at an interior point excludes this optimizer from the older Fourier-nonnegative class.",
+          "A five-site three-contact alternation cannot certify optimality with the additional third Fourier coefficient available; the fourth contact genuinely matters here."
+        ],
+        "reasoning": "The prior results give the comparison baseline and methodology, not a dominating sharp result that specializes to this optimum.",
+        "searches": [
+          "Gaitán–Garzón–Madrid and Richardson compared by admissible class/order",
+          "Resultary same-day all-order five-tap record compared by support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md, Fourier reduction and alternation: equivalent to degree-two weighted uniform approximation of 1/y with weight y³, or prescribing the quadratic coefficient of a degree-five polynomial vanishing to order two at zero.",
+          "Richardson arXiv:2310.09713, opening page: explicit optimum for the second difference, not this weighted residual."
+        ],
+        "reasoning": "Standard alternation gives a structural method but does not fix the sharp constant, give its enclosure, or settle signs of this kernel. The operator norm is not a norm of the taps or of their differences.",
+        "searches": [
+          "Resultary: unrestricted seven-tap fourth-difference smoothing / sharp finite support Fourier smoothing",
+          "Primary search: weighted minimax and seven-tap fourth-difference smoothing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fb273cabcba0 is the assigned record itself. The closest distinct five-tap indexed result has three alternation contacts at radius two, not four at radius three.",
+          "The frozen record describes Table 2 as leaving unrestricted fourth differences open; the independent retrieval established the restriction from the original abstract, but did not recover the table itself."
+        ],
+        "reasoning": "No inspected table gave the radius-three unrestricted norm or optimizer. The unresolved full-text retrieval is not evidence of absence.",
+        "searches": [
+          "Resultary exact seven-tap search; exact same-day five-tap record mirror 64e6a942b2b3",
+          "arXiv:2604.25074v1, Table 2 retrieval"
+        ]
+      },
+      "rationale": "Credit the known minimax method, the fourth-difference Fourier-nonnegative optimum, and adjacent unrestricted lower orders and shorter radii. The supported distinct contribution is the exact unrestricted radius-three fourth-difference optimum, including the simultaneous strict tap positivity and spectral negativity and the quantitative comparison. No checked statement supplies these. This is distinct-content assessment, not a global priority claim.",
+      "residual_risks": [
+        "The decisive section of the adjacent five-tap full text and the primary Table 2 could not be read through the targeted retriever.",
+        "An unindexed degree-five weighted extremal polynomial or smoothing table may overlap with the formulation or value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The original abstract confirms the Fourier-nonnegative restriction. Benchmark independently derived; no whole-paper noncoverage claim.",
+          "evidence": "First-page abstract: cases k∈{4,6} are restricted to kernels with non-negative Fourier transform.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.25074v1",
+          "material_read": "Original first-page abstract; Theorem 1.4/Table 2 sought separately but not recovered",
+          "method": "OA PDF bounded text preview and targeted passage retrieval attempt",
+          "title": "The smoothest average and some extremal problems for polynomials",
+          "trigger": "Same smoothing functional, fourth difference"
+        },
+        {
+          "assessment": "Abstract identifies the sharp second-difference problem, not the fourth-difference case.",
+          "evidence": "Abstract explicitly says second derivative, gives the discrete Laplacian inequality, and states exact solutions for every n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.09713",
+          "material_read": "Original opening page, abstract",
+          "method": "OA PDF bounded text preview",
+          "title": "A Sharp Fourier Inequality and the Epanechnikov Kernel",
+          "trigger": "Unrestricted sharp smoothing for any support"
+        },
+        {
+          "assessment": "Covers fourth difference with five taps, not seven taps at the level of the available statement.",
+          "evidence": "Summary describes five-site support and three alternating extremal frequencies across positive difference orders.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-unrestricted-five-tap-fourier-smoothing-at-every-differenc--64e6a942b2b3",
+          "material_read": "Indexed mathematical summary only; exact mirror passage not accessible",
+          "method": "Local Resultary search; targeted mirror attempt",
+          "title": "Sharp unrestricted five-tap Fourier smoothing at every difference order",
+          "trigger": "Same-day unrestricted theorem at adjacent support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The single radius is motivated by a concrete open sharp fourth-difference regime in the prior smoothing work and an extra free coefficient beyond five taps. The positive time-domain minimizer is still a genuine average, so its negative Fourier symbol and appreciable sharp improvement separate two naturally used meanings of positivity. This is more than a numerical norm estimate or a restatement of alternation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

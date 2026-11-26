@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The boundary generator treats the two sticky states explicitly and retains both independent rates, and the two bulk backward equations give a two-constant polynomial solution. Differentiation reduces every admissible allocation to a monotone quadratic with endpoint signs bounded away from zero whenever wall release has positive rate. This proves a unique global *interior* minimizer for every positive parameter set and every initial orientation mixture. Both numerical minimization and event-driven Monte Carlo independently corroborate the formulas; neither numerical check proves the universal statement.
+## correctness
 
-## Originality — PASS, qualified
-The same underlying stochastic process and strong general exit-time formulas are known in the papers by Bressloff (arXiv:2302.01158) and Angelani (J. Phys. A 56 455003). Those are directly acknowledged as prior work rather than represented as new. The evaluated claim is a constrained global optimization theorem, specifically the always-interior fixed-total boundary-reactivity optimizer, its closed algebraic form, and collapse of arbitrary starting position and direction bias into one effective bias. In Angelani's *Optimal escapes in active matter* (arXiv:2311.11873), the control parameter optimized is the bulk tumble rate, not the split of a fixed absorption budget. Direct paper inspections and mathematical-research searches found no corresponding optimizer theorem. Residual risk: the optimizer is algebraically accessible from more general prior first-passage expressions, and a presently unlocated resource-allocation theorem could subsume it.
+PASS
 
-## Mathematical value — PASS
-The problem models allocation of a limited reactive coating or killing capacity across two sticky surfaces. The universal refusal of a corner solution is non-obvious, especially for completely polarized starts, and the effective-bias rule gives a simple experimentally meaningful equivalence between spatial and angular preparation. It provides a complete optimization classification without requiring density reconstruction or a stochastic approximation. This is a finite-dimensional exact design result, not a claim of a new first-passage formalism.
+Independently solving the sticky-state equations in midpoint coordinates gives an allocation-dependent part of M/T equal to 2(1+eta)((lambda+1)h^2+wh)/(4eta+F(1-h^2)), up to an h-independent constant. In detail, take l=beta(1+h)/2, r=beta(1-h)/2, delta=(m_+(L/2)-m_-(L/2))/T, and Q the mean of the two dimensionless wall orientation averages minus 1/2. The boundary equations are lQ-[eta+(lambda+1)l/2]delta=1+eta and rQ+[eta+(lambda+1)r/2]delta=1+eta. Their determinant is eta beta+(lambda+1)lr>0 even at zero allocation to one wall. Differentiating the resulting mean gives the asserted prefactor and P(h)=2(lambda+1)Hh+w(H+Fh^2). Its derivative is at least 8eta(lambda+1), and its two endpoint signs are strictly negative/positive even at |w|=lambda+1. The displayed stable root, strict interiority, oddness and monotonicity follow. Finite mean at zero allocation on one side follows from a uniform positive chance in bounded time to reach and be killed at the active wall: use runs without tumbles and, if needed, a bounded wait for release from the opposite sticky state. The frozen proof and checker support the model; the script was inspected, not run, and the recorded simulation is not used.
 
-## Closest literature and scientific limits
-Bressloff's §§2 and 5 furnish general sticky-wall boundary dynamics and nonidentical reactivities. Angelani's 2023 J. Phys. A article supplies a generic mean exit-time expression for wall boundary conditions and could make the new optimizer derivable by a separate calculus argument. The 2023 *Optimal escapes* article explores optimization over a different physical parameter. The present proof requires strictly positive common wall-release rate; the zero-release boundary can admit degenerate optima. Generalized residence-time distributions, asymmetric release rates, noisy statistical estimation, and time-varying wall budgets are not addressed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published primary sources inspected give the stochastic model, asymmetric boundary first-passage formulas, or optimization of a different control. The closest catalogued fixed-budget result has unbiased headings and is later-dated. The full fixed-budget sign and interiority theorem for all initial orientations with the effective bias and closed optimizer remains distinct on the inspected evidence.
+
+## value
+
+PASS
+
+A fixed amount of wall reactivity is a natural design constraint and makes all-at-one-wall choices plausible for strongly polarized or off-center starts. The theorem excludes both extreme allocations uniformly, gives an explicit optimum, and identifies how location and heading compensate. This is a complete design answer rather than an enumeration or a relabeled exit-time formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

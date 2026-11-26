@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional diversity multiplier is obtained directly by averaging a single recipient indicator. The swap identity is a rational identity for every positive preceding total, and all finite schedule permutations are connected by adjacent exchanges; equality is characterized. Exact-rational enumeration for 21 cases, 12 exhaustive multiset permutation checks, the exact two-user witness, and high-precision Gamma-limit checks passed using the embedded standalone code. No simulation is substituted for the all-size mathematical proof.
+## correctness
 
-## Originality — PASS, literature bounded
-The 2026 origin paper introduces the two positive-feedback mechanisms but reports numerical popularity and opinion-clustering effects, not optimal ordering under a fixed multiset of publicity boosts. Pemantle's earlier general time-dependent reinforced urn and exact variance recurrence supply moment tools, which are **not** claimed as new. The isolated contribution is the strict sorting optimizer and exact adjacent-swap gap for the single-recipient temporal boost mechanism. Ruszel and Thacker's nonlinear multi-ball model addresses a different process and fixation. Closest published research entries concern unrelated epidemic scheduling, contagion onset and viral diffusion. The original Pemantle 1990 article was not examined in full; this is a residual historical-priority risk.
+PASS
 
-## Value — PASS
-A fixed total publicity budget may be scheduled in different orders while producing identical expected individual popularity shares; those orders nevertheless yield different expected attention concentration. The exact universal sorting law determines optimal timing without simulating stochastic histories, directly motivated by exposure fragmentation. The interpretation is deliberately limited to popularity concentration, not claims about opinion consensus.
+For one size-biased draw (all users eligible), the conditional diversity multiplier is f(S,r)=1-[r/(S+r)]². The total is deterministic and the tower rule gives a positive product times D₀>0. At fixed pre-swap total S, the diversity-factor difference for b,a versus a,b is 2Sab(a−b)/[(S+a)(S+b)(S+a+b)²]; e.g. after extracting S/(S+a+b)² the difference reduces to 2ab/(S+b)−2ab/(S+a). The next total and all other factors agree. Adjacent inversion removal proves the unique minimizing boost sequence for expected H; reversing the argument proves the maximum, with ties at the extrema only for identical boost sequences. T=1 or all equal boosts have just one sequence class. This does not assert injectivity among nonextremal orders. The periodic auxiliary product has equal sums of the Gamma shifts in numerator and denominator, so the powers cancel; bounded martingale convergence justifies the expected limit. The stated M=1 value and large-M equivalent follow by telescoping and Γ(x)∼1/x. Independent exact state enumeration verifies the 2/3 and 31/45 witnesses and small nonuniform cases; it is not an all-permutations proof.
 
-## Limitations and validation
-The result assumes single-recipient size-biased refreshed selection, fixed positive boost sizes and no conditional network restrictions. The full motivating opinion system is not included, and the literature search cannot certify priority. The code is supplementary validation and not independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit time-dependent-urn second-moment recurrences and the motivating publicity model as antecedents. The supported distinction is strict chronological ordering of an arbitrary prescribed multiset of positive single-recipient additive boosts, not the recurrence or the model itself. The strongest indexed timing result concerns a different Friedman–Pólya control and does not establish arbitrary sized-boost sorting. Primary access limits leave the priority assessment provisional.
+
+## value
+
+PASS
+
+The comparison solves a natural exact fixed-budget scheduling problem for arbitrary positive sizes, distinguishes equal-budget schedules and identifies both unique extremizers independent of initial scores. The strict exchange sign and invariance of the future product make this more than computing the known second moment of one schedule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

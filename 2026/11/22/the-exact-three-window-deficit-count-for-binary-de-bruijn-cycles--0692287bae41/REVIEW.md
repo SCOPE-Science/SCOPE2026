@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is exactly scoped to binary oriented circles, rotation-only quotient, and all integers \(n\ge3\). In the edge-labeled binary de Bruijn graph every valid circle corresponds to an Euler tour after three distinct missing edges. Balance forces the omitted edges to form exactly a constant loop plus the alternating two-cycle (two choices) or one primitive period-three directed cycle (two choices). The BEST theorem reduces each labeled tour count to a directed in-arborescence cofactor, because all surviving outdegrees are one or two. The binary shift transition satisfies \(P^m=J\), providing the finite inverse. The two-cycle rank-one calculation yields its exact count; the three-cycle rank-three determinant is evaluated using three explicit geometric sums with a necessary one-bit final-overlap correction. The residue-class determinant computation proves the all-\(n\) expression; positivity establishes existence except the correctly identified period-three case at \(n=3\). Both exact Laplacian checks through \(n=8\) and an independently constructed Euler-tour enumeration through \(n=5\) passed. The exhaustive finite checks do not substitute for the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Cyclic overlapping windows identify the words bijectively with labeled Euler tours modulo rotation in the corresponding residual de Bruijn digraph. Balance forces the omitted three edges to decompose into directed simple cycles (edge-disjoint); there are only two loops, one alternating two-cycle, and two primitive period-three cycles. A loop plus the alternating cycle affects distinct vertices for m≥2, as does each simple three-cycle, so no vertex is isolated by these deletions. For fixed residual graph, fixing one surviving first edge removes rotation with no stabilizer or extra factor. All active degrees are one or two, so BEST reduces to the directed tree count, including zero when disconnected. For balanced L, det(L+J) is N times a Laplacian cofactor on N vertices; the full chain satisfies P^m=J, giving cofactor 2^(N−1)/N and the displayed telescoping inverse. The two-cycle update is rank one; alternating suffix-prefix overlaps give 2(−1/2)^k on its signed endpoint vector. In the period-three case the determinant lemma gives K with row difference Z_i−Z_{i+1} along the deleted directed edges. All cyclic two-bit prefixes of the period are distinct, so only the last, one-bit overlap can match two phases. Independently recomputed the truncated geometric sums by subtracting their first excluded term; each K entry is affine in z in each residue class. Exact evaluations at four rational z values certify the full cubic-degree determinant identity in all three classes. At m=2 the period-three term is zero; for m≥3 it is strictly positive by the displayed formula, and the two-cycle term is positive for all m≥2. Direct rotation-canonical binary word enumeration gave totals 2 and 12 at n=3,4, split by combined types as (2,0) and (8,4). Summing the two complementary missing sets in each type and taking the limit gives the stated integer counts and proportions.
 
-The 2019 generalized de Bruijn paper previously reports numerical answers at lengths \(29\) and \(61\), which are not claimed as new. Its inspected counting section does not state an all-order three-defect formula or any count for each of the two missing-factor types. The closely related published two-defect theorem covers two omissions, while the published three-factor-deletion probability theorem counts admissible **linear** Euler trails rather than cyclic Euler tours and their multiplicities. The 2013 complementary-class universal-cycle paper supplies existence methodology, not this count. Explicit phrase, implication, alias, numeric-table and cyclic-versus-linear searches did not show stronger coverage. The original 1982 shift-register survey was unavailable in full; unindexed or historical equivalents are possible. No assertion of certified priority is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first three-omission case beyond the classic full and near-full de Bruijn count families has a natural all-order counting question. The theorem converts an isolated finite table into a closed expression for every window order, classifies all allowable missing sets, supplies an exact type-resolved census, identifies the exceptional zero case, and proves limiting proportions and a mod-three oscillation. These are informative invariants of shortfall universal cycles, not merely a new numerical table entry.
+Credit the known balanced missing-set classification and published finite totals. The supported distinct content is the all-order cyclic Euler-tour multiplicity for each of the two missing types, hence also the exact total and limiting type ratio. Neither published existence counts for deletion sets nor previously tabulated generalized de Bruijn words furnish these formulas.
 
-## Closest literature and limitations
+## value
 
-Champlin–Godbole–Tomlinson (2013); Gabrić–Holub–Shallit (2019, including pre-existing exact numerical tables); Chen–Kitaev–Sun (2020); published two-defect cyclic and three-defect linear results (2026). There is no claim for nonbinary alphabets, other deficits, reversal classes, or historical priority independently established by an external expert.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three missing windows are a natural next exact deficit for near-universal binary cycles. The formula answers how many cycles survive, not merely whether they survive, and reveals a nontrivial split between the two admissible missing patterns, a sharp zero at minimal order, and a limiting comparison with full cycles. A future enumeration can use these exact per-type counts in place of exponentially large Euler-tour or cofactor computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

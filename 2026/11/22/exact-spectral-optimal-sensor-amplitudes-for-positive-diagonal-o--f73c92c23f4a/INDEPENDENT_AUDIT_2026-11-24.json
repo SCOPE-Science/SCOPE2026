@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:21:00.081429Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–75",
+        "VERIFICATION.md and verify_optimal_sensor.py inspected, not executed; 885 finite rational checks as recorded",
+        "Independent diagonal-majorant/equality certificate and exact three-node inverse"
+      ],
+      "rationale": "With times 0,…,N the phase-free frame matrix is DCD for D=diag(|g_i|). C=VVᵀ with V_ik=a_i^k. For each minor, the Cauchy–Binet terms are products of positive generalized Vandermonde determinants (ordinary Vandermonde on the ordered positive nodes times a Schur polynomial with nonnegative coefficients and at least one positive monomial). N+1≥n ensures nonempty sums. Cofactors give the strict checkerboard sign of C⁻¹, hence H>0 entrywise. For an independent certificate, let p_i=|g_i|² and t>0. When p has full support, W≥tI iff diag(p)≥tH by inversion, congruence and the checkerboard signature. If any p_i vanishes, the smallest eigenvalue is zero. The all-ones test gives t≤1/L. The proposed p attains it because diag(r)−H is the positive semidefinite weighted graph Laplacian with quadratic form (1/2)∑ H_ij|x_i−x_j|². Equality forces (diag(p)−tH)1=0, so exactly p=r/L; phases are immaterial. In the three-mode example, the columns of V⁻¹ are coefficients of 8x²−10x+3, −16x²+16x−3 and 8x²−6x+1; applying the checkerboard signs to their coefficient Gram gives the displayed H and L=2097. When the horizon is shorter the rank is at most N+1; when two modes coincide their projected orbit spans at most one direction. Both listed degeneracies give zero.",
+      "residual_risks": [
+        "The theorem concerns unconstrained complex phases and one sensor, positive distinct real modal eigenvalues and consecutive finite observations. It does not guarantee numerically stable inversion for ill-conditioned C."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Belabbas use a continuous infinite-horizon Cauchy matrix Ψ_ij=1/(λ_i+λ_j) and the same checkerboard-inverse row-sum optimum with exact signs. The Resultary finite-window theorem gives the same structure for a Lebesgue integral over [0,T]. Trélat–Zuazua treat the covariance design and include scalar small-horizon uniqueness/asymptotics in continuous time."
+        ],
+        "reasoning": "These are strong method and statement overlaps. Even log-substituting a_i=e^(−λ_i) preserves the difference between the counting-measure kernel ∑_{k=0}^N e^(−(λ_i+λ_j)k) and the Lebesgue kernels. An asymptotic small-horizon theorem does not provide an exact global finite rule.",
+        "searches": [
+          "arXiv:1610.08885 Theorem 1 and §§2.1–2.3",
+          "Trélat–Zuazua Optimal Actuator Design across Ranks and Control Horizons Theorem 2.4 and Proposition 2.6",
+          "Local Resultary finite-window diagonal-contraction exact optimum 4c44e6e23704"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4c44e6e23704 and frozen f73c92c23f4a; Chen–Belabbas arXiv:1610.08885; Trélat–Zuazua author PDF; Higham diagonal perturbation article"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen–Belabbas establish the inverse signs using Cauchy determinants. The exact finite-window Resultary proof uses total positivity and the same Rayleigh/Perron equality mechanism, and explicitly limits its theorem to Lebesgue measure on a full interval and excludes arbitrary sampling measures. The discrete source uses Cauchy–Binet and generalized Vandermonde minors for the counting-measure kernel."
+        ],
+        "reasoning": "The optimization proof is transferable once inverse signs and rank are verified; the change is not an application of the continuous theorem to a parameter it allows. No inspected broader exact result covering the required discrete inverse-sign condition and allocation was identified. Credit the shared algebraic principle rather than claiming it as novel.",
+        "searches": [
+          "Chen–Belabbas proof sections and the related Resultary proof and explicit assumptions",
+          "Minimum trace diagonal majorant and optimal symmetric diagonal scaling literature search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting y=p/t transforms optimization exactly into min 1ᵀy subject to diag(y)≽H, with p=y/(1ᵀy). The row-sum Laplacian and rank-one dual 11ᵀ solve it once the strict inverse signs are known. Higham discusses diagonal perturbation and the general 1-norm SDP problem, not this orbit factorization and exact allocation in the inspected text."
+        ],
+        "reasoning": "The diagonal-majorant formulation is equivalent, not just a relaxation; a trace-one full covariance relaxation need not be rank-one exact in general. The useful special structure here is the signable inverse of the finite Vandermonde Gram. General-purpose SDP formulations alone do not supply that property.",
+        "searches": [
+          "Unit-sensor minimum eigenvalue, minimum-trace diagonal PSD majorant, inverse-row-sum and checkerboard scaling",
+          "Higham, Diagonally Perturbing a Symmetric Matrix to Make It Positive Definite",
+          "Chen–Belabbas arXiv:1610.08885 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record f73c92c23f4a is the identical exact discrete match; distinct same-day 4c44e6e23704 has the continuous finite-window kernel and closely matching uniqueness. The primary actuator-design paper located is the continuous infinite-horizon one."
+        ],
+        "reasoning": "The precise geometric-sum all-horizon statement is not in the strongest distinct inspected catalogue finding. There is no applicable numerical table for the general design theorem; the three-node calculation is illustrative, not an independent originality claim.",
+        "searches": [
+          "Resultary finite horizon exact spectral-optimal sensor amplitudes and diagonal-contraction frame bounds",
+          "Literature search on discrete-time single-input worst-case energy with Chen–Belabbas and checkerboard inverse"
+        ]
+      },
+      "rationale": "Pass for the exact discrete finite-horizon E-optimal allocation, including uniqueness and validity at every admissible horizon. The row-sum form and its sign argument are not new as general design ideas: Chen–Belabbas explicitly have the exact analogous law for the infinite continuous-time Cauchy kernel, and the same-day finite continuous-time result deploys essentially the same argument for an exponential integral kernel. Neither inspected statement contains the finite discrete kernel. The remaining distinct content is the exact allocation for every consecutive finite discrete horizon and the needed strict inverse-sign proof for that family, not a new general optimization principle.",
+      "residual_risks": [
+        "The structural overlap with the same-day continuous-window theorem and older continuous infinite-window law is substantial. An older general exact diagonal-majorant/scaling lemma combined with an applicable total-positivity theorem, or an equivalent discrete-time control statement, may provide additional prior coverage. Bounded review does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive prior exact analogue, continuous infinite-horizon kernel",
+          "evidence": [
+            "Theorem 1 gives φ=1ᵀσ*Ψ⁻¹σ*1 for the inverse-energy objective and squared magnitudes proportional to σ*Ψ⁻¹σ*1; Ψ is continuous-time Cauchy. It does not state a general signable-inverse theorem in the inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1610.08885",
+          "material_read": "§2, Theorem 1 (6)–(9), offsets about 10800–19776; §2.1 Cauchy minors and Perron discussion; §§2.2–2.3 Proposition 2 and beginning of equality proof, offsets 28330–34730",
+          "method": "OA full-text passages",
+          "title": "Optimal actuator design for minimizing the worst-case control energy",
+          "trigger": "Earlier exact row-sum optimizer for the same E-optimal design objective"
+        },
+        {
+          "assessment": "Same-day exact optimization analogue, not a duplicate of the discrete finite theorem; priority/order not inferred",
+          "evidence": [
+            "The continuous kernel K_T=(1−e^(−(λ_i+λ_j)T))/(λ_i+λ_j) leads to the same checkerboard inverse formula via Rayleigh and Perron; scope uses [0,T] with Lebesgue measure and does not cover arbitrary measures."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-finite-window-lower-frame-bounds-for-diagonal-contraction--4c44e6e23704/RESULT.md",
+          "material_read": "Finding offset 0, scope near 1737, proof offsets 3320–5600, limitations near 8298",
+          "method": "Published local mirror passage comparison",
+          "title": "Exact finite-window lower frame bounds for diagonal contraction semigroups",
+          "trigger": "Strongest distinct indexed overlap: exact all-finite-horizon formula and uniqueness"
+        },
+        {
+          "assessment": "Covariance relaxation and continuous small-window scalar results do not cover discrete exact finite-window allocation",
+          "evidence": [
+            "The stated small-horizon proposition gives unique scalar weights for sufficiently small T and their expansion."
+          ],
+          "identifier_or_url": "https://dcn.nat.fau.eu/wp-content/uploads/actuator.pdf",
+          "material_read": "PDF pp. 1–2 covariance formulation; Theorem 2.4 p. 7 and Proposition 2.6 p. 8 near offsets 24300 and 29500",
+          "method": "Lawful author-hosted OA passages",
+          "title": "Optimal Actuator Design across Ranks and Control Horizons",
+          "trigger": "Broader finite-horizon spectral allocation objective"
+        },
+        {
+          "assessment": "Comparison confirms standard SDP context, not the positive signable-inverse allocation rule for the frozen model",
+          "evidence": [
+            "General norm objectives for diagonal PSD perturbations are discussed, including SDP solution of the 1-norm case."
+          ],
+          "identifier_or_url": "https://nhigham.com/2021/02/16/diagonally-perturbing-a-symmetric-matrix-to-make-it-positive-definite/",
+          "material_read": "Independent diagonal perturbation and norm/SDP discussion, offsets 1000–3649",
+          "method": "OA website passage",
+          "title": "Diagonally Perturbing a Symmetric Matrix to Make It Positive Definite",
+          "trigger": "Possible broader diagonal PSD majorization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–36 and exact certificate in correctness; Chen–Belabbas and finite-window comparisons"
+      ],
+      "rationale": "Finite consecutive observations under a unit-energy constraint are a natural sensor-design problem. The exact worst-mode bound and unique amplitude allocation give a horizon-specific benchmark down to the minimum number of observations without performing a sensor optimization. A continuous integral or infinite-time limit need not give the same amplitudes for the actual discrete horizon; the inverse-sign certificate explains why an exact simple law still works there.",
+      "residual_risks": [
+        "Value is for the exact discrete setting, not a new general actuator-design theory or a claim about conditioning of the numerical inversion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

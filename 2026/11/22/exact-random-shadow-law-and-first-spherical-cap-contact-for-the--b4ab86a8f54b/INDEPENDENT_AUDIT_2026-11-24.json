@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:01:34.747239Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–32 and 34–99",
+        "VERIFICATION.md lines 19–23 and CHECK.py (inspected as evidence, not executed)",
+        "/workspace/audit_work/check_shadow.py (independent replay: python3 -B /workspace/audit_work/check_shadow.py)"
+      ],
+      "rationale": "The representative facet x+y=2 has perpendicular diagonals 2 and 2sqrt(2); summing over the 12 signed-pair facets by Cauchy's formula gives 4(2a+b). The minimum inequality has equality only at a=b=c, and the upper Cauchy–Schwarz equality gives (2,1,0)/sqrt(5). The chamber's solid-angle density in (s,t) is s/(1+s²+s²t²)^(3/2); clipping in t is correct up to null boundaries. The first-order excess at (s,t)=(1,1) is 4((1-s)+(1-t))/sqrt(3); the density is constant to leading order, giving the triangular area, the coefficient sqrt(3)/(8pi), and the normalized uniform simplex limit. For the cap count, (2,1,0) has exactly the three neighbors (2,0,±1) and (1,2,0) at dot product 4; they do not neighbor one another. Thus there are 36 first pairs and no local triple intersections. For a nearest pair put the centers at (C,±S,0), with C=3/sqrt(10), S=1/sqrt(10), R=4sqrt(5). In the chart U=(sqrt(1-y²-z²),y,z), at height x=RC-h the lens is C sqrt(1-y²-z²)-S|y|≥C-h/R. Setting d=h/R, its half-width in z is asymptotically sqrt(2(d-S|y|)/C), for |y| up to d/S+O(d²). Factoring the squared half-width at its simple zero and rescaling gives area 8 sqrt(2/C) d^(3/2)/(3S)+O(d^(5/2)). Multiplying by 36/(4pi) gives the claimed correction. Above contact the caps have disjoint interiors, and just below they overlap on positive area, proving maximality. The mean is 12(2sqrt(2))/4=6sqrt(2), exactly the contact value. An independent height–azimuth quadrature and center enumeration reproduced the cap count, linear tail, endpoint scaling and numerical median.",
+      "residual_risks": [
+        "The independent quadrature is diagnostic, not an interval certificate. The analytic proof supplies the exact constants. Later cap-contact regimes are not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch pp. 4–6 gives moment calculations for a tetrahedron, cube and octahedron, with the general mean identity.",
+          "The regular-dodecahedron conditional-moment finding gives type-weighted moments, not the audited body or a pushforward theorem yielding its law."
+        ],
+        "reasoning": "General projection formulas reduce brightness to facet data but do not resolve the chamber integral, mark or first lens coefficient. A moment formula alone does not specify this distribution.",
+        "searches": [
+          "Horváth DOI 10.1007/s40598-020-00132-0",
+          "Finch arXiv:1203.2464v1",
+          "Resultary dd8366e1b75c"
+        ]
+      },
+      "checked_sources": [
+        "Horváth projection-body section",
+        "Finch arXiv:1203.2464v1",
+        "The five catalogued records listed in source_inspections",
+        "Frozen RESULT.md lines 101–105 and VERIFICATION.md line 23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cauchy's mean identity implies the mean once the surface area is supplied. The icosahedron finding uses 20 caps; the audited result uses 24 centers and 36 first-contact pairs, no first-contact triangles, and the stated lens coefficient."
+        ],
+        "reasoning": "The mean and the one-cap area formula are credited background. The equality of mean and first contact, the full CDF, and the local correction require data not supplied by those results.",
+        "searches": [
+          "Finch arXiv:1203.2464v1 pp. 4–6",
+          "Resultary e735c228c1c2 and 356880455323 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horváth pp. 9–10 discusses the projection body of a regular tetrahedron; the brightness of the audited body is instead the support function of a scaled truncated octahedron.",
+          "The truncated-octahedron Resultary record uses that octahedron as the input and studies extrema and projection-body volume."
+        ],
+        "reasoning": "A support-function law of a projection body is not the projected-area law of that projection body used as a new input; neither comparison equals the audited pushforward. The focused query did not display a match and is not itself negative evidence.",
+        "searches": [
+          "Primary query: \"rhombic dodecahedron\" \"random projection\" projected area distribution brightness Cauchy projection body",
+          "Horváth DOI 10.1007/s40598-020-00132-0",
+          "Resultary ef8f8ba8bf3f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day matches give endpoint laws for the pentagonal dodecahedron, an upper cap law for the regular icosahedron, and a tetrahedral maximizing-direction law.",
+          "Earlier nearby exact entries give conditional moments of the regular dodecahedron and shadow extrema for the truncated octahedron."
+        ],
+        "reasoning": "These are statement-level comparisons with distinct input solids or distinct invariants. Neither the common cap method nor the same-day date makes an exact duplicate or gives a priority ordering.",
+        "searches": [
+          "Resultary 356880455323, e735c228c1c2, c7a816d5da40, dd8366e1b75c, ef8f8ba8bf3f"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full directional area law at this rhombic-dodecahedron normalization, including the marked minimum limit and first contact coefficient. The strongest inspected comparisons supply an underlying projection framework, moments, or related laws for different input solids. No inspected statement covers this combination or determines the displayed law without the body-specific chamber and cap geometry.",
+      "residual_risks": [
+        "The frozen verification notes mention a plausible broader projection-density work without identifying it. Its scope is unconfirmed; an unindexed equivalent law is also possible. This is a bounded best-of-knowledge decision, not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background on moments and the mean relation, not a law for the audited body",
+          "evidence": "Moment discussions are for the tetrahedron, cube and octahedron; mean projection identity applies generally.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.2464v1",
+          "material_read": "Abstract and pp. 4–6, PDF offsets 0, 8942, 12033",
+          "method": "Lawful OA paper text, localized passages",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Random shadow distributions and moments"
+        },
+        {
+          "assessment": "Uses the rhombic dodecahedron as the projection body of another input",
+          "evidence": "Regular tetrahedron's projection body is the sum of four facet-normal segments and is a rhombic dodecahedron.",
+          "identifier_or_url": "https://doi.org/10.1007/s40598-020-00132-0",
+          "material_read": "Projection-body discussion pp. 9–10, PDF offset 21531",
+          "method": "Lawful OA paper text, localized passage",
+          "title": "On Convex Bodies that are Characterizable by Volume Function",
+          "trigger": "Possible same polyhedron via projection-body dual formulations"
+        },
+        {
+          "assessment": "Different polyhedron and endpoint results",
+          "evidence": "Normalization by pentagonal face area; lower and upper endpoint and silhouette limits.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-endpoint-brightness-laws-and-silhouette-selection-for--356880455323",
+          "material_read": "Finding and normalization",
+          "method": "Local Resultary match and mirrored statement",
+          "title": "Regular dodecahedron endpoint brightness laws and silhouette selection",
+          "trigger": "Same-day dodecahedron brightness hit"
+        },
+        {
+          "assessment": "Same analytic device, different centers and input",
+          "evidence": "Edge-2 regular icosahedron has 20 disjoint caps in its stated upper regime.",
+          "identifier_or_url": "2026/11/22/SCOPE-an-exact-majority-mass-upper-brightness-law-for-the-regular-icos--e735c228c1c2",
+          "material_read": "Finding and input specification",
+          "method": "Local Resultary match and mirrored statement",
+          "title": "Regular icosahedron upper-brightness law",
+          "trigger": "Same-day exact cap-based tail"
+        },
+        {
+          "assessment": "Different input family",
+          "evidence": "Exact upper tail for a symmetric tetrahedral input.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-ten-direction-brightness-bound-and-its-complete-tetrahed--c7a816d5da40",
+          "material_read": "Finding",
+          "method": "Local Resultary match and mirrored statement",
+          "title": "Ten-direction brightness bound and tetrahedral classification",
+          "trigger": "Same-day upper-brightness law"
+        },
+        {
+          "assessment": "Different input and moment data",
+          "evidence": "Type-weighted first and second moments.",
+          "identifier_or_url": "2026/10/18/SCOPE-conditional-projected-area-moments-of-ten-and-twelve-vertex-regu--dd8366e1b75c",
+          "material_read": "Finding",
+          "method": "Local Resultary match and mirrored statement",
+          "title": "Regular dodecahedron conditional projected-area moments",
+          "trigger": "Close conditional area-distribution comparator"
+        },
+        {
+          "assessment": "Not the rhombic dodecahedron's brightness law",
+          "evidence": "Truncated octahedron used as input for extrema and projection-body volume.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-shadow-area-extrema-and-projection-body-volume-of-the-regu--ef8f8ba8bf3f",
+          "material_read": "Finding and choice of input",
+          "method": "Local Resultary match and mirrored statement",
+          "title": "Truncated octahedron shadow area extrema and projection-body volume",
+          "trigger": "Audited projection body shares this solid's shape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 14–29 and 49–96",
+        "Finch's moment and mean comparisons"
+      ],
+      "rationale": "For a canonical space-filling polyhedron, the full orientation law gives quantiles beyond the classical mean and extrema. The exact first cap-contact at the mean and the corresponding loss of second-order smoothness describe a geometric change in the law; neither is just a numerical normalization check. The marked lower limit also describes which local orientation deviations realize near-minimal shadows.",
+      "residual_risks": [
+        "Single shape and isotropic orthogonal projection only; no claim about the full sequence of cap-contact regimes or other bodies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

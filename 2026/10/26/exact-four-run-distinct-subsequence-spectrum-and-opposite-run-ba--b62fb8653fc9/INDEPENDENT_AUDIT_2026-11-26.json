@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:19:32.817978Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–57; independent run-end count and parity-step arguments",
+        "VERIFICATION.md and verify.py inspected, not executed",
+        "Independent finite replay: for each of the 495 ordered positive compositions at n=4 through 12, enumerate all nonempty position masks, insert the resulting words into a set, and compare the counts and full conditional optimizer set with the formulas. All comparisons agreed."
+      ],
+      "rationale": "For an independent count let z and o count nonempty subsequences ending in 0 and 1. Appending a block of ℓ zeros leaves o unchanged and increments z by ℓ(1+o), since the new ending-zero outputs after one append are exactly all previous outputs (including empty) with a final zero. The analogous update holds for ones. Iterating four blocks gives equation (1), without counting embeddings. Substitution at fixed p,q gives the displayed deficit. Aligning the signs of u=a−d and v=b−c lowers it strictly when uv<0. For α=|u| and β=|v| after alignment the change in the deficit from increasing α by 2 is [(α+1)(4+q²−β²)−4β]/4, strictly positive since β≤q−2. The analogous step in β has numerator (β+1)(4+4p+p²−α²)−4α, also positive since α≤p−2. Both magnitudes are therefore uniquely minimal in their respective parity classes, and matching signs are mandatory if both sums are odd. Substitution gives all four correction terms, including the p=2 or q=2 boundaries. The continuous critical point p*=n/2−1+O(n⁻¹) gives the upper asymptotic via H; taking lengths within O(1) of n/4 gives the matching lower asymptotic. The uniform O(n⁻¹) lower-order terms after division by n⁴ and strict AM–GM on the compact proportion simplex give the limiting rigidity in both directions.",
+      "residual_risks": [
+        "The finite replay concerns only lengths 4–12; the discrete steps justify all lengths. Formula (2) does not identify a residue-class closed form for the optimizing index."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem III.1 applies to r runs for n divisible by r and bounds each deletion-count class, so it implies the divisible-length global four-run optimum. Corollary III.1 for other lengths uses the equal-run word of enlarged length r⌈n/r⌉, not the exact constrained optimum. Lemma II.7 assumes symmetric intervening run lengths. The unrestricted theorem selects alternating words and does not fix four runs."
+        ],
+        "reasoning": "The published fixed-run result is a substantial exact special-slice overlap and has stronger per-deletion information there. Neither that slice nor the unrestricted maximum determines the conditional optima at fixed p,q on arbitrary lengths.",
+        "searches": [
+          "Liron–Langberg arXiv:1202.1644v1, Lemma II.7, Theorem III.1 and Corollary III.1",
+          "Flaxman–Harrow–Sorkin EJC 11 R8, §2 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search; primary weight-three gap record",
+        "Liron–Langberg arXiv:1202.1644v1",
+        "Biers-Ariel–Godbole–Kelley arXiv:1704.08661",
+        "Flaxman–Harrow–Sorkin EJC 11 R8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exchange hypothesis is automatic for adjacent inner runs but imposes b=c for exchanging the outer runs of the frozen word. At fixed odd q the latter hypothesis is unavailable. The weight-three objective obeys F(a,b,c,d)−F(a,c,b,d)=(d−a)(b−c), whereas the frozen objective difference is (a−d)(b−c). The frozen strict discrete steps also establish the complete equality set across all admissible parities."
+        ],
+        "reasoning": "The prior results imply the baseline count and some exchange or maximum assertions. They do not mechanically determine the different conditional objective's full balanced parity law and equality orientations.",
+        "searches": [
+          "Liron–Langberg Lemma II.7 and Theorem III.1",
+          "Resultary 097533a28bc0, RESULT.md (1)–(2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The total count is the sum over deletion counts, minus the one empty output. Known recurrences compute that total for prescribed runs and therefore recover the polynomial. The local exact weight-three problem distributes four zero gaps separated by singleton ones, not four lengths of alternating runs; allowing empty gaps and removing or adding the empty output does not identify these objectives."
+        ],
+        "reasoning": "Counting formulations are equivalent after summing over deletion counts, but the feasible sets and extremal orientation in the two restricted families differ.",
+        "searches": [
+          "arXiv:1202.1644v1, Lemma II.3 and Theorem III.1",
+          "arXiv:1704.08661, §2 Lemma 2.5",
+          "Local Resultary: opposite-gap balancing for three ones, 097533a28bc0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local table is in four residue classes of the number of zeros for weight-three words. Its primary proof has a quartic and an opposite-gap orientation formula, but no exact all-four-run table or fixed-(a+d,b+c) theorem surfaced."
+        ],
+        "reasoning": "This is relevant methodological precedent, not an equivalent table; catalog search is not proof of bibliographic absence.",
+        "searches": [
+          "Local Resultary exact four-run and fixed-weight gap searches, strongest hit 2026/10/25/SCOPE-maximum-scattered-subsequence-complexity-for-binary-words-with-t--097533a28bc0"
+        ]
+      },
+      "rationale": "Pass is for the simultaneous fixed-outer/inner-sum result, its sign-sensitive parity penalties and full equality classification, yielding an exact finite maximum on all lengths. The routine polynomial itself is covered as a specialization of general counting recurrences. Liron–Langberg already prove the global equal-run optimum at n=4k for every deletion count and a balancing lemma when the intervening runs are symmetric. Those results cover inner balancing and the symmetric-inner outer exchange, but not the full conditional problem with unequal inner runs and both sums odd, where orientation changes the answer. The closest Resultary overlap proves parity-dependent opposite-gap balancing in a different family (three singleton ones and variable zero gaps), with opposite optimal orientation. Its theorem does not imply the frozen criterion. These verified overlaps limit the credited claim.",
+      "residual_risks": [
+        "Bounded literature coverage; equivalent earlier special run-count formulas or tables not surfaced by the searches could exist. No priority claim is made for the count polynomial, the divisible-length equal-run optimum or the balancing method in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves exact broader per-deletion optimum at divisible lengths and partially covers balancing; does not settle full frozen conditional result.",
+          "evidence": [
+            "Theorem III.1 assumes n/r integer; the nondivisible-length corollary uses B_{r,ceil(n/r)}. The balancing lemma assumes symmetric intervening runs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.1644v1",
+          "material_read": "§II-A Lemma II.3, offsets 17500 and 21400; Lemma II.7 PDF p. 4, offset 26480; §III Theorem III.1 and Corollary III.1, PDF p. 5, offsets around 38063 and 39450",
+          "method": "Primary PDF passages (also checked balancing hypotheses and nondivisible-length corollary)",
+          "title": "A Characterization of the Number of Subsequences Obtained via the Deletion Channel",
+          "trigger": "Exact run-length recurrence and fixed-run extremum"
+        },
+        {
+          "assessment": "Implies count by substitution, not the parity optimum.",
+          "evidence": [
+            "Previous occurrences determine newly generated distinct subsequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.08661",
+          "material_read": "§2 Lemma 2.5, PDF p. 2, offset about 6700",
+          "method": "Primary PDF passage",
+          "title": "Expected Number of Distinct Subsequences in Randomly Generated Binary Strings",
+          "trigger": "Prior generic exact counting recurrence"
+        },
+        {
+          "assessment": "Unrestricted maximum, not the conditional run-sum result.",
+          "evidence": [
+            "Alternating words maximize the unrestricted count."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1761",
+          "material_read": "§2 Theorem 2, PDF pp. 1 and 3, offsets around 0 and 5700",
+          "method": "Primary PDF passages",
+          "title": "Strings with Maximally Many Distinct Subsequences and Substrings",
+          "trigger": "Published global maximum claim"
+        },
+        {
+          "assessment": "Material methodological precedent, different family and optimal orientation.",
+          "evidence": [
+            "Its optimization is at weight three, with nonnegative zero gaps and a four-residue table; the sign in its exchange between b and c is opposite."
+          ],
+          "identifier_or_url": "Resultary:2026/10/25/SCOPE-maximum-scattered-subsequence-complexity-for-binary-words-with-t--097533a28bc0",
+          "material_read": "RESULT.md Finding and proof (1)–(2), offset 0–3888, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror primary result",
+          "title": "Maximum scattered-subsequence complexity for binary words with three ones",
+          "trigger": "Closest local match for opposite-pair balancing and parity tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen deficit, parity and rigidity statements",
+        "Liron–Langberg's fixed-run divisible-length theorem and symmetry-conditioned exchange",
+        "Nearest Resultary weight-three optimization"
+      ],
+      "rationale": "Four alternating runs are a natural first restricted binary family with two simultaneously movable opposite-run pairs. The complete conditional classification, including the odd–odd orientation, replaces a full run-composition search by one integer index without losing any maximizing configurations; the asymptotic rigidity then identifies exactly which proportions can be near the leading extremum. The contribution is the sharp constrained optimization, not using a known recurrence to compute four-run counts.",
+      "residual_risks": [
+        "No explicit closed form for the winning index at every length is supplied, and none is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

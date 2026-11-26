@@ -59,7 +59,7 @@ z_F=([B_1]-[\{b_1\}])*\cdots*([B_j]-[\{b_j\}]),
 
 where \(*\) is the oriented simplicial join product. The two vertices in each factor intersect, while vertices in different factors are disjoint. Thus they form a simplicial cross-polytope boundary; each zero-chain has zero augmentation, so \(\partial z_F=0\). Exactly one simplex in \(z_F\) is a full, no-singleton partition: the facet \(F\) itself, appearing with signed coefficient one. Orient \(F\) accordingly. Then \(\Phi_j([z_F])=[F]\).
 
-Gottstein's nonpure shelling theorem for this same containment-order complex proves that \(\widetilde H_{j-1}(D_n;\mathbb Z)\) is free abelian of rank \(|\mathcal P_{n,j}|\), with precisely these cross-polytope classes furnishing an integral basis [1, Theorems 5.2 and 5.3]. This is the cited nonequivariant input, and the preceding construction independently identifies its required unit coordinates. Therefore \(\Phi_j\) is an integral isomorphism.
+Gottstein's nonpure shelling theorem for this same containment-order complex proves that \(\widetilde H_{j-1}(D_n;\mathbb Z)\) is free abelian of rank \(|\mathcal P_{n,j}|\) [1, Theorem 5.2]; his cross-polytope basis uses specified choices of representatives [1, Theorem 5.3]. The freeness and rank statement is the only nonequivariant input needed here. The preceding unit-coordinate construction makes \(\Phi_j\) surjective, so it is an integral isomorphism.
 
 **3. Equivariance and the stabilizer sign.** The coefficient map is natural under relabelling, provided the target basis is treated as **oriented**, not unsigned, facets. A permutation fixing a set partition \(F\) permutes blocks of each repeated size \(r\); its action on the orientation line of \(F\) is exactly the sign of that block permutation. Permutations of elements *within* a block have sign \(+1\), because they fix the vertex representing that whole block. Blocks of unequal sizes cannot be permuted by a stabilizer. Hence the stabilizer character is \(\varepsilon_\lambda\), and the signed oriented-facet module on each orbit of block-size type \(\lambda\) is the indicated integral induced lattice. Summing over all orbits proves the first displayed formula. Equivalently, the character at \(\sigma\in S_n\) is the signed count of \(\sigma\)-fixed no-singleton set partitions with \(j\) blocks.
 
@@ -76,7 +76,7 @@ By Frobenius reciprocity, an induced summand contributes one invariant line exac
 
 The accompanying standard-library program `verify.py` independently enumerates all faces and complete non-singleton partitions for \(2\le n\le7\). It checks all displayed cross-polytope boundaries and their integral unit facet coordinates. For every conjugacy-cycle type of each \(S_n\), it compares the exact augmented-chain Lefschetz trace (computed from **all** simplices and orientation signs) with the trace predicted by the signed non-singleton-facet module. It separately checks the strict-partition quotient counts. There are 52 faces for \(n=4\) and 4,140 for \(n=7\). Every finite check passes; the unbounded theorem follows from the proof, **not** from this finite experiment.
 
-For instance, \(\widetilde H_1(D_4;\mathbb Z)\) is the rank-three standard \(S_4\)-lattice: its traces on a transposition, double transposition and four-cycle are respectively \(1,-1,-1\). The quotient has zero degree-one rational homology in that case, despite the original rank three.
+For instance, \(\widetilde H_1(D_4;\mathbb Z)\) is the rank-three signed oriented-facet lattice on the three partitions of type \((2,2)\). Its rationalization is the standard \(S_4\)-representation, with traces \(1,-1,-1\) on a transposition, double transposition and four-cycle, respectively. It is not the standard integral root lattice \(\{x\in\mathbb Z^4:\sum_i x_i=0\}\): the signed facet lattice has coinvariants \(\mathbb Z/2\mathbb Z\), since the facets form a single orbit with an orientation-reversing stabilizer, while the root lattice has zero coinvariants, since all \(e_i-e_j\) with \(i\ne j\) represent one class and \((e_1-e_2)+(e_2-e_3)=e_1-e_3\). These coinvariants need not equal integral homology of the orbit space. The quotient has zero degree-one rational homology in this case, despite the original rank three.
 
 ## Relationship to prior work
 
@@ -86,12 +86,12 @@ Piterman and Welker [2] study refinement-ordered decomposition posets in a more 
 
 ## Limitations
 
-This is a homology representation and rational quotient-homology calculation; it does not determine the quotient's integral torsion, ring structure, homotopy type or equivariant embedding dimension. The proof uses the previously established nonequivariant shelling/basis theorem [1]; independent audit of the new equivariant refinement has not been performed. The bibliographic comparison is bounded by the accessible primary text and published record summaries, and is not a proof of uniqueness.
+This is a homology representation and rational quotient-homology calculation; it does not determine the quotient's integral torsion, ring structure, homotopy type or equivariant embedding dimension. The proof uses the previously established nonequivariant homology theorem [1]. The bibliographic comparison is bounded by the accessible primary text and published record summaries, and is not a proof of priority.
 
 ## References
 
-[1] M. J. Gottstein, *Homology of Partial Partitions Ordered by Inclusion*, 2023, arXiv:2311.11190, https://arxiv.org/abs/2311.11190. Sections 4, 5 and 7 (especially Theorems 5.2, 5.3, 7.1).
+[1] M. J. Gottstein, *The Partial Partition Complex*, arXiv:2311.11190v2, https://arxiv.org/abs/2311.11190v2. Sections 4, 5 and 7 (especially Theorems 5.2, 5.3, 7.1).
 
 [2] K. I. Piterman and V. Welker, *Posets arising from decompositions of objects in a monoidal category*, arXiv:2401.09280, https://arxiv.org/abs/2401.09280, subsequently published in Forum of Mathematics, Sigma.
 
-[3] *Fixed spaces of partial-partition complexes under transitive and Young symmetries*, published mathematical record, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-fixed-spaces-of-partial-partition-complexes-under-transitive-and--cedead413a18.
+[3] *Fixed spaces of partial-partition complexes under transitive and Young symmetries*, published mathematical record, https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-fixed-spaces-of-partial-partition-complexes-under-transitive-and--cedead413a18.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The infinite-family claim is supported by the four-step analytical proof in `RESULT.md`: stopped-separation martingale, recurrence/period exclusion, quotient synchronization, and full-support construction for every divisor. The proof is valid for every integer \(n\ge2\) and every \(0<p<1\).
+## correctness
 
-`checker.py` uses exhaustive exact integer composition of the two complementary mask maps for every binary word on cycles of sizes \(2\) through \(8\). It compares the minimum rank over their full finite transformation semigroups with the common-period subgroup order. It also checks periodic full-support examples on small cycles. It returned `PASS: 519 exact finite checks, n <= 8` when run from the assembled candidate directory. Neither finite runs nor missing counterexamples prove the general assertion.
+PASS
 
-Relevant original literature checked: Grimmett and Holmes' complete accessible 2026 research article; searches for the 2019 arXiv/2021 chapter identified a PDF source but the complete content was inaccessible; the abstract and the newer article's precise attribution were used, without inferring whole-document noncoverage from the abstract. Residual risks include earlier semigroup theory identifying the same special-case period criterion and stronger published results in different vocabulary.
+An independent finite-chain proof verifies the key separation step without any mixing or spatial independence assumption. Before collision the lifted separation D lies in {1,...,m-1}; the next change is B(Y)-B(X), has conditional mean zero by equal marginals, and can leave this interval only at 0 or m (both collision). If the pair chain had a closed irreducible class off the diagonal, D would be harmonic on that class and therefore constant by the maximum principle. Its first-coordinate projection contains every vertex since a supported advance is possible at every coordinate and the class is closed. Thus a constant positive separation d on that class forces every supported mask to agree at x and x+d for every x, i.e. d is a common nonzero period. A quotient with no such periods has no off-diagonal closed class and coalesces almost surely by finiteness. The period subgroup on the original n-cycle consists of the multiples of q=n/|H_mu|; the quotient masks are well-defined and inherit the same marginal. A new quotient period would lift to an original period not in H_mu, which is impossible. If q=1 synchronization on the quotient is immediate. Equivariance makes every original H_mu-coset map bijectively to an image coset under each composition. After all quotient paths coalesce in finite time almost surely, the original image is one full coset, with exactly one preimage from each original coset for each target. This proves both rank and equal deterministic cardinalities, including full-period and trivial-period cases. Full-support Bernoulli(p) bits on the quotient, repeated periodically, realize every divisor because a one-bit marker witnesses each nonzero shift when q>=2. All statements hold at n=2 and require iid maps in time and 0<p<1 as stipulated.
 
-No external independent audit has been performed.
+## originality
+
+PASS
+
+Grimmett–Holmes already pose the spectrum and class-cardinality questions and prove a divisor construction for complete uniform chains. Their theorems use a different transition family and do not give the common-period characterization or rule out all nondivisors even for their complete uniform setting. The surviving claim is the necessary-and-sufficient, law-by-law period criterion for every balanced stay/advance law on the directed cycle, and the resulting equal fiber sizes and complete spectrum.
+
+## value
+
+PASS
+
+This answers two natural coalescence questions for a canonical sparse family from one checkable structural invariant: all and only divisor ranks occur, and each admissible law has explicit deterministic rank and class sizes. The necessity direction constrains every spatial dependence law, not just examples from a block construction or small-cycle enumeration. The interaction between harmonic separation and symmetry is substantively explanatory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

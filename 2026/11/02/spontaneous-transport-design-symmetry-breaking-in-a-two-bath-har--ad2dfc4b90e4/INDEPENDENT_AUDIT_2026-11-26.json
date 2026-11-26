@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:03:25.206018Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§1–4",
+        "Frozen VERIFICATION.md and thermal_dimer_check.py, inspected as supporting evidence; not executed"
+      ],
+      "rationale": "For both positive dampings the deterministic mechanical energy has negative dissipation except at zero velocity, and positive definite stiffness (determinant ab+kP) makes the origin the largest invariant subset there. The drift is Hurwitz. Reconstructing the stationary moment equations with q=E[x1 v2]=-E[x2 v1] gives Γ E[v1 v2]=(b−a)q. Eliminating the position moments gives k(E[v1²]−E[v2²])=[(a+k)γ2+(b+k)γ1]q+(b−a)E[v1 v2]; the diagonal velocity balances identify J=kq and recover the stated denominator. With the two budgets it is a constant plus δ²+(Γ²/2)δη+4k²/(1−η²). For r=|η| the δ minimizer is the clipped unconstrained minimizer. Before clipping the derivative in r is r[8k²/(1−r²)²−Γ⁴/8]; after clipping it is 8k²r/(1−r²)²−Γ²P/2, strictly increasing and matched at the seam. This covers the symmetric regime even when clipping occurs, proves uniqueness at Γ²=8k, gives the interior or unique clipped optimum with the stated mirror symmetry above threshold, and excludes |η|=1 by divergence. At P=P_c the formulas meet at r_0. In the example the denominators are 40 and 44 with numerator 4, giving 1/10 and 1/11. The real Langevin noise presupposes nonnegative bath temperatures.",
+      "residual_risks": [
+        "Recorded Lyapunov and optimizer tests are supplementary rather than independent replications; correctness here is based on analytic reconstruction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general network framework and the arbitrary-mass dimer expression cover the current calculation; the equal-mass substitution in the latter recovers the exact frozen denominator."
+        ],
+        "reasoning": "Forward conductance coverage is established. Neither inspected result is a general allocation theorem that would supply the two-budget optimizer as a special case.",
+        "searches": [
+          "arXiv:1012.0622, p. 1",
+          "arXiv:2010.10432 §IV, Eqs. (17)–(19)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2010.10432",
+        "arXiv:1012.0622",
+        "arXiv:1905.11854",
+        "Resultary 24ca9ac95c81 and 08f0e2a69130"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The budget substitutions recover the reduced objective from the published current; §VI's optimization addresses another objective. In the inspected preprint Eq. (22) is a trap Hessian relation, not the conductance citation."
+        ],
+        "reasoning": "One must still project the pinning variable and analyze derivative matching and its global sign, including clipping. Credit the prior current law and distinguish the new constrained optimization. The preprint equation locator in RESULT.md should read Eqs. (17)–(19); this is a citation correction, not a change to the theorem.",
+        "searches": [
+          "arXiv:2010.10432 Eqs. (17)–(19), (22)–(23), and (30)–(32)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Simón et al. §VI Eqs. (30)–(32) compare forward and reversed currents for rectification; the ion-crystal paper likewise compares bath reversals."
+        ],
+        "reasoning": "Optimizing a rectification ratio under bath interchange is not maximizing one biased current under the two fixed sums, even where the underlying model or some symbols coincide.",
+        "searches": [
+          "arXiv:2010.10432 §§IV and VI",
+          "arXiv:1905.11854 Eq. (13) and numerical results",
+          "Targeted dimer-allocation literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-a-universal-damping-independent-optimal-impurity-mass-in-a-pinne--24ca9ac95c81 optimizes a central mass in a pinned trimer; 2026/10/25/SCOPE-lorentzian-thermal-conductance-optimum-and-an-asymmetry-driven-p--08f0e2a69130 optimizes a single middle pin in a trimer with fixed terminal allocations."
+        ],
+        "reasoning": "Neither indexed optimum encodes the reflection-related dimer allocations or either of the two thresholds. No matching exact table was identified in the targeted comparison.",
+        "searches": [
+          "Local Resultary semantic comparisons for joint pinning/damping allocation, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "rationale": "Pass restricted to the complete optimizer classification under the two simultaneous allocation budgets, not to the known heat-current law. That law supplies the objective; it does not by itself classify the constrained global minimizers. No inspected source states that phase diagram or establishes a stronger optimization result covering it.",
+      "residual_risks": [
+        "Optimization and thermal-transport literature coverage is nonexhaustive; a targeted web lookup yielded no usable result, which is not evidence of absence.",
+        "The published conductance makes future rediscovery of the optimization easy; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Current formula covered; optimizer classification not stated in these passages",
+          "evidence": "Eqs. (17)–(19) give conductance; Eq. (22) gives a Hessian relation; Eqs. (30)–(32) concern rectification.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.10432",
+          "material_read": "OA PDF §IV p. 4 Eqs. (17)–(23); §VI pp. 5–6 Eqs. (30)–(32)",
+          "method": "Targeted OA text and specialization of parameters",
+          "title": "Heat rectification with a minimal model of two harmonic oscillators",
+          "trigger": "Same harmonic dimer, published current and an optimization problem"
+        },
+        {
+          "assessment": "Covers the forward transfer setting, not joint allocations",
+          "evidence": "Network heat-transfer and fluctuation formulas concern given model parameters.",
+          "identifier_or_url": "https://arxiv.org/abs/1012.0622",
+          "material_read": "OA PDF p. 1, Landauer-like flux framework",
+          "method": "Targeted passage inspection",
+          "title": "Generating Function Formula of Heat Transfer in Harmonic Networks",
+          "trigger": "Broader network transfer theorem"
+        },
+        {
+          "assessment": "Different control and objective",
+          "evidence": "Graded or segmented trap frequencies and reversed-bath rectification in ion chains.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.11854",
+          "material_read": "OA PDF p. 3 Eq. (13) and pp. 5–6 numerical results",
+          "method": "Targeted passage inspection",
+          "title": "Asymmetric Heat Transport in Ion Crystals",
+          "trigger": "Possible alias for pinning design"
+        },
+        {
+          "assessment": "Neither gives the dimer budget theorem",
+          "evidence": "A single central design variable is optimized with fixed terminals in each of the two related results.",
+          "identifier_or_url": "Resultary 24ca9ac95c81 and 08f0e2a69130",
+          "material_read": "Locally mirrored statements of the central-mass and middle-pin optima",
+          "method": "Local semantic search followed by statement comparison",
+          "title": "Published pinned-trimer optimization results",
+          "trigger": "Exact-result and nearby design comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, assumptions, and explicit current witness",
+        "Simón et al. §§IV and VI"
+      ],
+      "rationale": "The budgets turn a standard transport model into a natural resource-allocation problem. A complete global symmetric-to-mirror-optimum threshold, followed by a distinct active pinning constraint, answers when equal allocation costs performance and gives the usable allocations, including the boundary and critical regimes. The value is in the design classification, not an extra derivation of the forward formula.",
+      "residual_risks": [
+        "No transfer of this optimizer to unequal masses, nonlinear baths, or larger networks is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

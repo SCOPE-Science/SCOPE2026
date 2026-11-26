@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The generator-column identity reduces every two-helper recovery relation to a zero-sum triple in the underlying vector space; full-spread direct sums exhaust the same-member and three-distinct-member cases. The fixed-target uniqueness of the second helper proves that all qualifying pairs are disjoint. A direct complete codeword enumeration gives dimension \(12\) and minimum distance \(60\); independently, character-sum weights yield the same distance and prohibit zero nontrivial combinations. A coordinate-triple enumeration and a separate 17-label census both give the same seven availability classes and 635 dual-weight-three relations. All computations use finite exact binary arithmetic.
+## correctness
 
-**Originality — PASS with residual search risk.** The 2026 primary source publishes the four indicator index sets and weight analysis but not their per-coordinate disjoint two-helper recovery spectrum. Its printed parameters are inconsistent with the weight-60 word present in its defining sets; the correction is a direct consequence, not an independent unrelated new claim. Prior locality-two and uneven-availability papers treat differently generated codes; Ma–Ge's partial-spread parity-check construction has length-three repair groups rather than the projective generator columns here. The 2026 affine-half extension has repeated columns. None of the inspected source statements implies the seven class sizes, although an overlooked prior coordinatewise computation cannot be ruled out.
+PASS
 
-**Value — PASS.** The exact locality-two availability vector is a natural operational invariant for multiple node repair in a new minimal-code construction, distinguishing low-availability and high-availability symbols rather than relying on an uninformative global count of low-weight dual words. It is stable for all complete four-spreads with the same labels. Confirming the actual distance \(60\) avoids overstating the same code's worst-case error resilience.
+The nonzero first blocks are distinct so a pair is a repair exactly when its two columns sum to the target column. A helper determines its partner uniquely, so the target's pair count is already the disjoint availability. Two positions in one spread member force all three into it, where the label must vanish; this gives 2^(m-1)-1 internal pairs. Otherwise each two other members are complementary subspaces, giving exactly one decomposition with both summands nonzero, and the label XOR decides if it works. Independent enumeration of the 17 printed labels gives 33 zero-XOR distinct-index triples, t=(4,3,9,6,4,3,8,8,6,6,7,6,9,12,12,12,12), the asserted histogram after multiplying by 15, and 33*15+4*35=635 dual supports. For the distance, the annihilators of the spread members partition the nonzero dual vectors, so a nonzero linear functional vanishes on exactly one member and is balanced on every other member before deleting zero. If u members are selected by the label functional, the mixed weights are 128-u or 144-u; the pure label weights are 15u. The recalculated nonzero u range is 4 to 9, with u=4 for the first two indicator rows summed. Thus rank 12 and distance 60 follow on every realization, not just the test spread. All 17 subspaces of dimension four in dimension eight fill the nonzero vectors since 17*15=255.
 
-**Scientific limits.** No assertion is made for other index sets, arbitrary incomplete partial spreads, repair groups larger than two, or optimality among all codes. The per-coordinate enumeration is finite, while spread-independence follows from the algebraic proof. No external replication or independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The code construction is prior work. The distinct supported result is the full alternative two-helper incidence profile and its full-spread counting rule, together with the verified correction to the printed example. None of the confirmed exact or neighboring sources supplies that local incidence result.
+
+## value
+
+PASS
+
+An exact per-coordinate failure-recovery profile for a specified existing code distinguishes coordinates with three disjoint local options from those with twelve, which global distance or the total number of dual triples cannot do. The reusable full-spread count explains why the profile is intrinsic to the labels, and the distance witness materially corrects how the published example can be used.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

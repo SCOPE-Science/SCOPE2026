@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Rota–Baxter identity is bilinear; in characteristic two its diagonal specialization forces every operator column from the first by iterated squaring. All off-diagonal basis identities reduce, without division by a possibly zero coordinate, to equation \((*)\) in RESULT.md. The proof partitions its solutions by the least nonzero middle coordinate, recovers all later coordinates by induction, verifies every defining equation in reverse, and derives disjoint parameter counts. Rank assertions follow from leading nonzero rows and upper-triangular diagonal entries. An independent finite-field checker exhaustively confirms the formulas for all first columns and ranks in 19 small configurations. Residual correctness risk is limited to errors in the written recurrence proof or unexpected assumptions about field squaring; the proof uses only Frobenius injectivity, which is valid over any field.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest mathematical source is Qaralleh–Mukhamedov–Khakimov, arXiv:2601.08669 (author-posted full text examined in the introductory hypothesis and Sections 2–5). Its scope is explicitly characteristic zero. It does not state a classification of characteristic-two weight-one operators or their rank distribution. Their follow-up arXiv:2606.22623 (full text examined, Sections 2–5) assumes characteristic zero and studies local weight-zero operators. Indexed research searches for characteristic-two Frobenius recurrences, the specific chain multiplication, and the total-count formula returned no implication-covering result; the closest operator result concerns weight zero on the associative four-dimensional exterior algebra over \(\mathbb F_2\), not weight one on nonassociative evolution chains. An accessible earlier characteristic-two local weight-zero result for evolution algebras does not imply the weight-one classification. Residual risk: an unindexed positive-characteristic paper or an algebraically equivalent classification may exist; nonappearance in searches is not proof of uniqueness.
+PASS
 
-## Value — PASS
-This is a complete classification and rank census over an entire natural, maximal-nilindex evolution-algebra family, not a fixed-dimension computation. The characteristic-two cancellation converts a nonlinear operator problem to a Frobenius-sequence functional equation, whose solutions have discrete periodic support and unexpectedly only linearly many parameter strata. The exact finite-field rank spectrum, especially equal counts at every intermediate rank, supplies a natural quantitative invariant absent from the cited characteristic-zero study. It identifies a precise modular boundary where the existing rational recurrence must be replaced.
+The bilinear weight-one identity on diagonal basis pairs forces successive columns by iterated squaring, and the terminal equation is automatic from Q^n=0. For an off-diagonal pair with column separation d, coefficient comparison and injectivity of Frobenius give a_(t+d) a_t^(2^d) = a_(d+1) a_t^(2^(d+1)) for t+d<=n-1. Every such equation is realized already by a pair starting at e_1. The first nonzero interior coefficient at j forces a_1 in {0,1}; the equations at t=j then propagate period j-1 with the stated Frobenius exponents. Concatenation of the exponent sums proves sufficiency for every t,d, without requiring perfectness. The terminal first-column coefficient is free. The least nonzero row and its shifts give the stated ranks, including the empty interior at n=2. With standard column conventions the triangular matrix is lower rather than upper triangular; that wording in the rank proof does not affect any calculation. A fresh bounded checker (branches/7131221e-51e8-4a7b-a76a-ce3dd300187b/reproduce_independent.py) matched accepted columns and the increasing-rank counts (1,3,12,12,36) for (q,n)=(4,4) and (1,1,2,2,2,8) for (2,5). The frozen checker was inspected, not executed; finite checks are not an arbitrary-field proof. Frozen independent audit, Lean and expert statuses were not performed.
 
-## Scope and limitations
-Only the unperturbed nilpotent chain is classified. The proof does not address perturbations, other operator weights, or other characteristics. Programmatic finite-field checks are corroborative, not a substitute for the arbitrary-field proof. Independent review may identify overlooked equivalent prior results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the characteristic-two weight-one Frobenius-support classification and census for the unperturbed chain. The inspected earlier weight-one theorem assumes characteristic zero. A distinct later-dated catalog record is a full statement-level match, including ranks, and is credited as such; there is no evidence here that it preceded the frozen finding. This is a bounded assessment, not a claim to historical priority or uniqueness in the current catalog.
+
+## value
+
+PASS
+
+Weight one on the standard nilpotent chain is a natural boundary of the established characteristic-zero classification. The Frobenius recurrence explains the exact admissible supports even over imperfect fields and yields the complete finite-field ranks, rather than extrapolating from a handful of dimensions. It does not purport to classify perturbed chains or automorphism orbits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

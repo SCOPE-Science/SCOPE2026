@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:44:57.982761Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The measurements retain both local outcomes, not just the parity of the two Pauli outcomes. For a one-qubit Bloch vector, C_X=(1+x^2)/2 and C_Z=(1+z^2)/2; since x^2+z^2<=1, AM–GM gives C_X C_Z<=((1+1/2)/2)^2=9/16, attained by a pure vector with x^2=z^2=1/2. Product measurement distributions factor on all product density operators, so the sharp two-qubit ceiling is 81/256. An independent exact hand calculation uses the amplitude matrix A=[[3,-1],[-1,1]]: H A H=[[1,1],[1,3]] and each matrix has squared Frobenius norm 12. The normalized determinant is 2/12, and both collision probabilities are (81+3)/144=7/12. The cross-product margin is 49*256-81*144=880>0, hence the entropy sum is strictly below the entire product-state region. VERIFICATION.md and verify.py were inspected, not executed. Abdelkhalek et al. §II define entropy pairs at fixed orders and the paper says it mostly assumes dual orders; §V.D includes equal nondual orders and Conjecture V.6 does not impose duality, unlike V.8. This is a counterexample to V.6 under its unrestricted wording, not to a dual-order or Shannon version. The later Shannon theorem supports additivity of optimal linear bounds and the corresponding positive convex hull, not full entropy-pair reproduction merely by virtue of that theorem; the frozen limitations overstate that contextual coverage, without affecting the claimed collision witness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simnacher et al. give a family realizing the all-state lower boundary for both Tsallis orders at least 2, explicitly discuss the order-2 region occupied only by entangled states, and state the monotone equivalence with Rényi orders at least 2.",
+          "Since every product state is separable, a region excluded to separable states is also excluded to product states.",
+          "The 2018 Shannon additivity theorem and the Riccardi–Macchiavello–Maccone Shannon bounds do not address Rényi-2; they are not the basis of the rejection."
+        ],
+        "reasoning": "The 2019 paper covers a broader order range and a larger comparison class than the frozen pointwise product counterexample. No claim about an analytic complete separable frontier is needed to identify prior coverage.",
+        "searches": [
+          "arXiv:1901.07946 §II.A, Lemma 1, Theorem 2 and Corollary 3; p. 5 Rényi transfer",
+          "arXiv:1801.04602v4 Proposition 1, Remark 6 and Outlook",
+          "arXiv:1701.04304 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1901.07946 / DOI:10.1103/PhysRevA.99.062339",
+        "arXiv:1509.00398v1",
+        "arXiv:1801.04602v4",
+        "arXiv:1701.04304",
+        "Resultary 2026/10/13/SCOPE-a-state-dependent-degradation-cone-for-the-two-vs-two-qubit-corr--4951c36850f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior paper discusses V.6 for these same product measurements, then contrasts the Shannon case with an order-2 region occupied only by entangled states.",
+          "Independently of the plot, the t=3 parameter already supplies the exact collision pair (7/12,7/12). The sharp product bound follows by the one-qubit Bloch-ball optimization and tensor additivity; its elementary numerical evaluation is not a new nonreproduction mechanism."
+        ],
+        "reasoning": "With order 2 and the two given bases fixed, a pair from the prior entangled-only region cannot equal the pair of any product density state, which is precisely the failure of the unrestricted conjecture. The local phase change, coordinate transform and evaluating t=3 preserve the relevant comparison; the old result need not print 49/144 or 81/256 to cover the counterexample.",
+        "searches": [
+          "arXiv:1509.00398v1 §V.E Conjecture V.6",
+          "arXiv:1901.07946 §II p. 3 discussion of Conjecture V.6 and Lemma 1; Eqs. (5), (7) and Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior four probabilities for each measurement are the full local X or Z pair outcomes. Scrambling is a permutation of those probabilities, so it does not change the entropy coordinates.",
+          "Tsallis-2 equals 1-C and Rényi-2 equals -log2(C). Therefore both test exactly the same attainable entropy-pair reproduction after an invertible monotone reparametrization.",
+          "At t=3 the normalized prior state is (3,1,1,1)/sqrt(12); multiplying by Z tensor Z gives the exact frozen vector. In the Hadamard basis Eq. (7) gives amplitudes proportional to (6,2,2,2) at t=3, hence the same probabilities and collision pair."
+        ],
+        "reasoning": "This is the same experiment and witness in equivalent entropy coordinates and with local outcome relabeling, not merely a distinct entanglement test using the same order or dimension.",
+        "searches": [
+          "\"Simnacher\" \"Wyderka\" Tsallis product measurements uncertainty counterexample",
+          "\"Entanglement detection with scrambled data\" Simnacher Wyderka arxiv DOI",
+          "arXiv:1901.07946 §II, Lemma 1, Eqs. (5) and (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest fully inspected Resultary entry, 2026/10/13/SCOPE-a-state-dependent-degradation-cone-for-the-two-vs-two-qubit-corr--4951c36850f0, treats mutual information in a Schmidt-unbiased sector, not the joint collision entropy.",
+          "The primary paper's order-2 plot compares the same feasible regions, and its exact parametric formula produces the frozen two probabilities, up to permutations, by setting t=3. The figure is not used as a proof of the exact numerical bound."
+        ],
+        "reasoning": "An exact catalogue row for the two constants is not necessary: both point coordinates are mechanically fixed by the prior exact parametrization, and that paper already documents nonreproduction in this setting. The bounded catalogue search does not determine priority.",
+        "searches": [
+          "Resultary: two-qubit product-state entropy diagram, Conjecture V.6, Rényi-2, Hadamard, entangled",
+          "Resultary: tensor product additivity failure, Pauli X/Z, order-two collision entropy",
+          "arXiv:1901.07946 Figure 1 and Lemma 1, Eq. (5), Eq. (7)"
+        ]
+      },
+      "rationale": "Verified prior coverage, not an access failure. Simnacher–Wyderka–Schwonnek–Gühne, arXiv:1901.07946 and Phys. Rev. A 99, 062339 (2019), §II, explicitly study the same four-outcome local X and Z product measurements and compare the all-state and separable entropy regions at order 2. Their Lemma 1 and Eq. (5) give psi_t proportional to (t,1,1,1) on the lower collision-entropy frontier, with Hadamard expansion in Eq. (7); Theorem 2 treats all Tsallis orders at least 2, and the authors explicitly transfer by the coordinatewise monotone Tsallis-to-Rényi map. At t=3 their state is exactly the frozen one after Z on both sites. Those local sign flips preserve Z probabilities and permute the two X outcome bits, leaving both entropies unchanged. The prior work presents the same phenomenon at the same orders, gives the very witness family, and itself discusses Conjecture V.6. The explicit decimal-free constants and concise product-only proof do not make this a new counterexample.",
+      "residual_risks": [
+        "No claim is made that the exact decimal-free ceiling 81/256 appeared as a printed number in the 2019 paper; covered content is the central entropy-pair obstruction and witness family, not exact wording.",
+        "Private correspondence itself was not inspected and its contents were not inferred. The primary OA 2019 article, not an abstract or those private remarks, supplies the positive prior coverage evidence.",
+        "The ranked Resultary searches were bounded; an unrelated Pearson-criterion hit could not be opened in the local mirror and was not used to determine coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the entropy-pair obstruction and exact witness family; setting t=3 and changing local signs gives the frozen example",
+          "evidence": "Order-2 comparison for four-outcome local Pauli X and Z measurements; entangled-only region, and lower boundary realized by (t,1,1,1)/sqrt(t^2+3) for t>=1. Authors explicitly note equivalence for Rényi entropy.",
+          "identifier_or_url": "https://arxiv.org/pdf/1901.07946 (DOI:10.1103/PhysRevA.99.062339)",
+          "material_read": "Abstract and §II, PDF pp. 2–5: order-2 region discussion, Lemma 1, Eq. (5), Eq. (7), Theorem 2, Corollary 3 and p. 5 Rényi conversion (OA offsets 12210–30430 and passage around 36450)",
+          "method": "Lawful arXiv PDF, bounded primary passages",
+          "title": "Entanglement detection with scrambled data",
+          "trigger": "Public work found by following the 2018 Tsallis witness lead; same dimensions, measurements and entropy orders"
+        },
+        {
+          "assessment": "Unrestricted wording is refuted by the valid calculation, but that refutation is already covered by the 2019 results",
+          "evidence": "V.6 asks for a product state with the same pair for U=U1 tensor U2. The paper says it mostly assumes duality, gives examples with equal nondual parameters, and explicitly requires duality in V.8 rather than V.6.",
+          "identifier_or_url": "https://arxiv.org/pdf/1509.00398v1",
+          "material_read": "§I–II definitions, §V.D and Fig. 7, §V.E Conjectures V.6 and V.8, PDF pp. 4, 19–21",
+          "method": "Lawful arXiv PDF, bounded primary passages",
+          "title": "Optimality of entropic uncertainty relations",
+          "trigger": "Original wording, possible implicit duality restriction, and qubit baseline"
+        },
+        {
+          "assessment": "Shannon linear-bound theorem has different scope; the Tsallis lead pointed to the authors of a directly covering later paper",
+          "evidence": "Proposition 1 establishes optimal linear Shannon additivity, not arbitrary full diagrams. [68] names T. Simnacher and N. Wyderka, private communication, 2017.",
+          "identifier_or_url": "https://arxiv.org/html/1801.04602v4",
+          "material_read": "Proposition 1, Remarks 2–3 and 6, Outlook and bibliography [68]; HTML and PDF bounded passages",
+          "method": "Lawful arXiv HTML and PDF",
+          "title": "Additivity of entropic uncertainty relations",
+          "trigger": "Later Shannon additivity and traceable Tsallis citation"
+        },
+        {
+          "assessment": "Different invariant and comparison class",
+          "evidence": "Bounds mutual information by comparing a nonmaximally entangled state to a Bell state in a Schmidt-unbiased measurement sector.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-state-dependent-degradation-cone-for-the-two-vs-two-qubit-corr--4951c36850f0/RESULT.md",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "A state-dependent degradation cone for the two-vs-two qubit correlation tradeoff",
+          "trigger": "Closest inspected catalogued comparison with two local measurement pairs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The computation is a clear pedagogical certificate of a worthwhile phenomenon, but as a frozen research finding it gives a parameter instance of the known lower-boundary family for the same measurements and orders. Rephrasing that instance as a product-only obstruction, with a Bloch-ball bound and rational constants, does not produce a substantive surviving research claim beyond the prior entropy-region separation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

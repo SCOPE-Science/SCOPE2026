@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary finite relations, the proof reconstructs the update exactly as specified in the motivating semantics. Its four arguments use decreasing \(\Box p\)-support sets and increasing \(\Diamond p\)-support sets, with explicit case splits where the two modalities change direction. Every numerical maximum is attained: two- and three-world base examples, a clone extension, a directed cycle, and a directed path. The machine-readable exhaustive checker verifies **all** \(2^{n^2+n}\) relations/valuations for each \(n=1,2,3,4\), and constructive sharpness for sizes through 35. These computations certify finite base cases and supply sanity checks, while the general claim relies on the symbolic argument. In particular, the exceptional \(n=2\) BD upper bound is completely exhaustively checked.
+PASS
 
-## Originality — PASS within accessible evidence
+The original identification with Belardinelli–Zhang contraction is false: Definition 4.1 gates the addition of the falsifiers of θ at sources satisfying Box θ, not θ. The repaired theorem concerns exactly the original displayed truth-gated dynamics, not that contraction. Unchanged truth sets force the next update to be unchanged. A shrinking inner Box p set gives the one-step existential-outer bound and the two-step universal-outer bound; an increasing inner Diamond p set gives a growing nonempty proper truth set in the double-diamond case and must grow at every nonterminal strict update in the Box Diamond case. Explicit witnesses realize all bounds. The original double-diamond cycle wrongly claimed an empty terminal false set: induction gives D={k+1,…,n−1}, T={k,…,n−2} at the stage k=n−2−t, and the last strict addition saturates the true rows against the still-false vertex n−1. Independent replay at n=3 through 8 matches this endpoint and the n−1 lifetime (branches/dd49d72a-8016-44f9-8b8d-bc93b3fe274c/cycle-terminal-replay.md). The nar­row n=2 bound also follows symbolically: a strict second edge would have to go from the initially inactive vertex to the active vertex, but if missing, the inactive vertex cannot see the first changed row and so remains inactive. The supplied checker was inspected, not executed; the replacement maintains the finite test ranges and adds the cycle endpoint assertion.
 
-The primary Belardinelli--Zhang article (arXiv:2606.31861v1, Definition 4.1, §4–5) gives the operation and preservation results, but no four-formula repeated-lifetime classification. Published published-finding corpus findings cover propositional input idempotence and a distinct edge-deletion believed-announcement process; neither implies the present modal-depth-two theorem. An earlier result concerning the single depth-one trigger \(\Diamond p\) establishes an \(n\)-step lifetime, but neither constant-time case, their order sensitivity, nor the complete depth-two quartet is a corollary. Semantic comparisons use the same inputs, changes and output invariants, not merely title matching. Residual risk: older dynamics literature may encode the classification under a different name.
+## originality
 
-## Value — PASS
+PASS
 
-The nested formulas are the exhaustive set of two-letter positive modal words on one atom, not an arbitrary parameter slice. Their sharp lifetime spectrum \(1,2,n-1,n\) exhibits a structural and abrupt constant-to-linear transition controlled solely by the order of universal and existential modality. The exact bounds distinguish mechanisms that are invisible from the length of the syntax or the existing propositional idempotence result, and they support sharp complexity forecasts for repeated finite-model belief updates.
+For the repaired truth-gated rule, no covering statement for the four exact lifetimes was established from the inspected evidence. The strongest indexed comparison uses the same row formula Box Diamond p and a path with the same n-step lifetime, but genuinely different target predicates, with different updated relations already at the initial path step. The defining paper's result for the different belief-gated operator cannot be claimed as context for an identical rule.
 
-## Limits
+## value
 
-The theorem does not assert any result for Boolean combinations, more than one agent, deeper inputs, or dynamic updates with changing content. Literature coverage is not an independence certificate; additional priority checking may be worthwhile.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired rule is a natural single-formula directed closure: connect every currently satisfying source to every currently falsifying target, then reevaluate on the enlarged relation. A complete classification of the four length-two modal words shows that interchanging outer and inner modalities can change the sharp lifetime from constant to linear. The two linear bounds differ by one for a structural reason and require different cycling and propagation witnesses. This is a result about the exact rule used, not a claim to resolve lifetimes for the established contraction rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

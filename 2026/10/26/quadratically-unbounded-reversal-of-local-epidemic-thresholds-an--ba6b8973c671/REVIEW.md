@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** All quantifiers and boundary regimes are explicit: fixed integer \(m\ge4\), fixed \(\delta\in(0,1)\), and \(\beta\downarrow\delta/\Lambda\) from above within \((0,1)\). The graph construction gives exactly three connected induced blocks of cardinality \(m\). Its isolated spectra are elementary, and a Rayleigh quotient yields \((m+1)/2\le\Lambda-(m-1)\le m\). Monotone fixed-point iteration, strict radial subhomogeneity and a critical Perron-weighted union bound establish existence, uniqueness, and the normalized Perron limit. The block eigenvector identities yield the \(m^2/8\) bound. Ten numerical fixed points reproduced in `checker.py` support, but are not needed for, the infinite-family proof. The claim is about the deterministic product recurrence, not an absorbing stochastic epidemic.
+PASS
 
-## Originality
+The claim is for the deterministic product map, fixed finite m ≥ 4 and 0 < δ < 1. The isolated clique radius m−1 exceeds the path radius 2 cos(π/(m+1)); the two-cell Rayleigh test for B–C gives Λ ≥ ((m−1)+sqrt((m−1)²+4m²))/2 > m and d=Λ−m+1 ≥ (m+1)/2. The maximal degree gives d ≤ m. For βΛ>δ, a small positive Perron multiple is a subsolution; monotone iteration gives existence. Along any positive capped ray, the product-map output is concave (its nonnegative one-sided slope decreases at caps), strictly so up to the unit scale because retention and at least one neighbor have positive coefficients. This yields strict subhomogeneity and uniqueness by the maximal coordinate-ratio comparison. At criticality the strict union bound tested against the left Perron vector excludes nonzero fixed points; compactness and the linear expansion with quadratic remainder then give convergence to zero and convergence of the normalized direction to the positive Perron vector. The exact block sums give dV_A=v_b1 and dV_C=mV_B. The b1 equation implies (Λ−1/d)v_b1 ≤ (1+m/d)V_B, so V_B/V_A ≥ d(Λd−1)/(d+m) > (m+1)(m(m+1)−2)/(8m) > m²/8. Since Λ strictly exceeds all isolated radii, the required common isolated subcritical interval exists. The bound is on burdens, not the threshold ratio.
 
-**PASS, with explicit priority risk.** Dung and Phuc (arXiv:2607.14048, read through Sections 2–4) rank local isolated thresholds and simulate aggregate community infection but do not establish any quantitative ordering theorem between those measures. Prasse and Van Mieghem (DOI:10.1007/s00285-020-01542-6, read Theorem 1 and nearby text) prove Perron-direction endemic asymptotics for continuous-time NIMFA, an antecedent method acknowledged in the result. Bonaccorsi et al. (arXiv:1412.6157, read the source's quotient-spectrum and reduced-SIS sections) give spectral tools for equitably partitioned continuous-time epidemic networks rather than the explicit non-equitable three-block product-map family. Li et al. (DOI:10.1016/j.jpdc.2018.04.009) analyze heterogeneity and SIR epidemic size; the available scientific text does not identify this endemic SIS comparison. The quantitative equal-size, quadratic reversal is not a restatement of those inspected claims. Possible unindexed constructions and transferable prior eigenspace arguments remain an acknowledged risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The motivating literature advocates induced-subgraph threshold sets as community-level vulnerability indicators and juxtaposes them with per-community infection sums. The theorem shows a mathematically substantive limitation of interpreting one as a monotone ranking of the other: all blocks can be isolated-subcritical, yet the seemingly more resistant path block has arbitrarily quadratically larger equilibrium burden than the clique block, even after controlling exactly for population size. The arbitrary-size bound and full equilibrium proof go beyond a small arbitrary graph example. The deliberately dense external mixing is essential contextual scope, not a claim about empirical weakly coupled communities.
+The inspected evidence covers the local threshold definition, global versus isolated threshold comparison, Perron-mode behavior, and even finite ranking reversals. It does not establish the distinct quantitative theorem: an unbounded quadratic lower bound for the reversed near-onset burden ranking in three equal-size connected induced blocks, for the specified discrete-time product update.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A qualitative reversal could be a finite anomaly; the unbounded quantitative construction proves that isolated-threshold ordering alone provides no size-independent factor controlling near-onset burden, even when comparing equal-size connected blocks and all isolated blocks are subcritical. This is a useful boundary for interpreting that model's community threshold statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

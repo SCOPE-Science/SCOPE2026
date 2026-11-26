@@ -1,36 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The determinant of the endemic Jacobian is reconstructed directly from the printed Euler SIR map. Imposing multiplier product one gives
-\[
-h(d+r)
-=
-\frac{\mathcal R_0}{\mathcal R_0-1}
->1.
-\]
-The infected update then maps the open strip
-\[
-0<S<S_1/\mathcal R_0,\qquad I>0
-\]
-to negative infected values. The \(1{:}2\), \(1{:}3\), and \(1{:}4\) strong resonances all have determinant one. Exact rational replay of the source's rounded \(1{:}3\) example gives
-\[
-I_1=-0.10256632066707
-\]
-from the initial condition used for its global phase diagram.
+PASS
 
-## Originality
+Let k=d+r and R=Aλ/(dk)>1. At the endemic fixed point the Jacobian has entries 1−hdR, −hk, hd(R−1), 1, in row order. Thus det J−1=hd[hk(R−1)−R]. For h>0 the determinant-one locus has hk=R/(R−1)>1; the endemic unit-circle pairs in question all have multiplier product one. The infected multiplier 1−hk+hλS vanishes there at S=(k/λ)/R and is negative for smaller S; the next infected coordinate is negative when I>0. This is failure of state-space invariance, not invalidation of the local normal forms or a sufficient positivity test for the whole map. The source equation (1.3), three section 4 resonance examples, and the separate Figure 6 seed and common A,d,r were checked in the original paper. For the rounded 1:3 tuple the exact fraction replay gives I_next=−10256632066707/10^14. The exact determinant at that rounded tuple is 1.0002999324, not 1: RESULT.md explicitly introduces the tuple as rounded; the exact strip theorem and the direct rounded witness must not be conflated. No assertion is needed that the exact rounded pair is a Figure 6 grid node.
 
-PASS. The same Euler map and its unit-circle bifurcation boundary are prior work, and positivity-conscious SIR discretizations are also established. The surviving result is the exact incompatibility theorem connecting these two structures: every unit-determinant endemic boundary point is necessarily beyond the infected positivity barrier. Searches by exact source identity, step-size formula, positivity terminology, and strong-resonance aliases found no published statement of this implication or the source-initial-condition witness.
+## originality
 
-## Value
+PASS
 
-PASS. The source interprets its strong resonances and broad periodic/chaotic parameter regions as epidemic-model dynamics. The theorem identifies a sharp mathematical boundary showing that these unit-circle bifurcations cannot coexist with positivity safety of the explicit Euler update near low susceptible density. The source's own global-diagram initial condition demonstrates that this is not only a remote boundary-state concern.
+Credit the original map, endemic characteristic polynomial and resonance loci to the literature. The supported distinct result is the incompatibility of that same map's endemic unit-determinant locus with infected positivity, the exact open strip, and the numerical interpretation check using the paper's phase-diagram seed. No inspected statement already supplies this connection; the primary-literature search was unavailable, so this is a bounded best-of-knowledge judgment.
 
-## Closest literature and limitations
+## value
 
-Hu, Teng, and Zhang give the closest prior algebra: their unit-circle step size is the same determinant-one boundary, but the inspected text does not connect it to positivity. Suryanto and Darti establish the importance of dynamically consistent nonstandard SIR discretization. Later work shows that strong-resonance analysis can be carried out in a nonstandard discrete-SIR setting.
+PASS
 
-The local normal-form calculations near the positive endemic equilibrium are not rejected. The correction concerns interpreting the explicit Euler map as a globally biologically admissible SIR discretization at its resonance parameters.
+The positivity obstruction separates local formal dynamics of an Euler polynomial map from a globally admissible population-state update. It excludes an entire family of endemic strong-resonance boundaries from that interpretation and supplies a strictly positive, source-matched initial state for which the plot protocol's first step is already inadmissible. This is a concrete interpretation check, not merely the reformulation of a known determinant boundary.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

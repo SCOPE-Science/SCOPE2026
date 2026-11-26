@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published positive three-field model and its spatial linearization were reconstructed at an exact rational coexistence equilibrium. The complete modal characteristic polynomial has positive coefficients and exact Routh–Hurwitz margin \(H(q,w)=[4q^3+116q^2+873q+304+2q(2q-11)w]/32\). The only nonzero integer-squared Laplacian eigenvalues with a negative attraction coefficient are \(q=1,4\); hence the two thresholds are exact and exhaustive. At each one, factorization yields a simple pure imaginary pair and a negative real root, and the exact crossing derivative is strictly positive. Symbolic identities and example spectra are checked independently by the included script. No finite enumeration substitutes for the proof for all modes.
+PASS
 
-## Originality — PASS (literature-bounded)
+Substitution verifies the positive coexistence solution. At the constant state the no-flux conditions give Neumann conditions for the linear perturbations: the public-good derivative vanishes, so the defector boundary flux reduces to its own derivative. The defector taxis contribution is -2wD_v v_* times the public-good Laplacian; on cos(kx) this yields +qw/4 in entry (2,3), q=k^2. I independently reconstructed the reaction Jacobian and used trace, principal minors and determinant to compute A,B,C and H=AB-C exactly. A,B,C are positive on q,w>=0; the q=0 margin is 19/2 and each k>=3 has nonnegative w slope because H_w=q(2q-11)/16. For q=1,4 the margins are (1297-18w)/32 and (5908-24w)/32, with ordered zeros 1297/18 and 1477/6. Routh–Hurwitz gives stability before each zero and instability after; positive coefficients exclude any nonnegative real root, so any unstable eigenvalues form a conjugate pair. At equality the polynomial is (lambda+A)(lambda^2+B), with B computed as 3431/144 and 797/3. At a simple imaginary root implicit differentiation gives Re(lambda')=-H_w/[2(A^2+B)]>0, establishing transverse crossings. The first pair is already unstable at the second threshold and no zero eigenvalue is possible. For any fixed w the scaled modal matrices M(k^2,w)/k^2 tend to -I/4 plus a nilpotent off-diagonal term, so the large modes have real parts tending to minus infinity, consistently with the all-mode result. This is a linear spectral conclusion, not exclusion of all nonlinear stationary patterns and not a nonlinear Hopf theorem.
 
-Zhao et al. derive the governing model and study stationary instability driven by increasing *defector diffusion* and instability from *cooperator taxis*. Their discussion acknowledges the open oscillatory case. The nearest indexed independent result demonstrates an oscillatory mode with *diffusion only* and unequal diffusion parameters; that does not yield a phase diagram for equal diffusion rates and varying only defector taxis, particularly the second exact threshold and universal higher-mode stability. Funk–Hauert use a different ecological game migration law; Cheng et al. use a different replicator/resource PDE. Historical priority cannot be claimed as exhaustive, and the indexed independent result was available as a summary rather than full text.
+## originality
 
-## Value — PASS
+PASS
 
-This explicitly realizes and exactly classifies a directed-movement mechanism left unresolved by the source: increasing defector attraction can destabilize a stable uniform state via *oscillatory* modes even though it does not create any stationary Turing crossing. Two distinct finite-mode thresholds and an all-higher-mode exclusion provide a sharp mathematical boundary rather than a sampled or arbitrary parameter slice. This clarifies why determinant-only stability diagrams can miss possible spatial instability.
+The model, modal linearization and cubic stability machinery are prior. The supported distinct result is the exact, two-crossing and all-mode linear classification under defector attraction alone at equal fixed diffusivities. The closest actual published claims use a different varied coefficient or unequal diffusion with zero taxis; they do not specialize to this phase diagram.
 
-## Risks and limits
+## value
 
-All statements are linear and use one nondegenerate rational ecological calibration, zero cooperator taxis, equal diffusivities, and Neumann boundary conditions. No nonlinear periodic solution is established. The 2024 related article and the nearest indexed result were not available for full claim-by-claim text inspection; the comparison relies on their available abstract and index summary, respectively.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a concrete counterexample to relying on the stationary determinant condition when interpreting stronger defector attraction as suppressing spatial instability. The fixed equal-diffusivity path isolates the directed-motion mechanism; two exact thresholds and an all-mode exclusion give a reproducible classification rather than one computed example of an unstable complex pair. The second crossing is a change in the unstable mode count, not a second loss of stability of an otherwise stable equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

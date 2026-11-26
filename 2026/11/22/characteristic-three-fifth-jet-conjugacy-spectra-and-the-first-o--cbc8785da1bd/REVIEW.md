@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite substitution group has order \((q-1)q^4\). The degree-four and degree-five commutation equations in `RESULT.md` are obtained by direct polynomial composition; they yield the unipotent conjugacy orbits with invariants \((b,c)\), \((c,u-d^2/c)\), \(d\), and \(u\). Nonidentity-multiplier cosets are reduced by the four-step additive filtration to resonant weights; their fixed subgroups are either trivial, one-dimensional, or abelian two-dimensional. The torus action gives each asserted orbit size, with all size-times-count sums matching exactly one multiplier fiber of cardinality \(q^4\). Direct exhaustive \(\mathbb F_3\) multiplication and centralizer checks, and \(52\) representative \(\mathbb F_9\) coefficient checks, corroborate the proof. The order-nine condition follows from a computed exact cube, not extrapolation from tests.
+## correctness
 
-## Originality — PASS, qualified
-Pálfy's primary full text concerns the Nottingham subgroup with multiplier one; it is not a conjugacy census in the full torus extension. The published prior published-finding corpus record for fourth-order substitutions concerns \(k[t]/(t^5)\) with characteristic at least five, while the same-algebra length-six published result concerns *subalgebra orbits*. Those results do not imply the fifth-jet full-group class table by simply changing a symbol or parameter; the new quotient has a new filtration layer, and the characteristic-three order-nine stratum first occurs here. Searches for equivalent jet, Nottingham, extended-substitution and multiplier descriptions did not reveal a stronger covering theorem. Nevertheless general solvable-group orbit theory and inaccessible historical manuscripts leave a priority risk; failed searches are not uniqueness proofs.
+PASS
 
-## Value — PASS
-This determines the full multiplier-resolved conjugacy and centralizer spectra of a natural first wild-characteristic finite jet group, not just its order. It reveals a genuine extension-degree parity jump of twelve classes relative to the generic \(6q\) term, and identifies and enumerates the first order-nine substitution stratum, whose density tends to one over growing characteristic-three fields. These natural structural invariants quantify both semisimple multiplier resonance and wild torsion growth in one minimal example.
+The repaired result has the same numerical table and isolates the known iteration criterion from the full-group claim. Truncated multiplication gives the two stated equations for commuting in U. For b≠0 solving for w,z gives class size q² in U; b,c are invariant there, then the torus orbits are exactly c/b². For b=0,c≠0 checking the change d→d−cv, u→u+dv+cv² yields the invariant u−d²/c and an orbit spanning every d. The degree-four and central degree-five rows follow respectively from the bijective cube map and fourth-power torus orbits. For nonidentity a, elimination in grade j uses 1−a^j and cannot change earlier coefficients. In a fixed representative the prime-to-three part is exactly the linear substitution, so conjugation between fixed representatives lies in the fixed subgroup; those subgroups are abelian here. This gives the q², q³ and q⁴ orbit factors and all residual stabilizers. The resulting sizes exhaust all multipliers and give 22 classes at q=3 and 70 at q=9. Triple composition gives the coefficient b²(b²−c) in degree five, and any nontrivial pure degree-five jet has order three. This yields the stated order-nine full-class count, with no order-nine multipliers outside U.
 
-## Closest sources and limits
-P. P. Pálfy, *The number of conjugacy classes in some quotients of the Nottingham group* (1998 journal, publisher-online 2009-01-20), full primary paper inspected; Josu Sangroniz's 1999 related article was located but full text not inspected. Public published-finding corpus records `21c11f1dc6ee` and `64aff8a15920` were read in full for the relevant theorem, proof and restrictions. The theorem is restricted to \(q=3^e\), to substitutions modulo \(t^6\), and to automorphisms fixing the coefficient field. No historical uniqueness is certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original framed the exact first order-nine stratum together with the table as the contribution. The first-iterate coefficient/threshold is prior, and the finite element count follows mechanically by counting free coefficients. The repair narrows the contribution to the characteristic-three multiplier-resolved full-group spectrum, with the order-nine full-class count as an application and the coefficient criterion and element count credited as prior/derived. The comparative sources support this distinct claim to the best of current knowledge.
+
+## value
+
+PASS
+
+The full automorphism group at this natural finite cutoff is not characterized by a class number for its Nottingham kernel. Resolving every multiplier fiber gives the exact effect of fourth-root resonances on the table and on commuting probability, and locates the order-nine classes rather than just the individual jets. This is useful as a tractable small-characteristic baseline beyond known unipotent statistics and the classical iterate calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

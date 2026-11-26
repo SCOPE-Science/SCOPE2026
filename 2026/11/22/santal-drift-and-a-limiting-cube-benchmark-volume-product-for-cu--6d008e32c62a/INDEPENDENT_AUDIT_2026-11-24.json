@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:51:59.695604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The slice aB∞+bB1 consists of the points with ∑(|x_i|−a)_+≤b; selecting the excess coordinates and integrating the resulting beta monomials gives the stated primal volume. The shifted polar's vertical fiber is [2−(1+t)||u||₁−(1−t)||u||∞]_+/(1−t²). In an ordered positive chamber the successive differences give simplex coefficients j+1+(j−1)t and unit Jacobian; the sign/order count and layer-cake integral give the stated polar volume. Strict convexity of polar volume and sign symmetry force the optimizing center to lie on the axis. The log denominator has negative second derivative, derivative at zero positive for d≥2, and derivative tending to −∞ at the top. The positive term gained going to d+1 moves its unique zero strictly up. With δ=1−τ and a_j=(j−1)/(2j), stationarity gives 1/δ=1/(2−δ)+∑a_j/(1−δ a_j). The lower bound (d−H_d)/2 on the sum gives δ=O(1/d), hence expansion gives 1/δ=d/2+O(log d). The log of the inverse correction product tends to one, and the remaining normalized factor tends to e/4. Checked d=1 directly (square, ratio one), and d=2 gives the stated radical and product. Inspected the frozen verification and checker without running them. The optional loop is over layer dimensions d=1–4, i.e. ambient dimensions 2–5, and the finite checks alone do not prove the asymptotic statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavlík's theorems give the construction and interval condition.",
+          "Pavlov–Telen provide a rational-volume/minimization framework and uniqueness, but the inspected material does not give these family-specific product factors or their root asymptotics."
+        ],
+        "reasoning": "The general results locate a well-posed optimization problem, not its dimension-dependent solution.",
+        "searches": [
+          "Pavlík arXiv:2611.13896, Theorems 5.2 and 5.8",
+          "Pavlov–Telen arXiv:2402.18955, strict convexity and rational polar volume",
+          "Cube–cross-polytope Cayley Santaló literature query"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary afb298f7e006, f5dfbcc12b1e and frozen match 6d008e32c62a",
+        "Pavlík arXiv:2611.13896; Pavlov–Telen arXiv:2402.18955"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pre-existing unshifted norm ball can be integrated by the same type of chamber calculation, but at t=0 its value supplies no axial derivative law.",
+          "The regular-simplex companion gives ratio e to a simplex, not ratio e²/4 to a cube."
+        ],
+        "reasoning": "The shifted fiber introduces the variable weights and the endpoint factor. Their stationary harmonic sum and normalized inverse product must both be analyzed to obtain the monotonicity, rate and optimized constant; none follows just by changing notation in the compared findings.",
+        "searches": [
+          "afb298f7e006 Finding, origin-polar volume",
+          "f5dfbcc12b1e Finding and proof sections 2–4",
+          "arXiv:2402.18955, introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier K_d is precisely C_d^∘ in the same height normalization; its volume 2^(2d+1)/((d+1)(d+1)!) equals the new profile at t=0.",
+          "Optimization is of the primal Cayley hull under translation, not of the origin polar under translation."
+        ],
+        "reasoning": "This is exact overlap at one slice of the axial profile, not equivalence of displaced optimizers. For d≥2 the derivative of the volume at zero is strictly negative, so that slice is not optimal.",
+        "searches": [
+          "Resultary: cube–cross-polytope Cayley polar shifted Santaló center and volume product",
+          "2026/11/17/SCOPE-an-ehrhart-quasiperiod-reversal-for-a-cube-cross-polytope-cayley--afb298f7e006"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "afb298f7e006 gives exactly the unshifted polar volume; 6d008e32c62a is the frozen target; f5dfbcc12b1e is the separate regular-simplex/polar-simplex companion."
+        ],
+        "reasoning": "An origin-polar Ehrhart table or a self-hit does not provide optimized values. The companion has a different dimension-dependent coefficient sequence and a different reference product; the common date proves neither order nor equivalence.",
+        "searches": [
+          "Resultary: unshifted Ehrhart Cayley polar and axial Cayley Santaló results"
+        ]
+      },
+      "rationale": "The origin polar volume and Cayley construction are credited prior work. Inspected comparisons do not establish the full displaced optimum, monotone drift, or optimized e²/4 ratio; these are the supported distinct claim.",
+      "residual_risks": [
+        "Bounded comparators do not prove historical priority; older work on cube/cross-polytope prismatoids or shifted polar volumes under different nomenclature may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact known unshifted specialization",
+          "evidence": "The record defines K_d=C_d^∘ and evaluates its volume; the result concerns its Ehrhart series and periods.",
+          "identifier_or_url": "2026/11/17/SCOPE-an-ehrhart-quasiperiod-reversal-for-a-cube-cross-polytope-cayley--afb298f7e006",
+          "material_read": "Finding and volume formula, offsets 0 and 1697",
+          "method": "Original text in local mirror",
+          "title": "An Ehrhart quasiperiod reversal for a cube–cross-polytope Cayley polar",
+          "trigger": "Identical origin polar"
+        },
+        {
+          "assessment": "Construction background; no metric center law in the inspected statements",
+          "evidence": "Polarity of the translated Cayley realizes a face poset, and the cube/cross-polytope satisfies the requisite interval condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.13896",
+          "material_read": "Theorem 5.2 p.14 and Theorem 5.8 p.16, OA offsets near 51000 and 56900",
+          "method": "OA primary text",
+          "title": "Face lattices of polytopes and bipolar polytopes",
+          "trigger": "Cayley construction for this layer pair"
+        },
+        {
+          "assessment": "Uniqueness and rational-volume background, not the specific optimized invariant",
+          "evidence": "Strict convexity of translated polar volume and its unique minimizing center are part of the general theory.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.18955",
+          "material_read": "Introduction p.1, OA offset near 1975",
+          "method": "OA primary text",
+          "title": "Santaló Geometry of Convex Polytopes",
+          "trigger": "Broader volume and minimization framework"
+        },
+        {
+          "assessment": "Distinct layer geometry and normalized invariant",
+          "evidence": "Regular simplex and −n times that simplex yield an axial law with optimized ratio e to an (n+1)-simplex.",
+          "identifier_or_url": "2026/11/22/SCOPE-santal-volume-of-the-regular-simplex-cayley-bipolar-cubes-an-exa--f5dfbcc12b1e",
+          "material_read": "Finding and proof sections 2–4",
+          "method": "Frozen text and local mirror",
+          "title": "Santaló volume of the regular-simplex Cayley bipolar cubes",
+          "trigger": "Same-day analogous geometry and drift"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural nonsymmetric Cayley family. An exact center law exhibits a systematic drift that is invisible in the known origin-polar volume, and the optimized ratio to the cube is a quantitatively useful affine comparison. No universal nonsymmetric Mahler bound is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

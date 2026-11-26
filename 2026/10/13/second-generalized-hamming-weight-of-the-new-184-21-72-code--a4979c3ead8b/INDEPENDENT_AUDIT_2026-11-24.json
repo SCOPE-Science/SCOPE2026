@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:03:43.753754Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Compared the generator factors, multiplier and the ordered tail patterns with the original arXiv v1 appendix, including its residue convention r_t=Σ_{i≡t mod 5} b_i. An independent reconstruction in /workspace/branches/audit_code184.py uses constant-term polynomial division with exact product verification, cyclic coefficient shifts and binary message doubling rather than the frozen checker's Gray order. Exhausting all 2^21 messages gives positive weight for every nonzero message (hence rank 21), minimum 72 and 9826 minimum words; messages 0x63, 0x318, 0x37b form a minimum triple with union size 108. In every binary two-space each supported coordinate occurs twice among its three nonzero words, so support is at least 3·72/2 and equality holds exactly for triples of minimum words. On the full message space, the ordered count of (u,v) with u,v,u+v in the minimum shell is the sum of the cubes of the unnormalized Walsh transform of its indicator, divided by 2^21, by character orthogonality. The replay gives 3496866 ordered pairs, i.e. 582811 two-spaces since each contributes six. A separate appendix-based direct pair check gives 1748433 unordered pairs, agreeing. This is exact for this code, not a claim about other codes with the same parameters or weights d_r for r≥3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The standard binary averaging identity gives the broader bound d₂≥ceil(3d₁/2); its equality requires a specific additive relation and does not follow by substituting d₁=72.",
+          "The Gold-type and partial-spread support-spectrum theorems are for their own constructions and do not classify arbitrary quasi-cyclic codes."
+        ],
+        "reasoning": "The general lower bound is credited in full; existence and multiplicity need incidence data not supplied by it.",
+        "searches": [
+          "arXiv:2609.37056v1, appendix construction and code table",
+          "Resultary second-support spectra 2e572caa5a8a and ac1dd2c59a8f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.37056v1",
+        "Resultary 2e572caa5a8a",
+        "Resultary ac1dd2c59a8f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The appendix specifies the code, and therefore permits an exact replay, but does not provide an additive incidence calculation. No usable same-code pair/transitivity statement was located in the inspected material.",
+          "The frozen self-review flags hull and one-coordinate incidence as neighboring same-code invariants. These are not pair-addition data; the targeted local searches did not independently identify a decisive same-code statement of the required stronger invariant."
+        ],
+        "reasoning": "The generator logically determines the answer, but computing the support-minimizing pair incidence is distinct from reading an existing result or substituting parameters in a known formula.",
+        "searches": [
+          "arXiv:2609.37056v1, appendix and Table 3",
+          "Resultary: Euclidean hull [184,21,72] Seddas Shashkov Viazovska Abbe LinCodeEvolve",
+          "Resultary: minimum weight coordinate incidence 9826 [184,21,72] quasi-cyclic LinCodeEvolve"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent weight-72 intersection condition is |Supp(u)∩Supp(v)|=36 for distinct minimum words, since wt(u+v)=144−2|Supp(u)∩Supp(v)|. Neither the construction passage nor the same-code ordinary shell table gives that intersection distribution.",
+          "The closest local exact spectra are for the [231,10,104] Gold-type code and two [95,7] affine-half partial-spread codes, not this generator."
+        ],
+        "reasoning": "Higher weight, minimum union support of two independent words, and the minimum-shell triple multiplicity were tested as equivalent target formulations. Code inequivalence matters; nearby spectra do not transfer.",
+        "searches": [
+          "Resultary: code title, arXiv:2609.37056v1 and [184,21,72] with second generalized Hamming weight",
+          "Resultary: 108 and 582811 under two-space support and minimum-shell additive-triple terminology",
+          "bounded public exact-ID/number lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 3 lists [184,21,72] and A₇₂=9826, an exact hit for d₁ and its multiplicity only. The inspected table has no column for supports of two-spaces.",
+          "The inspected [231,10,104] and [95,7] Findings are actual exact higher-support entries, but for different codes and with different numbers."
+        ],
+        "reasoning": "An ordinary shell count gives the number of summands, not how many pairs have their sum back in the shell. The multiplicity is not a table recomputation.",
+        "searches": [
+          "arXiv:2609.37056v1 Table 3",
+          "Resultary: exact values and title of the [184,21,72] construction",
+          "Resultary: minimum weight coordinate incidence 9826 [184,21,72] quasi-cyclic LinCodeEvolve"
+        ]
+      },
+      "rationale": "The published construction, minimum distance and shell size are prior inputs. The audited result is the attained second-support bound and exact two-space multiplicity for the specific published generator, not the standard binary support identity or the base code parameters.",
+      "residual_risks": [
+        "Unindexed supplementary results could contain this code's pair spectrum or higher-weight table. The comparisons cover the identified manuscript passages and indexed findings, not all supplementary calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the code and minimum-shell size; not the higher-support incidence in the inspected passages",
+          "evidence": "Same polynomial data and fourteen tails, printed c₀ through c₄ order, and A₇₂=9826.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.37056v1",
+          "material_read": "Appendix PDF pp. 14–15 (residue convention around offset 48000 and [184,21,72] entry), and Table 3, p. 17 around offset 53057",
+          "method": "OA primary PDF passages",
+          "title": "Evolving Towards Better Codes: LLM-Guided Search for High-Distance Binary Linear Codes",
+          "trigger": "Original construction of the identical code and published shell data"
+        },
+        {
+          "assessment": "Distinct code and support spectrum",
+          "evidence": "d₂=156 with 440 minimizers for the [231,10,104] code.",
+          "identifier_or_url": "2026/10/12/SCOPE-second-support-spectrum-of-the-xiang-song-231-10-104-gold-type-c--2e572caa5a8a",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Second support spectrum of the Xiang–Song [231,10,104] Gold-type code",
+          "trigger": "Exact two-space support and multiplicity for another binary code"
+        },
+        {
+          "assessment": "Distinct code family, not excluded because of shared date",
+          "evidence": "Two length-95 codes, with respective d₂ values 54 and 56 and multiplicities 7 and 12.",
+          "identifier_or_url": "2026/10/13/SCOPE-higher-support-spectra-of-the-binary-95-7-affine-half-partial-sp--ac1dd2c59a8f",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Higher-support spectra of the binary [95,7] affine-half partial-spread codes",
+          "trigger": "Same-day exact higher-support spectra and minimizing multiplicities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The input is a published high-distance construction and the invariant is the first nontrivial higher generalized weight, not an arbitrary statistic selected after enumeration. The result shows that the universal support lower bound is actually attained and quantifies the minimizing two-spaces. These are precise data for comparing the support geometry of candidate codes and cannot be read from their length, dimension, distance, or ordinary minimum multiplicity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

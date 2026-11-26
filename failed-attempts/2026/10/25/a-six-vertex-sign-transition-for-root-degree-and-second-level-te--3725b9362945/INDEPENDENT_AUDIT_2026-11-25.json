@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:31:36.978697Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a label j≥3, the depth-two indicator depends only on attachment choices through j, and the survival-as-leaf indicator only on later choices. The latter has mean (j−1)/(n−1). The covariance with an earlier root attachment is its Bernoulli variance divided by n−1; the attachment at j is incompatible with depth two and gives the negative term −H_{j−2}/[(j−1)(n−1)]; a later root attachment precludes that arrival choosing j and gives H_{j−2}/[(n−1)(i−1)(i−2)]. The latter terms telescope. Summing over j yields H_m−H_m^(2)−m²/(m+1)² for m=n−2. The forward difference is (m²+m−1)/[(m+1)(m+2)²]>0, with exact values −13/144 at n=5 and 71/3600 at n=6. Standard harmonic asymptotics give the stated constant and growth. The independent attachment-history replay (`python -B /workspace/branches/replay_records_1_3_4_5.py`, section 5) agrees at n=3,…,8, including −1/4 at n=3 and −7/36 at n=4; it is supplemental to the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (9) gives the finite mixed second moments of every pair of unmarked level sizes, including root degree (level one) and depth two.",
+          "The Resultary leaf result gives Cov(R_n,L_j)=(n−j)/(n−1)² for the terminal indicator of each label j and its survival mean (j−1)/(n−1). Eslava studies high-degree depths and their limits, not this finite mixed moment."
+        ],
+        "reasoning": "If C_j is the known covariance of level one and unmarked level two at time j, then Cov(R_j,I_j)=C_j−C_{j−1} since the root attachment at j is independent of the past level-two count. Independence of the pre- and post-birth choices gives Cov(R_n,I_j L_j)=E[L_j](C_j−C_{j−1})+E[I_j]Cov(R_n,L_j). Thus these published profiles together determine the depth-stratified terminal covariance without a new joint moment.",
+        "searches": [
+          "van der Hofstad–Hooghiemstra–Van Mieghem, ‘On the covariance of the level sizes in random recursive trees’, Eq. (9)",
+          "Resultary ab0acf44833f, Finding (1), Proof (8)",
+          "arXiv:1611.07466, Abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1202.2439 and arXiv:1611.07466",
+        "van der Hofstad–Hooghiemstra–Van Mieghem, exact level-size mixed moments",
+        "Resultary ab0acf44833f, 281f23da57ff, 4490954b5d10, f610816101b3, 11d94f8af7f0, 14337d651546"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking exactly one success in the known Bernoulli sum gives P_θ(depth(j)=2)=θ/(θ+j−2) × sum_{l=0}^{j−3} 1/(θ+l). Avoiding j in later choices independently has telescoping probability (θ+j−2)/(θ+n−2)."
+        ],
+        "reasoning": "Multiplying the two probabilities and summing j gives E_θ Q_n = θ/(θ+m) × sum_{l=0}^{m−1}(m−l)/(θ+l) = θ sum_{l=0}^{m−1}1/(θ+l) − θm/(θ+m), m=n−2. Differentiation at θ=1 returns exactly the frozen harmonic formula; the sixth-vertex sign change follows from its elementary first difference and neighboring values. No stronger unknown probability law is needed.",
+        "searches": [
+          "arXiv:1202.2439, Theorem 2.1, p. 2, combined with §1 Hoppe attachment law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under root weight θ and nonroot weight 1, each labeled tree has probability proportional to θ raised to its root outdegree. Theorem 2.1 supplies the exact depth of the j-th node as 1 plus independent Bernoulli variables with success probabilities 1/(θ+i), i=1,…,j−2."
+        ],
+        "reasoning": "The Hoppe law is the θ^{R_n} tilt of the uniform recursive-tree law, not a different object for this comparison. For any statistic, differentiation of its finite tilted mean at θ=1 gives its covariance with R_n in the original law. Conditioning on birth versus survival is valid for this tilted model because its parent choices remain independent.",
+        "searches": [
+          "Leckey–Neininger, arXiv:1202.2439, ‘depth of the last’, Theorem 2.1 and root-weight model",
+          "Local Resultary: root outdegree covariance with leaves at depth two, joint degree/leaf and level profiles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published ab0acf44833f and 281f23da57ff have the root case of the exact labeled degree/leaf covariance; 4490954b5d10 concerns root leaf-children and total leaves; f610816101b3 compares total leaves and the unmarked depth profile; 11d94f8af7f0 compares degree and a vertex's depth; 14337d651546 treats global degree classes."
+        ],
+        "reasoning": "None of those entries directly tabulates the depth-two terminal statistic; depth one, total leaves, mean label depth, and global one-child counts are distinct. The labeled leaf covariance is nevertheless relevant via its exact implication with unmarked level covariance. No priority/order is inferred from the same-day records.",
+        "searches": [
+          "Local Resultary: recursive tree root degree, childless depth-two vertices, covariance and sign transition"
+        ]
+      },
+      "rationale": "The wider exact Hoppe-tree depth law mechanically supplies this covariance by an exponential tilt in root degree and the independent no-child survival product. There is also a direct reduction to the prior ordinary level covariance and labeled leaf covariance using independence before and after each vertex's birth. No compared source was found to print this exact sign cutoff, but the exact invariant governing it is covered by these implications, not merely suggested by a title or unavailable source.",
+      "residual_risks": [
+        "The inaccessible 1982 degree-by-stratum and 2022 protected-node-profile papers could affect direct historical priority, but are not needed to prove known broader coverage.",
+        "Ranked catalogue and bounded literature comparisons are not exhaustive; no claim that the exact sign switch was printed before the frozen entry."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact depth law under all positive root weights mechanically implies the frozen covariance after survival and derivative",
+          "evidence": [
+            "For θ=1 the model is uniform recursive. Theorem 2.1 gives D_j^(θ)=1+sum_{i=1}^{j−2}B_i in law with independent B_i and P(B_i=1)=1/(θ+i)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1202.2439",
+          "material_read": "Abstract/§1 root-weight model and p. 2 Theorem 2.1, offset 7500 onward",
+          "method": "Lawful OA arXiv PDF, literal locate and read bounded passage",
+          "title": "Asymptotic analysis of Hoppe trees",
+          "trigger": "Exact depth distribution in the model obtained by tilting with root outdegree"
+        },
+        {
+          "assessment": "Exact finite unmarked second moments; covers the early-history term when combined with the known labeled leaf marginals",
+          "evidence": [
+            "Eq. (9) supplies E[X_N^(k) X_N^(l)] for all levels and sizes, hence for levels one and two."
+          ],
+          "identifier_or_url": "https://www.nas.ewi.tudelft.nl/people/Piet/papers/covarRSA.pdf",
+          "material_read": "Introduction and exact mixed moment Eq. (9), pp. 2–3, offsets 3800–7955",
+          "method": "Lawful OA authors' PDF, bounded passages",
+          "title": "On the covariance of the level sizes in random recursive trees",
+          "trigger": "An unmarked level covariance can determine the per-birth depth-two covariance"
+        },
+        {
+          "assessment": "No depth mark; exactly covers the later-history term in the reduction",
+          "evidence": [
+            "Cov(D_n,Y_j)=(n−j)/(n−1)², survival mean (j−1)/(n−1), total-leaf covariance (n−2)/(2(n−1))."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f/RESULT.md",
+          "material_read": "Finding (1)–(3), start of proof through (8), offsets 0–2972",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "trigger": "Closest root-degree and labeled terminal-leaf profile"
+        },
+        {
+          "assessment": "Unresolved direct historical overlap; not used for disposition",
+          "evidence": [
+            "The title suggests degree stratification, not a verified root-degree/layer covariance theorem."
+          ],
+          "identifier_or_url": "Dondajewski–Szymański, Bull. Acad. Polon. Sci. Sér. Sci. Math. 30 (1982), 205–209",
+          "material_read": "Bibliographic entry only; no primary passage recovered",
+          "method": "Targeted exact-title lookup",
+          "title": "On the distribution of vertex-degrees in a strata of a random recursive tree",
+          "trigger": "Potential direct prior around degree by depth"
+        },
+        {
+          "assessment": "Unresolved direct overlap; not used for disposition",
+          "evidence": [
+            "Protected and unprotected classes are not the same as childless and nonchildless classes; no precise mixed-moment claim was verified from this source."
+          ],
+          "identifier_or_url": "doi:10.1137/S0040585X97T991040",
+          "material_read": "Bibliographic data and frozen description of abstract; no primary full-text passage recovered",
+          "method": "DOI and exact-title lawful retrieval attempts",
+          "title": "Normal Limit Law for Protected Node Profile of Random Recursive Trees",
+          "trigger": "Possible marked-node depth profile"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The contrast between a bounded total-leaf covariance and logarithmic depth-two terminal covariance is a natural observation. Here the exact depth-two fact is a direct coefficient, survival factor and derivative of a known finite root-weighted depth law, and the sixth-vertex switch is an elementary evaluation of the resulting harmonic expression. It does not supply a distinct nonroutine invariant as submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

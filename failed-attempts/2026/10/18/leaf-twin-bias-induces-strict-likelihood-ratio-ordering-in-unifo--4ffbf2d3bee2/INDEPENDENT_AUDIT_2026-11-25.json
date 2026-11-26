@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:11:45.771337Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83",
+        "VERIFICATION.md and verify.py inspected as finite evidence"
+      ],
+      "rationale": "Write N=n−2 and t_v=d_v−1, the Prüfer multiplicities. For a specified leaf pair and possible center v, deleting the pair gives the ratio t_v(t_v−1)/(N(N−1)) of degree-prescribed counts. Given ℓ leaves, the code is uniform over surjections onto a uniform set of k=n−ℓ symbols. Merging two code positions counts the event that they agree by k!S(N−1,k), out of k!S(N,k). This gives the claimed regression. Stirling row log-concavity makes S(N−1,k−1)/S(N−1,k) nondecreasing, and the reciprocal of the regression's Stirling factor is k plus that ratio. The factor decreases strictly in k, with zero at k=N; multiplying by the positive increasing binomial factor gives strict increase in ℓ. The marked-pair bijection is reversible even when the smaller tree has two vertices and empty code. Appending the independent chosen center to that code makes exactly n−3 iid draws on n−2 symbols; an original vertex remains a leaf precisely when absent from the augmented word, giving the claimed Palm mass function. Bayes gives the increasing likelihood ratio, including its zero bottom value, and the independent-copy covariance identity gives the strict sign for every stated nonconstant transform.",
+      "residual_risks": [
+        "The uploaded checker was not executed. Reported finite enumerations do not certify the all-n result; the combinatorial and log-concavity arguments do."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "0fa7304eba95 gives the full conditional generating enumeration and conditional factorial moments, not just the mean. The classical papers give the leaf marginal, unconditional unrestricted cherry moments, and general out-degree enumerations respectively."
+        ],
+        "reasoning": "The indexed conditional law covers more of the exact joint count than the frozen record. The primary older tree sources give only the stated ingredients in the relevant passages and are not credited with a direct strict ordering theorem.",
+        "searches": [
+          "0fa7304eba95, formulas (1)–(5)",
+          "Rényi 1959 §2 (2.1)",
+          "Erdős–Rényi 1963 §5, Thm. 6, (5.1)–(5.3)",
+          "Pitman 1997 Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 85–110",
+        "Resultary 0fa7304eba95 and 6c93f3f984c0",
+        "Chen–Liang–Wang arXiv:1601.05645",
+        "Rényi §2, Erdős–Rényi §5 and Pitman Theorem 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general recursive-matrix result explicitly includes total nonnegativity of the Stirling triangle. The sibling-pair law gives the exact conditional mean, and the Palm record already gives ordinary stochastic enhancement and an exact positive covariance with L."
+        ],
+        "reasoning": "The minor for rows N−1,N and columns k,k+1 gives S(N−1,k)S(N,k+1)≥S(N−1,k+1)S(N,k); dividing shows the exact row ratio is nonincreasing in k=n−ℓ. It is zero only at ℓ=2 and positive thereafter. Multiplying by the strictly increasing binom(ℓ,2) already makes the regression strictly increasing. Dividing it by the constant E C is the size-biased likelihood ratio. Thus even the stronger strict MLR conclusion and monotone-transform covariance follow immediately, without needing a new strict inequality for Stirling numbers.",
+        "searches": [
+          "Xi Chen, Huyile Liang and Yi Wang, arXiv:1601.05645, Corollary 2.5 and Remark 2.1",
+          "0fa7304eba95, formula (3) and star endpoint",
+          "6c93f3f984c0, strict stochastic enhancement statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0fa7304eba95 formula (3) is exactly the regression for m=n−ℓ; its separate star sentence supplies the same last value.",
+          "6c93f3f984c0 Proof §§1–2 strips off a specified leaf pair at a fixed center and counts empty boxes other than that center in the uniform contracted code."
+        ],
+        "reasoning": "Both records use all unordered pairs of leaf neighbors in uniform unrooted labeled trees. A fixed center excluded from the empty count is equivalent, by symmetry, to an independent uniform center appended to the contracted code. Thus the differently described occupancy laws are identical; randomizing the marked labels and center also gives the same Palm tree construction.",
+        "searches": [
+          "Resultary: unrestricted cherry conditional expectation, cherry size bias, Palm occupancy and likelihood-ratio order",
+          "0fa7304eba95, conditional sibling-pair law",
+          "6c93f3f984c0, leaf-sibling Palm dominance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked records give symbolic entries for every admissible n and ℓ: the same mean, a full conditional distribution, and an equivalent exact Palm PGF. The classical Stirling triangle is also known to have all minors nonnegative."
+        ],
+        "reasoning": "These exact indexed arrays and PGFs are stronger coverage than matching finitely many numbers. There is no dependence on a particular checker range or an extrapolation from tabulated small trees.",
+        "searches": [
+          "0fa7304eba95, exact formulas (1)–(4)",
+          "6c93f3f984c0, exact Palm PGF and factorial moments",
+          "arXiv:1601.05645, Corollary 2.5 and Remark 2.1"
+        ]
+      },
+      "rationale": "The conditional mean and Palm distribution have exact indexed coverage, including the star endpoint. The main strict likelihood-ratio comparison is not stated in the inspected Palm record, but it is an immediate consequence of the same conditional mean and the known total nonnegativity of the Stirling triangle (even weak 2×2 inequalities suffice). The remaining covariance consequences then follow by standard size bias and monotonicity. This is equivalent/implication coverage in the checked corpus, not a finding of chronological priority over this record.",
+      "residual_risks": [
+        "The indexed exact tree-law records carry later catalogue dates; date labels do not establish priority or dependence. No exact older published strict-MRL statement is asserted. The failure is the demonstrated implication, not a failed retrieval or coincidence of model names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact regression coverage and more",
+          "evidence": "Formula (3) gives the same Stirling ratio times binom(ℓ,2); stars contribute the maximum value binom(n−1,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-leaf-conditioned-sibling-pair-law-for-uniform-labelled-tre--0fa7304eba95/RESULT.md",
+          "material_read": "Finding formulas (1)–(5), star sentence; Proof portions, offsets 0–5223 in bounded sections",
+          "method": "Indexed local mirror passages",
+          "title": "Exact leaf-conditioned sibling-pair law for uniform labelled trees",
+          "trigger": "Exact conditional unrestricted cherry formula and broader distribution"
+        },
+        {
+          "assessment": "Same Palm distribution and ordinary stochastic comparison",
+          "evidence": "Leaf pair deletion at a specified center gives a uniform smaller tree; the center does not count as a leaf after reattachment. Gives the occupancy PGF and strict positive covariance with L, but the inspected statement does not assert strict MLR.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-leaf-sibling-palm-dominance-in-uniform-labeled-trees--6c93f3f984c0/RESULT.md",
+          "material_read": "Finding; scope; Proof §§1–3, offsets 0–5376 in bounded sections",
+          "method": "Indexed local mirror passages",
+          "title": "Leaf-sibling Palm dominance in uniform labeled trees",
+          "trigger": "Equivalent size bias, occupancy and dominance"
+        },
+        {
+          "assessment": "General result implies the needed weak ratio comparison",
+          "evidence": "The two-term nonnegative-coefficient triangular recurrence gives a totally nonnegative matrix; the Stirling triangle is explicitly named. Applying its adjacent 2×2 minors suffices.",
+          "identifier_or_url": "https://arxiv.org/abs/1601.05645",
+          "material_read": "Background on Brenti's result p. 3; Corollary 2.5 and Remark 2.1, pp. 5–6, offsets 20860–21743",
+          "method": "Primary PDF passages",
+          "title": "Total positivity of recursive matrices",
+          "trigger": "Potential direct implication of monotonicity of the exact Stirling ratio"
+        },
+        {
+          "assessment": "Classical ingredient",
+          "evidence": "Prüfer occupancy and Stirling numbers count the leaf marginal, not the cherry regression in this passage.",
+          "identifier_or_url": "https://real.mtak.hu/200905/1/cut_MATKUTINT_4_1_1959_pp73_-_85.pdf",
+          "material_read": "§2, formula (2.1), offsets 16000–19178",
+          "method": "Primary PDF passage",
+          "title": "Some Remarks on the Theory of Trees",
+          "trigger": "Classical exact leaf marginal"
+        },
+        {
+          "assessment": "Unconditional cherry estimates",
+          "evidence": "Defines the same common-neighbor pair and gives unconditional indicator probabilities and moments.",
+          "identifier_or_url": "https://static.renyi.hu/renyi_cikkek/1962_asymmetric_graphs.pdf",
+          "material_read": "§5, Thm. 6 and formulas (5.1)–(5.3), PDF pp. 18–19",
+          "method": "Primary PDF passages",
+          "title": "Asymmetric Graphs",
+          "trigger": "Same unrestricted cherry definition and its counts"
+        },
+        {
+          "assessment": "General degree-profile ingredient",
+          "evidence": "Gives labeled-forest out-degree enumeration rather than cherry-biased MLR in the inspected theorem.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/482.pdf",
+          "material_read": "Theorem 6, PDF p. 7",
+          "method": "Primary PDF passage",
+          "title": "Enumerations of Trees and Forests Related to Branching Processes and Random Walks",
+          "trigger": "Potential stronger degree-profile enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Indexed conditional and Palm laws",
+        "arXiv:1601.05645, Corollary 2.5 and Remark 2.1"
+      ],
+      "rationale": "Cherry response to leaf conditioning and Palm bias are natural questions, but the exact mean and biased marginal are covered. Strict likelihood-ratio increase is a useful comparison, yet here it is a direct two-row minor inequality for a standard matrix times an increasing nonzero factor; the covariance refinements are automatic. No further distinct invariant or order phenomenon needing new mathematical work remains in the submitted claim.",
+      "residual_risks": [
+        "This assesses the increment in the frozen claim, not the usefulness of conditional tree enumerations or MLR comparisons in general."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

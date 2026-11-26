@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:01:39.607769Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py, inspected as source",
+        "Corrected RESULT.md, REVIEW.md and SLOGAN.txt in /workspace/repairs/3/",
+        "Replay: python3 /workspace/independent/censuses.py 3; 20 normalized maxima, 54 labeled maxima, one orbit, stabilizer 24, matching normalized and labeled hashes",
+        "Labeled census SHA-256 9f5c2de392d26f636c02b9e938b3b637e73f0e7eb4908e67cffeef3753e8f616"
+      ],
+      "rationale": "This decision assesses the repaired equality classification. The known optimum 10 and the known obstruction system also replay correctly. For each pair x,y, the full set of words in its box other than x is a same-descendant coalition exactly if each differing coordinate has some alternative word in the box carrying x's symbol there; y already supplies all other required symbols. Checking the same criterion for y gives an exact test for both endpoints. Singletons cannot fail. I implemented that test independently of the frozen forbidden-hypergraph search, exhaustively enumerated normalized codes containing 000, and confirmed 20 valid ten-word codes and no larger ones. Pruning only drops invalid partial sets and branches with too few words left to reach the target. Every label class has a normalization at some codeword. The full group orbit of the stated representative has 54 elements, and its slice containing 000 equals the whole independently enumerated normalized census. This proves completeness and yields stabilizer 1296/54=24. The profile counts are invariant under the group and correct on the representative. The independent method also recovered 891 minimal bad sets of size four; that auxiliary count is not a new assertion in the repair.",
+      "residual_risks": [
+        "The census is finite executable verification, not a proof-assistant certification or a statement for larger parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original construction has size (9q²−w²)/8 and gives 9 here. The later general upper bound q^(ceil(2n/3)) + q^(floor(n/3))(q^(floor(n/3))−1)/2 gives 12 at n=q=3."
+        ],
+        "reasoning": "These general results do not characterize size-ten codes, even when specialized. Broader strong overline-3 separability results have a different coalition bound.",
+        "searches": [
+          "arXiv:1412.6128v1 Theorem IV.13",
+          "arXiv:1611.04349v2 Lemma 2.18"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fc51dbba75e2, 3f2b26247a99, 7ff76fc3adfd and d9089a638b0a",
+        "arXiv:1412.6128v1",
+        "arXiv:1611.04349v2",
+        "arXiv:1411.6841v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier SSC text displays one ten-word optimum and rules out eleven; its Limitations say it does not classify all optimal ten-word codes up to equivalence. Its displayed code was independently checked to be in the repaired claim's orbit. The hash-family match has a five-word representative and different row and distance profiles."
+        ],
+        "reasoning": "The known example and group action can supply a lower bound on the number of optima and determine its particular profiles. They cannot exclude other orbits or turn those profiles into universal ones. The complete equality census, including the upper count and uniqueness of type, is the substantive surviving result.",
+        "searches": [
+          "fc51dbba75e2 RESULT.md Finding, Proof and Limitations, offsets 0–2388 and around 3539",
+          "3f2b26247a99 RESULT.md Finding and profile passages, offsets 0 and 2911"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 4 exact SSC record has the identical all-coalition intersection condition. Strong multimedia IPP requires that intersection to be nonempty, not that it equal the given singleton or pair. Frameproofness implies SSC, but the converse fails."
+        ],
+        "reasoning": "The exact SSC record uses the same object. The multimedia IPP optimum 11 is for a weaker condition, and the frameproof classifications concern a stronger one; neither determines the SSC equality cases.",
+        "searches": [
+          "Resultary ranked search: ternary length-three strongly two-separable codes, maximum 10 and equality census",
+          "arXiv:1412.6128v1 Definition III.3",
+          "arXiv:1411.6841v1 Definition III.3",
+          "arXiv:1611.04349v2 Definition 1.1 and Lemma 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fc51dbba75e2 settles the exact optimum and the 891 forbidden four-sets, but gives one witness rather than all maxima. The numerical match 54/24 in 3f2b26247a99 belongs to five-word {2,2}-separating hash families. Other hits report strong multimedia IPP maximum 11 or equality cases of size-nine frameproof codes."
+        ],
+        "reasoning": "There is exact indexed coverage of the maximum, but the matching orbit numbers for different objects do not establish the SSC census.",
+        "searches": [
+          "Resultary ranked search for the exact size 10 and for 54 labeled, 20 normalized, stabilizer 24",
+          "Resultary nearby records fc51dbba75e2, 7ff76fc3adfd, 3f2b26247a99 and d9089a638b0a"
+        ]
+      },
+      "rationale": "For the original novelty claim, the exact maximum and 891 minimal four-word obstructions are demonstrably covered by distinct Resultary record fc51dbba75e2; they are not accepted as new. Its witness belongs to the verified orbit, but the record does not establish that every optimum belongs to this orbit and explicitly disclaims such a classification. The repaired claim credits the known facts and asserts only the complete equality census and its structural consequences. No compared source gives or implies that remainder.",
+      "residual_risks": [
+        "The ranked result search is not exhaustive. A shared literature lookup was deferred; no negative inference is based on it. Earlier unindexed equality enumeration is possible.",
+        "Catalogue comparison establishes overlapping mathematical content, not historical authorship or independent discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact value and obstruction system covered; all-maxima classification not covered",
+          "evidence": [
+            "Same formal condition; 10-word witness and exhaustive exclusion of 11; 891 forbidden four-sets; explicit limitation concerning classifying all optima."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-length-three-strongly-two-separable-code-size--fc51dbba75e2/RESULT.md",
+          "material_read": "Finding, assumptions and proof offsets 0–2388; Limitations around offset 3539",
+          "method": "Read bounded primary passages in local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact ternary length-three strongly two-separable code size",
+          "trigger": "Direct match to the original headline optimum"
+        },
+        {
+          "assessment": "Construction series and definitions, not exact equality census at q=3",
+          "evidence": [
+            "Theorem IV.13 gives nine words at q=3; strongly separable condition is equality with the original coalition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.6128v1",
+          "material_read": "Definition III.3 p. 3 offset 16600; Theorem IV.13 p. 10 offset 54400; frameproof context p. 10 offset 59000",
+          "method": "Inspected bounded primary OA PDF passages",
+          "title": "Strongly Separable Codes",
+          "trigger": "Foundational same-parameter construction and definition"
+        },
+        {
+          "assessment": "Bound specializes to 12; frameproof relation is strict, not an equivalent formulation",
+          "evidence": [
+            "Two-coalition numerical bound; frameproof implies strong separability but not conversely."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.04349v2",
+          "material_read": "Definition 1.1, Lemma 2.2, Example 2.3 and Lemma 2.18, pp. 2–3 and 7",
+          "method": "Read primary OA text passages",
+          "title": "Bounds and Constructions for 3-bar-Strongly Separable Codes with Length 3",
+          "trigger": "Broader upper bound and frameproof reduction"
+        },
+        {
+          "assessment": "Different condition",
+          "evidence": [
+            "Requires nonempty intersection, not equality with the given parent set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.6841v1",
+          "material_read": "Definition III.3, p. 2 offset 16700",
+          "method": "Read bounded primary OA PDF passage",
+          "title": "Multimedia IPP Codes with Efficient Tracing",
+          "trigger": "Plausible alias for coalition-intersection definition"
+        },
+        {
+          "assessment": "Numerical coincidence for different objects",
+          "evidence": [
+            "Five-word separating hash families, representative 000,011,101,110,222, not ten-word strongly separable codes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-unique-optimal-ternary-three-row-2-2-separating-hash-family--3f2b26247a99/RESULT.md",
+          "material_read": "Finding and representative/profile passages, offsets 0 and 2911",
+          "method": "Read bounded primary record passages in local mirror",
+          "title": "Unique optimal ternary three-row 2,2 separating hash family",
+          "trigger": "Exact orbit numbers 54 and 24"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and proof",
+        "Resultary fc51dbba75e2, Finding and explicit classification limitation",
+        "Independent labeled and normalized census"
+      ],
+      "rationale": "The known size and example alone would not qualify as a new exact result. The repaired claim answers a distinct question about the geometry of all extremizers: whether multiple inequivalent structures occur at the natural first ternary parameter of the length-three strong-separability problem. It gives a complete equality census, reduces all maxima to one representative, and gives invariants valid for any maximum. That is useful independently of producing an improved size bound.",
+      "residual_risks": [
+        "Structural uniqueness is established only for q=3, length 3 and coalition bound 2; it is not evidence for general-alphabet uniqueness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

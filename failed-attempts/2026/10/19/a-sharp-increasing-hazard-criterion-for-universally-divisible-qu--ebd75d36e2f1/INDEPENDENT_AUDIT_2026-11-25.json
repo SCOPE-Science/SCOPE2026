@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:19:29.984985Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–71 and 83–85",
+        "Frozen VERIFICATION.md; check.py inspected, not executed",
+        "Independent exact rational age-and-site replay described in rationale"
+      ],
+      "rationale": "For h_j in (0,1) the survival probabilities are positive at every finite age. The last-reset partition gives Φ_t(X)=S_t E^t(X)+Tr(X)B_t with Tr B_t=1−S_t. Setting q_t=S_{t+1}/S_t and subtracting q_t E(B_t) from B_{t+1} gives a mass ν_{t+1} at σ and coefficients ν_s S_{t−s}(h_{t+1}−h_{t+1−s}) at E^{t+1−s}(σ). Hence for nondecreasing hazards Y_t≥0 with trace h_{t+1}. The intermediate is a convex combination of E and a replacement channel and the composition identity holds without assuming E invertible. For the converse use a cyclic unitary and pure reset at site zero with dimension m+2 for a drop at m. The trace-preserving Φ_m has trivial kernel because on traceless operators it is S_m times a unitary conjugation, so the intermediate is unique. Only the age-m term contributes at site m and the test projector at m is moved to site m+1 by the unitary. The intermediate therefore has the negative site-m entry h_1S_{m−1}(h_{m+1}−h_m). I separately propagated exact age-and-site probabilities for drops at m=1,2,6: from each initial site advance mass by (1−h_{age+1}) to (age+1, next site) and by h_{age+1} to (0,0); sum over ages to form T_m,T_{m+1}, and multiply T_{m+1}T_m⁻¹. For h_j=2/5 up to m and h_{m+1}=1/5 the predicted negative entry is −(2/25)(3/5)^{m−1}; for m=1 the test column is (7/25,−2/25,4/5). The simulations corroborate the all-time operator argument. The frozen checker counts a separate m=1 example in addition to positions 1–14, so its fifteen witness checks do not mean fifteen distinct positions.",
+      "residual_risks": [
+        "This is a universal Schrödinger-picture equivalence, not an iff for an individual update and reset state. It makes no minimal-dimension or process-tensor claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirrored theorem does not require S_n→0 and witnesses a drop at time m in dimension m+1 instead of m+2.",
+          "The published continuous-time semi-Markov master-equation discussion and the renewal-reset constant-hazard cases are narrower or differently scoped."
+        ],
+        "reasoning": "Dropping the proper-wait restriction strictly broadens the matched theorem. With an m+1 cycle, the test projector at m moves to site zero rather than m+1, which still leaves the same negative site-m element; the frozen dimension is not a scientific strengthening.",
+        "searches": [
+          "Resultary 52ec499cc555, assumptions and adjacent-drop construction",
+          "Carollo–Wald arXiv:2601.13367v1 main text and supplement; Megier–Smirne–Vacchini arXiv:2007.11276v1 §V"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, proof and prior work section",
+        "Resultary 52ec499cc555 and 952f3bfed790",
+        "arXiv:2601.13367v1, 2007.11276v1, 2410.11497v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched catalogue theorem implies both directions of the frozen criterion under the proper-wait restriction, including witnesses for arbitrary strict adjacent drops.",
+          "Carollo–Wald establishes the reset expansion and explicitly treats constant hazards, not the matched arbitrary age-monotonicity equivalence in the inspected passages."
+        ],
+        "reasoning": "No distinct scientifically valuable remainder is identified beyond the fully covered criterion and its corollaries. This judgment does not require inferring date order or proving no other source exists.",
+        "searches": [
+          "Compare 52ec499cc555 theorem/proof with frozen RESULT.md lines 9–71; Carollo–Wald 2601.13367v1 Eqs. (2)–(4), (7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "52ec499cc555 gives the same iff with universal quantification over dimension, update and reset state, for both positive and completely positive divisible maps.",
+          "952f3bfed790 treats a different ordering of an intertwining relation in the Heisenberg picture and a different criterion in terms of renewal-event probabilities."
+        ],
+        "reasoning": "Equivalence is direct for 52ec499cc555 after matching age and time indices; it does not follow merely by replacing a Schrödinger map with an independently defined Heisenberg intertwiner.",
+        "searches": [
+          "Resultary semantic search: fixed-state quantum renewal reset, nondecreasing hazard, universal CP/P divisibility, cyclic unitary",
+          "Mirrored Resultary 52ec499cc555; 952f3bfed790"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching finding has the same negative mass h_1S_{m−1}(h_{m+1}−h_m), not merely a numerical sample with loss of divisibility.",
+          "The frozen rational example is obtained by specializing this expression at m=1, h_1=2/5, h_2=1/5."
+        ],
+        "reasoning": "The indexed coverage is a stronger exact theorem rather than a numerical table. Changing the witness dimension or evaluating a rational example does not yield an independent exact contribution.",
+        "searches": [
+          "Resultary search for exact age-hazard criterion and negative cyclic witness; 52ec499cc555 RESULT.md at offsets 0, 2457 and 4966"
+        ]
+      },
+      "rationale": "Distinctness of the frozen scientific claim fails on direct statement-level evidence: Resultary 52ec499cc555 proves the same universal Schrödinger CP/P-divisibility equivalence under weaker assumptions and gives the same cyclic obstruction in a smaller dimension. The finite-time coefficients and negative witness agree, not just the title. This is a judgment of demonstrable coverage by a distinct record, not a claim of chronological priority, copying, or provenance. The older published literature inspections identify antecedent renewal machinery but are not the basis of the failure.",
+      "residual_risks": [
+        "Origin and priority are not established by indexing and were not needed for exact coverage. No broad independent websearch for uncited earlier work was used."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full scope-matched coverage and stronger assumptions/witness dimension",
+          "evidence": "Universal Schrödinger CP and P iff with nondecreasing age hazard; proper waits unnecessary; cyclic witness in dimension m+1 with the same negative entry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-increasing-reset-hazards-exactly-characterize-universal-quantum--52ec499cc555/RESULT.md",
+          "material_read": "Mirrored statement and proof passages at offsets 0, 2457 and 4966",
+          "method": "Configured mirror bounded reads",
+          "title": "Increasing reset hazards exactly characterize universal quantum divisibility",
+          "trigger": "Exact proposed theorem and construction in local catalogue"
+        },
+        {
+          "assessment": "Different intertwiner and criterion",
+          "evidence": "Monotonicity of renewal-event probabilities, not age hazard; it notes increasing hazards can fail the separate Heisenberg criterion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-renewal-event-monotonicity-exactly-governs-universal-heisenberg--952f3bfed790/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Configured mirror bounded read",
+          "title": "Renewal-event monotonicity exactly governs universal Heisenberg divisibility",
+          "trigger": "Similar renewal monotonicity question in a potentially equivalent picture"
+        },
+        {
+          "assessment": "Antecedent renewal framework and examples; not relied on for the exact-coverage decision",
+          "evidence": "Last-renewal map, CPTP iteration at constant hazard, special unitary examples, separate Heisenberg convention and renewal-mass positivity or norm witnesses.",
+          "identifier_or_url": "https://arxiv.org/html/2601.13367v1",
+          "material_read": "Main Eqs. (2)–(4), (7), offsets 8266–17648; picture distinction 18700–21993; supplement 44950–47921 and 52000–55493",
+          "method": "Open HTML bounded primary passages",
+          "title": "Stochastic resetting induces quantum non-Markovianity",
+          "trigger": "Closest cited published renewal-map and divisibility analysis"
+        },
+        {
+          "assessment": "Different continuous-time semi-Markov dynamics",
+          "evidence": "Time-local and nonlocal evolution for that model, not the fixed-reset-state discrete universal age-order theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.11276v1",
+          "material_read": "§V, Eqs. (44)–(45), HTML offsets 37500–40700",
+          "method": "Open HTML bounded read",
+          "title": "Evolution equations for quantum semi-Markov dynamics",
+          "trigger": "Broader semi-Markov hazard and GKSL connection"
+        },
+        {
+          "assessment": "Related last-reset formulas, not the universal divisibility classification",
+          "evidence": "Unitary setting, steady states and correlations, including constant-hazard behavior.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.11497v1",
+          "material_read": "Abstract and §II, HTML offsets 0–2289 and 12000–14966",
+          "method": "Open HTML bounded read",
+          "title": "Stochastic resetting in discrete-time quantum dynamics: steady states and correlations in few-qubit systems",
+          "trigger": "Discrete-time quantum reset framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and cyclic nonpositivity proof"
+      ],
+      "rationale": "As mathematics, a sharp criterion across all channels cleanly separates age-dependent resetting that always preserves divisibility from resetting admitting even a classical cyclic counterexample. It has explanatory value beyond the constant-hazard case, with a witness at an arbitrary finite drop. This is an assessment of the theorem's mathematical content, not an endorsement of a redundant record as a distinct contribution.",
+      "residual_risks": [
+        "The larger witness dimension and rational worked example do not independently justify a repaired publication claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

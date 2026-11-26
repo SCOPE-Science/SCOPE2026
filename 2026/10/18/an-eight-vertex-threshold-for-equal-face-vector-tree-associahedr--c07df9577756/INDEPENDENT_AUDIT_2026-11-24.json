@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:40:07.687852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent exact replay: python /workspace/replay/tree_review.py",
+        "Cardinal–Langerman–Pérez-Lantero arXiv:1803.11427 §2.2, standard face/tubing correspondence"
+      ],
+      "rationale": "All simplex summands have constant coordinate sum and the summand on the full connected set has dimension n-1, so the polytope has that dimension. The standard face/tubing correspondence gives dimension n-1-k for k proper tubes. I reproduced the complete enumeration with new code: generate unlabeled trees by all single-leaf extensions, which suffice because every nonsingleton tree has a leaf, and deduplicate by the minimum recursive unordered rooted encoding over all possible roots (a complete unrooted isomorphism test). For face polynomials, group tubings by the union U of inclusion-maximal tubes. U is proper because maximal tubes are pairwise disjoint and nonadjacent and the ambient graph is connected; the components of G[U] are exactly those tubes. Recursing on their proper tubings counts each family once. The order census was 1,1,1,2,3,6,11,23. The only repeated vertex count at any fixed order was 2952 at order eight, on the displayed degree-distinct trees; the full face vectors independently agree as stated. For angular counts, Gaussian coordinate rankings are uniform. Each connected-set summand contributes the highest ranked coordinate. The overall root is recoverable from the resulting vertex: its coordinate attains the upper bound given by all connected sets containing it, and each other coordinate misses at least the full graph contribution. Subtracting the root contribution and restricting to each deleted-root component proves recursively that ranks yield the same vertex exactly when they yield the same elimination tree. A fixed elimination tree has ranking probability 1/H, where H is the product of all subtree sizes, by independent uniform component rankings conditional on the first vertex (or the rooted hook-length count n!/H). The independent hook histogram sums 1/H² with multiplicities and gives 14239/4838400 and 76393/33868800, with difference 97/141120. Thus equal vertex count was used only to eliminate alternatives; equal full face vectors for the pair were checked separately.",
+      "residual_risks": [
+        "The exhaustive census stops at eight vertices; it says nothing about larger trees or general graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior work gives the general face/tubing correspondence. The same-day braid-wall result gives the labelled count (n-1)!/dist_T(u,v) per exchange pair; the same-day collision result explicitly sums squared cone weights for K_{p,q}."
+        ],
+        "reasoning": "A labelled exchange-wall table differs from the unlabelled face vector and squared normal-cone probabilities. Its metric reconstruction does not state a same-face-vector witness. The only complete bipartite trees are stars, whereas the displayed trees are not stars.",
+        "searches": [
+          "arXiv:1803.11427 §2.2",
+          "arXiv:2106.16130 §1.1",
+          "Resultary 2026/10/18/SCOPE-inverse-distance-braid-wall-law-for-tree-associahedra--ce4ae4101529",
+          "Resultary 2026/10/18/SCOPE-three-sampling-limits-and-rare-collision-localization-for-comple--92a7aa97dd66"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary tree braid-wall and complete-bipartite collision records",
+        "arXiv:1803.11427 §2.2, arXiv:2106.16204 §1.6, arXiv:2106.16130 §1.1",
+        "Chern et al. DOI access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work supplies rules for constructing the vertices and computing families of face counts; the complete-bipartite collision formula uses its special handle/leaf structure. No checked result evaluated the joint invariant or ruled out all smaller counterexamples."
+        ],
+        "reasoning": "The generic construction makes the exact finite analysis feasible, but is not an existing closed comparison between the two invariants or a bound implying the first collision of full face vectors. The new content lies in the motivated comparison and exhausted cutoff, not in applying a known recursion to a solitary unspecified tree.",
+        "searches": [
+          "arXiv:2106.16204 §1.6 elimination-tree recursion and vertex correspondence",
+          "Same-day inverse-distance braid-wall and complete-bipartite collision Resultary Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph-associahedron vertices are search/elimination trees, so the angle statistic is equality of two random elimination trees. The path specialization is the random-BST equality problem: the first coordinate rank splits a path into left and right subpaths, and the same rule recurses."
+        ],
+        "reasoning": "The equivalence identifies known methodology and a nontrivial alias to check. Both frozen trees have branching degrees above two and are not paths; a BST/path formula does not evaluate the pair or prove its threshold.",
+        "searches": [
+          "Resultary exact equal-face-vector tree associahedra 2952 and Gaussian angular collision",
+          "arXiv:2106.16204 §1.6",
+          "DOI 10.1002/rsa.20428"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The generation paper's small comparison figure concerns four graph vertices; the diameter paper introduces general G-Catalan counts and the path Catalan case. No found local item actually listed the pair or the exact fractions. The frozen proof and independent replay supply the exact census here."
+        ],
+        "reasoning": "Existing small examples and counting terminology are not an eight-vertex table. A matching raw vertex number would still require checking which tree classes share it and comparing the higher face numbers and angular data.",
+        "searches": [
+          "Resultary tree associahedra identical f-vectors, G-Catalan vertex count 2952 and exact collision fractions",
+          "arXiv:2106.16204 abstract and §1.6, small graph-associahedron figure",
+          "arXiv:2106.16130 §1.1 G-Catalan counts"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the concrete least-order equal-face-vector witness distinguished by these exact angular collisions. Standard tubings, search trees, and random-search-tree collisions are not credited as new. Primary and local comparisons support the distinction between prior counting/sampling frameworks and this joint threshold and witness; the bounded comparison is not a priority guarantee.",
+      "residual_risks": [
+        "Earlier exact tree census data or another explicitly labelled equivalent witness may exist under other terminology. The Chern paper full text was not available; no priority claim for general collision methods is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard reduction; inspected passage not an exact table for the claim",
+          "evidence": "Tubings index faces, and maximal tubings correspond to search trees and vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.11427",
+          "material_read": "§2.2, pp. 3–4, PDF offsets 8236–10008",
+          "method": "OA PDF passage",
+          "title": "On the Diameter of Tree Associahedra",
+          "trigger": "Tree associahedron faces and search trees"
+        },
+        {
+          "assessment": "Covers elimination-tree construction, not this exact comparison in the inspected passages",
+          "evidence": "Recursive definition and associahedron-vertex correspondence; small figure is for four graph vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.16204",
+          "material_read": "Abstract and §1.6, pp. 1, 6–7, offsets 0 and 23733, small example figure",
+          "method": "OA PDF passages",
+          "title": "Combinatorial generation via permutation languages. IV. Elimination trees",
+          "trigger": "Could subsume vertex census and angular interpretation"
+        },
+        {
+          "assessment": "Known general tubing description and path counts, not these invariants in the inspected material",
+          "evidence": "Faces come from tubings, paths give classical associahedra, and vertex counts are G-Catalan numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.16130",
+          "material_read": "§1.1, p. 2, offset 4550",
+          "method": "OA PDF passage",
+          "title": "Diameter Estimates for Graph Associahedra",
+          "trigger": "Tree vertex counts under G-Catalan nomenclature"
+        },
+        {
+          "assessment": "Priority risk for path methods; path equivalence independently justified",
+          "evidence": "The path split gives the random BST equality problem, which is not credited as a new result here.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20428",
+          "material_read": "Bibliographic reference; no recoverable full text in this review",
+          "method": "Lawful publisher/OA lookup and DOI recovery; publisher returned 403 and no repository alternate was identified",
+          "title": "Psi-series method for equality of random trees and quadratic convolution recurrences",
+          "trigger": "Path/BST collision antecedent"
+        },
+        {
+          "assessment": "Same day, related normal-fan invariant but not the comparison at issue",
+          "evidence": "Surviving adjacent transposition walls are counted by inverse graph distance for all positive simplex weights.",
+          "identifier_or_url": "2026/10/18/SCOPE-inverse-distance-braid-wall-law-for-tree-associahedra--ce4ae4101529",
+          "material_read": "RESULT.md Finding, offsets 0–1505",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Inverse-distance braid-wall law for tree associahedra",
+          "trigger": "Same graphs and normal-fan coarsening of the braid arrangement"
+        },
+        {
+          "assessment": "Same day, same statistic but different graph family",
+          "evidence": "Counts vertices of K_{p,q} by cone probability r!/n! from the handle and terminal leaves.",
+          "identifier_or_url": "2026/10/18/SCOPE-three-sampling-limits-and-rare-collision-localization-for-comple--92a7aa97dd66",
+          "material_read": "RESULT.md Finding, offsets 0–1493, equations (1)–(2)",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three sampling limits and rare-collision localization for complete-bipartite graph associahedra",
+          "trigger": "Exact same-vertex Gaussian collision statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and assumptions on the canonical realization",
+        "Independent exact replay /workspace/replay/tree_review.py",
+        "Prior tubing and collision methodology comparisons above"
+      ],
+      "rationale": "Face vectors are a standard combinatorial summary, while Gaussian collisions measure the concentration of a vertex law induced by the canonical realization. A pair proving that the first summary does not determine the second is mathematically motivated, and the exact least order and uniqueness at that order make this a sharp finite witness rather than an arbitrary table entry.",
+      "residual_risks": [
+        "This distinguishes the invariants only in the stated tree family; it does not claim combinatorial equivalence, a universal separation theorem, or an asymptotic statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

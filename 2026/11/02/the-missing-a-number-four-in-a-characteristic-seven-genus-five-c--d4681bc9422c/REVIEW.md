@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof independently establishes the genus-five Kummer model, a five-element holomorphic differential basis, all character blocks of Cartier, and the exact coefficient identities. The exceptional common-zero locus is certified by an exact characteristic-seven Gröbner basis after localizing away from singular parameters. The executable certificate is included; the finite \(\mathbb F_7\) enumeration verifies only the stated rational-parameter frequencies.
+## correctness
 
-**Originality — PASS, with historical qualification.** Booher–Pries, arXiv:2410.20262v1, Propositions 2.6 and 3.5, characterize supersingularity in the parent family but do not compute its \(a\)-number strata. Ohashi, arXiv:2604.18074v1, proves genus-five superspecial existence through a different generalized Howe construction; neither its existence theorem nor its explicit examples determine the two-parameter Cartier stratification here. Elkin's general cyclic-cover rank techniques do not themselves state the explicit missing stratum or the two-point reduced exceptional locus. No matching mathematical statement was located among the accessible research records. A coordinate-transformed presentation or unpublished finite-characteristic table remains a possible historical-priority risk.
+PASS
 
-**Value — PASS.** Characteristic seven is the first characteristic in which superspecial genus-five curves can occur. This computes a natural fine Jacobian invariant on every smooth member of a recently studied two-parameter family, pinpoints its isolated deepest jump, proves that one intermediate value never occurs, and gives an exact coefficient-presentation census over the prime field. The result is substantially more than an isolated example or a numerical check, although it is intentionally characteristic-specific.
+The connected tame degree-four Kummer cover has two inertia-two and four inertia-four branch points and none at infinity, yielding genus five. The claimed five forms are regular by the local orders at these places and independent by characters and numerator degrees. Cartier picks powers 7r+6; its character blocks are 1→3, 3→1 and 2→2. For the 1→3 block the image numerator is even of degree at most four and vanishes at w=±1 by regularity, so the coefficients of w² and w⁴ determine it. Directly extracting [X^10] and [X^17] of G(X)^5 over F_7[s,v] reproduced the two beta polynomials; the other off-diagonal block gives the stated two independent affine-linear alpha forms. There is a second exact certificate independent of the uploaded Gröbner-basis result: put D=3s²+5s+6. Then beta_1=(s−1)(v−D), beta_0(1,v)=v²(v−2)²(v−1), Delta(1,v)=3v²(v−2), and beta_0(s,D)=−2 Delta(s,D)^2. Thus on Delta≠0 the only beta zero is (1,1), where v−D is a unit and the surviving factor v−1 is simple. The alpha ideal is also (s−1,v−1). The central block is [X³](X²−sX+v)^3=−t³ H_7(u/t), whose three simple roots are 2,4,6; it vanishes at both points above (1,1). The ordered-parameter map is étale there, so the full Cartier zero locus is reduced. The ranks are therefore 3,2,0; each of the three distinct ratio lines has four valid F_7 pairs, and subtracting the two rank-zero pairs gives the claimed frequencies.
 
-**Limitations.** Only characteristic seven is treated; frequency counts are for ordered parameter presentations, not isomorphism classes. Higher Cartier iterates, Newton polygons, and a definitive priority audit are not supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The family and the Legendre factor in the central block are known, as is existence of genus-five superspecial curves in characteristic seven. The distinct supported claim is the full one-step Cartier classification for this exact two-parameter family, including synchronized failure of both other blocks at just the reduced two-point locus, with no a=4. Compared actual same-family results give supersingularity from a stable criterion rather than these block ranks; the other catalogued classifications examined are not this one.
+
+## value
+
+PASS
+
+This is a complete geometric stratification of a natural previously studied family where the stable invariant does not answer the finer Cartier question. The synchronization of two distinct blocks and reduced rank-zero locus explains the missing a=4 and gives a usable marked locus without testing parameters individually. The small F_7 frequency table is ancillary, not the basis for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

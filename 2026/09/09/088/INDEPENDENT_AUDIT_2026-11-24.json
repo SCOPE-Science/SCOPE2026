@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:27:35.435473Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, rational group JSON files, build_solve.py, run_cert_base.py, recert_v2.py, kraw_real.py, kraw_narrow.py, sep_trans.py and verify_narrow.py (inspected; frozen code not executed)",
+        "Fresh replay: OPENBLAS_NUM_THREADS=1 python3 /workspace/repairs/5/check_secant.py; modular ranks 9,126 in both cases; local counts 14,0 and 12,2",
+        "Repairs/5/RESULT.md proof and parameter transcription"
+      ],
+      "rationale": "For the repaired result, checked all 32 parameters are distinct per instance; in B only groups 3 and 4 (zero-based) overlap, by 3/50 with strict nesting. The frozen rational tables system_B_groups.json, narrow_groups.json and narrow_groups_v2.json agree. Rebuilt each divisor independently as a Plücker linear equation from the coefficient vectors of the vanishing quartic and its product by T. Reconstructed rational centers and inverses tested by a direct complex contraction certificate: the maximum Lipschitz upper bounds are below 0.000257 in A and 0.001403 in B, b+qr<r at r=10^−6, and the 14 balls in each are disjoint. Real centers certify real roots by conjugation and uniqueness; the two remaining B balls avoid the real locus. At the true roots the contraction estimate implies derivative invertibility. A separate norm conversion gives rigorous Euclidean alpha bounds, not floating norms or an upward-rounded critical threshold. For the global count, appending P_01=0 yields nine linear pivot columns modulo 1009; eliminating them gives a degree-four Macaulay row span of full rank 126 in six variables in both cases. These unit pivots and nonzero minors lift to characteristic zero. The projective intersection is contained in one affine chart and is therefore finite; its proper intersection length is the Grassmannian degree 14. The 14 simple certified roots exhaust it. The actual repair checker ran successfully for both instances.",
+      "residual_risks": [
+        "Candidate search uses floating point; the exact rational enclosure and rank checks are what establish the conclusions. The original historical verification fields are not independent evidence.",
+        "No claim is made about the solution counts along a deformation path or an optimum overlap length."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.8 gives exactly the degree many distinct real solutions for generalized secant planes along pairwise disjoint intervals and applies to A.",
+          "The earlier systematic configuration discussion in §4 concerns four lines, and the degree-14 discussion in §7 aggregates over more than 10^18 configurations."
+        ],
+        "reasoning": "A's all-reality is a direct consequence and is credited. The overlap violates the theorem's hypothesis. The degree-14 paper does not state a theorem selecting a nested witness at this cell.",
+        "searches": [
+          "Karp–Purbhoo arXiv:2309.04645 §1.3.2 Theorem 1.8, pp. 10–11",
+          "García-Puente et al. arXiv:1010.0665 §§4–7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary secant and Gr(2,6) queries; mirrored SCOPE088",
+        "arXiv:1010.0665",
+        "arXiv:2309.04645",
+        "arXiv:1406.0864"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Score 4 and 12 real roots are not new as a pair in the empirical table; even lower score with 12 real is in the table.",
+          "General square-system certification methods do not calculate these exact parameter-dependent roots, include the stated nesting, or exclude this projective complement."
+        ],
+        "reasoning": "The remaining claim is geometric and certified, not just an alternative list of sample numbers. Neither the disjoint theorem nor an aggregate count implies existence under the stronger condition of exactly one overlapping pair, nested with all point sets disjoint.",
+        "searches": [
+          "arXiv:2309.04645 Theorem 1.8, OA offset 33100",
+          "arXiv:1010.0665 definition and Table 5, OA offsets 31530 and 44050–48855",
+          "arXiv:1406.0864 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Meeting eight four-planes is exactly the degree-14 simple-divisor problem in Table 5, whether expressed in primal chart determinants or Plücker forms.",
+          "The paper's overlap statistic is the cut-minimized sum of foreign points inside intervals, not the number of overlapping interval pairs; the repaired example has score 4."
+        ],
+        "reasoning": "The problem, degree and real-count phenomenon are the same as prior work, not made original by coordinates. The statistic does not identify a single nested pair; different point orders (including multiple pair crossings) can have the same score.",
+        "searches": [
+          "Resultary meaning-based queries for Gr(2,6), certified secant overlap and one nested interval",
+          "arXiv:1010.0665 §§5,7; arXiv:1406.0864 introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching SCOPE088 hit is the assigned work. In the prior 15-million-instance Table 5, 3,328,772 score-zero examples have 14 real solutions; 1,556 and 2,595 examples at scores 3 and 4 respectively have 12 real solutions.",
+          "The printed table has no interval-pair geometry or rational parameter rows for these cases; the linked original data page returned 404 in bounded retrieval."
+        ],
+        "reasoning": "Prior numerical counts are credited. The aggregate table does not show that one strictly nested pair is responsible or provide certified rational parameters. Unavailable underlying rows remain a real overlap risk, not evidence of absence.",
+        "searches": [
+          "Resultary queries for reality boundary, nested overlap and degree-14 secant case; mirrored SCOPE088 Finding",
+          "García-Puente et al. Table 5 p. 15 and ref. [40] linked dataset access"
+        ]
+      },
+      "rationale": "Only the exactly certified single-nested geometry with 32 distinct rational parameters and the global 12-real-plus-pair count passes. The disjoint result is a known control; generic overlap-associated nonreality in this exact cell and even the same numerical overlap score are prior. The bounded comparison does not disclose a previously certified same-geometry witness.",
+      "residual_risks": [
+        "The older raw numerical database is unavailable from its cited link; it could contain the same geometric pattern. Historical priority or a first loss at a given overlap score is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact match of Schubert problem and observed reality counts; no identified single-nested rational witness in the printed table.",
+          "evidence": [
+            "Overlap number is the minimum of the sum over cuts of the projective line.",
+            "Table 5 reports 2,595 12-real cases at score 4 and 1,556 at score 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1010.0665",
+          "material_read": "§5 overlap definition around offset 31530; §§6.3–7 and Table 5 (pp. 14–15), offsets 44050–48855; dataset link attempted",
+          "method": "OA PDF passage inspection and dataset retrieval attempt",
+          "title": "The Secant Conjecture in the real Schubert calculus",
+          "trigger": "Same degree-14 Schubert problem and prior reality loss"
+        },
+        {
+          "assessment": "Directly covers A; no overlap conclusion.",
+          "evidence": [
+            "Theorem 1.8 assumes pairwise disjoint real intervals and gives exactly f^ν distinct solutions, all real."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.04645",
+          "material_read": "§1.3.2 Theorem 1.8 and preceding comparisons, p. 11, OA offset 33100",
+          "method": "OA PDF theorem and hypotheses",
+          "title": "Universal Plücker coordinates for the Wronski map and positivity in real Schubert calculus",
+          "trigger": "A stronger divisor all-reality theorem"
+        },
+        {
+          "assessment": "Certification framework, not this geometric witness.",
+          "evidence": [
+            "A square system for Schubert problems enables alpha certification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.0864",
+          "material_read": "Introduction p. 1",
+          "method": "OA PDF setup and contribution",
+          "title": "A primal-dual formulation for certifiable computations in Schubert calculus",
+          "trigger": "Prior rigorous square-system Schubert certification"
+        },
+        {
+          "assessment": "Identical assigned work, not a separate priority source.",
+          "evidence": [
+            "14 versus 12+pair with the same chart caveat."
+          ],
+          "identifier_or_url": "2026/9/9/SCOPE088",
+          "material_read": "Mirrored RESULT.md finding and chart-limit statement",
+          "method": "Resultary search and mirror read",
+          "title": "Certified secant-sharpness reality boundary on Gr(2,6)",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md and exact replay",
+        "García-Puente et al. §7 discussion of coarse overlap bins and unclassified configurations",
+        "Karp–Purbhoo Theorem 1.8"
+      ],
+      "rationale": "A single interacting pair is the smallest number of pairwise-disjointness violations possible. Showing that strict nesting alone suffices, even without a repeated point and with exhaustion and transversality proved, isolates a clear geometric failure mode not visible in a coarse empirical overlap score. The known disjoint instance is only a control. The exact rational witness can be used as a reproducible test of candidate weakenings of the divisor theorem.",
+      "residual_risks": [
+        "Scientific value is for this geometry and rigorous witness; it neither classifies overlaps nor minimizes the overlap score or length."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

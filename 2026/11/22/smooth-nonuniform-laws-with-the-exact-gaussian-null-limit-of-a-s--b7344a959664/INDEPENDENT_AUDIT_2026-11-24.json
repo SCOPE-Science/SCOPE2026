@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:42:45.344753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified iid, complete-data kernel k=-min(x,y)+(x²+y²)/2, direct conditional integration gives the first projection (up to an additive constant) and multiplying its variance by four gives the asymptotic variance. I independently integrated the kernel split at x=y with polynomial densities in exact rational arithmetic. Replay: python3 /workspace/reproductions/five_projected_variance.py. This gives null mean 0 and variance 1/45, the two-by-two mean/variance Jacobian [[1/15,1/35],[0,4/945]], and along x+cH the exact pair (-c²/30,1/45-c²/420-c⁴/225). The determinant 4/14175 is nonzero, so the analytic implicit-function theorem gives the exact jointly constrained local solution, with zero linear terms and quadratic coefficients 29/112 and 9/16. Endpoints stay fixed, the derivative converges uniformly to one, and the midpoint displacement c/4 excludes the null and bounds Kolmogorov distance from below. The nondegenerate bounded-kernel U-statistic CLT and continuity of the normal tails give rejection probability tending to alpha at each fixed stated null cutoff; empirical-CDF convergence gives KS consistency. This proves a fixed-alternative asymptotic fact for the unstudentized test, not finite-sample equality or a censoring claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md:109–122 identifies the original kernel and calibration and distinguishes the integrated-square omnibus test; primary passages of the original test were unavailable.",
+          "The frozen mean and variance Jacobian has rank two in the specified polynomial directions, a requirement not furnished by the general nondegenerate U-statistic CLT."
+        ],
+        "reasoning": "Omnibus consistency for a different statistic that integrates squared deviations does not prohibit cancellations in a signed scalar contrast. A variance formula or CLT computes behavior of a given law but does not by itself guarantee a nonuniform law satisfying both exact cancellations.",
+        "searches": [
+          "Sreedevi and Kattumannil, doi:10.1007/s42952-023-00205-8 (arXiv:2106.06368)",
+          "Resultary: signed scalar uniformity test versus integrated-square test; Ebner–Liebenberg–Visagie, arXiv:2108.06391"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:3–122, VERIFICATION.md and verify.py (inspection only)",
+        "Both local Resultary summaries named above",
+        "Original test and integrated-square paper identifiers and frozen source comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Available indexing distinguishes zero mean and conservative/subnominal power from null-matched variance. RESULT.md:82–103 supplies a full-rank two-constraint calculation and limit."
+        ],
+        "reasoning": "Neither continuity nor the existence of a one-constraint blind manifold ensures a nonuniform point at the null variance. The rank calculation supplies a direction independent of the mean contrast. The checked implication does not rely on assuming chronological priority from the catalogue dates.",
+        "searches": [
+          "Resultary near-match records 19b32d8edddb and 570951d13f26",
+          "Original uniformity-test paper/preprint by DOI/arXiv"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-monotone-blind-alternatives-and-a-quarter-power-detection-bounda--19b32d8edddb: indexed summary describes a smooth zero-signal family and asymptotically conservative normal calibration, plus an n^(-1/4) detection scale.",
+          "2026/11/22/SCOPE-a-smooth-blind-manifold-for-a-uniformity-u-statistic-with-subnom--570951d13f26: indexed summary describes symmetric polynomial zero-signal alternatives, one with limiting power about 0.017188 at nominal 0.05."
+        ],
+        "reasoning": "A mean-zero constraint alone leaves the projection variance free, so it is not equivalent to the two constraints audited here. Strictly conservative power for a fixed Gaussian-calibrated alternative corresponds to a smaller variance, not a matched Gaussian null law. The present construction has an asymmetric direction (midpoint displacement), unlike the indexed symmetric family.",
+        "searches": [
+          "Resultary: Kattumannil–Sreedevi null variance; matched projected variance and mean; scalar uniformity blind alternatives"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two near-match entries are exact-law or finite-power summaries for zero-signal alternatives, neither states a null-matching family with these variance and coefficient constraints."
+        ],
+        "reasoning": "A table of power against selected alternatives, or an asymptotic value for one subnominal example, cannot certify the joint analytic level set or its expansion.",
+        "searches": [
+          "Resultary: exact Gaussian null matching under nonuniform laws and null variance 1/45"
+        ]
+      },
+      "rationale": "Zero-signal smooth alternatives, the original statistic, and its CLT/variance formula are not credited as new. The supported distinct content is an analytic nonuniform family with the asymptotic variance matched to the null exactly as well as its mean, converting scalar blindness into equality to size at every fixed asymptotic normal cutoff. The strongest available near-match statements describe conservative rather than size-equal power, and give no equivalent joint-level-set construction. Priority is qualified by unavailable full texts.",
+      "residual_risks": [
+        "The decisive primary passages and both full near-match records were not retrievable. An uninspected joint mean/variance matching result or broader theorem implying it remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Attribution and kernel are not claimed new; no whole-document exclusion from inaccessible text",
+          "evidence": "Frozen references and comparison identify both versions and the scalar complete-data scope.",
+          "identifier_or_url": "https://doi.org/10.1007/s42952-023-00205-8; https://arxiv.org/abs/2106.06368",
+          "material_read": "Bibliographic citation and scope comparison in frozen RESULT.md:109–122; no original equations retrieved",
+          "method": "OA attempts using PMC, arXiv, and publisher copies",
+          "title": "Goodness of fit test for uniform distribution with censored observation",
+          "trigger": "Original complete-data scalar statistic and cutoff"
+        },
+        {
+          "assessment": "Material blindness overlap; no demonstrated exact variance matching",
+          "evidence": "Zero population signal with conservative normal calibration; separate quarter-power detection scale.",
+          "identifier_or_url": "2026/11/22/SCOPE-monotone-blind-alternatives-and-a-quarter-power-detection-bounda--19b32d8edddb",
+          "material_read": "Indexed scientific summary only",
+          "method": "Local Resultary search and mirror retrieval attempt",
+          "title": "Monotone blind alternatives and a quarter-power detection boundary",
+          "trigger": "Explicit smooth zero-signal alternatives to a published scalar uniformity test"
+        },
+        {
+          "assessment": "Related symmetric family; equivalence of kernels unverified; quoted example does not match null power",
+          "evidence": "Symmetric positive polynomial laws and reported limiting power 0.017188 at nominal 0.05.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-smooth-blind-manifold-for-a-uniformity-u-statistic-with-subnom--570951d13f26",
+          "material_read": "Indexed scientific summary only",
+          "method": "Local Resultary search and mirror retrieval attempt",
+          "title": "A smooth blind manifold for a uniformity U-statistic with subnominal power",
+          "trigger": "Polynomial blind alternatives and calculated power"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A rigorously null-matched family is more informative than a zero-signal example: it exhibits a blind spot at every fixed nominal level for a published test, even for positive smooth alternatives independently detectable by an omnibus test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

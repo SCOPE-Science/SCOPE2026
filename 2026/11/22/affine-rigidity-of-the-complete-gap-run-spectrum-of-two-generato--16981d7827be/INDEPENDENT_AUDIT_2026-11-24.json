@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:27:58.034587Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof Steps 1–3; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent Apéry-threshold and residue-insertion reconstruction"
+      ],
+      "rationale": "For residue r, any representation ua+vb has v congruent to tau_r modulo a, hence v>=tau_r for its least nonnegative lift. Thus tau_r b is the minimum, and the membership threshold at heights j is k_r=f_q(tau_r)=q tau_r+floor(d tau_r/a). Every gap block is between consecutive multiples of a, and its two boundary positions must be nongaps. With k_0=k_a=0 (the right endpoint is the next multiple of a), a window beginning at residue r contributes exactly max(0,min k_inside−max k_boundary) heights, with no overlap among maximal runs. Strict monotonicity of f_q for q>=1 makes eligibility independent of q and yields the two nonnegative coefficients. For length a−1 there is one window with minimum rank 1 and boundary rank 0, giving count q even for a=2. An independent way to check the (8,3) example is to start with occupied residues {0,8} and insert 3,6,1,4,7,2,5 in turn; each row's run polynomial persists for q+floor(3(t+1)/8)−floor(3t/8) heights after t insertions. The added floor increments occur after t=2 and 5, contributing respectively z+2z² and 2z, while summing the seven row polynomials gives 9z+4z²+z⁴+z⁷. The genus and exact frequency identities thus have a uniform proof, not an inference from finite tests.",
+      "residual_risks": [
+        "The suggested source checks in the finite range are supporting evidence; no conclusion for q=0 or for quotients or larger embedding dimension is drawn from them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moree's Lemma 4 proves the maximum gap-block length a−1 and Theorem 12 gives rho sigma−1 total blocks; Singh–Ram count and describe isolated gaps.",
+          "Komatsu–Ying study p-Apéry methods for three generators in arithmetic progression, not a full binary histogram. The focused three-gap comparison did not locate a source with this weighted full run formula."
+        ],
+        "reasoning": "The total, longest length, and length-one layer are genuinely covered as noted; all-length frequencies and uniform support in q do not follow from those scalar values or the quoted triple-generator results.",
+        "searches": [
+          "Moree arXiv:1308.3972 Lemma 4 and Theorems 9–12",
+          "Singh–Ram arXiv:2406.09848 Theorems 3.4 and 4.8",
+          "Komatsu–Ying arXiv:2206.13052 introduction",
+          "Targeted three-gap comparison"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted local searches and actual matching records",
+        "OA Moree, Singh–Ram and Komatsu–Ying passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Moree's notation sigma=d^{-1} mod a in [1,a−1] and rho=q(a−sigma)+d+(1−sigma d)/a. Thus rho sigma−1 already gives the affine total, with slope sigma(a−sigma). Exact support and membership transitions are sufficient to recover a fixed histogram.",
+          "No such total identity determines how the count is divided among the length classes. The all-q proof establishes the same sign of each rank window for all q>=1 and computes its actual height range."
+        ],
+        "reasoning": "This is refinement of known data and not a new way to compute membership. Neither the established aggregate nor the stated ±2 or q=1 subfamilies imply the simultaneous law for arbitrary d without an additional argument organizing lengths as parameters vary.",
+        "searches": [
+          "Moree Lemma 1 p. 5, Lemma 4 p. 10, Theorems 11–12 p. 11",
+          "Same-day binary cyclotomic spacing record, RESULT.md finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nonzero coefficients of the semigroup polynomial are membership transitions. In a symmetric two-generator semigroup consecutive nonzero exponent differences count finite element-block and gap-block lengths together, with the two distributions paired by Frobenius reflection.",
+          "Same-day 2026/11/22/SCOPE-complete-gap-spectra-of-binary-cyclotomic-polynomials-for-residu--84be1e5dcc2a therefore gives actual H_l on the d=2 and d=a−2 slices by halving spacing counts, not merely a verbal resemblance."
+        ],
+        "reasoning": "For a=2h+1, the equivalent d=2 frequencies are H_1=h²q+h and H_{2j}=q (1≤j≤h); for d=a−2 they are H_1=h²q+h(h−1), H_{2j}=q+1 (1≤j<h), H_{2h}=q. This is substantive coverage on those slices, not an unrestricted equivalent.",
+        "searches": [
+          "Resultary: all-length deserts/run spectra of binary semigroups; complete binary cyclotomic spacings by residues",
+          "Moree arXiv:1308.3972 Lemma 1 and Theorem 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae gives t(t+1) sum_{l=1}^{d−1} z^l + sum_{j=1}^t z^{dj} when a=dt+1 and b=a+d.",
+          "2026/11/22/SCOPE-a-uniform-gap-run-spectrum-for-quotients-of-consecutive-generato--ce99c1d39cb5 treats quotients of consecutive-generator semigroups. The Deserts page was not retrieved as full text."
+        ],
+        "reasoning": "The first entry has exactly the right invariant, but only a restricted q=1 line. The second is a differently defined family. Fixed-instance computation is not itself a table of the all-q coefficient pairs.",
+        "searches": [
+          "Resultary: exact binary-semigroup run frequencies and same-day uniform gap spectra",
+          "NumericalSgps Deserts operation"
+        ]
+      },
+      "rationale": "The new scope supported by the comparison is the simultaneous all-residue, all-length affine frequency law, explicit coefficients and invariant length support, not fixed-instance computability or the maximal length. Moree gives membership-transition data, the maximum length and an affine total count. Singh–Ram give the isolated-gap count and its underlying gaps. The same-day binary-cyclotomic spacing record is a genuinely equivalent frequency result on two residue families after using semigroup symmetry, but does not cover arbitrary residues. The earlier a=dt+1 record covers a q=1 slice, not the full parameter law. The inspected antecedents do not establish eligibility and coefficientwise affineness uniformly over all unit residue classes; this conclusion requires grouping and comparing threshold ranks, even when started from older semigroup data.",
+      "residual_risks": [
+        "The prior polynomial support fully determines each fixed histogram; an unlocated equivalent organization in the desert, cyclotomic or spacing literature remains possible. The NumericalSgps full passage was not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Maximum length, total count and exact membership-transition mechanics covered, not the unrestricted coefficientwise affine law",
+          "evidence": [
+            "Longest length is a−1; total count rho sigma−1. Coefficient sign transitions give starts of element and gap blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.3972",
+          "material_read": "Lemma 1 p. 5; §6 and Lemma 4 p. 10; Theorems 11–12 p. 11",
+          "method": "Bounded OA full-text passages",
+          "title": "Numerical semigroups, cyclotomic polynomials and Bernoulli numbers",
+          "trigger": "Same binary gap blocks and general coefficient support"
+        },
+        {
+          "assessment": "Covers the isolated-gap layer, not the full spectrum",
+          "evidence": [
+            "Statements count and describe isolated gaps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.09848",
+          "material_read": "Theorem 3.4 p. 3 and Theorem 4.8 p. 7",
+          "method": "Bounded OA full-text passages",
+          "title": "On Isolated Gaps of Numerical Semigroups of Embedding Dimension Two",
+          "trigger": "Exact length-one frequency in the same setting"
+        },
+        {
+          "assessment": "Different generator family and invariants",
+          "evidence": [
+            "p-Apéry/Frobenius and Sylvester-sum questions for triples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.13052",
+          "material_read": "p. 1, opening statements",
+          "method": "Bounded OA full-text passage",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Related Apéry methods"
+        },
+        {
+          "assessment": "Exact equivalent on the ±2 residues by transition pairing; no inference of order within the day",
+          "evidence": [
+            "Its spacing counts are twice the corresponding gap-run counts by symmetry."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-gap-spectra-of-binary-cyclotomic-polynomials-for-residu--84be1e5dcc2a",
+          "material_read": "RESULT.md, finding and parameter restrictions",
+          "method": "Bounded local mirror text",
+          "title": "Complete gap spectra of binary cyclotomic polynomials for residue ±2",
+          "trigger": "Same-day exact frequency law in an equivalent polynomial formulation"
+        },
+        {
+          "assessment": "Exact prior q=1 subfamily overlap, not all q and d",
+          "evidence": [
+            "Complete polynomial in t and d for that restricted pair of generators."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+          "material_read": "RESULT.md finding",
+          "method": "Bounded local mirror text",
+          "title": "Exact run-length frequencies for binary semigroups with a=dt+1 and b=a+d",
+          "trigger": "Same run counts in a named subfamily"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": [
+            "Frequency laws for a quotient construction rather than the claimed arbitrary two-generator semigroups."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-uniform-gap-run-spectrum-for-quotients-of-consecutive-generato--ce99c1d39cb5",
+          "material_read": "RESULT.md finding",
+          "method": "Bounded local mirror text",
+          "title": "A uniform gap-run spectrum for quotients of consecutive-generator semigroups",
+          "trigger": "Same-day uniform histogram claim"
+        },
+        {
+          "assessment": "Not used to support novelty",
+          "evidence": [
+            "The cited operation may enumerate fixed-instance gap blocks; its actual documentation was not verified in this comparison."
+          ],
+          "identifier_or_url": "https://gap-packages.github.io/numericalsgps/doc/chap3_mj.html",
+          "material_read": "No accessible full entry in the review lookup",
+          "method": "Ordinary public page lookup",
+          "title": "NumericalSgps documentation, Deserts",
+          "trigger": "Possible desert algorithms or exact coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen explicit coefficient and constant-support claims",
+        "Moree's maximum and aggregate count, isolated-gap and restricted-spectrum comparisons"
+      ],
+      "rationale": "Deserts encode the distribution of consecutive nonrepresentables, finer than the classical genus, number of deserts, and maximum desert length. For each coprime residue class of b, the result determines all frequencies at every positive quotient from two coefficient lists, with an exact no-exception statement and no need to enumerate gaps as b grows. The length-support rigidity is not contained in the affine total count and is not a small numerical slice.",
+      "residual_risks": [
+        "The coefficient recipe depends on the residue permutation and gives no uniform polynomial in both a and d or larger-generator theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

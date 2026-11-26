@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:25:06.087153Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–58",
+        "VERIFICATION.md, artifacts/verify.py and artifacts/verification_output.txt, inspected only",
+        "Independent exact rank profiles; replay: node /workspace/branches/frozen_review_checks.js (clique output)"
+      ],
+      "rationale": "The path continuant gives f_(2d+1)=z f_d², so f_n=z^n. The vectors T^j e_1 have distinct last nonzero coordinates, making T a single nilpotent chain. In odd clique width the all-ones matrix is the projection onto constants, yielding one zero block and q−1 unipotent blocks. In even width it has rank one and square zero. The only nontrivial pair is multiplication by x+y in F2[x,y]/(x^n,y²). Over F2[z] with z=x+y, the two generators 1,y have relations z^n+z^(n−1)y and z^n y, since n is odd. The 2-by-2 relation matrix has gcd of entries z^(n−1) and determinant z^(2n), hence Smith factors z^(n−1) and z^(n+1). This independently gives the claimed blocks. The nilpotent entry count is the first time its coordinate is killed; successive kernel-size differences give E_t. For 2^j≤2^(s−1), every recurrent block contributes exactly 2^j to fixed-space dimension, and the total recurrent dimension is Rn. Subtracting successive fixed-state counts and dividing by 2^j gives exact orbit counts; B_(s−1)<B_s. Adjacent even/odd widths have equal R. The one-column case follows because f_d(0)=1 for even d and f_d(1)=0 exactly at d≡2 mod 3; d=4^r satisfies neither singularity condition, and the even-width nilpotent summand commutes with the invertible part. Fresh exact matrix profiles corroborated both parity branches (e.g. ranks of (F+I)^t at n=7,q=2 are 14,12,10,8,6,4,2,1,0; at n=7,q=5 powers of F stabilize at rank 28 at t=7).",
+      "residual_risks": [
+        "The finite checks are examples; they do not assume equality of Jordan type merely from equality of orbit counts. The proof is for synchronous open-neighbour updates over F2 only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For Q=2^s and modules V_i with cyclic generator one unipotent block, Theorem 1.1(ii) gives V_2⊗V_(Q−1)=V_Q⊕V_(Q−2). The multiplication operators by x+y+xy and x+y are similar via y→(1+x)y.",
+          "The inspected linear cellular automata results concern periodic verticals in bi-infinite automata or automatic sequences realized as columns, not classification of finite strips."
+        ],
+        "reasoning": "General modular machinery directly covers the exceptional two-block split and, with the clique decomposition, the even-width Jordan formula. Neither it nor the inspected CA theorems gives a matched-width orbit/transient theorem.",
+        "searches": [
+          "Norman, On Jordan bases for the tensor product and Kronecker sum and their elementary divisors over fields of prime characteristic, 2008, bibliographic and OA-access check",
+          "Korhonen arXiv:2101.01365v3 Theorem 1.1(ii), with standard Green and Gow–Laffey attributions",
+          "Barbé–von Haeseler DOI 10.46298/dmtcs.2290, Theorem 2.2; Rowland–Yassawi arXiv:1209.6008 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 22–32 and 63–76",
+        "arXiv:patt-sol/9412003 and arXiv:2101.01365v3 at the stated loci",
+        "arXiv:1209.6008 and DOI 10.46298/dmtcs.2290 at stated passages",
+        "Resultary 165ad680a86f, 578d68794cd5, 3c8b8b447eae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known path and tensor results yield constituent block types, and the Rule 90/150 boundary results and clique decomposition also give the one-column reversibility condition. For paired widths the two different unipotent partitions must be compared: all blocks have size at least 2^(s−1), both partitions have q blocks and qn total recurrent dimensions; the odd width alone has the added nilpotent chain."
+        ],
+        "reasoning": "Individual constituent formulas are covered. The family comparison is the supported remainder: the chosen dyadic path lengths put the different unipotent partitions on the same side of every rank threshold used for primitive orbit counts, while adding a size-n nilpotent part. It is not a direct specialization of a prior paired-width census or an identity between these operators.",
+        "searches": [
+          "Compare Tadaki Appendix A and Korhonen Theorem 1.1(ii) to frozen RESULT.md lines 22–32 and 54–58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tadaki's Rule 90D is exactly the path-coordinate update and is known nilpotent at 2^s−1; its Rule 150D version includes self-input.",
+          "3c8b8b447eae concerns the line graph of a product of cliques, with all-even nilpotence, not the vertex graph P_n □ K_q."
+        ],
+        "reasoning": "Boundary and alphabet agree for the path ingredient, but replacing vertex by edge states changes the operator, and an added complete-graph fibre is not the one-dimensional path rule by relabeling.",
+        "searches": [
+          "Resultary semantic lookups for path–clique Cartesian vertex XOR, parity-dependent Jordan and matched orbit/transient census",
+          "Tadaki arXiv:patt-sol/9412003 Appendix A, Rules 90 and 150",
+          "Resultary 3c8b8b447eae, Cartesian-clique parity census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "165ad680a86f counts directed Kautz-word dynamics with periods 1 or 2. The distinct same-day 578d68794cd5 treats projective-plane incidence graphs, F^4=F^2, depth at most two. 3c8b8b447eae counts line-graph dynamics of Hamming products."
+        ],
+        "reasoning": "The closest exact censuses concern different graph families, states or period ranges, so none tabulates this witness. Search limits are not evidence that no other exact census exists.",
+        "searches": [
+          "Resultary exact-census lookups, records 165ad680a86f, 578d68794cd5, 3c8b8b447eae"
+        ]
+      },
+      "rationale": "Pass is for the supported joint family finding, notably the identical complete primitive-period census and sharply different recurrent fractions and entry profiles within one natural Cartesian-strip family. The dyadic Rule 90 chain, the relevant modular two-block partition, and the ingredient path reversibility conditions are established inputs, not separate novel results. No compared statement covers the paired graph-family witness; this is a best-of-knowledge comparison, not exhaustive priority.",
+      "residual_risks": [
+        "Norman and the 1993 Tadaki–Matsufuji full text were not recovered; accessible sources settle the ingredient overlap. Unlocated equivalent finite strip classifications remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established path ingredient; not a clique-fibre census",
+          "evidence": [
+            "D^(90D)_(2^m−1)(λ)=λ^(2^m−1) and U^N=0 for N=2^m−1; even Rule 90D path lengths are perfectly periodic; Rule 150D is perfectly periodic outside N≡2 mod 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9412003",
+          "material_read": "Appendix A, pp. 8–9, OA offset 17511",
+          "method": "Primary OA PDF passage",
+          "title": "Periodicity of cylindrical linear cellular automata",
+          "trigger": "Identical path-coordinate operator and boundary reversibility premises"
+        },
+        {
+          "assessment": "Covers the two-block partition, not an orbit-census comparison on competing graph widths",
+          "evidence": [
+            "Setting m=2, n=Q−1 in case (ii) gives one V_Q and V_1⊗V_(Q−2)=V_(Q−2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.01365v3",
+          "material_read": "§1 Theorem 1.1(ii), pp. 2–3, OA offset 6035",
+          "method": "Primary OA passage and exact specialization with the similarity given above",
+          "title": "Decomposition of exterior and symmetric squares in characteristic two",
+          "trigger": "Direct covering theorem for the nonstandard characteristic-two block split"
+        },
+        {
+          "assessment": "Full theorem uninspected; coverage of the needed block case already settled by Korhonen",
+          "evidence": [
+            "Indexed scope is Kronecker-sum Jordan bases in prime characteristic."
+          ],
+          "identifier_or_url": "C. W. Norman, Linear and Multilinear Algebra 56(4), 415–451 (2008)",
+          "material_read": "Indexed identification and abstract; no readable full text",
+          "method": "Bibliographic search and alternate lawful access attempts",
+          "title": "On Jordan bases for the tensor product and Kronecker sum and their elementary divisors over fields of prime characteristic",
+          "trigger": "Potentially covering general Kronecker-sum theorem"
+        },
+        {
+          "assessment": "Different infinite-state-space setting and property",
+          "evidence": [
+            "The theorem concerns periodic verticals in bi-infinite linear cellular automata."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2290",
+          "material_read": "Theorem 2.2, p. 82, OA offset 9939",
+          "method": "Primary OA PDF passage",
+          "title": "Periodic Patterns in Orbits of Certain Linear Cellular Automata",
+          "trigger": "Potential general census of periodic linear automata"
+        },
+        {
+          "assessment": "Different statement",
+          "evidence": [
+            "Characterization of automatic columns in automata with memory and eventually periodic initial conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1209.6008",
+          "material_read": "Primary p. 1",
+          "method": "OA PDF passage",
+          "title": "A characterization of p-automatic sequences as columns of linear cellular automata",
+          "trigger": "Potential equivalence to previously enumerated CA periodic sequences"
+        },
+        {
+          "assessment": "Material analogues, not equivalent finite operators or matching paired census",
+          "evidence": [
+            "Kautz dynamics has periods at most two; the projective-plane graph census satisfies F^4=F^2; Hamming product is on the line graph and all-even widths are nilpotent."
+          ],
+          "identifier_or_url": "Resultary 165ad680a86f; 578d68794cd5; 3c8b8b447eae",
+          "material_read": "Mirrored findings for the three stated graph families",
+          "method": "Resultary search and statement comparison",
+          "title": "Kautz, projective-plane and Hamming-product parity dynamics",
+          "trigger": "Closest catalogue matches for Jordan and exact orbit/transient census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–32, 54–58",
+        "Modular block and Rule 90/150 comparisons above"
+      ],
+      "rationale": "The example family addresses whether a full primitive-cycle census determines how typical or how rapidly reached recurrent states are in a fixed graph-XOR rule. At paired widths it does not: the entire cycle census agrees exactly, with periods growing to 2^s, while the recurrent fractions are one and 2^(−n), and the second system has depth n attained by half its states. The contrast compares differently sized graphs, not identical permutation representations or normalized orbit distributions over all initial states. This controlled mathematical witness and its precise transient law add to the constituent partition and reversibility formulas.",
+      "residual_risks": [
+        "No extension to arbitrary path lengths or equality of normalized orbit frequencies over all configurations is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

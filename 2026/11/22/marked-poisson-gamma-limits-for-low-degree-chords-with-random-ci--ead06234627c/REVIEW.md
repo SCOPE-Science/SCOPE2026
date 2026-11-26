@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement distinguishes combinatorial endpoint separation from physical circular length. Given a fixed cyclic matching, the independent normalized exponential gaps yield exactly beta-distributed sums and asymptotically Gamma-distributed microscopic physical lengths. For finitely many nonoverlapping candidate chords, their exponential blocks are independent; incompatible tuples occupy only a lower-order fraction of the factorial-moment sum. Uniform order-statistic control supplies angular locations, and matching probabilities yield the independent Poisson intensity. The switch from short combinatorial length to low crossing degree is justified locally by the explicit internal-pair union bound and globally by Acan's published Theorem 4.1 at fixed degree cutoff. The finite verifier checks exact matching identities; it is not the infinite proof. The proof handles weak convergence of finite measures using the beta tail, and the empty-class boundary is explicit.
+## correctness
 
-## Originality — PASS with residual priority risk
-Acan's Theorem 4.2 supplies unmarked independent Poisson counts of short combinatorial lengths, and his Theorem 4.1 supplies the degree/length exclusion. The full inspected accessible result on local-chord/Gaussian decoupling likewise concerns fixed cyclic endpoint sites, not independent uniform physical endpoint spacings. The inspected near-diametral spatial result is a different opposite-length regime and also lacks continuous geometric Gamma marks. None of these inspected statements directly implies the new joint marked limit without adding the random-spacing/mark-factorization argument. A general marked-Poisson transfer principle or an unlocated prior paper could nevertheless cover it, so the novelty assessment is not an independent priority certification.
+PASS
 
-## Value — PASS
-The zero/low crossing-degree classes are rare structural vulnerabilities of the chord intersection graph. Prior count results determine their abundance but not where their physical endpoints lie or their size on the microscopic length scale. The complete spatial-and-span law supplies precise conditional length distributions for each graph degree and explicit extreme-span probabilities, answering a natural geometric localization question rather than just reparametrizing a Poisson count. The fact that the Gamma shape increases with degree quantifies the geometrical meaning of a sparse graph-theoretic neighborhood.
+Checked the hypotheses and conclusion of Acan Theorem 4.1: with k=K+1 the minimum degree in the induced length-at-least-k diagram is at least k with high probability, so the original degree exclusion is valid. In the spacing proof, the uniform origin should be understood as the angle of a distinguished sampled endpoint, not a uniformly chosen external cut; this is consistent with the formula for the first endpoint. I independently checked the marked theorem without the spacing or core reduction. Conditional on any matching of the original unsorted iid angles, the n endpoint pairs are iid, so each pair's shorter-arc length A has density 2 on (0,1/2) and its midpoint is independent Haar. For r prescribed marked chords with scaled lengths y_i bounded by B, the set of midpoint arrays whose arcs intersect has Haar measure O_r(B/n). Off this set the r chords do not cross each other. Each remaining independent chord crosses i with probability 2(y_i/n)(1−y_i/n) and crosses both i and h with probability 2y_i y_h/n². The probability of any double contribution is O_r(B²/n); the single-category multinomial degree vector therefore tends to independent Poisson(2y_i) variables, uniformly on bounded lengths and separated arcs. In the mixed factorial integrals, (n)_r(2/n)^r tends to 2^r, giving precisely du multiplied by 2 exp(−2y)(2y)^j/j! dy in class j, with factorization across classes and tests. Moment determinacy and bounded higher factorial moments give the joint compact-window count laws. For full tightness, d conditional on A=a is Bin(n−1,2a(1−a)); integrating shows the expected mass of class j above scaled length B is at most 2∫_B^∞ (2y)^j exp(−y/2)/j! dy for n≥2(j+1). This establishes the finite-measure topology and, by a void probability, the maximum formula for positive t. At t=0 the event is zero total count, since all lengths are positive almost surely; its probability tends to e⁻¹. The supplied VERIFICATION.md and check_chords.py were inspected without execution. Their finite matching, beta-moment and seeded diagnostics are not evidence of the limit beyond the proof.
 
-## Closest literature and limits
-Acan (arXiv:1501.01489v1, Section 4); Flajolet–Noy (INRIA RR-3914); *Gaussian–Poisson decoupling for local chords and global crossings* (2026-10-25); *Spatial Poisson limits for near-diametral chords and independent Gaussian crossings* (2026-10-18). The cutoff is fixed; no rate or general endpoint-density result is asserted. Human priority and proof review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit Acan for the core and the independent Poisson count laws, and the indexed results for other chord fluctuations and spatial combinatorial marks. The supported distinct increment is the joint law for fixed crossing-degree classes in physical angle and physical short-arc length, with independent Gamma marks and control of the entire marked mass. This is not a claim to originality for the degree-count Poisson marginal, the Gamma integral by itself, or fixed-site localization in a different length regime.
+
+## value
+
+PASS
+
+The result explains in physical coordinates where the rare low-degree chords occur and how long they are. It resolves the needed joint spatial independence despite shared potential crossing partners, distinguishes physical length from combinatorial distance, and controls extremes as well as bounded windows. Those conclusions are useful beyond the already-known class counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

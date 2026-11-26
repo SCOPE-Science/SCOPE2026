@@ -1,141 +1,95 @@
 # Logarithmic flattening of the XY support boundary of translation-invariant reduced states
+
 ## Finding
-Let
+
+Let \(X,Y,Z\) be the standard Pauli matrices (eigenvalues \(\pm1\)). Let \(\operatorname{Red}_2\) be the set of trace-one nearest-neighbor reduced states of translation-invariant infinite spin-\(1/2\) chains. Put
 \[
-H_0=\sigma_x\otimes\sigma_x+\sigma_y\otimes\sigma_y,
-\qquad
-H_1=-\sigma_x\otimes\sigma_x+\sigma_y\otimes\sigma_y,
+H_0=X\otimes X+Y\otimes Y,\qquad H_1=-X\otimes X+Y\otimes Y,
+\quad \mathcal C=\{(\operatorname{tr}(\rho H_1),\operatorname{tr}(\rho H_0)):\rho\in\operatorname{Red}_2\}.
 \]
-and project the translation-invariant two-site reduced-state set to
-\[
-\mathcal C=\left\{(a,b):a=\operatorname{tr}(\rho H_1),\ b=\operatorname{tr}(\rho H_0),\ \rho\in\operatorname{Red}_2\right\}.
-\]
-For the affine anisotropic XY interaction \(H_0+\gamma H_1\), Blakaj and Wolf identify the support function
+For \(-1<\gamma<1\), its minimum support value in the direction \((\gamma,1)\) is
 \[
 \epsilon(\gamma)=\min_{(a,b)\in\mathcal C}(b+\gamma a)
-=-\frac1{4\pi}E\!\left(\sqrt{1-\gamma^2}\right),
-\qquad -1<\gamma<1.
+=-\frac{4}{\pi}E\!\left(\sqrt{1-\gamma^2}\right),
 \]
-
-Near the lower-boundary point exposed by \(H_0\), the boundary of \(\mathcal C\) is a graph \(b=g(a)\) with
+where \(E(k)=\int_0^{\pi/2}(1-k^2\sin^2q)^{1/2}\,dq\) uses the modulus convention. With \(L=\log(4/|\gamma|)\),
 \[
-g(0)=-\frac1{4\pi}.
+\epsilon(\gamma)=-\frac4\pi-\frac{2\gamma^2}{\pi}\left(L-\frac12\right)
+-\frac{3\gamma^4}{4\pi}\left(L-\frac{13}{12}\right)+O(\gamma^6 L).
 \]
-It is \(C^2\) but not \(C^3\) at \(a=0\), and
+The lower boundary near the point exposed by \(H_0\) is a graph \(b=g(a)\). Its value and second derivative at the exposed point are \(g(0)=-4/\pi\) and \(g''(0)=0\), and
 \[
-g''(a)\sim\frac{4\pi}{\log(1/|a|)}
-\qquad(a\to0).
+g''(a)\sim \frac{\pi}{4\log(1/|a|)}\qquad(a\to0).
 \]
-Thus this projected reduced-state boundary becomes logarithmically flat at the isotropic XY point.
-
-Equivalently,
-\[
-\epsilon(\gamma)
-=-\frac1{4\pi}
--\frac{\gamma^2}{8\pi}\left(\log\frac4{|\gamma|}-\frac12\right)
--\frac{3\gamma^4}{64\pi}\left(\log\frac4{|\gamma|}-\frac{13}{12}\right)
-+O\!\left(\gamma^6\log\frac1{|\gamma|}\right).
-\]
-Hence \(\epsilon\) is \(C^1\) but not \(C^2\) at \(\gamma=0\), so the analyticity assertion in Theorem 3 of the motivating paper is false on its stated interval.
-
-The same logarithm gives a local proof of the paper's central non-semialgebraicity result. If \(\operatorname{Red}_2\) were semialgebraic, the source's Tarski--Seidenberg reduction would make \(\epsilon\) semialgebraic and therefore algebraic on some one-sided interval. Newton--Puiseux theory forbids logarithmic monomials in a local algebraic branch, contradicting the nonzero \(\gamma^2\log|\gamma|\) term.
+Thus the graph is \(C^2\) there but has no third derivative at zero. The support value is \(C^1\) but not \(C^2\) at \(\gamma=0\). The logarithmic term also gives a local obstruction to semialgebraicity of \(\operatorname{Red}_2\).
 
 ## Assumptions and scope
-The normalization of \(H_0\), \(H_1\), and \(\epsilon\) is exactly that of Eqs. (10)--(11) of Blakaj--Wolf. The planar set \(\mathcal C\) is only the two-observable linear projection of \(\operatorname{Red}_2\); no claim is made that this projection determines the full reduced-state set.
 
-The result is local near the point exposed by \(H_0\). It does not claim that the complete elliptic-integral asymptotic is new, nor that the XY anisotropy transition is newly discovered. The contribution is the exact local boundary regularity of this reduced-state projection, the correction of the published analyticity assertion, and the resulting local semialgebraicity obstruction.
+The observable coordinates use standard Pauli matrices without any additional scaling, and the interaction counts one nearest-neighbor bond per lattice site. Blakaj–Wolf's printed Eq. (11) has a prefactor smaller by a factor of 16 than the support value for their displayed Hamiltonian in Eq. (10) with the variational normalization of Eq. (6). The graph describes the planar projection near the indicated point, not the local geometry of the full reduced-state set.
 
 ## Proof
-Put
-\[
-k=\sqrt{1-\gamma^2},
-\qquad
-k'=\sqrt{1-k^2}=|\gamma|.
-\]
-DLMF 19.12.2 gives
-\[
-E(k)=1+\frac12\sum_{m=0}^{\infty}
-\frac{(1/2)_m(3/2)_m}{(2)_m m!}(k')^{2m+2}
-\left(\log\frac1{k'}+d(m)-\frac1{(2m+1)(2m+2)}\right),
-\]
-with
-\[
-d(0)=2\log2,
-\qquad
-d(m+1)=d(m)-\frac2{(2m+1)(2m+2)}.
-\]
-Hence
-\[
-E(k)=1+\frac12(k')^2\left(\log\frac4{k'}-\frac12\right)
-+\frac3{16}(k')^4\left(\log\frac4{k'}-\frac{13}{12}\right)
-+O\!\left((k')^6\log\frac1{k'}\right),
-\]
-which yields the displayed expansion for \(\epsilon\).
 
-For \(\gamma>0\), let \(L=\log(4/\gamma)\). Then
-\[
-\epsilon'(\gamma)=-\frac{\gamma}{4\pi}(L-1)+O(\gamma^3L),
-\]
-\[
-\epsilon''(\gamma)=-\frac1{4\pi}L+\frac1{2\pi}+O(\gamma^2L),
-\]
-and
-\[
-\epsilon'''(\gamma)=\frac1{4\pi\gamma}+O(\gamma L).
-\]
-Evenness gives the corresponding negative-side statements. Thus \(\epsilon'(0)=0\) but \(\epsilon''(\gamma)\to-\infty\).
+### Support value and normalization
 
-Set
-\[
-a(\gamma)=\epsilon'(\gamma),
-\qquad
-b(\gamma)=\epsilon(\gamma)-\gamma\epsilon'(\gamma).
-\]
-For sufficiently small nonzero \(\gamma\), \(\epsilon''(\gamma)<0\), so \(a(\gamma)\) is strictly monotone. Differentiability of the support function fixes the first coordinate of every minimizing point as \(a(\gamma)\), and the supporting equation fixes the second as \(b(\gamma)\). Hence these exposed points form the local lower boundary, written \(b=g(a)\), with
-\[
-g'(a(\gamma))=-\gamma,
-\qquad
-g''(a(\gamma))=-\frac1{\epsilon''(\gamma)}.
-\]
-Moreover,
-\[
-|a(\gamma)|\sim\frac{|\gamma|}{4\pi}\log\frac4{|\gamma|},
-\qquad
-\log\frac1{|a(\gamma)|}\sim\log\frac4{|\gamma|}.
-\]
-Therefore
-\[
-g''(a)\sim\frac{4\pi}{\log(1/|a|)}\to0.
-\]
-Also \(g'(a)/a=-\gamma/a\to0\), so \(g''(0)=0\) and \(g\) is \(C^2\) at zero. On the punctured neighborhood,
-\[
-g'''(a(\gamma))
-=\frac{\epsilon'''(\gamma)}{\epsilon''(\gamma)^3}
-\sim-\frac{16\pi^2}{\gamma L^3}
-\qquad(\gamma\downarrow0),
-\]
-whose magnitude diverges. Thus \(g\) is not \(C^3\).
+Write \(h=H_0+\gamma H_1\), and let \(e_N\) be the minimum energy of the open chain \(\sum_{j=1}^{N-1}h_{j,j+1}\). Every translation-invariant state satisfies \((N-1)\operatorname{tr}(\rho h)\ge e_N\). Conversely, tile the chain with independent copies of an open-chain ground state and average over the \(N\) shifts of the tiling. The resulting translation-invariant state has bond energy at most \((e_N+\|h\|)/N\), since only one bond per tile crosses its boundary. This identifies the minimum with \(\lim_{N\to\infty}e_N/N\) once the limit is evaluated.
 
-Finally, if \(\operatorname{Red}_2\) were semialgebraic, the quantified minimization in the source would make the graph of \(\epsilon\) semialgebraic, hence piecewise algebraic. On some \((0,\delta)\), \(\epsilon\) would lie on an algebraic plane curve. Newton--Puiseux then gives a local Puiseux expansion after finite ramification, with no logarithmic monomial, contradicting the exact \(\gamma^2\log\gamma\) term.
+For the open chain use Jordan–Wigner annihilators \(c_j=(\prod_{i<j}Z_i)\sigma_j^+\), with \(\sigma^+=(X+iY)/2\). The bulk Hamiltonian in fermions is
+\[
+\sum_{j=1}^{N-1}\Bigl[2(c_j^\dagger c_{j+1}+c_{j+1}^\dagger c_j)
+-2\gamma(c_j^\dagger c_{j+1}^\dagger+c_{j+1}c_j)\Bigr].
+\]
+Close this *fermionic* chain with the same bilinear between \(N\) and \(1\). The added term has bounded norm independent of \(N\), so it changes the ground-state energy per site by \(O(N^{-1})\). This uses a periodic fermion Hamiltonian only for computing the limit and makes no identification of finite periodic spin and fermion boundary conditions.
+
+Take Fourier modes \(q=2\pi m/N\). For each \(q,-q\) pair with \(0<q<\pi\), subtract the centering constant \(4\cos q\) from its hopping term. The centered pair has hopping term \(4\cos q(n_q+n_{-q}-1)\) and pairing amplitude of modulus \(4|\gamma\sin q|\) between vacuum and double occupancy. Its two odd-sector levels are zero and its even-sector energies are \(\pm4\sqrt{\cos^2 q+\gamma^2\sin^2q}\). The centering constants sum to \(O(1)\) by the vanishing sum of cosines over the full Fourier grid; the exceptional modes \(0,\pi\), when present, also contribute \(O(1)\). Hence the minimum energy density is
+\[
+-\frac4{2\pi}\int_0^\pi\sqrt{\cos^2q+\gamma^2\sin^2q}\,dq
+=-\frac4\pi E\!\left(\sqrt{1-\gamma^2}\right).
+\]
+For a check on the normalization, the continuous \(\gamma\to1\) limit is \(-2\), the variational minimum of \(2Y\otimes Y\) attained by averaging the two staggered \(Y\)-polarized product states.
+
+### Boundary regularity
+
+DLMF 19.12.2 is a convergent logarithmic series in the complementary modulus \(k'=|\gamma|\). Its initial terms are
+\[
+E=1+\tfrac12\gamma^2(L-\tfrac12)+\tfrac3{16}\gamma^4(L-\tfrac{13}{12})+O(\gamma^6 L).
+\]
+The coefficients of the logarithm and the nonlogarithmic part are convergent power series in \(\gamma^2\) near zero. Differentiating away from zero gives
+\[
+\epsilon'(\gamma)=-\frac4\pi\gamma(L-1)+O(\gamma^3 L),\qquad
+\epsilon''(\gamma)=-\frac4\pi L+\frac8\pi+O(\gamma^2 L).
+\]
+The energy expansion gives \(\epsilon'(0)=0\); continuity of \(\epsilon'\) and the divergent quotient \(\epsilon'(\gamma)/\gamma\) show that \(\epsilon\) is \(C^1\) but not twice differentiable at zero.
+
+The image \(\mathcal C\) is compact and convex. At every sufficiently small \(\gamma\), differentiability of \(\epsilon\) fixes the first coordinate of any minimizer to \(a(\gamma)=\epsilon'(\gamma)\): for any minimizer \((a,b)\), \(\epsilon(\gamma+t)\le\epsilon(\gamma)+ta\) for both signs of \(t\). The supporting line then fixes \(b(\gamma)=\epsilon(\gamma)-\gamma\epsilon'(\gamma)\). The map \(a(\gamma)\) is continuous and strictly decreasing through zero, so these points cover the lower graph for an open interval of \(a\). This is also the full boundary locally at the exposed point: the projected set is two-dimensional (the uniform and staggered \(X\)- and \(Y\)-polarized states yield four noncollinear projected points after translation averaging), and the maximally mixed state gives \((0,0)\) above the lower boundary.
+
+Away from zero, differentiation on the exposed graph gives
+\[
+g'(a(\gamma))=-\gamma,\qquad g''(a(\gamma))=-1/\epsilon''(\gamma).
+\]
+Since \(|a(\gamma)|\sim (4/\pi)|\gamma|L\), one has \(\log(1/|a(\gamma)|)\sim L\), yielding the stated asymptotic in graph coordinates. At zero, \(b(\gamma)-b(0)=O(\gamma^2 L)\) and \(|a(\gamma)|\asymp |\gamma|L\), giving \(g'(0)=0\). The quotient \(-\gamma/a(\gamma)\) tends to zero, so \(g''(0)=0\); the asymptotic makes \(g''\) continuous there. But \(|g''(a)-g''(0)|/|a|\to\infty\), ruling out the third derivative.
+
+### Local obstruction to semialgebraicity
+
+If \(\operatorname{Red}_2\) were semialgebraic, the graph of the minimum would be semialgebraic by quantifier elimination, as in Blakaj–Wolf's Eq. (9). In particular, on a sufficiently small positive interval the graph would satisfy a nonzero polynomial relation. This is impossible even locally: let \(u=\epsilon(\gamma)-\epsilon(0)\), so \(u\sim-(2/\pi)\gamma^2\log(1/\gamma)\). In a nonzero polynomial in \(\gamma,u\) choose among monomials \(\gamma^i u^j\) of lowest weight \(i+2j\) the one of largest \(j\). Its asymptotic dominates all the others, so the polynomial cannot vanish identically on the interval. Thus the log term proves the obstruction without requiring analyticity through the isotropic point.
 
 ## Verification
-The accompanying `artifacts/verify.py` evaluates the exact source integral by composite Simpson quadrature at several small positive anisotropies. It confirms the two-term DLMF expansion on the predicted \(O(\gamma^6\log(1/\gamma))\) remainder scale and checks the leading dual-curvature scale.
 
-These finite calculations are corroborative only. The infinite statements follow from the convergent DLMF expansion, exact convex duality, and Newton--Puiseux theory.
+The normalization follows from the open-chain bond estimate and the explicit Fourier pair energies. At \(\gamma=0\) it can also be checked directly by filling the negative modes of dispersion \(4\cos q\). The complementary-modulus expansion and the local curvature calculation are analytic. See `VERIFICATION.md` for further checks of the normalization and the leading singularity.
 
 ## Relationship to prior work
-The motivating paper proves that semialgebraicity of \(\operatorname{Red}_d\) would force polynomial-family ground-state energies to be semialgebraic and piecewise algebraic. Its Theorem 3 then states that the anisotropic-XY energy is analytic and transcendental, using the elliptic representation above. The endpoint expansion shows that the analyticity portion is incompatible with that same formula.
 
-The elliptic expansion itself is classical and tabulated in DLMF. Older and later XY-chain literature also treats \(\gamma=0\) as an anisotropy-transition point, so no novelty is claimed for the physical criticality. Searches for the reduced-state paper together with boundary geometry, curvature, Legendre-transform, correction, logarithmic singularity, and Puiseux language located no statement of the \(C^2\)-but-not-\(C^3\) projected-boundary law or its logarithmic flattening asymptotic.
+The XY dispersion and elliptic-integral expansion are classical. The printed Eq. (11) of Blakaj–Wolf has the same elliptic dependence, so it already displays the nonanalytic term, contrary to the analyticity asserted in their Theorem 3 on \((-1,1)\). The positive normalization factor does not change their non-semialgebraicity conclusion.
+
+There is also an equivalent critical arc in the transverse-field Ising reduced-state projection. For coordinates \(x=\langle X_iX_{i+1}\rangle\), \(z=\langle Z_i\rangle\), the energy is the support value of \(-Jx-Bz\). In the one-dimensional Ising chain the free-fermion dispersion is \(2\sqrt{J^2+B^2-2JB\cos q}\). Setting \(J=1-\gamma\), \(B=1+\gamma\) and substituting \(q/2\) in the energy integral gives precisely the support value above. Thus under \(a=x-z, b=-x-z\) the two local exposed arcs coincide. Zauner et al. discuss the Ising projected support geometry and display an exact critical curve; this is prior coverage of the geometric representation, not a new projection method here. The result quantified above is the exact graph-coordinate regularity and reciprocal-logarithmic coefficient, together with the normalization correction and the local non-semialgebraicity proof for the stated XY projection.
 
 ## Limitations
-The theorem describes one natural two-dimensional projection of \(\operatorname{Red}_2\), not the complete local geometry of the full reduced-state set. The quantity \(g''\) is graph-coordinate curvature in the explicitly defined observable coordinates, not an affine-invariant Euclidean curvature.
 
-The exact special-function asymptotic and the physical anisotropy transition are prior knowledge. The scientific addition is the reduced-state boundary law and its use to correct and repair the cited argument.
+The derivative \(g''\) is in the specified observable coordinates, not an affine-invariant curvature. The result is local for the projected set. It makes no general claim about critical reduced-state boundaries or priority for the classical energy and logarithmic singularity.
 
 ## References
-1. V. Blakaj and M. M. Wolf, *On the set of reduced states of translation invariant, infinite quantum systems*, Letters in Mathematical Physics 114, 28 (2024), DOI: 10.1007/s11005-024-01776-1; arXiv:2308.14585.
-2. NIST Digital Library of Mathematical Functions, §19.12, especially Eq. 19.12.2.
-3. E. Lieb, T. Schultz, and D. Mattis, *Two soluble models of an antiferromagnetic chain*, Annals of Physics 16 (1961), 407--466, DOI: 10.1016/0003-4916(61)90115-4.
-4. M. Zhong and P. Tong, *The Ising and anisotropy phase transitions of the periodic XY model in a transverse field*, Journal of Physics A 43 (2010), 505302, DOI: 10.1088/1751-8113/43/50/505302.
-5. Newton--Puiseux theorem for local branches of algebraic plane curves.
+
+1. V. Blakaj and M. M. Wolf, *On the set of reduced states of translation invariant, infinite quantum systems*, Letters in Mathematical Physics 114, 28 (2024), DOI: 10.1007/s11005-024-01776-1; arXiv:2308.14585, Eqs. (6), (9)–(11), Theorem 3.
+2. NIST Digital Library of Mathematical Functions, §19.12, Eq. 19.12.2.
+3. E. Lieb, T. Schultz, and D. Mattis, *Two soluble models of an antiferromagnetic chain*, Annals of Physics 16 (1961), 407–466.
+4. V. Zauner et al., *Symmetry breaking and the geometry of reduced density matrices*, New Journal of Physics 18 (2016), 113033, DOI: 10.1088/1367-2630/18/11/113033, §2 and Fig. 1.
+5. P. Pfeuty, *The one-dimensional Ising model with a transverse field*, Annals of Physics 57 (1970), 79–90.

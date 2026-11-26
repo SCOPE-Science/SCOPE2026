@@ -1,11 +1,21 @@
-# Scientific review: fourth-power positivity margin
+# Independent mathematical audit
 
-**Correctness — PASS.** Every \(n\ge2\) and every real unit vector are covered by the dichotomy on \(p_1^2\), the \(\ell^2\) reverse triangle inequality, and \(p_6\ge1/n^2\). The source's rounded-integer inequality is reconstructed from its pointwise bound; no finite sampling stands in for this all-dimensional proof. The explicit parity-dependent vectors are checked by symbolic polynomial identities and rational tests. The constants are conservative; the theorem is the sharp decay exponent rather than a sharp prefactor.
+## correctness
 
-**Originality — PASS, qualified.** The initiating article already defines and establishes positivity of \(F\), and Remark 3.7 gives a balanced-sign witness of order \(n^{-2}\). It does not state a global \(n^{-4}\) two-sided law; this work exhibits a new witness and proves the matching lower exponent. The June 2026 Positivstellensatz paper addresses uniform positivity under stronger hypotheses, not this particular variable-dimension minimum. The accessible historical claims and targeted mathematical-record queries did not identify exact or dominating coverage. Residual risk remains from unindexed or recently updated computations; absence of a search hit is not a uniqueness proof.
+PASS
 
-**Value — PASS.** Quantifying how quickly a specific positive-definite but dimension-uniform-SOS-resistant form loses its positivity margin is intrinsic to the source's comparison with uniform Positivstellensätze. A matching all-dimensional upper and lower order sharpens its displayed rate from quadratic to quartic, and supplies a fully reusable quantitative benchmark. It is neither a mere renaming of a known conclusion nor an arbitrary finite numerical slice.
+Reconstructed the actual bound. For p1=1/2 write A=p3-1/2 and D=p2 sum_i x_i^2(x_i^2-1)^2, so F=A^2+9D-1/16. Rounding each coordinate to 0 or its sign at magnitude 2/3 gives |x_i^3-sigma(x_i)| <= 3 x_i^2|x_i^2-1| (the ratio is at most 6/5 below the cutoff and 57/20 above, with the zero cases immediate). Cauchy–Schwarz and the distance of a half-integer to the nearest integer yield |A|+3 sqrt(D)>=1/2, hence F>=1/16. Homogeneity rescales this to F>=16 p1^8; p1=0 is covered directly. On the p2=1 sphere, if s^2=p1^2>=1/(8n) this gives 1/(256n^4); otherwise ||x^3-4s^2 x||_2>=1/n-4s^2>=1/(2n) by the power mean and the reverse triangle inequality, which more than compensates the negative term. Independently expanded both parity witnesses by the binomial theorem: p1=1/2, q=p2=n+1/(4n) for even n and n-3/(4n) for odd n, and the two numerators agree exactly. For even n>=2 the unnormalized F is less than 13 and q>=n. For odd n>=3 it is at most 159/16 (the last two positive terms are dominated by the negative n^(-2) term) and q/n>=11/12, giving n^4 F/q^4 <= (159/16)(12/11)^4<16. Normalization divides by q^4. The exact replay is python3 /workspace/review_evidence/algebra.py (SymPy; octic block).
 
-**Closest literature and limits.** Debus–Schabert, arXiv:2611.16690v1, Theorem 3.1 and Remark 3.7 (full text inspected); Debus–Schabert, arXiv:2606.27551 (abstract checked, full text not available in the inspected channel). Independent literature search is necessarily incomplete. The exact minimizing configurations, best constants and multiplier complexity are not established here.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The polynomial, positive definiteness, and base rounding estimate are already due to Debus–Schabert. The distinct supported claim is the all-dimension matching order n^(-4) for the spherical minimum. The closest primary statement uses balanced sign vectors and proves only nonuniform positivity with a weaker even-dimensional O(n^(-2)) upper bound. The strongest matching catalog entry is the frozen record itself. No distinct coverage was established in the inspected sources.
+
+## value
+
+PASS
+
+This is the particular octic at the center of a dimension-uniform SOS obstruction, so its spherical margin is an independently motivated invariant. The result pins down the rate of loss of positivity in every dimension rather than just its eventual loss; it exhibits a near-balanced mechanism missed by the exactly balanced witnesses and rules out faster-order decay for all real directions. It does not claim new SOS certificates or their degree bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

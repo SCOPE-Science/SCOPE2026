@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact object is the Minkowski sum of one filled disk and one interval, not a sampled surface. Support additivity gives the Euclidean directional-width formula. The rotationally invariant spherical measure gives the normalization \(\mathbb E\lvert U\cdot v\rvert=1/2\), \(\mathbb E(U\cdot v)^2=1/3\), and \(\mathbb E\sqrt{1-U_3^2}=\pi/4\). An explicit conditional absolute-cosine integral is integrated by parts into complete elliptic integrals, producing the stated second moment. Differentiation yields a strictly positive integral; its sharp endpoint bounds prove the full variance and inverse-stability assertions. Independent deterministic quadrature of the original spherical average and Cartesian sampling from the same support formula passed all 79 diagnostic tests in `verify_oblique_width.py`. Numerical checks are not infinite proof; the displayed analytic argument establishes the quantified result.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Finch's 2012 primary paper determines oblique circular-cylinder mean width, whose equality across inclinations is a premise, but not a second-moment formula or a tilt-rigidity theorem. The nearest available published random-width law concerns only right circular cylinders (orthogonal generator); its formula implies the zero-inclination endpoint only. A separate general width-fluctuation law assumes right prisms, not oblique disk-segment sums. The discotope literature gives support-function additivity and facial/algebraic structure, rather than the claimed angular second moment. Web and mathematical-record searches did not uncover a covering general correlation theorem. Those negative searches are not proof of comprehensive novelty: older stereology, Feret-diameter studies, and general Gaussian-width correlations remain residual risks.
+PASS
 
-## Value — PASS
-The classical mean width cannot detect cylinder inclination when radius and generator length are held fixed. This theorem supplies a natural and exact next-order observable: a complete elliptic-integral second-moment profile with strict optimality, sharp finite-parameter stability constants, and one-statistic recovery of the inclination given the two lengths. It closes a concrete observability gap for a classical oblique-cylinder family. The contribution is neither a restatement of the mean width nor merely a special numerical parameter value.
+Independently checked the second moment and slope constants in RESULT.md lines 32–100. Width adds under Minkowski sums, giving 2r√(1−U₃²)+ℓ|v·U|. The uniform law of U₃ and spherical symmetry give the stated mean and the pure-square terms (8r²+ℓ²)/3. For another check of the mixed term, express √(1−U₃²) as π/2 times the azimuthal mean of |e·U| for a unit in-plane direction e. For unit directions with inner product c, angular integration of the two absolute linear projections gives E|e·U||v·U|=2[√(1−c²)+c arcsin c]/(3π): reduce to the plane of the two directions with mean squared projected radius 2/3 and integrate |cos φ cos(φ−arccos c)| over a full turn. Writing c=√m sin φ by symmetry, the remaining quarter-turn average produces F=2/(3π) times the integral of √(1−m sin²φ)+√m sinφ arcsin(√m sinφ). Integration by parts in the arcsine term gives F=2[2E(m)−(1−m)K(m)]/(3π). Differentiation gives F′=(3π)⁻¹∫cos²φ/√(1−m sin²φ)dφ; its endpoint limits are 1/12 and 1/(3π) by domination by cosφ. Variance has slope 4rℓF′ since the mean is constant. The strict increase, sharp secant constants, endpoint gap and inverse statement in m follow, with r and ℓ held fixed and the planar endpoint excluded. Inspected the finite checker without executing it.
 
-## Limitations
-The theorem fixes the disk radius and segment length, assumes isotropic one-dimensional projection directions, and does not reconstruct the three independent shape parameters from variance alone. Only the right-cylinder minimum is attained among full-dimensional bodies; the opposite bound is a planar limit. Historical priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the evaluated oblique-cylinder variance profile together with its sharp global slope and inverse law. The mean and upright case are known, and the classical absolute bivariate Gaussian kernel provides a direct alternative starting point for the mixed moment. That prior kernel is partial coverage, not a stated disk–segment elliptic evaluation or quantitative tilt law. The assessment is limited to the available statements and is not a priority certification.
+
+## value
+
+PASS
+
+The known mean cannot distinguish tilt for these fixed lengths, while the variance distinguishes every tilt and does so with sharp quantitative conditioning in sin²θ. The complete exact profile and the planar-limit gap separate the isotropic width statistic from fixed-height or projected-area problems. This is a useful shape-identification result, not merely an elliptic re-expression of the known mean or upright value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

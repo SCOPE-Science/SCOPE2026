@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:15:40.028377Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Vandermonde difference determinant gives every pair of phase ratios once. After division by a common phase, the circle-line intersection for |c_1+c_2ω^r|=|c_3| gives at most two choices of r, each with at most one s. For two zeros, equal displacement phases at precisely two sites would force the remaining coefficient to vanish; three equal phases would give zero displacement. The nullvector of the two independent equations is the cofactor triple of root differences after rephasing, so the ratio is the longest over shortest chord. For a gap >p/2 let k<p/2 be its complement. The long-gap chord over the shorter of the other chords is at least 2cos(πk/(2p))>√2; the balanced ratio is smaller than √2 for p≥11 by sin(t)/t monotonicity and directly for p=7. For gaps below p/2 sine increases strictly. Transferring one unit from a largest gap to a smallest if they differ by ≥2 strictly improves the ratio: with three gaps at least one of those extrema is unique and improves strictly. Thus the minimum gap multiset is balanced. At p=5 the only gap multisets are (1,1,3) and (1,2,2), with equal spread. Each ordered rooted minimizing triple specifies a unique displacement; for p≥7 the exceptional gap yields p admissible subsets, three through vertex 1 and six ordered rooted choices. At p=5 the respective rooted ordered count is twelve. Each admissible pair has one nonvanishing ray, and each ray has exactly two zeros, so divide the ordered-pair count by two. Taylor at π/3 gives the stated first-order term uniformly in both residues mod 3. The packaged floating-point tests are supplemental, not exact certification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li gives at most two zeros and attainment. ca0d22e76a34 gives all attainable counts on any noncollinear three-point support. f9dc2a401c0b counts all double-zero rays for more general finite Abelian groups."
+        ],
+        "reasoning": "These sources cover zero-count possibilities and even the unfiltered two-zero census, not the minimization of coefficient magnitude spread within those rays.",
+        "searches": [
+          "Li arXiv:2609.16030v1, Theorem 4.4",
+          "Resultary ca0d22e76a34 and f9dc2a401c0b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (script read)",
+        "Li arXiv:2609.16030v1",
+        "Resultary ca0d22e76a34, a8ba65401394, 1200745c9cae, 4cb26bdeb951, 4858fb8038b0, a2fc110c3fc9, f9dc2a401c0b and d193ca9cb6ce"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "a8ba65401394 treats unimodular coefficients; 4cb26bdeb951 treats rational-valued signals; 4858fb8038b0 optimizes a resonant phase moment. The two chirp rows in a2fc110c3fc9 coincide with the zero-equation rows, and its balancing result characterizes an optimum for their singular values."
+        ],
+        "reasoning": "Equal-amplitude nonattainment does not specify a sharp threshold; any zero pair can give a chord-spread candidate via cofactors, but optimal conditioning of the rows does not exclude a lower spread at a worse-conditioned pair. The chord gap inequality supplies the missing statement.",
+        "searches": [
+          "Resultary a8ba65401394, 4cb26bdeb951 and 4858fb8038b0",
+          "arXiv:2609.16030v1, Theorem 4.4",
+          "a2fc110c3fc9, Finding and proof §§1, 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen invariant is the longest-to-shortest chord ratio of a polygon triple. 1200745c9cae minimizes a Gram condition ratio for three consecutive sampling rows. a2fc110c3fc9 minimizes a singular-value ratio of two quadratic-chirp rows on three sites."
+        ],
+        "reasoning": "These objectives are different: the singular values depend on the modulus of the sum of the three phases, equivalently the sum of squared chord lengths, not their extreme ratio. The p=5 distinction is explicit for 1200745c9cae: only balanced gaps minimize its objective, while both gap types minimize the frozen objective.",
+        "searches": [
+          "Resultary: three-point parabola Fourier zeros, coefficient imbalance, chord ratios and cyclic sampling conditioning",
+          "1200745c9cae",
+          "a2fc110c3fc9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a2fc110c3fc9 has six minimizing displacements per first label and 3p² pairs for its condition number; d193ca9cb6ce classifies positive-real amplitude rays; neither states the minimum spread with the unrestricted fifth-root equality count."
+        ],
+        "reasoning": "The matching 3p² is credited for the common balanced pair class where the objectives share their optimizers. Counting all two-zero rays or positive-real rays is not a table of complex rays attaining the smallest spread.",
+        "searches": [
+          "Resultary a2fc110c3fc9, f9dc2a401c0b, 1200745c9cae and d193ca9cb6ce"
+        ]
+      },
+      "rationale": "Credit the known two-zero bound and attainment, the phase-only obstruction, and earlier balanced-gap optimizers for other objectives. The supported distinct contribution is the sharp minimum dynamic range of the two-row kernel, with its all-prime equality characterization including p=5 and the corresponding ray count. The closest conditioning statement shares the p≥7 equality set and count of zero pairs after kernel identification, but does not imply minimization of the chord spread or the fifth-root exception.",
+      "residual_risks": [
+        "An older specialized minimum-chord-ratio result for triples of a regular polygon could cover the core optimization by the cofactor reduction; the bounded literature search did not surface such a statement.",
+        "Catalogue dates do not establish priority or dependence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers zero-count bound and attainment only",
+          "evidence": "Root-grid reduction and circle-intersection argument, no magnitude optimality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16030v1",
+          "material_read": "Theorem 4.4 and proof, PDF p. 22",
+          "method": "Open primary text",
+          "title": "Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola",
+          "trigger": "Same support, exact two zeros"
+        },
+        {
+          "assessment": "Covers counts, not dynamic range",
+          "evidence": "Attainable zero counts on fixed noncollinear triples are 0, 1 and 2.",
+          "identifier_or_url": "Resultary ca0d22e76a34",
+          "material_read": "Finding and rank-two proof",
+          "method": "Bounded published-file inspection",
+          "title": "Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups",
+          "trigger": "Broader noncollinear support theorem"
+        },
+        {
+          "assessment": "Shared balanced pairs, different objective",
+          "evidence": "Minimizes the singular-value ratio and counts the resulting unordered frequency pairs, rather than minimizing nullvector magnitude spread.",
+          "identifier_or_url": "Resultary a2fc110c3fc9",
+          "material_read": "Finding and proof §§1, 4–5",
+          "method": "Bounded published-file inspection",
+          "title": "Universal sharp conditioning of two quadratic chirp rows on any prime field three site aperture",
+          "trigger": "Same matrices and balanced optimum count"
+        },
+        {
+          "assessment": "Different objective and fifth-root equality class",
+          "evidence": "Balances cyclic gaps for a Gram condition ratio and chooses (1,2,2) at p=5.",
+          "identifier_or_url": "Resultary 1200745c9cae",
+          "material_read": "Finding and proof §§2–6",
+          "method": "Bounded published-file inspection",
+          "title": "Sharp Riesz conditioning for consecutive triples on finite cycles",
+          "trigger": "Prior balanced cyclic gap geometry"
+        },
+        {
+          "assessment": "Unfiltered census",
+          "evidence": "Counts all double-zero rays by hL/2, without selecting magnitude-spread minimizers.",
+          "identifier_or_url": "Resultary f9dc2a401c0b",
+          "material_read": "Finding and proof of the double-zero census",
+          "method": "Bounded published-file inspection",
+          "title": "Complete three-point Fourier zero strata and double-zero coefficient census on finite Abelian groups",
+          "trigger": "Broader census of double-zero rays"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ratio answers how far one must depart from equal magnitude to realize the maximum null count on a natural sparse Fourier support. It gives a sharp obstruction, constructions for every support, and a complete extremizer census with a genuine small-prime exception. The asymptotic quantifies the vanishing size of the obstruction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

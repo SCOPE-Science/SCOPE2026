@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof uses the distinct-ending-letter state, derives the exact letter-shear matrices and complement conjugacy, then applies the trace identity and Cayley–Hamilton. The resulting recurrence and count formula hold for every nonempty binary seed and every nonnegative iteration. The growth limit and effective tail bound follow from the logarithmic recurrence and uniformly bounded two-step trace ratios. Direct-set enumeration on small instances, a separate last-occurrence dynamic program, and independent matrix multiplication agree in the standalone verifier. Enumeration only tests finite cases; the proof is symbolic.
+PASS
 
-## Originality: PASS (subject to literature uncertainty)
+Appending symbol i replaces the whole set of i-ending strings by the injective image of all old strings, including the empty one, since any old i-ending string can use the new i as its last symbol. The other ending class stays unchanged. The resulting shifted two-coordinate state gives s+t−2, counting strings rather than embeddings. With the stated reverse product convention, complementation is conjugation by P and doubling gives A_next=(PA)^2. Since det A=1 and det P=−1, the squared trace is t²+2. Also P A_next=A P A, whose trace is tr(P A²) by cyclicity; Cayley–Hamilton and tr P=0 give st. Nonempty seeds, including monochromatic ones, have s>=2 and t>=1. The scalar logarithmic recurrence implies z_next=2z+epsilon for z_m=log(t_m)+log(t_(m+1)), and the normalized log t recurrence is a contraction with coefficient −1/2. The parity ratios for s_m/t_m have summable log increments since t doubles at least, so log N_m−log t_m=O(1). The tail bound follows by epsilon<=2/t² and geometric ratio 1/8, with the coefficient 8/21. Independent matrix/string replay covered four stages for 126 seeds; direct sets through m=5 of the seed 0 and a separate last-occurrence count at m=6 reproduce all seven stated values. A 100-digit series replay through j=6 gives h(0)=0.4502248047496114629262541073… and exp(h(0))=1.56866478915034433761643869…, with series truncation error below 2.712e−53.
 
-The full-text inspected Lejeune–Leroy–Rigo paper studies multiplicities and \(k\)-binomial complexity, not total distinct-support enumeration. The Berstel–Crochemore–Pin work concerns binomial coefficients modulo primes, not this statistic. The full-text inspected Shallit–Shur–Zorcic paper treats repetition avoidance for complementary morphisms. The closest discoverable published related records concern a binary subsequence-universality distribution, distinct *contiguous* substrings, and Thue–Morse string attractors; none of their inspected claims implies this two-trace counting-and-growth theorem. General subsequence dynamic programming and matrix trace algebra themselves are established tools. An implicit or unindexed specialization in older literature remains possible, particularly in work on binary matrix products or shuffles.
+## originality
 
-## Value: PASS
+PASS
 
-The question counts the entire scattered-subword support of a canonical self-similar binary family, and extends without further casework to every nonempty seed. A fixed two-dimensional integer recurrence replaces enumeration of exponentially many potential subsequences and yields an explicit, effectively computable per-symbol growth constant for Thue–Morse. The universal arbitrary-seed compression and rigorous asymptotics are the substantive outcome, not a small numerical observation.
+The ordinary distinct-subsequence update is established background, as is the complement-morphism setting. The supported distinctive part is exact two-scalar closure for an arbitrary seed and the resulting convergent rate formula with a quantitative error, not the ordinary recurrence or a new notion of Thue–Morse complexity. The strongest inspected indexed matrix recurrence counts absent strings, and the strongest rate analogue uses different host words; neither supplies the claimed result.
 
-## Scope and limitations
+## value
 
-Distinct subsequences are not embedding multiplicities, and the result is restricted to complement-doubling words. Exact closed forms for subsequence-length distributions and transcendence properties of the growth constant are not claimed. Related published-result summaries were not substitutes for full-text inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Thue–Morse and its arbitrary-seed complement-doubling analogues are natural nonperiodic hosts. The exact count no longer requires storing or traversing the exponentially long doubled host once the two seed integers are computed. The same reduced state yields a per-symbol growth constant with a rigorously bounded series error; these structural and asymptotic uses, not the numerical illustration alone, make the result worthwhile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

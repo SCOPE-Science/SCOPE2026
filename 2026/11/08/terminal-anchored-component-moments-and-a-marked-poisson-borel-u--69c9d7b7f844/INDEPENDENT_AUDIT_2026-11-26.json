@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:28:25.474493Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–69; frozen VERIFICATION.md and check.py (inspected)",
+        "Hackl–Panholzer–Wagner 2023, Theorem 9",
+        "/workspace/independent_checks/cayley.py (independent exact run)"
+      ],
+      "rationale": "Root the original tree at any designated hub. Each eligible branch is the descendant side of an edge. Such sets are laminar; if one is strictly inside another, the parent of its root would be inside the larger branch, contrary to that parent being a hub. Thus distinct selected branches are disjoint. Counting ordered branch label sets, rooted internal trees and the arbitrary complement gives exactly the displayed mixed factorial moment, including the complement of size one and zero contribution when R>n−D. For fixed multiplicities the size factor tends to e^(−R); Poisson moments determine the joint law (and higher bounded moments give uniform integrability). The Borel marks sum to probability one by critical Poisson branching extinction. Independently, for a given component containing 1 of size k=n−d−q, contract it to a vertex with weighted edges k to each of the d hidden vertices and no edge to the q remaining visible vertices. The reduced weighted Laplacian determinant is kd n^(d−1)(d+q)^(q−1), by splitting into within-group sum-zero spaces and the group-constant subspace, also valid at q=0. Multiplying by the internal tree count and choosing the component recovers the claimed deficit law. Its limit has pgf exp(d(T(z/e)−1)), giving tight deficits. In the identification step, the reason two distinct deleted hubs cannot meet a component of at most K vertices is that the connecting path has length at most K+1, contradicting hub separation; two edges to the same hub would form a cycle. A later hub inside such a component would likewise be too close to a deleted hub. A small anchored branch cannot be the root component when n>2K+D and the deficit is at most K. These observations give the pathwise partial-union identity on the stated good event. The explicit forest-extension distance bound and summable marks then justify removing the common truncation in the discrete multiset space. Independent tree enumeration by edge subsets gave 121 exact comparisons on n=2,…,6, including D=3 and impossible branch totals; these corroborate, not prove, the asymptotic statement.",
+      "residual_risks": [
+        "The finite enumeration only corroborates the exact laws on small trees. The proof fixes D; it yields no increasing-window functional limit, no rates, and no moment convergence of the potentially heavy-tailed mass from weak convergence alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman factors a fixed fringe block and the complement-with-leaf tree, and separately counts rooted-forest partitions. Stufler's rerooted local result describes one random vertex; the fragmentation paper deletes edges and rescales."
+        ],
+        "reasoning": "The cut with a prescribed parent gives the finite count by recursion; neither the fringe decomposition nor the inspected one-vertex convergence supplies a joint distinct-anchor temporal law. Edge deletion with continuum scaling is not the same limit.",
+        "searches": [
+          "Pitman 2001 Theorems 12–13, Proposition 15",
+          "arXiv:1611.01048 single-vertex extended fringe neighborhoods",
+          "arXiv:2010.07880 fragmentation model"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 69c9d7b7f844 and bf05cbcea14d",
+        "HPW 2022 and 2023",
+        "Pitman 2001 §§5.2–5.3",
+        "arXiv:1611.01048",
+        "arXiv:2010.07880"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Lemma 8 put k=n−1 to obtain all one-anchor factorial moments; for k=n−d, choosing the disjoint ordered component sets from [k] excluding 1 gives the factor (k−1)_(R) n^(d−1)(n−R)^(k−R−1)d^M/n^(n−2) multiplying the product of r_i^(r_i−1)/r_i!. This tends to the mixed moments with means dλ_r, and the known tight deficit removes size truncation.",
+          "Pitman's Theorem 12 proof with a uniform fixed-root tree factors the fringe subtree and the tree with its fringe root as a leaf. Fixing the leaf's parent in the complement gives a uniform remainder and exactly r^(r−2)τ(n−r) possibilities for a specified internal root, with the singleton interpretation at r=1. Summing internal roots and iterating for disjoint fixed sets gives the all-anchor finite count."
+        ],
+        "reasoning": "Credit one-anchor and all one-time multiset marginals to the direct earlier consequences and treat the finite formula as explicit use of classical fringe decomposition. Neither knowing the marginal law at every d nor the known covariance couples component sets across d. The substantive distinction is the joint coupling retaining earlier marks with independent increments, justified by distinct-anchor convergence and the pathwise identification under hub separation.",
+        "searches": [
+          "Hackl–Panholzer–Wagner 2023 Lemma 8, Theorem 9, Remark 5",
+          "Pitman §5.2 Theorem 12 and proof",
+          "Resultary bf05cbcea14d exact formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assigned 69c9d7b7f844 is the exact indexed hit. Earlier bf05cbcea14d gives exact two-time covariances for isolated vertices of the induced forests. At k=n−b, j=n−a for a≥b fixed the formula tends to b/e, agreeing with the size-one projection."
+        ],
+        "reasoning": "Terminal here means withheld labels and not leaves. The singleton projection and its covariance do not determine joint laws of all size counts; the earlier source does not imply even the full singleton joint law by covariance alone.",
+        "searches": [
+          "Resultary terminal Cayley-tree uncovering, designated hubs, marked component sizes and multi-time Poisson–Borel limits",
+          "Resultary two-time singleton uncovering covariance",
+          "Hackl–Panholzer–Wagner 2023, Lemma 8 and Remark 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest existing exact data are formulas, not tabulated trees: the prescribed-component count for one forest, exact fixed-d root deficit, and Resultary's two-time singleton covariance."
+        ],
+        "reasoning": "These data are strictly weaker than the temporal multiset law. Enumeration of finite labeled trees for a bounded range of sizes cannot tabulate a joint limiting law; the inspectable formula sources are the appropriate exact-coverage test.",
+        "searches": [
+          "Resultary exact terminal moments or two-time joint laws",
+          "Hackl–Panholzer–Wagner 2022 Theorem 11 and 2023 Lemma 8, Theorems 9–10"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint fixed-window partial-union law for offroot component-size multisets, rather than its one-time marginals, its singleton covariance projection, or the general Cayley enumeration principle. The anchor-specific identity is useful as its exact input, but the one-anchor case is covered and the multi-anchor enumeration can be obtained by iterating the cut-and-leaf decomposition in Pitman's fringe-subtree proof. No separate novelty is credited to that decomposition. The inspected sources do not state or give the finite-sequence component-multiset coupling.",
+      "residual_risks": [
+        "No exhaustive historical-priority certification. Stronger multi-vertex local limit theorems or unindexed process-level results could bear on the temporal distinction; the inspected single-vertex and single-time passages do not establish that coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-anchor and one-time multiset consequences; no stated joint multiset law",
+          "evidence": "Counts prescribed induced-forest components at one k and obtains the proper fixed-d root-deficit limit; Remark 5 discusses joint root-cluster laws.",
+          "identifier_or_url": "https://doi.org/10.1007/s44007-023-00060-3",
+          "material_read": "Journal pp. 883–886, Lemma 8 (offset 75255), Theorem 9 (offset 80621) and Remark 5",
+          "method": "Lawful OA passage inspection",
+          "title": "The Uncover Process for Random Labeled Trees",
+          "trigger": "Same uncover process, prescribed components and fixed terminal laws"
+        },
+        {
+          "assessment": "Covers terminal total-mass marginal at fixed d",
+          "evidence": "Limit mass probability e^(−d−q)d(d+q)^(q−1)/q!.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2022.10",
+          "material_read": "Theorem 11, pp. 10–11, offset 37685",
+          "method": "Lawful OA passage inspection",
+          "title": "Uncovering a Random Tree",
+          "trigger": "Earlier terminal marginal result"
+        },
+        {
+          "assessment": "Provides fringe-tree factorization that can be iterated with a specified leaf parent",
+          "evidence": "Theorem 12 proof splits into a rooted fringe subtree and a complement tree with the fringe root as leaf. Proposition 15 is a partition law for fixed-root forests, not a multitime law of the uncovered tree.",
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/s/s46pitman.pdf",
+          "material_read": "Theorems 12–13 and proofs, pp. 24–25, offsets 53400–56381; Proposition 15, pp. 25–26, offset 57292",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Random mappings, forests, and subsets associated with Abel–Cayley–Hurwitz multinomial expansions",
+          "trigger": "Potential implication for exact anchoring counts"
+        },
+        {
+          "assessment": "One rerooted vertex; no exact multi-anchor moments or inspected multitime law",
+          "evidence": "Critical type-I random-vertex convergence to an invariant sin-tree, with extended fringe-neighborhood results.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.01048",
+          "material_read": "Abstract and introduction, pp. 1–2, offset 5557",
+          "method": "Lawful OA passage inspection",
+          "title": "Local limits of large Galton–Watson trees rerooted at a random vertex",
+          "trigger": "Possible stronger convergence implying Poisson–Borel branching around a terminal"
+        },
+        {
+          "assessment": "Different deletion mechanism and scaling",
+          "evidence": "Random edges and rescaled stable Lévy-tree fragmentation, not bounded terminal vertex deletion.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.07880",
+          "material_read": "Abstract, p. 1, offset 650",
+          "method": "Lawful OA passage inspection",
+          "title": "Invariance principle for fragmentation processes derived from conditioned stable Galton–Watson trees",
+          "trigger": "Possible process-level tree fragmentation overlap"
+        },
+        {
+          "assessment": "Genuine overlap in one scalar two-time projection, not the full law",
+          "evidence": "Exact covariance for the counts of isolated vertices at j≤k; at j=n−a,k=n−b tends to b/e.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-two-time-singleton-covariance-in-the-random-labeled-tree-u--bf05cbcea14d",
+          "material_read": "Finding and formula for two-time covariance in RESULT.md",
+          "method": "Resultary lookup and local source mirror passage inspection",
+          "title": "Exact two-time singleton covariance in the random labeled tree uncover process",
+          "trigger": "Closest distinct indexed multitime result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–28 and 55–65",
+        "HPW 2023 Lemma 8 and Theorem 9",
+        "Resultary bf05cbcea14d"
+      ],
+      "rationale": "At a natural boundary window of the Cayley uncover process, single-time laws leave open how finite component sizes persist or change from one deletion to the next. The joint result identifies those sizes as cumulative increments of independent marked Poisson processes in the precise fixed-time, unscaled sense, giving a reusable coupling for functions of the entire multiset sequence. This, not the classical counting principle or a new computation of an existing marginal, supplies the value.",
+      "residual_risks": [
+        "No increasing-window functional or critical-regime result; the independent increments are limiting, not exact finite-size temporal independence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

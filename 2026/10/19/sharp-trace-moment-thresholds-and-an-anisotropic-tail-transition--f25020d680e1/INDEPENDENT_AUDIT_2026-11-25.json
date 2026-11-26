@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:46:49.033375Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–79",
+        "VERIFY.py lines 8–56 and VERIFICATION_OUTPUT.txt",
+        "VERIFICATION.md, recorded channels and finite-check notes"
+      ],
+      "rationale": "For v=Ag and w=A²g the trace is the scalar regression slope of Ψᵀw on Ψᵀv through the origin. Orthogonal regression conditional on g gives the stated independent normal/chi-square ratio, with location vᵀw/||v||² and scale |det(v,w)|/||v||². Scale is positive almost surely and bounded, so location cannot remove the positive-moment divergence at p≥s. If Q=ε²Y²/(X²+ε²Y²), half-Cauchy integration gives E Q=ε/(1+ε); differentiation gives E Q(1−Q)=(ε/2)d(E Q)/dε. This recovers E Q², Var(μ)=E τ² and, with E W_s⁻¹=1/(s−2), the stated moments and strictly positive variance limit. Integrating the chi CDF at zero against Z_+ gives k_s, with a uniform power bound yielding the two bounded-mixture tail limits. For the anisotropy limit, the exact rescaled half-Cauchy integral is E τ^s/ε=(2/π)(1−ε)^s∫₀^∞ u^s/[(1+u²)^s(1+ε²u²)] du, using u=|X/Y|/ε. This supplies integrable domination and the beta constant for s>1; for s=1 partial fractions give 2ε log(1/ε)/[π(1+ε)] for E τ. The normalization in the Student ratio is 1/√s relative to standard Student-t.",
+      "residual_risks": [
+        "Supplied 64 checks were inspected, not replayed; the proof and angular reduction are analytic. Limits take t→∞ first with ε fixed, not jointly. Scope excludes ε=0, safeguarded/truncated sketches, and matrix-norm claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eq. (3) of arXiv:2009.11392v1 covers the matrix construction.",
+          "Theorem 2 of arXiv:2409.06384v1 bounds oversampled, truncated matrix error in L^q for p,ℓ≥4."
+        ],
+        "reasoning": "A matrix-error upper bound in a more oversampled regime cannot recover exact signed trace laws and divergence thresholds at low left sketch counts or the constants in nested limits.",
+        "searches": [
+          "arXiv:2009.11392v1 §2",
+          "arXiv:2409.06384v1 §2.3 Theorem 2",
+          "Resultary: generalized Nyström trace moments variance oversampling Student mixture"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.11392v1",
+        "arXiv:2409.06384v1",
+        "Resultary 3ac2429e030f",
+        "Resultary 6a0180b3e23e",
+        "Resultary 4aed760e42f3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the frozen statistic the signed constants have an ε log(1/ε) regime only at s=1 and ε scaling for each fixed s≥2; the positive variance floor is due to the conditional location, not the noise term."
+        ],
+        "reasoning": "Neither a generic scalar Student law nor the checked generalized Nyström bounds mechanically give the anisotropic angular transition and the surviving variance. No originality is assigned to the algorithm, pseudoinverse identity or classical chi-square thresholds taken alone.",
+        "searches": [
+          "Resultary: generalized Nyström trace exact Student distribution Gaussian sketch moment threshold signed tail near rank one anisotropic",
+          "arXiv:2009.11392v1 Eq. (3); arXiv:2409.06384v1 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditional slope is a classical through-origin Gaussian regression statistic; its random location and scale depend on the independent right probe.",
+          "Resultary 4aed760e42f3 studies leave-one-out traces/correlations on I_n, rather than the claimed anisotropic oblique signed trace."
+        ],
+        "reasoning": "Replacing this conditional slope by a standard regression ratio gives the conditional distribution but not the exact angular averaging, variance floor or log-to-linear tail constant. Identity input makes the angular noise term vanish in this trace problem.",
+        "searches": [
+          "Resultary: generalized Nyström trace distribution exact rank one oblique Gaussian",
+          "Primary literature: \"generalized Nyström\" \"Student\" trace moment tail oblique Gaussian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3ac2429e030f gives explicit chi-square ratios for identity-input leave-right-out diagnostics; 6a0180b3e23e gives explicit one-sided PSD residual norm laws and a √ε log(1/ε) moment regime."
+        ],
+        "reasoning": "These are explicit nearby laws, but neither tables nor distribution formulas for those observables give k_s E τ_ε^s for the independently sketched oblique trace. The Student distribution supplies only the k_s factor.",
+        "searches": [
+          "Resultary: signed two-sided trace tail constant Gaussian Nyström",
+          "Resultary: near rank one epsilon logarithmic linear anisotropic tail constant Gaussian sketch"
+        ]
+      },
+      "rationale": "The generalized Nyström formula and the conditional Gaussian regression ratio are established ingredients. The supported distinct result is their trace-specific angular mixture analysis, in particular the exact signed-tail scale transition and residual right-sketch variance. No matching or dominating statement was identified in the bounded comparisons.",
+      "residual_risks": [
+        "A general anisotropic Gaussian ratio or oblique projection statistic could encode the same trace law or coefficients under different terminology. Bounded retrieval is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers construction, not trace distribution",
+          "evidence": [
+            "AX(YᵀAX)†YᵀA with two sketches; focus on approximation and stabilization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.11392v1",
+          "material_read": "§2 p. 3, Eq. (3) and surrounding setup, extraction offsets 9700–12136",
+          "method": "OA primary text passage",
+          "title": "Fast and stable randomized low-rank matrix approximation",
+          "trigger": "Same generalized Nyström sketch"
+        },
+        {
+          "assessment": "Different observable and regime",
+          "evidence": [
+            "Matrix-error L^q bound, p,ℓ≥4, q=min(p,ℓ), rank truncation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.06384v1",
+          "material_read": "§2.3 pp. 4–5, Eqs. (7)–(9), Theorem 2, extraction offsets 16500–19575",
+          "method": "OA primary text passage",
+          "title": "Randomized low-rank Runge-Kutta methods",
+          "trigger": "Gaussian oversampling moment bounds"
+        },
+        {
+          "assessment": "Different diagnostic and input",
+          "evidence": [
+            "Identity-input leave-right-out and squared paired diagnostics, not anisotropic trace."
+          ],
+          "identifier_or_url": "Resultary 3ac2429e030f",
+          "material_read": "RESULT.md finding on chi-square ratio laws",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp moment and tail thresholds for Gaussian generalized Nyström diagnostics",
+          "trigger": "Exact moment/tail laws in generalized Nyström"
+        },
+        {
+          "assessment": "Not the same transition",
+          "evidence": [
+            "One-sided PSD residual norm; distinct log-scale dependence."
+          ],
+          "identifier_or_url": "Resultary 6a0180b3e23e",
+          "material_read": "RESULT.md finding on the residual moment and ε asymptotics",
+          "method": "Local mirror statement comparison",
+          "title": "A universal half-moment transition for unoversampled Gaussian Nyström",
+          "trigger": "Anisotropic log factor and moment transition"
+        },
+        {
+          "assessment": "Different estimator and isotropic input",
+          "evidence": [
+            "Diagnostic calibration on I_n rather than independently left-sketched anisotropic signed trace."
+          ],
+          "identifier_or_url": "Resultary 4aed760e42f3",
+          "material_read": "RESULT.md finding on leave-one-out correlations and diagnostics",
+          "method": "Local mirror statement comparison",
+          "title": "Exact Gaussian XNysTrace correlation and a vanishing diagnostic",
+          "trigger": "Trace-specific Gaussian calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 17–46",
+        "arXiv:2409.06384v1 §2.3"
+      ],
+      "rationale": "A minimal positive-definite model isolates left-sketch noise from right-sketch variation. The thresholds distinguish an undefined absolute mean, finite mean without variance and finite variance; the positive variance floor shows why left oversampling alone cannot stabilize all fluctuations. The sharp anisotropic scale identifies an additional borderline regime that bounded-moment estimates do not show.",
+      "residual_risks": [
+        "Interpretation is limited to this oblique trace; it is not a quantitative guarantee for a solver or for general matrix error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

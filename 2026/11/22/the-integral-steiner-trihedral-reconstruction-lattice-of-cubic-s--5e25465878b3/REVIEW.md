@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The 27-line blowup model and the two forms of 45 tritangent triples are standard and appear in the cited original geometry. The prescribed finite enumeration yields 120 unordered Steiner pairs, each of six tritangents. The packaged 2,710-operation certificate is an exact sequence of invertible integral matrix operations, reducing the 45-by-120 incidence map to the asserted Smith diagonal. Reconstructing the unimodular row transformation establishes that all 45 basis classes have exact order 12. These finite calculations were actually replayed from the packaged paths. The inference to arbitrary smooth characteristic-zero cubic surfaces relies on the canonical incidence classification, not on a sample of surfaces.
+PASS
 
-## Originality
+This passes the corrected RESULT.md, not the unqualified equivalence at frozen line 15. Homogeneous parity and mod-three tests annihilate 6 times every vector, but 6[T] is not in the lattice for any tritangent T; the frozen shorthand omitted a mod-four obstruction. The corrected conditions in Smith coordinates are exactly 20 independent mod-two tests and one mod-twelve test, the latter splitting as mod four and mod three. Independently generated the 45 planes from ordered exceptional-conic labels and perfect matchings, grouped disjoint triples by their nine-line supports and tested orthogonality of the two partitions (each cross intersection has one line). This recovers 120 distinct columns. Independently verified all Gram entries and its characteristic polynomial, which bound the prime support by 2 and 3, and used exact local elimination to compute 1^24, 2^20, 12. Adjoining each basis vector in turn lowered the index to 2^20, a factor of 12 each time. Also replayed the complete 2,710-operation data certificate with a separately written checked interpreter, verifying unimodularity and the rectangular diagonal. Thus the full-rank lattice, membership and individual-order claims of the corrected file hold.
 
-**PASS, qualified.** Elsenhans--Jahnel describe paired Steiner trihedra, and Betten--Hirschfeld--Karaoglu use all 120 pairs geometrically. The closest published toric computation uses the **signed difference** of the two triples within each pair, whereas the present map is the **unsigned six-plane sum**; the signed kernel generators do not give its integral cokernel. The published 27-by-45 tritangent-to-line lattice and 27-by-36 double-six-to-line lattice likewise have different source, target, and statements. No exact integral 45-by-120 Smith computation was identified in the checked sources. Priority remains qualified because an unindexed combinatorial Smith-form table could include the same invariant.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Steiner trihedral pairs are canonical six-plane decompositions of a cubic surface used in its Cayley--Salmon models and arithmetic descent. Their unsigned incidence lattice asks precisely which formal tritangent combinations are integrally reconstructed from complete trihedral pairs; the answer is not implied by a rational rank calculation or by enumerating the pairs. Twenty order-two factors and one order-twelve factor give a complete, natural integral classification and a sharp reconstruction multiplier. This is a lattice statement, not torsion in a variety's Picard group.
+The supported distinct claim is the complete integer plane reconstruction and order-twelve obstruction. The pairing and its nine-line footprint are classical or previously computed in another target; the closest indexed same-day result computes only the rank-21 line-support image. No known full plane lattice was established by the bounded comparisons. No priority is inferred from the dates.
 
-## Limits and closest literature
+## value
 
-The claim concerns characteristic-zero geometric configurations and formal plane-label lattices only. The cited primary geometry and related published signed-toric, plane-to-line and double-six incidence results were inspected and compared by the actual maps and implications rather than titles. An older equivalent Smith computation remains possible. Reproducible code and exact elementary-operation data are included.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete conjugate-pair family is an intrinsic part of the 27-line geometry, not an arbitrary sample. The unsigned integral span decides which formal tritangent combinations can be recovered, and the mod-four component and the sharp per-plane multiplier of twelve matter when rational or parity reconstruction is insufficient. Neither the geometry, Gram matrix, signed trades nor the rank-21 line support answers that reconstruction problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:07:08.322231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–86",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "Defant et al. arXiv:2609.22050, Corollaries 1.24–1.25"
+      ],
+      "rationale": "The unordered-pair permutation representation contains exactly the trivial, standard and (n-2,2) irreducibles for n>=4; subtracting the first two characters gives chi=F(F-3)/2+T_2. Its only negative values are -1 at F=1 or 2 and T_2=0. The mean is zero by orthogonality, so E|chi| is twice the probability of those disjoint events, namely 2q_(n-1)+q_(n-2) after choosing the fixed letters. The full coefficient block is a multiplicity-one regular bimodule. Averaging over both sides cannot increase the norm of a projection onto it and gives precisely the central convolution projector, whose norm is the absolute row mass by a sign choice. Exact equality holds precisely when some row's nonzero kernel entries align with the input at unit modulus and one common phase (a sign over the reals). This also shows that real and complex norms coincide. The relative minimum is absolute here: the host finite sup-norm space is injective by coordinatewise Hahn–Banach. The EGF gives the stated coefficient formula by expanding exp(-z-z^2/2)/(1-z); the numerator is entire and its coefficient tail has the stated bound by Cauchy's estimate for each R>1. The n=4 case is included, with q_3=1/3 and q_2=0 giving 4/3.",
+      "residual_risks": [
+        "The finite checker enumerates only S_4 through S_8 and q_m through m=14; the judgment on the theorem is analytic, not formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant et al. establish the general isotypic projection-constant integral; Scarabotti–Tolli give the isotypic projector with character kernel.",
+          "The central Fourier-algebra amenability constant sums information across irreducibles and classes, rather than taking this one block's L1 kernel norm."
+        ],
+        "reasoning": "Prior general projection theory already supplies the norm-minimization framework, though not by itself this particular evaluated q-formula; the indexed October 18 statement supplies the exact evaluation.",
+        "searches": [
+          "Defant et al. arXiv:2609.22050, Corollaries 1.24–1.25",
+          "Scarabotti–Tolli arXiv:math/0701533v1, Corollary 2.15",
+          "Alaghmandan–Spronk arXiv:1407.6783, Proposition 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local mirrored Findings",
+        "arXiv:2609.22050v1",
+        "arXiv:math/0701533v1",
+        "arXiv:math/0612292v1",
+        "arXiv:0708.2643v1",
+        "arXiv:1407.6783"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior q EGF yields the same limit and faster-than-geometric error by its entire numerator. Norming inputs for the known real central row follow from equality in the single-row triangle bound.",
+          "The standard block and the Johnson projector yield other norms; the full second Fourier level takes the norm of a sum, not this one kernel."
+        ],
+        "reasoning": "The decision rests on the explicit single-block formula and its direct consequences, not on conflating these nearby spaces. The accessory equality and tail observations are routine consequences of already available data.",
+        "searches": [
+          "2026/10/18/...5d303130bd8b, Finding and Proof §§1–4",
+          "Resultary: d168823581e6, f9735429621e, 0b07d79a8aa3",
+          "Wildon arXiv:math/0612292v1 §2.2; Diaconis–Fulman–Guralnick arXiv:0708.2643v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 Finding calls lambda(W_n)=n(n-3)(q_(n-1)+q_(n-2)/2) the known one-block norm and identifies W_n as the single full (n-2,2) matrix-coefficient block in C(S_n;C).",
+          "Uniform Haar probability normalization and counting sup norm describe the same sup-norm realization; its central kernel is real."
+        ],
+        "reasoning": "The hypotheses, finite group, Fourier block and exact invariant match; the change of field does not change the sharp norm by row-sign attainment and real equivariant averaging.",
+        "searches": [
+          "Resultary: (n-2,2), second Specht, character L1 mass, full Fourier block projection",
+          "2026/10/18/...5d303130bd8b, Finding and Relationship to prior work"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5d303130bd8b (Finding at offset 0) reproduces the exact formula, and its Relationship passage at offset 6650 attributes it to October 11 record 2557238644ab.",
+          "The November 8 crossover record also treats the same one-block result as an established comparison term; the original frozen self-hit is not used as evidence of independent duplication."
+        ],
+        "reasoning": "This is direct exact indexed coverage from the accessible distinct October 18 source. The October 11 file's unavailability does not determine the decision, and the same-day crossover is corroborative, not evidence of chronological priority.",
+        "searches": [
+          "Resultary: second Specht exact endpoint and two-subset Fourier band",
+          "2026/10/18/...5d303130bd8b; 2026/10/11/...2557238644ab; 2026/11/8/...34de8d3d2fe2"
+        ]
+      },
+      "rationale": "The central claim is shown already known, not merely possibly overlapping. A distinct, earlier accessible October 18 record explicitly gives exactly n(n-3)(q_(n-1)+q_(n-2)/2) for the same full (n-2,2) coefficient block, all n>=4, and the same q generating function. Its novelty is the band comprising three blocks; it labels this identical single-block norm known. The real version follows directly from the real kernel and real equality witness. Standard row equality and coefficient estimates do not establish a new central invariant.",
+      "residual_risks": [
+        "The October 11 exact single-block package was not read, and ultimate historical priority is not determined. The accessible October 18 statement independently suffices to show exact existing coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the core invariant",
+          "evidence": [
+            "For n>=4 writes the identical single-block formula and EGF for q and expressly distinguishes the new summed band from the known single-block norm."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-projection-constants-of-the-two-subset-fourier-band-on-sym--5d303130bd8b",
+          "material_read": "RESULT.md Finding and §§1–4 at offset 0; Relationship at offset 6650",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp projection constants of the two-subset Fourier band on symmetric groups",
+          "trigger": "Strong earlier match despite title describing a band"
+        },
+        {
+          "assessment": "Coverage established by the accessible October 18 statement, not by inferring unread content",
+          "evidence": [
+            "October 18 credits the previous exact single-block result; whether October 11 also lists norming inputs was not established."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-endpoint-norms-for-the-n-2-2-fourier-block-of-symmetric-gr--2557238644ab",
+          "material_read": "October 18 reference [2] and attribution passage; direct predecessor file unavailable in mirror",
+          "method": "Local mirror and identified referencing source",
+          "title": "Exact endpoint norms for the (n-2,2) Fourier block of symmetric groups",
+          "trigger": "Direct predecessor cited by October 18 record"
+        },
+        {
+          "assessment": "Covers projection framework",
+          "evidence": [
+            "Integral of the absolute isotypic character kernel gives the minimal projection norm for full isotypes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.22050v1",
+          "material_read": "Corollaries 1.24–1.25, pp. 22–23",
+          "method": "OA full-text passages",
+          "title": "Projection Constants of Polynomial Spaces via Representation Theory",
+          "trigger": "General projection-constant formula for isotypes"
+        },
+        {
+          "assessment": "Different function space and norm evaluation",
+          "evidence": [
+            "The host is the space on k-subsets rather than C(S_n); at fixed slice density the norm grows linearly."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Exact endpoint norm of the second Johnson spherical projector",
+          "trigger": "Same representation shape, nearby sharp endpoint claim"
+        },
+        {
+          "assessment": "Different Specht block",
+          "evidence": [
+            "Gives 2(n-1)D_n/n! on S_n, for (n-1,1)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-derangement-density-controls-the-standard-fourier-block-of-every--d168823581e6",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Derangement density controls the standard Fourier block of every doubly transitive action",
+          "trigger": "Related evaluated character mass on the regular group"
+        },
+        {
+          "assessment": "Corroborative exact overlap, distinct crossover result",
+          "evidence": [
+            "Labels the precise (n-2,2) term a known comparison input."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-crossover-between-two-neighboring-specht-fourier-project--34de8d3d2fe2",
+          "material_read": "RESULT.md Relationship passage at offset 8178",
+          "method": "Local mirror",
+          "title": "A sharp crossover between two neighboring Specht Fourier projectors",
+          "trigger": "Same two-row block used as exact comparator"
+        },
+        {
+          "assessment": "Different global algebra invariant",
+          "evidence": [
+            "The amenability formula uses all irreducible pairs and conjugacy classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.6783",
+          "material_read": "Proposition 4.2, p. 16",
+          "method": "OA full-text passage",
+          "title": "Amenability properties of the central Fourier algebra of a compact group",
+          "trigger": "Potential equivalent invariant based on characters"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–19 and 52–86",
+        "2026/10/18/...5d303130bd8b, Finding and proof"
+      ],
+      "rationale": "The invariant is well motivated and the proof is useful exposition, but the submitted research claim re-evaluates an already explicit exact norm of the same natural Fourier block. The residual observations supply neither a different invariant nor a new structural phenomenon: the norming inputs are the exact equality condition for one known finite convolution row, and the normalized asymptotic and error are direct from the same known generating function. No independently valuable new remainder is established in this record.",
+      "residual_risks": [
+        "This judgment concerns the submitted isolated-block claim, not the usefulness of expository proof, the band comparison, or separate crossover results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A run of consecutive gaps of size two is equivalent to the specified alternating ordering of exactly \(2k+3\) independent ranks. Conditioning on the initial valley multiplies its unconditional probability by three. The Euler-tangent coefficient formula follows from the cosine product and is valid for all integer \(k\ge0\). Strict Cauchy–Schwarz gives the needed uniform, strict monotonicity, and the stationary Palm interpretation is justified by translation-invariant successor mass transport. The Markov contradiction applies to every fixed finite order, including order zero. A separate exact-rational checker passed 108 assertions; computational tests are corroboration, not infinite proof.
+PASS
 
-## Originality — PASS, with documented priority risk
+Adjacent valleys are impossible, so exactly the required cylinder is enforced by valleys at 0,2,…,2k. Together these impose a single alternating orientation on 2k+3 iid atomless priorities. Their relative orders are uniform, and dividing its probability by P(0 is a valley)=1/3 gives the Euler-number expression, also for k=0. The tangent partial fractions yield the displayed coefficient 2(2/π)^(2k+4)S_(2k+4) before conditioning. The two sequences in the Cauchy–Schwarz step are square summable and not proportional; this gives strict increase, and S_s→1 by domination gives the limit and tail equivalent. Transport to the next valley preserves the conditioned law because each valley receives mass from its unique predecessor; the bi-infinite existence follows from independent three-site tests. Under an order-m homogeneous gap law, conditioning on k≥m copies of 2 would leave a common one-step transition for all k, while order zero would give r_0=r_1. Both contradict strict increase. The recorded finite checks are consistent but are not the basis of the all-k conclusion.
 
-The full primary 2026 root-gap manuscript was read through its structure, definitions, the exact joint-event section, the generating formulas, further-results section and appendices. It provides all two-adjacent-gap probabilities and some three-gap events, including the first short-streak cases. Those coefficients are therefore credited and excluded from the novelty assertion. Stanley's full classical survey supplies the Euler-number generating function. Neither inspected text states or supplies an all-streak conditional hazard monotonicity theorem or an all-finite-orders non-Markov characterization for the stationary valley gap process. published research-index searches for the gap process, alternating-permutation hazards, finite-order Markov property, and related equivalences returned no dominating result; closest related records concern ordinary permutation comparisons and fixed-composition runs. This search does not prove historical uniqueness: the classical formulas make the synthesis accessible, and an unlocated general extremum-process theorem remains a material priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The shortest gaps are the most frequent neighboring-root configurations and a natural building block for deposition-root spacing models. Pairwise gap tables do not decide whether the entire stationary gap sequence admits a finite-memory description. A strictly age-dependent continuation probability at every depth gives a definite structural obstruction, with an exact limiting hazard and exponential streak tail. This qualifies as an interpretable stochastic-dependence theorem rather than a mere finite tabulation; it is limited to shortest-gap runs and iid priorities.
+Credit is for the all-k stationary shortest-gap continuation analysis and the resulting exclusion of every finite homogeneous Markov order, not for the zigzag coefficients, their asymptotic in isolation, or the low-order gap laws. The closest inspected results do not supply the stochastic-memory conclusion.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The all-orders formula is used to answer a structural modeling question about a natural stationary point-process spacing sequence: no fixed finite history describes its transitions. Testing a single simple cylinder family yields an exact strict obstruction at arbitrarily large orders and a quantitative limiting benchmark, not just a computation of a classical coefficient or a check of the first few joint probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

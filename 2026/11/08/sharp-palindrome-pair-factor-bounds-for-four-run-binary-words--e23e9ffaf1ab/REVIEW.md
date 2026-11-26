@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact factor decomposition distinguishes all run shapes and handles overlap of factors with matching repeated runs. The only four-run palindrome-pair factors arise from equal first/third or second/fourth block lengths. The four exhaustive parameter regions yield exact identities and rigorous integer inequalities; balanced positive integers give equality for every length at least eight, and exhaustive integer compositions close four exceptional short lengths. An independently implemented direct-factor enumerator agrees with the count for 1,470 words; a separate parameter search covers 395,010 four-run tuples. Finite checks support, but do not replace, the symbolic proof.
+## correctness
 
-**Originality: PASS (qualified).** Borchert and Rampersad (arXiv:1509.05396), Section 4, present the unrestricted exact maximum as a conjecture and provide candidate examples; their statement that three-run words are palindrome pairs does not determine the factor enumeration for four-run hosts. Guo, Shallit and Shur (arXiv:1503.09112) characterize palindrome-pair words, not maximum distinct palindrome-pair factor sets in bounded-run hosts. Searches for four-run, four-block and aliases did not reveal a result logically implying this four-run bound and equality classification. This is a qualified historical comparison, not a proof of priority; unindexed equivalent work remains a risk.
+PASS
 
-**Value: PASS.** The theorem resolves a natural nontrivial infinite subfamily of a published extremal conjecture, identifies a strict four-run deficit, and gives all sharp equality cases. The result requires a full factor classification and integer-optimization argument, rather than mere renaming or a computed numerical table. It deliberately does not assert the unrestricted conjecture.
+In a binary palindrome the number of runs is odd. For a four-run factor the cut must be at a run boundary (internal cuts give one even-run part) and must split 1+3 or 3+1 runs; this gives precisely the two matched-endpoint conditions and the one possible double count. The two 01 rectangles intersect in the rectangle of componentwise minima, and 10, 010, 101 and unary factors give the other terms of (1). In case I the transfer d to a strictly improves the count and the quadratic bound at d=1 follows from the squared-sum inequality; II is a product bound and IV is the reversal/complement of I. In III the loss from the balanced triple bound is exactly the sum of the balancing loss and (a-1)(d-1), so the asserted equality conditions are necessary and sufficient. The construction with a=1 and the largest balanced part as a+d+2 is feasible already at n=8. The three-run count is the balanced-triple product sum with total n+1, with separate one- and two-letter checks. An independent direct enumeration replay (positive compositions of n into 1 to min(n,4) parts, fix first bit 0, collect distinct substrings with a palindromic prefix and suffix for some cut, including empty) checked 2516 hosts through n=16: exactly-four maxima 8,12,16,21 at n=4..7, formula and full classifier at n=8..16, and the at-most-four maximum throughout. Frozen RESULT.md lines 26–74 and verify.py are replay references; the supplied script was inspected, and finite counts do not prove the infinite optimization.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior work states the unrestricted conjecture and suggests extremizing words; neither the bounded-run theorem as a whole nor the exact four-run classification was found covered. The identical indexed record is not a second result.
+
+## value
+
+PASS
+
+A natural run-complexity slice of a stated extremal conjecture. Four runs are the first case in which a factor may fail to be a palindrome pair; the exact deficit, small-length exceptions and complete maximizer classification explain what changes at that boundary. This does not settle the unrestricted conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,27 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A signed mask is exactly an unordered pair of positive group sites and a distinct negative site. Left translation reduces its rank to that of `1_e + 1_a - 1_b`, and swapping positive sites plus conjugation by `S_5` generates exactly 23 verified rank-invariant orbits of all 3422 normalized ordered pairs. The full regular matrix has exactly three nonzero \(\pm1\) entries in every row, so every minor is bounded by \(3^{30}\) in absolute value. Exact elimination modulo two primes with product greater than twice this bound determines the characteristic-zero rank, with all 3422 normalized kernels checked separately at both primes. The resulting ranks and counts agree with independent exact rational elimination of the 23 orbit representatives. The quotient-order/subgroup test and split five-cycle flag are each asserted for all normalized pairs; every original signed kernel is counted exactly once by the factor \(60/2\).
+PASS
 
-## Originality — PASS under bounded comparison
+Left-normalization multiplies the regular convolution matrix by an invertible left translation and gives I+L_a-L_b. A matrix column y is delta_y+delta_(ay)-delta_(by), with three distinct supports; every row also has exactly three +/-1 entries. Swapping the two positive sites re-normalizes to (a^-1,a^-1 b); S_5-conjugation is a simultaneous A_5 automorphism and preserves rank. Each original kernel has exactly two ordered descriptions, so a normalized-pair count is multiplied by 60/2=30. Independently generated all 3422 normalized ordered pairs and 23 disjoint exhaustive orbits, and checked every pair's intrinsic rule and modular rank at both primes, not just representatives. Normalized counts for ranks 40,45,49,54,55,56,60 were 60,120,120,120,240,360,2402, exactly giving the stated 102660-kernel census. For (3,(5,5),60), 120 same-class pairs had rank 49 and 120 different-class pairs rank 60; the two five-cycle classes were computed and found inversion-stable. The CSV representatives, orbit sizes and order invariants agree. Both primes were checked by trial division. Each integer minor of size k<=60 has |det|<=3^(k/2)<=3^30 by Hadamard, less than the product of the primes. Thus agreement at d<60 forces all (d+1)-minors to vanish integrally while a nonzero d-minor mod a prime yields the lower bound; d=60 is maximal. All signed 64-bit elimination products and subtractions stay within range. The conclusion concerns complex rank and geometric nullity, not algebraic zero-eigenvalue multiplicity. Replay: python3 /workspace/branches/14658e4f-ea82-449c-8709-0e66eaa4030d/independent_check.py. The uploaded CSV and both checker sources were inspected but no uploaded program was executed. This is exhaustive for the stipulated finite signed domain only.
 
-The published complete unweighted three-point classification on \(A_5\) [3] was read in full and explicitly excludes weighted three-tap kernels; it has nullities \(0,4,5,10,20,40\), not the signed nullity \(11\). The relative order-five conjugacy flag becomes a sign-sensitive invertible/rank-49 distinction. Since \(A_5\) is perfect, a nontrivial binary character cannot remove the signs from an arbitrary generating signed kernel. Alagic–Russell's full-text uncertainty theorem [1] controls a lower bound but does not supply the rank census, and the full-text Siemons–Zalesski normal-connection-set theorem [4] does not handle these nonnormal, generally directed signed kernels. Arezoomand–Taeri [2] gives block-decomposition methods, not a verified enumeration. Targeted research-index and publication searches found no covering claim; such absence is not a proof of absolute publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete exact classification of all three-edge signed convolution filters on the smallest nonabelian simple group, not an arbitrary sampled subset. Sign selection is a meaningful spectral operation: among 102660 masks it produces an isolated nullity-11 stratum of 3600 kernels and separates two otherwise identical group-theoretic order patterns by the A5 five-cycle conjugacy flag, one invertible and one rank-deficient. The phenomenon is absent from the unweighted classification and cannot in general be gauged away by a one-dimensional sign character. The exhaustive rank test and exact counts provide concrete signed-operator invertibility and reconstruction-kernel benchmarks.
+Best-of-knowledge pass for the exact signed A5 classification, not for group Fourier decomposition, three-point support geometry, the existence of split 5-cycle classes, or modular elimination. The closest A5 classification is explicitly unweighted in the available statements; the signs cannot in general be removed, and the distinct signed ranks are independently verified. No retrieved stronger theorem or exact catalogue entry covers the signed enumeration; plausible unread primary statements remain a disclosed risk.
 
-## Literature and remaining limits
+## value
 
-[1] Alagic and Russell, *Uncertainty Principles for Compact Groups*, arXiv:math/0608702, 2006.
+PASS
 
-[2] Arezoomand and Taeri, *On the Characteristic Polynomial of n-Cayley Digraphs*, Electronic Journal of Combinatorics 20(3), 2013, P57.
+The signed coefficients are a natural minimal change from an unweighted 3-site filter on the smallest nonabelian simple group; the theorem gives a complete fixed-coefficient invertibility/nullity classification rather than selected examples. A full-generating support geometry with identical group and quotient orders can yield rank 49 or invertibility depending only on the relative five-cycle classes. The exact signed counts and order test are useful group-algebra benchmarks, without making claims about condition numbers, general complex coefficients or other groups.
 
-[3] *Exact three-tap convolution nullities on the icosahedral rotation group*, public full-text research note, 2026.
-
-[4] Siemons and Zalesski, *Remarks on singular Cayley graphs and vanishing elements of simple groups*, Journal of Algebraic Combinatorics 50 (2019).
-
-Only the signed coefficient pattern and its exact zero-eigenvalue multiplicities are addressed. The full texts of the older small-valency A5 symmetry papers and any unindexed signed-Cayley rank tables remain a priority risk. Neither self-review nor executable checking is independent audit.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

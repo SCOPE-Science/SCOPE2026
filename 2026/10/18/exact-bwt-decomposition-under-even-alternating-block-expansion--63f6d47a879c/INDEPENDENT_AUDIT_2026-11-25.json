@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:17:38.108829Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstruct the sort from the first failure of alternation: for offset t in parent block i it is at zero-based comparison position D=2h d_i−t, which lies inside the full rotation because the parent is mixed. At this position the shorter alternating prefix repeats the previous bit, while any longer one alternates. Thus for zero-starting rows odd D precedes all even D and even D sorts in descending order; for one-starting rows even D precedes all odd D and sorts in ascending order. The odd offsets have a constant predecessor in each half, so their internal order need not be resolved. For even offsets the D ranges of successive d_i layers are disjoint, and t=0 is the largest D in each layer. Aligned tied-D rows compare in parent rotation order by the first letter of the code blocks. Equal finite rotations have equal last letters, so neither parent nor child periodicity creates ambiguity. The preceding bit at t=0 is the complement of the parent predecessor, and at t>0 it is the complement of the starting bit. This gives each term of the claimed concatenation. Every indicated layer exists, and the separator lengths stay positive at h>=2, so repeating their letters does not change the number of transitions. Independent direct cyclic sorting for 001 gave 101100 and 110111010000, with four and six runs at h=1 and h=2. The supplied verifier was inspected, not run; its finite tests are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published additive-sensitivity classification compares each fixed image's run count with its input's. Each Phi_h is injective but sends the primitive letter 0 to a proper power at h>=2. The 2023 classification of exact preservation concerns equality with the input run count for all mixed words."
+        ],
+        "reasoning": "Unbounded input-to-output increase for a fixed morphism is compatible with identical output run counts across all members of this family. Neither classification specializes to the exact identity or cross-h equality.",
+        "searches": [
+          "MFCS 2025, additive-sensitivity definition, Lemma 38 and Theorem 40",
+          "CPM 2023, BWT convention, abstract and Lemma 24"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (inspected)",
+        "Resultary 0c35eb394ad7, a4a9fd29ab8d, 84b6d8bce159",
+        "CPM 2023 DOI:10.4230/LIPIcs.CPM.2023.10",
+        "MFCS 2025 DOI:10.4230/LIPIcs.MFCS.2025.49",
+        "arXiv:1510.06257",
+        "Brlek et al. institutional copy (retrieval only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact tau result gives r_BWT(Phi_1(w))=r_BWT(w)+2 and the first example in the audited record separates h=1 and h=2. The inspected general sensitivity result does not order phase offsets of rotations or compare different h. The indexed transport identities use different codewords."
+        ],
+        "reasoning": "No inspected prior result supplies the aligned-start layers together with their positive monochromatic padding for h>=2; the first-defect calculation gives that information.",
+        "searches": [
+          "CPM 2023 Lemma 24 exact identity",
+          "MFCS 2025 Lemma 38 and Theorem 40",
+          "Resultary 84b6d8bce159, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under relabeling the 2023 tau_(1,1) is precisely Phi_1. Its full formulas concern blocks a b^p and b a^q, each with only one internal transition, not (ab)^h and (ba)^h with h>=2.",
+          "The exact period-doubling entries use 01/00 rather than 01/10 or its block powers; complementing or exchanging letters preserves the distinction between a constant and an alternating image."
+        ],
+        "reasoning": "The nearby h=1 correspondence is real but excluded from the claimed invariant interval. The other exact BWT identities concern different morphisms and sometimes different domains of parent words.",
+        "searches": [
+          "Resultary: (01)^h/(10)^h alternating block expansion, cyclic BWT and run invariance",
+          "Fici–Romana–Sciortino–Urbina, CPM 2023 Lemma 24"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected indexed results include exact cyclic BWTs of period-doubling iterates, an identity for restricted parents of the period-doubling substitution, and exact transport for 010/011 and 0/01. None of these uses the alternating even block family for all mixed circular parents."
+        ],
+        "reasoning": "There is no matching formula in the checked catalogue results. The same-day item was distinguished by its actual morphism and parent domain, not by its date.",
+        "searches": [
+          "Resultary named family and exact cyclic BWT transport identity",
+          "Resultary 0c35eb394ad7, a4a9fd29ab8d and 84b6d8bce159, Findings"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete cyclic BWT transport identity for this even alternating expansion and the resulting cross-factor plateau for h>=2, not a claim about preservation relative to the unexpanded word or about the familiar h=1 substitution.",
+      "residual_risks": [
+        "Exact coverage in Brlek et al.'s unavailable primary full text remains unassessed.",
+        "The bounded search and checked passages do not certify priority against unindexed results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact for the h=1 relative and the a b^p / b a^q family, not the asserted h>=2 family",
+          "evidence": "Lemma 24 gives the transport formula and +2 runs for those two codeword forms.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2023.10",
+          "material_read": "pp. 10:4–5 BWT convention, pp. 10:10–11 Lemma 24, and abstract",
+          "method": "Bounded open-PDF passage inspection",
+          "title": "On the Impact of Morphisms on BWT-Runs",
+          "trigger": "Closest published all-mixed-word exact morphism theorem"
+        },
+        {
+          "assessment": "Different comparison quantity",
+          "evidence": "Sensitivity compares output to input; bounded additive sensitivity of injective binary morphisms is characterized by primitivity preservation.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2025.49",
+          "material_read": "pp. 49:2–3 sensitivity definition and p. 49:15 Lemma 38/Theorem 40",
+          "method": "Bounded open-PDF passage inspection",
+          "title": "Morphisms and BWT-Run Sensitivity",
+          "trigger": "General morphism-sensitivity characterization"
+        },
+        {
+          "assessment": "Algorithmic background, not a cyclic morphism identity",
+          "evidence": "R counts equal-letter runs for the BWT of the reversed text in the discussed compression problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.06257",
+          "material_read": "pp. 1–2, run statistic and terminator convention",
+          "method": "Bounded open-PDF passage inspection",
+          "title": "Computing LZ77 in Run-Compressed Space",
+          "trigger": "Cited background on BWT runs"
+        },
+        {
+          "assessment": "Precise coverage unassessed",
+          "evidence": "The frozen record characterizes it as treating selected morphic families; that secondary description is not a decisive comparison.",
+          "identifier_or_url": "https://flore.unifi.it/retrieve/e398c380-dd2e-179a-e053-3705fe0a4cff/BWT-morphism_%20Last.pdf",
+          "material_read": "No primary full-text passage recovered",
+          "method": "Bounded direct and alternate OA retrieval attempts",
+          "title": "Burrows–Wheeler transform of words defined by morphisms",
+          "trigger": "Plausible prior exact formulas for morphic words"
+        },
+        {
+          "assessment": "Different substitution and domain",
+          "evidence": "Exact recurrence and 2m−2 runs for finite iterates of 01/00.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-cyclic-burrows-wheeler-transform-of-dyadic-period-doubling--0c35eb394ad7/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Local-mirror full-text passage",
+          "title": "Exact cyclic Burrows–Wheeler transform of dyadic period doubling",
+          "trigger": "Same-day indexed exact cyclic BWT"
+        },
+        {
+          "assessment": "Different substitution and restricted parents",
+          "evidence": "01/00 on mixed circular parents avoiding cyclic 11.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-cyclic-burrows-wheeler-recursion-for-period-doubling-wo--a4a9fd29ab8d/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Local-mirror full-text passage",
+          "title": "An exact cyclic Burrows–Wheeler recursion for period-doubling words",
+          "trigger": "Indexed all-parent-type BWT recursion"
+        },
+        {
+          "assessment": "Structurally related but no equivalent claim",
+          "evidence": "Universal transport for 010/011 and 0/01, and a Chacon-iterate result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-exact-morphic-burrows-wheeler-transport-laws-and-the-complet--84b6d8bce159/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Local-mirror full-text passage",
+          "title": "Two exact morphic Burrows–Wheeler transport laws",
+          "trigger": "Indexed exact cyclic BWT identities for other uniform and nonuniform morphisms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact transform identifies which parts of the rotation order are retained and which are inflated by the alternating block length. It explains a uniform plateau across the whole morphism family despite lack of general preservation relative to the input. The mixed-word proof, including arbitrary periods, and the genuinely different h=1 boundary make this more than a run-count check on a named sequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

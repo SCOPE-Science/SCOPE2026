@@ -1,19 +1,21 @@
-# Scientific assessment: three-shock directional tail concordance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-factor tail limit follows from single dominant Fréchet shocks and vanishing double-exceedance probabilities. The conditional Pareto ratio gives the exact pairwise sign kernel. Substitution yields a complete algebraic classification for two shocks, and an exact rational three-shock witness with a nonzero exponent asymmetry. For the positive-density extension, the spectral mixing construction preserves the unit margins, directional coefficients and exponent continuity; opposite endpoint signs and a uniformly positive exponent gap ensure a nonexchangeable exact zero-difference example by the intermediate value theorem. The standard-library checker passed 6,652 exact rational assertions. The separate limiting and existence arguments are analytical, not inferred from those finite checks.
+PASS
 
-## Originality — PASS, with qualifications
+For strictly positive normalized factors, conditioning on an exceedance selects an X-shock with limiting probability p_i (or a Y-shock with q_i); joint high shocks have probability of smaller order. The radius is independent standard Pareto in the limit. For two independent radii, the Laplace law of their log ratio gives discordance probability (1-K)/2, where K=min(r_i/r_j,r_j/r_i); ties have probability zero, also at coincident slopes. The resulting ordered quadratic forms give equality for two distinct weight pairs only when a(1-a)=b(1-b), hence a+b=1, making the factors swap under relabeling; equal weights and one factor give coincident margins, and exchangeability implies equality directly. Independent rational arithmetic confirms both coefficients 16/25, chi=7/10, and unequal exponent evaluations 16/5 and 33/10 for the three-factor witness. The smooth formulas follow by conditioning the Poisson representation on a single high point: changing from radial X to radial Y gives mark law z F(dz) and reciprocal slope; other points are negligible after scaling. The given lognormal mixture preserves mean one. Bounded kernel continuity and uniform integrability of the bounded-sigma products preserve opposite endpoint signs of the contrast (-1/324,7/1620), and the intermediate value theorem gives exact equality. Uniform L1 convergence preserves the exponent gap t/3>=1/12 at sigma=0, and chi stays positive since the slopes are positive. Analyticity and strict positivity are on the open slope or angular interval, not asserted at the endpoints; the angular density is f_Z(w/(1-w))/(1-w)^3. Replay: /workspace/branches/a9ac287e-ac2c-4e9d-8bbe-3a4319edec9b/independent_exact_check.py for the exact finite witness and family points only; the limiting and minimality arguments are mathematical. Frozen checker inspected, not executed.
 
-Deidda, Engelke and De Michele (2023), Sections 2 and Appendix B, establish the directional tail coefficients and the general extremal-function formula. This review does **not** claim their coefficient, formula or exchangeability implication as new. The inspected paper presents continuous-model examples, but no finite-factor minimality theorem, explicit three-factor equal-coefficient nonexchangeable law or positivity-preserving smooth witness. Earlier max-stable spectral representation work supplies the construction, not the identified coefficient obstruction. The reviewed result distinguishes the strength of those prior statements from the new implication comparisons. Literature/database searches did not identify a directly stronger coverage claim, but these searches cannot certify global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The diagnostic was designed to reveal extremal asymmetry. This result determines a sharp point at which equality of the two directional summaries ceases to identify symmetry inside a natural max-linear family, and proves that the obstruction survives continuous spectral smoothing. The explicit rational example has substantial positive tail dependence, making it mathematically relevant as a motivated boundary rather than a tiny arbitrary numerical adjustment. The original paper only asserts the correct forward implication (exchangeable implies equal), so no contradiction with its claims is alleged.
+The coefficient definition, general extremal-function formula and standard spectral representations are credited to prior work. Distinct supported content is the sharp factor threshold under strict positivity and normalization, the finite rational witness, and exact zero directional contrast for nonexchangeable laws with strictly positive interior analytic spectra. The closest inspected sources do not establish those conclusions; the decision is limited to the evidence available.
 
-## Closest literature and limitations
+## value
 
-Deidda, Engelke and De Michele, *Asymmetric Dependence in Hydrological Extremes*, arXiv:2301.08764, DOI 10.1029/2023WR034512, Appendix B Theorem 4. Additional background: Mai, *Extreme-value copulas associated with the expected scaled maximum of independent random variables*, DOI 10.1016/j.jmva.2018.02.005. Minimality is restricted to positive normalized finite max-linear shocks. The smooth case proves existence but not a closed-form smoothing threshold. Independent historical-priority assessment and mathematical validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Population directional tail concordance is an established asymmetry diagnostic. The result distinguishes precisely when its equal values do force exchangeability in small positive max-linear models, and shows the failure is not just an atomic or support artifact. That is an interpretable limitation of a natural summary, not a claim about finite-sample power or all spectral models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

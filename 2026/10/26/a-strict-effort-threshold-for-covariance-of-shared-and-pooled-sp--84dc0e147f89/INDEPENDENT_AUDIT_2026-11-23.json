@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:36:28.295044Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any pair of species indicators, write U_j as one minus the two-survey absence indicator. The intersection of S_i=1 with U_j=0 has probability 0 for i=j and (a-b)^2 for i≠j, with a=t^n and b=((m-2)/m)^n. Thus the covariance sum is m^2 a^2(1-a)^2-m(m-1)(a-b)^2 and factors exactly as claimed. Conditioning on the first survey gives expectations (1-a)|A| and m(1-a)+a|A|; the conditional covariance is |A|(m-|A|)(b-a^2), confirming the competing signs. R_x increases strictly since z/(exp(xz)-1) decreases strictly in z>0, with a separate s=0 proof at m=2. It starts below sqrt(t) at x=1 (R_1=t) and tends to one. At integer effort R_n is rational, but sqrt((m-1)/m) cannot be rational: the coprime consecutive positive numerator and denominator would both have to be squares. For n=floor(cm), log s-log t=-1/m^2+O(m^-3), so s^n-t^n=-c exp(-c)/m+O_c(m^-2), and division by 1-s^n gives the stated expansion for R_n. Comparing the first-order coefficient to that of sqrt(t), and bracketing above and below the unique positive zero of exp(c)-1-2c, proves the sharp limit without claiming finite equality. A fresh exact occupied-mask recurrence reproduced all 25 moment comparisons for 2<=m<=6, 1<=n<=5, including covariances -1/4 and 1/64 at m=2. First-positive efforts (2,4,5,6,8,13) at the displayed community sizes and the signs through n_*+10 for 2<=m<=50 agreed. Exact Taylor bounds bracketed alpha in (1.2564312086,1.2564312087). Replay details: replays/1.md. Packaged source and output were inspected rather than executed. The documented Python 3.8 minimum is too low for int.bit_count (introduced in 3.10); this is a reproducibility note, not a mathematical defect. The finite checks do not prove the unrestricted threshold, irrationality or limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Colwell et al. analyze interpolation and extrapolation of observed richness, including unconditional variances, using one abundance or incidence reference sample. The cited public occupancy papers were retrieved through the repository content API. Their displayed main identities concern single-sample frequency classes, the occupied-indicator covariance/precision matrix, and consecutive discoveries after one shared past, respectively."
+        ],
+        "reasoning": "Ordinary marginal variances and one-survey occupancy formulas can provide building blocks. Even with the pooled marginal identified as richness from 2n draws, that does not supply its dependence on intersection or the all-m sign classification. The prior frequency-class switch varies a class index in one sample, not the common length of two samples.",
+        "searches": [
+          "Colwell et al. doi:10.1093/jpe/rtr044, author-hosted PDF; Chao et al. doi:10.1111/j.1461-0248.2004.00707.x",
+          "Frozen audit's cited SCOPE records on occupancy richness/frequency counts, occupied-box indicators and consecutive species discoveries"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1111/j.1461-0248.2004.00707.x (relevant primary passages)",
+        "doi:10.1093/jpe/rtr044 (relevant primary passages)",
+        "Published occupancy records 93dddb2be813, 0606274d4166, 4b975bda1dac (relevant RESULT.md passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former gives the incidence counts and shared/pool ratio starting point, including the identity S12/(S1+S2-S12). The latter's single-reference-sample results concern mean and uncertainty of richness over sampling effort."
+        ],
+        "reasoning": "To obtain the present switch requires the diagonal versus off-diagonal joint events from independent surveys, then a strictly increasing ratio and a first-order comparison near a moving sample-size boundary. These conclusions are not substitutions into either inspected primary result.",
+        "searches": [
+          "Chao et al. full paper, classical indices and probabilistic approach, print pp.149–151",
+          "Colwell et al. full paper, Abstract, Introduction and The Models, print pp.3–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Chao paper's A and A+B+C counts are respectively intersection and union, exactly the two counts here. Its incidence Jaccard formula takes their ratio. The general literature and Resultary calls did not complete successfully."
+        ],
+        "reasoning": "The covariance refers to the two random counts under repeated equal-effort sampling, not the bias or variance of their ratio. Conditioning on both set sizes makes union a constant minus intersection, hence yields a different covariance with always nonpositive sign.",
+        "searches": [
+          "occupancy two independent samples shared species pooled richness covariance intersection union uniform occupancy sign threshold Jaccard",
+          "Resultary: two equal uniform independent occupancy samples covariance shared richness intersection pooled richness union strict sign threshold effort 1.256431",
+          "Chao et al. doi:10.1111/j.1461-0248.2004.00707.x, incidence counts and eqs. (1)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary request failed in transport. Direct retrieval of the cited one-switch SCOPE record succeeded through the content API: it gives an exact switch across r and no integer tie for Cov(K,K_r) at fixed n,m. Chao's Table 1 is an incidence classification used to define similarity, not a table of repeated-sampling cross-covariances or thresholds."
+        ],
+        "reasoning": "An equivalent table would need to encode the bivariate support-set law, or the first positive common effort for each m. Neither the incidence table nor the frozen package's own bounded verifier supplies independent priority evidence.",
+        "searches": [
+          "Resultary: two equal uniform independent occupancy samples covariance shared richness intersection pooled richness union strict sign threshold effort 1.256431",
+          "https://api.github.com/repos/Resultary/2026/contents/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "Chao et al. Table 1 and equations (1)–(4)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the strict common-effort switch, no integer ties and its limiting threshold. The incidence observables and empty-cell indicator calculus are established tools, not independent novelty claims. Primary-text comparisons support this limited assessment; unavailable lookups do not support a claim of absence.",
+      "residual_risks": [
+        "A classical occupancy-coverage or overlapping-richness joint law could subsume the finite covariance. The still-distinct question would be the analytic all-effort switch and its limit. The unavailable general and Resultary lookups provide no negative evidence; the specific prior records above were compared directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the same counts and ratio, not the identified joint-effort threshold",
+          "evidence": "Table 1 gives A shared and B,C sample-unique counts, with denominator A+B+C. The ensuing formulas model similarity measures and normalize counts rather than computing the sign of their joint cross-effort covariance.",
+          "identifier_or_url": "https://www.robertkcolwell.org/publications/7597.pdf",
+          "material_read": "Primary PDF introduction, printed pp.149–151, Table 1, equations (1)–(4) and the probability setup following them",
+          "method": "Inspected full-text PDF at the relevant definitions and derivation",
+          "title": "A new statistical approach for assessing similarity of species composition with incidence and abundance data",
+          "trigger": "Same shared and pooled incidence counts and Jaccard ratio"
+        },
+        {
+          "assessment": "Marginal rarefaction and extrapolation, not the cross-survey overlap/pool problem",
+          "evidence": "The single reference sample and its abundance vector generate objectives for expected observed richness and its variance at different effort levels; Table 1 of the Chao paper defines a different cross-survey object.",
+          "identifier_or_url": "https://www.robertkcolwell.org/publications/6855.pdf",
+          "material_read": "Primary PDF abstract, introduction and start of The Models, especially pp.4–6 and model objectives under Individual-based data",
+          "method": "Used the author-hosted full PDF after the journal landing URL was blocked",
+          "title": "Models and estimators linking individual-based and sample-based rarefaction, extrapolation and comparison of assemblages",
+          "trigger": "Potentially stronger sample-size comparison and variance formulas in the multinomial model"
+        },
+        {
+          "assessment": "Similar phenomenon, different probability statistic and switch variable",
+          "evidence": "K_r counts bins filled exactly r times in one allocation. The threshold compares q^(n+k-1) against s^k with k=n-r; it does not separate the two colors of draws into distinct supports. The number of species shared is not determined by the uncolored pooled frequency profile.",
+          "identifier_or_url": "https://api.github.com/repos/Resultary/2026/contents/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813/RESULT.md",
+          "material_read": "Finding, scope and algebraic proof, including equation (14)",
+          "method": "Read published RESULT.md through the repository contents endpoint",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "Same uniform occupancy setting and a strict one-switch covariance law"
+        },
+        {
+          "assessment": "Supplies one-survey covariance ingredients but not the nonlinear pair's effort classification",
+          "evidence": "The off-diagonal term specializes to b-a^2; recovering the two-survey factorization requires combining independent joint terms, and the inverse-positivity statements concern a single indicator vector.",
+          "identifier_or_url": "https://api.github.com/repos/Resultary/2026/contents/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166/RESULT.md",
+          "material_read": "Finding, scope and proof of equations (1)–(6)",
+          "method": "Published RESULT.md through the repository contents endpoint",
+          "title": "Occupied-box indicators have a strictly positive precision matrix",
+          "trigger": "A general covariance formula for the indicator inputs"
+        },
+        {
+          "assessment": "Different object; on uniform species its covariance is strictly negative at all efforts",
+          "evidence": "The two consecutive discovery indicators share the initial history. The covariance is Var(M_n) minus a depletion term, with opposite signs attained by changing the probability law, not by varying a common effort for two independent surveys.",
+          "identifier_or_url": "https://api.github.com/repos/Resultary/2026/contents/2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac/RESULT.md",
+          "material_read": "Setting, identity, uniform and heterogeneous consequences, and family optimization",
+          "method": "Published RESULT.md through the repository contents endpoint",
+          "title": "Exact missing-mass covariance identity and sign reversal for successive species discoveries",
+          "trigger": "Potential sign reversal for a related repeated-sampling statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural paired-survey statistic: the covariance is the cross-term between the numerator and denominator of incidence similarity, not a marginal variance. Changing effort alone in the homogeneous baseline reverses it. A single switch with a sharp scaling constant is a structural conclusion beyond the routine indicator computation and gives a benchmark for more realistic sampling models. It does not estimate a field confidence interval or determine the behavior of the ratio itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

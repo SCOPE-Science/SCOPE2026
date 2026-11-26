@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:59:09.257498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "No composable pair means products of arrows vanish and loops are excluded. Vertex labels are independent uniform F_q² values; conditioning on them separates the arrows. Each coefficient is forced zero at equal endpoints and is uniform otherwise, by a nonzero linear functional of the independent arrow variables. On a forest, changing variables to component roots and oriented edge differences is bijective, so the full field-valued coefficients are mutually independent, including for the empty set. For arbitrary T, expanding the zero-probability product gives joint zero probability minus the product of its marginals as q^(−|T|) times the sum over F⊆T of (q−1)^|F| times [q^(−2r(F))−q^(−2|F|)]. This is nonnegative term by term and strictly positive if T contains a circuit, including two parallel edges; characteristic plays no role. The original contraction/chromatic fiber and zero specialization follow by the same equality constraints, and its forest product uses q² roots per component and q³+q²−q or q³−q lifts per edge. The original checker tests the all-zero witness rather than every entry of the product law and was inspected, not run. The independent replay and the separately run repaired checker test all marginal entries exactly over a quiver with a four-cycle, parallel edges and an isolated vertex: 22 of 32 subsets factor over 1,048,576 input pairs, exactly matching leaf pruning.",
+      "replay": "python3 reproductions/finite_review.py 3; python3 repairs/3/check_commutator_matroid.py; MATROID_FACTORISATION_OK 1048576 32 22",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both indexed November 8 Findings give the arbitrary-loopless contraction law, so they cover the original prescribed law directly. Their date labels do not adjudicate priority.",
+          "The earlier adjoint-spectrum Finding describes ranks of [a,−] and commuting-pair counts for oriented simple graphs. It does not assert a classification of subsets of output coordinates, in particular for multigraph circuits. The finite-ring paper concerns commuting probabilities and centralizers."
+        ],
+        "reasoning": "Same-algebra broader claims explain the narrowing. Graphic rank of an adjoint, the commuting-pair aggregate, and coordinate independence are not interchangeable invariants.",
+        "searches": [
+          "Resultary b7fb936d5d53 and f660f871aa43, loopless square-zero quotient full-fiber theorems",
+          "Resultary 38b9edb44d0d, graphic-matroid adjoint spectra and vertex arboricity",
+          "Dutta–Basnet–Nath arXiv:1803.04111v1"
+        ]
+      },
+      "checked_sources": [
+        "df58bc2417bb",
+        "b7fb936d5d53",
+        "f660f871aa43",
+        "75cb49b6c27d",
+        "38b9edb44d0d",
+        "f67678f3bc7e",
+        "arXiv:1803.04111v1",
+        "arXiv:math/0503607v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full fibre count implies access to all marginal distributions, and the all-zero event on T is also the commuting event in the subquiver on T. The repaired result needs the root/difference product structure for the full forest marginals and the strict termwise rank comparison on each cyclic subset.",
+          "Sokal's graph expansion identifies the equality-component sum, not the factorization or strict-failure comparison for this commutator law."
+        ],
+        "reasoning": "The surviving conclusion is a uniform graph-structural inference from, and compatible with, existing counting identities, not a claimed new numerical invariant encoded in them.",
+        "searches": [
+          "b7fb936d5d53 Finding and proof at offsets 5600–7303",
+          "Sokal arXiv:math/0503607v1, Theorem 2.3 and Eq. (2.10)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The contraction fiber expands the weighted-coloring law of assigned record 1 at t=1; no-composable-pair quivers are a subclass of its square-zero quotients. This is exact overlap, with no within-day priority inferred.",
+          "The two-graph measure is uniform on an affine binary cut space and has deterministic cycle parity. The commutator coordinates are biased even over F2 and can have full support on a cycle; their obstruction is a strict excess probability, not that affine cut-space law."
+        ],
+        "reasoning": "Neither a fiber re-encoding nor the shared graphic-matroid terminology supplies a new contribution. The remaining theorem identifies the independence matroid for a genuinely different field-valued law.",
+        "searches": [
+          "Resultary: commutator coordinates mutually independent precisely when forest graphic matroid random commutators nonzero cycle strict zero joint probability quiver square-zero",
+          "Assigned record 1 fdf58bc2417bb (source suffix df58bc2417bb); the t=1 formula",
+          "Resultary f67678f3bc7e, affine cut-space law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Kronecker count supplies exact single-pair entries on every support in the two-vertex parallel-arrow family; the broader indexed formulas supply all exact entries of the original theorem. Neither a complete table computed one graph at a time nor the checked symbolic fiber findings state the repaired structural classification."
+        ],
+        "reasoning": "To pass the repair the novelty being assessed is the classification, not an additional table entry or alternative encoding of known counts.",
+        "searches": [
+          "Resultary 75cb49b6c27d, b7fb936d5d53 and f660f871aa43 exact symbolic counts",
+          "Resultary: random commutator output independence forest"
+        ]
+      },
+      "rationale": "For the repaired claim, the distinct result is an if-and-only-if classification of full coordinate independence in this bilinear output law, with a strictly positive single-event obstruction on every cyclic subset. The single-pair prescribed law and graph partition identities are explicitly treated as existing coverage. Stronger formulas in the same algebra encode the joint distributions but require a further uniform independence argument, not a parameter restriction or statement about ranks of adjoints. Other compared results with a graphic dependence matroid use different random variables and mechanisms.",
+      "residual_risks": [
+        "Generic latent-variable or bilinear-field formulations might yield equivalent independence theorems; the primary comparisons were bounded, not an exhaustive search under all such aliases.",
+        "No chronological priority is inferred from catalogue labels."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the full frozen fiber on a broader class; no structural independence statement in the compared claim",
+          "evidence": [
+            "The number of prescribed lifts is q^m times a sum of χ values at q² over contracted zero edges."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-chromatic-commutator-length-and-tutte-fibers-of-square-zero-quiv--b7fb936d5d53",
+          "material_read": "Finding at 0–3394 and proof at 5600–7303",
+          "method": "Bounded local indexed mirror",
+          "title": "Chromatic commutator length and Tutte fibers of square-zero quiver algebras",
+          "trigger": "Same complete prescribed target law"
+        },
+        {
+          "assessment": "Complete single-pair overlap on the subclass; no within-day priority conclusion",
+          "evidence": [
+            "t=1 gives q^m times the weighted q²-color sum, whose expansion gives the frozen contraction law."
+          ],
+          "identifier_or_url": "Assigned record 1 df58bc2417bb",
+          "material_read": "RESULT.md lines 18–25 and 53",
+          "method": "Frozen statement and proof comparison",
+          "title": "Chromatic thresholds and exact additive-commutator fibers",
+          "trigger": "Same result amongst assignments"
+        },
+        {
+          "assessment": "Earlier adjoint rank and forest commuting law; not a theory of labelled output-coordinate independence",
+          "evidence": [
+            "The polynomial enumerates the ranks of a→[a,−], and the report explicitly distinguishes nonzero prescribed fibers."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d",
+          "material_read": "Finding 0–4571; prior work and limitations 8480–10544",
+          "method": "Bounded local indexed mirror",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity",
+          "trigger": "Same algebra and graphic ranks"
+        },
+        {
+          "assessment": "Different measure, deterministic cycle parity rather than strict zero-probability excess of a bilinear map",
+          "evidence": [
+            "Binary coordinates are uniform on an affine cut space and every cycle has a deterministic parity relation."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-unique-invariant-two-graph-measure-has-the-graphic-matroid-a--f67678f3bc7e",
+          "material_read": "Finding, assumptions, proof, 0–2430",
+          "method": "Bounded local indexed mirror",
+          "title": "The unique invariant two-graph measure has the graphic matroid as its dependence matroid",
+          "trigger": "Same abstract independence matroid conclusion"
+        },
+        {
+          "assessment": "Supplies well-known expansion, not commutator coordinate classification",
+          "evidence": [
+            "Theorem 2.3 and Eq. (2.10) weight subgraphs by state count to the component number."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607v1",
+          "material_read": "§2.2, pp. 4–5, offsets 11018–16170",
+          "method": "Bounded lawful OA PDF reading",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Graph expansion used to compute joint zero probabilities"
+        },
+        {
+          "assessment": "Commuting probabilities and centralizers, not output-coordinate independence",
+          "evidence": [
+            "The observable is the probability that a pair commutes in a finite ring."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.04111v1",
+          "material_read": "p. 1, abstract and introduction, offsets 0–2519",
+          "method": "Bounded lawful OA PDF reading",
+          "title": "Commuting probabilities of n-centralizer finite rings",
+          "trigger": "Finite-ring additive commutator statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired criterion determines exactly which observed subsets of a labelled random bracket have product laws, and reconstructs the graphic matroid including minimal dependence from parallel arrows and longer cycles. It distinguishes genuine mutual independence from pairwise independence (for example on a four-cycle without parallel arrows), and gives a single-event witness of failure on every nonforest. This is a useful structural reading of the commutator law, not a recomputation of the existing complete fibers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

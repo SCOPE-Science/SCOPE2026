@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:01:27.354797Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The index-two subgroup test is exact for n>=2: an S_n orbit splits iff its stabilizer is entirely even. On a rooted tree or a disjoint union, odd internal automorphisms extend and a coherent swap of two isomorphic size-m pieces has sign (-1)^m. Such internal maps and swaps exhaust the relevant permutations. On a directed cycle only rotations are induced; the least-period rotation coherently cycles t copies of a block of weight w and has sign (-1)^{w(t-1)}. Internal maps are already even, so the choice of lift cannot change the sign. Burnside and period inversion give the two weighted necklace series; uniquely remove an even repeat of a primitive necklace of odd total weight, not a necklace of odd length. The remaining connected types assemble by the stated odd/even multiplicity product. The recursion for R is well-founded by degree; n=0,1 are correctly excluded from the index-two claim. An independent exact rational partition calculation returned split counts (1,4,9,20,45,111,276,666) and totals (4,11,28,67,175,454,1227,3281) for n=2..9. Its replay is to enumerate partitions, use the number of vertices fixed by the d-th power as the choice count on each domain d-cycle, and form both signed and unsigned Burnside sums. RESULT.md proof and VERIFICATION.md/verify_parity.py were inspected; no frozen code was executed. Finite counts corroborate but are not the all-degree proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akman and Akman §2.1 describe the ordinary repeated-component wreath-product structure. In particular, this entails block swaps but does not enumerate the objects for which every vertex permutation is even."
+        ],
+        "reasoning": "The group structure is a direct input. Applying signs at the three levels and selecting primitive periods of odd weight before the final assembly is the distinct result assessed.",
+        "searches": [
+          "Functional-digraph automorphism and centralizer structure: DOI 10.3389/fams.2018.00028",
+          "arXiv:2301.04252 §4.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 04da5425c718",
+        "arXiv:2301.04252",
+        "DOI:10.3389/fams.2018.00028",
+        "arXiv:1705.06651",
+        "OEIS A001372 and exact split-term query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard index-two splitting and signed Burnside recover a signed enumeration; the component wreath-product structure supplies the component swaps.",
+          "Neither inspected restricted action yields the parity-weighted primitive necklace exclusion and nested positive product on all maps."
+        ],
+        "reasoning": "Credit the standard inputs and immediate signed count. The positive classification identifies eligible isomorphism types, information that is not supplied by the ordinary total or signed Burnside count.",
+        "searches": [
+          "DOI 10.3389/fams.2018.00028 §2.1",
+          "arXiv:1705.06651 §1",
+          "Resultary 04da5425c718"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Araújo et al. identify permutation conjugacy of transformations with functional digraph isomorphism; the inspected section contrasts this with natural semigroup conjugacy.",
+          "Bhunia et al. study z-classes of elements of permutation groups, not all self-maps under A_n.",
+          "Resultary record 04da5425c718 treats composition centralizers and unit conjugacy for maps preserving shifted two-point blocks."
+        ],
+        "reasoning": "The special-monoid and permutation-only actions do not cover the split types of all endofunctions. Translating endofunctions to digraphs is already prior work.",
+        "searches": [
+          "Resultary: alternating conjugacy of endofunctions, functional digraph centralizers and orbit splitting",
+          "arXiv:2301.04252 §4.3",
+          "arXiv:1705.06651 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001372 gives 1,1,3,7,19,47,130,343,951,2615 from n=0, the ordinary symmetric counts.",
+          "The direct OEIS split-sequence query returned ‘the terms do not match anything in the table’."
+        ],
+        "reasoning": "The known table verifies s_n rather than g_n or s_n+g_n; the failed exact-sequence match is not by itself priority evidence. The theorem is not a claim of novelty of a finite list.",
+        "searches": [
+          "OEIS A001372",
+          "https://oeis.org/search?q=1%2C4%2C9%2C20%2C45%2C111%2C276%2C666"
+        ]
+      },
+      "rationale": "Pass the nested parity-restricted classification and positive enumeration, not ordinary functional-digraph automorphism descriptions, unsigned counts, or the signed Burnside formula by itself. The strongest inspected prior results provide structural inputs rather than the parity restrictions and their positive enumeration.",
+      "residual_risks": [
+        "An equivalent signed-species construction or alternating-endofunction orbit sequence under different terminology could be indexed elsewhere; the inspected passages do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different action and objects",
+          "evidence": "Special monoid preserving cyclically shifted two-point blocks; classifies composition centralizers and unit conjugacy, not even automorphisms of arbitrary functional graphs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-cyclic-block-transformation-centralizers-rank-transfer-and-homom--04da5425c718",
+          "material_read": "RESULT.md opening finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local index and mirror reading",
+          "title": "Cyclic-block transformation centralizers (published record)",
+          "trigger": "Closest thematic indexed comparison"
+        },
+        {
+          "assessment": "Prior representation equivalence",
+          "evidence": "Permutation conjugacy of transformations is characterized by their extended functional digraph isomorphism; ordinary isomorphism for full self-maps.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.04252",
+          "material_read": "§4.3 p.26 equation (4.3), Lemma 4.25",
+          "method": "OA PDF passage inspection",
+          "title": "Conjugacy in Semigroups: the Partition and Brauer Diagram Monoids, Conjugacy Growth, and Partial Inner Automorphisms",
+          "trigger": "Transformations up to relabeling"
+        },
+        {
+          "assessment": "Structural ingredient, not parity enumeration in the inspected passage",
+          "evidence": "Product of wreath products of the component automorphism groups with symmetric groups on identical copies.",
+          "identifier_or_url": "https://doi.org/10.3389/fams.2018.00028",
+          "material_read": "§2.1 p.4 automorphism decomposition",
+          "method": "OA full-text passage inspection",
+          "title": "Spectral Functional-Digraph Theory, Stability, and Entropy for Gene Regulatory Networks",
+          "trigger": "Potentially broader functional-digraph automorphism theorem"
+        },
+        {
+          "assessment": "Permutation-only coverage",
+          "evidence": "Studies conjugacy classes of centralizers of group elements in symmetric and alternating groups, not conjugation on the full transformation monoid.",
+          "identifier_or_url": "https://arxiv.org/abs/1705.06651",
+          "material_read": "Abstract and opening of §1",
+          "method": "OA PDF passage inspection",
+          "title": "z-Classes and Rational Conjugacy Classes in Alternating Groups",
+          "trigger": "Alternating class splitting and centralizers"
+        },
+        {
+          "assessment": "Known symmetric orbit count only",
+          "evidence": "Matches s_n, lacks the alternating restriction; the separate exact split-term query gave no table match.",
+          "identifier_or_url": "https://oeis.org/A001372",
+          "material_read": "Description and initial term table",
+          "method": "Public database passage inspection",
+          "title": "Number of unlabeled mappings (mapping patterns)",
+          "trigger": "Exact count comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural index-two refinement of endofunction isomorphism has a usable local-to-global criterion and an exact positive algorithm in every degree. It identifies which structures split and where an odd automorphism can arise, rather than just giving a numerical difference of signed sums. This is a modest structural enumeration, not an asymptotic theorem or novelty for signed Burnside.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

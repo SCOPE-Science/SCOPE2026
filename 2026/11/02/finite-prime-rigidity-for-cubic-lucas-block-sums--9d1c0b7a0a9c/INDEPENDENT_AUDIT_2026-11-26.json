@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:38:38.355365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Adjacent window differences give D_k|E_k with second endpoint constant 27. For even k the Lucas state (x,y)=(L_{k+1},L_{k+2}) lies on y²-xy-x²=5: this quadratic form reverses sign under the recurrence. If p≡2 mod 3, cubing is injective; for p≡1 mod 3 write (x,y)=(ω^i,3ω^j). Independently reducing the conic defect in the basis (1,ω), the four conjugacy representatives (i,j)=(0,1),(1,0),(1,1),(1,2) give coefficient pairs (-15,-12),(5,-2),(-10,-5),(-7,10), with norms 189,39,75,219. Their only relevant prime divisors in the split case are 7,13,73 (p=5 belongs to the injective case). Thus outside the stated bad set the endpoint roots are 1 and 3, and the other factors of the cube differences are units mod p, yielding the same endpoint congruences mod p^e. The linear recurrence yields a return to (2,1) mod p^e. Direct substitution gives H(u,v)-H(v,u+v)=2v³, so every window sum is zero mod p^e. The monic polynomial formed from the Binet cubic roots is (T²-4T-1)(T²+T-1), justifying the exact four-window gcd. Fresh integer recurrence and gcd of the four literal windows give (D,E)=(2,28),(1080,28080),(3571,260683) at k=6,24,34. Independent modular recurrence gives state return (2,1), zero endpoint differences, and base window residues 3,4,11 respectively modulo 7,13,73; period sums vanish by telescoping. This verifies the infinite witness progressions, without asserting optimality at 2 or 3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md Finding of 69a597e844e9 gives the exact same Lucas D_{2m} via the corresponding Fibonacci gcd; fe3115d40daa gives the factor-five relation for all window lengths."
+        ],
+        "reasoning": "These broader computations of D_k cover that quantity, not the ratio to E_k. The square and linear results use different powers; none of these statements compares the cubed endpoint gcd at all prime powers.",
+        "searches": [
+          "Resultary exact even-window cube-sum GCDs record 69a597e844e9 and five-adic transfer record fe3115d40daa",
+          "Literature search and inspection of the linear and square generalizations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "Resultary records 69a597e844e9, fe3115d40daa, and indexed 33ac01ab56d0",
+        "arXiv:2204.12626 and arXiv:2104.12262"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known linear gcd is gcd(L_{k+1}−1,L_{k+2}−3), whereas over a split prime the cubic gcd also admits nontrivial cubic roots. The four nonzero norms of conic defects select 7,13,73 in the split case."
+        ],
+        "reasoning": "Even knowing D_k exactly and knowing the linear endpoint formula does not mechanically exclude the extra endpoint roots or prove their exceptional progressions. The norm obstruction and lifting solve this additional comparison.",
+        "searches": [
+          "Guyer–Mbirika Corollary 3.3",
+          "Exact D_k Resultary finding 69a597e844e9",
+          "Frozen conic and prime-power steps, RESULT.md lines 51–113"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 6.1 discusses cubes conjecturally and prints L_{k+2}³−9 for its endpoint comparison, not L_{k+2}³−27.",
+          "Guyer–Mbirika gives the uncubed endpoint differences in the first-power problem."
+        ],
+        "reasoning": "The claim compares valuations of the cubic-window gcd and the actual cube differences, for all even lengths. A conjecture involving a different constant, or equality from uncubed windows, is not equivalent.",
+        "searches": [
+          "Resultary search for cubic Lucas window gcd and endpoint comparison",
+          "Literature search for cubic Lucas window gcd with two endpoint cube differences and finite prime support",
+          "Mbirika–Spilker arXiv:2204.12626 §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older Resultary finding gives an exact formula for D_k, and a distinct same-day indexed result (33ac01ab56d0) also advertises exact even-length cube-window gcds; neither retrieved finding nor summary establishes the E_k/D_k comparison. The printed cubic conjectural data do not establish a valuation theorem with the corrected endpoint."
+        ],
+        "reasoning": "Do not count the D_k census or a finite numerical instance as novel. The supported new exact fact is the prime support theorem and the infinite witnessed exceptions, which no located table supplies.",
+        "searches": [
+          "Resultary semantic search for exact Lucas cube-window gcds and endpoint excess primes",
+          "Full-text Finding of record 69a597e844e9 and its endpoint lookup",
+          "Mbirika–Spilker §6.1 data and conjectures"
+        ]
+      },
+      "rationale": "Exact formulas for D_k and a universal five-adic transfer for window gcds already exist. Credit originality only for the comparison with the genuine cube-difference endpoint gcd E_k, notably the uniform support restriction on E_k/D_k and the three infinite obstruction classes. The strongest known window formulas alone do not control the extra roots of the cubed endpoint residues.",
+      "residual_risks": [
+        "Exact full text of indexed 33ac01ab56d0 was unavailable; further coverage cannot be inferred or ruled out from its summary.",
+        "The comparison does not certify historical priority or a minimal exceptional set at 2 and 3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of D_k, not the cube-difference valuation comparison",
+          "evidence": [
+            "G_L(2m)=5^{1_{2|m}}G_F(2m), with explicit G_F(2m) in terms of F_m or L_m."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-even-window-cube-sum-gcds-for-fibonacci-and-lucas-numbers--69a597e844e9",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0; endpoint literal locate",
+          "method": "Local mirror original text",
+          "title": "Exact even-window cube-sum GCDs for Fibonacci and Lucas numbers",
+          "trigger": "Exact same cubic Lucas gcd in the same even-length regime"
+        },
+        {
+          "assessment": "Window-gcd relation, not endpoint comparison",
+          "evidence": [
+            "H_L(k)=5H_F(k) if 4|k and H_L(k)=H_F(k) otherwise."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-five-adic-transfer-law-for-cubic-lucas-and-fibonacci-window-gc--fe3115d40daa",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local mirror original text",
+          "title": "A five-adic transfer law for cubic Lucas and Fibonacci window gcds",
+          "trigger": "Broader exact relation between the same window gcds"
+        },
+        {
+          "assessment": "Apparent D_k overlap; cannot decide any further E_k coverage from summary or date",
+          "evidence": [
+            "Index reports exact even-length cubic-window gcd formulas for Fibonacci and Lucas numbers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-even-window-gcds-of-fibonacci-and-lucas-cubic-windows--33ac01ab56d0",
+          "material_read": "Index summary only; original RESULT.md unavailable in local mirror",
+          "method": "Resultary indexed summary and exact-path local mirror retrieval attempt",
+          "title": "Exact even-window GCDs of Fibonacci and Lucas cubic windows",
+          "trigger": "Distinct indexed record about the same D_k"
+        },
+        {
+          "assessment": "Squares proved; different cubic endpoint conjecture",
+          "evidence": [
+            "The cubic Lucas conjectural expression contains L_{k+2}³−9."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "§6.1, Question 6.1, pp. 13–14, offsets about 49900–54626",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Closest earlier paper explicitly posing cubic Lucas gcd endpoint questions"
+        },
+        {
+          "assessment": "First-power theorem, not a cube-root obstruction",
+          "evidence": [
+            "The Lucas linear-window gcd is gcd(L_{k+1}−1,L_{k+2}−3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.12262",
+          "material_read": "Theorem 3.1 and Corollary 3.3, p. 10, offset about 26000",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+          "trigger": "Same Lucas windows with a linear endpoint formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The question is motivated by a prior attempt to replace an infinite family of consecutive cube sums by two endpoint differences. The theorem measures exactly where that shortcut is reliable prime-adically, uniformly in even length, and proves that three surprising exceptional primes cannot be eliminated by ignoring small initial lengths. This remains useful information about the endpoint surrogate even given an exact formula for the window gcd itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

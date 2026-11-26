@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:20:35.726927Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–40 and 44–124; VERIFICATION.md lines 19–23; checker.py inspected, not executed",
+        "Wiykiynyuy–Ekuri–Leplat arXiv:2605.26260v1 Algorithm 1 and §3.1; opened original HTML around offset 14400 as well as the primary PDF sections cited under originality",
+        "Independent dyadic replay at a=1/2, k=11, theta=1/4: for states X/D,V/D step to numerators 2(X+V), S_D(2V+(1-k)(X+V)) over 4D. This reproduces the antipodal cycle (1/2,-3/2) ↔ (-1/2,3/2), dead-zone hitting and decay from (1/64,1/64), and (1,1) -> (1,-17/4) -> (-13/8,23/4) -> (33/16,-115/16) on the escape ray."
+      ],
+      "rationale": "Source Algorithm 1 allows positive h and alpha; gamma_0=h gives gamma_n=h and equal couplings a=alpha/(1+alpha). Its deterministic quadratic-plus-L1 update is the stated soft threshold. Near zero the proximal input lies strictly in the dead zone, and once v=0 and x sufficiently small, x is multiplied by b on each further step. Globally the threshold subtracts a bounded perturbation of magnitude at most theta from the smooth linear update. The smooth determinant is b^2, with trace 2b+a^2(1-k); the Schur inequalities reduce to 1-b^2, a^2 k, and a^2(k_*-k) all positive, so summable powers and bounded input give all-start boundedness below k_*. An antipodal orbit forces v=-c x and, after selecting x>0 by oddness, the active threshold equation a(k-k_*)x=theta. It has the unique positive solution exactly in the supercritical regime. On the positive-sign cone x>=X and v=-cx-w, w>=0, the explicitly positive input gives x^+=-x-aw and w^+=a(k-k_*)(x-X)+(b^2+a^2(k-k_*))w. The sign-reversed cone follows by oddness. The two-dimensional displacement matrix has strictly positive entries and characteristic polynomial negative at 1. Every nonzero nonnegative displacement thus has a positive Perron projection with expanding eigenvalue >1 and its x-displacement grows exponentially. On the prescribed diagonal x_0=v_0=R, x_1=R and the negative active threshold yields v_1=(1-ak)R+theta<-cR for the stated R; ak_*-2/a=2b^2/a>0. This verifies entry with nonzero displacement and alternating divergence.",
+      "residual_risks": [
+        "Uniqueness covers antipodal cycles only; the equality k=k_* is not classified. Subcritical boundedness is not subcritical global convergence. Not all supercritical diagonal starts escape.",
+        "The all-start result analyzes the recurrence as a two-state map, while above-threshold escape is also proved from the source-prescribed diagonal. Only this scalar deterministic constant-parameter setting is at issue."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prox-NAG-GS Theorem 1 needs h>=L, only k<=1 here. NAG-GS's general nonsmooth convergence theorem uses decreasing steps, evolving damping, and a stochastic-oracle condition. Parikh–Boyd's proximal acceleration uses a one-step extrapolation and a Lipschitz-restricted step for its stated objective bound. Full FISTA text was inaccessible through the attempted routes."
+        ],
+        "reasoning": "A sufficient guarantee over a smaller region does not control the supercritical fixed-parameter iteration. A bound for an accelerated step of a different map or an evolving-parameter iteration cannot imply this exact threshold and invariant cone without a matched map and assumptions.",
+        "searches": [
+          "Prox-NAG-GS Theorem 1 and Remark 1; NAG-GS Theorem 4.2; Parikh–Boyd §§4.2–4.3; Beck–Teboulle DOI 10.1137/080716542"
+        ]
+      },
+      "checked_sources": [
+        "Frozen citations and the primary passages and Resultary findings named in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matched smooth Schur criterion is 4+4alpha+alpha^2(2-k)>0, equivalent to k<1+((2-a)/a)^2. The smooth recursion has no proximal dead zone; the sufficient composite convergence result stops at k=1. ProxSPS proves a convergence threshold and cycles for its quadratic-regularized scalar scheme; the projected method proves finite antipodal latency followed by entry and convergence."
+        ],
+        "reasoning": "The subcritical bounded-input argument builds directly on the known smooth criterion. Neither that criterion nor the distinct nonlinear mechanisms determines the coexistence of the locally stabilized origin, the antipodal soft-threshold orbit and an open ray of escaping prescribed starts above the frontier. Those results require the new active-branch and cone analysis, not a changed representation of a smooth counterexample.",
+        "searches": [
+          "arXiv:2209.14937v3 quadratic Theorem 3.1 and arXiv:2605.26260v1 Theorem 1; Resultary eb8a64761b00 and ef8bda818026 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Positive algorithm parameter h need not equal the scalar curvature in Algorithm 1; gamma_0=h makes the frozen recurrence exactly the deterministic constant-damping map. The smooth NAG-GS mode matches when its two damping parameters equal h, and its smooth Heavy-Ball reformulation matches iterates for the specified initialization. The equivalence is smooth, not a nonlinear soft-threshold equivalence."
+        ],
+        "reasoning": "Credit the known smooth frontier and the parameter correspondence. They do not produce a locally attracting fixed point on the unstable side or a threshold-dependent nonzero cycle, both of which vanish as this positive regularizer is removed. The NAG-GS theorem identifies its curvature notation with a minimum eigenvalue; the comparison where h differs from the scalar objective curvature is at matrix level, not an unrestricted invocation of that theorem.",
+        "searches": [
+          "arXiv:2605.26260v1 Algorithm 1 and §3.1, arXiv:2209.14937v3 Algorithm 1, equations (8)–(9), Theorem 3.1",
+          "Resultary scalar piecewise-affine proximal/inertial antipodal cycles, soft-threshold escape"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a0ce65708c0d is the self-match. The closest nonidentical scalar composite threshold is the ProxSPS record eb8a64761b00 with a quadratic penalty and constant cap. The same-day ef8bda818026 uses a ball indicator and adaptive projected-gradient steps; a44cebf0485b uses proximal nonlinear conjugate gradient with a soft threshold."
+        ],
+        "reasoning": "No inspected distinct exact entry classifies the same map. Cycle shape alone does not identify an equivalent recurrence; the cap, indicator, or accepted conjugate-gradient iterate changes the state and active pieces. The same-day record was compared on mathematics, not presumed priority.",
+        "searches": [
+          "Resultary: scalar composite flip thresholds, Prox-NAG-GS escape, soft-threshold cycles and exact antipodal dynamics",
+          "Resultary eb8a64761b00, ef8bda818026, a44cebf0485b original findings"
+        ]
+      },
+      "rationale": "The map is from source Prox-NAG-GS and its linear Schur inequality matches the smooth NAG-GS mode, which are both prior inputs. The supported distinct claim is a nonlinear local-versus-large-start split across that frontier for positive L1, with an exact finite-amplitude antipodal cycle in its stated class and diagonal escape. The closest inspected scalar bifurcation records concern other maps, and the closest method theorems cover a smooth mode or a stricter sufficient composite convergence range, not the nonlinear claims here.",
+      "residual_risks": [
+        "Earlier analyses of equivalent piecewise-affine inertial maps may be unindexed, and the cited FISTA full text was inaccessible on attempted routes. No exhaustive priority finding is claimed.",
+        "The smooth Schur threshold itself is prior; the tested novelty is the specified nonlinear phase separation and explicit geometry within this scalar recurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms recurrence and permitted parameters; convergence theorem insufficient for nonlinear sharp frontier",
+          "evidence": "v_0=x_0 and positive parameters; gamma_0=h sets constant damping; the linear rate theorem assumes h>=L.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.26260v1",
+          "material_read": "Algorithm 1 p. 6, OA PDF offset 17440; §3.1 pp. 6–7, offset 20250; Theorem 1 p. 14 offset 39700 and Remark 1 p. 15; original HTML offset 14400 onward",
+          "method": "OA PDF and HTML original passages",
+          "title": "Prox-NAG-GS: A Semi-Implicit Proximal Method for Composite Optimization",
+          "trigger": "Defines exact recurrence, parameters and source diagonal start"
+        },
+        {
+          "assessment": "Same smooth modal Schur condition after matching parameters; not an L1 escape theorem",
+          "evidence": "Quadratic criterion 4gamma+2alpha(gamma+mu_alg)+alpha^2(2mu_alg-L)>0; Heavy-Ball equivalence for smooth iterates; different hypotheses in nonsmooth analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.14937v3",
+          "material_read": "Algorithm 1 pp. 4–5, Eqs. (8)–(9) p. 6, Theorem 3.1 p. 7, Theorem 4.2 pp. 12–13",
+          "method": "OA primary PDF passages",
+          "title": "NAG-GS: A Semi-Implicit Stochastic Optimizer with Large-Step Stability",
+          "trigger": "Nearest smooth quadratic stability result and possible equivalent inertial method"
+        },
+        {
+          "assessment": "Standard proximal-gradient acceleration uses a different step",
+          "evidence": "Extrapolation with a step no greater than 1/L in its guarantee.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/prox_algs.html",
+          "material_read": "§4.2 p. 151 and §4.3 p. 152",
+          "method": "Open primary monograph passages",
+          "title": "Proximal Algorithms",
+          "trigger": "Classical proximal and inertial updates potentially covering the scalar case"
+        },
+        {
+          "assessment": "Inaccessible on attempted routes; not used to assert prior coverage or its absence",
+          "evidence": "No accessible full text through these attempts; comparison based on inspected proximal acceleration references, not a FISTA whole-paper assertion.",
+          "identifier_or_url": "https://doi.org/10.1137/080716542",
+          "material_read": "No primary full-text passage on checked routes",
+          "method": "Lawful SIAM PDF and DOI access attempts",
+          "title": "A Fast Iterative Shrinkage-Thresholding Algorithm for Linear Inverse Problems",
+          "trigger": "Cited classical extrapolated proximal method"
+        },
+        {
+          "assessment": "Distinct method and regularizer",
+          "evidence": "ProxSPS with constant cap, quadratic regularizer and starts in [0,1]; threshold and post-threshold cycle are not a soft-threshold cone for NAG-GS.",
+          "identifier_or_url": "2026/10/27/SCOPE-sharp-scalar-flip-threshold-and-nonvanishing-cycles-for-composit--eb8a64761b00",
+          "material_read": "Original RESULT.md Finding (and scalar scope)",
+          "method": "Resultary and local mirror original passages",
+          "title": "Sharp scalar flip threshold and nonvanishing cycles for composite ProxSPS",
+          "trigger": "Closest scalar composite flip scenario found"
+        },
+        {
+          "assessment": "Different dynamics and outcome",
+          "evidence": "Adaptive projected gradient with a ball indicator; exact duration of boundary flips before entry and convergence.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-boundary-flip-latency-for-a-gradient-mapping-adaptive-prox--ef8bda818026",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary and local mirror original passages",
+          "title": "Exact boundary flip latency for a gradient-mapping adaptive proximal method",
+          "trigger": "Same-day exact result on antipodal proximal updates"
+        },
+        {
+          "assessment": "Different proximal nonlinear conjugate-gradient update",
+          "evidence": "The proximal point is zero but accepted iterates leave a nonzero geometric tail; no equivalent NAG-GS escape cone or antipodal cycle.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-soft-threshold-bypass-and-geometric-non-identification-in--a44cebf0485b",
+          "material_read": "Original RESULT.md Finding",
+          "method": "Resultary and local mirror original passages",
+          "title": "Exact soft-threshold bypass and geometric non-identification",
+          "trigger": "Related L1 scalar threshold dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and invariant cone argument; original Prox-NAG-GS Algorithm 1 and convergence theorem; smooth NAG-GS quadratic criterion for baseline"
+      ],
+      "rationale": "A canonical scalar strongly convex quadratic with positive L1 exposes an optimizer-specific failure mode: local exponential attraction across the entire parameter range coexists with exponentially escaping admissible starts beyond a sharp frontier. The cycle amplitude, exact invariant cone and prescribed diagonal starts make this a reusable stability benchmark; it is stronger than a matrix-instability example with unrestricted momentum initialization or a numerical observation.",
+      "residual_risks": [
+        "No characterization of critical or general supercritical trajectories, multidimensional behavior, or stochastic performance is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

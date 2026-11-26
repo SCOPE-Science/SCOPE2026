@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:07:30.169850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the mean-zero subspace the gap is the minimum of linear Rayleigh objectives. Averaging over shifts, reflection and the cycle-interchanging automorphism gives an optimizer with weights u,v and budget 10u+5tv=1. The zero-frequency eigenvalues are 0 and 2v; the other four Fourier blocks share eigenvalues 5u/2+v±sqrt(v²+5u²/4). Thus at ratio r=v/u the active eigenvalue is 2v for r≤1 and the lower Fourier eigenvalue for r≥1. With N(r)=5/2+r−sqrt(r²+5/4), the derivative on the second branch has sign D=(2+tr)N'−tN; D'=(2+tr)N''<0, D(1)=(2−5t)/3 and D(∞)=−5t/2. The first branch strictly increases, the endpoints u=0 and v=0 disconnect, and the unique symmetric optimum is r=1 for t≥2/5, otherwise the root of D=0 at r>1. The positive radical branch satisfies the unsquared equation because 2r−5t/4>0 in its applicable range. I separately checked the radical identity, frontier value, t=1/5 and small-price expansion with symbolic arithmetic (/workspace/independent_checks.py, petersen). For any asymmetric optimizer, equality of averaged Rayleigh quotients forces its Laplacian to agree with the symmetric one on the symmetric optimum's four nonconstant Fourier Fiedler modes (also present at the fivefold degeneracy). For the difference of weights, the k=1 outer imaginary equation makes all outer differences a common A; k=1 and k=2 outer real equations with swapped positive amplitudes p,q cancel the spoke difference and force (pα+qβ)A=0. Since p≠q, each spoke difference vanishes. The k=1 inner imaginary and real equations then make all inner differences constant and zero. Averaging alone would not establish uniqueness; these equations do. All weights are positive and the gap multiplicity is four below and five at and above the frontier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first gives the general total-weight algebraic-connectivity SDP/embedding framework. The second fixes both intralayer Laplacians. The third concerns spectra and expansion of unweighted generalized Petersen graphs."
+        ],
+        "reasoning": "The fixed-layer model omits the budget tradeoff between cycle and matching edges. General framework or unweighted spectral data do not supply the scalar two-branch optimization or equality conditions on all fifteen edges.",
+        "searches": [
+          "Göring–Helmberg–Wappler, Embedded in the Shadow of the Separator, optimization model",
+          "arXiv:1510.06785v1, maximization over interlayer conductances",
+          "arXiv:1412.3531v1, generalized Petersen spectrum"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.11758v1 and journal listing DOI 10.1002/jgt.23229",
+        "arXiv:0709.0955v1",
+        "Optimization Online 2005/09/1202",
+        "arXiv:1510.06785v1",
+        "arXiv:1412.3531v1",
+        "Resultary local mirror d9373cd674f6, 24216ca23b99, d6d4c674f892 and 6851c82f7d36"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The uniform-sum result does not hold the same linear functional fixed when t≠1. The generalized Petersen asymptotic design excludes n=5. The metric Poincaré problem varies a spoke conductance, not a price with simultaneous cycle reallocation."
+        ],
+        "reasoning": "The concrete additional steps are determining which Fourier mode limits the gap under the priced budget, finding the sign transition at t=2/5, and proving edgewise equality from the Fiedler constraints. In particular an existence result from symmetry averaging cannot imply uniqueness; the rigidity argument rules out nonsymmetric optima even at the frontier.",
+        "searches": [
+          "Conformally Rigid Graphs, normalization and Example 4.9",
+          "Embedded in the Shadow of the Separator, allocation constraint",
+          "Resultary generalized Petersen spectral design and spoke-weighted Petersen Poincaré law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd et al. optimize discrete-time SLEM and obtain 2/7 for transition probability and 3/7 for SLEM on the Petersen graph.",
+          "Steinerberger–Thomas establish a uniform-sum optimum, which after rescaling gives this problem's t=1 optimal value 2/15."
+        ],
+        "reasoning": "SLEM includes the opposite spectral endpoint and has stochasticity constraints, so it is not this λ2 maximization. Uniform-sum conformal rigidity is a genuine specialization at equal prices only, not a threshold or a result about equality for every t≥2/5.",
+        "searches": [
+          "arXiv:0709.0955v1, fastest mixing with symmetries and Petersen §3.3.2",
+          "arXiv:2402.11758v1, conformal rigidity and Petersen Example 4.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d9373cd674f6 gives a five-cycle frontier at 16 with nonunique maximizers at equality; 24216ca23b99 gives a distinct wheel spoke-price result with a rim-deletion frontier.",
+          "d6d4c674f892 has n≥13 and equal prices, not GP(5,2). The Petersen-specific 6851c82f7d36 uses fixed rim conductances and a first-power metric Poincaré objective."
+        ],
+        "reasoning": "No inspected indexed theorem shares the graph, objective, price budget, and free variables of the frozen statement. Distinct near matches were excluded by mathematics, not by catalogue date.",
+        "searches": [
+          "Resultary: priced Petersen spectral gap, spoke price frontier, fastest-mixing price transition and generalized Petersen spectral design"
+        ]
+      },
+      "rationale": "The exact heterogeneous-price frontier and rigidity over arbitrary conductances are distinct from the known equal-price optimum, discrete-time Petersen result, and neighboring graph examples. No inspected stronger theorem directly yields the frozen classification. The unweighted spectrum and SDP framework are not asserted as original.",
+      "residual_risks": [
+        "The journal full text of Conformally Rigid Graphs was inaccessible; the accessible v1 supplies the exact equal-price comparison, not comprehensive historical priority.",
+        "One additional exact-title lookup was not completed and gives no negative evidence. A specialized historical treatment of weighted Petersen gaps may exist outside the inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact optimal-value overlap for uniform price only; the example does not state the priced frontier or full edgewise uniqueness",
+          "evidence": [
+            "The constraint is positive weights with sum |E|. Example 4.9 establishes Petersen conformal rigidity via edge transitivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.11758v1",
+          "material_read": "Definition and Example 4.9, HTML offsets 383–1883 and 66474–69898",
+          "method": "Lawful arXiv primary HTML; journal copy returned HTTP 403",
+          "title": "Conformally Rigid Graphs",
+          "trigger": "Exact Petersen graph and optimized Laplacian gap"
+        },
+        {
+          "assessment": "Discrete-time rather than the stated continuous-time objective",
+          "evidence": [
+            "SLEM is minimized, with α*=2/7 and μ*=3/7 on Petersen."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0709.0955v1",
+          "material_read": "Objective at HTML offset 3716 and Petersen §3.3.2 at offset 41544",
+          "method": "Lawful arXiv primary HTML",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact graph in a fastest-mixing optimization"
+        },
+        {
+          "assessment": "Covers a general unpriced framework, not inspected evidence of a priced Petersen optimizer",
+          "evidence": [
+            "The design varies nonnegative weights with bounded total weight and maximizes λ2."
+          ],
+          "identifier_or_url": "https://optimization-online.org/2005/09/1202/",
+          "material_read": "PDF pp. 3–4, abstract and model in introduction",
+          "method": "Lawful primary PDF linked from Optimization Online",
+          "title": "Embedded in the Shadow of the Separator",
+          "trigger": "General gap-maximization method and dual geometric embeddings"
+        },
+        {
+          "assessment": "Nearby allocation problem with fixed within-layer weights",
+          "evidence": [
+            "Budget and design variables apply to interlayer edges; intralayer Laplacians are prescribed."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1510.06785v1",
+          "material_read": "Introduction and Eqs. (2)–(4), HTML passages around offsets 2327–8936",
+          "method": "Lawful primary arXiv HTML",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Matching links connecting two layer graphs under a budget"
+        },
+        {
+          "assessment": "Unweighted spectral information, not priced optimization; the frozen bibliography abbreviates the title inaccurately, but identifies the correct arXiv record",
+          "evidence": [
+            "The work studies spectrum and expansion of unweighted generalized Petersen graphs."
+          ],
+          "identifier_or_url": "arXiv:1412.3531v1",
+          "material_read": "Abstract and introduction",
+          "method": "Lawful arXiv primary version",
+          "title": "A Note on the Spectrum and Expansion of Generalised Petersen Graphs",
+          "trigger": "Generalized Petersen spectra, including the graph family at issue"
+        },
+        {
+          "assessment": "None covers this two-price, quadratic continuous-time optimization on GP(5,2)",
+          "evidence": [
+            "Five-cycle exceptional edge, wheel spoke/rim budget, n≥13 equally priced generalized Petersen graph, and fixed rims with first-power metric objective, respectively."
+          ],
+          "identifier_or_url": "Resultary IDs ending d9373cd674f6, 24216ca23b99, d6d4c674f892, 6851c82f7d36",
+          "material_read": "Findings and problem assumptions in the matching local-mirror records",
+          "method": "Local Resultary mirror",
+          "title": "Exact price transition for fastest mixing on a five-cycle; quadratic spoke-price frontier for fastest mixing on wheels; two-scale spectral-gap design on generalized Petersen networks; nonlinear Poincaré law for spoke-weighted Petersen",
+          "trigger": "Strong nearby index results for the same pricing concept or graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The heterogeneous budget poses a natural optimizer-design question for a standard nontrivial graph. The answer identifies a plateau of identical edge weights despite unequal prices, a precise onset for favoring cheaper spokes, and positive uniquely determined weights everywhere. Establishing uniqueness rather than existence of a symmetric solution matters for interpreting this as a design rule and requires a graph-specific equality analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

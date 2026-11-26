@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:39:57.465534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every aaa requires two loop steps. For any distinct unordered pair, the two opposite-center palindromes require two separate consecutive equal-label adjacencies; its label is not the entire circle, so at least three occurrences are necessary. The resulting undirected closed-walk degrees have odd baseline at every vertex for even q. Extra loops cannot change parity, so at least q/2 extra nonloop edges are required. At equality each vertex must meet exactly one such edge, and there is no loop excess. For odd q there is no parity excess and equality forces every lower bound individually. For either parity a looped complete graph (augmented by any perfect matching for even q) is connected Eulerian; the first traversal of each pair expands to three alternations without changing endpoints, and a loop expands to two loop steps. This gives every required window, exact multiplicities and attainment of every stated profile, including q=2. The iff is explicitly among covers. `python3 /workspace/review-evidence/reproduce.py 4` independently verifies minima 8, 15 and 28 by finite state BFS starting at a completed compulsory 000 and checking both cyclic wrap windows; this does not prove the general formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mucha formulates the unrestricted linear shortest-superstring problem and studies approximation. Kapun–Tsarev treat de Bruijn required subwalks with prescribed multiplicities and note a postman reduction for single-edge reads. Chen–Kitaev–Sun require exactly-once universal coverage in a deletion setting."
+        ],
+        "reasoning": "None of these inspected results supplies a sharp all-alphabet length for the sparse cyclic required-arc set with extra non-required factors permitted, nor forces the equality profile.",
+        "searches": [
+          "Mucha arXiv:1205.6787, p. 1",
+          "Kapun–Tsarev DOI 10.1186/1471-2105-14-S5-S7, p. 1",
+          "Chen–Kitaev–Sun arXiv:1908.01116, pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 18d0cf3a4b8f",
+        "Resultary 11abece62ea8",
+        "arXiv:1205.6787",
+        "arXiv:1908.01116",
+        "DOI 10.1186/1471-2105-14-S5-S7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The parity proof of the matching later record forces equality at each vertex and hence a perfect matching when q is even. Known universal-cycle existence statements forbid the filler windows needed here, and the postman formulation does not determine the edges used by each optimum."
+        ],
+        "reasoning": "The later proof covers even the profile implication, while the older inspected statements leave both the exact value and the equality case to be proved for this family.",
+        "searches": [
+          "Resultary 18d0cf3a4b8f Finding and parity proof",
+          "Chen–Kitaev–Sun arXiv:1908.01116 definition and Tables 1.1–1.3",
+          "Kapun–Tsarev DOI 10.1186/1471-2105-14-S5-S7, Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the directed de Bruijn graph on length-two words the required arcs are precisely ab→ba, including aa→aa; minimizing a closed walk covering them is a required-arc postman formulation.",
+          "The later catalogue Finding requires the same q² palindromes and gives exactly 3 binom(q,2)+2q or 3 binom(q,2)+5q/2, with the same Euler-tour augmentation."
+        ],
+        "reasoning": "The graph reduction identifies relevant algorithmic ancestors but does not give the formula on its own. The later catalogue is a direct mathematical match under the same cyclic conventions, independently of how it is dated.",
+        "searches": [
+          "Shortest cyclic covers of all length-three palindromes (Resultary 18d0cf3a4b8f)",
+          "Kapun–Tsarev, DOI 10.1186/1471-2105-14-S5-S7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later Resultary entry has the exact all-q formula. The same-day ternary catalogue entry has minima 66 and 68 for length-five palindromes, not this length-three family. The universal-cycle tables summarize existence probabilities for binary deletion cases rather than lengths of the required covers."
+        ],
+        "reasoning": "Only the explicitly dated later record establishes an exact match among the checked catalogues and tables; neither the parameter-mismatched catalogue entry nor the tables dominate this result.",
+        "searches": [
+          "Resultary 18d0cf3a4b8f and 11abece62ea8",
+          "Chen–Kitaev–Sun arXiv:1908.01116, Tables 1.1–1.3"
+        ]
+      },
+      "rationale": "The exact all-q length formula and matching Euler construction are duplicated in the dated 2026-11-22 catalogue record 18d0cf3a4b8f, and its proof yields the same parity equality profile. This is equivalent mathematical coverage, not merely a similar title and not present-day novelty relative to that record. It is dated later than the frozen finding's 2026-11-02 record; it does not supply evidence that the frozen claim was already known on its record date. The inspected earlier results give general formulations or different covering objectives, not this exact solution or its rigidity. This is a qualified assessment at the frozen record date, not a historical claim about who first found the theorem.",
+      "residual_risks": [
+        "The later catalogue match means the mathematical result is not unique in the present catalogue; the recorded dates do not identify the first discovery.",
+        "Anisiu–Anisiu–Kása and the Simpson repository lead yielded no usable full text; older palindrome or exact postman literature could contain an equivalent solution. Deferred searches are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mathematical coverage in a later dated record",
+          "evidence": "Identical odd/even lengths and matching augmentation; the parity equality case forces exactly one extra incidence per vertex.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-shortest-cyclic-covers-of-all-length-three-palindromes--18d0cf3a4b8f",
+          "material_read": "RESULT.md Finding at offset 0 and parity proof",
+          "method": "Bounded local published-mirror reading",
+          "title": "Shortest cyclic covers of all length-three palindromes",
+          "trigger": "Exact catalogue title and same target language"
+        },
+        {
+          "assessment": "Different target language and size",
+          "evidence": "27 five-letter targets abcba, minima 66 cyclic and 68 linear.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-ternary-length-five-palindromic-covers-66-cyclic-and-68-li--11abece62ea8",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local published-mirror reading",
+          "title": "Exact ternary length-five palindromic covers",
+          "trigger": "Same-day catalogue entry on shortest palindrome covers"
+        },
+        {
+          "assessment": "Framework, not an exact cyclic solution",
+          "evidence": "Minimizes length of a linear string containing input substrings, with general approximation bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.6787",
+          "material_read": "p. 1, definition and approximation discussion, around offsets 545 and 2831",
+          "method": "Bounded OA PDF text",
+          "title": "Lyndon Words and Short Superstrings",
+          "trigger": "General shortest-superstring framework"
+        },
+        {
+          "assessment": "Related graph framework, different multiplicity problem",
+          "evidence": "Prescribed traversal multiplicities; the short one-edge-read variant connects to Chinese postman, not this cyclic palindrome formula.",
+          "identifier_or_url": "https://doi.org/10.1186/1471-2105-14-S5-S7",
+          "material_read": "p. 1, definition and Introduction",
+          "method": "Bounded OA PDF text",
+          "title": "De Bruijn Superwalk with Multiplicities Problem is NP-hard",
+          "trigger": "Required de Bruijn arcs and postman reduction"
+        },
+        {
+          "assessment": "Different window and optimization requirements",
+          "evidence": "Each word of the specified language occurs exactly once; tables concern existence probabilities for binary deletion cases.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01116",
+          "material_read": "pp. 1–2 around offsets 3000–3731; p. 3 around offset 6300, Tables 1.1–1.3",
+          "method": "Bounded OA PDF text",
+          "title": "On the probability of existence of a universal cycle or a universal word for a set of words",
+          "trigger": "Universal cyclic words and published exact tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The target language is the full, natural length-three palindrome family. The theorem gives the exact sampling budget for cyclic coverage and a rigid adjacency-count classification, including a parity correction that is necessary and sufficient. Knowing only that an Euler tour exists or knowing the minima for a few alphabet sizes does not recover those facts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

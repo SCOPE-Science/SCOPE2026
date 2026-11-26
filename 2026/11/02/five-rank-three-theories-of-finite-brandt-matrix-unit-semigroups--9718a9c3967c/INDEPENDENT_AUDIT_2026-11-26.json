@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:32:54.636584Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–58",
+        "Frozen VERIFICATION.md and verify_boundary.py, verify_direct.py, verify_orbits.py with recorded outputs",
+        "/workspace/branches/independent_checks.py"
+      ],
+      "rationale": "The four boundary sentences have ranks 1, 2, 3, 3. Nonzero idempotents are exactly e_ii, and a nonzero unit has one or two endpoint idempotents detectable by the stated atoms. Thus the covers in the last three sentences exist exactly for n <= 2, 3, 4, respectively; e_12 squares to zero when n >= 2, giving the first cutoff. For the tail, copy all coordinate equalities of the first two moves. Copy exactly on the last move whenever the total is at most five indices (including when the move introduces two fresh indices to a prefix with at most three). Otherwise the three edges have six distinct endpoints, and the last edge can reuse a previous row as its row while keeping a fresh column: row and column sets remain disjoint. The new edge is distinct, and every product of the three units, including squares, is zero. This preserves all multiplication and equality atoms including those with named zero, in either play direction. It proves the infinite tail, independently of any enumeration. Representation sizes are n^2+1. Independent replay: `python3 /workspace/branches/independent_checks.py 5` computes rank-three types directly from finite multiplication tables for n=1..6, returning five distinct initial types and equality at 5 and 6. The frozen three checkers and recorded outputs were inspected, not executed.",
+      "residual_risks": [
+        "The independent computation is bounded. This audit concerns the specified relational signature and rank, not unrestricted sentences, other coefficient groups, extra symbols, or machine-formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simultaneous index-permutation automorphisms are prior; they give coordinate orbits but not equality of coarser rank-three types across sizes.",
+          "A coordinate-copy tail from n >= 6 alone leaves the 5-versus-6 step unresolved.",
+          "Universal Horn/variety correspondence and identity bases answer different questions in different languages."
+        ],
+        "reasoning": "The unbounded-depth three-variable tail at six does not by itself imply equivalence between sizes five and six at rank three. Its separate rank-three slice directly overlaps but is identified as previously established. Neither the infinite categoricity theorem nor the identities results supplies the necessary sharp finite step.",
+        "searches": [
+          "arXiv:1802.05703 §4",
+          "arXiv:0907.2634 §2",
+          "arXiv:1906.08175 §1",
+          "Resultary c12bac962fc1, finding and proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records c12bac962fc1 and bb69dd96b8bd",
+        "arXiv:1802.05703",
+        "arXiv:0907.2634",
+        "arXiv:1906.08175"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The triangular semigroups have no nonzero idempotent endpoints and cannot supply these cover sentences.",
+          "The later Brandt comparison states the same cutoff at rank three but distinguishes 5 and 6 at rank four.",
+          "Automorphism orbits and infinitary categoricity do not distinguish the requisite finite EF types."
+        ],
+        "reasoning": "There is direct statement-level coverage in the later comparison, with explicit attribution to an already established rank-three result, not evidence of a distinct earlier theorem that subsumes the frozen claim. The same-day triangular theorem does not imply it.",
+        "searches": [
+          "Resultary bb69dd96b8bd, finding and relationship section",
+          "Resultary c12bac962fc1, rank refinements and relationship section",
+          "Gould–Quinn-Gregson arXiv:1802.05703 §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A trivial-group Rees matrix semigroup with identity sandwich matrix gives exactly these matrix units.",
+          "Resultary c12bac962fc1, Relationship to prior work, expressly identifies rank-three cutoff five for the same finite Brandt family."
+        ],
+        "reasoning": "The later record's rank-three assertion is the same partition: at rank three each active branch needs at most three variable names. Arbitrary-depth three-variable equivalence is not an alias for rank three and separates 5 from 6.",
+        "searches": [
+          "Resultary: Brandt matrix units, named zero relational multiplication, quantifier rank three and finite-variable EF",
+          "Primary literature: matrix units, Brandt elementary equivalence, Rees matrix semigroups and Ehrenfeucht–Fraïssé"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c12bac962fc1 contains the same rank-three partition as well as higher-rank refinements. Its comparison section credits previously established cutoff five.",
+          "Resultary bb69dd96b8bd tabulates nine classes for strictly upper-triangular units, not B_n."
+        ],
+        "reasoning": "Distinguish exact later recapitulation from a pre-existing independent census. Same signature or similar tabulation is insufficient if the underlying semigroup family differs.",
+        "searches": [
+          "Resultary finite rank-three Brandt types, matrix units and three-variable rank refinements",
+          "Primary literature searches for finite Brandt/Rees EF cutoffs"
+        ]
+      },
+      "rationale": "The distinct supported claim is the exact finite unrestricted-variable rank-three partition in the zero-named ternary relational language. A later Resultary extension directly repeats that partition and explicitly treats cutoff five as previously established; its new cutoff six is for three reusable variables at arbitrary depth. This is real overlap, not evidence of an earlier independent covering result. The same-day strictly upper-triangular result uses a different family with no nonzero idempotents. The closest inspected primary results concern automorphisms/categoricity and algebraic identities/varieties, not the claimed finite rank threshold.",
+      "residual_risks": [
+        "The later Resultary text does not specify the exact source of the prior rank-three comparison. Unindexed earlier equivalent results remain possible; the search is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap at rank three; the distinct unbounded FO³ theorem is not equivalent. The direct overlap is credited as prior in that later record, without a precise ID for the credited result.",
+          "evidence": "Relationship section: ‘The previously established rank-three comparison for these same finite Brandt semigroups has cutoff five’; rank four distinguishes index sizes five and six.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-six-mathrm-fo-3-theories-of-finite-brandt-matrix-unit-semigroups--c12bac962fc1/RESULT.md",
+          "material_read": "Finding, rank refinements, relationship to prior work (offsets 0–7606 and 7750–10135)",
+          "method": "Indexed record followed by bounded local-mirror text inspection",
+          "title": "Six FO³ theories of finite Brandt matrix-unit semigroups",
+          "trigger": "Same family and signature, overlapping cutoff claim"
+        },
+        {
+          "assessment": "Different semigroups; no implication of the Brandt cutoff.",
+          "evidence": "Only e_ij with i<j are present. The relationship section distinguishes the full Brandt case, which permits idempotents.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-nine-rank-three-theories-of-finite-strictly-upper-triangular-mat--bb69dd96b8bd/RESULT.md",
+          "material_read": "Finding offsets 0–2964; relationship and limitations offsets 6100–8557",
+          "method": "Indexed record followed by local-mirror text inspection",
+          "title": "Nine rank-three theories of finite strictly upper-triangular matrix-unit semigroups",
+          "trigger": "Same language and rank, plausible overlapping family"
+        },
+        {
+          "assessment": "Coordinate-permutation framework, not sharp finite EF comparison.",
+          "evidence": "Theorem 4.2 and Proposition 4.3 in the inspected version describe automorphisms and countable categoricity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.05703",
+          "material_read": "PDF p. 15, section 4, automorphism and categoricity statements (accessible preprint numbering)",
+          "method": "Public original preprint via OA reader",
+          "title": "ℵ₀-categoricity of semigroups",
+          "trigger": "Direct model theory of Brandt semigroups"
+        },
+        {
+          "assessment": "Different logical invariant and extra operation; no finite rank-three cutoff established by inspected results.",
+          "evidence": "Universal Horn class versus semigroup variety results with unary reversion.",
+          "identifier_or_url": "https://arxiv.org/pdf/0907.2634",
+          "material_read": "Abstract and introduction p. 1; adjacency/reversion discussion p. 8",
+          "method": "Public original preprint via OA reader",
+          "title": "The algebra of adjacency patterns: Rees matrix semigroups with reversion",
+          "trigger": "Related trivial-group Rees semigroups and a logical correspondence"
+        },
+        {
+          "assessment": "Identity bases, not finite relational quantifier-rank classes.",
+          "evidence": "The stated problem is identities for Brandt semigroups over groups of finite exponent.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.08175",
+          "material_read": "Abstract and §1, PDF pp. 1–2",
+          "method": "Public original preprint via OA reader",
+          "title": "Identities in Brandt Semigroups, Revisited",
+          "trigger": "Earlier structural classification of Brandt logical identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §Proof",
+        "Resultary c12bac962fc1 §Relationship to prior work"
+      ],
+      "rationale": "A sharp logical cutoff for the whole matrix-unit family is useful for comparing finite semigroup presentations at bounded relational depth. It improves on the naive six-index copying bound and explains exactly which coordinate coincidence a rank-three observer cannot see. The four distinct lower boundaries and infinite tail make this more than a finite type tally.",
+      "residual_risks": [
+        "Value is specific to this natural family and language; no claim of a general semigroup rank classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim includes all target residues and all powers \(3^k\), not only an image count. The polynomial's three input residue balls are disjoint by their output residues. The \(x=3u\) ball gives exactly three preimages per target in \(9\mathbb Z_3\). Each nonzero ball reduces to \(u^2(u+1)\), whose two simple residue balls each contribute one root at a finite level, while the critical ball is analytically conjugate to the square map. The factors of nine and three in the fiber formula account for unused input digits, and the standard square-root count gives the stated maxima and maximizing residues. The replayed `verify.py` compared 29,773 targets, exhaustively at every level through \(3^9\), plus selected deeper levels. The proof, rather than enumeration, covers every \(k\ge1\). Residual correctness risk: no independent proof review; the explicit 3-adic square-root conjugacy is the critical lemma.
+## correctness
 
-## Originality — PASS, with bounded priority risk
-The 2021 finite-field Dickson work (arXiv:2103.09119v1) treats field image sizes and residue sums. Shang (arXiv:2310.20226v1) gives maximal image-size bounds over prime-power rings, not a fixed cubic's fiber census. The 1991 Galois-ring Dickson paper's Theorem 5 assumes the target output has nonzero discriminant modulo \(p\); at \(p=3\), this covers \(y\equiv0\pmod3\) and excludes the two singular branches whose preimage counts are classified here. Its Theorem 11 provides exceptional-branch image bounds, not the present all-target fibers. The public 2026 image-set note already gives the thirteen residue classes modulo 81; the public 2026 iteration-depth note gives first-hit times. Neither prior statement provides the square-root-valued fiber multiplicities or alternating extremal targets. Direct claim and equivalence searches found no more encompassing exact preimage formula. Risks: the 1991 full text was read in a lossy public transcription; uncatalogued earlier equivalents remain possible.
+PASS
 
-## Value — PASS
-The known value set answers which outputs occur but does not say how many inputs each receives. The exceptional ternary Dickson cubic has two Hensel-simple preimage branches overlapping a critical square branch, giving a nonuniform family of multiplicities that changes sharply with precision. The theorem resolves that natural deficiency for every modulus and target and identifies the sharp worst collision and its unique two exceptional targets, including a parity switch. This is a complete local fiber classification, not a change of normalization, a short finite table, or an arbitrary parameter slice.
+For x=3u, f(x)=9(3u³−u); the divided difference of 3u³−u is a unit, so the branch bijects after reducing precision by two, and the original fiber has three lifts. On x=±(1+3u), the factorization f(x)+2=(x−1)²(x+2) and oddness give the reflected outputs ±(−2+27u²(u+1)). At k≤3 each signed branch collapses to its corresponding target. For k≥4 the quotient has precision m=k−3, leaving nine lifts. Modulo three the u=1 and u=−1 balls give the two simple branches onto t=2 and 0 respectively. On u=3v the output quotient is 9v²(1+3v); the unique square root s(v)≡1 mod 3 has s(v)−s(w) divisible by 3(v−w), so v↦vs(v) preserves every congruence distance and thus permutes each residue ring. This yields three lifts per square root after reducing from precision m−1 to m−2, and literal collapse for m=1,2. Dividing a nonzero square target of valuation 2j by 3^(2j) gives two simple unit roots and 3^j lifts each; zero has 3^floor(r/2) roots. For even r=k−5 the unique square-root maximizer is zero; for odd r it is 3^(r−1), translating back to the two stated shifted targets. The image check follows because each signed branch has exactly the two simple target classes modulo three and the critical image adds none. Independently enumerated all 265,719 targets through k=11, comparing the direct polynomial histogram with the square-normal form and checking the displayed peak locations and counts at both parities.
 
-## Scope, closest literature, and residual limitations
-Primary MSC: 11C08. Earliest dated lead: arXiv:2103.09119v1, posted 2021-03-16; the complementary prime-power-ring source arXiv:2310.20226v1 was posted 2023-10-31. The public 2026 value-set and first-hit-depth notes and the 1991 Dickson paper are closest for nontrivial implications; they were compared at the statement and proof-hypothesis level. The theorem does not extend to arbitrary Dickson degrees or primes. Its finite verification is not an independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exceptional ternary, target-by-target one-step fiber law and its exact sharp maximizers. The thirteen-class image is established coverage, and the same map's depth census is a different invariant. An older primary Galois-ring paper remains a material unverified priority risk, not evidence of either equivalence or absence.
+
+## value
+
+PASS
+
+The prime equals the degree and both nonzero classes are singular; image-size bounds and the simple branch do not control concentration. The formula gives exact local preimage counts at every precision, including peak sizes of order 3^(k/2) and the alternating locations of those peaks. This is a usable invariant for counting solutions of a natural exceptional congruence or analyzing the pushforward of uniform measure, beyond recomputing a known image size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite directed graph and its positive weights are explicit. Each non-root vertex has exactly two parent options; three of the eight assignments are cyclic and the remaining five are enumerated with their exact product weights. This gives the normalization, root-path probabilities, and common-ancestor probability by a complete finite proof. The independent support law is normalized and leads algebraically to the stated quotient. Its divergence and the unique failure interval follow by examining a rational function and a strictly decreasing cubic. The standalone exact-arithmetic program reproduces the finite calculations; its finite parameter checks are not used as a substitute for the symbolic all-parameter proof.
+PASS
 
-## Originality — PASS, subject to priority risk
+The four-cycle through r proves strong connectivity on the same seven positive arcs for every z>0. Of the eight nonroot parent assignments, two close b↔x and one closes b→x→y→b. The five remaining assignments (parents of b,x,y in that order) are (r,b,r), (r,b,b), (r,y,r), (r,y,b), (x,y,r), of weights z²,z³,z,z²,1. The second alone has off-diagonal LCA b; the first, second and fourth contribute to x's ancestor probability, and the second and fourth to y's. Thus with Z=1+z+2z²+z³ the probabilities Hx,Hy,a are z²(z+2)/Z,z²(z+1)/Z,z³/Z. The stated law gives f(x)Hx=f(y)Hy and the diagonal LCA events are zero, so the iid ratio is a/(2HxHy)=Z/[2z(z+1)(z+2)]. Its small-z divergence is 1/(4z); subtracting the denominator from the numerator gives 1−3z−4z²−z³, strictly decreasing from 1 to −∞. Exact substitution at 1/8 gives Hx=17/593, Hy=9/593, a=1/593, and ratio 593/306. All identities follow from the complete symbolic enumeration; the frozen seventeen-parameter checker was inspected, not run or relied on.
 
-Cai (2026), Theorem 1.1 and its proof, applies to undirected product-weighted spanning trees and uses graphic-matroid log-concavity. The fixed-graph family here is directed and has an unbounded quotient, so it is neither an application of that theorem nor a disguised undirected corollary. Published work on negative association for undirected forests, on other directed reachability models, and on random recursive trees describes different measures or observables. Targeted searches for the precise directed ancestor comparison and its aliases found no covering statement, but absence from searches is not a proof of absolute priority; general results in directed branching theory remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural boundary question raised by a recent structural theorem: can its quadratic inequality survive loss of edge symmetry? The answer is decisively negative, not merely a change of the optimal constant: no finite universal directed factor works, even with four vertices and strong connectivity. An exact inequality threshold and a rational witness make the boundary sharp and directly reusable when considering directed analogues of spanning-tree and loop-erased-path estimates.
+The supported distinct claim is unbounded failure at fixed size under arbitrary positive asymmetric arc weights, not an undirected result or priority for general failures of negative dependence. The closest source controls the same observables on weighted undirected trees only. No inspected result covers this directed witness or implies the unbounded LCA ratio on a fixed strong digraph.
 
-## Nearest work and scope
+## value
 
-Gefei Cai, *A Quadratic Ancestor Inequality for Spanning Trees*, arXiv:2610.22180v1 (Theorem 1.1, undirected); G. R. Grimmett, *Negative association in uniform forests and connected graphs* (2004, undirected, abstract inspected). No conclusion is claimed for reversible directed networks; other unindexed directed-tree results may bear on priority. The scientific assessment is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A four-vertex construction with an exact divergence rate answers a natural robustness question for a structural undirected ancestor inequality. It rules out every graph-independent multiplier, not just the original constant, even under strong connectivity. The witness is useful when deciding which hypotheses directed analogues need; the finding does not assert minimal size or address reversible subclasses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: two-patch symmetry breaking
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact mean/difference transformation converts equilibrium into a sum constraint and a secant-slope constraint. Strict concavity of the Beverton–Holt survival map proves every positive asymmetric equilibrium straddles the isolated-patch equilibrium and has strictly less biomass. The inequality \(	anh z<z\) and an exact two-offset comparison exclude all asymmetric equilibria at and below the threshold \(ku=1\). The continuous secant quotient has endpoint values zero and \(ku\), so the intermediate value theorem produces reflected asymmetric equilibria at every \(ku>1\). An analytic implicit-function reduction yields a positive cubic coefficient \(eta\), a supercritical pair of nearby branches, and multipliers inside the unit disk near onset. The extinction Jacobian has constant spectral radius \(T>1\). The included standard-library checker validates the rational example and five near-onset equilibria; it is not the basis of the infinite proof.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-The fully inspected 2024 density-dependent metapopulation paper supplies general existence/persistence theory but does not derive this precise identical-patch global bifurcation threshold, dual branch and biomass deficit. The inspected generalized dispersal paper treats continuous time rather than the specified discrete map. Related abstract pitchfork results for periodic integrodifference operators and the available abstracts on density-dependent migration or continuous-time biomass do not directly imply this statement; their common methods are acknowledged. Search by ecological terms, logistic emigration, homogeneous patches, exact pitchfork thresholds, density-dependent migration, and biomass uncovered no matching statement in the reviewed material. The complete text of some older plausible comparisons could not be examined. Noncoverage is a best-knowledge assessment, not an independent priority guarantee.
+PASS
 
-## Value — PASS
-The model has biologically admissible positive and density-decreasing dispersal between two otherwise identical populations. The theorem exposes a sharp loss of spatial agreement *without any change in the linear invasion threshold*, a stable inhomogeneous branch for sufficiently small supercritical emigration steepness, and a strict total-biomass cost at every asymmetric equilibrium. Global existence and exclusion on opposite sides of the same threshold materially strengthen local pitchfork calculations, and provide a clean boundary for metapopulation interpretations.
+For the stated identical Beverton–Holt map write h(z)=Tz/(1+z), H(z)=h(z)tanh(k(z-u)), u=T-1. The sum equation at any asymmetric positive fixed point forces x>u>y after swapping; strict Jensen gives m=(x+y)/2<u. Then t=u-y>s=x-u>0, so h(x)s+h(y)t=u(s+t)+s²/(T+s)-t²/(T-t)<u(s+t). Using tanh(v)<v rules out the stationary difference when ku≤1, including equality. For every ku>1 solve the sum equation for x(y)>u on 0<y<u; the difference quotient tends to 0 and ku at the endpoints, so crosses 1. The analytic mean equation gives m=u-d²/(uT)+O(d⁴) and the odd difference equation has a positive cubic saturation beta=(1/3+(u+2)/T²)/u². On the emerging pair the critical eigenvalue is ku-3 beta d²+O(d⁴)=1-2(ku-1)+O((ku-1)²): the off-diagonal coupling contributes h''(u)H''(u)/(1-1/T) to the d² coefficient, equal to -2H''(u)/(uT), in addition to the diagonal term. The other eigenvalue stays near 1/T. The symmetric multipliers are 1/T and ku; at extinction constant column sums and positivity give spectral radius T. No nonlinear stability at equality, uniqueness of a remote pair, or stability for every ku>1 is inferred. RESULT.md §§1–6 checked; verify.py and VERIFICATION.md inspected, not executed. Their finite parameter checks are not used to prove the threshold.
 
-## Sources and limitations
-McGrane-Corrigan, Mason, de Andrade Moral, arXiv:2405.04505, sections 2–5 and numerical examples (full HTML inspected); Tromeur, Rudolf, Gross, arXiv:1305.2769, modeling and linear-stability discussion (HTML inspected); Aarset–Pötzsche, DOI 10.3934/dcdsb.2020231 (theorem and model summaries inspected); Silva–de Castro–Justo, DOI 10.1006/bulm.2000.0221 (abstract only); O’Connell–Wang, DOI 10.3934/dcdss.2024165 (abstract only). The inaccessible primary texts leave residual priority uncertainty. Proof does not establish global basins, all remote equilibrium counts or stability at the exact critical point.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The best available catalogue and literature comparisons establish the broader model class, existence or persistence, and other biomass or pitchfork phenomena, not the exact all-k threshold for asymmetry in this same map. The spectral-radius identity, Jensen argument and local pitchfork machinery are not claimed as independent advances. The distinct claim assessed is the sharp global boundary for strictly positive asymmetric equilibria, with the stable local branches and their biomass deficit.
+
+## value
+
+PASS
+
+The sharp all-parameter equilibrium boundary (including the neutral endpoint), stable nearby nonuniform states, and strict biomass loss together distinguish mechanisms that an extinction-based persistence criterion cannot see. In particular, below-threshold global exclusion and above-threshold existence at arbitrarily large k are not a routine local pitchfork calculation. This is a useful exact benchmark for discrete density-dependent dispersal, not a generic claim about ecosystems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

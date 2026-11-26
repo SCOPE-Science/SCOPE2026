@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:04:25.286241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent reproduction computed exact integer binomial sums at each of 19 odd primes through 71 and t=3,4,5 (57 cases). All sums are zero modulo p² and have nonzero residues modulo p⁴. Normalized residues give valuation 2 except at 7 and 71, where the p³ units are respectively 1 mod 7 and 5 mod 71 for all three truncations. To extend to every t>=5, write A_t-A_5=p^5 h with h a nonnegative integer. For 1<=j<=K<p², the identity j*binom(p^5 h,j)=p^5 h*binom(p^5 h-1,j-1) puts every j>0 Vandermonde term at 0 mod p⁴; the zero shift is trivial. Thus the nonzero residues mod p⁴ certify exact orders and nonzero S at every t>=3, not just sampled t. At t=2 complementary binomial terms cancel, so it must remain excluded. The repaired RESULT.md qualifies the nonliteral zero-digit specialization of González and supplies the correct prior implication from Ichino–Prasanna: the same Vandermonde polynomial identity at the p-adic shift p^t/2, with p-integrality of each binomial polynomial and v_p(j)<=1, transfers the p² layer from -1/2 to A_t. No theorem, range, or residue was changed. Replay: /workspace/branches/e388a124-0a48-4ac4-b16f-a293c5ef6921/{check_record3.py,check_record3.out}. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ichino–Prasanna Theorem 3.1 works for all digit depths and establishes p^n divisibility of the corresponding p-adic sum.",
+          "González gives the analogous finite-truncation divisibility; the required digit zero is allowed in §1.1 but not by a literal reading of ‘positive even integers’ in Theorem 2.4."
+        ],
+        "reasoning": "At two digit positions n=2, these statements give only p². Taking n=3 would change the number and indices of the terms, not strengthen the same four-term residue. The repaired prior discussion establishes the baseline without making the disputed literal substitution.",
+        "searches": [
+          "Ichino–Prasanna arXiv:2503.20727v1, digit choice definition and Theorem 3.1",
+          "González arXiv:2609.36109v1, §1.1, Theorem 2.4 and Corollary 2.6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2503.20727v1",
+        "arXiv:2609.36109v1",
+        "Resultary 5bfb1fd719eb",
+        "doi:10.1007/s10587-013-0064-7 (access attempt)",
+        "Wolstenholme and Morley, Primes and Pseudoprimes (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.1 plus the shift p^t/2 gives the generic lower bound at all t>=3 but no upper bound on valuation.",
+          "For p>=5, set X=2^(p−1)=1+p q, B=(p−1)/2, H=(p²−1)/2 and let C_K=binom(−1/2,K). Morley gives C_B≡X mod p³. Jacobsthal scaling of binom(p(p−1),pB) gives C_(pB)≡X^(2−p). In the product for (−1)^H binom(p²−1,H), the factors at multiples of p give X² by Morley, and the others give 1−p² H_B since complete residue blocks have reciprocal sum zero mod p. Dividing by 4^H gives C_H≡X^(1−p)(1−p² H_B). Hence the p-adic sum is p²(q²−2q) mod p³, using H_B≡−2q mod p. To transfer this layer at t=3, in the signed Vandermonde expansion only j=pr>0 can contribute mod p³; the two surviving coefficients at lower indices p(B−r) and p(B−r)+B agree mod p by Lucas (lowest digit of −1/2 is B). For t>=4 the transfer is immediate. The p=3 residue is directly checked."
+        ],
+        "reasoning": "This comparison credits both the direct prior p² implication and substantial classical input to the next layer. The classical mod-p³ combination only establishes extra divisibility, not the p⁴ residues at its zeros. The final exact valuation pattern requires the computations modulo p⁴ and the separate stability argument. No checked prior supplies that remaining exact information.",
+        "searches": [
+          "arXiv:2503.20727v1 Theorem 3.1 and digit definition",
+          "arXiv:2609.36109v1 Corollary 2.6",
+          "Classical Morley, Jacobsthal binomial scaling, and half-harmonic congruences (independent statement-level derivation)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite replay agrees with S_p(t)/p² = q_p(2)(q_p(2)−2) mod p; this also has a standard half-harmonic expression using H_(p−1)/2 = −2q_p(2) mod p.",
+          "The catalogue lead 5bfb1fd719eb counts minimum valuations of individual restricted binomial coefficients in rows N=p^s+p^t, not valuations of a signed sum.",
+          "The targeted primary Fermat-quotient leads did not yield readable passages linking the signed sum to a high-order congruence."
+        ],
+        "reasoning": "The first extra layer has a real Fermat-quotient formulation, independently justified below. It does not express the exact order where it vanishes. Individual coefficient valuations cannot classify the extra cancellation in a signed sum.",
+        "searches": [
+          "Resultary: exact valuations, signed two-digit binomial supercongruence, exceptional primes 7 and 71",
+          "Fermat quotient search via 2^(p−1) ≡ 1+2p (mod p²)",
+          "Congruences involving the Fermat quotient, doi:10.1007/s10587-013-0064-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No authenticated matching table of the signed sum's exact orders was found. The directly computed Fermat-quotient table for odd p<=71 has q_p(2)=2 at 7 and 71 and no q_p(2)=0.",
+          "Wolstenholme and Morley, Primes and Pseudoprimes was a search lead, not an inspected table; the located link could not be opened."
+        ],
+        "reasoning": "A table of q_p(2) mod p could identify the first two primes with extra divisibility using the equivalence, but cannot exclude p⁴ dividing the sum at those primes or establish the normalized p³ units and their uniformity. No credit is claimed for tabulating the Fermat quotients themselves.",
+        "searches": [
+          "Resultary 5bfb1fd719eb and nearby two-digit sharpness records",
+          "Fermat quotient q_p(2)=2 search using the congruence 2^(p−1) ≡ 1+2p (mod p²)"
+        ]
+      },
+      "rationale": "The generic p² layer is covered and is not a novel component. The supported remaining contribution is the exact finite-prime sharpness classification, including the exact order at the two exceptional primes uniformly in truncation length. Neither known divisibility at other digit depths nor a table of Fermat quotients alone gives these exact orders.",
+      "residual_risks": [
+        "An inaccessible or uncatalogued exact higher-order congruence may overlap the repair. The bounded comparison cannot exclude such a source.",
+        "Fermat-quotient tables can cover identification of the primes with extra divisibility after the mod-p³ reduction, but the checked table is independently computed and does not supply the exact p³ orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers baseline by shift, not exact valuations",
+          "evidence": [
+            "Digits are 0 or p−1; the theorem uses upper argument −1/2−i and modulus p^n. At n=2, i=0 the signed lower indices are 0, B, pB, H."
+          ],
+          "identifier_or_url": "arXiv:2503.20727v1",
+          "material_read": "PDF pp. 2, 4 (digit definition), 7 (Theorem 3.1; text offset 24240 onward)",
+          "method": "OA PDF located bounded passages",
+          "title": "Representations of GL2 over Z/p^n Z and congruences for binomial coefficients",
+          "trigger": "Exact relevant signed p-adic sum at digit depth two"
+        },
+        {
+          "assessment": "Compatible finite-truncation baseline subject to a zero-digit wording qualification",
+          "evidence": [
+            "Theorem 2.4 says positive even integers a,b with 0<=a<b; Corollary 2.6 explicitly inherits its assumptions and gives modulus p^n. The n=2, i=0 specialization needs a=0."
+          ],
+          "identifier_or_url": "arXiv:2609.36109v1",
+          "material_read": "§1.1 and PDF pp. 5–6, 8 (Theorem 2.4 at offset 17430, Corollary 2.6 at 31686)",
+          "method": "OA PDF located bounded passages",
+          "title": "A q-analogue of a binomial supercongruence",
+          "trigger": "Direct finite-truncation formula claimed as prior"
+        },
+        {
+          "assessment": "Different invariant and binomial rows",
+          "evidence": [
+            "It treats minimum valuations and multiplicities of individual coefficients in rows N=p^s+p^t."
+          ],
+          "identifier_or_url": "Resultary 5bfb1fd719eb (2026/10/13)",
+          "material_read": "Catalogue statement describing the coefficients and row parameters",
+          "method": "Local Resultary retrieval",
+          "title": "Exact minimum valuation multiplicities in restricted two-digit binomial rows",
+          "trigger": "Same-date restricted two-digit valuation comparison"
+        },
+        {
+          "assessment": "Unresolved possible overlap; not negative evidence",
+          "evidence": [
+            "No readable decisive passage was obtained."
+          ],
+          "identifier_or_url": "doi:10.1007/s10587-013-0064-7",
+          "material_read": "Lead only; article text not obtained",
+          "method": "OA access attempt; timeout/redirect",
+          "title": "Congruences involving the Fermat quotient",
+          "trigger": "Plausible stronger higher-order harmonic congruence"
+        },
+        {
+          "assessment": "No scientific statement from the paper verified",
+          "evidence": [
+            "The destination rejected retrieval; no table content was inferred from the title."
+          ],
+          "identifier_or_url": "Title located by congruence-form literature search",
+          "material_read": "Search lead only",
+          "method": "OA attempt on located Citeseerx destination",
+          "title": "Wolstenholme and Morley, Primes and Pseudoprimes",
+          "trigger": "Plausible table of primes satisfying Fermat-quotient residue conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The valuation invariant tests the sharpness of a known digit-depth supercongruence on its smallest nontrivial four-term slice. The bound 71 is the point at which the second exception is attained, not a claim about an arbitrary range of primes. The computations distinguish ordinary sharpness, extra cancellation and exact termination at the next p-adic digit at both exceptional primes; the answer holds for every eligible truncation rather than just small input binomial coefficients. Even recognizing the equivalent Fermat-quotient test for extra divisibility does not supply these exact exceptional orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

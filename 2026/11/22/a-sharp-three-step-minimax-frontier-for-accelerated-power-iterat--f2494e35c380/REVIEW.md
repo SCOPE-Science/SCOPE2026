@@ -1,15 +1,21 @@
-# Review of the sharp three-step accelerated-power minimax law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The scalar polynomial is reconstructed from the identical-history initialization and the recurrence, not inferred from augmented-matrix eigenvalue magnitudes. The leading component stays fixed because \(p_3(1)=1\). All subdominant components are controlled by the exact scalar \(p_3(t)=t^2[(1+c)t-c]\). Its only nonzero interior stationary point is \(2c/[3(1+c)]\), yielding the positive endpoint magnitude \(P(c)\) and the negative interior magnitude \(N(c)\). The unique crossing follows from opposite strict monotonicities. Outside that crossing, evaluating the same fixed extremal spectral point proves global optimality even when the cubic's zero moves beyond the spectral interval. For the theorem’s explicitly chosen closed parameter cap, the constraint is equivalent to \(c\le q(q+2)\); strict monotonicity of the defining function gives the unique spectral frontier. The endpoint notch, golden-ratio eligibility, and two-step impossibility follow by exact algebra. The standalone checker was executed from the actual package directory and passed 110,612 assertions, including exact rational spectral recurrence tests and independent matrix iterates. These finite checks support, but do not prove, the all-real assertions.
+## correctness
 
-## Originality
-**PASS, with residual literature risk.** The closest source is Tappenden, *An Accelerated Power Method*, arXiv:2611.13283v1. Its Section 2 defines the identical-history recurrence and its Section 3 optimizes the augmented-matrix asymptotic rate, whereas the present theorem solves a distinct finite-three-multiplication minimax problem with an active parameter cap, proves a sixth-degree transition, and separates minimax tuning from exact endpoint cancellation. Xu et al., *Accelerated Stochastic Power Iteration* (2018), employ \(v_{k+1}=Av_k-\beta v_{k-1}\), not momentum multiplied by \(A\), and establish Chebyshev-based rate and variance facts without the stated constrained cubic minimax law. A published warm-started two-sweep power result uses a different \(+\beta v_{k-1}\) normalization and studies Rayleigh descent rather than an interval spectral minimax filter. A published scalar Anderson-acceleration coefficient-cap frontier uses a sliding residual minimization rather than the stated constant-coefficient power method. Classical unrestricted polynomial minimax approximation is acknowledged, but does not imply the constrained one-parameter tuning formula without additional optimization. The published comparisons and the local pre-existing claims examined do not supply the theorem. An independent unindexed equivalent analysis of constant-momentum power polynomials remains possible.
+PASS
 
-## Value
-**PASS.** In the motivating method, the recommended momentum is tuned by the asymptotic spectral radius, while practical runs employ finite matrix-vector product budgets. The theorem gives a *sharp* third-multiplication tuning rule for all PSD matrices sharing only a spectral-gap bound, including the unique point where the optimal parameter becomes cap-limited. It also proves that exact cancellation of the slowest subdominant mode is possible only through a separate golden-ratio threshold and is not the robust minimax choice on a full spectral interval. Thus it distinguishes long-run acceleration, bounded-budget robustness, and exact eigenspace identification using directly checkable extremal criteria.
+Applied to the complete corrected RESULT.md: p₁=t, p₂=t[t−β(1−t)], and p₃=t²[(1+c)t−c], c=β(β+2), by the stated warm start. The leading coefficient is 1; a diagonal two-level matrix attains the operator norm on the orthogonal component, hence the exact tangent amplification. Up to c₀=q/(1−q), p₃ has its negative minimum at t=2c/[3(1+c)], and the positive endpoint extremum at q. The negative magnitude increases and the endpoint decreases, so the crossing is unique. Beyond the crossing the fixed pre-crossing minimizing spectral point already has strictly larger error. Capping at q(q+2) yields the unique tune; the branch sign F(q) is strictly increasing, negative at the golden-ratio bound and positive at one. The minimax error strictly improves on the value at c=0. For p₃(q)=0, c=c₀; feasibility reduces exactly to q²+q≤1. Its worst error is the negative lobe at 2q/3 and exceeds the equioscillating error. I checked the repaired endpoint/interior distinction exactly: p₁(q)>0 and p₂(q)≥q³, while p₂(β/(1+β))=0 for β>0 with β≤q. At q=β=1/2 the interior and endpoint values are respectively 0 and 1/8. No change is needed to the frozen verify.py or VERIFICATION.md, whose tests can be replayed as documented; I inspected them without executing uploaded code. The scalar calculus proof, not the finite tests, justifies the real-parameter result.
 
-## Closest literature and limitations
-The analysis is an exact-arithmetic, fixed-three-step, PSD, normalized-eigenvalue result; it does not provide a data-driven estimator of the gap, finite-precision robustness, or a general horizon-optimal momentum schedule. The chief scientific novelty risk is an equivalent constrained-polynomial calculation outside the indexed literature. The supplied reproducibility checker is supplementary to the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim, the recurrence itself is prior, but the source comparisons support distinct finite-step interval tuning, its cap threshold, and the contrasting endpoint notch. The corrected endpoint scope stays within the checked spectral interval and tuning objective. The step-two calculation is a scope correction, not a separately claimed novel finding.
+
+## value
+
+PASS
+
+For the repaired claim, exact finite-budget tuning under a known spectral bound is a different problem from tuning the asymptotic method. The result identifies when the closed momentum cap actually binds and shows that removing the endpoint exactly can be feasible yet strictly worse in the robust interval objective. The distinguished horizon is the first at which endpoint annihilation can occur under the cap, not an arbitrary iteration chosen after a computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

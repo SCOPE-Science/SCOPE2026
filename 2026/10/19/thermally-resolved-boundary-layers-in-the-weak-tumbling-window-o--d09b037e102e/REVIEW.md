@@ -1,19 +1,21 @@
-# Scientific review: thermally resolved reflected run-and-tumble boundary layers
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The precise domain consists of positive unequal jump rates, symmetric positive tumble rate at every finite length, reflecting endpoints, and weak-flip scaling \(L\alpha_L\to c\ge0\). The zero-current and odd-polarization balance equations yield a unique hyperbolic characteristic root and the normalized finite marginal. Boundary compatibility, strict convexity, a uniform geometric majorant and an interior Riemann limit jointly prove the two-scale law; geometric-series mass plus bulk integral is exactly one. Direct independent finite-generator computations agree with the formula to at most \(2.11\times10^{-15}\) across fifteen cases. The numerical tests do not prove the asymptotic theorem.
+PASS
 
-## Originality
+Reflection and the zero total current imply rho even, s odd, and w(ρ_{i+1}−ρ_i)=δ(s_i+s_{i+1}) with w=u+v. Subtracting orientation balances and eliminating ρ gives the stated recurrence, so s=A sinh(ki), ρ=B+AH cosh(ki) and 4uv sinh²(k/2)=δ²+αw. At the right wall the plus-current identity becomes j⁺=δB/2−(Aα/2)cosh(k(L−1/2))/sinh(k/2)=αs_L. The half-angle identity yields B/A=(α/δ)cosh(k(L+1/2))/sinh(k/2), the stated boundary coefficient. Normalization is a geometric sum. In the critical window z→u/v and H→1: the normalized constant term gives the bulk Riemann sum and each of the two geometric terms gives an endpoint atom with uniform summable inward decay. The geometric component has zero rescaled interior density for any sequence bounded macroscopically away from the walls. At a fixed inward index j, s and ρ have the same limiting value, so only the outward orientation contributes. This works also at c=0, when the constant component has zero mass. The log derivative on c>0 is y/(1+y)² with y=2c/δ, with unique maximum 1/4 at y=1; its c=0 value is a continuous extension only.
 
-**PASS, with explicit coverage risk.** Santra (2026, arXiv:2608.17903v1) already gives the model, its transfer-matrix stationary distribution, qualitative wall accumulation, and an inverse-length heuristic \(\alpha^*\simeq(u-v)/(2L)\). Those are not claimed new. The asserted contribution is the fully normalized stationary critical-window limit with its *microscopic thermal geometric layer and orientation law*, connected to the weak macroscopic atoms and the analytic peak-response curve. Malakar et al. (2017, arXiv:1711.08474) establish related reflecting-interval continuum diffusion solutions, and Bressloff (2023, arXiv:2302.01158) establishes continuum sticky-boundary mechanisms; the macroscopic atom mechanism alone is not novel. No explicit covering statement was identified in the inspected relevant primary sections or claim-specific research-record comparisons. Because Santra's transfer matrix determines all finite states, it may encode the new limit implicitly, and a broader lattice transport formula might cover the microprofile. This is a residual originality risk, not evidence of independent confirmation.
+## originality
 
-## Value
+PASS
 
-**PASS.** The 2026 physical application ties stationary boundary restructuring to a calorimetric signal. Its finite generator calculation and scale estimate do not quantify how microscopic thermal backsteps regularize the eventual endpoint mass. The theorem classifies this canonical boundary regime completely: uniform bulk, thermally geometric microscopic edge law with ratio \(v/u\), outward orientation at every fixed edge depth, sharp limiting fraction, and unique normalized logarithmic crossover scale. The distinction between a genuine finite-size modal transition and a flattening crossover is useful when interpreting boundary-peak plots. No claim about a heat-capacity maximum is made.
+The exact finite model and its transfer matrix, boundary accumulation, and the scale δ/(2L) are covered by Santra. Continuum sticky-wall balance also covers the form of the macroscopic mixture and the corresponding dimensionless response. The distinct claim is the rigorous two-scale stationary match in this thermal lattice: exact normalization and orientation of a fixed-lattice-spacing geometric profile, simultaneously with the interior and atomic limits and no missing mass. The reference's unexpanded matrix powers require extracting the modes, matching their wall coefficient and controlling normalization in a joint size/flip limit; its finite-site numerical slopes and persistence-length estimate do not perform that analysis.
 
-## Sources and scientific limits
+## value
 
-Primary comparison: Santra, *Heat capacity as a marker for shape and jamming transitions in active systems* (arXiv:2608.17903v1), Section III.1, equations (5)--(17), and Appendix B. Related full-text comparisons: Malakar et al., *Steady state, relaxation and first-passage properties of a run-and-tumble particle in one-dimension* (arXiv:1711.08474), Section 3.2; Bressloff, *Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries* (arXiv:2302.01158), Section 2. Further context: Slowman, Evans and Blythe (arXiv:1705.04812), an interacting periodic lattice model, screened at the abstract level. The result applies only to the stated finite reflecting lattice and stationary weak-flip scaling, not interacting systems or heat-capacity dynamics. Independently established priority and expert audit remain unavailable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinction between macroscopic wall accumulation and microscopic occupancy of an actual lattice site is motivated by the primary work's finite-site measurements. The exact normalized profile tells how the atom is distributed over sites and which orientation carries it while the size and persistence length compete. Neither the continuum shape nor the crossover scale alone answers how many near-wall sites carry that mass.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

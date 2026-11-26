@@ -1,11 +1,21 @@
-# Scientific review: odd designated-tuple dyadic valuations
+# Independent mathematical audit
 
-**Correctness — PASS.** The product normalization \(F^{-1}=\eta(z)\eta(2z)\eta(3z)/\eta(6z)\) has no hidden power of \(q\). Kassel--Reutenauer's Theorem 1.1 identifies each reciprocal coefficient as a signed rational multiple of an integer sum-of-two-squares representation count; all \(4n+3\) coefficients vanish. Two exact Frobenius lifts modulo powers of two make \(F^{k+1}\) supported on multiples of four modulo the claimed exponent. Its product with \(F^{-1}\) has no coefficient in the target progression. The independently derived coefficient \(A_k(3)=k(k+1)(k+14)/6\) has exactly the proposed valuation for every odd \(k\), including the trivial-modulus case \(k\equiv1\pmod4\). The finite checker is supplementary.
+## correctness
 
-**Originality — PASS with residual risk.** Yaqubi--Mirzavaziri (arXiv:2611.05623v1, Conjecture 6.1) state the complete dyadic valuation law as conjectural, while their Theorem 3.12 supplies only lower-order partial cases. Kassel--Reutenauer (2017) prove the needed reciprocal coefficient formula, not the designated-partition tuple valuation theorem. Targeted research-index, public web, and accessible historical-claim searches did not locate a covering implication or identical parameter classification. A preexisting general high-power eta-congruence could nevertheless imply the result without using identical wording; no claim of exhaustive novelty or priority certification is made.
+PASS
 
-**Mathematical value — PASS.** This is an all-parameter resolution of the odd-order half of an explicitly posed conjecture, including arbitrarily large divisibility exponents. It ties a modular-form lacunarity theorem to the sharp gcd of a natural multipartition family. The single coefficient at index three certifies optimality uniformly, rather than merely providing an observed small example. The even-order branch is not resolved.
+For each allowed part size, multiplicity m>=1 has m choices of designated copy, so the local generating factor at x=q^j is 1+sum m x^m=(1−x^6)/[(1−x)(1−x^2)(1−x^3)]. Thus F counts designated partitions and F^k counts ordered tuples. All formal products and reductions are coefficientwise. R=F^(-1) is exactly the cited eta quotient since 1+2+3−6=0. The Kassel–Reutenauer coefficient formula is a signed multiple of the two-square representation number in each mod-3 class; hence [q^(4n+3)]R=0. Independently, F(q)^4 and F(q^4) agree mod 2 by two Frobenius steps; repeatedly squaring a congruence mod 2^a gains one power of two because the sum of the two squared bases is even. For s>=2 this gives F(q)^(2^s) congruent to F(q^4)^(2^(s−2)) mod 2^(s−1), also after raising to the odd integer (k+1)/2^s. Multiplication by integral R preserves precision; convolution with a series supported in degrees divisible by four preserves the missing class of R. If s=1 there is no divisibility claim beyond modulus 1. Direct expansion of (1+q+3q²+5q³+...)^k gives 5k+3k(k−1)+binom(k,3)=k(k+1)(k+14)/6. For odd k this gives exactly s−1 at n=0 of the progression, establishing sharpness even for s=1.
 
-**Closest literature and scope.** D. Yaqubi and M. Mirzavaziri, *Partitions with designated summands: k-tuples and their congruences* (2026), https://arxiv.org/abs/2611.05623. C. Kassel and C. Reutenauer, *The Fourier expansion of eta(z)eta(2z)eta(3z)/eta(6z)* (2017), https://doi.org/10.1007/s00013-017-1033-4. The 2017 coefficient formula and the established partial dyadic congruences are treated as prior work. This review has not established independent validation or classified odd prime factors of the universal gcd.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new component is the all-index divisibility at the sharp exponent for arbitrary odd orders. The predicted exponent, first-index polynomial witness, reciprocal eta formula and some low-precision cases are prior material and are not credited as new. The complementary indexed even-order finding does not state or cover the odd-order theorem as a new result.
+
+## value
+
+PASS
+
+This proves the odd-order part of an explicit conjecture for a natural partition-tuple enumerator. The exact exponent at every odd order, including unbounded exponents, is an all-index structural result; it is not a single coefficient evaluation. The proof identifies why vanishing of one reciprocal residue class supplies a sharp universal congruence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

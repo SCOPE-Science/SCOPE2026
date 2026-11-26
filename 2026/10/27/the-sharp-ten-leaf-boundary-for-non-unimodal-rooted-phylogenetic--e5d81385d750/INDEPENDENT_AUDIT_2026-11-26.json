@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:00.925012Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35, VERIFICATION.md, and verification/verify_rooted_pd_unimodality.py (read, not executed)",
+        "/workspace/branches/bd9fd552-90d8-485f-be8d-2ae1cdc87996/independent_exact_check.py",
+        "/workspace/branches/bd9fd552-90d8-485f-be8d-2ae1cdc87996/exact_check_output.txt"
+      ],
+      "rationale": "Rooted unit-edge PD is the sum of ancestral edge-hit indicators. For two clades the covariance of the hit indicators equals that of the two absence indicators, and the joint absence probability is the binomial ratio for the clade union. This gives the stated exact variance identity. Every rooted full binary shape admits a plane embedding, so the source's recursive plane split enumeration exhausts the shapes through nine leaves; its integer sums and peak-index test implement the definition. An independent exact enumeration of unordered shapes found counts 1,1,1,2,3,6,11,23,46, with all 94 weakly unimodal. Independent exact subset and covariance calculations agreed for the balanced-eight-plus-cherry witness at every k: (0,16/25,136/225,28/45,1306/2205,1916/3969,3884/11025,2/9,8/81,0,0) including k=0. Since 144/225>136/225<140/225 and the next term is smaller, no weakly unimodal sequence can give that curve. Unit lengths, fixed-size sampling without replacement and the rooted convention are critical to the scope.",
+      "residual_risks": [
+        "This is a finite minimality certificate, not a classification of possible modes or larger-tree curves; it does not cover arbitrary lengths or other sampling schemes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later ultrametric record 784aa021ee67 gives onset of two strict maxima at five under positive-length ultrametric hypotheses. The ten-leaf unit-edge witness is not ultrametric (its root-to-leaf depths differ).",
+          "The later near-complete record 613bff919fb0 gives fixed-deletion formulas and inter-tree ranking reversals, not within-tree curve shape across all k."
+        ],
+        "reasoning": "The broader weighted variance identity supplies a computation but no unimodality criterion. A first failure in a different length class or comparing different trees does not imply this boundary.",
+        "searches": [
+          "Resultary 784aa021ee67 and 613bff919fb0",
+          "Nipperess–Matsen arXiv:1208.6552"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1208.6552",
+        "Resultary 5283f4c5d335, 462f3e638fdc, 8c5fc1eb40b1, 784aa021ee67, 613bff919fb0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-moment identifiability asserts pairwise inequality of ordered signatures of different trees, not sign patterns of first differences of a signature. The general formula determines each curve only once its tree's clades are supplied and the calculations carried out."
+        ],
+        "reasoning": "The earlier proofs make the search feasible, but neither their results nor their displayed counts imply the universal sign condition or the balanced-eight-plus-cherry reversal without the new exhaustive comparisons.",
+        "searches": [
+          "Resultary 5283f4c5d335, 462f3e638fdc, 8c5fc1eb40b1",
+          "arXiv:1208.6552 rooted variance formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Rooted phylogenetic diversity, Nipperess–Matsen pp. 6–7 give the same covariance identity with arbitrary weights ell_i ell_j. Setting the weights to one recovers the formula, not the sharp threshold.",
+          "Resultary 5283f4c5d335 studies identification by a single sample size's law through nine, not changes of variance across sizes for one tree."
+        ],
+        "reasoning": "Root-to-leaf path unions and clade presence are equivalent definitions, but a variance formula or a fixed-size identifiability result is not equivalent to the monotonic shape assertion.",
+        "searches": [
+          "Resultary rooted-PD and Faith-PD, fixed-size rarefaction, variance/unimodality aliases",
+          "Primary literature: Nipperess–Matsen arXiv:1208.6552"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older moment-profile certificates tabulate shape counts, fingerprint/collision counts and data for the sixteen-leaf collision, not every low-leaf variance curve. The October 26 certificate was read in full; the October 18 verification describes fingerprint counts plus witness moment sums, and its tabulation begins with counts, not curves."
+        ],
+        "reasoning": "Distinct fingerprint counts do not reveal any ordering of the individual curve entries. The closest certificates use the same finite space and formulas, but do not already give an exact variance/unimodality table or the stated witness.",
+        "searches": [
+          "Resultary 462f3e638fdc CERTIFICATE.json and 8c5fc1eb40b1 pd_moment_certificate.json; their verification passages"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the universal weak unimodality through nine leaves and its sharp unit-edge failure at ten. The exact variance formula, tree shape counts and general clade enumeration technology are prior work. The closest known results give formulas, distribution or moment-profile identifiability, or an onset under different branch-length hypotheses.",
+      "residual_risks": [
+        "Bounded literature and exact-table search; earlier unpublished low-leaf computations from the same variance framework are possible. No priority claim beyond the inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of variance formula, not the finite curve-shape claim in the inspected material",
+          "evidence": "Gives the avoidance probability q_k and the weighted double sum of covariance terms.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.6552",
+          "material_read": "Rooted phylogenetic diversity, pp. 6–7, extracted text around offset 16000",
+          "method": "OA primary text",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Identical variance framework and sampling model"
+        },
+        {
+          "assessment": "Different invariant; no implication of unimodality",
+          "evidence": "The first single-depth shape collisions occur at ten; at k=2 the full distribution distinguishes the smaller shapes.",
+          "identifier_or_url": "Resultary:5283f4c5d335",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "A sharp ten-tip obstruction to single-depth phylogenetic-diversity identification",
+          "trigger": "Same tree/sampling hypotheses and same numerical leaf cutoff"
+        },
+        {
+          "assessment": "Related data-generation framework without target theorem or low-leaf exact curve table",
+          "evidence": "Certificate gives counts, the two sixteen-leaf shapes and selected moment and histogram data for them.",
+          "identifier_or_url": "Resultary:8c5fc1eb40b1",
+          "material_read": "Finding; Verification at offset 7291; pd_moment_certificate.json in full",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sixteen taxa are sharp for two-moment phylogenetic rarefaction",
+          "trigger": "Uses the very same variance profiles"
+        },
+        {
+          "assessment": "Inverse shape identification, not within-shape curve order",
+          "evidence": "Fingerprints and collisions certify uniqueness up to fifteen; exact variance/test data for the lower-leaf family are not supplied by the inspected class counts.",
+          "identifier_or_url": "Resultary:462f3e638fdc",
+          "material_read": "Finding; Verification at offset 7634; opening counts in CERTIFICATE.json",
+          "method": "Local Resultary mirror",
+          "title": "Sixteen leaves are the sharp threshold for two-moment phylogenetic rarefaction",
+          "trigger": "Earlier finite classification using mean and variance"
+        },
+        {
+          "assessment": "Different hypothesis and later result",
+          "evidence": "Positive-length ultrametric construction, not the universal unit-edge full-binary cutoff.",
+          "identifier_or_url": "Resultary:784aa021ee67",
+          "material_read": "Finding and edge-length assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp five-taxon onset and a phase region for bimodal ultrametric PD variance",
+          "trigger": "Closest direct curve-shape analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and precise rooted sampling model",
+        "Independent exact lower-bound check and ten-leaf curve"
+      ],
+      "rationale": "This is a meaningful exact boundary for the shape of a standard finite-sampling variance curve, not an arbitrary graph statistic or a single isolated number. The explicit tree shows that increasing sample size can raise variance after a strict drop even without tuning lengths, and the exhaustion determines when that phenomenon can first defeat unimodality.",
+      "residual_risks": [
+        "No claim of prevalence of non-unimodality for larger trees, ecological empirical significance, or comparability to variance of an estimator."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

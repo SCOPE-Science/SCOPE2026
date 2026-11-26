@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement distinguishes the segment-restricted quotient from the unrestricted coefficient. The proof checks the exact mixed-area normalization, width hexagon, global product and sum inequalities for all unit directions, the sharp separation of rounding terms, and exact equality conditions for positive radius. Steiner's area formula supplies the only geometric integration. Differentiation reduces the radius optimum to a quadratic with one positive zero. The companion checker performs reproducible random-direction comparisons and numerical derivative and root checks, but the complete proof is analytic. No computational sampling is treated as exhaustive.
+## correctness
 
-## Originality — PASS, subject to priority risk
-The inspected Langharst–Wang 2026 source is an all-test-body characterization of simplices, not a sharp rounded-triangle profile. Soprunov–Zvavitch supplies a universal planar upper bound; it does not fix the restricted family constant. An independently published enclosing-parallelogram calculation for symmetric hexagons has different hypotheses. A disk-triangle area phase theorem has a different object and quantity. Another normalized Bézout calculation concerns ball-intersection lenses. The new statement survives these implication comparisons. Older equivalent enclosing-parallelogram calculations remain possible, so no claim of exhaustive historical priority is made.
+PASS
 
-## Mathematical value — PASS
-The two-segment Bézout coefficient is a natural sharp invariant that quantifies deviation from the simplex inequality while Euclidean rounding deforms an extremal simplex toward a disk. Its exact maximum occurs at an interior rounding radius and lies strictly above its disk limit, despite the maximizing directions remaining unchanged. This nonmonotone phase is geometrically meaningful and not an arbitrary parameter slice. The theorem does not settle the unrestricted best coefficient.
+Under standard mixed area (the coefficient of st is 2V₂, as used throughout the proof), extrusion by a segment gives V₂(K,L)=length(L) times the normal width divided by two. RESULT.md line 12 contains a notational slip: 'coefficient of 2st' should read 'coefficient of st'; the declared standard convention, explicit identities at lines 31–38 and the rest of the result consistently use the latter. The polar of the difference body of the equilateral triangle is the width-unit hexagon. Maximizing the absolute determinant at its vertices verifies w(u)w(v) ≥ ab|det(u,v)|. The three angular sectors in lines 46–57 give w(u)+w(v) ≥ (a+b)|det(u,v)|, and adding the offset terms proves the sharp product inequality for the rounded body. For positive r equality forces perpendicularity; on the symmetry sector the width product for such a pair is b²[cos(π/6)+cos(2x−π/6)]/2, which is minimized exactly at the two endpoints. At r=0 only attainment, not uniqueness, is needed. Steiner's formula yields the numerator after doubling the area. Differentiation yields Q divided by the squared denominator; the coefficient signs are +,+,−, so exactly one positive turning point exists, followed by strict decrease to π/2. Bounded independent corroboration sampled a 360-direction grid (normals at jπ/360; widths by max minus min vertex projections) for r=0.1, r=r*, and r=100 and found the predicted pairs. Solving Q independently gave r*=13.242673468446 and overshoot 0.002121940607. The grid does not certify global sharpness; the directional proof does. The uploaded script was inspected and not executed.
 
-## Residual limits
-Independent scientific validation has not been performed. The strict result concerns one canonical outer-parallel family in the plane with line-segment test bodies; the bounded literature inspection cannot exclude unindexed equivalent calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The positive-offset exact area profile, all positive-radius equality directions and consequent overshoot were not established or implied by the strongest inspected statements. The unrounded value, Steiner area law and width/parallelogram reduction are prior ingredients, not new claims. This is a best-of-knowledge judgment, not priority certification.
+
+## value
+
+PASS
+
+Outer rounding tends to a disk after scaling, but the sharp width-normalized segment coefficient takes values strictly greater than its disk limit and then decreases. The explicit family shows that rounding need not give monotonic approach and the uniform equality classification supplies a geometric explanation and an exact optimizer for a natural enclosing problem. The result does not address unrestricted convex tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

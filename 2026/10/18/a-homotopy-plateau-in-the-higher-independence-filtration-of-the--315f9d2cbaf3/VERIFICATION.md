@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,10 +21,4 @@
 
 # Reproducibility
 
-Run `python3 verify.py > check.json` after installing the open-source SymPy Python library. Compare `check.json` to the accompanying `certificate.json` as parsed JSON objects; both should say `VERIFIED`.
-
-The computation enumerates all \(65{,}536\) vertex masks separately for each of the three component bounds, with independent flood-fill and union-find membership checks. It reconstructs every admissible simplex and every incidence of its nonempty face boundary, builds the same explicitly defined vertex-toggle matching, and topologically sorts every reversed-gradient face-poset incidence to verify acyclicity.
-
-Signed integral algebraic-Morse boundary matrices are computed from the original orientations. Their Smith factors are all units; the reduced integral homology is supported only in degree six (rank three at each of the first two stages) or degree seven (rank twenty-one at the third). Each of three source integral six-cycles has its full original simplicial boundary checked as zero before it is transferred into the next complex. Their integral Morse projections, together with target seven-boundaries, form six columns with a determinant-one six-row minor. The certificate lists the matrices and their exact minor.
-
-The finite computations are exhaustive for the specified sixteen-vertex graph and three stages. They do not enumerate other graphs or higher component bounds, and they do not constitute an independent external mathematical audit.
+Run `python3 verify.py` (Python 3.10+; standard library only). Compare the parsed output to `certificate.json`. The calculation generates the connected five-vertex masks, excludes their supersets, builds the specified vertex-toggle matching, and verifies global acyclicity and the dimensions of all unmatched faces. The homotopy argument is in `RESULT.md`: the critical vertex and the 21 critical seven-cells constitute the entire ordinary Morse CW model. The computation is exhaustive only for the specified graph and cutoff four.

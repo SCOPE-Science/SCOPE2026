@@ -1,11 +1,21 @@
-# Review of one-tolerance complexes of disjoint cliques
+# Independent mathematical audit
 
-**Correctness — PASS.** The face condition reduces the complex to pair spaces; each pair space is the union of two cones along a complete bipartite graph, with homotopy a wedge of two-spheres. The graph-of-spaces CW homotopy pushout supplies exactly one circle for each non-tree edge and preserves pairwise spheres. Natural Mayer–Vietoris maps provide primitive integral degree-two generators and equivariance under within-block permutations. The packaged checker independently constructs faces and compares boundary-matrix Betti vectors in 30 finite characteristic-field tests. Finite tests do not prove the infinite homotopy theorem.
+## correctness
 
-**Originality — PASS, with priority risk.** The closest directly related primary literature is Kim–Lew, arXiv:2109.03030 (two equal blocks, boundary-sphere sharpness), and Selvaraja, arXiv:2611.14384 (arbitrary chordal graphs, numerical Leray/collapsibility bounds). Neither contains nor logically forces this all-block exact homotopy and integral symmetry classification. Searches for tolerance complexes of disjoint cliques, disjoint simplices, arbitrary block counts, homotopy wedges and augmentation-lattice symmetries did not identify an equivalent prior classification. A published classification of clique bouquets addresses higher clique-avoidance complexes, an inequivalent construction. Unindexed equivalent formulas remain a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** The class is the natural disconnected chordal boundary case of recent tolerance-complex work. The theorem gives a complete infinite-family homotopy classification, including two simultaneously nonzero homology degrees and an exact natural integral module structure, information not inferred from the available generic three-collapsibility or three-Leray bounds. The numerical two-block sphere example itself is credited, not asserted as novel.
+A permitted face meets at most two blocks and, if it meets two, has at most one vertex in one of them. For pair i<j, the two joins with one full simplex are contractible and intersect in the connected graph K_{a_i,a_j}. The homotopy pushout along simplicial cofibrations is its suspension, a wedge of (a_i-1)(a_j-1) two-spheres (contractible for a singleton block). Distinct pair spaces meet only in common block simplices. Collapsing those contractible vertex spaces separately preserves homotopy type; equivalently use the double mapping cylinder at each edge of K_r. After a spanning tree connects the components, each remaining edge-space attachment contributes one circle, while every attachment retains its pair-space sphere summands. For integral naturality set A equal to the disjoint union of the block simplices. H_2(X) maps isomorphically to H_2(X,A), whose relative chains split by block pairs, and hence to the sum of the pair H_2 groups. In each pair the natural Mayer–Vietoris map gives the integral cycle lattice of the bipartite graph: since oriented edges run from i to j, its integral cycles are exactly matrices with all row and column sums zero, the tensor of the two augmentation kernels. The affine map collapsing blocks to their index vertices induces an isomorphism on H_1: H_1(X,A) is one free copy of Z per pair, with connecting map the usual incidence matrix. This also proves trivial within-block action on H_1. In RESULT.md line 40, 'four-simplex' should read 'tetrahedron (3-simplex)'; the four-element forbidden set and its allowed triangular boundary are unambiguous, so this does not affect the claim. The uploaded field checker was inspected, not run; the all-size integral result follows from the proof, not the field comparisons.
 
-**Limitations.** The result covers the one-tolerance parameter and disjoint cliques; no other chordal graph class or higher tolerance is classified. The wedge splitting itself is nonequivariant. Exact integer homotopy depends on the written graph-of-spaces proof rather than on finite-field calculations. The priority search cannot rule out unknown unindexed work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the earlier boundary-sphere special case and chordal homology vanishing, and disclose the same-day full wedge overlap for disjoint edges and vertices. The inspected statements do not supply the joint claim for arbitrary full simplex blocks and their within-block integral modules. No priority for the overlapping subclass is asserted.
+
+## value
+
+PASS
+
+For a natural family of disconnected chordal clique complexes the result gives an all-size integral answer, not a recomputation of the old two-block sphere. It identifies exactly when both homology degrees occur and gives the actual integral action in degree two, useful for symmetry and quotient calculations not provided by a collapsibility bound or ordinary Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The root-child injections form a disjoint exhaustive decomposition. An involution restricts to fixed points and transposed pairs; the two factors on each exchanged pair are inverses and therefore contribute the doubled domain rank, establishing the polynomial identity with all edge cases. The binary derivative recurrences are direct differentiation. The \(\ell^1\) estimate for their normalized increments proves the existence of the domain-fraction constant. The high-probability fixed-frontier decomposition yields independent bounded descendant fractions, and Chebyshev concentration proves convergence in probability. The inversion-equivariant bijection explicitly handles the two empty-injection cases and respects the inverse operation, not multiplication.
+PASS
 
-## Originality — PASS within investigated coverage
+A partial map is uniquely determined by the partial injection on children and its nonempty sections. A self-inverse map pairs distinct active children in transpositions with mutually inverse sections of equal rank, and uses self-inverse sections on fixed children. Counting these injections and involutions gives the two general-d recurrences and base case t, including the root. In the binary case every nonempty partial injection has a unique completion to S_2; at empty sections, the two permutations distinguish the root-only map from the extra point. Inversion sends each section inverse to the inverse child permutation's section, so the recursive bijection is inversion-equivariant. The differentiated binary recurrences imply q_h=(1-B_h)q_{h-1}+(1-1/U_h)2^(-h)+2M_{h-1}/(2^h U_h). The last term is at most 2B_h and q_{h-1}<2, giving the stated summable error against the increments 2^(-h). U_1=6 and U_h>=U_{h-1}^2 yield the given doubly exponential bound for B_h. The normalized expectations converge to alpha; fixing the first L levels has probability tending to one for fixed L by the root type probabilities and the product decomposition. Conditional on this event the 2^L frontier maps are independent uniform self-inverses, with conditional variance of the normalized sum at most 1/(4*2^L); first h, then L tending to infinity proves convergence in probability.
 
-The 2007 partial-wreath primary paper computes orders, idempotents and Green-related classes, not the self-inverse rank distribution. The 2018/2020 primary papers study spectral laws for unrestricted partial maps, not the conditional involution density. The 2024 primary paper studies free inverse semigroups and partial automata, not these rank polynomials. **OEIS A332757 directly covers the unrefined binary involution-count sequence, growth constant and matching group counts**; these are explicitly attributed, not claimed as new. Searches of mathematical results repositories and published literature did not find a result covering the full refined rank polynomial plus domain-density theorem. Residual risk: an equivalent theorem under a wreath-product/automata terminology may exist, and no search proves uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Domain rank is an intrinsic invariant of the finite inverse semigroup. A coefficient-wise exact enumeration and a limiting law for a natural conditioned random element answer a structural enumerative question beyond known total counts. The inversion-equivariant bijection explains a seemingly unexpected equality between two distinct finite algebraic objects. This is a natural complete classification of domain-support behavior, not an arbitrary finite-table extension.
+Best-of-knowledge pass for the self-inverse rank refinement, explicit binary inversion bijection, and typical domain fraction. Unrefined counts, growth of those counts, and partial wreath products are expressly not the contribution.
 
-## Limits and relevant literature
+## value
 
-The scope is finite rooted regular trees and uniform self-inverse maps; concentration specializes to binary degree. Unrefined enumeration is prior art (OEIS A332757). The closest checked primary sources are Kochubinska (2007, 2018, 2020), Kochubinska–Oliynyk (2024), and OEIS A332757. Historical priority remains uncertain beyond their examined texts and reported search coverage.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result identifies which portion of a large binary tree a typical self-inverse partial symmetry occupies, with effective evaluation and an actual concentration law, not just the known size of the population. The general rank enumerator records exact distribution data and identifies the distinct fixed-child and paired-child mechanisms behind the conditioned model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

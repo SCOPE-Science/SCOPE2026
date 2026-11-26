@@ -1,19 +1,21 @@
-# Scientific review: antiferromagnetic Ising-star zero geometry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(m\geq1\) and every strictly antiferromagnetic weight \(q_i>1\), normalizing the exact spin-sum polynomial gives a reciprocal polynomial and the equation \(B_m(z)=-z\) for a finite Blaschke product with real zeros \(-a_i\). Its lifted boundary phase has strictly positive curvature on the upper semicircle; odd-phase crossings give exactly \(m-1\) simple circular roots. A strictly decreasing positive scalar function yields one simple negative interior root; reciprocity yields its sole exterior partner. The outlier ratio estimate follows from a product inequality, not a finite experiment. Under \(a_i\leq a_*<1\), a uniformly increasing lifted phase gives the explicit \(3/(m+1)\) arc-discrepancy bound and the weak limiting law. The bundled checker confirms finite examples, including exact independent spin enumeration, without being treated as a proof of unbounded quantifiers.
+PASS
 
-## Originality — PASS, with literature risk
+Conditioning on the center spin gives the two products; dividing by ∏q_i gives F(z)=∏(z+a_i)+z∏(1+a_i z). It is reciprocal, has degree m+1 and F(0)>0. For positive angles the lifted phase of B_m(z)/z is strictly convex, starts at zero, ends at (m−1)π, and is strictly greater than −π before the endpoint. Each positive odd level below the terminal value is crossed once with positive derivative, by convexity and the positive secant slope from zero. Conjugate symmetry and the single endpoint −1 when m is even give exactly m−1 simple unit roots, also for m=1. On (0,min a_i), B_m(−x) is positive strictly decreasing from P_m to zero, hence meets x once and transversely; reciprocity yields the distinct exterior root. The total exhausts the degree. At the inner root x/P_m=∏(1−t_i) with t_i=x(1−a_i²)/[a_i(1−a_i x)]∈(0,1). The union bound for this product, x<P_m and P_m/a_i≤a_*^(m−1) give the claimed uniform estimate. For m c_*>1 the phase of B_m(z)/z is increasing on the whole lifted interval. Counting the odd-phase lattice on a half-open interval incurs error at most 1. After dividing by m+1, subtracting the angular-length term and changing m+1 to m each incur at most 1/(m+1), giving the stated 3/(m+1). The averaged arc kernel is continuous and bounded in a∈[0,a_*], and the limiting circle measure has no atoms; the escaping pair contributes only 2/(m+1) against bounded continuous tests. The finite polynomial example also checks independently: division by z² and y=z+z⁻¹ give y²+40y+60, with exactly one y in (−2,2) and the other below −2.
 
-The motivating Cayley-tree article, Chio et al., arXiv:1806.00403v1, uses ferromagnetic interactions. Peters–Regts arXiv:1810.01699v1 establishes bounded-degree zero-free regions; Bencs et al. arXiv:1907.07479v1 formulates antiferromagnetic tree recursions and studies circle-zero density/nowhere-density for graph families; Sedik et al. arXiv:2309.14562v1 examines antiferromagnetic square lattices and mean-field models. Inspection of their relevant principal results did not reveal a theorem implying the complete heterogeneous-star count *together with* the negative reciprocal outlier location bound and the quantitative circular-root law. The same star under positive ferromagnetic couplings has no off-circle pair; its limiting Poisson-kernel density is not presented here as a novelty. Spin-flip gauge duality gives a ferromagnetic **staggered-field**, not uniform-field, problem. Classical fixed-point theory of finite Blaschke products may subsume the qualitative circle count, so priority must be assessed for the complete parameter-dependent theorem rather than that count alone. Exact unindexed equivalents remain possible; a search is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-The antiferromagnetic Lee–Yang problem generally allows zeros off the circle. The theorem supplies a complete exception census independent of heterogeneous bond disorder, identifies the only exceptional complex-field positions by a uniquely solvable scalar equation, and controls their exponential escape at high degree. It also gives an explicit finite-size bulk discrepancy and limiting density. These answer a natural finite-tree field-zero geometry question rather than an arbitrary calculation or a marginal numerical improvement. There is no claim about larger tree families or a thermodynamic phase transition.
+Credit classical Blaschke theory for the qualitative fixed-point count and the boundary Poisson-kernel derivative, and credit the prior ferromagnetic-star record for the same explicit bulk-density form. The supported distinct claim is the quantitative heterogeneous antiferromagnetic-star result, especially the negative pair's uniform product-relative escape estimate, with an explicit arc bound for the complementary spectrum. Neither the fixed-point count nor the bulk kernel alone is a novelty basis.
 
-## Verification and residual limits
+## value
 
-The analytical proof establishes all infinite families. The reproducible exact-fraction checker and angular numerical tests stress sample cases; they cannot independently certify originality. The principal residual priority risk is a more general finite-Blaschke or antiferromagnetic tree theorem already implying the *whole* combined parameter-dependent result. Additional primary literature may be indexed under staggered ferromagnetic fields or fixed-point counting.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A star is a natural high-degree tree where uniform-field antiferromagnetism allows violations of the circle theorem. Arbitrary bond heterogeneity could in principle complicate the zero geometry; the result isolates the exceptions and gives a uniform, explicit multiplicative estimate depending on the full interaction product. Together with the finite bulk discrepancy this is a useful quantitative local model, not a claim about a bulk phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

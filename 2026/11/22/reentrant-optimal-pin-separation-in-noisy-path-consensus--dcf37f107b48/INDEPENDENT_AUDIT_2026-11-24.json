@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:12:05.837410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46 and 50–103",
+        "Frozen VERIFICATION.md and verify.py lines 12–81 (inspected)",
+        "Independent replay: python3 /workspace/independent_checks.py 4"
+      ],
+      "rationale": "The pins make the path precision positive definite, with stationary covariance K^(-1)/2 for identity diffusion covariance. Eliminating the free exterior tails and the interior resistors gives the two-endpoint matrix with diagonal kappa+1/d and off-diagonal -1/d. Exterior increments contribute s at distance s, and the bridge contributes t(d-t)/d plus the variance of the linear endpoint interpolation. Summation gives (5); at fixed d the only imbalance penalty is (ell-h)^2/4, making balanced tails necessary and sufficient and giving (1). After division by n^2 the parity and bounded constant terms actually incur O(n^-2) error for fixed c, uniformly over the gaps. Compactness and approximation of every continuum point by admissible grid points transfer minimizers. The cleared derivative has the stated signs outside [1/2,2/3], and the positive second derivative inside it gives one root. The mixed derivative has the sign of c r^2+6r-6, negative for c<9/2 and positive for c>12 throughout the candidate interval. This proves the required signs of r'(c) directly, avoiding the shortcut of differentiating the displayed big-O expansion in RESULT.md line 101. Eliminating c in the stationarity condition gives the unique admissible r=1-1/sqrt(7) and c=(7+4 sqrt(7))/3. Evaluating the cubic at r=3/5 gives the sole crossing c=5/3; dividing it by c^2 as c grows and using r>=1/2 gives the strong-gain limit, and c->0 yields 1/2. Direct exact cofactor traces for all 210 placements at each of the three gains on P_21 reproduce both the claimed optimizer sets and the exact distinct-gap margins 1307/2970, 19/240 and 169805/1666764.",
+      "residual_risks": [
+        "Uniqueness of the continuum minimizer is not generic uniqueness of the finite placements; the order of limits is fixed c with n tending to infinity before limits in c."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fitch thesis gives general two-noisy-leader theory and finite path examples at weak and strong gains. Patterson–McGlohon–Dyagilev give a path algorithm for perfect/noise-free leaders; Patterson–Yi–Zhang solve antipodal finite-gain placement on even cycles."
+        ],
+        "reasoning": "The perfect-leader follower-only matrix lacks the pinned-vertex disturbances of this model, and the even-cycle theorem relies on different topology. Neither supplies the c/n path curve or a stronger theorem implying the overshoot.",
+        "searches": [
+          "Fitch thesis §§3.3.4 and 4.2.2",
+          "arXiv:1604.07094 pp. 2–4 (expanded from 1412.6595)",
+          "arXiv:1708.06873 p. 7 Theorem 15"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1407.1569, 1604.07094, 1708.06873",
+        "Fitch dissertation §§3.3.4, 4.2.2",
+        "Resultary dcf37f107b48 (self-match), 3e379b1d3263, 2f9df522cdce, a8df3f507d1c, 8a846bde0fc8, cb2cd1385531 (different objective and pin count)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A path-coherence value can be computed from the existing all-graph criterion. The earlier double-star and friendship records already prove finite-gain reentrance on other weighted graphs. The quenched-frequency path optimizes tr(L_F^(-2)); the attenuation crossover is for directed rings."
+        ],
+        "reasoning": "Coverage of evaluation or a switch-and-return on another graph does not yield the scale c/n cubic optimizer, its sharp maximum, or the unit path phenomenon. Noise-free 1/5 and 4/5 placement supplies a limiting comparison, not the overshoot theorem.",
+        "searches": [
+          "Fitch–Leonard Theorem 2 and Corollary 3",
+          "Fitch thesis §4.2.2",
+          "Resultary 2f9df522cdce, a8df3f507d1c, 3e379b1d3263 and 8a846bde0fc8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fitch–Leonard use equal gains and independent noise at all vertices; Theorem 2 evaluates the arbitrary-graph two-leader coherence. Patterson–Yi–Zhang use equivalent inverse-trace coherence with all-node disturbance."
+        ],
+        "reasoning": "The trace evaluation is already mathematically available through a general Green-function criterion; the path location minimization and its nonmonotone critical scaling are not furnished by that equivalence.",
+        "searches": [
+          "Fitch–Leonard arXiv:1407.1569, model and Theorem 2",
+          "Patterson–Yi–Zhang arXiv:1708.06873, finite-gain model and Theorem 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary dcf37f107b48 is the identical assigned record. Fitch's thesis reports low/high gaps 26/30 on P_51 and 52/60 on P_101, not an intermediate peak. Resultary 3e379b1d3263 has a balanced-tail exact reduction for squared follower inverse under quenched offsets."
+        ],
+        "reasoning": "The checked examples and structurally related exact entries do not exhibit the same finite path gap 12,13,12 or give the all-c maximum. The self-match is not earlier evidence.",
+        "searches": [
+          "Resultary comparison: same unit-path balanced-gap reduction and exact finite-gain two-pin return",
+          "Fitch thesis §4.2.2, path pair examples"
+        ]
+      },
+      "rationale": "The all-graph two-noisy-leader trace criterion is prior and covers evaluation by specialization; inverse-trace reentrance on other graphs is also prior. The supported distinct content is the exact path arrangement reduction coupled to the all-c asymptotic optimizer, strict overshoot and exact finite return on a unit path. The low/high-gain P_51 and P_101 examples in RESULT.md lines 111–113 were verified in Fitch's thesis §4.2.2; they should be attributed there rather than asserted to occur in the inspected 2014 arXiv version, whose explicit path corollary concerns noise-free leaders.",
+      "residual_risks": [
+        "An unindexed specialization or independent scaled path theorem could affect priority; no claim is made to the general inverse-trace criterion or to gain-dependent leader placement in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general evaluation; path Corollary 3 is noise-free",
+          "evidence": [
+            "Theorem 2 for any connected undirected graph; Corollary 3 gives asymptotically 0.2 and 0.8 for noise-free path leaders."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "PDF pp. 4–5, 12, 14; offsets 14842, 50827, 55749",
+          "method": "OA primary PDF passages",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Same two-pin finite-gain inverse-trace model"
+        },
+        {
+          "assessment": "Direct low/high-gain path precedent, not an intermediate overshoot classification",
+          "evidence": [
+            "P_51 pairs {13,39} at k=0.0001 and {11,41} at k>=2; analogous P_101 gaps 52 and 60."
+          ],
+          "identifier_or_url": "https://naomi.princeton.edu/wp-content/uploads/sites/744/2021/03/Fitch_thesis_final2.pdf",
+          "material_read": "§3.3.4 Theorem 2, p. 47 offset 109137; §4.2.2 p. 69 offset 163193",
+          "method": "OA thesis PDF passages",
+          "title": "Optimal Leader Selection in Multi-agent Networks: Joint Centrality, Robustness and Controllability",
+          "trigger": "Expanded treatment may contain the same finite-gain path law"
+        },
+        {
+          "assessment": "Follower-only perfect leadership; different objective",
+          "evidence": [
+            "Uses tr(L_ff^(-1))/2 and decomposes the path into follower blocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.07094",
+          "material_read": "PDF pp. 2–4; offsets 12321, 17232–21013 and 29442",
+          "method": "OA primary PDF passages",
+          "title": "Optimal k-Leader Selection for Coherence and Convergence Rate in One-Dimensional Networks",
+          "trigger": "Exact path leader-selection result"
+        },
+        {
+          "assessment": "General objective is equivalent; closed-form comparison is for even cycles",
+          "evidence": [
+            "Antipodal placement of two noise-corrupted leaders on even cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.06873",
+          "material_read": "PDF p. 3 offset 17660 and p. 7 offset 49606, Theorem 15",
+          "method": "OA primary PDF passages",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "Same finite-gain objective; possible closed form for two pins"
+        },
+        {
+          "assessment": "Material prior analogues, not the same theorem",
+          "evidence": [
+            "Balanced exterior path gaps with squared follower inverse; exact reentrance on weighted double-stars and friendship graphs; critical attenuation on directed rings."
+          ],
+          "identifier_or_url": "Resultary 3e379b1d3263, 2f9df522cdce, a8df3f507d1c, 8a846bde0fc8",
+          "material_read": "Mirrored RESULT.md claim passages, snapshot commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary local mirror",
+          "title": "Related exact path spacing and two-leader reentrance records",
+          "trigger": "Same topology, same objective or similar scaling in indexed research"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–42 and 74–103",
+        "Fitch thesis §4.2.2",
+        "Independent exact P_21 comparisons"
+      ],
+      "rationale": "Two equal leaders on a uniform path are a standard, simple instance in which exact optimal spacing might appear to grow monotonically from weak to effectively perfect feedback. The intermediate overshoot and its unique analytic peak refute that inference and the finite all-pairs certificate shows it does not depend on a continuum approximation. The fixed-gap formula also yields a linear-size exact search over gaps rather than pairs.",
+      "residual_risks": [
+        "Applies to equal finite gains, uniform edge weights and independent full-state forcing. No arbitrary finite-size phase diagram or robustness to irregular networks is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

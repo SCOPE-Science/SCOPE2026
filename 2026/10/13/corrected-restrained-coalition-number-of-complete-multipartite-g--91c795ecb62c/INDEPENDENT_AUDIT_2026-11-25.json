@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:14:18.660709Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For complete multipartite graphs, a nonempty selected set dominates iff it meets two classes or fills one class; its complement has no isolate iff empty or meeting two classes. For p=0 every singleton qualifies when N≥3, and the two blocks in K₂ form a coalition. For p≥2, singleton-class vertices qualify by themselves; vertices in large classes can pair across two large classes, leaving members of both classes outside. This proves the maximum N in both cases. With one large class and u=1, the only restrained dominating set is all vertices, hence the maximum is two. When u≥2 each clique vertex is itself restrained dominating, and splitting the large class into two proper nonempty blocks gives the asserted u+2. Theorem 2.1 of Dobrynin–Glebov–Golmohammadi supplies the upper bound by the ordinary coalition number: every block containing a universal vertex must be its singleton in an ordinary coalition partition, and the large class can contribute at most two blocks, since a pair of its blocks dominates only if it covers that whole class. Independently, if three or more blocks lie entirely within the large class, a union of two such blocks cannot dominate, and a potential partner containing a clique vertex either is already RD (another clique vertex and a large-class vertex remain outside) or contains all clique vertices and its union still leaves an independent outside. This also excludes more than u+2 blocks directly. It gives 4 for K_{3,1,1}. The uploaded checker was inspected, not executed; it visits all 101632 candidate partitions on 58 profiles through order 8, with validity tests pruned by the incumbent order. The proof, not enumeration, covers all orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.16 establishes stars, whereas Proposition 2.17 claims all complete multipartite graphs have value equal to order. Theorem 2.1 of the later paper gives RC(G)≤C(G)."
+        ],
+        "reasoning": "The nominally broader assertion is false at the relevant boundary; the universal inequality supplies an upper bound but not the matching constructions or the sharper star value.",
+        "searches": [
+          "10.19139/soic-2310-5070-2962 Propositions 2.16–2.17",
+          "10.47443/dml.2025.223 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "10.19139/soic-2310-5070-2962",
+        "10.47443/dml.2025.223",
+        "Resultary Oct. 12 total restrained and Oct. 13 fair coalition records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior singleton construction cannot partner a vertex of the size-3 part with an already RD universal singleton, and a pair within the size-3 part does not dominate. The correct four-block construction pairs two proper blocks covering the entire large class."
+        ],
+        "reasoning": "This rules out a claimed value of 5 in a non-star example. Partial overlap on stars and multipartite regimes of full order does not imply the corrected classification. The broader inequality alone yields no lower bound.",
+        "searches": [
+          "Nesam–Amutha–Anbazhagan Proposition 2.17 proof",
+          "Dobrynin–Glebov–Golmohammadi Theorem 2.1; compare coalition partners for K_{3,1,1}"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RDc and RC use the same restrained-domination requirement. The total restrained and fair coalition catalogue records impose different conditions on the selected sets."
+        ],
+        "reasoning": "Total and fair coalition values of the same graph family are not equivalent formulations of the invariant. The split-graph notation K_u joined to an independent m-set gives the same one-large-class boundary, not a different parameter.",
+        "searches": [
+          "Restrained domination coalition complete multipartite correction singleton classes; Resultary RDc/RC multipartite",
+          "Nesam–Amutha–Anbazhagan Definitions 2.1–2.2; Dobrynin–Glebov–Golmohammadi RC"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact prior star values and order-N values in valid regimes are credited. The same-day fair-coalition record and earlier total restrained record are not tables of RDc."
+        ],
+        "reasoning": "The exact value for one large class with at least two singleton classes and the corresponding strict discrepancy for size at least three were not supplied by the inspected statements.",
+        "searches": [
+          "Resultary: exact restrained coalition number complete multipartite graphs",
+          "Nesam–Amutha–Anbazhagan §2.2 special-graph propositions"
+        ]
+      },
+      "rationale": "The initiating paper states the order-N formula without a part-size restriction, while separately giving the correct star case. The new content is the exact corrected boundary, especially the non-star regime of one class of size at least three and at least two singleton classes. The later bound and the catalogue classifications of other coalition parameters do not supply that correction.",
+      "residual_risks": [
+        "A poorly indexed correction of Proposition 2.17 could exist.",
+        "The comparison uses the ordinary convention allowing singleton partite classes, explicit in the frozen claim; a convention excluding them would change the scope of the conflict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct conflict under the stated standard singleton-allowed convention",
+          "evidence": [
+            "Star value 2, followed by unrestricted multipartite value equal to order and use of the singleton partition. No part-size qualification accompanies the latter statement."
+          ],
+          "identifier_or_url": "https://iapress.org/index.php/soic/article/download/2962/1525/",
+          "material_read": "Definitions 2.1–2.2 (PDF p. 2, offset 7600); §2.2 Propositions 2.16–2.17 and proof (PDF p. 6, offset 19000)",
+          "method": "Open publisher PDF passage inspection",
+          "title": "Restrained Domination Coalition Number of Paths and Cycles",
+          "trigger": "Exact published result being corrected"
+        },
+        {
+          "assessment": "Bound confirmed; not an exact multipartite classification in the inspected result",
+          "evidence": [
+            "RC(G)≤C(G) for order at least 2."
+          ],
+          "identifier_or_url": "https://www.dmlett.com/archive/v17/DML26_v17_pp57-63.pdf",
+          "material_read": "§2, Theorem 2.1 and opening proof, printed p. 58, offset 5880",
+          "method": "OA journal PDF via DOI 10.47443/dml.2025.223",
+          "title": "On Restrained Coalitions in Graphs: Bounds and Exact Values",
+          "trigger": "General bound used in final proof"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Total restraint includes total domination of selected vertices."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-total-restrained-coalition-numbers-of-complete-multipartite-grap--d641ff8113c6/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published record through local mirror",
+          "title": "Total restrained coalition numbers of complete multipartite graphs",
+          "trigger": "Same graph class and closely named parameter"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Uses 1-fair domination, not restrained domination."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-fair-coalition-partitions-of-complete-multipartite-graphs--a51699f37bef/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published record through local mirror",
+          "title": "Fair coalition partitions of complete multipartite graphs",
+          "trigger": "Same-day exact coalition classification hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This corrects the published exact value for a standard graph family, distinguishes where the conclusion remains true, and gives a non-star counterexample and a complete proof rather than only pointing to the visible star inconsistency.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:57:36.750151Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A compatibility edge forces equal successor rows in its two directions; thus an unrestricted graph with c components admits (2^n)^c modal relations. For equivalence accessibility, row equality is class membership, so each partition allows exactly the graphs with edges inside blocks. The weighted labelled-set formula is formal and distinguishing the block of world 1 gives the recurrence. For A_n a spanning forest of rank k=n-c has at most nk/2 within-component edges available, so the nonidentity relative mass is at most (1+2^{-n/2})^{binom(n,2)}-1. For B_n, a largest block of n-k>n/2 loses at least nk/2 available edges and there are at most n^{2k} such partitions; if all blocks are at most n/2, loss is at least n^2/4 against at most n^n partitions. All bounds vanish. The approximating law in each case is precisely the original law conditioned on its dominant event, so TV is the discarded probability; in the equivalence case a cut union bound yields connectivity for the conditional G(n,1/2). Independent replay (python3 -B /workspace/branches/independent_replay.py 1) counted unrestricted pairs by injectively naming row classes and equivalence pairs by recurrence through n=6, and separately enumerated row assignments through n=3; it matched all listed values. The finite checks are not the asymptotic proof. The operative measure is unambiguously the uniform admissible ordered pair, equivalently conditioning a uniform independent pair on admissibility; the first sentence on sampling in the scope note is awkward but the finding and its next sentence specify that same measure.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tokuo characterizes the same forcing semantics by constancy of successor rows within compatibility components and discusses equivalence accessibility.",
+          "The complete-graph random-cluster reference considers p=lambda/n with q as a parameter, as opposed to this dense p=1/2, exponentially varying q regime."
+        ],
+        "reasoning": "Existing structural results start the counting argument but do not bound the weighted contribution of nonsingleton compatibility components or nonuniversal modal partitions in these two measures. The inspected broader asymptotic statements cannot be applied just by substituting p and q.",
+        "searches": [
+          "Tokuo arXiv:2511.10188, Definition 1; arXiv:2607.14757, equivalent-accessibility passage and Section 3.1",
+          "Bollobás–Grimmett–Janson, The random-cluster model on the complete graph, Section 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Tokuo arXiv:2511.10188 and arXiv:2607.14757",
+        "Bollobás–Grimmett–Janson (1996), Section 1",
+        "Resultary genericity-inversion finding listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior result supplies row constancy, after which independent row choice gives 2^{n c(Q)} immediately. In the equivalence case rows are blocks and admissibility is Q contained in M."
+        ],
+        "reasoning": "The enumeration is a short consequence of this characterization plus counting, and the conditional graph law is immediate for universal M. The nontrivial retained comparison is to show quantitatively that each opposite conditioning event takes almost the entire mass under its declared measure.",
+        "searches": [
+          "Tokuo, Component Modalities of Quantum Logic, Lemma 3.1 and Theorem 3.2; equivalence-accessibility passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bollobás–Grimmett–Janson, Section 1, equations (1.1)–(1.3): random-cluster mass p^{|E|}(1-p)^{binom(n,2)-|E|} q^{c(E)}.",
+          "The equivalence ensemble is partitions with a freely chosen simple graph on each block, so its formal EGF is the labelled-set construction."
+        ],
+        "reasoning": "A_n is exactly 2^{binom(n,2)} Z(n,1/2,2^n); the unrestricted sum is a specialization of a known polynomial, not a new partition-function framework. The inspected random-cluster asymptotic regime is different, and does not yield the equivalence ensemble or the opposition of the two modal-pair limits.",
+        "searches": [
+          "Component-weighted labelled graph enumeration / random-cluster partition function; equivalence-modal weighted partitions",
+          "Resultary forcing frames and genericity inversion search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-genericity-inversion-for-finite-quantum-forcing-frames--e0b3c597db20 explicitly gives the two formulas and the same leading terms, and derives additional first-defect terms."
+        ],
+        "reasoning": "This is substantive exact indexed overlap, not merely a similar object, but it is indexed after the frozen finding. Its independence or provenance relationship is unresolved. An isolated finite sequence table would not establish the conditional and limiting pair laws.",
+        "searches": [
+          "Resultary semantic check for the two finite forcing-frame counts and generic compatibility geometry, matching record Finding and proofs"
+        ]
+      },
+      "rationale": "Credit the quantitative comparison of the two finite labelled-pair measures and their opposite total-variation limits. The forcing framework, component-row lemma and general partition-function constructions are prior or standard. A later indexed finding substantially overlaps and strengthens the defect analysis; it is not evidence of earlier coverage on the dates available. No absolute priority claim is made.",
+      "residual_risks": [
+        "Weighted partition sequences or exponentially varying random-cluster weights may occur under other labels in literature not inspected.",
+        "The relationship of the near-identical later Resultary finding to the frozen work was not established; only distinct dates and mathematical overlap are documented."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers semantics, not pair census in inspected passage",
+          "evidence": "Compatibility is reflexive and symmetric, and forces binary modal accessibility by the same implication.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.10188",
+          "material_read": "Definition 1, Section 2.2, PDF pp. 3–4; offsets 8500 and 9444",
+          "method": "OA PDF text",
+          "title": "Quantum Modal Logic",
+          "trigger": "Origin of the forcing condition"
+        },
+        {
+          "assessment": "Covers structural theorem underpinning both counts",
+          "evidence": "Forcing is equivalent to componentwise equality of successor rows; T, 4, B specify the equivalence setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.14757",
+          "material_read": "Equivalence-accessibility passage p. 5, offset 20311; Lemma 3.1 and Theorem 3.2 p. 6, offsets 21821–26751",
+          "method": "OA PDF text",
+          "title": "Component Modalities of Quantum Logic",
+          "trigger": "Exact component lemma and modal subclass"
+        },
+        {
+          "assessment": "Exact partition-function framework; differing asymptotic regime",
+          "evidence": "Weights contain q^{c(E)}; p=1/2 and q=2^n recover the unrestricted sum after multiplying by 2^{binom(n,2)}.",
+          "identifier_or_url": "Bollobás–Grimmett–Janson, Random Structures & Algorithms 9 (1996), 283–314",
+          "material_read": "Section 1, equations (1.1)–(1.3), pp. 284–285, offset 2680",
+          "method": "OA PDF text",
+          "title": "The random-cluster model on the complete graph",
+          "trigger": "Exact weighted-graph alias and potential asymptotic coverage"
+        },
+        {
+          "assessment": "Substantial later overlap; further defect terms, not earlier evidence",
+          "evidence": "Same A_n and B_n formulas and leading asymptotics; identifies one compatibility edge and a singleton modal block as the dominant defects in their respective ensembles.",
+          "identifier_or_url": "2026/11/2/SCOPE-genericity-inversion-for-finite-quantum-forcing-frames--e0b3c597db20",
+          "material_read": "Local RESULT.md offsets 0–7854 and 7854–10263",
+          "method": "Resultary search and local mirror",
+          "title": "Genericity inversion for finite quantum forcing frames",
+          "trigger": "Strongest exact Resultary overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two measures differ by a natural accessibility axiom, yet that change reverses the typical compatibility geometry from the completely disconnected graph to a dense, high-probability connected random graph. The TV result describes the joint relation pair, not just a scalar count or a connectivity probability, and identifies actual sampling laws for a concrete finite-frame question. The value rests on this contrast, not on the standard exponential formula alone or on a claim about physical realizability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

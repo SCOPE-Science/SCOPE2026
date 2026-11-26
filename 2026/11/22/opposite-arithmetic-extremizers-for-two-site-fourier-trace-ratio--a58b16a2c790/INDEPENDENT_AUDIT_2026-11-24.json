@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:23:49.816826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–84",
+        "Frozen VERIFICATION.md and inspected check.py (not executed)",
+        "Independent finite verification of the order-21 example"
+      ],
+      "rationale": "Left translation factors a unitary from the Fourier blocks and leaves aI+b pi(g)* for g=x⁻¹y. Across the regular representation each root of unity occurs n/m times, from n/m cycles of length m. These blocks are normal, hence their singular values are the moduli of their eigenvalues; dividing the sum by √n√(|a|²+|b|²) gives (1). With lambda=2|ab|/(|a|²+|b|²), the normalized mean of √(1+lambda cos(phi+2πj/m)) is concave in lambda with derivative zero at 0. It strictly decreases for lambda>0 if any cosine is nonzero; when all cosines vanish (only an orthogonal phase at m=2), the constant mean 1 is strictly larger than the balanced cancelling value 1/√2. For phase zero this exception cannot occur. At lambda=1 the positive cosine-modulus sum is periodic and satisfies S''=−S<0 between its zeros of individual summands, so all minima are at a cancelling summand. All such locations have the same sum by cyclic permutation. The phase relation b/a∈−mu_m and the signed constant follow from 2∑_{j=1}^{m−1}sin(πj/m)=2cot(π/(2m)). For phase zero, pairing j and m−j gives 1+2∑_{j=1}^{floor((m−1)/2)}cos(πj/m); finite cosine summation yields cot for even m and csc for odd m. With x=π/(2m), x cot x decreases as x increases while x csc x increases; the monotonicities are strict. Lagrange and Cauchy give the smallest possible nonidentity order p. In even-order groups order two gives 1/√2 and strictly beats all other orders (odd m have D_m>2√2/π); in odd-order groups the largest realized order minimizes D_m. The order-21 example is the nontrivial semidirect product C₇ ⋊ C₃, not a direct product. The control character in the typesetting of the semidirect-product symbol is a presentation defect; independently checked the intended example using the action by multiplication by 2 modulo 7, with 14 elements of order 3 and six of order 7.",
+      "residual_risks": [
+        "The exact support-two condition is essential. The finite checker supplies corroboration only, not completeness or formal verification. In the example the semidirect-product TeX symbol should be rendered correctly in any subsequent edition."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The entropy preprint studies classes of normalized Fourier ratios; the synthesis preprint gives general synthesis bounds and the indicator norm relation; the idempotent concentration paper concerns concentration over sets, not arbitrary two-atom coefficient minimization.",
+          "The stronger parity-order law in d4da4e897f70 is for every fixed positive a,b in the root mean, and hence applies at fixed a,b after positive normalization; it does not compare different normalized pairs or complex phases."
+        ],
+        "reasoning": "The order optimum within the positive class follows from the stronger fixed-amplitude root-mean order law once the spectral reduction is made. What is not solved by that law is the amplitude minimum at each order or the arbitrary-phase problem, including the sharp combined result. The general Fourier-ratio/synthesis bounds do not yield those equality cases.",
+        "searches": [
+          "arXiv:2606.24229 §1",
+          "arXiv:2609.25404v1 Theorem 1.1 and §2",
+          "arXiv:0811.4576 §1",
+          "Literature search: finite cyclic group two-term trigonometric polynomial L1 norm minimum coefficient phases sum |a+b exp(2 pi i j/m)| cotangent formula"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and published-source mirror records 29d4924b2b7c, aabfaa5078e3, d4da4e897f70 and fb89c1aa5a01",
+        "arXiv:2606.24229, arXiv:2609.25404v1 and arXiv:0811.4576"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-law proof explicitly gives the block aI+b rho(g)* and shows that each m-th root occurs n/m times. Summing moduli via unitary diagonalization rather than counting zero entries immediately gives the reviewed trace formula.",
+          "In the affine-coset finding, H=K={0} gives exactly the two-point indicator norm; the all-positive parity monotonicity already identifies the best separation order for fixed positive amplitudes. The cosine formula for the balanced case is shared with the concentration and greedy records."
+        ],
+        "reasoning": "Counting zero singular values does not furnish a trace minimum: at a nonresonant point the sum still varies with amplitudes and phases. The objective at lambda=1 and its optimal cancellation still require the strict balancing and strict phase arguments, and the complete normalized two-class optimizer statement does not follow by literal substitution in the inspected results.",
+        "searches": [
+          "29d4924b2b7c proof offsets 1570–2680",
+          "d4da4e897f70 Finding offsets 0–3320",
+          "fb89c1aa5a01 proof offsets 1550–4141",
+          "aabfaa5078e3 Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For normalized Fourier coefficients the numerator in the abelian setting is n times the Fourier-algebra norm, so R_G=√n ||f||_A/||f||₂. In particular for the two-point indicator the affine-coset formula gives R_G=√(n/2) M_m(1,1).",
+          "The cyclic average also occurs as a two-character projection kernel norm in fb89c1aa5a01, but its target is an L∞ operator norm and its separation order is maximized in the ratio by taking the smallest prime for that problem."
+        ],
+        "reasoning": "These formulations give genuine coverage of the balanced indicator mean or its use in another norm problem; neither optimizes the coefficient pair in the normalized trace objective. Fixed indicator data cannot certify equality or exclusion of other amplitude and phase choices.",
+        "searches": [
+          "Resultary: finite group two-atom Fourier algebra norm trace norm minimization support two",
+          "Literature search: finite group Fourier algebra norm two point support Fourier transform L1 norm trigonometric polynomial two coefficients extremal theorem",
+          "arXiv:2609.25404v1 §2 Eqs. (2.3)–(2.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact reviewed record is not independent evidence. The Oct. 11 rank result 29d4924b2b7c gives n−n/m upon resonance, n otherwise. The Oct. 4 concentration result aabfaa5078e3 gives exact fixed-idempotent cosine sums via divisor and gcd.",
+          "Distinct same-day d4da4e897f70 covers the equal-positive root mean and a stronger fixed-positive-amplitude parity law; fb89c1aa5a01 explicitly evaluates the odd-order projection kernel mean."
+        ],
+        "reasoning": "The strongest hits were compared mathematically rather than discarded by date. They establish substantial partial coverage, but no inspected table or theorem gives complete balanced and phase equality classifications in this objective.",
+        "searches": [
+          "Resultary: exact two-spike rank-support law arbitrary finite groups",
+          "Resultary: exact two-frequency L1 concentration every cyclic group",
+          "Resultary: two-site Fourier trace ratio finite groups complex positive coefficients arithmetic extremizers"
+        ]
+      },
+      "rationale": "Credit the trace formula as a direct consequence of the earlier two-spike rank proof's full regular spectral multiplicities. Also credit the equal-positive root mean and parity/order dependency, including the two-point indicator specialization, to overlapping known or same-day comparisons; do not infer precedence from a shared date. What remains distinct is the complete optimization over nonzero coefficients in this trace/ℓ² ratio: unique balancing in both classes, all optimal complex phases, exact normalized sharp minima, and the signed-versus-positive comparison for arbitrary finite groups. No stronger inspected claim supplies that coefficient optimization.",
+      "residual_risks": [
+        "Priority between same-day published records is undetermined. A more direct older two-point Fourier-algebra or polygon-average extremizer theorem could still strengthen the coverage assessment; the focused searches do not prove absence. Do not claim novelty of the spectral reduction, balanced positive cosine identity or fixed-positive-amplitude order law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the trace formula from the proof, not the coefficient minimum",
+          "evidence": [
+            "The Fourier blocks reduce to aI+b rho(g)*, and the multiplicities of all roots in the regular representation are n/m; the stated invariant counts rank instead of summing moduli."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-two-spike-rank-support-law-on-arbitrary-finite-groups--29d4924b2b7c",
+          "material_read": "Finding and regular-representation proof, decisive offsets 1570–2680",
+          "method": "Mirrored RESULT.md; decisive proof passage inspected directly",
+          "title": "Exact two-spike rank-support law on arbitrary finite groups",
+          "trigger": "Same group and sparsity, nearest earlier nonabelian mechanism"
+        },
+        {
+          "assessment": "Shared trigonometric identity, different optimization",
+          "evidence": [
+            "The result concerns point concentration of two-character idempotents, not an optimization with free phases and amplitudes in a trace/ℓ² ratio."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-two-frequency-l-1-concentration-on-every-cyclic-group--aabfaa5078e3",
+          "material_read": "RESULT.md offsets 0–4226 and 4500–6042",
+          "method": "Local published-source mirror",
+          "title": "Exact two-frequency L1 concentration on every cyclic group",
+          "trigger": "Balanced cosine sums and cyclic arithmetic"
+        },
+        {
+          "assessment": "Real coverage in the indicator specialization and positive fixed-amplitude order law; does not characterize the minimizing coefficient pairs",
+          "evidence": [
+            "For disjoint cosets it gives 2−alpha−beta+M_m(alpha,beta); singleton cosets give M_m(1,1). Even m increase, odd m decrease to the common continuous mean, for all positive arguments."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-fourier-algebra-norm-of-two-affine-cosets-and-its-parity-o--d4da4e897f70",
+          "material_read": "Finding and assumptions, offsets 0–3320; further proof sections through offset 8183",
+          "method": "Local published-source mirror; decisive statement inspected directly",
+          "title": "Exact Fourier-algebra norm of two affine cosets and its parity-ordered quotient law",
+          "trigger": "Strongest distinct same-day overlap"
+        },
+        {
+          "assessment": "Exact same balanced positive odd root mean; different objective and equality cases",
+          "evidence": [
+            "The two-character projection has operator norm 2/[q sin(π/(2q))]. The result maximizes greedy amplification over signals, not minimizes the normalized mean over two signal coefficients."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-coefficient-greedy-fourier-amplification-on-odd-finite--fb89c1aa5a01",
+          "material_read": "Finding and proof, offsets 0–4141",
+          "method": "Local published-source mirror; projection norm passage inspected directly",
+          "title": "Sharp two-coefficient greedy Fourier amplification on odd finite groups",
+          "trigger": "Same-day cosine-sum and prime-order overlap"
+        },
+        {
+          "assessment": "Known ratio framework, not the claimed optimization",
+          "evidence": [
+            "Unitary-transform ratio used for metric entropy, sampling and phase-orbit results."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.24229",
+          "material_read": "Abstract and §1, offsets 0–3571",
+          "method": "Open arXiv HTML, bounded passages",
+          "title": "Metric entropy of Fourier ratio classes on Z_N",
+          "trigger": "Motivating Fourier-ratio literature"
+        },
+        {
+          "assessment": "General synthesis and normalization; no demonstrated sharp two-coefficient implication",
+          "evidence": [
+            "Relates indicator Fourier ratio to normalized Fourier-algebra norm and gives general synthesis estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.25404v1",
+          "material_read": "Theorem 1.1, offsets 5800–8786; §2, Eqs. (2.3)–(2.5), offsets 16400–18930",
+          "method": "Open arXiv HTML, located passages",
+          "title": "Spectral synthesis with the complexity parameter in Z_N^d",
+          "trigger": "Indicator/Fourier-algebra reformulation and possible broad implication"
+        },
+        {
+          "assessment": "Different concentration problem",
+          "evidence": [
+            "Studies concentration of trigonometric idempotents on sets in torus and finite cyclic settings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0811.4576",
+          "material_read": "pp. 1–2, abstract and §1",
+          "method": "Open arXiv PDF, bounded passages",
+          "title": "Concentration of the integral norm of idempotents",
+          "trigger": "Broader L1 concentration precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof, especially sections 2–5",
+        "Indexed rank law and parity-ordered affine-coset norm result",
+        "Fourier-ratio definitions in the two primary ratio preprints"
+      ],
+      "rationale": "The complete coefficient minimum and its equality classification are useful exact sparsity benchmarks for the normalized Fourier-algebra/trace objective, including the first genuinely variable support size. Positive and arbitrary complex coefficients have different arithmetic minimizers in the nontrivial odd-order cases where the least prime and largest actual order differ. The classification explains that contrast through a sharp equality condition on coefficient balance and cancellation, rather than merely recomputing an indicator norm or a rank count. It also covers coincidence of the optimizing orders, without falsely asserting strict separation for all odd-order groups.",
+      "residual_risks": [
+        "Narrow scope: two sites, trace norm, finite groups; does not classify larger supports or solve a synthesis problem. The reversal need not give different element orders when p=M."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

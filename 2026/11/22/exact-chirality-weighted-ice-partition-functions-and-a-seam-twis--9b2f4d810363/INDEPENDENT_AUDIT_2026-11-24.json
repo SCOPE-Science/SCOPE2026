@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:14:17.567748Z",
+  "axes": {
+    "correctness": {
+      "limitations": "The finite recomputation corroborates the symbolic proof. The observable counts original-vertex triangles only (not all 3-cycles of the line graph); there is no planar-face requirement.",
+      "rationale": "In a simple cubic graph each line-graph edge lies in exactly one designated original-vertex triangle, and at an original edge the two local contributions to indegree sum to two. Each permutation of (0,1,2) has one orientation and (1,1,1) has two, each weighted z. This gives the nine-state transfer with the stated edge complementation and rail swap at closure. The extreme states 00 and 22 are symmetric singleton blocks of eigenvalue one. The state pairs (01,10) and (12,21) have symmetric/antisymmetric eigenvalues 2z+1 and 2z−1. On (02,11,20) the odd vector has eigenvalue one and the symmetric two-dimensional matrix has diagonal 1,4z² and off-diagonal √2, yielding the stated two roots. Ordinary versus swapped trace gives the two polynomials and their difference. For odd n the odd power is strictly increasing, even across its stationary point, so the root and limit follow; for even n the difference is at least two. At z=1 the dominant eigenvalue is (5+√17)/2 and both traces have coefficient one there, establishing the common entropy when divided by 3n. A separately written exact orientation enumerator with local constraint propagation reproduced the full polynomials by agreement at 2n+1 distinct integer points for both seams at n=3,4,5.",
+      "replay": "python3 /workspace/replay.py 5",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chang–Shrock compute cyclic kagome chromatic polynomials. Lin’s indexed kagome ice paper is plausible but full text was not accessible. The available dilute Temperley–Lieb search description did not identify an evaluated trace on these ladders; the full article was inaccessible through the attempted route."
+        ],
+        "reasoning": "Chromatic counts count a different object. General loop transfer machinery or bulk ice thermodynamics would not by itself cover both finite-seam traces. No stronger evaluated trace has been verified, and unread texts are not declared non-covering.",
+        "searches": [
+          "DOI 10.1088/0305-4470/8/12/008 and identified OA routes",
+          "arXiv:cond-mat/9907403 section IV",
+          "DOI 10.1088/1742-5468/acb7d7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fdbca339c304, c4fb511b080a and 379692535467",
+        "arXiv:cond-mat/9907403",
+        "doi:10.1088/0305-4470/8/12/008 (indexed description)",
+        "doi:10.1088/1742-5468/acb7d7 (search description)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Tait finding counts base-graph proper three-edge-colourings and gives seam difference 6(−1)^n; it selects even alternating 2-factors using a distinguished complementary colour. The degree-two cut finding counts base-graph vertex cuts and has seam difference 2 cos(nπ/3)."
+        ],
+        "reasoning": "The apparent constant-six relationship is not the current orientation seam response: it changes sign with parity for Tait and has no variable fugacity. Fully packed even-cycle cover counts determine no coefficient with vacant vertices; a vertex cut or proper colouring has different constraints. The actual supported claim is the full finite polynomial.",
+        "searches": [
+          "Resultary c4fb511b080a and 379692535467 findings",
+          "Chang–Shrock arXiv:cond-mat/9907403 section IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At each transitive triangle two incident base edges have nonzero local indegree excess over one (opposite signs). They form disjoint oriented cycles, with 2 choices per cycle; at each vacant vertex there are two local cyclic triangle orientations weighted z. This is the dilute O(2) loop sum with vacancy fugacity 2z. The fully packed endpoint is z=0."
+        ],
+        "reasoning": "A general identification with a dilute loop model does not evaluate the finite traces with both seam closures. The known Tait count equals the fully packed orientation count when all cycles in the relevant 2-factors are even, in particular on the bipartite even prisms and odd Möbius ladders, but does not count vacancy configurations.",
+        "searches": [
+          "Resultary: weighted ice, cubic ladder, Eulerian orientation, Tait seam",
+          "Primary lookup: dilute O(2) or fully packed loop model on cyclic and Möbius two-leg ladders"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "fdbca339c304 explicitly enumerates 148 labeled Eulerian orientations on the simple C3 square C3 lattice; this is the line graph of the length-three Möbius ladder K3,3. c4fb511b080a evaluates Tait counts on both ladder families."
+        ],
+        "reasoning": "Credit the exact z=1, n=3 Möbius overlap and the z=0 Tait-related overlap. Neither is a table with all coefficient weights or lengths; neither resolves the fugacity-controlled sign reversal.",
+        "searches": [
+          "Resultary: 3×3 toroidal square ice and the count 148",
+          "Resultary: same ladder graphs, exact seam laws, and z=0/1 invariants"
+        ]
+      },
+      "rationale": "The supported distinction is the full vacancy/chirality polynomial and all-z evaluated seam trace. There is actual overlap with the fully packed endpoint and with a known isolated unweighted count, but no inspected covering finite-ladder trace for variable fugacity.",
+      "residual_risks": [
+        "An older exact finite strip transfer result in loop or kagome terminology, including an unverified specialization of Lin, remains possible. No global priority claim follows from the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified isolated overlap",
+          "evidence": "C3 square C3 has exactly 148 Eulerian orientations.",
+          "identifier_or_url": "Resultary fdbca339c304",
+          "material_read": "RESULT.md Finding offset 0 and count context at offset 459",
+          "method": "Resultary local mirror",
+          "title": "Complete Walsh spectrum and optimal range projections for the smallest simple periodic square-ice torus",
+          "trigger": "Exact same z=1 Möbius small graph up to isomorphism"
+        },
+        {
+          "assessment": "Partial endpoint relationship; different ensemble",
+          "evidence": "Prism and Möbius Tait counts 2^n+3+5(−1)^n and 2^n+3−(−1)^n, respectively.",
+          "identifier_or_url": "Resultary c4fb511b080a",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Tait colourings as primitive-three excitation on cubic line graphs, with a constant-six seam law",
+          "trigger": "Exact seam law on same prism/Möbius family; potential loop endpoint"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Counts nonempty vertex bipartitions with at most two opposite-side neighbors per vertex.",
+          "identifier_or_url": "Resultary 379692535467",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "A six-periodic seam law for degree-two cuts of cubic ladders",
+          "trigger": "Same-day close seam-law result on identical base graphs"
+        },
+        {
+          "assessment": "Different statistical sum in inspected passage",
+          "evidence": "The finite-strip result there is for a chromatic polynomial.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9907403",
+          "material_read": "Section IV pp. 12–13, offset 29861",
+          "method": "OA PDF passage",
+          "title": "Exact Partition Functions for Potts Antiferromagnets on Cyclic Lattice Strips",
+          "trigger": "Finite cyclic kagome strip transfer"
+        },
+        {
+          "assessment": "Finite-seam specialization unresolved",
+          "evidence": "Indexed material identifies a kagome staggered ice model; no decisive full-text passage was available.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/8/12/008",
+          "material_read": "Indexed description only; full text unread",
+          "method": "DOI, publisher HTML/PDF and configured alternate route attempts, HTTP 403",
+          "title": "Staggered ice-rule vertex model on the Kagome lattice",
+          "trigger": "Potentially broader kagome ice with nonuniform local weights"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two closures share a natural bulk model but not its finite response; the all-length polynomial identifies a nontrivial odd/even reversal as a local vacancy penalty is changed, a precise small-fugacity scale, and a constant unweighted excess. These distinctions depend on the genuinely weighted partition functions, not merely on the existing isolated count, fully packed endpoint, or general transfer method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

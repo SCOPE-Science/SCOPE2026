@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:47:29.911744Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38",
+        "Frozen VERIFICATION.md lines 19–36 and verify.py lines 5–36, inspected without executing",
+        "Independent finite reconstruction for n=3 through 7 from the defining edges and recomputed degrees"
+      ],
+      "rationale": "Deleting a₀ leaves b₀ and all aᵢ at degree n−1 and all other bⱼ at degree n−2. If b₀ is not selected, no selected B-neighbor can strongly dominate a missing aᵢ, so all of A′ is selected; that suffices, since n−1≥2 and a remaining bⱼ misses at most one member of A′. With b₀ selected, every missing aᵢ is covered, and respectively zero, one, or at least two selected aᵢ force all bⱼ, just the matching-index bᵢ, or none of the other B-vertices. The four disjoint contributions give the polynomial coefficientwise. At n=3 only A′ is minimum; for n≥4 the minimum is three, with (n−1)+C(n−1,2)+[n=4] possibilities. Substitution at z=1 gives the stated total. Direct independent enumeration over the residual adjacency and degree condition for n=3,…,7 matched every coefficient; for example n=4 gave (0,0,0,7,20,18,7,1) and the five totals were 13,53,225,945,3905.",
+      "residual_risks": [
+        "The case-1 phrase about all neighbors should be read as all selected candidate neighbors, since b₀ is an unselected neighbor. This does not change the proof.",
+        "The supplied verifier uses int.bit_count(), so its recorded Python 3.8 compatibility is inaccurate; use Python 3.10 or later. The bounded independent reproduction does not replace the all-n proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The modification theorem gives scalar bounds; the stability paper's examples use complete bipartite and cocktail-party graphs. The complete multipartite catalogue result does not cover crowns."
+        ],
+        "reasoning": "Neither the ambient scalar theorem nor the results for Kₙ,ₙ or K₂ₙ−M give coefficients for Kₙ,ₙ−M−v. Missing matched cross-edges and retaining no within-side edges matter.",
+        "searches": [
+          "arXiv:2212.01860v1, Theorem 2.1",
+          "arXiv:2601.03891, Propositions 2.8–2.9",
+          "Resultary complete multipartite stability record 9a40c53207b4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary crown polynomials 5d6778d8bf31 and 3564a580a47e and multipartite record 9a40c53207b4; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2601.03891 and arXiv:2212.01860v1",
+        "Raj–Abirami 2020 and Zaherifar–Alikhani–Ghanbari 2023, Theorem 3.5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar stability records only the lowest degree; complete-bipartite counts do not include the mandatory bᵢ when the only selected A-vertex is aᵢ."
+        ],
+        "reasoning": "The scalar cannot recover multiplicities or the full polynomial. The residual exceptional vertex and the deleted diagonal require the distinct four-case partition.",
+        "searches": [
+          "arXiv:2601.03891, scalar deletion results",
+          "arXiv:2212.01860v1, scalar bound",
+          "Zaherifar et al. Theorem 3.5 and local-mirror domination-polynomial Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Queen Crown paper's Qₘ,₂ is Kₘ,₂; the ordinary and total domination record treats the unmodified crown graph. The Italian-domination record counts {0,1,2}-labelings rather than strongly dominating subsets."
+        ],
+        "reasoning": "The predicates and underlying graphs do not agree. In particular, after deletion the non-strict degree direction for strong domination forbids weak-degree B-vertices from covering high-degree A′-vertices, unlike ordinary domination.",
+        "searches": [
+          "Literature: \"strong domination polynomial\" crown graph vertex deletion",
+          "Resultary crown-graph domination polynomial catalogue comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Raj–Abirami give x²+4x³+6x⁴+4x⁵+x⁶ for Q₄,₂=K₄,₂. Zaherifar et al. tabulate cardinality counts by formulas for Kₘ,ₙ. The indexed exact polynomials use different predicates on intact crowns."
+        ],
+        "reasoning": "No inspected exact formula is for the frozen graph with the frozen predicate. Matching small coefficient patterns or a 'crown' title would not constitute the all-n enumerator.",
+        "searches": [
+          "Raj–Abirami polynomial section",
+          "Zaherifar–Alikhani–Ghanbari, Theorem 3.5",
+          "Resultary ordinary/total and Italian domination polynomial records 5d6778d8bf31 and 3564a580a47e"
+        ]
+      },
+      "rationale": "The strongest inspected comparisons concern scalar stability, ordinary or other domination predicates, or different graph families. None evaluates or mechanically implies the all-size strong-domination polynomial of Kₙ,ₙ−M−v. This is a bounded best-of-knowledge assessment, not a priority guarantee.",
+      "residual_risks": [
+        "The search and targeted passages do not exclude equivalent unindexed or otherwise unexamined work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different predicates and no vertex deletion",
+          "evidence": [
+            "Ordinary and total domination on the unmodified crown graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-log-concavity-cutoff-for-domination-polynomials-of-crown--5d6778d8bf31",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Published-record search and targeted mirror reading",
+          "title": "A sharp log-concavity cutoff for domination polynomials of crown graphs",
+          "trigger": "Exact crown-graph polynomials"
+        },
+        {
+          "assessment": "Different predicate and no vertex deletion",
+          "evidence": [
+            "Counts {0,1,2}-valued Italian-domination labelings on intact crowns."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-complete-italian-domination-polynomial-and-low-weight-threshold--3564a580a47e",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Published-record search and targeted mirror reading",
+          "title": "Complete Italian-domination polynomial and low-weight threshold",
+          "trigger": "Same-date crown-graph enumerator"
+        },
+        {
+          "assessment": "Scalar, with different graph examples",
+          "evidence": [
+            "Treats Kₙ,ₙ and K₂ₙ minus a perfect matching, not the bipartite matching-deleted crown enumerator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.03891",
+          "material_read": "Abstract p. 1 and Propositions 2.8–2.9 pp. 4–5; offsets 900 and 9420–10530",
+          "method": "Targeted OA PDF reading",
+          "title": "Stability of the Strong Domination Number of Graphs",
+          "trigger": "Same strong-domination vertex-deletion question"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": [
+            "Complete multipartite scope does not include the crown graphs in the frozen range."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-complete-multipartite-strong-domination-stability-and-all-minimu--9a40c53207b4",
+          "material_read": "Local-mirror Finding at offset 0",
+          "method": "Published-record search and targeted mirror reading",
+          "title": "Complete multipartite strong domination stability and all minimum sets",
+          "trigger": "Close catalogue deletion and minimum-set result"
+        },
+        {
+          "assessment": "General scalar bounds only",
+          "evidence": [
+            "Bounds the scalar strong domination number after vertex deletion, without enumerating sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2212.01860v1",
+          "material_read": "Offsets 0–4963, including Theorem 2.1",
+          "method": "Targeted OA HTML reading",
+          "title": "Strong domination number of a modified graph",
+          "trigger": "General vertex modification theorem"
+        },
+        {
+          "assessment": "Same predicate, different graph",
+          "evidence": [
+            "Qₘ,₂ joins two independent parts of orders m and 2, i.e. it is Kₘ,₂."
+          ],
+          "identifier_or_url": "https://ijmttjournal.org/public/assets/volume-66/issue-2/IJMTT-V66I2P510.pdf",
+          "material_read": "Qₘ,₂ definition p. 1, offset 580; polynomial section p. 4, offset 8000",
+          "method": "Targeted OA PDF reading",
+          "title": "Strong Domination Polynomials of Queen Crown Graph",
+          "trigger": "Exact polynomial and 'crown' terminology"
+        },
+        {
+          "assessment": "Inspected census is for Kₘ,ₙ",
+          "evidence": [
+            "Counts strong dominating sets by cardinality of complete bipartite graphs, not their post-crown-deletion residuals."
+          ],
+          "identifier_or_url": "https://jas.shahroodut.ac.ir/article_2667_0b43106dc9e6de4c7ea2480bc3c3007b.pdf",
+          "material_read": "Theorem 3.5, printed p. 71, offset 12800",
+          "method": "Targeted lawful journal PDF reading",
+          "title": "On the strong dominating sets of graphs",
+          "trigger": "General cardinality census and plausible exact-family overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38",
+        "Scalar stability literature arXiv:2601.03891 and arXiv:2212.01860v1",
+        "Zaherifar et al., Theorem 3.5, complete-bipartite enumerator"
+      ],
+      "rationale": "The crown is a natural matching-deleted complete bipartite family, and vertex deletion produces one high-degree B-vertex and asymmetric domination constraints. An exact all-cardinality polynomial answers more than scalar sensitivity, including the n=3 and n=4 boundary effects, the shapes and exact counts of minimum sets, and total-set counts. The elementary proof does not make the finer enumerator a substitution into a prior result.",
+      "residual_risks": [
+        "Value is for one vertex deletion in this family with residual degrees; no multi-deletion or generic enumerator is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

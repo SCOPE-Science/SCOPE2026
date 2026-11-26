@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:28:32.675693Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Assumptions and scope and Proof",
+        "Frozen VERIFICATION.md and artifacts/verify.py (inspected, not executed)",
+        "/workspace/branches/frozen_recheck.py, cerny()"
+      ],
+      "rationale": "In the stated left-to-right binary automaton, the preimage of a nonempty proper cyclic interval is another such interval, empty, or full. A b-preimage increases size precisely at start 0 and changes the start to n−1; losses and harmless b-steps cannot advance a successful path toward start 0. A reset to t with h losses and r harmless b-steps therefore uses at least L+t+(n+1)h+r letters, and any inter-gain a-run has length n−1 modulo n. At L this forces the unique word U_n. At L+1 no losses are possible, and the sole slack is an endpoint a or a harmless b. In the inverse gap after gain r, the sole loss is at phase r, and reversing the gap gives the forbidden forward position j=i. Adjacent doubled b's admit either order of identifying the extra copy; there are n−1 distinct such words including U_nb. The disjoint classification yields (n−2)^2+3. A fresh inverse-image bitset DP, n=3..30, checked the L and L+1 counts by targets 0, 1 and n−1 (the proof rules out all targets >1 at L+1). The DP is corroboration, not proof. Replay: python -B /workspace/branches/frozen_recheck.py 5.",
+      "residual_risks": [
+        "The independent finite check is target-restricted and does not exhaust witnesses at every n; the inverse-interval derivation supplies completeness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier exact formula covers n≥2; the frozen result only n≥3.",
+          "Rodaro's minimal words exclude a proper resetting factor; Ferens and collaborators study subset reaching and avoidance thresholds, not identical word counts."
+        ],
+        "reasoning": "The earlier Resultary theorem covers every frozen case. General reset-ideal and reaching statements alone do not count all words of this length.",
+        "searches": [
+          "Resultary: 8a725fd1702c",
+          "arXiv:1708.04864",
+          "arXiv:2208.05956",
+          "DOI:10.4230/LIPIcs.MFCS.2021.46"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8a725fd1702c, 4f41f6875260, 61d8f6568fe8",
+        "Rodaro arXiv:1708.04864",
+        "Kisielewicz, Kowalski & Szykuła DOI:10.1007/s10878-013-9682-0",
+        "Ferens & Szykuła arXiv:2208.05956",
+        "Ferens, Szykuła & Vorel DOI:10.4230/LIPIcs.MFCS.2021.46"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier record gives both optimal-word uniqueness and the forbidden t=j insertion in every block.",
+          "The shortest-word algorithms article, abstract and introduction, discusses the classical shortest-length threshold."
+        ],
+        "reasoning": "Restrict the earlier classification to n≥3 to obtain the entire frozen conclusion. The classical threshold alone would not imply the next-length coefficient; the explicit earlier insertion theorem does.",
+        "searches": [
+          "Resultary: 8a725fd1702c, Steps 2–4",
+          "DOI:10.1007/s10878-013-9682-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steps 2–4, local-mirror text offsets 2800–6360: unique W_n, two boundary a's, n−1 b-doublings, and interior insertion t≠j."
+        ],
+        "reasoning": "W_n=U_n in the same generator convention. The frozen j=0 insertions and U_nb are the adjacent doublings; positive internal j≠i are the earlier safe split positions. The match is a bijection of the word lists, not a coincidence of cardinalities.",
+        "searches": [
+          "Resultary: SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c, RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Step 4 gives R_n(L_n+1)=2+(n−1)+(n−2)(n−3)=n²−4n+7, with finite computational checks secondary to its all-n proof."
+        ],
+        "reasoning": "An indexed exact theorem already supplies the entire integer sequence; no extrapolation from a table or reliance on later items is needed.",
+        "searches": [
+          "Resultary: 8a725fd1702c, formula R_n(L_n+1)",
+          "Resultary: 4f41f6875260 and 61d8f6568fe8 (later exact matches)"
+        ]
+      },
+      "rationale": "The earlier October 13 Resultary record states and proves the same exact coefficient and classifies exactly the same words for a domain that contains the frozen domain. It uses a different proof, via a mandatory subsequence and forward interval images; this does not make the frozen claim distinct.",
+      "residual_risks": [
+        "Historical priority beyond the inspected sources is not resolved; the exact earlier Resultary coverage suffices for this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Exact coefficient n²−4n+7, unique shortest word and identical complete insertion classification; n≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c/RESULT.md",
+          "material_read": "Finding and Steps 2–4, offsets 0 and 2800–6360 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Configured local Resultary lookup and local mirror full-text passage inspection",
+          "title": "A mandatory reset subsequence and exact one-step multiplicity for the Černý automata",
+          "trigger": "Same automaton and target excess length in Resultary"
+        },
+        {
+          "assessment": "Related, no exact coverage established in inspected passages",
+          "evidence": "Minimality excludes any proper resetting factor; the structural bounds are not this length coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.04864",
+          "material_read": "Abstract, introduction and §3 targeted passages (pp. 1, 2, 4)",
+          "method": "Lawful OA full-text passage inspection",
+          "title": "Synchronizing automata and the language of minimal reset words",
+          "trigger": "Possible reset-language enumeration antecedent"
+        },
+        {
+          "assessment": "Classical threshold background",
+          "evidence": "Shortest-word algorithms and quadratic baseline, not the exact one-slack classification in the passages read.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+          "material_read": "Abstract and introduction (pp. 1–2)",
+          "method": "OA paper passages",
+          "title": "Computing the shortest reset words of synchronizing automata",
+          "trigger": "Separate known shortest-word background from near-shortest counts"
+        },
+        {
+          "assessment": "Adjacent but different invariant",
+          "evidence": "Minimum length to reach a subset, not number of words of a specified length.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.05956",
+          "material_read": "§2, p. 4, including the Černý example",
+          "method": "OA paper passages",
+          "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on the reaching threshold",
+          "trigger": "Same automaton, exact subset-image thresholds"
+        },
+        {
+          "assessment": "Adjacent but different invariant",
+          "evidence": "Exact avoidance-length questions do not enumerate resetting words.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.46",
+          "material_read": "Abstract, p. 1",
+          "method": "OA paper passage",
+          "title": "Lower Bounds on Avoiding Thresholds",
+          "trigger": "Same family under subset avoidance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Earlier Resultary 8a725fd1702c, Steps 2–4"
+      ],
+      "rationale": "The count is a useful local invariant of a natural reset language, and the inverse viewpoint is an elegant alternate derivation. But the submitted contribution is the exact invariant and full word list, both already available in the earlier record. The alternative proof does not establish a separately claimed extension or application; publication as a new exact invariant is not warranted.",
+      "residual_risks": [
+        "The pedagogical value of the inverse proof is not a claim of new mathematical coverage."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:46:06.159604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With two independent partners and cooperator probability x per partner, the expected extra return from the focal contribution in the conditional environment is E[(1±δ)^j]−1=(1±δx)²−1, since r/3=1 and j is the number of cooperating partners. The stated protocol feeds these conditional mean gaps to the Fermi map, giving the weighted tanh drift. The sign reduces to p>q_s(t). In particular the exact identity 1/2−q_s(t)=sinh(st²)/(2 sinh(2st)) follows from the tanh addition/subtraction identities. For t>0 its right side strictly decreases in s since u coth u is strictly increasing on u>0 and st²<2st. The minimizer of q_s on [0,δ] cannot be zero; comparison at a minimizer for the larger intensity proves strict increase after minimization. Strict positive drift at a right endpoint implies strict positive drift just inside it. Uniform normalized-sinh expansion proves the weak limit. With z=st, the scaled gap converges locally uniformly to z²/(2 sinh(2z)) and is bounded above by z² cosh(δz)/(2 sinh(2z)), which tends to zero at both scaled endpoints. The positive value at a fixed z therefore confines the optimizers away from both endpoints. Strict concavity of tanh(2z)−z for z>0, positive derivative at zero and negative value at z=1 give the unique positive maximizer. This verifies the strength asymptotic and localization of every optimizer. Strict monotonicity and continuity give the finite critical strength in the stated open p interval; above it strict negative drift forces each interior orbit down to 0. At t=2/3 the ratio sign is controlled by 1−3 tanh²(4s/9), and the average-first gap is 8/45. Independent bounded replay: /workspace/branches/independent_replay.py, selection(), recomputes the numerical constants, not the uniform limit. Read the source's equal-sampling wording as independent partner sampling with Bernoulli(x) strategies, not strategies equiprobable regardless of x; the explicit ODE and conditional gaps specify the theorem unambiguously.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Traulsen–Nowak–Pacheco (2007), Eq. (9), computes expected Fermi transition probabilities over independently binomial interaction counts in a finite two-strategy game; §3.2 and Eq. (11) contrast averaging the payoff first, giving effective strength qβ for that mean-field approximation."
+        ],
+        "reasoning": "This is genuinely the same nonlinear-averaging principle in an earlier stochastic comparison setting. Its inputs are random interaction counts and pair payoffs, not the two conditional means with opposite sign in a common environment. Neither the mean-field effective strength nor the exact finite-state rate formula constitutes a theorem about the audited minimum or scale.",
+        "searches": [
+          "Resultary: Zhu et al stochastic nonlinear public goods environment average payoffs before Fermi Traulsen 2007 stochastic payoff Fermi rates",
+          "Literature: ‘Stochastic payoff evaluation increases the temperature of selection’ Traulsen PDF arxiv author manuscript"
+        ]
+      },
+      "checked_sources": [
+        "Zhu et al. arXiv:2408.02042v1",
+        "Traulsen–Nowak–Pacheco DOI 10.1016/j.jtbi.2006.08.008",
+        "Resultary 083a8abb28cc",
+        "Resultary 08a1b301860a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhu's well-mixed drift is a single tanh of the averaged payoff gap. Traulsen's earlier formula averages logistic responses for its particular random-payoff process."
+        ],
+        "reasoning": "In Zhu the sign is controlled by the s-independent averaged gap, so the global sign boundary does not depend on positive strength. The general stochastic-rate principle illustrates how to form the two-label weighted drift but does not imply the strict monotonicity of its optimized threshold or the squeezing into frequencies of order 1/s with a unique scaled optimizer.",
+        "searches": [
+          "Zhu et al. arXiv:2408.02042v1, ‘average payoff’, Eqs. (4a–b), (5), (6)",
+          "Traulsen–Nowak–Pacheco DOI 10.1016/j.jtbi.2006.08.008, §3.1 Eq. (9) and §3.2 Eq. (11)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest prior three-player Resultary record 083a8abb28cc Finding uses finite size, expected payoffs, mutation and the weak-selection stationary-cooperator derivative. Resultary 08a1b301860a Finding uses a fixed group-size Fermi mean field and concerns bistability as a function of group size, without the audited environmental draw."
+        ],
+        "reasoning": "Replacing a tanh drift by the difference of complementary Fermi adoption probabilities is equivalent, but neither result has the two conditional gaps with one shared random label prior to comparison. A finite-mutation response coefficient or a group-size bifurcation is not the global intensity threshold here.",
+        "searches": [
+          "Resultary: exact global threshold p_min(s, delta) minimum over t of tanh(sb/2)/(tanh(sa/2)+tanh(sb/2)) three-player stochastic public goods Fermi",
+          "Resultary: strict monotonicity selection strength intensity threshold environment before Fermi shared environment nonlinear public goods"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching optimized constant or threshold function verified in the bounded results. The closest earlier three-player record inspected (083a8abb28cc, RESULT.md Finding) gives a weak-selection stationary derivative in terms of interior return rates, not a strength-asymptotic coefficient."
+        ],
+        "reasoning": "Equality of group sizes or the use of Fermi imitation cannot transfer that weak-intensity derivative into the exact optimally rescaled frequency or the C/s law. The exact-expression search did not supply affirmative priority evidence either way.",
+        "searches": [
+          "Resultary: strong selection asymptotic universal constant max z squared over 2 sinh 2z p_min 1/2-C/s",
+          "Literature: ‘z^2/(2 sinh(2z))’ OR ‘tanh(2z)=z’ public goods Fermi selection intensity threshold"
+        ]
+      },
+      "rationale": "The distinct theorem is the global monotone strength boundary and the optimized strong-selection asymptotic for the specified three-player update. Credit Zhu et al. for the underlying public-goods game and the average-first comparator, and Traulsen–Nowak–Pacheco for applying the nonlinear comparison before averaging stochastic realized payoffs. Neither the stochastic Fermi principle nor an observation that averaging and Fermi do not commute is novel here.",
+      "residual_risks": [
+        "Bounded searches do not exclude a special case in other stochastic-imitation literature, especially under different notation for shared shocks. Primary conclusions are limited to the actual passages inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS average-payoff-before-Fermi comparator, not the two-label threshold",
+          "evidence": "Average cooperator and defector payoffs are formed before inserting Π_C−Π_D in the Fermi map; the infinite-population drift has a single tanh of that gap.",
+          "identifier_or_url": "https://arxiv.org/html/2408.02042v1",
+          "material_read": "Evolutionary dynamics in well-mixed populations, offset 18185 around Eqs. (4a–b), (5), (6)",
+          "method": "Bounded arXiv HTML passage",
+          "title": "Evolutionary dynamics in stochastic nonlinear public goods games",
+          "trigger": "Same underlying game and alternative order of comparison"
+        },
+        {
+          "assessment": "COVERS mean Fermi rates as a methodology in another stochastic model, not a stronger threshold theorem for this family",
+          "evidence": "Four binomial interaction counts enter the transition-rate sum; average payoffs in the separate approximation rescale the strength by q.",
+          "identifier_or_url": "https://atpgroup.org/jmp/PDFs/065.pdf (DOI 10.1016/j.jtbi.2006.08.008)",
+          "material_read": "pp. 350–351, offsets 8920–11276 and 12800–17323, pair payoff matrix and interaction-count law, Eqs. (9)–(11)",
+          "method": "Bounded full-text PDF passages from an identified author-group copy",
+          "title": "Stochastic payoff evaluation increases the temperature of selection",
+          "trigger": "Prior stochastic-payoff Fermi averaging"
+        },
+        {
+          "assessment": "Different population regime, response and update",
+          "evidence": "Finite-population stationary derivative with mutation and weak selection for expected payoffs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-finite-mutation-restores-interior-return-rate-sensitivity-in-thr--083a8abb28cc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Finite mutation restores interior return-rate sensitivity in three-player games",
+          "trigger": "Earlier closest same-size public-goods comparison"
+        },
+        {
+          "assessment": "Later, different returns and comparison",
+          "evidence": "Size-dependent equilibrium structure; no common environmental label for conditional gap draws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-four-players-are-the-minimal-fixed-group-size-for-bistability-in--08a1b301860a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror passage, same snapshot",
+          "title": "Four players are the minimal fixed group size for bistability",
+          "trigger": "Related fixed-size Fermi mean-field result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact optimized boundary shows not merely that nonlinear averaging alters a rate but that it can remove every positive interior cooperation drift as selection becomes strong, while the averaged-payoff protocol retains a positive region. The sharp constant, localized frequency scale and exact witness give usable benchmarks for a natural modeling choice. This does not assert universal cooperative fixation below the boundary or a result for individual realized payoff samples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

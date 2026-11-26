@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:08:22.629666Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 22–57",
+        "VERIFICATION.md §§Verified scope and Computational cross-check",
+        "verify.py and check_output.txt, inspected as recorded evidence",
+        "Independent replay: python3 /workspace/branches/b384eff9-6469-4dac-a29f-70fb75db401c/independent_direct_census.py"
+      ],
+      "rationale": "The orbit bound applies with tie retention: in ±1 spins take the symmetric adjacency matrix plus a unit self-weight at the even-degree hub only. All local fields are nonzero and their signs give the stated update. The two-time energy −x(t+1)^T B x(t) is decreasing strictly whenever x(t+1)≠x(t−1), so on a periodic orbit the period divides two. With a zero hub the second rim update is AND on the site and its distance-two neighbors, forcing occupation to be constant on step-two cycles. Hub consistency leaves the zero state and, for even n, one exchanged checkerboard pair. Complementation gives the fixed-one-hub cases. On a flipping orbit choose its unique zero-hub phase: the second rim update gives x_i(x_(i−2)∨x_(i+2)). Consequently no one may be isolated and the hub updates require 2s>n and 2e<n. For a nonconstant labelled cyclic word, marking a one-run gives L starting positions and compositions of s into b lengths at least two and L−s into b positive lengths, divided by b markings; e=s−b. Constant words contribute the two stated monomials, including the directed-pair convention for L=2. The step-two factors multiply at even n. The two length-two components at n=4 force s=e; a single run of (n+1)/2 for odd n, or runs 2 and n/2−1 on the two components for even n≥6, meet both strict inequalities. The independent exhaustive Boolean iteration reproduced the complete displayed counts through n=14.",
+      "residual_risks": [
+        "The independent census is finite; the energy and run arguments give the all-size result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general finite-graph theorem gives period at most two, not the census.",
+          "The exact oscillation census 4d7650f4183c also gives an exponential lower bound for n≥96; the fan record f5691edd97d7 concerns the join with a path, not a cycle."
+        ],
+        "reasoning": "The general stabilization statements don't count cycles. The separate exact wheel record covers the same family and formula throughout the nondegenerate wheel range and in addition proves a growth bound.",
+        "searches": [
+          "arXiv:1405.2486 Theorem 1.1, Goles–Olivos majority period bound",
+          "arXiv:2507.04714 §6, majority stabilization on wheels",
+          "Resultary 4d7650f4183c and f5691edd97d7, wheels and fans"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and originals 4d7650f4183c, e1ecad5150c3, f5691edd97d7",
+        "arXiv:1405.2486",
+        "arXiv:1411.4145",
+        "arXiv:2507.04714"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact oscillation record's sum uses r=1,…,floor(L/3) and a=2r,…,L−r; these are precisely b≥1, s≥2b, L−s≥b from the frozen expression."
+        ],
+        "reasoning": "The product for even n and the strict coefficient cutoffs agree exactly. For W3=K4 the tied global 2–2 splits simply complement every opinion, giving three hub-switching pairs; the other states fix or enter unanimity. Adding this boundary case does not give a distinct result.",
+        "searches": [
+          "Resultary 4d7650f4183c Finding and step-two proof; e1ecad5150c3 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4d7650f4183c, Finding, specifies the same labelled open-neighbor majority rule with tie retention and gives G_L=Q_L after renaming indices.",
+          "Resultary e1ecad5150c3, Finding, uses a trace of a transfer matrix and gives the same binomial coefficients and even-size correction."
+        ],
+        "reasoning": "The coefficient selectors and labelled orbit conventions match, regardless of the generating-polynomial notation. Epperlein et al.'s wheel model is instead imitate-the-best with payoff-dependent dynamics.",
+        "searches": [
+          "Resultary: synchronous majority on wheels, exact oscillation census, parity-split wheel two-cycles",
+          "arXiv:1411.4145 §8, wheel graph evolutionary dynamics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact oscillation record lists B_n for n=4–16, matching every overlapping entry, and gives the same formula for all n≥4.",
+          "The parity-split record explicitly has the W4 exception and the two even-size constant-hub cycles."
+        ],
+        "reasoning": "This is not merely a coincident short numerical sequence: the weights, restrictions, labelling and counted orbit types coincide.",
+        "searches": [
+          "Resultary: wheel hub reversal orbit count and W4 exception; 4d7650f4183c and e1ecad5150c3"
+        ]
+      },
+      "rationale": "A separate Resultary record states the identical labelled census and coefficient formula for every n≥4; another indexed transfer-matrix formulation is equivalent. The extra W3 case is the elementary K4 check, not a distinct extension of the census method. This is verified overlap, not a chronological priority finding.",
+      "residual_risks": [
+        "The two central wheel records share a displayed UTC date; their order or direction of dependence is not established.",
+        "The original Goles–Olivos DOI retrieval supplied no substantive full text; the accessible attributed theorem and independent energy argument suffice for this claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage for all n≥4, not a priority assertion.",
+          "evidence": [
+            "G_L has the identical summands and the same two constant words.",
+            "B_n+2·1_(2|n) counts the same orbits; the hub-flip table agrees across the overlap."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, 4d7650f4183c",
+          "material_read": "Finding, offset 0; step-two proof, offsets 3270–7074",
+          "method": "Original RESULT.md through repository mirror",
+          "title": "Exact oscillation census for synchronous majority dynamics on wheel networks",
+          "trigger": "Same rule, labelled wheel and census"
+        },
+        {
+          "assessment": "Equivalent census under a transfer-matrix representation; does not establish priority.",
+          "evidence": [
+            "Hub-switching count has the same coefficient expansion, with the W4 exception and even-size correction."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, e1ecad5150c3",
+          "material_read": "Finding, offset 0",
+          "method": "Original RESULT.md through repository mirror",
+          "title": "Parity-split primitive two-cycle census for majority dynamics on wheels",
+          "trigger": "Same parity correction and wheel exception"
+        },
+        {
+          "assessment": "General period bound, not enumeration.",
+          "evidence": [
+            "Attributes the eventual equality X_(t+2)=X_t on finite graphs to Goles and Olivos."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+          "material_read": "Theorem 1.1 and surrounding setup, HTML offset 2058",
+          "method": "Original open HTML passage",
+          "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+          "trigger": "Tie-retaining period bound used in proof"
+        },
+        {
+          "assessment": "Different microscopic rule and result.",
+          "evidence": [
+            "Imitate-the-best selects using payoffs, and the wheel theorem is about unanimity attractivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.4145",
+          "material_read": "Update definition, offset 8824; §8 and Theorem 30, offset 57039",
+          "method": "Original open HTML passages",
+          "title": "Evolutionary Games on Graphs and Discrete Dynamical Systems",
+          "trigger": "Explicit analysis of wheel graphs"
+        },
+        {
+          "assessment": "Wheel used for a stabilization-time example, not this periodic census.",
+          "evidence": [
+            "The cited wheel attains a bound on stabilization time."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.04714",
+          "material_read": "§6, pp. 39–40, around offset 135000",
+          "method": "Original open PDF passage",
+          "title": "Majority Dynamics on Finite Trees",
+          "trigger": "Wheels under the same majority update rule"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof",
+        "Resultary 4d7650f4183c Finding and proof",
+        "Resultary e1ecad5150c3 Finding"
+      ],
+      "rationale": "The natural full wheel-cycle classification would be useful if distinct, but the exact census, filtering mechanism and exceptional wheel are already covered. The only extra parameter is W3, whose K4 classification is immediate and has no separately motivated mathematical consequence here.",
+      "residual_risks": [
+        "This does not diminish the usefulness of the wheel census itself or assess the value of new transient-basin results."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

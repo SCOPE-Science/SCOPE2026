@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and proof verification
+# Independent mathematical audit
 
-The accompanying `grassmann_maxclique_check.py` independently computes vertices as finite-field subspaces, builds adjacency by intersection cardinality, extracts maximal cliques by graph enumeration, and evaluates all concept traces. It does not construct the proposed family of stars or tops to generate the concepts: maximal cliques are recovered directly from the graph.
+## correctness
 
-The checker verifies the complete face counts through degree three on \(J_2(4,2)\) and \(J_3(4,2)\), obtaining \((1,35,315,840)\) and \((1,130,3120,18720)\), respectively. It exhaustively excludes shattered four-supports on the binary four-space and uses 10,000 deterministic samples of four-supports on the ternary four-space. A separate experiment on the binary five-space confirmed the predicted \((1,155,3255,17360)\) with 2,000 random supports per positive size two through four. The reproducible checker terminates with `GRASSMANN_MAXCLIQUE_SHATTER_PASS` on the tested packages.
+PASS
 
-The all-parameter correctness argument is mathematical, not empirical. The crucial steps requiring review are the star/top classification, the two-maximal-clique property of an adjacent pair, the empty-label witness count \(L_q(4)>3(q+1)\), the equivalence between nonpencil triples and all eight Boolean traces, the unique containing maximal clique for every nonpencil triangle, and the projective collinearity count. The use of a source-supported standard graph theorem is an explicit premise. Independent review and independent audit are not performed here.
+For an edge U,V set A=U∩V and B=U+V. Any common neighbor W not containing A has two distinct (k−1)-spaces W∩U and W∩V spanning W, so lies in B. A star-only vertex intersects B precisely in A and is therefore nonadjacent to any top-only vertex. The star and top extend the edge, have sizes greater than q+1, and are its only maximal cliques. Their common vertices are exactly the projective line of the pencil. For an empty trace on at most three vertices, fix a (k−2)-space; there are L_q(n−k+2) potential star centers through it and at most 3(q+1) are forbidden. One-positive labels exclude at most two hyperplanes of the positive vertex, fewer than L_q(k). An all-positive trace requires a clique, and on a triangle the two-positive traces are all possible exactly when the third vertex is not in the pair's pencil. Nonpencil triangles have a unique containing clique, so a shattered four-set cannot realize its triple-positive trace in addition to the all-positive trace. Shattered triples exist because star quotients have dimension at least three. In a putative depth-four online tree the second query on the positive branch must differ from the root (otherwise its negative child is impossible). At most two concepts survive the double positive, not enough for the four suffix leaves. For counting edges, each U selects an A⊂U and B⊃U, with q other vertices per pencil; nonpencil triples are counted once via projective noncollinear triples in one star or top. Pencil triples determine their pencil by any pair. Every edge extends within its star outside the pencil, proving purity. Independent /workspace/review_checks.py argument 1 checked all singleton, pair and triangle masks at (n,k)=(4,2) over q=2 and 4; for GF(4) it found 357 vertices, 17850 edges, 190400 shattered triples and 17850 pencil triples. The frozen checker was read, not executed. Its n=5 samples corroborate the criterion, not exhaustive coefficient counts; the exact n=5 coefficients follow from the proof.
+
+## originality
+
+PASS
+
+Credit the all-rank, all-prime-power shattering criterion and Gaussian polynomial with its pencil exclusion, not the star/top theorem, the general online leaf bound, or the binary four-space example independently of the labelled Fano result. There is demonstrable special-case equivalence, but no comparable coverage of the full family in the inspected evidence.
+
+## value
+
+PASS
+
+The whole shattering complex is determined for a natural finite-geometry class, not just the maximum dimension or a small face vector. The pencil obstruction pinpoints exactly which graph triangles fail to be faces; the Gaussian polynomial and purity give properties not supplied by a mere online upper bound. The result stays within nondegenerate ranks and maximal-clique membership.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

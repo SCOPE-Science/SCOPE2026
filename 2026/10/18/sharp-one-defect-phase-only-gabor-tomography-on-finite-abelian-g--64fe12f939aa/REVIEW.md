@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Weyl operator basis diagonalizes the projector lifting, and the two-site ambiguity formula reduces the parameter extremum to distances between a variable point of the unit circle and the nontrivial roots of unity of the group exponent. The final-gap argument proves the exact global optimum and phase uniqueness. The scalar autocorrelation branch and low orders are accounted for explicitly; the result applies to all abelian groups with at least six elements. The packaged checker reproduces the predicted rank and least ambiguity magnitudes on cyclic and noncyclic test groups; the general proof is analytic.
+## correctness
 
-## Originality
-**PASS, conditional on stated literature risk.** The 2015 Gabor phase-retrieval paper provides a full-ambiguity nonvanishing criterion, not the optimal phase-only partially observable design. The 2021 Gabor-POVM paper provides the Gram spectrum for a general cyclic Gabor window, not the exact phase-one-defect group-exponent optimization. Closest indexed cyclic results give a rank discriminant and an unrestricted-amplitude prime conditioning result. Their full text was inaccessible: phase-only cyclic special cases could be contained there, but the accessible statements neither assert nor imply the full abelian exponent law.
+PASS
 
-## Mathematical value
-**PASS.** The theorem specifies exactly how a single phase alteration reaches the maximum matrix span allowed by constant modulus, the sharp spectral cost of doing so, and every optimal phase. It distinguishes nonisomorphic abelian groups of the same order by exponent, making a falsifiable design prediction rather than an unmotivated scalar invariant.
+In the Hilbert–Schmidt orthonormal Weyl basis, each column of the orbit analysis operator is a distinct conjugation character of length N in observation space multiplied by a normalized Weyl coefficient. The coefficient magnitude is |A_g|/(N sqrt(N)), so the singular values are |A_g|/sqrt(N). The N−1 nonidentity diagonal Weyl coefficients vanish for a flat modulus. For nonzero shift and nontrivial character the two exceptional summands give (conj(z)−1)+(z−1)chi(a), of magnitude |z−1||z−conj(chi(a))|. Every nonidentity E-th root is realized by character restriction to an element of order E. For t=arg(z) in [0,pi], the interval [0,2pi/E] gives at most 4 sin²(pi/(2E)) using the first nonidentity root, for E>2. Beyond this interval the closest nonidentity root is within angle pi/E; hence the bound is 4 sin(t/2) sin(pi/(2E)). It peaks uniquely at pi when E is odd, and for even E it is strictly below the claimed optimum before pi−pi/E. After that midpoint, the root −1 gives the strictly decreasing bound 2 sin(t). For E=2 this same expression gives the unique optimizer pi/2 in the chosen half-circle. Equality is reached: the root 1, if also realized by a nontrivial character at a nonzero shift, does not lower the optimum; the scalar branch is at least N−4 for N≥8 and exceeds the minimum also at N=6,7. Thus no additional zeros remain, the largest unnormalized magnitude is N by Cauchy–Schwarz, and the claimed rank and ratio follow. The companion finite checker was inspected; its scan is ancillary to the analytic proof. This optimizes one-defect phases on the maximal visible subspace, not all flat-modulus windows.
 
-## Limits
-The norm bound is for linear matrix reconstruction on the visible subspace; constant-modulus windows cannot see traceless diagonal matrices. The result neither claims global conditioning optimality among all unimodular windows nor covers groups of order below six. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct theorem is the exact phase-constrained visible-space optimum and its phase classification for every finite abelian exponent. The cyclic rank component substantially overlaps prior work and the Weyl spectral identity is prior machinery. The retrieved full-rank amplitude-unconstrained impulse optima are different problems; even equality of some parameters would not transfer their optimizing values to this restricted, rank-deficient objective. No stronger statement covering the optimum was found in the material compared.
+
+## value
+
+PASS
+
+Constant modulus imposes a fixed invisible diagonal space, so maximal rank alone leaves a meaningful stability question for what can be observed. The exact sharp ratio and equality phases solve that constrained design problem and show why groups of equal size but different exponents have different optima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

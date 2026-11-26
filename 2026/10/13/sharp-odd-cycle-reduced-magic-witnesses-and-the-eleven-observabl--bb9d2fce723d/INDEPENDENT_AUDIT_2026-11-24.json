@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:13:33.838112Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–61",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt (inspected, not executed)",
+        "Liu et al., arXiv:2607.26154v1, Eqs. (1)–(4)",
+        "McNulty, arXiv:2511.15954, §V.2.1, Eq. (26)"
+      ],
+      "rationale": "The graph used is the anticommutation graph exactly C_(2k+1), k≥2. A label dependency lies in the kernel of its binary adjacency matrix; the kernel equation forces a two-periodic, thus constant, vector. No proper subset has a dependency. Independently of the cited projected-polytope theorem, a commuting independent set with assigned signs gives a normalized common-eigenspace projector. Expanding this projector into Pauli products gives zero expectation on every measured observable outside the set, since none of those labels is in the span; completing the commuting subgroup expresses the projector as a stabilizer mixture. In the other direction, a pure stabilizer projection has ±1 support on a commuting subset and zero elsewhere. Thus the polytope is the unconditional lift of STAB(C). The edge and odd-hole inequalities suffice: on a zero coordinate face the remaining path polytope is integral and its k disjoint edges imply the sum bound; with all coordinates positive, a vertex would require all or all but one edge equation. All edges tight gives the forbidden all-half vector; all but one plus the sum equation forces a coordinate to zero. For the centrally symmetric lift, the signed-affine norm is max(1,gauge), by splitting a convex representation of b/gauge into oppositely signed contributions at opposite points. An edge has capacity sqrt(2) by anticommutation. For the odd-hole term maximize signed Hamiltonian top eigenvalues. On each eigenspace of the central involution i∏P_j, monomials from a symplectic basis of the rank-2k quotient form k standard Pauli pairs. They generate M_(2^k) with a multiplicity factor; the remaining cycle product is fixed by the central sign. Matching these pairs and the center to the Majorana realization (flipping one generator as needed) covers arbitrary realizations. Edge-sign switching of the skew adjacency leaves just a flux; negating all signs flips the flux for odd length and preserves positive singular modes. The all-plus skew spectrum 2i sin(2πj/L) gives the largest energy 2∑_(j=1)^k sin(2πj/L)=cot(π/(2L)), with mode occupancies chosen independently. Dividing by k and comparing to sqrt(2) gives the stated maximum. Strict concavity of x↦cot(π/(4x+2)) from zero makes its ratio to x strictly decreasing. The exact k=4 and k=5 comparisons straddle sqrt(2), as claimed. Eigenstates attain both constituent optima where needed.",
+      "residual_risks": [
+        "Scope is measurement-projected signed-affine robustness, not full-state robustness. Finite spectral and LP tests are not all-length or all-realization certificates; the proof is analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Varela et al. give the general consistent-sign projection. Liu et al. reduce to the sign-relaxed polytope absent active dependencies, with explicit clique capacity for perfect graphs. Xu et al. describe the odd-hole facets; Chapman et al. give general free-fermion line-graph solvability. The later compatibility proposition is graph-general."
+        ],
+        "reasoning": "The earlier perfect-graph closed formula cannot be specialized to C_L for odd L≥5, and it actually misses the term that dominates at C5/C7/C9. General projections and a separate spectrum do not by themselves compare the edge and odd-hole witness strengths. The later broader gauge does apply once the cycle's projected polytope is identified.",
+        "searches": [
+          "arXiv:2602.18939, Eqs. (18)–(20)",
+          "arXiv:2607.26154v1, exact sign relaxation and perfect-graph Eq. (11)",
+          "arXiv:2511.13531v1, h-perfect discussion",
+          "arXiv:2305.15625v1, Eq. (29)",
+          "arXiv:2611.06592, Proposition 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.26154v1",
+        "arXiv:2602.18939v1",
+        "arXiv:2511.13531v1",
+        "arXiv:2511.15954",
+        "arXiv:2305.15625v1",
+        "arXiv:2611.06592",
+        "Resultary 92f8ce72d663 and related ranked results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier results supply the signed-vertex model, the classical odd-cycle constraints and the cycle support separately. For this cycle one must exclude active dependencies in every realization, turn the signed-affine problem into a dilation gauge, take each facet support over quantum states, and compare the edge to the hole. The later gauge/support framework performs the main link generically."
+        ],
+        "reasoning": "With that later framework the answer follows by inserting the edge and odd-cycle inequalities of STAB(C_L), whose supports are sqrt(2) and Lη(C_L), respectively, then dividing the latter by k and checking the crossing. This is an actual implication, not a claim that the later work must print the exact expression. The earlier literature inspected does not give that combined reduced-magic statement as the specialization of a single stronger theorem. The supported contribution is the cycle-specific synthesis and witness transition, not a new method for computing skew energy.",
+        "searches": [
+          "arXiv:2607.26154v1, Eq. (11) and sign-admissibility passages",
+          "arXiv:2511.15954, Eq. (24), Corollary 3",
+          "arXiv:2611.06592, Eqs. (52)–(54), (65)–(67)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McNulty's η(C_L)=cot(π/(2L))/L is the uniform incompatibility optimum; the edge-transitive line-graph calculation yields the normalized uniform signed-Hamiltonian support. McNulty–Facchi–Pascazio identify Adv(G)=max_ρ R_G(ρ), where R_G is the least dilation of STAB(G) containing the absolute profile of ρ."
+        ],
+        "reasoning": "For these cycles there is no active dependency, hence that later seed gauge is the same reduced RoM pointwise, not a merely similar monotone. Maximizing it over states gives the same capacity. The earlier uniform incompatibility value only supplies the normalized odd-hole support, not the maximum over the allowed witness types.",
+        "searches": [
+          "arXiv:2511.15954, Theorem 2 and §V.2.1 Corollary 3",
+          "arXiv:2611.06592, Proposition 4, Eqs. (52)–(54) and cycle Eqs. (65)–(67)",
+          "arXiv:2607.26154v1, Eqs. (1)–(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day catalogue hit bounds total correlations for tensor powers of X,Y,Z, not the reduced-magic capacity of a Pauli anticommutation cycle. Other ranked stable-set hits concern different geometric statistics. Eq. (26) gives the exact cotangent data for cycle incompatibility, not the combined edge/odd-hole reduced-magic capacity."
+        ],
+        "reasoning": "Exact spectral input is already available and is credited. No matching indexed earlier reduced-RoM classification was verified; absence from the returned candidates is not a priority proof.",
+        "searches": [
+          "Resultary ranked search for odd-cycle Pauli reduced magic, stabilizer geometry and C11 crossover",
+          "Resultary 2026/10/13/SCOPE-optimal-odd-party-pauli-parity-total-correlation-envelope--92f8ce72d663",
+          "arXiv:2511.15954, Corollary 3 and Eq. (26)"
+        ]
+      },
+      "rationale": "Supported for the specific all-odd-cycle reduced-magic synthesis and sharp C11 crossover, not for the projected-polytope framework, odd-cycle facets, or all-length cotangent spectrum in isolation. An important omission in the frozen literature discussion is McNulty's preceding exact cycle incompatibility result, not merely a general free-fermion method. It already contains the normalized cycle support that supplies the spectral ingredient. The earlier reduced-magic theorem gives the clique rule for perfect graphs and does not settle how the odd-hole inequality competes with it on imperfect graphs. A later compatibility paper supplies an equivalent gauge on these cycles and, together with the cycle facets, covers the same capacity as a corollary; this is substantive equivalent coverage but not evidence the frozen statement was preceded by that paper.",
+      "residual_risks": [
+        "The two closest incompatibility comparisons should be credited alongside the frozen citations; the earlier spectrum is not new, and the later gauge gives a mathematically equivalent formulation for these cycles.",
+        "No absolute priority is certified. A differently indexed earlier combination of these ingredients was not ruled out exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General projection ingredients and perfect-graph result are prior; latter excludes odd holes",
+          "evidence": [
+            "The convex hull uses admissible signs on maximal independent sets. Eq. (11)'s clique result assumes perfectness."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.26154v1",
+          "material_read": "Definition and projection Eqs. (1)–(4), sign-relaxation passages (offsets 4957 and 8326), perfect-graph Eq. (11), offset 17951",
+          "method": "OA original article passages",
+          "title": "Graph Theoretic Approach to Quantum Nonstabilizerness",
+          "trigger": "Same projected monotone and exact graph-based relaxation"
+        },
+        {
+          "assessment": "Consistent-sign projection, not the cycle classification",
+          "evidence": [
+            "Projected stabilizer vertices are determined by independent sets and compatible signs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.18939v1",
+          "material_read": "Eqs. (18)–(20), offset 26537",
+          "method": "OA original article passages",
+          "title": "Predicting Magic from Very Few Measurements",
+          "trigger": "Earlier general reduced-magic setup"
+        },
+        {
+          "assessment": "Classical facet input is prior; squared-variance focus differs from reduced RoM",
+          "evidence": [
+            "Odd cycles are h-perfect with odd-hole constraints among the stable-set facets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.13531v1",
+          "material_read": "h-perfect facet description and example of odd cycles, offsets 32749 and 127477",
+          "method": "OA original article passages",
+          "title": "Simultaneous variances of Pauli strings, weighted independence numbers, and a new kind of perfection of graphs",
+          "trigger": "Pauli measurements and odd-cycle stable-set geometry"
+        },
+        {
+          "assessment": "Exact older coverage of the spectral ingredient, not the reduced-magic edge/odd-hole maximum",
+          "evidence": [
+            "Edge-transitive roots saturate the normalized maximum skew energy; η(C_L)=cot(π/(2L))/L for odd L."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.15954",
+          "material_read": "Theorem 2, Eq. (24), and §V.2.1 Corollary 3, Eq. (26), around offsets 38127 and 40900–45199",
+          "method": "OA original article passages",
+          "title": "A graph-theoretic approach to quantum measurement incompatibility",
+          "trigger": "Exact Pauli cycle support and same cotangent factor"
+        },
+        {
+          "assessment": "Prior spectral mechanism; no matching reduced stabilizer objective in these passages",
+          "evidence": [
+            "The line-graph mechanism maps Pauli Hamiltonian generators to Majorana bilinears."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2305.15625v1",
+          "material_read": "Free-fermion graph characterization and Eq. (29), offsets 5634 and 45614",
+          "method": "OA original article passages",
+          "title": "A Unified Graph-Theoretic Framework for Free-Fermion Solvability",
+          "trigger": "General line-graph representation and energy calculation"
+        },
+        {
+          "assessment": "Later stronger framework implies the same cycle capacity via STAB facets; not earlier priority evidence",
+          "evidence": [
+            "Eq. (53) is the scale-to-STAB profile gauge, and Eq. (54) identifies its maximum with Adv(G). Exact cycle support includes the cotangent term."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.06592",
+          "material_read": "Title-page date; Proposition 4 Eqs. (52)–(54), offset near 79500; cycle Eqs. (65)–(67), offset near 103500",
+          "method": "OA original article passages",
+          "title": "Compatibility of Pauli Observables",
+          "trigger": "Equivalent capacity gauge and exact cycle support"
+        },
+        {
+          "assessment": "Different observable set and invariant; no priority inference from date",
+          "evidence": [
+            "Uses X^⊗n, Y^⊗n, Z^⊗n and total correlation, not an odd-cycle reduced stabilizer gauge."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-optimal-odd-party-pauli-parity-total-correlation-envelope--92f8ce72d663",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Optimal odd-party Pauli parity total-correlation envelope",
+          "trigger": "Plausible distinct same-day Pauli/odd-parity hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§1–5",
+        "arXiv:2607.26154v1, perfect-graph Eq. (11)",
+        "arXiv:2511.15954, Corollary 3"
+      ],
+      "rationale": "Odd cycles are a basic nonperfect test family for the reduced stabilizer method. Imperfection produces a necessary additional facet but does not imply an increase in maximal reduced magic over an edge: the theorem pinpoints exactly when the genuinely nonclique witness improves capacity and when it remains only a pointwise distinction. That finite crossover and the all-realization exact certificate are useful benchmarks beyond the previous perfect-graph rule, not a recomputation of the known quadratic spectrum as an end in itself.",
+      "residual_risks": [
+        "The comparison is specific to the stipulated observables; there is no claimed gain for full-state magic or arbitrary imperfect graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:15:55.435897Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–46; VERIFICATION.md; verify.py inspected",
+        "python3 /workspace/reviews/reproduce_1.py: independent RREF enumeration gives (candidate lines, contained lines) = (35,15) over F2 and (357,27) over F4, and base counts 15,45,105 over F2,F4,F8",
+        "Dolgachev arXiv:1501.06432 §2, and Vikulova arXiv:2312.17032 Theorem 1.3 and Corollary 1.7"
+      ],
+      "rationale": "On the sum-zero hyperplane in characteristic two, splitting off the all-ones vector makes the cubic independent of the vertex coordinate. The gradient on the hyperplane vanishes precisely where all coordinates have equal squares, giving the sole geometric singular point; the five-coordinate slice is smooth since five is odd. In an affine chart at the vertex the initial and full local equation is the nonzero homogeneous cubic, so its multiplicity is three. A plane avoiding the vertex would project injectively to a plane in the smooth cubic surface, impossible; planes through the vertex biject with the 27 lines. The 15 pairings give distinct surviving planes (the allowed equalities identify exactly the paired coordinate functionals). Independent exhaustive line enumeration confirms 15 fixed by Frobenius and all 27 fixed by its square. The six-coordinate action on the slice quotient is faithful: a 3-cycle moves a point represented by a vector with two ones, and every nontrivial normal subgroup of S6 contains the 3-cycles. Vikulova's identification then applies. Frobenius squared fixes Picard because the geometric line classes span it; the count 15 over F2 gives trace five in rank seven, hence multiplicities six and one for +1 and -1. Each base point lifts to q nonvertex points, giving the stated formula.",
+      "residual_risks": [
+        "The argument counts geometric planes and does not determine the plane Hilbert scheme or the Jacobian singular scheme. Vertex multiplicity is not the length of the Jacobian scheme. The comparison concerns the defining equations at characteristic zero and two; it does not assume flatness of the unnormalized sum-of-cubes equation at the prime three."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "65470704c27a gives the cone and 27 planes over F4, with further incidence information",
+          "988c51dcee32 additionally studies the Jacobian singular scheme",
+          "124356bfb044 gives the all-extension point count and zeta function"
+        ],
+        "reasoning": "The earlier cone and geometric planes already cover the basic degeneration. Scheme length and multiplicity are distinct; the stronger scheme assertions are not needed to recognize coverage of the weaker geometric result. The later date of 124356bfb044 is not evidence of earlier priority.",
+        "searches": [
+          "Resultary: characteristic-two collapse of the symmetric Segre cubic",
+          "Resultary: 27-plane characteristic-two specialization and zeta counts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 65470704c27a, 988c51dcee32, 124356bfb044",
+        "arXiv:1501.06432",
+        "arXiv:2312.17032"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dolgachev gives the characteristic-zero 15-plane count",
+          "Vikulova gives the F2 surface symmetry and F4 Fermat description",
+          "65470704c27a gives the specific cone and all 27 lines via their F4 planes"
+        ],
+        "reasoning": "In this cone slice every F2 projective point lies on the base by a^3=a. The F4 line splitting makes the Frobenius action on Picard an involution, and the F2 count fixes its trace. The all-extension arithmetic therefore follows directly without separately classifying any twists.",
+        "searches": [
+          "Dolgachev arXiv:1501.06432 §2 Proposition 2.2",
+          "Vikulova arXiv:2312.17032 Theorem 1.3 and Corollary 1.7",
+          "Resultary 65470704c27a Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 988c51dcee32 Finding gives the same 15-to-27 jump and the 15 fixed planes plus six quadratic pairs",
+          "Vikulova arXiv:2312.17032 Theorem 1.3 and Corollary 1.7"
+        ],
+        "reasoning": "Dividing the defining cubic on the sum-zero hyperplane by three gives the same model over Z localized at two, since three is invertible there. The same-day record therefore does not concern a different twist or model at two.",
+        "searches": [
+          "Resultary: characteristic-two diagonal Segre cubic, 27 planes, F2/F4 field split",
+          "Primary literature: characteristic-two Segre cubic as cone over the S6 cubic surface"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "988c51dcee32 Finding specifies the exact field-of-definition counts",
+          "124356bfb044 Finding explicitly gives q^3 + (6+(-1)^m)q^2 + q + 1"
+        ],
+        "reasoning": "These are mathematical statements in indexed records, not conclusions drawn from isolated table entries.",
+        "searches": [
+          "Resultary: exact Segre plane counts 15 and 27 and finite-field point counts"
+        ]
+      },
+      "rationale": "The cone and geometric plane count are already stated in an earlier catalogue record. A distinct same-day record covers the full plane jump and Frobenius split; within-day priority is unresolved and immaterial to the existence of coverage. The arithmetic count is also explicit in a distinct later indexed record and is directly implied by the previously covered cone and quadratic line splitting using the Picard trace. The symmetric cubic surface identification is a published ingredient, not a separate new claim.",
+      "residual_risks": [
+        "The comparison does not settle the provenance of the program's distinct records or order their same-day findings. Bounded academic searches cannot establish absence of further coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct same-day direct coverage of the plane finding",
+          "evidence": "Cone, characteristic-zero count 15 and characteristic-two count 27, with 15 over F2 and six quadratic pairs; uses equivalent model at two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-the-characteristic-two-diagonal-segre-cubic-a-16-fold-vertex-and--988c51dcee32",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and mirror text",
+          "title": "The characteristic-two diagonal Segre cubic: a 16-fold vertex and plane jump",
+          "trigger": "Same model and exact field split"
+        },
+        {
+          "assessment": "Earlier coverage of core geometry and splitting field, not explicit 15/12 split or count formula in the inspected passage",
+          "evidence": "Gives the same cone with 27 geometric planes all over F4, and extra incidence and singular-scheme information.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-characteristic-two-collapse-of-the-symmetric-segre-cubic-into-a--65470704c27a",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and mirror text",
+          "title": "Characteristic-two collapse of the symmetric Segre cubic into a cone",
+          "trigger": "Earlier coverage of the cone and 27 planes"
+        },
+        {
+          "assessment": "Distinct later exact overlap, not evidence of earlier priority",
+          "evidence": "States the same cone, field split, jump and extension-field point-count formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-27-plane-characteristic-two-specialization-of-the-segre-cubic--124356bfb044",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Configured Resultary search and mirror text",
+          "title": "A 27-plane characteristic-two specialization of the Segre cubic",
+          "trigger": "Exact arithmetic and geometry match"
+        },
+        {
+          "assessment": "Constituent characteristic-zero result",
+          "evidence": "The classical cubic contains exactly 15 planes.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.06432",
+          "material_read": "§2, Proposition 2.2, p. 3, offset 7210",
+          "method": "Lawful OA passage inspection",
+          "title": "Corrado Segre and nodal cubic threefolds",
+          "trigger": "Classical plane benchmark"
+        },
+        {
+          "assessment": "Surface identification covered, not direct statement of the threefold specialization in those passages",
+          "evidence": "Uniqueness of the S6-symmetric smooth cubic surface over F2 and equivalence to the Fermat surface over F4.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.17032",
+          "material_read": "Theorem 1.3 and Corollary 1.7, p. 2, offsets 4011 and 5803; proof p. 21, offset 62960",
+          "method": "Lawful OA passage inspection",
+          "title": "The most symmetric smooth cubic surface over a finite field of characteristic 2",
+          "trigger": "Same symmetric base and Fermat form"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Limitations",
+        "Resultary 65470704c27a, 988c51dcee32 and 124356bfb044"
+      ],
+      "rationale": "The plane jump is a meaningful feature of this natural integral model, but it and the exact split are already covered. The point-count addition follows directly from the covered line splitting, the elementary F2 slice count and the standard Picard trace formula. The frozen claim does not supply an independently useful new invariant or stronger geometry beyond those results.",
+      "residual_risks": [
+        "This assessment does not deny the mathematical usefulness of the cone degeneration itself or evaluate independently new claims about a relative Hilbert scheme."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

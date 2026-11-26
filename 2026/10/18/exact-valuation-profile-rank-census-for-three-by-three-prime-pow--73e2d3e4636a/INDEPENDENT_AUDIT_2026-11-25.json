@@ -1,0 +1,188 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:01:56.987676Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize a row and column to ones. Singularity then says (A-1)(D-1)=(B-1)(C-1). If the products are zero, a choice of one zero factor on each side forces equal rows or equal columns. Otherwise conjugation gives AD=BC, then A+D=B+C, forcing equal unordered pairs and the same conclusion. Every two-by-two minor vanishes precisely when the associated difference-product is divisible by p^a. Minimizing the two valuations gives the rank-one cutoff, while maximizing one valuation and minimizing the other gives proportionality of some restricted row or column pair; together these exhaust singularity. Equal-valuation triples lift independently from three distinct children of one residue class, with no such triples for p=2. Unequal-profile triples have a unique close pair whose ordering accounts for the factor of two; the third point is at the smaller valuation from both endpoints. The weights therefore count the asserted unordered triples, with the pair (R,C) still ordered. Independently ran `python3 /workspace/reproductions/fourier_3.py`: using an anchored translation reduction and exact cyclotomic coefficient checks, exhaustively recovered (0,0,16), (0,320,2816), (9,324,6723), (256,26624,286720), and (4455,323676,8227494) at N=4,8,9,16,27 respectively. Each unrestricted pair is counted nine times when retaining the two anchor translations. These checks corroborate the proof, which applies for every prime and a>=2. The frozen verifier and its recorded output were inspected but the verifier was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prime-power full-spark theorem assigns a single all-minors property to a fixed row family, not the rank of each minor.",
+          "The principal-minor work restricts to equal row/column selections; the Fourier Hadamard work tests the stronger property of orthogonality.",
+          "The November 22 general cyclic divisor-sum census does cover the exact rank totals, but has a later displayed date; its Finding is not expressed as the prime-power profile census."
+        ],
+        "reasoning": "Neither of the earlier broad Fourier-matrix tests supplies the claimed census by specialization. The later general-modulus census is coverage of the totals, not evidence of priority over the frozen finding.",
+        "searches": [
+          "arXiv:1110.3548 Theorem 9",
+          "arXiv:2409.09793",
+          "arXiv:1909.13145",
+          "Resultary 48d2ce75d9c6"
+        ]
+      },
+      "checked_sources": [
+        "feb52ea6712b",
+        "1482c28703d6",
+        "arXiv:1110.3548",
+        "arXiv:2409.09793",
+        "arXiv:1909.13145",
+        "ba0b52ec4cec",
+        "8f025c6183d3",
+        "0290eba11adf",
+        "6a97dfb3d140",
+        "0fc41b9fd0d2",
+        "48d2ce75d9c6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "ba0b52ec4cec uses precisely the arbitrary unit-modulus 3x3 rigidity lemma in the affine-plane setting; 0290eba11adf calls the same lemma known elementary.",
+          "Once rigidity is known, applying product divisibility immediately gives the rank test here. It does not enumerate the number of triples of each profile or furnish their weighted census. The readings of the even- and distinct-prime semiprime results use different moduli, so those censuses cannot be specialized by setting the prime factors equal."
+        ],
+        "reasoning": "Do not claim the elementary rank mechanism as distinct. The prime-power population enumeration with its hierarchy of two least and one possibly higher pair valuation is the additional content, beyond the known prime-square specialization.",
+        "searches": [
+          "ba0b52ec4cec Proof",
+          "0290eba11adf Proof",
+          "8f025c6183d3 and 6a97dfb3d140 Findings",
+          "feb52ea6712b Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "feb52ea6712b gives the identical odd-prime-square rank classes via occupancies (1+1+1),(2+1),(3), which are exactly profiles (0,0),(0,1),(1,1).",
+          "1482c28703d6 gives the row=column restriction using divisibility of a chosen squared difference and a mixed difference-product.",
+          "0fc41b9fd0d2 has matching min/max thresholds and weight formulas in a later dated record."
+        ],
+        "reasoning": "Residue occupancy and the principal-minor difference-product formulation were compared after explicit translation to the stated profiles, not treated as different by naming alone. Different group geometries and rectangular choices of index sets matter.",
+        "searches": [
+          "Resultary comparisons: prime-square, three-point principal, prime affine plane, even-semiprime, 3p and valuation-stratified Fourier minors",
+          "arXiv:2409.09793"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "feb52ea6712b has exact rank-one and rank-two counts for odd p at a=2.",
+          "0fc41b9fd0d2 records the same weighted profile census, and 48d2ce75d9c6 includes the total counts in general cyclic groups, both with later displayed dates.",
+          "The frozen N=4,8,16,27 entries are instances of the uniform sum, not independent novelty claims."
+        ],
+        "reasoning": "The earlier table overlap is credited; the reviewed contribution is the uniform population census, rather than re-enumeration of the prime-square data or claiming priority for individual examples.",
+        "searches": [
+          "Resultary exact rank census comparisons feb52ea6712b, 0fc41b9fd0d2 and 48d2ce75d9c6",
+          "frozen verify_output.txt lines 1–10"
+        ]
+      },
+      "rationale": "Credit the explicit valuation-profile multiplicities and complete weighted three-rank census uniformly across prime-power exponents a>=2, beyond the earlier odd-prime-square count, not the known entrywise-unit-modulus lemma or the direct proportionality criterion. A separately indexed November 8 finding has equivalent rank and weight formulas, and a November 22 divisor-sum theorem covers the total counts; these are material overlaps with later displayed dates than the frozen October record. The inspected evidence does not establish earlier coverage of the uniform explicit census by either, nor independent derivation. This is not a claim that the rank and population formulas are unique among current indexed records.",
+      "residual_risks": [
+        "A broad primary-literature search request was deferred; the inspected sources and displayed dates do not exhaust older generalized-Vandermonde or harmonic-frame literature, and cannot settle exact priority among equivalent records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage for odd-prime squares",
+          "evidence": "Rank 1 for (C,C), rank 2 for (B,C),(C,B), rank 3 otherwise; triples sorted by occupancies modulo p.",
+          "identifier_or_url": "2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Read exact statement in local mirror",
+          "title": "All singular three-by-three minors of prime-square Fourier matrices",
+          "trigger": "Earlier exact rank census, overlapping modulus"
+        },
+        {
+          "assessment": "Exact singularity overlap only on the principal restriction",
+          "evidence": "The criterion requires N dividing both (u-v)^2 and (u-v)(u-w) for a chosen pair.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-singularity-criterion-for-three-point-principal-fourier-mi--1482c28703d6",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Read exact statement in local mirror",
+          "title": "Exact singularity criterion for three-point principal Fourier minors",
+          "trigger": "Earlier three-point cyclic criterion"
+        },
+        {
+          "assessment": "Universal full-spark condition rather than individual rank census",
+          "evidence": "Prime-power row family is full spark iff uniformly distributed over the divisors.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "PDF p. 12, Theorem 9 (offset 46040)",
+          "method": "Read OA paper passage",
+          "title": "Full Spark Frames",
+          "trigger": "General result for prime-power Fourier submatrices"
+        },
+        {
+          "assessment": "Statement concerns principal minors",
+          "evidence": "Square-free orders have nonzero principal minors of sizes two and three; nonsquare-free orders admit zero principal minors.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.09793",
+          "material_read": "PDF p. 1, abstract",
+          "method": "Read OA paper passage",
+          "title": "On the Principal Minors of Fourier Matrices",
+          "trigger": "Published three-by-three rank/singularity terminology"
+        },
+        {
+          "assessment": "Tests Hadamard property, not exhaustive rank",
+          "evidence": "Classifies complex Hadamard submatrices via conditions on sets.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.13145",
+          "material_read": "PDF p. 1, abstract",
+          "method": "Read OA paper passage",
+          "title": "Identifying Complex Hadamard Submatrices of the Fourier Matrices via Primitive Sets",
+          "trigger": "Broader Fourier submatrix classification"
+        },
+        {
+          "assessment": "Direct antecedent of rigidity, not of prime-power population counts",
+          "evidence": "Proportional-row/column rigidity for singular 3x3 unit-modulus matrices, applied to the character table of F_p^2.",
+          "identifier_or_url": "2026/10/11/SCOPE-complete-three-by-three-fourier-minor-rank-geometry-on-prime-aff--ba0b52ec4cec",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Read local mirror statement and lemma",
+          "title": "Complete three-by-three Fourier-minor rank geometry on prime affine planes",
+          "trigger": "Same rigidity lemma and exact census for a different group"
+        },
+        {
+          "assessment": "Different modulus",
+          "evidence": "For N=2p with odd p, parity purity and collisions characterize rank-two singular minors; no rank-one case.",
+          "identifier_or_url": "2026/10/11/SCOPE-singular-three-by-three-fourier-minors-on-even-semiprime-cycles--8f025c6183d3",
+          "material_read": "RESULT.md, Finding",
+          "method": "Read local mirror statement",
+          "title": "Singular three-by-three Fourier minors on even semiprime cycles",
+          "trigger": "Earlier nonprincipal cyclic-minor census"
+        },
+        {
+          "assessment": "Common elementary rigidity, different modulus; no assumption of priority within the day",
+          "evidence": "For N=3p with p>=5, classifies ranks via coordinate purity and collision, using known unit-modulus rigidity.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-rank-spectrum-of-three-by-three-fourier-minors-on-mathbb-z--0290eba11adf",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Read local mirror statement and lemma attribution",
+          "title": "Exact rank spectrum of three-by-three Fourier minors on a 3p cycle",
+          "trigger": "Related record on the same indexed day"
+        },
+        {
+          "assessment": "Different modulus, distinct primes explicitly required",
+          "evidence": "Full rank census for N=pq including p=2 where p and q are distinct.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-third-order-fourier-minor-rank-incidence-for-distinct-p--6a97dfb3d140",
+          "material_read": "RESULT.md, Finding",
+          "method": "Read local mirror statement",
+          "title": "Complete third-order Fourier-minor rank incidence for distinct prime factors",
+          "trigger": "Exact collision-based cyclic census"
+        },
+        {
+          "assessment": "Equivalent over the entire frozen range; later displayed index date",
+          "evidence": "Same min/max valuation thresholds and both profile populations, with an additional limiting fraction.",
+          "identifier_or_url": "2026/11/8/SCOPE-valuation-stratified-rank-census-for-three-point-fourier-samplin--0fc41b9fd0d2",
+          "material_read": "RESULT.md, Finding, Assumptions and scope, and Proof",
+          "method": "Read local mirror and compare formulas",
+          "title": "Valuation-stratified rank census for three-point Fourier sampling",
+          "trigger": "Strongest same-object match"
+        },
+        {
+          "assessment": "Covers totals by specialization, later displayed date",
+          "evidence": "Divisor sums for ranks one, two and three for every cyclic order N>=3.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-divisor-sum-census-of-every-three-point-cyclic-fourier-minor--48d2ce75d9c6",
+          "material_read": "RESULT.md, Finding and Assumptions and scope",
+          "method": "Read local mirror statement",
+          "title": "A divisor-sum census of every three-point cyclic Fourier minor",
+          "trigger": "Potential dominating general cyclic-modulus census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete census of the smallest nontrivial minors is a natural rank-incidence statistic of cyclic prime-power Fourier matrices. The weighted formula quantifies rank-one versus rank-two defects for independent row/column selections without iterating over the matrices, using O(a^4) terms, and identifies the two distinct dyadic onset orders. The value is the population census for arbitrary exponent, not rediscovering unit-circle rigidity, reproducing the odd-prime-square table, or claiming a result for higher-order minors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

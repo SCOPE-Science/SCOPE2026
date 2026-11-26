@@ -1,15 +1,21 @@
-# Mathematical review: exact \(13\)-adic Pell residue images
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an unrestricted theorem about all powers of \(13\), not an extrapolation from a finite table. The Pell companion matrix has exact order \(28\pmod{13}\), and its twenty-eighth power is \(I+169B\), with the displayed nonzero matrix coefficient modulo \(13\). The binomial divisibility estimate \(2(j-1)-\nu_{13}(j)\ge1\) for \(j\ge2\) yields an exact valuation for differences within each index branch. The Pell norm identity rules out zeros of the branch derivative: neither \(6\) nor \(7\) is a square modulo \(13\). This proves bijectivity of each branch onto one full coset at every precision. The \(28\)-term seed table yields the thirteen cosets and the two/four multiplicity split. The least period follows separately from state-return and the same valuation law. The independent finite enumerator checks every residue through precision six and 1,120 bounded valuation instances. The finite checks are corroboration only; no gaps in the infinite branch argument are deferred to computation.
+## correctness
 
-## Originality — PASS, with historical limitation
-The closest cited work concerns anomalous Pell/balancing **periods**, not the complete **scalar value image**. Panda–Rout (2014) establish period theory around \(13\); Deveci–Karaduman (2015) and Deveci–Akdeniz–Karaduman (2015) treat Pell recurrence periods in groups. An exact period does not logically specify which scalar residues appear or how often each appears; distinct periodic sequences can have equal periods and different scalar spectra. The published OEIS A238736 records the exceptional prime but no full image table. The additional structural branch-distance isometry is not obtained merely by repeating those period statements. Published-research searches did not identify a claim logically implying the combined classification. The inaccessible 2023 Patel–Panda paper on complete residue systems in the related balancing sequence is a substantive residual risk, and its contents are **not** asserted to lack the result. Absolute historical priority is unproved.
+PASS
 
-## Value — PASS
-The smallest Pell–Wieferich prime is a natural exceptional test case for prime-power lifting. This result classifies a complete natural invariant for every power of that prime, including its exact \(13\)-adic measure, exceptional drop between the first two levels, and the nonuniform representation multiplicities. The exact distance law explains the arithmetic mechanism behind all higher levels. These are substantive infinite-family structural assertions rather than a reindexed finite observation or a slight improvement of a bound.
+For the companion matrix A, A^4 is not I mod 13 and A^14 = −I mod 13, while A^28 = I mod 13; all proper divisors of 28 divide 4 or 14. Writing U=A^28=I+169B, the checked seed is B ≡ [[6,6],[6,7]] mod 13. For d>0, the coefficients of the higher terms of (U^d−I)/(169d) have valuation at least 2(j−1)−v_13(j)>0 for j>=2. Thus the unit test for a branch difference is (A^rB)_12 ≡ 6(P_(r+1)−P_r). Vanishing contradicts the Pell norm (P_(r+1)−P_r)^2−2P_r²=(−1)^r, since 6 and 7 are nonsquares mod 13. This proves exact valuation, for all r and for either order of u,v after swapping. Each branch is consequently bijective onto its seed coset at finite precision; the 28 seeds have four zeros and two of each other class. A scalar period forces P_T=0 and P_(T+1)=1 modulo the modulus, hence A^T=I; the matrix order mod 13 and the valuation at r=0 force the predicted divisor of T. The binomial bound also proves that this period works, including k=2. The all-level images give the closure and normalized measure 13/169, and periodicity gives infinitely many representatives. Independently, the recurrence-only replay in /workspace/branches/e657e1e7-49a8-41be-bfc9-eada841436a5/ recovered the seed mod 2197, all residue classes and counts at levels 2–6, return and prime-divisor reductions of the proposed period, and the valuation in 1120 bounded pairs. This replay did not use the frozen script and does not substitute for the proof at arbitrary precision.
 
-## Sources and residual risks
-The principal inspected sources are OEIS A238736 and A000129, Panda–Rout (2014, DOI:10.1007/s10474-014-0427-z), Deveci–Karaduman (2015), and the related 2015 generalized Pell paper. Patel–Panda (2023, DOI:10.1063/5.0137875) is bibliographically identified but its full text was unavailable; strong historical priority cannot be established from the title or bibliographic entry. A broad general value-distribution theorem not found by the searches could also subsume the formula. The mathematical proof itself is independent of these historical comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the exact scalar support, stable fiber counts and their uniform branch explanation at 13, not for the Pell–Wieferich anomaly, the single-index divisibility law, or the recurrence period alone. The strongest relevant comparisons include balancing valuation and completeness results since balancing numbers are half the even Pell subsequence. A single-index valuation law can shorten the branch proof via the Pell addition formulas, but the sources inspected do not establish the scalar distribution across the even and odd branches, or the resolved multiplicities. This is a best-of-knowledge assessment with explicit access risk.
+
+## value
+
+PASS
+
+13 is the first Pell–Wieferich obstruction, not an arbitrary numerical example. At this prime period stabilization at the first two levels does not tell how much scalar coverage is lost, whether further lifts are full, or how many indices realize any specified value. The result gives exactly this reusable local information, including the exceptional fourfold zero-coset fiber, and identifies the uniform noncancellation that prevents any new loss at higher precision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

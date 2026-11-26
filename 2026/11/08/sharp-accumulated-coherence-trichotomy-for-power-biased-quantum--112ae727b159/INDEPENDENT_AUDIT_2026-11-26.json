@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:59:20.443593Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–127",
+        "VERIFICATION.md lines 19–36; verify.py and requirements.txt (inspected only)"
+      ],
+      "rationale": "The normalized history kernel preserves the zero-frequency blocks. For each other block with frequency w, the Volterra equation reduces to the Kummer equation with a=i beta w/(r+iw); the analytic solution also solves the original Volterra equation because t^beta(f'+(r+iw)f) vanishes at zero. Volterra uniqueness follows by the integrated supremum bound and Gronwall. Both Euler exponents have positive real part. Splitting at u=1/2 and expanding at zero gives the nonzero leading coefficient B and an O(t^(-Re a-1)) plus exponential remainder. Re a strictly increases with |w|; orthogonal active blocks cannot cancel. At the threshold the minimal-gap primitive has nonzero logarithmic phase and an integrable remainder; larger-gap blocks are absolutely integrable. The real and imaginary Hermitian directions formed by A and its adjoint are orthogonal with equal norm since tr(A^2)=0, proving a genuine circle with the asserted radius and period. Above threshold, an independent check integrates the Volterra equation in time: the integrated history term equals beta/(beta-1) times the scalar integral by absolute Fubini, so -1=[-(r+iw)+r beta/(beta-1)] times that integral. This reproduces the rational coefficient; conjugate pairing gives the strict negative sign. The commuting case is stationary.",
+      "residual_risks": [
+        "The packaged finite-precision checks were not rerun and do not establish asymptotic or all-state claims. The analytic audit applies only to finite dimension and the exact history-selection law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The confined-diffusion paper derives the same time kernel, Kummer mode, algebraic tail, and slowest active mode dominance for real diffusion relaxation eigenvalues. The other diffusion paper treats real Fourier modes, uniform history and spatial mean-square displacement."
+        ],
+        "reasoning": "The classical power-history theory is not a stronger theorem on imaginary spectrum or time-integrated Hermitian operators. A real exponent equal to one would give a logarithmic primitive, not the bounded critical oscillation coming from a nonzero imaginary exponent.",
+        "searches": [
+          "arXiv:2411.00641 §4 Eqs. 28–30 and §5.1 Eqs. 43–50",
+          "arXiv:1611.06743 §IV Eqs. 38–49"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 112ae727b159 (self-match), 669edc24d60f, c3ac5492b019",
+        "arXiv:2411.00641, 2608.02297, 1611.06743, 2601.13367"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Analytic continuation of the classical mode suggests the correct complex Kummer solution; the quantum uniform case already has a logarithmic phase. Neither comparison provides an accumulated complex-mode result across the absolute-integrability boundary."
+        ],
+        "reasoning": "Reusing the mode solution is not novel. The operator conclusion additionally needs an integrable error at the critical boundary, mutually orthogonal block directions that certify a nondegenerate circle, and the Fubini/integral evaluation and pairing giving the sign; no inspected general theorem already supplies the combined claim.",
+        "searches": [
+          "Compare arXiv:2411.00641 §5.1 with arXiv:2608.02297 mode and least-gap results",
+          "Compare 669edc24d60f and c3ac5492b019 RESULT.md Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Quantum resetting with memory has the same realized-history rule at beta=1. Carollo–Wald resets to a reference state with a renewal waiting-time law, rather than sampling a prior state at a Poisson event."
+        ],
+        "reasoning": "Changing the waiting-time distribution is not equivalent to changing the distribution of the selected past time. Uniform history is one subcritical case and cannot reach the critical or supercritical regimes for r>0.",
+        "searches": [
+          "Local Resultary comparison for power-biased Poisson quantum history resetting and accumulated coherence",
+          "arXiv:2608.02297 Eqs. 7–14 and 22; arXiv:2601.13367 Eq. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "112ae727b159 is the assigned record itself. Distinct same-day 669edc24d60f studies an infinite-mean discrete renewal clock and a parity/interference threshold; c3ac5492b019 studies instantaneous Lindblad reset relaxation with uniform history."
+        ],
+        "reasoning": "The exact self-hit supplies no prior evidence. The other results have different kernels or observables and do not give this bias threshold, critical cluster set, or rational spectral-block integral.",
+        "searches": [
+          "Local Resultary: accumulated coherence, power-biased and renewal quantum memory resetting"
+        ]
+      },
+      "rationale": "The scalar history equation and Kummer machinery are substantial prior ingredients. The pass concerns the integrated operator across the variable bias parameter, particularly the critical accumulation set and signed supercritical value, not the scalar solution, logarithmic instantaneous phase, or least-gap control of uniform-history relaxation by itself.",
+      "residual_risks": [
+        "The literature query did not surface a useful further comparison; that is not negative evidence. An unlocated complex-spectrum integrated history result could cover more than the classical real-mode results inspected. No priority claim beyond the comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior scalar mechanism; real diffusion spectrum",
+          "evidence": "For I(t)=bt^alpha, the history law is alpha s^(alpha-1)/t^alpha and the Kummer exponent is determined by a real relaxation eigenvalue.",
+          "identifier_or_url": "https://arxiv.org/html/2411.00641",
+          "material_read": "§4 Eqs. 28–30 (offset 35500); §5.1 Eqs. 43–50 (offsets 43700 and 46400)",
+          "method": "OA primary HTML passages",
+          "title": "Diffusion with preferential relocation in a confining potential",
+          "trigger": "Exact power-history kernel and Kummer solution"
+        },
+        {
+          "assessment": "Uniform-history special case and instantaneous asymptotics, not the variable-power integral theorem",
+          "evidence": "Complex Kummer mode with second parameter 1, algebraic decay with log phase, and slowest gap dominance.",
+          "identifier_or_url": "https://arxiv.org/html/2608.02297",
+          "material_read": "Eqs. 7–14 (offset 23900–29887) and Eq. 22 (offset 36000–40830)",
+          "method": "OA primary HTML passages",
+          "title": "Quantum resetting with memory",
+          "trigger": "Same quantum realized-history reset and complex spectrum"
+        },
+        {
+          "assessment": "Real Fourier decay and spatial scaling, not an operator primitive",
+          "evidence": "Uniform-history Fourier mode has real Kummer parameter Dk^2/(r+Dk^2); logarithmic growth there is mean-square displacement.",
+          "identifier_or_url": "https://arxiv.org/html/1611.06743",
+          "material_read": "§IV Eqs. 38–49 (offsets 25200–31698)",
+          "method": "OA primary HTML passages",
+          "title": "Long time scaling behaviour for diffusion with resetting and memory",
+          "trigger": "Classical Fourier formulation may relate to a mode integral"
+        },
+        {
+          "assessment": "Different reset state and clock mechanism",
+          "evidence": "Evolution is in discrete steps, the hazard depends on waiting time since the last reset, and the reset replaces the state with a fixed reference state.",
+          "identifier_or_url": "https://arxiv.org/html/2601.13367",
+          "material_read": "Model definition and last renewal equation (2), offsets 7100–9320",
+          "method": "OA primary HTML passage",
+          "title": "Stochastic resetting induces quantum non-Markovianity",
+          "trigger": "Non-Markovian quantum resetting alternate formulation"
+        },
+        {
+          "assessment": "Distinct discrete renewal model",
+          "evidence": "Parity-alternating qubit coherence at a half-index crossover; no Poisson sampling of the realized past.",
+          "identifier_or_url": "Resultary 669edc24d60f",
+          "material_read": "RESULT.md offset 0–4230",
+          "method": "Local Resultary mirror",
+          "title": "Half-index interference threshold for coherence under infinite-mean resetting",
+          "trigger": "Same-day coherence threshold result"
+        },
+        {
+          "assessment": "Different generator, memory parameter, and observable",
+          "evidence": "Uniform-history Lindblad sectors and instantaneous relaxation rather than the primitive of a Hamiltonian coherence operator.",
+          "identifier_or_url": "Resultary c3ac5492b019",
+          "material_read": "RESULT.md offset 0–4457",
+          "method": "Local Resultary mirror",
+          "title": "A sharp real-to-log-periodic relaxation crossover in a history-reset qubit",
+          "trigger": "Related log-periodic quantum history relaxation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–63 and 91–127",
+        "arXiv:2608.02297 Eq. 22 (contrast with instantaneous decay)"
+      ],
+      "rationale": "The primitive is a natural measure of accumulated coherence and is not predicted by the fact that instantaneous coherence decays. The exact active-gap boundary separates power growth, bounded nonconvergence on a nonzero circle, and absolute convergence. The computable limiting response has strictly negative projection on the initial coherence, adding a sign constraint rather than only a convergence bound.",
+      "residual_risks": [
+        "No conclusion about gapless spectra, physical reset implementation, or nonlinear or time-dependent quantum dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

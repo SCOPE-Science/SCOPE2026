@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Classical Radić area identity is independently checked with 600 explicit tangent-geometry constructions; exact three-branch monotonicity in the tangent variable proves the CDF. Symbolic differentiation plus a 36-entry rational nonnegative Bernstein certificate proves strict decrease for every 0<d<1 and all angles. Uniform Taylor expansion yields the normalized threefold arcsine limit. Exact polynomial identities and numeric checks are reproduced by verify.py; no finite experiment is substituted for the infinite proof.
+## correctness
 
-## Originality — PASS, provisional priority
-Radić 2003 Theorem 2.2 and 2004 area/extrema give the underlying deterministic geometry, but the inspected full texts do not calculate the uniform-angular probability CDF or compare offsets pointwise. László 2019 uses a tangent-length integral rather than the specified angular law. published-finding corpus queries with poristic, Chapple, bicentric, arcsine, area-distribution aliases returned nearby circle-sampling and oval results, none subsuming this statement. The strict order is proved using a new explicit rational Bernstein positivity certificate rather than merely a substitution. In particular, the existing deterministic area formula is not presented as new. Remaining risk: possible reformulations in older poristic-probability literature; no independent priority certification.
+PASS
 
-## Mathematical value — PASS
-Natural uniform sampling from the fixed outer circle assigns different weights to triangles of the same porism; its full area distribution has a three-branch inversion. A strict area order across all offsets supplies a nontrivial geometric comparison, and a third-harmonic arcsine scaling reveals a collapsed nearly equilateral regime. This supplies useful probabilistic geometry beyond a known deterministic extrema formula.
+The stated bicentric area function and folded uniform angle give a strictly increasing tangent length. Differentiating the area gives a quadratic in the squared tangent length: the three successive squared-length gaps between the two endpoints and the two critical points are d(1-d)^2, 2d(1-d²), and d(1+d)^2. The interior maximum and minimum equal the opposite endpoint values; the increasing/decreasing/increasing branches therefore give the stated two-interval sublevel set and atomless CDF. Independently expanded the logarithmic derivative and recomputed the Bernstein coefficients from the power basis; all are nonnegative and the entire i=0 row equals 6, establishing strict negativity even at the two extreme angles for 0<d<1. Same-angle coupling gives stochastic dominance with distinct laws, not strict inequality of CDFs at every real threshold. Independently expanded squared area through order three; taking its positive square root gives the stated cos(3θ) coefficient. Analyticity uniform over cos(θ)∈[-1,1] and the two endpoint expansions justify the normalized limit. Replay: python /workspace/review-evidence/check_geometry_algebra.py. The frozen checker and its reported tests are supporting evidence, not a substitute for these checks.
 
-## Scope and limitations
-The parameters and sample are exactly those in RESULT.md. Proofs are analytic and exact; numerical work is diagnostic. Four source comparisons and the nonnegative rational Bernstein table form the main reproducibility evidence. The independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of available evidence supports the substantive globally strict fixed-angle comparison and its distributional consequences together. Deterministic area and extrema are prior work, and the CDF is an explicit pushforward of them, not a separately novel area identity. No independent equivalent of the strict offset theorem was found in the inspected material.
+
+## value
+
+PASS
+
+A nontrivial global comparison along the natural bicentric family: common-angle coupling orders every sampled triangle despite the folded area function itself having three alternating branches. The CDF makes that specific sampling model usable, and the thin-support cubic harmonic explains why lower-order expansions alone hide geometry of its limiting law. The value does not rest on re-evaluating known extremal areas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:11:31.405522Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inverse-image argument applies to every finite reset word, with no length restriction. In the frame rotated by the number t of preceding inverse a steps, inverse b copies the membership of t mod n into t−1 mod n. From the terminal singleton {r}, the first additions must therefore be r−1, r−2, …, r−(n−1), even if later inverse b steps delete positions. The successive addition times have residues decreasing by one and thus are at least n−1 rotations apart. There must also be at least n−1 inverse b steps. Equality in both counts forces the initial addition at t=0, all gaps exactly n−1, and no redundant steps; conversely those steps reach Q. This includes n=2, where the equality word is b. Strict positivity makes equality in weighted cost equivalent to equality in both counts. The finite subset searches described in the frozen verification are corroborative, not the basis for the general conclusion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 13 record treats all full reset words for the same C_n, not only shortest words or words for a fixed pair.",
+          "The October 18 and November 2 pair records concern individual pair merging. Fominykh–Martyugin–Volkov, p. 1, formulates a more general transition-cost budget problem, not the family-specific theorem."
+        ],
+        "reasoning": "The mandatory subsequence theorem dominates the full-state claim. The other related results do not supply that conclusion merely by having a broader cost model or by addressing pair merging.",
+        "searches": [
+          "2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+          "2026/10/18/SCOPE-cost-invariant-unique-optimal-merging-words-for-every-pair-of-er--261334d3d0c0",
+          "2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7",
+          "arXiv:1205.2174v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–50",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "Resultary and the distinct SCOPE records identified above",
+        "Ruszil arXiv:2103.16185v1",
+        "Fominykh–Martyugin–Volkov arXiv:1205.2174v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every full reset word contains W_n=b(a^(n−1)b)^(n−2) as a scattered subsequence, and W_n itself resets the automaton."
+        ],
+        "reasoning": "Counting the selected a and b positions gives exactly the two frozen bounds. If both are equalities, no positions remain unselected and the word is W_n. Every additional position has strictly positive cost, so the advertised cost and unique minimizer are immediate.",
+        "searches": [
+          "8a725fd1702c, RESULT.md, Finding and Proof steps 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ruszil, p. 1, defines cost by summing the letter weights and gives a general example where length and weighted cost select different words.",
+          "With additive costs, a fixed mandatory reset subsequence is a common coordinatewise minimizer, with strict cost increase for any extra letter of positive cost."
+        ],
+        "reasoning": "The finite-word subsequence formulation covers the claimed two count inequalities and cost-ratio invariance. The general weighted model by itself does not give the family-specific bound.",
+        "searches": [
+          "Resultary: Černý reset words, mandatory reset subsequence, positive letter weights",
+          "arXiv:2103.16185v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The decisive local-mirror hit is the distinct October 13 record 8a725fd1702c, RESULT.md, Finding and Proof steps 1–2. Its maps and reset word match exactly.",
+          "The other examined indexed hits concern one-subset preimage extension and an early-rank bottleneck; the latter does not cover the full reset statement."
+        ],
+        "reasoning": "The indexed match is statement-level; it is neither a table recomputation nor the assigned frozen record itself.",
+        "searches": [
+          "Resultary: Černý synchronizing words and letter counts",
+          "2026/11/2/SCOPE-exact-shortest-preimage-extension-law-and-subset-histogram-for-t--34e6272e5e99",
+          "2026/11/8/SCOPE-the-first-rank-bottleneck-of-cyclic-one-point-automata-has-2-r-1--20f6f6c2c8cb"
+        ]
+      },
+      "rationale": "An earlier indexed theorem for the same labeled automata proves the strictly stronger statement that every reset word contains the claimed word as a scattered subsequence. This covers the whole finding, including weighted uniqueness, not just the unweighted optimum.",
+      "residual_risks": [
+        "The bounded published-literature comparison does not establish first publication of the stronger theorem; the indexed stronger statement is already decisive for coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the full finding",
+          "evidence": [
+            "Same maps and left-to-right convention; every reset word contains W_n as a scattered subsequence, and W_n resets."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+          "material_read": "RESULT.md, Finding and Proof steps 1–2, offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A mandatory reset subsequence and exact one-step multiplicity",
+          "trigger": "Strongest indexed equivalent/stronger formulation"
+        },
+        {
+          "assessment": "Inspected passage defines the general model, not the family-specific result",
+          "evidence": [
+            "Letter weights add along the word; a general example separates length and weight."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.16185v1",
+          "material_read": "p. 1, OA text offset 0",
+          "method": "Open-access paper reader",
+          "title": "Approximation algorithm for finding short synchronizing words in weighted automata",
+          "trigger": "Same additive letter-cost model"
+        },
+        {
+          "assessment": "Inspected passage treats transition costs, not the claimed coordinatewise statement",
+          "evidence": [
+            "The budget decision problem allows positive transition costs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.2174v2",
+          "material_read": "p. 1, OA text offset 0",
+          "method": "Open-access paper reader",
+          "title": "P(l)aying for Synchronization",
+          "trigger": "Weighted reset problem in a broader cost model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Uniform positive-weight optimality is natural, but the frozen result extracts two letter counts and the immediate equality case from a previously established mandatory reset subsequence. It adds no surviving mathematical extension or independent invariant beyond that indexed structural result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The run-endpoint proof exhausts words with one, two, three, and at least four runs. For four or more runs of opposite endpoints, it identifies the only possible palindrome-prefix cut types and rules out both when both endpoint runs are proper partial runs. It explicitly constructs three palindromic pieces, and otherwise at most two. The phase-to-word count uses the primitivity of the two-run cyclic word. The standalone checker independently confirms 3,240 parameter-length cases and 36,720 phase classifications, without treating these finite tests as the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+Direct run analysis gives all cases. Equal endpoints can be made symmetric by trimming the longer endpoint into a constant palindrome. Opposite endpoints with a full endpoint give a symmetric prefix or suffix and one constant palindrome. With at least four runs and both endpoints partial, a palindrome prefix ends only in the first run or at the initial run's depth in a later full run of its letter. Each cut leaves a non-palindromic suffix: its endpoints differ except at the first boundary, where its full first and partial last runs have unequal lengths. Splitting the first full run of the other letter yields the indicated three-piece factorization. These cases thus have exactly PL=3 and lengths kL+s+t with k>=1 and both residual counts positive and strictly below their full lengths. The two cyclic changes imply primitiveness and thus distinct phases for n>=L. The length cutoff, generating function, complexity in its asserted range, and exceptional-run threshold follow. The checker and VERIFICATION.md were read but the uploaded checker was not run. The separate explicit-cut replay /workspace/branches/replay_frozen.py matched distinct-factor counts and the ceiling in all 2304 cases for 1<=a,b<=8, 1<=n<=4L; the unbounded proof is the run argument.
 
-The closest work is Borchert–Rampersad (2015), particularly Theorem 18's general list of binary minimal non-palindrome pairs and Section 6's definition of palindrome-pair complexity. That theorem is broad enough to provide a separate route to **membership** classification, and its corollaries must not be claimed as newly discovered. The current contribution is instead an explicit numerical formula for every factor length of every two-run periodic word, including its generating function, phase description, and exact all-palindrome-pair threshold. The inspected source does not state those formulas. The automatic-word results of Frid–Laborde–Peltomäki (2020) and Bulgakova–Frid–Scanvic (2022) concern different sequences and mostly prefix invariants. Searches for this closed two-parameter specialization did not identify a directly covering published formula. Unindexed equivalent material and derivability from the broad 2015 classification remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-Palindrome-pair factor complexity is explicitly proposed as a natural invariant in Borchert–Rampersad (2015). The theorem gives a complete and sharp infinite-family solution, including a convolution law for non-pair factors, a dichotomy in run length, exact periodic counts and an easily reproducible proof. Those facts supply an interpretable benchmark for studying more complicated periodic and aperiodic words; they are not just a finite census or an arbitrary numerical slice.
+The indexed exact match is the frozen record itself. Prior palindrome-pair results cover short run counts and minimal obstructions and introduce the complexity statistic, but they do not give the strict-endpoint criterion and resulting lengthwise counts for this period family. PASS is for the exact criterion and enumeration in this scope, not for the definition or global obstruction theory.
 
-## Scientific boundaries
+## value
 
-The theorem is restricted to binary one-0-run/one-1-run periods; it does not solve general palindrome-pair complexity. Exact independence or bibliographic uniqueness has not been established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact count for a natural primitive periodic family goes beyond bounding palindromic length or detecting minimal forbidden examples. It identifies precisely which phases and lengths require a third part, gives the sharp onset and permanent periodic profile, and supplies a tractable benchmark for the established palindrome-pair complexity statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

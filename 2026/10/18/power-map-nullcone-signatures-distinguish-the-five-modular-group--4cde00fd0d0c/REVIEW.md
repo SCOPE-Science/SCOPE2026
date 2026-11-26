@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the augmentation model of all three abelian group rings; for the quaternion and dihedral group rings it computes squares from the four-element basis over the central dual numbers, then cubes in the radical-square-zero quotient and all fourth powers. The essential cubic equations and their factorizations are reconstructed explicitly. The two nonabelian geometric point counts follow from unions of affine linear spaces. An exhaustive direct multiplication-table program confirmed all the claimed power counts over fields of orders two and four; such checks are corroborative, not substitutes for the proof. The distinction between elementwise fourth powers and the fourth ideal power is witnessed explicitly.
+## correctness
 
-**Originality — PASS, with risk.** The full text of Creedon–Gildea (arXiv:0905.4644) gives unitary unit groups and relevant involution information, not the complete cubic-nullcone comparison across the five modular group algebras. The inspected portions of Ivanov et al. (arXiv:1407.4341) address Hochschild and BV structures, not the proposed power-map census. Published dihedral unit-group literature could cover involution counts and was not completely accessible; the new contribution is not the already known abstract unit-group classification. A ranked published-finding corpus semantic search returned no theorem asserting these simultaneous three-power signatures; incomplete indexing and other group-ring literature remain risks. A statement about novelty is restricted to the specific combined invariant and geometry, not all its elementary implications.
+PASS
 
-**Value — PASS.** A ring-isomorphism invariant formed by only three low-power fibers separates all five modular group algebras of order eight, including the pair whose second and third counts coincide. The contrast between the linear quaternion cubic locus and the two-component dihedral locus is structural rather than an arbitrary scalar substitution, and the quaternion example distinguishes elementwise fourth-power vanishing from fourth ideal-power vanishing. The result is finite and self-contained; no generalization to larger groups is required for this scope.
+For the abelian groups, the truncated-polynomial presentation gives the counts by t-adic valuation for C8, by the s coefficient for C4 x C2 (its nonzero value leaves a nonzero s^3 term in the cube), and by the Frobenius square for C2^3. For D8 and Q8 take c=1+z with c^2=0. The free rank-four basis over k[c]/(c^2) shows multiplication by c identifies A/cA with cA, so the square coefficients are genuine equations. In Q8 they force B=C=D=0, and in D8 they force B=0, CD=0. In the square-zero-generator quotient, a^3=0 gives PK=QK=0 and DK+PQ(B+C)=0; K!=0 would force P=Q=0, and hence DK=0 forces D=0 as well. For D8 the remaining equation is automatic under K=(B+C)(B+D)=0; for Q8 the remaining product forces a repeated coordinate and substitution into K=0 forces all three equal. This gives the claimed reduced linear spaces or unions over any characteristic-two field, with four free central coordinates in each case. Squares lie in cA, hence fourth powers vanish in the nonabelian cases. Counts follow from the locus dimensions and overlaps; 1<2q-1<q^2 separates the D8 square count from its neighboring counts, and N4 separates C8 from Q8. J is intrinsic as the nilpotent elements here: the presentations show all of J is nilpotent elementwise and augmentation rules out all elements outside J. Independent multiplication over F2 and F4 matched all 30 counts and tested the nonabelian square and cube equations pointwise.
 
-Closest comparisons: unitary-unit description of \(\mathbb F_{2^f}Q_8\), full dihedral unit group, quaternion Hochschild cohomology, and finite-field nilpotency distributions in other algebras. Geometry is of reduced loci only. Priority beyond the checked material remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinction of these algebras is not credited as a new solution of the modular isomorphism problem. Power-of-two counts have a normalized-unit reformulation and related known structural coverage; the abelian entries are straightforward from familiar presentations. The strongest inspected overlaps do not supply the associative cube-zero loci and full three-power signature. Later indexed square-zero results are material partial coverage, not evidence of antecedent coverage.
+
+## value
+
+PASS
+
+This gives field-uniform exact low-degree fibers of intrinsic power maps on the radical for all five algebras of the first order admitting the two different nonabelian groups. The contribution beyond an old isomorphism distinction or unit exponent count is the cubic geometry: Q8 has one five-space, while D8 has a union of two six-spaces with a five-space intersection. These fibers give reusable test cases for what radical power maps detect in small modular group algebras. The cube count is not necessary to separate these five signatures once N2 and N4 are known; its independent structural content is what adds value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

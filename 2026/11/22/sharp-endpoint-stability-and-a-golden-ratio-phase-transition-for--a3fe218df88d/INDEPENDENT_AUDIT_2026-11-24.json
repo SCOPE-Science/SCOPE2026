@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:37:34.112133Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–5",
+        "Frozen VERIFICATION.md and epigraph_stability_check.py",
+        "Independent bisection of the two frozen planar polynomials (rounding check only)"
+      ],
+      "rationale": "The KKT multiplier outside the cone is the unique positive root of tau+lambda=sum_j w_j(|y_j|-lambda w_j)_+. On a fixed strict signed cell the nonzero block is the Euclidean hyperplane projection I-vv^T/(1+S_I), v=(s_j w_j,-1); inactive rows vanish. The scalar and coordinate absolute row sums are exactly those claimed. The apex derivative is zero on the interior apex cell, not necessarily on its boundary; continuity and a finite subdivision of any input segment into closed affine cells suffice there. Every signed nonempty support occurs on an open cell, by prescribing positive active magnitudes, lambda=1, zero inactive inputs, and tau=weighted output level minus 1. A small displacement of the input with signs matching the maximizing row attains the row-sum quotient. For a positive optimal ratio rho (dividing out w_i in a fixed spatial row), adding or deleting a nonmandatory weight is controlled exactly by a-rho a². Hence all weights below the common threshold 1/rho are selected and those above are excluded, with equality weights interchangeable; a sorted prefix exists even with ties. Prefix sums of weights and squares plus a membership test give O(1) per candidate after sorting. The identity row covers nonpositive excesses. Singletons force all weights to be one for nonexpansivity, and the full support then gives 2n/(n+1), which is also the maximum since the unit-weight row sums are 2k/(k+1) at support size k. The product-one geometric family has largest weight M at each support; when M>=R the scalar excess is O(1/R), its largest coordinate has nonpositive excess, and all other weights are at most M/R² giving O(1/R²). When M<=1 at most one weight is 1 and the rest are O(R^-2). This proves the unattained infimum. In the plane the only potentially dominating rows reduce to A and B by the singleton and larger-weight comparisons. Their difference factors at 1 and the golden ratio, and the derivative numerator for B is strictly increasing on [1,infinity), negative at 1 and positive at the golden ratio. A decreases strictly past 1, and factoring B-1/3 proves the single nontrivial return before the switch. Independent bisection of the stated polynomials gives r_* about 1.203277832047, r_c about 1.485583997689 and L(r_*) about 1.363352315804, consistent with the frozen approximations.",
+      "residual_risks": [
+        "The frozen script was inspected, not executed. The finite assertions are supplementary; all three formal evidence channels in frozen VERIFICATION.md are not performed.",
+        "The result uses Euclidean nearest points and the unweighted coordinate maximum norm for differences, not nearest points in the maximum norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 14 gives the epigraph projection outside the epigraph as (prox_{lambda f}(y),tau+lambda), at the unique root of f(prox_{lambda f}(y))-tau-lambda. The 2015 listing identifies the same weighted norm epigraph and differential properties, without accessible theorem text."
+        ],
+        "reasoning": "The general corollary mechanically gives the soft-threshold root for the weighted l1 norm; it is not a general evaluation of the coordinate maximum-norm ratio over both inputs or a theorem optimizing positive weights under fixed product. Exact local overlap with the bibliographic 2015 match is plausible but could not be determined.",
+        "searches": [
+          "Friedlander–Goodwin–Hoheisel arXiv:2102.06809, Corollary 14(b), p. 24, offset 95292",
+          "Liu–Han–Wang–Chen Pacific Journal of Optimization 11(4), 737–749, exact-title search and publisher listing"
+        ]
+      },
+      "checked_sources": [
+        "Resultary subject and distinct entries c92b6dad1bd0 and 5772bc742552",
+        "Friedlander–Goodwin–Hoheisel arXiv:2102.06809, Corollary 14(b)",
+        "Liu–Han–Wang–Chen (2015) and Liu–Wang DOI 10.1007/s00186-016-0540-6 (bibliographic/access checks only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older projection representation and local affine geometry give the active-cell pieces after specialization. The squared-norm proximal comparator already uses a closely related prefix strategy for spatial rows, but its numerator involves B_{i,k}-w_i and there is no scalar-height row; its weight envelope maximizes under a sum-of-squares constraint."
+        ],
+        "reasoning": "Credit the prior projection representation, related prefix technique and direct passage from local affine pieces to a global finite maximum. The two-input problem has a scalar row competing with the coordinate rows; neither that proxy's maximum nor the general root identity mechanically yields the product-one minimizing sequence, the nonattainment or the exact competition and turning points in the plane. No new projector identity or general affine norm principle is credited.",
+        "searches": [
+          "Friedlander–Goodwin–Hoheisel Corollary 14(b)",
+          "Resultary 5772bc742552, Finding offset 0–1800",
+          "Resultary c92b6dad1bd0, Finding offset 0–1237",
+          "Liu–Han–Wang–Chen 2015 publisher lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cross-polytope comparator fixes the radius and projects in an ell_p geometry with differences measured in that geometry. The squared weighted-norm proximal comparator studies an exact coordinate-max coefficient for a map R^n to R^n and an l2-normalized maximum."
+        ],
+        "reasoning": "At epigraph input height zero the spatial component is the squared-norm proximal map with alpha=1, by eliminating the projected height. That slice excludes the height perturbation and output row. A fixed-radius ball also omits both. Neither comparator is the full simultaneous (y,tau) Euclidean projector measured in the coordinate maximum norm.",
+        "searches": [
+          "Resultary: Euclidean weighted l1 epigraph projection exact global coordinate maximum norm Lipschitz weighted cone Jacobian sorted prefix product one golden ratio",
+          "Resultary weighted cross-polytope record c92b6dad1bd0 and squared weighted l1 proximal-map record 5772bc742552"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The subject's own index entry has the full product-one infimum and golden-ratio switch. The bounded distinct results inspected instead give active-row formulas for a squared-norm proximal map or a fixed-ball projector. Neither Finding tabulates the full epigraph coefficient or gives its two planar branch polynomials."
+        ],
+        "reasoning": "For this continuous-parameter sharp norm the exact symbolic catalogue statements are more pertinent than numerical tables. Matching the subject or matching a rank-one formula on a different domain is not a distinct exact result for the full epigraph.",
+        "searches": [
+          "Resultary: Euclidean weighted l1 epigraph projection exact global coordinate maximum norm Lipschitz weighted cone Jacobian sorted prefix product one golden ratio",
+          "Resultary a3fe218df88d (subject itself), 5772bc742552 and c92b6dad1bd0 (distinct matches)"
+        ]
+      },
+      "rationale": "The general proximal root formula and active-face projection calculus are not new; in this polyhedral problem the finite row-sum formulation is a direct consequence once all the faces are accessible. The supported contribution is the explicit global sensitivity analysis, in particular the normalized weight-design infimum and nonmonotone planar switch, with the prefix optimization for the full two-input map. The closest inspected catalogue results have a fixed level or a squared-norm proximal map. The closest 2015 paper on the same epigraph's differential properties was not obtainable as full text; it remains a specific priority caveat, not evidence of coverage or noncoverage.",
+      "residual_risks": [
+        "The 2015 same-object article is a material priority risk because its differential formulas and possible global corollaries could not be read. No theorem was inferred from the metadata or the failed retrieval.",
+        "The distinct proximal record is conceptually close; no priority ordering is inferred from the shared date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the projection and root characterization; does not evaluate the present sharp norm or design in the inspected result",
+          "evidence": "Outside the epigraph the formula is [P_lambda f(y),tau+lambda]; lambda is the unique positive root of the scalar aligning equation.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.06809",
+          "material_read": "Corollary 14 and proof, p. 24, offset 95292–97372",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "From perspective maps to epigraphical projections",
+          "trigger": "General theorem on the identical Euclidean epigraph map"
+        },
+        {
+          "assessment": "Material unresolved priority risk; neither covered nor ruled out on the evidence obtained",
+          "evidence": "The publisher listing identifies the weighted epigraph differential study. The TLS hostname-certificate failure on retrieval gives no scientific evidence about its theorems.",
+          "identifier_or_url": "http://www.ybook.co.jp/online2/oppjo/vol11/p737.html",
+          "material_read": "Bibliographic title, authors and pages 737–749; no primary theorem text",
+          "method": "Targeted public lookup identified publisher listing; lawful page/PDF retrieval and alternate-copy check did not obtain full text",
+          "title": "Differential properties of the metric projectors over the epigraph of the weighted L1 and Linfinity norms",
+          "trigger": "2015 same-object study plausibly contains active-face derivatives or stronger consequences"
+        },
+        {
+          "assessment": "Related slice and technique; not equivalent to the full epigraph or product-one minimum",
+          "evidence": "Its exact spatial prefix formula is for prox of alpha/2 times the squared weighted norm, with no height coordinate; its design theorem maximizes under l2 normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-weight-anisotropy-envelope-and-active-support-threshold-fo--5772bc742552/RESULT.md",
+          "material_read": "Finding offset 0–1800",
+          "method": "Local Resultary mirror",
+          "title": "Sharp weight-anisotropy envelope and active-support threshold for squared weighted l1 proximal maps",
+          "trigger": "Strong distinct overlap in row ratios and sorted-prefix computation"
+        },
+        {
+          "assessment": "Fixed-radius and different metric/norm regime",
+          "evidence": "The set is a fixed weighted l1-ball in R^n and its nearest points and Lipschitz coefficient use the same ell_p geometry.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0/RESULT.md",
+          "material_read": "Finding offset 0–1237",
+          "method": "Local Resultary mirror",
+          "title": "Exact Lipschitz stability and contractivity threshold for weighted cross-polytope projections",
+          "trigger": "Earlier rank-one face-projection and global stability calculation for weighted l1 geometry"
+        },
+        {
+          "assessment": "Not used as evidence of noncoverage",
+          "evidence": "The title concerns the unweighted norm and a nonnegative orthant; no exact comparison beyond the bibliographic scope was credited.",
+          "identifier_or_url": "https://doi.org/10.1007/s00186-016-0540-6",
+          "material_read": "Bibliographic citation only",
+          "method": "Bounded lawful OA attempt did not return full text",
+          "title": "Properties associated with the epigraph of the l1 norm function of projection onto the nonnegative orthant",
+          "trigger": "Cited related epigraph result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof steps 2–5",
+        "Friedlander–Goodwin–Hoheisel Corollary 14",
+        "Resultary 5772bc742552 for the distinct proximal design comparison"
+      ],
+      "rationale": "The exact coordinate sensitivity answers a stability question not answered by Euclidean nonexpansivity, and the prefix reduction makes an otherwise exponential active-face maximum evaluable in quadratic arithmetic. The fixed-product design comparison is meaningful: stable limiting anisotropy is unattainable at finite weights, and even in two coordinates an initial departure from balance worsens amplification before the governing output row changes. These provide usable computation and a sharp counterpoint to weight-balancing intuition, not a new local calculus for its own sake.",
+      "residual_risks": [
+        "No optimal design under a bounded condition number, other weight normalizations, or a perturbation metric reweighted by w is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

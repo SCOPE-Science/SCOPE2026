@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:08:32.627903Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–63; independent equilibrium, Rayleigh-gap and full-Jacobian reconstruction",
+        "Frozen VERIFICATION.md and checker.py inspected, uploaded code not executed",
+        "branches/c8fa90a0-cfb5-4021-926d-bc901f5b5d78/habitat-occupancy-independent-check.md"
+      ],
+      "rationale": "With w=1/R and C shared and symmetric, scale the positive eigenvector (x,y) so x+y=1−w. The state (x,y,y,x) solves all four equations and has both vacancy fractions w>0; d=w(a+by/x)<D=w(a+bx/y) forces x>y. For the monoculture, the component equations imply h>ℓ. Its existence and uniqueness follow from the known monomorphic threshold, or by iterating the monotone strictly subhomogeneous map z_i ↦ (Cz)_i/[d_i+(Cz)_i] between a small multiple of the Perron vector and (1,1), then comparing scaled fixed points. With w_0=1−(h+ℓ)/2, the difference between z^TCz and (dh²+Dℓ²)/w_0 at z=(h,ℓ) is a(h−ℓ)²(h+ℓ)/(2w_0)>0: the cross terms cancel using dh²/(1−h)−Dℓ²/(1−ℓ)=a(h²−ℓ²). The symmetric generalized Rayleigh quotient gives R>1/w_0 and hence Q>h+ℓ; the other monoculture is its mirror. In coordinates that exchange the habitat and species labels together, the symmetric and antisymmetric linearized blocks have strictly negative traces and determinants bw(x+y)(ax²+ay²+2bxy)/(xy) and abw(x−y)²(x+y)/(xy), respectively. Both are Hurwitz, proving local exponential attraction in all four coordinates. At (a,b,d,D)=(2,2,1,3), R=8/3 and setting λ=2(h+ℓ) in the monoculture yields λ²=5, verifying the exact gap. The independently computed witness eigenvalues −5/2±√5/2 and −5/2±√5 are negative.",
+      "residual_risks": [
+        "Local attraction only, and only for the stated strictly positive mirror-specialized parameter family. No claim of global attraction or uniqueness among all coexistence equilibria."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary Costa §3 gives a monomorphic threshold, persistence under invasion conditions, and a positive equilibrium under mutual invasibility with each species bounded by its own monoculture. The older species-sorting and source–sink papers are plausible broader occupancy sources; primary full text was not retrievable at their DOI endpoints."
+        ],
+        "reasoning": "Existence and componentwise bounds on each species are not a lower bound on the sum of both species across habitats. Full local attraction also requires checking the antisymmetric perturbations that leave the mirror subspace. The older sources are unresolved historical coverage risks, not grounds for negative evidence.",
+        "searches": [
+          "Costa–Kubasch–Loeuille arXiv:2607.11291 Theorems 3.1, 3.3, 3.4",
+          "Lajmanovich–Yorke monomorphic theorem",
+          "Leibold–Loeuille DOI 10.1890/14-2354.1",
+          "Mouquet–Loreau DOI 10.1086/378857"
+        ]
+      },
+      "checked_sources": [
+        "Costa–Kubasch–Loeuille arXiv:2607.11291 §3 theorem passages",
+        "Resultary self-hit and distinct records 6e7105e60fad, 775266a30e99",
+        "Leibold–Loeuille and Mouquet–Loreau (primary access attempts)",
+        "Frozen RESULT.md lines 69–87"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Indeed the mirror assumptions can promote mutual invasibility: at the u monoculture let w_1=1−h<w_2=1−ℓ. The invader linearization's determinant differs from the resident linear growth determinant (zero) by −a(D−d)(w_2−w_1)<0. This gives a positive invader eigenvalue, with the other direction by symmetry. Thus generic mutual-invasibility existence is directly relevant background, not independent novelty.",
+          "The strict total-sum result compares the generalized Rayleigh quotient at the actual monoculture to the average vacancy and cancels the cross-colonization term. Neither the generic existence theorem nor the indexed SIS stability statement gives this comparison."
+        ],
+        "reasoning": "Credit coexistence existence where already implied by general methods. Persistence/existence and upper bounds on each species individually do not imply a strict occupancy gain or Hurwitz linearization; the specific inequality and full-coordinate stability proof fill those gaps.",
+        "searches": [
+          "Costa–Kubasch–Loeuille §3, especially Theorems 3.3–3.4",
+          "Mirror-specialized SIS record 6e7105e60fad"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed SIS result uses two host patches, host migration and a conservation constraint. Costa et al. use a two-species patch occupancy framework and unequal habitat conditions."
+        ],
+        "reasoning": "Relabeling species or habitats preserves this mirrored capacity comparison. Adding migration of already occupied hosts and a host conservation variable does not preserve the vacancy-gated shared colonization equations or the quantity being compared. Describing each single-species subsystem as an SIS-like cooperative equation does not transfer a two-strain host migration theorem.",
+        "searches": [
+          "Resultary mirror-specialized coexistence, preemptive patch occupancy and two-patch two-strain stability",
+          "2026/11/8/SCOPE-mirror-specialized-sis-strains-exact-coexistence-and-slow-exchan--6e7105e60fad",
+          "Costa–Kubasch–Loeuille arXiv:2607.11291 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching capacity formula is the frozen self-hit. A distinct same-day catalog result concerns equilibrium multiplicity for separate rank-one kernels with three habitat types; the indexed mirror SIS result concerns a different model."
+        ],
+        "reasoning": "These exact entries do not tabulate the two-habitat total-capacity comparison. The rational/radical witness is an illustration; the object of originality comparison is the strict parameter-wide statement, not its particular decimal or exact numbers. Same-day dates do not establish priority.",
+        "searches": [
+          "Resultary mirror patch occupancy advantage, coexistence versus monoculture and exact multi-habitat equilibria",
+          "2026/11/22/SCOPE-strict-habitat-occupancy-gain-from-mirror-specialized-competing--0b393d8efcb5",
+          "2026/11/22/SCOPE-three-habitat-types-are-sharp-for-isolated-coexistence-multiplic--775266a30e99"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact strict equilibrium capacity comparison throughout the mirror family, supported by the Rayleigh identity and full local stability. The colonization model, monomorphic threshold and generic positive-equilibrium results are background. Neither inspected positive-equilibrium results nor indexed stability claims in other models supplied the strict total-occupancy comparison.",
+      "residual_risks": [
+        "The older occupancy papers and the distinct mirror SIS record were not fully inspectable; a stronger previous comparison elsewhere is not excluded.",
+        "No general priority or literature-exhaustion claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit general monomorphic viability, persistence and coexistence existence; inspected statements do not supply the strict total comparison or the local spectrum",
+          "evidence": "Theorem 3.1 attributes the single-species result to Lajmanovich–Yorke; Theorems 3.3 and 3.4 give persistence and conditional positive existence with componentwise monoculture bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2607.11291",
+          "material_read": "HTML §3 Theorems 3.1, 3.3 and 3.4",
+          "method": "Decisive primary HTML theorem passages retrieved directly after OA timeout",
+          "title": "Metacommunity persistence on spatially heterogeneous landscapes",
+          "trigger": "Closest primary two-species patch-occupancy model and broader equilibrium theorems"
+        },
+        {
+          "assessment": "Similar symmetry, different migration model and observable",
+          "evidence": "The indexed result concerns a coexistence threshold, local stability and slow composition dynamics with host migration, not equilibrium occupied habitat capacity in the preemptive patch model.",
+          "identifier_or_url": "2026/11/8/SCOPE-mirror-specialized-sis-strains-exact-coexistence-and-slow-exchan--6e7105e60fad",
+          "material_read": "Indexed claim; matching primary mirror text was not retrieved",
+          "method": "Local Resultary search and decisive mirror passage attempt",
+          "title": "Mirror-specialized SIS strains: exact coexistence and slow exchange under strong migration",
+          "trigger": "Prior mirror specialization, coexistence and local stability"
+        },
+        {
+          "assessment": "Multiplicity in a different kernel family is not the assigned stability and capacity theorem",
+          "evidence": "The summary concerns different rank-one kernels and three habitat types.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-habitat-types-are-sharp-for-isolated-coexistence-multiplic--775266a30e99",
+          "material_read": "Indexed statement only",
+          "method": "Local Resultary search",
+          "title": "Three habitat types are sharp for isolated coexistence multiplicity",
+          "trigger": "Related exact coexistence classification in patch occupancy"
+        },
+        {
+          "assessment": "Historical coverage unresolved",
+          "evidence": "Frozen prior-work discussion distinguishes the subject but does not verify the exact mirror comparison in the full text.",
+          "identifier_or_url": "https://doi.org/10.1890/14-2354.1",
+          "material_read": "Frozen citation and scope description, not the primary full text",
+          "method": "OA and DOI endpoint attempts; access unsuccessful",
+          "title": "Species sorting and patch dynamics in harlequin metacommunities affect the relative importance of environment and space",
+          "trigger": "Older related occupancy and patch dynamics that might give broader coverage"
+        },
+        {
+          "assessment": "Historical coverage unresolved",
+          "evidence": "Frozen prior-work discussion identifies broader source–sink occupancy rather than an inspected statement yielding the exact inequality.",
+          "identifier_or_url": "https://doi.org/10.1086/378857",
+          "material_read": "Frozen citation and scope description, not the primary full text",
+          "method": "OA and DOI endpoint attempts; access unsuccessful",
+          "title": "Community Patterns in Source-Sink Metacommunities",
+          "trigger": "Older source–sink occupancy comparison may subsume the exact model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–22 and 28–63; independent occupancy-gap and stability reconstruction"
+      ],
+      "rationale": "The theorem gives a parameter-wide capacity gain despite preemption, relative to the relevant same-system monocultures, and shows that the gain is attained at a full locally stable equilibrium rather than only along a symmetric restriction. The Rayleigh comparison gives the mathematical mechanism for a structural complementarity effect in a minimal model; the exact witness is supplementary, not the extent of the result.",
+      "residual_risks": [
+        "No ecological calibration, global dynamical conclusion, or habitat-management recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

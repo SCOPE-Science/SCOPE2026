@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:28:33.672108Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-side condition is read as explicitly defined in the assumptions: the chosen matching covers all of S and has exactly one endpoint of each edge in S (without the coverage clause the shorthand in the Finding would be vacuous). An induced matching yields every trace by choosing a label-consistent endpoint per edge and extending the resulting independent set. For the converse, no isolated vertex belongs to a shattered support and its all-positive pattern makes S independent. For a leaf v and neighbor u, if v is queried, its negative label forces u into the independent set, and with the other labels all positive this proves they lie outside N[u]. If u is queried instead, fix its positive label and independence again keeps the other queries outside N[u]. In either case every witnessing maximal independent set containing u restricts to a maximal independent set of F−N[u], because no vertex there is adjacent to u and all other vertices of N[u] are excluded. Induct there and append uv; there are no extra adjacencies to either endpoint. If neither endpoint is queried, deleting v preserves the witnesses by dropping v and adding u only if it becomes undominated; conversely a maximal independent set after deletion extends by adding v exactly when u is absent. Isolates and the empty case then complete the induction. On C5, {0,2} realizes all four traces, and every four vertices induce a path, not two disjoint edges. The five-cycle has VC dimension exactly two (its maximal independent sets have size two). A fresh enumeration at /workspace/branches/2db30912-cf6b-47b3-b347-a06502761454/forest_mis_reproduction.py matched the frozen counts: 3,272 forests in orders 0–6, 197,635 support queries, 33,226 shattered supports, and exact equality of the two separately computed support families; it also reproduced the C5 obstruction. Output: forest_mis_reproduction_output.txt alongside the script. The frozen code and output were inspected, not rerun. The finite checks do not prove the unrestricted statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu et al. prove the VC upper bound in terms of bipartite induced matching for general graphs. The whiskered-core Resultary theorem is exact on a different graph class that includes some forests. Frozen record 4 treats cographs and includes C5 within its general-graph census."
+        ],
+        "reasoning": "A bipartite induced matching ignores edges within endpoint classes. The cograph graph restriction is incomparable to forests: P4 is a forest but no cograph, while C4 is a cograph but no forest. The whiskered subset does not cover an arbitrary forest.",
+        "searches": [
+          "Published SoCG 2024 Lemma 27 full statement and proof (article 71)",
+          "arXiv:2403.17910, counterpart Lemma 2.20 and definition",
+          "Resultary 0e9b40ed52ce; comparison with frozen record 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record 5 RESULT.md, VERIFICATION.md, verifier and recorded output",
+        "Frozen record 4 cograph theorem and C5 boundary",
+        "SoCG 2024 DOI 10.4230/LIPIcs.SoCG.2024.71 and arXiv:2403.17910",
+        "Resultary 44e49212a5da, 2c80e8096553, 0e9b40ed52ce, 8eeea05fd46b and 0382a7e4b037"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each one-negative labeling the general lemma extracts a private neighbor from a potentially different maximal independent set. On P4 the outer path edges constitute a size-two bipartite induced matching for the outer/inner bipartition of the four endpoints, but the inner endpoints are adjacent and the ordinary induced matching number is one."
+        ],
+        "reasoning": "Even on forests the two matching numbers can differ, so plugging forests into the general bound is insufficient. The leaf forcing and residual shattering argument is what supplies a single compatible set of mates. The common argument in the forward direction and the isolated C5 witness are not credited as distinctive.",
+        "searches": [
+          "SoCG 2024 article 71 Lemma 27 proof",
+          "Resultary whiskered-core construction and frozen cograph support theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 44e49212a5da gives a forest example with a VC versus Littlestone gap and amplification, not this induced-matching characterization. Resultary 2c80e8096553 gives a support test on paths. Maximal independent sets are exactly independent dominating sets, so results on that latter family would be on the same concept domain."
+        ],
+        "reasoning": "A support test on paths or an adaptive/static dimension discrepancy does not characterize ordinary induced-matching sides on arbitrary branching trees. A formula for maximum rather than maximal independent sets would not be equivalent.",
+        "searches": [
+          "Resultary queries for forest maximal-independent-set trace shattering, paths, induced matchings and general shattering",
+          "\"maximal independent sets\" \"shattered\" \"induced matching\" forests trees VC dimension independent dominating sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected counts or extremal examples for paths, isolated small graphs, and adaptive shattering do not list shattered supports for arbitrary forests. Frozen verification provides an exhaustive table through six vertices for this claim, not pre-existing external coverage of all forest sizes."
+        ],
+        "reasoning": "A catalog of forest orders, maximal-independent-set counts, or matching numbers alone is not a database of per-graph support families. The theorem determines the latter at arbitrary order and is not credited merely for recovering its own bounded enumeration.",
+        "searches": [
+          "Resultary path shattering polynomial 2c80e8096553 and five-vertex forest/static versus adaptive gap 44e49212a5da",
+          "Forest/tree/MIS search and bound in published Lemma 27"
+        ]
+      },
+      "rationale": "The supported contribution is the converse for every individual shattered support of an arbitrary forest. The forward endpoint-selection argument is not new, and the C5 example also appears within the frozen cograph record's census. The closest primary general theorem gives private neighbors satisfying only a cross-side condition; known special families and enumeration results are not the forest converse.",
+      "residual_risks": [
+        "Literature and catalog inspection were bounded; alternate terminology such as independent dominating sets or a stronger graph-decomposition theorem may hide equivalent results.",
+        "Same-day records were compared by statement, not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closely related, but not an ordinary matching result",
+          "evidence": "The proof extracts each u_i from a different trace witness I_(D minus v_i); it guarantees distinctness and absence of extra cross edges only.",
+          "identifier_or_url": "https://researchonline.lse.ac.uk/id/eprint/122641/3/LIPIcs.SoCG.2024.71.pdf",
+          "material_read": "Published Lemma 27, pp. 71:11–12, OA offsets 42897–44304; arXiv counterpart arXiv:2403.17910 definition around offset 37500 and Lemma 2.20 around 42100",
+          "method": "Targeted primary-text retrieval including the whole relevant proof",
+          "title": "Beyond Chromatic Threshold via (p,q)-Theorem, and Blow-Up Phenomenon",
+          "trigger": "Primary general bound with exactly the same concept class"
+        },
+        {
+          "assessment": "Different comparison",
+          "evidence": "The S(1,2,4) forest has static dimension 2 and adaptive dimension 3, with gap amplification; no all-forest induced-matching criterion in the finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-first-online-versus-static-shattering-gap-for-maximal-indepe--44e49212a5da",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The first online versus static shattering gap for maximal independent sets",
+          "trigger": "Closest same-day forest shattering hit"
+        },
+        {
+          "assessment": "Overlapping subfamily only",
+          "evidence": "Exact support test and shattering polynomial on paths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-shattering-polynomial-for-maximal-independent-sets-of-path--2c80e8096553",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact shattering polynomial for maximal independent sets of paths",
+          "trigger": "Exact support-level theorem on a forest subfamily"
+        },
+        {
+          "assessment": "Special whiskered family; partial overlap with forests",
+          "evidence": "The construction adds a private leaf at every core vertex, a hypothesis not satisfied by every forest.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-flag-complex-realization-theorem-for-maximal-independent-set-s--0e9b40ed52ce",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A flag-complex realization theorem for maximal independent set shattering",
+          "trigger": "Support-wise result with leaf-based construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The converse supplies a structural certificate for every shattered support, not merely an extremal dimension, and its pendant reduction makes the criterion constructive. Forests permit arbitrary branching yet admit an exact ordinary-matching criterion unlike general graphs; C5 shows the restriction cannot simply be removed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

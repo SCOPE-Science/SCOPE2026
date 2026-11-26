@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:40:48.105763Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–65",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed; frozen replay path verify.py",
+        "Independent bounded replay and output: /workspace/branches/5334547c-b5a7-4ceb-9b0e-cf5cc8478fd8/independent_friendship_check.py and independent_friendship_check_k6.txt"
+      ],
+      "rationale": "Each triangle forces three named colours, and a fixed target hub colour h leaves exactly two independent choices on each blade edge. The maximum number of endpoint agreements is 0 for hh, 2 for two distinct non-h colours, and 1 otherwise. Adding hub agreement gives precisely α_h in linear time. For k≥2 only h=C has the required ordinary profile; the weak distance minimizes over all h. Since there is only one C, every edge retains at least one vertex when h=C, giving both distances ≤k+1. With hub A, the even witness AC, (k−2)/2 AA and k/2 BB gives (α_A,α_B,α_C)=(2+k/2,1+k/2,k). The odd witness BC with (k−1)/2 of each AA and BB gives ((k+5)/2,(k+1)/2,k). Both profiles are admissible and yield ordinary equality; the weak maximum of the agreements is k from k≥4. At k=2 or 3, hub C already gives ≥k+1 agreements. Up to exchanging A and B, hub A and a C-edge AC leave BB for k=2 or AB,BB for k=3; hub A for the former and hub C for the latter give ≥k+1. A C-edge BC instead leaves AB at k=2, or two AB edges or AA,BB at k=3; respectively hub C, C or A gives ≥k+1. The same parity witnesses attain weak costs 2 and 3. At k=1 every permutation on K3 is proper. These are endpoint Hamming distances, not proper intermediate recolouring paths.",
+      "residual_risks": [
+        "Independent enumeration matched direct Hamming distances to the formula over every source through k=6 (12,012 sources at k=6); unrestricted k follows from the proof and not extrapolation.",
+        "'Twice-repeated colours' in the Finding is read as the two repeated colours, each of multiplicity k as specified there and in the assumptions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first preprint treats odd cycles, exact complete multipartite evaluations and maxima over all graphs of fixed order and chromatic number. The second treats disjoint union and computational methods. Jahanbekam–Lin classify ordinary B=2, and do not include friendship graphs with k≥2."
+        ],
+        "reasoning": "For k≥2 the family is not complete multipartite (two endpoints of an edge and a vertex of a different blade induce K2+K1), and is not a disjoint union. A general extremal bound or an exclusion of ordinary B=2 does not evaluate either repair distance on the family.",
+        "searches": [
+          "Jiang et al. arXiv:2610.13580v1 §1, Theorems 5.2–5.3 preview, offsets 8131–10439",
+          "Jiang et al. arXiv:2610.13556v1 §§1, 1.1",
+          "Jahanbekam–Lin arXiv:2103.05816v1 Theorem 2, offset 5270"
+        ]
+      },
+      "checked_sources": [
+        "Primary and indexed records in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Completing a graph relative to one proper colour partition preserves an admissible profile for obtaining global extrema, not both repair radii for the original graph. Composition in the other preprint is for disjoint unions, tracking profiles across independent components."
+        ],
+        "reasoning": "Removing the hub gives kK2 of chromatic number 2, but the weak target may change the hub colour and therefore the pair of colours globally available on every edge. Treating the blades as independent triangles would duplicate the single hub and change admissible disturbances. Neither reduction supplies the three-way agreement optimization or its parity and small-k witnesses. Generic algorithms that could evaluate one finite case do not imply the formula for all k.",
+        "searches": [
+          "arXiv:2610.13556v1 §1 offsets 2650–4444, disjoint union and transfer of counts",
+          "arXiv:2610.13580v1 §1 offset 8846, completion and fixed-order extrema"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The preprint defines ordinary villainy by endpoint Hamming distance at fixed labelled profile and weak villainy by unrestricted target profile on the same palette. The three indexed family matches are optimal strong-odd vertex colourings, strong-majority edge colourings, and forced-colouring polynomials."
+        ],
+        "reasoning": "The repair radii here agree with the villainy definitions in the literature regardless of friendship/windmill notation. The matched graph family alone does not yield an equivalence of invariants: they count or constrain different colourings rather than maximizing distances from admissible disturbances.",
+        "searches": [
+          "Jiang et al. arXiv:2610.13556v1 §1, offsets 2650–4444, word/profile/disturbance definitions",
+          "Resultary exact colourings of friendship graphs, generalized windmills and clique windmills: fb1ea8e5dc0f, e8caf65cc82a and c1051e120f18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed results for the family do not evaluate villainy; the bounded Resultary search did not return a matching villainy entry. The ordinary B=2 family list is not a weak-villainy table. The thesis abstract describes paths, odd cycles and certain complete multipartite cases; full text was not available."
+        ],
+        "reasoning": "An exact published profile or family table would matter; isolated small entries could corroborate but not imply the transition and closed formula over all k. Neither the indexed results nor the inspected list gives them. The full-text gap remains a genuine uncertainty.",
+        "searches": [
+          "Resultary family comparisons: exact strong-odd coloring counts for generalized windmills, exact strong-majority edge-colouring palette polynomial of friendship graphs, forced-colouring polynomials of clique windmills",
+          "Jahanbekam–Lin arXiv:2103.05816v1 Theorem 2 list",
+          "Raleigh M.S. thesis RIT record 9889 abstract"
+        ]
+      },
+      "rationale": "The supported claim is the exact ordinary and weak classification on the hub join of a matching, including the transition at k=4 and the per-source formula. The strongest literature comparison gives profile methods and general composition or extremal results, not a formula for this connected join. Same-day indexed results for the same graph family concern genuinely different colouring invariants, not equivalent repair radii.",
+      "residual_risks": [
+        "The Clark et al. article and Raleigh thesis full texts were not accessible by the attempted lawful routes; their coverage is not excluded by partial evidence.",
+        "No priority inferred merely from record dates or catalogue misses; results are bounded comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related methodology and extremal comparisons, not an evaluation of the friendship graph",
+          "evidence": [
+            "Preview states that maxima at fixed order and chromatic number are attained by complete multipartite graphs; it does not assign those maxima to arbitrary graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13580v1",
+          "material_read": "§1, OA offsets 1200, 3400 and 8131–10439 including preview of Theorems 5.2–5.3",
+          "method": "OA primary HTML, bounded passages",
+          "title": "Exact and extremal values of chromatic villainy",
+          "trigger": "Exact profiles, multipartite formulas and graph-order extrema"
+        },
+        {
+          "assessment": "No directly applicable join result in the inspected material",
+          "evidence": [
+            "Composition is for disjoint unions with colour-count transfers; the friendship graph shares one hub among all blades."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13556v1",
+          "material_read": "§§1, 1.1; definitions and disjoint-union scope, offsets 2650–4444",
+          "method": "OA primary HTML, bounded passages",
+          "title": "Disjoint unions and fixed-parameter algorithms for chromatic villainy",
+          "trigger": "Potential composition formula for matching blades"
+        },
+        {
+          "assessment": "Classifies ordinary villainy 2, not the weak value 2 for the two-blade graph",
+          "evidence": [
+            "None of the listed graph classes contains F_k for k≥2: it is connected, has triangles, is not C5 and has no vertex of degree zero or one."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2103.05816v1",
+          "material_read": "Theorem 2 and definitions opening, offset 5270",
+          "method": "OA primary HTML, bounded passage",
+          "title": "Characterization of Graphs with Villainy 2",
+          "trigger": "Could cover the low-radius friendship cases"
+        },
+        {
+          "assessment": "Definitions credited; other full-text coverage remains uncertain",
+          "evidence": [
+            "Accessible later account summarizes earlier work, but no scientific exclusion is made from the failed retrieval."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/265812808_Chromatic_villainy_in_graphs",
+          "material_read": "Bibliographic entry; full text inaccessible; definitions and summary in Jiang et al. arXiv:2610.13580v1 §1, offset 1200",
+          "method": "Attempted author-hosted ResearchGate text (403); consulted accessible later account, not a substitute for the original full text",
+          "title": "Chromatic Villainy in Graphs",
+          "trigger": "Original paper and plausible small-class evaluations"
+        },
+        {
+          "assessment": "Abstract and later attribution concern other families, but full-text match not excluded",
+          "evidence": [
+            "Abstract discusses paths, certain multipartite graphs and bounds including odd-cycle cases; inspected later text cites complete multipartite results and two odd-cycle profiles."
+          ],
+          "identifier_or_url": "https://repository.rit.edu/theses/9889/",
+          "material_read": "Landing-page abstract, OA offset 0; thesis PDF unavailable from attempted route",
+          "method": "OA RIT record and PDF attempt (403); later attribution in Jiang et al. arXiv:2610.13580v1 §1",
+          "title": "The Chromatic Villainy of Complete Multipartite Graphs",
+          "trigger": "Plausible thesis with exact family calculations"
+        },
+        {
+          "assessment": "Different vertex-colouring invariant",
+          "evidence": [
+            "Classifies and counts optimal strong-odd colourings of K1 joined to copies of K_r; not a Hamming repair radius."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-optimal-strong-odd-coloring-counts-for-generalized-windmil--fb1ea8e5dc0f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Exact optimal strong-odd coloring counts for generalized windmills",
+          "trigger": "Same-day exact result on a broader graph family containing F_k"
+        },
+        {
+          "assessment": "Different invariant on edges, not vertices",
+          "evidence": [
+            "Counts strong-majority edge-colourings by palette, not admissible vertex-colour disturbances and their repair."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-strong-majority-edge-colouring-palette-polynomial-of-frien--e8caf65cc82a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Exact strong-majority edge-colouring palette polynomial of friendship graphs",
+          "trigger": "Same-day exact colouring result on the identical family"
+        },
+        {
+          "assessment": "Different partial-colouring invariant",
+          "evidence": [
+            "Concerns forced partial colourings and associated polynomials rather than distances from full disturbed profiles."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-forced-colouring-polynomials-of-clique-windmills--c1051e120f18",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Forced-colouring polynomials of clique windmills",
+          "trigger": "Same-day hub join with the same F_k specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–29 and 41–65; profile/disjoint-union comparison in arXiv:2610.13556v1"
+      ],
+      "rationale": "The friendship graph is a natural family where a single shared vertex couples all triangles. The exact formulas expose when changing the hub colour can strictly help a worst-case repair (k=2,3), and when this freedom no longer improves the worst case (k≥4). A linear-time formula computes each repair distance without enumerating exponentially many proper targets, making the classification a useful small benchmark for profile-sensitive repair.",
+      "residual_risks": [
+        "The value is for friendship graphs and endpoint distances, not all windmills, triangular cacti or recolouring paths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

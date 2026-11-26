@@ -1,15 +1,21 @@
-# Scientific review: five rank-four theories of odd graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces four-move logical equivalence to extension types of ordered triples and ordered pairs. For \(k\ge3\) it proves universal availability of the zero-edge and single-edge fourth-point patterns, identifies the unique common neighbor of a near-complete pair, and treats the top/star distinction and equality exclusions. The exact integral feasibility criterion \(|v-w|\le k-u\) and \(k-u-1\le v+w\le k+u\) gives five constant pair-profile matrices for every \(k\ge5\). Small-parameter profiles distinguish the five regimes. The direct finite graph checker and the independent orbit enumerator agree for \(k=1,\ldots,6\); finite checks support but do not replace the infinite inequalities.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-The inspected Pikhurko–Verbitsky survey develops graph logical complexity and Ehrenfeucht games but does not classify these odd graphs. The inspected van Dam–Haemers treatment establishes a spectral and odd-girth characterization of generalized odd graphs, not any quantifier-rank-four partition. No equivalent or stronger statement was found in targeted public searches. A more general rank-four stabilization for fixed subset size in sufficiently large ground sets cannot imply the present result, because the subset size here increases with the ground set and \(2k+1<4k\) for \(k>1\). An equivalent consequence buried in the distance-regular literature, or the full text of Biggs (1979), remains a genuine priority risk.
+PASS
 
-## Value — PASS
-The result gives a natural complete logical classification of an infinite distance-regular graph family, identifies the sharp rank-four stabilization point, and gives an optimal \(462\)-vertex representative bound. It also shows that unbounded odd girth can coexist with a constant four-round theory. The exact parameter threshold and proof through common-neighbor/top–star geometry are not mere relabelings of previous fixed-uniformity thresholds.
+For k>=3, a fresh fourth vertex meeting all three sets is obtained by a one-element replacement in X. If X meets both other sets, retain up to two witnesses, then there are k+1 choices of added element and at most two forbidden equalities. If it misses one other set, add one of that set's k elements and retain a witness for the intersecting set; the replacement cannot equal the disjoint set and at most one choice equals the other set. If X misses both, their intersection has size at least k-1 in its complement, so add a common element. To be adjacent only to X, choose among the k+1 k-subsets of its complement; each of Y and Z rules out at most one choice, by equality or by missing its sole element outside X, which cannot both occur for the same set. For adjacency to two specified vertices, their union must have size k+1: the unique candidate is its complement. It is already selected if the third vertex is that complement, and otherwise is adjacent to the third vertex precisely for the top triple. Pair labels are recoverable from adjacency and the rank-one common-neighbor test (including equality repetitions among the chosen points); the top bit is exactly the all-three adjacency extension in the all-E case. To verify the symbolic table, the four Venn capacities for the third set give the stated integer interval for t, and comparison of endpoints yields |v-w|<=k-u and k-u-1<=v+w<=k+u. Cells AA, AI, AE, EE are feasible exactly at u=k-1, u>=1, u<=1, u>=k-2, respectively. II and IE are always feasible for k>=3: set v=w=floor(k/2) for II, and v=max(1,u-1), w=k-1 for IE. Symmetry supplies the other cells. Top and star both extend any E pair by symmetry and explicit constructions. The distinct-pair extension signatures therefore separate in 1,2,3,4,5 counts, and the five complete rank-two types, not just counts, agree across k>=5. Equality repetitions add a uniform repeated-pair type in the tail, since rank-one types for {X,Z} use the same three available pair labels and codegree test. Vertex transitivity then gives the four-round result. The representative bound follows from strict increase of the binomial orders. Along two successive edges the endpoint sets differ by at most one replaced element; closing an odd walk in 2r+1 steps requires r>=k to reach a disjoint neighbor of the start, proving unbounded odd girth. Independent replay `python3 /workspace/branches/independent_checks.py 4` works directly with subset neighborhoods through k=6 and agrees, including equality of complete distinct-pair type sets at 5 and 6. Frozen checker and recorded output inspected, not executed.
 
-## Evidence and limitations
-The separate `verify_odd_graphs.py` and `verification_output.txt` provide reproducible finite checks. The infinite claim is mathematical; the finite checks cover only their stated ranges. The language is pure graph adjacency with equality, and the result is restricted to rank four. Historical novelty and mathematical correctness have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the sharp cross-k rank-four partition along n=2k+1. Published catalogue work already settles the lower-rank partition on this family. The strongest same-rank related record works at fixed subset size three, sharing the single graph KG(7,3) but not comparing any two different odd graphs. Neither that slice nor the broader lower-rank result supplies the k=3,4 rank-four separations or the k>=5 equality.
+
+## value
+
+PASS
+
+The natural odd-graph family retains an unbounded graph invariant, odd girth, while its first-order rank-four types stabilize. The exact cross-k cutoff and optimal within-family representative size quantify that gap. This goes beyond the already known lower-rank classification and identifies the precise extension patterns that matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

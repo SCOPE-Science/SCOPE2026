@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:11:25.570030Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–72; VERIFICATION.md; verify.py (read only)",
+        "Independent bounded replay: exact rational cases and Decimal cubic bisection, with numerical evidence recorded above; no persistent replay script was supplied for this record."
+      ],
+      "rationale": "The two complementary idempotents Π and I-Π have generator eigenvalues 0 and -λ, so the rational step is Π+r_m(z)(I-Π) with invertible denominator (P_m(0)=1 and P_m(z)>0). Positive even and odd coefficient sums give |r_m(z)|<1 for z>0. Expanding (t+w)^m in the gamma integral reproduces each coefficient, proving P_m(-z)>0 for even m; for odd m one differentiation gives a strictly negative derivative of the numerator, and leading coefficients give the stiff limit -1 for the ratio. The least diagonal is π_*+(1-π_*)r_m, while off-diagonals are positive. Thus a negative diagonal alone adds twice its magnitude to the absolute row sum; maximizing proves the norm identity and the stated limits. The balanced two-state exception follows from π_*≤1/2 and the strict lower bound -1. With one or more binary squarings the new scalar is in [0,1), which gives strict positivity, and zero squarings is minimal exactly where the sign test already holds. For m=3 direct differentiation gives the negative derivative with numerator (z²-15)²+375. Clearing the positive denominator at ratio -1/(n-1) gives the stated cubic and its decreasing thresholds as n grows. An independent exact Fraction replay across 12 matrix cases agreed, including m=3, π=(1/5,3/10,1/2), z=20 with norm 383/353; the squared half-step had minimum entry 1056/5329. Independent Decimal bisection gave the n=3 threshold 34.56547663741965226170 at the reported precision.",
+      "residual_risks": [
+        "The bounded replay does not certify all degrees and parameters. The proof is restricted to the exact-arithmetic reset-chain endpoint, not generic generators, internal stages, or finite precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stage-parity result includes all unweighted complete graphs (uniform π after rescaling), explicitly proves |r_s|<1, even r_s>0 and odd stiff limit -1, and gives precisely the uniform two-state exception. Driver–Temme treat scalar zero/pole distributions; Blanes et al. state the general scaling-and-squaring identity."
+        ],
+        "reasoning": "The multipartite graph family alone does not give arbitrary reset weights or one-square repair. Its scalar proof combined with Baake–Sumner's general equal-input condition does give the arbitrary-weight parity classification, with π_*=1/2 as the only exception for odd degree. The usual scaling-and-squaring algorithm alone promises no cone positivity.",
+        "searches": [
+          "Resultary complete multipartite Gauss–Legendre stage-parity result --6250aee1370d",
+          "Driver–Temme CWI 1229D, diagonal Padé section",
+          "Blanes–Kopylov–Seydaoğlu arXiv:2404.12789, §1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches and local full-result passages",
+        "Baake–Sumner arXiv:2007.11433 §2.1",
+        "Blanes–Kopylov–Seydaoğlu §1",
+        "Driver–Temme",
+        "Horváth abstracts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baake–Sumner give M_C^k=(1-c)^k I+[1-(1-c)^k]C/c, an algebraic identity from C²=cC. Their Eq. (1) gives the step's individual diagonal and off-diagonal entries. The indexed scalar bounds guarantee 1-r_m>0 and a squared multiplier strictly below 1."
+        ],
+        "reasoning": "Set C/c=Π and replace h by h/2. The power formula, valid algebraically even before verifying nonnegativity, turns the multiplier into r_m(z/2)² in [0,1). The exact pointwise test then gives minimality of zero versus one. The norm is the direct absolute-row-sum rewrite of the same known entries because only the diagonal can be negative. The general external search was uninformative, not negative evidence.",
+        "searches": [
+          "Baake–Sumner §2.1, power formula before Fact 2.2",
+          "Blanes–Kopylov–Seydaoğlu §1, binary scaling and squaring",
+          "Keyword search: reset chain / equal input / complete graph Padé or Gauss–Legendre Markov positivity and scaling squaring"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baake–Sumner §2.1 defines Q_C=C-cI for a nonnegative equal-row C of row sum c. Eq. (1) states that M_C=(1-c)I+C is Markov iff c≤1+min_i c_i, given c_i≥0."
+        ],
+        "reasoning": "The frozen Q is Q_C with C=λΠ. For the step put c=1-r_m and C=cΠ; then min_i c_i=cπ_*, so the exact equal-input condition is (1-r_m)(1-π_*)≤1, equivalently the frozen inequality. This is arbitrary-weight coverage, not just the symmetric example.",
+        "searches": [
+          "Baake Sumner On equal-input and monotone Markov matrices equal-input generator negative summatory parameter maximum row sum Markov embedding",
+          "Resultary: equal-input Markov generators Baake Sumner rational Gauss Legendre [3/3] complete graph Padé positivity threshold cubic reset distributions signed matrix infinity norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed biclique Proof §1 prints r_3'=-24((z²-15)²+375)/D(z)² with D=120P_3, identical to the frozen derivative, and states strict monotonicity from 1 to -1. The directed-cycle [2/2] and birth-chain [0/3] hits use genuinely different schemes or generators, not this cubic."
+        ],
+        "reasoning": "The known scalar formula gives the unique crossing for each allowed π_* when combined with the equal-input condition. At π_*=1/n the polynomial and numerical boundary result directly from substituting -1/(n-1) into the rational function; absence of a matching decimal table does not confer novelty.",
+        "searches": [
+          "Resultary: equal-input Markov generators Baake Sumner rational Gauss Legendre [3/3] complete graph Padé positivity threshold cubic reset distributions signed matrix infinity norm",
+          "SCOPE-a-single-diagonal-obstruction-and-a-uniform-high-degree-law-for--69e05d2d12b3, Proof §1"
+        ]
+      },
+      "rationale": "Reset generators are exactly the positive-weight equal-input generators in Baake–Sumner's parametrization. Their known Markov criterion and power law already give the pointwise threshold and squaring repair for any multiplier in (-1,1). The necessary scalar Padé bounds and parity are explicitly available in the indexed complete-multipartite result, and the exact [3/3] derivative and monotonicity are explicitly available in the indexed biclique result. Applying these statements to the equal-input criterion leaves only a row-sum calculation and clearing a cubic denominator. This is combined mathematical coverage, not a claim that one source prints every formula or that later catalogue records have earlier priority.",
+      "residual_risks": [
+        "No priority claim is made for later catalogue records. The exact pointwise formula and power law are established in the earlier equal-input source; broader Horváth coverage cannot be assessed beyond the inspected short material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the equal-input cone criterion and scalar power reduction for arbitrary equal rows, including all frozen reset distributions.",
+          "evidence": "Q_C=C-cI, C²=cC, M_C=(1-c)I+C is Markov iff c≤1+min_i c_i for c_i≥0, and powers replace 1-c by (1-c)^k.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.11433",
+          "material_read": "PDF pp. 4–5, §2.1, Eq. (1), generator definition, and power formula before Fact 2.2; text offsets 12060–16201",
+          "method": "OA full-text passage",
+          "title": "On equal-input and monotone Markov matrices",
+          "trigger": "Exact alias for the reset generator and the one-parameter step"
+        },
+        {
+          "assessment": "Covers the all-steps uniform case and identifies all scalar ingredients for extending to the already known equal-input criterion; later catalogue date does not establish earlier derivation.",
+          "evidence": "Positive even ratio, odd limit -1, and strict |r_s|<1; complete graphs are multipartite with singleton parts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-stage-parity-classification-of-gauss-legendre-positivity-on-comp--6250aee1370d/RESULT.md",
+          "material_read": "Finding and scope offsets 0–3137; Proof §2 offsets 3620–5146",
+          "method": "Local Resultary mirror",
+          "title": "Stage-parity classification of Gauss–Legendre positivity on complete multipartite heat graphs",
+          "trigger": "Exact arbitrary-stage uniform-reset specialization and scalar parity"
+        },
+        {
+          "assessment": "Different generators, but explicitly covers the scalar monotonicity and exact derivative needed for the cubic threshold.",
+          "evidence": "r_3'= -24((z²-15)²+375)/(120P_3)²<0, with endpoint values 1 and -1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-single-diagonal-obstruction-and-a-uniform-high-degree-law-for--69e05d2d12b3/RESULT.md",
+          "material_read": "Scope and Proof §1 offsets 2360–3846",
+          "method": "Local Resultary mirror",
+          "title": "A single diagonal obstruction and a uniform high-degree law for sixth-order Gauss positivity on bicliques",
+          "trigger": "Exact [3/3] scalar law behind the claimed threshold"
+        },
+        {
+          "assessment": "Standard method, not a cone-positivity statement; the decisive implication uses the equal-input powers.",
+          "evidence": "Scale by 2^s in the argument, approximate the smaller exponential, and square s times.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.12789",
+          "material_read": "PDF p. 3, §1, text around offset 7400",
+          "method": "OA PDF",
+          "title": "Efficient scaling and squaring method for the matrix exponential",
+          "trigger": "Standard algorithm used in the repair"
+        },
+        {
+          "assessment": "Confirms scalar context; not used as evidence of an arbitrary-weight reset-chain statement.",
+          "evidence": "Discusses contour representations and special-function expressions for n=m and zero locations.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/1229/1229D.pdf",
+          "material_read": "Abstract and diagonal-case discussion (PDF pp. 1 and 3, text offsets 250–1727 and 4821 onward)",
+          "method": "OA PDF",
+          "title": "Zero and pole distribution of diagonal Padé approximants to the exponential function",
+          "trigger": "Scalar diagonal Padé theory"
+        },
+        {
+          "assessment": "Possible further coverage remains unresolved; these access limits do not drive the decision.",
+          "evidence": "The accessible material identifies general Runge–Kutta positivity threshold studies, not a basis for a whole-paper exclusion.",
+          "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6 ; https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Landing-page/abstract material only; no readable lawful full text located in the attempted retrieval",
+          "method": "Lawful OA lookup and abstract inspection",
+          "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods; On the positivity step size threshold of Runge-Kutta methods",
+          "trigger": "Potential broader positivity theorems"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Baake–Sumner §2.1",
+        "Indexed stage-parity and [3/3] scalar statements"
+      ],
+      "rationale": "A positivity-safe timestep is a natural practical objective. Here the needed structural criterion and power rule were already known for the exact generator class, and the scalar step analysis is covered. The remaining norm rewrite and insertion of the known rational function into the known threshold do not give a separate nonroutine exact invariant or obstruction. No new positivity result for a wider generator class is established.",
+      "residual_risks": [
+        "The formulas can be useful for implementing the restricted method; the judgment concerns incremental mathematical value of this package."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

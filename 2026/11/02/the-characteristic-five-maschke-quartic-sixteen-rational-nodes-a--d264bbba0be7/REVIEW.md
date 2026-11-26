@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Over characteristic five, the Jacobian equations force exactly three nonzero coordinates, yielding exactly sixteen rational singular points. A nondegenerate Hessian identifies each as a node. The smooth K3 resolution differs from the quartic by sixteen rational exceptional conics. Exhaustive exact finite-field enumeration yields sixteen points over the prime field and 776 over its quadratic extension. The quadratic-extension trace then saturates the Weil bound and forces all twenty-two Frobenius squares to equal 25. The complete spectrum and all-extension counts follow by elementary trace algebra. The included checker independently recomputes the finite certificates.
+PASS
 
-## Originality — PASS (qualified)
+In characteristic five, the partials are x_i(x_i²−2S), S=Σx_i². If all vanish, S cannot be zero at a projective point; the number of nonzero coordinates satisfies 2r=1 in F5, so r=3. This gives precisely the sixteen rational sign patterns up to overall scale. The affine Hessian at [1:1:1:0] has determinant 2 and sign/permutation symmetry transfers this to every point, giving A1 singularities. Isolated singularities exclude repeated factors and distinct components (two projective surface components meet in positive dimension); the hypersurface is normal by R1 and S2. Adjunction and rational double points give trivial canonical bundle and H^1(O)=0 on the minimal resolution, hence a K3. Each rational node is replaced by a smooth conic over F5, hence by P1 over F5. My own replay /workspace/review_replay.py uses a distinct chart ordering and θ²=2 for F25; it checks the Hessian from the original form and exhausts the charts over F5 and F25, getting totals 16 and 776. Adding 16q gives 96 and 1176. The K3 trace formula gives H² traces 70 and 550, and purity gives |α_i|=5. Equality in the triangle inequality at the second trace forces every α_i²=25, and the first trace then gives multiplicities 18 and 4. This proves all extension counts and both zeta functions; the two counts are exact inputs, not extrapolation. No Frobenius semisimplicity assumption is needed for the trace or zeta assertions.
 
-The classical Maschke form, sixteen-node Kummer quartics, and the Segre-cubic Kummer parameter locus are previously known. In particular, Edge's 1949 work could dominate the geometric degeneration, and novelty is not asserted for Kummer geometry in isolation. The exact special-fiber arithmetic, Frobenius eigenvalue multiplicities, maximality over the quadratic extension, and full point/zeta formulas were not present in the inspected 1945 original, the detailed contemporary review of 1949, or the relevant modern Kummer treatment. The original 1949 paper remained inaccessible for full inspection; equivalent arithmetic in historical or unindexed sources is a residual priority risk. This is a literature-limited originality assessment, not a proof of historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The arithmetic reduction of a maximally symmetric classical quartic exhibits a sixteen-node boundary fiber whose resolution saturates the sharp K3 Weil bound over the quadratic extension. The point formulas distinguish two Frobenius signs and completely determine the arithmetic zeta function from intrinsic geometric data. This is a natural, motivated finite-field invariant and adds substantial arithmetic content beyond a generic Kummer-locus specialization.
+The supported distinct result is the arithmetic of this specified Maschke reduction and its resolution, not the general Kummer degeneration or the existence of a characteristic-five K3 with this spectrum. The strongest indexed results with the same spectrum count different projective models. The inspected classical sources identify the integral equation and general Kummer loci, but do not settle the arithmetic of this fiber. No exact matching theorem or implication from those sources was established in the bounded comparison.
 
-## Scope and limits
+## value
 
-The claim concerns the specified equation in characteristic five and all of its finite extensions; it does not determine a full integral bad-reduction classification or the resolution's Artin invariant. External independent validation has not occurred. Edge's 1949 complete original was not read.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This characteristic-five reduction fixes a historically distinguished equation and a field where it acquires the extremal sixteen-node geometry. Its rational exceptional configuration, attainment of the sharp K3 bound over F25, and precise descent over F5, including the four minus signs, are meaningful model-specific arithmetic. The result determines the singular-model and resolution zeta functions; the former differs from those of the matching Hessian examples. This is useful exact information about a natural model, not a claim to have discovered a new numerical spectrum or new Kummer geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The homogeneous polar equations give the exact strict quartic identity \(\dot P=-4a|z|^2P\) and positive coercive bounds for \(0\leq b<\omega\). Every global solution therefore converges to zero. For \(b\leq a\), \(V=|z|^2+P\) is smooth, proper, strict and has Hessian \(2I\). For \(b>a\), averaging the leading Hessian inequality for any hypothetical local \(C^2\) Morse function over the quarter-turn group contradicts the outward cubic drift on the positive real ray. The same group average excludes every strict quadratic at equality. Odd-degree leading polynomials are not positive definite on the entire plane. Both symbolic identities and rational representative cases were recomputed in `check.py`.
+## correctness
 
-## Originality — PASS, with documented risk
-Jongeneel (arXiv:2610.05626v1, Proposition 3.5, Corollary 3.9) gives a nilpotent-Jacobian counterexample and a semisimplicity necessary condition, but not a sharp threshold for zero-Jacobian homogeneous cubic fields. Liu–Fitzsimmons (arXiv:2607.16171v1, Theorem II.2 and Section IV.D) treats a twofold cubic family whose relevant members lack polynomial Lyapunov functions, whereas this fourfold family always has a strict quartic. The closest inspected published mathematical record (3937ccf41604) uses flat smooth time changes and proves jet invisibility, not a polynomial-family classification. Actual equivalence, generalization and coefficient searches uncovered no covering implication. A hidden classical equivariant reduction or less-indexed source remains a priority risk; literature absence is not proved.
+PASS
 
-## Mathematical value — PASS
-The fourfold-equivariant cubic monomials are the natural lowest nonlinear covariants under quarter rotation. The theorem finds an exact, nontrivial boundary for positive-Hessian certificates inside a uniformly globally stable region, distinguishes Morse regularity from polynomial existence, and determines the minimal strict polynomial degree. It exposes a limitation of zero-linearization tests that is not visible from spectral information or the existence of some smooth strict Lyapunov function.
+The logarithmic derivative of r⁴(omega−b sin 4theta) cancels the cos 4theta term exactly. Uniform positive radial bounds on P and the strict differential inequality imply forward completeness, attraction, stability and uniqueness of equilibrium. For a C² function at a local minimum, the order-four Lie derivative along the two axes has coefficients (b−a)H11+omega H12 and (b−a)H22−omega H12. Their nonpositivity is impossible for b>a and a positive Hessian. For a strict quadratic both coefficients must be strictly negative, excluding b=a as well. At b=a, r²+P instead is strict and has Hessian 2I; odd positive-definite polynomial degrees cannot occur. This verifies both sharp inequalities with their different equality cases and the semisimple zero Jacobian.
 
-## Scope and limitations
-The results are restricted to \(a>0\), \(0\leq b<\omega\). No classification of all homogeneous cubic fields, of \(\omega\leq b\), or of arbitrary Lyapunov regularity is claimed. The symbolic verifier checks identities, not bibliographic priority. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An earlier exact calculation for the same model in the angular-locked sector materially overlaps: its algebra extends to give GAS, a strict quartic and the degree-two/four boundary in the rotating sector. GAS also follows from the published angular criterion. The distinct frozen content is the exact scalar decay identity for this particular quartic and the sharp local C²/global Morse classification, including the difference from strict quadratics at equality. A later indexed general homogeneous criterion mathematically subsumes the Morse test once GAS and the symmetry are supplied, but does not give this exact quartic identity or establish that the Morse classification was already known when the frozen result was made. An uncited reference to an older rotating-sector theorem remains unresolved.
+
+## value
+
+PASS
+
+A stable homogeneous cubic with semisimple zero linearization and an elementary strict polynomial certificate nevertheless loses every local nondegenerate C² certificate at a precise nonlinear boundary. At the boundary it still has a polynomial Morse function but no strict quadratic, separating these notions without changing stability. The exact decay identity makes the example transparent and reusable for Morse-versus-polynomial converse questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

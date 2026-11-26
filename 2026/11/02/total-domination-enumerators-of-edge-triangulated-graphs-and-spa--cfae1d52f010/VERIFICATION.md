@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_total_domination.py` from the same directory as this file using Python 3 standard library only. The verifier reconstructs the adjacency of each edge-triangulated graph from its base edges, tests total domination by checking an open selected neighbor for every vertex, and tests inclusion-minimality by deleting selected vertices one at a time. It computes the complete bivariate counts for the two variable types separately.
+## correctness
 
-The executable compares the general vertex-cover product with direct enumeration on 46 isolate-free labeled graphs of up to four original vertices, and both bipartite enumerators with direct enumeration on nine complete-bipartite instances. The direct checks involve 1,259,880 candidate vertex subsets in total. Another 121 arithmetic pairs check closed-form family coefficients and cardinality consequences.
+PASS
 
-The observed successful result was:
+The original edges are retained. To dominate the new vertex on each edge, the original selected set S must be a vertex cover. Every original vertex outside S then has a selected original neighbor because the base has no isolates. Within S only vertices isolated in G[S] still need selected new neighbors, and their incident edge sets are disjoint, giving precisely the independent nonempty-subset factors and the free factors of the product. In a biclique a cover contains a whole shore. If it also contains vertices of the other shore, all new vertices are redundant; minimality requires exactly one opposite vertex. If the cover is just one shore, exactly one chosen incident new vertex per shore vertex is necessary and sufficient for new-vertex minimality. In each of the four cases every original vertex is also essential, either for the cover condition or to dominate the selected shore. Single-vertex deletion suffices to test minimality by monotonicity. Both-shore covers occur twice only in the full polynomial, where the stated subtraction removes the duplicate. The minimum, maximum and counts follow from the four terms, including tied exponents. For a=2,b≥5 the four exponents are distinct; deleting new vertices first and then the vertices of the size-b shore proves 2-degeneracy. The largest-set fraction has the claimed limit since the competing terms are only quadratic or smaller in b.
 
-`VERIFY_OK general_graphs=46 biclique_graphs=9 direct_vertex_subsets=1259880 arithmetic_pairs=121`
+## originality
 
-The finite tests are corroboration only. The all-order theorem is supported by the explicit proof in `RESULT.md`. The review does not establish uniqueness in the published literature, does not address graphs with isolated base vertices in the general theorem, and has not been independently validated.
+PASS
+
+The same operator and scalar minimum are known, and the open-neighborhood transversal representation is standard. The supported contribution is the weighted all-set product and the full inclusion-minimal biclique census and spectrum. The closest inspected operator, transversal and catalogue results do not give that coverage. No separate originality is attributed to the minimum or to the algebraic consequences once the four-term census is given.
+
+## value
+
+PASS
+
+The natural edge-triangulation operator admits a weighted count at every cardinality, not only a minimum-size reduction. In a natural connected 2-degenerate family the separate minimal census shows arbitrarily long gaps and concentration on the largest size while the minimum remains 3. This is explicit structural information about the distribution of minimal open-neighborhood covers, not a tiny isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

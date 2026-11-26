@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact directed-vacancy recursion follows from conditional acceptance at one arrival time and independence of detached child subtrees; it yields the Volterra representation with the factor \(e^{-u}\) in the target integral. Strict sign follows by monotone clock coupling at the perturbed root; the factorial upper bound and sharp constant follow from bounded Volterra integrals and the precise small-\(u\) expansion of the defect message. The finite-volume path-ordering bound ensures that infinite-tree events are well-defined. Exact algebra in degree three at rate two and fifteen separately formulated numerical finite-tree recursions support the proof but do not substitute for it.
+## correctness
 
-**Originality — PASS on examined evidence, provisional.** The closest direct primary source, Penrose and Sudbury (2005, arXiv:math/0503519, Theorems 12–13), supplies the *homogeneous* occupation and pair-covariance laws, not a full finite-amplitude one-site rate perturbation. Evans (1984) explicitly assumes translational invariance. Krivelevich et al. (2024, Theorem 1.3 and Section 6.5) provide a homogeneous/multitype framework, but do not give this defect-distance law or its exact leading constant. Periodic site-rate bias in adsorption percolation does not cover a single localized defect on a regular tree. Indexed one-dimensional dimer-defect asymptotics were compared: the substrate and arrival objects are different, and their one-dimensional constants do not imply the \(q\ge3\) tree result. Historical completeness is not proved; related inhomogeneous adsorption papers might contain an equivalent specialization.
+PASS
 
-**Value — PASS.** Local kinetic disorder on a branching lattice is a natural test of how irreversible exclusion propagates. The theorem supplies a global shell-by-shell parity rule, an exact finite-amplitude functional representation and the sharp factorial screening scale \(L=\log(q-1)/(q-2)\), none of which is furnished by the known homogeneous density or correlation alone. The degree dependence differentiates trees with genuine branching from the one-dimensional chain, and the result provides an analytic check for impurity-sensitive adsorption models. No infinite-volume phase-transition consequence is asserted.
+Dependencies follow strictly decreasing clock paths; retaining just the ordinary clocks on a length-k path bounds the probability of the required order by 1/k!, even if the path meets the marked vertex. Summing against the exponential number of paths gives finite dependence almost surely. In the uniform-label coordinate x=1-e^{-t}, independent detached branches give h'=-h^{q-1}; integrating h^q at an ordinary full vertex yields the frozen p_*. Along the marked-to-target path there are q-2 unchanged child branches at each internal site and q-1 unchanged branches at the target. Subtracting the homogeneous cavity recursion and using du=h^{q-2}dx therefore gives δ_j=-Tδ_{j-1} and the target weight e^{-u}du, with δ_0=g_a. For a>1 the coupled marked label is strictly earlier; the function 1_{s≤x}h(s)^{q-1} is nonincreasing and strictly decreasing in (0,x), giving a strict sign even at x=1. The reverse holds for 0<a<1. Positive integration preserves strictness, so the sign alternates. The uniform bound |g_a|≤1 gives L^r/r!. Expansion at zero yields g_a=-(a-1)u+O_{q,a}(u²), with a global quadratic remainder by continuity even for a<1. The iterated remainder has one extra power and factorial factor. Integration against e^{-u} evaluates the leading term at the upper endpoint with relative O_q(1/r) error, yielding the stated signed coefficient for fixed q and a≠1. For a=1 the response is identically zero.
 
-The comparison with earlier work concerns statements and implications, not merely matching vocabulary. Residual risks are incomplete indexing of specialized spatially inhomogeneous Bethe-lattice work, and the absence of independent mathematical peer review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The homogeneous cavity law and the occurrence of alternating factorial screening in a one-dimensional adsorption defect are prior. The distinct contribution is an exact finite-rate response at all distances on a branching regular tree, including the q-dependent clock transformation and sharp coefficient. The checked close sources do not give this response as a special case.
+
+## value
+
+PASS
+
+A finite change of the site attempt rate is a natural perturbation of greedy blocking on a branching graph. The sign at every distance, nonvanishing for every a≠1, and the exact leading factorial constant distinguish the response from a dependency-path upper bound or a linearized homogeneous covariance. The closed formula can predict local changes without simulating a growing neighborhood; quantitative screening persists despite exponential shell growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

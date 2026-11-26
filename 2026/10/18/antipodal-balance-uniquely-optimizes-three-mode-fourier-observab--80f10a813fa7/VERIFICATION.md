@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of analytic and finite claims
+# Independent mathematical audit
 
-The exact proof is in `RESULT.md`. The frequency basis is orthonormal in the ambient probability Haar measure. The observation norm is **not** renormalized to make the arcs total measure one.
+## correctness
 
-The Gram has entries \(t,c u,v\), and diagonalization into its antisymmetric one-dimensional sector and symmetric two-dimensional sector yields eigenvalues \(t-v\) and \(t+(v\pm H)/2\). The branch-selection inequality and the identity
-\[
-H^2-(v+2d)^2=8u^2(c^2-d^2)
-\]
-establish the sharp least-squared-singular-value bound for every admissible width and center separation. At \(u=0\) the sharp three-element spectrum and inverse norm follow immediately. Second-order Taylor expansion of the displayed **exact** deficit gives the local coefficient.
+PASS
 
-The included `checker.py` independently verifies finite numerical evaluations of the eigenvalue trace, determinant, rationalized deficit, nonnegativity, equality example, and local curvature for six arc widths and 101 relative positions per width. These are **finite** consistency checks; they cannot independently prove the all-parameter theorem or originality. No separate external scientific validation has been conducted.
+With ambient Haar measure divided by 2π, the diagonal is t=2a/π and the first two off-diagonal coefficients are cu and v=d(2u²−1), respectively. Endpoint contact has no effect. In the reflection decomposition the eigenvalues are t−v and t+(v±H)/2, with H²=v²+8c²u². The lower symmetric branch is minimal: for v≤0 this is immediate, and for v>0 one has v≤d|u|<c|u| and hence H>3v. Subtracting (v+2d)² from H² yields 8u²(c²−d²), and v+2d>0. This gives the exact deficit and strictness for any nonantipodal configuration, including the endpoint-contact placement. At u=0 the spectrum is t−d,t,t+d; t−d>0, and the inverse norm is the reciprocal square root, with equality on its least-eigenvalue mode. Since u²=(θ−π/2)²+O((θ−π/2)^4) and the rationalized denominator tends to 2d, the sharp local coefficient is 4 sin³(a)/(π cos(a)) at fixed a. The small-a asymptotics follow by expanding sin(2a). The accompanying checker was inspected, not executed; its trace, determinant and finite grid checks are consistency diagnostics only.
+
+## originality
+
+PASS
+
+The supported contribution is the unique global optimizer within the two-equal-Haar-window constraint and the exact sharp loss on that family, not the Gram diagonalization. Two distinct catalogue records give the same optimizer and value; one gives equivalent exact strictness. Their catalogue paths are dated later than the frozen record's catalogue path. This is substantive equivalence, not evidence of earlier disclosure. No covering antecedent was established by the targeted primary-text comparisons.
+
+## value
+
+PASS
+
+For two movable exposures of prescribed width, least squared singular value is the sharp stability objective, not a freely chosen spectral statistic. The result gives the unique acquisition geometry, an exact off-optimum performance penalty, and the reconstruction cost even for narrow arcs. Those numerical laws are useful without a higher-band extension or optimization over arbitrary masks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

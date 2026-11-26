@@ -1,15 +1,21 @@
-# Scientific review: sharp three-point quadratic phase retrieval
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof obtains the exact four independent cyclic autocorrelation moments from the six squared magnitudes. The derivative moments force two and only two possible positive magnitudes for the quadratic coefficient; the mixed moment then determines the constant coefficient by an invertible real-linear equation. For fixed nondegenerate middle and quadratic coefficients, the false branch's energy mismatch is a nonzero real quadratic polynomial in the constant coefficient, with nonzero value at zero. Fubini's theorem yields a measure-zero exceptional locus. The maximal-rank/constant-rank argument correctly excludes generic injectivity with fewer than three roots per channel. The integer counterexample was recomputed independently of floating-point tolerances.
+## correctness
 
-## Originality — PASS with residual search limits
-The originating 2022 article proves *all-signal* recovery using five roots per channel and supplies an all-signal counterexample using four, while explicitly asking when smaller meshes give almost-everywhere recovery. Neither statement implies three-point generic recovery. An earlier general almost-everywhere phase-retrieval theorem treats generic measurement arrays, not this fixed derivative-weighted Fourier array. Searches for the exact three-root quadratic case, equivalent masked-DFT formulations, and two-branch inversions did not identify a published formula that implies this result. A negative search is not proof against unindexed or unpublished coverage; that remains a genuine residual originality risk.
+PASS
 
-## Mathematical value — PASS
-This settles the smallest nontrivial quadratic instance of an explicit published sampling-rate question at its sharp mesh size. The three-root scheme has only six intensity observations, versus ten for the cited uniform-recovery construction in the same dimension. Its two-branch inversion and exact nongeneric ambiguity show what is gained and lost by passing from uniform to almost-everywhere identification; neither is merely a rearrangement of a known generic-measurement counting bound.
+At the cube roots, the cyclic moments are H0=|a|²+|b|²+|c|², H1=b conj(a)+c conj(b)+a conj(c), K0=|b|²+4|c|², K1=2c conj(b). Nonzero K1 forces b,c nonzero for every competitor, including those initially allowed to have lower degree. After fixing c>0, the roots of 4s²−K0 s+|K1|²/4 are c² and |b|²/4. In each branch K1 fixes b, so H1 fixes a by a real-linear equation of determinant c_branch²−|b_branch|². The excluded ratios 1,2,4 account exactly for vanishing determinants or a repeated root here. The other branch has (c',b')=(|b|/2,2cb/|b|), so the changed a is homogeneous real-linear in a, and its energy gap at a=0 is 3(4c²−|b|²)/4, nonzero on the stated locus. The zero set of that nonzero polynomial in the two real coordinates of a is null for every allowed (b,c); Fubini lifts this to coefficient space, including the phase coordinate. For M=1,2, maximal Jacobian rank of the polynomial measurement map on the five-real-dimensional gauge chart is at most four and is locally constant off a proper algebraic set; its local fibers there have positive dimension. This is a pointwise obstruction to almost-everywhere recovery, not just dimension counting. For the integer ambiguity witness the moments are (89,68,52,24), giving the claimed intensity triples; the coefficient triples are not proportional.
 
-## Scope and limitations
-The result concerns degree at most two at equally spaced roots. Singular coefficient strata, higher degrees, arbitrary meshes, and stability constants are not classified. The review is internal to the reported mathematical argument and its reproducibility checks; no independent audit was carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary source poses the actual structured almost-everywhere sampling question rather than answering the quadratic case at three points. The closest different published records use more and/or materially different measurements and do not imply this fixed-design threshold. No covering result was found in the comparison below.
+
+## value
+
+PASS
+
+A sharp answer in the first genuinely quadratic case of a published sampling question, with a deterministic two-branch inverse and an exact counterexample separating almost-everywhere recovery from all-signal recovery. Generic frames or ordinary dimension counting do not supply the constructive structured sufficiency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

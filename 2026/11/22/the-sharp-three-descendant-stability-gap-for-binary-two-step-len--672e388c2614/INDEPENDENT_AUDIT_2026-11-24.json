@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:00:10.473453Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–71",
+        "Frozen VERIFICATION.md, verify_bruteforce.py and verify_normal_form.py (read, not run)",
+        "Independent bit insertion and full run-form derivation"
+      ],
+      "rationale": "With two sequential PAL2 steps, a second start j≥i+4 commutes to the history (j−2,i), giving the canonical bound M_n. Local history collisions extend with fixed exterior context. The exact small spheres |D₂(000)|=1 and |D₂(0110)|=10 certify losses seven and four; any interior defect either lies in a constant triple or has the opposite bit on both sides. If only the two endpoints are defective, the three specified disjoint subsets of histories with sizes 3,2,3 force a loss of at least five, including at n=4. In parity coordinates an alternating source becomes constant; choose all ones. After one RC2 step the word is 1^a001^b, a≥2, a+b=n. The second 00 gives n−1 words, the mixed choices give (n−1)+(n−2) words, and 11 gives binomial(n,2) words with two zero pairs. The total is M_n. For an endpoint defect set N=n−1. The left first-step forms are 0101^N or 01^a001^b; the right forms are 1^N010 or 1^a001^b0, a≥2, a+b=N. The three mixed choices after the mixed first step coincide, and the mixed boundaries of the new zero pair and the original zero give the three four-zero templates on each side. On the right, the terminal 000 gives the extra three-zero word 1^N00011 from its last 00; among four-zero words only the first two families intersect, for b=1. For the five-zero templates, first insert after a+b ones and then after a to attain every spacing, including b=0 or 1. These run forms give the exact left and right spectra and equal totals M_n−3 for the four stated sources. Independent integer-bit insertion checked all words at n=4..12 and both RC spectra at n=4..60. Replay: python /workspace/branches/independent-checks/pal2.py.",
+      "residual_risks": [
+        "Minor wording error at RESULT.md line 41: the full length-four canonical set has 14 histories, not at most 12. The short sphere size 10 and deficit 4 are correct. The finite runs supplement, rather than replace, the all-length proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.1 gives the wider even-k maximum, specializing at k=2 to M_n; Lemma 5.6 gives the history-shape upper bound. The November 2 record identifies exactly all sources attaining the maximum over every alphabet."
+        ],
+        "reasoning": "The maximum classification only forces nonmaximizers below M_n. It neither certifies the two intervening impossible sizes nor distinguishes endpoint defects from interior ones at the strict next level.",
+        "searches": [
+          "arXiv:2609.00779, §§5.1–5.2, Theorem 5.1 and Lemma 5.6",
+          "Resultary: 2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f"
+        ]
+      },
+      "checked_sources": [
+        "Zabokritskiy §§4, 5.1, 5.2",
+        "Resultary maximum-level and code-size records, and distinct single-symbol RC matches",
+        "Exact citation retrieval check for 4e43b4f9127d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible passages give a canonical upper bound and classify equality at M_n, and the code record gives distinct extremal certificates for disjoint collections of spheres."
+        ],
+        "reasoning": "The loss estimates for enclosed defects and the exact endpoint run enumeration are needed to obtain the runner-up and its refinements; none is a parameter substitution in those statements.",
+        "searches": [
+          "Zabokritskiy, §5.2 edge-tree history bounds",
+          "November 2 maximum-level theorem, Finding",
+          "October 4 code-size record, finite certificates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior parity conjugacy sends even-length PAL to RC and preserves sphere sizes. Resultary records 58e555e1f0ef and 48668939e9cc address single-symbol RC, a different operation."
+        ],
+        "reasoning": "The size problem is exactly equivalent under conjugacy, so the form of that coordinate change is not new. Its existence does not count RC2 descendants by the number of zeros or resolve exact second-level inputs.",
+        "searches": [
+          "arXiv:2609.00779, §4 Theorem 4.1 and Corollary 4.2",
+          "Resultary: exact two-step reverse-complement sphere law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact binary two-PAL2 tables through length eight report code sizes using disjoint spheres and clique covers. The matching M_n−3 entry is the assigned record, not an independent table."
+        ],
+        "reasoning": "A maximum correcting-code cardinality is not a ranking of individual sphere cardinalities or their output-weight profiles. The finite code-size table does not cover the audited orders or statistic.",
+        "searches": [
+          "Resultary: 2026/10/4/SCOPE-exact-binary-two-mathrm-pal-2-code-sizes-through-length-eight--ba7c5d4a4968",
+          "Resultary: exact runner-up, binary PAL2 endpoint defect 672e388c2614"
+        ]
+      },
+      "rationale": "The known maximum, all maximizers, commuting-history bound and even-length parity conjugacy are prior. The distinct claim is the exact strict runner-up and complete set of four binary endpoint-defect sources, plus the two different RC2 weight spectra. The closest inspected maximum-level and confusability-code results do not yield these conclusions.",
+      "residual_risks": [
+        "The separately cited November 8 record remains unavailable; the narrower catalogue and primary comparisons are not a guarantee against an equivalent unindexed sharp loss theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conjugacy, upper bound and exact maximum covered; strict next level not obtained",
+          "evidence": "Offsets 31300–34700: conjugacy; 45000–52966: general even-k formula and disjoint-duplication commutation; 54800–62797: edge-tree upper bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779",
+          "material_read": "PDF pp. 9–10 §4 Theorem 4.1 and Corollary 4.2; pp. 13–15 §5.1 Theorem 5.1; pp. 16–17 §5.2 Lemma 5.6",
+          "method": "Lawful OA arXiv PDF, bounded passages",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Strongest primary same-channel maximum and history description"
+        },
+        {
+          "assessment": "Joint coverage of maximum equality cases only",
+          "evidence": "Maximum iff every adjacent pair differs, over all alphabets and n≥2.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and locally mirrored original",
+          "title": "All maximizers of two-step length-two palindromic-duplication spheres",
+          "trigger": "Exact same maximum layer in wider alphabet"
+        },
+        {
+          "assessment": "Unresolved distinct-record comparison; no negative coverage inference",
+          "evidence": "The frozen citation describes a maximum-level classification. No stronger assertion was verified.",
+          "identifier_or_url": "2026/11/8/SCOPE-all-maximizers-of-two-length-two-palindromic-duplication-spheres--4e43b4f9127d",
+          "material_read": "Frozen bibliography only; original body unavailable at the supplied and local mirror identifiers",
+          "method": "Exact citation and lawful mirror retrieval attempt",
+          "title": "All maximizers of two length-two palindromic duplication spheres",
+          "trigger": "Separately cited plausible maximum-layer record"
+        },
+        {
+          "assessment": "Different optimization over pairs of spheres",
+          "evidence": "Optimal codes for 2≤n≤8, with disjoint-sphere witnesses and clique-cover bounds.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-binary-two-mathrm-pal-2-code-sizes-through-length-eight--ba7c5d4a4968",
+          "material_read": "RESULT.md offsets 1200–3208, 4250–5083",
+          "method": "Resultary and locally mirrored original",
+          "title": "Exact binary two-PAL2 code sizes through length eight",
+          "trigger": "Plausible exact table for the same channel"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Same strict second level and endpoint sources.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-three-descendant-stability-gap-for-binary-two-step-len--672e388c2614",
+          "material_read": "Indexed claim and frozen Finding",
+          "method": "Resultary and frozen original",
+          "title": "The sharp three-descendant stability gap for binary two-step length-two palindromic duplication",
+          "trigger": "Exact runner-up catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, local-loss bound and endpoint run forms",
+        "Prior maximum and code-size comparisons"
+      ],
+      "rationale": "A maximum alone supplies no quantitative separation from nearly extremal sources. The sharp three-descendant penalty and exact four equality cases connect specific neighboring defects to the channel sphere size. The parity-coordinate output weights distinguish the two positions even though the totals agree.",
+      "residual_risks": [
+        "No conclusions about correcting-code redundancy, other duplication lengths, or more than two steps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

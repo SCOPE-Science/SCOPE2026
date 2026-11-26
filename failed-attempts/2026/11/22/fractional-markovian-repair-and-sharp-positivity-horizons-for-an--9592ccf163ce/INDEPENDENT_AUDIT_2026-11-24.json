@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:03:10.464527Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write L=N(I−P₀)−Σ k_j(1+a_j)P_j where P_j projects onto mean-zero vectors supported on block j. This gives the stated orthogonal spectrum, with a simple zero mode and positive complementary eigenvalues. The spectral heat kernel has within-block distinct entries F_j/k_j, positive cross-block entries for positive time and positive diagonals; row sums are one. In s=N^αt and d=d_j^α, the sign of F=u+qe^(−s)−e^(−ds) is positive for s>0 when d≥q by strict Jensen. When d<q, multiplying by e^(ds) gives a strictly convex function with negative initial slope and limit +∞, hence one positive crossing with the claimed signs. Off-diagonal rate signs give the same Markov threshold; rows yield the ℓ∞ norm by adding twice the negative mass, and symmetry gives the ℓ¹ norm. Differentiating the scalar F gives the unique active-block minimum at the stated peak time. Writing δ=q−d, F/s extends smoothly at zero with expansion −δ+(qu/2)s+O(δs+s²). The nontrivial root is 2δ/(qu)+O(δ²); the derivative root gives minimum −δ²/(2qu)+O(δ³). Substituting δ=q log(N/λ_j)ε+O(ε²) gives both sharp coefficients, and maxima over finitely many critical blocks preserve the errors. For λ_j↓0, F(s) tends to q(e^(−s)−1)<0 at any fixed s>0, so the positive crossing escapes to infinity and the root equation gives λ_j^α τ_j→−log u_j. The last statement is blockwise and does not cover λ_j=0. Frozen numerical support was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier unsigned theorem covers all β>0 (all positive q^β<1 at fixed q) and arbitrary nonsingleton part sizes. A signed block uses this already parametrized row curve with a different exponent map, not a new scalar regime.",
+          "Chen et al. Theorem 6 covers the existence of eventual positivity for a PSD corank-one signed Laplacian. The spectral-window record gives uniform envelopes, not exact fixed-matrix within-block times."
+        ],
+        "reasoning": "The unsigned theorem is not broader in the class of conductance matrices; it is sufficient in the dimensionless row parameters to imply the claimed phase, horizon and norm formulas after the row identification. Broader eventual positivity theory alone would not decide these quantitative claims.",
+        "searches": [
+          "Resultary 8af258cef8b1 Finding at offsets 660–2841; spectral-window aea2a1d10bf1; Chen et al. arXiv:2009.03581 §VI; Arora arXiv:2101.11386"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py (inspection only)",
+        "Resultary 8af258cef8b1, 8373b9d5949a and aea2a1d10bf1; related triangle 9ff3837d18bf and strongly regular d37f7dd78e94 Findings",
+        "arXiv:2009.03581, 1912.07288, 2101.11386 and 2012.08389 (abstract passages for the last two)",
+        "Bounded external literature query for signed spectral fractional repair/recovery"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Its β−1 root coefficient for a single part is 2(−log q)/(Nu), and its norm excess coefficient is (1−1/k)q(log q)^2/u. The exponent map and t=N^(β−α)t′ turn these into the frozen block coefficients; then finite maxima give the network coefficients.",
+          "For fixed u,q the unsigned root s(β) obeys e^(−q^β s)=u+q e^(−s), and escapes to infinity as β→∞ by its exact sign description. Hence q^β s→−log u, the stated singular law after substitution."
+        ],
+        "reasoning": "Distinct physical graphs do not prevent precise implications. All main formulas transport; the explicit degeneracy limit is a short consequence of the same previously known exact root, not evidence of an independent classification.",
+        "searches": [
+          "8af258cef8b1 original Finding, especially scalar root, peak and near-critical coefficients, versus frozen RESULT.md lines 20–72 and 106–148"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8af258cef8b1 explicitly states H_i(β,s)=u_i+q_i e^(−s)−e^(−q_i^β s), the unique positive root for β>1, and the exact negative-mass norm formula. Set β_j=α/α_j and use the unsigned graph with just one nonsingleton part of size k_j.",
+          "8373b9d5949a uses a Chebyshev-resolvent integral and establishes subunit repair on signed cycles; it is a different family, though the signed triangle with one negative edge is common."
+        ],
+        "reasoning": "The major overlap is exact equality of each relevant row function under exponent/time change, not just a resemblance of proof or exponents. No single shared β is needed because the norm and horizon are already blockwise maxima.",
+        "searches": [
+          "Configured Resultary search for signed-block fractional heat, Markov repair, positivity recovery and norm onset; unsigned complete multipartite 8af258cef8b1 and signed cycle 8373b9d5949a originals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8af258cef8b1 is an indexed exact formula source for the scalar positivity-ending root, endpoint norm, peak and both onset exponents with sharp constants.",
+          "The same-day signed cycle is an exact threshold/horizon result on its own family, not a table of the block-network constants. The explicit λ_j↓0 constant was not found stated in these read passages."
+        ],
+        "reasoning": "The indexed unsigned formulas already evaluate the exact target quantities after reparametrization, even without listing representative signed weights. The result concerns a functional classification rather than an isolated tabulated number.",
+        "searches": [
+          "Configured Resultary lookup for exact block thresholds, roots and norms and same-day distinct comparisons; 8af258cef8b1 original Finding; 8373b9d5949a original Finding"
+        ]
+      },
+      "rationale": "The exact Markov threshold, recovery, peak/norm, and both onset laws are already determined by the earlier unsigned complete-multipartite formulas via an exact blockwise reparametrization, despite the difference in physical edge signs. Take β_j=α/α_j and compare block j to the only nonsingleton part in the unsigned graph K_{k_j,1,…,1} on N vertices. With s=N^αt, q_j^(β_j)=d_j^α, so its scalar H_j(β_j,s) is identical to F_j(α,t). Its natural unsigned time is t′=N^(α−β_j)t. In fact a row from block j agrees with an unsigned row at t′ up to labeling: the within-block off-diagonal formula is identical, the cross-block entries share (1−e^(−s))/N, and both diagonals are fixed by row sums. Thus the β=1 boundary and all sharp single-part formulas transfer exactly; the full signed statements follow by taking the relevant block maxima. Near α_j, β_j−1=ε/α_j, and −log q_j/α_j=log(N/λ_j); time rescaling gives exactly the stated constants. The one-sided λ_j↓0 expression was not found stated in that comparator, but follows directly from its exact root at large β_j, with no further model-specific calculation. The frozen record is not accepted as a distinct full classification.",
+      "residual_risks": [
+        "No priority order is inferred for the two same-day signed models, and the earlier unsigned paper is not claimed to study negative conductances.",
+        "No claim that the singular limit appears verbatim in prior work; the audit identifies its direct implication from the earlier exact root.",
+        "The comparison does not establish absolute historical priority for the earlier formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact formula coverage via block exponent/time reparametrization",
+          "evidence": "H_i(β,s)=u_i+q_i e^(−s)−e^(−q_i^β s); phase at β=1; exact root and endpoint norms, linear and quadratic onset.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-positivity-transition-for-fractional-graph-heat-on-compl--8af258cef8b1/RESULT.md",
+          "material_read": "Mirrored Finding from offset 0, decisive scalar, root, norm and near-critical formulas at offsets 660–2841",
+          "method": "Configured Resultary search and local original mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp positivity transition for fractional graph heat on complete multipartite networks",
+          "trigger": "Earlier exact positivity phase and transient norms on the closest block model"
+        },
+        {
+          "assessment": "Material overlap on subunit Markov repair, not the full block theorem; chronology within the day not inferred",
+          "evidence": "Signed cycle threshold via Chebyshev-resolvent integral, with eventual recovery after small-time negativity.",
+          "identifier_or_url": "Resultary 8373b9d5949a",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local original mirror",
+          "title": "A unique fractional Markov repair exponent for signed cycles with one antagonistic edge",
+          "trigger": "Strongest signed same-day overlap"
+        },
+        {
+          "assessment": "Broader matrix class, but a sharp uniform horizon rather than the targeted blockwise one",
+          "evidence": "Attained envelopes over matrices with fixed positive leading eigenvector and prescribed complementary spectral window.",
+          "identifier_or_url": "Resultary aea2a1d10bf1",
+          "material_read": "Mirrored RESULT.md Finding from offset 0",
+          "method": "Local original mirror",
+          "title": "Sharp entrywise spectral-window envelopes and the exact eventual-positivity horizon",
+          "trigger": "Possible stronger uniform quantitative positivity theorem"
+        },
+        {
+          "assessment": "Covers qualitative eventual positivity, not exact fractional boundaries or onset coefficients",
+          "evidence": "Positive semidefiniteness with corank one is equivalent to eventual exponential positivity for the signed Laplacian generator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.03581",
+          "material_read": "§VI Theorem 6, p. 14 around offset 70450",
+          "method": "OA PDF bounded passage",
+          "title": "On Spectral Properties of Signed Laplacians with Connections to Eventual Positivity",
+          "trigger": "Primary signed Laplacian eventual positivity comparator"
+        },
+        {
+          "assessment": "Standard graph diffusion scope, not this signed-block classification",
+          "evidence": "Fractional operators built from standard graph Laplacians.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.07288",
+          "material_read": "Abstract p. 1 and operator definition p. 5 around offset 18400",
+          "method": "OA PDF bounded passages",
+          "title": "Nonlocal Network Dynamics via Fractional Graph Laplacians",
+          "trigger": "Primary fractional graph dynamics comparator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The signed positivity question is natural, but the quantitative content of this particular model reuses the exact unsigned row curve, with a block-dependent exponent and time substitution and finite maxima. The explicit spectral-degeneracy coefficient is obtained immediately from the same root and does not establish a separate substantive gap here. The record does not show a new recovery mechanism or independently nonroutine invariant beyond the already evaluated row family.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

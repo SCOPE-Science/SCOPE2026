@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-node inverse Gram matrix is explicit and invertible for every positive separation. On the inner segment the coefficient cost is a symmetric sum of two positive hyperbolic-sine powers; outside it is at most one. The strictly convex log-ratio argument proves that its stationary points have either one global midpoint maximum or exactly two symmetric off-center maxima, with the sharp threshold \(2\operatorname{arctanh}\sqrt{1-p}\). Taylor expansion at the degeneracy and direct large-gap asymptotics prove the nontrivial exponents and coefficients. The \(p=1/2\) stationary relation factors into midpoint versus the product-one branch. The included standard-library checker passed 16165 supplementary finite assertions. Its finite comparisons do not establish the universal statements; those follow from the analytic proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Gram inversion gives the nonnegative hyperbolic cardinal coefficients inside the interval and one decaying coefficient outside. The inward derivative at the endpoint is +infinity, so both the exterior and the endpoints lose. With L(x)=log(cosh x)+(p−1)log(sinh x), the derivative of the objective has the sign of H(x)=L(x)−L(h−x). On the left half H is strictly convex because L'' is positive and strictly decreasing; H tends to +infinity at 0, vanishes at the midpoint, and has midpoint slope 2L'(h/2). This classifies all maximizers including at the zero-slope threshold. Strict decrease in h follows by evaluating at the larger-h maximizer with the relative offset fixed, since z coth z is strictly increasing. As h approaches the threshold from above, compactness and the threshold sign imply the off-center node converges to the midpoint (the near-zero divergence excludes an endpoint limit). Expanding the centered stationarity equation then gives delta²∼−6 L''(u0)(h/2−u0)/L'''(u0), with the derivatives in the source. At large h the left root tends to 0 by comparing L(x) with L(h−x) at every fixed positive x. The root equation gives x∼2^{p/(1−p)} exp(−ph/(1−p)); writing A,B for the small and large cardinal coefficients, it also gives A^p/B^p=tanh x/tanh(h−x)∼x while B^p=1−px+o(x), yielding the stated excess. At p=1/2 the unequal root is characterized by sinh x sinh(h−x)=1, which gives the offset and both agreeing branches. Coefficient p-subadditivity proves sufficiency of the factor, the maximizing single atom proves sharpness on interpolants, and the general representer-penalty criterion applies in this injective coefficient model. For necessity with finite continuous losses one can also enforce the atom's two target values with increasingly weighted squared loss, taking the finite-dimensional sample-span minimum to the interpolant penalty.
 
-The closest primary paper is Wang–Song–Zhang, arXiv:2611.08032 (initial posting 2026-11-05). Its Sections 3–4 were inspected for the generalized Lebesgue definition, sharp representer-penalty correspondence, exponential-kernel bounds and qualitative two-point example. The general factor and qualitative failure are **prior art**; the new result specifies the all-separation/all-exponent exact factor, all center maximizers, symmetry-breaking threshold, onset and large-gap asymptotics, and the full half-power branch. The ordinary cardinal Matérn results of Bejancu (arXiv:2009.00711) and published records about exponential Gram condition numbers or two-point circular-arc polynomial interpolation involve different invariants. Claim/alias, stronger-coverage, equivalent-form and exact-table searches did not establish an implication covering this result. Related summaries are not whole-paper exclusions. Older equivalent hyperbolic or quasi-Banach forms may still exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating generalized Lebesgue factor controls the cost of insisting that nonconvex sparse kernel interpolation use only the sampled centers. A precise worst-center location is structurally important for this factor: at close spacing the midpoint is worst, whereas at wider spacing a pair of asymmetric maximizers appears and approaches the two sample sites. The result resolves a complete natural two-site model and its quantitative transition without asserting a general multi-site theorem.
+The factor definition, its exact representer interpretation, the Laplace two-site coefficients and the qualitative violation of a unit factor are known and credited. The inspected sources do not fix the sharp maximum as a function of separation and p, classify its maximizers, or supply the asymptotics and half-power expressions.
 
-## Scope and limitations
+## value
 
-The sharp classification is confined to two sites of the one-dimensional exponential covariance kernel, with fixed \(0<p<1\). The original general representer criterion is credited to prior literature. The explicit limits are not uniform in the endpoint exponents. Some classical sources and published neighboring findings were not inspected in full, so unconditional publication priority is not asserted. Only supplementary finite diagnostics were executed; independent validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This quantifies a known failure of the unit sample-span penalty by giving the exact multiplier, when the worst atom is no longer at the midpoint, and how fast amplification decays for well-separated sites. The bifurcation and sharp constants give a tunable quantitative benchmark for a standard kernel and sparse coefficient geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

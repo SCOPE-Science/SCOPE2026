@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-Run `python verify.py` with `verify.py` and `profile.tsv` in the same directory. There are no third-party dependencies. The complete standard output from a successful run is `verification_output.txt` and ends in `VERIFY_OK`.
+## correctness
 
-The program builds both adjacency lists from the seven explicit edges, tests connectedness, recomputes all 64 induced-support profiles, compares their 27 populated bins to the separate TSV certificate, and verifies unequal triangle-incidence multisets. It independently computes joint-centralizer counts from the induced-component formula for multiple field-size/tuple-length pairs and compares them to direct Gaussian elimination on actual bracket matrices over the prime fields of orders 2 and 3 (tuple lengths one and two). The direct matrix checks are finite spot tests rather than all-field proofs.
+PASS
 
-To establish the finite cutoff, the program exhaustively visits every labeled simple graph on one through five vertices and every six-vertex graph with five or six edges; it tests connectivity, canonicalizes each graph by every vertex permutation, and compares exact coefficient signatures of the one-tuple rank polynomial. Found isomorphism-class counts are 1, 1, 2, 6, and 21 through five vertices; at six vertices they are 6 (five edges) and 13 (six edges), all having distinct signatures. Each enumeration loop iterates over **every** graph in the specified finite range, rather than sampling. The one-vertex case is handled as a unique boundary.
+For a support S of nonzero coordinate vectors in k^t, edges to its complement kill exactly the coefficients in N[S]∖S. In a component of the induced graph on S, a solution nonzero at one vertex must propagate nonzero values along every edge and force all support vectors to have one projective direction. When they do, the solution is one-dimensional, since dividing by the nonzero scalar coordinates makes the edge equations equality constraints. The rank is therefore |N[S]| minus the number of such components. Choosing a projective direction and a nonzero scalar at each vertex gives exactly P_t(q−1)^c choices on a size-c component, and the free edge coordinates give q^(mt). This proof includes characteristic two. An independent bounded enumeration at /workspace/audit-evidence/3_graphical_centralizers.py (run with python3) reconstructed both profiles via set unions and matched all 27 bins of profile.tsv and all 64 supports per graph. Different triangle-incidence multisets certify graph nonisomorphism, which Mainkar's Theorem 1.1 transfers in odd characteristic. At dimension <13, connectedness gives n≤6 and for n=6 only 5 or 6 edges. Exhaustive orbit marking under relabelings and independent signature construction reproduced 1,1,2,6,21 connected classes through n=5 and 6,13 respectively at (n,m)=(6,5),(6,6), with no equal one-tuple coefficient signatures within a fixed (n,m). Total elements and the rank-zero term recover n+m and m for connected graphs with n≥2: a purported central vertex coefficient is zero by an incident edge bracket in its independent edge slot. The one-vertex algebra is unique by dimension. Since an unequal polynomial in q−1 cannot agree at all prime powers, these checks prove the finite cutoff, not just samples at two primes. The frozen scripts were inspected, not executed.
 
-The proof of equality for all finite fields and all positive tuple lengths is the algebraic product identity indexed by the 27 support-profile bins; no finite computation is used as an extrapolation theorem. The nonisomorphism conclusion in odd characteristic invokes the stated published graph-rigidity theorem. No independent external audit was performed.
+## originality
+
+PASS
+
+The supported contribution is the explicit universal collision with the sharp connected-family minimum. Both the general simultaneous enumerator and the one-element polynomial are prior results and are credited as such by the record. No checked source supplied the equal profiles of these two witnesses or the sharp dimension cutoff.
+
+## value
+
+PASS
+
+The counterexample resolves a natural inverse question with a witness that survives every tuple length and field size, rather than a coincidence at one prime or for one element. The connected-graph dimension cutoff is sharp, and the distinction between the lower-dimensional one-tuple rigidity and the all-tuple collision is structurally useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

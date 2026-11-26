@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Classical blowup identifies every smooth complex cubic surface with the same 27-line incidence. The sum of any tritangent triple is anticanonical and orthogonal to all E6 roots; pairings in {-1,0,1} therefore force exactly 0 or 2 lines in a double-six. Two independent complete double-six enumerations (72 sixers and 36 opposite-root supports) agree. A deterministic exact integer checker constructs all 36x45 entries, uses only unimodular Euclidean operations, validates the final SNF and divisibility, and cross-checks rank via two Gram annihilating polynomials. Separate SymPy SNF gives identical factors. This is a complete finite certificate for the universal geometric model, not a sample-based extrapolation.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Original contribution is the integral relative double-six/tritangent half-overlap matrix and its complementary matrix, with contrasting 3-primary cokernels. The full primary §§0,1.8,2 and three strongest published related integral papers were materially compared; none states these Smith forms. Searches of published-finding corpus and all accessible own claims found related 27-by-36, 27-by-45, graph Laplacian and Frobenius invariants but not this 36-by-45 relative pairing. Known separate Smith forms do not determine the relative Gram Smith factors. Historical priority remains provisional owing to possible finite-geometry E6 association-scheme tables.
+PASS
 
-**Mathematical value — PASS.** Two canonical and separately well-studied geometric presentations of the E6 cubic-surface configuration interact through a natural half-overlap integer pairing. The complete cokernels reveal 3-primary obstructions (order 3^7), a distinct order-two difference between overlap and nonoverlap pairings, and free rank 15, data not visible in rational incidence rank or in the separate 2-primary double-six and saturated tritangent line matrices. This is a structurally motivated integral comparison, not an arbitrarily chosen submatrix.
+The characteristic-zero six-point blowdown gives the universal 27-line meeting relation. The root orthogonality argument is valid: the three intersections with a root lie in {−1,0,1} and sum to zero, so the support overlap is zero or two. Independently I constructed the meeting graph directly: E_i meets L_jk precisely when i is in {j,k}, E_i meets Q_j for i≠j, L_ij meets Q_k for k in {i,j}, and two different L-classes meet when their indices are disjoint. Three pairwise meeting lines in a smooth cubic are planar (also at an Eckardt point, by the tangent plane) and make one anticanonical section. Enumeration gives 45 meeting triples, 72 pairwise skew sixers, a unique partner each with five opposite incidences at every line, and 36 unions. It gives exactly 1080 overlaps of size two and 540 zero overlaps. Direct integer Smith reduction on these independently constructed B and J−B gives 1×15,3×5,18,0×15 and 1×14,3×7,0×15 respectively, and exact Gram characteristic polynomials corroborate both ranks. The zero rows in the Smith forms give free rank 15; extra zero columns do not affect the cokernel.
 
-The closest material is Dolgachev–Kapranov (1993), van Geemen (2001), and Alexeev and collaborators (2015), plus the two distinct published incidence-lattice results for the separate \(27\times36\) and \(27\times45\) matrices. The result concerns the \(36\times45\) integral comparison pairing, not their previously computed individual Smith forms. Open risks include an unindexed equivalent \(E_6\) permutation-module calculation. All exact computations are finite and replayable; no Picard torsion is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The contribution is the complete integer cokernels of the two relative 36-by-45 maps. Geometry, individual line incidence maps and rational configurations have substantial prior coverage. The closest examined statements give no cross-pairing Smith forms or specialized theorem giving both relative discriminants; the additional integral calculation is needed.
+
+## value
+
+PASS
+
+This compares two canonical configurations by the intrinsic containment/exclusion of lines, not a chosen submatrix. The precise relative relation quotients exhibit a 9-primary cyclic factor for overlap versus only elementary 3-torsion for nonoverlap, a discrepancy invisible in their common rank or the separate line-incidence Smith factors. These are useful invariants for integral calculations with the two configuration modules and give a meaningful comparison even without a general theorem for other root systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

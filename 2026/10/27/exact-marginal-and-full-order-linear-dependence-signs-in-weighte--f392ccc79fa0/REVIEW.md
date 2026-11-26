@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the conditional law by independent column states of probabilities \(t,t,1-2t\) and excludes two disjoint row-empty events of probability \(t^n\) each. This gives all one- and two-edge moments without numerical inference. Orthogonal symmetric/antisymmetric row modes and constant/contrast column modes yield four explicitly positive covariance eigenvalues. Inversion gives the claimed precision entries. The non-obvious strict sign of the same-column precision is proved by \(AB-(n-1)uh^2=A^2+(n-1)h(2tA-uh)>0\). Exact rational direct enumeration and matrix multiplication passed 2250 assertions for \(2\le n\le6\) at three distinct fugacities. Full-size validity is from the algebraic argument rather than the finite checker.
+## correctness
 
-## Originality — PASS with explicit priority risk
-The closest primary papers are Chen–Liu–Vigoda (arXiv:2106.03366), Eppstein–Frishberg (arXiv:2111.03898), and Chen–Gu (arXiv:2304.14289). Their inspected definitions and theorems concern edge-cover Gibbs sampling, zero-free conditions, spectral independence and mixing. These claims neither state nor algebraically imply the exact \(K_{2,n}\) three-orbit inverse-covariance signs. Related published mathematical findings about occupied-box precision concern iid occupancy rather than edge-cover constraints. Searches for exact weighted-cover covariances, precision, partial correlations, and related aliases did not yield an equivalent statement. Existing partition-function techniques could nevertheless contain an overlooked elementary specialization; historical priority is not conclusively established.
+PASS
 
-## Value — PASS
-Conditioning on every vertex being covered creates competing local endpoint constraints and global row constraints. Their net effect cannot be read off from independent-edge probabilities: incident edges repel, vertex-disjoint edges attract, and the same strict sign pattern survives regression on *all other edges*. The complete all-parameter precision law is a structural dependence statement for a basic bounded-treewidth but unbounded-degree graph family, not a collection of isolated small-case computations.
+After conditioning on each column being nonempty, the independent column states 10, 01 and 11 have probabilities t,t,u. Coverage of the left vertices removes exactly the two single-row configurations of mass h each. The edge means and joint probabilities then give v,a,b,c as stated. Independently, the symmetric coordinate is (1+1_{11})/sqrt(2) and the antisymmetric coordinate is (X_1-X_2)/sqrt(2); their cross-block covariance vanishes by row swap. The symmetric block has diagonal u(t-h)/z^2 and off-diagonal -h u^2/z^2; the antisymmetric block has diagonal (t-h)/z and off-diagonal -h/z. This gives the four claimed eigenvalues; A>0 since nt^(n-1)<1 for all n>=2, and B>A. The inverse blocks have off-diagonals zh/(tB) and zh/(tA), respectively. Transforming back gives q_c as half their difference, q_b as half their sum, q_a=z/u+q_c, and the stated q_0. For q_a the numerator AB-(n-1)uh^2=A^2+(n-1)h(2tA-uh) is strictly positive: the factor t^(n-2)(1+2(n-1)t) in (2tA-uh)/t^2 is below 2 for n=2 and at most 3/2 for n>=3. The covariance signs follow from 0<h<=t^2 and 0<t<1/2. These arguments include n=2 and every 0<p<1, and establish positive definiteness and all strict signs. The supplied checker.py was inspected, not executed; VERIFICATION.md records 2250 exact assertions for 2<=n<=6 and p in {1/5,1/2,4/5}, which is corroboration only. The symbolic check does not depend on that run.
 
-## Limitations
-No statement about non-linear conditional independence, full association, graph families with a larger left part, or arbitrary vertex degree thresholds is claimed. Historical priority and an independent audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted edge-cover measure is established, and the occupied-box catalogue result uses related linear-residual terminology. Neither gives the stated closed inverse or the joint covariance/linear-partial-correlation sign law for weighted K_{2,n}. No equivalent coverage was found in the checked evidence; this is not a priority determination.
+
+## value
+
+PASS
+
+K_{2,n} is a natural weighted cover family of growing degree with three distinct pair types, including two inequivalent types of incident edges. The exact inverse provides a nontrivial uniform residual-dependence result: the disjoint-edge sign survives linear adjustment for all other edges, even though the disjoint pair factors after literal conditioning on those edges. The proof separates marginal effects of coverage from effects of inversion and gives exact formulas useful as a benchmark for larger cover models. This is not a mixing, association or nonlinear-dependence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scalar Laurent series is holomorphic on the product annulus and is a classical weighted Szegő kernel. The cited Ramanujan–theta quotient extends it meromorphically, gives its exact multiplicative character, and shows that its sole pole in a multiplicative fundamental annulus is double after differentiation. Equal boundary winding under multiplicative quasi-periodicity forces exactly two derivative zeros, counted with multiplicity, per orbit period. Strict positivity of the second derivative on the positive real interval gives one simple positive zero. Complex conjugation, the two-zero count and simplicity then force the second orbit to be simple, real and negative. An independent uniform expansion at scale \(\sqrt Q\) establishes the signed roots and the three physical stationary-point regimes, including the one-point equality case. The finite checker replays only sample identities and cases, not the all-parameter theorem.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Katori–Shirai's 2020 preprint supplies the very same weighted annular Szegő series and theta quotient. It establishes kernel/Gaussian zero-process formulas, and does not state a complete classification of the *zeros of the holomorphic derivative*, their two real multiplicative orbits, or the physical two/one/zero phase law. Gafai–Murid–Wahid's 2022 paper derives product formulas and examines *zeros of the kernel*, not its holomorphic stationary points. The 2023 conformal-mapping investigation also studies kernel zeros. Thus the new proposition is more than a restatement of a product identity or a kernel zero count, although the known theta quotient is essential: the global derivative divisor calculation, convexity and sharp boundary perturbation are additional arguments. Published mathematical-record searches for derivative zeros, stationary points, annular theta quotients, and aliases did not locate a covering claim. Broader elliptic-function critical-point classifications or older annular function theory remain possible historical-priority risks; an independent literature audit is not performed.
+PASS
 
-## Mathematical value — PASS
-The result completely resolves the number, signs, multiplicities and deck-transformation orbits of critical points of a canonical weighted annular reproducing kernel, for every allowed nome and weight, and gives the exact bifurcation at \(t|a|^2=1\) for a shrinking geometric hole. Critical points of kernel sections encode geometry not determined by the previously studied kernel-zero problem. The equality boundary's single survivor, unlike the two generic regimes, is a genuine, motivated singular-limit classification. The claim is not presented as a result about all multiply connected domains.
+With Q the squared physical inner radius and t the weight, the theta quotient continues the series to C×. Its numerator cannot vanish at the simple positive poles Q^k; F′ consequently has exactly double poles there and transforms by the constant −1/(tQ). In a pole- and zero-free pair of boundary circles with ratio Q, the two images have equal winding, giving two zeros counted with multiplicity per fundamental annulus. On (Q,1), every term in F″ is nonnegative and some are positive, while F′ tends to −∞ and +∞ at the two ends by its respective geometric-series tails. Thus there is one simple positive zero; conjugation on the same annulus rules out a nonreal remaining zero, leaving one simple negative orbit. A negative boundary representative genuinely can occur: F_(tQ)(s)=s⁻¹F_t(s) by reindexing. F_1 has a simple kernel zero at −1, so F′_Q(−1)=−F′_1(−1) when the subscript denotes weight at fixed nome, and continuity in weight gives a boundary derivative zero for some t in (Q,1). For the asymptotic, writing ε=√Q gives a locally uniformly convergent derivative expansion holomorphic in ε near zero on small neighborhoods of u=±1/√t: the positive and negative index m contributions have denominators 1+tε^(2m) and t+ε^(2m), respectively, and both have geometric tails. The zero continuation at each simple limiting root has first correction (t−1)ε/t; multiplying by ε gives the stated expansion. The physical range √Q|a|<|s|<|a| lies inside the original scalar annulus for small Q. At equality t|a|²=1 the correction is positive since t>1, selecting just the aligned root, while the strict cases follow from the limiting moduli. The supporting numerical script was inspected, not executed; it is finite corroboration, not the all-parameter certificate.
 
-## Sources and limitations
-Katori–Shirai, arXiv:2008.04177 (2020), equations (1.4) and (1.6), and §2.2, full accessible publisher text; Gafai–Murid–Wahid, arXiv:2202.09114 (2022), §§3,5 full accessible PDF; Gafai et al., AIMS Mathematics 2023, DOI 10.3934/math.2023607 (abstract and publication description inspected, not all article pages). The finite script uses `mpmath>=1.3`. The proof establishes only the stated weighted family, with an eventual fixed-parameter physical count. No effective uniform threshold or arbitrary-annulus conformal invariance follows.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The series, theta quotient and quasi-periodicity are known and not the distinct contribution. The inspected strongest annular sources characterize kernel zeros rather than the continued derivative's real simple divisor or the shrinking-hole stationary-point trichotomy. Exact catalogue comparison returned the frozen result itself. The originality judgment is bounded by the checked evidence.
+
+## value
+
+PASS
+
+This gives a full stationary-point classification for a natural nontrivial weighted kernel, including an exclusion of all nonreal derivative zeros. The small-hole expansion resolves a genuine geometric boundary where the leading term cannot decide whether the critical points remain in the physical annulus, and supplies an exact eventual count rather than isolated computed locations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

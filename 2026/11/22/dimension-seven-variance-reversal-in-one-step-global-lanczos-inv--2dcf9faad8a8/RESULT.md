@@ -1,85 +1,71 @@
 # Dimension-seven variance reversal in one-step global Lanczos inverse-trace correction
 
 ## Finding
-Let \(A\in\mathbb R^{n\times n}\) be real symmetric positive definite with exactly two distinct eigenvalues \(0<a<b\), with multiplicities \(p\) and \(q\) respectively, \(n=p+q\ge2\). Put \(\mu=(pa+qb)/n\). Consider the one-step full-size global Lanczos approximation to \(\operatorname{tr}(A^{-1})\), corrected with \(s\ge1\) independent Rademacher Hutchinson probes. Compare it with ordinary Hutchinson using the same probes and exact inverse products. Their **centered errors agree samplewise up to the exact scalar**
-\[
-G_s-\operatorname{tr}(A^{-1})=\left(1-\frac{ab}{\mu^2}\right)\bigl(T_s-\operatorname{tr}(A^{-1})\bigr).
-\]
-Thus, whenever the ordinary Hutchinson variance is nonzero, the corrected-to-ordinary variance ratio is
-\[
-R=\left(1-\frac{ab}{\mu^2}\right)^2.
-\]
-This ratio is independent of the probe budget and eigenvectors; the samplewise identity also holds when both variances vanish.
 
-Write \(\kappa=b/a>1\). When ordinary Hutchinson has nonzero variance, the correction eliminates its random error for every probe realization precisely when \(p>q\) and \(\kappa=(p/q)^2\). Degenerate matrices with diagonal \(A^{-1}\) have zero sign-probe variance in both estimators at any contrast. **Strict variance amplification** is possible for some \(\kappa>1\) precisely when
+Let \(A\in\mathbb R^{n\times n}\) be real symmetric positive definite with exactly two eigenvalues \(0<a<b\), of multiplicities \(p,q\ge1\), respectively, and set \(n=p+q\), \(\mu=(pa+qb)/n\), and \(\kappa=b/a>1\). Let \(G_s\) be the one-step full-size global Lanczos inverse-trace estimate with a Hermite-residual correction using \(s\ge1\) independent Rademacher probes, and \(T_s\) ordinary Hutchinson with the same probes and exact inverse products. For every realization,
 \[
-\frac pq>3+2\sqrt2.
+G_s-\operatorname{tr}(A^{-1})=\left(1-\frac{ab}{\mu^2}\right)\left(T_s-\operatorname{tr}(A^{-1})\right).
 \]
-For those multiplicities, amplification occurs exactly for \(\kappa_-<\kappa<\kappa_+\), with
+If the ordinary variance is nonzero, the corrected-to-ordinary variance ratio is
+\[
+R=\left(1-\frac{ab}{\mu^2}\right)^2=\left(1-\frac{n^2\kappa}{(p+q\kappa)^2}\right)^2.
+\]
+The ratio is independent of the eigenvectors and probe budget in the nonzero-variance case. Diagonal \(A\) gives zero variance for both estimators, and the samplewise identity still holds. In the nonzero-variance case the correction is exact for every realization if and only if \(p>q\) and \(\kappa=(p/q)^2\).
+
+**Sharp range of variance amplification.** At fixed multiplicities with \(p/q>3+2\sqrt2\), the correction strictly amplifies variance exactly for \(\kappa_-<\kappa<\kappa_+\), where
 \[
 \kappa_\pm=\left(\frac{n/\sqrt2\pm\sqrt{n^2/2-4pq}}{2q}\right)^2.
 \]
-The maximum variance ratio at fixed multiplicities is
-\[
-\frac{(p-q)^4}{16p^2q^2},\qquad\text{attained at }\kappa=p/q.
-\]
-Consequently **seven is the smallest dimension** permitting variance amplification: for \(n\le6\) the correction never has greater Rademacher variance than ordinary Hutchinson, whereas in dimension seven the spectrum with six eigenvalues \(1\) and one eigenvalue \(6\) has the exact variance ratio \(625/576>1\). At the dimension-seven reversal example, the correction residual has *smaller total Frobenius norm* despite greater sign-probe variance: \(\|M\|_F^2/\|A^{-1}\|_F^2=625/2976<1\). This separates ordinary matrix approximation quality from the off-diagonal statistic that controls Rademacher variance.
+In this regime the unique maximum over \(\kappa>1\) is \((p-q)^4/(16p^2q^2)\), attained at \(\kappa=p/q\). For all other integer multiplicities, \(R<1\) at every finite \(\kappa>1\), and \(\sup_{\kappa>1} R=1\) is approached as \(\kappa\to\infty\) but is not attained. In particular the value at the interior stationary contrast, when it exists, is not always a global maximum.
 
-Among all two-level spectra of order \(n\ge7\), the largest possible ratio is
+**Minimum dimension and Frobenius contrast.** Seven is the least dimension permitting strict variance amplification. For six eigenvalues \(1\) and one \(6\), with nonzero ordinary variance, the ratio is \(625/576>1\). Even there, the Hermite residual satisfies \(\|M\|_F^2/\|A^{-1}\|_F^2=625/2976<1\). For each \(n\ge7\), the largest possible ratio among all two-level spectra is
 \[
 \frac{(n-2)^4}{16(n-1)^2},
 \]
-attained with \(p=n-1\), \(q=1\), \(\kappa=n-1\) and a noncoordinate-aligned spike. In the same single-spike family, \(\kappa=(n-1)^2\) makes the corrected estimator exact with one sign probe.
+attained at \(p=n-1,q=1,\kappa=n-1\) with a noncoordinate-aligned spike. In the same spike family \(\kappa=(n-1)^2\) makes the corrected estimator exact with one sign probe.
 
 ## Assumptions and scope
-The inverse products, Lanczos step, Hermite residual and quadratic forms are evaluated in exact arithmetic. The full-size global Lanczos process starts with \(B=I_n\), and is stopped at one node. The test vectors \(z_1,\ldots,z_s\) have independent equiprobable entries in \(\{-1,+1\}\), independent across probes. The comparison uses the same vectors for both estimators. Set
+
+All arithmetic, including inverse products, is exact. Full-size global Lanczos starts at \(I_n\) and stops at one node. The \(z_j\) are real sign vectors whose entries are independent and equiprobable on \(\{-1,1\}\), independent over probes. The definitions used are
 \[
-T_s=\frac1s\sum_{j=1}^s z_j^{\mathsf T}A^{-1}z_j,
-\quad h(x)=\frac2\mu-\frac{x}{\mu^2},\quad M=A^{-1}-h(A),
-\quad G_s=\frac n\mu+\frac1s\sum_{j=1}^s z_j^{\mathsf T}Mz_j.
+T_s=\frac1s\sum_{j=1}^s z_j^{\mathsf T}A^{-1}z_j,\qquad h(x)=\frac2\mu-\frac{x}{\mu^2},\qquad M=A^{-1}-h(A),\qquad
+G_s=\frac n\mu+\frac1s\sum_{j=1}^s z_j^{\mathsf T}Mz_j.
 \]
-The formula for \(G_s\) is the one-step global Lanczos--Hermite Hutchinson correction. A diagonal \(A\) has zero Rademacher variance for both procedures; in that case \(R\) is undefined and no ratio is claimed. The scalar identity remains valid for every \(A\) under the stated assumptions.
+The ratio refers only to matrices with positive ordinary Hutchinson variance. For every \((p,q,\kappa)\) in scope there are such matrices: start with a diagonal model and rotate a coordinate with eigenvalue \(a\) and one with eigenvalue \(b\) by \(\pi/4\), giving a nonzero off-diagonal entry of \(A^{-1}\).
 
 ## Proof
-**Lanczos node and interpolant.** With normalized full-size starting block \(I_n/\sqrt n\), the first global Lanczos diagonal coefficient is \(\langle I_n/\sqrt n,A I_n/\sqrt n\rangle_F=\operatorname{tr}(A)/n=\mu\). The one-node Gaussian quadrature gives \(n f(\mu)=n/\mu\) for \(f(x)=1/x\). Hermite interpolation at that one node imposes \(h(\mu)=f(\mu)\) and \(h'(\mu)=f'(\mu)\), hence \(h(x)=2/\mu-x/\mu^2\).
 
-**Two-level minimal polynomial.** On each eigenspace \(x\in\{a,b\}\), \(x+(ab)/x=a+b\). Functional calculus gives
+**One-node formula and samplewise reduction.** The first diagonal coefficient with normalized starting block \(I_n/\sqrt n\) is \(\langle I_n/\sqrt n,A I_n/\sqrt n\rangle_F=\mu\). For the inverse function \(f(x)=1/x\), the one-node quadrature gives \(nf(\mu)=n/\mu\). Matching value and derivative at \(\mu\) gives the stated \(h\), with \(\operatorname{tr}(h(A))=n/\mu\). The identity \(x+ab/x=a+b\) on both eigenspaces gives \(A=(a+b)I_n-abA^{-1}\), so
 \[
-A=(a+b)I_n-abA^{-1}.
+M=\alpha A^{-1}+\beta I_n,\qquad \alpha=1-\frac{ab}{\mu^2},\qquad \beta=\frac{a+b}{\mu^2}-\frac2\mu.
 \]
-Consequently
-\[
-M=A^{-1}-\frac2\mu I_n+\frac A{\mu^2}
-=\alpha A^{-1}+\beta I_n,
-\quad \alpha=1-\frac{ab}{\mu^2},\quad \beta=\frac{a+b}{\mu^2}-\frac2\mu.
-\]
-Every sign vector has \(z^{\mathsf T}I_nz=n\), and exact Gaussian-quadrature polynomial exactness gives \(\operatorname{tr}(h(A))=n/\mu\). Therefore the random part of \(G_s\) is exactly \(\alpha\) times that of \(T_s\), proving the centered identity. In particular \(\operatorname{Var}(G_s)=\alpha^2\operatorname{Var}(T_s)\), without a distributional approximation.
+For every sign vector \(z\), \(z^{\mathsf T}I_nz=n\). Thus subtracting \(\operatorname{tr}(A^{-1})=n/\mu+\operatorname{tr}(M)\) from \(G_s\) cancels the identity part of the residual on each probe, which proves the scalar samplewise error formula. The estimators are unbiased since \(\mathbb E z_jz_j^{\mathsf T}=I_n\). For symmetric \(D\), \(z^{\mathsf T}Dz-\operatorname{tr}D=2\sum_{i<j}D_{ij}z_i z_j\); the summands are uncorrelated for distinct pairs. Thus \(\operatorname{Var}(T_s)=4s^{-1}\sum_{i<j}(A^{-1})_{ij}^2\), which is zero exactly when \(A^{-1}\), equivalently \(A\), is diagonal. If this variance is positive, the ratio is exactly \(\alpha^2\).
 
-**Phase classification.** Scale \(a=1\), so
+**Classification at fixed multiplicities.** Write \(H(\kappa)=n^2\kappa/(p+q\kappa)^2\), so \(\alpha=1-H\). The equation \(\alpha=0\) factors as \((\sqrt\kappa-1)(q\sqrt\kappa-p)=0\). Its nontrivial root is admissible exactly when \(p>q\). For any fixed multiplicities, \(H(1)=1\), \(H\) is positive, and \(H(\kappa)\to0\) as \(\kappa\to\infty\). Its derivative is
 \[
-\alpha(\kappa)=1-\frac{n^2\kappa}{(p+q\kappa)^2}.
+H'(\kappa)=\frac{n^2(p-q\kappa)}{(p+q\kappa)^3}.
 \]
-Solving \(\alpha=0\) is equivalent to \((\sqrt\kappa-1)(q\sqrt\kappa-p)=0\). The nontrivial root is admissible exactly when \(p>q\). For \(p>q\), the positive function \(n^2\kappa/(p+q\kappa)^2\) has a unique maximum on \(\kappa>1\) at \(\kappa=p/q\), with value \(n^2/(4pq)\). For \(p\le q\), this function decreases on \(\kappa>1\), so \(0<\alpha<1\) and amplification is impossible. In the \(p>q\) case, \(\alpha\) takes its minimum \(1-n^2/(4pq)=-(p-q)^2/(4pq)\) there. As \(\kappa>1\) implies \(\alpha<1\), amplification \(\alpha^2>1\) is equivalent to \(\alpha<-1\), i.e. \(n^2>8pq\) with the maximizing point in the domain. This is exactly \(p/q>3+2\sqrt2\). Solving \(\alpha=-1\) as a quadratic in \(\sqrt\kappa\) gives the two stated endpoints and their interval; both exceed one when the strict condition holds.
+If \(p\le q\), then \(0<H<1\) for \(\kappa>1\). If \(p>q\), its unique maximum on that domain is \(n^2/(4pq)\), at \(\kappa=p/q\). Since \(H>0\), variance amplification is equivalent to \(H>2\). Thus it is possible exactly when \(p>q\) and \(n^2>8pq\), or equivalently when \(p/q>3+2\sqrt2\). Equality at this threshold is impossible for integer multiplicities. Solving \(H=2\) gives the two stated endpoints by the quadratic formula in \(\sqrt\kappa\); both lie beyond 1 because the peak lies beyond 1, \(H(1)=1\), and \(H\) decreases to 0 beyond the peak.
 
-**Sharp dimension and examples.** For a fixed \(n\), \(pq\ge n-1\) with equality at multiplicities \((n-1,1)\); the maximum negative \(\alpha\) is realized by the latter ordering. Since \(n^2>8(n-1)\) first holds at \(n=7\), the minimum dimension follows, and the maximum ratio for \(n\ge7\) is \([1-n^2/(4(n-1))]^2=(n-2)^4/[16(n-1)^2]\). At \(n=7,\ p=6,\ q=1,\kappa=6\), \(\mu=12/7\) and \(\alpha=-25/24\). The amplification interval is exactly \((9/2,8)\). In this example the residual eigenvalues are \(25/144\) (sixfold) and \(25/24\) (once), while the inverse eigenvalues are \(1\) (sixfold) and \(1/6\) (once). Thus \(\|M\|_F^2=4375/3456\), \(\|A^{-1}\|_F^2=217/36\), and their ratio is \(625/2976\). At \(\kappa=36\), \(\mu=6\), \(\alpha=0\).
+On the amplifying interval, \(R=(H-1)^2\) is strictly increasing as a function of \(H\), and outside the interval \(R\le1\). Hence the unique maximum in the amplifying regime is \((n^2/(4pq)-1)^2=(p-q)^4/(16p^2q^2)\). In the nonamplifying cases \(0<H<2\) at every finite admissible contrast, so \(R<1\) everywhere while its large-contrast limit is 1. This proves the contrasting, nonattained supremum in that regime.
 
-To witness positive ordinary variance, choose \(A=I_n+(\kappa-1)vv^{\mathsf T}\) with \(v=(1,\ldots,1)^{\mathsf T}/\sqrt n\). Its inverse is \(I_n+(\kappa^{-1}-1)vv^{\mathsf T}\), whose off-diagonal part is nonzero for \(n\ge2\) and \(\kappa>1\). Direct Rademacher fourth moments give
-\[
-\operatorname{Var}(T_s)=\frac{2(n-1)}{sn}(1-\kappa^{-1})^2>0.
-\]
-These choices establish attainment of the variance ratios rather than only formal extrema.
+**Sharp dimension and examples.** For fixed \(n\), \(pq\ge n-1\), with equality at the extreme multiplicities. The order \(p=n-1,q=1\) places the maximizing point in the domain for \(n\ge7\); among amplifying choices it maximizes \(n^2/(4pq)\), and the nonamplifying choices cannot compete with its ratio. The inequality \(n^2>8(n-1)\) first holds at \(n=7\) among integers \(n\ge2\). At \(n=7,p=6,q=1,\kappa=6,a=1\), one has \(\mu=12/7\), \(\alpha=-25/24\), and the amplification interval is \((9/2,8)\). The residual eigenvalues are \(25/144\) (sixfold) and \(25/24\) (once), versus \(1\) (sixfold) and \(1/6\) (once) for the inverse. Squaring and summing gives \(\|M\|_F^2=4375/3456\) and \(\|A^{-1}\|_F^2=217/36\), proving the asserted Frobenius contrast. An explicit positive-variance witness is \(A=I_n+(\kappa-1)vv^{\mathsf T}\) with \(v=(1,\ldots,1)^{\mathsf T}/\sqrt n\); its inverse has off-diagonal entries \((\kappa^{-1}-1)/n\), giving variance \(2(n-1)(1-\kappa^{-1})^2/(sn)\). At \(\kappa=(n-1)^2\), \(\alpha=0\) by the nontrivial root above.
 
 ## Verification
-The accompanying standalone `verify.py` implements rational-arithmetic matrix products and exact exhaustive enumeration of sign vectors. It compares the actual one-step Hermite residual against the scalar matrix identity for rotated two-level spectra with each \(2\le n\le8\), every \(1\le p<n\), and two positive integer contrasts; it separately checks flat single-spike matrices at four contrasts and verifies the seventh-dimensional algebraic boundaries. The run reports `VERIFY_OK | 84 exact matrix families | 8184 exhaustive sign-vector comparisons`. All finite computations corroborate the algebraic proof; they do not establish it for arbitrary dimension.
+
+The accompanying `verify.py` is a standard-library exact-rational check of the residual matrix identity and samplewise centered relation. The recorded run (`VERIFY_OK | 84 exact matrix families | 8184 exhaustive sign-vector comparisons`) covers two-level spectra in dimensions 2 through 8 at finitely many contrasts, including explicit flat-spike checks and rational checks of the thresholds and norm ratio in dimension seven. It does not certify the optimization over the continuous contrast parameter; that classification is proved analytically above.
 
 ## Relationship to prior work
-Rinelli, Simunec and Vermeiren introduce full-size global Lanczos with a Hermite-based stochastic error correction and give the corresponding Hutchinson variance law. Their general construction supplies the correction being evaluated; the present two-eigenvalue samplewise reduction and sharp multiplicity/dimension classification are not stated in the examined text. Gambhir, Stathopoulos and Orginos discuss variance behavior of inverse-trace spectral deflation; spectral deflation is not the same as the one-node deterministic Hermite correction. Chen and Hallman's Krylov-aware estimator uses randomized block-Krylov deflation rather than the deterministic full-size one-node correction. The general Rademacher fourth-moment identity is classical and is not claimed as new. This theorem is a specific, exactly characterized risk boundary for the recent correction, not a claim that variance amplification was previously unknown in control-variate estimation generally.
+
+Rinelli, Simunec and Vermeiren [1] introduce full-size global Lanczos with a Hermite-based stochastic error correction and give the corresponding Hutchinson variance law. The three-eigenvalue study [4, Proof, Step 4] gives the same two-level Rademacher variance ratio by off-diagonal scaling, which for signs also implies the samplewise multiplier. That identity is included here as the basis of the analysis rather than as a separate novelty claim. The contribution is the sharp two-level classification in multiplicity, contrast, and dimension, together with the exact seven-dimensional Frobenius-norm comparison. Neither generic control-variate amplification nor the Rademacher fourth-moment identity is claimed as new. Gambhir, Stathopoulos and Orginos [2] discuss variance behavior of inverse-trace spectral deflation; Chen and Hallman [3] use randomized block-Krylov deflation. Neither deflation procedure is the deterministic one-node Hermite correction considered here.
 
 ## Limitations
-No claim is made for Gaussian probes: \(z^{\mathsf T}Iz\) is then random, and the samplewise scalar identity need not hold. No claim is made for matrices with more than two eigenvalues, additional Lanczos nodes, approximate matrix-function evaluations, algorithmic wall-clock cost, floating-point stability, or relative-error confidence bounds. When the ordinary Rademacher variance vanishes, the ratio is undefined. Novelty is based on inspected sources and searchable records, not an exhaustive historical priority proof. Independent mathematical validation has not been performed.
+
+No claim is made for Gaussian probes, arbitrary spectra, more Lanczos nodes, approximate inverse products, floating-point stability, or runtime. The Frobenius comparison concerns a concrete reversal example, not all spectra in the amplification regime. The originality comparison is limited to inspected sources and does not determine exhaustive historical priority.
 
 ## References
-1. M. Rinelli, I. Simunec, R. Vermeiren, *Global Lanczos with stochastic error correction for trace estimation of matrix functions*, arXiv:2611.18864, original submission 2026-11-13, https://arxiv.org/abs/2611.18864.
+
+1. M. Rinelli, I. Simunec, R. Vermeiren, *Global Lanczos with stochastic error correction for trace estimation of matrix functions*, arXiv:2611.18864, https://arxiv.org/abs/2611.18864.
 2. H. Gambhir, A. Stathopoulos, K. Orginos, *Deflation as a Method of Variance Reduction for Estimating the Trace of a Matrix Inverse*, arXiv:1603.05988, https://arxiv.org/abs/1603.05988.
 3. T. Chen, E. Hallman, *Krylov-aware stochastic trace estimation*, arXiv:2205.01736, https://arxiv.org/abs/2205.01736.
-4. L. Wu, J. Laeuchli, V. Kalantzis, A. Stathopoulos, E. Gallopoulos, *Estimating the Trace of the Matrix Inverse by Interpolating from the Diagonal of an Approximate Inverse*, arXiv:1507.07227, https://arxiv.org/abs/1507.07227.
+4. *A three-eigenvalue variance separation for Hermite-corrected global Lanczos*, https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-three-eigenvalue-variance-separation-for-hermite-corrected-glo--9b31e66832f2.

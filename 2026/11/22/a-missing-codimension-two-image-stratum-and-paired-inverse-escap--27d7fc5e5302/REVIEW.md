@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(a,b,c>0\), the first output forces either \(y=0\) or the two explicit signs \(y=\pm\sqrt{X/a}\). The fourth and third outputs determine \(w\) and \(x\), and the second is a one-dimensional linear equation in \(z\), with an exactly classified zero-coefficient exception. The two simultaneous zero-coefficient equations force the missing stratum, while the derivative determinant gives the complete finite critical locus. At \(X=2a,W\to0\), direct substitution yields the common pole \(-Y/(2bW)\). These algebraic arguments include all real output coordinates and degenerate cases. The standalone checker recomputes key identities; numerical examples are diagnostics rather than substitutes for proof.
+PASS
 
-## Originality — PASS within inspected sources
+For a,b,c>0, the square first coordinate rules out X<0; at X=0 it forces y=0 and precisely an affine line if Y=0, otherwise nothing. At X>0 the two signs of y are disjoint. Setting x=1-Z/c and w=W-y leaves exactly Y=b y(1-w^2/2)(1-z). The nonzero coefficient gives one point; a zero coefficient gives a line for Y=0 and no point otherwise. At r=sqrt(X/a)>0 simultaneous vanishing means (W-r)^2=(W+r)^2=2; subtraction forces W=0 and then X=2a. Thus only the specified stratum is missing inside X>0, and X>0 off the stratum is dense in X>=0. Expanding the determinant using the first and third rows gives abc y^2(2-w^2); its critical locus is y=0 or w=+/-sqrt(2), with the listed images, all in Y=0. Along X=2a, fixed nonzero Y and fixed Z, the two denominators are b W(2-sigma W/sqrt(2)), giving regular inverse points and lim W z_sigma=-Y/(2b) on both branches. The conclusion about a common pole is restricted to that specified approach, not claimed along arbitrary paths. The frozen symbolic checker was inspected, not executed; exhaustive scalar elimination, not numerical tests, establishes the classification.
 
-The full open-access 2023 original (Equation (14) and later dynamics sections) was inspected; it treats forward trajectories and fixed points, not the complete inverse image. Published comparisons for the three-dimensional parabolic subsystem, cosine-memristive maps, and inverse sheets of coupled polynomial maps use distinct state equations; none includes the four-dimensional term \((1-w^2/2)y(1-z)\) coupled to the accumulated memory \(w+y\). A search by original title, equations, inverse fibers, zero memristance and asymptotic outputs returned no exact match. Residual risk: an unindexed inverse-mapping analysis may exist. Search absence alone is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Complete inverse fibers are natural for a noninvertible map investigated using chaos and recurrent motion. The exceptional hole is inside the half-space permitted by the obvious square-coordinate bound; it is **not** a finite critical-value caustic. That distinction matters for backwards state reconstruction and inverse-transfer considerations: inverse states disappear at infinity, not by coalescing at finite critical points. The all-parameter image and fiber classification, together with the two-sheet pole, are structural rather than isolated substitutions or arbitrary finite counts.
+The 2023 paper supplies the exact map and computes fixed-point linearization, rather than answering the global target-space inverse problem. The structural result is the simultaneous loss of both finite sheets on a noncritical interior stratum, with a common signed inverse residue on a specified slice; neither the map definition, a local Jacobian nor a positive forward-rate theorem classifies this geometry.
 
-## Closest literature and limits
+## value
 
-Wang et al., *Symmetry* **15** (2023) 1879, https://doi.org/10.3390/sym15101879, is the origin of the exact state map. Different three-dimensional parabolic two-cycle classifications and cosine-memristive inverse-fiber results are analogous but do not imply the present four-dimensional result. The statement does not classify forward chaotic attractors or inverse geometry on bounded physical observation windows. Other unpublished or unindexed overlap is possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural inverse question for this recurrent map is where a real target has no, finite, or positive-dimensional antecedents. The classification includes all targets and parameters in scope, locates an interior hole not due to finite criticality, and gives quantitative loss of both regular antecedents at infinity on a natural fixed-X slice. This distinguishes nonproper backward state loss from finite merging and supplies an exact domain and branching description for backward reconstruction. Elementary proof length does not remove that structural distinction; the result makes no claims about practical inversion, bounded physical domains or forward chaos.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

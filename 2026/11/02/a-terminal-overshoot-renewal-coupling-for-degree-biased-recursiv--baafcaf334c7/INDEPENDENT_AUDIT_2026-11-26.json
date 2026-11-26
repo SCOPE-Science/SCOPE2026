@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:51:31.897077Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 27–89",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 10–115",
+        "Eslava–López–Ortiz arXiv:2408.05168v2, Propositions 1.2–1.3",
+        "Independent exact rational recursions: transition states 2–30; count distributions at sizes 2–15, verifying normalization, the mixture and stochastic order"
+      ],
+      "rationale": "The cited recursive-tree splitting property and kernel apply to exactly the stated parent-endpoint rule. Telescoping the harmonic mass gives Q_m=(H_(m-1)+1)/m and Q_2=1. The acceptance b_m/Q_m is in [0,1] and, after a rejected overshoot and conditional redraw below m, the mass at k<m is q_k(1-b_m)/(1-Q_m)=m q_k/(m-1). The m=2 redraw branch is unused. Before first crossing n-1, every jump is copied. A terminal jump m-1 leaves one vertex; a strict overshoot ends the cut count in the same step if accepted. Rejection can only delay the cut count, not make it earlier; even a rejection can leave exactly one vertex, so the error bound is an upper bound. The small residual event forces a renewal visit at one of n-M+1 through n-2. The renewal mass vanishes by the infinite-mean lattice renewal theorem; this can also be seen directly: along a subsequence where u(n) approaches its limsup L, the renewal recursion and q_k>0 for k>=2 force each fixed lag u(n-k), k>=2, to approach L, since all other fixed-lag limsups are at most L and the contribution of the tail of q is uniformly small. The last-renewal identity sum from k=0 to n of u(n-k)Pr(zeta>k)=1 thus forces L=0 by the divergent tail sum. Fixing M and then increasing M gives vanishing coupling error and total variation. At j=floor(2cn/log^2 n), the truncated sum divided by n has expectation tending to c and variance O(1/log n); above-truncation jumps have probability O(1/log n). Monotone inversion gives the stated weak law for the first-passage time and transfers it to the cut count.",
+      "residual_risks": [
+        "The finite checks do not prove the coupling or limit and the frozen script was not executed. The renewal bound is symbolic in u(r); it is not a numerical total-variation rate or a moment asymptotic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general normalized-truncation recursion takes probabilities proportional to a single fixed mass truncated to allowable decrements. The actual full-deletion atom is H_(m-1)/(m-1), not the harmonic jump mass under that normalization."
+        ],
+        "reasoning": "The general absorption theorem cannot simply be substituted for this kernel. Renewal tools are reusable but do not supply either the state-dependent correction or its terminal-disagreement estimate.",
+        "searches": [
+          "Iksanov–Möhle arXiv:0710.5826v1, normalized decrement hypothesis and recursive-tree example",
+          "Eslava–López–Ortiz arXiv:2408.05168v2, Remark 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 97–115",
+        "arXiv:2408.05168v2 and arXiv:0710.5826v1",
+        "Resultary eec88f3506ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 3.3 identifies instant deletion as an obstacle to an uncorrected approximation. The earlier uniform-edge model has non-harmonic mass proportional to 1/[k(k+1)], unlike the mass in the frozen finding."
+        ],
+        "reasoning": "The one-sided barrier domination gives at most the upper side of the actual first-order law; it does not couple K_n from below to first passage or identify the probability of disagreement. The known uniform-edge coupling is a method precedent, not a result for the harmonic mass with an instant root-deletion atom.",
+        "searches": [
+          "arXiv:2408.05168v2, Theorems 1.5–1.6 and Remark 3.3",
+          "arXiv:0710.5826v1, pp. 2 and 5; uniform-edge Iksanov–Möhle reference DOI 10.1214/ECP.v12-1253"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.5 of the exact-model paper gives K_n <=_d J_n, and Theorem 1.6 gives the weak law for J_n. These refer to a barrier count, not first crossing of n-1 by independent unbounded jumps with terminal overshoot correction.",
+          "Resultary eec88f3506ed treats terminal activation in an exponentially age-biased model and expressly excludes degree-biased choices."
+        ],
+        "reasoning": "The event of being first across a threshold permits a final overshoot and terminates; suppressing disallowed jumps in a barrier walk is not equivalent. Age bias does not implement the stated edge-parent rule.",
+        "searches": [
+          "Resultary searches for terminal-overshoot coupling, degree-biased recursive-tree cutting and Remark 3.3, uniform-edge renewal coupling and normalized absorption recursions",
+          "arXiv:2408.05168v2, §§1 and 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact one-step probabilities are already available in Proposition 1.3. The reviewed finite rational count checks are reproductions, not independent claims of novelty."
+        ],
+        "reasoning": "The core is an all-size stochastic comparison and limit rather than a finite census. Even an exact table of one-cut probabilities does not state the joint coupling or imply TV convergence without further argument. No material count-level catalogue match was found in the bounded search.",
+        "searches": [
+          "Resultary terminal-overshoot and harmonic-jump absorption searches; degree-biased primary paper Propositions 1.2–1.3"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact terminal overshoot correction for the specified degree-biased chain, its vanishing count-disagreement bound, and the resulting weak law for the actual cuts. The harmonic decrement formula is prior work, as is an asymptotic for a different barrier walk. The inspected primary statements do not imply the new count approximation.",
+      "residual_risks": [
+        "The primary search and catalogue queries were bounded; failure to retrieve other matches is not a proof of priority. The publisher copy of the 2007 uniform-edge paper and the cited Blackwell encyclopedia entry were not read in this attempt."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact kernel and comparison-walk result, not the frozen count coupling",
+          "evidence": [
+            "Exact p_m(k), the whole-tree atom b_m, and conditional uniformity",
+            "J_n stochastically dominates K_n; scale theorem for J_n; atom identified as an obstruction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.05168v2",
+          "material_read": "Version header; Propositions 1.2–1.3, p. 3 at OA offset 10050; Theorems 1.5–1.6; introduction p. 4 offset 13450; Remark 3.3 p. 9 offset 32453",
+          "method": "OA primary PDF passages",
+          "title": "A degree-biased cutting process for random recursive trees",
+          "trigger": "Identical cutting rule and strongest prior comparison"
+        },
+        {
+          "assessment": "Different transition rule; confirms the comparison with the uniform-edge literature",
+          "evidence": [
+            "Normalized-truncation probabilities; uniform-edge decrement n/((n-1)k(k+1))"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.5826",
+          "material_read": "pp. 2 and 5 at OA offsets 5290 and 11950; reference p. 32 offset 81813",
+          "method": "OA primary PDF passages",
+          "title": "On a random recursion related to absorption times of death Markov chains",
+          "trigger": "Potential general absorption theorem and earlier uniform-edge model"
+        },
+        {
+          "assessment": "Known relevant method in a different kernel; no absence claim about its full text",
+          "evidence": [
+            "Accessible treatment identifies non-harmonic uniform-edge kernel"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/ECP.v12-1253",
+          "material_read": "Bibliographic reference via arXiv:0710.5826 and that paper's treatment of the uniform-edge model; original full text not read",
+          "method": "Publisher retrieval unsuccessful; used the separate accessible article for the model comparison",
+          "title": "A probabilistic proof of a weak limit law for the number of cuts needed to isolate the root of a random recursive tree",
+          "trigger": "Original renewal coupling in related cutting problem"
+        },
+        {
+          "assessment": "Different model, bias and statistic",
+          "evidence": [
+            "Exponentially age-biased process with terminal-event Poisson asymptotic; scope excludes degree-biased choices"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-poisson-activation-of-terminal-bottlenecks-in-weakly-age-biased--eec88f3506ed",
+          "material_read": "Mirrored finding and scope",
+          "method": "Local Resultary search and mirror",
+          "title": "Poisson activation of terminal bottlenecks in weakly age-biased recursive graphs",
+          "trigger": "Closest catalogue result by terminal and bias terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–25 and 55–89",
+        "arXiv:2408.05168v2, Theorems 1.5–1.6 and Remark 3.3"
+      ],
+      "rationale": "This resolves the natural first-order scale for the actual cut count rather than only its previously analyzed upper comparison. It turns the problematic full-deletion atom into an acceptance correction and obtains the stronger count-level total-variation statement with a model-specific finite bound.",
+      "residual_risks": [
+        "No quantitative rate, convergence of means, second-order fluctuation law or pathwise tree-geometry comparison is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

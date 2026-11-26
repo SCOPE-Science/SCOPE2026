@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact minimal winning coalitions are pairwise incomparable and exhaust the winning-rule minima. The normalized Deegan–Packel weights follow directly from membership multiplicities, yielding the displayed closed form. An explicit polynomial factorization supplies the if-and-only-if increase threshold, a product of two bounded factors supplies the strict amplification bound, and an explicit integer sequence reaches the bound in the limit. Parameter exclusions establish 13 as the minimum *within this family*, and an exact adjacent-difference factorization proves one-turn behavior. The standalone coalition-based `Fraction` program completed 880 fresh exact checks; finite experiments are corroboration, not proofs.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The closest motivating source, Abe (arXiv:2606.05655), is inspected through the relevant primary full-text sections on the index, uniform voter replication, and extensions of institutional seat classes. Abe's uniform replication replaces *every* seat, yielding concentration divided by the replica count; the new statement is about splitting only the co-required veto seat while committees remain unchanged, which his uniform formula does not imply. The relevant published power-index ranking and local-monotonicity analyses concern rankings rather than changes in the total squared concentration under selective subdivision. The accessible Lasisi–Allan work on annexation/merging was examined only at abstract level and remains a priority risk. These mathematical differences support provisional originality, not a claim that unsuccessful searches establish uniqueness.
+PASS
 
-**Mathematical value — PASS.** The theorem resolves a natural institutional sensitivity question for an important concentration measure: does splitting one veto role into multiple co-necessary seats necessarily disperse measured power? Its exact answer is unexpectedly negative, with a sharp criterion, a nearly \(t\)-fold amplification envelope, a structural first-size witness, and complete dependence on the number of split veto seats. The phenomenon is not merely a numerical recomputation or an arbitrary isolated configuration.
+The m minimal winners are exactly the veto bloc united with each respective committee. Each veto seat has normalized DP weight 1/(a+t); each committee seat has weight 1/[m(a+t)], yielding C(t)=(mt+a)/[m(a+t)^2]. Clearing the positive denominators in C(t)-C(1) leaves (t-1)[m(a^2-t)-a(2a+t+1)]. The ratio is the product of (t+a/m)/(1+a/m)<t and ((a+1)/(a+t))^2<1; along m=a^2 both factors approach their bounds. For the one-to-two comparison, m<=2 or a=1 cannot work, a=2 needs m>=8, a=3 needs m>=4, and a>=4 needs m>=3. At the only other a>=4 borderline with a*m=12 and m>=3, (4,3) fails. Thus 13 is sharp within the family; the gain is 1/1600 at (3,4). The adjacent comparison numerator is m[a^2-t(t+1)]-a(2a+2t+1), strictly decreasing in t; C(t) tends to zero. An independent full Boolean-coalition scan, testing winning status and all immediate predecessors for both t=1 and t=2 up through 13 pre-subdivision seats, found only (3,4) with a gain. Replay: python3 /workspace/review-checks.py (voting section); the finite scan is not used to justify the all-parameter result.
 
-**Limits.** Only the specified family, selective unanimity subdivision, and normalized Deegan–Packel concentration are treated. Broad player-splitting literature could contain the phenomenon in a different formalism, and no external independent historical or mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The definition, the squared-index form, and uniform all-player replication are prior. Relevant primary passages and the related indexed result do not provide the selective-veto classification, its sharp fixed-t envelope, or the minimal amplification witness in this family. The originality assessment credits the operation and its consequences, not the direct evaluation of the index by counting memberships.
+
+## value
+
+PASS
+
+The perturbation isolates a natural design question that uniform replication does not answer: whether replacing a veto by several jointly required seats necessarily reduces power concentration. The exact opposite-regime criterion, almost t-fold gain, in-family minimum, and one-turn dependence give reusable benchmarks. The minimum is not a claim about arbitrary voting games, or about normative institutional desirability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

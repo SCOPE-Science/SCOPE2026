@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:14:30.667982Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the hub grounded, the follower matrix is diagonal and the weakest k−1 leaves are exactly the remaining leaders up to weight ties. Without the hub the Schur complement is W, the total weight on grounded leaves. The inverse is diag(0,1/w_i for follower leaves)+11ᵀ/W. Its squared trace yields the two reciprocal-sum terms and (r+1)²/W². To rule out a misordered leader set, take the weakest unselected a and strongest selected b>a. If W≤(r+1)b, replacing b by the hub eliminates the rank-one cost, which exceeds the added b⁻² because the cross term is positive. Otherwise W=t+b with t>rb; swapping b for a changes the cross term, divided by b−a, by 2(A₀−t/(ab))/((t+a)(t+b))<0. The positive rank-one change divided by b−a is less than (a+3b)/(b²(a+b)²), which is smaller than (a+b)/(a²b²), the magnitude of the negative diagonal change. This gives strict improvement, ruling out additional tie types. The endpoint cases k=1 and k=m are covered, with k=m+1 the empty follower problem. In unit weights, cost comparison is governed by 2k²+2k−(m+1)²; equality gives u²−2v²=1 for (u,v)=(2k+1,m+1). Positive powers of 3+2√2 exhaust the positive solutions and give odd u; u≤2v−1 for v≥2 gives feasibility. The first solution v=2 is excluded, leaving (11,8),(69,49),(407,288) first. Sorting and prefix/suffix sums give optimal values and compact descriptions of optimal sets, not explicit enumeration of all tied subsets. The supplied rational checker was inspected, not executed; the proof does not depend on its finite cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "41da25706faa ranges over real spectral orders r≥1 but only exactly two leaders on weighted double stars.",
+          "58d772448336 treats two leaders in matching-weighted bipartite graphs.",
+          "4153ea5f5a8d varies star conductances under a price budget, without selecting discrete grounded sets.",
+          "The path/ring leader paper Eq. (5) uses inverse-first block traces."
+        ],
+        "reasoning": "A broader power range at budget two is not a dominating parameter range for arbitrary star budgets. Optimizing edge weights is a different feasible set, even when there is a shared power in the spectral objective.",
+        "searches": [
+          "Resultary: 41da25706faa, 58d772448336, 4153ea5f5a8d",
+          "arXiv:1412.6595v1 Eq. (5)"
+        ]
+      },
+      "checked_sources": [
+        "Patterson–Bamieh CDC 2010 Eq. (5)",
+        "arXiv:1302.0450v1",
+        "arXiv:1407.1569v1",
+        "arXiv:1412.6595v1",
+        "Resultary f35e91a6b553 (same record)",
+        "Resultary 58eb0fc2195a",
+        "Resultary 4153ea5f5a8d",
+        "Resultary 41da25706faa",
+        "Resultary 58d772448336"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With six unit spokes and four leaders, the first-order costs are 3 with the hub and 11/4 without; the inverse-square costs are 3 with the hub and 57/16 without.",
+          "The weighted inverse-square exchange proof needs both a squared rank-one term and a cross term absent from the first trace."
+        ],
+        "reasoning": "The explicit reversal rules out identifying the known first-moment optimizer with this one. The Schur formula readily yields costs for a specified set, but alone does not justify excluding every misordered set for the squared objective.",
+        "searches": [
+          "Resultary: 58eb0fc2195a Finding, offset 0",
+          "Patterson–Bamieh CDC 2010 Eq. (5)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected H₂-coherence and noise-free leader objectives are traces of first inverses, possibly times a positive constant.",
+          "58eb0fc2195a gives the same two candidate types for tr(L_FF⁻¹), not the sum of eigenvalue inverse squares."
+        ],
+        "reasoning": "Resolving H₂/grounded spectral terminology by the actual formulas shows these are different moments. An overall normalization would preserve optimizers; changing the power does not.",
+        "searches": [
+          "Resultary: weighted-star noise-free leaders and inverse-square coherence",
+          "Patterson–Bamieh CDC 2010 Eq. (5)",
+          "arXiv:1407.1569v1 Eqs. (10)–(11)",
+          "arXiv:1302.0450v1 (LS2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact inverse-square match f35e91a6b553 is the assigned record itself.",
+          "The exact comparator 58eb0fc2195a gives P_k>(m−k+1)w_k for the first-moment threshold, not the inverse-square comparison. No exact external Pell-tie table for this objective was read."
+        ],
+        "reasoning": "Computing a classical Pell sequence is not independently new. The relevant exact invariant is the placement-cost equality for the given objective. The cited linear threshold does not supply the quadratic equality.",
+        "searches": [
+          "Resultary: exact inverse-square leader placement on weighted stars, switching budget and Pell ties",
+          "Resultary: 58eb0fc2195a exact threshold"
+        ]
+      },
+      "rationale": "The same two candidate shapes are known for the first inverse trace on exactly these weighted stars, but the objective cannot be switched using that theorem: the linear threshold differs and the optimizers can reverse. The closest read second-moment results optimize conductances instead of leaders, or treat different topologies at a fixed two-leader budget. The distinct claim is the exact arbitrary-positive-weight, all-budget inverse-square optimizer and its threshold, conditional on the bounded searches.",
+      "residual_risks": [
+        "The bounded primary-literature search yielded no further relevant passage, which is not negative priority evidence.",
+        "A differently named spectral-order formulation of arbitrary-budget star placement could remain unindexed or unexamined; no priority is inferred from same-day Resultary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different spectral moment",
+          "evidence": "V=(1/2) tr(L[h]⁻¹), also expressed as the sum of reciprocal eigenvalues.",
+          "identifier_or_url": "https://webee.technion.ac.il/Sites/People/stacyp/papers/patterson_cdc10_leader.pdf",
+          "material_read": "PDF §III Eq. (5), p. 3, extracted offset 15486",
+          "method": "OA PDF",
+          "title": "Leader Selection for Optimal Network Coherence",
+          "trigger": "Original leader-coherence formulation"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "The noise-free problem minimizes tr(L_f⁻¹).",
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450v1",
+          "material_read": "PDF §II (LS2), p. 6, offset 15586",
+          "method": "OA PDF",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Noise-free grounded optimization"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Total error is σ²/2 times the sum of first reciprocal eigenvalues.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569v1",
+          "material_read": "PDF Eqs. (10)–(11), p. 5, offset 19553",
+          "method": "OA PDF",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Spectral coherence and leader selection"
+        },
+        {
+          "assessment": "Different topology and power",
+          "evidence": "Path-graph cost sums traces of inverses of follower blocks.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.6595v1",
+          "material_read": "PDF Eq. (5), p. 3, offset 18267",
+          "method": "OA PDF",
+          "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+          "trigger": "Exact budgeted leader-placement algorithm"
+        },
+        {
+          "assessment": "Material overlap in candidate shapes but not the optimizer for power two",
+          "evidence": "Uses tr(L_FF⁻¹) and linear threshold P_k>(m−k+1)w_k.",
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-noise-free-leaders-on-an-arbitrarily-weighted-star-two-c--58eb0fc2195a",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Optimal noise-free leaders on an arbitrarily weighted star: two candidate sets and a re-entrant hub",
+          "trigger": "Same weighted star and candidate shapes"
+        },
+        {
+          "assessment": "Different decision variables",
+          "evidence": "Optimizes adjustable conductances under a price budget using a full-graph spectral objective, not grounded vertex subsets.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-scale-price-crossover-for-optimal-second-order-coherence-on--4153ea5f5a8d",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Two-scale price crossover for optimal second-order coherence on weighted stars",
+          "trigger": "Same graph family with inverse-square objective"
+        },
+        {
+          "assessment": "Not a dominating all-budget weighted-star result",
+          "evidence": "Weighted double stars, exact budget two, any real power r≥1.",
+          "identifier_or_url": "2026/11/22/SCOPE-spectral-order-migration-of-optimal-two-leader-placements-on-wei--41da25706faa",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Spectral-order migration of optimal two-leader placements on weighted double stars",
+          "trigger": "General inverse powers including two"
+        },
+        {
+          "assessment": "Different network family, fixed budget",
+          "evidence": "Exactly two leaders in matching-weighted bipartite graphs.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-vanishing-cubic-boundary-layer-in-inverse-square-leader-placem--58d772448336",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A vanishing cubic boundary layer in inverse-square leader placement",
+          "trigger": "Same inverse-square objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arbitrary-weight exact-budget objective is natural, and the strict two-action comparison replaces an exponential subset search with a sort and a two-value comparison per budget. It identifies every minimizer, including tied conductances, rather than supplying only a candidate or bound. The unit-weight reversal relative to the first moment makes the distinction consequential. Pell arithmetic precisely describes when the two competing hub decisions tie rather than just approximating the switching fraction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

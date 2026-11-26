@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:11:33.642204Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–4 and VERIFICATION.md; inspected verify.py without execution",
+        "Independent replay: python /workspace/evidence/independent_checks.py 3 verifies Hadamard coordinates and the exact witness"
+      ],
+      "rationale": "Each facet has area sqrt(3)/2 and normal proportional to −(e_i−1/4·1); summing the absolute projected facet areas and dividing by two gives A=||u||_1/2 in the stated edge-length units. An independent formulation uses the orthonormal columns (1,1,−1,−1)/2, (1,−1,1,−1)/2, (1,−1,−1,1)/2 as coordinates x in the tangent hyperplane. The maximizing orbit is the signed coordinate axes, so chord distance squared is 2(1−M) where M=||x||_infinity. Sorting absolute values and summing the four signed linear forms gives A=max(M,||x||_1/2). On the M branch, away from the axes, the stability quotient is exactly 1/2. On the other branch put B=||x||_1/2; M≥2B/3 and B≤sqrt(3)/2 give quotient at least (1−B)/(2(1−2B/3)), decreasing strictly in B. At its minimum B=sqrt(3)/2 both bounds are attained and force |x_i|=1/sqrt(3), giving exactly the eight vertex axes in the original coordinates. At the maximizing axes both sides are zero; the branch interface causes no additional equality. The exact witness evaluates to (3−sqrt(3))/8, so the lower bound is globally sharp.",
+      "residual_risks": [
+        "The finite symbolic witness alone would not establish the global bound; the two-branch argument supplies it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pandis gives the all-dimensional formula and balancing-sign maximizers. Jakimiuk–Pandis proves a quantitative bound and exponent sharpness in broader dimensions; for the odd simplex dimension n=3, its coefficient is 1/[2(n+2)]=1/10."
+        ],
+        "reasoning": "The broader theorem gives a weaker numerical lower bound on the same quotient. Sharpness of the exponent says nothing about the exact best coefficient at that exponent.",
+        "searches": [
+          "Jakimiuk–Pandis arXiv:2610.23489v1 Thm. 1.1 Eq. (1.4); Pandis arXiv:2601.18436v1 Thm. 1.2 and Prop. 1.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.18436v1 and 2610.23489v1",
+        "Resultary bdd070929a1a, 6087fa1e8ea7 and 9659c168bd2e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older stability estimate only forces the quotient ≥1/10. The exact support function makes the desired optimization possible, but the decisive two-branch optimization and the simultaneous equality conditions are not in these inspected statements."
+        ],
+        "reasoning": "Recovering this constant requires a pointwise bound coupling area to the largest axis coordinate and showing its sharpness away from the maxima. It does not follow by plugging dimension three into an exact coefficient theorem, rescaling areas, or reading the directions of area extrema alone.",
+        "searches": [
+          "Jakimiuk–Pandis Eq. (1.4), p. 4; Pandis Eq. (1.2), Prop. 1.4 and cube projection Eq. (1.5); Martini–Weissbach 1992 citation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pandis's cube projection/polar-of-section formulas identify the same support function, one half the l1 norm on the four-coordinate zero-sum hyperplane. Resultary bdd070929a1a concerns a 5D cross-polytope with a parallel axis/diagonal sharpness structure."
+        ],
+        "reasoning": "Polar/dual or cube-projection terminology does not change this target's deficit. A separate cross-polytope projection-body optimum in dimension five is not the optimum for the restricted four-coordinate norm, and the identified support identities alone give no sharp distance constant.",
+        "searches": [
+          "Resultary: tetrahedron shadow area, silhouette, sharp chordal stability and hyperplane shadow deficit; Pandis arXiv:2601.18436v1 §§1.2–1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two same-body records describe pointwise areas and their distribution by shadow type at twice the edge length. Their areas rescale by 1/4 to the frozen units. The cross-polytope record is an exact constant for another convex body."
+        ],
+        "reasoning": "Knowing extremal areas, or the area distribution, is not knowing the infimum of the deficit divided by squared distance to the entire maximizing orbit. The available area formulas are useful inputs, not a tabulated or stated optimum of that quotient.",
+        "searches": [
+          "Resultary 6087fa1e8ea7 and 9659c168bd2e Findings: complete tetrahedral area/silhouette laws; bdd070929a1a Finding: sharp coefficient for the 5D cross-polytope"
+        ]
+      },
+      "rationale": "The supported distinct claim is the best global coefficient and its full equality set, not the previously known area function, maximizing orbit, or optimal quadratic exponent. The strongest same-setting stability theorem has coefficient 1/10 in the same normalization, strictly below (3−sqrt(3))/8. Same-body shadow distribution and chamber formulas supply inputs but no pointwise optimal distance-deficit tradeoff. An indexed same-form sharp theorem on a 5D cross-polytope has neither the same body nor an identified reduction that yields this coefficient.",
+      "residual_risks": [
+        "Historical scan not independently read; an indexed-by-other-terminology norm inequality could still supply the same tradeoff. No inference of chronological priority is made from same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-object but weaker explicit coefficient",
+          "evidence": "Odd n coefficient 1/[2(n+2)], minimizing distance by selection of the balanced maximizing sign vector; exponent 2 sharp, not the frozen coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23489v1",
+          "material_read": "§1.1 and Thm. 1.1 Eq. (1.4), p. 4, offset about 12900",
+          "method": "Open primary PDF, targeted section and theorem",
+          "title": "Stability of Hyperplane Projections of the Regular Simplex and L_p-Projection Bodies of balls in l_q^n(R)",
+          "trigger": "Same stability question, exact distance normalization"
+        },
+        {
+          "assessment": "Known area formula, extrema and support reformulation; no statement of target bound in inspected passages",
+          "evidence": "Direct specialization gives A=||u||_1/2 and the six E directions. Cube projection support identities give an equivalent objective, not a sharp deficit quotient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.18436v1",
+          "material_read": "Thm. 1.2 Eq. (1.2), Prop. 1.4, pp. 3–4; §1.2 Eq. (1.5), §1.3 and Thm. 1.12 Eq. (1.6), pp. 5–7",
+          "method": "Open primary PDF, targeted sections",
+          "title": "On Extremal Volume Projections of the Simplex and the Cube",
+          "trigger": "Exact projection formula, duality and extremal directions"
+        },
+        {
+          "assessment": "Different convex body and dimension",
+          "evidence": "Hyperplane shadow volume for a 5D cross-polytope, not the area of regular tetrahedral shadows.",
+          "identifier_or_url": "bdd070929a1a",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror text",
+          "title": "Sharp global hyperplane shadow stability for the five-dimensional cross-polytope",
+          "trigger": "Sharp chordal shadow bound and axis/diagonal equality, possible equivalent formulation"
+        },
+        {
+          "assessment": "Pointwise area and probabilistic geometry coverage, not the sharp distance quotient",
+          "evidence": "Area and silhouette law with edges 2sqrt(2), requiring geometric area normalization by 1/4 for comparison.",
+          "identifier_or_url": "6087fa1e8ea7",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror text",
+          "title": "Complete joint area–silhouette law for regular tetrahedron shadows",
+          "trigger": "Same-body exact shadow area and extrema"
+        },
+        {
+          "assessment": "Known geometric input, not a sharpened stability coefficient",
+          "evidence": "Chamber-wise area formulas and extrema; no stated chordal deficit optimum in the Finding.",
+          "identifier_or_url": "9659c168bd2e",
+          "material_read": "Local RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror text",
+          "title": "Complete type-resolved shadow area law for a regular tetrahedron",
+          "trigger": "Same-body exact formulas by sign chamber"
+        },
+        {
+          "assessment": "Unresolved historical access, not evidence of absence",
+          "evidence": "Scan returned HTTP 403; Pandis attributes the projection identity to this source.",
+          "identifier_or_url": "Martini–Weissbach, Studia Sci. Math. Hungar. 27 (1992), 213–221",
+          "material_read": "Pandis §1.1 attribution; original primary scan unavailable",
+          "method": "Identified scan access attempt and accessible primary paper attribution",
+          "title": "On quermasses of simplices",
+          "trigger": "Historical attribution for projection/difference-body formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 3–4; Jakimiuk–Pandis Thm. 1.1"
+      ],
+      "rationale": "This resolves the exact global coefficient for the first nonplanar regular simplex, a specified case of an existing quantitative projection theorem. Its sharp obstruction is qualitatively useful: the local coefficient near the maximizing square-shadow directions is 1/2, whereas the true bound is smaller and is forced by vertex-axis triangular shadows. This is a complete sharpness and equality result, not a tiny numeric improvement or a finite sampling exercise.",
+      "residual_risks": [
+        "No extension asserted for other tetrahedra or higher-dimensional simplex projections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

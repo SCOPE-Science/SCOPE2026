@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` in this directory. The code is a fully specified standard-library exact-integer certificate. No external data, tolerances, random seeds, or numerical transforms are required.
+## correctness
 
-The group is the full \((\mathbb Z/3\mathbb Z)^{3n}\) with the positive-root Fourier convention. The algorithm enumerates the legal prefix-restricted words, confirms their hook-length totals, applies the full tensor Fourier transform in the integral basis \(1,\omega\), counts zeros only when both coordinates vanish, and proves every Fourier output accounted for by the factorization described in `RESULT.md`.
+PASS
 
-A second computation directly sums root-of-unity residue counts for all frequency degrees at most three, including 2049 distinct frequencies at width four. It also directly checks 67 other frequencies per width, all character-conjugation identities, the exact integer Parseval identity, and the full eight-frequency cubic-witness list.
+The row-word bijection follows by growing the tableau one entry at a time: the prefix inequalities ensure the cell above a newly appended cell is already present. On the full ternary group the characters diagonalize unnormalized convolution (the eigenvalue can be conjugated depending on convention). Three residue-class counts give the exact coefficient (c0−c2)+(c1−c2)ω; the two coordinates must vanish simultaneously. The frozen checker was inspected, not run. An independently written direct census avoided its tensor transform: choose the positions of rows 2 and 1, reject illegal prefixes, and form the three residue counts for each frequency using two bitplanes. All four groups were exhausted; support sizes 1, 5, 42, 462, zero counts 0, 0, 1134, 3996 and ranks 27, 729, 18549, 527445 agree. The width-four histogram agrees in every degree; the eight stated cubic frequencies are the only cubic zeros and each gives (154,154,154). Width three has six degree-two zeros and none below. The exact energy identity was checked on each full group.
 
-Expected successful output:
+## originality
 
-```text
-n=1 tableaux=1 frequencies=27 zeros=0 rank=27 low_frequency_tests=27
-n=2 tableaux=5 frequencies=729 zeros=0 rank=729 low_frequency_tests=233
-n=3 tableaux=42 frequencies=19683 zeros=1134 rank=18549 low_frequency_tests=835
-n=4 tableaux=462 frequencies=531441 zeros=3996 rank=527445 low_frequency_tests=2049
-exact_cubic_witness_list_verified: 8
-ALL_CHECKS_PASS
-```
+PASS
 
-These checks are exhaustive for the stated finite group Fourier transforms through width four; they do **not** prove a formula for larger widths. There has been no independent audit.
+The finite full-group census and its shift in minimum zero degree are distinct from the actual enumerative and restricted observation results and the same-day binary Young-diagram classification inspected. This is a bounded comparison, not priority certification.
+
+## value
+
+PASS
+
+The first four widths are a motivated initial range of the canonical three-row ballot-word family. The change from quadratic loss at width three to complete quadratic recovery but cubic loss at width four is a concrete nonmonotonicity in the degree threshold. The exact kernel dimensions and explicit first lost modes give an interpretable baseline for character recovery, not just another count of tableaux. No large-width conclusion is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The weighted coin-cost identity is proved from the explicit replacement inequality \(H(M+v)\ge H(M)+h^3\) rather than assumed greedy optimality. Exact Apéry representatives follow from positivity of \(d\) and \(a=mv\). Checking all three generators reduces candidates to precisely two indices and verifies both wrapped cases; the genus follows by the Apéry sum identity. Independently coded shortest-path calculations reproduce the complete pseudo-Frobenius sets and genus for all 300 admissible triples in the stated finite test ranges. The infinite conclusion relies on the symbolic argument, not finite enumeration.
+## correctness
 
-**Originality — PASS within inspected literature.** The motivating full paper arXiv:2306.03459v4 (Sections 2 and 7) explicitly introduces the higher-base offsets and notes that the lack of weight monotonicity obstructs a general formula. Its results on other families and their generic Apéry methods do not state the terminal-offset-multiple two-number spectrum, this Frobenius formula, or the genus formula. The related full text arXiv:2306.10738v1 has different, repunit offset parameters; arXiv:2112.01106 likewise uses a different repunit family. Searches using exact offsets, parameter aliases, genus, Frobenius, type, and pseudo-Frobenius terminology found no implication-covering theorem. Risk remains from unindexed specialization; absence from an index cannot establish uniqueness.
+PASS
 
-**Value — PASS.** This gives an explicit infinite three-parameter solution inside the higher-base family for which the motivating authors say the general Frobenius problem is hard. It determines the whole pseudo-Frobenius spectrum and uniform type two, not just the largest gap, plus conductor and genus. The arithmetic restriction \(a\equiv0\pmod{h^3-h+1}\) is structurally motivated: it aligns the Apéry residue cycle with the exact coin-cost period. The work does not solve the unrestricted higher-base problem.
+The weights for offsets 1,u,v are h,h²,h³. Replacing u unit coins lowers cost, so the 1,u optimum is H(M)=h² floor(M/u)+h(M mod u). Since v=hu+t and u−t=h, H(M+v)−H(M) is h³+ht before the residue wrap and h³ after it. This proves, without assuming strict improvement, that the maximum number of v-coins is optimal, giving O(M)=h³ floor(M/v)+H(M mod v). Coprimality makes offset classes bijective and a=mv gives O(r+ja)=O(r)+jmh³, so the minimal representative at residue dr is aO(r)+dr. For a generator ca+db, adding it to W_r−a requires O(r+b)−O(r)≤c−1 when unwrapped, and O(r+b−a)≤O(r)+c−1+d when wrapped. The first tests for v and then u exclude everything except the last u positions; the unit test excludes the nonboundary positions except s=hu−1 in the last v-block. The right endpoint s=v−1 also survives. Both have H(s)=2h²(h−1). Their u-steps wrap to h−1 and u−1, whose H values are lower; the v-steps wrap to s itself with sufficient cost, and the unit boundary step wraps to zero. Their offsets differ by t, giving F−dt and F, including the nonminimal m=1 case. Summing the block cost and the d-weighted residues yields the displayed genus. An independent integer Dijkstra/Apéry test on the 36 coprime triples with 3≤h≤6, 1≤m≤3, 1≤d≤4 matched PF and genus, including {895,899} and 504. Replay paths: branches/f1a4b85c-c28d-40ff-b434-61b3481dc1cc/record4_independent_check.py and record4_independent_box.txt. The frozen verifier, recorded 300-case log and notes were inspected, not executed; finite tests do not prove the general claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The weighted family and Apéry framework are established, and the m=1 restriction is covered by an earlier three-generator result because the fourth generator is redundant. The supported distinct contribution is the explicit PF/genus/F classification when the new offset v is a proper divisor of a, i.e. m≥2. No inspected statement gives or mechanically subsumes that range.
+
+## value
+
+PASS
+
+Alignment of a with the top offset is the natural regime where the weighted cost is exactly periodic and the Apéry problem separates into blocks. The resulting type-two formula and exact gap between the PF numbers solve the terminal-divisible subfamily of a previously posed weighted Frobenius family, with an actual additional generator for m≥2. The simultaneous formulas for PF and genus are more than a finite recomputation or a redundant-generator restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

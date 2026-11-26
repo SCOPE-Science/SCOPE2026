@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:13:27.840382Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–67",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt"
+      ],
+      "rationale": "In a bipartite graph total domination splits into the two independent shore minima. In a crown each minimum is 2, and in any spanning subgraph neither can be 1. A failed dominating pair on a shore is contained in a common nonneighbor set on the opposite shore. If all pairs fail, the resulting proper sets S_j (each containing j) cover all pairs, and their total excess is exactly the deletion count. Every point occurs in at least two sets since its own set is proper. If all points occur at least three times the bound holds immediately. Otherwise the two sets P,Q containing a point of multiplicity two cover [n], with intersection of size c. They contribute n+c−2 excess; the other sets cover all cross pairs between the two nonempty differences P\\Q and Q\\P. On the union of those differences their clique graphs are connected; replacing each nonempty clique by a spanning tree leaves connectivity unchanged and uses at most its set's excess in edges. This forces another n−c−1, for a total of at least 2n−3. Apply to both shores. Independently checked the construction by decomposition: a_r b_c is an isolated edge component, and after removing its endpoints the remaining missing edges are precisely a perfect matching (the remaining diagonal plus a_c b_r). Thus the remainder is Cr_{n−1}, including Cr_2=2K_2 at n=3, and the total domination number of the disjoint union is 2+4=6 with no isolated vertices. The two truncated stars and the extra edge are disjoint and cost 2n−3. The stray y in the displayed sum at line 48 is a typographical artifact, not an extra factor. The frozen checker and output were inspected, not executed; completeness follows from the analytic proof.",
+      "residual_risks": [
+        "No classification of optimal deletion sets or claim about k≥3 is needed for the equality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Appel et al. give b_t^2(K_{a,b})=b for 2≤a≤b≤2a, including n on K_{n,n}.",
+          "Xu's ordinary total-bondage biclique statement gives b_t(K_{m,n})=m for 2≤m≤n."
+        ],
+        "reasoning": "These statements concern the intact biclique, whose undeleted total domination number is 2 rather than 4. Removing a perfect matching is not a parameter substitution and the relevant target total domination changes.",
+        "searches": [
+          "Appel et al., arXiv:2506.07000v1, Definitions 5–6 and Theorem 14",
+          "Xu, §8.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary October 12 crown record",
+        "Appel et al. arXiv:2506.07000v1",
+        "Xu, §8.2",
+        "Frozen RESULT.md, lines 72–82"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "b_t^2≥b_t under the same convention. The older crown witness for n≥4 has tau_A=2 since W_1 and W_n are disjoint, and tau_B=3 since its W family covers all pairs, but the triple b_{n−1}, b_n, b_x for x outside those two indices dominates A.",
+          "The new construction leaves K_2 disjoint from Cr_{n−1}, and therefore has gamma_t=6."
+        ],
+        "reasoning": "The old value and its proof give the lower bound but the inspected old witness yields 5, so do not give the second-level upper bound. The missing direction is proved by a different deletion pattern, not by reusing ordinary bondage as if it implied equality.",
+        "searches": [
+          "Earlier Resultary crown record, RESULT.md upper-bound construction from offset 3570",
+          "arXiv:2506.07000v1, Theorem 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu defines ordinary total bondage with no isolates and any strict increase, not necessarily a two-unit increase.",
+          "The prior catalogue crown theorem concerns ordinary total bondage under exactly the same convention. Ordinary bondage for domination is a different invariant."
+        ],
+        "reasoning": "An equivalent description of the new condition is a no-isolate spanning edge-deleted subgraph with total domination at least 6. Ordinary total bondage only demands at least 5. Searches did not establish a separate equivalent alpha-version for crowns; this is not a proof of absence.",
+        "searches": [
+          "Resultary: alpha-total bondage",
+          "Resultary: b_t^k(Cr_n), crown and matching-deleted complete bipartite graph",
+          "Xu DOI 10.1155/2013/595210, §8.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record gives gamma_t(Cr_n)=4 and b_t(Cr_n)=2n−3, with a perfect-matching remainder already at n=3.",
+          "Its general upper-bound sets W_1, W_2 and W_{n−1} (RESULT.md, offset 3570 onward) give a strict increase, not the same second-level witness."
+        ],
+        "reasoning": "The numerical match is real and covers the persistence and lower-bound statements, but the threshold is for a different jump. No indexed general second-level formula was established in the inspected matches.",
+        "searches": [
+          "Resultary: 2026/10/12/SCOPE-total-bondage-number-of-crown-graphs--1c9edcdfad95",
+          "Resultary: b_t^k(Cr_n) and alpha-total bondage"
+        ]
+      },
+      "rationale": "Credit the earlier ordinary total-bondage crown result with the initial value, persistence through 2n−4 deletions and the second-level lower bound, including an exact second-level witness at n=3. The supported distinct claim is an explicit witness at the same cost attaining a two-unit increase for the full family, hence equality of first- and second-level thresholds. The earlier general construction only increases total domination by one for n≥4.",
+      "residual_risks": [
+        "No independent primary-literature antecedent for the catalogue's exact ordinary crown formula was established in the materials inspected; further equivalent or poorly indexed variants cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of lower bound and no-increase statement; upper witness for n≥4 does not attain a two-unit increase",
+          "evidence": [
+            "The older construction's W sets cover every pair only for the conclusion tau_B≥3, and its other shore has a dominating pair."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-total-bondage-number-of-crown-graphs--1c9edcdfad95",
+          "material_read": "RESULT.md Finding, lower-bound conclusion, and upper-bound proof at offsets 3570–5151",
+          "method": "Resultary search and local mirror",
+          "title": "Total bondage number of crown graphs",
+          "trigger": "Same crowns and equal numerical threshold"
+        },
+        {
+          "assessment": "Same convention and comparable graph; no implication for the crown threshold from the biclique formula",
+          "evidence": [
+            "Theorem 14 treats K_{a,b}, yielding n for the balanced intact biclique."
+          ],
+          "identifier_or_url": "arXiv:2506.07000v1",
+          "material_read": "PDF p. 3, Definitions 5–6; p. 18, Theorem 14",
+          "method": "OA primary-text passage inspection",
+          "title": "The k-Total Bondage Number of a Graph",
+          "trigger": "Same k-level invariant with a complete-bipartite theorem"
+        },
+        {
+          "assessment": "Defines the ordinary strict-increase condition; biclique formula does not cover crowns",
+          "evidence": [
+            "Ordinary total bondage requires no isolates and a strict increase in total domination, and the stated formula concerns K_{m,n}."
+          ],
+          "identifier_or_url": "DOI 10.1155/2013/595210",
+          "material_read": "§8.2, p. 50 of arXiv version",
+          "method": "Same-work OA arXiv version after publisher PDF access denial",
+          "title": "On Bondage Numbers of Graphs: A Survey with Some Comments",
+          "trigger": "Equivalent formulations and ordinary total bondage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and extremal construction",
+        "Earlier ordinary crown construction",
+        "Appel et al., Theorem 14"
+      ],
+      "rationale": "For the canonical dense matching-deleted bipartite family, determines whether requiring a two-unit jump costs more than requiring the first increase under a no-isolate constraint. The exact equality is not supplied by knowing the first threshold; the witness forces both independent shore minima to change at the same critical budget. This provides a comparison with the intact biclique for the same second-level invariant, without claiming the previously known lower-bound mechanism as new.",
+      "residual_risks": [
+        "This determines level two only, not a classification of all edge-deletion patterns or a general theorem for arbitrary sparse deletions from bicliques."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

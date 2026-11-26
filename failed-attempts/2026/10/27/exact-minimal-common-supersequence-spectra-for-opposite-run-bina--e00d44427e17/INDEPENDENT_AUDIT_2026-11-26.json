@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:28:25.303651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any two embeddings, intersecting zero sets force disjoint one sets. Thus a common supersequence needs at least 2m copies of one letter. In a minimal word every pair of embeddings covers all positions, giving at most 2m of each. If both counts were 2m, the embeddings starting with the first m copies of their respective initial letters and continuing greedily would share the later of the two m-th positions, leaving an unused position. For a zero-rich word with m+j ones, split the ones into x,y,z around the m-th and (m+1)-st zero. Embeddability is y+z>=m and x+y>=m. When j>0, an empty flank would permit deletion of a one from the other flank or the center; with both flanks present, deleting a one on either side must violate the corresponding inequality, so both are tight. The j=0 case also forces tightness. Conversely, tightness makes every one essential, and deleting a zero violates the required 2m count. The separating zero positions make the factorization unique, and the two orientations are disjoint. The length and binomial-square formulas follow, including m=1; the backward ratios are at most 1/4 and tend to 1/4 at each fixed distance from the top, giving the 4/3 multiplier by geometric domination, then Stirling gives the total and longest-length fraction. Inspected frozen RESULT.md, VERIFICATION.md and check_minimal.cxx; the recorded exhaustive range m=1..5 is supplementary, not replayed or necessary for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sopp et al., §5 Theorem 5.3: paths in a graph correspond bijectively to minimal common supersequences of general pairs.",
+          "Fraser, Chapter 6, printed pp. 112–113 and 121–122: deletion-minimal definition and algorithms for extremal minimal supersequences."
+        ],
+        "reasoning": "These furnish general ways to represent or search for solutions, not the explicit factorization or length-by-length count in the inspected passages. The exact catalogue precedent is stronger evidence of coverage.",
+        "searches": [
+          "OA arXiv:2603.22591: minimal common supersequences; Theorem 5.3",
+          "OA Fraser thesis: minimal common supersequence"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 10a0d52c68a3",
+        "Resultary 5df86cdf4ed9",
+        "OEIS A112029",
+        "Fraser thesis, Chapter 6",
+        "Sopp et al. arXiv:2603.22591 §5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier maximum-length term is 2 binom(2m-2,m-1)^2, and the earlier total is asymptotic to 16^m/(6 pi m)."
+        ],
+        "reasoning": "Stirling gives the maximum term asymptotic to 16^m/(8 pi m), whose ratio to the known total is 3/4. Thus the separately stated limiting fraction is mechanically implied, even without relying on the later catalogue record.",
+        "searches": [
+          "Resultary 10a0d52c68a3, Finding, exact spectrum and total asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 10a0d52c68a3, Finding and classification: P1^{m-j}Q and complements, with m zeros and j ones on each flank, P ending in 0 and Q beginning in 0; length 3m+j has count 2 binom(m+j-1,j)^2, 0<=j<m.",
+          "Resultary 5df86cdf4ed9 gives the same spectrum and a stronger limit law but is later."
+        ],
+        "reasoning": "Renaming P,Q as U,V leaves word membership, orientations, parameters and lengths identical. Both concern deletion-minimality, not shortestness.",
+        "searches": [
+          "Resultary: minimal common supersequences 0^m1^m 1^m0^m exact length spectrum binomial square",
+          "Resultary: deletion-minimal common supersequence length-refined enumeration binomial-square",
+          "Resultary: all minimal common supersequences P1^{m-j}Q opposite blocks 0^m1^m"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A112029 gives a(n)=sum_{k=0}^n binom(n+k,k)^2 and a(n)~2^{4n+2}/(3 pi n).",
+          "10a0d52c68a3 gives the refined count, not just a numerical sequence."
+        ],
+        "reasoning": "The change n=m-1 gives the frozen total as 2a(m-1) and its exact asymptotic constant. OEIS alone does not supply the word interpretation; the earlier Resultary record does.",
+        "searches": [
+          "OEIS A112029: A112029; asymptotic",
+          "Resultary: deletion-minimal common supersequence length-refined enumeration binomial-square"
+        ]
+      },
+      "rationale": "The distinct earlier Resultary record 10a0d52c68a3 states the same deletion-minimal word classification, admissible lengths and exact counts for the same pair, as well as the same total asymptotic. The limiting maximum-length fraction is an immediate ratio of the already stated extreme count and total asymptotic. This is established coverage, not merely a possible overlap with general enumeration algorithms.",
+      "residual_risks": [
+        "This is not an exhaustive historical-priority search; the Irving–Fraser proceedings paper was not independently compared in full. The exact earlier catalogue match suffices for the scientific disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact coverage",
+          "evidence": [
+            "Same two complementary word forms, length spectrum, counts, and total asymptotic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-length-spectrum-of-minimal-common-supersequences-of-opposi--10a0d52c68a3/RESULT.md",
+          "material_read": "Finding and word classification, from offset 0",
+          "method": "Resultary local mirror, bounded text",
+          "title": "Exact length spectrum of minimal common supersequences of opposite-run words",
+          "trigger": "Same pair and binomial-square count"
+        },
+        {
+          "assessment": "Exact overlap, later record, not used to infer priority",
+          "evidence": [
+            "Gives the same counts and adds a geometric limit law for the length deficit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-length-spectrum-of-minimal-common-supersequences-for-op--5df86cdf4ed9/RESULT.md",
+          "material_read": "Finding and distribution/total at offsets 0 and 4762",
+          "method": "Resultary local mirror, bounded text",
+          "title": "Complete length spectrum of minimal common supersequences for opposite runs",
+          "trigger": "Same length distribution and a limit law"
+        },
+        {
+          "assessment": "General enumeration, no exact opposite-run statement in the inspected passages",
+          "evidence": [
+            "Theorem 5.3 is an st-path bijection, not a closed evaluation for the special pair."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.22591",
+          "material_read": "p. 1 and §5 Theorem 5.3, p. 13, offset 37114",
+          "method": "OA PDF, query and bounded passages",
+          "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+          "trigger": "General enumeration of exactly the same type of object"
+        },
+        {
+          "assessment": "Relevant definitions and algorithms; no equivalent refined formula identified in those passages",
+          "evidence": [
+            "Treats shortest maximal common subsequences and longest minimal common supersequences; distinguishes computing one extreme from finding all lengths."
+          ],
+          "identifier_or_url": "https://theses.gla.ac.uk/74575/1/10992195.pdf",
+          "material_read": "Chapter 6, printed pp. 112–113 and 121–122",
+          "method": "OA thesis PDF, query and bounded passages",
+          "title": "Subsequences and Supersequences of Strings",
+          "trigger": "Earlier thesis on minimal supersequences"
+        },
+        {
+          "assessment": "Exact numerical and asymptotic overlap",
+          "evidence": [
+            "The binomial-square sum and its asymptotic already appear under the index shift m-1 and multiplier 2."
+          ],
+          "identifier_or_url": "https://oeis.org/A112029",
+          "material_read": "Formula and asymptotic, offsets 421 and 1172",
+          "method": "OA public webpage",
+          "title": "OEIS A112029",
+          "trigger": "Exact candidate sequence in frozen record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A length-refined classification of deletion-minimal rather than shortest supersequences is a useful exact result in principle. Here the classification and spectrum are already available for this very family, and the stated longest-length fraction adds no independent invariant beyond dividing known quantities. There is no surviving distinct contribution under the narrow-exact-result standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

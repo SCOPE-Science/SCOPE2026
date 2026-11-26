@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The affine edge semigroup is normal by the Petersen odd-cycle condition and has Krull dimension ten. Ohsugi--Hibi's facet theorem, the Danilov--Stanley interior-monomial formula, and graded local duality reduce the exact canonical ideal to a finite integer test through degree ten. The standalone Python verifier exhaustively verifies the counts and identifies the ten degree-seven exponent vectors as precisely the closed neighborhoods. The chosen equivariant representation is an ordinary permutation representation of the graph's natural automorphism group; the characteristic-zero irreducible decomposition has dimensions one, four and five.
+## correctness
 
-## Originality — PASS (qualified)
-The 1998 facet/normality theory and the general interior-monomial theorem are established prior art. Hatasa--Kowaki--Matsushita (2024), Example 4.6, already compute the same Petersen h-polynomial and establish almost-Gorensteinness. Their results imply the Cohen--Macaulay type eleven and the nonlevel property: those facts are **covered** and excluded from the claimed new contribution. The surviving claim is the explicit full monomial ideal of canonical generators and the transitive ten-vertex symmetry orbit; no such detailed statement was found in the inspected sources. Historical priority remains uncertain, particularly with respect to inaccessible work on canonical modules of edge subrings.
+PASS
 
-## Value — PASS
-An explicit minimal monomial model for the dualizing module gives a natural equivariant generating space and a constructive starting point for its syzygies, information not present in the already-known Hilbert numerator or type. It is a complete structural statement for a classical highly symmetric nonbipartite toric graph variety, not an arbitrary parameter slice. It does not establish a new Hilbert polynomial or Cohen--Macaulay type.
+The Petersen graph is connected and has no triangles or four-cycles. Two disjoint odd cycles must partition its ten vertices, so a joining edge exists and the edge semigroup is normal. Alternating sums along even walks give all vertex-coordinate differences (an odd closed detour adjusts parity), and adding an edge gives the full even-sum lattice. For the coordinate facets, deleting 45 leaves the five-cycle 12,34,15,24,35 and every remaining vertex attaches to this cycle; transitivity handles all deletions. Independent sets are intersecting families of two-subsets. A singleton leaves a bipartite six-vertex remainder, a pair a nonempty three-vertex remainder, and a three-element star a one-vertex remainder. The other triple type is the triangle on three labels, namely N(v) for the complementary pair; it and each four-element star have full coverage and connected cross-edge graph. Hence the facet criterion gives exactly the stated 25 inequalities. Normal canonical interior monomials are 1+b with b>=0 and even sum 2r, and their minimality is exactly nonremovability of any positive-support edge. The canonical module is Cohen–Macaulay; graded local duality gives top local cohomology dual to R, with end degree 0, so regularity is 10 and no minimal generator after degree 10 is possible. An independent exact stars-and-bars enumeration with tight-facet forbidden edges gave interior/minimal counts (1,1), (15,0), (130,10), (760,0), (3345,0), (11953,0) and verified the ten closed-neighborhood offsets. The rank-ten ring gives projective dimension nine; label permutations act on the displayed generators as claimed, with the characteristic-zero two-subset module decomposing by the Young rule.
 
-## Limits
-Only the chosen monomial realization carries the displayed permutation linearization; no assertion about the unique geometric dualizing linearization or higher minimal resolution is made. Priority has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The h-vector, type, nonlevelness, and even the numerical generator-degree distribution are covered or implied by prior almost-Gorenstein data. The supported additional claim is the determination of the actual monomials as the unit exponent vector and its ten closed-neighborhood offsets, and thus the concrete permutation action in this realization. The closest inspected sources do not identify that ideal or action.
+
+## value
+
+PASS
+
+The Petersen graph is a standard, symmetric nonbipartite example whose ordinary normal edge ring is already studied as almost Gorenstein but not level. Giving the exact canonical ideal as monomials, rather than recalculating type or graded data, identifies the selected symmetric realization and permits subsequent explicit equivariant or algebraic computations. The relevant invariant and graph are natural independently of the finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

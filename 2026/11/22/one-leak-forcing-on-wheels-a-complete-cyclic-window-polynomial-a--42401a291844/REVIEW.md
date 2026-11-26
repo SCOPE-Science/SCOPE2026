@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local criterion follows by separating the possible first force when the hub is initially white from ordinary one-leak propagation on the rim cycle after the hub becomes blue. Hub-present sets succeed exactly when they contain an adjacent selected rim pair; hub-absent sets succeed exactly when there are two distinct selected three-windows. The complete polynomial follows from closed walks in two explicit finite automata, rather than extrapolation from small cases. The minimal-set formula comes from the unique minimal unions of two three-windows: overlapping in two vertices yields a four-block, while separated disjoint triples yield six-sets. The symbolic determinant identity and all boundary cases \(n\ge4\) have been checked independently. The embedded checker verifies direct leaked propagation for every initial set through rim length 11 and transfer counts through length 16.
+PASS
 
-## Originality — PASS (provisional priority)
+For a fixed leak, extra blue vertices cannot hinder closure. With a blue hub, start from a rim adjacent pair: the two fronts of the remaining white interval cannot both be disabled by one leak, and if one reaches an initially white leak the other finishes the rest. Without a pair no force can start, including from the hub. With a white hub the only possible first move targets the hub, from a selected triple center; exactly two or more candidate centers survive arbitrary deletion of a force source. The trace counts labelled cyclic words, with one factor z per selected bit and one u per cyclic 111; expanding the determinant gives the stated constant and linear terms in u, and the logarithmic derivative extracts the ordinary generating function. Minimal hub-free sets are four-blocks or two three-blocks with both gaps nonempty; overlapping one-bit windows contain a redundant four-block. At n=4 all four-block descriptions give one rim set. At n>=8 the second block has n-7 allowed offsets, and unordered pairs divide by two. Independent fort-transversal enumeration exhaustively checks the criterion and minimal counts through n=14; it is a supplement to the all-n proof, not extrapolation.
 
-The 2019 original leaky-forcing preprint and Proposition 3.6 of the 2024 journal article cover scalar one-leak forcing number three, not all configurations or inclusion-minimal counts. The accessible full 2026 modular-compression study provides a general exact fort-subset method, including arbitrary singleton-type representations; it logically computes the wheel polynomial by exponential specialization but neither evaluates its coefficients to the four-state cyclic formula nor classifies its minimal wheel sets. Published indexed related wheel records concern ordinary, connected or positive-semidefinite forcing or fort polynomials, with different predicates. Search failure alone is not used as a novelty proof; publication priority and inaccessible indexed full-text comparisons are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Fault tolerance depends on the number of independent initial forcing routes, not only the minimum seed size. A wheel is a canonical resilient graph for which the one-leak minimum was already determined, making a full placement census a motivated missing refinement. The two-window threshold gives an exact local certificate, a constant-state transfer polynomial, and the non-pure inclusion-minimal spectrum \(\{3,4,6\}\) with a genuine missing size five and a quadratic new class appearing exactly at rim length eight. This describes all resilient deployments rather than a routine parameter adjustment.
+Credit the known wheel minimum and robust hub-plus-edge example. The distinct contribution is the explicit all-placement condition for the one-leak ordinary rule, its constant-state enumerator, and the exact inclusion-minimal classification.
 
-## Limits
+## value
 
-The result is specific to one-leak ordinary forcing on simple wheels with at least four rim vertices. The computational tests are finite and are supplementary to the infinite-family proof. No independent audit has yet been performed; published-priority comparisons may miss nonindexed or unavailable full texts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A placement-level robust criterion answers a deployment question the minimum cannot. The two distinct hub-entry sources explain robustness locally and lead to a fixed-size polynomial calculation independent of rim length. The onset of separated six-sets at rim length eight and the missing size five are substantive features of the minimal placements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

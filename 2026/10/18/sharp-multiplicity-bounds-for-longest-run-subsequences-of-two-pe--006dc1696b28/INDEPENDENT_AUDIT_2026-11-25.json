@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:12:43.650812Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4; inspected VERIFICATION.md and check.py.",
+        "Independent replay: python -B /workspace/branches/independent-reproductions.py 3; /workspace/branches/reproduction-3.out. All length-(m+1) position combinations were enumerated and deduplicated as words for every permutation through m=6; counts and extremes agree."
+      ],
+      "rationale": "Both copies of two different labels cannot be used: the later first copy separates the earlier first copy from its second copy. Hence the length is at most m+1, with equality realized by doubling m. An optimum doubling i must retain all other labels; a value larger than i must be selected after i in the second permutation. This is feasible exactly at a record i=π_t. Of the smaller labels, exactly i−t can choose their side of ii; each choice vector uniquely determines a word because the order on each side is fixed. Write d_s=i_s−t_s for the r records. Each nonrecord is missing at its preceding record, so sum d_s≥m−r and sum 2^{d_s}≥m. Lower equality forces d_s∈{0,1} and no double-counted missing label: the first block must be (1) or (2,1), and deletion with relabeling preserves equality. For the upper bound, d_s≤m−r and r≤2^{r−1} with equality only at 1 or 2; both record-position/value bounds must be tight, giving exactly the two disjoint prefixes stated for m≥2. The tiling recurrence and factorial counts follow, with m=1 checked separately.",
+      "residual_risks": [
+        "The finite replay does not prove the arbitrary-m assertions; it supplements the combinatorial argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General at-most-two-occurrence LRS is treated via hardness and approximation, not optimum-word counting. The repeat-word theorem for U^k includes π=id by taking k=2 and all weights one, but not arbitrary π."
+        ],
+        "reasoning": "A broader host class for optimization does not supply exact multiplicities, and the weighted-repeat count only covers a special intersection.",
+        "searches": [
+          "Dondi–Sikora arXiv:2011.08119",
+          "Asahiro et al. CPM 2023 and WABI 2025",
+          "Resultary:f8851dd87d7f"
+        ]
+      },
+      "checked_sources": [
+        "WABI 2020.6; arXiv:2011.08119; CPM 2023.2; WABI 2025.3; OEIS A001048; Resultary f8851dd87d7f, 0509ac1ee874"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The repeat-word binomial formula gives m at the identity permutation. The reversed-periodic finding counts different combinatorial objects. The OEIS formula gives neither which permutations attain the maximum nor why their optimum-word count is 2^{m−1}."
+        ],
+        "reasoning": "The record statistic and equality characterizations are not consequences of the inspected special-case or coincident sequence formulas.",
+        "searches": [
+          "Resultary:f8851dd87d7f RESULT.md finding",
+          "Resultary:0509ac1ee874 RESULT.md finding",
+          "OEIS A001048 comments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source problem allows a single run for each retained label. The count is over words rather than embeddings. A general concatenation of two permutations can be relabeled to make the first increasing without changing run-word multiplicity; this does not extend the statement to arbitrary double-occurrence words.",
+          "The same-day reverse-periodic result concerns common subsequences of two hosts, not single-host run constraints."
+        ],
+        "reasoning": "The natural relabeling permits comparison over all pairs of permutations; common-subsequence results for a different host/constraint are not an equivalent formulation.",
+        "searches": [
+          "Longest run subsequence on concatenated permutations and distinct optimum words",
+          "Resultary:f8851dd87d7f",
+          "Resultary:0509ac1ee874"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001048 explicitly gives a(n)=n!+(n−1)!; hence m(m−2)!=a(m−1). Its inspected combinatorial interpretation is about one cycle containing specified labels, not run-word maximizers."
+        ],
+        "reasoning": "Credit the exact numerical sequence and ordinary Fibonacci tiling count; the new object is the run-word formula and identification of the attaining permutations.",
+        "searches": [
+          "OEIS A001048",
+          "Resultary semantic search: distinct optima for double-permutation longest run subsequences"
+        ]
+      },
+      "rationale": "The all-permutation record formula and its exact extremizer families, rather than the numerical sequence or the elementary length, are the distinct claim. Retrieved LRS results on hardness/approximation and published special cases do not cover this enumeration.",
+      "residual_risks": [
+        "Bounded primary-literature and catalogue checks do not certify historical priority. The identity special case and shifted numerical maximum-family count are already covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same optimization problem and relevant multiplicity restrictions, not the exact word enumeration",
+          "evidence": [
+            "Problem definitions, hardness for bounded occurrences, and approximation bounds."
+          ],
+          "identifier_or_url": "10.4230/LIPIcs.WABI.2020.6; arXiv:2011.08119; 10.4230/LIPIcs.CPM.2023.2; 10.4230/LIPIcs.WABI.2025.3",
+          "material_read": "WABI 2020 pp.1,3; Dondi–Sikora pp.1–2,4; CPM 2023 p.2; WABI 2025 p.2",
+          "method": "Primary OA PDF passages",
+          "title": "The Longest Run Subsequence Problem; Further Complexity Results; Approximation Algorithms and Approximability papers",
+          "trigger": "Foundational and bounded-multiplicity LRS"
+        },
+        {
+          "assessment": "Exact special-case overlap",
+          "evidence": [
+            "For U^k the count is binomial(k+r−2,r−1); U increasing with unit weights, k=2, gives m."
+          ],
+          "identifier_or_url": "Resultary:f8851dd87d7f",
+          "material_read": "Local RESULT.md offsets 80 and 901",
+          "method": "Resultary lookup and local mirror",
+          "title": "Complete longest-run-subsequence classification for weighted periodic words",
+          "trigger": "Exact enumeration in an adjacent family"
+        },
+        {
+          "assessment": "Different constraint and host family",
+          "evidence": [
+            "Classification of maximal common subsequences, with length 2m−1 and a separate q=3 count."
+          ],
+          "identifier_or_url": "Resultary:0509ac1ee874",
+          "material_read": "Local RESULT.md offsets 292, 961",
+          "method": "Resultary lookup and local mirror",
+          "title": "Maximal common subsequences collapse to longest ones for reversed periodic words",
+          "trigger": "Same-day subsequence-word classification"
+        },
+        {
+          "assessment": "Exact numerical overlap only",
+          "evidence": [
+            "a(n)=n!+(n−1)! and an interpretation by permutation cycles."
+          ],
+          "identifier_or_url": "https://oeis.org/A001048",
+          "material_read": "Formula and combinatorial interpretation, offsets 0 and 1866",
+          "method": "OA website passage",
+          "title": "OEIS A001048",
+          "trigger": "Exact equality-family count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and §§2–4; independent exact replay; related bounded-occurrence LRS results"
+      ],
+      "rationale": "The natural length optimum is the same on the entire host family, while the diversity of optimal words varies from linear to exponential. The exact record statistic explains that difference and identifies every extremizing arrangement, a structural enumeration not supplied by approximation or length algorithms.",
+      "residual_risks": [
+        "Does not imply improved algorithms or multiplicity results for arbitrary double-occurrence hosts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

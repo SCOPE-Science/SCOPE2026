@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:08:42.897206Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, statements (A)–(C) and proof",
+        "Frozen VERIFICATION.md and checker.py, inspected rather than executed",
+        "/workspace/branches/independent-replay.py, record 4",
+        "arXiv:2609.06844, Sections 3 and 4"
+      ],
+      "rationale": "In an unfilled graph, the descending link is the discrete set of earlier neighbors, a cone exactly when that set has one vertex. A selected pair (v,u) therefore forces u before v and v before each other neighbor. Conversely a topological order of these requirements realizes every selected pair, and any extras are harmless in the downward closure. In a forest only opposed directions on an edge can form a directed cycle. Any such conflict has a two-incidence witness: distinct choices at the same center conflict along one of its chosen edges; choices at different centers can conflict only along their common edge, either when both choose the other or neither does. Counting separately by center and by original edge yields the conflict graph and its size formula. On C_n the selected even centers comprise a minimum cover, since each selected center covers two edges and all edges are covered. Orienting each selected center from its predecessor to its successor forces the full forward cycle; removing any one selection uncovers an edge and leaves a proper forward subgraph. The resulting minimal nonface has ceil(n/2) vertices. On C_3 no pair survives: two different centers either conflict on their common edge or force the full cycle. On C_4 a pair at adjacent centers is allowed with the same orientation sign (8 pairs), and one at opposite centers with opposite signs (4 pairs). Any triple on distinct centers has a consecutive chain of three, forcing equal signs on that chain if pairwise compatible, contrary to compatibility of its opposite endpoints. So both short cycles are flag with the reported maximal faces. Independently compared 15,752 incidence subsets with downward-closed enumerations of all orders on all nonempty labeled graphs on 2–4 vertices, and explicitly counted short-cycle facets (python3 /workspace/branches/independent-replay.py 4).",
+      "residual_risks": [
+        "The finite replay is not a general certificate; the general claims rest on the order and incidence proofs. The frozen output's 13 complete matchings on C_4 are not 13 facets; the frozen verification notes distinguish those counts. Triangles here are not filled simplices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The dihedral-Euler proof's criterion covers every incidence configuration on all C_n for n>=3, thus more than a single minimal-nonface construction.",
+          "Knudson–Owens-White give the strong filtration definition and short-cycle homotopy results. Donovan–Scoville's flag result is about the ordinary Morse complex whose faces are regular gradient vector fields."
+        ],
+        "reasoning": "The exact face criterion is strong enough to entail (C), whereas homotopy equivalence alone is not. Ordinary tree flagness does not automatically pass to a non-induced strong subcomplex and does not give its additional adjacent-center conflict. The inspected cycle-specific theorem cannot be applied directly to arbitary graphs or to forest conflicts as a general algorithm.",
+        "searches": [
+          "Resultary 4819a9d67705, proof Section 1",
+          "arXiv:2609.06844, Definition 4.2 and Proposition 8.5",
+          "arXiv:2207.13780, Definition 10 and Lemma 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4819a9d67705, decisive",
+        "arXiv:2609.06844",
+        "arXiv:2207.13780",
+        "Resultary 9f25582f2bc2, 1c57a9270d74 and 0de42a6380fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-cycle test forbids differing adjacent nonzero signs; with only one nonzero sign it requires consecutive zeros. The all-zero choice is allowed.",
+          "A maximum independent set in C_n has floor(n/2) vertices and is maximal. Put zeros there and + on its complement. There are no consecutive zeros and hence no face. Deleting a + creates adjacent zeros because the independent set is maximal; now the criterion accepts. There are ceil(n/2) pluses.",
+          "For n=3 the test rules out every two-center selection. For n=4 it accepts same-sign adjacent pairs and opposite-sign opposite pairs; no triple is pairwise compatible. This also gives the claimed short-cycle onset."
+        ],
+        "reasoning": "The original (C) construction is exactly the complement-of-independent-set configuration in the prior test. Downward closure makes deletion of any one selected incidence sufficient for minimality; for n>=5 its size is at least three. Thus rewriting the prior signs as a directed cycle does not supply a new exact result here. Tree purity and maximum-facet statements do not give the full forest conflict graph, and the derivation does not reject (A) or (B) as already known.",
+        "searches": [
+          "Resultary 4819a9d67705, Section 1 at offset 1600, exact three-symbol criterion",
+          "Resultary 9f25582f2bc2, tree Finding and sharp obstruction proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary strong complex is the downward closure of matchings generated by vertex filtrations. Omitting the empty face changes none of the nonempty tests.",
+          "On a cycle the prior encodes each center by 0 if unmatched, + if its selected incidence forces forward orientation on both incident edges, and - for reverse orientation. Distinct selections at the same center are inherently incompatible."
+        ],
+        "reasoning": "The sign description and precedence arcs encode identical constraints on the same labeled, unfilled cycle. Conflicting adjacent signs make a two-cycle; without such a conflict the only remaining directed cycle is the whole cycle in one direction. Thus the prior gives the same face decision on C_n, not merely a similar homotopy invariant.",
+        "searches": [
+          "arXiv:2609.06844, Sections 3, 4 and 8",
+          "Resultary: SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705, proof Section 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-11 dihedral-Euler record has a decisive all-cycle characterization in the proof rather than in its headline. The tree record describes purity and rooted maximum-dimensional facets; the simple-connectivity record concerns pi_1.",
+          "A distinct same-day C_10 record gives an exact face model at one size. A separately cited all-cycle face enumeration record could not be opened in the local mirror."
+        ],
+        "reasoning": "The all-cycle prior is not just finite agreement. The same-day C_10 record is compared for actual scope rather than excluded by date; it cannot establish the all-cycle statement on its own. The unavailable record is not used as a reason for failure.",
+        "searches": [
+          "Resultary: precedence, full strong Morse cycle faces, forest incidence incompatibility",
+          "Resultary: 4819a9d67705, 9f25582f2bc2, 1c57a9270d74, 0de42a6380fb and cited 7ecee706974b"
+        ]
+      },
+      "rationale": "The frozen record presents (C), the universal cycle nonface obstruction and short-cycle onset, as an original main addition. An earlier inspected Resultary proof gives an exact all-cycle face criterion on exactly the same strong complex. The claimed witness, its size, minimality, and flag onset are direct consequences of that criterion. This is demonstrated prior coverage of a material headline claim, not merely failure to locate a source. The coverage is cycle-specific; it does not establish prior coverage of the general-graph oracle or the forest conflict graph. The original package is assessed as written; no narrowed repair is submitted.",
+      "residual_risks": [
+        "The separate cited cycle enumeration record 7ecee706974b was unavailable in the local mirror. The verdict does not rely on it.",
+        "Earlier equivalent versions of the general order oracle or forest conflict graph remain possible; the demonstrated failure concerns the cycle part of the actual frozen claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage of (C) by implication and of (A) specialized to cycles; not a general graph result.",
+          "evidence": "The two exact tests are absence of adjacent opposite nonzero signs and, for a single nonzero sign, existence of adjacent zeros. These are necessary and sufficient for every C_n in scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-euler-characters-of-full-strong-morse-complexes-of-cycl--4819a9d67705",
+          "material_read": "RESULT.md, scope and proof Section 1, offset 1600",
+          "method": "Resultary lookup and direct local mirror bounded passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Dihedral Euler characters of full strong Morse complexes of cycles",
+          "trigger": "Earlier exact characterization of the same full strong cycle complex"
+        },
+        {
+          "assessment": "Same model; no general precedence oracle in the inspected passages. Small-cycle homotopy results do not by themselves certify flagness.",
+          "evidence": "A face is a nonempty subset of a filtration-generated matching; the cycle section treats C_n with n graph vertices and 2n incidence vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.06844",
+          "material_read": "Sections 3 and 4, pp. 4 and 7, Definition 4.2; Section 8, pp. 12–13, Proposition 8.5",
+          "method": "OA primary PDF passage inspection",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Originating strong filtration complex and explicit small-cycle analysis"
+        },
+        {
+          "assessment": "The ordinary flag theorem does not give the full strong forest model.",
+          "evidence": "Faces are ordinary gradient vector fields, with the condition of no closed nontrivial V-path; realizability by vertex filtrations is not required.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.13780",
+          "material_read": "Definition 10 and Lemma 3.1, arXiv PDF p. 4",
+          "method": "OA PDF literal location and offset passage at 12310",
+          "title": "Star clusters in the Matching, Morse, and Generalized Morse complex",
+          "trigger": "Published tree flag theorem for a related complex"
+        },
+        {
+          "assessment": "Different invariant; the inspected result does not give the forest conflict graph.",
+          "evidence": "Purity iff diameter is at most three; rooted maximum facets and a specific smaller maximal-face obstruction for larger diameter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-diameter-three-characterization-of-pure-strong-morse-matching--9f25582f2bc2",
+          "material_read": "Finding at offset 0 and proof near offset 4730",
+          "method": "Resultary local mirror bounded passages",
+          "title": "A diameter-three characterization of pure strong Morse matching complexes of trees",
+          "trigger": "Same strong matching complex on trees"
+        },
+        {
+          "assessment": "Connectivity conclusion is not a minimal nonface result.",
+          "evidence": "Asserts trivial fundamental group for n>=6 and the sharp failure at n=5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-simple-connectivity-threshold-for-strong-morse-matching-co--1c57a9270d74",
+          "material_read": "Finding at offset 0 and related record citation",
+          "method": "Resultary local mirror bounded passage",
+          "title": "Sharp simple-connectivity threshold for strong Morse matching complexes of cycles",
+          "trigger": "Same strong complexes and cycle threshold language"
+        },
+        {
+          "assessment": "Covers a single cycle size, not the all-cycle or all-graph claim; no within-day priority inference.",
+          "evidence": "Exact model for C_10 used to obtain the wedge S^4 vee S^5 vee S^5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-mixed-dimensional-integral-sphere-wedge-in-the-full-strong-mor--0de42a6380fb",
+          "material_read": "Finding and Section 1 at offset 0",
+          "method": "Resultary local mirror bounded passage",
+          "title": "A mixed-dimensional integral sphere wedge in the full strong Morse complex of C_10",
+          "trigger": "Distinct same-day exact face model"
+        },
+        {
+          "assessment": "Plausible additional coverage, not used for the verdict.",
+          "evidence": "The citing record describes a three-symbol criterion and cycle face polynomials; the statement was not read directly.",
+          "identifier_or_url": "Resultary 7ecee706974b",
+          "material_read": "Citation and description in Resultary 1c57a9270d74 only; exact record unavailable",
+          "method": "Local mirror lookup and inspection of the citing record",
+          "title": "Face enumeration and Euler periodicity of strong Morse cycle complexes",
+          "trigger": "Cited exact face model for the same family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen (A) and (B) and their proofs",
+        "Resultary 4819a9d67705, exact cycle criterion"
+      ],
+      "rationale": "The general oracle reduces an enumeration over strict filtrations to explicit precedence constraints and a topological sort, and the forest model supplies a local independence graph and a closed edge count for an unbounded class. Those are useful exact structural tools. By contrast the cycle obstruction and small-cycle flag onset add no distinct scientific value beyond the covering exact cycle criterion; the value pass rests on (A) outside the prior cycle setting and (B), not on counting (C) as new.",
+      "residual_risks": [
+        "The forest model does not by itself compute homotopy types; the cycle corollary is not an independent new contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:29:40.493143Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–46; VERIFICATION.md and supplied verifier inspected without execution",
+        "Replay: python3 /workspace/independent_checks.py 2; Cayley tables and full actions determined from generator images, 16 cases including r=0; both formula counts and complete orbit invariants checked."
+      ],
+      "rationale": "For a labeled map E -> G its projected image is totally singular, since squares and commutators are trivial. The induced quotient action is all of O(V,q): lifts of a transformed basis give the same presentation, with the center fixed, and the relations give at most 2^(2m+1) normal forms. The kernel acts by V*; for a difference character vanishing on K the restriction from V* to the image U is surjective (also realized by inner twists by nondegeneracy). Witt extension of the isometry of the totally singular projected images, followed by such a twist, makes the maps coincide exactly, not just their images. Conversely K and χ are preserved and any pair occurs by choosing a complement of K and basis lifts. The Gaussian count and type-difference term then follow with r=0 giving one. For raw counts the number of nonzero singular vectors in the j-step quotient is (2^(m-j)-1)(2^(m-j-1)+1) for plus and (2^(m-j-1)-1)(2^(m-j)+1) for minus; multiplying lift counts 2^j and dividing by the ordered basis count gives exactly T_±. Every surjection onto U lifts in 2^r ways; at r=1 the raw difference including identity is 2^(m+1).",
+      "residual_risks": [
+        "The enumerations for m=1,2 and r<=3 do not prove the formula; the general proof uses Witt extension for a nonsingular quadratic space, not simply the symplectic polar form."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exponent-p class-2 subgroup geometry relates commutator-isotropic spaces to abelian subgroups; it does not impose the exponent-four group's quadratic squaring condition.",
+          "An extension theorem for isomorphisms of elementary abelian subgroups containing Z and fixing it would be close and could yield the count, so an older such result remains a material risk. Candidate Quillen and an automation-group paper were not accessible to the literature check."
+        ],
+        "reasoning": "Polar bilinear extension alone is insufficient over F2: a commuting subgroup can have nontrivial squares. The needed lift comparison also requires absorbing twists that vanish specifically on the projected kernel. No retrieved stronger prior fusion statement was found to subsume the exact labeled orbit profile.",
+        "searches": [
+          "arXiv:2408.09963, p. 5; arXiv:2605.17171, p. 37",
+          "Classical extraspecial fusion background; Quillen, Math. Ann. 194 (1971), 197–212"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4fac780bbe31 and related same-day indexed group counting records",
+        "arXiv:2605.02071, 2605.17171, 2408.09963, 2107.05564",
+        "Frozen RESULT.md references and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The raw counts weight each totally singular image space, whereas the orbit formula has exactly one summand per projected kernel and its permissible characters. The two types first have different allowed projected dimensions at d=m, not different Gaussian counts at a shared dimension."
+        ],
+        "reasoning": "A tuple-count or subgroup-incidence result cannot by itself imply how the full group of automorphisms moves the lifts. Classical orthogonal geometry and automorphism structure support the derivation but do not themselves enumerate the labeled orbits in the compared material.",
+        "searches": [
+          "arXiv:2605.02071 p. 7 extraspecial corollary; Resultary 4fac780bbe31 Finding and Limitations; Witt extension and standard extraspecial Aut quotient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Levit–Shwartz define Hom(Z^r,G)/G under diagonal conjugation, and their extraspecial corollary counts commuting through Lagrangian incidence. Rossmann considers graphical-group conjugacy classes by size."
+        ],
+        "reasoning": "An Aut orbit of labeled exponent-two maps is not an inner orbit, an unlabeled orbit of elementary abelian subgroups, or an orbit under both source and target automorphisms. The projected kernel and its central character are invariants specific to the labeled action.",
+        "searches": [
+          "Extraspecial groups, involution tuple orbits and subgroup fusion/extension",
+          "arXiv:2605.02071, 2605.17171, 2107.05564"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ID 4fac780bbe31 counts ordered exponent-two homomorphisms into H_b(q) by first-horizontal-coordinate rank, with q=2,b=m giving plus type. It states no automorphism/conjugacy classification. Same-day graphical-groups and UT4 results inspected count involutions, tuple totals, or subgroups in limited or different groups."
+        ],
+        "reasoning": "The exact overlap is raw Hom enumeration on plus type, not its orbit invariant or the plus/minus threshold. For example the raw counts differ already at r=1 although the orbit counts agree for m>1.",
+        "searches": [
+          "Resultary: commuting involutions, elementary-abelian homomorphisms, extraspecial and even-characteristic Heisenberg groups"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the full-postcomposition orbit classification of labeled elementary-abelian maps, and the first rank at which its count detects type. Raw counts and the quadratic model, Witt extension, and singular-space counts are not credited as original. Inspected inner-conjugacy, raw-count, and subgroup-geometry results do not provide the labeled fusion and kernel-character conclusion in this setting.",
+      "residual_risks": [
+        "Older elementary abelian subgroup fusion could subsume the map classification; Quillen and the candidate On the Automorphism Group of Extraspecial 2-Groups were not read, the latter after HTTP 403. No historical-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers raw counts for plus type at q=2, not the orbit problem or minus type.",
+          "evidence": [
+            "Rank is the first horizontal-coordinate rank, and the stated count does not classify image subgroups or conjugacy."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-rank-stratified-elementary-2-group-homomorphisms-into-even-chara--4fac780bbe31/RESULT.md",
+          "material_read": "Finding offsets 0–994; Limitations near 5850",
+          "method": "Local mirror passage",
+          "title": "Rank-stratified elementary 2-group homomorphisms into even-characteristic Heisenberg groups",
+          "trigger": "Strongest indexed overlap on exactly the same labeled Hom set for plus type"
+        },
+        {
+          "assessment": "Different source and acting group.",
+          "evidence": [
+            "κ_r is the quotient of Hom(Z^r,G) under diagonal G-conjugation; extraspecial corollary uses incidence of maximal abelian subgroups and Lagrangians."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.02071",
+          "material_read": "p. 2 offset 6240 and p. 7 offset 21400",
+          "method": "OA PDF passages",
+          "title": "Higher Commutativity in Finite Groups: Exact Asymptotics and Finite Spectrum",
+          "trigger": "Extraspecial corollary and related commuting tuple orbit formulation"
+        },
+        {
+          "assessment": "Related geometry and counting, not quadratic full-Aut labeled fusion in the cited passage.",
+          "evidence": [
+            "Isotropic tuples for exponent-p class-2 groups and Heisenberg families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.17171",
+          "material_read": "p. 37 near 120200",
+          "method": "OA PDF passage",
+          "title": "Higher Commutativity in Finite Groups, Rigidity, Extremal bounds, and Heisenberg-Type Families",
+          "trigger": "Potential broader bilinear model and tuple count"
+        },
+        {
+          "assessment": "Class-2 exponent-p isotropic model is not sufficient for the target quadratic map.",
+          "evidence": [
+            "Totally isotropic spaces encode abelian subgroups containing the commutator subgroup."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.09963",
+          "material_read": "p. 5 offset 13651",
+          "method": "OA PDF passage",
+          "title": "Qiao, arXiv:2408.09963",
+          "trigger": "Broader group-subspace correspondence"
+        },
+        {
+          "assessment": "Conjugacy classes by size, not full-Aut labeled-map classes.",
+          "evidence": [
+            "Conjugacy class enumeration for graphical groups by graph polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.05564",
+          "material_read": "p. 1 offset 595",
+          "method": "OA PDF passage",
+          "title": "Rossmann, arXiv:2107.05564",
+          "trigger": "Possible conjugacy enumeration equivalent"
+        },
+        {
+          "assessment": "Not assessed for exact implication; unresolved access is not negative evidence.",
+          "evidence": [],
+          "identifier_or_url": "D. Quillen, Math. Ann. 194 (1971), 197–212",
+          "material_read": "No full-text passage retrieved",
+          "method": "Attempted lawful OA retrieval",
+          "title": "The mod 2 cohomology rings of extra-special 2-groups and the spinor groups",
+          "trigger": "Classical elementary-abelian subgroup geometry and possible implicit fusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–30 and 44–46",
+        "Independent finite check",
+        "Resultary 4fac780bbe31"
+      ],
+      "rationale": "The profile measures equivalence of ordered commuting involutions rather than just existence, subgroup counts, or quotient geometry. It isolates exactly the central data surviving all automorphisms and proves a sharp delayed type-detection threshold despite immediate separation by raw counts. That distinction and complete orbit profile are useful for labeled-map enumeration; verifying classical T_± is not itself the contribution.",
+      "residual_risks": [
+        "No analog for other special groups or odd primes is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

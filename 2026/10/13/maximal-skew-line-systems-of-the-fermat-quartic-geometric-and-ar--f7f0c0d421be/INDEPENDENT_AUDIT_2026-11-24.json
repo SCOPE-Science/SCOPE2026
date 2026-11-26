@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:23:31.929542Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–31",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 1–167 (inspected, not executed)",
+        "Independent replay: python3 -I /workspace/reviews/evidence/fermat_census.py; reproduced 48 lines, 128 systems, the two projective orbits, all four fixed counts, and the auxiliary intersection histogram"
+      ],
+      "rationale": "Restrict the defining quartic to any projective line, viewing the coordinates as four binary linear forms. After discarding zero forms and grouping proportional forms, the fourth powers of the distinct forms are linearly independent by a Vandermonde minor (choose a chart in which all their first coefficients are nonzero). Each proportionality group must therefore have at least two coordinates for cancellation, and a projective line requires at least two independent forms. This forces the stated pair families, with ratios the four odd powers of ζ₈. Same-family lines sharing a ratio meet, giving at most four per family and at most twelve in total. An independent exact modular-phase consistency test on the union of two matchings, followed by exhaustive graph clique recursion, yielded 128 twelve-line sets. The Hessian determinant defines the four coordinate planes, hence projective automorphisms are monomial with equal fourth powers on the diagonal. The independent census uses a coordinate 4-cycle, one adjacent transposition, and multiplication of one coordinate by i; these generate the group of order 1536, and its two orbit sizes 32 and 96 give stabilizers 48 and 16. The Galois maps k=1,3,5,7 fix 128,16,128,16 systems, respectively; the orbit counts are sixteen singletons and 56 doubletons. A primitive eighth-root ratio forces the field of an individual line to be K. The reduced union descends to the fixed field of its stabilizer by Galois descent of its homogeneous ideal. The involution k=5 fixes exactly Q(i) as a field, so all 128 systems are defined there; sixteen are rational and the other 112 have minimal field Q(i).",
+      "residual_risks": [
+        "The replay checks only the size-twelve systems, not every smaller inclusion-maximal system. The group is the full geometric projective group, not the possibly larger group of abstract automorphisms of the surface. Arithmetic counts are for the all-plus rational form and for unordered reduced unions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andria et al. prove the maximum 3d in degree d except d=3,5 and give a construction for even d. Degtyarev and Rams classify whole K3-quartic line configurations with at least 49 lines and report a lower bound on the number of configurations with 48 lines. Veniani studies symmetries of quartics with many lines, treating 48 as the Fermat baseline."
+        ],
+        "reasoning": "Existence and an upper bound cover exactly the maximum size. Whole-surface line configurations and symmetry results are not the census or symmetry action on the size-twelve subsets.",
+        "searches": [
+          "arXiv:2403.15666, Proposition 4.1 and Theorem 4.7",
+          "arXiv:2301.04127, section 1 and Table 1; arXiv:1708.01219, section 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 33–42",
+        "arXiv:2403.15666, 0812.2377, 2211.16580, 2301.04127 and 1708.01219",
+        "Resultary mirror 1bcbf2e1a563"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known line equations and congruences define the finite graph explicitly. The degree-four maximum theorem guarantees at least one maximum set, and the existing exact pair histogram is a different level of the graph. The inspected literature does not give fixed-system counts for the Q-model."
+        ],
+        "reasoning": "The known graph makes the census computable but does not supply it as a table lookup or parameter substitution: compatible size-twelve subsets must be exhausted, and then partitioned under two different group actions. Galois stability of every configuration over Q(i), despite no individual line descending there, is not a consequence of a geometric orbit size.",
+        "searches": [
+          "arXiv:2403.15666, equation (1.0.1), Proposition 1.1 and Theorem 4.7",
+          "arXiv:0812.2377, abstract and line families",
+          "Resultary 1bcbf2e1a563, cross-family congruences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "These skew sets are size-twelve independent sets of the line-intersection graph, equivalently size-twelve cliques in its complement; all are maximum, not merely inclusion-maximal. The indexed graph record uses the same all-plus equation over C and lists the exact cross-family congruences. Andria et al. use a signed Fermat equation over C."
+        ],
+        "reasoning": "The graph exactly encodes geometric skewness, and complex projective changes of signs preserve the geometric census. A sign change using primitive eighth roots need not be defined over Q, so arithmetic Galois orbit statements cannot be transferred by that geometric identification alone.",
+        "searches": [
+          "Resultary: Fermat quartic 48-line graph, maximum twelve skew lines, projective orbits and fields of definition; record 1bcbf2e1a563",
+          "Andria, Rojas and Mangueira arXiv:2403.15666, §§1 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror Finding gives the graph spectrum and the common-transversal histogram for 792 skew pairs, not 12-subsets. The Hermitian quartic table gives 816480 inclusion-maximal size-twelve sets, but that surface has 112 lines and maximum skew size 16 in characteristic three. The Andria et al. tables/examples supply constructions in degrees 7, 9 and 11."
+        ],
+        "reasoning": "Neither skew pairs, higher-degree witnesses, nor the different-characteristic Hermitian incidence graph tabulate the desired exact counts. No exact matching census was identified in the bounded catalogue and table comparisons.",
+        "searches": [
+          "Resultary mirror 1bcbf2e1a563, Finding and proof",
+          "Brosowsky et al. arXiv:2211.16580, section 4.2 table",
+          "Andria et al. arXiv:2403.15666, construction tables and examples"
+        ]
+      },
+      "rationale": "The 48-line description, incidence background, and maximum skew cardinality twelve are prior. The supported distinct claim is the full maximum-system census and projective orbit split, together with the exact field-descent classification on the specified rational form. No stronger inspected source supplied those assertions; the best available same-graph entry reports lower-order graph invariants rather than the extremizer orbits.",
+      "residual_risks": [
+        "Ranked catalogue and bounded literature checks do not exclude a historical or unindexed enumeration of the same geometric independent sets or a separate treatment of arithmetic descent. No priority is inferred from catalogue directory dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers line equations and maximum but not the exhaustive extremizer census or arithmetic descent",
+          "evidence": "Authors work over C with x^d−y^d−z^d+w^d=0, and state the generic maximum 3d with degree 3 and 5 exceptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.15666",
+          "material_read": "Eq. (1.0.1) and Prop. 1.1 (p. 3), Prop. 4.1 (pp. 13–14), construction examples (pp. 14–19), Thm. 4.7 (p. 20)",
+          "method": "Lawful OA PDF passages",
+          "title": "Maximal number of skew lines on Fermat surfaces",
+          "trigger": "Same geometric maximum and line families, with explicit constructions"
+        },
+        {
+          "assessment": "Exact underlying graph and pair-level invariants, not subset census or Galois action",
+          "evidence": "States the 14-regular graph spectrum, 792 skew pairs, and distribution of the numbers of common transversals to those pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-integral-spectrum-and-transversal-profile-of-the-48-fermat-quart--1bcbf2e1a563/RESULT.md",
+          "material_read": "Finding, scope and incidence formulas, offsets 0–2149",
+          "method": "Resultary catalogue and local mirror passage read",
+          "title": "Integral spectrum and transversal profile of the 48 Fermat-quartic lines",
+          "trigger": "Exact same line-intersection graph"
+        },
+        {
+          "assessment": "Different incidence graph and characteristic; not the target census",
+          "evidence": "For q=3 there are 112 lines, with inclusion-maximal sizes 7, 10, 11, 12, 13 and 16; size twelve is not maximum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.16580",
+          "material_read": "Theorem 2.1 (p. 3); section 4.2 and table (pp. 8–9, offsets 22318 and 26797)",
+          "method": "Lawful OA PDF passages",
+          "title": "Maximal skew sets of lines on a Hermitian surface and a modified Bron–Kerbosch algorithm",
+          "trigger": "Explicit exhaustive skew-set table for a quartic"
+        },
+        {
+          "assessment": "Relevant line construction and Néron–Severi context, not an extremizer orbit computation",
+          "evidence": "Discusses the 3m² obvious lines and generation of Néron–Severi groups by lines.",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.2377",
+          "material_read": "Abstract and section 1, pp. 1–2, offsets 0–4497",
+          "method": "Lawful OA PDF passages",
+          "title": "Lines on Fermat surfaces",
+          "trigger": "Fermat-line configurations and their completeness and span"
+        },
+        {
+          "assessment": "Different classification object and primary threshold",
+          "evidence": "Classifies configurations of at least 49 lines; the discussion of 48 concerns configurations of entire surfaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.04127",
+          "material_read": "Section 1 and Table 1, pp. 1–2, offsets 0 and 4412",
+          "method": "Lawful OA PDF passages",
+          "title": "Lines on K3-quartics via triangular sets",
+          "trigger": "Plausible broader classification of quartic line configurations"
+        },
+        {
+          "assessment": "Quartic-surface symmetries in a nearby range, not the orbit census in the inspected statements",
+          "evidence": "Over C, focuses on surfaces with more than 52 lines and discusses the 48-line Fermat baseline.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.01219",
+          "material_read": "Section 1, pp. 1–3, offsets 0 and 4465",
+          "method": "Lawful OA PDF passages",
+          "title": "Symmetries and equations of smooth quartic surfaces with many lines",
+          "trigger": "Plausible broader symmetry classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Independent exact census /workspace/reviews/evidence/fermat_census.py",
+        "Andria et al. Theorem 4.7 and Resultary graph record 1bcbf2e1a563"
+      ],
+      "rationale": "This is the natural maximum-cardinality packing on a classical K3 surface, not an arbitrary subset size. The exact geometric orbit split distinguishes configurations that are not projectively equivalent, while the arithmetic counts answer which unions can be used over Q or Q(i) even though their components cannot individually be used there. A researcher choosing a rational maximum system or a representative of each geometric type needs more than the known maximum size or pair spectrum.",
+      "residual_risks": [
+        "Value is the complete finite classification for this surface and rational model, not a general theorem for other quartics or twists."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

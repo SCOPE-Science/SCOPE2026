@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:31:36.798736Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–69; VERIFICATION.md; VERIFY.py (inspected, not executed)",
+        "Independent five-predicate update and elimination above",
+        "Exact independent replay: python3 /workspace/branches/d964d8fc-a965-4acf-a809-c12f2ac4acdb/independent_check.py; coefficientwise annihilator and five initial numerator checks, plus finite direct counts"
+      ],
+      "rationale": "Verified the formal word theorem by a separate five-statistic elimination. For a suffix (a,b,c,d), write P=[b=bar(d)], Q=P[a=c], R=[b=d], S=P[c=bar(a)]. Over accepted words of length n≥4 count these four predicates and all words (total Y). Appending one letter sends (Y,P,Q,R,S) to (qY-P,Y-Q,R,Y-S,P-Q) using the same symbols for totals. Indeed only a P-suffix excludes any letter, then precisely bar(a). A new P requires x=bar(c), blocked exactly on Q. A new Q additionally requires b=d, which excludes old P. A new R requires x=c, blocked exactly on S. A new S requires x=bar(c) and d=bar(b), so counts P-Q. The length-four initial vector is (q^4,q^3,q^2,q^3,q^2), including q=2. For the length-four-onward generating functions, these updates imply (1-qz+z²)Y=q^4-q³z+z²Q and (1-z³)Q=q²+q³z-q²z²+z²Y-z³P with zP=q^4-(1-qz)Y. Eliminating gives exactly the displayed D_q and N_q. This checks the infinite recurrence, the initial coefficients and the empty-word convention without assuming the symbolic checker. A separate exact symbolic replay of the original state annihilator also passed. For the abstract four-symbol alphabet, any four-letter suffix can reach some constant suffix by appending four copies of a symbol t: each of the first three appends excludes at most one candidate t, and the fourth excludes none by the absence of complement-fixed letters. Reversal preserves admissibility and gives paths in the opposite direction. Constant suffixes t and s connect by runs whenever s≠bar(t), and if s=bar(t) one uses an intervening symbol from the other pair. There is a constant-suffix self-loop, so the graph is primitive. The Perron growth is at least sqrt(11): each state has ≥3 successors, at most one of which excludes a letter on the next step, hence ≥11 two-step walks. The recurrence makes the growth a positive root of the displayed polynomial. That polynomial is strictly increasing for λ≥16/5 (its derivative there is λ³(5λ−16)+3λ²−2λ+2). Bisection gives 3.75146484123868 and log₂ of it gives 1.90745403735, as claimed for formal word counts.",
+      "residual_risks": [
+        "No minimality of the rational denominator for every q is needed for the displayed enumerator. The finite direct counts are not an all-length proof. The growth interpretation is formal and combinatorial only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu–Wang–Zhang restrict all pairs of disjoint reverse-complement substrings and expressly do not specify a loop length. Their m=2 capacity concerns that more restrictive global language.",
+          "Finite forbidden-factor transfer methods supply a rational series in general. The adjacent-factor note uses overlapping clusters but specializes the overlaps to four-letter factors."
+        ],
+        "reasoning": "A sublanguage's capacity does not determine exact counts of the larger fixed-gap language, and rationality or a generic matrix resolvent does not give the five-state closure and explicit polynomials uniform in q.",
+        "searches": [
+          "Chu–Wang–Zhang arXiv:2304.11403v1, pp. 1 and 4; Zhang–Wu DOI 10.1016/j.csbj.2023.11.035; Resultary 0f04deff31c7 cluster proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, scope, relationship to prior work and proof",
+        "Resultary 0f04deff31c7",
+        "Chu–Wang–Zhang arXiv:2304.11403v1; Zhang–Wu access check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical finite-state setup implies rationality, but the five statistics close here because of the particular identities involving the one-letter intervening position and the fixed-point-free pairing.",
+          "The prior adjacent language admits and excludes different words, and the global constraint excludes strictly more than this one fixed-gap constraint."
+        ],
+        "reasoning": "Applying a general algorithm for overlaps still requires determining the transitions or overlap counts and performing the parameter-uniform elimination; the checked special-case formulas do not infer the explicit enumerator by renaming parameters.",
+        "searches": [
+          "Resultary adjacent palindrome cluster method, mirror offset 2475; global avoidance capacity source arXiv:2304.11403v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is a length-five involutive palindrome constraint with an unconstrained middle position, not a whole length-five word fixed under reversing and complementing (that would need a fixed middle symbol).",
+          "Resultary 0f04deff31c7 uses the adjacent, no-gap factor ab bar(b) bar(a)."
+        ],
+        "reasoning": "The local languages are not nested. For paired alphabet {0,1,2,3} with pairs 0↔1 and 2↔3, 0011 is excluded by the length-four rule and accepted here, whereas 02031 is excluded here but its length-four windows are both accepted under that rule.",
+        "searches": [
+          "Resultary: fixed-gap complementary stem, local reverse-complement duplication irreducibility, involutive word avoidance",
+          "Chu–Wang–Zhang arXiv:2304.11403v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct indexed recurrence has a cubic denominator and counts the non-equivalent length-four avoidance sequence. The bound theorem is an identity uniform in an alphabet parameter, not just one numerical sequence or its growth constant."
+        ],
+        "reasoning": "The indexed adjacent recurrence is a positive exact comparison, not a match. No claim of novelty relies on an isolated coefficient or on nonappearance of a number in a table.",
+        "searches": [
+          "Resultary exact fixed-gap enumeration versus the local adjacent-factor count, 0f04deff31c7"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit uniform fifth-order count in the fixed one-gap language over paired abstract alphabets. Rationality by finite pattern avoidance is routine and not credited. The closest checked exact formula is for a different local prohibition; the closest global constraint uses different hypotheses. The broader literature risk remains named below.",
+      "residual_risks": [
+        "A generalized gapped-palindrome or involutive-pattern enumeration may subsume this formula; the bounded comparisons did not establish such coverage.",
+        "No exhaustive publication-priority conclusion, particularly given the remaining Zhang–Wu access limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but distinct local word languages",
+          "evidence": "Counts avoidance of adjacent reverse-complement length-two blocks, a four-letter factor, with a cubic denominator.",
+          "identifier_or_url": "2026/10/18/SCOPE-rational-enumeration-and-entropy-of-locally-irreducible-reverse--0f04deff31c7",
+          "material_read": "Mirrored theorem and overlapping-occurrence cluster proof at offsets 253 and 2475",
+          "method": "Resultary search and local source mirror",
+          "title": "Rational enumeration and entropy of locally irreducible reverse-complement length-two words",
+          "trigger": "Closest same-object exact local counts under a related prohibition"
+        },
+        {
+          "assessment": "Global formal avoidance, not this exact local enumeration",
+          "evidence": "Two disjoint reverse-complement substrings are forbidden without fixing separation; the reported rate is for that global condition.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.11403v1",
+          "material_read": "p. 1 definitions and loop-size discussion (PDF offsets 600–3141); p. 4 m=2 capacity (offset 27853)",
+          "method": "Primary OA PDF passages",
+          "title": "Improved constructions of secondary structure avoidance codes for DNA sequences",
+          "trigger": "Broader reverse-complement avoidance formalization for length-two stems"
+        },
+        {
+          "assessment": "Unresolved source scope; access failure is not evidence of novelty or coverage",
+          "evidence": "The comparison does not rely on the frozen record's characterization of this paper.",
+          "identifier_or_url": "https://doi.org/10.1016/j.csbj.2023.11.035",
+          "material_read": "Frozen citation only; no accessible decisive passage in checked routes",
+          "method": "Lawful PMC, Europe PMC and DOI attempts",
+          "title": "On secondary structure avoidance of codes for DNA storage",
+          "trigger": "Likely broader separation-aware formal constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md mathematical Finding, scope and proof; the adjacent-factor Resultary comparison; independent five-statistic recurrence"
+      ],
+      "rationale": "The gap of one symbol is the first local case after adjacency for this paired-letter avoidance problem. The exact result determines every length and all paired alphabet sizes, revealing the same low-order recurrence even as the ordinary suffix space grows as q^4. This answers an exact counting question for a natural family and permits comparison with the adjacent rule; it is more than the generic existence of a rational series or a numerical count at one alphabet size.",
+      "residual_risks": [
+        "No inference to longer gaps, other local rules, or behavior of physical sequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

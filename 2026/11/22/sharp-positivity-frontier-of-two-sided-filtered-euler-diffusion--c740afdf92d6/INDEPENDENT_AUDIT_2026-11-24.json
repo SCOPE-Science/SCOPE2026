@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:48:40.214987Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–28 and 32–66; VERIFICATION.md; static inspection of verify.py",
+        "Independent replay: python3 /workspace/review-evidence/reproduce.py 2; SymPy exact inversion/Cayley-square identities and exact Gauss comparison."
+      ],
+      "rationale": "Let x=τ/2, R=(I+xL)^−1. The step equals I+2xR′. Cofactors give D=det(I+xL)=1+2(a+b)x+3abx² and R12=ax(1+bx)/D, R23=bx(1+ax)/D, R13=abx²/D. Differentiation yields the three stated off-diagonals for all x≥0; the remote pair is positive at x>0. The multiplier is (1+y²)/(1+y)² for y=xλ≥0, in [1/2,1], so all diagonals are at least 1/2; symmetry and mass conservation follow from the Laplacian. For a≥b the strong-edge numerator after dropping the positive prefactor is (1+bx)²−b(a−b)x²; the opposite-edge quadratic is positive. It stays strictly positive for every finite x when a≤2b, and for a>2b its decreasing linear factor crosses exactly at x=1/(sqrt(b(a−b))−b), while the other factor stays positive. This gives precisely the stated zeros at the cutoff, permanent negativity only across the stronger edge afterward, strict signs at positive steps for the balanced regime, and I at τ=0. On one edge of weight c the off-diagonal is 2cx/(1+2cx)²>0. The Cayley representation follows from Cτ=2R−I, and exact arithmetic confirms the comparator values −9/2809 and 18/1621 at (3,1,6).",
+      "residual_risks": [
+        "The all-parameter proof, not the frozen finite rational samples, proves the frontier. The theorem concerns exact arithmetic for the matched split, not other splittings or all graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f400c37aad47 indexed: same first-order two-sided filter, four-vertex unweighted-path loss and weighted pseudoinverse obstruction for eventual positivity.",
+          "4f94a5560a16 indexed: all-step positivity through three unweighted vertices and four-vertex-path loss.",
+          "Frozen RESULT.md lines 68–80 credits Wu–Shu Proposition 3.1, formula (3.5), and L² stability; the exact paper passage was not retrieved independently."
+        ],
+        "reasoning": "The unweighted guarantees include the a=b slice. A pseudoinverse obstruction can already explain eventual negativity for overweight edges but does not exclude an earlier crossing or give the time and no-reentry result. Euclidean stability of a symmetric filter does not imply stochasticity. The full nearest same-filter passages remain unverified.",
+        "searches": [
+          "Resultary: exact statement prior symmetrically filtered Euler heat unweighted graphs at most three vertices weighted Laplacian pseudoinverse large time",
+          "Wu–Shu arXiv:2611.02282 OA queries ‘two-sided resolvent’ and ‘Proposition 3.1’"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 56–82 and frozen AUDIT.json prior-work comparisons",
+        "Resultary summaries f400c37aad47, 4f94a5560a16, 2f0ca4adbadc, 73910250a06c and aca55303c478"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gauss two-thirds condition agrees with M≤2m on a path with two edges and both methods have a nonreentrant horizon.",
+          "At a=3,b=1,τ=6, independently replayed exact entries are filtered −9/2809 versus Gauss 18/1621 (RESULT.md line 64). Gauss diagonals and nonoffending edges are positive in this parameter setting: its rational spectrum is positive and all off-diagonals can be checked directly."
+        ],
+        "reasoning": "The two different rational multipliers give genuinely different first crossing thresholds despite the coincidence of the all-step ratio and qualitative nonreentry. Exact signs at a common step directly separate the strong-edge crossing; no implication of the filtered horizon follows merely from an indexed theorem for Gauss.",
+        "searches": [
+          "Resultary: fourth-order Gauss-Legendre three-site weighted graph positivity cutoff explicit quadratic root nonreentrant whenever an edge exceeds two-thirds total conductance",
+          "Resultary: Crank Nicolson square positivity C^2 half identity weighted three-vertex path"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md lines 56–60 gives Tτ=(I+Cτ²)/2; averaging with I leaves the off-diagonal sign of Cτ² unchanged.",
+          "aca55303c478 is indexed as exact positivity horizons for Crank–Nicolson powers on unweighted stars."
+        ],
+        "reasoning": "A squared Crank–Nicolson step is a genuine alias for the off-diagonal question here, but the indexed unweighted-star result does not cover arbitrary unequal conductances (K1,2 unweighted only covers a=b), and nonnegative definiteness of the squared matrix does not imply nonnegative entries. No exact alias was verified.",
+        "searches": [
+          "Resultary: Crank Nicolson square positivity C^2 half identity weighted three-vertex path",
+          "Primary search: two-sided filtered Euler graph heat positivity weighted three-vertex path resolvent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2f0ca4adbadc indexes an exact nonreentrant Gauss positivity horizon and an all-step two-thirds-of-total edge condition on three-site weighted networks; 73910250a06c indexes ratio [1/2,2] on weighted three-vertex paths.",
+          "Neither closest indexed same-filter summary states the unequal-weight finite horizon. Their full text was not verified."
+        ],
+        "reasoning": "The analogous exact Gauss threshold is not a lookup for the matched filtered Euler step. Other exact indexed small-graph findings concern unweighted input or other filters; no distinct verified exact same-filter weighted table is supported by these sources.",
+        "searches": [
+          "Resultary: fourth-order Gauss-Legendre three-site weighted graph positivity cutoff explicit quadratic root nonreentrant whenever an edge exceeds two-thirds total conductance",
+          "Resultary: exact statement prior symmetrically filtered Euler heat unweighted graphs at most three vertices weighted Laplacian pseudoinverse large time"
+        ]
+      },
+      "rationale": "Method and norm stability are credited; the unweighted small-graph theorem, weighted eventual obstruction and analogous Gauss classifications are material overlap. Supported distinct content is the exact finite-step horizon and sign/no-reentry classification for unequal weights for this matched resolvent filter, including the sharp all-step weighted condition for that filter. No priority is inferred from catalogue dates. Full access to the closest same-filter records was unavailable, so this does not exclude an uninspected formula-level result.",
+      "residual_risks": [
+        "OA and local-mirror requests did not return the full relevant passages for Wu–Shu or the closest same-filter records. Those records and a differently named Cayley-square result could still have formula-level overlap; catalogue summaries and unproductive searches are not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material filter and obstruction overlap; no verified finite weighted three-path horizon",
+          "evidence": "Four-vertex unweighted failure and eventual weighted pseudoinverse obstruction in indexed summary.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-vertex-positivity-frontier-for-a-symmetrically-filter--f400c37aad47",
+          "material_read": "Indexed statement and frozen RESULT.md lines 68–72; full external record not retrieved",
+          "method": "Semantic catalogue query and targeted local-mirror requests; compared asymptotic versus finite-time conclusions",
+          "title": "Sharp four-vertex positivity frontier for a symmetrically filtered heat step",
+          "trigger": "Closest broader same-filter weighted and unweighted positivity result"
+        },
+        {
+          "assessment": "Includes the equal-weight three-path guarantee; unequal-weight finite-step conclusion unverified",
+          "evidence": "Three-vertex all-step guarantee for connected unweighted graphs; four-vertex-path obstruction.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-vertices-are-the-sharp-positivity-barrier-for-symmetrically--4f94a5560a16",
+          "material_read": "Indexed summary; full passage not retrieved",
+          "method": "Semantic exact-family comparison and local-mirror attempt",
+          "title": "Four vertices are the sharp positivity barrier for symmetrically filtered heat stepping",
+          "trigger": "Distinct same-filter small-vertex classification"
+        },
+        {
+          "assessment": "Same qualitative boundary and failure type, different numerical method and threshold",
+          "evidence": "Two-thirds-of-total cutoff and exact nonreentrant Gauss horizon; at (3,1,6) Gauss and filtered entries have opposite signs.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-positivity-dichotomy-for-the-fourth-order-gauss-step-on--2f0ca4adbadc",
+          "material_read": "Indexed statement, frozen comparison and direct rational recomputation",
+          "method": "Compared ratio criteria and separated strong-edge thresholds by an exact example",
+          "title": "A sharp positivity dichotomy for the fourth-order Gauss step on three-site weighted diffusion networks",
+          "trigger": "Exact three-site weight and timestep comparator"
+        },
+        {
+          "assessment": "Method and stability credited, independent full-text coverage not assessed",
+          "evidence": "The frozen record attributes the two-sided scheme and L² stability to Wu–Shu; the present audit checks the operator given in the Finding.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.02282",
+          "material_read": "Citation and comparison in the frozen RESULT.md, lines 70 and 80; independent primary passages unavailable",
+          "method": "Targeted lawful OA requests for Proposition 3.1 and formula (3.5)",
+          "title": "Unconditionally L²-stable explicit–implicit–null filtered Runge–Kutta methods for general nonlinear degenerate parabolic equations",
+          "trigger": "Underlying method definition and L² stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–18 and 32–66"
+      ],
+      "rationale": "The three-vertex weighted regime is the first possible failure for weighted paths under this natural split. The exact contrast threshold and finite-step ceiling tell a user when a nonnegative state update is safe even though all steps are norm stable, and identify the sole transition responsible. The all-step sign and no-reentry result is more useful than merely an asymptotic obstruction or one counterexample.",
+      "residual_risks": [
+        "No assertion about nonlinear schemes, irregular larger graphs or rounding sensitivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

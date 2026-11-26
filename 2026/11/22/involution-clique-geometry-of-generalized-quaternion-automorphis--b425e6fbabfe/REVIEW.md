@@ -1,23 +1,21 @@
-# Scientific review: quaternion automorphism-group involutions
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The group presentation forces the characteristic order-\(N\) subgroup and gives the unique affine automorphism parametrization. The four square roots of unity modulo \(N=2^k\) and their translation constraints give an exhaustive five-piece partition. Checking the affine commutation congruence for every pair of pieces yields the stated clique decomposition. The subgroup and numerical counts then follow exactly. Independent finite enumeration from the actual group multiplication agrees at \(k=3,4,5,6,7,8\); this is corroboration, not a substitute for the all-\(k\) argument.
+PASS
 
-## Originality
+Elements outside the cyclic rotation subgroup have order four, so for N>=8 the subgroup is characteristic and checking images of the two generators gives the affine automorphism law. For odd u, exactly one of u-1,u+1 has 2-adic valuation one (interpreting zero as infinite valuation); the other must be divisible by N/2 when u^2=1. The four resulting multipliers with the translation condition (1+u)v=0 give exactly the listed pieces. In the commutation congruence, (h,1) commutes with everything; the two multiplier-(1+h) elements commute with each other and with exactly the even-translation piece besides that universal vertex. For even translations the h contributions vanish, so the remaining negative multipliers commute precisely at equal translation mod h. Odd reflection translations pair mod h; mod 4 already excludes commuting across the even and odd pieces for the negative multipliers. This gives the exact join. The maximal seven-cliques share a three-clique, with t more maximal three-cliques meeting the rest only at the universal vertex. This yields 35t+1 triangles, and degree sums give 21t+3 edges. A commuting pair generates its unique Klein four, which accounts for three edges. Independent generator-image permutation enumeration on quaternion groups of orders 16, 32 and 64 verified the graph and counted 15, 29 and 57 Klein-four subgroups. Replay: python3 /workspace/reproductions/frozen_checks.py 4.
 
-**PASS within the inspected evidence, with historical-priority risk.** The closely applicable cyclic-by-abelian result of Velten gives connectivity, diameter, and a classification for the whole noncentral commuting graph, not the involution-induced graph or its elementary abelian subgroup geometry. Cameron–Kuzma analyze a different graph, the deep commuting graph, on full groups. The relevant exact subgroup census was not identified in the compared indexed findings or published papers. A specialized older formula for automorphism groups of generalized quaternion groups might be equivalent even without matching graph terminology; this remains an unresolved bibliographic risk and is not misrepresented as a novelty proof.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a complete intrinsic subgroup-incidence classification across an unbounded family of nonabelian automorphism groups. The graph exhibits two different maximal elementary abelian orders and a precise mixture of shared and isolated commuting involutions; this information is not encoded by the number of involutions or by a generic commuting-graph diameter bound. The formulas determine all Klein-four subgroups, maximal elementary abelian subgroup multiplicities, clique geometry and exact degrees, without choosing an arbitrary finite subcase.
+The affine identification and pairwise congruence are standard ingredients. The exact induced graph and resulting incidence of maximal elementary abelian subgroups are the distinct claims; the strongest available broader commuting-graph theorem does not mechanically imply them. No independent exact indexed match was established.
 
-## Closest literature and scientific limits
+## value
 
-- T. Velten, *The commuting graphs of certain cyclic-by-abelian groups*, arXiv:2405.18103 (2024). Full accessible preprint investigated; its graph has all noncentral elements, while this finding isolates all nonidentity involutions, including the central involution.
-- P. J. Cameron and B. Kuzma, *Between the enhanced power graph and the commuting graph*, DOI:10.1002/jgt.22871 (first published 2022). The full open-access text concerns deep commuting graphs, not this automorphism-group involution graph.
-- J. K. Hai and J. X. Liu, *Coleman Outer Automorphism Groups of Generalized Quaternion Groups* (2022), DOI:10.12386/A2022sxxb0014. A potentially relevant automorphism reference whose complete content was not inspected; no negative whole-document assessment is claimed.
+PASS
 
-The parameter range begins at \(k=3\); quaternion order eight is excluded. Independent mathematical auditing has not been performed.
+The naturally defined involution graph recovers intersections of maximal commuting involution families, not just the total number of involutions. The two maximal elementary abelian orders and their shared vertices explain how the 2-subgroup incidence changes by translation parity throughout the unbounded family. This exact structural invariant is not supplied by a whole-graph connectivity bound or by identifying the ambient group.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

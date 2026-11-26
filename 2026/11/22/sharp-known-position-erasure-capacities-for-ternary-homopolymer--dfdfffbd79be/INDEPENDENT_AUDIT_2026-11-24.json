@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:56:49.934562Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–45; VERIFICATION.md; verify.py and alternate.py (inspected, not executed); cert5.json and cert7.json (independently validated)",
+        "Local replay: python3 /tmp/opencode/recheck_erasure_caps.py /workspace/source/2026/11/22/sharp-known-position-erasure-capacities-for-ternary-homopolymer--dfdfffbd79be"
+      ],
+      "rationale": "Known-position erasure recovery means that each coordinate puncturing map is injective on the code. Two distinct source words collide in some coordinate puncturing if and only if their Hamming distance is one. I independently checked the two frozen literal certificates without running either uploaded script: I generated the valid words by recursively extending each prefix with a different final symbol, indexed all puncture fibers by (erased coordinate, remaining word), verified code admissibility and injectivity in each fiber, and used an exact multiset comparison to verify that the listed pieces partition the word set. I checked every cyclic consecutive pair including wraparound and every paired edge for sharing a puncture fiber. The exact output (n, words, fibers, odd cycle length multiplicities, disjoint edges, matched lower/upper bound) was (5,48,156,{15:2},9,23) and (7,192,912,{21:8},12,92). Each odd cycle bounds its contribution by its length rounded down after halving; each edge contributes at most one. Cross-piece edges do not weaken this upper bound, and the separately checked code witnesses meet it.",
+      "residual_risks": [
+        "Only ternary length five and seven, one erasure with position known. No unknown-position deletion, all-length result or count of codebooks is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benerjee–Banerjee use general sphere packing and Gilbert–Varshamov bounds for homopolymer-free distance codes. The frozen record attributes labeled recoloring-graph Hamiltonicity for non-odd-star trees to Choo–MacGillivray, a broader graph family covering the two paths; their paper could not be independently read by the tested routes."
+        ],
+        "reasoning": "Those general bounds and the described Hamiltonicity statement do not establish equal upper and lower bounds for these lengths. The available comparison does not claim that other uninspected results in the Hamiltonicity paper are ruled out.",
+        "searches": [
+          "arXiv:2305.10741, abstract, bounds and Table I",
+          "Choo–MacGillivray Theorem 5.5 citation in the frozen record; targeted search for an OA copy"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17 and 47–61; Resultary dfdfffbd79be and 12842b36c852; primary-source passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hamiltonicity of a graph on 48 or 192 vertices gives at most 24 or 96, respectively. The same half-size bound follows directly from the perfect matching that toggles the first symbol to the other allowed symbol while fixing the suffix. An even cycle itself can reach its half-size bound."
+        ],
+        "reasoning": "Hamiltonicity supplies no strict deficit on its own; the frozen odd-cycle partitions certify those deficits. Unknown-position deletion is a stricter distinguishability condition and its optimum can only supply a lower bound for the known-position case, not its sharp upper bound.",
+        "searches": [
+          "Choo–MacGillivray (2011), Theorem 5.5 as cited in frozen RESULT.md line 49",
+          "Resultary deletion-census entry 12842b36c852"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match dfdfffbd79be is the frozen record itself. The labeled path three-coloring graph has the same edges as confusability at Hamming distance one. Haas–MacGillivray use canonical color-class representatives, not labeled vertices."
+        ],
+        "reasoning": "The equality of the two labeled formulations is exact. Passing to canonical color partitions identifies different source words and does not preserve the independence problem. The result must be compared to the labeled formulation rather than treated as a different theorem by renaming.",
+        "searches": [
+          "Resultary queries for ternary adjacent-unequal erasure capacity and labeled recoloring graph independence",
+          "Choo–MacGillivray, Gray code numbers for graphs; Haas–MacGillivray, 10.3390/a11040040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue exact-value hit is the self-match. Distinct 12842b36c852 gives a capacity of 22 at length seven for the unknown-position single-deletion model. The inspected Benerjee–Banerjee Table I is for q=4 DNA codes."
+        ],
+        "reasoning": "Neither exact comparison table uses the claimed channel and alphabet together. The catalogue and primary checks are bounded, not a proof that no earlier computation exists.",
+        "searches": [
+          "Resultary exact capacity 23 and 92 / q=3, minimum Hamming distance 2 at n=5,7",
+          "arXiv:2305.10741v1 §IV Table I"
+        ]
+      },
+      "rationale": "The defensible claim is the pair of exact independence numbers with certified strict deficits from the half-size bound on the labeled graphs. The known-erasure equivalence, the graph model and the half-size bound are not credited as new. The strongest distinct available comparisons use weaker Hamiltonicity-type information, different coding parameters, or a different channel; none established these exact values in the inspected evidence.",
+      "residual_risks": [
+        "Full text of Choo–MacGillivray (2011) was inaccessible despite alternate routes; any separate exact computation in it is unassessed.",
+        "The bounded catalogue and literature checks cannot exclude an unindexed exact computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent prior evidence.",
+          "evidence": "Exact 23 and 92 and the length-seven cycle-and-edge certificate.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-known-position-erasure-capacities-for-ternary-homopolymer--dfdfffbd79be",
+          "material_read": "Catalogue synopsis and frozen Finding",
+          "method": "Resultary and frozen source",
+          "title": "Sharp known-position erasure capacities for ternary homopolymer-free words of lengths five and seven",
+          "trigger": "Exact values, channel and alphabet in catalogue"
+        },
+        {
+          "assessment": "The reported optimum is for a distinct channel; no broader full-text exclusion is made.",
+          "evidence": "Unknown deletion position, with length-seven optimum 22.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-homopolymer-free-single-deletion-capacities-through-length-seven--12842b36c852",
+          "material_read": "Catalogue synopsis",
+          "method": "Resultary catalogue",
+          "title": "Exact ternary homopolymer-free single-deletion capacities through length seven",
+          "trigger": "Same constrained words and closely related channel"
+        },
+        {
+          "assessment": "The described Hamiltonicity theorem supplies a weaker bound; full-text scope and potential additional tables remain unassessed.",
+          "evidence": "Frozen lines 47–49 attribute Hamiltonicity on trees other than odd stars to Theorem 5.5. The article could not be read in full through the tried routes.",
+          "identifier_or_url": "https://scispace.com/pdf/gray-code-numbers-for-graphs-3yxrthhv40.pdf",
+          "material_read": "Author bibliographic listing and the frozen result's description of Theorem 5.5 only",
+          "method": "OA publisher and Dlib attempts, cited alternate PDF, targeted search and identified alternate page",
+          "title": "Gray code numbers for graphs",
+          "trigger": "Same labeled 3-colouring graphs of paths; strongest structural citation"
+        },
+        {
+          "assessment": "Prior general bounds and a different alphabet in the inspected table.",
+          "evidence": "HF codes have prescribed Hamming distance; Table I is for q=4.",
+          "identifier_or_url": "arXiv:2305.10741v1",
+          "material_read": "PDF p. 1 and §IV Table I, p. 6, offsets 0 and 43000",
+          "method": "OA PDF passage inspection",
+          "title": "Bounds on Size of Homopolymer Free Codes",
+          "trigger": "Same constrained-word and Hamming-code framework; potential exact table"
+        },
+        {
+          "assessment": "Canonical quotient, not the labeled source graph.",
+          "evidence": "Vertices are canonical representatives specified by color-class partitions.",
+          "identifier_or_url": "10.3390/a11040040",
+          "material_read": "PDF pp. 1–2, offsets 0 and 2875",
+          "method": "OA PDF passage inspection",
+          "title": "Connectivity and Hamiltonicity of Canonical Colouring Graphs of Bipartite and Complete Multipartite Graphs",
+          "trigger": "Similar one-vertex recoloring adjacency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–17, 21–45, and the exact certificate partition and code witnesses"
+      ],
+      "rationale": "The optimum is the natural maximum number of distinguishable messages with a fixed constrained source and one known erasure. The exact results decide that the simplest universal matching/Hamiltonian upper bound cannot be saturated and quantify the deficits at two small odd lengths. The 192-state case in particular removes four messages from that bound; a researcher benchmarking coding or exact recoloring-graph methods can use the true cutoff and the structural certificates, rather than an unresolved interval or an unaudited solver value.",
+      "residual_risks": [
+        "The scientific value is finite and exact; no asymptotic rate, all-odd-length law, or application to a second channel is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

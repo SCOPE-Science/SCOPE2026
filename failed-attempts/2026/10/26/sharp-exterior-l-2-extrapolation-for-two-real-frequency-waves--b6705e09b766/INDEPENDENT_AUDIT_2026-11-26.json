@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:22:16.516989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–80 and 92; VERIFICATION.md lines 19–25 and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/audit-evidence/reproduce.py 5 (orthogonal-basis comparison at 54 point/gap pairs and stable small-gap checks)"
+      ],
+      "rationale": "The sharp squared evaluation bound in averaged L² on [-1,1] is 1+3x² for each fixed real |x|≥1. Removing the midpoint carrier, cosine and sine at half the gap d are orthogonal with squared average norms (1±s)/2, s=sin(d)/d. Their evaluation contributions add to 2(1−s cos(dx))/(1−s²), including for complex coefficients. For d≥2, |s|<1/2 (strict also at d=2), so the kernel is <4. For 0<d<2, s>0 and the cosine quadratic lower bound gives K≤1+(1−s)/(1+s)+sd²x²/(1−s²). For u=d² and q=1−s, the combined coefficient of x² after using x²≥1 is <3 precisely when 6q−4q²−(1−q)u>0. On u/6−u²/120≤q≤u/6, its q-derivative is ≥2/3+u and its value at the lower endpoint is u²(20+10u−u²)/3600>0. This proves strictness for every distinct pair, including |x|=1. A single wave gives 1. The confluent sequence cos(ht)+3x sin(ht)/h tends uniformly on the required compact set to 1+3xt, whose averaged squared norm and value at x both equal 1+3x²; hence the supremum is exact and unattained.",
+      "residual_risks": [
+        "Replay is a finite floating-point check; universality follows from the analytic comparison. No claim of the same formula in the interior or for three waves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang gives an arbitrary-sparsity exterior upper bound up to constants and the exact fixed-set Gram identity. Erdélyi bounds in-window point evaluations, and Chen–Price treats clustered frequency estimation with further assumptions. The exact indexed entry specifies the leading positive small-gap defect as well as the global optimum."
+        ],
+        "reasoning": "General exterior growth and interval Nikolskii bounds alone do not give the normalized strict coefficient at all exterior points; the matched indexed entry does, and says more about the collision.",
+        "searches": [
+          "Zhang arXiv:2607.10501v2, Theorem 1.1 and §5.3",
+          "Erdélyi arXiv:1602.02315, Theorems 2.3–2.4",
+          "Chen–Price ICALP 2019, §2 and Theorem 10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 517d41b07a68; Zhang 2607.10501v2; Erdélyi 1602.02315; Chen–Price ICALP 2019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mirror entry derives strictness at every d>0 and an expansion from below with the same limiting constant, whereas Zhang's eq. (64) only optimizes over coefficients at fixed frequencies and Proposition 5.6 concerns integrated exterior transfer."
+        ],
+        "reasoning": "Strictness at positive gaps plus the stated collision limit mechanically imply sharpness and nonattainment under the frozen normalization. The different means of proving strictness do not change the stated mathematical content.",
+        "searches": [
+          "517d41b07a68/RESULT.md, proof of all-gap strictness and quadratic collision limit",
+          "Zhang v2, eq. (64) and Proposition 5.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed entry states strict |g(x)|²<((1+3x²)/2)∫[-1,1]|g|², with that constant the supremum; it has the same interval, real exterior x and arbitrary distinct real frequencies and complex coefficients."
+        ],
+        "reasoning": "Dividing the observation norm squared by two doubles both the global coefficient and the fixed-gap kernel. The one-frequency case is included by zeroing one coefficient or separately observing its ratio is 1. The limiting Legendre representer is proportional to the same affine witness.",
+        "searches": [
+          "Resultary semantic search for the exact 1+3x² two-frequency constant, fixed-gap Gram kernel, and sparse-Fourier extrapolation",
+          "517d41b07a68/RESULT.md, Finding and Proof Steps 1 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirror supplies a symbolic exact formula and domain, not merely numerical samples or a title match. The targeted web lookup produced no matching evidence."
+        ],
+        "reasoning": "The catalogue match by itself supplies exact positive coverage; a negative or empty web lookup has no power to negate it.",
+        "searches": [
+          "Resultary index and local mirror 517d41b07a68, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Primary-literature web lookup for the exact two-frequency exterior constant"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record, Sharp two-frequency exterior Fourier leverage and the quadratic collision defect (517d41b07a68), demonstrably covers the exact same assertion, in fact with a stronger quadratic collision expansion and a fixed-gap extremizer. Its use of the Lebesgue integral rather than its average changes only the factor of two. Its dated path is November 1 rather than October 26; this is a current scientific coverage determination, not an assertion of earlier publication, derivation or priority. The frozen argument uses a different elementary small-gap estimate, but the Finding is the exact supremum, nonattainment and collision behavior, all already covered in the inspected distinct entry.",
+      "residual_risks": [
+        "The chronology and relationship of the two dated records are not established beyond their paths. This review does not assign priority.",
+        "No exhaustive survey of historical Remez/Nikolskii bounds; no reliance on negative search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage and stronger collision result; distinct entry",
+          "evidence": "Unnormalized kernel (1−s cos(dx))/(1−s²), strict global coefficient (1+3x²)/2, affine confluent limit and positive quadratic defect.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-two-frequency-exterior-fourier-leverage-and-the-quadratic--517d41b07a68/RESULT.md",
+          "material_read": "Finding, scope and proof Steps 1–4",
+          "method": "Local mirror reading",
+          "title": "Sharp two-frequency exterior Fourier leverage and the quadratic collision defect",
+          "trigger": "Strongest exact Resultary match"
+        },
+        {
+          "assessment": "Partial coverage: fixed-frequency kernel, not the sharp global optimization",
+          "evidence": "Evaluation kernel v*G⁻¹v; general exterior estimate up to constants and integrated exterior bounds.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2607.10501v2.pdf",
+          "material_read": "Theorem 1.1 (PDF p. 2); §5.3 eq. (64) and Proposition 5.6",
+          "method": "OA PDF passage reading",
+          "title": "Optimal Extrapolation Bounds for Sparse Fourier Sums",
+          "trigger": "Same exterior evaluation problem"
+        },
+        {
+          "assessment": "Window norm estimate, not this all-exterior sharp result",
+          "evidence": "Theorem 2.3 has norm upper coefficient πn/2 on [0,1], not the averaged endpoint value 2 for n=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.02315",
+          "material_read": "Definition of T_n, Theorems 2.3–2.4 (PDF p. 6) and derivation in p. 19",
+          "method": "OA PDF passage reading",
+          "title": "Inequalities for Exponential Sums",
+          "trigger": "Potential endpoint/exterior inequality"
+        },
+        {
+          "assessment": "Compared result is not exact point-evaluation coverage",
+          "evidence": "The training norm normalization agrees, but the theorem is algorithmic with cluster and size/growth assumptions.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ICALP.2019.36",
+          "material_read": "§2 (PDF p. 4) and Theorem 10 (PDF p. 8) of the ICALP PDF",
+          "method": "OA PDF passage reading at Dagstuhl",
+          "title": "Estimating the Frequency of a Clustered Signal",
+          "trigger": "Potential prior continuous-window clustered Fourier bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; Resultary 517d41b07a68, Finding and Step 4"
+      ],
+      "rationale": "The sharp universal two-wave extrapolation factor is intrinsically useful: it calibrates worst-case exterior prediction and locates the extremal collision mechanism. As a distinct contribution in the present comparison, however, the frozen result repeats that precise invariant and mechanism without a new consequence. The alternate Taylor estimate and normalization do not add a new boundary, regime, or stability statement; the stronger indexed result already provides a quantitative collision defect.",
+      "residual_risks": [
+        "This judgment is about incremental content and makes no claim about independent discovery or historical priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

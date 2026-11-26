@@ -1,128 +1,117 @@
 {
   "correctness": {
-    "rationale": "Exact choose-unmatched-sets enumeration gives the Gibbs deficit weights; a rejection-coupling with the Bessel coefficients bounds TV by half of the second factorial moment over n. A generalized Laguerre polynomial with positive simple roots makes the finite deficit Poisson-binomial, yielding strict within-shore negative covariance by Cauchy-Schwarz and cross-shore positivity by conditional variance. Explicit factorial moments give the three coefficients; their strict signs follow from covariance with a decreasing reciprocal. Exact weight ratios prove the saturation window. A standalone independent recursive checker passed 728 supplementary exact/numerical assertions.",
+    "rationale": "The exact occupancy weights are a bounded falling-factorial tilt; dominated convergence of the scaled tilt loss and its mean gives the centered first-order signed probability profile in l1. Total variation is half the l1 norm, so the strictly positive constant gives its exact rate. Conditional uniformity and dominated moments give both same-shore coefficients and the cross-shore variance coefficient. Successive-deficit ratios prove the saturation scale, and alternating paths corroborate the finite signs.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Davies et al. prove extremal one-point edge occupancy and matching partition function bounds with K_{d,d} as optimizer; examined sections do not give finite-site two-point sign law or the fixed-imbalance Bessel scaling and sharp error.",
-        "Heilmann and Lieb provide broad analyticity and matching-polynomial structure, not an examined explicit K_{n,n+k} critical covariance limit."
+        "Alternating paths prove the finite sign rule for all connected bipartite graphs with positive activities. Edge occupancy extremality and lattice correlation decay give different quantities or regimes."
       ],
-      "reasoning": "The classical framework and exact count formulas are credited and could be used to derive parts, but the examined prior theorems do not directly assert or demonstrate all of this theorem; possible general correlation theorem remains a residual risk.",
+      "reasoning": "Finite signs are covered and credited; spatial sign alone cannot determine the three limiting coefficients or the normalized first-order deficit error.",
       "searches": [
-        "monomer dimer complete bipartite graph near perfect matching critical Bessel number monomers",
-        "monomer dimer complete bipartite critical fugacity Gaussian Bessel crossover unmatched",
-        "Laguerre polynomial matching partition function K n n+k total variation Bessel law near saturation",
-        "arxiv:1508.04675",
-        "doi:10.1103/PhysRevLett.24.1412"
+        "10.1007/BF01877590 partition-function Christoffel–Darboux framework",
+        "arXiv:1508.04675 Theorem 3",
+        "arXiv:2309.13632v2 Theorem 2.1"
       ]
     },
     "checked_sources": [
-      "doi:10.1103/PhysRevLett.24.1412 (abstract only)",
-      "arxiv:1508.04675 (relevant full text)",
-      "arxiv:2611.00263 (relevant full text)",
-      "https://www.dm.unibo.it/~contucci/public_html/Research/acmr.pdf (relevant full text)",
-      "2026/10/25/SCOPE-a-parity-reversal-in-complete-graph-monomer-dimer-precision--27cbb78034e7",
-      "2026/11/8/SCOPE-a-sharp-dimer-jamming-defect-law-on-crown-graphs--5c96cef9c347",
-      "2026/10/18/SCOPE-gaussian-jamming-fluctuations-on-complete-split-graphs--3b9a8257a10c",
-      "2026/11/8/SCOPE-bessel-dirichlet-condensation-on-the-critical-constant-weight-bo--85a6f4466e43"
+      "10.1007/BF01877590 (abstract)",
+      "DLMF 18.11.6",
+      "arXiv:2611.00263v2 (scoped sections)",
+      "arXiv:1508.04675 Section 2",
+      "arXiv:2309.13632v2 Theorem 2.1",
+      "Published index summaries for matching and adsorption"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Davies et al. bound matching occupancy fractions, a one-point edge quantity; obtaining two-site monomer covariance and the fixed-imbalance critical coefficients is not an identified corollary of its stated inequalities.",
-        "DeSalvo matches a Bessel law for another input ensemble, not the finite Gibbs matching distribution or spatial covariance.",
-        "The closest published-finding corpus precision record handles inverse covariance between occupied edges on K_n, not vacancy indicators on K_{n,n+k}."
+        "Mehler–Heine uniform convergence implies the Bessel limit and moment convergence via pgf derivatives. The exact Gibbs coefficient correction is the centered j(j−1)/2 tilt loss."
       ],
-      "reasoning": "The new theorem is a model-specific signed spatial correlation and quantitative saturation statement, not merely a renamed one-point occupancy bound; some common building blocks are prior art.",
+      "reasoning": "Ordinary compact convergence gives no first-order total-variation constant. The exact diagonal normalization of the falling-factorial tilt and domination in the deficit variable are needed for the asserted l1 expansion. The explicitly described contingency-table applications do not supply two-shore matching-site correlations.",
       "searches": [
-        "arxiv:1508.04675",
-        "arxiv:2611.00263",
-        "2026/10/25/SCOPE-a-parity-reversal-in-complete-graph-monomer-dimer-precision--27cbb78034e7",
-        "2026/11/8/SCOPE-a-sharp-dimer-jamming-defect-law-on-crown-graphs--5c96cef9c347"
+        "DLMF 18.11.6 at z=−c and z=−cs",
+        "arXiv:2611.00263v2, Eq. (2), Lemmas 2.1–2.2 and stated range of applications"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The closest complete-graph monomer–dimer record treats covariance precision of disjoint occupied edges of K_n, not unmatched vertex occupations in K_{n,n+k}.",
-        "DeSalvo 2026 develops Bessel approximation for conditioned Poisson differences and contingency tables; the examined full text did not identify the present bipartite Gibbs matching model."
+        "The pgf is the ratio of two Laguerre evaluations under the Mehler–Heine scaling. Another exact alias for the finite count is Bin(n,c/(n+c)) conditional on its difference from an independent Poisson(1) being −k."
       ],
-      "reasoning": "Checked site-vacancy versus edge-occupancy, Bessel versus conditioned-difference, and Laguerre-coefficient aliases; these do not immediately provide the combined theorem.",
+      "reasoning": "The known family and qualitative convergence are not original; the quantitative signed error is a statement about a particular falling-factorial depletion and normalization, not a renaming of the conditioned Poisson law.",
       "searches": [
-        "Bessel limiting law of unmatched monomers in monomer-dimer Gibbs matchings K_{n,n+k} edge fugacity n/c",
-        "negative within-shore positive cross-shore monomer covariance complete bipartite matching Bessel regime",
-        "Laguerre polynomial matching partition function K n n+k total variation Bessel law near saturation",
-        "Bessel defect distribution complete bipartite monomer dimer high fugacity correlation",
-        "2026/10/25/SCOPE-a-parity-reversal-in-complete-graph-monomer-dimer-precision--27cbb78034e7"
+        "Resultary: complete bipartite equilibrium monomer dimer near perfect matching Bessel Poisson deficit Laguerre same shore opposite monomer covariance",
+        "DLMF 18.11.6",
+        "arXiv:2611.00263v2 Section 2"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Relevant published records on crown-graph and complete-split random-greedy dimer jamming are irreversible kinetic models, not the equilibrium Gibbs matching ensemble.",
-        "No inspected exact table of Bessel defect counts and pair covariances for the complete bipartite ensemble was located."
+        "The classical table gives uniform compact-set convergence of rescaled Laguerre polynomials. DeSalvo records the Bessel mean and E[J(J+k)]=c. Neighboring indexed adsorption results concern irreversible models."
       ],
-      "reasoning": "A table for the different kinetic ensembles cannot imply the equilibrium signed covariance laws. The failure to locate a table is not independent novelty proof.",
+      "reasoning": "These extract the target law and its moments but are not a table for n times the finite Gibbs probability error as a signed sequence. No independent first-order formula is inferred from an index miss.",
       "searches": [
-        "finite bipartite matching gas Bessel distribution defects density",
-        "Bessel defect distribution complete bipartite monomer dimer high fugacity correlation",
-        "2026/11/8/SCOPE-a-sharp-dimer-jamming-defect-law-on-crown-graphs--5c96cef9c347",
-        "2026/10/18/SCOPE-gaussian-jamming-fluctuations-on-complete-split-graphs--3b9a8257a10c"
+        "DLMF 18.11.6 and Szegő Theorem 8.22.4",
+        "arXiv:2611.00263v2 Lemma 2.1",
+        "Resultary index query for Bessel and complete bipartite matching deficits"
       ]
     },
-    "rationale": "Targeted research-record searches, literature title and content searches, and examination of the two most pertinent full-text articles found generic matching extremality and generic Bessel approximation but not the combined fixed-imbalance Gibbs saturation law, all-size signed site correlations, explicit n^{-1} TV constant, and n^{-2} coefficients. Known elementary matching enumeration, Laguerre roots, and Bessel theory are explicitly acknowledged. Priority risk remains because classical correlation inequalities and unindexed results might imply portions of the claim.",
+    "rationale": "Scope limited to the explicit first-order Gibbs matching error and the quantitative spatial application. Finite signs and the qualitative polynomial limit are attributed as prior consequences, not new theorems.",
     "residual_risks": [
-      "Earlier unindexed work might give the same Bessel matching-defect limit or equivalent finite monomer covariance statements.",
-      "The Heilmann–Lieb original full manuscript and all historical sources were not comprehensively inspected; abstract-only inspection cannot establish noncoverage.",
-      "Known matching polynomial identities and general real-rootedness already imply finite subset of the proof; priority of the combined asymptotic and quantitative coefficients requires independent literature verification."
+      "Earlier matching or uniform Laguerre expansions could contain an equivalent quantitative correction. The primary historical full text was not independently inspected. The comparison is best of knowledge, not a priority certificate."
     ],
     "source_inspections": [
       {
-        "assessment": "General analyticity and exclusion of nonzero-density phase transitions, not an explicit Bessel defect and covariance theorem in material read",
-        "evidence": "Published 1970-06-22; abstract speaks of analyticity of arbitrary monomer–dimer systems; complete text not read, so coverage remains a risk.",
-        "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.24.1412",
-        "material_read": "Public abstract and bibliographic record, not the complete publisher manuscript",
-        "method": "Publisher abstract and dated record",
-        "title": "Monomers and Dimers",
-        "trigger": "Foundational monomer–dimer analytic and root theorem"
+        "assessment": "Classical Christoffel–Darboux framework is credited, without asserting full-text noncoverage for quantitative results",
+        "evidence": [
+          "The abstract explicitly reports Christoffel–Darboux partition-function formulas; path parity gives strict finite signs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01877590",
+        "material_read": "Primary publisher abstract; full article not independently read",
+        "method": "Publisher abstract plus direct proof of the alternating-path specialization",
+        "title": "Theory of monomer-dimer systems",
+        "trigger": "Potential general finite sign theorem"
       },
       {
-        "assessment": "Proves extremal occupancy-fraction and partition-function bounds for regular graphs; does not state the fixed-imbalance high-activity Bessel law or two-shore monomer covariance coefficients in examined text",
-        "evidence": "arXiv initial posting 2015-08-19; article abstract and main results focus extremal edge occupancy for d-regular graphs and K_{d,d}.",
+        "assessment": "Covers the qualitative Bessel law and pgf derivative limits",
+        "evidence": [
+          "n^(−k)L_n^(k)(z/n) converges uniformly on bounded complex sets to z^(−k/2)J_k(2√z)."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/18.11#E6",
+        "material_read": "Equation 18.11.6, note on compact-set uniform convergence, and cited Szegő theorem",
+        "method": "Direct source and explicit substitution",
+        "title": "NIST Digital Library of Mathematical Functions §18.11",
+        "trigger": "Exact asymptotic for the same Laguerre polynomials"
+      },
+      {
+        "assessment": "Covers the target distribution and moment identities, but no verified covering statement for this first-order signed deficit expansion and spatial application",
+        "evidence": [
+          "The abstract identifies the contingency-table application; Eq. (2) and Lemma 2.2 specify the conditioned-Poisson law."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2611.00263v2",
+        "material_read": "Abstract, introduction, Eq. (2) and Lemmas 2.1–2.2 in Section 2",
+        "method": "Primary PDF text and comparison with the exact conditional alias",
+        "title": "Two moments suffice for Bessel approximation",
+        "trigger": "Quantitative conditioned Bessel approximation"
+      },
+      {
+        "assessment": "One-point extremality, not the asserted deficit error or two-point scaling",
+        "evidence": [
+          "Theorem 3 maximizes the mean edge occupancy over d-regular graphs at fixed activity."
+        ],
         "identifier_or_url": "https://arxiv.org/pdf/1508.04675",
-        "material_read": "Relevant full paper including stated matching results, model section and later discussion",
-        "method": "Lawful arXiv PDF text and relevant section inspection",
+        "material_read": "Abstract and Section 2, matching definition and Theorem 3",
+        "method": "Primary PDF text",
         "title": "Independent Sets, Matchings, and Occupancy Fractions",
-        "trigger": "Exact matching-occupancy extremality using complete bipartite graphs"
-      },
-      {
-        "assessment": "General Bessel Stein method applied to conditioned Poisson differences and contingency tables; explicit monomer–dimer Gibbs graphs and covariance law not found",
-        "evidence": "arXiv initial posting 2026-10-30; stated application is Fisher–Yates row-constrained contingency tables.",
-        "identifier_or_url": "https://arxiv.org/pdf/2611.00263",
-        "material_read": "Relevant full paper including main theorems and model applications, searched for matching/monomer/bipartite terminology",
-        "method": "Lawful arXiv full text via accessible PDF and text search",
-        "title": "Two moments suffice for Bessel approximation: conditioned differences, contingency tables, and probabilistic divide-and-conquer",
-        "trigger": "Could subsume quantitative Bessel approximation"
-      },
-      {
-        "assessment": "Mean-field bulk free energy and related models, not this complete bipartite fixed-imbalance vacancy-covariance theorem",
-        "evidence": "Different complete-graph mean-field thermodynamics and critical behavior; no direct fixed-imbalance Bessel vacancy formula in examined portions.",
-        "identifier_or_url": "https://www.dm.unibo.it/~contucci/public_html/Research/acmr.pdf",
-        "material_read": "Relevant sections and overview of complete-graph mean-field models",
-        "method": "Lawful institutional PDF full text, abstract and content searches",
-        "title": "Critical and scaling phenomena in the monomer–dimer model",
-        "trigger": "Potential broad mean-field monomer–dimer phase diagram"
+        "trigger": "Same Gibbs model and complete bipartite extremality"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "e1aa8589-f7c5-4ac6-91bd-ae7022371718",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "Near-perfect matchings and remaining unmatched vertices are natural saturation observables in lattice gases. The theorem identifies the exact n-scale activity window, a nontrivial order-one Bessel defect law with a rigorous explicit TV rate, strict opposite pairwise spatial signs at every finite activity, and all three rescaled covariance coefficients. This connects spectral root structure to physically meaningful joint monomer fluctuations, rather than an arbitrary table or elementary parameter substitution.",
+    "rationale": "The leading signed error and total-variation constant quantify systematic finite-size depletion in the saturation window; they give a reusable quantitative accuracy criterion for replacing Gibbs defects by their limit, together with the distinct two-shore pair scales.",
     "status": "PASS"
   }
 }

@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:25:13.204457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4",
+        "Frozen verification/exhaustive.py, verification/series.py, verification/checks.txt and VERIFICATION.md (inspected, not executed)",
+        "Independent bounded replay: generated words through length 10, took mex directly over all suffix cuts passing endpoint and balance tests, and agreed with the sign statistic for 2,047 positions including the empty word; length 10 row (848,165,11)."
+      ],
+      "rationale": "Reversal sends a legal suffix to a prefix ending at a completed zero return. Its first step is a precisely when the initial excursion is P; its last step is a precisely when the final excursion of the prefix is N. The residual meander cannot affect any move. If the sign word starts P and has r negative runs, deleting inside a run leaves an initial N and hence value 0; deleting at the last letter of the j-th run leaves value r−j, including the empty or P-only case. This gives exactly the mex r. With E the one-sign Catalan first-return series and R=E/(1−E), the marked initial-P series is R(1+tR)/(1−tR²); the remaining sign words contribute 1+E/(1−2E). Multiplication by the meander series (1+2z)/sqrt(1−4z²) gives the claimed GF and parity doubling. Each qualifying run consumes at least four letters with its preceding P-run; (PN)^k plus a no-return tail attains each bound. The factorial-moment series for the return count has leading singularity r!2^(−r/2)(1−2z)^(−1−r/2); the singularity at −1/2 is one order weaker. After dividing coefficients by 2^n this yields the half-normal moments. Given the count, sign reflections make the sign sequence uniform; conditional on starting P, the run count is the PN transition count, with mean ell/4+O(1) and variance O(ell). This proves the stated half-atomic limit scaled by 1/4 through both parities.",
+      "residual_risks": [
+        "The file's count 32,767 is for all positions including the empty word, not for nonempty words; this reporting slip does not affect the proof.",
+        "Binary contiguous suffix deletion and the specified endpoints only; no misère or stronger mode of probabilistic convergence is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hetyei's general definition allows suffix-removal sets, but the kernel enumeration theorem assumes strongly Bernoulli type. Here v=abba and uv=ababba are legal, whereas u=ab is not; the language also fails prefix closure. Inoue–Inazu's fixed-Grundy regularity applies to regular subtraction sets, whereas intersecting this language with a+b+a+ gives the nonregular a^i b^(i+k) a^k (i,k positive)."
+        ],
+        "reasoning": "The broader frameworks include the game as a definition, not as a case of those structure theorems.",
+        "searches": [
+          "arXiv:0912.0573 Def. 2.1, Thm. 2.9",
+          "arXiv:2611.09157 conclusion, PDF p. 70"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09157",
+        "arXiv:0912.0573",
+        "Resultary 88436493f559, 98406dab7d57, 4e85e5bd5dcc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary word-subtraction example admits a+, b+ and all balanced words and reports a P-position language. Hetyei enumerates kernels under stronger hypotheses. The half-normal counts of returns and Catalan decomposition are standard but carry no endpoint-run mex rule."
+        ],
+        "reasoning": "These statements do not give the mex under endpoint restriction. The return-count law yields the stated mixture only after the exact move reduction, sign-run proof and conditional sign analysis.",
+        "searches": [
+          "arXiv:2611.09157, PDF pp. 5, 35, 70",
+          "arXiv:0912.0573, PDF pp. 1–6",
+          "Resultary 88436493f559, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Dyck suffix result (88436493f559) has an exact nimber and geometric law for a different language. The balanced prefix/suffix result (98406dab7d57) uses both directions and no endpoint filter. The two-pile Dyck result (4e85e5bd5dcc) also admits both directions."
+        ],
+        "reasoning": "Reversal gives a delete-through-N run game, not the completed-Dyck-factor game or a simple return-count game. For example, abba is legally deletable here but is not a Dyck word for a as up-step; complete balance alone does not suppress an initial N. The overlapping objects and techniques do not identify the rules.",
+        "searches": [
+          "Resultary: balanced suffix endpoint a, excursion runs, Dyck and balanced truncation games",
+          "arXiv:2611.09157 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact frozen match is the present record itself; the other located exact spectra or losing-position tables use the different move languages described above."
+        ],
+        "reasoning": "A row count, the same alphabet or a shared publication date does not establish coverage of the present run statistic, bivariate law or limit.",
+        "searches": [
+          "Resultary: endpoint-constrained balanced suffix and Grundy distribution; closest records 88436493f559, 98406dab7d57, 4e85e5bd5dcc"
+        ]
+      },
+      "rationale": "The supported distinction is the exact whole-word nimber for this nonregular endpoint-constrained language, together with its marked enumeration and scaling law. The generic game and excursion frameworks are antecedents, not novelty claims.",
+      "residual_risks": [
+        "Bounded statement-level comparison, not proof of historical priority; not every section of the older truncation literature or unindexed equivalent re-encoding was examined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and related example, not implication of the stated result",
+          "evidence": "The example admits unary and all balanced moves; the regular-set conclusion has different hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.09157",
+          "material_read": "PDF p. 5, §4 p. 35, conclusion p. 70",
+          "method": "Bounded passages of open-access PDF",
+          "title": "Word Subtraction Games",
+          "trigger": "Defining framework and closest balanced-language example"
+        },
+        {
+          "assessment": "The inspected kernel theorem does not apply; relevant primary text was accessible",
+          "evidence": "The stated strongly Bernoulli-type hypothesis fails for v=abba and u=ab.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.0573",
+          "material_read": "PDF pp. 1–6, notably Def. 2.1 and Thm. 2.9",
+          "method": "Bounded passages of open-access PDF",
+          "title": "Enumeration by kernel positions for strongly Bernoulli type truncation games on words",
+          "trigger": "Plausible stronger suffix-truncation result"
+        },
+        {
+          "assessment": "Distinct move rules and different statistics",
+          "evidence": "Respectively Dyck suffixes, balanced prefixes or suffixes, and Dyck prefixes or suffixes.",
+          "identifier_or_url": "Resultary 88436493f559; 98406dab7d57; 4e85e5bd5dcc",
+          "material_read": "Opening RESULT.md statements of the three records",
+          "method": "Resultary lookup and local mirror",
+          "title": "Closest indexed Dyck and balanced word-game theorems",
+          "trigger": "Possible equivalent game by reversal or re-encoding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§2–4; Inoue–Inazu §4; Resultary 88436493f559"
+      ],
+      "rationale": "This is an exact distribution for a natural endpoint restriction on balanced suffix play. The endpoint test changes what mex counts, collapsing several legitimate moves into one option value and retaining an atom of probability one half even while the positive statistic has diffusive scale. The run rule and marked series give usable game and enumeration information beyond deciding winning positions or counting ordinary returns.",
+      "residual_risks": [
+        "Value is the exact statistic for this fixed move rule, not a classification for general word-subtraction languages."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

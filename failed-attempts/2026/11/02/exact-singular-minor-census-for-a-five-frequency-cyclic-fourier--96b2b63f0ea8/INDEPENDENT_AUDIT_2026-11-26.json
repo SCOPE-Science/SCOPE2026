@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:27.890834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write the monic polynomial with the five distinct column roots; at a root, z^5 equals (sum of the roots) times z^4 plus a combination of powers 0 through 3. Thus the determinant is Vandermonde times that sum and the first four rows give rank at least four. The frozen conductor reduction is sound: for a prime-power part p^a of the normalized ratio conductor, the p^a cyclotomic polynomial stays irreducible over the prime-to-p field by the product degree. Its coefficient constraints make each residue block modulo p^(a-1) a zero subsum. Only one such block can occur by minimality, so all ratios have p-part at most p. At a=1, all p residues must appear: if any residue is absent all block coefficients vanish, minimality forces a single occupied residue, and p would then be absent from the ratio conductor. Hence p<=5 and the conductor divides 30. An independent tensor-basis check of all size-2 through size-5 subsets of the 30th roots found 15, 10, 0 and 6 minimal sets, respectively, with the six minimal five-sets exactly the pentagons. Alternatively, in the conductor argument a minimal five-set with factor 5 must have one term in each residue, with equal prime-to-5 factors by coefficient equality; without factor 5 its conductor divides 6, where an opposite-free set has size at most three. The only nonminimal five-term partition has component sizes 2 and 3. For each antipodal pair the two endpoints lie in distinct cosets of the subgroup of size three, leaving N/3-2 available triples; the opposite pair in the union is unique since an endpoint's antipode is already in the pair and a triangle has no antipodes. This proves the all-N count and the full-spark boundary including N=6. Scope: N>=6, unordered distinct columns and precisely the specified five rows; no general pattern or smaller-minor theorem follows from the finite replay alone.",
+      "replay_paths": [
+        "/workspace/replay/03_fourier.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lower Bound Theorem 4.8 applies to any finite cyclic group of roots and bounds weight of nonsymmetric minimal sums. It is stronger than the required five-term assertion.",
+          "Theorem 9 of Full Spark Frames gives uniform-distribution equivalence for prime powers, with necessity at general order and a different order-ten example; it alone does not give the all-order count. Osgood et al. describe prime-power universal sampling in the inspected abstract."
+        ],
+        "reasoning": "The dominant theorem is the short-weight consequence of Lam–Leung, not the prime-power frame result. Merely knowing the list of possible total weights would not fix distinctness, disjointness, or the order-six exception.",
+        "searches": [
+          "Lam–Leung arXiv:math/9511209, §4 and Theorem 4.8 (not just the introductory weight theorem)",
+          "Alexeev–Cahill–Mixon arXiv:1110.3548, Theorem 9 and order-ten example",
+          "Osgood–Siripuram–Wu arXiv:1204.0992, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary order-ten and order-twelve classifications and the later order-ten, order-twelve and order-fifteen incidence records cited above",
+        "Lam–Leung arXiv:math/9511209, Section 4",
+        "arXiv:1110.3548",
+        "arXiv:1204.0992 abstract",
+        "Conway–Jones DOI/scan access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.8 and the coset definition leave only one order-five coset or a disjoint order-two and order-three coset. There are N/5 cosets of order five if 5 divides N. When 6 divides N each of N/2 order-two cosets intersects exactly two of the N/3 order-three cosets because the two subgroups intersect trivially. Counting the others gives (N/2)(N/3-2); no duplicate union can contain two distinct antipodal pairs. The two cases are disjoint because pentagons have no antipodes."
+        ],
+        "reasoning": "The elementary count and Vandermonde rank deduction recover the exact function, including N=6 and full-spark status. This establishes a mechanical implication from an inspected older result irrespective of whether the formula itself was printed earlier. No priority conclusion relies on the scanned Conway–Jones passage.",
+        "searches": [
+          "Lam–Leung arXiv:math/9511209, Section 4 symmetric coset definition and Theorem 4.8; frozen alternant identity",
+          "Resultary order-twelve record, exact verification passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard alternant equals the ordinary Vandermonde times the degree-one symmetric polynomial, or follows immediately from the monic polynomial of the five column roots.",
+          "Lam–Leung Section 4 identifies symmetric minimal sums exactly as cosets of a prime-order subgroup. Theorem 4.8 excludes asymmetric minimal terms of weight at most five: if at least three conductor primes occur, the lower bound p1(p2-1)+p3-p2 is at least 6, and with at most two primes the theorem forces symmetry."
+        ],
+        "reasoning": "Each minimal component of a five-term zero sum therefore has prime size 2,3,5 and is exactly the corresponding coset. Total size five forces a pentagon or a disjoint pair and triangle. For distinct roots these are precisely the singular-column configurations.",
+        "searches": [
+          "arXiv:math/9511209, Section 4 definition of symmetric minimal elements and Lower Bound Theorem 4.8",
+          "Resultary: fixed Fourier rows {0,1,2,3,5}, five-term distinct-root zero sums and singular minors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/4 SCOPE-complete-full-spark-classification-for-the-order-12-dft--81a97859d04e explicitly lists the same row set and 12 zero minors; the 2026/10/4 order-ten record 579f4b382450 covers full-spark status there, not the count.",
+          "Later indexed finite-order counts agree for N=10,12,15 (respectively 2,12,3) in 34f830ed8504, db3ff8f3dd64, and c7f8e777d742. Those later records do not establish earlier priority. No prior exact all-order table was located in the scoped retrieval."
+        ],
+        "reasoning": "The prior finite table is exact overlapping coverage, not an all-order result. Failure to locate a table does not weaken the verified all-order prior implication.",
+        "searches": [
+          "Resultary: order-ten and order-twelve full-spark Fourier classifications, all-order five-row count, five-frequency rank-incidence tables"
+        ]
+      },
+      "rationale": "Lam–Leung's older Lower Bound Theorem 4.8 and their definition of symmetric minimal elements imply precisely the vanishing configurations needed at weight five, for all orders. This is not a comparison only to their Main Theorem about attainable weights. Combined with the standard alternant identity, the full frozen rank classification and census are a direct corollary by counting disjoint cosets. The exact N=12 instance is also explicitly recorded earlier. No separate distinct mathematical claim survives within the frozen result; an independent certificate of the known short-sum step does not change that conclusion.",
+      "residual_risks": [
+        "The precise earliest formulation of the short-sum list or of the all-order Fourier count is not established; Conway–Jones's exact primary passage was not reached.",
+        "The bounded index and literature lookup does not exhaust equivalent presentations. The rejection is based on a positive, inspected stronger theorem, not absence of search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger prior result for the minimal sum classification at the audited weight",
+          "evidence": "Symmetric minimal elements are translations of prime-order subgroup sums; asymmetric minimal elements require at least three primes and have weight at least p1(p2-1)+p3-p2.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9511209",
+          "material_read": "OA PDF p. 8, §4 definitions from offset 21200; p. 11, Lower Bound Theorem 4.8 and surrounding proof from offset 28200; introductory weight and earlier-work statements pp. 2–3",
+          "method": "Primary OA literal locate followed by bounded passage reads",
+          "title": "On vanishing sums of roots of unity",
+          "trigger": "Direct stronger theorem on the minimal sums underlying the exact Fourier count"
+        },
+        {
+          "assessment": "Earlier exact N=12 overlap",
+          "evidence": "Rows {0,1,2,3,5}, a witness {0,1,4,7,8}, and 12 zero maximal minors.",
+          "identifier_or_url": "2026/10/4/SCOPE-complete-full-spark-classification-for-the-order-12-dft--81a97859d04e",
+          "material_read": "RESULT.md finding/proof from offset 0 and verification around offset 3450",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Complete full-spark classification for the order-12 DFT",
+          "trigger": "Exact prior census point for the same row pattern"
+        },
+        {
+          "assessment": "Not the decisive all-order count; only comparison to inspected statements",
+          "evidence": "Prime-power equivalence and arbitrary-order necessary uniform distribution; the order-ten counterexample uses a different row set.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.3548",
+          "material_read": "Theorem 9, p. 12 around offset 46000; order-ten discussion p. 16 around offset 59000",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Full Spark Frames",
+          "trigger": "General harmonic full-spark theorem and small-order classification"
+        },
+        {
+          "assessment": "Scope comparison only",
+          "evidence": "The abstract advertises prime-power characterizations, not the assigned census.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.0992",
+          "material_read": "Abstract p. 1",
+          "method": "Primary OA abstract inspection",
+          "title": "Discrete Sampling and Interpolation: Universal Sampling Sets for Discrete Bandlimited Spaces",
+          "trigger": "Equivalent universal sampling terminology"
+        },
+        {
+          "assessment": "Unresolved extent of separate historical coverage, immaterial to the verified Lam–Leung implication",
+          "evidence": "No assertion here based on the unread theorem.",
+          "identifier_or_url": "https://doi.org/10.4064/aa-30-3-229-240",
+          "material_read": "Bibliographic identification including Theorem 5 locator; the identified scan's decisive theorem text was not independently read",
+          "method": "Lawful lookup of the identified public scan; no extractable passage recovered",
+          "title": "Trigonometric diophantine equations (On vanishing sums of roots of unity)",
+          "trigger": "Older short-minimal-sum theorem cited by Lam–Leung and frozen result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "This is a natural Fourier sampling pattern and its failure fraction is a useful explicit expression. But the exact invariant and boundary here are mechanically implied by the older minimal-sum theorem, a standard Vandermonde identity, and immediate subgroup-coset counting. The exact replay and short alternative proof add reproducibility and exposition, not a distinct unknown invariant, nonroutine structural result, or surviving valuable claim under this standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

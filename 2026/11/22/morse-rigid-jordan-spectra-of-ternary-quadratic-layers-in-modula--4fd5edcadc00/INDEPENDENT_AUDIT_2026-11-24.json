@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:48:52.958455Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frobenius makes linear changes valid in the truncated algebra, and Jordan ranks are unchanged by extending the field. In odd characteristic the three nonzero quadratic ranks reduce to z², xy, xy+z². The first two split into monomial chains by parity or by exponent difference. For the third, the tensor calculation can be recovered in R=k[t]/(t^p) with primitive action t=X+Y. A J_p factor gives a free tensor product, by changing variables from X,Y to t,Y, using Y^p=0. For 2≤b<p, multiplication on k[X,Y]/(X²,Y^b) has two blocks and (X+Y)^b=bXY^(b−1)≠0, yielding lengths b+1,b−1. The resulting J_2 recurrence gives the short-range tensor rule by induction up to a+b=p+1 (intermediate lengths are at most p−1). For a≤b<p and a+b>p+1, tensor the exact sequence 0→J_(p−b)→J_p→J_b→0 with J_a. The middle term is free; elementary divisors of an inclusion into a free R-module replace each nonfree kernel block of length l with a quotient block of length p−l. The short-range calculation of J_a⊞J_(p−b) then gives lengths b−a+2i−1 for 1≤i≤p−b, with a+b−p free blocks by dimension. Thus for fixed b and j<p the contributing a form the indicated step-two interval, with cardinality min(b,p−b,j,p−j). Both split lengths (p±1)/2 give min(j,p−j). The xy chain multiplicities give 4 min(j,p−j), and the remaining dimension gives (p²+1)/2 length-p blocks, different from p at rank two. The rank counts follow by choosing a radical and a nondegenerate form on its quotient: symmetric 2×2 matrices have exactly q² singular members (ac=b², split on a=0), leaving q²(q−1) nonsingular ones; subtract the lower ranks from q⁶ for rank three. For a lift, at each degree d≥3 write its current correction as a sum of the invertible gradient's linear forms times degree-(d−1) terms. The resulting near-identity substitution descends because every maximal-ideal element has pth power zero, is invertible by the filtration, and cancels that degree only, terminating at 3(p−1). Taking its inverse gives the stated direction φ(Q)=f. The number of lifts per form is q^(p³−10) by dimensions. I inspected the supplied checker.py and recorded checker_output.txt, without executing them. A separate direct check formed the columns of each (xy+z²)^t by binomial expansions truncated at exponent p, took ranks mod p, and second-differenced them; it agreed at p=3,7,11 (at p=11 the ranks from t=0 to 11 were 1331,1150,973,804,647,506,385,284,199,126,61,0). Neither diagnostic is used to extrapolate to all primes or extension fields.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General modular Jordan tensor machinery predates the finding; Norman's indexed abstract explicitly describes an inductive characteristic-p Jordan basis method for S(m,n).",
+          "Formal Morse elimination with odd characteristic and invertible quadratic Hessian applies here because substitutions preserve the truncation ideal by Frobenius."
+        ],
+        "reasoning": "The general rule covers each component tensor block—there is no claim of a new modular tensor theorem. The lift is a natural Morse consequence, not a new Morse lemma. Neither theory alone identifies the decomposition for ternary Q, its rank classes, or which partition is shared by the entire nonsingular lift stratum.",
+        "searches": [
+          "arXiv:1508.01768 general Jordan partitions and §6",
+          "DOI:10.1080/03081080701395640",
+          "Resultary nonsingular quadratic initial forms and filtered Morse normalization"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1106.4474",
+        "arXiv:1508.01768",
+        "DOI:10.1080/03081080701395640 (abstract)",
+        "Resultary 4fd5edcadc00 (self-hit)",
+        "Resultary 44294439f9fc",
+        "Resultary 0d5279498d55",
+        "Resultary 10caf113e43b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-three formula is a direct application of the classical block rule once the quadratic is reduced to xy+z² and the two monomial decompositions are made. The rank-two row is exactly obtained by copying the binary partition p times.",
+          "The combined result must recognize rank from the Jordan type, sum the nonprojective block contributions with the two different parity lengths, compare all ranks, and then transport the rank-three calculation to every nonsingular lift."
+        ],
+        "reasoning": "The tensor machinery makes the closed formula calculable; the formula is not independent of it. The distinct outcome is the uniform classification at the level of all ternary quadratic elements and the resulting identification of the same exact regular-module partition on the whole nonsingular quadratic-leading stratum. The lower-dimensional tables do not imply that outcome.",
+        "searches": [
+          "arXiv:1508.01768 §2 and §6, Norman's indexed abstract, Resultary 44294439f9fc Opening Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carlson–Friedlander–Pevtsova identify the elementary abelian group algebra with the same truncated polynomial algebra, but in a linear-direction restriction setting.",
+          "Barry explicitly identifies the tensor action, in a suitable basis, with a Kronecker sum.",
+          "The indexed binary record 44294439f9fc gives the nondegenerate binary partition; adjoining an untouched variable gives the ternary rank-two row."
+        ],
+        "reasoning": "Changing from the group algebra to the truncated polynomial algebra, or expressing the tensor calculation as a Kronecker sum, is not a novelty. An untouched variable adds multiplicities, not the new xy+z² interaction. A linear restriction does not test arbitrary quadratic multipliers on the regular module.",
+        "searches": [
+          "Resultary queries for rank-three elementary abelian group algebra, ternary quadrics, and Jordan strata",
+          "arXiv:1106.4474 §1",
+          "arXiv:1508.01768 §2 Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4fd5edcadc00 is the assigned record itself. Same-day 44294439f9fc tabulates a full quadratic-leading layer including perturbations for two generators and p≥5. The earlier 0d5279498d55 and 10caf113e43b classify two-generator characteristic-three radical multiplication strata."
+        ],
+        "reasoning": "These are material exact lower-dimensional counts and partitions, not a ternary table, not counts of forms with a full-rank initial ternary Q, and not an independent copy of the rank-three formula. No priority is inferred between same-day records.",
+        "searches": [
+          "Resultary full ternary coefficient count and partition census: 4fd5edcadc00, 44294439f9fc, 0d5279498d55, 10caf113e43b"
+        ]
+      },
+      "rationale": "The distinct contribution is the complete rank-stratified three-variable regular-multiplication classification, with an explicit all-odd-prime rank-three partition and its extension to the full nonsingular quadratic-leading stratum. Do not credit the modular tensor rule, symmetric-matrix rank counts, binary partitions, or the formal Morse method as new. The lower-rank cases and much of the computational machinery are already covered. The inspected evidence does not establish prior equivalent coverage of the ternary classification.",
+      "residual_risks": [
+        "Norman full text could not be accessed in the lawful attempts, so exact examples or additional corollaries were not ruled out.",
+        "The classification is an explicit synthesis using classical tools, not evidence that none of its derived spectra or the lift mechanism were ever stated before."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algebra model and linear restriction framework, not the ternary quadratic classification",
+          "evidence": "Identifies kE with the p-truncated polynomial ring and works through restrictions to truncated-polynomial subalgebras.",
+          "identifier_or_url": "https://arxiv.org/abs/1106.4474",
+          "material_read": "Abstract p. 1 and §1 p. 4, PDF offsets about 350 and 15500",
+          "method": "Lawful OA PDF targeted reads",
+          "title": "Representations of elementary abelian p-groups and bundles on Grassmannians",
+          "trigger": "Identical characteristic-p group-algebra setting and Jordan framework"
+        },
+        {
+          "assessment": "Prior general machinery; no independently inspected ternary census here",
+          "evidence": "Lemma 1 gives (g−1)f_(i,j)=f_(i−1,j)+f_(i,j−1), and §6 treats standard partitions in odd characteristic.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.01768",
+          "material_read": "§1, §2 Lemma 1, §6, references p. 20; offsets about 1900, 3900 and 14000",
+          "method": "Lawful OA PDF targeted reads",
+          "title": "Generators for Decompositions of Tensor Products of Modules associated with standard Jordan partitions",
+          "trigger": "Prior tensor/Kronecker-sum calculation ingredient"
+        },
+        {
+          "assessment": "Prior coverage of the general construction; precise formula or further examples not judged from abstract alone",
+          "evidence": "Describes inductive Jordan bases for S(m,n) via p-adic expansions and classical formulae.",
+          "identifier_or_url": "https://doi.org/10.1080/03081080701395640",
+          "material_read": "Indexed publisher abstract only; full text not retrieved",
+          "method": "Lawful publisher and identified alternate retrieval attempts, both denied",
+          "title": "On Jordan bases for the tensor product and Kronecker sum and their elementary divisors over fields of prime characteristic",
+          "trigger": "Directly addresses the modular Jordan rule and may contain relevant explicit corollaries"
+        },
+        {
+          "assessment": "Material lower-dimensional overlap; not the ternary nonsingular case",
+          "evidence": "For p≥5 the binary nondegenerate partition is J_p plus two of each block of smaller size, so the ternary rank-two homogeneous row follows by an untouched variable.",
+          "identifier_or_url": "2026/11/22/SCOPE-quadratic-layer-jordan-spectra-of-rank-two-elementary-abelian-gr--44294439f9fc",
+          "material_read": "RESULT.md Finding, opening passage",
+          "method": "Local Resultary search and targeted mirror read",
+          "title": "Quadratic-layer Jordan spectra of rank-two elementary abelian group algebras",
+          "trigger": "Closest distinct indexed match on quadratic-leading Jordan partitions and counts"
+        },
+        {
+          "assessment": "Exact adjacent coverage for two variables in characteristic three",
+          "evidence": "Both concern C_3×C_3 regular multiplication and its radical, with one also counting cyclic subgroups; neither has the third variable or the all-odd-prime full-rank stratum.",
+          "identifier_or_url": "Resultary 0d5279498d55 (2026-10-18); 10caf113e43b (2026-11-02)",
+          "material_read": "Opening RESULT.md passages in both records",
+          "method": "Local Resultary search and targeted mirror reads",
+          "title": "Characteristic-three Jordan strata and a related Jordan/cyclic-subgroup census",
+          "trigger": "Earlier exact related augmentational census candidates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quadratic layer is a natural six-dimensional coefficient space in the regular representation. The result identifies exactly what its regular multiplication remembers (quadratic rank), makes the full-rank versus rank-two projective-block jump quantitative, and gives the entire Jordan type and size of the nonsingular quadratic-leading stratum. This is a reusable structural classification, not a tabulation at isolated primes or merely an application of the block rule to one pair of lengths. It does not address degenerate lifts, characteristic two or general modules.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

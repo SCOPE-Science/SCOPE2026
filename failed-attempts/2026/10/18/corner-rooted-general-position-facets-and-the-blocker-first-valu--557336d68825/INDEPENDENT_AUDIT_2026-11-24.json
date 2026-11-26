@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:12:16.414358Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof steps 1–6",
+        "Frozen VERIFICATION.md, artifacts/verify_grid_game.py and artifacts/verify_grid_game_output.txt (inspected, not executed)",
+        "/workspace/review_evidence/reproduce.py, grid()"
+      ],
+      "rationale": "Coordinatewise betweenness is equivalent to geodesic betweenness in either direction of the Manhattan distance equality. With origin corner, the noncorner pair must be strictly incomparable, and must not lie on opposite positive axes (otherwise the corner is between them). An incomparable pair is the antitone diagonal of one chosen subrectangle, and the excluded axes occupy exactly (m−1)(n−1) such diagonals. Three noncorner vertices of a legal corner-containing four-set would have strictly decreasing second coordinates when sorted by the first, so their middle vertex would be between the other two. Thus every rooted triple is maximal. Adjacent pairs are maximal by bipartite distance parity, and the opposite corner pair has a full geodesic interval; every other corner pair extends by the witnesses (1,1) for a nonneighbor axis vertex and a strictly farther point on the other axis for an interior vertex below an upper boundary. Builder-first stops at an adjacent pair; Blocker-first has upper bound three by starting at a corner, and every opening vertex off the 2×2 case lies in one of the two covering general-position triples of an isometric 2×3 strip. The 2×2 case has no legal triples. Independent replay `python3 /workspace/review_evidence/reproduce.py 5` implements Manhattan-betweenness minimax and checks exact pair identities and triples on 18 grids and 72 corner roots. The frozen code and recorded output show 14 grids in the stated small range plus four longer grids, 18 total, not 18 plus four as the prose in RESULT.md could be read to say.",
+      "residual_risks": [
+        "Finite minimax corroboration does not prove the all-sizes result; the geometric and strategy proofs do. No claim about other graph products or other optimization games is assessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former's pp. 4–5, from OA offset 7850, classify maximum triples in 2×s by the strict interleaving j<i<k. For thick grids every size-four set is maximum; the distinct-coordinate case excludes any first permutation value that is extreme, and the repeated-coordinate case requires a duplicated coordinate internal on one axis and the other two vertices strictly between the duplicated pair on the other axis. The latter's Theorem 3.5 proof, PDF pp. 7–8, classifies forbidden triples by all-in-one-layer, by repeated-coordinate extreme position of the third point, and by monotone coordinate sequences when both coordinates are distinct."
+        ],
+        "reasoning": "These are actual shape criteria, stronger evidence than the published unrooted counts alone. The maximum-four-set criteria imply no corner lies in such a set: in the distinct-coordinate case a corner is extreme in both, and in the repeated-coordinate case each vertex is internal in at least one coordinate. On the thin boundary the maximum is already three off C4, and C4 has no triples.",
+        "searches": [
+          "Klavžar–Patkós–Rus–Yero, DOI 10.1007/s00025-021-01438-x, Theorem 2.1 and proof",
+          "Iršič–Klavžar–Rus–Tuite arXiv:2401.05696, Corollary 3.4 and proof of Theorem 3.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.19949",
+        "DOI 10.1007/s00025-021-01438-x",
+        "arXiv:2401.05696",
+        "arXiv:2501.19385",
+        "Local Resultary 594f9b1248d5 and 5ac1a3fe8a52"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restrict the published triple cases to (0,0). For distinct rows and columns the remaining two vertices must be antitone, giving binom(m−1,2)binom(n−1,2). For a repeated first coordinate the equal-coordinate pair must include the corner and the other point's second coordinate must lie strictly between its endpoints; this gives (m−1)binom(n−1,2). The transposed case gives (n−1)binom(m−1,2). No legal triple repeats both coordinates, since it would have a geodesic middle. The sum is exactly binom(m,2)binom(n,2)−(m−1)(n−1). The same restricted criterion leaves no extending partner for exactly the two neighbors and the opposite corner: a farther axis point has middle-coordinate choices, and a positive-coordinate point other than the opposite corner admits an antitone partner on a more distant axis. In 2×s the strict interleaving description gives binom(s−1,2) rooted triples and the same partner/exception check; C4 is immediate.",
+          "In 2×3 the earlier interleaving rule gives the two complementary triples (one using row 0 endpoints and row 1 middle, the other its row swap). Isometry and containing every vertex in some 2×3 strip give membership of every starting vertex in a legal triple off C4. Lemma 3.1 therefore rules out primed value two. Starting at a corner with the prior four-set exclusion bounds the value by three."
+        ],
+        "reasoning": "The restriction and the binomial identity are mechanical consequences of the prior case descriptions; the game value needs only the already-known criterion, a corner opening, and the known two triples. No independent substantive remainder survives for repair.",
+        "searches": [
+          "Theorem 3.5 triple-case proof, arXiv:2401.05696, from offset 20150 through 24480",
+          "Theorem 2.1 maximum-set proof, DOI 10.1007/s00025-021-01438-x",
+          "Builder–Blocker Lemma 3.1 arXiv:2310.19949"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 2.4 already gives the unprimed value for connected bipartite graphs. Lemma 3.1, PDF p. 8 at offset 22368, says the primed value is two iff some opening vertex makes a universal line with every other vertex, i.e. iff that vertex belongs to no legal triple. Problem 5.7 asks for the general value-three classification. The survey distinguishes Builder–Blocker cardinality play from achievement/avoidance win-loss games at pp. 54 and 57."
+        ],
+        "reasoning": "The target is the exact optimization game in the primary definition, not the achievement/avoidance or mutual-visibility variants. The open general classification problem does not prevent a routine instance from already following from known structure. The primed two-move criterion and the known rooted size ceilings suffice here.",
+        "searches": [
+          "arXiv:2310.19949, Lemma 3.1, Corollary 2.4, Problem 5.7",
+          "arXiv:2501.19385, general-position variants and Builder–Blocker games"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two closest inspected local records concern respectively geodesics of length at most three on path grids, and ordinary general position on rook graphs K_p square K_q. The primary grid polynomial's Corollary 3.4 and Theorem 3.5 are exact aggregate counts by size, not separately rooted tables."
+        ],
+        "reasoning": "Neither indexed graph variant specializes to the full ordinary path-grid problem. The exact implication instead comes from the actual classifications in the primary proofs, not from the aggregate polynomials or an inferred absence of an indexed result.",
+        "searches": [
+          "Local Resultary: rectangular path-grid Builder–Blocker value and corner-rooted general-position facets",
+          "Resultary 594f9b1248d5 and 5ac1a3fe8a52",
+          "Published thin-grid and thick-grid general-position polynomial formulas, arXiv:2401.05696"
+        ]
+      },
+      "rationale": "Prior results mechanically imply both putatively new parts. The prior grid-polynomial proof classifies forbidden triples geometrically, not just by aggregate counts, so it can be restricted to a corner to give all corner triples and their count, with maximal pairs precisely the vertices admitting no partner in that restricted classification. The prior classification of maximum four-sets rules out four-sets at a corner, and the earlier thin-grid classification yields a 2×3 triple cover about any opening vertex. Together with the published two-move criterion these yield the exact Blocker-first value. The lack of an earlier verbatim rooted formula or stand-alone game statement does not overcome these implications.",
+      "residual_risks": [
+        "Earlier verbatim rooted or game tables may also exist, but are unnecessary for this decision. Failure is based on demonstrated implications, not inaccessible or unsearched sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unprimed value known outright; two-move criterion implies the lower bound for the renamed grid family once the earlier triple classification is used",
+          "evidence": "Primed value two iff there is a vertex inducing a universal line with every partner.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.19949",
+          "material_read": "p. 2 definition, p. 5 Corollary 2.4, p. 8 Lemma 3.1 (from offset 22368), p. 18 Problem 5.7",
+          "method": "OA arXiv PDF text",
+          "title": "Builder-Blocker General Position Games",
+          "trigger": "Primary definition and prior characterization of low game values"
+        },
+        {
+          "assessment": "Mechanical coverage of the no-four-at-a-corner and thin triple-cover inputs",
+          "evidence": "Thin triples have strict interleaving j<i<k. Case 1 rules out an extreme first permutation entry; Case 2 separates the two single projections strictly inside the other coordinate interval and on different sides of the doubled coordinate.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01438-x",
+          "material_read": "pp. 4–5 Theorem 2.1 and proof, offset 7850 onward",
+          "method": "Lawfully accessible Springer PDF via OA paper",
+          "title": "On General Position Sets in Cartesian Products",
+          "trigger": "Prior actual maximum general-position sets in the same grids, including thin strips and potential corner four-sets"
+        },
+        {
+          "assessment": "The proof's cases mechanically determine the exact rooted triple list and count",
+          "evidence": "With all coordinates distinct only monotone triples are forbidden; with a repeated coordinate the extreme position of the third point in the other coordinate characterizes the forbidden triples.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+          "material_read": "§3, Corollary 3.4, Theorem 3.5 and forbidden-triple proof cases (offsets 16680–24480)",
+          "method": "OA arXiv PDF text",
+          "title": "General Position Polynomials",
+          "trigger": "Potential coverage of corner triple count by classification in the proof rather than unrooted coefficients"
+        },
+        {
+          "assessment": "Verifies distinction between win-loss achievement/avoidance and terminal-cardinality optimization",
+          "evidence": "Builder–Blocker play ends in a maximal set and uses two starting conventions.",
+          "identifier_or_url": "https://arxiv.org/abs/2501.19385",
+          "material_read": "pp. 54 and 57, offsets 159942 and 167779",
+          "method": "OA arXiv PDF text",
+          "title": "The General Position Problem: A Survey",
+          "trigger": "Potential existing instance and distinction from other grid games"
+        },
+        {
+          "assessment": "Different geodesic constraint or different graph product; not the basis for the failure",
+          "evidence": "One bounds forbidden geodesic length by three, the other replaces paths by complete graphs.",
+          "identifier_or_url": "2026/10/26/...594f9b1248d5; 2026/10/26/...5ac1a3fe8a52",
+          "material_read": "Findings, feasibility rules and product factors",
+          "method": "Local Resultary mirror via OA paper",
+          "title": "Three-geodesic position of rectangular grids; general-position polynomials and maximal-set spectra of rook graphs",
+          "trigger": "Closest local hits for grid size and maximal-position counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof",
+        "Theorem 2.1 of DOI 10.1007/s00025-021-01438-x",
+        "Theorem 3.5 proof of arXiv:2401.05696",
+        "Lemma 3.1 of arXiv:2310.19949"
+      ],
+      "rationale": "The natural game question and the exact corner count have expository use, but neither supplies the required independently new mathematical fact. After crediting the primary proof-level grid classifications, the remaining work is a simple restriction of their case conditions, an elementary count, and the immediate corner-opening strategy combined with the existing two-move criterion. The precise three terminal pairs are also just the three absent-partner boundary cases of those conditions. No materially distinct result remains to repair.",
+      "residual_risks": [
+        "This judgment concerns the frozen grid statements only and does not diminish the value of the general Blocker-first classification problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

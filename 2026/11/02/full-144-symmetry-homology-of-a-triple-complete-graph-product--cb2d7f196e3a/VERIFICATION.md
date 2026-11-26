@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify_triple_product.py` using Python 3.9 or later; no third-party packages are required. The program constructs the graph directly from the three-coordinate adjacency rule, enumerates 1,649 nonempty independent faces, checks exact mod-two boundary ranks, verifies 144 distinct adjacency-preserving coordinate actions, and computes their exact signed Lefschetz traces by graph-orbit deletion–contraction.
+## correctness
 
-It verifies subgroup irreducible multiplicities, the three diagonal coordinate-exchange projector traces, the identity trace 14, the pure-layer trace 4, the pure-coordinate-exchange trace minus four, the combined-involution trace minus two, the index-two-subgroup invariant dimension one, and the full-group invariant dimension zero. It emits `TRIPLE_PRODUCT_144_EXACT_CHARACTER_AND_PROJECTORS_OK` on success.
+PASS
 
-The published integral homotopy classification in [1] supplies homology concentration; mod-two ranks alone do not prove torsion-freeness, nor do exact character calculations determine the integral representation lattice. No independent audit has been performed.
+Any two vertices in a layer share a neighbor, and all vertices have degree four, so the graph is connected with a unique bipartition up to swap. Common-neighbor counts recover the rook graph within a layer, and opposite-layer neighbor sets distinguish all nine cells. The 72 rook symmetries lift simultaneously to both layers; the layer flip commutes with them. Proposition 25 supplies reduced homology concentrated in degree 3 with dimension 14. An independent exact calculation (not execution of the supplied checker) enumerated all nonempty bitmasks on the lexicographic 18 triples, discarding masks containing any pair differing in all three coordinates. The face counts by degree were 18,117,348,504,378,192,72,18,2. For each of 144 permutations (independent coordinate permutations, optional coordinate swap, optional layer flip), keep setwise-fixed faces, give each orientation sign by inversion parity on the image list, and subtract their degree-alternating signed sum from 1. Traces at identity, layer flip, coordinate swap and their product were 14,4,-4,-2. Taking the character inner products on the no-swap subgroup confirmed exactly the seven multiplicity-one constituents, and diagonal component exchange traces -1,-2,-1 force minus flips, with the remaining pairs exchanged. Thus the only no-swap invariant line is killed by the swap. For quotient homology, pass to barycentric subdivision so simplex stabilizers fix their simplices pointwise; rational coinvariants compute quotient chains, are exact, and identify with invariants by averaging. The conclusion is about the topological quotient over Q, not its integral homology.
+
+## originality
+
+PASS
+
+The accepted distinction is the combined full automorphism action on H3, notably the separate diagonal exchange signs and the loss of the invariant line in the full quotient. The homotopy type, layer involution trace and dimensions are not distinct contributions. The broader separately permuted coordinate result, even taken without an assumption about historical priority, does not determine the exchange extensions.
+
+## value
+
+PASS
+
+This is the first symmetric case of this three-factor family in which the two non-bipartition coordinates are equal and interchangeable. The full action distinguishes two natural orbit spaces that the known nonequivariant rank and separate-coordinate invariants cannot distinguish: the one invariant class survives without exchange and disappears with it. The explicit full module makes that distinction reusable beyond the quotient Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:59:40.025357Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d(u)=1+u+cu², differentiation gives f′=(1−cu²)/d² and f″=2Q/d³, Q(u)=c²u³−3cu−1. The cubic decreases until 1/sqrt(c) and then increases through its unique positive root r_c. Thus when L≤r_c strict Jensen gives the unique point mass, including L=r_c. For L>r_c the quadratic P(q)=c²Lq²−2cq−cL−1 has one positive root; P(L)=Q(L)>0 gives q<L, and substitution gives Q(q)=(2cq+1)(q/L−1)<0. The positive root is exactly the stated radical. I independently checked the polynomial coefficient identity d(q)^2 d(u)[ell(u)−f(u)]=(u−q)^2[(1+2cq)+c(1−cq²)u] for the tangent ell at q. The quadratic makes c(1−cq²)=−(1+2cq)/L, so the gap is nonnegative and its exact contact set on [0,L] is {q,L}. Joining f on [0,q] to ell yields a differentiable concave majorant; Jensen bounds all Borel laws, and the point mass or the stated two-atom law attains the bound, proving it is the least concave majorant. For a mean below q a tangent of this majorant meets it only at the mean by strict curvature on [0,q] and the strictly lower slope beyond q. For m≥q integrating the exact tangent gap forces support {q,L} and the mean fixes the weights, reducing to the appropriate point mass at each endpoint. The exact loss identity and the c=1,L=10,m=4 numerical example were checked independently; replay with python3 /workspace/checks/frozen_exact.py 5. The submitted verifier was inspected, not executed. Uniqueness concerns the probability law, not any ordering or timing of exposures, and does not extend to transient photobioreactor control.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published sharp mean–cap substrate result also describes failure of attainment in an uncapped case, which is outside the frozen bounded-light theorem.",
+          "The Fierro Ulloa–Lu–Bernard abstract-level search evidence studies microalgal flashing versus constant light. The frozen account attributes fixed-pair switching results to it, not the arbitrary-law classification; those theorem-level details could not be independently retrieved.",
+          "The two-compartment catalogue comparison is constrained to a pair of allocations and is not the all-law result."
+        ],
+        "reasoning": "Only the substrate phase diagram in the checked statements has both the matching objective family and the fixed-first-moment domain. Generic concave-envelope theory also explains the optimizer form but does not itself specify the contact of a particular response; applied flashing or spatial constraints are not supersets simply because they use similar growth laws.",
+        "searches": [
+          "Resultary fd7932496d0a",
+          "doi:10.1007/s00285-023-01871-2",
+          "Bernard–Lu JPC-Optical preprint",
+          "Resultary eddb13bade10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary fd7932496d0a",
+        "Resultary eddb13bade10",
+        "doi:10.1007/s00285-023-01871-2",
+        "https://liudi-lu.github.io/publication/jpc-optical/JPC-Optical.pdf (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A two-level optimizer for the fixed-mean problem must have its two atoms on a common supporting line of the upper concave envelope. Strict concavity on [0,r_c] allows at most one contact there; no interior point of the strictly convex branch can be a contact from above, so the upper contact must be L. The lower contact is interior, since f(u)/u is strictly decreasing for u>0, ruling out an upper chord from 0 to L.",
+          "The remaining tangent–secant equality at q reduces to c²Lq²−2cq−cL−1=0; the weights are forced by the mean. For any law the deficit from an optimal supporting line is its expected vertical gap. The double zero at q and zero at L force the cleared cubic to be proportional to (u−q)²(L−u); evaluating the coefficient gives the displayed prefactor."
+        ],
+        "reasoning": "The stated optimizer classification for the rescaled response determines the envelope contacts. Solving the elementary quadratic and clearing the rational denominator express that same optimizer and support-gap formula, not a separate unconstrained comparison or nonmechanical estimate. No literal formula match in the uninspected body is claimed.",
+        "searches": [
+          "Resultary fd7932496d0a",
+          "RESULT.md lines 37–71",
+          "doi:10.1007/s00285-023-01871-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fd7932496d0a states that every bounded fixed-mean substrate schedule is bounded by the unique optimal constant or two-level design, with the sharp transition depending on mean and cap.",
+          "For the standard substrate Haldane response A s/(K_s+s+s²/K_i), s=K_s u gives A u/(1+u+(K_s/K_i)u²). Conversely every c>0 is realized by K_s/K_i=c. The cap and mean both scale by K_s and arbitrary bounded laws push forward by this positive dilation."
+        ],
+        "reasoning": "The correspondence preserves objective ordering, cap, mean, uniqueness and all support levels after scaling. In the stated equilibrium model any two-atom law is a time-share design, and general laws are the distributional version of bounded schedules, with no switching constraint. The application name does not distinguish the mathematical claims.",
+        "searches": [
+          "Resultary: fd7932496d0a Haldane mean cap phase diagram substrate inhibited fixed mean cap tangent formula K_s K_i deficit cubic gap",
+          "Resultary: bounded Haldane photoinhibition fixed average concavification"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned c75b9ef43086 entry also appears and is not a separate comparison. The distinct fd7932496d0a entry explicitly publishes a sharp phase boundary for the same bounded Haldane moment optimization after scaling.",
+          "The catalogue entry gives the phase classification verbally, not a table or printed radical for the transition, nor a printed deficit identity."
+        ],
+        "reasoning": "The relevant indexed object is an exact phase diagram, not necessarily a numerical table. Coverage of its decision boundary and optimizer is meaningful even without matching printed algebra; the exact expression comparison is made by implication below.",
+        "searches": [
+          "Resultary: fd7932496d0a Haldane mean cap phase diagram substrate inhibited fixed mean cap tangent formula K_s K_i deficit cubic gap",
+          "SCOPE-20261122-c75b9ef43086"
+        ]
+      },
+      "rationale": "The directly comparable Resultary record fd7932496d0a publishes the sharp bounded fixed-mean constant-versus-two-level classification for the Haldane substrate-inhibition response, including uniqueness, and additionally treats the uncapped problem. Standard positive scaling identifies the bounded equilibrium optimization problems exactly; calling the control irradiance instead of substrate does not add a constraint or change the objective. The radical and factored deficit are explicit useful formulas, but once the nontrivial Haldane envelope is identified the formulas are mechanical consequences of its contact and the rational denominator. I do not claim that the other record literally displays the same formulas, or infer publication order from its date. This judgment rests on the express published scientific statement and mathematical reduction, not on unavailable text.",
+      "residual_risks": [
+        "The matching Resultary record body was not read; particular notation, formula presentation, and proof overlap are unverified. The same publication date does not show either record came first.",
+        "Decisive passages of the cited microalgae primary paper were not independently accessible; no whole-document noncoverage conclusion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The express bounded fixed-mean unique-optimizer phase classification concerns the same mathematical problem under the usual Haldane normalization; the listing also extends to no cap. The listing does not establish literal occurrence of the radical or gap identity.",
+          "evidence": [
+            "Every bounded fixed-mean substrate schedule cannot outperform the unique optimal constant or two-level design; the sharp transition depends on mean and the highest admissible concentration; without a cap the supremum may be unattainable."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mean-cap-phase-diagram-for-haldane-substrate-inhibited-g--fd7932496d0a",
+          "material_read": "Published scientific catalogue statement; record body not retrieved",
+          "method": "Local Resultary statement lookup and mathematical change-of-units comparison",
+          "title": "A sharp mean–cap phase diagram for Haldane substrate-inhibited growth",
+          "trigger": "Possible full optimization equivalence after positive change of units"
+        },
+        {
+          "assessment": "Available abstract evidence motivates flashing comparison. It does not settle full document coverage; the originality verdict rests on the independently compared substrate statement, not on an exclusion based on this abstract.",
+          "evidence": [
+            "Abstract-level excerpt compares high/low flashing with constant light at the same average intensity. The frozen source's attribution of steady-state normalization is separately algebraically consistent with its quoted formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00285-023-01871-2",
+          "material_read": "Published bibliographic result and abstract-level search excerpt only; equation (4), Lemma 3 and Theorems 1 and 3 not independently read",
+          "method": "Targeted OA passage attempts, author PDF and publisher alternatives; no usable full-text passage delivered",
+          "title": "Theoretical growth rate of microalgae under high/low-flashing light",
+          "trigger": "Principal cited source of the same equilibrium light response and possible flashing optimum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mean-and-cap model is naturally motivated, and its optimizer and loss formula would be useful if the exact invariant were not already covered. For the frozen mathematical objective, changing substrate to equilibrium irradiance is only a scaling; the remaining explicit gap rewrites the supporting-line deficit using the same rational curve and contact set. No substantive new regime or independently useful unknown exact invariant survives that comparison. The record supplies no distinct transient or experimental result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

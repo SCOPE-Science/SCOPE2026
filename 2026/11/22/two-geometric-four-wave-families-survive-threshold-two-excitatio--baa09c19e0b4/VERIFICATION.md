@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification instructions and checked scope
+# Independent mathematical audit
 
-The following files are complete, self-contained scientific artifacts: `clebsch_threshold2_a.cpp`, `clebsch_threshold2_b.cpp`, `clebsch_threshold2_symmetry.py`, `clebsch_threshold2_crosscheck.py`, and the corresponding four `.log` files.
+## correctness
 
-Compile and replay the two C++17 programs and run the two Python 3 scripts using the commands under "Verification" in `RESULT.md`. The first program directly walks all disjoint excited/refractory configurations and rejects unresolved trajectories. The second independently constructs and peels the complete \(3^{16}\)-vertex functional graph, propagating cycle identity and first-entry depth along the reversed peel. The cross-check script asserts that their population tables and basin spectra agree exactly and sum to \(3^{16}\). The symmetry script checks the full 1,920-element automorphism group, both orbit classes and the affine-plane geometry of all four-cycle phase sets.
+PASS
 
-Verified results are one fixed point, 90 primitive four-cycles, 360 nonconstant periodic configurations, 43,046,360 transient configurations, sharp entry depth seven and exactly 150,400 states reaching zero for the first time at the seventh update. Every one of the 90 nonconstant basins has size 644 (60 cycles) or 676 (30 cycles), and the one fixed-point basin has size 42,987,801.
+Reconstructed the successor rule from the five XOR generators: the union over pairs of neighbors selects vertices meeting threshold two, and only resting vertices can enter that selection; the next refractory set is the current excited set. An independently written exhaustive ternary-indexed computation checked F^7=F^11 on all 43,046,721 inputs. The first t with F^t=F^(t+4) along each orbit gives its first periodic entry, and the nonzero periodic states were not fixed by F^2. The two columns of shells at t=0 through 7 are (1,65535,3178531,10245950,15448184,10086320,3812880,150400) and (360,5400,53160,0,0,0,0,0). Canonical four-cycles gave 30 basins of 676 and 60 of 644, totaling 58,920 oscillating inputs; the rest basin has 42,987,801. Excited mask 54784 with no refractory vertices reaches rest at step seven and not six, distinguishing F^10 from F^6. Each generator permutation extends linearly by the unique five-term relation; every automorphism fixing zero is determined on the generators because the other ten nonzero vertices are the uniquely identified pair sums. Direct action of all 1,920 maps on cyclic phase tuples recovers the two orbits of sizes 30 and 60 and ties each to its basin size. Four disjoint four-point sets cover the graph in every cycle; XOR zero certifies each affine two-flat, with one common direction or two alternating directions as claimed.
 
-No probabilistic sampling substitutes for a complete proof here. The classification does not imply anything about the ten-regular Clebsch complement, other graphs, other thresholds, or arbitrary numbers of colors. Faithful execution and local code review remain the conditions of the finite computational proof. No independent external audit or formal proof assistant validation has been performed.
+## originality
+
+PASS
+
+The closest same-graph census is for a different activation predicate; the closest threshold-two classified dynamics concern different adjacency graphs. The evidence supports the distinct threshold-two Clebsch classification, not originality of excitation models or folded-cube symmetries.
+
+## value
+
+PASS
+
+The degree-five Clebsch graph is a natural highly symmetric, triangle-free benchmark for the change from one to two excited contacts. The exact comparison establishes a collapse of recurrent periods with survival of two distinct full-vertex wave geometries; the basin and sharp depth data distinguish not just periodic examples but how often and how quickly they are reached. This is a meaningful complete finite classification, not a benchmark for arbitrary graphs or thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

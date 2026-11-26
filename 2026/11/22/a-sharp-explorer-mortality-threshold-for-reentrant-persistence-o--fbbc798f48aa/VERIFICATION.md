@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Analytical checks
+# Independent mathematical audit
 
-The derivation diagonalizes the positive star kernel on a two-dimensional hub/leaf-constant invariant subspace. The one-parameter substitution \(r=\sqrt{m(s+f)/(s+mf)}\) turns the Perron root into a rational function whose derivative has the exact sign \(s-S_m(r)\), with \(S'_m(r)>0\) throughout the allowed interval. This proves the unique turning point or strict monotonicity for all integers \(m\ge2\) and all stated real rates. A positive left Perron vector gives extinction convergence even at the exact capacity threshold; positive sub/supersolution iterations give a positive equilibrium above the threshold.
+## correctness
 
-## Reproducible computations
+PASS
 
-With Python 3, NumPy and SymPy installed, extract `check.py` and execute `python3 check.py`. The script tests symbolic identities and the factorization, checks the exact rational seventeen-patch eigenvector certificate at the optimizing mobility, and performs 500 full-matrix comparisons. It also checks strict numerical brackets for the two exact threshold roots. It printed three PASS lines on the reviewed package's actual `check.py` path.
+The positive inverse of sI+fL times A is strictly positive. The positive radial eigenvector therefore certifies the full Perron root. In the coordinates (hub, representative leaf), the radial kernel has common diagonal mf and off-diagonals m(s+f), s+mf, times ξf/((1+f)s(s+(m+1)f)), giving the stated formula. The decreasing variable r=sqrt(m(s+f)/(s+mf)) maps positive f onto (1,sqrt(m)); the derivative with respect to r has the sign of s−S_m(r). All three terms of (log S_m)' are positive, so S_m runs from s_c to infinity and equality s=s_c gives strict increase at every finite f. The endpoint limits and m=1 specialization follow directly. Positivity of K makes the derivative of the left-Perron linear functional strictly negative off zero even at equality on the forward-invariant cube. Above threshold, the positive right Perron vector times a small scalar is a strict subsolution; monotone iteration under the all-ones supersolution gives a positive equilibrium. For the witness, r=2 gives f=5 and Λ=1/9. A separate exact bracket check uses the sign of 1/10−Λ(f), equal to the sign of f³−42f²+57f+20: the positive quantity 18f²+74f+40 is compared to 4f sqrt((20+f)(20+16f)), and the difference of squares factors as 4(17f+20) times that cubic. The signs at 1, 7/4, 40, 42 are respectively the signs of 36, −225/64, −900, 2414; bisection matches both stated roots.
 
-## Limits
+## originality
 
-Finite matrix calculations are consistency checks, not infinite-domain proof. The results concern deterministic fast-exploration dynamics with equal patch rates and a fixed neighbor-born exploration-feasibility function; they are not a stochastic nonextinction guarantee, a general-graph classification, or an experimental measurement. The mathematical and publication-priority assessments have not been independently audited.
+PASS
+
+The exact kernel and its general Perron criterion are prior. Within the sources checked, the all-star mortality boundary, global uniqueness of the interior optimum above it, and verified two-sided invasion window go beyond those model statements and the related spectral catalogue entries.
+
+## value
+
+PASS
+
+The mortality threshold distinguishes two globally different responses to exploration under a published birth law, not just a sign in one perturbative regime. An exact witness puts the deterministic invasion criterion strictly between the limiting and maximum capacities, showing that low and high mobility can both be subcritical with all other parameters fixed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

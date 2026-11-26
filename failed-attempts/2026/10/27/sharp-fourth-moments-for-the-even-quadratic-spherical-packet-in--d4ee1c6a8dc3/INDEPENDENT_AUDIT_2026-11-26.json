@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:38:39.426434Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For probability measure on the real sphere, every real f is a+Q with Q=xᵀAx trace-free. Gaussian cumulants and polar normalization give EQ²=2p₂/[n(n+2)], EQ³=8p₃/[n(n+2)(n+4)], and EQ⁴=(12p₂²+48p₄)/[n(n+2)(n+4)(n+6)]. At fixed zero sum and p₂, cubic stationarity allows at most two values, whose multiplicities k,n−k give the largest absolute cubic only at a one-outlier spectrum when n≥3. Quartic stationarity allows at most three values; if there are three, the constrained second derivative on a split of a repeated extreme eigenvalue is positive, so both extremes are simple. The zero sum of the cubic roots and the trace condition then force the middle value to be zero for n≥4, giving p₄/p₂²=1/2, below the two-valued one-outlier maximum. For n=2,3 this ratio is identically 1/2. The resulting moment bounds are attained together by the normalized Y_ω. For r=|a|/||Q||₂, their scalar envelope has the stated derivative and the unique positive maximum by the signs and Descartes’ rule; n=2 gives r=√3/2 and quotient 15/7, while n=4 gives γ=1, δ=3, r=1/2 and quotient 21/5. Both excluded pure-component edges have strictly smaller quotient. Cubic equality with a chosen positive constant selects the positive zonal sign for n≥3; for n=2, either sign of a real quadratic is a rotation of the same zonal form. For a complex function the real/imaginary Cauchy–Schwarz bound has equality only when their squares are proportional (or one part vanishes). Real analyticity on the connected sphere then forces the parts to be proportional. These checks establish the global complex result, rather than relying on the supplied 144-assertion report. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For n≥3 arbitrary real samples, Sharma–Bhandari give 1+α₃² ≤ α₄ ≤ n/2+(n−3)α₃²/[2(n−2)]. Their consequences (1.4)–(1.5) are |α₃|≤(n−2)/√(n−1) (apply also to the negated sample) and α₄≤(n²−3n+3)/(n−1). The lacunary spherical theorem requires gaps at least three in its least-gap case, and the other spherical Nikolskii source treats degree-asymptotic estimates."
+        ],
+        "reasoning": "The sample bounds apply to every centered real eigenvalue list of length n, so contain the full real spectral optimization here. The lacunary and asymptotic results do not cover it, but that does not diminish the direct sample-moment implication.",
+        "searches": [
+          "Sharma–Bhandari, Skewness, kurtosis and Newton’s inequality, Theorem 1 and (1.3)–(1.5)",
+          "Dai–Gorbachev–Tikhonov arXiv:1905.00323 and 1708.09837 for larger spherical norm settings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and verification_output.txt",
+        "Sharma–Bhandari arXiv:1309.2896v1; Dalén publisher abstract",
+        "Resultary d4106097159f, 65a6da5d0745 and c24bbd23803b",
+        "arXiv:1905.00323 and 1708.09837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At maximal |α₃| the upper and lower bounds in (1.14) coincide, so optimal skewness already forces optimal kurtosis and Pearson equality. For a centered, variance-one empirical sample U, equality in α₄≥1+α₃² means E(U²−α₃U−1)²=0, hence at most two sample values. Their multiplicities k,n−k give |α₃|=|n−2k|/√[k(n−k)], maximal only at k=1,n−1, including n=3. Such a one-outlier list attains both endpoints. For n=2 a centered pair has α₃=0, α₄=1 identically."
+        ],
+        "reasoning": "The standard moment conversion gives exactly γ_n and δ_n, with simultaneous equality at the positive zonal spectrum. Expanding E(a+Q)^4 now gives the sharp envelope at every nonnegative ratio without solving any additional spectral optimization, and the cubic term for a≠0 forces this same rigidity. A one-variable derivative fixes the optimum and real/imaginary Cauchy–Schwarz with the analytic identity principle fixes the common phase. Thus neither the algebraic number nor the equality law requires a new nonstandard extremal step.",
+        "searches": [
+          "arXiv:1309.2896v1, Theorem 1, (1.14)–(1.16), compared to frozen RESULT.md lines 27–80"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the sphere a+Q=xᵀ(A+aI)x, so this packet is precisely all homogeneous quadratics restricted to the sphere, with no trace constraint on the full matrix. For the eigenvalues of its trace-free part, the finite-population standardized skewness and kurtosis are α₃=√n p₃/p₂^(3/2) and α₄=n p₄/p₂²."
+        ],
+        "reasoning": "Diagonalization and centering separate the constant coefficient and identify the key joint spectral constraints with sample central moments. The Gaussian radial conversion is an exact rescaling of these constraints, not a change of extremizing spectrum.",
+        "searches": [
+          "Resultary: sharp L4 L2 all homogeneous quadratic forms on sphere unrestricted trace symmetric matrix kurtosis shifted centered quadratic exact bound",
+          "Primary search: Algebraic bounds on standardized sample moments, Dalén, skewness and kurtosis; arXiv:1309.2896v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/09/20 record d4106097159f gives exactly δ_n and the pure trace-free quartic extremizers. The separate S² record 65a6da5d0745 also treats pure degree two, and c24bbd23803b optimizes an extension integral, not the sphere moment. The bounded same-date catalogue results inspected did not match the mixed quotient."
+        ],
+        "reasoning": "The catalogue matches do not contain the optimizing constant component. The exact pure-mode entry is substantial partial coverage; the new-looking mixed value nevertheless follows mechanically from the joint central-moment theorem, without a lookup of the displayed cubic.",
+        "searches": [
+          "Resultary d4106097159f, 65a6da5d0745, c24bbd23803b and exact mixed quadratic sphere-moment queries"
+        ]
+      },
+      "rationale": "The exact mixed quotient was not found verbatim, but the decisive joint moment extremum is a direct specialization of Sharma–Bhandari’s finite-population skewness–kurtosis theorem (which also records the classical sharp marginal bounds). Applied to the eigenvalues, that theorem gives both coefficients, their simultaneous equality law, and hence the full sharp mixed scalar envelope by the usual spherical moment conversion. The claimed ratio and rigidity then follow by differentiation and the standard complexification equality step. The failure is demonstrated mathematical implication, not a keyword miss or inaccessible source.",
+      "residual_risks": [
+        "The search is not a historical priority census, and Dalén’s full text was not read. Neither limitation is used to infer coverage; the read joint-moment theorem supplies the decisive evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING via central eigenvalue moments and elementary scalar reduction",
+          "evidence": "The Pearson lower and Newton upper bounds meet at maximum absolute skewness and yield the exact simultaneous one-outlier law.",
+          "identifier_or_url": "https://arxiv.org/pdf/1309.2896v1",
+          "material_read": "Sample definitions and (1.3)–(1.5), extracted offset 2290; Theorem 1, proof and (1.14)–(1.16), offset 5500",
+          "method": "Lawful open-access PDF result and proof excerpts after literal equation lookup",
+          "title": "Skewness, kurtosis and Newton’s inequality",
+          "trigger": "Joint sharp standardized moments of the real eigenvalue list"
+        },
+        {
+          "assessment": "No whole-paper judgment; coverage decided by the independently read theorem",
+          "evidence": "The indexed abstract describes best possible standardized sample moment bounds. No unpublished details or unstated equality cases are inferred from it.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/0167715287900058",
+          "material_read": "Indexed abstract only; the paper’s full text was unavailable. Its upper bound is stated in Sharma–Bhandari (1.5).",
+          "method": "Publisher full-text retrieval attempted; read the applicable bound in the open primary joint-moment theorem",
+          "title": "Algebraic bounds on standardized sample moments",
+          "trigger": "Classical attribution for sharp finite-population kurtosis"
+        },
+        {
+          "assessment": "Covers the pure degree-two part only",
+          "evidence": "Trace-free quartic moment formula has the same δ_n; one-outlier equality for n≥4 and constant-phase real equality for n=2,3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-sharp-l4-degree-two-spherical-harmonics--d4106097159f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local-mirror excerpt",
+          "title": "Sharp L4/L2 norm and extremizers for degree-two spherical harmonics",
+          "trigger": "Exact quartic coefficient and equality on the pure subspace"
+        },
+        {
+          "assessment": "Inspected theorem does not contain the degree gap two packet",
+          "evidence": "The minimum gap is 2ℓ+1 with ℓ≥1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.00323",
+          "material_read": "Definition and Theorem 1 around page 3, offset 5700",
+          "method": "Open-access PDF hypothesis excerpt",
+          "title": "Nikolskii inequality for lacunary spherical polynomials",
+          "trigger": "Potential broader spherical packet bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full quadratic sphere space is natural and the explicit optimizer is useful as an example. However, the sharp fixed-ratio moments and their simultaneous geometry follow by applying the existing joint sample-moment result to the centered spectrum; the remaining calculation is a standard moment conversion, scalar derivative and complex equality reduction. The frozen record establishes no distinct new extremal phenomenon, range or reusable bound beyond this mechanical consequence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

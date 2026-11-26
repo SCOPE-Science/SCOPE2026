@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:37:49.517747Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83",
+        "Frozen VERIFICATION.md and verify_stationary.py, inspected, script not executed",
+        "Independent replay: python3 /workspace/branches/46ff000d-419c-40ac-a44f-aca88c9a5c94/independent_critical_window_check.py. At M=100,400,1600,6400, tied r=3 means 2.01664, 2.13308, 2.19401, 2.22516 approach 4/√π=2.25676. Biased r=2 means of (total, first) at M=6400 are (2.12317,1.43800), compared with independent density quadrature (2.15465,1.46059)."
+      ],
+      "rationale": "Detailed balance holds for a transfer from i to j because moving one particle multiplies the product occupancy weight by w_j/w_i, exactly compensating the departure rates; the symmetric destination factor cancels. Positive rates and complete routing give irreducibility. Counting ordinary-site compositions gives the finite slow marginal, including s=N_M. Factoring out a common constant represents it as exp(c·h/√M) times the probability that an iid geometric sum equals N_M−s; its site mean and variance are 1/(a−1) and a/(a−1)^2. The span-one local CLT, with floor error at most one, gives the asserted Gaussian on compact rescaled lattices. The log successive-mass ratio has derivative −(M−1)/[(k+M)(k+1)], bounded above by −constant/M over the relevant lower tail; summing from the mode at M/(a−1)+O(1) gives a discrete Gaussian envelope times O(M^−1/2). The maximum mass bound also covers points above the mode. At fixed total s there are binom(s+r−1,r−1) lattice points; hence the Gaussian envelope still dominates any polynomial test and the bias exp(||c||∞s/√M), after Riemann rescaling. This justifies normalization, weak convergence and every mixed polynomial moment. In simplex coordinates x=tp the Jacobian gives t^(r−1); at c=0 the direction is independent uniform Dirichlet for all δ, and it is only at δ=0 that the radius is σ chi_r (Rayleigh for r=2). With arbitrary c the simplex law conditional on t is weighted by exp(tc·p), with no angular effect when all biases are equal. Independent finite canonical evaluations agree with the predicted tied r=3 and biased r=2 limits; these are diagnostics, not the justification of the asymptotics.",
+      "residual_risks": [
+        "Only canonical stationary, fixed-r asymptotics are checked; no finite-time, mixing, growing-defect, or disorder conclusion. The exact finite checks and numerical approach of means are not an infinite proof or formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The homogeneous critical theory concerns a maximum occupation under heavy-tailed single-site weights; weak disorder theory uses random site fitnesses and supercritical symmetry breaking.",
+          "The finite-defect hydrodynamic work concerns one-dimensional space-time dynamics with occupation-dependent rates. The general canonical factorization supplies the exact mass/partition function ratio, not its evaluated fixed-r critical limit."
+        ],
+        "reasoning": "Same broad field or use of conditional product laws does not imply this limit: the underlying bulk distribution, defect scaling, random objects or asymptotic regimes differ. Canonical stationary product formulas do give the finite law by specialization and summing compositions.",
+        "searches": [
+          "arXiv:0912.1793, §2.2",
+          "arXiv:1509.07672, introduction",
+          "Sethuraman–Xue arXiv:2205.10252, abstract",
+          "arXiv:cond-mat/0510512 pp. 9–10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0401262, cond-mat/0501338, 0912.1793, 1509.07672, cond-mat/0510512, 2205.10252",
+        "Resultary 266d4e97dde7 and 4e472521f69e",
+        "Identified Rafferty thesis lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stationary product law makes the finite exact marginal a direct calculation. Single-defect finite-size work identifies an M^−1/2 scale for a current overshoot, not the multiple occupancy law.",
+          "In the fixed-r joint window, lattice normalization accumulates roughly t^(r−1) compositions on the slice of total t and the weak rate split becomes a tilt on that slice. Quadratic tail domination is needed to pass to the moments.",
+          "The exact r=2 displayed critical law in 266d4e97dde7 is shared; the second catalogue result has different quantifiers and occupation scale."
+        ],
+        "reasoning": "The limit uses standard probabilistic methods but is not obtained simply by quoting product structure, a one-site current result, or the two-site limit. The quantitative joint-law evaluation, not the stationary formalism, supports the pass.",
+        "searches": [
+          "arXiv:cond-mat/0401262, canonical factorization and finite-size current",
+          "arXiv:cond-mat/0501338, §5.2",
+          "Resultary 266d4e97dde7 and 4e472521f69e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "266d4e97dde7 has the two-site limiting density proportional to exp(θx) φ_σ(h−x−y). Set q=1/a, θ=c1−c2 and h=δ+c2σ²: completing the square in x+y makes its law exactly the r=2 specialization here. The ring and complete graph do not distinguish these canonical stationary observables under the respective uniform invariant routing measures.",
+          "4e472521f69e uses r_M→∞ and different scales, not a fixed-dimensional orthant limit."
+        ],
+        "reasoning": "The two-site equivalence is exact, not just the same window width. More than two slow sites retain a higher-dimensional simplex and arbitrary relative biases; this mathematical content is not recovered by changing routing or by specializing a growing-defect asymptotic outside its scope.",
+        "searches": [
+          "Resultary fixed multiple slow sites and critical-window joint law: 266d4e97dde7 and 4e472521f69e",
+          "Canonical product concentration / conditional geometric sum: arXiv:cond-mat/0501338 and arXiv:1509.07672"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior constant-rate single-defect sum and critical density agree with the one-defect reduction. The two-site catalogue record covers exactly the r=2 limiting law; its date does not establish priority.",
+          "The Warwick thesis retrieval timed out; the available description concerns relaxation with one/two defects, without a verified matching stationary limit."
+        ],
+        "reasoning": "Credit the exact finite formula framework and record the closest matching law. No exact source located in this check gives the arbitrary fixed-r biased joint limit and moment result; this is not proof no such source exists.",
+        "searches": [
+          "Evans–Hanney arXiv:cond-mat/0501338, §5.2 exact canonical partition sum",
+          "Resultary 266d4e97dde7 finding and proof and 4e472521f69e finding",
+          "Rafferty, Dynamic properties of condensing particle systems, 2016 thesis candidate"
+        ]
+      },
+      "rationale": "The finite composition marginal, critical density and the conditional product framework follow from established zero-range theory and are not original components. The supported distinct contribution is the full deterministic fixed-r joint critical-window evaluation with weak rate splitting and moment convergence, including the exact critical chi/Dirichlet factorization for general r. There is demonstrable two-site overlap with another, later-dated catalogue result despite the different routing; this and the unresolved older thesis are explicit limitations, not priority findings. No inspected earlier claim supplies the general fixed-r window evaluation.",
+      "residual_risks": [
+        "Best-of-knowledge finding, not an exhaustive priority search. The exact two-site indexed overlap does not by itself determine priority; older thesis coverage and further specialized fixed-r literature are not ruled out. No novelty credit for the product-form finite marginal itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stationary framework and adjacent scale, no inspected multi-defect joint limit",
+          "evidence": [
+            "Factorized canonical weights and a single-defect canonical current overshoot near φ_c on a square-root window."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0401262",
+          "material_read": "PDF pp. 2–3, canonical factorization (OA offset 6843) and current discussion",
+          "method": "Primary PDF passages",
+          "title": "Condensation Transitions in a One-Dimensional Zero-Range Process with a Single Defect Site",
+          "trigger": "Single defect and matching finite-size scale"
+        },
+        {
+          "assessment": "Covers the one-defect canonical partition sum and density",
+          "evidence": [
+            "For one defect p<1, sum over n of binom(N+L−n−2,L−2)p^−n, threshold p/(1−p)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0501338",
+          "material_read": "§5.2, PDF p. 30 (OA offset 98049)",
+          "method": "Primary PDF formula and parameter comparison",
+          "title": "Nonequilibrium Statistical Mechanics of the Zero-Range Process and Related Models",
+          "trigger": "Direct constant-rate defect identity"
+        },
+        {
+          "assessment": "Different critical mechanism and observable",
+          "evidence": [
+            "Homogeneous occupation-dependent weights; maximum occupation under canonical conditioning."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0912.1793",
+          "material_read": "§2.2, pp. 2–3 (OA offset 7203)",
+          "method": "Primary PDF scope and limit statement",
+          "title": "Zero-range condensation at criticality",
+          "trigger": "Critical canonical limit theorem"
+        },
+        {
+          "assessment": "Random-fitness, supercritical symmetry breaking rather than this stationary deterministic window",
+          "evidence": [
+            "Independent random fitnesses and canonical conditioning of non-identically distributed site variables."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1509.07672",
+          "material_read": "Introduction/model, pp. 2–3 (OA offsets 10043 and 13715)",
+          "method": "Primary PDF passages",
+          "title": "Condensation and symmetry-breaking in the zero-range process with weak site disorder",
+          "trigger": "Competition of favored sites and conditioned product law"
+        },
+        {
+          "assessment": "Exact r=2 stationary overlap after a square completion; different additional supercritical and current claims; later-dated, priority not independently resolved",
+          "evidence": [
+            "Directed ring with rates q exp(−θ/√L) and q; limiting density exp(θx)φ_σ(h−x−y)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-scaling-windows-for-competing-slow-site-condensates-in-a-zer--266d4e97dde7",
+          "material_read": "Mirrored RESULT.md finding and proof offsets 0–4859 and 4859–9310",
+          "method": "Local Resultary search and mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two scaling windows for competing slow-site condensates in a zero-range process",
+          "trigger": "Exact two-site law with weak bias and same critical window"
+        },
+        {
+          "assessment": "Different number-of-sites asymptotics",
+          "evidence": [
+            "r_M→∞; total scale √(Mr_M), individual scale √(M/r_M), with exponential individual limit."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-mesoscopic-mass-and-extremal-occupancy-at-a-growing-collection-o--4e472521f69e",
+          "material_read": "Mirrored RESULT.md finding",
+          "method": "Local Resultary search and mirror",
+          "title": "Mesoscopic mass and extremal occupancy at a growing collection of slow sites",
+          "trigger": "More than two slow sites in a critical stationary regime"
+        },
+        {
+          "assessment": "Accessible scope distinguishes its hydrodynamic claim, not a full-text exclusion",
+          "evidence": [
+            "One-dimensional space-time hydrodynamic limit with site defects and occupation-dependent dynamics."
+          ],
+          "identifier_or_url": "Sethuraman–Xue, arXiv:2205.10252",
+          "material_read": "PDF p. 1 abstract (OA offsets 0 and 314)",
+          "method": "Primary PDF abstract and bibliographic comparison",
+          "title": "Condensation, boundary conditions, and effects of slow sites in zero-range systems",
+          "trigger": "Identified finite-number-of-defects antecedent"
+        },
+        {
+          "assessment": "Exact coverage unresolved",
+          "evidence": [
+            "Description mentions relaxation for one and two equal-rate defects; no stationary joint critical-window passage was verified."
+          ],
+          "identifier_or_url": "T. Rafferty, 2016, Warwick repository thesis",
+          "material_read": "Accessible description via related record only; repository text not retrieved",
+          "method": "Identified lawful Warwick OA repository attempt timed out",
+          "title": "Dynamic properties of condensing particle systems",
+          "trigger": "One/two equal-rate defects; potential older stationary analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–30 and 58–83",
+        "Evans–Hanney §5.2; Resultary 266d4e97dde7 for context"
+      ],
+      "rationale": "Resolves how competing deterministic defects share the critical excess: the total and proportions have distinct, explicit laws, and a rate perturbation of precisely the stated scale changes the proportions by a nontrivial tilt rather than automatically selecting a single site. The joint law and all-moment convergence supply a quantitative reference for finite-defect competition, beyond the known stationary product weights or a critical-density threshold.",
+      "residual_risks": [
+        "Does not address larger numbers of defects, random disorder, supercritical single-site condensation or dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

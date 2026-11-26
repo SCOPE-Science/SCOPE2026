@@ -1,126 +1,54 @@
-# Exact mixing-permutation counts and a three-term rarity law for odd-grid shuffled tent maps
+# Rooted-map classes of mixing odd-grid tent shuffles
 
 ## Finding
 
-Let \(N=2k+1\ge3\) be odd, \(f(x)=2\min(x,1-x)\) on \([0,1]\), and let \(\sigma\in S_N\) translate the \(N\) equal half-open subintervals of \([0,1)\) according to its permutation. Put \(g_\sigma=\sigma\circ f\), taking arbitrary consistent conventions at the finite set of discontinuity endpoints. Let \(T_k\) be the number of these \(N!\) maps that are topologically mixing in the piecewise-expanding Markov sense of [1]. Then
-
+Let \(N=2k+1\ge3\), let \(f(x)=2\min(x,1-x)\), and follow \(f\) by a permutation \(\sigma\) of its \(N\) equal image bins. Mixing is in the expanding Markov sense of [1]. On the set of coarse bins \(\{0,\ldots,2k\}\), define reflection \(H(i)=2k-i\) and set \(U=\sigma\circ E\), where
 \[
-T_0=1,\qquad T_k=(2k+1)!-\sum_{j=0}^{k-1}\binom{k}{j}(2k-2j)!\,T_j\quad(k\ge1).
+E(i)=\begin{cases}2i & i<k,\\2k & i=k,\\2(2k-i)+1 & i>k.\end{cases}
 \]
+The shuffle is mixing if and only if \(U\) and \(H\) generate a transitive action. In particular, irreducibility of the coarse Markov chain suffices: an odd-grid tent shuffle cannot be irreducible and periodic.
 
-The initial \(T_0\) is a formal combinatorial seed; the dynamical statement begins at \(N=3\). The exact first counts at \(N=3,5,7,9,11\) are \(4,80,3552,271104,31342080\). For a uniformly random interval permutation, the nonmixing probability has the *three-term sharp expansion*
+There is a structural classification of these mixing shuffles. Relabel the coarse bins by a permutation commuting with \(H\), acting by conjugacy on \(U\). The resulting classes are in bijection with connected rooted orientable maps with \(k\) edges, including loops and multiple edges. This relabeling gives permutation similarity of the reduced transfer matrices. The action is free on mixing shuffles, so each rooted map corresponds to exactly \(2^k k!\) shuffles. In particular a uniform shuffle conditioned on mixing corresponds to a uniform rooted map with \(k\) edges.
 
+As enumerative consequences, write \(a(n)\) for the classical sequence A000698 [2]. The exact mixing count is \(2^k k!a(k+1)\), and the nonmixing probability is
 \[
-1-\frac{T_k}{(2k+1)!}=\frac2N+\frac3{N^2}+\frac{22}{N^3}+O(N^{-4}),\qquad N=2k+1\longrightarrow\infty.
+1-\frac{a(k+1)}{(2k+1)!!}
+=\frac{2}{N}+\frac{3}{N^2}+\frac{22}{N^3}+O(N^{-4}).
 \]
-
-In particular, almost all odd-grid permutations preserve topological mixing, although [1] shows that nonmixing permutations exist at every grid size.
+The numerical recurrence and probability expansion are specializations of existing enumerative results, not new enumeration or asymptotic formulas for that sequence.
 
 ## Assumptions and scope
 
-The tent map has slope \(+2\) on the left half and \(-2\) on the right half. The permutation acts by translations on equal *image* bins, in the order \(\sigma\circ f\). All counts are for **odd** \(N\ge3\), and each of the \(N!\) permutations is given equal weight. Topological mixing here is the standard strong topological mixing for the associated Markov expanding interval map (equivalently primitivity of its refined Markov transition graph); endpoint conventions do not affect the finite graph. The calculation does not concern spectral decay rates conditioned on mixing, random iteration of permutations, or even-grid counts.
+The permutation translates equal half-open image bins; the composition is \(\sigma\circ f\), not a permutation of the input before applying \(f\). The finite endpoint conventions do not affect the Markov graph. A rooted orientable map here is described by an involution pairing the two darts of every edge, a permutation of darts giving the oriented cyclic order at each vertex, and a distinguished root dart. We identify maps by dart bijections preserving both permutations and the root dart. There is no prescribed genus. The result concerns this particular odd grid and reflection; it does not classify even grids or mixing rates.
 
 ## Proof
 
-**1. Finite-state reduction.** Index bins by \(i=0,\ldots,2k\). By the reduced Markov-matrix construction of [1, §2, Lemma 2.4, Eq. (11)], the \(2N\)-state fine adjacency matrix \(B(g_\sigma,N)\) and the \(N\)-state reduced matrix \(A(g_\sigma,N)\) share their nonzero eigenvalues; the finer matrix merely adds zero eigenvalues. Both adjacency matrices have row sum \(2\), so their respective normalized transfer matrices are \(B/2\) and \(A/2\). The common peripheral spectrum makes the fine graph primitive exactly when \(A/2\) is primitive. For the tent map the unnormalized reduced matrix has two unit entries in columns \(2i\) and \(2i+1\) for \(0\le i<k\), a single entry \(2\) at column \(2k\) for \(i=k\), and the same pair of unit entries in reflected row \(2k-i\). Every row and column sums to \(2\).
+**Reduced Markov matrix.** By [1, Lemmas 2.1 and 2.4 and Eq. (11)], the \(2N\)-state fine adjacency and \(N\)-state reduced adjacency share their nonzero eigenvalues including algebraic multiplicities. Each normalized matrix is stochastic with row sums one, so simplicity of the eigenvalue one and absence of any other unit-modulus eigenvalues, the criterion for primitivity, agree in the two matrices. Directly, the unpermuted coarse row \(i<k\) has successors \(2i,2i+1\), the reflected row \(H(i)\) has the same successors, and the middle row has successor \(2k\) twice. Thus after the shuffle the two successors are \(U(i)\) and \(U(H(i))\). The normalized reduced matrix is \(W_U=(I+P_H)P_U/2\) with row-to-column permutation matrices. It is doubly stochastic.
 
-Let \(H\) be the permutation matrix for \(H(i)=2k-i\), with one fixed point \(k\) and \(k\) transposition pairs. Define the permutation \(E\) of \(\{0,\ldots,2k\}\) by
+**Irreducibility implies primitivity.** A set is closed under the successors exactly when it is invariant under both \(U\) and \(H\): finiteness upgrades \(U(S)\subseteq S\) to equality, then \(U(H(S))\subseteq S\) implies \(H(S)=S\). This gives the transitivity criterion for irreducibility. In an irreducible chain with period \(d\), the cyclic classes have equal uniform mass by stationarity, hence equal cardinality. The first successors carry each class bijectively onto the next (apply \(U\)); the second successors then force each class to be \(H\)-invariant. If \(d>1\), the class containing the sole fixed point of \(H\) has odd cardinality and all other classes have even cardinality. This contradicts equality of cardinalities.
 
+**Rooted-map interpretation.** Use the \(2k+1\) bins as darts including one extra leg, let \(H\) pair the internal darts, and let the cycles of \(U\) prescribe the oriented cyclic order at the vertices. The leg is the unique fixed point of \(H\). Connectivity of this map means transitivity of the action generated by the vertex rotations and edge pairing, so it is equivalent to mixing by the preceding steps. For \(k\ge1\) transitivity forbids the leg from being alone at its vertex. Remove the leg from that vertex cycle and take its former successor as the root dart. The inverse inserts the leg immediately before the root. This gives the claimed bijection modulo relabeling: the residual dart labels are exactly relabelings commuting with \(H\), i.e. permutations of the \(k\) pairs and independent swaps inside each pair. Such relabelings conjugate \(W_U\) by permutation matrices. A stabilizer also commutes with \(U\) and fixes the leg, so it fixes the entire transitive orbit and is the identity. This proves the constant class size and the conditional uniformity. The same statement at \(k=0\) is used only as an enumerative seed (a single vertex and leg), not as a one-bin dynamical case.
+
+**Enumerative consequences and attribution.** If \(T_j\) is the number of transitive restrictions on \(2j+1\) bins, the component containing the leg uses \(j\) of the \(k\) pairs; outside it \(U\) is unrestricted. Thus
 \[
-E(i)=\begin{cases}2i,&i<k,\\2k,&i=k,\\2(2k-i)+1,&i>k.\end{cases}
+(2k+1)!=\sum_{j=0}^{k}\binom{k}{j}T_j(2k-2j)!,\qquad T_0=1.
 \]
+After division by \(2^k k!\), the recurrence is \((2k+1)!!=\sum_{j=0}^k (2k-2j-1)!!\,[T_j/(2^j j!)]\), with \((-1)!!=1\). This is exactly the classical recurrence of A000698 under the shift \(n=k+1\) [2]. The count at \(N=3,5,7,9,11\) is \(4,80,3552,271104,31342080\).
 
-The two successors from row \(i\) are precisely \(E(i)\) and \(E(H(i))\), counting the fixed middle successor twice. Thus
+For the expansion, let \(D(z)=\sum_{n\ge0}(2n-1)!!z^n\) be a formal series. The generating function of A000698 is \(2-1/D\) [2]. Borinsky's analytic-composition theorem for factorial asymptotics [3, Theorem 32, Eq. (23)] applies to \(D-1\) in its double-factorial scale (parameters \(\alpha=2,\beta=1/2\)) and the analytic function \(u\mapsto 2-(1+u)^{-1}\) near zero. In units where the asymptotic coefficient series of \(D\) is \(1\), that of \(2-1/D\) is \(D^{-2}=1-2z-3z^2-16z^3+O(z^4)\) as a formal expansion. Specifically a term \(z^r\) multiplies \((2(n-r)-1)!!\) in the coefficient expansion of \(a(n)\), with remainder \(O((2(n-4)-1)!!)\) after the displayed terms. Dividing by \((2n-1)!!\) with \(n=k+1\) shows that the deficit is \(2/N+3/[N(N-2)]+16/[N(N-2)(N-4)]+O(N^{-4})\), yielding the stated expansion.
 
-\[
-A(f,N)=(I+H)P_E,\qquad \frac{A(g_\sigma,N)}2=\frac{I+H}{2}P_U,
-\quad U=\sigma\circ E,
-\]
+## Relationship to prior work and limitations
 
-where we identify permutation matrices with their row-to-column actions. As \(\sigma\) varies, \(U\) varies bijectively through \(S_N\). Denote this doubly stochastic matrix by \(W_U\). Its directed graph from state \(i\) has successors \(U(i)\) and \(U(H(i))\).
+Byott, Lin and Zhang [1] define the shuffled expanding maps and give the Markov-matrix reduction, existence of nonmixing tent shuffles, and spectral bounds for mixing shuffles. Their stretch-and-fold precursor [5] treats a different map. The contribution here is the odd-grid structural identification: the single fixed reflection bin rules out periods in any irreducible reduced chain, and the remaining relabeling classes admit the rooted-map interpretation. This lets one use established rooted-map enumerations, including refinements by map genus, without claiming new formulas for those classical combinatorial invariants. Rooted map enumeration itself is classical [4]. A000698 also counts indecomposable matchings [2]; connectedness of a map and indecomposability in that alternative representation should not be confused with connectivity of the chord intersection graph. The count and the expansion are included as consequences of the structural identification. The scope of the literature comparison is limited to the works and records inspected, and the possibility of an earlier equivalent dynamical identification remains.
 
-**2. Transitivity and automatic aperiodicity.** A nonempty subset \(S\) is closed for the directed graph of \(W_U\) precisely when \(U(S)=S\) and \(H(S)=S\). Indeed, closure gives \(U(S)\subseteq S\) and \(U(H(S))\subseteq S\). Since \(U\) is bijective on the finite state set, the first inclusion is equality; the second then yields \(H(S)\subseteq S\), also equality. The converse is immediate. Therefore \(W_U\) is irreducible if and only if the group generated by \(U\) and \(H\) is transitive.
+## Reproduction
 
-If an irreducible \(W_U\) had period \(d>1\), its cyclic classes \(C_0,\ldots,C_{d-1}\) would have equal cardinality because \(W_U\) is doubly stochastic and hence uniform probability is invariant. Every edge from \(C_a\) goes to \(C_{a+1}\), so \(U(C_a)\subseteq C_{a+1}\), and equicardinality implies equality. The other edges then imply \(H(C_a)\subseteq C_a\), hence equality. Each cyclic class is therefore a union of \(H\)-orbits. Exactly one class contains the unique fixed point of \(H\), and this class has odd cardinality; all remaining classes are unions of transposition pairs and have even cardinality. This contradicts equal cardinalities. Hence \(d=1\): **irreducibility already implies primitivity**. By the Markov reduction in [1], \(g_\sigma\) is topologically mixing exactly when \(\langle U,H\rangle\) is transitive.
-
-**3. Exact enumeration.** A generated-group orbit is simultaneously invariant under \(U\) and under \(H\). There is a unique group orbit containing the fixed point \(k\) of \(H\). If it contains exactly \(j\) of the \(k\) reflection pairs, it has \(2j+1\) points, and its \(j\) pairs may be chosen in \(\binom kj\) ways. On this orbit the number of compatible \(U\)-restrictions is \(T_j\), since the reflection is conjugate to the involution with \(j\) pairs and one fixed point. On the complementary \(2(k-j)\) points, \(U\) is an arbitrary permutation, with \((2(k-j))!\) choices. The unique orbit containing the fixed point therefore gives the disjoint identity
-
-\[
-(2k+1)!=\sum_{j=0}^{k}\binom kj\,T_j\,(2(k-j))!.
-\]
-
-Solving for its last term gives the stated exact recurrence. This is an enumeration of *all* shuffles, not a finite sample or inclusion-exclusion approximation.
-
-**4. Uniform bounds for the asymptotic.** Set \(p_k=T_k/(2k+1)!\), \(N=2k+1\), and
-
-\[
-a_{k,j}=\frac{\binom kj}{\binom{2k+1}{2j+1}}.
-\]
-
-Then \(1-p_k=\sum_{j<k}a_{k,j}p_j\) and \(0<p_j\le1\). Direct factorial cancellation gives
-
-\[
-a_{k,j}=a_{k,k-1-j},\qquad
-\frac{a_{k,j+1}}{a_{k,j}}=\frac{2j+3}{2k-2j-1}.
-\]
-
-For each fixed \(r\ge0\), \(a_{k,r}=O_r(N^{-r-1})\). More importantly, for each fixed \(r\),
-
-\[
-\sum_{j=r}^{k-1-r}a_{k,j}=O_r(N^{-r-1}).
-\]
-
-For completeness, symmetry reduces this to \(r\le j\le\lfloor(k-1)/2\rfloor\). On \(r\le j\le\lfloor k/4\rfloor\), the displayed successive ratio is eventually bounded by \(1/2\), so this part is at most \(2a_{k,r}\). From \(\lfloor k/4\rfloor\) to the midpoint, the sequence is decreasing, while \(a_{k,\lfloor k/4\rfloor}\) is exponentially small in \(k\) by the preceding product-ratio estimate; summing \(O(k)\) such terms is negligible. Thus the stated bound is uniform in \(k\), including the finitely many small \(k\) after enlarging the constant.
-
-In particular the entire sum is \(O(N^{-1})\), so \(p_k=1+O(N^{-1})\). Its first boundary terms are
-
-\[
-\begin{aligned}
-a_{k,0}=a_{k,k-1}&=N^{-1},\\
-a_{k,1}=a_{k,k-2}&=\frac3{N(N-2)},\\
-a_{k,2}=a_{k,k-3}&=\frac{15}{N(N-2)(N-4)}.
-\end{aligned}
-\]
-
-The exact initial values \(p_0=1\), \(p_1=p_2=2/3\), and the middle-term bound imply, successively,
-
-\[
-1-p_k=\frac2N+O(N^{-2}),\qquad
-1-p_k=\frac2N+\frac3{N^2}+O(N^{-3}).
-\]
-
-Retaining the first three mirrored boundary pairs gives, for sufficiently large \(k\),
-
-\[
-1-p_k=\frac{1+p_{k-1}}N
-+\frac{3(p_1+p_{k-2})}{N(N-2)}
-+\frac{15(p_2+p_{k-3})}{N(N-2)(N-4)}+O(N^{-4}).
-\]
-
-Using the established two-term expansion with \(N\) replaced by \(N-2\) and \(N-4\), the three displayed contributions are respectively
-
-\[
-\frac2N-\frac2{N^2}-\frac7{N^3}+O(N^{-4}),\quad
-\frac5{N^2}+\frac4{N^3}+O(N^{-4}),\quad
-\frac{25}{N^3}+O(N^{-4}).
-\]
-
-Their sum is \(2/N+3/N^2+22/N^3+O(N^{-4})\), as asserted.
-
-## Verification
-
-A standalone standard-library program `verify.py` independently constructs the full \(2N\)-state Markov graph using the tent image of each fine cell and each output permutation. It tests strong connectivity and graph period using forward and reverse reachability plus an integer gcd of edge-distance differences. This is independent of the orbit-enumeration recurrence. Exhaustive tests for \(N=3,5,7\) check all \(6+120+5040=5166\) permutations, both the graph primitive condition and the group-transitivity criterion. The respective mixing counts are \(4,80,3552\). Exact-integer recurrence and positivity checks run through \(k=70\), with a supplementary rational asymptotic spot-check. Execution: `python3 verify.py`. The observed output is `VERIFY_OK 5166 full fine-graph comparisons; 70 exact recurrence levels; N=3,5,7 counts (4, 80, 3552)`. The infinite recurrence and asymptotic conclusion follow from the preceding proofs, not finite experiments.
-
-## Relationship to prior work
-
-Byott, Lin, and Zhang [1], first made public in May 2014, defined the shuffled nonconstant-orientation family, established the reduced Markov transfer-matrix relation, and showed that for the tent case nonmixing permutations exist at all grid sizes. Their Theorem 5 bounds eigenvalues and gives a lower bound on the worst mixing rate **among mixing permutations**. This note does not claim any of those results as new. The 2012 precursor [2] gives permutation-mixing counts/bounds for the *stretch-and-fold* maps \(x\mapsto mx\bmod1\); its case \(m=2\) with odd \(N\) is mixing for every permutation, so does not supply these odd-grid tent counts. The present contribution is the exact enumeration and sharp three-term rarity law for the folded tent family. The transitive-group reduction is a finite combinatorial mechanism, and historical priority for analogous combinatorial enumerations is not asserted absolutely.
-
-## Limitations
-
-Only odd-grid permutations of the specified tent map are analyzed. The graph criterion and recurrence depend essentially on the reflection having exactly one fixed point. The theorem makes no claims about even grids, other folds, conditional mixing-rate distributions, or non-Markov perturbations. The novelty comparison used accessible primary literature and public research records, not an exhaustive theorem database; an equivalent result in general permutation-group enumeration literature is a residual priority risk. Independent external mathematical audit has not been performed.
+The accompanying `verify.py` is a standard-library script. The recorded reproduction compares both transitivity and fine-graph primitivity for all 5,166 permutations at \(N=3,5,7\), evaluates 70 levels of the exact count recurrence, and spot-checks the probability expansion. The finite script does not establish the all-grid primitivity argument, the rooted-map bijection or the unbounded asymptotic. Those follow from the arguments above.
 
 ## References
 
-[1] N. P. Byott, C. Lin, Y. Zhang, *On the mixing properties of piecewise expanding maps under composition with permutations, II: Maps of non-constant orientation*, arXiv:1405.0481 (initial public version 2014-05-02), particularly §§1–2, Theorems 1 and 5, Lemma 2.4, Eq. (11), and appendix.
-
-[2] N. P. Byott, M. Holland, Y. Zhang, *On the mixing properties of piecewise expanding maps under composition with permutations*, arXiv:1203.5145 (initial public version 2012-03-22); *Discrete and Continuous Dynamical Systems* **33** (2013), 3365–3390, especially §3.3.
+1. N. P. Byott, C. Lin and Y. Zhang, *On the mixing properties of piecewise expanding maps under composition with permutations, II: Maps of non-constant orientation*, arXiv:1405.0481, §§1–2 and Theorem 5. https://arxiv.org/abs/1405.0481
+2. OEIS A000698, recurrence, matching interpretation and generating function. https://oeis.org/A000698
+3. M. Borinsky, *Generating asymptotics for factorially divergent sequences*, arXiv:1603.01236, Definitions 1 and 8, Theorem 32 (Eq. 23). https://arxiv.org/abs/1603.01236
+4. D. Arquès and J.-F. Béraud, *Rooted maps on orientable surfaces, Riccati’s equation and continued fractions*, Discrete Mathematics **215** (2000), 1–12.
+5. N. P. Byott, M. Holland and Y. Zhang, *On the mixing properties of piecewise expanding maps under composition with permutations*, arXiv:1203.5145. https://arxiv.org/abs/1203.5145

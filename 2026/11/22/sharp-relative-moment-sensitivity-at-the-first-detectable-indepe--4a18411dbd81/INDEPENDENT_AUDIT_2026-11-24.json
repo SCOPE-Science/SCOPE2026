@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:30:56.874517Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–85",
+        "VERIFICATION.md, recorded finite diagnostic and scope",
+        "checker.py lines 11–63, inspected without execution"
+      ],
+      "rationale": "All nonempty proper Walsh characters have zero mean, leaving only theta on the full cube; the only degree-n term with all n odd powers has multiplicities (1,...,1), so the relative discrepancy is exactly theta n! product(a_i)/F_0(a). There is no discrepancy in lower-degree polynomial tests. If any coefficient vanishes the denominator remains positive and the discrepancy vanishes. Otherwise the independent moment is a symmetric sum of exponentials of linear forms in log|a_i| with strictly positive diagonal Hessian contribution from the pure powers. Permutation averaging fixes the log sum, hence gives the sharp minimum M_n product|a_i|, strict unless magnitudes are all equal. Their signs realize either endpoint for theta nonzero; theta=0 gives ratio one everywhere. For the asymptotic, the cosh tilt has generating function cosh(rz)/cosh(r), mean r tanh(r)=1, and variance r tanh(r)+r^2 sech^2(r)=r^2. Its span is exactly 2, and the mean n is on the sum lattice along even n. Thus the local limit mass at n is 2/(r sqrt(2 pi n)); undoing the tilt and taking the reciprocal gives the claimed prefactor. Independently recomputed the three constants by repeated truncated convolution: start with p_0=1, multiply n times by the polynomial with coefficient 1/(2k)! in degree k, truncating at n/2, and take the reciprocal of its degree-n/2 entry. This gives 3/5, 15/47, 315/1957 exactly.",
+      "residual_risks": [
+        "The proof is for real coefficients and even order equal to the number of coordinates, not other absolute-moment orders or lower k-wise hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pass–Spektor compare L^p to Euclidean length. Proposition 2.1's general bound takes even k, and there are separate smaller-k results. Gao–Qian's Theorems 1.1–1.3 are about independent signs and high-moment upper envelopes and L^p/L^4 ratios. Dai–Kosov's Theorem 1.3 is for sampling approximation at p in [1,2]."
+        ],
+        "reasoning": "Broader k-wise or independent norm results need not compare two laws using the entire coefficient-dependent independent n-th moment. None of these actual theorem statements dominates that comparison. A small n=4 overlap with the earlier Pass–Spektor paper cannot be ruled out on the inspected material and would not settle general n.",
+        "searches": [
+          "arXiv:1708.08775 and arXiv:1412.7859, k-wise Khintchine inequalities",
+          "arXiv:2608.17802, independent moment norm ratios",
+          "arXiv:2611.05930, L^p norm approximation"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md novelty discussion and references",
+        "Two original mirrored findings and four literature sources listed in source_inspections",
+        "Exact-number/alias Resultary query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The shared identity F_theta=F_0+theta n! product(a_i) fixes the numerator. The prior Euclidean moment maximum is an upper bound on the denominator under a different constraint; the ratio proof instead needs a lower bound for F_0 at fixed geometric mean."
+        ],
+        "reasoning": "The upper bound does not prove the needed lower bound merely because both are attained at flat coefficients. A separate strict balancing argument is needed, followed by the correct span-two prefactor for the exact resulting constant.",
+        "searches": [
+          "Resultary 93098a285ffa, proof Steps 2–4",
+          "Resultary c4a31a177676, Finding and proof",
+          "Gao–Qian arXiv:2608.17802, Theorems 1.1–1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By the shared parity moment identity, finding the sharp ratio reduces to a lower bound for the independent moment at fixed geometric mean. Published record 93098a285ffa instead maximizes moments against Euclidean length. Record c4a31a177676 gives a relative ratio under the same parity law, but with p=1 and even-n factor 1/(n-1)."
+        ],
+        "reasoning": "Recasting the sign law does not distinguish the results, but replacing the comparator by the independent n-th moment changes the extremal objective. A different moment order cannot be substituted into the order-one ratio formula, and a shared flat candidate does not imply the same global optimizers under the changed objective.",
+        "searches": [
+          "Resultary next-to-independent Rademacher, parity relative moment and flat extremizers; records 93098a285ffa and c4a31a177676",
+          "Pass–Spektor arXiv:1708.08775, Proposition 2.1 and Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The six returned entries from the exact numerical/alias query concerned other parity or lattice problems, not a matching extremal table. The related endpoint record supplies ingredients yielding the flat candidate, while the relative-moment record uses 1/(n-1), not the assigned n-th-moment constant. The independent denominator can also be recognized as a diagonal cosh coefficient or a closed-walk count on the n-cube; those number identities by themselves do not assert the extremal property."
+        ],
+        "reasoning": "Do not claim novelty for any known independent moment enumeration or infer absence from rank-limited catalogue results. No inspected exact source identifies these values as the optimal relative constants for general even n with their large-order leading factor.",
+        "searches": [
+          "Resultary exact query: 3/5 15/47 315/1957 parity relative nth moment lambda n cosh power Rademacher walks cube 2 40 2256 250496 lattice prefactor r tanh r",
+          "Resultary 93098a285ffa and c4a31a177676, exact findings"
+        ]
+      },
+      "rationale": "Credit the exact relative n-th moment extremum and its flat-magnitude equality classification and large-order behavior, not the already published Walsh-law classification, unnormalized moment identity, Euclidean upper bound, or general lattice limit machinery. The closest inspected relative-moment result concerns absolute order one; the closest inspected n-th moment result uses a Euclidean denominator. Neither states or implies the sharp n-th moment ratio. This conclusion is best-of-knowledge, not priority certification.",
+      "residual_risks": [
+        "Historical coverage outside inspected results, including an exact coefficient-asymptotic table or a previously published general sharp relative theorem, is not excluded.",
+        "The earlier Pass–Spektor theorem-level comparison for n=4 was not resolved; only the actual abstract was inspected for that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlapping identity and Euclidean sharp-bound problem, not the relative extremum",
+          "evidence": "Same exact perturbation F_theta=F_0+theta n! product(a_i); bounds L^n/L^2 from above rather than the independent denominator from below at fixed product.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-endpoint-khintchine-constants-for-next-to-independent-rade--93098a285ffa/RESULT.md",
+          "material_read": "Finding and proof Steps 2–4",
+          "method": "Local mirror original passage",
+          "title": "Sharp endpoint Khintchine constants for next-to-independent Rademacher vectors",
+          "trigger": "Same laws, order, and flat extremizers"
+        },
+        {
+          "assessment": "Distinct exponent with a materially related design",
+          "evidence": "Same (n-1)-wise fair sign laws and flat attaining vectors, but first absolute moment and even-n relative factor 1/(n-1). Same date does not imply either priority or equivalence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-first-moment-distortion-under-almost-independent-rademache--c4a31a177676/RESULT.md",
+          "material_read": "Finding and proof",
+          "method": "Local mirror original passage",
+          "title": "Sharp first-moment distortion under almost-independent Rademacher signs",
+          "trigger": "Same-day exact relative moment overlap"
+        },
+        {
+          "assessment": "Different normalization; not the all-even-n relative quotient",
+          "evidence": "Constants are against Euclidean length; general bound in Proposition 2.1 uses even k, plus sharp small-k cases.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.08775",
+          "material_read": "Abstract and Proposition 2.1 (pp. 1–3), Theorem 3.1 (p. 4), offsets 0, 6400, 12850",
+          "method": "OA original passages",
+          "title": "On Khintchine type inequalities for k-wise independent Rademacher random variables",
+          "trigger": "Sharp k-wise moment comparison"
+        },
+        {
+          "assessment": "Small-dimensional risk remains, not a full-paper exclusion",
+          "evidence": "Reports p=4 results for exchangeable pairwise-independent signs and related 3-wise cases.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.7859",
+          "material_read": "Abstract only; targeted full-text retrieval timed out",
+          "method": "OA public arXiv abstract; attempted targeted retrieval",
+          "title": "On Khinchine type inequalities for pairwise independent Rademacher random variables",
+          "trigger": "Possible n=4 overlap"
+        },
+        {
+          "assessment": "Independent signs and different constraints/objectives",
+          "evidence": "High-moment upper envelopes and L^p/L^4 ratios do not compare parity-dependent and independent laws.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.17802",
+          "material_read": "§1.1, Theorems 1.1–1.3, pp. 2–4, offset 6400",
+          "method": "OA original theorem passage",
+          "title": "Fourth-Moment Geometry of Rademacher Sums",
+          "trigger": "Finite-dimensional moment ratios and flat optimizers"
+        },
+        {
+          "assessment": "Other exponent range and sampling objective",
+          "evidence": "Sampling discretization for p in [1,2] with independent subgaussian variables.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.05930",
+          "material_read": "Abstract and Theorem 1.3, pp. 1–2, offsets 0 and 6200",
+          "method": "OA original passages",
+          "title": "Empirical Approximation of L^p Norms for 1<p<2",
+          "trigger": "Cited norm discretization comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and scope",
+        "Euclidean endpoint and order-one relative analogues inspected above"
+      ],
+      "rationale": "The objective quantifies how much almost full independence can first change a polynomial moment, on the natural scale of the corresponding independent moment rather than a worst-case Euclidean bound. Exact two-sided extremizers and the lattice-corrected exponential decay describe both where the distortion concentrates and how small it inevitably becomes. They are a useful tight benchmark, not a new claim about all k-wise Khintchine constants.",
+      "residual_risks": [
+        "This benchmark does not address arbitrary moments, laws with weaker independence, or non-fair marginals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

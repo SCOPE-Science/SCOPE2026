@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every K,I,μ>0, B>0, 0≤m≤B the proof differentiates the Haldane response, verifies the unique positive inflection root, solves the positive tangent-to-cap quadratic, and gives the exact globally supporting-line factorization. Jensen for the explicit concave envelope yields the exact optimizer and uniqueness among all Borel laws, with endpoints separately covered. An exact lower chord provides the unique minimizing law. The tangency equation gives the sharp cap threshold, and a separate global tangent identity handles m≤√(KI) with no cap; weak limits plus impossibility of equality give the unbounded-cap nonattainment statements. The standalone exact-rational and numeric checker passed 59,170 diagnostics when executed from the package; the infinite statements rest on algebraic proof rather than finite tests. The treatment explicitly assumes exogenous concentration distributions and not feasible reactor controls.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rapaport, Haidar and Harmand, arXiv:1212.4252, full manuscript: buffered chemostat equilibrium and stability under nonmonotone response",
+        "Bayen, Rapaport and Tani, Automatica 2020 DOI:10.1016/j.automatica.2020.109199, abstract and indexed snippets: periodic dilution optimization with coupled reactor dynamics"
+      ],
+      "reasoning": "A theorem covering arbitrary dynamic chemostat controls with a fixed input budget would not automatically imply the free concentration-law optimum, nor conversely, because those controls induce state-constrained concentration trajectories and different objectives. The inspected complete 2012 manuscript concerns equilibrium/stability rather than optimization of distributional mean; 2020 full text is inaccessible, so its stronger possible results remain a residual risk and are not declared absent.",
+      "searches": [
+        "substrate inhibition microbial growth distribution free maximum average response high substrate bound critical concentration two point mixture",
+        "Chemostat periodic control Haldane convexity benefit under fixed mean substrate vs controlled dilution",
+        "periodic chemostat Haldane dilution optimization Bayen Rapaport Tani arxiv pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/bit.260100602 — original 1968 source, abstract/metadata only",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3114082/ — full HTML article",
+      "https://arxiv.org/abs/1212.4252 — full HTML manuscript",
+      "https://doi.org/10.1016/j.automatica.2020.109199 — publisher abstract/indexed portions only",
+      "Public mathematical-finding semantic index: searched Haldane mean-constrained growth, cap tangency, two-point pulsing, substrate inhibition, and chemostat periodic controls"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Andrews (1968) introduces inhibitory microbial kinetics, not an accessible proof of the distributional optimizer",
+        "Bumbak et al. (2011) motivates pulsing and high-concentration biological constraints but reports process practices",
+        "Rapaport et al. (2012) studies stability of a dynamically coupled buffered chemostat",
+        "Bayen et al. (2020) considers periodic dilution controls, not unconstrained substrate concentration occupation laws"
+      ],
+      "reasoning": "Classical Jensen only proves constant optimality on a concave response region; for caps across the convex tail, it does not itself specify the Haldane tangent, all-distribution support/weights, or critical mean-cap surface without additional calculation. Conversely, the new theorem cannot be used to claim feasible reactor improvement. The nearest inspected statements are not equivalent or stronger implications under the same constraints.",
+      "searches": [
+        "Haldane Andrews substrate inhibition saturating microbial growth concave envelope mean constrained concentration distribution two level pulsing upper cap tangent",
+        "Chemostat periodic control Haldane convexity benefit under fixed mean substrate vs controlled dilution",
+        "Haldane substrate inhibition pulse feeding growth concentration mean distribution concave envelope site:pmc.ncbi.nlm.nih.gov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haldane response f(s)=μs/(K+s+s²/I), expected response given a mean; equivalent concave-envelope formulation explicitly checked against classical concavification and published Haldane applications",
+        "The full open texts of Bumbak et al. (2011) and Rapaport et al. (arXiv:1212.4252) were compared to the stated law over all distributions"
+      ],
+      "reasoning": "The abstract concave-envelope/Jensen method is classical, but the statement includes a particular closed-form tangency a_B, cap phase boundary B_c(m), uniqueness and nonattainment; these were not established in the inspected specialized primary full texts. The claim makes no novelty assertion about concavification generally.",
+      "searches": [
+        "Haldane Andrews substrate inhibition saturating microbial growth concave envelope mean constrained concentration distribution two level pulsing upper cap tangent",
+        "optimal distribution at fixed mean Haldane substrate inhibition growth upper concave envelope maximum mixture at upper bound",
+        "exact Haldane Andrews response cap optimum mean constrained probability measure upper concave envelope inflection tangent transition concentration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual searches in the public mathematical findings index returned related but distinct titles on Michaelis–Menten spectra, serial saturating nutrient removal, and inhibition allocation; the scientific claims and parameter domains of the nearby results were compared",
+        "No matching natural-invariant table or published exact mean-cap Haldane phase diagram was found in the accessible primary sources"
+      ],
+      "reasoning": "This is an all-positive-parameter theorem, not a finite enumeration or tabulated constant. Search absence is not a proof of novelty; the statement/implication comparisons and primary-source checks are the grounds for provisional originality.",
+      "searches": [
+        "optimal distribution at fixed mean Haldane substrate inhibition growth upper concave envelope maximum mixture at upper bound",
+        "exact Haldane Andrews response cap optimum mean constrained probability measure upper concave envelope inflection tangent transition concentration",
+        "substrate inhibition microbial growth distribution free maximum average response high substrate bound critical concentration two point mixture"
+      ]
+    },
+    "rationale": "The general concave-envelope principle and Haldane kinetics are explicitly recognized as prior knowledge. The specific claim is the complete closed-form mean-cap optimizer and lower bound for arbitrary substrate distributions, the cap-to-mean transition B_c(m), unique two-point supports, and unattained no-cap extrema. Real searches of indexed mathematical results and the current ledger did not find a dominating implication; inspected full open texts concern cultivation process or dynamically constrained buffered chemostats, and distinct scope is shown. Publisher-abstract-only sources do not justify whole-document absence; their historical-priority risk is retained. Independent priority confirmation is not claimed.",
+    "residual_risks": [
+      "Older physical-bioprocess or convex-optimization literature might already contain an equivalent exact Haldane concave-envelope calculation under different terminology.",
+      "Andrews 1968 and Bayen–Rapaport–Tani 2020 were not obtained in full; abstract-only scope comparison is not a full-text exclusion.",
+      "The occupation law may not be physically realizable under nutrient mass conservation or bounded feed-rate controls; the mathematical theorem deliberately does not imply such realizability.",
+      "No independent expert priority or correctness audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines classical inhibited kinetics but no verified full-distribution fixed-mean cap theorem in accessible material; full text uncertainty retained",
+        "evidence": [
+          "1968 article by J. F. Andrews, Biotechnology and Bioengineering 10, 707–723, DOI:10.1002/bit.260100602"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/bit.260100602",
+        "material_read": "Publisher bibliographic record and abstract; full paper not accessible",
+        "method": "Metadata/abstract read and mathematical claim comparison",
+        "title": "A mathematical model for the continuous culture of microorganisms utilizing inhibitory substrates",
+        "trigger": "Original Andrews substrate-inhibition functional form and possible prior optimization"
+      },
+      {
+        "assessment": "Empirical/process-review treatment of fed-batch and pulsed cultivation, not a proof of the arbitrary-Borel fixed-mean Haldane concave envelope, tangency or cap thresholds",
+        "evidence": [
+          "Full article available at PMC3114082; publication date 2011-05-13 shown by source metadata; article discusses substrate provision and inhibitor constraints"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3114082/",
+        "material_read": "Full open-access HTML text, including process and substrate supply discussion",
+        "method": "Read full article and compared external substrate-pulsing discussion to distribution-free fixed-mean growth theorem",
+        "title": "Best practices in heterotrophic high-cell-density microalgal processes",
+        "trigger": "Biological motivation for pulsed substrate and high-concentration inhibition and exact publicly dated source"
+      },
+      {
+        "assessment": "Studies coupled buffered-chemostat steady states and stability with nonmonotone growth; not an arbitrary exogenous substrate-law optimization with fixed mean and concentration cap",
+        "evidence": [
+          "arXiv:1212.4252, Rapaport, Haidar and Harmand, posted 2012-12-18; Haldane growth is used in equilibrium/stability model"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1212.4252",
+        "material_read": "Full openly accessible rendered manuscript, introductory sections and model/results; searched discussion of concavity and mean-constrained optimization",
+        "method": "Read arXiv full HTML text and compared state/control objects, quantifiers, and conclusions",
+        "title": "The buffered chemostat with non-monotonic response functions",
+        "trigger": "Primary Haldane kinetics, chemostat model, and potential more general nonlinear result"
+      },
+      {
+        "assessment": "Periodic dilution control in dynamically constrained chemostat is not equivalent to optimizing free occupation distributions at fixed concentration mean. An inaccessible complete treatment remains a historical-priority risk, not an asserted noncoverage of full text",
+        "evidence": [
+          "Automatica 121 (2020), article 109199; published abstract frames optimization over periodic controls and reactor dynamics"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.automatica.2020.109199",
+        "material_read": "Publisher abstract and accessible indexed introductory/section snippets; full paper not obtained",
+        "method": "Searched open preprint and lawful open-access copies; could not access complete text through authorized channels; compared the abstract scope of periodic dilution-rate dynamic control to the exogenous measure problem",
+        "title": "Improvement of performances of the chemostat used for continuous biological water treatment with periodic controls",
+        "trigger": "Potentially dominating periodic Haldane control result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "fd793249-6d0a-4996-9ff0-94eff5962155",
+  "value": {
+    "rationale": "Substrate-inhibition and pulsed high-cell-density cultivation naturally raise the nontrivial question of when a given mean input should be distributed in time rather than held constant, under an upper toxicity bound. This theorem solves the entire all-Borel-law problem, including unique support and weights, the biologically interpretable phase boundary of when variability helps, a sharp lower bound, and a singular high-cap limit; none is merely an arbitrary slice or a minor numeric improvement. It gives a useful theoretical ceiling and potential falsification benchmark for any physically constrained feeding policy, while clearly separating exogenous concentration schedules from actual controls.",
+    "status": "PASS"
+  }
+}

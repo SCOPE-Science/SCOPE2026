@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:23:58.275896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coarea gives rank-facet area A=√n f_n; the lower and upper coordinate areas sum to L=nF_{n−1}(t) and U=nF_{n−1}(t−1). Independently, the divergence theorem with the fields x and the constant all-ones vector gives nV=U+tA/√n and U−L+√n A=0. This verifies the two facet identities even at knots, without needing to differentiate a discontinuous one-dimensional density. With H=F_n^(1/n), the quotient is 2nH+n(n−2t+√n)H'; its derivative between knots is n(n−2t+√n)H''. Brunn–Minkowski makes H concave, linear for t≤1 and strictly concave between distinct cuts above 1 since the full coordinate projections force any homothety to be identity. A normalized simplex from t≤1 cannot be homothetic to a cut above 1, since the latter contains points beyond the unit-simplex cap while having the same full normalized coordinate projections. In integrating the sign of the derivative, strict concavity rules out an interval of zero derivative, not necessarily isolated zeroes. Continuity joins the knots. The two integer candidates really are floor and ceiling, without a tie/nearest-integer claim. The CLT gives F_n(t*) and both nearby integer CDFs tending to Phi(√3); the O(1) density coefficient at adjacent ranks contributes O(n^−1/2) by the uniform-sum local CLT. At t=n the rank-facet area vanishes and one gets the cube; as t decreases within the simplex range the scale-invariant quotient stays constant. Replay: RESULT.md lines 42–86; VERIFICATION.md and verify.py were inspected, not executed. The independent fixed-normal proof below verifies the optimum and equality, but not the global derivative profile on its own.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Wulff inequality gives P_{h_W}(E)≥n|W|^(1/n)|E|^(1−1/n) for all finite-perimeter competitors, with equality up to translation, dilation and null sets.",
+          "Ferroni identifies the integer-capped cube with the uniform-matroid independence polytope and studies Ehrhart theory, not Euclidean normalized boundary area."
+        ],
+        "reasoning": "On the fixed-normal class the broader inequality gives the exact submitted Euclidean lower bound. In contrast, Ehrhart and John results alone do not give this area bound.",
+        "searches": [
+          "Neumayer, arXiv:1503.06705v2 §1.1: definition, Wulff inequality and equality",
+          "Primary fixed-normal Wulff literature lookup",
+          "Ferroni arXiv:2012.04711v1 p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Neumayer arXiv:1503.06705v2 §1.1",
+        "Resultary 9b8726b32127 and self-match 93483717b10c",
+        "Ferroni arXiv:2012.04711v1 p. 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At t*=(n+√n)/2, K_{n,t*}=(W+1)/2, so n|W|^(1/n)=2n F_n(t*)^(1/n). A competitor equal in Wulff must be a translate and dilate of W. For t≤1 the positive coordinate facets are absent, so it is not homothetic; for t>1 the full coordinate ranges fix the scale and translation, then the diagonal support fixes t. This reproduces the exact inequality and uniqueness.",
+          "The monotonic sides use the volume-root concavity and the area identity, and the integer conclusions use those sides and the central/local CLT; these are not consequences of an equality condition alone."
+        ],
+        "reasoning": "The older theorem implies the full advertised continuous optimum and equality without knowing the cap-specific derivative. Distinguishing secondary refinements from this coverage is necessary; a shared transition parameter is not, by itself, the implication.",
+        "searches": [
+          "Neumayer arXiv:1503.06705v2 §1.1, Wulff equality condition",
+          "9b8726b32127 original mirror RESULT.md offset 0",
+          "Frozen RESULT.md lines 49–86, extra profile and discrete assertions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let U consist of ±e_i and the positive all-ones unit vector. For W=[−1,1]^n intersected with sum x_i≤√n, the support h_W is exactly 1 on U. All K_{n,t} have normals in U, including when some candidate facets disappear. Their h_W-weighted perimeter is therefore precisely ordinary total Euclidean area.",
+          "The same-body John result 9b8726b32127 identifies radius-1/2 contact with all those facets at t*, but it solves an inscribed-volume problem."
+        ],
+        "reasoning": "The cap optimization is equivalent to a Wulff perimeter optimization restricted to polytopes with these normals. The optimum belongs to the restricted family. This is an objective-preserving reduction, not just an equal-parameter analogy.",
+        "searches": [
+          "Local Resultary: capped hypercube, uniform-matroid independence body, surface isoperimetry and John contact",
+          "Primary literature on fixed facet normals and Wulff minimization",
+          "Neumayer arXiv:1503.06705v2 §1.1, p. 1, extraction offset 2060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned surface result 93483717b10c is a self-match. The distinct 9b8726b32127 record gives the same numerical threshold for the John ellipsoid, not a surface-area table or classification.",
+          "Ferroni's inspected formula and results concern lattice counts and identify the integer shapes."
+        ],
+        "reasoning": "An exact geometric contact parameter is not a tabulation of the area quotient. An enumeration database for lattice counts is not a source for the continuous area minimization. The sharp continuous value is covered instead by the prior general theorem below.",
+        "searches": [
+          "Local Resultary lookup: cap-dependent Euclidean surface quotient of uniform-matroid independence bodies"
+        ]
+      },
+      "rationale": "The frozen record's central claim of a new sharp continuous Euclidean surface inequality and equality case is covered by a direct specialization of the known Wulff inequality. The match with the John contact value alone would not show coverage. The full derivative profile, integer localization and asymptotics are not asserted to be separately published in the sources inspected.",
+      "residual_risks": [
+        "A direct cap-specific prior for the derivative profile or the discrete corollaries could still exist; limited retrieval from another indexing route did not expose full text. No negative inference is made from access or indexing limits.",
+        "The affirmative prior implication for the continuous optimum is independent of these unresolved searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covers continuous optimum by support-function specialization",
+          "evidence": [
+            "Defines anisotropic perimeter by integrating the surface tension over exterior unit normals; the associated Wulff shape gives the sharp lower bound with equality up to dilation and translation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.06705",
+          "material_read": "Version 2 §1.1, PDF p. 1 and beginning of p. 2, extraction offset 2060 through 5015",
+          "method": "Original OA PDF literal locator and bounded offset read",
+          "title": "A strong form of the quantitative Wulff inequality",
+          "trigger": "Surface minimization on prescribed facet normals with a common tangency radius"
+        },
+        {
+          "assessment": "Substantial same-object tangency overlap, different variational objective",
+          "evidence": [
+            "The upper transition at t* is a radius-1/2 ellipsoid touching all coordinate and rank planes. Its theorem concerns maximal volume of an inscribed ellipsoid."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-three-phase-john-ellipsoid-of-a-capped-hypercube--9b8726b32127",
+          "material_read": "Original mirror RESULT.md offset 0, Finding and optimizer statement",
+          "method": "Local Resultary followed by bounded original mirror passage",
+          "title": "Three-phase John ellipsoid of a capped hypercube",
+          "trigger": "Same real-cap family and same closed-form transition"
+        },
+        {
+          "assessment": "Identifies the bodies, not the full-boundary surface quotient",
+          "evidence": [
+            "Identifies the uniform-matroid independence polytope with a rank-capped cube and studies its Ehrhart polynomial and positivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2012.04711v1",
+          "material_read": "Version 1 p. 2, OA offset 6273",
+          "method": "Original OA PDF targeted passage",
+          "title": "Integer point enumeration on independence polytopes and half-open hypersimplices",
+          "trigger": "Same shapes at integer caps and exact formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Minimizing ordinary whole-boundary area at fixed volume is natural, and the integer application is correctly stated. But the advertised exact continuous optimum is the mechanical fixed-normal specialization of an established principle. The supplementary profile follows from the tangent evaluation of a concave volume-root function, and the two-rank localization and leading constant are routine consequences of that profile and the usual uniform-sum CLT. As submitted, the remainder does not decide which of the two ranks minimizes, analyze ties, or establish a distinct nonroutine geometric question sufficient to support a separate repaired finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

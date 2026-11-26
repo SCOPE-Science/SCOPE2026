@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:02:00.116177Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63; VERIFICATION.md and checker.py inspected, not executed.",
+        "Standard discrete center-manifold and local strong-stable tracking (hypotheses checked for this map)."
+      ],
+      "rationale": "Every equilibrium solves z=(1+ε)sin z and has x=y=sin z. With 0<1+ε<π, every root is in (−π,π), and sine divided by its argument strictly decreases from 1 to 0 on (0,π). This proves the global one/three count and Taylor expansion z_±²=6ε+O(ε²). At ε=0 the characteristic polynomial factors as (λ−1)(λ²+(1+s)λ+r); the quadratic Schur conditions are 1−r>0, r−s>0 and 2+r+s>0. The unit root is simple, with q=(1,1,1) and normalized left functional W/D. Direct substitution gives W∘F−W=sin z−z. The center graph has z=u+O(u³) in u=W/D: the quadratic jet vanishes by invariance, since the map has no quadratic term and the stable block has no unit eigenvalue. Thus u' = u−u³/(6D)+O(u⁵). Small nonzero center points keep their sign and tend to zero; differences of 1/u² tend to 1/(3D), yielding n u_n²→3D by averaging. The map is a smooth local diffeomorphism (det DF=r cos z near zero), and the strict spectral gap with the two Schur-stable directions allows the local strong-stable tracking theorem. The small center interval is forward trapping, so a sufficiently small stable-fiber neighborhood tracks it exponentially, including the two-dimensional fiber over zero. All other fibers track nonzero center iterates; the tracking error is negligible against n^(−1/2), giving all three sign and square-limit claims. The origin multiplier derivative in ε is 1/D. For a branch equilibrium, P(1)=1−(1+ε)cos z=2ε+O(ε²) and ∂_λP=D+O(ε), yielding the −2/D slope. Continuity retains both stable multipliers on each branch. The example gives D=11/4 and n z_n²→33/4 (and the same for x,y).",
+      "residual_risks": [
+        "Only the fixed-point count is global. Stability and tracking are local in state and in detuning at fixed (r,s); no uniformity at the boundary of the wedge or conclusion on global attractors is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader family contains the frozen map at (α,μ)=(0,0). The census reaches all k>0, but the detailed staircase stability is for (p,q,g)=(0,0,−k), outside 0<s<r<1. The leafwise result has μ=1 and δ=β+γ, where W is conserved at α=0."
+        ],
+        "reasoning": "A broader family description or global census does not imply the critical dynamical theorem; pure-feedback stability is for different parameters, and the leafwise result has a distinct invariant and cannot give full-space attraction.",
+        "searches": [
+          "Rajagopal et al. DOI 10.3390/sym15040780, Eq. (1) and dynamics discussion",
+          "Resultary 16a930ed513b full census and pure-feedback stability",
+          "Resultary 49e78d8ca38c, neutral-feedback leafwise pitchfork"
+        ]
+      },
+      "checked_sources": [
+        "Almatroud et al. DOI 10.3390/sym16081093",
+        "Rajagopal et al. DOI 10.3390/sym15040780",
+        "Resultary 16a930ed513b and 49e78d8ca38c",
+        "Frozen RESULT.md Finding, scope and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Expansion of the known scalar equation gives z_±=±sqrt(6ε)+O(ε^(3/2)). The checked primary linear analysis concerns the Jacobian. The μ=1 exact identity is W∘F−W=α, whereas the present normalized critical drift comes from the nonzero sin z−z term at μ=0."
+        ],
+        "reasoning": "The equilibrium expansion is a direct consequence of established equations, and the stability slopes are local characteristic expansions. Neither supplies the nonlinear coefficient, the exceptional fiber, or the rate in the physical coordinates: those require the exact critical balance and tracking of nonlinear center iterates.",
+        "searches": [
+          "Almatroud et al., fixed-point equation and origin linear stability, pp. 3–4",
+          "Resultary 16a930ed513b and 49e78d8ca38c, Findings",
+          "Frozen RESULT.md lines 32–60, coefficient derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Almatroud's (β_1,β_2,γ)=(r,b,s) gives exactly F and z=(r+b−s)sin z. Resultary 16a930ed513b uses (p,q,g)=(r,b,s) and gain k=1+ε for the identical map and globally counts equilibria."
+        ],
+        "reasoning": "The parameter aliases preserve the map, rather than only an analogy. They expose direct overlap in the equilibrium claims but give no sharp nonlinear clock at the unit multiplier.",
+        "searches": [
+          "Resultary for the same 3D sine map, cubic critical relaxation and pitchfork",
+          "Almatroud et al. DOI 10.3390/sym16081093, pp. 3–4",
+          "Resultary 16a930ed513b, Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first distinct record gives the all-gain exact integer census and a pure-feedback staircase. The second gives square-root amplitude on an invariant leaf in a different subfamily. Neither inspected Finding gives 3(2+r+s) for the local critical clock in the frozen wedge."
+        ],
+        "reasoning": "The exact rate is a local asymptotic theorem, not a tabulated invariant. No distinct checked entry gives the same critical clock; the exact equilibrium count is already covered and not credited.",
+        "searches": [
+          "Resultary for exact cubic coefficient and n times the squared coordinates of the critical 3D sine-delay map",
+          "Direct mirror comparisons 16a930ed513b and 49e78d8ca38c"
+        ]
+      },
+      "rationale": "Credit the exact family and scalar fixed-point reduction to earlier work. The matched catalogue record covers the full fixed-point census, and the same scalar equation gives the elementary branch-size expansion. Neither that coverage, the primary sources' linear analysis, nor the related leafwise pitchfork supplies the normalized critical cubic drift or the quantified three-coordinate critical decay off a strong-stable surface. The pass is for this distinct nonlinear result in the fixed wedge, not for the equilibrium count taken alone.",
+      "residual_risks": [
+        "Mammeri's original text was not accessible and may contain a closer special-case analysis. The same-day catalogue comparisons establish statement overlap where noted, not chronology; further unindexed exact results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family and equilibrium reduction already known; checked analysis is linear",
+          "evidence": "Defines the same map and derives y_3−(β_1+β_2−γ)sin(y_3)=0, followed by origin linear stability analysis.",
+          "identifier_or_url": "https://doi.org/10.3390/sym16081093",
+          "material_read": "Original PDF pp. 3–4, offsets 10600, 13250, 15100",
+          "method": "Targeted OA PDF passages",
+          "title": "Multistability, Chaos, and Synchronization in Novel Symmetric Difference Equation",
+          "trigger": "Exact same map and local fixed-point stability"
+        },
+        {
+          "assessment": "Includes the frozen model, but checked statements do not provide its critical drift",
+          "evidence": "Contains the map with α,μ feedback terms, both set to zero in the frozen family.",
+          "identifier_or_url": "https://doi.org/10.3390/sym15040780",
+          "material_read": "Original PDF p. 3 Eq. (1), offset 11600; p. 4 dynamics discussion, offset 15600; p. 10 references",
+          "method": "Targeted OA PDF passages",
+          "title": "Influence of Parametric Symmetry on the Dynamics of 3D Sinusoidal Discrete Systems",
+          "trigger": "Enclosing offset and self-feedback model"
+        },
+        {
+          "assessment": "Material exact overlap in census; different stability range",
+          "evidence": "N(k)=1+2·1_(k>1)+ contributions at K_m>1 for k>0, giving the identical count near k=1. The stability staircase uses p=q=0 and g=−k.",
+          "identifier_or_url": "Resultary 16a930ed513b",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror; direct comparison",
+          "title": "Infinitely many fold-to-flip sink windows in a three-dimensional symmetric sine map",
+          "trigger": "Exact same map and detuned equilibrium count"
+        },
+        {
+          "assessment": "Related but different branch theorem",
+          "evidence": "On μ=1, δ=β+γ, α=0, W is conserved and the pitchfork with amplitude sqrt(6(t−1)) lies in W=π; full-space hyperbolic attraction is explicitly not claimed.",
+          "identifier_or_url": "Resultary 49e78d8ca38c",
+          "material_read": "RESULT.md Finding, Assumptions and proof opening, offset 0",
+          "method": "Local Resultary mirror; direct comparison",
+          "title": "Hidden translation and sharp leafwise pitchfork in a three-dimensional sine map",
+          "trigger": "Same enclosing family, exact balance variable and square-root branches"
+        },
+        {
+          "assessment": "Full scientific overlap unresolved",
+          "evidence": "The checked secondary text identifies Mammeri's predecessor and describes adding self-feedback in the later model; it does not attest the complete contents of Mammeri's paper.",
+          "identifier_or_url": "Mammeri, Bull. Math. Anal. Appl. 9(1) (2017), 1–8; https://www.researchgate.net/publication/317278288_SYMMETRY_AND_PERIODIC-CHAOS_IN_3-D_SINUSOID_DISCRETE_MAPS",
+          "material_read": "Rajagopal et al. p. 3 description and p. 10 citation only; original unavailable",
+          "method": "Lawful attempts at cited copy and alternate EMIS journal route returned HTTP 403; used accessible secondary account only",
+          "title": "Symmetry and Periodic-Chaos in 3-D Sinusoid Discrete Maps",
+          "trigger": "Plausibly closer predecessor at fixed sine amplitude"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Almatroud et al. original map and stability discussion",
+        "Resultary 16a930ed513b and 49e78d8ca38c"
+      ],
+      "rationale": "The unit-multiplier boundary of a previously studied recurrence leaves linear stability inconclusive. The critical coefficient and exceptional surface distinguish exponential relaxation from a sharp, parameter-dependent n^(−1/2) decay in the same system. This supplies a useful nonlinear classification at a natural boundary beyond the known equilibrium census or purely numerical bifurcation plots.",
+      "residual_risks": [
+        "No implication for global chaos, basin sizes, or behavior far from the critical gain follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

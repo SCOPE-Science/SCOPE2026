@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical boundaries
+# Independent mathematical audit
 
-Run `python3 verify_triangle.py` with `mpmath` available. The script evaluates the exact triangle Fourier-integral expression at four reciprocal-lattice nodes; checks both complex first derivatives, the universal radial second derivative, and the coefficient of the affine weight; and independently locates the real zeros predicted by the fold theorem in the cases where the sign allows a pair. It also checks one non-affine polynomial weight and enumerates lattice-sector incidences at radii \(20\), \(100\), and \(250\).
+## correctness
 
-Successful execution reported the nodal counts \((1148,868)\), \((30876,23192)\), and \((194968,146314)\), with the second entry being the positive-unfolding class. These are *finite* demonstrations only. They neither prove the infinite lattice asymptotic nor exclude unseen zeros in a neighborhood. Both unrestricted conclusions instead follow, respectively, from the strict convexity/implicit-function proof and from sector lattice-point area comparison in `RESULT.md`.
+PASS
 
-For reproducibility the transform is unnormalized (the triangle has mass \(1/2\)), and all Fourier arguments are angular frequencies. The program's numerical tolerances are not substituted for any exact algebraic identity. The coefficient \(\operatorname{Re}\widehat{g}(\lambda)\) must be nonzero for the two/no-zero classification; at a vanishing coefficient the generic theorem does not claim an answer.
+Independently expanding the simplex vertex-exponential expression, F0 = −(exp(−iξ)−1)/(ξ(ξ−η)) + (exp(−iη)−1)/(η(ξ−η)), gives at (k,l) the imaginary gradient (i/(k(k−l)),−i/(l(k−l))) and the radial quadratic t²/2 with the stated unnormalized convention. The imaginary equation therefore yields a unique transverse graph s=O(t²+|ε|), and the real equation on it has Rtt(0,0)=1 and Rε(0,0)=u. Strict convexity on a fixed small interval and the critical-value expansion εu+O(ε²) give precisely the two or zero simple roots, with the claimed radial displacements and O(|ε|) error. For affine g, i(a∂ξ+b∂η)F0 is real at the node and gives the stated coefficient; when it vanishes the full complex perturbation vanishes there exactly. For g=x the excluded sign sectors have total angle π/2; the disk boundary and removed lines contribute O(R). Independent bounded enumeration yielded (1148,868), (30876,23192), (194968,146314) at R=20,100,250. This corroborates, not proves, the asymptotic.
 
-The independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The unweighted zero lattice and qualitative fold normal form are known. The checked evidence does not supply the weighted triangle's exact nodewise unfolding for bounded weights or its affine sign and split-density classification. Credit is restricted to those quantitative results, not the unweighted geometry or the square-root mechanism in isolation.
+
+## value
+
+PASS
+
+The exact response of an isolated, rank-deficient real Fourier zero matters when positive densities perturb the orthogonality geometry of a domain. The result distinguishes robust annihilation from pairs of simple real zeros, gives their direction and scale, and computes the sign prevalence across the natural nodal lattice rather than at an arbitrary sample point. The 3/4 statement is an index-cutoff limit, not a fixed-ε global statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

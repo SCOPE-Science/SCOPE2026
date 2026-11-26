@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:05:52.651296Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–55",
+        "Frozen VERIFICATION.md, check_linecube.py and verification_output.txt: inspected, not executed; finite binary checks only"
+      ],
+      "rationale": "The open-neighbor rule is C^t C for the unoriented incidence C, since its diagonal is two and hence vanishes. The image of C is the augmentation hyperplane W and the kernel of C^t is the line of constants inside W; this gives rank 2^d-2. Independently split the cube along its last bit: with S the sum of I+flip_i over the remaining bits, B=I+S satisfies B^2=I and preserves augmentation and constants. Then CC^t has block matrix [[B,I],[I,B]], squares to zero, and sends (a,b) to (x,Bx) with x=Ba+b. For inputs in W the attainable x are exactly the vectors of augmentation zero on the half-cube. The full constant vector belongs to this image because the half-cube has even order for d>=2. Thus rank(C^t(CC^t)C)=2^(d-1)-2, and the third power vanishes. The rank differences give the stated Jordan blocks and kernel-dimension differences give the labeled populations, including the index-two square and sharp index three thereafter.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gadouleau–Richard, PDF p. 17, proves existence of some nilpotent Boolean update, not this prescribed parity rule",
+          "Buchanan et al., PDF p. 1, concerns first adjacency rank as an odd-cover bound; this does not give a rank-of-powers formula",
+          "Prior Resultary author attributes the first rank to Fish–Key–Mwambene; independent full-text verification of that attribution was unavailable"
+        ],
+        "reasoning": "The existence theorem does not dominate the exact fixed-rule theorem; the verified binary Resultary statement already does via scalar extension.",
+        "searches": [
+          "Gadouleau–Richard arXiv:1503.04688, Thm. 5; Buchanan et al. arXiv:2202.09822; Fish–Key–Mwambene (2010) and Muthivhi (2013), referenced at Resultary 9cbed31719f4 §Relationship"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9cbed31719f4 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:1503.04688",
+        "arXiv:2202.09822",
+        "arXiv:cond-mat/9305012"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary result fixes ranks of the same 0/1 matrices and their powers for all d",
+          "Tadaki considers one-dimensional rule-90/150 systems, not this graph"
+        ],
+        "reasoning": "Scalar extension preserves ranks and zero matrices; nilpotent block multiplicities depend only on the rank sequence and each extended kernel of dimension k has q^k elements. No new parameter-dependent calculation is needed.",
+        "searches": [
+          "Resultary 9cbed31719f4, Finding and Proof, against frozen RESULT.md lines 4–19 and 49–55",
+          "Tadaki arXiv:cond-mat/9305012, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 9cbed31719f4, Finding offset 756 and Proof offsets 2200–4471: identical rank(T), rank(T^2), T^3=0 and all three block multiplicities for the identical line-graph adjacency over F_2"
+        ],
+        "reasoning": "Edge XOR is binary open-neighbor adjacency, not a different rule or the vertex update.",
+        "searches": [
+          "Resultary: cube line graph open-neighbor XOR / three-step nilpotence and Jordan blocks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct match 9cbed31719f4, Finding offsets 756 and 1076: exact block multiplicities and cumulative 2^(m-r_t) kernel counts, not a finite example table"
+        ],
+        "reasoning": "These cumulative entries reproduce the entire binary layer census by differences.",
+        "searches": [
+          "Published Resultary: dimension-uniform ranks, block counts and relaxation layers on cube line graphs"
+        ]
+      },
+      "rationale": "A distinct October 26 Resultary record proves the exact binary rank sequence, nilpotence, Jordan partition and cumulative populations. Each update matrix and all its powers are scalar extensions from F_2, so their ranks are unchanged; the field-size census then follows from the order of a vector space. The extension to all finite characteristic-two fields is mechanically implied, not a surviving distinct claim.",
+      "residual_risks": [
+        "Fish–Key–Mwambene article accessible only at landing-page/abstract level in this review; identified Muthivhi thesis download failed. This leaves historical first-rank attribution open, not the direct Resultary coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact binary coverage; entire theorem follows over finite characteristic-two extensions",
+          "evidence": [
+            "Both ranks and all blocks match; kernel counts are cumulative"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-step-nilpotence-and-constant-two-block-multiplicity-in-cub--9cbed31719f4/RESULT.md",
+          "material_read": "Finding offsets 756, 1076; Proof offsets 2200–4471; Relationship to prior work from 5300",
+          "method": "Published Resultary index and local mirror full-text passages",
+          "title": "Three-step nilpotence and constant two-block multiplicity in cube line graphs",
+          "trigger": "Exact rule and exact Jordan/rank match"
+        },
+        {
+          "assessment": "Different quantifier on the update",
+          "evidence": [
+            "Existence of a suitable Boolean function on each connected graph other than K2"
+          ],
+          "identifier_or_url": "arXiv:1503.04688",
+          "material_read": "Theorem 5, PDF p. 17",
+          "method": "OA PDF",
+          "title": "Simple dynamics on graphs",
+          "trigger": "Nilpotence class three on undirected graphs"
+        },
+        {
+          "assessment": "Rank appears in a different covering problem",
+          "evidence": [
+            "Adjacency rank gives an odd biclique cover lower bound"
+          ],
+          "identifier_or_url": "arXiv:2202.09822",
+          "material_read": "PDF p. 1, offsets 712–937",
+          "method": "OA PDF",
+          "title": "Odd covers of graphs",
+          "trigger": "Potential adjacency rank overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "Resultary 9cbed31719f4, Finding"
+      ],
+      "rationale": "The exact structural binary classification would be useful for a natural parity automaton, but the only extra stated scope is a scalar extension of that classification and conversion of kernel dimensions to finite-field cardinalities. It supplies no independent new structural information or motivated new invariant.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

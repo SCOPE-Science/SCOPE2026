@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The final claim is a method-level theorem with explicit scope. Fejér--Riesz makes the optimization exhaustive over all nonnegative trigonometric polynomials of degree at most \(5\). The five source trace identities produce an exact Rayleigh quotient for a real symmetric Toeplitz matrix. At \(q_0=9\), exact reconstruction of the published ramification ceiling gives \(U=921685/59049\). All six leading principal minors of \(UI-T\) are positive exact rationals, hence \(UI-T\) is positive definite and \(\lambda_{\max}(T)<U\). The accompanying checker replays these identities from the packaged constants.
+## correctness
 
-## Originality
-PASS. The closest source, arXiv:2610.00189v1, evaluates one particular coefficient vector, observes that its lower bound is smaller than the upper bound at \(q_0=9\), and says that extending the argument requires sharper ramification or additional input. It does not show that changing the nonnegative degree-five polynomial can never suffice. The 2019 Tafazolian--Torres paper uses extra Weierstrass-semigroup hypotheses and does not contain the five-trace extremal problem. Fejér--Riesz supplies the classical factorization but not the Ree-specific spectral inequality.
+PASS
 
-## Value
-PASS. The exact boundary \(q_0=9\) is mathematically motivated by the initiating paper itself. Eliminating every degree-five positivity-polynomial optimization at once turns a numerical failure of one trial polynomial into a structural obstruction for the whole five-trace route. It identifies which part of the proof cannot be repaired by coefficient tuning and narrows meaningful future work to sharper ramification or genuinely additional arithmetic data.
+Tafazolian's (4.12) supplies 2Δ relative eigenvalues of modulus √q and power sums −(d−1)q³ for i=1,…,5; Corollary 4.4 and (4.11) supply the ceiling for d>1. Normalize eigenvalues by √q. For P=|Q|² with deg Q≤5, write B_i=Σ_r c_(r+i) conj(c_r) and S=Σ|c_r|². The constant, positive-frequency and negative-frequency terms give 0≤2ΔS−2(d−1)q³Σ_i q^(−i/2) Re B_i. Dividing by 2(d−1)q²S gives c*Tc/S with exactly the stated half off-diagonals. Fejér–Riesz exhausts even complex-coefficient tests, and a top eigenvector realizes the optimal raw bound. Independently, the exact ceiling at q0=9 is 921685/59049>15. Replace √3 by its rational upper bound 97/56 in the nonnegative entries of T to get a majorant B, and use v=(8,14,17,17,14,8). The row sums of diag(v)^−1 B diag(v) are, up to reversal, 86857265/5878656, 5547481/381024 and 764741/51408, all below 15. Thus the infinity norm for the diagonally similar T is below 15 as well, proving λmax(T)<U without the uploaded determinant code. Independent all-rational replay: python3 -B /workspace/audit-evidence/3_positive_vector.py; output in /workspace/audit-evidence/3_replay.txt. The result bounds this family of positivity inequalities; it is not a realization claim for Frobenius spectra or a result about q0=3.
 
-## Closest literature and limitations
-The closest literature is Tafazolian's 2026 characterization, especially Proposition 4.5 and Remark 4.7, together with the 2019 Tafazolian--Torres characterization. The conclusion does not settle the Ree characterization for \(q_0=9\), does not treat \(q_0=3\), and makes no claim about arguments using additional traces or stronger geometric input.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest paper compares one chosen degree-five test with the ceiling at q0=9. Neither that calculation, the earlier conditional characterization, nor the classical factorization gives the bound for the whole cone of degree-at-most-five tests. No materially overlapping Resultary record was identified in the targeted search.
+
+## value
+
+PASS
+
+The exact field size is picked out by the initiating proof: its geometry reaches q0=9, but its final test does not. Ruling out the entire coefficient optimization of that test, not merely exhibiting another failed polynomial, removes a concrete line of attack on the genus-and-point-count characterization. The conclusion is useful precisely as a method boundary, not as a proof or disproof of the characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:20:18.684600Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct nonzero objective coordinates, rearrange any parking point in the order of the scores. The sorted vector with 1 on the negative coordinates and the bound s_j at every positive coordinate is feasible and attains the strict coordinatewise maximum. This yields the asserted layers and angle via independent signs and uniform positive-coordinate order. Squaring then counting by j=n-k gives 4^(-n)L_n(-1); when b_1=1, n! pairs of formerly distinct vertices merge, adding 2n/(4^n n!) to the squared mass. For the asymptotic put x=sqrt(n): n^j/(j!)^2, at j=x+u sqrt(x), is e^(2x)e^(-u^2)/(2 pi x) uniformly for bounded u; geometric summation from either endpoint using the decreasing ratios n/(j+1)^2 bounds the tails outside ±A sqrt(x) on the normalization scale by O(e^(-A^2)/A) in the limsup. The falling-factorial multiplier tends uniformly to e^(-1/2) there and is bounded by 1 globally, proving the constant and the stated CLT. For the star, a list of k leaves above the hub determines the simplex-sum maximizer: leaf i in that list wins 2^(n-i) hub-containing summands plus its singleton, and the hub wins 2^(n-k). Thus the lists are distinct, each with probability (n-k)!/(n+1)!, proving the star law and ratio. Independent integer-objective enumeration over all feasible parking points in six examples and explicit connected-subset maxima for star n=2 through 6 agree; replay with python3 /workspace/reproductions/4.py (captured 4.txt). The finite checks are not the limiting proof. The supplied checker uses the known candidate vertex formula and floating dot products; it is not an enumeration of all feasible parking points.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier fixed-r theorem proves (J_{n,r}-n^(1/r))/n^(1/(2r)) => N(0,1/r) and a sharp normalization with delta_2=e^(-1/2); r=2 gives exactly the target fluctuation and prefactor. Bayer et al. give the generalized vertex layers and combinatorial type; Liu–Thawinrak describe the normal fans."
+        ],
+        "reasoning": "The earlier collision theorem, not just the fan antecedents, covers both limit statements uniformly in the same parameter regime.",
+        "searches": [
+          "89ce335d46ce, §Finding, Sharp collision hierarchy",
+          "arXiv:2403.07387, Theorem 2.3(b) and Corollary 3.14",
+          "arXiv:2512.14199, Proposition 1.1 and discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:89ce335d46ce",
+        "Resultary:e1b409771cb8",
+        "Resultary:f22c06d75d0e",
+        "arXiv:2403.07387",
+        "arXiv:2512.14199",
+        "arXiv:2212.06885"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With the shared stellohedral combinatorial type already identified, the earlier star result gives C_star~(n+1)^(-2) and the earlier parking result at r=2 gives C~e^(-1/2)e^(2 sqrt(n))4^(-n)/(2 sqrt(pi)n^(1/4))."
+        ],
+        "reasoning": "Dividing these positive asymptotics gives exactly the n^(7/4) comparison, without new geometric or asymptotic work. The older classical width record alone does not cover the conditional CLT, but the November 17 record does.",
+        "searches": [
+          "89ce335d46ce §Finding versus e1b409771cb8 §Finding and §Assumptions",
+          "arXiv:2403.07387 Corollary 3.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Resultary record uses j nonunit entries rather than k unit entries, the same cumulative parking bounds, and the same N(0,I_n) metric. At r=2, (n)_j/(j!)^2 = binom(n,j)/j!, and the printed exact correction 2/(n-1)! is 2n/n!. Its unconditioned rank is Bin(n,1/2) off the boundary."
+        ],
+        "reasoning": "This change of indices gives the same Gaussian spectrum, exact parking collision and conditional weights (each mass is squared), including degenerate-layer coalescence.",
+        "searches": [
+          "Resultary local comparison: generalized parking-function polytopes Gaussian collision, conditional rank, Laguerre",
+          "89ce335d46ce, RESULT.md §Finding and §Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two Resultary findings tabulate symbolic collision formulas, not merely finite examples: the parking formula names L_n(-1) at r=2, and the star formula gives n! sum_{j=0}^n j!/((n+1)!)^2 at all levels m>=2 including the full m=n star."
+        ],
+        "reasoning": "These closed formulas provide stronger exact coverage than any finite table would; neither relies on an affine identification preserving angles.",
+        "searches": [
+          "89ce335d46ce, exact collision formula in §Finding",
+          "e1b409771cb8, §Finding, Collision comparison"
+        ]
+      },
+      "rationale": "The main parking-metric conclusions are already stated, including the r=2 special case and boundary correction. The remaining cross-realization ratio is a direct quotient of two published collision asymptotics for the exact two metrics. This is demonstrated coverage and mechanical implication, not a failure of access or an inference from shared keywords.",
+      "residual_risks": [
+        "The exact cross-realization ratio was not located as a separately printed statement; its mechanical implication is decisive regardless.",
+        "The primary preprints were sampled for their geometric antecedents, not surveyed for historical priority beyond the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the main theorem and generalizes it",
+          "evidence": [
+            "Sharp collision hierarchy and conditional CLT; exact r=2 Laguerre value and b_1=1 correction explicitly named."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-gaussian-collision-condensation-for-generalized-parking-function--89ce335d46ce/RESULT.md",
+          "material_read": "§Finding and §Assumptions, offset 0 through 3745",
+          "method": "Read the archived original and substitute r=2",
+          "title": "Gaussian collision condensation for generalized parking-function polytopes",
+          "trigger": "Same parking family, same isotropic coordinate metric and same coincidence event"
+        },
+        {
+          "assessment": "Exact canonical-star formula and leading asymptotic covered",
+          "evidence": [
+            "Displays C_{n,m} for m>=2 and (n+1)^2 C_{n,m}->1 in the standard metric."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-two-critical-r-nyi-windows-in-the-angular-spectra-of-star-graph--e1b409771cb8/RESULT.md",
+          "material_read": "§Finding, Collision comparison and beginning of §Assumptions, around offset 2542; exact m=n model from opening definitions",
+          "method": "Local mirror bounded passages, special case m=n",
+          "title": "Two critical Rényi windows in the angular spectra of star-graph polytopes",
+          "trigger": "Canonical star denominator in the proposed ratio"
+        },
+        {
+          "assessment": "Vertex orbits and stellohedron identification are antecedents",
+          "evidence": [
+            "Permutations of the layer representatives and the combinatorial-type split at b_1=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.07387",
+          "material_read": "Theorem 2.3(b), p. 3; Corollary 3.14, p. 19",
+          "method": "Targeted primary PDF excerpts",
+          "title": "Combinatorics of generalized parking-function polytopes",
+          "trigger": "Same endpoints and stellohedron equivalence"
+        },
+        {
+          "assessment": "Covers normal-fan structure, not needed for the decisive overlap",
+          "evidence": [
+            "Normal-fan coarsening and stellahedral case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.14199",
+          "material_read": "Proposition 1.1 and discussion on p. 2",
+          "method": "Targeted primary PDF excerpts",
+          "title": "Parking Function Polytopes",
+          "trigger": "Broader normal-fan result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The collision-conditioned square-root rank is a meaningful geometric phenomenon, but the existing fixed-r theorem already supplies it and the boundary case. The only apparent addition is to divide that known asymptotic by the known star asymptotic. The metric contrast is useful exposition, not a surviving independent scientific result to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

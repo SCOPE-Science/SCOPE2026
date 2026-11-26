@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:31:25.858268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the corrected result, not the frozen original. The original's assertion that the 20 low-field excited states are complementary hexagons is false: in its own labeling the down cycle (0,1,10,11,8,3) has complement consisting of the induced triangles {2,6,7} and {4,5,9}. Each vertex has two same-sign and three opposite-sign neighbors, so this partition gives (M,B)=(0,-6) and strict stability for 0<=h/J<1. The frozen degree-sequence check did not distinguish C6 from two C3s. My exact replay checks all 4096 masks on an independently generated coordinate icosahedron by lookup of the energies of all twelve flipped masks. It confirms every number in the original table and shows that all twenty low-field excited states have one hexagon and two triangles, ten of each sign orientation. The middle regime requires the additional outside-degree-two condition: only fifteen of seventy-five induced two-edge supports are strict excited minima. The six antipodal pairs are verified exactly, including the covering property of their neighbor sets. Odd neighbor sums of degree five prove that these sets are constant between the three positive thresholds; comparisons of the affine energy functions of the weakly stable states, which include all ground states, certify the energy gaps and do not extrapolate the ground energies from isolated fields. At h=0 the first class holds, and the 69 states at saturation are exactly ground states. Corrected RESULT.md, SLOGAN.txt, REVIEW.md, VERIFICATION.md and verify_finite.py are supplied under /workspace/repairs/3; frozen files are unchanged. Replay python3 /workspace/repairs/3/verify_finite.py, with output /workspace/checks/3-repair.txt and independently diagnosed geometry /workspace/checks/3.txt. The frozen scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wacław–Burda define strict single-flip minima and count them in a Gaussian random-bond setting, not a deterministic uniform AFM in a field.",
+          "Closest catalogue analogues concern wheels (c3fe616689b5), the 20-vertex dodecahedron (29e12a32ba9e) and the 12-vertex cuboctahedron (81beb63bb8e7)."
+        ],
+        "reasoning": "The exact constraint uses this graph's incidence pattern and degree-five thresholds. Different graphs and coupling ensembles do not imply its state counts.",
+        "searches": [
+          "Web: icosahedral Ising antiferromagnet metastability, single-spin stability and field thresholds",
+          "Wacław–Burda arXiv:0801.1224 introduction and model",
+          "Resultary: exact spin traps on other polyhedra and wheels"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, SLOGAN.txt, REVIEW.md, verify_finite.py and verify_independent.py",
+        "arXiv:1502.04449",
+        "arXiv:0801.1224",
+        "Resultary neighbor entries and same-record hit",
+        "Corrected files in repairs/3 and exact independent replay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There are 75 supports inducing two disjoint edges, 60 with outside-degree pattern (1,1,2,2,2,2,3,3) and only 15 with outside degree two everywhere; they have the same M and B and the same down-induced graph.",
+          "The published equilibrium counts and the subgraph-based energy catalogue provide prior configuration information but do not by an aggregate row count yield the refined stability split or exact threshold census."
+        ],
+        "reasoning": "For some families a prior labeled embedding and its complement may help reconstruct the geometry. No originality is claimed for the appearance of an induced shape in a prior energy catalogue. A stability analysis of individual attachments is required for the new combined statement.",
+        "searches": [
+          "Strečka et al. Eq. (5) and Table 4 compared with pointwise local inequalities",
+          "Table 4 offset 26420 and 30380, overlaps at (4,-2) and (0,-6)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Their same uniform Hamiltonian is grouped by down-subset and cut size, equivalent to (M,B) via M=12-2|D| and B=30-2|cut(D)|.",
+          "The equivalent stability test instead uses pointwise neighbor counts and both signs of the flip inequalities."
+        ],
+        "reasoning": "The prior orientation/down-spin formulation is not a new problem; the distinct claim is classification by strict and weak single-flip inequalities, not merely by energy.",
+        "searches": [
+          "Resultary: Ising icosahedron one-spin local minima, metastability, field thresholds",
+          "Strečka–Karlová–Madaras Eq. (5), Fig. 2 and Table 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching catalogue record ending 451b02d75076 is the original itself, not separate precedence.",
+          "Table 4 includes rows for the same icosahedron beyond equilibrium, e.g. (M,B)=(4,-2) with degeneracies 75 and 120 in two subgraph classes, and multiple (0,-6) rows. It is not a strict/weak stability table."
+        ],
+        "reasoning": "The tabulated energy/cut degeneracies cannot be substituted for the stable degeneracies, which select 15 at (4,-2) in the middle range and 20 at (0,-6) at small fields. The two exact marginal totals are not reported in the inspected prior table.",
+        "searches": [
+          "Resultary exact 20/15/6 family and 407/191 threshold counts",
+          "Strečka et al. arXiv:1502.04449 Table 4, p. 6"
+        ]
+      },
+      "rationale": "For the corrected complete stability-resolved census, especially the strict subsets and marginal spikes, not the static energy/induced-subgraph catalogue or its ground-state rows. The substantial configuration-level overlap with the 2015 paper is expressly credited.",
+      "residual_risks": [
+        "An equivalent older flip enumeration may exist outside indexed material. The extent to which the prior diagram catalogue encodes individually recoverable embeddings has not been exhausted.",
+        "No positive-temperature or multi-spin interpretation is supported."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same equilibrium results and material prior energy/geometry catalogue, not a stated stability-resolved census in the inspected passages.",
+          "evidence": [
+            "Eq. (5) derives energy from induced subgraphs and cuts.",
+            "Table 4 separates (4,-2) into at least the 75 (4C) and 120 (4D) rows; among the (0,-6) rows is a 20-state entry 6G."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.04449",
+          "material_read": "p. 3 Eq. (5), OA offsets 11900–16810; p. 6 Table 4, offsets 26420 and 30380; equilibrium plateau discussion p. 11",
+          "method": "OA PDF passage inspection against the two-sign stability and computed energy tables",
+          "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+          "trigger": "identical graph, Hamiltonian and finite underlying microstates"
+        },
+        {
+          "assessment": "Methodological overlap, different coupling model and no matching census in the inspected passage.",
+          "evidence": [
+            "Defines metastable minima by strict single flips; assumes random Gaussian couplings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.1224",
+          "material_read": "p. 1, OA offset 0–4864",
+          "method": "OA PDF passage inspection",
+          "title": "Counting metastable states of Ising spin glasses on arbitrary graphs",
+          "trigger": "same local-minimum predicate"
+        },
+        {
+          "assessment": "Substantive analogues, no inference of priority from dates; target graph/census distinct.",
+          "evidence": [
+            "These records classify a wheel family, a dodecahedral graph, and a cuboctahedral graph respectively."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-magnetic-field-collapse-and-critical-enhancement-of-single-spin--c3fe616689b5; 2026/11/22/SCOPE-exact-one-spin-trapping-and-a-6-710-state-marginal-field-on-the--29e12a32ba9e; 2026/11/22/SCOPE-two-peaked-activation-barriers-for-single-spin-traps-of-the-isin--81beb63bb8e7",
+          "material_read": "Findings in the respective mirror results",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Catalogue records on wheels, the dodecahedron and the cuboctahedron",
+          "trigger": "nearby exact critical-field and strict-trap enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The icosahedron is a canonical finite frustrated cluster with an independently known magnetization staircase. The interval and threshold classification answers a different, natural kinetic question, quantitatively separates equilibrium from trapping, and gives exact benchmarks at field values with neutral moves. The corrected geometry and outside-degree test identify actual strict traps rather than a mixed energy class.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

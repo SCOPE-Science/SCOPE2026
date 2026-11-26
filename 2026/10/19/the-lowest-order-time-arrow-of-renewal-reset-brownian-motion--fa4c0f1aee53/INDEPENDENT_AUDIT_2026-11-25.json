@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:04:12.019953Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and scope, Proof steps 1–5, examples and covariance identity; VERIFICATION.md and verify.py inspected as supplementary exact finite evidence"
+      ],
+      "rationale": "Independently rederived the results by conditioning on the renewal schedule and using Gaussian integration by parts. For any centered jointly Gaussian U,V, E[U V^(2m+1)] = (2m+1) Cov(U,V) E[V^(2m)]. With a reset between observations the conditional covariance is zero. With no reset and initial age a, the conditional covariance is 2Da and the variance ages are a and a+t. Thus the conditional contrast is [2(2m+1)! D^(m+1)/m!] a[(a+t)^m-a^m]. For any reset law, length-biasing and uniform location give E[g(A)1{R>t}]=E[integral_0^(T-t)_+ g(a) da]/mu, with no deterministic-time event atoms even for deterministic T. Expanding the conditional polynomial and integrating term by term gives coefficient 2(2m+1)!D^(m+1)/[mu j!(m-j)!(m+2-j)], exactly the stated hierarchy. Finite E[T^(m+2)] gives the stationary marginal moment and via Hölder both mixed moments. At m=1 this yields Delta=6D²t E[(T-t)_+²]/mu, positive exactly when P(T>t)>0. Stationarity, joint reflection and symmetry of the single degree-two mixed monomial prove the minimal degree claim for those lags. The first derivative of the squared positive-part expectation is -2E[(T-t)_+]; the next right derivative gives 2P(T>t) by bounded convergence of the difference quotients, excluding any atom at t as required. H''_+(0)>0 and normalization recovers the full survival law; Delta'(0+)=H(0) gives positive D after recovering the first two moments of T. Exponential and deterministic examples follow by evaluating the stop-loss moment, with maxima at 1/r and b/3, respectively.",
+      "residual_risks": [
+        "No density or nonlattice assumption is needed; complete resets and stationary renewal initialization are essential to this derivation. The statistic may vanish beyond the support cutoff; this is not a reversibility certificate. Inversion is a noiseless identifiability statement, not a stability bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two inspected primary sources cover general reset-time renewal laws, propagators or MSD, and conditioned backward/forward times. Sokolov's accessible abstract covers arbitrary renewal waiting times and fluctuation–dissipation response. Colantoni et al. give Poisson process-reversal formulas in a reflected setting and introduce a free-line Poisson example."
+        ],
+        "reasoning": "Renewal age and response theory supply relevant ingredients, and process reversal is broader conceptually, but the passages do not state the arbitrary-renewal oriented fourth moment, minimum detectable two-time degree, or all-order positive renewal hierarchy. The unavailable Sokolov full text precludes a claim about its entire content.",
+        "searches": [
+          "Singh–Górska–Sandev arXiv:2203.04046; Masó-Puigdellosas–Campos–Méndez arXiv:2205.01613; Sokolov PRL 130, 067101; Colantoni–D'Ovidio–Pagnini arXiv:2505.15639"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4f8ef07add78 and fa0ea8b79d21; arXiv:2203.04046, arXiv:2205.01613, arXiv:2505.15639; DOI 10.1103/PhysRevLett.130.067101 abstract; Frozen Finding and Proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier generator uses independent Poisson jumps and conditional moment decay determined by fixed rates. The frozen contrast and its cutoff depend instead on the equilibrium joint age/residual law and moments of (T-t)_+; Gaussian conditioning across renewed excursions derives them. Polynomial exchange-symmetry through degree three is a direct stationarity/reflection argument."
+        ],
+        "reasoning": "The Poisson formula and the shape of its positive contrast do not determine atom handling, exact finite-support cutoff, or higher moments for non-Poisson durations. Degree minimality once a nonzero contrast is found and stop-loss inversion alone are simple deductions, not independent priorities. The non-Poisson contrast with exact sign and the hierarchy are the substantive addition.",
+        "searches": [
+          "Compare Finding, scope and generator proof in 4f8ef07add78 with Frozen Proof steps 1–5 and the accessible renewal references"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4f8ef07add78 uses exactly E[X_t^3X_0]-E[X_tX_0^3]. With A=0 its rates are r, its coefficient F=1, and its kernel is t exp(-rt), giving the exact frozen exponential example.",
+          "Within the frozen model, C(t)=E[X_0X_t]=D E[(T-t)_+²]/mu, so Delta(t)=6Dt C(t)."
+        ],
+        "reasoning": "Multiplicative Poisson resets include the complete Poisson special case but do not include arbitrary renewal clocks. A full covariance curve supplies the same law information; indeed C'(0+)=-2D even if D is unknown in this model. What covariance does not supply as a statistic is exchange asymmetry. No separate originality credit is assigned to extracting parameters that covariance already determines.",
+        "searches": [
+          "Local Resultary query: stationary Brownian motion stochastic resetting renewal time antisymmetric two-time fourth moment time asymmetry covariance identifiability hierarchy",
+          "Resultary 4f8ef07add78 and fa0ea8b79d21; primary Brownian renewal-reset covariance/response comparison, DOI 10.1103/PhysRevLett.130.067101"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier recorded match 4f8ef07add78 gives an exact fourth-order formula and sign for Poisson multipliers, including complete Poisson reset. The later recorded fa0ea8b79d21 concerns strictly contractive signed multipliers at Poisson times."
+        ],
+        "reasoning": "This is a functional identity for an arbitrary law rather than a discrete table problem. The exact formula entries are meaningful overlap at Poisson durations but not a formula for the arbitrary renewal law or the hierarchy.",
+        "searches": [
+          "Local Resultary ranked reset-asymmetry and hierarchy matches; inspected 4f8ef07add78 and fa0ea8b79d21"
+        ]
+      },
+      "rationale": "Credit exact prior coverage of the Poisson complete-reset fourth-order arrow via the earlier random-amplitude theorem with A=0. Credit established renewal and Gaussian ingredients and do not count parameter information as independent of covariance. The distinct supported contribution is the exact arbitrary-renewal positive stop-loss contrast and lag cutoff, its least-degree two-time interpretation, and the higher odd-crossed moment hierarchy; the strongest inspected Poisson statement does not extend to these renewal quantifiers.",
+      "residual_risks": [
+        "The Sokolov full text or other uninspected literature could give a closer correlation or moment statement. The originality pass is scoped to the arbitrary-renewal time-antisymmetric law and hierarchy and does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of Poisson special case, not general renewals",
+          "evidence": "A=0 satisfies E|A|^4<1; lambda_1 through lambda_4 equal r and F=1, yielding 12D² t exp(-rt)/r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-temporal-fourth-order-arrow-and-its-cancellation-und--4f8ef07add78/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, and conditional polynomial dynamics proof; text offsets 0–4998 and 4998–8752",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; direct check of Finding and assumptions",
+          "title": "A universal temporal fourth-order arrow and its cancellation under random-amplitude Brownian resetting",
+          "trigger": "Exact earlier fourth-order contrast under random-amplitude reset, including complete resets"
+        },
+        {
+          "assessment": "Related later dated Poisson-multiplier setting",
+          "evidence": "Positive fourth-order arrow for strictly contractive signed multipliers; not the full-reset general renewal hierarchy.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-fourth-order-time-arrow-under-random-contractive-res--fa0ea8b79d21",
+          "material_read": "RESULT.md text offsets 0–4089",
+          "method": "Local Resultary mirror",
+          "title": "A universal fourth-order time arrow under random contractive resets",
+          "trigger": "Related catalogue arrow and algebraic positivity statement"
+        },
+        {
+          "assessment": "Renewal formulation prior; no matching oriented moment in inspected statements",
+          "evidence": "One-time random reset propagators and mean-square displacement.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.04046",
+          "material_read": "Opening scope, reset propagator/PDF and MSD statements, extraction offsets 1742–4736 and 12017–15301",
+          "method": "Lawful open preprint",
+          "title": "General approach to stochastic resetting",
+          "trigger": "General renewal reset Brownian dynamics"
+        },
+        {
+          "assessment": "Related age and residual distributions, not an antisymmetric contrast in inspected material",
+          "evidence": "Abstract treats Markovian and non-Markovian resetting and conditioned backward/forward time PDFs.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.01613",
+          "material_read": "PDF p. 1, text offsets 475–3062",
+          "method": "Lawful open preprint",
+          "title": "Conditioned backward and forward times of diffusion with stochastic resetting",
+          "trigger": "Potential equivalent reset age/residual law"
+        },
+        {
+          "assessment": "Different clock and main setting",
+          "evidence": "Abstract treats reflected Brownian motion at Poisson resets; §4.1 also introduces free-line Poisson reset dynamics and its stationary law.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.15639",
+          "material_read": "PDF p. 1 and §4.1 p. 7; text offsets 0–3256 and 22014–25595",
+          "method": "Lawful open preprint",
+          "title": "Time reversal of Brownian motion with Poissonian resetting",
+          "trigger": "Primary process-level reversal study"
+        },
+        {
+          "assessment": "Relevant prior response theory; full-text comparison unresolved",
+          "evidence": "Abstract addresses generalized fluctuation–dissipation/Einstein relations for Brownian motion under renewal resetting with arbitrary waiting times.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.130.067101",
+          "material_read": "Accessible abstract only",
+          "method": "Primary web search, then lawful DOI/APS and repository recovery attempts; full text not recovered",
+          "title": "Linear Response and Fluctuation-Dissipation Relations for Brownian Motion under Resetting",
+          "trigger": "Most plausible prior treatment of the same arbitrary-renewal correlation structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independent conditional Gaussian proof; comparison to covariance and to the earlier Poisson multiplier arrow"
+      ],
+      "rationale": "For a natural irreversible stationary process, the result identifies the first available exchange-asymmetric polynomial statistic and predicts its sign and the exact lags with detectable signal, including bounded, atomic, and non-Poisson renewal durations. The expression gives an interpretable tail-weighted magnitude and a positive hierarchy, rather than simply observing jumps or giving another symmetric covariance formula. Its law recovery is an exact theoretical consequence, not a claim of extra information over covariance or a practical estimator.",
+      "residual_risks": [
+        "Finite measurement accuracy, noisy differentiation and empirical rates are not addressed. Exchange asymmetry is established at positive lags below the duration support cutoff, not at every lag for every renewal law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

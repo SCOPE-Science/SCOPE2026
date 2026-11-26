@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a total-variation approximation to a specified renewal first-passage law, with a first-order weak law as a consequence. The published splitting property and exact decrement probabilities are used as premises, not re-proved or attributed as new. The new coupling is proved by a complete transition-law calculation: an oversized proposal is either accepted as instant deletion or replaced by a strictly smaller harmonic-law jump. The acceptance ratio matches the full-deletion mass and the replacement restores the correct factor on every shorter decrement. All proposal jumps agree with the renewal walk until its initial crossing. Disagreement can arise only by rejecting that crossing, with an explicit probability bounded by the harmonic number of the residual size. Infinite-mean, span-one lattice renewal theory gives a vanishing probability of a bounded residual. The first-order asymptotic follows from a truncated first moment, a second-moment bound, Chebyshev's inequality and a union bound. Every quantifier and endpoint is accounted for, including states of size two and the possibility of stopping with one survivor. Exact rational checks replay the local identities and the small-state count laws; these do not replace the infinite-limit argument.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The cited recursive-tree splitting property and kernel apply to exactly the stated parent-endpoint rule. Telescoping the harmonic mass gives Q_m=(H_(m-1)+1)/m and Q_2=1. The acceptance b_m/Q_m is in [0,1] and, after a rejected overshoot and conditional redraw below m, the mass at k<m is q_k(1-b_m)/(1-Q_m)=m q_k/(m-1). The m=2 redraw branch is unused. Before first crossing n-1, every jump is copied. A terminal jump m-1 leaves one vertex; a strict overshoot ends the cut count in the same step if accepted. Rejection can only delay the cut count, not make it earlier; even a rejection can leave exactly one vertex, so the error bound is an upper bound. The small residual event forces a renewal visit at one of n-M+1 through n-2. The renewal mass vanishes by the infinite-mean lattice renewal theorem; this can also be seen directly: along a subsequence where u(n) approaches its limsup L, the renewal recursion and q_k>0 for k>=2 force each fixed lag u(n-k), k>=2, to approach L, since all other fixed-lag limsups are at most L and the contribution of the tail of q is uniformly small. The last-renewal identity sum from k=0 to n of u(n-k)Pr(zeta>k)=1 thus forces L=0 by the divergent tail sum. Fixing M and then increasing M gives vanishing coupling error and total variation. At j=floor(2cn/log^2 n), the truncated sum divided by n has expectation tending to c and variance O(1/log n); above-truncation jumps have probability O(1/log n). Monotone inversion gives the stated weak law for the first-passage time and transfers it to the cut count.
 
-The closest primary source, Eslava–López–Ortiz (arXiv:2408.05168, submitted 2024-08-09), supplies the model, splitting property, decrement kernel, and stochastic upper comparison with a different barrier-walk count. Its revised main results and discussion expressly distinguish the latter count from the actual number of cuts; they do not assert the total-variation approximation or the weak law for that actual count. Iksanov–Möhle (2007) provide a renewal coupling for uniformly selected edges, with an unweighted jump kernel. Their separate general-death-chain theory imposes a normalized-truncation hypothesis violated by the instant-deletion atom here. The new conditional overshoot acceptance calculation and vanishing terminal discrepancy are therefore not established by those results. Searches found no equivalent or stronger theorem, but unindexed recent literature and unpublished work remain possible priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The actual degree-biased cut count was left with an upper stochastic comparison in the motivating paper. The result identifies its sharp first-order scale and gives a direct total-variation approximation, allowing any correctly established renewal-count distributional limit to be transferred without changing the cutting model. This closes a structural gap between a tractable auxiliary walk and the stochastic tree-deletion process. The conclusion neither claims an expectation asymptotic nor a new second-order law, and it does not address alternative vertex biases.
+The distinct contribution is the exact terminal overshoot correction for the specified degree-biased chain, its vanishing count-disagreement bound, and the resulting weak law for the actual cuts. The harmonic decrement formula is prior work, as is an asymptotic for a different barrier walk. The inspected primary statements do not imply the new count approximation.
 
-## Scientific limits
+## value
 
-Historical priority is not independently certified. The quantitative coupling error includes a renewal mass sum for which no numerical asymptotic rate is proved. The proof assumes exactly the full-deletion rule and splitting property of the cited model. No external independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the natural first-order scale for the actual cut count rather than only its previously analyzed upper comparison. It turns the problematic full-deletion atom into an acceptance correction and obtains the stronger count-level total-variation statement with a model-specific finite bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

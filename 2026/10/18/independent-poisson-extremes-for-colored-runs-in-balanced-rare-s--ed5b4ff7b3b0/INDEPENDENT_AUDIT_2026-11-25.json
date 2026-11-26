@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:08:23.546874Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4",
+        "Frozen VERIFICATION.md and verify.py (inspected only)",
+        "arXiv:2610.06935v1, Theorem 3.3"
+      ],
+      "rationale": "For m=N/2 and odds u=q/(1-q), at fixed switch count and first sign the two ordered run lists are independent uniform positive compositions of m. Their counts give the stated odd/even weights. In the Bessel comparison, writing a=j-1 and x=mu, the relative clipped-product deficits in the odd and even summands are bounded by a(a+1)/m and (a+1)^2/m, respectively. Summed against the two Bessel series, their combined bound is x(x+1)/m times I_0(2x)+I_1(2x), before the common 2x factor. Thus the relative error vanishes uniformly for odds tilted by s in a compact interval around 1. The resulting log conditional PGF is 2x(s-1)+(log s)/2+o(1), with 2x=T+o(1). Chernoff tilts s=exp(±c/log^2 T) give |K-T|<=T/log^2 T with probability tending to one since T/log^4 T diverges. For a color with r parts, discretizing r-1 iid cuts by ceil((m-1)U) moves each cut by at most one in m-scale. Conditional on distinct cuts the sorted set is uniform; resampling a uniform set only on collision gives an exact composition coupling, and the collision probability is O(r^2/m). Uniformly over concentrated switch counts, the largest error when replacing all (K/N)-scaled parts by iid exponentials is o_P(1): the cut error is O(K/N), and the sample-mean error times the largest exponential is O_P(log r/sqrt(r)), with K/(2r)=1+O(1/K). Independent exponential arrays give the product Laplace functional; log(r/K) tends to -log 2. The normalization transfer to T has uniform maximum displacement o_P(1) by the sharper switch concentration. Compact-window counts of the coupled exponentials are tight, so this displacement does not change the Laplace limit. Their maxima centered by log r are tight from the explicit exponential maximum law. That last fact, and the absence of limit atoms at z, justify the unbounded upper-tail counts and the longest-run law beyond vague convergence alone.",
+      "residual_risks": [
+        "The packaged 285 checks, including floating-point Bessel diagnostics, were not rerun and do not prove the point-process limit. The proof is only for symmetric switching, exact balance, and the stated T regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inoue–Aki supplies joint generating-function machinery for specified run lengths and gives symbol-total conditioning for iid trials. The spatial spacing-field record studies iid uniform k-spacings; the run-spectrum covariance record concerns bounded prescribed lengths.",
+          "Fu–Wang–Lou and Lou are relevant but their full texts were not independently accessible in the attempts made."
+        ],
+        "reasoning": "Finite run-distribution machinery or results in the continuous uniform spacing setting do not by themselves prove joint threshold and point-process convergence under balanced rare-switch conditioning. The inaccessible sources are a residual comparison risk, not evidence against coverage.",
+        "searches": [
+          "Inoue–Aki 2007 PDF, Theorem 4.2",
+          "Fu–Wang–Lou 2003 DOI:10.1239/jap/1053003548",
+          "Lou 1996 DOI:10.1080/01621459.1996.10476727",
+          "Resultary a7482687ed1b and 96bab7375d9e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "arXiv:2610.06935v1",
+        "arXiv:1508.00944",
+        "Inoue–Aki 2007"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pemmasani gives the Bessel bound and the tie scale Nq asymptotic to log N. Mijatović–Vysotsky supplies the normalized-exponential ingredient."
+        ],
+        "reasoning": "The tie scale is a direct specialization of the frozen theorem, not novel itself. The previous Bessel estimate plus spacing representations still require control of the conditional switch count to relative o_P(1/log T), a uniform coupling and conditional mixing, and upper-tail tightness. No inspected statement supplies the resulting colored process.",
+        "searches": [
+          "Pemmasani arXiv:2610.06935v1, Theorems 3.1, 3.3 and 3.4",
+          "Mijatović–Vysotsky arXiv:1508.00944, Eq. (1) and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized iid exponential representation of uniform spacings is explicit in arXiv:1508.00944, Eq. (1); Theorem 1 gives a maximum marginal. Resultary 0174d9413a90 gives fixed-composition majorization and stochastic longest-run monotonicity conditional on a run count."
+        ],
+        "reasoning": "At fixed count and first sign the theorem reduces to independent extreme arrays for two discrete compositions. The spacing version does not already include the discrete coupling, the concentration/mixing under balance, or the transfer to the common centering.",
+        "searches": [
+          "Resultary: binary run length spectra, fixed composition, maximal uniform spacing fields",
+          "arXiv:1508.00944, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared Findings concern monotonicity of a maximum, covariances of bounded-length counts, and spatial PPPs for uniform k-spacings, respectively."
+        ],
+        "reasoning": "There is no isolated table entry to match: the scientific object is a pair of limiting random measures. None of the compared Findings states this limit with exact balance, alternating signs, and random rare-switch counts.",
+        "searches": [
+          "Resultary fixed-composition run and maximal spacing semantic searches; checked 0174d9413a90, 96bab7375d9e, a7482687ed1b"
+        ]
+      },
+      "rationale": "The supported contribution is joint, color-resolved extreme-run convergence for the balanced, rare-switch Markov word. Neither the previous endpoint crossing, nor a fixed-threshold Markov run law, nor a maximum of uniform spacings establishes the random-switch-count triangular-array joint limit.",
+      "residual_risks": [
+        "Full text of Fu–Wang–Lou (2003), Lou (1996), and the cited Darling (1953) paper was not independently available in the bounded attempts. Stronger conditional asymptotics in uninspected sources are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the normalization at the crossing and Bessel input, not the extremes theorem",
+          "evidence": [
+            "T asymptotic to log N; finite relative Bessel bound"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.06935v1",
+          "material_read": "Theorems 3.1(c), 3.3, 3.4; offsets 29800 and 34799 onward",
+          "method": "OA HTML passage inspection",
+          "title": "Uniform Bessel bounds for endpoint crossings in the persistent random walk",
+          "trigger": "Same balanced rare-switch model and crossing"
+        },
+        {
+          "assessment": "Proves spacing maximum law with representation, not the colored conditional-word law",
+          "evidence": [
+            "Fixed-k maximum marginal; normalized exponential spacings"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1508.00944",
+          "material_read": "§1, Eq. (1) and Theorem 1, offsets 0 and 3132",
+          "method": "OA HTML passage inspection",
+          "title": "On the weak limit law of the maximal uniform k-spacing",
+          "trigger": "Spacing reduction and known Gumbel limit"
+        },
+        {
+          "assessment": "Finite generating functions and iid symbol-total conditioning in the inspected passages",
+          "evidence": [
+            "Joint specified-length run counts for Markov trials"
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/059_3_0577.pdf",
+          "material_read": "Abstract; Theorem 4.2, PDF p. 13, offset 47036",
+          "method": "OA PDF passage inspection",
+          "title": "Joint distributions of numbers of runs of specified lengths in a sequence of Markov dependent multistate trials",
+          "trigger": "Potentially stronger joint conditional run machinery"
+        },
+        {
+          "assessment": "Frozen comparison concerns a fixed threshold; no independent exclusion of broader coverage claimed",
+          "evidence": [
+            "Frozen RESULT.md lines 117–119"
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1053003548",
+          "material_read": "Frozen comparison of Theorems 4.2–4.3 only; primary full text not inspected",
+          "method": "DOI access and cited alternate copy tried; latter denied access",
+          "title": "On exact and large deviation approximation for the distribution of the longest run in a sequence of two-state Markov dependent trials",
+          "trigger": "Markov longest-run asymptotics"
+        },
+        {
+          "assessment": "Residual priority risk",
+          "evidence": [
+            "Frozen RESULT.md line 119 describes finite-sample conditional calculations"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/01621459.1996.10476727",
+          "material_read": "Frozen comparison only; primary full text and repository copy unavailable",
+          "method": "Bounded lawful lookup",
+          "title": "On Runs and Longest Run Tests: A Method of Finite Markov Chain Imbedding",
+          "trigger": "Conditional longest-run methods"
+        },
+        {
+          "assessment": "Related objects but distinct regimes and conclusions",
+          "evidence": [
+            "Run-count majorization; bounded-length covariance; spatial iid uniform-spacing point processes"
+          ],
+          "identifier_or_url": "Resultary 0174d9413a90; 96bab7375d9e; a7482687ed1b",
+          "material_read": "Mirrored Findings",
+          "method": "Resultary lookup and local mirror comparison",
+          "title": "Fixed-composition binary-run lengths, bounded run-length spectra and spatial maximal uniform spacings (catalogue comparisons)",
+          "trigger": "Potential equivalent or stronger run/spacing theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§1–4",
+        "arXiv:2610.06935v1 crossing theorems"
+      ],
+      "rationale": "Exact balance strongly constrains the lengths and couples the run colors through the random number of switches. Showing that the colors nevertheless separate in the upper-tail limit answers more than the usual longest-run question, and applies on the independently motivated crossover scale. The full PPP identifies the joint law of counts in multiple extreme windows, not just the Gumbel marginal.",
+      "residual_risks": [
+        "No claim of finite-sample independence, quantitative PPP approximation, or validity at fixed q."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:07:34.001981Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent normalization and regression check: represent each bridge by W_t-tW_1 using independent Brownian motions. The doubled area has bilinear Wiener kernel H(u,v)=sign(v-u)+2(u-v), obtained by expanding antisymmetric left-endpoint sums. The marginals of H integrate to zero and its squared norm is 2*integral_0^1 (1-d)(1-2d)^2 dd=1/3. Hence its covariance with U_s V_t is the integral of H on [0,s] x [0,t], giving s(1-t)(t-s) for s<t, zero for simultaneous or endpoint samples, and the negative swapped version for t<s. Independent Gaussian projections of the two kernel coordinates yield only the product of the centered readings, scaled by C/(v1*v2); fixed nonzero noise means, if used, can simply be subtracted. This proves the risk formula before optimization. Re-expanded the normalized denominator at fixed gap g: its terms are 1, g/(ab), [(1+g/b)/q+(1+g/a)/p]/(ab), and 1/(a^2*b^2*p*q). Applying AM–GM to the products and Cauchy–Schwarz and strict convexity to the mixed term proves joint equality only at a=b and p=q. Thus time symmetrization does not assume a balanced allocation or vice versa. The centered objective's derivative has sign given by x(2x^2-4x+1)+(4/P)(1-3x), positive below r=1-1/sqrt(2), negative beyond 1/3 and strictly decreasing between. Implicit differentiation gives strict motion toward r with P, and signs and endpoint limits exclude every other design except the swap. The limiting amplitude is 3-2*sqrt(2) as P tends to infinity, and P/54+o(P) at zero from x tending to 1/3, reproducing both squared gains. Read the supplied verification/check.py and requirements and treated its finite samples and recorded algebra checks as supplementary, not as an independent replay or the global proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foster–Habermann study Fourier and polynomial bridge expansions and asymptotic approximation errors. Kastner–Rößler derive Fourier/Milstein algorithms and at §3.2 cite Dickinson for asymptotic optimality with a finite number of linear functionals of the Wiener process. The indexed Dickinson abstract concerns L2 optimal approximation of the second iterated integral of a two-dimensional Wiener process; original full text was not retrieved."
+        ],
+        "reasoning": "Asymptotic optimality and freely chosen Gaussian linear functionals need not determine finite optimal times or precision within a restricted observation family. No covering implication is verified from the available original statements; the Dickinson access limitation leaves a concrete residual risk.",
+        "searches": [
+          "arXiv:2102.10095 p. 1",
+          "Kastner–Rößler DOI 10.1007/s11075-022-01401-z §§3.1–3.2",
+          "Dickinson DOI 10.1080/07362990701540592 and lawful-copy title search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.10095",
+        "DOI:10.1007/s11075-022-01401-z",
+        "DOI:10.1080/07362990701540592 (indexed abstract/secondary context only)",
+        "Resultary:2026/11/22/b90400717722",
+        "arXiv:2308.02452"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four-reading calculation is the closest direct exact-design analogue, but uses homogeneous noise and a larger observation field. Jelinčič et al. generate approximations to area samples conditioned on a Brownian increment, rather than optimize posterior squared error over more than one point/time channel."
+        ],
+        "reasoning": "Discarding readings or taking a limit in the homogeneous four-channel optimum is not an optimization over independent p,q and does not force equal split or yield the strict budget law. Conditional generation given an increment is also a different task. Same date does not establish precedence for the planar-design analogue.",
+        "searches": [
+          "Resultary 2026/11/22/b90400717722 proof and assumptions",
+          "Kastner–Rößler §3.2 p. 39",
+          "arXiv:2308.02452 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day two-knot record also optimizes centered mirror times for the doubled bridge area but obtains four scalar readings, two per coordinate, at common variance. Its optimal spacing law is nonmonotone in that variance. The exact self-hit was not counted as independent material."
+        ],
+        "reasoning": "The two information sigma-fields and resources differ. Scaling from geometric to doubled area only rescales squared risk; it cannot identify the four-readout, common-noise design with the two-readout optimizable budget split.",
+        "searches": [
+          "Resultary: Brownian-bridge signed stochastic area, noisy two scalar/asynchronous observations, two knots, precision allocation",
+          "Resultary 2026/11/22/b90400717722 RESULT.md offsets 0–9315"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The materially matching catalogue entry gives an exact different risk law for four readings, not the two-channel precision law. No exact matching curve besides the bound record itself was identified."
+        ],
+        "reasoning": "There is no standalone numerical invariant for an ordinary table to settle. A covering exact entry would need to use the same feasible observation family and joint budget; a noiseless or common-time entry would not determine the continuous precision-budget cubic.",
+        "searches": [
+          "Resultary: two-scalar bridge-area covariance and exact Bayes-risk/precision curve",
+          "Resultary 2026/11/22/b90400717722 Finding"
+        ]
+      },
+      "rationale": "The distinct claim is the joint optimal timing and precision split for exactly two channel-specific point observations, including the monotone timing and sharp budget-dependent risk. Neither the materially overlapping planar two-knot calculation nor the inspected unrestricted-information approximation context gives this constrained result. Historical priority is provisional.",
+      "residual_risks": [
+        "Dickinson full text was not accessible, so a relevant finite special case is not excluded by direct inspection.",
+        "The bounded comparison establishes distinctness from the inspected planar design, not historical priority over all point-sampling or Gaussian-information work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stated series design and asymptotic error, not the fixed-budget point-sampling problem",
+          "evidence": [
+            "Fourier and polynomial expansions of the Brownian bridge are compared by approximation errors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.10095",
+          "material_read": "Abstract, PDF p. 1 (text offsets 0–2705)",
+          "method": "Primary OA PDF",
+          "title": "Brownian bridge expansions for Lévy area approximations and particular values of the Riemann zeta function",
+          "trigger": "Same bridge-area approximation object"
+        },
+        {
+          "assessment": "Series algorithms and secondary context on Dickinson; not the constrained time/precision law",
+          "evidence": [
+            "§3.2 cites asymptotic optimality in the setting of a finite number of linear functionals of the Wiener process."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01401-z",
+          "material_read": "Abstract and transition from Fourier algorithm to §3.2 Milstein algorithm, journal p. 39, PDF text offset 40350 onward",
+          "method": "Primary OA Springer PDF",
+          "title": "An analysis of approximation algorithms for iterated stochastic integrals and a Julia and Matlab simulation toolbox",
+          "trigger": "Comparison of Gaussian information and area approximation methods"
+        },
+        {
+          "assessment": "Plausibly relevant; exact finite special cases remain unchecked",
+          "evidence": [
+            "Indexed wording concerns L2 approximation of the second iterated integral of a standard 2D Wiener process; publisher/DOI retrieval returned HTTP 403 and identified hits supplied no lawful full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/07362990701540592",
+          "material_read": "Indexed abstract opening and the secondary characterization in Kastner–Rößler §3.2; not original full text",
+          "method": "Exact-title lawful-copy lookup and original DOI/publisher retrieval attempts",
+          "title": "Optimal Approximation of the Second Iterated Integral of Brownian Motion",
+          "trigger": "Closest broad Gaussian-information optimization"
+        },
+        {
+          "assessment": "Material overlap in object and mirror-time design, but different information and resource law",
+          "evidence": [
+            "Both coordinates sampled at both knots with one common variance; nonmonotone spacing under noise."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/b90400717722",
+          "material_read": "RESULT.md, offsets 0–4661 and 4661–9315",
+          "method": "Local published-record mirror",
+          "title": "Noisy two-knot observation of planar Brownian-bridge stochastic area",
+          "trigger": "Mirror-time exact area-risk optimization"
+        },
+        {
+          "assessment": "Conditional simulation, not measurement design",
+          "evidence": [
+            "Generates area approximations conditional on a Brownian increment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.02452",
+          "material_read": "Abstract, PDF p. 1, text offsets 0–5456",
+          "method": "Primary OA PDF",
+          "title": "Generative Modelling of Lévy Area for High Order SDE Simulation",
+          "trigger": "Conditional Lévy-area inference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the minimal coordinate-specific architecture, simultaneous readings recover zero area variance. The complete timing and resource law gives a sharp, nonzero alternative and a useful negative ceiling below nine percent even with arbitrarily accurate readings. The movement of the optimal gap is a substantive design consequence, not just a stationarity calculation; the claim does not infer a ceiling for richer observation models.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

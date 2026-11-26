@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:38:07.214855Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md and signed_perm_checker.py (inspected, not executed)"
+      ],
+      "rationale": "Writing S for the squared Frobenius norm, sign averaging gives second moment S/n. In the fourth moment only a repeated cell and products of two disjoint cells survive, with probabilities 1/n and 1/[n(n-1)] and pair multinomial factor 6. For normalized squared masses, T is their squared sum, P the unordered colliding-pair sum and D the unordered disjoint-pair sum. Then T+2P+2D=1, so K=n-2nP+2n(4-n)D/(n-1). For n≥4 this gives the upper bound and isolates partial matchings at four and singletons above four. At n=2,3, repartitioning the total mass of two colliding positive cells gives a strictly convex one-variable objective (their joint term in D is absent), so a maximizer has matching support. On a matching K=3n/(n-1)+n(n-4)T/(n-1), maximized only when T=1/n, i.e. a full equal-mass matching. For the lower bound the variance of the squared linear form is the permutation variance of the selected squared-mass sum plus 4/[n(n-1)] times the unnormalized disjoint-pair sum. Zero of the latter forces a star; zero of the former then forces all n entries in that row/column to have a single positive absolute value. The interval follows by connectedness. For Banach–Mazur distance, averaging the two squared norm inequalities over signed row and column actions preserves them and turns any candidate quadratic form into a scalar Frobenius form, by sign elimination of off-diagonal terms and transitivity on entries. This proves optimal distortion with precisely the fourth root claimed. All steps use n≥2, real matrices, and independent fair signs.",
+      "residual_risks": [
+        "No assertion for complex matrices, correlated signs or the index-two even-signed subgroup."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "985403224fa2 covers every 1≤k≤n with sharp range [min(3-2/k,n/k),max(n²/k,4)] and distance to the fourth power equal to the ratio of those endpoints."
+        ],
+        "reasoning": "The covered family strictly contains the frozen law; at k=n the endpoints and distance reduce to exactly those in the frozen Finding. Centered ordinary permutation moments and circle-phase spectral statistics are distinct, not the basis of the rejection.",
+        "searches": [
+          "Resultary rank-four matching transition and L⁴ Banach–Mazur distance",
+          "arXiv:2503.18453v1 §3.1 and Theorem 3.1",
+          "arXiv:1109.5010 §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 985403224fa2 and 4f870a695087",
+        "arXiv:1303.0990",
+        "arXiv:2503.18453v1",
+        "arXiv:1109.5010"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=n≥2 one has n<3k-2, giving precisely the complete equal-magnitude row or column for the lower endpoint. The broader proof includes the endpoint deficit, equality characterization, and signed-row/column averaging argument."
+        ],
+        "reasoning": "Substitution proves every claimed invariant, extremizer, and intermediate-value claim with no extra calculation of substance. The broader lower deficit also specializes to the frozen permutation variance and disjoint-pair deficit. The distinction is coverage versus uncertain same-day chronology, not an allegation of copying or incorrectness.",
+        "searches": [
+          "985403224fa2 RESULT.md, Finding, Upper bound, Lower bound, Connected range and Optimal Euclidean distortion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-rank signed-rook record 985403224fa2, Finding and assumptions: a uniform k-rook placement with independent fair signs, the coefficient trace and the same normalized fourth-moment ratio."
+        ],
+        "reasoning": "Putting k=n gives one occupied cell in each row and column, uniform among permutation matrices before signing, so the law and the entire tested real coefficient space agree exactly.",
+        "searches": [
+          "Resultary signed-permutation fourth moments",
+          "Resultary hyperoctahedral Haar fourth moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "985403224fa2 explicitly lists all three exceptional pairs (2,2), (3,3), (4,4), with equal-magnitude full matchings, then arbitrary partial matching at (4,4), and single-entry support elsewhere."
+        ],
+        "reasoning": "The indexed match includes the exact structural invariant, not just the numeric maximum or an instance test. The separate ordinary-permutation rank-one result 4f870a695087 has a different sign law and restricted coefficient tensors.",
+        "searches": [
+          "Resultary signed permutations with rank-four matching equality and exact L⁴/Banach–Mazur invariant"
+        ]
+      },
+      "rationale": "The full claim is already covered as a specialization of a distinct indexed finding on fixed-rank signed rooks, including both equality classifications, the transition at n=4, and real Banach–Mazur distance. Both records show the same publication day; this establishes exact coverage, not which proof or record came first.",
+      "residual_risks": [
+        "No intra-day chronology established for the distinct same-day records. This does not affect exact coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the complete frozen claim at k=n",
+          "evidence": "Both stated endpoint formulas and all equality families specialize exactly; BM distance formula specializes to the fourth root of max(4,n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-fixed-rank-signed-rook-fourth-moments-a-one-third-transition-and--985403224fa2/RESULT.md",
+          "material_read": "Finding, Assumptions and proof of moments, endpoint equations, connected image and distortion; offset 0–7281",
+          "method": "Local Resultary mirror",
+          "title": "Fixed-rank signed-rook fourth moments: a one-third transition and additive minimizers",
+          "trigger": "Exact coverage by uniform signed fixed-size matchings"
+        },
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": "Ordinary permutations, rank-one coefficients with zero-sum factors; no independent signs or full matrix coefficient space.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-fourth-moments-of-rank-one-permutation-matrix-coefficients--4f870a695087/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fourth moments of rank-one permutation matrix coefficients",
+          "trigger": "Similar permutation coefficient extremum"
+        },
+        {
+          "assessment": "Same group, different statistic",
+          "evidence": "Identifies B_n with real sign-monomial matrices in a Coxeter statistic problem.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.0990",
+          "material_read": "§2, p. 4, PDF text near offset 12400",
+          "method": "Primary OA PDF",
+          "title": "A new statistic on the hyperoctahedral groups",
+          "trigger": "B_n and signed-monomial aliases"
+        },
+        {
+          "assessment": "Different moment problem",
+          "evidence": "Formula concerns products of centered ordinary permutation entries, not the sharp signed optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.18453v1",
+          "material_read": "§3.1, Theorem 3.1, pp. 7–8",
+          "method": "Primary OA PDF",
+          "title": "Weingarten calculus for centered random permutation matrices",
+          "trigger": "General moment calculus"
+        },
+        {
+          "assessment": "Different phase distribution and objective",
+          "evidence": "Spectral traces and generalized Ewens statistics, including independent circle phases, not the frozen real sign-coefficient extremization.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.5010",
+          "material_read": "Abstract, pp. 4–5 discussion and §5 pp. 24–25",
+          "method": "Primary OA PDF",
+          "title": "Random permutation matrices under the generalized Ewens measure",
+          "trigger": "Wreath-product trace formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary signed-rook record 985403224fa2, Finding and Proof"
+      ],
+      "rationale": "The rank-four transition and exact Euclidean distortion are natural and useful invariants, but their entire classification, including the method and both endpoint deficits, is mechanically recoverable at k=n from the signed-rook theorem. No distinct useful remainder was identified in this frozen record.",
+      "residual_risks": [
+        "The failure concerns incremental mathematical content of the record, not the usefulness of the invariants themselves."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

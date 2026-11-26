@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact change-of-variables gives independent uniform marks conditional on every pair sum. Ordering is measurable in the sums; convolution tracks the entire nested set of inequalities, and the probability integral transform establishes exact conditional type-I error for every sum-measurable nonempty rank set. The included algebraic checker independently verifies nontrivial joint probabilities by exact rational integration. Boundaries \(m=1\), \(c\le0\), and \(c\ge1\) are treated.
+## correctness
 
-**Originality — PASS, with historical-priority qualification.** The 2017 source introduces the threshold curve and visual diagnostics. The 2023 study provides fixed-threshold asymptotics and simulation-informed repeated-pairing inference. The independent 2023 gamma-tail study acknowledges the classical gamma sum/proportion factorization and develops U-statistic/asymptotic-variance procedures, not the conditional all-threshold exact scan. Neither those primary full texts nor relevant mathematical-record searches gave the joint prefix-mean scan law, conditional postselection test, or rational joint-example calibration. This is NOT a claim that gamma-beta independence, marginal Irwin-Hall laws, or finite convolution are novel. General scan-statistic theory and unindexed applications remain risks.
+PASS
 
-**Value — PASS.** The motivating published test explicitly compares several threshold percentiles and notes unstable small-tail counts. The mathematical gap is familywise calibration when those tail thresholds are inspected jointly or restricted using sums, which fixed-threshold asymptotic and simulated critical points do not solve. The new exact finite-n conditioning eliminates rate estimation and simulation for a fixed matching; \(5221/6144\) is an explicit joint four-pair example. This is a natural, reproducible inference method, not an arbitrary numerical slice.
+For a common-rate exponential pair the sum and fraction have joint density λ²s exp(−λs) on s>0, 0<t<1; folding t gives a uniform ratio independent of the sum. Conditional on all labeled sums, the marks remain iid uniforms, and sorting the sums only permutes them. With any nonempty sum-measurable K fixed by this conditioning, adding the next uniform and truncating at jc exactly propagates the restricted partial-sum density. The zero and one CDF boundaries follow from the open uniform support. The maximum has no atoms, since each level set lies in the union of finitely many nonconstant linear level sets. The upper scan p-value is therefore uniform conditional on the sums and hence unconditionally, at every λ. The lower scan follows by reflection, not by combining two unadjusted tails. The stated covariance follows from sharing k uniform terms between prefixes k and ℓ. Independently, in the four-pair example write u=Z₁+Z₂. For u≤3/2 the feasible area in (Z₃,Z₄) is 1 up to u=1, then 1−(u−1)²/2 up to 5/4, then 2−u+7/32 up to 3/2, and zero above. Weighting by the triangular density gives 1/2+1331/6144+409/3072=5221/6144, distinct from the marginal product 19159/24576. This is a CDF value; at that observed maximum the upper p-value is 923/6144.
 
-**Limits.** Requires a fixed or independent random matching and sum-only threshold/rank selection. The published repeated-pairing average is not claimed to share this exact law. No independence, outside-model validity, or test-power conclusions are claimed. Full historical priority remains subject to unindexed or newly accessible sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the exact dependent finite-sample null calculation for a nested scan of sum-ranked prefixes, valid conditional on a sum-only choice of ranks. The ratio, sum–fraction independence, convolution and probability-integral transform are established ingredients. The closest inspected fixed-threshold and permutation-averaged antecedents address different outputs and do not supply this selection-conditional scan calibration. This is a bounded assessment, not a historical-priority certification.
+
+## value
+
+PASS
+
+Choosing a threshold after examining the scan invalidates single-threshold calibration when the same marks recur in several prefixes. This result gives an exact finite-sample answer to that multiplicity problem at unknown rate, including flexibility to choose the set of candidate ranks from all pair sums. The four-pair discrepancy makes the dependence practically relevant even at very small sample sizes. It does not claim power superiority or an efficient large-sample implementation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:14:55.456423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–42 and 46–111",
+        "Complete replacement /workspace/repairs/1/RESULT.md, especially proof §§1–2",
+        "VERIFICATION.md, checks.txt and verify.py (read only)",
+        "Independent bounded scalar affine-recurrence calculations with exact fractions"
+      ],
+      "rationale": "The frozen equation (1) is not the covariance defect for an arbitrary noncentered input: it omits Cov(P(U) mu). For example, with lambda=1, h=1/2, equally likely stages 0 and 1, and input mean and variance both 1, the omitted variance is 1/64. The centred-only argument also did not explain why an arbitrary finite-variance candidate was covered. The full replacement adds the positive-semidefinite term. In an eigenmode t>1 the centered part is strictly positive even without it; t=1 forces U=1, and then every eigenmode must have t=1, giving the identity. For all t_j<1, stationarity of the mean forces zero because each mean multiplier is strictly less than one. Subtracting the covariance constraints for distinct modes then forces E U²=0 and gives a contradiction. In isotropy, bounded Gaussian innovation moments and a uniform multiplier bound below one give the unique stationary law and all finite moments. Its fourth-moment recursion gives (1-E R^4) cumulant_4 = 3 Var(R²/lambda+s); strict monotonicity of q_t makes this positive exactly for nonconstant calibrated stages. The unique deterministic root preserves the full Gaussian by the affine Gaussian update. Equal innovation covariances give the exact point-start W2 factor, and differentiating 2-t-sqrt(1-t²) gives the unique per-step optimum. An independent rational check reproduced the random-stage cumulant 3321/10498, the deterministic stage 5/9 at t=3/5, and a residual 3/49 at the second curvature in a two-mode test. The repair retains the full original classification and fixes its proof for uncentred candidates.",
+      "residual_risks": [
+        "Arithmetic checks are finite; the unrestricted classification and uniqueness depend on the covariance and contraction arguments. The result is not asserted for other noise couplings or separately chosen eigendirection stages."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ULMC record's order-h² obstruction is for an underdamped one-gradient scheme with predictor-noise freedom. The two-noise-tap result gives two-curvature calibration for a momentum recurrence with a different noise-design space. Shen–Lee's inspected algorithm is underdamped."
+        ],
+        "reasoning": "Different state spaces or altered schemes are not broader classifications of the same scalar-stage map. The extra noise taps do not contradict the anisotropy obstruction under the common-stage constraint.",
+        "searches": [
+          "Resultary: harmonic Gaussian target randomized midpoint exact covariance stage q condition nonisotropic shared stage",
+          "arXiv:1909.05503 §2.2/Algorithm 1",
+          "Resultary 160d754f339b and 5139658d129b"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and identified mirror passages",
+        "arXiv:2011.03176v1/v2 §2 and stationary bias",
+        "arXiv:1909.05503 §2.2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Random-order splitting has an isotropy obstruction and positive fourth cumulants for its own maps; the projector sampler gives a rate–kurtosis tradeoff. The stochastic-theta result has a midpoint exception preserving the target even under random steps."
+        ],
+        "reasoning": "The general variance-mixture mechanism is prior, but these results do not give the shared-noise cancellation q_t, its injectivity barrier to randomness, or the stationary cumulant and deterministic optimum of this update.",
+        "searches": [
+          "Resultary: random stage covariance matched Gaussian stationary fourth cumulant Gaussian invariance deterministic stage",
+          "Resultary ba2056df054f, 5f1a54a8987a and 6b73e39a7294"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "He–Balasubramanian–Erdogdu specify a uniform stage and in v2 the conditional cross-covariance sqrt(U) I between the normalized noise vectors, which is the same Brownian coupling. Their inspected constant-step result bounds stationary bias, rather than characterizing all Borel stage laws preserving a Gaussian covariance."
+        ],
+        "reasoning": "This is a genuine update-level match after noise normalization, not a claim-level equivalent; the fixed uniform law has E q_t=t²/3>0 and does not calibrate the target.",
+        "searches": [
+          "Resultary: randomized midpoint Langevin shared Brownian increment predictor corrector variable stage U covariance Gaussian harmonic exact",
+          "arXiv:2011.03176v1 and v2, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact self-hit is the bound original. The closest implicit midpoint optimization 9e7410d18068 preserves the Gaussian for every admissible random step and optimizes an autocorrelation criterion under different constraints; the same-day 6fded46de114 concerns moment isotropization of an oscillator."
+        ],
+        "reasoning": "No distinct indexed exact calibration or optimum for this shared-increment explicit rule was retrieved. Neither a matched optimum parameter nor an indexed Gaussian moment table for a different map would establish equivalence.",
+        "searches": [
+          "Resultary: fastest calibrated Gaussian autoregression stage t 1/sqrt2 contraction 2-sqrt2",
+          "Resultary exact stage constraint and Gaussianity queries"
+        ]
+      },
+      "rationale": "For the surviving theorem the stochastic update with a uniform stage is known, and covariance versus Gaussianity is a known distinction in other random integrators. The supported contribution is the exact arbitrary-stage classification of this shared-increment map, its cumulant identity and the associated optimal deterministic calibration. The repair changes the proof of necessity, not the claim compared for priority.",
+      "residual_risks": [
+        "The comparison does not establish global priority; an unindexed exact shared-noise harmonic calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "precise update and uniform-law bias are prior; not the arbitrary-stage classification",
+          "evidence": "v2 specifies cross-covariance sqrt(alpha_n) I; stationary W2 bias of order sqrt(h) in the compared result.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.03176v2",
+          "material_read": "v2 §2 pp. 3–4 offset 12953 and bias passage offset 19418; v1 update offset 13958 and Proposition 2.2 offset 19897",
+          "method": "OA primary PDF passages",
+          "title": "On the Ergodicity, Bias and Asymptotic Normality of Randomized Midpoint Sampling Method",
+          "trigger": "same overdamped shared-increment map with uniform stage"
+        },
+        {
+          "assessment": "underdamped main algorithm",
+          "evidence": "The general framework is broader, but the stated algorithm is not this overdamped exact stage theorem.",
+          "identifier_or_url": "arXiv:1909.05503",
+          "material_read": "§2.2 and Algorithm 1, p. 5, offset 17480",
+          "method": "OA primary PDF passage",
+          "title": "The Randomized Midpoint Method for Log-Concave Sampling",
+          "trigger": "prior randomized midpoint algorithm"
+        },
+        {
+          "assessment": "different phase-space scheme and order-h² obstruction",
+          "evidence": "Position/velocity moment defects of a uniform-stage and one-gradient underdamped method.",
+          "identifier_or_url": "160d754f339b",
+          "material_read": "RESULT.md offsets 0–3198, 3700–5230",
+          "method": "local full-text mirror",
+          "title": "Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC",
+          "trigger": "strongest similar arbitrary-stage harmonic covariance obstruction"
+        },
+        {
+          "assessment": "close conceptual prior with a different finite-step map",
+          "evidence": "Random order of exact drift and diffusion flows, not a Brownian predictor evaluated at a variable stage.",
+          "identifier_or_url": "ba2056df054f",
+          "material_read": "RESULT.md Finding, offsets 0–3852",
+          "method": "local full-text mirror",
+          "title": "Spectral minimax calibration and unavoidable fourth-order dependence in random-order Langevin splitting",
+          "trigger": "isotropic covariance calibration and fourth cumulants"
+        },
+        {
+          "assessment": "different update and parameter freedom",
+          "evidence": "Two-step momentum recurrence and two taps.",
+          "identifier_or_url": "5139658d129b",
+          "material_read": "RESULT.md Finding, offsets 0–3282",
+          "method": "local full-text mirror",
+          "title": "Two-mode exact Gaussian calibration by two-tap noise",
+          "trigger": "same-day exact calibration in multiple modes"
+        },
+        {
+          "assessment": "related randomness effects for different schemes",
+          "evidence": "Random projectors can give positive kurtosis, while implicit midpoint permits invariant Gaussians under random steps.",
+          "identifier_or_url": "5f1a54a8987a; 6b73e39a7294; 9e7410d18068",
+          "material_read": "RESULT.md offsets 0–3343 and 3700–5618; 3300–5871; 260 onward, respectively",
+          "method": "local full-text mirrors",
+          "title": "Projective-design rate–kurtosis frontier; stochastic-theta Gaussianity boundaries; bounded random-time midpoint optimization",
+          "trigger": "variance/law separation or contraction optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding and proof §§1–4",
+        "He–Balasubramanian–Erdogdu arXiv:2011.03176v2 §2",
+        "Adjacent harmonic Findings 160d754f339b and ba2056df054f"
+      ],
+      "rationale": "For a standard explicit randomized midpoint update, a sharp harmonic calibration limit decides when changing the stage law can fix covariance at all. It then distinguishes variance correction from exact sampling and gives the exact best per-step rate among Gaussian-preserving choices. This is valuable for interpreting Gaussian benchmarks without suggesting accuracy for nonlinear potentials or optimality per unit computation or physical time.",
+      "residual_risks": [
+        "The design conclusions rely on a common stage and the precise shared-increment coupling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

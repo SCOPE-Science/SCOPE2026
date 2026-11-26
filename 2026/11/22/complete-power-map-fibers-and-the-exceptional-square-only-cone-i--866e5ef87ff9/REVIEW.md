@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The coefficient product \(XY=\rho(X)\gamma(Y)^\mathsf T\) and the row-column sum lifting space of dimension \((m-1)(n-1)\) directly imply the power formula for every exponent, including the zero-total case that must be treated separately for squaring. Rank-one factor normalization proves each nonzero fiber count, inclusion-exclusion proves the zero square fiber, and cyclic-group arithmetic proves the nonzero-total strata. Exact all-input/all-target independent enumerations over five field orders, including extension fields, matched the formula in 29 tested configurations. Computational checks are not substituted for infinite-parameter proof.
+## correctness
 
-**Originality — PASS under available evidence, with qualified historical priority.** ArXiv:1503.03139 provides general sandwich semigroup structural results but not the prescribed-target \(h\)-power counts. ArXiv:1511.08671 proves statements about rectangular-band algebra congruences, not word maps. Full public results for the same algebra on commutators, rank-one Rota–Baxter operators and Hochschild cohomology were compared by implication; their stated classifications do not determine the all-target power fibers or the exponent-two-only nonzero cone. Direct semantic searches of research records and mathematical literature did not surface an equivalent all-exponent result. General earlier Munn-ring literature remains an unresolved historical-priority risk; absence of a matching search result is not proof of absolute novelty.
+PASS
 
-**Value — PASS.** The question is the complete power-fiber invariant of a canonical family of finite-dimensional semigroup algebras, naturally tied to the rank-one sandwich realization. The exponent-two exception has intrinsic algebraic meaning: a positive-dimensional cone of nonzero squares is killed by the next multiplication, and its exact number and root multiplicities are determined in every field and dimension. The characteristic-sensitive power-residue contribution controls the remaining targets. This is not an arbitrary finite slice or a mere instance of the field power map: it identifies two geometrically different image strata and a sharp boundary at both band dimensions exceeding one.
+The basis product collapses to XY=r_X c_Y^T. The margin map has image all pairs with common total s and has a kernel of dimension d=(m−1)(n−1), as is seen by filling one row and one column. Thus X^h=s^(h−2)rc^T, with the factor interpreted as 1 for a square. For nonzero target total, each scalar root of s^h=t(Z) forces the two margins; for rank one the identity rho(Z) gamma(Z)^T=t(Z)Z proves sufficiency. At zero total, nonzero square targets require both margins zero and have exactly q−1 ordered rank-one factorizations; the same targets cannot be higher powers. The zero-square fiber is the union of the two zero-margin cases, while the higher zero fiber is the total-sum hyperplane. Normalizing one factor to have total 1 gives q^(m+n−2) rank-one targets at every prescribed nonzero total; dividing the ordered nonzero zero-sum factor count by q−1 gives the exceptional cone. These arguments cover m=1 or n=1 and all field characteristics, and give both advertised image counts and the input mass. The accompanying direct basis-law code and 29 recorded finite checks were read, not rerun.
 
-**Limits.** No general claim for higher-rank sandwich matrices. Standard arithmetic inputs are not represented as new. Full historical priority and independent review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected sources establish the rank-one sandwich framework and several other exact statistics of the same algebra, but not this complete all-exponent prescribed-target power distribution. The overlap in zero-margin targets with the nearby commutator record is a different map, not a duplicate fiber law.
+
+## value
+
+PASS
+
+The complete fiber function is a useful exact invariant of the natural power map on a standard nonunital algebra. It distinguishes the scalar cyclic-group obstruction from a separate zero-total cone that is hit by squaring but by no higher power. Both the support and actual multiplicities are needed for power-map counts; the result identifies precisely when this extra support exists, including degenerate rectangles and extension fields. It is more than counting nonzero scalar roots or reporting finite experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

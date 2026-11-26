@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:15:49.898180Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 4–56",
+        "VERIFICATION.md and verify.py, inspected only",
+        "Iwasaki §6.1, Proposition 6.7, Appendix A.1",
+        "Independent exact replay: python /workspace/review_evidence/4.py; captured output /workspace/review_evidence/4.out"
+      ],
+      "rationale": "The published cohomology matrix is applicable to the specified honest unramified opens. The transpose is a map of binary-form spaces: its first output is v2 b2+v3 b3−wc for cubic multipliers b2,b3,c, and the two other outputs sum the two quartic derivatives against linear multipliers plus the three quadratic derivatives against those cubic multipliers. Thus source coordinate changes preserve nonvanishing on the full coefficient space by the chain rule (an invertible change also on the derivative output pair), and target GL2 mixing v2,v3 is an invertible change of the two corresponding multipliers. The separable double cover given by the coprime quadratics has two distinct ramification points and branch values; moving these to coordinate points puts the cover in square-map form. The independently reproduced first two witness polynomials vanish together only when B=0 and AC=0, and the third excludes each nonzero axis. Hence there is no identically zero quartic fiber over w≠0. The reproduced plane section has three isolated ordinary nodes and no other geometric singularities over F101, so it is reduced. If reducible, a line and the residual cubic meet in three distinct nodes on that line (all intersections must be transverse, with two branches), or two conics meet in four distinct nodes; both contradict the certificate. Specialization preserves the implication from absolute irreducibility modulo 101 to characteristic zero: classes of factorizable quartics are closed by the proper projective multiplication maps in degrees (1,3) and (2,2), and this quartic has nonzero reduction. A nonzero homogeneous restriction cannot send a factor of positive degree to a unit, so the ten-variable quartic fiber is absolutely irreducible too. The two chosen quadratics are coprime and w≠0. The family over w≠0 is a flat projective family of hypersurfaces (relative Cartier), giving a geometrically integral generic fiber. The unique horizontal component has multiplicity one. A vertical divisor could dominate only a codimension-one parameter subset with an identically zero fiber, since nonzero projective quartic fibers have dimension eight in P9. The w=0 set has codimension three and cannot support a divisor. The same argument on the affine quartic coefficients gives the integral divisor before quotient; an effective Cartier hypersurface in the regular coefficient space has no embedded components. Restrict to the honest unramified open, nonempty along the divisor by the published point q0. The Cox parameter projection is locally a torus torsor on the map space; irreducibility passes to the image and reducedness descends faithfully flatly. This proves integrality on U without inferring it from the divisor class or from that one smooth point.",
+      "residual_risks": [
+        "The computation verifies the three witness determinants, 15/15 unisolvent values with factor 47, the mod-101 Jacobian basis, the infinity charts, squarefreeness, nondegenerate Hessians and noncollinearity. The geometry of the family and Cox descent are separate proof steps. The conclusion does not cover the quasimap boundary or arbitrary positive characteristic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cela–Lian gives general normal splitting in a secancy regime including the balanced generic case here; Iwasaki provides the Cartier/class result; a quadratic-triples record gives irreducibility for another target and determinant."
+        ],
+        "reasoning": "Balanced generic splitting implies a proper jumping locus and helps locate it; it does not classify its maximal components. The other irreducibility theorem is for (P1)^3 and does not specialize to this blow-up map space.",
+        "searches": [
+          "Cela–Lian arXiv:2607.01432, §1.4 and Theorem 1.4.2",
+          "Iwasaki arXiv:2609.39309, Proposition 6.7",
+          "Resultary search, jumping loci on blow-ups and on toric threefolds"
+        ]
+      },
+      "checked_sources": [
+        "Iwasaki arXiv:2609.39309",
+        "Cela–Lian arXiv:2607.01432",
+        "Resultary local mirror, three compared records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Iwasaki supplies q0 with splitting O(5)⊕O(7) and determinant along q_epsilon equal to 4096 epsilon(1−4 epsilon). The indexed deformation result shows the affine slice is unramified everywhere and its pullback is reduced at exactly the two roots."
+        ],
+        "reasoning": "Neither a smooth point, the class 8ζ_u+4ζ_v, nor two simple intersections on one line imply a unique component or generic multiplicity one on all components. The integral fiber and no-vertical-component arguments give information absent from the test slice.",
+        "searches": [
+          "Iwasaki Proposition 6.7 and Appendix A.1 compared with the canonical quartic deformation result and the global component assertion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published morphism Θ at twist −7 gives the same divisor on the same map space; the Toeplitz matrix represents its cohomology map and can also be read as a dual multiplication map. The strongest inspected same-space indexed result is on the affine deformation of a specific point."
+        ],
+        "reasoning": "The global integral Cartier scheme is the same mathematical object whether given by the normal splitting condition or the cohomology determinant; an integral or reduced restriction to a test line is a different assertion.",
+        "searches": [
+          "Iwasaki arXiv:2609.39309, §6.1, Proposition 6.7 and Appendix A.1",
+          "Resultary lookup for irreducibility/reducedness of the degree-four, exceptional-degree-two normal-bundle jumping divisor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read the canonical quartic deformation record 36e105d7933c, second-jump planar stratum record 38b74ee197d7 and quadratic-triples divisor record a15d44b8ce65, all in their original mirrored RESULT.md."
+        ],
+        "reasoning": "The first applies to one parameter line, the second to a deeper splitting and a codimension-two stratum, and the third to another target. None of those statements is a ledger entry for global integrality of this first divisor. A splitting-type table alone would not encode this scheme-level assertion.",
+        "searches": [
+          "Resultary semantic lookup for quartic normal-bundle first jump on the blow-up of P3 along a line"
+        ]
+      },
+      "rationale": "The determinant, balanced generic bundle, nonemptiness, divisor class and particular reduced or smooth points are prior; the supported distinct assertion is that the entire determinantal first jumping divisor on U is integral.",
+      "residual_risks": [
+        "A supplementary literature query returned no results, which has no negative evidentiary force. Unindexed or other irreducibility arguments are not ruled out. Priority is provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior generic splitting, Cartier/class statement and smooth point but not global integrality in inspected passages",
+          "evidence": [
+            "The proposition gives O(6)^2, class 8ζ_u+4ζ_v, and q0=(s^4−t^4,s²t²,t²,s²−st,st); Appendix A.1 gives the matrix and the stated determinant on the deformation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.39309",
+          "material_read": "§6.1 (offsets 69150–75649), Proposition 6.7 (89400–97394) and Appendix A.1 (97200–105199)",
+          "method": "Bounded OA HTML passage reads",
+          "title": "Normal Bundle Splitting Strata of Rational Curves in Toric Varieties",
+          "trigger": "Same degrees, target, open map space and cohomology determinant"
+        },
+        {
+          "assessment": "Generic normal splitting context, not a component assertion",
+          "evidence": [
+            "In the s=r−2 characteristic-not-two regime, the general bundle is balanced."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.01432",
+          "material_read": "§1.4, Theorem 1.4.2 (offsets 11800–17300)",
+          "method": "Bounded OA HTML passage read",
+          "title": "Interpolation for rational curves with secants",
+          "trigger": "General normal-splitting theorem for secant curves"
+        },
+        {
+          "assessment": "Strictly a one-parameter pullback",
+          "evidence": [
+            "The entire affine slice is unramified; pullback V(epsilon(1−4 epsilon)) is reduced, with two points."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-the-canonical-quartic-deformation-has-exactly-two-reduced-normal--36e105d7933c",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary semantic lookup, local mirror passage read",
+          "title": "The canonical quartic deformation has exactly two reduced normal-bundle jumps",
+          "trigger": "Same same-degree jumping condition and explicit deformation"
+        },
+        {
+          "assessment": "Different splitting locus and no assertion of being a component even there",
+          "evidence": [
+            "The planar stratum has normal bundle O(4)⊕O(8)."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-codimension-two-planar-stratum-in-a-second-normal-bundle-jump--38b74ee197d7",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary semantic lookup, local mirror passage read",
+          "title": "A codimension-two planar stratum in a second normal-bundle jumping locus",
+          "trigger": "Same (4,2) maps and jumping loci"
+        },
+        {
+          "assessment": "Different parameter space and determinant",
+          "evidence": [
+            "Quadratic triples into (P1)^3, not quartic maps into the blow-up of P3."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-the-normal-bundle-jumping-divisor-for-quadratic-triples-into-a-p--a15d44b8ce65",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Resultary semantic lookup, local mirror passage read",
+          "title": "The normal-bundle jumping divisor for quadratic triples",
+          "trigger": "Similar irreducible first jumping divisor on a toric threefold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Iwasaki Proposition 6.7 and Appendix A.1",
+        "Independent determinant and plane-section certificate"
+      ],
+      "rationale": "For the natural first degeneracy locus of this specific normal-bundle family, integrality determines that there is a single geometric component with generic scheme multiplicity one, a fact not encoded by the expected splitting, Cartier class, or a transverse section. The explicit fiber and exclusion of parameter-only factors give a way to settle that structural question without classifying the deeper strata.",
+      "residual_risks": [
+        "No classification of singularities of the global divisor or proof of irreducibility for analogous blow-ups or other degrees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: exact dihedral cellular-automaton entropy census
+# Independent mathematical audit
 
-## Correctness — PASS
-The nonabelian output forces one unique automorphism-bearing input factor. The central output is an arbitrary binary Laurent-polynomial/sign coupling. Surjectivity and invertibility are the nonzero/unit conditions for its scalar central polynomial. The entropy formula follows from compact-group addition and the established scalar linear-CA entropy formula, with explicit proof steps in RESULT.md. A separate exact finite-group verifier enumerated 64 endomorphisms, the two-site 144 globally onto/96 reversible/168 locally onto cases, and entropy multiplicity coefficients through seven sites. The checks are finite corroboration rather than the basis of the infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Dennunzio, Formenti and Margara (2024) provide the underlying group image graph, the D6 example and direct-product construction, but no explicit all-r entropy/reversibility census. Castronuovo, Dennunzio and Margara (2025) give a general decomposition and decidability result. Castronuovo, Dennunzio, Kari and Margara (2026) give entropy addition and the scalar Laurent entropy law used here. These known facts are not presented as new. The separate all-neighborhood global/local-surjectivity count and exact coefficientwise entropy-distribution formula are the new compared statements. Because the 2024 image graph can encode some small finite counts implicitly, historical priority is provisional.
+PASS
 
-## Mathematical value — PASS
-The twelve-element dihedral alphabet is the smallest natural test case considered here in which the quotient is nonabelian while an independent central binary fiber survives. The exact family census quantifies the difference between local and global surjectivity, demonstrates the exponential scarcity of reversible maps among surjective ones as the allowed neighborhood grows, and resolves every possible entropy value with its exact multiplicity. The result is an explicit mathematical invariant/census, not merely a finite experiment or a restatement of an entropy algorithm.
+For the nonabelian projection, factor images commute. Each proper image of an S3 input factor is abelian (the proper quotients are trivial or C2), and every C2 factor has abelian image. Thus an onto projection requires one full S3 image, whose centralizer kills every other projected factor. That one map is an automorphism, with six choices. Abelianization gives independent sign and central bits. Given a target S3 sequence its source is unique; the remaining affine central equation is solved by P(sigma). Its dual is Laurent multiplication (up to reversing the indexing convention), injective exactly for nonzero P and surjective exactly for monomials. For an onto F, the central subgroup is preserved and maps onto itself, and the quotient is alpha composed with the shift by k. Compact-group addition and the scalar Laurent entropy result apply: the scalar interval has endpoints min(0,min supp P) and max(0,max supp P); the quotient contributes |k| log 6 by taking a power eliminating alpha. If P=0, finite local surjectivity holds exactly when Q can vary a sign independently of the one S3 input fixed by the output; this means a nonzero coefficient outside k. Counting all parameter choices gives the three rule totals, including no false positives at r=1. On 0,...,r−1 there are 2^d polynomials of degree d, precisely one monomial per degree, and 6^k2^d=3^k2^(k+d) separates all entropy pairs. Independent permutation-table enumeration gives 64 one-factor endomorphisms and 168 locally onto two-site maps; 144 satisfy the proved global criterion and 96 the unit criterion. Replay: python3 /workspace/branches/independent_reproduction.py 5.
 
-## References and limitations
-See the primary-paper references in RESULT.md. The proof concerns bilateral group-homomorphism cellular automata over the specific twelve-element group, not arbitrary local rules or general dihedral groups. Its entropy argument uses published group entropy addition and linear entropy results; no independent audit or historical-priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinctive result is the joint all-neighborhood classification and exact census of global, reversible, locally onto and one-sided entropy fibers for S3×C2. General linear entropy/addition formulas, S3 classification alone and image-graph methodology are not new. The closest sources inspected do not give this joint census. The cited 2024 paper's exact tables could not be checked; no exclusion of their coverage is inferred from failure to retrieve them.
+
+## value
+
+PASS
+
+The hexagon group is a natural small nonabelian product alphabet for which onto local maps and onto global dynamics genuinely differ. The full support-size census quantifies this distinction and the decay of the reversible fraction, and the one-sided classification gives explicit level sizes rather than a rule-by-rule algorithm. These exact joint counts can benchmark general image-graph/entropy procedures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

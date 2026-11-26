@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:04:43.394865Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The standard geometric blow-up gives the 56 exceptional classes in the four displayed families; for distinct curves zero numerical intersection is equivalent to disjointness. A Galois-stable disjoint seven-curve collection has a unique contraction up to isomorphism of the target, so it descends to a form of P^2; over a finite field the Brauer group is trivial. Conversely the exceptional collection of a plane contraction is stable. The least extension degree is the least Frobenius cycle length on unordered collections, not the order of Frobenius or the least degree splitting every curve. The seven reflections generate W(E7) and act faithfully because the exceptional classes span the Picard lattice. A separately written exhaustive Python/NumPy calculation rebuilt the lattice, enumerated 576 seven-cliques, closed the group and conjugacy classes under the generators, and computed cycle profiles of each representative. The 60 classes exhaust 2,903,040 elements and the exact length:count pairs were 1:694477, 2:1012627, 3:99008, 4:30240, 6:139328, 8:362880, 9:161280, 12:241920, 18:161280. The 161,280-element witness class has curve, set and quotient profiles 2^1 18^3, 18^32 and 9^32, respectively. Geiser D -> -K-D pairs distinct partners with intersection 2, so it cannot fix a disjoint collection as a set. The new calculation verifies the finite action, not the geometric classification or arithmetic realization. The latter was checked in Loughran–Trepalin Theorem 1.2 (p. 3), with no excluded fields q>=9. Replay from the workspace: python3 checks/record-2/e7_independent_check.py (NumPy); exact output alongside in e7_independent_check.log. Read the frozen census and supporting code statically, not by execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergvall's Frobenius counts are numbers of geometrically marked surfaces of listed Picard action, not minima of a contraction-set permutation.",
+          "be0b52c88fb6 treats all classes on the 288 heptads, including a 12^24 action; it does not decide the lift.",
+          "6ab644e78016 identifies the 576 size-seven supports but aggregates 33,645 chambers and covers the 15 septuple-label cycle partitions with or without the Geiser twist, not the full Weyl group."
+        ],
+        "reasoning": "A more inclusive space of chambers is not a stronger calculation for its size-seven stratum unless the output separates the stratum and includes the other Frobenius classes. Parametric realization of all classes also does not evaluate their actions on the relevant sets.",
+        "searches": [
+          "Bergvall 2211.12855 Table 1; Bergvall classical structures §3.3.2; Loughran–Trepalin 1811.06785 Theorem 1.2 and §3",
+          "Resultary be0b52c88fb6 and 6ab644e78016 decisive passages"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; VERIFICATION.md, census.cpp, census.out, make_markings.py, markings.txt and verify_witness.py by inspection",
+        "Independent e7_independent_check.py and exact log",
+        "Bergvall arXiv:2211.12855 and DOI 10.1007/s40879-023-00711-3",
+        "Loughran–Trepalin arXiv:1811.06785",
+        "Resultary be0b52c88fb6 and 6ab644e78016",
+        "GAP Tables of Marks project description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old class list and stabilizer argument already give a route to max 18: W(E7) splits as Sp(6,2) times the order-two Geiser center, and the only element order above 18 in the listed classes is 30. Its sixth power has order 5, the unique order-five class, represented by a 5-cycle in the septuple S_7, so it fixes a collection.",
+          "For an order-nine element h, the characteristic polynomial on the seven-dimensional rational root space is (x-1)Phi_9(x). The cube h^3 has each primitive cube-root eigenvalue three times; an order-three element of the septuple S_7 acts as a seven-point permutation on the root space and has at most two 3-cycles, so cannot have this spectrum. The group S_7 has no order-nine element either. The order-nine action thus has every cycle of length 9, even on the quotient, since odd-order elements of the enlarged stabilizer S_7 times the Geiser center lie in S_7. Its Geiser twist g induces the same quotient action, but g^9 is Geiser and exchanges each pair, so every cycle upstairs has length 18. By the class list and Loughran–Trepalin §3 this is class 56, realized even over the smaller odd fields, beyond the frozen claim."
+        ],
+        "reasoning": "The isolated maximum and extremal twist must not be treated as independent of classical class data. The full nine-bin distribution still needs the evaluated conjugacy and fixed-set data for the correct 576-point action; it is not supplied by the older class-occurrence or quotient tables.",
+        "searches": [
+          "Loughran–Trepalin pp. 3, 5, especially the class-47 to class-56 Geiser twist; Bergvall 2211.12855 Table 1 and classical structures §3.3.2",
+          "be0b52c88fb6 RESULT.md offsets 0 and 4270; 6ab644e78016 offsets 500 and 3200"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full action is W(E7)/S_7. An unordered seven-set stabilizer permutes its curves and fixes the line class determined by them and K; the standard septuple's permutations give the whole stabilizer.",
+          "Bergvall DOI 10.1007/s40879-023-00711-3 §3.3.2 puts the heptad stabilizer S_7 in Sp(6,2), index 288. Its preimage has twice the order of the contraction stabilizer.",
+          "The Geiser-twisted and untwisted order-nine images agree on heptads but not on the lift."
+        ],
+        "reasoning": "Plane blow-down, unordered exceptional system and the indicated 576-point coset action encode the same invariant. An ordered marking or an individual exceptional curve is a different action; in particular the two actions with stabilizer abstractly S_7 do not have the same ambient group or the same orbit minima.",
+        "searches": [
+          "Local Resultary: degree-two del Pezzo plane contractions, seven disjoint exceptional curves, 576 unordered markings, 288 Aronhold heptads, Geiser and Frobenius minima",
+          "Literature: degree two del Pezzo 576 exceptional systems seven disjoint exceptional curves W(E7) S7 orbit lengths Frobenius blow-down contraction order 18 Geiser Aronhold table of marks (providers unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The listed exact primary table counts marked surfaces by class; the exact same-day quotient table is for 288 points, and the chapter on chambers counts a larger set of supports without the required separation.",
+          "The GAP project documentation defines fixed-point marks on coset actions. No exact table for the required subgroup class in the full W(E7) was verified; catalogue-access failures are not negative evidence."
+        ],
+        "reasoning": "A verified applicable table of marks (or a 576-point coset permutation character with power maps and class sizes) would allow recovery: a cycle of length d first contributes to fixed points of g^d, and usual divisor inversion recovers the cycle counts. No such exact dataset was among the inspected matching records.",
+        "searches": [
+          "Local Resultary be0b52c88fb6 and 6ab644e78016",
+          "Bergvall arXiv:2211.12855 Table 1 with ± class labels",
+          "GAP Library of Tables of Marks public project description and bounded catalogue access attempts"
+        ]
+      },
+      "rationale": "The 56-curve lattice, the classical 288-heptad geometry, and Frobenius-class realization are prior. In fact the old group order classes plus the S_7 stabilizer give a short route to the extreme number 18 alone. The material surviving contribution is the evaluated all-class census for the actual 576-set action, with an explicitly verified descent comparison on its two-sheeted quotient. The strongest distinct same-day matches tabulate the 288-heptad action or a different, aggregated and restricted action on chambers, not the evaluated full lift.",
+      "residual_risks": [
+        "An existing catalogue of the precise 576-point permutation character or the relevant marks plus power data could reduce the census to a table evaluation. The exact entry was not located in the bounded checks, and the general literature search on this record was unavailable.",
+        "Same-day quotient and chamber results are scientifically related; their order or independence cannot be inferred from the date.",
+        "The Weyl-element frequencies are not surface frequencies at a fixed field and do not decide the least field of rationality. The accepted arithmetic statement retains its stated odd-characteristic scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASS DATA AND OCCURRENCE COUNTS, NOT THE CONTRACTION-SET CENSUS",
+          "evidence": [
+            "Caption counts geometrically marked degree-two surfaces with Frobenius action w on the Picard group; rows are labelled ±1A through ±15A including ±9A."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.12855",
+          "material_read": "Table 1 and caption, printed p. 7, offsets about 17500–20200",
+          "method": "Open-access primary PDF table passage",
+          "title": "Frobenius actions on Del Pezzo surfaces of degree 2",
+          "trigger": "Exact classical Frobenius class table for the same surface class"
+        },
+        {
+          "assessment": "GIVES THE HEPTAD ACTION FRAMEWORK, NOT THE W(E7) CENSUS",
+          "evidence": [
+            "288 projectively inequivalent heptads and S_7 stabilizer of index 288 in Sp(6,2)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40879-023-00711-3",
+          "material_read": "§3.3.2, p. 12, extracted offset about 32950",
+          "method": "Open-access primary PDF passage",
+          "title": "Arithmetic and topology of classical structures associated with plane quartics",
+          "trigger": "Classical S_7 action and potential exact marking/Aronhold table"
+        },
+        {
+          "assessment": "COVERS REALIZATION; DOES NOT GIVE THE 576-SET DISTRIBUTION",
+          "evidence": [
+            "The exceptions are all below 9, and class 56 has no exception. Section 3 produces order-nine class 47 and obtains class 56 by Geiser twist."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1811.06785",
+          "material_read": "Theorem 1.2 p. 3, offsets 8476–10124; §3 p. 5, offsets 14584–17945",
+          "method": "Open-access primary PDF theorem and proof passages",
+          "title": "Inverse Galois problem for del Pezzo surfaces over finite fields",
+          "trigger": "Exact field-by-field realization, particularly the witness class"
+        },
+        {
+          "assessment": "MATERIAL QUOTIENT OVERLAP, NOT THE LIFT",
+          "evidence": [
+            "All 288 heptads, possible minima 1,2,3,4,6,8,9,12; maximal profile 12^24, without claiming geometric realization there."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-uniform-degree-twelve-aronhold-heptad-bound-and-the-exceptional--be0b52c88fb6",
+          "material_read": "RESULT.md offsets 0 and 4270, exact invariant, results and realization scope",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Uniform degree-twelve Aronhold heptad bound and the exceptional class",
+          "trigger": "Distinct same-day all-class orbit-minimum computation for the quotient"
+        },
+        {
+          "assessment": "CONTAINS THE 576 SUPPORT COUNT, NOT THE TARGET CENSUS",
+          "evidence": [
+            "Support polynomial ends in 576t^7, but reported cycle spectra aggregate all 33,645 chambers and are for the septuple permutation types and their central twists."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-thirty-frobenius-chamber-spectra-for-seven-point-degree-two-del--6ab644e78016",
+          "material_read": "RESULT.md offsets 500 and 3200, chamber support strata and cycle-table scope",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Thirty Frobenius chamber spectra for seven-point degree-two del Pezzo surfaces",
+          "trigger": "Distinct same-day exact Weyl action computation with seven-curve supports"
+        },
+        {
+          "assessment": "GENERAL METHOD VERIFIED, EXACT APPLICABLE ENTRY UNVERIFIED",
+          "evidence": [
+            "The (H,K) mark counts fixed points of K on G/H. No positive or negative assertion about library holdings follows from the failed catalogue links."
+          ],
+          "identifier_or_url": "https://github.com/gap-packages/tomlib",
+          "material_read": "Project description and definition of a mark, page offsets 0–2413; exact catalogue not verified from the attempted documentation links",
+          "method": "Open-access public documentation passages and bounded catalogue access attempts",
+          "title": "The GAP Library of Tables of Marks",
+          "trigger": "A table for the precise S_7 embedding would mechanically give the fixed-point counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The census evaluates a specific arithmetic descent invariant for every Weyl type, giving the exact possible extension degrees and their distribution on the natural geometric configuration. This lets future users distinguish shortening after quotient by Geiser from actual plane descent; on the witness every degree-nine heptad still leaves the two possible contractions exchanged. The value is the complete distribution and the practical lift distinction, not recomputation of the classical number of markings or simply quoting an element of order 18.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

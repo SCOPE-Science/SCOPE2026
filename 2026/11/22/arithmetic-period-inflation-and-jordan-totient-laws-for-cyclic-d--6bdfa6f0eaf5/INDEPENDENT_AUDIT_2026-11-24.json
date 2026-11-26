@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:04:31.609922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On Z/(nt), addition by d has gh cycles for h=gcd(t,b), since gcd(n/g,b)=1. Each cycle is a class modulo gh; the t repeats of an original index advance modulo h by n/g, coprime to h, so each compatible class receives exactly t/h repetitions. Its sum is (t/h)S_r. Telescoping forces this to vanish, and conversely one arbitrary symbol per cycle gives one unique circular lift. Simultaneous vanishing is m∣t/h since m is the order of the sum vector, so the fixed count is κ^(gh) or zero. For p∣m the condition is v_p(t)−min(v_p(t),v_p(b))≥v_p(m), giving the least multiplier, and other primes are unconstrained. The κ^d lifts are parametrized by a consecutive d-symbol prefix via the reversible stride recurrence. At t=κb the formula counts all κ^d, so their periods divide nκb. For a primitive displayed target, shift-commutation forces each least lift period to be a multiple of n, and an orbit of length nt passes the specified indexed target exactly t times; divisor inversion and division by t then give the claimed census. For arbitrary displayed n the word need not be primitive and the fixed-point/least-admissible-multiplier statement is relative to that display. Uniform independent coordinates give independent uniform residue sums, and for a∣κ exactly a^g vectors are killed by a; inversion gives J_g(a), with distinct a giving different multipliers by the prime valuations. Conditioning can change this law: at κ=2,n=2,d=1 only 01 and 10 are primitive and both have nonzero sum. For κ=3,n=1,d=4,y=(1), the fixed counts at 3,6,12 are 3,9,81 and invert to 3,6,72 least-period counts. The checker was read, not run: its primitive-period loop samples binary-symbol targets even at larger moduli, and its printed 81,090 total counts enumerated prefix lifts across target fibers, not 81,090 distinct fibers. Neither detail affects the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The u-closure de Bruijn graph gives least periods and multiplicities for surjective cellular automata; the cited linear results include exact multiplicities with irreducibility and coprimality hypotheses and an LCM decomposition over finite rings. Kang–Jäger give general finite-prefix permutations for permutative lifts."
+        ],
+        "reasoning": "These establish broad algorithmic coverage and preclude a claim to solving the general preimage-computation problem. A graph-cycle enumeration, finite permutation, or several coprimality-restricted counts do not directly give the uniform explicit counts in g, gcd(t,b) and m or the pushforward probability law across all targets.",
+        "searches": [
+          "Mariot–Leporati–Dennunzio–Formenti DOI 10.1007/s11047-016-9586-x, Lemma 6 and Theorems 8–9",
+          "arXiv:2609.01140v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Mariot–Leporati–Dennunzio–Formenti DOI 10.1007/s11047-016-9586-x",
+        "Kang–Jäger arXiv:2609.01140v1",
+        "Resultary 7369edc8c842 and same-record 6bdfa6f0eaf5",
+        "Martin–Odlyzko–Wolfram DOI 10.1007/BF01223745 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The relevant specialization computes the return translations: around each orbit of stride residues the sum is S_r, and the t-step return breaks the b-cycle into gcd(t,b) cycles, each testing (t/gcd(t,b))S_r. Uniform random targets then induce a uniform sum vector."
+        ],
+        "reasoning": "The established representation must be solved explicitly for the affine return in this family to obtain the counts. A further distribution calculation over all targets supplies the Jordan law. Thus the frozen all-parameter formulas are not just a renaming of the prior finite algorithms, even though those algorithms determine each finite instance in principle.",
+        "searches": [
+          "DOI 10.1007/s11047-016-9586-x §3 and §5",
+          "arXiv:2609.01140v1 pp. 3–4",
+          "Resultary 7369edc8c842"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kang–Jäger define exactly h_{κ,ℓ}(x)=x_{ℓ−1}−x_0 mod κ at ℓ=d+1. The fixed-fiber multiplier counts are fixed-point counts of powers of the n-step return permutation of the d-symbol prefixes. For κ=2,d=2 the code is Rule 90 up to a shift of the output."
+        ],
+        "reasoning": "The permutation formulation gives a finite representation, not its arithmetic solution. Rule 90 gives exact overlap for the binary stride-two least multiplier, rather than a different map distinguished only by a name; no novelty is assigned to that special case.",
+        "searches": [
+          "arXiv:2609.01140v1, Propositions 1.1–1.2 and Theorem 1.3",
+          "Resultary 7369edc8c842, Rule 90"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6bdfa6f0eaf5 is the same frozen record. Earlier record 7369edc8c842 classifies the binary left-permutative elementary rules and gives Rule 90 minimum factors 1, 2, 4, with 4 exactly when n and Hamming weight are odd."
+        ],
+        "reasoning": "For odd n the frozen formula gives 4 precisely in that case; for even n the table's 1/2 cases agree with the solvability split, expressed by residue sums here. The table is confined to binary elementary rules and the minimum factor, not the all-stride counts and arbitrary-modulus distribution.",
+        "searches": [
+          "Local Resultary exact and related record lookup for cyclic difference lifts, including 6bdfa6f0eaf5 and 7369edc8c842"
+        ]
+      },
+      "rationale": "The claim credited is the closed target-dependent vector-order fixed-point law for arbitrary modulus and stride, together with its exact unconditional Jordan-totient distribution, not the difference code, general algorithms for preimage periods, ordinary Möbius inversion, or the previously classified binary Rule 90 minimum. The prior finite-prefix and graph representations apply to the model and compute individual answers, but the inspected statements do not supply this all-parameter arithmetic classification or the distribution without enumeration.",
+      "residual_risks": [
+        "A historical linear-cellular-automata or affine-permutation specialization could give equivalent exact formulas. The original Martin–Odlyzko–Wolfram article was not retrieved; no whole-paper noncoverage or exhaustive priority is inferred. The established general algorithms and exact Rule 90 special case remain credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General algorithmic containment; not the inspected all-parameter closed fixed count or Jordan law",
+          "evidence": [
+            "u-closure de Bruijn cycles encode exact preimage periods and multiplicities; a Rule 150 example has a length-12 preimage of a length-4 target. Linear results give extra-hypothesis multiplicities and LCM decomposition over finite rings."
+          ],
+          "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+          "material_read": "§3 Lemma 6 p. 11, §5.1 pp. 18–19, Theorems 8–9 pp. 20 and 22; offsets 32995, 55399, 60311, 62648, 68597",
+          "method": "Author's OA postprint, bounded theorem and example passages",
+          "title": "Computing the periods of preimages in surjective cellular automata",
+          "trigger": "Strongest general preimage-period and multiplicity result"
+        },
+        {
+          "assessment": "Same code and finite-prefix machinery; results inspected concern minimality and unique ergodicity, not the explicit periodic arithmetic law",
+          "evidence": [
+            "h_{κ,ℓ}=x_{ℓ−1}−x_0 mod κ and inverse branches returning permutations on finite prefixes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.01140v1",
+          "material_read": "Abstract pp. 1, Propositions 1.1–1.2 and Theorem 1.3 p. 3 at offset 10561, exact family p. 4 at offset 17380",
+          "method": "Bounded OA primary PDF passages",
+          "title": "Lifts of strictly ergodic subshifts by permutative sliding block codes",
+          "trigger": "Exactly the same code family and finite return action"
+        },
+        {
+          "assessment": "Exact binary stride-two case of the minimum inflation, not the full arithmetic theorem",
+          "evidence": [
+            "The Rule 90 inflation factors are 1, 2, 4; factor 4 occurs exactly for odd target length and odd Hamming weight."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-periodic-preimage-lifting-for-all-sixteen-left-permutative--7369edc8c842/RESULT.md",
+          "material_read": "Rule 90 classification and relationship to prior linear cellular automata",
+          "method": "Local Resultary search and mirror statement reading",
+          "title": "Sharp periodic preimage lifting for all sixteen left-permutative elementary rules",
+          "trigger": "Exact special-slice overlap in the least admissible multiplier"
+        },
+        {
+          "assessment": "Residual exact-coverage risk, not negative evidence",
+          "evidence": [
+            "The indexed Rule 90 record explicitly cautions that the linear dynamics are prior and points to this article."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+          "material_read": "Original full text not obtained; its relevance was noted in the Rule 90 record",
+          "method": "Identified primary publisher access attempted; redirect followed by timeout",
+          "title": "Algebraic properties of cellular automata",
+          "trigger": "Classic possible stronger linear Rule 90 coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formulas reduce a natural finite-fiber period question to residue sums and prime valuations, without enumerating the κ^d lifts, including over composite alphabets. They predict period obstruction, multiplicity and frequency over random targets in one classification. The restriction to unconditional displayed-length sampling is useful and explicit; no general nonlinear code or primitive-conditioned distribution is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

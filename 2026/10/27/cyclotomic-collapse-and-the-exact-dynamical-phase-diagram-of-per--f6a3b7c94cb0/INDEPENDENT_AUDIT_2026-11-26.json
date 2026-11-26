@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:40.230192Z",
+  "axes": {
+    "correctness": {
+      "rationale": "DB_w=ζ^(−1)B_wD and primitive order q make all interior Gaussian binomial coefficients vanish (nonzero denominators), so T^q=a^qI+B_w^q. Every length-q weight product is W; rearranging indices by residue gives the isometric q-fold sum of A=αI+WB, α=a^q. A first-coordinate-normalized eigenvector of T has q-step ratio (λ^q−α)/W; it belongs to ℓ^p exactly when that ratio has modulus <1, including ratio zero. Spectral mapping gives the closed lemniscate upper inclusion and openness of λ↦λ^q gives closure of the strict lemniscate, proving the reverse inclusion. The recursive diagonal gauge is bounded with bounded inverse iff its per-period modulus is one; different R give different spectra and exclude even nondiagonal similarity with the stated parameters fixed. For R>L the eigenvalue disk of A crosses the unit circle. The geometric eigenvectors (z^k)_{k≥0} have dense span on any subset accumulating inside |z|<1, by analytic annihilators; use each summand separately. The inside and outside spans give mixing by adding decaying preimages of finite outside-eigenvector sums to a finite inside-eigenvector sum. A closed circle subarc in the disk supplies an atomless arclength measure meeting Grivaux Definition 1.1 and Theorem 1.4 (arXiv:1001.2026, pp. 2–3), and roots of unity supply a dense periodic span. Mixing passes from T^q to T by applying it to (T^r)^−1 of each target open set, which is nonempty because T^q has dense range. Return times for T^q yield positive lower densities after dilation by q for T. If R≤L, then either c≤1 and A has norm ≤1, so the whole orbit is bounded, or c≥1 and A is invertible with inverse norm ≤1, so a nonzero orbit is bounded away from zero on all q residue classes. For shadowing, the hypotheses of Theorem 3.6 and Remark 3.7 of arXiv:2610.15023 are met; the periodic ratio geometric means coincide at (|λ^q−α|/R)^(1/q), whose numerator sweeps [L,U] on the unit circle. Independently recover the same thresholds: forward shadowing is equivalent for T and T^q by sampling every q steps in one direction (the accumulated error is at most δ∑_{r<q}||T^r||) and filling the gaps by exact iterates in the other. It is equivalent on the finite coordinate sum and on A by coordinate projections and choosing coordinate accuracies. If R<L, A or A^−1 is a strict contraction. If R>U, the forward shift S gives the strict-contraction right inverse C=(1/W)S(I+(α/W)S)^−1, ||C||≤1/(R−c). For a bounded error e_n in x_{n+1}=Ax_n+e_n, solve d_{n+1}=Ad_n+e_n by forward convolution when ||A||<1, or by d_n=−∑_{j≥0}C^(j+1)e_{n+j} with a contracting right inverse (including the A^−1 case). If L≤R≤U, choose λ=α+Wz with |λ|=|z|=1. In the linear dual, normalized finite coefficient lists z^(−(j−1))t_j with triangular tapers of length 2M give ||(A'−λ)φ_M||=O(M^−1): the residual is the first difference of the taper, also for dual ℓ^∞ at p=1. Shadowing with tracing error 1 would solve the difference equation for all sufficiently small errors. Take e_n=δλ^(n+1)v with ||v||≤1 and Re φ_M(v)≥1/2. If ||d_n||≤1, Re φ_M(λ^(−n)d_n) increases each step by at least δ/2−||(A'−λ)φ_M||>0 for large M, a contradiction. This includes both equality boundaries. At a=0 the mixed interval is empty (not a singleton); at a=1 L=0 and U=2. Read the frozen finite-matrix verifier without running it; its floating-point tests would not certify the infinite-dimensional assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Theorem 3.1/Corollary 3.5 give sufficient hypercyclicity hypotheses; in the diagonal-modulus case the cited bound uses the smallest individual weight, not a necessary product condition. The coexistence criterion of Corollary 3.9 does not give the full diagram.",
+          "The ordinary weighted-shift spectrum publication uses no diagonal perturbation in the inspected scope. The related 2003 paper was identified but its primary full text was not accessible in the checked copies."
+        ],
+        "reasoning": "A sufficient bound on min|w_j| (even one that applies to a broader class) does not classify all tuples with equal R, let alone show failure on R≤L. The spectrum of B is a known input to the separate exact eigenvector/closure argument.",
+        "searches": [
+          "arXiv:2610.15023v1, Theorem 3.1 and Corollaries 3.5 and 3.9",
+          "arXiv:2210.01510, ordinary weighted-shift spectrum",
+          "Sophie Grivaux Sums of hypercyclic operators 2003 pdf diagonal weighted shifts periodic root of unity backward shift"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2610.15023v1, arXiv:1001.2026 and arXiv:2210.01510 (passages as above)",
+        "Local Resultary 318b395d4ac6",
+        "DOI:10.1016/S0022-1236(02)00152-0 (limited access as above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general eigenvector criterion of Grivaux proves the frequent conclusion once perfect spanning is established, but supplies no iff parameter threshold. The primary Theorem 3.6 does imply the shadowing assertion exactly. The more specific mixing necessity and R-invariant cannot be read off from the sufficient weight bounds."
+        ],
+        "reasoning": "The primitive-order power reduction is the bridge that identifies the geometry of the eigenvalue and spectrum sets from only W and α, permitting both directions of the dynamical classification and diagonal gauge rigidity. Do not re-credit the prior criteria once their hypotheses are verified.",
+        "searches": [
+          "Messaoudi–Tofanin Neto–Tsokanos §3",
+          "Grivaux arXiv:1001.2026 Definition 1.1 and Theorem 1.4",
+          "Local Resultary 318b395d4ac6 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The perturbation convention is exactly T=I_d+B_w. The periodic specialization has |∏(d_j−λ)|=|λ^q−a^q| and periodic weight mean R^(1/q). The prior theorem therefore supplies both strict shadowing regions and every boundary failure in the frozen result."
+        ],
+        "reasoning": "Changing to a radial shadowing diagram is no novelty for that assertion. The same comparison does not provide T^q's direct-sum conjugacy or the product modulus as a complete similarity invariant.",
+        "searches": [
+          "arXiv:2610.15023v1, §1 Eq. (1), Theorem 3.6 and Remark 3.7",
+          "Local Resultary: cyclotomic perturbations of periodic weighted shifts and periodic shift shadowing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest related indexed exact result 318b395d4ac6 gives quantitative two-sided shadowing constants for positive periodic bilateral shifts on ℓ²(Z). This is a later indexed record and does not give the unilateral complex diagonal-perturbed R-threshold or spectra."
+        ],
+        "reasoning": "The exact comparison is between different spaces, perturbations and shadowing conventions, not two expressions for the same phase thresholds. The directly covering shadowing result is instead the earlier primary theorem.",
+        "searches": [
+          "Local Resultary: exact periodic weighted shift shadowing and cyclotomic perturbed phase diagram"
+        ]
+      },
+      "rationale": "Credit attaches to the use of the exact cyclotomic reduction to classify similarity, spectra and the sharp simultaneous linear-dynamics threshold in the frozen family. The shadowing row is demonstrably an exact specialization of earlier results, not an independent originality contribution; the standard q-binomial identity and the eigenvector criteria are also inputs. The strongest indexed shadowing comparison treats a different family and property, and the closest primary results do not furnish the exact product-only dynamical threshold and similarity classification.",
+      "residual_risks": [
+        "The 2003 primary full text was unavailable in the lawful copies attempted. An older treatment of cyclic triangular operators may subsume the spectral or dynamical classification.",
+        "Historical priority beyond the compared exact claims is not established; shadowing is already covered by the 2026-10-10 general preprint."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact shadowing overlap; related sufficient linear-dynamics bounds",
+          "evidence": "Bounded complex d,w with inf|w_k|>0 includes the frozen family. Their periodic-diagonal remark yields strict shadowing inequalities after insertion of the exact periodic products, while Corollary 3.5 uses a sufficient min|w_j| bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15023",
+          "material_read": "§1 Eq. (1), PDF p. 2; Theorem 3.1 (p. 4), Corollary 3.5 (p. 5), Theorem 3.6 and Remark 3.7 (p. 6), and Corollary 3.9; offsets near 14400, 20600 and 22200",
+          "method": "Lawful OA PDF",
+          "title": "Dynamical Properties of Perturbed Weighted Shifts",
+          "trigger": "Primary exact prior shadowing and possible broader linear dynamics coverage"
+        },
+        {
+          "assessment": "Established sufficient theorem; hypothesis verified by eigenvector field and atomless subarc measure",
+          "evidence": "Definition requires dense span for all measure-one subsets of eigenvalues, and Theorem 1.4 gives frequent hypercyclicity from this property on complex Banach spaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1001.2026",
+          "material_read": "Definition 1.1, PDF p. 2, offset 6547; Theorem 1.4, PDF p. 3, offset 8689",
+          "method": "Lawful OA PDF",
+          "title": "A new class of frequently hypercyclic operators",
+          "trigger": "Verify critical implication on all complex ℓ^p, not just Hilbert spaces"
+        },
+        {
+          "assessment": "Ordinary shifts in the compared scope; standard background, no evidenced diagonal-perturbed lemniscate",
+          "evidence": "The ordinary weighted shift is the object of the spectral treatment, rather than the root-of-unity diagonal plus a backward shift.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.01510",
+          "material_read": "Abstract/scope, PDF p. 1",
+          "method": "Lawful OA PDF",
+          "title": "On the spectrum of weighted shifts",
+          "trigger": "Possible coverage of claimed lemniscates via periodic-shift spectra"
+        },
+        {
+          "assessment": "Unresolved for historical coverage",
+          "evidence": "Publisher returned HTTP 403 and HTTPS university copy did not connect. The retrieved excerpts do not establish coverage or its absence.",
+          "identifier_or_url": "https://doi.org/10.1016/S0022-1236(02)00152-0",
+          "material_read": "Bibliographic result and search excerpt only; no full-text passage inspected",
+          "method": "Lawful publisher and identified university-hosted copy access attempts",
+          "title": "Sums of hypercyclic operators",
+          "trigger": "Related diagonal-plus-shift setting cited in frozen source"
+        },
+        {
+          "assessment": "Different operator and shadowing property; later catalog date",
+          "evidence": "Real positive periodic bilateral weights on ℓ²(Z) with quantitative two-sided shadowing, no cyclotomic diagonal.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-three-period-shadowing-constants-and-mixed-residue-extremi--318b395d4ac6",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-period shadowing constants and mixed residue extremizers",
+          "trigger": "Strongest indexed exact periodic-shadowing match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete product-modulus invariant and sharp regimes simplify a natural nonconstant diagonal-plus-shift family. Individual weights can vary without changing the similarity or dynamical behavior, and the phase diagram distinguishes frequently hypercyclic and mixing examples with versus without shadowing, including precise boundary failures. The contribution is the reduction and resulting sharp classification, not a new general shadowing theorem or evidence from finite matrix sections.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

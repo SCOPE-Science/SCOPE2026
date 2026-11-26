@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:45:56.321813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An intersecting class of edges is a subset of a star or a full triangle. Choosing centres for the star classes, including a centre for any singleton, cannot yield a shared centre in an ordinary optimum, since those classes could be merged. In an (n-2)-class partition with t triangles there are t+2 noncentres, so binom(t+2,2)<=3t forces t=1 or 2. Equality for t=2 would force two edge-disjoint triangles partitioning K_4, which is impossible. The single triangle is on the three noncentres T; every other centre has all three of its T-edges, so centres are now intrinsic, and every edge within S=[n] minus T independently chooses one of its two endpoint stars. This is a bijection with named colourings after specifying the triangle set, a tournament oriented toward the receiving star, and the palette bijection. For e contained in S, every present colour has at least three incident neighbours (three triangle edges or the three T-edges of a star outside e); for e meeting T in one point exactly one triangle edge avoids e; for e contained in T a star at v supplies exactly 1+indeg(v) disjoint edges. So precisely binom(s,2) witness failures are forced, with three extra iff no vertex has indegree zero. Such a vertex is unique when it exists, giving s*2^binom(s-1,2) source-containing tournaments and the asserted counts after the palette factor. Both bins occur for n>=6 (orient a 3-cycle to dominate the rest for a source-free tournament); only the first occurs at n=5. The forced failures exclude n-2 colours. The minimum-endpoint rule with n-1 colours is proper and every pair e has a unique disjoint edge in a colour n-1, n-2 or n-3 class: choose respectively the largest class index not ruled out by e among those last three indices according to RESULT.md §3. Equivalently, among the last four ground points, choose the smaller of the two greatest points not in e; its colour class has exactly the larger of those points available as the other end. This also verifies all terminal-pair cases. The stated small graphs are correct. Inspected VERIFICATION.md and verify.py without executing it; the finite backtracking histograms use unlabelled partitions and don't prove unrestricted n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full ordinary optimum normal form for KG(n,2) already appears in Jalilolghadra–Behtoei (attributed there to Behtoei–Omoomi) and in Zhao et al.; Daneshpajouh gives triangle rigidity. The ordinary tournament parametrization is a consequence of this structure.",
+          "The related class-domination optimum imposes a tournament degree condition for domination of colour classes, not the witness multiplicities at each vertex. Pradhan–Sharma's general algorithmic paper explicitly treats other classes for its positive exact and omega+1 results (block, proper interval, chain and pseudo-split graphs in the abstract)."
+        ],
+        "reasoning": "The normal form supplies the state space, but not why three triangle vertices fail synchronously, or why a witness exists at every vertex of the n-1-colour construction. The inspected broader structural, algorithmic and domination results do not supply those conclusions.",
+        "searches": [
+          "arXiv:2001.00221, Theorem 2.3; arXiv:2201.05605, Theorem 1; Zhao–Zhang–Jia–Ye Proposition 1.4",
+          "arXiv:2608.10874v2 abstract and relevant graph classes",
+          "Resultary 6e3fdaf40ae2 and 00291cf7ad61"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.00221",
+        "arXiv:2201.05605",
+        "Zhao–Zhang–Jia–Ye, Dominator coloring of Kneser graph, Proposition 1.4",
+        "arXiv:2203.01088",
+        "arXiv:2611.08534",
+        "arXiv:2105.08693",
+        "arXiv:2608.10874v2",
+        "Resultary 22a170961b8a (identical), 6e3fdaf40ae2, 00291cf7ad61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The n-2 structure gives all centre choices and the ordinary count, which should not be reported as the new theorem. Neither a star-plus-triangle description nor partial conflict-free bounds establish the exact defect spectrum without analysing disjointness multiplicities for each edge type.",
+          "The class-domination result examines existence of complete domination for classes, i.e. adjacency to every member of a class, not occurrence of exactly one disjoint member in at least one class for every e. Its tournament restriction is not the existence of an indegree-zero vertex in the unrestricted ordinary tournament."
+        ],
+        "reasoning": "The pertinent implication from the known normal form is the three-case witness calculation with a source condition, not a substitution into a prior defect or chromatic formula. The upper bound requires a different colouring with a unique witness even for the pairs involving the last ground points.",
+        "searches": [
+          "arXiv:2001.00221 Theorem 2.3 and reference [1]; arXiv:2201.05605 Theorem 1",
+          "arXiv:2105.08693 Definition 1 and Theorem 35; Resultary 6e3fdaf40ae2 Finding and Proof sections 1,5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent edge-partition question on K_n asks for an intersecting partition in which every edge has a class containing exactly one edge disjoint from it. Caro–Petruševski–Škrekovski and Das–Santra give the proper open-neighbourhood condition but the inspected scope passages do not settle this family.",
+          "Bhyravarapu et al. treat Kneser graphs but allow vertices uncoloured and do not require a proper colouring; a partial CFON* bound there does not convert into this total proper bound."
+        ],
+        "reasoning": "Open versus closed neighbourhoods, total versus partial colouring, and witness multiplicity one versus class domination are different constraints. The edge formulation keeps all three distinctions explicit.",
+        "searches": [
+          "Primary search: proper conflict-free coloring Kneser graphs, Petersen graph, complement of a line graph, KG(n,2)",
+          "Resultary: two-subset Kneser proper conflict-free colouring and exact witness-defect histogram",
+          "arXiv:2203.01088 and arXiv:2105.08693, definitions and Kneser section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "22a170961b8a is this identical record. The distinct result 6e3fdaf40ae2 enumerates optima under a class-domination constraint and 00291cf7ad61 uses the ordinary triangle/stars normal form to study Kempe connectivity. Neither passage tabulates failed open-neighbourhood witnesses among ordinary optima."
+        ],
+        "reasoning": "The neighbourhood histogram is indexed by a specific all-optima defect statistic, not by total count, a domination parameter, or Kempe classes. No exact table of that statistic was identified; the frozen package's finite histograms are verification diagnostics, not external prior evidence.",
+        "searches": [
+          "Resultary: KG(n,2) proper conflict-free chromatic threshold, defect spectra, tournament-colouring counts",
+          "Resultary 22a170961b8a, 6e3fdaf40ae2 and 00291cf7ad61"
+        ]
+      },
+      "rationale": "The optimal proper-colouring normal form is known and is not credited as new; its full triangle-and-stars version predates the cited Daneshpajouh theorem and is already restated in arXiv:2001.00221. The distinct findings are the exact proper open-neighbourhood surcharge for all n>=5 and the witness-defect distribution of the ordinary optima. The strongest same-family and same-condition sources examined do not provide those assertions or a dominating implication. This is not a historical-priority certification.",
+      "residual_risks": [
+        "The Behtoei–Omoomi 2011 original full text was not retrieved, but its structural theorem is reproduced in accessible later sources and credited here. This is not a finding of noncoverage for the unavailable paper.",
+        "Bounded primary and index searches do not determine complete priority; same-date indexed results were compared by mathematical statements, not by inferred sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full triangle-plus-stars structure is established; different new colouring constraint",
+          "evidence": [
+            "All proper (n-2)-colourings have the stated form; the theorem is attributed to Behtoei–Omoomi's locating-colouring paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.00221",
+          "material_read": "§2 Theorem 2.3, PDF p. 3 (OA offset 5850); attribution in reference [1], p. 8 (offset 25120)",
+          "method": "Primary open PDF passages",
+          "title": "Total dominator chromatic number of Kneser graphs",
+          "trigger": "Earlier same-family optimal-colouring normal form"
+        },
+        {
+          "assessment": "Structural overlap, not witness multiplicities",
+          "evidence": [
+            "An optimal star–triangle partition of K_n has exactly one triangle."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.05605",
+          "material_read": "§1 Theorem 1 and relevant pp. 2–5 (OA offsets 8087 and 12204)",
+          "method": "Primary open PDF passages",
+          "title": "On the number of star-shaped classes in optimal colorings of Kneser graphs",
+          "trigger": "Closest cited structural theorem"
+        },
+        {
+          "assessment": "Partial CFON*, without mandatory properness, not the total proper model",
+          "evidence": [
+            "Colour 0 encodes uncoloured vertices. Theorem 35 gives a k+1 partial bound for Kneser graphs for n>=2k^2+k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.08693",
+          "material_read": "§1 Definition 1, p. 2; §8 and Theorem 35, pp. 33–35",
+          "method": "Primary open PDF passages",
+          "title": "Conflict-Free Coloring: Graphs of Bounded Clique Width and Intersection Graphs",
+          "trigger": "Direct Kneser and conflict-free match in a different variant"
+        },
+        {
+          "assessment": "Same condition, no same-family theorem shown in passages inspected",
+          "evidence": [
+            "The correct arXiv ID is 2203.01088, not the 2201.04330 printed in the frozen citation text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.01088",
+          "material_read": "PDF p. 1, definition and scope",
+          "method": "Primary open PDF passage",
+          "title": "Remarks on proper conflict-free colorings of graphs",
+          "trigger": "Early exact proper open-neighbourhood definition"
+        },
+        {
+          "assessment": "The abstract's exact subclass results do not establish broader coverage of KG(n,2); locator silence is not a whole-document finding",
+          "evidence": [
+            "General hardness and exact algorithms for specified graph classes; omega+1 bounds for block, proper interval and pseudo-split graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.10874v2",
+          "material_read": "Abstract and introduction opening (OA offset 0); literal searches for Kneser and Petersen in PDF extraction",
+          "method": "Primary open PDF passage and text locator",
+          "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+          "trigger": "Most relevant primary search hit on broader PCF algorithms"
+        },
+        {
+          "assessment": "Structural overlap, but class-domination colouring is not proper conflict-free colouring",
+          "evidence": [
+            "Triple and tournament parametrization with a tournament degree restriction for class-domination optima."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-class-domination-chromatic-threshold-and-optimal-tournamen--6e3fdaf40ae2/RESULT.md",
+          "material_read": "Finding and Proof §§1,5",
+          "method": "Local Resultary mirror",
+          "title": "Sharp class-domination chromatic threshold and optimal tournaments",
+          "trigger": "Closest same-family tournament-parametrized optimum"
+        },
+        {
+          "assessment": "Known ordinary optimum normal form; targets Kempe dynamics, not witness defects",
+          "evidence": [
+            "Works with triangle and star classes and proves a connectivity property of ordinary optimal colourings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-kempe-connectivity-at-the-chromatic-threshold-of-two-subset-knes--00291cf7ad61/RESULT.md",
+          "material_read": "Finding and Proof §1",
+          "method": "Local Resultary mirror",
+          "title": "Kempe connectivity at the chromatic threshold of two-subset Kneser graphs",
+          "trigger": "Identical ordinary optimum sample space"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ordinary and proper conflict-free numbers differ by exactly one for an entire classical family. More importantly, the defect census explains the obstruction for every ordinary optimum: all pairs among centres fail, while the three triangle pairs fail simultaneously exactly when its assignment tournament is source-free. The sharp palette result alone would not describe this obstruction or its distribution. The theorem has natural parameters and a reusable neighbourhood statistic, beyond counting known optimal partitions or checking small instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

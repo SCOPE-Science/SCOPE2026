@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:20:40.714061Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize a positive quadratic form by its smallest ratio to N². The resulting two-sided sandwich survives permutation averaging at no increase in squared distortion. The averaged positive form is a scalar multiple of I+t11ᵀ with t>−1/n. The uniform positive and opposite-coordinate unit vectors rule out t<0 by giving a ratio greater than 2. For t≥0 and max(‖x₊‖₂,‖x₋‖₂)=1, writing v for the smaller sign norm, Q≥1+v²+t(1−√(n−1)v)₊². Its minimum is exact at (1,−s,…,−s), s=t/(1+(n−1)t). For a mixed-sign vector the extremal sign-sum bounds reduce the upper bound to two convex quadratics in v, so an endpoint suffices. The uniform positive vector and the vector with n−1 equal positives and one negative attain the two candidate upper values. The resulting quotient switches at 1/(2√(n−1)); below that point the derivative numerator is H_n=c_n−2+2c_n(n−1)t+nc_n(n−1)t² and above it the slope is n−1. At the switch H_n equals c_n(1+√(n−1)+n/4)−2: negative for n=2,3, zero for n=4, positive thereafter. H_n(0) is negative at 5 and 6 and positive from 7 on. These signs and strict monotonicity where needed verify every minimum, exact values, and uniqueness only of the normalized invariant parameter.",
+      "replay": "node /workspace/reproductions/frozen-cross-checks.mjs (Bynum section; bounded scalar check for n=2,…,10). At n=6 it returns t≈0.028470065541656 and d²≈1.993807989999907. The finite computation is not used in place of the all-parameter Rayleigh and derivative arguments. The packaged checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bynum p. 234 introduces the positive/negative construction on sequence spaces to study normal structure. The Kato et al. Example 8 compares equivalent norms and studies Banach-space constants."
+        ],
+        "reasoning": "The two sign parts have disjoint support, giving N≤‖·‖₂≤√2N. Even together with an infinite-dimensional result that bound would not identify which finite sections attain it or the strict improvements in dimensions 3–6. The inspected statements do not give dimension-specific optimizers.",
+        "searches": [
+          "Bynum, Compositio Mathematica 25 (1972), 233–236",
+          "Kato–Maligranda–Takahashi, Example 8 and definitions"
+        ]
+      },
+      "checked_sources": [
+        "Bynum (1972), p. 234",
+        "Kato–Maligranda–Takahashi (2001), pp. 275, 291–292",
+        "Resultary 63455f9fa96d",
+        "Resultary b7b28f0a9f99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Day–James result gives d²=1+2^(−2/p) for p>2, which tends to 3/2 at p=2.",
+          "The target at n=2 is precisely that p=2, q=∞ endpoint."
+        ],
+        "reasoning": "The two-dimensional norms for p>2 are uniformly equivalent with constants tending to 1 to the p=2 norm, so Banach–Mazur continuity indeed gives the same planar distance. This is prior implication for that case only; the method analogue and the plane result do not imply the higher-dimensional cutoff.",
+        "searches": [
+          "Resultary Day–James planes above the Hilbert exponent, Finding and Assumptions (ID b7b28f0a9f99)",
+          "Resultary centrally slab-truncated cross-polytopes, Finding and Assumptions (ID 63455f9fa96d)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 8, pp. 291–292, defines b_{p,q} using positive and negative parts, with their maximum when q=∞. Its J(X) is the James constant as defined on p. 275.",
+          "The centrally slab-truncated cross-polytope Resultary record optimizes a different permutation-invariant pullback for max(‖x‖₁, τ|∑x_i|)."
+        ],
+        "reasoning": "The sign-split norm matches the target; the James and Jordan–von Neumann invariants do not optimize linear Hilbertian distortion. The J notation is not a Jung equivalence. Shared permutation symmetry does not make the compared polytope the same norm ball.",
+        "searches": [
+          "Bynum b_{2,infty} sign-split norm and optimal ellipsoid",
+          "Bynum b_{2,infty} Jung constant",
+          "Kato–Maligranda–Takahashi DOI 10.4064/sm144-3-5, Example 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned nearest relevant statement matches were slab-truncated cross-polytopes, ID 63455f9fa96d, and Day–James planes, ID b7b28f0a9f99. No all-dimensional Bynum law appeared in the returned results."
+        ],
+        "reasoning": "One record concerns a different norm and the other only planes. This is bounded indexed evidence, not an exhaustive catalogue or theorem table.",
+        "searches": [
+          "Resultary semantic search: Bynum sign-split b_{2,infty}, real finite-dimensional Hilbert distance, optimal ellipsoid (including a ranked query with limit 300)"
+        ]
+      },
+      "rationale": "The exact all-dimensional calculation, notably the n=5 and n=6 interior optima and the first dimension of Euclidean optimality, is distinct from the strongest inspected statements. Do not credit the known norm, the uniform upper bound, or the planar endpoint as stand-alone novelty: the planar value is implied by the nearby Day–James theorem and continuity.",
+      "residual_risks": [
+        "Specialized finite-section or ellipsoid results under other indexing may exist. The absence of an exact ranked hit is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines antecedent norm; different invariant",
+          "evidence": "The construction is on ℓ_p and used for normal structure and convexity coefficients.",
+          "identifier_or_url": "https://www.numdam.org/item/CM_1972__25_3_233_0.pdf",
+          "material_read": "p. 234, positive/negative construction and nearby objectives",
+          "method": "OA original PDF inspection",
+          "title": "A class of spaces lacking normal structure",
+          "trigger": "Original construction"
+        },
+        {
+          "assessment": "Relevant known geometry and elementary global bound, not the exact finite-section optimization",
+          "evidence": "Example 8 gives the max of positive/negative norms for q=∞ and discusses James and Jordan–von Neumann constants.",
+          "identifier_or_url": "https://doi.org/10.4064/sm144-3-5",
+          "material_read": "p. 275 and Example 8, pp. 291–292",
+          "method": "OA publisher PDF passage inspection",
+          "title": "On James and Jordan–von Neumann constants and the normal structure coefficient of Banach spaces",
+          "trigger": "Exact b_{p,q} family and comparison inequalities"
+        },
+        {
+          "assessment": "Method analogue only",
+          "evidence": "The norm is max(‖x‖₁, τ|∑x_i|), not a maximum of sign-part Euclidean norms.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-hilbert-distortion-of-centrally-slab-truncated-cross-polyt--63455f9fa96d",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions",
+          "method": "Local mirror statement inspection",
+          "title": "Exact Hilbert distortion of centrally slab-truncated cross-polytopes",
+          "trigger": "All-dimensional optimization through a permutation-invariant ellipsoid"
+        },
+        {
+          "assessment": "Implies the n=2 value by continuity, not the all-dimensional formula",
+          "evidence": "For p>2 it gives d²=1+2^(−2/p), tending to 3/2 as p decreases to 2.",
+          "identifier_or_url": "2026/10/11/SCOPE-exact-euclidean-distance-of-the-day-james-ell-p-ell-infty-planes--b7b28f0a9f99",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions",
+          "method": "Local mirror statement inspection plus endpoint comparison",
+          "title": "Exact Euclidean distance of the Day–James ℓ_p–ℓ_∞ planes above the Hilbert exponent",
+          "trigger": "Same planar family at the excluded endpoint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines a natural linear invariant of a classical signed norm, not merely its equivalence constant for the identity map. The sharp cutover at dimension seven, with two different regimes of tilted optimizers below it, distinguishes where the canonical Euclidean structure loses or attains optimality. The classified dimensions and the normalized optimal forms can serve as exact geometric comparison examples independently of the known planar limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

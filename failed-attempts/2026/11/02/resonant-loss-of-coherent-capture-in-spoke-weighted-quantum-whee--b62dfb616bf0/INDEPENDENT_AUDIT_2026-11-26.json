@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:18.868984Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For J>0 and strictly positive local rates, the dark complement of the detector Krylov space is invariant and annihilated by the loss. An eigenvector of the graph evolution's effective Hamiltonian with a real eigenvalue must have zero amplitude at each detector by its loss expectation, so the bright restriction has strictly negative imaginary spectrum and decays even with Jordan blocks. The remaining trace is exactly the dark projector weight for any density matrix. The radial block eigenvalues are 1±√(1+na²), and the rim Fourier eigenvalues are c_k with pairs of multiplicity two except the even alternating endpoint. Counting multiples of n/gcd(n,2d) strictly below n/2 gives the displayed baseline. The two independent point evaluations on a merged radial/Fourier eigenspace have one row proportional to the other only at phase +1, while the total separated rank is already two at phase −1: the rank drops by one exactly outside the −1 case, including at the one-column endpoint. If there was no generic dark mode at even n=2s, then gcd(s,d)=1; phase −1 would force s|k, ruling it out at an interior collision. Odd n cannot have phase −1, and d=1 at the even endpoint works. The hub detector separates the radial vector at a collision, leaving one rim direction per distinct Fourier frequency plus two radial directions. The independently constructed algebraic Krylov ranks (python3 /workspace/review_evidence/reproduce.py 3) confirm generic, tuned and detuned cases, irrational squared tunings and all distances for the selected sizes. These finite checks are not the all-size proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godsil gives the adjacency walk-matrix/spectral framework for a characteristic-vector input; the general trapping literature uses the bright/dark invariant-space characterization. Parlangeli–Notarstefano give a gcd criterion in terms of cyclic gaps for Laplacian cycle reachability. The later catalogue 52ce2e4d87c4 treats the minimum number and placements of Laplacian controls."
+        ],
+        "reasoning": "General spectral or ring methods do not alone state the weighted-wheel rank. The covering theorem is the exact wheel two-leader result via the matched observation kernels, not a superficial reference to general controllability.",
+        "searches": [
+          "arXiv:1010.3231",
+          "arXiv:0903.3288",
+          "arXiv:1109.3556",
+          "Farrugia–Sciriha 2014, handle 123456789/28166",
+          "Resultary 52ce2e4d87c4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5b3d49cda4e9, 4f4cd11381f0, 52ce2e4d87c4, 84c3bc481be5, 3dc132dc2bac",
+        "arXiv:1010.3231, 0903.3288, 0705.3700, 1109.3556",
+        "Farrugia–Sciriha 2014 repository abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Laplacian theorem explicitly gives generic rank, a one-dimensional exceptional loss, and full controllability conditions; its phase exception is n|2kd and n∤kd, or odd d at the even endpoint. The adjacency average-mixing record locates the same λ_−=c_k collisions in the identical adjacency model."
+        ],
+        "reasoning": "The reduction turns each of these rank/full-control statements into the claimed two-rim rank/full-capture statement by equating kernels and using spectral bright-space capture. Multiplying by 1/(n+1) gives the mixed-state capture fraction; the arbitrary-state projector rule is a general fact, not a new explicit formula for projector entries. Hub/rim sees both radial directions and one per Fourier frequency by the same point-evaluation rank rule, including at a collision because the hub sees no Fourier component. Thus there is no distinct nonroutine claim that can be extracted as a repair.",
+        "searches": [
+          "5b3d49cda4e9, RESULT.md Finding and Proof 1–2",
+          "4f4cd11381f0, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Laplacian theorem resolves the exact rank for two independent rim leaders, including the same gcd term, phase−1 exception and even endpoint. Its spectrum consists of 0, (n+1)g and g+2−c_k. The adjacency radial pair is λ±=1±√(1+na²), and the other eigenspaces are the same rim Fourier spaces."
+        ],
+        "reasoning": "Set g=(2−λ_−)/n=(1+√(1+na²))/n. Then the Laplacian hub-versus-ring mode collides with frequency k iff ng=2−c_k, exactly iff λ_−=c_k for adjacency. The 0 radial Laplacian eigenvalue is isolated just as λ_+ is. Match corresponding radial eigenvectors normalized to have rim entries 1, mapping the positive adjacency radial vector to (1,...,1,1) and the negative one to (1,...,1,−n); extend this invertible map by the identity on the rim zero-sum sector. It preserves all rim evaluations since all four radial eigenvectors have the same normalized rim entries. It therefore maps each adjacency eigenspace (including each merged one) onto the matching Laplacian eigenspace and identifies their rim-detector kernels. The exact Laplacian rank law pulls back on the whole positive a-domain (g>2/n). This is a reduction of the dimension and placement laws, not an equality of all time evolutions or orthogonal projectors.",
+        "searches": [
+          "Resultary: hub weighted wheel adjacency two rim absorbers dark space spoke coupling resonance exact capture",
+          "Resultary: weighted wheel adjacency controllability Fourier resonance spoke coupling two controls",
+          "5b3d49cda4e9, RESULT.md spectral splitting and rank law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 adjacency wheel record 4f4cd11381f0 gives exactly the same negative-frequency collision weights, in an average-mixing result. Records 84c3bc481be5 and 3dc132dc2bac give precisely the gcd baseline in the zero-flux cycle, without a hub. The same-date 5b3d49cda4e9 states the equivalent-placement classification after reparameterizing."
+        ],
+        "reasoning": "The cycle record does not cover resonances, and the mixing invariant is not the absorption invariant. The earlier adjacency resonance set and the exact Laplacian rank theorem materially overlap in a way that the observation-kernel identification makes covering, irrespective of whether the formula appears verbatim as an adjacency trapping table.",
+        "searches": [
+          "Resultary: weighted wheel quantum walk absorbing traps dark states spoke weights resonance",
+          "Resultary: quantum cycle two trap coherent capture gcd Fourier dark modes trapping exact result",
+          "5b3d49cda4e9",
+          "4f4cd11381f0"
+        ]
+      },
+      "rationale": "The main two-rim classification is already covered by an exact rank-preserving reduction to Resultary 5b3d49cda4e9, the distinct same-date weighted-wheel Laplacian two-leader theorem, together with the previously indexed adjacency collision spectrum (4f4cd11381f0). This is a coverage conclusion, not a claim that the same-date work appeared first. Adjacency and Laplacian are not the same operator and do not have the same resonance weights. Nonetheless their detector-restricted eigenspace decompositions match for every adjacency parameter after the explicit reparameterization below. The general asymptotic bright-projection relation is known; the hub-plus-rim rank is a direct two-block dimension count, not an independent surviving classification gap.",
+      "residual_risks": [
+        "The four proposed literature searches were deferred in the coordinated wave; this is not evidence of absence.",
+        "The Farrugia–Sciriha full paper could contain additional coverage. The demonstrated catalogue reduction does not decide who first obtained the same-date classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central adjacency classification by the explicit reparameterized observation-kernel reduction",
+          "evidence": "The record gives r_0−δ, g=(2−c_k)/n at collision and its complete phase condition. Date supplies no ordering evidence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-two-leader-controllability-ranks-and-spoke-resonances-on-w--5b3d49cda4e9",
+          "material_read": "RESULT.md Finding, assumptions, spectral splitting and rank proof, offsets 0–4647 and collision passage near 5800",
+          "method": "Local mirror primary record",
+          "title": "Exact two-leader controllability ranks and spoke resonances on weighted wheels",
+          "trigger": "Same wheel, two separate rim coordinate inputs and matching rank structure"
+        },
+        {
+          "assessment": "Same collision locus, different mixing versus absorbing invariant",
+          "evidence": "Defines exactly the same block Hamiltonian and gives √[c_k(c_k−2)/n] at every negative Fourier eigenvalue.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-mode-selective-rank-revivals-in-hub-weighted-wheel-quantum-walks--4f4cd11381f0",
+          "material_read": "RESULT.md Finding, offsets 0–2814",
+          "method": "Local mirror primary record",
+          "title": "Mode-selective rank revivals in hub-weighted wheel quantum walks",
+          "trigger": "Identical adjacency model and couplings"
+        },
+        {
+          "assessment": "Exact generic cycle term only",
+          "evidence": "Zero-flux dark dimension floor((gcd(n,2d)−1)/2), but no radial sector.",
+          "identifier_or_url": "Resultary 84c3bc481be5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Flux-resonant dark survival for two-trap quantum cycles",
+          "trigger": "Same two local detectors and cyclic modes"
+        },
+        {
+          "assessment": "General framework only",
+          "evidence": "Walk matrix associated with one characteristic-vector input; not the exact two-rim wheel theorem.",
+          "identifier_or_url": "arXiv:1010.3231",
+          "material_read": "PDF pp.1–2, walk-matrix definition and spectral description",
+          "method": "Primary OA PDF excerpt",
+          "title": "Controllable Subsets in Graphs",
+          "trigger": "Adjacency spectral controllability"
+        },
+        {
+          "assessment": "Unresolved broader historical overlap",
+          "evidence": "Abstract reports general adjacency and signless-Laplacian controllability conditions, not the details of wheel coverage.",
+          "identifier_or_url": "https://www.um.edu.mt/library/oar/handle/123456789/28166",
+          "material_read": "Repository abstract near offset 550",
+          "method": "Repository metadata; full text restricted",
+          "title": "Controllability of undirected graphs",
+          "trigger": "Possible broader adjacency leader-controllability classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The absorbing-wheel model and design question are natural. However, the exact resonant rim-pair result is mechanically transferred from the matching rank classification, with its adjacency collision parameters separately known. The standard conversion from rank to mixed-state asymptotic capture and the immediate hub/rim count do not supply a substantive independent exact remainder; no new finite-time or parameter-sensitivity result is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

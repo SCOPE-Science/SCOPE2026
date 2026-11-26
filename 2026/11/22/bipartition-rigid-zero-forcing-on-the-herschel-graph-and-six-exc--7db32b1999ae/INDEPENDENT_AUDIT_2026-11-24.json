@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:56:15.213696Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the explicit eleven-vertex graph, a forcing set must hit every nonempty fort, since otherwise the first force into it is impossible; if closure stalls the final white set is itself a fort. Hence testing the inclusion-minimal forts is sufficient. An independently written bounded replay, branches/1791af5a-f25c-4121-a0c7-8c5fcc027d75/herschel_replay.py, exhausts the 2,047 candidate forts and finds 558 forts, 30 inclusion-minimal. The resulting hitting sets have minimum size five, with 114 optima, all with signature (3,2) in the stated bipartition. An edge slide necessarily changes this signature, whereas jumping is Hamming distance two on the optimum masks. The independently regenerated 540 jump edges give a connected graph with every eccentricity five and pair counts (540,1938,2664,1167,132). Subtracting half symmetric difference gives (6183,252,6) for excess 0,1,2; the six excess-two pairs all have exchange distance four and Johnson distance two. Exhaustive degree-preserving permutations yield 12 automorphisms, under which those six pairs are one orbit. The replay matches the exact exceptional mask pairs in certificate.json, lines 2375–2408. The supplied verifiers were inspected, not run. The conclusion is a complete classification of the stated ordinary rule on the supplied labeled graph, not of other forcing rules or graph families.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The TAR paper changes cardinality in single moves; the PSD/skew paper treats different closure predicates alongside common reconfiguration terminology.",
+          "The hypercube theorem covers every Q_d with d≥2, not an eleven-vertex graph with two unequal bipartition parts."
+        ],
+        "reasoning": "Neither alternate move constraints and predicates nor a family theorem whose hypotheses the Herschel graph does not satisfy determine its fixed-size ordinary exchange metric.",
+        "searches": [
+          "arXiv:2009.00220 minimum ordinary zero forcing exchange framework",
+          "arXiv:2205.09668 token addition/removal",
+          "arXiv:2501.03642 slide/exchange for PSD and skew minima",
+          "Resultary bdba89b0d627, parity-balanced hypercube minima"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.00220",
+        "arXiv:2205.09668",
+        "arXiv:2501.03642",
+        "SageMath HerschelGraph",
+        "Resultary 81c4ae0ea3cb",
+        "Resultary 9228c57633d9",
+        "Resultary bdba89b0d627",
+        "Resultary 5a3658dea4ed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two Möbius–Kantor records already exhibit connected jumping with edgeless sliding and distance-four/Johnson-two exceptional pairs.",
+          "Möbius–Kantor is GP(8,3), with sixteen vertices and a different optimum roster. The hypercube parity theorem and the Desargues excess bound have different base graphs."
+        ],
+        "reasoning": "The Herschel statement is neither an isomorphism nor a stated specialization of these graph-specific results; neither their rosters nor the general move framework supply the Herschel six-pair orbit. The analogous style of finding is not claimed new.",
+        "searches": [
+          "Compare Resultary 9228c57633d9 jump/slide dichotomy and 81c4ae0ea3cb exceptional Johnson pairs with frozen RESULT.md proof steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exchange definition in arXiv:2009.00220 is the same one-element replacement as adjacency in the induced Johnson graph on the fort-transversal minima.",
+          "Resultary bdba89b0d627 proves parity balance and slide freezing for hypercube minima, sharing the bipartition-count obstruction but not its hypotheses or Herschel signature."
+        ],
+        "reasoning": "Minimum fort transversals and ordinary forcing minima are equivalent feasibility representations, not new rules; equal bipartition counts implying no slides is also shared. Distinct content lies in the Herschel minima exhibiting the invariant and the exact geometry of their feasible exchanges.",
+        "searches": [
+          "Resultary variants of Herschel minimum ordinary zero forcing and minimum fort transversals, bipartition rigidity and token jump/slide Johnson detours",
+          "arXiv:2009.00220, p. 2; arXiv:2501.03642, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Herschel hit is the frozen record, not another table. Same-graph nearby hits on Hamiltonian paths and a three-cut complex have different objects.",
+          "Sage describes the graph with eleven vertices, eighteen edges and automorphism group D6, consistent with the replay. It is not an ordinary forcing reconfiguration table.",
+          "81c4ae0ea3cb tabulates 1,704 states, 16,560 edges, eccentricity six and twenty-four excess-two pairs on Möbius–Kantor; 5a3658dea4ed concerns Desargues and has excess at most one."
+        ],
+        "reasoning": "Input graph data and exact analogous metrics on nonisomorphic graphs are not prior exact values for this exchange graph. An unlocated published table remains possible.",
+        "searches": [
+          "Resultary Herschel 114 minima, 540 exchanges, diameter five and Johnson excess orbit",
+          "SageMath HerschelGraph documented graph data",
+          "Resultary 81c4ae0ea3cb and 5a3658dea4ed exact exchange metrics"
+        ]
+      },
+      "rationale": "There is close prior catalogue coverage of both patterns—slide freezing from a bipartition-count constraint and distance-four exchanges with Johnson distance two—but not located on the stated Herschel graph. The structurally similar Möbius–Kantor results deserve explicit credit as precedents for the type of claim, not as implications for an eleven-vertex graph. The exact Resultary match for the Herschel theorem is this frozen record itself. The supported distinct content is the explicit Herschel roster signature and exact exchange metric, particularly the single six-pair excess-two orbit.",
+      "residual_risks": [
+        "Independent literature web queries were deferred in the shared wave, and keyword silence in the inspected sources is not proof of absence.",
+        "A differently named or unindexed finite census could already contain the Herschel roster or detours.",
+        "The replay uses the supplied explicit edge list; it does not independently reconcile its vertex labels with the inaccessible direct Sage code endpoint."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational ordinary exchange framework, not evidence of Herschel distances",
+          "evidence": [
+            "Defines exchange adjacency on minimum ordinary zero-forcing sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "OA primary paper p. 2 at offset 5850, targeted Herschel lookup",
+          "method": "Bounded original PDF text",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Identical forcing and exchange definitions"
+        },
+        {
+          "assessment": "A different legal move and state space",
+          "evidence": [
+            "Token addition/removal changes solution cardinality in a move."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.09668",
+          "material_read": "OA p. 1 at offset 600, targeted Herschel lookup",
+          "method": "Bounded original PDF text",
+          "title": "Isomorphisms and properties of TAR reconfiguration graphs for zero forcing and other X-set parameters",
+          "trigger": "Potentially broader zero-forcing reconfiguration coverage"
+        },
+        {
+          "assessment": "Prior taxonomy, with other forcing variants as the main objects",
+          "evidence": [
+            "Defines exchanges and slides, with PSD and skew as the named minimum-set problems."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.03642",
+          "material_read": "OA p. 1 vicinity of offset 4550, targeted Herschel lookup",
+          "method": "Bounded original PDF text",
+          "title": "Reconfiguration of Minimum PSD Forcing Sets and Minimum Skew Forcing Sets",
+          "trigger": "General distinction between exchange and slides and possible finite examples"
+        },
+        {
+          "assessment": "Materially similar exact theorem for Möbius–Kantor, not the Herschel graph",
+          "evidence": [
+            "16,560 jump edges and eccentricity six; twenty-four pairs with Johnson distance two and exchange distance four, no larger excess."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-self-centered-nonregular-zero-forcing-exchange-graph-on-1-704--81c4ae0ea3cb",
+          "material_read": "Original mirror Finding at offsets 0 and 900",
+          "method": "Resultary lookup and bounded original RESULT.md",
+          "title": "A self-centered nonregular zero-forcing exchange graph on 1,704 states",
+          "trigger": "Closest exact ordinary metric and excess-two pattern"
+        },
+        {
+          "assessment": "Similar split on Möbius–Kantor, not the Herschel roster",
+          "evidence": [
+            "The Möbius–Kantor unrestricted exchange graph is connected and its slide graph edgeless."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9",
+          "material_read": "Original mirror Finding near offset 200",
+          "method": "Resultary lookup and bounded original RESULT.md",
+          "title": "A sharp token-jumping versus token-sliding dichotomy for minimum zero-forcing sets",
+          "trigger": "Exact jump-connected/slide-frozen precedent"
+        },
+        {
+          "assessment": "Shares obstruction, not graph hypothesis or metric",
+          "evidence": [
+            "Parity balance for Q_d, d≥2, prohibits all minimum-set edge slides there."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-every-minimum-zero-forcing-set-of-a-binary-hypercube-is-parity-b--bdba89b0d627",
+          "material_read": "Original mirror Finding offset 0",
+          "method": "Resultary lookup and bounded original RESULT.md",
+          "title": "Every minimum zero-forcing set of a binary hypercube is parity-balanced",
+          "trigger": "General balance implies slide-frozenness"
+        },
+        {
+          "assessment": "Different graph and different excess bound",
+          "evidence": [
+            "No excess larger than one for the Desargues exchange metric."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-almost-johnson-geodesics-in-desargues-zero-forcing-reconfigurati--5a3658dea4ed",
+          "material_read": "Original mirror Finding offset 0",
+          "method": "Resultary lookup and bounded original RESULT.md",
+          "title": "Almost-Johnson geodesics in Desargues zero-forcing reconfiguration",
+          "trigger": "Exact same kind of Johnson-relative exchange distances"
+        },
+        {
+          "assessment": "Supports graph invariants, not a forcing-set table",
+          "evidence": [
+            "Eleven vertices, eighteen edges, bipartite, automorphism group D6."
+          ],
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/generators/smallgraphs.html",
+          "material_read": "HerschelGraph entry near offset 54850; direct construction-source endpoint not retrieved",
+          "method": "Public documentation passage",
+          "title": "SageMath HerschelGraph documentation",
+          "trigger": "Graph identification and independently known structural data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest non-Hamiltonian polyhedral graph is a natural fixed benchmark for reconfiguration under an observability rule. An exact obstruction freezes every edge slide despite connected unrestricted movement, and the unique orbit of six two-move detours gives structural information beyond a minimum-set count or a generic diameter bound. The full finite metric also distinguishes the example from close graph analogues without claiming a family theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

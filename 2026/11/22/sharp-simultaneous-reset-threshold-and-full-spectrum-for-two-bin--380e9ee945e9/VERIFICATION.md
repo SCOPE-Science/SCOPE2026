@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification of the simultaneous-reset spectrum
+# Independent mathematical audit
 
-The exhaustive domain consists of all \(3^6=729\) component transition tables, yielding \(729^2=531441\) ordered pairs, of which exactly \(549^2=301401\) have both components synchronizing. The two standalone sources use different proof-oriented calculations:
+## correctness
 
-- `check_words.py` directly evaluates each starting state under all length-one through length-six binary words, tests product reset by bitset intersection, independently verifies individual synchronizability using a reachability closure of nonempty subsets, and counts extremal symmetry orbits.
-- `census.cpp` independently constructs all nonempty subset transition maps and performs a breadth-first shortest-path search in their Cartesian product, computing all component and product reset thresholds.
+PASS
 
-Run:
+For each shared word, the image of the full product is the Cartesian product of the two image sets. A shortest common reset is therefore the first singleton pair reached by BFS on the 49 nonempty subset pairs; if both components reset, concatenation gives a common reset, irrespective of strong connectivity. The proof domain is all 3^6 complete transition tables per component on the same ordered alphabet, without quotienting the spectrum. The independent cutoff-free exhaustive BFS reproduced 549 synchronizing components, with 153,324,48,24 at thresholds 1–4 and 180 nonsynchronizing; for 301401 ordered synchronizing pairs it reproduced 13041,154008,87552,37872,7488,1440 at lengths 1–6. Independent state conjugations, common letter swap and factor swap give exactly 11 length-six orbits (nine of 144 and two of 72). The sharp ordered individual profiles are (3,4):576, (4,3):576, (4,4):288. The printed witness baabab resets the displayed pair and BFS rules out shorter words for it. Inspected the source Python and C++ certificates and both recorded outputs without executing uploaded code. The separate Python reproduction works using only its standard library.
 
-```sh
-python3 check_words.py
-g++ -O3 -std=c++17 census.cpp -o census
-./census
-```
+## originality
 
-The expected text outputs are included as `check_words.out` and `census.out`. The full product spectrum is \(13041,154008,87552,37872,7488,1440\) at exact reset lengths one through six. The Python checker asserts all six totals, total pair coverage, absence of longer synchronized-product thresholds, individual reachability consistency, eleven symmetry orbits, and the explicit six-letter witness. Every asserted finite statement is decidable from the listed source files. The mathematical coverage justification and a hand-checkable witness are included in `RESULT.md`.
+PASS
 
-Limits: finite exhaustive verification proves the stated finite classification, not a bound for different component state sizes, alphabets, or more factors. No other independent review is claimed.
+Supported distinct claim is the complete labeled-pair census with sharp bound and extremal classification, not the underlying reset-language intersection or subset search. The strongest exact catalogue hit is the frozen item; related three-factor and standard Černý pair results change the scientific claim. Primary product-automata coverage was checked to abstract level, with the scope limit below.
+
+## value
+
+PASS
+
+The first nontrivial small product regime is natural in shortest-reset theory: three-state factors already have distinct individual thresholds and the naive compositional upper bound is eight. The exact census resolves how a shared word delays resetting, measures how often the worst case occurs, and classifies the extremal pairs up to the natural symmetries. These are concrete benchmarks one may need for product bounds, not an isolated sampled witness or a re-count of the individual automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

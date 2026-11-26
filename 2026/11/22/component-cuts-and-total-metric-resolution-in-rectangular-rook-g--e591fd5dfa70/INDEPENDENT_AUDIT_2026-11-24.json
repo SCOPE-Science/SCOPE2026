@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:12:20.412744Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45 and VERIFICATION.md / check_distance.py / check_components.py",
+        "Replay: python3 /workspace/branches/27f55311-f39d-4da7-8781-c0b346e5bbbd/own_replay.py; retained own_replay.out in the same directory"
+      ],
+      "rationale": "A rook distance is the sum of the coordinate mismatches. If the targets share a row, after excluding the endpoints a witness must lie in a target column outside that row; this gives condition 1 including empty columns. The same-column test gives condition 2. If both coordinates differ, the other corners of the target rectangle give equal distances and the two endpoints are forbidden. A witness has exactly one coordinate among the two target rows or columns, so its edge crosses the corresponding (2,2) root shore. The selected boundary is empty exactly when the shore is a union of spanning incidence components, including isolated roots. For the 4×4 lower bound, an isolate forces degree at least two at each of the three other roots on its side, already requiring six edges. Without isolates, at most five edges on eight roots force at least three components; orders three and four are forbidden by the same-side leaf or (2,2)-shore obstructions, and a component of order at least five would require at least nine roots in total. Two order-two components also form a forbidden shore. A six-vertex path of profile (3,3) plus an edge meets all conditions, proving sharpness. The separate direct-distance enumeration of all 65,536 subsets reproduced the size-6-through-16 coefficients 2016, 6912, 10872, 10960, 7960, 4368, 1820, 560, 120, 16, 1 and total 45,605, as well as the orbit sizes 96,192,576,576,576 and weak-only/both/total-only/neither counts 1168/864/1152/4824 among six-sets. The independent replay includes endpoints for weak 2-resolution but excludes both for total resolution.",
+      "residual_risks": [
+        "The independent enumeration is for 4×4; the characterization for all rectangular boards is established by the distance proof, not by extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hedetniemi–Laskar–Mulder require a third vertex and address paths, cycles, Cartesian path grids, the 3-cube and Petersen graph in the inspected passages. The weak Hamming result covers square rook graphs but sums distances over all selected vertices."
+        ],
+        "reasoning": "A path-grid result does not supply all products of two complete graphs, and permitting endpoints under a threshold on total distance differences produces a different class of landmark sets.",
+        "searches": [
+          "DOI 10.1016/j.akcej.2019.12.021; lawful full text, pp. 2 and 6",
+          "arXiv:2505.19642 Theorem 1.1 and proof"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and matched originals",
+        "Hedetniemi–Laskar–Mulder, DOI 10.1016/j.akcej.2019.12.021",
+        "Fernández et al., arXiv:2505.19642"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weak 2-resolution also has minimum six for 4×4, but the independent cross-tabulation finds 1,168 weak-only six-sets and 1,152 total-only six-sets."
+        ],
+        "reasoning": "Equal optima cannot imply equality of the families or their enumeration. The cut characterization follows from a specific distance analysis and is not provided by the third-party definition alone.",
+        "searches": [
+          "Hedetniemi–Laskar–Mulder Definition 4",
+          "Fernández et al. Definition of weak k-resolution and Theorem 1.1",
+          "Triangular-graph original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The triangular-graph result includes that every four-label ground shore has a crossing edge; the rook theorem instead uses a bipartite shore with exactly two roots on each side and two additional local neighborhood tests."
+        ],
+        "reasoning": "Both exploit distances and crossing edges, but restricting a complete ground graph's targets and eligible landmarks to opposite-side pairs changes the available shores and pairs sharing an endpoint. The compared triangular theorem does not directly characterize the restricted problem. No distinct equivalent cut-transversal statement for the full rook theorem was established.",
+        "searches": [
+          "Resultary: total resolution in rectangular rook graphs and incidence cut transversals",
+          "2026/11/22/SCOPE-minimum-total-resolving-sets-of-triangular-graphs-are-long-cycle--93945e6418e1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact census hit is the assigned record itself. The weak Hamming paper reports computer verification at n=3,4,5 for the weak minimum. The distinct extremal-forest census is for weak-2 minima with 8 ≤ n ≤ m ≤ 2n−5."
+        ],
+        "reasoning": "Neither a weak minimum nor a large-board weak-basis table fixes the total resolving sets or either family’s intersection on 4×4. No distinct exact total census was located in these checks.",
+        "searches": [
+          "Resultary: 4×4 rook total-resolving polynomial and six-set orbits",
+          "arXiv:2505.19642, p. 7 proof of Theorem 1.1",
+          "2026/11/8/SCOPE-extremal-forests-and-enumeration-of-weak-two-metric-bases-in-nea--e1f0aa1a062c"
+        ]
+      },
+      "rationale": "The established notion is total resolution, not this new definition. The distinct claim is its rectangular-rook incidence characterization including the two local neighborhood conditions, together with the full 4×4 census. The closest same-family work instead allows endpoints under an additive weak-2 condition; the closest same-parameter cut formulation studied here uses triangular graphs and different shores. Neither supplies the claimed result.",
+      "residual_risks": [
+        "The bounded web lookup did not produce a relevant independent source beyond the inspected comparisons. It does not settle exhaustive priority, especially under alternative terminology for line graphs or cut transversals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established definition, not a checked rectangular-rook classification",
+          "evidence": "Requires a selected third vertex distinct from both targets; the inspected overview lists path grids, cycles and particular small graphs.",
+          "identifier_or_url": "https://repub.eur.nl/pub/126872/Repub_126872_O-A.pdf",
+          "material_read": "p. 2 (offset about 1450) and p. 6 Definition 4 (offset about 29800)",
+          "method": "Lawful OA PDF passages",
+          "title": "New resolvability parameters of graphs",
+          "trigger": "Primary source for total metric resolution"
+        },
+        {
+          "assessment": "Known weak-2 optimum, not total resolution or overlap counts",
+          "evidence": "The weak sum uses all landmarks; the theorem gives ceil(16/3)=6 on 4×4 and the proof notes computer checks for n=3,4,5.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.19642",
+          "material_read": "pp. 1–2 definition and Theorem 1.1 (offsets about 1000–2600 and 6500); p. 7 proof (about 26000)",
+          "method": "Lawful OA PDF passages",
+          "title": "On the weak k-metric dimension of Hamming graphs",
+          "trigger": "Same board and same minimum size under a related condition"
+        },
+        {
+          "assessment": "Different resolving criterion and parameter range",
+          "evidence": "Counts weak-2 minimum sets as incidence forests for 8 ≤ n ≤ m ≤ 2n−5.",
+          "identifier_or_url": "2026/11/8/SCOPE-extremal-forests-and-enumeration-of-weak-two-metric-bases-in-nea--e1f0aa1a062c",
+          "material_read": "Original Finding",
+          "method": "Local publication mirror",
+          "title": "Extremal forests and enumeration of weak two-metric bases in near-square rook graphs",
+          "trigger": "Same incidence representation, enumerated resolving bases"
+        },
+        {
+          "assessment": "Related method but different graph family and statement; no priority inference from the date",
+          "evidence": "Its criterion for J(n,2) on a complete-graph ground set includes that every four-label cut be crossed.",
+          "identifier_or_url": "2026/11/22/SCOPE-minimum-total-resolving-sets-of-triangular-graphs-are-long-cycle--93945e6418e1",
+          "material_read": "Original Finding",
+          "method": "Local publication mirror",
+          "title": "Minimum total resolving sets of triangular graphs",
+          "trigger": "Same total resolving parameter and a component/cut condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–41",
+        "Independent 4×4 census and orbit/overlap output",
+        "arXiv:2505.19642 Theorem 1.1"
+      ],
+      "rationale": "For a natural product family, the theorem replaces all metric witness comparisons by local incidence restrictions and a bounded-profile component obstruction. It yields a sharp small-square optimum and an exact benchmark by size and symmetry. The overlap counts resolve a concrete ambiguity at equal optimum: weak 2-resolution does not select the same candidates as a third-party landmark requirement.",
+      "residual_risks": [
+        "The analysis supplies no optimum or enumerator in general m,n; the census is labelled and applies only to 4×4."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

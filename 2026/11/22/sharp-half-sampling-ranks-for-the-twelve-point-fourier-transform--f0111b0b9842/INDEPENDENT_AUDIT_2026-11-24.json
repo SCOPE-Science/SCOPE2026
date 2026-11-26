@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:21:47.585057Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52, VERIFICATION.md lines 19–25, verify_rank12.cpp, verify_period12.py, rank_orbits.csv, check_cpp.txt and check_python.txt; recorded evidence only, no frozen script executed",
+        "/workspace/branches/bffd27f2-b79a-4d0b-ad9e-e9150ac57b7a/independent_rank12.py, independent_rank12.log, independent_rank_orbits.csv and independent_audit.txt. Replay from that directory: python3 independent_rank12.py --csv independent_rank_orbits.csv"
+      ],
+      "rationale": "For the unitary normalization U of F_G the restricted matrix is a compression between coordinate subspaces, so its singular values are at most one; its squared Frobenius norm is |R||C|/|G|. Equality occurs exactly when each nonzero singular value is one. With Q=UP_CU*, the defect of P_R Q P_R from idempotence is the positive operator ((1−P_R)QP_R)*((1−P_R)QP_R), hence equality holds exactly when P_R and Q commute. Its mixed block has Fourier-indicator entries at χψ⁻¹ for χ in R and ψ outside R. A character difference η is absent from this block exactly when η preserves the complement of R: inclusion follows from absence and upgrades to equality by finiteness. Thus commutation means support of the Fourier transform of 1_C is contained in H_R, which by inversion is exactly H_R-perpendicular periodicity; the dual assertion follows by exchanging the restrictions. At order twelve stabilizer size divides 6 and 12/|H_R| must also divide 6, so the only cases are orders 6 and 2. The first gives 2 parity choices for R and 20 antipodal-union choices for C; the second gives 18 non-parity antipodal-union choices for R and 2 parity choices for C. Thus the analytically classified rank-three stratum has 76 pairs. For the full census, independent translations preserve rank by diagonal rephasings, and a fresh computation with different primes regenerated all 80 orbits and 6400 representative pairs, weighted by the orbit-size products to cover all 853776 set-pairs. The matching ranks modulo 50053 and 50077 are exact: a nonzero k-minor has nonzero integer norm bounded by k^(2k)≤6^12 from the four conjugate Hadamard bounds; vanishing in both reductions would force its norm divisible by 2506504081>6^12. A minor detected in either field certifies a nonzero complex minor. This verifies exact weighted counts 76, 5376, 150564, 697760 and independently checks the rank-three configurations. The calculation is exhaustive through symmetry, not 853776 separate eliminations.",
+      "residual_risks": [
+        "The exact numerical census is specific to the stated six-by-six complex restrictions. The universal theorem is a bound and characterization of its saturation; it does not give all ranks, or condition numbers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison describes low-rank constructions and extremal Hamming-number profiles in Delvaux–Van Barel; catalogue metadata independently confirms the paper identity, not its results.",
+          "Frozen RESULT.md lines 54–55 distinguish support inequalities and subgroup equality witnesses from a full rank incidence."
+        ],
+        "reasoning": "By CRT F_12 is equivalent by relabelling to F_3⊗F_4, so general Kronecker Fourier results are genuinely relevant. A construction or a support-size inequality can supply a minimum witness or bound without giving all saturating pairs and the higher-rank incidence. The full paper could not be checked for a stronger dominating theorem.",
+        "searches": [
+          "Delvaux–Van Barel DOI 10.1016/j.laa.2007.05.009 / KU Leuven TW477",
+          "Donoho–Stark uncertainty, Meshulam arXiv:math/0312407v1 and Bonami–Ghobber arXiv:1003.5060v1, as compared in the frozen result"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 54–69",
+        "Resultary 2e8e14615690, db3ff8f3dd64, 81a97859d04e and 0b9ac16390cf indexed summaries",
+        "Delvaux–Van Barel DOI 10.1016/j.laa.2007.05.009, metadata/landing as above",
+        "Matpic exact URL and retrieval limitations above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md lines 55–57 distinguishes extremal Hamming profiles, full spark, aggregate zero-minor counts and exact half-size strata.",
+          "The new minimum characterization requires support of the indicator transform to be contained in the full translation stabilizer, not existence of a low-support vector."
+        ],
+        "reasoning": "If a prior theorem already classified all saturated restrictions in the same domain, or a prior data release gave all minor zero patterns, the corresponding results would be covered even without these exact numbers. The actual available support-level, existence-level, and different-size statements do not mechanically imply both the all-group equivalence and this census. Unexamined tables in the closest paper are an explicit residual, not negative evidence.",
+        "searches": [
+          "Delvaux–Van Barel DOI 10.1016/j.laa.2007.05.009; Matpic named essay; Resultary 81a97859d04e and db3ff8f3dd64"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same local hit f0111b0b9842 is the target.",
+          "Order-12 full-spark record 81a97859d04e, indexed statement; exact-support Fourier uncertainty profile record 0b9ac16390cf, indexed statement"
+        ],
+        "reasoning": "The rank question is equivalent to the dimension of the kernel of the restriction on a given C, not the minimum achievable Fourier support over vectors of that size. Full spark records whether any column choice is singular for a row set, not the count at each nullity. Independent translations, transpose and complementary half-size blocks preserve the relevant rank, but do not rephrase either available classification into the census.",
+        "searches": [
+          "Resultary: order twelve DFT Fourier 12 six by six half sampling exact ranks 76 5376 150564 697760 histogram singular minors parity antipodal finite abelian rank equality",
+          "Primary search for the half-size order-twelve Fourier census and finite-abelian rank equality; no focused result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact fourth-order record 2e8e14615690 gives 1224, 39384, 204417 at ranks 2,3,4; exact fifth-order record db3ff8f3dd64 gives 3888, 109008, 514368 at ranks 3,4,5 (indexed summaries).",
+          "Frozen RESULT.md lines 57,69 describe the Matpic count as aggregate across sizes; direct and lawful alternate attempts did not recover the page or any associated dataset."
+        ],
+        "reasoning": "Counts at other sizes do not determine these counts; complementary-submatrix duality pairs sizes 4 with 8 and 5 with 7, not with 6. An aggregate zero-minor count, or even the total number of singular six-minors, cannot by itself partition rank losses into 3, 4 and 5. Conversely, an actual exhaustive indexed table of vanishing minors at all relevant sizes could imply the ranks by containment; such a table was not established or ruled out for Matpic.",
+        "searches": [
+          "Resultary rank-incidence records for order 12 at all sampling sizes; Matpic, A prime leaves no room for a comb"
+        ]
+      },
+      "rationale": "Credit the classical Fourier uncertainty ideas, low-rank subgroup constructions and adjacent full-spark and rank-incidence results. The supported distinct claim is the complete half-size rank stratification and its exact minimum-rank pairs, with a general annihilator-periodicity equivalence. The available statements do not give or imply that combination. The Kronecker-product literature and potential data behind an aggregate minor count remain material priority risks; the pass is on available evidence, not a finding that either inaccessible source does not cover it.",
+      "residual_risks": [
+        "Could not inspect the relevant original theorems/tables of Delvaux–Van Barel despite lawful alternate routes; the overlap is material because the order-12 DFT is a Fourier Kronecker product.",
+        "Could not verify whether Matpic's count is backed by an exhaustive indexed dataset that would imply this table. No whole-document non-coverage or historical priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material unresolved prior-coverage risk; neither a duplicate nor non-coverage is established.",
+          "evidence": [
+            "Verified identity and Kronecker-product rank-deficiency scope; the low-rank constructions/Hamming extrema attribution is from the frozen comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.05.009",
+          "material_read": "Crossref metadata (LAA 426, 349–367), landing/abstract level only, and frozen comparison lines 55 and 64. No primary theorem or table passage recovered.",
+          "method": "Exact DOI access and lawful alternate attempts via the journal PDF, KU Leuven TW477 and CiteSeerX",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Same Fourier rank question on a product equivalent to F_12 by CRT"
+        },
+        {
+          "assessment": "Reported aggregate count would not distinguish deeper rank defects. Actual dataset scope and priority date remain unresolved.",
+          "evidence": [
+            "Frozen record describes an undated count aggregated across minor sizes; no independent assertion about its contents beyond that description."
+          ],
+          "identifier_or_url": "https://www.matpic.com/essays/a-prime-leaves-no-room-for-a-comb/",
+          "material_read": "Frozen comparison line 57 and citation line 69 only; direct retrieval and identified archive attempt did not give a usable passage or dataset",
+          "method": "OA website mode, direct exact-source retrieval and lawful archive attempt",
+          "title": "A prime leaves no room for a comb",
+          "trigger": "Possible complete zero-minor data for the same Fourier order"
+        },
+        {
+          "assessment": "The available statement classifies five-by-five restrictions rather than the half-size stratum.",
+          "evidence": [
+            "The indexed 66×66 translation-orbit table is for cardinality five; the summary gives 3888, 109008 and 514368 for ranks 3–5."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-complete-fifth-order-fourier-rank-incidence-on-the-twelve-cycle--db3ff8f3dd64",
+          "material_read": "Resultary indexed finding; full mirror passage unavailable on attempt",
+          "method": "Local Resultary and lawful mirror attempt",
+          "title": "Complete fifth-order Fourier rank incidence on the twelve-cycle",
+          "trigger": "Same Fourier matrix and exact rank incidence, adjacent cardinality"
+        },
+        {
+          "assessment": "Available claim detects row-set obstructions but does not enumerate the rank of each six-by-six restriction.",
+          "evidence": [
+            "Summary lists two affine obstruction types up to complement, including the six-element representative {0,1,2,3,5,10}."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-complete-full-spark-classification-for-the-order-12-dft--81a97859d04e",
+          "material_read": "Resultary indexed finding; full mirror passage unavailable on attempt",
+          "method": "Local Resultary and lawful mirror attempt",
+          "title": "Complete full-spark classification for the order-12 DFT",
+          "trigger": "Same DFT and one self-complementary half-size obstruction orbit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–17 and 23–49",
+        "Local full-spark and fourth-/fifth-order incidence descriptions for comparison"
+      ],
+      "rationale": "Sampling at half the ambient dimension is a natural square Fourier recovery problem, and order twelve admits genuine subgroup obstructions at exactly half size. Knowing which row sets fail full spark does not distinguish the 156016 singular pairs by nullity or identify the exact 76 deepest failures. The census supplies that distinction, while the projection argument explains the deepest failures by a usable necessary-and-sufficient dual periodicity criterion rather than a table of individual witnesses. This gives an independently useful finite benchmark and a structural result for arbitrary finite abelian groups.",
+      "residual_risks": [
+        "The counts say nothing about numerical conditioning and do not constitute a census at arbitrary Fourier orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

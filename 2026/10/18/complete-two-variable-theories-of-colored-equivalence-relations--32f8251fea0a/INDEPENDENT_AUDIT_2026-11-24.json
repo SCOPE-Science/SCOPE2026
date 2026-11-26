@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:57:04.107636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:28–60",
+        "VERIFICATION.md:19–34 and verify.py (inspected, not executed)",
+        "Independent finite check: python3 /workspace/review_checks.py logic"
+      ],
+      "rationale": "The two nested existential quantifiers defining two members of a color may shadow the first variable: transitivity keeps the witnesses in the same class. The two outer witnesses in the global test then distinguish one class from two. In the other direction, match the moved pebble by its color and exact local vector; if no pebble is stationary, h(t)>0 suffices. With a stationary pebble, equality, a different member of its class, and a member of a different class require respectively no new choice, local counts capped at two, and class counts capped at two. This invariant works also on infinite structures. Keeping h(t) classes with exactly t_C survivors of each color is induced and realizes the same profile; conversely every nonzero profile is realized. The all-two profile forces at least 2 times the sum of all local vector weights, namely 2q3^q, in the stated class of structures. The uncolored and one-predicate theory counts and bounds follow. An independent rank-four semantic refinement on all isomorphism types through size six found 8 profiles in 29 models for one color and 124 profiles in 274 models for two colors, with exactly matching truth-signature partitions.",
+      "residual_risks": [
+        "The finite check is corroborative; all sizes and infinite structures are covered by the back-and-forth proof, not by enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Kieroński–Otto bounds concern replacement or small-model normal-form transfer rather than all sentence theories of an induced structure. Fiuk treats an equality-free fragment."
+        ],
+        "reasoning": "The broader inspected results do not imply an induced, all-theory core with a sharp signature-only bound and do not count the elementary equivalence classes for FO². The counting-and-equivalence article remained inaccessible as full text and supplies no negative finding.",
+        "searches": [
+          "Kieroński–Otto, Theorem 2, Proposition 4, Proposition 7, Lemma 9",
+          "Fiuk arXiv:2610.06493v1",
+          "Pratt-Hartmann DOI 10.1002/malq.201400102"
+        ]
+      },
+      "checked_sources": [
+        "Kieroński–Otto full version",
+        "Resultary e2acfc789698 and 6daaa59d26ca",
+        "Fiuk arXiv:2610.06493v1",
+        "Pratt-Hartmann DOI metadata and access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target separates every pair of different profiles by rank at most four and shows equal profiles agree at arbitrary rank. Neither the rank-two quotient nor the normal-form small-model results prove both of these directions."
+        ],
+        "reasoning": "In particular, the fixed-signature sharp induced bound follows from distinguishing all profiles, not from the existence of a small model for an individual formula or a small canonical representative for a guarded profile.",
+        "searches": [
+          "Same-day rank-two RESULT.md, Proof Steps 1–3",
+          "Guarded RESULT.md, Proof Steps 1–4",
+          "Kieroński–Otto, Proposition 7 and Lemma 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two-pebble formulation is the standard proof language; the same-signature guarded result uses presence only for distinct classes of a given local vector, not presence capped at two."
+        ],
+        "reasoning": "The guarded-fragment invariant identifies structures with one versus two identical classes, which the target FO² sentences separate. It is a strictly coarser equivalence, not an alternative formulation of the result.",
+        "searches": [
+          "Resultary: colored equivalence, two-variable profiles, sharp small substructures and guarded equivalence theories",
+          "Kieroński–Otto, fo2eq2011.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 207-theory table is for one predicate and rank at most two; it already enumerates 6560 input profiles. The guarded census counts different theories."
+        ],
+        "reasoning": "Credit the overlapping finite profile enumeration, but neither table is a census of complete two-variable theories for every fixed unary signature.",
+        "searches": [
+          "Resultary rank-two unary-coloured equivalence match, e2acfc789698",
+          "Resultary guarded-equivalence match, 6daaa59d26ca"
+        ]
+      },
+      "rationale": "The exact fixed-signature all-sentence FO² classification and sharp induced core survive the comparison. A distinct same-day rank-two record already enumerates the capped profiles for one predicate, but quotients them into 207 rank-two theories instead of distinguishing them all in unbounded-rank two-variable logic. There is no relative priority inference from the shared date.",
+      "residual_risks": [
+        "Equivalent finite-variable composition or monadic equivalence formulations may exist outside the inspected statements.",
+        "No historical priority claim; the counting-and-equivalence article was not available for passage-level comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related machinery, not the exact theory classification or induced sharp core",
+          "evidence": "Theorem 2 preserves true universal and universal-existential formulas under replacement; Proposition 4 concerns one- and two-types and one-way normal-form transfer.",
+          "identifier_or_url": "https://www2.mathematik.tu-darmstadt.de/~otto/papers/fo2eq2011.pdf",
+          "material_read": "Theorem 2 (p. 4), Proposition 4 (p. 6), Proposition 7 and Lemma 9 (pp. 9–10)",
+          "method": "Lawful full-version PDF, bounded statement inspection",
+          "title": "Small Substructures and Decidability Issues for First-Order Logic with Two Variables",
+          "trigger": "Closest classical FO² small-substructure result with one equivalence"
+        },
+        {
+          "assessment": "Material overlap in profile enumeration, not the all-rank classification",
+          "evidence": "For one unary predicate and finite structures: 6560 profiles become 207 rank-two theories, with a sharp minimum-model bound of 13.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-thirteen-element-rank-two-model-bound-for-unary-coloured--e2acfc789698/RESULT.md",
+          "material_read": "Finding and Proof Steps 1–3",
+          "method": "Local Resultary mirror",
+          "title": "A sharp thirteen-element rank-two model bound for unary-coloured equivalences",
+          "trigger": "Same-day record in the one-predicate subcase"
+        },
+        {
+          "assessment": "Different fragment and class-presence invariant",
+          "evidence": "The guarded result has 2^(3^q-1)-1 theories and bound q3^q, forgetting class multiplicities.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-guarded-fragment-theories-and-a-sharp-finite-model-bound-f--6daaa59d26ca/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof Steps 1–4",
+          "method": "Local Resultary mirror",
+          "title": "Exact guarded-fragment theories and a sharp finite model bound",
+          "trigger": "Same signature and similar local profiles"
+        },
+        {
+          "assessment": "Different fragment and conclusion in inspected passage",
+          "evidence": "Equality-free fragment with an equivalence and finite-model-property and complexity results.",
+          "identifier_or_url": "https://arxiv.org/html/2610.06493v1",
+          "material_read": "Scope and introductory statement near text offset 1274",
+          "method": "Original OA arXiv text",
+          "title": "Maslov’s class K with Equivalence",
+          "trigger": "Cited equivalence-class small-model work"
+        },
+        {
+          "assessment": "Unresolved literature risk, not evidence of absence",
+          "evidence": "Title identifies a richer counting language; no exact statement comparison was possible.",
+          "identifier_or_url": "https://doi.org/10.1002/malq.201400102",
+          "material_read": "Citation and scope metadata only",
+          "method": "Lawful OA and repository retrieval attempt; full text not obtained",
+          "title": "The Two-Variable Fragment with Counting and Equivalence",
+          "trigger": "Richer-variable-fragment overlap risk"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:14–22,30–56",
+        "Same-day rank-two result and guarded result cited above"
+      ],
+      "rationale": "For a standard signature and logic, it gives a minimal concrete equivalence invariant and the worst-case size of an actual induced theory-preserving core, not just an upper bound on a replacement model. The characteristic sentences permit theory separation and certify the exact lower bound. This is useful for comparing finite-variable fragments and compressing arbitrary structures even though the proof is elementary.",
+      "residual_risks": [
+        "Scope is the ordinary two-variable fragment in exactly the stated signature; no extension to counting or additional relations is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

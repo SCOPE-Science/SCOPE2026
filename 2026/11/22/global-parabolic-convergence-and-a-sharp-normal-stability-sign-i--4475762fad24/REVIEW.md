@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coordinate change \(u=y-x\), \(w=2az-x^2\) yields exactly \(\dot E=-2a(a+\gamma z)u^2-2a\beta w^2\); formal coefficient expansion was replayed. The height identity bounds all negative transients by \(z(t)\ge-\max(0,-z_0)e^{-2at}\). The energy bound gives forward completeness, phase convergence, compact-initial-set continuity, and rigidity of stationary probabilities and compact invariant sets. The normal Jacobian is reconstructed directly; the sharp negative-coupling witness follows from its positive trace. Neither finite experiments nor the checker replace the analytic inequalities.
+PASS
 
-## Originality — PASS within inspected material
+The change u=y-x, w=2az-x^2 is nonsingular for a>0 and gives u'=-(a+gamma*z)u-beta*y*w, w'=-2aw+2ayu. In E=a*u^2+beta*w^2/2 the cross terms cancel. Variation of constants in z'+2az=y^2 gives z>=-Z_- exp(-2at) for all times of existence, so E'<=(-2a+2gamma*Z_- exp(-2at))E and integration gives the stated bound, also valid on the stationary locus E=0. Finite-time bounds on u,w and the integral of x'=au bound all original coordinates, giving forward completeness. The integrable exponential bound on x' gives a single limiting s and the stated tail bound; the formulas for y,z transfer the rate. The convergence is uniform on compact sets of initial states, so the limit is a continuous retraction, invariant along forward trajectories. Bounded convergence proves support on the closed equilibrium parabola for invariant probabilities. For a compact invariant set, invariance means equality under every forward map, not merely positive invariance: preimages in the compact set and the uniform energy estimate force zero energy. The normal matrix has trace -3a-gamma*s^2/(2a) and determinant 2a^2+(2a*beta+gamma)s^2, giving strict normal attraction at gamma>=0 and a transverse eigenvalue with positive real part if gamma<0 and s^2>6a^2/(-gamma). This is not a classification of negative-coupling nonlinear dynamics. `python /workspace/review_replay.py 2` independently replayed the exact energy derivative and the two spectral invariants from the stated vector field.
 
-The primary 2023 paper establishes the equilibria and their general local normal spectra, while its displayed **global** Lyapunov argument explicitly restricts to \(b_3=0\). The new global all-real-initial-state result for the full open positive mixed-coupling ray, including explicit transient control, probability classification and compact recurrence rigidity, is not implied by those narrower statements. The trace threshold agrees with and is subsumed by the original general spectrum: no separate originality is attributed to that subclaim. Searches of public mathematical research records, direct parameter aliases, other Lorenz-like stability results and source-title literature did not reveal the same global extension. Indexed primary propositions were read; remaining inaccessible full-text material and unindexed work are residual priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The source explicitly studies globally stable parabolic equilibria in a six-parameter cubic flow. Retaining a nonzero \(xz\) coupling is a natural structural stability question, not a renamed zero-coupling calculation. The explicit theorem covers all real initial data, quantifies the only adverse transient (initial negative height), identifies the complete stationary-measure simplex, and gives a sharp reason universal normal stability cannot extend into negative coupling. The result delimits where compact recurrent/chaotic dynamics are impossible.
+The supported new part is global, quantitative convergence for arbitrary positive mixed coupling on the balanced parabola surface, including negative initial height and the resulting complete recurrence/measure conclusions in that regime. Neither the zero-coupling case, the parabola itself, nor the normal spectral threshold is credited as independently new.
 
-## Scope and limitations
+## value
 
-Only the naturally balanced parabolic-equilibrium surface is considered; the stronger dynamical behavior of negative-coupling trajectories is not classified. Related records address different flows. Full-text access to all sections of the originating article was incomplete beyond the read indexed propositions; no independent validation was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Keeping an entire positive coupling ray on the equilibrium surface, rather than setting the mixed coupling to zero, addresses a natural constraint of the original cubic family. The height estimate treats a sign-indefinite transient and proves all-state convergence, selected phase and absence of compact recurrent motion. This extends the global theorem, not just a local trace computation; the known negative sign boundary appropriately limits the claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

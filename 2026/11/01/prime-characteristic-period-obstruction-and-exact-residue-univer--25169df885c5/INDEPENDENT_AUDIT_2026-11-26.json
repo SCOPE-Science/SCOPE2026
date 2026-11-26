@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:18:27.333240Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Proof and Assumptions; VERIFICATION.md; both verification scripts read, not run; supplied logs treated as recorded evidence only",
+        "Replay: python3 /workspace/branches/independent_reproduction.py 4; direct vertex-neighbor iteration on eight graphs (51,330 initial vectors), including mixed residues and a=0; checked congruent cases by period-divisor subtraction and fiber counts"
+      ],
+      "rationale": "Taking part sums S and repeating coordinates E gives F=E(J−I)S with S surjective, E injective and SE=D. The induced map on the part-constant subspace is B=(J−I)D, and the remaining quotient map is zero. For each residue a the group sum-zero subspace is acted on by −a; their direct sum is semisimple. The quotient on residue-group sums has dimension s≤p, with a zero column if s=p. Thus all nonzero irreducible degrees and the total nonzero generalized-eigenspace dimension of that quotient are at most p−1. Each B Jordan chain gains at most one over its primary quotient, and the vertex-space extension adds at most one at eigenvalue zero, none elsewhere. Nonzero blocks of length at most p have unipotent order dividing p, while the semisimple order divides L_p; the nilpotent part vanishes by step p+2. For equal residues, a=0 makes F square-zero of rank r−1_{r=1 mod p}. For a≠0, B=a(J−I) is scalar on the sum-zero space, with either a split constant line, a nilpotent rank-one perturbation when r=0 mod p, or a rank-r−1 image when r=1 mod p. In the rank-one perturbation case, taking the sum of a returning vector first forces (−a)^t=1 for a nonzero sum, then returning the vector forces p|t. The bijection on the image gives one recurrent preimage per fiber and p^(N−b)−1 transient ones. Coincident period labels are added; dividing by period gives the Euler factors for the zeta function.",
+      "residual_risks": [
+        "The finite replay checks representative cases only. The uniform numerical cutoff is not asserted to be optimal."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moreno et al. explicitly relate elementary divisors to orbit structure for linear maps. Kantic et al. study cycles and tree heights for linear systems on cyclic modules over Galois rings.",
+          "No inspected passage supplies the quotient dimension and nonzero Jordan-chain bound here; an unrestricted finite linear map may have a nonzero Jordan block of length p+1 and thus a p²-divisible period."
+        ],
+        "reasoning": "General classification by a given endomorphism's elementary divisors is not a stronger assertion giving a part-count-independent constraint on those divisors. The residue-specific restriction is necessary.",
+        "searches": [
+          "Moreno–Bollman–Aviño-Díaz, arXiv:math/0604534",
+          "Kantic et al., arXiv:2604.01548",
+          "Hernández Toledo, DOI 10.1081/AGB-200066211"
+        ]
+      },
+      "checked_sources": [
+        "Resultary acea41c73be7 and 4ecb3a94eabc",
+        "arXiv:math/0604534; arXiv:2604.01548",
+        "ScienceAsia 49S (2023), pp. 50–58, abstract",
+        "Frozen RESULT.md and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Binary dynamics depends on two possible residues; the odd-prime theorem needs a bound allowing up to p residue classes and nonzero eigenvalues in extension fields.",
+          "The general finite-dynamical framework makes Jordan-to-period conversion standard, but the residue-group semisimple subspace and rank-one cases are specific calculations."
+        ],
+        "reasoning": "There is no field relabeling that takes the binary orbit counts to odd primes. Standard linear dynamics supplies the conversion from a Jordan bound to a period bound, not the graph-specific bound itself.",
+        "searches": [
+          "Resultary acea41c73be7, exact Finding",
+          "arXiv:math/0604534, §§2–4, especially p. 3 discussion of elementary divisors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The update is an adjacency-matrix linear finite dynamical system, so period and transient claims amount to orders on the invertible part and zero-primary nilpotent indices.",
+          "The graph-related primary search hit, ScienceAsia 49S (2023), 50–58, studies adjacency-matrix row-space codes, not the dynamical invariants."
+        ],
+        "reasoning": "The code row space alone does not capture Jordan chains or periodic behavior. The elementary-divisor formulation permits translation of the claim but does not itself show the bounded residue-group quotient.",
+        "searches": [
+          "Local Resultary search for complete-multipartite period/cycle census",
+          "arXiv:math/0604534, §§2–4",
+          "Primary query: \"complete multipartite\" \"finite field\" neighbor-sum dynamics periods linear automata graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "acea41c73be7 gives the binary complete-multipartite adjacency cycle census, including periods 1, 2, 4 and the zeta function.",
+          "4ecb3a94eabc gives a characteristic-three tripartite census for the two-layer wave T(u,v)=(Au−v,u), not F(x)=Ax; all states of that wave map are periodic."
+        ],
+        "reasoning": "The first is the direct characteristic-two counterpart, outside the odd-prime theorem. The second changes the state space and recurrence, even when the adjacency matrices are the same. Neither contains the proposed census or iterate identity.",
+        "searches": [
+          "Configured Resultary search; exact mirrored records acea41c73be7 and 4ecb3a94eabc"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the graph-size-independent odd-prime obstruction for arbitrary residues, together with the explicit common-residue joint law. The standard finite-linear setting and the analogous binary analysis are prior material, not claimed as new. Bounded comparison against the closest precise statements supports the distinction.",
+      "residual_risks": [
+        "Hernández Toledo's 2005 full text remains uninspected; an earlier specialized example is possible.",
+        "This bounded search does not rule out other formulations of the graph-specific Jordan bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine binary predecessor, not odd-prime coverage",
+          "evidence": "The field is F_2 and periods 1, 2, 4 are classified for the binary rules.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+          "material_read": "Mirrored RESULT.md Finding, update and census",
+          "method": "Local Resultary mirror",
+          "title": "Sharp period-four census for complete multipartite parity automata",
+          "trigger": "Closest counterpart on the same graph and update"
+        },
+        {
+          "assessment": "Different dynamical system",
+          "evidence": "The state consists of two consecutive layers, and its update is T(u,v)=(Au−v,u).",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-four-arithmetic-wave-clocks-for-characteristic-three-complete-tr--4ecb3a94eabc",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Four arithmetic wave clocks for characteristic-three complete tripartite systems",
+          "trigger": "Potential overlap in characteristic and graph family"
+        },
+        {
+          "assessment": "General framework; no graph-specific bound in the inspected passages",
+          "evidence": "The authors relate linearized-polynomial properties to orbit structure in analogy with the classical determination by elementary divisors.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0604534",
+          "material_read": "§§2–3, pp. 2–3 and the elementary-divisor discussion around offsets 8700–10497",
+          "method": "Targeted lawful OA passages",
+          "title": "Finite Dynamical Systems, Linear Automata, and Finite Fields",
+          "trigger": "Plausible general theorem for exact linear-system cycles"
+        },
+        {
+          "assessment": "Related general linear systems, no target graph-specific bound identified in those passages",
+          "evidence": "Studies cycles and tree heights in systems on cyclic modules over Galois rings.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.01548",
+          "material_read": "Abstract and Introduction, offsets 0 and 4357",
+          "method": "Lawful OA passages",
+          "title": "On the Dynamics of Linear Finite Dynamical Systems Over Galois Rings",
+          "trigger": "Plausible general coverage of period and tail invariants"
+        },
+        {
+          "assessment": "Inaccessible, not used as negative evidence",
+          "evidence": "DOI request returned HTTP 403; no available repository copy was located.",
+          "identifier_or_url": "https://doi.org/10.1081/AGB-200066211",
+          "material_read": "Bibliographic record only; full text not retrieved",
+          "method": "DOI access attempt and lawful repository lookup",
+          "title": "Linear Finite Dynamical Systems",
+          "trigger": "Possible antecedent in the classical finite-linear theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, arbitrary-residue theorem and common-residue law",
+        "Explicit congruent and mixed-residue cases in the independent replay"
+      ],
+      "rationale": "The p² obstruction is uniform despite arbitrary growth in the graph and is false for general linear updates over the same field. The residue quotient explains the obstruction structurally. The exact common-residue law then identifies when a p factor can occur and supplies orbit counts and basin-entry counts, not only a period-existence assertion. These are natural invariants of this graph family; the usefulness does not depend on optimality of the coarse universal bound.",
+      "residual_risks": [
+        "No exact census is given for arbitrary residues; no stronger uniform constants are credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:04:08.146567Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cut sets of size c=b−1 encode the partitions bijectively; answer zero is interval intersection. The single-negative, all-negative and all-positive traces force private sites, tau≤c and at least c outside sites, respectively. With private sites, intervals have no containment and their left and right endpoint orders agree; at a triple common point the middle interval is covered by the outer two, a contradiction. Consequently when piercing the intended negatives, a site hitting an unwanted interval can hit only one intended interval and can be moved to its private site. At most c sites suffice before exact padding outside the whole support. For s intervals, private sites are distinct, and an all-negative witness needs at least max(0,s−c) distinct shared sites, disjoint from private sites. Thus s≤2c, s≤m−c and m≥c+s+max(0,s−c)≥2s. Singletons attain the bound for s≤c; otherwise s−c disjoint overlapping pairs and 2c−s singleton gadgets occupy 2s−c sites with one piercer per active gadget. Empty supports and c=0,m are covered. My bounded replay, `/tmp/opencode/frozen-review-repro.py intervals`, computed piercing directly from cut-set traces instead of using greedy piercing and checked 202,013 support/quota pairs for m=0,…,5. Source checker and its recorded output were inspected, not executed; the universal conclusion follows from the argument, not replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted convex-equivalence theorem requires only private sites and has dimension m.",
+          "The refinement-closed partition theorem requires closure under every refinement."
+        ],
+        "reasoning": "An exact c layer is not refinement-closed in general; a witness in the union of all layers need not have size c. For example with m=3 and c=1, the two disjoint singleton intervals each have a private site, but cannot both be hit by one cut.",
+        "searches": [
+          "Resultary mirror: ...f0f3d770c003 and ...2203ea0ddc4a, Finding and assumptions, offset 0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ...f0f3d770c003, ...2203ea0ddc4a, ...e71e3de9534e, ...84f06d23fe03 and ...c8479381df1b",
+        "arXiv:2012.03923 and arXiv:1801.06566"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-cardinality cuts paper fixes the size of one of two arbitrary vertex blocks and tests forest component quotas, not interval-block counts.",
+          "The unrestricted result's private-site criterion supplies one condition, not the sufficiency of the three simultaneous conditions for the exact-size slice."
+        ],
+        "reasoning": "The finite line order enables a new no-triple-overlap argument coupled to relocating cuts and padding. Neither a general VC framework nor a fixed-size partition on arbitrary vertex blocks supplies those implications or the sharp interval gadgets.",
+        "searches": [
+          "Resultary mirror: ...e71e3de9534e, Finding and assumptions, offset 0",
+          "arXiv:1801.06566, Introduction",
+          "Resultary mirror: ...f0f3d770c003, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Blais–Ferreira Pinto Jr.–Harms give VC dimension 2k for unions of k intervals queried at points, not exact-size point sets queried by intervals.",
+          "The setting here is dual hitting by exactly c point sites; complementing labels does not transpose concepts and queries."
+        ],
+        "reasoning": "The primal interval theorem neither supplies the trace classification nor addresses the finite outside-union budget; the superficially similar 2c bound is only one branch of this dimension law.",
+        "searches": [
+          "Resultary: exact-title, fixed-cardinality cuts, hyperslice and dual-interval aliases",
+          "arXiv:2012.03923, §3.1, Proposition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit matches the frozen record, not an independent predecessor. The other inspected same-date quota record ...c8479381df1b concerns products on a grid and a bipartite star-forest criterion."
+        ],
+        "reasoning": "No independent exact entry was identified. The comparison rests on the domain and theorem, not the relative ordering of same-date records.",
+        "searches": [
+          "Resultary: exact title and exact-cardinality concept-family variants",
+          "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, Findings at offset 0 for ...84f06d23fe03 and ...c8479381df1b"
+        ]
+      },
+      "rationale": "The private-site obstruction and cut encoding are prior. The distinct result is simultaneous sufficiency on one exact-cardinality layer and the attendant sharp all-parameter VC law; none of the inspected formulations supplies that result.",
+      "residual_risks": [
+        "Results under fixed-size transversals or dual interval range-space terminology may be unindexed or unidentified. The primary web lookup provided no relevant evidence; it is not counted as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted criterion only",
+          "evidence": "All block counts allowed; private sites alone suffice and VC dimension is m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-shattering-polynomial-for-convex-equivalence-relations-on--f0f3d770c003/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact shattering polynomial for convex equivalence relations on a finite chain",
+          "trigger": "Same chain queries and cut encoding"
+        },
+        {
+          "assessment": "Closure hypothesis fails for an exact layer",
+          "evidence": "Requires closure under every refinement; formula |V|−min b(pi).",
+          "identifier_or_url": "Resultary 2026/11/2/...2203ea0ddc4a",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Refinement-closed partition concepts: exact shattering supports, online dimension, and coloring quotients",
+          "trigger": "Potential stronger partition statement"
+        },
+        {
+          "assessment": "Different exact-cardinality condition",
+          "evidence": "Two arbitrary blocks and prescribed block size, with forest-component quotas.",
+          "identifier_or_url": "Resultary 2026/11/2/...e71e3de9534e",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Forest size profiles determine shattering by fixed-cardinality cuts",
+          "trigger": "Fixed-cardinality cut alias"
+        },
+        {
+          "assessment": "Different orientation and concepts",
+          "evidence": "VCdim of unions of k intervals is 2k for point queries.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.03923",
+          "material_read": "§3.1, Proposition 3.1, PDF p. 13 (offset 44400)",
+          "method": "OA paper PDF",
+          "title": "VC Dimension and Distribution-Free Sample-Based Testing",
+          "trigger": "Bounded interval combinations and the 2c term"
+        },
+        {
+          "assessment": "General framework rather than the interval specialization",
+          "evidence": "Introductory learning/model-theoretic connection.",
+          "identifier_or_url": "https://arxiv.org/pdf/1801.06566",
+          "material_read": "Introduction, offset 0",
+          "method": "OA paper PDF",
+          "title": "Model Theory and Machine Learning",
+          "trigger": "Cited general VC background"
+        },
+        {
+          "assessment": "Distinct rectangle theorem",
+          "evidence": "Grid-cell queries and exact two factor quotas with star components, not interval-hitting cuts.",
+          "identifier_or_url": "Resultary 2026/11/22/...c8479381df1b",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact shattering of fixed-cardinality Cartesian rectangles",
+          "trigger": "Related indexed same-date exact quota hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed number of blocks is a natural constraint in ordered segmentation. The result gives a decision criterion for each support and a nonmonotone sharp VC formula, including the distinct obstructions at small and large cut quotas. It is more informative than the private-site condition for variable block counts. No counting polynomial or online dimension is evaluated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

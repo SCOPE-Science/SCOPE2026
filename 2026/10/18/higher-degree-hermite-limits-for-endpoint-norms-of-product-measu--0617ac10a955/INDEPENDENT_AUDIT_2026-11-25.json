@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:26:01.004404Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed k and a fixed compact marginal with at least k+1 support points the orthonormal tensor basis exists, including for atomic laws. In a kernel row the terms other than the degree-k square-free sector have O(d^{k-1}) uniformly bounded, orthogonal coefficients, hence O(d^{(k-1)/2}) error in L1. If a_i=(x_i-m)/sqrt(v), normalize the leading sector by d^{k/2}; the resulting inputs to the elementary symmetric polynomial are a_i Z_i/sqrt(d). On any subsequence with mean a_i^2 tending to q, their first power sum tends in law to sqrt(q)Z (or zero in L2 for q=0), their second tends to q in L2, and each fixed higher power sum vanishes deterministically. Newton's identities give q^{k/2}H_k(Z)/k!; orthogonality gives a uniform second-moment bound (mean a_i^2)^k/k!, justifying absolute expectations. Compact subsequences give the global upper limit, a repeated farthest support point attains it, and strict increase in q yields both directions of rigidity. A sign-of-kernel input realizes each row's absolute integral; continuity and full support identify the max with the essential-supremum operator norm, and symmetry with L1 duality gives exact finite-d endpoint equality. Independent replay `python /workspace/branches/independent_audit_replay.py` confirms the four numerical coefficients by Gaussian integration at Hermite roots, not the infinite-dimensional theorem. The bundled checker, inspected but not executed, counts 1278 pointwise kernel comparisons plus three Hermite moment checks; the text's description of 1281 kernel comparisons conflates these without affecting the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quadratic product record has a uniform profile only for total degree two with symmetric marginals and a nonzero quadratic variance. The finite-alphabet interaction record projects onto sums of arbitrary functions of up to a fixed number of coordinates and proves minimality among all projections, but its Hermite limit is fixed alphabet size under counting measure."
+        ],
+        "reasoning": "In q-ary interaction truncation all nonconstant marginal modes have interaction cost one; polynomial total degree assigns larger cost to higher marginal modes. Neither that broader minimality result for a different target space nor the quadratic profile contains the higher-degree arbitrary-law statement. General chaos convergence alone does not identify the leading kernel and its uniform remainder.",
+        "searches": [
+          "Resultary 0f0cc5afc412, 54134d829688, 326dbd7a8132, source Findings and Legendre proof",
+          "Dynkin–Mandelbaum symmetric statistics and multiple Wiener integrals; Rubin–Vitale asymptotic distribution of symmetric statistics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and projection_checker.py",
+        "Resultary comparator records 0f0cc5afc412, 54134d829688 and 326dbd7a8132",
+        "arXiv:1508.07421 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Legendre proof uses the same support-size remainder, bounded array limit, Newton identities and uniform integrability. Minabutdinov concerns Hermite asymptotics for Krawtchouk polynomials."
+        ],
+        "reasoning": "A generalization of the Legendre proof replaces its standardized uniform coordinate and Legendre bounds by arbitrary compact-law standardized coordinates and bounded orthonormal polynomials, and identifies the farthest centered support radius. It is not a corollary of the uniform theorem, and its arbitrary-law statement is the distinct coverage; a classical Krawtchouk limit alone cannot identify the geometry across arbitrary laws. Chronological priority is not inferred from the index dates.",
+        "searches": [
+          "0f0cc5afc412 Proof steps 2–5, offset 2750",
+          "54134d829688 and 326dbd7a8132 Findings",
+          "arXiv:1508.07421 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Legendre record 0f0cc5afc412, Finding at offset 0, gives the same local and global limit and the same mean-square rigidity for normalized Lebesgue measure on the cube. On that support its continuous norm is also the L-infinity norm by continuous approximation of the kernel sign."
+        ],
+        "reasoning": "This is exact overlap when the marginal is uniform and degree is at least three, not an alternative formulation covering arbitrary asymmetric or atomic laws. The matching proof is instructive and constrains claims of method novelty.",
+        "searches": [
+          "Resultary: Hermite limit endpoint L1 Linfinity operator norm polynomial orthogonal total degree projector product probability Lebesgue function square-free chaos high dimension absolute Gaussian Hermite extremizers",
+          "arXiv:1508.07421"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Legendre Finding explicitly tabulates its degree-two coefficient and gives the higher-degree coefficient formula for uniform marginals; the interaction Finding gives finite q-ary binomial sums and its limit; the quadratic Finding gives uniform and arcsine quadratic coefficients."
+        ],
+        "reasoning": "These make part of the constants known or recoverable, but no inspected table or formula states the general compact-law higher-degree norm and all near-maximizing sequences. The four example numbers here are evaluations of the theorem, not a separate originality claim.",
+        "searches": [
+          "Resultary endpoint/Hermite/total degree query above; exact mirror Findings 0f0cc5afc412, 54134d829688 and 326dbd7a8132"
+        ]
+      },
+      "rationale": "The supported contribution is the fixed higher-degree theorem for general compact marginals with its complete near-maximizer criterion. Its uniform-cube specialization explicitly overlaps another record, and both the degree-two product result and the interaction projection result anticipate key mechanisms. None of those statements gives this full combination of degree, law, operator and evaluation geometry. No novelty is assigned to endpoint duality, Newton identities, or the elementary-symmetric-to-Hermite method.",
+      "residual_risks": [
+        "Uninspected symmetric-statistics literature, including the Rubin–Vitale and Dynkin–Mandelbaum full texts not obtained, may give a broader applicable weighted chaos theorem.",
+        "The exact overlap on uniform marginals and reuse of a classical limiting mechanism limit the originality judgment to arbitrary-marginal projection coverage and geometry; this is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact uniform-law specialization for k>=3; also treats degree two. Closely parallel proof, stated for Legendre only.",
+          "evidence": [
+            "Uniform profile proportional to the k/2 power of mean square; steps 2–4 isolate the square-free sector and use Lindeberg, Newton and uniform integrability."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-hermite-law-and-asymptotic-corner-rigidity-for-total-degree-lege--0f0cc5afc412",
+          "material_read": "RESULT.md Finding, assumptions and Proof steps 1–6, offsets 0 and 2750",
+          "method": "Lawful local mirror text",
+          "title": "Hermite law and asymptotic corner rigidity for total-degree Legendre projections on cubes",
+          "trigger": "Exact norm and extremizer overlap on the cube"
+        },
+        {
+          "assessment": "Different projector and finite alphabets, no general compact-law evaluation geometry.",
+          "evidence": [
+            "U is the span of interactions of bounded coordinate count; the constant is (q-1)^(d/2) E|He_d(Z)|/d! for fixed q and order d."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-endpoint-projection-constants-and-gaussian-growth-for-boun--54134d829688",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Lawful local mirror text",
+          "title": "Sharp endpoint projection constants and Gaussian growth for bounded-order interactions",
+          "trigger": "Same Hermite absolute moment, endpoint norms and product-space projection"
+        },
+        {
+          "assessment": "Quadratic symmetric case, not the frozen higher-degree range.",
+          "evidence": [
+            "Total degree two, symmetric support reaching ±1, and positive variance of the squared coordinate."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-gaussian-universality-and-corner-localization-of-quadratic-produ--326dbd7a8132",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Lawful local mirror text",
+          "title": "Gaussian universality and corner localization of quadratic product-polynomial projectors",
+          "trigger": "Same class of product polynomial kernels and profile"
+        },
+        {
+          "assessment": "Classical discrete comparison; only the abstract used for this assessment.",
+          "evidence": [
+            "Uniform Hermite asymptotic expansions for Krawtchouk polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.07421",
+          "material_read": "Abstract, first page, OA extraction offset 295",
+          "method": "Lawful open-access arXiv text",
+          "title": "The higher order asymptotic expansion of the Krawtchouk polynomials",
+          "trigger": "Potential equivalent discrete Hermite limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint norm quantifies worst-case amplification under fixed-order polynomial chaos truncation as dimension grows. A sharp constant and a necessary and sufficient maximizing geometry valid across nonsymmetric continuous and discrete laws go beyond a cube constant or an upper bound. The change to centered energy is meaningful for asymmetric laws, where a farthest endpoint may be unique. No finite-d optimizer, rate uniform in the marginal, or growing-degree result follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

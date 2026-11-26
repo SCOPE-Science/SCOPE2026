@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantified domain is the real moment-centred Sobolev Hilbert space of order two on the unit interval. The two moment constraints kill the affine nullspace of the second-derivative energy; the exact Riesz kernels follow by solving a nonsingular two-by-two moment system. Exact integration determines the 2×2 point Gram matrix. The largest Gram eigenvalue is the squared simultaneous evaluation norm, not its square root. Testing the symmetric and antisymmetric coefficient vectors gives two lower envelopes; a rational barrier confines both movable observation sites to short intervals on opposite sides of the midpoint. Polynomial signs then force a centred pair and a unique crossing between decreasing antisymmetric and increasing symmetric envelopes. At the crossing the two Gram kernels are orthogonal with equal norm, giving the stated complete equality class. The proof applies to every permissible distinct pair, including endpoint sites. The checker reproduces the kernel, Gram formulas, rational inequalities, and root equation exactly. The finite grid is an ancillary check, not an exhaustive argument.
+PASS
 
-## Originality — PASS, with priority limitations
+The two moments fix the affine part uniquely for every L² input g=f'', and the squared joint norm is the top eigenvalue of the resulting evaluation Gram matrix. Independent exact integration, using the affine projection (1−u)²[x(1+2u)−u] of the hinge as a function of x, reproduced the full Gram polynomial and both centering differences. The trial at d=188/625 is below 41/100000. The diagonal barrier confines every competitive site to one of the two stated short intervals; the derivative-kernel bound excludes two sites in the same interval, including site collisions. In the resulting rectangle both Rayleigh bounds strictly improve on moving the midpoint to 1/2 at fixed gap. On the confined gap range the antisymmetric eigenvalue decreases, and the symmetric eigenvalue increases for d≥0.3008. The sign bracket gives precisely the stated active crossing: smaller d is excluded by the decreasing mode, larger d by the increasing one. This comparison with an attained candidate covers endpoints and does not assume compactness of the distinct-pair domain. At the crossing the Gram matrix is a positive scalar times the identity, giving exactly the stated two-dimensional span of norming second derivatives. Independent high-precision evaluation reproduced d=0.300804514991272228562… and the squared norm 0.000409822706363592947851… .
 
-The arXiv:1211.1498v1 trace-interpolation study treats Sobolev trace spaces and quasi-optimal reconstruction for arbitrary nodes, but does not provide the exact minimax spectral value for two equal-weight point observations with two integral moment normalizations. The arXiv:1611.04750v1 optimal-stencil work optimizes derivative-functional approximation with polynomial reproduction, and its objectives do not imply this free-node simultaneous-value operator norm. Related indexed results for mean-zero first-order Sobolev sampling, periodic weighted-mean trace embeddings and analytic-kernel placements have distinct nullspaces, orders or objective functionals. Targeted semantic searches for the exact sextic, moment normalization and spectral equalization found no direct coverage. An unindexed historical equivalence or derivation in the broader statistical optimal-design literature is a residual risk; database partitioning alone is not originality evidence.
+## originality
 
-## Value — PASS
+PASS
 
-The natural design question is to choose two sites that minimize the worst total squared observation of all curvature-energy-unit, affine-moment-detrended signals. Neither symmetry nor equalization of the two Green kernels is assumed. The result gives a complete global classification of sites, an exact polynomial for their separation and a closed algebraic sharp error, with a constructive Riesz equality class. It isolates a nontrivial structural mechanism—global exclusion of asymmetric placements followed by collision of symmetric and antisymmetric spectral modes—relevant to Sobolev sensor design. It is not just the linear-algebra calculation of a Gram matrix or the solution of a pre-specified symmetric subproblem.
+The supported distinct claim is the exact global design, sharp value and equality space for two equal-weight evaluations after removing both affine moments with second-derivative energy. The nearest inspected designs have first-derivative energy and different admissible observations. The primary Sobolev trace and stencil results do not imply the free-pair classification. This is a best-of-knowledge assessment, not a claim of historical priority.
 
-## Scientific limitations
+## value
 
-Only the stated real second-order Sobolev norm, two unit-weight evaluation sites and two Lebesgue moment constraints are resolved. No independence or prior-art exhaustiveness is claimed. A high-relevance inaccessible older design article could alter the historical-priority assessment; the listed source texts do not establish the same result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The operator measures the worst total observation energy for a unit curvature-energy signal after affine detrending. It is natural to ask which two sites minimize that response. The answer classifies all free sites rather than merely optimizing a symmetric ansatz. The exact eigenvalue collision and corresponding norming modes reveal why the optimum is attained there and provide a sharp trace-design benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

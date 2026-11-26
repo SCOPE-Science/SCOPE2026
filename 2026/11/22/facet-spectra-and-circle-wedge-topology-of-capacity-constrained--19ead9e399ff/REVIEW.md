@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-For \(n\ge2\), \(s\ge2\), and \(1\le k<ns\), a clique of size at least two changes exactly one token coordinate. Distinct maximal coordinate fibres intersect in at most one vertex, the bounded-occupancy coefficient calculation counts each fibre exactly once, and all feasible saturated-site counts occur. Connectivity follows vacancy-assisted moves and exchanges. A simplicial collapse to the incidence graph gives the exact integral Betti rank. Algebraic comparison of \(L\) and \(U\) proves the sharp purity classification. The supplied checker tested 45 distinct admissible and full-capacity boundary instances, with finite corroboration not presented as an unrestricted proof.
+## correctness
 
-## Originality (PASS; provisional historical priority)
-Song et al., arXiv:2604.04845, introduce the model. Cai et al., arXiv:2611.06275, already provide the common-coordinate clique lemma, clique number and connectivity, so these ingredients are not claimed as new. The coloured-token model in Dalfó et al., arXiv:2611.08186, treats a different capacity regime. The complete capacity-dependent facet distribution, its exact purity threshold, and integral circle-wedge count were not found in the checked materially relevant primary texts or mathematical-record comparisons; related Hamming occupancy complexes may be described under other names. Missing indexed matches do not certify global priority.
+PASS
 
-## Value (PASS)
-The exact facet spectrum measures every maximal single-token reassignment opportunity, not just the largest clique. Non-purity occurs throughout the nontrivial intermediate capacity regime, with no gaps in possible facet dimensions. The explicit Betti rank determines the entire integral homology of a natural topological complex for all admissible parameter triples. This constitutes a complete, motivated classification of structurally distinct capacity regimes.
+On the complete host, any clique containing an edge must vary that edge's unique coordinate, since two different changed coordinates would give nonadjacent placements. Fix the other k-1 tokens. If f sites are full, all n-f admissible settings form the unique maximal fibre of each of its edges. There are no singleton facets: a site with spare capacity can receive a token from elsewhere, or if all tokens occupy that site they can move to an empty one. The conditions 0≤k-1-sf≤(n-f)(s-1) and 0≤f≤n-2 give exactly L≤f≤U; each intermediate occupancy total is realizable. Choosing the moving token and saturated sites and counting the remaining labelled assignments by factorial denominators gives M_f. Placements give V, and each j-clique with j≥2 contributes in only one fibre, proving the full polynomial. Occupancy vectors can be reconciled by surplus-to-deficit moves. Labels can then be permuted by transpositions using a vacant slot at an endpoint or via a third site. The purported simultaneous deformation retraction is valid: on the barycentric subdivision of each facet, fix the original vertices and send every positive-dimensional face barycentre to the facet barycentre. The image of each chain simplex lies in one arm of the star, and the straight-line homotopy stays in the facet and fixes the star. Distinct facets meet at most at vertices, so these homotopies glue. The connected incidence graph has V+ΣM_f nodes and Σ(n-f)M_f edges, giving the claimed integral circle wedge. Purity is L=U: the two endpoints agree at k≤s and k=ns-1, and n=2 forces both to zero. In the remaining n≥3 range, if L=0 then floor((k-1)/s)≥1; if L>0 then L≤n-3 and k-1-s(L+1)=(s-1)(n-L)-s≥0, so U≥L+1. Inspected the finite NetworkX and coefficient checker verify_supertoken.py; the reported 45 instances were not rerun and the checker is not a homology proof. The excluded fully occupied graph is indeed discrete.
 
-## Limits and sources
-Full-capacity placements are excluded and have isolated configurations. The theorem does not extend to arbitrary host graphs or capacities below two. Finite computation does not replace proof, and independent validation is outstanding. Primary sources: https://arxiv.org/abs/2604.04845 ; https://arxiv.org/abs/2611.06275 ; https://arxiv.org/abs/2611.08186 .
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The model, common-coordinate lemma, largest clique and connectivity have clear prior coverage. The supported distinct claim is the full capacity-dependent facet spectrum, the simultaneous sharp purity boundary, and the explicit rank of the integral circle wedge. The gluing mechanism and unrestricted Hamming structure are standard and are not separate novelty claims.
+
+## value
+
+PASS
+
+The maximal fibres measure all complete one-token reassignment opportunities, not just the largest one. Their exact multiplicities simultaneously resolve the pure and mixed-dimensional regimes and determine how many independent loops survive filling every clique. This separates two natural boundary regimes from the entire intermediate occupancy range and gives an all-parameter invariant of a previously defined graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

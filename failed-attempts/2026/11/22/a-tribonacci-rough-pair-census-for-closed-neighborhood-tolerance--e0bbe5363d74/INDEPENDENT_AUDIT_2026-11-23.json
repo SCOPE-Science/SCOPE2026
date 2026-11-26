@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:42:05.946781Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three output symbols encode the ordered approximation pair exactly. Duplicate endpoint bits reproduce the shorter closed neighborhoods, and the overlapping pair states impose consistency across the entire input. Only the subsets of pair states meeting {00,11} accept. Directly recomputed all 12 reachable states (8 accepting) and the weighted seven-state complement quotient, with acceptance preserved and distinct letters counted separately. Eliminating the transfer equations gives B=1/(1−t−t²−t³), F=(1+t)²B, and the asserted A. The first five coefficients, including the empty path, follow, and numerator degree four gives the recurrence from n=5. The smallest modulus pole is uniquely positive and simple: equality in |t+t²+t³|≤|t|+|t|²+|t|³ on its circle forces t positive. This yields the stated growth and exponential reduction relative to 2^n. Read VERIFICATION.md and verify.py by inspection. Independent direct bitmask enumeration agrees through n=16, including a_16=19009; the all-length certificate is the transition calculation and formal series, not the finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forest Proof §3 explicitly includes zero fibers for unrealizable observations, by testing edge covers of the uncertain induced graph and anchor parity on paths to all definite vertices. It applies to each P_n with n≥2.",
+          "Sanahuja's abstract describes the line/circle graph Boolean information system, positive regions, rough membership, and dependency; it does not disclose an exact census for this relation."
+        ],
+        "reasoning": "An exact inverse-fiber formula is stronger than the observed required image count here because on a path its constraints split into independent runs, permitting immediate enumeration. The restriction of the forest theorem at n=1 is immaterial: the isolated vertex gives two outputs directly.",
+        "searches": [
+          "Resultary: closed-neighborhood rough-observation inverse fibers",
+          "f889b5906330 forest ambiguity RESULT.md, Finding and Proof §§1–3",
+          "Sanahuja DOI:10.1016/j.amc.2015.11.052"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify.py",
+        "Forest and crown graph source passages, accessible path-literature material and relational-duality passages as listed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For P_n, each maximal uncertain run of length r is a path P_r whose edges must cover it; definite vertices have no incident disagreement edges. The parity constraint on consecutive definite bits is equality for no gap, impossible for a run of length one, opposite bits for a gap of length two (one mandatory edge), equal bits for a gap of length three (two mandatory edges), and free for length at least four (take all edges or omit one interior edge, giving both parities). The consecutive constraints are equivalent to the anchor constraints by parity additivity. At either boundary, or for an all-uncertain word, the run has no parity constraint and is allowed exactly for r≥2, with r=0 representing absence.",
+          "Put Q=1+t²/(1−t) for the boundary/all-uncertain contribution and G=1+t²+t³+2t⁴/(1−t) for a gap between consecutive definite bits including multiplicities. A word is all uncertain, or has Q on both ends, two choices of first definite bit and a sequence of gap/new-definite-bit steps. Thus its length series is Q+2tQ²/(1−tG)=(1+t+t³+t⁴)/(1−t−t²−t³)."
+        ],
+        "reasoning": "The exact all-length formula follows mechanically from the stronger source's same-object criterion by the four edge-cover parity cases and a geometric series; the new determinization is an alternate derivation, not a distinct exact invariant. The coverage finding is not a claim of chronological priority.",
+        "searches": [
+          "Forest ambiguity RESULT.md, Proof §§1–3, extracted offsets 0–5073"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The pair is the simultaneous erosion/dilation output, or equivalently a ternary word of definite 0, definite 1 and uncertain *. The forest record uses precisely that same ternary observation (A,Z,B), with A=L, Z=V minus U and B the uncertain vertices.",
+          "The initial equivalence-relation lower approximation in the duality paper is not itself a count of ternary observations for a fixed path tolerance."
+        ],
+        "reasoning": "This translation identifies the forest criterion as operating on the same observations, not simply on an analogous rough-set structure. An adjacency-information-table equivalence relation, by contrast, is not the closed-neighborhood relation for arbitrary paths.",
+        "searches": [
+          "Resultary: Rough sets path distinct simultaneous radius one binary erosion dilation output patterns generating function 1 2 3 7 13 23 43 79 145 267 Tribonacci edge-cover parity",
+          "Düntsch–Orłowska arXiv:2601.05843v1, lower approximation passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact path sequence and fraction index hit is this assigned record, not a separate occurrence. The distinct crown-graph record gives 4·2^n+2n²−5 on K_{n,n} minus a perfect matching, not a path table. No independent exact matching sequence table was established in the inspected material."
+        ],
+        "reasoning": "The absence of a separate sequence hit does not offset the exact derivation from the forest criterion. Matching a bare Tribonacci recurrence without definitions and initial conditions would not decide coverage.",
+        "searches": [
+          "Resultary: 1 2 3 7 13 23 43 79 145 267 Tribonacci path erosion dilation",
+          "Resultary: exact rough-observation cardinalities for closed-neighborhood tolerances"
+        ]
+      },
+      "rationale": "The distinct same-day forest ambiguity record gives exact feasibility of every observation on the identical closed-neighborhood relation, including paths with n≥2. Its edge-cover/parity condition yields the entire path generating function by a short run decomposition, not just by exponential enumeration of inputs or by numerical coincidence. This is demonstrable mathematical coverage, irrespective of which record appeared first; no priority ordering follows from their shared date.",
+      "residual_risks": [
+        "Sanahuja full text remained unavailable; the DOI resolver for Chiaselotti et al. did not provide readable full text in this check. Their exact coverage is not inferred from inaccessible evidence.",
+        "The same-day forest comparison establishes mathematical implication, not chronology; chronology relative to independent earlier literature is not settled."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact feasibility; direct path generating-function corollary demonstrated above",
+          "evidence": "The uncertain induced graph must have an edge cover with prescribed path parities for each definite vertex relative to an anchor. Nonrealizable observations have zero fibers in the formula.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-forest-wide-ambiguity-gap-for-closed-neighborhood-rough--f889b5906330",
+          "material_read": "RESULT.md Finding and Proof §§1–3, offsets 0–5073; Relationship to prior work",
+          "method": "Resultary and local source mirror",
+          "title": "A sharp forest-wide ambiguity gap for closed-neighborhood rough observations",
+          "trigger": "Same operator on forests including paths, with inverse fibers"
+        },
+        {
+          "assessment": "Different graph family; different count",
+          "evidence": "Counts closed-neighborhood approximation pairs for crown graphs, comparing their image cardinality to the complete biclique.",
+          "identifier_or_url": "2026/11/22/SCOPE-quadratic-rough-observation-gain-from-deleting-a-perfect-matchin--18dfb63d218e",
+          "material_read": "RESULT.md, Finding and Assumptions, offset 0 onward",
+          "method": "Resultary and local source mirror",
+          "title": "Quadratic rough-observation gain from deleting a perfect matching",
+          "trigger": "Exact distinct-pair image count under the same operator"
+        },
+        {
+          "assessment": "Substantial topical overlap but abstract cannot decide exact coverage",
+          "evidence": "The abstract states a Boolean information system induced by a line or circle graph and discusses rough membership, positive regions and attribute dependency.",
+          "identifier_or_url": "https://doi.org/10.1016/j.amc.2015.11.052",
+          "material_read": "IDEAS/RePEc abstract for Applied Mathematics and Computation 276, 96–108, offset 666 onward; publisher full text not read",
+          "method": "Lawful abstract and attempted publisher/full-text lookup",
+          "title": "New rough approximations for n-cycles and n-paths",
+          "trigger": "Same path focus and plausible earlier formulation"
+        },
+        {
+          "assessment": "Definitions and operator framework do not provide the path image census",
+          "evidence": "The inspected approximation passage places Pawlak lower approximation in an equivalence frame, and subsequent algebraic sections discuss relational operators.",
+          "identifier_or_url": "https://arxiv.org/html/2601.05843v1",
+          "material_read": "Located lower-approximation passages, including the equivalence relation definition near extracted offset 7781",
+          "method": "Lawful OA original HTML",
+          "title": "Discrete dualities for some algebras from rough sets",
+          "trigger": "Broader relational approximations potentially subsume the construction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinct approximation observations are a natural image-capacity invariant, but the frozen contribution is this single path census and its consequences. Its exact fraction, recurrence, and growth all follow from the existing forest feasibility characterization by elementary path-run parity and ordinary series algebra. The alternate automaton proves the same consequence and the record does not establish an independent extension or a distinct structural invariant beyond it.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: sharp mass-shape boundary in generalized Poisson–Lindley counts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is reconstructed from the normalized Poisson–generalized Lindley mass law with \(\alpha>1\), \(t>0\), and full infinite nonnegative support. An exact positive-neighbor ratio yields a strictly concave quadratic that controls mass increases, and a separate monic quadratic controls the change of neighboring ratios. The sign of the latter at zero, together with its vertex, proves the stated necessary-and-sufficient log-concavity threshold for *all* integers. In the explicit case \(\alpha=5/3\), an exact cubic determines the nonadjacent global-modal tie. Rational endpoint signs, the quadratic's global shape and strict cubic monotonicity exclude every unexamined tail index. `VERIFY.py` passed 14,212 exact-rational diagnostics. Their finite range is not substituted for the analytical proofs.
+PASS
 
-## Originality — PASS, with historical risk
+With a=alpha-1>0 the displayed law equals a mixture of negative-binomial counts of shapes a and a+1 at the same success probability t/(1+t), weighted t/(1+t) and 1/(1+t). This recovers the positive, normalized mass. The gamma recurrence gives the neighboring ratio R_j with b=a(t+2). Clearing its positive denominators shows R_{j+1}-R_j has sign opposite the monic H(j)=j^2+(2b-2t-1)j+b(b-t)-2(t+1). The first-index value H(0) has its unique positive shape root at a_c(t); at b=t+1/2, where the linear coefficient vanishes, H(0)=-(6t+7)/4. Thus above or at the boundary the linear coefficient is positive, and H(j)>H(0) for j>0. Below the boundary H(0)<0 and its two real roots have opposite sign, giving exactly one curvature transition and at most one flat step. For the peak count, the sign numerator of R_j-1 is a strictly concave quadratic with leading coefficient -t, so the positive indices are a single finite block; zeros allow ties but no additional separated peak. In particular, when the positive block is empty, two integer zeros must be adjacent if both occur, so any weak interior peak is confined to one equality plateau. For a=2/3 the exact rational endpoint tests give R_0<1<R_1 and R_2<1 across the stated interval. Decreasing forward differences of the concave numerator then give R_j<1 for all j>=2. The only global candidates are 0 and 2. Their probability difference has the sign of minus the cubic, which is strictly increasing in t>0 and changes sign inside the rational bracket. This proves the unique switch and excludes all other counts at the tie, without using finite samples to make an infinite assertion.
 
-The 2023 source states unconditional log-concavity and unimodality rather than a restricted parameter region or nonadjacent global modes. The 2022 and 2024 works give equivalent/reused probability-generating or mass formulas but not the sharp curvature threshold or the global-modal switch. The 2025 comparative paper explicitly identifies the earlier (2010) model under a shape shift; this equivalence is acknowledged rather than treated as novel. Searches on semantic aliases, shifted parameters, modal coexistence and nearby Poisson-mixture results found no covering published theorem. Full text of the 2010 primary source was not retrievable through the available institutional channel, leaving historical-priority risk; its model formula is recoverable in the inspected 2022 and 2025 papers. Search silence is not proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-A published statistical analysis relies on a blanket mass log-concavity/unimodality assertion. The exact phase boundary specifies precisely where log-concavity can and cannot be relied on, while the nonadjacent equal-global-mode example shows a stronger structural failure, not a numerical anomaly. A sharp switch between counts \(2\) and \(0\) affects modal prediction and interpretations of count distributions. The result does not infer a nonmonotone hazard rate solely from failure of log-concavity and does not claim novelty for the family itself.
+The older generalized Poisson–Lindley law and its mixed-Poisson formula are not novel. The supported distinct claim is the sharp global curvature threshold, quantified restriction on peak shape, and certified nonadjacent tie and switch in this law. The strongest compared same-family evidence gives formulas, a different property, or the reported blanket shape assertion contradicted by the witness. A separate indexed 0/2 tie concerns a different PMF. The inaccessible 2010 full text remains a material priority risk, not an automatic failure.
 
-## Closest literature and limitations
+## value
 
-The most relevant sources are Atikankul (2023; original mass expression and shape assertion), Mahmoudi–Zakerzadeh (2010; equivalent earlier family), Papageorgiou–Vardaki (2022; accessible explicit equivalent generating function), Irshad et al. (2024; later use of the same marginal), and Lawal (2025; explicit reparameterization). No proof of arbitrary hazard shape or generalized-regression properties is supplied. The original 2010 full text is an access-limited residual priority check. This is a mathematical self-contained proof, not an independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Replacing a blanket shape assertion for an actually used count model with a sharp full-domain curvature test is substantive. The exact separated tied modes and strict switch show a qualitative failure of unimodality, not merely failure of a sufficient test or a numerical irregularity. The witness and the peak bound are directly useful for modal interpretation without making unsupported claims about reliability or estimation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The inverse-stage derivative-cardinal formulas are proved; each shifted-Jacobi root is isolated by exact rational sign tests, each symmetrized entry is interval-enclosed by exact fractions, its central rational matrix has all positive shifted LDL pivots, and the norm perturbation is less than 1/20000, proving the sharp stated finite certificate C_s>19I/20000. Full checker executed successfully with no floating-point decisions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 primary paper gives the conditional criterion in Lemma 1 and explicitly remarks that the chosen diagonal matrix has negative eigenvalues for s=8,9,10.",
+        "Banjai–Lubich (arXiv:1702.08385) proves a shifted-variable coercivity property for all algebraically stable Runge–Kutta convolution quadratures, not the same strictly positive unshifted symmetrized inverse-stage matrix."
+      ],
+      "reasoning": "Algebraic stability yields a nonnegative weighted form but does not directly furnish positive definite W_s A_s^{-1} symmetric parts at these stages. The source theorem is conditional, so these new weights are not its corollary absent the displayed constructive choice.",
+      "searches": [
+        "\"Radau IIA\" \"diagonal stability\" \"positive definite\" weighted inverse 8 9 10",
+        "\"Runge Kutta\" algebraic stability \"A inverse\" strict positive diagonal symmetrizer",
+        "\"Runge--Kutta convolution coercivity\" Radau IIA shift"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2611.08429",
+      "https://arxiv.org/abs/1702.08385",
+      "https://academic.oup.com/imajna/article/39/3/1134/5032994",
+      "https://arxiv.org/abs/2209.06700"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Henríquez–Lee–Rhebergen Lemma 1: C_s SPD is a hypothesis that implies coercivity. Their s=8,9,10 reported values from a specific W have negative eigenvalues and do not settle existence for another W.",
+        "Banjai–Lubich: numerical-range and shifted-domain convolution coercivity; distinct from an explicit unshifted inverse-stage diagonal certificate."
+      ],
+      "reasoning": "A conditional lemma cannot imply its own unverified hypothesis. The older algebraic-stability theorem is weaker or differently parameterized than the present strictly positive definite finite W_s certificate. Conversely this result does not reprove the full Stokes preconditioning analysis.",
+      "searches": [
+        "\"Radau IIA\" \"diagonal stability\" \"positive definite\" weighted inverse 8 9 10",
+        "\"Preconditioning for the time-dependent Stokes equations\" \"8\" \"9\" \"10\" diagonal weights",
+        "\"Runge Kutta\" algebraic stability \"A inverse\" strict positive diagonal symmetrizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claimed property is strict diagonal Lyapunov stability for the finite-dimensional inverse Butcher matrix, equivalently the existence of a positive diagonal symmetrizer with λ_min>0. The 2017 convolution paper studies a different parameterized differentiation symbol."
+      ],
+      "reasoning": "Similarity of words coercivity and positivity is insufficient: the finite unshifted matrix C_s differs from a resolvent or convolution symbol and requires explicit strictly positive diagonal weights. No equivalent displayed W for the three fixed stages was located.",
+      "searches": [
+        "\"Radau IIA\" \"diagonal stability\" \"positive definite\" weighted inverse 8 9 10",
+        "\"Runge Kutta\" algebraic stability \"A inverse\" strict positive diagonal symmetrizer",
+        "published-finding corpus: Runge Kutta collocation Radau IIA strict diagonal stability W A inverse positive definite 8 9 10 stages"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary numerical-examples section lists only the failed eigenvalue tests for its own s=8,9,10 weights, not alternative rational diagonals. published-finding corpus results concerned mostly endpoint Markov positivity of Radau heat steps, not the diagonal symmetrizer matrix."
+      ],
+      "reasoning": "The exact integer vectors and root-interval/LDL witnesses were not found in a checked database or published table. This statement is limited to the searches and inspected sources, not a global catalog completeness assertion.",
+      "searches": [
+        "\"Preconditioning for the time-dependent Stokes equations\" \"8\" \"9\" \"10\" diagonal weights",
+        "published-finding corpus: Preconditioning for the time-dependent Stokes equations stage-weighted Radau IIA Henríquez Lee Rhebergen 2026 eight nine ten positive definite diagonal stage weights symmetric inverse",
+        "published-finding corpus: Runge Kutta collocation Radau IIA strict diagonal stability W A inverse positive definite 8 9 10 stages"
+      ]
+    },
+    "rationale": "The 2026 primary source states a conditional strict positive-definiteness test, reports its given weights fail at 8,9,10, and explicitly calls for different ones. These new, fully specified rational diagonals satisfy that test with an exact uniform lower bound proven by attached rational certificates. Comparisons with published mathematical records, related Runge-Kutta algebraic stability and convolution-coercivity results found no direct equivalent explicit finite-stage result; unresolved unseen priority is noted.",
+    "residual_risks": [
+      "A preexisting but unlocated diagonal-stability result or independent table could imply feasibility for these exact three stages; the available primary-paper comparison does not settle every historical priority question.",
+      "The full text of certain older matrix-scaling and RK-diagonal-stability references was not exhaustively checked; no completeness claim is made for literature retrieval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the new three rational diagonal choices; paper explicitly notes other diagonal choices are needed for s=8,9,10",
+        "evidence": [
+          "Lemma 1 defines C_r=sym(W A_r^{-1}) and requires it SPD",
+          "Numerical-examples discussion: chosen W succeeds for 2 to 7, has negative eigenvalues for s=8,9,10, and requires a different matrix"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2611.08429",
+        "material_read": "Full-text Sections 3 and 5 relevant to Radau IIA, Lemma 1 and the discussion of the numerical examples at s=2 to 10; arXiv full PDF and accessible full-text rendering",
+        "method": "Read and compared the matrix hypothesis and the reported failing stage counts against the precise new theorem",
+        "title": "Preconditioning for the time-dependent Stokes equations: stage-weighted Radau IIA and weighted discontinuous Galerkin time-stepping",
+        "trigger": "Exactly same Radau IIA stage matrix and coercivity condition; most direct potential coverage"
+      },
+      {
+        "assessment": "No direct implication of these specific finite, unshifted strict positive diagonal weights identified; an equivalent hidden theorem remains a residual risk",
+        "evidence": [
+          "All-algebraically-stable convolution-coercivity conclusion is obtained with a Laplace-variable shift; unconditional third-order two-stage special case",
+          "Classical b-weighted algebraic stability is semidefinite and is not itself the claimed rational strict certificate"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.08385",
+        "material_read": "Accessible arXiv abstract and open-access journal search-text exposition of Sections 1 and 3; full article not exhaustively inspected",
+        "method": "Compared the numerical-range definition of the RK differentiation symbol, shift allowance, and algebraic-stability conclusions with sym(W A^{-1})>0",
+        "title": "Runge–Kutta convolution coercivity and its use for time-dependent boundary integral equations",
+        "trigger": "Possible stronger algebraic stability/coercivity coverage for Radau methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2318e298-3f4c-413a-a37c-e3ba9b723766",
+  "value": {
+    "rationale": "The source paper specifies a natural missing feasibility condition at stages 8 to 10. The displayed positive rational vectors certify the exact required hypothesis, with a quantitative lower margin and complete reproducibility. This directly resolves a motivated finite-stage extension without claiming a new generic RK stability principle or PDE solver theorem.",
+    "status": "PASS"
+  }
+}

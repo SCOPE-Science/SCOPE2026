@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stationary quadratic and the scalar delay recurrence give the full \(n\)-dimensional companion characteristic polynomial. Evaluation at \(1\) fixes \(P_+(1)=\sqrt\Delta\), yielding the universal Schur-radius bound \(\sqrt\Delta\le(1+\rho)^n\), with equality only for a repeated negative real root. Coefficient comparison verifies the unique all-positive binomial-corrected tap construction. A delayed-selector perturbation covers positive-gain cases where \(\sqrt\Delta\le1\). The negative branch has \(P_-(1)<0\), which forces a real root greater than one. Exact symbolic identities and sampled companion spectra were checked using the included code. No finite experiment is used as an infinite proof.
+PASS
 
-## Originality — PASS within inspected literature
+At a constant state p the equation is G²p²+(1−β)p−α=0, with one root of each sign. The first delay-Jacobian row is −2Gp c_j+β·1_{j=1}, with unit subdiagonal; thus P_p(1)=1−β+2G²p=±√Δ. On the positive branch, the product of distances from 1 to the multipliers is at most (1+ρ)^n. When √Δ>1, equality at ρ=√Δ^(1/n)−1>0 means every root equals −ρ, by equality in each triangle inequality and radius bound. The monic coefficients determine the taps injectively. The coefficients of (z+ρ)^n, with the β compensation at tap 1, are strictly positive and sum before division to (1+ρ)^n−1+β=2G²p_+. For √Δ≤1 the delayed selector gives z^(n−2)(z²+√Δ−1), with radius strictly below one; a sufficiently small interior perturbation of the normalized taps preserves Schur stability. This includes n=2 and √Δ=1. The closed-disk attainment at √Δ=2^n is unique; above this threshold the universal bound forces a multiplier outside. Finally, P_−(1)<0 and the monic polynomial tends to +∞ on the positive real axis, giving a real multiplier >1 on the negative branch.
 
-The full accessible 2024 arXiv version of Borges–Silva–Eisencraft gives the arbitrary-length model, fixed-point formulas, appendix Jacobians and numerical studies of selected filters. The 2022 Borges–Eisencraft full paper studies a two-tap version and a numerical stability region. Neither inspected text provides the sharp all-filter gain frontier, exact optimum across all real tap choices, or unique attaining positive tap profile. Targeted mathematical-literature searches for the identical filtered map, equivalent polynomial root-placement statements and stronger delay-stabilization coverage returned no direct statement of this claim. This does not establish absolute priority. The earliest 2023 SSRN text could not be read in full, and unindexed general optimal pole-placement results could cover the abstract polynomial inequality; the application-specific optimality comparison remains provisional pending independent literature review.
+## originality
 
-## Value — PASS
+PASS
 
-A fixed-gain FIR feedback map has an entire coefficient simplex of possible local stability behaviors. The theorem settles its natural sharp optimal-design question simultaneously at every length, not just a sampled filter family: it provides a gain cutoff growing exponentially with memory length, the exact fastest local contraction factor in the high-feedback regime, and a unique positive-tap recipe. It gives a reproducible design bound where prior publications were numerical. The claim does not imply preservation of a chaotic signal, any global basin estimate, or practical bandwidth-performance guarantees.
+The map, stationary branches, gain dependence, and Jacobian precedent are known, as is the elementary root-product argument in its general mathematical form. The inspected closest work analyzes selected filter families rather than optimizing all taps. The distinct result supported here is the attaining positive design, sharp all-length gain frontier and rigidity under the fixed-sum constraint, not the companion linearization or root-product bound by itself.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Optimizing the local spectral radius at fixed feedback gain answers a concrete design question left open by stability diagrams for prescribed filters. The result gives a realizable positive design, rules out improvements even with signed coefficients, and quantifies a substantial length effect: the gain frontier grows exponentially in length and the best radius at fixed high feedback falls on the order of 1/n. The simple polynomial argument supplies a sharp structural boundary rather than merely renaming the known fixed-point equation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

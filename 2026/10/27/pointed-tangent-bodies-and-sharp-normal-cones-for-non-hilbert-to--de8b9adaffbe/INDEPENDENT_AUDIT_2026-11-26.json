@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:51:53.698693Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Müller–Tomilov essential-range formula is twice the ellipse hull. Substituting r^p/s^p=e^{2v} and dividing the imaginary coordinate by 2δ gives axes 2cosh(δv)/cosh v and sinh(δv)/(δ cosh v). Both vanish at infinity for δ<1 (the limiting axes do too), so the hulls are compact; the dependence only on δ establishes conjugate symmetry. At (2,0) one must have a≥0, and with a=0 only b=0 works. For a>0 the exact support inequality follows from sinh(δv)/δ<sinh v and holds at equality in b²=4a²(1−δ²); the v² coefficient in the squared comparison excludes larger |b|. For δ≤1/2 the coordinate errors are bounded by δ² times a polynomial in v times e^{v/2}/cosh v, uniformly bounded. Matching convex combinations give the Hausdorff upper bound, and the vertical support difference at v* has positive leading coefficient v*³/(6cosh v*), giving the lower bound. For b≠0 the sign of the positive-v support derivative is the sign of v coth v−v²−4a²/b²; v coth v−v² decreases strictly from one to minus infinity by tanh(2v)<2v, including at the threshold. The b=0 and zero-normal cases are immediate. The frozen script's ellipse function and its direct comparison jointly used |p−2| instead of 2δ, scaling the normalized ordinate by an extra factor 2/p, so agreement between them did not test the stated normalization. The replacement /workspace/repairs/3/verification.py was independently constructed and run (same contents as /workspace/repro/toeplitz_normalized_range.py; finite checks passed, height 0.662743419349182). It compares correctly rescaled direct axes across conjugates and checks selected cone, maximizer and vertical excess consequences; the uploaded script was not executed. RESULT and VERIFICATION scientific notes were corrected; the universal claims rest on the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 4.6 identifies the horizontal extreme 2 and vertical extreme 2β_p. The finite-dimensional work states disk geometry for a nilpotent and a conjugate transpose relation."
+        ],
+        "reasoning": "An isolated extremal value does not identify which neighboring normals support the same extreme point. The finite-dimensional ordinary numerical-range results do not provide the essential-range singular limit or rate.",
+        "searches": [
+          "arXiv:2606.22693 pp. 45–47, essential Toeplitz range and extrema",
+          "arXiv:2005.01288 Theorems 2.2 and 2.11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.22693 Theorem 4.5 and Corollary 4.6",
+        "arXiv:2005.01288 Theorems 2.2 and 2.11",
+        "Resultary 5f2bca0c2bfc, 763ef0c468aa, e6b835417cd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact prior formula determines each body implicitly; the proof here needs global control of the support over v≥0 and a matching vertical witness, not just a Taylor series at any fixed v."
+        ],
+        "reasoning": "Maximizing first over the angle is mechanical, but identifying the exact cone requires inequality for all v and the sharp converse as v→0. The singular rate requires uniform control of a noncompact parameter and a nonvanishing lower-bound coefficient. Neither checked prior geometry nor scalar root coincidence gives those results directly.",
+        "searches": [
+          "arXiv:2606.22693, ellipse identity and Corollary 4.6 support-axis material",
+          "Resultary 5f2bca0c2bfc and 763ef0c468aa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Müller–Tomilov gives W_e=W=2 conv E_p and the generating ellipse semiaxes. Mandal–Bhanja–Bag–Paul gives a transpose relation on dual finite-dimensional ℓ_p² spaces."
+        ],
+        "reasoning": "The hyperbolic change of variables and vertical normalization rewrite the known hull, making p/q symmetry transparent. The hull identity and duality are not themselves distinct new conclusions; the precise normal/limit statements are assessed separately.",
+        "searches": [
+          "arXiv:2606.22693, Theorem 4.5 and Corollary 4.6",
+          "arXiv:2005.01288, Theorem 2.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5f2bca0c2bfc concerns ordinary numerical ranges of upper-triangular matrices on complex ℓ_p² and a cubic asymmetry law. Resultary 763ef0c468aa uses the same scalar root u tanh u=1 for a real ℓ_p² Birkhoff skew-isosceles discrepancy. Resultary e6b835417cd5 concerns harmonic-Bergman spectral islands."
+        ],
+        "reasoning": "These are neither exact tables for the audited bodies nor matching theorem statements. A repeated scalar optimizer is not an equivalence of convex bodies, and the other records use different operators or spaces.",
+        "searches": [
+          "Resultary: normalized ℓ_p Toeplitz numerical range, ellipse hull, near-Hilbert asymptotics and endpoint cones"
+        ]
+      },
+      "rationale": "The underlying ellipse hull and axes are prior, and conjugate symmetry is immediate from reparameterizing that known hull. The supported distinct contribution is the sharp finite-exponent cone, common singular limit with its full support-maximizer transition, and matching quadratic Hausdorff rate. These are not asserted as a new determination of the essential numerical range itself.",
+      "residual_risks": [
+        "Bounded searches do not certify priority. Similar hyperbolic-family support optimization or a theorem treating the same singular normalization elsewhere may not have been retrieved.",
+        "Novelty is not asserted for the prior ellipse hull, raw coordinate extrema, or the immediate conjugacy identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact source hull and axis extrema; these are credited, not the support transition or convergence rate",
+          "evidence": "W_e(S_R+S_L)=W(S_R+S_L)=2 conv E_p; fixed-(r,s) ellipses have semiaxes rs^(p−1)+sr^(p−1) and |sr^(p−1)−rs^(p−1)| before doubling.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.22693",
+          "material_read": "Theorem 4.5 and Corollary 4.6, PDF pp. 45–47, text offsets 113967–118962",
+          "method": "Open-access PDF bounded passages",
+          "title": "Numerical and essential numerical ranges on ℓ_p",
+          "trigger": "Exact same Toeplitz range and prior ellipse geometry"
+        },
+        {
+          "assessment": "Finite-dimensional ordinary range, not the essential singular limit",
+          "evidence": "Disk for a two-by-two nilpotent and transpose relation between spatial numerical ranges on ℓ_p² and ℓ_q².",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.01288",
+          "material_read": "Theorem 2.2 p. 3, Theorem 2.11 p. 9",
+          "method": "Open-access PDF theorem passages",
+          "title": "On the numerical range of operators on some special Banach spaces",
+          "trigger": "Conjugate-exponent symmetry and prior ℓ_p geometry"
+        },
+        {
+          "assessment": "Adjacent geometry, shared scalar optimizer, or unrelated operator setting, respectively",
+          "evidence": "The first treats ℓ_p² triangular matrices, the second a Birkhoff norm-geometric discrepancy, the third harmonic-Bergman spectra.",
+          "identifier_or_url": "Resultary 5f2bca0c2bfc, 763ef0c468aa, e6b835417cd5",
+          "material_read": "Available findings of the matching Resultary records",
+          "method": "Local Resultary search and matching statements",
+          "title": "Sharp cubic asymmetry and ellipticity rigidity; Second-order Hilbert departure of the Birkhoff skew-isosceles constant; Sharp separation and asymmetric boundary layers",
+          "trigger": "Related numerical-range or near-Hilbert asymptotics indexed findings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalization resolves the transverse geometry lost when the unnormalized range collapses to a Hilbert segment. The exact cones identify all slopes for which an endpoint remains exposed, the limiting support equation determines what happens beyond the threshold, and the matching rate quantifies the error in using the limit shape. These are motivated geometric data of a standard infinite-dimensional operator, beyond just rewriting its known range or computing a decimal axis value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

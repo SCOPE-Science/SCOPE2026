@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:02:30.683769Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a connected bipartite graph of diameter at most 3, distinct same-shore vertices are distance 2 and share a neighbor; opposite-shore distances are 1 for neighbors and 3 otherwise. Independently one can see the stronger identity D_E(ab,a′b′)=D_V(a,a′)∪D_V(b,b′) (use the empty mask for an unchanged endpoint). For a sensor on A, if it is a differing A-endpoint the edge containing it is uniquely at distance 0; if it is a common endpoint both edge distances are 0 and both B-endpoints are adjacent. Otherwise both A-endpoint distances are 2 and each edge distance is 1 or 2 according to B-endpoint adjacency, so the vertex-mask union matches. The B-sensor argument is the reflection. Thus each edge mask contains at least one actual same-shore vertex mask, and every same-shore vertex mask is realized by two edges through a common neighbor. Cross-shore vertex masks are all of V and hence redundant for nonnegative weights because at least one same-shore pair exists (n≥3); K₂ is correctly excluded. This proves every threshold and the full nonnegative fractional equivalence by monotonicity. Independent witness replay in python3 /workspace/independent_checks.py (section 5) gives diameter 4, the seven distinct edge signatures (0,1),(1,0),(1,1),(2,1),(2,0),(1,2),(0,2), and vertices 3 and 6 both at (2,2). This disproves a larger universal bound for equivalence of sets, not necessarily of scalar dimensions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kelenc–Tratnik–Yero give scalar equality for complete bipartite graphs (excluding K₁,₁). Bailey's inspected passages concern ordinary vertex dimension for incidence graphs. The 2023 article could not be read in full."
+        ],
+        "reasoning": "Scalar optima do not equate feasible systems; complete bipartite graphs omit arbitrary incomplete diameter-three cases. An uninspected article is not evidence of noncoverage.",
+        "searches": [
+          "Targeted literature search: equality of vertex and edge metric resolving families for bipartite graphs of diameter three",
+          "arXiv:1602.00291v1 Remark 2; arXiv:1707.02899v2 Abstract and §1; DOI 10.1080/09728600.2023.2223248"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261004-7877372a9b3d",
+        "SCOPE-20261004-ddf19947a669",
+        "arXiv:1602.00291v1",
+        "arXiv:1707.02899v2",
+        "SCOPE-20261004-b5b3c45f23e8",
+        "SCOPE-20261108-01c06d3fb257",
+        "SCOPE-20261013-4aa71f8104c8",
+        "SCOPE-20261122-3d948663a005",
+        "doi:10.1080/09728600.2023.2223248 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the complete bipartite subcase, a common-neighbor edge mask for x,y is exactly {x,y}, and any disjoint edge pair has a same-shore endpoint pair in its mask. For incomplete graphs the vertex mask also includes opposing sensors from the symmetric difference of the neighborhoods."
+        ],
+        "reasoning": "Complete-bipartite masks do imply corresponding fractional and integer assertions for that subfamily. Extending to diameter three requires showing that the extra adjacency-difference sensors are carried correctly in the edge comparison; the earlier specialized masks and scalar optima do not do that.",
+        "searches": [
+          "7877372a9b3d Finding and Proof; ddf19947a669 Finding and Proof; Kelenc–Tratnik–Yero Remark 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7877372a9b3d reduces complete-bipartite fractional edge constraints to same-shore pair inequalities; its proof gives the required specialized same-shore masks. 3d948663a005 treats geodetic and edge-geodetic sets rather than distance separation."
+        ],
+        "reasoning": "The former provides real coverage on a restricted family, including threshold consequences from its masks. Geodetic coverage of shortest paths is not separation of distance signatures.",
+        "searches": [
+          "Resultary: vertex edge resolving all sets, bipartite diameter three, separation masks, k-resolving and fractional edge dimension"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ddf19947a669 classifies edge-resolving sets of complete multipartite graphs; 01c06d3fb257 gives vertex-resolving polynomials for matching-deleted bicliques; b5b3c45f23e8 concerns minimum crown edge bases; 4aa71f8104c8 reports Pappus edge and vertex basis differences at diameter four."
+        ],
+        "reasoning": "These are specialized counts or tables, not one theorem equating the vertex and edge feasible systems on all diameter-three graphs. The Pappus discrepancy lies outside the theorem.",
+        "searches": [
+          "Resultary: resolving polynomials, all-set classification, matching-deleted bicliques, crown-graph and Pappus edge bases"
+        ]
+      },
+      "rationale": "Qualified pass for the full diameter-at-most-three class, in particular the transfer for incomplete bipartite graphs of diameter three. The specialized mask and fractional-polytope reduction on complete bipartite graphs are already covered, as are scalar dimension equality there and edge-resolving enumerators for some restricted families. None of the inspected broader-looking statements supplies the two directions of all-mask constraint domination on the actual class.",
+      "residual_risks": [
+        "Equivalent theorem under other terminology possible; full text of DOI 10.1080/09728600.2023.2223248 unavailable.",
+        "Existing specialized masks and equivalences on complete bipartite graphs are credited, not inferred to be novel here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct specialized coverage on complete bipartite graphs, not arbitrary diameter-three graphs",
+          "evidence": [
+            "Common-endpoint edge mask {x,y}, disjoint-edge domination by a same-shore pair, and pair-inequality fractional region in the bipartite case."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-feasible-polytope-and-all-optimizers-for-fractional-edge-dimensi--7877372a9b3d/RESULT.md",
+          "material_read": "Finding and Proof offsets 0–3489",
+          "method": "Resultary and local-mirror passages",
+          "title": "Feasible polytope and all optimizers for fractional edge dimension",
+          "trigger": "Nearest actual mask/fractional theorem"
+        },
+        {
+          "assessment": "Edge-only classification on complete multipartite graphs",
+          "evidence": [
+            "Two-part polynomial z^N+Nz^(N−1)+n₁n₂z^(N−2)."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-correction-and-all-set-classification-for-edge-metric-dimension--ddf19947a669",
+          "material_read": "Finding and Proof offsets 600–2695",
+          "method": "Resultary and local mirror",
+          "title": "Correction and all-set classification for edge metric dimension",
+          "trigger": "Existing classification of all edge-resolving sets"
+        },
+        {
+          "assessment": "Complete-bipartite comparison; condition for edge generators on that family; no general diameter-three transfer in inspected theorem",
+          "evidence": [
+            "edim(K_{r,t})=dim(K_{r,t})=r+t−2, excluding K₁,₁."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.00291v1",
+          "material_read": "Remark 2 p. 4, PDF text offset 14086",
+          "method": "Lawful OA primary passage",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Foundational equality of edge and vertex dimension"
+        },
+        {
+          "assessment": "Inspected scope is ordinary vertex metric dimension, not vertex–edge equivalence",
+          "evidence": [
+            "Incidence-graph vertex resolving results and bounds, with no edge comparison in inspected passage."
+          ],
+          "identifier_or_url": "arXiv:1707.02899v2",
+          "material_read": "Abstract and §1, offset 0",
+          "method": "Lawful OA primary passage",
+          "title": "On the metric dimension of incidence graphs",
+          "trigger": "Prior resolution theorems for a natural diameter-three family"
+        },
+        {
+          "assessment": "Diameter-four comparison, beyond scope",
+          "evidence": [
+            "324 of 540 edge bases are reported not to be vertex bases; the graph has diameter four."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-geometric-edge-metric-bases-and-the-complete-edge-resolving-poly--4aa71f8104c8",
+          "material_read": "Finding offsets 0–2802",
+          "method": "Resultary and local mirror",
+          "title": "Geometric edge-metric bases and the complete edge-resolving polynomial of the Pappus graph",
+          "trigger": "Apparent conflict with equality of resolving families"
+        },
+        {
+          "assessment": "No whole-paper noncoverage determination",
+          "evidence": [
+            "HTTP 403 on the available routes and no located OA repository copy."
+          ],
+          "identifier_or_url": "doi:10.1080/09728600.2023.2223248",
+          "material_read": "Bibliographic identification only; full text inaccessible",
+          "method": "Lawful OA retrieval (direct and VPN) and repository check",
+          "title": "On the metric dimension of bipartite graphs",
+          "trigger": "Plausible broader bipartite metric dimension theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equality of every nonnegative separation constraint system, rather than just two optimum counts, transfers all resolving sets, optimal weighted/fractional solutions, enumerators and multiple-separation thresholds across a natural class including nontrivial design incidence graphs. The verified diameter-four example delimits that transfer. It is neither a scalar coincidence nor a table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

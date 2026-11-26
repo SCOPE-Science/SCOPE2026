@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:56:49.103334Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the spine fixed, each remaining middle-row end can only be matched vertically in its own column. A boundary horizontal edge forces the vertical to the other outer row. The left free intervals (top start, bottom start) then have parity (even, odd) for A and (odd, even) for B; the right ends have parity (odd, even) for A and (even, odd) for B. Opposite parities give even lengths, including any empty row interval; same parities give odd lengths. Hence exactly 8 of the 16 proposed matchings do not extend. Removing one boundary edge permits the compatible vertical at that end. For an A-left/B-right obstruction with d_j removed, column 2j is available in the top even-to-even interval and column 2j+1 in the bottom odd-to-odd interval. Using verticals there splits both intervals into even lengths. For B-left/A-right the rows are exchanged. In each even-to-even interval column 2j lies between the left start 2 and right end at least 2n-2, and in each odd-to-odd interval column 2j+1 lies between the start at most 3 and end 2n-1, which checks both extreme j and n=2. Every one-edge deletion extends, so every proper subset extends. The eight sets are distinct and have n+1 edges, giving eight distinct squarefree minimal generators of that degree, not a complete global enumeration. Replay is by RESULT.md lines 13–33. The attached exhaustive finite solver was inspected, not executed; the proof supplies the all-n result without relying on that solver.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chandrakar et al. use the same middle-row spine d_2,d_4,...,d_(2n-2) inside a star-based homotopy decomposition of the exact same complex.",
+          "Chandrakar–Singh classify two forms of two-edge bad matchings on two-row grids."
+        ],
+        "reasoning": "The same-grid homotopy calculation is a different invariant; it does not specify the minimal excluded supports. The complete width-two classification does not extend to the three-row family.",
+        "searches": [
+          "arXiv:2611.18058v1, introduction and §3, subcomplex A_1",
+          "arXiv:2407.05809, §3, Lemma 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.18058v1 pp. 2–4; arXiv:2407.05809 Definition 2.3 and Lemma 3.1",
+        "Resultary fe1038ecfc64 and c400769702b4",
+        "Frozen RESULT.md, AUDIT.json, REVIEW.md, VERIFICATION.md and verify.py (read-only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The preprint explicitly notes size-three minimal obstructions for width three. It already contains the alternating spine as part of a different construction.",
+          "Neither that existence observation nor the shared spine gives the left/right phase criterion or the minimality after deleting an arbitrary spine edge."
+        ],
+        "reasoning": "The new claim is not merely the existence of a three-edge obstruction, which is prior coverage. It is the uniform n+1 construction with two forced boundary phases and verified minimality for all spine deletions. Exact coincidence of some n=2 examples remains unresolved.",
+        "searches": [
+          "arXiv:2611.18058v1 p. 2 on bad matchings; §3 p. 4 on A_1",
+          "arXiv:2407.05809 Lemma 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both primary sources use bad matching for an inclusion-minimal nonextendable matching.",
+          "A partial domino tiling of a rectangle is a matching of the cell grid. Completing the tiling is extension to a perfect matching; minimal bad matchings also generate the Stanley–Reisner ideal.",
+          "An edge set meeting every perfect matching is a different notion of blocker: it is the complement of a nonextendable set that meets every perfect matching, and this does not establish minimality as a blocker."
+        ],
+        "reasoning": "The equivalent formulations preserve the all-n assertion and single-edge-deletion condition. Width-two bad matching results and hitting-set blocker results do not give that condition for these three-row patterns.",
+        "searches": [
+          "arXiv:2611.18058v1 bad matchings and minimal nonfaces",
+          "arXiv:2407.05809 Definition 2.3 and Lemma 3.1",
+          "Resultary: minimal matching obstructions and partial domino tilings on three-row grids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirror record fe1038ecfc64 at Finding offset 0 gives exactly the assigned result and is a self-match.",
+          "Nearby distinct record c400769702b4 concerns finite-width homotopy cases, not the growth of sizes of minimal nonfaces."
+        ],
+        "reasoning": "An indexed copy of the frozen statement is not separate coverage. A finite homotopy table would not establish the explicit infinite obstruction family.",
+        "searches": [
+          "Resultary: unbounded minimal matching obstructions on three-row rectangular grids",
+          "Resultary: boundary-sensitive classification of three-row perfect-matching complexes"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sixteen-pattern boundary classification and the eight minimal obstructions of size n+1 for all n>=2. The same-grid preprint already uses the identical alternating spine and notes that three-edge bad matchings occur. That overlap does not furnish the boundary classifications or a family of unbounded size.",
+      "residual_risks": [
+        "The broader literature query did not return usable evidence; this is not evidence of absence. A prior equivalently formulated forbidden-domino theorem may exist.",
+        "The same-grid preprint's size-three examples may include some of the smallest cases. No attribution of priority is made for existence of three-edge obstructions or for the spine."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT SPINE AND SMALL-OBSTRUCTION OVERLAP, NO UNBOUNDED CLASSIFICATION IN INSPECTED PASSAGES",
+          "evidence": "Page 2 discusses three-edge bad matchings; §3 uses the alternating even-start edge spine in A_1 for homotopy.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18058v1",
+          "material_read": "OA PDF p. 2 around offset 5512; p. 3 around offset 10493; §3 p. 4 around offset 12400",
+          "method": "Read primary PDF passages on the definition and construction",
+          "title": "Perfect Matching Complexes of 3 × 2n Grid Graph",
+          "trigger": "Same complex, bad matchings and overlapping spine"
+        },
+        {
+          "assessment": "EQUIVALENT NOTION, NARROWER WIDTH",
+          "evidence": "The lemma classifies two-edge forms on two-row grids only.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.05809",
+          "material_read": "OA PDF Definition 2.3 p. 3, offset 9588; Lemma 3.1 p. 5, offset 17203",
+          "method": "Read definition and lemma in primary PDF",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Potentially general bad matching classification"
+        },
+        {
+          "assessment": "ASSIGNED RECORD ITSELF",
+          "evidence": "The identifier and the exact boundary-pattern theorem agree. The match is not independent evidence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-unbounded-minimal-matching-obstructions-on-three-row-rectangular--fe1038ecfc64",
+          "material_read": "Local mirror RESULT.md Finding, offset 0",
+          "method": "Resultary search and local mirror statement comparison",
+          "title": "Unbounded minimal matching obstructions on three-row rectangular grids",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "RELATED FINITE HOMOTOPY, DISTINCT CONCLUSION",
+          "evidence": "Finite-size homotopy classification does not identify all-n forbidden patterns.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-boundary-sensitive-eight-column-classification-of-three-row-pe--c400769702b4",
+          "material_read": "Indexed result statement",
+          "method": "Resultary result comparison",
+          "title": "A boundary-sensitive eight-column classification of three-row perfect-matching complexes",
+          "trigger": "Same-width catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem exhibits a structural jump from width two, where minimal forbidden patterns have size two, to fixed width three with growing minimal-generator degree. The examples are boundary obstructions along a standard spine; every selected domino matters. This identifies genuinely nonlocal constraints on completion without overstating their global census or maximum size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

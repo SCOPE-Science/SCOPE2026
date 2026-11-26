@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:59:49.827617Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 30–52",
+        "VERIFICATION.md; verify.py lines 15–61; verify_ext.py",
+        "Independent replay: python3 /workspace/branches/finite_replay.py (chain checks)"
+      ],
+      "rationale": "The equation implies (a^p)^2=a^p and a^pa=a. Since a commutes with e=a^p, (a−e)^p=0, and a−e lies in eAe. Conversely e+x gives a solution and has p-th power e; hence the parametrization is bijective. The diagonal of x vanishes. The element e d_S+(1−e)(1−d_S) intertwines d_S and e and has unit diagonal. The orbit–stabilizer count in 1+J(P) therefore gives q^{c_P(S)} choices for e, because exactly the crossing entries are forbidden in the stabilizer. Its corner is the incidence algebra on S, with the induced order, and the empty corner contributes one. Partitioning strict pairs into inside S, outside S, and crossing gives the low-height result when every chain has at most p vertices. On the chain of p+1 vertices only the full corner has a restriction: the product of the p successive entries must vanish. Hence the number subtracted is exactly (q−1)^p q^{binom(p,2)}. Independently, for any taller induced corner one can make the endpoint entry of x^p equal 1 by using only the chosen p successive edges of a chain; it is thus a nonzero degree-p polynomial, giving the uniform bound p q^{m(S)−1}. Terms can attain q^{m(P)} only for unrestricted corners whose complements contain no comparable pair, which gives H_p(P). At height p+1, the chain-ending rank strictly increases and takes all p+1 values on every maximum chain, so a rank level is an antichain meeting each such chain. At greater height an antichain cannot remove more than one vertex from a maximum chain. These bounds also apply to edgeless P (where the error is zero). The chain assertion in frozen verify.py line 53 is not reached: its comparison list uses range(n) rather than range(n−1). A separate bounded direct replay tested the closed formula at (p,n)=(2,2),(2,3),(3,3),(3,4), obtaining counts 7,43,136,4996 and threshold subtractions 2 and 216; the symbolic product test proves the general result regardless of the dead assertion.",
+      "residual_risks": [
+        "The frozen scripts were inspected, not executed. The all-height formula does not evaluate the arbitrary p-nilpotent radical locus, and the asymptotic is not a claim that the unrestricted count is polynomial."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8e790fc6774d counts tuples for split-separable constraints and gives the idempotent cut weight q^{c_P(S)}; it excludes inseparable constraints. 6bd72380c528 also gives the commuting-idempotent baseline. d6c6054e5969 has a height criterion 2^k≥h(P) for commuting k-tuples of idempotents."
+        ],
+        "reasoning": "The shared orbit weight is covered, not a new idempotent count. The generality of the separable tuple theorems does not reach the repeated root or turn their color-budget height condition into the antichain-deletion condition.",
+        "searches": [
+          "arXiv:2009.04243 pp. 1–3; Resultary all-poset polynomial constraints and commuting-idempotent enumerators (8e790fc6774d, 6bd72380c528, d6c6054e5969)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.04243 Theorems 1.1–1.2",
+        "Resultary d6c6054e5969, 8e790fc6774d, 6bd72380c528, 89b75cde9cfe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two same-date idempotent/separable records supply diagonal fiber weights, but neither imposes x^p=0 in the occupied corner. The layered theorem computes a restricted B_p; the antichain law holds for arbitrary finite posets."
+        ],
+        "reasoning": "No priority is inferred from a same-day date. Combining existing idempotent fibers with the repeated-root decomposition gives the exact reduction; the nonzero chain polynomial and the antichain height proof are what reach the all-poset leading term. The original contribution is assessed on these net claims, not on standard idempotent lifting.",
+        "searches": [
+          "arXiv:2009.04243 Theorems 1.1–1.2 versus T(T−1)^p; Resultary 8e790fc6774d, 6bd72380c528 and 89b75cde9cfe Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gargate–Gargate, arXiv:2009.04243, Theorems 1.1–1.2 count split-root potent matrices under a nondivisibility assumption. Here T^{p+1}−T=T(T−1)^p; the root 1 is repeated, giving a nonzero nilpotent perturbation in its corner."
+        ],
+        "reasoning": "Counting all strictly upper-triangular nilpotents is not equivalent to counting those of exponent at most p above height p. The prior split-root formula cannot be specialized by simply setting k=p.",
+        "searches": [
+          "Resultary and primary literature comparison for resonant (p+1)-potents, nilpotent perturbations of idempotents, and strict upper-triangular x^p=0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "89b75cde9cfe computes ranks of the top radical power for ordinal sums of antichains. At height p+1 its rank-zero stratum evaluates B_p for that particular class, which includes the first forbidden chain."
+        ],
+        "reasoning": "This is exact overlap for that radical factor, but the inspected article is later and restricted to layered posets. It is not the census of all resonant elements or the unrestricted asymptotic. The broader census should not be credited as a new layered top-power count.",
+        "searches": [
+          "Resultary bounded comparison for top radical power, first forbidden chain and exact nilpotency-index counts (89b75cde9cfe)"
+        ]
+      },
+      "rationale": "The diagonal-idempotent census and primary decomposition are existing ingredients. The distinct contribution supported here is their use for the repeated-root census, with evaluated low-height and first-threshold formulas and the all-poset top-exponent law in fixed characteristic. The closest counted split-separable equations do not give the p-nilpotent corner factor, and the related exact nilpotency census is for a restricted subclass.",
+      "residual_risks": [
+        "The focused literature lookup did not locate a further relevant primary result; that does not rule out a general count under another formulation of polynomial equations with repeated roots in incidence algebras."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct separable-regime overlap, not characteristic resonance",
+          "evidence": [
+            "The assumption on characteristic forbids k=p; the count distributes diagonal entries among the separated roots."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.04243",
+          "material_read": "PDF pp. 1–3, abstract, introduction and Theorems 1.1–1.2; OA offsets 0 and 4476",
+          "method": "Open-access primary PDF and parameter substitution in theorem hypotheses",
+          "title": "(k+1)-potent Matrices in triangular matrix Groups and Incidence Algebras of Finite Posets",
+          "trigger": "Closest primary study of the same power equation in incidence algebras"
+        },
+        {
+          "assessment": "Covers the idempotent orbit weight, but not p-nilpotent corner counts",
+          "evidence": [
+            "The fiber is q^{b(c)} for split-separable constraints; inseparable polynomials are excluded."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-potts-tutte-formula-for-commuting-split-separable-tuples-in-fi--8e790fc6774d",
+          "material_read": "Mirrored RESULT.md at offsets 0 and 4200, statement and separability restriction",
+          "method": "Resultary search and local-mirror statement comparison",
+          "title": "A Potts–Tutte formula for commuting split-separable tuples in finite incidence algebras",
+          "trigger": "All-poset polynomial census and exact idempotent fiber overlap"
+        },
+        {
+          "assessment": "Supplies B_p within the layered subclass; later record and no all-poset resonant count",
+          "evidence": [
+            "Rank-zero of the top radical power is precisely x^p=0 at height p+1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-maximal-nilpotency-index-census-in-layered-incidence-algeb--89b75cde9cfe",
+          "material_read": "Mirrored RESULT.md Finding and hypotheses, offset 0",
+          "method": "Resultary search, local-mirror statement read and specialization to height p+1",
+          "title": "Exact maximal nilpotency-index census in layered incidence algebras",
+          "trigger": "Possible exact B_p overlap for the first threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–28 and 46–52",
+        "arXiv:2009.04243, abstract and Theorems 1.1–1.2"
+      ],
+      "rationale": "The repeated-root regime is the natural missing case for the motivated counting problem. The highest possible point-count exponent detects an exact height transition, and its coefficient at the threshold counts antichain transversals of maximum chains. This genuinely uses the repeated-root constraints for a growth invariant of arbitrary finite posets; the unevaluated fiber reduction is not presented as the entire contribution.",
+      "residual_risks": [
+        "No evaluated lower-degree law at arbitrary height or asymptotic uniform in varying characteristic is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

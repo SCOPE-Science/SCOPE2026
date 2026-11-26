@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:52:55.261576Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected)",
+        "Independent bisection and integer coefficient computation: /workspace/branches/analytic_record_diagnostics.py and .txt"
+      ],
+      "rationale": "The periodic jump-decay solution has H−L=10T, giving both input flux and mean concentration equal to 10 in the chosen units. Integrating r/(1+r) and 2r/(10+r) with dt=−dr/r gives the two logarithms. The signed numerator of their log-ratio comparison is (H−L)(80−HL−H−L), whose second factor equals 10F(T)/(exp(T)−1)², with positive denominator. For F's Taylor coefficients the degree-0 and degree-1 terms cancel; exact coefficients have signs − in degrees 2–5, + in 6–15 (computed independently), and − in all degrees ≥16 because 16−n≤0. The function J=(TF′−6F)/T¹⁶ is strictly decreasing on (0,∞) by its Laurent series: positive coefficients multiply negative powers; negative nonconstant coefficients have positive powers. It tends to +∞ at zero by F(T)=−4T²+O(T³) and to −∞ by TF′−6F∼−2T²e^(2T). Thus F/T⁶ strictly increases then decreases with one maximum, is negative toward both endpoints, and is positive at T=5: F(5)=e⁵(3e⁵−266)+13 and e⁵>100 from its Taylor terms. Both positive roots are simple, with the claimed signs. Independent high-precision bisection reproduces both decimals, without relying on these numbers for exhaustion. The equal density term cancels in the log ratio; after n periods it differs from its initial value by nTΔ, with uniformly bounded within-period modulation at fixed T. Logistic bounds with positive minimum growth and upper growth bound two, valid between pulses with continuous biomasses, keep total abundance bounded and ultimately away from zero. This makes the ratio result actual extinction of the loser, not just relative decline. At equality there is no strict exclusion. Continuity in the positive parameters preserves alternating strict witness signs at 1, 5, 20, hence at least two reversals locally, not an exact perturbed count.",
+      "residual_risks": [
+        "The exact count is for one explicitly fixed two-type model on its positive periodic resource trajectory. It does not apply to organisms feeding back on the resource, general Monod parameters, or empirical nutrient schedules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shared-crowding result covers fixed T with a_i=μ_i(R(t)), b_j=1, and no biomass impulses. Since all uncrowded growth averages are positive, its largest multiplier is >1 and identifies the winner exactly.",
+          "The broader two-level classification is broad in its Monod parameters but specifically assumes equal-duration two-atom forcing. The Wortel and Smith abstracts concern invasion fitness and serial transfer, not an exact buffered exponential-decay count."
+        ],
+        "reasoning": "Attribute fixed-T selection to this broader coverage. Its hypothesis-level input consists of averaged growth rates, so it gives no information about how their ordering varies with T. Breadth over physiological constants in the two-level theorem does not extend its forcing family.",
+        "searches": [
+          "Resultary 6bec0990ade3, exact stroboscopic selection and assumptions",
+          "Resultary 4689d81c1474, sharp parameter criterion and scope",
+          "Wortel DOI 10.1111/jeb.14158; Smith DOI 10.1016/j.mbs.2010.12.001"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4689d81c1474 and 6bec0990ade3",
+        "Letten–Ludington DOI 10.1038/s41396-023-01369-1",
+        "Wortel, Carrero-Colón et al., and Smith abstracts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At those same growth parameters the square-wave formula M₁−2M₁₀ has positive denominator (121−v)(400−v) on v∈[0,100] and numerator −4400+132v−v²=−44−(v−66)². It has no reversal for any allowed variance, unlike the exponential waveform.",
+          "Shared crowding converts a given uncrowded growth ranking into exclusion but does not establish the number or position of ranking changes."
+        ],
+        "reasoning": "The same-day two-level counterexample makes the general idea of two reversals known in the inspected corpus, but even at identical growth parameters its conclusions cannot mechanically yield the exponential-pulse statement. The distinctive step is the exact root count for the period-linked continuous forcing family.",
+        "searches": [
+          "Apply 4689d81c1474's actual two-point averaging formula at m=10, K₁=1, K₂=10, a₁=1, a₂=2; compare with the frozen exponential polynomial",
+          "Specialize 6bec0990ade3 to one fixed T"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The square-wave Resultary theorem averages Monod responses over two atoms at m±√v; exponential decay here gives the continuous time-sampling measure dr/(Tr) on [L,H].",
+          "Letten–Ludington hold total input flux fixed when varying replenishment interval, but resource consumption is in their dynamical model."
+        ],
+        "reasoning": "Both prescribed models reduce to averages of instantaneous Monod curves since their common mortality/crowding cancels in log ratios. This does not identify the two resource laws, or make their ranking as a function of forcing intensity equivalent. The consuming model is not a reparametrization of externally buffered decay.",
+        "searches": [
+          "Resultary 4689d81c1474, 6bec0990ade3; buffered Monod growth ranking, periodic forcing, reentry and shared crowding",
+          "Letten–Ludington, fixed resource flux and variable replenishment intervals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4689d81c1474 tabulates exact two-level variance thresholds v=(81±√2361)/175 for different parameter values. The closest inspected published fixed-flux replenishment comparison reports community-composition simulations, not the exact threshold equation or pair of periods."
+        ],
+        "reasoning": "Those exact variance thresholds are neither quoted values nor reparametrizations of the stated period thresholds. The literature query did not yield a material exact match and is not evidence of absence.",
+        "searches": [
+          "Resultary 4689d81c1474 exact witness and 6bec0990ade3; targeted primary comparison of nutrient periodicity and Monod reversal under a fixed resource flux"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exactly-two reversal count for the specified single exponential-decay pulse family with fixed mean and fixed input flux, including its exact threshold equation. The exclusion consequence at each fixed T is an instance of the existing shared-crowding selection theorem. A different same-day analytic Monod result already establishes a two-reversal phenomenon for symmetric two-level forcing with fixed mean; the frozen claim does not establish priority for that general phenomenon. Neither that forcing theorem nor the fixed-T selection theorem implies the frozen count.",
+      "residual_risks": [
+        "Full texts of Wortel and Smith and body of Carrero-Colón et al. were not read; possible broader applicable derivations are not excluded by abstracts.",
+        "Same-day priority is unresolved. The finding is assessed as an exact comparison for the stated waveform, not as the first fixed-mean Monod reentry example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same phenomenon but mathematically different forcing and exact conclusion; no chronological inference",
+          "evidence": "M_K(v)=[m(m+K)−v]/[(m+K)²−v], from equal durations at two symmetric levels; theorem varies variance, not period at fixed average pulse flux.",
+          "identifier_or_url": "Resultary 2026/11/22 4689d81c1474",
+          "material_read": "RESULT.md Finding, exact witness, and Assumptions, mirror offset 0",
+          "method": "Configured local mirror original file",
+          "title": "A geometric-mean threshold for reentrant Monod growth rankings under two-level nutrient forcing",
+          "trigger": "Exact two-reversal result for another fixed-mean prescribed Monod forcing"
+        },
+        {
+          "assessment": "Directly covers fixed-T competitive consequence but not ranking reversals",
+          "evidence": "Seasonal map chooses the greatest exponentiated period growth multiplier; a unique maximizing multiplier >1 eliminates the other species for positive initial states.",
+          "identifier_or_url": "Resultary 2026/11/01 6bec0990ade3",
+          "material_read": "RESULT.md Finding and Assumptions, mirror offset 0",
+          "method": "Configured local mirror original file",
+          "title": "Pulse-time invariance and complete global selection in shared-crowding competition",
+          "trigger": "Broader selection theorem with exactly the shared-density structure"
+        },
+        {
+          "assessment": "Published motivation and comparable input control, different dynamics and mathematical claim",
+          "evidence": "Monod-type multispecies, multiresource simulations keep total flux and mortality fixed while changing replenishment intervals, with uptake and outcomes measured by community composition.",
+          "identifier_or_url": "https://doi.org/10.1038/s41396-023-01369-1",
+          "material_read": "Nature PDF pp. 641–643, including simulation methods p. 642",
+          "method": "Lawful publisher PDF original passages",
+          "title": "Pulsed, continuous or somewhere in between? Resource dynamics matter in the optimisation of microbial communities",
+          "trigger": "Closest inspected published model with interval variation at fixed flux"
+        },
+        {
+          "assessment": "Abstract does not state the exact claim; detailed comparison unresolved",
+          "evidence": "Abstract describes nutrient-level specialization, analytical invasion fitness and adaptive-dynamics coexistence.",
+          "identifier_or_url": "https://doi.org/10.1111/jeb.14158; PMID 36799532",
+          "material_read": "Europe PMC abstract; not the full text",
+          "method": "Public abstract; identified Wiley full-text route returned 403",
+          "title": "Evolutionary coexistence in a fluctuating environment by specialization on resource level",
+          "trigger": "Analytical invasion fitness under fluctuating nutrient level"
+        },
+        {
+          "assessment": "Context only at this access level",
+          "evidence": "Monitors community composition in experiments with additions at 1, 3, 7, and 14 days.",
+          "identifier_or_url": "https://doi.org/10.1128/AEM.72.5.3175-3183.2006; PMCID PMC1472307",
+          "material_read": "Abstract; full body not obtained on the attempted lawful route",
+          "method": "Public abstract and attempted OA retrieval",
+          "title": "Effect of nutrient periodicity on microbial community dynamics",
+          "trigger": "Primary experimental nutrient-interval comparisons"
+        },
+        {
+          "assessment": "Endogenous serial-transfer comparison suggested by abstract, not proof of noncoverage",
+          "evidence": "Abstract describes single-substrate serial-transfer competition with Monod-type response, possible lag phase and coexistence.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2010.12.001; PMID 21163273",
+          "material_read": "Public abstract, not the full text",
+          "method": "Public abstract; attempted full-text retrieval unavailable",
+          "title": "Bacterial competition in serial transfer culture",
+          "trigger": "Serial transfers, competitive outcomes and Monod growth"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and hypotheses; fixed-flux discussion in Letten–Ludington; exact two-level comparison in Resultary 4689d81c1474"
+      ],
+      "rationale": "Changing only pulse timing at fixed mean and input flux is a natural modeling question. For two simple saturating responses this gives a minimal exact witness against a monotone ranking in the pulse interval, with proof of exhaustion and both thresholds, not just two simulated crossover points. The square-wave analogue does not make this redundant: at the frozen growth constants its symmetric forcing never reverses the ranking. That difference makes the precise exponential-waveform result a useful benchmark for separating forcing shape from mean and arguing about robustness of growth ranking. The shared-crowding extinction step is not the source of distinct value.",
+      "residual_risks": [
+        "Illustrative dimensionless parameters; relevance to nutrient-consuming chemostats and experiments requires a different model and evidence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

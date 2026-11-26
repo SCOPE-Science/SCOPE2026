@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:55:23.609041Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This PASS is for the corrected files, not the frozen formula. In the frozen example n=4, a=0.4,b=0, the first coefficient of u is 0.05, and r=0,s=1 in its own equality equation requires v's coefficient to be 0.05 exp(−iπ/4); the printed weights give 0.05 exp(+iπ/4), so they are feasible but not maximizing. The repair preserves the specified mask and uses j+1/2. It proves trace duality equality by the existence of a unitary mapping X to Y, equivalently equality of their Gram matrices, including singular weights. On the support, Fourier labels can be chosen in one centered contiguous interval of length L=n (odd) or L=n−1 (even), where h_r=exp(−iπr/n). For k=1,...,n−1, actual differences k and k−n occur in max(0,L−k) and max(0,L−(n−k)) pairs, and their ratios differ by a minus sign. Therefore only k=±1 survives in even dimension, while none of the nonconstant modes survive in odd dimension. At k=1 evaluating the harmonic at j+1/2 is precisely the required negative phase; at k=−1 use conjugacy. Nonnegativity cuts out all equally spaced side half-planes at distance one, without losing degenerate probabilities. Summing the same singular values verifies both scalar formulas, and a unit-vector/nuclear norm duality identifies the Schur norm. No other conclusion from the frozen statement is needed for the repair.",
+      "status": "PASS",
+      "verification": "Inspected but did not run uploaded verify.py; row j of its axis=1 roll has its one at j+1. Independently computed the n=4 wrong-sign value 1.19016935058 versus optimum 1.20710678119, attained at the corrected sign. The independently authored phase/vertex check is /workspace/branches/ef50b438-c1c6-4fa0-a9c0-b71d851ac1da/independent_check.py with findings.md. Also ran the new repair verifier, `python3 /workspace/repairs/1/verify.py`, yielding `CYCLE_SCHUR_CHECKS_PASS dimensions=38 boundary_vertices=836`, including explicit orientation and a sign-sensitive transpose check. These are bounded diagnostics, not the all-order proof."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Mathias abstract advertises a general circulant norm and a matrix Cauchy–Schwarz equality result. Levene gives symmetric attainment by averaging (Lemma 2.5) and invokes the Mathias constant-diagonal criterion for uniform attainability (§3.3)."
+        ],
+        "reasoning": "Neither existence by averaging nor the constant-diagonal norm formula specifies every optimizer. A general Gram equality criterion, even if available in Mathias, still has to be solved on the polar support to detect parity and compute the weight polytope. Additional historical coverage remains unresolved, since no lawful full text was verified.",
+        "searches": [
+          "Mathias doi:10.1137/0614080; Levene arXiv:2611.08419v1 §§2,3.3"
+        ]
+      },
+      "checked_sources": [
+        "Levene arXiv:2611.08419v1 §§2,3.3 and reference [21]",
+        "Mathias DOI 10.1137/0614080, accessible abstract and secondary description only",
+        "Resultary index and exact mirrored assigned record; indexed 675f2db6849b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known scalar norm and uniform equality are exact. The accessible comparison does not solve the equation for all probabilities, while the repair gives both polar differences for each admissible residue and the finite family of corresponding half-planes."
+        ],
+        "reasoning": "One must determine which harmonic residues see both signs, control compression at the missing mode, and prove the converse and polygon boundary. This new classification is not a mere evaluation of the known norm formula at n or a restatement of the existence of a symmetric maximizer.",
+        "searches": [
+          "Levene Lemmas 2.3, 2.5 and §3.3 Eq. (3.1); Mathias abstract and cited Lemma 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Levene Lemma 2.3 gives the equivalent trace-norm probability maximization and its weighted bipartite Hermitian adjacency formulation. Reversing cyclic orientation corresponds to I+Pᵀ and reverses the half-shift."
+        ],
+        "reasoning": "These are indeed formulations of the same extremal question; the variational identity supplies the objective, not the equality families. A transpose convention cannot be used to justify the wrong half-step for the stated mask.",
+        "searches": [
+          "Resultary: Schur idempotent cycle circulant Hadamard operator norm equality norming probabilities first harmonics regular polygon Mathias Levene",
+          "Primary search: Mathias Hadamard operator norm circulant applications Schur multiplier cycle I+P equality maximizing weights polar factor Levene normers all maximizers cycle idempotent 0614080"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary result is the assigned version. The other indexed cyclic-shift rectangle record 675f2db6849b treats a free-entry approximation, not this trace-weight equality set. The classical exact circulant value is covered by the earlier norm formula."
+        ],
+        "reasoning": "Matching parity or polygon geometry for a different optimization does not give the present family of norming weights. The known exact value is excluded from the novelty judgment.",
+        "searches": [
+          "Resultary local semantic query for the cyclic Schur probability maximizers; Mathias DOI and Levene §3.3 for exact norm coverage"
+        ]
+      },
+      "rationale": "The corrected and re-audited claim is the complete equality family for this mask, not the known circulant norm or the fact that uniform probabilities attain it. The repaired half-step is part of the equality classification, not a new novelty claim on its own. The historical full text remains a named limitation.",
+      "residual_risks": [
+        "Mathias full text was inaccessible, so an earlier cycle-specific equality classification there cannot be excluded. No absence conclusion is based on the access failure.",
+        "An earlier equivalent result could be indexed under another mask, bipartite-cycle, or transpose convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known variational formula, invariant optimum and constant-diagonal norm, not the stated complete optimizer set",
+          "evidence": "Lemma 2.5 is an existence assertion; Eq. (3.1) uses uniform attainment and cites Mathias Lemma 2.4.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.08419v1",
+          "material_read": "§2 Lemmas 2.3 and 2.5, pp.5–7; §3.3 Eq. (3.1), p.10; reference [21], p.26; targeted full-text location search",
+          "method": "Lawful open primary PDF text, located passages",
+          "title": "A half-line of Schur idempotent norms",
+          "trigger": "Equivalent objective, known circulant norm and uniform optimum"
+        },
+        {
+          "assessment": "Scalar norm antecedent; possible earlier implicit or explicit classification unresolved",
+          "evidence": "The abstract mentions a matrix Cauchy–Schwarz equality result. Levene records the sufficient constant-diagonal criterion for uniform norm attainment.",
+          "identifier_or_url": "https://doi.org/10.1137/0614080",
+          "material_read": "Indexed abstract and Levene's exact citation and description of Lemma 2.4; no full text",
+          "method": "Bibliographic primary search and bounded exact OA attempts at DOI and SIAM URL (HTTP 403)",
+          "title": "The Hadamard operator norm of a circulant and applications",
+          "trigger": "Historical primary antecedent about circulant norms and equality"
+        },
+        {
+          "assessment": "Same finding under audit, with orientation defect; not independent prior support",
+          "evidence": "The Fourier ratio and physical-coordinate sign disagree in the version being repaired.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-parity-transition-from-unique-weights-to-a-regular-polygon-of--5673568ea7ad/RESULT.md",
+          "material_read": "Finding, Fourier equality section and prior-work comparison",
+          "method": "Primary Resultary local mirror and frozen evidence",
+          "title": "A parity transition from unique weights to a regular polygon of Schur-cycle normers",
+          "trigger": "Exact corpus match to assigned record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected classification determines whether symmetry can break among norming probability weights for a basic Schur idempotent and exactly which boundary-supported normers occur. A regular polygon versus a unique maximizer is an explicit structural datum not present in the classical scalar maximum. The claim neither classifies all norming matrices nor rests on a sign correction alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

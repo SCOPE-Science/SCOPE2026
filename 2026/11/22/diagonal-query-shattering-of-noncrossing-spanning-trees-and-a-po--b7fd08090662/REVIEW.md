@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The query universe is restricted to true diagonals; concept trees may use polygon boundary sides. For any noncrossing diagonal forest \(S\), every prescribed positive subset \(A\subseteq S\) extends to a noncrossing spanning tree inside the connected graph made from the boundary cycle and \(A\). This contains none of the negatively queried diagonals, proving all labels occur. Conversely the all-positive label forces \(S\) to be contained in a noncrossing tree. The complete support criterion is therefore proved, with no finite-size extrapolation.
+PASS
 
-The algebraic counting equations follow from a reversible rooted-face decomposition of noncrossing diagonal forests; the child-face subtraction is exactly the requirement that every face touch a polygon side. Triangulations establish the sharp \(n-3\) dimension, and the two-ear dual-path counting recurrence gives the top coefficient. The packaged checker independently verifies all forest histograms through twelve vertices, formal-series coefficients through twelve vertices, and 549 individual shattering-trace instances through six vertices. All checked computations use integer arithmetic, but are supporting consistency checks rather than proofs of the infinite statement.
+The all-positive labeling forces S to be a noncrossing forest. For a prescribed positive subset A, A plus all polygon sides is connected and noncrossing, and its forest A extends to a spanning tree in that graph with no other diagonals. This proves the full trace statement. A dissection has an all-diagonal face only if there is a cycle; conversely a cycle of selected diagonals encloses faces none of which can contain an original boundary side, by strict convexity. At the root side the incident face has an ordered list of at least two other sides. A side contributes x if on the original boundary and zG if a selected diagonal with an attached child. In a child at least one such side must be an original boundary side, explaining precisely the subtraction in G. The uniqueness explanation at RESULT.md:67 is imprecise: a mixed list can contain only one original boundary side. The actual recursion uses at least one factor x per surviving list, and after replacing U with V in its right-hand side the difference is divisible by x(U−V). It maps x²-series to x²-series and is an x-adic contraction, so uniqueness and recursive existence hold. Fans attain n−3. At equality a triangulation's weak dual has a degree-three vertex exactly when there is an all-diagonal triangle; otherwise the dual is a path. For n≥5, counting marked ears of the larger polygon by deleting a chosen label and reinserting in one of four terminal-ear sides of the smaller dual path gives 2Z_n=4n Z_{n−1}/(n−1), with cyclic symmetry distributing choices equally among the n−1 sides. The base Z_4=2 gives the claimed coefficient. Frozen verification_data.txt records finite forest and formal-series checks through n=12 and 549 direct trace-support instances through n=6; verify.py was read, not executed.
 
-## Originality — PASS, with residual priority risk
+## originality
 
-Flajolet–Noy (1999) gives generating functions for noncrossing forests when **all** edges, including boundary edges, are eligible; the present polynomial concerns only selected interior diagonals. Aichholzer et al. (2022) study flip reconfiguration of the same noncrossing-tree concept domain, not the diagonal-only Boolean shattering complex. Keller et al. (2012) classify blockers, which do not imply realization of all binary patterns. The public half-turn-fixed noncrossing-forest result studies fixed-point topology for a few even polygon orders and includes boundary edges; the heptagon noncrossing-tree Fourier result is a fixed-size all-edge parity-spectrum calculation. Neither yields this all-order enumeration by diagonal-query support size.
+PASS
 
-The count \(n2^{n-5}\) of dual-path (two-ear) triangulations was already implicit in the explicit ear enumeration of Hurtado–Noy (1996). It is **not** asserted to be new in isolation: the claimed additional contribution is its identification as the maximum shattered-support count, together with the full-support classification and new algebraic diagonal-only series. Existing terminology for polygon dissections might hide a prior equivalent recurrence, so the priority risk remains nonzero. A failed database search alone is not evidence of novelty.
+The elementary forest-extension implication and the known two-ear triangulation count are not independent originality claims. The supported distinct content is the all-size diagonal-only trace-support profile and its fully edge-refined algebraic enumeration, based on excluding faces with no original side. The strongest compared forest, dissection and trace results do not give or directly imply this restricted profile.
 
-## Value — PASS
+## value
 
-The observable set of diagonals is a natural restriction in geometric query learning: polygon sides remain available for witness construction but are excluded as measurements. The support criterion provides an exact polynomial-time recognition test for every coordinate support, not only a scalar dimension. Its complete bivariate algebraic series computes every face count of an infinite family and identifies the extremal supports as the classical dual-path triangulations. The full enumerator and precise witness construction have mathematical value even if the known two-ear count is separated from the new statements.
+PASS
 
-## Limitations and closest literature
+Rather than merely recomputing the known two-ear count or reporting the VC dimension, the theorem gives the whole size-refined trace-support profile for a natural projection of a geometric tree class. The all-size dissection encoding makes the cycle obstruction local and provides a usable exact enumerator for arbitrary polygon size.
 
-No classification for all-edge queries, nonconvex configurations, or boundary-forbidden trees is claimed. Full texts inspected include Aichholzer et al. (2022), Flajolet–Noy (1999), Hurtado–Noy (1996), two public geometric-combinatorics results, and blocker literature. Unindexed equivalent work, especially dissections characterized by boundary-exposed faces, remains a bibliographic risk. No independent audit or external validation is claimed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

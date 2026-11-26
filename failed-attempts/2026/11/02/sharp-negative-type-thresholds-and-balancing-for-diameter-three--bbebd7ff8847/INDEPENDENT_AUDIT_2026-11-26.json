@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:32:23.210254Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every diameter-three tree has a central adjacent pair, and all other vertices are leaves adjacent to one of the pair. Anchor the Gram matrix at the first hub. Leaf contrasts each have eigenvalue q/2. In coordinates consisting of the unanchored hub and the two leaf totals, the hub pivot is 1, its couplings are (2−q)/2 and q/2, and the leaf block has diagonal 1−q/2+q/(2m), q/2+q/(2n), and off-diagonal (1+q−q^s)/2. The hub Schur complement has diagonal q(2+2/m−q)/4, q(2+2/n−q)/4 and off-diagonal −(2q^s−2−q²)/4. For S=m+n>2 the latter numerator F increases on [2,3] since s>19/12>3^(5/12)>3^(2−s); q√(A_m A_n) strictly decreases on [2,2+2/max(m,n)), by the logarithmic derivative bound 1/2−S/4<0. They cross once before the first diagonal can vanish. Rank is one in the complement at the crossing; above it the determinant first becomes negative, and for q>2+2/max(m,n) a diagonal is negative. Strict nesting supplies all p<1, with p=0 elementary. The path exception embeds in a line at p=2, and no higher power can satisfy the snowflake triangle inequality along three successive vertices. At q_0=2+2/S, midpoint convexity at 2,3,4 gives F(q_0)<2/S, while q_0√(A_m A_n)=2q_0/S; every root lies above q_0. There A_m A_n=(q−2)^2+[4−2S(q−2)]/(mn) strictly increases with mn while the admissible q interval only widens as the larger leaf count decreases. This proves strict balancing. Substitution at m=n and differentiation in 1/m give the stated asymptotic. Frozen code and notes were inspected, not run. The separately written `python /workspace/branches/independent_reproduction.py 3` passed 72 independent shortest-path Gram instances (all unordered splits for 2≤m+n≤17), including endpoint nullity and sample fixed-sum monotonicity; the proof does not extrapolate the sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior Gaussian theorem additionally covers kernel indefiniteness at sufficiently small positive scale above the threshold; its powered-distance statement is exactly the assigned invariant.",
+          "The general finite-metric theorem and tree results cover the framework and lower bounds, not the specific asymmetric ordering in inspected passages. The other indexed double-star entry deals only with the balanced slice."
+        ],
+        "reasoning": "The full Gaussian theorem is stronger in its consequences and equally general in tree parameters; the older external literature supplies framework rather than the decisive equivalence match.",
+        "searches": [
+          "Resultary 435e3d8a3db7 and 8688551d9acf",
+          "Sánchez arXiv:1108.0451 Corollary 2.4 and Theorem 3.1",
+          "arXiv:1008.3418; arXiv:1608.03699; arXiv:2309.16070"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 435e3d8a3db7 and 8688551d9acf",
+        "arXiv:1108.0451",
+        "arXiv:1008.3418",
+        "arXiv:1608.03699",
+        "arXiv:2309.16070"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian proof has z>0 for 1<p<2 and both diagonal entries strictly negative at the crossing, so q<2+2/max(m,n). Its determinant condition then reads exactly q√(A_m A_n)=2z=2q^s−2−q².",
+          "Its proof of balancing expands the same determinant in fixed S and 1/(mn), and its balanced rank and Taylor coefficient coincide. It covers P4 with the two-dimensional radical at p=2, giving rank one."
+        ],
+        "reasoning": "The bracket and unsquared scalar equation are forced by the earlier matrix and its proved signs, not an independent refinement. No extra invariant remains outside existing coverage.",
+        "searches": [
+          "Resultary 435e3d8a3db7 Proof §§2–4; 8688551d9acf Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact earlier catalogue result defines universal Gaussian positivity at every scale and explicitly states its equivalence to conditional negative semidefiniteness of d^p. It treats the whole graph, including both hubs, with the same distances and p=0 convention.",
+          "With t=q and u=q^s, its matrix M has entries q(q−2)/2−q/m, q(q−2)/2−q/n, and q^s−1−q²/2; it is exactly −H(q)/2 in the assigned notation."
+        ],
+        "reasoning": "Both the invariant and the two-variable obstruction are equivalent, not just related through a Gaussian analogy. Strict negative type below the crossing follows from the prior proof's strict nesting or strictly monotone normalized highest eigenvalue.",
+        "searches": [
+          "Resultary: double-star trees diameter three exact supremal negative type generalized roundness unequal number of leaves fixed sum balancing strict threshold",
+          "Resultary 435e3d8a3db7, Finding and Proof §§1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/1/SCOPE-sharp-gaussian-distance-power-thresholds-and-leaf-balancing-on-d--435e3d8a3db7 explicitly gives the asymmetric threshold and fixed-sum product ordering for all positive leaf counts.",
+          "2026/11/2/SCOPE-exact-generalized-roundness-and-critical-hilbert-dimension-of-ba--8688551d9acf separately gives the balanced equation, endpoint rank and same first-order large-leaf constant."
+        ],
+        "reasoning": "These are actual catalogue theorems, not parameter/title coincidences or finite numeric tables. The first covers the original in full; the second is exact on its balanced slice without any within-day priority inference.",
+        "searches": [
+          "Resultary: diameter-three tree negative-type threshold, double-star Gaussian kernel, generalized roundness, and leaf balancing"
+        ]
+      },
+      "rationale": "The distinct indexed Gaussian distance-power result on 2026/11/1 explicitly treats the same conditional negative semidefiniteness condition on all double stars, with the same reduced two-by-two matrix up to a scalar, strict fixed-sum product ordering, degeneracies and endpoint rank, balanced equation and asymptotic. The assigned scalar equation and its root bracket are direct consequences of its eigenvalue criterion and its proof of strict negative diagonals at the root. The rephrasing in negative-type and Hilbert terms adds no distinct mathematical classification.",
+      "residual_risks": [
+        "Doust–Weston, Enhanced negative type for finite metric trees, was identified via the Sánchez bibliography but not inspected directly. Any additional external coverage or authorship/priority relationship does not affect the documented exact catalogue match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive full substantive coverage",
+          "evidence": [
+            "Finding states conditional negative semidefiniteness exactly to the root of the maximum eigenvalue of M; it gives strict increase with leaf product, balanced equation and asymptotic, and all endpoint ranks.",
+            "At the nonpath crossing, the proof gives z>0 and negative diagonal entries; taking the determinant yields the assigned scalar equation in the assigned interval."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-gaussian-distance-power-thresholds-and-leaf-balancing-on-d--435e3d8a3db7/RESULT.md",
+          "material_read": "Actual Finding, assumptions, Proof §§1–4 and comparison, local file offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Sharp Gaussian distance-power thresholds and leaf-balancing on double-star trees",
+          "trigger": "Potentially equivalent all-parameter threshold with exactly the fixed-sum extremal law"
+        },
+        {
+          "assessment": "Exact but balanced-only overlap; no within-day priority inferred",
+          "evidence": [
+            "Gives k3^p=(k+1)2^p+k, endpoint dimension, and the same first-order asymptotic."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-generalized-roundness-and-critical-hilbert-dimension-of-ba--8688551d9acf",
+          "material_read": "RESULT.md Finding and Proof §§1–5, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Exact generalized roundness and critical Hilbert dimension of balanced double-star trees",
+          "trigger": "Exact balanced-slice catalogue match"
+        },
+        {
+          "assessment": "General method plus explicit complete-bipartite graphs, not the two-hub tree ordering",
+          "evidence": [
+            "Finite powered-metric determinant criterion and exact complete-bipartite exponent."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1108.0451",
+          "material_read": "Cor. 2.4 p. 5 and Thm. 3.1 p. 7, offsets 17500 and 25300",
+          "method": "OA PDF passage inspection",
+          "title": "On the supremal p-negative type of a finite metric space",
+          "trigger": "General determinant method and a close explicit graph class"
+        },
+        {
+          "assessment": "Tree context, not the exact double-star root in inspected material",
+          "evidence": [
+            "States that finite metric trees have generalized roundness >1 and examines countable tree classes of roundness 1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1008.3418",
+          "material_read": "p. 1, offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Metric trees of generalized roundness one",
+          "trigger": "Generalized roundness of trees"
+        },
+        {
+          "assessment": "General comparison and different tree scope in inspected passages",
+          "evidence": [
+            "Discusses comparison methods and tree classes of generalized roundness one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.03699",
+          "material_read": "pp. 1–2, offsets 0 and 10500",
+          "method": "OA PDF passage inspection",
+          "title": "Comparing the generalized roundness of metric spaces",
+          "trigger": "Possible tree comparison theorem"
+        },
+        {
+          "assessment": "Foundations and examples of different families in inspected passage",
+          "evidence": [
+            "Hilbert negative-type setting with examples involving complete bipartite graphs and Hamming cubes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.16070",
+          "material_read": "p. 1, offset 300",
+          "method": "OA PDF passage inspection",
+          "title": "Negative type and bi-Lipschitz embeddings into Hilbert space",
+          "trigger": "Hilbert form of the same invariant"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics, the exact classification of all unweighted diameter-three trees and the strict fixed-order balancing law give a meaningful extremal statement and distinguish endpoint rank from the path exception. This is not additional scientific content relative to the equivalent indexed theorem; that decisive failure is recorded under originality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

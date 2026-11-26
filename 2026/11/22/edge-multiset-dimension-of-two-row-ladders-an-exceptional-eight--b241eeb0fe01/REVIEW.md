@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly fixes the distance convention and edge types. Its all-order step reduces right-hand signatures to three numbers \(\{q-j,q,N-q+c\}\), with a complete collision analysis for \(j=2\) and \(j=3\). Left-region cases are exhaustively displayed and compared to the right. The finite complement is proved through a complete obstruction certificate for every relevant candidate and separately replayed BFS and coordinate verifiers. Scope: open two-row ladders only. An untested larger width is not claimed.
+PASS
 
-## Originality — PASS (best-knowledge, residual priority risk)
+The empty and singleton sets fail, and for two landmarks the first and last edges of a shortest path collide, with the adjacent-landmark case covered by minimum degree two. For the infinite construction use the three top-rail columns 0,j,N, with j=2 for even N>=6 and j=3 for odd N>=9. In the right region each signature has the distinguished j-spaced pair (q-j,q) and third entry N-q+c with c in {-1,0,1}; equal distinguished pairs identify the edge. A collision with different pairs forces c'=c-j and 2q=N+c-j, impossible for j=3 and impossible by parity for j=2. In the left region the listed triples are distinct and only the first rung has a j-spaced pair. Its pair (0,j) would force q=j on the right, where the third entry is strictly below N. Independent BFS and subset enumeration of the exceptional orders checks all subsets at n=2,3,4 and all sizes through four at n=5,6,8. It reproduces the infinite dimensions, absence of smaller bases at 5,6,8, and the 4,20,80 basis counts; it also found four three-sets at n=7. The referenced finite_obstructions.json is absent in the frozen package and was not validated; the independent enumeration establishes the required finite facts without it.
 
-The founding 2023 full-text paper treats long cycles and rooted/comb products of paths, which are not the Cartesian two-row ladder. Searches for edge-multiset dimension of ordinary ladders and for synonymous unordered edge-distance signatures did not yield a covering statement. Research-record comparisons surfaced results on distinct invariants of ladders and on edge multisets for hypercubes or cycles; neither entails the all-order ladder theorem. A 2026 survey was accessible only at abstract level; its uninspected passages remain a priority risk. None of these limits is offered as proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant is the natural edge-identification problem when sensor identities are lost. Even a grid of width two has an unexpected three-stage profile (nonexistence, four landmarks, then three), and an isolated eight-column reversal. The exact dimension for every order, proved by a simple arithmetic mechanism coupled to finite complete obstructions, gives a benchmark separating this unordered-distance problem from conventional ordered edge metric dimension. Exact multiplicities at the exceptional finite dimensions further quantify the boundary.
+The exact Resultary entry is the frozen result itself. The closest primary results use the same invariant on different graph families, or different invariants; none of the inspected statements implies the classification or the finite basis multiplicities.
 
-## Limitations
+## value
 
-Minimum-basis counts for finite exceptional orders use full finite enumeration. No complete optimizer classification or all-cardinality enumerator for arbitrary orders is asserted. Independent priority review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-row Cartesian grid is a basic test family for an order-insensitive distance invariant. The result separates nonexistence from low finite dimension, supplies a uniform construction, and shows a genuine isolated reversal of the naïve monotonicity expectation at eight columns. Exact labelled basis multiplicities quantify that exceptional regime rather than merely producing isolated witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

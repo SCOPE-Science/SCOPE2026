@@ -2,7 +2,7 @@
 
 ## Finding
 
-Consider the consecutive levels \(S_0,\ldots,S_m\) of a symmetric random walk. Let \(R_0\) and \(R_m\) be the increasing ranks of its initial and final levels among **all** \(m+1\) levels, with rank one assigned to the lowest level. Although neither endpoint is uniformly ranked and each has a discrete-arcsine rank law, their *joint* second-order dependence has the following exact distribution-free form: for every integer \(m\ge1\),
+Consider the consecutive levels \(S_0,\ldots,S_m\) of a symmetric random walk. Let \(R_0\) and \(R_m\) be the increasing ranks of its initial and final levels among **all** \(m+1\) levels, with rank one assigned to the lowest level. Each endpoint has a discrete-arcsine rank law, which is uniform for \(m=1\) and nonuniform for \(m\ge2\). Their *joint* second-order dependence has the following exact distribution-free form: for every integer \(m\ge1\),
 
 \[
 \operatorname{Cov}(R_0,R_m)=-\frac{(m+1)(m+2)}{24},\qquad

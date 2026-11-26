@@ -1,83 +1,53 @@
-# Polarized three-agent house allocation: an exact envy obstruction and stock law
+# Polarized three-agent house allocation: an exact envy obstruction and its stock-law corollary
 
 ## Finding
 
-Fix an integer \(m\geq3\) and houses \(h_1,\ldots,h_m\). Three agents receive exactly one distinct house each; unused houses are permitted. The first agent strictly prefers \(h_1\succ h_2\succ\cdots\succ h_m\), and the second strictly prefers the reverse order \(h_m\succ\cdots\succ h_1\). The third agent has an arbitrary complete strict ranking \(\pi\).
-
-For a complete assignment \(A\), let \(e_i(A)\) count the other agents whose assigned houses agent \(i\) prefers to her own. Define \(E(A)=\sum_i\mathbf1_{\{e_i(A)>0\}}\) (number of envious agents), \(P(A)=\sum_ie_i(A)\) (number of ordered envy pairs), and \(X(A)=\max_ie_i(A)\) (maximum envy count). Then the *three separate optima* coincide:
-
+Let \(m\ge3\), and let agents 1 and 2 rank \(h_1,\ldots,h_m\) in opposite orders: agent 1 prefers smaller indices and agent 2 prefers larger indices. Agent 3 has an arbitrary strict ranking \(\pi\). Give each agent one distinct house and allow unused houses. For an assignment \(A\), let \(e_i(A)\) be the number of other assigned houses agent \(i\) prefers to her own, and put
 \[
-\min_AE(A)=\min_AP(A)=\min_AX(A)=
-\begin{cases}
-0,&\text{if some }i<j<k\text{ have }h_j\succ_\pi h_i\text{ and }h_j\succ_\pi h_k,\\
-1,&\text{otherwise.}
-\end{cases}
+ E(A)=\#\{i:e_i(A)>0\},\qquad P(A)=\sum_i e_i(A),\qquad X(A)=\max_i e_i(A).
 \]
+There is an envy-free assignment if and only if there are indices \(i<j<k\) such that \(h_j\succ_\pi h_i\) and \(h_j\succ_\pi h_k\). The three optima \(\min_A E(A),\min_A P(A),\min_A X(A)\) are all zero in that case and all one otherwise. In both cases a single assignment attains all three optima. Failure of the triple condition is exactly strict single-dippedness on the displayed axis: from best to worst the ranking removes an endpoint of the remaining axis interval at every step.
 
-The second case is precisely the set of rankings \(\pi\) that are **single-dipped on the displayed house axis**, equivalently those obtainable by repeatedly taking the leftmost or rightmost remaining house, from most to least preferred. Hence, when \(\pi\) is uniform over the \(m!\) rankings,
-
+**Uniform-ranking corollaries.** At fixed \(m\), for a uniform third ranking the probability that all three optima are one equals \(2^{m-1}/m!\). For the coherent growing inventory \(h_1,h_2,\ldots\), keep the two opposite orders and let the third agent's utilities be **independent and identically distributed from a common atomless law**. Let \(T\) be the first prefix length admitting an envy-free assignment, with \(T=\infty\) if no prefix admits one. Then \(T<\infty\) almost surely, and
 \[
-\Pr\{\min_AE(A)=\min_AP(A)=\min_AX(A)=1\}=\frac{2^{m-1}}{m!}.
+ \Pr(T=m)=\frac{2^{m-2}(m-2)}{m!}\quad(m\ge3),\qquad
+ \mathbb ET=\frac{e^2+1}{2},\qquad
+ \operatorname{Var}(T)=\frac{8e^2+1-e^4}{4}.
 \]
-
-For a coherent growing inventory \(h_1,h_2,\ldots\), keep the opposite orders on every finite prefix, and give the third agent independent atomless utilities over houses. Let \(T\) be the smallest inventory size at which an envy-free assignment of all three agents exists. Then \(T\) is finite almost surely, and for every integer \(m\geq3\),
-
-\[
-\Pr\{T=m\}=\frac{2^{m-2}(m-2)}{m!},\qquad
-\mathbb ET=\frac{e^2+1}{2},\qquad
-\operatorname{Var}(T)=\frac{8e^2+1-e^4}{4}.
-\]
-
-Thus the presence or absence of a single perfect assignment, the optimal values of three customary envy measures, and the required number of additional available houses all admit exact descriptions in the polarized case.
 
 ## Assumptions and scope
 
-The agents are labeled, houses are distinguishable, and each receives exactly one house. Each ranking is complete, strict, and ordinal; no ties, monetary transfers, or capacity multiplicities are allowed. The first and second agents' orders are deterministic and opposite on the axis, while the third is unrestricted. The probability statement conditions on the two fixed orders and randomizes only the third; it is **not** the probability for three independent random preference rankings. For \(T\), the rankings on finite prefixes must be restrictions of one coherent, countably infinite preference environment. The third agent's independent atomless utilities generate uniform orders on each finite prefix.
+Houses and agents are labeled, preferences are strict, and envy compares only houses actually assigned. The deterministic result needs no randomness. The finite probability conditions on the first two orders and randomizes only the third. For the stock law it suffices that the third agent's rankings are coherent restrictions of one ranking and are uniform on each finite prefix. I.i.d. atomless utilities ensure this by permutation symmetry and the absence of ties, almost surely on all prefixes. Independence and atomlessness without identical laws do not suffice: independent \(U_j\sim\mathrm{Unif}(2j,2j+1)\) make the third ranking follow agent 2's reverse axis on all prefixes, so no envy-free triple occurs and \(T=\infty\) almost surely.
 
 ## Proof
 
-**1. Envy-free assignment and a middle-first triple.** Consider three selected houses with increasing indices \(i<j<k\). Within this triple, the first agent most prefers \(h_i\), and the second agent most prefers \(h_k\). In any envy-free assignment using these houses, they must receive \(h_i\) and \(h_k\) respectively; the remaining house \(h_j\) must go to the third agent. She experiences no envy exactly when \(h_j\succ_\pi h_i,h_k\). Conversely, whenever this condition holds, the indicated assignment is envy-free. This proves the zero-versus-positive criterion, with all quantifiers ranging over triples of distinct indices.
+**Triple criterion and common optimum.** For three selected houses in axis order \(h_i,h_j,h_k\), envy-freeness forces agent 1 to get \(h_i\) and agent 2 to get \(h_k\). Agent 3 gets \(h_j\), and she has no envy exactly when she ranks it above both others. Conversely those assignments have no envy whenever the triple meets that condition.
 
-**2. The one-envy bound, simultaneously for three objectives.** Fix *any* three houses \(h_i,h_j,h_k\) with \(i<j<k\), and let \(f\) be the third agent's favorite of the three. If \(f=h_j\), give \((h_i,h_k,h_j)\) to agents \((1,2,3)\), leaving no envy. If \(f=h_i\), give \((h_j,h_k,h_i)\): only agent 1 envies agent 3. If \(f=h_k\), give \((h_i,h_j,h_k)\): only agent 2 envies agent 3. Every case has at most one ordered envy pair, hence at most one envious agent and maximum envy at most one. If Step 1 rules out envy-freeness, every allocation has at least one ordered envy pair, an envious agent, and a maximum envy count at least one. Therefore all three separate minima equal the indicator stated in the finding. Notice that the construction minimizes the three objectives *simultaneously*.
+On any selected triple, give the third agent her favorite of the three. If it is the middle house, give the two axis agents their preferred endpoints and there is no envy. If it is \(h_i\), assign \((h_j,h_k,h_i)\) to agents \((1,2,3)\), so only agent 1 envies agent 3. If it is \(h_k\), assign \((h_i,h_j,h_k)\), so only agent 2 envies agent 3. Thus all three objectives are at most one under the same assignment. If no triple meets the envy-free condition, each objective is at least one for every assignment. The criterion can be tested in linear time from the ranking array: at each interior index compare its rank to the worst ranks attained strictly to its left and right, computed by prefix and suffix scans. Here a lower rank number means more preferred. The positions of those worst ranks supply witness endpoints when the two comparisons succeed.
 
-**3. Characterization of the obstruction.** Call a ranking endpoint-deletable if, read from best to worst, it repeatedly selects an endpoint of the axis interval of remaining houses. If the third agent's highest-ranked house \(h_j\) is interior, the triple \((h_1,h_j,h_m)\) satisfies Step 1. Therefore a ranking without such a triple must take an endpoint first. The no-triple condition remains true on the remaining interval, so induction forces endpoint deletion throughout. Conversely, in any endpoint-deletable ranking, the earliest selected member of any triple \(i<j<k\) must be \(h_i\) or \(h_k\), because both lie in the remaining interval when the first member of the triple is taken. Hence the middle cannot be the third agent's favorite on any triple. This is the strict single-dipped condition with respect to the fixed axis (allowing an endpoint as a dip), proved without appealing to a general domain theorem.
+**Obstruction count.** If the most preferred house in the third ranking were interior, it would be favored over the two endpoints and give an envy-free triple. Thus a ranking with no such triple starts with an endpoint, and induction on the remaining interval gives endpoint deletion. Conversely, at the first deletion of a member of any triple, its middle house cannot be an endpoint of the remaining interval if both other members are still there. So endpoint deletion implies no triple works. There are \(2^{m-1}\) such rankings, since each deletion offers two distinct choices until the last house. Dividing by \(m!\) gives the fixed-stock probability.
 
-**4. Exact probability.** At each of the first \(m-1\) steps of endpoint deletion there are exactly two distinct endpoint choices; the last house is forced. These \(2^{m-1}\) sequences yield distinct strict rankings, and all such rankings fail the Step 1 criterion. Uniformity over \(m!\) possible third-agent rankings gives the stated probability. The uniform count is conditional on the first two polarized rankings.
-
-**5. First stock size.** The existence event is monotone in inventory size because an earlier envy-free triple can remain assigned when extra houses become available. Put \(q_m=\Pr(T>m)\). For \(m\geq2\) Step 4 gives \(q_m=2^{m-1}/m!\), where \(q_2=1\) also holds because three houses are required. Additionally \(q_0=q_1=1\). Thus for \(m\geq3\),
-
+**Stock law.** An envy-free triple remains feasible when additional houses are available, so \(T>m\) holds exactly when the prefix at size \(m\) contains no envy-free triple. With \(q_m=\Pr(T>m)\), uniform prefixes give \(q_m=2^{m-1}/m!\) for \(m\ge2\), with \(q_0=q_1=q_2=1\). These tails tend to zero. For \(m\ge3\), the mass is \(q_{m-1}-q_m=2^{m-2}(m-2)/m!\). By the integer tail-sum identities,
 \[
-\Pr(T=m)=q_{m-1}-q_m=\frac{2^{m-2}(m-2)}{m!}.
+ \mathbb ET=\sum_{m\ge0}q_m=2+\tfrac12(e^2-3),\qquad
+ \mathbb ET^2=\sum_{m\ge0}(2m+1)q_m=4+\tfrac12(5e^2-7).
 \]
-
-The tails tend to zero, establishing almost sure finiteness. The tail-sum identities for a positive integer-valued variable give
-
-\[
-\mathbb ET=\sum_{m\geq0}q_m=2+\frac12(e^2-3)=\frac{e^2+1}{2},
-\]
-
-\[
-\mathbb ET^2=\sum_{m\geq0}(2m+1)q_m
-=4+\frac12(5e^2-7)=\frac{5e^2+1}{2}.
-\]
-
-Subtracting \((\mathbb ET)^2\) gives the displayed variance. All infinite sums converge absolutely by factorial decay.
+Subtracting the square of the first moment from the second gives the variance. Factorial decay gives absolute convergence of both sums.
 
 ## Verification
 
-The included `check.py` independently enumerates every third-agent permutation for \(3\leq m\leq8\), every possible injective three-house assignment, and the three envy objectives. It compares the exact minima with a separately implemented endpoint-deletion predicate, and counts the profiles whose first successful prefix is of length \(m\). The tests cover \(6,24,120,720,5040,40320\) rankings, respectively. Every tested count is exactly \(2^{m-1}\) obstructed rankings and \(2^{m-2}(m-2)\) first-success rankings. Run `python3 check.py` from a directory containing the included source. These finite tests check implementation and small cases; the all-\(m\) result follows from the five mathematical steps above, not from finite enumeration.
+The accompanying `check.py` enumerates each third-agent permutation and each injective assignment for \(3\le m\le8\), checks the three minima and compares the obstruction and first-success counts to the formulas. Run `python3 check.py` with the supporting script. This is a finite diagnostic; it neither proves the general theorem nor tests that an arbitrary utility model induces uniform rankings. The proof above supplies the all-size conclusions.
 
 ## Relationship to prior work
 
-Hosseini, Roy, and Sethia (arXiv:2511.07022v1, Section 4.2, Lemma 4.10) prove that a profile which is globally single-dipped on one axis has at most two envy-free agents. Since the two polarized orders are also single-dipped, their lemma already **implies the obstruction half** of the present special case when the third ranking is single-dipped. The new assertion is the **sharp converse under two opposite rankings**, the common optimum for three different envy measures, and the exact conditional random-stock distribution. Their general domain algorithm does not state these results.
-
-Gan, Suksompong, and Voudouris (arXiv:1905.00468v2, Section 2) give a general polynomial-time envy-free assignment decision procedure and a large-market high-probability theorem under independent preference rankings. Those results permit per-instance decisions but do not give this polarized three-agent structural characterization or exact conditioned finite-size and first-passage formulas. The elementary endpoint-order enumeration itself is familiar; the contribution concerns its exact translation into three distinct allocation objectives and a minimum-house law. No assertion is made that all random house-allocation models have this law.
+Hosseini, Roy and Sethia [1, Lemma 4.10] prove that a globally single-dipped profile has at most two envy-free agents. Both opposite axis orders are single-dipped, so their lemma already implies the obstruction in the endpoint-deletable case. The converse for an arbitrary third ranking and simultaneous optimality for the three objectives are the structural assertions here. The combinatorial count itself is known: reversing an endpoint-deletion ordering produces a permutation whose every initial segment forms an integer interval, enumerated by OEIS A000079 with the appropriate index shift [3]. The stock formulas are consequences of that count and the conditional allocation criterion. Gan, Suksompong and Voudouris [2] give a general polynomial-time decision procedure and a high-probability result in a different model with independently uniform rankings for all agents, not the conditional fixed-opposite-orders classification.
 
 ## Limitations
 
-The result is restricted to three agents, two exactly opposite strict rankings, and at most one house per agent. No robustness to deviations from opposite rankings, cardinal costs, ties, or Pareto-efficiency guarantee is established. The first-passage distribution requires an inventory-prefix coupling and independent atomless third-agent utilities. The existing globally single-dipped obstruction is prior art; the claimed extension is the sharp converse and associated optimal-envy and stock laws. An unindexed equivalent formulation in the preference-domain or random-permutation literature remains possible. No independent scientific audit has been performed.
+The result is specific to exactly three agents, two exactly opposite orders, and at most one house per agent. It does not cover ties, cardinal costs, perturbations of the opposite orders, or arbitrary nonuniform utility models. No historical-priority claim is made.
 
 ## References
 
-1. Hadi Hosseini, Sanjukta Roy, and Aditi Sethia, *Fair Societies: Algorithms for House Allocations*, arXiv:2511.07022v1, first publicly available 10 November 2025. https://arxiv.org/html/2511.07022v1 (notably definitions in Section 2 and Lemma 4.10 in Section 4.2).
-2. Jiarui Gan, Warut Suksompong, and Alexandros A. Voudouris, *Envy-Freeness in House Allocation Problems*, arXiv:1905.00468v2, 2019. https://arxiv.org/pdf/1905.00468 (algorithm and random-market Theorem 2.3).
+1. H. Hosseini, S. Roy and A. Sethia, *Fair Societies: Algorithms for House Allocations*, arXiv:2511.07022v1, §4.2, Lemma 4.10, https://arxiv.org/html/2511.07022v1.
+2. J. Gan, W. Suksompong and A. A. Voudouris, *Envy-Freeness in House Allocation Problems*, arXiv:1905.00468v2, §2, https://arxiv.org/abs/1905.00468v2.
+3. OEIS A000079, comment of David Callan, 25 July 2008, on permutations all of whose initial segments are integer intervals, https://oeis.org/A000079.

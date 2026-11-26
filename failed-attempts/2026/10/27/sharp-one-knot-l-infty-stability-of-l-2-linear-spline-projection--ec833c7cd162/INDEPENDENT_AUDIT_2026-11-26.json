@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:34:18.341083Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three nodal hat integrals give the stated Gram matrix and determinant a(1-a)/36. The kernel reproduces constants, and its absolute row integral is convex on each mesh interval, so a global maximizer is among the three nodes. Independently, the inverse has knot row (-2,4,-2) and endpoint 1 row (1,-2,1+3/(1-a)). At 1 the signed row has negative triangular areas 2a/3 and 2(1-a)^2/[3(2-a)]; their sum is 2/[3(2-a)]. Reflection and the knot row give the other two norms, producing the exact profile, unique balanced minimum and nonattained supremum. The sign and negative-set indicator of a maximizing row attain the two claims. Smooth strict-range approximations preserve negativity by boundedness of the fixed row. For the strong limit, subtract the affine projection of v_a=(a-y)_+ from v_a. Bounded affine basis functions give ||P_aff v_a||_2=O(a^2)=o(||v_a||_2), and the normalization of v_a converges weakly to zero by Cauchy–Schwarz on [0,a]. The difference projector is the rank-one projection onto the normalized residual and thus tends strongly to zero in L^2. Reflection treats the other endpoint. The affine kernel at 1 is 6y-2, whose negative integral in magnitude is 1/3; convexity gives norm 5/3. This is a jump of sharp norms, not a claim of L-infinity operator-norm convergence. The frozen checker was inspected but the continuum and limit steps were established analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shadrin gives a mesh-independent L-infinity bound for fixed spline order; Passenbrunner–Shadrin give inverse-Gram estimates and convergence. The earlier metric-star calculation gives length-sensitive exact row norms on a larger class of networks, and its proof applies to two arms."
+        ],
+        "reasoning": "The general spline bounds aren't exact enough. The independent star argument is exact, and neither its block inverse nor the row estimates require a third nonzero arm.",
+        "searches": [
+          "Shadrin, Acta Math. 187 (2001), Theorem I",
+          "Passenbrunner–Shadrin arXiv:1308.4824 pp. 2-3",
+          "Resultary 01f1cffc69a6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECKER.py",
+        "Resultary 01f1cffc69a6, 088a71941c5f and 4fc9acb1ee67",
+        "Shadrin Theorem I",
+        "Passenbrunner–Shadrin arXiv:1308.4824"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The diagonal-leaf Schur complement is S/4 and each leaf row uses only its own length ell_i and the sum S-ell_i of the length of the other arms. The convexity argument applies to every arm. The only strict comparison to the center uses ell_i<S. The earlier proof takes the shortest leaf and uses reproduction of 1 to compute the least output for [0,1] inputs."
+        ],
+        "reasoning": "Use (ell_1,ell_2)=(a,1-a), S=1. Both arms satisfy ell_i<S and the displayed norm becomes 1+4/[3(1+h)] exactly. Monotonicity in h and the same row witnesses give the extrema, 17/9 and 7/3, and the negative defect. Smooth witnesses follow by bounded-row approximation. Thus nominal exclusion by m>=3 does not rescue the frozen central result: no new norm or range calculation is needed. The interval-specific strong limit is not claimed by the star theorem.",
+        "searches": [
+          "01f1cffc69a6/RESULT.md, Schur complement, leaf-row argument and positivity defect"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A metric star with two arms of lengths a and 1-a, each oriented outward from the join, is isometric with length measure to the interval with knot a. The piecewise-affine continuous spaces identify exactly. The star inverse has B_00=4/S, B_0j=-2/S and B_ij=3 delta_ij/ell_i+1/S on leaves."
+        ],
+        "reasoning": "This is a unitary identification on L^2 and an isometric identification on L-infinity. For S=1 the inverse is the submitted inverse after the center-to-knot and leaf-to-endpoint permutation.",
+        "searches": [
+          "Resultary: one-breakpoint linear spline projection, nodal reproducers and metric-star mass matrices",
+          "01f1cffc69a6/RESULT.md proof and verification, offsets 2506 and 2875"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "01f1cffc69a6 indexes the exact center norm 5/3, leaf norm (7S+3 ell_i)/[3(S+ell_i)], norm-attaining sign, and half-excess negative defect. Its verification includes 2-12 arms. The circle and full-line rank-one results address different operators."
+        ],
+        "reasoning": "There is exact matching symbolic data rather than merely a coincident 7/3 by another geometry. No extrapolation from the finite tests is used, since the earlier formulas prove these rows for two arms as well.",
+        "searches": [
+          "Resultary: exact shortest-arm projection norm and Franklin refinement",
+          "Resultary 01f1cffc69a6, 088a71941c5f and 4fc9acb1ee67"
+        ]
+      },
+      "rationale": "The central exact one-knot norm and range defect are mechanically covered by the previously published metric-star calculation 01f1cffc69a6. Its headline theorem states m>=3, but the proof is explicitly dimension-independent: the sole indicated use of m>=3 is to ensure each arm is shorter than the total, also true at m=2. Its verification explicitly includes two-arm length vectors. The strong-L^2 limit is not asserted in that record, but here it is a routine consequence of the extra normalized hat concentrating on the vanishing interval; the numerical gap follows directly from the prior row formula and the affine case. This is a concrete proof-level overlap, not a verdict based on an inaccessible historical paper.",
+      "residual_risks": [
+        "Absolute historical priority in the Franklin and older piecewise-linear literature is unresolved; Ciesielski–Kamont 1997 was not inspected in full. This does not affect the concrete prior coverage of the norm and range defect by the indexed star calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive proof-level coverage of the central exact result; the headline is restricted to branched stars, but the derivation works unchanged for the interval.",
+          "evidence": "B_ij=3 delta_ij/ell_i+1/S for leaves; absolute leaf integral (7S+3 ell_i)/[3(S+ell_i)]; center norm 5/3; the strict comparison only uses ell_i<S; the verification explicitly includes two-arm lengths.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-shortest-arm-law-for-continuous-linear-spline-projection-o--01f1cffc69a6/RESULT.md",
+          "material_read": "Finding, Gram inverse, vertex reduction, row integrals, positivity defect and verification (offsets 0, 2506, and 2875-6598).",
+          "method": "Local-mirror primary text; match Hilbert spaces, parameterize both interval pieces as arms and trace every use of the arm-count hypothesis.",
+          "title": "Exact shortest-arm law for continuous linear spline projection on metric stars",
+          "trigger": "Exact indexed norm and range defect on same nodal-hat space when the join has two arms"
+        },
+        {
+          "assessment": "Contains uniform boundedness, not an exact dependence on the single knot in the inspected passage.",
+          "evidence": "The theorem bounds the supremum of projection norms over partitions by an order-dependent constant.",
+          "identifier_or_url": "https://www.damtp.cam.ac.uk/user/na/people/Alexei/papers/spn0.pdf",
+          "material_read": "OA PDF p. 6, §0.2 Theorem I, offset 9092.",
+          "method": "Specialize the spline order to two and compare the type of estimate.",
+          "title": "The L-infinity-norm of the L2-spline projector is bounded independently of the knot sequence: A proof of de Boor's conjecture",
+          "trigger": "General interval orthoprojector theorem for arbitrary knot sets"
+        },
+        {
+          "assessment": "Related inverse-Gram bounds and a.e. convergence, not the exact row norm in these passages.",
+          "evidence": "Cites Ciesielski–Kamont (1997), Projections onto piecewise linear functions, pp. 129-143, for a.e. convergence using an inverse-Gram estimate. The cited 1997 article itself was not read in full.",
+          "identifier_or_url": "arXiv:1308.4824",
+          "material_read": "OA PDF pp. 2-3 at offsets 5200 and 7400 and p. 12 reference.",
+          "method": "Read result and bibliography; compare quantitative inverse entries and convergence hypotheses.",
+          "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+          "trigger": "Arbitrary-knot interval splines and historical projections onto piecewise linear functions"
+        },
+        {
+          "assessment": "Different operator, no implication of the exact interval norm.",
+          "evidence": "Uses an infinite Toeplitz Gram inverse for a rank-one projection increment on the real line; the frozen central result is for the whole finite-interval projector.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-endpoint-norm-of-a-single-franklin-spline-refinement-incre--4fc9acb1ee67",
+          "material_read": "Finding and Proof §§1-2, local mirror offset 0.",
+          "method": "Compare the refined projector difference and the spatial domain.",
+          "title": "Exact endpoint norm of a single Franklin-spline refinement increment",
+          "trigger": "Close Franklin terminology and rank-one refinement"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact parameter profile for a natural projector is useful, but the submitted profile, extremal witnesses and range defect reduce mechanically to existing leaf-row formulas. The additional strong-L^2 observation is a standard shrinking-support argument for an added rank-one direction; together with the prior row formula and the elementary affine norm it explains the numerical gap, without providing a further nonroutine invariant or classification that would justify a standalone repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

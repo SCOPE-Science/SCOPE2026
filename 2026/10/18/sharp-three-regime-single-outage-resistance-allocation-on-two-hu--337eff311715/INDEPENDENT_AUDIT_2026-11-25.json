@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:06:35.065852Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–72; independent convex-dual and series/parallel derivation",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing"
+      ],
+      "rationale": "For fixed failed e=xy, the resistance is the supremum over voltage potentials p of 2(p_x−p_y)−Σ_{d≠e}w_d(p_{d+}−p_{d−})² (complete the square around the unit-current solution). This independently gives convexity in w. The worst case is convex and invariant under the cost-preserving group, so averaging gives a symmetric design no worse than any independent allocation. A vanishing weight sends the mate-deletion resistance to infinity, since the mate deletion leaves that current terminal attached by the vanishing conductance alone. In the averaged design the surviving mate is in series with the other routes in parallel, giving 1/a+2/((m−2)a+b) or 1/b+2/((m−1)a). With A=m−1, d=m−2 and r=b/a, the scaled branch difference has sign r−1 because A(d+r)−2r=Ad+(m−3)r>0. Derivatives of the budget-scaled active branches on r≥1 and r≤1 are respectively t+(2td−2A)/(d+r)² and 2t/A−A/r². The first derivative has the sign of t[(d+r)²+2d]−2A, strictly increasing as a sign numerator; the second is strictly increasing. Evaluating signs at r=1 yields t_−=2A/(m²−3), t_+=A²/2 with t_−<t_+ (A≥2 and m²−3≥6); thus the unique minima of the two half-intervals combine to exactly the three stated branches, including both endpoints of the plateau. The stated a,b and D follow by substitution. At m=3, B=1 the exact three example resistances are 8,12,36. The statement supplies an unrestricted optimum value and an attaining symmetric design, not a classification of all asymmetric optima.",
+      "residual_risks": [
+        "No unrestricted uniqueness claim. No generalization to other topologies, failure models or objectives. The supporting spectral checks are finite, not the global proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson–Chertkov formulate robust worst-case power loss after line/generator failures; Ghosh et al. allocate weights for total pairwise effective resistance; Suliman–Weinstein discuss minimax edge resistance on the intact network."
+        ],
+        "reasoning": "Even if one encodes endpoint resistance as outage-specific unit-current power loss, a numerical or variational framework for power loss does not establish the exact minimizer and thresholds for this family. In the intact edge objective, the measured edge itself carries current and changes the objective.",
+        "searches": [
+          "Johnson–Chertkov arXiv:1004.2285 pp. 2, 7",
+          "Ghosh–Boyd–Saberi DOI 10.1137/050645452 abstract",
+          "Suliman–Weinstein arXiv:2302.05966 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic lookups and 0e2a6b59a0bc",
+        "Johnson–Chertkov 1004.2285",
+        "Zelazo–Bürger 1408.4471v2",
+        "Ghosh–Boyd–Saberi 10.1137/050645452",
+        "Suliman–Weinstein 2302.05966",
+        "Chan et al., ACM TALG 18(3)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cycle family is not the two-hub m≥3 family; its plateau does not include the present threshold scaling or ratio laws.",
+          "Chan et al. choose a subgraph with a bound on the number of edges for a fixed terminal pair. For the intact graph, failed-edge resistance R relates to intact resistance by R_intact=R/(1+w_e R), a design-dependent relation."
+        ],
+        "reasoning": "These transformations do not preserve the optimization and do not yield the budget-scaled active branches, whose switch is necessary for the actual plateau.",
+        "searches": [
+          "Resultary 0e2a6b59a0bc Finding",
+          "Johnson–Chertkov §V",
+          "Suliman–Weinstein arXiv:2302.05966",
+          "Chan et al., Network Design for s-t Effective Resistance, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 0e2a6b59a0bc minimizes worst-outage total pairwise resistance on alternating-price even cycles and obtains a plateau with different endpoints.",
+          "Zelazo–Bürger's signed-Laplacian criterion uses inverse endpoint resistance of the positive network without the negative edge."
+        ],
+        "reasoning": "Reciprocating the positive resistances gives a max–min stability-margin interpretation for the frozen objective when the selected edge is replaced by a negative edge. The criterion evaluates a given design; it does not optimize the conductance budget. An outage sum is not this terminal functional, and deleting an edge of K_{2,m} does not generally give a path.",
+        "searches": [
+          "Resultary searches for priced conductance single-outage design and equal-conductance plateaus",
+          "Zelazo–Bürger arXiv:1408.4471v2 §IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest returned formula concerns even cycles and all-pairs sums; its thresholds are 2(m²−1)/(2m²+1) and its reciprocal."
+        ],
+        "reasoning": "No exact matching result surfaced. A table of selected graphs or prices cannot cover the claim over all m≥3 and continuously varying t; the nearby analytical law differs in invariant as well as graph family.",
+        "searches": [
+          "Two bounded Resultary lookups on the post-deletion resistance minimax and equal conductances under heterogeneous prices; local RESULT.md for 0e2a6b59a0bc"
+        ]
+      },
+      "rationale": "Worst-outage resistance allocation and even an equal-conductance plateau are present in nearby work. The distinct supported contribution is the exact transition law for single-deletion endpoint resistance on the two-hub family, including both out-of-plateau ratios. Neither a general robustness formulation nor the even-cycle outage sum supplies it.",
+      "residual_risks": [
+        "Bounded searches and sections are not an exhaustive literature audit. The cycle result is a real analogue, and general convex outage design is prior; no priority inferred from same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material conceptual overlap, not an implied claim; same day does not determine order",
+          "evidence": "Every deletion leaves a path, and the criterion is the worst sum over unordered pairs; the relative price interval has different thresholds.",
+          "identifier_or_url": "Resultary 0e2a6b59a0bc, RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published-record local mirror",
+          "title": "An equal-conductance plateau in worst-outage resistance design on even cycles",
+          "trigger": "Same plateau phenomenon under a single outage"
+        },
+        {
+          "assessment": "General optimization precedent, not family-specific solution",
+          "evidence": "Uses worst-case dissipation after removing k lines and/or generators and discusses robust loss and connectivity.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.2285",
+          "material_read": "p. 2, offset 11200; §V p. 7, offset 44200",
+          "method": "Bounded primary article inspection",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "Robust power-loss design after outages"
+        },
+        {
+          "assessment": "Relevant interpretation, but not allocation; use the body inequality rather than the reversed wording in the abstract",
+          "evidence": "The written theorem and Schur-complement proof give PSD iff negative weight magnitude is at most the inverse resistance of the endpoints in the positive part.",
+          "identifier_or_url": "https://arxiv.org/html/1408.4471v2",
+          "material_read": "Abstract and §IV-B near offset 47400, single-negative-edge PSD criterion",
+          "method": "Bounded arXiv HTML inspection",
+          "title": "On the Robustness of Uncertain Consensus Networks",
+          "trigger": "Same reciprocal post-deletion endpoint resistance as robustness margin"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Minimizes the sum of effective resistances over all node pairs.",
+          "identifier_or_url": "https://doi.org/10.1137/050645452",
+          "material_read": "p. 37, abstract, offset 800",
+          "method": "Bounded primary PDF inspection",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Budgeted continuous resistance design"
+        },
+        {
+          "assessment": "Intact-edge rather than post-deletion objective",
+          "evidence": "ℓ∞-Lewis weights minimize the maximum effective resistance of edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05966",
+          "material_read": "Abstract, offset 815",
+          "method": "Bounded article inspection",
+          "title": "Infinite Lewis Weights in Spectral Graph Theory",
+          "trigger": "Conductance minimax edge effective resistance"
+        },
+        {
+          "assessment": "Different feasible design and terminal quantifier",
+          "evidence": "Select a subgraph with at most k edges for one specified s,t pair.",
+          "identifier_or_url": "Chan et al., ACM TALG 18(3), 2022",
+          "material_read": "p. 1, abstract, offset 318",
+          "method": "Bounded primary article inspection",
+          "title": "Network Design for s-t Effective Resistance",
+          "trigger": "Endpoint resistance optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Resultary 0e2a6b59a0bc Finding for the distinct objective comparison"
+      ],
+      "rationale": "Parallel two-hop routes are a natural model where loss of an edge changes both where the terminal is attached and which complete route is available. The exact transition is the value: equal conductances remain optimal across a price interval whose multiplicative width grows as m³/4, yet conductance moves in opposite directions outside it. Standard convexity alone predicts none of these thresholds or that growing price tolerance.",
+      "residual_risks": [
+        "Value is for this full graph family and specified failure metric, not a general engineering performance claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

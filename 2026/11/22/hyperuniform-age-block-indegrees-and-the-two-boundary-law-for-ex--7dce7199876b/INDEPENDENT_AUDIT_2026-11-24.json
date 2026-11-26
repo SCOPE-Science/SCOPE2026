@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:47:40.776763Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the law for the stated lifetime indegree with multiplicities. An independent geometric lag G with p_h=(1−q)q^(h−1) at source n gives the growing model upon conditioning on G≤n. Keep G if valid and otherwise independently resample from the conditional law. The disagreement probability is q^n per parent draw, so a union bound over n≥k+1 gives m q^(k+1)/(1−q). In fact source k+1 cannot affect the block, so the bound need not be optimal. In the stationary comparison block, subtraction of the deterministic internal-source total mL leaves incoming minus outgoing boundary flux. Disjoint source choices make the two fluxes independent. The outgoing crossing probability at source t=1,…,L is q^(t−1); from source L+s the probability of landing inside is q^(s−1)(1−q^L). Matching the outgoing count to the infinite Bernoulli series adds a tail of mean m q^L/(1−q); monotone coupling of the incoming count to an independent series costs the same union bound. The series are almost surely finite, and their difference thus gives the advertised uniform TV upper bound including k=0 and L=1. The h=0 Bernoulli group is deterministic and cancels from the difference, leaving the modulus-square product and variance 2m q/(1−q²). A symmetric integer-valued law with this positive variance is not Gaussian. The stationary single-target variance is m times the sum of p_h(1−p_h); at lag d≥1 the covariance is −m times the sum of p_h p_(h+d), since one choice at a shared source cannot hit both targets. These sums are absolutely convergent. Substituting the resulting γ gives the incremental L-block variance γ(0)+2Σ_(d=1)^(L−1)γ(d)=2m q^L/(1+q), yielding the stated exact variance on summation. The Fourier series is m(1−|φ_G|²), where φ_G is geometric; this yields the displayed rational spectrum and quadratic zero. Stationary bounded variance and the uniformly square-integrable number of coupled lag disagreements also imply tightness of the finite-start excess. The stated data from checker.py are source-reported only; the code was read, not run. No finite check certifies the infinite bounds, and the exact covariance, spectrum and block variance here refer to the stationary field.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 perturbed-lattice paper credits Gács–Szász for class-I hyperuniformity for iid perturbations with a finite first moment and proves a broader one-dimensional finite-second-moment result allowing dependence. Flimmel gives the independent-displacement structure-factor formula. Mastrilli concerns Schwartz-function linear statistics, not sharp indicators."
+        ],
+        "reasoning": "The geometric lag satisfies the moment assumptions. Stationary bounded variance is therefore not new, and substituting the geometric characteristic function in the occupancy spectrum gives exactly the claimed spectral expression. The exact finite-start distributional comparison is different from those broad second-moment and smooth-statistic results.",
+        "searches": [
+          "Web: one-dimensional iid displaced lattice sharp interval counts number variance boundary crossings hyperuniform point process",
+          "Web: one-dimensional independently perturbed integer lattice sharp interval counts boundary crossing number variance limiting law",
+          "arXiv:2405.19881v3 Theorem 2 and Appendix A.1",
+          "arXiv:2503.12179 Lemma 2",
+          "arXiv:2503.02627 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2611.02329 and DOI 10.1017/nws.2025.3",
+        "arXiv:2405.19881v3, 2503.12179 and 2503.02627",
+        "Resultary bc10346da708, eec88f3506ed, 1c921c4fc033 and c7cff8a9c92e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "There is same-day overlap in the stationary lag representation and finite-start coupling, not in the block observable. General iid perturbation theory entails the stationary variance class and spectral mechanism; the primary same-model walk results do not specify block indegree statistics."
+        ],
+        "reasoning": "With the lag coupling already available, the initial-boundary error is a direct sum of disagreement probabilities. The remaining joint claim still requires the deterministic block conservation identity, independence of incoming and outgoing source sets, their exact geometric crossing probabilities, and separate TV approximations to the infinite flux laws. The inspected terminal-cut and second-order results do not supply that signed two-boundary law. No relative priority is inferred from the matching date.",
+        "searches": [
+          "Resultary bc10346da708 RESULT.md offsets 0–6667",
+          "arXiv:2503.12179 Lemma 2",
+          "arXiv:2405.19881v3 Appendix A.1",
+          "arXiv:2611.02329 pp. 5–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary indegree field is the occupancy field of m independently displaced particles per integer source, all lags geometric and one-sided. The finite-start graph rearranges these lags by conditioning at birth. Tang–Wang–Wu use the same independent-parent model including parallel edges. The exponential label-weight tree with parameter a=1/q is the one-parent version."
+        ],
+        "reasoning": "Thus random-displacement counts and finite-start exponential-label trees are genuine aliases in their respective scopes. The cited graph results study walks or one-vertex finite-tree degrees, not the signed bulk-window lifetime count. The allocation query was not productive and is not evidence against other equivalents.",
+        "searches": [
+          "Web: Tang Wang Wu ‘Random Walk on age-preferential random growth processes’ geometric model indegree",
+          "Resultary: age-preferential multigraph indegree block counts boundary flux hyperuniform",
+          "Web: independent particle allocations interval counts hyperuniform sharp window fluctuations discrepancy boundary crossings random allocation",
+          "Aguech et al., DOI 10.1017/nws.2025.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record bc10346da708 counts terminal bottlenecks and gives a Gaussian limit and dispersion crossover. Record eec88f3506ed evaluates terminal-cut probabilities. Record 1c921c4fc033 gives a maximal indegree scale; c7cff8a9c92e gives a leaf-count functional limit."
+        ],
+        "reasoning": "These are the exact indexed geometric-age comparators; none of these evaluated formulas tabulates the signed lifetime block indegree law or its two Poisson-binomial fluxes. Terminal-cut indicators are not the same as the numbers of crossing edges.",
+        "searches": [
+          "Resultary: geometric age attachment stationary indegree covariance spectrum interval count",
+          "Resultary: exponentially age-preferential multigraph terminal cuts bottleneck count",
+          "Resultary: age-preferential multigraph indegree block counts boundary flux hyperuniform"
+        ]
+      },
+      "rationale": "Pass for the explicit, quantitative two-boundary total-variation law for finite-start lifetime indegrees, including its evaluated difference distribution. Stationary bounded number variance and the structure-factor mechanism are covered in broader perturbed-lattice work; the displayed spectrum is its evaluated geometric specialization. The established bulk mechanism, geometric-lag coupling and same-model results are credited rather than counted as standalone originality. No inspected statement implies the finite-start TV law with its two explicit errors and evaluated distribution.",
+      "residual_risks": [
+        "The inaccessible primary Gács–Szász text and other sharp-window displacement results may contain more detailed stationary boundary-law precedents than the checked passages.",
+        "Relative priority with the same-day terminal-cut work is not determined; the evidence shows a shared model and coupling, not an equivalent theorem.",
+        "The TV estimate is an explicit upper bound; no optimal exponent or constant in total variation is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical growth rule, different observable",
+          "evidence": "Exponential age attachment, multiple parent choices and parallel edges; proves recurrence and infinite walk collisions.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.02329",
+          "material_read": "PDF pp. 5–6, OA offsets 7400 and 11000, model and stated walk results",
+          "method": "Bounded OA PDF passages",
+          "title": "Random Walk on age-preferential random growth processes",
+          "trigger": "Exact same independent-parent multigraph and initial boundary"
+        },
+        {
+          "assessment": "Same one-parent dynamics, no block law in the compared results",
+          "evidence": "Weight a^i matches a=1/q; the outdegree analyses concern individual finite-tree vertices.",
+          "identifier_or_url": "https://doi.org/10.1017/nws.2025.3",
+          "material_read": "Abstract, model, outdegree section, PDF pp. 1–2 and 7, offsets 0, 5000–6700 and 23000",
+          "method": "Bounded OA PDF passages",
+          "title": "Exponentially preferential trees",
+          "trigger": "Exact one-parent specialization under age/label reparameterization"
+        },
+        {
+          "assessment": "General bounded stationary count variance; not the finite-start TV comparison",
+          "evidence": "Finite second moment suffices for class I in the broader one-dimensional setting. Its literature discussion attributes the iid finite-first-moment class-I result to Gács–Szász (1975).",
+          "identifier_or_url": "https://arxiv.org/abs/2405.19881v3",
+          "material_read": "PDF pp. 1–2 (offsets 3800 and 6100), Theorem 2; Appendix A.1 pp. 24–25 (106250–111000)",
+          "method": "Bounded OA PDF passages",
+          "title": "(Non)-hyperuniformity of perturbed lattices",
+          "trigger": "Strong prior on one-dimensional sharp-window counts"
+        },
+        {
+          "assessment": "Broad iid variance precedent; detailed original text not adjudicated",
+          "evidence": "The accessible later source credits the iid finite-first-moment bounded fluctuation result.",
+          "identifier_or_url": "Gács and Szász, Annals of Probability 3(4), 597–607 (1975)",
+          "material_read": "Exact citation and attributed result in arXiv:2405.19881v3 p. 1; no verified primary full-text passage",
+          "method": "Secondary source checked and identified lawful Project Euclid retrieval attempted",
+          "title": "On a problem of Cox concerning point processes in R^k of controlled variability",
+          "trigger": "Early iid-displacement sharp-window variance result"
+        },
+        {
+          "assessment": "Covers the stationary structure-factor mechanism",
+          "evidence": "An independent perturbation characteristic function controls the diffuse factor; in the geometric occupancy setting m(1−|φ_G|²) evaluates to the frozen spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.12179",
+          "material_read": "Lemma 2, PDF p. 12, offsets 32000–34300",
+          "method": "Bounded OA PDF passages",
+          "title": "Fitting regular point patterns with a hyperuniform perturbed lattice",
+          "trigger": "General structure-factor and number-variance formulas"
+        },
+        {
+          "assessment": "Different test functions and statistic",
+          "evidence": "Schwartz linear statistics are not the sharp-indicator bulk block with a finite-start correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.02627",
+          "material_read": "Theorem 1.1, PDF p. 3, offsets 11800–15000",
+          "method": "Bounded OA PDF passages",
+          "title": "Asymptotic fluctuations of smooth linear statistics of independently perturbed lattices",
+          "trigger": "Potential broader non-Gaussian fluctuation limit"
+        },
+        {
+          "assessment": "Material method overlap, different observable and law",
+          "evidence": "Counts infinite-horizon terminal minimal cuts, obtains a Gaussian limit and a dispersion crossover, and uses stationary geometric lags and finite-start lag coupling.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-dispersion-crossover-for-terminal-bottlenecks-in-age-pr--bc10346da708",
+          "material_read": "RESULT.md Finding and initial proof, offsets 0–6667",
+          "method": "Published-record mirror",
+          "title": "A unique dispersion crossover for terminal bottlenecks in age-preferential growth",
+          "trigger": "Distinct same-day same-model and coupling overlap"
+        },
+        {
+          "assessment": "Related exact work, different observables",
+          "evidence": "Rare-bias Poisson terminal-cut law; square-root-log maximal indegree; one-parent leaf-indicator functional CLT, respectively.",
+          "identifier_or_url": "Resultary eec88f3506ed, 1c921c4fc033 and c7cff8a9c92e",
+          "material_read": "Mirrored RESULT.md statements of limiting laws and bounds",
+          "method": "Published-record mirror",
+          "title": "Geometric-age terminal-cut, maximum-degree, and leaf-count records",
+          "trigger": "Other exact statistics of the same or one-parent graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Lifetime indegree sums might suggest additive fluctuations from random single-vertex counts. The exact edge balance identifies instead two finite, asymptotically independent fluxes; the law explains what replaces a bulk central limit theorem and gives a quantitative error separated into distance-from-start and block-length effects. This goes beyond a qualitative hyperuniformity statement or a spectral example: it identifies the limiting mass law for the original growth model and controls its approximation uniformly in block placement and length.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

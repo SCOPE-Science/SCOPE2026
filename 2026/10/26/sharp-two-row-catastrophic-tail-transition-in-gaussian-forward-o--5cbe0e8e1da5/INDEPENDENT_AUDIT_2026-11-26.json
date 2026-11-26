@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:22:44.050768Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–87",
+        "VERIFICATION.md lines 19–23",
+        "verify_joint.py lines 16–78 (read, not run)"
+      ],
+      "rationale": "In each row least squares gives e_i=h·g_i/||g_i||² almost surely and Y_i=e_i² equals the excess squared row error by orthogonality. The Gaussian vector h is independent of the pair of regressors; their block covariance has identity diagonal and ρI off-diagonal. Standardizing the conditional numerator gives a unit normal independent of ||g_i||², so the F_{1,q}/q law and inverse-chi-square mean 1/(q−2) follow. Independently of the spherical integral in the paper, the scaled exceedance region |h·u|>||u||² is the disjoint union of open balls centered at ±h/2 with radius ||h||/2, of volume J=2^(1−q)π^(q/2)||h||^q/Γ(q/2+1). For |ρ|<1 put u_i=√t g_i: the Jacobian gives t^(−q), and the joint Gaussian density at the origin is (2π)^(−q)(1−ρ²)^(−q/2). Its exponential factor is at most one and tends to one on the product of the two regions; E J² is finite, so dominated convergence applies. Using E||h||^s=2^(s/2)Γ((q+s)/2)/Γ(q/2), the marginal limit constant is (2π)^(−q/2)E J=C_q and the joint numerator is (2π)^(−q)E J²=K_q by gamma duplication. The orthogonal product ratio is E J²/(E J)²>1 by strict variance, equal to the stated gamma ratio. For ρ=±1 the regressors are equal up to sign and the squared errors coincide, giving the separate t^(−q/2) law. At q=3 these checks give C_3=4/(3π) and K_3=35/(24π). All limits are fixed-angle and the nonaligned coefficient diverges toward either alignment boundary, consistent with nonuniformity.",
+      "residual_risks": [
+        "The supplied importance-sampling estimates are finite-threshold diagnostics for q=3 and a few correlations; they neither certify the tail limits nor justify extrapolation toward alignment. The analytic density and moment argument supplies the claimed limits.",
+        "The mean formula uses q>2; the assertions do not cover varying sketch size or correlation with t."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The structured forward approximation gives expected Frobenius error; the fixed-coordinate sparsity result supplies expected error and a Markov guarantee. Adjacent tails, t-copula, and complex scalar Gaussian ratio leads were identified; full-text retrieval did not establish coverage by them."
+        ],
+        "reasoning": "Mean and Markov results at most bound joint events and cannot fix their power and coefficient. The constant density near a nonsingular origin is classical, but reducing these two regression ratios to a pair of shared-residual random regions and evaluating their second moment are additional mathematical steps.",
+        "searches": [
+          "arXiv:2610.07513v1",
+          "arXiv:2402.09379 Theorem 1 and Corollary 1",
+          "Focused literature comparison for correlated Gaussian ratio tails, Gaussian small-ball probabilities and t-copulas"
+        ]
+      },
+      "checked_sources": [
+        "The three OA technical papers, three Resultary comparisons and access-limited leads above",
+        "Frozen RESULT.md lines 41–87 and 93–99"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The marginal law and exact signed-alignment identity determine the aligned branch once the common residual is specified; the same marginal law also holds with nonaligned directions and does not determine the product-normalized limit there. Conditional on h for ρ=0 the two events are independent, with leading rates proportional to the same ||h||^q."
+        ],
+        "reasoning": "An independent pair with these same marginal laws would have joint coefficient C_q² at ρ=0; the given joint coefficient involves a strictly larger second moment. The single-row or ordinary multivariate model does not imply this, and no stronger theorem covering the actual paired law was established by the inspected texts.",
+        "searches": [
+          "Gallmeier–Otto arXiv:2610.07513v1 Algorithm 1 and Theorem 1",
+          "Browne–Andrews arXiv:2306.03593 equations (4)–(5)",
+          "Resultary 23a3fc6123ad and 47da9162b900, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The algorithm corresponds exactly to rank-one per-row regression against Gᵀv_i. The earlier beta-prime formula with residual rank one and degrees of freedom q gives F_{1,q}/q exactly. The sketch-regression paper gives a normal/chi-square representation and multivariate Student law for a complete-sketch estimator."
+        ],
+        "reasoning": "Student marginals do not give an ordinary multivariate Student vector here: at ρ=0 the regressor norms are independent, the conditional extreme rates share a fluctuating residual, and the joint exponent is twice the marginal one. This paired regression is not Gaussian scores over a common chi-square denominator.",
+        "searches": [
+          "arXiv:2610.07513v1 Algorithm 1 and Theorem 1",
+          "arXiv:2306.03593 equations (4)–(5)",
+          "Resultary 23a3fc6123ad, rank-one beta-prime error law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 23a3fc6123ad gives the exact marginal after substitution. Later 3e196d12ddfb compares Gaussian and Haar rank-one sketch errors. Later 47da9162b900 studies simultaneous extremes of shared-gamma products and gives an exponential-saddle equivalent rather than a polynomial ratio tail."
+        ],
+        "reasoning": "These are exact overlap on the marginal and exact results on neighboring models, not exact coverage of the paired angle-dependent asymptotic. No matching joint formula was found in the inspected catalogue statements.",
+        "searches": [
+          "Local Resultary semantic comparison for Gaussian sketch error, forward rowwise LS and simultaneous extremes"
+        ]
+      },
+      "rationale": "The shared Gaussian forward algorithm and exact one-row Student/F law have clear earlier coverage. The supported distinct claim is the two-row joint fixed-angle power and coefficient for regressors with correlated directions and a shared residual, the singular change of exponent at alignment, and the explicit excess over product risk even for orthogonal directions. The compared mean bounds, marginal laws, and different common-factor models do not identify this joint invariant.",
+      "residual_risks": [
+        "Bounded best-of-knowledge assessment. Inaccessible Gaussian-tail, t-copula and ratio references were not treated as negative evidence; specialized joint-ratio or small-ball literature could contain applicable general results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm and expected-risk precedent, not exact joint asymptotics",
+          "evidence": "Forms AG using one G, regresses rows against GᵀV_i, and gives an expected squared projection-error bound with factor k/(q−k−1).",
+          "identifier_or_url": "https://arxiv.org/html/2610.07513v1",
+          "material_read": "Algorithm 1 and Theorem 1, HTML offsets 19704–28701",
+          "method": "OA primary HTML bounded passage",
+          "title": "Efficient Approximation of Structured Linear Operators using Randomized One-Sided Queries",
+          "trigger": "Exact algorithm and shared Gaussian sketch precedent"
+        },
+        {
+          "assessment": "Expected/Markov guarantees for different subspaces; not the joint limit",
+          "evidence": "Fixed coordinate sparsity structure with expectation and a probability guarantee via Markov's inequality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.09379",
+          "material_read": "Theorem 1 and Corollary 1, p. 3 near text offset 9818",
+          "method": "OA primary PDF bounded passage",
+          "title": "Fixed-sparsity matrix approximation from matrix-vector products",
+          "trigger": "Earlier coordinate-specialized forward sketch guarantees"
+        },
+        {
+          "assessment": "Established Student-family context, not this two-regressor coupling",
+          "evidence": "Normal/chi-square representation and multivariate Student law for a complete-sketch regression estimator.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03593",
+          "material_read": "Page 3, equations (4)–(5), near text offset 10404",
+          "method": "OA primary PDF bounded passage",
+          "title": "Statistical inference for sketching algorithms",
+          "trigger": "Student-family sketch laws could cover the paired errors"
+        },
+        {
+          "assessment": "Exact marginal overlap",
+          "evidence": "For rank-one residual the excess is BetaPrime(r/2,ν/2)=(r/ν)F_{r,ν}; r=1, ν=q gives the present marginal exactly.",
+          "identifier_or_url": "Resultary:2026/10/12/23a3fc6123ad",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Residual-spectrum convex ordering and the exact Gaussian sketch failure law",
+          "trigger": "Exact earlier Gaussian excess-error law"
+        },
+        {
+          "assessment": "Single-row overlap, later indexed comparison",
+          "evidence": "Gives a Gaussian rank-one regression law and tail as context for the independent beta factor under Haar sketching, not a coupled angle effect.",
+          "identifier_or_url": "Resultary:2026/11/02/3e196d12ddfb",
+          "material_read": "RESULT.md, Finding and Gaussian versus Haar comparison",
+          "method": "Local published-record mirror",
+          "title": "Independent beta attenuation of Gaussian least-squares sketch error by a Haar sketch",
+          "trigger": "Exact rank-one Gaussian sketch tail coefficients"
+        },
+        {
+          "assessment": "Different distribution and later indexed comparison",
+          "evidence": "For products AB_i with common gamma A, the joint tail has exponential-saddle form, not the polynomial small-ball mechanism of the coupled regressors.",
+          "identifier_or_url": "Resultary:2026/11/08/47da9162b900",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp simultaneous extremes and latent localization for shared-gamma products",
+          "trigger": "Shared latent radial variable and simultaneous-tail limits"
+        },
+        {
+          "assessment": "Coverage not established; no whole-document conclusion",
+          "evidence": "Topical lead only, not evidence about the regression ratios.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/BF02517804",
+          "material_read": "Search locator only; no decisive full-text passage",
+          "method": "Lawful OA retrieval attempted; timeout/redirect and no identified repository copy",
+          "title": "On multivariate Gaussian tails",
+          "trigger": "Potential general Gaussian joint-tail result"
+        },
+        {
+          "assessment": "Coverage not established; no whole-document conclusion",
+          "evidence": "Title concerns t-copula tails; no assessed result for the specific distinct-denominator coupling.",
+          "identifier_or_url": "ScienceDirect:S0167668707000923",
+          "material_read": "Search locator only; OA content not available",
+          "method": "Lawful public retrieval returned 403",
+          "title": "Tail dependence for multivariate t-copulas and its monotonicity",
+          "trigger": "Potential exact dependence theory for Student marginals"
+        },
+        {
+          "assessment": "Adjacent lead; insufficient for an exact coverage conclusion",
+          "evidence": "Snippet concerns a complex scalar ratio, whereas the present variables are two real-vector norm quotients.",
+          "identifier_or_url": "IEEE:8839853",
+          "material_read": "Search snippet identifying complex scalar ratios; no full text",
+          "method": "Lawful OA retrieval attempted; HTTP 202 without paper text",
+          "title": "On the Ratio of Two Correlated Complex Gaussian Random Variables",
+          "trigger": "Potential ratio-tail precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–39 and 59–87",
+        "Gallmeier–Otto Algorithm 1 and Theorem 1"
+      ],
+      "rationale": "A shared Gaussian sketch is a natural algorithmic choice, and neither the exact mean nor the marginal law reveals simultaneous catastrophic errors. The exponent changes at alignment without changing either marginal, and orthogonality still leaves a nontrivial factor above independent risk. The coefficient and its divergence as alignment is approached quantify how far independent-error heuristics can fail, and offer a sharp reference for future multirow or uniform-alignment analysis without asserting either extension.",
+      "residual_risks": [
+        "The quantitative value is a fixed-angle tail comparison for shared identical residuals; practical guarantees at a finite threshold near alignment require separate analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

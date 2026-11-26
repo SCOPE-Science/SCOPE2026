@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-support right inverse is checked rowwise and the columns of the auxiliary operator are computed explicitly. Their Gram matrix proves the bounded compact rank-one defect. A strictly monotone Birman–Schwinger sum gives exactly one negative eigenvalue and its eigenvector; the digamma identity and uniform large-argument asymptotic establish its exponential magnitude and leading constant. Congruence of finite compressions proves the exact minimum detection size. Riemann sums yield the normalized eigenvector profile, and dense range transfers the negative index to the original self-commutator. Replaying the packaged checker verifies 1,296 exact rational identities and high-precision sample equations; the infinite claim relies on the analytic proof.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-Ma (arXiv:2610.00193v1), Sections 2 and 7, supplies a finite-rank defect decomposition and the qualitative threshold for generalized Cesàro hyponormality. Its full text does not state the unique negative eigenvalue equation, the exponentially small eigenvalue and prefactor, the sharp dimension of the first negative initial-coordinate compression, or the universal rescaled eigenvector distribution. The public finite-Gram result concerns the optimal *relative* self-commutator bound and gives negative-shift coefficient \(-\infty\); that does not determine the absolute negative eigenvalue of the compact auxiliary defect. The real-variable rank-one Cesàro spectral result concerns a different operator. Classical rank-one perturbation and digamma identities are used transparently; a broader equivalent prior spectral theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The shift parameter crosses a sharply known positivity threshold, so the smallest negative spectrum of the naturally occurring auxiliary defect is a motivated invariant. Its exponential scale explains how finite coordinate tests can miss nonpositivity for exponentially many coordinates. The matching detection dimension and limiting eigenvector mass distribution describe the full boundary-layer mechanism, beyond the qualitative sign theorem. The result also identifies the exact negative index of the original self-commutator, without transferring an unjustified eigenvalue magnitude.
+Directly subtracting the two columns of M* weighted by j+1−ε gives B e_j = r_j on 0..j, r_j−1 on j+1, and zero thereafter. Its bounded Gram form has diagonals 1−r_j+εr_j² and off-diagonals εr_i r_j. The positive diagonal part of D is compact; the negative perturbation has rank one. A negative spectral point necessarily solves 1=ε〈r,(R+δI)⁻¹r〉, with a strictly decreasing continuous sum, divergent at zero and tending to zero at infinity. Partial fractions give the stated digamma equation, and the large-argument asymptotic gives the exponential constant. The normalized resolvent vector gives a shifted Riemann sum with integrable tail (1+t)⁻². Compression by the positive diagonal square root gives the strict harmonic-sum test; comparing it to the secular equation via strict digamma monotonicity even gives N*=floor(1/δ)+1 exactly, including equality at an integer. Row cancellation proves ML=I on finite supports, and L(c00) is dense because a vector orthogonal to every coordinate difference is constant. This proves BM=M* and the compact congruence M*DM; dense range transfers a negative test direction and the rank-one bound rules out a second. The commutator is not asserted to have the auxiliary eigenvalue. These are analytic checks; frozen numerical code was inspected, not executed, and no extrapolation from finite sections is used.
 
-## Verification and limitations
-The calculation applies to order one, \(-1<\alpha<0\), with no finite-section extrapolation. A generic weak-coupling result could theoretically subsume the exact specialty. No independent audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Retain the sharp order-one quantitative spectral, profile and detection laws. Ma's earlier general decomposition already gives precisely the order-one auxiliary defect and the factorization, not merely a similar identity; the qualitative index follows routinely. Those background consequences do not count as new. The bounded comparisons did not identify prior coverage of the quantitative collection for this operator.
+
+## value
+
+PASS
+
+The exponential prefactor quantifies how positivity fails at a known threshold. The reciprocal compression dimension explains exactly why coordinate tests can miss the failure, and the eigenvector measure locates the mass at that same scale. These additions go beyond the routine index and factorization and concern a natural compact spectral defect, without claiming to identify the commutator eigenvalue itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

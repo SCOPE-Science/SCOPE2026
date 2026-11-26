@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:16:06.463399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The labeled sphere-wedge theorem makes the source simply connected. Every reflection fixes the barycenter of the non-2-connected star at its fixed label; reflections generate D5, so Armstrong's theorem for the finite action kills the whole orbit-space fundamental group. The rational quotient chain complex is the coinvariant chain complex of the inverted-free barycentric action, and rational averaging is exact. Independent Euler characteristics of the geometric fixed sets are −5, 0, 3 for identity, nonidentity rotations and reflections, respectively. These equal the Lefschetz numbers (the sign on an invariant face with k edges and j edge orbits is (−1)^(k−j), so the signed contribution is (−1)^(j−1)). The degree-five character is 6, 1, −2, with average zero. For mod two, the original flag quotient has no inversions and each deletion has a distinct face-rank pattern, so the described deletion boundary computes ordinary orbit-space homology. An independent reproduction uses the 35 maximal graphs obtained from the possible separations off a cut vertex. Taking the intersection of all facets above a nonempty face is an equivariant ascending idempotent poset map, hence retracts the order complex up to equivariant homotopy and also retracts on quotients. Enumeration by stabilizers of ascending flag prefixes in the 560-element closed-face poset gives orbit counts (72,1195,6272,13656,13044,4536,0) and mod-two ranks (0,71,1124,5148,8508,4534,0), with all boundary squares zero. This independently recovers (1,0,0,0,2,2,0), using a different CW model. Replay: python3 /workspace/audit-evidence/pentagon.py. Facets have at most seven edges, so the full quotient has dimension six. In positive degrees the integral groups are finitely generated with zero free rank. If t_i counts 2-primary cyclic summands, then b_i over F2 equals t_i+t_(i−1) for i>0 with t_0=0. Thus t_4=2 and all other t_i=0, exactly the claimed subgroup killed by two. This does not determine the exponents or odd-primary summands.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 classifies the labeled spaces for general n; Section 4 computes the symmetric-group character of the original top homology."
+        ],
+        "reasoning": "Specializing n=5 and restricting the character to D5 gives rational input, not a calculation of orbit homology in characteristic two, where 10 is not invertible. Labeled homotopy type alone need not constrain the modular orbit chain ranks.",
+        "searches": [
+          "arXiv:math/9705219, Theorems 3.1 and 4.1 and Lemma 4.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "arXiv:math/9705219",
+        "Armstrong DOI 10.1017/S0305004100042845 (standard theorem; retrieval attempted)",
+        "Resultary d97d0dec18ed, ac064d2f885a, 57e891550279"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior character restricted to D5 has rational invariant dimension zero. The reflection fixed-star calculation puts all generators into the subgroup killed by passage to the orbit space."
+        ],
+        "reasoning": "These standard implications account for rational acyclicity and simple connectivity but yield no mod-two ranks or integral two-torsion; rational invariants cannot replace modular orbit chains.",
+        "searches": [
+          "Babson et al., arXiv:math/9705219, Section 4",
+          "Armstrong, DOI 10.1017/S0305004100042845, cited orbit-space theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit d97d0dec18ed is the assigned record itself. Indexed ac064d2f885a reports the dihedral orbit of Hom(C5,K5), and 57e891550279 reports a free C5 orbit of a five-vertex directed tournament complex."
+        ],
+        "reasoning": "The Hom construction has different cells and reported homology; the tournament result uses directed complete graphs and a different group/action, including a nontrivial fundamental group. Neither is an equivalent model of the claim as stated. The subcomplex of invariant graphs and a Borel quotient are likewise not the geometric orbit space.",
+        "searches": [
+          "Resultary: non-2-vertex-connected five-label graph complex, pentagonal dihedral orbit and mod-two homology",
+          "Web: \"Complexes of not i-connected graphs\" \"dihedral\" orbit quotient mod 2 homology five vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed result is the frozen result. The nearest distinct indexed homology computation ac064d2f885a is for a different complex and reports H1=H4=Z/2, H3=Z plus Z/5. The inspected primary character material concerns the labeled complex."
+        ],
+        "reasoning": "No separate exact table covering the specified D5 orbit or its mod-two Betti numbers was located; exact labeled character values are not a quotient rank table.",
+        "searches": [
+          "Resultary: pentagonal D5 quotient and two-primary homology",
+          "Web: \"Complexes of not i-connected graphs\" \"dihedral\" orbit quotient mod 2 homology five vertices",
+          "arXiv:math/9705219, Section 4"
+        ]
+      },
+      "rationale": "Credit the labeled sphere wedge and character to Babson et al. The rational calculation is an application of that character and finite rational averaging, and simple connectivity follows from the standard orbit-space theorem and reflection stabilizers. The distinct result supported here is the exact mod-two homology of this nonfree geometric quotient and hence its precise degree-four two-rank; the sources inspected do not determine it.",
+      "residual_risks": [
+        "The related indexed records could not be read beyond their summaries in the available retrieval; the summaries explicitly identify different complexes.",
+        "Unindexed or unlocated computations of this modular geometric quotient may exist; absence of a match is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers labeled wedge and character; inspected passages do not compute the modular quotient",
+          "evidence": "Theorem 3.1 gives (n−2)! spheres of dimension 2n−5; Lemma 4.3 expresses the top character using a Möbius sum over permutation-invariant faces.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9705219",
+          "material_read": "Theorem 3.1, PDF p. 4, offset 13272; Section 4, PDF pp. 9–10, offset 26931, including Theorem 4.1 and Lemma 4.3",
+          "method": "OA PDF location and bounded passage reading",
+          "title": "Complexes of not i-connected graphs",
+          "trigger": "Same labeled complex; plausible broader coverage of the quotient"
+        },
+        {
+          "assessment": "Used only for the standard stabilizer-based fundamental group theorem, not an originality inference from inaccessible text",
+          "evidence": "For this simply connected simplicial space, the orbit fundamental group is the acting group modulo the normal subgroup generated by point stabilizers.",
+          "identifier_or_url": "https://doi.org/10.1017/S0305004100042845",
+          "material_read": "Frozen citation and mathematical use; external full text not retrieved",
+          "method": "Cited theorem comparison; OA retrieval attempt timed out",
+          "title": "The fundamental group of the orbit space of a discontinuous group",
+          "trigger": "Fundamental-group implication"
+        },
+        {
+          "assessment": "Summaries identify different objects; no inference from unavailable passages",
+          "evidence": "Hom(C5,K5) with a dihedral action and a directed tournament complex with a free C5 quotient, respectively.",
+          "identifier_or_url": "Resultary ac064d2f885a; 57e891550279",
+          "material_read": "Indexed summaries; linked full-record retrieval did not resolve",
+          "method": "Local catalogue search and attempted record retrieval",
+          "title": "Related dihedral and cyclic quotient records",
+          "trigger": "Plausible indexed exact or equivalent quotient computations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full pentagonal symmetry is a natural nonfree action on a classical small labeled graph complex. Its ordinary quotient is simply connected and rationally acyclic, so the exact two-rank is an informative obstruction to contractibility invisible to the classical labeled and rational results. It supplies a precise modular benchmark for studying such symmetry quotients, not just a recomputation of the parent space or an Euler characteristic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

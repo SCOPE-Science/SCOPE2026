@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:54:44.220486Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph edge, not the graph metric, is modified. With e={0,d}, the common neighbors are the integers in [d-p,p] other than 0 and d: in representatives in [-p,p], the distances to d cannot use a wraparound edge to gain an extra neighbor; differences within the resulting set also cannot wrap to distance at most p under n>=4p+2. Consecutive vertices in this set differ by at most three. For p>=3 the leftmost vertex is dominated by its successor: every vertex to the right adjacent to the leftmost is at least as close to the successor. Pair faces containing the leftmost vertex by toggling the successor, largest first, then iterate. The link is a single vertex for (p,d)=(2,2), and two isolated vertices for (2,1). Lifting the link pairs by adjoining e does not introduce cofaces from the retained complex; after the lifted pairs only e and its triangle with the surviving link vertex remain to be paired. Independently, a length-q edge in the intact qth power lies in the unique maximal (q+1)-vertex interval simplex, with no second length-q edge in that simplex, so the same toggle argument reduces q one power at a time. In the exceptional deleted square there are two missing triangles, and the remaining triangles can be paired with their respective distinct free length-two edges. The retained consecutive edges form a spanning path and the two surviving chords raise its cycle rank to two. These are uniform arguments, including both p=2 edge types. Inspected VERIFICATION.md and VERIFY.py (finite interval checks, relative free-face tests and the explicit rank calculation); did not execute the frozen verifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.2 gives intact successive clique-complex collapses whenever girth is at least 3r+1. Its matching proof treats faces containing a new length-k edge in its unique maximal simplex.",
+          "Lemma 4.8 concerns a homotopy equivalence for cyclic directed graphs before and after deletion, with both winding fractions in the same open band. The persistence theorem requires cyclic filtration members."
+        ],
+        "reasoning": "The broad girth theorem already implies the intact collapse and provides the extremal edge argument. It does not treat deleting an edge already present at a lower power. Cyclic persistence and cyclic winding-fraction bounds do not apply to the interior deletion in the inherited order, and ordinary homotopy equivalence is weaker than the relative simplicial collapse asserted here.",
+        "searches": [
+          "arXiv:1104.0433, Proposition 2.2 and proof",
+          "arXiv:1503.03669, Corollary 4.2, Theorem 4.3 and Lemma 4.8",
+          "arXiv:1812.03374, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted fault/link/wedge searches",
+        "arXiv:1104.0433",
+        "arXiv:1503.03669",
+        "arXiv:1812.03374",
+        "cee298dc7868",
+        "beddc9ace2db",
+        "c18ef7eaf550"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The top-length edge has a cone link by the unique maximal simplex argument; for 2<=d<=p any internal vertex between the endpoints is adjacent to every other link vertex.",
+          "For d=1 the closest bridge is between -1 and 2, of length three, and no single link vertex dominates both extremes. Removing dominated extremes works for p>=3, whereas p=2 has no bridge at all."
+        ],
+        "reasoning": "The general link-collapse principle is not itself new: the mathematical comparison is whether earlier hypotheses already imply the entire edge-orbit classification, notably the sharp nearest-neighbor change and the actual inclusion collapse. The inspected statements give ingredients and limited cases but do not supply that determination.",
+        "searches": [
+          "arXiv:1104.0433 §2, Proposition 2.2 proof around OA offset 10200",
+          "arXiv:1503.03669 §4, Lemma 4.8 and proof around OA offset 53300",
+          "Resultary: edge-link collapse and neighborhood-complex edge faults"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen claim can be formulated as deleting the open star of the fault edge relative to all remaining simplices; its link is the clique complex on the common-neighbor graph.",
+          "Definition 3.1 requires retained 0→d+1 to force 0→d. Consequently a d<p fault is not cyclic in the original directed cyclic order."
+        ],
+        "reasoning": "An edge-deleted flag complex is not an induced vertex subcomplex or a Rips complex formed after recomputing distances. The nearest-neighbor edge fault is outside the ordinary cyclic-removal hypothesis.",
+        "searches": [
+          "Resultary: cycle-power flag edge-deletion collapse, common-neighbor edge link, cyclic-graph edge removal, and squared-cycle wedge",
+          "arXiv:1503.03669, Definition 3.1 and Lemma 4.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact search hit 9d144ad1399f is the frozen finding itself, not an independent antecedent.",
+          "Same-day cee298dc7868 gives integral homology of the open Lovász neighborhood complex after each third-power edge fault. Same-day beddc9ace2db gives a three-circle wedge in the open Lovász neighborhood complex for both squared-cycle fault types.",
+          "c18ef7eaf550 studies a three-cut Alexander dual and the intact cyclic flag subcomplex."
+        ],
+        "reasoning": "The distinct close matches do not compute this invariant for the faulted flag complex. Same-day status neither excludes coverage nor establishes priority; the mathematical objects differ.",
+        "searches": [
+          "Resultary: single-edge collapse of sparse cyclic flag complexes and squared-cycle one-edge wedge",
+          "published finding mirror: cee298dc7868, beddc9ace2db, c18ef7eaf550"
+        ]
+      },
+      "rationale": "The intact collapse is already a special case of Adamaszek's Proposition 2.2, and its proof also supplies the outermost-edge mechanism. For d>=2 the local common-neighbor graph has a universal vertex strictly between 0 and d, so the standard cone-link reduction is enough; these alone do not justify an originality claim. The contribution that survives is the uniform classification including d=1: this link has no global cone vertex, yet admits a relative elementary collapse through successive domination unless p=2, where the homotopy type changes. Neither the inspected cyclic-graph theorems nor the distinct exact corpus matches give that classification. This is a best-of-knowledge assessment, not a global priority claim.",
+      "residual_risks": [
+        "Unindexed equivalents, and related edge-collapse literature beyond the inspected passages, may contain the exact nearest-neighbor criterion; non-retrieval is not a priority proof.",
+        "No priority is claimed for the intact collapse, the general relative link-lifting construction, or the cone-link case taken alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers intact collapse and already contains the mechanism for deleting an outermost edge",
+          "evidence": [
+            "It assumes girth >=3r+1 and matches faces containing a new length-k edge in its unique maximal face; it does not address the nearest edge fault in a higher power."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1104.0433",
+          "material_read": "p. 3, Proposition 2.2 and proof, OA offset 10200",
+          "method": "Located phrase in OA PDF and read the theorem and proof",
+          "title": "Clique complexes and graph powers",
+          "trigger": "Highly relevant broader girth-collapse theorem"
+        },
+        {
+          "assessment": "Partial related coverage; unchanged cyclicity and a weaker conclusion",
+          "evidence": [
+            "The lemma states a homotopy equivalence of clique complexes, and explicitly requires G minus e to remain cyclic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.03669",
+          "material_read": "Definition 3.1 (p. 4), Corollary 4.2 and Theorem 4.3 (p. 9), Lemma 4.8 and proof (p. 10)",
+          "method": "Bounded passages of OA PDF; checked exact Lemma 4.8 text by offset",
+          "title": "The Vietoris–Rips complexes of a circle",
+          "trigger": "Closest primary edge-removal theorem on cyclic graphs"
+        },
+        {
+          "assessment": "Different conclusion with cyclic filtration hypothesis",
+          "evidence": [
+            "The algorithm assumes an increasing filtration of cyclic graphs; it is not an edge-deletion relative collapse theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.03374",
+          "material_read": "Theorem 1, p. 1, passage around OA offset 4688",
+          "method": "OA PDF theorem passage",
+          "title": "The persistent homology of cyclic graphs",
+          "trigger": "Sparse cyclic graph persistence"
+        },
+        {
+          "assessment": "Distinct complex and invariant",
+          "evidence": [
+            "Open Lovász neighborhood complex; integral homology for n>=13, without a wedge homotopy claim."
+          ],
+          "identifier_or_url": "cee298dc7868",
+          "material_read": "Matching statement and scope",
+          "method": "Published finding local mirror",
+          "title": "Integral homology after any one-edge fault in third-power cycle neighborhood complexes",
+          "trigger": "Same graph power and one-edge fault, same-day indexed result"
+        },
+        {
+          "assessment": "Distinct complex",
+          "evidence": [
+            "In the open Lovász neighborhood complex the conclusion is a wedge of three circles after either edge type, not the clique complex classification."
+          ],
+          "identifier_or_url": "beddc9ace2db",
+          "material_read": "Matching statement and scope",
+          "method": "Published finding local mirror",
+          "title": "A single edge punctures the squared-cycle neighborhood torus twice",
+          "trigger": "Same squared-cycle faults and wedge language"
+        },
+        {
+          "assessment": "No spanning flag-edge deletion claim in inspected statement",
+          "evidence": [
+            "Its cyclic flag subcomplex is intact; the ambient complex is the three-cut Alexander dual."
+          ],
+          "identifier_or_url": "c18ef7eaf550",
+          "material_read": "Matching statement and relevant subcomplex",
+          "method": "Published finding local mirror",
+          "title": "A sharp Alexander-dual collapse for ordinary three-cut complexes of cycle powers",
+          "trigger": "Published collapse result on the same graph powers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the canonical finite cyclic flag model, one-edge perturbations are a natural robustness question: does the inclusion itself preserve topology, and which edge type fails first? The result distinguishes an actual relative collapse from mere equality of abstract homotopy types, and the exceptional squared nearest edge adds a full independent loop. The sharpness in p, including the nearest-neighbor link without a single cone vertex, is the substantive boundary; reproducing the known intact circle would not have value by itself. No optimal bound on n, multiple-fault robustness, or recomputed-metric stability is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

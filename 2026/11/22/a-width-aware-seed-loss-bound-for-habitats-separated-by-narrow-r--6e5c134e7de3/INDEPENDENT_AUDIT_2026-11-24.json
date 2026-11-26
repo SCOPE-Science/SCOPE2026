@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:04:52.125756Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed displacement the source coordinates are independently uniform on S and [0,H], so the two loss fractions add minus their product. The preimage of a road can contribute at most the part of its translated interval outside that road itself, of length min(|u|,w); at most |u| is lost beyond the hull. Discarding the nonnegative product term and applying Jensen to the angular average of min(r cos(theta),w), which is concave in r, gives the stated mean-only result. If w<mu the integrand clips on a positive-measure set and the comparison to the perimeter bound is strict. For fixed distance mu with every viable strip and H longer than mu, the displaced road preimage outside its own road is all viable and the hull bound is exact. The product term integrates over one quadrant via x=cos(theta), giving integral of min(x,t) from 0 to 1 equal to t-t^2/2, and the claimed correction including the outer term. This proves exactness in the separated small-displacement regime and first-order sharpness as the widths scale. The numerical SciPy checker and VERIFICATION.md were read, not executed; the approximations are supplementary and not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hafner–Meyer gives the mean-radius perimeter bound and discusses overcounting narrow-road boundaries.",
+          "Cygan–Grzywny defines a full-law nonlocal perimeter for general sets and finite jump measures as applicable here."
+        ],
+        "reasoning": "Exact overlap integration is stronger if the whole law and geometry are supplied, but is not a theorem for just the mean radius and road widths. Recovering this bound still requires the per-road shift cap and angular Jensen step. The fixed-radius coefficient uses the small-displacement equality and the two-coordinate product term, not a fixed-domain first-order perimeter limit.",
+        "searches": [
+          "Hafner–Meyer Theorem 7 and Section 6.2; Cygan–Grzywny nonlocal perimeter; Mazón–Rossi–Toledo heat content"
+        ]
+      },
+      "checked_sources": [
+        "Hafner–Meyer 2024, Theorem 7 and Section 6.2",
+        "Cygan–Grzywny 2023, definition of nonlocal perimeter",
+        "Resultary 6e5c134e7de3 and a8e43f83234b",
+        "Frozen RESULT.md, VERIFICATION.md and verify_gap.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 6.2 says narrow roadways can greatly increase perimeter without substantially changing loss.",
+          "The known perimeter majorant has no width-specific term once W, H and the number of strips are fixed."
+        ],
+        "reasoning": "The older bound cannot distinguish different arrays of widths having the same total width and number. The audited response generally can, and it gives an explicit correction with varying w_i/mu that a qualitative caveat does not imply.",
+        "searches": [
+          "Published Hafner–Meyer 2024, Theorem 7 and Future Directions Section 6.2",
+          "Cygan–Grzywny 2023, pp. 2630–2631"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cygan–Grzywny's nonlocal perimeter equals area times loss when its jump measure is the displacement law (discarding an atom at zero).",
+          "The closest distinct Resultary record a8e43f83234b optimizes one-way exponential landing on one-dimensional bands."
+        ],
+        "reasoning": "Uniform-source retention is exactly expected covariogram overlap; heat-content formulations using a specified kernel are equivalent descriptions of the exact loss, not by themselves a radius-mean-only inequality. A directed known-kernel landing optimization is not the same product-habitat problem.",
+        "searches": [
+          "Resultary: width-aware seed loss narrow roadways and fragmented rectangular habitat",
+          "Literature: isotropic seed loss narrow road width mean distance, covariogram and heat content gaps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula hit 6e5c134e7de3 is the assigned record; the nearby distinct a8e43f83234b uses one-way exponential dispersal."
+        ],
+        "reasoning": "The exact target is a symbolic response for continuous widths and radii with a joint-limit coefficient, not a tabulated value; searching the index yielded no distinct match. The Gaussian example is not the originality claim.",
+        "searches": [
+          "Resultary: exact-title, mean-distance and width-aware seed loss for strips"
+        ]
+      },
+      "rationale": "The inspected prior work identifies the narrow-road weakness and supplies general overlap machinery. It does not give the road-resolved mean-only cap and fixed-radius second-order coefficient for this geometry.",
+      "residual_risks": [
+        "The cited Mazón–Rossi–Toledo heat-content full text was not available in the bounded retrieval.",
+        "No historical priority guarantee against other covariogram or laminar-habitat calculations. No claim of sharpness for all radial distributions or arbitrary habitat geometries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier perimeter majorant and direct motivation, not the width-resolved correction",
+          "evidence": [
+            "Theorem 7 gives mu L/(pi A) with rotational symmetry.",
+            "Section 6.2 explicitly warns of narrow-road overestimation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11538-024-01367-0",
+          "material_read": "Published Theorem 7, pp. 13–14; Section 6.2, pp. 19–20 (extraction offsets about 36400 and 53174)",
+          "method": "Bounded publisher PDF passages",
+          "title": "Bounding Seed Loss from Isolated Habitat Patches",
+          "trigger": "Same mean-based loss framework and narrow-road observation"
+        },
+        {
+          "assessment": "General full-kernel identity, not a mean-only road-specific result",
+          "evidence": [
+            "Per_nu(E) integrates the displacement measure of E^c-x over source x in E."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10231-023-01332-z",
+          "material_read": "Definition and setup, pp. 2630–2631, extraction offset about 4550",
+          "method": "Bounded PDF inspection",
+          "title": "Asymptotics of non-local perimeters",
+          "trigger": "Potential stronger general covariogram and jump-measure formulation"
+        },
+        {
+          "assessment": "Different directionality, spatial setup, known law and optimization target",
+          "evidence": [
+            "One-way exponential dispersal on one-dimensional bands, not isotropic rectangular outflow with given mean only."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-width-uniformity-versus-a-two-scale-dispersal-trap-for-exponenti--a8e43f83234b",
+          "material_read": "Mirrored RESULT.md statement and assumptions",
+          "method": "Configured Resultary lookup and bounded local mirror read",
+          "title": "Width uniformity versus a two-scale dispersal trap for exponential dispersal",
+          "trigger": "Closest distinct indexed dispersal/width match"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence of noncoverage",
+          "evidence": [
+            "The lawful copies attempted did not supply the primary text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/ans-2017-0005",
+          "material_read": "No substantive primary passage available",
+          "method": "Bounded publisher and Sciendo retrieval attempts",
+          "title": "The Heat Content for Nonlocal Diffusion with Non-singular Kernels",
+          "trigger": "Cited potentially broader nonlocal heat-content framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolves a specific stated deficiency of a widely applicable perimeter bound in a natural geometry without assuming a known radial kernel. Captures the first-order improvement at every positive width-to-dispersal ratio and quantifies the exact second-order loss product for fixed radius, rather than merely observing that old bounds can overcount.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

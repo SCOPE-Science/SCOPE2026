@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes \(k\)-vertex-connectivity under fewer than \(k\) deletions and minimum degree \(k\), giving the PSD lower bound. At size \(k\), every first PSD move either uses a disconnected white complement, forcing an internal consecutive \(k\)-block, or is an ordinary first force from a degree-\(k\) endpoint, forcing one of the endpoint configurations. Explicit forcing sequences prove sufficiency. Exact intersection calculations give the full exchange graph, including all boundary cases and diameter. Standalone exhaustive checks on 45 independent graph-power instances agree. No infinite conclusion is inferred merely from computation.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The most relevant inspected 2026 graph-power paper proves ordinary zero-forcing values and PSD power monotonicity but not a minimum PSD seed census. The inspected earlier chordal-graph algorithm constructs some optimal PSD seeds without classifying all minimum seeds or their exchange graph. Closest retrieved mathematical records on path powers count and reconfigure *ordinary* minimum seeds, a strictly smaller set of solutions for the present family. A bounded search for both PSD/positive-semidefinite terminology and the exact count and exchange structure found no identified stronger coverage. A remaining risk is earlier unindexed work on positive forcing in proper interval graphs. These searches alone do not certify global priority.
+PASS
 
-**Value — PASS.** The precise structural gap between ordinary and PSD forcing is significant for graph-power monitoring: there are only \(2k\) ordinary optimal seeds, but \(n+k-1\) PSD optimal seeds. The additional interior separators connect two formerly disconnected configuration families into a graph of exactly known linear diameter and sharp edge counts. The conclusion holds for an unrestricted, natural two-parameter family of proper interval graphs, and goes substantially beyond reporting the already-known scalar forcing number.
+Fewer than k deleted positions cannot create a surviving-order gap greater than k, so there is just one white component; every blue vertex has at least two white neighbors. For a seed of size k, disconnected whites force all k deleted positions to be one consecutive internal gap. If whites are connected, a first forcer has one white neighbor and at most k−1 blue neighbors, hence degree at most k and must be an endpoint. This is the intended upper-bound argument in RESULT.md line 44 ('at least' should be 'at most'). Endpoint seeds fill a boundary interval and sweep across it. For an interior interval, the rightmost blue vertex can force the next left white vertex in its component, and the leftmost does the reverse; the enlarged blue interval sustains these moves. This proves the exact disjoint census L_i,R_j,C_a. Intersections of size k−1 give two K_k's and the consecutive internal path, with all terminal attachments, one extra attachment at each end when n≥k+3, and between-clique edges a matching, one bridge, or none. Counting these gives the three stated edge totals. The terminal path bounds all distances by n−k; the one-internal-node case is noncomplete, and for two internal nodes the nonexceptional left and right vertices have no common neighbor. For n≥k+4 the integer labels in RESULT.md line 56 are 1-Lipschitz on every listed edge and attain a gap n−k. Ordinary forcing permits only endpoint first moves, so its optimizers induce the asserted disconnected graph for n≥k+4. The independent sequential-force and exchange BFS replay matched every count, seed family and diameter on 36 parameter pairs (4≤n≤11, 2≤k≤n−2); this corroborates but does not replace the all-order proof.
 
-Closest prior studies: Abiad et al., arXiv:2610.03892 (ordinary powers and PSD monotonicity); Fallat–Meagher–Yang, arXiv:1407.7017 (general chordal PSD algorithm); 2026 published ordinary path-power minimum-set and exchange records. The primary limitations are bounded historical priority and scope restricted to minimum seed sets. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar PSD value follows from an earlier chordal corollary, and the explicit ordinary comparison is prior coverage; do not credit those as new. The contribution is the complete PSD minimum-set census and its exchange geometry for the full two-parameter family. Neither the earlier ordinary census nor the broader inspected PSD algorithm and scalar theorems give this result.
+
+## value
+
+PASS
+
+The known scalar says how many blue vertices are needed but not where to place them or how to move between optimal placements. The exact PSD census turns interior graph separators into the configurations that connect two previously disjoint ordinary clusters. The derivation gives complete adjacency, boundary cases and a growing exact diameter over a naturally motivated unbounded family, not a routine calculation of Z_+.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

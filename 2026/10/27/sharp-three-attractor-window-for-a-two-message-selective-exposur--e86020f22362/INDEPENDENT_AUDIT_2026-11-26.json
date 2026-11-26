@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:52:38.542094Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the deterministic map with b=beta−1 and balanced sources, the log-odds drift is (b−1)P−bQ. On the right of the midpoint, P/Q increases strictly from 3 to infinity because it is the Q'-weighted mean of the strictly increasing derivative ratio (1+2/[x(1−x)])/3. The signs, including b=1 and b=3/2, yield precisely the fixed points, and strict monotonicity of the map prevents crossing them, so monotone convergence gives the claimed basins. At b=3/2 the log-odds drift is (64/27)u^3+O(u^5), giving (16/27)u^3 after applying the logistic map. Independent symbolic expansion corroborated this and K(1/2+u)=3+(32/9)u^2+O(u^4); the root level is 3+4(3/2−b)+O((3/2−b)^2), which gives the stated collision coefficient and remainder. Small asymmetry adds a constant log[p/(1−p)] to the interior equation, preserving the three simple roots locally. Compact complements exclude extra interior roots, while uniform O(x^b) endpoint bounds for b>1 exclude extra roots near 0 and 1. The endpoint fixed points themselves persist exactly. Frozen RESULT.md §§1–5, VERIFICATION.md and verify.py were inspected; the supplied verifier was not run. The conclusion concerns neither finite random source batches nor arbitrary p away from 1/2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The parent expectation equation admits more general message laws; the inspected analysis treats it as a nonlinear equation and supplies a data-fitted approximation rather than a root count and signs on the binary family."
+        ],
+        "reasoning": "Broader model specification is not a theorem about the number and basins of its fixed points. The literature query did not furnish another relevant source, which is not evidence of exhaustiveness.",
+        "searches": [
+          "arXiv:2309.05370v1 §IV-A.1 Eq. (9) and immediately following analysis",
+          "Literature search for the binary normalized message-preference map and sharp thresholds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.05370v1",
+        "2026/11/8/SCOPE-exact-tristability-window-in-a-three-agent-sigmoidal-opinion-net--8bfde3a3b93b",
+        "2026/11/22/SCOPE-a-sharp-extreme-opinion-tail-law-for-two-source-media-selection--69f57f7fe9a5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution derives the update but supplies neither monotonicity and range of P/Q nor its second-order expansion.",
+          "The path theorem's continuous-time model gives no identified conjugacy or implication for the binary kernel's b=1 boundary, b=3/2 nonhyperbolic point, or local change in Bernoulli probability."
+        ],
+        "reasoning": "Credit the specialization of the model itself as immediate; the complete classification and local asymptotics require additional analysis.",
+        "searches": [
+          "Wang et al. Eqs. (2)–(4) and (9) versus frozen log-odds quotient and critical expansions",
+          "Resultary sigmoidal-path Finding versus frozen scalar dynamics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taking alpha=1, zero anchoring, and source law p delta_1+(1−p) delta_0 in the Wang et al. weighted-mean update gives the precise F_{b,p}.",
+          "The indexed sigmoidal opinion path also has three attractors but its equilibria belong to a continuous-time three-agent zealot system, not this scalar normalized binary kernel."
+        ],
+        "reasoning": "The kernel is explicitly prior, including under the binary specialization; similarity of phase-portrait counts alone does not identify the maps, thresholds or coefficients.",
+        "searches": [
+          "Resultary: binary selective exposure, normalized squared-distance kernel and beta=2,5/2 thresholds",
+          "arXiv:2309.05370v1 §III-B Eqs. (2)–(4), §IV-A.1 Eq. (9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-exact-tristability-window-in-a-three-agent-sigmoidal-opinion-net--8bfde3a3b93b, Finding, is the continuous-time zealot path.",
+          "2026/11/22/SCOPE-a-sharp-extreme-opinion-tail-law-for-two-source-media-selection--69f57f7fe9a5, Finding, gives stationary tail laws for stochastic logistic source selection, not binary-map parameters or basins."
+        ],
+        "reasoning": "The closest indexed findings do not tabulate or classify the same map. No threshold table for this update was found.",
+        "searches": [
+          "Resultary: claim wording, binary normalized kernel, both thresholds",
+          "Resultary: five fixed points and three attractors for two sources"
+        ]
+      },
+      "rationale": "Credit to Wang et al. for the update rule and infinite-source fixed-point equation. The supported distinct contribution is the complete balanced binary-source classification, thresholds, collision and drift coefficients, and local persistence under source asymmetry; no inspected matching or stronger theorem supplies those conclusions.",
+      "residual_risks": [
+        "An equivalent reduced scalar map or an unindexed treatment could contain some of the same bifurcations; no absolute priority claim is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model coverage, no classification in the inspected analysis",
+          "evidence": "Powered squared-distance preference, normalized leader update and infinite-source nonlinear expectation equation; analysis proceeds to a fitted approximation.",
+          "identifier_or_url": "https://arxiv.org/html/2309.05370v1",
+          "material_read": "§III-B Eqs. (2)–(4), near OA offset 8665; §IV-A.1 Eq. (9) and discussion, near offset 24477",
+          "method": "Lawful author full-text HTML, located passages read in context",
+          "title": "Opinion Dynamics in Two-Step Process: Message Sources, Opinion Leaders and Normal Agents",
+          "trigger": "Identical parent message-preference rule"
+        },
+        {
+          "assessment": "Related but different mathematical system",
+          "evidence": "Continuous-time three-agent path, with boundary zealots at ±1 and a sigmoidal interaction.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-tristability-window-in-a-three-agent-sigmoidal-opinion-net--8bfde3a3b93b",
+          "material_read": "RESULT.md Finding, beginning at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact tristability window in a three-agent sigmoidal opinion network",
+          "trigger": "Closest indexed five-equilibrium phase portrait"
+        },
+        {
+          "assessment": "Different update and target invariant",
+          "evidence": "Stochastic logistic source-selection model; stationary marginal tail exponents rather than deterministic fixed-point basins.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-extreme-opinion-tail-law-for-two-source-media-selection--69f57f7fe9a5",
+          "material_read": "RESULT.md Finding, beginning at offset 0",
+          "method": "Resultary local mirror",
+          "title": "A sharp extreme-opinion tail law for two-source media selection",
+          "trigger": "Two-source model comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The binary distribution is a natural, analytically tractable test of the existing normalized preference model. Its three distinct attraction basins in the intermediate regime show that extreme-versus-consensus is not an exhaustive dichotomy. Sharp boundaries, exact separatrices up to one monotone equation, and the perturbation result distinguish robust multistability from a balance-only degeneracy. The value is mathematical within the deterministic model, not a social prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

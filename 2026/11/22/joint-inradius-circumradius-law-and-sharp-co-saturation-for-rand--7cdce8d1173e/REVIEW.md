@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Both disks in the shadow's inradius and circumradius definitions may be centered by symmetry. Equation (6) follows from orthogonal projection of a base disk and an axial segment. Its concave support function is minimized at an endpoint and maximized at the unique interior stationary point if admissible; these extrema give the entire joint pushforward (1). Uniformity of the absolute axial coordinate gives all atom masses and CDFs by explicit quadratic inversions. The derivative of the co-saturation probability has a fixed positive sign below the unique critical aspect and negative above it. The standard-library checker independently discretized projected rims and verified 4,287 diagnostics. No finite sampling is treated as proof.
+PASS
 
-## Originality — PASS, subject to historical-priority limitations
+Restrict the directional support of the centered solid to the viewing plane. Central symmetry allows both extremizing disks to be centered (average opposite feasible centers). The axial component of an in-plane unit direction runs in absolute value over [0,S], so the support divided by R is sqrt(1-x²)+qx on that interval. Its minimum is at an endpoint and its maximum is at x=q/sqrt(1+q²) if available, or at S otherwise. In terms of the uniform absolute normal coordinate C, the circumradius saturates for C≤(1+q²)^{-1/2}; for q<1 the inradius saturates for C≥(1−q²)/(1+q²), with the face-on endpoint included. For q≥1 the inradius is constant. Intersection gives exactly the stated joint atom; for example q=1/2 gives mass 2/sqrt(5)−3/5. The two inverse branches give the CDFs with the correct endpoint jumps and identify R and H from the circumradius endpoint and atom. Differentiating the two mass branches verifies strict increase, strict decrease, the unique maximizer at q=1 and both one-sided slopes. The bounded discretizations in the supplied script are diagnostics; the independent support restriction and exact branch calculation establish the continuum claim.
 
-The earliest dated geometric anchor is Finch (24 December 2012); the full relevant HTML of his 2012 manuscript was read, including Section 1 on the disk-hull and ellipse geometry. Vickers--Brown (2001) was read in a full searchable rendering; its sections treat projected area and perimeter of cylinders, not extremal inscribed/enclosing radii. Kim--Yaskin--Zvavitch's accessible text deals with projection-volume distributions and nonidentifiability in general convex geometry. Three closest separate cylinder studies supply only (a) joint area/perimeter moments, (b) the one-dimensional projected-width distribution, and (c) first-three projected-area moments; their full mathematical results were compared and do not imply the new paired two-dimensional radii, corner atom, or its sharp optimum. Full historical priority beyond these primary sources is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The two Euclidean circle radii are natural global shape observables of projected convex images, directly relevant to bounding disks and particle-shape inference. The theorem fully classifies their joint singular law and exact point masses, gives a sharp non-smooth height-to-diameter design optimum, and reconstructs radius and height from one marginal's terminal atom and endpoint. These precise geometric statistics are not recomputations of already tabulated shadow area or perimeter, and the coincident-extrema event has an unexpectedly positive probability with a sharp unique optimizer. The theorem is self-contained; no unproved downstream theorem is invoked.
+Pass for the joint law of the two extremal radii in the same random plane and its co-saturation optimum, not for the cylinder support function, line-direction widths, or the use of shadow data to recover a cylinder. The exact prior directional support is reused; the new calculation is the shared-plane range restriction, competition of two saturation thresholds, and optimization of their intersection probability. The strongest inspected related records do not give that calculation or an already evaluated stronger law of these radii.
 
-## Residual risks and limitations
+## value
 
-The classification assumes centered solid right circular cylinders, unbiased orthogonal viewing, and exact geometry. An equivalent calculation in older stereology or engineering morphology literature remains possible, and independent peer validation has not been performed. Approximate rim discretization and CDF quadratures are diagnostics, not certificates for all continuous orientations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum and maximum disk radii are natural geometric measurements of the same shadow. The full singular law identifies when size constraints bind together, provides the sharp dimensionless tuning condition H=2R, and separates an inverse observable (outer endpoint and its mass) from known area or width data. This is a substantive exact classification despite its elementary method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

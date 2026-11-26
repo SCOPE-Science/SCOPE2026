@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:30:12.571906Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–74; VERIFICATION.md and verify_k4.py inspected without executing supplied code",
+        "/workspace/branches/bbadfd29-959b-4f94-9087-003b9f2de3af/independent_k4_replay.py"
+      ],
+      "rationale": "By orthogonality the fourth moment is the squared coefficient norm of P². An unordered edge pair with overlap is identified by its doubled vertex and the two single vertices, and a double edge by the two doubled vertices. The three opposite-edge pairs alone collide, at (1,1,1,1), giving 2S²−Σ|a_ij|⁴+8Σ_{r<s} Re(p_r overline(p_s)). On a finite torus M≥3 each pair-sum coordinate lies in {0,1,2}, so there are no extra collisions. With Σ|a_ij|⁴=(Σt_r²+Σδ_r²)/2 and |p_r|≤t_r/2, the displayed identity follows and is nonnegative. The squared-magnitude variance is (Σδ_r²+Σ(t_r−S/3)²)/2, bounded by the first two terms of that identity. All ones give moment 90 at S=6. Nonzero equality has t_r=S/3, δ_r=0, and equal p_r (of common modulus S/6, not literally unit modulus as phrased in the proof). After dividing by the common coefficient magnitude, choose u₁=1, c₀=b₁₂b₁₃/b₂₃, and u_j=b₁j/c₀: the equal product relations then yield the vertex-phase factorization in both directions. Independent exact replay passed 4,096 Gaussian-integer arrays in the continuous model and M=3,4, and 256 equality arrays. The replay found moment 168 at M=2 for all ones, consistent with its exclusion.",
+      "residual_risks": [
+        "The exact replay is finite; the unrestricted coefficient theorem follows from the orthogonality and algebra, not the tests. The result compares fourth moments, not all distributions of the polynomials."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "49c8d2da27e1 states degree k≥3 in its Finding but includes k=2 in its scope and proof, and explicitly calls it a special case. Shao–Sun treats unweighted cube energies and Fourier exponents. The Walsh result treats real coefficients and binary signs at n≥6."
+        ],
+        "reasoning": "The square-free proof is valid at k=2,n=4 and yields (1+8+6)/6=5/2 and the same equality family. Neither the unweighted cube exponents nor the Walsh constants optimize this Steinhaus coefficient problem.",
+        "searches": [
+          "Resultary 49c8d2da27e1 general square-free Fourier layers; Shao–Sun arXiv:2610.07490v1; Resultary 5d09daee1c04 complete quadratic Walsh chaos"
+        ]
+      },
+      "checked_sources": [
+        "7e3f7e3ac70b",
+        "49c8d2da27e1",
+        "arXiv:2610.07490v1",
+        "5d09daee1c04",
+        "bea9cf2ed885",
+        "b11b0dc59997",
+        "frozen square-zero inverse-graph record, Finding and deficit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coefficient on the pair-mass variance in the root-packet deficit is (3/2)(ΣX_j²−S²/3), which equals (1/2)Σ_{i<j}(X_i−X_j)². The other terms match exactly. The square-zero graph has a different support and radical convolution geometry."
+        ],
+        "reasoning": "The magnitude corollary follows by the same variance identity and nonnegativity, not by a new stability estimate after the transfer. Factorization into vertex phases also follows from equal opposite products on this support and is explicit in the square-free theorem. M=3,4 create no new quartic collisions here. No implication is claimed from the same-day square-zero inverse-graph result.",
+        "searches": [
+          "7e3f7e3ac70b Proof §§1–3; 49c8d2da27e1 Proof §§2–4; same-day square-zero inverse-graph RESULT.md Finding and deficit at lines 5–58"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7e3f7e3ac70b Proof §§1–2 gives exactly six ordered size-one fibers, twelve size-two fibers, and one size-six fiber for q≥5, as well as the same complex moment and exact deficit after relabeling. b11b0dc59997 has two unordered products in the collision, not three. bea9cf2ed885 fixes coefficient moduli on a different support."
+        ],
+        "reasoning": "Map the opposite-edge pairs to opposite-root pairs for q=5. This preserves and reflects all equalities of pair sums, since the only nontrivial unordered-pair collision in either is the fiber of all three opposite pairs. Thus the q=5 fourth moment and deficit are the identical coefficient functionals even though the supports are different. The other two comparisons do not supply this equivalence.",
+        "searches": [
+          "Resultary: six-frequency packets, three opposite-edge product collisions, single pair-product collision and sharp phase rigidity; inspected 7e3f7e3ac70b, b11b0dc59997, bea9cf2ed885"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first entry has a closed binomial fourth-power norm formula; the second contains the complete pair-sum data and the explicit quartic and deficit formulas."
+        ],
+        "reasoning": "The closed formula covers the sharp constant and the published collision classification gives exact, not sample-based, coefficient information. Agreement is not restricted to the all-ones energy count.",
+        "searches": [
+          "Resultary exact fourth-moment entries 49c8d2da27e1 and 7e3f7e3ac70b, including the latter's pair-sum fiber counts"
+        ]
+      },
+      "rationale": "Two distinct indexed results cover the scientific content. The all-square-free-layer proof explicitly includes degree two and specializes at n=4 to the norm and vertex-phase equality. More decisively, the six-root packet for q≥5 has the identical partition of unordered pairs by pair sum under the bijection of the three opposite pairs to the three root-antiroot pairs, including all six double edges as singleton fibers. This pair-sum equivalence transfers its entire arbitrary-complex quartic form without requiring a group isomorphism. Its exact deficit becomes the frozen deficit under X=t, D=δ and z=p, and the squared-magnitude bound follows by dropping nonnegative terms. The order-four torsion of the other support does not obstruct the transfer: use its q=5 case to match the collision partition of each target M≥3. The two comparison records are later-indexed; this is a finding of existing mathematical coverage, not a decision about who discovered it first.",
+      "residual_risks": [
+        "The pair-sum equivalence establishes identical fourth-moment functionals but not equivalence at higher moments. Bounded searches and catalogue dates do not determine historical priority or independent discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent quartic optimization via pair-sum bijection to its q≥5 case",
+          "evidence": "Same fourth-power coefficient, opposite-pair products, full quartic polynomial and nonnegative deficit; order four has different collisions for that support only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-order-four-torsion-and-sharp-phase-rigidity-for-the-six-root-fou--7e3f7e3ac70b/RESULT.md",
+          "material_read": "Finding, Assumptions, Proof §§1–4, offsets 0–5238",
+          "method": "Local mirror, direct comparison of pair-sum equality relations and substitution in formulas",
+          "title": "Order-four torsion and sharp phase rigidity for the six-root Fourier packet",
+          "trigger": "Same three-pair Fourier collision and exact deficit"
+        },
+        {
+          "assessment": "Covers norm and equality; not the exact deficit alone",
+          "evidence": "Main stated range k≥3, but degree two is expressly included in the proof. n=4,k=2 gives the sharp 5/2 and vertex-phase equality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-fourth-moments-and-phase-rigidity-of-all-square-free-fouri--49c8d2da27e1/RESULT.md",
+          "material_read": "Finding, scope, balancing and phase proof, plus Relationship to prior work, offsets 0–8337",
+          "method": "Local mirror statement and proof specialization",
+          "title": "Sharp fourth moments and phase rigidity of all square-free Fourier layers",
+          "trigger": "Broader arbitrary-complex theorem on the exact same layer family"
+        },
+        {
+          "assessment": "Unweighted/asymptotic conclusions in the compared statements",
+          "evidence": "Cube set-energy exponents and a one-dimensional Fourier exponent comparison, not the exact complex six-frequency stability problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.07490",
+          "material_read": "v1 abstract and introduction pp. 1–2, Theorem 1.2 p. 3, Proposition 5.1 p. 16",
+          "method": "Bounded primary-text inspection",
+          "title": "Higher Additive Energies on Discrete Cubes",
+          "trigger": "Possibly more general bound on cube layers or weighted Fourier energy"
+        },
+        {
+          "assessment": "Different coefficients and character torsion",
+          "evidence": "Real coefficients on independent signs at n≥6; not the complex four-variable torus layer.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-fourth-moments-and-euclidean-distortion-of-complete-quadra--5d09daee1c04",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp fourth moments and Euclidean distortion of complete quadratic Walsh chaoses",
+          "trigger": "Degree-two chaos and sharp stability"
+        },
+        {
+          "assessment": "Different support with fixed moduli",
+          "evidence": "Frequencies 1,z,w,z²,zw,w²; gives a phase-only range and classification.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-fourth-moment-phase-rigidity-for-the-six-point-triangular--bea9cf2ed885",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp fourth-moment phase rigidity for the six-point triangular Fourier aperture",
+          "trigger": "Six-character fourth moment and phase classification"
+        },
+        {
+          "assessment": "Does not cover a three-way collision",
+          "evidence": "The only nonsingleton fiber there has two unordered products, whereas the target fiber has three.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-lambda-4-constants-for-a-single-pair-product-collision--b11b0dc59997",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Sharp Λ(4) constants for a single pair-product collision",
+          "trigger": "General sparse pair-collision norm theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, deficit and finite-torus proof; 7e3f7e3ac70b Proof §§1–3; 49c8d2da27e1 scope and balancing proof"
+      ],
+      "rationale": "The six-character layer is naturally motivated and the stability identity is useful, but as a new narrow exact result it has no substantive uncovered invariant after the coefficient-preserving collision transfer. The remaining presentation on this character group, including M=3,4 without aliasing, follows mechanically from the coordinate range {0,1,2} and the known three-pair formula; the magnitude corollary only discards nonnegative terms. No separate valuable repair is supported by changing the representation or restating that corollary.",
+      "residual_risks": [
+        "This value judgment concerns the distinct contribution of the exact fourth-moment record, not the importance of more general stability or higher-moment questions."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

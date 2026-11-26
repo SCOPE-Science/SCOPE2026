@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and mpmath. In the evaluated environment, the checker returned `VERIFY_OK 113 checks A= 0.0445757926701356342`.
+## correctness
 
-It independently reconstructs a truncated Fourier series for the kernel and its mean and checks the Bernoulli closed form, mean at zero, and high-precision Gram solves at seven resolutions. It verifies finite-resolution trends for the two- and three-site weights and leading noise coefficients. All numerical checks have explicit absolute tolerances to account for Fourier truncation, and are not used as proof of an infinite limit.
+PASS
 
-The actual proof uses analytically exact Fourier identities and the leading Taylor orders of a two-by-two Gram subsystem determinant; in particular the denominator is `8*k0*a*h**3+O(h**4)`, while the numerator is `(k0*b2/2+a*b0)*h**2+O(h**3)`. The variance conclusion further requires independent, centered, equal finite-variance observation errors.
+The positive Fourier spectrum gives strict positive definiteness on these distinct periodic sites. The Bernoulli polynomial gives K(t,0)=k0-a t^2(1-t)^2 on [0,1]; convolving the sine-density coefficients gives the stated absolutely four-times differentiable kernel mean and the constants b0 and b2. I checked the two-site sum and difference limits b0/k0 and -b2/(2a), and the exact reduced determinant for three sites: 8 k0 a h^3-12 k0 a h^4-2 a^2 h^4(1-h)^4. Its cubic term survives quadratic cancellation. The numerator of the averaged outer weight has quadratic coefficient k0 b2/2+a b0. The outer difference is bounded and the middle weight is -2A/h+O(1). Hence A>0 gives the eventual signs, the exact leading l1 operator norm on arbitrary nodal perturbations, and the variance law for independent centered equal-variance errors. An independent evaluation from the determinant and the convergent mean series gave A=0.04457579267013564 and middle weight -11.5313217985 at N=128. Replay: RESULT.md lines 44–93 and the displayed determinant; read VERIFICATION.md and verify.py without running the frozen script. Distinctness for N>=3 is of transformed sites; the advertised physical-node distinctness holds throughout N>=5. Neither added-noise variance nor a single deliberately collapsing subset is a statement about inherent deterministic error or typical random subsamples.
 
-No physical hardware performance, randomized subset probability, high-dimensional conclusion, or independently audited scientific certificate is asserted.
+## originality
+
+PASS
+
+The distinct claim is the sharp two-to-three-site contrast for this periodic kernel and sine density, including the explicit linear coefficient. The closest collision work uses the same general Gram reduction but a quartic rather than a cubic determinant under hypotheses excluding this kernel. The inspected full-lattice results do not govern inversion of a fixed-cardinality principal submatrix. This is a bounded originality decision, not a priority certification.
+
+## value
+
+PASS
+
+This is a motivated adverse design for an existing integration method. It separates simple ill-conditioning from actual weight instability: two nearly coincident sites remain bounded, while the next cluster develops a quantitatively sharp signed mode and an evaluation-noise penalty. The finite design and leading coefficient are useful to judge claims of positivity or robustness under deterministic subsampling, without implying typical-case failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

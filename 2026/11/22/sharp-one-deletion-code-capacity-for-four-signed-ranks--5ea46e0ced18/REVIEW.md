@@ -1,21 +1,21 @@
-# Scientific review: four signed ranks under one deletion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source space has \(384\) signed four-permutations and \(48\) signed three-permutations. The proof defines an explicit nonnegative integer output weight with \(12\) zeros, \(32\) ones and \(4\) twos; its total is \(40\). The sign-pattern analysis supplies at least two total weight units for the complete distinct deletion deck of every source. Therefore the universal bound is \(20\). Ten explicitly listed tuples and their negatives form a twenty-word code. The attached independent inverse-insertion and direct-deletion check verifies the channel incidence on all \(384\) sources and certifies the \(46\) pairwise distinct outputs of this code.
+PASS
 
-The proof covers all signed sources at exactly four ranks; it does not extrapolate to higher ranks. The independent inverse construction is a computational cross-check, not an external mathematical audit.
+The sign is attached to the surviving entry while its magnitude is standardized, and an unknown single output rather than the whole deletion deck is the observation. There are 384 sources and 48 outputs. The prescribed nonnegative twice-weights have multiplicities 12,32,4 and total 40. For nonconstant sign words, the one-, two-, and three-change cases each provide two distinct nonalternating output sign patterns, hence at least two units. For constant signs and a one-output deck, comparing the standardized survivors from deleting adjacent entries of magnitudes a<b at their common position gives a and b-1, so these magnitudes must be consecutive. Repeating this at all three adjacent pairs forces monotone order, whose single output has weight two. A constant-sign deck of size at least two needs no special argument. I independently generated all incidences by inserting every signed absolute rank at every position into each of the 48 outputs, lifting ranks at least the inserted one. All 384 twice-weight constraints held. This inverse enumeration confirmed the printed ten sources and their negatives give 20 distinct sources and 46 distinct outputs with no cross-deck collision; the two omissions are exactly ±(3,-2,1). The integral packing gives a feasible fractional packing of value 20, and the halves of the listed weights provide a dual feasible cover of cost 20. Weak duality certifies both optima exactly.
 
-## Originality — PASS, qualified
+## originality
 
-Gabrys and collaborators (2014, DOI: 10.1109/ISIT.2014.6875337) treat the unsigned rank-standardized channel. Their consecutive-run equivalence is acknowledged, and their broad asymptotic code result neither contains independent orientation signs nor fixes the signed four-rank capacity. Galvão, Lee and Dias (2015, DOI: 10.1186/s13015-015-0040-x) define signed permutations and study sorting by reversals/transpositions, not deletion-code capacity. Searches for type-B signed-permutation deletion codes, orientation-preserving rank-standardized deletion, and exact twenty-word codebooks did not locate an equivalent classification. A related published result on signed-successions encodes *ternary sparse-word* codes; another treats full-systematic *unsigned* permutation codes. Neither implies a bound on the present signed deletion incidence graph. Some corresponding repository full texts were not retrievable; historical priority remains qualified.
+PASS
 
-## Mathematical value — PASS
+The unsigned standardized channel, adjacent-consecutive collision rule and generic fractional shadow-packing formulation are prior tools. The exact signed B_4 integer/fractional optima and sign-symmetric attaining certificate were not established by the inspected alternatives. This is a statement-level best-of-knowledge verdict, not an exhaustive priority claim.
 
-This exact value settles a natural zero-error coding invariant for ordered symbols with independent orientation attributes, where the unobservable deleted symbol loses both rank and orientation and all remaining ranks are renormalized. The matching half-integral output certificate and sign-symmetric code make the finite answer structurally interpretable and reusable as a benchmark for signed-rank deletion channels. The result is not a general signed-permutation coding theorem, not a new genome-sorting algorithm, and not a complete enumeration of optimizers.
+## value
 
-## Closest literature and limitations
+PASS
 
-The unsigned channel's standard definition and consecutive-run lemma are covered by the 2014 ISIT paper. The 2015 molecular-biology paper supplies the signed-permutation representation but analyzes different edits. An exact-day public antecedent for the signed setting is 25 March 2015; the 2014 conference result is older by year but does not provide a verified first-online day. A stronger equivalent result in unindexed historical literature is possible; none was established by the inspected sources. The present certificate makes no independent-validation or priority-guarantee claim.
+The first balanced sign case makes four ranks a natural baseline: at three every source has a constant-sign output, so just four such outputs cap capacity and the four constant-sign monotone sources attain it. At four a two-plus/two-minus source escapes that bound altogether. An exact benchmark at this onset of mixed-sign shadow packing is useful for evaluating signed deletion constructions and bounds. The half-integral explicit cover and sign-symmetric packing establish not just the number, but exact tightness of a reusable relaxation and attainment with a natural symmetry.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

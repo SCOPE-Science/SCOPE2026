@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The integer support classification is proved by the signed Vandermonde nullspace, the degree-three multiplicity cap, and two exact moment equations. Parseval gives the only extra sixth-moment cross term; Maclaurin inequalities give the sharp ordinary stability constant and equality cases. The exceptional optimization is also reconstructed with strict pair balancing and a one-variable strictly concave polynomial. The finite checker corroborates the analysis but cannot certify the infinite-frequency theorem by enumeration.
+PASS
 
-## Originality — PASS, with priority qualifications
+Full normalized torus orthogonality groups the ordered terms of U^3 by their two integer moments. The three-row Vandermonde kernel alternates with no zero coordinate. A nonzero multiplicity difference can have positive mass only 2 or 3; among the five alternating candidates only (1,-2,2,-1) can have zero linear moment. Its quadratic equation forces gaps ell,2ell,ell, and positive mass 3 leaves a unique pair of colliding multisets. Their multiplicities 3 each give cross term 18 Re(z_a z_c^2 overline(z_b^2 z_d)), hence 256/274 ordered energies. After normalizing M=1 the ordinary stability slack is 2(e2-6e3); Maclaurin proves nonnegativity with equality just at the barycenter and vertices. The latter show sharpness and the former is the only norm maximizer. For the exceptional support, fixed pair sums give strictly positive coefficients of both pair products in the diagonal term; the phase-aligned collision term is nondecreasing in them. Balancing yields the stated strictly concave cubic, with its unique critical point interior and all four weights positive, giving exactly the stated phase relation. Independent exact symbolic substitution recovered the critical point and radical optimum; an independent ordered-triple census on [0,18] gave 3840 ordinary and 36 exceptional supports. The exact band formula follows from unique step and translate, not from the finite test. Frozen verify.py was inspected, not executed.
 
-Cushman–Demeter–Wu provide broad three-fold convex-curve energy bounds, and Deng–Fan–Guo–Guo–Luo provide general periodic Strichartz inequalities. Their inspected theorem statements and relevant proof sections do not classify exact four-point parabolic resonance supports or the 256/274 energy stratification. A published generic balanced-collision four-character theorem already proves the exceptional radical sharp constant and its extremizers; that previously published portion is credited and **not** claimed new. The genuinely distinct claim is the complete integer-parabola geometry, the exact band census and the sharp resonance-free stability inequality. An equivalent classification may be present in older six-wave or degree-two equal-moment literature not identified by the searches.
+## originality
 
-## Value — PASS
+PASS
 
-Four frequencies are the smallest possible size for a nontrivial quadratic three-against-three collision. The theorem locates every such onset, quantifies its exact discontinuous effect on the energy and sharp extension norm, establishes optimal amplitude rigidity for every resonance-free support, and counts the exceptional shapes uniformly in the bandwidth. This exact classification is a motivated finite-support complement to broad contemporary critical Strichartz estimates.
+Pass for the exact integer-parabola support dichotomy, energy and band census, and sharp ordinary amplitude-deficit inequality. The conditional balanced-collision optimization, radical constant and its extremizers are already published and explicitly credited in the frozen claim; they are not independently original here.
 
-## Limitations
+## value
 
-The theorem assumes four distinct **integer** frequencies, quadratic dispersion, and integration over the full normalized spacetime torus. It does not claim new authorship of the generic balanced-collision norm formula, treatment of five-or-more mode supports, short-time intervals or finite quotient aliasing. The supplementary finite computation is not used as proof of the universal assertion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Four is the first support cardinality admitting a nontrivial quadratic triple collision. The exact onset criterion and rarity quantify where the sharp norm changes, and the globally sharp stability estimate measures failure of equal-amplitude extremality even on the boundary of the coefficient simplex. This use of the exact geometric classification is distinct from recomputing the known generic collision constant. The result concerns full normalized periods, not short time, modular frequencies, or larger supports.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

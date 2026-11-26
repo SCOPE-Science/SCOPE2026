@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-dimensional derivative formula is obtained by termwise differentiation of the entire matrix-sine power series, with a uniform \(O(b^4)\) derivative remainder. The diagonal and off-diagonal absolute row sums are explicitly computed. The off-diagonal row cannot increase at quadratic order; the diagonal expression is maximized over all positive-semidefinite contractions using an exact nonpositive correction for the smaller eigenvalue. A rational Sturm root count yields a unique optimizing rank-one orientation and the coefficient, while interior perturbation segments prove the lower bound. The symbolic checker replays these identities from the embedded source; finite numerical tests are supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS (qualified)
-The general matrix-function derivative inequalities of Crouzeix–Kressner (arXiv:2007.09784) are spectral-norm bounds and do not imply the sharp coordinatewise rank-one extremal coefficient. The matrix sine and derivative algorithms of Al-Mohy–Higham–Liu (MIMS 2021.13) treat evaluation, not sharp \(\ell^\infty\)-entry perturbation conditioning on the restricted cone. Searches for matrix-sine maximum-entry norms, low-dimensional PSD Fréchet derivatives, and a matching leading coefficient, including indexed mathematical findings, did not identify the claim. This does not prove novelty; inaccessible or unindexed sources remain a residual risk.
+PASS
 
-## Value — PASS
-The matrix sine is a standard oscillatory propagator component. Entrywise perturbations are natural for coordinatewise data and matrix entries, whereas spectral-norm estimates cannot supply the sharp coefficient. The smallest noncommuting symmetric-matrix dimension already differs qualitatively from scalar sine, and the theorem identifies both a structural rank-one extremizer and the exact onset of amplification. The exact coefficient gives a meaningful, reproducible small-spectral-band sensitivity benchmark and is not merely a numerical evaluation on an arbitrary matrix.
+The frozen rank-one reduction is incorrect: proof step 4 drops 2r(1-r)u, and verify_sine_b2.py line 14 omits the r term in z, so it encodes the same error. The complete repair is in /workspace/repairs/4; the finding is unchanged. In coordinates t and u=sqrt(t(1-t)) at largest eigenvalue one, the correct change from the rank-one row is 2u(1-2t-2u)r-[(1-t)(3-2t+2u)+2u]r^2. I independently re-expanded both derivative rows and verified this identity modulo u^2=t(1-t). For t>=3/20 the linear term is nonpositive. For t<=3/20 the increasing rank-one function C(t) is bounded above by 633/1000, the linear coefficient is at most 18/25, and the quadratic coefficient in magnitude exceeds 2. Completing the square bounds this full region below 7/10<C(1/4). The off-diagonal row at eigenvalues 1,r increases with |y| up to (1-r)/2, where its excess is -3r^2. Homogeneity handles smaller largest eigenvalues. For the quartic, the exact Sturm sign lists at 0 and 2/3 are (+,+,-,+,-) and (-,-,+,+,-), giving precisely one root in the interval; signs of the quartic at 0 and 1/2 and positivity of the unsquared numerator there ensure no spurious maximizing root. I recover t*=0.2835546102890608... and kappa=0.11878243509575646.... Convexity, density of interior points and the uniform power-series tail give equality of the global Lipschitz coefficient and supremum of derivative norms, with an O(b^4) remainder. Short interior segments recover the boundary orientation without asserting a maximizer at fixed b. An independent eigendecomposition finite-difference check at b=0.1, 0.05, 0.025 supported the leading term; the proof, not those checks, is uniform. The frozen uploaded script was inspected, not executed.
 
-## Sources and limitations
-Primary papers: Crouzeix–Kressner, 2020, arXiv:2007.09784; Al-Mohy–Higham–Liu, 2021, MIMS EPrint 2021.13. The present theorem is local in band width and only in dimension two. The historical search is not exhaustive; there is no independently verified priority or mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the sharp positive quadratic excess and its optimal rank-one direction for sine in the specified real 2-by-2 maximum-entry norm. Derivative calculus is prior art; the proof repair changes neither the claim nor its comparison parameters. The checked sources do not give the extremum by theorem specialization or by a matching entry; historical priority is not certified.
+
+## value
+
+PASS
+
+This is the first nontrivial matrix dimension in which the scalar sine contraction might fail in the maximum absolute-entry norm. The proof gives not just a finite-pair failure but the exact optimized excess at leading order, and explains why a diagonal row and rank-one positive spectral endpoint are responsible. This is useful as a sharp low-dimensional benchmark; it makes no higher-dimensional or all-band claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

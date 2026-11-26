@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:28.427004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–66",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (inspected; not executed)",
+        "Wang–Yin–Wang arXiv:2610.01329v1, Theorem 1.1, Lemma 3.3 and Theorem 4.1 with its absorption consequence"
+      ],
+      "rationale": "Strict matrix-unit multiplication is associative; a nonzero j-fold product is precisely a composable strict chain of j+1 vertices. Thus the nilpotency index at height h>=2 is h. At heights 0 and 1 the full powerset semiring is the two-element distributive lattice, with setwise product as meet. At height 2 the universal unary relation imposes no constraint, and at height 3 the nonzero-product digraph is homomorphically equivalent to a single arc since no vertex can be both source and target; the directed two-edge path (whose images need not be distinct in an input) is a finite obstruction. At h>=4 a four-point chain supplies the directed walk of length two. For each frozen alternating odd cycle, tracking the endpoint equalities v_i=u_j along the arcs yields v_0=u_1=v_2=...=v_{2m}=u_0, so the strict interval at vertex 0 is impossible. Every proper induced substructure splits into paths. If the unique two-walk survives, pin its values to 0,1,2 on the chain walk and extend alternately by 0,1 on the entering tail and 1,2 on the exiting tail; other components map to a single edge. A finite obstruction list would force a bound on the size of the induced support of an obstruction image, contradicting these unbounded minimal induced examples. Wang–Yin–Wang Theorem 1.1 applies in the stated full constant-free signature. For the precise encoding of the displayed absorption identity use empty R1 on the obstruction, rather than universal R1: this leaves all maps unchanged since R1 on the target is universal and gives exactly the binary sum. Direct evaluation proves validity (an empty variable kills the long word; otherwise it is {0} and some binary term must contain 0). Theorem 4.1 and its explicit post-theorem consequence establish precisely the nonderivability asserted at ℓ>(h−1)(k+2).",
+      "residual_risks": [
+        "The recorded 5231-poset enumeration and cycles through length 17 are finite corroboration only; the proof of the unbounded threshold is relational."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general theorem reduces the question to finite relational duality; it treats the three-point chain as an example. The adjacent noncommutative negative criterion requires a length-(d−1) product nonzero in all permutations, which fails for a composable strict chain when d>=3.",
+          "The October 26 result handles index-three semigroups with bipartite R2 and no higher nontrivial relations."
+        ],
+        "reasoning": "Neither result decides the strictly ordered endpoint obstruction in higher-index nonbipartite interval targets. Higher-arity relations in the target need not be analyzed when they are empty in the obstruction source, a point that allows this extension.",
+        "searches": [
+          "Wang–Yin–Wang arXiv:2610.01329v1 Theorems 1.1 and 4.1, Corollary 4.3 and Examples 4.4–4.5",
+          "Resultary 736169cfad6f"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Yin–Wang 2610.01329v1",
+        "Gao–Zhou 2610.06351v1",
+        "Resultary 736169cfad6f, 29b4bd8b40d3, 947bfbda31fe",
+        "arXiv:2609.19957v1 and arXiv:2609.26019v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 26 target excludes the odd cycle by two-colorability. On a five-point chain, write ij for (i,j): 01→12→23→34 and 01→13→34 give two paths whose union is an undirected 5-cycle. The older argument's hypothesis therefore fails in the interval family. The general finite-basis theorem is a reduction, and Example 4.5 warns that nonfinite basability cannot simply be passed up from a small subalgebra or quotient."
+        ],
+        "reasoning": "The new endpoint-equality contradiction forbids the particular orientation even in nonbipartite targets, while its proper induced substructures still map using only a four-point chain. This is what is needed for every height, not a direct special case of the prior index-three/bipartite theorem.",
+        "searches": [
+          "Resultary 736169cfad6f, Proof: A directed two-walk in a bipartite target",
+          "Wang–Yin–Wang Theorem 1.1, Example 4.5",
+          "Yue–Ren–Gao arXiv:2609.19957v1; Shao–Gao arXiv:2609.26019v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gao–Zhou use the identical multiplication on strict intervals, but distinct elements add to zero in their flat semiring. Their chain theorem is positive even above height three."
+        ],
+        "reasoning": "Flat addition on elements is not union on all subsets; this distinction reverses the chain answer and rules out treating the exact flat interval result as an equivalent formulation.",
+        "searches": [
+          "Resultary: finite duality and finite bases for full power semirings of strict interval posets, composable matrix units, oriented odd-cycle obstructions",
+          "Gao–Zhou arXiv:2610.06351v1 §3 and Theorem 4.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed exact overlap is the identical cycle and absorption-identity family on a different domain; the order-five records concern bounded classes of noncommutative nilpotent semigroups. The exact three-point chain is already an example in the primary paper."
+        ],
+        "reasoning": "Those classifications do not cover arbitrary strict interval width/height or even the seven-element semigroup of the four-point chain. Same-day date was not used to infer ordering.",
+        "searches": [
+          "Resultary full power semiring five-element cutoffs, interval threshold and minimal noncommutative obstructions",
+          "Resultary 29b4bd8b40d3, 947bfbda31fe and 736169cfad6f",
+          "Wang–Yin–Wang Examples 4.4–4.5"
+        ]
+      },
+      "rationale": "The supported increment is the all-finite-poset upper-height obstruction and exact height threshold, not the general duality criterion, the low-index positive case, or invention of the odd-cycle family. The strongest earlier indexed result uses the same oriented odd cycles but its negative theorem assumes index three and a bipartite product graph. The frozen obstruction argument is genuinely stronger for strict intervals, for which product graphs at height at least five need not be bipartite and higher nonzero-product relations are present.",
+      "residual_risks": [
+        "The previously used odd-cycle construction is not novel; only its strict-endpoint obstruction across the full family is credited. A different prior derivation may exist outside the inspected corpus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Criterion and positive chain base case are prior; negative interval height threshold not supplied",
+          "evidence": "Rj is the j-ary nonzero-product relation. Example 4.4 is the sole nonzero product ab=c; Example 4.5 exhibits failure of preservation. Theorem 4.1 explicitly supplies the variable bound r(k+2) and its nonderivability consequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.01329",
+          "material_read": "p. 2 definition and Theorem 1.1; pp. 7–9 Theorem 4.1 and following consequence, Corollary 4.3, Examples 4.4–4.5",
+          "method": "Primary OA PDF",
+          "title": "Finite bases for full power semirings of finite nilpotent semigroups",
+          "trigger": "General criterion and closest primary examples"
+        },
+        {
+          "assessment": "Substantial overlap in technique, not coverage of the new target family",
+          "evidence": "Exactly the same oriented odd cycle, deletion maps and binary-term absorption family; nonmappability there follows from assumed bipartiteness and the scope is index three.",
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-a-bipartite-product-digraph-threshold-for-full-power-semirings--736169cfad6f",
+          "material_read": "RESULT.md Finding, Assumptions and Proof including the entire odd-cycle paragraph",
+          "method": "Local Resultary mirror",
+          "title": "A bipartite product-digraph threshold for full power semirings",
+          "trigger": "Identical obstruction family and algebraic application"
+        },
+        {
+          "assessment": "Restricted small classes",
+          "evidence": "Order-five, index-three cutoff and a census of nine order-five examples, including an acyclic two-arc path, not a height classification of strict intervals.",
+          "identifier_or_url": "Resultary 29b4bd8b40d3 and 947bfbda31fe",
+          "material_read": "Frozen-comparison passages of the two indexed findings",
+          "method": "Local Resultary mirror",
+          "title": "Order-five power-semiring finite-basis cutoff and minimal noncommutative obstruction records",
+          "trigger": "Possible exact earlier catalog classifications"
+        },
+        {
+          "assessment": "Different algebra, important exact contrast",
+          "evidence": "Flat addition makes distinct elements sum to 0. The finite-chain varieties V_k are finitely based; this does not concern the full powerset.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06351",
+          "material_read": "§3 definition and Lemma 3.1(ii), p. 7; Theorem 4.11, p. 13",
+          "method": "Primary OA PDF",
+          "title": "Equational Theories of Interval Semirings of Posets",
+          "trigger": "Same intervals and multiplicative table"
+        },
+        {
+          "assessment": "Different multiplicative families",
+          "evidence": "The former starts with the three-element additively idempotent object S7; the latter concerns varieties tied to finite groups, not strict interval nilpotent semigroups.",
+          "identifier_or_url": "arXiv:2609.19957v1; arXiv:2609.26019v1",
+          "material_read": "p. 1 in each, problem and hypotheses",
+          "method": "Primary OA excerpts",
+          "title": "Explicit equational bases for the power semirings of S7; Nonfinitely based intervals of power semiring varieties",
+          "trigger": "Other exact power-semiring basability classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings and proof, especially §§4–5",
+        "Wang–Yin–Wang Theorems 1.1 and 4.1",
+        "Gao–Zhou Theorem 4.11",
+        "Resultary 736169cfad6f comparison"
+      ],
+      "rationale": "This is a natural uniform height threshold for a poset construction that is insensitive to width and branching yet sharply contrasts with flat addition on the same chain multiplication. The obstruction remains informative for nonbipartite high-index targets and gives explicit arbitrarily large minimal induced counterinstances and valid identities with unbounded variable complexity. A bounded small-semigroup census would not supply these conclusions.",
+      "residual_risks": [
+        "The result concerns full powerset algebras of strict intervals, not nonempty powersets, loop-inclusive intervals or arbitrary nilpotent semigroups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

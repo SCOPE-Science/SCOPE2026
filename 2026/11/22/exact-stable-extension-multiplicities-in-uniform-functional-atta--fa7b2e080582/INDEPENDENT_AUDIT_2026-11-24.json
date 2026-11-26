@@ -1,0 +1,192 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:26:00.133958Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the outgoing attack convention each weak component of a total map is a directed cycle with in-trees. Leaf-to-root induction forces all off-cycle labels in every complete (hence preferred) extension. An IN child forces its cycle parent OUT; the remaining free runs then alternate and a blocked cycle has one stable and one preferred assignment, coinciding even for a blocked self-loop. An unblocked even cycle has two alternating preferred/stable assignments; on an unblocked odd cycle any accepted cycle vertex would force alternating predecessors for defense, incompatible with conflict-freeness. Its only preferred component assignment omits the cycle and is not stable. Components factor, including the empty mapping whose sole extension is empty. Labelled trees give R=z exp(R) and U=z exp(R−U); when decorating a cycle vertex, R and U include that vertex and count all and free decorations respectively. The log contribution of blocked cycles is −log(1−R)+log(1−U); the marked unblocked even cycles contribute −(y/2) log(1−U²). Exponentiation yields the claimed EGF. For transfer, R has the square-root branch at 1/e; strict triangle inequality for its all-positive coefficients and continuation by the implicit equation exclude other circle singularities. On that closed convergence disk, the nonnegative free-tree coefficients bound |U| by U(1/e)=w<1. The local inverse U exp(U)=R has nonzero derivative there, so the numerator factors in the fixed-k and y=1 extractions are analytic in the square-root variable on a dented neighborhood. Their values at 1/e multiply the leading inverse square-root term. This yields the unconditional masses and the normalized conditional Poisson law. Independent direct tests over every map and vertex subset through n=6 confirmed family equality iff existence and the multiplicity histogram, including at n=6 the counts {0:20565,1:19836,2:5700,4:540,8:15}; an exact formal expansion through n=8 matched both displayed sequences. Replay: python3 /workspace/branches/747001a5-321b-478e-adf5-e9fad4fd69f4/independent_check.py. The replay corroborates the bounded data; it is not an all-order certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Zhang–Liu PDF gives sufficient criteria excluding certain strict even or odd cycles and also imposes absence of self-defeating in Corollary 42. Their conditions cover subcases, such as only even attack cycles; a blocked self-loop with an attacking leaf admits a stable extension here, but does not satisfy those corollary exclusions.",
+          "Gao's independent pairwise attacks and Elaroussi's degree-restricted acceptance algorithms concern other models or outputs. The degree-one diversity record 507cf5e0d7fc explains the even-cycle phase choices but prohibits branching."
+        ],
+        "reasoning": "Known agreement criteria and independent even-cycle choices do not count the functional graph decorations that block cycles. Self-loops and unrestricted incoming branching are part of the present hypothesis, not removable coincidences.",
+        "searches": [
+          "Resultary: preferred stable extension coincide iff a stable extension exists Dung argumentation framework",
+          "Resultary: Dung argumentation random mapping exactly one outgoing attack stable extension count multiplicity",
+          "Zhang–Liu arXiv:2610.30176v1 Corollaries 42–43; Gao IJCAI 2017; Elaroussi DOI:10.1177/19462174241306715 Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–70, VERIFICATION.md, verify.py inspected without running the uploaded script",
+        "Distinct SCOPE records a4704bc344df, 512316b4c61c, cb611f38d7e6, 507cf5e0d7fc, 247272f55a93",
+        "arXiv:2610.30176v1, arXiv:2502.02482, DOI:10.24963/ijcai.2017/71, DOI:10.1177/19462174241306715",
+        "Focused literature retrieval of S0166218X24002348 (excerpt only); arXiv:2509.19940v1 abstract/Introduction concerns directed sum/product divisibility, not the stated census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In a4704bc344df all cycle-component vertices are undecided and every odd cycle obstructs stability. In the total one-out model an attached accepted leaf can break the obstruction even on an odd cycle. Its free-decoration equation U exp(U)=R and blocked-cycle series −log(1−R)+log(1−U) implement this distinction.",
+          "The earlier asymptotic mass (p)(−log(1−(1−p)²)/2)^k/k! and zero mass 1−sqrt(p/(2−p)) become literally the submitted asymptotic masses at p=1−w."
+        ],
+        "reasoning": "Matching mass-function parameters identify an already seen distribution family, not a sampling or distributional reduction for this random mapping. The central exact EGF and the theorem identifying the effective parameter for a uniform total map require the IN/OUT tree weights and their singular limit.",
+        "searches": [
+          "SCOPE-grounded-undecided-mass-and-parity-resolved-stable-limits-in-spa--a4704bc344df, Finding, scope and deterministic proof",
+          "arXiv:2610.30176v1 Corollaries 42–43; arXiv:2502.02482 §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Langlois–Meunier §1 p. 1 defines a kernel by independence and absorption using an arc from each outside vertex into the kernel. The target stable set, by contrast, out-dominates the outside, so compare kernels of the transpose digraph.",
+          "The close one-attacker record a4704bc344df defines each pointer toward a selected attacker and reverses it to obtain the attack arrow. It gives a parity-driven power-of-two law, but for a partial, reversed mapping.",
+          "The exact catalogue self-hit is the frozen record itself; the focused literature lookup returned an isomorphism-generation excerpt, not usable statement-level evidence of a reverse-kernel census."
+        ],
+        "reasoning": "Kernels of the original one-out digraph instead require an outgoing successor in each outside vertex's unique successor slot and are not equivalent. Comparing the transpose keeps the branching cycle blockages; replacing partial pointers by total pointers does not preserve the earlier result's attack semantics.",
+        "searches": [
+          "Resultary: one-out functional digraph kernels stable extensions labelled EGF even cycles random mapping",
+          "Resultary: uniform random functional digraph one outgoing edge stable extensions EGF multiplicity",
+          "Websearch: uniform random functional digraph number of independent out-dominating sets (reverse-kernels) enumeration exact count exponential generating function integer sequence",
+          "arXiv:2502.02482 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-exact-census-and-sharp-rarity-exponent-for-finite-ultrahomogeneo--247272f55a93 gives an exact series for ultrahomogeneous unary maps, a different predicate.",
+          "Distinct same-day 512316b4c61c gives multiplicity counts by optional chord set on cycles; cb611f38d7e6 gives a path-marking exact series for symmetric forests with loops. Neither has the labelled total mapping census.",
+          "The earlier partial-pointer record a4704bc344df gives a unique-extension probability of p exactly at every n, whereas here n=1 has no such map. The exact data therefore cannot be transferred by choosing p=1−w."
+        ],
+        "reasoning": "Related series and finite tables provide meaningful comparisons, but the indexed formulas count different subfamilies or differently distributed objects. No identical sequence other than the bound self-hit was found in the bounded searches; this is not an exhaustive database claim.",
+        "searches": [
+          "Resultary: uniform random functional digraph one outgoing edge stable extensions EGF multiplicity",
+          "Resultary: Dung argumentation random mapping exactly one outgoing attack stable extension count multiplicity",
+          "Websearch: uniform random functional digraph number of independent out-dominating sets (reverse-kernels) enumeration exact count exponential generating function integer sequence"
+        ]
+      },
+      "rationale": "The accepted contribution is the labelled multiplicity census and its asymptotic identification for a uniform total one-out attack map. Existing parity characterizations, classical functional-digraph decompositions, agreement criteria, and an earlier one-in partial-pointer model give substantial tools and analogous statements. The numerical family of limiting mass functions is already present in that earlier model after p=1−w; it is not a new probability law. The prior theorem concerns a different random variable on a different finite ensemble and does not identify this model's law or give the exact EGF. The distinction rests on branching children that can force cycle vertices, not terminology alone.",
+      "residual_risks": [
+        "Equivalent out-domination or transpose-kernel counts could be indexed under other terminology. The full text of the functional-digraph generation article was not accessible; neither its snippet nor the retrieval error settles originality.",
+        "The Dung 1995 endpoint yielded only landing/abstract material; the exact semantics were reconstructed from the frozen definitions and proof. Historical priority is not asserted for grounded pruning, parity choices or the algebraic family of limiting laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mass-function overlap after parameter substitution but a different ensemble and obstruction",
+          "evidence": [
+            "Missing attacker probability p; reverse arrow convention, whole cycle components undecided; exact unique-extension probability p; prior stable limits equal the displayed masses at p=1−w."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-grounded-undecided-mass-and-parity-resolved-stable-limits-in-spa--a4704bc344df/RESULT.md",
+          "material_read": "Finding, assumptions, deterministic semantics, local text offsets 0–3464",
+          "method": "Resultary search and local-mirror passages",
+          "title": "Grounded undecided mass and parity-resolved stable limits in sparse one-attacker frameworks",
+          "trigger": "Closest exact parity and limiting multiplicity theorem"
+        },
+        {
+          "assessment": "Sufficient path/cycle criteria, with genuine overlap for subcases but not the labelled multiplicity theorem",
+          "evidence": [
+            "Corollary 42 assumes freedom from self-defeating and no strict even cycles; Corollary 43 excludes odd cycles traversing at most one symmetric edge."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.30176v1",
+          "material_read": "Abstract; Corollaries 42–43 and nearby proof, from text offset 55200",
+          "method": "Accessible v1 OA PDF passage",
+          "title": "When Stable and Preferred Semantics Agree: A Path-Based Approach",
+          "trigger": "Most plausible primary general theorem on the agreement claim, marked inaccessible in the frozen record"
+        },
+        {
+          "assessment": "Shows the exact transpose formulation, not a labelled uniform mapping count in the compared statement",
+          "evidence": [
+            "Outside vertices must have out-neighbors in the kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2502.02482",
+          "material_read": "§1, p. 1, offset 1049",
+          "method": "OA PDF bounded passage",
+          "title": "Revisiting Classical Results on Kernels in Digraphs",
+          "trigger": "Kernel equivalence and arc-direction conventions"
+        },
+        {
+          "assessment": "Different probability ensemble",
+          "evidence": [
+            "Uses independent pairwise attack selection and parameters p,q to study a threshold for existence."
+          ],
+          "identifier_or_url": "DOI:10.24963/ijcai.2017/71",
+          "material_read": "IJCAI PDF p. 2, offsets 7900 and 9250",
+          "method": "OA primary PDF passages",
+          "title": "A Random Model for Argumentation Framework: Phase Transitions, Empirical Hardness, and Heuristics",
+          "trigger": "Primary random argumentation existence comparison"
+        },
+        {
+          "assessment": "Acceptance complexity, not a multiplicity count",
+          "evidence": [
+            "Polynomial-time preferred credulous/skeptical acceptance under degree restrictions."
+          ],
+          "identifier_or_url": "DOI:10.1177/19462174241306715",
+          "material_read": "Abstract; §3.1 Theorem 9, offset 38000",
+          "method": "Primary text passages",
+          "title": "Analyzing the impact of bounded degree constraints on computational complexity of argumentation frameworks",
+          "trigger": "Primary bounded degree comparison"
+        },
+        {
+          "assessment": "Different family and counts",
+          "evidence": [
+            "Cycle with all optional chords from a specified source, counting chord sets by multiplicity rather than all n^n maps."
+          ],
+          "identifier_or_url": "SCOPE-exact-dung-semantics-for-one-source-chorded-directed-cycles--512316b4c61c",
+          "material_read": "Finding at offset 0 and scope at offset 1750",
+          "method": "Resultary local mirror",
+          "title": "Exact Dung semantics for one-source chorded directed cycles",
+          "trigger": "Distinct same-day exact preferred/stable census"
+        },
+        {
+          "assessment": "Exact agreement result for a different attack model",
+          "evidence": [
+            "Symmetric forest attacks with optional loops, maximal independent sets and a path-marked enumeration."
+          ],
+          "identifier_or_url": "SCOPE-self-attacking-symmetric-forests-a-local-coherence-criterion-and--cb611f38d7e6",
+          "material_read": "Finding and assumptions, offsets 0 and 1661",
+          "method": "Resultary local mirror",
+          "title": "Self-attacking symmetric forests: a local coherence criterion and enumeration",
+          "trigger": "Distinct same-day agreement criterion and exact EGF"
+        },
+        {
+          "assessment": "Prior parity mechanism, no branching-map counting result",
+          "evidence": [
+            "Under both degree bounds the choices reduce to one phase bit for each even cycle."
+          ],
+          "identifier_or_url": "SCOPE-exact-three-viewpoint-stable-extension-diversity-for-degree-one--507cf5e0d7fc",
+          "material_read": "Proof passage at offset 3140",
+          "method": "Resultary local mirror",
+          "title": "Exact three-viewpoint stable-extension diversity for degree-one frameworks",
+          "trigger": "Degree-one even-cycle multiplicity mechanism"
+        },
+        {
+          "assessment": "Same ambient mapping objects, different counted property",
+          "evidence": [
+            "Counts ultrahomogeneous maps by a cycle/profile construction."
+          ],
+          "identifier_or_url": "SCOPE-exact-census-and-sharp-rarity-exponent-for-finite-ultrahomogeneo--247272f55a93",
+          "material_read": "Finding offset 0 and cycle/profile product passage offset 2300",
+          "method": "Resultary local mirror",
+          "title": "Exact census and sharp rarity exponent for finite ultrahomogeneous unary structures",
+          "trigger": "Alternative exact EGF on labelled mappings"
+        },
+        {
+          "assessment": "Unresolved full-text scope, not used to infer noncoverage",
+          "evidence": [
+            "Excerpt describes an isomorphism-generation procedure, which does not itself state the stable multiplicity census."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0166218X24002348",
+          "material_read": "Search excerpt describing generation up to isomorphism; no full text read",
+          "method": "Lawful OA retrieval attempted; HTTP 403; no identified alternate full text",
+          "title": "Polynomial-delay generation of functional digraphs up to isomorphism",
+          "trigger": "Closest focused lookup on functional digraph enumeration under reverse-kernel vocabulary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The uniform labelled total mapping is a natural sparse model that permits arbitrary competition from incoming attacks despite fixing one outgoing attack per vertex. An exact bivariate census distinguishes preferred–stable agreement, uniqueness, multiple stable outcomes, and nonexistence, quantifying the otherwise unseen effect of tree blockage. It is materially different from an existence threshold, a cycle parity observation, or an arbitrary sequence of small counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

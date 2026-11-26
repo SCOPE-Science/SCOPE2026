@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:00:38.145236Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–46; VERIFICATION.md; verify.py and verify_output.txt by inspection",
+        "Replay: python3 /workspace/review_evidence/recompute.py 3; output /workspace/review_evidence/3.txt"
+      ],
+      "rationale": "Adjunction and Cauchy–Schwarz give d<=2 for a nonexceptional (-1)-curve and d<=1 for a (-2)-curve; the collinear triple excludes the irreducible conic through all five centres. The twelve listed (-1)-curves and the triple line R exhaust the list. The root meets four disjoint curves A=(E1,E2,E3,L45), which are intrinsically preserved as a set. The other eight curves are B=(L14,L24,L34,E5) and C=(L15,L25,L35,E4). In the intersection graph A_i meets B_i,C_i, and between B and C intersections occur exactly on unequal indices. The connected bipartite graph on B and C therefore forces a common index permutation and an optional interchange of B,C. The A3 reflections realize index swaps, and beta interchanges B,C, independently confirming the S4×C2 convention and full stabilizer. The support test is the negative identity block with optional scalar Schur complement -2 plus the number of selected A_i. For each invariant negative matrix M, solving (-M)b=(Aample·C_i) gives a strictly positive rational invariant vector: the negative part of b would contradict positive definiteness and the nonpositive off-diagonal of -M, and a zero coordinate contradicts the positive right side. This makes P=Aample+sum b_iC_i big nef and orthogonal exactly to the support; adding an invariant positive component sum realizes the chamber. A new exact rational-pivot Gram enumeration, using the three quadruples rather than Weyl-matrix closure for the action, confirms all ten rows, all three boundary supports, and 30 direct group orbits.",
+      "residual_risks": [
+        "Conditional on the arithmetic class: neither the finite check nor the proof asserts that all types occur over each odd finite field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blache–Hallouin Table 7 rows 1–10 explicitly gives the same one-A1, 12-line S4×Z/2Z arithmetic types, with Weyl/Picard entries, not chamber profiles. DJT gives root/Weyl structure and nef volumes; BS gives chamber-volume theory."
+        ],
+        "reasoning": "Credit the already classified type space. None of these inspected results gives the character on the support set, let alone its grading.",
+        "searches": [
+          "Blache–Hallouin arXiv:2301.13582 Table 7; Derenthal–Joyce–Teitler arXiv:math/0703202 §§5–6; Bauer–Schmitz arXiv:1205.3817 pp.4–5"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary one-node baseline and same-day chamber comparisons",
+        "arXiv:2301.13582 Table 7; arXiv:0912.0958; arXiv:math/0703202; arXiv:1205.3817"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The geometric identity polynomial is 1+13t+58t²+112t³+87t⁴+14t⁵. The smooth quartic uses independent supports with no root; Picard characteristics are computed on divisor lattices rather than allowed supports."
+        ],
+        "reasoning": "A geometric scalar row plus an action on the Picard lattice supplies inputs, not the fixed counts under the new constrained action. In particular a smooth support table does not evaluate the one-root contribution; the independent reconstruction calculates it.",
+        "searches": [
+          "Read 1e41cbd76c21 Finding and 5213a9a0047f Finding; Blache–Hallouin Table 7 and BF–N Proposition 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The smooth records count invariant subsets of sixteen (-1)-curves with 393 supports; the target has thirteen negative curves including R and a Schur restriction. BF–N identifies chambers with negative supports."
+        ],
+        "reasoning": "Equivalence of support and chamber formulations does not give an equivalence between the smooth and nodal support sets.",
+        "searches": [
+          "Resultary comparison of root-stabilizer invariant Zariski chambers and arithmetic fixed negative supports; smooth quartic 5213a9a0047f and c4d5aeb4e48f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 285 geometric entry has the same identity polynomial and a volume split. Inspected distinct arithmetic entries are smooth quartic, two-node quartic, or nodal cubic; no matching ten-row or 30-orbit result was found among them."
+        ],
+        "reasoning": "Exact surface and counted objects differ for the same-day analogues. No same-day priority is inferred and this comparison is bounded.",
+        "searches": [
+          "Resultary searches for one-nodal quartic 285 negative supports, ten fixed classes and 30 orbits; matching baseline 1e41cbd76c21 and related same-day 5213a9a0047f, c4d5aeb4e48f, 7b61c5a5698e, 709ff6674212"
+        ]
+      },
+      "rationale": "The 285 geometric polynomial and the ten-class arithmetic type space are prior. The specific representation on the 285 negative supports, ten fixed cardinality polynomials, and orbit count 30 were not covered by the inspected stronger classifications or closest catalogue records.",
+      "residual_risks": [
+        "Bounded catalogue and literature comparison does not preclude an unindexed computation of the identical classwise support action."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact geometric order and size polynomial already disclosed",
+          "evidence": [
+            "285 total, identical polynomial, and 178/107 finite/infinite volume split."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-285-zariski-chambers-of-a-one-nodal-quartic-del-pezzo-resolu--1e41cbd76c21",
+          "material_read": "RESULT.md Finding near offset 170",
+          "method": "Local mirror read",
+          "title": "The 285 Zariski chambers of a one-nodal quartic del Pezzo resolution",
+          "trigger": "Exact geometry and split number"
+        },
+        {
+          "assessment": "Covers the S4×C2 ten-type background, not chamber counts",
+          "evidence": [
+            "One A1 (12) and stabilizer S4×Z/2Z; columns are Weyl type and Picard characteristic polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.13582",
+          "material_read": "Table 7, p.45, offset 160256, rows 1–10",
+          "method": "OA PDF passage read",
+          "title": "Classification of singular del Pezzo surfaces over finite fields",
+          "trigger": "Potential domination by full arithmetic classification"
+        },
+        {
+          "assessment": "General correspondence and smooth count only in relevant evidence",
+          "evidence": [
+            "Negative-definite support bijection, and 393 for the smooth quartic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.0958",
+          "material_read": "p.2 offset 4431 and Proposition 1.1 p.3 offset 7241",
+          "method": "OA PDF passages",
+          "title": "Counting Zariski chambers on Del Pezzo surfaces",
+          "trigger": "Chamber correspondence and degree-four table"
+        },
+        {
+          "assessment": "Background root lattice and Weyl action; §6.1 characteristic zero and volume context",
+          "evidence": [
+            "Root-system description and Galois action, not Frobenius-polynomial evaluation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0703202",
+          "material_read": "§5 p.10 offset 29260 and §6.1 Proposition 6.1 p.14 offset 39646",
+          "method": "OA PDF passages",
+          "title": "The nef cone volume of generalized Del Pezzo surfaces",
+          "trigger": "Broader weak del Pezzo and Galois root framework"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Volume analysis, not fixed-support counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.3817",
+          "material_read": "pp.4–5 near offset 13440",
+          "method": "OA PDF passage",
+          "title": "Volumes of Zariski chambers",
+          "trigger": "Could include arithmetic refinement under volumes terminology"
+        },
+        {
+          "assessment": "Same question for a different support set",
+          "evidence": [
+            "Eighteen signed W(D5) types acting on 393 supports of a smooth quartic."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-frobenius-orbit-classification-of-all-393-zariski-chambers-of-a--5213a9a0047f",
+          "material_read": "RESULT.md Finding offsets 0 and 1749",
+          "method": "Local mirror passage read",
+          "title": "Frobenius orbit classification of all 393 Zariski chambers of a quartic del Pezzo surface",
+          "trigger": "Nearest same-day arithmetic analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 8–21, 33–43; exact replay 3; Blache–Hallouin Table 7"
+      ],
+      "rationale": "The natural descent problem has Picard-lattice and geometric chamber classifications but needs a different permutation character to determine each rational big cone's support patterns. The graded table fills that finite gap for the full intrinsic stabilizer, including a minimal three-chamber type and a precise four-component non-nef support despite the absence of fixed individual (-1)-curves there. The root changes the permitted patterns, so the smooth classification is not a substitute.",
+      "residual_risks": [
+        "A finite, configuration-dependent classification; no realization theorem or wider novelty for the root stabilizer is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

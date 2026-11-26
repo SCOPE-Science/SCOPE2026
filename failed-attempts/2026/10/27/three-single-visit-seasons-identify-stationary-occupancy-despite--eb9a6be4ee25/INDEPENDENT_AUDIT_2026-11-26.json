@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:41:00.569232Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Stationarity and the two-state transition give E[X_{i+k}−π|X_i]=λ^k(X_i−π). Independent Bernoulli detection then gives m_i=πd_i and C_ij=d_id_jπ(1−π)λ^(j−i). The displayed inverse cancels both detection rates, works for negative as well as positive memory, and is well-defined under the stated strict ranges and λ≠0. For sufficiency, the recovered transition probabilities have sum 1−λ and stationary prevalence π; building the detection coins reproduces the six moments exactly. This is not a feasibility test for the full eight-cell distribution. The two-season example has means 1/5 and 3/10 and joint success 9/100 under both distinct models, which fixes all four cells. At λ=0, each observation is independent with its mean πd_t; even for an infinite sequence, sup m_t≤π<1 and one can choose a different π above sup m_t. The false-positive example has common means and covariances since its gain is 25d_t/24 and its latent variance is 144/625. Its two triple probabilities differ by 7/3456, so it is correctly used only to disprove pairwise recovery. The derivatives of the inverse prevalence check out with the other normalized moment held fixed. The inspected exact-fraction certificate is finite corroboration; verify.py was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1ef85af55b67 proves nonstationary three-season identification with no false positives and drifting detection from the full history law, with a two-season failure.",
+          "a0eacad9db44 uses the same six moments for unknown common false positives, with unequal outer detection needed to find f.",
+          "9ba2ce3aa855 proves three-season ambiguity even for the full history law when both false-positive and true-positive rates may change freely."
+        ],
+        "reasoning": "A full-joint result is not by itself a proof of six-moment sufficiency. The common-f calculation is the decisive broader coverage of the inverse. The freely varying false-positive result is stronger than the qualitative pairwise failure in that regime.",
+        "searches": [
+          "Resultary 1ef85af55b67 and a0eacad9db44, Finding and Proof",
+          "Resultary 9ba2ce3aa855, three-season boundary"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and certificate.json",
+        "Resultary a0eacad9db44, 1ef85af55b67, 9ba2ce3aa855 and a84a45693f6f",
+        "Huang–Fu–Sidiropoulos, arXiv:1802.06894"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After fixing f, a0eacad9db44 normalizes with (m_i−f)(m_j−f), recovers λ and π, and matches the three covariance and three mean equations by substitution.",
+          "The equal-detection passage explicitly sets u_0=m_0−f, u_1=m_1−f and reconstructs from c_01/(u_0u_1) and c_02/u_0² for each chosen f. Its nonidentifiability is entirely caused by f being free.",
+          "Its two-season proof keeps means and covariance fixed by choosing f and π and then solving for d_t and λ. Holding f at zero leaves the open π variation. At λ=0, holding f fixed still leaves the products governing the means undetermined."
+        ],
+        "reasoning": "Although the earlier unknown-f theorem excludes equal outer sensitivities and f=0, the proof already exhibits the fixed-f reconstruction in both cases. At f=0 all relevant denominators remain nonzero by m_t>0 and λ≠0; the strict parameter checks give identical feasibility. This is a mechanical specialization of the earlier proof, not a mere title overlap or an unlawful extrapolation of its theorem.",
+        "searches": [
+          "a0eacad9db44, equation (1), reconstruction after normalization, two-season separation, and equal-outer-detection section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ecological model is a stationary binary HMM with conditionally independent, season-specific observation channels that have zero chance of a report from an unoccupied state.",
+          "Resultary a0eacad9db44 uses the identical transition eigenvalue and factors C_ij as π(1−π)(d_i−f)(d_j−f)λ^(j−i). Huang–Fu–Sidiropoulos instead factor a stationary co-occurrence matrix with a common emission matrix M."
+        ],
+        "reasoning": "Known f is an observation-channel restriction of the factorization. The homogeneous-emission HMM literature alone would not establish this result for unrestricted seasonal sensitivities, but the Resultary calculation permits the season-specific channels.",
+        "searches": [
+          "Resultary: three single-visit seasons, stationary occupancy, drifting detection, pairwise identification",
+          "Resultary: false-positive occupancy, pairwise covariances, changing detection effort",
+          "arXiv:1802.06894, stationary HMM pairwise co-occurrences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a0eacad9db44 already prints λ=r_02/r_01 and π=r_02/(r_01²+r_02) with covariance normalized by (m_i−f)(m_j−f), and the corresponding feasibility test.",
+          "The nearby catalog record a84a45693f6f concerns fixed occupancy with a Markov observed sequence conditional on it, not a dynamic latent occupancy chain.",
+          "The frozen certificate tabulates specific examples, not a database of universal model inverses."
+        ],
+        "reasoning": "This identifiability statement is over a continuum of parameters, not a table lookup. The relevant indexed evidence is the exact symbolic formula and its proof; a different numerical example does not make the general result distinct.",
+        "searches": [
+          "Resultary: exact three-season stationary occupancy inverse; pairwise-moment feasibility; nonstationary Markov occupancy from three surveys"
+        ]
+      },
+      "rationale": "The decisive prior overlap is the actual proof of Resultary a0eacad9db44, not a literal inclusion in its theorem's strict unknown-f parameter domain. Its exact unnormalized and normalized moment identities and inverse already apply once a common false-positive rate f is fixed. In the equal-outer-sensitivity section it explicitly reconstructs the same quantities for each chosen f using those same formulas. Thus specifying f=0 gives the frozen inverse and feasibility calculation for all interior sensitivities, including equal outer seasons: no division by c_01−c_12 is required once f is given. The same proof supplies the boundary reasoning for two seasons and zero memory after fixing f. The six-moment contrast with unrestricted false positives is already implied by a published full-law ambiguity, although the frozen numerical example is valid. This conclusion is based on verified prior implication, not on missing external literature.",
+      "residual_risks": [
+        "Lawful full-text attempts for MacKenzie et al. 2003, Peach et al. 2017 and Doser–Stoudt 2024 were unsuccessful; the frozen paper's characterizations are not independent full-text reviews. This limitation is not the basis of the failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior implication, including the equal-outer-detection case once f is specified",
+          "evidence": "The equal-detection paragraph explicitly varies f and uses the same normalized inverse for each fixed choice; the c_01−c_12 denominator enters only in recovering unknown f.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-three-season-recovery-of-false-positive-occupancy-from-pairwise--a0eacad9db44/RESULT.md",
+          "material_read": "Finding, Assumptions, equation (1), reconstruction and all three boundary paragraphs, local-mirror offsets 0 and 5971",
+          "method": "Read published source in the local mirror",
+          "title": "Three-season recovery of false-positive occupancy from pairwise moments under changing detection effort",
+          "trigger": "Same six moments and an explicit inverse for unknown common false positives"
+        },
+        {
+          "assessment": "Broader on nonstationarity but requires full-law observations",
+          "evidence": "Allows nonstationary initial occupancy and identifies from the complete history law.",
+          "identifier_or_url": "1ef85af55b67",
+          "material_read": "Published Finding, Assumptions and Proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-season identification of dynamic occupancy with drifting detection",
+          "trigger": "Same three-season design and sharp two-season failure"
+        },
+        {
+          "assessment": "Prior full-law ambiguity under unrestricted changing false-positive rates, not a contradiction to the zero-false-positive model",
+          "evidence": "Four-season identification and a three-season full-law collision for its stated changing-error model.",
+          "identifier_or_url": "9ba2ce3aa855",
+          "material_read": "Published Finding, Assumptions and Proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Four single-visit seasons sharply identify changing false positives",
+          "trigger": "Known stronger ambiguity result for the false-positive boundary"
+        },
+        {
+          "assessment": "Related but assumes homogeneous emissions",
+          "evidence": "Uses a single emission matrix M and the sufficiently-scattered condition, not three unrestricted seasonal channels.",
+          "identifier_or_url": "https://arxiv.org/pdf/1802.06894",
+          "material_read": "Primary PDF model and identifiability conditions, pp. 2–3",
+          "method": "Targeted OA PDF read",
+          "title": "Learning Hidden Markov Models from Pairwise Co-occurrences with Application to Topic Modeling",
+          "trigger": "Pairwise-only HMM identification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The design question is well motivated and using low-order moments rather than full histories is useful. As a separate contribution, however, the reconstruction is the earlier fixed-f calculation at a specified rate, with the same structural boundaries. The alternate finite witnesses and derivatives illustrate, but do not supply a separate new design boundary or justified precision result that survives this coverage. No finite-sample utility is established by the conditioning derivatives alone.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

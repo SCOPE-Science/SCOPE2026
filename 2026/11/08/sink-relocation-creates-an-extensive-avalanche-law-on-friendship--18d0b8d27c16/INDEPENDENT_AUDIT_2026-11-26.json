@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:48:00.750445Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–85",
+        "Frozen VERIFICATION.md, check_exhaustive.py and check_templates.py (source inspection)",
+        "/workspace/replays/1.py (executed, both sink placements, every stable configuration and every nonsink addition for k=2–6)"
+      ],
+      "rationale": "Dhar burning at the hub gives independent ordinary triangle pairs (0,1),(1,0),(1,1). With the degree-two sink a_1, no triangle away from the sink can burn before the hub; b_1 burns first only at height one, which permits the hub to burn at height 2k−2 instead of 2k−1. This gives exactly the three stated gate states and the same independent pair choices on the other triangles. The central reduced Laplacian has k blocks with Smith factors 1,3, and the critical group is independent of the sink. To check the peripheral odometers, an unchanged outer pair has both toppling counts equal to the hub count. For a chosen outer pair, subtract the hub count from both coordinates: the increment vectors for the empty, single and double types are (0,0), (1,0) and (1,1), as follows by applying the two-site Laplacian to the claimed consecutive recurrent pair states with the input grain. Thus these types act on the gate as 0, 1 or 2 extra grains at c in the shifted height variables (h_c−(2k−2),h_b1); their reduced gate operator is the two-site matrix with diagonal 2 and off-diagonal −1. Its three-state addition cycles reproduce the gate toppling counts. The resulting states are recurrent, so uniqueness in each Laplacian class makes the candidate odometers the legal stabilization odometers; loss is u_c+u_b1. The gate-site terms carry weight 3^(k−1) per case, and each outer-site gate/pair type carries 2(k−1)3^(k−2). Of the nine such types four are negligible after division by k, four tend to 2, and one tends to 4. Counting the three gate-site and five outer-site types that reach 2k−1 gives the stated tail; the unique 4k+1 type and unique positive zero-loss type have identical counts. A fresh exhaustive check of both joint histograms passed for k=2 through 6; the all-k result follows from the recurrence and odometer argument, not the finite replay.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The expanded-cactus theorem concerns growing balls of decorated degree-three tree, cell-wise mass and first waves; it does not treat this single finite sink change.",
+          "The catalogue bijection covers all connected loopless undirected graphs, but fixes a sink-neighbor source and counts only full-system events."
+        ],
+        "reasoning": "Neither a different boundary and wave law nor a fixed-source full-system count classifies joint (T,L) for sources not adjacent to the sink. These remote additions carry the asymptotic mass here.",
+        "searches": [
+          "arXiv:1110.6263, abstract, first-wave definitions and cell-wise mass theorem",
+          "Resultary 2026/11/8/SCOPE-sink-deletion-bijection-for-full-sandpile-avalanches-and-a-wheel--2b4c8c3b6996, Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: assigned record plus wheel and plane-dual matches",
+        "arXiv:1605.02713",
+        "arXiv:1110.6263"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s=a_1, deleting s leaves k−1 triangles and one pendant edge, with 3^(k−1) spanning trees. The wheel record's general theorem gives this many full avalanches at each of the two sink-neighbor sources; since these topple once per vertex, this exactly covers the contribution 2·3^(k−1) z^(2k)y². For the hub sink the deletion is disconnected, so this full-system count vanishes. The paired dual-graph claim shows different zero-loss possibilities in prisms/bipyramids, not the frequency here."
+        ],
+        "reasoning": "The fixed-neighbor theorem recovers that peripheral coefficient contribution and not the extensive- or zero-loss frequencies under uniform nonsink additions. With only two sink-neighbor sites, it accounts for O(1/k) of the probability, not the limiting 5/9 at positive rescaled size.",
+        "searches": [
+          "Resultary wheel sink-deletion theorem 2b4c8c3b6996 and plane-dual prism/bipyramid result 1e15db060d17",
+          "arXiv:1605.02713, sink-dependence discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The multivariate toppling-vector polynomial gives this pair of observables by setting x_v=zy at neighbors of the sink and x_v=z elsewhere. The change of variables does not evaluate the polynomial on the friendship graph.",
+          "The wheel record's full-system event is toppling every nonsink, at least once, from a source adjacent to the sink; the audited law tracks counts and sink loss from every source."
+        ],
+        "reasoning": "The observables are a specialization of existing toppling-vector observables. The evaluated generating polynomials, not the definition or a new variable name, are the claim tested for distinctness.",
+        "searches": [
+          "arXiv:1605.02713, Definitions 13–14 and Section 2.3",
+          "Resultary: friendship graph principal avalanche polynomial, hub versus peripheral sink; wheel sink-deletion 2b4c8c3b6996"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit friendship laws were the assigned record's exact hit. The distinct wheel entry evaluates wheel probabilities with Fibonacci/Lucas expressions. The plane-dual prism/bipyramid entry evaluates a different zero-loss event. Austin et al. list trees, cycles, complete graphs and wheels as evaluated families."
+        ],
+        "reasoning": "For k≥2 the friendship graph is a bouquet with a cut vertex and multiple triangles, not any of those evaluated families. A single triangle specialization does not provide peripheral-sink coupling between triangles.",
+        "searches": [
+          "Resultary sink relocation on friendship graphs and 'sink-deletion bijection for full sandpile avalanches and a wheel sink-location transition 2b4c8c3b6996'",
+          "arXiv:1605.02713, summary of evaluated graph families"
+        ]
+      },
+      "rationale": "Qualitative sink dependence, a general avalanche polynomial, and an analogous wheel transition are already covered. One finite coefficient in the friendship laws is also implied by the full-avalanche bijection at a fixed sink-neighbor. The distinct contribution is the complete two-root joint evaluation, including repeated topplings from remote sources, and the resulting extensive-avalanche limit under uniform additions over all nonsinks. None of the compared statements imposes that evaluation or limit.",
+      "residual_risks": [
+        "The separate primary-literature query produced no useful hits, which is not evidence of absence. No historical priority is inferred for same-day records; a broader uninspected joint-law evaluation could change the assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior method and qualitative dependence, not the joint friendship evaluation",
+          "evidence": [
+            "Monomials encode the toppling vector; the paper explicitly distinguishes the sink-independent group from the sink-dependent avalanche polynomial."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.02713",
+          "material_read": "Definitions 13–14 and sink discussion, PDF pp. 6–7, offsets 22480–25350; evaluated-family summary p. 3 near 13700",
+          "method": "Targeted OA PDF excerpts",
+          "title": "The Avalanche Polynomial of a Graph",
+          "trigger": "Same recurrent-state avalanche objects and sink-dependence observation"
+        },
+        {
+          "assessment": "Different graph sequence, boundary and observable",
+          "evidence": [
+            "Uses balls of a decorated 3-regular Bethe lattice, focusing on first-wave cell masses; notes fixed-graph boundary effects are outside scope."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.6263",
+          "material_read": "PDF abstract; pp. 4–7, offsets 9800, 12800–15200 and 16200",
+          "method": "Targeted OA PDF excerpts",
+          "title": "Avalanche dynamics of the Abelian sandpile model on the expanded cactus graph",
+          "trigger": "Triangle-based cactus avalanche scaling"
+        },
+        {
+          "assessment": "Real partial implication for sink-adjacent full avalanches, but no joint friendship law or all-source limit",
+          "evidence": [
+            "N_{G,s}(v)=τ(G−s) for v adjacent to s; in that case no vertex topples twice. Wheel rim/hub limits are stated for a fixed source adjacent to its sink."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sink-deletion-bijection-for-full-sandpile-avalanches-and-a-wheel--2b4c8c3b6996",
+          "material_read": "RESULT.md Finding, scope and initial proof argument; local mirror offset 0–2874",
+          "method": "Resultary exact identifier and local mirrored full-text excerpt",
+          "title": "Sink-deletion bijection for full sandpile avalanches and a wheel sink-location transition",
+          "trigger": "Closest sink-relocation analogue and broader graph theorem"
+        },
+        {
+          "assessment": "Zero-loss contrast on different graphs, not a root change on F_k",
+          "evidence": [
+            "Prisms admit zero-loss positive avalanches, the stated dual bipyramids do not; the cube has 64 such among 2688 additions."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-plane-dual-prisms-and-bipyramids-separate-recurrent-avalanche-di--1e15db060d17",
+          "material_read": "Mirrored RESULT.md Finding near offset 700",
+          "method": "Resultary and targeted local mirror excerpt",
+          "title": "Plane-dual prisms and bipyramids separate recurrent avalanche distributions",
+          "trigger": "Same-critical-group theme and positive toppling with zero loss"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limitations",
+        "arXiv:1605.02713, Section 2.3",
+        "Resultary wheel record 2b4c8c3b6996, Finding and scope"
+      ],
+      "rationale": "The example quantifies how changing only one sink, not the graph or its critical group, replaces a uniformly bounded toppling law with extensive events of two distinct scaled sizes. The zero-loss class clarifies that nontrivial toppling and dissipation are different. The joint law and limiting weights for uniform additions supply more than the already-known qualitative sink dependence and the fixed-source wheel example.",
+      "residual_risks": [
+        "The hub degree grows with k; this is not evidence for criticality, a power law or universality on bounded-degree graph sequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

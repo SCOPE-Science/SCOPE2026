@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:54:06.126645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Palm event intensity is 1/EW=1/2 and equilibrium age has density S(a)/2; hence k E exp(-kA) tends to 1/2. For a,b small, the events giving ages a at time 0 and b at time t are at -a and t-b. The first is automatically the last as of time 0 because a<1; the second is automatically the last as of t because b<1. With b<t the epochs are distinct. The Palm pair density is (1/2) times the sum of interarrival convolution densities at t+a-b, not f(t+a-b) alone. The square complement contributes <=exp(-k delta); the Laplace scaling in the square gives k^2 Cov limit nu(t)/2-1/4 away from the cutoffs. The four positive-lag limits at 1/2,6/5,9/5,5/2 are -1/4,71/216,-229/2916, and at least 4759/62500, respectively. The last bound uses f*f with s(5/2-s)<=25/16 on 1<=s<=3/2. For example delta=1/20 and a uniform local Lipschitz bound 18 on nu give error at most 18/k+(5+k^2)exp(-k/20)+exp(-k)/2, already smaller than every sign margin for k>=1000. This follows by integrating |a-b|<=a+b against the two exponential weights; near 5/2 the convolution derivative is bounded by 4+12(0.55) and the f derivative by 6. At zero the age observable has nonzero variance. The age is continuous at deterministic t almost surely because the stationary epoch distribution has no fixed-time atom, and bounded convergence gives covariance continuity. The strict sign witnesses are separated by four disjoint intervals, giving at least four zeros separating opposite signs, with no claim about all zeros or sharp k. The supplied checks.py verifies numerical/fraction witnesses, not the renewal limit; correctness here follows from the independent analytic reconstruction. The result concerns the macroscopic conditional mean, not individual spin covariance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Ising paper models power-law global resets and the single-time distribution of observed magnetization.",
+          "Brémont's renewal shot-noise theorem is a high-threshold mean first-passage result with exponential marks."
+        ],
+        "reasoning": "The former is the physical premise; first passage with independent exponential marks is a different target even though the exponentially decaying age observable admits a renewal representation. Neither inspected statement settles these time-lag signs.",
+        "searches": [
+          "arXiv:2602.15495, introduction and 1D reset magnetization context",
+          "arXiv:2510.21670, abstract and main result"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.15495",
+        "arXiv:2510.21670",
+        "Resultary 23381feacbe8",
+        "Resultary ef4feb831e3e",
+        "Resultary 111946ee283b",
+        "doi:10.1007/s40300-014-0045-0 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited equilibrium age/residual density is f(a+r)/E W. The Ising work analyzes the distribution, including the 1D steady state."
+        ],
+        "reasoning": "The classic joint density and exponential relaxation are inputs, not an evaluated two-time lag-sign result. The added calculation needs multi-epoch renewal terms and a strict inequality establishing the second positive-lag rebound.",
+        "searches": [
+          "Resultary ef4feb831e3e and its cited doi:10.1007/s40300-014-0045-0",
+          "arXiv:2602.15495 p. 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 23381feacbe8 and ef4feb831e3e treat correlations between the age and residual life at a single stationary observation.",
+          "The external phrase lookup returned no results; this is not proof of absence."
+        ],
+        "reasoning": "A_t and the residual life from time 0 are not related by a fixed reparametrization once renewals occur. The one-time age/residual correlation bounds do not give the covariance of e^{-kA} at two times.",
+        "searches": [
+          "Resultary: equilibrium renewal-age covariance, Pareto resetting and lag sign reversals",
+          "External phrase search on Pareto reset magnetization temporal covariance sign reversals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact sign-sequence match is the assigned record. Distinct same-day Resultary 111946ee283b proves infinitely many reversals of a batch-model individual-gap covariance."
+        ],
+        "reasoning": "The distinct match has different lag index, observable and clock; no inspected distinct entry gives the five stationary-age witnesses. Publication order is not inferred from the common date.",
+        "searches": [
+          "Resultary: four alternating covariance signs, Pareto-square waiting time, renewal covariance reversal"
+        ]
+      },
+      "rationale": "Pass for the four-reversal conclusion with exact lags and the specified Pareto-square clock in the stationary conditional-magnetization setting. The physical reset model and the renewal tools are prior art; no broad priority claim is supported.",
+      "residual_risks": [
+        "Classical or specialized renewal-age correlation work may subsume the asymptotic or the example; the cited 2014 paper was not available in full.",
+        "The search is bounded and does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-time distribution overlaps, not inspected four-sign result",
+          "evidence": "The authors describe analysing the distribution of observed magnetization at t and the one-dimensional stationary distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.15495",
+          "material_read": "PDF p. 3 introduction (offset 10500)",
+          "method": "OA PDF passage inspection",
+          "title": "Ising Model with Power Law Resetting",
+          "trigger": "Same physical setting and reset law"
+        },
+        {
+          "assessment": "Different observable and conclusion",
+          "evidence": "First-passage time for marked shot noise is the target, with exponential marks.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.21670",
+          "material_read": "PDF p. 1 abstract and main result (offsets 700, 7400)",
+          "method": "OA PDF passage inspection",
+          "title": "Beyond Poisson: First-Passage Asymptotics of Renewal Shot Noise",
+          "trigger": "Arbitrary renewal interarrivals and an exponential filter"
+        },
+        {
+          "assessment": "Different joint variables",
+          "evidence": "Same-epoch powers of the age and forward recurrence time are correlated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8",
+          "material_read": "Statement, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp power correlation of stationary renewal age and residual life",
+          "trigger": "Renewal dependence at stationarity"
+        },
+        {
+          "assessment": "Different pair and correlation target",
+          "evidence": "Both renewal variables refer to one equilibrium inspection event; discussion cites the ordinary equilibrium age/residual density.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-unequal-power-correlation-range-for-stationary-renewal-age--ef4feb831e3e",
+          "material_read": "Finding and scope at offset 0; prior-work passage around offset 6147",
+          "method": "Local Resultary mirror",
+          "title": "Sharp unequal-power correlation range for stationary renewal age and residual life",
+          "trigger": "Broader stationary age/residual correlation bound"
+        },
+        {
+          "assessment": "Different covariance and different renewal law",
+          "evidence": "Lag is an individual interarrival-gap index in a batch model started at an origin, not continuous-time lag of the equilibrium age observable.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-critical-infinite-sign-reversals-in-three-unit-batch-renewal-gap--111946ee283b",
+          "material_read": "Finding and Theorem, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Critical infinite sign reversals in three-unit batch renewal gaps",
+          "trigger": "Distinct same-day renewal sign-reversal match"
+        },
+        {
+          "assessment": "Full scope not assessed",
+          "evidence": "The inspected citing passage attributes the ordinary age/residual density and linear correlation, not a two-time age formula.",
+          "identifier_or_url": "https://doi.org/10.1007/s40300-014-0045-0",
+          "material_read": "Bibliographic information and the citing Resultary comparison only",
+          "method": "DOI and Springer article lookup; no lawful full text retrieved",
+          "title": "Modelling lifetimes with bivariate Schur-constant equilibrium distributions from renewal theory",
+          "trigger": "Plausible classical generalized dependence coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rigorous, short-lag multiple reversals are a motivated memory effect for a refractory renewal clock and not inferable from the one-time stationary law. In the memoryless exponential reset case an intervening event cuts dependence on X_0=e^{-kA_0}, giving C_k(t)=exp[-(lambda+k)t] Var(X_0), always positive. Thus even the existence of several alternating witnesses is an informative contrast. The claim stops at the age-conditioned thermodynamic mean and asymptotic-in-k regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

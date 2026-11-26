@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:31:06.599154Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are n linear gaps and N_r=n−r+1 complete windows. The squared pair-difference identity gives the exact factor 2n²/(N_r−1), with A_r annihilating constants. For rate-one independent E_i, D_i=E_i/S is independent of S; dividing the quadratic-product expectation by E[S⁴]=(n)_(overline 4) transfers it to the Dirichlet law. Centering E is allowed because A_r 1=0. The three moment pairings and fourth cumulant six yield t_r t_s+2w_rs+6v_rs and the mean denominator (n)_(overline 2). I reproduced exact mixed moments from raw pairwise-difference monomials without starting from that trace derivation: python3 /workspace/review_checks/4.py; e.g. Cov at (n,r,s)=(4,1,2) is 8192/4725 and at (6,2,3) it is 232/49. For fixed orders, empirical-mean centering and endpoint terms are O_P(1/n) before scaling and expansion of (n/S)² contributes −2r times the sample mean of Z_i=E_i−1 inside the influence sum. As a separate check, expanding and summing the influence functions gives coefficients r on Z_i²−1−2Z_i (variance four) and 2(r−h) on Z_i Z_(i+h), 1≤h<r. Different lag products are orthogonal in the summed covariance, as are the single-site terms and products. With the outer factor two, this gives 16[rs+sum_(h=1)^(p−1)(r−h)(s−h)]=8[rs+p²q−p(p²−1)/3]. It also proves correlation strictly below one for distinct orders from the unequal highest nonzero lags. The stationary finite-dependence CLT and Cramér–Wold give the joint law (possibly degenerate when r=s); fixed-order trace asymptotics give the same actual covariance limit, not just a CLT variance. In the prescribed sequential limit the leading terms are p²q−p³/3 and (2/3)(pq)^(3/2), giving sqrt(u)(3−u)/2; the O(sqrt(p/q)) bound covers u=0, and direct fixed-p expansion gives the separate s^(−1/2) coefficient. No triangular-array limit follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirakhmedov gives marginal higher-order asymptotics and Pitman efficacy, not the joint two-order calculation in inspected passages. Singh–Misra's secondary discussion attributes overlapping-versus-disjoint fixed-order efficiency to Rao–Kuo. JSTOR yielded the summary but not the theorem; the eScholarship/DOI texts were unavailable. The Guttorp–Lockhart PDF yielded no extractable text; the stated circular single-order characterization is recorded in the frozen report, not independently confirmed here."
+        ],
+        "reasoning": "General moment and finite-dependence results are mechanisms that cover much of the method. Inspected statements do not supply the evaluated cross-order coefficient or this sequential profile. Limited older-source access remains an explicit risk, not evidence of noncoverage.",
+        "searches": [
+          "arXiv:2508.18965 Theorem 2.1 and §2.2",
+          "Rao–Kuo DOI:10.1111/j.2517-6161.1984.tb01292.x; cited eScholarship copy; JSTOR 2345505",
+          "Guttorp–Lockhart, author-hosted CJS PDF"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2110.10737",
+        "arXiv:2508.18965",
+        "Rao–Kuo JSTOR 2345505 / DOI:10.1111/j.2517-6161.1984.tb01292.x (limited)",
+        "Guttorp–Lockhart author-hosted PDF (no independently readable decisive passage)",
+        "Resultary 6967a739df45; identical c1542db37fe8 hit excluded as independent evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The trace formula itself is a specialization of a general zero-row-sum Dirichlet quadratic-form identity; no separate novelty is assigned to that algebra. Identical-order reduction of the evaluated kernel gives 8r(r+1)(2r+1)/3, agreeing with the marginal normalization. That diagonal and univariate convergence do not determine any off-diagonal entry. Evaluation of the unequal-length overlap and normalization terms produces the additional coefficient and its scale-ratio law."
+        ],
+        "reasoning": "Credit the marginal result and general method; the supported remainder concerns actual mixed-order dependence, not a repackaging of marginal variances.",
+        "searches": [
+          "arXiv:2110.10737 Theorem 1 and Eq. (12)",
+          "arXiv:2508.18965 §§2.1–2.2",
+          "General zero-sum Dirichlet quadratic-form moment reduction, frozen proof Step 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Singh–Misra define the same linear overlapping-spacing squared pair difference, equivalently twice the centered window sample variance, and analyze it marginally at one order. An absolute Gini spacing statistic is not this quadratic statistic. Mirakhmedov's circularized higher-order overlapping spacings have a different endpoint convention; order comparisons there use marginal efficiency, not same-sample score covariance."
+        ],
+        "reasoning": "Marginal equivalence to a centered Greenwood-type statistic does not imply cross-order covariance. Wrapping can keep a fixed-order leading term while changing the exact finite covariance, so circular and linear claims must be compared separately.",
+        "searches": [
+          "Resultary: mixed-order overlapping spacing covariance, squared Gini, generalized Greenwood, multiscale null dependence",
+          "arXiv:2110.10737 pp. 1–4 equations (3)–(6), Theorem 1, Eq. (12)",
+          "arXiv:2508.18965 pp. 1–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title Resultary hit is this record. The distinct same-day 6967a739df45 finding has exact cross-statistic null dependence between Anderson–Darling and generalized Watson statistics rather than two overlapping spacing scores. The published spacing reference arXiv:2110.10737 gives marginal normalizing quantities, not a mixed-order covariance table in the compared theorem."
+        ],
+        "reasoning": "The exact multiscale comparison is pertinent but uses different statistics. Neither it nor a diagonal-order formula is an exact match for this off-diagonal trace formula and evaluated correlation.",
+        "searches": [
+          "Resultary: mixed-order spacing covariance, multiscale squared Gini and Greenwood",
+          "Resultary same-day multiscale Watson–Anderson–Darling record, local-mirror RESULT.md"
+        ]
+      },
+      "rationale": "The previously defined statistic, diagonal marginal limit, and general Dirichlet moment calculation are not alone new. The supported distinct claim is the explicit mixed-order dependence for the specified same-sample overlapping windows, especially the evaluated fixed-order covariance and sequential scale kernel. Two older spacing references remain access risks; their reported scopes are not treated as independent full-text exclusions.",
+      "residual_risks": [
+        "Rao–Kuo's candidate multivariate result and Guttorp–Lockhart's exact moment formulas were not independently readable at the decisive passages. A previously unlocated multi-order Greenwood theorem may be equivalent.",
+        "Earlier general Dirichlet quadratic-form formulas can supply the finite trace identity, which is not credited as a new general theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct marginal precedent, not the compared cross-order result.",
+          "evidence": [
+            "Linear complete windows and squared pair differences at one order; one-order asymptotic normality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.10737",
+          "material_read": "p. 1 equations (3)–(6), offsets 0–8474; Theorem 1 Eq. (12) p. 4 about offset 15180; Rao–Kuo discussion p. 2 around offset 4000",
+          "method": "Open primary PDF passages",
+          "title": "U-statistic based on overlapping sample spacings",
+          "trigger": "Defines the same overlapping squared-Gini statistic"
+        },
+        {
+          "assessment": "Circularized windows and marginal theory; inspected comparisons are about efficacy, not joint dependence.",
+          "evidence": [
+            "Wraparound definition, separation of overlapping and disjoint statistics, marginal Pitman efficiency analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.18965",
+          "material_read": "Introduction offsets 0–5920, Theorem 2.1 and §2.2 offsets 10800–18247 and 22800–34525",
+          "method": "Open primary PDF passages",
+          "title": "Asymptotic properties of goodness of fit tests based on higher order overlapping spacings",
+          "trigger": "Higher-order asymptotics and order comparisons"
+        },
+        {
+          "assessment": "Secondary evidence of fixed-order efficiency only; the candidate offset-block theorem was not independently confirmed.",
+          "evidence": [
+            "Available summary identifies Greenwood spacings and generalizations; Singh–Misra p. 2 describes overlapping-vs-disjoint comparison."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/2345505",
+          "material_read": "Indexed summary and secondary Singh–Misra discussion; cited eScholarship PDF, DOI and JSTOR primary full text unavailable",
+          "method": "Lawful retrieval attempts and limited source comparison",
+          "title": "Asymptotic Results on the Greenwood Statistic and Some of its Generalizations",
+          "trigger": "Earlier higher-order Greenwood work and possible multivariate spacing coverage"
+        },
+        {
+          "assessment": "Historical risk; no full-text noncoverage conclusion.",
+          "evidence": [
+            "Frozen relationship and source-inspection note describe a circularized single-order Greenwood statistic; not independently verified in the PDF here."
+          ],
+          "identifier_or_url": "https://www.sfu.ca/~lockhart/Research/Papers/GuttorpLockhartCJS89.pdf",
+          "material_read": "No independently readable decisive passage from the author-hosted PDF; circular/single-order scope is the frozen report's description of p. 420.",
+          "method": "Lawful primary PDF attempts returned no extractable text",
+          "title": "On the Asymptotic Distributions of High-Order Spacings Statistics",
+          "trigger": "Older exact spacing moments and possibly relevant limit results"
+        },
+        {
+          "assessment": "Different score family.",
+          "evidence": [
+            "The covariance links Anderson–Darling and generalized Watson statistics, not linear adjacent spacing windows."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-multiscale-watson-anderson-darling-null-dependence-and-its--6967a739df45",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact multiscale Watson–Anderson–Darling null dependence and its correlation structure",
+          "trigger": "Closest distinct same-day exact multiscale covariance finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two spacing orders are computed on the same sample, so their individual null laws do not calibrate a combined diagnostic. The exact covariance gives dependence at finite n and the explicit leading kernel shows how redundancy varies from nearly zero at separated scales to one at equal scales. This is a natural mixed-order invariant of the existing test family and not merely a recomputation of its diagonal. The result supplies no simultaneous growing-order CLT, combined-test critical values, fitted-null theory, or power claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exchangeable restaurant rule gives three explicit marked-block probabilities, and each expectation follows by counting marked singleton and doubleton choices. Their quotient yields the covariance ratio. Every factor in the simplified ratio decreases with the discount, its endpoints straddle one, and the sample-size ratio is increasing in discount and greater than one at \(2/5\). The beta-function limit and uniform reciprocal-square derivative bound prove the sharp \(2/n\) boundary. A standard-library checker independently enumerates exact rational restaurant distributions for \(n=3\) through \(9\); no infinite claim is inferred from the enumeration.
+## correctness
 
-**Originality — PASS (bounded comparison).** The source most directly governing the same objects is Maller–Shemehsavar, arXiv:2309.00815v1, especially Section 4.2 and formula (4.16), which supplies the classical joint sampling law and fixed-parameter asymptotics. The sign reversal, strict ordering of discount thresholds and moving-discount limit are not stated in the inspected portions. Gnedin–Stark, arXiv:2209.12781v1, studies the different Ewens permutation setting with positive strength and no stable discount. Related published records on ordinary occupancy and uniformly random set partitions switch covariance signs for different statistics; their conclusions do not imply this threshold. Available previous results with compatible wording were compared by their actual implications. A full global literature census is unavailable; unindexed identities may cover the result.
+PASS
 
-**Value — PASS.** Singleton and doubleton frequencies are standard sample-diversity statistics. Their dependence changes sign, so a blanket positive-dependence or negative-dependence approximation fails for stable Poisson–Dirichlet data. The exact unique threshold for every sample size and its \(1-\alpha_n\sim2/n\) scaling give a natural finite-sample-to-boundary classification, not an arbitrary numerical slice.
+For prescribed blocks of total size s and count k, once seated the marked blocks stay unchanged at step m with probability (m-s+kα)/m. Applying this to (s,k)=(1,1),(2,1),(3,2) and multiplying by the number of disjoint placements gives all three moments and the stated sign ratio. For n≥4 the factors (j+2α)/(j+α)^2 decrease strictly for j≥1, with decreasing leftover reciprocal factors; at n=3 the ratio is 2/[3α(1+α)]. The endpoint ratios straddle one. The sample-size quotient increases with α because n−3+2α is smaller than both denominator arguments n−2+α and n−1+α. Its numerator after subtracting 1 at α=2/5 has a positive factor 13n²−43n+24=(n−3)(13n−4)+12, so induction from α₃>2/5 gives strict ordering. Gamma-ratio cancellation gives αB(α,α)>1 at fixed α<1, implying αₙ→1. The log-ratio slope at α=1 telescopes to −1−1/(n−1), its second derivative is uniformly bounded by reciprocal-square sums near 1, and its value at 1 is log(1−2/n). The mean value theorem gives the stated scaling. Independent EPPF enumeration reproduced the moments for 35 exact parameter pairs and a symbolic check reproduced the quotient positivity identity; replay: python /workspace/branches/replay_three.py. Read but did not execute the frozen verifier; its numerical n-values up to 1000 are selected samples, not the proof of ordering.
 
-**Limits.** Only \(\mathrm{PD}(\alpha,0)\) and two block sizes are established; no general dependence theorem is asserted. No external audit or independent validation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known frequency-count law and its specialization to mixed block moments. The supported distinct contribution is the global one-zero sign theorem, strict nesting in sample size and near-one moving-discount scale, not the discovery of the joint law or of the three moments.
+
+## value
+
+PASS
+
+Singletons and doubletons are the first two frequency-of-frequencies counts. The theorem tells precisely when the direction of their dependence reverses without changing the sampling model, establishes that the negative-covariance window strictly shrinks, and fixes its scale where fixed-discount asymptotics do not decide the sign. This is a natural all-n comparison, not a numerical root at a selected n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

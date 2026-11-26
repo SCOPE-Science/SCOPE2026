@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:06:06.121265Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every s>=1, j*binomial(3^s,j)=3^s*binomial(3^s-1,j-1) gives v_3(binomial)>=s-v_3(j). On x=3v the linear term after division of G_s(3v)-1 by 3^{s+1} is v, and for 2<=j<3^s one has j-1-v_3(j)>=1. Thus the normalized map changes any difference v-w by a unit factor and induces permutations on every finite level, giving surjectivity by inverse limits. The involution x↦-1-x gives the same regular image on x≡-1 mod 3. On x=-1/2+3v, the binomial expansion retains only even powers of 6v. Dividing out 3^{s+2}v^2 gives constant 2c_s(3^s-1)≡1 mod 3; for even j>=4 one has j-2-v_3(j)>=2, so the remaining coefficients lie in 9Z_3. Its square root congruent to 1 mod 3 exists by Hensel and changes by a multiple of 9(v-w), by division by the unit sum of the roots. Multiplication of v by the root therefore gives another bijective isometry, proving that the third sheet is exactly a square image. Since (3^s-1)/2≡1 mod 3 and 4 has order 3 modulo 9, c_s≡7 mod 9; the regular sheet is 1 mod 9. At n=1 all three inputs have one output. At n>=2, the regular normalized coordinate is read to max(0,n-s-1) digits out of n-1 and has two sheets. In the critical branch with L=n-s-2>0, square zero requires divisibility of the coordinate by 3^{ceil(L/2)}, while a nonzero square of valuation 2j has two simple unit roots modulo 3^{L-2j}, with 3^j lifts each. Each normalized root has 3^{s+1} lifts in the original critical residue branch; for L<=0 the whole branch is one fiber. Square units give 3^{L-2j-1} targets at each admitted valuation, establishing Q(L) and I_s(n). The square set has measure (1/3)sum_{j>=0}3^{-2j}=3/8, giving the stated total density. Read RESULT.md lines 38–85, VERIFICATION.md and check.py. The described 34 complete finite comparisons are supplementary; no uploaded script was executed and the verdict rests on the all-level proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8ba022218fce uses x^{2p^s}+(x+1)^{2p^s} even at p=3.",
+          "The inspected JIS abstract treats x^k±y^k and other multivariable forms; x and y are independent. The 2019 abstract likewise concerns multivariable polynomial forms."
+        ],
+        "reasoning": "The all-prime sum theorem does not include the odd difference. Counting unrestricted values of a multivariable form does not resolve its restriction to y=x+1 or the fibers of that restriction.",
+        "searches": [
+          "Resultary 8ba022218fce, all odd primes and even prime-power sums",
+          "Arias–Borja–Anaya JIS 26 (2023) Article 23.8.1; Arias–Borja–Rubio arXiv:1812.11599"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary local mirror: b9f75246cb36, 8ba022218fce, f539e1fa82a3, 2c5deda1b9d1",
+        "JIS 26 Article 23.8.1; arXiv:1812.11599 and arXiv:1607.08418, front-page scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The even-power entries supply square sheets for their own polynomials but not the regular slopes, scaled critical branch and separation modulo 9 of this odd-power difference. The fifth-power entry uses a different prime with three distinct components.",
+          "Patel–Siksek discuss global perfect-power Diophantine values of sums, not finite local fiber counts."
+        ],
+        "reasoning": "A square-sheet technique is transferable, but the image equality requires the regular and critical coordinate changes to be shown for this whole family, with its specific valuations and disjoint residues. None of the inspected conclusions gives those invariants by specialization.",
+        "searches": [
+          "Resultary 8ba022218fce, b9f75246cb36 and f539e1fa82a3 Findings; Arias–Borja–Anaya JIS 26 (2023) Article 23.8.1, abstract; Patel–Siksek arXiv:1607.08418, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unit affine change t=2x+1 gives 2^{-3^s}((t+1)^{3^s}-(t-1)^{3^s}).",
+          "b9f75246cb36 uses x^4+(x+1)^4, with image (1+3Z_3) disjoint from its square sheet; f539e1fa82a3 addresses the fifth-power difference on Z_5, not Z_3.",
+          "The ternary binomial polynomial in 2c5deda1b9d1 has two translated square components rather than one."
+        ],
+        "reasoning": "Centering leaves the odd exponent and the difference sign intact; it does not identify the polynomial with the even fourth-power sum, a different-degree binomial polynomial, or a fifth-power map over another local ring.",
+        "searches": [
+          "Resultary: ternary images and fibers of consecutive powers, translated square sheet and consecutive prime-power differences; b9f75246cb36, f539e1fa82a3 and 2c5deda1b9d1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned record was indexed and is not independent coverage. The closest distinct exact-fiber entries cover the fourth-power sum, even prime-power sums, or the fifth-power difference at prime 5; the indexed ternary binomial formula addresses image sizes for another map."
+        ],
+        "reasoning": "The object, domain and parameter comparisons separate these exact formulas from the all-s ternary difference census; this bounded catalogue check is not a claim of exhaustive worldwide coverage.",
+        "searches": [
+          "Resultary: complete ternary finite residue image and fiber laws; inspected b9f75246cb36, 8ba022218fce, f539e1fa82a3 and 2c5deda1b9d1"
+        ]
+      },
+      "rationale": "The inspected sources give very close square-sheet analogues, but with another polynomial, another prime, or the opposite parity and sign. The distinct claim supported here is the full ternary image and finite fibers for all positive s of the odd-exponent consecutive difference; neither general square-root counting nor the elementary s=1 quadratic alone is claimed as new.",
+      "residual_risks": [
+        "The bounded broader lookup returned no useful lead; this is not evidence of absence. The primary comparisons with the independent-variable articles are limited to their front pages.",
+        "The close same-day comparisons do not establish ordering. An unindexed equivalent one-variable classification or broader theorem remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-day analogue, not the same polynomial",
+          "evidence": "Image (1+3Z_3) disjoint from 1/8+(27/4)Z_3^2 for x^4+(x+1)^4, with density 25/72.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-image-and-fibers-of-two-consecutive-fourth-powers--b9f75246cb36",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary hit and local mirror full-text passage",
+          "title": "Exact ternary image and fibers of two consecutive fourth powers",
+          "trigger": "Same-prime exact fibers with a regular and square component"
+        },
+        {
+          "assessment": "Broader in p for a different parity and sign, not equivalent coverage",
+          "evidence": "For x^{2p^s}+(x+1)^{2p^s} there are (p-1)/2 regular balls and a scaled-square branch.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-odd-prime-fibers-of-consecutive-even-prime-power-sums--8ba022218fce",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary hit and local mirror full-text passage",
+          "title": "Exact odd-prime fibers of consecutive even prime-power sums",
+          "trigger": "Potentially dominating all-prime result"
+        },
+        {
+          "assessment": "Same form at a different prime and fixed exponent",
+          "evidence": "The Z_5 image of (x+1)^5-x^5 has three components and density 7/150.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-five-adic-image-and-fiber-distribution-of-consecutive-fift--f539e1fa82a3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary hit and local mirror full-text passage",
+          "title": "Exact five-adic image and fiber distribution of consecutive fifth-power differences",
+          "trigger": "Closest consecutive-difference match"
+        },
+        {
+          "assessment": "Different map and component structure",
+          "evidence": "The image of binomial(x,6) is one ball and two translated scaled-square sets.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-ternary-residue-images-of-the-sixth-binomial-polynomial--2c5deda1b9d1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary hit and local mirror full-text passage",
+          "title": "Exact ternary residue images of the sixth binomial polynomial",
+          "trigger": "Earlier ternary ball/square image census"
+        },
+        {
+          "assessment": "Independent-variable image counts; no whole-document exclusion inferred from the abstract",
+          "evidence": "The abstract includes multivariable x^k±y^k image counting, without a consecutive-input constraint.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Borja/borja4.pdf",
+          "material_read": "OA PDF p. 1, abstract, offset 0",
+          "method": "Open-access primary front-page passage",
+          "title": "Counting Integers Representable as Sums of k-th Powers Modulo n",
+          "trigger": "Prime-power modulus and sums or differences of powers"
+        },
+        {
+          "assessment": "No relevant consecutive-input theorem in inspected material",
+          "evidence": "The abstract concerns multivariable forms, especially sums or differences of squares.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.11599",
+          "material_read": "OA PDF p. 1, abstract, offset 0",
+          "method": "Open-access primary front-page passage",
+          "title": "Counting Integers Representable as Images of Polynomials Modulo n",
+          "trigger": "General modular polynomial image census"
+        },
+        {
+          "assessment": "Different question and hypotheses",
+          "evidence": "The problem is global perfect-power values in sums of consecutive like powers with even exponent, not local image or fiber laws.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.08418",
+          "material_read": "OA PDF p. 1, abstract, offset 0",
+          "method": "Identified arXiv copy of DOI 10.1007/s40993-016-0068-0 after DOI route unavailable",
+          "title": "On powers that are sums of consecutive like powers",
+          "trigger": "Consecutive-power literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The map is a natural finite difference of a prime-power map evaluated at its own prime, where singular lifting prevents the regular analysis from giving the full congruence count. The all-exponent classification identifies three input branches, proves that the two regular branches coincide in the target but are separated from the square branch, and gives exact multiplicities at every depth. This makes attainment and the number of solutions to an arbitrary finite congruence explicit, including the exceptional high-valuation targets; it is more than the elementary s=1 quadratic or an image-size sample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

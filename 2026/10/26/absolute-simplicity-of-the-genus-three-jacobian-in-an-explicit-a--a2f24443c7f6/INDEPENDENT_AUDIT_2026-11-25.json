@@ -1,0 +1,86 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:08:50.184454Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The change of variables gives a monic squarefree degree-eight hyperelliptic model at i=2 modulo 5, so the reduction is good of genus three with two points at infinity. Independent finite-field enumeration gave 7, 43, 133 points and power sums -1, -17, -7, giving the stated numerator by Newton identities and reciprocity. For h(X)=X^3g(X+5/X), g is irreducible by the rational-root test and has discriminant 761. The product of the three quadratic discriminants is -49*71. At an unramified prime over 71, precisely one discriminant has valuation one (g and U^2-20 have only U=34 in common modulo 71); conjugation isolates each of the other discriminants as well. This proves square-class independence and the full wreath group. If a root satisfied alpha^2/5 equal to a root of unity, all its conjugates would have 5-adic valuation 1/2, impossible because the middle coefficient 11 is a unit. The independent pair swaps then exclude root-of-unity quotients between different pairs as well. Powers of the roots thus remain distinct and transitive, giving irreducibility over every finite extension in the sense of the Frobenius polynomial over Q. This excludes a proper abelian subvariety. A complex splitting would give a nontrivial rational endomorphism idempotent defined over a finite number-field extension (endomorphisms are unchanged under algebraically closed base extension); good-reduction specialization injects rational endomorphisms, contradicting geometric simplicity of the reduction. A map to genus one or two would yield a positive-dimensional proper Jacobian quotient by push-pull. The finite checks are arithmetic certificates, not a replacement for the group and specialization arguments.",
+      "replay_paths": [
+        "/workspace/branches/44616c4a-7d84-4464-b172-936f0a7c90bf/recheck_finite_field.py",
+        "/workspace/branches/44616c4a-7d84-4464-b172-936f0a7c90bf/recheck_number_field.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 covers smoothness, genus and amoeba/contour properties. The finite-field isogeny criterion requires the actual Frobenius data for the specified reduction. Ranked nearby finite-field studies concern a genus-ten sextic and genus-four Artin–Schreier twists, both in characteristic three."
+        ],
+        "reasoning": "The genus and Newton polygon do not verify a Frobenius orbit or absolute simplicity. The general isogeny criterion supplies the method, not its instance-specific inputs.",
+        "searches": [
+          "arXiv:2610.15607, Theorem 6.1",
+          "Tate, Endomorphisms of abelian varieties over finite fields, as applied in the frozen proof",
+          "Resultary arithmetic Jacobian examples"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (the uploaded verifier was inspected, not executed)",
+        "Nisse, arXiv:2610.15607, Sections 6.1–6.2",
+        "Resultary: 2026/10/26/SCOPE-the-complete-weil-polynomial-and-simple-ordinary-jacobian-of-a-p--60772e37c981",
+        "Resultary: 2026/10/26/SCOPE-three-twists-of-a-genus-four-artin-schreier-curve-have-distinct--5739ac81ace9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model permits reduction, but the counts at 5, square-class certificate at 71, and exclusion of root-of-unity quotients are additional deductions. The irreducibility for all powers follows only after these checks."
+        ],
+        "reasoning": "Computability from the published equation is not an established stronger result or an already supplied certificate; generic genus-three or ordinarity assumptions alone do not imply absolute simplicity.",
+        "searches": [
+          "arXiv:2610.15607, Theorem 6.1 and Section 6.2",
+          "Frozen RESULT.md, Proof, compared with the standard finite-field Frobenius and isogeny criteria"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nisse uses the same affine equation and its degree-eight hyperelliptic model; neither the conclusion of Theorem 6.1 nor the model derivation asserts absolute simplicity or the absence of genus-one or genus-two quotients."
+        ],
+        "reasoning": "Comparing the birationally equivalent equations identifies the exact curve, but the prior geometric conclusions are not alternate formulations of the Jacobian claim.",
+        "searches": [
+          "Resultary title- and defining-polynomial-focused searches for the Nisse Jacobian",
+          "arXiv:2610.15607, Sections 6.1–6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching curve-and-Frobenius-certificate entry was returned among the ranked results. The same-curve example in Section 6.2 gives the defining model, not point counts at (5,i-2) or the Weil polynomial."
+        ],
+        "reasoning": "A generic finite-field list of possible Weil polynomials would not identify the reduction of this characteristic-zero curve. No table tying this polynomial to the specified reduction was identified.",
+        "searches": [
+          "Resultary exact curve and polynomial-focused lookups",
+          "Public primary-literature lookup for the Nisse example and its Jacobian/Frobenius certificate",
+          "arXiv:2610.15607, Section 6.2"
+        ]
+      },
+      "rationale": "The explicit curve and its geometric and amoeba analysis are prior work. The supported distinct result is the geometric simplicity of its Jacobian and the explicit finite-field certificate establishing it. The strongest same-object text does not assert or imply this invariant, and the closest indexed arithmetic examples concern other curves. This is a best-of-current-evidence judgment, not a priority certificate.",
+      "residual_risks": [
+        "The public search was low-yield and is not exhaustive; independently derived or unindexed arithmetic work on the curve is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object, different invariant",
+          "evidence": "The theorem lists the geometric and contour results; the next section gives the identical affine and hyperelliptic models.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15607",
+          "material_read": "Theorem 6.1, Section 6.1 (p. 16; text offset about 57900), and Section 6.2 (pp. 16–17; offset about 61100)",
+          "method": "Bounded OA full-text passage comparison",
+          "title": "Beyond Harnack Amoeba Boundaries",
+          "trigger": "Source of the exact explicit equation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This computes a substantive intrinsic invariant of a previously singled-out genus-three example, not an arbitrary coefficient choice or a point-count table entry. It rules out splitting and all lower-positive-genus quotient morphisms for that curve via a small exact arithmetic certificate. No generality beyond the specified curve and reduction is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

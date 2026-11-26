@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:10:48.352130Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–5 of Proof; VERIFICATION.md and verify.py (inspected as frozen evidence)",
+        "Fresh bounded replay: python3 /tmp/opencode/reproduce_nuclei.py directly evaluates all 64 basis associators of the four-element example and exhausts coefficient vectors in characteristics 2, 3 and 5. The four dimensions are (2,3,2,2), (2,3,2,0), (2,3,2,0)."
+      ],
+      "rationale": "On the group ring put δ=1−φ and let α and β be induced by φ and δ. Expanding both products yields [u,v,w]=αβ(v)(α²(u)β(w)−α(u)β²(w)). In k[G], the shifts in β(X^g)−β²(X^g) range over δφ(G)=H, and those in α²(X^g)−α(X^g) range over −φδ(G)=H; multiplying by monomial units shows each family generates the same translation ideal. Its annihilator consists exactly of coefficients constant on H-cosets, even in modular characteristic. Substituting the monomial X^0 in the other slots first isolates α(u)=u on the left and β(w)=β²(w) on the right. The left condition then reduces to the annihilator (which α fixes); the middle reduces to β(v) supported on H and lying in the annihilator, hence a multiple of Ω_H; the right needs both that line condition and β-fixity. If H₂ is proper, a coefficient on H minus H₂ makes the latter condition impossible for a nonzero multiple, without dividing by |H|. The induced surjection G/H→H/H₂ sends a coset sum to b times a coset sum on the target, so has rank b or zero as asserted on U_H. This proves the dimensions and jump, including trivial H, connected H=G, and characteristic zero. The unipotent example has a=b=p and verifies the arbitrary jump size.",
+      "residual_risks": [
+        "The fresh replay checks only the four-element example; the general conclusion rests on the symbolic proof, not on the frozen 346-case test or on any formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/10/13 record 84e5c5bb458f gives the connected left nucleus and the Latin rank-one three-nucleus result. Sangare–Ta Prop. 4.7 gives the odd dihedral left nucleus."
+        ],
+        "reasoning": "Finite connected Alexander quandles have H=G and bijective δ, so their case is covered. These hypotheses exclude the proper-subgroup transition; a result for the left slot alone does not cover the middle, right or full nuclei.",
+        "searches": [
+          "Resultary: connected/Latin quandle algebra associator span and three nuclei",
+          "Sangare–Ta arXiv:2608.01550v2, Prop. 4.7"
+        ]
+      },
+      "checked_sources": [
+        "Zhang arXiv:2610.08204v1",
+        "Sangare–Ta arXiv:2608.01550v2",
+        "Resultary 84e5c5bb458f and 2cc2877d146f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior connected and odd-dihedral cases imply the corresponding restrictions of the frozen formulas; the proper H₂ branch uses both a support obstruction and the scalar b in the coset pushforward."
+        ],
+        "reasoning": "No inspected theorem specializes to the general nonconnected classification, or supplies the exact characteristic criterion and jump size. The proof is a short application of the existing transport but requires the extra subgroup and rank arguments.",
+        "searches": [
+          "Zhang §2.1 and §§2.2–5; earlier Resultary 84e5c5bb458f Finding; Sangare–Ta §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang, arXiv:2610.08204v1, Prop. 2.1, supplies multiplication transport, not the required slotwise annihilator or modular rank calculation."
+        ],
+        "reasoning": "Rewriting the associator on an ordinary group ring does not itself give the three necessity/sufficiency statements or the rank of β on orbit sums.",
+        "searches": [
+          "Resultary: Alexander quandle algebra associators and nuclei; group-ring and translation-ideal formulations",
+          "Primary literature discovery: finite Alexander quandle ring left middle right nucleus and twisted group ring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact mirrored statements inspected: earlier connected/Latin record 84e5c5bb458f and later finite Latin Alexander record 2cc2877d146f."
+        ],
+        "reasoning": "These are closely matched catalogue entries rather than numeric tables. The earlier entry does not cover the nonconnected case. In the later entry, modular vanishing of a square on the nuclear line is not a dimension jump and the line remains rank one.",
+        "searches": [
+          "Resultary: three nuclei and coefficient-characteristic jump in finite Alexander quandle algebras"
+        ]
+      },
+      "rationale": "Pass for the stated distinct contribution: simultaneous classification for nonconnected finite abelian Alexander quandles, especially the right-nucleus dichotomy and full-nucleus dimension jump. The transport and connected/Latin specializations are covered or credited, not independent originality claims.",
+      "residual_risks": [
+        "An older equivalent treatment of twisted products on group algebras may not use quandle or nucleus terminology. The catalogue and literature comparison bounds the priority assessment; it is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Transport covered; other inspected results concern augmentation, commutators, idempotents and Peirce analysis.",
+          "evidence": "Proposition 2.1, text offset 9048.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08204v1",
+          "material_read": "§2.1 Proposition 2.1, p. 3; retrieved results passages for §§2.2–5",
+          "method": "OA PDF passage retrieval",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Same algebra and product transport"
+        },
+        {
+          "assessment": "Odd dihedral left nucleus is already known.",
+          "evidence": "Proposition 4.7 states N_l=k e for odd n; text near offset 24500.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.01550v2",
+          "material_read": "§4.2 Proposition 4.7, p. 10",
+          "method": "OA PDF passage retrieval",
+          "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+          "trigger": "Explicit nucleus theorem for dihedral quandles"
+        },
+        {
+          "assessment": "Covers connected left nucleus and the connected Latin three-nucleus case, not general nonconnected Alexander quandles.",
+          "evidence": "Finding near text offset 70.",
+          "identifier_or_url": "2026/10/13/SCOPE-associator-span-and-nuclei-of-connected-and-latin-quandle-algebr--84e5c5bb458f",
+          "material_read": "RESULT.md Finding and scope/proof passages",
+          "method": "Local Resultary mirror",
+          "title": "Associator span and nuclei of connected and Latin quandle algebras",
+          "trigger": "Earlier closely matching nucleus result"
+        },
+        {
+          "assessment": "Later related rank-one result over rings; not the dimension jump.",
+          "evidence": "Finding near text offset 85.",
+          "identifier_or_url": "2026/10/25/SCOPE-associator-quotients-and-the-three-nuclei-of-finite-latin-alexan--2cc2877d146f",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Associator quotients and the three nuclei of finite Latin Alexander quandles",
+          "trigger": "Exact three-slot comparison on the Latin specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md right and full nucleus theorems and dihedral/unipotent examples"
+      ],
+      "rationale": "Determining all slots and the intersection on a natural non-Latin family gives an effective invariant from two subgroup images, not a table of isolated examples. It distinguishes the characteristic-stable individual dimensions from the characteristic-sensitive full dimension, with a four-element demonstration and unbounded jumps.",
+      "residual_risks": [
+        "No claim for nonabelian or infinite group analogues or for arbitrary coefficient rings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

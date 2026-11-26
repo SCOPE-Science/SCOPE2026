@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The algebraic reduction to the twelve-by-twelve sine matrix is exact. A direct one-sign-pair calculation and Fourier duality reduce all support sums at most fourteen to four finite rank-census regimes. Exact finite-field elimination of 242,242 row-column configurations under each of two 25th-root specializations proves the absence of further complex-singular matrices; two explicitly identified exceptional kernels are recovered by geometric sums and are one dimensional. There is no extrapolation from floating point or from a finite test to a variable-order theorem.
+PASS
 
-## Originality — PASS (best knowledge)
+With the unnormalized plus-sign Fourier transform, Fourier squaring acts on odd functions by −25, so work with sign-pair support counts r≤s. A single input pair has at most two zero rows. For r+s≤7, the only other possibilities reduce by enlarging the allowed Fourier support to (2,4), (2,5), (3,3), and (3,4). I independently reproduced the decisive finite certificate (`python3 /workspace/review-evidence/odd_projective.py`) over F_101 and F_151 with primitive 25th roots 16 and 148. The reproduction tests normals to rows for two columns, and cross products of independent row pairs for three columns, rather than using the supplied row reduction. A violating rank-one subset in three columns can be extended by an outside nonparallel row to a plane, and a rank-zero subset is contained in any such plane. The program verifies that the full row list admits such a plane for each triple. There are at most seven vanishing rows for three columns and only the two stated exceptions with seven or more vanishing rows for two columns. Each full-column-rank specialization proves a nonzero cyclotomic minor; a modular failure alone proves nothing in characteristic zero. For the two exceptions the displayed subgroup sine modes have time support {±5,±10} and transform 5 times the signed difference of the two coset indicators y≡±t mod 5. The zero-constraint matrices have rank at least one (there is a nonmultiple-of-5 row) and at most one by these explicit nonzero kernels, so give exactly one projective class each. Fourier duality gives the other two classes, distinct by support size and within each size by invertibility or distinct residue support. This proves the finite result at cyclic order 25, not an infinite prime-square theorem.
 
-Garcia–Karaali–Katz's 2018 symmetry-refined uncertainty results are about prime-order discrete sine transforms and finite-field analogues. The cyclic additive group of order twenty-five is not the additive group of the field of order twenty-five. The closest indexed results on prime-square ordinary Fourier minors concern other submatrices, rather than this antisymmetric compression and its projective extremizers. An unindexed earlier computation is a residual bibliographic risk; no universal novelty or independent priority certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The smallest nontrivial odd prime-square cyclic test, order twenty-five, is a motivated boundary for the failure of prime-order sine-matrix full spark. The sharp bound and complete four-class equality census determine a natural support invariant exactly, rule out product-bound-permitted support pairs, and give a reproducible prototype for extension to other nonfield cyclic groups.
+The distinct contribution is the sharp odd support-sum bound across all support sizes on cyclic order 25 and the complete projective equality census. An unrestricted bound already handles the (4,10) lower-bound branch, and compressed sine transforms and their failure of full spark at composite order are known. The available earlier statements do not cover the sharp odd minimum and all equality vectors together.
 
-## Scientific limitations
+## value
 
-The theorem is restricted to odd complex functions on the additive cyclic group of order twenty-five. The rank enumeration is exhaustive only at that order. A closest ordinary-minor result was compared at its indexed mathematical-statement level, not claimed to have been read in full.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cyclic prime-square order is a natural place to test how subgroup structure changes prime-order sine uncertainty. The unrestricted bound plus parity leaves a genuine competing balanced support configuration at order 25. Excluding it and identifying every sharp line gives an exact benchmark for symmetry-restricted prime-power uncertainty and compressed minor ranks, rather than just evaluating a known formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

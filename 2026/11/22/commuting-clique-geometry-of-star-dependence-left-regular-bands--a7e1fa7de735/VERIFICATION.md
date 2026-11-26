@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence
+# Independent mathematical audit
 
-The exact algebraic claims are proved in `RESULT.md`, Steps 1–5. Run `python3 check_star_band.py` using the Python standard library; the script independently builds the finite band multiplication using concatenation and first-occurrence reduction, then compares all pairwise commuting results against the theorem. It tests centralizers and the family of maximal commutative submonoids for every integer \(1\le m\le6\); a separate maximal-clique enumeration covers \(1\le m\le4\), and direct polynomial coefficient enumeration covers \(1\le m\le3\). The recorded output is `check_star_band_output.txt`.
+## correctness
 
-The finite checks are neither an exhaustive all-parameter proof nor an independent audit. The normal-form and counting argument, rather than computational extrapolation, establishes the formula for every integer \(m\ge1\). All statements assume the left-regular-band relations, including arbitrary-word absorption, which distinguish the finite monoid from ordinary generator-idempotent graph products.
+PASS
+
+The arbitrary-word left-regular-band identities are essential; the statement is not about the ordinary graph product with only generator idempotence. Delete repeated occurrences and sort leaves on each side of the first hub to get the stated forms. Projections onto the free two-generator bands on h and each individual leaf separate the support and before/after status of every leaf. In a product of two hub forms the first factor's prefix A is retained and every other leaf is placed in the suffix; commutativity is exactly equality of the two prefixes. Multiplying by a leaf-only form on the left adds its support to the prefix, so the mixed criterion is precisely containment in A. These rules make every M_A closed and inclusion-maximal, while a hubless family can be extended by x_([m],empty). Partitioning cliques by presence of a hub, then by their unique common prefix, gives the entire polynomial with the empty clique counted once. The two centralizer formulas sum to 3*4^m+5^m with diagonal pairs included; the resulting asymptotic follows by domination. A separate finite word-multiplication check reproduced all clique coefficients and maximal-family sets for m=1,2,3 and ordered totals 17,73,317; that check does not prove the general theorem.
+
+## originality
+
+PASS
+
+The general orientation/normal-form construction is not new. The surviving distinct exact invariant is the all-arity clique polynomial and maximal commuting-family spectrum for the dependence-star specialization, together with its pair count. The checked general results give the multiplication model but not the star commuting decomposition and counts. The strongest same-size, same-day comparison uses a different hub identity and agrees only in the leaf-only part; hub centralizers, and therefore global pair counts, disagree.
+
+## value
+
+PASS
+
+The dependence star is a natural non-free partially commutative band: the leaves form a large commuting core and the hub makes compatible prefixes observable. The polynomial counts all arities without overcounting the overlapping maximal families, and the exact spectrum distinguishes the smallest maximal families from largest ones. These are useful explicit graph invariants rather than a recomputation of the abstract orientation model or a finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

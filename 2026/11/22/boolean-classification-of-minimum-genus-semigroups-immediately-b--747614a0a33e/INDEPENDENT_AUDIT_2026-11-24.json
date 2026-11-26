@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:40:22.174882Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The largest Apéry member is 4m+r, so x_r=4. For i+j=m+r the Kunz inequalities give x_i+x_j≥3, or x_i≥2 at a fixed point; these are disjoint orbits on r+1 through m−1. The only noncarry constraint with target r is i=j=1 on the second line, giving x_1≥2. Summing the disjoint lower bounds gives ceil((3m+r+1)/2), and equality forces precisely the indicated independent binary choices and fixed coordinates. Conversely every other target coordinate is ≤2, so positivity suffices there, while the constraints targeting 4 are satisfied by construction. The required largest Apéry member follows from the other coordinates being ≤2. The empty pair sets at the smallest admissible m work as well. The usual F-reflection bound with equality exactly in the symmetric/pseudosymmetric cases identifies these with all irreducibles. An independent exhaustive Kunz-vector search through m=11 found the full minimizer sets, not just the counts, in all 19 cases; it is bounded corroboration of the symbolic argument. Replay: /workspace/branches/0743ace4-b9c8-48d9-9e65-2fa9f83a0b80/independent_kunz_check.py; output: independent_check_full.txt in the same directory. The frozen verification program was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 assumes (F+1)/3≤m≤F/2. At F=3m+1 and 3m+2 its lower bound is respectively m+2/3 and m+1; the recurrences have the stronger lower bound (F+2)/3.",
+          "Algorithm 4.11 in the fixed-(m,F) paper computes the irreducibles for any admissible fixed pair."
+        ],
+        "reasoning": "Being the first two admissible lines after the threshold means there is no intervening admissible line at F=3m. Neither the formula in the threshold domain nor a general finite enumeration routine supplies the all-m closed answer outside that domain.",
+        "searches": [
+          "Bras-Amorós–Torra, arXiv:2611.11559v1, Theorems 4.2, 5.2, and 6.2",
+          "Branco–Ojeda–Rosales, arXiv:1904.05551v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2611.11559v1",
+        "arXiv:2607.23111v4",
+        "arXiv:1904.05551v2",
+        "Resultary 786d5662b2ca and 19b1a83db8fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 4.5 gives one canonical irreducible C(m,F), not the irreducible count. The algorithm enumerates all fixed-pair irreducibles.",
+          "The genus bound identifies the equality layer, but it does not count equality solutions or show that all binary options satisfy every additive constraint."
+        ],
+        "reasoning": "The further step is to show that the only binding Kunz inequalities at equality have target x_r=4 and separate into disjoint paired indices with one possible noncarry constraint. That yields independent choices for every m, not merely a specialization of the algorithms or displayed formulas.",
+        "searches": [
+          "arXiv:1904.05551v2, Proposition 4.5 and Algorithm 4.11",
+          "arXiv:2611.11559v1, counting hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalence classes of the fixed-(m,F) semigroups have unique irreducibles in the Branco–Ojeda–Rosales partition; this converts one enumeration problem to the other, but does not classify those classes by binary coordinates.",
+          "Resultary 786d5662b2ca, Finding: the m=4 vectors (4,1,2), (4,2,1) at F=13 and (2,4,2) at F=14 occur in its leaf families A and C.",
+          "Same-day Resultary 19b1a83db8fa gives multiplicity-four leaf counts L4(13)=2 and L4(14)=1; its internal counts are not irreducible counts."
+        ],
+        "reasoning": "Full-tree leaves and fixed-F irreducibles do not define the same general class. The overlap of these vectors is real but concerns only one multiplicity. The indexed copy of the assigned finding is not a separate source.",
+        "searches": [
+          "Resultary irreducible semigroups fixed multiplicity and Frobenius, Boolean Kunz coordinates",
+          "Branco–Ojeda–Rosales, arXiv:1904.05551v2, Theorem 3.2 and Corollary 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4 gives aggregate irreducible counts by F for F=38–136, with prior A158206 totals cited through F=39. The conclusion reports computing a multiplicity/genus decomposition; no corresponding fixed-(m,F) irreducible table was retrieved. The cited A398185 array is of all semigroups by F and m.",
+          "The finite m=4 leaf overlaps are as above."
+        ],
+        "reasoning": "Summing over multiplicities loses the target layer by m; aggregating all genera is likewise different. Even a bounded disaggregated table would cover only particular entries, not the uniform symbolic formula and coordinate family.",
+        "searches": [
+          "arXiv:2607.23111v4, Table 4 and conclusion",
+          "OEIS A158206 and A398185 as cited therein",
+          "Resultary 786d5662b2ca and 19b1a83db8fa"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-m product classification and count of the irreducible layer on the two specified lines, not the genus lower bound, Kunz machinery, or any finite-case enumeration. The relevant counting theorem and recurrences miss both lines; the general fixed-pair algorithm enumerates the candidate set but does not give independence of choices or the uniform count. Known coordinate and tabulation overlaps are credited below.",
+      "residual_risks": [
+        "The separately reported multiplicity/genus data were not retrieved and could include finite pair-specific counts.",
+        "An earlier equivalent irreducible classification under a different parametrization remains possible; the inaccessible title hit does not establish one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Threshold excludes both lines.",
+          "evidence": "Formula uses (F+1)/3≤m≤F/2; recurrences need (F+2)/3≤m.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.11559v1",
+          "material_read": "Theorem 4.2 (p. 13, offset 55041); Theorems 5.2 and 6.2 (pp. 15–16, offsets 59200 and 63538)",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Multiparameter counting of numerical semigroups by Frobenius number, genus, and multiplicity",
+          "trigger": "Exact competing count and threshold"
+        },
+        {
+          "assessment": "Exact F-aggregate coverage; separate reported decomposition not retrieved.",
+          "evidence": "v4 title differs from the frozen citation. Table 4 is not stratified by m.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.23111v4",
+          "material_read": "Title page, Table 4 (pp. 10–11, offsets 51409/55302), conclusion (p. 13, offset 61764)",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Leaf-discriminating trees for multiparameter counting of numerical semigroups",
+          "trigger": "Tables that might already count this layer"
+        },
+        {
+          "assessment": "Gives canonical representative and algorithm, not closed cube/count.",
+          "evidence": "Offsets 13626, 18724, and 25144 cover the class partition, C(m,F), and enumeration respectively.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.05551v2",
+          "material_read": "Theorem 3.2 and Cor. 3.5 (pp. 4–5); Prop. 4.5 (pp. 6–7); Algorithm 4.11 (p. 8)",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "The set of numerical semigroups of a given multiplicity and Frobenius number",
+          "trigger": "Broader fixed-pair classification and algorithms"
+        },
+        {
+          "assessment": "Finite-case coordinate overlap.",
+          "evidence": "Families A and C contain the target vectors at (m,F)=(4,13),(4,14).",
+          "identifier_or_url": "2026/10/26/SCOPE-a-genus-preserving-leaf-to-internal-injection-for-multiplicity-f--786d5662b2ca",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A genus-preserving leaf-to-internal injection for multiplicity four",
+          "trigger": "Explicit Kunz-coordinate families"
+        },
+        {
+          "assessment": "Leaf-count overlap at two entries; no priority inferred from date.",
+          "evidence": "L4(13)=2 and L4(14)=1 from leaf formulas; the population is the numerical semigroup tree.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-frobenius-preserving-leaf-injection-and-a-sharp-two-to-one-sur--19b1a83db8fa",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "A Frobenius-preserving leaf injection and a sharp two-to-one surplus",
+          "trigger": "Same-day exact counts at m=4"
+        },
+        {
+          "assessment": "Not assessed at statement level.",
+          "evidence": "No judgment based on the title or access failure.",
+          "identifier_or_url": "Academia title hit",
+          "material_read": "Title hit only; full text unavailable",
+          "method": "OA direct and VPN attempts",
+          "title": "The tree of irreducible numerical semigroups with fixed Frobenius number",
+          "trigger": "Possible earlier irreducible enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first admissible lines beyond the established m≥(F+1)/3 regime give a motivated boundary problem; the intervening multiple of m is impossible. The equality-layer factorization provides all irreducibles and a power-of-two count for unbounded multiplicity without searching the Kunz polytope. It does not replace the census of higher genera.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

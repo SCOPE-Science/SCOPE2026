@@ -1,73 +1,85 @@
-#!/usr/bin/env python3
-"""Exact-rational checks for Crank--Nicolson powers on unit stars."""
-from fractions import Fraction as F
+"""Finite exact-rational tests for the Crank--Nicolson star sign formulas."""
+from fractions import Fraction as Q
 
-def mul(A,B):
-    n=len(A)
-    return [[sum((A[i][t]*B[t][j] for t in range(n)), F(0)) for j in range(n)] for i in range(n)]
 
-def inv(A):
-    n=len(A)
-    B=[list(A[i])+[F(int(i==j)) for j in range(n)] for i in range(n)]
-    for col in range(n):
-        p=next(i for i in range(col,n) if B[i][col])
-        B[col],B[p]=B[p],B[col]
-        d=B[col][col]
-        B[col]=[v/d for v in B[col]]
+def identity(n):
+    return [[Q(i == j) for j in range(n)] for i in range(n)]
+
+
+def multiply(a, b):
+    return [[sum(x*y for x, y in zip(row, col)) for col in zip(*b)] for row in a]
+
+
+def crank_nicolson(n, edges, h):
+    laplacian = [[0]*n for _ in range(n)]
+    for i, j in edges:
+        laplacian[i][i] += 1
+        laplacian[j][j] += 1
+        laplacian[i][j] -= 1
+        laplacian[j][i] -= 1
+    h = Q(h)
+    eye = identity(n)
+    work = [[eye[i][j] + h*laplacian[i][j]/2 for j in range(n)]
+            + [eye[i][j] - h*laplacian[i][j]/2 for j in range(n)] for i in range(n)]
+    for j in range(n):
+        p = next(i for i in range(j, n) if work[i][j])
+        work[j], work[p] = work[p], work[j]
+        pivot = work[j][j]
+        work[j] = [x/pivot for x in work[j]]
         for i in range(n):
-            if i != col:
-                z=B[i][col]
-                B[i]=[B[i][j]-z*B[col][j] for j in range(2*n)]
-    return [r[n:] for r in B]
+            if i != j:
+                v = work[i][j]
+                work[i] = [x-v*y for x, y in zip(work[i], work[j])]
+    assert [row[:n] for row in work] == eye
+    return [row[n:] for row in work]
 
-def check():
-    assertions=0
-    hs=[F(1,100),F(1,2),F(1),F(3),F(10),F(30),F(100)]
-    for m in range(2,9):
-        n=m+1
-        L=[[F(0) for _ in range(n)] for _ in range(n)]
-        for i in range(1,n):
-            L[0][0]+=1;L[i][i]+=1;L[i][0]-=1;L[0][i]-=1
-        for h in hs:
-            B=[[F(int(i==j))+h*L[i][j]/2 for j in range(n)] for i in range(n)]
-            D=[[F(int(i==j))-h*L[i][j]/2 for j in range(n)] for i in range(n)]
-            C=mul(inv(B),D)
-            a=(2-h)/(2+h)
-            b=(2-(m+1)*h)/(2+(m+1)*h)
-            T=[[F(int(i==j)) for j in range(n)] for i in range(n)]
-            for k in range(1,10):
-                T=mul(T,C)
-                hd=(1+m*b**k)/F(m+1)
-                hl=(1-b**k)/F(m+1)
-                ld=(m+(m*m-1)*a**k+b**k)/F(m*(m+1))
-                lo=(m-(m+1)*a**k+b**k)/F(m*(m+1))
-                for i in range(n):
-                    for j in range(n):
-                        e=hd if (i==0 and j==0) else hl if (i==0 or j==0) else ld if i==j else lo
-                        assert T[i][j]==e
-                        assertions+=1
-                        if i!=j:
-                            assert e>0
-                            assertions+=1
-                assert all(sum(T[i])==1 for i in range(n));assertions+=1
-                assert hl>0 and lo>0;assertions+=1
-                if k%2==0:
-                    assert hd>0 and ld>0
-                else:
-                    q=F(m)**F(-1,k) if False else m**(-1/k)
-                    threshold=(2/(m+1))*(1+q)/(1-q)
-                    assert (float(h)<threshold)==(hd>0) or abs(float(h)-threshold)<1e-12
-                    assert ld>hd
-                assertions+=1
-    # A four-vertex path is an exact counterexample to the star-specific even-power property.
-    L=[[F(0) for j in range(4)] for i in range(4)]
-    for i,j in [(0,1),(1,2),(2,3)]:
-        L[i][i]+=1;L[j][j]+=1;L[i][j]-=1;L[j][i]-=1
-    h=F(30)
-    C=mul(inv([[F(int(i==j))+h*L[i][j]/2 for j in range(4)] for i in range(4)]),
-          [[F(int(i==j))-h*L[i][j]/2 for j in range(4)] for i in range(4)])
-    assert mul(C,C)[0][1] == F(-5111040,250937281)
-    assertions+=1
-    print('VERIFY_OK',assertions)
 
-if __name__=='__main__':check()
+def star(m, h):
+    return crank_nicolson(m+1, [(0, i) for i in range(1, m+1)], h)
+
+
+def main():
+    cases = 0
+    for m in range(2, 9):
+        for h in map(Q, ('1/100', '1/2', '2/3', '1', '2', '3', '4', '5', '6', '30', '100')):
+            c = star(m, h)
+            a, b = (2-h)/(2+h), (2-(m+1)*h)/(2+(m+1)*h)
+            p = identity(m+1)
+            for k in range(1, 10):
+                p = multiply(p, c)
+                hd, hl = (1+m*b**k)/(m+1), (1-b**k)/(m+1)
+                ld = (m+(m*m-1)*a**k+b**k)/(m*(m+1))
+                ll = (m-(m+1)*a**k+b**k)/(m*(m+1))
+                assert all(sum(row) == 1 for row in p)
+                for i, row in enumerate(p):
+                    for j, value in enumerate(row):
+                        want = (hd if i == j else hl) if min(i,j) == 0 else (ld if i == j else ll)
+                        assert value == want
+                        if i != j or k % 2 == 0:
+                            assert value > 0
+                if k % 2:
+                    assert ld > hd
+                cases += 1
+
+    for m, k, h in ((2, 1, Q(2)), (8, 3, Q(2,3))):
+        c = star(m, h)
+        p = identity(m+1)
+        for _ in range(k):
+            p = multiply(p, c)
+        assert p[0][0] == 0
+        assert all(p[i][j] > 0 for i in range(m+1) for j in range(m+1) if i or j)
+    for h in (4, 5):
+        c = star(2, h)
+        assert c[0][0] < 0
+        assert c[1][1] == c[2][2] == Q(4+4*h-h*h, (2+h)*(2+3*h))
+        assert (c[1][1] > 0) == (h == 4)
+    c = star(2, 6)
+    assert [c[i][i] for i in range(3)] == [Q(-1,5), Q(-1,20), Q(-1,20)]
+    assert all(x > 0 for row in multiply(c, c) for x in row)
+    c = crank_nicolson(4, [(0,1), (1,2), (2,3)], 30)
+    assert multiply(c, c)[0][1] == Q(-5111040, 250937281)
+    print('Exact star-power cases:', cases, '; both hub crossings, leaf bracket and path witness verified')
+
+
+if __name__ == '__main__':
+    main()

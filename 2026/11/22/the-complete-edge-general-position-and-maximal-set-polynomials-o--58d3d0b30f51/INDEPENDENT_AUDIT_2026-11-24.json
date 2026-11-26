@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:24:51.836042Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–55",
+        "VERIFICATION.md",
+        "verify_q4.cpp",
+        "verify_q4_independent.py",
+        "verification_output.txt",
+        "Independent replay: python3 /workspace/q4_audit_replay.py (completed all layers)"
+      ],
+      "rationale": "The test is on subsets of the 32 distinguished edges, not on orbits. In an independent exact replay, a triple was forbidden precisely when some ordering and orientation of its three edges made 3 plus the two inter-edge Hamming distances equal the Hamming distance from the initial endpoint to the final endpoint. Equality is sufficient by concatenating shortest connecting segments and necessary by taking the corresponding subpaths of a witness geodesic. This reproduced 576 forbidden triples, including triples with an intervening non-selected edge. The cardinality-layer replay generated each candidate from its subset omitting the largest edge, and, above size 3, admitted it exactly when all immediate subsets were legal. A forbidden triple in such a candidate would survive some one-edge removal. Marking all parents of admitted children then identified exactly the nonfacets. This reproduced all 17 face coefficients, all facet coefficients, totals 610955 and 4686, and the six size-16 masks as precisely the two-coordinate-class unions. No larger layer exists. Additionally, transitivity gives 24 incidences per edge across the 192 undirected antipodal geodesics, so a legal 16-set must meet each in two. Comparing paths swapping two adjacent flips in a square, using both starting corners, forces opposite-edge indicators equal. Thus coordinate classes are constant, independently explaining the equality cases.",
+      "residual_risks": [
+        "The computation is exhaustive only for Q4. The frozen executables were inspected, not used as the independent replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison credits the general 2^d maximum and the two-class construction, and identifies the edge-k extension as another maximum-value theorem.",
+          "The distinct Resultary summary states maximum edge-(t+1)-general-position sets in Q_d are unions of t coordinate classes, with binomial(d,t) optima."
+        ],
+        "reasoning": "The stated general extremizer theorem at d=4, t=2 covers all six maximum sets but contains no stated enumeration of submaximum faces or facets. Fibonacci and Lucas cubes are different induced graphs; a maximum or construction there does not imply the four-cube census.",
+        "searches": [
+          "arXiv:2105.04292, Theorem 3.2 and Lemma 3.1",
+          "arXiv:2207.07357, Theorem 4.2",
+          "Resultary 561626102a80"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: target 58d3d0b30f51 and distinct 561626102a80 (catalogue)",
+        "arXiv:2105.04292 and arXiv:2207.07357 (citation-level and frozen comparisons)",
+        "Frozen RESULT.md lines 61–74, including Fibonacci/Lucas and other extremal graph references",
+        "OEIS (attempted, no result retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Maximum size 16 and the two-coordinate construction are credited prior facts.",
+          "The additional summary logically gives the complete maximum stratum but does not count any of the 4680 smaller facets."
+        ],
+        "reasoning": "Separate the supported census remainder from the overlapping maximum classification. Do not infer priority from the shared calendar date. The proof of maximum rigidity alone cannot supply the face and facet polynomials.",
+        "searches": [
+          "Manual–Prabha–Klavžar Theorem 3.2 and Lemma 3.1 references",
+          "Resultary rigidity record 561626102a80, d=4 and t=2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 19–25, 61–74",
+          "Resultary self-match ending 58d3d0b30f51",
+          "Distinct Resultary record ending 561626102a80"
+        ],
+        "reasoning": "The claim counts independent sets and maximal independent sets in the shortest-path-triple hypergraph of a fixed labelled cube; counting automorphism orbits, maximal geodesics, or only the largest legal sets would not be equivalent.",
+        "searches": [
+          "Literature lookup on hypercube edge general position, maximum versus inclusion-maximal enumeration",
+          "Resultary comparison of four-cube edge-general-position polynomials and hypercube packings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lookup timed out; no database absence is inferred.",
+          "The exact labelled coefficient table located in the Resultary check was the identical frozen entry, not a distinct source."
+        ],
+        "reasoning": "A prior labelled table with these coefficient lists would give the result regardless of polynomial notation. A single matching extremal count or an orbit count would not.",
+        "searches": [
+          "OEIS lookup for 610955 and 4686",
+          "Resultary lookup of the labelled four-cube face/facet census"
+        ]
+      },
+      "rationale": "Pass for the complete labelled face/facet census, not for the classical maximum or as a priority claim for maximum-set rigidity. A distinct same-day catalogue statement would already cover the six maximum sets by specialization, if confirmed as catalogued. None of the examined statements enumerates nonmaximum feasible sets or facets by cardinality. The judgment is best of current knowledge, not historical priority certification.",
+      "residual_risks": [
+        "Primary full texts and the exact mirrored passage from the same-day rigidity record were not accessible; a broader enumeration in an uninspected passage or differently indexed source remains possible.",
+        "No chronological priority is asserted between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits the stated maximum and construction; full-paper coverage of exact counts not independently ruled out",
+          "evidence": "Reported Theorem 3.2 gives gp_e(Q_d)=2^d; Lemma 3.1 supplies the two-class construction.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.04292",
+          "material_read": "Search citation and the precise citation/comparison in frozen RESULT.md lines 61–74; primary full text not retrieved",
+          "method": "Literature search and attempted lawful OA retrieval",
+          "title": "Edge General Position Problem",
+          "trigger": "Foundational hypercube maximum and equality construction"
+        },
+        {
+          "assessment": "Stated maximum-value result is not a table of all legal or maximal sets",
+          "evidence": "A maximum value does not give counts at smaller sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.07357",
+          "material_read": "Theorem 4.2 characterization in frozen RESULT.md lines 61–74; OA full text not retrieved",
+          "method": "Citation comparison and attempted lawful OA retrieval",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Generalization potentially covers k=3"
+        },
+        {
+          "assessment": "Summary covers the maximum stratum when specialized, not the complete census on available evidence; priority unresolved",
+          "evidence": "All maximum edge-(t+1)-general-position sets are t-class unions, binomial(d,t) optima.",
+          "identifier_or_url": "2026/11/22/SCOPE-hypersimplex-rigidity-of-maximum-edge-geodesic-packings-in-boole--561626102a80",
+          "material_read": "Resultary catalogue statement; exact coordinate-class passage sought but not retrievable",
+          "method": "Configured Resultary and local mirrored reader",
+          "title": "Hypersimplex rigidity of maximum edge geodesic packings in Boolean cubes",
+          "trigger": "Distinct material match of extremal claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md coefficient table and definitions",
+        "Independent Q4 count"
+      ],
+      "rationale": "Q4 is the first cube with nonconsecutive triples on a geodesic. Its full face and facet counts quantify saturation beyond the known largest size: minimal facets of size six and gaps in the possible maximal cardinalities show precisely how nonpure this complex is. The finite exact polynomials are independently useful benchmarks for more general edge-geodesic and saturation enumerations; the claim is not merely the known upper bound in new notation.",
+      "residual_risks": [
+        "No classification into automorphism orbits or higher-dimensional formula is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Proof via de Bruijn graph vertex removal: exactly three excluded windows, imbalance of u and v precludes a one-use Euler tour; the only one-edge balancing augmentation duplicates e. Every ordinary binary de Bruijn cycle contracts its unique 0^(r+1) loop-and-passage into the added e, and every optimum has exactly two inverse expansions. A unique-multiplicity permitted window makes every optimum primitive, preventing rotational identification of the two preimages. Classical cycle count divided by two yields the formula. The embedded verifier enumerates r=2,3, exactly computes Laplacian tree determinants for r=2..6, and tests 225 constructions through r=10.
+## correctness
 
-**Originality — PASS, with residual risk.** Closest published papers treat ordinary/restricted de Bruijn enumeration, nearby-window nonrepetition or forbidden-substring routing, not the all-r exact optimal constrained necklace census. Earlier available zero-run work gives minimum length and forced edge augmentation but does not count optimal words. Four implication-level checks and full accessible relevant primary material show no established result that determines the exact two-to-one covering map. Numerical powers of two are classical in another interpretation; the object/bijection is the claimed contribution. Residual risk of unindexed exact equivalent or inaccessible 2021 full text remains.
+PASS
 
-**Mathematical value — PASS.** A natural forbidden-homopolymer cyclic coverage design family has exactly classified optimal designs and a doubly-exponential exact census for all forbidden run lengths, with a direct constructive translation to classical de Bruijn cycles. The result goes beyond optimum length or a small finite calculation by counting the entire nonlinear design space and identifying its precise two-fold ambiguity.
+The cyclic host excludes 0^r, but its targets are all linearly admissible length-(r+1) words. Exactly three windows are removed from the full overlap graph. Removing them makes u=10^(r-1) short one outgoing edge and v=0^(r-1) short one incoming edge; because r≥2 they are distinct, and one extra traversal must be the unique edge e_r from u to v. In a full de Bruijn tour the unique entrance to 0^r from another vertex, the loop, and the unique exit are consecutive in that order, as the loop must be used and the vertex cannot be revisited from outside. Replacing that passage by e_r achieves the bound. Conversely, expanding either occurrence of e_r restores the full tour, and these are the only choices. A shortest necklace is primitive because other factors occur once, so rotation cannot identify its two distinct marked occurrences; the expansions are genuinely different necklaces. The ordinary necklace count at order r+1 is 2^(2^r-r-1), exactly twice the claimed count. The four given examples follow by substitution.
 
-The main limitation is that the new contribution is the all-order *enumeration and explicit two-to-one map*, not the already understood shortest-cover length. The 2021 forbidden-string paper's full text was not retrieved; its accessible abstract is insufficient to exclude an unindexed specialization conclusively. Related ordinary de Bruijn counts are acknowledged, not claimed as a new integer sequence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired finding: the known covering theorems already account for the optimal length and factor profile. The inspected statements and constructions do not establish the explicit two-to-one contraction onto unmarked optimal necklaces, or its inverse distinguished-occurrence interpretation. This is a claim of distinct mathematical content relative to the comparisons, not a priority guarantee.
+
+## value
+
+PASS
+
+The explicit map relates ordinary cycles to all optimal run-limited cycles at the first width where repeats are forced. It gives a concrete reconstruction from either marked occurrence, an exact count and equal multiplicity of preimages, so in particular it transfers uniform sampling without reweighting. These are structural properties of the family of optimizers, not just an alternate derivation of the known minimum length.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

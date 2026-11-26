@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:59:37.303937Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–45; VERIFICATION.md, verify_kneser.py and verify_spoked.py inspected, not executed",
+        "/workspace/branches/21fe920b-1aa9-4b62-bcc4-9ed7dfe8e9c4/independent_record5_check.py (fresh exhaustive replay, code inspected)",
+        "/workspace/branches/21fe920b-1aa9-4b62-bcc4-9ed7dfe8e9c4/independent_record5_check.txt (exact SCC, transition and CTMC output)"
+      ],
+      "rationale": "Cubic degree at half filling gives H=15−4e(S), where e(S) counts edges induced by the plus spins, so the accepted rate-one exchanges are exactly adjacent opposite-spin swaps with nondecreasing e(S). The fresh replay constructs GP(5,2) as the Petersen graph, scans all 252 five-sets and all eligible edges using the Hamiltonian, and computes full forward/reverse reachability. Energy counts at (−5,−1,3,7) are (12,120,60,60). Every microstate at those respective energies has target-energy census empty, {−1:4}, {−5:1,−1:4}, or {−1:2,3:4,7:5}. The SCCs are twelve ground singletons, one 120-state excited SCC, sixty energy-3 singletons, and one energy-7 SCC of 60 states, with only the first two groups closed. Girth five also implies that induced subgraphs on five vertices with five edges are five-cycles, and ones with four edges are acyclic and connected. At energies 3 and 7 the ground hitting probabilities solve p3=1/5 and 6p7=4p3; expected closed-class entrance times solve m3=1/5 and 6m7=1+4m3. Neutral terms cancel because these solutions are constant within each energy. Closure as well as a positive downward hazard on both transient levels ensures almost-sure entrance and uniqueness of the finite Dirichlet solutions. The exact uniform averages give 8/63 toward ground, 55/63 toward the active class, and 5/42 mean entrance in rate-one edge-clock units; recurrent starts have zero entrance time.",
+      "residual_risks": [
+        "Exact fixed-system certificate; no extrapolation to other graphs, update clocks, or magnetizations",
+        "Uniform initial fractions are not the statewise fractions; the time is first entrance, not mixing within the excited class"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The one-dimensional constrained chain suppresses two unsatisfied bonds (strict decreases); the two-dimensional ferromagnetic study analyzes coarsening and a metastable regime",
+          "Antiferromagnetic wheel weak-minimum enumeration permits neutral exchanges but counts local minima, not the downstream communicating and hitting laws"
+        ],
+        "reasoning": "Neither the geometry-specific chain results nor catalogs of static local minima furnish neutral-exchange connectivity or rates on the half-filled Petersen move graph.",
+        "searches": [
+          "arXiv:cond-mat/0202465 §4.1",
+          "arXiv:cond-mat/0409348",
+          "Resultary 3f2c1b76e612 Kawasaki weak minima"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and published SCOPE mirror: 08f9fbc10858 and 3f2c1b76e612",
+        "arXiv:cond-mat/0202465",
+        "arXiv:cond-mat/0409348"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same twelve five-cycle ground patterns can be read from the same-day Glauber comparison, but its move kernel does not prove their isolation or basin probabilities under Kawasaki exchange",
+          "At fixed unit downhill rates, forbidding neutral swaps on this Petersen graph would preserve the level hitting probabilities and terminal entrance time, by the fresh level census, but would split the excited class into singleton traps; the inspected strict-descent literature addresses a different geometry and does not provide even those Petersen fractions"
+        ],
+        "reasoning": "Neutral-move acceptance distinguishes the asserted SCC structure; it is not by itself a proof of novelty for hitting fractions. Those require the graph-specific transition rates not supplied by the inspected results.",
+        "searches": [
+          "Resultary 08f9fbc10858 Finding",
+          "arXiv:cond-mat/0202465 §4.1",
+          "Resultary 3f2c1b76e612 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent move graph is the five-token graph directed/filtered by half-filled cut energy; its recurrent sectors depend on swap adjacency, not just cut values",
+          "The same-day Petersen trapping record uses single-spin majority updates and Bernoulli initial spins, not half-filled allowed exchanges"
+        ],
+        "reasoning": "Ground geometry is shared under these different formulations, but single-spin transitions do not conserve half-filling and cannot be used as the edge-exchange generator. Uniform rate-one CTMC normalization matters for mean time.",
+        "searches": [
+          "Local Resultary: Petersen zero-temperature Ising trapping and Kawasaki neutral exchange",
+          "De Smedt–Godrèche–Luck arXiv:cond-mat/0202465 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned record returned by local search is not independent evidence. The exact Petersen Glauber catalogue has twelve nonconstant five-cycle partitions, not the 120-state excited Kawasaki component or its selection statistics",
+          "The exact antiferromagnetic wheel spectrum has different host and coupling assumptions"
+        ],
+        "reasoning": "Give existing credit for the matching five-cycle partitions. Neither exact catalogue supplies the accepted-edge transition table, SCC decomposition, or time/absorption numbers for the stated chain.",
+        "searches": [
+          "Local Resultary exact Petersen trapping law, 08f9fbc10858, and Kawasaki weak-minimum spectrum, 3f2c1b76e612"
+        ]
+      },
+      "rationale": "Pass the distinct Petersen half-filled local Kawasaki certificate: active excited-class structure, its exact uniform selection probability, and the rate-normalized first-entrance time. Classical five-cycle geometry and a closely matched same-day single-spin trapping law are credited separately and are not the conserved-exchange theorem. The literature comparison is bounded, not global priority certification.",
+      "residual_risks": [
+        "No exhaustive historical or unindexed-literature claim; same-day geometry overlap does not give date ordering",
+        "No novelty credited to classical Petersen five-cycle facts"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material shared geometry; different generator and initial law; no same-day priority inference",
+          "evidence": "Single-spin majority Glauber and Bernoulli initial spins; twelve nonconstant five-cycle absorbing patterns",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-zero-temperature-trapping-law-for-the-petersen-ising-ferro--08f9fbc10858/RESULT.md",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary and mirror passage",
+          "title": "Exact zero-temperature trapping law for the Petersen Ising ferromagnet",
+          "trigger": "Same graph, coupling, temperature and exact trapping terminology"
+        },
+        {
+          "assessment": "Static weak-minimum counts for another model",
+          "evidence": "Neutral-exchange local minima on antiferromagnetic wheels, not ferromagnetic Petersen absorption",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-an-eleven-rim-onset-and-exact-energy-spectrum-of-kawasaki-weak-m--3f2c1b76e612/RESULT.md",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Local Resultary and mirror passage",
+          "title": "An eleven-rim onset and exact energy spectrum of Kawasaki weak minima",
+          "trigger": "Exact neutral-exchange comparator"
+        },
+        {
+          "assessment": "One-dimensional strict-descent exchange result, not Petersen coverage",
+          "evidence": "Exchange criterion suppresses two unsatisfied bonds; these analyzed moves strictly lower energy",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0202465",
+          "material_read": "Primary PDF §4.1, p. 26, OA offset about 65124",
+          "method": "OA full-text passage",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Exact terminal statistics in constrained zero-temperature Kawasaki dynamics"
+        },
+        {
+          "assessment": "Reported model and claims differ",
+          "evidence": "Numerical two-dimensional Kawasaki coarsening and a metastable glassy regime, not the finite Petersen certificate",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0409348",
+          "material_read": "Primary PDF abstract, p. 1, OA offset about 600",
+          "method": "OA PDF passage; comparison restricted to stated study",
+          "title": "Glassy properties of the Kawasaki dynamics of two-dimensional ferromagnets",
+          "trigger": "Metastability of Kawasaki ferromagnets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–42",
+        "Fresh exhaustive generator, SCC and CTMC replay",
+        "De Smedt–Godrèche–Luck §4.1 for jamming/blocked-state context"
+      ],
+      "rationale": "For a canonical small cubic frustrated geometry in the conserved half-filled model, this is an exact benchmark separating energy minimization from long-time dynamical selection. The large excited sector is genuinely active, not a static blocked configuration; the fraction selecting it and the exact entrance time quantify that difference. The complete generator and recurrent-class certificate let researchers test zero-temperature edge-exchange reasoning or simulation against a nontrivial finite law.",
+      "residual_risks": [
+        "Benchmark for one symmetric graph and initial ensemble, not a scaling theory of metastability"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

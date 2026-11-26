@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:25:07.716257Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–44",
+        "VERIFICATION.md:18–37 and verify.py",
+        "Independent finite check: python3 /workspace/branches/frozen_math_reproduction.py dumbbell; directly enumerated pair partitions and neighborhood domination for 3600 subsets of 16 graphs with 2≤r,s≤5, and checked polynomial agreement at 11 distinct integers for every graph."
+      ],
+      "rationale": "Since r,s≥2, each clique has a non-bridge vertex and must be hit by any dominating set. Hitting both cliques is sufficient. In a perfect matching the sole bridge is either absent, leaving two positive even selected clique sizes, or present, forcing both endpoints and odd selected sizes on both sides. Complete graphs on even selected cardinalities have perfect matchings, so these disjoint conditions are both sufficient. Counting selected sets rather than matchings gives the product of the positive even sums and the product of the even sums on non-bridge vertices times x². All degrees and edge cases follow, including r=s=2, where the polynomial is x²+x⁴. The sole size-two set is the bridge pair, and the two products at x=1 are the stated total.",
+      "residual_risks": [
+        "The independent finite check covers only the stated range. The no-cross-or-one-cross pairing argument proves the infinite result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-multipartite formula in the record ending ea2bc935cbba is inapplicable: a non-bridge vertex of one clique is nonadjacent to both endpoints of an edge in the other clique, impossible in a complete multipartite graph. The fully whiskered theorem ending bb4750808ce7 includes W(K2)=P4; larger clique dumbbells are not fully whiskered (they have fewer than half their vertices of degree one)."
+        ],
+        "reasoning": "The strongest available broader-class formulas settle only the stated boundary or do not apply. No coefficientwise bridge recurrence covering arbitrary r and s was found in the bounded lookups, not a claim of its nonexistence.",
+        "searches": [
+          "Resultary: paired domination polynomial dumbbell graph bridge two cliques coalescence recurrence",
+          "Resultary: paired domination polynomial bridge recurrence coalescence",
+          "Wiley DOI for Haynes–Slater, Paired-domination in graphs"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and the cited published findings",
+        "waset:52964, official and alternate retrieval attempts",
+        "Pious–Joseph journal article 627, exact-title lookup and retrieval attempt",
+        "Haynes–Slater DOI:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F, retrieval attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen bibliography and audit identify Pious–Joseph §2.1.1, Prop. 1 as an ordinary and independent domination number of two for the same graph; the journal-page retrieval did not independently expose the article text. A scalar minimum for ordinary or independent domination imposes no matching condition and does not count larger sets. The mirror findings that do impose matching do not extend beyond P4 here."
+        ],
+        "reasoning": "None of the verified comparisons replaces the all-cardinality bridge-endpoint parity argument. The Pious–Joseph statement as documented in the frozen record is not itself a paired-domination implication. The foundational and conference papers were not independently read in full, so no whole-document noncoverage inference is drawn from their access limits.",
+        "searches": [
+          "Exact-title lookup of Pious–Joseph, On Equality and Strong Equality of Domination Number and Independent Domination Number in Graphs",
+          "Chain, fully whiskered and barbell catalogue findings",
+          "waset:52964 and ResearchGate conference-title lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day barbell catalogue records ending 46797ca24e92 and 63b734786b3e use two equal cliques joined by one bridge, but count isolate-dominating or restrained dominating sets, respectively. In the isolate case the bridge pair is excluded, rather than the unique minimum.",
+          "The 2016 conference abstract-level result is about the exact invariant; the returned definition does not identify the dumbbell family."
+        ],
+        "reasoning": "The barbell graph alias is valid on equal clique sizes, but the neighborhood restrictions in the two records are not equivalent to an induced perfect matching. Abstract-level access does not settle coverage by the conference material.",
+        "searches": [
+          "Resultary: paired-domination polynomial dumbbell graphs two cliques bridge D_{r,s}",
+          "Resultary: D_pr = E_r E_s + x^2 Q_{r-1}Q_{s-1}",
+          "Web: paired domination polynomial (dumbbell OR barbell OR bridge OR coalescence) formula recurrence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier connected-chain-graph formula at four singleton classes gives x²+x⁴ for D_{2,2}=P4, including the unique middle edge. No larger two-clique dumbbell is bipartite and hence none is a chain graph. The separate same-day fully whiskered formula gives the same P4 specialization; the date does not order priority. The crown formula treats K_{n,n} minus a perfect matching, not this family."
+        ],
+        "reasoning": "Credit exact prior coverage of P4; it does not fix any member with at least one clique of size greater than two. The exact polynomial formula for the heterogeneous family is the comparison unit, not a single coefficient at P4.",
+        "searches": [
+          "Resultary: D_pr = E_r E_s + x^2 Q_{r-1}Q_{s-1}",
+          "2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528",
+          "2026/10/13/SCOPE-even-cycle-obstruction-to-the-matching-form-of-whiskered-paired--bb4750808ce7",
+          "2026/10/13/SCOPE-paired-domination-polynomial-of-crown-graphs--c9f89f4eddc8"
+        ]
+      },
+      "rationale": "The claim is supported for the two-parameter family as a whole, with the P4 base case previously covered and with no claim to introducing paired domination or its polynomial. The compared full statements provide exact formulas on different classes, on only the P4 intersection, or for a different invariant on the same graph. No inspected source yields the full clique-bridge formula.",
+      "residual_risks": [
+        "Conference material or inaccessible foundational text may contain a relevant formula or recurrence; no whole-document negative assessment is made of either. A general bridge or coalescence treatment under different terminology remains possible.",
+        "Some literature uses dumbbell for two cycles joined by a path; that is not the graph adjudicated here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_P4_SPECIAL_CASE_ONLY",
+          "evidence": "Four singleton classes specialize to P4, with polynomial x²+x⁴ and the middle-edge minimum.",
+          "identifier_or_url": "2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528",
+          "material_read": "RESULT.md Finding and connected-chain coefficient formula",
+          "method": "Published record mirror",
+          "title": "Paired-domination polynomial of chain graphs",
+          "trigger": "Same invariant on a close graph class"
+        },
+        {
+          "assessment": "SAME_DAY_P4_OVERLAP_NO_PRIORITY_INFERRED",
+          "evidence": "P4 is W(K2); the formula includes its x²+x⁴ but not the larger clique dumbbells.",
+          "identifier_or_url": "2026/10/13/SCOPE-even-cycle-obstruction-to-the-matching-form-of-whiskered-paired--bb4750808ce7",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record mirror",
+          "title": "Even-cycle obstruction to the matching form of whiskered paired domination",
+          "trigger": "Potential general paired-domination enumeration via graph operations"
+        },
+        {
+          "assessment": "GRAPH_HYPOTHESIS_NOT_MET",
+          "evidence": "The formula requires complete adjacency between independent parts, incompatible with a single bridge between these cliques.",
+          "identifier_or_url": "2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record mirror",
+          "title": "Paired-domination polynomial of complete multipartite graphs",
+          "trigger": "All-cardinality formula for a family built from vertex classes"
+        },
+        {
+          "assessment": "SAME_SYMMETRIC_GRAPH_DIFFERENT_INVARIANT",
+          "evidence": "The bridge pair is excluded from minimum isolate-dominating sets, unlike paired domination.",
+          "identifier_or_url": "2026/10/13/SCOPE-isolated-domination-polynomial-of-barbell-graphs--46797ca24e92",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record mirror",
+          "title": "Isolated-domination polynomial of barbell graphs",
+          "trigger": "Exact barbell alias for equal cliques"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Restrained domination constrains the unselected vertices rather than requiring an induced perfect matching on selected vertices.",
+          "identifier_or_url": "2026/10/13/SCOPE-restrained-domination-polynomial-of-barbell-graphs--63b734786b3e",
+          "material_read": "RESULT.md Finding",
+          "method": "Published record mirror",
+          "title": "Restrained-domination polynomial of barbell graphs",
+          "trigger": "Exact graph alias and similar polynomial title"
+        },
+        {
+          "assessment": "FULL_MATERIAL_NOT_INDEPENDENTLY_READ",
+          "evidence": "The accessible search evidence defines the invariant but does not specify the families or formulas. The frozen audit reports a one-page abstract read; that record is not an independent reinspection.",
+          "identifier_or_url": "https://publications.waset.org/abstracts/52964/introduction-to-paired-domination-polynomial-of-a-graph",
+          "material_read": "Search-returned definition only; publisher abstract page and PDF, and alternate ResearchGate page not retrievable",
+          "method": "Bounded literature search and lawful OA retrieval attempts",
+          "title": "Introduction to Paired Domination Polynomial of a Graph",
+          "trigger": "Same invariant and a claim of standard-family computations"
+        },
+        {
+          "assessment": "RECORDED_EXACT_OBJECT_DIFFERENT_INVARIANT_FULL_TEXT_NOT_RECHECKED",
+          "evidence": "The frozen record describes the proposition as ordinary/independent domination number two, not a perfect-matching enumeration.",
+          "identifier_or_url": "https://journals.christuniversity.in/index.php/mapana/article/view/627",
+          "material_read": "Title returned; publisher article passage not independently retrieved; frozen AUDIT.json identifies §2.1.1 and Proposition 1",
+          "method": "Exact-title search and lawful journal-page retrieval attempt; comparison to recorded proposition distinguished from inspection",
+          "title": "On Equality and Strong Equality of Domination Number and Independent Domination Number in Graphs",
+          "trigger": "Same dumbbell graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:27–44",
+        "Earlier chain-graph Finding covering P4"
+      ],
+      "rationale": "The graph is a natural two-block example in domination theory. The exact enumerator explains how a cut edge changes joint parity across the blocks and separates the bridge pair from all other minimum ordinary cross-clique pairs, giving all coefficients at heterogeneous clique sizes rather than only an extremal number. The reusable even/odd split is the substance beyond the previously covered smallest example.",
+      "residual_risks": [
+        "No bridge formula for arbitrary blocks or for two cliques joined by a longer path is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

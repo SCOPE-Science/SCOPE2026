@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:25:23.886326Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38 and independent inspection of VERIFICATION.md and fermat_quartic_cube_check.py without executing the uploaded script",
+        "Independent exact field enumeration replay: /workspace/branches/0e9990df-b53e-4e80-8f4f-b35be3a15022/repro_f625_independent.py, output repro_f625_independent.out in the same directory"
+      ],
+      "rationale": "On Z=1, fourth powers lie in a cyclic subgroup of order 156 with fibers of size four. The two coordinates' fourth powers sum to −1; the corresponding degree-41 gcd is separable and splits over K. The character χ(x)=x^208 satisfies χ((uv)^4)=χ(uv), so χ(AB) tests the product class on every fiber; the second gcd picks out precisely the five displayed A values, with B=−1−A. Independent exact field enumeration confirms all 41 ordered pairs and the 5,18,18 split, lifting to 80,288,288. The diagonal μ₄² action is free on the torus, its elements preserve the class, and Frobenius exchanges the nontrivial classes. The boundary consists of twelve distinct K-rational simple coordinate-section intersections, since −1 is a fourth power. The divisor of XY/Z² has eight simple zeros and four double poles, so the degree-three extension is nontrivial even geometrically, with tame total ramification at exactly those twelve points. Riemann–Hurwitz using g(C)=3 gives 2g(D)−2=36. On the torus there are three rational lifts of each cube-class point and none otherwise; each rational ramified point has one, giving 252.",
+      "residual_risks": [
+        "The arithmetic is exact for the specified fixed field; it gives no distribution theorem over other fields. No class is assigned on the coordinate boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corollary 1.1 covers arbitrary q in precisely i∈{1,2,3}, excluding the target. The two local summaries concern p-rank of Ciani quartics and determinantal representations of the Fermat quartic, not cubic-product distributions."
+        ],
+        "reasoning": "Increasing q does not enlarge the corollary's extension-degree range. Same curve or characteristic alone does not determine the character partition. General base point-count methods, even if they return 668, provide only the sum of the three torus classes.",
+        "searches": [
+          "Voloch–Zieve Corollary 1.1 and §4",
+          "Moisio DOI:10.1016/j.ffa.2005.10.003",
+          "Local near matches 4f47b96584ec and 076f08a078f3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.1772 Corollary 1.1 and §4",
+        "Local Resultary searches for the exact class distribution and cover, including 4f47b96584ec and 076f08a078f3",
+        "Moisio DOI/publisher and targeted literature checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior example exhibits a product generating F16× at q=2, rather than enumerating any q=5 strata. The required character-weighted evaluation here is the fourth-power-pair classification under AB∈(K×)^3."
+        ],
+        "reasoning": "The cubic cover is also dominated by Fermat degree 12 via (a,b)↦(a³,b³,ab), so its counts admit a diagonal-character approach. Such a framework does not on its own evaluate the factors or determine the five pairs; no matching evaluated specialization was established. Riemann–Hurwitz and the lift count are consequences once the branch data and class classification are known, not independent novelty claims.",
+        "searches": [
+          "arXiv:1310.1772 §4 fourth-extension example; comparison with diagonal-cover and character-sum formulations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Voloch–Zieve arXiv:1310.1772 Corollary 1.1 is the identical XYZ cube class problem for i≤3; §4 gives a fourth-extension counterexample for q=2. Searches included the equivalent split-point count for the cubic cover."
+        ],
+        "reasoning": "Rescaling changes XYZ by a cube; on Z=1 the class is that of XY/Z². A cover count can recover the trivial-class cardinality and, using Frobenius, the other two cardinalities, but does not itself name the five diagonal orbits. Neither equivalent count for this target was found in the inspected statements.",
+        "searches": [
+          "Local Resultary for fourth-extension Fermat quartic cubic-product strata, 80/288/288, and s³=XY/Z²",
+          "Primary-literature lookup for characteristic-five/F625 Fermat quartic product classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct hit for the class table or cover count; the nearest Resultary hits are synopsis-level matches on distinct invariants. No full text or table was obtained through the Moisio lookup."
+        ],
+        "reasoning": "The decisive table would determine the character-weighted counts for this field or the rational count of the matching cover; a base Fermat curve point-count table does not do so. An uninspected Jacobi-sum table remains possible.",
+        "searches": [
+          "Local Resultary using exact counts, geometric cover equation, and fourth-extension quartic keywords",
+          "Moisio publisher/DOI recovery and targeted Jacobi-sum/field-class literature lookup"
+        ]
+      },
+      "rationale": "The distinction is the complete product-class and explicit orbit classification on the characteristic-five quartic at i=4, with its associated normalized cover count. Prior work proves that there are no nontrivial classes at i≤3 and already exhibits fourth-extension failure for q=2; neither is claimed here as new. No inspected statement or established reduction supplied the exact classification in the target regime.",
+      "residual_risks": [
+        "Moisio's full text and potential separately indexed or historical character-sum tables were not inspected. The originality decision is best-of-knowledge and does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage for smaller extension degrees; related counterexample only for a different q at degree four",
+          "evidence": [
+            "The product is a cube for i=1,2,3.",
+            "The degree-four counterexample uses q=2 and a product generating F16×."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.1772",
+          "material_read": "Corollary 1.1 on PDF page 1, offset about 1450; §4 on p. 6, offsets about 13700–14900",
+          "method": "Bounded open primary PDF passages",
+          "title": "Rational points on some Fermat curves and surfaces over finite fields",
+          "trigger": "Same degree-q−1 family and the product of coordinates, including apparent fourth-extension overlap"
+        },
+        {
+          "assessment": "Full scope not independently settled; absence of a relevant table is not inferred",
+          "evidence": [
+            "The frozen comparison describes a base point-count article; no F625 weighted class evaluation was recovered in the independent lookup."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2005.10.003",
+          "material_read": "Bibliographic and landing-page evidence, no decisive full-text passage or table",
+          "method": "DOI and publisher retrieval, bounded alternate lookup",
+          "title": "On the number of rational points on some families of Fermat curves over finite fields",
+          "trigger": "Possible relevant finite-field point count or character evaluation"
+        },
+        {
+          "assessment": "Different stated invariant, no decisive matching passage",
+          "evidence": [
+            "The p-rank hit concerns Jacobians, and the determinantal hit concerns representations and the Jacobian group."
+          ],
+          "identifier_or_url": "Resultary 4f47b96584ec and 076f08a078f3",
+          "material_read": "Returned catalogue synopses only",
+          "method": "Local Resultary search; exact mirror copies not found in the bounded lookup",
+          "title": "Exact parity-dependent p-rank strata of characteristic-five Ciani quartics; The 42 determinantal classes of the Fermat quartic",
+          "trigger": "Nearest characteristic-five quartic and same-curve index hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Voloch–Zieve Corollary 1.1 and §4",
+        "Frozen Finding and exact 41-pair independent enumeration"
+      ],
+      "rationale": "The fourth extension is the first outside the prior universal cube theorem; this specified smooth quartic gives an exact complete distribution there, not just one noncube sample. The five split orbits are an explicit geometric classification and quantify precisely where the natural cubic cover has rational lifts, a relevant fixed arithmetic invariant beyond the base curve count.",
+      "residual_risks": [
+        "The gain is a motivated fixed-field result, not an all-q failure theorem, a classification of all fourth extensions or a general new point-counting method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

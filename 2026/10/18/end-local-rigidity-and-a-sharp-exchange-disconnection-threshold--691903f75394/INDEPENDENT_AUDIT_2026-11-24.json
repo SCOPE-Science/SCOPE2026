@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:54:14.204681Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 47–65; verify_structural.py lines 65–90; verify_masks.py; both recorded outputs (inspected, not executed)",
+        "repairs/4/RESULT.md, VERIFICATION.md and verify_local_boundary.py; python3 /workspace/repairs/4/verify_local_boundary.py printed 13 full prefixes, 71 closed sets, VERIFY_OK",
+        "Independent replay: python3 /workspace/reproduce.py 4 (all 84 local seeds, full widths 3–6 and exchange distances)"
+      ],
+      "rationale": "The repaired proof establishes the original statement without assuming that outside forces can be ignored. The frozen Step 3 licenses forces entirely within a prefix, but its chronology argument does not justify omitting a force with source outside and target inside. The replacement verifies all 84 left-window seeds: the listed 13 fill the first three columns before column 3 is touched; the other 71 reach a closed configuration without ever coloring column 4. Every source in these histories has unchanged neighbors in every grid of length at least five. A closed blue set containing the seed traps every forcing order. Independently, two blue vertices can at best produce one corner L and stall. Three blue vertices forcing from an interior outer-row degree-three source away from the ends produce the same four-vertex T for each choice of blue-neighbor pair, which stalls. A corner with its neighbor makes a three-vertex L that cannot interact with a third vertex beyond the left three columns. The full seed classification and the nonadjacency of the end families follow. Independent recomputation by Floyd–Warshall recovered the listed 24 edges, radius 3 and diameter 5 of each component and the stated width-three and width-four exceptions.",
+      "residual_risks": [
+        "The 84-case certificate is finite and is used only in conjunction with the width-transfer proof. No independent Lean or expert attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-rectangle formula Z(P_s square P_t)=min(s,t) supplies the minimum size but not a description of the optimizers. The disconnected family in Example 3.1 has added leaves and only two minimum sets."
+        ],
+        "reasoning": "Knowing the size of an optimum and existence of disconnected exchange graphs does not specialize to the present graph on all optimizers.",
+        "searches": [
+          "Resultary: minimum zero forcing sets rectangular grids classification Cartesian products of paths",
+          "Chilakamarri et al. arXiv:1105.1492, §3",
+          "Geneson et al. arXiv:2009.00220, §3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1105.1492",
+        "arXiv:2009.00220",
+        "AIM 2008 (limited access)",
+        "Resultary 8f1eaf3a981b and 27af5da49cb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day cycle-power record classifies open-neighborhood deletions in C_n^k with minimum size 2k, not triples in the open rectangular grid. The path-power result gives two complete components, not the verified noncomplete 13-state component."
+        ],
+        "reasoning": "The already-established exchange rule and minimum size are background; they do not imply end locality or the exact component shape or cutoff.",
+        "searches": [
+          "arXiv:1105.1492 §3 versus the classification",
+          "arXiv:2009.00220 Example 3.1 versus the sharp cutoff",
+          "Resultary 8f1eaf3a981b and 27af5da49cb2, Finding sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geneson–Haas–Hogben arXiv:2009.00220 uses precisely the minimum-set token-jump rule but analyzes other examples; the path-powers catalogue uses the same exchange relation on different base graphs."
+        ],
+        "reasoning": "Transposing the Cartesian factors only relabels vertices. Neither taking path powers nor adding end leaves preserves the base grid and its minimum-set collection.",
+        "searches": [
+          "Resultary: three-row grid minimum zero forcing set classification P_n Cartesian P_3",
+          "Resultary: zero forcing reconfiguration graph exchange graph minimum zero forcing sets token jumping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned path-power cutoff occurs at n=k+4 with components K_k, and the cycle-power census gives a connected graph in its stable range. No matching rectangular-grid table was returned."
+        ],
+        "reasoning": "These are explicit exact censuses of different objects. Matching an isolated cutoff would not determine the 26 seeds, the component graph, or the small-width exceptions.",
+        "searches": [
+          "Resultary: sharp exchange disconnection cutoff n=5 zero forcing rectangular grid",
+          "Resultary: three-row grid minimum zero forcing set classification P_n Cartesian P_3"
+        ]
+      },
+      "rationale": "The exact minimum-set census and disconnection threshold for ordinary zero forcing on three-row open rectangular grids are distinguished from the already-known minimum cardinality and from general zero-forcing reconfiguration examples. The repair also corrects the attribution of the known cardinality formula. No equivalent coverage of the supported classification was found in the comparisons below.",
+      "residual_risks": [
+        "The complete 2008 article was not recovered and unindexed equivalent grid classifications may exist. One additional literature query was deferred; it is not a negative result. This is a best-knowledge comparison, not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum size; does not supply the census in the inspected statements",
+          "evidence": [
+            "The grid passage credits reference [1], the 2008 AIM paper, for the size formula; Theorem 3.1 concerns iteration index."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1105.1492",
+          "material_read": "PDF p. 6 §3 and p. 12 reference list (offsets 22950, 43700)",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Iteration Index of a Zero Forcing Set in a Graph",
+          "trigger": "Primary rectangular-grid comparator"
+        },
+        {
+          "assessment": "Definition and other examples are prior; no covering statement in inspected passages",
+          "evidence": [
+            "Example 3.1 uses K_r square P_3 with extra leaves and the two end leaf-sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+          "material_read": "PDF p. 1 abstract and p. 5 Example 3.1 (offsets 393, 14532)",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same exchange rule and prior disconnected examples"
+        },
+        {
+          "assessment": "Analogous transition in a distinct family",
+          "evidence": [
+            "At n=k+3 the two cliques are joined by a bridge; for n>=k+4 they are disjoint."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 SCOPE 8f1eaf3a981b",
+          "material_read": "Mirrored RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A connectivity dichotomy for minimum zero forcing on powers of paths",
+          "trigger": "Closest catalogue connectivity transition"
+        },
+        {
+          "assessment": "Distinct object and conclusion, regardless of date",
+          "evidence": [
+            "For n>=2k+3 the C_n^k minimum sets have size 2k and their exchange graph is connected."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 SCOPE 27af5da49cb2",
+          "material_read": "Mirrored RESULT.md Finding offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Minimum zero-forcing-set census and token-jumping connectivity on powers of cycles",
+          "trigger": "Strong same-date catalogue analogue"
+        },
+        {
+          "assessment": "Credit the cardinality result; full coverage cannot be ruled out on this basis alone",
+          "evidence": [
+            "ArXiv:1105.1492 §3 assigns the cardinality result to this paper."
+          ],
+          "identifier_or_url": "AIM Minimum Rank–Special Graphs Work Group, LAA 428 (2008), 1628–1648",
+          "material_read": "Landing/abstract and the later paper's explicit citation; full text not recovered",
+          "method": "OA DOI and repository attempts plus citation comparison",
+          "title": "Zero forcing sets and the minimum rank of graphs",
+          "trigger": "Primary source of the grid cardinality formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and repaired all-width classification; primary and catalogue comparisons in originality"
+      ],
+      "rationale": "Determining the optima rather than merely their size settles when an optimal initial placement can be moved from one end to the other by exchanges that never increase the number of blue seeds. The sharp stable two-component regime and complete small graph are structural information about a natural infinite family.",
+      "residual_risks": [
+        "No conclusion for wider strips or reconfiguration with extra tokens."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

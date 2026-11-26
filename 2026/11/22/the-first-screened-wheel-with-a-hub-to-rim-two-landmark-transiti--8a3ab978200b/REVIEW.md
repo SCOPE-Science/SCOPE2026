@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a positive-definite screened wheel precision, the Nyström residual covariance is exactly the inverse of the unobserved principal precision block. Differentiating its determinant gives the inverse trace. A complete dihedral-orbit comparison through seven rim vertices has been reduced to exact signed integer polynomials; the decisive seven-rim comparison has one negative constant coefficient and all remaining coefficients positive, giving exactly one positive transition. The high-screening result follows from the degree contribution in a convergent inverse expansion, and the low-screening preference for all larger wheels follows from a grounded Schur complement and explicit Green-function inequalities. The standalone exact checker reconstructs the coefficients from matrix determinants, repeats rational inversion checks, and tests the zero-screening eight-rim boundary case. The general range is proved analytically, not inferred from finite sampling.
+PASS
 
-## Originality — PASS on inspected evidence, with priority risk
+The residual covariance vanishes on observed rows and columns and equals the inverse unobserved principal precision block on the rest. Its trace is p'(mu)/p(mu), with strictly positive grounded determinants even at zero because the connected Laplacian's quadratic form is strictly positive on nonzero vectors vanishing on the landmarks. An independent incidence-matrix/characteristic-polynomial calculation (python3 /workspace/branches/independent_exact.py wheels, SymPy) matches every supplied finite determinant and comparison coefficient and verifies the exact zero-screening rows for m=7 and 8. For 4≤m≤6 every comparison with the maximally separated rim pair has strictly positive numerator, and m=3 is K4. At m=7 the two nearer rim types have positive differences from the farthest rim type; the hub-minus-farthest numerator is 2P, with negative constant and all positive higher coefficients. It has just one positive crossing, independently isolated between 0.175354708826 and 0.175354708827 by rational evaluation. Counting orbit types gives 2,5,3 optimal pairs for m=4,5,6 and 7,14,7 in the three m=7 regimes. For all m≥9 the tridiagonal inverse formulas follow from the root r+r^{-1}=3 and zero endpoint conditions. Geometric sums bound the path inverse traces and row sums as stated. The rim-pair Schur correction has denominator at most 2sqrt(5) and numerator at least 1+(m−2sqrt(5))²/(m−2) by Cauchy–Schwarz; the lower bound after subtracting the hub trace increases for m≥9 and is strictly positive at 9. Continuity extends the zero-screening preference to positive screening. The large-mu inverse expansion at fixed m has hub-minus-rim leading term (m−3)/mu² from the difference of unobserved degree sums, so the hub loses for sufficiently large mu. Uniqueness of the crossover is proved only at m=7.
 
-The 2013 leader-selection paper develops a general inverse-trace optimization framework, not the screened-wheel classification. The 2014 joint-centrality treatment gives path and cycle exact placements but not wheels with positive uniform screening. The 2009 Nyström article gives general landmark approximation bounds, not the wheel's screening-dependent optimizer. A closely matching published wheel result *does* establish the zero-screening hub-transition at seven rim vertices; that fact is explicitly treated as prior work and independently used to motivate the new question. It does not determine the positive-screening polynomial threshold, uniqueness of its crossing, or fourteen equality placements. Searches under inverse-trace leaders, screened Laplacians, Gaussian conditional variance, hub–rim wheel placement and Nyström terminology found no source covering the complete new claim. This is not a guarantee that unindexed mathematical literature lacks an equivalent result.
+## originality
 
-## Value — PASS
+PASS
 
-The object is the smallest wheel displaying a change of optimal two-sensor geometry under a physically natural regularization, not a randomly selected small instance. The sharp transition quantifies when measuring a high-degree hub loses its advantage, and the all-size theorem shows this screening-driven reversal is a persistent network phenomenon. A complete classification at the minimal size, exact equality multiplicities and a reusable grounded-determinant method provide a meaningful structural benchmark for covariance approximation and network monitoring. No performance benefit outside this exact model is claimed.
+The positive-screening classification of two landmark sets is distinct in the inspected evidence. An earlier wheel result establishes the exact zero-screening classification. The strongest same-day positive-screening comparison treats one landmark on cones, including wheels, rather than the two-landmark decision; another treats budgets on stars, not wheels. Their date does not establish priority or equivalent coverage.
 
-## Closest sources and limits
+## value
 
-- Lin, Fardad, Jovanović (2013), arXiv:1302.0450: general leader-selection objective and relaxations.
-- Fitch, Leonard (2014), arXiv:1407.1569: general joint centrality and path/cycle equality cases.
-- Belabbas, Wolfe (2009), arXiv:0906.4582: general Nyström landmark selection.
-- *Sharp hub-leader transition for two noise-free leaders on wheel graphs* (2026): full zero-screening wheel classification; positive-screening results are outside its statement.
+PASS
 
-The theorem proves a unique screening crossing only for seven rim vertices. For larger wheels it proves small/large-screening preferences but leaves the full intermediate phase diagram open. Independent mathematical review and complete bibliographic priority checking have not been performed.
+The smallest positive-screening switch on a simple family is a motivated boundary, distinguished from the known unscreened transition by competing pair geometries at fixed m. The exact crossover and tie structure quantify when a high-degree hub loses against separated rim measurements. The result across all larger wheels shows the reversal is not an isolated small calculation, while leaving intermediate regimes open.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

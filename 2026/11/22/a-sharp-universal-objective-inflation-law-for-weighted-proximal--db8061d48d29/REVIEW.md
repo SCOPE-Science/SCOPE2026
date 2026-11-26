@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central assertion is the exact all-data, all-gauge bound \(f_b(x_\kappa)/f_b(x_*)\le(1+r)/(r+\kappa(2-\kappa))\), for \(0<\kappa<1\), \(r>0\), nonzero finite nonnegative convex positively homogeneous \(H\), and \(b\ne0\). Every quantifier and exceptional case is explicit. The support-function dual \(H=\sigma_C\) gives the exact minimizer and dual objective. Projection gives \(p\cdot q\ge0\); the factorization \((r+\kappa)^2-[r+\kappa(2-\kappa)](r+\kappa^2)=\kappa^2(1-\kappa)^2\) proves the nonnegative gap. A farthest dual-set point proves sharpness for each nonzero gauge, not merely for a single example. The iteration is contractive for the stated steps. `verify.py` passed exact rational checks on independently evaluated weighted-box cases. The numerical tests are not substituted for the proof.
+PASS
 
-## Originality — PASS, with historical limitations
+The finite sublinear penalty is the support function of a compact convex C containing zero and having a nonzero point. With A=1+r, B=r+κ, D=r+κ(2−κ), p=Π_C(κb) and q=κb−p, the projection inequality gives p·q≥0 and H(q)=p·q; weighted stationarity then gives xκ=q/B. The true optimal value is ||b||²/2−dist(b,C)²/(2A), bounded below by L=||b||²/2−||b−p||²/(2A). Direct evaluation and B²−D(r+κ²)=κ²(1−κ)² give (A/D)L−f_b(xκ)=(1−κ)²(B p·q+r||q||²/2)/(DB²). Equality thus needs q=0 and tightness of the projection lower bound, giving exactly κb=Π_C(b)∈C. For a norm-maximizer p in C, p·(c−p)≤0 for every c in C, so b=p/κ realizes that equality and is nonzero. A direct scalar check with H=|x| and b=1/κ gives xκ=0 and denominator D/(2Aκ²). The general denominator is positive for b≠0 by the ridge-only lower bound. Completing the square in the proximal step and using nonexpansiveness gives contraction factor (1−κβ)/(1+rβ) with the stated fixed point. The claimed strong-quasar parameter also checks directly against Definition 2.1: the quadratic terms cancel after substitution and leave (1−κ)tH(x). Supplied verification code was inspected, not run; finite box examples do not establish the all-gauge statement.
 
-The October 2026 motivating work [1] explicitly distinguishes the optimized weighted objective from the comparison objective and derives distance-to-minimizer estimates, but does not state a sharp unweighted *objective ratio* or an all-gauge geometric equality theorem. Its quadratic bias examples do not imply a universal worst-case value comparison with exact saturation for every gauge. Zou and Hastie [2] derive orthogonal-design elastic-net shrinkage, which handles the box dual set but neither arbitrary convex dual geometry nor the universal worst-case ratio. Balcan et al. [3] characterize elastic-net validation loss as piecewise rational in tuning parameters; that is a different risk quantity and a narrower model class. Related thresholding and duality findings do not establish the comparison. Search incompleteness and potentially unnoticed formulations remain historical-priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-Weighting the data-fit gradient is an explicit mechanism in [1]; it changes the objective being optimized. A sharp loss inflation factor assesses whether proximity to a weighted critical point translates into good value for the intended unweighted objective. Here the result is uniform over all ambient dimensions and all nonzero convex gauges, yet attainable for every individual gauge. This geometry-independence and complete sharpness are more than a scalar threshold calculation. The formula quantifies how ridge curvature buffers the mismatch; for vanishing ridge it tends to \(1/[\kappa(2-\kappa)]\). It is an exact optimization-quality benchmark, not a result about general nonconvex penalties or stochastic estimates.
+The weighted proximal iteration, its distinction from optimization of the unweighted target, and the projection/thresholding tools are existing material. The distinct supported claim is the exact objective-value worst case, with same-factor attainment for every admissible geometry and a full equality criterion. The closest inspected primary result and matching catalogue candidates do not cover that comparison.
 
-## Closest literature and limits
+## value
 
-[1] Brito, Lara and Yuan, *A Proximal Gradient Method for Nonconvex Nonsmooth Optimization with Applications*, arXiv:2610.32750 (first public 2026-10-23), especially Algorithm 1, Theorem 3.15, Examples 3.16–3.17 and Section 4. [2] Zou and Hastie, *Regularization and Variable Selection via the Elastic Net*, JRSS B (2005), Sections 2–3. [3] Balcan et al., *Provably Tuning the ElasticNet across Instances*, NeurIPS 2022; the available abstract was consulted, not its full paper. The theorem assumes isotropic quadratic fidelity, an exact proximal update, positive ridge and a finite convex one-homogeneous penalty. No independent mathematical audit or exhaustive historical-priority determination has been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This quantifies a documented algorithm/objective mismatch by a dimension-free, sharp performance benchmark rather than a bound on displacement. Attainment for every gauge distinguishes the result from a bad scalar counterexample and shows the gap cannot be improved merely by knowing the gauge geometry. The projection criterion also gives an exact diagnostic of extremal data; simple convex tools do not by themselves supply that sharp calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

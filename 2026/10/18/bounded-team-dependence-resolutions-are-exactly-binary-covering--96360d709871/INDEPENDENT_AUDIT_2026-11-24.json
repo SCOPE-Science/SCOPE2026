@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:30:37.981833Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For r>=2, each truth set in an admissible flat disjunction excludes every conflicting pair (same predictor, opposite output), hence is a partial graph. Extending it to a total graph does not create a false-positive team. Every size-s partial graph, s=min(r,2^k), must extend to a selected total graph; this is exactly coverage of all s-column patterns. Conversely each valid smaller partial graph can extend to size s, and the rows are classically definable graph formulas. For r=1 the tautology works, while zero disjuncts cannot accept a singleton. Full strength needs every row. The exact strength-two formula is supported by Lawrence et al.; Stirling gives a maximum column count of order 2^N/sqrt(N) and the claimed inversion. At strength three on four columns, the eight required patterns and the even-parity extension prove optimality. The independent replay python3 /workspace/independent_checks.py (check 5) optimized directly over arbitrary flat truth sets for six (m,r) pairs, considering 318 teams in total, including both endpoints and the full k=2 profile. This is corroboration, not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General DNF gives expressive completeness, not the minimum number of disjuncts valid only for small teams. Covering arrays optimize complete binary rows without a team-semantics interpretation."
+        ],
+        "reasoning": "To combine the sources one must derive both why arbitrary admissible disjuncts can be enlarged to complete rows and why completeness at the largest tested size suffices.",
+        "searches": [
+          "Yang–Väänänen Lemma 3.1 and Theorem 1.7",
+          "Lawrence et al. Sections 2 and 3.2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen record and checker",
+        "arXiv:1412.7998v3",
+        "arXiv:2606.31860",
+        "DOI:10.37236/571",
+        "Local indexed obstruction findings dated 2026/10/18, 2026/10/25 (13398e72e3fc) and 2026/11/8 (3104d9c726df)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Testing only bounded teams still permits a disjunct to describe a total dependency graph larger than the tested size, so taking the maximal teams in the truncated family is not a width proof."
+        ],
+        "reasoning": "The pair obstruction, total extension of supports and all-pattern matching identify the optimum rather than just converting syntax or invoking full DNF. Once that identification is made, the asymptotic and finite cases follow from known combinatorics.",
+        "searches": [
+          "Compare Yang–Väänänen downward-closed DNF to the frozen proof at lines 31–37; compare covering-strength definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Found indexed split-disjunction obstruction results, not flat-global-disjunction width",
+          "Yang–Väänänen DNF uses subteams of specified sets and unrestricted equivalence"
+        ],
+        "reasoning": "Changing splitting to global disjunction changes the operation and the optimization target. No equivalent width theorem was found in the inspected normal form or indexed alternatives.",
+        "searches": [
+          "Local Resultary searches for bounded teams, dependence resolutions, global disjunction and covering arrays",
+          "Yang–Väänänen Section 3",
+          "Barbero et al. finite-variable semantics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binary strength-two optimum has the stated binomial formula. For four columns, 5 and 8 are the standard strengths two and three optima; full strength requires 16."
+        ],
+        "reasoning": "These numbers alone are not novel. They measure team-resolution width only via the bidirectional bridge, not through a lookup of the same logical invariant.",
+        "searches": [
+          "Lawrence et al., survey §3.2.1; indexed exact team-obstruction results"
+        ]
+      },
+      "rationale": "Pass is for the exact minimum-width correspondence under the bounded-team semantics, including why the singleton case differs. The covering-array optima and normal-form semantics are known ingredients, not independent originality claims.",
+      "residual_risks": [
+        "Focused catalogue and cited-source comparisons are not exhaustive; similar optimization may appear under partial-assignment hitting families or other width terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational but no bounded-team minimum in inspected result",
+          "evidence": "Arbitrary downward-closed team properties have a DNF using subteam conditions; no minimum cover of bounded partial graphs is asserted.",
+          "identifier_or_url": "arXiv:1412.7998v3",
+          "material_read": "Section 3, Lemma 3.1 and proof of Theorem 1.7, PDF p. 12",
+          "method": "Open-access PDF passage inspection",
+          "title": "Propositional Logics of Dependence",
+          "trigger": "Foundational DNF might determine the optimization"
+        },
+        {
+          "assessment": "Semantic definitions, no matching width theorem in inspected passages",
+          "evidence": "The semantics distinguish global and splitting disjunction, dependence and flat formulas.",
+          "identifier_or_url": "arXiv:2606.31860",
+          "material_read": "PDF pp. 2–3",
+          "method": "Open-access PDF passage inspection",
+          "title": "Labelled Sequent Calculi for Propositional Team Logics",
+          "trigger": "Same operators and finite-atom teams"
+        },
+        {
+          "assessment": "Known exact formula, not team-width identification",
+          "evidence": "Minimum row count given by the inverse of binomial(N-1,ceil(N/2)) for the binary strength-two problem.",
+          "identifier_or_url": "DOI:10.37236/571",
+          "material_read": "§3.2.1, PDF p. 9",
+          "method": "Open-access PDF passage inspection",
+          "title": "A Survey of Binary Covering Arrays",
+          "trigger": "Exact strength-two formula"
+        },
+        {
+          "assessment": "Distinct invariant",
+          "evidence": "A minimal failing-team size bound for lax splitting, rather than outer flat disjunct count for a single dependence atom.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-exponential-forbidden-subteam-width-for-disjunctions-of-di--6a71ab201cb7",
+          "material_read": "Finding and the type of disjunction and obstruction",
+          "method": "Local Resultary mirror",
+          "title": "Sharp exponential forbidden-subteam width for disjunctions of distinct constancy atoms",
+          "trigger": "Closest same-day bounded-team width terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a fundamental propositional dependence atom this gives an exact formula-size invariant restricted by the amount of information available to a team. The reduction transfers sharp array bounds and constructions at every strength without falsely claiming a closed form for unknown higher-strength optima; it separates the singleton, pairwise and saturated regimes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

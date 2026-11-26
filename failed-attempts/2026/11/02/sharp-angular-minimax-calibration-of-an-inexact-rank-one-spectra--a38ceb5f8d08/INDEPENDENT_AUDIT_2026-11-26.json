@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:30:53.694921Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:25–89",
+        "verify.py:11–93, inspected but not run",
+        "VERIFICATION.md"
+      ],
+      "rationale": "In the Ritz basis the congruence has diagonal entries θ and σ=1+(κ−1)r, r=sin²φ, and determinant κθ/ρ, ρ=κ−(κ−1)r. Its eigenvalue ratio is strictly ordered by F=(θ+σ)²ρ/(κθ). For fixed r the unique minimum is θ=σ; apply this lower bound at R=sin²Φ. At θ=σ(R), the derivative in r has the sign of 2ρ−θ−σ, positive for r<R≤1/2 because ρ(r)≥θ≥σ(r). This attains the endpoint lower bound, including the singleton Φ=0 and the derivative-zero endpoint at Φ=π/4. The endpoint matrix has equal diagonals and squared correlation z/(1+z), which gives the exact condition number, interpolating from 1 to κ. For θ=1, subtracting the unpreconditioned invariant with denominators cleared gives (κ−1)²(1−r)((κ−1)r²+3r−1), whose unique positive root yields the strict cutoff. Its angular scale is κ^(−1/4); z is comparable to κΦ² at large κ on the admitted range and tends to c² for sqrt(κ)Φ→c. These are exact-arithmetic statements in dimension two.",
+      "residual_risks": [
+        "No higher-dimensional or finite-precision conclusion follows, and the result concerns spectral conditioning rather than total solver performance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier pointwise Q(q,r) is valid for every q>0 and every angle, so it evaluates the entire Rayleigh-normalized curve at q=θ/ρ(r).",
+          "The primary papers supply related LMP normalization, scaling and PCG objectives; the exact mathematical coverage used here is the October 12 result."
+        ],
+        "reasoning": "The earlier fixed-q minimax statement alone is for a different decision variable, but the full pointwise formula and the known fixed-q minimax optimizer together yield the frozen answer.",
+        "searches": [
+          "Resultary d5c120ddf620 exact two-parameter loss and minimax theorem",
+          "arXiv:2605.23571v2 §3.1, arXiv:2603.28969v1, arXiv:2410.02204"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d5c120ddf620 and 47c0a3c03a86",
+        "arXiv:2605.23571v2 §3.1",
+        "arXiv:2603.28969v1 scaling and error sections",
+        "arXiv:2410.02204 spectral LMP and PCG scaling sections",
+        "DOI 10.1137/040617546, retrieval unsuccessful"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In frozen notation the prior pointwise optimum is q_min(r)=σ(r)/ρ(r); the loss increases in q above that optimum by its explicit trace-determinant formula. The earlier minimax fixed q is q_R=σ(R)/ρ(R)≤1 for R≤1/2.",
+          "Along θ=σ(R), σ(r)/ρ(r)≤σ(R)/ρ(r)≤q_R for every r≤R. Thus Q(θ/ρ(r),r)≤Q(q_R,r)≤Q(q_R,R), and the endpoint itself supplies the matching universal lower bound and uniqueness.",
+          "For θ=1, inserting q=1/ρ(r) in the earlier full loss and comparing with Q(1,r) is equivalent to the displayed quadratic sign test after a positive factor is removed."
+        ],
+        "reasoning": "The first inequality certifies the varying-scale family, which the earlier fixed-q theorem does not state. This short domination argument and the one-curve algebraic substitution make the frozen formulas direct corollaries of the earlier results, not merely similarities of numerical outputs.",
+        "searches": [
+          "Resultary d5c120ddf620 Proof steps 1–5 (explicit full loss, pointwise optimizer and monotonicity)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier loss is the worst squared first-step PCG energy contraction Q=((K−1)/(K+1))², a strictly increasing function of the same spectral condition number K.",
+          "That record fixes q in I+(q−1)uuᵀ, while the frozen record fixes θ and uses q=θ/ρ(r)."
+        ],
+        "reasoning": "The objective is order-equivalent exactly, not merely asymptotically; the distinction that needs checking is how the scalar varies with angle.",
+        "searches": [
+          "Resultary semantic searches for two-mode uncertain-angle rank-one spectral preconditioning and exact deterioration",
+          "2026/10/12 Resultary record d5c120ddf620, Finding and Proof steps 1–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d5c120ddf620 gives Q*=z/(1+z) up to 45°, including the raw value at the boundary; this is exactly the frozen K* after conversion. It already gives the fourth-root versus square-root angular scales.",
+          "Same-day Resultary 47c0a3c03a86 gives a Nyström deterioration event with a different, non-Rayleigh scale and is not the basis of rejection."
+        ],
+        "reasoning": "This is continuous, so an exact finite table is not the relevant form of evidence; the indexed closed form is the direct match in value and scales.",
+        "searches": [
+          "Resultary semantic search for exact angular minimax value, barrier, and rank-one Nyström deterioration"
+        ]
+      },
+      "rationale": "The October 12 Resultary result supplies the full pointwise loss for every rank-one multiplier and the same sharp minimax value and angular scales for a fixed multiplier. A fixed Rayleigh-normalized target is a different family, so equating the two optimizations by substitution alone would be wrong. Nevertheless the frozen optimum follows directly by pointwise domination from the earlier theorem, and the remaining cutoff follows by substitution in its exact loss formula. There is no independent performance law left over.",
+      "residual_risks": [
+        "The scope of the Giraud–Gratton paper is unverified; the demonstrated implication is independent of it.",
+        "This comparison does not infer priority between same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematically dominating with its joint loss formula and sharp fixed-q benchmark",
+          "evidence": "Q=1−4 det(B)/tr(B)²; pointwise q_min is the ratio of Ritz-frame diagonal entries, and fixed q_R attains the sharply optimal worst-angle value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-angle-uncertainty-frontier-for-rank-one-spectral-pcg-preco--d5c120ddf620/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof steps 1–5, offsets 0–7283",
+          "method": "Configured local mirror",
+          "title": "Sharp angle-uncertainty frontier for rank-one spectral PCG preconditioning",
+          "trigger": "Same two-mode angular uncertainty and exact value"
+        },
+        {
+          "assessment": "Related but different scale family",
+          "evidence": "Normalization is by the estimated Nyström eigenvalue rather than a Rayleigh quotient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-exact-gaussian-deterioration-frontier-for-a-two-mode-nystr-m--47c0a3c03a86",
+          "material_read": "RESULT.md offsets 0–6318",
+          "method": "Configured local mirror",
+          "title": "The exact Gaussian deterioration frontier for a two-mode Nyström preconditioner",
+          "trigger": "Exact deterioration frontier for the same dimension"
+        },
+        {
+          "assessment": "Model background",
+          "evidence": "Defines and discusses scaled spectral LMP; the inspected equations do not give the exact minimax theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2605.23571v2",
+          "material_read": "§3.1, equations (7)–(8), around OA offset 19000",
+          "method": "OA HTML passage inspection",
+          "title": "Accelerating an ensemble of variational data assimilations with randomized preconditioning",
+          "trigger": "Scaled spectral LMP and approximate Ritz inputs"
+        },
+        {
+          "assessment": "Scope unresolved, not a basis for rejection",
+          "evidence": "No source passage was available to test the frozen characterization.",
+          "identifier_or_url": "https://doi.org/10.1137/040617546",
+          "material_read": "Citation only; the DOI route and the cited author copy did not yield readable full text",
+          "method": "Lawful DOI and cited author-copy retrieval attempts",
+          "title": "On the Sensitivity of Some Spectral Preconditioners",
+          "trigger": "Same sensitivity question in spectral preconditioning"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The robustness problem and sharp angle scales are useful, but the earlier result already gives the performance law and those scales. The different parameterization adds a short domination corollary and a cutoff obtained by direct substitution into the known joint formula, rather than a distinct invariant requiring a new argument of independent use.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

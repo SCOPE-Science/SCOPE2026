@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses the roots of the three-angle Chebyshev cubic to reduce all phase comparisons to the sign of an ordinary second divided difference, and checks the required derivative signs for exponential and log-detection functions. A common random effort mixture is handled by conditioning; it is not falsely treated as independent across species. The unique finite effort scale follows from a strictly decreasing hyperbolic equation. The embedded reproducible checker supplements the universal proof with 34,603 finite numerical assertions.
+## correctness
 
-**Originality — PASS on inspected evidence, with provisional priority.** Rounds et al. (2024), Takahara et al. (2019), and Bedwell and Goldberg (2020) were inspected in substantial open-access primary text. They establish biological seasonality and sampling motivation but not the exact symmetric three-target stochastic theorem. Published mathematical-result searches for three-phase harmonic and species-richness equivalences returned related but nonidentical accessible summaries; a few full-text comparisons remain unavailable. Standard divided-difference mathematics is cited as proof technique rather than a new standalone result. No claim of certified historical uniqueness is made.
+PASS
 
-**Value — PASS.** The exact opposition between expected richness/all-three coverage and at-least-two coverage is a meaningful consequence of differing survey objectives, and the independence of any-positive coverage makes the contrast particularly sharp. Common-efficiency robustness and the uniquely optimal effort contrast provide a useful analytical benchmark for survey design. The stylized equidistant sinusoidal rates are not field-fitted, so no direct field management recommendation follows.
+The unordered cosine values are precisely the roots of 4X³−3X−c=0. For |c|<1, differentiating the symmetric sum gives b/4 times the second divided difference of x↦g′(a+bx), so the derivative has the sign of g‴. With g(u)=exp(eu), g(u)=exp(−eu), and g(u)=log(1−exp(−eu)), the signs are +, −, +, respectively. Applying these to the exactly-one probability, expected richness and all-three probability gives the stated strict increase in c; the complement of zero-or-one and then subtraction give the two strict decreases. The no-detection probability is exp(−3ae), independent of phase. Continuity at the repeated roots gives strict order up to the endpoints, and a phase-independent efficiency mixture preserves strictness because e>0 has positive probability. Direct endpoint substitution gives the stated contrast. Its logarithmic derivative decreases strictly from +∞ to b−2a<0, and the expansion at zero gives b³e³/4. The maximizing phase congruences follow from the endpoints of cos(3θ).
 
-Closest literature and limitations: Rounds et al., *Freshwater Biology* (2024), DOI https://doi.org/10.1111/fwb.14320; Takahara et al., *Freshwater Science* (2019), DOI https://doi.org/10.1086/707365; Bedwell and Goldberg, *Ecology and Evolution* (2020), DOI https://doi.org/10.1002/ece3.6014. See RESULT.md for explicit model assumptions, full proof, and limitations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The standard divided-difference identity and conditional Poisson formulas are not new. The supported distinct finding is the joint strict ordering of different count objectives for the symmetric three-target model, including its robustness to common phase-independent efficiency and the exact deterministic-effort contrast. The strongest inspected same-day sampling records have different objects, optimization variables and objectives; they do not cover this classification.
+
+## value
+
+PASS
+
+The exact order shows why a season that is optimal for expected richness or detection of all three can be worst for detection of at least two, even when shared sampling quality is random. This supplies a concrete design distinction that cannot be obtained merely by comparing mean intensity, which is constant when summed. The effort contrast quantifies when that design choice matters most under the model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

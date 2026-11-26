@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:49:09.216912Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Ultrahomogeneity classifies types by an admissible downset and upset over the named vertices; when both are nonempty, every cross-pair must be present. Ideals are encoded by an omitted subset of A and an included subset of B whose cross-pairs are all missing. This gives the finite formulas, including isolated points and p=0,1. The mixed missing-edge contribution to J_n has mean at most q_n^(-1)((1+q_n)^n−1)^2=o(2^n). For W_{n,k}, the factor (1+p_n^k)^n/2^n is asymptotic to n^(−k)exp(−kt/2). For overlap r>0, a column contributes 1+2p_n^k+p_n^(2k−r); relative to the product mean this gives exp(n r q_n/4+O_k(n q_n²))=O(n^(r/2)), and O(n^(2k−r)) pairs yield a normalized variance O(n^(−1/2)); disjoint sets have zero covariance. For the tail, after halving by shore symmetry, for i≤n^(3/5) the normalized summand is at most (C_t/i)^i since n q_n² i=o(1); for n^(3/5)<i≤n/log n, the combinatorial log cost −i log i wins over (1/2+o(1))i log n. In the next range H(.1)≈.325<log(2/(1+e^(−2)))≈.566. If both shores exceed n/10, the exponential edge penalty beats 4^n. Thus the normalized expected double-large tail vanishes as K→∞. Finite-k opposite-orientation overlap is polynomially bounded, so ties have vanishing probability; individual fringe masses converge and their tails are tight. Since M_n/2^n tends to a positive constant for every fixed finite t, the conditional TV distance converges to zero in probability (not an almost-sure claim).",
+      "reproduction": {
+        "command": "python3 /workspace/branches/f4d66216-57a2-4ac1-836d-bafb55a9bf5d/independent_enumeration.py",
+        "evidence": "All 2, 16 and 512 labelled graphs through shore size three, ideal enumeration and direct ternary-profile transitivity matching the two counts. Exact (E J_n,E M_n) at p=1/2: (7/2,1/2), (161/16,49/16), (13009/512,5329/512). Frozen script inspected, not executed. The bounded census is not evidence for infinite-size concentration or tail control.",
+        "output": "/workspace/branches/f4d66216-57a2-4ac1-836d-bafb55a9bf5d/independent_enumeration_output.txt"
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two sources work with regular bipartite graphs (including prescribed expansion for the cluster formula); the latter supplies conditional polymer/side control, not a general Bernoulli-irregular host theorem.",
+          "Perkins–Wang investigate large balanced/proportion-constrained sets in a sparse random bipartite model, not the law of the smaller side of a uniform unrestricted independent set at logarithmic degree."
+        ],
+        "reasoning": "Neither the structural hypotheses nor the claimed observables allow a substitution giving an order-one partition-function prefactor and quenched minority law for independent host edges here.",
+        "searches": [
+          "arXiv:2109.03744v1 Theorems 1–3",
+          "arXiv:2503.22255v1 Theorem 1.1 and §§3,5",
+          "arXiv:2307.13921v1 introduction/model and results overview"
+        ]
+      },
+      "checked_sources": [
+        "Resultary defect-window and single-comparability records",
+        "arXiv:1907.00862",
+        "arXiv:2109.03744v1, introduction and Theorems 1–3",
+        "arXiv:2503.22255v1",
+        "arXiv:2307.13921v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier defect window deletions form a matching with high probability; at q_n=(2 log n+t)/n the expected missing degree is about 2 log n, and the matching argument is not transferable.",
+          "The cube already illustrates the same minority Poisson mechanism but with a different edge geometry and tuning of fugacity rather than random edge density."
+        ],
+        "reasoning": "None of those theorems implies the required quenched order-2^n asymptotic or equal-oriented truncated law. The source proves the missing implication with an overlap second moment and an annealed remainder estimate, rather than by re-expressing a known host result.",
+        "searches": [
+          "Resultary Poisson defect window, RESULT §3–4",
+          "arXiv:1907.00862, pp.1–2",
+          "arXiv:2503.22255v1, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact deterministic identity in the Resultary single-comparability record, §1 eq. (3), reduces type counts to two complementary independent-set counts.",
+          "In the sparse missing-edge graph the target is the hard-core partition function at fugacity one, with the two pure shores excluded for the mixed-type law."
+        ],
+        "reasoning": "A theorem on the uniform independent set of this Bernoulli bipartite graph, giving the unconditioned joint minority count and partition function at order 2^n, would imply the structural part of the result after zero truncation. Thus model-theoretic vocabulary alone is not a novelty distinction.",
+        "searches": [
+          "Resultary: generic partial order singleton types near complete random height two poset independent sets sparse bipartite hard-core Poisson fringe logarithmic window",
+          "Primary literature: bipartite Bernoulli independent-set counting; hypercube Poisson minority-side defects"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching-deletion/near-complete record gives finite formulas and a 4^n-normalized law for n²q_n bounded; for n²q_n→∞ it only forces that normalization to zero.",
+          "The hypercube has the prior exact leading prefactor 2√e times 2^(2^(d−1)), and its minority size at λ=1 is asymptotically Poisson(1/2)."
+        ],
+        "reasoning": "Even matching α=1/2 to the numerical Poisson parameter and partition-function constant does not match the host. The cube is deterministic d-regular; this theorem uses an irregular random graph and identifies a continuous deletion-window response. Finite-count identities and previously known constants are not claimed as original.",
+        "searches": [
+          "Resultary near-complete bipartite one-point type defect window and one-comparability sensitivity",
+          "arXiv:1907.00862 opening Theorem 1 and summary of Galvin Theorem 1.4"
+        ]
+      },
+      "rationale": "The order-type reduction and Poisson minority-shore phenomenon are prior mathematics in their respective settings. The independently retained relation model at the specified logarithmic deletion scale, with a quenched partition-function constant and its conditional fringe distribution, is not covered in the sources examined. The relevant novelty is this random-ensemble law, not Poisson fringe behavior for all bipartite graphs.",
+      "residual_risks": [
+        "Other random bipartite hard-core results may address irregular graphs and precise, rather than exponential-order, asymptotics.",
+        "Galvin's specific minority theorem was checked via the Jenssen–Perkins account, not by separately reading its original proof. Historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers same object at different scale; weaker collapse at current scale",
+          "evidence": "Normalized T_n/4^n tends to (3/4)^Z for a tight matching defect count; expectation bounds outside this window do not resolve the 2^n normalization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-poisson-defect-window-for-one-point-types-over-near-complete-b--8812a65b39a0/RESULT.md",
+          "material_read": "Finding and proof §§1–4, OA offsets 0–9219",
+          "method": "Resultary exact local mirror",
+          "title": "A Poisson defect window for one-point types over near-complete bipartite posets",
+          "trigger": "Same random host and named types"
+        },
+        {
+          "assessment": "Structural identity prior; no critical-window law in compared result",
+          "evidence": "The count is 2i(G)+i(complement G)−2^|A|−2^|B|; its main theorem concerns a deterministic one-edge change.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-one-comparability-sensitivity-and-local-counting-hardness--9c2af418ff79/RESULT.md",
+          "material_read": "Finding and proof §§1–3, especially eq. (3)",
+          "method": "Resultary exact local mirror",
+          "title": "Sharp one-comparability sensitivity and local counting hardness for random-poset one-types",
+          "trigger": "Exact type-count equivalence"
+        },
+        {
+          "assessment": "Close analog and prior phenomenon; different host",
+          "evidence": "Theorem 1 states the cube prefactor; the authors report Galvin Theorem 1.4 with Poisson mean exp(−s/2)/2 at λ=1+s/d on Q_d.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.00862",
+          "material_read": "pp.1–2, Theorem 1 and definitions 3–4 and Galvin comparison",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Independent sets in the hypercube revisited",
+          "trigger": "Same Poisson minority-size phenomenon"
+        },
+        {
+          "assessment": "Does not directly cover irregular Bernoulli graphs",
+          "evidence": "Deterministic balanced regular expander hypothesis; minority estimates concern the polymer representation on this host, with Bernoulli sampling only of available vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.22255v1",
+          "material_read": "Theorem 1.1 (§1.1), eqs. (15)–(20) (§3), Lemmas 5.1–5.3 (§5)",
+          "method": "OA primary full text, bounded passages",
+          "title": "Counting independent sets in expanding bipartite regular graphs",
+          "trigger": "Potentially stronger polymer expansion and conditional minority law"
+        },
+        {
+          "assessment": "Different observable in inspected results overview",
+          "evidence": "Large balanced sets and algorithmic thresholds are not counts of all independent sets or a uniform-set fringe distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.13921",
+          "material_read": "Abstract and introductory model, OA offset 0–9717",
+          "method": "OA primary PDF, bounded passages",
+          "title": "On the hardness of finding balanced independent sets in random bipartite graphs",
+          "trigger": "Same Bernoulli graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The random type count cannot be read from an entropy rate or maximum biclique. At the logarithmic deletion scale this gives a nonzero quenched proportion of genuinely two-sided types and an explicit law of their typical smaller shore. The graph formulation gives a precise finite-prefactor benchmark for irregular random bipartite hard-core models, not just a change of terminology.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

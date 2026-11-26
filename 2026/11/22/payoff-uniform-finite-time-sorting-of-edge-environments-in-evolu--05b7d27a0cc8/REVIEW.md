@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The difference variables obey the displayed cooperative affine system by direct subtraction of the source's normalized equations. Its positive fundamental matrix has row-sum comparison bounds independent of the Fermi feedback. Variation of constants yields a quantitative uniform lower bound, and the explicitly defined time makes both gaps strictly positive. `checker.py` symbolically verifies the difference equations and numerically stress-tests the bound. The infinite-time statement follows from the proof, not finite simulation.
+## correctness
 
-**Originality: PASS within the inspected primary literature.** The originating 2026 paper supplies the mean-field equations but does not derive a uniform payoff-independent sorting time and gap across arbitrary initial edge-state distributions. The authors' 2024 community-edge model uses different environment coordinates; general cooperative systems give mathematical tools but no recorded same-model environmental sorting statement was found. A broader comparison theorem may subsume the proof technique, and historical priority is not independently established.
+PASS
 
-**Value: PASS.** This gives a structural restriction on all solutions, including the paper's oscillatory regimes: conditional depleted environments necessarily become and remain ranked by strategy-pair type, no matter how strongly selection distorts the strategy trajectory. The payoff-independent finite horizon and nonzero gap turn a qualitative intuition into an explicit transient bound, useful for testing numerical approximations and interpreting conditional edge measurements. It is not a generic equilibrium-only monotonicity calculation.
+Checked RESULT.md lines 28–66 against the regularized system and reconstructed the comparison. The cube is forward invariant: the cooperation derivative vanishes at x=0,1 and every environment equation points inward, including at these pure-strategy faces. Subtracting adjacent equations with m=(1−ω)x(1−ρ), n=(1−ω)(1−x)ρ gives off-diagonal coefficients n,m and row sums −2ω(p_j+q_j)−m−n for j=1,2. Here m+n≤1−ω for x,ρ∈[0,1]. Each forcing component divided by 2ω is a convex combination of a positive q-increment and p-decrement, hence at least δ. Along any trajectory the difference equation is a time-dependent linear equation with nonnegative off-diagonals, so its evolution preserves positivity even when the initial gaps are negative. Constant-vector comparison gives the row mass between e^{−L(t−s)} and e^{−μ(t−s)}. With each initial gap ≥−1, variation of constants bounds each subsequent gap below by −e^{−μt}+(2ωδ/L)(1−e^{−Lt}); the two inequalities in the definition of T make this at least ωδ/(2L). μ,L are positive under the given switching assumptions and the logarithm is well-defined. On a complete cube trajectory one may start at t−T for any real t. The estimate is only for the stated regularized deterministic system, including its auxiliary boundary coordinates, not network edge counts. checker.py was read, not executed: its symbolic identities and finite optional simulations are not an independent all-time proof.
 
-Limitations: the bound is not sharp; finite stochastic networks and sparse-graph pair closure are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass on the explicit uniform finite time and persistent lower gap for arbitrary initial environmental ordering in the regularized strategy-pair model. The source model, its oscillation results and positive-system comparison are not new. A distinct same-day finite-network finding and older payoff-independent log-odds results were compared on their actual findings, not set aside by date.
+
+## value
+
+PASS
+
+The estimate gives a model-wide restriction on possible transient and recurrent environmental behavior: even when cooperation oscillates, the steady-cycle conditional environment variables cannot tie or reverse their ranking. An explicit payoff-independent horizon and positive separation are useful beyond a statement about already ordered initial states or equilibrium only. The constants are sufficient, not claimed sharp.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:50:31.313373Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the empty labelled old base, decompose triples into per-new-vertex matchings (no repeated old edge), an internal linear triple system H, and optional witnesses for uncovered new pairs. A witness for ij must be fixed by both matchings, and simultaneous witnesses are legal exactly when no new-old pair is reused. To verify the limit, write a_n=I_n/I_{n-1}. The recurrence a_n=1+(n-1)/a_{n-1} gives the upper bound 1+sqrt(n) from the preceding lower bound; the increasing two-step map evaluated at a_{n-2}=s=sqrt(n-2) is s+2/(1+s)>sqrt(n), with n=1,2 checked directly. Thus the probability of prescribing k distinct consumed labels in one involution is asymptotic to n^(-k/2) for fixed k. In a compatible mixed factorial-moment expansion each old label is prescribed in at least two colours. If two distinct marked motifs use the same old label, it is prescribed in more than two colours: a repeated motif of the same pair of colours is excluded by the falling factorial, and different prescriptions at one label in an overlapping colour are incompatible. Such terms lose at least n^(-1/2). Disjoint motifs give independent Poisson limits of means 1 for common fixed sites and 1/2 for common transpositions (unordered endpoints), with bounded moments of every fixed order. At least three involutions must fix any repeated witness label; the probability of such a label is O_r(n^(-1/2)). Cauchy–Schwarz with the bounded second moment of the witness-choice polynomial makes the error negligible even under weighted counting. Truncation therefore justifies the no-common-edge indicator times the witness polynomial. Each fixed H and fixed subset of uncovered pairs has limiting weight exp(-m/2), giving the asserted law and conditional presence distribution. For r=5 two internal triples meet in one point (5 choices followed by one of 3 splits of the other four); a third is impossible, giving 2544 exp(-5). The nine r=3 patterns follow separately. The finite checkers and their recorded output are consistent supporting examples, not the proof of this asymptotic. No statement is made about witness-label independence, nonempty bases or growing r.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Puder–Zimhoni give general asymptotics for expected embeddings of compact sub-covers in random free-product actions, including involution factors as a specialization. Lugo treats cycle statistics of products of two involutions. Horsley treats embeddings into complete Steiner systems."
+        ],
+        "reasoning": "The sub-cover theorem provides a framework for the coincidence moment estimates; its specialization does not itself count the compatible labelled Steiner diagrams or weighted internal packings. The two-involution results do not cover all r.",
+        "searches": [
+          "arXiv:2203.12250v2 §2 Theorem 2.6",
+          "arXiv:0911.3604 introduction",
+          "arXiv:1402.2739 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.12250v2",
+        "arXiv:0911.3604",
+        "arXiv:1402.2739",
+        "Resultary:9599713a6632",
+        "Resultary:e2ec350e7d45",
+        "Resultary:7b0de98dd64c",
+        "Resultary:2b8792947fe5",
+        "Resultary:eda57004eaf5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sub-cover counts address the random involution component, not the decomposition by H, the treatment of illegal repeated new-old pairs or the law on uniform extension diagrams."
+        ],
+        "reasoning": "Even given colour-specific Poisson limits one must identify the diagram-to-matching reduction, control collision errors after weighting and sum over the uncovered pair subsets. None of the inspected prior results already implies the claimed law by a parameter substitution. The underlying probabilistic machinery is not claimed novel.",
+        "searches": [
+          "arXiv:2203.12250v2 Theorem 2.6 versus RESULT.md lines 29–66",
+          "Resultary 9599713a6632 and eda57004eaf5 versus simultaneous witness assignment"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9599713a6632 gives matchings of the leave for one-point diagrams (I_n for the empty base); 2b8792947fe5 concerns one-point pair-puncture spectra; eda57004eaf5 uses overlaps between separate one-point diagrams and does not assert simultaneous realizability."
+        ],
+        "reasoning": "Counting matchings is exactly the prior r=1 case. A tuple of separately realizable diagrams need not give simultaneous realizability, and cannot encode the internal triple packing or new-pair witnesses without additional constraints. Embedding/completion results concern another count.",
+        "searches": [
+          "Resultary 9599713a6632, 2b8792947fe5 and eda57004eaf5",
+          "web: \"partial Steiner triple system\" \"one-point extension\" matching polynomial weighted packing law all arities"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact indexed entry for the extension object is r=1. The inspected two-involution record gives Poisson component counts, and the distinct same-date one-deletion record gives Poisson motifs governing deletion diversity of a single involution; neither gives the extension constants or joint presence profiles."
+        ],
+        "reasoning": "The strongest related table/statistics hits cover either a strictly different count or only one-point diagrams. No exact equivalent higher-arity profile was found in the inspected evidence; same-day dates are not priority evidence.",
+        "searches": [
+          "Resultary one-point extension and weighted simultaneous profiles: 9599713a6632, 2b8792947fe5, eda57004eaf5",
+          "Resultary two-involution and rare-motif precedents: 7b0de98dd64c, e2ec350e7d45"
+        ]
+      },
+      "rationale": "Credit the exact one-point matching correspondence and the general random-action machinery. The supported distinct claim is the fixed-arity simultaneous-extension normalization and limiting joint profile over an empty labelled base, obtained by combining a coloured coincidence limit with a separate constrained assignment reduction and packing-polynomial sum.",
+      "residual_risks": [
+        "An unindexed equivalent through coloured matching enumeration or random lifts is possible; the broad free-product theory is close to the motif calculation. The comparison is not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior r=1, not simultaneous extensions",
+          "evidence": [
+            "One-point diagrams are matchings in the leave; the leave of an empty base is the complete graph, yielding the involution count."
+          ],
+          "identifier_or_url": "Resultary:9599713a6632",
+          "material_read": "RESULT.md local-mirror offsets 0–4818",
+          "method": "Read theorem and scope in mirror",
+          "title": "Real-rooted one-point extension spectra of partial Steiner triple systems",
+          "trigger": "Closest extension theorem"
+        },
+        {
+          "assessment": "Broad coverage of random-action machinery, not the Steiner profile",
+          "evidence": [
+            "Asymptotic expected embeddings of compact sub-covers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2203.12250v2",
+          "material_read": "Abstract and §2 Theorem 2.6, offsets 0–3199 and 70940–75440",
+          "method": "Read primary OA HTML passages",
+          "title": "Local Statistics of Random Permutations from Free Products",
+          "trigger": "Potential general theorem for marked coincidences"
+        },
+        {
+          "assessment": "Classical involution asymptotics and different statistics",
+          "evidence": [
+            "Cycle structure of the product of two random involutions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0911.3604",
+          "material_read": "Primary text p. 1, offsets 0–3474",
+          "method": "OA text reading",
+          "title": "The cycle structure of compositions of random involutions",
+          "trigger": "Classical involution enumeration and two-colour comparison"
+        },
+        {
+          "assessment": "Embedding, not finite labelled extension counting",
+          "evidence": [
+            "Embeds partial systems in complete systems under design-size conditions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.2739",
+          "material_read": "Primary text p. 1, offsets 0–2870",
+          "method": "OA text reading",
+          "title": "Embedding partial Steiner triple systems with few triples",
+          "trigger": "Possible alternative formulation through designs"
+        },
+        {
+          "assessment": "Different random variable and sample space",
+          "evidence": [
+            "Deletion diversity for a single involution rather than joint fixed sites/transpositions across a matching tuple."
+          ],
+          "identifier_or_url": "Resultary:e2ec350e7d45",
+          "material_read": "RESULT.md local-mirror offsets 0–4136",
+          "method": "Read actual indexed finding",
+          "title": "A fixed-point phase and independent Poisson mechanisms for one-deletion diversity",
+          "trigger": "Strongest same-day rare-involution-motif hit"
+        },
+        {
+          "assessment": "Not the labelled extension formula",
+          "evidence": [
+            "Poisson component counts for two independent involutions."
+          ],
+          "identifier_or_url": "Resultary:7b0de98dd64c",
+          "material_read": "RESULT.md local-mirror offsets 0–4081",
+          "method": "Read actual indexed finding",
+          "title": "An effective first-order convergence law and dense limiting probabilities",
+          "trigger": "Closest indexed two-involution comparison"
+        },
+        {
+          "assessment": "Different bases and one-point scope",
+          "evidence": [
+            "One-point matching spectra for pair-punctured systems."
+          ],
+          "identifier_or_url": "Resultary:2b8792947fe5",
+          "material_read": "RESULT.md local-mirror offsets 0–5792",
+          "method": "Read actual indexed finding",
+          "title": "Complete proper-degree collision classification for pair-punctured Steiner systems",
+          "trigger": "Exact related extension spectra"
+        },
+        {
+          "assessment": "Overlap of separate diagrams, not simultaneous extension counting",
+          "evidence": [
+            "Scope excludes simultaneous realizability."
+          ],
+          "identifier_or_url": "Resultary:eda57004eaf5",
+          "material_read": "RESULT.md local-mirror offsets 0–4490",
+          "method": "Read actual indexed finding",
+          "title": "Integral Smith forms of uncovered-site overlap kernels for one-point diagrams",
+          "trigger": "Possible overlap with cross-diagram constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Asymptotic factorization of independently chosen one-point diagrams fails already at two new points. The theorem separates the suppression from shared old edges from the gain from new-pair witnesses, and identifies how internal packings bias the limiting law for every fixed number of new vertices. It supplies both a normalization and a probability distribution for a natural counting problem, rather than isolated small coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

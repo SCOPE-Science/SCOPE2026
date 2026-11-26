@@ -1,24 +1,21 @@
-# Scientific review: Gaussian oxygen-deficit viability bands
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit score and domain are fixed in the theorem. Direct differentiation produces the one-dimensional derivative factor \(a-\rho(a-x)e^{-x^2/2}\), whose Gaussian-weighted linear term has one negative maximum. Its two-root/no-root structure and the location of the right root relative to the surface prove both branches of the exact threshold. The derivative sign pattern establishes the complete positive-width superlevel-band classification on \([0,H]\), and local Taylor expansion and integration yield the fold coefficient. The included `CHECK.py` passed 25,814 supplementary assertion groups, including near-critical checks; sampling is not the continuum proof.
+PASS
 
-## Originality — PASS on inspected evidence
+In normalized depth x the derivative is a positive factor times a−ρg(x), where g(x)=(a−x)e^(−x²/2). It is strictly positive for x≥0; on x<0, g has its unique maximum at −ν, with ν the positive root of ν²+aν=1. Above the interior fold the right root x_+ is a strict minimum, and is in the water column precisely when x_+>−b, yielding the two branches of ρ_frag and the strict inequality for fragmentation. Here H>z_c guarantees that a deep rising branch is present. Positive-length components on both sides require levels strictly below both side maxima and strictly above the trough; the possible singletons at equality are excluded. At the fold, g″/g=−(1+ν²), so the root splitting follows by Taylor expansion. Integrating the quadratic derivative profile gives the stated 4aA e^(a(b−ν))/3 coefficient with O(ε²) error. For fixed b>ν and H>z_c the bottom score exceeds the incipient shallow peak for sufficiently small ε, so this peak-to-trough gap is indeed the near-onset two-band threshold interval. Independent bisection reproduces the illustrated extrema and gap. In the frozen display ν is written u in its first definition; the positive root and proof fix its meaning unambiguously. The proof's line 81 should allow an interior tangential derivative zero at ρ=ρ_c for b>ν; it does not spoil strict monotonicity. The supplied checker was inspected, not executed.
 
-The 2024 Fröb et al. study already uses the metabolic index to identify potential aerobic habitat and abrupt changes, and Wishner et al. (2020) document upper and lower oxygen-minimum boundaries. Essington et al. (2022) explicitly report deep metabolic-index recovery. Thus neither the metric nor the physical possibility of layered habitats is new. Their inspected full texts do not derive the present Gaussian-profile finite-domain threshold or the sharp surface effect. Generic fold exponent laws are prior mathematical knowledge (see Maloney and Lacks, 2005/2006); the precise parameter threshold and coefficient are the subject of this result. No matching claim was identified in the accessible mathematical-record searches. Historical priority is provisional, particularly for unindexed analytical oxygen-profile literature.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a necessary-and-sufficient answer to a precise habitat-connectivity question: whether any physiological threshold could separate shallow and deeper viable depths, as the strength and depth of an oxygen-minimum profile vary. The surface correction is crucial when the minimum sits relatively close to the surface, the result is independent of the model bottom depth once that depth exceeds the oxygen centre, and the potentially misleading oxygen-core location differs from the metabolic bottleneck. The fold opening law quantifies sensitivity near the onset. These conclusions are model benchmarks, not field predictions or statements about biological dispersal.
+Credit established metabolic indices and oxycline structure, and credit the square-root splitting and 3/2 scaling to standard fold analysis. Pass the exact finite-column threshold including the surface-truncated branch, the full open interval rule for two positive-length bands, and the coefficient for the specified Gaussian deficit and exponential depth compensation. The closest inspected mathematical analogues have different score functions and do not supply these quantities.
 
-## Closest literature and limitations
+## value
 
-- Fröb et al., *Earth's Future* (2024), https://doi.org/10.1029/2023EF004141 — source of the metabolic-index habitat framing; full methodology/results/discussion inspected; no Gaussian-depth classification found.
-- Wishner et al., *Biogeosciences* (2020), https://doi.org/10.5194/bg-17-2315-2020 — observed upper and lower oxycline and species distribution shifts; full article inspected; distinct empirical focus.
-- Essington et al., *Ecography* (2022), https://doi.org/10.1111/ecog.06249 — spatial breakpoint models and deep metabolic-index recovery, not the stated exact phase diagram.
-- Maloney and Lacks, *Physical Review E* (2006), https://arxiv.org/abs/cond-mat/0508534 — generic \(3/2\) fold/barrier exponent is prior knowledge.
+PASS
 
-The oxygen profile, exponential thermal correction, and fixed viability cutoff are assumptions; no physiological calibration, empirical validation, claim of broad mathematical uniqueness, or independent audit is supplied.
+For a motivated depth profile, the exact threshold distinguishes a genuine interior trough from a fold hidden above the sea surface and tells which physiological cutoffs, not just which deficit values, permit a two-band interpretation. The geometric boundary and the size of its near-onset threshold interval are useful beyond noticing a generic fold. This is a one-dimensional model of potential aerobic suitability, not a calibrated habitat or proof of population fragmentation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

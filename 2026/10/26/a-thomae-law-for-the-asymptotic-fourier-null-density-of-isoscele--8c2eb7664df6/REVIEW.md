@@ -1,25 +1,21 @@
-# Scientific review of the trapezoid Fourier-null density theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Direct integration yields the continuous sinc formula including the separately evaluated zero-frequency axis. Simultaneously taking real and imaginary parts splits the complete zero set into two exceptional vertical families and one reciprocal lattice. The monotonicities of \(\tan v/v\) and \(v\tan v\) give a frequency-counting estimate uniform over the offset of each vertical line. A planar lattice covolume count and a semicircle Riemann sum give the two individual densities. Rational-slope coincidence occurs precisely when the vertical-line index is divisible by the denominator, at which the two descriptions agree except for bounded per-line exclusions. This produces the exact overlap correction and therefore the stated \(O_\alpha(R)\) remainder. No finite diagnostic is used in place of this argument.
+PASS
 
-A reproducible numerical checker independently integrates the Fourier formula, tests specified lattice zeros, and compares distinct-zero counts with the theoretical leading terms. It is supplementary evidence only.
+Horizontal integration gives Eq. (1) in angular frequency, with coefficients sin(u) and -i cos(u). At u=0 the real part can only vanish at v=kπ≠0, where the imaginary part is nonzero. Away from u=jπ/2 both sinc factors must vanish, hence the two integer indices are nonzero and distinct. On exceptional lines cross-multiplication gives Eq. (2); at v=±p the original expression is nonzero by |sinc(2p)|<1. If cos(p)≠0, no positive tangent pole can be a root and tan(v)/v and v tan(v) have strictly positive derivatives, by v>|sin(v)cos(v)|. Every full positive branch gives one root, with only bounded error at the two ends, the origin, the removed points and reflection. If cos(p)=0, the cosine zeros give the same count up to a bounded error. This proves local finiteness and the uniform vertical census, not just a linewise asymptotic. The lattice covolume is π²/(2α); the three removed lines cost O_α(R). Summation of 2sqrt(R²-u²)/π at step π/2 gives 2R²/π with O(R) error by bounded variation. For irrational α the lattice has no exceptional-line points; at α=p/q in lowest terms, lattice overlap is the index-q sublattice ℓ-k≡0 mod q, with the same deletions. This yields precisely the subtraction 2R²/(πq). Other rationals approaching a fixed point without repeating it have denominators tending to infinity; the rational defect is a downward point discontinuity. An independent integer-index count using j²+(2k+αj)²≤(2R/π)², j∈qZ excluding j=0 and k(k+αj)=0, gives overlaps 266 and 1186 at α=1/4 and 210 and 934 at α=2/5, for R=45 and 90 respectively, as in the archived output. The supplied sign-change checker was inspected, not run; its finite counts do not establish the theorem.
 
-## Originality
+## originality
 
-**PASS, with publication-priority risk.** The directly inspected 2016 Diaz–Le–Robins source proves general Fourier-transform and solid-angle formulas for polytopes; the 2017 Wuttke source gives analytic polygon form factors and removable-singularity handling. Neither states a real-zero lattice-plus-line classification or counts zeros of isosceles trapezoids. The 2024 Kolountzakis–Spyridakis results forbid complete analytic curves contained in the complex zero variety but do not provide an isolated-real-zero census or arithmetic density. Comparisons with accessible prior Fourier-zero studies of triangles, hexagons, and annuli show differences of object and count statement; none logically covers this fixed-area trapezoid result. A previously unindexed exact calculation in diffraction or shape-transform literature remains a genuine risk; independent literature review is needed for publication.
+PASS
 
-## Mathematical value
+Known polygon Fourier formulas evaluate the transform, but the strongest inspected sources do not give the complete real zero census and the dimension-two rational overlap term for this trapezoid. Closest indexed arithmetic analogies change the domain, the shape or the frequency set. This is a bounded comparison, not an assertion of global priority.
 
-**PASS.** The Fourier-null set of a polygonal aperture is a natural diffraction invariant, not an arbitrary numerical slice. A fixed-area family has an exactly computable quadratic density that changes with the shape and suffers dense rational discontinuities; the jump size is arithmetic (the reduced denominator), not merely geometric. The complete global zero-set decomposition explains the mechanism and offers a reproducible benchmark for zero-finding schemes. It also exposes a distinction between finite-radius pattern stability and limiting zero-density stability. The theorem's limits are real frequencies, isosceles geometry, and strict nondegeneracy.
+## value
 
-## Closest source comparisons and limits
+PASS
 
-- Diaz, Le, and Robins, *Fourier transforms of polytopes, solid angle sums, and discrete volume*, arXiv:1602.08593 (2016): general transform formulas and lattice sums; no trapezoid real-zero asymptotics in the inspected statements.
-- Wuttke, *Form factor (Fourier shape transform) of polygon and polyhedron*, arXiv:1703.00255 (2017): polygon form factors and numerical singularity handling; no count or arithmetic resonance theorem in the inspected statements.
-- Kolountzakis and Spyridakis, *Curves in the Fourier zeros of polytopal regions and the Pompeiu problem*, arXiv:2404.03405 (2024): exclusion of analytic curves in Fourier-null varieties; not a distinct-zero enumeration for trapezoidal apertures.
+The exact census describes extinction of a simple polygon family at fixed area and identifies a discontinuous arithmetic invariant of its slope. It separates two geometrically different populations of zeros and proves the overlap loss and O_α(R) remainder, rather than merely evaluating a standard integral or plotting selected zero sets.
 
-The possible presence of an indexed or unindexed exact trapezoid formula with the same quadratic-density consequence cannot be ruled out by search absence alone.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

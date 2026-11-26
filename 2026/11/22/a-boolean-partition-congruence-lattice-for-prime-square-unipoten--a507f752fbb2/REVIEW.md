@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the exact two-operation prime-square cyclic Alexander quandle, direct substitution yields the fiber formula and its inverse. The argument splits every congruence exhaustively at the canonical fiber relation: a fiber-preserving congruence either collapses or separates each prime-sized translation orbit, and a cross-fiber pair forces all fibers to collapse by nonzero translations. Above the fiber relation the quotient is a projection quandle, so arbitrary partitions occur. The group has exactly three additive subgroups. The attached verifier checks both operations and both input positions on every set partition for four and nine elements and the full Boolean selection family for 25 elements. There is no extension beyond the stated prime-square family.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Burrows–Tuffley 2023 gives correct quandle congruence definitions and connected-case theory; Burrows 2022 gives non-module examples. Jedlička–Pilitowska–Zamojska-Dzienio (2015), Theorem 3.2, already describes the full congruence interval below the orbit relation for arbitrary medial quandles, and their Proposition 3.1 concerns the orbit quotient. The new mathematical ingredient is the proven exclusion of cross-fiber congruences that fail to contain the full orbit relation. The finite exact lattice, its Bell-number census and the two-stage structural dichotomy are not in the specifically inspected sections. The closest result for the exact same rank-one unipotent operation enumerates subquandles rather than congruences; subquandle counts do not imply the compatibility partition lattice. Searches for cyclic prime-square congruences, unipotent rank-one quandle congruences, and equivalent Boolean/partition formulas revealed no direct overlap. **Priority remains provisional:** a general medial-quandle congruence theorem or inaccessible full article could imply this specialization.
+PASS
 
-## Value — PASS
-This is a complete, intrinsically motivated universal-algebra invariant for a natural finite Alexander family: the full congruence poset, not merely an example. The Boolean-to-partition transition exactly identifies which quotients stop being module-induced, and the Bell term yields rapidly increasing non-module congruence diversity. These are mathematically distinct from classifications of subquandles or of quandle isomorphism types.
+In coordinates x=r+ps both operations preserve r and add ±(r−c) to s; all translations of each individual fiber occur. An equivalence invariant under these translations is the coset relation of the zero class, an additive subgroup, hence equality or collapse. Any cross-fiber pair with residues r≠c, substituted into the operand slot against an arbitrary element of any fiber, forces identification under the nonzero step r−c; iterating it collapses every fiber, including for p=2. Conversely independent selections of collapsed fibers below the kernel are compatible, and every partition above it is a pullback from the projection quandle. Inclusion gives exactly the glued lattice; the shared relation is counted once. The three additive subgroups give precisely equality, fiber collapse and universality. The numerical counts agree with the corresponding Bell numbers.
 
-## Closest literature and limits
-Burrows–Tuffley (arXiv:2308.11852), Burrows thesis (2022), and Jedlička–Pilitowska–Zamojska-Dzienio (arXiv:1511.06529, Section 3) are the closest congruence-related sources. The latter establishes a general module correspondence for congruences below the orbit relation; the present cross-fiber forcing step is an additional special-case assertion. The same-object subquandle classification is not a same-invariant result; it remains a comparison target pending full-text access. The full proof is algebraic and covers every prime; finite examples alone establish no universal claim. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: the lower interval and orbit-quotient mechanism are covered by prior general theory and are not new. The contribution is the special cross-orbit forcing statement that excludes all incomparable congruences and gives the full lattice and count. No accessible comparison checked here supplies that classification or its decisive cross-orbit implication.
+
+## value
+
+PASS
+
+The cyclic prime-square shear is a minimal and natural nonconnected test of the module description of Alexander congruences. A complete classification, including exactly when the orbit kernel is forced, describes all permissible quotient kernels; the Bell count quantifies the failure of subgroup-only intuition. This is more useful than a list of small-order examples or re-enumeration of the known lower interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

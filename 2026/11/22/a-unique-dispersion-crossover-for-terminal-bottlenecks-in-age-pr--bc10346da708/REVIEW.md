@@ -1,23 +1,21 @@
-# Scientific review: terminal-bottleneck count dispersion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies the full infinite-horizon cut event, the independent truncated-geometric parent law, fixed \(m\) and \(q\) for the Gaussian limit, and a separate large-\(m\) root expansion. The one-cut and two-cut probabilities follow from finite products and conditional restarting. The two-sided geometric-lag coupling has finite second-moment total mismatch; its stationary cut-indicator process is exponentially strongly mixing because a future edge returning across a distant boundary has geometrically small probability. The standard bounded-variable strong-mixing CLT therefore applies. The absolutely convergent two-cut covariance sum gives the variance constant. Monotonicity of the infinite product and series proves a single dispersion crossing, and uniform small-\(q\), large-\(m\) expansions yield the second-order root location. The standalone exact checker returned 598 passing rational assertions; those computations are auxiliary rather than an infinite proof.
+PASS
 
-## Originality — PASS with priority limitations
+At birth j+1 the prescribed edge gives the factor (1-q)/(1-q^(j+1)); the later lag caps telescope, giving b_j=rho P_j^(-m). Conditioning on a terminal cut independently truncates each later lag to the age relative to the new root. This gives the pair laws b_j b_(d-1) for finite start and rho b_(d-1) in the two-sided extension. For mixing, replace the whole past indicator vector by one computed from births through L; the two vectors can differ only if a later birth sends an edge through the boundary at 0, an event of probability at most m q^L/(1-q). The truncated past is independent of the far future. Bounded indicators and exponential mixing suffice for the stationary CLT. In the finite-start coupling each mismatching birth at t can change at most t indicators, and the L2 norm of the resulting total bound is at most sqrt(m) sum(t q^(t/2)); this transfers both the CLT and the linear variance coefficient. Summation of b_j-rho gives the stated mean and covariance sum; the stationary variance coefficient is strictly positive. S_m is continuous by locally uniform geometric tail control, strictly increasing in q and m, zero in the limit q down to 0 and already greater than 1/2 at q=1/2. For q=O(1/m), the first log-product starts q+3q^2/2, the second starts q^2, and the remaining terms total O(m q^3). Substitution at c/m+d/m^2 leaves residual O(m^-2) for c=log(3/2), d=-13c^2/6; the j=0 term alone gives S_m'(q)>=m, so the root error is O(m^-3). Independent bisection with backwards accumulation of -log(1-q^h) for h through 101 reproduces the three printed roots. Uploaded code was inspected, not executed; its finite exact checks are not the basis of the limit proofs.
 
-The motivating 2026 manuscript defines the multi-parent age-preferential graph, its terminal bottlenecks and the renewal mechanism. An accessible previously published mathematical finding determines the bottleneck one-point probabilities and finite-window two-point probabilities, and establishes a fixed-parent weak-bias Poisson point-process limit. These exact identities are incorporated as prior inputs, not presented as new. The classic renewal/strong-mixing CLT also supplies standard asymptotic-normal machinery. The new assessed conclusion is the explicitly classified fixed-bias count dispersion, the **unique** frontier and the two-term large-parent frontier asymptotic. These results are not the fixed-parent rare-bias Poisson statement; no searched record directly stated the same dispersion phase diagram. Because exact prior pair identities supply most of the algebraic inputs, unindexed pre-existing deductions remain a material priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The mean count alone cannot tell whether terminal bottlenecks are more or less variable than a Poisson count with the same mean. The classification identifies when the count changes from under- to over-dispersion in a graph with strongly dependent local cuts, and exactly how increasing parallel parent multiplicity moves the boundary. This is a natural quantitative statistic for the regenerative bottlenecks used in recurrence analysis, not an arbitrarily selected graph slice. The second-order large-parent expansion resolves the transition in a regime not addressed by the fixed-parent weak-bias Poisson limit.
+Pass is for the explicit dispersion classification and its two-term frontier, not for Gaussianity in isolation. The same model, renewal structure, gap moments, and cut probabilities are already covered. Those facts give a standard implicit renewal variance and are enough to start a covariance calculation; their inspected statements do not give the model's Fano sign classification or the large-m location of its sign switch.
 
-## Closest work and limits
+## value
 
-1. Tang, Wang and Wu, *Random Walk on age-preferential random growth processes*, arXiv:2611.02329 (2026): construction, renewal and recurrence, rather than the fixed-bias dispersion frontier.
-2. *Poisson activation of terminal bottlenecks in weakly age-biased recursive trees* (public mathematical result): exact finite-start cut probability and truncated pair identity, plus Poisson activation as bias vanishes for fixed parent multiplicity. Closest computational and conceptual precursor; the new variance coefficient follows by summation of its known pair identities, whereas the sharp sign classification and large-parent expansion are further calculations.
-3. Aguech et al., *Exponentially preferential trees* (2025): vertex-degree laws for the single-parent model; no terminal cut-dispersion statement located in the inspected article.
+PASS
 
-The claims do not cover variable bias with growing sample size, simultaneous parent/sample-size CLTs, or online cut detection. Independent mathematical review has not been performed. Unindexed relevant literature could change the originality assessment.
+The nontrivial output is a complete, strictly ordered dispersion frontier for the natural terminal renewal count. It tells when Poisson variance is too large or too small and quantifies the sensitivity of that boundary to multiplicity. The correction term is not a generic renewal CLT prediction: it depends on the first two different tail products. This is useful without treating the count as an online observable.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

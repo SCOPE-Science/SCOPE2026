@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The script `check.py` uses only the Python standard library. Running `python check.py` reported `CHECK_OK 2171` followed by the two numerical trace-envelope boundaries. Its exact-fraction tests check the Haar projector second moments against the beta/idempotence identities in dimensions 2 through 13, the coefficient invariants, and isotropic thresholds. Numerical matrix tests reconstruct the explicitly defined nonnegative variance operator on randomized positive spectra, compare its Perron radius below and above the critical scalar root, and check the trace-constrained extremizers with fixed dimension and endpoints. The sharp example in dimension four has critical steps approximately 0.3131948736438942 and 0.3375977868030830.
+## correctness
 
-The printed count is a finite software check, not an exhaustive proof. The document `RESULT.md` contains the separate analytic derivation of the second-moment operator, the positive rank-one secular condition, and convex-majorization extremal characterization. Floating-point Perron and bisection checks have ordinary rounding error. No independent audit has been performed.
+PASS
+
+The centered difference is exact. In the Hessian basis, squared coordinates close under B = D + b eta^2 1 (lambda_i^2)^T. The coefficients follow from the beta diagonal moment and projector idempotence; a-1 = (d-2)(d-k)/(k(d-1)(d+2)) is nonnegative. Similarity by diag(lambda_i) gives M = D + b eta^2 lambda lambda^T, symmetric positive semidefinite. Strict stability requires I-M positive definite, hence each D_i<1, and after diagonal congruence the remaining rank-one condition is exactly the claimed scalar inequality. The scalar increases from zero to infinity below the common pole. For eta above the pole even a largest-eigenvalue diagonal entry excludes stability. For eta=0 the iterate is fixed; for eta<0 the mean iterate grows for every nonzero start. For k<d and eta>0 strict positivity makes the Perron mode visible from every nonzero squared-coordinate initialization, including at the boundary. The column sums establish the isotropic bound and strict non-scalar improvement. Strict convexity gives the balanced and saturated spectra with exact equality conditions, including coinciding degenerate trace endpoints. The k=d bound is a uniform threshold, not a per-start assertion for initializations missing the top eigenspace. Independently recovered both secular polynomials and checked 28 spectra using symmetric eigenvalues (python /workspace/independent_checks.py 4).
+
+## originality
+
+PASS
+
+Credit the prior covariance formulation, the spherical k=1 stability criterion, the Haar moments and the known isotropic/sufficient baseline. The supported distinct contribution is the explicit all-spectrum rank-k orthogonal specialization and sharp conditioned spectral envelopes, not the general covariance method or the rank-one threshold in spectral-radius form.
+
+## value
+
+PASS
+
+The fixed-curvature-statistics question is natural for step selection: the extrema and trace do not identify the edge, but they determine exact attainable best and worst limits. The strict envelope, equality cases and explicit separation quantify what information is lost beyond a simple safe-step bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

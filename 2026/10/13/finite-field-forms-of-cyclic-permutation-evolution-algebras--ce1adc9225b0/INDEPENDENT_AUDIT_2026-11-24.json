@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:17:12.310924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an arbitrary F_q-linear algebra isomorphism, mixed products of different source basis vectors vanish. Independence of the nonzero target basis squares then forces the products of distinct entries of each isomorphism-matrix row to vanish. Invertibility makes the matrix monomial. The permutation satisfies sigma(i+1)=sigma(i)+1, leaving rotations. At rotation k the recurrence lambda_{i+1}=lambda_i^2 d_{i+k}/c_i closes exactly when lambda_0^N=Theta(c)/Theta(rot_k d), so necessity and sufficiency hold in every characteristic. In the quotient by N-th powers, Theta(rot_1 d)=Theta(d)^2 since their ratio differs by d_0^N. Every quotient class is realized (vary a single coefficient), and squaring is invertible and has m-th power the identity. The fixed set of squaring^k has gcd(g,2^k-1) elements, including g for k=0. Burnside counts the classes; separately each of h admissible rotations has exactly g scalar lifts, giving gh automorphisms. If g>1 the identity orbit cannot include any other class, proving the collapse criterion. Read the frozen verifier as consistency evidence; fresh exact checks with python3 /workspace/review_evidence/5_gf4_witness.py tested 180 invertible maps on each of the 81 ordered weight pairs and recovered two classes and automorphism-order histogram {3:6,6:3} on the nine tuples. The theorem is the symbolic recurrence, not an inference from those examples. It treats algebras given by one directed cycle over the base field, not all descent forms of the scalar-extended algebra or all perfect evolution algebras.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wei–Zou give the arbitrary-field permutation-diagonal orbit criterion and all-finite-field counting as a Burnside fixed-point sum for GL_n. Elduque–Labra identify a graph-controlled automorphism group scheme and treat the cube-root obstruction for a swap on a weighted 2-cycle."
+        ],
+        "reasoning": "The generic matrix action contains the single-support problem but its Burnside sums count all invertible structural matrices. Setting a permutation type in those sums specifies an acting element, not a support. The graph theorem controls the kernel and projects to graph rotations, but does not determine which rotations lift rationally for an arbitrary cycle weight tuple.",
+        "searches": [
+          "Wei–Zou arXiv:2310.12368 Theorem 1.1, Corollary 1.1, Eq. (1.5), Theorem 2.1, §3",
+          "Elduque–Labra arXiv:1902.02191 Theorem 3.2 and Example 3.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.12368, 1307.0993, 1902.02191, 2005.05793",
+        "Resultary e8db04aa8932 and 68b762be11e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The root expression in the earlier normalization anticipates the weighted product and identifies what must be tracked. The earlier general finite-field formula leaves the fixed-point counts to further computation even for the total class count.",
+          "Obtaining this closed specialization requires restricting permutation parts to rotations of the support, eliminating all but one scalar and carrying the resulting power-class invariant through rotation, with a separate field-rational count of its stabilizer lifts."
+        ],
+        "reasoning": "The computation is elementary but is an explicit orbit reduction rather than an immediate specialization of a stated exact classification. The complex sufficiency, the specific dimension-two rational-lift example, and the general monomial framework are precedents, not earlier all-dimension statements giving the cycle quotient and its closed counts.",
+        "searches": [
+          "arXiv:2310.12368 Eq. (1.5), Eq. (2.6) and §3",
+          "arXiv:1307.0993 Theorem 3.5 proof",
+          "arXiv:1902.02191 Theorem 3.2 and Example 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later arithmetic profiles record gives the same quotient and squaring orbits, with stabilizer order gn/r_d=gh, and adds idempotent statistics.",
+          "The 2013 complex normal-form proof uses an N-th root of the weighted product. The quotient also has the standard Kummer interpretation H^1(F_q,mu_N), but that does not by itself give the rotation action or classify the fixed-support family."
+        ],
+        "reasoning": "Taking power classes identifies the exact obstruction to an ordered scalar change; rotations further identify distinct power classes. A split normalization over the complex field assumes away the obstruction. A classification of all abstract descent twists would be a different scope unless its single-cycle rational-support specialization were established.",
+        "searches": [
+          "Resultary weighted cycle finite-field isomorphism and arithmetic isomorphism profiles; exact later hit e8db04aa8932",
+          "arXiv:1307.0993 Theorem 3.5",
+          "arXiv:1902.02191 Example 3.5 and finite-field forms comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 27 record has the exact all-q formula and orbit classification; the Oct. 26 record has the F_4 odd/even specialization and finer automorphism structure. Both displayed publication dates follow the frozen Oct. 13 record. Wei–Zou calculate whole-family totals in low dimensions."
+        ],
+        "reasoning": "The later entries must be recorded as exact or specialized overlaps, not used to infer earlier publication. Earlier low-dimensional totals cannot yield a classification conditioned on this support in arbitrary dimension.",
+        "searches": [
+          "Resultary e8db04aa8932 and 68b762be11e4, RESULT.md Findings",
+          "Wei–Zou arXiv:2310.12368 Theorem 4.1 and dimensions 2–4 scope"
+        ]
+      },
+      "rationale": "The distinct earlier-record contribution is the explicit all-q, all-m arithmetic resolution on a fixed single-cycle support: the power-class invariant with its rotation action, reduced class count and exact rational lift count. Monomiality and the abstract orbit/counting framework are prior. A later dated indexed result contains the entire classification and goes further; this is demonstrable equivalent coverage in the later record, not evidence of an earlier publication or of provenance between the two. The strongest earlier sources do not resolve the all-dimension restricted orbit problem by a parameter substitution.",
+      "residual_risks": [
+        "An earlier dedicated finite-field cycle or cohomological classification may exist outside the retrieved sources. The exact later catalog overlap does not establish the relationship between the records or priority of discovery. The frozen literature note only had abstract access to Wei–Zou; full-text passages were checked here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic monomial orbit and Burnside framework; not an explicit single-cycle invariant or restricted all-m count",
+          "evidence": "A maps to t^{-1} sigma^{-1} A sigma t^2. Eq. (2.6) sums fixed points in X=GL_n(F_q), and §3 sets up linear systems to evaluate them.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.12368; doi:10.1016/j.laa.2023.06.006",
+          "material_read": "Theorem 1.1 and Corollary 1.1 (pp.2–3, Eq. (1.5) near offset 7305); Theorem 2.1 (pp.4–5, offset 12620); §3 fixed-point equations (offset 15800); Theorem 4.1 p.13",
+          "method": "Targeted OA full-text passage inspection",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "Strongest broad prior classification and exact enumeration framework"
+        },
+        {
+          "assessment": "Root-extraction precursor; does not treat finite-field obstruction classes and rational stabilizers",
+          "evidence": "The scaling uses a (2^n-1)-st root of the inverse weighted product of coefficients. It normalizes to unit weights where those roots are available.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.0993",
+          "material_read": "Theorem 3.5 and scaling proof, PDF pp.3–4, OA offset 14300, and characteristic-zero setting",
+          "method": "Targeted OA full-text passage inspection",
+          "title": "Few remarks on evolution algebras",
+          "trigger": "Direct earlier one-cycle normalization"
+        },
+        {
+          "assessment": "Known graph-controlled kernel and close two-cycle precursor",
+          "evidence": "The group-scheme sequence starts with Diag(Gamma); for v_1^2=v_2 and v_2^2=alpha v_1 the kernel is mu_3 and the base-field swap is controlled by cubeness.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.02191",
+          "material_read": "Theorem 3.2 p.9 and Example 3.5 p.10, offsets about 23585 and 25200",
+          "method": "Targeted OA full-text passage inspection",
+          "title": "Evolution algebras, automorphisms, and graphs",
+          "trigger": "Automorphism kernel and base-field image"
+        },
+        {
+          "assessment": "Exact coverage in a later-dated record, plus further conclusions",
+          "evidence": "Same power quotient, squaring action, class count and automorphism order gn/r_d, plus idempotents and a joint distribution.",
+          "identifier_or_url": "2026/10/27/SCOPE-arithmetic-isomorphism-and-idempotent-symmetry-profiles-of-cycli--e8db04aa8932",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Targeted local mirror inspection",
+          "title": "Arithmetic isomorphism and idempotent symmetry profiles of cyclic evolution algebras",
+          "trigger": "Exact indexed overlap"
+        },
+        {
+          "assessment": "Later special-case overlap",
+          "evidence": "One class in odd dimension, two in even dimension over F_4, with added group structure and splitting information.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-complete-splitting-trichotomy-for-weighted-cycle-evolution-alg--68b762be11e4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Targeted local mirror inspection",
+          "title": "A complete splitting trichotomy for weighted-cycle evolution algebras",
+          "trigger": "Exact F_4 specialization and richer automorphism information"
+        },
+        {
+          "assessment": "Related two-permutation setting",
+          "evidence": "Isomorphisms and cycle decomposition for the two-permutation family, not the restricted all-q one-cycle formula in the passages inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.05793",
+          "material_read": "§5, PDF pp.10–12, offsets about 36442–40636",
+          "method": "Targeted OA full-text passage inspection",
+          "title": "Some remarks on evolution algebras corresponding to permutations",
+          "trigger": "Possible broader weighted permutation support normal form"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single cycle is the basic nonzero permutation support. The arithmetic obstruction determines exactly when the familiar unit-weight normalization fails, enumerates the resulting nonisomorphic forms in every dimension, and tells when graph rotations lift to rational automorphisms. The explicit all-dimension answer replaces an unrestricted matrix orbit search; it is not simply the F_4 example or a low-dimensional recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

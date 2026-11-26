@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:19:30.936870Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Binary x-coordinates force extremality of every lifted support. For any representation of the midpoint with a large endpoint S, take S\\T nonempty by swapping if needed. Coordinates on S∩T and outside S∪T are fixed. For every missing-side a in S\\T, each r-monomial of S containing a is bounded by x_a and has the same mean 1/2, so equality holds almost surely. Including any two such a in one r-set makes all these indicators one Bernoulli variable Z. An (r−1)-subset of S meeting S\\T has product Z; adjoining any b in T\\S yields a midpoint monomial of mean zero. Therefore x_b vanishes on Z=1 and its mean 1/2 forces x_b=1−Z. The midpoint is supported only on the given endpoints, hence their minimal face is the edge (a relative-interior point of a larger face admits representations using its other vertices). With both endpoints small, setting the sum of monomial coordinates to zero gives a face, projecting to the cube with sum ≤r−1. Its vertices are binary: two fractional coordinates can exchange mass, and a single fractional coordinate can vary unless the integer rank bound is tight, in which case it cannot be fractional. At the midpoint the free-coordinate count is the symmetric-difference size, reduced by exactly one if both endpoints are top-rank. This gives precisely flips and top-rank exchanges. Below top rank there are n flips; at top rank there are r−1 removals and (r−1)(n−r+1) exchanges. Counting flips by direction and lower endpoint gives n times the sum of binomial(n−1,k) for k=0 through r−2, while the exchanges contribute half their incidence count. This verifies the degrees, enumerator, and total edge count. The small simplex graph for r=2 makes the full graph complete; for r≥3 the empty set and a two-set are nonadjacent and have a common large neighbor even at r=n. The inspected finite midpoint-collision script corroborates but cannot replace the all-dimensional argument, since uniqueness among pairs alone does not exclude representations using more vertices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 is for the standard relaxation, Theorem 7 characterizes its rank-three Trubin property by absence of bad pairs, and Theorem 8 gives a general upper diameter bound n for the true polytope."
+        ],
+        "reasoning": "The relaxation is not a broader theorem about the same graph. The rank-three property fails here for n≥4 (e.g. S={1,2,3}, T={4}, with {1,2,4} witnessing the bad pair), and the broad diameter bound does not give the exact graph or exact diameter.",
+        "searches": [
+          "arXiv:2611.15785v1 Definition 1 and Theorems 2, 7, 8"
+        ]
+      },
+      "checked_sources": [
+        "Del Pia–Xu, arXiv:2611.15785v1, specified theorem passages",
+        "Del Pia–Khajavirad, Optimization Online preprint 4782, rank-r definition",
+        "Padberg 1989 quadratic criterion as restated by Del Pia–Xu, not original full text",
+        "Local Resultary catalogue"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "If r≥3 and n≥r+1, the contracted relaxation graph for an r-set S and a disjoint singleton T has a component on S and the singleton isolated. Theorem 2 thus declares a nonedge in the relaxation, but the independent midpoint argument certifies an edge in the true polytope."
+        ],
+        "reasoning": "The relaxation condition demonstrably does not transfer to this graph even on a representative pair. A general midpoint criterion needs the extra Boolean-coordinate synchronization argument to obtain universal adjacency; neither the inspected diameter bound nor the mixed-degree facet results furnish it.",
+        "searches": [
+          "arXiv:2611.15785v1: direct specialization of contracted connectivity to disjoint supports",
+          "Del Pia–Khajavirad p. 5: mixed-degree lifting comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1 of Del Pia–Xu quotes Padberg's graph-induced connectivity rule, which fully covers r=2. Del Pia–Khajavirad p. 5 includes all degrees 2 through r in its full hypergraph."
+        ],
+        "reasoning": "The exact-degree and mixed-degree lifts coincide for r=2 only. Projection deleting lower monomials does not preserve the graph. The uniform-matroid description accounts for the low-low pairs only, not the high-support joins.",
+        "searches": [
+          "Complete exact-degree monomial lift: one-skeleton, universal vertices and uniform-matroid low face",
+          "arXiv:2611.15785v1 Theorem 1",
+          "Del Pia–Khajavirad, A Polyhedral Study of Binary Polynomial Programs, rank-r full hypergraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed graph rule and counts occur in the assigned record ending ae0e23cf6a1c; no distinct candidate for an exact skeleton or degree table was identified in the returned relevant results."
+        ],
+        "reasoning": "The exact catalogue hit is a copy of this finding, not separate evidence of coverage. The result is an all-parameter graph rule rather than a list of isolated small polytopes; catalogue reach is limited.",
+        "searches": [
+          "Resultary: complete uniform exact-r multilinear polytope, large-support universal adjacency and graph join"
+        ]
+      },
+      "rationale": "The supported distinction is the full graph of the true complete exact-degree lift for r≥3, in particular the universal high-support vertices and the consequent all-dimensional graph counts. The quadratic complete-graph case and the standard low-face matroid geometry are not awarded originality on their own.",
+      "residual_risks": [
+        "Older alternate terminology such as higher-order correlation or Boolean-quadric lifts could hide equivalent coverage; the search cannot certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the quadratic special case. The relaxation test, Trubin characterization, and general bound do not supply the exact true graph for r≥3.",
+          "evidence": [
+            "Induced connectivity for graphs; contracted connectivity for the relaxation; failure of the no-bad-pair condition at rank three; general diameter ≤n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15785",
+          "material_read": "OA PDF p. 2 Theorem 1, p. 3 Definition 1 and Theorem 2, pp. 4 and 8 bad pairs and Theorem 7, p. 9 Theorem 8.",
+          "method": "Bounded primary-paper passages and direct specialization to exact-degree supports.",
+          "title": "The One-Skeleton of Multilinear Polytopes and Their Standard Relaxations",
+          "trigger": "Closest true and relaxed multilinear-polytope adjacency results."
+        },
+        {
+          "assessment": "Different mixed-degree lift for r≥3; no covering adjacency statement in the inspected section.",
+          "evidence": [
+            "The rank-r full hypergraph includes edge sizes 2,...,r."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2015/02/4782.pdf",
+          "material_read": "OA PDF p. 5, full-hypergraph definition and its setting.",
+          "method": "Compare actual included hyperedge degrees in the primary text.",
+          "title": "A Polyhedral Study of Binary Polynomial Programs",
+          "trigger": "Rank-r full hypergraph could denote the same lift."
+        },
+        {
+          "assessment": "Same record, not separate prior evidence.",
+          "evidence": [
+            "Same complete exact-r graph join and counts."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-one-skeleton-of-complete-uniform-hypergraph-multilinear-po--ae0e23cf6a1c",
+          "material_read": "Indexed claim and corresponding frozen statement.",
+          "method": "Local Resultary identity and statement comparison.",
+          "title": "Exact one-skeleton of complete uniform hypergraph multilinear polytopes",
+          "trigger": "Exact catalogue hit."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adjacency is a natural invariant of the true convex hull for a canonical homogeneous monomial lift, especially because relaxation adjacency can differ. The universal clique and rank-face decomposition together decide every edge, degree and sharp diameter for the entire family, rather than merely improving a numerical bound or reproducing the quadratic case. No claim is made about sparse and mixed-degree lifts, pivots, or facets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

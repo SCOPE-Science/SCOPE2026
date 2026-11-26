@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The reproducible finite computation is `python3 verify.py`, using only Python 3's standard library. Its expected terminal line is `QUARTIC_DEL_PEZZO_SEVEN_FROBENIUS_COMPONENT_GROUPS_OK`.
+## correctness
 
-**Actual calculations:** the geometric graph has 16 vertices, 40 edges and degree 5 at each vertex. The vertex-orbit matrices for each of the seven \(S_5\) cycle types are formed over the integers, with the unique conic vertex fixed. All seven rooted matrices have nonzero exact fraction-free determinant, respectively \(2^{31},2^{22},2^{17},2^{13},2^8,2^8,2^3\). Independent two-adic pivot reductions modulo \(256\) yield exactly the invariant factors displayed in RESULT.md. The determinants show there are no missing odd-primary invariants.
+PASS
 
-**Scope of this evidence:** the code verifies the finite graph constructions, group presentations and Smith calculations. The geometric identification of sixteen curves and the relationship with Néron component schemes use the arguments and references given in RESULT.md; an external mathematical audit has not been performed. The results are conditional for arbitrary smoothings: the family must be proper, regular and semistable with unit node thicknesses.
+The classes E_i, L_ij and the unique conic give off-diagonal intersection numbers 0 or 1, so intersecting smooth components meet transversely. No three can meet: the graph of disjoint index pairs and their incidences with exceptions and the conic has no triangles. It is connected with 16 vertices, 40 edges and genus 25. The fixed conic splits degree off the Laplacian cokernel. Its rooted reduced Laplacian is symmetric and Frobenius-equivariant, so its rational inverse defines a Frobenius-invariant perfect pairing modulo Z on the torsion cokernel; thus the fixed group is dual to the coinvariants. Independently formed the full integral relation matrix [L | σ−I] on even subsets of five labels (adjacency: symmetric difference of size four), computed exact Smith forms, and split off the single free degree factor. All seven torsion lists match, including (8,32) versus (2,4,32) at order 256. Raynaud's regular semistable component-group description is equivariant and the rational points of the finite étale group scheme are the Frobenius invariants, so this verifies the conditional interpretation without assuming split components.
+
+## originality
+
+PASS
+
+The split Clebsch group and the general tools are prior work. The supported distinct claim is the seven fixed subgroups for base-point-permuting Frobenius, including two nonisomorphic groups of equal order. The closest same-boundary record gives a connected Picard torus invariant, and the closest fixed-critical-group record is on another graph.
+
+## value
+
+PASS
+
+The full exceptional boundary is natural, and the seven cases are the complete base-point permutations, not selected small examples. The exact invariant factors are needed to distinguish rational component-group structures that a component count alone cannot distinguish. The two order-256 rows provide a concrete instance, and the same table can be used in every regular unit-thickness smoothing with this boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

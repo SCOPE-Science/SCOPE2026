@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:47:21.065826Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–108 and 110–211",
+        "Frozen verify.py lines 5–71 and VERIFICATION.md verification metadata",
+        "Shazeer–Stern arXiv:1804.04235v1, Algorithm 4 and Algorithm 6",
+        "Independent high-precision first-step reconstruction; factored raw RMS about 1.76776695296637e14 and full-moment witness ratio about 0.9900416666666666551"
+      ],
+      "rationale": "At the first step the gradient is X_0 and the source adds e to every squared-gradient entry before taking marginals. They are r=c=(4e,B^2+2e), with total B^2+6e, yielding exactly the two printed active normalized updates for B>0. Put a=sqrt(2e), s=sqrt(B^2+2e), and t=u_2/u_1=2aB/s^2. When both the floor is inactive and clipping is active, the displacement on the diagonal is rho*s*(1,t)/sqrt(1+t^2), so the exact objective ratio is 1+rho^2−2rho(a+Bt)/(s sqrt(1+t^2)). For fixed e, B tending to infinity gives the claimed limit. At the recommended B=1, the parameter RMS exceeds 0.5 and u_1>2, so both conditions hold. The subtracted term is at most 6rho*a/B<8.5e-17, proving the strict numerical bound without rounding. An independent decimal replay gave 1.000099999999999915147186257614. For the counterfactual full elementwise moment the raw entries are sqrt(2/3) and B/sqrt(B^2+e); their matrix RMS never reaches 1. Taking the limit of the resulting normalized coordinates gives 1−rho+5rho^2/12 and hence descent in the stated interval. The gradient in the small coordinate becomes small relative to B, not absolutely as B increases at fixed e.",
+      "residual_risks": [
+        "Single-step, real-arithmetic result for the original paper's matrix rule. Does not establish divergence or behavior of implementations with different clipping, flooring, scaling or finite precision."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hong–Lin Algs. 1 and 2 use rho_k/max(1,RMS(U_k)/d) without the parameter-RMS multiplier. Theorem 5.1 and Proposition A.1 require a constant, restricted step and tie epsilon_1 to a proof parameter; the original recommended step is not in the monotonicity guarantee."
+        ],
+        "reasoning": "A guarantee under a different coefficient and stringent bound does not cover the original algorithm's recommended first-step setting; empirical factorization error does not establish the direction and norm inequalities in this construction.",
+        "searches": [
+          "Hong–Lin, Theoretical Investigation of Adafactor for Non-Convex Smooth Optimization, exact-title lookup and official NeurIPS 2025 full text",
+          "CAME arXiv:2307.02047v1, §3.2"
+        ]
+      },
+      "checked_sources": [
+        "Shazeer–Stern arXiv:1804.04235v1",
+        "CAME arXiv:2307.02047v1",
+        "Hong–Lin NeurIPS 2025 full text",
+        "Resultary 1c5e2e8606b7 and 2b39831939c7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The present unequal diagonal amplitudes force the clipped direction to concentrate on the relatively small-gradient coordinate while the norm of the displacement is controlled by the large coordinate. This yields 1+rho^2, unlike the benchmark full-moment limit. Equal-magnitude biregular support calculations do not give this gradient-to-step angle or a first-step quadratic witness."
+        ],
+        "reasoning": "No inspected prior implies the default first-step ascent without an additional scale-separation construction and objective calculation. The existence of clipping and parameter-relative scaling alone is not a descent theorem.",
+        "searches": [
+          "Compare Shazeer–Stern Algorithms 4 and 6, CAME §3.2, and exact Resultary gain-law 1c5e2e8606b7",
+          "Compare Hong–Lin Theorem 5.1 and Proposition A.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original algorithm explicitly inserts epsilon into squared entries, uses the reconstructed row/column product, applies matrix-RMS clipping and multiplies by the parameter-relative scale. The frozen rule is exactly that rule at its first step.",
+          "CAME §3.2 discusses erroneous updates from approximation; a factorization error or large coordinate alone does not imply an increase of the same objective on which its gradient was measured."
+        ],
+        "reasoning": "A stationary externally prescribed gradient or undefined factorized update is not equivalent to objective ascent at a well-defined first gradient of this isotropic quadratic.",
+        "searches": [
+          "Resultary semantic search for factored Adafactor optimization ascent/counterexample, first step, and factorized clipping",
+          "Shazeer–Stern arXiv:1804.04235v1",
+          "CAME arXiv:2307.02047v1 §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record derives p^(-1/2) coordinate amplification for constant prescribed equal-magnitude biregular supports and the second gives an undefined update for a different algorithm on zero rows or columns. The Adafactor defaults are listed in Algorithm 6 but not the objective-ratio witness."
+        ],
+        "reasoning": "There is no canonical table for this one-step ratio. The concrete settings were cross-checked rather than inferred from implementation defaults; neither inspected record contains the tested mechanism and ratio.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-came-s-confidence-stage-has-an-exact-stationary-gain-law--1c5e2e8606b7",
+          "Resultary 2026/10/12/SCOPE-adalomo-s-printed-factorized-update-has-a-sharp-row-column-suppo--2b39831939c7",
+          "Shazeer–Stern Algorithm 6, recommended constants"
+        ]
+      },
+      "rationale": "The supported distinction is the default-scale first-step ascent on an isotropic strongly convex objective, proved with a family and isolated by a same-scale full-moment comparison. The inspected source and nearby records address the ingredients or other failure modes, but do not cover that result. The later full-batch monotonicity theorem concerns a different scaling with a restricted step and is not a contradictory or dominating claim.",
+      "residual_risks": [
+        "Bounded search cannot exclude an unindexed optimizer counterexample or equivalent derivation; no priority is asserted from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algorithm match, not prior objective-ascent result",
+          "evidence": "First second-moment decay is zero; epsilon_1 is added before summation, row/column moment is reconstructed, RMS clip is applied, and alpha is parameter-relative. Recommended e=1e-30, epsilon_2=1e-3, d=1, rho_1=.01.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.04235v1",
+          "material_read": "PDF p. 8, Algorithm 4 and proposed hyperparameters/Algorithm 6",
+          "method": "OA PDF bounded passage, offsets 51456–55628",
+          "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost",
+          "trigger": "Defining update and recommended constants"
+        },
+        {
+          "assessment": "Qualitative overlap; inspected discussion does not establish the quadratic witness",
+          "evidence": "Attributes erroneous updates partly to low-rank approximation in model training.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02047v1",
+          "material_read": "p. 3 §3.2 Erroneous Update",
+          "method": "OA PDF bounded passage near offset 14500",
+          "title": "CAME: Confidence-guided Adaptive Memory Efficient Optimization",
+          "trigger": "Published discussion of Adafactor factorization errors"
+        },
+        {
+          "assessment": "Full-batch monotonicity does not apply to the original parameter-relative recommended first step",
+          "evidence": "Update omits max(epsilon_2,RMS(X_k)); descent requires a constant rho_0 at most c_0^3/(Ldmn G Delta^2), with epsilon_1=c_0/[dmn(1−beta_{2,1})]. Neither the original algorithm's coefficient nor its recommended settings are covered.",
+          "identifier_or_url": "Hong and Lin, Advances in Neural Information Processing Systems 38 (NeurIPS 2025)",
+          "material_read": "Official proceedings PDF pp. 4–5, Alg. 1 and Thm. 5.1; pp. 15 and 17, Alg. 2 and Prop. A.1",
+          "method": "Lawful OA proceedings full-text passages at offsets 12766, 16429, 58835, 67826",
+          "title": "Theoretical Investigation of Adafactor for Non-Convex Smooth Optimization",
+          "trigger": "Plausible overlapping descent theorem"
+        },
+        {
+          "assessment": "Related amplification; not the tested ascent result",
+          "evidence": "Externally prescribed stationary gradients, equal active magnitudes and biregular support; geometric amplification without an original Adafactor objective witness.",
+          "identifier_or_url": "2026/10/12/SCOPE-came-s-confidence-stage-has-an-exact-stationary-gain-law--1c5e2e8606b7",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "Resultary semantic search and local mirror passage",
+          "title": "CAME’s confidence stage has an exact stationary gain law",
+          "trigger": "Closest catalogue result on factorization and clipping"
+        },
+        {
+          "assessment": "Another method and another failure",
+          "evidence": "Undefined update on zero row or column; the passage explicitly distinguishes Adafactor's positive squared-gradient floor.",
+          "identifier_or_url": "2026/10/12/SCOPE-adalomo-s-printed-factorized-update-has-a-sharp-row-column-suppo--2b39831939c7",
+          "material_read": "RESULT.md opening statement, offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "AdaLomo’s printed factorized update has a sharp row–column support singularity",
+          "trigger": "Possible related first-step strongly convex counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 54–108 and 225–251",
+        "Shazeer–Stern Algorithm 4 and recommendations"
+      ],
+      "rationale": "The small example tests a specific safeguard of a standard algorithm at its published settings: a clipped update can increase even an isotropic quadratic without any stale history. The exact family identifies the mechanism and the counterfactual holding all other pieces fixed distinguishes magnitude misallocation by the factorization from a generic overly large step. This is a useful boundary on a descent interpretation of clipping, not just an arbitrary anomalous run.",
+      "residual_risks": [
+        "Extreme within-matrix separation; neither typicality nor long-run degradation is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

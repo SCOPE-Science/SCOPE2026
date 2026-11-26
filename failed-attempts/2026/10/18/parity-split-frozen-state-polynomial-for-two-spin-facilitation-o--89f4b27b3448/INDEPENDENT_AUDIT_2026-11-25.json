@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:49:38.863716Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With positive allowed flip rates and n≥3, a frozen set contains no pair with a common neighbor, whether or not either site can itself flip. The distinct endpoints of non-returning two-step walks are T^{±1}v and T^{±2}v for T(r,i)=(1−r,i+1); repeated edges cause no change, including at n=4. T closes after lcm(2,n) steps, so the relevant graph is one squared 2n-cycle or two squared n-cycles. Marking a selected position counts each labeled k-set k times and yields (m/k) binom(m−2k−1,k−1) for 1≤k≤floor(m/3). This also proves the stated degree deficit. The weighted transition 1→2 forces 2→3→1 before another selection; the all-zero cyclic word has exactly the constant path at 1. Thus the trace is the cycle polynomial, and the primitive matrix gives the stated limit at z>0. Independent Bernoulli weights give the exact tilt and the inequality ρ(z)<1+z makes the log rate strictly negative. The supplied verifier was inspected as text and its recorded finite calculations are corroboration only; the all-size proof does not depend on them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 of arXiv:2309.04963 gives ρᵒ(G □ K₂)=2ρ₂(G) for bipartite G, yielding the even-cycle maximum, but does not count lower coefficients or apply to odd cycles.",
+          "The inspected product papers study extremal packing or injective coloring rather than the labeled polynomial."
+        ],
+        "reasoning": "The broad prism theorem covers the even maximum; the exact ladder coverage is instead established by the indexed findings.",
+        "searches": [
+          "Primary literature: \"open packing\" polynomial bipartite prisms cyclic ladder independence polynomial C_n^2 generating function",
+          "arXiv:2309.04963, arXiv:1901.06813, arXiv:2306.01488"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_frozen_ladder.py",
+        "Resultary 27f63f2dbcd5 and caf3fe2c4a63",
+        "arXiv:2309.04963, arXiv:2106.09823, arXiv:1901.06813 and arXiv:2306.01488"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local FA2f condition is precisely the definition of an open packing.",
+          "The already covered polynomial yields the probability simply by evaluating z=q/(1−q); its squared-cycle factor yields the exponential rate by the three-state spacing recurrence."
+        ],
+        "reasoning": "The extra spin interpretation, tilt and Perron limit do not give a distinct counting invariant or new dynamical implication.",
+        "searches": [
+          "Frozen RESULT.md lines 24–47 compared with the two matched indexed Findings",
+          "arXiv:2309.04963 Theorem 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Open packings are precisely independent sets in the common-neighbor graph in arXiv:2106.09823, PDF p. 2.",
+          "Resultary 27f63f2dbcd5 and caf3fe2c4a63 both count open packings of C_n □ K_2 by size via exactly the same squared-cycle components."
+        ],
+        "reasoning": "Switching between the spin and graph variables does not change the labeled underlying subsets or any coefficient.",
+        "searches": [
+          "Resultary: FA2f fully frozen configurations two-spin facilitation cyclic ladder parity-split activity polynomial open packing polynomial",
+          "arXiv:2106.09823, injective coloring and two-step graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "27f63f2dbcd5, Finding: P_n=I_{2n} for odd n and I_n² for even n with the same cyclic-gap polynomial; also reports length-generating and perfect-partition results.",
+          "caf3fe2c4a63, Finding: O_n=J_{2n} or J_n² with exactly m/(m−2k) binom(m−2k,k)."
+        ],
+        "reasoning": "These are exact symbolic matches in different records, not just matches of finite sample totals.",
+        "searches": [
+          "Resultary: FA2f fully frozen configurations two-spin facilitation cyclic ladder parity-split activity polynomial open packing polynomial (limit 50)"
+        ]
+      },
+      "rationale": "Two distinct indexed circular-ladder open-packing findings give exactly the frozen finding's coefficient-by-coefficient polynomial after the equivalence in its own proof. The entropy and Bernoulli formulas are routine consequences of that covered census. This is positive equivalent coverage, not a priority inference from catalogue dates.",
+      "residual_risks": [
+        "The public-literature search was bounded; the exact indexed matches establish coverage without settling scholarly priority or excluding older equivalences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact polynomial and graph decomposition covered",
+          "evidence": "P_n(x)=I_{2n}(x) for odd n and I_n(x)^2 for even n, with the same full coefficient formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-open-packing-profiles-and-perfect-partitions-of-circular-ladders--27f63f2dbcd5",
+          "material_read": "RESULT.md, Finding from offset 0 and two-step graph description",
+          "method": "Local index and mirrored record text",
+          "title": "Open-packing profiles and perfect partitions of circular ladders",
+          "trigger": "Exact indexed same-object match"
+        },
+        {
+          "assessment": "Exact polynomial covered; no ordering or priority inferred",
+          "evidence": "O_n(z) has the same two parity branches, underlying graph components, and coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-complete-open-packing-polynomial-and-six-residue-maximum-census--caf3fe2c4a63",
+          "material_read": "RESULT.md, Finding and derivation, offsets 0–4661",
+          "method": "Local index and mirrored record text",
+          "title": "Complete open-packing polynomial and six-residue maximum census",
+          "trigger": "Distinct same-date exact indexed match"
+        },
+        {
+          "assessment": "Covers even-size extremum only in the inspected theorem",
+          "evidence": "ρᵒ(G □ K₂)=2ρ₂(G) for bipartite G.",
+          "identifier_or_url": "arXiv:2309.04963",
+          "material_read": "Abstract and Theorem 2.2, PDF p. 5, offset 11362",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Packings in bipartite prisms and hypercubes",
+          "trigger": "Natural broader theorem on the same prism construction"
+        },
+        {
+          "assessment": "Generic equivalence, not the specific polynomial in the inspected passage",
+          "evidence": "Defines adjacency by common neighbor and identifies open packings with independent sets in that graph.",
+          "identifier_or_url": "arXiv:2106.09823",
+          "material_read": "PDF p. 2, offset 5952",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Injective coloring of graphs revisited",
+          "trigger": "Equivalent graph formulation"
+        },
+        {
+          "assessment": "Examined scope is extremal",
+          "evidence": "Defines the packing parameters as maxima and studies product bounds.",
+          "identifier_or_url": "arXiv:1901.06813",
+          "material_read": "PDF p. 1, offset 1101",
+          "method": "Bounded OA PDF text inspection",
+          "title": "(Open) packing number of some graph products",
+          "trigger": "Broader product packing coverage"
+        },
+        {
+          "assessment": "Examined scope is coloring rather than labeled enumeration",
+          "evidence": "Product results concern injective-coloring parameters.",
+          "identifier_or_url": "arXiv:2306.01488",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Bounded OA PDF text inspection",
+          "title": "Injective coloring of product graphs",
+          "trigger": "Possible equivalent product-graph coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full density-resolved frozen census is naturally motivated, but the distinct remainder beyond the covered census consists of reweighting under the independent initial law and the standard growth rate of the spacing polynomial. Neither supplies another nontrivial invariant, kinetic statement or independently valuable new claim to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

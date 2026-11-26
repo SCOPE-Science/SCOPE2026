@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:16:04.616493Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The face and lattice census was independently replayed with python /workspace/branches/record-5-replay.py, not by running the frozen checker. The inequality representation can be seen by first dropping the odd-cycle inequality: a fractional vertex with a proper path of fractional coordinates joined by tight edges could be perturbed in the alternating direction, so the only fractional vertex is the all-half vector. It has seven independent active edge constraints; along each incident edge, the other six equalities form a path, the coordinates alternate t and 1−t with four copies of t, and the feasible segment has 0≤t≤1/2. The sum is 3+t, so cutting off the all-half vertex at total 3 introduces no fractional vertex. The replay generates all common active-facet sets of nonempty subsets of the 29 stable-set vertices, identifies 15 facets, and independently checks ranks using vertex differences and lattice indices by gcds of integral minors. Face counts in dimensions 0–7 are 29,140,301,350,231,84,15,1 (total 1151); nonsmooth counts are 28,105,126,56,7,0,0,0 (total 322). No simplicial cone is nonunimodular, and the inclusion-minimal bad cones are exactly the seven of each displayed type. Each A_i leaves four path vertices with the induced full lattice; each B_i is a unimodular tetrahedron, verified by its vertex differences. For each transverse cone the primitive relation has coefficients +1 on one block and −1 on the other, and a deleted-ray basis spans the saturated cone lattice. The dual affine monoid is thus the set of nonnegative integral vectors with equal totals on the two blocks. Pairing unit masses across the blocks gives the Segre generators, with the 2×2 minors as relations, for a 2×2 and a 2×3 matrix respectively. Saturation splits off the orbit torus, and degrees 2 and 3 give the transverse multiplicities. These integral models and the regular-cone test work in every stated characteristic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "28314d5dc6fc covers every odd cycle of length at least seven, but gives the non-Gorenstein support and certain class groups, not the complete bad-cone poset",
+          "6fc313f1b14f treats even cycles of length at least eight; 85d4e0621082 treats C5 with ten conifold planes and 40 singular orbits",
+          "Matsuda–Ohsugi–Shibata study stable-set toric-ring normality, generators and Gröbner bases"
+        ],
+        "reasoning": "Normality of the ring does not imply smoothness of the fan. Nearby exact statements on other cycle lengths do not specialize to seven. The only broader odd-cycle theorem inspected covers a proper subset of the strata, even though it gives more detail on divisor classes there.",
+        "searches": [
+          "Resultary: odd-cycle stable-set normal-fan loci and indexed-cycle conifold/Segre results",
+          "Matsuda–Ohsugi–Shibata arXiv:1603.01850, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected; frozen script not executed)",
+        "Independent record-5-replay.py",
+        "Resultary 28314d5dc6fc, 6fc313f1b14f, 85d4e0621082",
+        "arXiv:2205.01409, arXiv:1603.01850; DOI 10.1287/moor.12.3.451 (metadata)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proof sections 3 and 4 of 28314d5dc6fc give the unimodular simplex and inward-normal circuit sum v_(2j−1) = w+u_0 on F_0 for general odd cycles",
+          "Its fixed-point class groups describe vertices of the polytope, not all normal cones",
+          "The seven A_i are not in the prior non-Gorenstein support at their generic points"
+        ],
+        "reasoning": "The three matching equalities follow from x_i=0 and total 3, so F_i=B_i exactly. At m=3 the prior circuit is (3,2) in a saturated lattice basis and therefore already implies the Segre model and multiplicity 3. The prior support/class-group results do not imply that A_i are the only other maximal singular faces or give the all-dimension orbit census; those are distinct verified claims.",
+        "searches": [
+          "Resultary 28314d5dc6fc, proof sections 2–5; Miyazaki arXiv:2205.01409, pp. 7 and 10",
+          "Comparison of active normals with the two orbit-closure families"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Miyazaki's primes are precisely the faces x_i=0, total=3 at cycle length seven; the radical canonical trace gives only the non-Gorenstein locus",
+          "Resultary 28314d5dc6fc identifies the corresponding projective union and not the smooth locus"
+        ],
+        "reasoning": "Passing from the affine Ehrhart cone away from its vertex to Proj preserves the non-Gorenstein support but does not detect a generic Gorenstein conifold. The prior non-Gorenstein theorem is therefore an exact partial overlap, not a reformulation of the full singular-locus theorem.",
+        "searches": [
+          "Resultary: exact C7 singular-locus and conifold/Segre terminology; 14 components and 322 orbits",
+          "Miyazaki arXiv:2205.01409, section 3 and Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gave exact counts for C5, but no second table for the full C7 singular fan among the returned entries",
+          "The numerical output in the assigned package accompanies the assigned theorem itself; it is not prior coverage"
+        ],
+        "reasoning": "The census needs nonempty face incidence together with normal-cone smoothness in the specified lattice; number-of-stable-sets or Ehrhart tables alone do not give it. No external exact database beyond the catalogue was surveyed.",
+        "searches": [
+          "Resultary: 14 components / 322 orbits; exact C7 and cycle singular-stratum entries",
+          "Frozen VERIFICATION.md and independent incidence census"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete reduced C7 singular-locus classification, including the Gorenstein conifold components, mixed-dimensionality and the full orbit/cone census. The B_i faces are not new: Miyazaki identifies them as the non-Gorenstein support in the Ehrhart cone and a closer odd-cycle catalogue theorem already gives their projective closures and exact primitive normal-cone circuit. The generic Segre description on those components follows from that known circuit. No source inspected determines the entire singular locus and remaining census of this fan.",
+      "residual_risks": [
+        "The catalogue comparison is bounded; an unlocated classification of the entire normal fan could cover the remainder. Do not claim priority for the B_i family or its transverse model separately.",
+        "Euler–Jünger–Reinelt full text was unavailable in the lawful OA attempt; the needed inequality representation was verified independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the B_i family, including by implication its generic transverse model, but not the full singular support",
+          "evidence": "F_i={x_i=0,total=m}; Z_i is a linearly embedded P^m; the first m+1 local normal rays form a saturated basis and the displayed last ray gives the (m,2) circuit.",
+          "identifier_or_url": "Resultary 28314d5dc6fc",
+          "material_read": "Finding; proof sections 2–5, RESULT.md offset 2730 onward",
+          "method": "Local mirror passages",
+          "title": "Local class groups and the non-Q-Gorenstein skeleton of odd-cycle stable-set toric varieties",
+          "trigger": "Same projective object in a broader indexed family"
+        },
+        {
+          "assessment": "Direct partial prior coverage",
+          "evidence": "The face prime p_i corresponds to x_i=0,total=ℓ; the radical of the canonical trace is the intersection of the p_i for 2ℓ+1 with ℓ≥3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.01409",
+          "material_read": "Section 3 face ideals, p. 7, offset 15400; Theorem 3.4, p. 10, offset 23340",
+          "method": "OA primary PDF passages",
+          "title": "Non-Gorenstein locus and almost Gorenstein property of the Ehrhart ring of the stable set polytope of a cycle graph",
+          "trigger": "Published theorem underlying the closest overlap"
+        },
+        {
+          "assessment": "Different assertions in inspected material",
+          "evidence": "Normality and generators/Gröbner bases, not a classification of normal-fan singular cones.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.01850",
+          "material_read": "Abstract and introduction pp. 1–3, offsets 0 and 4750–7000",
+          "method": "OA primary PDF passages",
+          "title": "Toric rings and ideals of stable set polytopes",
+          "trigger": "Same stable-set construction, possible toric singularity comparison"
+        },
+        {
+          "assessment": "No substantive passage assessed",
+          "evidence": "The OA attempt returned HTTP 403 and no repository copy was identified; no conclusion is drawn about the uninspected text.",
+          "identifier_or_url": "https://doi.org/10.1287/moor.12.3.451",
+          "material_read": "DOI metadata only; full text not retrieved",
+          "method": "Lawful OA attempt and DOI landing page",
+          "title": "Generalizations of Cliques, Odd Cycles and Anticycles and Their Relation to Independence System Polyhedra",
+          "trigger": "Cited odd-cycle inequality background"
+        },
+        {
+          "assessment": "Different cycle lengths",
+          "evidence": "Even cycles n≥8 have conifold components and a singular line; C5 has ten conifold planes, not mixed C7 strata.",
+          "identifier_or_url": "Resultary 6fc313f1b14f and 85d4e0621082",
+          "material_read": "Findings, local-mirror offsets 200 and 150 respectively",
+          "method": "Local mirror passages",
+          "title": "Even-cycle conifold and Segre strata; pentagon stable-set toric fivefold",
+          "trigger": "Closest singular-locus analogue entries"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "C7 is the smallest chordless odd cycle with a three-pair odd-hole obstruction of this type. The exact fan computation separates non-Gorenstein Segre strata from larger Gorenstein conifold strata and shows that the singular locus is not pure-dimensional. It supplies checked local models and a usable orbit census, not just the already-known existence of the non-Gorenstein subvarieties. Equality of the singular and non-Q-factorial supports is additional useful geometric information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

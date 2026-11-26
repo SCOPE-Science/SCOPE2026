@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:00:37.350257Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For S=Σx_j² the i-th absolute Jacobian row sum is (T_i+x_i H_i)/S^(3/2), where T_i and H_i are the squares and the sum over the other coordinates. At fixed x_i,T_i it increases with H_i, whose exact maximum is attained by the in-box common value c=√(T_i/(n−1)). Set m=n−1 and let u=x_i/c. The minimal feasible c is a for u≥1 and a/u for u≤1, with 1/r≤u≤r where r=b/a. On u≤1 the derivative sign is that of m(1+2u)−2u²−u³≥(1−u)(1+3u+u²); on u≥1 it is that of m−3u−2u². Thus the exact row maximum is attained at u=min(r,max(1,(√(8n+1)−3)/4)), with c=a. The transition occurs at m>5. Integration gives the same upper bound over input pairs; choose interior points tending to the extremizer, then take feasible symmetric differences in the sign direction (1,−1,…,−1) with shrinking steps. The selected row tends to its norm, proving sharpness even at a corner. When r=q_n>1, the level aq_n equals b; the word ‘interior’ applies to that distinguished level only for strict r>q_n (the formula itself includes the equality case correctly). For fixed r the maximizer eventually has u=r, giving √n aL→1+r. For r_n/√n→κ>0, u/√n→v=min(κ,1/√2) and aL→v/(1+v²)^(3/2), equalling 2/(3√3) at saturation. The constant map at n=1 and singleton domain a=b correctly have minimal Lipschitz constant zero. The unsmoothed unit-gain RMS output multiplies this constant by √n. The supplied script was inspected, not executed; the audit uses the analytic optimization and limiting argument, not sample tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "36a632bc9802 gives the weighted full-space radial-retraction result R_p=x/max(1,||x||_p), with unweighted ℓ∞ constant (1+√n)/2 at p=2. The exterior derivative is the same projected-direction derivative. Attention-score normalization in 2103.04886 acts on query/key/value matrices rather than a single Euclidean direction."
+        ],
+        "reasoning": "The unrestricted theorem maximizes a tangential row on the norm-one surface, where the equal-tail row has dependence m(1+u)/(m+u²), not the box dependence m(1+u)/(a(m+u²)^(3/2)) on u≥1. Restricting a global bound after rescaling by the box's minimum norm does not make it sharp or recover b/a. A weighted broad norm result no more determines this box optimum than the unweighted one.",
+        "searches": [
+          "Resultary 36a632bc9802, Finding and Proof §§1–2",
+          "arXiv:2103.04886 §5, p. 5; arXiv:2306.09338 Table 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification.py",
+        "Resultary dfd945a5e1aa (identical), 36a632bc9802, 0d0ca88a0040, 56d78809bb74 (mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "arXiv:1910.07467, 1911.09737, 2103.04886, 2306.09338"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier radial result has unrestricted scalar optimum (1+√n)/2. The frozen calculation includes a lower bound on each coordinate, equality in Cauchy–Schwarz at fixed tail squared sum, and then minimal permitted common coordinate scale."
+        ],
+        "reasoning": "The lower coordinate box constraint couples the norm to the distinguished-to-tail ratio; in the frozen u≥1 branch it changes the stationary equation to m−3u−2u²=0, whereas fixing the norm for the unrestricted row gives m−2u−u²=0. Thus even the strongest close formula does not mechanically yield the contrast frontier, the transition at n=7, or the two limiting regimes.",
+        "searches": [
+          "Resultary 36a632bc9802, unweighted p=2 specialization",
+          "Zhang–Sennrich arXiv:1910.07467 Eq. (9), compared to frozen Proof §§2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Raw unit-gain RMS normalization is √n times the displayed direction map. The equivalent RMS formula for the transform and its classical derivative are documented in Zhang–Sennrich, but the ℓ∞ Lipschitz optimization on [a,b]^n is not supplied by that derivative. The default FRN operation has a stabilization offset. Qi–Wang–Zhang explicitly note the L2 norm for their table."
+        ],
+        "reasoning": "Multiplying the output by √n mechanically transfers an established coefficient between the raw maps, so a separate originality claim for RMS rescaling would not survive. The cited model-level formulas do not resolve the constrained coefficient in either convention; the offset and L2 comparisons do not translate into a sharp ℓ∞ coefficient.",
+        "searches": [
+          "Resultary: sharp positive-box coordinatewise direction normalization, RMS normalization stability, and radial-retraction cross-norms",
+          "arXiv:1910.07467 §3 Eq. (4) and §4.2 Eq. (9); arXiv:1911.09737 §3.1 Eq. (1); arXiv:2306.09338 Table 2 and Eqs. (51)–(52)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact returned dfd945a5e1aa record is the frozen item itself. 0d0ca88a0040 is a distinct same-day result on Euclidean projection onto a ball–cube intersection, and 56d78809bb74 concerns an affine L2 projector on a positive spherical orthant. The cited Lipschitz table is not an entrywise positive-box table."
+        ],
+        "reasoning": "The looked-up geometric results optimize distinct maps or fitting norms; matching positive geometry, a coordinatewise objective or a transition does not yield the claimed function of n and b/a. No separate checked entry reports the formula.",
+        "searches": [
+          "Resultary: exact common-bounds positive-box ℓ∞ coefficient, seven-coordinate transition and contrast saturation",
+          "Resultary dfd945a5e1aa, 0d0ca88a0040, 56d78809bb74, 36a632bc9802; Qi–Wang–Zhang Table 2"
+        ]
+      },
+      "rationale": "The Jacobian, unregularized RMS scaling and unrestricted radial-retraction estimates are prior material. The exact constrained absolute-coordinate positive-box coefficient, dependence on contrast, and seven-coordinate transition are not established by those statements. No distinct exact positive-box result was located in the checked sources.",
+      "residual_risks": [
+        "Bounded originality evidence, not a proof of historical priority. The general websearch hits were not decisive; no absence finding is inferred from them.",
+        "No implications asserted for signed or zero-containing domains, stabilized norms, learned gains or full-network robustness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrestricted radial retraction, not sharp box normalization",
+          "evidence": "Its maximization F2(k)=max_t≥0 (1+kt)/(1+t²) yields (1+√n)/2 at k=√(n−1); no fixed lower and upper coordinate bounds occur in this optimization.",
+          "identifier_or_url": "Resultary 36a632bc9802",
+          "material_read": "RESULT.md Finding and Proof §§1–2, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "Sharp dual cross-norm Lipschitz constants for radial retractions of finite-dimensional ℓ_p balls",
+          "trigger": "Same tangential derivative at p=2 and an exact coordinatewise result"
+        },
+        {
+          "assessment": "Same classical derivative and raw map, no inspected sharp box result",
+          "evidence": "RMS(x)=||x||₂/√n; gradient analysis displays the tangential projection matrix.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.07467",
+          "material_read": "§3 Eq. (4), p. 3, offset 14975; §4.2 Eq. (9), pp. 4–5, offset 19748",
+          "method": "Bounded primary-text OA inspection",
+          "title": "Root Mean Square Layer Normalization",
+          "trigger": "Same transform up to scaling and learned gains"
+        },
+        {
+          "assessment": "Different stabilized transform",
+          "evidence": "FRN uses denominator √(ν²+ε) with a channelwise mean square ν².",
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09737",
+          "material_read": "§3.1 Eq. (1), p. 3, offset 17800",
+          "method": "Bounded primary-text OA inspection",
+          "title": "Filter Response Normalization Layer",
+          "trigger": "Uncentered second-moment normalization"
+        },
+        {
+          "assessment": "Attention-score operator, not this direction map or geometry",
+          "evidence": "The Transformer case scales QᵀK using matrix norms of queries, keys and values.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.04886",
+          "material_read": "§5 p. 5, offset 29000",
+          "method": "Bounded primary-text OA inspection",
+          "title": "Lipschitz Normalization for Self-Attention Layers",
+          "trigger": "Potential operator-Lipschitz normalization analogue"
+        },
+        {
+          "assessment": "L2 Jacobian estimates and a different stabilization/parameter setup",
+          "evidence": "The table identifies L2 as its norm and the displayed setup uses parameters and stabilization, not the sharp common-bounds ℓ∞ optimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.09338",
+          "material_read": "Table 2 p. 22, offset 98940; Eqs. (51)–(52) p. 23, offset 104500",
+          "method": "Bounded primary-text OA inspection",
+          "title": "Understanding Optimization of Deep Learning via Jacobian Matrix and Lipschitz Constant",
+          "trigger": "RMSNorm stability estimates"
+        },
+        {
+          "assessment": "Distinct active-face projection problem",
+          "evidence": "The Euclidean nearest-point map onto a ball–cube intersection is not x/||x||₂ on a positive box.",
+          "identifier_or_url": "Resultary 0d0ca88a0040",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "Sharp coordinatewise stability of Euclidean projections onto ball–cube intersections",
+          "trigger": "Separate same-day coordinatewise geometry hit"
+        },
+        {
+          "assessment": "Affine L2 projector with diffuse asymptotic evaluation behavior",
+          "evidence": "It is not the direction normalization from an input box and does not give a finite-contrast coefficient.",
+          "identifier_or_url": "Resultary 56d78809bb74",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "OA local mirror passage inspection",
+          "title": "Diffuse norming law for affine projection on positive spherical orthants",
+          "trigger": "Positive-orthant geometry and evaluation-row norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full common-bounds positive box and absolute coordinate perturbation are natural in assessing direction and raw RMS transforms when inputs are bounded away from zero. The exact sharp modulus, rather than a spectral or local upper bound, tells when adding contrast can worsen stability and when further contrast cannot affect the worst case. The uniform-to-one-outlier transition and differing fixed-contrast and high-contrast scaling are meaningful predictions not present in the standard derivative formula. The contribution is the constrained optimization, not another derivation of that derivative or a general machine-learning robustness claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

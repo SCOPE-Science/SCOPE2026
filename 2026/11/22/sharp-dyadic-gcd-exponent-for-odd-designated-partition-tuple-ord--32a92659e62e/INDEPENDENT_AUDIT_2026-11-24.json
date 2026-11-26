@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:53:26.867489Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–53",
+        "Frozen VERIFICATION.md",
+        "Frozen verify_congruence.py, lines 14–70; inspected, not executed",
+        "Kassel–Reutenauer, Theorem 1.1"
+      ],
+      "rationale": "For each allowed part size, multiplicity m>=1 has m choices of designated copy, so the local generating factor at x=q^j is 1+sum m x^m=(1−x^6)/[(1−x)(1−x^2)(1−x^3)]. Thus F counts designated partitions and F^k counts ordered tuples. All formal products and reductions are coefficientwise. R=F^(-1) is exactly the cited eta quotient since 1+2+3−6=0. The Kassel–Reutenauer coefficient formula is a signed multiple of the two-square representation number in each mod-3 class; hence [q^(4n+3)]R=0. Independently, F(q)^4 and F(q^4) agree mod 2 by two Frobenius steps; repeatedly squaring a congruence mod 2^a gains one power of two because the sum of the two squared bases is even. For s>=2 this gives F(q)^(2^s) congruent to F(q^4)^(2^(s−2)) mod 2^(s−1), also after raising to the odd integer (k+1)/2^s. Multiplication by integral R preserves precision; convolution with a series supported in degrees divisible by four preserves the missing class of R. If s=1 there is no divisibility claim beyond modulus 1. Direct expansion of (1+q+3q²+5q³+...)^k gives 5k+3k(k−1)+binom(k,3)=k(k+1)(k+14)/6. For odd k this gives exactly s−1 at n=0 of the progression, establishing sharpness even for s=1.",
+      "residual_risks": [
+        "The all-index proof uses a published eta-quotient identity, not finite coefficient checks. No assertion for even orders or the odd part of the gcd."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.12 gives parity for odd k≡3 mod 4 and other even-order congruences; Proposition 3.13 addresses k≡6 mod 8. The indexed even-order result gives an exact dyadic classification on a disjoint order domain."
+        ],
+        "reasoning": "The parity theorem covers the predicted modulus when s=2, but does not prove unbounded dyadic precision as s increases. Neither even-order result implies the odd-order valuation by specializing k.",
+        "searches": [
+          "Broader designated-partition dyadic congruences, web lookup",
+          "arXiv:2611.05623v1, Theorem 3.12 and Proposition 3.13",
+          "Resultary record e7744f1a3106"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and inspected even-order mirror record",
+        "arXiv:2611.05623v1",
+        "Kassel–Reutenauer, Archiv der Mathematik 108 (2017)",
+        "Four focused literature lookups for the conjecture, formula, reciprocal and broader congruences"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 gives exact coefficients of the reciprocal R, not coefficients for all positive odd powers of F. Prior parity supplies only a fixed-precision bound."
+        ],
+        "reasoning": "The reciprocal vanishing and witness are known ingredients, but to obtain the sharp, variable-order, all-index congruence one must bridge from the reciprocal at order −1 via the modulo-2^s support lifting and convolution. None of the inspected earlier statement-level bounds gives that result by specialization.",
+        "searches": [
+          "Web lookup: reciprocal eta quotient f_1 f_2 f_3 / f_6 sums of two squares",
+          "Kassel–Reutenauer, Theorem 1.1; Yaqubi–Mirzavaziri, Theorem 3.12 and Conjecture 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2611.05623v1, Definition 2.1 and Conjecture 6.1, including the given first-index polynomial"
+        ],
+        "reasoning": "The claim is the odd-order restriction of the same all-index common power of two, whether phrased as a gcd valuation or universal modulus with a sharp witness. The primary source explicitly conjectures this universal sharpness; its exact first coefficient only gives the upper bound on the gcd exponent.",
+        "searches": [
+          "Resultary: sharp odd designated-partition tuple valuations / 4n+3, exact common dyadic modulus",
+          "Web lookups: designated partition tuples Conjecture 6.1 and explicit A_k(3) formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical row 32a92659e62e is not independent evidence; exact adjacent row e7744f1a3106 is even-only. The preprint reports finite tests of the conjecture."
+        ],
+        "reasoning": "Finite coefficient/parameter data or one first-index formula cannot certify divisibility across every term of each progression. No distinct exact odd-order classification was located among the checked results.",
+        "searches": [
+          "Resultary: exact odd-order designated-partition tuple valuations; exact gcd power of two; complementary designated multipartition valuation",
+          "Conjecture 6.1 and its computational discussion in arXiv:2611.05623v1"
+        ]
+      },
+      "rationale": "The new component is the all-index divisibility at the sharp exponent for arbitrary odd orders. The predicted exponent, first-index polynomial witness, reciprocal eta formula and some low-precision cases are prior material and are not credited as new. The complementary indexed even-order finding does not state or cover the odd-order theorem as a new result.",
+      "residual_risks": [
+        "A prior equivalent variable-precision eta-quotient congruence could be indexed under different terminology; targeted searches do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact conjecture and witness, not a proof for all odd orders",
+          "evidence": [
+            "The conjectured exponent is nu2(A_k(3)), except for the even class k≡2 mod 16; the prior theorem on k≡3 mod 4 supplies parity, not arbitrary powers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.05623",
+          "material_read": "v1 Definition 2.1 (PDF offset 8550), Theorem 3.12 and Proposition 3.13 (pp. 8–9), Conjecture 6.1 and adjacent discussion (PDF p. 19 offset 77680; HTML offset 90750)",
+          "method": "Bounded primary OA PDF and HTML inspection",
+          "title": "Partitions with designated summands: k-tuples and their congruences",
+          "trigger": "Same generating function, progression and explicit conjecture"
+        },
+        {
+          "assessment": "Known ingredient: exact lacunarity, not odd-tuple sharp congruences",
+          "evidence": [
+            "Coefficients expressed in terms of the count of ordered signed sums of two squares, vanishing when the exponent is 3 mod 4."
+          ],
+          "identifier_or_url": "https://reutenauer.math.uqam.ca/wp-content/uploads/2024/05/Fourier-expansion.pdf",
+          "material_read": "Author PDF p. 4, Theorem 1.1 (offset 3300)",
+          "method": "Bounded primary OA PDF inspection",
+          "title": "The Fourier expansion of eta(z)eta(2z)eta(3z)/eta(6z)",
+          "trigger": "Exact reciprocal coefficient premise"
+        },
+        {
+          "assessment": "Complementary even parameter domain; same day does not establish order",
+          "evidence": [
+            "Even orders only; usually A_k(3) and exceptionally A_k(7) for k≡2 mod 16 are sharp. Does not assert an original odd-order theorem."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-two-witness-valuation-law-for-even-designated-multipartiti--e7744f1a3106",
+          "material_read": "Mirror RESULT.md at offsets 0 and 450, stated scope and witnesses",
+          "method": "Local Resultary mirror inspection",
+          "title": "Sharp two-witness valuation law for even designated multipartition tuples",
+          "trigger": "Exact adjacent classification for the same conjecture and generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and proof",
+        "arXiv:2611.05623v1, Conjecture 6.1"
+      ],
+      "rationale": "This proves the odd-order part of an explicit conjecture for a natural partition-tuple enumerator. The exact exponent at every odd order, including unbounded exponents, is an all-index structural result; it is not a single coefficient evaluation. The proof identifies why vanishing of one reciprocal residue class supplies a sharp universal congruence.",
+      "residual_risks": [
+        "The finding does not settle the conjecture's even-order branch or compute the odd part of the gcd."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:20:43.506698Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–130",
+        "Frozen VERIFICATION.md and check_lifetime.py, read only",
+        "/workspace/review-evidence/reproduce.py 1; /workspace/review-evidence/reproduce-1.txt"
+      ],
+      "rationale": "With θ'=1 and w=r^(-2), the solution w(t)=exp(2κt)(w(0)−2∫₀ᵗexp(−2κs)sin²(θ₀+s)ds) is valid in original time. The bracket strictly decreases on every positive-length interval for a nonzero initial state; its first zero forces r→∞, while positivity gives a smooth solution. This proves the strict inequality for τ>t, including equality as the escape boundary. The weighted rotating vectors span the plane on every interval, giving positive definite nested Gram matrices. Taking the squared modulus of the weighted second harmonic in the determinant yields, for κ>0, exp(−2κt)((sinh(κt)/κ)²−sin²t)/(1+κ²), with neutral determinant t²−sin²t. For κ>0 the infinite-time condition is the non-strict limiting ellipse inequality. On its boundary w is the shifted positive periodic tail integral; differences at a fixed phase grow by exp(4πκ) each revolution. Interior states converge to zero. In the neutral case every nonzero initial direction has divergent squared-sine integral. Subtracting the limiting area therefore gives S, not A, for the long-time asymptotics. Expanding the inverse square root in q=exp(−2κt) gives first coefficient 1+2κ²sin²t and the two extremal subsequences. On compact u>0 intervals the crossover denominator stays away from zero and the oscillatory correction is uniformly O(κ²). At small t the hyperbolic and trigonometric expansions cancel the terms of degree two and give det Q=(t⁴/3)(1−2κt+Oκ(t²)).",
+      "residual_risks": [
+        "The independent four-case time-and-angle quadrature only corroborates the area calculation. The global lifetime and asymptotic conclusions rest on the analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Llibre's homogeneous rigid-system result supplies the general radial representation, with exact coverage at the chosen cubic.",
+          "The two older article routes did not yield full text. They cannot be excluded on this evidence."
+        ],
+        "reasoning": "Credit the broader dynamical theorem fully. No checked area theorem for general rigid systems specialized to the displayed distribution or crossover.",
+        "searches": [
+          "Llibre, publisher OA PDF, Eq. (2) and Proposition 5(b)",
+          "Gasull–Torregrosa doi:10.1090/S0002-9939-04-07542-2; Gasull–Prohens–Torregrosa doi:10.1016/j.jmaa.2004.07.030, lawful retrieval attempts"
+        ]
+      },
+      "checked_sources": [
+        "Llibre 2024, doi:10.3390/math12182806",
+        "Local Resultary/mirror ae7f648b8e8d (self), c581642bad6a and c5e3d80a606e",
+        "The two cited older limit-cycle titles (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known IVP solution implies a finite escape threshold in each initial direction. Deriving the area observable requires aggregating the directional thresholds via the weighted second harmonic and determinant, separating the positive-area nonescaping component, and analyzing the two-parameter transition.",
+          "The sharp exponential tail has a nonconstant factor and different limiting extrema. This concerns S, not the area A which approaches a positive baseline at fixed κ>0."
+        ],
+        "reasoning": "The surviving distinction is the exact aggregate escape distribution and identification of its sharp time/damping behavior, not a new solution formula, phase classification, or mere substitution of the cubic into the known dynamics. It uses elementary analysis after the reduction.",
+        "searches": [
+          "Llibre, Proposition 5(b), Eq. (5), and Proposition 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Llibre's cubic uses P=y² and λ=−κ under the record's sign convention. His formula becomes r(t)⁻²=exp(2κt)(r₀⁻²−2∫₀ᵗexp(−2κs)sin²(θ₀+s)ds).",
+          "The exact Resultary hit ae7f648b8e8d is the same record. Distinct hits c581642bad6a and c5e3d80a606e instead treat a critical unbounded strip and a different harmonic-cubic gradient flow, respectively."
+        ],
+        "reasoning": "The dynamical solution and survival inequality are not a separate originality contribution. Neither distinct indexed area observable describes this field, finite-escape distribution, or transition.",
+        "searches": [
+          "Local Resultary queries for the exact cubic, finite-horizon ellipse and crossover",
+          "doi:10.3390/math12182806, Eq. (2), Proposition 4 and Proposition 5(b), Eq. (5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit reproduces the target finding itself. The second item measures a truncated strip and time occupation; the third gives a t⁻² slow-escape law for a different flow.",
+          "The external lookup returned irrelevant results, not an inspected exact formula source."
+        ],
+        "reasoning": "Only the identity hit supplies the exact area law in the checked catalogue. The unsuccessful literature lookup is not evidence that no other formula exists.",
+        "searches": [
+          "Local Resultary/mirror for ae7f648b8e8d, c581642bad6a and c5e3d80a606e",
+          "Focused literature query on finite-horizon survival area and damping crossover"
+        ]
+      },
+      "rationale": "Restrict the pass to the quantitative original-time area distribution and its sharp two-regime/crossover analysis. The exact cubic, explicit IVP and resulting radial blow-up threshold are already covered by Llibre. The ellipse as a set is a direct rewriting of that known threshold. The checked source does not give the Euclidean survival distribution obtained by integrating over the initial conditions, its oscillatory finite-escape tail, or the compact-uniform transition across zero damping.",
+      "residual_risks": [
+        "The area calculation is close to the known IVP and does not claim methodological priority for Gram matrices or asymptotic expansions.",
+        "The older full texts and possible unindexed escape-measure derivations remain unexcluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior coverage of dynamics and threshold, not an explicit area or crossover result",
+          "evidence": [
+            "Prop. 4 names P=y²; Eq. (5) yields the reciprocal-radius formula exactly after λ=−κ and shifting the initial phase."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12182806",
+          "material_read": "Eq. (2), p. 1; Proposition 4, p. 2; Proposition 5(b), Eq. (5), p. 4",
+          "method": "Lawful publisher OA PDF, bounded passages; corresponding preprint page unsuccessful",
+          "title": "Rigid Polynomial Differential Systems with Homogeneous Nonlinearities",
+          "trigger": "Exact cubic and stronger general polar IVP formula"
+        },
+        {
+          "assessment": "Non-equivalent",
+          "evidence": [
+            "Critical infinite strip and truncation/occupation results for a different anisotropic cubic."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-critical-completeness-basin-and-pareto-occupation-in-a-cubic-r--c581642bad6a",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A critical completeness basin and Pareto occupation in a cubic rigid flow",
+          "trigger": "Nearby indexed critical completeness and area law"
+        },
+        {
+          "assessment": "Non-equivalent",
+          "evidence": [
+            "A harmonic-cubic gradient flow with an independent decaying coordinate and t⁻² survival, not the rigid damped planar system."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-slow-escape-area-and-sampling-dependent-lifetime-tails-in--c5e3d80a606e",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact slow-escape area and sampling-dependent lifetime tails",
+          "trigger": "Nearby indexed exact escape-area observable"
+        },
+        {
+          "assessment": "Unresolved coverage beyond available evidence",
+          "evidence": [
+            "The AMS route was blocked; the other DOI route did not return a usable text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-04-07542-2 ; https://doi.org/10.1016/j.jmaa.2004.07.030",
+          "material_read": "No primary full-text passage obtained",
+          "method": "Attempted publisher/DOI retrieval",
+          "title": "Exact number of limit cycles for a family of rigid systems; Limit cycles for rigid cubic systems",
+          "trigger": "Older rigid-system results cited by the record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Original-time survival measured over initial states addresses a quantitative question not answered by classifying point trajectories or the limit cycle. The exact reference law separates complete states from finite-time escape, exhibits a persistent phase modulation rather than a constant exponential prefactor, and specifies the compact-uniform transition from algebraic to exponential tails. These are useful benchmarks for the critical rigid flow even though the required area calculation is elementary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

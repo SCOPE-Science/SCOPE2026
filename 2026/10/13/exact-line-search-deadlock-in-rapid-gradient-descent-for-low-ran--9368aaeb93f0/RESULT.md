@@ -82,11 +82,11 @@ The scalar target is positive and the factors are positive, so the quarter power
 (u^2)^{1/4}=\sqrt u.
 \]
 
-The claim concerns Lemma 1 and the well-definedness of Step 3 of Algorithm 1. It does not assert that every initialization fails, nor that a version with an immediate true-gradient safeguard cannot converge.
+The claim concerns the well-definedness of Step 3 on the factor inputs allowed by Algorithm 1. Assumption 1 in the convergence analysis requires a globally Lipschitz gradient for the objective. In the factor variables this scalar objective does not satisfy that condition: the Hessian entries \(F_{uu}=v^2\) and \(F_{vv}=u^2\) are unbounded. Thus the witness is not a counterexample to the step-existence lemma under a global Lipschitz hypothesis. It also does not assert that every initialization fails, nor that a version with an immediate true-gradient safeguard cannot converge.
 
 The source objective is written as one half of the squared Frobenius residual and its gradient formula is the corresponding gradient. Multiplying the objective by a positive constant would not change the strict line-search obstruction.
 
-No global smoothness assumption is needed for the counterexample. The failure occurs algebraically at the very first rapid-gradient line search.
+The failure occurs algebraically at the very first rapid-gradient line search, although the gradient is Lipschitz on any compact box containing the entire trial segment \(|\alpha|\le 1\).
 
 ## Proof
 
@@ -193,7 +193,7 @@ The universal claim for all nonzero real steps is proved analytically above; fin
 
 ## Relationship to prior work
 
-The primary paper explicitly notes that its rapid approximation need not be a descent direction, but Algorithm 1 still requires Step 3 to find a nonzero step with nonincreasing objective, and Lemma 1 claims such a step exists. Its fallback to the exact negative gradient is activated only after a previously selected step becomes sufficiently small. The family above shows a different failure mode: at the very first rapid-gradient call, no nonzero acceptable step exists at all.
+The primary paper explicitly notes that its rapid approximation need not be a descent direction, but Algorithm 1 still requires Step 3 to find a nonzero step with nonincreasing objective and does not require a smoothness test on its input. Lemma 1's proof uses Lipschitz continuity and separates the two strict signs of the directional derivative; the scalar witness instead has directional derivative zero. The delayed fallback to the exact negative gradient is activated only after a previously selected step becomes sufficiently small. On the stated initial factors it cannot rescue the first rapid-gradient call, since no nonzero acceptable step exists at all.
 
 Prior analyses of asymmetric low-rank factorization study the same product objective with the true gradient. Ye--Du emphasize factor unbalancedness and analyze vanilla gradient descent through trajectory control. Ma--Li--Chi analyze balancing-free true-gradient descent for matrix sensing under spectral initialization and restricted-isometry structure. Neither inspected line of work uses the rapid direction of the 2026 paper or implies the exact tangential no-step family above.
 

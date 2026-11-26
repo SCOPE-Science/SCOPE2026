@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:26:55.986964Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and exact search proof; VERIFICATION.md, verify_census.py and maxima.json",
+        "Independent replay: python3 /workspace/reproductions/3.py /workspace/source/2026/11/02/complete-extremal-census-of-balanced-run-two-binary-single-delet--b43d64ccc881/maxima.json. Complete set-packing optimization and equality census using independent generation and branching."
+      ],
+      "rationale": "This is a finite unrestricted-subset problem on noncyclic words, not a linear-code problem. The explicit graph criterion is equivalent to pairwise shadow disjointness. In the frozen pivot recursion, any unreported maximal clique must either use the pivot (if eligible) or contain a vertex not adjacent to it; otherwise the pivot extends it, or it was already excluded by X. Removing each processed branch from P and putting it in X prevents duplicates. Independently, I treated each candidate as a set of descendants and branched on the parent group of a descendant: a packing uses exactly one of that group or none, and choosing a word forbids all parents of its descendants. A partition of the remaining candidates into such conflict groups gives an upper bound of one per group. The independent search discards only branches strictly below the current best, so it counts ties and certifies exhaustiveness. It gives (admissible words, maximum size, labeled maxima)=(6,2,4),(14,4,4),(34,8,1),(84,15,20), agrees with every literal codebook and ordering in maxima.json, and obtains syndrome 3 modulo 5 at length eight and exactly syndromes 3,4 modulo 6 at ten. Applying the four reversal/complement maps gives six two-element and two four-element orbits at ten.",
+      "residual_risks": [
+        "The independent replay checks all maxima and their classifications, not the ancillary count of nonmaximum maximal cliques. Only the four stated lengths, one deletion, exact balance and the linear run constraint are certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published (d,k)-RLL model disallows adjacent ones and bounds zero-runs, including endpoint conditions, unlike the symmetric two-symbol run ceiling.",
+          "The balanced-only and run-only records each omit one of the target constraints."
+        ],
+        "reasoning": "Either unrestricted optimum is only an upper bound for the intersection except where domains coincide; these broader scopes do not dominate the equality census.",
+        "searches": [
+          "arXiv:1211.3128, Theorems 5.1–5.2 and their RLL hypotheses",
+          "Resultary c1dc18cb3082 and f5acf0909fbf, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1211.4056 and 1211.3128",
+        "Resultary c1dc18cb3082 and f5acf0909fbf",
+        "Kracht–Schober DOI 10.1186/s12859-015-0482-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The whole constant-weight graph's chromatic/clique-number result ensures valid syndrome classes, not a maximum independent set on this induced subgraph.",
+          "Even at n=10, where two full modified syndrome classes do attain the optimum, 18 other labeled maxima are not full classes."
+        ],
+        "reasoning": "Coloring settles a feasible construction and the larger tables settle different optima. They cannot certify uniqueness, exhaustiveness or the two-VT/eighteen-non-VT split and its symmetry census.",
+        "searches": [
+          "arXiv:1211.4056 Theorem 5; arXiv:1211.3128 Theorems 5.1–5.2; Resultary c1dc18cb3082 and f5acf0909fbf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A clique in the compatibility graph is an independent set in the deletion-conflict graph; at weight n/2 the published modified checksum has exactly the same modulus n/2+1.",
+          "The catalogue run-ceiling census uses the usual modulus n+1 and does not restrict weight."
+        ],
+        "reasoning": "The exact equivalence validates the construction but says nothing about maximum size versus other codes or the number of maximizing packings on the reduced vertex set.",
+        "searches": [
+          "arXiv:1211.4056 Definition 7, Lemma 8 and Theorem 5",
+          "Resultary: balanced single-deletion code sizes and binary run-ceiling-two VT gap, c1dc18cb3082 and f5acf0909fbf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balanced-only maximum sizes are 2,5,14,42 for n=4,6,8,10; at n=4 the six-word domain actually coincides, so the size 2 overlaps exactly. For n≥6 these upper bounds are strictly larger than the frozen optima.",
+          "Run-only maximum sizes are 3,6,10 for n=4,6,8, with no n=10 size in the inspected Finding; all three bounds are strict at the common lengths."
+        ],
+        "reasoning": "The strongest exact tables checked do not list or force the maximizing labeled codebooks for this intersection. Same-date indexing does not resolve priority.",
+        "searches": [
+          "Resultary balanced-only exact profile c1dc18cb3082",
+          "Resultary run-ceiling-two exact VT-gap census f5acf0909fbf"
+        ]
+      },
+      "rationale": "Modified-VT validity and the deletion-conflict graph model are known, as is the length-four optimum size from the identical balanced layer. The supported distinct result is the exact optimum and equality census of the intersection of balance and run ceiling two, particularly the labeled maximizers and orbit structure at lengths eight and ten. Neither of the closest exact broader-domain tables yields that census.",
+      "residual_risks": [
+        "Bounded search; the original mentions a plausible constant-composition deletion-code thesis without a usable bibliographic identifier. Unindexed tables may exist; no priority conclusion is drawn from access limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known construction; not the constrained equality census",
+          "evidence": "The checksum colors the whole constant-weight deletion graph with max(k,n−k)+1 colors.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+          "material_read": "Definition 7, Lemma 8 and Theorem 5, pp. 9–10, offsets 47531–52514",
+          "method": "Primary OA PDF",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Exact same conflict representation and checksum"
+        },
+        {
+          "assessment": "Different constrained source and bound; no exact instance census",
+          "evidence": "No adjacent ones, bounded zero-runs and endpoint rules; exact evaluation is outside the scope of the bound discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+          "material_read": "Binary RLL definition and Theorems 5.1–5.2, pp. 12–13, offsets 93838–107783",
+          "method": "Primary OA PDF",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Constrained-source packing bounds that might dominate"
+        },
+        {
+          "assessment": "Exact overlap at n=4 size; otherwise larger-domain size bounds",
+          "evidence": "Catalan optima over all balanced words through length twelve; no forbidden triples condition.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-balanced-single-deletion-code-sizes-through-length-twelve--c1dc18cb3082",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2053",
+          "method": "Local Resultary mirror",
+          "title": "Exact balanced single-deletion code sizes through length twelve and the first fractional-packing gap",
+          "trigger": "Exact maxima for the larger balanced layer"
+        },
+        {
+          "assessment": "Larger-domain census, not an exact match",
+          "evidence": "Uses triple avoidance of both symbols but not balance; compares conventional VT modulo n+1.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-strict-vt-syndrome-gap-for-binary-single-deletion-code--f5acf0909fbf",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The first strict VT syndrome gap for binary single-deletion codes",
+          "trigger": "Exact optima for the larger run-two layer"
+        },
+        {
+          "assessment": "Abstract-level applied context, not evidence for an exact matching table",
+          "evidence": "The abstract describes watermark construction and simulation, not this binary combinatorial census.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s12859-015-0482-7",
+          "material_read": "Abstract p. 1, PDF offset 1630",
+          "method": "Primary OA paper",
+          "title": "Insertion and deletion correcting DNA barcodes based on watermarks",
+          "trigger": "Cited applied construction using insertion and deletion correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and maxima.json; independent equality and symmetry replay; broader balanced-only and run-only profiles"
+      ],
+      "rationale": "The balanced layer and symmetric run restriction define a natural intersection of two distinct constrained-code regimes. The exact equality census distinguishes whether the standard algebraic construction merely attains the optimum or classifies all optimal codes. Length eight gives uniqueness, whereas length ten exposes substantial structure outside the syndrome construction, still with eight inequivalent classes under the two natural symmetries. This is a concrete benchmark for future constrained packing or classification algorithms, not a claim that VT codes lose optimal size here.",
+      "residual_risks": [
+        "No assertion about larger lengths, more errors or biological codes; the scientific motivation concerns the stated binary combinatorial model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

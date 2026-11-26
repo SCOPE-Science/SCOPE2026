@@ -1,15 +1,21 @@
-# Review of the Tietze majority orbit and basin classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is fixed by a concrete 18-edge list on twelve vertices. Binary update at each vertex is the strict majority of its three neighbors; no ties or self-votes occur. A direct trajectory classifier exhausts precisely all \(2^{12}=4096\) indexed initial masks. Independently, a second algorithm constructs the graph by expanding vertex zero of a Petersen graph into a triangle and decomposes the 4096-state functional digraph using indegrees. Both return sixteen fixed states, 137 primitive two-cycles, the exact 12-class orbit-basin histogram, and all twelve (entry time, period) populations. They verify \(F^{7}=F^{5}\); the explicit trajectory \(31\to198\to22\to192\to16\to0\) certifies the sharp five-step cutoff and \(F^{6}\ne F^{4}\). A third complete graph-automorphism enumerator verifies twelve automorphisms, six fixed spatial classes and 29 two-cycle spatial classes. These are exact finite exhaustive proofs for the stated graph, with replayable source and output, not experimental extrapolations.
+## correctness
 
-## Originality — PASS, with bounded historical-priority risk
-Goles–Olivos' general period-at-most-two theorem only restricts eventual periods and gives none of these exact twelve-vertex counts. The publicly posted 2014 work of Benjamini and coauthors concerns convergence on unimodular/random/infinite graphs; inspected introductory definitions and the paper's overall theorem scope do not imply any Tietze-specific basin classification. A fully inspected published Petersen/Desargues majority result gives 14 fixed, 55 two-cyclic orbits on the ten-vertex Petersen graph before triangle inflation, but expansion changes its adjacency rule and the exact new Tietze basin counts cannot be inferred. A fully inspected Tietze perfect-matching-complex result concerns simplicial homotopy and equivariant homology, not binary dynamics. No overlapping Tietze majority result was found in actual targeted published-result database queries, indexed web queries, or readable own previous-week ledgers. An unindexed or privately computed same-graph census remains possible. Search absence is not uniqueness proof.
+PASS
 
-## Value — PASS
-The Tietze graph is a canonical small non-Hamiltonian cubic graph and a natural local alteration of the Petersen graph, making it a motivated test case for the sensitivity of majority dynamics to triangle inflation. The complete 4096-state census determines every transient entry time and each of the 153 attraction basins, distinguishes basin dominance (two unanimity basins of 776 states each) from primitive orbit count (137 two-cycles), and resolves geometric symmetry for the entire recurrent system. The sharp fifth update is larger than the four-update Petersen benchmark. These are natural dynamical invariants of a standard object, not arbitrary slice counts; no generalized theorem beyond this finite graph is claimed.
+The explicit cubic graph and open-neighbor rule define the full 4096-state deterministic map. Exhaustive independent enumeration of first repeats gives the (period 1, period 2) entry rows (16,274), (136,994), (492,708), (360,252), (432,144), (216,72) at t=0 through 5. Grouping by the repeated suffix up to cyclic rotation yields all published fixed and two-cycle basin sizes and multiplicities, including both unanimous basins of 776. The maximum entry of 5 and period bound 2 imply F^7=F^5; 31→198→22→192→16→0→0 refutes F^6=F^4. An exhaustive action of the 12 edge-preserving permutations gives six fixed and 29 two-cycle spatial classes. Independently, contraction of the unique triangle identifies the automorphism group with a vertex stabilizer in the Petersen group S5 (recognizable from the five maximum independent stars in KG(5,2)); this stabilizer has order 2!3!=12.
 
-## Closest literature and remaining limits
-Goles and Olivos (1980), DOI 10.1016/0012-365X(80)90121-1; Benjamini et al. (arXiv:1405.2486v1, 2014-05-11); MathWorld's Tietze's Graph entry; the published Petersen majority/Desargues classification and Tietze perfect-matching-complex classification listed in `RESULT.md`. Residual uncertainty concerns unindexed work with the same dynamics, and no independent external audit has been undertaken. Other update schedules or graph families are outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The verified distinct content is the exact Tietze first-entry, temporal-basin and spatial-orbit census; neither the classical period bound nor the order of the Tietze automorphism group is new. The closest retrieved dynamical census is for a different graph and does not give these data.
+
+## value
+
+PASS
+
+The Tietze graph is a standard cubic comparison to the Petersen graph, not an arbitrary choice of a twelve-vertex example. Its triangle inflation increases the exact worst settling time from four to five and substantially changes the recurrent and basin counts. The basin and symmetry tables distinguish that concrete change in local dynamics beyond the classical period bound and are independently useful as canonical test cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

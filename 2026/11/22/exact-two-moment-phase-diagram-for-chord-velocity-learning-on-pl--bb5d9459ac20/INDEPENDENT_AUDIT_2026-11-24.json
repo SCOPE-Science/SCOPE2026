@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:39:13.779834Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the two regression covariances (RESULT.md 48–65): for input K_S x and target Cx they are (r²/2)D I and (r²/2)C E[K_S]^T. The smallest possible D is cos²(θ/2)>0 on 0<θ<π, so the optimizer over all matrices is unique. Subtracting its explained energy from 2r²(1−cos θ)/h² leaves 4r²v(1−cos θ)²/(h²D). This gives the stated exact residual and radial sign, including all deterministic laws. At fixed h the angular derivative of h times the fitted frequency has numerator (1−2q)cos θ+2q and positive denominator D², giving the unique fold or the increasing deterministic-midpoint endpoint case. For a fixed offset law and fixed true ω>0, the radial coefficient starts with (μ−1/2)ω²h; the angular h² and h⁴ coefficients are (q−1/6)ω³ and (q²−q/4+1/120)ω⁵. Thus the full-matrix order criterion, −1/180 coefficient, residual expansion and 2π/3 fold follow. Read VERIFICATION.md and the finite checker without executing it; the checked analytic proof suffices. The fold refers only to the fitted angular coefficient, not identification from all data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farenga–Manzoni pp. 24–26 treats general bias and variance, uniform stochastic collocation and a bound, rather than an exact minimizer for arbitrary offset laws.",
+          "Lu–Tsai pp. 2, 5 use trajectory propagators in their fitting objective and discuss implicit midpoint.",
+          "The literature lookup supplied no useful closer match; that is not absence evidence."
+        ],
+        "reasoning": "Neither inspected framework gives the joint rotation-specific theorem under its stated objective and hypotheses.",
+        "searches": [
+          "Farenga–Manzoni Proposition 4.2, Proposition 4.3, Theorem 4.4, Appendix C.2",
+          "Lu–Tsai arXiv:2507.14491",
+          "Literature lookup for exact arbitrary-offset chord-velocity rotation regression"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact self-match bb5d9459ac20 and distinct summaries 6fded46de114 and 33340664eb63",
+        "Farenga–Manzoni arXiv:2611.00448",
+        "Persson’s open compact differencing notes",
+        "Lu–Tsai arXiv:2507.14491",
+        "Lele and Li–Li–Liao access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normalized compact symbol immediately gives the angular fold and angular order after substitution; it must not be credited as new in any offset case.",
+          "The uniform bias–variance theorem does not yield the radial dependence on μ and the exact nonuniform optimum/risk without solving the population regression and relating the offset moments."
+        ],
+        "reasoning": "The distinct assertion is the distribution-design constraint for the full fitted generator; it is not an asserted discovery of the symbol or the underlying least-squares method.",
+        "searches": [
+          "arXiv:2611.00448, §§4.1–4.4 and Appendix C.2",
+          "Persson, Modified wavenumber, first derivatives"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same catalog record is a self-match, not independent prior work.",
+          "The full angular symbol is the tridiagonal compact-derivative symbol (1+2α)sin θ/(1+2α cos θ), with α=q/(1−2q). In particular q=1/6 gives α=1/4 and the familiar Padé symbol and its directly calculable fold.",
+          "A compact-derivative frequency symbol has no offset-mean-dependent radial part or training risk."
+        ],
+        "reasoning": "Equivalence covers the angular calculation in isolation, not the statistical classification coupling generator order, damping and residual.",
+        "searches": [
+          "Resultary: arbitrary-offset planar-rotation optimizer and loss; fourth-order moment criterion and frequency fold; compact first-derivative symbol",
+          "arXiv:2611.00448",
+          "Persson, Compact Finite Difference Schemes, modified wavenumber"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact catalog match was the frozen record itself. Catalog summaries for the distinct random implicit-midpoint anisotropy (6fded46de114) and Haar-sketched Euler fluctuations (33340664eb63) describe different statistics.",
+          "The local mirror could not provide those distinct full texts; no exclusion of their uninspected contents is inferred."
+        ],
+        "reasoning": "The related catalog data do not supply this arbitrary-law optimizer and residual. Known compact-difference formulas, even with the same angular values, do not supply them either.",
+        "searches": [
+          "Resultary: arbitrary-offset optimizer and risk; exact fourth-order moment and frequency-fold criterion"
+        ]
+      },
+      "rationale": "The supported contribution is the exact arbitrary-law statistical classification: full optimizer and irreducible risk, with the necessary and sufficient moments for simultaneous conservative fourth-order recovery and the resulting fold. Velocity-matching interpolation, the general bias–variance viewpoint, and the compact-difference angular family (not just its uniform instance) are prior; they do not identify the fitted full matrix and residual or tie these to feasible offset laws. No matching joint result was established in the comparisons below.",
+      "residual_risks": [
+        "The two closest distinct catalog matches were compared only at the summary level; no priority inference from index dates.",
+        "An uninspected velocity-learning treatment could already work out this same exact arbitrary-offset regression. Compact differencing is explicitly not a novelty claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior method and uniform bias–variance framework; distinct from the exact arbitrary-law statistical classification.",
+          "evidence": [
+            "Proposition 4.2 uses uniform τ over the step; Proposition 4.3 gives the continuous-stage Runge–Kutta/average-vector-field interpretation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.00448",
+          "material_read": "p. 4 §1.2; pp. 24–26 Propositions 4.2–4.3 and Theorem 4.4; p. 61 Appendix C.2",
+          "method": "Open primary full-text passages",
+          "title": "Learning to evolve by matching velocities",
+          "trigger": "Matching interpolant and objective"
+        },
+        {
+          "assessment": "Covers the angular symbol algebraically; no population learning theorem.",
+          "evidence": [
+            "Set β=b=c=0 and a=1+2α in the displayed first-derivative symbol, then α=q/(1−2q)."
+          ],
+          "identifier_or_url": "https://persson.berkeley.edu/math228b/html/compactfd_slides.html",
+          "material_read": "Modified wavenumber, first derivatives, offsets 4852–5764",
+          "method": "Read open lecture-note equations and specialize the coefficients",
+          "title": "Compact Finite Difference Schemes (P.-O. Persson)",
+          "trigger": "Equivalent angular symbol for all q"
+        },
+        {
+          "assessment": "No whole-paper negative assessment; angular coverage independently confirmed.",
+          "evidence": [
+            "The cited PDF route and Li–Li–Liao full-text routes were unavailable."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-9991(92)90324-R ; https://doi.org/10.1002/num.23036",
+          "material_read": "Landing material only where available; no usable cited full text",
+          "method": "Tried lawful cited and alternate routes; checked symbol in the open Persson notes instead",
+          "title": "Compact finite difference schemes with spectral-like resolution; A combined compact finite difference scheme for solving the acoustic wave equation in heterogeneous media",
+          "trigger": "Cited compact derivative and classical Padé case"
+        },
+        {
+          "assessment": "Different optimization target.",
+          "evidence": [
+            "Trajectory least squares via a numerical propagator; implicit midpoint discussed on p. 5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.14491",
+          "material_read": "pp. 2, 5",
+          "method": "Open primary full-text passages",
+          "title": "Artifacts of Numerical Integration in Learning Dynamical Systems",
+          "trigger": "Integrator-induced frequency and stability effects"
+        },
+        {
+          "assessment": "Summary-level difference, not a whole-source exclusion or priority comparison.",
+          "evidence": [
+            "Quadratic/quartic angular anisotropy of random-step midpoint; radius/phase fluctuations of random Euler rotation."
+          ],
+          "identifier_or_url": "Resultary: 6fded46de114; 33340664eb63",
+          "material_read": "Catalog summaries only; local mirror did not return full records",
+          "method": "Configured Resultary search and attempted mirror retrieval",
+          "title": "Sharp three-duration fourth-moment isotropization by random implicit midpoint steps; Exact logarithmic drift and phase fluctuations of Haar-sketched Euler rotation",
+          "trigger": "Closest distinct semantic matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The motivated question is how to choose collocation offsets to recover conservative oscillatory dynamics, not how to maximize a known trigonometric symbol. Deterministic midpoint gives zero risk and no fold but only second-order frequency accuracy; fourth order fixes the variance, gives nonzero irreducible loss and forces a fold within the sampling range. This separates three practically different targets by exact, usable population conditions. The interpretation is limited to the specified noiseless linear model and the angular statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:51:44.396985Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent integer-only reproduction on all 15,361 permitted encodings checked exact nearest-even transitions, subnormals and the endpoints, both edge digests, cycle reachability, each basin cardinality and midpoint weight, and all entry-time maxima. It confirmed the 2,774 unequal edges, 10,194 unequal zero-basin memberships, both exact marginal Cesàro expectations and their printed approximations. For the actual repaired claim, weighting each common code by the difference of its two adjacent values (using one adjacent value at endpoints) gives cell lengths in units 2^(-25). Summing by both basin labels gave rows [11335435,0,21950155], [2730,22528,0], [2602,0,240982]. The joint table normalizes to 2^25 and its row and column sums agree with the independently reproduced marginals. Periodic tails justify the Cesàro average per state, and exact weighted cycle means justify the expectation. The new standard-library certificate, python3 verify_ensemble.py, was run and checked the joint law and exact means; the original uploaded script was not executed for this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klöwer et al. report deterministic low-precision artificial fixed points and cycles, including Float16, and describe orbit-search methods; the inspected passages do not specify these exact two trees and their joint basin law.",
+          "The expanded-evaluation record explicitly uses the encoding counting law and its new graph is a different arithmetic tree."
+        ],
+        "reasoning": "General finite-precision orbit methodology, rules for rounding, and qualitative attractor collapse motivate but do not determine the weighted law of common starts. The inaccessible Galias passages do not constitute negative evidence.",
+        "searches": [
+          "Klöwer et al. DOI 10.1038/s41598-023-37004-4, logistic section and Methods",
+          "Galias DOI 10.1109/TCSII.2021.3081604",
+          "Resultary expanded evaluation 46d23de07c7c and basin inversion 305f9651a5de"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Klöwer et al. 2023 PDF",
+        "Mirrored 46d23de07c7c, 35a3ca4a276d and 305f9651a5de",
+        "Focused exact-ensemble and crossover Resultary searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Attraction to zero under F and not G weighs 21,950,155 units, while the opposite event weighs 5,332. The difference of marginal zero masses gives only their difference, 21,944,823, not either directional probability.",
+          "The checked analogue under bfloat16 has a large nonfixed-to-zero migration rather than the large zero-to-nonzero real-start migration here."
+        ],
+        "reasoning": "A full labelled joint graph underneath the summaries would allow this weighted evaluation, but neither a marginal census nor aggregate disagreement counts or fingerprints mechanically imply the displayed joint table. The result reports the weighted classification itself, not originality of finite-graph traversal.",
+        "searches": [
+          "46d23de07c7c RESULT.md Prior coverage and value",
+          "305f9651a5de RESULT.md Finding and assumptions",
+          "Klöwer et al. logistic recurrence Eq. (4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "35a3ca4a276d has the identical once-rounded binary16 map and a different completed-square map; the latter has an 8-cycle, not 40.",
+          "46d23de07c7c explicitly credits the same 40- and 5-cycle maps to ec3a649c6929. 305f9651a5de cross-classifies bfloat16 maps with the staged expression R(4xR(1−x)) and encoding counting, not the common real-start binary16 law."
+        ],
+        "reasoning": "Changing binary16 to bfloat16 changes the state grid and successors; changing staged product rounding changes the expression tree. An encoding-count comparison is not equivalent to midpoint weighting even on the same grid.",
+        "searches": [
+          "Resultary: binary16 factored and once-rounded logistic strongly matching baseline, uniform real midpoint weights and exact means",
+          "Resultary: same uniformly sampled real rounded initial condition, joint basin contingency table, zero-to-nonzero and reverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The expanded-evaluation comparison section explicitly identifies the once-rounded 117-state and staged 10,267-state nonfixed basins, other basin coverage and digests as baseline results. Its advertised table measure is encoding count.",
+          "The actual bfloat16 overlap supplies an exact paired basin table on encodings and expressly excludes a Lebesgue probability claim. No checked statement gave the binary16 real-start table."
+        ],
+        "reasoning": "Marginal encoding counts, marginals under another grid, and hash digests are not a table of shared-start weighted intersections. This distinction is not evidence that an unavailable table lacks pertinent numbers.",
+        "searches": [
+          "Resultary ec3a649c6929, 46d23de07c7c, 35a3ca4a276d",
+          "Resultary weighted joint basin coupling and 21950155"
+        ]
+      },
+      "rationale": "The original graph-level contribution materially overlaps the inspected expanded-evaluation record's explicit credit for the identical binary16 baseline censuses, basin counts and digests. The target it cites was unavailable for direct reading. The corrected article credits both graphs and makes the common-start, midpoint-weighted joint law and its real-start consequences the claim, not the graph census. The reported counting tables and digests do not imply those directional masses from their published summary statistics. The strongest examined joint analogue uses different bfloat16 maps and encoding counts. This is a judgment on the demonstrated distinct remainder, not a priority claim or a conclusive comparison against unavailable text.",
+      "residual_risks": [
+        "The strongest direct baseline citation ec3a649c6929 was absent in the checked mirror. It could report one or more real-start quantities; existing indirect evidence credits the graph-level results only.",
+        "Corless (2024) is cited secondhand for a factored period-40 cycle; no primary passage was resolved, and the period is not claimed as novel here.",
+        "Catalogue dates do not establish priority. Unindexed results with an exactly matching initialization and coupled calculation remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap covering graph-level baselines; no joint real-start table in the compared passages",
+          "evidence": "Explicitly credits staged-factored 40-cycle with 10,267 states and once-rounded 5-cycle with 117 plus fixed basins and edge digests to ec3a649c6929; distinguishes its encoding-count measure.",
+          "identifier_or_url": "2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c",
+          "material_read": "Mirrored RESULT.md Finding, Domain and Prior coverage and value, offsets 0–7477",
+          "method": "Local indexed record and mirrored passages",
+          "title": "Exact complete expanded-evaluation binary16 logistic cycle census",
+          "trigger": "Identical binary16 baseline maps named in catalog"
+        },
+        {
+          "assessment": "Indirect strong baseline overlap; direct joint-law comparison unresolved",
+          "evidence": "The upstream comparison gives the baseline periods, nonfixed basin sizes and credit for digests; the target path is absent from the checked mirror.",
+          "identifier_or_url": "2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929",
+          "material_read": "Only the citation and exact coverage description in 46d23de07c7c; target text not retrieved",
+          "method": "Local index and attempted mirrored RESULT.md retrieval",
+          "title": "Rounding placement changes the complete binary16 logistic attractor census",
+          "trigger": "Best potential direct match for both maps and initialization ensemble"
+        },
+        {
+          "assessment": "Direct F overlap; different second map and no common real-start measure in those passages",
+          "evidence": "Same once-rounded 1,1,5 census, otherwise a completed-square map with an eight-cycle.",
+          "identifier_or_url": "2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d",
+          "material_read": "Mirrored RESULT.md map definitions and encoding-count census",
+          "method": "Local indexed record and mirrored passages",
+          "title": "Two exact binary16 logistic cycle spectra under algebraically equivalent evaluation",
+          "trigger": "Explicit exact binary16 census using a once-rounded reference"
+        },
+        {
+          "assessment": "Same diagnostic idea for another format, expression pair and initialization law",
+          "evidence": "A=R(4x(1−x)), B=R(4xR(1−x)) on 16,257 bfloat16 encodings; a 10,423-code nonzero-to-zero migration counted on encodings, expressly not Lebesgue probabilities.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-bfloat16-logistic-basin-inversion-under-a-single-intermedi--305f9651a5de",
+          "material_read": "Mirrored RESULT.md offsets 0–3188, Finding and Assumptions",
+          "method": "Local indexed record and mirrored passages",
+          "title": "Exact bfloat16 logistic basin inversion under a single intermediate rounding",
+          "trigger": "Explicit paired basin classification and directional migration"
+        },
+        {
+          "assessment": "Qualitative and methodological antecedent; joint law not established in inspected passages",
+          "evidence": "Deterministic low precision including Float16 gives spurious attracting cycles; general orbit-search discussion uses sampling rather than the exhaustive paired binary16 weighting here.",
+          "identifier_or_url": "https://doi.org/10.1038/s41598-023-37004-4",
+          "material_read": "Published PDF logistic section pp. 3–4, Eq. (4), OA offsets about 19151 and 21614–22660; orbit searches and Methods pp. 2, 9",
+          "method": "OA PDF passages",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Binary16 logistic dynamics and finite-precision periodic orbits"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; title specifies single and double precision",
+          "evidence": "Publisher response did not give usable full text and no repository copy was identified by the retrieval.",
+          "identifier_or_url": "https://doi.org/10.1109/TCSII.2021.3081604",
+          "material_read": "No primary full text retrieved",
+          "method": "Lawful DOI and OA repository recovery attempted",
+          "title": "Periodic orbits of the logistic map in single and double precision implementations",
+          "trigger": "Systematic periodic-orbit census in implementation-specific arithmetic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Common-start comparison answers an initialization question that separate finite graph inventories do not: what fraction of actual uniformly drawn inputs change asymptotic fate, and in which direction? The exact table shows overwhelmingly one-way movement away from zero, with a small but nonzero reverse event that cannot be reconstructed from the mean shift or the difference of zero marginals. The object and initialization are canonical and the precise probabilities make a reusable finite-precision benchmark without asserting general numerical dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

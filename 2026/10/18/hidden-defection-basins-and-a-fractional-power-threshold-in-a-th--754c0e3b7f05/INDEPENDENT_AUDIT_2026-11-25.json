@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:32:53.345797Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Wang §3.3 equations (2)–(4) give the three payoff differences; substitution produces exactly the frozen brackets and respects the stated positive costs and inspection-rate constraints. This is not Wang's numerical regime. The cube and y=z are invariant, and x increases to 1 by logistic comparison. On the diagonal, the stable branch at (1,rho) starts strictly between rho and T(x)=rho+eps(1-x): its eigenslope in 1-x is a0 eps/(a0+L1), with a0=rho(1-rho), L1=1+eps(1-rho). At w=T the contact derivative of w-T is +eps xdot, so the branch cannot leave this strip in continuation backwards; crossing rho would instead prevent forward convergence to the saddle. The strip, xdot>0 and continuation of the scalar analytic graph yield its full interior domain. Monotonicity then gives a unique backward limit w at x=0, which must be invariant there, hence w=s=rho+eps. For arbitrary diagonal initial data w can switch monotonicity only from decreasing to increasing, so w tends to 0, rho, or 1. The stable branch is the only interior set tending to rho, and scalar order in x separates the other two limits. I checked the cusp without invoking a node linearization theorem: write v=s-h, and x v'=A(x,v)(v-eps x) with A=(s-v)(1-s+v)/[(1-x)(1+eps(1-s+v))]. Then A tends to kappa in (0,1) and v>eps x. For any kappa+delta<1, x v'/v <= kappa+delta near zero gives v>=C x^(kappa+delta); substituting this back gives x v'/v>=kappa/2 near zero, hence v=O(x^(kappa/2)). Now the logarithmic derivative of v/x^kappa is O((x+v+x/v)/x), integrable at zero, proving a finite strictly positive ratio limit. For the response, writing eta=h(x(t))-rho gives eta'=a0[eta-eps(1-x(t))]+O(eps²) uniformly by the barriers. Integrating against exp(-a0 t) from 0 to infinity selects the bounded solution. The x-logit differs from x's unperturbed logit by at most eps t, so its substitution under the exponential weight costs O(eps²); this yields the exact pointwise first variation. In the lower 3D box the two growth brackets stay bounded above by negative numbers fixed by the initial shares; in the upper box they stay positively bounded below. This proves convergence and the two volume bounds, including the 1/400 unsampled lower box. Independent replay `python /workspace/branches/independent_audit_replay.py` checks two response step sizes by backward logit integration, not a proof of the basin or cusp.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang explicitly says the numerical grid is not exhaustive. The collective-risk record uses a first integral and energy-level separatrix between orbits and extinction/defection in a different 2D model. Fu et al. is related and its full equations could not be verified independently from the obtained landing material."
+        ],
+        "reasoning": "A generic saddle stable manifold guarantees a local curve, but not global extension over every x, strict barriers, positive cusp amplitude or the parameter-specific dependence here. Neither the available broader-model evidence nor Wang's finite experiment supplies those properties.",
+        "searches": [
+          "Wang arXiv:2609.27664 §§3.4, 6.1, 7.5",
+          "Fu et al. 10.3390/systems14091142, OA routes for basin/separatrix full text",
+          "Resultary caf974f7f068 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, AUDIT.json and verify.py",
+        "Wang arXiv:2609.27664v1 relevant sections",
+        "Fu et al. DOI landing material",
+        "Resultary records b5d0cacaf39e, dafee39a2bfd and caf974f7f068"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The payoff specialization is direct algebra; 9/9 elsewhere does not imply universal cooperation or the existence of the particular positive-volume defection box. The other indexed statements feature different fields, and their separators or fractional powers do not give the quantitative global graph here."
+        ],
+        "reasoning": "The parameter substitution is not the contribution. The model-specific monotonicity and barriers make it possible to continue and classify the stable branch, show a strictly positive slow coefficient at the opposite boundary and calculate the first variation. Those claims are not supplied by the prior experiment or a local linearization alone.",
+        "searches": [
+          "Wang Table 1 and §3.3 equations (2)–(4), §§3.4 and 7.5",
+          "Resultary b5d0cacaf39e, dafee39a2bfd and caf974f7f068 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang's payoff formulas specialize exactly to this field. On the symmetric plane, using x as independent variable gives a scalar nonautonomous coordination equation with a declining interior nullcline. The inspected opinion–behavior threshold record b5d0cacaf39e has a one-sided threshold and local quadratic stable-manifold curvature, not this forced coordination equation."
+        ],
+        "reasoning": "The symmetric reduction and graph equation describe the same threshold, but a qualitatively similar stable-manifold separator in a different feedback game does not identify this global graph, cusp or response. The public Wang sample concerns a different vector field parameter setting.",
+        "searches": [
+          "Wang arXiv:2609.27664 §§3.3–3.4 and 7.5",
+          "Resultary: governance replicator, stable separator, fractional-power threshold, logistic response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wang reports 9/9 for the incentive-on regime alpha=80. The indexed discrete dispersal record dafee39a2bfd gives a square-root upper-basin length and a separate order-eps^(3/2) mean correction."
+        ],
+        "reasoning": "The published 9/9 count does not determine the basin of the different alpha=1 example, and the discrete-map fractional powers describe different observables and parameters from x^kappa or the weak-asymmetry integral. No exact entry covering this threshold was identified.",
+        "searches": [
+          "Resultary exact basin threshold and fractional-power response; mirror dafee39a2bfd",
+          "Wang §3.4 and §6.1 numerical sample"
+        ]
+      },
+      "rationale": "The payoff model and the finite symmetric-grid protocol are prior; the verified distinct claim is the exact global separator on a symmetric slice of a different admissible parameter family, with enclosure, nonvanishing fractional endpoint law, first-order response, and an explicit positive-volume box missed by the nine starts. The proof uses established comparison and invariant-manifold ideas rather than a new general separatrix theorem.",
+      "residual_risks": [
+        "No independent equation-level exclusion of Fu et al. is possible on the material retrieved.",
+        "An equivalent forced coordination reduction or model-specific cusp may exist in other replicator literature; this is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The chosen parameters yield the exact payoffs; source numerical regime and theorem example differ. No contradiction with the source's stated grid result.",
+          "evidence": [
+            "The source explicitly uses alpha=80 and nine p values for its basin estimate and says this is not a continuous state-space claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.27664v1",
+          "material_read": "Table 1 and §3.3 p. 10, equations (2)–(4), OA passage offsets 23600–27289 including §3.4 p. 11; §6.1 p. 13; §7.5 p. 21",
+          "method": "Lawful OA PDF text",
+          "title": "Evolutionary Stability Does Not Guarantee Learning Accessibility: A Multi-Agent Reinforcement Learning Perspective on Cooperation Emergence",
+          "trigger": "Exact source of payoffs and motivating nine-start result"
+        },
+        {
+          "assessment": "Cannot independently determine possible equation-level coverage.",
+          "evidence": [
+            "Identity of the cited governance paper is established; no full-text noncoverage conclusion is drawn."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/systems14091142",
+          "material_read": "Landing/bibliographic material; full paper and decisive payoff passages not obtained",
+          "method": "Lawful OA lookup and an alternate OA route; no usable full text returned",
+          "title": "Evolutionary Game Analysis and Capability Reconstruction of Coal Mine Disaster Emergency Governance Oriented Toward Collaborative Resilience",
+          "trigger": "A related three-actor governance separatrix/basin paper cited in the record"
+        },
+        {
+          "assessment": "Different model and local curvature result.",
+          "evidence": [
+            "The stable-manifold boundary has local quadratic curvature 44/103 rather than the low-regulation endpoint cusp here."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-one-sided-opinion-threshold-curved-basin-boundary-and-resource--b5d0cacaf39e",
+          "material_read": "RESULT.md Finding and described feedback system",
+          "method": "Lawful local mirror text",
+          "title": "A one-sided opinion threshold, curved basin boundary, and resource memory in a Hawk–Dove feedback game",
+          "trigger": "An apparently similar threshold and boundary geometry"
+        },
+        {
+          "assessment": "Discrete logistic dispersal with different quantities and scaling.",
+          "evidence": [
+            "Square-root upper-basin length and order-eps^(3/2) mean correction, not the stable graph's x^kappa law."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-basin-selection-and-fractional-power-response-at-a-discont--dafee39a2bfd",
+          "material_read": "RESULT.md Finding and asymptotic observables",
+          "method": "Lawful local mirror text",
+          "title": "Exact basin selection and fractional-power response at a discontinuous logistic border",
+          "trigger": "Potential equivalent fractional response law"
+        },
+        {
+          "assessment": "Different feedback field with an energy-level separator.",
+          "evidence": [
+            "Separates periodic orbits from extinction/defection with a first integral, not a critical share as a function of initial regulation."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-first-integral-and-sharp-orbit-extinction-separatrix-in-a-collec--caf974f7f068",
+          "material_read": "RESULT.md Finding and separatrix description",
+          "method": "Lawful local mirror text",
+          "title": "First integral and sharp orbit–extinction separatrix in a collective-risk feedback game",
+          "trigger": "A strong basin-separation statement in a feedback game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact threshold fills a gap left by testing initial conditions on a finite symmetric grid. Its sharp barriers and endpoint scaling quantify how substantially the initial cooperation share needed for convergence can change as regulation becomes rare. The explicit basin box is a rigorous counterexample to inferring full coverage merely from nine cooperative outcomes in an admissible regime, not a claim about what happened in Wang's run. No stochastic-learning result, exact 3D basin volume or policy inference is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

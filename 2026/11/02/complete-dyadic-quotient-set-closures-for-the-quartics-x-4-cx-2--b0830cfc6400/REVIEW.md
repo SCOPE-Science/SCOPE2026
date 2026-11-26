@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every odd integer \(c\), the polynomial \(f_c(X)=X^4+cX^2\) has an exact dyadic image decomposition by input valuation. Odd squares fill \(1+8\mathbb Z_2\), and \(t\mapsto t(c+2^{2k}t)\) is an isometry on that ball because its two-point difference has an odd factor. The resulting image cosets are proved surjective at each power of two; quotient comparisons cover every valuation and permitted unit coset. The proof explicitly handles zero and negative coefficients. The finite script verifies residue-level predictions but is not used as a substitute for the infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Miska–Murru–Sanna, arXiv:1807.08947, Theorem 1.2 and Proposition 1.5, already imply denseness when \(c\equiv7\pmod8\); that is included as an acknowledged prior-covered boundary case. Their splitting hypothesis does not hold in the three other residue classes. The additional exact index-two subgroup descriptions for \(c\equiv1,3,5\pmod8\) are not statements or consequences of the inspected source. Antony–Barman–Gajović–Širola, arXiv:2308.08907, studies forms and its quartic sufficient condition assumes primes larger than three, hence does not imply these dyadic polynomial-image closures. Searches for quartic polynomial-image ratio groups and exact dyadic closures in literature and mathematical records found no matching formula. Remaining risk: an equivalent local-image or ratio-set statement may be implicit in an unindexed or uninspected source; negative search results cannot establish definitive publication priority.
+PASS
 
-## Mathematical value — PASS
-The classification explicitly resolves a natural one-parameter degree-four instance of the polynomial-image quotient-set criterion problem left open in arXiv:1807.08947 (Question 1.14). It determines the entire closed quotient group in every nonsplit residue class, not simply failure of density or one excluded congruence. The three cases realize three different maximal proper open subgroups of \(\mathbb Q_2^\times\) (unit character, valuation-parity character, and their product), and the fourth class becomes dense. This structural character pattern motivates the invariant independently of the computation.
+Positive integers are dense in Z_2 and division is continuous off zero denominators, so it suffices to take dyadic inputs. Every 1 mod 8 unit is a square: if an odd x is correct modulo 2^N, adding 0 or 2^(N−1) sets the next square bit for N≥3. The resulting approximate roots are Cauchy (they need not preserve the last bit of the preceding root). For x=2^k u with u a unit, divide f(x) by 2^(2k) and use t=u². Differences of t(c+2^(2k)t) on 1+8Z_2 are t−s times an odd factor, including k=0; this makes the induced maps injective on residues and therefore bijective onto the matching output ball modulo every 2^N. Compactness gives exact equality. Odd inputs give c+1+8Z_2; even inputs' normalized values are c+4 mod 8 for valuation k=1 and c mod 8 for k≥2. For c≡7 the odd ball is 8Z_2, giving every quotient; for c≡3 it is 4Z_2^×, so output valuations are even and varying an odd denominator fills every nonnegative even quotient valuation and all its units. For c≡1,5 odd inputs give the full valuation-one unit coset, which realizes the allowed odd quotient shells and all of 1+4Z_2 at valuation zero. At each positive even valuation 2r, input valuation pairs (r+1,1) and (r+2,2) give the normalized cosets 5 mod 8 and 1 mod 8 respectively. Inversion gives the negatives. The residue and parity restrictions are closed relative to Q_2^×, and f(2^k) with a fixed nonzero denominator tends to zero. Thus these are the exact closures, with the three proper parts distinct index-two subgroups.
 
-## Closest literature and limitations
-The relevant sources are arXiv:1807.08947 (first public 2018-07-24), arXiv:2308.08907 (first public 2023-08-17), and the binary quadratic-form quotient-set literature. This result does not address even \(c\), other primes, arbitrary quartics, or actual pointwise equality of the rational quotient set with its closure. The self-contained infinite proof is separate from finite tests. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The density conclusion for c≡7 mod 8 is known by the simple-root criterion. The supported distinct content is the three exact proper closures, which specify all unit cosets at all valuations. The closest indexed exact closure is for a genuinely different binary homogeneous form with a different density criterion even in degree four.
+
+## value
+
+PASS
+
+The family tests the exact outcome of a polynomial-image quotient problem at the exceptional prime two, where the simple-root condition does not classify non-split cases. The result goes past showing failure of density: it identifies three distinct index-two kernels, and for two of them valuation support alone cannot distinguish the closures. The full shells give precise benchmarks for future local quotient-set analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

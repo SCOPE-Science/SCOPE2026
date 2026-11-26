@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:25:20.241341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "By meet adjunction, a nonempty old A has residual complement(A) union B for old B not containing A, and T when the target is above A. For a chain antecedent t_i the residual is the target below t_i and is T otherwise, with negation bottom. These cases give all materializers, including the bottom/top collision. Inclusion of the old materializers reverses inclusion of their excluded principal filters; the chain materializers are strictly ordered above them. Their sizes are N, b+1−2^(n−r), and b+i respectively, giving the polynomial. The three disjoint failure classes contribute 3^n−2^n, (b−1)(k−1), and binom(k,2). For k=o(b), the numerator divided by b² is (3/4)^n+k/b+O(1/b+(k/b)^2), and the error is little-o of the sum. Normalizing by b² for finite k/b and by k² when k/b diverges gives both satisfaction limits. The frozen verifier tests only 25 finite pairs (recorded 8,955 input pairs); it was inspected, not run. The argument applies for all n,k≥1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "309a8d07097d also recovers n and k from the inclusion poset and gives noncommuting iterated satisfaction limits.",
+          "Bumpus–Kocsis uses arbitrary chain adjunction for other equations in §2.18 and proves the no-gap conclusion for material implication in §§3.15–3.16."
+        ],
+        "reasoning": "The Resultary theorem covers the full frozen parameter domain, including n=1, and provides stronger parameter-recovery information. The general satisfiability-gap results are not by themselves an exact census of this family.",
+        "searches": [
+          "Resultary 309a8d07097d, Finding",
+          "Bumpus–Kocsis arXiv:2110.11515 §§2.18, 3.13–3.16"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 309a8d07097d, RESULT.md",
+        "Bumpus–Kocsis arXiv:2110.11515 / DOI 10.1017/jsl.2024.2",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior membership formulas give sizes b+1−2^(n−r) for the binom(n,r) Boolean antecedents and b+i for each chain level, with the full set also counted at bottom.",
+          "The prior exact failure count and limit 1/2+1/[2(1+c)^2] hold for k/2^n→c including the extended endpoints."
+        ],
+        "reasoning": "Counting sizes in the prior formulas gives the polynomial term for term. Expansion at k/2^n→0 leaves precisely (3/4)^n+k/2^n, with balance at k≈(3/2)^n. Neither unstated calculation requires a new invariant or mathematical step beyond substitution and elementary counting.",
+        "searches": [
+          "Resultary 309a8d07097d, Finding and exact failure partition",
+          "Bumpus–Kocsis arXiv:2110.11515 §§3.13–3.16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary source defines B_n ⊕ C_k with k additional points, exactly the frozen lattice, and M(x) by the same residual equality. It explicitly states the Boolean-target exclusions, chain-target inclusions, bottom/top collision, and inclusion poset (B_n without bottom) ⊕ C_k.",
+          "Bumpus–Kocsis defines repeated top adjunction and the same materializer notion; §3.15 uses one new top."
+        ],
+        "reasoning": "The ordinal-sum notation is an isomorphism of the whole input Heyting algebra, not a change to the meaning of implication or to the number of new points. The prior membership formulas agree for every antecedent and target.",
+        "searches": [
+          "Resultary 309a8d07097d, RESULT.md, Finding",
+          "Bumpus–Kocsis arXiv:2110.11515 §§1.11, 3.13–3.15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "That indexed source gives F_(n,k)=3^n−2^n+(2^n−1)(k−1)+k(k−1)/2 and satisfaction 1−F_(n,k)/(2^n+k)^2 for all n,k≥1."
+        ],
+        "reasoning": "The all-parameter formula dominates an exact-value table. It covers the same count of ordered failures under the same uniform sampling, rather than merely reproducing some small parameters.",
+        "searches": [
+          "Resultary 309a8d07097d, Finding exact-count display"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record, 309a8d07097d, explicitly gives the identical algebra, complete materializer family and inclusion order, exact failure count, and fixed-ratio satisfaction law. Its statements immediately give the size polynomial and the small-chain expansion and crossover. This is demonstrated equivalent coverage, not an inference of authorship or priority from directory dates. Bumpus–Kocsis alone does not state these exact general-chain classifications.",
+      "residual_risks": [
+        "Coverage is established from actual statements; priority, authorship and dependency between the equivalent records are not inferred from their path dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the stated classification and exact count; implies the other formulas",
+          "evidence": "The complete family is stated, the inclusion poset is (B_n without bottom) ⊕ C_k, and the displayed F_(n,k) and fixed-ratio limit agree exactly.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-materializer-order-reconstruction-and-a-two-scale-classicality-l--309a8d07097d/RESULT.md",
+          "material_read": "Finding from offset 0 through the exact-count and fixed-ratio formulas; proof passages on the failure partition and normalization",
+          "method": "Bounded full-text passages from the local mirror",
+          "title": "Materializer-order reconstruction and a two-scale classicality law in Boolean-topped Heyting chains",
+          "trigger": "Same materializer family, Boolean-plus-chain lattice, and asymptotic law"
+        },
+        {
+          "assessment": "Prior framework and one-new-top no-gap result, not an identified exact general-chain census",
+          "evidence": "§3.15 uses an inequality on the one-new-top family; §2.18 treats different equations using repeated top adjunction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.11515",
+          "material_read": "§1.11 (p. 3), §2.18 (p. 10), §§3.13–3.16 (pp. 13–14)",
+          "method": "Open primary PDF, relevant sections",
+          "title": "Degree of Satisfiability in Heyting Algebras",
+          "trigger": "Original materializer definition and Boolean example"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The classification and transition scales are natural invariants in the material-implication gap problem, but the full classification and degree law are already covered. The remaining display of a size polynomial and the small-k expansion are immediate readouts of those same known formulas and leave no distinct nonroutine contribution in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

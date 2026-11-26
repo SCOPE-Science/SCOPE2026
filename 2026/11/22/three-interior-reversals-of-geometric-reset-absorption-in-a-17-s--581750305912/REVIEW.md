@@ -1,15 +1,21 @@
-# Review of the three-extremum birth–death resetting witness
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two-sided discounted hitting probabilities are expressed by exact tridiagonal cofactors; the exponent \(16-2z=2\) and the boundary products are explicit. The continuant formula for the left and right killed subchains gives a rational function whose derivative is controlled by \(W(t)\). All site probabilities are in \((0,1)\) and the relevant determinants remain strictly positive for \(t\in[0,1]\). Four strictly alternating signs, verified with arbitrary-precision fractions and independent resolvent equations, enforce three distinct **strict** interior local extrema. The argument does not infer infinite behavior from finite sampling; the intermediate-value theorem is the decisive step. Risk: none identified in the exact finite witness, though independent verification has not occurred.
+## correctness
 
-## Originality
-**PASS relative to accessible evidence, with priority risk.** The primary article, arXiv:2611.01756v1, sections 2, 7, 10.3 and appendices, develops the exit-pair reset order and a twice-switching *temporal* example but leaves the number of interior reset-intensity extrema open. The related homogeneous-walk and multi-site-neutrality preprints have different hypotheses and claims. Accessible earlier finite witnesses establish two extrema and the sharp minimal size for two extrema, neither implying three. Direct exact-claim and alias searches of available research records found no covering three-extremum witness; this is not a proof of universal novelty. Residual risk: unknown broader Markov restart optimization literature or unindexed sources.
+PASS
 
-## Mathematical value
-**PASS.** This is a finite, explicit and natural counterexample to the expectation that two interior reversals are the maximum in geometric-reset splitting probability. Three extrema occur for **one** fixed absorbing nearest-neighbor chain, at a single reset site, with all probabilities rational and strictly positive. It answers a specific existence aspect of a published open problem, even though it does not solve the complete classification.
+For absorption on step T, the probability of no intervening reset is s^(T-1); the common factor s^-1 cancels in the renewal ratio A/(A+B). The tridiagonal inverse entries from site 7 to sites 1 and 15 have the respective unique path products and complementary block determinants R and L, divided by the same full determinant. Including each final boundary step gives B/A=C s^2 L/R. All killed blocks have spectral radius <1 by uniform positive escape probability in finitely many steps; their real determinants start at 1 and cannot vanish on [0,1]. Independently recomputed the two determinants by enumerating disjoint neighboring transpositions, not by the supplied continuant. At t=3/5,3/4,19/20,1 the exact signs of (L+tL')R-tLR' are +,-,+,-. Thus Q' has signs -,+,-,+; its nonzero analytic numerator ensures a strict minimum, maximum, minimum in the respective disjoint interior intervals, even with the last test at the endpoint. No root count beyond these three is needed.
 
-## Closest literature and limits
-Newton and Vega Coso, *Stochastic Orders of the Exit Pair and the Monotone Response to Resetting*, arXiv:2611.01756v1 (first public 2026-11-01), sections 2, 7 and 10.3, https://arxiv.org/html/2611.01756v1. Additional related primary sources: arXiv:2603.24803 and arXiv:2605.00657. The result asserts *at least* three extrema, makes no minimality or exhaustive root-count claim, and is not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The renewal representation and related oscillations are prior. No inspected distinct source states or implies the specified third reset-parameter reversal for a finite no-holding chain. The closest catalog records are two-turn examples under the same reset convention; they do not give this witness or the at-least-three lower bound. This is a best-of-current-knowledge judgment, not a priority claim.
+
+## value
+
+PASS
+
+An explicit, rational nearest-neighbor witness rules out a general two-turn classification in the inhomogeneous one-site model, advancing the published question about several reset extrema. It is a useful exact benchmark for further state-count or oscillation bounds, not merely a different parameter set displaying the already known two turns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

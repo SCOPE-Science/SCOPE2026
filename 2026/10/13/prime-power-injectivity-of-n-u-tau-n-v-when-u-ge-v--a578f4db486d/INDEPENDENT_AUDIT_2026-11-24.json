@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:46:32.389946Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and scope",
+        "VERIFICATION.md",
+        "verify.py",
+        "verification_output.txt"
+      ],
+      "rationale": "Using tau(p^a)=a+1, each fixed-base sequence increases strictly. For distinct bases, taking p- and q-adic valuations gives v*v_p(b+1)>=au and v*v_q(a+1)>=bu. Thus u>=v implies p^a divides b+1 and q^b divides a+1. Multiplying their size bounds, and using r^e>=2^e>=e+1, forces equality in both individual lower bounds. The only equality case is (r,e)=(2,1), impossible for distinct bases. Direct evaluation gives 2^6·7^3=7^3·4^3=21952; both sides raised to t give the claimed ray. I checked the code and saved output as regression evidence, not as a proof or fresh execution. The synopsis in RESULT.md and VERIFICATION.md abbreviates the stdout label: verification_output.txt actually records boundary_ray_checks=10 and base_collision=21952, consistent with the code and mathematical check.",
+      "residual_risks": [
+        "The inequality u>=v is sufficient, not shown necessary; the collision does not establish the sharp parameter boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 13 covers positive u,v but only squarefree inputs. The image-counting paper studies n*tau(n) and the non-prime-power collision 18 versus 27. The candidate older book is cited by the database, but the pertinent pages were unavailable."
+        ],
+        "reasoning": "A wider choice of u,v on the squarefree domain and a global image-size estimate do not imply a bound on collisions between distinct prime bases with exponents above one.",
+        "searches": [
+          "Noppakaew–Pongsriiam, Example 9 and Theorem 13",
+          "Gabdullin–Iudelevich–Luca, arXiv:2201.09287v1, p. 2",
+          "Richard K. Guy, Unsolved Problems in Number Theory, 3rd ed., B12, pp. 102–103"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 63cbfc0975d5",
+        "JIS 26, Article 23.9.1",
+        "arXiv:2201.09287v1",
+        "OEIS A338382"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem leaves only {18,27} among nontrivial n*tau(n) collisions with both inputs of multiplicity at most three. Example 9 also covers scaled versions with coprime multipliers."
+        ],
+        "reasoning": "The indexed theorem settles a real subcase, not the unbounded prime-power exponents or the full weighted theorem. Scaled 18 versus 27 never makes both inputs prime powers; the v=3u collision instead ties 2^6 and 7^3 with exponents outside that prior comparison. The shared date does not determine priority.",
+        "searches": [
+          "Resultary 63cbfc0975d5, Finding",
+          "JIS 26 (2023), Article 23.9.1, Example 9 and Theorem 13",
+          "arXiv:2201.09287v1, p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed match is 63cbfc0975d5 for collisions at Omega<=3. The broad exact-phrase web lookup was unavailable; the OEIS entry and primary papers were available."
+        ],
+        "reasoning": "When u=v this is exactly the injectivity of n*tau(n) restricted to prime powers, because raising to u preserves equality; an Omega<=3 restriction does not treat arbitrary prime powers. When u≠v, the equation is between weighted powers, not a rewording of ordinary collisions.",
+        "searches": [
+          "Resultary: prime-power injectivity of p^(au)(a+1)^v, using divisor-count aliases tau and d",
+          "Web: \"n^u tau(n)^v\" \"prime powers\" injective OR injectivity",
+          "OEIS A338382"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A338382 tabulates m with multiple preimages under n*tau(n), including 192=24*tau(24)=32*tau(32) and 448=56*tau(56)=64*tau(64). Neither listed example gives two prime-power preimages."
+        ],
+        "reasoning": "A finite or unstratified list for u=v=1 is not an exclusion theorem for pairs of prime powers. It also concerns a different function from the v=3u collision.",
+        "searches": [
+          "OEIS A338382, Comments, References and Example"
+        ]
+      },
+      "rationale": "The strongest indexed low-Omega theorem overlaps for u=v=1 and exponents at most three. Published squarefree injectivity is broader in parameters but applies to a different input domain except for exponent one. Neither covers the all-exponents prime-power result for u>=v or the displayed parameter ray. This is the best judgment on inspected statements, not a priority guarantee.",
+      "residual_risks": [
+        "Guy B12 could contain related observations for n*tau(n); those pages were not read. The broad exact-phrase web search was unavailable. Unindexed equivalent proofs may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlaps up to exponent three on the diagonal u=v",
+          "evidence": "Unique nontrivial collision {18,27} for Omega<=3.",
+          "identifier_or_url": "2026/10/13/SCOPE-the-unique-collision-of-n-tau-n-among-3-almost-primes--63cbfc0975d5",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary lookup and mirrored result",
+          "title": "The unique collision of n·tau(n) among 3-almost-primes",
+          "trigger": "Strongest overlapping indexed statement"
+        },
+        {
+          "assessment": "Squarefree theorem not covering general prime powers",
+          "evidence": "Example 9 gives D(18a)=D(27a) under gcd(a,6)=1; Theorem 13 assumes squarefreeness.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Pongsriiam/pong43.pdf",
+          "material_read": "Example 9, p. 10, offset 28642; Theorem 13, p. 11, offset 31979",
+          "method": "Open journal PDF, bounded passages",
+          "title": "Product of Some Polynomials and Arithmetic Functions",
+          "trigger": "Same parameterized function in primary literature"
+        },
+        {
+          "assessment": "Global multiplicity, different question",
+          "evidence": "Explicit collision at 18 and 27 and its scaling with a multiplier coprime to 6.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.09287",
+          "material_read": "p. 2, offset 5854 and surrounding discussion",
+          "method": "Open arXiv PDF",
+          "title": "Numbers of the form k f(k)",
+          "trigger": "Global image and collisions of n·tau(n)"
+        },
+        {
+          "assessment": "Direct collision context, no prime-power-pair theorem in the entry",
+          "evidence": "Examples at 108, 192, 448 and 2688; cites Guy B12 and the 2023 JIS article.",
+          "identifier_or_url": "https://oeis.org/A338382",
+          "material_read": "Definition, comments, examples and references",
+          "method": "Public OEIS page",
+          "title": "Numbers m with more than one preimage k under k·tau(k)",
+          "trigger": "Exact underlying collision-value sequence for u=v=1"
+        },
+        {
+          "assessment": "Overlap unresolved",
+          "evidence": "The preview did not supply the section. No judgment of its coverage was based on the access failure.",
+          "identifier_or_url": "Richard K. Guy, Springer, 2004, Section B12, pp. 102–103",
+          "material_read": "OEIS citation and book search metadata only; B12 not read",
+          "method": "Targeted literature search and lawful book preview attempt",
+          "title": "Unsolved Problems in Number Theory, third edition",
+          "trigger": "Older collision reference cited by A338382"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and scope",
+        "Noppakaew–Pongsriiam, Theorem 13"
+      ],
+      "rationale": "Prime powers are the natural nonsquarefree local inputs complementary to known squarefree injectivity. The valuation obstruction gives a qualitative structural statement across a two-parameter region, while the explicit ray shows strict dependence on the weighting and precludes a blanket parameter extension. The value is this separation, not the isolated number 21952 or a claim of optimality.",
+      "residual_risks": [
+        "Does not classify which ratios u/v below one admit collisions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

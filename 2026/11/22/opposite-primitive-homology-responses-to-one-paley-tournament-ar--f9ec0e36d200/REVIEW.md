@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact out-neighborhood definition and the three fully enumerated face vectors are independently reconstructed from modular arithmetic. Complete, acyclic face-poset matching certificates yield the three sphere-wedge homotopy types. Four and ten legitimate relative free pairs yield respectively three surviving triangles and one tetrahedron with boundaries in the smaller complex. Long exact sequences over the integers yield one primitive injection and one primitive surjection, and affine transitivity extends the computation to every arc. The standalone standard-library verifier was executed successfully. All claims have explicit finite scope.
+## correctness
 
-## Originality — PASS, subject to bibliographic residual risk
-The original arXiv paper defining directed neighborhood complexes was inspected in its full available text, particularly the definition, homotopy comparison, tournament discussion, and open questions. Both closely overlapping public research records were inspected in their complete `RESULT.md` texts: each proves the intact \(21\)-sphere type and an affine character; neither computes deletion or reversal or an inclusion map. Searches for single-arc defects, Paley-tournament directed neighborhood complexes, and equivalent Hom descriptions did not reveal a stronger covering result. Differences between intact objects and faulted objects are substantive, not title-based. Unindexed independent rediscovery remains possible.
+PASS
 
-## Value — PASS
-The two smallest natural perturbations of the same arc, deletion and reversal, create topologically different losses, three versus four two-spheres, with different inclusion-map directions. Exact integral primitive maps and cofiber types provide fault sensitivity unavailable from baseline Betti numbers. This is a motivated, complete, symmetry-uniform calculation for a standard doubly regular tournament, not an arbitrary finite graph slice.
+Independently oriented vertex pairs by Euler's criterion mod 11, and reconstructed the three complexes from their out-neighborhoods. For each, actual free-face collapses eliminate all cells of dimension greater than two in descending dimension without deleting any critical cells (55,51,62 pairs for X,Y,Z). In the remaining 2-complex, contract the star spanning tree at vertex 0 for the edge presentation of pi1. Repeatedly using triangles with two trivial edges eliminates all the generators (all 55 edges thereby trivial in this presentation). Euler characteristics then give H2 ranks 21,18,17. A basis realized by Hurewicz gives a homology equivalence from the corresponding wedge of 2-spheres, hence a homotopy equivalence by simple connectivity. Relative check: X and Z are each Y with one simplex attached. For X the intersection is the tetrahedron on {3,4,5,9} plus four edges from 1 to its vertices. Contracting that tetrahedron leaves a graph with four parallel edges, homotopy equivalent to a wedge of three circles. For Z the intersection is the full simplex on {2,4,5,6,10} plus the cone from 0 over cycle 2-4-10-5-6-2. Collapsing the full simplex to a point yields the cone modulo its base, an S^2. In both cases the quotient by Y is the attached simplex modulo its intersection, homotopy equivalent to the suspension of that intersection. This gives the stated wedge of three 2-spheres and S^3. The integral long exact sequences then give the claimed injection with free cokernel and surjection with free rank-one kernel; free splittings and the degree-matrix classification for maps between wedges of 2-spheres give the noncanonical normal forms. Every arc is an affine image of 0→1 under multiplication by a nonzero square and translation, transporting the whole diagram. Replay: python /workspace/replays/paley.py. No larger-order, multi-arc or equivariant classification is needed or proved.
 
-## Scope and remaining risks
-Only one arc of the eleven-vertex quadratic-residue tournament is perturbed, and the splittings are not canonical. The calculation does not classify larger tournaments, simultaneous faults, or equivariant maps. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The intact Paley-11 wedge of 21 spheres is already known and expressly excluded from the original contribution. Distinct supported content is the pair of faulted homotopy types and the comparison of the two relative cofibers and integral maps with the deletion complex as common source. Several related fault calculations already establish primitive maps or reversal effects on other complexes; they are not coverage of this particular directed pair.
+
+## value
+
+PASS
+
+For a standard highly symmetric tournament, deleting and then restoring or reversing one arc yield two sharply different attachment topologies, including maps whose primitive kernels and cokernels are not recoverable merely from intact homology. This is a complete exact benchmark for the natural smallest perturbations, uniform over the arc orbit, not a recomputation of the intact invariant or an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

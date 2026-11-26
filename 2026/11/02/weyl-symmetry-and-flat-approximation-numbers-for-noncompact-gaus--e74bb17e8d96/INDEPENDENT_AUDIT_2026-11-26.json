@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:49:11.687818Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Repaired /workspace/repairs/5/RESULT.md and frozen RESULT.md, VERIFICATION.md, verification_check.py",
+        "Sang–Zhao arXiv:2610.28279v1 Eq. (1.1), Theorems 1.1, 1.2, 1.4; independent Schur-complement and coherent-state checks"
+      ],
+      "rationale": "The literal frozen equality of distance to every compact operator is false: take T=I (γ=1 with all other coefficients zero) and the rank-one negative projection K=-P onto the constants; ||T-K||=2. The delivered RESULT.md instead asserts the sharp lower bound against each compact K, attained at K=0, which is what the proof establishes. The Sang–Zhao classification applies to the exact five-parameter kernel at p=q=2, gives compactness when γ=0, and forces |α|,|β|<1/2 and boundary equality |γ|²/D+2|N|=1 in the noncompact case. An independent direct check gives the same degeneracy: integrating the coherent-state output norm squared leaves the input quadratic (|γ|²/D-1)|w|²+2 Re(N w²); a strictly negative form would make the integral of ||Tk_w||² finite and hence T Hilbert–Schmidt. Comparing coefficients of z and conjugate w in the two displaced coherent outputs gives precisely the two equations in the record. Equivalently, conjugate the second equation and solve for v to obtain v=(γ-bar*u+2α-bar*γ*u-bar)/D; substituting into the first leaves (1-|γ|²/D)u-2N-bar*u-bar=0. At the boundary there is a nonzero u, and |2β|<1 ensures v is nonzero. Norms force the constant phase to have modulus one. Weyl powers run weakly to zero on any fixed vector while preserving its T-output norm, so compact K vanishes on that sequence in norm and ||T-K||≥||T||. This yields the essential norm and all finite-rank infima, not equality for each K. Conversely, finite monomial projections converge uniformly on a compact output image. In the explicit nonunitary example direct Gaussian integration gives ||Tk_w||²=D^{-1/2} exp(-(Im w)^2), nonconstant on unit vectors. No frozen script was executed.",
+      "residual_risks": [
+        "The claimed sharp distance is an infimum over compact operators and is not a pointwise equality for arbitrary compact perturbations. No statement of the actual operator norm as a parameter formula, or of the compact singular-value profile, is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sang–Zhao cover the entire five-parameter family and classify boundedness, compactness and compact Schatten membership",
+          "Dong–Zhu's canonical family has a unitary equality boundary",
+          "Oscillator-semigroup sources provide Gaussian contraction/complex symplectic structure"
+        ],
+        "reasoning": "The same-parameter compactness criterion supplies a degeneracy but not the automatic conversion to nonzero real translations on both sides. The centered two-parameter family has a qualitatively narrower boundary than the stated five-parameter operators.",
+        "searches": [
+          "Sang–Zhao arXiv:2610.28279v1 Eq. (1.1), Theorems 1.1–1.4",
+          "Dong–Zhu arXiv:2509.16672v1 introduction and Theorem B",
+          "Giacchi Theorem 1.4; Hilgert DOI 10.5802/aif.1182 p. 663"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.28279v1, 1907.00574, 2509.16672v1, 2608.25082; DOI 10.5802/aif.1182; Resultary 4bdcee8b110a and e4614d0582ad"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sang–Zhao identifies a singular real quadratic form; the repaired theorem constructs a real-phase-space kernel of a separate covariance system and shows its v is nonzero",
+          "In the convolution and multiplication reductions the flat norm conclusion is already mechanical",
+          "Giacchi explicitly notes that even if the Schrödinger input parameter is real its image under the symplectic parameter map can be complex"
+        ],
+        "reasoning": "Credit the structural connection between compactness degeneracy and exact bounded Weyl intertwining for the whole family. Neither norm equality after covariance nor the existence of a nonunitary sample is credited as independently new. The inspected wider intertwining theorem does not itself assert the needed simultaneous real direction under the noncompactness hypothesis.",
+        "searches": [
+          "Sang–Zhao Eq. (1.1) and Theorems 1.1–1.2; Giacchi eq. (18); Cao et al. Lemma 3.3; Resultary 4bdcee8b110a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Bargmann convolution theory identifies Fourier multipliers and commutation with Weyl shifts on a real line",
+          "Giacchi uses the full Schrödinger representation with a generally complex symplectic parameter map and an identity in a larger dual space",
+          "4bdcee8b110a gives a Gaussian multiplication model for W^*W for a centered weighted composition operator"
+        ],
+        "reasoning": "A Fourier multiplier on nonatomic L² already has a flat approximation profile; this covers genuine special cases, not arbitrary input/output displacement pairs on a general boundary kernel. Complex canonical covariance in a distribution space is not the real Weyl covariance of bounded unitaries required by the compact-approximation argument.",
+        "searches": [
+          "Cao–Li–Shen–Wick–Yan arXiv:1907.00574, Theorem 1.1, Lemma 3.3, Theorem 5.5",
+          "Giacchi arXiv:2608.25082 Proposition 1.3, Theorem 1.4 and eq. (18)",
+          "Resultary Gaussian spectral multiplicity / essential norm: 4bdcee8b110a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4bdcee8b110a states an exact essential norm via Gaussian multiplication for W=e^{τz²}f(az) at 2|τ|=1-|a|²",
+          "e4614d0582ad concerns a polynomially damped critical operator which is compact"
+        ],
+        "reasoning": "There is no numerical table or isolated database entry to match: this is a universal norm identity. The essentially equivalent multiplication formula applies only to the narrower weighted composition case; the polynomially damped setting does not reach the noncompact boundary claimed here.",
+        "searches": [
+          "Resultary catalogue: Gaussian Fock boundary, essential norm, spectral multiplicity; 4bdcee8b110a and e4614d0582ad",
+          "Sang–Zhao and Dong–Zhu exact operator theorems"
+        ]
+      },
+      "rationale": "What survives is the implication from the five-parameter noncompact boundary to a nonzero Weyl intertwining pair in the real phase plane, including arbitrary admissible linear terms. The essential norm and all approximation numbers are then determined by a general weak-convergence argument, not by a new theory of compact approximation. Known convolution multipliers and canonical or weighted-composition subfamilies already give some nonunitary behavior, but the sources inspected do not cover the full real-pair implication.",
+      "residual_risks": [
+        "Best-of-knowledge comparison; older oscillator-semigroup sources including Howe's chapter and Neretin's monograph were not directly inspected, so broader normal-form implications cannot be ruled out. The result does not claim priority for multiplier norms or the unitary special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete input classification, not the covariance or flat-norm theorem",
+          "evidence": "The center exponent carries a factor 1/2 and boundedness includes the linear terms, strict inequality gives compactness, and bounded γ=0 is compact.",
+          "identifier_or_url": "https://arxiv.org/html/2610.28279v1",
+          "material_read": "OA HTML kernel and Eq. (1.1) around offsets 2380–5580; Theorems 1.1–1.2 around 5700–7800; Theorem 1.4",
+          "method": "Primary-text inspection and specialize p=q=2",
+          "title": "Boundedness and Compactness of Gaussian Integral Operators between Fock Spaces",
+          "trigger": "Exact five coefficients and normalization"
+        },
+        {
+          "assessment": "Material exact coverage on the convolution subfamily",
+          "evidence": "Fourier multiplier representation with norm ||m||∞, covariance for real translations, no nonzero compact operators. A Gaussian multiplier yields associated α=β, γ=1-2α and zero linear terms in a centered example.",
+          "identifier_or_url": "https://arxiv.org/html/1907.00574",
+          "material_read": "Theorem 1.1 offset ~5800, §3 including Lemma 3.3 offsets ~24500–29000, Theorem 5.5 offset ~80600",
+          "method": "Bounded OA primary-text inspection",
+          "title": "A boundedness criterion for singular integral operators of convolution type on the Fock space",
+          "trigger": "Weyl-invariant bounded Gaussian kernels and multiplier normal form"
+        },
+        {
+          "assessment": "Restricted centered canonical family",
+          "evidence": "Noncompact equality in |s|²≥|t|²+1 gives unitary operators.",
+          "identifier_or_url": "https://arxiv.org/html/2509.16672v1",
+          "material_read": "Introduction and Theorem B around offsets 2100–5000",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Canonical integral operators on the Fock space II",
+          "trigger": "Gaussian compactness boundary and singular values"
+        },
+        {
+          "assessment": "Full complex covariance in a dual space; no inspected real-direction consequence for the noncompact affine boundary",
+          "evidence": "Sz may be complex even for real z; the equation is imposed in the dual of the Gelfand–Shilov class. It characterizes positive complex symplectic matrices and associated operators.",
+          "identifier_or_url": "https://arxiv.org/html/2608.25082",
+          "material_read": "Context and Theorem 1.4 eq. (18), OA offset 18300 onward",
+          "method": "Primary-text inspection of target parameter domain and identity",
+          "title": "A Schrödinger characterization of the oscillator semigroup",
+          "trigger": "Broader exact intertwining theorem for Gaussian operators"
+        },
+        {
+          "assessment": "Relevant classical context, not a complete exclusion of older equivalent boundary implications",
+          "evidence": "Describes the Gaussian contraction semigroup and its metaplectic closure.",
+          "identifier_or_url": "https://www.numdam.org/item/10.5802/aif.1182.pdf",
+          "material_read": "p. 663, offset ~1310",
+          "method": "OA original text",
+          "title": "A note on Howe's oscillator semigroup",
+          "trigger": "Older Gaussian and metaplectic boundary normal forms"
+        },
+        {
+          "assessment": "Overlaps one proper Gaussian subfamily, including mechanically flat norms",
+          "evidence": "In the stated W=e^{τz²}f(az) family at the boundary, W^*W is represented by Gaussian multiplication.",
+          "identifier_or_url": "Resultary 4bdcee8b110a",
+          "material_read": "Mirrored statement and weighted-composition scope",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Gaussian spectral multiplicity and a phase-sensitive spectral radius",
+          "trigger": "Exact essential norm for noncompact Gaussian weighted composition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md §§ Finding, Proof and Relationship to prior work; Sang–Zhao input and narrower norm comparators"
+      ],
+      "rationale": "For the full bounded noncompact boundary, knowing only failure of compactness does not determine even the first nontrivial approximation numbers. The theorem identifies a nonzero nondamping phase-space direction and uses it to show that no compact perturbation, of any rank, can reduce the operator norm. This uniform structural explanation survives the quantifier correction and extends beyond the known convolution, weighted-composition and unitary examples.",
+      "residual_risks": [
+        "No compact singular-value classification or extension to multiple complex variables is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

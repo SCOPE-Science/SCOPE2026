@@ -1,12 +1,21 @@
-# Review: exact parity-randomization resonances
+# Independent mathematical audit
 
-## Correctness — PASS
-Reversing a packet of length \(\ell\) has sign \((-1)^{\binom\ell2}\). Summing all independent-cut compositions gives the rational generating function and second-order recurrence. The discriminant threshold \(p_*=2(\sqrt2-1)\), increasing trigonometric phase \(n\theta+\phi(\theta)\), and strictly decreasing cut-parameter map prove exactly \(\lfloor n/2\rfloor\) simple roots. Positivity at and above the threshold follows from the repeated-real and distinct-positive characteristic roots. Uniform-mesh localization yields the limiting density. The sign homomorphism yields the exact iterated quotient distribution. An independently coded complete cut-vector enumeration produced 40 exact rational agreements. The computations confirm small cases, not infinity.
+## correctness
 
-## Originality — PASS, with priority qualification
-The closest complete primary text inspected, Jiang (arXiv:2610.00137v1), treats the same Bernoulli-gap packet-reversal chain, proves its full-deck cutoff, and explicitly diagonalizes the one-card kernel (Sections 1 and 3). Its discussed statements do not give the full-deck sign character, exact one-step parity-randomization parameters, their count or their limiting density. Comparisons were made by implication, not title: a leading full-mixing cutoff and a one-card cosine spectrum do not determine zeros in the sign representation. Published overhand mixing-order results of Pemantle and Jonasson were located; the Pemantle complete text was not retrievable. Historical treatment of the sign projection remains the meaningful residual priority risk. No assertion of universal novelty or independent certification is made.
+PASS
 
-## Mathematical value — PASS
-Parity is the unique nontrivial one-dimensional character of the permutation group and the canonical two-state quotient of the deck walk, rather than an arbitrary statistic. Finding every parameter for **exact one-pass stationarity** on this quotient identifies a genuine spectral cancellation not implied by the global mixing cutoff. The complete finite-size root classification, the onset of nonoscillatory bias and the limiting square-root root-density law show a structured, size-dependent resonance phenomenon. The result does not purport to resolve full mixing or its sharp window.
+A packet reversal has sign (-1)^(length choose 2); the ordered composition weights are p^(m-1)(1-p)^(n-m), so multiplying the signed single-packet series and summing the geometric series gives the stated denominator and initial conditions. With r=sqrt(1-p) the oscillatory solution has numerator sin(nθ)-r sin((n-1)θ), where p=2r cos θ. The argument shift of 1-r exp(-iθ) is arctan(sin θ/sqrt(1+cos²θ)), strictly increasing with positive derivative for 0<θ<π/2, with endpoint limits 0 and π/4. The increasing total phase runs strictly between 0 and nπ/2+π/4, giving exactly floor(n/2) positive integer multiples of π; the phase and parameter derivatives are nonzero at each crossing. At the repeated-root endpoint the formula limits to r^(n-1)[n-(n-1)r]>0. Above it both characteristic roots lie in (q,1); x^(n-1)(x-q) is strictly increasing there, giving positivity by the difference quotient. The zeros in θ differ from jπ/n by less than π/(4n), so the empirical law is the pushforward of the uniform θ law. Differentiating the inverse cosine gives precisely the stated density; the radicand has a simple endpoint zero. Below p* irrational rotations give both signs, and rational rotations form a repeated orbit of at least five equally spaced angles, which cannot stay in either closed semicircle. Multiplicativity of sign gives the exact parity distance; full reversal is a fixed sign factor under the alternate convention.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The shuffle model, the general sign-character time law, and second-order recurrence methods are established. The substantive distinct claim supported by the searches is the exact finite-deck set of parity-uniform cut probabilities, its cardinality and simplicity, and its limiting parameter distribution. Agreement about the model or about sign expectations for another shuffle is not coverage of this claim.
+
+## value
+
+PASS
+
+Parity is the canonical two-point quotient of the walk. Determining all parameter values for one-step stationary parity at every deck size, and resolving their density and endpoint concentration, answers a natural exact randomization question not captured by the full-deck mixing scale. The novelty-bearing part is the root classification in the physical cut parameter rather than just a recurrence evaluation or a standard TV projection formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

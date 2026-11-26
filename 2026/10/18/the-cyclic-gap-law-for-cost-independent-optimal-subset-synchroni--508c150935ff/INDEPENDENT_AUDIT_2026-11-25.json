@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:38:05.034620Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 32–70",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt, inspected, not executed"
+      ],
+      "rationale": "For nonsingletons put K=(n-1)alpha+beta and attach K(n-g)-alpha u to a directed gap of length g ending at u. A loss of one in g costs at least beta even with the largest possible advantage in u. Thus the unique minimizing gap has maximum g and then maximum u. Rotation preserves lengths and subtracts alpha from any contribution whose endpoint does not wrap; a wrapping endpoint instead increases the contribution by (n-1)alpha. Equality in the rotation inequality occurs exactly when the winner does not wrap. If n-1 is absent, b does nothing. If present, the incoming gap gains one and ends at 0, subtracting beta from its contribution, while the outgoing gap is removed if 0 is occupied and otherwise shortens with unchanged endpoint. No other contribution improves. Thus b is an equality move exactly when the winner ends at n-1; for the exceptional collapse {0,n-1} the potential is directly beta and the same conclusion holds, including n=2. Iterating gives a lower bound on every word. The equality path rotates the winner to n-1, grows it by one, and then repeats a^(n-1)b: the winner is now strictly longer than all remaining gaps and ends at 0. Full length is reached after n-G contractions. Positive costs exclude any post-synchronization suffix, so equality at every move forces precisely the displayed word. The letter counts, formula and ordered-input linear-time calculation follow. A singleton needs only the empty word.",
+      "residual_risks": [
+        "The bounded Dijkstra checks stop at n=12; the proof supplies the unrestricted quantifier. Dijkstra False in later recorded rows marks that cutoff, not a failed calculation.",
+        "Uniqueness here uses strictly positive costs and no prescribed terminal state."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eppstein gives a shortest-word interval-automaton algorithm for arbitrary subsets, with the Černý example attaining (n-1)^2 from the full set.",
+          "Cardoso §5.2, Theorems 5.2.2 and 5.2.3, gives a size-wise bound and a subset attaining it. The proofs already use largest gaps and repeated n-1 rotation blocks.",
+          "Ruszil addresses approximation in a broader weighted-automata model."
+        ],
+        "reasoning": "A positive-weight shortest-path calculation on the interval graph is an algorithmic adaptation, not a formula that forces equality at exactly one letter per subset, independent of weights. Cardoso strongly anticipates the gap algorithm and worst-case value; the stated scope is not pointwise arbitrary-weight uniqueness.",
+        "searches": [
+          "Eppstein, Reset Sequences for Monotonic Automata, Theorems 1 and 3; Cardoso dissertation DOI 10.34626/607f-t921 §5.2; arXiv:2103.16185 weighted synchronization"
+        ]
+      },
+      "checked_sources": [
+        "Eppstein (1990) Theorems 1 and 3",
+        "Cardoso (2014) §5.2",
+        "Resultary 261334d3d0c0, 6c832e7845c7 and 660b6553bb5e",
+        "Behague–Johnson arXiv:2008.12166 pp. 3–5, Gusev arXiv:1404.6731 p. 8, and Ruszil arXiv:2103.16185 p. 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cardoso's proof of Theorem 5.2.2 constructs gap growth for any subset; Theorem 5.2.3 tracks record gap sizes and the rotations between their successive growth for the extremal family. The general unit-cost record proves weak one-step inequalities with a constructed optimizer, whereas the frozen proof resolves strictness for every transition under arbitrary positive costs."
+        ],
+        "reasoning": "The construction and much of the unweighted lower-bound mechanism are anticipated; the new requirement is to bound both letter counts for every starting subset and prove the equality conditions that forbid alternative optimal paths. An algorithm or a minimum of the sum alone does not imply its two separate coordinate minima. The explicit weighted gap potential and its strict tie handling supply this additional pointwise structure.",
+        "searches": [
+          "Cardoso §5.2 proof passages on first attainment of record gaps, pp. 72–74; Eppstein interval reduction; pair formula and full unit-cost formula in mirrored originals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "261334d3d0c0 Finding, offset 0, gives unique positive-cost words for |S|=2 in the exact same labeling.",
+          "660b6553bb5e Finding, offset 0, uses b(0)=1 and the largest circular gap to give the exact unit-cost minimum and an attaining word for every S."
+        ],
+        "reasoning": "Relabel by i mapping to i+1 modulo n to send b(n-1)=0 to b(0)=1. The initial exponent then equals n-1-t, and its unweighted candidate is exactly the frozen word. The pair theorem matches the two-gap specialization, but for larger S merging just two endpoints can take the shorter complementary arc and does not force the rest of S to merge. The unweighted general record does not assert the separate letter-count lower bounds or uniqueness.",
+        "searches": [
+          "Resultary pointwise subset and cost-invariant Černý merging results; arXiv:1404.6731 and arXiv:2008.12166 for pair and rendezvous formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two records supply exact pair-level weighted results. The last has an exact all-subset unit-cost formula and a constructed shortest word, catalogued after the target."
+        ],
+        "reasoning": "These are material exact-formula overlaps, not evidence of an earlier all-subset and all-positive-cost table. The all-subset formula is identical at unit weights after relabeling; relative priority of the same-day pair record is undetermined and no priority is inferred from that date.",
+        "searches": [
+          "Resultary 261334d3d0c0, 6c832e7845c7 and 660b6553bb5e, pointwise exact synchronization formulas"
+        ]
+      },
+      "rationale": "Credit substantial overlap: Eppstein already solves the unweighted arbitrary-subset optimization algorithmically, Cardoso already uses growing a largest gap and the n-1 rotation blocks, and the same-day pair record explicitly has the entire weighted two-state result. The later all-subset circular-gap record gives the exact unit-cost answer and witness by a closely related potential. The supported increment is the strict Bellman policy, hence one unique word minimizing every positive letter-cost objective for all subsets, not the gap-growth construction, pair theorem, or full-state length in isolation.",
+      "residual_risks": [
+        "The dissertation was accessible in this review despite the frozen record's historical access note. Earlier formulations beyond the inspected published and indexed sources are not excluded.",
+        "The comparison credits the full pair overlap and unweighted all-subset overlap without inferring same-day ordering or claiming exclusivity of the gap method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier all-subset shortest-path algorithm, not this closed weighted equality policy",
+          "evidence": [
+            "Interval construction reduces shortest-sequence search; Theorem 3 example computes the full Černý set length."
+          ],
+          "identifier_or_url": "https://www.ics.uci.edu/~eppstein/pubs/Epp-SJC-90.pdf",
+          "material_read": "Author manuscript pp. 2–5, offsets 4500–14173 and 14780; Theorems 1 and 3",
+          "method": "OA primary-text comparison",
+          "title": "Reset Sequences for Monotonic Automata",
+          "trigger": "All-subset monotone interval reduction"
+        },
+        {
+          "assessment": "Strong structural predecessor; exact worst-case over size, not all-subset positive-cost uniqueness",
+          "evidence": [
+            "The proof grows [n-Gamma-1,n-2] by b and tracks first attainment of successive largest gaps; it derives the optimum for a specifically constructed worst subset."
+          ],
+          "identifier_or_url": "https://doi.org/10.34626/607f-t921",
+          "material_read": "Repository dissertation PDF, §5.2, printed pp. 71–75, especially Theorems 5.2.2–5.2.3 and proofs, offsets 169500–180570",
+          "method": "Lawful repository PDF reached from DOI; read decisive pages",
+          "title": "The Černý Conjecture and Other Synchronization Problems",
+          "trigger": "Plausible exact gap result missed by the frozen literature check"
+        },
+        {
+          "assessment": "Exact two-state overlap, not the all-subset theorem; same catalogue date",
+          "evidence": [
+            "Unique optimizer for all alpha,beta>0, separate minima for letter counts, exact piecewise cost with tie on the larger endpoint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-cost-invariant-unique-optimal-merging-words-for-every-pair-of-er--261334d3d0c0/RESULT.md",
+          "material_read": "Finding, assumptions and start of proof, offset 0–2787",
+          "method": "Local mirrored original",
+          "title": "Cost-invariant unique optimal merging words for every pair of Černý states",
+          "trigger": "Strongest weighted exact overlap"
+        },
+        {
+          "assessment": "Relabeled unit-cost result, no all-positive-cost uniqueness; later catalogued",
+          "evidence": [
+            "Exact minimum over cyclic predecessor gaps and an attaining repeated-block word for each subset."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-exact-circular-gap-formula-for-every-ern-subset-rendezvous-ti--660b6553bb5e/RESULT.md",
+          "material_read": "Finding, assumptions and initial proof, offset 0–3016",
+          "method": "Local mirrored original",
+          "title": "An exact circular-gap formula for every Černý subset rendezvous time",
+          "trigger": "Strongest all-subset exact overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, strict Bellman proof and scope",
+        "Eppstein algorithm, Cardoso gap construction and matched pair/unit-cost results"
+      ],
+      "rationale": "For the canonical cyclic synchronizing family this identifies an exact deterministic policy for every occupied-state configuration and rules out any rotation/contraction cost trade-off or ties at positive weights. The pointwise all-subset statement is materially stronger than a worst-case bound by cardinality or computing an optimum separately for each set and cost pair. It gives a linear scan and compressed word rather than a search over intervals or state subsets. The value resides in the uniform strict policy and separate letter counts, not in recomputing the classical full-state length or restating the pair law.",
+      "residual_risks": [
+        "No uniform extension to other cyclic automata, other labelings of the contraction or state-dependent weights is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

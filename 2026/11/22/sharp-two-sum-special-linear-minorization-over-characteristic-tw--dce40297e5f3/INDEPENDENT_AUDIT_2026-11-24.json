@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:55:43.191009Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–28, 30–66",
+        "VERIFICATION.md",
+        "verify.py (inspected, not executed)",
+        "verify_output.txt:1–11 (recorded evidence, not an independent rerun)"
+      ],
+      "rationale": "In characteristic two V=A+U, and det(I+U⁻¹A)=1+tr(U⁻¹A)+det A, giving the trace constraint with the stated sign. Over the residue field a rank-one target reduces by determinant-one changes to diag(1,0); the condition W₁₁=0 leaves q choices of W₂₂ and q−1 choices of the first off-diagonal entry, the second then fixed. For a primitive invertible target C=WA has fixed determinant and nonzero trace δ; its separable polynomial x²+δx+δ splits precisely when the absolute trace of δ⁻¹ is zero, by the Artin–Schreier equation. The split and irreducible conjugacy classes have centralizers of orders (q−1)² and q²−1, giving q(q+1) and q(q−1) solutions. At every non-scalar WA the restricted trace differential is nonzero: the trace pairing on M₂ is nondegenerate and the orthogonal complement to trace-zero matrices is the scalar line, including in characteristic two. Successive square-zero layers each give q² joint lifts, or q³ lifts of the determinant-one constraint alone. For A=π^sB the annihilator of π^s is (π^(k−s)), so the shorter-ring equation and the q^(3s) preimage factor are exact. Rank-one B gives the stated exact count. For invertible leading B the residue trace-zero matrices have diagonal entries equal to some a with a²=det B+bc; every (b,c) gives exactly one a, only b=c=0 being scalar. Counting only the q²−1 smooth residue points gives a bound larger than the minimum by a factor (q+1)q^(s−1). Zero is also strict. Rank-one targets and the nonsplit invertible targets yield exactly the stated equality locus; the latter use q/2 nonzero determinants, since absolute trace one excludes zero and inversion permutes nonzero values. Normalizing by |SL₂(R)|² and q^(4k) verifies the length-independent minorization. The proof also covers k=1 and q=2, where the split invertible stratum is empty.",
+      "residual_risks": [
+        "Complete counts in the divisible, invertible-leading strata are not established or needed because the smooth part already gives strict inequality.",
+        "The archived tests cover a limited ring sample; the universal lifting argument does not assume a coefficient field or use that sample as a proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Luo–Ji journal abstract gives counts for k special-linear summands in Mat_n(F_q); this includes the residue-field n=2, two-summand problem. The frozen comparison identifies finite-field existence in Karabulut and normalization over fields in Mináč–Nguyen–Tân. The odd-ring analogue extends in length but excludes even residue characteristic."
+        ],
+        "reasoning": "Broader dimensions and summand counts over fields do not imply representation counts over rings with nilpotents, and a finite-ring units theorem is not by itself an exact fiber formula for the determinant-one subset.",
+        "searches": [
+          "Luo–Ji DOI 10.3934/math.2025168 (finite-field formula for arbitrary n and number of summands)",
+          "Karabulut arXiv:1710.08872v1",
+          "Mináč–Nguyen–Tân arXiv:2607.00404v1",
+          "Resultary b59b4a33c567"
+        ]
+      },
+      "checked_sources": [
+        "Resultary entries dce40297e5f3 and b59b4a33c567",
+        "Luo–Ji DOI 10.3934/math.2025168 (journal abstract and indexed PDF text)",
+        "RESULT.md:68–78"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Residue-field counts and routine smooth lifting handle the primitive strata once transversality is shown. The singular trace-zero residue point in a divisible invertible-leading stratum is specific to the characteristic-two analysis, with exactly q²−1 other smooth points yielding a strict lower bound."
+        ],
+        "reasoning": "Smooth lifting cannot be applied uniformly to all targets just from the finite-field formula; the trace constraint must be divided by the common valuation and the problematic residue locus handled. The strict exclusion of every divisible target supplies the part needed for the chain-ring equality classification.",
+        "searches": [
+          "Luo–Ji DOI 10.3934/math.2025168",
+          "b59b4a33c567 odd-prime-power sharp convolution",
+          "RESULT.md:68–78 for the stated relationship to earlier ring and field results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "dce40297e5f3 is the assigned record itself. The strongest separate indexed match, b59b4a33c567, treats ℤ/p^kℤ for odd p with k≥2; its summary describes a sharp minimum, a classified equality family, and depth-uniform minorization. The external local-ring result surfaced concerned irreducible complex representations of general linear groups, not additive decompositions into determinant-one matrices."
+        ],
+        "reasoning": "Minimum representation count, least convolution mass and sharp pointwise minorization are equivalent under normalization; a common minorization factor does not make the ambient rings or minimizing loci equivalent. Equal characteristic two cannot be obtained by substituting p=2 in a theorem restricted to odd p.",
+        "searches": [
+          "Resultary exact characteristic-two SL₂ two-sum minorization and the odd-prime-power analogue b59b4a33c567",
+          "External search: special linear / chain rings / additive representation / sum two determinant-one matrices / finite local rings / characteristic 2 / Cayley sum graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact characteristic-two chain-ring statement in Resultary is the self-match; the distinct formula record has odd residue characteristic, and the general journal formula is over finite fields. The frozen enumerations cover only the stated residue-size/length examples."
+        ],
+        "reasoning": "A finite-field counting formula is prior exact coverage at length one. Neither it nor finite example tables determine the equality locus for arbitrary k, notably for nonprimitive targets.",
+        "searches": [
+          "Resultary dce40297e5f3 and b59b4a33c567 (sharp minimum and equality family)",
+          "Luo–Ji DOI 10.3934/math.2025168 (exact counting formula)"
+        ]
+      },
+      "rationale": "The finite-field fiber problem is prior, and the same style of sharp depth-independent minorization is known in the odd-residue-characteristic analogue. Credit is restricted to the nonreduced characteristic-two chain-ring minimum and equality locus, including their exact lift density, not the field case or the appearance of the same functional constant in a different regime. The closest distinct indexed result is over odd prime-power rings, which does not cover any of the stated nonreduced rings.",
+      "residual_risks": [
+        "Primary theorem passages in the closest ring analogue and general field paper were unavailable. An inaccessible or unindexed stronger local-ring result cannot be excluded; the comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong odd-characteristic analogue, not stated coverage of characteristic-two chain rings; full equality details were not verified",
+          "evidence": [
+            "The catalogue description specifies odd p and an equality family for those prime-power rings."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-two-sum-convolution-and-depth-uniform-minorization-for-spe--b59b4a33c567",
+          "material_read": "Indexed summary for ℤ/p^kℤ, odd p, k≥2; matching local mirror unavailable and OA retrieval timed out",
+          "method": "Resultary search and targeted mirror/source retrieval attempts",
+          "title": "Exact two-sum convolution and depth-uniform minorization for special-linear matrices over odd prime-power rings",
+          "trigger": "Matching sharp minimum and depth-uniform minorization problem over nonreduced rings"
+        },
+        {
+          "assessment": "Finite-field count credited; neither a local-ring theorem nor a full-text exclusion is established by the material read",
+          "evidence": [
+            "The abstract specifies a formula for the number of representations of an element of Mat_n(F_q) as the sum of k elements of the special linear group."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/2/PDF/math-10-02-168.pdf",
+          "material_read": "Journal abstract and indexed PDF opening; OA requests for the official article and theorem passage in the publisher's PDF timed out",
+          "method": "Targeted search and lawful publisher-source and PDF retrieval attempts",
+          "title": "On the sum of matrices of special linear group over finite field",
+          "trigger": "General representation formula including the n=2 two-summand residue-field problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–25, 37–63, 68–72"
+      ],
+      "rationale": "The least fiber is the sharp uniform additive mixing guarantee for two determinant-one summands. Its normalized constant persisting at arbitrary nilpotence length, with all equality targets determined by reduction, is a useful quantitative refinement of mere additive coverage. The minimum and complete equality classification require controlling both primitive and divisible targets rather than just recounting over the residue field.",
+      "residual_risks": [
+        "The result does not give mixed-characteristic or higher-dimensional bounds or the entire two-sum distribution on nonprimitive strata."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

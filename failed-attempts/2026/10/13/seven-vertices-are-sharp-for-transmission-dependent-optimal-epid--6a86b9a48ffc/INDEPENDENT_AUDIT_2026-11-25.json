@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:38:31.271366Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a single seed u the sole path to v must transmit in order. Each next-edge race uses a fresh path vertex's clocks and succeeds with probability p=β/(β+γ); off-path transmissions do not change the race or create alternate routes. Thus marginal detection is the uniformly averaged p^distance score, without asserting independence of siblings' transmissions. I inspected the frozen proof, verification and checker. Independently I generated unlabeled shapes by leaf attachment and canonical rooted tuples minimized over possible roots, then used all independent bond-edge states as an algebraic representation of the distance polynomial (not as a joint Markov SIR model). For each v, expected retained-component size is the sum of p^distance over u; grouping by retained edge count gives an exact Bernstein basis. Direct integer coefficient comparisons for shapes counted 1,1,2,3,6,11 show fixed full argmax in 22 classes, with any unequal dominated score strictly smaller in the interior. For the two remaining shapes I reproduced the candidate scores and strict noncandidate exclusions. The broom gap is p(1−p)(1−p−p²), so the only interior root is (sqrt(5)−1)/2 and β/γ is the golden ratio there. The two-claw gap is p(1−p)(1−2p), with both hub scores identical and the bridge joining their tie exactly at 1/2. The order-one case is immediate. Replay: python3 -I /workspace/review_math.py 2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 paper classifies small-tree stability under the stronger condition that the entire vertex ranking is fixed. Paths are decay-stable, covering orders two and three as well.",
+          "Tsakas discusses degree and closeness control near opposing parameter endpoints and sufficient comparisons for intermediate values.",
+          "The same-day edge-cut result 8974612ce954 has the same two constants at order eight but optimizes removing edges; 639f57a81324 likewise has onset at eight for optimizing mean outbreak size by vertex deletion."
+        ],
+        "reasoning": "Full-ranking stability implies maximizing-set stability, including the ties. The 2018 result is the relevant stronger prior, unlike related interventions with genuinely different comparison objects and objectives.",
+        "searches": [
+          "On decay centrality in graphs, Section 3 and Proposition 3.1; Tsakas arXiv:1604.05582, abstract and discussion",
+          "Almost all trees are decay-unstable decay stable trees arXiv preprint author manuscript July 2026",
+          "Resultary same-day transmission-dependent intervention searches"
+        ]
+      },
+      "checked_sources": [
+        "Coroničová Hurajová–Gago–Madaras DOI 10.7146/math.scand.a-106210",
+        "Riveros–Salas–Skibski arXiv:2112.13736",
+        "Tsakas arXiv:1604.05582",
+        "Local Resultary records 51f5bbdc1318, 8974612ce954 and 639f57a81324"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation by equation, the unique-path marginal turns the sentinel problem into precisely the published decay ranking. There are at most two possibly changing maximizing sets at order seven by Table 1; the two-claw already changes in the prior paper.",
+          "Checking the broom's two candidate distance profiles gives difference p−2p²+p⁴ with both candidates collectively excluding other vertices. This supplies the second changing shape, thereby saturating the existing upper bound. Nothing must be enumerated anew to establish lower-order stability or exclusion of any third shape."
+        ],
+        "reasoning": "The small constructive supplement identifies the remaining unstable shape and its crossover, but the substantive sharp onset and classification scope were already settled by the full-ranking table and its exact two-claw example. Neither fixed-rate restatement nor re-enumeration contributes a new standalone theorem of comparable substance.",
+        "searches": [
+          "Exact score and strongest-claim comparison: On decay centrality in graphs, pp. 40–41 and 45, and frozen broom shell differences",
+          "Resultary comparisons 51f5bbdc1318, 8974612ce954 and 639f57a81324"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2018 decay score Cδ(v)=sum over u≠v of δ^d(u,v) equals nP_v(p)−1 at δ=p. Its ranking explicitly groups vertices tied in value.",
+          "Their height-two complete binary tree is the frozen two-claw, with the same two hubs above the root below 1/2, all three equal at 1/2 and the root above the hubs thereafter.",
+          "Riveros et al. use the equivalent decay-score shell formula and show that decay is not always tree-rooting, a prior qualitative result."
+        ],
+        "reasoning": "The affine transformation is common to all vertices, so it preserves strict ranks, tie groups and full maximizing sets. The exact two-claw phases are not distinct merely because the score is called detection probability.",
+        "searches": [
+          "Resultary search for decay closeness, sentinel detection, and seven-vertex broom and double-claw switches",
+          "Coroničová Hurajová Gago Madaras decay stability smallest non-decay stable trees, seven vertices",
+          "On decay centrality in graphs, DOI 10.7146/math.scand.a-106210, ranking definitions and Figure 1",
+          "Riveros–Salas–Skibski arXiv:2112.13736, decay score and tree-rooting definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives decay-stable/total trees 2/2, 3/3, 6/6, 9/11 at orders 4,5,6,7 and extends through 20. It concerns complete rankings rather than only leaders.",
+          "Later Resultary record 51f5bbdc1318 gives exactly the two tree shapes and score-difference polynomials in a pairwise expected-outbreak-size ranking comparison; it expressly does not classify global optima."
+        ],
+        "reasoning": "The published table already supplies every lower-order exclusion and bounds changing seven-vertex argmax sets by two shapes. The later catalog result verifies overlap of underlying comparisons on the same score but is not used as earlier priority evidence.",
+        "searches": [
+          "On decay centrality in graphs, exact Maple census in Section 3, Table 1",
+          "Resultary exact pairwise comparison 51f5bbdc1318, Finding and Proof §§1–4"
+        ]
+      },
+      "rationale": "Verified prior coverage, not an access-based rejection. Coroničová Hurajová, Gago and Madaras (2018), On decay centrality in graphs, use exactly the equivalent score (nP_v−1), including full tie blocks. Their Table 1 establishes stability of the full ranking for all trees of orders 4–6 and for 9 of the 11 seven-vertex trees. Their Figure 1 and accompanying ranking give the same two-claw and its complete maximizing phases, including the three-way tie at 1/2. The stronger full-ranking census therefore already gives the lower bound and excludes any further shapes after the broom is checked. The only needed supplement is the direct small broom distance-polynomial comparison; the epidemic connection is a normalization of a unique-path marginal, not another optimization problem.",
+      "residual_risks": [
+        "The 2026 asymptotic stability paper and the figure topology in Riveros et al. were not fully resolved. Either could include additional exact examples, but neither is needed for the verified 2018 coverage.",
+        "I do not claim that the broom threshold was explicitly printed in the inspected 2018 passages; its expression follows from the elementary comparison of its two distance profiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger prior coverage and identical two-claw example.",
+          "evidence": [
+            "Defines Cδ by excluding the self-term and c-ranking as equal-valued groups in descending order.",
+            "Height-two complete binary tree has unique decay threshold 1/2 and exactly the frozen top groups on both sides and at the threshold.",
+            "Table 1 lists 2,3,6,9 fully stable trees out of 2,3,6,11 for n=4,5,6,7; Proposition 3.1 states all paths are stable."
+          ],
+          "identifier_or_url": "https://doi.org/10.7146/math.scand.a-106210",
+          "material_read": "Published pp. 40–41, definitions of score and tie blocks, Figure 1 discussion; Section 3 and p. 45 Table 1, PDF text offsets 2010, 5800, 15533–17406",
+          "method": "Lawful publisher PDF at https://journals.msp.org/mscand/article/download/263/262 via DOI resolution",
+          "title": "On decay centrality in graphs (2018)",
+          "trigger": "Exact prior decay-stability census and matching height-two binary-tree example"
+        },
+        {
+          "assessment": "Equivalent decay index, qualitative non-rooting. Exact Figure 1 topology not resolved from extracted text and not needed for the disposition.",
+          "evidence": [
+            "Tree-rooting requires one or two adjacent maxima with centrality decreasing away; Decay is marked No."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.13736",
+          "material_read": "Definition 1, Figure 1 caption, Example 3 and summary table, pp. 6–7; decay definition and potential, pp. 18 and 20",
+          "method": "Primary OA PDF passages",
+          "title": "How do centrality measures choose the root of trees?",
+          "trigger": "Prior qualitative discussion of multiple separated maximizers"
+        },
+        {
+          "assessment": "General ranking results; the inspected passages are not the decisive exact small-tree census.",
+          "evidence": [
+            "Discusses low-decay-parameter maxima via degree and high-parameter maxima via closeness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.05582",
+          "material_read": "Abstract p. 1 and discussion pp. 2–3, offsets 300 and 3766",
+          "method": "Primary OA PDF passages",
+          "title": "On Decay Centrality",
+          "trigger": "Parameter-dependent rankings under the same index"
+        },
+        {
+          "assessment": "Publisher required subscription and repository document had no extractable text on attempted route. Not used to decide coverage.",
+          "evidence": [
+            "Search metadata says it proves the 2018 asymptotic conjecture and gives a construction of stable trees; exact small-case contents remain unascertained."
+          ],
+          "identifier_or_url": "https://journals.msp.org/mscand/article/view/2963",
+          "material_read": "Publisher search result and repository identification only; no full-text passage inspected",
+          "method": "Lawful publisher retrieval and alternate university repository attempt at record 185570",
+          "title": "Almost all trees are decay-unstable",
+          "trigger": "Potential stronger or overlapping stability theorem"
+        },
+        {
+          "assessment": "Later pairwise result has exact algebraic overlap, while same-day intervention results use different rankings; not the basis of the rejection.",
+          "evidence": [
+            "The later pairwise ranking concerns expected outbreak size before deletion and states no claim of global optimality.",
+            "The same-day records optimize cutting an edge and deleting a vaccinee respectively, both first switching at order eight."
+          ],
+          "identifier_or_url": "Resultary 51f5bbdc1318, 8974612ce954 and 639f57a81324",
+          "material_read": "Finding and Proof §§1–4, mirror offsets 0–6469, 0–10603 and 0–6500 respectively",
+          "method": "Local published-record mirror passages",
+          "title": "Exact epidemic pairwise and intervention comparisons",
+          "trigger": "Related exact small-tree polynomial classifications, including both same-day interventions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The detection objective is meaningful, but the frozen contribution as a new sharp theorem mostly reproduces an existing stronger stability census and one of its exact worked examples. The remaining broom threshold is a direct comparison of distance shells at two vertices; relabeling decay centrality as a unique-path detection marginal gives no additional independent invariant, classification, or model-level phenomenon. No standalone repair of adequate scientific substance was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

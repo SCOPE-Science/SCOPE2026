@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:44:07.743984Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67; VERIFICATION.md and verify_projection.py (inspected, not executed).",
+        "Independent exact replay: build the incidence and Laplacian, invert L+11^T/n over the rationals, and sum absolute rows for all 56 graphs 2<=r<=8, 1<=h<=8. Orbit sums, branches, norming orbits, and threshold agree; at (5,4) rows are 16/9, 341/180, 41/20, 9/5 for A,B,C,D respectively.",
+        "Frozen recorded run: 2884 exact comparisons for 56 graphs."
+      ],
+      "rationale": "The four edge orbits are exhaustive (within F, F to H, c to H, within H; the last is absent for h=1). For a unit dipole, the row is the gradient of its Laplacian potential. With c grounded for F-to-H injection, the sums of potentials on F and H are 1/h and 0 respectively; for c-to-H injection they are both zero with potential 1/h at c. Substituting verifies the displayed solutions. Summing edge differences by type gives, with n=r+h+1, R_A=2(n-2)/(n-1), R_D=2(n-1)/n, R_B=1+(r-1)/(n-1)+(h-1)/n+2(h-1)/(hn), and R_C=1+(h-1)/n+2r(h-1)/(hn). Their differences give exactly the three stated norm branches and maximizing edge types. A row-sign vector attains the value. The first two branches are below two; the third exceeds it exactly when rh>2(r+h). For n<=9 the product is at most (r+h)^2/4<=2(r+h); for n=10 the (5,4) case gives 41/20, and h=4 gives amplification above two at every larger n as well. The difference of successive third-branch values is [2(n-1)/(h(h+1))-1]/n, giving the weak inequalities for the optimizing integer, including ties. All such integers are in the admissible h range for n>=10. This implies h=sqrt(2(n-1))+O(1), the sharp first-order deficit, and a supremum of three not attained.",
+      "residual_risks": [
+        "The finite check does not establish the all-size claims; the orbit calculation and discrete optimization do. Scope is the stated family and canonical unweighted orthogonal projection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8778c0efe278 gives the universal cyclic-graph lower bound 4/3 with equality exactly on triangular cacti, covering the (2,1) boundary case but not the rest. 74a36383513a gives degree bounds and an effective-resistance identity rather than these exact norms. Complete multipartite complements are disjoint unions of cliques, which K_{1,r} with r>=2 is not."
+        ],
+        "reasoning": "The broader cyclic-graph theorem explains one equality case only. The exact multipartite benchmark belongs to a genuinely different family; the degree and representation theorems do not give the maximizing orbits or the sharp threshold.",
+        "searches": [
+          "Resultary same-date 8778c0efe278 and 74a36383513a; earlier complete multipartite 745e7b0c399e; Jiang et al. Theorem 5.1; Kassel–Wu §§2, 3.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8778c0efe278, 74a36383513a, 745e7b0c399e, 447fec97b3cf",
+        "arXiv:0811.1067 Theorem 5.1 and arXiv:1312.2946 §§2, 3.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General pseudoinverse and resistance formulas give a computational representation or inequalities. They do not give exact absolute edge sums over this family, select the maximizing orbit as h varies, or turn fixed n into the integer attachment optimization."
+        ],
+        "reasoning": "The essential new calculation is an exact row competition from the orbit potentials, followed by an equality-sensitive discrete extremum, not a normalization or substitution into a known exact formula.",
+        "searches": [
+          "arXiv:0811.1067 Theorem 5.1, arXiv:1312.2946 §2, Resultary 74a36383513a and 8778c0efe278"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "G=K_h join (K_r disjoint union K_1) and its complement is K_{1,r} disjoint union h isolated vertices. Resultary 447fec97b3cf is the identical family in variables N=r+h+1, k=r, but computes the polar edge polytope's Ehrhart polynomial and volume. The unweighted signed transfer-current form P=dGd* is the same canonical matrix."
+        ],
+        "reasoning": "The family alias is exact but its Ehrhart invariant is different. General identification of the matrix does not evaluate its orbit row sums.",
+        "searches": [
+          "Resultary: clique with one partially connected vertex; complete graph with incident edges deleted; deleted star; edgewise/electrical current projection",
+          "Kassel–Wu, arXiv:1312.2946 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Identified same-family exact calculation 447fec97b3cf is for polar edge-polytope volume and lattice points. The exact 4/3 special case follows from 8778c0efe278; no checked catalogue statement supplies an exact list of the four row types or a parameterized norm for this family."
+        ],
+        "reasoning": "The small equality instance is known under a broader theorem; it is not the content used to support the all-family result.",
+        "searches": [
+          "Local Resultary search under deleted-star and partially attached-clique names, including exact norm and degree optimization"
+        ]
+      },
+      "rationale": "General graph Hodge/transfer-current theory is credited. No matching prior norm, orbit classification, ten-vertex cutoff or fixed-order optimizer was found on the available evidence. A later exact result on the identical deleted-star family has a different invariant. Same-date general projection bounds were checked against the exact claims rather than excluded on date alone.",
+      "residual_risks": [
+        "Catalogue and named OA checks were bounded, not a comprehensive history of electrical flow in threshold graphs or near-complete networks. An older equivalent norm under another alias remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard reduction, not exact family coverage",
+          "evidence": "Gives normal equation and s*=-Delta_0^dagger div Ybar, not its canonical map's coordinate amplification.",
+          "identifier_or_url": "https://arxiv.org/abs/0811.1067",
+          "material_read": "Theorem 5.1, p. 21, text offset 75244",
+          "method": "Primary OA passage",
+          "title": "Statistical ranking and combinatorial Hodge theory",
+          "trigger": "General least-squares gradient fitting"
+        },
+        {
+          "assessment": "General identity and convergence, no exact orbit formula here",
+          "evidence": "P=dGd* and a continuum convergence result under additional assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.2946",
+          "material_read": "§2, pp. 6–7, offset 15300; §3.3, p. 9, offset 25846",
+          "method": "Primary OA passage",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Electrical-current formulation of the projector"
+        },
+        {
+          "assessment": "Broader lower bound with a single overlapping boundary case",
+          "evidence": "Equality at 4/3 iff triangular cactus, including K_3 with a pendant edge at (2,1). Does not give the branch norms or super-two cutoff.",
+          "identifier_or_url": "Resultary 2026/10/26/...--8778c0efe278",
+          "material_read": "Finding, including equality conditions",
+          "method": "Local Resultary mirror",
+          "title": "A sharp one-third amplification gap for graph edge-gradient projections",
+          "trigger": "Same-date general sharp cut-projection norm"
+        },
+        {
+          "assessment": "Adjacent bounds, not the exact norms here",
+          "evidence": "A cut-versus-cycle comparison and effective-resistance identity, not the four dipole orbit totals.",
+          "identifier_or_url": "Resultary 2026/10/26/...--74a36383513a",
+          "material_read": "Statement of complementary norm bounds and local identity",
+          "method": "Local Resultary mirror",
+          "title": "Sharp degree bounds for complementary graph Hodge projection norms",
+          "trigger": "Same-date exact identities and bounds in the same edge space"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Requires complete multipartite graph; the complement of this deleted-star clique has a nonclique connected component.",
+          "identifier_or_url": "Resultary 2026/10/18/...--745e7b0c399e",
+          "material_read": "Finding and hypotheses of the exact cut/cycle formulas",
+          "method": "Local Resultary mirror",
+          "title": "Exact endpoint Hodge norms and an edge-orbit reversal for complete multipartite graphs",
+          "trigger": "Exact endpoint norm on a nearby dense graph family"
+        },
+        {
+          "assessment": "Same graphs, unrelated invariant",
+          "evidence": "K_N with k incident edges deleted, with an exact Ehrhart polynomial and volume of the polar edge polytope, not a projector norm.",
+          "identifier_or_url": "Resultary 2026/11/8/...--447fec97b3cf",
+          "material_read": "Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Ehrhart polynomial and a strict deletion-clustering effect",
+          "trigger": "Exact match under the star-deletion alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof lines 4–67",
+        "Resultary 8778c0efe278 and 74a36383513a for comparison to general bounds"
+      ],
+      "rationale": "A clique plus one partially connected vertex is a natural defect in a dense network. This result finds when the defect alone causes more than twofold amplification of bounded edge errors, proves a sharp smallest order, and shows that the worst attachment at fixed order is sublinear of scale sqrt(2n), not a constant degree or a fixed fraction of the clique. The change of the norming output from clique edges to the attached edges identifies where errors amplify most.",
+      "residual_risks": [
+        "The ten-vertex threshold is for this family only, not a minimum over all graph classes or all projections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

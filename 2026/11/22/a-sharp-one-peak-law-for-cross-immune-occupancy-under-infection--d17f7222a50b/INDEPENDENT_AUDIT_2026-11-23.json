@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:05:52.025752Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified normalized equations with positive rates, β>μ+α, σ=0 and matched nonnegative feedback, stationarity fixes S=(μ+α)/β. Substitution of I=(μP+γkC)/(μ+α) and R=P-I-C into the C balance gives βγC²+[δγk+(δ+γ)(μ+α)+μβ/k]C−δαP=0. The positive root is unique and gives R>0 by that balance, so reconstruction does not add a spurious solution. The determinant and mass equation at fixed candidate I reproduce the scalar infected-root equation, with strictly positive z derivative and negative feedback derivative by the stated factorizations; uniqueness and increasing I also follow from the earlier October theorem. Thus k=1+εI is continuous, strictly increasing and unbounded with k(0)=1. The C derivative has sign opposite δγ−μβ/k², giving strict decline for k>1 at equality, and strict rise then fall across the unique stationary point sqrt(μβ/(δγ)) when μβ>δγ. The supplied radical example satisfies the quadratic and k-to-ε relation; the large-k limit is zero. This is an equilibrium statement only, not stability, transient behavior, or application outside these equations. Inspected VERIFICATION.md and verify.py without executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October theorem applies to independent ε1,ε2 and general σ; its strict I response on the matched diagonal at σ=0 and its equilibrium reconstruction are already covered.",
+          "The November 1 statement concerns transmission-driven feedback at σ=1, separate signal/prevalence sensitivity and a large-feedback asymptotic, not the occupancy derivative along the matched diagonal here."
+        ],
+        "reasoning": "The claimed global occupancy shape is distinct from general endemic existence and prevalence monotonicity. Broader coverage of the I branch and the steady-state equations is acknowledged, including their availability as a starting point for a different coordinate analysis.",
+        "searches": [
+          "arXiv:2610.01111v1, §2 and §4.1 Remark 4.4",
+          "2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342, Steps 2–4",
+          "2026/11/1/SCOPE-all-feedback-endemic-uniqueness-and-coupled-escape-channel-sensi--26210462b084, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d17f7222a50b, c54c540be342, 26210462b084",
+        "arXiv:2610.01111v1",
+        "DOI 10.1016/j.mbs.2005.12.029, landing only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the October formula yields C=αδkz/D(z) and P-z=αzK(z)/D(z) with D=μK+δγk². These equations can be used to eliminate z: their combination gives (μ+α)z=μP+γkC, then a positive quadratic root for C with linear coefficient δγk+(δ+γ)(μ+α)+μβ/k.",
+          "The term μβ/k competes with δγk; this cancellation and the resulting derivative sign are not present in the inspected prior statements."
+        ],
+        "reasoning": "The prior theorem already gives the monotone reparameterization and all the implicit steady-state data. But replacing G1,G2 by k in the prior expressions still leaves z varying implicitly; no prevalence response theorem transfers directly to the total derivative of C. The separate elimination, identification of the competing terms and sharp optimization are the supported new analysis; no priority is claimed for endemic uniqueness or monotonicity of I.",
+        "searches": [
+          "October Resultary c54c540be342, Step 2 reconstruction and Steps 3–4 derivatives",
+          "arXiv:2610.01111v1, Remark 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary query returned Ramírez-Gutiérrez et al., arXiv:2610.01111v1. Relevant inspected equations label g=I the prevalence-driven case; Remark 4.4 works with an endemic-prevalence cubic and with reconstruction after the infected component is found.",
+          "The October mirror record solves R and C at fixed infected component z and proves uniqueness and monotonicity of the infected equilibrium."
+        ],
+        "reasoning": "The relevant equivalent occupancy statement would be a classification of the sign of the total derivative of C along the endemic branch, or a one-variable occupancy-root law with both directions of the turning-point threshold. A partial derivative of another coordinate or a fixed-z formula for C is not that sign classification.",
+        "searches": [
+          "Resultary: prevalence-driven SIRCm cross-immune occupancy, equal feedback, zero reinfection; 2026/10/11 record c54c540be342 and 2026/11/1 record 26210462b084",
+          "Primary literature: \"SIRCm\" cross-immune endemic equilibrium nonmonotonicity matched feedback maximum cross-immune fraction prevalence-driven"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bound 2026/11/22 hit is the identical record, not independent evidence.",
+          "The October record has analytic z, R and C reconstruction formulas, not a table of C extrema. The original model paper gives a prevalence polynomial in ε and rate parameters in the inspected passage."
+        ],
+        "reasoning": "An exact formula parameterized by the unknown z and an equation for z do not tabulate the sign regimes or optimizer for C; the relevant check here is an equivalent analytic classification in the catalogue or literature, not numerical equilibrium data.",
+        "searches": [
+          "Resultary exact and nearby hits d17f7222a50b, c54c540be342, 26210462b084",
+          "arXiv:2610.01111v1, endemic-equilibrium reconstruction and prevalence cubic in Remark 4.4"
+        ]
+      },
+      "rationale": "The earlier exact equilibrium characterization and feedback monotonicity of I substantially overlap the setup and proof of the k correspondence. The supported distinction is the new analytic classification and exact turning point for C itself, requiring elimination of the implicitly varying I and analysis of the resulting positive C root. Neither endemic uniqueness nor coordinate reconstruction from a given infected root states or determines the sign by direct specialization alone.",
+      "residual_risks": [
+        "A different analysis of the same implicitly characterized equilibria may already make the positive-root cancellation or peak criterion explicit outside the bounded inspected passages.",
+        "Full text of the original zero-feedback SIRC paper was inaccessible. No conclusion is inferred from that restriction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full implicit equilibrium reconstruction and I monotonicity, not the asserted total-derivative classification of C",
+          "evidence": "Displays C(z)=αδG1z/D(z), H(z)=z+αzK(z)/D(z), and separate feedback derivatives of K/D. These enable a new elimination but do not directly state the C sign criterion.",
+          "identifier_or_url": "2026/10/11/SCOPE-all-feedback-endemic-uniqueness-and-separate-monotonicity-in-the--c54c540be342",
+          "material_read": "RESULT.md assumptions and Steps 2–4; mirror offsets 1300–3471 and 3600–7495, and Finding",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-feedback endemic uniqueness and separate monotonicity in the prevalence-driven SIRCm system",
+          "trigger": "Cited strongest exact overlap, broader matched/unmatched prevalence-driven equilibrium theorem"
+        },
+        {
+          "assessment": "Covers model, prevalence polynomial and reconstruction premise; inspected sections do not state the occupancy peak criterion",
+          "evidence": "For prevalence-driven matched feedback discusses a cubic for the endemic infected coordinate and a sufficient uniqueness condition. It says the other components can be computed after that coordinate is found.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01111v1",
+          "material_read": "§2 equations and feedback definitions around offsets 8200–13161; §4.1, Remark 4.4 about offsets 48900–53496",
+          "method": "OA original, bounded sections corresponding to model and matched-feedback steady states",
+          "title": "Compartmental epidemiological models with infection-driven immune escape",
+          "trigger": "Original SIRCm model and endemic analysis"
+        },
+        {
+          "assessment": "Different feedback and reinfection endpoint, no equivalent classification",
+          "evidence": "g=SI, σ=1, independent strengths; classifies signal/infected sensitivities and gives a C limit, not a one-peak C law.",
+          "identifier_or_url": "2026/11/1/SCOPE-all-feedback-endemic-uniqueness-and-coupled-escape-channel-sensi--26210462b084",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2191",
+          "method": "Local mirror, same snapshot",
+          "title": "All-feedback endemic uniqueness and coupled escape-channel sensitivity at maximal reinfection",
+          "trigger": "Related indexed equilibrium and sensitivity classification"
+        },
+        {
+          "assessment": "Baseline model, access limitation retained",
+          "evidence": "The accessible SIRCm original identifies SIRC as the zero-feedback special case; a 403 on the baseline full text supplies no coverage conclusion.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2005.12.029",
+          "material_read": "Landing/abstract only; original full text not retrieved",
+          "method": "DOI landing and attempted lawful article/PDF routes",
+          "title": "The SIRC model and influenza A",
+          "trigger": "Original no-feedback model from which the equations were extended"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the stated mathematical model, the intermediate-state occupancy can behave qualitatively differently from strictly increasing infection prevalence. An exact criterion distinguishing uniform decline from a unique interior maximum, including the location in the original feedback coordinate, is useful for interpreting this equilibrium family and is stronger than reconstructing coordinates pointwise. No clinical, stability, intervention, or broader model conclusion is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

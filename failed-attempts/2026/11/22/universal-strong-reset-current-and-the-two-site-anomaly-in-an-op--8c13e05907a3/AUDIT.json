@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every finite length, stationary in-tree polynomials concentrate mass at the entrance singleton. Exact balance yields \\(\\pi_r(z_2)=r^{-1}+O(r^{-2})\\), while all other vacant-site-1 nonempty configurations have probability \\(O(r^{-2})\\). Empty-state balance \\(\\alpha\\pi_r(\\varnothing)=\\beta\\pi_r(z_L)\\) distinguishes \\(L=2\\) from \\(L\\ge3\\). Particle conservation yields the claimed current coefficient. The accompanying checker reports 353 finite/symbolic assertions; the all-length proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The model-defining paper uses mean-field and kinetic Monte Carlo and assumes a scaling relation with L for its macroscopic results.",
+        "The 2020 periodic-boundary paper has no injection/extraction boundaries and fixes particle number."
+      ],
+      "reasoning": "Neither large-L mean-field limits nor fixed-number periodic lattice results dominate an exact fixed-L all-size open current limit. The result is not claimed uniformly in L.",
+      "searches": [
+        "\"Totally asymmetric simple exclusion process with local resetting and open boundary conditions\" strong resetting regime",
+        "Pelizzola Pretti TASEP local resetting strong rate finite length exact large-r current asymptotics alpha/r"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2402.13698v1",
+      "https://arxiv.org/abs/2012.10993",
+      "https://iris.polito.it/handle/11583/2973072",
+      "https://doi.org/10.1103/PhysRevE.109.024109"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pelizzola–Pretti (2022), section 3.4, analyzes the large-reset regime with finite-size simulations and an L-to-infinity ansatz.",
+        "Pelizzola–Pretti–Zamparo (2020), arXiv:2012.10993, analyzes periodic boundary conditions without boundary injection and extraction.",
+        "Indexed three-site claims concern different observables and fixed small length."
+      ],
+      "reasoning": "The new claim computes \\(\\lim_{r\\to\\infty}r\\beta\\Pr(\\eta_L=1)\\) for each fixed finite \\(L\\), distinguishing \\(L=2\\) from every \\(L\\ge3\\). The literature cited uses thermodynamic scaling, periodic current, or small-chain correlations, none of which establishes the same fixed-length general theorem.",
+      "searches": [
+        "Totally asymmetric simple exclusion process local resetting open boundary strong reset site1 occupancy current extraction",
+        "simple exclusion local resetting periodic boundaries Pelizzola Pretti Zamparo"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pelizzola and Pretti, section 3.4, DOI:10.1088/1751-8121/ac9d72, discusses a joint large-size regime and a density-profile scaling length; no exact fixed-length coefficient theorem there.",
+        "Indexed three-site works discuss reentrant occupation covariances; their claims are not equivalent to the all-integer chain-length current limit."
+      ],
+      "reasoning": "Compared the same object under mean-field and thermodynamic-limit formulations. A profile limit as L grows does not yield the exact finite-L 1/r coefficient or two-site exception; conversely the present limit is not a hydrodynamic profile theorem.",
+      "searches": [
+        "\"local resetting\" \"open\" \"strong resetting\" \"finite\" \"current\" alpha beta",
+        "Universal fixed finite L strong local resetting open boundary TASEP current J(r)~alpha/r, except L=2 J(r)~(alpha+beta)/r, exact Markov singular perturbation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available three-site indexed findings concern covariance sign changes rather than a full sequence of current coefficients for arbitrary L.",
+        "The two-site exact rational expression is included as a consistency check, not claimed individually as an intrinsically new formula."
+      ],
+      "reasoning": "Finite tables might imply the \\(L=2\\) and \\(L=3\\) instances but cannot imply a universal statement for every finite chain length without further proof. No encompassing indexed table or stronger exact formula was identified.",
+      "searches": [
+        "finite-state locally reset TASEP exact stationary current two three sites resetting rate r",
+        "the smallest locally resetting exclusion chain with two covariance sign reversals"
+      ]
+    },
+    "rationale": "The closest same-model full text studies stationary mean-field/KMC behavior and large-system resetting scalings; its large-reset section does not establish the present exact strong-reset fixed-length limit for every L or its two-site exception. Earlier periodic local-reset model lacks open-boundary injection/extraction current. Closest published small-L covariance classifications do not imply an all-size exact throughput coefficient. Equivalence and stronger-coverage risks remain qualified rather than dismissed.",
+    "residual_risks": [
+      "Full text of the finite-resource 2024 variant and full internal content of closest indexed three-site results was not fully accessible in this run. The assessment does not treat a snippet as a whole-text proof of noncoverage.",
+      "An unindexed equivalent exact general-L result or source whose all-L implication was missed remains possible; independent priority assessment has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same rates and site rules; does not directly establish exact strong-r finite-L coefficient or L=2 anomaly.",
+        "evidence": [
+          "Section 2: right hops, alpha injection, beta extraction, local rate r resets to vacant entry site",
+          "Section 3.4: limiting density-profile ansatz at large L with logarithmic inverse scale, supported by simulation"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2402.13698v1",
+        "material_read": "Full publicly accessible HTML: section 2 transition rules, section 3.4 small/large resetting, section 4 conclusions and central equation context",
+        "method": "Primary full-text sections and model equations, compared fixed-L vs joint large-L quantifiers",
+        "title": "Totally asymmetric simple exclusion process with local resetting and open boundary conditions",
+        "trigger": "Same dynamical model and strong-reset discussion"
+      },
+      {
+        "assessment": "Periodic-boundary, fixed-number system; cannot imply open-boundary extraction throughput law.",
+        "evidence": [
+          "Periodic lattice without injection or extraction; thermodynamic mean-field and simulations, arXiv submission 2020-12-20"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.10993",
+        "material_read": "Primary abstract, model introduction and periodic-boundary assumptions",
+        "method": "Full-text public rendering, model/parameter comparison",
+        "title": "Simple Exclusion Processes with Local Resetting",
+        "trigger": "Closest earlier formulation of particle-specific local resets"
+      },
+      {
+        "assessment": "Three-site covariances, not an all-finite-L strong-reset throughput theorem; limited inspection remains a risk.",
+        "evidence": [
+          "Public record summary concerns two sign changes in end-site correlations with reset rate"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-reentrant-distal-occupation-correlations-in-a-three-site-exclusi--dc9245657979",
+        "material_read": "Published record title and summary only; full manuscript was not accessible in current comparison",
+        "method": "Indexed abstract/summary and exact claimed observable comparison",
+        "title": "Reentrant distal occupation correlations in a three-site exclusion chain with local resetting",
+        "trigger": "Very close local-reset model with three sites"
+      },
+      {
+        "assessment": "Covariance sign changes for length three, not visible stronger all-size current claim.",
+        "evidence": [
+          "Summary gives specific injection/extraction rates and quartic covariance thresholds"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-the-smallest-locally-resetting-exclusion-chain-with-two-covarian--0821d74585d9",
+        "material_read": "Published record title and summary only; no basis for whole-document NOT_COVERING claim",
+        "method": "Indexed abstract/summary and parameter/observable comparison",
+        "title": "The smallest locally resetting exclusion chain with two covariance sign reversals",
+        "trigger": "Close three-site stochastic reset chain"
+      },
+      {
+        "assessment": "Finite-resource mechanism is different; cannot rule out an applicable hidden limiting theorem from abstract alone.",
+        "evidence": [
+          "Resource-constrained model and stationarity, 2024 publication; full text not materially read"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.109.024109",
+        "material_read": "Bibliographic abstract only, not full text",
+        "method": "Compared resource-constrained versus externally supplied open boundary dynamics",
+        "title": "Stationary dynamics of open TASEP with local resetting and finite resources",
+        "trigger": "Near-name same-reset model variant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8c13e059-07a3-4d35-a44d-51bd3d32950d",
+  "value": {
+    "rationale": "The strong-reset limit for the canonical finite open exclusion process shows that leading throughput is independent of length and extraction rate for every \\(L\\ge3\\), while \\(L=2\\) exhibits a sharp additional extraction contribution. This is a structural singular-transport statement with clear physical motivation, not an arbitrary numerical example.",
+    "status": "PASS"
+  }
+}

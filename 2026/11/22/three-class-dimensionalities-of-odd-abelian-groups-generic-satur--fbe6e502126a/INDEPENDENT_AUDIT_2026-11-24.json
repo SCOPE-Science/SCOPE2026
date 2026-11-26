@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:43:55.199253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each fixed target u, x↦u−x is an involution, with one fixed point by invertibility of doubling. Excluding the fixed point and {0,u} leaves (n−3)/2 disjoint nonzero unequal pairs for u≠0, and (n−1)/2 for u=0. Independent fair colors give the stated failure bounds for the two monochromatic patterns and the mixed pattern; additional diagonal representations can only help. Union bounding over targets and dividing successful labeled colorings by two gives the stated uniform lower bound even if it is vacuous for small n. Saturation directly gives every D2 lift (identity products are unchanged), so the claimed proportions follow from the bound and the exact total 2^(n−2)−1. For n≤7 a smaller class of size at most (n−1)/2 has fewer than n unordered pairs with repetition. I reproduced the remaining finite cutoff checks with `python3 /workspace/review-evidence/check_5.py`: target-sum buckets of unordered pairs, tracking color-count patterns 0,1,2, gave zero successes among 256, 256 and 1024 labeled colorings of C9, C3×C3 and C11. Independent invariant-factor enumeration gave all 13 necessary types for 13≤n≤31, and the check verified all 15 listed witnesses by reading the frozen dictionary as data, not executing its script. The replay also gave ε_33=474054603/536870912; each term decreases along odd orders n≥33 since its ratio is (1+2/n) times 3/4 or 1/2. The quotient has ordinary identity products and every nonidentity product full, satisfying relational associativity, but A has both A and B as inverses. Inversion preserves the partition exactly when every opposite pair is monochromatic or every pair is bichromatic, giving ((2^m−2)+2^m)/2=2^m−1 with m=(n−1)/2. Inversion commutes with group automorphisms and therefore permutes their orbits, proving the asymptotic exclusion as well. The threshold is for full saturation, not for existence of any dimensionality; fixed-group D3 is not generally computed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.6 supplies a hypergroup quotient when inverses are respected, not a count of quotients when they are not. The broader relational-monoid paper is structural.",
+          "Theorem 1.7 in Haviv–Levy classifies inverse-stable three-part dioid partitions of Z_p. Misseldine considers cyclic Schur rings, requiring inversion and integral group-algebra multiplication, not just support closure."
+        ],
+        "reasoning": "These structural theorems or stronger axioms do not classify arbitrary D2 partitions or show that most yield the full triad. Neither the odd-order uniformity nor the cutoff is a specialization of the inspected classifications.",
+        "searches": [
+          "Jenča arXiv:2611.18000v1 Theorem 5.6; Jenčová–Jenča arXiv:1703.03728 introduction",
+          "Haviv–Levy Theorem 1.7",
+          "Misseldine arXiv:2112.03422v1 Definition 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "arXiv:2611.18000v1, 1708.02974v2, 1703.03728 and 2112.03422v1",
+        "Resultary c013b85cbd89 and 104fceb07931"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Haviv–Levy's prime-cyclic cases the mixed set or the self-sums omit the identity. The separate C12 witness gives X+X=X+Y=G but Y+Y=X∪Y.",
+          "The two Resultary records on dimensionalities bear the same date, which does not establish their order."
+        ],
+        "reasoning": "The comparison records supply inverse compatibility results or witnesses of failure of it, not the necessary and sufficient unrestricted odd-order threshold for three full sumsets. The saturated quotient's non-hypergroup property is a direct application of the existing framework, not a separate priority claim.",
+        "searches": [
+          "Resultary c013b85cbd89 Finding and C12 witness",
+          "Haviv–Levy Lemma 5.2",
+          "Jenča Definition 3.2 and Theorem 5.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D2 is precisely closure of all setwise class sums as unions of classes. The simultaneous three-cover property is sufficient but not equivalent to D2.",
+          "Haviv–Levy's dioid partitions have the additional inverse-stability condition. If inversion fixes the two classes, then 0 is missing from the mixed sum; if it swaps them, 0 is missing from both self-sums."
+        ],
+        "reasoning": "The natural alternative formulation is a two-color cover by two disjoint additive bases whose mixed sum also covers. The superficially equivalent three-part dioid classes cannot count such colorings.",
+        "searches": [
+          "Odd abelian group complete two-coloring, two disjoint additive bases with full mixed sumset",
+          "Jenča arXiv:2611.18000v1 §3.3 D1–D2",
+          "Haviv–Levy arXiv:1708.02974v2 Definition 1.1 and Lemma 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest separate finite census gives 12/22 inverse-incompatible examples on S3 and 4/44 on C12, not a census of fully saturated odd groups. Its C12 witness has one self-sum not equal to G.",
+          "The related Resultary three-color Schur-equation record 104fceb07931 concerns equations on an integer interval, not complete sumset covers on the finite groups in the finding."
+        ],
+        "reasoning": "The result is an infinite-family bound with a finite transition. The close catalogue census is for a different invariant (first inverse incompatibility), and cannot supply either the 13-to-31 certificates for full saturation or the uniform random tail.",
+        "searches": [
+          "Resultary: odd abelian three-class dimensionality saturation threshold, complete two-coloring and inverse-incompatible dimensionalities",
+          "Resultary exact RESULT.md for c013b85cbd89"
+        ]
+      },
+      "rationale": "The substantive contribution is the uniform odd-abelian estimate and the sharp universal threshold for the simultaneous three full sumsets. Jenča supplies the support-lifting and quotient framework; the random matching device itself is elementary and not credited as new. The most similar older partition classifications impose inversion preservation, which precludes full saturation, and the closest same-day record concerns first inverse incompatibility rather than the full triad or its typicality.",
+      "residual_risks": [
+        "A less visibly related additive-basis or finite-group two-color cover theorem could already imply the triad or cutoff. The bounded primary literature search does not establish its absence.",
+        "The relative public order of the same-day catalogue records was not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lifting and inverse-preserving quotient structure, not generic count or threshold.",
+          "evidence": [
+            "D2 lifts a whole product class; Theorem 5.6 presupposes inverse preservation for the corresponding hypergroup structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.18000v1",
+          "material_read": "Abstract, §3.3 D1–D2 (offset about 23489), Theorem 5.6 (offset about 52619)",
+          "method": "Primary OA HTML",
+          "title": "Dimensionalities on monoids",
+          "trigger": "Direct source of D2 and the quotient"
+        },
+        {
+          "assessment": "Closely related classification; inverse stability excludes the full triad.",
+          "evidence": [
+            "One lemma case has full self-sums but mixed sum G minus identity; the other has full mixed sum but self-sums omit identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.02974v2",
+          "material_read": "Definition 1.1 (opening), Theorem 1.7 (offset about 9417), Lemma 5.2 (offset about 73311)",
+          "method": "Primary OA passages",
+          "title": "Dioid Partitions of Groups",
+          "trigger": "Support closure and a close three-part finite cyclic classification"
+        },
+        {
+          "assessment": "Structural background; inspected statements are not enumerative.",
+          "evidence": [
+            "Relational monoid examples and categorical structures, not this odd-group count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.03728",
+          "material_read": "Abstract and introduction, offsets 0 and about 3000",
+          "method": "Primary OA HTML",
+          "title": "On monoids in the category of sets and relations",
+          "trigger": "Potential broader relational-monoid classification"
+        },
+        {
+          "assessment": "Enumerates a narrower partition type with additional requirements.",
+          "evidence": [
+            "Requires inversion and group-algebra multiplication, whereas most of the dimensionalities in the present result do not even preserve inversion."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2112.03422v1",
+          "material_read": "Introduction and Definition 1.1, offsets 0 and about 3760",
+          "method": "Primary OA HTML",
+          "title": "Enumeration Techniques on Cyclic Schur Rings",
+          "trigger": "Possibly dominating group-partition enumeration"
+        },
+        {
+          "assessment": "Same-day conceptual overlap; different threshold and invariant.",
+          "evidence": [
+            "First finite and first abelian inverse-incompatible examples are on S3 and C12 respectively. The latter witness has Y+Y=X∪Y, not G."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-smallest-inverse-incompatible-dimensionalities-of-finite-g--c013b85cbd89",
+          "material_read": "RESULT.md Finding and C12 witness",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp smallest inverse-incompatible dimensionalities of finite groups",
+          "trigger": "Closest separate Resultary claim on non-hypergroup dimensionalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result identifies a typical and concrete three-class quotient, rather than just an isolated non-hypergroup example. The uniform rate across invariant-factor types makes clear how support-level closure differs from inverse-compatible partition theories, and the exact threshold answers when that same quotient can first be realized by full saturation in every odd abelian group. Finite computation is confined to the natural cutoff, not presented as a count for all orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

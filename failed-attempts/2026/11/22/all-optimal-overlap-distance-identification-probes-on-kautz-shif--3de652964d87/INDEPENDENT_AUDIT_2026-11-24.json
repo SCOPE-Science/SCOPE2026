@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:30:29.138794Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is true, but the frozen sufficiency proof makes a false overlap assertion at RESULT.md line 29. With q=3, n=5, targets u=01010 and v=02012 have common-prefix length k=1. Take p=1020 and s=pu_2=10201. The maximum proper overlap with u is 2 and that with v is 4, not k. The missing argument is that the selected probe has overlap at least k+1 with its corresponding target and the two maximal overlaps cannot be equal at any length >=k+1, since the targets' prefixes then differ. A probe that is a target separates directly with distance zero. This establishes the theorem independently but does not validate the frozen proof as written. Necessity follows from prefix twins and the directed overlap formula; counting then multiplies one factor (q-1)z^(q-2)+z^(q-1) per class. A separate BFS check exhausted 4,096 minimum transversals at q=3,n=4 and certified all 18,336 target pairs at q=3,n=7 via the existence of a class containing two distinguishing probes; these bounded checks do not prove the general claim. The source script was inspected, not run. No repair was delivered because the corrected classification is covered by prior work.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The proof says ‘Let W be a set obtained from E(G) by deleting one in-coming edge of each vertex of G … We shall prove that W is a resolving set of L(G).’ It places no restriction on the choices of deleted edges.",
+          "Corollary 2.2 establishes the Kautz dimension explicitly."
+        ],
+        "reasoning": "The prior result applies to arbitrary strongly connected non-cycle base digraphs, not only Kautz. The reversed Kautz base is strongly connected and has degree q-1>=2, so the proof applies even at n=2. The only-if conclusion for any (not necessarily minimum) landmark set follows from the same-class twins used in their lower-bound proof.",
+        "searches": [
+          "arXiv:1107.4140v1 Theorem 2.1, pp. 2–3; Corollary 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Feng–Xu–Wang arXiv:1107.4140v1",
+        "Rajan et al. DOI 10.1080/00207160.2013.844335 (access-limited)",
+        "Resultary 3de652964d87, 62b56f57c475, 728f5ffa301d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Feng–Xu–Wang, any two arcs terminating at the same base vertex have identical distance profiles to every other arc. The arbitrary W proof treats differing terminal vertices.",
+          "The Rajan paper was not independently accessible at the attempted DOI/publisher or cited manuscript routes; it is not required for the implication."
+        ],
+        "reasoning": "Every set with at most one omission per terminal class contains an arbitrary one-omission-per-class set and resolves by monotonicity. This proves the all-cardinality iff, not only a minimum construction. Multiplication of the class choices and fixed-order mixed-radix representation give the frozen polynomial, minimum count, ranking/unranking and uniform generation, with no separate surviving mathematical claim.",
+        "searches": [
+          "arXiv:1107.4140v1 Theorem 2.1 proof, Eq. (3) and preceding construction",
+          "Rajan et al. DOI 10.1080/00207160.2013.844335, cited Sec. 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feng–Xu–Wang use d(a,c) with a the target and c the landmark; their proof separates by terminal-vertex classes of arcs in the base digraph.",
+          "Their K(d,n)=L(K(d,n-1)) identity appears immediately before Corollary 2.2."
+        ],
+        "reasoning": "For D=K(q-1,n-1) a Kautz word is an arc from its prefix to its suffix. In the reversed base D^rev this arc terminates at the prefix, and L(D^rev)=L(D)^rev. Therefore a target-to-landmark distance there equals the probe-to-target distance here, and the prior incoming-edge classes are exactly the frozen prefix classes. Radius-one identifying codes use a distinct observation channel.",
+        "searches": [
+          "arXiv:1107.4140v1, Sec. 2 Eq. (1), Theorem 2.1 proof and Corollary 2.2",
+          "Resultary Kautz exact directed distances and identifying codebooks, 3de652964d87, 62b56f57c475, 728f5ffa301d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact indexed hit is the assigned record itself (3de652964d87); nearby Kautz counts concern radius-one codes.",
+          "Feng–Xu–Wang give the exact dimension and the independently selectable omission classes, but do not print the full size polynomial in the passage inspected."
+        ],
+        "reasoning": "The absence of the printed coefficient table is immaterial: the options in each class are independent, and multiplying the known per-class enumerators yields every coefficient. The exact minimum count is the product of the class sizes.",
+        "searches": [
+          "Resultary 3de652964d87, 62b56f57c475 and 728f5ffa301d",
+          "arXiv:1107.4140v1 Theorem 2.1 and Corollary 2.2"
+        ]
+      },
+      "rationale": "Feng, Xu and Wang, arXiv:1107.4140v1 (20 July 2011), Sec. 2, prove the arbitrary one-omission resolving-set assertion for strongly connected line digraphs, not just a numerical dimension. Their direction convention reverses the distance channel here. Reversing the base digraph makes the assertion exactly the Kautz prefix-class characterization, and the counts and ranking/sampling follow by independent choices. The cited Rajan comparison misses this stronger primary source.",
+      "residual_risks": [
+        "Rajan et al. were not independently inspected in full; this cannot undo the demonstrated earlier coverage.",
+        "The exact size polynomial was not found as a printed formula in the prior paper, but its derivation from the prior theorem is mechanical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger prior coverage of the structural claim, with counts and algorithms as direct corollaries",
+          "evidence": [
+            "For distinct arcs (x_1,x_2),(y_1,y_2), distance in L(G) is d_G(x_2,y_1)+1.",
+            "The upper-bound proof works with arbitrary one-incoming-arc deletions at every base vertex, and the lower-bound proof shows why two such deletions in one class are impossible."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.4140v1",
+          "material_read": "Page 1 identifier/date and abstract; Sec. 2 Eq. (1), full proof of Theorem 2.1 across pp. 2–3, and Kautz line-digraph identity and Corollary 2.2 on p. 3",
+          "method": "Read directly retrieved original PDF passages, then checked orientation reversal and both quantifiers of the construction",
+          "title": "On the metric dimension of line graphs",
+          "trigger": "Kautz digraph as an iterated directed line graph, potential arbitrary-choice construction"
+        },
+        {
+          "assessment": "No independent scope determination from this paper; the earlier Feng–Xu–Wang proof is sufficient",
+          "evidence": [
+            "The frozen record attributes the value (d^(n-1)+d^(n-2))(d-1) to Rajan et al.; no primary noncoverage conclusion was drawn from the failed access."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00207160.2013.844335",
+          "material_read": "Frozen citation and its report of Sec. 4.2; primary full text not independently obtained",
+          "method": "Attempted DOI, publisher and identified manuscript rendition",
+          "title": "Metric dimension of directed graphs",
+          "trigger": "Frozen citation for the same Kautz dimension"
+        },
+        {
+          "assessment": "Different observation channel; the exact-title hit 3de652964d87 is the assigned record itself",
+          "evidence": [
+            "These distinct indexed results concern radius-one identifying codes, not directed distances."
+          ],
+          "identifier_or_url": "Resultary 728f5ffa301d and 62b56f57c475",
+          "material_read": "Indexed scope statements and comparison with frozen distance channel",
+          "method": "Local Resultary lookup",
+          "title": "Exact counting and uniform generation of optimal Kautz identifying codes; Optimal identifying-code reconfiguration on length-two Kautz networks",
+          "trigger": "Possible alternative identification terminology and exact-count coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A complete characterization of independent resolving choices would be useful if unknown. Here the general characterization is already proved, and the specialized enumerator, optimum count and sampling instructions are its direct product reformulations. The short correction to the overlap proof does not produce a distinct worthwhile new invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:24:28.510038Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published run weights match the two parity counts, including the empty product and leading zeros. Partitioning a word by its initial 1-run and the next zero gives H=A/(1-zA). For the three quadratic weights the Fibonacci Binet modes are φ², -1, and φ^{-2}, giving the common 1-2z-2z²+z³ denominator for A; the coefficients at degrees 0,1,2 give the three numerators. This reconstructs the five stated functions. Merging adjacent runs after a bit flip makes U nondecreasing and V strictly increasing by the Fibonacci addition laws. Condition on all but a specific bit: the conditional covariances are nonnegative and strictly positive when its adjacent bit is one and the rest are zero. The conditional means are increasing in the remaining bits, so their covariance is nonnegative by Harris; this supplies the strictness step and shows both variances nonzero for L≥2. U is constant for L=0,1. The nine root brackets isolate three distinct roots of each cubic, with the stated dominant root. Rational upper bounds 2.41422 and 2.73206 for the first-moment growth roots verify all three second-moment domination comparisons. Partial fractions then give each positive pole amplitude and the Pearson asymptotic; the rational bound on r_UV² gives rho<1. Independent exact parity enumeration on ten complete blocks and rational endpoint checks agree; high-precision evaluation gives C=0.9980884128685269… and rho=0.9865717478180131…. Replay `python3 /workspace/audit_checks/frozen_reconstruction.py`; only the argument, not enumeration, proves the universal result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linear representations for the exact pair, and shell averages equivalent to the two first-moment series",
+          "Zhang–Grossman derives generating functions for powers of a second-order recurrence"
+        ],
+        "reasoning": "Summing shells gives the prefix moments; tensoring the published representations gives the mixed-moment recurrence directly. But the normalized correlation needs a strict comparison of three different dominant roots, dominance over the products of means, and the strict finite-block sign argument. A recurrence-power or representation theorem alone gives none of those inequalities.",
+        "searches": [
+          "Rampersad–Wiebe, arXiv:2309.04012v1 §§3, 6 (Theorems 5–6 and averages)",
+          "Zhang–Grossman, Journal of Integer Sequences 21 (2018), 18.3.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md and checks/check.py",
+        "arXiv:2309.04012v1 and published re-numbering in Integers 24 (2024), #A73",
+        "Wu, Integers 22 (2022), #A81",
+        "OEIS A030186",
+        "Zhang–Grossman 18.3.3",
+        "Resultary a83c6be5e82d and 45c6934bca41"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For their mixed moment representation the tensor-sum matrix can be taken with rows (1,0,0,1), (2,0,1,1), (1,1,0,1), (3,1,1,1). The column w=(1,2,1,2) is annihilated by M³-3M²-2M+I; initial totals are 1,3,11",
+          "Frozen defining comparison r_UV²<r_UU r_VV and conditional Harris strictness"
+        ],
+        "reasoning": "The older displayed matrices mechanically imply the mixed rational expression. The finding’s distinctive content is not that formal extraction. The covariance is a difference of products and strictness at all lengths is not implied by the positive leading asymptotic; the finite-bit argument supplies it. The exact decorrelation rate is a new comparison on the inspected evidence, not an implication of knowing the first moments or one second moment.",
+        "searches": [
+          "Rampersad–Wiebe Theorems 5–6, tensor product of the two exact linear representations",
+          "Rampersad–Wiebe §6, exact shell averages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu and Rampersad–Wiebe give exactly the Fibonacci and truncated-Fibonacci run transforms",
+          "The related support-separation record concerns different two sums and odd-value supports"
+        ],
+        "reasoning": "The two parity counts and the corresponding products over runs are equivalent. Single-sequence results in either formulation do not determine the pair covariance; the different companion pair in the catalogue is not an alias.",
+        "searches": [
+          "arXiv:2309.04012v1 Theorems 5–6",
+          "Wu, Integers 22 (2022), #A81, Theorems 6–7",
+          "2026/11/8/SCOPE-sharp-parity-support-separation-for-two-companion-binomial-trans--a83c6be5e82d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A030186 gives exactly (1-z)/(1-3z-z²+z³), as ladder-graph matchings",
+          "The exact return-gap record studies a different transform; the exact indexed copy of 51b093c41548 is the assigned finding itself"
+        ],
+        "reasoning": "The identification credits the exact UU coefficient sequence regardless of interpretation. Neither the separate gap law nor the UU table provides the strict-positive exponential Pearson asymptotic.",
+        "searches": [
+          "OEIS A030186; 1,2,7,22,71",
+          "2026/11/22/SCOPE-exact-dyadic-return-gap-law-for-a-periodic-binomial-parity-trans--45c6934bca41"
+        ]
+      },
+      "rationale": "The two run laws, their single-variable averages and the numerical UU series are known. The mixed generating function is also a routine consequence of the published linear representations, not a sufficient originality basis by itself. The supported distinction is the positive-at-every-nondegenerate-length yet vanishing Pearson correlation, with a strict exact exponential rate for this specific pair. That conclusion uses an actual dominance and radius comparison and a strict association argument, not just identifying tensor matrices.",
+      "residual_risks": [
+        "Earlier exact Pearson comparisons under run-length, recurrence, or transfer-matrix reformulations could be unindexed. Assessment is restricted to the inspected evidence.",
+        "The mixed recurrence alone is routine and a full priority claim for it would overstate the supported distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact individual representations and shell averages supplied; the tensor extraction of the mixed series uses their matrices",
+          "evidence": "Weights are F_{ell+1} and F_{ell+2}; shell totals yield both prefix series on summation.",
+          "identifier_or_url": "https://arxiv.org/html/2309.04012v1",
+          "material_read": "Theorems 5–6 (HTML offsets 14374–15592), Section 6 averages (34336–35142); final article Theorems 2–3 and Table 1 also checked",
+          "method": "Lawful OA HTML and PDF, targeted reading",
+          "title": "Sums of products of binomial coefficients mod 2 and 2-regular sequences",
+          "trigger": "Exact two sequences and primary cited input"
+        },
+        {
+          "assessment": "Both run-law inputs covered",
+          "evidence": "Identifies the defining U and V parity sums with the two Fibonacci run transforms.",
+          "identifier_or_url": "Integers 22 (2022), #A81, Theorems 6–7",
+          "material_read": "PDF pp. 7–8, offsets near 16800 and 19296",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "Wu, Integers 22 (2022), #A81",
+          "trigger": "Earlier exact run-law statements"
+        },
+        {
+          "assessment": "Exact overlap on one numerical moment sequence",
+          "evidence": "Same initial terms and rational generating function.",
+          "identifier_or_url": "https://oeis.org/A030186",
+          "material_read": "Initial terms, formula and recurrence, offsets 0–2481 and 4050–5948",
+          "method": "Public OA web entry",
+          "title": "Number of matchings in the ladder graph",
+          "trigger": "Exact UU coefficient match under a different interpretation"
+        },
+        {
+          "assessment": "General recurrence-power machinery, not the joint Pearson result",
+          "evidence": "Generating functions for powers of recurrence sequences, with tiling derivation.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL21/Zhang/zhang44.pdf",
+          "material_read": "PDF pp. 1–4, offsets 0–3384 and 8000–12158",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "A Combinatorial Proof for the Generating Function of Powers of a Second-Order Recurrence Sequence",
+          "trigger": "Broader quadratic-weight machinery"
+        },
+        {
+          "assessment": "Different sums and invariants",
+          "evidence": "Nested odd-value supports and dyadic support counts in the former, return-gap law for a single distinct transform in the latter.",
+          "identifier_or_url": "Resultary a83c6be5e82d and 45c6934bca41",
+          "material_read": "First: Finding 0–3141 and relationship 6300–8500; second: Finding 0–3018",
+          "method": "Published records, local mirror",
+          "title": "Sharp parity-support separation for two companion binomial transforms; Exact dyadic return-gap law for a periodic binomial-parity transform",
+          "trigger": "Closest distinct indexed transforms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural pair from the literature, not a pair selected to manufacture a root comparison. Its known separate averages do not explain its joint fluctuations. Strict covariance for every nondegenerate block coexists with asymptotically vanishing normalized dependence, and the exact algebraic rate quantifies the slow approach. The result is for complete uniform dyadic prefixes only.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

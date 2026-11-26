@@ -1,12 +1,21 @@
-# Review of the sharp fixed-defect extreme-order law
+# Independent mathematical audit
 
-## Correctness — PASS
-The semidirect-product order rule gives the exact finite-depth CDF recursion, including nonidentity top rotations and the identity boundary. The fixed-defect complement recurrence is then exact. The key bound \(B_p(x)=x+O_p(x^2)\) is uniform on \([0,1]\), so summing its normalized errors is justified by geometric convergence, and the induction yields the claimed sharp factorial coefficient. Actual exhaustive permutation-order checks matched the recurrence over all cited finite groups. The numerical large-depth check is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-The 2002 Abért–Virág full text concerns the typical-order exponent and bounded-variance asymptotics; its branching-random-walk framework is acknowledged. The Schlage-Puchta full text gives a distinct conjugacy-class sampling law and cites the typical-element result. Pólya's cycle-index composition formula, reproduced in Renteln (2024), determines every finite order count in principle; those counts and their immediate recursion are explicitly excluded as claims of novelty. The surviving contribution is the sharp fixed-defect factorial prefactor as depth grows, which requires separate rare-tail analysis and is not displayed in the inspected results. Priority risk: an equivalent higher-order asymptotic may exist in earlier probability/group literature or could be extracted from the general cycle index.
+PASS
 
-## Value — PASS
-Element-order frequencies in Sylow groups are natural invariants of finite groups. The proven factorial hierarchy describes a highly atypical near-exponent region where the known typical-order law gives no sharp scale, and it quantifies how successive extreme orders become polynomially more common while their total proportions remain exponentially small. The all-fixed-defects theorem spans every prime and unbounded wreath depth; it is not an isolated small-group computation.
+Uniform sampling on the permutational wreath product makes the top action and base coordinates independent and uniform. Identity top action takes the maximum of p base order exponents. A nonidentity top action is a single p-cycle (primality is used); its p-th power has conjugate coordinate cycle products, each uniform, so the order exponent is one plus that of a uniform base-group element. This proves the stated CDF and tail recurrences with the boundary T_{h,r}=1 for h≤r and T_{h,0}=α^h. After normalization by α^h, the increment is α^(-1)S_{h-1,r-1} plus O_p(α^{h-2} S_{h-1,r-1}²); for each fixed r the induction bounds this error by a summable exponential times a polynomial. Summing the preceding degree-(r−1) main term gives the coefficient 1/(r!α^r) and an O_{p,r}(h^{r−1}) remainder. Subtracting the next smaller tail preserves the relative O_{p,r}(1/h) estimate, and at r=0 no subtraction is needed. For p=2 and r=1, each normalized increment at h≥2 is 2−2^{1-h}; summation from S_{1,1}=2 gives the stated exact binary formula. The group size follows from |W_h|=p|W_{h-1}|^p, and the construction attains exponent p^h.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The branch/cycle-index method and finite-depth distributions are prior structure. The independently supported contribution is the exact leading coefficient and relative error at every fixed defect in the exponentially small uniform-element tail. The nearest same-group primary theorems treated typical-order scale or a different sampling measure; the published neighbouring records do not cover the all-depth rare-tail regime.
+
+## value
+
+PASS
+
+Element orders are intrinsic statistics of this Sylow tower. A distribution concentrated on a typical linear scale leaves open how many elements attain or nearly attain exponent at depth h. The result separates each fixed defect by an additional polynomial factor and computes the factorial constant on the rare exponential scale, addressing a natural boundary regime across all primes. It is more than recovering counts at a few finite depths or reading off a branching speed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

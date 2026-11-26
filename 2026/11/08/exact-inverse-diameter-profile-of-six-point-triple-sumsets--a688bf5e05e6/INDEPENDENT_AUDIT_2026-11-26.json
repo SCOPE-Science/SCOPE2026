@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:28:12.261970Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, profile.tsv, VERIFICATION.md, verification_output.txt, verify.py and verify.cpp (inspected, not executed)",
+        "Independent replay: /workspace/replay/diameter.py 45 > /workspace/replay/diameter.out; python3 /workspace/replay/check_diameter.py /workspace/replay/diameter.out",
+        "Rajagopal, arXiv:2510.23022, Theorem 1.7; Nathanson, arXiv:2505.20998, definition of N(h,k)"
+      ],
+      "rationale": "Translation gives a unique normalized tuple with minimum 0. Every candidate of diameter at most 45 is among the binomial(45,5)=1,221,759 tuples, and no tuple beyond that bound can improve any tabulated minimum. Independent exhaustive replay counts distinct repeated-summand triples by a batched Boolean incidence array. It reproduces all 40 minima against RESULT.md, separately checks every profile.tsv witness, and returns only {0,2,11,26,42,45} and {0,3,19,34,43,45} at the minimum for 56. In particular m(40)=15 and m(41)=14. Rajagopal's Theorem 1.7, not the finite search, establishes the global exclusion of 17. The endpoint 45 is forced by size 56 and sufficient for every case; Nathanson's [0,N-1] convention makes the length 46.",
+      "residual_risks": [
+        "This is a finite optimization certificate for (3,6) relying on the cited theorem for the global range, not a general diameter bound or formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.7 fixes possible |3A| for every k>2, irrespective of diameter; its range theorem is noted to be nonconstructive.",
+          "Nathanson's general bound concerns universal interval length, not sharp thresholds at each attainable s.",
+          "Five-point minima are not six-point minima; adjoining a point adds several potentially overlapping classes of triple sums."
+        ],
+        "reasoning": "None of these provides a stronger sharp diameter classification that specializes to the forty minima.",
+        "searches": [
+          "Nathanson arXiv:2505.20998, general compression bounds and Problems 2–3",
+          "Rajagopal arXiv:2510.23022, Theorem 1.7",
+          "Resultary five-point inverse-diameter profile 61c46d82e9c7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2510.23022",
+        "arXiv:2505.20998",
+        "Resultary a688bf5e05e6 and 61c46d82e9c7",
+        "Related nonmatching ruler hits: ordinary Golomb ruler tables and arXiv:2605.14229"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rajagopal implies the exclusion of 17 and the global support, but no minimum d for a specified |3A|.",
+          "A B_3 optimum would settle m(56) only; without constructions for the other sizes at diameter <=45 it would not even give the upper bound for the universal endpoint."
+        ],
+        "reasoning": "The separately established content is exact threshold-by-threshold optimization, including the drop from s=40 to s=41, not a reformulation of the range theorem.",
+        "searches": [
+          "Rajagopal Theorem 1.7 and Nathanson N(h,k) definition compared with the frozen table and extremizers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rajagopal's Remark 1.8 uses a right endpoint; Nathanson defines the inclusive interval length. The resulting 45 and 46 are equivalent, not separate results.",
+          "The Resultary exact hit is the identical frozen result. The five-point hit concerns a different set size."
+        ],
+        "reasoning": "A full-cardinality six-point optimum is exactly the six-mark B_3 optimum, so that case cannot be separated from earlier B_3 tables by terminology. The full profile also treats collisions and is not equivalent to that single optimal ruler problem.",
+        "searches": [
+          "Resultary inverse-diameter triple-sumset profile; exact hit a688bf5e05e6 and nearest related hit 61c46d82e9c7",
+          "Primary comparison with Nathanson arXiv:2505.20998 and Rajagopal arXiv:2510.23022; literature lookup for the six-mark B_3/ruler formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is this record, not independent coverage.",
+          "Ordinary Golomb tables impose pair-sum uniqueness and the high-multiplicity g-Golomb hit uses a different difference constraint."
+        ],
+        "reasoning": "No separately evidenced full table was found in the bounded check; an unseen optimal B_3 table could duplicate the extreme case without duplicating the whole table.",
+        "searches": [
+          "Resultary exact six-point and nearby five-point profile hits",
+          "Literature ruler lookup (B_3, six marks, diameter 45); compared Golomb ruler table and arXiv:2605.14229 hits"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete forty-entry inverse-diameter profile, not the already-known cardinality spectrum or priority for any individual optimal B_3 example. The strongest primary results found establish the spectrum or give the general compression problem and bounds, not the minima; the closest distinct indexed profile has five points.",
+      "residual_risks": [
+        "The bounded lookup does not settle priority for the B_3 optimum or the two extremizers.",
+        "An unindexed exact profile is not ruled out. The five-point comparison is not a priority inference from same-day indexing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the cardinality range exactly, not the inverse-diameter table",
+          "evidence": "Sums may repeat summands; R(3,k)={3k-2} union [3k,binomial(k+2,3)] for k>2; remarks distinguish the nonconstructive spectrum from explicit realization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.23022",
+          "material_read": "p. 1 hA definition; p. 3 Theorem 1.7, following paragraph and Remark 1.8",
+          "method": "Original OA PDF, bounded text passages",
+          "title": "Possible Sizes of Sumsets",
+          "trigger": "Same global cardinality spectrum; decisive outside finite search"
+        },
+        {
+          "assessment": "Provides the inverse problem and convention, not the six-point sharp thresholds",
+          "evidence": "N is the least interval length with a k-element subset of [0,N-1] realizing each possible size.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.20998",
+          "material_read": "pp. 1–2, hA and N(h,k) definitions and compression/realization context",
+          "method": "Original OA PDF, bounded text passages",
+          "title": "Compression and complexity for sumset sizes in additive number theory",
+          "trigger": "Defines the sharp universal interval length being computed"
+        },
+        {
+          "assessment": "Identical target, not a separate result",
+          "evidence": "Same forty minima, endpoint 45 and extremizers.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-exact-inverse-diameter-profile-of-six-point-triple-sumsets--a688bf5e05e6",
+          "material_read": "Indexed finding and matched RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "Exact inverse diameter profile of six-point triple sumsets",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Nathanson arXiv:2505.20998, N(h,k) and realization problem; frozen forty-entry table and profile.tsv"
+      ],
+      "rationale": "The exact table answers an existing quantitative compression question with sharp realizability witnesses at each target size, not just a maximum or an arbitrary sample. It supplies a certified sharp universal interval length and a concrete nonmonotonicity in the optimal threshold, both relevant to using or extending the compression problem. Its value does not depend on priority for the largest-sumset ruler alone.",
+      "residual_risks": [
+        "No general optimality for other h or k is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

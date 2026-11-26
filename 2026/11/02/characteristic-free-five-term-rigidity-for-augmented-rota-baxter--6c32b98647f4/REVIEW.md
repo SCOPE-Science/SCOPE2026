@@ -1,12 +1,21 @@
-# Scientific review: characteristic-free augmented Rota–Baxter tensor rigidity
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof makes all quantifiers explicit: arbitrary field, fixed weight, all augmented Rota–Baxter objects, fixed five coefficients, ordinary associator and unit maps. The source's associativity comparison uses a three-dimensional test object with three linearly independent endomorphisms; this remains valid in positive characteristic. Unit constraints and 27 independent triple tensors force only four coefficient choices. The two equal-pair choices are excluded by weight-zero square-zero calculations or, at nonzero weight, by the dual-number coefficient restriction and three- and four-point function algebras. In the crucial new witness, all three inputs to the outer operator in the Rota–Baxter right-hand side vanish, but the left-hand side is the explicitly nonzero element \(\lambda^2(\delta_2+\delta_3)\otimes\delta_3\). The sufficiency direction is the field-independent existing monoidal construction in arXiv:2610.17525v1. The attached finite checker reproduces all claimed small-field checks and prints `VERIFY_OK`. The finite tests do not replace the proof.
+## correctness
 
-## Originality — PASS (within searched literature)
-The earlier Theorem 3.6 in Guo–Xie–Zhang only assumes characteristic zero. Its final test for one putative symmetric operator has defect proportional to \(2\lambda^2\), and cannot eliminate it in characteristic two. The current result gives a different all-field four-point obstruction, thereby obtaining a fully characteristic-free theorem. The predecessor's tensor operator on a specific free commutative object and the accessible prior finite-dimensional oriented-tensor isomorphism study do not imply classification of all five-term monoidal operators on the full augmented category. Targeted published-literature searches and published mathematical-record searches identified no exact or stronger statement covering the new positive-characteristic exclusion. Residual risk: an equivalent positive-characteristic argument may exist under different terminology or in uncatalogued literature; uniqueness of the idea is not inferred from an unsuccessful search.
+PASS
 
-## Mathematical value — PASS
-This is a natural and complete rigidity classification for a fixed explicit universal class of candidate monoidal products, rather than an arbitrary numerical or textbook slice. Characteristic two is a real structural gap in the 2026 published theorem: the earlier obstruction vanishes there and the candidate even passes the three-point characteristic-two test. The four-point obstruction closes this gap uniformly over all weights and fields, preserving the categorical interpretation of the two orientation choices. It does not purport to solve the larger problem of all possible monoidal structures.
+The units give a+b=c+d=1. On the square-zero ideal test, P(1)=0 and P²=−λP; I,e,P are independent also at λ=0 and in characteristic two. In the associator expansion, terms PII, Pee, PIe and IIP, eeP, eIP give the idempotence and mixed-product equations, while PIP and PeP give h(a−c)=h(b−d)=0. Unequal pairs therefore give the two announced vectors. At weight zero the equal pairs give left side y⊗y and right side 2y⊗y or 0. On dual numbers at nonzero weight, the inner argument is −λt⊗t, and its two evaluations force h=±λ⁻¹ as claimed. In the first equal-pair case, the three-point prefix test has zero inner argument and nonzero product λ²(δ₁+δ₂)⊗(δ₁+δ₂). In the second, the four-point witness has zero inner argument and product λ²(δ₂+δ₃)⊗δ₃, nonzero in characteristic two. The prefix operator identity follows by partitioning index pairs by their order. For sufficiency, expand the tensor identity for T=I⊗P+P⊗e on simple tensors: the I⊗P part reduces to the identity in the second factor plus the two cross terms; the P⊗e part reduces to the identity in the first factor times the product of the two augmentations, using εP=0. Both parenthesizations expand to I⊗I⊗P+I⊗P⊗e+P⊗e⊗e. The other orientation is obtained by reversing factors. Naturality and unit compatibility follow directly. This checks the universal ordinary associator/unit claim without relying on finite tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the all-characteristic completion of the known five-term rigidity theorem, not the two positive constructions or the characteristic-zero classification. The remaining nonzero-weight obstruction in characteristic two is genuinely absent from the closest inspected proof. The related all-field no-braiding theorem has a different conclusion.
+
+## value
+
+PASS
+
+The restriction is the natural one from the motivating rigidity theorem. A concrete obstruction in characteristic two settles the only resonant coefficient case missed by the known proof and gives the same classification without a characteristic restriction. It is not merely an example of a failed tensor formula without a universal consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

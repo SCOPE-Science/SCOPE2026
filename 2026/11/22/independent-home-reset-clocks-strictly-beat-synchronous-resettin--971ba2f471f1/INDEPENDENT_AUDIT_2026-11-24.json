@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:31:17.515002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–84",
+        "VERIFICATION.md and verify_meeting.py (inspection, not executed)",
+        "Independent ordered-pair test: independent_ordered_pair_check.py and independent_ordered_pair_check.log"
+      ],
+      "rationale": "The ordinary collision intensity is a constant 2q, q=1/(n-1); common alarms cannot kill. With independent clocks the integrating-factor derivative for e^(2qt)S(t) is minus e^(2qt) times the expected extra reset killing intensity on live states. At every t>0 the live path (A,B) to (A,C) to (B,C) followed by no further events has positive probability, so this derivative is strictly negative. For the mean the five classes and their rates follow by counting ordinary jump destinations and lethal versus nonlethal resets. An independent algebraic elimination uses x=r/q, m=n-2 and d_i=1-2q*t_i in the backward equations. The H, X and W rows give d_U=(m+1)d_H/m, d_X=(m*d_V+x)/(m+1+x), and d_W=((1+x)d_U+d_V)/(3+x) when W is present. Substitution in the U row gives d_V=(x+2m+5)d_H/m; this holds also at m=1 with the W coefficient zero. Subtracting the U row from the V row then gives d_H=m*x/[2x^2+2(2m+5)x+(m+2)(m+4)], yielding the boxed mean and gain. Differentiation leaves the sign of 2(n-1)^2*r^2-n(n+2), proving the unique optimum and the stated maximal gain and limit. For n=2 with home start, any ordinary jump is lethal and the resets before it are ineffective. Matching total alarm rate simply sets r=lambda/2. Independent exact ordered-pair computations at four rational rates for n=3 through 6 matched 16 means, corroborating but not replacing elimination.",
+      "residual_risks": [
+        "Exact mean and optimization start from the assigned distinct homes and count immediate reset-caused coincidence. This is not a prescribed-target encounter or a model that checks only ordinary jumps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ohwa's complete-graph specialization gives the non-reset exponential baseline.",
+          "The group-reset avoidance article is about the center of mass of drifted Brownian particles avoiding a region; the network resetting comparisons are for target-node encounters."
+        ],
+        "reasoning": "These are broader or nearby first-passage frameworks, but their observables do not yield the state-dependent reset absorption and associated mean in the assigned process.",
+        "searches": [
+          "doi:10.1186/s40736-015-0016-2 section 3.3.1",
+          "arXiv:2412.02524v3 section II",
+          "arXiv:2604.20770 section II and encounter comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Ohwa Proposition 3",
+        "arXiv:2604.20770",
+        "arXiv:2508.05313",
+        "arXiv:2412.02524v3",
+        "Configured Resultary lookup and the distinct results identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The non-reset hazard immediately implies neutrality of every common rate, so this is credited rather than counted as a separate novel finding.",
+          "The new mean uses reset-caused killing at states with the other walker's home occupied, absent from the compared all-site baseline and not determined by a prescribed-node encounter formula."
+        ],
+        "reasoning": "Constant ordinary hazard yields the baseline and explains the direction once the extra hazard is identified. It does not evaluate the time spent in the lethal-reset configurations or yield the rational dependence and interior optimum.",
+        "searches": [
+          "Ohwa Proposition 3 and Remark 4",
+          "arXiv:2604.20770 pp. 3 and 12",
+          "arXiv:2508.05313 pp. 3 and 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two arXiv walker models use synchronous discrete-time steps and encounter at a designated vertex.",
+          "The earlier odd-cycle record does use first collision anywhere, but uses joint discrete-time resetting and simultaneous walk updates."
+        ],
+        "reasoning": "Prescribed-site hitting, all-site coincidence and synchronous ordinary movement versus independent continuous-time jumps are inequivalent; changing them changes the live states and killing rates.",
+        "searches": [
+          "Resultary: complete-graph first encounter, common versus independent resets and optimal reset rate",
+          "arXiv:2604.20770",
+          "arXiv:2508.05313",
+          "2026/10/26/SCOPE-fourier-law-for-first-collision-locations-under-synchronous-rese--8c4ea21ad59b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target hit was the assigned record itself.",
+          "Distinct same-day records compare reversal allocations for run-and-tumble first contact, single-searcher cyclic versus redrawn modes, or a single-walker optimum on coned-core networks; none of these compared statements has the two-home collision mean and optimizer."
+        ],
+        "reasoning": "The odds-cycle catalogue law, same-day order comparisons and single-walker optimal rates are not entries for the two clocks of this model. The returned catalogue results are bounded, not an absence certificate.",
+        "searches": [
+          "Configured Resultary semantic lookup for independent home clocks and comparative first-collision reset optima (limit 50)",
+          "2026/10/26/SCOPE-fourier-law-for-first-collision-locations-under-synchronous-rese--8c4ea21ad59b"
+        ]
+      },
+      "rationale": "The exponential non-reset law is established and neutrality of resetting both walkers to distinct homes follows from its constant-hazard mechanism. The distinct contribution is the strict survival ordering for independently timed home resets, together with the exact mean and unique rate optimizer in this all-site continuous-time setting.",
+      "residual_risks": [
+        "Passage-level and ranked catalogue comparisons are not exhaustive of general killing-and-resetting literature. The group-reset article was read via its lawful public preprint; published-version wording was not checked. No priority order follows from matching catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact baseline coverage",
+          "evidence": [
+            "Complete-graph, no-holding ordinary walks at unit rate give exponential rate 2/(n-1)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s40736-015-0016-2",
+          "material_read": "OA PDF p. 6 section 3.3.1, Proposition 3 and Remark 4",
+          "method": "Lawful publisher OA PDF",
+          "title": "Exact computation for meeting times and infection times of random walks on graphs",
+          "trigger": "Exact no-reset complete-graph law"
+        },
+        {
+          "assessment": "Both protocols compared, but discrete synchronous walks with prescribed-site encounters",
+          "evidence": [
+            "Encounter is at a specified vertex; uniform-network comparison uses that MFET."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.20770",
+          "material_read": "Abstract, p. 2 target definition, section II p. 3, p. 12 comparison",
+          "method": "Lawful OA preprint passages",
+          "title": "Encounter times of random walkers with simultaneous resetting on networks",
+          "trigger": "Most direct published comparison of simultaneous and independent resetting"
+        },
+        {
+          "assessment": "Specified-node, synchronous discrete-time model; not two independent Poisson clocks",
+          "evidence": [
+            "First encounter is specified at node j; one-walker and joint resets are considered."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.05313",
+          "material_read": "Abstract, introduction p. 3 and model p. 6",
+          "method": "Lawful OA preprint passages",
+          "title": "Mean first-encounter times of simultaneous random walkers with resetting on networks",
+          "trigger": "Prior encounter-time formulas with restarting"
+        },
+        {
+          "assessment": "Different stopping event and process",
+          "evidence": [
+            "Overdamped Brownian group dynamics reset collectively, with center-of-mass avoidance of a region."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.02524",
+          "material_read": "v3 section II pp. 2–3",
+          "method": "Lawful arXiv version; publisher PDF inaccessible",
+          "title": "General theory for group resetting with application to avoidance",
+          "trigger": "Possible general resetting coverage"
+        },
+        {
+          "assessment": "Same collision convention, distinct graph, update and reset clocks",
+          "evidence": [
+            "Odd cycles, joint discrete-time reset and simultaneous ordinary updates; collision-location transform and weak-reset mean threshold."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-fourier-law-for-first-collision-locations-under-synchronous-rese--8c4ea21ad59b",
+          "material_read": "Local mirrored RESULT.md, finding and update assumptions",
+          "method": "Configured Resultary search and mirror",
+          "title": "Fourier law for first-collision locations under synchronous resetting on odd cycles",
+          "trigger": "Closest catalogue first-collision-anywhere record"
+        },
+        {
+          "assessment": "First contact but not resetting, and no full-distribution order",
+          "evidence": [
+            "Run-and-tumble particles on a ring allocate a reversal budget."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-simultaneous-mean-variance-and-relative-risk-optimality-of-unequ--43d8e6166a15",
+          "material_read": "Local mirrored RESULT.md finding and model",
+          "method": "Configured Resultary search and mirror",
+          "title": "Simultaneous mean, variance and relative-risk optimality of unequal reversal allocations",
+          "trigger": "Distinct same-day two-particle first-contact optimum"
+        },
+        {
+          "assessment": "Different process and order",
+          "evidence": [
+            "Single-searcher first passage with cyclic versus independently drawn restart modes and Laplace-order comparison."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-four-site-laplace-dominance-and-a-sharp-five-site-obstruction-fo--52c5a945cec1",
+          "material_read": "Local mirrored RESULT.md finding and model",
+          "method": "Configured Resultary search and mirror",
+          "title": "Four-site Laplace dominance and a sharp five-site obstruction",
+          "trigger": "Distinct same-day comparison of independent and dependent resetting"
+        },
+        {
+          "assessment": "Single walker target problem",
+          "evidence": [
+            "A coned-core network first-passage reset optimum, not a two-walker collision law."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-optimal-restarting-in-coned-core-first-passage-network--1aedb38dd9bd",
+          "material_read": "Local mirrored RESULT.md finding and model",
+          "method": "Configured Resultary search and mirror",
+          "title": "Universal optimal restarting in coned-core first-passage networks",
+          "trigger": "Distinct same-day graph resetting optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–37 and 43–84",
+        "Baseline and prescribed-target comparisons"
+      ],
+      "rationale": "For a basic encounter process, the law-level comparison separates clock architecture from total reset-event rate. The exact formula further explains why makespan improvement is not monotone in separate-clock rate: ineffective slow resets and near pinning at distinct homes for rapid resets leave an interior optimum with a nonzero large-graph gain.",
+      "residual_risks": [
+        "No optimum is asserted for arbitrary graph geometry, prescribed sites, or reset costs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-Run `python3 check_regular.py` and `python3 check_blocks.py` from this directory using only Python 3 standard library. Their outputs are embedded verbatim in `CHECK_OUTPUT.txt` after execution from extracted package files.
+# Independent mathematical audit
 
-`check_regular.py` tests all 1330 unnormalized supports for \(p=7\) and all 703 identity-containing supports for \(p=13\); rank is computed modulo \(2147483647\) from a fresh 0–1 regular-convolution matrix for every test. Hadamard's inequality bounds every minor by \(3^{3p/2}\), strictly below the modulus for these two values of \(p\). Thus modular and complex ranks agree *exactly* on these finite domains. The normalization factor is \(3p/3=p\), since each unordered support admits exactly three choices of a distinguished element.
+## correctness
 
-`check_blocks.py` independently checks the cyclotomic determinant nonvanishing conditions and full occupancy count for \(p\in\{7,13,19,31\}\) using an integer coefficient criterion in the prime cyclotomic field. Its finite tests are not substitutes for the uniform representation-theoretic proof.
+PASS
 
-The theorem asserts rank only for distinct three-point coefficient-one supports in \(C_p\rtimes C_3\), where \(p\equiv1\pmod3\). No calculations justify extension to arbitrary weights, composite kernel orders, conditioning bounds, or nonlinear recovery. No independent audit has been conducted.
+The three-dimensional blocks are irreducible because the normal generator has three distinct eigenlines and the complement cycles them. Inequivalence follows from the eigenvalue orbits, and the dimension-square sum gives completeness. For one quotient coset each character of N sees three distinct p-th roots, which cannot vanish by the prime cyclotomic polynomial. For the two-coset block only the diagonal and cyclic terms contribute; summing their exponents gives constant coefficient 3 and coefficient 1 on the six distinct nonzero residues. This remains nonconstant as a coefficient vector at p=7. For one point per coset, the three positive determinant terms are 1 and the three negative terms have exponents k d, kt d, kt^2 d with d=u+tv. The nonzero-d determinant cannot vanish; the two nontrivial quotient characters vanish exactly for this transversal occupancy. The zero-d condition says the normalized third point is the square of the second, and subgroup averaging has rank equal to index p. Counting choices of the occupied cosets and their points, and solving the one linear equation in each transversal for its last point, gives all three stated multiplicities. The finite modular replay's Hadamard bound follows from at most three ones per row and is below the modulus even for size 39.
+
+## originality
+
+PASS
+
+Credit previous coverage of two-normal-coset invertibility, the general block method, and the uncertainty lower bound and subgroup equality examples. The distinct contribution is the classification of all transversals, in particular the precise rank 3p-2 outside subgroup cosets, and the complete exact census. No inspected distinct source directly yields that classification and census.
+
+## value
+
+PASS
+
+The full classification identifies exactly when uniform three-tap convolution on this family is invertible, when all rank loss is accounted for by quotient characters, and when subgroup averaging attains the uncertainty bound. The sharp coset criterion and exact census distinguish geometric obstructions within the same natural occupancy class; they add information beyond the general lower bound, known invertibility case, or individual examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

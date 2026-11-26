@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact verification and scope
+# Independent mathematical audit
 
-The complete source is `verify_segre_graph.py` and the sole declared dependency is `sympy>=1.12`. Running `python verify_segre_graph.py` produces eleven printed Smith tables followed by `SEGRE_GRAPH_FROBENIUS_INTEGRAL_VERIFIED_OK` on successful execution.
+## correctness
 
-The program constructs all ten complementary-triple node labels and fifteen perfect matching plane labels, checks six plane incidences per node and four nodes per plane, and independently verifies \(II^{\mathsf T}=4I+2J\). It constructs the whole \(25\times25\) integer Laplacian, factors the characteristic polynomial, verifies all \(720\) six-label relabellings preserve adjacency, and recomputes the Smith presentation of the Frobenius coinvariants for all eleven cycle partitions using three different root choices. It independently confirms that the reduced Laplacian determinant equals both the product of the full Smith factors and \(2^{29}5^8\), as required by the spectral matrix-tree formula.
+PASS
 
-All operations on the critical-group presentations use exact integer arithmetic. These are finite exhaustive computations for every conjugacy class, not sampling across curve or field coefficients. The remaining mathematical proof steps are the standard integral identification of the degree-zero divisor lattice with the chosen root basis and the perfect Galois-equivariant graph monodromy pairing, both described in `RESULT.md`.
+In the standard symmetric model, in characteristic at least seven the nodes have three plus and three minus coordinates (the six squares agree and the coordinate sum vanishes). The planes set matched coordinate pairs to be negatives of one another. Thus a node lies on a plane exactly when all matched pairs cross its triple partition. There are six matchings per node, four compatible nodes per plane, and two matchings shared by any distinct nodes. This gives II^t=4Id+2J and the stated connected Laplacian spectrum; the tree count is 2^29*5^8. The coordinate S6 is the split automorphism group and the twists realize every conjugacy class: any such permutation is the image of a continuous cocycle from the procyclic Galois group for the constant automorphism group. Independently generating the incidence and all eleven permutations, I took partial sums to express the Laplacian columns and permutation differences in the integral basis e_i-e_(i+1), and computed exact column Hermite then Smith forms. All eleven rows (and their orders) match, including C4+C8+C80 for a six-cycle and C2^3+C20 for (3,2,1). The perfect equivariant monodromy pairing identifies the dual of the coinvariants with the fixed group; it implies the same abstract invariant factors, not a canonical fixed-to-coinvariant isomorphism. Finite étale descent of the finite abstract group with its Galois action gives precisely this fixed group on k-points.
 
-These checks certify the explicitly constructed integer matrices and their mathematical consequences as presented. They do not establish comprehensive historical priority, and they do not identify this graph Jacobian with algebraic cycles or arithmetic class groups on the threefold. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+The strongest inspected overlap already classifies all eleven coinvariants of the rectangular node–plane incidence map, not those of the connected graph Laplacian. Neither that result, the finite flag spectra nor the inspected geometric work supplies or implies the eleven graph-critical-group rows.
+
+## value
+
+PASS
+
+The canonical bipartite graph keeps the whole incidence configuration. Its finite divisor-class quotient is a precise descent invariant, not a rephrasing of flag splitting. The 6-cycle and (4,1,1) rows both have order 2560 but have different invariant factors; the integral classification therefore records useful information even beyond rational class counts, and accounts for every allowed twist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

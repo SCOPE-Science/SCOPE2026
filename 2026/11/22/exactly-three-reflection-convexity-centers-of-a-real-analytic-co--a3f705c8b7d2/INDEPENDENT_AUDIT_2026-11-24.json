@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:23:04.181762Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Assumptions and Proof, lines 23–104",
+        "Frozen VERIFICATION.md and check_reflection_convexity.py"
+      ],
+      "rationale": "The positive radius h+h''=R−8ε cos(3θ) gives a unique analytic oval of width 2R. A zero of the support half-difference f=ε cos(3θ)−z·n must have f'=0 for a convex union, since two distinct singleton support points leave their joining segment uncovered. Analyticity and antipodality force a sign-changing zero; its multiplicity is then at least three. At that zero f''=−8ε cos(3θ), and f=f'=f''=0 yields exactly the three candidate vectors listed. For z=(−3ε,0), f=4ε cos³θ; at the only two switches the support points coincide. All boundary points of the hull are therefore covered, and the common point z (inside the disk of radius R−ε contained in K) gives coverage of the interior along rays. Rotation gives the other cases. The centered support is R+4ε|cos θ|³. At a join, the radius is R+24ε|θ−θ₀|+O(|θ−θ₀|³). Positive radius makes arclength a C¹ change of normal angle; the tangent is C¹ with respect to arclength, but curvature has unequal one-sided derivatives, proving C² and not C³ for the geometric boundary. The support integrals use ∫|cos θ|³=8/3, ∫cos⁶ θ=5π/8, and ∫9cos⁴ θ sin² θ=9π/8 over the full circle, giving the claimed perimeter and both areas. This is analytic throughout; the frozen sampling code was inspected as a diagnostic, not used as proof.",
+      "residual_risks": [
+        "No claim at R=8ε or for ε=0, or for general support functions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general lower bound is three affinely independent points for nonsymmetric bodies. The typical-infinite result is a genericity result. The exact triangle and Reuleaux triangle examples do not have the hypotheses of this analytic, positively curved example."
+        ],
+        "reasoning": "Neither the universal lower bound nor the typical behavior settles the sharp upper bound in this smooth constant-width family.",
+        "searches": [
+          "Schneider, Reflections of planar convex bodies, Theorem 1",
+          "Schneider, The middle hedgehog of a planar convex body, introduction and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1504.00541",
+        "arXiv:1607.03014",
+        "Resultary 3019eafaeb1d, fbe5b682b936, 1b55f2f7ba5a, d5def9ff082e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower bound plus a cusp census needs the additional implication that a convexity point must be one of the listed cusps. The orthoptic convex-hull construction does not classify convexity of the union of reflected planar bodies."
+        ],
+        "reasoning": "The classical criteria are useful proof tools, not stronger instances of this classification. Computing the centered support and using its curvature and integrals also require identifying the actual convex unions.",
+        "searches": [
+          "Schneider's middle-line and exposed-point criteria; Wigner-caustic and harmonic orthoptics findings in the published mirror"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The middle-line criterion concerns the same property. Exposed points of the middle hedgehog hull are sufficient under the cited hypotheses; the lemma is not a characterization by exposed points.",
+          "The phase-locking record includes the pure third mode and its three Wigner-caustic cusp parameters."
+        ],
+        "reasoning": "The cusp parameters are relevant but their count does not by itself put every convexity point at a cusp or give convex-union measurements. The sign-changing-zero argument supplies the upper bound.",
+        "searches": [
+          "Schneider arXiv:1504.00541 §2 Lemma 2; arXiv:1607.03014 §2 Lemma 2.1",
+          "Resultary: reflection convexity, middle hedgehog and odd support harmonics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched exact counts apply to nonparallel quadrilaterals and regular odd polygons; the harmonic orthoptics record studies three supporting chords of a different set associated with the same support function."
+        ],
+        "reasoning": "No exact matching enumeration of the centers or quantitative reflection unions was identified in the inspected records.",
+        "searches": [
+          "Published Resultary mirror, reflection-convexity center counts and pure third-harmonic convexification"
+        ]
+      },
+      "rationale": "The closest known general reflection results supply the lower bound and a criterion, not exactness for this smooth oval. Closely matching records concern the same family's Wigner caustic or orthoptic, not reflection unions. The exact centers and the union formulas survive the targeted comparison; historical priority is not certified.",
+      "residual_risks": [
+        "An unindexed worked example of this elementary third-harmonic specialization could exist; this is a targeted comparison, not exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "general lower bound and criterion, no exact analytic-family result in these passages",
+          "evidence": [
+            "Theorem 1: three affinely independent convexity points; Lemma 2: middle-line/middle-set criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.00541",
+          "material_read": "v1 abstract, Theorem 1, §2 Lemma 2",
+          "method": "OA primary PDF text",
+          "title": "Reflections of planar convex bodies",
+          "trigger": "same reflection property and lower bound"
+        },
+        {
+          "assessment": "nonsmooth examples, generic behavior, and a sufficient criterion",
+          "evidence": [
+            "The introduction names triangles and Reuleaux triangles; Lemma 2.1 states exposed point implies convexity point."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.03014",
+          "material_read": "v1 introduction and Theorems 2–3; p. 2 Lemma 2.1",
+          "method": "OA primary PDF text",
+          "title": "The middle hedgehog of a planar convex body",
+          "trigger": "exact three-point examples and middle-locus criterion"
+        },
+        {
+          "assessment": "different class",
+          "evidence": [
+            "Nonparallel quadrilaterals, not analytic ovals."
+          ],
+          "identifier_or_url": "3019eafaeb1d",
+          "material_read": "RESULT.md Finding",
+          "method": "published local mirror",
+          "title": "Exactly three convexity points for quadrilaterals without parallel sides",
+          "trigger": "same exact count"
+        },
+        {
+          "assessment": "different class",
+          "evidence": [
+            "The centers are the longest-diagonal midpoints of a regular odd polygon."
+          ],
+          "identifier_or_url": "fbe5b682b936",
+          "material_read": "RESULT.md Finding",
+          "method": "published local mirror",
+          "title": "Regular odd polygons have exactly as many convexity points as vertices",
+          "trigger": "exact reflection centers"
+        },
+        {
+          "assessment": "related cusp calculation, not reflection classification",
+          "evidence": [
+            "Three cusp parameters in the pure third mode; no reflection-union invariant in the finding."
+          ],
+          "identifier_or_url": "1b55f2f7ba5a",
+          "material_read": "RESULT.md Finding",
+          "method": "published local mirror",
+          "title": "Sharp phase locking of Wigner-caustic cusps in the first two odd support harmonics",
+          "trigger": "same support when the fifth harmonic vanishes"
+        },
+        {
+          "assessment": "different object and operation",
+          "evidence": [
+            "Three supporting chords of the orthoptic hull on part of the parameter range, not three centers for the original oval."
+          ],
+          "identifier_or_url": "d5def9ff082e",
+          "material_read": "RESULT.md Finding",
+          "method": "published local mirror",
+          "title": "Exact three-chord convexification and a sharp 5/2 area onset for harmonic orthoptics",
+          "trigger": "same support family, same-day catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Schneider arXiv:1504.00541 Theorem 1 and arXiv:1607.03014 introduction"
+      ],
+      "rationale": "This is a sharpness example for a classic three-center lower bound in the restrictive class of analytic, strictly positively curved constant-width bodies. Unlike a cusp count alone it characterizes every reflection union that is convex, and the exact support, area gain and curvature joins give reusable information about those unions.",
+      "residual_risks": [
+        "Only one harmonic family; no arbitrary-oval classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

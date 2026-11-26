@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:37:00.844944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two colors must split every closed neighborhood 2+2. In rung sums t and differences d, this gives t[i−1]+2t[i]+t[i+1]=0 and d[i−1]+d[i+1]=0. Periodicity eliminates the linear term of the alternating t mode and forces t=0 for odd n; d[i+2]=−d[i] permits a nonzero solution only if 4 divides n. Nonzero t forces identical rung colors alternating across columns; otherwise opposite rung colors admit four named assignments exactly when 4 divides n. A proper three-coloring of an odd cycle repeated on both layers is valid. For n≥3 each based closed walk of length n on pairs of columns uniquely specifies the coloring with a fixed column index, including at n=3, so no additional rotation factor occurs. Rebuilt the 81-state, 342-transition matrix and verified the complete factorization over the integers by Berkowitz rather than the supplied Newton-identity certificate; verified named traces 90, 2430, 56574, 1299474 at n=3,5,7,9, and directly enumerated two-color assignments at n=3–8 and three-color assignments at n=3,5. Replay: python /workspace/branches/replay-prism.py (SymPy). The exact determinant and formal trace/log-derivative identity establish every n, not only the examples. At odd n the permutation of color names acts freely on every valid assignment because all three names occur, yielding division by 6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv abstract defines k-limited packing partitions and advertises an exact 2-limited partition number for trees plus general bounds.",
+          "c69eac233aa9 treats open-packing subsets of C_n×K_m with m≥3, n≥5 and their all-cardinality enumerator."
+        ],
+        "reasoning": "A tree result does not apply to a cyclic prism. The claimed general bounds are not a coloring census; the open-packing enumerator is for individual subsets under a different constraint and does not cover m=2.",
+        "searches": [
+          "Ahmadi–Soltankhah–Samadi OA PDF arXiv:2308.16837, p. 1",
+          "Resultary c69eac233aa9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, AUDIT.json, VERIFY.py and BRUTE.cpp",
+        "Resultary c69eac233aa9, 3a90df7af775, 766f520bafef, 0683e665b024, 697eedb2d5a5",
+        "arXiv:2308.16837, first page",
+        "Lisitsyna 2013 and Lisitsyna–Avgustinovich 2016 bibliographic leads"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The open-neighborhood-balanced prism family exists only for 3 dividing n; the present optimum exists at every odd n, including n=5.",
+          "The total-coloring and strong-odd-coloring entries impose different incidence, properness or parity conditions."
+        ],
+        "reasoning": "The odd three-color solution set is not a parameter substitution of these results; the strict subfamily distinction is witnessed even at n=3. No inspected general result determines the explicit numerator-determinant data and exact optimum counts.",
+        "searches": [
+          "Resultary 766f520bafef, Finding",
+          "Resultary 0683e665b024 and 697eedb2d5a5",
+          "arXiv:2308.16837, abstract and definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "766f520bafef requires all three open neighbors to have distinct colors, a sufficient but not necessary condition; its six named assignments at n=3 compare with 90 here.",
+          "The Y3 columns (0,0),(1,2),(1,2) are capacity-two valid but the two color-0 vertices see different multisets of neighbor colors, so this coloring is not perfect."
+        ],
+        "reasoning": "A classification requiring equitability or a rainbow open neighborhood does not enumerate unrestricted capacity-two three-color assignments. Exact two-color balance is equitable, so overlap on that subcase remains possible.",
+        "searches": [
+          "Resultary phrases: 2-limited prism partitions; constrained/equitable and perfect prism colorings",
+          "Resultary 766f520bafef",
+          "Lisitsyna 2013 and Lisitsyna–Avgustinovich 2016 identified links"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-title hit is the frozen record itself.",
+          "The same-day c69eac233aa9 counts open packings and 3a90df7af775 enumerates optimum feedback vertex sets in the same prisms. The older 766f520bafef only enumerates rainbow-open-neighborhood colorings."
+        ],
+        "reasoning": "Neither distinct same-day census counts the requested objects. No inspected indexed sequence or formula provided the complete odd capacity-two counts; this does not infer priority from dates or nonappearance.",
+        "searches": [
+          "Resultary exact-title and semantic prism counting queries",
+          "Resultary c69eac233aa9, 3a90df7af775, 766f520bafef"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete optimum census, especially the exact odd-circumference enumerator under only closed-neighborhood capacity two. No lead inspected gave that census. Do not claim priority for the capacity parameter, transfer-matrix method, or the balanced two-color aspect in isolation; the last is also a perfect-coloring problem with adjacency count matrix [[1,2],[2,1]].",
+      "residual_risks": [
+        "The cited 2013 and 2016 prism perfect-coloring texts were not independently retrieved; existing coverage of the even equitable specialization is possible.",
+        "The inspected literature and index are bounded, so alternate constrained-coloring formulations or unindexed transfer enumerations may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition, tree exact result and general bounds in inspected passages; not a basis for full-document noncoverage",
+          "evidence": [
+            "Abstract advertises exact 2-LP partition numbers for trees and general bounds, not a prism counting law."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.16837",
+          "material_read": "OA PDF p. 1, offsets 682 and 2326, abstract and definition",
+          "method": "OA primary PDF",
+          "title": "Limited packings: related vertex partitions and duality issues",
+          "trigger": "Same closed-neighborhood partition invariant"
+        },
+        {
+          "assessment": "Full text inaccessible; no whole-paper verdict",
+          "evidence": [
+            "The frozen proof explicitly separates perfect from capacity-two three-colorings by a valid nonperfect Y3 example."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/links/b2975877364d31df7cfe8e93ccc05e68/da716.pdf",
+          "material_read": "Bibliographic identification; article/PDF timed out",
+          "method": "Bounded lawful MathNet requests",
+          "title": "Perfect 3-colorings of prism and Möbius ladder graphs",
+          "trigger": "Three colors on the same graph"
+        },
+        {
+          "assessment": "Residual risk, especially for the two-color subcase",
+          "evidence": [
+            "The advertised object is perfect coloring of the same graph; this does not resolve the predicates satisfied by all three-color optima."
+          ],
+          "identifier_or_url": "https://doi.org/10.17377/semi.2016.13.088",
+          "material_read": "Bibliographic identification; full text not retrieved",
+          "method": "Bounded DOI/OA lookup",
+          "title": "Perfect colorings of the prism graph",
+          "trigger": "Possible coverage of the even equitable case or odd subfamilies"
+        },
+        {
+          "assessment": "Strict subfamily",
+          "evidence": [
+            "All three open neighbors must have different colors; six named colorings when n≡3 mod 6, thirty-six when n≡0 mod 6, none otherwise."
+          ],
+          "identifier_or_url": "Resultary 766f520bafef",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Six-periodic rigidity of neighborhood-3-balanced colorings on prisms",
+          "trigger": "Direct prism coloring overlap"
+        },
+        {
+          "assessment": "Different feasibility, quantity and parameter range",
+          "evidence": [
+            "Counts open-packing vertex subsets on C_n×K_m with m≥3, not capacity-two partitions on m=2."
+          ],
+          "identifier_or_url": "Resultary c69eac233aa9",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact optimal open-packing census and generating series for cyclic complete-product graphs",
+          "trigger": "Closest distinct same-day packing enumerator"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Counts minimum deletion sets leaving forests and their local moves."
+          ],
+          "identifier_or_url": "Resultary 3a90df7af775",
+          "material_read": "Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A parity-split census and local mobility law for optimal feedback vertex sets",
+          "trigger": "Distinct same-day optimum census on identical graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This applies an established packing-partition invariant to a natural cubic family, giving the parity boundary for two classes and the full optimum degeneracy, not just a color-number bound. In particular the exact odd counts distinguish all legal optima from the much smaller rigid local subclasses and furnish reproducible benchmarks for every circumference. The determinant is a compact all-length result despite its finite transfer computation; there is no claim of an analogous enumeration for other products.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

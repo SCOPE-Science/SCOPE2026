@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:29:55.832650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Contracting each open path and removing already closed cycles gives the stated weighted completion quotient. I checked the loop counts for increasing triples and the peak counts including the two allowable single transpositions, one three-cycle and one loop-plus-transposition possibility. These counts apply already at size 3, needed when n=4. Reversal conjugation preserves Ewens weights and exchanges peak with valley after relocating the window. Deletion of j leaves the same Ewens weight on n-1 indices up to a constant factor, preserves the order of images and leaves the window consecutive. This gives covariance as theta/(theta+n-1) times the size difference of the marginal. Independent symbolic factoring of those differences times the common denominator gave theta^2*(theta-1)*(n+2*theta-3), -theta^2*(n-5)*(theta-1), and -theta^2*(theta-1)*(theta+1) for U,D,P/V. The denominator is strictly positive, so the signs, zeros and large-size powers follow; n=5 is a zero covariance for D, not a general independence claim about the entire triple law. The frozen checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "101ce30e229c gives all six local marginal probabilities for arbitrary middle sites and theta, including separate probabilities with positional dependence.",
+          "Gessel–Zhuang records full descent compositions by cycle type; weighting by theta to the number of cycles formally yields all four window probabilities. Fulman–Kim–Lee's total-peak generating function does not mark the individual window."
+        ],
+        "reasoning": "An exact symbolic adjacent table offers a much shorter decisive specialization than extracting two marked descent indicators from a general enumerator.",
+        "searches": [
+          "Resultary 101ce30e229c exact six-pattern table",
+          "Gessel–Zhuang arXiv:2001.00654 §§2.3 and 7, Gessel–Reutenauer descent-set and cycle-type enumerator",
+          "Fulman–Kim–Lee arXiv:1902.00978 Eq. (1.1)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 101ce30e229c, 600c70231432, 5455c3336f55 and 5ddb21b162c3",
+        "arXiv:2001.00654, 2309.10721v1, 1902.00978v1, 2510.20654v2 and 1201.2157"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every frozen shape E, condition on the remote fixed point: deletion contributes one fewer Ewens cycle and leaves the consecutive order window intact. Its covariance is theta/(theta+n-1) times p_E(n-1)-p_E(n). The indexed table supplies each p_E at both sizes, with S_3 enumeration at the endpoint."
+        ],
+        "reasoning": "Taking the difference of the 321 entries gives the n-5 factor. Summing the two peak and the two valley entries and differencing, and differencing 123, gives the remaining formulas. This does not require a new marked-point enumerator.",
+        "searches": [
+          "101ce30e229c symbolic table; arXiv:2309.10721 cycle-weighted symmetry and conditioning context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 101ce30e229c uses a middle-site index instead of a start index and the same Ewens law. U=123, D=321, P=132 or 231, V=213 or 312. The opposite site slopes cancel in each two-pattern sum.",
+          "Resultary 600c70231432 concerns covariance with total cycle count, and 5455c3336f55 concerns fixed-point counts under uniform sampling, not the marked fixed point in the frozen claim."
+        ],
+        "reasoning": "The pattern-grouping equivalence is exact for 101ce30e229c; the other covariance targets do not become equivalent when renamed.",
+        "searches": [
+          "Ewens increasing adjacent triple event covariance with remote fixed point",
+          "Ewens decreasing adjacent triple event covariance remote fixed point n=5",
+          "Ewens adjacent peak triple event covariance remote fixed point",
+          "Ewens adjacent valley triple event covariance remote fixed point"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Each probability is a displayed polynomial N_sigma divided by (theta+n-1)(theta+n-2)(theta+n-3). For 321 the numerator is binom(n-1,3)+n(n-3)*theta/2+theta^2. For 132+231 and 213+312 the i-terms cancel identically."
+        ],
+        "reasoning": "The exact table is valid for all n>=4 and all sites. At size 3, the requisite probabilities are obtained by simply weighting the identity, three transpositions and two 3-cycles; the table extends there with the same polynomial expressions. No finite list of selected n is being extrapolated.",
+        "searches": [
+          "Resultary 101ce30e229c, original Finding table for 123,132,213,231,312,321"
+        ]
+      },
+      "rationale": "An inspected distinct indexed record gives exactly the six adjacent triple marginals for the same n, theta and all sites, which is more detailed than the frozen four marginals. The covariances are mechanical corollaries: one sums pattern probabilities if needed and takes a size difference under fixed-point deletion. The cancellation at n=5, signs and asymptotic orders then have no separate nontrivial ingredient. This is a comparison of available results, not an assertion that an indexed catalog date determines priority.",
+      "residual_risks": [
+        "The linked ordinary-Ewens fixed-point/adjacent-descent item 413586e500a3 was unavailable in the local mirror; its additional overlap is not asserted.",
+        "The indexed result is a distinct six-pattern theorem; the catalog path dates do not establish when either result was first disseminated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the full marginal input and mechanically implies the frozen covariance via fixed-point deletion",
+          "evidence": [
+            "The table gives 6 probabilities for every n>=4, theta>0 and consecutive window. Its site drift vector (0,-1,1,1,-1,0) vanishes after frozen shape grouping."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rank-one-site-drift-and-sharp-parameter-extremizers-for-ewens-tr--101ce30e229c",
+          "material_read": "Mirrored RESULT.md offsets 0–3244: Finding, table, assumptions, partial-map identity",
+          "method": "Local Resultary and mirror, symbolic grouping and differencing",
+          "title": "Rank-one site drift and sharp parameter extremizers for Ewens triple patterns",
+          "trigger": "Strongest exact adjacent shape-table match"
+        },
+        {
+          "assessment": "Full descent compositions formally encode the frozen marginals",
+          "evidence": [
+            "Cycle-type quasisymmetric enumerators retain descent-composition weights; the two adjacent descent memberships specify the four shapes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.00654",
+          "material_read": "§§2.3 and 7, OA text around offsets 25700 and 142500",
+          "method": "OA passage inspection",
+          "title": "Plethystic formulas for permutation enumeration",
+          "trigger": "General exact cycle and local descent information"
+        },
+        {
+          "assessment": "Related symmetry, not the exact mixed covariance",
+          "evidence": [
+            "Conditional on the number of fixed points their set is a uniform subset."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2309.10721v1",
+          "material_read": "HTML around offset 3650, fixed-point-set statement",
+          "method": "OA passage inspection",
+          "title": "Short cycles of random permutations with cycle weights: point processes approach",
+          "trigger": "Ewens fixed-point location and cycle deletion context"
+        },
+        {
+          "assessment": "Gives counts of total peaks, not the marked local event",
+          "evidence": [
+            "The generating function refines total peak counts by cycle type."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1902.00978v1",
+          "material_read": "Equation (1.1), OA offset around 3300",
+          "method": "OA passage inspection",
+          "title": "Central limit theorem for peaks of a random permutation in a fixed conjugacy class of S_n",
+          "trigger": "Cycle-type and peak enumeration"
+        },
+        {
+          "assessment": "A single pair-inversion probability does not fix the joint comparisons",
+          "evidence": [
+            "The inspected claim treats a specified inversion pair, including a prescribed fixed-point count."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.20654v2",
+          "material_read": "Specific pair-inversion result, around offset 860",
+          "method": "OA passage inspection",
+          "title": "Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points",
+          "trigger": "Ewens order events with fixed-point information"
+        },
+        {
+          "assessment": "Asymptotic dashed-pattern counts are distinct",
+          "evidence": [
+            "Theorem concerns distributions of occurrence counts, not exact marked-window covariances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1201.2157",
+          "material_read": "Theorem 8, around OA offset 16000",
+          "method": "OA passage inspection",
+          "title": "Asymptotic behavior of some statistics in Ewens random permutations",
+          "trigger": "Ewens local permutation patterns"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The clean finite-size cancellation is interpretable, but all four formulas and the sign and scaling conclusions are immediate algebra on an exact available six-pattern table after a one-fixed-point deletion. No independent structural result or substantive remainder survives the coverage comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

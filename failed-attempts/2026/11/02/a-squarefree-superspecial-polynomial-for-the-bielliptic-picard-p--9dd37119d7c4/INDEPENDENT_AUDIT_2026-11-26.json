@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:52:44.717989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–89; VERIFICATION.md lines 19–27; verify.py; verify_output.txt",
+        "Laga–Shnidman arXiv:2308.15297v3 §2.3 eq. (2.3)"
+      ],
+      "rationale": "For p=6m+5, use f^{(p−2)/3}/y^p for 1/y² and f^{(2p−1)/3}/y^{2p} for 1/y. The Cartier coefficient test and the parity of f leave only the two inverse-Frobenius arrows swapping dx/y and dx/y², with coefficients P_p and Q_p, and annihilate x dx/y². With D=a²−4 and h=m+1, the substitution D^h Q_p in the large coefficient equation leaves the Q_p equation plus −8hp D^{h−1}Q_p before reduction, so the remainder vanishes mod p. For the polynomial of degree d and parity d the indicial multiplier at degree d−2r is 4r(n−d+r), a unit at all required steps, proving proportionality with the stated leading ratio. Deg Q=m, its binomial boundary values are units, and a multiple root of multiplicity 2≤r≤m<p would force D(a₀)r(r−1)=0. Thus both arrows vanish on exactly m simple smooth roots, or both are nonzero giving stable rank two. Cartier rank zero is superspecial; off the roots p-rank two leaves only the unique elliptic local-local EO component with slopes (1/2,1/2). At p=5 the root case is empty, as made explicit by Q_5=1; both cases occur for p≥11. In the split congruence class the ordinary j=0 elliptic quotient rules out superspeciality for this pencil, not for arbitrary genus-three curves. The complete invariant j=(4−a²)/4 makes the parity/orbit count ceil(m/2). Independent polynomial multiplication and gcd at p=5,11,17,23,41,101 replay with python3 /workspace/review-evidence/reproduce.py 4 (SymPy); the supplied code and VERIFY_OK log were inspected, not executed.",
+      "residual_risks": [
+        "The examples concern the Fermat-covered member at a=0, not an assertion of plane Fermat quartic isomorphism. The split conclusion is pencil-specific; geometric parameter counts say nothing about rational Frobenius orbits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1c2ce1c55b2f covers both residue classes and the same superspecial branch. 6da8625d9e59 gives the split pencil's p-ranks as 1 or 3, excluding superspeciality there.",
+          "Moonen's complex degree-three cyclic cover type with monodromy (1,1,1,1,2) includes the even-quartic pencil as a subfamily; its characteristic-zero statement is not this mod-p polynomial.",
+          "Ohashi et al. enumerate superspecial curves of genus three globally in a bounded-prime setting, not the uniform pencil-specific polynomial."
+        ],
+        "reasoning": "The broader catalogue statements imply the split exclusion; the complex cyclic cover and bounded genus-three results do not replace the all-prime exact superspecial calculation.",
+        "searches": [
+          "1c2ce1c55b2f",
+          "6da8625d9e59",
+          "Moonen arXiv:1006.3400v2 Table 1",
+          "Ohashi et al. arXiv:2401.10500v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9e738692b754, 3204a085956d, 1c2ce1c55b2f, 6da8625d9e59",
+        "Laga–Shnidman, Moonen, Nourozi–Rahmati, Ohashi et al.; bounded retrieval of the two older DOI sources"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier normalized record gives p-rank 0 and a=3 exactly at R_m=0; otherwise p-rank 2 and a=1. In dimension three the two specified BT1 cases are unique; the Newton slopes already match explicitly.",
+          "The complete invariant j depends exactly on a². All m roots of R_m are simple and stable under sign, with a=0 exactly for odd m by its coefficient parity, hence ceil(m/2) classes.",
+          "The split rank-one-or-three prior result excludes superspeciality in this pencil."
+        ],
+        "reasoning": "The core is direct coverage. The unmarked geometric count and split statement do not leave an independent theorem merely because their wording or proof route differs.",
+        "searches": [
+          "9e738692b754 Finding and Proof, especially U_m=R_m and V_m identity",
+          "Laga–Shnidman §2.3 eq. (2.3)",
+          "6da8625d9e59 split-rank finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9e738692b754 gives R_m=[t^m](t²+at+1)^{2m+1}, its m simple smooth roots and opposite Cartier coefficient V_m=K_m(a²−4)^{m+1}R_m with the exact same binomial ratio.",
+          "The total palindromic degree is 4m+2, so the coefficient at m equals the frozen coefficient at 3m+2.",
+          "The Cartier strata in 3204a085956d match under a=2t."
+        ],
+        "reasoning": "The extraction indices and parameter normalization are interchangeable; the catalogue covers the exact coefficient identity and not just the same kind of pencil.",
+        "searches": [
+          "Local Resultary inert-prime Cartier and superspecial pencil comparisons",
+          "9e738692b754",
+          "3204a085956d",
+          "1c2ce1c55b2f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local mirror gives uniform exact data, including the zero set up to root fields, and covers small cases without tabulation.",
+          "Nourozi–Rahmati's printed a=1 assertion for nonzero-constant quartics in this congruence class conflicts with the admissible explicit check p=17,a=5, Q_17=10a²+5=0 at that a, D=4 mod 17. It is not relied on as valid prior coverage."
+        ],
+        "reasoning": "Known exact formulas dominate finite example matches; an incompatible broad assertion does not establish the exact root set.",
+        "searches": [
+          "9e738692b754 Finding and Proof",
+          "Ohashi et al. arXiv:2401.10500v3",
+          "arXiv:2306.07823v2 Thm. 3.1"
+        ]
+      },
+      "rationale": "Resultary 9e738692b754 already states the same uniform theorem, including both Cartier arrows, the same factorization with the exact constant, degree, all m simple smooth roots and the two cases for p-rank, a-number and Newton slopes. The change in extraction index is reciprocity of a palindromic quadratic. The unmarked count is an immediate use of the published complete invariant, and the other residue class has already been analyzed in related catalogue records. No unavailable source is the basis for this failure.",
+      "residual_risks": [
+        "The full text of the two older DOI sources is unresolved; this does not change direct catalogue overlap. No scholarly priority is asserted solely from record dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the marked divisor and formal factorization",
+          "evidence": "States both Cartier arrows, explicit unit factor and precisely m distinct admissible roots, with identical p-rank/a-number and Newton strata.",
+          "identifier_or_url": "Resultary 9e738692b754",
+          "material_read": "RESULT.md Finding, scope and coefficient proof, offset 0–3865; proof continuation reviewed to offset 7680",
+          "method": "Local Resultary mirror",
+          "title": "Superspecial strata of bielliptic Picard curves at primes congruent to five modulo six",
+          "trigger": "Same all-prime pencil theorem and polynomial"
+        },
+        {
+          "assessment": "Equivalent Cartier and p-rank/a-number strata",
+          "evidence": "Its p≡5 mod 6 polynomial matches under coefficient normalization.",
+          "identifier_or_url": "Resultary 3204a085956d",
+          "material_read": "RESULT.md inert branch of the finding and coefficient formulation",
+          "method": "Local Resultary mirror",
+          "title": "Uniform Cartier strata for the bielliptic Picard pencil",
+          "trigger": "Same coefficient under a=2t"
+        },
+        {
+          "assessment": "Includes the same inert branch and the other congruence class",
+          "evidence": "Same superspecial parameter theorem in its marking and explicit strata for both congruence classes.",
+          "identifier_or_url": "Resultary 1c2ce1c55b2f",
+          "material_read": "RESULT.md four strata and inert branch",
+          "method": "Local Resultary mirror",
+          "title": "A uniform Hasse divisor for the bielliptic Picard pencil",
+          "trigger": "Broader all-prime classification"
+        },
+        {
+          "assessment": "Implies no superspecial split member",
+          "evidence": "Rank one on the nonordinary divisor and rank three off it.",
+          "identifier_or_url": "Resultary 6da8625d9e59",
+          "material_read": "RESULT.md Finding and split p-rank statement",
+          "method": "Local Resultary mirror",
+          "title": "The doubled nonordinary Hasse divisor of the bielliptic Picard family in every characteristic p≡1 mod 6",
+          "trigger": "Split exclusion"
+        },
+        {
+          "assessment": "Makes the geometric count a direct consequence of the exact root set",
+          "evidence": "For b=1, invariant j=(4−a²)/4 separates all geometric isomorphism classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.15297",
+          "material_read": "v3 introduction p.1; §2.3 eq. (2.3) p.7; §2.5 p.8",
+          "method": "Open primary text",
+          "title": "The geometry and arithmetic of bielliptic Picard curves",
+          "trigger": "Complete geometric invariant"
+        },
+        {
+          "assessment": "Different question and base characteristic",
+          "evidence": "The degree-three cover type (1,1,1,1,2) is entry (6); entry (4) is not the desired family.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.3400",
+          "material_read": "v2 §2 and Table 1 p.11",
+          "method": "Open PDF",
+          "title": "Special subvarieties arising from families of cyclic covers of the projective line",
+          "trigger": "Possible broader cyclic cover classification"
+        },
+        {
+          "assessment": "Coefficient precedent; printed broad rank assertion conflicts under the stated specialization",
+          "evidence": "The quoted a=1 statement does not exclude the reviewed p=17, a=5 superspecial example by any inspected hypothesis.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07823",
+          "material_read": "v2 Theorem 3.1 pp.3–4",
+          "method": "Open PDF",
+          "title": "The Rank of the Cartier operator on Picard Curves",
+          "trigger": "Cartier coefficient precedent and possible competing rank claim"
+        },
+        {
+          "assessment": "Does not give the all-prime pencil formula",
+          "evidence": "Studies global genus-three enumerations and notes superspecial genus-three curves can exist at split primes outside this pencil.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.10500",
+          "material_read": "v3 abstract and introduction p.1",
+          "method": "Open PDF",
+          "title": "Listing superspecial curves of genus three using Richelot isogeny graphs",
+          "trigger": "Exact genus-three census and scope check"
+        },
+        {
+          "assessment": "No full text obtained; exact overlap unknown",
+          "evidence": "Not relied upon for coverage or absence.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.19911520125",
+          "material_read": "Bibliographic record/abstract only",
+          "method": "Lawful OA and alternate copy attempted",
+          "title": "On the Jacobian varieties of Picard curves defined over fields of characteristic p > 0",
+          "trigger": "Potential earlier explicit equations"
+        },
+        {
+          "assessment": "Full comparison unavailable",
+          "evidence": "Not relied upon for coverage or absence.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2014.12.002",
+          "material_read": "Landing/abstract only",
+          "method": "Lawful OA and alternate copy attempted",
+          "title": "A note on some Picard curves over finite fields",
+          "trigger": "Possible Fermat-fiber overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Resultary 9e738692b754 and 6da8625d9e59; Laga–Shnidman eq. (2.3)"
+      ],
+      "rationale": "The all-prime explicit superspecial divisor and strata are valuable questions but are already addressed for this exact pencil. The only surviving apparent extensions are the class tally from sign pairing and the immediate split exclusion or EO interpretation, not new independent structure. The different algebraic organization does not produce a fresh invariant, uniform refinement or unresolved example.",
+      "residual_risks": [
+        "The arithmetic fields of definition and Frobenius orbits could be worthwhile distinct questions; they are not proved here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:01:03.138156Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Walsh inversion leaves only the empty and full character because each proper marginal is uniform. Pointwise nonnegativity gives |theta|<=1 and the inversion also proves the converse. The first-moment difference is theta times the full-character coefficient of the absolute sign sum. Global sign reversal makes that coefficient zero in odd dimension. In even dimension a sign sum multiplied by n-2 equals the sum of its n single-flip neighbors. The triangle inequality (also for complex coefficients) and the bijective flips between the parity classes give (n-2)E+<=nE- and (n-2)E-<=nE+, where E± are normalized class means. Their sum is positive for a nonzero coefficient vector because otherwise the sign sum vanishes identically, which forces every coefficient to vanish. Rearrangement gives |E+-E-|/(E++E-)<=1/(n-1). For the all-ones vector in even dimension, the parity class not containing balanced signs has |S|>=2 throughout, so all single-flip sums have the same weak sign and the triangle inequality is exact on that class. One coefficient sign change exchanges the means and realizes the other ratio endpoint. The n=2 two-value formula attains 0 at the degenerate lower endpoint and gives the same sharp comparison; for n>=4 the lower bound is positive. The all-dimension argument was checked directly against RESULT.md, Proof; the sign enumeration was inspected, not executed, and is supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pass–Spektor study Lp/L2 inequalities for k-wise independent signs, with the dimension-dependent regime p>k. Dai–Kosov consider discretization via independent subgaussian samples. The related local findings give nth-moment rather than relative first-moment control."
+        ],
+        "reasoning": "An Lp/L2 constant at another exponent, or sample-count existence for an independent scheme, does not bound the relative first moment for the fixed parity-conditioned scheme by the required exact constant.",
+        "searches": [
+          "Pass–Spektor arXiv:1708.08775, pp. 1–2",
+          "Dai–Kosov arXiv:2611.05930v1, abstract and Theorem 1.1",
+          "Resultary next-to-independent endpoint and moment sensitivity records"
+        ]
+      },
+      "checked_sources": [
+        "Pass–Spektor arXiv:1708.08775",
+        "Dai–Kosov arXiv:2611.05930v1",
+        "Resultary records a1ee7602ac01, 93098a285ffa and 4a18411dbd81",
+        "Primary lookup on parity-restricted Khintchine and Walsh-coefficient bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older endpoint record classifies the same maximal-proper-independence laws and has equal-magnitude extremizers for an L^n/L^2 comparison. The inertia record's p=1 spectral calculation gives an equality candidate for the new relative comparison."
+        ],
+        "reasoning": "The distribution classification is already covered, and the spectral calculation can recover the witness numerically. Neither shows that no nonflat vector gives more distortion; that conclusion comes from an inequality across the two parity classes for arbitrary sign sums.",
+        "searches": [
+          "Resultary: SCOPE-sharp-endpoint-khintchine-constants-for-next-to-independent-rade--93098a285ffa, Finding and Proof §§1–4",
+          "Resultary: Walsh inertia, Finding and Proof §§2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At p=1 the Walsh-inertia finding's full-character eigenvalue gives the flat-vector coefficient. For a general real linear form the coefficient is a pairing with the degree-one Walsh coefficients of its sign threshold multiplied by parity."
+        ],
+        "reasoning": "A sharp bound on the top-coefficient-to-mean ratio for every linear form would be equivalent. The kernel evaluates the flat form, and the threshold pairing is a change of expression, not a bound. Neither replaces the uniform sign-flip inequality.",
+        "searches": [
+          "Primary-literature lookup on parity-conditioned Rademacher first moments and absolute linear forms' top Walsh coefficient",
+          "Resultary: SCOPE-strict-walsh-inertia-of-rademacher-p-moment-kernels-and-exact-sa--a1ee7602ac01"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected Walsh eigenvalue formula computes an exact flat-vector coefficient. The separate same-date exact relative-sensitivity result optimizes the nth absolute moment for even n>=4 and real coefficients."
+        ],
+        "reasoning": "Neither exact formula is an all-vector relative L1 constant. The separate same-date result is compared on its content, not on an assumed same-day priority ordering.",
+        "searches": [
+          "Resultary: parity-half and almost-independent Rademacher sharp constants",
+          "Resultary: SCOPE-sharp-relative-moment-sensitivity-at-the-first-detectable-indepe--4a18411dbd81",
+          "Resultary: SCOPE-strict-walsh-inertia-of-rademacher-p-moment-kernels-and-exact-sa--a1ee7602ac01"
+        ]
+      },
+      "rationale": "Available sources cover the classification of these laws, sharp inequalities at other exponents, and the top Fourier coefficient at the flat witness. They do not establish the sharp uniform relative L1 comparison over all vectors. The pass is for that comparison, not those ingredients.",
+      "residual_risks": [
+        "A parity-restricted first-moment comparison in older Khintchine, cube Fourier or norm-discretization work could be stated under another name. No priority claim follows just from the bounded search or the date of a related record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related comparison, not parity-versus-independent relative L1",
+          "evidence": "The reference norm is L2 and dimension-sensitive constants concern p>k.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.08775",
+          "material_read": "Abstract p. 1 and definition of C(N,p,k) and p>k regime p. 2",
+          "method": "OA PDF text at offsets 418 and 8631–9270",
+          "title": "On Khintchine type inequalities for k-wise independent Rademacher random variables",
+          "trigger": "Khintchine inequalities under k-wise independence"
+        },
+        {
+          "assessment": "Independent empirical sampling, not parity-conditioned comparison",
+          "evidence": "The result controls norm discretization with independent samples, not an exact deterministic parity-cube ratio.",
+          "identifier_or_url": "https://arxiv.org/html/2611.05930v1",
+          "material_read": "Abstract and Theorem 1.1",
+          "method": "OA passage at offset 456",
+          "title": "Empirical approximation of L^p norms for p in (1,2)",
+          "trigger": "First-moment endpoint for norm discretization"
+        },
+        {
+          "assessment": "Covers flat-vector ingredient only",
+          "evidence": "With p=1 the top eigenvalue of the antipodal kernel supplies the flat coefficient, not its uniform extremality against every linear form.",
+          "identifier_or_url": "2026/11/17/SCOPE-strict-walsh-inertia-of-rademacher-p-moment-kernels-and-exact-sa--a1ee7602ac01",
+          "material_read": "Finding and Proof §§2–3",
+          "method": "Local published mirror",
+          "title": "Strict Walsh inertia of Rademacher p-moment kernels and exact sampling rigidity",
+          "trigger": "Exact Walsh eigenvalues for the same absolute-moment kernel at flat coefficients"
+        },
+        {
+          "assessment": "Covers law, not the L1 result",
+          "evidence": "The sharp even-dimensional statement concerns real L^n/L^2 ratios.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-endpoint-khintchine-constants-for-next-to-independent-rade--93098a285ffa",
+          "material_read": "Finding and Proof §§1–4",
+          "method": "Local published mirror",
+          "title": "Sharp endpoint Khintchine constants for next-to-independent Rademacher vectors",
+          "trigger": "Same maximal-proper-independence sign law and flat extremizers"
+        },
+        {
+          "assessment": "Distinct exponent and asserted constant",
+          "evidence": "The optimization is for the nth absolute moment in even dimension n>=4 with real coefficients.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-relative-moment-sensitivity-at-the-first-detectable-indepe--4a18411dbd81",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Local published mirror",
+          "title": "Sharp relative moment sensitivity at the first detectable independence defect",
+          "trigger": "Same parity law and analogous exact relative-error extremum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem quantifies the worst loss from using a prescribed half of the sign cube rather than all sign patterns for all first moments of linear forms. It gives exact preservation in odd dimension and an attained, dimension-dependent error in even dimension, including the two-dimensional degeneracy. The parity-class averaging explains the sharp uniform control rather than merely evaluating a flat witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:38:47.681771Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–42 and supporting VERIFICATION.md and verify_lens.py (inspect only)"
+      ],
+      "rationale": "Independently, place one edge at u=(0,0), v=(L,0) and put B=(b,h), h>0. A ray from B in direction w meets the lens up to the positive part of min((u−B)·w,(v−B)·w). On the right and left half-circles the respective controlling radial endpoints are a sin(alpha−phi) and q sin(beta−phi), positive for 0≤phi<alpha or beta, where a,q are the endpoint distances and alpha,beta the endpoint angles. Integrating half the squared radius gives (alpha a²+beta q²)/4−[a² sin(2alpha)+q² sin(2beta)]/8. The bracket is 2h[b+(L−b)]=2hL. This works even for an exterior perpendicular foot, when the frozen sector argument must not subtract both unsigned triangle areas. Summing over edges sums the fan triangle areas to A(P) and the split angles to the original interior angles. Completing the weighted square gives the unique interior minimizer, because all weights are positive and the vertices span P. Convex weights expressing B in a triangle show that any point in all three diameter disks equals B, so the pair sum gives double coverage in area. The formula and claims hold as stated.",
+      "residual_risks": [
+        "Uploaded numerical checks not replayed. The proof covers obtuse fan triangles via the ray integral; the frozen sector prose needs signed segment corrections in that case. It does not give the area covered at least twice for polygons with m>3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yankelevsky–Bruckstein Theorem 2 begins with finite planar constellations and then computes their union explicitly for a polygon of extreme points and a moving interior point. Eq. (19) gives excess above hull area = ∑ exterior_angle_i |B−v_i|²/4 − A(P)/2 (p. 7, offset 21400ff).",
+          "Pavlík Main results and Cor. 5.3 concern coverage of a polytope by diameter balls and power-diagram cells, not the exact sum."
+        ],
+        "reasoning": "The first source covers all the frozen polygon and B hypotheses, giving union area A(P)/2 + ∑(π−theta_i)|B−v_i|²/4. Subtracting this from ∑π|B−v_i|²/4 gives the entire frozen identity. The different objective in the earlier title and its exterior-angle minimizer do not negate this implication.",
+        "searches": [
+          "Yankelevsky–Bruckstein, On optimal disc covers and a new characterization of the Steiner center",
+          "Pavlík, arXiv:2611.14277v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md; Resultary and mirror passages above; Yankelevsky–Bruckstein original PDF and Pavlík primary text; focused external literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complement of the earlier exterior-angle weighted quadratic in total disk area is exactly the interior-angle weighted quadratic. Its unique optimizer and curvature are algebraic consequences with total weight (m−2)π.",
+          "For m=3 the proper block condition implies at most two memberships off B; therefore the same complement equals the genuine double-coverage area for all triangles, not just the regular one."
+        ],
+        "reasoning": "Both optimization and the triangle interpretation survive only as direct consequences of already available geometry. No separate claim in the frozen record remains materially distinct.",
+        "searches": [
+          "Compare Yankelevsky–Bruckstein Eq. (19) with the frozen weighted-square stability and triangle corollary",
+          "Resultary prior regular-polygon diameter-disk multiplicity and redundancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For X≠B, X∈D_i iff (v_i−B)·(X−B)≥|X−B|². A strict superlevel cut of a convex polygon gives one contiguous cyclic block of vertices if nonempty; disk-boundary equalities may be dropped in area. It cannot contain every vertex, since B is interior and the right-hand threshold is positive.",
+          "A proper nonempty block of n vertices has n−1 adjacent pairs, so S_P(B)=∑|D_i(B)|−|⋃D_i(B)|, on the full plane and at every interior B."
+        ],
+        "reasoning": "The earlier union formula is exactly the adjacent-lens formula under a pointwise counting identity; neither clipping nor a regular-polygon restriction enters the reduction.",
+        "searches": [
+          "Primary search: triangle Thales diameter disks adjacent intersection areas common interior endpoint and polygon centroid minimization",
+          "Yankelevsky–Bruckstein original PDF, pp. 5–8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1b3f060ecc28, Finding: for a centered regular triangle T_(3,2)=π/(3sqrt(3))−1/2; multiplying by the circumradius-one area 3sqrt(3)/4 gives exactly π/4−3sqrt(3)/8.",
+          "b36dd9da9452 treats singly covered area inside centered rectangles; another centered-rectangle twofold result f60e87e98a2e was visible in search only. The exact moving-point catalogue hit was the frozen result itself."
+        ],
+        "reasoning": "The centered equilateral number is already covered. The regular/rectangular catalogue entries do not alone give the arbitrary-B formula; that comes from the primary union formula. Exact table checks here are functional or special-value comparisons, not an integer sequence lookup.",
+        "searches": [
+          "Resultary moving-point adjacent diameter-disk lenses and centered double-coverage spectrum"
+        ]
+      },
+      "rationale": "The full moving-point formula for all strictly convex polygons is an immediate equivalent-area consequence of Yankelevsky–Bruckstein's published exact union formula for the same disks (2016, Eq. (19), not just its Steiner minimizer). Adjacent lens multiplicity is pointwise total disk multiplicity minus the union indicator almost everywhere. Thus the earlier exact formula evaluates this energy, with the proposed minimizer and stability following by completing the square. The centered equilateral value is also explicitly recoverable from the earlier Resultary multiplicity spectrum. This is demonstrated prior coverage, not an access issue.",
+      "residual_risks": [
+        "Some secondary Resultary hits could not be read in full; that does not affect the direct implication from the 2016 primary paper. No same-day priority ordering is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mathematical coverage by pointwise adjacency/union conversion.",
+          "evidence": "The disks have diameters joining the variable reference point to each point. After reducing to hull vertices, Eq. (19) gives excess area as the exterior-angle weighted squared distances divided by four minus half the hull area; the paper identifies those weights immediately after Eq. (20).",
+          "identifier_or_url": "https://freddy.cs.technion.ac.il/wp-content/uploads/2018/01/On-optimal-disc-covers-and-a-new-characterization.pdf",
+          "material_read": "p. 1 abstract; Theorem 2 and interior setup on p. 5 around offset 15000; pp. 6–8 excess decomposition and Eq. (19)–(22), offsets 19212, 21400–25649",
+          "method": "OA original PDF",
+          "title": "On optimal disc covers and a new characterization of the Steiner center",
+          "trigger": "same disk family and moving reference point; plausible complementarity of coverage and overlap"
+        },
+        {
+          "assessment": "Relevant coverage background but not the decisive area antecedent.",
+          "evidence": "Proves coverage and a power-diagram tiling with cells inside the respective balls.",
+          "identifier_or_url": "https://arxiv.org/html/2611.14277v1",
+          "material_read": "Main results, offset 4300; Theorem 3.5 near 27500 and Corollary 5.3 near 50100",
+          "method": "OA original HTML",
+          "title": "Thales's theorem in higher dimensions",
+          "trigger": "same diameter-ball construction on polytopes"
+        },
+        {
+          "assessment": "Centered equilateral exact overlap and related regular-polygon cases; fixed center only.",
+          "evidence": "The doubly covered area fraction is T_(3,2)=π/(3sqrt(3))−1/2 for the centered equilateral triangle.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-multiplicity-spectrum-of-vertex-to-center-diameter-disks-o--1b3f060ecc28",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "local mirror",
+          "title": "Exact multiplicity spectrum of vertex-to-center diameter disks of regular polygons",
+          "trigger": "exact triangle value and same disk construction"
+        },
+        {
+          "assessment": "Unresolved coverage of this entry, immaterial to the primary-paper implication.",
+          "evidence": "No substantive original passage used.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-diameter-disk-depth-of-a-regular-polygon-mean-redundancy-a--a85d54c61c1a",
+          "material_read": "Frozen citation; no exact mirrored passage obtained",
+          "method": "Resultary query and bounded local-mirror retrieval",
+          "title": "Exact diameter-disk depth of a regular polygon: mean redundancy and a quantitative limit law",
+          "trigger": "cited multiplicity/mean redundancy comparison"
+        },
+        {
+          "assessment": "Summary-only match, not used to establish coverage or priority.",
+          "evidence": "The indexed description refers to the twice-covered fraction of a centered rectangle.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-twofold-overlap-transition-for-rectangular-thales-coverings--f60e87e98a2e",
+          "material_read": "Catalogue summary only; mirror unavailable",
+          "method": "Resultary and bounded local-mirror attempt",
+          "title": "A sharp twofold-overlap transition for rectangular Thales coverings",
+          "trigger": "same-day adjacent coverage geometry"
+        },
+        {
+          "assessment": "Related fixed-center rectangles and different coverage statistic.",
+          "evidence": "Analyzes the singly covered interior and its area fraction.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-four-to-eight-transition-in-the-singly-covered-locus-of-re--b36dd9da9452",
+          "material_read": "Finding and Assumptions and scope, offset 0",
+          "method": "local mirror",
+          "title": "Sharp four-to-eight transition in the singly covered locus of rectangular Thales disks",
+          "trigger": "same-day diameter disks on rectangles"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; Yankelevsky–Bruckstein Eq. (19) with the adjacency/union reduction; centered triangle spectrum"
+      ],
+      "rationale": "The overlap objective is geometrically natural, but this record's exact content is a direct re-expression of a previously evaluated union area: the linear half-plane cut makes adjacency count the redundancy pointwise. The weighted optimum and curvature are then square completion, and the triangle interpretation is the proper-block case with at most two memberships. The original record provides no nonmechanically implied exact statement worth preserving as a repaired finding.",
+      "residual_risks": [
+        "This verdict is about the frozen claims, not the interest of other statistics such as clipped or nonadjacent coverage."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

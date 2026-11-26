@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:58:01.950919Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:2–125 and VERIFICATION.md; supplied verifier inspected, not run",
+        "Fresh replay: python3 /workspace/branches/63859e38-7101-4e30-bdd5-7512e61b949f/independent_check.py ; exact sets from direct enumeration at n=3,4,5 (3,76,5 minima), 316236 support triples through n=50 and 25719 generated functions checked through n=20; independent_check.log"
+      ],
+      "rationale": "For fixed zero sets of sizes p,q, a positive A vertex at a common-positive index can cover all q B zeros for excess ceil(q/2) above one. If no common-positive defender is used, each A defender misses its own opposite zero, so at least two are necessary and two distinct ones suffice at cost 2ceil((q-1)/2), if available. The same argument holds on B, independently, with zero cost when there are no zeros to defend. This gives the exact support formula and the bound w>=2n-floor(p/2)-floor(q/2). If an entire shore is zero, the other cannot have any zeros and the cost is at least n+2ceil((n-1)/2), strictly above the matched-pair witness for n>=3. For n=2m+1, equality forces both zero counts 2m (the floor drops at 2m-1), and the only positives must form a deleted matched pair. For n=2m, equality forces p,q in {n-2,n-1}; only a common-positive defender can realize equality if n>=6 because the two-defender excess is strictly larger. At n=4 a side with two opposite zeros also has strict excess for inside-only defense. For three opposite zeros the possible cost tie cannot occur at equality: the opposite shore has a sole positive which must have a common-positive index; this leaves at most one inside-index candidate. With nonempty support intersection exactly the five claimed support patterns remain, and on each side only one common-positive vertex carries excess. The counts are n; n(n-1) each for the asymmetric 2-by-1 cases; n(n-1)(n-2) for two 2-supports meeting once; and 4 binom(n,2) for identical 2-supports. Summing gives n(n^2+n-1) for even n. The labels fit the degree-based cap and each listed family attains the lower bound.",
+      "residual_risks": [
+        "The bounded runs are corroboration; completeness for unbounded n is from the exact support argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unique-response record imposes restrictions on neighbors of label >=2 for zero-labeled and positive vertices, and gives 3n+1 restricted functions with exactly n minima.",
+          "The ordinary Proposition 12 obtains the odd value from a general lower bound and a matching example."
+        ],
+        "reasoning": "The restricted class cannot establish ordinary exhaustiveness. For even n, ordinary functions with two positive vertices on one shore include a high-labeled neighbor of a positive opposite vertex, violating the extra condition. The restricted set misses the ordinary extra families.",
+        "searches": [
+          "Local Resultary d1091d1bd3bf RESULT.md Finding and Assumptions, offset 0",
+          "Proposition 12 and its appeal to the general Proposition 3 lower bound"
+        ]
+      },
+      "checked_sources": [
+        "Valenzuela-Tripodoro et al., doi:10.3390/math14091535 Proposition 12",
+        "Resultary d1091d1bd3bf",
+        "Focused searches of count, deleted perfect matching and support classification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Proposition 12 upper bound assigns the two maximum labels to a deleted matched pair; relabeling gives all n such witnesses. Its even lower-bound paragraph does not analyze equality with additional positive label-1 vertices.",
+          "For odd n all ordinary minima agree with the restricted n; for even n the restricted census is only the first family."
+        ],
+        "reasoning": "A known canonical optimum neither excludes nor counts additional supports. The excess/capacity equality test quantifies them and is needed for the ordinary count. The same-day record was considered on its content, not screened out by date; chronological priority is unresolved.",
+        "searches": [
+          "Official PDF of doi:10.3390/math14091535 pp.15–16 Proposition 12 proof, OA offset 86747 ff.",
+          "Local Resultary d1091d1bd3bf proof of label>=2 packing and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited paper's C(n) has 2n vertices and the same missing matching; it uses the same strong-Roman zero-vertex condition and proves the exact parity formula."
+        ],
+        "reasoning": "These are the same graph and scalar invariant under relabeling, not separate results. The numerical result is covered.",
+        "searches": [
+          "doi:10.3390/math14091535 Proposition 12 pp.15–16",
+          "Local Resultary: strong Roman optimal functions on crown graphs and K_n,n minus matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prop. 12 gives the exact number as a scalar optimum value, not the number of functions.",
+          "The indexed polynomial n z^(2h) + 2n z^(n+h) + z^(2n) is for unique response and has a leading minimum-weight coefficient n."
+        ],
+        "reasoning": "This exact coefficient covers the common-singleton family, but for even n is not the ordinary coefficient n(n^2+n-1). The focused web query was not decisive.",
+        "searches": [
+          "Local Resultary exact count and support classifications under crown and deleted matching terminology",
+          "Resultary d1091d1bd3bf weight enumerator",
+          "doi:10.3390/math14091535 Proposition 12 statement"
+        ]
+      },
+      "rationale": "The scalar formula and the matched-pair witnesses are explicitly prior and are not a contribution here. A same-day indexed result enumerates a restricted subclass whose minima coincide with the matched-pair functions at both parities. Even-order ordinary equality beyond those n functions is the clearest distinct contribution: the other four families and full census are not implied by either source. The closed classification of all ordinary optimizers therefore goes beyond the inspected results.",
+      "residual_risks": [
+        "Unindexed equality classifications under variant terminology remain possible. No priority conclusion about same-day records is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scalar coverage and a full family by symmetry of its witness; no ordinary enumeration",
+          "evidence": [
+            "Assigns both u_1,v_1 the maximum label and others zero, then proves the parity-dependent optimum weight."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math14091535",
+          "material_read": "Proposition 12 statement and proof, official OA PDF pp.15–16 (offset 86747 ff.); general lower bound p.4 comparison",
+          "method": "Bounded original OA PDF passages",
+          "title": "Complexity and Exact Values for [k]-Roman and Strong Roman Domination for Specific Graph Families",
+          "trigger": "Exact graph, definition and published scalar parity result"
+        },
+        {
+          "assessment": "Material partial overlap; classification is for a restricted invariant",
+          "evidence": [
+            "The additional rule prohibits a positive vertex from having any neighbor with label at least 2. The restricted minima are exactly the n deleted-pair functions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-all-unique-response-strong-roman-functions-of-crown-graphs--d1091d1bd3bf/RESULT.md",
+          "material_read": "Finding, Assumptions and initial proof at offset 0 ff.",
+          "method": "Local mirror original result",
+          "title": "All unique-response strong Roman functions of crown graphs",
+          "trigger": "Distinct same-day result on minimum functions for the same object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:21–43, 64–116; Proposition 12 and Resultary d1091d1bd3bf"
+      ],
+      "rationale": "The exact equality families show that the even case has cubic multiplicity and four additional support geometries, where the known scalar formula only identifies a one-unit change. This gives a reusable optimum-set benchmark for the canonical almost-complete bipartite family and distinguishes ordinary from restricted response; it is not a recomputation of the scalar.",
+      "residual_risks": [
+        "No complete ordinary weight enumerator or claim for other graph classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

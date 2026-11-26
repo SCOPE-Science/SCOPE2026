@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute the self-contained Python 3 scripts `verify_paths.py` and `verify_pruning.py` in any directory, without parameters or installed dependencies. The expected terminal markers are `VERIFY_PATHS_OK` and `VERIFY_PRUNING_OK`. Both scripts enumerate exactly \(2^{11}=2048\) states and fail on any mismatch against their stated count arrays.
+## correctness
 
-`verify_paths.py` independently constructs the Grötzsch graph by the Mycielski prescription, builds each majority successor with bit masks, traces successor paths and detects cycles, records the entire first-entry-time and eventual-period table and the complete orbit-basin histogram, checks that all 30 last-layer states reach unanimity, and checks the spatial-dihedral plus bit-complement orbit classification.
+PASS
 
-`verify_pruning.py` starts with a separately entered twenty-edge list, calculates successor bits from signed neighbor majorities, removes all nonperiodic states by iterative indegree-zero pruning, and then labels the reverse-pruned states by recurrent cycle and depth. Its assertions also check the sharp identities \(F^9=F^7\) and \(F^8\ne F^6\). No sampling, stochastic approximations or external data are involved.
+Independent exact census: construct the 11 neighbors lists for mu(C5), add the incumbent as an extra voter exactly at even-degree vertices (equivalent to tie retention), and evaluate strict odd-input majority simultaneously on all 2048 bitmasks. Seed the recurrent set by F(F(x))=x. Grow its inverse images one full breadth layer at a time, inheriting the least mask of the target orbit; since this exhausts every state by layer 7, no longer cycle can exist. The fixed/oscillating entry pairs for t=0,...,7 are (22,70),(262,130),(594,10),(290,0),(280,0),(230,0),(130,0),(30,0). The 30 last-layer masks lead only to unanimity. For example 107 -> 663 -> 363 -> 1687 -> 1003 -> 1695 -> 1023 -> 2047, then fixed. Basin counting gives the seven stated rows, including two unanimous basins of 884 (221/256 of all starting states). All twenty dihedral/complement maps commute with the full computed map and canonicalizing both phases under them gives precisely one symmetry class per basin row. This verifies the sharp identities and complete labelled/symmetry census without presupposing the clock or a period bound.
 
-This procedure proves the stated claim only on the specified 11-vertex graph; the absence of an external independent review remains a limitation.
+## originality
+
+PASS
+
+The supported contribution is the exact Grötzsch-specific entry and attraction-basin census, including its symmetry classes, not the general period restriction. The strongest distinct indexed matches share the rule on another graph or the graph under a different rule. Neither covers the census.
+
+## value
+
+PASS
+
+The Grötzsch graph is the canonical pentagon Mycielski lift, a small triangle-free four-chromatic test graph. The general period constraint says nothing about the likelihood of unanimity, the exceptional attraction of nontrivial fixed points and oscillations, or the exact maximal transient. The seven-row labelled and symmetry classification gives these quantitative baselines for the standard deterministic process: unanimity dominates, and all sharp-depth trajectories reach it, despite 55 other recurrent orbits. This is useful as an exact benchmark on a motivated, structurally asymmetric graph, not a claim of a general convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

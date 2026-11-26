@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:22:55.501668Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–80",
+        "VERIFICATION.md lines 19–21",
+        "verify.py lines 12–84"
+      ],
+      "rationale": "The conditional path is a finite Gaussian mean plus an independent centered residual. Integrating its second moment gives the stated conditional estimator, and the Gaussian quadratic form variance is twice the squared Hilbert–Schmidt norm of the restricted Gram matrix. The total energy variance is 2∫∫min(s,t)² ds dt=1/3. Legendre orthogonality applied to the antiderivative formula, including f₀=t separately, gives the two parity chains and extra 0–1 edge. Compressing the sorted indices of each parity can only move each vertex to a larger diagonal weight and each existing chain edge to an earlier edge; consecutively selected vertices supporting any old edge remain consecutive. The 0–1 edge is never lost. The compressed score is a sum of strictly decreasing per-index rewards and a bonus attained by the prefix whenever m≥2. Strictness therefore proves uniqueness for every m, including m=1. The omitted diagonal and edge squares give precisely the two tails starting at m and m−2. The displayed partial fractions telescope to two boundary inverse squares plus a difference of reciprocals; restoring the two boundary edges gives the rational form and 1/(64m³). The Volterra Gram operator has cosine eigenfunctions with u′(0)=0 and u(1)=0; the Ritz values in any sensing subspace are bounded termwise by its eigenvalues. Equality is attained by the top eigenspace, whereas the polynomial span has a strictly smaller leading Ritz value because it does not contain the simple leading eigenfunction. The KL tail integral comparison and the risk ratio follow. Independently used exact polynomial recurrence, multiplication and integration for squared Gram entries through degree 8, enumerated all subsets of 0–8 for budgets 1–4, and checked prefix risks through m=6 (including 7/900 and 4/3675). The frozen verify.py was inspected, not run.",
+      "residual_risks": [
+        "The bounded independent computations do not prove optimality over the infinite bank; the compression and spectral arguments do. The unrestricted benchmark is deterministic noiseless Gaussian linear sensing, not adaptive or nonlinear measurements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuznetsov's multiple-Fourier mean-square formula and double-integral discussion supply general machinery for errors of prescribed expansions.",
+          "Grebenkov varies the matrix of a quadratic statistic with a fixed mean.",
+          "Dickinson's abstract describes approximation of a second iterated integral of two-dimensional Wiener motion; the full theorem was not recovered."
+        ],
+        "reasoning": "A formula for the error of a given expansion does not order every allowed coordinate subset. Optimizing the statistic itself is not conditioning a fixed path energy on selected observations. The abstract's two-dimensional iterated-integral target is not direct coverage of scalar energy, and it is not sufficient to rule out a broader full-text theorem. Standard projection/min-max covers the unrestricted baseline method, not the coordinate-bank efficiency cost.",
+        "searches": [
+          "arXiv:1801.01079, Theorem 2 and §4.2",
+          "arXiv:1307.0185, quadratic forms for non-centered Gaussian processes",
+          "Dickinson DOI:10.1080/07362990701540592, finite Gaussian information for second iterated integrals"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1904.06998",
+        "arXiv:1801.01079",
+        "arXiv:1307.0185",
+        "Dickinson DOI:10.1080/07362990701540592 abstract only",
+        "Resultary 24c538a32a15, 61a1a6b86a00, and 5b6200720fdd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest identified direct moment overlap is for W₁,H₁. Weighted path approximation and multiple-Fourier truncation calculus use a different objective or give the score for specified retained terms, not the arbitrary bank optimizer.",
+          "The selected-coordinate objective here is the squared compressed Gram norm and includes cross-coordinate rewards."
+        ],
+        "reasoning": "Selecting modes for a quadratic functional is not equivalent to minimizing a linear reconstruction error for the path: the former involves squared Gram entries with edges that contribute only when both endpoints are observed. It takes the strictly decreasing parity compression and the tail sum to obtain unique selection and its risk ratio; the KL denominator alone is a classical spectral deduction.",
+        "searches": [
+          "Foster–Lyons–Oberhauser arXiv:1904.06998, polynomial approximation and §3 conditional moments",
+          "Kuznetsov arXiv:1801.01079, Theorem 2 and §4.2",
+          "Resultary 24c538a32a15 and 61a1a6b86a00, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Foster–Lyons–Oberhauser give the conditional quadratic polynomial in W₁,H₁ with the residual conditional variance in (3.6). The first two coordinates here are Z₀=W₁ and Z₁=−2√3 H₁.",
+          "The distinct same-day two-time entry observes B(a),B(b); the one-bit entry observes a quantized snapshot."
+        ],
+        "reasoning": "The bridge-area coordinate differs only by a nonzero factor, so the two-coordinate estimator and averaged risk are genuinely the same. Point values are Wiener integrals against indicators; two such indicators span a very different bank from low-degree polynomials, and one bit is not a linear Gaussian coefficient. The exact assigned catalogue hit is a self-match; no order is assigned to distinct same-day hits.",
+        "searches": [
+          "Resultary: optimal Legendre subset Wiener integrals Brownian quadratic path energy",
+          "arXiv:1904.06998, §3, Theorems 3.7 and 3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known m=2 prefix risk 7/900 follows from the explicit conditional variance under W₁,H₁.",
+          "The exact two-point design reports risk ≈0.0196585 at ≈(0.5184446,0.8523345); these are exact-design data for a different class. The one-bit and bridge designs likewise optimize different observations or processes."
+        ],
+        "reasoning": "Credit the exact m=2 prefix risk even if reported as conditional moments, not a table. The two-time and one-bit data do not tabulate Legendre bank risks or the KL ratio, and the assigned indexed record is not an independent exact source.",
+        "searches": [
+          "Resultary: Brownian quadratic path energy exact observation risks and optimal Legendre information",
+          "arXiv:1904.06998, Theorems 3.7, 3.10 and (3.6)",
+          "2026/11/22/SCOPE-unique-two-time-observation-design-for-brownian-quadratic-path-e--24c538a32a15"
+        ]
+      },
+      "rationale": "Pass for strict arbitrary-subset Legendre prefix optimality at all budgets and its exact risk and quantified ratio to the classical optimal-linear benchmark. Foster–Lyons–Oberhauser already give the exact two-coordinate conditional estimator and conditional-variance formula, so averaging the latter yields the same m=2 prefix risk, not a new isolated result. The KL machinery and generalized Fourier error calculus are also credited. The strongest distinct same-day records share the functional or nearby covariance but use point samples or a quantized observation, not the stated coordinate-bank design. No inspected stronger theorem yields the all-budget ordered-subset result.",
+      "residual_risks": [
+        "The catalogue lookups were bounded semantic searches. Dickinson's full text and possible broader information-based-complexity results were not established; the abstract and failed retrieval are not proof of noncoverage.",
+        "No historical originality is credited for the m=2 conditional moments, the general Fourier error apparatus, or the classical KL calculation in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for two-coordinate conditional estimator and risk; not the inspected all-subsets result",
+          "evidence": "E[Q|W₁,H₁]=W₁²/3+W₁H₁+6H₁²/5+1/15; Z₁=−2√3H₁, and averaging the variance formula gives 7/900.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.06998",
+          "material_read": "§3, Theorem 3.7 p. 16 offset ≈59600, Theorem 3.10 and (3.6) pp. 17–18 offsets ≈63700 and 67400",
+          "method": "OA primary PDF; normalization and conditional-variance comparison",
+          "title": "An Optimal Polynomial Approximation of Brownian Motion",
+          "trigger": "Same polynomial observations and same Brownian quadratic-energy conditional moments"
+        },
+        {
+          "assessment": "Calculation machinery; not arbitrary subset optimality",
+          "evidence": "Error is computed from generalized multiple Fourier coefficients; double-integral application does not compare every observation subset for this energy.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.01079",
+          "material_read": "Theorem 2 p. 7 offset ≈35800, §4.2 p. 17 offset ≈82400",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Exact Calculation of the Mean-Square Error in the Method of Expansion of Iterated Ito Stochastic Integrals Based on Generalized Multiple Fourier Series",
+          "trigger": "Broader exact Fourier-error formula and Legendre double-integral case"
+        },
+        {
+          "assessment": "Different optimization variable and constraint",
+          "evidence": "Minimizes variance of the chosen quadratic statistic by changing its matrix under fixed mean.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.0185",
+          "material_read": "PDF p. 1, offset ≈850",
+          "method": "OA primary text",
+          "title": "Optimal and Sub-optimal Quadratic Forms for Non-centered Gaussian Processes",
+          "trigger": "Potential broader Gaussian quadratic optimization result"
+        },
+        {
+          "assessment": "Abstract states a different target; broader full-text coverage unresolved",
+          "evidence": "Finite Gaussian information for an iterated integral of two-dimensional Wiener motion; full-text route returned 403.",
+          "identifier_or_url": "https://doi.org/10.1080/07362990701540592",
+          "material_read": "Accessible abstract snippet; no full theorem recovered",
+          "method": "Literature lookup and lawful OA publisher attempt",
+          "title": "Optimal Approximation of the Second Iterated Integral of Brownian Motion",
+          "trigger": "Possible stronger optimal Gaussian-information theorem"
+        },
+        {
+          "assessment": "Same Q; two point observations, not a Legendre-bank or unrestricted linear design",
+          "evidence": "Optimizes (B(a),B(b)), with a unique numerical design and risk ≈0.0196585.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-two-time-observation-design-for-brownian-quadratic-path-e--24c538a32a15",
+          "material_read": "Local mirror RESULT.md Finding from offset 76",
+          "method": "Resultary lookup and mirror passage",
+          "title": "Unique two-time observation design for Brownian quadratic path energy",
+          "trigger": "Distinct same-day result for the same functional and exact Bayes risk"
+        },
+        {
+          "assessment": "Nonlinear quantized snapshot, not the same information",
+          "evidence": "Optimizes one-bit encoding of one snapshot at t=3/4.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-one-bit-magnitude-sensing-of-brownian-quadratic-path-ene--61a1a6b86a00",
+          "material_read": "Local mirror RESULT.md Finding from offset 74",
+          "method": "Resultary lookup and mirror passage",
+          "title": "Optimal one-bit magnitude sensing of Brownian quadratic path energy",
+          "trigger": "Distinct same-day sensing result for the same Q"
+        },
+        {
+          "assessment": "Different covariance process and measurement family",
+          "evidence": "Brownian bridge rather than standard Brownian motion; observes point values.",
+          "identifier_or_url": "2026/11/22/SCOPE-globally-optimal-two-point-observation-of-brownian-bridge-quadra--5b6200720fdd",
+          "material_read": "Local mirror RESULT.md Finding from offset 81",
+          "method": "Resultary lookup and mirror passage",
+          "title": "Globally optimal two-point observation of Brownian bridge quadratic energy",
+          "trigger": "Distinct same-day quadratic-energy observation design on a nearby Gaussian process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof §§2–5",
+        "Foster–Lyons–Oberhauser arXiv:1904.06998, §3"
+      ],
+      "rationale": "The Legendre bank is a standard structured source of exact Gaussian measurements. It is not automatic that its earliest coordinates optimize estimation of a nonlinear quadratic payoff, because capturing one of a pair without its partner loses the corresponding interaction. The theorem solves this allocation problem at every budget, gives exact risks, and measures the persistent factor of about 2.28 against optimal unrestricted linear information despite sharing the same decay exponent. This comparison is useful for choosing between a fixed polynomial bank and more flexible sensing.",
+      "residual_risks": [
+        "Does not establish analogous prefix optimality for other Gaussian processes, noisy data, or other nonlinear payoffs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review: conductor of an ordinary Nash blowup
+# Independent mathematical audit
 
-**Correctness (PASS).** The Nash ideal is the Jacobian ideal \((x,y)\) precisely because the characteristic divides \(2m\). The two explicit blowup charts are domains. Adjoining the rational function \(z^m/x\) on one chart (and its symmetric partner) gives a finite birational extension to a normal \(A_{m-1}\) hypersurface ring. The conductor is exactly \(xS_x=(x,z^m)R_x\), since reduction modulo \(xS_x\) yields an even-polynomial subring with zero conductor in the rank-two polynomial extension. The gluing yields a degree-two exceptional morphism, inseparable only in characteristic two. The finite verifier corroborates the semigroup conductor description for sixteen values of \(m\); correctness for all \(m\) rests on the general proof.
+## correctness
 
-**Originality (PASS, qualified).** The main 2022 prime-characteristic toric Nash theorem identifies the appropriate Jacobian-type ideal and studies normalized fans, not the explicit nonnormal conductor and induced exceptional double cover. The earlier Atanasov--Lopez--Perry--Proudfoot--Thaddeus analysis treats normalized modifications and general quotient singularity charts, but its general structural results do not themselves assert this conductor formula. Existing combinatorial Nash results might enable the computation in hindsight; an earlier detailed calculation or unpublished note could eliminate priority. Mathematical-record searches for the same family, conductor, inseparable map and equivalent normalization presentations found only non-dominating normalization results on different objects.
+PASS
 
-**Value (PASS).** For this standard family of rational double points, normalization loses a codimension-one defect: the entire exceptional curve is the nonnormal locus, its conductor has an exact variable nilpotent thickness, and the induced map changes from separable to purely inseparable with the characteristic. These are natural geometric invariants of an operation whose normalized fan is characteristic-independent in dimension two. The explicit conductor and exceptional-cover geometry are the mathematical point; the known normalized singularity types alone would not meet the value standard.
+In characteristic dividing 2m the Gauss-map ideal is (x,y), so the actual x-chart is the subring adjoining y/x in the fraction field, with domain presentation x²t=z^(2m), not an unsaturated chart. Adjoining w=z^m/x is finite (w²=t), birational, and normal by the hypersurface S2 property and the Jacobian R1 check, including when the z derivative vanishes identically. The y-chart is symmetric and ww'=1 on the overlap. To check the conductor independently, use x=u^m, z=uv, w=v^m, t=v^(2m). The normalized monoid consists of (a,b)≥0 with a≡b mod m. The raw monoid contains all such pairs with a≥m, and for a<m it contains exactly those with b−a a nonnegative even multiple of m. Thus adding (0,m) to a raw monomial of a<m moves it outside, while the pairs with a≥m are precisely x times the normalized monoid. Linear independence of monomials gives the same criterion for sums. The two conductor quotients are k[z,t]/(z^m) and k[z,w]/(z^m), giving thickness m and including the reduced case m=1. Reducing gives t=w², with degree two, separable and ramified only at zero/infinity in odd characteristic, and radicial and purely inseparable in characteristic two. The normalized chart origins are distinct, are smooth for m=1, and have the stated A_(m−1) equations otherwise.
 
-**Closest sources and limits.** Duarte--Jeffries--Núñez-Betancourt, arXiv:2208.05599, full text sections 1--2; Atanasov et al., arXiv:0910.5028, toric surface calculations; Duarte, arXiv:1110.4346, abstract and publication metadata; Duarte--Snoussi, arXiv:2410.15561, abstract and publication metadata. The last two were not fully inspected, leaving a nonzero historical-priority risk. The conclusion is confined to characteristic dividing \(2m\). Finite checks are not a universal proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary Nash ideal and methods for the normalized fan are known. The supported distinction is the unnormalized conductor on the full exceptional curve together with its exact thickness and characteristic-dependent reduced normalization map. No inspected source already gives or subsumes that calculation for the even-exponent family; this does not establish historical priority.
+
+## value
+
+PASS
+
+The exact conductor is a natural scheme invariant for a standard family and measures what is lost when the Nash blowup is normalized. The result identifies a codimension-one defect globally, determines its variable thickness and shows that the reduced normalization map changes separability. The normalized chart computation alone would not explain these distinctions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

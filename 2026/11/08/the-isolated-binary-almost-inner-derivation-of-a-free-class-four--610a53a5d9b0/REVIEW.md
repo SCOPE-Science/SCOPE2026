@@ -1,11 +1,21 @@
-# Review of the binary almost-inner exception
+# Independent mathematical audit
 
-**Correctness — PASS.** The graded eight-dimensional Lie bracket has center spanned by the three degree-four vectors. Every almost-inner map becomes central after an inner adjustment because the five-dimensional class-three quotient has only inner almost-inner derivations; the latter fact is proved directly using its Heisenberg quotient and the value at the sum of generators. Every central map is a derivation. Its pointwise membership condition reduces to one exact determinantal equation, which is one constraint over the two-element field and two independent constraints over any larger field. The standalone verifier checks the Jacobi identity, central derivation identities, the central almost-inner census over fields of sizes two, three and four, and all algebra elements over the two-element field.
+## correctness
 
-**Originality — PASS relative to searched evidence.** Burde–Dekimpe–Verbeke (2017), Proposition 6.3, is about infinite fields; its polynomial-vanishing step explicitly requires infinitely many field elements. Their 2019 sequel proves the corresponding free-nilpotent statement in characteristic zero. Kunyavskii–Ostapenko (2022) and Dietrich–de Graaf (2024) discuss the invariant and distinct examples, but their inspected arguments do not contain the present free class-four binary calculation. Research-index searches for the binary class-four quotient and its aliases, along with a deduplication comparison against accessible prior claims, did not identify coverage. Search non-detection is not proof of priority. Uninspected specialized literature remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** The theorem gives the first nilpotency-class exception in a canonical free Lie-algebra series and identifies a sharp change between \(\mathbb F_2\) and \(\mathbb F_4\), rather than merely between characteristics. This gives a concrete boundary to a known rigidity theorem whose proof uses an infinitude hypothesis, and determines the full quotient dimension and exact derivation counts. Such almost-inner quotients are established Lie-algebra invariants linked to local-global phenomena.
+The displayed bracket realizes the free quotient: up to degree four, alternating brackets and Jacobi give spanning lists of lengths 2,1,2,3, with [u,y]=[v,x] the degree-four relation; the displayed eight-dimensional algebra realizes those dimensions (Jacobi in the only nontrivial distinct-generator triple uses that relation). The derived ideal is abelian, and the degree-four part is exactly the center. In the class-three quotient, after removing a lifted Heisenberg inner derivation a central almost-inner map sends x to lambda u and y to mu v. Its value at x+y has to be on the u+v line, so lambda=mu and the class-three map was inner. Lifting an inner adjustment leaves a central derivation on the original algebra killing its derived ideal. For a pure generator direction alpha x+beta y, its central commutator slice is the span of alpha a+beta b and alpha b+beta c; lower-degree brackets cannot add central directions by cancellation. The same span remains available after adding any derived-ideal vector, because the two bracket witnesses u,v commute with that ideal. For images (pa+hb,rb+sc), the membership determinant is alpha beta times alpha(s-h)+beta(p-r). The two axis cases are automatic. Two different nonzero scalars force s=h and p=r, precisely the central inner maps. In F2 only one equation remains, allowing the stated noninner representative. The center gives inner dimension five. An independent F2 replay enumerated every allowable pair of generator images, extended by the derivation identities, checked all basis pairs and all 256 pointwise conditions, and found 64 almost-inner maps, precisely 32 inner.
 
-**Limitations.** The theorem is restricted to this specific free class-four series member, not an all-class classification. The program tests only three finite fields, whereas the general proof is symbolic. Publication priority remains provisional until additional specialist comparison; no independent mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the sharp field-size dichotomy in the specified free class-four algebra, including the binary witness and rigidity at every other finite field. Infinite-field rigidity, known non-inner almost-inner derivations, and field-extension effects in other algebras are credited, not claimed as new.
+
+## value
+
+PASS
+
+This is the first possible class in the canonical two-generator free series where the known rigidity statement can fail over F2. The explicit obstruction distinguishes field cardinality from characteristic, gives an exact local-versus-global witness over the smallest field, and identifies precisely when field extension removes it in this example. That is a motivated boundary of a known theorem, not a census of an arbitrary small algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:44:51.815359Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit simplex is invariant, i remains positive, and s and d are positive at every positive time even for admissible boundary data (at s=0 the derivative is m; with s,i>0 the source for d is positive). The bound i'<=-mi² and scalar comparison for d imply convergence to (s,i,d)=(1,0,0). If the integral of d were finite, solving the first equation for i would give i~1/(mt), whereas d'+md>=asi with s tending to 1 would force an unbounded integral on the right. Direct independent differentiation gives, for r=i/d² and dτ=d dt, r_τ=r[(m-k)-r(2as+(2k-m)d)] and (log d)_τ=-m+r[as+(k-m)d], equivalent to RESULT.md (2)–(3). The quadratic coefficient tends to 2a. Thus for k<m, logistic comparison gives r→(m-k)/(2a); for k=m the reciprocal of r has slope tending to 2a in τ. The d equation then yields the stated limits of td and, in the marginal case, τ~(log t)/m, giving the exact physical-time infected constants. For k>m the exponentially decaying r makes both logarithmic corrections integrable, yielding positive finite limits R=lim r e^{(k-m)τ} and D=lim d e^{mτ}, and t~e^{mτ}/(mD). For example, starting the clock at zero with fixed d(0)>0 gives R<=i(0)/d(0)² and D>=d(0), so the positive physical-time amplitude is at most m^(-p)i(0)d(0)^(-p) for p=1+k/m; hence it cannot be universal. The checks are analytic and specific to the frozen ODE and its initial-data domain. The supplied verify.py and requirements.txt were inspected but not executed; finite trajectory diagnostics would not establish the limits, and the frozen metadata records no formal verification or expert attestation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The hypergraph SIS Finding gives three discrete-time scalings in a different closure with no denier compartment; the SIRS Finding treats different physical-time power scalings at a pitchfork; the bullying-index Finding has a logarithmic correction but for a different two-variable model.",
+          "A same-date catalogue result on risk–cost feedback concerns exponential convergence in collective-risk dynamics."
+        ],
+        "reasoning": "Neither similar phase terminology nor the occurrence of a logarithm supplies a theorem for the two coupled equations on this surface; an application of a genuinely general ODE theorem would need to establish its hypotheses on these boundary orbits and match the physical clock and coefficients.",
+        "searches": [
+          "Resultary: sharp critical relaxation in hypergraph SIS closures; nonlinear SIRS pitchfork extinction crossover; critical bullying-index relaxation",
+          "doi:10.1140/epjb/s10051-026-01127-0 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1140/epjb/s10051-026-01127-0",
+        "arXiv:2601.19806v1",
+        "Resultary db2f87d88af7",
+        "Resultary c1921b9ff104",
+        "Resultary becd784ce552",
+        "Resultary 238b78f6c336 (Finding, mirror offset 0–2918)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coincidence follows by substitution and is covered. The exact nonlinear-clock reduction uses the model's coupled terms and must be combined with extinction and clock divergence. The scalar logistic and reciprocal equations after that reduction are standard."
+        ],
+        "reasoning": "The global comparison and conversion back to physical time are needed for all admissible initially infected data and for the high-conversion amplitude. Threshold coincidence and standard equilibrium analysis do not furnish those steps or the sharp constants.",
+        "searches": [
+          "arXiv:2601.19806v1 Eqs. (5)–(9), §3.1",
+          "Resultary matched critical relaxation Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crokidakis–Sigaud Eqs. (5)–(7) are exactly the same ODE with alpha=a, beta=eta=mu=m and delta=k.",
+          "Their Eqs. (8)–(9) give the threshold coincidence; §3.1 explicitly says they did not compute critical exponents."
+        ],
+        "reasoning": "A renaming of the parameters or an equilibrium statement is not the asserted physical-time asymptotic. The kinetic-coefficient interpretation also avoids attributing unrestricted microscopic probabilities to the original model.",
+        "searches": [
+          "Crokidakis Sigaud critical exponents (targeted literature search)",
+          "Resultary comparison for coincident social-contagion thresholds and infected/denier decay",
+          "arXiv:2601.19806v1 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original paper supplies a phase-threshold comparison, not an exact table of the sharp infected or denier relaxation laws.",
+          "Resultary exact-form searches surfaced no matching asymptotic trichotomy; closest hits are on distinct systems."
+        ],
+        "reasoning": "No finite sequence database can test a continuum-parameter trajectory limit. Exact duplicates would be formulas or tables of exponents and amplitudes for the same system, not tables of threshold locations.",
+        "searches": [
+          "Resultary searches by low-conversion coefficient, marginal t² log(t) scaling, and high-conversion power",
+          "doi:10.1140/epjb/s10051-026-01127-0 §3.1, Eqs. (8)–(9)"
+        ]
+      },
+      "rationale": "The compartment equations and threshold coincidence are supplied by the original model and receive no novelty credit. Inspection supports the distinct claim of global, sharp relaxation on that coincident surface, particularly the marginal logarithmic law and the positive high-conversion amplitude with variable power.",
+      "residual_risks": [
+        "Bounded search and statement comparison, not priority certification. General nonhyperbolic-ODE asymptotic theorems or unindexed model analyses might provide overlapping methods or conclusions; a comprehensive survey of general ODE results was not performed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and equilibrium thresholds covered; sharp relaxation not given",
+          "evidence": [
+            "Both threshold expressions equal m on beta=eta=mu=m; the article says the authors did not compute critical exponents."
+          ],
+          "identifier_or_url": "https://doi.org/10.1140/epjb/s10051-026-01127-0; https://arxiv.org/html/2601.19806v1",
+          "material_read": "§3.1 Eqs. (5)–(7) in preprint; journal PDF pp. 4 and 7, Eqs. (8)–(9) and concluding discussion of critical exponents",
+          "method": "Lawful open full text, bounded passages",
+          "title": "Nonequilibrium phase transitions in a racism-spreading model with interaction-driven dynamics",
+          "trigger": "Original system and exactly coincident surface"
+        },
+        {
+          "assessment": "Different discrete-time system and scalings",
+          "evidence": [
+            "The laws involve s x_s, sqrt(s) x_s and s^(1/3) x_s, with no denier variable."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-extinction-bistability-and-critical-relaxation-laws-in-ove--db2f87d88af7",
+          "material_read": "Finding, mirror RESULT.md offset 0–4078",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Sharp extinction, bistability, and critical relaxation laws in overlap-reinforced hypergraph SIS closures",
+          "trigger": "Similar multi-regime sharp decay in a contact model"
+        },
+        {
+          "assessment": "Different equations and critical surface",
+          "evidence": [
+            "The t I and t I² relaxation laws are for a nonlinear SIRS pitchfork."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104",
+          "material_read": "Finding, mirror RESULT.md offset 0–4156",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Universal extinction crossover at the pitchfork edge of a nonlinear SIRS model",
+          "trigger": "Physical-time critical extinction crossover"
+        },
+        {
+          "assessment": "Different dynamical system and infected decay claim",
+          "evidence": [
+            "The correction there is to an inverse-time law for a distinct two-variable system."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-logarithmic-critical-relaxation-at-the-bullying-index-thre--becd784ce552",
+          "material_read": "Finding, mirror RESULT.md offset 0–4329",
+          "method": "Local Resultary mirror, bounded passage",
+          "title": "Sharp logarithmic critical relaxation at the bullying-index threshold",
+          "trigger": "Potential equivalent marginal logarithmic correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical surface is determined by coincident transitions in a published dynamical model, not an arbitrary parameter slice. It supports distinct long-time laws even though the limiting state is the same. The quantitative borderline between universal quadratic relaxation and an initial-data-dependent power law is scientifically useful; the theorem does not extrapolate to stochastic networks or claim empirical validity of the compartments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

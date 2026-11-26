@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:57:48.408031Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The identity fgf=f is equivalent to an equivariant right inverse on f(X), extended by the identity on its invariant complement. On each image orbit such a section must map onto a whole source orbit, and be injective there, so the witness is exactly a same-type source isomorphism. Conversely the inverses of independent such isomorphisms define the section. For a selected target support, each type-i source has b_i choices by evaluation at a stabilizer representative; hitting every selected type-i target with a type-i source is both necessary for regularity and sufficient to realize exactly the chosen support. Removing u selected same-type targets eliminates exactly u a_ii choices per type-i source. Inclusion–exclusion, independence by type and labelling of target orbits give the stated polynomial with point-cardinality exponent; the empty support contributes zero for nonempty X. For the monoid criterion, any image without a same-type preimage must have a strict incoming arrow. If its type is a singleton with no strict outgoing arrow, its sole source must hit itself, a contradiction. In the converse, send one strict-lower orbit to the offending target and send every same-type source either to a single different same-type orbit or, for a singleton type with an outgoing arrow, to another type. Extend by the identity; this is nonregular. All strict type changes strictly increase subgroup order, even for nonnormal H_i. Independent bounded point-map search testing all possible commuting maps and inner inverses (`python /workspace/branches/frozen_replay.py 3`) gives 14/16 and 36/48 in the two stated examples and 19/21 for a three-type C4 chain; these confirm specializations only. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-G-set orbit-map and total-cardinality papers permit arbitrary finite actions but count generators or all maps, not von Neumann regular maps by rank. The located Green test relates kernels, not this rank distribution.",
+          "The explicit full-shift regularity criterion in arXiv:1701.02692 Thm. 1 concerns realization as A^G, even though it allows infinite groups in that framework. It is not an arbitrary finite-action criterion. The projective-acts source was access-limited at theorem level; projective group acts are free and do not include arbitrary mixtures of stabilizers."
+        ],
+        "reasoning": "Breadth of the group or of the object class alone does not dominate the asserted invariant or conclusion. Neither the prior total count nor the full-shift criterion gives the filtered table-of-marks census.",
+        "searches": [
+          "arXiv:2203.12158 Thm. 1, Lemma 3, Prop. 4",
+          "arXiv:2503.03772 Thm. 5",
+          "arXiv:2503.14511 Thm. 8",
+          "arXiv:1701.02692 Thms. 1–3",
+          "Bulman-Fleming DOI 10.1112/S0025579300014649"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–66, 68–81; VERIFICATION.md; VERIFY.py",
+        "Konieczny 1999 and 2003 primary texts",
+        "arXiv:1701.02692, 2203.12158, 2503.03772, 2503.14511",
+        "Bulman-Fleming 1995 (access-limited)",
+        "Resultary hits 5c12e7f8630c, 33c828f2883c and eb027f1d3458"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cycle witness and cycle criterion are covered for every finite cyclic action, and their proof strategy generalizes; do not claim these special cases as new. General actions can depend on containment not determined by orbit sizes: for G=(C2)^3, use one orbit of index 4 with order-2 stabilizer H and two orbits of index 2 with order-4 stabilizer K. The same orbit sizes yield a nonregular monoid when H<=K and a regular one otherwise.",
+          "A full-shift splitting test supplies no count for arbitrary selected orbit support. The all-map cardinality product has no forced hit from each equal-type source stratum; that extra condition changes the count and yields the regular rank distribution through weighted inclusion–exclusion."
+        ],
+        "reasoning": "Do not present the arbitrary-action theorem as an independently new cyclic criterion or section lemma. Its general table-of-marks invariant and application to arbitrary stabilizer incidence are not established by the inspected prior statements.",
+        "searches": [
+          "Konieczny 2003 Thms. 3–4 compared with frozen RESULT.md lines 20–26, 38–54",
+          "arXiv:1701.02692 Thm. 3",
+          "arXiv:2503.03772 Thm. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a generator permutation, equivariant self-maps are exactly its total centralizer. Konieczny (2003) Thms. 3–4 are the same single-map and monoid tests in that specialization: the forbidden distinct cycles a,b,c satisfy length(c)|length(b)|length(a) and length(b)<length(a), permitting length(c)=length(b) if c is a different orbit.",
+          "Castillo-Ramirez–Gadouleau Thm. 3 requires for each point y in the image a preimage x with equal actual stabilizer on X=A^G; this is exactly the section test for that action."
+        ],
+        "reasoning": "The forbidden middle cycle has a strict incoming map and another possible target, either equal-length or shorter. This is exactly the singleton-maximal criterion in the reverse divisibility orbit-map order, not just similar notation. The partial-map 1999 analogue differs genuinely.",
+        "searches": [
+          "Konieczny, regular centralizers of permutations in the full transformation semigroup",
+          "von Neumann regular cellular automata, G-set stabilizer preimage",
+          "arXiv:2503.14511 Green relations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit 5c12e7f8630c is the submitted record itself. Distinct hit 33c828f2883c gives a rank polynomial by linear dimension for permutation evolution algebras, using same-length witnesses and inclusion–exclusion; it is not the finite-G-set census. Distinct hit eb027f1d3458 uses table-of-marks data for pointed nilpotent endomorphisms, not regular ones."
+        ],
+        "reasoning": "The first distinct record has an analogous method and some permutation structure but different maps, rank and regularity criterion; the second concerns the same action category but a different class of endomorphisms. The shared index date does not establish priority.",
+        "searches": [
+          "Resultary: regular equivariant endomorphisms, exact rank census and monoid criterion"
+        ]
+      },
+      "rationale": "Pass for the table-of-marks image-cardinality census and the all-elements criterion on arbitrary finite G-sets, not for the section test in isolation or the finite cyclic and full-shift special cases. Konieczny (2003) explicitly has the same total-map all-regularity criterion in cycle language for cyclic actions, a stronger overlap than the 1999 partial-map analogy. Castillo-Ramirez–Gadouleau explicitly give the section criterion for finite full shifts. Those antecedents should be cited when describing the scope of originality. Neither inspected theorem supplies the rank census, and the cycle condition cannot distinguish incomparable stabilizers of the same sizes in general.",
+      "residual_risks": [
+        "Broader unlocated section or monoid criteria may exist in literature on acts or related transformation semigroups. The 1995 projective-acts theorem was not available for clause-level comparison. Established cyclic and full-shift overlaps already restrict any priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrated equivalent coverage for both criteria on cyclic actions; not the rank polynomial or general orbit incidence.",
+          "evidence": "Thm. 3 requires a same-length preimage for every image cycle; Thm. 4 excludes three distinct cycles with c|b|a in lengths and b strictly shorter than a.",
+          "identifier_or_url": "https://www.dml.cz/manakin/bitstream/handle/10338.dmlcz/134038/MathBohem_128-2003-2_6.pdf",
+          "material_read": "Mathematica Bohemica 128 (2003), pp. 181–182, Thms. 3–4 and proofs, OA offset 5180",
+          "method": "OA PDF bounded retrieval",
+          "title": "Regular, inverse, and completely regular centralizers of permutations",
+          "trigger": "Exact total cyclic-action specialization"
+        },
+        {
+          "assessment": "Exact section criterion in a special class and matching all-regularity consequence there, not the arbitrary finite-action rank count.",
+          "evidence": "Thm. 3 states the equal-stabilizer preimage property for total equivariant maps on finite A^G and constructs an inverse orbitwise. Thm. 1 gives whole full-shift monoid regularity iff |G|=1 or |A|=1.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.02692",
+          "material_read": "Thm. 3 and proof with Thm. 2 (offset 17500); Thm. 1 statement near offset 14086",
+          "method": "OA PDF literal locator and bounded passage",
+          "title": "Von Neumann Regular Cellular Automata",
+          "trigger": "Finite full-shift actions and possible exact regularity characterization"
+        },
+        {
+          "assessment": "Closest older partial-map case, with an all-regularity condition that does not extend verbatim to total maps.",
+          "evidence": "Same-length cycles for each image cycle; in the partial centralizer any pair of distinct properly comparable cycle lengths obstructs regularity, not so with total maps.",
+          "identifier_or_url": "10.1017/S0017089599970301",
+          "material_read": "Introduction; Lemma 4.1 pp. 52, offset 28500; Thm. 4.2 p. 53, offset 30660",
+          "method": "OA PDF bounded passages",
+          "title": "Green’s Relations and Regularity in Centralizers of Permutations",
+          "trigger": "Earlier partial permutation-centralizer analogue"
+        },
+        {
+          "assessment": "Prior orbit-map structure and generating rank, different counting invariant.",
+          "evidence": "Stabilizer containment gives permissible targets; relative generating rank modulo units does not count regular elements.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12158",
+          "material_read": "Thm. 1 p. 2 (offset 4500), Lemma 3 and Prop. 4 pp. 5–6 (offset 10974)",
+          "method": "OA PDF bounded passages",
+          "title": "The relative rank of the endomorphism monoid of a finite G-set",
+          "trigger": "Same ambient finite-action monoid and orbit-map criterion"
+        },
+        {
+          "assessment": "Unfiltered endomorphism count, not regular rank census.",
+          "evidence": "The product counts all independent orbit maps without a condition on same-type witnesses.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.03772",
+          "material_read": "Abstract and Thm. 5, p. 6 (offset 11950)",
+          "method": "OA PDF bounded passage",
+          "title": "Cardinalities in finite monoids of G-equivariant functions",
+          "trigger": "Potential exact counting precedent"
+        },
+        {
+          "assessment": "Related Green-relation result; inspected statement is not a census or all-elements test.",
+          "evidence": "Thm. 8 characterizes the specified Green relation by equal kernels.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.14511",
+          "material_read": "Abstract and Thm. 8 p. 7 (offset 14598)",
+          "method": "OA PDF bounded passages",
+          "title": "Green relations over finite monoids of G-equivariant functions",
+          "trigger": "Prior finite G-set semigroup structure possibly implying a regularity classification"
+        },
+        {
+          "assessment": "Access-limited; no conclusion of noncoverage from failed retrieval.",
+          "evidence": "Topic expressly concerns projective acts; no verified relevant theorem passage.",
+          "identifier_or_url": "10.1112/S0025579300014649",
+          "material_read": "Bibliographic title and citations; theorem text not recovered",
+          "method": "Lawful DOI retrieval and bibliography comparison",
+          "title": "Regularity and products of idempotents in endomorphism monoids of projective acts",
+          "trigger": "Older possible broad act regularity precedent"
+        },
+        {
+          "assessment": "Strong counting-method analogue only.",
+          "evidence": "Linear dimension, permutation evolution algebra maps and divisibility-antichain criterion differ from the target finite-G-set invariants.",
+          "identifier_or_url": "2026/11/22/SCOPE-field-arithmetic-retraction-and-regularity-spectra-of-permutatio--33c828f2883c",
+          "material_read": "Mirror Finding offset 0; Proof §§3–4 offset 4800",
+          "method": "Local Resultary and bounded mirror passages",
+          "title": "Field-arithmetic retraction and regularity spectra of permutation evolution algebras",
+          "trigger": "Similar regular-rank polynomial in catalogue"
+        },
+        {
+          "assessment": "Different class of maps and invariant.",
+          "evidence": "Counts pointed nilpotents and recovers mark information; does not impose an equivariant section onto image or give the regular rank census.",
+          "identifier_or_url": "2026/11/22/SCOPE-nilpotent-equivariant-endomorphisms-an-orbit-type-forest-product--eb027f1d3458",
+          "material_read": "Mirror Finding offset 0",
+          "method": "Local Resultary and bounded mirror passage",
+          "title": "Nilpotent equivariant endomorphisms: an orbit-type forest product",
+          "trigger": "Same finite G-set and table-of-marks data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the point-rank distribution of regular elements from aggregate orbit data makes a semigroup invariant accessible without enumerating inner inverses. The criterion explains precisely how comparable stabilizer types and duplicate targets can obstruct a whole monoid's regularity, including cases not distinguished by the list of orbit sizes. The table-of-marks census provides value beyond a restatement of the section criterion or the known permutation centralizer test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

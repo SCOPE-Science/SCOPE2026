@@ -1,23 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses only finite-dimensional real Euclidean linear algebra, the chain identity \(B_1B_2=0\), and exact positive-parameter inequalities. Orthogonality of the lower- and upper-incidence singular spaces gives a complete block reduction. The two-by-two largest-singular-value identity is derived from the characteristic polynomial of \(T^\top T\), not inferred from examples. It yields the exact whole-matrix norm because the maximal singular mode is attained. Convexity, the strict boundary comparison, and the strictly monotone coupling constant give the sharp stepsize and metric-budget statements. The exact Euler eigenvalues separately prove the Schur interval. An independently executable numerical checker exercises full incidence matrices, including the filled-triangle witness; finite testing is not substituted for the universal proof.
+PASS
 
-## Originality — PASS, with bounded search uncertainty
+Reconstructed all formulas. B1B2=0 makes im(B1ᵀ) and im(B2) orthogonal; after similarity by P_r^{1/2}, the nonzero singular modes give two-by-two blocks with a=1−νh on the diagonal and off-diagonal magnitudes b=hσγ0√r, c=hσγ1/√r. Trace and determinant give the larger singular value (b+c)/2+sqrt(a²+(b−c)²/4). It increases with σ and dominates the kernel norm, so σ=s yields (1). Its right derivative at h=0 is C_r−ν; convexity precludes contraction when this is nonnegative. Otherwise squaring the contraction inequality yields (2), with the proposed endpoint below 1/C_r by (ν−C_r)²+D_r²>0. With Q=ν²+D_r², set x=Qh−ν; stationarity gives x=−C_rD_r/sqrt(Q−C_r²), on the correct branch, and substitution gives (3). The symmetric case D_r=0 has the unique kink minimizer 1/ν. For every h>0 the norm is strictly increasing with C_r at fixed p, so minimizing the scalar function γ0√r+γ1/√r on the exact condition-budget interval gives the unique clip rule. Solving the quadratic in K^{1/4} gives the strict root threshold before symmetrization, including equality at the Euclidean boundary. The eigenvalue endpoints 1−h(ν±p) establish Schur stability independently, and similarity yields the √K transient bound. The triangle calculations give the stated threshold 256/9 and optimum constants at budget 81.
 
-Rodríguez-Camargo, Urquijo-Rodríguez, and Mojica-Nava, arXiv:2610.22628v1 (October 15, 2026), Sections 4.1–4.3, establish the directional Dirac flow's continuous-time spectral threshold and a fully symmetrizing weighted Lyapunov norm. The paper explicitly states the continuous-time unweighted arithmetic-mean restriction, and its experiments use fourth-order Runge–Kutta. It does not give the exact Euler-step singular norm, exact first-order contractivity interval and minimizer, or the optimal *condition-number-constrained* degree weight and its sharp budget threshold. Carletti et al., arXiv:2410.15338, contains the ancestral Hodge and master-stability decomposition for continuous synchronization, not this numerical discretization or optimization frontier. Targeted publication and mathematical-record searches showed no statement implying the complete claim; a comparison was made at the level of conclusions and parameters, not just titles. Generic numerical energy-stability and matrix-scaling results are relevant background, and potential implicit equivalences in that broad literature remain a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For a directionally coupled gradient flow, an asymptotically stable discrete method can increase error in the ordinary Euclidean norm at **every** stepsize. The natural metric that certifies best spectral behavior can itself be poorly conditioned. The exact budget frontier provides a nontrivial engineering and analytical choice: how much norm distortion is needed for guaranteed one-step dissipation, how to select the best finite step under that restriction, and what transient Euclidean prefactor is certified. The filled-triangle example distinguishes a strict contractivity budget greater than \(256/9\) from the full-symmetrization budget \(256\). This is a natural complete classification rather than an arbitrary numerical cutoff or a rephrasing of the continuous-time spectral threshold.
+The fully symmetrizing metric and continuous-time geometric- versus arithmetic-mean criteria are prior. The compared related condition-budget theorems concern different continuous-time operators. The distinct supported statement is the exact finite-step contraction and optimization frontier within the specified degree family, including budgets below complete symmetrization.
 
-## Closest literature and limitations
+## value
 
-- Rodríguez-Camargo et al. (2026), arXiv:2610.22628v1, relevant primary full-text passages inspected, especially Sections 4.1–4.3 and 5.
-- Carletti et al. (2024), arXiv:2410.15338, primary arXiv full text inspected at boundary-operator and singular-mode passages; not read cover-to-cover.
-- Ranocha and Ketcheson (2020), arXiv:1909.13215, and Braatz and Morari (1994), DOI:10.1137/S0363012992238680, general energy-stability and matrix-scaling background; possible unindexed or implicit specialization has not been ruled out.
+PASS
 
-Only exact arithmetic, isotropic quadratic gradients, forward Euler, real chain matrices, and the reciprocal degree-weight family are covered. No independent verification or validation is asserted.
+The frontier quantifies the practically and mathematically distinct regimes of spectral stability, Euclidean one-step contraction, and contraction achieved by a limited metric distortion. It supplies an exact budget and step rule instead of merely exhibiting a fully symmetrizing metric; the triangle has a genuine nonempty gap between the budget for any contraction and that for full symmetrization.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

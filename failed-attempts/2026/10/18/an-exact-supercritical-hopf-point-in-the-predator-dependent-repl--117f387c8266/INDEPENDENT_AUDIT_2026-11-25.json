@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:52.905697Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions, Proof 1–4 and Verification; VERIFICATION.md pp. of body at lines 19–27; verify_supercritical_hopf.py lines 8–86 (inspected, not executed)",
+        "Independent replay: python /workspace/reproductions/hopf_1.py"
+      ],
+      "rationale": "Solving the positive equilibrium equations gives Y=m(x), P=1/delta(x), K=kappa(x); the latter is positive with strictly negative derivative on I. The independently computed characteristic polynomial reproduces Q and its denominator. Exact endpoint signs and a positive interval derivative isolate one root in I; the exact rational endpoint images under decreasing kappa fit strictly inside the stated K bracket. At H=0 the factorization gives a negative real root and a simple imaginary pair. The derivative of the pair's real part with respect to K is about +0.055196937. A fresh outward-rounded enclosure with cross-product kernel vectors, explicit nonzero normalization, and interval elimination gave l1 about -0.545927284511569 (within the stated bounds). The spectral gap, positive crossing and negative coefficient yield locally orbitally attracting positive cycles above K*, with the stated local stability change. No global uniqueness or orbit at K=1.7 follows.",
+      "residual_risks": [
+        "The independent calculation uses SymPy exact algebra and mpmath directed interval arithmetic; it is not a formal library audit or a finite-amplitude existence bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 17 isolates the same Q root and reports uniqueness along the positive branch; September 17 concerns boundary collisions; November 22 has a different parameter witness with beta=1 and K=8."
+        ],
+        "reasoning": "The latter two do not imply this special case, but the November 17 proof establishes the local onset and additionally counts candidate roots on the entire positive branch.",
+        "searches": [
+          "Same indexed November 17 result, proof at offsets 2760–4308",
+          "Resultary 2026/9/17/SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175",
+          "Resultary 2026/11/22/SCOPE-a-supercritical-hopf-threshold-for-periodic-coexistence-in-a-pre--aed3c0deecc8"
+        ]
+      },
+      "checked_sources": [
+        "Cruz–Neves arXiv:2607.13281v1",
+        "Resultary e177a68bad0a, e8d30d2f6175, aed3c0deecc8",
+        "Braga–Wardil citation and supplied author-copy endpoint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cruz–Neves report numerics near K≈1.66 and conjecture the local mechanism; November 17 explicitly proves positive transversality and an attracting positive cycle for K immediately above this same root."
+        ],
+        "reasoning": "The motivating paper leaves a real proof gap, but the distinct indexed result closes precisely that gap. Neither asserts the observed K=1.7 orbit follows from local Hopf alone.",
+        "searches": [
+          "Cruz–Neves arXiv:2607.13281v1, §4.3 and §§7–8",
+          "Resultary e177a68bad0a, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest RESULT.md Finding/Assumptions, offsets 0–2163, uses the same two matrices, beta and equations under renaming p=P, y=Y. Its reported negative l1 uses q1=1; rescaling the independently enclosed q3=1 coefficient by 1/|q1|^2 gives about -5.877089144686556, within its interval."
+        ],
+        "reasoning": "State renaming and amplitude normalization do not change the critical equilibrium, crossing direction or Hopf type.",
+        "searches": [
+          "Resultary: certified supercritical Hopf in predator-dependent replicator flow, Scenario 8 beta=2",
+          "2026/11/17/SCOPE-a-certified-supercritical-hopf-bifurcation-in-the-predator-depen--e177a68bad0a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All nine coefficients of Q and the entire rational denominator match. Its x bracket (0.3381326771974,0.3381326771975) contains the frozen isolator, identifying the same root. The frozen precision is obtained by further rational root isolation."
+        ],
+        "reasoning": "The exact root specification is already indexed; a tighter decimal enclosure does not identify a different point.",
+        "searches": [
+          "Resultary e177a68bad0a, exact integer Hurwitz polynomial Q and K enclosure"
+        ]
+      },
+      "rationale": "The distinct indexed November 17 result covers the same exact algebraic Hopf point and stable positive periodic branch for the identical payoff matrices and vector field. The narrower interval is not a distinct bifurcation theorem. This is equivalent coverage in the available corpus, not a conclusion about derivation or historical priority based on path dates.",
+      "residual_risks": [
+        "Available comparison establishes coverage, not the provenance or priority of the two records. Earlier manuscript coverage is not exhaustively resolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the central finding with a coarser enclosure for the same exact threshold",
+          "evidence": [
+            "Offsets 0–2163 and 2760–4308: polynomial, local cycles, branch-wide count and transversality"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-certified-supercritical-hopf-bifurcation-in-the-predator-depen--e177a68bad0a/RESULT.md",
+          "material_read": "Finding; Assumptions; characteristic polynomial, root bracket, transversality and normalization passages",
+          "method": "Resultary search and bounded local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A certified supercritical Hopf bifurcation in the predator-dependent replicator flow",
+          "trigger": "Same payoffs, model and exact theorem in catalogue"
+        },
+        {
+          "assessment": "Numerical observations and explicit conjecture, not certified Hopf",
+          "evidence": [
+            "beta=2 and matching matrices; numerical trajectory at K=1.7; no proof of periodic-solution claim"
+          ],
+          "identifier_or_url": "arXiv:2607.13281v1",
+          "material_read": "PDF p. 13; §4.3 p. 15; §§7–8 pp. 24–25",
+          "method": "OA PDF passage inspection",
+          "title": "Predator-dependent replicator dynamics or a predator-prey model with two prey types and frequency dependence",
+          "trigger": "Scenario 8 primary motivation"
+        },
+        {
+          "assessment": "Foundational model; direct full-text overlap not resolved",
+          "evidence": [
+            "Cruz–Neves abstract attributes model and sufficient coexistence conditions to Braga–Wardil"
+          ],
+          "identifier_or_url": "J. Phys. A 55 (2022) 025601; ResearchGate 356867039",
+          "material_read": "Author-manuscript full text unavailable; attribution and reference in Cruz–Neves pp. 1–3, 30",
+          "method": "OA direct and VPN author-copy attempts, 403; indirect attribution",
+          "title": "The predator-dependent replicator dynamics",
+          "trigger": "Original model and possible prior stability results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen claim and limitations; Resultary e177a68bad0a; Cruz–Neves §§7–8"
+      ],
+      "rationale": "Proving the specific numerical Hopf conjecture would be worthwhile absent coverage, but the only demonstrated increment over the matching indexed theorem is tighter numerical isolation and a change of coefficient normalization. No mathematical reason requiring those extra digits or a distinct useful conclusion is furnished. There is no supported repair retaining an uncovered valuable theorem.",
+      "residual_risks": [
+        "Not a judgment against the value of the underlying theorem when first established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

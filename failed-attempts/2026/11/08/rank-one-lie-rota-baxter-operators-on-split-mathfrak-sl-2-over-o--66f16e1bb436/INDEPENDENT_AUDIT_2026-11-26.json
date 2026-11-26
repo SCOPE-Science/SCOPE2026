@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:35:54.944624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–50",
+        "VERIFICATION.md lines 18–26",
+        "direct_checks.txt, verify_prime_fields.py, verify_gf9.py inspected without executing",
+        "Independent replay: python3 /workspace/review_checks/rank_one_gf9.py, all functional lines and nonzero images, yielding [1448, 728, 800, 80, 81] for total, self-adjoint, square-zero, overlap, idempotent"
+      ],
+      "rationale": "Writing a nonzero rank-one map as a⊗B(b,−), the left side of the weight-zero identity vanishes and the right side is the wedge of B(b,−) with B(b,[a,−]), times a. Invariance and nondegeneracy make vanishing equivalent to [a,b] in kb. The centralizer of nonscalar b in M2 is span(I,b), whose trace-zero part is kb in odd characteristic; therefore the commuting family is exactly the self-adjoint diagonal. If [a,b]=lambda b with lambda nonzero then invariance gives lambda B(b,b)=0. For such nilpotent b, conjugate its line to kE using a basis adapted to its common image and kernel; its normalizer is the upper-triangular trace-zero plane b-perp. Now R²=B(a,b)R, so precisely that nilpotent incidence family is square-zero. Each line of k² supplies a unique projective nilpotent line (image and kernel that line), giving q+1; the diagonal has q²+q+1 projective points and the nilpotent incidence has (q+1)². Each projective tensor gives q−1 nonzero maps, and their overlap is the conic. Off the conic each diagonal tensor line has a unique idempotent. These counts establish all the formulas, including in characteristic three. Over the algebraic closure, the diagonal and projectivization of the normalizer bundle over the conic are closed irreducible surfaces, neither containing the other; their affine cones meet in the cone over that conic. This is a reduced-variety argument, not a scheme-theoretic assertion.",
+      "residual_risks": [
+        "In the supplied F9 checker, index 6 encodes 2t, not the prime-field 2. Its bracket is equivalent via the basis (E,tF,tH), and its pairing is t⁻¹ times the pullback of the standard trace in that basis, so it checks an isomorphic normalized model, not the literal standard-basis formulas. The separately written replay used 2 in the standard basis. No conclusion is made about higher-rank maps or nilpotent scheme structure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Resultary finding additionally specifies the tangent-incidence surface and counts 2q+1 conjugacy orbits over each odd field with sizes. Pei–Bai–Guo give 22 matrix forms up to scale for all ranks over C."
+        ],
+        "reasoning": "The earlier Resultary theorem is stronger in the relevant arithmetic setting. The older complex all-ranks result covers the complex case but is not by itself sufficient for characteristic-not-two or finite-field conclusions.",
+        "searches": [
+          "Resultary: 2026/11/2/SCOPE-two-component-geometry-and-exact-rational-orbits-of-rank-one-rot--3c49a1a96d5f",
+          "arXiv:1311.0612v1 Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Earlier mirrored Resultary record 3c49a1a96d5f",
+        "Pei–Bai–Guo arXiv:1311.0612v1",
+        "RESULT.md assumptions, proof and prior-work comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier diagonal projective plane, conic tangent incidence and conic intersection give respectively q²+q+1, (q+1)² and q+1 projective points. Multiplication by q−1 gives the three frozen affine component populations. Removing the conic from the diagonal gives q² lines. Their unique idempotent normalization follows from the elementary rank-one square relation."
+        ],
+        "reasoning": "Neither adjoining zero and taking cones, nor counting scalar representatives and normalizing idempotents on the same two projective families, introduces a separate nonmechanical theorem.",
+        "searches": [
+          "Mirrored earlier RESULT.md for 3c49a1a96d5f, offsets 407 and 4107",
+          "Frozen RESULT.md lines 12–27, 39–45"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier finite-field record uses projective rank-one tensors with a diagonal Veronese and tangent incidence to the nilpotent conic; the frozen affine pieces are their nonzero cones. Tangent incidence at kb is given by B(a,b)=0, and R²=B(a,b)R. The prior author's rational orbit census is for conjugation, but its labelled total is separately explicit."
+        ],
+        "reasoning": "This is equality of the classified rank-one loci, not an analogy of Lie algebras or a conflation of labelled counts with conjugacy classes.",
+        "searches": [
+          "Resultary: 2026/11/2/SCOPE-two-component-geometry-and-exact-rational-orbits-of-rank-one-rot--3c49a1a96d5f",
+          "arXiv:1311.0612v1 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier finite-field record explicitly gives (q−1)(2q²+2q+1), identically 2q³−q−1, with an added conjugacy orbit census. The inspected primary complex matrix list is not a finite-field counting table."
+        ],
+        "reasoning": "There is an exact match to the requested infinite arithmetic population, rather than just matching sample primes.",
+        "searches": [
+          "Resultary: 2026/11/2/SCOPE-two-component-geometry-and-exact-rational-orbits-of-rank-one-rot--3c49a1a96d5f, mirrored RESULT.md offsets 407 and 4107",
+          "arXiv:1311.0612v1 §2.1"
+        ]
+      },
+      "rationale": "The earlier November 2 Resultary finding covers the same labelled rank-one count for every odd prime power and the same projectivized two-component geometry. Taking cones is immediate, and the prior tangent-incidence description and diagonal give the finer component populations. On a rank-one tensor line the square multiplier is B(a,b), so outside the conic each diagonal tensor line has exactly one idempotent and all remaining nonzero scalars on the line are nonsquare-zero. Thus the finer populations are mechanically implied even if not written as separate formulas in the inspected passages. The rejection rests on that exact earlier result, not the complex classification or lack of literature access.",
+      "residual_risks": [
+        "The finer families and idempotent formulas were not independently located verbatim in the older record; the overlap assessment for those refinements is by explicit mathematical implication. No global earliest-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior count and projective geometry, with a stronger arithmetic orbit result",
+          "evidence": "Veronese plane and tangent-incidence surface intersect in a smooth conic; labelled total (q−1)(2q²+2q+1), with 2q+1 rational conjugacy orbits.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-component-geometry-and-exact-rational-orbits-of-rank-one-rot--3c49a1a96d5f",
+          "material_read": "Local-mirror RESULT.md at offsets 407 and 4107",
+          "method": "Local Resultary search and bounded mirror inspection",
+          "title": "Two-component geometry and exact rational orbits of rank-one Rota–Baxter operators",
+          "trigger": "Identical Lie algebra, rank, characteristics, and rational population"
+        },
+        {
+          "assessment": "Covers the complex classification, not the stated finite-field count",
+          "evidence": "22 matrix representatives up to nonzero scalar over C.",
+          "identifier_or_url": "https://arxiv.org/abs/1311.0612v1",
+          "material_read": "Abstract, §2.1 Theorem 2.1, p. 4 (PDF text offset 13381)",
+          "method": "OA PDF, bounded theorem passage",
+          "title": "Rota-Baxter operators on sl(2,C) and solutions of the classical Yang-Baxter equation",
+          "trigger": "Full complex classification includes rank one"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Earlier mirrored Resultary record 3c49a1a96d5f"
+      ],
+      "rationale": "A new arithmetic description of the split rank-one locus would be a meaningful classification, but the frozen scientific claims are the earlier exact count and geometry, plus direct counts of the same projective fibers and an elementary scalar normalization. The submission does not supply a distinct case, new invariant, or further structural consequence beyond that stronger available description.",
+      "residual_risks": [
+        "The value judgment is on the frozen claim as a separate finding, not on the utility of the correct proof or of results about higher ranks."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

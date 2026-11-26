@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,52 +18,25 @@
   "schema_version": 1
 }
 ---
-`artifacts/verify.py` uses only the Python standard library.
 
-It realizes
-\[
-\mathbb F_{16}=\mathbb F_2[\beta]/(\beta^4+\beta+1)
-\]
-and verifies that \(\beta\) has order \(15\). The embedded subfield
-\[
-\mathbb F_4=\{0,1,\beta^5,\beta^{10}\}
-\]
-is identified with
-\[
-\{0,1,\omega,\omega^2\}.
-\]
+# Independent mathematical audit
 
-The verifier forms
-\[
-R=\{0,1,2,3,4,5,6,8,9,12\}
-\]
-and rebuilds
-\[
-g(x)=\prod_{i\in R}(x-\beta^i).
-\]
-It checks that all coefficients lie in \(\mathbb F_4\), converts them to the recorded degree-ten generator, verifies divisibility by \(x^{15}-1\), rank \(5\), and Euclidean self-orthogonality.
+## correctness
 
-All
-\[
-4^5=1024
-\]
-codewords are enumerated, giving
-\[
-1+45z^8+210z^9+270z^{11}+210z^{12}+270z^{13}+18z^{15}.
-\]
+PASS
 
-For every
-\[
-1\le r\le5,
-\]
-all \(r\)-dimensional subspaces of \(\mathbb F_4^5\) are generated exactly once in reduced-row-echelon form. The checked counts are
-\[
-341,\ 5797,\ 5797,\ 341,\ 1.
-\]
-For each basis the coordinate support union of its codewords is computed and compared with the complete histogram in `artifacts/certificate.json`.
+For the exact frozen zero set, an independent reproduction formed the ten root factors at a primitive element of F16, verified their coefficients in F4 and checked both cyclicity and Euclidean orthogonality of the five shifted generator rows. Distinct polynomial degrees give rank five. A full-rank generator identifies coefficient subspaces bijectively with subcodes; a coordinate is absent from a subcode precisely when it vanishes on every basis row. The independently written branches/1e887651-99a5-483d-8f22-0c95ba2dfe86/independent_verify.py traversed canonical RREFs in counts 341, 5797, 5797, 341, 1. It recovered all five frozen histograms: (8:15,9:70,11:90,12:70,13:90,15:6); (11:75,12:255,13:990,14:2310,15:2167); (12:5,13:90,14:1080,15:4622); (14:15,15:326); (15:1). Their minima and frequencies match the claim; multiplying one-dimensional frequencies by three, then adding the zero word, gives the weight enumerator. The frozen certificate and relevant verifier logic agree on these checks; the frozen script was not executed. The code specification, rather than an arbitrary code with the same parameters, is what the calculation verifies.
 
-The total number of positive-dimensional subspaces checked is
-\[
-12277.
-\]
-Successful replay prints `VERIFY_OK`.
+## originality
+
+PASS
+
+Credit the published construction and ordinary parameters, not a new optimal-code claim. The supported distinct result is the full exact subcode-support spectrum of the specified Euclidean cyclic code. The strongest available indexed and literature comparisons do not yield that spectrum. Primary-source access limitations remain explicit.
+
+## value
+
+PASS
+
+This is the full support geometry of a short optimal Euclidean self-orthogonal cyclic representative from an explicit construction, rather than a randomly chosen small code. The minima and multiplicities identify precisely how large message subspaces can be confined to given sets of coordinates, useful for comparing representatives or their shortened codes. For instance, only five three-dimensional subcodes attain support 12, a fact neither the ordinary distance nor the Gaussian totals encode. The complete exact distribution is a meaningful finite invariant without a family-wide optimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

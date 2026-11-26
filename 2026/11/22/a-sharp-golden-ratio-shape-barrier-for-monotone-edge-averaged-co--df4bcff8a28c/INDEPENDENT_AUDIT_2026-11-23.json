@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:47:06.703460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the one-dimensional mass, derivative and stiffness matrices in tensor products gives opposite off-diagonals equal to a/3−b/6, b/3−a/6, and (a+b)/6±c/2, where a=||v||²/|det J|, b=||u||²/|det J|, c=−u·v/|det J|. Positivity of both Bernoulli factors preserves each sign for every admissible edge label. A negative weight creates a positive reduced off-diagonal: the corresponding central-cell vertices are interior, and either the pair is a diagonal with a unique contributor or every contributor shares the same side-orientation weight. Conversely a nonnegative set of weights yields a Z-matrix with zero column sums before Dirichlet elimination. At least one of the two side families is strictly positive, giving a straight positive-edge path from each interior node to the boundary even at all endpoint combinations. After elimination every component has a strictly dominant column, and the bidirectional edges give irreducibility on each component, so the reduced matrix is a nonsingular M-matrix. With z=(a−b)/(a+b) and q=2c/(a+b), the admissible closed rectangle has |z|≤1/3, |q|≤2/3. Maximizing z²+q² gives 5/9, hence κ₂(J)≤(3+sqrt(5))/2 with the stated Gram-matrix extremizer. Replay q1_tensor_stiffness() in /workspace/branches/independent_replay.py for the coefficients and exact witness. The proof concerns the nonsingular M-matrix condition, not arbitrary inverse positivity, consistency for arbitrary edge data, or general quadrilaterals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior IBEAM treats broader polytopal elements, but its M-matrix lemma requires strict positive local weights along the complete graph. The later lookup located the Christie–Hall Wiley PDF, but available routes did not expose the full text; Li–Zhang attributes an aspect-ratio obstruction to that work."
+        ],
+        "reasoning": "A sufficient strict sign condition on a broader family does not assert necessity under uniform assembly, nor nonsingularity at geometric endpoints where some complete-graph edges disappear. No accessible exact result subsuming those points and the aspect/shear region was identified.",
+        "searches": [
+          "Adler–Hu–Lee–O’Keefe arXiv:2611.01175v1, Lemmas 3.2 and 4.6",
+          "Christie Hall 1984 \"maximum principle for bilinear elements\" parallelogram nonobtuse angle anisotropic shear condition off diagonal stiffness exact aspect ratio sqrt 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.01175v1 §§3–4",
+        "arXiv:2310.16274 §§2–3 and 5",
+        "doi:10.1002/nme.1620200312 (citation/access check only)",
+        "Resultary df4bcff8a28c (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known IBEAM Lemma 4.6 yields sufficiency in the strictly positive interior once the Q1 weights are evaluated. At the boundary it does not apply as stated. Li–Zhang's endpoint-inclusive theorem belongs to a different quadrature. The closed weight inequalities here convert into a metric rectangle whose two bounds can be attained together."
+        ],
+        "reasoning": "The drift independence follows directly from the existing Bernoulli construction once the sign classification is established, and the sharp conditioning ceiling is a consequence of the closed geometry, not an independent novelty. The relevant additional work is the joint exact aspect-and-shear region, the assembly necessity and the surviving-path argument for zero weights, rather than a new edge method.",
+        "searches": [
+          "ArXiv:2611.01175v1 §4.1 Lemma 4.6 and proof 4.7; arXiv:2310.16274 Thm. 3.3 and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting p=0 and α=1 makes the stated IBEAM operator the exactly integrated Q1 diffusion matrix. Affine pullback to an anisotropic rectangle represents the same local weights: on a rectangle with lengths h1,h2 and tensor D, a=(h2/h1)D11, b=(h1/h2)D22, c=D12. Li–Zhang instead blends midpoint and trapezoid quadrature and gives conditions for that altered stiffness."
+        ],
+        "reasoning": "An earlier closed sign condition for the exact, constant-tensor Q1 stiffness would directly threaten the geometry claim. The inspected tunable-quadrature theorem is not such an exact condition; the pullback equivalence nevertheless makes old exact-Q1 studies important to check.",
+        "searches": [
+          "Resultary: full affine parallelogram IBEAM monotonicity, golden ratio condition number and Q1 shape inequalities",
+          "Li–Zhang arXiv:2310.16274, Eqs. (2.3)–(2.7), (3.3), (5.6)–(5.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue hit df4bcff8a28c is the identical frozen result, not a distinct prior. The anisotropic rectangle prescription h1/h2=sqrt(average D11/average D22) in Li–Zhang selects a mesh balance for its scheme rather than tabulating the allowable closed region or its extremal Jacobian."
+        ],
+        "reasoning": "No matching distinct formula/table was recovered. This is a continuous shape classification; finite mesh examples cannot establish exactness or the simultaneous attainment of both endpoint bounds.",
+        "searches": [
+          "Resultary: affine parallelogram IBEAM M-matrix shear aspect ratio sharp conditioning barrier",
+          "Li–Zhang arXiv:2310.16274, theorem and representative mesh geometry conditions"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact closed geometric iff for the specified complete-graph IBEAM tiling and its attained sharp Jacobian distortion. The method, weight formula, strict-positive-weight sufficiency, standard Q1 stiffness algebra and Bernoulli sign mechanism are not new. The initiating theorem alone is not the closed shape iff; the strongest retrievable anisotropic Q1 comparator uses modified quadrature. The exact classical-geometry priority risk, especially the rectangle specialization, remains open and is not counted as a separately novel claim.",
+      "residual_risks": [
+        "Christie–Hall and other classical exact-Q1 literature could state sharp rectangle or affine metric sign bounds not visible in the passages retrieved. Inaccessibility is not evidence against coverage.",
+        "The sharp κ₂ ceiling is a short deduction from the closed admissible metric rectangle; if this entire exact geometry were already established, that would materially weaken the novelty of the combined result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source for the six-edge weights and strict-positive-weight sufficient theorem; not the closed affine parallelogram classification",
+          "evidence": "Weights are the negatives of the integrated gradient inner products, and strict positivity is a hypothesis of Lemma 4.6.",
+          "identifier_or_url": "https://arxiv.org/html/2611.01175v1",
+          "material_read": "Sections 3.2–3.3, Lemma 3.2/Eq. (18), offsets 29000–38804; Section 4.1 Lemma 4.6 and proof 4.7, offsets 43920–47983",
+          "method": "Bounded OA original passages",
+          "title": "An Incidence-Based Edge-Averaged Method for Convection-Diffusion Problems on Polytopal Meshes",
+          "trigger": "Same exact complete-graph IBEAM operator and M-matrix theorem"
+        },
+        {
+          "assessment": "Modified-quadrature theorem, not the exact integrated method of the assignment",
+          "evidence": "Eqs. (2.3)–(2.7) blend midpoint and trapezoid rules; Eq. (3.3) uses that quadrature in diffusion. Theorem 3.3 includes equality in the resulting scheme; the mesh-ratio prescription is not the asserted exact aspect-and-shear region.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.16274",
+          "material_read": "Introduction p.2; Eqs. (2.3)–(2.7) pp.6–7, Eq. (3.3) pp.8–9, Thm. 3.3 p.10, Eqs. (5.6)–(5.7) p.19",
+          "method": "Bounded OA PDF passages and pullback comparison",
+          "title": "A Monotone Q1 Finite Element Method for Anisotropic Elliptic Equations",
+          "trigger": "Equivalent anisotropic rectangle formulation and possible prior sign conditions"
+        },
+        {
+          "assessment": "Verified lead for a rectangle aspect-ratio obstruction; exact interval, skew coverage and endpoint hypotheses unverified",
+          "evidence": "Li–Zhang cites Christie–Hall for loss of the maximum principle at excessive aspect ratios. The original Wiley routes returned access errors. This does not show what exact region the paper proves.",
+          "identifier_or_url": "https://doi.org/10.1002/nme.1620200312",
+          "material_read": "Bibliographic hit and the attribution in Li–Zhang Introduction p.2, OA offset 7675; the original theorem was not read",
+          "method": "Primary literature query, attempted OA retrieval and accessible citation context",
+          "title": "The maximum principle for bilinear elements",
+          "trigger": "Plausible prior exact-Q1 aspect ratio condition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full closed mesh screening rule answers a practical and mathematical question left by strict sufficiency: whether every drift preserves the M-matrix property at a given aspect and shear, and exactly where it must fail. The attaining geometric ceiling and an orthogonal inadmissible element below it show why conditioning alone does not decide admissibility. This is a motivated exact boundary for a specified discretization, not a convergence theorem or a generic claim that bad shapes cause oscillations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

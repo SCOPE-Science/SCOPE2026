@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:40:57.915841Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The leading binary digit forces the second swap and restricts the first swap; the completed orders are (3,1,2) below the 1/3 tail threshold and (2,1,3) otherwise. A dyadic cylinder corresponds to one residue class, so a truncated binary decomposition of [0,1/3) gives a uniform O(1+log N) prefix discrepancy. The local h² coefficients are K/2 and −K/2, averaging to −K/6. Telescoping changes the left propagator to the exact one with total error O(Nh³); summation by parts for the centered coefficients uses O(h) adjacent propagator variation. The constant term is the stated Riemann integral up to O(h²). For the witness K=−E13, E13 commutes with the sum, and its spectral norm is one, giving Te^T/6. Independent exact word and matrix calculations can be replayed with python /workspace/review_evidence/reproduce_1234.py 2; they corroborate but do not prove the all-N asymptotic. The conclusion concerns the specified indexing and descending shuffle with bounded generators.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The proof of order O(τ² log N) concerns two operators; §5.2 includes a three-operator numerical experiment while noting the two-operator theoretical limitation, and §6 leaves general-p rigor open."
+        ],
+        "reasoning": "General method definition and numerical inclusion are not a theorem encompassing the specified binary three-flow product. The prior two-flow bound does not fix the needed signed pair frequencies or furnish a nonzero integrated coefficient.",
+        "searches": [
+          "arXiv:2603.27654v1 §4 Theorem 4.1 and Proposition 4.1, §§5.2 and 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.27654v1",
+        "Resultary 2026/11/8/SCOPE-the-radix-parity-boundary-for-quasi-random-lie-splitting--0c50ba286e5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior algorithm is instantiable at p=3, but the theorem for p=2 depends on centered order counts. The frozen p=3 schedule instead averages ±K/2 with weights 1/3, 2/3."
+        ],
+        "reasoning": "Instantiating the recipe gives steps, not the imbalance, prefix bound and propagated coefficient. These require a specific digit-correlation and noncommutative product analysis.",
+        "searches": [
+          "arXiv:2603.27654v1 §§2, 4, 5.2, 6",
+          "Resultary 0c50ba286e5e RESULT.md Finding/Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (2.5) groups p−1 consecutive entries and feeds them to a Fisher–Yates map; it does not supply the frozen descending two-swap order law.",
+          "For the witness the two active flows can be seen as a two-order sign sequence, but it is selected at threshold 1/3 with a nonzero mean, not the balanced threshold-1/2 two-flow rule."
+        ],
+        "reasoning": "Equivalent descriptions must preserve the schedule and nonzero mean of its signed pair-order indicator; seeing two active noncommuting matrices does not make the two algorithms equivalent.",
+        "searches": [
+          "Resultary: three-flow splitting binary van der Corput radical inverse serial descending Fisher–Yates shuffle first-order commutator permutation discrepancy alternating two-flow",
+          "arXiv:2603.27654v1 §2 eq. (2.5)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The plausible match SCOPE-the-radix-parity-boundary-for-quasi-random-lie-splitting--0c50ba286e5e defines one radical-inverse entry per step and two generators, switching at 1/2. It gives O(τ²) for even radix and a sharp O(τ² log(1/τ)) witness for odd radix."
+        ],
+        "reasoning": "This is neither the same permutation-frequency table nor a broader asymptotic for consecutive two-entry blocks; no distinct exact matching table was identified in the checked results.",
+        "searches": [
+          "Resultary: three-flow splitting binary van der Corput radical inverse serial descending Fisher–Yates shuffle first-order commutator permutation discrepancy alternating two-flow"
+        ]
+      },
+      "rationale": "The serial shuffle recipe is prior. The supported distinct contribution is the binary-digit aliasing analysis for its fully specified descending three-flow instance and the resulting sharp first-order transported commutator, not the algorithm, generic discrepancy facts or local product expansion.",
+      "residual_risks": [
+        "Unlocated analyses of serial low-discrepancy inputs to a deterministic shuffle could overlap the digit law. The checked candidate does not verify which convention was used in the motivating numerical code. Searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same recipe, no covering analytical theorem in the decisive sections",
+          "evidence": [
+            "Consecutive p−1 entries drive an abstract shuffle; rigorous two-flow bound, three-flow experiment only, general-p analysis left open."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.27654v1",
+          "material_read": "§2 eq. (2.5) near offset 14300; §4 Theorem 4.1 and Proposition 4.1 near offsets 31400–42669; §§5.2, 6 near offsets 62300 and 73900",
+          "method": "OA primary full-text passage comparison",
+          "title": "Quasi-random splitting method for accurate and efficient multiphysics simulation",
+          "trigger": "Origin of the exact serial splitting family and three-flow experiment"
+        },
+        {
+          "assessment": "Related but noncovering two-flow rule",
+          "evidence": [
+            "The sign depends on whether one point lies in [1/2,1); at radix two the opposite adjacent steps form Strang pairs."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-the-radix-parity-boundary-for-quasi-random-lie-splitting--0c50ba286e5e",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0–2462",
+          "method": "Resultary retrieval and local-mirror passage inspection",
+          "title": "The radix-parity boundary for quasi-random Lie splitting",
+          "trigger": "Closest catalogued radix and order-error statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This isolates a concrete implementation failure of an actual proposed quasi-random splitting recipe: low discrepancy of individual inputs does not balance the pair of shuffle draws. The arbitrary-generator leading error and exact nonzero witness say what fails and by how much, rather than merely showing that a permutation histogram is unbalanced. It is not a claim against all quasi-random methods or against the motivating PDE experiments.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

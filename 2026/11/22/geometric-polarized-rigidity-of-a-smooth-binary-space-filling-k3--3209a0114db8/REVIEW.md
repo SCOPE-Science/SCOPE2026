@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polynomial is precisely the source companion-matrix quartic for \(q=2,b=1\). Its four dehomogenized full Jacobian ideals have Gröbner basis \(\{1\}\) over \(\mathbb F_2\), verifying geometric smoothness rather than relying on a rational-point test. All six Grassmannian cells are exhausted by restriction coefficient ideals; their Gröbner bases show a reduced five-point line scheme over \(\mathbb F_2\). The incidence graph has exactly three edges and its four symmetries are all tested. For every graph permutation, sixteen-entry linear constraints admit one scalar solution; in the nontrivial cases that matrix is singular or fails a quartic coefficient identity. This is valid over the algebraic closure because the linear rank is preserved by extension. The finite étale line-scheme action and one-point linear fibers also rule out nilpotent stabilizer directions. The standalone checker is an exact algebraic reproduction of these critical steps, not a numerical sampling argument.
+PASS
 
-## Originality — PASS, qualified
+The repaired proof certifies the full scheme over the algebraic closure, not merely the rational projective stabilizer. The frozen proof inferred reducedness of the Fano scheme from its reduced row-echelon cell intersections, which can miss nilpotent directions transverse to a cell. The corrected proof uses adjunction on each line of the smooth K3 to give N_(L/X)=O_P1(-2) and hence zero Hilbert-scheme tangent space. In my separate replay, the four full Jacobian ideals are unit, and on all six full affine Plücker opens the restriction-coefficient ideals contain a²+a for each of the four chart variables. Those quotient algebras are split reduced, with open point counts 3,3,2,2,3,2 and union exactly the five listed lines. Their graph is A3 disjoint union A2. Each permutation defines homogeneous linear conditions over F2; exhausting all 65536 binary matrices gives exactly two vectors (zero and one nonzero) for each system, proving nullity one over every extension. The path reversals have singular lifts; the edge-only reversal has a unique invertible candidate but creates the absent X0²X3² monomial. The stabilizer acts on a split finite étale line scheme, and each permutation fiber lies scheme-theoretically inside its linear projectivization P0; the only surviving fiber is the reduced identity. Complete corrected affected files are under /workspace/repairs/4/; independent replay: python3 /workspace/checks/4.py (SymPy).
 
-Bourgeois-Conti–Moon–Perez–Warren construct the smooth optimal space-filling quartic in Section 9 but do not calculate its polarized automorphism group. The five geometric lines and their \(A_3\sqcup A_2\) incidence are inputs, not the novelty claim. The new conclusion determines which line-graph symmetries lift projectively and proves that the whole polarized stabilizer *scheme* is reduced and trivial. Targeted searches for this exact surface, its equivalent companion form, geometric projective stabilizer, and infinitesimal symmetries found no equivalent or stronger coverage. Related finite-field quartic symmetry results concern different varieties. Accessible old claims were compared by implication rather than title. Residual risk: older unindexed classifications or a geometric identification under an unrecognized projective coordinate change may already imply this answer.
+## originality
 
-## Value — PASS
+PASS
 
-The polarized automorphism group is a canonical geometric invariant of a projectively embedded K3 surface. Its computation distinguishes the embedded geometry from the much larger combinatorial symmetry group of all five lines, rules out symmetries arising only after scalar extension, and excludes infinitesimal automorphisms in characteristic two. The question is motivated by the unusual extremal, space-filling embedding and the scarcity of its five geometric lines; a complete stabilizer scheme is a natural rigidity classification rather than an arbitrary finite statistic. No general uniqueness theorem for all space-filling quartics is asserted.
+The defensible distinct result is the trivial full geometric polarized stabilizer scheme of the exact companion quartic, not the equation, smoothness, point filling, five-line census or line-incidence graph. Verified same-day overlap on these inputs is credited without inferring chronological priority. No inspected statement gives the lifting obstructions or the resulting full scheme for this quartic.
 
-## Closest literature and limits
+## value
 
-Primary: Bourgeois-Conti–Moon–Perez–Warren, *Space-Filling Hypersurfaces*, arXiv:2611.15768v1, especially Section 9; smoothness and defining equation, no polarized stabilizer calculation. Published related work on projective automorphism groups of other quartic or K3 models is not a theorem about this specific surface. The classification concerns only automorphisms preserving the hyperplane class, not all abstract automorphisms. Published novelty cannot be certified from search results alone.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant is motivated by the extremal explicit space-filling embedding and by the mismatch with the symmetry of its full line configuration. Determining the complete group scheme resolves real ambiguity left by both the binary point stabilizer and the abstract graph, and proves that the polarized symmetry cannot emerge after base extension or infinitesimally. It does not classify unpolarized automorphisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

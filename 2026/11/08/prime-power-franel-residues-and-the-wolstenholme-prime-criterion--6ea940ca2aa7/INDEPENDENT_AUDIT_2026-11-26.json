@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:21:00.551516Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof Steps 1–4; VERIFICATION.md and verify.py inspected without executing uploaded code",
+        "Meštrović arXiv:1108.4178 Introduction for the classical criterion",
+        "/workspace/reproductions/check.py: python3 -B /workspace/reproductions/check.py 3 checked direct prime-power sums at 2,3,5,7 and computed f_p mod p^4 via an independently coded recurrence, including p=16843 and 2124679"
+      ],
+      "rationale": "For 0<k<p^a, the remaining binomial coefficient in C(p^a,k)=(p^a/k)C(p^a-1,k-1) is a unit by Lucas, so the valuation is a-v_p(k). Only k=jp^(a-1) can contribute modulo p^4 after cubing, and at these indices C(p^a,k)/p reduces to (-1)^(j-1)/j. The endpoints sum to 2. For p≥5 the full reciprocal-cube sum is zero modulo p, leaving -1/4 times the half sum. Setting m=p-3, that half sum is (B_m((p+1)/2)-B_m(0))/m by Faulhaber's formula. The coefficients are p-integral since all Bernoulli indices are below p-1. The half-argument formula B_m(1/2)=(2^(1-m)-1)B_m and 2^(1-m)=8 mod p give the half sum -2B_m, hence the frozen coefficient B_m/2. Glaisher's classical binomial congruence detects the same Bernoulli zero modulo p. At p=2 the surviving unit sum is 1, and at p=3 it is 2 modulo 3, giving exact valuation 3 at every height. Divisibility by the cube of p^a for a≥2 requires valuation at least six, so only the stated nonexceptional cases are excluded by the frozen modulus.",
+      "residual_risks": [
+        "The recurrence is a bounded cross-check, not evidence of a universal valuation above four at Wolstenholme primes, nor a test of the full primality conjecture."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Straub gives Y_d(p^r n) ≡ Y_d(p^(r-1)n) mod p^(3r) for d≥2 and p≥5; Y_3 is Franel.",
+          "The OEIS comment describes analytic towers that encode all p-adic digits, a potentially broader relevant result. No matching explicit Franel coefficient was verified in a primary passage of that work."
+        ],
+        "reasoning": "Straub's result already yields f_(p^a) ≡ f_p mod p⁶ for all a≥2. Stabilizing to an unknown residue does not compute its value. A tower that encodes digits could contain an effective formula or exact specialization, but the OEIS description alone does not determine whether it does.",
+        "searches": [
+          "Straub, arXiv:1401.0854, §3 equation (30), Example 3.6",
+          "OEIS A000172, 3 November 2026 comment and references",
+          "Literature: \"p-adic analyticity of the Apéry and Franel numbers\" \"Blanco Gómez\" Zenodo"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1112.1034 Theorem 1.1",
+        "arXiv:1401.0854 equation (30)",
+        "arXiv:1108.4178 §1",
+        "OEIS A000172",
+        "Resultary 6ea940ca2aa7 (self-match) and ac51f85be5c1 (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known height stability, the central-binomial criterion and prime-direction divisibility mod p³ are separate established facts. The frozen proof evaluates the remaining alternating reciprocal-cube moment from the binomial units and also handles p=2,3 outside Straub's displayed range."
+        ],
+        "reasoning": "Once the base Bernoulli coefficient is established, the p≥5 extension is already a corollary of prior stronger stability. The Bernoulli evaluation of the Franel residue is not supplied by that stability or by the classical binomial criterion alone; the new-credit scope excludes both prior ingredients.",
+        "searches": [
+          "Straub arXiv:1401.0854 equation (30)",
+          "Sun arXiv:1112.1034 Theorem 1.1",
+          "Meštrović arXiv:1108.4178 Introduction",
+          "OEIS A000172"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun's inspected theorem is about weighted sums of f_k for k<p, principally modulo p², not f_p mod p⁴.",
+          "Meštrović reviews the binomial criterion modulo p⁴, which is equivalent to vanishing of the Bernoulli coefficient but does not give a Franel residue in the inspected passage.",
+          "The matching indexed entry 6ea940ca2aa7 is the frozen result itself. The distinct ac51f85be5c1 search summary concerns signed binomial powers at p^q-1; no full-text comparison was available."
+        ],
+        "reasoning": "A signed-power valuation on a row ending in base-p digit p-1 is not an identified substitute for the unsigned cubic Franel sum on row p^a. A connection between the binomial and Franel criteria requires evaluation of the latter coefficient.",
+        "searches": [
+          "Sun, arXiv:1112.1034, §1 Theorem 1.1",
+          "Meštrović, arXiv:1108.4178, §1",
+          "Resultary: 6ea940ca2aa7 and ac51f85be5c1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000172 identifies the sum and records Detlefs's 22 March 2013 iff conjecture for a(n)=2 mod n³ and a comment giving the forward prime direction. No inspection identified a table of the uniform valuation or coefficient. The exact index match is the same frozen entry."
+        ],
+        "reasoning": "A table of sequence values or the primality conjecture does not establish the signed Bernoulli digit uniformly in p and a, even if one can compute the digit for individual entries.",
+        "searches": [
+          "OEIS A000172, comments and references",
+          "Resultary 6ea940ca2aa7 and ac51f85be5c1"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit Bernoulli coefficient for the Franel residue, its identification with the Wolstenholme exception and the small-prime valuations. The prime-power stability itself is covered by Straub's stronger theorem for p≥5, and the binomial/Bernoulli Wolstenholme criterion is classical. No independent matching statement for the remaining Franel coefficient was established in the strongest available comparisons; this is a bounded judgment, not a claim of historical priority.",
+      "residual_risks": [
+        "The explicit coefficient may occur in the cited Blanco Gómez tower work or in an earlier exact Franel congruence under different notation. Primary text of the tower reference and full text of the distinct generalized-Franel index entry were not verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weighted sums in the inspected theorem; no whole-document exclusion inferred",
+          "evidence": [
+            "Sums over k<p principally modulo p², not the frozen f_p leading digit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1112.1034",
+          "material_read": "§1 Theorem 1.1, PDF pp. 2–3, OA offset 5200",
+          "method": "OA PDF text",
+          "title": "Congruences for Franel numbers",
+          "trigger": "Prime-index Franel congruences"
+        },
+        {
+          "assessment": "Covers the height stability, not the value of the initial residue in the inspected passage",
+          "evidence": [
+            "Y_3 is Franel; each step from r-1 to r has difference divisible by p^(3r) for p≥5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.0854",
+          "material_read": "§3 p. 9, equation (30), OA offset 28475",
+          "method": "OA PDF text",
+          "title": "Multivariate Apéry numbers and supercongruences of rational functions",
+          "trigger": "Stronger all-height congruences for Franel numbers"
+        },
+        {
+          "assessment": "Classical binomial comparison is covered",
+          "evidence": [
+            "Wolstenholme-prime definition and Bernoulli-valued binomial refinements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.4178",
+          "material_read": "§1 pp. 1–2, OA offset 2100",
+          "method": "OA PDF text",
+          "title": "Congruences for Wolstenholme primes",
+          "trigger": "Classical Bernoulli equivalence"
+        },
+        {
+          "assessment": "Establishes the conjecture and points to plausible broader work, not the frozen coefficient in inspected comments",
+          "evidence": [
+            "Detlefs iff conjecture; 3 November 2026 analytic tower comment concerning p≥5."
+          ],
+          "identifier_or_url": "https://oeis.org/A000172",
+          "material_read": "Comments and references, OA offsets 1000, 2250, 4200",
+          "method": "OA website reader; subsequent exact-link lookup timed out",
+          "title": "A000172: The Franel numbers",
+          "trigger": "Exact sequence, primality conjecture and recent tower references"
+        },
+        {
+          "assessment": "Unresolved whether the same explicit coefficient occurs; not treated as noncovering",
+          "evidence": [
+            "OEIS describes the tower coefficients as encoding all digits; the identified Zenodo 23682378 candidate is headed Alternating Sums of Franel and Apéry Numbers, so it was not assumed to be the same paper."
+          ],
+          "identifier_or_url": "OEIS A000172, Blanco Gómez reference, Zenodo (2026)",
+          "material_read": "OEIS reference and description only; no primary text verified",
+          "method": "OA retrieval attempts and exact-title literature search; OA requests timed out, including a related Zenodo PDF candidate",
+          "title": "p-adic analyticity of the Apéry and Franel numbers along the towers mp^r",
+          "trigger": "A possible stronger characterization encoding all tower digits"
+        },
+        {
+          "assessment": "Different row and signs in the available statement; full-scope comparison unresolved",
+          "evidence": [
+            "Summary describes rows p^q-1 and signed binomial-power sums rather than the unsigned f_(p^a) residue."
+          ],
+          "identifier_or_url": "Resultary ac51f85be5c1",
+          "material_read": "Indexed summary only",
+          "method": "Configured Resultary search; local mirror retrieval timed out",
+          "title": "Sharp odd-prime valuations for prime-power-row generalized Franel sums",
+          "trigger": "Distinct same-day generalized Franel valuation entry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "OEIS A000172 primality-congruence comment",
+        "Straub arXiv:1401.0854 equation (30)"
+      ],
+      "rationale": "At canonical input indices for a known primality-test conjecture, this is an exact obstruction, not generic height stability: it explains why essentially the entire prime-power problem falls at valuation three and isolates the precise classical irregularity that can make that obstruction vanish. The small-prime valuations cover the boundary not covered by the cited general odd-prime height-stability theorem. This is useful even though the exceptional case requires finer digits.",
+      "residual_risks": [
+        "No claim that the criterion has no composite solutions or that this modulus settles Wolstenholme-prime powers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -2,7 +2,7 @@
 
 ## Finding
 
-**Theorem.** For every finite nonempty tree \(T\) on \(n\) vertices, the isolation number \(\iota(T)\), and each of the three sets of vertices belonging to *all*, *some but not all*, or *no* minimum isolating sets, can be computed together in \(O(n)\) time and \(O(n)\) space, on a unit-cost RAM with adjacency-list input. The algorithm is an explicit constant-state directed-edge dynamic program followed by one prefix/suffix rerooting pass. Consequently, given any nonstar tree \(T\), whether subdividing **some single edge** increases \(\iota(T)\) is decidable in \(O(n)\) time.
+**Theorem.** For every finite nonempty tree \(T\) on \(n\) vertices, an explicit constant-state directed-edge dynamic program and prefix/suffix rerooting pass compute the minimum isolating-set sizes with each vertex forced in and with each vertex forced out, all together in \(O(n)\) time and \(O(n)\) space on a unit-cost RAM with adjacency-list input. These values give the isolation number \(\iota(T)\) and the three optimum-membership classes. Consequently, given any nonstar tree \(T\), whether subdividing **some single edge** increases \(\iota(T)\) is decidable in \(O(n)\) time.
 
 Here \(S\subseteq V(T)\) is *isolating* when \(V(T)\setminus N_T[S]\) is independent, and \(\iota(T)\) is the minimum cardinality of such an \(S\). For a vertex \(v\), put
 \[
@@ -70,7 +70,7 @@ The standalone `verify_isolation_reroot.py` implements the directed-message recu
 
 ## Relationship to prior work
 
-Dettlaff et al. [1, Section 4] explicitly obtain a quadratic-time recognition algorithm from their structural characterization, anticipate a linear-time rerooting solution, and leave its formal development to future work. The present result gives that development with an explicit, checkable min-plus recurrence, and returns both forced-inclusion and forced-exclusion minima, producing all three optimal-membership classes. Ziemann and Żyliński [2] prove an analogous linear-time membership classification for **dominating sets**, a different feasibility predicate; its numerical states cannot directly characterize isolating sets. Chen et al. [3] and Wang et al. [4] provide efficient **optimization** for vertex-edge domination under structural restrictions, without in the inspected descriptions giving all optimum-membership statuses. Bartolo et al. [5] give a linear-time recognition result for trees on which **every** single-edge subdivision raises the isolation number, rather than existence of **some** edge as addressed here. The algorithms therefore differ in object or quantifier. The O(n) possibility was anticipated in [1]; no claim is made that generic rerooting itself is new.
+Dettlaff et al. [1, Section 4] explicitly obtain a quadratic-time recognition algorithm from their structural characterization, anticipate a linear-time rerooting solution, and leave its formal development to future work. The contribution here is the explicit min-plus rerooting recurrence computing all numerical forced-inclusion and forced-exclusion minima together in linear time. Vertices in all or no minimum vertex-edge dominating sets in trees were studied by Kumar and Venkatakrishnan [6]. The vertex-edge domination predicate is exactly isolation [4, Proposition 2.1], so the three membership classes themselves are not a new classification problem. The indexed description of [6] identifies a structural characterization; the full text was not available for comparing recurrences, complexity, or constrained numerical outputs. Ziemann and Żyliński [2] give an analogous linear-time membership algorithm for ordinary **dominating sets**, a different feasibility predicate. Chen et al. [3] and Wang et al. [4] provide efficient scalar optimization or a single minimum set under structural restrictions. Bartolo et al. [5] consider trees on which **every** single-edge subdivision raises the isolation number, rather than existence of **some** edge. Neither generic rerooting nor the previously established existential subdivision criterion is claimed as new.
 
 ## Limitations
 
@@ -87,3 +87,5 @@ The result establishes linear-time classification for tree inputs only, in the s
 [4] Y. Wang, H. Zhang, M. Lu, *Algorithm for finding vertex-edge domination number on graphs with bounded treewidth and related problems on planar graphs*, arXiv:2605.10487 (May 11, 2026). https://arxiv.org/abs/2605.10487
 
 [5] K. Bartolo, P. Borg, M. Dettlaff, M. Lemańska, P. Żyliński, *Isolation critical graphs under multiple edge subdivision*, arXiv:2602.22980 (February 26, 2026). https://arxiv.org/abs/2602.22980
+
+[6] H. N. Kumar and Y. B. Venkatakrishnan, *Vertices Belonging to all or to no Minimum Vertex-Edge Dominating Sets in Trees* (2020), https://doi.org/10.1007/s10013-020-00436-w.

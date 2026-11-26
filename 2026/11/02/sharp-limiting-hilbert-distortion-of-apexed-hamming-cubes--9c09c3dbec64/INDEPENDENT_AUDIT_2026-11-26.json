@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:55:42.561163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph metric is one on original edges and apex edges, two on every other distinct pair. Unit tensors with coordinate inner product 1/2 have scaled squared norm 8/3 and squared separation (16/3)(1−2^(−k)) at Hamming distance k; equality at k=2 fixes the noncontracting normalization and the unit edges realize the stated expansion. In an arbitrary Hilbert embedding based at the apex, with t=C², Parseval gives R≤t and the one-flip energy gives U≤dt/4. A degree-j Walsh character changes sign on j(d−j) unordered two-flips, giving mean squared separation 8(dU−V)/(d(d−1))≥4. Weighted Cauchy–Schwarz gives V≥U²/t, and dU−U²/t increases on [0,dt/4], proving t≥8(d−1)/(3d) for all d≥2. This suffices for the exact limit. For the finite LP, Gram averaging preserves every affine squared-distance bound and PSD. Translation invariance diagonalizes the Gram matrix on Walsh characters, and permutation invariance groups the nonnegative masses by degree. At Hamming shell k the corresponding character average is the stated Krawtchouk sum. The degree-zero mass can be removed without violating the apex lower bound because 4≤a₂≤4 times the remaining mass. Conversely every feasible mixture is a real PSD Gram matrix with precisely the required distances. There is a compact feasible sublevel using the tensor upper bound, so the LP has a minimum. At d=2, a₂=4w₁ forces w₁≥1 and a₁=2w₁+4w₂≥2; w₁=1,w₂=0 attains t=2. An independent rational LP reproduction found t=2,2,2,20/9 for d=2,3,4,5, with numerical checks through d=12, not a proof of the infinite claim. Replay: /workspace/branches/f47ae752-0661-44d5-875e-7e5dc01330c2/lp_repro.py. The frozen VERIFY.py was inspected, not executed, and does not itself solve the LP.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distance-regular results apply to ordinary Hamming and Johnson shortest-path metrics. The cone is not regular: its apex has degree 2^d, its cube vertices d+1. The clique-joined rook theorem uses exactly two complete-graph factors; it contains G₂ as K₁∨(K₂□K₂), but does not cover growing binary dimension. The depth-two regular tree has graph distances through four and its same limiting constant is for different distance shells."
+        ],
+        "reasoning": "Neither the published spectral formulas nor the distinct indexed exact join and tree results cover the family in the claim. No same-day priority inference is needed for this parameter and metric comparison.",
+        "searches": [
+          "Vallentin, arXiv:math/0509716, §§2–3, Theorem 2.5",
+          "Cioabă–Gupta–Ihringer–Kurihara, arXiv:2109.09708, §5.1",
+          "Resultary clique-joined rook graphs and depth-two regular trees"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and VERIFY.py",
+        "arXiv:2309.16070",
+        "arXiv:math/0509716",
+        "arXiv:2109.09708",
+        "Resultary records 7d2d21ae2c92, 4e8b885d6614, 98640c78266f and 781c981babc1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general SDP provides an exact finite variational principle. Its application to the cone needs the Fourier orbit constraints and a justification for removing the constant mass. The sharp limit additionally needs the coupled radius, one-flip and two-flip bound as well as the matching explicit construction."
+        ],
+        "reasoning": "The prior variational and spectral techniques are credited, but the particular sharp limit is not an explicit result or mechanical specialization of the inspected sources. A generic finite optimizer does not evaluate the infinite-family behavior.",
+        "searches": [
+          "Vallentin, arXiv:math/0509716, §3 Gram SDP",
+          "Robertson, arXiv:2309.16070, §4.2",
+          "Indexed clique-joined rook and depth-two tree findings and scopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent metric is the Hamming metric capped at two on the base, extended by a single new vertex at distance one from every base point. Robertson's ordinary cube result is sqrt(d). The indexed capped-at-three comparison concerns Walsh positivity/negative type with different distances and no apex."
+        ],
+        "reasoning": "Dropping the apex discards the pointwise norm bound used in the lower estimate; dropping the cap changes even the base distances for d≥3. Neither modification is equivalent to the frozen metric.",
+        "searches": [
+          "Resultary apexed Hamming cube, cone metric, capped Hamming distortion",
+          "Robertson, arXiv:2309.16070, §4.2 Theorem 4.7",
+          "Resultary 2026/11/8/SCOPE-sharp-walsh-positivity-threshold-for-three-capped-hamming-metric--98640c78266f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary exact Hamming/Johnson values are for the original distance-regular graphs. The indexed rook formula gives the d=2 overlap, and its balanced growing-clique limit is sqrt(5/2). The indexed tree limit sqrt(8/3) matches the number but not the metric; the Kneser hit concerns KG(n,3), not the frozen family."
+        ],
+        "reasoning": "The relevant exact-lookup comparison is family-level formulas or tables; a shared constant on another graph family or a known dimension-two instance does not determine the limit or LP in higher dimensions.",
+        "searches": [
+          "Cioabă–Gupta–Ihringer–Kurihara, arXiv:2109.09708, §5.1 Hamming/Johnson entries",
+          "Resultary clique-joined rook graphs, Finding",
+          "Resultary depth-two regular trees, Finding",
+          "Resultary 2026/11/2/SCOPE-exact-euclidean-distortion-and-forced-nonfaithfulness-for-three--781c981babc1"
+        ]
+      },
+      "rationale": "Bounded best-of-knowledge pass for the sharp asymptotic constant and the exact orbit LP for this particular metric. Ordinary Hamming and Johnson graph theorems do not retain the cone's metric; same-day clique-join and tree records have different families, even where a finite special case or a limiting number coincides. The generic Gram SDP, Walsh diagonalization and symmetry reduction are established methods, not claimed as original. The shell estimate with its matching tensor map supplies distinct mathematical content beyond a change of notation in those methods.",
+      "residual_risks": [
+        "A broad primary-literature lookup did not yield relevant evidence; this is not an absence claim. Work phrased as a capped-cube or one-point metric extension under different terminology could still exist.",
+        "No novelty is asserted for the general embedding SDP, Krawtchouk formulas, or d=2 value."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary Hamming distance, not the specified capped cone",
+          "evidence": "The Hamming space yields distortion sqrt(d), with no unit-distance apex in that theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.16070",
+          "material_read": "§4.2, Theorem 4.7, pp. 15–16, offsets 50500–51400",
+          "method": "Bounded open-access primary passages",
+          "title": "Negative type and bi-Lipschitz embeddings into Hilbert space",
+          "trigger": "Ordinary Hamming-cube distortion and possible negative-type equivalence"
+        },
+        {
+          "assessment": "General method and distinct regular metric families",
+          "evidence": "The Hamming and Johnson distortion results assume their original shortest-path metrics; the Gram SDP is standard and does not alone evaluate the limit of the cone.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0509716",
+          "material_read": "§2 and Theorem 2.5, pp. 2–3; §3 Gram SDP, near offsets 6200 and 9300",
+          "method": "Bounded open-access primary passages",
+          "title": "Optimal Embeddings of Distance Regular Graphs into Euclidean Spaces",
+          "trigger": "Association-scheme exact formulas and SDP"
+        },
+        {
+          "assessment": "Regular-graph embedding results not directly applicable",
+          "evidence": "Tabulated Hamming/Johnson values concern distance-regular graphs; the apex changes degrees and metric constraints.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.09708",
+          "material_read": "p. 2 and §5.1 p. 14, near offsets 4800 and 43000",
+          "method": "Bounded open-access primary passages",
+          "title": "The least Euclidean distortion constant of a distance-regular graph",
+          "trigger": "Exact-value comparison table"
+        },
+        {
+          "assessment": "Single finite overlap at K₁ joined to the binary two-factor rook graph, not broader asymptotic coverage",
+          "evidence": "The exact theorem uses K_h∨(K_m□K_n); its balanced q,h→∞ limit is sqrt(5/2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-hilbert-distortion-and-rigidity-transitions-for-clique-joi--7d2d21ae2c92/RESULT.md",
+          "material_read": "Finding, offsets 0–2107",
+          "method": "Bounded local-mirror passage at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp Hilbert distortion and rigidity transitions for clique-joined rook graphs",
+          "trigger": "Closest indexed clique-join family"
+        },
+        {
+          "assessment": "Different metric, not coverage or a priority claim",
+          "evidence": "The two-level branching path metric has leaf–leaf distances up to four, not the unit-apex diameter-two graph metric.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-hilbert-distortion-and-optimizer-rigidity-for-depth-two-re--4e8b885d6614/RESULT.md",
+          "material_read": "Finding, scope and start of proof, offsets 0–2353",
+          "method": "Bounded local-mirror passage at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp Hilbert distortion and optimizer rigidity for depth-two regular trees",
+          "trigger": "Same limiting constant in a distinct indexed family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal hub changes the usual cube's diverging distortion into a bounded diameter-two problem. The exact limiting obstruction is not set by the diameter alone: the one- and two-coordinate shells compete with the common apex radius, and the feature map meets the resulting constant. This supplies a precise benchmark for one-point extensions of product metrics. The orbit-sized LP additionally makes the exact finite invariant accessible without a Gram matrix of exponential order, without claiming a finite closed form.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

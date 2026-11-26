@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all real \(b,d\), nonzero \(c\), and \(a\le-1\), the exact inverse cubic, strict convexity of the derivative numerator below \(-1\), and the critical factorization at \(-1\) prove the complete inverse census. The two geometric exponents follow from Taylor expansions. Properness rules out omitted inverse branches. The standalone rational checker passed and is secondary to the analytic proof.
+PASS
 
-## Originality — PASS within checked sources
+Assessed the readable complete finding in /workspace/repairs/3/RESULT.md. Frozen RESULT.md contained 11 form feeds, three carriage returns and seven tabs where TeX commands had been interpreted as control escapes, and a split w≠0 condition. The repair restores the equations, specifies the fold condition and excludes the ordinary Whitney cusp interpretation. For c≠0 the affine changes reduce the map to (w,H), with the source and target coordinate changes of opposite orientation, so the original determinant is -H_y. A fibre is exactly the zero set of the cleared monic cubic (the clearing factor never vanishes for real y). Bounded image forces bounded w, so an escaping subsequence would have |x|,|y|→∞ and unbounded first image coordinate. The strict convexity in the proof is Q''>0, not the self-audit's Q>0. Together with Q(0)<0 it gives two simple roots of opposite signs, and H''≠0 there proves ordinary folds. The monotonicity intervals give the whole 1/2/3 classification and Jacobian signs (+,-,+) or (+), hence degree +1. Interpolating between ordered folds gives the one strip. At a=-1 the two fold values are 0 and q(w)^3/2 with q^3+3q=2w, so there is one connected open region over each sign of w and none over zero. At the pinch the cubic is y^3 and the differential of the determinant vanishes, which rules out an ordinary Whitney cusp. The expansions give width 4|w|^3/27+O(|w|^5) at the pinch and 4δ^(3/2)/(3√3)+O(δ^(5/2)) for the opening on w=0. I checked the repaired control bytes (none remain) and independently used symbolic differentiation/expansion and exact root isolation in SymPy; the seven explicit rational cases and expected multiplicities are reproduced in the corrected finding, using Poly(P,y).intervals() after substituting those triples. These sample fibres are not the general proof. The source checker was inspected, not executed.
 
-The primary article Zhang, Liu, Wei, Jiang and Bi, A class of two-dimensional rational maps with self-excited and hidden attractors, Chinese Physics B 31 (2022), 030503, DOI 10.1088/1674-1056/ac4025. was inspected in the full publisher HTML: its statements concern equilibria, forward numerical attractors and basin plots, not this inverse-sheet classification. A related calculation restricted to \(a>-1\) is genuinely complementary and fails at the boundary \(1+a=0\); it does not imply the new connected band for \(a<-1\) or the critical cubic pinch. Semantically closest indexed comparisons concern forward escape in this rational family or inverse sectors of a different piecewise-linear planar map. Potential unindexed equivalents remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The complete inverse geometry of a published dynamical model changes qualitatively across a parameter actually explored in its attractor simulations. The one-parameter neck opens as \(\delta^{3/2}\), but closes as the cubic power of the output coordinate at the boundary. The exact result gives a structural limit on backward reconstruction and a rigorous foundation for interpreting folded basin preimages; it does not assert any forward attractor theorem.
+Best of knowledge for the corrected a≤−1 theorem. The map, standard cubic and fold methods, and an inverse study in the complementary a>−1 regime are antecedents. The surviving contribution is the global three-preimage topology on and below the singular parameter and its two exact width laws; it is not a claim to have introduced the map or cubic root classification.
 
-## Limitations
+## value
 
-Only single-step real-plane inverse fibres were classified; no forward orbit theorem or independent validation is claimed. Publisher availability metadata has a dated discrepancy, and the literature-priority determination does not exclude inaccessible/unindexed equivalents.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a global inverse ambiguity classification for a concrete map already studied at and on both sides of the parameter boundary. It tells a reader exactly which targets have multiple distinct backtraces and where the fold curves cease to bound a single strip. The critical point is degenerate, so a routine ordinary-cusp description would miss the exact two-component geometry and the different cubic target and 3/2 parameter scalings. No downstream result for entire basins or forward chaotic dynamics is presumed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

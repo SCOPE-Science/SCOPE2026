@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:57:55.843244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The b+1 ordered gaps of ones give a bijection with weak compositions of a into b+1 parts, including both endpoint gaps. Fixing one or two distinct gaps gives the two binomial probability ratios in the proof. Counts at distinct lengths have no same-gap cross term. For x_b=a/b and u=r+s, the first-order relative coefficient of p_j about g_j(x_b) is -j(j-1)/(2x_b)+j(j+1)/(2(1+x_b)); the coefficient of p_{r,s} about g_r g_s is -1-u(u-1)/(2x_b)+(u+2)(u+1)/(2(1+x_b)). Accounting for (b+1)b versus (b+1)^2 yields -2-rs/x_b+(rs+r+s+1)/(1+x_b), the stated kernel after putting over a common denominator. Fixed lengths and x_b bounded away from zero and infinity control the remainder. The upward quadratic has two positive roots iff its discriminant is strictly positive, since its sum and product of roots are positive. At total length u<=9 the bound rs>=u-1 excludes the positive phase; at u=10 the discriminant is positive only at (1,9). For those lengths the ratio of the mixed moment to the product of the means has positive denominator (b+1)a(n-10)(n-11) on the claimed domain. Subtraction gives the polynomial F, whose three specializations are -4t(t^2+3t+32), t(t+13)(3t-19), and -5t(5t^2-54t+97). The last bracket is positive at t=10 and increasing thereafter, and the other signs are strict. Independent replay: python3 /workspace/branches/run_independent.py checks 476 exact comparisons by extracting runs from complete small word populations and 123 signs by integer binomial counts; the frozen checker was read, not executed. The finite checks do not prove the limit or all-t signs, and no finite sign claim at the limiting roots is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inoue–Aki (2007) gives the joint conditional generating function for runs at specified lengths, including Type IV (exact length). For one success type and two lengths, conditional iid words with a fixed success count have exactly the frozen uniform distribution.",
+          "The Oh–Jang theorem deals with one specified length in a q-sequence; that is not the closest prior source for this joint conditional problem."
+        ],
+        "reasoning": "The 2007 conditional PGF directly encodes every finite cross moment by extracting fixed counts and differentiating the two marks. The frozen gap argument is a simpler computation of those same moments.",
+        "searches": [
+          "Inoue–Aki (2007), §4 and Theorem 4.2 (18)",
+          "Inoue–Aki (2005), joint exact-length run counts",
+          "Makri–Philippou–Psillakis (2007), conditional urn run statistics",
+          "Oh–Jang, arXiv:2210.04521 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks/check_covariance.py",
+        "Resultary 96bab7375d9e and 3cf268842cf9",
+        "Inoue–Aki (2007) AISM 59:577–595 and (2005) AISM 57:353–368",
+        "Makri–Philippou–Psillakis DOI 10.1239/aap/1198177236 and Eryilmaz DOI 10.1239/jap/1231340230 (abstracts)",
+        "Oh–Jang arXiv:2210.04521"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior phase criterion s>3r+1+sqrt(8r(r+1)) is increasing in r, with threshold s>8 at r=1. The minimum sum is therefore attained uniquely by (1,9).",
+          "The two-mark finite distribution from the conditional PGF determines E[X_r], E[X_s] and E[X_r X_s]. For (1,9), specializing the counts to (t,t), (2t,t), and (4t,t) reduces signs to the three explicit polynomials, respectively. The chosen limiting ratios lie off the known boundaries, one in each open phase."
+        ],
+        "reasoning": "The minimum pair follows directly from the broader threshold. The finite t cutoff is a correct explicit calculation not stated in those sources, but it verifies three particular interior choices of ratios from the known finite distribution and does not establish a stronger boundary theorem.",
+        "searches": [
+          "Resultary 96bab7375d9e Finding and proof",
+          "Inoue–Aki (2007) conditional joint PGF, Thm. 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 96bab7375d9e has the same fixed-composition model but excludes endpoint runs. Set p=x/(1+x); its quadratic F(p) is (1-p)^2 Q(x), and its discriminant is the frozen discriminant.",
+          "The common exchangeable gap law gives the interior statistic by taking only m-2 gaps. For k included gaps, the covariance is k^2(p_{r,s}-p_r p_s)-k p_{r,s}; since p_{r,s}-p_r p_s=O(1/b), the endpoint correction is O(1)."
+        ],
+        "reasoning": "Interior and endpoint-inclusive finite laws differ, but the limiting normalized covariance is equivalent. Dividing by the total length rather than b supplies a factor 1-p, giving exactly -p^(r+s-1)(1-p)^3 F(p).",
+        "searches": [
+          "Resultary: covariance phase diagram or reentrant covariance for two distinct exact lengths under fixed composition",
+          "Inoue–Aki (2007), Type IV and §4 conditional run statistics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "96bab7375d9e explicitly gives the leading covariance function, the strict phase condition, and the (1,9) positive interval 3/5<p<3/4, equivalent to 3/2<x<3.",
+          "Same-day record 3cf268842cf9 gives covariance between singleton runs and total runs, not two exact lengths.",
+          "No checked table gives the endpoint-inclusive finite triple for all t>=10; the relevant exact record is analytic, not tabulated."
+        ],
+        "reasoning": "The decisive indexed match covers the entire phase criterion and first interval, not just matching numerical examples. It has a different finite tangency assertion at (1,8), which is not the frozen finite triple.",
+        "searches": [
+          "Resultary: fixed-composition covariance kernel, discriminant, and exact run lengths (1,9)",
+          "Closest indexed records 96bab7375d9e and 3cf268842cf9"
+        ]
+      },
+      "rationale": "A distinct indexed fixed-composition theorem gives the same entire limiting covariance phase diagram after changing normalization and deleting endpoint terms. The known conditional multivariate run PGF also covers the finite moments for endpoint-inclusive runs. The exact three-family sign assertion is not stated in the inspected sources, but in the stated regime it is a direct sign evaluation of these finite moments, not a new finite distribution or a separate phase boundary. The indexed record's later date is not evidence of priority; the comparison is about mathematical coverage.",
+      "residual_risks": [
+        "The searches do not establish publication priority or exhaust the run literature. No inspected source literally prints the three endpoint-inclusive specializations for every t>=10; the failure is based on exact limiting coverage and the mechanical finite implication, not a claim that the exact triple was printed before."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct limiting coverage, different finite statistic",
+          "evidence": [
+            "Counts only interior 0-1^r-0 patterns; states the same phase criterion and (1,9) positive interval, plus a stronger treatment of tangencies."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-pell-indexed-covariance-phase-diagram-for-run-length-spectra-o--96bab7375d9e/RESULT.md",
+          "material_read": "Finding, assumptions and beginning of proof, mirror chars 0–4122 across inspections",
+          "method": "Original indexed text in local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, followed by change of normalization and endpoint check",
+          "title": "A Pell-indexed covariance phase diagram for run-length spectra of fixed-composition binary words",
+          "trigger": "Exact discriminant and fixed-composition covariance of two run lengths"
+        },
+        {
+          "assessment": "Covers the finite law under the frozen conditioning",
+          "evidence": [
+            "Theorem 4.2 gives a generating function for the conditional coefficients a_n(t,s;alpha); fixing binary counts and two exact-run marks gives the finite moments in the frozen statement."
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/059_3_0577.pdf",
+          "material_read": "pp.577–578 (abstract and Type IV), §4 pp.587–590; Thm. 4.2 eq. (18), PDF-text chars 46200–48995 for the latter passage",
+          "method": "Original lawful OA article, including decisive generating function",
+          "title": "Joint distributions of numbers of runs of specified lengths in a sequence of Markov dependent multistate trials",
+          "trigger": "General exact joint conditional run-count law"
+        },
+        {
+          "assessment": "Relevant machinery; the 2007 paper is the more direct conditional source",
+          "evidence": [
+            "Multiple specified lengths, including exact-length runs, are counted in linear or circular words."
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/057_2_0353.pdf",
+          "material_read": "Article scope on joint distributions, higher moments and the Type IV statistic",
+          "method": "Original OA article comparison",
+          "title": "Joint distributions of numbers of success runs of specified lengths in linear and circular sequences",
+          "trigger": "Earlier joint exact-run counts"
+        },
+        {
+          "assessment": "Different pair of statistics",
+          "evidence": [
+            "Its covariance compares all one-runs to singleton one-runs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-likelihood-ratio-ordering-of-singleton-success-runs-under-fixed--3cf268842cf9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror comparison",
+          "title": "Likelihood-ratio ordering of singleton success runs under fixed composition",
+          "trigger": "Same-day fixed-composition run covariance"
+        },
+        {
+          "assessment": "Different sampling and one run length",
+          "evidence": [
+            "Computes a PMF for one exact-length run count in the q-model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.04521",
+          "material_read": "Theorem 3.1, p.8",
+          "method": "Available original paper",
+          "title": "On success runs of a fixed length defined on a q-sequence of binary trials",
+          "trigger": "Frozen citation for exact-length runs"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The reentrant covariance phase is a meaningful property, but its complete limiting classification and least pair are already covered. The remaining finite witness tests three deliberately off-boundary ratios for that pair and falls out of the known conditional law and a short sign calculation. It resolves no unknown finite boundary (in particular no sign at either critical ratio) and establishes no general finite classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

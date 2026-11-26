@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the period-six enumeration
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` runs with Python 3 and no third-party dependencies. It encodes rule 115 from its eight truth-table bits, enumerates every \(p=3\) and \(p=6\) temporal-column triple, constructs all edges and filters the vertices reachable to and from the background. This obtains matrices of dimensions 3 and 27, respectively.
+## correctness
 
-For each reduced matrix it computes exact integer boundary path counts. The code establishes the Fibonacci recurrence through three initial scalar matrix-difference identities and the order-four recurrence through 27 initial scalar matrix-difference identities. Cayley–Hamilton makes these checks sufficient for all subsequent window lengths; the proof in RESULT.md spells out that implication. It separately enumerates all \(\(4^n\)\) initial two-component pairs for each \(0\le n\le7\), using finite deviations from the infinite periodic background, and verifies both time-3 and time-6 counts.
+PASS
 
-The exact counts begin \(\(B_n=1,2,3,5,8,13,21,34\)\) and \(\(A_n=1,2,7,21,60,165,461,1282\)\). In particular the four least-period-six initial pairs in a two-site window are verified directly. No numerical tolerance, random sample, black-box network service, or finite-prefix extrapolation is involved. The finite-state transfer identity is the universal argument; direct evolution is a separate low-length check.
+The stated Boolean rule has truth table 01110011 in descending neighborhood order. From the initially zero pair the uniform background is 001 repeated. On the right, at time 2 mod 3 the center and its right neighbor are one, giving output zero irrespective of the left neighbor, and at the other times a zero center suffices. On the left the sites through -2 obey the same induction; if the halo value at time 0 mod 3 is s, at time 1 mod 3 it is s (left neighbor zero) and at time 2 mod 3 it is s XOR NOT s = 1. Thus only site -1 needs a free temporal column outside the window. The directed edge enforces the recurrence at the middle column modulo p; starting at (-3,-2), adding one halo with initial bits zero, then n interior columns and two terminal background columns checks all nonautomatic sites, also when n=0. Uniqueness of the temporal evolution gives the bijection. An independently implemented temporal bit-constraint generator reproduced core sizes 3 and 27, starts, and all required initial scalar recurrence residuals. Cayley–Hamilton applies to u M^j P(M) v, so those residuals vanish at every index, not just at tested sizes. Separate direct line evolution with fixed background only at distant endpoints agreed for n=0..6. The recurrence plus initial values gives the two rational functions; divisibility of any period by three follows from the shielded background, so only periods three and six can contribute to Fix(F^6). At z=1/rho, (1-z+z^2)=6/rho^2 and (1-delta z)=sqrt(21)/rho, giving the claimed dominant coefficient; other exponential moduli are |delta| and 1. Fibonacci growth of B_n and 4^n possible initial pairs give the stated relative densities.
 
-Limits: this does not verify periods other than 3 and 6, does not certify literature priority, and has not received independent external audit.
+## originality
+
+PASS
+
+The prior rule-115 results already give the period obstruction, least-period-six examples (including a two-site witness), and even the sizes of the two rooted temporal-column automata. They are not credited as new. The exact all-window path counts, scalar recurrence and explicit spatial growth of the six-period fixed set are distinct on the evidence read.
+
+## value
+
+PASS
+
+The first two admissible temporal-period classes are natural tests of how the unusual finite-support periodicity of rule 115 is distributed over spatial windows. The scalar transfer functions settle their entire labeled-window census, including the least-period-six count and the growth base distinguishing it from the Fibonacci class and from all 4^n pairs. General finite-state rationality or an isolated witness supplies neither the exact frequencies nor that growth base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

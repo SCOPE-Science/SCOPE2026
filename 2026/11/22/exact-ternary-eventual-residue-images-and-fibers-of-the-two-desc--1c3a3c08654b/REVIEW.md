@@ -1,19 +1,21 @@
-# Scientific review: ternary two-descent Eulerian residues
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The integer Eulerian inclusion-exclusion identity yields two explicit \(3\)-adic analytic tail branches. Their common derivative reduces to \(t-1\pmod3\): two index balls are exact isometries while the third has one nondegenerate critical point. A convergent square-root coordinate yields the precise quadratic critical images; critical-root lifting supplies every fiber count. The least period follows by combining the six-term modulo-three word with the regular-branch isometry. Independent standalone finite checks confirmed 29,634 assertions, including complete histograms for depths one through eight. Infinite claims rest on the proof, not the finite experiment.
+PASS
 
-## Originality — PASS, with residual risk
+For n≥k, 3^n vanishes modulo 3^k and separating parity gives precisely g_0 and g_1. The restricted power series for 4^t has all its positive-degree coefficients divisible by 3; the first and second derivative reductions of the branches are t−1 and 1. Each noncritical input disc maps isometrically onto the stated residue ball. The simple derivative roots lift uniquely; in the even branch both factors vanish at −1/2 because 4^(−1/2) is the square root of 1/4 congruent to 1. For the odd center g_1(1)=−26≡1 mod 9 and moving to its critical point does not change this residue. At each critical point substitute t=β+3s: after removing 9s² the Taylor quotient is 2 modulo 3 as a restricted series. Dividing by 2 and taking the square root congruent to 1 yields a coordinate congruent coefficientwise to s modulo 3, hence a bijective isometry. The resulting square condition is modulo 3^(k−2) with s modulo 3^(k−1), giving the factor 3, with k=1 checked by the six-term pattern (2,0,0,1,2,0). That pattern forces any eventual period to be a multiple of six; applying a regular isometry forces 3^k to divide the half-period. The even sheet is already contained in the full 0 mod 3 ball. The odd sheet has measure (1/9)(3/8); counting its possible leading valuations yields the stated finite image sizes and zero fibers. Independently, recurrence-based enumeration of two tail blocks agreed on every fiber and the least period at k=1–6 (support sizes 3,7,20,58,173,517).
 
-The conventional Eulerian recurrence and explicit form in Xiong–Tsao–Hall (2013) do not imply an all-depth ternary image. The ternary Eulerian applications of Krattenthaler–Müller (2013) concern central, not fixed two-descent, Eulerian entries. Castro–González–Medina (2015) concerns divisibility valuations; its abstract does not establish full nonzero residues or their multiplicities, but its inaccessible full text is a priority risk. The OEIS entry A000460 gives the classical sequence. An explicitly related two-descent dyadic classification works at a different prime and has no implication for the ternary image. A general implicit \(p\)-adic analytic-image theorem could subsume the proof technique, but no directly covering Eulerian statement was found.
+## originality
 
-## Value — PASS
+PASS
 
-This determines a natural complete local invariant for a classical fixed Eulerian column: an unexpectedly nonuniform residue image, a translated quadratic sheet in addition to two full balls, exact fibers and least periods at all prime powers, and rational Haar density \(17/24\). The third sheet and its growing fibers are not furnished by the known inclusion-exclusion identity or valuation-only assertions, so the result is more than a routine modular rewrite.
+The inspected results supply the sequence identity, different-prime or different-column distributions, or modular behavior of a different statistic. They do not establish the fixed two-descent ternary tail image or all-target multiplicity law. Priority beyond these comparisons is not certified.
 
-## Qualifications
+## value
 
-Finite prefixes and other Eulerian columns or other primes are outside scope. The odd critical value is a uniquely characterized \(3\)-adic constant, not claimed elementary. The closest valuation-focused full article was inaccessible; historical priority therefore remains qualified. No independent verification has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a classical fixed Eulerian column, the result determines both which ternary residues can persist and how often every target occurs. The distinction between a quadratic sheet hidden inside a full residue ball and one visible in the support is structurally informative: an image-only theorem would miss the extra zero fibers. The exact period, compact value set and measure 17/24 give usable invariants at all depths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

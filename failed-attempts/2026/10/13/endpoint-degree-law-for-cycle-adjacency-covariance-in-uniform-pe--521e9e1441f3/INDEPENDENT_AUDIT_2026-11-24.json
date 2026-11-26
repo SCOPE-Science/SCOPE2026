@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:34:28.256438Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–67",
+        "Frozen VERIFICATION.md and verify.py, read as evidence, not executed",
+        "Féray, arXiv:1201.2157v5, §2.1 Lemma 2.1, alternative exact derivation"
+      ],
+      "rationale": "The statistic uses unordered neighboring values of the same permutation, with H on fixed labels. After fixing distinct images a,b at positions i,i+1, the partial injection consists of directed paths and forced closed cycles. Completing the paths uniformly leaves expected cycle count H_{n-2} plus the number of forced cycles (the two possible loops and the possible two-cycle). Summing over oriented realizations of the graph edges adds d_i+d_{i+1}+1_{{i,i+1} in E(H)} at each i. The sum of the degree terms is 4e-d_1-d_n, and subtracting E[K]E[B_H] gives (c+2e/n-d_1-d_n)/[n(n-1)]. The complements, path and relabeled stars follow from the stated edge and endpoint counts. At n=2 the only adjacency is constant and the empty completion has zero cycles.",
+      "residual_risks": [
+        "The claim is a covariance for uniform permutations, not an independence statement or a claim about graph relabeling invariance. No independent exhaustive run is needed for the contraction proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 2.1 gives the exact expectation of a product of r prescribed-image indicators as theta to the number of closed partial cycles divided by the product (n+theta-1) through (n+theta-r), allowing overlap between the image and domain lists.",
+          "The October 12 trace law treats linear sums of single-image indicators. Its one-edge contraction argument anticipates the method, but its displayed linear formula does not directly apply to B_H."
+        ],
+        "reasoning": "The older Ewens formula directly covers r=2 at any allowed ordered image pair, and is stronger than the conditional uniform mean needed for the proof. It is not limited to the classical path-adjacency model.",
+        "searches": [
+          "Féray, arXiv:1201.2157v5, §2.1 Lemma 2.1",
+          "Resultary 2026/10/12/SCOPE-a-trace-law-for-cycle-count-covariance-and-exact-cayley-spearman--258585918a40"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1201.2157v5, §2.1",
+        "arXiv:0903.2555v1; arXiv:1308.5459v2",
+        "Local Resultary records named above",
+        "Frozen RESULT.md, lines 73–86"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For two arrows let s be the number of forced cycles. Lemma 2.1 gives their probability as theta^s/[(n+theta-1)(n+theta-2)]. Summing the numerators over all allowed oriented pairs and consecutive positions gives 2e(n-1)+(theta-1)(4e-d_1-d_n+c)+(theta-1)^2 c; two simultaneous fixed points occur only on a common path edge.",
+          "The derivative of the normalizing denominator contributes 2e(n-1)(1/n+1/(n-1))=4e-2e/n in the covariance numerator. Subtraction yields the exact audited expression."
+        ],
+        "reasoning": "This differentiation and grouping require no new probabilistic lemma or unproved assumption: the graph law is the specialization and elementary sum of an existing exact local moment formula. The sign and star examples are substitutions.",
+        "searches": [
+          "arXiv:1201.2157v5, §1.1 Ewens weights and §2.1 Lemma 2.1",
+          "Frozen RESULT.md, lines 36–67"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "By Ewens exponential weighting with statistic K, d/dtheta E_theta[B_H] at 1 equals Cov_1(K,B_H).",
+          "Equidistribution of oriented adjacency or succession indicators is not itself an equivalence of their joint laws with K."
+        ],
+        "reasoning": "The right equivalent is a derivative of a graph-selected two-image moment, not a marginal adjacency law, a covariance with fixed points, or a count of arrows within cycles.",
+        "searches": [
+          "Websearch for prescribed partial bijections and local-indicator covariance in Ewens permutations",
+          "Féray, arXiv:1201.2157v5, §§1.1 and 2.1",
+          "arXiv:0903.2555v1, p. 1; arXiv:1308.5459v2, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 27 and November 8 records treat oriented ordinary successions, including covariance 1/n^2 for uniform linear successions; that is not the unordered reference-path statistic.",
+          "The October 18 record concerns consecutive triples, not an arbitrary graph of pairs. The October 12 trace result is for a first-order linear statistic."
+        ],
+        "reasoning": "The neighboring catalogue records are not exact graph-law matches. Coverage rests on the mathematically stronger primary moment formula, not on a catalogue date or a matching numerical case.",
+        "searches": [
+          "Resultary: cycle count against neighboring-image indicators, graph-selected adjacency, ordinary/linear/circular successions",
+          "Resultary 2026/10/27/SCOPE-cycle-length-orthogonality-of-ordinary-successions-in-a-uniform--e65722ae53e6",
+          "Resultary 2026/11/8/SCOPE-opposite-cycle-count-covariance-signs-for-linear-and-circular-ew--6376754255c2",
+          "Resultary 2026/10/18/SCOPE-exact-cycle-count-covariance-with-all-six-consecutive-triple-pat--5a13f0bb8311"
+        ]
+      },
+      "rationale": "Féray's exact joint-moment lemma for arbitrary partial permutations under Ewens weighting gives the two-image law at general theta, including loops and forced two-cycles. The uniform cycle covariance is the derivative of the corresponding expectation at theta=1. Summing that prior formula over the graph's ordered edge realizations and taking this derivative gives the audited formula and all sign cases. This is verified coverage by implication; it does not claim Féray explicitly stated the endpoint-degree formula.",
+      "residual_risks": [
+        "Publisher access limitations for Xu–Alain–Sankoff and Mansour–Shattuck are not findings of non-coverage. The verified implication from Féray is sufficient regardless of those open questions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_IMPLICATION",
+          "evidence": "The exact r-image indicator moment holds for any valid partial bijection, with its numerator counting all forced cycles, and yields the claimed covariance at theta=1.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.2157v5",
+          "material_read": "§1.1 Ewens weight, p. 1; §2.1 Joint moments and Lemma 2.1 with proof, pp. 7–9, extracted offset 27750 onward",
+          "method": "Lawful open-access PDF passage inspection",
+          "title": "Asymptotic behavior of some statistics in Ewens random permutations",
+          "trigger": "General joint law for prescribing images, possibly determining the mixed covariance"
+        },
+        {
+          "assessment": "RELATED_NARROWER_STATISTIC",
+          "evidence": "Its trace law adds covariances of single-image indicators against K, not of the two-image edge indicators as such.",
+          "identifier_or_url": "Resultary 2026/10/12/SCOPE-a-trace-law-for-cycle-count-covariance-and-exact-cayley-spearman--258585918a40",
+          "material_read": "RESULT.md Finding; proof of the single-entry law at offset 2000 onward",
+          "method": "Local Resultary search and mirror",
+          "title": "A trace law for cycle-count covariance and exact Cayley–Spearman covariance",
+          "trigger": "Earlier catalogue graph-adjacent cycle covariance methodology"
+        },
+        {
+          "assessment": "RELATED_NOT_EQUIVALENT",
+          "evidence": "The located result concerns marginal equidistributions for class-selected oriented neighbor pairs, not the same-permutation cycle covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/0903.2555v1",
+          "material_read": "p. 1 definition and abstract, extracted offset 1558",
+          "method": "Lawful open-access PDF passages",
+          "title": "Equidistribution of (X,Y)-descents, (X,Y)-adjacent pairs, and (X,Y)-place-value pairs on permutations",
+          "trigger": "Closely related one-line neighboring-value statistic"
+        },
+        {
+          "assessment": "RELATED_NOT_EQUIVALENT",
+          "evidence": "Equality in law of the set of oriented succession positions and a fixed-point set does not establish a joint law with K.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.5459v2",
+          "material_read": "p. 1 marginal set-distribution theorem summary, extracted offset 432",
+          "method": "Lawful open-access PDF passages",
+          "title": "Unseparated pairs and fixed points in random permutations",
+          "trigger": "Oriented succession distribution on the same permutation space"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": "Available material concerns adjacency distributions; it does not establish whether a mixed cycle moment is included in the body.",
+          "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btn295",
+          "material_read": "Abstract/landing material only",
+          "method": "DOI and indexed Oxford/PMC/repository attempts including an identified CiteSeerX copy; full text not retrieved",
+          "title": "Poisson adjacency distributions in genome comparison: multichromosomal, circular, signed and unsigned cases",
+          "trigger": "Reference-path adjacency special case"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION",
+          "evidence": "Successions within cycles are a different observable from neighboring one-line values; a more general local formula in this paper was not verified.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2015.12.004",
+          "material_read": "Bibliographic title and located publisher entry, not full text",
+          "method": "Attempted lawful DOI/publisher recovery and exact-title lookup",
+          "title": "Counting permutations by the number of successions within cycles",
+          "trigger": "Possible prior joint enumeration of successions and cycle count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Féray, arXiv:1201.2157v5, Lemma 2.1"
+      ],
+      "rationale": "The endpoint-degree expression is concise and the labeled-star sign reversal illustrates a meaningful difference between graph isomorphism and equality of the joint statistics. Nevertheless the exact invariant is mechanically obtained from the known arbitrary two-image Ewens moments by differentiation and summation; the examples require only substituting graph degrees. It is informative as an application of that prior formula, but does not meet the value standard for an independently unknown exact invariant.",
+      "residual_risks": [
+        "The assessment does not dismiss the pedagogical usefulness of the graph characterization or the possibility of nonmechanical extensions beyond the submitted claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

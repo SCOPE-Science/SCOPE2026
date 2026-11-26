@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:37:40.553187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–115",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent exact_review_checks.py, routine leaders"
+      ],
+      "rationale": "For the connected unit-edge graph with four positive equal diagonal gains, the quadratic form is strictly positive; the kernel of the Laplacian consists only of constants and any nonzero constant incurs a positive gain penalty. The covariance is half the inverse, so trace comparisons are unchanged. Pair occupancy plus hub inclusion exhausts the graph orbits: five, four and two profiles for m>=4, m=3 and m=2, respectively. I derived all seven rational trace differences separately by differentiating log det(L+kD+zI) at z=0, using the scalar arrowhead determinant and the three types of shifted 2x2 block determinants. All stated numerator and denominator identities match, and denominators are positive. The three cluster penalties are strict, leaving the two unclustered profiles for m>=4. The Q-H numerator has negative coefficients at m=4,5; its two positive roots at m=6 and 7 are as stated, with product 9/4; at m=8 its discriminant is negative with positive leading coefficient, and each larger m adds a strictly positive polynomial. For m=2 the other profile loses strictly. At m=3 strict dominance leaves A_3 and C_3, and the comparison quartic is strictly increasing on positive gain, has opposite signs at 3/10 and 1/3, and changes the winner in the stated direction. Strict dominance excludes additional ties. An independent exact calculation also inverted the full grounded matrices for each of the five representative profiles at gains 1/100, 1 and 25 for both m=6 and 7, giving hub/no hub/hub with no ties at those gains. Replay: python3 /workspace/branches/exact_review_checks.py 1 (SymPy). The frozen checker was read, not run; its 1,984 small-network and 36 larger sample checks are recorded evidence, not the universal proof.",
+      "residual_risks": [
+        "All claims here are for finite strictly positive equal gains and the unit-edge friendship graph, not perfect pinning or gain allocation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The noiseless windmill theorem covers blade size two and arbitrary budgets but minimizes a grounded follower inverse trace, not the noisy full-grounded-matrix trace at finite gain.",
+          "The noiseless friendship hub rule 3k<2m+1 includes the hub at budget four for m=6,7. The detailed Sun–Li–Liu results were not retrieved in primary full text."
+        ],
+        "reasoning": "Even an all-budget noiseless classification gives only the appropriate limiting comparison, not the intermediate hub-free phase. No extrapolation from an unavailable full text is warranted.",
+        "searches": [
+          "Resultary clique windmill all-budget noiseless --8135ef43309b, Finding",
+          "Resultary noiseless friendship threshold --1c1e7b6f78d5, Finding",
+          "Sun–Li–Liu DOI:10.1063/5.0020696 and bounded lawful OA recovery"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bipartite, clique windmill, weighted friendship reentrance, noiseless friendship and inverse-square findings as above",
+        "arXiv:1302.0450 and arXiv:1407.1569 primary passages",
+        "DOI:10.1063/5.0020696 bounded access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the friendship specialization the two-leader optimum is gain-uniform for each m, not an instance of the four-leader comparison. Weighted two-leader hub reentrance shows that reentrance is not novel as a generic phenomenon.",
+          "Noiseless rule agrees with the high-gain hub choice for m=6,7, but carries no finite thresholds."
+        ],
+        "reasoning": "Neither a limit, a different budget, nor a differently structured reentrant example yields the two positive roots of the four-leader trace difference in this claim. The originality judgment is for the exact specialized classification, not those generic phenomena.",
+        "searches": [
+          "Finite-gain LS1 and joint-centrality primary passages",
+          "Resultary two-leader windmills and no-noise friendship threshold Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LS1 uses the same inverse-trace criterion and optimizes over a fixed number of leaders. The inspected discussion gives general selection machinery, not this friendship diagram.",
+          "Fitch–Leonard distinguish finite equal feedback with noise from ideal leaders; the inspected exact noisy examples concern other graph or leader-count regimes."
+        ],
+        "reasoning": "The consensus, pinning and inverse trace formulations describe the same optimization when the noise and gains agree. A general algorithm or another example does not establish all winner profiles and gains for F_m.",
+        "searches": [
+          "Resultary equal finite gain four leaders, noisy consensus pinning, friendship graphs and triangular clique windmills",
+          "Lin–Fardad–Jovanović arXiv:1302.0450, Eq. (2) and LS1",
+          "Fitch–Leonard arXiv:1407.1569, pp. 3–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-leader bipartite diagram is for K_(2,m) and switches counts on its size-two side, not the hub optimum on F_m. The closest same-graph finite-gain windmill theorem is for two leaders. The later weighted friendship reentrance result uses two leaders and distinct weights. The inverse-square finding concerns two perfectly grounded leaders and a different trace power."
+        ],
+        "reasoning": "These classified regimes share methods, objects or phenomena, but differ in graph, leader budget, gain regime or objective. None of the inspected ranked matches lists or implies the assigned all-m diagram.",
+        "searches": [
+          "Resultary: friendship four leaders finite gain and reentrant hub phase diagram",
+          "Compared --5b299daa2230, --3efa33a797ea, --a8df3f507d1c and --507a13194c27 Findings"
+        ]
+      },
+      "rationale": "Compared with the available exact and general results, the distinct claim is the all-m four-leader finite-gain friendship phase classification, including the exact double switches specifically at m=6,7 and their common root product. The noisy-consensus objective and placement problem are known, and reentrance exists on other graph/budget models. No inspected statement or implication covers the assigned classification. The plausible Sun–Li–Liu same-graph paper remains an unresolved source, not negative evidence or a reason by itself to fail.",
+      "residual_risks": [
+        "Sun–Li–Liu full text is a concrete unresolved windmill/coherence overlap risk. A primary search did not return a usable result; this is not evidence of no literature.",
+        "Bounded catalogue and literature comparison does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion, not this classification in inspected passages",
+          "evidence": "Half the inverse trace of the Laplacian plus diagonal leader gain; a separate noise-free large-gain case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "pp. 5–7, Eq. (2) and LS1; PDF text offsets about 14900–18000",
+          "method": "OA primary text",
+          "title": "Algorithms for leader selection in stochastically forced consensus networks",
+          "trigger": "Identical objective in noisy consensus leader placement"
+        },
+        {
+          "assessment": "Same model but different inspected optimizer regimes",
+          "evidence": "Finite equal k is noisy feedback; exact results discussed for one or two noisy leaders and paths/cycles, or arbitrary numbers of noiseless leaders.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "pp. 3–4, offsets about 9950 and 14052",
+          "method": "OA primary text",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Equal-gain noisy placement and possible direct examples"
+        },
+        {
+          "assessment": "Unresolved access and coverage",
+          "evidence": "PubMed and DOI attempts did not deliver readable primary passages (203 and 403); no identified accessible repository copy was found. The frozen abstract description does not distinguish the exact four-leader finite-gain optimization.",
+          "identifier_or_url": "https://doi.org/10.1063/5.0020696",
+          "material_read": "Frozen relationship-to-prior-work note, lines 125–129; no detailed primary theorem retrieved",
+          "method": "Bounded PubMed and DOI OA attempts and repository-copy recovery",
+          "title": "Noisy consensus dynamics in windmill-type graphs",
+          "trigger": "Same underlying windmill family and consensus coherence"
+        },
+        {
+          "assessment": "Different graph and classification",
+          "evidence": "For K_(2,m) at m=9,10 the number on the size-two side changes 2 to 0 to 1; the friendship graph has a single hub and internal petal edges.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-four-leader-phase-diagram-on-unequal-complete-bipartite--5b299daa2230",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirror",
+          "title": "Complete four-leader phase diagram on unequal complete bipartite graphs",
+          "trigger": "Same fixed leader budget, objective and phase behavior"
+        },
+        {
+          "assessment": "Same graph specialization, different budget",
+          "evidence": "At blade size two, two leaders avoid the hub for two blades and use it for at least three, uniformly for finite positive gains.",
+          "identifier_or_url": "2026/10/18/SCOPE-gain-uniform-two-leader-placement-transition-on-clique-windmills--3efa33a797ea",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirror",
+          "title": "Gain-uniform two-leader placement transition on clique windmills",
+          "trigger": "Includes the assigned graph at blade size two"
+        },
+        {
+          "assessment": "Distinct weighted graph/budget regime",
+          "evidence": "Two leaders reenter a hub-containing optimum with two blades and a nonunit weight; not the unit-weight four-leader result.",
+          "identifier_or_url": "2026/11/8/SCOPE-finite-gain-reentrance-in-optimal-two-leader-pinning-of-weighted--a8df3f507d1c",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirror",
+          "title": "Finite-gain reentrance in optimal two-leader pinning of weighted friendship graphs",
+          "trigger": "Same hub departure and return motif"
+        },
+        {
+          "assessment": "Noiseless, not finite-gain coverage",
+          "evidence": "The friendship noiseless theorem includes the hub in every optimum iff 3k<2m+1; the windmill theorem is likewise for perfectly pinned vertices.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-hub-abandonment-threshold-for-noise-free-leaders-on-friend--1c1e7b6f78d5; 2026/10/26/SCOPE-all-budget-optimal-noise-free-leader-placements-on-clique-windmi--8135ef43309b",
+          "material_read": "Findings, mirror offsets 260 and 250, respectively",
+          "method": "Local mirror",
+          "title": "Exact hub abandonment threshold for noise-free leaders on friendship graphs; All-budget optimal noise-free leader placements on clique windmills",
+          "trigger": "Same graph, includes four leaders or all budgets"
+        },
+        {
+          "assessment": "Different trace power and regime",
+          "evidence": "Two perfectly grounded leaders minimize a follower inverse-square trace.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-five-vertex-transition-for-inverse-square-leader-placem--507a13194c27",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirror",
+          "title": "A single five-vertex transition for inverse-square leader placement",
+          "trigger": "Other exact windmill placement objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact occupancy comparisons",
+        "Inspected finite-gain and noise-free comparison findings"
+      ],
+      "rationale": "The classification answers when a natural clustered graph's central hub should receive one of four noisy leaders, with the concentration-versus-spread tradeoff changing twice only at two graph sizes. It supplies usable exact thresholds and the root-product relation, and explains why low- or high-gain heuristics alone miss the intermediate optimum. The proof is a complete optimization over all placements and graph sizes, not merely a sampled nonmonotonicity example or a restatement of the general inverse-trace criterion.",
+      "residual_risks": [
+        "Practical or mathematical generalization beyond the stipulated noise model, unit edges and four equal gains is not demonstrated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

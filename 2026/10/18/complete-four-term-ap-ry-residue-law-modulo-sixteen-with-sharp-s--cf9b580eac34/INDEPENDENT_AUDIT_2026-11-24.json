@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:29:03.436589Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Squaring the central-binomial factor kills k of binary weight at least two modulo 16. At k=2^j the remaining Lucas bit is b_j xor b_(j+1), including zero for k>n. Thus A_n=1+4(n mod 2)+8r(n) mod 16. Appending 0 gives (0,u xor p,u); appending 1 gives (1,u,v xor (1-p)). I rebuilt the eight-state matrix, checked its characteristic polynomial x^3(x-2)(x-1)^2(x^2-2x+2) and the stated annihilator. The column and row sums give the constant dominant projection and the annihilator precludes loss of a polynomial factor at the other nonzero eigenvalues. A fixed prefix gives the same entrywise O(2^(L/2)) bound on every aligned block of length 2^L; geometric summation yields the all-cutoff error. The even word decodes its three bits, and for each parity of t the odd parameterization decodes the underlying three-bit state bijectively. Thus truncations at arbitrary N change counts by at most O(1) on splitting into the parity subclasses, giving 8/16 and 16/32 as the two contributions to total mass. For sharpness, the L=4,8,12 counts are 1,36,496; after four steps the surviving recurrence roots are 16,1,-4, giving the claimed sequence from m=1. An independent check of the identity is that s(t)=(0,0,0) iff t=4a with an even number of runs of 1s in a. For L=4m there are binom(L-1,2j) suffix strings with j such runs; filtering for j even gives 2^(L-3)+Re((1+i)^(L-1))/2. Replay: python3 /workspace/branches/independent_replay.py 1 independently checks direct binomial sums through n=179, 8,192 windows, the transfer polynomial, and the special state at four dyadic cutoffs. The finite data corroborate the proof; the frozen verifier was read, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary ee10caa284d0 gives four-term natural densities and support for Stern at arbitrary moduli, not Apéry.",
+          "Rudin–Shapiro summatory block and level-count theorems refer to the classical adjacent-11 sequence. Scattered-10 partial sums also exhibit square-root scales, but for another statistic."
+        ],
+        "reasoning": "An arbitrary-modulus theorem for Stern does not specialize to Apéry. Summatory results for those digit sign sequences do not evaluate four simultaneous adjacent-run conditions here. General automaton machinery can compute such quantities once the correct transition and its spectrum are analyzed.",
+        "searches": [
+          "Resultary: four-term residue densities and support for automatic sequences",
+          "arXiv:2302.00405 Theorems 11 and 27",
+          "arXiv:1408.2277 Theorem 10"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.8635",
+        "arXiv:1408.2277",
+        "arXiv:2302.00405",
+        "Resultary eb55e669a8d7, ee10caa284d0, 24eccc0ee41a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.28 identifies every single Apéry residue with 1+4 times the binary run count, but the stated theorem does not count overlaps of neighboring integers.",
+          "The sharp-cell evaluation is accessible by a finite-state recurrence or by reducing the event to even run parity on a dyadic subset and applying a binomial filter."
+        ],
+        "reasoning": "The finite-state calculation or separate dyadic parity reduction does real work beyond citing the pointwise identity. No stronger inspected statement already supplies the evaluated four-word law and its sharp error.",
+        "searches": [
+          "arXiv:1310.8635 §3.6 Theorem 3.28 and Resultary eb55e669a8d7 Finding",
+          "arXiv:2302.00405 Theorems 11 and 27 versus the sharp Apéry cell"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rowland–Yassawi's beta(n) is the run count and equals b_0(n)+2 times the number of adjacent 10 transitions.",
+          "Resultary eb55e669a8d7 repeats this pointwise identity as a premise for a bridge to Almkvist–Zudilin numbers.",
+          "Lafrance–Rampersad–Yee use scattered, not adjacent, 10 pairs; classical Rudin–Shapiro counts adjacent 11."
+        ],
+        "reasoning": "For this question a joint law for successive binary run counts modulo four is exactly a joint Apéry residue law. Pointwise congruences are equivalent inputs but do not themselves evaluate the joint histogram or error; superficially similar 10-count sequences must not be identified.",
+        "searches": [
+          "Resultary: four consecutive Apéry residues modulo 16; binary runs and adjacent 10 count; Rudin–Shapiro block laws",
+          "arXiv:1310.8635 §3.6 Theorem 3.28",
+          "arXiv:1408.2277 pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest retrieved adjacent records were the Apéry–Almkvist–Zudilin pointwise bridge eb55e669a8d7 and the separate Stern four-term histogram ee10caa284d0; the classical Rudin–Shapiro run-transition hit 24eccc0ee41a also uses a different word."
+        ],
+        "reasoning": "None of these evaluated tables or formulas matches the Apéry word histogram or the all-cutoff discrepancy. The bounded catalog lookup is not an exhaustive absence test.",
+        "searches": [
+          "Resultary: Apéry mod 16 four-residue block, all 24 words and the (1,5,9,5) dyadic count"
+        ]
+      },
+      "rationale": "Rowland–Yassawi's pointwise run-count congruence is exact prior coverage and is not the new result. No inspected source supplies the complete four-window support, the two rational word frequencies with uniform square-root error, and the explicit sharp cell for this Apéry sequence. The closest finite-state and digit-sum comparisons use different sequences/statistics or provide general methods rather than evaluating this joint law.",
+      "residual_risks": [
+        "Earlier evaluated joint frequencies for adjacent binary run counts or a general automatic-word theorem with explicit values may not be indexed by Apéry terminology.",
+        "This is a comparison of inspected scientific statements, not a historical priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact pointwise coverage only",
+          "evidence": "A(n) congruent to 4 beta(n)+1 mod 16, with beta the number of binary runs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.8635",
+          "material_read": "§3.6 Theorem 3.28, p. 24, text offset 58,907",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Exact Apéry run identity"
+        },
+        {
+          "assessment": "Repeats the prior Apéry congruence; separate cross-sequence result",
+          "evidence": "The bridge concerns coefficientwise congruence with Almkvist–Zudilin, not consecutive Apéry blocks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-modulus-sixteen-bridge-between-ap-ry-and-almkvist-zudilin-numb--eb55e669a8d7/RESULT.md",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "A modulus-sixteen bridge between Apéry and Almkvist–Zudilin numbers",
+          "trigger": "Same sequence and modulus"
+        },
+        {
+          "assessment": "Comparable statistic on a different sequence",
+          "evidence": "The four coordinates are consecutive Stern terms, not Apéry terms.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-four-term-residue-densities-and-support-counts-for-the-ste--ee10caa284d0/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "Exact four-term residue densities and support counts for the Stern sequence",
+          "trigger": "Four-term joint residue theorem at arbitrary moduli"
+        },
+        {
+          "assessment": "Scattered inversion statistic, not adjacent transitions",
+          "evidence": "The partial sums of the scattered-10 sign statistic have square-root-scale limits.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.2277",
+          "material_read": "Definition pp. 1–2 and Theorem 10 p. 10",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Some properties of a Rudin–Shapiro-like sequence",
+          "trigger": "10 count and square-root error wording"
+        },
+        {
+          "assessment": "Classical Rudin–Shapiro aggregate sums, not the Apéry block statistic",
+          "evidence": "Block relations and level counts are for the classical sign sequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.00405",
+          "material_read": "Theorem 11 p. 12 and Theorem 27 p. 22",
+          "method": "Bounded original arXiv PDF inspection",
+          "title": "Rudin–Shapiro Sums Via Automata Theory and Logic",
+          "trigger": "Possible dyadic block or discrepancy implication"
+        },
+        {
+          "assessment": "A different run statistic",
+          "evidence": "Analyzes transitions between run lengths of the classical adjacent-11 sign word.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-successive-run-law-for-the-rudin-shapiro-word--24eccc0ee41a/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary lookup and bounded local mirror read",
+          "title": "Exact successive-run law for the Rudin–Shapiro word",
+          "trigger": "Potentially equivalent run-transition distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural exact local correlation law for the classical mod-16 Apéry sequence, not a selection of a few tested residues. It explains all eight extra exclusions beyond alternating mod-4 classes, quantifies the unequal frequencies of the permitted words, and supplies a concrete cell witnessing that all-cutoff square-root accuracy cannot be uniformly improved. These are more informative than the one-point congruence or mere automaton recognition; no claim is made for longer blocks or larger moduli.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

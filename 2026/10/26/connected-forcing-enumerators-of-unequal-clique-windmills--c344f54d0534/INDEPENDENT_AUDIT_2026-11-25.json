@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:35:04.171099Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two cases give a disjoint classification of all nonempty connected starts. With a black hub, an occupied blade with more than k white vertices cannot receive a first additional black vertex: the only adjacent candidates are the hub and blade-mates, each of whom sees more than k whites. The total size of the initially empty blades is likewise a permanent obstruction if it exceeds k, because only the hub could seed any of them. Conversely each eligible occupied blade can be finished first, after which the hub can finish all empty blades. Thus the allowed seed counts and the bound on the weighted empty-blade set are both necessary and sufficient. With a white hub, connectivity confines the seeds to one blade h. A first force has m_h−s+1 white neighbors, and when legal it colors the hub and every remaining vertex of h. The other blades can be completed iff M−m_h≤k. Counting labeled subsets gives exactly the two terms, including a zero contribution if a blade is too large to be omitted or too small to host a suitable hub-free start. Monotonicity justifies using an ordered sufficient sequence instead of parallel closure. In the uniform case the minimum comes from the largest allowed number of omissions until the peripheral singleton threshold. At its predecessor k=(r−1)m−1 the size is three, also for r=2 where k=m−1. The hub becomes a singleton at k=rm; for k≥M every connected start succeeds, as also follows from the general expression. The supplied verify.py was inspected but not executed; it is a bounded replay comparing exact closure, the structural predicate and polynomial coefficients. The case proof establishes the result outside that domain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 4081d4849636 classifies all ℓ-forcing sets for uniform K₁∨rK_m and gives their polynomial for 1≤ℓ≤rm",
+          "The friendship proposition computes the connected minimum for m=2"
+        ],
+        "reasoning": "The uniform classification restricts to connected starts simply by keeping hub starts and starts confined to one blade. It does not apply to unequal blade orders, where omitted blades must be tracked by total weight, not just their number. The friendship theorem is scalar and uniform.",
+        "searches": [
+          "Resultary 4081d4849636, exact ℓ-forcing profile of generalized windmill graphs",
+          "Premodkmuar–Dominic–Chacko (2020), Proposition 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 1b3c17ded724 and 4081d4849636",
+        "Premodkmuar–Dominic–Chacko (2020), Proposition 7",
+        "Related Resultary friendship, wheel and complete multipartite forcing records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two directly matching restrictions are fixed k=1 with unequal sizes and all k with equal sizes",
+          "Wheel blades are not the clique bouquet in question; complete multipartite graphs join rather than separate the peripheral parts"
+        ],
+        "reasoning": "The restrictions do not mechanically determine the interior with unequal sizes and k>1. For sizes (2,3,5) and k=3, for example, empty sets of blades of the same cardinality can have different feasibility, and the hub-free contribution also depends on the particular blade's size and the mass of its complement. Thus the claimed joint classification is not supplied by either covered specialization or their intersection.",
+        "searches": [
+          "Joint comparison of Resultary 1b3c17ded724, 4081d4849636 and Proposition 7 of DOI 10.28919/jmcs/4446",
+          "Resultary connected wheel, friendship zero-forcing, and complete multipartite forcing enumerators"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 1b3c17ded724 gives the ordinary zero-forcing polynomial for heterogeneous bouquets; its hub term is z^(1+Σ_i(m_i−1))∏_i(z+m_i)",
+          "Its hub-free ordinary forcing starts meet every blade and hence are disconnected for r≥2"
+        ],
+        "reasoning": "Ordinary zero forcing is exactly k=1. Keeping the hub term proves equivalent coverage of that entire specialization, but cannot account for empty blades or hub-free connected starts allowed at larger k.",
+        "searches": [
+          "Resultary heterogeneous clique bouquets, windmills and friendship graphs under zero/k/ℓ-forcing",
+          "Resultary records 1b3c17ded724 and 4081d4849636"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact coefficient-level coverage at k=1 in the heterogeneous bouquet record; formula-level coverage after restriction in the uniform windmill record",
+          "Prop. 7 gives p+1−k/2 for even k<2p−2, (2p−k+3)/2 for odd k<2p−2, and 1 from 2p−2 for the friendship graph with p blades"
+        ],
+        "reasoning": "At k=1 the friendship proposition gives p+1, and immediately before the peripheral threshold it gives three, in agreement. Neither it nor the inspected exact polynomial records gives the arbitrary-profile all-k coefficient formula.",
+        "searches": [
+          "Resultary 1b3c17ded724 and 4081d4849636, exact polynomial formulas",
+          "Premodkmuar–Dominic–Chacko (2020), Proposition 7, pp. 660–662"
+        ]
+      },
+      "rationale": "Credit is limited to the arbitrary heterogeneous all-k connected enumerator. There is demonstrable prior coverage of the heterogeneous k=1 specialization, and the uniform all-k connected result is already a filtering consequence of an earlier all-starts classification. The earlier friendship scalar values are also covered; none of these specializations is credited as independent novelty.",
+      "residual_risks": [
+        "The cited 2019 paper's full text was not inspected; no whole-document exclusion is inferred.",
+        "The prior uniform and k=1 matches limit the novelty; the available searches do not establish universal publication priority for the heterogeneous all-k result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact overlap for k=1 only",
+          "evidence": [
+            "Hub-containing term z^(1+Σ_i(m_i−1))∏_i(z+m_i); hub-free ordinary forcing sets must meet every blade"
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-heterogeneous-clique-bouquets-zero-forcing-polynomial-recognitio--1b3c17ded724",
+          "material_read": "Finding and relevant assumptions, offsets 0–4117",
+          "method": "Local published-record mirror",
+          "title": "Heterogeneous clique bouquets: zero-forcing polynomial and recognition",
+          "trigger": "Same arbitrary blade profiles and forcing enumerator"
+        },
+        {
+          "assessment": "Covers the uniform specialization by direct connectivity filtering, not heterogeneous blades",
+          "evidence": [
+            "All successful starts are classified for uniform K₁∨rK_m, with a complete polynomial"
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-ell-forcing-profile-of-generalized-windmill-graphs--4081d4849636",
+          "material_read": "Finding and relevant assumptions, offsets 0–4383",
+          "method": "Local published-record mirror",
+          "title": "Exact ℓ-forcing profile of generalized windmill graphs",
+          "trigger": "Same rule, graph family name and all-gain classification"
+        },
+        {
+          "assessment": "Exact preexisting friendship minima, including k=1, not coefficient multiplicities",
+          "evidence": [
+            "Three parity/threshold cases of Z_c,k(F_p); p+1 at k=1 and 1 from k=2p−2"
+          ],
+          "identifier_or_url": "https://doi.org/10.28919/jmcs/4446",
+          "material_read": "Proposition 7 and surrounding proof, printed pp. 660–662",
+          "method": "OA primary PDF at scik.org, extraction offsets 10750–16205",
+          "title": "Connected k-forcing sets of graphs and splitting graphs",
+          "trigger": "Exact connected k-forcing scalar formula on friendship graphs"
+        },
+        {
+          "assessment": "Detailed scope not independently established",
+          "evidence": [
+            "2019 citation in frozen bibliography, not the 2020 friendship proposition"
+          ],
+          "identifier_or_url": "https://doi.org/10.26438/ijsrmss/v6i3.121127",
+          "material_read": "Bibliographic identification only",
+          "method": "Lawful OA lookup returned HTTP 404",
+          "title": "K-Forcing Number of Some Graphs and Their Splitting Graphs",
+          "trigger": "Related named scalar forcing work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distinct contribution is a complete labeled connected-forcing enumerator on a natural nonuniform block graph family, explaining the competition between local seed thresholds and one global weighted empty-blade budget. It determines all coefficients and minimum-set multiplicities for a heterogeneous profile, with a different mechanism when the hub starts white. The uniform and friendship applications illustrate the boundary but are not counted as an additional new contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** An exact bijection identifies canonical double-occurrence words with perfect matchings of ordered positions. A second exact bijection identifies the neighbors of each prescribed permutation with the distinct matchings produced by all order-preserving interleavings of a permutation and its inverse. Two exhaustive, algorithmically different finite enumerations agree on all \(k!\) degrees for every \(2\le k\le6\), including the complete length-five and length-six degree tables, unique maximizers, and cyclic-shift comparisons. The result is finite; no infinite extrapolation is used.
+PASS
 
-## Originality
+A canonical word corresponds bijectively to the perfect matching of its paired positions, and a qualifying split puts one endpoint of each pair in each side. For fixed γ, the endpoints in the ordered first side match the γ-indexed endpoints in the ordered second side. I independently enumerated balanced position cuts with 0 on the first side, then every bijection between the two sides. Each pairing was recorded once per induced permutation using a set of matching codes; entering the same code at the inverse permutation accounts for the omitted swapped cuts. This exhausts both all words and all splits without counting multiple witnesses as extra words. All entries of both supplied tables for k=5,6 agree. At k=2,3,4 the maxima 2,9,33 have cyclic maximizers, with the listed maximizing sets. At k=5,6 the maxima and their entire argmax sets are 134 at 34521 and 54123, and 532 at 345621 and 651234. The cyclic lists in shift order are [42,115,123,123,115] and [132,396,508,278,508,396]. The word counts also agree with the double factorials.
 
-**PASS, subject to independent literature assessment.** The direct precursor, *Variations on shuffle squares* (arXiv:2308.13882, §2.4), explicitly poses the maximum permutation-vertex degree as a question. Its nearby results determine an identity-vertex Catalan degree and small covering numbers, which do not imply the new five- and six-symbol maxima. A follow-up examines shuffle-square avoidance under abstract constraints, and other inspected work studies aggregate shuffle-square counts rather than the same per-permutation incidence extremum. Searches of published mathematical records found no matching exact result; unindexed or differently phrased work remains a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is an exact extremal answer at the first nontrivial uncovered sizes for a specifically posed structural question. The unique inverse extremizers and a first departure from cyclic-shift maximization provide a qualitative boundary, not merely a re-tabulation of the original paper's known identity degree or covering sizes. Complete degree tables and two replayable enumerations permit further investigation of the unrestricted problem.
+The incidence graph, the identity degree, and the small k=3 calculation are established background. The exact k=5 and k=6 permutation-side maxima, their maximizing inverse classes, and the failure of cyclic shifts at k=5 were not found in the inspected sources. The original question asks for the maximum vertex degree; the frozen record gives finite permutation-side results, not a general solution.
 
-## Relationship to literature and limitations
+## value
 
-The defining incidence graph and its open maximum-degree problem originate in Grytczuk, Pawlik, and Pleszczyński, arXiv:2308.13882. The result is explicitly restricted to \(2\le k\le6\), with new main assertions at sizes five and six. It neither identifies asymptotic maximizers nor rules out alternative formulations in subsequent literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The primary paper motivates the precise maximum-degree invariant independently of the computation. The complete consecutive cases establish a boundary for the natural cyclic-shift candidate subclass, with gaps of 11 and 24 at k=5,6 and noncyclic maximizing inverse classes in both. This is useful finite extremal data for the stated problem, not just a count of shuffle representations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

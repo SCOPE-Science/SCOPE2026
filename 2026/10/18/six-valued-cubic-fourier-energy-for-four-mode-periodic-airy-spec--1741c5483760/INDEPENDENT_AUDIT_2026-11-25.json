@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:42:19.746065Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_energy.py inspected",
+        "/workspace/branches/check_5.py"
+      ],
+      "rationale": "Probability-normalized torus orthogonality counts pairs of ordered triples with equal linear and cubic sums. The diagonal multiset weights yield 4+12·9+4·36=256. For four distinct real frequencies the rows 1,n,n³ are independent (a nonzero cubic cannot vanish at four distinct arguments), so lattice differences lie on one primitive integer line. The positive mass of a nonzero relation is at least two by the linear moment constraint, so any size-three collision uses the primitive relation up to sign. Canceling common frequencies leaves masses two or three, with disjoint supports of total size at most four: pure constant-vs-constant is impossible, leaving exactly the five listed types. At mass two, using the cubic sum identity for pairs shows that nonidentical pairs of the same linear and cubic sum have zero sum, including the repeated-entry case whose repeated value is then zero. At mass three, 2a+b=3w gives a=w+h, b=w−2h and the residual cubic moment is 6h²(3w−h), forcing the ratio (−5,1,4) in the nontrivial three-site case. The two four-site mass-three conditions are precisely as stated. Their weighted pair surpluses and that of the three-site mass-three case are 18, 12 and 6. Mass two allows four choices of common frequency; the two pair types give products (6,9,9,18) or four 18s and hence surpluses 84 or 144. No fiber of three is possible: endpoints would differ by at least twice a primitive relation, of mass at least four. Strict convexity on positive frequencies rules out the distinct-vs-constant mass-three type and signs rule out the symmetric and ratio types. Independently computed all six witnesses and the positive baseline witness; python3 /workspace/branches/check_5.py counts ordered triples directly and checks the exact conditions on all 58,905 four-subsets of [−18,17]. The primitive kernel proof is universal; the sweep is supplementary.",
+      "residual_risks": [
+        "Exactly four distinct integers and unit coefficients; this is not a norm theorem for arbitrary amplitudes or a classification on larger supports."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The single-defect theorem allows an arbitrary discrete abelian group and complex amplitudes but requires exactly one nonsingleton triple-sum fiber of balanced type.",
+          "Michels studies infinite Λ(p) sets, not the complete moment image on four-element supports."
+        ],
+        "reasoning": "The broader coefficient and ambient-group ranges cover the balanced branch once its hypotheses are proved. They do not cover other defect signatures or multiple collisions, or assert which hypotheses hold for integer cubic supports.",
+        "searches": [
+          "Resultary 927de11a37e9 Finding and moment proof",
+          "Michels arXiv:math/9904176 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 927de11a37e9",
+        "arXiv:2607.12553, 2609.23175 and math/9904176",
+        "Maynard e70554 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For unit coefficients in the balanced branch with its unique collision fiber, substitution directly gives 256+18=274.",
+          "The older formula neither rules out other fibers on such supports nor classifies signs, and doesn't apply to either of the mass-two families with four colliding pairs."
+        ],
+        "reasoning": "No stronger inspected claim gives the six-level theorem by substitution. The remaining step is the affine rank-one and primitive-mass argument specialized to the cubic graph plus different defect counts, not a recomputation of the balanced formula.",
+        "searches": [
+          "927de11a37e9 proof of H(x)+18Re(c₀²c₃ conj(c₁c₂²))",
+          "arXiv:2609.23175 introduction and arXiv:2607.12553 resonance formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With γ(n)=(n,n³), the integral equals the triple-sum ordered energy in Z², the group-character setup of the balanced-defect record.",
+          "The Dysthe/Euler and coupled KdV papers use different resonance objects: continuous Hamiltonian coefficients and bilinear PDE divisors, respectively."
+        ],
+        "reasoning": "The balanced collision is equivalent after passage from Fourier moments to additive characters; sharing six-wave or cubic notation with the PDE papers does not establish equivalence of the integer moment census.",
+        "searches": [
+          "Resultary: sixth moment, balanced triple-sum defect and cubic Fourier energy; SCOPE-20261011-927de11a37e9",
+          "arXiv:2609.23175 six-wave scattering",
+          "arXiv:2607.12553 cubic dispersion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest inspected catalogue entry yields the 256 baseline and 18-unit balanced surplus, not a table of all exact levels or support conditions for n↦(n,n³)."
+        ],
+        "reasoning": "This is direct prior coverage of two entries under their specified hypotheses, not coverage of the exact exhaustive table. No covering table was returned in the examined sources.",
+        "searches": [
+          "Resultary search for four-mode moment and triple-sum collision results; checked 927de11a37e9"
+        ]
+      },
+      "rationale": "The collision-free baseline and balanced single-defect surplus are covered by a prior more general group-character calculation. Credit applies to the distinct complete integer cubic-graph classification, including the other four defect types, their exclusivity and attainable energies, and the arithmetic restriction for positive supports; do not present 256 or the conditional 274 formula as independently new.",
+      "residual_risks": [
+        "Maynard full text was inaccessible; it was not treated as noncovering on that basis. Older unindexed trigonometric-moment and resonance results remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers balanced branch and baseline; strictly limited defect type",
+          "evidence": "H(x) plus 18 times the real part of the balanced monomial, with exactly one nonsingleton fiber. No classification of the other defect types.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-sixth-moment-norm-for-one-balanced-triple-sum-defect--927de11a37e9",
+          "material_read": "Finding, assumptions, moment identity and limitations",
+          "method": "Resultary search and local mirror passage comparison",
+          "title": "Sharp sixth-moment norm for one balanced triple-sum defect",
+          "trigger": "Exact balanced defect of four Fourier characters"
+        },
+        {
+          "assessment": "Different PDE problem",
+          "evidence": "Vanishing/smallness of resonance functions controlled by rational approximation to a coupling parameter.",
+          "identifier_or_url": "https://arxiv.org/pdf/2607.12553",
+          "material_read": "Abstract p. 1 and resonance analysis p. 6, offsets near 21209–21882",
+          "method": "OA primary PDF passage",
+          "title": "Diophantine conditions in well-posedness theory for a coupled modulated Korteweg-de Vries system",
+          "trigger": "Cubic resonance with integer frequencies"
+        },
+        {
+          "assessment": "Different observables and continuous resonance geometry",
+          "evidence": "Connected scattering coefficients for Hamiltonian models on continuous deformations of quadratic resonance patches.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23175",
+          "material_read": "Abstract and introduction pp. 1–3, offsets 0–11910",
+          "method": "OA primary PDF passages",
+          "title": "Six-wave scattering in Hamiltonian Dysthe equations: Euler matching and integrability obstructions",
+          "trigger": "Six-wave resonance and cubic corrections"
+        },
+        {
+          "assessment": "Infinite-set norm property, not finite energy table",
+          "evidence": "Constructs or analyzes infinite sets with Λ(p) properties across p>2.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/9904176",
+          "material_read": "Abstract and Theorem 1, p. 1, offsets 0–5926",
+          "method": "OA primary PDF passage",
+          "title": "Michels, work on Λ(p) sets",
+          "trigger": "Thin-set character-moment classification"
+        },
+        {
+          "assessment": "Coverage unresolved; not negative evidence",
+          "evidence": "Publisher retrieval did not return the article and an identified alternate primary copy was unavailable.",
+          "identifier_or_url": "J. Maynard, Journal of the London Mathematical Society 113, e70554",
+          "material_read": "DOI metadata; no primary text accessed",
+          "method": "Publisher/DOI and bounded OA repository lookup",
+          "title": "Sums of three positive cubes",
+          "trigger": "Potential overlap for positive cube moment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and orthogonality/classification proof; 927de11a37e9 comparison"
+      ],
+      "rationale": "The probability-normalized sixth moment is a standard way to detect integer third-order resonances for Airy dispersion. Four modes give the first rank-one moment kernel on arbitrary distinct supports and permit balanced four-site defects that three modes cannot realize. An exact level set with arithmetic tests and comparison to all-positive frequencies distinguishes large sign-driven excesses from the much smaller balanced excess; this is an exact benchmark for sparse periodic Airy spectra and not just a bounded search for examples.",
+      "residual_risks": [
+        "The interpretation does not extend to arbitrary coefficients or to larger mode sets without additional analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

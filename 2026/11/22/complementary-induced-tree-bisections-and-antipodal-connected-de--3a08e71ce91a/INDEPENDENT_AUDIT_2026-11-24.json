@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:20:42.258252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a connected selected k-set in a cubic graph on 2m vertices with nonempty complementary forest, the complement has 3m−3k+e(S)≥3m−2k−1 edges, and at most 2m−k−1. Equality at k=m requires both sides to be trees. The displayed seven-set is an actual witness, so the bound is attained in Heawood. Independent all-subset reconstruction (branches/reproduce-exchanges.py heawood, with .out) used the Fano incidence mask, checked the given LCF isomorphism, and tested the forest identity e=|V|−components for every complementary mask. It returned fvs=4 with 70 choices and cfvs=7 with 770 choices; price 7/4 follows. All 770 complements qualify and give 385 unordered pairs of halves. To recover the full group, enumerate all permutations of the seven points carrying the seven incidence triples to themselves; the image of each line is then forced. The graph is connected bipartite, so all remaining automorphisms are obtained by composing these with the polarity switching the two shores. This gives 336 automorphisms and the five orbit sizes as claimed. Pairwise XOR population two constructs the exact jump graph, and unweighted distances from all 770 sources reproduce the edge and degree counts, seven distance multiplicities, constant eccentricity seven, and 5,460 Johnson-plus-one pairs. Every complement pair has Johnson distance seven, and there are no other distance-seven pairs. This proves uniqueness of each complementary antipode, not a statement about the unrestricted four-set exchange graph.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The price-of-connectivity results concern classes given by forbidden induced subgraphs. Equitable induced-forest results impose no connectedness of both equal parts. Decycling cubic graphs, Theorem 5.4(i), gives a tree plus an independent set when n≡2 mod 4 for cyclically 4-edge-connected cubic graphs."
+        ],
+        "reasoning": "A tree plus an independent set and two equally sized forests are different target partitions; neither provides simultaneous connectivity in two equal parts, nor orbit or exchange counts. The readily derived cubic lower bound itself is not a novelty claim.",
+        "searches": [
+          "arXiv:1510.02639v1, price of connectivity",
+          "arXiv:1410.0861v3, equitable induced forest partitions",
+          "Literature search: Heawood partition into two induced trees, connected feedback and cyclic connectivity; arXiv:2309.11606 Theorem 5.4"
+        ]
+      },
+      "checked_sources": [
+        "Belmonte et al. arXiv:1510.02639v1; Esperet et al. arXiv:1410.0861v3; Decycling cubic graphs arXiv:2309.11606; Brouwer Heawood graph entry",
+        "Resultary unrestricted Heawood 83a003d33b54, unrestricted jump on GP(7,2) b91350f1784b, induced-forest complex 07bd367089bb, buffered TAR 7595f50168ff and three-path covers dbd1bd34456c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior ordinary optimum gives the denominator of the price of connectivity. Induced-forest face data by themselves count neither connected complementary halves nor jumps between them. Exact cubic decycling theory covers a tree with independent complement at the relevant order, not the connected selected half."
+        ],
+        "reasoning": "The edge identity reduces the connected minimum problem to existence at seven and classifies its optima if attained; it does not count the partitions, prove connectivity of exchanges, or prove the Johnson-plus-one and unique-antipode properties. The supplied graph-specific exhaustion establishes those independent facts.",
+        "searches": [
+          "Heawood ordinary minima and induced-forest-complex Resultary records; Belmonte et al. class-level theorems",
+          "arXiv:2309.11606 p. 21 and Brouwer's Hamiltonian description"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heawood and GP(7,2) describe the same graph. The earlier GP(7,2) jump result uses ordinary size-four feedback sets. The Hamiltonian description identifies a cycle plus the complement perfect matching; the graph is not planar."
+        ],
+        "reasoning": "Tree bisections and minimum connected feedback sets are indeed equivalent here by cubic degree accounting and existence at seven. This is not an isomorphism to the four-set problem; the candidate counts and feasible predicates differ. Nor does taking matching complements partition the vertices into two induced trees; an argument via planar duality cannot assume a planar Heawood embedding.",
+        "searches": [
+          "Resultary: Heawood/GP(7,2) connected decycling sets, induced tree bisections, complement and token-jump geometry",
+          "Brouwer's Heawood graph entry, Hamiltonian/matching complement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier unrestricted census has 70 sets of size four. The GP(7,2) jump record has that 70-vertex feasible family, not the present one. The same-date Heawood size-seven three-path-cover record has 58 vertices, and the same-date buffered feedback record allows variable-size intermediates between four-set optima. No matching exact 770-set connected census was found."
+        ],
+        "reasoning": "Identical graph, one common parameter, or shared date is insufficient to identify results or order their priority. The present all-pair table is for constant-size jumps within connected feedback sets only.",
+        "searches": [
+          "Resultary: Heawood 770 selected halves, 385 bisections, connected seven-set exchanges and antipodes",
+          "Resultary: Heawood minimum FVS census, induced-forest complex, ordinary jump/TAR and size-seven reconfiguration"
+        ]
+      },
+      "rationale": "The ordinary optimum and its finite census are prior and explicitly credited. There is also earlier jump-metric work on Heawood's 70 unrestricted four-sets. The surviving claim concerns the very different family of seven-vertex connected optima and its exchange geometry; no checked source supplies or implies that census and metric.",
+      "residual_risks": [
+        "The 1993 framed-trees and 2022 cyclic-connectivity/edge-elimination primary full texts were not accessible in the bounded attempts. Titles and abstracts do not rule out incidental content; the different 2023 arXiv paper was inspected for its broader partition theorem, not represented as either missing paper. Earlier differently worded or unindexed induced-tree partition enumerations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard definition and class-level results, no Heawood census in inspected statements",
+          "evidence": "The price is analyzed across graph classes specified by forbidden induced subgraphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.02639v1",
+          "material_read": "PDF pp. 3–4 around offset 8050",
+          "method": "Bounded OA primary read",
+          "title": "The Price of Connectivity for Feedback Vertex Set",
+          "trigger": "Same connected optimization problem and price"
+        },
+        {
+          "assessment": "Equitable induced forests are not necessarily induced trees",
+          "evidence": "The existence results under acyclic-coloring or degeneracy hypotheses do not count, or require connectivity of, complementary tree halves.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.0861v3",
+          "material_read": "Abstract and results on PDF p. 1, offset 650",
+          "method": "Bounded OA primary read",
+          "title": "Equitable partition of graphs into induced forests",
+          "trigger": "Balanced induced parts provide a possible broader result"
+        },
+        {
+          "assessment": "Related structural theorem for unrestricted decycling; different partition requirements",
+          "evidence": "At n≡2 mod 4, a cyclically 4-edge-connected cubic graph has a partition with one induced tree and one independent set.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.11606",
+          "material_read": "Theorem 5.4, PDF p. 21, offset 49515 onward",
+          "method": "Bounded OA primary read of theorem and start of proof",
+          "title": "Decycling cubic graphs",
+          "trigger": "Cyclic connectivity and stronger decycling partition theorems"
+        },
+        {
+          "assessment": "Directly covers the credited unrestricted baseline",
+          "evidence": "Minimum four, 70 minimum sets, complementary ten-vertex induced trees.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-all-seventy-minimum-feedback-vertex-sets-of-the-heawood-graph--83a003d33b54",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror read",
+          "title": "All seventy minimum feedback-vertex sets of the Heawood graph",
+          "trigger": "Exact same-graph feedback set census"
+        },
+        {
+          "assessment": "Closest earlier exchange result, for a different feasible family",
+          "evidence": "The 70 unrestricted minima have a four-regular jump graph of radius six and diameter seven, not the 770 connected minima.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-mixed-token-slide-phase-and-a-connected-jump-metric-for-minimu--b91350f1784b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local-mirror read",
+          "title": "A mixed token-slide phase and a connected jump metric for minimum decycling sets of GP(7,2)",
+          "trigger": "Same graph under an alias and same jump move"
+        },
+        {
+          "assessment": "Establishes the matching/Hamilton-cycle comparator but no connected-decycling reduction",
+          "evidence": "A perfect matching's complement is a 14-cycle, and the described surface embedding is toroidal.",
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Heawood.html",
+          "material_read": "Matching and embedding notes around offset 1030",
+          "method": "Bounded public HTML read",
+          "title": "Heawood graph",
+          "trigger": "Potential Hamilton-cycle/dual counting reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Heawood graph is a canonical cubic cage, and requiring a connected set of deletions is a natural distinction from its known ordinary feedback problem. At the optimum every deletion has a paired tree complement, so the classification identifies a concrete geometric space on which the mobility question is distinct from mere feasibility. An exact nearly Johnson metric and a unique farthest complement at every vertex are useful reconfiguration properties not automatic from the degree count or from the known ordinary four-set result. The contribution is a motivated exact single-graph benchmark, not a universal statement about cubic graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

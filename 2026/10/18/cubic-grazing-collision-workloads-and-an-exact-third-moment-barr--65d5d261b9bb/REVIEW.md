@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is stated for uniform interior position in a ball of integer dimension at least two and independent isotropic direction and nonnegative speed with a finite positive third moment. Every collision is specular, and the time interval is a single free-flight substep. Angular momentum/chord conservation reduces the reflection count to a longitudinal position inequality. Exact integration of this inequality gives the stated transverse integral. Splitting its support at the two geometric cutoffs proves the cubic coefficient; the uniform cubic envelope justifies dominated convergence and summation over reflection counts. The positive tail constant gives an exact divergence threshold at moment order three. In dimension three the radial exponent vanishes and the cubic identity is genuinely nonasymptotic in its specified distance range. The planar Gaussian and one-dimensional flat-boundary constants are consistent with exact integrals. The verifier completed 2,146 deterministic rational and quadrature assertions; numerical assertions are auxiliary to the proof.
+## correctness
 
-## Originality — PASS, with uncertainty
-The relevant numerical-integrator article, Leimkuhler–Sharma–Tretyakov (arXiv:2404.16584; original public submission 2024-04-25), discusses multi-collision billiard substeps and recommends possible rejection of steps with multiple collisions. Its accessible discussion and experiment report empirical rarity, not an exact high-count tail, moment threshold, all-dimensional small-step coefficient, or expected extra-reflections coefficient. Bunimovich–Dettmann (doi:10.1080/10586458.2024.2423180) gives the classical circular invariant measure and constant-chord geometry in a distinct open-hole escape problem. These published ingredients are acknowledged, not claimed as new. Searches of closely related count/tail literature identified no stronger covering theorem or exact-count database. The publisher full text of the latter comparison was not independently accessible; an equivalent specialized result in unindexed billiard literature remains possible.
+PASS
 
-## Value — PASS
-The collision-count random variable is a direct computational workload observable for exact recursive handling of boundary encounters. Rare event probability alone does not capture tail risk: the event requiring multiple reflections has cubic small-step probability and a finite expected extra-work coefficient, yet exact work has an infinite third moment at every positive step under a natural equilibrium starting law. This is a sharp, dimension-uniform geometric distinction from a flat interval, where Gaussian velocities give exponentially small multi-reflection probabilities and all work moments finite. The results are useful as a benchmark for collision recursion, event caps and cost-risk assessment. They do not guarantee any computational running-time property for complete stochastic integrators.
+Fix a velocity direction by symmetry. Conditional on the transverse displacement y of the uniform point, the distance to the first boundary is Uℓ with U uniform on (0,1) independent of the chord ℓ=2√(R²−|y|²); angular momentum preserves ℓ on reflection. The y marginal is weighted by the chord's length, not uniform over impact parameters. Changing to ℓ gives its density s_{d−2} ℓ²(R²−ℓ²/4)^((d−3)/2)/(4v_dR^d). Thus the conditional count tail is the average of the chord CDF at L/(k−1+U), L=hV. The chord CDF near zero is s_{d−2}x³/(12v_dR³), and is bounded everywhere by C_d(x/R)³ (use the small-support density bound below R and probability ≤1 above R). Averaging (k−1+U)^−3 yields one half the difference (k−1)^−2−k^−2. The chord CDF in dimension three is exactly (x/(2R))³ on [0,2R], proving the exact formula on the stated L range, including equality at the boundary. The uniform cubic bound gives both limits under E[V³]<∞ and dominates the summation for the extra-hit expectation; the differences telescope. The strictly positive k^−3 tail gives finiteness almost surely and fractional-moment convergence exactly below 3 via increments of k^p. Rayleigh E[V³]=3√(2π)σ³/2 gives the planar constants. The optional interval comparison follows by the Gaussian tail bound/asymptotic integrated at its lower endpoint; chords there are bounded away from zero. Inspected the checker and frozen notes without executing uploaded code. The independent chord-CDF argument proves the limits, not the finite quadratures.
 
-## Residual risks and restrictions
-Classical billiard geometry supplies the chord invariant, and its combination with position averaging may have been carried out elsewhere without accessible indexing. The result does not cover other convex geometries, nonuniform initial configurations, or arbitrary stochastic dynamics within a step.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinctly supported theorem is the sharp count law in a closed ball for uniform independent starting position and isotropic velocity, including the cubic fixed-step heavy tail, the moment cutoff, and the fixed-count small-step constants. The classical constant-chord dynamics and phase-volume measure, as well as the identification of high speed and grazing as sources of multiple reflections, are not contributions here. The closest open-circle source was recovered and read in a lawful author-hosted version. Its count to escape through a hole does not coincide with the count in a prescribed time for a closed reflecting wall.
+
+## value
+
+PASS
+
+The count of recursive reflections is a natural workload observable in reflected transport. The precise positive tail explains why expected excess workload can be cubic-small yet each step still has an infinite third moment, even with deterministic bounded nonzero speed. The dimension-independent exponent, explicit geometric and speed coefficient, and exact 3D range make this a quantitative benchmark rather than an angle-bound estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

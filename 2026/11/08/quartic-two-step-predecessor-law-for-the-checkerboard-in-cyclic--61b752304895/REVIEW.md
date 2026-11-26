@@ -1,19 +1,21 @@
-# Scientific review of the two-step Rule 50 checkerboard law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final statement covers every even indexed ring and exactly its four spatial-period-at-most-two output words. The all-zero and all-one two-step counts follow directly from the local rule. For checkerboards, the 16-state transfer construction counts all cyclic predecessors, including lengths two and four. Its fully enumerated nonzero rows reduce to a four-class graph with uniquely lifted closed walks; the displayed four-state matrix has characteristic polynomial \(t^4-t^3-2t^2-2t-1\). The logarithmic determinant identity then proves the rational generating function, recurrence, and exponential asymptotic. The included standalone checks rebuild the matrices, verify the determinant, and exhaustively compare all four output classes on rings through length 18. The general proof is algebraic; those finite checks are not substituted for a proof.
+PASS
 
-## Originality — PASS, with documented limitations
+On a mixed word some zero borders a one, so precisely the two constant words map to all zero, and no word maps to all one. For a checkerboard the two-step local filter is a radius-two de Bruijn edge label; overlapping states on a closed walk identify exactly one cyclic indexed input, with repeated sites forced consistently even at n=2. The seven recurrent states give the four stated classes: each allowed pair of source and destination classes determines the individual destination, making every closed class-walk lift uniquely. All directed simple cycles in K contain the loop vertex: one length-one loop, two 2-cycles, two 3-cycles and one 4-cycle, giving det(I−zK)=1−z−2z²−2z³−z⁴. Its logarithmic derivative gives the numerator z+4z²+6z³+4z⁴, the recurrence and initial terms. Primitivity (irreducibility and a loop) gives one leading eigenvalue, so tr(K^m)~ρ^m. Independent replay: /workspace/branches/c73fdfd5-57cd-47d7-9e0c-e1ef6a594cbd/independent_check.py, recoded window/row/class tests, permutation determinant, traces through m=20, recurrence through m=30, direct indexed exhaustive tests to n=12 (both phases 1,5,13,29,66,155). Finite checks corroborate but do not prove the growth statement.
 
-Wolfram (1983) defines and studies elementary rules. Jen (1989, especially pp. 426–427 and 433) explicitly treats Rule 50's **one-step** preimages of finite blocks, exhibiting Fibonacci-type formulas. Fukś (2003; publicly accessible arXiv copy dated May 28, 2013) studies **time-depth** preimage counts for fixed short blocks of the infinite shift, including Rule 50. Neither inspected statement gives the two-update inverse-fiber spectrum of period-dividing-two outputs on all indexed even rings, nor the corresponding quartic recurrence in spatial half-length. The present claim is a particular evaluated transfer-graph reduction, not a claim of inventing transfer methods. Searches for equivalent two-step/checkerboard terms, recurrence coefficients, and initial numerical sequence found no direct covering statement. The relevant 1989 and 2003 works remain important conceptual antecedents; an older table or implicit special-case calculation cannot be ruled out. A direct sequence-database query failed to load and therefore provides no negative evidence.
+## originality
 
-## Value — PASS
+PASS
 
-The complete set of two-periodic targets is a natural fixed-spatial-period benchmark for inverse branching of a cellular automaton. Exact two-step counts are not determined by one-step target counts alone. The checkerboard's fourth-order recurrence and Perron rate determine a nontrivial probability of recovering the output after two updates at every even circumference, while the constant outputs have radically different inverse behavior. This supplies a reusable finite-state model and a sharp asymptotic for a standard periodic test configuration, beyond a finite census or an arbitrary parameter slice.
+Best-of-knowledge pass for the evaluated two-step checkerboard fiber law on growing indexed even rings, not for general preimage or de Bruijn machinery.
 
-## Scientific limitations
+## value
 
-No claim is made about a global maximum over arbitrary output configurations, about odd circumference, about longer time depths, or about historical uniqueness. The direct sequence-database lookup was inaccessible and there is no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The checkerboard is the natural nonconstant spatial period-two target (and oscillates under the rule). The law answers how often exactly two updates select a given indexed phase from uniform input at increasing size; stating a generic de Bruijn method does not give that probability or the unexpectedly small quartic. No broader maximum-fiber or all-target claim is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

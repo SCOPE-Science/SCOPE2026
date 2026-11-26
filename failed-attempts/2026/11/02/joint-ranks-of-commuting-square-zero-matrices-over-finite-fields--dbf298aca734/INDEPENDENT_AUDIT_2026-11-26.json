@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:53:00.398537Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and verify.py inspected without executing"
+      ],
+      "rationale": "In a basis with A=[[0,I],[0,0]], a commuting B has blocks [[P,Y],[0,P]]; B²=0 is exactly P²=0 and PY+YP=0. A rank-k P has image U, homology complement of dimension s=r−2k, and a complement on which P maps isomorphically onto U. Multiplication then forces the triangular pattern for Y with opposite corner diagonal k-blocks and an unrestricted s-by-s block Q on ker(P)/im(P). For fixed Q there are 2k²+2ks free scalar entries. Projecting the image of B onto the bottom r coordinates contributes k; the upper part over zero is im(P)+Y(ker(P)), which contributes k+rank(Q). The rank-k square-zero P's are counted by choosing the image, a containing kernel, and an isomorphism from the kernel quotient of the ambient space to the image. Counting Q by its image and a surjection gives R_{s,h}; all allowed strata are nonempty, including the dimension-zero blocks. The leading exponent is 4k(r−k)+h(2s−h)=r²−(s−h)² with leading coefficient one, giving maximal rank concentration and both uniform limits at fixed r. Nothing divides by 2, so characteristic two is included.",
+      "residual_risks": [
+        "Archived small-field checks are not independent reproductions here; the block proof covers arbitrary finite fields and is decisive without them.",
+        "No claim for nonmaximal A or for r growing with q."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier exact Smith record counts over all prime powers and ranks and goes further in a different regime: at fixed q it gives the joint asymptotic law of scaled residue rank and Smith deficiency.",
+          "The same-date 365a20493bf8 gives the residue-rank marginal and treats large dimension at fixed q. The published commuting-nilpotent results concern attainable types or bounds; all-commuting-matrix enumeration does not by itself give the trace of this square-zero rank restriction."
+        ],
+        "reasoning": "An all-pairs or all-types statement is not automatically a rank-refined census, but the exact earlier Smith formula already covers every allowed stratum. The difference of asymptotic regimes is real and does not undo exact finite-size coverage.",
+        "searches": [
+          "Resultary 9ce1162ea15b and 365a20493bf8, Findings",
+          "Kokol Bukovšek–Košir–Novak–Oblak, Proposition 2.2 and Theorem 2.3; Košir arXiv:2606.02026 pp. 1 and 3; arXiv:2509.16178v1 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9ce1162ea15b, ce965cde261e, 7d219233bfbd, 365a20493bf8, 442e4aaba275, 7465760ed8a5 and 5a1385fcdd07",
+        "Products of Commuting Nilpotent Operators, Proposition 2.2 and Theorem 2.3",
+        "arXiv:2606.02026 and arXiv:2509.16178v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under (n,r,t) in the Smith record mapped to (r,k,h) here, C_{n,q}(r,t) is term-for-term N_{q,r}(k,2k+h). Its degree is r²−(r−2k−h)² and its leading coefficient is one. For each k the single full-rank stratum has degree r²."
+        ],
+        "reasoning": "The exact count is already covered and both large-q probability limits follow just by reading the leading powers in the prior formula and summing finitely many strata. There is no independently valuable remainder to repair within the stated result.",
+        "searches": [
+          "Resultary 9ce1162ea15b Finding and Smith-invariant proof versus the two theorems of the frozen RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Give F_q^(2r) the F_q[ε]/(ε²)-module structure with ε acting by A. The maximal-rank hypothesis makes this free of rank r, since A consists of r length-two Jordan blocks. The admissible B are exactly the square-zero module endomorphisms.",
+          "On the Smith diagonal, unit entries contribute two to rank_Fq B and one to rank_Fq(AB); ε entries contribute one and zero respectively. Thus the numbers of unit and ε entries are exactly k and b−2k."
+        ],
+        "reasoning": "This defines a bijection on actual matrices after choosing an R-basis, not a comparison of similarity classes. Independent left and right invertible R-linear operations do not change either F_q rank since they commute with multiplication by ε.",
+        "searches": [
+          "Local Resultary: square-zero endomorphisms over finite dual numbers, exact Smith census, commuting square-zero pairs and product rank",
+          "Resultary 9ce1162ea15b, Finding and Smith-invariant proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9ce1162ea15b gives the same Gaussian factors, q-power and [s h]_q²|GL_h| factor, exactly equal to R_{s,h}. The earlier ce965cde261e also gives the full-rank B slice after fixing A.",
+          "7d219233bfbd counts anticommutants (the same set in characteristic two only), 442e4aaba275 does not impose commutation, and the same-date annihilating and Klein-four derivation results restrict the space or family differently."
+        ],
+        "reasoning": "The Smith record is an exact all-parameter match, unlike adjacent slices or counts for different relations. Same-date hits were examined as distinct records, without using date to decide priority.",
+        "searches": [
+          "Local Resultary 9ce1162ea15b, ce965cde261e, 7d219233bfbd, 442e4aaba275, 7465760ed8a5 and 5a1385fcdd07"
+        ]
+      },
+      "rationale": "The full finite-field joint census is an exact reparameterization of the earlier dual-number Smith census, Resultary 9ce1162ea15b. The fixed-r large-field limit is not the prior record's stated fixed-field asymptotic, but is an immediate leading-term consequence of its identical stratum formula. The failure is positive evidence of coverage, not a paper-access or proof issue.",
+      "residual_risks": [
+        "Earlier literature could change attribution upstream, but that cannot remove the demonstrated coverage by the inspected Smith census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full equivalent finite-size census; a different stated fixed-field limit does not limit coverage of the formula",
+          "evidence": [
+            "Same full support, Gaussian factors, lift power and rank block count; free dual-number module identification proves exact correspondence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-square-zero-dual-matrices-an-exact-smith-census-and-a-uniform-re--9ce1162ea15b/RESULT.md",
+          "material_read": "Finding, scope and Proof through the Smith invariant, offsets 0–5042",
+          "method": "Relevant local mirror passages; exact formula directly checked at offset zero",
+          "title": "Square-zero dual matrices: an exact Smith census and a uniform residue-rank law",
+          "trigger": "Equivalent formulation over the finite dual numbers"
+        },
+        {
+          "assessment": "Exact full-rank slice and characteristic-two overlap respectively",
+          "evidence": [
+            "The former fixes the full-rank condition on both factors; the latter replaces commutation by anticommutation."
+          ],
+          "identifier_or_url": "Resultary ce965cde261e and 7d219233bfbd",
+          "material_read": "Findings and proof offsets 0–4064 and 0–5107 respectively",
+          "method": "Read local mirror passages",
+          "title": "Product-rank strata of commuting full-rank square-zero matrix pairs; Joint rank strata of square-zero anticommutants",
+          "trigger": "Same product-rank statistic under closely related hypotheses"
+        },
+        {
+          "assessment": "Known existence and sharp rank restriction, not rank-stratum multiplicities",
+          "evidence": [
+            "The theorem describes possible product Jordan types, not numbers of factors jointly by both ranks."
+          ],
+          "identifier_or_url": "https://users.fmf.uni-lj.si/kosir/papers/produkti.pdf",
+          "material_read": "Proposition 2.2 and Theorem 2.3, PDF pp. 3–5",
+          "method": "Read located author-hosted primary PDF passages",
+          "title": "Products of Commuting Nilpotent Operators",
+          "trigger": "Same square-zero products and attainable ranks"
+        },
+        {
+          "assessment": "Infinite-field Jordan-type scope rather than this finite-field count",
+          "evidence": [
+            "The inspected scope explicitly assumes an infinite field."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.02026",
+          "material_read": "PDF pp. 1 and 3, offsets 1290 and 7688",
+          "method": "Read located full-text passages",
+          "title": "Jordan types for pairs of commuting nilpotent matrices: A survey",
+          "trigger": "Potentially broader commuting nilpotent classification"
+        },
+        {
+          "assessment": "The cited all-pairs count is not the required square-zero refinement",
+          "evidence": [
+            "The count concerns all commuting pairs rather than joint ranks within the square-zero subset."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.16178v1",
+          "material_read": "Introduction, p. 1, offset 305",
+          "method": "Read located primary passage",
+          "title": "Generating function for commuting matrix pairs (Bringmann et al.)",
+          "trigger": "Primary search for finite-field commuting-matrix counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, formula and asymptotic proof",
+        "Resultary 9ce1162ea15b, exact Smith census"
+      ],
+      "rationale": "The joint census is a natural and useful invariant, but this record duplicates an exact existing calculation in another notation. Its only distinguishable statement, the fixed-r large-q law, follows by selecting the monic maximal-degree terms of the same formula. No new mechanism, parameter range, or independently useful unrecovered invariant remains.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

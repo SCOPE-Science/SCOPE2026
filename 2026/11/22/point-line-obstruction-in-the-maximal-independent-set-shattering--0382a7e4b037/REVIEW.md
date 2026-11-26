@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete proof classifies the 37 maximal independent sets directly from Fano incidence, then proves a necessary independent-support condition, a monochromatic four-support obstruction, and an upper bound of four. The remaining two mixed four-support orbits have all 16 Boolean traces certified by an explicit witness table. Exceptional Fano-line triples have their eight traces displayed. Downward closure and elementary incidence counts give the full polynomial and facet types; the 168 collineations plus duality establish the three orbit sizes. A standalone finite checker independently enumerates all 16,384 vertex subsets to recover the concepts, tests every support and confirms the 336 group actions. Finite computation is used to corroborate, not replace, the all-cases argument.
+## correctness
 
-## Originality — PASS within the inspected evidence
-Jahari–Alikhani (2018) develop cardinality generating polynomials of independent dominating sets and work on paths, compound graphs and friendship/book graphs, not this support-shattering complex. Perarnau–Perkins (2016) determine an ordinary independence polynomial for Heawood and its extremal role; ordinary independent-set counts differ here from the shattered-set counts in degree four. Indexed results on maximal-independent-set shattering for cycles and whiskered graphs concern different hosts and do not imply this Fano-incidence classification. A public-web search for Heawood/Fano maximal-independent-set VC shattering and several semantic research queries returned no stronger implication. This is not a claim that search proves uniqueness; unavailable or unindexed historical equivalents remain a real priority risk. An indexed whiskered-graph paper could not be inspected in full, but its specified private-leaf hypothesis fails for the degree-three Heawood graph.
+PASS
 
-## Value — PASS
-The Heawood graph is the canonical 14-vertex cubic Moore graph and the point-line incidence graph of the Fano plane. Its maximal independent sets have three distinct cardinalities. The complete shattering complex reveals a sharp projective incidence obstruction: the 70 independent four-sets lying in one shore fail shattering, while every mixed independent four-set succeeds. This yields 14 genuine lower-dimensional facets and two distinct maximal four-support symmetry types. Such a complete, motivated finite classification retains meaningful structural information not recoverable from the independence polynomial or the VC dimension alone. It does not claim wider graph-family coverage.
+For a specified point shore of a maximal independent set, the line shore is forced to contain exactly the disjoint lines; both shores must dominate the omitted vertices. The Fano pair-incidence counts then leave just the 2 full shores, 14 one/four-shore concepts and 21 two/two-shore concepts. An all-positive trace enforces independence. For any monochromatic four-set a three-positive trace fails, either on a collinear triple, which intersects all lines, or on a three-subset of an off-line four-set, whose unique disjoint line would force the fourth point. Two lines leave just two off-line points, so every independent five-set contains a monochromatic four-set. The two mixed quadruple witness tables and the collinear triple witnesses give all remaining traces, using collineations and duality. Every other independent triple extends to a mixed quadruple. On the 2+2 type, the pair of lines determines the remaining two points and the collineations are transitive on unordered pairs of lines; on the 3+1 type the line stabilizer is transitive on its four off-line points. Shore-preserving automorphisms are GL(3,2) because preserving the triples preserves sums of distinct nonzero vectors; duality swaps the shores. A fresh exhaustive computation checked all 16,384 supports and found 37 concepts, face counts (1,14,70,154,77), and 336 automorphisms with facet orbit sizes (14,21,56).
 
-## Scope and residual risks
-The claim is finite and exact, not a statement for arbitrary projective planes or arbitrary independent-domination families. Previous published work was compared by what its statements imply. Research repository hits were available as indexed summaries, not all primary full text; priority remains open to an independent literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete trace and facet classification, not the underlying enumeration of Heawood independent sets or the Fano incidences, is the supported contribution. Bickle's 2-tone coloring proof already analyzes the same concept types. The closest same-graph catalogue comparison uses a different family of concepts, and the broader MIS-shattering examples checked do not imply the Heawood result. This is a bounded literature judgment, not a priority certificate.
+
+## value
+
+PASS
+
+The natural Fano incidence graph gives a complete nonpure shattering example where a collinear triple or dual pencil is individually shattered but cannot extend, whereas every mixed independent quadruple is a facet. The exact counts and orbit types make the geometric obstruction a useful benchmark for MIS trace complexes; the result is more than a dimension or concept-count exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

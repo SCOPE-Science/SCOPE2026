@@ -1,25 +1,21 @@
-# Scientific review: exact Picard orbits and a sharp near-uniform work barrier
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is confined to the specified two-invariant Gram correction with mean-value gradients and a mass-preserving predictor. Orthogonal elimination of the mass multiplier gives the displayed inversion map; the invariant subspace of the predictor-initialized iterates reduces it to one Möbius recurrence. A Cayley coordinate yields the full orbit without asymptotic approximations. The two nonsingular algebraic branches follow from collinearity and the energy constraint, with the already-feasible predictor and rank-deficient uniform predictor handled separately. The parity-sensitive exact stopping thresholds imply the asserted sharp inverse-radius limit. The finite-step oscillator example follows from the identity for a skew generator restricted to the mean-zero plane.
+PASS
 
-The supplied checker independently performs exact-rational raw Gram solves and checks the formula and both branches, together with numerical near-singularity limits and the three-evaluation oscillator predictor. Numerical tests are support, not proof; the proof in RESULT.md supplies the quantifiers and limiting argument. The corrector's interim iterates need not conserve energy, and singular starting Gram matrices are explicitly excluded from the positive-radius formula.
+For the stated exactly mass-preserving predictor and mean-value gradients, Gram elimination gives G_p(mu+z)=mu+w+(ρ²−r²)(w+z)/||w+z||², with determinant ||w+z||²/4. The initialized orbit is radial with t_{j+1}=(rt_j+ρ²)/(r+t_j), positive t_j, and Cayley coordinate (t_j−ρ)/(t_j+ρ)=κ^{j+1}. A nonsingular fixed point is feasible by the discrete chain rule. For r>0, z−w is parallel to z+w with proportionality not equal to one, so z=±ρw/r; the negative root is excluded exactly at r=ρ, and Cauchy–Schwarz gives the nearest positive root. At r=0 the initialization has rank one but the entire target sphere consists of nonsingular fixed points. For r<ρ, a=−κ, even j passes iff a^{j+1}≤ε/(2−ε) and odd j needs the smaller threshold ε/(2+ε). An even candidate attains the lower bound for any successful j up to two updates, and −log a=2r/ρ+O((r/ρ)^3), proving the sharp coefficient. The first iterate is (r²+ρ²)/(2r). On u⊥, J²=−I, so the explicit RK predictor polynomial is (1−h²)(I+hJ); r/ρ=2√2|h−1|+O((h−1)²), giving the singular start and coefficient 1/(4√2) times the stated logarithm. The frozen count uses distance to the selected limit, not the residual tolerance of Pu–Ran Algorithm 1. Replay: checker.py lines 9–73 (rational radial Gram, branches and singular start), 76–92 (finite stopping cases at ε=0.1), 95–110 (predictor, not the Gram solve at h=1). Inspected but not executed; CHECKS.txt records 1,044 rational, 12 stopping and 16 oscillator checks. No finite-precision or outer accuracy guarantee follows.
 
-## Originality — PASS, with historical-priority qualification
+## originality
 
-Pu and Ran (2026, arXiv:2605.30827v1), Sections 2 and 4 and Algorithm 1, specify the method and its fixed-point solve. They prove conservation and order properties and give numerical efficiency experiments. The exact Picard orbit, its distant algebraic branch, the sharp fixed-accuracy inner iteration cost, and a finite-step loss of Gram rank in a conservative oscillator were not found in that full-text comparison.
+PASS
 
-Norton et al. (2013, arXiv:1302.2713v1), Sections 1, 4 and its multiple-integral example, give a much broader projection/discrete-gradient equivalence and local existence results but do not analyze this predictor-initialized map or its cost. Norton and Quispel (2013, arXiv:1301.4717v1), Section 4, give a different linearly implicit quadratic-integral method explicitly designed to avoid nonlinear solves; their result does not imply the particular method's Picard work law. Published mathematical-record searches found adjacent projection and fixed-point results, but no theorem with the same update and threshold. Equivalence with a standard radial projection is acknowledged rather than claimed as new.
+The correction method, Cayley solution of a scalar fractional-linear recurrence, and exact radial normalization are not new. The distinct claim is the exact branch selection and nonuniform work of a specified Gram iteration, with the singular finite-step RK witness. The strongest inspected source for the algorithm specifies neither those global inner dynamics nor a complexity theorem that covers this degeneration.
 
-Residual risks: fractional-linear iterations are classical; a source outside the consulted corpus may have analyzed this particular correction map. The originality judgment is a comparison of mathematical implications of accessible literature, not proof of universal priority.
+## value
 
-## Value — PASS
+PASS
 
-The finding addresses the actual algorithmic cost of enforcing two physically natural invariants, linear mass and Euclidean energy. It distinguishes a cheap explicit nearest-point correction from the prescribed implicit Picard implementation: the latter can make unbounded intermediate excursions and needs a sharply quantified number of inner steps as a predictor loses its mean-zero component. The bound is realized by a concrete explicit Runge--Kutta predictor for a conservative oscillator, not an arbitrary unmotivated parameter slice. This matters for larger-step implementation, stopping rules and monitoring of Gram conditioning; it does not assert poor behavior for every predictor or suggest that the corrector's asymptotic branch is new.
+The theorem diagnoses a genuine numerical limitation not visible from existence of a nearby feasible corrected solution: the selected endpoint stays bounded while the actual initialized solver makes an arbitrarily large excursion and takes order ρ/r iterations at fixed accuracy. An explicit, valid conservative ODE predictor can reach the singular state at a finite step. This makes the branch and work distinction useful for implementing or safeguarding such corrections; the example does not purport to show accurate integration at that large step.
 
-## Scope and limitations
-
-Results use exact arithmetic, a quadratic invariant, a linear invariant, mean-value discrete gradients and mass-preserving predictors. They do not establish global convergence of an outer method, finite-precision robustness, arbitrary nonlinear multi-invariant behavior, or large-step accuracy of the explicit example. The inner Picard cost can be avoided by direct radial normalization in this special case.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

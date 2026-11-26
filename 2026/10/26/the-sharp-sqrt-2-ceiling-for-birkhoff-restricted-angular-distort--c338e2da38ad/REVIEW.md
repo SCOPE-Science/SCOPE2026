@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scale profile and the use of Birkhoff--James orthogonality are reconstructed from the definitions. The inequalities \(d\geq t\) and \(d\geq|t-t^{-1}|\), coupled with the exact norm decompositions in the two scale ranges, prove a universal envelope peaking uniquely at \(t=2^{-1/2}\). An explicit derivative checks the large-scale maximum \(4\sqrt6/9<\sqrt2\). The equality characterization is obtained by tracing exact equality in the small-scale bound; both planar witnesses have independently checked unit norms and norming-functional certificates. Strict convexity in finite dimensions uses compact attainment, with uniform small/large-scale bounds. The finite script is corroborative only.
+PASS
 
-## Originality — PASS with priority qualification
+Writing x=||x||u and y=||y||v gives the stated profile with t=||x||/||y||, and positive scaling preserves Birkhoff orthogonality. For D=tu−t⁻¹v and d=||D||, the orthogonality and reverse triangle inequalities give d≥t and d≥|t−t⁻¹|. For t≤1 the identity u−v=tD+(1−t²)u gives bounds 2t below t=1/√2 and 1/t above it. For t≥1 the identity u−v=t⁻¹D−(1−t⁻²)v gives 2/t−1/t³, maximized at √(3/2) with value 4√6/9<√2. Thus equality forces t=1/√2 and equality in the d lower bound there, i.e. ||u−2v||=1. Conversely the chord is on the sphere by convexity and orthogonality, so ||u−v||=1 and the quotient is √2. The square and diamond witnesses are unit Birkhoff pairs by the indicated norm-one functionals. The lower bound follows from t=1 and a norming functional's nontrivial kernel; Hilbert spaces give exactly 1 since d²=t²+t⁻² for an orthonormal pair. In finite dimension the unit Birkhoff-pair set is closed and compact and the bounds 2/t and 2/|t−t⁻¹| give uniform decay at the two ends. So attainment holds, and strict convexity excludes the required chord.
 
-Du--Hu--Zhang--Liu, arXiv:2609.27754, Sections 1--5, supply the source definition and normalized scale profile, but Proposition 2.5 instead states the weaker universal coefficient \(2\) and Example 4.4 asserts its sharpness. Neither entails the new upper bound \(\sqrt2\) or its equality rigidity. Searches of indexed geometric results under normalized ratios, Birkhoff orthogonality, the two distance names, and related classical parameters found adjacent but mathematically different constants. Fu--Li's unrestricted angular/skew-angular invariant and their Massera--Schäffer Birkhoff invariant do not give this restricted sharp comparison by the available statements. Earlier complete full texts for these two works were inaccessible, leaving residual priority uncertainty; failure to find an indexed match is not treated as proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact universal value resolves the sharpness question for the defining invariant of a recent Banach-geometric study: no renormed plane can make the quotient approach its previously claimed bound \(2\). A flat-face extremizer criterion and strict-convexity consequence explain geometrically where the sharp bound is attained. This is a substantive global improvement and a meaningful correction of the claimed sharp endpoint, not a routine parameter substitution or isolated numerical experiment.
+The restricted invariant and the normalized profile are already explicit in Du et al.; the lower sharp endpoint is not new. Their Proposition 2.5 and Example 4.4 explicitly claim sharpness at 2 for the very same restricted invariant. The proved upper bound √2 contradicts that sharpness and the frozen result gives an exact extremizer criterion. A distinct later-published indexed result proves the same √2 bound using the same inequalities in s=t² and includes more ℓ∞ examples; it does not state the pointwise iff, though the iff is obtainable by tracing its sharp endpoint. This is substantive duplication of the theorem, not a different invariant; the catalog entries and the preprint's ambiguous date metadata do not establish an earlier priority for the distinct result. The available earlier statements do not give the claimed sharp comparison. The Pass is for the supported improvement and equality analysis, not certified absolute priority.
 
-## Closest literature and limitations
+## value
 
-Primary: J. Du, T. Hu, W. Zhang, Q. Liu, arXiv:2609.27754v1, especially Theorem 2.2, Corollary 2.4, Proposition 2.5, and Example 4.4. Secondary: Y. Fu and Y. Li, Annals of Functional Analysis (2024), DOI 10.1007/s43034-024-00341-0, and Filomat (2024), DOI 10.2298/FIL2415247F. Those secondary full journal texts were not available, and unindexed equivalent lemmas remain possible. The result does not classify nonattained infinite-dimensional maxima.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles a natural sharpness question raised for exactly the same restricted Banach-space invariant. The improvement from an asserted sharp 2 to attained √2 changes the conclusion materially. The exact unit-sphere chord criterion also answers when a pair realizes the universal bound and explains the finite-dimensional strictly convex obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

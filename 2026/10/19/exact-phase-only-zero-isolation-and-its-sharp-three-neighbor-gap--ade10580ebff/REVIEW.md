@@ -1,15 +1,21 @@
-# Scientific review: phase-only finite-parabola zero isolation
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The three parabola sites are affinely independent for prime \(p\ge5\), so the two frequency coordinates are bijective with the full root grid. Equal-length vanishing triples must have cube-root phases, which proves uniqueness and the \(2p^2\) count. The grid minimum follows from the one-variable chord-length lower bound away from its three real zeros and exact evaluation of the three nearest admissible pairs; explicit strict trigonometric comparisons exclude all other grid points. The \(p\)-dependent boundaries and coefficient normalization are stated in RESULT.md. The standalone verifier checked all primes through 251 but its finite observations do not substitute for universal proof.
+## correctness
 
-## Originality (O): PASS, with historical-priority risk
-Dongwei Li (arXiv:2609.16030, first posted 2026-09-11) studies all nonzero complex coefficients on the finite parabola and permits up to two zeros for three atoms. Its general theorem does not impose equal amplitudes or give the sharp next nonzero amplitude. The published three-sparse elementary-Abelian Fourier-support classification likewise considers arbitrary amplitudes and exact zero counts. The published prime cyclic phase-only rigidity theorem does give an at-most-one-zero statement, but on a single cyclic character grid and not this complete prime-field parabolic root grid; it states no sharp nonzero-modulus separation or three-neighbor classification. A published finite-grid phase-only trinomial theorem minimizes the sampled maximum, a different objective. The available research ledger was checked for substantive overlap and has no covering same claim. The exact grid-gap formula may nevertheless be implicit in unindexed polygonal root-of-unity or sequence-design literature.
+PASS
 
-## Value (V): PASS
-The known qualitative uncertainty bound cannot determine how an isolated zero separates quantitatively from all other Fourier samples. The theorem supplies the exact smallest surviving modulus, its threefold multiplicity, an explicit location rule, and the full count of zero-bearing phase rays on every fixed three-point support. These identify a natural sharp boundary of phase-only cancellation with potential use for exact zero detection and numerical tolerance analysis. They do not constitute a general noise-stability or reconstruction theorem.
+The Vandermonde determinant makes the frequency differences bijective with the two-dimensional root grid. Equilateral cancellation gives exactly two orientations, which cannot be interchanged by p-th roots since p is coprime to 3; each frequency thus yields two distinct projective classes, with no overlap between frequencies. To check the gap, fix r and write the first two terms as 2 cos(pi/3+pi r/p) times a unit phase. Nearest angular matching of the third term gives the stated parity-dependent nearest-integer rule, and the reverse triangle inequality gives the row lower bound h(r). Between the zeros 0, p/3 and p of the continuous lower bound, only maxima can intervene, so outside the exceptional rows the indicated adjacent integers suffice. In particular the p=5 outside row r=q+2=3 does require a check: h(3)=D_-(2 epsilon), and the strict comparison at RESULT.md lines 64–68 applies also to p=5 (u=pi/15). Row r=0 is excluded except for the known zero by the chord bound. For p=3q+1 row r=q+1 has an exactly opposing third term and value D_-(epsilon); for p=3q+2 row r=q has an exactly opposing term and value D_+(epsilon). Cyclically permuting the three terms and dividing by the new first term yields (r,s)→(s−r,−r), which takes that exact-angle pair to the other two stated pairs. The nearest-angle rule excludes other s on these rows. This certifies strictness and exactly three minimizing frequencies with the raw-sum normalization. Independent high-precision cosine-grid enumeration at p=5,7,11,13,17 agreed with the squared gap and all equality pairs; this is finite numerical corroboration, not the all-prime proof.
 
-## Limits and closest literature
-The result is restricted to equal nonzero magnitudes, exactly three distinct sites on the prime-field parabola, and \(p\ge5\). Primary recent source: Dongwei Li, *Parity-Sensitive Fourier Uncertainty and Zero-Set Rigidity on the Finite Parabola*, arXiv:2609.16030 (2026-09-11). Related published results: *Fourier-zero rigidity for unimodular three-point signals on cyclic groups* and *Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups* (links in RESULT.md). The smallest modulus was checked numerically for all primes through 251, not certified computationally for all primes. Unindexed equivalent quantitative polygon-grid formulae remain a residual priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the exact conditional nonzero amplitude, its attainment set, and the full projective census on the parabolic grid. The three-point reduction and qualitative zero rigidity are closely tied to prior results and should not be presented as new methods.
+
+## value
+
+PASS
+
+For the natural three-site phase-only cancellation problem, the nearest surviving Fourier amplitude determines the exact separation available for distinguishing an actual sample zero from all other samples of that same sum. The p mod 3 dependence, raw amplitude scale, and three sharp frequency differences are information a qualitative uncertainty bound cannot supply. No uniform noise-robustness result for arbitrary phases is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

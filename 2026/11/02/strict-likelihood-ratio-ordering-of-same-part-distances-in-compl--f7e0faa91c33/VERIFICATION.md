@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Execute `python verify.py` in the directory containing this file. Standard-library Python only; no downloads or auxiliary files are required.
+## correctness
 
-The extracted verifier performed **24,635 exact checks**: rational identity and support tests for \(2\le a\le30\), \(1\le b\le30\), strict cross-side likelihood-ratio inequalities for every tested pair \(a>b\ge2\), and a separate exhaustive enumeration of the edge subsets constituting spanning trees of \(K_{a,b}\) for \(2\le a,b\le4\). The brute-force enumerator does not call the path-count formula, so it checks that part independently. The expected number of trees is checked against the bipartite matrix-tree count.
+PASS
 
-**Limits.** Exact enumeration is finite; the general all-size theorem is proved algebraically in RESULT.md. The numeric checks do not establish novelty, independence, nonuniform-host extensions or an independent external audit. The established 2019/2021 prescribed-tree/forest containment results are explicitly acknowledged.
+For a path using j+1 A and j B vertices, contraction gives reduced Laplacian with bI and aI on the diagonal and all minus ones off diagonal; dividing its determinant by a^(b-1)b^(a-1) gives inclusion probability [ab-(a-j-1)(b-j)]/(a^j b^(j+1)), including empty blocks. The alternating label count times this probability equals the difference of successive survival products, because paths with fixed endpoints are disjoint events. The support of J_A ends at b and that of J_B at b-1 when a>b. On common support the mass ratio is a product of accumulated tail-factor ratios and (C_j+b)/(C_j+a), C_j=j(a+b-j-1). Each new tail factor in an adjacent comparison exceeds one by an explicitly positive numerator difference a-b, and C_{j+1}-C_j=a+b-2j-2>0 there. At b=2 strictness comes from the extra A mass; a=b is symmetry. The corrected strict tail inequalities at integers 2 through b follow independently by termwise comparison of the positive products, with zero B tail at b. A fresh exhaustive finite check retained the connected 6-edge subsets of the 12 edges of K_4,3 and measured the two fixed-pair distances by graph traversal: among 432 trees, A counts at 2,4,6 were 288,132,12; B counts were 324,108,0. This exact replay prescription checks the example only. The frozen verify.py and VERIFICATION.md were inspected, not executed; the algebra above covers all sizes.
+
+## originality
+
+PASS
+
+For the repaired claim only: the one-part laws are credited as exact existing results. The comparison across different hosts in the strongest indexed neighbor does not give the within-host strict likelihood-ratio order, and the broader containment results give probabilities, not the sign of their cross-class likelihood-ratio minors. The new comparison rests on a separate sign argument. This assessment is limited to inspected evidence.
+
+## value
+
+PASS
+
+Distinguishing the two natural anchor classes in a single unbalanced UST host by monotone likelihood ratios is a sharper, size-uniform structural result than comparing means or tails. In particular the higher-to-lower distance odds remain ordered after conditioning on the same distance window. The result is elementary but answers a natural comparison question not decided by the existing different-host theorem. The standalone law is not counted toward value as a new result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

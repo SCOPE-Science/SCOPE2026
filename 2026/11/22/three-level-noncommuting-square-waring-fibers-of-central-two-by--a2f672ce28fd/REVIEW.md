@@ -1,15 +1,21 @@
-# Review of central noncommuting square-Waring fibers
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The trace-rigidity argument uses the split scalar/traceless decomposition in odd characteristic and Cayley--Hamilton. The invertible traceless scalar-square fiber is counted by \(q^2+q\chi(d)\) for \(d\ne0\); expanding the convolution and subtracting the linearly dependent commuting pairs proves the complete target formula for arbitrary odd prime powers. Character-sum identities are independently justified in the proof, including the zero-target distinction. The supplied independent checker exhausts all ordered invertible matrices over \(\mathbb F_3,\mathbb F_5\), and traceless ordered pairs over \(\mathbb F_7,\mathbb F_9,\mathbb F_{11}\). Tests are corroboration, not an infinite proof.
+## correctness
 
-## Originality
-**PASS within checked literature; provisional priority.** The motivating paper arXiv:2611.16651v1 assumes an exponent coprime to \(p-1\), excluding square exponent over odd fields, and establishes existence instead of enumerating noncommuting central fibers. The two related matrix-polynomial image studies do not give these counts. The full text of the closest published matrix-square-graph research result was read and checked: its Fourier support and singular values concern a different graph and do not imply this count. A full published prescribed-anticommutator calculation is also about a different polynomial. The historical 1977 matrix-squares article was accessible only at abstract level; an equivalent earlier formula is an unresolved priority risk, not claimed impossible.
+PASS
 
-## Mathematical value
-**PASS.** The recent matrix Waring formulation naturally raises the square-power boundary excluded from its coprime-exponent theorem. The count is exact for an infinite class of fields and *every* central output, under invertibility and noncommutation. Structural trace rigidity reduces an initially noncommutative problem to a quadratic-character convolution, and the resulting three-level arithmetic spectrum quantifies the strength of central representation rather than simply proving representability. This is not a one-off small-field table or an arbitrary choice of a numerical invariant.
+Over characteristic not two write X=aI+U, Y=bI+V with U,V traceless. Cayley–Hamilton makes the traceless part of the square sum 2(aU+bV); if a or b is nonzero, U,V are dependent and commute. Thus the noncommuting case is traceless. For Q(u,v,w)=u²+vw and any d, counting vw=d−u² gives n(d)=q²+qχ(d), including n(0)=q². An independent check of the pair convolution starts with the unrestricted level Q(U)+Q(V)=c: the two product variables form a dot product against a coefficient pair. If that pair is nonzero it contributes q³(q²−1); if zero it contributes q² times the two-square count q−χ(−1) at c≠0 and q+(q−1)χ(−1) at c=0. Remove 2q²n(c), adding back q⁴ only when c=0. For commuting invertible traceless pairs the nonscalar first factor has centralizer span(I,U), so V=tU with t≠0. At zero the commuting count is (1+χ(−1))(q−1)q². Otherwise sum n(c/(1+t²)) over t≠0 with 1+t²≠0; the character sum on nonzero t equals −2, by (z−t)(z+t)=1. Subtraction yields both frozen formulas. The square/nonsquare difference is 4q(q²−1); relative to the larger nonsquare level, the zero level exceeds it by q(q²−1)(q−2). The smallest nonzero-target lower bound is positive at q=3 and increases thereafter.
 
-## Scope and evidence
-The claim is only about odd finite fields, invertible ordered two-by-two factors, noncommuting solutions, and scalar outputs. The 1977 existence article has not been inspected in full and independent historical verification remains open. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the exact ordered, invertible, noncommuting scalar square-sum census, not general square representability or an originality claim for the Cayley–Hamilton reduction. The strongest matched statements do not specify or mechanically give this restricted census.
+
+## value
+
+PASS
+
+Central outputs are a natural singular locus of the square-sum map where noncommutation enforces a sharp reduction. The exact census shows all scalar values survive both invertibility and noncommutation, even over F₃, and identifies a residual square-class bias invisible in existence or unrestricted matrix counts. This is a meaningful restricted word-fiber invariant for all odd prime-power fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

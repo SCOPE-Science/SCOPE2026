@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:50:43.472878Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and proof; VERIFICATION.md; verify.py (read only)",
+        "Independent exact Cayley reconstruction and norm calculations"
+      ],
+      "rationale": "For X=I+N unipotent, sign(X)=I by analytic functional calculus since the scalar sign is identically 1 near the eigenvalue 1. All iterates stay unipotent. With C(X)=(X-I)(X+I)^(-1), one exact Newton step gives C(X_next)=C(X)^2 by factoring X+X^(-1) +/- 2I. C(X_0)=N(2I+N)^(-1), so C(X_0)^j vanishes exactly when N^j does: the second factor commutes and is invertible. This proves the precise termination index including n=1 and n=2. The exact first error is N^2(I+N)^(-1)/2, whose action on e_3 is M^2 e_1/2. Initial spectral and Frobenius norms are respectively M and M sqrt(n-1) for n>=3, giving the two bounds. In dimension 3 the first error is exactly M^2 E_13/2 and its square is zero, proving both ratios and the next-step identity. For n<=2 any such nilpotent has square zero, so the transient dimension is minimal. Expanding the inverse Cayley map also confirms the leading coefficient 2^(1-2^k) until termination.",
+      "residual_risks": [
+        "Exact arithmetic, unscaled Newton, and the specified Jordan family only. No floating-point or conditioning-controlled bound was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The OA Pade paper gives the exact broader rational family, not merely a local estimate, and identifies the classical Newton member. Higham's exposition discusses the classical Newton iteration, weak early progress despite quadratic convergence, and scaling.",
+          "The two citation DOI texts were not recovered; the exact formulation needed was inspected in arXiv:1011.1725v2."
+        ],
+        "reasoning": "The exact rational formula applies before imposing the Jordan restriction and can be evaluated on every matrix here. No reliance on inaccessible text or a generic nonnormality warning is necessary for the mathematical implication.",
+        "searches": [
+          "Rational Iterative Methods for the Matrix Sign Function, DOI 10.1137/0612020; arXiv:1011.1725v2 equations (1)-(2)",
+          "Computing the Polar Decomposition and the Matrix Sign Decomposition in Matrix Groups, DOI 10.1137/S0895479803426644",
+          "Higham, What Is the Matrix Sign Function?"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1011.1725v2; Higham OA exposition; local Resultary bbfe2911afcf, 2c2f43a9b905, 3a5f825b4d70"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution into the exact Newton function gives phi_{2,1}(I+N)-I=N^2/[2(I+N)]. Its leading power doubles at each composition, since the denominator is invertible with constant term 2. Equivalently the Cayley coordinate is raised to 2^k. The nilpotency index of the shift is n.",
+          "The first nonzero superdiagonal of this same explicit error has entries M^2/2; for n=3 all higher powers vanish, and for n<=2 the error vanishes identically."
+        ],
+        "reasoning": "The claimed termination, norm bounds and dimension equality are mechanical nilpotent evaluations of one known exact function. Combining them does not yield a distinct structural result on Newton convergence.",
+        "searches": [
+          "arXiv:1011.1725v2 pp. 2-3, equation (2) and Newton identification, specialized at z=1+N",
+          "Frozen proof lines 93-271"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greco–Iannazzo–Poloni identify Newton with phi_{2,1} in the reciprocal Pade family. Conjugation of phi_{2,1}(z)=(z^2+1)/(2z) is exactly squaring: the factors in the numerator and denominator of the transformed rational map are (z-1)^2 and (z+1)^2.",
+          "Resultary 2026/10/13/SCOPE-a-sharp-two-dimensional-residual-safety-radius-and-a-three-dimen--bbfe2911afcf uses exact residual squaring and a 3-by-3 nilpotent transient for Newton–Schulz inversion, a different iteration."
+        ],
+        "reasoning": "The exact Newton formula gives this squaring up to an invertible rational change of variable. The indexed Newton–Schulz result is related but is not the evidence for identity of the iterations.",
+        "searches": [
+          "Cayley transform, reciprocal Pade iteration and Newton sign; arXiv:1011.1725v2, equation (2), pp. 2-3",
+          "Resultary: nilpotent squaring, transient growth and finite termination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact table for the frozen family was used. The named Newton rational function is explicitly identified in the paper; the indexed hits concern inverse iterates or adaptive sign fits, not the classical Jordan computation."
+        ],
+        "reasoning": "This is an all-dimension symbolic consequence, not a table lookup. The exact general formula dominates testing individual dimensions and scales.",
+        "searches": [
+          "Resultary: exact nilpotent Jordan termination and matrix-sign transients; bbfe2911afcf, 2c2f43a9b905, 3a5f825b4d70",
+          "arXiv:1011.1725v2 p. 3 list of named exact iteration functions"
+        ]
+      },
+      "rationale": "This is a direct specialization of the established exact Newton rational map, not just of asymptotic convergence theory. Conjugating that map by (z-1)/(z+1) gives squaring, so on a nilpotent argument the claimed if-and-only-if termination is the nilpotency index test. The same one-step formula on I+MJ_n gives the two amplification ratios by reading its (1,3) entry, and in dimension 3 that is the whole error. These routine consequences exhaust the stated contribution. No publication of the exact frozen wording or its paired presentation is alleged.",
+      "residual_risks": [
+        "The full texts of the two cited SIAM papers were not inspected. This is a finding of direct mathematical implication, not a claim about first publication of identical language or an assertion inferred from failed access."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact iteration formula directly yields the claimed special cases",
+          "evidence": [
+            "p. 3 explicitly identifies phi_{2,1} as Newton’s method for z^2-1=0, with equation (2) giving the rational form."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1011.1725v2",
+          "material_read": "pp. 1-4, equations (1)-(2), identification of phi_{2,1} and adjacent Theorem 1 setup",
+          "method": "OA full-text PDF",
+          "title": "The Pade iterations for the matrix sign function and their reciprocals are optimal",
+          "trigger": "Exact classical Newton sign map as a reciprocal Pade member"
+        },
+        {
+          "assessment": "Prior convergence interpretation and scaling context; not used as a claim of a published identical Jordan example",
+          "evidence": [
+            "Discusses slow initial progress despite quadratic asymptotic convergence and the use of scaling parameters."
+          ],
+          "identifier_or_url": "https://nhigham.com/2020/12/15/what-is-the-matrix-sign-function/",
+          "material_read": "Newton, alternative iterations and initial-progress passages around offsets 2207-3500",
+          "method": "OA author exposition HTML",
+          "title": "What Is the Matrix Sign Function?",
+          "trigger": "Established Newton sign iteration and its behavior before the quadratic regime"
+        },
+        {
+          "assessment": "Different map, useful analogous mechanism but not direct priority evidence",
+          "evidence": [
+            "Newton–Schulz inverse residual exactly squares; a 3-by-3 nilpotent residual can amplify before vanishing."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-a-sharp-two-dimensional-residual-safety-radius-and-a-three-dimen--bbfe2911afcf",
+          "material_read": "Finding and proof, offsets 0 and 2044",
+          "method": "Local Resultary search and mirror",
+          "title": "A sharp two-dimensional residual safety radius and a three-dimensional transient",
+          "trigger": "Closest indexed nilpotent first-step transient with second-step termination"
+        },
+        {
+          "assessment": "Plausible additional antecedent, not relied on for the decision",
+          "evidence": [],
+          "identifier_or_url": "10.1137/S0895479803426644",
+          "material_read": "Frozen description only; paper body unavailable in the attempted routes",
+          "method": "Lawful OA direct and VPN attempts were denied",
+          "title": "Computing the Polar Decomposition and the Matrix Sign Decomposition in Matrix Groups",
+          "trigger": "Frozen source for Newton sign iteration and nonnormal errors"
+        },
+        {
+          "assessment": "No claims about unseen passages",
+          "evidence": [],
+          "identifier_or_url": "10.1137/0612020",
+          "material_read": "Frozen description and the OA 1011.1725v2 citation only; original paper body unavailable",
+          "method": "Lawful OA direct and VPN attempts were denied; inspected a later OA primary paper for its stated formula",
+          "title": "Rational Iterative Methods for the Matrix Sign Function",
+          "trigger": "Original family of rational sign iterations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; arXiv:1011.1725v2 equation (2) and Newton identification"
+      ],
+      "rationale": "The example is a valid teaching illustration of why eigenvalues alone do not control a nonnormal error. But the chosen shift makes the phenomenon an immediate first-step entry evaluation, and the stopping count is the routine vanishing of powers of a nilpotent matrix under the known map. The conjunction adds no independently useful invariant beyond those exact evaluations. Increasing the unrestricted scale M is not a separate transient mechanism.",
+      "residual_risks": [
+        "No judgment about the value of different conditioning-controlled questions or scaled iterations."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

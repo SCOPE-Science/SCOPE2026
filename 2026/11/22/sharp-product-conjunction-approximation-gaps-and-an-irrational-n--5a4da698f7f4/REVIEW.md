@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The analytic proof establishes the product/min envelope on every real vector, shows the sharp Lipschitz obstruction on a singleton unit-loop model, forces a diagonal equality profile at the optimizer, and uses irrationality of the critical shift to rule out rational-formula attainment for every integer arity at least three. The plain-Zadeh restriction to four diagonal branches rules out a better approximation. Computation uses exact rational inputs and corroborates examples only; it is not evidence for an infinite-domain bound.
+## correctness
 
-## Originality — PASS within checked evidence
-The 2026 motivating paper concerns non-expansive fuzzy modal interpolation; its accessible abstract and research context do not present the product-conjunction minimax and rational-attainment problem. The directly relevant published strong-Łukasiewicz-disjunction result was read in full. Its exact constants and rational attaining shifts do not cover the multiplicative product target (nor its irrationality phase transition), including by negation duality: the dual of product is probabilistic sum, not truncated Łukasiewicz sum. The published half-grid elimination and unary term-function census were also read in full; neither proves the minimax classification for an excluded nonlinear target. A general metric best-Lipschitz approximation result might imply part of the metric bound, and full text of the motivating preprint was unavailable; these are material priority limitations.
+PASS
 
-## Value — PASS
-Quantifying expressiveness for a canonical continuous t-norm is a natural complement to structural fuzzy-logic interpolation. The exact comparison across two restricted propositional signatures and modal nesting exhibits an arity-dependent arithmetic phase transition: the sharp rational-language uniform infimum is not realizable by any rational formula from arity three onward, whereas real shifts attain it. The result is a global all-arity theorem, not an arbitrary small-case census.
+For m=min_i x_i, the product lies between m^n and m, and m-m^n has maximum h_n at t_n; the diagonal attains it. The clipped shift of m by h_n/2 has error at most h_n/2 on the whole cube, hence in all models, and rational shifts approach it uniformly. On a singleton unit loop both modalities are identities and each extended term is 1-Lipschitz in the sup norm. The two diagonal valuations at t_n and 1 force error at least (t_n-t_n^n)/2; saturation forces endpoint values t_n-e_n and 1-e_n and the slope-one segment between them. At rational input 1 a rational term has rational output, but e_n=(n-1)t_n/(2n) is irrational for n>=3 by the monic rational-root theorem and 2^(n-1)>n. For n=2 the shift 1/8 works, and t_n tends to 1 so e_n tends to 1/2. In the plain language the diagonal branch on (1/2,1) is one of 0, 1-s, s, 1, by fixed order and closure; any improvement needs value 1 at s=1 and thus branch s or 1. These incur at least h_n at t_n (by continuity for n=2) or 1-2^(-n)>h_n at 1/2, respectively.
 
-## Scope and independent validation
-Results apply only to the specified languages and worst-case universal pointed-model norm; the checker is corroborative and priority searches do not certify global uniqueness. An independent mathematical or priority audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the product-specific three-language classification and the arity-dependent rational-attainment obstruction. The method and a corresponding diagonal law have a close published Łukasiewicz analogue; the metric optimum alone is an application of classical Lipschitz approximation, not a new general approximation theorem. The examined evidence does not cover the product-specific syntax and attainment result.
+
+## value
+
+PASS
+
+The product is a standard alternative conjunction. Quantifying its distance from the weaker languages and identifying exactly when dense rational syntax fails to contain an optimizer establish a useful expressivity boundary. The singleton saturation witness explains why greater modal depth cannot repair it; this is a substantive distinction from the available strong Łukasiewicz benchmark, even though the unrestricted metric calculation is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

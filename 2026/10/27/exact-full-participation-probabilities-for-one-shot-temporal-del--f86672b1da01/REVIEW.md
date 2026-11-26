@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Every rooted cycle spanning tree deletes one edge, and strict retrospective time-consciousness requires one strictly increasing prefix and one strictly decreasing suffix of its edge-time permutation. Pairwise intersections occur only for cuts separated by one or two positions; distance-two intersection automatically gives the intervening third cut. Counts of increasing/decreasing blocks give exact event, pair and triple incidence totals and thus the four exhaustive population counts. The packaged `check_cycle.py` independently traces actual delegation paths for every permutation through eight cycle vertices. The proof, rather than this finite test, covers every \(n\ge3\). The final-round abstainer construction checks consistency with the full temporal-election participation definition.
+## correctness
 
-**Originality (PASS, best knowledge).** Material was read from the time-conscious liquid-democracy source (arXiv:2307.12898, model, contributions, and optimization sections), the random simple temporal graph source (arXiv:2011.03738v4, full introduction, preliminaries, tree construction and main threshold sections), the temporal spanning-tree source (arXiv:2312.06260, definitions and contributions), and the temporal path-counting source (arXiv:2202.12055, full introduction and results), with targeted checks against arXiv:1310.7898v1 and permutation-enumeration search results. None of the inspected statements yields the exact four-way probability distribution for a fixed rooted cycle with distinct event times. Random temporal connectivity thresholds, generic path counting and preservation of *all-pairs* connectivity have different quantifiers. A previously recorded static multi-guru cycle delegation result has neither the same time constraints nor the same caster assumption. No literature search proves novelty: a permutation-class or unindexed specialization could imply it.
+PASS
 
-**Value (PASS).** Time-conscious delegation is a studied participation constraint and chronological edge order is a canonical random-temporal-network model. A cycle is the smallest graph family permitting distinct spanning delegation choices. The theorem quantifies precisely the loss of full participation caused by one-shot chronology, supplies a sharp uniform bound of three feasible resolutions, classifies all multiplicities (not just existence), and gives a factorial-decay probability. These are interpretable structural results for an infinite family, not just small-case enumeration.
+Each valid confluence is uniquely oriented toward the root after one edge deletion. Cut j requires the prefix before j to increase and the suffix after j to decrease. Two cuts at distance at least three impose opposite inequalities on a shared pair. Adjacent cuts have binomial(n,j) common orders; distance-two cuts have binomial(n-1,j), all satisfying the middle cut as well. Summing single, pair, and triple incidences gives n*2^(n-1), 3*2^(n-1)-4, and 2^(n-1)-2; inversion gives all four claimed bins. The two monotone orders exhaust the second bin of positive multiplicities, and the triples are exactly the strict interior-peak unimodal orders. The factorial denominator implies decay faster than any fixed geometric rate. The temporal-election embedding represents all n cycle voters; the extra abstainer is not counted and has no path to the casting sink.
 
-**Limits and risks.** Only one casting voter, a fixed cycle, strict one-shot edge times, confluence, maximal retrospective trust and the stated no-use-of-abstainer embedding are covered. Independent mathematical audit has not occurred; adjacent or older permutation-statistics results could implicitly specialize to this formula.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact multiplicity distribution for valid one-root, confluent trees on the static cycle with permuted one-shot timestamps. Standard unimodal permutation counts explain one bin, and known temporal-election rules supply the model, but the inspected sources do not give the cut-incidence inversion or an equivalent law.
+
+## value
+
+PASS
+
+The rooted cycle is a natural first network with competing spanning routes. The exact law quantifies both strict scarcity of feasible trees and the exceptional orders allowing several choices, rather than merely counting individual paths or reporting the mean. It provides an exact baseline for reliability of full representation under random one-shot approvals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

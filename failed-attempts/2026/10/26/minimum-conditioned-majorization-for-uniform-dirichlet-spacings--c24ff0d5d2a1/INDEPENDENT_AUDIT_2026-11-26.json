@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:06:13.073799Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independence wording in the Finding is false if applied literally to the normalized residual Z defined in the assumptions. The padded n-vector Z has its unique zero at I almost surely, so P(Z_i=0 | I=i)=1 while P(Z_i=0)=1/n. The proof instead establishes mutual independence of m, I, and the (n−1)-tuple of nonminimum residual coordinates read in original-index order after deleting I. This distinction does not invalidate the majorization or covariance. On the minimum-i chamber, retaining all but one of the other coordinates gives a Jacobian proportional to (1−nt)^(n−2), so the deleted tuple is uniform on its simplex, independent of t and i. The equal chamber masses give uniform I; integrating or taking the volume of {X_j≥t all j} gives P(m≥t)=(1−nt)^(n−1). Thus nm is Beta(1,n−1), with Var(m)=(n−1)/(n^4(n+1)). Padding the independent tuple at the sampled index gives the correct conditional coupling X_t=t1+(1−nt)Z. For s<t<1/n this mixes X_s with the barycenter with weight λ=(1−nt)/(1−ns) on X_s; all top-k sums are pulled toward k/n and X_s≠X_t. This proves simultaneous Schur order (and strict inequality for strictly Schur-convex statistics), using a regular conditional version. The residual maximum of n−1 components has mean H_(n−1)/(n−1), via integrating the inclusion–exclusion survival function. Hence Cov(m,M)=Var(m)[1−n H_(n−1)/(n−1)]=(1−H_n)/(n^3(n+1)). Independently the minimum of n iid exponentials has rate n and is independent of the maximum of the n−1 exponential excesses; E[min·max]=2/n²+H_(n−1)/n, and the gamma total has independent square moment n(n+1), confirming the formula. At n=2 the deleted tuple is the constant 1, M=1−m and the covariance is −1/48. The finite rational checker was inspected rather than executed. If 'residual simplex point' is read as the deleted tuple in the proof, that intended independence statement is correct; it is not independence of the defined Z and I.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rao–Sobel give a joint density encompassing the ordered spacings, stronger than a marginal or isolated moment.",
+          "The earlier Resultary record develops the conditional-face density for symmetric Dirichlet parameters and explicitly specializes it to the uniform deleted-residual law. Publication date in the metadata is 2026-10-18.",
+          "Pinelis gives exact ordered-gap marginals; Barthe et al. give independent gamma normalization."
+        ],
+        "reasoning": "A joint density is not by itself an explicit monotone coupling, and the general gamma normalization is only background. The earlier catalogue proof is decisive because it already supplies the common sample on which the conditional vectors are deterministic affine functions of the minimum.",
+        "searches": [
+          "Rao–Sobel 1980 §3 pp.606–608",
+          "Pinelis arXiv:1909.06406 Theorems 1.1–1.2 and Remark 1.3",
+          "Resultary 254686d5bc83 Step 1 and METADATA.json",
+          "Barthe et al. arXiv:1002.1544 equation (4)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 254686d5bc83, a4f2c9f76454 and 8f81f2914613",
+        "Rao–Sobel 1980",
+        "arXiv:1909.06406",
+        "arXiv:1002.1544",
+        "Monti et al. 2011",
+        "Lin 2016",
+        "arXiv:1411.6580",
+        "Mauldon 1951, Weiss 1959 and Pyke 1965 (limited material)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write the prior conditional vector as u1+(1−nu)W using one fixed padded residual W. Against an earlier minimum s, the resulting vector is λ X_s+(1−λ) b where b is the barycenter and λ=(1−nu)/(1−ns).",
+          "The prior minimum survival law gives its beta moments; the classical ordered-spacing formula gives H_(n−1)/(n−1) for the expected residual maximum."
+        ],
+        "reasoning": "Averaging with the barycenter is a doubly stochastic map, so the same common-residual coupling immediately supplies all Schur-convex inequalities, rather than needing any validation for a class of test functions. Taking the maximum before averaging over the residual gives an affine mean, so its covariance with the minimum is its slope times the beta variance. The earlier result is for n≥3, but n=2 is the single automatic identity M=1−m and not a substantive extension.",
+        "searches": [
+          "Resultary 254686d5bc83 Steps 1–3, exact bounded passage at offset 2150",
+          "Pinelis arXiv:1909.06406 exact maximum marginal",
+          "Rao–Sobel §3 equation (3.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record writes Y_i=(X_i−u)/(1−mu) for i other than the minimizing index, states its uniform law independent of the minimum and that index, and couples all conditional laws with the same Y.",
+          "Rao–Sobel use n sample points and n+1 spacings; their maximal k case of the ordered density determines the full sorted law."
+        ],
+        "reasoning": "The earlier deleted tuple is exactly the legitimate independent residual of the frozen proof after aligning the dimension convention. Inserting a zero at the same independent, uniform index recovers the unsorted version by exchangeability. The conditional majorization claim depends only on the ordered vectors, not on where the inserted zero lies.",
+        "searches": [
+          "Local Resultary semantic search on the uniform-Dirichlet minimum, residual and conditional whole-vector dispersion",
+          "Resultary 254686d5bc83 Steps 1–2 at offset 2150",
+          "Rao–Sobel 1980 §3 equation (3.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day entries give Cov(max, Greenwood statistic) and the covariance of the maximum with a long-gap count, respectively; neither is the minimum–maximum covariance.",
+          "Rao–Sobel give exact joint spacing distributions and cite Mauldon's sum-of-largest-spacings result; the inspected passages do not print the frozen covariance.",
+          "No identical exact harmonic covariance expression was identified in the checked material."
+        ],
+        "reasoning": "These are same-distribution but different-statistic comparisons. The originality failure follows from implication, not a claimed explicit table of the covariance or an attempt to infer priority from the same-day record dates.",
+        "searches": [
+          "Local Resultary queries for exact min/max spacing covariance and conditional majorization",
+          "Resultary a4f2c9f76454 and 8f81f2914613, Findings at offset 0",
+          "Mauldon 1951 and Weiss 1959 discovery records",
+          "Rao–Sobel 1980 pp.606–608"
+        ]
+      },
+      "rationale": "The October 18 Resultary record 254686d5bc83 explicitly gives the intended full minimum–deleted-residual independence and already couples the conditional laws with the same residual. Although its stated application is exceedance counts, the entire frozen majorization conclusion is a direct one-step consequence of the very same affine coupling, with no further distributional input. The extreme covariance is a routine conditional-moment calculation from that published conditional law and the classical maximum mean. This establishes mechanical prior coverage, not an assertion that sources print identical terminology or the identical covariance expression.",
+      "residual_risks": [
+        "The unresolved classical full-text searches might identify more explicit historical coverage than was located. They are not the basis of this decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly supplies the intended independent residual and shared coupling; applications differ but imply the frozen conclusions as detailed above",
+          "evidence": [
+            "Conditional density, independence at alpha=1, common-Y coupling, minimum survival law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-critical-independence-and-sharp-dirichlet-rigidity-for-minimum-s--254686d5bc83",
+          "material_read": "RESULT.md Steps 1–3, offset 2150, and associated METADATA.json",
+          "method": "Local mirror, bounded passages",
+          "title": "Critical independence and sharp Dirichlet rigidity for minimum spacing and above-mean counts",
+          "trigger": "Same conditional minimum and affine residual"
+        },
+        {
+          "assessment": "Full sorted density as a specialization, no explicit majorization asserted in the inspected passages",
+          "evidence": [
+            "Constant density of the k greatest spacings and the remaining unordered spacings on its ordering domain."
+          ],
+          "identifier_or_url": "https://jammalam.faculty.pstat.ucsb.edu/html/Some%20Publications/1980_SpacingsDirichlet_JMVA.pdf",
+          "material_read": "§3, printed p.606 at offset 8900, equation (3.1) and bounded comparisons to (3.3)–(3.5) on pp.607–608",
+          "method": "OA primary PDF",
+          "title": "Incomplete Dirichlet Integrals with Applications to Ordered Uniform Spacings",
+          "trigger": "Classical full ordered-spacing law"
+        },
+        {
+          "assessment": "Marginal ordered-gap formulas and standard exponential representation",
+          "evidence": [
+            "The maximum marginal can be integrated to give its harmonic mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1909.06406",
+          "material_read": "pp.1–2, Theorems 1.1–1.2 and Remark 1.3",
+          "method": "OA primary PDF",
+          "title": "Order Statistics on the Spacings Between Order Statistics for the Uniform Distribution",
+          "trigger": "Exact ranked gap distributions, including the residual maximum marginal"
+        },
+        {
+          "assessment": "General background, not minimum conditioning in the inspected passage",
+          "evidence": [
+            "Normalized independent gammas are independent of their sum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1002.1544",
+          "material_read": "p.4 equation (4)",
+          "method": "OA primary PDF",
+          "title": "Generalized Dirichlet distributions on the ball and moments",
+          "trigger": "Dirichlet normalization and independence"
+        },
+        {
+          "assessment": "Aitchison geometry, not additive global-minimum subtraction",
+          "evidence": [
+            "Shifting and scaling use compositional perturbation and powering."
+          ],
+          "identifier_or_url": "https://congress2.cimne.com/codawork11/Admin/Files/FilePaper/p20.pdf",
+          "material_read": "pp.1–2",
+          "method": "Primary PDF, bounded passages",
+          "title": "The shifted-scaled Dirichlet distribution in the simplex",
+          "trigger": "Potentially equivalent shifted simplex laws"
+        },
+        {
+          "assessment": "Standard representations",
+          "evidence": [
+            "Gamma and beta distributions and gamma derivation of Dirichlet laws."
+          ],
+          "identifier_or_url": "https://mast.queensu.ca/~communications/Papers/msc-jiayu-lin.pdf",
+          "material_read": "Chapter 2, PDF pp.10–11",
+          "method": "Primary report PDF, bounded passages",
+          "title": "On The Dirichlet Distribution",
+          "trigger": "Dirichlet representations and moments"
+        },
+        {
+          "assessment": "Different conditioning or statistic in inspected sections",
+          "evidence": [
+            "Scanning probability for intervals containing at most a specified number of uniform points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.6580",
+          "material_read": "pp.1–2, §§1–2",
+          "method": "OA primary PDF",
+          "title": "The Solving of the Problems with Random Division of an Interval with Use of Computer Analytic Programs",
+          "trigger": "Uniform random division of an interval"
+        },
+        {
+          "assessment": "Residual historical risk, not evidence of absence",
+          "evidence": [
+            "Mauldon comparison concerns sums of the k largest gaps. The extent of Weiss's and Pyke's coverage was not inferred from their titles."
+          ],
+          "identifier_or_url": "Mauldon (1951); Weiss (1959), DOI 10.1214/aoms/1177706274; Pyke (1965)",
+          "material_read": "Bibliographic pages and reachable abstracts; Rao–Sobel p.607 for the Mauldon attribution",
+          "method": "Bounded lawful retrieval; original full texts not obtained",
+          "title": "Random division of an interval; The Limiting Joint Distribution of the Largest and Smallest Sample Spacings; Spacings",
+          "trigger": "Historical overlapping ordered-spacing literature"
+        },
+        {
+          "assessment": "Different statistics, not priority evidence",
+          "evidence": [
+            "One relates the maximum to the sum of squared gaps, the other to an exceedance count; neither concerns the minimum–maximum pair."
+          ],
+          "identifier_or_url": "Resultary a4f2c9f76454; Resultary 8f81f2914613",
+          "material_read": "Both RESULT.md Findings at offset 0",
+          "method": "Local mirror",
+          "title": "Exact positive dependence and slow decorrelation of the largest uniform spacing and Greenwood's statistic; A unique covariance reversal between the largest uniform spacing and long-gap count",
+          "trigger": "Same-day exact spacing-covariance matches returned by catalogue search"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A simultaneous dependence statement has a natural interpretation, but here the stronger-sounding order is the direct barycentric contraction of a previously given conditional sample. Once this is recognized, the exact extreme covariance is a beta variance multiplied by an affine slope involving a classical first moment. Correctly distinguishing the deleted and padded residuals repairs the wording only; it leaves no independently new and substantive remainder to accept.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof applies a characteristic-function decomposition for independent centered Bernoulli variables with ranked \(\ell^2\)-normalized weights, followed by a variance-controlled local inverse of the strict threshold. It treats all fixed \(\theta\in(0,1)\) and the full Zipf range \(0\le\rho\le1\).
+# Independent mathematical audit
 
-The independent finite-state enumerators in `CHECK.py` agree on the exact probability mass for each finite weighted sum, including the distinct equality versus strict-exceedance convention. Exact rational moment and cumulant identities match the proof. `python CHECK.py` returned `PASS 1019 exact rational checks`. This is not a numerical proof of any infinite limit.
+## correctness
 
-The general non-Gaussian limit law is proved in the paper's restricted model; the calculation says nothing about original publication priority, independent audit, rates of weak convergence or stopping-time moment convergence. The primary motivating paper's later sections could not be read during this comparison; the historical-priority conclusion therefore carries the explicit residual risk recorded in `REVIEW.md`.
+PASS
+
+Checked the rephrased normalized theorem: rate rescaling gives iid unit exponentials, squared profile mass is at most one, and the characteristic-function tail remainder is controlled by the next ranked coefficient times the tail squared mass. The Bernoulli series is an L²-bounded martingale. The local centered mass increment has variance O(s_n³), leaving deterministic slope 1−θ on the s_n scale; the exact strict-crossing event gives weak convergence even for atomic limits. Nonzero third cumulant, or negative fourth cumulant when θ=1/2, distinguishes every nonzero profile. Power-sum and zeta evaluation at the harmonic endpoint and the single-heavy-weight example follow from the displayed coefficients. No time-moment limit is inferred. CHECK.py was inspected as finite corroboration, not executed.
+
+## originality
+
+PASS
+
+The narrowed arbitrary ranked-profile theorem, including a Bernoulli series plus an independent Gaussian remainder of nonzero variance, survives the demonstrated Zipf overlap on the inspected evidence. This is not a finding of publication priority.
+
+## value
+
+PASS
+
+The repaired result explains why diffuse weights give first-order universality but not necessarily Gaussian second-order fluctuations. Arbitrary profiles classify a mixed regime which cannot appear in the earlier Zipf family; this is substantive beyond the known endpoint transition and classical fixed-time limit tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

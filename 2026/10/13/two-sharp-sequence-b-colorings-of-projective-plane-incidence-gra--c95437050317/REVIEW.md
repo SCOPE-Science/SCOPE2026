@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The degree upper bound follows because a color-dominating vertex in a proper coloring needs at least one neighbor in each other color. The lower-bound proof is a finite *complete* certificate for each stated graph: the attached normalization and incidence builder computes every vertex and edge of the two finite projective planes, verifies all endpoint colors of all edges, and exhaustively determines the neighbor color sets of all 26 and 42 vertices. The resulting color-dominating counts are exactly two per color. Assertions for all other fields or graphs are explicitly excluded. Replayed output agrees with the recorded data; the proof is a finite exhaustive check, not an infinite extrapolation. The program is independently readable without solver dependencies.
+PASS
 
-## Originality — PASS, residual full-text risk
+I recomputed the incidence graph and tested every supplied color and every vertex with a separate checker, python /workspace/checks/4.py <frozen certificates.json>. For F4 the nonzero labels were multiplied as powers of a generator of order three and added by XOR. The reconstructed graphs have (26,52) and (42,105) vertices and edges, all degrees 4 and 5 respectively, no color conflicts, and exactly the stated dominating-vertex pairs in each color. Any dominating vertex in a proper k-coloring needs k-1 neighbors, proving the matching upper bound. Each pair of points has exactly one common line, excluding 4-cycles; example 6-cycles from the check are [0,17,1,13,4,14] and [0,26,1,21,5,22] in the respective labelings. The two-sided breadth-two expansion from an edge in a d-regular girth-six graph gives the order bound 2(1+(d-1)+(d-1)^2), attained here. This checks these two instances only, not all colorings or field orders.
 
-The relevant 2026 preprint introduces sequence b-colorings and states the girth-six regular-graph conjecture. Its publicly reported theorems cover girth at least seven at arbitrary degree and girth six at degree three, not these degree-four and degree-five girth-six configurations. The ordinary b-coloring literature requires only one color-dominating vertex per color and does not imply these results. Searches for the projective incidence graph, Levi graph, \(\mathrm{PG}(2,3)\), \(\mathrm{PG}(2,4)\), 2-b-coloring, two dominating vertices and their aliases, plus comparisons with retrieved mathematical research records, identified no covering theorem. The full primary preprint could not be read, so direct full-text exclusion and unknown equivalent work remain real risks. The result makes no claim of priority certification.
+## originality
 
-## Value — PASS
+PASS
 
-The two incidence graphs are the smallest-order natural girth-six regular configurations at the first two degrees not covered by the preprint's reported theorem. Both are nontrivial sharp constructive cases of its explicitly stated conjecture: one for degree four and another for degree five, with complete reproducible 5- and 6-color witness arrays. The result supplies finite boundary cases rather than arbitrary small examples or a routine increment of a known theorem.
+The two explicitly certified sharp instances are supported as distinct after full-text inspection of the motivating paper and statement-level comparison of the closest indexed results. The broad property is conjectured already, and its definition and degree bound are not new.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+These are minimum-order regular degree-four and degree-five girth-six examples, at the first degrees outside the known cubic case. The explicit proper colorings attain the degree bound with two dominating vertices per color, settling the motivating conjecture on two structurally natural boundary instances. The certificates are useful benchmarks and do not assert a general girth-six theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

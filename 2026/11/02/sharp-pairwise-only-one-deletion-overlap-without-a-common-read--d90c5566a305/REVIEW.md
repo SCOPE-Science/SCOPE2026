@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is restricted to binary linear words and exactly one deletion. An explicit syndrome-difference calculation proves that any clique of the confusability graph has at most \(n+1\) vertices. A two-common-supersequence lemma proves that at least three selected superstrings of one read share no alternative common read. Base examples of sizes four, five, and six are checked from literal deletion sets. The recursive construction appends an alternating bit, adds one new insertion-neighborhood word, and maintains an exceptional word sharing a read with every member while excluding the global common read. The induction is valid for every integer \(n\ge5\). The standalone verifier checks lengths through \(250\) and validates the two structural lemmas on finite test ranges. These checks are corroborating, not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+VT checksum residues modulo n+1 distinguish any two distinct insertions into a shared read. The integer checksum difference for different insertion bits lies in [1,n] or [-n,-1]; for the same bit it counts the intervening opposite bits up to sign, and zero yields the same word. This gives the clique upper bound. The two small examples work by literal deletion: the one-1 words share the all-zero read, and the extra word shares an end-1 read with each while ruling out the all-zero read. The common-insertion lemma also checks: in a common supersequence, if the coordinate deleted to give u is earlier, it can slide through the constant run to the first index where u and v differ; the inserted symbol and index are then forced. The other order yields at most one other candidate. The base-case sentence describing the lemma has its quantifiers reversed: the needed application is that two distinct reads cannot have three prescribed common parents. Thus any three star words share only u_n. At n=5 the five listed words share the displayed reads with v_5; v_5 does not contain u_5 as a one-deletion read. For induction, insertions into u_nt_n are formerly valid insertions with t_n appended plus the single exceptional insertion u_nt_n(1-t_n). The invariant on v_n persists when the alternating suffix is appended. The new word shares v_n with v_{n+1}; it shares u_nt_n with the appended star members, not with v_{n+1}. Appending t_n preserves the old edges, and the exceptional outsider stays outside the star, so the whole family has size n+1 and empty total intersection. At n=1 or 2 any clique lies in an insertion neighborhood. The proof suffices for all lengths; the finite script was inspected, not run.
 
-Sloane [1] gives the single-deletion graph model and classical checksum-coloring bound. Nguyen, Cai and Siegel [2] optimize deletion-correcting codes and encoders, not pairwise-confusable cliques with empty common descendant. Wang and collaborators [3] work with a different permutation/Ulam graph and triangle counts, rather than repeated-symbol binary length-\(n\) words. Relevant public-repository records on the exact binary one-deletion triangle count and a two-read reconstruction edge count provide graph statistics but not a maximum non-Helly clique construction. Statement-level comparisons find no implication of the new sharp saturation phenomenon. Residual risk: a differently named Helly/intersection theorem or unpublished construction could cover it; the literature search is not a uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-One-deletion ambiguity is an intersection-hypergraph problem: pairwise consistency is sometimes mistaken for a single shared candidate read. This theorem shows failure at the absolute maximum possible size of a confusable family at every length, not just in small sporadic counterexamples. The sharpness and elementary recurrence supply a useful structural obstruction when replacing read incidence with a pairwise conflict graph. The exact extremal theorem is motivated independently of any particular finite data table.
+The supported distinction is attaining the classical n+1 upper bound with no common read at every n>=3, not the bound or the ordinary clique number. The inspected overlaps do not provide the globally incompatible equality family in the one-common-read graph.
 
-## Source and interpretation risks
+## value
 
-The verification results do not determine uniqueness or a full extremizer classification. The graph-theoretic maximum \(n+1\) follows from old checksum ideas; only the sharp missing-global-read witness is asserted beyond them. A matching result could be hidden under alternative terminology (e.g. deletion neighborhoods, graph cliques, Helly property).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It resolves whether a global read is forced at maximum pairwise ambiguity. There is no penalty in clique size for forbidding a common read, not just a small non-Helly example. The all-length explicit construction is useful for distinguishing a maximum clique from a canonical insertion neighborhood in the binary deletion graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

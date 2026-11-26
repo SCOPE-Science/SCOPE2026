@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every four-element parameter set admits a two-versus-two edge cut in a subcubic rank decomposition. Rank-one binary cross-cuts permit at most two patterns in each direction, yielding at most twelve cells of the four-by-four trace table. The thirteen-vertex pendant/twin-reducible witness attains twelve, and deleting nine distinct-profile outsiders realizes all counts from three through twelve, with separate four-vertex witnesses for one and two. An eight-vertex connected distance-hereditary witness realizes all eight triple patterns, attaining the cardinality lower bound. The dependency-free checker reproduces each finite assertion. This does not assert broader full-type or closed-neighborhood facts.
+## correctness
 
-## Originality
-PASS within the inspected scientific evidence. The November 2026 finite-model paper proves general model checking/type bounds rather than this exact rank-width-one four-parameter spectrum. Bousquet–Thomassé (2014) provide a broadly applicable low-cut-rank lemma and distance-ball shattering bounds, not a sharp four-parameter trace census or extremal witnesses. The July 2026 monadic-dependence paper obtains asymptotic neighborhood bounds. Exact attainment and all intermediate four-point counts have not been found in these inspected statements. The rank-width upper-bound method is close to prior decompositional lemmas, and an unindexed earlier instance remains a priority risk.
+PASS
 
-## Value
-PASS. Four parameters are the first cardinality where rank-width-one graphs prohibit complete open-neighborhood shattering. Establishing the exact twelve-of-sixteen profile frontier, its full integer spectrum, and an optimal eight-vertex three-point witness provides a concrete finite-model type-complexity benchmark. The classification measures a qualitative boundary beyond the smaller cograph subclass without claiming a general parameter-size growth law.
+The minimal subtree on the four marked leaves, with degree-two vertices suppressed, has a central edge. An original tree edge inducing that split has two parameters on each side and binary cut rank at most one. Restricted rows or columns have at most two possible patterns on the opposite pair (zero and at most one nonzero pattern), even when the realizing vertex is a parameter. This confines the traces to at most two rows and two columns of the four-by-four table, giving at most 12. Shattering any larger set would shatter each of its quadruples. A fresh exact check verified connectedness and distance-hereditary reduction certificates for both witnesses, the twelve listed four-set traces, and the eight different triple traces. In the 13-vertex witness three traces already occur among the parameters, and each of the other nine vertices realizes a different additional trace. Induced subgraphs retaining the parameters retain exactly their selected profiles, so all 3–12 occur; four isolated vertices and the four-vertex star give 1 and 2. The eight-vertex connected witness shatters three, and no smaller witness can realize eight traces. The replay script is branches/fec4ef40-fb63-42da-b771-ef60cc56fd99/independent_check.py, with CHECK_OK in the completed run. The supplied checker was inspected, not executed. The finite witness checks do not establish the universal bound, which follows from the cut argument.
 
-## Sources and limits
-Primary sources: Dreier–Mählmann–Toruńczyk (2026), arXiv:2611.08143v1; Bousquet–Thomassé (2014), arXiv:1412.1793v1; Dreier et al. (2026), arXiv:2607.10941v1; Connolly–Nishio–Nemoto (2026), arXiv:2602.23825. Exact historical priority remains provisional. No independent replication of the analytic proof or comprehensive bibliography search has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known cut-rank lemma gives the cross-cut row/column template, not the exact global spectrum. The supported distinct content is the sharp four-parameter maximum and attainment of every cardinality, together with exact triple shattering in the full distance-hereditary class. The broader complexity bounds, different VC notions and closest exact catalogue results inspected do not provide the 12-profile extremizer or four-parameter spectrum for this class.
+
+## value
+
+PASS
+
+This gives the first parameter size past the class's shattering threshold, where a mere VC bound misses three cells. The rank-one cut explains the sharp obstruction, and the certified graph construction shows its full strength can be attained simultaneously while also determining the intervening cardinalities. This is a useful exact benchmark for adjacency types in distance-hereditary graphs, not just a count from a finite graph list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

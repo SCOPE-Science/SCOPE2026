@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:01:49.637641Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–67, VERIFICATION.md and verify.py (read only)",
+        "Corrected /workspace/repairs/5/RESULT.md",
+        "Independent /workspace/branches/966fa97f-2d92-46c2-86e5-b4b35d1dba93/partial_map_replay.py and partial_map_replay.log"
+      ],
+      "rationale": "Reassessed /workspace/repairs/5/RESULT.md. The frozen Finding overstated the matrix-only input for individual centralizers; the repair distinguishes the aggregate count from an individual query with its concrete path-pair argument and gives a chain example where the same terminal vertex yields sizes 11 and 9. For each terminal v there are p_v^2 normal forms. In a DAG distinct paths ending together are prefix-incomparable. A nonzero commuting product of two off-diagonal pairs would force each of the second pair's paths to be a common prefix of the first pair's paths; those prefixes are comparable, a contradiction. With an idempotent, either both tested paths fail prefix comparability (both products zero), or both satisfy it (the products agree). The independent baseline for nonzero elements contributes Q+sum(A_vw^2), by counting pairs whose tested paths are incomparable; the comparable pairs omitted from the baseline are exactly the diagonal correction sum_alpha sum_w c_w(alpha)^2 and the off-diagonal common-prefix count. A proper prefix contributes once, an extension contributes the square of a suffix-path count in the diagonal correction, and distinct extensions give m_vw*(m_vw-1) in the off-diagonal correction. Counting prefix-suffix splits gives their total as 2*sum(p_v*m_vw^2)-sum(p_v). Zero as first element contributes 1+Q; the baseline already includes zero as second element for each nonzero first element. This also handles isolated vertices, parallel edge identities, and the empty graph (Q=K-1=0). A separate direct finite partial-map composition replay matched all centralizers and K on 35 DAG multigraphs; no frozen script was executed. The general proof, not the finite replay, establishes the formulas.",
+      "residual_risks": [
+        "The matrix-only computation applies to the aggregates and C(0). Nonzero centralizer queries need the specified path pair; listing an answer for every element incurs output size. Cyclic graphs are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.2 tests equality of the two orders of composition for arbitrary finite partial injections through chain and cycle conditions.",
+          "Bardyla identifies each acyclic Green class with zero as matrix units, gives zero for products across incomparable classes, and locates comparable-class products in the lower class."
+        ],
+        "reasoning": "The partial-injection result is broad enough to test each pair but does not count how many path-pair maps meet those conditions. Bardyla's product locations do not decide equality of the two orders in a comparable lower class.",
+        "searches": [
+          "Araújo–Bentz–Konieczny arXiv:1205.1664, Proposition 2.2",
+          "Bardyla arXiv:1806.09671, Theorem 11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4f50b8d357fb",
+        "Jones–Lawson arXiv:1106.3644",
+        "Araújo–Bentz–Konieczny arXiv:1205.1664",
+        "Mesyan–Mitchell arXiv:1409.4380",
+        "Bardyla arXiv:1806.09671"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normal form gives a way to multiply and even exhaustively enumerate, but not the disjoint prefix corrections and their collapse to matrix sums.",
+          "The partial-injection criterion does not eliminate product enumeration on the graph subsemigroup; same-class matrix units omit comparable-class equality, and path concatenation has no inverse path-pair products."
+        ],
+        "reasoning": "Neither a tabulation method that enumerates the elements nor the partial product structure mechanically supplies the vertex-size evaluation of the aggregate. The corrected theorem credits those inputs without treating them as the census.",
+        "searches": [
+          "Araújo–Bentz–Konieczny, Proposition 2.2; Bardyla, Theorem 11; Resultary 4f50b8d357fb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normal forms are ordered path pairs, not concatenable paths. The closest distinct Resultary hit 4f50b8d357fb uses the zero path semigroup, whose elements are paths or zero.",
+          "For a single directed edge, the zero path semigroup has (order, ordered commuting count)=(4,12), versus (6,22) for the graph inverse semigroup."
+        ],
+        "reasoning": "The path-pair presentation is standard, but a census for the smaller concatenation semigroup is not another formulation of this finding.",
+        "searches": [
+          "Resultary semantic comparison: finite acyclic graph inverse semigroup centralizer and path-matrix commutation census",
+          "Jones–Lawson arXiv:1106.3644, p. 9; Mesyan–Mitchell arXiv:1409.4380, §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The zero path semigroup has individual centralizer formulas, but the one-edge comparison already differs in both counts.",
+          "The vertex-class matrix unit decomposition provides no table or matrix entry for the graph inverse semigroup's full ordered count."
+        ],
+        "reasoning": "The corrected claim is a symbolic formula over arbitrarily large DAGs and edge multiplicities. An exact count in the checked different semigroup and a multiplication rule for individual classes do not supply it.",
+        "searches": [
+          "Resultary record 4f50b8d357fb, Finding and centralizer formulas",
+          "Bardyla arXiv:1806.09671, Theorem 11"
+        ]
+      },
+      "rationale": "For the corrected claim, the path-pair formalism, general partial-injection commutation test and Brandt-class structure are prior. The repair credits Bardyla's cross-class product information as well. The checked work does not perform the exact cross-class counts or aggregate them into a vertex-matrix formula; the nearby Resultary census is for a different semigroup.",
+      "residual_risks": [
+        "Checked earlier criteria and class decompositions are properly credited; an uninspected equivalent count is not ruled out. The original Lipscomb book was not independently inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies product law, not census",
+          "evidence": [
+            "Nonzero products are determined by prefix comparability and concatenation with the remaining suffix"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1106.3644",
+          "material_read": "p. 9, path-pair multiplication",
+          "method": "OA primary text",
+          "title": "Graph inverse semigroups: their characterization and completion",
+          "trigger": "Standard normal form and possible counting consequence"
+        },
+        {
+          "assessment": "General pairwise criterion, not an enumeration on this subset of partial injections",
+          "evidence": [
+            "Chain/cycle/span conditions; source attributes the criterion to Lipscomb, Theorem 10.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.1664",
+          "material_read": "Proposition 2.2 p. 4 and bibliography p. 28",
+          "method": "OA primary text; Lipscomb's underlying theorem was checked only through the cited proposition",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "General criterion for commuting partial maps"
+        },
+        {
+          "assessment": "Confirms normal form and distinguishes parallel edges; no counting implication in inspected material",
+          "evidence": [
+            "Unique xy^{-1} and generators by individual edges"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.4380",
+          "material_read": "§2.3 p. 3",
+          "method": "OA primary text",
+          "title": "The Structure of a Graph Inverse Semigroup",
+          "trigger": "Same semigroups and presentations"
+        },
+        {
+          "assessment": "Partial interclass information, not a commutation census",
+          "evidence": [
+            "Vertex-indexed classes with zero are matrix-unit semigroups in the acyclic case; the lower class contains products for comparable classes"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1806.09671",
+          "material_read": "Theorem 11 p. 7",
+          "method": "OA primary text",
+          "title": "An Alternative Look at the Structure of Graph Inverse Semigroups",
+          "trigger": "Could determine cross-class products and hence pair counts"
+        },
+        {
+          "assessment": "Material overlap in questions but different semigroup and census; same-day date is not a priority order",
+          "evidence": [
+            "One-edge example differs in both order and commuting-pair count; nonzero elements are paths rather than path pairs"
+          ],
+          "identifier_or_url": "Resultary: 4f50b8d357fb",
+          "material_read": "RESULT.md Finding and individual-centralizer statements",
+          "method": "Local Resultary mirror",
+          "title": "Reachability cuts classify maximal commuting families in finite zero path semigroups",
+          "trigger": "Exact individual centralizers on the same DAG domain under a related multiplication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected /workspace/repairs/5/RESULT.md, Finding and proof",
+        "Bardyla Theorem 11",
+        "Independent finite replay"
+      ],
+      "rationale": "The corrected aggregate claim computes a natural statistic of the semigroup from vertex-indexed data without constructing its exponentially many paths or still more path pairs. It handles cross-class interactions and multiplicities, where individual matrix-unit counts alone do not recover the statistic. The separate prefix formulas explain local commutation and provide efficient targeted queries without promising the entire per-element output at vertex-matrix cost.",
+      "residual_risks": [
+        "The aggregate bound is a count of integer operations; the full cost depends on integer bit lengths and how the input graph is represented."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

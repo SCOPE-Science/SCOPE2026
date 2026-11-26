@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-step transition probabilities and replacement reset convention are fixed precisely. Uniform regeneration gives existence, uniqueness and symmetry of the stationary law. The reversible Green-function relation and strong Markov decomposition yield the exact first two positive-site ratios. Recurrence of the weakly outward Gillis walk follows from divergent one-dimensional electrical resistance. The discounted hitting transforms therefore range continuously and strictly from zero to one, giving two unique rates. At the first equality, the stationary balance equation at site one forces the next mass ratio strictly above one, proving the strictly ordered thresholds. The summability of the invariant law provides the off-origin maxima; the strict adjacent-ratio monotonicity gives the countable-exception qualification. The relative size of outer and central masses near the lower threshold follows by continuity. These are infinite-chain proofs; finite diagnostics are supplementary.
+## correctness
 
-## Originality — PASS (qualified)
-Radice's exact first-passage transforms for the same reset Gillis walk are a close algebraic precursor, and the present stationary ratios can be constructed with reversible-resolvent identities. Nevertheless, his Sections 3, 7, 8, and Appendix A address first-passage moments and optimization, not spatial mode comparison or the strictly ordered pair of geometric-reset thresholds. Artuso and coauthors obtain an invariant profile only without resetting and in the positive-recurrent inward regime. Ray and Reuveni show a continuum mode shift for a different logarithmic-potential boundary/reset protocol, not simultaneous coexistence of a local peak at the reset origin and distinct outer modes of the discrete Gillis chain. Published similarity searches and a full-text comparison found no statement whose hypotheses and conclusion cover this specific two-threshold coexistence theorem. The close first-passage formulas and possible unindexed equivalents remain priority risks; this review does not certify publication priority independently.
+PASS
 
-## Mathematical value — PASS
-The same reset point may be a strict local peak while two distant peaks survive and even have higher probability. The proof identifies a nonempty exact parameter interval for all weak outward biases, not one arbitrarily selected numerical example. The two natural adjacent probabilities are direct observables and the structural ordering mechanism comes from local stationarity, giving a reusable method for studying spatial morphology under renewal interventions. The result does not require a global census of all outer extrema.
+The regeneration identity pi_r=r delta_0 sum_k s^k P^k gives a normalized invariant distribution and uniqueness by TV contraction with factor s per step. Reversibility yields G_s(0,n)=m_n G_s(n,0); the strong Markov property along successive lower-site first hits factors the latter as G_s(0,0) times the product of the w_j. The reversible weight product has m_n proportional asymptotically to n^(−2 epsilon) and p_n tends to 1/2; divergent edge resistances on the positive half-line (2 epsilon > −1 in the stated range) give almost-sure lower hits. Each w_j rises strictly and continuously from zero to one, and the first two target constants lie strictly between those endpoints. At r_1, the exact site-one balance pi(1)=s[pi(0)/2+(2+epsilon)pi(2)/4] yields pi(2)/pi(1)=2(2−s)/(s(2+epsilon))>1. Thus r_2>r_1, and continuity preserves pi(2)>pi(0) immediately to the right of r_1. Positive summable masses and strict separation from site one guarantee an attained outer maximum on each side. Each adjacent ratio is strictly decreasing in r, so equalities are countable; in the claimed window there are in fact only finitely many potentially tied pairs since w_n≤s≤1−r_1 and m_n/m_(n−1) tends to one. A plateau of four positive sites would force 1=s[1−epsilon/(j²−1)] at two distinct interior sites j≥2, impossible; this also justifies the qualitative 'short plateau' wording. An independent recurrence evaluated with outward rounding and tail bounds 0≤w_501≤1 encloses r_1 near 0.00740343587959632569 and r_2 near 0.03099729756312700554 within widths below 8e−31, confirming the quoted decimals. Replay: python3 /tmp/opencode/ordinal3_threshold_check.py. The submitted uncertified tail approximation and mass-losing finite-window propagation were inspected, not run; they are diagnostics, not interval certificates or infinite-chain proofs.
 
-## Limits
-Only complete geometric reset-to-origin, discrete nearest-neighbor Gillis motion and the strictly weak-outward range are proved. The exact boundary rates are implicit via first-hitting transforms. At isolated rates an outer peak can be a plateau. Finite diagnostic sampling and forward finite-window propagation do not prove the infinite result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same-chain hitting transforms are prior and mathematically very close, as are modal shifts for continuum diffusions. The surviving claim is the pair of exact stationary neighboring-site thresholds, their strict order for all weakly outward biases, and the consequent open coexistence interval for a single lattice reset site. The inspected sources do not give this combined stationary shape claim. The implication is short but not a direct identification with an existing first-passage optimization threshold.
+
+## value
+
+PASS
+
+Local attraction caused by resetting and outward displacement of the stationary mass are not mutually exclusive. This example gives a strict central peak and two side peaks for an open interval across the entire stated outward-bias regime, not just a tuned numerical profile. The exact neighboring-site comparisons isolate the mechanism and give a region where the reset-site peak is lower than outer mass, while leaving the full inventory of extrema explicitly open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,9 +1,21 @@
-# Scientific review: sharp four-coordinate flat-spectrum minimum
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-three spectral and unit-diagonal hypotheses force an exact signed rank-one projection, leaving precisely three permutation classes. A distributional Gaussian integration-by-parts calculation reduces every expectation to six facet contributions; the covariance-only projection formula evaluates each class, and elementary strict inequalities identify exactly one minimizing class. These steps prove the infinite Gaussian expectation analytically. A standalone exact-rational/symbolic verifier performs 261 assertions for all 16 sign patterns and numerically cross-checks the values with independent Gaussian integration. The finite checks do not establish the integral identity or exhaustive spectral classification in place of the proof.
+## correctness
 
-**Originality — PASS, qualified.** Paatur (2026, Sections 1 and 5) sets up this very spectral minimum, proving nonsharp higher-rank nondivisibility bounds but not the four-by-four rank-three exact value. Sun–Hu–Lan (2020, Theorem 3.3) already provide an explicit general four-Gaussian expectation formula and their Theorem 1.1 maximizes, rather than minimizes, without this spectrum. The result is a constrained optimization and unique minimizer over the complete feasible class, not a claim to have invented Gaussian integration formulas. Li–Huang (2022) treats isotropic mean-width bounds under different centering and projection hypotheses. Targeted research-record searches and earlier accessible claims did not identify an implication giving the stated balanced-sign minimum. A possible preexisting specialization of the 2020 formula, or a tight-frame classification in uninspected literature, is the main historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The exact value and equality Gram matrix answer the smallest naturally nondivisible example in rank three for a recently studied Gaussian flat-spectrum minimum. The extremizer is the affine square configuration, not the centered regular tetrahedron which maximizes the unconstrained four-variable objective. This benchmark clarifies how null-vector sign balance, not only absolute coherence, controls the objective. The finite orbit calculation is specific and complete; no general-dimensional theorem is asserted or needed for its value. Larger ranks and stochastic comparison are unresolved by this theorem.
+Exact spectral normalization gives (3/4)R=I-vvᵀ, and diag R=1 forces v_i²=1/4. Thus the three sign-multiplicity orbits, modulo global sign, exhaust the feasible covariances. For unit Gram vectors in R³, the distributional Laplacian of their maximum linear form has jump density ||u_i−u_j|| on the parts of the tie planes where the pair dominates; three distinct unit vectors cannot be collinear, so triple ties do not add surface mass. Euler homogeneity and Gaussian integration by parts convert this to the expected maximum. The plane Gaussian mass is its domination wedge probability divided by √(2π); this also covers correlations ±1. Substitution of the signed Gram entries yields same-sign distance √(8/3), opposite-sign distance √(4/3), and projected correlations 1/3 (all same), 1/√3 and 0 (one flip), −1 and 1 (balanced), respectively. As a check bypassing facets for the minimum, the balanced realization has common third coordinate 1/√3 and planar vertices ±√(2/3)e_1, ±√(2/3)e_2. Its mean maximum is √(2/3) times E max(|G_1|,|G_2|)=2/√π, by the half-sum of |G_1+G_2| and |G_1−G_2|. For the strict comparisons, arcsin(1/√3)>1/√3 and π<4 give the lower bound in lines 89–94, while 2 arcsin(1/3)>arcsin(1/√3) gives the upper orbit comparison. The independent-three-normal baseline follows by integration of 3xφ(x)Φ(x)^2 and gives the stated gap. The frozen code and recorded quadrature were inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Supported for the sharp constrained minimum and its equality orbit, not for a new four-normal integration formula or the unconstrained tetrahedron maximum. The closest exact-object prior gives a positive but nonsharp gap; the general four-variable width formula provides objective values but not the constrained extremum and minimizer classification.
+
+## value
+
+PASS
+
+This is the first nondivisible case in rank three of a previously defined exact-spectrum minimization family, not a slice selected from an arbitrary covariance matrix. It gives the exact positive gap and its unique optimizer, which the nonsharp divisibility theorem does not determine. The finite proof compares all feasible geometries, showing that a coplanar square Gram hull minimizes despite rank-three covariance, and distinguishes this constrained minimum from the regular-tetrahedron maximum. The individual closed forms are prior-formula evaluations, not a separate value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

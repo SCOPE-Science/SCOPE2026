@@ -33,13 +33,13 @@ For an OFF component \(A\) of size \(a\), choose \(h=\mathbf1_A-a/n\). Then
 \lim_{\kappa\downarrow0}\kappa\mathcal V_\kappa(h)
 =\frac{2(1-p)k(n-k)a(n-a)}{p\,n^2(n-1)}.
 \]
-In fact, canonical sampling gives \(\operatorname{Var}_{\pi}(N_A)=k(n-k)a(n-a)/[n^2(n-1)]\), and therefore the *universal amplification ratio*
+In fact, canonical sampling gives \(\operatorname{Var}_{\pi}(N_A)=k(n-k)a(n-a)/[n^2(n-1)]\). For a proper OFF component (\(1\le a<n\)), this variance is positive, and therefore the *universal amplification ratio* is
 \[
 \boxed{\lim_{\kappa\downarrow0}
 \frac{\kappa\mathcal V_\kappa(\mathbf1_A-a/n)}
 {\operatorname{Var}_{\pi}(N_A)}=\frac{2(1-p)}p.}
 \]
-This gives a finite-graph structural test: the leading divergence is present precisely for observations with a nonzero projection onto OFF-component contrasts, and its coefficient is measurable from static equilibrium data alone.
+If the OFF graph is connected and \(A=V\), the count \(N_A=k\) is deterministic, \(h=0\), and the ratio is undefined. More generally, the leading divergence is present precisely for observations with a nonzero projection onto OFF-component contrasts, and the ratio identifies the dynamical coefficient from the static count variance and the gate's ON probability.
 
 **An exact all-speed instance.** Let the ON graph be the complete graph on \(n\) vertices, with each edge exchanging particles at rate \(r>0\). Partition the vertices as \(A\sqcup B\), with \(|A|=a\ge1\) and \(|B|=b=n-a\ge1\); in OFF retain only edges internal to the two parts. For the integrated particle count in \(A\),
 \[

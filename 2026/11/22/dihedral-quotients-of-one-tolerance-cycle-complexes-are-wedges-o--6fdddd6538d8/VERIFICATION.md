@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-The supplied `verify_cycle_tolerance_quotient.py` reconstructs all one-tolerance faces of each unfilled cycle for orders 4 through 20, then enumerates orbits of flags under all 2n rotations and reflections. The resulting quotient is a barycentric cell decomposition respecting stabilizers. Exact integer boundary matrices are formed and checked for zero composition. Eliminating a spanning tree and computing Smith normal forms yields the integral first and second homology, including possible torsion.
+## correctness
 
-All seventeen tested orders pass: first-homology rank zero, no torsion, second-homology rank equal to `floor((n-4)/2)`. A separate stabilizer enumeration also agrees. The program uses Python 3 and SymPy and can be run with `python verify_cycle_tolerance_quotient.py 20`.
+PASS
 
-The unbounded homotopy theorem relies on the direct geometric analysis in RESULT.md, not on the finite checks. The script verifies homology, not fundamental groups or infinite-order assertions; the mathematical proof supplies those facts. External independent validation has not been performed.
+The tolerance complex has complete graph as one-skeleton and exactly the triples containing a cycle edge as triangles. The geometric quotient of that graph is a tree: one arm per unoriented cyclic distance, with the endpoint-swapping reflection halving each representative edge. No nonidentity rotation stabilizes a triangle, since a rotation-invariant triple would have equal gaps and contain no cycle edge for n≥4; two different stabilizing reflections would give such a rotation. For a reflection-stabilized triangle, take the half-triangle with two inherited boundary edges. It strongly deformation retracts onto their union, relative to that union, so the retraction descends even when the inherited edges are identified in the quotient tree. The other triangle orbits are disks attached along their entire boundaries to the tree. Collapsing the tree, a contractible CW subcomplex, gives one S² for each of these disks. Three-consecutive-vertex triangles are reflection-fixed. For every other triangle normalize its unique cycle edge to {0,1}; the third vertex k ranges from 3 to n−2 and the edge reflection pairs k with n+1−k, fixing exactly one permitted k for odd n. The resulting count is floor((n−4)/2), including zero at n=4,5. This proves the integral homotopy classification without using finite calculations.
+
+## originality
+
+PASS
+
+The same-object unquotiented classification, the same-action second-tolerance quotient, and the distinct octagonal first-tolerance quotient do not give this geometric full-dihedral quotient. The identified tolerance-complex literature supplies definitions and collapsibility/Leray results rather than this stabilizer-dependent integral homotopy classification.
+
+## value
+
+PASS
+
+This is an integral, all-order homotopy classification for the natural full symmetry quotient of the simplest cycle tolerance enlargement. It identifies exactly which orbit cells survive and why reflection-stabilized faces do not contribute, distinguishing a linearly growing orbit-space sphere count from the quadratic unquotiented count. The fold cancellation is a reusable explanation, not just a finite Betti-number computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

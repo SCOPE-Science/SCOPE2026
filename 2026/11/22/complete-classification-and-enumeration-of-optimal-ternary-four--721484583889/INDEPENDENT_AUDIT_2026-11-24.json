@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:36:51.309751Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three monochromatic output loads sum to at most 12, and every length-n word for n≥4 contributes at least once. Size 12 would require exactly the twelve one-heavy vectors U, which overload every mixed pair. In a size-11 code at least ten vectors must be one-heavy. With eleven, the omitted vector must hit all three mixed pairs, so is a B_i. With ten, the remaining word has two heavy labels i,j and monochromatic saturation forces exactly one omission at each. Both omissions must hit ij; they therefore lie in {A_i^j,B_i}×{A_j^i,B_j}. When the third coordinate is zero, one omitted B suffices to repair both remaining mixed loads and is necessary. When it is one, both B's must be removed. Every such choice meets all six loads. These families are disjoint and the added word and missing members are determined by the codebook, so the labeled count is 3+3[3(n−3)+(n−4)]=12n−36, with zero interior choices at n=4. Separately, /workspace/reproduction/check_5.py uses exact load-vector dynamic programming over the full simplex, making no one-heavy restriction; it confirms capacity 11 and counts 12 through 108 in increments of 12 for n=4–12 (check_5.out). The all-length proof is by incidences, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "High-list saturation applies at L≥5; its even-list structure applies at L≥6. The plateau requires 2≤L≤k, hence L=2 at k=2. The alphabet-parity theorem requires q≥4. The inspected primary literature uses unique decoding or deletion-ball bounds."
+        ],
+        "reasoning": "None of the broader stated parameter domains or optimality mechanisms includes the present all-maximizer L=4 case.",
+        "searches": [
+          "Resultary 99b929446e96, 992c110431e7, 2946968acded",
+          "arXiv:2601.05636 and 2603.18322"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and supplied checker source",
+        "Resultary 99b929446e96, 992c110431e7, 2946968acded, 0e3f12d9bbed",
+        "arXiv:2601.05636 and 2603.18322"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Higher even-list rigidity requires including all one-heavy vectors, whereas the current optima always omit one or two.",
+          "A capacity bound fixes cardinality but does not specify which omissions or replacement words meet all mixed loads."
+        ],
+        "reasoning": "The two equality types and their distinct enumerations need mixed-load constraints at allowance four; they are not parameter substitutions into the higher- or lower-list results examined.",
+        "searches": [
+          "Resultary high-list rigidity and alphabet-parity equality statements",
+          "arXiv:2601.05636 Two survivors and arXiv:2603.18322 deletion-ball geometry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-channel high-list record explicitly reports prior capacity 11 but presents a rigidity theorem at higher allowances.",
+          "Same-day 0e3f12d9bbed concerns ordered words, one deletion and two parents."
+        ],
+        "reasoning": "Translating the problem to a packing of six componentwise output constraints preserves the codebooks; ordered subsequence channels do not. No distinct equivalent earlier optimizer classification was located.",
+        "searches": [
+          "Resultary: previously recorded capacity exactly eleven L=4 ternary two surviving symbols multiset list deletion n>=4 optimal ternary four list",
+          "High-list saturation 99b929446e96"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior exact quantity reported for these parameters is capacity 11, not the labeled count 12n−36. The exact two-survivor calculation in the primary source is for L=1."
+        ],
+        "reasoning": "No earlier exact census at the same labeling convention was found; the self-hit is not independent prior evidence.",
+        "searches": [
+          "Resultary exact ternary four-list optimizer/count search (returned record 721484583889 itself)",
+          "High-list saturation, relationship section at mirror offsets 6000–8294",
+          "arXiv:2601.05636, Two survivors"
+        ]
+      },
+      "rationale": "The capacity eleven is prior background, explicitly not claimed as new. The supported distinct claim is the full two-family characterization and labeled optimizer count at L=4 for every n≥4. Available primary passages and the strongest catalogue comparisons do not establish this equality census. The earlier capacity source cited indirectly remains unidentified.",
+      "residual_risks": [
+        "The unnamed prior capacity source may contain more than its cited capacity statement. Inspected passages do not settle historical priority or exclude an unindexed equivalent optimizer census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credits prior capacity, no L=4 census in the inspected claims",
+          "evidence": "L≥5 theorem, even L≥6 rigidity; separately acknowledges capacity 11 at L=4 without identifying the prior source.",
+          "identifier_or_url": "2026/10/26/SCOPE-high-list-saturation-for-ternary-two-symbol-multiset-deletion-co--99b929446e96",
+          "material_read": "RESULT.md mirror offsets 0–3421 and 6000–8294",
+          "method": "Resultary local mirror",
+          "title": "High-list saturation for ternary two-symbol multiset deletion codes",
+          "trigger": "Same channel and explicit earlier L=4 reference"
+        },
+        {
+          "assessment": "L=4 falls outside k=2 applicability",
+          "evidence": "The condition is 2≤L≤k.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-list-capacity-plateau-for-high-deletion-multiset-channels--992c110431e7",
+          "material_read": "RESULT.md mirror offsets 0–2943 and 5300–7007",
+          "method": "Resultary local mirror",
+          "title": "Sharp list-capacity plateau for high-deletion multiset channels",
+          "trigger": "Larger general multiset channel with extremal structure"
+        },
+        {
+          "assessment": "Different alphabet range and list allowance",
+          "evidence": "Requires q≥4, with threshold L=14 at q=4.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-alphabet-parity-thresholds-for-two-survivor-multiset-list--2946968acded",
+          "material_read": "RESULT.md mirror offset 0–3458",
+          "method": "Resultary local mirror",
+          "title": "Sharp alphabet-parity thresholds for two-survivor multiset list decoding",
+          "trigger": "Census for nearby two-survivor channel parameters"
+        },
+        {
+          "assessment": "Different channel and list constraint; same date does not order priorities",
+          "evidence": "Ordered length-four source words, one deletion, list allowance two.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-ternary-two-list-single-deletion-capacity-at-length-four--0e3f12d9bbed",
+          "material_read": "Statement of parameters and capacity",
+          "method": "Resultary local comparison",
+          "title": "Exact ternary two-list single-deletion capacity at length four",
+          "trigger": "Same-day and similar terminology"
+        },
+        {
+          "assessment": "Same unordered model but a different list allowance",
+          "evidence": "Exact two-survivor formula there concerns unique decoding (L=1).",
+          "identifier_or_url": "https://arxiv.org/html/2601.05636",
+          "material_read": "Two survivors section, OA offsets 67500–70262",
+          "method": "OA paper",
+          "title": "Multiset Deletion Codes: Cyclic Syndrome Constructions, Bounds, and Exact Results",
+          "trigger": "Primary exact two-survivor multiset result"
+        },
+        {
+          "assessment": "No optimizer census in those inspected results",
+          "evidence": "The passages describe polynomial constructions and deletion-ball volume bounds.",
+          "identifier_or_url": "https://arxiv.org/html/2603.18322",
+          "material_read": "Introduction, OA offsets 3800–6298 and 7200–9581",
+          "method": "OA paper",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Primary general geometry and packing context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the natural small list allowance just below the higher-list regime, the exact equality structures show why an extremizer need not have the large-list one-heavy saturation pattern. The distinction between deleting one one-heavy vector and adding a two-heavy vector after two forced omissions determines all optimal codebooks, their finite-length boundary and their exact multiplicity. This is useful structural information beyond an already known capacity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

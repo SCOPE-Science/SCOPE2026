@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The density reduces under the cosine double-angle identity to a quadratic expression in fixed product and sum-of-squares variables. The exact allowable sum-of-squares interval, attained at \(s=t=\sqrt z\) and \((s,t)=(1,z)\), produces the complete two-branch admissibility region for every real parameter and every boundary point. No numerical grid is used to assert global positivity. Orthogonal conditional-CDF integrals establish Chatterjee's coefficient, and two elementary quadratics establish its exact optimizer. The operator eigenvalues are exactly the two harmonic coefficients and give the sharp maximal-correlation bound. The standalone exact-arithmetic checker passes.
+## correctness
 
-**Originality — PASS with residual priority risk.** The 2023/2024 originating work and 2025 follow-up were compared at the same cosine basis, parameter normalization, density, and model constraints. Both use a sufficient coefficient-sum condition; neither identified inspected section gives the new global boundary or sharp within-family Chatterjee optimum. The classical zero-concordance and eigenbasis formulas are attributed, not presented as new. Searches for the exact curved boundary and for the rank-predictability constant returned no direct counterpart. The indexed shifted-Legendre two-mode result has a different basis, so its parameters and positivity boundaries do not imply the cosine result. Potential unindexed derivations and an incompletely accessible 2026 Markov-chain comparison remain risks.
+PASS
 
-**Value — PASS.** A necessary-and-sufficient curved region replaces a conservative coefficient simplex in a statistical model already used for inference, and the enlarged region gives sharp, demonstrably nonzero nonlinear rank dependence even while both standard concordance coefficients are identically zero. Distinct extremizers for predictability and maximal correlation provide a meaningful distinction between rank-detection and Hilbert-space dependence. The quantitative optima are not merely arbitrary parameter examples.
+The density has uniform margins; nonnegativity everywhere is necessary by continuity (a negative boundary point gives interior negativity) and sufficient by integration. At fixed z=|cos(2πu)cos(2πv)| the least linear contribution is -2|a|z. If s,t are the absolute cosines, s²+t² ranges between 2z and 1+z² with the endpoints realized by (sqrt(z),sqrt(z)) and (1,z). For b<0 the reduced concave quadratic has smaller endpoint value 1+2b-2|a|; b=0 is linear. For b>0 the reduced quadratic is 1-2b-2|a|z+4bz². Its minimizing z is min(1,|a|/(4b)), and z=0 excludes b>1/2 outright. The endpoint-to-vertex transition on the validity boundary is at 1+2b=8b, giving b=1/6. Both signed concordances vanish independently by invariance under reflection of just one margin, which reverses their signs. Integrating the squared conditional-CDF deviation gives 6 times a²/(4π²)+b²/(16π²), with no cross term by cosine orthogonality. On the first positivity branch the resulting bracket a²+b²/4 has maximum 65/144 by endpoint comparison; on the curved branch it is 16/31-(31/4)(b-8/31)². Thus the stated two signed maximizers are exhaustive. Expanding centered functions in the two normalized cosine modes gives Cov(f,g)=a f1 g1+b f2 g2, so maximal absolute correlation is max(|a|,|b|); the curved boundary satisfies |a|²<=1/2-8(b-1/4)², while the other branch and |b| cannot reach 1/sqrt(2). These are two-mode, population results, with boundary zeros allowed. Replay: RESULT.md lines 39–74; the uploaded symbolic check was inspected, not executed.
 
-**Scientific limits:** The maxima hold within the specified two-frequency cosine family. The numerical checker's samples do not establish the infinite-domain result; the written algebra does. No independent audit or external historical-priority certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete positivity boundary and its sharp two-mode dependence maxima survive the strongest inspected comparisons. Neither cosine-only zero concordance nor the diagonal operator construction is credited as new; the single-mode Chatterjee calculation has materially overlapping same-day coverage.
+
+## value
+
+PASS
+
+The exact admissibility region distinguishes valid from impossible parameters beyond a conservative model-inference domain. Two different extremizers quantify distinct forms of dependence despite zero classical concordance, which is more informative than one example of nonzero rank predictability. Neither sharp cap is presented as universal outside the two-harmonic model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

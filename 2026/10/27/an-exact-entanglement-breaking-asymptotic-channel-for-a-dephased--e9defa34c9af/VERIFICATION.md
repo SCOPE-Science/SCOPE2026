@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Reproducible computations and mathematical limits
+# Independent mathematical audit
 
-The accompanying `verify_dephased_battery.py` uses Python 3, NumPy and SciPy, constructs the entire Liouvillian on vectorized \(4\times4\) matrices (column-major order), and checks \(80\) seeded independent parameter/state choices. Run from a directory containing the script:
+## correctness
 
-```bash
-python verify_dephased_battery.py
-```
+PASS
 
-Recorded output from a run against the included script:
+The two normalized Pauli terms anticommute and are traceless; Q is a traceless involution, with two eigenvalues of each sign. Their commutators with H cancel with the stated coefficients, and Q commutes with charger Z. For either L or its Hilbert–Schmidt adjoint the dissipation is −γ‖[Z_C,A]‖₂²/8, forcing every fixed or imaginary-axis eigenoperator to be charger-block-diagonal. The block equations then identify the kernel with the commutant of TT†, where T=F I+gσ⁻ and det T=F²; TT† has distinct eigenvalues since g>0. The commutant is two-dimensional and I,Q span it. The Hamiltonian sends a charger-block-diagonal operator to the off-diagonal blocks under commutation, so no nonzero imaginary eigenvalue survives. Hilbert–Schmidt contraction from the same dissipation identity excludes Jordan blocks on the axis. The limit is the orthogonal projection onto the common adjoint and Schrödinger kernel, giving (I+Tr(Qρ)Q)/4 on states and the stated binary measure-and-prepare formula. This is entanglement breaking against an external reference; its outputs are also classical on the charger. The two conditional battery vectors have common X component 2Fc/s and opposite Z components ∓gc/s, with s=√(g²+4F²). For nonzero c they are not collinear and the density matrices cannot share a battery eigenbasis; this gives precisely the directional discord claim. The reduced battery has zero Z component and Bloch length 2F|c|/s, and its passive energy is ω_B(1−2F|c|/s)/2. Taking c=±1 proves sharpness and the joint ground state gives c=−g/s in the declared convention. The proof is in the rotating frame and concerns limiting, not finite-time, entanglement breaking. Independent exact checks of full matrix-unit generators and of the proposed commuting idempotent projection: python3 /workspace/branches/independent_checks.py 5; output /workspace/branches/independent-5.txt. These check three integer triples, not the universal spectral statement. The frozen 80-sample transcript was inspected as recorded evidence, not executed.
 
-```text
-80 random positive-parameter, random full-rank-state tests passed
-max commutation/Q² error 7.195e-16
-max stationary residual 1.888e-16
-max stationary scalar error 1.110e-16
-max asymptotic numerical density-matrix error 7.228e-09
-max battery ergotropy/Bloch error 5.551e-17
-ground-state source ergotropy 0.25 exactly reproduced
-```
+## originality
 
-Every sampled numerical Liouvillian had exactly two zero eigenvalues within tolerance \(10^{-9}\), and remaining eigenvalues had negative real parts below \(-10^{-10}\) (for that sample). Numerical claims concern only those sampled inputs. The analytical proof in `RESULT.md` establishes the infinite-time and all-initial-state assertions; **finite sampling does not certify the universal theorem**. The actual program itself is embedded separately in this package rather than incorporated by reference to an earlier run.
+PASS
 
-The publication-date evidence for the motivating model is the dated 2024-02-26 v1 record of arXiv:2402.16999, not the 2025 journal issue. Full-text comparisons and one inaccessible supplementary contribution are described in `REVIEW.md` and `AUDIT.json`. No external audit or independent scientific validation is represented as having taken place.
+The supported distinct result is the all-initial-state resonant channel and its complete fixed-state, directional-correlation and work classification. Credit the established Lindbladian, resonant nonuniqueness and the ground-input energy and ergotropy. No checked result provides the all-input asymptotic channel or the combination of these classifications for this generator. This is not an unconditional priority claim.
+
+## value
+
+PASS
+
+The asymptotic map answers which preparation information survives even with correlations and an arbitrary external reference. It cleanly distinguishes elimination of entanglement from survival of battery-side discord, and gives a sharp continuum of accessible work at identical final mean energy. This is a complete answer to a natural exact model question beyond the known ground-state charging benchmark. It invokes no new general channel principle and makes no claim of a free preparation advantage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

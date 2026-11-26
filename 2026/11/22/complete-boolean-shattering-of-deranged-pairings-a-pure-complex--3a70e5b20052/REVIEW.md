@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every positive trace must be a matching. The proof establishes a residual perfect-matching lemma: with at least four unassigned vertices, deleting the restrictions of the prescribed buddy-pair matching and at most \(k-2\) arbitrary queried edges leaves minimum degree at least half the residual order and hence a perfect matching by Dirac's theorem. For the critical \(n-1\)-edge support it instead needs two deleted matchings; the four-vertex boundary follows from the three one-factors of \(K_4\), and all larger residual orders follow again from Dirac. This proves all Boolean traces and the sharp last-pair exception. The one-edge-deletion bijection gives precisely \(n p_n\) top faces, with all lower coefficients counted by inclusion-exclusion. The online upper bound is an induction after one positive edge has been fixed. All quantifiers, \(n=2\), and the empty trace are covered. Exhaustive independent finite checks verified 104,500 supports through \(n=5\), including the entire trace identity for arbitrary supports below the critical degree; finite checks are supporting evidence, not infinite proof.
+PASS
 
-## Originality — PASS, with historical-priority risk
+A positive matching T leaves 2k vertices. For |S|≤n−2 there are at most k−2 residual negative-query edges besides the fixed missing matching, giving minimum degree at least k and hence a perfect matching by alternating edges of a Dirac cycle. This proves the whole trace identity, including intersecting supports. On a matching support of size n−1, a proper positive subset leaves at least four vertices, and the residual forbidden graph is a union of two matchings; Dirac applies for k≥3, and at k=2 each forbidden matching can hit only one member of the three 1-factors of K4. The full positive trace is equivalent to the single remaining edge being allowed. At size n a perfect matching with exactly one queried edge set negative cannot be realized. Every smaller face extends to a perfect matching and hence to a face of size n−1; these top faces correspond bijectively to (perfect matching, removed edge). Inclusion–exclusion on the disjoint prescribed pairs gives both factorial sums, including n=2. An adaptive shattered tree's positive branch fixes two endpoints and restricts to a perfect-matching class on the remaining vertices, giving the inductive online upper bound n−1 from the two-vertex base; VC shattering gives the lower bound. An independent insertion enumeration in /workspace/reproduction/check_1.py (stdout check_1.out in the same directory) verifies all 104,500 supports for n=2–5, the face vectors, and adaptive depths 1,2,3 for n=2–4. The finite tests corroborate rather than establish the general proof.
 
-The accessible 2022 primary paper by Johnston, Kayll and Palmer studies **the same nonbipartite graph** \(K_{2n}\setminus F\) and establishes counts of perfect matchings and asymptotics; these enumerative facts and their inclusion-exclusion formula are credited. It does not present the asserted complete coordinate-shattering criterion or facet correction. Bucić and collaborators (2019) prove intersection bounds for perfect matchings, not arbitrary Boolean edge-query traces. Lu and Yu (2018) study general prescribed-positive/negative matching extension, but their fixed-parameter large-order sufficient conditions do not cover the moving top-degree boundary uniformly or count its supports. The closest previously recorded trace polynomial is for the *bipartite* crown graph and stops at degree \(n-2\); the present nonbipartite polynomial has a nonzero degree-\((n-1)\) term. Another recorded result restricts to noncrossing perfect matchings and imposes a different geometric activity criterion. The exact implication comparisons, inspected material and residual concerns are recorded in `AUDIT.json`. No exhaustive historical novelty certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The classical deranged-pairing problem asks how many complete pairings avoid a prescribed pairing. The additional natural question of which *individual candidate pairings can be queried with all Boolean response patterns* is not answered by the total count. The result resolves that question on every support and for every number of original pairs, obtains the entire f-vector and a pure complex, identifies the only sharp boundary obstruction, and proves exact equality of static and adaptive learning dimensions. The comparison with derangement permutations demonstrates that the top-level behavior genuinely depends on nonbipartite pairing freedom. The full structural result, not the already-known inclusion-exclusion count alone, motivates its value.
+Supported distinct claim: the trace and sharp shattering classification, pure complex and online dimension for the nonbipartite deranged-pairing class. The earlier bipartite local trace theorem is a substantial analogue, and the same-graph deranged-pairing count is prior. Neither implies this top-face or online statement. This is a best-of-knowledge assessment, not a priority certification.
 
-## Prior literature and limitations
+## value
 
-Relevant primary sources are Chase–Freitag (2018, arXiv:1801.06566), Lu–Yu (2018, arXiv:1807.11159), Bucić–Devlin–Hendon–Horne–Lund (2019, arXiv:1906.05908), and Johnston–Kayll–Palmer (2022, arXiv:2209.11319). Adjacent recorded results on bipartite derangement traces and noncrossing matching traces were read and compared. The theorem does not determine homotopy groups, teaching dimension, or arbitrary edge-deletion families. Complete bibliographic priority and independent scientific validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cocktail-party graph is the standard nonbipartite model of pairings avoiding a fixed pairing. Its arbitrary-support trace law and exact near-perfect boundary determine the entire Boolean restriction structure at the critical sizes, information lost in the matching count and in VC dimension alone. Purity, the facet correction and the exact adaptive dimension are useful comparisons with the bipartite derangement-board result, whose top size is different.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

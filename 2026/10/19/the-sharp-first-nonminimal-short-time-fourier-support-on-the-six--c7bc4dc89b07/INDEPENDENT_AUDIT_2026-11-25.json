@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:03:48.942880Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–27",
+        "VERIFICATION.md, check.py and check_output.txt, inspected not executed",
+        "/workspace/audit_replay/stft_z6.py and stft_z6.out"
+      ],
+      "rationale": "Each active delay is the Fourier transform of a row of exact overlap support. Full column rank of a reduced Fourier submatrix certifies full rank in characteristic zero by the nonvanishing minor. Independently, fraction-free elimination in Z[ζ₆] verified the four families directly among all 3969 nonempty support pairs: 50 at lower bound 6, all others at least 12. Singletons give six. Opposite two-point rows have Fourier support 3 or 6 and there are two active rows. Three-point cosets have three active rows with even supports: a hypothetical total 8 gives two single-character rows on the subgroup, whose quotient forces successive translated window ratios to be scalar characters and forces the third row also to be a single character. For two full supports, total 7 or 8 would leave at least four single-character rows; two have adjacent delays and their quotient forces the scalar character property at every delay. Finally the exact witness has profiles 1+4(−1)^ℓ and 2+2(−1)^ℓ in delays 0 and 3, respectively, with other delays zero. A delta pair attains six.",
+      "residual_risks": [
+        "The rank computation establishes lower bounds, not realization of any row support. Attainment is separately symbolic; the conclusion is only about the first gap and not the rest of the spectrum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former determines support minimum N and equality cases on cyclic groups. The latter gives general uncertainty inequalities and a support-dependent bound in terms of f,g and their Fourier transforms."
+        ],
+        "reasoning": "Equality classification alone does not identify the next support level. Bounds conditional on input supports do not establish 8-impossibility for every pair; full input support is allowed here.",
+        "searches": [
+          "Nicola arXiv:2204.14176, Theorems 1.1–1.2",
+          "Krahmer–Pfander–Rashkov arXiv:math/0611493, Propositions 4.1–4.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.14176",
+        "arXiv:math/0611493",
+        "Resultary 2026/10/25/SCOPE-the-one-step-support-gap-for-finite-group-short-time-fourier-tra--301d9bf3df13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-step proof uses row uncertainty, coset periodicity and single-character row quotients; it expressly does not classify N+2. The Z₆ table is derived from a different support-dependent bound."
+        ],
+        "reasoning": "These methods overlap. Applying just their stated conclusions neither excludes 8 on Z₆ nor supplies a realizing pair for 9. The audited argument uses actual overlap patterns plus distinct case analysis of 8 and demonstrates sharpness.",
+        "searches": [
+          "Finite-group one-step support gap RESULT.md, Finding, Proof and Limitations",
+          "Krahmer–Pfander–Rashkov Table 2 preceding text and Proposition 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed finite abelian one-step result uses the same normalized STFT and arbitrary complex f,g, but its cardinality conclusion is N or at least N+2."
+        ],
+        "reasoning": "Changing the normalization to ordinary ambiguity-function convention leaves zeros unchanged. At N=6 the indexed conclusion permits 8 numerically and does not prove 9 to be sharp.",
+        "searches": [
+          "Resultary: six-point cyclic STFT / finite Gabor uncertainty first nonminimal support, all windows",
+          "Primary search: short time Fourier transform six Z_6 six point minimum support 8 9 gap finite group nonminimal cardinality Gabor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 2 is explicitly a table of lower bounds from inequality (9) for various input support sizes and includes values no greater than the universal minimum.",
+          "The closest indexed one-step result has lower alternative 8 at N=6."
+        ],
+        "reasoning": "A table entry bounding a class of inputs is not a classification of all attainable STFT support values; no equivalent exact six-point next-level result was verified in the checked sources.",
+        "searches": [
+          "Krahmer–Pfander–Rashkov §4 Table 2 for Z₆",
+          "Resultary: Z₆ exact support spectrum and forbidden support 8"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp first nonminimal level 9 for arbitrary complex pairs on Z₆, in particular the exclusion of 8. The earlier equality theorem, support-dependent lower-bound table and separately indexed one-step theorem cover the minimum or exclusion of 7, not this exact next level.",
+      "residual_risks": [
+        "Unindexed six-point computations or a stronger bound not found in the targeted searches could cover the result; low-yield web searches are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial overlap; excludes 7, not 8",
+          "evidence": [
+            "States N or ≥N+2 for N≥3; disclaims classifying N+2 or determining the smallest attainable support above N."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-one-step-support-gap-for-finite-group-short-time-fourier-tra--301d9bf3df13/RESULT.md",
+          "material_read": "Finding, row proof and Limitations",
+          "method": "Local Resultary and bounded mirror inspection",
+          "title": "The one-step support gap for finite-group short-time Fourier transforms",
+          "trigger": "Same transform on a strictly larger class of groups, possible stronger theorem"
+        },
+        {
+          "assessment": "Covers the minimum, not the next support value",
+          "evidence": [
+            "Characterizes the input pairs giving exactly N, not the supports strictly larger than N."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.14176",
+          "material_read": "OA PDF pp. 2–4, Theorems 1.1–1.2",
+          "method": "Bounded primary PDF inspection",
+          "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+          "trigger": "Sharp minimum and equality characterization"
+        },
+        {
+          "assessment": "Relevant conditional bounds, not an exact next-level statement",
+          "evidence": [
+            "Table 2 tabulates lower bounds supplied by (9), with different time and Fourier support sizes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611493",
+          "material_read": "§4 pp. 13–15, Propositions 4.1–4.2 and Table 2",
+          "method": "Bounded primary PDF inspection, Proposition 4.2 passage near offset 48237",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "Exact matching group Z₆ and support bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and sharpness witness",
+        "Nicola minimum theorem and indexed one-step gap"
+      ],
+      "rationale": "This determines the first departure from the universal minimum in the smallest cyclic group with two distinct nontrivial proper subgroup orders, where prime-order arguments do not apply. The exclusion holds uniformly for both inputs, and an exact realizing witness makes the gap sharp rather than merely a lower bound from a finite sample.",
+      "residual_risks": [
+        "No claim of a new general uncertainty principle, complete support spectrum, or classification of all extremizing pairs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

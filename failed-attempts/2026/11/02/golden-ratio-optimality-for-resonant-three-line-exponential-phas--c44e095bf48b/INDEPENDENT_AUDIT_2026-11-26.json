@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:50:35.489895Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–37 and 40–77",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Classical Hurwitz bound, plus the quadratic-norm sharpness check above"
+      ],
+      "rationale": "The three real-axis intensities recover |c|²+|d|², |c|²−|d|², and Re(c conjugate(d)) by their even and odd differences; the fourth recovers the imaginary part exactly when sin(πkα)≠0. At zero sine the two choices d=±i with c=1 collide. Any three magnitudes leave a nonzero Hermitian kernel matrix. For spanning evaluation vectors it must be indefinite, and its two rank-one spectral parts give the ambiguity; for nonspanning vectors there is already an invisible coefficient vector. The interference Gram matrix has trace 3 and determinant 2sin²(πkα), so the least singular value is g(∥kα∥) with g(d)/d→π√(2/3). A minimizing index j_N tends to infinity and Nγ_N≥j_N s_{j_N}, while Nγ_N≤Ns_N, giving the stated liminf. For golden-ratio sharpness one can bypass the redundant initial Fibonacci indexing: with α′=−φ and p nearest to qα, |(qα−p)(qα′−p)|=|p²+pq−q²|≥1 and |qα′−p|≤√5q+1/2. This proves the lower sharpness bound; Hurwitz gives the upper bound. Finally the two witness vectors have squared norms 5 and mutual inner-product modulus 4, giving quotient distance √2, while the interference differences have the stated signs and sizes.",
+      "residual_risks": [
+        "The interference spectrum is for extracted equally weighted coefficients, not raw full-line noise or the conditioning of the four-sample nonlinear inverse.",
+        "The Fibonacci nearest-integer identity in the proof holds with usual indexing for n≥2, enough for the limit.",
+        "The reported finite assertions are not an independent rerun or a proof of the limiting constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Gaussian entry gives the exact spectrum at arbitrary real t, an irrationality-exponent law, and badly approximable order bounds.",
+          "Wang–Xu give general complex phase-retrieval measurement bounds; Grohs–Liehr reconstruct in Gaussian shift-invariant spaces from line spectrograms."
+        ],
+        "reasoning": "The general spectrum directly covers the resonant specialization. General phase retrieval already accounts for the four-measurement dimension threshold, but not the particular symmetric sample sites; the shift-invariant theorem is different.",
+        "searches": [
+          "10/26 Gaussian interference finding equations (1)–(3)",
+          "Wang–Xu arXiv:1605.08034 measurement count",
+          "Grohs–Liehr arXiv:2109.02494 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 10/26 Gaussian exact spectrum and near-resonance findings; 10/18 SCOPE-complete-two-polygon-phase-retrieval-criterion-for-polynomials-o--0026bf390afd; 11/02 SCOPE-sharp-nyquist-rotation-criterion-for-balanced-two-circle-polynom--da0758db93a1",
+        "Liehr arXiv:2308.05722; Wang–Xu arXiv:1605.08034; Grohs–Liehr arXiv:2109.02494",
+        "Bounded primary-literature search returned no additional useful passage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At t=αk,ρ=1/α the complex sum reduces to 2+e^{2πiαk}; its squared modulus is 9−8 sin²(πkα). Consequently s_k∼π√(2/3)∥kα∥ along improving approximants.",
+          "For positive b_k with infimum zero, the inequalities N min_{j≤N} b_j≤Nb_N and N min_{j≤N} b_j≥j_N b_{j_N}, with j_N→∞, identify the scaled running-minimum liminf. Sharp Hurwitz then gives the stated extremal value without a new conditioning bound."
+        ],
+        "reasoning": "No stronger statement about raw four-point conditioning follows and none is proven in the frozen finding. The sharp arithmetic number advertised here is the direct combination of the existing exact spectral law and the standard arithmetic constant, not a newly proved extremal estimate requiring independent structure.",
+        "searches": [
+          "10/26 Gaussian interference RESULT.md Finding (1) and reduction (3)",
+          "Hurwitz approximation theorem",
+          "Frozen RESULT.md proof steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 10/26 record gives A_ρ(t) with rows at phases 0,πt,πρt for all t>0 and ρ>1. Take t=αk, ρ=1/α, and swap rows two and three to get A_{k,α} exactly.",
+          "Its normalized two-tone STFT profiles in equation (3) have exponential terms and the same bilinear interference after removal of known factors. Liehr gives qualitative irrational-spacing full-line uniqueness and commensurate-line exponential ambiguities."
+        ],
+        "reasoning": "The profile correspondence is exact for the processed data of the actual finding, even though the signal models and raw norms are different. The r-dependent raw point evaluation theorem is not Liehr's full-line uniqueness theorem.",
+        "searches": [
+          "Resultary: SCOPE-arithmetic-conditioning-of-three-line-gaussian-interference-meas--5f95969c14b0",
+          "Liehr arXiv:2308.05722 Theorems 1.1–1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact squared least singular value (3−|1+e^{2πit}+e^{2πiρt}|)/2 specializes to the boxed smaller eigenvalue; trace 3 gives the larger.",
+          "Sharp Hurwitz provides 1/√5 at the golden-ratio conjugate. The 10/26 two-grid near-resonance finding has positive phase-orbit separation and a linear-in-detuning data gap in different norms.",
+          "The 10/18 two-polygon and a distinct 11/02 two-circle finding use a sine nonvanishing criterion for two-harmonic demixing, on different polynomial sectors."
+        ],
+        "reasoning": "The exact matrix law and arithmetic input match, even though no exact table for the specified four sample intensities was identified. The analogue witnesses and polynomial systems are not counted as direct duplication.",
+        "searches": [
+          "Resultary records on three-line Gaussian interference, two-grid near-resonance, two-polygon and two-circle phase retrieval",
+          "Classical sharp Hurwitz constant for q∥qα∥"
+        ]
+      },
+      "rationale": "The exact spectrum advanced as distinguishing content is a direct specialization of the earlier-indexed exact Gaussian interference spectrum, with identical normalized profiles and row permutation. The headline sharp constant follows from that exact law by small-angle expansion, the elementary running-minimum identity, and sharp Hurwitz. The earlier item need not state the numerical constant or the running-minimum wording to cover its substantive spectral input. The explicit four raw sites and sampled separation are not found verbatim; they are realization details, not an independently supported original spectral or design theorem.",
+      "residual_risks": [
+        "The exact spectral equivalence is not a claim about independent authorship or publication chronology. The exact four-site realization's absolute priority is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader spectral coverage",
+          "evidence": [
+            "ρ>1 is respected by choosing ρ=1/α and t=αk. The row permutation is isometric and the exact least eigenvalue specializes algebraically."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-arithmetic-conditioning-of-three-line-gaussian-interference-meas--5f95969c14b0/RESULT.md",
+          "material_read": "Finding and beginning of Proof, offset 0 through equation (3)",
+          "method": "Resultary and local mirror",
+          "title": "Arithmetic conditioning of three-line Gaussian interference measurements",
+          "trigger": "Identical three-line processed interference and exact singular value"
+        },
+        {
+          "assessment": "Related witness mechanism with different observables",
+          "evidence": [
+            "Fixed Gaussian ambiguity pair has positive L² orbit separation and linear detuning asymptotics in its data metric."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-near-resonance-asymptotics-for-a-two-grid-gabor-phase-retrieval--61bea58e44b1",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Near-resonance asymptotics for a two-grid Gabor phase retrieval problem",
+          "trigger": "Separated orbit witnesses near commensurability"
+        },
+        {
+          "assessment": "Qualitative uniqueness and explicit exponential ambiguities, not quantitative design",
+          "evidence": [
+            "A set of line heights not contained in an arithmetic progression gives uniqueness in the stated entire-function setting; commensurate heights admit an explicit ambiguity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.05722",
+          "material_read": "Theorems 1.1 and 1.2, pp. 2–3, offsets 5443 and 7798; ambiguity construction p. 7, offset 21127",
+          "method": "OA PDF passage inspection",
+          "title": "Arithmetic progressions and holomorphic phase retrieval",
+          "trigger": "Same line uniqueness/ambiguity question"
+        },
+        {
+          "assessment": "Prior general dimension context",
+          "evidence": [
+            "Generic complex sufficiency is at 4d−4. The frozen kernel proof verifies the specific necessity in complex dimension two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1605.08034",
+          "material_read": "Generic sufficiency p. 1, offset 1259; rank-one discussion p. 5, offset 15724; lower bounds p. 7, offset 22148",
+          "method": "OA PDF passage inspection",
+          "title": "Generalized phase retrieval: measurement number, matrix recovery and beyond",
+          "trigger": "Minimal number of complex rank-one intensity measurements"
+        },
+        {
+          "assessment": "Different signal space and reconstruction result",
+          "evidence": [
+            "Provides explicit shift-invariant reconstruction from spectrogram data, not the claimed resonant sampling or its spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.02494",
+          "material_read": "Theorem 1.1, p. 4, offset 11700",
+          "method": "OA PDF passage inspection",
+          "title": "Stable Gabor phase retrieval in Gaussian shift-invariant spaces via biorthogonality",
+          "trigger": "Line reconstruction from Gaussian spectrogram data"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–37, 40–74 and 79–83",
+        "10/26 Gaussian interference finding equation (1)",
+        "Liehr's commensurability mechanism and the general phase-retrieval measurement comparison"
+      ],
+      "rationale": "A sharp conditioning design for prescribed observations is a worthwhile aim, but here the central optimized invariant is extracted mechanically from the known wider spectrum and classical Hurwitz constant. The four raw samples furnish a clean minimal realization of a two-dimensional lifted system, and the elementary witness illustrates failure near resonance, but neither introduces a new stability invariant or result beyond that routine realization substantial enough to sustain the headline finding. In particular no sharp design or noise guarantee for the raw samples is obtained.",
+      "residual_risks": [
+        "The numerical constant can be useful even as a consequence; a distinct optimality theorem for a raw measurement norm or new signal class is not evaluated here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

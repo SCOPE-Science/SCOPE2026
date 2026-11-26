@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:29:04.438511Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write Y_T for the product of the signs on triangle T, S=sum_T Y_T, and B=(t+S)/2. Independent fair signs make a product expectation one precisely for an even edge multiset and zero otherwise. Triangle characters are centered signs; distinct characters have zero product expectation and hence, for fair binary marginals, are independent. This gives E[B]=t/2 and Var(B)=t/4. In E[S^4] the repeated-index cases contribute t+6*C(t,2): an odd-multiplicity pair of distinct triangle indices leaves a nonempty symmetric difference and vanishes. Four distinct triangles with even edge counts must share each of the three edges of a first triangle abc with a separate one of the remaining triangles, as two distinct triangles share at most one edge. Writing them abx,bcy,caz, the parity of ax and bx forces x=z and x=y, giving exactly all faces of one K4. The converse is immediate and each K4 contributes 24 ordered terms. Thus E[S^4]=3t^2-2t+24q, and centering and scaling the cumulant gives (24q-2t)/16. Solving with the variance yields the stated recovery, including t=0. As a separate normalization check, K4 gives probabilities 1/8, 6/8, 1/8 for B=0,2,4 (the face signs are uniform with product +1), whereas four independent triangles give Binomial(4,1/2); their respective cumulants are 1 and -1/2 at equal variance. I inspected signed_triangle_checker.py and the recorded 1103-graph run; that finite small-graph evidence is separate from the universal parity proof reconstructed here.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv uncertainty paper defines fixed edge existence with uncertain signs and frames an algorithmic triangle counting/enumeration task.",
+          "The available Tian–Feng indexed abstract describes joint asymptotic normality in a random signed-graph model. The frozen record characterizes the other two sources as random signed-graph balance thresholds and walk-based diagnostics respectively; primary readings of those two were unavailable."
+        ],
+        "reasoning": "Knowing how to count balanced triangles or knowing a Gaussian fluctuation limit does not determine the exact fourth cumulant on each fixed support. Do not infer from the available abstracts or bibliographic evidence that the articles contain no stronger ancillary identities.",
+        "searches": [
+          "El Maftouhi–Manoussakis–Megalakaki DOI 10.1080/15427951.2012.675413",
+          "Estrada–Benzi DOI 10.1103/PhysRevE.90.042802",
+          "Tian–Feng DOI 10.1016/j.spl.2025.110459",
+          "arXiv:2602.14084 pp. 1, 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and signed_triangle_checker.py",
+        "Resultary 6837d93345ce, e4a9fc29fb2b, 5297f4a837b3, e73d48554b89",
+        "arXiv:2602.14084",
+        "Tian–Feng indexed abstract; citations and retrieval attempts for the remaining two papers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The orientation result has marginal probability 1/4 and a third-order exceptional triple of cyclic indicators on three K4 faces; it recovers q from the second and third cumulants of that count. Here balanced triangles have marginal probability 1/2 and the relevant exception requires four distinct complete faces with even edge incidence."
+        ],
+        "reasoning": "These statements share a tetrahedral motif but the cyclic indicator is not the sign-product indicator, and the orientation identities do not give the weight-four even-subset enumeration. The same-day date establishes no precedence between distinct records.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-a-tetrahedral-third-cumulant-law-for-cyclic-triangles-under-rand--e4a9fc29fb2b, RESULT.md Finding",
+          "Frozen RESULT.md parity proof and its binary-incidence equivalent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the triangle-by-edge matrix A over F_2 and uniform edge bits x, B=t-wt(Ax). Its law is the reversed, normalized weight enumerator of im(A). Dual codewords in ker(A^T) are even triangle subsets, with weight polynomial E[(1+z)^B(1-z)^(t-B)]. The result says precisely that the coefficient of z^4 is the K4 count, by the classification of its weight-four words.",
+          "The inspected other Resultary spectrum is ternary and concerns Delta_{5,2}; the convex-polygon record concerns Walsh coefficients of polygon triangulations. Their objects do not give this binary triangle-boundary code statement."
+        ],
+        "reasoning": "A result giving the weight-four dual coefficient for every support G would be equivalent coverage, regardless of whether it mentions cumulants. A general weight-enumerator transform merely translates to the coefficient problem, without identifying the coefficient with K4.",
+        "searches": [
+          "Resultary: tetrahedral cumulant and signed-graph weight spectrum; record IDs e4a9fc29fb2b, 5297f4a837b3, e73d48554b89",
+          "Dual binary code of the triangle-by-edge incidence matrix; triangle mod-2 boundary generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/22/SCOPE-four-cliques-from-the-fourth-fluctuation-of-balanced-triangles-u--6837d93345ce gives the exact same Finding and proof, under the identical assigned identity. The other compared records give different weight spectra or a different probability law."
+        ],
+        "reasoning": "The exact-index hit is this finding, not independent prior coverage. An arbitrary-graph theorem is not implied by a finite table, though a general exact code-enumerator result identifying the coefficient with K4 would cover it. No such statement was established in the bounded comparison.",
+        "searches": [
+          "Resultary: four-cliques from the fourth fluctuation of balanced triangles under fair edge signs",
+          "Resultary: binary/even-triangle spectra, tetrahedral cumulant, polygon Walsh coefficients"
+        ]
+      },
+      "rationale": "The constituent parity/Walsh and weight-enumerator identities are standard; the supported addition is the exact identification of the fourth fluctuation of balanced-triangle counts with four-clique counts for every fixed support, including its tetrahedral mechanism. A distinct same-day result obtains a tetrahedral motif recovery for cyclic orientations, not this sign statistic. The access and equivalence risks below limit the historical conclusion.",
+      "residual_risks": [
+        "The inaccessible cited full texts, particularly Tian–Feng, may contain ancillary exact identities. An unindexed equivalent in mod-2 simplicial cycles, a triangle-boundary code, or a high-temperature generating function could already give the coefficient classification. These risks are not verified coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record; not distinct priority evidence",
+          "evidence": "Same fourth-cumulant and motif recovery identities and the four-face classification.",
+          "identifier_or_url": "2026/11/22/SCOPE-four-cliques-from-the-fourth-fluctuation-of-balanced-triangles-u--6837d93345ce",
+          "material_read": "RESULT.md Finding at offset 250, Proof at offsets 3200–3681",
+          "method": "Published Resultary local mirror and comparison to frozen source",
+          "title": "Four-cliques from the fourth fluctuation of balanced triangles under fair edge signs",
+          "trigger": "Exact title and statement match"
+        },
+        {
+          "assessment": "Material thematic overlap, different statistic and theorem",
+          "evidence": "Three cyclic-orientation indicators are the exceptional tetrahedral family; the cumulant is of order three with a different normalization.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-tetrahedral-third-cumulant-law-for-cyclic-triangles-under-rand--e4a9fc29fb2b",
+          "material_read": "RESULT.md Finding, offset 0 onward",
+          "method": "Published Resultary local mirror",
+          "title": "A tetrahedral third-cumulant law for cyclic triangles under random orientations",
+          "trigger": "Strong same-day tetrahedral recovery analogue"
+        },
+        {
+          "assessment": "Different code and invariant",
+          "evidence": "Its statement is on a ternary Delta_{5,2} code, not the binary dual whose words are even triangle subsets.",
+          "identifier_or_url": "2026/10/13/SCOPE-complete-weight-spectrum-and-zero-free-signed-graph-classes-of-t--5297f4a837b3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Complete weight spectrum and zero-free signed-graph classes of the ternary code",
+          "trigger": "Potential equivalent code weight description"
+        },
+        {
+          "assessment": "Different combinatorial support",
+          "evidence": "Walsh coefficients of convex-polygon triangulation incidence vectors are the subject, not parity among triangles of an arbitrary graph.",
+          "identifier_or_url": "2026/11/16/SCOPE-fourier-rigidity-and-cancellation-for-convex-polygon-triangulati--e73d48554b89",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Fourier rigidity and cancellation for convex-polygon triangulations",
+          "trigger": "Potential equivalent Walsh-coefficient result involving triangles"
+        },
+        {
+          "assessment": "Unresolved full-text scope",
+          "evidence": "The frozen source describes global and asymptotic relative balance; no primary theorem was available to independently compare.",
+          "identifier_or_url": "https://doi.org/10.1080/15427951.2012.675413",
+          "material_read": "Bibliographic information and frozen prior-work characterization only",
+          "method": "Cited author PDF returned 404; publisher PDF denied access",
+          "title": "Balance in Random Signed Graphs",
+          "trigger": "Cited random signed-graph balance precedent"
+        },
+        {
+          "assessment": "Unresolved full-text scope",
+          "evidence": "The frozen source describes triadic and walk-based balance diagnostics, not a verified statement of the cumulant formula.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.90.042802",
+          "material_read": "Bibliographic information and frozen prior-work characterization only",
+          "method": "Cited Strathprints PDF returned 404; APS route denied access",
+          "title": "Walk-based measure of balance in signed networks: Detecting lack of balance in social networks",
+          "trigger": "Cited triangle and walk balance precedent"
+        },
+        {
+          "assessment": "Verified asymptotic emphasis only; full scope unresolved",
+          "evidence": "The indexed abstract describes joint asymptotic normality; it does not settle whether finite conditional cumulants were derived.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S016771522500104X",
+          "material_read": "Indexed abstract and citation; no full text",
+          "method": "Publisher abstract/landing route, full text denied access",
+          "title": "Degree of balance in random signed graphs",
+          "trigger": "Closest cited balanced/unbalanced triangle fluctuation result"
+        },
+        {
+          "assessment": "Adjacent counting and enumeration objective; no matching identity in the inspected passages",
+          "evidence": "The graph has certain edge existence and uncertain signs; the passages formulate counting/enumeration under uncertainty.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.14084",
+          "material_read": "Abstract/introduction p. 1, offsets 1400–3844; model p. 3, offset 17000",
+          "method": "Primary OA PDF",
+          "title": "Counting Balanced Triangles on Social Networks With Uncertain Edge Signs",
+          "trigger": "Same fixed-edge support with probabilistic edge signs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar law of a randomized triangle observable does not record vertex identities, and its variance cannot distinguish a tetrahedron from four disjoint triangles. Identifying the exact first relevant fourth-order configuration and recovering an independent graph invariant from the law is a useful, natural motif-identification statement; it is not merely computing the moment of a sum of independent signs. No sampling accuracy or speed advantage is implied.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

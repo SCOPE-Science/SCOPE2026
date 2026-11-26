@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The underlying partwise independence and the exact joint-tail and coincidence series follow by explicit restriction of geometric nonoverlined multiplicities and Bernoulli overline markers. The Boltzmann joint survival yields the displayed singular bivariate limit. For the first correction, the nonoverlined-gap conditional event translates all earlier geometric counts and deletes only the gap-size part: this is the key fact that keeps the conditional variance change at order \(t^{-2}\), giving the required relative local coefficient estimate \(1+O(t\log^2(1/t))\). Its proof uses central Fourier expansion and aperiodic minor-arc damping, not numerical extrapolation. The 520 exact verifier comparisons corroborate the finite identities. The asymptotic is not independently certified.
+## correctness
 
-**Originality — PASS (with residual risk).** Full relevant sections of Bhowmick–Meher and Donato examine single mex definitions, rather than the coupled marked/nonoverlined support law and its explicit coincidence correction. published-finding corpus's superficially similar joint threshold law concerns several nonoverlined multiplicity thresholds, not absence in the full marked support. Another indexed result concerns unmarked regular partitions. No stronger implication directly covering the present result was found in actual searches. A general unindexed limit theorem could potentially imply it.
+PASS
 
-**Mathematical value — PASS.** The distinction between a missing nonoverlined copy and a missing part altogether is explicitly motivated in the primary literature. The law captures a singular diagonal component and a strict positive first finite-size coincidence bias with an exact constant for every fixed regularity modulus; this is structural information absent from marginal sums and not a mere renaming of a threshold statistic.
+The final claim and constants are unchanged. Frozen Step 3 invoked consecutive admissible integers and span one to justify a quantitative minor-arc bound; in particular all admissible sizes are odd when ell=2, and span one alone is not a uniform estimate. The corrected RESULT.md gives a uniform bound using the untouched block j=1 mod ell, 1/t<=j<=2/t: a quadratic bound near zero, geometric-sum cancellation away from 2pi k/ell, and strictly positive Riemann-sum integrals in the remaining small arcs. At the saddle, deletion and the deterministic shift perturb the standardized variance by O(t) and the mean by O(sqrt(t) log(1/t)); the odd imaginary linear and cubic terms cancel to first order, and the uniform integrated relative error is O(t log^2(1/t))=o(sqrt(t)). I also checked the shift-only truncation and the joint-tail restrictions, the latter from the exact factor 2q^j/(1+q^j). Geometric/Bernoulli factorization gives both exact coefficient identities, including n=0 and a>=b. The Boltzmann survival is the displayed limit after t_n~pi sqrt(rho)/(2sqrt(n)); the diagonal component has half the mass and the interior derivative gives the stated density. Conditional on the first nonoverlined gap j, the Bernoulli marker makes coincidence probability 1/(1+exp(-tj)); tail summation gives E X=sqrt(pi/(2rho t))+O(1), E X^3=O(t^-3/2). Expansion and the repaired conditioning bound give the stated fixed-weight coefficient pi/(8 rho^(1/4)).
 
-**Limits.** Fixed modulus, no effective rate for the remainder, and no claim that finite enumeration establishes asymptotics. Unindexed prior coverage remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two marginal definitions and the general running-minimum and marked-event mechanisms are not new. The checked contribution is the coupling between nonoverlined absence and full-support absence in regular overpartitions, including the distinct sharp fixed-weight coincidence coefficient. The repair makes the closest known unmarked correction analogy explicit.
+
+## value
+
+PASS
+
+These are two natural mex conventions on the same random overpartition. Their coupling has both a singular and a continuous component, and the actual lattice coincidence probability has a positive first correction that cannot be obtained from the marginal Rayleigh laws or from joint weak convergence. The explicit correction quantifies a marking effect for a fixed-weight ensemble. This remains worthwhile after crediting the existing threshold and unmarked correction analogues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

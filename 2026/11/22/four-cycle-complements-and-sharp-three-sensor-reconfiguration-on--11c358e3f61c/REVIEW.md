@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem uses the established necessary-and-sufficient two-coverage/two-separation characterization for surviving one detector deletion. A complete \(2^{20}\)-subset enumerator on the explicitly constructed incidence graph returns \(5945\) valid sets and the stated size polynomial; an independent direct-erasure implementation checks every omission pattern of sizes eight and nine and independently recomputes the full polynomial and TAR threshold using Python masks. All 15 optimal sets equal precisely the complements of paired vertices indexed by four-cycles in \(K_5\). Breadth-first search over every feasible bounded-size TAR transition certifies that all minima are separate at budget \(14\) and connected at budget \(15\). Limit: exhaustive finite verification is a computer-checkable proof, not an all-order structural argument.
+## correctness
 
-**Originality — PASS (provisional).** Jean and Seo's 2021 paper (arXiv:2112.01685, Theorems 2 and 11 and Table 2) supplies the criterion, the general cubic \(4/7\) bound and a class-wide order-20 extremum. Thus the numeric lower bound of 12 is not presented as novel. The new work is the complete size polynomial, exact one-orbit C4 description of every optimum, and the reconfiguration threshold. Relevant searches with 'redundant', 'fault tolerant', 'one erasure', 'identifying code', 'Desargues', 'H(5,2)' and 'GP(10,3)' found no directly covering statement. A related published record concerns one-erasure codes of the different dodecahedral graph. Publisher full-text access limitations and unindexed-priority risk remain.
+PASS
 
-**Value — PASS.** This complete census gives a geometric description of all optimal fault-tolerant detector placements on a natural 20-vertex cubic symmetric graph and determines precisely the spare capacity required to relocate optimally without ever losing one-failure robustness. These answers are not merely the established minimum and have a plausible direct role in the study of sensor-placement reconfiguration.
+For closed-neighborhood signatures, survival of every one-detector deletion is equivalent to double coverage of each N[v] and double hitting of every N[u] symmetric difference N[v]. Necessity follows by removing the lone witness when there is one, and a set with zero witnesses already fails identification. Sufficiency follows since one deletion reduces any witness count by at most one. Membership is monotone under adding detectors. Independent construction from inclusion of two- and three-subsets and enumeration of all 2^20 masks reproduced the full coefficient list (15,120,680,1824,2155,940,190,20,1) in degrees 12 through 20, zero below, and total 5945. The independently generated 15 paired-complement four-cycle masks equal exactly the twelve-element minima, and the natural S5 action is transitive since it sends any ground four-cycle to any other. BFS with all valid masks and single-bit moves reaches one minimum with budgets 12, 13 and 14, and all 15 with 15; equivariance extends the separation result to every minimum. For b<12 endpoints are absent, so the distinct-component wording applies to 12<=b<=14. Independent replay: `python3 /workspace/branches/612ca51f-d283-49fe-997b-69a441813e25/independent_check.py`; same-directory independent_check.log reports a deterministic small probe, complete census, the 180 direct deletion checks at the minima, and a concrete eight-move path at cap 15. The supplied programs were inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The double-witness criterion and lower bound of 12 are prior. The Desargues-specific enumerator, complete four-cycle-complement classification of optima, and sharp TAR slack are distinct from the verified prior statements. An exact catalogue hit matching all three is the frozen record itself, not a distinct priority claim.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical small cubic incidence graph, and the one-erasure model and TAR cap have a clear fault-tolerance interpretation. The complete enumerator gives the sizes and multiplicities of robust placements; the four-cycle pattern organizes all exact optima, and the sharp extra-capacity requirement answers a different question from minimum size. The result is more than verifying a known cubic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

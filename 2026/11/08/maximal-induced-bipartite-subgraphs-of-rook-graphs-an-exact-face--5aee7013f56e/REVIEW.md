@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The independent graph-to-incidence correspondence is proved both ways: a selected triple in a row or column produces a triangle, whereas a bounded-degree bipartite incidence graph consists of paths and even cycles whose line graphs are bipartite. The saturated/isolated-edge maximality dichotomy follows from a necessary-and-sufficient one-edge extension test and the degree-sum identity. Undirected labeled path and cycle counts yield the formal series without numerical approximation. The singleton-edge boundary is absent on the square board of side two. A direct finite checker confirms every coefficient for eleven boards and separately two-colors all subsets of boards with at most sixteen cells.
+## correctness
 
-**Originality — PASS (provisional publication priority).** The 2019 general maximal-bipartite enumeration algorithm does not state an exact rook-graph distribution. The inspected full 2019 and 2020 two-matching-complex sources address topological statements and other graph classes, not this all-parameter facet count. Public finite homotopy records for the \(3\times4\), \(3\times5\), and \(4\times4\) capacity-two boards already supply some special-case face counts, which are not separately claimed new. Prior rational homology of bounded-degree complexes is acknowledged. Exact matching of the all-parameter coefficient formula or purity transition was not located, but literature search is not a uniqueness proof.
+PASS
 
-**Value — PASS.** This gives the full facet-count polynomial of a natural two-parameter graph family studied both via odd-cycle deletion and as bounded-degree/chessboard complexes. Beyond extremal cardinality, the all-board count and sharp purity boundary directly describe the face structure relevant to combinatorial topology and maximal-solution enumeration. The calculation is a general path/cycle decomposition, not an arbitrary small-instance table.
+Cells correspond to simple bipartite edges. A base degree at least three makes a triangle in the induced line graph; with maximum base degree two the base components are paths, even cycles and isolates, so the induced line graph is bipartite. The product of the two unsaturated sets must consist wholly of selected edges for maximality. When both are nonempty, each vertex there has degree at most one, so they are singletons joined by an isolated edge. Both degree sums are then one less than twice their shore sizes, forcing a square. Otherwise a shore is saturated; edge capacity makes it the smaller shore on rectangles and both shores on squares. These criteria are sufficient too. In the saturated classes only isolated larger-shore vertices, alternating paths with one extra larger-shore vertex and even cycles occur. Dividing alternating list counts by orientation and, for cycles, label starting position gives k!(k+1)!/2 and (k!)²/(2k). The resulting labeled EGF is g(xy)exp(y h(xy)); exactly n−m factors carrying an extra y gives the stated coefficient. The other square class amounts to choosing the two isolated-edge endpoints and a two-factor on the remaining labels. A two-factor on one row and one column is impossible, while spanning even cycles realize both sizes for n≥3; a single alternating path on all rows and m+1 columns realizes the rectangular size. Independent direct two-coloring and single-cell extension tests agree with all five checked polynomials.
 
-The closest sources are the full-text general enumeration paper arXiv:1912.13446; the higher matching-complex paper arXiv:2006.13632; and Vega's arXiv:1909.10406. Historical 2000 rational-homology work and the finite \(K_{3,4}\), \(K_{3,5}\), \(K_{4,4}\) records supply additional context. Residual risks include an unindexed equivalent facet formula and the inability of inspection to prove publication priority. The numerical experiment does not replace the unrestricted proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct finding is the complete inclusion-maximal facet classification and enumerator, in particular the rectangular purity versus square nonpurity transition and exact contribution of smaller square facets. The larger square coefficient B_n and finite-board entries are demonstrably prior, not separate new results. The prior path-and-cycle generating functions also supply ingredients for the rectangular top coefficient. Neither those ingredients nor the strongest inspected homology and enumeration results give the inclusion-maximal classification at all parameters.
+
+## value
+
+PASS
+
+The classification locates exactly when all inclusion-maximal bipartite choices on the natural rook graph are optimal and when a second facet dimension occurs. The nonmaximum square class gives genuinely useful facet data that an ordinary face enumerator or top-coefficient census does not isolate. Having the combined size distribution and its sharp shape criterion for the degree-two chessboard complex is a meaningful exact result; the individual already-known top counts are not its contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

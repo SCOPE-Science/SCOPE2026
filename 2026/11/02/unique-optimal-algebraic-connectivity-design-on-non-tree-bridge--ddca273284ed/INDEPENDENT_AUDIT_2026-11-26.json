@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:08:58.550217Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52, VERIFICATION.md and verify.py (inspected only)",
+        "Independent replay: python3 /workspace/branches/audit_replay.py 4 (SymPy)",
+        "Wan et al., IEEE CDC 2008, definitions and Theorem 7"
+      ],
+      "rationale": "Centering the test vector with class levels (3/2,1/2,−1/2,−3/2) gives squared norm D/N; every spoke and the bridge have squared difference one, and every optional edge has zero. The Rayleigh bound is therefore BN/D. Equality requires full budget on the tree edges and the centered vector to be an eigenvector. Its peripheral equations fix the spokes individually; the hub equation fixes the bridge, so equality is rigid without assuming equal input weights or graph symmetries. At that candidate let λ=BN/D. The leaf-transverse eigenvalues are 3qB/D and 3pB/D, with multiplicities p−2 and q−2. In the strict balanced range both exceed λ. In the remaining four-dimensional quotient, eliminating the two positive leaf pivots of L−λI gives a two-by-two hub matrix with off-diagonal −b and a null vector with opposite signs. Both diagonal entries are negative, so exactly one quotient direction is negative and its only zero direction is the designated eigenvector. At q=2p the left pivot is positive and the right pivot is zero; after eliminating the left pivot, the reduced matrix has a hub coupled nontrivially to two zero-diagonal uncoupled coordinates, and inertia is one positive, one negative, one zero. The remaining transverse eigenvalues are nonnegative after the shift. Interchanging p,q handles the other endpoint. Outside the range the larger peripheral class has a positive-dimensional transverse block below λ, so the sole equality candidate fails and compactness makes the optimum strictly smaller. For p=2,q=3,B=1, independent exact calculation gives det(xI−34L)=x(x−5)(x−6)(x−18)(x−39), verifying simplicity and multiplicities. Wan et al.'s actual hypothesis of a non-repeated optimum is satisfied, and its designable edge set includes the zero-weight triangle edge, so the example contradicts the uniqueness-implies-tree direction as stated.",
+      "residual_risks": [
+        "The claim is not an exact unbalanced-regime formula. ‘Sharp’ for BN/D means achieved in the balanced part of the family, not achieved for a fixed unbalanced pair.",
+        "The graph in the converse counterexample is the designable graph, not the support of the unique design; the hypothesis on simplicity is essential to quoting the theorem accurately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Richter–Rocha solve a broader family of trees; their balanced d=3 denominator M is 9N/4−4−9(|p−q|/2)²/N=9pq/N−4. Their outside branch covers the unbalanced tree value as well.",
+          "Wan Theorem 8 assumes a bipartite designable graph, which the triangle example is not. Theorem 9's existence of a support to which no unused edge can be added without breaking bipartiteness is consistent with the example, and does not imply uniqueness."
+        ],
+        "reasoning": "Broader coverage in tree shapes or edge prices is not broader coverage in cyclic topology. The general Wan claim is contradicted under its own stated condition, rather than supplying the classified cyclic optimizer.",
+        "searches": [
+          "Richter–Rocha Theorems 1 and 3: all diameters of double brooms",
+          "Wan et al. Theorems 7–9: general edge designs",
+          "Resultary 124a9f37736a: mirror-symmetric double stars with prices"
+        ]
+      },
+      "checked_sources": [
+        "Wan et al., IEEE CDC 2008 primary PDF, Theorems 7–9",
+        "Richter–Rocha double-broom primary preprint, Theorems 1 and 3",
+        "Local Resultary priced double-star match 124a9f37736a",
+        "Fiedler (1990), cited absolute-connectivity paper: full text not retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wan writes that, if at least one optimal design has non-repeated algebraic connectivity, the optimizer is unique ‘if and only if the designable edge set forms a tree’. The reported eigenvalues for p=2,q=3 verify that hypothesis and the allowed graph has a triangle.",
+          "The known tree Fiedler/test vector gives useful structure for the cyclic proof. Forcing every optional edge to zero and fixing all used weights require applying the Rayleigh equality conditions on the larger feasible set; the hypotheses and conclusion of the double-broom theorem itself concern only trees."
+        ],
+        "reasoning": "Credit the existing tree formula and transition, as well as the applicable variational method. The distinct use is the cyclic uniqueness and converse counterexample; simply evaluating the known tree formula would not establish either.",
+        "searches": [
+          "Wan et al. Theorem 7 and the paragraph immediately following it",
+          "Richter–Rocha Theorems 1 and 3",
+          "Frozen Rayleigh equality and Schur-inertia proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On a tree, Richter–Rocha normalize total weight to N−1. Scaling weights by B/(N−1) gives the budget-B objective; the budget inequality is saturated at any positive optimum.",
+          "At diameter d=3 the double broom is the spoke–bridge tree, and its parameter k is (|p−q|/2) for even N and (|p−q|−1)/2 for odd N. The transition in Theorem 1 is at k=N/6 for even N and k=N/6−1/2 for odd N, which translates to max(p,q)=2 min(p,q).",
+          "Wan distinguishes the allowed set E from its positive-weight support. Cyclic E with a tree support is not the tree-designable problem."
+        ],
+        "reasoning": "The tree normalization and size threshold are genuinely equivalent formulations of the known specialization. Adding optional edges changes the feasible set and is not a change of notation.",
+        "searches": [
+          "Richter–Rocha, Absolute algebraic connectivity of double brooms, definition and Theorems 1 and 3",
+          "Wan et al. designable graph and positive-weight support definitions",
+          "Resultary mirrored priced double-star 124a9f37736a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local indexed priced result at unit prices gives λ₂=2B/(9m+1), spoke weight 3B/(9m+1) and bridge weight (3m+1)B/(9m+1), exactly p=q=m+1 with no optional edges.",
+          "The double-broom tree formula also covers the tree value at p=2,q=3. The inspected sources do not give the five-vertex cyclic admissible optimization or certify uniqueness with the optional triangle edge."
+        ],
+        "reasoning": "A matching optimum value on the known tree subproblem is not an exact entry for the unique optimizer in a larger feasible set. The indexed record is materially overlapping but only on the priced/symmetric tree comparison.",
+        "searches": [
+          "Local Resultary bridge barbell and double-star edge design lookup: 124a9f37736a",
+          "Richter–Rocha Theorem 1 closed formula"
+        ]
+      },
+      "rationale": "The tree-only value and transition are covered by the double-broom solution and should not be credited as new. The distinct result concerns optional edges in the designable graph: it identifies their forced zero weights, gives uniqueness throughout the balanced range and supplies a concrete cyclic design with a simple optimal eigenvalue that contradicts the stated Wan converse. Nothing in the inspected tree theorem, centered unfolding framework or indexed priced tree specialization supplies that cyclic equality-and-uniqueness statement.",
+      "residual_risks": [
+        "Fiedler's 1990 paper was not available through attempted lawful retrieval. The accessible double-broom comparison establishes material tree overlap regardless.",
+        "This is a bounded statement-level comparison, not a guarantee that an erratum or another known cyclic counterexample does not exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct conflict with the uniqueness-implies-tree direction under its actual simple-eigenvalue condition. Adjacent edge-utilization theorems do not invalidate the counterexample.",
+          "evidence": [
+            "E is the nonnegatively weighted designable edge set, distinct from positive support; Theorem 7 includes the non-repetition hypothesis and explicitly says ‘designable edge set’. The paragraph following it asserts multiple optimum weights for non-tree designable edge sets."
+          ],
+          "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/cdc-2008/data/papers/0353.pdf",
+          "material_read": "Problem and support definitions (text offset 11200); PDF p. 5, Theorems 7–9 and surrounding discussion (offsets 32300–37087)",
+          "method": "OA primary conference PDF passages",
+          "title": "On the Structure of Graph Edge Designs that Optimize the Algebraic Connectivity",
+          "trigger": "Explicit claim of a counterexample to Theorem 7"
+        },
+        {
+          "assessment": "Verified tree analogue, including the balance threshold. Does not quantify over extra designable edges.",
+          "evidence": [
+            "Theorem 1 gives (N−1)/M, with low-imbalance quadratic M and threshold (N(d−2)+parity correction)/(2d); Theorem 3 gives structured optimal eigenvectors of the tree."
+          ],
+          "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+          "material_read": "Definition and budget formulation on PDF pp. 1–2; PDF p. 3 Theorems 1 and 3 (text offsets 5200–9598)",
+          "method": "OA primary PDF; compare parity branches at d=3 with p,q both including hubs",
+          "title": "Absolute algebraic connectivity of double brooms",
+          "trigger": "Tree formula and potentially identical two-to-one transition"
+        },
+        {
+          "assessment": "Matching symmetric double-star optimizer on a tree, with more general prices but without cyclic optional edges.",
+          "evidence": [
+            "For m leaves per hub the unit-price denominator is 9m+1 in the value and weights; no unequal-side cyclic classification is asserted."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-unique-priced-algebraic-connectivity-allocation-for-mirrored-dou--124a9f37736a/RESULT.md",
+          "material_read": "Indexed result statement and unit-price specialization",
+          "method": "Local Resultary search and local-mirror inspection",
+          "title": "Unique priced algebraic-connectivity allocation for mirrored double stars",
+          "trigger": "Material indexed overlap at unit prices and equal sides"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen cyclic family and five-vertex example",
+        "Wan et al. Theorem 7",
+        "Richter–Rocha Theorem 1"
+      ],
+      "rationale": "The counterexample addresses a published structural criterion, not a small numerical improvement. Its exact spectrum and Rayleigh rigidity distinguish a cyclic allowed graph with a unique optimizer from its tree support. The full family shows when a simple explicit certificate works and rules out attainment outside the size range, for any subset of internal peripheral edges. This value does not rest on recomputing the double-star tree optimum already available from the double-broom formula.",
+      "residual_risks": [
+        "The architecture has one bridge and the only optional edges are within peripheral classes. It does not give a general replacement characterization for unique designs on arbitrary cyclic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

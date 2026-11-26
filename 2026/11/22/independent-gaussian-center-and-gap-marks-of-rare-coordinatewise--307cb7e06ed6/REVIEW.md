@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-For an oriented comparable pair, the conditioned one-coordinate density is exactly the uniform-triangle density, with sum/gap mean zero, variances 1/6 and 1/18, and zero covariance. Independent coordinates give the joint Gaussian limit; a dependency neighborhood of size \(4n-6\) and the one-coordinate two-edge probabilities \(1/3\) and \(1/6\) give the claimed finite-partition Poisson approximation using Arratia–Goldstein–Gordon (1990, Theorem 2 and Section 3.1). The critical error exponents are strictly negative, and standard Poisson void probabilities yield the extremes. The exact-rational checker passed 3007 assertions; the proof of weak convergence is analytic, not computational.
+PASS
 
-## Originality (PASS against accessible evidence)
+Conditioning on a directed edge leaves iid coordinates with density 2 on 0<u<v<1. Triangle integration gives E[U^a V^b]=2/((a+1)(a+b+2)); the endpoint means are 1/3,2/3, variances 1/18 each and covariance 1/36. The centered sum and gap then have diagonal covariance (1/6,1/18), proving the product Gaussian limit by the multivariate CLT. An ordered pair meets 4n-6 indices including itself, with reciprocal probability zero and joint per-coordinate bounds 1/3 for a fork and 1/6 for a chain. These give b1=n(n-1)(4n-6)4^-d, b2 at most n(n-1)(4n-8)3^-d, and b3=0. The union bound over pairs gives the matching estimate. When the marks are split into any finite Borel partition, summing the category probabilities preserves b1, mutual exclusion inside each index contributes zero to b2, and the whole outside neighborhood remains independent. The materially checked marked process theorem therefore applies and projection by summation gives exactly the stated Poisson means and TV rate. At critical scale both error terms vanish. Bounded continuous nonnegative tests can be approximated uniformly by simple tests; the approximation error in their Laplace functionals is controlled by the bounded mean mass, and the exact mark laws are tight by their CLT. This proves the finite random measure limit. A void on the complement of a lower rectangle gives the stated extrema law; for finite thresholds with Gaussian rectangle factors a,b the joint probability divided by the product of the marginal limits is exp(lambda(1-a)(1-b)), not 1.
 
-The closest literature establishes the non-Pareto count phase diagram (Bhattacharjee et al., 2026), fixed-coordinate Poisson projections of non-Pareto vertices (Ilienko–Jin, 2026, as described explicitly in the accessible follow-up), random partial-order chain/degree thresholds (Bollobás–Brightwell, 1995), and general marked locally dependent Poisson approximation (Arratia–Goldstein–Gordon, 1990). The new claim is not any of those inputs; it is the full-coordinate, two-endpoint, bivariate Gaussian **mark process of all sparse domination edges**, with independent local center/gap marks and dependent global extremes. Fixed-coordinate limits do not imply a growing-number-of-coordinates central limit theorem. The related 2026 source's entire full text and the 1995 source's entire full text were unavailable; the risk that a broader theorem subsumes this specialization remains and independent priority review is needed.
+## originality
 
-## Value (PASS)
+PASS
 
-The result gives an explicit second-order geometry of an intrinsic event at the sharp Pareto-sparsity threshold: it identifies the typical center and separation fluctuations of an entire rare directed relation, not merely the count of affected vertices. The independent-Gaussian mark structure together with shared-count dependence of extreme center/gap statistics is a natural, directly usable probabilistic description. The threshold and unmarked Poisson count are credited, not presented as gains.
+The sparse count and pair-neighborhood calculation already appear in closely related work; the general marked approximation is also prior. The supported distinct refinement is the joint full-coordinate fluctuations of the center and gap across rare ordered comparisons, with the explicit intensity and shared-count extrema. It is not a rediscovery of a fixed-dimensional vertex projection, a sparsity threshold or a Poisson approximation theorem.
 
-## Limitations
+## value
 
-Exact scope: independent uniform cube samples with dimension satisfying \(n(n-1)2^{-d}\to\lambda\in(0,\infty)\), finite Borel partitions, and weak point-process convergence. The matching statement may already follow from older maximum-degree work. No uniform-in-growing-number-of-bins error, no high factorial moment convergence, no away-from-threshold result, and no independent assessment are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This identifies fluctuations of the locations and separations of the comparable pairs, rather than only whether pairs occur. Separation and center decorrelate jointly on each limiting atom even though the endpoint averages are correlated, while maxima of the two marks remain dependent through the common random atom count. The marked process and finite-parameter approximation answer this joint-statistic question; the isolated moment arithmetic, unmarked Poisson law and matching bound would not by themselves justify acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

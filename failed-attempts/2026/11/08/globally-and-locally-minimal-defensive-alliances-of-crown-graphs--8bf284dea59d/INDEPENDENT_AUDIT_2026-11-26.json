@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:04:44.456202Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the ordinary closed-neighborhood allowance and degree n−1, a selected vertex requires t=ceil((n−2)/2) selected neighbors. Thus both shores must have size at least t, and any matched selected pair forces both sizes to be at least s=t+1. When the shores are disjoint, sizes at least t suffice. A deletion is possible from any oversized shore in the relevant feasibility regime, reducing the local analysis to disjoint (t,t) pairs and (s,s) pairs. In the latter, a single deletion is possible exactly when the intersection has size at most one. No proper subset can stay in the both-at-least-s regime; global minimality is therefore governed by whether at most one deletion on each shore can remove all shared indices. If k=2 these deletions are forced apart, with exactly two ways to allocate the indices, both producing disjoint (t,t) minima. If k>=3 no proper alliance remains. Choose the intersection and then each exclusive part to obtain the stated labelled binomial factors. Disjoint t-pairs exist since 2t<=n; X=Y of size s witnesses the local maximum in all cases and the global second size precisely when s>=3. The frozen verifier was inspected but not rerun; this decision rests on the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected primary statements address upper parameters, optimization, or enumeration complexity; the K_{2,n−2} example in Feng–Fernau–Mann is not the crown family."
+        ],
+        "reasoning": "A general enumeration procedure does not supply these overlap thresholds or closed polynomials; the direct indexed match is the basis for the failure.",
+        "searches": [
+          "DOI:10.1016/j.dam.2018.05.061, §§1–2",
+          "arXiv:2202.02010v1, §§1.1–2",
+          "arXiv:2312.11963v1, Theorem 1",
+          "arXiv:2609.27984v1, pp. 1–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_crown_alliances.py",
+        "Resultary 8c1a382222d3",
+        "DOI:10.1016/j.dam.2018.05.061",
+        "arXiv:2202.02010v1",
+        "arXiv:2312.11963v1",
+        "arXiv:2609.27984v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed finding already specifies the two families and all their permitted sizes and intersects, with only k=2 locally but not globally minimal."
+        ],
+        "reasoning": "Inside any such k=2 set a proper global minimum must have size t on each shore and be disjoint. The two shared indices must be removed, one per shore, with exactly two possible assignments. The claimed spectra and extrema are also read directly from the two polynomials.",
+        "searches": [
+          "Resultary 8c1a382222d3, Finding and proof; frozen RESULT.md lines 7–27, 46–50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both records distinguish inclusion minimality from domination, and both classify disjoint (t,t) pairs and (s,s) pairs with overlap at least two locally or three globally."
+        ],
+        "reasoning": "The same labelled graph with a fixed deleted matching and the same defensive threshold yields the same families, not just matching upper parameters.",
+        "searches": [
+          "Local Resultary search for crown graphs, local/global minimal defensive alliances and labelled census",
+          "Resultary 8c1a382222d3, RESULT.md Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed finding has both labelled cardinality polynomials and the exact local-only count, not merely a finite sample of small graphs."
+        ],
+        "reasoning": "Its C(n,s)C(s,k)C(n−s,s−k) equals C(n,k)C(n−k,s−k)C(n−s,s−k), by choosing an s-set and a distinguished k-subset in either order.",
+        "searches": [
+          "Resultary 8c1a382222d3, RESULT.md offsets 0 and 5742"
+        ]
+      },
+      "rationale": "The distinct indexed finding 8c1a382222d3 states the same labelled crown census on the same n>=3 domain, including both classification thresholds, both polynomials and the local-only count. Its binomial expression is combinatorially identical; the exact two witnesses for a locally-only set follow immediately from the two known families and their sizes. This is equivalent coverage, not a judgment about who obtained the result first.",
+      "residual_risks": [
+        "The catalogue comparison does not resolve authorship, provenance relationship, or historical priority; the statements' equivalence does not depend on these.",
+        "The bounded primary-text comparisons do not certify that no other work overlaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent coverage, with additional parity totals and asymptotics",
+          "evidence": "Same disjoint and overlap families, both closed polynomials, and the same local-only count under an elementary binomial identity.",
+          "identifier_or_url": "Resultary 2026/11/2 SCOPE-crown-graph-defensive-alliances-exact-local-global-minimal-censu--8c1a382222d3",
+          "material_read": "RESULT.md Finding, classification, enumeration and proof, offsets 0 and 5742",
+          "method": "Local mirror bounded passages",
+          "title": "Crown graph defensive alliances: exact local/global minimal census",
+          "trigger": "Exact match to classification and census"
+        },
+        {
+          "assessment": "Background on matching notions, no crown census in inspected passages",
+          "evidence": "Treats local and global minimality and maximum-size ordinary and strong alliances.",
+          "identifier_or_url": "DOI:10.1016/j.dam.2018.05.061; https://real.mtak.hu/105500/1/Bazgan-Fernau-Tuza-Aspects_of_Upper_Defensive_Alliances.pdf",
+          "material_read": "Repository PDF pp. 1–3, abstract and §§1–2",
+          "method": "Lawful OA primary copy",
+          "title": "Aspects of Upper Defensive Alliances",
+          "trigger": "Local/global minimality and upper parameters"
+        },
+        {
+          "assessment": "Optimization context",
+          "evidence": "Decision and parameterized complexity, including neighborhood diversity, not a local/global census.",
+          "identifier_or_url": "arXiv:2202.02010v1",
+          "material_read": "Abstract p. 1 and §§1.1–2 pp. 4–5",
+          "method": "OA primary PDF passages",
+          "title": "Globally Minimal Defensive Alliances: A Parameterized Perspective",
+          "trigger": "Structured graph classes and global minima"
+        },
+        {
+          "assessment": "Different result",
+          "evidence": "The O*(2^n) enumeration theorem is algorithmic; K_{2,n−2} is not a crown graph.",
+          "identifier_or_url": "arXiv:2312.11963v1",
+          "material_read": "Abstract, definitions and Theorem 1/example, pp. 1–5",
+          "method": "OA primary PDF passages",
+          "title": "Enumerating Defensive Alliances",
+          "trigger": "Enumeration of both minimality notions and bipartite examples"
+        },
+        {
+          "assessment": "Other scope of enumeration results",
+          "evidence": "Degree-bounded, bipartite and parameterized enumeration complexity, no crown formula in these passages.",
+          "identifier_or_url": "arXiv:2609.27984v1",
+          "material_read": "Version 1 pp. 1–5, offsets 0, 4492 and 9962",
+          "method": "OA primary PDF passages",
+          "title": "Parameterized Enumeration of Minimal Defensive Alliances",
+          "trigger": "Special graph classes in a relevant enumeration paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact local/global distinction would be useful in a natural symmetric graph family in isolation, but the substantive classification and invariant are already present in the matching record. The computed spectra and exactly two witnesses are immediate consequences, not a separate valuable remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:27:12.222780Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At known fixed μ, differentiating the busy-period Bessel density cancels its apparent 1/λ score singularity, giving S=−y+y√(μ/λ)I₂/I₁. Positive series give I₂/I₁≤z/4, hence |S|≤y+μy²/2; for λ≤μ/4 the series also give g≤μ exp(−μy/4). Dominated convergence to the exponential density and score μy²/2−y gives 2/μ². At the other endpoint, z|I₂/I₁−1| is bounded on the positive axis by the small- and large-z expansions and continuity. Thus S=(√(μ/λ)−1)Y plus a uniform bounded remainder for λ≥μ/2. With d=μ−λ the first two Laplace derivatives are E[Y]=1/d and E[Y²]=2μ/d³; the cross term and bounded remainder square are Oμ(1). The leading term is 2μ/[λ(√μ+√λ)²d], which is 1/(2μd)+Oμ(1), not just a relative equivalence. Substitution into the fixed-parameter constants proves both pairs of limits and the stated ratios, with the observation-horizon limit taken first. The derivation does not use the originating paper's incorrect Y|X argument: conditional on X=k, there are 2k−1 queue jumps, and their holding times are Exp(λ+μ), so the conditional law is Erlang(2k−1,λ+μ), not a λ-independent Erlang(k,μ). Only the marginal formulas are used. Frozen verify.py and verification notes were inspected, not executed. Fresh fixed-order scaled Gauss–Laguerre quadrature at μ=1 gave I_Y=1.99900141683 at ρ=10⁻⁴ and (1−ρ)I_Y=0.50054863 at ρ=0.99; these are finite checks only. Replay: /workspace/branches/f5020988-408b-447c-931e-bfe551b376c8/duration_fisher_laguerre_check.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The originating paper gives the exact marginal density and fixed-interior formula for K_Y using C, and K_X explicitly. It leaves evaluating C and J at both endpoints as future work.",
+          "A joint experiment gives upper information bounds by projection but does not determine the marginal coefficient. The inspected Section IV count-to-duration data-processing argument uses a parameter-independence assertion contradicted by the conditional holding times."
+        ],
+        "reasoning": "The marginal KL coefficient is exactly covered as a fixed-parameter representation. Neither that representation, the joint score, nor traffic tail formulas alone establish the claimed marginal endpoint constants with their error terms.",
+        "searches": [
+          "arXiv:2610.13911v1 Eqs. (3), (21)–(22), (34)–(40), Section IV",
+          "Resultary 564baccd2345 paired busy period law"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, and verify.py",
+        "arXiv:2610.13911v1 primary HTML and PDF; Resultary 564baccd2345",
+        "Fresh fixed-order quadrature at two interior traffic ratios"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The K_X endpoints follow by simple substitution into the previous exact expression. The K_Y endpoints and both ratio laws require controlling the duration KL/Fisher coefficient in a changing traffic regime.",
+          "The prior §IV states that the asymptotics require further investigation. Its Eq. (43) is not a λ-independent observation kernel: already X=1 gives an Exp(λ+μ) duration, from the initial competing clocks conditional on service occurring first."
+        ],
+        "reasoning": "Do not turn the prior likelihood formula into priority for an unevaluated singular limit, or use the erroneous Markov relation to argue the critical coefficient is already squeezed. Credit the cancellation, domination and moment argument for the original duration asymptotics only.",
+        "searches": [
+          "arXiv:2610.13911v1 Theorem 2 Eq. (40), Lemma 2 Eqs. (34)–(36), §IV Eqs. (43)–(45) and conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior λ_w is this λ and λ_b is its KL perturbation. The smooth interior KL coefficient C equals I_Y/2; the earlier C and J formulas represent the same statistic, not a competing experiment.",
+          "The close Resultary record 564baccd2345 concerns joint count and duration; its 1/[λ(μ−λ)] is information in the pair, not the duration."
+        ],
+        "reasoning": "Checked both score and local relative-entropy parameterizations and distinguished marginal from paired observation. The identity C=I_Y/2 is prior in substance; it does not evaluate the traffic limits.",
+        "searches": [
+          "Local Resultary: busy-period duration/count Fisher information and sharp covert constants",
+          "External: \"M/M/1\" busy period duration Fisher information arrival rate endpoint asymptotic criticality",
+          "arXiv:2610.13911v1 Lemma 2 and Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The originating numerical figure uses μ=5 and shows an interior comparison, not exact limiting coefficients. The indexed paired-law formula is exact but for different observed data. No exact duration endpoint result surfaced in the bounded search."
+        ],
+        "reasoning": "No integer-sequence lookup applies to the parameterized analytic limit; the relevant exact-result and numerical-table checks compare the observable, normalization and whether the claim actually evaluates an endpoint. Interior values cannot certify endpoint rates or constants.",
+        "searches": [
+          "Local Resultary ranked search for duration Fisher information and KL-covertness endpoint constants",
+          "arXiv:2610.13911v1 Figure 1 and §IV discussion"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the two duration-only Fisher-information evaluations and their consequence for the comparative endpoint behavior. The likelihood, fixed-parameter square-root constants, and the substitution giving both count endpoints were in or immediate from the prior work and are not credited as novel. The originating paper explicitly left these traffic asymptotics open. Its asserted KL ordering in §IV is not a valid route to the critical coefficient: Y|X depends on λ. The frozen proof instead controls the marginal score uniformly and supplies the bounded absolute remainder.",
+      "residual_risks": [
+        "The bounded literature search did not find another exact duration endpoint evaluation; unindexed work or a differently named queueing-information identity could change priority.",
+        "The audit passes the marginal mathematical claim and the sequential endpoints for the specified fixed-parameter constants, not all results of the originating paper or any interior information ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior marginal representations and interior numerics, not the duration-only traffic endpoint evaluations",
+          "evidence": [
+            "C is half the local marginal information and Eq. (40) is the same K_Y formula in terms of C.",
+            "The discussion explicitly defers the endpoint evaluation of J and C. The later in-section KL comparison is based on the erroneous Erlang(k,μ) conditional claim and is not needed for the frozen result."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13911v1",
+          "material_read": "Eq. (3) HTML offset 9371; count Eqs. (21)–(22) at 22850; PDF p. 5 offsets 33200–39000 Lemma 2 and Theorem 2; HTML offset 30900 onward (Section IV, including Eqs. (43)–(45) and future-work language), conclusion near HTML 34658",
+          "method": "open-access HTML and PDF text",
+          "title": "Fundamental Limits of Covert queueing under Busy-Period Observations",
+          "trigger": "Original problem and possibly equivalent local information coefficient or stronger result"
+        },
+        {
+          "assessment": "Later and for paired observations rather than the marginal duration",
+          "evidence": [
+            "Information 1/[λ(μ−λ)] for observing the pair, equivalent in information to the full within-busy path; it does not give I_Y's finite light limit or critical coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-paired-busy-period-detection-law-and-sharp-covert-constant--564baccd2345",
+          "material_read": "RESULT.md Finding",
+          "method": "local Resultary mirror",
+          "title": "Exact paired busy-period detection law and sharp covert constant",
+          "trigger": "Closest indexed busy-period Fisher law and possible exact endpoint coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The duration limits answer a stated gap about two natural busy-period observations and distinguish a divergent light-traffic ratio from near-equality at criticality. Uniform control of the duration score as its distribution develops a heavy tail gives a quantitative absolute error and hence a relative ratio rate. The count substitutions by themselves would not warrant this verdict.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

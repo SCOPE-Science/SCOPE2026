@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:46:20.260011Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A stable matching agreeing with an injective exceptional assignment leaves a stable residual market. Its master order forces serial choice by the remaining men, proving uniqueness of completion and the (n)_k count. The k=0 and empty-residual cases are included. Testing the full candidate for blocks is essential; with rank tables the per-candidate cost is O(n²). In the classical lattice identity the womenwise join gives each man his worse of the two partners: if a woman who chooses him comes from M, stability of N forces him to prefer his partner in N when the partners differ. Two women cannot choose the same man because this would impose opposite strict preferences on him. Thus a join blocker would block the original matching giving the man that worse partner; the complementary womenwise meet is likewise stable. If the exceptional tuple of N dominates that of M, M∨N has N's tuple, hence is N. This proves order reflection and sublattice closure; the k coordinate-first lexicographic extensions realize the product order on the image. In the one-exception witness each proposed matching is the greedy residual completion. Woman w₀ cannot block with a better-ranked man i>t (he prefers w_i), and man m_t cannot block with any w_j he prefers to w₀ because 1≤j≤t and those women get smaller-index men. In the Boolean witness the earliest block with an external match would have both a man and a woman matched out, forming a block; the two internal states then combine freely. Singleton/complement incomparable pairs give the lower bound k for k≥3, and k=1,2 follow directly. A separately written exact brute-force replay (workspace branch 47b5018a-9565-46aa-af06-0ea1d6758a5c, bounded_replay.py and bounded_replay.out) reproduced n stable matchings for n=1 through 6 and 2^k for k=1 through 3, with the stated matching sets. The frozen script and certificate were inspected without execution; their exhaustive n=2,3 census is finite evidence, not the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Irving–Manlove–Scott give uniqueness and greedy solution with a common list. Cheng–Rosenbaum realize arbitrary rotation posets using two list types on one side, without bounding the population of a type. Meeks–Rastegari treat typed matching and exceptions of individual candidates from type rankings, including maximum matching with ties."
+        ],
+        "reasoning": "An arbitrary two-list market need not have one exceptional woman, and a single exceptional candidate per list is not a global bound on arbitrary-list agents. The cited stronger-looking models do not provide this bound in the parameter k.",
+        "searches": [
+          "Irving–Manlove–Scott (2008), Theorem 2.1",
+          "Cheng–Rosenbaum arXiv:2008.08480, Theorem 5.5",
+          "Meeks–Rastegari arXiv:1708.04109, abstract and §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json and verify.py",
+        "Irving–Manlove–Scott (2008)",
+        "arXiv:2008.08480",
+        "arXiv:1708.04109",
+        "Available local frozen Resultary mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The k=0 result is covered. The projection upper bounds are short consequences once one observes that deleting a fixed exceptional tuple leaves a stable common-list residual market and uses join reflection. Two-list universal realizability does not yield witnesses with a prescribed exception-population budget."
+        ],
+        "reasoning": "The constituent tools and routine consequences are credited; the distinct package requires the fixed-coordinate structure and explicit sharp constructions under constraints not supplied by the broader realizability theorem.",
+        "searches": [
+          "Irving–Manlove–Scott Theorem 2.1",
+          "Cheng–Rosenbaum arXiv:2008.08480, rotation ideal correspondence and Theorem 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirror's master-list hit was the same record, not a distinct prior result. Via the rotation ideal lattice, the dimension bound translates to rotation-poset width ≤k (width 0 when there are no rotations)."
+        ],
+        "reasoning": "For a nonempty rotation poset the dimension of its ideal lattice equals width (chain-cover upper bound and an ideal-lattice Boolean interval from a maximum antichain). This makes the width formulation a genuine equivalent bound, but the inspected list-type results do not cap the number of women in the minority class.",
+        "searches": [
+          "Local frozen Resultary mirror: rotation poset, exceptional women stable marriage, master preference list",
+          "Cheng–Rosenbaum arXiv:2008.08480, rotation downset and (2,∞)/(∞,2)-list results"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No distinct local record surfaced in the checked terms. The exact realizability result concerns list types and does not require a bounded minority population. The certificate's size-2 and size-3 histograms and sharp examples are test data for this record."
+        ],
+        "reasoning": "The question is the sharp behavior under a specified population bound, not whether chains and Boolean lattices occur in unrestricted or two-type tables. Keyword nonhits and the record's own finite certificate do not establish priority.",
+        "searches": [
+          "Local frozen Resultary mirror: exceptional women stable marriage, rotation poset",
+          "Cheng–Rosenbaum arXiv:2008.08480, abstract, p. 4 and Theorem 5.5",
+          "Frozen certificate.json and verify.py"
+        ]
+      },
+      "rationale": "Master-list uniqueness and the general stable-matching and rotation-lattice identities are established. The supported contribution is the sharp representation/count package for k specified individual exceptions, especially the coordinate embedding and the extremizers realizing the joint one-exception and dimension bounds. It is not a claim of a new general lattice identity or master-list algorithm.",
+      "residual_risks": [
+        "An exact earlier singleton-class or bounded-minority theorem under common priorities or rotation width could have different wording.",
+        "The local search was bounded and the classic Irving–Leather full text was not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage at zero exceptions",
+          "evidence": "Unique stable matching and greedy algorithm for smi-1ml/smi-2ml; does not supply the constrained sharp examples.",
+          "identifier_or_url": "https://eprints.gla.ac.uk/25737/1/25737.pdf",
+          "material_read": "§2, Theorem 2.1, PDF p. 6 (offset 18100)",
+          "method": "Lawful institutional full text",
+          "title": "The Stable Marriage Problem with Master Preference Lists",
+          "trigger": "Exact master-list base case"
+        },
+        {
+          "assessment": "Same stable-lattice machinery; materially different parameter",
+          "evidence": "Downsets describe stable matchings; unrestricted multiplicities of two list types can already realize arbitrary rotation posets.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.08480",
+          "material_read": "Abstract PDF p. 1 (offset 853), one-list/two-list contrast p. 4 (offset 15800), and §5 Theorem 5.5 p. 30 (offset 213650)",
+          "method": "Open-access primary full text",
+          "title": "Stable Matchings with Restricted Preferences: Structure and Complexity",
+          "trigger": "Closest rotation-poset and preference-list restriction"
+        },
+        {
+          "assessment": "Different exceptional-agent mechanism and matching objective",
+          "evidence": "Types and per-agent exceptional candidates are not a bound on the number of women with unrestricted rankings.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.04109",
+          "material_read": "Abstract p. 1 and §5.1 p. 23 (offset 80000)",
+          "method": "Open-access primary full text",
+          "title": "Solving Hard Stable Matching Problems Involving Groups of Similar Agents",
+          "trigger": "Possibly broader exception parameterization"
+        },
+        {
+          "assessment": "Not assessed directly; not evidence of non-coverage",
+          "evidence": "Publisher request returned 403 and no lawful alternative copy surfaced. The later accessible primary paper provides the rotation correspondence used in the comparison.",
+          "identifier_or_url": "https://doi.org/10.1137/0215048",
+          "material_read": "No original full-text passage available in the retrieval attempt",
+          "method": "DOI/PDF and lawful repository lookup",
+          "title": "The Complexity of Counting Stable Marriages",
+          "trigger": "Classical rotation/counting framework cited by the record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a motivated near-master-list market, knowing only the exceptional partners recovers both the full solution and its order relative to all other solutions. It also gives duplicate-free enumeration via a bounded coordinate search rather than enumeration over all matchings. The sharp counts and Boolean examples show the information and dimension requirements cannot be reduced in the stated senses. This is an XP bound, not an FPT result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

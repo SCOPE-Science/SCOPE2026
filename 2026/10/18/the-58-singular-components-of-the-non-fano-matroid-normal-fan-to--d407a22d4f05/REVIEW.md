@@ -1,12 +1,21 @@
-# Review of the non-Fano normal-fan singular-stratum classification
+# Independent mathematical audit
 
-## Correctness: PASS
-The non-Fano matroid is defined by an explicit basis predicate and a seven-element groundset. Basis exchange, all necessary flats and the exact 20-facet polytope presentation are reconstructed. The standalone exact checker enumerates the complete 801-face lattice, proves every simplicial cone unimodular via integral Smith normal form, and isolates precisely 58 maximal nonsimplicial normal cones. Each has one primitive integral ray relation with unit coefficients and a saturated ray lattice; the positive and negative relation sizes give determinantal models \(2\times2\), \(2\times3\), or \(3\times4\) through their semigroup presentation. Their multiplicities are the degrees of their Segre bases. The proof applies in arbitrary characteristic. Finite enumeration is **exhaustive for this fixed matroid**, not an experimental argument for an infinite family.
+## correctness
 
-## Originality: PASS, qualified
-The exact non-Fano matroid and its 29 bases are already explicit in Ferroni, arXiv:2003.02679. Its general arithmetic properties and the broader face-vector framework of Ferroni--Schröter, arXiv:2310.05487, are not new here. Searches and direct comparison of the highly relevant accessible full text did not yield the 58-component normal-fan singular-stratum result or the integral transverse Segre singularity classification. A 2008 matroid-polytope volume paper was read only at abstract level and is **not** assumed wholly noncovering. Equivalent or implicit coverage in unindexed literature remains possible. The originality assertion is about the complete toric singularity classification, not about the matroid definition, facet theorem, or face vector.
+PASS
 
-## Mathematical value: PASS
-The exact reduced singular locus, its isolated relaxed-basis component, distinct component dimensions, three generic transverse determinantal types, Gorenstein dichotomy and multiplicities give intrinsic birational and local invariants of a natural six-dimensional projective toric variety. They supply a sharp geometric phenomenon not recoverable from a known face-count formula without new integral cone analysis. The singular scheme, nongeneric local germs and intersection arrangement of the positive-dimensional components remain outside scope.
+Reconstructed the relaxed matroid using binary Fano labels and checked basis exchange. Standard matroid subset inequalities give an exhaustive list of candidates. The fresh exact reproduction (python3 reproduction_4.py) selects dimension-five equality faces and closes the resulting 20 facets under nonempty intersection. Its face vector is (29,138,263,242,108,20,1); it certifies saturation via maximal minors for all 800 nonzero normal cones and counts nonsimplicial cones by face dimension as (29,120,111,18). The inclusion-maximal faces among those 278 are 18 lattice tetrahedra, 24 lattice triangles, 15 lattice parallelograms and the sole vertex 012, with face-edge lattice bases checked. Smoothness and Q-factoriality therefore fail on precisely the same orbits. The maximal cones' sole integral relation has unit coefficients and sign sizes (2,2), (2,3), (2,3), (3,4); saturation identifies their dual monoids with nonnegative integer pairs of equal total, not a finite quotient of those monoids. The saturated cone lattice splits off the dense orbit torus. This gives the Segre germs and multiplicities binomial(a+b-2,a-1)=2,3,3,10. The condition for a rational height-one functional on all rays is exactly a=b; there it is integral and gives Gorensteinness (normal affine toric rings are Cohen–Macaulay). The isolated closed orbit is in no positive-dimensional component. This checks reduced support and generic transverse types, not scheme structures or nongeneric local rings.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Pass applies to the complete 58-component singular-support stratification and its integral transverse type census. The fixed-point singularity and non-Q-factoriality conclusion is covered by the distinct indexed sparse-paving theorem, and the face vector is within an existing general enumeration framework; neither is credited as new. The strongest inspected sources do not imply the positive-dimensional component and transverse-lattice census without the additional computation here.
+
+## value
+
+PASS
+
+The matroid is a standard small nonuniform relaxation, not an arbitrary finite slice. The exact census goes beyond fixed points and face numbers: isolated behavior is different from the 57 positive-dimensional components, and the local lattice types separate the Gorenstein from the non-Q-Gorenstein generic strata. These data give a concrete test case for how circuit-hyperplane relaxation affects singular support.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

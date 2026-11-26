@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:01:30.976665Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The triangle-free extension property realizes exactly independent positive neighborhoods among the individually named vertices; the join test concerns the union of positives, not the original negatives. Each Boolean interval of faces has alternating sum zero except at equal endpoints, so incidence inversion gives M=Z diag(w) Z^T with integer-unitriangular Z and w(F)=I(C_n minus N[F],-1). For nonempty F, complementary runs have lengths max(d_i-3,0) for cyclic gaps d_i, including d_1=n for a singleton. The path values 1,0,-1,-1,0,1 repeat, giving weights 0 or ±1 and excluding exactly gaps 1 mod 3. The empty-face cycle weight is 2cos(n pi/3) by the two-state transfer trace, so this is the sole source of a possible 2, precisely when 3 divides n. Rooted gap sequences with A(z)=(z^2+z^3)/(1-z^3) count each k-point set k times; n[z^n]log((1-z^3)/(1-z^2-2z^3)) plus one yields the stated integer rank recurrence. Integer congruence gives the complete Smith form and the single rank loss in characteristic two when 3 divides n. Directly constructed small matrices had rank/order 3/7, 11/11, 12/18, 15/29 through C7, with precisely the single factor 2 at C6 (`/workspace/branches/8da3627e-03a2-4c76-96cf-c27a7f91cb1e/independent_check.py`). The all-n conclusion uses the proof, not small cases or the frozen script's recorded results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kozlov's cycle independence complexes are a wedge of two spheres at multiples of 3 and a single sphere in the other two cases. Together with the path results this explains the periodic Euler sums.",
+          "Conant specifies the homogeneous K_n-free graph framework, not the cycle matrix's integral ranks."
+        ],
+        "reasoning": "The results cover type/individual link ingredients. They do not count all contributing faces of each labeled cycle or state this matrix's Smith form.",
+        "searches": [
+          "Kozlov, Combinatorial Algebraic Topology, Proposition 11.17",
+          "Conant arXiv:1401.1570, Definition 3.1",
+          "Primary search for Smith form of union-is-a-face matrices"
+        ]
+      },
+      "checked_sources": [
+        "Kozlov Prop. 11.17",
+        "Knill arXiv:1907.09092",
+        "Conant arXiv:1401.1570",
+        "Resultary c61bbf0f5bb4, 8f402ec7d9e5, acf4a6fabe72",
+        "Frozen RESULT.md and supporting files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A maximal independent dominating set allows only gaps 2 or 3, but a nonmaximal singleton in C5 leaves a P2 link and has weight -1. The rank counts all gaps 2,3,5,6,... .",
+          "The mod-three Fourier pattern and known cycle Euler characteristic do not count the nonempty link weights or identify their integral basis change."
+        ],
+        "reasoning": "To reach the exact result requires the unitriangular integral congruence and a separate labeled cyclic-gap enumeration. These are not assertions of the inspected prior theorems, nor reducible to a maximal-independent-set count.",
+        "searches": [
+          "Kozlov Proposition 11.17 and frozen Proof §§2–4",
+          "Resultary acf4a6fabe72, Finding",
+          "Comparison with maximal independent dominating sets of cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knill's K counts subsimplices in x intersect y and L tests nonempty intersection. The target instead tests that the union is a face.",
+          "Resultary 8f402ec7d9e5 prescribes two distinct adjacent realizations of full types and counts fixed-rank compatibility degrees, expressly distinguishing the merged positive type."
+        ],
+        "reasoning": "Sharing index faces does not make these incidence relations equal. Complementing sets can turn union into intersection, but changes the index family and the predicate; it does not identify either of the inspected matrices with M.",
+        "searches": [
+          "Local Resultary searches for cycle union-is-a-face, one-type compatibility, and coface weights/Smith form",
+          "Knill arXiv:1907.09092, opening definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact c61bbf0f5bb4 hit is the frozen record itself. The earlier acf4a6fabe72 gives a mod-three nonvanishing pattern and least positive multiplier of magnitude 1 or 2 for Walsh convolution on the entire Boolean group."
+        ],
+        "reasoning": "A Fourier multiplier magnitude on the full power set is neither the rational rank on independent-face indices nor an integral Smith factor of this different matrix; the earlier result itself gives no table of these invariants.",
+        "searches": [
+          "Local Resultary search for cycle-independent-set matrix modulo-three ranks, Smith factors, and explicit counts"
+        ]
+      },
+      "rationale": "The distinct claim is the exact integral Smith form, including the full rank formula for the positive-union compatibility matrix of a cycle. The model-theoretic type criterion, incidence inversion, and link Euler characteristics have antecedents; they are not treated as independently new. The strongest related indexed statements have different matrices.",
+      "residual_risks": [
+        "The broader literature on meet/join matrices or an alternate reformulation of the Fourier result could contain additional overlap. The bounded primary search did not resolve all such terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers relevant homotopy types and their Euler sums, not the rank count or Smith classification of this matrix.",
+          "evidence": [
+            "Ind(C_(3k)) is a wedge of two (k-1)-spheres; Ind(C_(3k±1)) has the indicated single-sphere form."
+          ],
+          "identifier_or_url": "https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kozlov.pdf",
+          "material_read": "Proposition 11.17, PDF p. 206, OA offset about 492773.",
+          "method": "Lawful PDF passage read.",
+          "title": "Combinatorial Algebraic Topology",
+          "trigger": "Potential coverage of cycle and path link weights."
+        },
+        {
+          "assessment": "Different predicate, so its unimodularity conclusions do not transfer directly.",
+          "evidence": [
+            "K counts subsimplices in the intersection; L records nonempty intersection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.09092",
+          "material_read": "Opening definitions, PDF p. 1 and extracted offset about 296.",
+          "method": "Lawful PDF passage inspection.",
+          "title": "The counting matrix of a simplicial complex",
+          "trigger": "Simplicial matrices with integral spectral or determinant properties."
+        },
+        {
+          "assessment": "Background for the type interpretation, not the matrix computation.",
+          "evidence": [
+            "Specifies the homogeneous K_n-free setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1401.1570",
+          "material_read": "Definition 3.1, PDF p. 3, approximate OA offset 7545.",
+          "method": "Lawful PDF passage inspection.",
+          "title": "Forking and dividing in Henson graphs",
+          "trigger": "Same homogeneous graph and type framework."
+        },
+        {
+          "assessment": "Distinct two-realization feasibility relation.",
+          "evidence": [
+            "Enforces both full types and adjacency of distinct new vertices."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-rankwise-compatibility-degrees-for-one-point-types-over-na--8f402ec7d9e5",
+          "material_read": "Finding at offset 81 and relation comparison at offset 7227.",
+          "method": "Local mirrored passages.",
+          "title": "Sharp rankwise compatibility degrees for one-point types",
+          "trigger": "Same kind of typed cycle and compatibility wording."
+        },
+        {
+          "assessment": "Full Boolean group convolution, not the independent-face union matrix.",
+          "evidence": [
+            "Classifies nonvanishing and minimum positive magnitude of Walsh multipliers, not Smith factors."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-cycle-independent-sets-a-modulo-three-fourier-invertibility-law--acf4a6fabe72",
+          "material_read": "Finding at mirror offset 96.",
+          "method": "Local mirrored statement inspection.",
+          "title": "Cycle independent sets: a modulo-three Fourier invertibility law",
+          "trigger": "Potential exact overlap in the modulo-three and factor-one/two pattern."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycles are natural finite induced bases, and the integer Smith form isolates a characteristic-two obstruction invisible in the rational rank. The result gives the complete integral invariant at every cycle length, not a rephrasing of the background type criterion, empty-link Euler sum, or sample determinants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

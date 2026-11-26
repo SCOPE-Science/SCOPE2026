@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:58:21.657582Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently derived the PGF from the three first-step equations: set b=1−a, q=1−p, w=ab, c=2p−1, and let s mark steps. The PGF from 00 is U(s)/D(s), where U=wq²s²(2−s) and D=(1−sp)[1−s+(pq+c²w)s²]−s²pq[1−2w−s(p−(2p+c)w)]. Derivation: from 10 the PGF is s(ap F00+bq)/(1−s(1−ap−bq)); swap a,b for 01 and substitute into the 00 equation. Each transient state has a uniformly positive probability (for the fixed parameters) of absorption in at most two steps, so the PGF is analytic near 1. Differentiating gives E[T]=(log F00)'(1) and Var(T)=(log F00)''(1)+(log F00)'(1); independent symbolic simplification confirms both moments, the derivative at RESULT.md:40–43, and the variance difference at 50–55. The affine bracket in the derivative starts at 1−p²>0 and ends at (6p²−19p+11)/4 at w=1/4. It is positive throughout the interior for p≤p_star, including at equality in p, and crosses exactly once inside the interval for p>p_star. The sign of the derivative therefore identifies the unique optimal w, and the two weights above threshold are precisely the two preimages of that w. The endpoint w→0 is not a missing minimizer; the mean and variance strictly favor w=1/4. Static inspection of clumsy_two_type_checker.py:15–31 and the recorded output shows 361 parameter pairs, two moment equalities and one positivity assertion per pair; that script does not test optimization. No archived code was needed for the independent PGF check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 18 formula is for all positive selection weights and common p. The weighted delay decomposition is for the same family; the interlacing geometric-factor result uses uniform weights with type-dependent losses. The two arXiv papers use uniform type selection in the compared clumsy model."
+        ],
+        "reasoning": "The October 18 theorem covers the law and the mean directly. Uniform sampling or variation in type-specific loss cannot supply an extremum over two unequal selection weights at fixed common loss. Mean or PGF comparisons alone do not give a monotonicity or reversal for a ratio of the first two moments.",
+        "searches": [
+          "arXiv:2605.14206 Definition 1.1 and Theorem 3.1",
+          "arXiv:2605.14511 §4.1",
+          "Resultary d79ee5d7e4b4; 54d1ad9c1d59; e70c1ed505c4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d79ee5d7e4b4, 54d1ad9c1d59, e70c1ed505c4, 6eae563cf718",
+        "arXiv:2605.14206",
+        "arXiv:2605.14511"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m=2 the earlier transform has numerator 1/s−1/(s+a)−1/(s+b)+1/(s+1) and denominator 1/s+r/(s+a)+r/(s+b)+r²/(s+1), with r=p/(1−p), s=(1−z)/z. Its mean specializes to (r+1)/w+r²−1, exactly the frozen mean, and two differentiations recover the variance. The earlier optimization is strict Schur-convexity of the mean only."
+        ],
+        "reasoning": "The raw-moment formulas are covered as specializations. The all-weights law makes the new extremal question computable but does not resolve whether Var(T)/E[T]² has an interior stationary point or how many minimizers it has. The derivative and endpoint analysis establish that new classification; it actually behaves differently from the earlier mean balancing.",
+        "searches": [
+          "Resultary d79ee5d7e4b4/RESULT.md theorem; m=2 specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 Resultary PGF uses exactly the same common-loss coordinate refresh and empty initial state. The November 2 dispersion record instead concerns uniform-sampling inter-entrance lengths."
+        ],
+        "reasoning": "Coefficient of variation, squared CV and variance divided by mean squared have the same optimizers. Neither a dispersion limit for a renewal cycle nor a comparison of empty-start mean gives the desired optimizer.",
+        "searches": [
+          "nonuniform clumsy coupon collector two-type relative dispersion, CV, sampling weights, optimum",
+          "Resultary: weighted clumsy collector, first-passage transform, relative dispersion and balancing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In the closest exact transform record the explicit two-type worked example is a comparison of means, not a normalized-dispersion threshold. No matching optimizer formula or table was found in the bounded comparisons."
+        ],
+        "reasoning": "A table of means, a transform that encodes the full law, or a CV for uniform inter-entrance intervals does not tabulate the minimizing weights as p varies.",
+        "searches": [
+          "Resultary: exact two-type clumsy collector squared CV, loss threshold and nonuniform sampling weights"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact global optimizer and loss threshold for the squared CV, not the first-passage law, moment method or mean balancing. The earlier October 18 Resultary theorem covers the whole distribution for nonuniform weights and the exact mean optimizer. Its m=2 PGF determines both moment inputs of this record; passing originality does not credit those inputs. The sharp normalized-dispersion reversal requires a new global comparison of the ratio of moments over weights, not a specialization of that earlier balancing theorem. No compared statement supplies this optimization or an order theorem implying it.",
+      "residual_risks": [
+        "Bounded literature review cannot rule out an unlocated exact optimizer or a general variance-to-mean comparison that implies it.",
+        "The distinction from prior work is only the relative-dispersion optimization; the full transform and moment inputs are not independently original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior full law and moment inputs, not the CV extremum",
+          "evidence": "Ratio of subset resolvents, exact mean and strict Schur-convexity of the mean. The explicit two-type example compares 55/9 and 355/36 as mean values.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-first-passage-transform-and-strict-balancing-law-for-nonun--d79ee5d7e4b4/RESULT.md",
+          "material_read": "Finding, model, theorem and two-type example, offsets 326–1845; proof passage on mean expansion",
+          "method": "Local catalogue and direct bounded read of mirrored text",
+          "title": "Exact first-passage transform and strict balancing law for nonuniform clumsy coupons",
+          "trigger": "Strongest all-weight overlap"
+        },
+        {
+          "assessment": "Uniform case and exact transform; not nonuniform optimization",
+          "evidence": "The label is uniform; the PGF in Theorem 3.1 applies to this model and gives the balanced case.",
+          "identifier_or_url": "arXiv:2605.14206",
+          "material_read": "PDF p. 2 Definition 1.1, pp. 3–4 moment regimes, p. 6 Theorem 3.1",
+          "method": "Read bounded primary-paper passages",
+          "title": "The clumsy coupon collector's problem",
+          "trigger": "Same common-loss refresh law"
+        },
+        {
+          "assessment": "Uniform stationary entry and large-n fixed-loss asymptotics",
+          "evidence": "The uniform model gives flux p(1−p)^n, and the scaled hitting time converges to an exponential with fixed moment convergence.",
+          "identifier_or_url": "arXiv:2605.14511",
+          "material_read": "PDF p. 4 and §4.1, Proposition 4.1, p. 17",
+          "method": "Read bounded primary-paper passages",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Moment and hitting-time scope"
+        },
+        {
+          "assessment": "Different random time and no nonuniform weight optimizer",
+          "evidence": "Exact CV and critical-limit dispersion of uniform-sampling inter-entrance times.",
+          "identifier_or_url": "Resultary 2026-11-02, 6eae563cf718",
+          "material_read": "RESULT.md finding, offsets 0–2101",
+          "method": "Local catalogue and mirrored passage",
+          "title": "Two dispersion reversals in critical clumsy coupon coverage cycles",
+          "trigger": "Close relative-dispersion claim"
+        },
+        {
+          "assessment": "Later related full-law comparison",
+          "evidence": "Completion decomposes into coverage plus a delay, with strict mean balancing; not a CV minimizer statement.",
+          "identifier_or_url": "Resultary 2026-11-08, 54d1ad9c1d59",
+          "material_read": "RESULT.md finding, offsets 0–3266",
+          "method": "Local catalogue and mirrored passage",
+          "title": "Weighted clumsy coupons: exact delay transform and a two-speed crossover",
+          "trigger": "Same weighted refresh model"
+        },
+        {
+          "assessment": "Different optimization variable",
+          "evidence": "Uniform selection with type-dependent losses; geometric-sum law and mean/PGF comparisons.",
+          "identifier_or_url": "Resultary 2026-11-08, e70c1ed505c4",
+          "material_read": "RESULT.md finding, offsets 350–4281",
+          "method": "Local catalogue and mirrored passage",
+          "title": "Interlacing geometric factors and sharp loss budgets in clumsy coupon collection",
+          "trigger": "Potential dominating model and order theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp boundary answers a natural design question in the smallest model where a relative criterion can disagree with absolute completion-time dispersion. It predicts exactly when and by how much type probabilities must be unbalanced to minimize relative uncertainty, despite strict balancing of both absolute moments. That is materially different from recomputing moments from a known transform.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

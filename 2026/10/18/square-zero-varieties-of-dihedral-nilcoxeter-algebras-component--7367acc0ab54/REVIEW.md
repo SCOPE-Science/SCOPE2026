@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The multiplication law of the alternating Coxeter-word basis gives all square-zero equations. Odd-degree equations factor through sums of even-length coefficients, while even-degree equations become one triangular scalar condition after those sums vanish. For an odd first nonzero degree, the nonzero leading coefficient uniquely solves one variable at each successive degree. For an even first nonzero degree below half the braid length, its square gives an impossible nonzero monomial coefficient. The last Coxeter-word relation contributes a single summed condition, becoming identically zero in characteristic two for even braid length. The central stratum is an elementary plane quadric times affine space. These exact polynomial identities establish the claimed strata and point counts; the component proof additionally verifies the characteristic-two degeneration of the smaller-dimensional central stratum. A direct finite-field word-multiplication checker corroborates fifteen cases, including two extension fields. Computations are not substituted for the arbitrary-field proof.
+## correctness
 
-## Originality — PASS, with bounded residual risk
-Khare, arXiv:1601.04775, treats nilCoxeter constructions, PBW deformations, and coproducts. Khare, arXiv:1601.08231, treats finite-dimensional generalized nilCoxeter classification and Coxeter-word bases. Benson, arXiv:2407.21175, treats cohomology, including the exact dihedral presentations and parity-sensitive Ext rings. These contributions establish the algebraic objects and some separate parity phenomena, but do not imply the reduced square-zero components, triangular strata, field point counts, or modular dimension jump. Semantic mathematical-record searches using the exact object, its aliases and the numerical/geometric invariants did not identify that theorem; nearby records concerned unrelated nilpotent algebra or Coxeter invariants. Searches do not prove absolute novelty, and equivalent unlocated work remains a risk. The comparison is of theorem content and implications, not just titles.
+PASS
 
-## Value — PASS
-The square-zero locus parametrizes square-zero endomorphisms given by left multiplication, or equivalently dual-number actions internal to an archetypal Coxeter algebra. A complete component classification and all finite-field counts for every finite dihedral Coxeter type are natural exact invariants. The one-dimensional characteristic-two dimension jump at exactly even braid lengths and the extra odd-characteristic quadratic-character dependence identify genuine geometric and arithmetic structure. This is neither a substitution into a textbook formula nor an arbitrary numerical slice. The claim is a complete infinite-family classification; higher power-zero loci and scheme structure are left open.
+The alternating-word multiplication gives two equations at each degree below m and one summed equation at m. The first nonzero degree r with 2r<m must be odd, and one of a_r,b_r vanishes. On a_r nonzero, each odd total degree determines the next even-index sum a_j+b_j=0, and each even total degree determines b_j, with coefficient a_r. In the even-total-degree step both equations agree: the odd–odd convolutions agree by reversal and the even–even terms agree because both factors change sign. At the longest word there is one constraint for m odd; for m even the two terms add to 2A_m, so the last constraint disappears exactly in characteristic two. This gives the stated stratum dimensions. The closed high-degree piece is the whole tail for odd m and the single displayed plane quadratic times the tail for even m. In even braid length and characteristic two with d even, adding tU_(d-1) to a high-degree solution creates below the top only the potentially nonzero term proportional to t(a_d+b_d), which vanishes; the top contributions cancel. Hence this smaller central piece is not another component. All other pieces contributing components have maximal dimension, and disjoint dense locally closed strata cannot have equal irreducible closures. Counting the affine factors, nonzero leading coefficient, and split/nonsplit lines gives all three rational-point formulas. Analytical replay: RESULT.md lines 35–67. Frozen verifier inspected, not executed; reported cases are not independent reproductions and are not needed by the uniform proof. The conclusion concerns reduced support, not the original equation scheme.
 
-## Boundaries
-The conclusion concerns geometric reduced support and \(\mathbb F_q\)-points of the quadratic zero equations, not the potentially nonreduced quadratic schemes. The unpublished equivalence risk is not zero. The scientific reasoning and executable checks supplied here have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest parallels separate into (i) the same nilCoxeter algebra and braid parity but a different invariant (Ext) and (ii) square-zero loci and a characteristic-two jump but different algebras. The inspected statements do not determine the geometric components or arithmetic stratification of the frozen reduced internal locus. Pass is limited to that classification and the best-of-knowledge comparison.
+
+## value
+
+PASS
+
+The reduced square-zero variety of the standard finite dihedral nilCoxeter family is a natural invariant. The uniform stratification resolves genuinely different parity and characteristic cases, including a dimension jump and a smaller stratum that merges into a branch closure. It yields exact geometric components and rational counts, including nonsplit central fibers, beyond a finite census or routine dimension estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

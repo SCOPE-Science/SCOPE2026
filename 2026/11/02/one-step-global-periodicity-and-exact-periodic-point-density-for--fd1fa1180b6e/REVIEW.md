@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The conclusion follows from an elementary but global geometric invariant for the \(\ell^1\) diamond of radius \(1/\sqrt2\): nearest-integer subtraction preserves that diamond for its attainable non-tie inputs. This gives \(R^2(w)=Qw\) on the full image, hence \(R^3=Q\circ R\). Signed quarter-turn equivariance proves that nonzero image points have least period eight, and a direct witness establishes sharpness of the one-step transient. For the density theorem, the diamond has area one, overlaps only with its four cardinal lattice translates, and never covers a torus point more than twice. Calculating each overlap and applying the irrational two-parameter Weyl criterion yields the three exact multiplicity densities. The exact-arithmetic checker is supplementary, not a substitute for the universal arguments.
+## correctness
 
-## Originality — PASS with residual priority risk
-Hannusch–Pethő (arXiv:2109.01828, 2021-09-04; *Periodica Mathematica Hungarica*, DOI 10.1007/s10998-022-00480-8) directly motivate the problem. The original article was read through its statements, proofs, and Sections 5–6. It gives selected period-eight **floor** orbits and general nearest-rounding noninjectivity, neither of which implies that the nearest-rounded map has global eventual exact period eight after at most one iterate, or the special-angle **exact** image density. Akiyama–Pethő (arXiv:1206.3868, 2013) concerns the distinct shift-radix map \((x,y)\mapsto(y,-\lfloor x+\lambda y\rfloor)\); the published existence of infinitely many periodic orbits is much weaker than the present all-orbit statement. The 1997 quantization survey addresses statistical frequencies but its available text is partly garbled; a 2021 seminar on rounded rotations was inaccessible in full (HTTP 429). Those sources remain possible priority risks, not invented negative coverage checks. Searches for the actual functional identity, all-lattice least period, nearest rounding, and exact missing-point density produced no identifiable equivalent published statement. Search failure alone is not a proof of global priority.
+PASS
 
-## Mathematical value — PASS
-This is a complete, non-local orbit classification of a natural and heavily studied digital rotation, not a finite census or a perturbative bound. The exceptional \(45^\circ\) angle has an exact finite-time algebraic mechanism even though the quantized rotation is neither injective nor surjective. Moreover, the exact transient density \(3-2\sqrt2\) and image-point density \(2\sqrt2-2\) refine the positive-density counting problem for the same nearest-rounding operation. The special-angle theorem does not resolve conjectures for floor quantization or general angles.
+For w=Rz and e=Uz−w in the open half-unit square S, v=Ue lies in the diamond D=US. Its fractional rounding residual r=v−N(v) remains in D: if a coordinate has magnitude above 1/2, it is the only such coordinate and subtracting its signed unit strictly decreases the Manhattan norm. Neither v=Qz−Uw nor any attainable rotation coordinate has half-integer ties. Writing q=N(v) gives Rw=Qz−q and U(Rw)=Qw+Ur with Ur in S, so R²w=Qw. The image is invariant, hence R⁴w=−w and R⁸w=w, ruling out all proper period divisors at nonzero w. Periodic points have predecessors, and (2,0) has none: its inverse-rotated center has Manhattan distance 2(√2−1)>1/√2 from the nearest lattice point. In the preimage diamond, all distinct lattice pairs are unit-coordinate neighbors, so three points would give a triangle, impossible. The four equal overlaps contribute half their summed areas to double coverage; the diamond's area is one, so the uncovered and doubly covered areas agree. Weyl averaging over a rectangular box is a product of two geometric averages, with at least one irrational coefficient per nonzero frequency. Polygonal boundaries are null. This proves the densities, with periodic density equal to image density.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the global nearest-rounding orbit identity and classification, hence the identification of periodic density with image density. The multiplicity constants are a resonant validation of a known general statistical form, and the first-image density already follows from prior frequency machinery. No separate originality is assigned to the numerical constants or generic cell-area method.
+
+## value
+
+PASS
+
+For an established discretized rotation, the global identity resolves all transients and exact least periods, despite noninvertibility on the full lattice. It lets one transfer prior one-step frequency information into a dynamical density of genuinely periodic points, not merely image points. The substantive value is the classification, not evaluating a known statistical expression at a special angle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

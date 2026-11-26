@@ -1,19 +1,21 @@
-# Review of stationary transposition descent fluctuations
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The cyclic comparison coefficient is divergence-free and therefore a pointwise eigenfunction of uniform transposition averaging with eigenvalue \((n-5)/(n-1)\). The stationary cyclic variance is exactly \(n/12\); hence the average one-step squared change is \(2n/[3(n-1)]\). The key nonstandard estimate is that changing one underlying independent rank input affects at most \(3(n-1)\) swap increments in the averaged squared-jump function, giving Efron–Stein variance at most \(4608/n\). This proves deterministic predictable-bracket convergence. Bounded martingale jumps and the one-dependent initial CLT yield the functional OU limit. The ordinary-count difference is uniformly at most \(1/(2\sqrt n)\). Independent exact enumeration confirms the finite identities through seven positions. Unproved extensions and the finite-check limitation are stated in RESULT.md.
+PASS
 
-## Originality
+On signed comparisons orient the complete graph with incidence B, so divergence is Bx. Summing swaps gives the operator ρI+2BᵀB/[n(n−1)], ρ=(n−5)/(n−1). The covariance of the centered comparison vector is (I+BᵀB)/12: diagonal variances 1/4, disjoint-edge covariances zero, and signed shared-vertex covariances ±1/12 from the six ranks of three entries. On gradients BᵀB=nI and on circulations it is zero. The cycle has squared edge norm n and no gradient; the ordinary path has divergence (1,0,…,−1), hence gradient squared norm 2/n and circulation squared norm n−1−2/n. Stationarity and powers of the operator give both lag formulas, including n=3,4 with a negative mode and lag zero. The jump is at most 4/√n after normalization. Squared swap increments depend only on ranks at touched endpoints and their neighbors, so a replaced underlying uniform affects at most 3(n−1) swap terms; Efron–Stein gives the stated O(1/n) variance for the conditional squared increment of the count. Its mean is 2n/[3(n−1)] by the eigenrelation. Summing conditional variances at floor(nt) and bounding absolute deviations in expectation via stationarity gives uniform bracket convergence to (2/3)t; subtracting the squared conditional drift has o(1) expectation. The martingale FCLT has deterministic covariance and vanishing jumps. Independence from the limiting initial value can also be obtained by applying it under bounded nonnegative tilts measurable at time zero; the same bracket and Lindeberg conditions persist under normalized tilts with positive limiting mass. The initial CLT is the bounded one-dependent CLT on adjacent uniform ranks, with only one bounded wrap-around term removed. The linear drift recursion yields the OU by the integral equation with drift −4, and the two paths differ uniformly by at most 1/(2√n), giving joint J₁ convergence. Periodicity of the permutation chain does not affect this stationary argument.
 
-**PASS, with historical-priority uncertainty.** Hultman's identity-start descent expectation identifies two eigenvalues but not stationary temporal fluctuation processes. Garet's descent CLT concerns a size-growing insertion chain. The existing published comparison-vector covariance result only supplies a static second-order decomposition; the published exchangeable partial-permutation shuffle spectrum concerns a different transition kernel; the random-to-top Gaussian theorem uses another shuffle. Querying the relevant published records and primary literature found no functional OU limit for this precise stationary cyclic/ordinary descent pair. This search does not establish absolute priority, and a more general stochastic-process theorem might encompass the claim.
+## originality
 
-## Value
+PASS
 
-**PASS.** A natural rapidly changing ranking statistic that is generally not a closed Markovian projection has an explicit, universal stationary Gaussian Markov process limit. The result supplies the temporal covariance, relaxation rate and diffusion coefficient, going strictly beyond one-time descent CLTs or finite expected counts. It also identifies a concrete cyclic eigenfunction and proves concentration of its microscopic quadratic variation, a mechanism suitable for further local-pattern fluctuation analysis. Neither numerical simulation nor the formal existence of a generator alone justifies this value claim.
+Credit the stationary path-space OU theorem and the process-level argument for this descent observable. Its static covariance, spectral ingredients and the resulting projected covariance calculation are not separate evidence of broad novelty. Known one-time and expectation results do not establish the claim at path level; the available full-text coverage is limited.
 
-## Closest literature and limits
+## value
 
-The closest read sources are Hultman, arXiv:1301.0430v1, and Garet, arXiv:1906.02980, together with the published comparison-incidence and shuffle-spectrum records linked in RESULT.md. The result is restricted to uniform stationary starting rankings, uniform distinct-position transpositions, and fixed finite \(n\)-scaled time windows. Any broader prior functional theorem remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A fixed-size deck with a non-Markovian descent-count projection nevertheless has a stationary Markov Gaussian limit. The theorem separates the macroscopically visible mode from a smaller endpoint effect and identifies both the time scale and noise. The dynamic bracket proof goes beyond a static Gaussian approximation or a direct eigenvalue lookup.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

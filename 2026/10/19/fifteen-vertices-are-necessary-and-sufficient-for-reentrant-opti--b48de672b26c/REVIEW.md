@@ -1,25 +1,21 @@
-# Scientific review: sharp reentry of optimal tree seed
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The expected spread formula \(F_v(p)=\sum_w p^{d_T(v,w)}\) follows by linearity from independent edge transmission along unique tree paths. The lower bound is a full computer-assisted finite theorem: all unlabelled tree shapes through \(14\) are enumerated with checked counts, comparisons are transformed to exact rational-polynomial sign certificates, and every remaining relevant crossing is isolated exactly rather than sampled on a floating-point mesh. The \(15\)-vertex witness is reconstructed from its complete edge list. Only origins \(1\) and \(2\) can maximize, because origin \(1\) strictly dominates every other origin. Their exact difference is \(p(1-p)(p^4+p^3+p^2-3p+1)\), with exactly two roots in \((0,1)\). See the proof and `verify_reentry.py` for precise certificates and reproduction.
+PASS
 
-**Risk:** This is a finite computer-assisted proof whose exhaustive enumeration depends on a standard third-party unlabelled-tree generator and symbolic libraries. The counts agree with the known classification but no independent implementation of tree enumeration was produced. The result does not claim an infinitary graph classification or external proof certification.
+By independence along the unique tree path and linearity of expectation, each origin score is its distance-count polynomial, including the common constant 1. Independently enumerated all unlabelled trees through order 14 by adjoining one leaf to every vertex of each previous representative and merging equal canonical rooted codes at the tree centers. Removing a leaf establishes completeness inductively; equal canonical codes imply isomorphism and the center set is invariant. The shape counts for orders 1–14 are 1,1,1,2,3,6,11,23,47,106,235,551,1301,3159. Checked exact score comparisons after factoring out p(1-p). A fixed strict Bernstein sign removes a globally dominated score; at most one Descartes variation makes each surviving dominance set an interval. Grouped equal score profiles so ties cannot masquerade as unique winners. For the six order-13 and seventeen order-14 exceptions, independently isolated the roots of one square-free rational polynomial per shape covering all nonidentical surviving comparisons (16 and 44 interior roots respectively), and evaluated the full set of maximum scores at exact rational points in every intervening open cell. All discrepancies near isolated roots are covered by the adjacent constant-sign cells; isolated points cannot themselves furnish an open reentry interval. No smaller tree reenters. For the specified 15-vertex witness only 1 and 2 survive, with the stated profiles. The difference quartic is positive at both endpoints, negative at 1/2 and strictly convex on (0,1), with the two indicated roots. Origin 1 beats every other noncandidate strictly on the full open domain, confirming the 1,2,1 sequence and both two-way ties.
 
-## Originality — PASS, subject to independently unresolved literature
+## originality
 
-Tsakas (2016) gives the motivating one-threshold empirical perspective. Coroničová Hurajová, Gago and Madaras (2018) already prove **arbitrary pairwise** decay-crossing phenomena in constructed trees and count all *fully decay-stable* unlabelled trees through order \(20\). Neither is the sharp minimum for **reentry of the global maximizer**: even repeatedly crossing vertex scores need not attain the maximum of all scores at any parameter, and a fully unstable ordering may still have an unchanged top-ranked vertex. Riveros–Salas–Skibski (2023) study which centralities root trees, another inequivalent invariant. Rupnik Poklukar–Žerovnik (2025) give ranking-stability criteria and path-product counterexamples, not the new reentry bound. Related published results and aliases have been checked, with four explicit implication comparisons recorded in `AUDIT.json`.
+PASS
 
-**Risk:** The full text of a potentially relevant 2026 article on decay-unstable trees could not be inspected through lawful available access. Its visible abstract establishes a different large-tree property, but the unseen body could contain stronger coverage. Literature searches cannot prove global novelty; this is a self-review.
+Existing work covers decay centrality, one top-ranked switch, prescribed pairwise crossings or full-ranking instability. The strongest inspected catalogue analogues use nonuniform source weights on paths or the same homogeneous expected-reach objective on graphs with cycles. None establishes the sharp order-15 boundary for the exact homogeneous tree model and strict global reentry. A closely related subscription article remains an explicitly unresolved source, not evidence for or against coverage.
 
-## Value — PASS
+## value
 
-The result gives the smallest possible tree-shaped social network exhibiting a nonmonotone optimal-source policy as transmission reliability changes, rather than an arbitrary nonoptimal pairwise rank reversal. The minimum-size boundary and explicit exact switches test a common single-threshold targeting intuition without relying on heuristics or sampled scenarios.
+PASS
 
-**Limits:** Uniform independent edge successes, tree topology, expected total cascade and one seed only. No statement about directed or cyclic networks, weighted link reliability, multiple seeds, observed data, or finite-sample statistical uncertainty.
+The natural optimization problem distinguishes complete rankings or nonoptimal crossings from an actual change in the best seed. Its smallest counterexample to absence of strict global reentry is a useful sharp boundary: the exact finite lower bound rules out every smaller unweighted tree, and the explicit witness identifies the two switches rather than sampling or relying on pairwise reversals.
 
-## Closest original sources
-
-The closest direct sources are N. Tsakas (2016), *On Decay Centrality*, https://papers.econ.ucy.ac.cy/RePEc/papers/04-16.pdf , and J. Coroničová Hurajová et al. (2018), *On Decay Centrality in Graphs*, https://journals.msp.org/mscand/article/download/263/262/291 . A related full-text comparison is C. Riveros et al. (2023), https://doi.org/10.4230/LIPIcs.ICDT.2023.12 , and D. Rupnik Poklukar–J. Žerovnik (2025), https://www.preprints.org/manuscript/202502.2148 . Unread 2026 article: https://doi.org/10.2140/mscand.2026.132.1 .
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

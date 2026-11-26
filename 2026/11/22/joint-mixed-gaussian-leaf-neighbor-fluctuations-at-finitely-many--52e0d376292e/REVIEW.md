@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The attachment probabilities \(D_{v,n}/[2(n-1)]\) and \(L_{v,n}/[2(n-1)]\) are disjoint, and the third probability is nonnegative on all attainable states. Their centered-increment drift is \(-A_{v,n}/[2(n-1)]\). Exact rational computation from the enclosed checker independently agrees with the full-tree histories through eight vertices. The second-moment recurrence gives \(\mathbb E A_{v,n}^2=O(\sqrt n)\), supporting both the deterministic approximation \(L_{v,n}\sim D_{v,n}/2\) and the negligible bracket corrections. Standard exponential Yule martingales prove \(D_{v,n}/\sqrt n\to W_v>0\). Gamma products determine the centering martingale weights. The diagonal bracket has the exact leading coefficient \(W_v/(4c_v^2)\); distinct nonleaf marked vertices have no simultaneous centered raw increments, so their cross-brackets vanish. The Lindeberg bound follows from jumps of order \(\sqrt n/n^{3/4}\). Stable multivariate martingale convergence and degree studentization yield the stated independent \(\mathcal N(0,1/4)\) laws. The proof's asymptotic component is analytical; finite checks alone do not establish it.
+PASS
 
-## Originality — PASS under examined evidence
+In the one-edge tree a mark gains A=L−D/2 by 1/2 on attachment to itself and loses 1 on attachment to a neighboring leaf, at rates D/T and L/T in discrete time. This remains valid at the seed edge. The drift is −A/T, and the conditional second moment of the increment is (D/4+L)/T. Iterating the resulting squared-state recursion with E[D]=O(sqrt(n)) gives E[A²]=O(sqrt(n)). In the exponential-clock embedding the edge count and a marked degree after birth are Yule processes of per-capita rates 2 and 1. Each rescaled limit is positive and finite by the one-particle Yule law; their independence is not needed. Evaluating at the edge-count hitting times gives the F∞-measurable positive W. The drift-compensated A/b has b∼c n^{-1/2}. The leading rescaled diagonal bracket is n^{-3/2} sum (3D_j/(8c²)), giving W/(4c²); the linear and quadratic errors before normalization are O(n^{5/4}) and O(sqrt(n)) in L¹. When both marks cease to be leaves, their raw increments cannot occur together, so the centered cross term is −A_u A_v/T²; the exceptional prefix is a.s. finite and the remaining normalized sum is O(n^{-1}) in L¹. For the stable martingale array one may start at a common deterministic size after all births: the rows use the same nested tree filtrations, initial terms vanish, and the n^{-3/4}-scaled increments have deterministic maximum O(n^{-1/4}). Conditional Lindeberg follows; if using the realized-variation formulation, the difference from the predictable variation also tends to zero in L² by bounding its variance by the squared maximal jump times the uniformly bounded expected scaled bracket. Cramér–Wold with bounded F∞ test weights thus gives the asserted stable Gaussian kernel. Rescaling by n^{1/2}b and studentizing by the a.s. positive degree limits gives diagonal 1/4 covariance and independent limiting coordinates.
 
-Hartle and Krapivsky, arXiv:2602.01021v1, Sections II, III.5 and IV, identify limiting empirical degree–leafdegree counts, mean/variance of leafdegree of a *random degree-conditioned vertex*, and global class-count fluctuations. These statements neither condition on a fixed old birth label nor give a mixed-normal \(n^{1/4}\)-scale limit for several such labels. The published *Uniform half-degree law* gives an \(O_{\mathbb P}(n^{1/4}(\log n)^2)\) simultaneous deviation upper bound but not the sharp joint Gaussian limit. Other prior results on old-hub degree versus *global* leaf count and on affine attachment degree-count CLTs do not have these marked local variables. Search and implication checks did not locate coverage. Residual risk: full text of a closely relevant published uniform concentration result was inaccessible; an unpublished or unindexed general marked-martingale theorem could subsume the claim.
+## originality
 
-## Value — PASS
+PASS
 
-This determines the previously unquantified *second-order, joint, age-marked* boundary fluctuations of natural highly connected vertices. Empirical degree-conditioned distributions cannot replace such a theorem, because old hubs have nondegenerate, dependent random growth amplitudes; the result establishes a universal normal fluctuation law after observable-degree studentization and proves the disappearance of cross-hub Gaussian noise dependence. The result has a structurally motivated \(n^{1/4}\) fluctuation scale and explicit variance, not an arbitrarily chosen parameter slice.
+The supported distinction is the mixed Gaussian limit stable with respect to tree growth for finitely many fixed labels and its independent realized-degree studentization. Neither the center nor the coefficient 1/4 is novel as a population asymptotic. The distinct uniform half-degree result controls the same statistic but does not identify its fixed-label law at the sharp fluctuation scale.
 
-## Checked literature and limits
+## value
 
-The motivating paper was inspected in its lawful arXiv HTML text, including the formulas for degree-stratified leaf moments and the finite-degree aggregate fluctuations. Public published summaries of the uniform half-degree law and root-degree/global-leaf covariances were compared by exact statement and implication; raw complete content for the former could not be fetched. An additional search for marked-vertex and leaf-neighbor Gaussian theorems found no exact match; absence of a match is not a uniqueness proof. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This supplies the sharp fluctuation scale and conditional law for a natural degree–leaf composition statistic in a classical growth model. It separates dependent random hub sizes from asymptotically independent local noise and identifies a universal Gaussian normalization using an observed degree, beyond a population variance or simultaneous upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

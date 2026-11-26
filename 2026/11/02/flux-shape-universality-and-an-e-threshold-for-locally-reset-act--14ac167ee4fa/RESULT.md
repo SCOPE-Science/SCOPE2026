@@ -1,98 +1,55 @@
-# Flux-shape universality and an \(e\)-threshold for locally reset active-gas droplets
+# Gas-current shape controls stationary coexistence but not optimal droplet width
 
 ## Finding
 
-For a class of density-dependent run-and-tumble transport laws with an arbitrary strictly concave gas current and a constant-speed dense phase, the stationary two-phase droplet has a **constitutive-law-independent width** and mass partition. In contrast, the availability of a competing continuous gas-only stationary profile depends on the maximum of the gas current. Their relative thresholds meet at the sharp dimensionless ratio \(F_{\max}/J=e\).
+For symmetric stationary branches of a one-dimensional locally reset two-velocity transport law, let \(M\) be the total mass, \(r>0\) the reset rate, \(\alpha>0\) the direction-reselection rate, \(u>0\) the constant dense-phase speed and \(\rho_m>0\) the dense-phase threshold. Write \(\Lambda=\sqrt{r(r+\alpha)}\), \(J=u\rho_m\) and \(F_{\max}=f(\rho_p)\) for the maximum dilute-phase current. Assume \(F_{\max}>J\).
 
-More precisely, define \(\Lambda=\sqrt{r(r+\alpha)}\), \(J=u\rho_m\), and let \(F_{\max}\) be the gas-current maximum defined below. Within the explicitly specified symmetric, monotone, single-interface stationary class:
-
-1. A continuous gas-only profile exists exactly when \(M\Lambda/2\le F_{\max}\). A nondegenerate central dense droplet exists exactly when \(M\Lambda/2>J\). Consequently the two **distinct stationary branches** coexist precisely for \(J<M\Lambda/2\le F_{\max}\); this does **not** assert dynamical stability or uniqueness among arbitrary weak solutions.
-2. Every such droplet has half-width
-   \[
-   b(r)=\frac{u}{\Lambda}\log\!\left(\frac{M\Lambda}{2J}\right),
-   \]
-   gas mass \(2J/\Lambda\), and liquid mass \(M-2J/\Lambda\), irrespective of the shape of the gas current.
-3. The unique maximal droplet half-width is \(b_\star=M/(2e\rho_m)\), attained at \(\Lambda_\star=2eJ/M\). At this optimum exactly \(1/e\) of the mass is gas and \(1-1/e\) is dense, for **every** admissible gas current.
-4. The width-maximizing reset rate lies inside the gas/droplet coexistence interval if \(F_{\max}/J>e\), at its upper fold if the ratio equals \(e\), and after the gas branch has disappeared if the ratio is less than \(e\). At the gas-only fold, the origin density exhibits the universal square-root law
-   \[
-   \rho_p-\rho_0\sim\sqrt{\frac{2(F_{\max}-M\Lambda/2)}{|f''(\rho_p)|}}.
-   \]
-
-This theorem separates a geometrically universal optimal droplet from a constitutive-law-dependent stationary coexistence window.
-
-## Assumptions and scope
-
-Fix \(M>0\) (total conserved mass), \(\alpha>0\) (uniform direction-reselection rate), \(r>0\) (independent local-resetting rate), a dense-phase threshold \(\rho_m>0\), and a dense-phase speed \(u>0\). In the gas, let \(f:[0,\rho_m)\to[0,\infty)\) be twice continuously differentiable, with \(f(0)=0\), \(f'(0)>0\), and \(f(\rho)>0\) for \(0<\rho<\rho_m\). Assume \(f\) is strictly concave in the strong sense \(f''(\rho)<0\), and has a unique interior maximum \(F_{\max}=f(\rho_p)\) at \(0<\rho_p<\rho_m\), where \(f'(\rho_p)=0\). Require \(F_{\max}>J:=u\rho_m\). The gas speed is \(v_g(\rho)=f(\rho)/\rho\) (extended continuously at zero); the dense speed is the constant \(u\). A density discontinuity across the phase interface is allowed, with continuity of both directional particle currents.
-
-For \(x\ne0\), the stationary right/left mover densities \(q_\pm\) obey
+Within the stationary class specified below, the continuous gas branch exists exactly for \(M\Lambda/2\le F_{\max}\), and the nondegenerate dense droplet branch exists exactly for \(M\Lambda/2>J\); each is unique in its class. Thus the two branches coexist exactly for \(J<M\Lambda/2\le F_{\max}\). The droplet half-width and gas and dense masses are
 \[
-0=-\partial_x(vq_+)-\left(r+\frac{\alpha}{2}\right)q_++\frac{\alpha}{2}q_-,\qquad
-0=\partial_x(vq_-)-\left(r+\frac{\alpha}{2}\right)q_-+\frac{\alpha}{2}q_+.
+b=\frac{u}{\Lambda}\log\!\frac{M\Lambda}{2J},\qquad M_{\rm gas}=\frac{2J}{\Lambda},\qquad M_{\rm dense}=M-\frac{2J}{\Lambda}.
 \]
-Each reset injects at the origin, with its new direction selected uniformly. The full density is symmetric, \(q_+(x)=q_-(-x)\), has integral \(M\), and tends to zero at infinity. We examine continuous gas profiles with \(0<\rho(x)\le\rho_p\) on \(x>0\) and their symmetric extensions, or one dense interval \([-b,b]\) with \(\rho(b^-)=\rho_m\) and a monotone dilute gas outside. No additional atoms, interfaces, or shock solutions are admitted to this branch classification. The statement concerns stationary solutions of the kinetic mean-field equations, not an exact stochastic many-particle invariant law.
+The half-width is maximized uniquely at \(\Lambda_*=2eJ/M\), with \(b_*=M/(2e\rho_m)\) and gas mass fraction \(1/e\). This maximum is strictly inside the coexistence interval if \(F_{\max}/J>e\), at the upper endpoint if \(F_{\max}/J=e\), and above that endpoint if \(F_{\max}/J<e\). For the pure gas branch, the right-hand origin density \(\rho_0\) approaches the upper endpoint according to
+\[
+\rho_p-\rho_0\sim\sqrt{\frac{2(F_{\max}-M\Lambda/2)}{|f''(\rho_p)|}}.
+\]
+These are statements about existence, not dynamical stability or phase selection.
+
+## Model and assumptions
+
+Take \(M>0\) and \(f\in C^2([0,\rho_m))\), interpreting derivatives at zero one-sided. Require \(f(0)=0\), \(f'(0)>0\), \(f(\rho)>0\) for \(0<\rho<\rho_m\), and \(f''(\rho)<0\) for **\(0<\rho<\rho_m\)**; no strict inequality is required for \(f''(0)\). Assume an interior maximum at \(\rho_p\in(0,\rho_m)\), so \(f'(\rho_p)=0\) and \(f''(\rho_p)<0\). The dilute speed is \(v(\rho)=f(\rho)/\rho\), extended continuously to zero; for \(\rho\ge\rho_m\) the speed is \(u\).
+
+For right- and left-mover densities \(q_+,q_-\), with \(\rho=q_++q_-\), the stationary equations off the resetting origin are
+\[
+0=-(vq_+)'-\left(r+\frac\alpha2\right)q_++\frac\alpha2 q_-,\qquad
+0=(vq_-)'-\left(r+\frac\alpha2\right)q_-+\frac\alpha2 q_+.
+\]
+The origin injects \(rM/2\) into each directional equation as a point source. Assume \(q_+(x)=q_-(-x)\), total mass \(M\), decay at infinity, and no atoms or additional shocks. The continuous gas branch takes values in \((0,\rho_p]\). The droplet branch has a single dense interval \([-b,b]\), with \(b>0\), \(\rho(b^-)=\rho_m\), and a continuous monotone dilute tail on \(x>b\). A density jump at the interface is allowed, but the two directional transport fluxes are continuous there. The gas endpoint cusp is admitted as a weak solution.
 
 ## Proof
 
-**Flux identity.** Let \(\rho=q_++q_-\), \(\sigma=q_+-q_-\), \(R=v(\rho)\rho\), and \(S=v(\rho)\sigma\). The stationary equations on each phase give
+Set \(\sigma=q_+-q_-\), \(R=v\rho\), \(S=v\sigma\) and \(c=\sqrt{r/(r+\alpha)}\). Adding and subtracting the equations on smooth phases gives \(S'=-r\rho\) and \(R'=-(r+\alpha)\sigma\). For \(D=S-cR\) this gives \(D'=(\Lambda/v)D\). On the right gas tail both fluxes vanish at infinity, and a nonzero solution for \(D\) would have nondecreasing absolute value there since \(v>0\). Thus \(D=0\); continuity propagates this identity across the interface and uniqueness of the linear equation makes it hold in the dense interval as well. Consequently
 \[
-S'=-r\rho,\qquad R'=-(r+\alpha)\sigma.
+S=cR,\qquad \sigma=c\rho,\qquad R'=-\Lambda\rho,
+\qquad R(x)=\Lambda\int_x^\infty\rho(s)\,ds \quad(x>0).
 \]
-Hence \(S^2-\frac{r}{r+\alpha}R^2\) is constant. Both currents vanish at positive infinity, so the constant vanishes in the gas; current continuity transfers the same identity into the dense interval. The outward current is nonnegative, therefore, with \(c=\sqrt{r/(r+\alpha)}\),
+In particular \(R(0^+)=M\Lambda/2\). Conversely, construct any right-hand density profile with these identities, and use \(q_\pm=(1\pm c)\rho/2\) on the right and reflection with direction exchange on the left. The transport fluxes are \((R\pm S)/2\), continuous at the phase transitions, and their jumps at the origin are \(rM/2\) and \(-rM/2\), respectively, since \(c\Lambda=r\). With the displayed signed derivatives these jumps cancel the point sources in both stationary equations.
+
+On a continuous decreasing gas tail the strict decrease of \(R\) forces the density to use the increasing branch of \(f\). For a starting location \(a\) with density \(d\in(0,\rho_p]\), the unique gas continuation is the inverse of
 \[
-S=cR,\quad \sigma=c\rho,\quad R'=-\Lambda\rho.
+\Lambda(x-a)=\int_{\rho(x)}^d\frac{f'(z)}{z}\,dz.
 \]
-These identities are valid separately on every smooth phase and are compatible with the flux jumps and reset source at the origin.
+The right side increases strictly from zero to infinity as \(\rho(x)\) decreases to zero, the divergence following from \(f'(0)>0\). For gas alone take \(a=0\); normalization fixes \(f(\rho_0)=M\Lambda/2\), which is possible uniquely exactly up to \(F_{\max}\). At equality the inverse is continuous and the flux has a finite derivative at the origin from the right; it yields the weak solution despite the density cusp. The asymptotic law for \(\rho_0\) follows from Taylor expansion at the strict interior maximum with nonzero second derivative.
 
-**Gas-only branch.** On the increasing branch \(0<\rho\le\rho_p\), \(R=f(\rho)\), so
-\[
-f'(\rho)\rho'=-\Lambda\rho.
-\]
-If \(\rho(0^+)=\rho_0\), its unique decreasing profile is the inverse of
-\[
-\Lambda x=\int_{\rho(x)}^{\rho_0}\frac{f'(z)}{z}\,dz.
-\]
-The integral diverges as \(\rho(x)\downarrow0\), because \(f'(0)>0\), proving the profile extends to infinity and has no finite-support ambiguity. Integrating \(R'=-\Lambda\rho\) gives \(\Lambda M/2=f(\rho_0)\). The strict increase of \(f\) from \(0\) to \(F_{\max}\) on \([0,\rho_p]\) proves existence and uniqueness *within this gas branch* exactly for \(M\Lambda/2\le F_{\max}\). At equality the profile has an integrable endpoint cusp, interpreted in the stationary weak sense. Strict concavity and Taylor's theorem give the stated square-root fold for \(\rho_0\).
+For a droplet, matching the flux gives \(R(b)=J\), so its gas interface density is the unique lower-branch solution of \(f(d)=J\). Its right tail mass is \(J/\Lambda\). In the dense region \(R=u\rho\), so \(R(x)=J\exp(\Lambda(b-x)/u)\) for \(0\le x\le b\). Imposing \(R(0)=M\Lambda/2\) now gives the stated half-width, strictly positive exactly for \(M\Lambda/2>J\). These profiles satisfy all phase and normalization conditions and are uniquely determined within their respective classes. For \(t=M\Lambda/(2J)>1\), maximizing \(b\) is equivalent to maximizing \((\log t)/t\), whose derivative has the sign of \(1-\log t\). Since \(r\mapsto\Lambda\) is strictly increasing and onto \((0,\infty)\), the unique maximum is at \(t=e\). Substitution gives the half-width and mass fractions and comparing to \(M\Lambda/2=F_{\max}\) gives the three cases.
 
-**Droplet branch.** At \(x=b>0\), the dense interface has density \(\rho_m\) and current \(J=u\rho_m\). Current continuity forces the gas interface density to be the **unique lower-branch root** \(\rho_b\in(0,\rho_p)\) of \(f(\rho_b)=J\); this root exists since \(F_{\max}>J\). Integrating the same flux identity from \(b\) to infinity yields
-\[
-\int_b^\infty\rho(x)\,dx=\frac{J}{\Lambda}.
-\]
-This identity requires no special function and no formula for the shape of \(f\). The gas density is determined uniquely by
-\[
-\Lambda(x-b)=\int_{\rho(x)}^{\rho_b}\frac{f'(z)}{z}\,dz.
-\]
-Inside the dense interval, \(R=u\rho\), so
-\[
-\rho(x)=\rho_m\exp\!\left(\frac{\Lambda(b-x)}{u}\right),\qquad 0\le x\le b,
-\]
-with half-droplet mass \(J\bigl(e^{\Lambda b/u}-1\bigr)/\Lambda\). Conservation of total mass now reads
-\[
-\frac M2=\frac J\Lambda e^{\Lambda b/u},
-\]
-forcing the claimed formula for \(b\) and proving \(b>0\) exactly when \(M\Lambda/2>J\). These expressions construct a positive, normalized profile with \(\rho(x)\ge\rho_m\) inside and \(0<\rho(x)\le\rho_b<\rho_m\) outside. The directional densities are \(q_\pm=(1\pm c)\rho/2\) for \(x>0\), interchanged for \(x<0\); their fluxes are continuous across \(b\). At the reset origin, \(S(0^+)=cM\Lambda/2=rM/2\), exactly the required symmetric injection jump. Thus the constructed profiles satisfy the distributional stationary system. The flux argument also proves their uniqueness within the stated branch class.
+## Two laws with different coexistence behavior
 
-**Optimum and coexistence topology.** Since \(r\mapsto\Lambda\) is strictly increasing on \((0,\infty)\), maximize \(b(\Lambda)=u\Lambda^{-1}\log(M\Lambda/(2J))\) for \(\Lambda>2J/M\). Its derivative has the sign of \(1-\log(M\Lambda/(2J))\), and its unique maximum occurs at \(\Lambda_\star=2eJ/M\). Substitution gives \(b_\star=M/(2e\rho_m)\). The gas mass ratio at the optimum is \(2J/(M\Lambda_\star)=1/e\). The gas branch ends at \(\Lambda_s=2F_{\max}/M\), so comparing \(\Lambda_\star\) with \(\Lambda_s\) proves the sharp \(e\)-classification. All assertions follow without assuming anything about transient stability.
+Take \(\rho_m=8\), \(u=1/8\), \(M=4\), \(\alpha=1\), so \(J=1\). The currents \(f_1(\rho)=\rho(1-\rho/8)\) and \(f_2(\rho)=\rho[1-(\rho/8)^2]\) share the same slope at zero and satisfy strict curvature on the open density interval (\(f_2''(0)=0\)). Their maxima are \(2\) and \(16/(3\sqrt{3})\), respectively, strictly on opposite sides of \(e\). The optimal half-width is \(1/(4e)\) for both. There is a gas-only stationary solution at the second law's optimum but not at the first law's optimum, despite identical droplet geometry and mass partition at optimality.
 
-**Two explicitly different laws.** Set \(\rho_m=8\), \(u=1/8\), \(M=4\), \(\alpha=1\). For \(f_1(\rho)=\rho(1-\rho/8)\), the peak is \(F_{\max}^{(1)}=2\). For \(f_2(\rho)=\rho[1-(\rho/8)^2]\), it is \(F_{\max}^{(2)}=16/(3\sqrt3)>e\). The same optimal two-phase profile width is \(1/(4e)\) for both. Yet at that optimal reset rate the first law admits no pure gas branch, while the second admits one. This is a qualitative change induced solely by gas constitutive shape, despite invariant optimal droplet size.
+## Verification, prior work and limits
 
-## Verification
+The accompanying `verify.py` gives finite numerical illustrations for \(f_p(\rho)=\rho[1-(\rho/8)^p]\) with \(p=1,2,3,4,7\), checking quadrature of the phase masses and the implicit gas equation. The analytic argument, not these spot checks, proves the theorem. Its strict curvature condition is on positive densities, so all five laws satisfy it.
 
-The package contains `verify.py`, a deterministic Python-standard-library test on \(f_p(\rho)=\rho[1-(\rho/8)^p]\) for \(p=1,2,3,4,7\). It independently checks the integrated gas and dense mass with numerical quadrature, reconstructs the gas profile by implicit inversion, compares its finite-difference derivative with the kinetic stationary ODE, and checks the exact branch disparity for \(p=1\) and \(p=2\), universal optimal half-width, and mass partition. Run `python3 verify.py`. These finite evaluations illustrate the theorem; the proof is the exact flux argument above.
+Grange, *Motility-Induced Phase Separation of Run-and-Tumble Particles under Local Stochastic Resetting*, [arXiv:2610.26149v2](https://arxiv.org/html/2610.26149v2), §§2–4, derives the flux first integral, the width and optimum, and gas cutoff, origin-density square root and coexistence inequalities for a linear gas speed. With \(u=v_0/\rho_m\), that law has \(J=v_0\), \(F_{\max}/J=\rho_m/4\); even the comparison to the width optimum is implicit in those special-case formulas. The contribution here is the joint stationary branch comparison over the stated concave-current class, with the peak current free to change independently of the dense flux. A separate result on [gas-independent droplet geometry and power-law optimal resetting](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-gas-independent-droplet-geometry-and-power-law-optimal-resetting--c82a3ef3fe29/RESULT.md) gives broader matched-flux droplet formulas and includes the constant-dense-speed optimum, but does not treat the competing gas-only branch or the origin-density fold.
 
-## Relationship to prior work
-
-Grange, *Motility-Induced Phase Separation of Run-and-Tumble Particles under Local Stochastic Resetting*, arXiv:2610.26149v2 (2026), establishes the kinetic first integral in its Section 2 and solves the **specific linear gas motility** \(v_g(\rho)=v_0(1-\rho/\rho_m)\) with saturated dense speed. Its Sections 3–4 calculate a droplet size, gas existence threshold, and coexistence regime for that particular law, while Section 5 investigates finite-speed return with a particular multiplicative form. These established statements and their algebraic consequences, including the optimal width for the linear law, are not claimed as new here.
-
-The present result isolates a different axis: it treats an **arbitrary strictly concave gas current** with the same constant-speed dense phase, and proves simultaneously that (i) its droplet width and optimal condensed fraction are invariant under this deformation, (ii) its gas-only spinodal depends only on the gas peak current, and (iii) the exact ratio \(F_{\max}/J=e\) governs whether maximal condensation occurs with or without a competing gas stationary solution. The two explicit nonlinear laws show that the last distinction is not merely a reparameterization of one gas profile. The general flux identity in Grange's Section 2 is an important precursor to this extension.
-
-Cates and Tailleur, *Motility-Induced Phase Separation*, arXiv:1406.3533 (2014; journal 2015), gives general active-matter motivation for density-dependent speeds, not the present local-resetting branch classification.
-
-## Limitations
-
-The result classifies **only** the symmetric piecewise-smooth branches with increasing-current dilute profiles and at most one centered dense interval; it does not exclude other weak/shock solutions. Neither branch's dynamical or stochastic stability is proved. Direction-reselection and resetting are Poisson, the dense speed is constant, and the dilute current is strictly concave with a single interior peak. Interactions and fluctuations beyond the deterministic kinetic description, higher dimensions, diffusion, or return times are not addressed. The \(e\)-classification concerns the existence of stationary gas and droplet branches, not an experimentally verified hysteresis loop. Prior literature may contain a more general flux-balance formulation, and independent external scientific validation has not been undertaken.
-
-## References
-
-1. P. Grange, *Motility-Induced Phase Separation of Run-and-Tumble Particles under Local Stochastic Resetting*, arXiv:2610.26149, first submitted 2026-10-19. https://arxiv.org/html/2610.26149v2
-2. M. E. Cates and J. Tailleur, *Motility-Induced Phase Separation*, arXiv:1406.3533, first submitted 2014-06-13; Annual Review of Condensed Matter Physics **6** (2015), 219–244. https://arxiv.org/abs/1406.3533
-3. M. E. Evans, S. N. Majumdar, and G. Schehr, *Stochastic resetting and applications*, Journal of Physics A: Mathematical and Theoretical **53** (2020), 193001. https://doi.org/10.1088/1751-8121/ab7cfe
+No general characterization of nonmonotone or multishock stationary states, hydrodynamic stability, microscopic invariant measures, or finite-speed return dynamics is implied.

@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:44:49.692056Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired theorem works with the simplicial suspension S⁰*A and explicitly handles empty and disconnected A. Even-side parity allows neither or both cuts; the two matching families give K₀ and Δ({e,f})*A. Internal endpoint edges give the exact intersection A and a coning vertex in K₀. Sending f to e gives a simplicial deformation retraction relative to K₀, reducing to a null attachment if A is geometrically nonempty. If A={∅}, the result is K₀ plus a disjoint point, precisely the wedge with S⁰. Thus the relative homology assertion holds as well. Each of the 45 K₆ matching-complex edges lies in exactly one of its 15 triangles. Collapsing them leaves a connected graph with 15 vertices and 30 edges: 16 circles. The punctured complexes give K₃,₃ up to homotopy, yielding four 2-spheres and the large join yielding 256 3-spheres. Independent face-polynomial multiplication gives (32,340,1476,2589,1404,234), χ=−251; A has 100 faces counting ∅. Replay is in the repaired RESULT.md and VERIFICATION.md. Read the frozen checker and verification without running uploads; mod-two ranks alone do not certify integral homotopy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The grid paper treats 3×2n rectangular grids and includes general simplicial tools. Polygonal line tilings are computed by Morse methods. The honeycomb paper records matching-complex equivalence for even complete graphs."
+        ],
+        "reasoning": "None of the inspected graph-family theorems covers arbitrary even sides with the specified cut and endpoint edges. The general topological lemma needs the parity, intersection and nullhomotopy lemmas specific to this graph cut.",
+        "searches": [
+          "arXiv:2611.18058v1 pp. 1, 3; arXiv:2407.05809v2 abstract; arXiv:2209.02803 §1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support; identical Resultary record 8173e19d7c9f, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2611.18058v1",
+        "arXiv:2209.02803",
+        "arXiv:2407.05809v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior lemma gives Del(v)∨ΣLk(v) only after the link inclusion is nullhomotopic. The graph proof supplies precisely that inclusion via internal endpoint edges and distinguishes {∅} from a nonempty attaching realization."
+        ],
+        "reasoning": "What is claimed beyond the known topology is a reusable cut criterion and its resulting graph decomposition. It is not a claim to the general null-attachment theorem, or to a new proof of any covered tiling result.",
+        "searches": [
+          "arXiv:2611.18058v1 §2 p.3 OA offset 10735, link–deletion lemma",
+          "arXiv:2209.02803 §1 p.3 OA offset 5763"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Removing one bridge edge from the simplicial complex leaves a cone on A attached to K₀; the other bridge is dominated. The classical link/deletion null-attachment lemma gives the suspension once the graph-specific attachment is proved."
+        ],
+        "reasoning": "The abstract splitting mechanism is equivalent and known. No inspected prior result identifies the link and deletion for this even-side, endpoint-adjacent construction or gives its graph claim.",
+        "searches": [
+          "Resultary semantic lookup: perfect matching complex cut/gluing, two-edge-cut splitting, null attachment, double K6",
+          "arXiv:2611.18058v1 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical mirrored record supplies the exact example but is not a separate result. The inspected complete-graph fact covers the individual factors, not the graph obtained by adjoining just two crossing edges."
+        ],
+        "reasoning": "Even a table for one K₆ does not list the integral homotopy type of this two-clique graph; face counts alone do not imply the wedge.",
+        "searches": [
+          "Resultary exact double K6 wedge Betti ranks 4,256; frozen mirror 8173e19d7c9f",
+          "arXiv:2209.02803 §1 for complete-graph matching-complex data"
+        ]
+      },
+      "rationale": "The standard topological splitting and complete-graph identification are prior; the exact graph-cut attachment and two-clique application are supported distinct content. The repaired convention handles genuine legal graph inputs, not a new priority claim about suspension of an empty complex.",
+      "residual_risks": [
+        "An unindexed exact decomposition in graph-gluing or matching-complex literature remains possible. The search was bounded, not historical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same topological mechanism, different graph theorem",
+          "evidence": "§2 has the link–deletion nullhomotopy lemma; paper computes Fibonacci sphere wedges for the grid.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.18058",
+          "material_read": "v1 p.1 abstract and p.3 §2 near offset 10735",
+          "method": "Lawful OA PDF bounded passages",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "General perfect-matching complex gluing and sphere-wedge decompositions"
+        },
+        {
+          "assessment": "Known equivalence for complete even graphs, does not compute the two-clique cut",
+          "evidence": "Every ordinary matching on a complete even graph extends to a perfect matching.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.02803",
+          "material_read": "§1 p.3 OA offset 5763",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Foundational definitions and complete-graph input to the example"
+        },
+        {
+          "assessment": "Different tiling-family theorem; abstract inspection is not exclusion of all internal lemmas",
+          "evidence": "Classifies polygonal-line-tiling complexes by discrete Morse methods.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+          "material_read": "v2 p.1 abstract, offset 0",
+          "method": "Lawful OA PDF bounded passage",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "Potential overlap for graph pieces glued along small interfaces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result replaces perfect-matching topology across a natural even 2-edge separator with two smaller joins, while preserving the original zero-cross subcomplex on integral homology. It gives a tractable exact mixed-dimensional example rather than just Euler/Bettis, and covers degenerate pieces with the proper convention. The value lies in the graph-specific compositional test, not in the standard pushout theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

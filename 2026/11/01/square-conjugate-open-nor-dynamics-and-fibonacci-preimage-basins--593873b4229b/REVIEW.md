@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The bipartite NOR operator decomposes as \((X,Y)\mapsto(g(Y),f(X))\). The antitone Galois relation gives \(fgf=f\) and \(gfg=g\), which proves a genuine involution on the image. The inverse-image parity splitting on a path has the exact three-case Fibonacci edge-cover count \(\mathcal F_{L-1+2t}\); the endpoint flags and isolated zero runs are included, rather than inferred from tests. The basin formula follows from \(F^3=F\), so every initial state has a unique recurrent destination. Direct exhaustive checks cover every bipartite graph up to parts of size three and all path states through order nineteen. The infinite statements rest on the symbolic proof, not the enumerations.
+PASS
 
-## Originality — PASS (historically qualified)
+For a bipartition A⊔B the maps f and g test absence of adjacency across the partition. The polarity Y⊆f(X) iff X⊆g(Y) gives fgf=f and gfg=g. The independently variable input sides yield im F=im g × im f; the restrictions of f,g are inverses there. Hence the bijection (X,Y)↦(X,g(Y)) conjugates the image dynamics, not the full Boolean cube, to swap. Since F is involutive on that image, it is precisely the recurrent set. Fixed states are both independent and dominating, precisely maximal independent sets including all isolated vertices. Thus the counts follow from the square and its diagonal. On a path each of two output parities uses disjoint input bits; between successive sites of a parity there is one possible input edge. The parity-dependent stubs come from real path endpoints adjacent to only one site of the output parity. Ones forbid their incident edges, so zero runs separate and each requires an edge cover using internal edges and its available stubs. For length L and t stubs, the L−1+t edge bits have no adjacent pair of zeros, with 2−t endpoint edges forced when those forced edges are distinct. The remaining L−3+2t bits give F_{L−1+2t}; for L=2,t=0 the two endpoint constraints force the same edge, giving one; L=1 has counts 0,1,3, also as stated. Thus multiplication produces all one-step fibers including impossible words. Basins are disjoint unions of the attractor states’ one-step fibers because all states land in the image immediately. The all-zero/all-one basin, path maximal-independent-set recurrence and the two exponential fractions follow from the displayed run and recurrence formulas; both parities in the distinguished basin have leading numerator φ^{n+2}/5. Replay: RESULT.md lines 34–73. Both checker sources, stored outputs and VERIFICATION.md were inspected, not rerun; they are finite examples, not proof. Paths use n≥2, and the square bijection is for finite loopless undirected bipartite graphs, not closed or asynchronous NOR.
 
-The maximal-independent-set characterization of fixed points, classical Fibonacci/Padovan enumerations, and two-period restrictions are prior art, explicitly excluded from the novelty assertion. Known special cases of small bipartite graphs do not, by themselves, determine all bipartite recurrence or the run-specific individual path basins. Aledo–Martínez–Valverde's 2013 independent-local-function paper is highly relevant by name; the accessible 2015 survey reports a fixed-point restriction incompatible with the open-neighborhood rule used here, so no implication of the exact path fiber theorem was established. Full text of that 2013 paper, the 2019 parallel-predecessor study, and some earlier studies was not obtained. Full accessible accounts of the 2015 survey and later 2017/2020 minterm/maxterm studies were compared using the local update definitions and stated conclusions; they do not establish the open-NOR path basin result. A literature search is not a proof that no equivalent formulation exists.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The square-conjugate recurrent subsystem is an exact structural invariant of all bipartite open-NOR dynamics. The additional run-product formula gives a full individual attraction-basin classification, not merely aggregate orbit counts, for the canonical infinite family of paths with a linear-arithmetic evaluation algorithm. It also yields two distinct exponential decay scales for already-periodic configurations and a natural distinguished basin. These results are useful to distinguish orbit multiplicity from basin mass and provide exact cases for comparisons with general Boolean network dynamics.
+The supported distinct contribution is the complete finite-path predecessor and basin product with explicit endpoint effects. The square description is a correct direct application of the standard polarity; no separate novelty is assigned to Galois closure, the diagonal maximal-independent-set correspondence, or short recurrence. The strongest retrieved alternate formulations do not establish the same evaluated path product. An older exact-table risk remains explicit.
 
-## Closest literature and limits
+## value
 
-The 2004 maximal-independent-set correspondence is established background. The 2013 independent-local-function article, 2012 maxterm/minterm paper, and 2019 parallel-predecessor paper could not be read fully; their accessible records were assessed only to the level supported by abstracts and the full 2015 survey. Generality is limited to bipartite graphs for the square law and to paths for the Fibonacci edge-cover formula. Independent validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The evaluated factorization resolves every basin size and every impossible one-step output for a natural finite dynamical system. It exposes precisely how endpoints and runs affect multiplicity, with a linear arithmetic evaluation rather than a census or mere period restriction. Its value is the complete individual-basin information, not the classical diagonal count, short recurrence, or isolated Fibonacci edge-cover identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

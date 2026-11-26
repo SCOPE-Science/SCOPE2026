@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The recurrence follows directly from the source coefficients. The nonnegative-coefficient regime gives sufficiency. In the intermediate regime the opposite-sign roots, a strict Padé-style comparison excluding resonance, and explicit modal coefficients prove delayed even-index sign loss; at higher stiffness the second value is negative. The inverse-distance law follows by differentiated root splitting. `check.py` reproduces the essential identities and sample indices.
+## correctness
 
-**Originality (PASS, with priority risk).** The source's complete discussion of optimized two-step coefficients, stability, error constants and numerical tests does not characterize this scalar positivity boundary or the exact delay. Prior BDF2 and parareal-coarse-operator sign-loss analyses involve different coefficients and initialization and do not imply the stated \(16/15\) frontier or its delay constant. General linear-recurrence techniques are known; the contribution is their complete sharp application to this optimized method. Earlier uninspected absolute-monotonicity literature may still contain an equivalent specialization.
+PASS
 
-**Value (PASS).** The scheme is proposed specifically for stiff ODE integration, where positive decaying modes arise. The exact all-iterate safe step and the diverging first-error horizon provide implementable guidance beyond A-stability and transient numerical testing. This is a focused exact method-specific classification, not a broad new multistep stability theorem.
+Substituting f=-λy in the printed rule and dividing by the positive implicit multiplier gives A=(16-9s)/(48+25s), B=(32-30s)/(48+25s) on y_n and y_{n+1}, respectively. With A>0 and B>=0 through s_0=16/15, induction gives strict positivity, including B=0. At s>=16/9 one has A<=0, B<0, so y_2=A+B exp(-s)<0 even at the endpoint. Between these values the characteristic roots are distinct, with r_-<0<r_+<|r_-|. For q=(2-s)/(2+s)>0, the numerator of q^2-Bq-A over (s+2)^2(48+25s) is exactly 4s^3. Thus q>r_+, and exp(-s)>q by 2 artanh(s/2)>s. This proves c_+>0>c_- and excludes the exceptional pure-positive-root start. Odd iterates are positive, and y_{2j}<0 exactly when 2j log(|r_-|/r_+) exceeds log(c_+/(-c_-)). Taking floor plus one is valid even if an earlier iterate is exactly zero. At s_0, A=3/35, B'=−45/112; the log-root ratio equals log((sqrt(B^2+4A)-B)/(sqrt(B^2+4A)+B)), with first-order term 45(s-s_0)/(112 sqrt(3/35)). The startup coefficient ratio tends to the stated finite positive ratio, and the floor changes the index by at most two. This yields the stated inverse-distance constant, independently evaluated as 1.8343063999443295… .
 
-**Limitations.** Only exact startup and scalar constant-step decay. Not an assertion about the source's TR-BDF2 initialization. No general parameter-family classification. Self-review validation does not replace independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The method, root-stability properties and a sufficient arbitrary-positive-history threshold are not new. The same-family phase diagram also gives both transition values and identifies the single exceptional positive ratio between them. The distinct contribution is the exact exponential starter's strict nonresonance throughout that open interval and the resulting parity, strict first-negative index and sharp delay coefficient. The broader diagram does not evaluate those features; its later catalog date is not needed to separate the statements.
+
+## value
+
+PASS
+
+The exact scalar sign test is meaningful for a named stiff integrator: A-stability does not protect a positive decaying scalar mode. The sharp index estimates show why an above-threshold step may pass any fixed finite positivity test, and when negativity first appears under exact startup. This gives a usable diagnostic beyond the already-known coefficientwise guarantee and does not claim analogous behavior for arbitrary starts or nonlinear systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

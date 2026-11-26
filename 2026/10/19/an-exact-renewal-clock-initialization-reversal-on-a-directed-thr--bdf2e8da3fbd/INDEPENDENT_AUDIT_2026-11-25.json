@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:21:34.722899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the independent-clock process used in the proof, immediately after A activates the opinion pair (u,v) represents (u,u,v). Conditional Poisson evolution over length t gives expectations u+(v−u)te^(−t) at B and u+(v−u)e^(−t) at C. Averaging gives the stated 2-by-2 stochastic matrix and invariant row ((1−φ)/K,m/K). For each indicator opinion, that row gives a bounded martingale. At every later renewal the conditional chance that C activates before B and before the next renewal is (1−E[e^(−2T)])/2>0; this ensures almost-sure absorption and justifies using the martingale to read fixation probabilities. The first interval U gives coefficients p_B=(1−φ)E[e^(−U)]/K and p_C=((1−φ)E[Ue^(−U)]+mE[e^(−U)])/K. For the equilibrium residual the two transforms are 1−φ and 1−φ−m (differentiate (1−E[e^(−sT)])/s at 1); substituting establishes equality of p_B and p_C. Erlang-2 gives K=23/27 and checks the two vectors and strict inequalities 25/69>23/69>19/69. This argument needs independence of A's renewals and the Poisson clocks, as used in the frozen renewal/memorylessness argument; marginal clock laws alone do not suffice. The frozen VERIFICATION.md and Erlang-stage checker were inspected; the checker was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu and Porter describe unidirectional copying with independent heterogeneous event laws and give general fresh-start equations (including Eq. 2.9). Their displayed convergence theorems treat common waiting-time laws or heterogeneous exponential laws.",
+          "Masuda, Gibert and Redner use intrinsic Markovian flip rates; memoryless clocks have no initialization distinction. Takaguchi and Masuda primary full text could not be verified."
+        ],
+        "reasoning": "Chu and Porter's model contains the fresh process, but general evolution equations do not evaluate its fixation weights. The frozen result solves a special geometry and additionally treats equilibrium residual initialization. A Markovian heterogeneous-rate result cannot distinguish these two starts for Erlang-2.",
+        "searches": [
+          "Chu and Porter arXiv:2208.12787 §2.1 and Theorems 2.2 and 2.7",
+          "Masuda, Gibert and Redner arXiv:1003.0768 pp. 1–2",
+          "Takaguchi and Masuda doi:10.1103/PhysRevE.84.036115"
+        ]
+      },
+      "checked_sources": [
+        "Chu and Porter arXiv:2208.12787",
+        "Masuda, Gibert and Redner arXiv:1003.0768",
+        "Two closest Resultary records (full text of confidence record, summary only of two-vertex record)",
+        "Takaguchi and Masuda DOI 10.1103/PhysRevE.84.036115 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior framework supplies renewal-clock copying dynamics but does not evaluate the two-protocol fixation laws in the inspected passages; the two-node gap result only controls initial survival."
+        ],
+        "reasoning": "A general framework can formulate this process, but the reduction to a two-coordinate renewal-epoch invariant row, and its composition with the residual-clock first interval, are needed to obtain the exact coefficients and sign reversal. The classical residual-life identity by itself is not a fixation formula.",
+        "searches": [
+          "Chu and Porter, primary Eq. (2.9), Theorems 2.2 and 2.7",
+          "Resultary renewal voter/coalescing-lineage variants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest two-node renewal-copying entry 2026/10/25/SCOPE-an-exact-two-vertex-obstruction-to-a-non-Markovian-opinion-maste--2058ed395f4b, indexed summary",
+          "Three-agent reversal in 2026/10/25/SCOPE-exact-fixation-and-consensus-time-classification-for-persistent--07134c506520, mirrored RESULT.md Finding"
+        ],
+        "reasoning": "The first entry addresses survival of a two-opinion gap before the first event; one update can end that two-node process. The second gives a numerical fixation reversal for a discrete-time complete triangle with persistent confidence, not the directed cycle with an initialized renewal law. Neither inspected statement is an equivalent formulation. Both issue dates are later than the assigned record's issue date.",
+        "searches": [
+          "Resultary: exact renewal-clock initialization reversal on a directed three-agent opinion cycle; fresh/equilibrium fixation; renewal-clock voter and coalescing-lineage variants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest triad index hit persistent--07134c506520, mirrored Finding: 35/113 and 47/113 arise under confidence/zealot dynamics on a complete triangle"
+        ],
+        "reasoning": "No comparable exact fixation table was identified. A table for an Erlang law would only check one example, not the arbitrary-positive-law formulas; the inspected indexed triad computation has different transitions.",
+        "searches": [
+          "Resultary: exact fresh/equilibrium fixation with directed three-agent renewal-clock voter; Erlang initialization reversal"
+        ]
+      },
+      "rationale": "The supported distinct claim is the closed pair of fixation laws for the directed triad, especially the equilibrium equality and reversal for an unchanged interarrival law. Heterogeneous renewal copying, equilibrium initialization, and the residual-life transform are not new. None of the inspected prior formulas gives the joint comparison by substitution alone.",
+      "residual_risks": [
+        "Primary text of the Takaguchi–Masuda comparator and full text of the two-vertex index hit were unavailable in the attempted routes.",
+        "The bounded search does not rule out a stronger renewal-graph fixation theorem or an equivalent calculation stated in terms of backward lineages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fresh-start framework overlap, no evaluated joint comparison in the inspected results",
+          "evidence": "Unidirectional copying and node-specific waiting times; Eq. (2.9) is a master equation, while the inspected theorems impose homogeneous laws or exponential heterogeneity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.12787",
+          "material_read": "p. 3 model, §2.1 pp. 4–5 about offsets 14000–19188, Theorem 2.2 p. 12 and Theorem 2.7 p. 14",
+          "method": "OA primary PDF, bounded passages",
+          "title": "Non-Markovian Models of Opinion Dynamics on Temporal Networks",
+          "trigger": "Same node-clock copying framework"
+        },
+        {
+          "assessment": "Different, memoryless activation model",
+          "evidence": "Intrinsic flip rates and Markovian domain-wall hopping rates do not cover Erlang or general renewal aging.",
+          "identifier_or_url": "https://arxiv.org/pdf/1003.0768",
+          "material_read": "pp. 1–2, model and domain-wall rates",
+          "method": "OA primary PDF",
+          "title": "Heterogeneous Voter Models",
+          "trigger": "Possible finite-graph fixation formula for heterogeneous clocks"
+        },
+        {
+          "assessment": "Comparison remains qualified",
+          "evidence": "The frozen source describes edge-attached renewal activation and a choice of copying endpoint; primary statement not verified, so access failure is not evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.84.036115",
+          "material_read": "Frozen citation and model comparison; APS full text unavailable on attempted routes",
+          "method": "OA primary retrieval attempts returned 403",
+          "title": "Voter Model with Non-Poissonian Interevent Intervals",
+          "trigger": "Equilibrium versus ordinary initialization in renewal voter dynamics"
+        },
+        {
+          "assessment": "Summary-level, partial related setting",
+          "evidence": "Two-node opinion gap equals its initial value times the two first-wait survivals.",
+          "identifier_or_url": "2026/10/25/SCOPE-an-exact-two-vertex-obstruction-to-a-non-Markovian-opinion-maste--2058ed395f4b",
+          "material_read": "Resultary indexed summary; full file unavailable in local mirror",
+          "method": "Resultary semantic search and mirror attempt",
+          "title": "An exact two-vertex obstruction to a non-Markovian opinion master equation",
+          "trigger": "Exact independent renewal copying"
+        },
+        {
+          "assessment": "Different graph and dynamics",
+          "evidence": "Discrete-time complete triangle with persistent confidence and zealot dynamics, not renewal residual versus fresh initialization.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-fixation-and-consensus-time-classification-for-persistent--07134c506520",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Exact fixation and consensus-time classification for persistent confidence",
+          "trigger": "Exact triad fixation reversal relative to 1/3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete fixation calculation on the first directed cycle where one update need not produce consensus. The equilibrium equality is structural and holds for arbitrary positive mean-one laws, while the explicitly reversed bias shows why the renewal interval law and node rates do not by themselves characterize a prediction absent the initialization protocol.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

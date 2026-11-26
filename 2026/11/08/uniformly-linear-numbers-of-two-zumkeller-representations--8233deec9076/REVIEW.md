@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition counts ordered pairs. The proof supplies exact divisor partitions for the two infinite base progressions by binary-power subset sums; proves the coprime-multiplier closure directly; establishes all nine even residue covers; and uses the independent 44-pair exhaustive divisor-sum computation for the odd covers. Every constructed summand is positive and Zumkeller; the constructed ordered pairs are pairwise distinct. At most one in eleven odd parameters is excluded. The inequalities are valid at all stated endpoints and imply a positive uniform \(\liminf R(n)/n\). The checker verifies all 88 finite seeds and 3,915 sampled totals; finite sample tests are only corroboration.
+PASS
 
-## Originality — PASS (within inspected evidence)
+The multiplicative partition proof is correct for coprime factors. The displayed binary divisor subsets give the two progression families, with k≥1 and k≥3, respectively. An independent exhaustive check of all proper-divisor subset sums confirms the six even seeds and all 88 odd seeds from Table 1, full coverage of the 44 odd residues, the nonzero quotient differences modulo 11, and maximum seed M=94185. In the even case n−a−β is a multiple of 18 and is at least −2, so it is nonnegative even at n=90. The shifts 18a²t give floor(m/a²)+1 distinct ordered pairs. In the odd case n>M makes each integral seed quotient positive. Select one quotient m not divisible by 11. Among the first T=ceil(m/s²) shifts the other summand stays positive and at most ceil(T/11) fail its divisibility test (none if 11 divides s). Combining the two slopes with R(n)≤n−1 proves the liminf and order claims; no limit is asserted. Frozen replay files: check.py and check_output.txt. The uploaded script was inspected rather than executed; the exhaustive seed check was independently written, and finite sampling is not used to prove the unbounded estimates.
 
-The 2023 Somu--Kukla--Tran work establishes existence and the 44 finite pairs but does not establish the universal linear representation count. The implication is not merely a restatement of existence: it constructs a long family of distinct decompositions for **each** target, with an explicit uniform count. The published table supplies indispensable finite data but not this multiplicity theorem. OEIS A083207 and A368007 classify membership and absence, not representation multiplicity. Targeted searches found no equivalent conclusion; unindexed published arguments remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The counting function for representations of a fixed integer as a sum of two members of a natural arithmetic set is a standard, motivated additive invariant. The theorem achieves the largest possible order, linear in the target, **uniformly for both parities**. That is considerably stronger quantitative information than the previously known finite exceptional-set classification. The exact leading coefficient and any limiting density are left open.
+The original membership facts and residue certificate are already published. The supported distinct result is the uniform quantitative multiplicity bound obtained by moving each seed through coprime multiples and counting the admissible simultaneous shifts; none of the inspected close statements supplies a multiplicity conclusion. This is a bounded comparison, not a priority certification.
 
-## Scientific limits
+## value
 
-The coefficient is not optimized, and the two-sided statement concerns order rather than an exact asymptotic equivalent. Only standard positive Zumkeller numbers are studied. The 44 finite seeds are verified by the included exhaustive arithmetic checker; no independent external validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The additive question changes from eventual solvability to how abundant solutions are in every sufficiently large target, including the harder odd targets. Turning a finite residue certificate into a uniformly linear family and showing how to control the mod-11 losses yields the sharp growth order, not a tiny threshold improvement or a recomputed membership table. The small explicit constant is a certified byproduct, not the source of the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:26:43.845803Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The horizon is inclusive, so S_0=1−h. With u=1−2a and w=2−2b the four survivor-domain intervals have lengths u,3a−1,2−3b,2b−1. The two intermediate image endpoints 4a−1 and 4b−2 lie strictly in the hole, so the source images cover exactly the claimed destination intervals, up to null endpoints. The four-state inverse-branch operator sends (1,n+1,n+1,1) to (1,n+2,n+2,1)/2, giving density 2^(−n)(1,n+1,n+1,1) at time n. Integrating its outer and inner components gives 2^(−n)[2h+(n+1)(1−3h)], hence the stated tail and, by summation, the mean 4−8h. Normalization gives outer mass 2h/[1−h+n(1−3h)] tending to zero and the two inner weights in the statement, with convergence in total variation. The examples both have width 1/4 and respective left weights 8/25 and 14/25; reflection of the first would instead give (39/100,64/100). The partition endpoints u,a,b,w eventually hit the hole under the literal map, so they do not add surviving itineraries. An infinite survivor either alternates forever between the two outer pieces, stays in an inner piece, or exits the outer cycle at one finite time to one inner loop. Expansion gives at most one point per itinerary, and the periodic points are exactly those stated. The number of finite admissible itineraries grows only linearly; each itinerary has a bounded number of orbit-separated points at any fixed separation scale, yielding zero entropy. The all-parameter replay is the image and density argument (RESULT.md lines 37–77); the exact inverse-interval checker was inspected, not executed, and its finite samples are not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former theorems characterize symbolic survivors, maximal plateaux and dimensions for general holes.",
+          "The latter compares escape rates for hole locations and records measure-preserving commuting symmetries."
+        ],
+        "reasoning": "Even when a common symbolic transition graph or an escape rate is known, finite-time Lebesgue survival and terminal masses also depend on interval lengths. The explicit branch covering and density calculation provide these extra data.",
+        "searches": [
+          "Ding–Steiner–Sun arXiv:2610.03327 Theorems 1.3–1.5",
+          "Bunimovich–Yurchenko arXiv:0811.4438 Lemma 3.0.7 and Markov-hole escape results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ca3ad35b54de",
+        "Resultary 36a44984c1f2",
+        "Resultary 4bb4293ceb82",
+        "arXiv:2610.03327 Theorems 1.3–1.5",
+        "arXiv:0811.4438 Lemma 3.0.7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A diagonal formula cannot specify the off-diagonal length dependence; the critical fixed placement only supplies one equal-weight terminal law.",
+          "The asymmetric prior explicitly exhibits identical symbolic survivor subshifts with different first-entry PGFs, demonstrating the substantive distinction between a survivor plateau and an escape-time plateau."
+        ],
+        "reasoning": "Here the two inner lengths enter S_n only through their sum 1−3h but the terminal left probability reads one of them individually. This distinction is neither a parameter substitution nor a consequence of symbolic plateau membership alone.",
+        "searches": [
+          "Local Resultary ca3ad35b54de, 36a44984c1f2, 4bb4293ceb82 original statements",
+          "Ding–Steiner–Sun Theorems 1.3–1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 law agrees exactly upon setting b=1−a, and the November 8 law agrees at one symmetric boundary hole after changing its horizon index.",
+          "The listed examples are not reflections; on the circle the commuting translations for x↦−2x have 3c=0 mod 1, and the translation between the listed holes has size 1/50."
+        ],
+        "reasoning": "Diagonal/boundary specializations and symmetry-related equal rates are genuine overlaps but do not give equal finite-horizon tails for a continuum of asymmetric placements of a fixed width.",
+        "searches": [
+          "Local Resultary: negative-doubling escape-time law, asymmetric holes and terminal survivor laws",
+          "Bunimovich–Yurchenko arXiv:0811.4438 Lemma 3.0.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October symmetric formula is 2^(−n)[2a+2n(3a−1)_+]. The November critical formula is 4(m+1)/(5·2^m) with a time convention m=n+1 and gives equal inner weights.",
+          "The November 17 asymmetric record gives exact probability-generating functions for nested holes with left endpoint 1/4, outside the present cell, whose escape-time laws differ."
+        ],
+        "reasoning": "There is exact overlap on the diagonal and at one boundary point, but no table or formula in those sources treating fixed-width off-diagonal placements with varying terminal weights.",
+        "searches": [
+          "Local Resultary records ca3ad35b54de, 36a44984c1f2 and 4bb4293ceb82",
+          "Exact symmetric and asymmetric survival-law formulas in their Findings"
+        ]
+      },
+      "rationale": "Credit the prior exact diagonal and boundary-hole results, including the previously computed terminal profile at one boundary hole. A distinct record also gives all-horizon laws for asymmetric holes, but with different widths and different laws. The surviving distinct result is the all-horizon equal-width identity on an open off-diagonal cell together with continuously varying terminal weights; neither the symbolic plateau literature nor the inspected exact families give that result.",
+      "residual_risks": [
+        "Unindexed or uninspected asymmetric Markov-cell calculations could give further overlap; this is not a historical-priority determination.",
+        "The diagonal and critical cases must not be credited as new independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact diagonal overlap",
+          "evidence": "Its hole is (a,1−a); substituting h=1−2a reproduces the reviewed survival formula when a>1/3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-escape-time-phase-transition-for-symmetric-negative-doubli--ca3ad35b54de/RESULT.md",
+          "material_read": "Finding, finite-time formula at offset 384",
+          "method": "Local published-file mirror",
+          "title": "Exact escape-time phase transition for symmetric negative-doubling holes",
+          "trigger": "Identical map and exact finite-time symmetric law"
+        },
+        {
+          "assessment": "Exact boundary overlap after horizon conversion",
+          "evidence": "The hole is (2/5,3/5), and m observations there mean n+1 in this convention. Both formulas and equal terminal weights agree at that point.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-uniform-switching-times-and-a-polynomial-escape-tail-at-a--36a44984c1f2/RESULT.md",
+          "material_read": "Finding at offset 0 including time and terminal intervals",
+          "method": "Local published-file mirror",
+          "title": "Exact uniform switching times and a polynomial escape tail at a negative-doubling critical hole",
+          "trigger": "Exact escape and terminal profiles at the symmetric critical hole"
+        },
+        {
+          "assessment": "Exact asymmetric laws for a different family and a different comparison",
+          "evidence": "The two holes are nested with common left endpoint 1/4 and unequal widths; their symbolic survivors agree but their first-entry PGFs and means differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-topological-plateau-with-distinct-first-escape-laws-in-asymmetri--4bb4293ceb82/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0–3300",
+          "method": "Local published-file mirror",
+          "title": "Topological plateau with distinct first-escape laws in asymmetric negative doubling",
+          "trigger": "Closest distinct asymmetric exact finite-time result"
+        },
+        {
+          "assessment": "Broader symbolic/topological results, not the claimed measure formulas",
+          "evidence": "These results address symbolic realizability, plateaux, and Hausdorff dimension rather than finite-time Lebesgue masses and terminal laws.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03327",
+          "material_read": "Theorems 1.3–1.5, PDF pp. 6–7, passage starting at offset 18402",
+          "method": "OA PDF",
+          "title": "Open dynamical systems in topologically expansive decreasing Lorenz maps",
+          "trigger": "General parameter theory for central holes of the negative-doubling map"
+        },
+        {
+          "assessment": "Related escape-rate and symmetry methods",
+          "evidence": "Commuting measure-preserving symmetries supply equality for symmetry-related placements; the examples audited here are not of that type.",
+          "identifier_or_url": "https://arxiv.org/pdf/0811.4438",
+          "material_read": "Lemma 3.0.7, PDF p. 6, offset 19336, and related Markov-hole escape-rate context",
+          "method": "OA PDF",
+          "title": "Where to place a hole to achieve a maximal escape rate",
+          "trigger": "Equal-size holes and symmetry-based escape-rate equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural inverse question is whether complete escape-time data identify the state conditioned on survival. The explicit open cell offers a stronger counterexample than equal exponential rates or a symmetry: all finite escape probabilities agree at fixed width, but a fixed observable, the terminal probability on the left half, can be varied strictly. The four-state calculation also makes the mechanism transparent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

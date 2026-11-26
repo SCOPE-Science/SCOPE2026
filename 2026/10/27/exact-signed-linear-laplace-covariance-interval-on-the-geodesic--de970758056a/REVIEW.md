@@ -1,11 +1,21 @@
-# Scientific review: exact affine-Laplace positivity on the circle
+# Independent mathematical audit
 
-**Correctness (PASS).** The complete Fourier coefficient calculation is reproduced in `RESULT.md`. All Fourier coefficients reduce to the sign of \(1-bR_n\), and the two exact extremal values of \(R_n\) are proved by parity monotonicity and the strict inequality \(2\sinh(\pi a)>\pi a(1+a^2)\). Endpoint degeneracy and strict positive definiteness are handled by Fourier uniqueness rather than finite tests. The independent numerical integral comparisons in `checker.py` passed 120 cases with maximum discrepancy \(5\times10^{-15}\), and finite circulant matrices give negative witnesses on both exterior sides. None of these finite tests substitutes for the all-mode analytic argument.
+## correctness
 
-**Originality (PASS, bounded evidence).** The nearest directly relevant source is Gneiting, arXiv:1111.7077, whose Theorem 1 supplies the general Fourier criterion and whose Example 2 excludes the usual geodesic Matérn-\(3/2\) profile. Neither passage provides the two-sided affine-coefficient interval, the zero-versus-high-even spectral boundary split, or the sharp exponentially small near-Matérn shortfall. Feragen–Lauze–Hauberg, arXiv:1411.0296, cover the uncorrected geodesic Laplace kernel, while Huang–Li, arXiv:2201.12856, build the *periodic spectral* Matérn family rather than the intrinsic signed affine-Laplace family. No equivalent formula was recovered in the checked mathematical research index or title/parameter web searches. Residual risk: an earlier special-function calculation or an unindexed covariance table might contain the same explicit interval.
+PASS
 
-**Value (PASS).** A smoothness-inspired Euclidean Matérn correction is known to be invalid after intrinsic circle substitution, but the maximum admissible *partial* correction was not quantified by those sources. This complete classification supplies both a positive and a negative correction range, quantifies the near-Matérn boundary loss, and identifies different extremal Fourier modes and nontrivial strictness at the mean-zero boundary. It is a natural covariance-design invariant, not an arbitrary finite-parameter table or a routine numerical bound.
+For the intrinsic circle of circumference 2pi, even Fourier integration gives F_n=a(1-(-1)^n exp(-pi*a))/(a^2+n^2)>0 and coefficient (F_n-b F'_n)/pi. Separately in each parity class F'_n/F_n strictly increases; the even limit is the unattained global supremum. The difference between the least odd and even values is 2/[a(a^2+1)]-pi/sinh(pi*a)>0 by the cubic lower bound for sinh and pi^2>3. Thus the lower bound is the reciprocal of the negative zero-mode derivative ratio and the upper bound is the reciprocal of the positive even limit. Strict positivity at the lower endpoint follows because an atomic measure with no nonzero Fourier modes would equal a multiple of Haar measure; for distinct sites this forces every weight to vanish. The even coefficients at the upper endpoint have a positive (a^2+n^2)^-2 tail; negativity outside is detected by mode zero or sufficiently large even modes, respectively. Taylor expansion and the difference a-b_+ give the stated limits and deficit. Fresh bounded replay: python3 /workspace/review_replay.py circle; direct 45-digit quadrature at a=.002,.4,1,1.7 and an independent 256-site circulant at a=1 confirmed selected endpoint and exterior signs, not the all-mode statement. At a=1 it reproduced endpoints -1.1653548145454739 and .87573937173774468. This is not a result for chordal distance or a periodized Euclidean Matérn.
 
-**Limitations.** The theorem is about geodesic circles and affine corrections only. It does not classify polynomial corrections of higher degree, higher-dimensional spheres or circle-periodized Euclidean Matérn kernels. The bibliographic review is bounded; independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current evidence: the specific interval with its two different endpoint mechanisms and sharp deficit is distinct. The general Fourier characterization, the uncorrected exponential kernel and the failure of the uncorrected geodesic Matérn-3/2 profile are prior and receive no novelty credit. The closest indexed prior modulation uses cos(theta), not theta; neither its spectral inequalities nor the general positivity theorem supplies the required all-mode extremal derivative comparison.
+
+## value
+
+PASS
+
+The affine term is a motivated correction to a standard invalid intrinsic covariance; the interval gives an exact design rule for every range parameter. The signed lower boundary and strict finite-site positivity despite losing the mean mode are useful distinctions not provided by the known Matérn exclusion. The exact exponentially small short-range deficit and fourth-order even-mode tail also explain why a finite spectral scan may miss failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

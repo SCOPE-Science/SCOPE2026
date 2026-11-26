@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:46:00.681149Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§ Finding, Assumptions and Proof",
+        "VERIFICATION.md and CHECK.py (inspected, not executed)",
+        "Replay: python3 /workspace/branches/subsets_replay.py; output /workspace/branches/subsets_replay.txt"
+      ],
+      "rationale": "Grouping nonempty subsets by exact gcd g gives f(floor(n/g)) in each class. Hence the deficit Δ_D is one plus the sum over nondivisor indices. Its first term g=r has size 2^floor(n/r) up to the gcd>1 union-bound error; the remaining at most n terms are at most 2^floor(n/(r+1)) each. Every binomial coefficient in row m divides lcm(1,…,m), since each floor difference in its p-adic valuation is 0 or 1 and vanishes beyond log_p m. This gives n≥2^(r−1)/r, so r=O(log n). The gap between the leading floor and the next is at least n/[r(r+1)]−1; after division by the main term both errors, including their polynomial factors, are O(exp(−cn/log²n)). The first index for Δ_Φ is the least prime factor, so direct lower and upper bounds give the exponent comparison, with gap at least 1/6 in the appropriate direction by parity. A least nondivisor cannot have two coprime proper prime-power factors. Its exact p-adic characterization and the identity r>R iff lcm(1,…,R)|n give the density and summable tail; the bounded-test-function truncation proves weak convergence without mass at zero.",
+      "residual_risks": [
+        "Replay independently uses Möbius inversion through n=450 and explicit subset gcds through 17, tests lcm divisibility through 160 and fibers through 180000. It corroborates but does not establish the infinite estimates and law. The uniform constant is existential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 gives summatory asymptotics, and the published 2^n equivalences for D and Φ are for the undifferenced functions.",
+          "The parity-sign result attributed to Local behaviors, taken by itself, only compares the deficit ratio with 1."
+        ],
+        "reasoning": "Neither the compared summatory statements nor a parity sign theorem subsumes the stated pointwise relative asymptotic or limiting law.",
+        "searches": [
+          "Pongsriiam (2013), Theorem 3",
+          "Pongsriiam (2016), Local behaviors, DOI and alternate manuscript routes"
+        ]
+      },
+      "checked_sources": [
+        "Pongsriiam arXiv:1306.4891",
+        "Local behaviors DOI and identified manuscript routes",
+        "Resultary e3e2e0e56cb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The catalogue bounds R(n) above and below by 2^h(n) times reciprocal polynomial factors; these give the same normalized ratio exponent and diverging/vanishing parity limits.",
+          "The original partition result makes an exact sum available but does not supply uniform dominance over variable phases; the new estimate bounds the competing terms using r=O(log n)."
+        ],
+        "reasoning": "The ratio conclusions are covered by the later result, whereas its polynomial envelopes do not imply exponential relative accuracy of Δ_D or the prime-power masses.",
+        "searches": [
+          "arXiv:1306.4891, Thm. 3, Cor. 9, Question 3.3",
+          "Resultary e3e2e0e56cb2, ratio-bound display"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corollary 9 already identifies D(n) via gcd dividing n.",
+          "The catalogue parameter a(n) is the least nondivisor r(n), and p(n) is the least prime factor; its h(n) is the same difference of floors."
+        ],
+        "reasoning": "The ratio rate is genuinely equivalent at logarithmic precision, but this equivalence does not recover a relative-error estimate for the individual Δ_D or a distribution of its phases.",
+        "searches": [
+          "Pongsriiam arXiv:1306.4891, Corollary 9 and Question 3.3",
+          "Resultary e3e2e0e56cb2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later indexed result has explicit two-sided finite ratio envelopes and parity limits, not the all-phase law.",
+          "A224840 is a tabulation of D(n) and gives the gcd-subset characterization, not a pointwise deficit theorem."
+        ],
+        "reasoning": "The identified ratio overlap is credited. A finite D(n) sequence does not give the uniform exponential precision, fiber masses, or limit distribution.",
+        "searches": [
+          "Local Resultary lookups for least nondivisor, gcd-subset deficit, and complementary ratio; e3e2e0e56cb2 inspected",
+          "Frozen comparison to OEIS A224840"
+        ]
+      },
+      "rationale": "The distinct main contribution is the uniform exponentially precise asymptotic for the single deficit and its prime-power phase law. Credit the material later catalogue overlap on the ratio exponent and parity limits; do not count those as distinct from that record. The 2013 paper's partial-sum questions are not resolved here.",
+      "residual_risks": [
+        "The full 2016 paper was inaccessible via the lawful routes tried, so stronger estimates elsewhere in it are not ruled out. The Resultary search was bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational identities and questions, not the reviewed precise pointwise main term",
+          "evidence": "Question 3.3 includes pointwise limsup/liminf and two additional partial-sum questions; Theorem 3 is summatory.",
+          "identifier_or_url": "https://arxiv.org/pdf/1306.4891",
+          "material_read": "Pointwise equivalences (p. 3); Thm. 3 (p. 4, offset 8300), Cor. 9 (p. 10, offset 26900), Question 3.3 (p. 12, offset 30700)",
+          "method": "OA PDF bounded passage inspection",
+          "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+          "trigger": "Founding definitions, asymptotics and open question"
+        },
+        {
+          "assessment": "No whole-document coverage claim; parity theorem known here only from attributions",
+          "evidence": "The attributed sign change of D−Φ alone does not show the ratio tends to zero or infinity.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793042116500962",
+          "material_read": "Bibliographic identification; no theorem text obtained from publisher or identified manuscript",
+          "method": "Publisher, lawful author-manuscript and OA DOI recovery attempts",
+          "title": "Local behaviors of the number of relatively prime sets",
+          "trigger": "Most plausible later primary treatment of the ratio question"
+        },
+        {
+          "assessment": "Later material overlap in ratio-rate and parity conclusions, not in main term and phase law",
+          "evidence": "2^h/[2(n+1)]≤R≤2(n+1)2^h, with the same h and parity limits.",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-arithmetic-growth-law-for-complementary-relatively-prime--e3e2e0e56cb2",
+          "material_read": "Mirrored RESULT.md finding and comparison",
+          "method": "Local Resultary search and bounded mirror inspection",
+          "title": "Uniform arithmetic growth law for complementary relatively-prime subset deficits",
+          "trigger": "Strongest local catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Pongsriiam (2013), Question 3.3"
+      ],
+      "rationale": "The deficit scale is not visible in D(n)∼2^n. Identifying a uniform leading term even when the smallest omitted gcd varies yields a complete arithmetic phase law and answers the pointwise limit questions in the founding paper.",
+      "residual_risks": [
+        "No answer is claimed for the partial-sum ratios in the same question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

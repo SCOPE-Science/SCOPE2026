@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:14:14.315659Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–98; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent finite check: for each cycle multiplicity vector m of total size n, take its class size n! / product(j^m_j m_j!) and its fixed-subset count 2^(1+sum(gcd(i,j)m_i m_j))-1; additionally form the simultaneous row/column orbits on nonempty subsets directly for n=2,3. The frozen verify.py is the supplied standalone replay path and requires Python 3.9+ standard library.",
+        "Magill, Canadian Mathematical Bulletin 9 (1966), p. 73"
+      ],
+      "rationale": "For any index set of size at least two, a central subset can contain no off-diagonal unit: a suitable singleton multiplied on the left produces a nonzero unit with a second coordinate impossible in the right product. Commuting with every singleton then forces equal diagonal-support membership for all indices. The full diagonal without zero squares to the diagonal with zero, so the central idempotents are exactly {0} and E, the diagonal with zero. Multiplying by E adjoins zero; its characteristic image identifies with all binary relations, the absorbing singleton corresponding to the empty relation. Nonempty rectangles give the least nonzero Green J-class by singleton sandwiches. Their right and left Green classes recover the row and column supports. The rectangle zero-product condition recovers disjointness between supports, hence inclusion; singleton atoms recover row and column relabelings which agree by singleton incidence. Edge membership of every relation is recovered by singleton sandwiches. After removing that simultaneous relabeling, an automorphism fixes the relation copy pointwise and has E Phi(X)=EX. A set not containing zero cannot map to its fixed zero-adjoined partner by injectivity. Thus there are no additional automorphisms. In finite rank, each pair of permutation cycles of lengths a,b yields gcd(a,b) ordered-pair orbits, so Burnside counts all fixed subsets as 2^(c+1)-1 after removing the empty one. The independent cycle-type calculation gave 19, 207, 6087, 583935, and 193857983, with direct orbit enumeration also confirming n=2,3. For support size k, all ordered pairs involving a moved index have orbit length at least two, so c<=n^2-nk/2; at most n^k permutations move k indices. The corresponding normalized nonidentity sum is bounded by the geometric tail starting at k=2 of ratio n*2^(-n/2), which tends to zero. The subtracted singleton count in the Burnside formula does not affect the asymptotic.",
+      "residual_risks": [
+        "The finite checks verify stated orbit counts, not the absence of hidden automorphisms or the asymptotic. The multiplication proof treats all subsets for potentially infinite I, but Burnside and the asymptotic are finite-index assertions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tamura's title names isomorphisms of power semigroups of completely zero-simple semigroups, a class including the finite matrix-unit case; no theorem passage was available. Tringali–Wen prove trivial automorphism groups for a different family of nonempty sumset power semigroups, of numerical semigroups."
+        ],
+        "reasoning": "A theorem saying the base is determined up to isomorphism would not by itself prove every specific power-semigroup automorphism is induced by a base permutation. A stronger isomorphism-induction theorem could cover this claim, but that strength cannot be inferred from the available bibliographic metadata. Numerical semigroup rigidity does not cover this noncommutative zero-simple family.",
+        "searches": [
+          "Tamura DOI 10.1016/0021-8693(86)90002-5; targeted theorem and author-manuscript lookup",
+          "Tringali–Wen arXiv:2604.26901, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Magill DOI 10.4153/CMB-1966-009-7",
+        "Tamura DOI 10.1016/0021-8693(86)90002-5 (bibliographic only)",
+        "Tringali–Wen arXiv:2604.26901",
+        "OEIS A000595 and A000273",
+        "Later Brandt center record identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof builds the characteristic idempotent E, identifies its image with Magill's relation semigroup, and uses the at-most-two-member fibers of multiplication by E to force uniqueness of the lift."
+        ],
+        "reasoning": "Once the full automorphism group is identified, the finite orbit corollary is mechanically implied by the relation census. Conversely Magill's group calculation and the relation counts alone provide no intrinsic characterization of the image of E or injectivity of the restriction map for the larger multiplicative semigroup. Those steps constitute the supported addition.",
+        "searches": [
+          "Magill's theorem and corollary on p. 73",
+          "OEIS A000595 cycle-index formula",
+          "Tamura DOI 10.1016/0021-8693(86)90002-5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Magill proves innerness of every automorphism of the full binary-relation semigroup. The later Brandt record for finite G and I gives the entire center and specializes to the same central idempotents at trivial G and n>=2; its Finding is not an automorphism classification."
+        ],
+        "reasoning": "The binary-relation theorem acts only on the zero-containing subsets. An automorphism of the whole nonempty power semigroup must first be shown to preserve that part and then to be determined by its restriction. The later center computation overlaps with the first ingredient in the finite case but does not establish earlier coverage of the whole result.",
+        "searches": [
+          "Resultary: matrix-unit and Brandt power-semigroup rigidity and automorphism orbits",
+          "Magill DOI 10.4153/CMB-1966-009-7, p. 73",
+          "SCOPE-central-subsets-of-brandt-power-semigroups-recover-conjugacy-cla--eed1acb94dd5, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000595 counts unlabeled binary relations (digraphs with loops), gives the same cycle-type gcd formula and the asymptotic 2^(n^2)/n!, and lists 10, 104, 3044, 291968, 96928992 for n=2 through 6. A000273 is loopless and is not the underlying sequence."
+        ],
+        "reasoning": "The claimed finite orbit sequence is exactly 2*A000595(n)-1. The extra bit is invariant, and only the empty subset must be removed, so the list and leading asymptotic are direct transforms of the earlier results. That table does not determine what the ambient semigroup automorphisms are.",
+        "searches": [
+          "OEIS A000595, definition, terms and formula/asymptotic near offset 3995",
+          "OEIS A000273, definition for the loopless comparison"
+        ]
+      },
+      "rationale": "The supported distinct result is the intrinsic recovery of the relation subsemigroup and the proof that its simultaneous relabelings exhaust the automorphisms of the nonempty matrix-unit power semigroup. The internal relation theorem is classical. The orbit formula, terms and asymptotic, as orbit-enumeration facts, are the known loop-allowed relation results with an extra invariant zero-membership bit and the exclusion of the empty subset. Their relevance here follows from the structural theorem, and they receive no independent novelty credit. A particularly close prior power-semigroup paper, Tamura (1986), remains an access and priority risk but no inspected statement establishes the same automorphism classification.",
+      "residual_risks": [
+        "Tamura's full theorem remains uninspected after lawful lookup; the pass is best-of-knowledge for the additional matrix-unit automorphism statement, not a historical priority guarantee. The relation count and asymptotic are already covered and are not part of the novelty decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the lemma only",
+          "evidence": [
+            "Every automorphism of the full relation semigroup is inner; the group is the permutation group of the underlying set."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1966-009-7",
+          "material_read": "Cambridge PDF, p. 73, theorem and corollary",
+          "method": "Bounded primary PDF inspection",
+          "title": "Automorphisms of the semigroup of all relations on a set",
+          "trigger": "Identical relation-subsemigroup rigidity lemma"
+        },
+        {
+          "assessment": "Plausible unresolved scope, not classified as noncovering",
+          "evidence": [
+            "Journal of Algebra 98 (1986), pp. 319–361; the article's title confirms the family investigated but not a statement about all automorphisms."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0021-8693(86)90002-5",
+          "material_read": "Bibliographic/landing information only; no theorem passage retrievable",
+          "method": "DOI and publisher routes, plus targeted alternate-copy/theorem lookup",
+          "title": "Isomorphism problem of power semigroups of completely zero-simple semigroups",
+          "trigger": "Broad type embraces matrix units and could classify induced isomorphisms"
+        },
+        {
+          "assessment": "Different base-semigroup family",
+          "evidence": [
+            "The statement is about nonempty sumset power semigroups of numerical semigroups."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.26901",
+          "material_read": "p. 1 abstract",
+          "method": "Bounded primary PDF inspection",
+          "title": "On the automorphisms of the power semigroups of a numerical semigroup",
+          "trigger": "Rigidity of nonempty power semigroups"
+        },
+        {
+          "assessment": "Direct coverage of the counting ingredient and its asymptotic",
+          "evidence": [
+            "Same gcd cycle-index count for ordered pairs, and the listed asymptotic 2^(n^2)/n!, attributed there to McIlroy (1955)."
+          ],
+          "identifier_or_url": "https://oeis.org/A000595",
+          "material_read": "Definition/terms at offset 0 and formula/asymptotic near offset 3995",
+          "method": "Bounded database inspection",
+          "title": "Number of binary relations on n unlabeled points",
+          "trigger": "Exact loop-allowed orbit numbers and asymptotic"
+        },
+        {
+          "assessment": "Later-dated center theorem that directly subsumes a finite structural ingredient, not the automorphism classification",
+          "evidence": [
+            "Computes the center, its multiplication and idempotent count for finite G and I; with trivial G and n>=2 the center consists of {0}, the diagonal, and the diagonal with zero, and only the first and last are idempotent."
+          ],
+          "identifier_or_url": "SCOPE-central-subsets-of-brandt-power-semigroups-recover-conjugacy-cla--eed1acb94dd5",
+          "material_read": "Mirrored RESULT.md, Finding and assumptions, offsets 0–2213",
+          "method": "Local mirror inspection",
+          "title": "Central subsets of Brandt power semigroups recover conjugacy-class and normal-subgroup counts",
+          "trigger": "Same nonempty Brandt power semigroups and intrinsic center"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof, characteristic image and lift sections",
+        "Magill's relation-subsemigroup theorem and OEIS A000595 for separation from known ingredients"
+      ],
+      "rationale": "The central idempotent and injective restriction determine exactly what multiplication alone remembers about the indices when no union structure is imposed and the base zero creates distinct lifts of a relation. That is a natural structural question for a noncommutative power semigroup and is resolved even for arbitrary index sets. The transformed classical counts clarify the consequence of rigidity; they are not the reason for the value pass.",
+      "residual_risks": [
+        "This is a matrix-unit result; it gives no rigidity theorem for general nontrivial-group Brandt semigroups. Historical overlap with Tamura remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

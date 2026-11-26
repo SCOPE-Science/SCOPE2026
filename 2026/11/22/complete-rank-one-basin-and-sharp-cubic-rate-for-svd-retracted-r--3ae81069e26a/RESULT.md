@@ -1,106 +1,75 @@
 # Complete rank-one basin and sharp cubic rate for SVD-retracted Riemannian Gauss–Newton
 
 ## Finding
-For full observations of any real rank-one target, SVD-retracted rank-one Riemannian Gauss–Newton converges from every nonzero rank-one starting matrix except those whose left and right column spaces are **both** perpendicular to the respective true factors. If either starting factor is already aligned, it terminates in one iteration; if exactly one factor is orthogonal, it terminates in two. Every remaining start has strictly improving left and right principal angles, never terminates finitely, and converges with a sharp **cubic** logarithmic precision rate:
-\[
-\lim_{k\to\infty}\frac1k\log\log\left(\frac{\|X_\star\|_F}{\|X_k-X_\star\|_F}\right)=\log 3.
-\]
-The convergence statement includes arbitrary nonzero singular scales at initialization and arbitrary ambient dimensions at least two. The cubic rate is specific to the singular-value-decomposition retraction; an orthographic retraction has a different population behavior.
+
+For exact, noiseless full observations of a nonzero real rank-one target, the SVD-retracted rank-one Riemannian Gauss–Newton iteration is defined and converges from every nonzero rank-one matrix except when both its column space and its row space are perpendicular to those of the target. At that exceptional set the tangent projection vanishes and there is no next rank-one iterate. The complete classification of the other starts is:
+
+- If either factor span already matches its target span, the next update returns the target. This includes the case where the other factor span is perpendicular to its target span.
+- If neither factor span matches its target span and exactly one is perpendicular to its target span, the iteration reaches the target in exactly two updates.
+- If both principal angles lie strictly between zero and \(\pi/2\), both angles decrease strictly at every step and no iterate equals the target. The sharp logarithmic precision rate is
+  \[
+  \lim_{k\to\infty}\frac1k\log\log\left(\frac{\|X_\star\|_F}{\|X_k-X_\star\|_F}\right)=\log 3.
+  \]
+
+The starting singular magnitude is arbitrary and nonzero. The cubic angle map below is for SVD retraction; an orthographic retraction can have different population dynamics.
 
 ## Assumptions and scope
-Fix integers \(m,n\ge2\), unit vectors \(u_\star\in\mathbb R^m\), \(v_\star\in\mathbb R^n\), and a nonzero scalar \(\gamma\). Let the observed target be \(X_\star=\gamma u_\star v_\star^\top\). By absorbing the target sign and scaling, the proof below uses \(\gamma=1\); the algorithm and error rescale homogeneously. Start from any nonzero rank-one \(X_0\in\mathbb R^{m\times n}\), with unit left and right singular directions \(u_0,v_0\) (each defined up to sign). No restriction is placed on its nonzero singular magnitude.
 
-For a current nonzero rank-one \(X_k\) having factor spans \(\operatorname{span}(u_k)\) and \(\operatorname{span}(v_k)\), its embedded fixed-rank tangent-space projection is
+Let \(m,n\ge2\), \(X_\star=\gamma u_\star v_\star^\top\), where \(\gamma\ne0\) and \(u_\star,v_\star\) are real unit vectors. Let \(X_0\) be nonzero and rank one. If \(u_k,v_k\) are its current unit singular directions, put
 \[
-P_{T_k}(Z)=Z-(I-u_ku_k^\top)Z(I-v_kv_k^\top).
+  P_{T_k}(Z)=Z-(I-u_ku_k^\top)Z(I-v_kv_k^\top),\qquad
+  W_k=P_{T_k}(X_\star),\qquad X_{k+1}=\mathcal T_1(W_k).
 \]
-With the identity measurement operator (noiseless full Frobenius observations), consider the Gauss–Newton tangent solve followed by **best rank-one SVD retraction**:
-\[
-W_k=P_{T_k}(X_\star),\qquad X_{k+1}=\mathcal T_1(W_k),
-\]
-where \(\mathcal T_1(W)\) is its unique largest-singular-value rank-one approximation whenever the top singular value is strictly greater than the second and is positive. A zero \(W\) is excluded from the rank-one manifold, so the rule does not define its next rank-one iterate. The method is the full-observation specialization of the SVD-retracted Riemannian Gauss–Newton update in Wu–Cai–Xu–Yang [1].
-
-Write \(a_k=\sqrt{1-|u_k^\top u_\star|^2}\) and \(b_k=\sqrt{1-|v_k^\top v_\star|^2}\) for the principal-angle sines. If \(a_k=b_k=1\), then \(W_k=0\). If \(a_k=0\) or \(b_k=0\), the next iterate equals \(X_\star\). If exactly one of \(a_k,b_k\) equals one and the other is strictly smaller, the first update aligns the orthogonal factor, and the second equals \(X_\star\).
-
-For the nontrivial case \(0<a_0,b_0<1\), all iterates exist, \(0<a_{k+1}<a_k\), \(0<b_{k+1}<b_k\), both angle errors tend to zero, and
-\[
-a_{k+1}=a_k b_k^2\left[1+O(a_k^2+b_k^2)\right],\qquad
-b_{k+1}=a_k^2 b_k\left[1+O(a_k^2+b_k^2)\right].
-\]
-The big-O estimates are uniform in a fixed sufficiently small angle neighborhood, with numerical constants independent of dimension. The displayed double-logarithmic limit holds for these nontrivial starts; it is not asserted for finite-termination cases, where the logarithm becomes infinite.
+The first formula is the orthogonal projector onto the embedded rank-one tangent space. For the identity observation operator the Gauss–Newton step projects \(X_\star-X_k\) to that tangent space; since \(P_{T_k}(X_k)=X_k\), adding the step gives \(W_k\). Here \(\mathcal T_1\) denotes the truncated SVD, unique when the leading singular value is positive and simple. The exceptional zero projection is not retracted to a rank-one iterate. The proof sets \(\gamma=1\): rescaling the target rescales each projected and retracted matrix by the same factor, preserving the spans, the strict ordering of singular values and the relative Frobenius error.
 
 ## Proof
-**1. Reduction to a two-dimensional plane on each side.** Since \(W_k\) is built from the target and current one-dimensional factor spaces, its nonzero singular vectors lie in \(\operatorname{span}(u_\star,u_k)\) and \(\operatorname{span}(v_\star,v_k)\). Orient the current factors so their overlaps with the target are nonnegative. Set \(a=\sin\theta\), \(b=\sin\phi\), \(c=\cos\theta=\sqrt{1-a^2}\), \(d=\cos\phi=\sqrt{1-b^2}\). In orthonormal bases \((u,u_\perp)\), \((v,v_\perp)\), where \(u_\star=c u+a u_\perp\) and \(v_\star=d v+b v_\perp\), direct substitution gives
-\[
-W=\begin{pmatrix}cd&cb\\ad&0\end{pmatrix}.
-\]
-This expression does not depend on the initial singular magnitude. Its squared leading singular value is simple for all \(0<a,b<1\): the off-diagonal entries of both positive semidefinite Gram matrices are strictly positive.
 
-**2. Strict improvement and convergence for every interior start.** The left Gram matrix is
+**1. Interior starts and monotonicity.** Suppress the iteration index. Define \(a,b\) as the sines of the left and right principal angles to the target and set \(c=\sqrt{1-a^2}\), \(d=\sqrt{1-b^2}\). In the interior all four numbers are positive. Choose signs of the current factors to have positive target overlaps, and choose unit \(u_\perp,v_\perp\) with \(u_\star=cu+au_\perp\), \(v_\star=dv+bv_\perp\). The projected matrix has nonzero singular directions in these two-dimensional planes. In the bases starting with \(u,v\), the matrix and its Gram matrices are
 \[
-WW^\top=\begin{pmatrix}c^2&ac d^2\\ac d^2&a^2d^2\end{pmatrix}.
+ W=\begin{pmatrix}cd&cb\\ad&0\end{pmatrix},\quad
+ WW^\top=\begin{pmatrix}c^2&ac d^2\\ac d^2&a^2 d^2\end{pmatrix},\quad
+ W^\top W=\begin{pmatrix}d^2&bd c^2\\bd c^2&b^2 c^2\end{pmatrix}.
 \]
-If \(\lambda_+\) denotes its larger eigenvalue, strict positivity of the off-diagonal gives \(\lambda_+>c^2\). Its determinant is \(a^2b^2c^2d^2>0\), hence \(\lambda_+<\operatorname{tr}(WW^\top)=c^2+a^2d^2\). Thus the leading left eigenvector, represented by \((1,t)\) in these bases, has
+The leading eigenvalue \(\lambda_+\) of \(WW^\top\) is simple and exceeds \(c^2\) by strict positivity of the off-diagonal. The determinant is \(a^2b^2c^2d^2>0\), so \(\lambda_+<c^2+a^2d^2\), the trace. The leading left eigenvector has positive first coordinate and slope
 \[
-0<t=\frac{\lambda_+-c^2}{ac d^2}<\frac ac.
+ 0<\frac{\lambda_+-c^2}{ac d^2}<\frac ac.
 \]
-It lies strictly between the old left direction \(u\) and the true direction \(u_\star\). Hence its principal-angle sine satisfies \(0<a_{+}<a\). Exchanging left and right gives \(0<b_{+}<b\), since
-\[
-W^\top W=\begin{pmatrix}d^2&bd c^2\\bd c^2&b^2c^2\end{pmatrix}.
-\]
-For interior starts, both angle sequences decrease and remain strictly positive. Suppose their limits are \(a_\infty,b_\infty\). The update is continuous through the interior and through each singly aligned boundary. A positive interior limit contradicts strict improvement, and a limit with exactly one zero forces the other angle to zero at the next update, since \(W=X_\star\) on that boundary. Therefore both limits are zero. Positivity at each finite step excludes finite termination in the interior case.
+Thus the updated direction is strictly between the old and true directions: \(0<a_+<a\). The right Gram matrix gives \(0<b_+<b\) by the same argument. This proves uniqueness, strict decrease and nontermination in the interior. The two angle sines have limits in \([0,a_0]\times[0,b_0]\) with both upper bounds strictly below one. The angle update is continuous there: the leading singular value is simple in the interior and at aligned boundaries, where the projected target is the target itself. An interior limit would violate strict decrease at a fixed point, and a boundary point with one angle zero maps to both angles zero. The two angle sines therefore tend to zero.
 
-**3. Cubic local angle map.** In bases with first axes \(u_\star,v_\star\), the same tangent projection has exact form
+**2. Cubic angle map and relative matrix error.** In the bases starting with the target directions, oriented so the current directions have coordinates \((c,a)\) and \((d,b)\), the same projection has matrix
 \[
-W=\begin{pmatrix}
-1-a^2b^2&a^2bd\\ab^2c&-abcd
-\end{pmatrix}.
+ W=\begin{pmatrix}1-a^2b^2&a^2bd\\ab^2c&-abcd\end{pmatrix}.
 \]
-Its Gram off-diagonal entries factor exactly as
+The Gram off-diagonals are exactly \((WW^\top)_{12}=ab^2c^3\) and \((W^\top W)_{12}=a^2bd^3\). The gaps between the respective diagonal entries are \(1+O(a^2+b^2)\). For a real symmetric two-by-two Gram matrix with such a diagonal gap and off-diagonal entry \(h\), the dominant eigenvector has slope \(h/(\lambda_+-G_{22})\) over the first axis. Since \(\lambda_+-G_{22}=1+O(a^2+b^2)\), normalization gives its second coordinate as \(h[1+O(a^2+b^2)]\). Consequently
 \[
-(WW^\top)_{12}=ab^2c^3,\qquad
-(W^\top W)_{12}=a^2bd^3.
+ a_+=ab^2[1+O(a^2+b^2)],\qquad b_+=a^2b[1+O(a^2+b^2)].
 \]
-The gaps between the respective Gram eigenvalues equal \(1+O(a^2+b^2)\) as \(a,b\to0\). For the dominant normalized eigenvector of a real symmetric \(2\times2\) matrix with diagonal gap tending to one, its second coordinate equals the off-diagonal entry times \(1+O(a^2+b^2)\). Consequently,
+The estimates are uniform in a fixed sufficiently small angle neighborhood with dimension-independent constants. The leading singular value \(s\) satisfies \(1-a^2b^2\le s\le\|W\|_F\le1\), from the target-axis entry and orthogonality of the projection. The leading left and right singular vectors can be paired with positive target overlaps, since in the old-factor bases the leading Gram eigenvectors have positive entries and \(W\) has nonnegative entries. Thus
 \[
-\frac{a_+}{ab^2}=1+O(a^2+b^2),\qquad
-\frac{b_+}{a^2b}=1+O(a^2+b^2).
+ \|X_+-X_\star\|_F^2=(s-1)^2+2s(1-\sqrt{1-a_+^2}\sqrt{1-b_+^2}).
 \]
-The leading singular value \(s_+(W)\) satisfies \(1-a^2b^2\le s_+(W)\le\|W\|_F\le1\); the last inequality uses orthogonality of the tangent projector. Thus the retracted amplitude error is \(O(a^2b^2)\), of higher order than the new angle errors. The strictly positive singular vectors of the old-basis matrix can be oriented with positive target overlaps, so, writing \(s=s_+(W)\), the next-error identity is
-\[
-\|X_+-X_\star\|_F^2=(s-1)^2+2s\left(1-\sqrt{1-a_+^2}\sqrt{1-b_+^2}\right).
-\]
-Its right side is \((1+o(1))(a_+^2+b_+^2)\) as the angle errors vanish; in particular the matrix error is comparable to \(\max(a_+,b_+)\).
+The scale error is \(O(a^2b^2)=o(\max(a_+,b_+))\) by the displayed angle formulas, so the squared matrix error is \((1+o(1))(a_+^2+b_+^2)\). In particular, the iterates converge in Frobenius norm.
 
-**4. Exact double-logarithmic exponent.** Define \(p_k=-\log a_k\), \(q_k=-\log b_k\) for an interior orbit. The two cubic angle recurrences give
-\[
-\binom{p_{k+1}}{q_{k+1}}
-=\begin{pmatrix}1&2\\2&1\end{pmatrix}\binom{p_k}{q_k}+o(1).
-\]
-Hence \(S_k=p_k+q_k\) obeys \(S_{k+1}=3S_k+o(1)\), while \(D_k=p_k-q_k\) obeys \(D_{k+1}=-D_k+o(1)\). Since \(S_k\to\infty\), elementary variation of constants gives \(S_k=C3^k+O(1)\) with \(C>0\); and \(D_k=O(k)\), so
-\[
-\min(p_k,q_k)=\tfrac C2 3^k+o(3^k).
-\]
-Since \(-\log\|X_k-X_\star\|_F=\min(p_k,q_k)+O(1)\) as \(k\to\infty\), taking another logarithm yields the asserted exact exponent \(\log3\). Reintroducing \(\gamma\ne0\) only changes errors by its absolute scale and leaves the limit unchanged.
+**3. Sharp double-logarithmic exponent.** For an interior orbit put \(p_k=-\log a_k\), \(q_k=-\log b_k\). The angle recurrences yield \(p_{k+1}=p_k+2q_k+o(1)\) and \(q_{k+1}=2p_k+q_k+o(1)\). Set \(S_k=p_k+q_k\), \(D_k=p_k-q_k\). Then \(S_{k+1}=3S_k+o(1)\) and \(D_{k+1}=-D_k+o(1)\). The errors are bounded, so the increments of \(3^{-k}S_k\) are absolutely summable with tail \(O(3^{-k})\), giving \(S_k=C3^k+O(1)\). Necessarily \(C>0\) because \(S_k\to\infty\). The other recurrence gives \(D_k=O(k)\). It follows that \(\min(p_k,q_k)=C3^k/2+O(k)\), and the matrix error comparison gives \(-\log\|X_k-X_\star\|_F=\min(p_k,q_k)+O(1)\) in the normalized problem. This proves the stated double-logarithmic limit. No rate limit is asserted for finite termination.
 
-**5. Boundary starts.** If both \(c=d=0\), the projected target is zero. If \(a=0\) or \(b=0\), the projected target equals \(X_\star\). When \(c=0,d>0\), the projected matrix is \(W=d u_\star v^\top\), so its SVD retraction sets the left factor exactly and leaves the right factor unchanged, after which \(W=X_\star\). The symmetric case \(d=0,c>0\) is analogous. This exhausts all starts, proving the classification.
+**4. Boundary starts.** If both directions are perpendicular to their targets, the normal part is the full target, leaving \(W=0\). If one span matches its target span, the normal part vanishes and the first update is the target regardless of the other span. Otherwise, if \(c=0\) and \(d>0\), we have \(0<b<1\) and \(W=d u_\star v^\top\). This rank-one matrix aligns the left span but leaves the still nonaligned right span unchanged, so it is not the target. The next update is the target. Exchanging the sides gives the same conclusion when \(d=0\) and \(c>0\) and the left span is nonaligned. These cases and the interior exhaust all starts.
 
 ## Verification
-The included `verify.py` implements the tangent-space formula and truncated SVD independently in NumPy, checks exact rational Gram identities, strict contraction for interior starts, ambient-dimension consistency, degenerate boundaries and the leading cubic coefficients. It produced **15,310 passed assertions**. These finite checks are diagnostic only; the proof above establishes the universal statement over all dimensions and initializations. Reproduce using `python verify.py` with Python 3 and NumPy installed.
+
+The unchanged `verify.py` checks exact rational Gram identities, strict interior contraction in finite numerical cases, higher-dimensional consistency, boundary projection formulas and the leading cubic coefficients. Run `python verify.py` from the original support-file directory using Python 3 and NumPy. The original verification reports 15,310 assertions. These are diagnostic checks; the proof is the universal convergence argument.
 
 ## Relationship to prior work
-Wu, Cai, Xu and Yang [1, §2, Algorithm 1] specify precisely this tangent solve followed by truncated-SVD retraction, and establish sample-complexity and local Q-quadratic estimates for Gaussian observations and spectral initialization. The full-observation all-start classification, exact exceptional set and cubic (rather than merely quadratic) asymptotic are additional deterministic properties of that SVD-retracted rule. Cai, Lu and You [2, Lemma 5.3 and Appendix C.2.3] prove a population **orthographic** retraction identity giving one-step recovery in a local neighborhood; it is not the SVD retraction here and does not imply a cubic SVD orbit. The general retraction survey [3] distinguishes SVD and orthographic retractions, while Hou, Li and Zhang [4] analyze gradient descent (not Gauss–Newton) with random initialization. The earlier recursive importance sketching method [5, §3.3] employs **orthographic** retraction and proves quadratic convergence, rather than this SVD-specific global cubic dynamics. The matrix formulas in this note are proved directly rather than inferred from those broader theories.
+
+Wu, Cai, Xu and Yang [1, §2.2 and Algorithm 1] define the tangent least-squares update with truncated-SVD retraction. Their Theorem 3.1 gives a local quadratic guarantee under Gaussian sensing and spectral initialization, not the deterministic rank-one basin or exact double-logarithmic rate here. Cai, Lu and You [2, Eq. (14), Lemma 5.3] prove a local population one-step identity for **orthographic** retraction, not the SVD retraction. Absil and Oseledets [3] distinguish these retractions. Hou, Li and Zhang [4] analyze gradient descent, not this map. The recursive importance sketching method [5] uses an orthographic retraction and gives a local quadratic result under its sensing assumptions. No absolute priority is claimed.
 
 ## Limitations
-This is a noiseless full-data baseline on the real rank-one manifold. It assumes exact tangent solves and exact singular-value decomposition; it does not prove the same basin or rate under incomplete measurements, noise, numerical rounding, higher rank, non-SVD retractions or constrained initialization. The double-orthogonal start has a zero tangent projection rather than an infinite-error estimate. The result is not a claim of absolute priority against every unindexed source.
+
+The theorem is for the real rank-one manifold, exact tangent solves and exact SVD with full noiseless observations. It does not imply the same basin or rate for incomplete observations, noise, rounding, higher rank, or other retractions.
 
 ## References
-[1] X. Wu, J.-F. Cai, Z. Xu, and Z. Yang, *Rank-Optimal Sample Complexity of Riemannian Gauss-Newton for Low-Rank Matrix Recovery*, arXiv:2611.01542v1, publicly posted 2026-11-01. https://arxiv.org/html/2611.01542v1
 
-[2] J.-F. Cai, X. Lu, and J. You, *Near-Optimal Nonconvex Matrix Completion*, arXiv:2609.17048, 2026. https://arxiv.org/abs/2609.17048
-
-[3] P.-A. Absil and I. Oseledets, *Low-rank retractions: a survey and new results*, technical report, 2014. https://sites.uclouvain.be/absil/2013-04/low_rank_retraction_13PA_techrep.pdf
-
-[4] T. Y. Hou, Z. Li, and Z. Zhang, *Fast Global Convergence for Low-rank Matrix Recovery via Riemannian Gradient Descent with Random Initialization*, arXiv:2012.15467, 2020. https://arxiv.org/abs/2012.15467
-
-[5] Y. Luo, W. Huang, X. Li, and A. R. Zhang, *Recursive Importance Sketching for Rank Constrained Least Squares: Algorithms and High-order Convergence*, arXiv:2011.08360v4, 2022; *Operations Research* 72 (2024), 237–256. https://arxiv.org/pdf/2011.08360
+1. X. Wu, J.-F. Cai, Z. Xu and Z. Yang, *Rank-Optimal Sample Complexity of Riemannian Gauss-Newton for Low-Rank Matrix Recovery*, arXiv:2611.01542v1, https://arxiv.org/html/2611.01542v1.
+2. J.-F. Cai, X. Lu and L. You, *Near-Optimal Nonconvex Matrix Completion*, arXiv:2609.17048, https://arxiv.org/abs/2609.17048.
+3. P.-A. Absil and I. Oseledets, *Low-rank retractions: a survey and new results*, 2014, https://sites.uclouvain.be/absil/2013-04/low_rank_retraction_13PA_techrep.pdf.
+4. Y. Hou, Z. Li and Z. Zhang, *Fast Global Convergence for Low-rank Matrix Recovery via Riemannian Gradient Descent with Random Initialization*, arXiv:2012.15467, https://arxiv.org/abs/2012.15467.
+5. Y. Luo, W. Huang, X. Li and A. R. Zhang, *Recursive Importance Sketching for Rank Constrained Least Squares: Algorithms and High-order Convergence*, *Operations Research* **72** (2024), 237–256; https://arxiv.org/pdf/2011.08360.

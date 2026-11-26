@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The regular-pentagon statement is fully quantified for all ten even exponents and neighboring convex labeled pentagons modulo similarities. The triangulation formula follows by binomial expansion and the beta-integral on each oriented triangle; the double-distance moment follows by binomial expansion of the even power. Dihedral symmetry plus scale invariance proves exact stationarity, and differentiating the quotient at stationarity yields the displayed normalized six-by-six Hessian. All positivity conclusions rest on the self-contained exact-integer interval implementation and its ten rational pivot tests, not on floating-point quadrature. The smallest certified pivot is \(>1/5\). Positive definiteness in a local similarity chart and smooth Taylor expansion prove a strict local minimum. Independent floating-point tensor quadrature provides only a secondary cross-check. A code-implementation error remains a reproducibility risk until independently reviewed.
+PASS
 
-## Originality — PASS (priority risk remains)
+The supplied scaled vertices give the Euclidean regular pentagon under (X,Y)→(X,sY); two fixed labeled adjacent vertices determine a unique local direct-similarity gauge. Nearby pentagons remain strictly convex and contain the origin, so the moment formula follows from the simplex beta integral on the five triangles. The pairwise energy is the stated binomial moment convolution, with s²=(5+sqrt(5))/8, and the two integration Jacobians and area normalization yield s^(−m). Dihedral covariance of the full vertex gradient makes its components a common radial multiple, which vanishes by scale invariance. The quotient rule then yields the stated normalized Hessian, including −(m+2)(m+1) A'A'^T/A² in B_m/E_m. The checker stores actual second derivatives, not half of the diagonal derivatives, and its integer endpoint multiplication and nonzero-divisor quotient contain the exact quantities. The Schur updates enclose the unpivoted LDL pivots; the recorded lower bounds all exceed 1/5. In a separate exact Q(sqrt(5)) recomputation for the limiting case m=3, all six pivots exceeded 1/5 by exact sign comparisons, with the least about 0.2154909091. The other nine exponents were checked by inspecting the mathematical formula, implementation and recorded output rather than executing submitted code. Positive definiteness and stationarity imply strict local minimality by Taylor's theorem in the slice; this is not a global claim.
 
-The central comparison is with Bogosel–Bucur–Fragalà (2023), arXiv:2302.11677v1, §3.1: they already report numerical *positive* transverse Hessians for exactly the same exponents and pentagon case. This observation is **not** new; their paper does not exhibit certified interval pivot inequalities or a proof of strict local minimality for the ten-exponent pentagon case. The claim advances numerical evidence to a formally replayable finite exact-arithmetic positivity argument. The 2021/2022 Bonacini–Cristoferi–Topaloglu work applies to triangles and quadrilaterals and decreasing kernels. The 2024 validated Faber–Krahn work handles a different Dirichlet eigenvalue. Published research searches and exact claim comparisons uncovered no rigorous dominating result; historical priority against unindexed sources and possible additional versions remains open.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-It resolves a specific, literature-motivated proof gap spanning ten exponents for a canonical five-sided geometry. The certificate separates true local stability from numerical optimizer/Hessian evidence and supplies exact checkable inequalities on every nonsimilarity mode. The result is a local benchmark for nonlocal polygon energies; it does not solve the global nonlocal isoperimetric problem nor all exponents/side counts.
+The numerical Hessian signs and their tested parameters, including k=6, belong to BBF. The distinct claim is an exact proof of strict local minimality in the higher-even pentagon window. Exact hexagon cases neither duplicate nor imply it; the related rigorous results for smaller powers, other kernels, or the first Dirichlet eigenvalue do not cover it.
 
-## Scope and verification limitations
+## value
 
-Only the listed ten even exponents, sufficiently nearby nondegenerate convex pentagons, and the displayed mathematical functional are covered. There is no global claim, no assertion of uniqueness among all polygons, and no third-party mathematical certificate. Independent audit would need to review the beta-moment formula, quotient-Hessian identity, code and rational interval execution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This certifies every nonsimilarity mode for a canonical polygon over the complete higher-even pentagon window numerically studied by BBF. The exponents and polygon are motivated by an existing numerical conjectural test, and the rigorous local result is useful even without any global inequality or classification for other real exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:47:16.605515Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ratio of successive (n+1)^s a_n is 1+O((n+1)^(-2)); summing its logs, including the tail estimate, gives a_n=c(n+1)^(-s)(1+O(1/n)), c>0. The squared Hilbert–Schmidt norm is the convergent sum of (n+1)a_n^2; both commutator products are trace class with equal trace. Direct row and column multiplication gives (1). Tail summation gives K_jj asymptotic to -2(s-1)c^2(j+1)^(1-2s)/(2s-1); for fixed sufficiently large i, K_ij is O_i((j+1)^(-s)), so the normalized entries tend to zero as O_i((j+1)^(-1/2)). For v_j=e_j-2e_(j+1)+e_(j+2), Rv_j has only two coordinates and R*v_j has its first j+1 coordinates equal to the second weight difference δ_j. The given ratio gives δ_j=O(a_j/(j+1)^2), and subtracting the exact squared norms leaves 2s a_j^2/(j+1)+O(a_j^2/(j+1)^2). The remote cross-term is minus δ_j times the coordinate sum of R*v_i, and normalizes to O_i((j+1)^(-3/2)). In each sign one can choose arbitrarily many indices successively so that every normalized absolute row sum off the diagonal is less than 1, proving definite subspaces of arbitrarily large dimension and hence infinite inertia by compact self-adjoint spectral theory. Finite prefix changes cause no issue, and (n+β)^(-s) has the required ratio. The supplied checker.py and its recorded 182 diagnostics were inspected, not executed; the all-dimensions claim is proved analytically, not by those checks. Reference 3 has a non-substantive bibliographic error: Rhaly's Terraced matrices is Bull. London Math. Soc. 21 (1989), 399–406; Houston J. Math. 15 (1989), 137–146 is p-Cesàro matrices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bellavita–Dellepiane–Stylogiannis give compactness and Schatten criteria for Rhaly matrices.",
+          "The geometric Cesàro record supplies an all-parameter result for its own kernel, but not for general variable row weights."
+        ],
+        "reasoning": "Schatten information on R_a provides compactness and trace properties of K_a, not inertia. No implication from compact triangularity alone is possible (compact diagonal examples have zero commutator). The inspected results do not provide a broader inertia theorem covering this ratio class.",
+        "searches": [
+          "arXiv:2503.21930, Theorems 1.2–1.3",
+          "Resultary: compact triangular and Rhaly operator spectra and commutator inertia"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.03182",
+        "arXiv:2503.21930",
+        "Resultary:de4cae30c19d",
+        "Resultary:7ef05af50a3c",
+        "Resultary:4dad66f8063e (identical finding, not independent prior evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior nonhyponormality plus trace zero implies at least one eigenvalue of either sign in the trace-class regime, not infinitely many.",
+          "Even a compact unilateral weighted shift with strictly decreasing square-summable positive weights has only one positive commutator eigenvalue and infinitely many negatives."
+        ],
+        "reasoning": "Compactness, nonhyponormality, trace balance and even Hilbert–Schmidt membership together do not settle either infinite-index assertion. The two definite-subspace estimates establish the additional claim specific to the Rhaly kernel.",
+        "searches": [
+          "arXiv:2408.03182, p. 2",
+          "arXiv:2503.21930, pp. 5–6",
+          "Resultary de4cae30c19d and 7ef05af50a3c, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gallardo-Gutiérrez–Partington, p. 2: a_n=(n+1)^(-α) with α>1 gives compact nonhyponormal Rhaly operators.",
+          "Resultary de4cae30c19d, Finding: C_t has entries t^(n-j)/(n+1), 0<t<1, and its self-commutator has both signs with infinite multiplicity."
+        ],
+        "reasoning": "Nonhyponormality means a negative direction, not unbounded negative index; changing commutator sign would just swap the two indices. For the geometric rows, ratios between consecutive entries in a row differ from one, unlike Rhaly rows. The boundary t=1 is outside that theorem and gives the ordinary Cesàro operator, not s>1.",
+        "searches": [
+          "Resultary: Rhaly/terraced power-decay matrices, self-commutator, signed inertia",
+          "arXiv:2408.03182, power weights and nonhyponormality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4dad66f8063e is the identical frozen record; de4cae30c19d gives a sign law for distinct Cesàro kernels; 7ef05af50a3c gives singular-value asymptotics of power-decaying Rhaly matrices."
+        ],
+        "reasoning": "No distinct exact match among the inspected records. Singular values of R_a are not signed eigenvalues of K_a, and an exact finite-section sign law for the other kernel is not a table for this one. The same date as a distinct record was not taken to establish priority.",
+        "searches": [
+          "Resultary query for infinite two-sided commutator inertia and power-decaying Rhaly matrices"
+        ]
+      },
+      "rationale": "The supported distinct claim is infinite inertia on both sides of zero for the stated positive, row-constant Rhaly class. Compactness, Schatten membership and failure of hyponormality for power weights are prior. The strongest inspected related signed-inertia result uses a different geometric dependence on the column index and does not cover these operators.",
+      "residual_risks": [
+        "Older terraced-matrix and broader semiseparable-kernel literature was not exhaustively searched. The inspected claims do not support an absolute priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage, not the signed multiplicities",
+          "evidence": "The p. 2 passage gives compactness and nonhyponormality for α>1; bibliography distinguishes Terraced matrices from p-Cesàro matrices.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.03182",
+          "material_read": "p. 2 power-weight discussion; p. 14 references",
+          "method": "Lawful paper text, targeted passage inspection",
+          "title": "Rhaly operators: more on generalized Cesàro operators",
+          "trigger": "Same operator and exact power family"
+        },
+        {
+          "assessment": "Covers compactness and Schatten membership, not the commutator signature",
+          "evidence": "Criteria concern R_a itself, not signs of R_a*R_a−R_aR_a*.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.21930",
+          "material_read": "Theorems 1.2–1.3, pp. 5–6",
+          "method": "Lawful paper text, targeted passage inspection",
+          "title": "Boundedness, compactness and Schatten class for Rhaly matrices",
+          "trigger": "Plausible general theorem for the same matrix class"
+        },
+        {
+          "assessment": "Different kernel, no implication or priority inferred from date",
+          "evidence": "Uses t^(n-j)/(n+1), with t strictly between zero and one, rather than a_n constant across row n.",
+          "identifier_or_url": "Resultary:de4cae30c19d",
+          "material_read": "Finding and assumptions, opening of RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "The signed finite-section law for compact Cesàro self-commutators",
+          "trigger": "Material signed-inertia overlap in a compact triangular family"
+        },
+        {
+          "assessment": "Same host, different invariant",
+          "evidence": "Singular-value asymptotics, rather than both signed indices of the self-commutator.",
+          "identifier_or_url": "Resultary:7ef05af50a3c",
+          "material_read": "Finding, opening of RESULT.md",
+          "method": "Resultary search and local mirror",
+          "title": "A lattice Weyl constant for power-decaying Rhaly matrices",
+          "trigger": "Same Rhaly power regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A qualitative failure of hyponormality leaves open how many directions have each sign, even for a compact trace-zero commutator. The two infinite indices give a structural answer across the natural power-decay regime beyond the ordinary Cesàro exponent and tolerate second-order ratio perturbations. No claim is made about eigenvalue asymptotics or the endpoint s=1.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

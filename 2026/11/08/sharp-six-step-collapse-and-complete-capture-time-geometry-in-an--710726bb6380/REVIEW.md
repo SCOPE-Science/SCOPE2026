@@ -1,19 +1,21 @@
-# Scientific review: exact capture times in the negative-input max-plus map
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion concerns only the explicit map \(F_B(X,Y)=(Y+\max(0,2X),B-\max(0,2X))\) for \(B<0\). The positive scaling by \(-B\) conjugates every permitted system to the normalized input \(-1\). The exhaustive four-case analysis of the signs of the first three successive first coordinates proves the fourth first coordinate is strictly negative for every initial state; its fifth first coordinate is also negative, and the sixth state is the target. A separate exact branch calculation derives every half-open capture strip, distinguishing the exceptional first-hit times zero and one on the switching half-plane. Seven explicit witnesses attain all seven times, proving the six-step bound minimal. The independently run exact-rational checker checked 16,353 cases, including exact thresholds and extreme positions. These checks corroborate rather than replace the real-variable proof. All inequalities, first-hit exceptions and boundary assignments are specified.
+PASS
 
-## Originality — PASS within checked literature
+Normalize by -B>0. The fixed-point equations give only (-1,-1). For j≥1, x_(j+1)=-1-2(x_(j-1))_++2(x_j)_+. Once x_j≤0 for j≥1 the next first coordinate is strictly negative and no later first coordinate becomes positive. If x_1,x_2,x_3>0 the recurrence instead gives x_4=-5-4u_+<0, so in every case x_4<0. When a last positive x_r exists, x_(r+1)≤0 and y_(r+1)<-1; x_(r+2)=y_(r+1)<-1 and y_(r+2)=-1, hence the first hit is r+3 (an equilibrium reached earlier cannot be left). Without a positive first coordinate the map is (u,v)→(v,-1)→(-1,-1), with the stated time-zero and time-one exceptions. On u≤0 test x_1=v, then x_2=2v-1, then x_3=2v-3 on the applicable positive branches; on u>0 test x_1=v+2u, then x_2=2(u+v)-1, then x_3=2v-3. Each zero belongs to the nonpositive branch. This recovers the full partition and gives time six exactly for v>3/2; (0,2) witnesses minimality. All seven times are realized by the displayed test states.
 
-The March and July 2021 sources by Ohmori and Yamazaki gives the model, its negative-parameter sink, a two-step absorption on the nonpositive quadrant, and a seven-step *upper bound* for a separate excitable region. It does not supply the sharp uniform global six-step cutoff or the all-plane first-hit partition with boundary exceptions. Their 2022 Poincare-map paper explicitly restricts its basin calculations to positive forcing. The 2024 generalized-map paper (§3.2) includes negative-input excitable trajectories but only asserts their eventual collapse, with no sharp six-step index or exact first-hit stratification on this coefficient slice. The related published homogeneous-map record proves a six-step uniform extinction only at **zero forcing** and does not imply the negative-forcing capture partition; its identical integer six does not cover the different parameter domain. A published record on Sel'kov branch exit concerns **positive forcing** and a geometric survival tail rather than exact negative-input collapse. Actual published-finding corpus searches included exact map terms, the negative sign, excursion/capture keywords and the horizontal threshold, and accessible historical claims were scanned for related maps and times. A publication-priority risk remains from unindexed or differently named work, or subsequent papers not included in the inspected full texts.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source motivates this map as an ultradiscrete normal form exhibiting **excitability** when an orbit is initially placed above the switching half-plane. The exact duration of the excitable transient is therefore a natural dynamical invariant, not an arbitrary test point or an isolated numerical strengthening. The full classification gives a sharp uniform finite-memory horizon, identifies the *entire maximal-transient half-plane* by one observable coordinate, and separates lower-dimensional exceptional strata from the generic planar pieces. It replaces qualitative sink attraction and a seven-step sufficient bound with an exact quantitative description for every initial state and all negative inputs. No general claim about biochemical continuous-time transients, robustness or stochastic parameter distributions is inferred.
+The same map and its finite capture are prior work. The primary analyses give a seven-step sufficient bound on the initial strip u≤0,v>0; the distinct result is the exact uniform index and all-plane first-hit partition, including the horizontal strict maximal-time threshold. The identical catalog hit is not a separate antecedent.
 
-## Closest literature and residual limitations
+## value
 
-Ohmori and Yamazaki (arXiv:2103.16777v1, equations (1)–(3) and discussion (i-a)–(i-c)); their same-map July treatment (arXiv:2107.02435v1, discussion (i-a)–(i-c)); their 2022 Poincare study (arXiv:2204.00745v1, section 2); the published homogeneous border record `2026/10/11/SCOPE-sharp-extinction-and-persistence-at-the-homogeneous-max-plus-bor--a2b1d9a86864`; the 2024 generalized paper (arXiv:2402.06230v1, §3.2), and the published positive-forcing record `2026/10/11/SCOPE-exact-geometric-first-exit-law-for-the-ultradiscrete-sel-kov-map--013f8b0ac9e5`. The comparison is statement-level, not title-level. The claim remains strictly about the stated unsmoothed negative-forcing map.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The established excitable map has a natural finite-transient question. The contribution is not merely improving an upper bound from seven to six: the exact strata determine which perturbations generate each transient length, and the longest length depends only on the initial second coordinate despite the branch switch in the first coordinate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

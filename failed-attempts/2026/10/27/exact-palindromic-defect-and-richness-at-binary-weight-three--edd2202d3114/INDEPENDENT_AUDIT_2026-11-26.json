@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:37:12.624326Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof lines 31–85",
+        "Frozen VERIFICATION.md and verify.py, inspected as finite corroboration, not executed"
+      ],
+      "rationale": "Separate palindromes by their number of ones. The one-one family has a common shape and the largest of three center radii; the two-one families overlap exactly for equal inner gaps (then the smaller family is contained in the larger); the three-one family occurs only for equal inner gaps. At integer gap level t the deficit in the resulting count is one exactly when both outer gaps, but neither inner gap, reach t. In the equal-inner-gap case the overlap correction and three-one family cancel that deficit. The argument includes empty gaps; at weight two the corresponding three-gap level deficit is identically zero, and at weight one the largest and smallest of the two gaps sum to their total. For a positive defect r, n is at least 2r+6: both outer gaps are at least r+h, where h is the larger inner gap, and the unequal inner gaps have sum at least one and h at least one. At n >= 8 and maximal r, h >= 2 would exceed the total zero budget even allowing its one unit of parity slack. Thus the inner gaps are 0 and 1 and the outer gaps differ by at most one. This proves the all-parameter law, all maximizers, and the two length-eight witnesses.",
+      "residual_risks": [
+        "The independent conclusion uses the combinatorial proof, not a formal verification or extrapolation from the packaged finite grid."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed comparator parametrizes all positive-defect words and counts them by both length and defect. Glen et al. give a general characterization of rich words by complete returns, not a formula for positive defect."
+        ],
+        "reasoning": "The prior stratum parameterization controls strictly more than the frozen extremal statistic; the general complete-return theorem is background, not the decisive duplicate.",
+        "searches": [
+          "Resultary 0f3724d4b165, offsets 3000–4436 and 4900–6370",
+          "Glen et al., arXiv:0801.1656, Theorem 2.14"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0f3724d4b165 and 16acd708aa81",
+        "Glen et al., arXiv:0801.1656",
+        "Pelantová–Starosta, arXiv:1708.06911, abstract on zero defect",
+        "Frozen short-example citation and its stated arXiv identifier"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior stratum parameterization has n=3+2r+3m+j+s+t with m>=1, 0<=j<m, min(s,t)=0. Here m is the larger inner gap, j the smaller, and s,t the excess outer gaps. The related palindromic-length record gives just the same positive-defect locus, not the magnitude."
+        ],
+        "reasoning": "At the lengthwise maximum of r, the excess over 2r+6 is at most one, forcing m=1, j=0 and s+t<=1. This yields every balanced extremizer and the two length-eight examples. Weight at most two is an elementary ancillary count and does not save the claimed contribution.",
+        "searches": [
+          "Resultary 0f3724d4b165, positive-defect parameterization",
+          "Resultary 16acd708aa81, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/18 SCOPE record 0f3724d4b165, RESULT.md offset 0, states exactly 0 for equal inner gaps and the positive part of the smaller outer gap minus the larger inner gap otherwise."
+        ],
+        "reasoning": "Counting nonempty palindromes and subtracting from length equals counting all palindromes including the empty word and subtracting from length plus one. The object and quantifiers are otherwise identical.",
+        "searches": [
+          "Resultary: exact palindromic defect binary weight three zero gaps sparse-weight defect law",
+          "Resultary: binary word three ones palindromic defect 0^a1 0^b1 0^c1 0^d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0f3724d4b165: the generating function for defect r > 0 is 2 z^(2r+6)(1+z)/((1-z)(1-z^3)(1-z^4)), giving exact counts rather than a bounded table. The web query did not yield a result."
+        ],
+        "reasoning": "The exact indexed distribution has least length 2r+6 and positive coefficients at every larger length, so its support already recovers the frozen lengthwise maximum.",
+        "searches": [
+          "Resultary sparse-weight defect queries above",
+          "Primary-literature search: \"0^a1\" \"0^b1\" \"0^c1\" \"palindromic defect\" three ones"
+        ]
+      },
+      "rationale": "A distinct indexed result already gives the identical four-gap defect law and a stronger exact description of every positive-defect stratum, from which both the maximum and its entire equality class follow. This is established coverage, not a decision based on a title, search miss or inaccessible article.",
+      "residual_risks": [
+        "The cited historical article's full text was not obtained and its stated arXiv identifier is mismatched. The exact indexed coverage is independent of that attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the law and implies its complete extremal profile",
+          "evidence": "Same all-gap formula; exact defect-r counts and a bijective parameterization recording the two outer excesses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-palindromic-defect-law-and-exact-spectrum-for-binary-words-w--0f3724d4b165/RESULT.md",
+          "material_read": "Finding, offsets 0–1540; stratum parameterization, 3000–4436; distribution and consequences, 4900–6370",
+          "method": "Bounded statement and proof inspection in the local mirror",
+          "title": "The palindromic defect law and exact spectrum for binary words with three ones",
+          "trigger": "Exact object and invariant in Resultary searches"
+        },
+        {
+          "assessment": "Related but not the same statistic",
+          "evidence": "Palindromic length four occurs exactly for unequal inner gaps both shorter than both outer gaps.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-palindromic-length-at-binary-weight-three-and-its-one-sixt--16acd708aa81/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Exact palindromic length at binary weight three",
+          "trigger": "Same weight, gaps, and first defective examples"
+        },
+        {
+          "assessment": "Background on defect zero, not a positive-defect law in these passages",
+          "evidence": "Richness is characterized by palindromic complete returns to palindromes.",
+          "identifier_or_url": "https://arxiv.org/abs/0801.1656",
+          "material_read": "Defect definitions at p. 2/offset 7472 and Theorem 2.14 at p. 6/offset 20111",
+          "method": "Located and read passages of the open paper",
+          "title": "Palindromic Richness",
+          "trigger": "General structural characterization that could cover richness"
+        },
+        {
+          "assessment": "Not usable to establish or exclude historical coverage",
+          "evidence": "The cited arXiv identifier resolves to an unrelated dictionary-definitions paper.",
+          "identifier_or_url": "https://www.researchgate.net/publication/225759529_Reconstructing_words_from_a_fixed_palindromic_length_sequence",
+          "material_read": "No article full text; cited arXiv:0806.3710 title checked at offset 0",
+          "method": "Cited access route denied; compared the alternate identifier stated in the frozen record",
+          "title": "Reconstructing Words from a Fixed Palindromic Length Sequence",
+          "trigger": "Frozen attribution of the shortest binary examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "Resultary 0f3724d4b165, law and exact positive-defect strata"
+      ],
+      "rationale": "An exact defect law in the first weight class allowing a positive defect would be useful, but this frozen claim supplies no independently useful mathematical remainder beyond the already indexed law and positive-defect strata. The ancillary weight-at-most-two count and restriction to maximizers do not create a new invariant or strengthen that result.",
+      "residual_risks": [
+        "This is a judgment about the incremental contribution of the frozen result, not about the mathematical interest of fixed-weight defect laws as a topic."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

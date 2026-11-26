@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:02:51.093687Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 23–72",
+        "VERIFICATION.md, lines 19–23",
+        "verify_yule.py, lines 8–73"
+      ],
+      "rationale": "If the split leaf has depth d and cherry indicator I, the increments are 1−I, d+2, and 2(d+1)−2Id for K, S, and Q. The last identity adds the two new leaves and removes the old pair only when I=1. Uniform sampling gives conditional means E[I]=2K/n, E[d]=S/n, E[Id]=Q/n. Writing D=Q−2S/3 leads directly to E[D_{n+1}|T_n]=(1−2/n)D_n+2/3 and hence E[D_n]=2n/9 from D_3=2/3. The mean recursions similarly give E[K_n]=n/3 and E[S_n]=2n(H_n−1) from (K_3,S_3)=(1,5). In the law of total covariance, the conditional covariance is −Q/n+2KS/n², and the covariance of conditional means is (1−2/n)(1+1/n) times the old covariance. Combining terms cancels 2/n² in the coefficient and leaves v_{n+1}=(1−1/n)v_n−2/9. From v_3=0, telescoping gives (n−1)v_n=−[n(n−1)−6]/9. The sign, asymptotic and deterministic n=2 case follow. The sentence that the new cherry is two levels below the old parent is a prose slip: the new parent is at d, one edge below the old parent; the new leaves are two edges below that parent. The proof uses the correct depths.",
+      "residual_risks": [
+        "Source checker was read, not run. Its finite weighted shape enumeration and recurrence calculations corroborate rather than prove the all-size result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardona et al. give recursive shape-index second-moment tools and Sackin moments; the inspected cross-moment is with total cophenetic index. Ford studies balance and cherry marginals, and Wu–Choi pair cherries with pitchforks. The earlier root-split Resultary record explicitly evaluates the target covariance as part of a larger variance and correlation analysis."
+        ],
+        "reasoning": "The primary-literature passages supply possible frameworks rather than a demonstrated cross-moment formula, but the earlier root-split record explicitly contains the target covariance with additional statistical consequences.",
+        "searches": [
+          "arXiv:1202.6573v2 §§3–4",
+          "arXiv:math/0511246v1 §§4–5",
+          "arXiv:1508.03139v1",
+          "Resultary ede1259760b8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 47374ff68d84, 2943b7ea14eb, ede1259760b8, 23d952df02c5",
+        "arXiv:1202.6573v2",
+        "arXiv:math/0511246v1",
+        "arXiv:1508.03139v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first source has the same Yule growth law, depth convention, pair of statistics, covariance, and auxiliary moment. The BST source reduces to the covariance by m=n−1, and the root-split source has a stronger suite of covariance-related results."
+        ],
+        "reasoning": "There is no changed hypothesis, boundary range or invariant that separates the principal claim or its auxiliary moment from the direct prior Yule result. The alternate expression and corroborating finite checks do not add a mathematical remainder.",
+        "searches": [
+          "Resultary 47374ff68d84, Finding and mixed-moment derivation",
+          "Resultary 2943b7ea14eb, Finding",
+          "Resultary ede1259760b8, Finding and root-split proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The random-permutation BST formula, for m stored keys, is Cov(L_m,P_m)=−(m−2)(m+3)/(9m). Cardona et al. describe the equivalent equal-rates Markov/Yule tree convention."
+        ],
+        "reasoning": "Adjoin the null children of the BST as external leaves. The next insertion picks a gap uniformly conditional on the relative insertion order, which is uniform leaf splitting. The resulting n=m+1 external-leaf tree has cherries exactly at the BST leaf keys. Its Sackin sum is the external path length, equal to the internal path length plus 2m. Thus the prior BST covariance is exactly the frozen Yule expression, not just a comparable shape measure.",
+        "searches": [
+          "random BST leaf count and path length covariance (Resultary 2943b7ea14eb)",
+          "arXiv:1202.6573v2 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 record states −n/9+2/[3(n−1)] and E[Q_n]=(2/3)E[S_n]+2n/9; the October 18 record states the same covariance. The November 2 record also gives both identities but postdates the frozen finding."
+        ],
+        "reasoning": "These are exact all-size formulas, not finite table coincidences. Expanding (n−3)(n+2)=n(n−1)−6 and inserting E[S_n]=2n(H_n−1) verifies exact identity with the October 13 statement. The later result is collateral overlap, not evidence of earlier priority.",
+        "searches": [
+          "Resultary 47374ff68d84",
+          "Resultary ede1259760b8",
+          "Resultary 2943b7ea14eb",
+          "Resultary 23d952df02c5"
+        ]
+      },
+      "rationale": "Demonstrably already covered. The earlier Resultary record 47374ff68d84 states both the exact covariance and the same auxiliary cherry-leaf depth expectation, and even uses the same mixed-moment recurrence. The earlier records 2943b7ea14eb and ede1259760b8 independently cover the covariance, respectively in a random-BST formulation and directly for Yule trees.",
+      "residual_risks": [
+        "The full McKenzie–Steel 2000 article was not inspected; earlier literature coverage may extend further, but the directly verified Resultary coverage already resolves this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of both identities",
+          "evidence": "Same n≥3 covariance in expanded form, same cherry-member depth expectation, and mixed-moment recurrence.",
+          "identifier_or_url": "47374ff68d84",
+          "material_read": "2026-10-13 RESULT.md, offsets 0–4183",
+          "method": "Resultary search and local mirror",
+          "title": "Exact negative Sackin–cherry covariance in Yule trees",
+          "trigger": "Potential exact match to both frozen formulas"
+        },
+        {
+          "assessment": "Equivalent prior covariance",
+          "evidence": "Cov(L_m,P_m)=−(m−2)(m+3)/(9m), with BST leaves matching cherries after externalization.",
+          "identifier_or_url": "2943b7ea14eb",
+          "material_read": "2026-10-12 RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Random BST leaf abundance has an exact negative search-cost covariance",
+          "trigger": "Equivalent external-tree formulation"
+        },
+        {
+          "assessment": "Prior covariance with a different proof and additional results",
+          "evidence": "Same covariance via root splits, plus variance, regression, and correlation consequences.",
+          "identifier_or_url": "ede1259760b8",
+          "material_read": "2026-10-18 RESULT.md, offsets 0–4370 and 4370–8774",
+          "method": "Resultary search and local mirror",
+          "title": "Exact cherry–Sackin covariance in Yule phylogenetic trees",
+          "trigger": "Same statistics and model in an earlier record"
+        },
+        {
+          "assessment": "Later direct overlap, not earlier priority",
+          "evidence": "Repeats the global covariance and the linear relation between E[Q_n] and E[S_n], with another local statistic.",
+          "identifier_or_url": "23d952df02c5",
+          "material_read": "2026-11-02 RESULT.md, offsets 0–4691",
+          "method": "Resultary search and local mirror",
+          "title": "A two-scale sign reversal for cherry leaves and path length in Yule trees",
+          "trigger": "Global covariance and local depth overlap"
+        },
+        {
+          "assessment": "Model/moment framework, not the target evaluations in inspected passages",
+          "evidence": "Yule/equal-rates Markov correspondence, second-moment recursions, and Sackin/total-cophenetic covariance rather than Sackin/cherry covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1202.6573",
+          "material_read": "v2 §§2.1, 3 and 4; offsets 7507, 18039, 24395, 29649",
+          "method": "Lawful OA text passages",
+          "title": "Exact formulas for the variance of several balance indices under the Yule model",
+          "trigger": "Equivalent model and general shape-index moments"
+        },
+        {
+          "assessment": "Relevant marginal results",
+          "evidence": "Treats Sackin and Colless in §4 and cherry-count marginals in §5, not the mixed formula in those passages.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0511246",
+          "material_read": "v1 §§4–5, offsets 109057 and 131600",
+          "method": "Lawful OA text passages",
+          "title": "Probabilities on cladograms: introduction to the alpha model",
+          "trigger": "Classical work on balance and cherries"
+        },
+        {
+          "assessment": "Different statistic paired with cherries",
+          "evidence": "Joint cherry and pitchfork counts under YHK and PDA, not Sackin depth.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.03139",
+          "material_read": "Abstract and introduction, offsets 657 and 3810",
+          "method": "Lawful OA text passages",
+          "title": "On joint subtree distributions under two evolutionary models",
+          "trigger": "Possible joint cherry law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof",
+        "Resultary 47374ff68d84",
+        "Resultary ede1259760b8"
+      ],
+      "rationale": "The covariance and depth moment are worthwhile exact measures of Yule tree shape in isolation. As a new finding this record supplies no useful increment: both are already given together with the same recurrence, and the circulated BST and root-split forms give equivalent coverage of the main statistic. Finite rechecking of these exact identities does not make a distinct result.",
+      "residual_risks": [
+        "This assessment is about the frozen contribution, not the usefulness of these mixed moments generally."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

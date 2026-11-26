@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a finite, fully specified design classification, not an infinite extrapolation. The exact determinant and Woodbury formulas are derived from the path Green operator, and the bounded universe contains all unordered pairs of distinct missing path edges. A standalone Python 3 enumerator checks every one of 13,104 finite candidates at orders 4 through 15, including every tie, with `Fraction` arithmetic. Direct matrix-tree and grounded-inverse computations provide an independent consistency check on each extremal configuration. The exact all-optimizer classification and stated rational values were replayed from the package. Risks: ordinary implementation correctness and finite-enumeration proof acceptability; the code is inspectable and the domain size analytically counted.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual risk
-Ghosh–Boyd–Saberi (2006) analyze optimizing weights on fixed graphs, not simultaneously selecting two fixed unit chords on a path. Khosoussi et al. (2016) analyze spanning-tree augmentations and greedy methods, without the A-versus-D finite first-conflict theorem in material read. Earlier bicyclic spanning-tree extremal calculations can cover the D-only optimum but not the joint exact equality/disjointness of optimizer sets under the A criterion. Indexed research on one-chord path resistance, parallel-path two-rung resistance, and priced-matching A/D support transitions does not imply the two-chord single-path statement. Specific risk: specialized Kirchhoff-index bicyclic classifications or small exact tables outside inspected materials could already imply the claim, so priority is qualified rather than certified.
+PASS
 
-## Value — PASS
-A-optimal resistance and D-optimal spanning-tree network augmentation are both standard and noninterchangeable design criteria. The smallest graph order at which their complete argopt sets separate is an inherently motivated, sharp finite benchmark; the result classifies all ties and supplies exact rational objective penalties in the witness. It does not rely on adding a novel arbitrary parameter slice or claiming a significant empirical performance gain. Its usefulness is as a minimal reproducible objective-mismatch example with a complete certificate.
+On the zero-sum subspace the oriented path unit-current response has potential differences one on the chord's spanned path edges and zero elsewhere, so the 2x2 transfer matrix has diagonal entries equal to chord lengths and off-diagonal equal to overlap length. The determinant lemma and matrix-tree normalization give (1). Subtracting the rank-two inverse correction and taking n times the trace gives (2) with exactly the stated centered-vector scaling. Independently, I built the grounded Laplacian directly for every graph, used exact determinant and rational inverse (FLINT), and compared all ties using the pairwise resistance formula R_ij=G_ii+G_jj-2G_ij with the grounded vertex extended by zeros. Summation is n*tr(G)-sum(G). Candidate completeness follows by choosing an unordered pair of distinct nonedges (including shared endpoints, excluding repeated chords and path edges); the 12 per-order counts sum to 13,104. The argopt sets coincide through 14 and are disjoint at 15, with precisely the two A and three D designs listed in the finding. All A designs give (tau,Kf)=(75,1004/5); all D designs give (85,3420/17); the gap is 32/85. At n=4 all three feasible pairs tie for both objectives; no case n>15 is inferred. Replay: python3 /workspace/repro/record5.py; output /workspace/repro/record5.out. This directly checks all candidates without the frozen scan's rank-two formulas or executing its supplied script.
 
-## Limitations and prior work
-The result is not a classification beyond fifteen vertices and does not resolve all literature-priority risk. Citations and methodology appear in `RESULT.md`, with exact source and equivalence comparisons in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-ties comparison on binary two-edge path augmentations, including first separation and its witness values, is distinct from the inspected results. The D-only extremum, generic A/D disagreement and the Laplacian update method are not treated as novel. A named literature access risk remains for constrained bicyclic results, but unrestricted global bicyclic minima cannot already characterize the A-optimal shape at 15 as an unrestricted minimizer.
+
+## value
+
+PASS
+
+Both design criteria are standard, and adding just two unit shortcuts to a path is a natural minimal discrete augmentation family in which chord interactions matter. The precise first size where no design is optimal for both is a meaningful structural benchmark. Proving equality of complete optimizer sets before that, rather than comparing selected representatives, rules out tie artifacts. The exact resistance penalty calibrates the mismatch; its small numerical size is not the reason for scientific value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

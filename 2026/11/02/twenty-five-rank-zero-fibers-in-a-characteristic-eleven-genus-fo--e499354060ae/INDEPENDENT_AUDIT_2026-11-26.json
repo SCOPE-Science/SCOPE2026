@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:59:39.998039Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–98, VERIFICATION.md, verify_symbolic.py and verify_fields.py",
+        "Independent replay: python3 -B /workspace/independent_checks.py 3 (multinomial coefficients, semilinear scalar, quartic remainder/gcd, factorization and disjointness)"
+      ],
+      "rationale": "A finite multiple root requires x nonzero, a=-(5/2)x^3 and x^5=2/3, giving exactly a^5=6 in characteristic 11; each such a admits that simultaneous solution because the relevant exponents 3 and 5 are coprime. Off that locus, tame total ramification at five finite roots and infinity gives genus four. The four differentials are regular at the finite ramification points (dx has order 2 and y order 1 there) and at infinity; the pole orders distinguish them within their Cartier source spaces. Exact multinomial coefficient extraction reproduces A and B as displayed. Both are nonzero, so Cartier rank is two. On the dual space let Frobenius be H composed with the eleventh power. Its image is the direct sum of the top line and the lower line spanned by B. On those lines it alternates via nonzero scalar B in the lower direction and scalar A^t B^(11)=T in the upper direction. If T is nonzero the image is stable of dimension two; if T is zero the ranks descend 2,1,0. Independently checked the quartic remainder and gcd, and obtained the two distinct irreducible factors by exact finite-field factorization. The Kummer proof is valid: the base fifth powers are ±1; the norm of the quartic generator is -2, so the generator is not a fifth power either. Both factors miss the excluded locus. Orbit lengths and extension counts follow from their degrees; x↦ζx establishes the stated marked-parameter symmetry, not an isomorphism count.",
+      "residual_risks": [
+        "The conclusion is about smooth fibers in characteristic 11 and coefficient-marked parameters. Rank zero does not itself identify the Newton polygon or count distinct geometric curves."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The genus-four canonical forms represent nonhyperelliptic curves as an intersection of a quadric and a cubic; the inspected classification there is of ambient forms, not an exhaustive symbolic p-rank locus on them.",
+          "The later superelliptic a-number paper was a plausible source but its full text was not retrieved."
+        ],
+        "reasoning": "Ambient representation is not the claimed p-rank classification. A constant a-number, even where already determined, cannot distinguish the two possible stable ranks here.",
+        "searches": [
+          "Camacho–Navarro arXiv:2012.08705v2, Definition 4.1 and §4.1",
+          "Sohn DOI 10.23091/japm.2025.059, lawful OA lookup"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Findings c8bac5d75dc4 and a4de8ad6d49a",
+        "Camacho–Navarro arXiv:2012.08705v2 §§4.1, 5.2",
+        "Sohn DOI 10.23091/japm.2025.059 access check",
+        "Frozen RESULT.md lines 100–113"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest characteristic-11 Finding has ranks 0 or 2 and a-numbers 2 or 4 but different coefficient conditions. The two equation families do share examples, e.g. a=0 here and x^5+1 there.",
+          "Independent coordinate comparison: the canonical coordinates [y:1:x:x²] have a unique quadric, the cone X1 X3=X2² (coordinates numbered from 0), so isomorphisms preserve its ruling and induce a Möbius change of x. An affine change with infinity unchanged must have zero translation to keep the x^4 term zero, hence cannot remove a nonzero x² term. If a finite root r becomes infinity, x=r+1/z gives a degree-five branch polynomial with leading coefficients c1=(5+2k)r^4, c2=(10+k)r^3, c3=10r² and c4=5r, k=a/r³, after multiplying by z^6. Depressing the z^4 term, vanishing of the z³ and z² terms requires -2k²+5k-5=0 and -2k³-3k+3=0 over F_11. These have gcd one. Further affine scaling cannot change whether those coefficients vanish."
+        ],
+        "reasoning": "The other characteristic-11 classification does not cover the smooth nonzero parameters by an isomorphism of the unmarked curves, let alone recover the coefficient-marked count. All exceptional coefficients here are nonzero. The method literature would still require assembling the blocks, iterating with the twist, and determining the exact field splitting.",
+        "searches": [
+          "a4de8ad6d49a actual Finding, x^5+ax+b",
+          "c8bac5d75dc4 actual Finding, characteristic 13",
+          "Camacho–Navarro §4.1 and Table 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c8bac5d75dc4 gives the same equation in characteristic 13, whose only nonordinary parameter is zero; a4de8ad6d49a gives the other deformation over characteristic 11.",
+          "No exact equation was returned by the literal queries in Camacho–Navarro. The positive comparison is with the canonical forms in §4.1, not with the keyword misses."
+        ],
+        "reasoning": "Changing the characteristic changes the Frobenius and its exceptional polynomial. The two characteristic-11 families are not alternate coordinates for the marked pencil; the smooth nonzero parameters are not even moved into the other family by changing the coordinate of the trigonal projection (comparison below).",
+        "searches": [
+          "Resultary: y^3=x^5+a x^2+1 characteristic 11 p-rank",
+          "Resultary: 2a^25-3a^5-3 genus four p-rank",
+          "Camacho–Navarro arXiv:2012.08705v2 literal queries y^3=x^5+ax^2+1 and x^5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed characteristic-11 hit states strata for x^5+ax+b. Table 3 reports a sample, including three characteristic-11 curves with a-number two and p-rank zero, not a census of this pencil."
+        ],
+        "reasoning": "The target has no exceptional marked coefficient in F_11; its count is geometric with first extensions of degrees 5 and 20. Even an exhaustive F_11 sample alone could not tabulate those extension orbits.",
+        "searches": [
+          "Resultary: 2a^25-3a^5-3 genus four p-rank",
+          "Camacho–Navarro arXiv:2012.08705v2 §5.2 Table 3"
+        ]
+      },
+      "rationale": "An indexed exact-pencil calculation in characteristic 13 and a highly related characteristic-11 family with the linear instead of quadratic deformation do not yield this stable-rank polynomial or its arithmetic splitting. Prior genre-wide computational methods and finite-field tables do not enumerate geometric parameters in this pencil. This pass is for the stable-rank locus and its arithmetic orbits, not for Cartier coefficient extraction or the use of semilinear twists.",
+      "residual_risks": [
+        "Sohn full text was unavailable and general web queries were deferred, neither of which constitutes negative evidence. A prior symbolic stable-rank classification under a different family description could still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different characteristic, no coverage of this rank locus",
+          "evidence": "Characteristic 13; the only nonordinary parameter is a=0, with 13-rank zero and a-number two.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-unique-nonordinary-fiber-of-a-genus-four-cyclic-trigonal-pen--c8bac5d75dc4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror inspection",
+          "title": "The unique nonordinary fiber of a genus-four cyclic trigonal pencil",
+          "trigger": "Identical equation"
+        },
+        {
+          "assessment": "Related but does not cover this quadratic deformation; no same-date priority inference",
+          "evidence": "The polynomial is x^5+ax+b with strata (0,4), (0,2), and (2,2); see the coordinate argument above.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-cartier-strata-for-a-genus-four-cyclic-trigonal-family--a4de8ad6d49a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement and independent branch-coordinate comparison",
+          "title": "Complete Cartier strata for a genus-four cyclic trigonal family",
+          "trigger": "Strong same-characteristic rank-strata comparison"
+        },
+        {
+          "assessment": "Ambient forms and sampled data, not exact marked-locus coverage",
+          "evidence": "Three quadric types underlie standard forms. A random sample of 361098 tuples includes three p=11 entries with (a,f)=(2,0).",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.08705v2",
+          "material_read": "§4.1 Definition 4.1 p. 6 (offset 15000); §5.2 Table 3 pp. 9–10 (offsets 24000–27581)",
+          "method": "Targeted OA PDF inspection",
+          "title": "The a-number, p-rank and Cartier points of genus 4 curves",
+          "trigger": "Plausibly covering genus-four rank study and p=11 table"
+        },
+        {
+          "assessment": "Possible overlap unverified; limits priority of the a-number statement",
+          "evidence": "No accessible full text in the lookup; the frozen result expressly does not claim novelty for the constant a-number by itself.",
+          "identifier_or_url": "DOI:10.23091/japm.2025.059",
+          "material_read": "No primary full-text passage retrieved",
+          "method": "Lawful OA lookup",
+          "title": "The a-number of superelliptic curves of genus four",
+          "trigger": "Plausible genus-four superelliptic comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5; broader genus-four context and closely related families above"
+      ],
+      "rationale": "For the sparse normalized degree-five branch pencil the degeneracy scheme and residue degrees are natural arithmetic data. The constant Cartier rank hides a stable-rank degeneration at twenty-five geometrically smooth coefficients; none can be seen over the ground field. Identifying the exact locus, rather than just producing an example, supplies the field-of-definition test a future study of this trigonal family would need.",
+      "residual_risks": [
+        "Pencil-specific; no general stratification of genus four or moduli count is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

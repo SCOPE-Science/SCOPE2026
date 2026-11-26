@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete normalized two-dimensional CW model gives the cell counts and boundaries. Backtrack, two-step and four-cycle attaching relations kill the fundamental group; Euler characteristic and Hurewicz–Whitehead identify the sphere wedge. The quotient's optional edge–two-cell free pairs collapse to a two-sphere; the balanced part swap exchanges these pairs and acts freely on the residual sphere, giving a projective-plane quotient. The trace follows from the cellular Lefschetz formula. Direct finite chain complexes independently agree, including mod-two torsion signatures.
+## correctness
 
-**Originality — PASS, subject to the stated priority risk.** The closest published complete-bipartite length–Rips classification uses the unordered symmetrized complex, and expressly does not classify ordered blurred-magnitude simplicial sets. Ivanov–Xu give the object and categorical framework, and Melodia gives persistent length-nerve theory, but neither source's examined sections imply the present exact bipartite homotopy and geometric orbit-space theorem. Published research records were searched for alternative descriptions and quotient equivalents. Relevant sources were not universally searchable; equivalent unindexed work is possible.
+PASS
 
-**Mathematical value — PASS.** The discrepancy between symmetrized length–Rips topology and ordered blurred-magnitude topology occurs already on the two-vertex graph. Uniform sphere-wedge homotopy, symmetry characters and the precise appearance of \(\mathbb Z/2\) in a free interchange quotient give an interpretable structure theorem and a concrete warning that taking genuine symmetry quotients can create integral torsion that the input lacks. This is not merely a rank calculation.
+In the inclusive ordered nerve the nondegenerate cells have counts n, n(n−1), abn for n=a+b; in particular (x,y,x) is not degenerate. These backtracks identify reverse edge paths, and the other triangles eliminate same-part edges and identify all alternate two-edge routes. The tree consisting of the stars from a fixed vertex of each part leaves only fundamental four-cycles, all killed by these relations, also covering stars and K_1,1. The resulting simply connected two-complex is a wedge by integral Hurewicz and Whitehead, of rank χ−1=abn−(n−1)^2. A stabilizer fixes each ordered cell pointwise. In the H-orbit space each optional same-part loop is used once by just one optional triangle: retract that triangle onto its two other sides, relative to those sides, so the retraction descends even though two vertices are identified. Two discs glued to the same directed circle remain. When balanced, the paired retractions are equivariant; exchange swaps the two discs and acts as a half-turn on the circle (it swaps the two directed arcs preserving their orientation around the circle). The quotient is a disc with antipodal boundary, hence RP² and H₁=Z/2. Fixed ordered cells have no orientation sign; the alternating chain traces minus the constant H₀ trace give all the asserted H₂ traces, including −1 for exchange.
 
-**Closest literature and limitations.** Melodia, arXiv:2608.21479; Ivanov–Xu, arXiv:2411.01857 and Section 2.3; Livernet–Roff–Whitehouse, arXiv:2606.09747; and the published complete-bipartite symmetrized length–Rips classification. No claim is made for the entire filtration, for unordered complexes, or for arbitrary graph automorphism subgroups. Finite checker output is not substituted for the uniform CW argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the same-day ordered tree and Hamming results for their matching instances and the general two-step graph presentation. The supported distinction is the all-size within-part geometric quotient and balanced full-group quotient together with the bipartite character, not novelty of the ordered nerve, its general fundamental-group presentation or the isolated K_1,1 and K_2,2 conclusions.
+
+## value
+
+PASS
+
+The ordinary quotient changes a simply connected sphere model into a space with integral two-torsion as soon as part exchange is allowed, uniformly in the balanced size. This is an exact equivariant classification for a natural graph-metric test family and distinguishes genuine geometric quotients from rational invariant calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

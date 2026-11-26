@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:25:53.788194Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For standard normalized Bergman area, d_n=(n+1) integral t^n g(t) dt and the self-commutator is diagonal with entry 1/[(n+1)(n+2)], including n=0. Inserting the shift weight gives the stated zero-diagonal J_g with bond ell sqrt((ell+1)(ell+2))(d_(n+1)−d_n), ell=n+1. Integration by parts gives the t^ell(1−t) g'(t) moment; the endpoint terms vanish by absolute continuity. After normalizing to Beta(ell+1,2), Taylor expansion and its beta moments yield the coefficients and O(ell^−r−1) error; the integral over the complement of the endpoint neighborhood is exponentially small times ||g'||_1. The frozen Weyl argument is for the actual zero-diagonal K_g; read its introductory Jacobi lemma in that setting, not as allowing arbitrary diagonals. Rank bounds for head excision and block cuts, a tail norm below threshold, and the norm margins on frozen blocks yield the cosine-symbol integral by Riemann sums. Strict thresholds cause no ambiguity because the integral level set has zero measure. This step also follows exactly from Pushnitski Theorem 1.2. Integrating powers of |2 cos theta| and inverting the count give the stated constants and Schatten cutoffs. At a=s/2 the exact rational-square-root bond gives c1=a(1/2−2a), whose only positive zero is a=1/4; expanding its square there gives c2=−7/64. A direct polynomial realization is g(t)=(1−t)^(r+1): its derivative starts at order r so the normalized beta expectation has leading coefficient −(r+1)!, with lower orders zero. Own exact checks /workspace/branches/independent-replays.py 5 obtained the exceptional squared-bond series 1/16−7z²/128 and verified 40 pure-jet beta integrals. The frozen finite checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pushnitski Theorem 1.2 assumes banded diagonals a_(j,j+m)=b_m j^(−gamma)+o(j^(−gamma)) and gives n^(−gamma) times the gamma-th power of the mean of |sum b_m exp(im theta)|^(1/gamma).",
+          "For this remainder take gamma=r, bandwidth one, b_0=0 and b_(±1)=c_r. Both diagonals have exactly these asymptotics; the symbol is 2c_r cos theta. The prior theorem supplies |c_r|B_r^r exactly.",
+          "Kozhan's MathNet PDF was obtained but its extracted detail was not verified independently; the conclusion does not rest on it."
+        ],
+        "reasoning": "This is an exact substitution in a stronger theorem for arbitrary banded matrices; it gives the constant and the cutoff, not only compactness or order bounds. A self-contained alternative block-counting proof does not by itself make the result original.",
+        "searches": [
+          "Alexander Pushnitski Spectral asymptotics for Toeplitz operators and an application to banded matrices power n compact banded matrices Theorem 1.2 arxiv",
+          "arXiv:1710.02652 v1, §1.3 and Theorem 1.2 p. 3, offsets 7620–9300",
+          "MathNet:mzm2492"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1710.02652 v1",
+        "Resultary b8745f13efaa, fa0228f06a7d and 36e9af76bb65",
+        "arXiv:2001.07823 v1",
+        "arXiv:2003.07330 v1",
+        "MathNet:mzm2492 (limited extraction)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the half-power formula, dividing the printed polynomial difference by the degree-four denominator gives 7/(8n²)+O(n^−3); taking the square root and multiplying by a=1/4 gives j_n−a=−7/(64n²)+O(n^−3). The general theorem then gives the exact gamma factor and p>1/2. Away from s=1/2 apply the same theorem directly to the printed first correction.",
+          "For smooth g the established shift-and-diagonal moment formula requires only ordinary integration by parts and beta integration of each Taylor monomial (1−t)^m, giving (m+1)!/[(ell+3)…(ell+m+2)] in the normalized moment. This mechanically gives F_g. The pure jet g=(1−t)^(r+1) has a single initial Taylor term and realizes every r without an additional constraint."
+        ],
+        "reasoning": "The non-power jet formula is not claimed to be printed in the comparator. It is the coefficient extraction from the known moment formula by standard Taylor and beta integration; inserting it in the already-covered banded theorem leaves no distinct nonroutine spectral conclusion.",
+        "searches": [
+          "arXiv:1710.02652 v1, Theorem 1.2",
+          "arXiv:2003.07330 v1, Theorem 2.1 and §3.1",
+          "Resultary b8745f13efaa, Proof §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At shift order one and standard area, Le–Simanek's formula for real diagonal entries agrees with J_g; Simanek's power specialization agrees even at j_0=sqrt(6)a/[(1+a)(2+a)], and has limiting bond a=s/2.",
+          "b8745f13efaa uses exactly that J_s and identifies its essential band and exterior spectrum. The singular values asked for here belong to J_s minus the free constant-bond operator, not to the exterior spectrum of J_s itself. The same-day Hankel row fa0228f06a7d is different."
+        ],
+        "reasoning": "The normalized companions agree under the explicit standard-area and shift identification, while exterior eigenvalues are not themselves singular values of the remainder. Coverage of the latter uses the printed bonds and a separate prior singular-value theorem.",
+        "searches": [
+          "Resultary normalized Bergman Jacobi companion, half-power cancellation and boundary jets",
+          "Resultary b8745f13efaa, mirrored Finding and Proof §2",
+          "arXiv:2001.07823 v1, §2",
+          "arXiv:2003.07330 v1, Theorems 2.1 and 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b8745f13efaa gives the exact bond formula for all n, the first correction a(1/2−s)/n, and at s=1/2 the denominator-square minus numerator-square difference (224n²+688n+489)/256 after factoring out a.",
+          "The other nearby result families concern Laguerre polynomial covariance or analytic Hankel rows, not the normalized shift/radial diagonal companion."
+        ],
+        "reasoning": "No need for the catalogue to print a table of K_g singular values. The exact matching bond data and general banded law already determine the constants, including the exceptional one.",
+        "searches": [
+          "Resultary b8745f13efaa, mirrored RESULT.md offsets 0–4597",
+          "Resultary 36e9af76bb65 and fa0228f06a7d",
+          "arXiv:2001.07823 v1 §2"
+        ]
+      },
+      "rationale": "The complete spectral conclusion is a direct instance of verified prior banded-matrix asymptotics, not just an analogy with fast-variation Jacobi theory. The companion entries are already available from Le–Simanek and Simanek. The strongest same-day counterpart b8745f13efaa gives the identical power bonds, explicit first correction and a positive polynomial difference giving the exceptional second coefficient. Combining these with Pushnitski's exact theorem produces the whole displayed power-symbol law without a new spectral argument. The residual smooth-symbol calculation is the direct Taylor expansion of an exact classical beta moment of the established entries, and the arbitrary polynomial orders are immediate from pure powers of 1−t. These are mechanical implications and not independent new spectral invariants. No precedence between the same-day records is inferred.",
+      "residual_risks": [
+        "Same-day priority is not determined. Kozhan's theorem was not independently verified in detail; failure is based on positive stronger coverage and exact formulas that were read, not on unavailable material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of the complete proposed Jacobi Weyl law",
+          "evidence": [
+            "Power asymptotics on each of finitely many diagonals imply the exact singular-value coefficient given by the power mean of the Fourier polynomial. Two equal neighbor coefficients and zero central diagonal give precisely the requested formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1710.02652",
+          "material_read": "v1 abstract, §1.3, p. 3, hypotheses, Theorem 1.2 and symbol (1.3)",
+          "method": "Located lawful OA PDF by theorem query and read the full decisive passage by offset 7620",
+          "title": "Spectral asymptotics for a class of Toeplitz operators on the Bergman space",
+          "trigger": "Potential exact general law for compact banded matrices with regularly varying bonds"
+        },
+        {
+          "assessment": "Printed bond asymptotics and exact half-power polynomial give both orders and leading coefficients; exterior eigenvalues of J_s are a different invariant",
+          "evidence": [
+            "b_n(s)=s(n+1)sqrt((n+2)(n+3))/[2(n+1+s/2)(n+2+s/2)]. At s/2=1/4 the denominator-square difference is (224n²+688n+489)/256, with nonzero quadratic coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-half-power-spectral-transition-and-coulomb-edge-law-for-berg--b8745f13efaa/RESULT.md",
+          "material_read": "Mirrored Finding, assumptions and Proof §§1–2, offsets 0–4597",
+          "method": "Configured Resultary search and local mirror passage reading",
+          "title": "The half-power spectral transition and Coulomb edge law for Bergman Toeplitz perturbations",
+          "trigger": "Distinct same-day record with identical power companion and threshold"
+        },
+        {
+          "assessment": "Exact companion with correct boundary index; not itself a theorem on singular values of the compact correction",
+          "evidence": [
+            "Using standard-area moments gamma_t=2/(t+2) and shift order one gives the claimed j_n and limiting bond s/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.07823",
+          "material_read": "v1 §2, p. 3, moment normalization and casewise entries, and Theorem 2.2 pp. 3–4",
+          "method": "OA primary text offsets 9000–13196 and 14976",
+          "title": "Hyponormal Toeplitz Operators on Weighted Bergman Space",
+          "trigger": "Earlier exact power companion entries and essential band"
+        },
+        {
+          "assessment": "Gives normalized companion for general diagonal entries and compact comparison for regular radial symbols; use of the banded law is separate",
+          "evidence": [
+            "Theorem 2.1 defines J by the two commutators conjugated by the inverse square root of the shift self-commutator, exactly as in the real radial restriction here."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2003.07330",
+          "material_read": "v1 Theorem 2.1 p. 2, radial application and Theorem 3.1 p. 4",
+          "method": "OA passages around offsets 6250–9200 and 12200",
+          "title": "Hyponormal Toeplitz Operators on Weighted Bergman Spaces",
+          "trigger": "Exact generic normalized shift-plus-diagonal framework"
+        },
+        {
+          "assessment": "No independent assertion of coverage or noncoverage; not decisive in light of Theorem 1.2 above",
+          "evidence": [
+            "The frozen result reports markedly faster bond-ratio decay in Kozhan's theorem; this review did not rely on that report to exclude prior coverage."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/eng/mzm2492",
+          "material_read": "Citation and PDF retrieval; extracted theorem text not usable independently",
+          "method": "OA MathNet PDF attempt",
+          "title": "Asymptotics of the Eigenvalues of Two-Diagonal Jacobi Matrices",
+          "trigger": "Cited possible Jacobi precedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Quantitative ideal membership of the companion is a motivated question. In this case, however, the exact asymptotic is a banded-law specialization, and the advertised half-power transition for the compact remainder follows by one coefficient extraction from already matching bonds. After removing the covered spectral statement, the all-order coefficients are a direct Taylor moment calculation and the polynomial construction is an immediate pure-jet example. No substantively new useful exact invariant remains for a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

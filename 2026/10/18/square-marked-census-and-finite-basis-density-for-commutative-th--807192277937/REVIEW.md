@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The intrinsic sets \(A=S\setminus S^2\), \(B=S^2\setminus\{0\}\) force every triple product to vanish and reduce every table uniquely to a symmetric, surjective-on-nonzero-colors multiplication map. Marked inclusion--exclusion yields the labelled polynomial without duplicate counting. For isomorphism classes, independent \(\mathfrak S_m\times\mathfrak S_k\) permutations and Burnside's lemma give the second polynomial: invariant target cycles, not target points, are correctly excluded. The proof that an equivariant nonzero image contains an entire target cycle is essential. The finite-basis connection applies exactly the published commutative nilpotent criterion in index three. The density estimate is a stratumwise injection/completion argument with a separate treatment of the two possible relative sizes of \(k\). Independent exhaustive checks enumerate multiplication tables and actual orbits in small cases, rather than merely repeating the formulas.
+PASS
 
-## Originality
+The zero is unique. The intrinsic sets A=S\S² and B=S²\{0} have sizes m,k≥1, and every product with a factor in B or the zero vanishes. Conversely every symmetric map on pairs of A with image containing B defines such an associative table, since all triple products vanish. The marked labelled formula follows by inclusion–exclusion on omitted nonzero colors with a z for a nonzero diagonal value. For the Burnside average the two permutations act on pairs and on colors; on a length-ℓ pair orbit one chooses a color fixed by the ℓth power of the color permutation. Choosing nonzero on a diagonal orbit contributes z^ℓ. Equivariance makes the color image a union of whole cycles, so omission of whole cycles, not individual colors, is the correct inclusion–exclusion. The finite-basis equivalence is exactly Wang–Yin–Wang Corollary 1.2 at d=3, with the full powerset and constant-free binary signature confirmed in the source. A diagonal-free table must cover all colors off-diagonal, and each such off-diagonal table admits (k+1)^m completions with exactly one diagonal-free completion. Thus the stratum fraction is at most (k+1)^(-m) and is zero unless k≤m(m-1)/2. For k<n/2 one has m>(n-2)/2, and otherwise nonzero fraction requires m>sqrt(n). The maximum of the stated bounds controls the weighted average. An independent direct count at n=4 gives L_4=12+48z+24z² and U_4=1+2z+2z², using the sole feasible stratum m=2,k=1.
 
-**PASS, with bibliographic risk.** Distler--Mitchell's Theorems 1(ii) and 5 count the unmarked total on labelled sets and up to isomorphism; their explicit table construction is antecedent technology, not the square-marked orbit polynomial. Dolinka--FitzGerald--Mitchell's partial-partition representation and commutative orbit bounds likewise do not give a finite-basis-stratified distribution. Wang--Yin--Wang's Corollary 1.2 gives the nonzero-square criterion for full power semirings, but not the resulting labelled or unlabelled enumerations or superpolynomial conditional density law. The calculation is an explicit refinement naturally suggested by combining these prior tools, so an unindexed equivalent refinement remains possible; this is not represented as an independent confirmation of novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** Finite equational basability of power semirings is a concrete algebraic classification problem, while three-nilpotent semigroups are a canonical and widely enumerated family. The result counts the entire distribution of the invariant controlling basability, both before and after isomorphism, and proves that the exceptional nonfinite-basis region is quantitatively sparse among labelled commutative three-nilpotent multiplications. The exact statistics answer a natural class-frequency question rather than selecting an arbitrary parameter slice or recomputing the published unmarked totals.
+The unmarked totals, symmetric partial-partition model, and finite-basis criterion are established prior results. The supported distinct claim is the square-marked labelled and orbit census paired with its quantitative conditional density consequence, not those ingredients. The compared sources either forget the diagonal mark or only describe the finite-basis criterion and do not enumerate the resulting subclasses asymptotically.
 
-## Checked literature and limitations
+## value
 
-The October 1, 2026 arXiv HTML manuscript was read at its introduction, Corollary 1.2, and its commutative-nilpotent setup; the complete accessible 2012 paper was inspected for Theorems 1(ii) and 5, the construction and numerical tables; and the accessible 2024 preprint was read for Sections 1--3 and commutative orbit material. Their stronger results were compared to the *marked* statements, rather than merely to the word "semigroup." The existing unmarked totals provide reproducibility benchmarks, not novelty evidence. New marked counts do not imply new finite-basis criteria or a classification of semiring isomorphism types. Relevant indexed searches did not reveal an exact equivalent, but unindexed equivalent enumerations remain a residual risk. No independent mathematical review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nonzero-square count is an algebraically motivated mark: its zero stratum is precisely the failure of finite basability. The exact marked labelled and unlabelled polynomials separate that stratum and give distributions beyond the published unmarked totals. The completion comparison shows that failure is quantitatively rare under a natural labelled model. This does not depend for significance on a recomputation of a small unmarked table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

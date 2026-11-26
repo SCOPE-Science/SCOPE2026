@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:35:17.075101Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Here terminal means the ambient bottom level B_n, not all leaves of the domain subtree. Prefix closure and a root-to-root isomorphism give the unique first-level partial injection and child maps in RESULT.md 33–50. An independent reconstruction marks every bottom vertex v by its own variable x_v in a square-free domain generating polynomial. Adjoin one formal empty map of weight 1. If X,Y are the augmented child polynomials in disjoint variable sets, the ranks 0,1,2 of the first-level partial injection give the parent polynomial 2+2(X−1)+2(Y−1)+2(X−1)(Y−1)=2XY: the first 2 counts the empty map and root-only map. This holds for every shape and every mask because the two variables sets are labeled by the domain children, and their injections into image children give the coefficient 2. At height zero the augmented polynomial is 1+x_root. Iteration gives c times the product of (1+x_v), c=2^(2^n−1), and removing the formal empty map gives the claimed exceptional constant term. Setting every x_v=t gives H_n(t). Normalization produces the stated probability: relative to uniform masks the empty mask alone has a deficit, of (2^b−1)/(2^bN), giving the exact total variation, including b=1. The data-processing inequality under the map to size and any subsequent normalization gives the LLN and CLT from Bin(b,1/2). For d≥3 the rank-one and rank-two counts d and d(d−1) differ at height one. Independent bounded replay: python3 /workspace/branches/independent_math_checks.py. It enumerates distinct full-automorphism restrictions to prefix-closed domains and checks every mask at heights 0–3 (1,7,127,32767 maps). All rooted partial isomorphisms extend locally by completing each partial bijection of children, so that enumeration is exhaustive in that range. The uploaded verifier was inspected, not run; the proof, not finite enumeration, establishes all heights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The partial-wreath construction and total-order recurrence underlie the decomposition. The regular-tree spectrum paper distinguishes bottom-level domain rank from the ultimate rank of maps under positive powers."
+        ],
+        "reasoning": "The general decomposition is an input, not a theorem of equal multiplicity for fixed masks. A vanishing proportion of ultimate-rank leaves places no such constraint on the input-domain mask law. The cancellation of all shape-specific counts after adjoining an empty map is binary-specific.",
+        "searches": [
+          "arXiv:2006.15564v1, partial wreath power and rooted-tree semigroup",
+          "Kochubinska 2018, binary tree partial automorphism ranks",
+          "arXiv:2006.15558v1, ordinary versus ultimate rank"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.15564v1",
+        "Kochubinska 2018, Algebra and Discrete Mathematics 26(2) 280–289",
+        "arXiv:2006.15558v1",
+        "Resultary 1ecc47ca2b73"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known scalar count recurrences are recovered by forgetting the leaf marks. Retaining all labels and adjoining one formal empty map produces the product 2XY, a cancellation absent from the inspected aggregate statements."
+        ],
+        "reasoning": "Equal counts for masks that are not related by rooted automorphisms (e.g. a sibling leaf pair and a pair split at the root at height two) do not follow from symmetry or aggregate formulas alone. They require the shape-resolved product identity. The resulting Bernoulli comparison and limit laws are direct corollaries of that identity.",
+        "searches": [
+          "arXiv:2006.15564v1, partial-wreath decomposition",
+          "Kochubinska 2018, total order and first rank moment",
+          "Resultary image-fibre recursions 1ecc47ca2b73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest Resultary result counts rooted-tree retractions onto the prefix closure of specified nonempty leaf sets, by a recursion for each image. It deals with total idempotent endomorphisms and records images, not domains of partial isomorphisms."
+        ],
+        "reasoning": "Replacing domain by image would give the same counts within the groupoid of partial isomorphisms by taking inverses. But retractions are generally many-to-one total maps, and are not the inverses or equivalent restrictions of these maps. Leaf-indexed retraction fibres therefore do not certify the frozen count.",
+        "searches": [
+          "Resultary: rooted-tree partial automorphism; prescribed bottom-level domain; rank generating polynomial; leaf-indexed fibres",
+          "Resultary 1ecc47ca2b73"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary-tree paper gives N_n=2^(2^(n+1)−1)−1 and sum of ranks 2^(n−1)(1+N_n). The full-domain coefficient is the ordinary binary full automorphism group size. The inspected related Resultary recursion is for a different collection of maps."
+        ],
+        "reasoning": "The inspected exact aggregate formulas give H_n(1), H_n'(1), and the familiar full-domain number gives the top coefficient. They do not fix the other coefficients, much less the multiplicity of each labeled leaf mask.",
+        "searches": [
+          "Resultary per-leaf-set fibre count, terminal rank polynomial and binary partial tree automorphism",
+          "Kochubinska 2018, pp. 282, 285–286"
+        ]
+      },
+      "rationale": "The supported distinct claim is shape-independent multiplicity for every prescribed bottom-level domain, with an exact one-mask correction, not the old partial-wreath construction, total order, first moment, full-domain automorphism count, or ultimate-rank theorem. The inspected results do not subsume the set-resolved identity. The probability formulas follow from that identity and are not independent priority claims.",
+      "residual_risks": [
+        "A shape-refined identity hidden in earlier partial-wreath groupoid or Green-class enumerations could provide equivalent coverage; no such statement was identified in the inspected material.",
+        "The 2007 publication and its 2020 arXiv copy are not separate priority evidence; the inspection is not an exhaustive history."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Underlying construction and total counts already known; inspected passages do not give fixed-mask equidistribution",
+          "evidence": "The wreath-power count is aggregated over first-level injection ranks; rooted level-preserving partial automorphisms are realized by that product.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.15564",
+          "material_read": "pp. 2–3, total-order recurrence and rooted partial-automorphism realization, offsets 3989–6152 and 7300–9597",
+          "method": "OA primary paper by passage",
+          "title": "Combinatorics of partial wreath power of finite inverse symmetric semigroup IS_d",
+          "trigger": "Potential general wreath-power count covering domain masks"
+        },
+        {
+          "assessment": "Exact match at aggregate order and first moment, not the joint mask law",
+          "evidence": "P_n=P_(n−1) wreath_p I_2 and the order formula; rank is defined by bottom-level domain and total rank is 2^(n−1)(1+N_n).",
+          "identifier_or_url": "https://admjournal.luguniv.edu.ua/index.php/adm/article/download/532/pdf",
+          "material_read": "pp. 282, 285–286, offsets 4500, 9000, 11962",
+          "method": "OA journal PDF by passage",
+          "title": "Spectral properties of partial automorphisms of a binary rooted tree",
+          "trigger": "Same binary monoid and rank statistic"
+        },
+        {
+          "assessment": "Spectral asymptotics concern the ultimate rank, not this law",
+          "evidence": "Ordinary rank records domain on the bottom level, whereas ultimate rank requires the domains of every positive power.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.15558v1",
+          "material_read": "p. 5, rank definitions, offset 11033",
+          "method": "OA primary paper by passage",
+          "title": "Spectrum of partial automorphisms of regular rooted tree",
+          "trigger": "Check interpretation of the general regular-tree rank result"
+        },
+        {
+          "assessment": "Different map category and conditioning event",
+          "evidence": "The formula is for retractions with prescribed image, the prefix closure of a nonempty set of bottom-level leaves.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-image-fibre-recursions-and-gap-free-rank-spectra-for-rooted-tree--1ecc47ca2b73/RESULT.md",
+          "material_read": "RESULT.md offsets 0–1747 and 1747–4292, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local mirror",
+          "title": "Image-fibre recursions and gap-free rank spectra for rooted trees",
+          "trigger": "Same leaf-set indexing and a rooted-tree map count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural distribution on which leaves a random partial automorphism actually defines. The mask multiplicity collapses despite the large variety of incompatible rooted-tree shapes, and the exact law differs from independent fair bits only by removal of one empty map from the augmented uniform model. This clarifies why many leaves are defined even though the ultimate rank may be small, and the height-one failure beyond the binary case explains why the law is not a generic wreath-power statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

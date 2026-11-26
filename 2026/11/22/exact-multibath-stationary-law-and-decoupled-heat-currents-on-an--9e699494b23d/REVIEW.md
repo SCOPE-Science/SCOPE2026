@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The state space and energy convention are explicit; all refresh clocks are independent and all probabilities are in the interior of their admissible ranges. For every nonempty leaf subset, applying the generator to its leaf product and its hub-multiplied product yields two uniquely solvable linear recurrences with strictly positive denominators. A binary indicator identity recovers every full-state probability. The pair-correlation, temperature-independent amplification ratio, and heat-current formulas follow by direct substitution and elementary factorization of these exact identities. The equal-rate beta mixture follows from conditional independence given the whole telegraph history and from a zero-flux stationary transport equation; the large-star limit follows by conditional variance control. An exact-rational checker independently verifies the full finite master equation for 1,524 configurations. No finite enumeration is substituted for an infinite-size proof.
+PASS
 
-## Originality — PASS on examined evidence, with residual priority risk
+Hub redraw at rate c contributes −cC to the generator (effective flip rate c/2); leaf i contributes ℓ_i(t_i C−σ_i). Acting on the two Walsh monomials for each subset gives the two triangular equations, with only lower-order terms in the numerators. Positivity of the spin-flip rates implies irreducibility, so inversion of configuration indicators indeed recovers the unique stationary law. The singleton and pair equations give the claimed positive cross-leaf correlations and the ratio 1+2c/(ℓ_i+ℓ_j). A leaf redraw changes only its bond contribution; the resulting mean energy inflow is J_iℓ_i(B_{i}−t_i), proving the individual negative current, hub balance and positive entropy production under the stated convention. For common leaf rate ℓ, conditional on the stationary hub past each leaf has mean t_i Z by its independent exponential age. An independent check of the beta law uses the generator on Z^k and CZ^k: E[C Z^k]=E[Z^{k+1}], and E[Z^{k+1}]=k E[Z^{k−1}]/(k+c/ℓ) for k≥1, with E[Z]=0. These are the moments of the claimed beta density and its sign-resolved law; compact support determines the distribution. The conditional variance of the homogeneous empirical mean is at most 1/n, giving the asserted limit and variance.
 
-The relevant earlier two-temperature Ising-chain papers analyze alternating or multiply thermostatted one-dimensional chains, not an autonomous-hot-hub star with individually heterogeneous finite-temperature reservoirs. The closest published finite star recursion, *An exact triangular stationary-law recursion for noisy voters on a star*, already covers a restricted uniform-rate specialization of the current dynamics. That covered specialization is explicitly excluded from the originality assertion. Classical filtered-telegraph beta limits and switching-environment stationary densities are also established and are not claimed as new. The surviving distinguishing contribution is an all-parameter heterogeneous finite-star correlation and probability hierarchy combined with the exact sitewise heat-current decoupling. The full-text comparisons and similarity searches found no dominating statement, but an unindexed general Markov-modulated spin-network result could imply the formulas and remains an acknowledged priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-In nonequilibrium statistical mechanics, individual bath currents and induced correlations generally depend jointly on a network's reservoir configuration. This family gives an exactly solvable counterpoint: arbitrarily many different finite-temperature leaves have nonzero cross-correlations with a temperature-independent normalized amplification factor, but each dissipates a current independent of all other baths. The complete finite-state law is supplied for arbitrary couplings and relaxation rates, and the known beta-mixture limit connects microscopic exactness with persistent collective fluctuations. This is a motivated network-transport classification, not an arbitrary finite enumeration, a claim of a new beta law, or a generic assertion about all star dynamics.
+The supported distinct claim is the explicit arbitrary-heterogeneity joint law together with the multibath energy-current identities. The homogeneous noisy-voter specialization and the classical beta filtering phenomenon are prior coverage, not novel in isolation.
 
-## Scope and limitations
+## value
 
-The hub must be autonomous and infinitely hot, with independent heat-bath clocks. The finite all-subset law does not require identical leaves, but the simple beta mixture does require equal leaf refresh rates. A previously published uniform-parameter voter-star specialization is covered, and unrelated general switching-process treatments could provide unindexed equivalent formulations. There is no result for general hub-feedback kinetics, leaf-leaf bonds, or thermodynamic phase transitions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives an exact joint law in a natural finite nonequilibrium benchmark, with arbitrary reservoir and clock parameters and no leaf exchangeability assumption. The analytic separation between nonzero cross-leaf correlation and decoupled individual energy currents provides a concrete diagnostic for more strongly interacting models. The classical beta law by itself is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

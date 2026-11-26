@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Reproducibility and mathematical limits
 
-The standalone standard-library Python 3 script `check.py` was executed against its delivered contents and returned `VERIFY_OK 9993 finite and exact checks`. It reconstructs digit carry matrices, the full tensor-square transfer and the exact vector identity \(T^2w_0-26Tw_0+90w_0=0\); these matrix identities imply the collision recurrence at every depth, independently of the finite checks. It verifies the rational stationary carry distribution and output frequencies. The script checks all finite target fibers through \(3^8\) and direct ordered triple counts through \(3^4\), along with the first ten energy values from the transfer.
+`python3 check.py` uses Python's standard library to reconstruct the two carry states and their output digit probabilities as exact rational numbers. It checks stationarity, the frequency vector computed from the stationary carry law, and one-position digit marginals through eight positions by comparison with integer prefix counts.
 
-The almost-sure digit frequency assertion rests on the standard finite-state irreducible aperiodic Markov ergodic theorem; finite computations do not establish such a limit. The dimension follows from the exact recurrence and cylinder-mass identity, not extrapolation. No theorem for arbitrary convolution orders or nonuniform input digits is asserted, and independent mathematical auditing has not occurred.
+The almost-sure frequency statement is proved in `RESULT.md` using the Markov ergodic theorem and the bounded martingale-difference law. Finite marginal tests alone do not establish it.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The global two-input modulus equals the maximum of finitely many permutation operator norms, because sorting is continuous and piecewise permutation-linear on nonempty ordering chambers. The sharp universal ceiling is the square root of the ratio of extreme nonzero eigenvalues of the path Laplacian. Equality requires a permutation from the first positive eigenvector to the top eigenvector. Their coordinate multisets agree for even length, while the former has one zero coordinate and the latter none for odd length. For odd length, rank pairing brings the vectors within \(\pi/(2N)\) coordinatewise, and the exact top-eigenspace defect identity yields the explicit lower bound. The path-crossing argument independently verifies one-input contraction. The standalone checker passed 6,344 finite checks; it is not relied upon for the infinite family.
+## correctness
 
-## Originality
-**PASS (qualified).** The claim is a parity-sensitive **two-input** modulus in homogeneous path-gradient norm, not the classical one-input Pólya–Szegő inequality. Full relevant primary text inspected: Chernozhukov–Fernández-Val–Galichon, *Improving Point and Interval Estimates of Monotone Functions by Rearrangement*, arXiv:0806.4730 (monotone-target loss and confidence intervals); Steinerberger, *Discrete Rearrangements and the Pólya–Szegő Inequality on Graphs*, arXiv:2209.06765 (one-input graph gradient contraction); Gupta, *Discrete Functional Inequalities on Lattice Graphs*, arXiv:2403.10270 (one-input lattice rearrangements). These do not imply the present path spectral saturation/parity theorem. Closest distinct developments include ordinary Euclidean GroupSort norm preservation and finite-star graph-Sobolev two-point sorting. Sources with only abstracts available were treated as unresolved risks, not classified as fully excluded. Literature coverage is necessarily nonexhaustive, so an unindexed equivalent formulation remains possible.
+PASS
 
-## Value
-**PASS.** Path sorting is a canonical monotone rearrangement. Its individual-energy monotonicity might suggest stable perturbations, yet the global two-input sensitivity grows linearly with path length. Exact parity classification gives a structural obstruction to spectral saturation, and the odd-length comparison proves that this obstruction does not change the leading amplification scale. This identifies a natural conditioning invariant with a complete equality classification and a quantitative odd-length boundary, rather than a cosmetic perturbation of an established formula.
+On each strict sorting chamber the map is a permutation. Splitting a generic segment at coordinate crossings and using the triangle inequality gives the upper maximum over permutation norms; continuity handles segments lying in ties. A small arbitrary perturbation inside each chamber gives the reverse inequality. On the mean-zero subspace, the nearest-neighbor path Laplacian with degree-one ends has eigenmodes cos((j-1/2)k pi/N) by the second-difference equation (with equal ghost and endpoint values). The extreme nonzero eigenvalues are 4 sin^2(theta) and 4 cos^2(theta), theta=pi/(2N). Their eigenspaces are simple. For even N, reflection pairs opposite signs in both modes and sine/cosine complementation matches magnitudes, so a permutation attains the spectral ratio. For odd N the lowest mode has a zero coordinate while the highest has none; compactness and the finite permutation family make the inequality strict. For the odd lower bound, write v_(h+l)=(-1)^(h+l-1) cos(l pi/N), h=(N+1)/2. In increasing rank, expressing v as -cos of angles yields the even-angle grid when N=3 mod 4 (0 once and other angles twice) and the odd-angle grid when N=1 mod 4 (pi once and others twice). This matches the low-mode midpoints within theta in every rank. The positive semidefinite defect lambda_max I-L annihilates v, so the energy deficit of the permuted low mode is at most lambda_max N theta^2, giving the stated odd lower bound and asymptotic. Each sorted-value gap is crossed by at least one original path edge, whose square dominates the sum of its crossed gap squares, proving the separate one-point bound. A different-coordinate SVD enumeration (python /workspace/independent_checks.py 2) checked 872 permutations over N=2–6; this is finite numerical corroboration only.
 
-## Limits and closely related statements
-The exact odd-length optimum is not determined. An indexed literature search cannot establish uniqueness. The theorem applies to real unweighted finite paths, homogeneous quadratic first-difference energy, and increasing coordinate sorting; it does not cover general graphs, weights, or other Sobolev exponents. The independent status below is not a certification claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the parity-resolved two-input path-gradient stability result and quantitative odd-N enclosure, not the spectral condition-number bound in isolation or one-input contraction. The closest checked two-input works concern different norms or the star graph; they give no all-path saturation result. The exact odd optimum is not claimed.
+
+## value
+
+PASS
+
+The path-gradient norm of differences is a natural conditioning invariant for monotone sorting. The anti-contractive growth despite one-point contraction and the exact saturation parity are whole-family structure, while the uniform odd error shows that the strict obstruction does not change leading amplification. This is not a claim to the exact odd optimum or another graph's modulus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

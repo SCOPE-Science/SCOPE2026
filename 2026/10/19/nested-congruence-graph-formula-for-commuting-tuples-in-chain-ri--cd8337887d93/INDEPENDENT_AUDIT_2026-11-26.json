@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:12:49.610330Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The directed-arrow multiplication gives the two-row minor equations for the endpoint difference delta and the arrow coefficient vector; vertex coefficients commute and all two-arrow products vanish. Conditional on the vertices, distinct arrows are independent. For nu(delta)=a<L, write delta=pi^a u with a unit entry in u, and send u to the first unit vector by an invertible column transformation, which preserves vanishing of all wedge coordinates. The remaining t-1 entries each lie in Ann(pi^a)=pi^{L-a}R of size q^a, so the fiber is q^{L+(t-1)a}. For delta=0 that count is q^{Lt}. Telescoping the valuation factor gives the stated weights for congruence thresholds. At each lift from R/(pi^{h-1}) to R/(pi^h), every E_h-component already has a common residue below, since E_h is contained in E_{h-1}; choose one lift for that component, with q^t choices even in mixed characteristic, and there are no further restrictions at this level. Their product gives the stated exponent. Reversal negates delta; c(S)=n-r_G(S) gives graphic-matroid dependence including loops, repeated edges and isolated vertices. Loops impose no arrow constraints, t=1 gives |A|, m=0 gives q^{Lnt}, and L=1 gives the finite-field expansion. Independent replay: python3 /workspace/reproduction.py 1 enumerates the commuting relation by literal arrow products and uses centralizer intersections for triples. All ten cases agreed over Z/p^L and F_p[e]/(e^L) for the tested lengths and p=2,3. Examples include 25600 ordered triples for one arrow at q=L=2, 163840 ordered pairs for two opposite arrows and a loop there, and 47104 pairs for one arrow at q=2,L=3. These tests are bounded and not an all-ring proof; the lifting argument proves the general claim. No non-chain or noncommutative coefficient claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Ellis-Monaghan–Merino review supplies the standard Tutte framework, and Wu–Yu–Lu supply chain-ring structure. The inspected Dutta et al. and Dutta–Basnet–Nath passages concern pair probabilities and relative centralizers.",
+          "Resultary 857ae871be86 counts simultaneous-conjugacy orbits of tuples over finite fields, not the tuples over chain rings."
+        ],
+        "reasoning": "The ordinary subset expansion has a single equality relation on colors; it has no same-node, cross-level congruence information on its own. Structure of principal ideals gives fiber sizes but no commuting-tuple formula. Orbit counts and raw counts are not interchangeable without stabilizer data. No documented broader coverage was established by these comparisons.",
+        "searches": [
+          "arXiv:0803.3079 Potts/Tutte subset expansion",
+          "arXiv:1105.5179 finite local principal ideal rings",
+          "arXiv:1510.08211 and arXiv:1803.04111 finite-ring commuting probabilities",
+          "Resultary: graph random-cluster formula for commuting-tuple orbits"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Resultary/local mirror 75cb49b6c27d, 11a1e3f1ac18, 73e61818e07a, 8fae3394a05c, 857ae871be86",
+        "arXiv:2402.12619",
+        "arXiv:0803.3079",
+        "arXiv:1105.5179",
+        "arXiv:1510.08211",
+        "arXiv:1803.04111"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cheraghpour et al. give q+1 noncentral clique components of size q^2-q for the triangular algebra over a finite field, and the inspected nonfield Z_m statement concerns diameter and connectedness.",
+          "The finite-field determinant-zero test distinguishes zero from nonzero vertex difference only. Over a chain ring a nonzero difference of valuation a has a distinct q^{L+(t-1)a} arrow multiplicity and must be counted jointly with the valuations on incident edges."
+        ],
+        "reasoning": "Neither a clique profile in one triangular graph nor a single residue-level weight supplies the multi-edge, multi-level coupling. The arrow calculation over a valuation stratum and the simultaneous filtration lift of vertex constraints are the missing steps. A proven general multilevel Potts result could cover the second step, but no inspected earlier statement supplies both it and the quiver-algebra identification.",
+        "searches": [
+          "arXiv:2402.12619 finite-field and Z_m commuting graphs",
+          "arXiv:0803.3079 Tutte background and 75cb49b6c27d finite-field Kronecker fibers",
+          "Resultary/local mirror 8fae3394a05c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 11a1e3f1ac18 gives the same tuple probability for one residue level over a finite field on loopless quivers, and 73e61818e07a matches its pair-count specialization.",
+          "Resultary 8fae3394a05c gives the exact all-arity triangular algebra count C_t=S_L q^{2Lt}-(S_L-1)q^{(2L-1)t} with S_L=1+q+...+q^L."
+        ],
+        "reasoning": "Two vertices and one arrow give the triangular algebra. In the target sum its component counts are 1 for h<=alpha and 2 otherwise, so C_t=q^{Lm+2Lt} sum_j w_j q^{-tj} with m=1; summing gives exactly the triangular expression. The cases coincide, but that comparator is later and confined to one arrow. Setting L=1 makes the levels just subsets and recovers the finite-field formula; it does not reconstruct the joint count of several thresholds.",
+        "searches": [
+          "Resultary: commuting tuple probabilities of radical-square-zero quiver algebras; finite chain ring upper-triangular commuting tuples",
+          "arXiv:2402.12619 Theorem 2.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier record 75cb49b6c27d gives q^{-2}+(q^2-1)q^{-r-2} for a pair of elements in the r-arrow Kronecker algebra over F_q. The local-mirror findings of 11a1e3f1ac18 and 73e61818e07a cover finite-field loopless tuples or pairs. The later 8fae3394a05c gives exact triangular counts in arbitrary chain lengths."
+        ],
+        "reasoning": "The Kronecker count is genuinely the parallel-arrow/two-vertex special case: independent uniform vertex differences are both zero with probability q^{-2}; otherwise r arrow equations impose r independent factors q^{-1}. This formula and the other inspected explicit counts do not state the arbitrary-graph chain-ring identity. The bounded catalogue comparison is not an exhaustive priority claim.",
+        "searches": [
+          "Resultary: finite Kronecker commutator fibers, chain-ring triangular commuting counts, adjoint ranks and all-arity quiver commuting counts"
+        ]
+      },
+      "rationale": "The reviewed sources give exact finite-field specializations, an exact later triangular one-arrow comparison and relevant ring/graph tools. None of the verified earlier results yields the combined L>=2, arbitrary-graph, all-arity law or the resulting mixed- versus equal-characteristic invariance. Only that combined extension is credited, not the finite-field expansion or the chain-ring filtration itself.",
+      "residual_risks": [
+        "Unindexed multilevel Potts partition functions or determinantal-congruence counts may provide equivalent or stronger formulas under other terminology.",
+        "A related statement on maximum determinant-zero subsets mentioned in the triangular comparator did not supply a pinned primary citation; it has not been used to infer coverage of the tuple law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier exact pair-count subcase over fields, not arbitrary ring length or graph.",
+          "evidence": [
+            "Commutes with probability q^{-2}+(q^2-1)q^{-r-2}; also treats nonzero fibers outside this zero-fiber count."
+          ],
+          "identifier_or_url": "Resultary 75cb49b6c27d",
+          "material_read": "Local-mirror RESULT.md offsets 0 and 6471",
+          "method": "Resultary search followed by local-mirror reading",
+          "title": "Commutator fibers and commuting probabilities of finite Kronecker path algebras",
+          "trigger": "Same quiver multiplication for arbitrary parallel-arrow multiplicity"
+        },
+        {
+          "assessment": "A directly equivalent one-arrow count, later-dated; does not establish prior arbitrary-graph coverage.",
+          "evidence": [
+            "The all-arity triangular count over a finite commutative chain ring is a difference of two exponential terms in the arity."
+          ],
+          "identifier_or_url": "Resultary 8fae3394a05c",
+          "material_read": "Local-mirror RESULT.md offsets 0 and 7181",
+          "method": "Resultary search followed by local-mirror reading",
+          "title": "Two-pole commuting tuple and clique enumerators for triangular algebras",
+          "trigger": "Exact counts for the one-arrow chain-ring algebra"
+        },
+        {
+          "assessment": "All-arity or pair-count L=1 comparisons, and a separate orbit count. The inspected records are later dated.",
+          "evidence": [
+            "11a1e3f1ac18 gives a finite-field tuple law and Tutte recovery; 857ae871be86 counts simultaneous-conjugacy orbits."
+          ],
+          "identifier_or_url": "Resultary 11a1e3f1ac18, 73e61818e07a and 857ae871be86",
+          "material_read": "Local-mirror RESULT.md findings, offset 0 for each",
+          "method": "Resultary search followed by local-mirror reading",
+          "title": "Finite-field quiver commuting probabilities, adjoint ranks, and commuting tuple orbits",
+          "trigger": "Closest graph-level Tutte and commuting comparisons"
+        },
+        {
+          "assessment": "Finite-field components produce that subcase; the inspected nonfield passage is not a count of tuples.",
+          "evidence": [
+            "The field case has q+1 disjoint noncentral cliques of size q^2-q; the nonfield result in the passage concerns connectedness and diameter 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.12619",
+          "material_read": "Theorem 2.11 and nonfield Z_m discussion, PDF p. 13, around offset 39204",
+          "method": "OA PDF passage",
+          "title": "Cheraghpour et al., commuting graphs of 2-by-2 upper-triangular matrices",
+          "trigger": "Same one-arrow algebra and possible equivalent clique enumeration"
+        },
+        {
+          "assessment": "Provides standard background; no whole-document exclusion is inferred from the opening passages.",
+          "evidence": [
+            "The first source is about Tutte graph polynomials; the second is about finite local principal ideal ring structure."
+          ],
+          "identifier_or_url": "arXiv:0803.3079 and arXiv:1105.5179",
+          "material_read": "Opening Tutte review passage, p. 1; chain-ring structure paper p. 1 near offset 650",
+          "method": "OA PDF passages",
+          "title": "Graph Polynomials and Their Applications I: The Tutte Polynomial; The structure of finite local principal ideal rings",
+          "trigger": "Classical graph and coefficient-ring ingredients"
+        },
+        {
+          "assessment": "Inspected statements concern pair or relative probabilities and centralizer questions, not the joint nested count.",
+          "evidence": [
+            "The passages define or frame two-element commuting probabilities."
+          ],
+          "identifier_or_url": "arXiv:1510.08211 and arXiv:1803.04111",
+          "material_read": "1510.08211 p. 2, around offset 2645; 1803.04111 opening p. 1",
+          "method": "OA PDF passages",
+          "title": "Finite ring commuting probability papers by Dutta and collaborators",
+          "trigger": "Finite-ring commuting-count terminology and potentially broader formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The whole family of commuting-tuple counts is a natural finite-algebra invariant. The exact formula shows that the family cannot distinguish dissimilar equal- and mixed-characteristic chain rings sharing q and L in this class, and that it ignores orientation and all graph information outside graphic-matroid rank and vertex count. These are structural conclusions about nonlinear congruence constraints, not a finite verification or a restatement of the one-level Potts sum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

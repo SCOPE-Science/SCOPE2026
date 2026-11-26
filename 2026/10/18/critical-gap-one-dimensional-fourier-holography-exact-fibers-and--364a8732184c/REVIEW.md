@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding concerns the known reference \(b\ne0\) at index \(2n\), integer \(n\ge1\), and completely arbitrary unknown complex coefficients on indices \(0,\ldots,n\). Exact Fourier autocorrelation identities recover all lower-index coefficients from outer lags and reduce the final coordinate to one explicit real-linear map. The minimum singular value vanishes precisely when all interior coefficients vanish and the two endpoint amplitudes balance. The remaining norm datum then proves the stated exact twofold conjugate-reflection fiber. A nonaliasing discrete Fourier grid gives the finite sampling assertion. All boundary and normalization cases, including \(n=1\), vanishing coefficients, and coincident reflection partners, are covered.
+PASS
 
-## Originality — PASS, with stated historical-priority risk
+With C_k the coefficient of e^(ikt) in the intensity, each k=2n−j>n has only the term b·conj(a_j), recovering the head even if it contains zeros. At smaller positive lags, subtract the fixed head products; the data for z=a_n are conj(a_(n−k))z for k<n and conj(a_0)z+b·conj(z) at k=n. The squared change on a perturbation h is S|h|²+|conj(a_0)h+b·conj(h)|². On the unit circle the cross term ranges over its full phase, so the claimed squared extremes are attained, including when a_0=0 or the middle is empty. At rank loss, S=0 and |a_0|=|b|. Rotate z by a unit square root of b/conj(a_0); the remaining positive lag fixes the rotated real part and C_0 fixes the modulus. Exactly the stated reflected pair results, possibly coincident. On the full sequence this is conjugate reversal times the unique phase preserving b and a_0. A 4n+1 grid separates the Fourier modes −2n through 2n. With m≥2n+1 every reference-to-unknown lag exceeds n and separates. All arguments include n=1.
 
-The motivating Novikov–Xu paper (arXiv:2604.25662v1) constructs subcritical background ambiguities and recalls the supercritical uniqueness regime, but does not derive the present discrete critical known-spike fiber. The two-dimensional reference-block deconvolution of Barmherzig et al. (arXiv:1901.06453) cannot be applied unchanged to the colliding one-dimensional edge lag. Crimmins–Fienup (JOSA 73 (1983)) assumes strict separation, and Bendory–Beinert–Eldar (arXiv:1705.09590) provides general and generic phase-retrieval theory, not this complete critical family. Searches of published mathematical findings and accessible published mathematical claim summaries did not identify equivalent/stronger coverage. Such searches cannot exclude an unindexed old result. The structured audit gives implication checks and precise inspection scopes.
+## originality
 
-## Value — PASS
+PASS
 
-The result isolates the boundary between isolated reference cross-correlations and the first unavoidable autocorrelation collision. It gives an entire exact fiber classification for every length, not a favorable example, and specifies a sharp conditional inverse stability margin that collapses at exactly the same algebraic degeneracy. These facts are natural design criteria for one-dimensional reference-aided Fourier phase retrieval. The claim is deliberately confined to one known point-reference; it is not a general holography uniqueness theorem.
+Pass is for the all-signal classification at exact support-distance equality and the residual singular values there. Strictly separated reconstruction, finite inverse Fourier inversion, and conjugate reversal itself are known and not credited. The inspected plausible matches use strict geometric separation, different measured data, or generic uniqueness rather than this single reference and touching lag.
 
-## Verification and limitations
+## value
 
-The ordinary checker is `verification/check.py`, using only the Python standard library. It passed 2,185 parameter cases, including independent exact-lag, discrete Fourier, real-Gram-spectrum, and balanced-fiber checks. These tests supplement an analytic proof; no finite simulation establishes its all-parameter quantifiers. The singular spectrum is conditional on already knowing the earlier coefficients. The critical exception is a classical conjugate-reversal ambiguity, not an unknown new symmetry. No independent evaluation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The neighboring outer-lag method ceases to isolate one coefficient at exactly the critical spacing. A complete classification there for arbitrary complex data, including zero coefficients and singleton fibers on the reflection axis, is a natural inverse-problem boundary result. The exact conditional spectrum quantifies ill-conditioning near the exceptional stratum, which the mere symmetry or generic uniqueness would not show.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

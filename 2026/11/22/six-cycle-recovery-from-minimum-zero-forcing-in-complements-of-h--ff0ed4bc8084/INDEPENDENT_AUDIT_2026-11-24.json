@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:31:24.214350Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With four white vertices a first force can leave only three whites in one H-neighborhood; by the absence of quadrilaterals no other black vertex sees two of those in H, so forcing stops. Monotonicity rules out larger white sets. With three whites a legal first force is exactly an external vertex with two H-neighbors in the triple. After that force a second H-neighbor of one of those two whites distinguishes them (there is no quadrilateral), and the final white can be forced because H has no universal vertex. The same triangle/quadrilateral reasoning supplies a distinguishing vertex when starting with two whites. Existence of a successful triple follows by taking two H-neighbors of any v and one G-neighbor of v. For the distance-two graph J, each J-edge has a unique H-midpoint. Its triangles either have one common midpoint or three distinct midpoints outside the triangle, with the latter corresponding bijectively to six-cycles with a choice of alternating triple. Inclusion-exclusion gives (n-2)A-B+t(J) triples containing a J-edge. The nonforcing ones are exactly the H two-edge paths (midpoint white) and triples in a common H-neighborhood (external midpoint sees all three), counted by A and the sum of binom(d,3), respectively. This yields the stated coefficient and recovery identity, including disconnected H. The supplied Python/C++ files and recorded output were inspected as finite corroboration only. A separate memoized search through possible force sequences checked every white mask on every eligible labeled graph of orders 1–6 and on the disjoint and bridged C5/C6 examples: 12 C5 labelings with (c6,M)=(0,5), 60 C6 labelings with (1,14), and (1,79),(1,93) in the 11-vertex examples. Replay: /workspace/branches/zero_forcing_replay.py. The general result rests on the proof, not those tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eroh–Kang–Yi give Z≤n−3 if both complementary graphs are connected. Alfaro et al. state a forbidden-graph characterization for mz≤3 and mention partial girth characterizations; detailed theorems were not available in the bounded attempt."
+        ],
+        "reasoning": "These are material broader threshold comparisons. Even exact equality or a forbidden-induced-subgraph characterization for the threshold would not alone identify and enumerate every optimizer. It is unresolved how fully the latter paper covers the scalar specialization or related structural details.",
+        "searches": [
+          "Eroh–Kang–Yi arXiv:1402.1962, p. 1 abstract",
+          "Alfaro et al. arXiv:2608.27972, p. 1 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 3–76, verification note, both illustrative programs and TEST_OUTPUT.txt",
+        "Resultary 6c7cf7fab756, 07fffeb0f7e1 and 76693759f476",
+        "Eroh–Kang–Yi arXiv:1402.1962 abstract",
+        "Alfaro et al. arXiv:2608.27972 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The checked scalar statements do not describe the multiplicities. The proof of the count adds the short-path and common-neighborhood exclusions and a bijection between remaining distance-two triangles and alternating triples of six-cycles. In the cycle case alone this reduces precisely to prior counts."
+        ],
+        "reasoning": "No present comparison gives the joint local-data and six-cycle term on arbitrary high-girth complements. Known threshold bounds cannot distinguish two equal-order cubic inputs whose counts differ by twice their difference in six-cycle counts. The recovery identity itself is algebraic from the new enumeration, not a separate novelty claim.",
+        "searches": [
+          "Resultary 6c7cf7fab756, 07fffeb0f7e1 and 76693759f476",
+          "arXiv:1402.1962 and arXiv:2608.27972 threshold statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6c7cf7fab756 and 07fffeb0f7e1, Finding and Proof 'Three whites', give the same three-white witness criterion for the complement path/cycle families. Alfaro et al. frame the scalar question as maximum initially omitted vertices, mz(G), and state a forbidden-structure result for mz≤3."
+        ],
+        "reasoning": "For the present family mz=3 is exactly Z=n−3; this scalar statement is not equivalent to naming and counting every forcing triple. The witness condition agrees on the cycle intersection of domains; paths with leaves are outside the new theorem's hypotheses.",
+        "searches": [
+          "Local Resultary: complements of paths and cycles zero-forcing sets, polynomials and well-forcedness",
+          "arXiv:2608.27972, p. 1 abstract, mz(G)=|V(G)|−Z(G)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 6c7cf7fab756 and 07fffeb0f7e1 give exact polynomials for paths and cycles; 76693759f476 gives the exact path polynomial and minimal-fort classification. For H=C_n, A=B=n and c6=1 exactly at n=6, giving M=n(n−4)+2·1_{n=6}, in agreement with those exact cycle polynomials."
+        ],
+        "reasoning": "The entire overlapping cycle census is known, not merely the value of Z. These exact formulas do not cover the counts on the irregular or higher-degree high-girth portion of the domain. No equivalent general enumeration was identified in the checked exact formula comparisons.",
+        "searches": [
+          "Local Resultary: exact zero-forcing polynomials of complement paths/cycles",
+          "Local Resultary: minimal fort hypergraphs for complements of paths"
+        ]
+      },
+      "rationale": "Best of knowledge, the distinct contribution is the optimizer criterion and exact six-cycle-sensitive count across the full minimum-degree-two, girth-at-least-five family, including irregular graphs and disconnected underlying graphs. The scalar n−3 upper bound under complementary connectedness and the complete cycle special case, including the witness criterion there, are credited as prior coverage.",
+      "residual_risks": [
+        "The full 2026 forbidden-structure text was not retrieved. Its exact scalar and structural coverage remains unresolved beyond the abstract.",
+        "The nearest Resultary formula overlaps were checked on their stated families; an unindexed equivalent general optimizer enumeration is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete overlap on cycles; paths are a related boundary outside the degree hypothesis.",
+          "evidence": "States the complete path and cycle polynomials and the same external witness test for three whites for n≥5.",
+          "identifier_or_url": "Resultary 6c7cf7fab756",
+          "material_read": "Local RESULT.md Finding and Proof, 'Three whites'",
+          "method": "Resultary search and local mirror",
+          "title": "Zero-forcing polynomials of complements of paths and cycles",
+          "trigger": "Identical invariant and optimizer classification for a substantial special case"
+        },
+        {
+          "assessment": "Same cycle overlap; additional well-forcedness is not the present general count.",
+          "evidence": "Exact path/cycle polynomials and identical three-white witness criterion there.",
+          "identifier_or_url": "Resultary 07fffeb0f7e1",
+          "material_read": "Local RESULT.md Finding and Proof, 'Three whites'",
+          "method": "Resultary search and local mirror",
+          "title": "Zero-forcing polynomials and well-forcedness of complements of paths and cycles",
+          "trigger": "Exact census and optimizer criterion for the same complement cycle family"
+        },
+        {
+          "assessment": "Path boundary outside minimum degree two.",
+          "evidence": "Path complement minimal-fort classification and polynomial.",
+          "identifier_or_url": "Resultary 76693759f476",
+          "material_read": "Local RESULT.md Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Minimal-fort hypergraphs and zero-forcing polynomials of complements of paths",
+          "trigger": "An alternate fort and polynomial representation of optimizer counts"
+        },
+        {
+          "assessment": "Scalar upper bound credited; assessment limited to available statement.",
+          "evidence": "When both graphs are connected the zero-forcing number is at most three below order.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.1962",
+          "material_read": "p. 1 abstract",
+          "method": "Bounded primary abstract inspection",
+          "title": "On Zero Forcing Number of Graphs and Their Complements",
+          "trigger": "Prior complementary n−3 bound"
+        },
+        {
+          "assessment": "Material scalar overlap risk. The accessible abstract does not establish the present optimizer census.",
+          "evidence": "Defines mz and states a minimal-forbidden-graph characterization for mz≤3 and partial girth characterizations.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.27972",
+          "material_read": "p. 1 abstract; full theorem and details not retrieved",
+          "method": "Bounded OA comparison",
+          "title": "The forbidden structure for zero forcing number",
+          "trigger": "Potential stronger general threshold theorem and girth results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an all-orders structural and enumerative theorem for a natural complement family. The zero-forcing number alone is constant at n−3 for fixed order, but optimizers encode a definite six-cycle invariant after removing computable local terms. In particular equally sized cubic complements can have identical scalar numbers and distinct optimizer counts explained exactly by their underlying hexagons. The result provides both a usable membership test and the complete set polynomial, not just a new instance of a scalar bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

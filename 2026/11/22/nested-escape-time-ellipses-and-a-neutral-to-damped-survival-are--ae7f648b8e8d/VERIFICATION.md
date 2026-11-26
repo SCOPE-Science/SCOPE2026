@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The main proof is the exact reciprocal-square polar reduction and the positive Gram-matrix argument in RESULT.md. For each fixed positive horizon, direct integration of \(D\), \(C\) and \(H\) yields the exact determinant; no floating-point integration is used to prove the formula. Strict positive definiteness follows because the nonzero trigonometric function \(x_0\sin s+y_0\cos s\) has positive squared integral on every nonempty interval. The finite-time blow-up conclusion uses the polynomial ODE continuation theorem and the explicit reciprocal-square singularity, rather than a numerical escape cutoff.
+## correctness
 
-Run `python3 check_lifetime.py` using Python 3 and its standard library. The script compares explicit Gram entries with independent Simpson integration for five parameter-time pairs, checks determinant identities and positivity, tests the short-time area expansion, verifies normalized damped tails for two parameter values, and checks convergence at six neutral crossover points. It prints `VERIFY_OK: Gram entries, area, small-time, damped tail, crossover` on success.
+PASS
 
-Finite diagnostics do not certify an all-time theorem. The \(\kappa=0\) case uses its own exact integral rather than a floating-point limiting substitution. Very large horizons require the algebraically stable survival expression in the checker because subtracting two nearly equal ellipse areas loses numerical precision. Independent external review has not occurred.
+With θ'=1 and w=r^(-2), the solution w(t)=exp(2κt)(w(0)−2∫₀ᵗexp(−2κs)sin²(θ₀+s)ds) is valid in original time. The bracket strictly decreases on every positive-length interval for a nonzero initial state; its first zero forces r→∞, while positivity gives a smooth solution. This proves the strict inequality for τ>t, including equality as the escape boundary. The weighted rotating vectors span the plane on every interval, giving positive definite nested Gram matrices. Taking the squared modulus of the weighted second harmonic in the determinant yields, for κ>0, exp(−2κt)((sinh(κt)/κ)²−sin²t)/(1+κ²), with neutral determinant t²−sin²t. For κ>0 the infinite-time condition is the non-strict limiting ellipse inequality. On its boundary w is the shifted positive periodic tail integral; differences at a fixed phase grow by exp(4πκ) each revolution. Interior states converge to zero. In the neutral case every nonzero initial direction has divergent squared-sine integral. Subtracting the limiting area therefore gives S, not A, for the long-time asymptotics. Expanding the inverse square root in q=exp(−2κt) gives first coefficient 1+2κ²sin²t and the two extremal subsequences. On compact u>0 intervals the crossover denominator stays away from zero and the oscillatory correction is uniformly O(κ²). At small t the hyperbolic and trigonometric expansions cancel the terms of degree two and give det Q=(t⁴/3)(1−2κt+Oκ(t²)).
+
+## originality
+
+PASS
+
+Restrict the pass to the quantitative original-time area distribution and its sharp two-regime/crossover analysis. The exact cubic, explicit IVP and resulting radial blow-up threshold are already covered by Llibre. The ellipse as a set is a direct rewriting of that known threshold. The checked source does not give the Euclidean survival distribution obtained by integrating over the initial conditions, its oscillatory finite-escape tail, or the compact-uniform transition across zero damping.
+
+## value
+
+PASS
+
+Original-time survival measured over initial states addresses a quantitative question not answered by classifying point trajectories or the limit cycle. The exact reference law separates complete states from finite-time escape, exhibits a persistent phase modulation rather than a constant exponential prefactor, and specifies the compact-uniform transition from algebraic to exponential tails. These are useful benchmarks for the critical rigid flow even though the required area calculation is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

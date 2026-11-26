@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:46:47.180387Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:9–105 and 109–116",
+        "VERIFICATION.md:19–23 and check.py:9–128",
+        "arXiv:2109.04985v1 Eq. (6), HTML offset 17450",
+        "/tmp/opencode/frozen_review_analytic.py chronology (independent quadrature)"
+      ],
+      "rationale": "On the homogeneous-group manifold each majority recipient has per-edge term -d exp(-kappa d) in the A-majority snapshot (and the reversed B sign in the other); each minority recipient gains 2d toward the majority with weight one. The incidence degrees produce (-rho d q, rho d) and (-rho d, rho d q) for (a', b'), where q=exp(-kappa d). For measurable switching, the two fields are locally uniformly Lipschitz in x and measurable in time, so the restricted solution satisfying the full equations almost everywhere is the unique Caratheodory solution. The common gap obeys d'=-rho d(1+q), stays positive in finite time and is independent of chronology; opinions remain bounded and intragroup edges contribute zero. For m=(a+b)/2, the derivative is +/- w with w=rho d(1-q)/2; d decreases and d(1-exp(-kappa d)) increases strictly with d. Comparing any plus-set of measure tau to [0,tau] swaps equal masses and loses strictly unless the two sets agree almost everywhere; the reverse comparison proves the unique minimum. After both snapshots switch on, m stays fixed and d tends exponentially to zero, so the optimized quantity is eventual consensus. L_kappa'(d)=(1-q)/(2(1+q)) yields dL_kappa/dt=-w, hence the stated second difference, and Taylor expansion gives -w'(0) tau^2+O(tau^3), with exactly the positive displayed coefficient. The tau and kappa limits follow from d(t)->0 for fixed kappa and the log-cosh asymptotics, in the order stated. Intermediate consensus values are attainable by translating a contiguous plus-window from the first to the second half, continuously. An independent separated-ODE quadrature at kappa=rho=2 and tau=0.6 reproduced d(tau)=0.18700662199483575, d(2tau)=0.02003333411191537, gain 0.19960598035697165 and the alternating example 0.62492868529838253. The comparison to the prior Eq. (6) uses one term per unordered edge, consistent with its half-sum over ordered neighbors.",
+      "residual_risks": [
+        "The finite checks are corroboration, not the measurable-schedule proof. The doubled LaTeX slashes at RESULT.md:76 are a typesetting typo: the preceding per-mode equations fix w unambiguously.",
+        "Equal budgets, d0>0, positive reinforcement, one snapshot at a time, exact degree balance, initial within-group homogeneity and the specified union phase matter. The strict result degenerates at kappa=0 or d0=0, outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier 3CM article and survey give majority reinforcement and clustered opinion effects; the temporal article explicitly gives 3CM and first-mover behavior. The two Shang full texts were not recovered and were not used as evidence of noncoverage."
+        ],
+        "reasoning": "Prior convergence or qualitative average shifts do not optimize the final average over switching. Standard rearrangement bounds a strictly decreasing weight once established, but does not by itself make the nonlinear gap independent of the schedule or preserve the mean at release.",
+        "searches": [
+          "arXiv:2004.00901v1, Eq. (3) and sections 3.3–3.4",
+          "arXiv:2109.04985v1, Eq. (6) and section 5.2",
+          "arXiv:2105.01369v2, 3CM average-state shift",
+          "DOI:10.1093/comnet/cnad009",
+          "DOI:10.1098/rspa.2021.0564"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:9–57, 118–134",
+        "arXiv:2109.04985v1, 2004.00901v1, 2105.01369v2",
+        "Resultary 2c6771e6ac36 and indexed eda lead ed2280e18d93"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-mover simulations give a matched qualitative ordering and same terminal activation convention, but no sharp formula/derivation for d(t), topology independence, optimality against interleaving, or quadratic coefficient in the inspected passages."
+        ],
+        "reasoning": "Two tested sequences do not imply uniqueness of the rearrangement optimizer. The implicit scalar gap, strict weights and closed primitive are the extra statement needed to deduce the exact consensus interval and small-window expansion.",
+        "searches": [
+          "arXiv:2109.04985v1, Introduction and section 5.2/Fig. 5",
+          "arXiv:2004.00901v1, sections 3.3–3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior first-mover experiments compare both orders with equal 0.2 windows, then all interactions active, using two 10-node clusters with randomly located orientation-balanced connecting triples. They report closer consensus to the group whose majority discussions activate first. Such balanced orientation counts alone are not the exact per-agent degree symmetry in the reviewed statement."
+        ],
+        "reasoning": "The experimental comparison is materially close and deserves explicit credit; checking two fixed chronologies on sampled topologies is not the same theorem as maximizing over all measurable schedules on every equitable arrangement.",
+        "searches": [
+          "Resultary: balanced 3CM chronology, measurable switching, exact first-mover gain",
+          "Primary search: exact 3CM chronology and rearrangement",
+          "arXiv:2109.04985v1, section 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected same-day entry 2c6771e6ac36 is a two-leader optimization on K_(1,m,m+1) for static noisy consensus. The index summary for ed2280e18d93 concerns a stochastic voter/contact-link effect; its exact mirror source was missing."
+        ],
+        "reasoning": "For this continuous law an exact match would be a stated symbolic theorem or gain formula rather than numerical table entries. The available catalogue hits are different objective functions and dynamics; the unavailable path limits the second comparison to the summary.",
+        "searches": [
+          "Resultary: exact chronology and first-mover gain in balanced three-body consensus",
+          "Resultary 2c6771e6ac36 and ed2280e18d93"
+        ]
+      },
+      "rationale": "Pass for the exact topology-independent optimization theorem with unique extrema over all measurable schedules, the sharp gain formula and its limiting laws. The same 3CM, majority effects, and qualitative first-mover advantage including equal-exposure A-first/B-first experiments are prior and are not credited as novel.",
+      "residual_risks": [
+        "Named Shang sources and one low-similarity Resultary record were not accessible in full. The comparison is best of current knowledge, not a priority certificate or an exhaustive absence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and materially overlapping phenomena/experiments; different theorem scope",
+          "evidence": "Half-weight sum over ordered neighbor pairs; two 10-node clusters, balanced orientation counts and two 0.2 windows in the simulation, then all connections active.",
+          "identifier_or_url": "https://arxiv.org/html/2109.04985v1",
+          "material_read": "Introduction offsets 8200–10688; Eq. (6) at 17450; section 5.2/Fig. 5 discussion at 47600–56772",
+          "method": "Primary OA HTML, bounded readings",
+          "title": "Consensus dynamics on temporal hypergraphs",
+          "trigger": "Direct prior equal-window first-mover comparison and model normalization"
+        },
+        {
+          "assessment": "Majority effects and model are established background",
+          "evidence": "3CM interaction and reinforcing majority shifts on randomly connected clusters.",
+          "identifier_or_url": "arXiv:2004.00901v1",
+          "material_read": "Eq. (3) at offset 4050; sections 3.3–3.4 at 12926–17953",
+          "method": "Primary OA HTML",
+          "title": "Opinion Dynamics with Multi-Body Interactions",
+          "trigger": "Original 3CM model and majority shift"
+        },
+        {
+          "assessment": "Related mechanism in inspected passage",
+          "evidence": "3CM average shifts and numerical examples, not the sharp scheduling statement in that passage.",
+          "identifier_or_url": "arXiv:2105.01369v2",
+          "material_read": "Offsets 45000–49864, average-state and majority effects",
+          "method": "Primary OA",
+          "title": "Consensus Dynamics and Opinion Formation on Hypergraphs",
+          "trigger": "Survey of possible existing exact reductions"
+        },
+        {
+          "assessment": "Different setting",
+          "evidence": "Static noisy consensus leader placement on K_(1,m,m+1), not a temporal hypergraph.",
+          "identifier_or_url": "Resultary 2c6771e6ac36",
+          "material_read": "RESULT.md model and finding",
+          "method": "Configured local search and mirror",
+          "title": "A gain-independent three-phase two-leader law",
+          "trigger": "Same-day consensus optimization lead"
+        },
+        {
+          "assessment": "Unresolved beyond attribution",
+          "evidence": "Known topic is three-body consensus and conservation; no noncoverage conclusion rests on access failure.",
+          "identifier_or_url": "DOI:10.1098/rspa.2021.0564",
+          "material_read": "Bibliographic record and frozen description; no full text",
+          "method": "Bounded DOI, publisher and PDF OA attempts, returned 403 with no located repository copy",
+          "title": "A system model of three-body interactions in complex networks: Consensus and conservation",
+          "trigger": "Potential related exact three-body result"
+        },
+        {
+          "assessment": "Full scope not independently assessed",
+          "evidence": "Frozen citation places it in a discrete-time stochastic model; no noncoverage conclusion rests on access failure.",
+          "identifier_or_url": "DOI:10.1093/comnet/cnad009",
+          "material_read": "Bibliographic record and frozen description; no full text",
+          "method": "DOI and publisher OA attempts returned 403",
+          "title": "Non-linear consensus dynamics on temporal hypergraphs with random noisy higher-order interactions",
+          "trigger": "Potential broader temporal nonlinear consensus theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:29–59, 61–105",
+        "arXiv:2109.04985v1 section 5.2"
+      ],
+      "rationale": "The result turns a previously observed order effect into an exact global optimum with a measurable-policy strictness guarantee and closed endpoint values. Degree balance gives a reproducible criterion for when the conclusion is invariant to topology. The gain law distinguishes no first-order effect, a positive quadratic advantage and a finite long-window ceiling, useful when interpreting or designing temporal consensus computations.",
+      "residual_risks": [
+        "The value is for an analytically controlled model; the theorem does not establish robustness to stochastic switching or heterogeneous initial opinions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

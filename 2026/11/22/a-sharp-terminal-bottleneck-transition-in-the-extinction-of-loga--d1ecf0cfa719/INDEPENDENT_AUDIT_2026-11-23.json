@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:24:20.602763Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the complete replacement repairs/4/RESULT.md. The displayed limits survive unchanged. The original incorrectly called s_alpha-1 a fraction of the extinction time: it is the coefficient in units of n, and division by T_(m,n)/n gives the actual limit (s_alpha-1)/s_alpha above threshold. The replacement also uses monotonic comparison rather than invoking a law of large numbers at exactly s=1/2. Independent reconstruction: disjoint site clocks and the strong Markov property give n-1 independent rate-two holding times and one rate-one hold, independent across blocks. Conditioning on the gamma stage and tilting its density by e^g produces the reported exact Poisson-tail expression (and the rate-two/rate-one normalization). Minimizing the joint rate reduces to j(g)+(s-g)_+; derivatives 1-1/g below s and 2-1/g above s yield the unique split including (1,0) at s=1. The open and closed tail half-spaces have the same infimum, so the probability exponent is exact. Independence gives the maximum threshold; strict uniqueness and compact sublevel sets give a rate gap for every split away from the minimizer with total time near the threshold. The gap survives multiplication by m=exp[(alpha+o(1))n], controlling the actual selected last domain. As an additional check, given T_j=t the preterminal time has density proportional to g^(n-2)e^-g on 0<g<t (a rate-one gamma truncated at t), consistent with concentration at min(1,t/n) in units of n. Inverse differentiation at s=1 gives left second derivative -1 and right 0, and the independent Poisson gap coupling yields the stated discrete-sweep extinction-time limit. The frozen script and its finite checks were inspected, not executed; supporting files need no change.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao et al. derive means for two preparations and an Appendix C general first-step mean recursion. This does not evaluate the tail uniformly when deterministic n grows with log m.",
+          "The Bernoulli result uses geometrically distributed run lengths and a p=1/2 critical window. That distribution does not specialize to deterministic equal growing lengths by fixing the density or conditioning just on their count.",
+          "General Cramér theory provides the gamma rate, but not the constrained minimizing split for the winning block without the added exponential stage and the many-domain analysis."
+        ],
+        "reasoning": "Neither the general method nor the random-run result immediately entails the deterministic marked maximum and critical rate. A general finite-time formula would encompass finite marginals, not itself a stated or immediate winning-mark concentration theorem.",
+        "searches": [
+          "arXiv:2610.36829 §IV.B and Appendix C general domain recursion",
+          "Resultary 7f482632ec5d density-tuned Gumbel transition",
+          "Cramér rate-function and extreme-value implication in inspected proof"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py; complete corrected repairs/4/RESULT.md",
+        "Cao–Jiang–Zhang arXiv:2610.36829 §II, §IV.B and Appendix C",
+        "Local Resultary records 7f482632ec5d and d1ecf0cfa719",
+        "Bounded retrieval and source identification attempts for the undocumented finite-CDF antecedent and Chatterjee et al."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite distribution of T_j and product formula for max T_j follow directly from the local rates and independent clocks. They are expressly excluded from originality credit.",
+          "The exponent changes when the gamma slope j'(s) reaches the exponential rate at s=1. The additional rate-gap argument selects an atypical decomposition in the last domain and cannot be obtained from only a total-time mean or an extreme-value result at fixed length or fixed count."
+        ],
+        "reasoning": "The scientific distinction is the solved mixed growth regime and its selected-domain mechanism, not the existence of the product law or the use of Cramér or a union bound. A verified stronger asymptotic result with the same winning split would be coverage; none was established by the inspected sources.",
+        "searches": [
+          "Cao et al. Eq. (21) and Appendix C",
+          "Resultary 7f482632ec5d, finite-domain law and Bernoulli-limit statements",
+          "Compare exact deterministic product CDF with marked argmax output"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-way spin erosion is precisely the iid block sum of Gamma(n-1, rate 2) and Exp(1) for the equal-domain initial state. The same block law yields a product of CDFs for arbitrary deterministic separated run lengths.",
+          "The area of overlap in the actual sector paper is local rates and exact means/generating functions for exposed and one-block preparations, not the joint large-count, large-block limit."
+        ],
+        "reasoning": "A prior triangular-array result for the same gamma-plus-exponential maximum and its winning mark would cover the theorem independently of the spin language. Finite absorption, lifetime distribution and local flip descriptions are therefore treated as common premises, not novelty.",
+        "searches": [
+          "Cao–Jiang–Zhang arXiv:2610.36829 §II, §IV.B, Appendix C",
+          "exact absorption time arbitrary initial spin domains one-dimensional irreversible Ising boundary plus at least one plus neighbor gamma exponential distribution deterministic initial configuration Gumbel Gaussian Chatterjee",
+          "Resultary: arbitrary-initial-domain absorption-time CDF irreversible Ising Q^(1)(0,2), fastest and slowest"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d1ecf0cfa719 is the identical frozen record. The strongest distinct hit, 7f482632ec5d, quantifies random-run Gumbel laws and their critical density window in the same kinetic sector.",
+          "No independent exact CDF-and-fastest/slowest antecedent was identifiable from the frozen text or the bounded catalogue check; this is an open bibliographic risk, not evidence of absence."
+        ],
+        "reasoning": "The same-day random-run result has real model overlap and was compared, rather than excluded by date. Its stochastic preparations differ and it does not supply the deterministic selected-domain limit.",
+        "searches": [
+          "Local Resultary: exact arbitrary-initial-domain absorption time distribution irreversible one dimensional Ising delta kinetic sector 0,2 product CDF any minus runs fastest slowest Gumbel Gaussian",
+          "Local Resultary exact logarithmic-domain threshold and selected last-domain mechanism"
+        ]
+      },
+      "rationale": "The repaired finding takes no credit for the kinetics, the finite-domain rate structure, a product CDF for arbitrary deterministic run lengths, or general large-deviation methods. It supplies the critical change of the dominant rare-event mechanism when many equal deterministic domains simultaneously grow, with a joint limit for the last domain. The closest indexed same-sector result randomizes the lengths and controls a different extreme-value regime. The frozen reference to an unnamed earlier exact CDF and fastest/slowest law was not traceable to a source in the scope examined and was replaced by a derivation and comparisons to identifiable sources, not by a denial that such work exists.",
+      "residual_risks": [
+        "The original unnamed arbitrary-initial-domain CDF reference could not be identified. Such a finite law is not claimed as new, and an uninspected asymptotic extension could be relevant.",
+        "The 2024 contextual paper was not retrieved in full. Neither access failure nor lack of an indexed hit establishes priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in rates, mechanism, specific mean and generating-function calculations; no claimed equal-logarithmic-block marked theorem in the inspected sections",
+          "evidence": "Eq. (21) gives H_(L/2) and L/8+1/2 in sweeps for its two preparations. Appendix C gives their attempt-count generating functions and a general length-vector mean recursion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.36829",
+          "material_read": "§II p. 3 offset about 16100; §IV.B pp. 11–12 offset 80500; Appendix C pp. 16–17 offset about 116400 onward",
+          "method": "Primary OA PDF, bounded result/appendix passages",
+          "title": "Kinetic Sectors and Nonequilibrium Dynamics in the δ-Ising Model",
+          "trigger": "Same exact kinetic sector and absorption-time calculations"
+        },
+        {
+          "assessment": "Material shared per-run distribution, different preparations and limit",
+          "evidence": "Initial spins are iid Bernoulli, run lengths are geometric, and the stated regimes are Gumbel with a density crossover near p=1/2.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-density-tuned-gumbel-transition-in-irreversible-one-dimensiona--7f482632ec5d",
+          "material_read": "Local RESULT.md Finding and model/results passages, offsets 0 and about 7600",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A density-tuned Gumbel transition in irreversible one-dimensional spin ordering",
+          "trigger": "Same-day near match: same irreversible sector, extreme ordering time"
+        },
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": "Same rate 1-log 2 and same selected last-domain pair.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-terminal-bottleneck-transition-in-the-extinction-of-loga--d1ecf0cfa719",
+          "material_read": "Finding and assumptions of bound RESULT.md",
+          "method": "Local catalogue and frozen article comparison",
+          "title": "A sharp terminal-bottleneck transition in the extinction of logarithmic Ising domains",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "No verified attribution of the unnamed exact CDF or of the selected-domain theorem",
+          "evidence": "The paper is cited for the Mpemba context; neither that citation nor the available metadata constitutes evidence of a corresponding irreversible-domain CDF theorem.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.110.L012103",
+          "material_read": "Cao et al. contextual citation and bibliography; study context from public metadata, no primary full text obtained",
+          "method": "Bounded lawful APS/PDF attempts (HTTP 403); exact-title catalogue/web query",
+          "title": "Mpemba effect in pure spin systems: A universal picture of the role of spatial correlations at initial states",
+          "trigger": "Cao et al. contextual citation on initial-state dependence; possible antecedent to investigate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equally spaced permanent seeds define a motivated competition between run length and number of independent runs. The exact threshold and the joint law in the last domain distinguish collective erosion from a single macroscopic last-spin delay, a mechanism that cannot be inferred from the typical block's speed or an average absorption time. The result remains first order and conditional on the stated irreversible dynamics; the correction makes the mechanical interpretation numerically accurate without overstating its scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

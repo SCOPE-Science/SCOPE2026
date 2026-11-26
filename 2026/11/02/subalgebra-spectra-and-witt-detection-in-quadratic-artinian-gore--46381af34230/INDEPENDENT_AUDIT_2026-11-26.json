@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:11:10.972485Z",
+  "axes": {
+    "correctness": {
+      "rationale": "This verdict is for the repaired finding. The frozen final enumeration and asymptotic statements are true, but its proof as written gives the wrong nonsplit isotropic-line count in RESULT.md line 44: at q=3,d=4 it gives 8, rather than 10. The replacement derives the correct (q^r+1)[r−1]_q by counting quadratic zeros when adjoining a hyperbolic plane, starting in anisotropic dimensions 0,1,2. This restores the orthogonal-quotient incidence recurrence for all odd prime powers. A unital subalgebra decomposes as scalars plus a subspace of the maximal ideal; if it contains z, its projection is unrestricted, otherwise it is a graph over a totally isotropic subspace with q^k possible functionals. Uniform constant-factor bounds on the two counts give quadratic envelopes with centers d/2 and (d+1/2)/3. Nearest admissible integers and summable Gaussian upper tails yield base-q logarithms d²/4+O_q(1) and d²/6+d/6+O_q(1), their probability ratio, and concentration at two distinct dimension scales. The even and odd centered benchmarks follow from dominated convergence of the normalized Gaussian coefficients. Independent direct multiplication-closure enumeration over all 2,664 subspaces of the five-dimensional maximal ideal per form at q=3,d=4 gave split (1,49,112,130,40,1) and nonsplit (1,31,40,130,40,1), ruling out the erroneous line count. Replay: python3 /workspace/branches/5227000b-aad4-4e76-8b7f-773471c37a7d/bounded_q3_d4.py. The frozen script was inspected, not executed; no bounded test is used to establish the asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "fc812afc8d34 includes degenerate bilinear forms and odd-characteristic reconstruction from the enumerator.",
+          "4d7a1ad64bb6 counts subalgebras for xy=B(x,y)u, a different multiplication and no corresponding unital socle split.",
+          "The inspected Gorenstein and classification papers do not give these probability laws in their read passages."
+        ],
+        "reasoning": "The broader enumerative theorem covers the exact classification, not the comparative asymptotic conclusion as stated. Strade remains an access risk, not a negative full-text conclusion.",
+        "searches": [
+          "Resultary fc812afc8d34, 4d7a1ad64bb6",
+          "Strade DOI 10.1090/S0002-9939-1975-0357526-4",
+          "arXiv:2206.05572",
+          "arXiv:1511.08007"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py structure",
+        "Resultary fc812afc8d34, 4d7a1ad64bb6, 69ed313ad59d",
+        "Strade DOI 10.1090/S0002-9939-1975-0357526-4, limited access",
+        "arXiv:2206.05572",
+        "arXiv:1511.08007"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior isotropic counts imply the frozen 2q^m gap by taking k=1 and subtracting the even line counts, then multiplying by q.",
+          "The repaired proof instead needs uniform extraction of exponential weights and comparison of the maxima of k(d−k) and kd−3k²/2+k/2 under their different allowed ranges."
+        ],
+        "reasoning": "The gap is an immediate specialization and is not retained as original. The priors enable calculation of both counts but do not make the refined rarity and changed conditional dimension a restatement or parameter substitution. Their quantitative comparison, including the d/6 correction and fixed-q type uniformity, is the supported new content.",
+        "searches": [
+          "Resultary fc812afc8d34 RESULT.md offsets 306–1467 and 5000–8332",
+          "Resultary 4d7a1ad64bb6, 69ed313ad59d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "fc812afc8d34 RESULT.md offsets 306–1467 gives the two-family normal form and exact polynomial, weighting by dim S−1 rather than dim S.",
+          "69ed313ad59d offsets 0–1353 treats a cotangent-line event in the free cube-zero polynomial ring."
+        ],
+        "reasoning": "Multiplication by t makes the prior polynomial exactly the frozen one on nonsingular forms. The different algebra and event of 69ed313ad59d do not yield equivalence to fixed-q socle avoidance.",
+        "searches": [
+          "Resultary: short bilinear local algebras and enumerative rigidity, fc812afc8d34",
+          "Resultary: finite-field socle avoidance and conditional dimension-law comparisons, including 69ed313ad59d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact coefficient formula is full coverage of the frozen enumerator, stronger than tabulated counts. The cotangent-line record gives a different exact statistic."
+        ],
+        "reasoning": "The repaired assertion is an infinite fixed-field limit uniform in form type; a finite profile table alone could not establish or duplicate either scaling law. The inspected exact records do not state that limit.",
+        "searches": [
+          "Resultary fc812afc8d34 RESULT.md offsets 306–1467 and 5000–8332",
+          "Resultary 69ed313ad59d RESULT.md offsets 0–1353"
+        ]
+      },
+      "rationale": "The frozen combined originality claim fails for the complete enumerator and Witt detection, which have direct earlier coverage. The replacement expressly credits that coverage and retains the sharp fixed-q socle-avoidance exponent and conditional dimension shift as the distinct result. The ordinary subspace-centered limit is a benchmark, not an independent originality claim. The inspected stronger exact enumerator supplies the starting counts; the repaired conclusion additionally identifies and compares two different dominant dimension regimes with uniform error bounds. No equivalent statement or stronger asymptotic theorem was substantiated in the inspected sources.",
+      "residual_risks": [
+        "Strade full text unavailable; precise covered counting statements not established.",
+        "An uninspected result on asymptotics of the same weighted orthogonal subspace measure could overlap; this is not a global priority finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact enumerative overlap under an exponent shift; no comparative fixed-q asymptotic statement in inspected passages",
+          "evidence": [
+            "Two normal forms; Gaussian and weighted isotropic counts; odd-characteristic reconstruction"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-subalgebra-lattices-of-short-bilinear-local-algebras-and-a-sharp--fc812afc8d34",
+          "material_read": "RESULT.md offsets 306–1467 and 5000–8332, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary index and bounded local mirror reading",
+          "title": "Subalgebra lattices of short bilinear local algebras and a sharp enumerative rigidity theorem",
+          "trigger": "Identical short unital algebra and enumerator"
+        },
+        {
+          "assessment": "Different multiplication and subalgebra problem",
+          "evidence": [
+            "Product xy=B(x,y)u with fixed nonzero u"
+          ],
+          "identifier_or_url": "Resultary 4d7a1ad64bb6",
+          "material_read": "RESULT.md offsets 21–2003",
+          "method": "Bounded local mirror reading",
+          "title": "Dimension-resolved subalgebra census for nondegenerate rank-one algebras",
+          "trigger": "Similar orthogonal counts and Witt themes"
+        },
+        {
+          "assessment": "Different ambient algebra and event",
+          "evidence": [
+            "Cotangent-line condition in a free cube-zero polynomial ring"
+          ],
+          "identifier_or_url": "Resultary 69ed313ad59d",
+          "material_read": "RESULT.md offsets 0–1353",
+          "method": "Bounded local mirror reading",
+          "title": "Unital subalgebra rank polynomial and cotangent-line concentration",
+          "trigger": "Similar rare subalgebra event"
+        },
+        {
+          "assessment": "Unresolved access risk; no coverage inference from snippets",
+          "evidence": [
+            "The accessible material mentions an enumeration principle but does not establish the needed theorem or hypotheses"
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1975-0357526-4",
+          "material_read": "Landing/abstract-level material only; full text not obtained",
+          "method": "Primary literature search and lawful OA attempt, including identified JSTOR copy https://www.jstor.org/stable/pdf/2039783.pdf",
+          "title": "Enumeration Results in Nilpotent Algebras",
+          "trigger": "Plausible general subalgebra enumeration"
+        },
+        {
+          "assessment": "Context rather than evidence for the exact probability law",
+          "evidence": [
+            "Characteristic-zero standard-graded Hilbert functions and Perazzo algebras"
+          ],
+          "identifier_or_url": "arXiv:2206.05572",
+          "material_read": "Opening OA passage, offset 0",
+          "method": "Targeted OA PDF reading",
+          "title": "On minimal Gorenstein Hilbert function",
+          "trigger": "Gorenstein Hilbert-vector setting"
+        },
+        {
+          "assessment": "Isomorphism classification, not a census of embedded subalgebras in the inspected passage",
+          "evidence": [
+            "Local-algebra isomorphism problem"
+          ],
+          "identifier_or_url": "arXiv:1511.08007",
+          "material_read": "Opening OA passage, offset 0",
+          "method": "Targeted OA PDF reading",
+          "title": "Classifying local Artinian Gorenstein algebras",
+          "trigger": "Short local Gorenstein classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result quantifies how often a uniformly sampled subalgebra misses the canonical socle and shows that the conditioned measure changes its typical dimension by an amount proportional to d. It compares two intrinsically defined subalgebra classes of an entire natural family, gives a sharp exponent including its linear term, and holds across both Witt types. It does not rely on rebranding the already covered enumerator or claiming the standard Gaussian-binomial baseline as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

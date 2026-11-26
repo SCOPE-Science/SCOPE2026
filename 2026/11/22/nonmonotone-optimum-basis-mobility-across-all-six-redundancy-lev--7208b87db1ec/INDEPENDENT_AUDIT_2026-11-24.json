@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:17:28.503221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fresh exact enumeration built the graph from the frozen LCF offsets (12 cubic vertices, 18 edges), computed all shortest distances by Floyd–Warshall, and for each of the 4096 subsets took its minimum separation count over all 66 unordered pairs. The full vertex set has minimum separation 6, so k=1 through 6 are the only feasible positive levels. Filtering by score and then by smallest cardinality yielded (2,4,5,7,9,11) with counts (2,73,7,35,39,6). Every one-out/one-in move between retained masks was tested and filtered by the Frucht edge condition for slides. Edge counts, component orders and all component radii/diameters matched the six certificate rows, with jump disconnection exactly at levels 3 and 4 and K6 at level 6. At level 6 the slide graph has components of order five and one. Replay: python3 /workspace/branches/f00aeb20-96bc-46a0-9e07-8cadfd3d5fa5/frucht_reproduction.py (fresh code; optional --smoke checks only 256 masks). The submitted Python and C++ code and certificate were inspected, not executed. This is exhaustive on the named finite graph under the stated move rules, not a claim about cubic graphs in general.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.2 gives the maximum feasible k as min |D_G(x,y)| for every graph, so it covers the feasibility criterion used here.",
+          "The Petersen line-graph record gives levels 1 through 10 for L(P), and the crown record gives dimensions and basis counts for crown graphs; neither treats these Frucht move graphs."
+        ],
+        "reasoning": "The first result supplies a general formula for the feasible ceiling, but no general mobility conclusion. The other results concern different families and do not dominate the exact Frucht claim. Comparing same-day records here does not assume priority from the date.",
+        "searches": [
+          "arXiv:1312.6840, Theorem 2.2",
+          "arXiv:1401.0342, literal Frucht locator",
+          "Resultary k-metric hierarchy neighbours 13fbab811664 and 30e06175a718"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CERTIFICATE.txt, verify_cpp.cpp and verify_python.py",
+        "Resultary exact Frucht hit and the three comparison records above",
+        "arXiv:1312.6840 (theorem passage)",
+        "arXiv:1401.0342 (Frucht locator only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.2 depends only on the smallest witness-set size; it gives neither the collection of minimum transversals at each k nor their move adjacency.",
+          "The truncated-tetrahedral record reports connected ordinary jump and slide graphs, not connectivity over increasing k. Counts in the Petersen line graph do not identify which Frucht states admit replacement edges."
+        ],
+        "reasoning": "Although feasible generator families are nested in k, their optimum sizes change, and nothing in the compared statements implies the nonmonotone connectivity or the slide component metrics.",
+        "searches": [
+          "arXiv:1312.6840, Theorem 2.2 proof and definition",
+          "Resultary truncated-tetrahedral exchange geometry 2073aedeea3c, Finding",
+          "Resultary Petersen line-graph hierarchy 13fbab811664, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Frucht catalogue hit 7208b87db1ec is this very record. The other closely matching ordinary metric-basis exchange record 2073aedeea3c uses the truncated tetrahedral graph (156 ordinary minimum bases), not the Frucht graph.",
+          "Writing a basis as a minimum k-fold hitting set of the 66 pair-distinguishing sets is equivalent to the generator definition; zero-forcing places a different constraint."
+        ],
+        "reasoning": "The hitting-set reduction gives a solution procedure, not the outcome; different graph and optimum predicate cannot be identified with these Frucht configurations.",
+        "searches": [
+          "Resultary: Frucht graph k-metric bases, independent landmark replacements, optimum jump and slide",
+          "arXiv:1312.6840, section 2, distinguishing sets D_G(x,y) and k-metric generators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit is the assigned record, including the same six counts and disconnections. The frozen six-row certificate agrees with the fresh enumeration, but is not prior evidence.",
+          "The two paper keyword locators did not identify a Frucht passage; no separately attributed exact mobility table was found in the inspected comparisons."
+        ],
+        "reasoning": "A self-match and verification output do not establish priority, and literal misses do not rule out indexing under different labels or an unindexed prior census.",
+        "searches": [
+          "Resultary: exact Frucht minimum k-metric basis counts and connectivity",
+          "Frucht locators in arXiv:1312.6840 and arXiv:1401.0342",
+          "Frozen CERTIFICATE.txt"
+        ]
+      },
+      "rationale": "The general distinguishing-mask criterion and related graph-hierarchy and reconfiguration examples are known. The supported distinct result is the complete Frucht minimum-basis mobility profile, in particular the loss and subsequent recovery of jump connectivity. No matching prior table or general theorem determining that profile was identified in the bounded comparisons.",
+      "residual_risks": [
+        "An unindexed or differently labelled Frucht census or general exact reconfiguration classification could overlap. The inspected search and source passages do not prove priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General feasibility criterion, not a census of optimum transitions",
+          "evidence": [
+            "Maximum k equals the minimum cardinality of a pair-distinguishing set."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.6840",
+          "material_read": "Section 2, Theorem 2.2, p. 4 (offset 10800), and Frucht locator",
+          "method": "OA PDF, bounded passage",
+          "title": "The k-metric dimension of a graph",
+          "trigger": "Foundational k-metric basis and largest feasible redundancy theorem"
+        },
+        {
+          "assessment": "Different graph; no Frucht mobility inference",
+          "evidence": [
+            "The k=1 through 10 table is for L(P), including six 6-metric bases."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-six-perfect-matchings-govern-the-6-metric-bases-of-the-petersen--13fbab811664",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror, original statement",
+          "title": "Six perfect matchings govern the 6-metric bases of the Petersen line graph",
+          "trigger": "Same-day complete metric-basis hierarchy"
+        },
+        {
+          "assessment": "Overlapping reconfiguration question, different graph and ordinary metric level",
+          "evidence": [
+            "156 ordinary metric bases; the jump and slide graphs are connected."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-metric-basis-exchange-and-slide-geometry-of-the-truncated--2073aedeea3c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror, original statement",
+          "title": "Exact metric-basis exchange and slide geometry of the truncated tetrahedral graph",
+          "trigger": "Same-day reconfiguration result on another 12-vertex cubic graph"
+        },
+        {
+          "assessment": "Different family and no Frucht reconfiguration claim",
+          "evidence": [
+            "The dimensions and counts apply to crown graphs."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-complete-k-metric-hierarchy-of-crown-graphs--30e06175a718",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror, original statement",
+          "title": "Complete k-metric hierarchy of crown graphs",
+          "trigger": "Earlier exact census by redundancy level"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Frucht graph is a standard asymmetric cubic benchmark. Minimum landmark count and fault tolerance do not reveal whether a deployed optimum can move to another optimum. The six-level example establishes concretely that feasible redundancy can increase while optimum jump connectivity disappears and then returns, and that even complete jump mobility can leave a slide-isolated state. Level-specific exact counts and distances are useful benchmark data for reconfiguration, not merely six isolated dimension values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

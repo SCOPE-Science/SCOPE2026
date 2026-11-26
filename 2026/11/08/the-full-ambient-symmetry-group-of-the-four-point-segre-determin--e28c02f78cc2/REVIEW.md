@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete ambient stabilizer is computed by the exact 24-term determinant tensor. The 256-by-24 infinitesimal matrix has rational rank 18, with no additional projective scalar direction (augmented rank 19). Group normalizers and the exact 192-permutation check give maximality. All algebraic group claims are for complex characteristic zero.
+## correctness
 
-**Originality — PASS, provisional.** The defining Segre determinant and anharmonic cross-ratio symmetries are known. The added group-maximality statement is not implied by the accessible results or the earlier singular-locus theorem. The motivating paper's full text was not accessible in this investigation; historical priority remains a risk. See the originality evidence and residual risks in `AUDIT.json`.
+PASS
 
-**Value — PASS.** The complete ambient symmetry group identifies both continuous and discrete redundancies in a natural four-point incidence condition. The independent Klein-four permutations are not apparent from the simultaneous relabeling of four points; the exact finite quotient supports applications to equivariant incidence geometry.
+The multihomogeneous determinant is squarefree: a repeated nonconstant multihomogeneous factor would force degree at least two in one of the eight factors. Thus preserving the reduced divisor is equivalent to preserving the section line. By independently generating the determinant from the 24 assignments of its columns and reducing the action matrix modulo 101, I obtained rank 18 and augmented rank 19. These are rational lower bounds, and the six independent diagonal kernel vectors give the corresponding upper bounds. The projective stabilizer Lie algebra has dimension six, so the known connected diagonal pair is the identity component over C. The normalizer preserves or interchanges the blocks since these are the supports of the two simple factors; within each block its factorwise conjugations must be the same because PGL2 is centerless. In the tensor support each block selects two positions, thereby specifying a matching. The support rejects precisely the pairs with the same matching, so a block-preserving permutation must induce equal matching actions. Conversely, simultaneous relabelings and individual Klein-four relabelings preserve the cross-multiplied bracket relation. The latter follows since each double transposition fixes the two bracket products defining the cross-ratio with their common sign. Block exchange swaps the tensor coordinates. A separate exhaustive check of all 40320 pure permutations gave exactly 192 signed symmetries. The connected group meets the pure permutations trivially, giving the stated semidirect product.
 
-**Scope and limits.** The theorem makes no claim about the intrinsic abstract automorphism group of the singular divisor or any independent certification. Computations are exact finite proofs for the tensor action; their interpretation uses the written algebraic-group argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass specifically for maximality of the ambient stabilizer, including the connected component and split finite quotient. The determinant/cross-ratio interpretation and the classical anharmonic transformations are not new. The strongest retrieved same-object results give the defining cross-ratio relation and a singular-locus description, not the full ambient-group computation.
+
+## value
+
+PASS
+
+Four-point coplanarity on the Segre quadric is a canonical incidence relation. The exact symmetry classification says which label reductions are valid for the incidence problem: the full finite quotient includes the less evident independent Klein-four relabelings, and maximality guarantees there are no additional factorwise redundancies. This is more than identifying the standard simultaneous PGL2 and relabeling actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

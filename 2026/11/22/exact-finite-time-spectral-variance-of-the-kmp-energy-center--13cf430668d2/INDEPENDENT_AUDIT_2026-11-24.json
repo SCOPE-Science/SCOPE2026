@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:51:13.857416Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Assesses the corrected RESULT.md under /workspace/repairs/3/. The frozen Finding incorrectly says the product integrand is continuous at zero. For t>0 it behaves as t/(2π√λ); only the multiplier has a continuous extension to t. The corrected file specifies the integrable endpoint and clarifies that r=1 is on the unit circle. No formula, hypothesis or verification code changes. For the one-site unit-rate pulse, outward support growth has finite Poisson-dominated moments; the bond jump has drift (a−b)/(2W), telescoping over bonds, and second moment (a²−ab+b²)/(3W²). Thus X is a centered square-integrable martingale with variance derivative D=(2F_0−F_1)/3. Independently, track two energy labels with independent placements conditional on each bond split. Their separation law is p_0=F_0, p_k=2F_k for k≥1. Rates 0→1 and 1→0 are both 2/3 (same-bond split or reunion); 1→2 and both tail nearest-neighbor rates are 1. The forward equations reproduce the stated defect and tail coefficients. The decaying resolvent root yields D-hat=(1−b²)/(b(b²+2))=1/(2b)−3b/(2(b²+2)), b=1−r. At s=−λ+i0, Re b=λ/2, |b|²=λ and Im b=√(λ(4−λ))/2. Then |b²+2|²=3λ²−4λ+4, and −Im D-hat/π yields exactly the stated positive density. The physical branch |r|<1 off the cut has no poles; the O(s^−1/2) singularity at zero and the bounded upper endpoint contribute no atoms in the contour inversion. At t=0 the multiplier is zero; differentiating the compact-support representation gives strict increase and concavity and the generator yields D(0)=2/3 and D′(0)=−5/9. An independent bounded quadrature reproduced both spectral moment checks at numerical precision (replay: /workspace/branches/202609f9-72f6-462f-9b3a-0503c3f9f056/kmp_spectral_moments.py); this is not the inversion proof. Expanding b=√s−s/2+s^(3/2)/8+… gives D-hat=1/(2√s)+1/4−11√s/16+O(s); the density expansion and Watson's lemma give an integrable residual from the leading t^−1/2 derivative. Its integral is the transform limit 1/4 and its integrated tail gives −11/(16√(πt)). Rate two simply replaces t with 2t. Frozen support inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior spatial-moment analysis yields leading long-time variances. Exact or asymptotic results for heat transferred across the origin or energy in a fixed interval describe different functionals.",
+          "The original 1982 article did not yield full text through the lawful attempted route; general existence of KMP duality is not a claim of novelty."
+        ],
+        "reasoning": "Single-cut current and fixed-interval statistics do not determine joint correlations at all cuts or the first spatial moment. A general duality framework still requires evaluating the defect resolvent and its spectral measure.",
+        "searches": [
+          "arXiv:2611.15739v1 §IV",
+          "arXiv:2112.02474 abstract and Eq. (1)",
+          "arXiv:2407.06335 abstract",
+          "Kipnis–Marchioro–Presutti J. Stat. Phys. 27, 65–74"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_kmp.py; corrected RESULT.md",
+        "Local Resultary",
+        "arXiv:2611.15739v1",
+        "arXiv:2112.02474",
+        "arXiv:2407.06335",
+        "KMP 1982 (citation and access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A leading term proportional to √t controls neither the finite constant nor the t^−1/2 correction.",
+          "The exact half-line boundary transition rates depend on the shared bond split; the continuum diffusivity alone does not retain that information."
+        ],
+        "reasoning": "The checked prior conclusions do not determine the microscopic resolvent, its cut density, or the global strict concavity.",
+        "searches": [
+          "arXiv:2611.15739v1 §IV.1 and §IV.3, Eqs. (25), (26), (28)–(40)",
+          "arXiv:2112.02474 Eq. (1) and Eq. (32) onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first spatial moment in §IV, divided by conserved total W, is the same center observable in continuum variables. The moment variance there is asymptotic at diffusivity one.",
+          "The frozen microscopic dynamics have diffusivity 1/2 at rate one; doubling the rate makes the leading terms agree."
+        ],
+        "reasoning": "Matching normalization removes an apparent difference in the leading coefficient rather than creating a new leading law. It does not make the full transient spectrum or the additive 1/4 continuum results.",
+        "searches": [
+          "Local Resultary localized KMP pulse / energy center / two-particle spectral variance",
+          "arXiv:2611.15739v1 §IV, Eqs. (28)–(40)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match was the bound record itself; the distinct same-day hit 5335f0c33eec describes a covariance sign reversal on a fully connected network in its index summary.",
+          "No independent indexed exact same-variance expression was identified in these checks; an unproductive broad lookup is not evidence of absence."
+        ],
+        "reasoning": "For a time-dependent invariant the relevant equivalent entries would be the spectral measure, Laplace resolvent or exact time expression, not merely a common model name or a leading coefficient.",
+        "searches": [
+          "Local Resultary exact KMP center variance and lattice spectral/resolvent lookup",
+          "Primary lookup for exact microscopic KMP pulse center variance"
+        ]
+      },
+      "rationale": "The surviving claim is the exact finite-time microscopic variance (a compact spectral law for its derivative), including the subleading lattice terms. The leading long-time amplitude and the general moment-duality technique are not credited as new. The endpoint correction does not change the exact spectral or asymptotic claims compared with prior work.",
+      "residual_risks": [
+        "An unindexed equivalent microscopic two-particle resolvent is possible; exact contents of the inaccessible 1982 text were not inferred.",
+        "Scope is one deterministic pulse, infinite homogeneous chain and a second moment, not a distributional or universality result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers leading long-time variance after normalization, not exact lattice law",
+          "evidence": [
+            "Var(M_1) is asymptotic to W²√(2T/π) in the diffusivity-one convention."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15739v1",
+          "material_read": "Continuum profile and diffusivity near Eqs. (25)–(26), §IV.1 and IV.3, Eqs. (28)–(40), HTML offsets 21000–27497",
+          "method": "Targeted OA HTML",
+          "title": "Large deviations of spatial moments of the Kipnis–Marchioro–Presutti lattice gas following a localized energy release",
+          "trigger": "Same localized pulse and first spatial moment"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "J is heat excess on the right half-line; its typical variance scales as T^−1/2, not the center variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.02474",
+          "material_read": "Abstract, Eq. (1), offsets 0–4466; Eq. (32) onward, offsets 22400–24891",
+          "method": "Targeted OA full text",
+          "title": "Inverse Scattering Method Solves the Problem of Full Statistics of Nonstationary Heat Transfer in the Kipnis–Marchioro–Presutti Model",
+          "trigger": "Same model and localized-pulse fluctuation analysis"
+        },
+        {
+          "assessment": "Does not provide the center law in the inspected material",
+          "evidence": [
+            "The observable averages energy over a fixed interval [−L,L]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.06335",
+          "material_read": "Abstract and definition of interval average, offsets 0–3498",
+          "method": "Targeted OA full text",
+          "title": "Full Statistics of Regularized Local Energy Density in a Freely Expanding Kipnis–Marchioro–Presutti Gas",
+          "trigger": "Same model/pulse but another exact fluctuation question"
+        },
+        {
+          "assessment": "Unresolved, not negative evidence",
+          "evidence": [
+            "Full-text retrieval did not succeed through the attempted redirects."
+          ],
+          "identifier_or_url": "J. Stat. Phys. 27 (1982), 65–74",
+          "material_read": "Citation and retrieval result only, no full-text theorem inspected",
+          "method": "Bounded lawful OA attempt",
+          "title": "Heat flow in an exactly solvable model",
+          "trigger": "Foundational KMP paper and a possible microscopic method precedent"
+        },
+        {
+          "assessment": "Different reported graph and observable; no whole-document verdict from the summary",
+          "evidence": [
+            "The reported threshold concerns covariance on a fully connected network, not the first moment on the infinite chain."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-covariance-sign-reversal-under-local-thermalization-on--5335f0c33eec",
+          "material_read": "Resultary index summary",
+          "method": "Local Resultary lookup",
+          "title": "A unique covariance sign reversal under local thermalization",
+          "trigger": "Distinct same-day local energy-exchange hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first spatial moment is independently motivated by previous continuum work on localized energy release. Its exact lattice transient supplies a positive spectral benchmark and determines a nonzero additive correction and global concavity that the leading continuum law does not resolve. The repair fixes endpoint semantics without changing that scientific contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:11:37.827150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Kaneko–Stoll Thm. 2.2 assumes both factor weights at least two, their maximum at least three, odd positive factors, and product weight three. The proof text should retain the first condition when paraphrasing the general theorem, but the actual 3,3 application satisfies it and gives the strict global cutoff 2^23. Every admissible product and factor is then of the form 1+2^i+2^j with 1≤i<j≤22. The independent integer replay `python3 /workspace/replay_binary_weight_3.py` built the 231-element set, excluded a>sqrt(2^23−1), bounded b by floor((2^23−1)/a), and tested all 3672 remaining unordered pairs including equal factors. Membership in the set returned precisely (7,7,49), (7,19,133), (7,37,259), (11,35,385), (13,21,273), (21,49,1029). Thus 1029 is the unique maximum. Exhaustion relies on the inspected published theorem, not on a finite search alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE-04c50b35c3d0 classifies product weight ≤3 for two odd weight-three factors; restricting to weight three removes only (25,41,1025).",
+          "Kaneko–Stoll Thm. 2.2 gives the broad effective bound, not the six-pair list."
+        ],
+        "reasoning": "The later weight-at-most-three record also covers the target under direct restriction; the earlier exact record suffices for this decision.",
+        "searches": [
+          "Resultary: low-weight products of two odd three-bit integers",
+          "arXiv:2112.03077v1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary/SCOPE index and three distinct records above",
+        "arXiv:2112.03077v1",
+        "OEIS A080025"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching source uses the same 2^23 cutoff and exhaustive proof; its last/largest product is 1029 from 21·49.",
+          "The earlier asymmetric (3,2,3) record instead has one weight-two factor and gives (3,7) and (5,7)."
+        ],
+        "reasoning": "The sharp bound is immediate from the earlier six rows. Neither the generic upper bound nor the asymmetric classification by itself would establish the exact list.",
+        "searches": [
+          "Kaneko–Stoll Thm. 2.2",
+          "SCOPE-0ac96ab0cd12",
+          "SCOPE-28456ef398f9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-0ac96ab0cd12, Finding: same positivity, oddness, unordered convention and binary-weight equations, with the same six pairs."
+        ],
+        "reasoning": "The apparent alternate titles denote the same problem and exact answer, not a merely related sparse-digit phenomenon.",
+        "searches": [
+          "Resultary: symmetric three-bit product problem, (3,3,3) exact six solutions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A080025 lists all six product values but does not give the complete restricted factor-pair statement in the inspected entry.",
+          "The Resultary exact list gives the corresponding pairs and exhaustiveness."
+        ],
+        "reasoning": "Published individual values alone would not give completeness; the exact catalogue result does.",
+        "searches": [
+          "OEIS A080025",
+          "Resultary SCOPE-0ac96ab0cd12"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary record explicitly gives the identical six unordered pairs, products, cutoff and bound-plus-exhaustion approach. The sharp maximum and unique attaining pair follow immediately from its exact list. That record has an earlier catalogue date, but direct identity of content is decisive without checking first-online chronology. No genuinely distinct surviving claim is established.",
+      "residual_risks": [
+        "Exact first-online chronology was not audited. This does not change the direct statement match.",
+        "The b-file terminal value was not confirmed and was not used to determine the disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage",
+          "evidence": "Identical six pairs and products; bound 2^23, then exact integer exhaustion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-six-solutions-of-the-symmetric-three-bit-product-problem--0ac96ab0cd12",
+          "material_read": "RESULT.md Finding and bound/exhaustion proof",
+          "method": "Local mirror matching passages",
+          "title": "Six solutions of the symmetric three-bit product problem",
+          "trigger": "Exact hypothesis and result match"
+        },
+        {
+          "assessment": "Broader coverage in a later catalogue record",
+          "evidence": "The only additional pair is (25,41) with product 1025 of weight two; maximum 1029.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-low-weight-products-of-odd-integers-with-three-binary-o--04c50b35c3d0",
+          "material_read": "Finding and case list",
+          "method": "Local mirror matching passages",
+          "title": "Complete low-weight products of odd integers with three binary ones",
+          "trigger": "Stronger product-weight threshold"
+        },
+        {
+          "assessment": "Cutoff fits; not the six-pair classification",
+          "evidence": "For ℓ,m≥2 and max{ℓ,m}≥3, odd factors with product weight three satisfy ab<2^(−13+4ℓm).",
+          "identifier_or_url": "https://arxiv.org/html/2112.03077v1",
+          "material_read": "Theorem 2.2, HTML offset 7319 within the passage from offset 7000",
+          "method": "Bounded original OA HTML",
+          "title": "Products of integers with few nonzero digits",
+          "trigger": "External theorem indispensable for exhaustive cutoff"
+        },
+        {
+          "assessment": "Individual values covered; no complete restricted classification in the inspected entry",
+          "evidence": "All six products appear; b-file terminal value was not independently confirmed.",
+          "identifier_or_url": "https://oeis.org/A080025",
+          "material_read": "Definition, displayed terms and stated b-file range",
+          "method": "OA entry inspection",
+          "title": "OEIS A080025",
+          "trigger": "Possible exact product table"
+        },
+        {
+          "assessment": "Different factor weights",
+          "evidence": "Only (3,7) and (5,7) under its asymmetric weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9",
+          "material_read": "Finding",
+          "method": "Local mirror matching passage",
+          "title": "Exact (3,2,3) binary-weight product classification",
+          "trigger": "Adjacent digit-weight parameters"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The symmetric three-bit classification is a natural invariant and would be useful if not already supplied in precisely the same form. The frozen record adds no new list entry, extension, sharper bound, or structural method to the exact earlier classification; another bounded enumeration alone is redundant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

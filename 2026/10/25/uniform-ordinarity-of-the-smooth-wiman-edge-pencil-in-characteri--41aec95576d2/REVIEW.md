@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof directly reduces the sextic to a fourfold sign cover of a nodal plane cubic. Exact resultants certify nine pairwise distinct transverse branch points for precisely the claimed parameters, yielding a connected genus-six normalization with four ordinary plane nodes. The three genus-two quotients and the isogeny follow from the tame Klein-four action. The explicit coefficient-form Cartier–Manin matrix, verified by independent symbolic expansion, has determinant \(t^8\), proving uniform ordinarity. Finite-field point counts are merely secondary checks.
+## correctness
 
-**Originality (PASS, qualified).** The classical geometric literature establishes the pencil and its genus-six fibers, not the characteristic-five ordinary locus. The full text of Edge (1981), the pertinent Wiman-pencil sections of Candelas et al. (2012), and later geometry/positive-characteristic sources were compared for corresponding Cartier, Hasse–Witt, Newton, \(p\)-rank, genus-two quotient, or Jacobi-isogeny statements. The 2018 special-fiber rationality statement concerns \(t=0\) and does not imply ordinarity for all \(t\ne0\). Previously published descriptions of the exceptional Wiman sextic address the singular parameter and do not imply ordinarity for the entire smooth family. Residual risk: an equivalent computation may be implicit in older genus-two quotient or modular Jacobian literature; negative search results do not prove uniqueness.
+PASS
 
-**Mathematical value (PASS).** The natural ordinary/nonordinary stratification for a classical one-parameter family of genus-six curves is determined completely on its smooth locus, despite exceptional degeneration of the famous Wiman fiber in characteristic five. The structural reduction to genus-two quotients and the exact \(t^8\) determinant explain a uniform phenomenon, rather than a one-parameter numerical sample. Applications include understanding ordinary reduction, isogeny factors, and Newton polygon geometry in the family.
+Under coordinate squaring the equation is a cubic. In coordinates u=a-c, v=b-c, c its equation has the form c A_2(u,v)+B_3(u,v), with squarefree tangent cone A_2 and resultant nonzero in the permitted range. The homogeneous forms have no common root also at v=0; the primitive linear equation in c proves irreducibility and projection gives rational normalization. The node accounts for its whole arithmetic genus. On its normalization a/c=D/B and b/c=C/B (C=B-A and here D=B-rA); their parity patterns at the disjoint simple roots of D, C and B are respectively (1,0), (0,1), (1,1), with no branch at infinity. This proves square-class independence, connectedness and nine tame branch points, giving 2g-2=-8+18. The squaring map is étale off the axes and takes the cubic node to four ordinary nodes upstairs by inverse image. At a simple axis intersection the local pullback is adjoining the square root of a uniformizer and the other coordinate is a unit, so the plane model is smooth there. There is no plane component contained in an axis. The three intermediate double covers are branched at six points each, and cyclic coordinate permutation identifies them. On differentials their pullbacks are the three nontrivial character summands since the full quotient has genus zero and 4 is invertible, so the sum of their Jacobian pullbacks is an isogeny. Independent polynomial checks verify the coefficient indices 4,3,9,8 and determinant t^8 in characteristic five. The fifth-root twist in the Cartier action does not change invertibility; hence the factors have 5-rank two and their product has rank six. At t=0 the three cubic polynomials have distinct triple roots, leaving just three tame branch points and genus zero. If t^2=2 the common A_2 and B_3 linear factor makes the base cubic reducible and the squaring pullback reducible. The point at infinity is a union of lines. Thus these exceptions do not hide another smooth normalized genus-six member.
 
-**Scope.** The normalized genus-six locus only: characteristic \(5\), \(t\ne0\), \(t^2\ne2\), finite pencil parameter. Priority is not independently certified; no claim of an external proof review is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical four-node geometry and rationality of the one excluded Wiman sextic are prior. The strongest inspected comparisons do not give the characteristic-five geometric parameter locus with its quotient family and uniform determinant, or imply 5-rank six across it. The claim is distinct on the evidence examined, subject to the named access and search limits.
+
+## value
+
+PASS
+
+This is a geometric ordinarity classification of every permitted member of a canonical genus-six pencil in an exceptional characteristic, not a check over four field elements or a generic nonvanishing result. It rules out any interior nonordinary parameter, and the explicit low-genus isogeny factors explain and make usable the uniform arithmetic statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

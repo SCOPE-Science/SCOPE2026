@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:58:33.861125Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the finite group square the group block K is a nonempty subsemigroup, hence a subgroup by positive powers, and contains the diagonal. Put N={g:(g,e)∈K}; diagonal conjugation makes it normal, and right multiplication by (h^−1,h^−1) proves (g,h)∈K iff gh^−1∈N. Separately each oriented cross-section is product-closed and, if nonempty, is a subgroup by finiteness. Multiplying by (e,e) proves each lies in N. Conversely both cross-sections may be chosen independently: same-orientation products use their subgroup closures, opposite-orientation products land in N×N, and mixed products with the group block retain equal G/N images in both coordinates. The new identity pair does not constrain them. The sections and N can be recovered by projection or restriction, proving uniqueness and coordinatewise inclusion. Reversing exchanges the sections, so symmetry requires equality. For a common nonempty subgroup the chain *~e~n for each n∈N forces the full N as the section; the resulting class N∪{*}, or the singleton {*} when both sections are empty, gives exactly the two congruences per N. Counting yields D,T,C. For nontrivial G at least the term N=G exceeds 4 in D and none is smaller; for trivial G, C/D=1/2. In the cyclic p-power case N=C_(p^j) has j+1 subgroups and the sum of (j+2)² grows as r³/3, giving 6/r². Both idempotents are central and all elements lie in subgroups, so these are finite Clifford monoids with the same two-element semilattice. The infimum is zero but is not attained in a finite example. Independent replay: python3 /workspace/review-evidence/check_frozen_math.py 1 directly enumerates all reflexive compatible relations for C1,C4,V4,S3,Q8 by generation from the diagonal and closure under product, without parametrizing them. Every closed relation is reachable by successive addition of its own elements; thus this independently exhausts S3 and Q8 as well. The observed (D,T,C) were (4,2,2),(29,9,6),(67,17,10),(62,12,6),(110,24,12), respectively. The frozen script's S3 check only verifies predicted forms; the independent finite computation does not substitute for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Section 4 injection yields a lower bound for D and χ(S)≤χ(E(S)); its fresh-identity example explicitly shows the injection is not exhaustive.",
+          "Proposition 1.2 covers the group-square block; Corollary 2.5 is a qualitative characterization of finite DSC semigroups. Indexed 5c30b91e1fb0 treats E₂×G with two full group fibres."
+        ],
+        "reasoning": "Credit the general bound, group-block classification and alternate fixed-semilattice vanishing family. None supplies the cross-section data for every N or the exact density of the fresh-identity model.",
+        "searches": [
+          "arXiv:2602.17286 §4, kernel-idempotent construction and χ bound",
+          "arXiv:2504.02428 Proposition 1.2 and Corollary 2.5",
+          "Resultary 5c30b91e1fb0 two-level Clifford monoids"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.17286 §4",
+        "arXiv:2504.02428 Proposition 1.2 and Corollary 2.5",
+        "DOI 10.3390/math13193109 (full text unavailable)",
+        "Resultary 590dad33ae77",
+        "Resultary 5c30b91e1fb0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited construction misses even the one-sided proper-subgroup sections in its own fresh-identity example. The older group theorem identifies the normal-subgroup parameter in the G×G block itself.",
+          "The left-groups full text was not accessed; this does not imply it excludes a related result."
+        ],
+        "reasoning": "Neither the group-block result nor the incomplete bound forces all admissible pairs of cross-sections. Recovering those sections, proving converse closure and characterizing transitivity are what yield the census and the asymptotic in the fresh family.",
+        "searches": [
+          "arXiv:2602.17286 §4 pp. 13–15, fresh-identity passage at offset about 43105",
+          "arXiv:2504.02428 Proposition 1.2",
+          "DOI 10.3390/math13193109 retrieval and lawful OA recovery"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Section 4 example {(1,1)} ∪ (G×G) ∪ ({1}×H) is exactly N=G,A=H,B=empty for a proper H<G.",
+          "Resultary 590dad33ae77 adjoins an absorbing zero, not a fresh identity, and gives all-or-empty cross-sections."
+        ],
+        "reasoning": "The directly matching example is a proper subfamily of the claimed classification. The absorbing-element variant changes the multiplication and is not an equivalent statement.",
+        "searches": [
+          "Resultary: diagonal compatible relations, fresh identity/adjoined identity, subgroup cross-sections, Clifford semigroup DSC coefficient",
+          "arXiv:2602.17286 §4 fresh-identity example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "590dad33ae77 gives the adjoined-zero count triple (4k,2k,k+1). 5c30b91e1fb0 uses 2|G| elements rather than |G|+1.",
+          "Neither accessed result statement gives the exact independent subgroup-section count for this monoid."
+        ],
+        "reasoning": "The natural exact comparator is the theorem index; a finite group table cannot settle these counts for all G. The strong indexed alternatives change the operation or the group fibres.",
+        "searches": [
+          "Resultary: fresh-identity diagonal-subsemigroup census and coefficient",
+          "Local-mirror 590dad33ae77 and 5c30b91e1fb0"
+        ]
+      },
+      "rationale": "Barber–Ruškuc already construct a one-sided subgroup cross-section on exactly the same fresh-identity example, on the full G×G block; neither the example nor the group-square theorem is new. The supported distinct result is the exhaustive two-section parametrization at every N, its exact count/order/cyclic density consequences, and its vanishing sequence within fresh-identity monoids. A separate indexed product family also exhibits fixed-semilattice vanishing, so that qualitative phenomenon by itself is not the basis for the pass. The bounded comparison does not establish priority.",
+      "residual_risks": [
+        "The cited left-groups article could not be independently read in full.",
+        "Bounded comparison leaves possible equivalent older terminology or unindexed work; indexed path dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct proper subcase and general comparison bound, not a complete census",
+          "evidence": [
+            "One-sided proper subgroup H<G gives {(1,1)} ∪ (G×G) ∪ ({1}×H) outside the injected family; χ(S)≤χ(E(S)) is obtained from the general construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.17286",
+          "material_read": "§4, pp. 13–15, PDF text offsets about 38600–46657, especially p. 15 fresh-identity example",
+          "method": "Lawful primary OA PDF",
+          "title": "Comparing Numbers of Diagonal Subsemigroups and Congruences for Semigroups",
+          "trigger": "Exact same fresh-identity construction"
+        },
+        {
+          "assessment": "Covers group-square block and qualitative DSC property, not the fresh extension census",
+          "evidence": [
+            "Diagonal subgroups of a group square are its congruences; a finite semigroup is DSC iff it is a group."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.02428",
+          "material_read": "Proposition 1.2 and Corollary 2.5, pp. 1 and 5, offsets about 2505 and 11697",
+          "method": "Lawful primary OA PDF",
+          "title": "Semigroup Congruences and Subsemigroups of the Direct Square",
+          "trigger": "Prior finite-group diagonal and congruence classification"
+        },
+        {
+          "assessment": "Detailed scope not independently checked; no exclusion inferred",
+          "evidence": [
+            "Bibliographic identification is Mathematics 13 (2025), 3109."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math13193109",
+          "material_read": "Landing/bibliographic identification; full text unavailable",
+          "method": "OA retrieval reached landing page/403; lawful DOI recovery found no repository copy",
+          "title": "On Group-like Properties of Left Groups",
+          "trigger": "Cited related diagonal-relation enumeration"
+        },
+        {
+          "assessment": "Different absorbing-element model",
+          "evidence": [
+            "Its cross-sections are all-or-empty and its stated counts are (4k,2k,k+1)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-diagonal-relation-lattice-of-a-finite-group-with-adjoined-ze--590dad33ae77",
+          "material_read": "RESULT.md stated operation, classification and counts",
+          "method": "Resultary local mirror",
+          "title": "The diagonal-relation lattice of a finite group with adjoined zero",
+          "trigger": "Closest indexed one-extra-element census"
+        },
+        {
+          "assessment": "Genuinely related consequence in another family, not the fresh-identity census",
+          "evidence": [
+            "E₂×G has two full G-fibres. It also gives vanishing coefficient at a fixed two-element idempotent semilattice."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-diagonal-compatible-relations-and-the-sharp-density-exponent-for--5c30b91e1fb0",
+          "material_read": "RESULT.md stated product setting and density finding",
+          "method": "Resultary local mirror",
+          "title": "Diagonal compatible relations and the sharp density exponent for two-level Clifford monoids",
+          "trigger": "Shared two-element idempotent semilattice and vanishing phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves the concrete elementary Clifford example used to show incompleteness of an existing bound. It determines the entire labeled relation order in terms of tractable group data, distinguishes symmetry and congruence, and quantifies a vanishing density in the fixed fresh-identity family. This structural payoff is not mere recomputation of isolated group counts, and the proof does not presume the finite argument extends to infinite groups.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

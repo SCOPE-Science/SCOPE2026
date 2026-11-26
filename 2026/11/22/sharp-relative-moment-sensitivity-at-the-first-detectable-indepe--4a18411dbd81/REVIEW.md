@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Walsh inversion classifies the admissible law and gives the exact identity \(F_\theta=F_0+\theta n!\prod a_j\). The independent even moment is a symmetric strictly convex exponential polynomial in the logarithms of the coefficient magnitudes. Permutation Jensen gives the sharp geometric-product lower bound, with strict equality only at flat positive magnitudes; this delivers both attained relative error endpoints. A tilted even-lattice distribution has mean one, variance \(r^2\), and span two, so a lattice local central limit theorem proves the exact exponentially small asymptotic. The standalone exact-rational script passes 293 assertions, supplementary to the general proof.
+## correctness
 
-## Originality — PASS, qualified
-The closest published endpoint Khintchine result supplies the classification and the same parity moment identity but solves a different extremal problem, maximizing moments under fixed Euclidean coefficient norm. It does not imply the reverse comparison at fixed geometric product needed for a sharp *relative* moment error, nor the large-order saddlepoint law. Pass--Spektor's k-wise independent bounds and Gao--Qian's independent-sign moment geometry likewise do not state the relative law comparison. Targeted mathematical record and literature queries identified no equivalent formula or stronger source covering it. The Gao--Qian manuscript was abstract-accessible only, and a previously unindexed equivalent statement cannot be ruled out.
+PASS
 
-## Mathematical value — PASS
-The \(n\)-th moment is the first polynomial statistic in which maximal proper independence can differ from full independence. Determining its **worst relative**, rather than Euclidean-normalized absolute, discrepancy gives an exact finite-dimensional stability invariant with both extremizers and a nontrivial \(\sqrt n\,(r/\cosh r)^n\) detection scale, including the sharp lattice prefactor. This is a natural stability threshold for parity-constrained signed sampling; it is not a mere fixed-small-dimension calculation or restatement of the known endpoint Khintchine constant.
+All nonempty proper Walsh characters have zero mean, leaving only theta on the full cube; the only degree-n term with all n odd powers has multiplicities (1,...,1), so the relative discrepancy is exactly theta n! product(a_i)/F_0(a). There is no discrepancy in lower-degree polynomial tests. If any coefficient vanishes the denominator remains positive and the discrepancy vanishes. Otherwise the independent moment is a symmetric sum of exponentials of linear forms in log|a_i| with strictly positive diagonal Hessian contribution from the pure powers. Permutation averaging fixes the log sum, hence gives the sharp minimum M_n product|a_i|, strict unless magnitudes are all equal. Their signs realize either endpoint for theta nonzero; theta=0 gives ratio one everywhere. For the asymptotic, the cosh tilt has generating function cosh(rz)/cosh(r), mean r tanh(r)=1, and variance r tanh(r)+r^2 sech^2(r)=r^2. Its span is exactly 2, and the mean n is on the sum lattice along even n. Thus the local limit mass at n is 2/(r sqrt(2 pi n)); undoing the tilt and taking the reciprocal gives the claimed prefactor. Independently recomputed the three constants by repeated truncated convolution: start with p_0=1, multiply n times by the polynomial with coefficient 1/(2k)! in degree k, truncating at n/2, and take the reciprocal of its degree-n/2 entry. This gives 3/5, 15/47, 315/1957 exactly.
 
-## Limits
-Real coefficients, equal numbers of signs and moment degree, even order. Classical Walsh classification credited. Reproducibility checks finite. Full text of a relevant 2026 paper was inaccessible and residual bibliographic risk is recorded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact relative n-th moment extremum and its flat-magnitude equality classification and large-order behavior, not the already published Walsh-law classification, unnormalized moment identity, Euclidean upper bound, or general lattice limit machinery. The closest inspected relative-moment result concerns absolute order one; the closest inspected n-th moment result uses a Euclidean denominator. Neither states or implies the sharp n-th moment ratio. This conclusion is best-of-knowledge, not priority certification.
+
+## value
+
+PASS
+
+The objective quantifies how much almost full independence can first change a polynomial moment, on the natural scale of the corresponding independent moment rather than a worst-case Euclidean bound. Exact two-sided extremizers and the lattice-corrected exponential decay describe both where the distortion concentrates and how small it inevitably becomes. They are a useful tight benchmark, not a new claim about all k-wise Khintchine constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

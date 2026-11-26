@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:09:09.021837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–54",
+        "VERIFICATION.md and verification/check_twolevel.py (read only)",
+        "Independent reconstruction: enumerate upsets as masks, test implication over successors, close each ordered list under the five signature operations, and compare counts with the formulas"
+      ],
+      "rationale": "Equal colours within a layer give a transposition fixing all term values. For b=1 a same-colour lower point and the upper point remain indistinguishable under implication because their successor sets are respectively the pair and the singleton, and both operands agree on the pair. For b>=2 a nonempty proper upper restriction is a generator X contained in B, and X joined with its negation gives B. For b=1 the meet of the generators true at the upper point gives B. The resulting two Boolean intervals have definable relative complements and separating generators, so generate all upsets. For b>=2 the c all-one upper columns are exactly the free positions for lower words. Partition-lattice inversion on upper rows forbids equality, yielding the signed-Stirling sum over j blocks, with 2^j-1 permitted column types. For b=1 the all-one lower subword is forbidden, giving 2^c-1 choices. The two capacities yield the ranks, and independent injective codes attain them. The boundary k=0 gives zero generating tuples for both cases. An independent bounded replay checked 1,653 actual closures for small sizes through (a,b)=(2,3) against the criterion and formulas; finite only. The recorded 4,052 source checks were inspected, not executed.",
+      "residual_risks": [
+        "The replay is finite; unrestricted correctness rests on the term and inversion arguments, not on formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Esakia theorem equates generation with G-colouring and rank with colourability. The layered modal result covers more layers but in the Boolean modal signature."
+        ],
+        "reasoning": "The general theorem covers the qualitative characterization in principle, not the exact count or the capacities for monotone colours; the broader modal parameter range does not cover the different Heyting signature.",
+        "searches": [
+          "doi:10.1017/jsl.2024.48, §3 Theorem 3.8 and Corollary 3.10",
+          "Resultary layered S4 generation 932014f5473b"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary searches and named mirror Findings",
+        "doi:10.1017/jsl.2024.48 §3",
+        "arXiv:2610.23399v1 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-carrier Bell product counts Frobenius-adjoint expansions, the chain-power census is coordinatewise, and the convex-subset enumerator concerns convex sets in ordinal sums."
+        ],
+        "reasoning": "None supplies the count of upper matrices by number of all-one columns matched to lower injections. The singleton-upper exclusion changes the eligible lower words even after the allowable positions are fixed.",
+        "searches": [
+          "f936050d4657 and 89cf3ed71236, Finding passages",
+          "arXiv:2610.23399v1 abstract",
+          "doi:10.1017/jsl.2024.48, §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact self-hit is the bound Finding. The S4 Finding has the same within-layer injection and singleton-upper cross-exclusion, but counts arbitrary Boolean subset predicates with an independent product across layers."
+        ],
+        "reasoning": "For b>=2 the S4 two-layer rank is ceil(log2 max(a,b)); the Heyting rank is additive because only all-one upper columns admit any lower ones. Restricting to genuine upsets couples the counts and is not a signature renaming.",
+        "searches": [
+          "Local Resultary exact two-level Heyting generator census and ordinal-sum colour/threshold comparisons",
+          "932014f5473b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Other database hits: f936050d4657 counts extra operations on the same carrier; d7fbc564493b indexes subalgebras for the a=1 star; 89cf3ed71236 counts generation in products of chains."
+        ],
+        "reasoning": "There is no matching all-parameter generator table or formula among the inspected catalogue hits. The indexed star subcase is explicitly not claimed as separately novel.",
+        "searches": [
+          "Local Resultary exact census, same carrier, star subalgebras, and chain-power generating tuples"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the constrained ordered-tuple count and its two-level rank boundary for bounded Heyting upsets, not the general colouring theorem or the qualitative separation pattern in other signatures. No equivalent full census was found in the examined sources.",
+      "residual_risks": [
+        "No independent priority claim for a=1; the exact star full text was unavailable.",
+        "The searches were bounded and may miss an older explicit enumeration or alternative classification of the subalgebra lattice."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "qualitative prior, not exact enumeration",
+          "evidence": "Generation iff G-coloured, and n-generation iff n-colourability.",
+          "identifier_or_url": "https://doi.org/10.1017/jsl.2024.48",
+          "material_read": "§3 Theorem 3.8 and Corollary 3.10, pp. 478–479, PDF offset 25865",
+          "method": "primary full-text passage",
+          "title": "Strictly n-finite varieties of Heyting algebras",
+          "trigger": "general dual colouring theorem"
+        },
+        {
+          "assessment": "material criterion-level overlap only",
+          "evidence": "Independent product over layers for unrestricted predicates, unlike the coupled upset count.",
+          "identifier_or_url": "2026/11/2/SCOPE-chromatic-normal-form-and-sharp-generator-threshold-for-layered--932014f5473b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "local full-text mirror",
+          "title": "Chromatic normal form and sharp generator threshold for layered S4 complex algebras",
+          "trigger": "same poset and same qualitative colour exclusions"
+        },
+        {
+          "assessment": "different counted objects",
+          "evidence": "Counts pairs of extra operators, not tuples of upsets.",
+          "identifier_or_url": "f936050d4657",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "local full-text mirror",
+          "title": "Frobenius-adjoint expansions of two-layer Heyting algebras: a Bell-product census",
+          "trigger": "identical carrier"
+        },
+        {
+          "assessment": "subcase overlap is possible; not a negative full-text finding",
+          "evidence": "Indexed claims concern partition descriptions of subalgebras and homomorphisms.",
+          "identifier_or_url": "d7fbc564493b",
+          "material_read": "indexed description only; exact mirror passage unavailable",
+          "method": "local Resultary and mirror attempt",
+          "title": "Homomorphism rigidity and Bell-graded subalgebras of top-extended Boolean Heyting algebras",
+          "trigger": "star subcase a=1"
+        },
+        {
+          "assessment": "different algebra family",
+          "evidence": "Direct powers of chains and coordinatewise positivity words.",
+          "identifier_or_url": "89cf3ed71236",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "local full-text mirror",
+          "title": "Exact generating-tuple census and birthday law for finite Heyting-chain powers",
+          "trigger": "exact Heyting generator enumeration"
+        },
+        {
+          "assessment": "abstract establishes a different stated counting problem, not a whole-paper exclusion",
+          "evidence": "Convex subsets as intersections of upsets and downsets.",
+          "identifier_or_url": "arXiv:2610.23399v1",
+          "material_read": "abstract at PDF offset 0",
+          "method": "OA abstract",
+          "title": "A Generating Polynomial for Convex Subsets of Posets",
+          "trigger": "ordinal-sum enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md census and rank, lines 9–28",
+        "Layered S4 Finding 932014f5473b"
+      ],
+      "rationale": "The natural first ordinal-sum family distinguishes the constraints that monotonic upset predicates impose from the unrestricted modal census, quantifies the number of generating presentations at every length, and identifies exactly why the singleton upper layer changes the rank and census.",
+      "residual_risks": [
+        "No analogous enumeration is established for incomplete incidence or more layers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

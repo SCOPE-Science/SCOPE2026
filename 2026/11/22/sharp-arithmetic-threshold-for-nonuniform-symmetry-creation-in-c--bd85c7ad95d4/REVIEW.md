@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The majority transition matrices are determined by the complete eight-triple truth table. The exact integer certificate checks 52 (not sampled) nonconstant period-two through period-five outputs; the proof translates its singleton-loop condition into arbitrary-ring preimage rigidity. The explicit four-neighborhood surgery from \(01\) to \(10\) produces each nonuniform period-\(d\) fixed target from an asymmetric state, establishing the sharp iff theorem. The embedded checker reproduced the 52-case matrix table, 125 witness pairs, and direct finite-ring checks through length 16. Computation proves only its finite lemma; the all-length assertion depends on the written closed-walk and equivariance arguments.
+PASS
 
-## Originality — PASS, bounded priority claim
+Uniform states are fixed, so immediately before the first nonuniform symmetry of an asymmetric orbit the input is still asymmetric. For a repeated d-letter output, paths on successive pairs of predecessor bits align with the indexed output by using the center of each triple; one d-step edge retains its full path multiplicity. A cyclic preimage corresponds exactly to a closed walk in this block multigraph. The 52-case lemma excludes both multi-vertex cycles and multiple loops at a vertex. Every closed walk therefore repeats the same concrete block lift, making its preimage d-periodic no matter how many output blocks are repeated. For d>=6, the repeated block 000 followed by d−3 ones is fixed and has least period d (one zero-run start per block). Swapping sites 2 and 3 in one copy changes only four centers, whose new triples 001, 010, 101, 011 give 0,0,1,1 as required. Every hypothetical period of the predecessor would be a period of the output by equivariance, hence a multiple of d; this would move the unique modified block, impossible. The largest proper divisor is n/p_min(n), including 1 for prime n. This accounts for n>=3, every eligible period, and all positive times.
 
-The main motivating source proves general persistence of rotational stabilizers; the small-radius majority literature classifies temporal attractors. Complete published research results on cyclic image counts, temporal settling, and incoming transients of temporal two-cycles were examined; none implies the new sharp condition for first appearance of **nonuniform spatial** symmetry. Preimage enumeration by Jen (1989), not independently reread in full, remains a possible implicit-priority risk. This is best-knowledge originality rather than independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The condition \(n/p_{\min}(n)\ge6\) is a sharp, nontrivial structural boundary, separating for example ring sizes 12 and 14 from 15 and 25 despite all being composite. For every permitted divisor it gives a minimal one-step witness. Unlike ordinary asymptotic transient counts, it fully resolves a natural finite-graph existence question at every ring length without asserting any general law for other automata.
+The supported distinct claim is the sharp nonconstant spatial symmetry threshold for Rule 232 and the accompanying all-repetitions short-period rigidity and one-step constructions. Neither generic equivariance, temporal classification, aggregate cyclic preimage spectra, nor the inspected prior string-count formulas supply this joint spatial classification. The pair-graph method itself is prior.
 
-## Scope and limitations
+## value
 
-Only synchronous radius-one binary majority on cyclic rings and newly created **nonconstant** rotational symmetry. The statement is not a classification of the proportions or complete first-passage distribution of all states. The four-state finite check is exact but dependent on running the supplied checker; independent mathematical audit is not yet available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The canonical spatial stabilizer and standard majority dynamics give a natural existence problem at all finite ring lengths. The sharp obstruction distinguishes composite lengths that sometimes permit symmetry birth from composite lengths that do not; it gives a reusable rigidity criterion for short-period targets on arbitrarily long rings and an explicit predecessor for every longer eligible period. This is not merely a temporal settling or image count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

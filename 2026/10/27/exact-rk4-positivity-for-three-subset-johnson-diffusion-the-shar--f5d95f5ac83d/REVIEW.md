@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The distance-regular intersection numbers for \(J(n,3)\) generate exact transition coefficients for each of the four distance classes. The diagonal has a positive scalar RK4 spectral representation; distance two is controlled by a negative discriminant; distance one by a globally decreasing cubic; and distance three by a linear bracket. The explicit Bernstein and shifted-coefficient certificates prove the sharp integer crossover at \(n=34\), all ties, and no reentry. The extracted standalone verifier independently reconstructs finite Laplacian matrices and tests the algebra with exact rational arithmetic. Its finite tests are corroboration, not proof for all \(n\).
+## correctness
 
-**Originality (PASS, qualified).** Hora's full Johnson spectral-limit work provides distance algebra but no classical RK4 nonnegativity horizon. Bresten et al. address optimized multistep SSP methods, and Blanes et al. address graph-Laplacian positive integrators and unconditional barriers, not exact endpoint positivity on the fixed family \(J(n,3)\). No equivalent or dominating Johnson threshold was identified in multiple exact and equivalent-formulation searches of mathematical literature and published research records. Closest accessible prior endpoint-RK4 results address Hamming, strongly regular, star or complete multipartite graphs; those are not this diameter-three subset-exchange network. Residual risk: specialized unindexed results may contain an equivalent exact cubic threshold, so originality is not independently established.
+PASS
 
-**Value (PASS).** Johnson diffusion is the Bernoulli–Laplace subset-exchange model. The three-subset family is its smallest genuinely diameter-three regime, beyond the strongly regular case. The result gives the complete one-step positivity safety interval for an infinite sequence of natural state spaces and identifies the **exact** network-size crossover between long-distance and local loss of nonnegativity. It is a checkable benchmark for numerical diffusion, not an arbitrary fixed-size computation.
+The three-subset exchange graph is simple, unit weight, degree 3(n−3) and diameter three for every n≥6. For a vertex at distance j from a fixed vertex, replacing a common element by an outside element has b_j=(3−j)(n−3−j) choices; replacing a noncommon element by a missing common element has c_j=j². Iterating these transitions with the negative degree stay reproduces the normalized entries per pair. Independently propagated one sparse basis row through integer powers Q^0,…,Q^4 on the explicit exchange graphs for n=6,7,10,33,34,40; every off-diagonal coefficient matched. As a crossover check, 24(3n−4)^4 t_1(n,2/(3n−4)) from the explicit rows is 5616 at n=33 and −78720 at n=34. For all n the diagonal is strictly positive by the spectral scalar-square identity, and the distance-two discriminant is negative with a positive leading coefficient. The edge cubic is strictly decreasing because 3AC−B² has positive coefficients in n−6; the positive constant and negative leading cubic give one positive root. The distance-three bracket has single root 2/(3n−4). At this point the edge sign is opposite F(n); the certificate in z=(n−6)/27 is strictly negative for 6≤n≤33 and the expansion in n−34 is strictly positive for n≥34, ruling out boundary ties and reentry. At forward Euler's endpoint h=1/[3(n−3)] the edge entry is positive from the (A/d)/3 term of the convex decomposition and the distance-three bracket is still positive since n≥6. This proves the strict improvement. Read VERIFICATION.md and verify.py; their finite and symbolic results are recorded, not represented as re-execution.
 
-**Limitations.** Only completed RK4 endpoints on unweighted \(J(n,3)\), \(n\ge6\), are covered. No unconditional positivity, RK stage positivity, extension to general Johnson rank, or independent proof review is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact range and its unique integer switch on J(n,3). The diffusion model and intersection-number algebra are established; the located SSP statements and other exact graph families do not supply these signs or sharp Johnson triple thresholds.
+
+## value
+
+PASS
+
+Three-subset diffusion is a natural Bernoulli–Laplace exchange model and provides a fixed diameter-three test of endpoint positivity distinct from strong stability or absolute stability. The determination that the limiting entry changes from maximal-distance to adjacent pairs precisely between n=33 and n=34 is not supplied by forward Euler or orbit algebra alone. A user selecting a maximum positivity-preserving time step needs both the exact endpoint and nonreentry, not merely the smaller Euler guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

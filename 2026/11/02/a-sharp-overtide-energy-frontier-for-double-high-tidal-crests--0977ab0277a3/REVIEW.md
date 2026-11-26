@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
-The physical objective is stated on a compact amplitude quarter-circle and the full tidal period. Cauchy–Schwarz gives the exact amplitude maximum at each time; the negative-cosine interval is controlled by a strictly positive Bernstein polynomial. The second derivative of the reduced objective is negative on the positive-cosine interval with a fully explicit positive-coefficient numerator, giving the sharp onset and the unique interior maximizer for every larger energy. Strict splitting at the optimum, endpoint behavior and monotone peak separation follow algebraically. The packaged checker reconstructs the nonstandard polynomial identities and exact examples. It does not substitute a finite search for the continuous proof.
+## correctness
 
-## Originality (PASS, subject to historical uncertainty)
-Song et al. (2016), DOI 10.1002/2016JC012039, provide the closest direct material: full-text Sections 1.1, 4.1–4.2, conclusion and Appendix A were examined. They analyze isolated overtide thresholds, show combined overtides can enhance a double high, and expressly leave the general combined critical condition analytically unresolved; they do not optimize the height of a split crest at a fixed total two-overtide variance. Bowers et al. (2013), DOI 10.1016/j.ecss.2013.09.014, study a seiche mechanism. Byrne et al. (2017), DOI 10.5194/os-13-599-2017, examine a higher-harmonic criterion and its phase dependence; its abstract and article description were read, while the complete body was not obtained. Searches for two-overtide RMS energy, phase-locked crest splitting and trigonometric extrema yielded no equivalent constrained global optimization statement in the sources inspected. Mathematical Fourier-polynomial optimization results found in the broader record concern different functionals and do not state an implication to this sea-level contrast. Residual risk: a general extremal trigonometric-polynomial or hydrodynamic result may already imply this special phase-locked frontier; originality is not a claim of exhaustive literature coverage.
+PASS
 
-## Value (PASS)
-The energy budget \(a^2+b^2\) is twice the time-mean squared overtide elevation, not an arbitrary coefficient sum. The exact universal onset \(1/\sqrt{97}\), unique two-constituent optimal energy split, monotone peak-separation law, and exact demonstration that two individually insufficient overtides jointly produce a double high answer a natural coastal harmonic-reconstruction question. They refine the usual one-constituent Doodson threshold under a measurable aggregate constraint. The outcome is mathematical, not a claim about whether real estuaries realize the allowed phases or any large-amplitude optimum.
+With x=cos(theta), the height difference factors as (1−x)[−1+2a(1+x)+b(2x+1)²]. The coefficient vector is nonnegative on the entire cycle, so the Euclidean support-function maximum is exactly F_E(x)=E G(x)−(1−x). Independently, for x=−u, 0≤u≤1, the components whose norm is G(−u) are 2(1−u²) and (1+u)(1−2u)²=1−3u+4u³. Up to u=√3/2 the latter is at most 1 and the former at most 2; above that point they are bounded by 2 and 1/2 respectively in the opposite order. Thus G(−u)≤√5 and F_E(−u)≤F_E(0). Polynomial differentiation gives R G'=3+4x−8x²−48x³−48x⁴ and −R³ G''/4 with ascending coefficients 1,33,264,816,1392,1584,1152,384. On [0,1] this proves strict concavity for E>0, and F_E'(0)>0 while F_E'(1)=1−E√97. The cases E=0 and E=1/√97 yield zero excess, with every allocation optimal in excess value, not a unique allocation. Above threshold there is a unique interior x_E; equality in the Euclidean norm bound forces the stated positive allocation and exactly two phases modulo the cycle. Positive excess requires 4a+9b>1, hence positive central curvature. The relation G'(x_E)=−1/E and strict concavity give strict decrease in x_E and the unique quartic limit (independent numerical check: 0.371708101121). As E approaches onset the amplitude direction tends to (4,9)/√97. The frozen symbolic/grid script was inspected but not executed; the result does not rely on its grids.
 
-## Limits of checking
-The 2017 paper's complete body and the full text of the 2013 seiche paper were not retrieved. The closest and most directly applicable 2016 paper was read in full-text HTML, including the relevant discussion and appendix. The entire historical literature and arbitrary-phase three-component problem remain outside this statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the full-period, fixed squared-amplitude frontier with a unique mixed optimizer and monotone separation above onset. Individual harmonic thresholds, previously observed cooperation of harmonics, and the Euclidean norm reduction alone are not original here. The inspected primary and indexed results do not supply the complete constrained frontier or a stronger theorem implying it. The closest combined-overtide primary source could not be read in full independently, so this distinction is bounded by the obtained evidence.
+
+## value
+
+PASS
+
+Rather than just identifying a local curvature threshold, this solves the full-cycle allocation problem and rules out a competing, remote high-water maximum. It gives a unique allocation above onset and a monotone crest-spacing prediction through the whole mathematical energy range. That is useful as a sharp benchmark within the phase-locked harmonic model, not a claim about real tidal forcing or attainable ocean energies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

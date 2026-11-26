@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,4 @@
 }
 ---
 
-The analytic verification is in `RESULT.md`. It checks: (1) each generator pulse has nonnegative off-diagonal entries and zero column sums; (2) the pulse amplitudes and widths give a bounded \(C^3\) matrix function; (3) the eight sampling fractions for formula (3.19) are distinct and only the two intended nodes are nonzero for each \(h_n\); (4) the two remaining matrix exponentials give the stated exact coordinates; and (5) strict negativity follows from \(g'(s)>0\) for \(s>0\). The included `verify.py` checks the exact closed form at three decreasing step sizes with high-precision decimal arithmetic. Finite checks supplement but do not replace the analytic proof. Independent audit and independent validation remain unperformed.
+The analytic proof in `RESULT.md` checks the global generator definition, the node separation, the chronological order of the two nonidentity exponentials, and their exact signed coordinates. The negative abscissa printed in the preprint is within the domain of the generator and gives zero; replacing it by the upper in-interval half-step Gauss node also gives zero for this generator. Run `python3 verify.py` for a finite decimal check of the ordered stage propagation and a control with the reversed order. The proof of strict negativity at all specified step sizes is analytic, not numerical.

@@ -1,15 +1,21 @@
-# Scientific review of the one-defect oscillation threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement has exact domain \(0<\alpha<1\), with every real uniformly convergent series from the shifted fundamental plus all unshifted integer frequencies at least two. Uniform convergence permits projection onto the constant and first cosine modes. The exact ratio of these projections is \(\alpha^2/(1-\alpha^2)\). Above and at \(1/\sqrt2\), strict positivity of the dual weight \(1-\cos t\) almost everywhere prevents any nonzero series from having one sign over a full interval. Orthogonality to \(\sin t\) rules out a series identically zero on such an interval. Below the threshold, the full positive Poisson kernel is reproduced by an explicitly absolutely summable coefficient sequence. `CHECK.py` supplements, rather than substitutes for, the analytical proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Translation retains the frequency set and uniform convergence. On [-pi,pi], the normalized moments against 1 and cos(t) are a sin(pi alpha)/(pi alpha) and a alpha sin(pi alpha)/(pi(1-alpha^2)); the integer modes n>=2 and all sine terms make no contribution. A continuous nonnegative nonzero restriction has strictly positive integral against 1-cos(t), so its first cosine moment must be strictly less than its mean. The computed ratio is at least one precisely on the asserted oscillatory side, including the endpoint. If the whole restriction is zero, the mean forces a=0 and the sin(t) moment has nonzero coefficient sin(pi alpha)/(pi(1-alpha^2)) for b; the remaining integer coefficients then vanish by orthogonality. Applying the same argument to -f yields both signs. Below the threshold, the normalized displaced cosine has mean one and nth cosine coefficient 2(-1)^n alpha^2/(alpha^2-n^2). Subtracting it from the Poisson kernel with r=alpha^2/(1-alpha^2) removes exactly the constant and first harmonic; the continuous periodic difference has absolutely summable coefficients and hence equals its Fourier series, including at the matching endpoints. Poisson positivity follows from 0<r<1. Continuity also gives strict signs in the open window whenever both signs occur on its closure. The proof uses the stated uniform convergence and covers irrational as well as rational alpha.
 
-The November 3, 2026 Haraux theorem assumes a small global squared frequency displacement; for the one-defect family its assumption only covers \(\alpha>1-1/(\sqrt8\pi)\), strictly narrower than the sharp region proved here. Its theorem and proof were inspected. The 1985 Haraux–Komornik source treats more general periodic-subspace oscillation problems; sampled sections do not state the present exact single-defect transition. Related 2015/2018 work studies three periodic function spaces, not this frequency replacement. Searches for the exact threshold, aliases, Poisson synthesis and dual positive moment formulation found no dominating indexed mathematical claim. Residual bibliographic risk: the older complete papers were not read exhaustively, so a hidden equivalent single-defect consequence remains possible. Search absence is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The precise one-frequency replacement is a natural stress test for the 2026 sufficient perturbation theorem. The complete threshold separates universal sign oscillation from an explicitly realized strictly positive waveform, including the nontrivial band \(1/2<\alpha<1/\sqrt2\), where a single cosine does not remain positive over the observation window but a full infinite series does. The positive-moment dual certificate and Poisson completion identify the actual obstruction rather than merely improving a small sufficient constant. The result is confined to this natural one-defect family and does not solve the general gap-oscillation question.
+The supported distinct claim is the sharp necessary and sufficient classification for one replaced fundamental at the exact length 2 pi, with an explicit strictly positive subcritical series. A positive dual test and oscillation estimates for other frequency sets are not being credited as new. No examined statement establishes both the full sharp range and its positive-side construction.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A one-mode perturbation at the integer period is the natural minimal test of general small-perturbation sign-oscillation theorems. The exact threshold separates oscillation from strict positivity, closes the borderline case, and shows how far a general sufficient bound can be improved in a canonical slice. The explicit witness and dual obstruction have complementary uses when studying further missing modes or observation lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

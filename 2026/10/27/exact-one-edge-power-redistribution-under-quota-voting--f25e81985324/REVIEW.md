@@ -1,24 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The model, quota, and criticality probability are stated explicitly. The proof separates the delegator, recipient, and every outsider; uses the two relevant binomial events; simplifies their ratio; and derives the total-power identity. Exact enumeration over all action profiles for 25 \( (n,r) \) cases agrees with the formulas. No finite enumeration is used as the infinite-family proof.
+PASS
 
-## Originality
+For two distinct endpoints, n≥3 and m≥1. The a-intervention precludes delegation, leaving the no-edge baseline B. For b, delegation makes the pivotal window two adjacent counts among n−2 fair votes, with probability 2B by Pascal; the direct branch contributes B. For an outsider the delegated bloc is 0 or 2 with equal probability, giving counts r−1 and r−3 among n−3 fair voters. Dividing their two binomial coefficients by the baseline coefficient gives numerator terms (m−s)(m−s−1) and (m+s)(m+s−1), including zero terms at impossible counts. This recovers R and makes the net change 2s²B/(3m), nonnegative with equality exactly at s=0. Independent small action-profile enumeration gave (1/2,2/3,1/3) for (n,r)=(3,2) and (1/4,1/3,1/3) for (3,3), including the unanimity endpoint. Replay paths: RESULT.md lines 34–81 and the exact profile enumeration in verify.py lines 14–74, inspected, not executed. The frozen RESULT.md and VERIFICATION.md give the code-consistent count of 20 finite cases; the self-review's count of 25 is a provenance discrepancy, not a theorem defect. No weighted, even-electorate, or normalized-index claim is validated.
 
-**PASS, with a stated scope risk.** The closest source is Colley, Delemazure, and Gilbert (arXiv:2301.02462; IJCAI 2023), whose general a-priori index is the same framework and whose complete-bipartite and complete-graph cases are explicitly prior art. Their inspected paper does not state the closed form for the sparse graph with exactly one allowed delegation edge or the exact law \(nB_{n,r}+2s^2B_{n,r}/(3m)\). Zhang–Grossi (2021) and D’Angelo–Delfaraz–Gilbert (2021) use different delegation-power models. Searches of mathematical-result records and accessible prior claims returned related voting-power and delegation results but no matching one-edge quota formula. Because the general index definition determines this case, the originality claim is intentionally restricted to the explicit structural evaluation; a broader formulation may already exist outside the inspected sources.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result gives an exact benchmark for a central design question in delegated voting: whether adding one permitted delegation option redistributes or increases aggregate criticality. It isolates simple majority as the unique conservation point and quantifies the supermajority excess by a quadratic term in the quota distance. This is stronger than a single numerical example and can serve as a check on more general power-index computations, while making no welfare or fairness claim.
+The a-priori index and the simple-majority slice have substantial prior coverage. The supported distinction is the explicit all-quota one-edge vector and quadratic aggregate excess, hence the exact majority-versus-stricter-quota boundary, not a new index or an independent novelty claim for majority alone.
 
-## Closest literature and residual limits
+## value
 
-- Colley, Delemazure, and Gilbert (2023): same a-priori measure; their explicit tractable graph classes and numerical examples are acknowledged as prior art.
-- Zhang and Grossi (2021): fixed delegation profiles, delegative Banzhaf index, and strategic power-seeking; a different measure.
-- D’Angelo, Delfaraz, and Gilbert (2021): delegative simple games and graph-change bribery; a different power construction.
-- Berinsky et al. (2021): random delegation, concentration, and truth-tracking accuracy, rather than quota-pivotality power.
+PASS
 
-The general model is not claimed as new. The result does not address arbitrary graph edits, weighted voters, even electorates, or normalized-power conservation outside the stated case.
+The single permitted edge is a natural first perturbation of direct voting in this measure. The all-quota law gives an exact benchmark for whether an edit only redistributes criticality or changes its aggregate, and isolates the conservation threshold despite the recipient's fixed relative gain. It is useful for checking quota-power computations and is not a welfare or normative claim.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,17 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-The lag-difference preimage is a finite-type shift, every golden-mean sequence has exactly \(\kappa^m\) preimages, and entropy is \(\log\varphi\). Isolated increments in prescribed residue classes give arbitrarily long paths between all states in its finite graph, hence mixing. For every \(n\mid m\) the difference vanishes on every period-\(n\) point; for \(n\nmid m\), explicit forbidden witnesses exist over every alphabet \(\kappa\ge2\). This proves the exact least-common-multiple matching threshold, not just finite instances.
+## correctness
 
-## Originality — PASS
+PASS
 
-The motivating 2026 work supplies the permutative lift mechanism but studies minimality and unique ergodicity for aperiodic substitution and Toeplitz bases. Related 2017 work provides general algorithms for spatial periods of cellular-automaton preimages; it does not state the sharp joint mixing-SFT, fixed-entropy and full-shift-periodic-data barrier. Source, formula, alias and implication searches found no equivalent all-horizon result. A genuine risk remains that older general machinery can recover individual period calculations or that the combined construction exists under another name.
+The constraints are local on windows of length m+2. Assign any initial m symbols and any golden-mean output; the recurrence determines x in both directions, giving exactly kappa^m lifts. More directly, a length-L word for L≥m is determined by its initial m symbols and a golden-mean word of length L-m, and all such choices extend by padding the output with zeros. Fibonacci growth gives log(phi). In the state graph (m-block, previous output), each advance rotates the coordinates and increments the coordinate scheduled in its time residue class mod m if the output is one. For any sufficiently large prescribed path length, choose the requisite residue increments with isolated ones in disjoint padded windows, after accounting for the final required output. This permits either previous-output symbol and works also at m=1, where alternating positions give spacing. Hence the presentation is primitive. For n dividing m every ambient n-periodic point has zero output. Otherwise the singleton-one input has forbidden residue -1 when kappa≥3; for kappa=2 demanding output ones at positions 0 and 1 prescribes two nonloop parity edges, consistent even if they coincide. At least one point is therefore excluded. Divisibility gives the least lag; inversion between fixed-point and primitive-orbit counts and the formal log and exponential give the two finite-cutoff equivalent descriptions. An independent bounded enumeration checked 108 period and residue-sum cases and strong connectivity plus a loop in all 18 presentations for kappa=2,3,4 and m=1,...,6; frozen CHECK.py and VERIFICATION.md were inspected, not run. No uniform-memory or all-family minimal delay is implied.
 
-## Mathematical value — PASS
+## originality
 
-The exact cutoff is an intrinsic information boundary: no finite Artin–Mazur zeta jet can bound entropy even among mixing SFTs on the same alphabet and finite-to-one covers of the *same* golden-mean shift. The least required memory delay is classified exactly by \(\operatorname{lcm}(1,\ldots,H)\), not merely bounded or illustrated. This separates finite periodic evidence from entropy within a constrained dynamical class.
+PASS
 
-## Closest prior work and limitations
+The modular difference code and general periodic-lift algorithms are already covered, and a distinct later indexed theorem explicitly covers the cycle-sum period calculation. Credit is limited to the joint mixing golden-mean construction of a fixed entropy gap with the sharp finite observation equivalence in this lag family. The sources compared do not establish that joint statement.
 
-Kang–Jäger, arXiv:2609.01140v1; Mariot–Leporati–Dennunzio–Formenti, DOI:10.1007/s11047-016-9586-x; MacDonald, *Encoding subshifts through sliding block codes*. Memory and fiber degree grow with the cutoff. Independent literature-wide priority verification has not been conducted.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+These explicit mixing SFTs can agree with full-shift periodic data to any prescribed finite order at a fixed positive entropy gap. The sharp LCM cost answers how large the delay must be within the same simple family rather than replacing the problem by arbitrary graph size. The result is a meaningful nonidentifiability example with a stated cost, not a claim about all SFTs at fixed memory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

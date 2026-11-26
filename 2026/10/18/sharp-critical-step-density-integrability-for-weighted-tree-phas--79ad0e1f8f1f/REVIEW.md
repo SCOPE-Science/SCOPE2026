@@ -1,12 +1,21 @@
-# Scientific review: critical-step tree-map density theorem
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The weighted edge Laplacian is positive definite, and bipartite orientation makes its largest weighted eigenvalue simple with an everywhere nonzero eigenvector. The matrix order inequality \(K^{-1}-\Lambda^{-1}A\succeq0\), paired with strict monotonicity of \(t+\sin t\), establishes global injectivity of the critical lift and hence a torus homeomorphism. The Jacobian is positive away from the single all-\(\pi\) point. Its determinant has the explicit positive quadratic leading form \(x^THx\), obtained from the adjugate at the simple zero eigenvalue. Change of variables gives the exact pullback \(L^q\)-integral; radial integration proves sharpness, and the ellipsoidal angular identity gives the explicit logarithmic coefficient. The included checker executed successfully, including exact symbolic identities and 480 tree-instance small-displacement checks. Numerical tests do not replace the universal proof.
+## correctness
 
-## Originality (O): PASS, with stated risk
-The closest full primary source is Buescu–D'Aniello–Oliveira, *Morse–Smale dynamics in discrete Huygens networks* (arXiv:2610.10993v1). Its Sections 2, 3 and 5 supply the gradient/quotient/tree framework, and Section 4 establishes strict subcritical Morse–Smale dynamics while noting singularity at the endpoint. The source does not give the one-step pushforward Haar density, critical \(L^q\) cutoff or spectral logarithmic coefficient. The related 2025 three-clock papers are devoted to Lyapunov and basin results in invertible dynamical regimes. Critical homeomorphism and cubic inverse behavior, studied separately in the network literature, do not alone determine the quadratic full-dimensional Jacobian coefficient. The exact coefficient and sharp density threshold are not claimed to be independent of standard change-of-variables tools; those tools are the proof ingredients. Equivalence elsewhere in transfer-operator or singular-map literature is a residual bibliographic risk, and an independent priority audit remains necessary.
+PASS
 
-## Mathematical value (V): PASS
-The earliest loss of smooth invertibility is a natural parameter selected by the graph spectrum rather than an artificial slice. The result distinguishes topological invertibility from quantitative measure regularity and makes the sharp integrability exponent grow with the network's number of independent edge phases. The leading logarithmic constant simultaneously records every nonleading eigenvalue and all weighted Perron coordinates. It is a usable exact volume-distortion benchmark for phase-map discretizations, not merely another homeomorphism proof. It does not assert invariant statistical information or generalize to arbitrary interaction laws.
+Rooting the tree gives an integer inverse to the edge differences modulo common phase by signed path summation, so normalized Haar in these coordinates is as stated. The edge Gram matrix K is positive definite and the connected line graph with bipartite orientation makes the top weighted eigenvector full-support and simple (also true for the one-edge matrix). From K^{-1}−A/Λ positive semidefinite, the scalar strict monotonicity of t+sin t gives strict monotonicity of the lift in the K^{-1} metric. Lattice equivariance gives torus injectivity and invariance of domain gives surjectivity. The symmetric matrix K^{-1}DF is the sum of K^{-1}−A/Λ and diag(a_i(1+cos z_i))/Λ; their kernels intersect nontrivially precisely when all z_i=π. At this point the kernel is one-dimensional. Conjugate DF by A^{1/2} and diagonalize its constant term at π. The zero-mode diagonal entry of the quadratic perturbation is (1/2)∑a_i v_i² x_i², and cofactor expansion multiplies it by the product c of the other diagonal entries. All higher terms are O(|x|⁴), giving the asserted positive definite H. The punctured-torus change of variables yields an absolutely continuous pushforward (both exceptional singletons are null), with the q-norm pullback integrand (det DF)^{1−q}. Radial integration gives cutoff 1+d/2 and excludes L∞ as well. For the specified source-coordinate annulus the angular integral is |S^{d−1}|/sqrt(det H), by the volume of the unit H-ellipsoid, and the uniform O(r²) relative error integrates to O(1). The factor (2π)^{−d} and path value 3/π agree; in d=1 the empty product gives H=1/2 and cutoff 3/2. The independent symbolic two-edge check, including unequal weights, is replayable via python /workspace/branches/independent_checks.py; it is not the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior exact criticality and narrower critical-map behavior must be credited. The supported distinction is the all-positive-weight quadratic determinant with its spectral coefficients, and the resulting sharp one-step density exponent and logarithmic constant; neither prior invertibility statements nor a cubic inverse modulus give that volume-distortion result.
+
+## value
+
+PASS
+
+At the natural critical step, topological reversibility does not predict the distribution of uniform phases after one step. The sharp dimension-dependent threshold and spectral logarithmic coefficient give a usable, weight-sensitive volume-distortion benchmark, including a precise endpoint divergence. This is not a claim about invariant or long-time densities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

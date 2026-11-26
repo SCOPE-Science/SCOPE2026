@@ -1,12 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The graph is \(C_n\square K_2\), using every edge as a query. A direct edge-subset enumeration independently recovers \(4,9,11,20\) perfect matchings for \(n=3,4,5,6\) and exactly the required finite shattering face counts. For the hexagonal prism, a structural counting argument eliminates every four-query support; a sixteen-leaf tree with actual matching witnesses proves adaptive depth four. Twenty hypotheses preclude depth five. The executable checker runs against the embedded certificate, not an off-package artifact.
+## correctness
 
-## Originality (PASS within inspected evidence)
-The closest 2020 prism source determines matching **numbers**, not edge-query VC or Littlestone dimension. The closest accessible related research gives a gap for an open two-row ladder or bridged assemblies of five-column ladders, but neither graph is three-connected cubic. Comparisons address direct implications rather than only name matches. Unindexed earlier treatments of perfect matching queries could still cover this finite case, and complete historical priority is not claimed.
+PASS
 
-## Value (PASS)
-The smallest cycle prism with an adaptive gap gives a sharp natural finite threshold and strengthens the graph restrictions under which the phenomenon has a concrete example: three-vertex connectivity, planarity, cubical degree regularity, and every edge being realizable in a perfect matching. The exact four-size census and explicit tree are reusable low-order reference data. No unbounded-gap theorem or global minimality is implied.
+I independently replayed all four prisms with `python /workspace/replay/combinatorial.py prism <frozen-dir>/prism6_certificate.json`. Recursive matching generation pairs the least uncovered vertex with each available neighbor, giving each perfect matching exactly once. A support is extended only if its every trace cell splits nontrivially on the new edge; heredity and ordered extension make this a complete enumeration, giving (1,9,3,0,0), (1,12,42,0,0), (1,15,60,5,0), and (1,18,117,138,0). For adaptive depth d>0 the replay checks whether some edge has two restricted concept sets both realizable to depth d-1; fewer than 2^d concepts makes this impossible. The matching counts are 4,9,11,20, and the resulting (VC,Littlestone) pairs (2,2),(2,2),(3,3),(3,4). I also checked all 20 specified masks, and the distinct witnesses at all sixteen depth-four leaves against every label on their paths. The structural VC upper bound is valid: with rungs present, the remaining path segments require synchronized pairs of rail edges, and with no rungs the even cycles give the two synchronized and two staggered choices. Each rail edge of P6 appears in at most six matchings, below the eight needed on any positive branch of a shattered quadruple, so all four would be rungs. A consecutive triple is obstructed by 1,0,1; otherwise the rungs have pattern {0,1,3,4} up to rotation, with the stated obstruction forcing both vertices of column one into column two and leaving column three blocked. For connectivity, two deletions in one rail leave the other cycle intact and every surviving vertex on the damaged rail linked to it; one deletion per rail leaves two paths joined by surviving rungs. Bipartiteness follows by taking alternating colors on each even rail with opposite phases, and every edge is in a matching by the all-rung or one paired-cut construction. This verifies the first gap within the family only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the prior perfect-matching counts and earlier adaptive gaps in open ladders and their bridge chains. The supported distinct claim is the adaptive vs. static comparison in circular prisms, including the exact first gap and its edge-query support census, not an assertion that no earlier graph exhibits an adaptive gap.
+
+## value
+
+PASS
+
+The first gap in a canonical circular family replaces open, lower-connectivity or bridge-bearing examples with a highly symmetric, three-connected, cubic, bipartite planar graph whose every edge is usable. It gives an explicit compact adaptive witness, a structural static obstruction and the precise threshold; the exact support face counts locate how common static shattering is before the obstruction. This motivates the finite domain without any unsupported global-minimality claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:52:17.656763Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof §§1–4",
+        "Frozen VERIFICATION.md, requirements.txt and check_social_campaign.py (inspected, not executed)"
+      ],
+      "rationale": "For x<1 and y>0, dividing the ODE gives a linear equation with integrating factor (1−x)^(−β). Its solution through (r,0) is g(x)=(1−x)^β ∫_x^r β(r−u)/(1−u)^(β+1) du; evaluating the integral verifies both branches of g and makes the sign of y−g(x) invariant until x reaches r. For x∞<1, the time integral of y is finite and y is uniformly continuous; hence y→0 and x∞≤r, since otherwise the per-capita rate of y would eventually be positive. Below the curve the orbit cannot reach r and its limit lies strictly below r; on it the limit is r; above it no such non-outbreak limit is possible. With x→1, logistic upper and lower comparisons give y→1−r; x=1 follows directly, while y=0 is invariant. On the feasible arc [a,r], g''=β(1−r)^(1−β)(1−x)^(β−2)>0, g'(r)=0 and g(a)=a uniquely. Thus the right endpoint cannot minimize c_s x+c_v g(x), and the sign of λ+g'(a) yields exactly the stated transition, including equality. For β<1 the base of the interior power is positive because it equals ((1−x*)/(1−r))^(β−1) at the unique derivative root. Every successful seed lies strictly above the minimum, but perturbations to larger x at fixed positive y approach it even at (a,a). For β=1, t log t=r/(1−r) yields the claimed principal W, and substitution gives the mixed cost formula. The numerical package evidence is supplemental; the result is established by these analytical checks. The term ‘critical saddle’ is informal: (r,0) has a double-zero linearization and is not a hyperbolic saddle. Success is defined unambiguously elsewhere and no conclusion uses hyperbolicity.",
+      "residual_risks": [
+        "No finite-agent, heterogeneous, network-control or continuing-intervention conclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cianfanelli et al. change individual thresholds in a binary, discrete-time network model and require a prescribed fraction to adopt in finite time.",
+          "The inspected balanced tripartite seeding-cost record concerns static/dynamic majority target sets in finite graphs."
+        ],
+        "reasoning": "Neither formulation contains the continuous two-fraction ODE and the given asymptotic success criterion as a parameter specialization.",
+        "searches": [
+          "Cianfanelli et al., arXiv:2605.11337v1, abstract, introduction and §2.1",
+          "Resultary semantic comparison: exact seeding cost, initial target sets and threshold interventions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.25586v1",
+        "arXiv:2605.11337v1",
+        "Resultary 0b532b2a2959 and 74feb19fd608"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang et al. already imply that points of the critical curve are non-successful, and their β=1 curve makes the Lambert-W expression for its y=x crossing derivable.",
+          "The all-parameter price transition needs the added cost functional, derivative test on the feasible arc, and comparison with successful points arbitrarily close to that arc."
+        ],
+        "reasoning": "Credit the critical curve and its outcome to the prior paper; the weighted success-budget frontier with its mixed/all-vocal regimes is not directly stated or given by a specialization of the checked claims.",
+        "searches": [
+          "Wang et al., §4, Theorem 5.2 and β=1 logarithmic level curve",
+          "Cianfanelli et al., §2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al.'s zero-level curve is exactly g, with r=γ/β. The variables here are total initially seeded support x and vocal subset y, not two independent population classes priced by c_s and c_v alone.",
+          "The published homogeneous adoption-fold record uses a different state system and states an equilibrium fold, not a seed optimum."
+        ],
+        "reasoning": "Optimizing in (x−y,y) with prices (c_s,c_s+c_v) is the same problem; known outbreak classification itself has no cost objective or optimizer.",
+        "searches": [
+          "Wang et al., arXiv:2607.25586v1, §4 and Theorem 5.2",
+          "Resultary semantic comparison: one-shot silent/vocal seeding, two marginal costs, convex separatrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching dynamical source gives level curves and basin cases, not a cost-regime table. The retrieved cost-frontier comparators use different control variables."
+        ],
+        "reasoning": "A finite optimal-seed table would not encode this continuum parameter theorem. No matching analytic case split or reference table was identified.",
+        "searches": [
+          "Resultary semantic comparison for the exact social-norm intervention frontier and allocation transition",
+          "Wang et al., §4 and Theorem 5.2"
+        ]
+      },
+      "rationale": "The distinct supported claim is the one-time two-cost optimization frontier, not the phase portrait or its exact separation of basins. The closest statement supplies the full feasible separatrix, which makes the new calculation short, but does not pose or solve the weighted price allocation. No equivalent cost theorem was found in the inspected sources; this is not a priority certificate.",
+      "residual_risks": [
+        "Bounded semantic comparison and two primary sources do not exclude a differently named earlier one-shot intervention theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the phase-separating dynamics, not the reviewed allocation theorem",
+          "evidence": [
+            "Zero level g₀ matches g; on-curve limit is (γ/β,0)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.25586v1",
+          "material_read": "PDF pp. 3–4 (model), §4 p. 6 (conserved levels), Theorem 5.2 p. 8 (outcomes)",
+          "method": "Statement comparison using lawful OA PDF text at offsets 12500, 22200–25200 and 30300",
+          "title": "A Minimal Dynamical Model for Incubation-Outbreak Transitions in Social Norm Diffusion",
+          "trigger": "Exact same dynamical model and outbreak boundary"
+        },
+        {
+          "assessment": "Related objective in a different model",
+          "evidence": [
+            "Controls are threshold reductions in a binary network iteration, not a continuous initial seed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.11337v1",
+          "material_read": "PDF pp. 1–2: abstract, introduction, §2.1",
+          "method": "Statement comparison using lawful OA PDF",
+          "title": "Optimal Interventions on the Linear Threshold Model in Large-Scale Networks",
+          "trigger": "Potentially broader least-cost threshold interventions"
+        },
+        {
+          "assessment": "Distinct mechanism and theorem; same-day date does not establish priority",
+          "evidence": [
+            "Adoption-equilibrium fold and stability in a susceptible–adopter–dissatisfied/Friedkin–Johnsen model."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-adoption-fold-and-robust-bistability-in-the-homogeneous--0b532b2a2959",
+          "material_read": "RESULT finding",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "A sharp adoption fold and robust bistability in the homogeneous model",
+          "trigger": "Closest homogeneous social-adoption bifurcation comparator"
+        },
+        {
+          "assessment": "Not an equivalent objective or dynamics",
+          "evidence": [
+            "Finite per-agent synchronous majority updates; no total-support/vocal price allocation."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-timed-majority-seeding-cost-on-balanced-tripartite-social--74feb19fd608",
+          "material_read": "RESULT finding",
+          "method": "Resultary search and local mirror statement inspection",
+          "title": "Exact timed majority seeding cost on balanced tripartite social networks",
+          "trigger": "Exact static and timed social seeding costs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations"
+      ],
+      "rationale": "The exact frontier answers whether a hard budget can work and how relatively costly supporter recruitment changes the optimal composition, not just whether a given seed spreads. The mixed-to-corner transition and the distinction between equality and strict budget slack are useful even though strict convexity makes the proof short.",
+      "residual_risks": [
+        "Value is for the specified well-mixed deterministic model and homogeneous linear marginal costs, not empirical campaign advice."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

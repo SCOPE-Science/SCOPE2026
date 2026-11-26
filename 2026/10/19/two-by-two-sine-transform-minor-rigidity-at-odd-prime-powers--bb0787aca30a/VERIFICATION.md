@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact algebraic verification
+# Independent mathematical audit
 
-Run `python verify_dst.py` under Python 3 using only the standard library. The full expected standard output is embedded as `verification_output.txt`. For each odd modulus in the test list, the script constructs primitive roots of that order in several finite prime fields, evaluates the unnormalized sine-character kernel and all of its two-by-two determinants exactly, and checks the congruence criterion where \(p\ge5\). It also checks the prime-square closed census and the exceptional order-nine all-nonzero certificate. Modular reduction is used only with primes admitting primitive roots of the requisite order. Since any complex cyclotomic zero specializes to zero at each finite-field root, a nonzero modular determinant is a valid **exact nonvanishing certificate**. A modular zero by itself is not interpreted as a complex zero; the formal group-ring proof supplies positive vanishing claims.
+## correctness
 
-The finite checks comprise orders \(5,9,25,49,121,125\). Their total numbers of tested minors and singular counts, respectively, are \((1,0)\), \((36,0)\), \((4356,81)\), \((76176,765)\), \((3132900,11100)\), and \((3575881,32131)\). The checker uses only arithmetic, with no numerical thresholds, and makes no claim about untested orders beyond the rigorous proof. Independent audit: not performed.
+PASS
+
+For the unnormalized inversion-odd kernel the determinant numerator has augmentation zero and coefficient l1 norm at most 8, after reducing its exponents modulo N. At N=p^k cyclotomic divisibility gives P=Phi_N Q with integral Q of degree below p^(k-1), making coefficient fibers disjoint. Nonzero Q has augmentation zero and l1 norm at least 2, giving a contradiction for p>=5. In the formal product identity V_a V_b=C_(a+b)-C_(a-b), the signed supports are distinct unless a or b is zero (2 is invertible); C_0 has coefficient 2 at 0, and causes no ambiguity of support. Matching the two nonzero terms separately gives a simultaneous sign with or without swapping the factors, hence A or B, while two zero products give C. All three alternatives give vanishing. At p^2, if neither pair is all divisible, at most one entry can vanish and the unit in each pair forces signed congruence modulo p^2 of distinct signed representatives, which is impossible. With an all-divisible pair, the other can be all divisible, mixed, or an all-unit pair in the same signed residue class modulo p; each of the d=(p-1)/2 classes has p unit representatives. The disjoint count h^2+2hd(pd+binom(p,2)), h=binom(d,2), simplifies as claimed and the total-minor denominator is asymptotic to p^8/64. A separate exact replay at N=9 gave all 36 nonzero determinants at zeta=4 of order 9 in F_19, with Phi_9(4)=0; this is a valid specialization certificate (replay: /workspace/branches/0cdaf4d3-ec94-4db6-9c4c-2fe2a5487011/replay_n9.py and replay_n9.out). The frozen verifier and output were inspected, not rerun. No p=3 classification beyond N=9 is needed or accepted here.
+
+## originality
+
+PASS
+
+The positive determination is for the exact composite prime-power criterion and prime-square incidence count. Prime order nonvanishing, composite order zero entries, and general cyclotomic vanishing-sum tools are prior; none of the material inspected asserts or immediately yields the full compound claim.
+
+## value
+
+PASS
+
+For a natural Fourier compression, the smallest nontrivial minors measure exact two-row dependence on chosen columns. A complete arithmetic test distinguishes structural zeros from possible cancellations and quantifies their rarity at prime squares. The order-9 replay is only a boundary certificate; value rests on the general classification and count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

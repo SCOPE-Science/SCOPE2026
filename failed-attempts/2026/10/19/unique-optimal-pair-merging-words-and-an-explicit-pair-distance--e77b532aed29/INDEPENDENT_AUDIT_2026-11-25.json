@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:15:20.334958Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The circular-gap layers partition the pairs. In each ordinary layer the potential values are (k−1)n+1 through kn; the even diametrical top layer has h instead of n entries. Letter a reduces the potential by one except at the layer heads, where the start index wraps. Letter b is the identity off pairs containing n−1. On {r,n−1} it reduces the potential by one for r=0 through h−1 (the first case merges); for the remaining r it raises it by n, except at the odd midpoint r=h where it raises it by h. Thus exactly one letter reduces the potential by one, neither can reduce it faster, and all minimal words follow the forced path down through the layers. This proves the formula, the suffix labels and both master words, including n=2 (the unique word is b). Fresh time-layer tabulation of all states and shortest word multiplicities at n=2..25 in /workspace/reproductions/34_pairs_and_rings.py agreed exactly. Frozen VERIFICATION.md and verify.py were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted result proves uniqueness simultaneously for arbitrary positive prices α and β on the letters and gives the exact two letter counts. Eppstein gives a general pair-state shortest-search algorithm, not this exact classification."
+        ],
+        "reasoning": "Setting α=β=1 yields the complete unit-cost classification on n≥3, not an approximation. The excluded n=2 case is immediate from b's definition and does not support a separate finding.",
+        "searches": [
+          "Resultary 261334d3d0c0, Finding and Proof §§1–4",
+          "Eppstein, Reset Sequences for Monotonic Automata, Theorem 5 proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 261334d3d0c0",
+        "Resultary fe81919abba1",
+        "arXiv:2008.12166",
+        "DOI:10.1137/0219033",
+        "arXiv:1404.6731"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A maximal pair distance N=binomial(n,2) implies spectrum {1,…,N}, since any longest optimal path visits every pair without repetition and all suffixes are optimal. The weighted result identifies the unique equality letter and shows that every distance occurs on one pair."
+        ],
+        "reasoning": "The published extremal fact alone is not a display of explicit pair labels or letters. In this particular automaton, the additional observation that a(P) and b(P) are distinct on every unmerged pair already makes geodesic letters unique once each positive rank has a single state (at rank one only b can merge). More decisively, tracing the indexed equality policy with unit weights gives n−1 a-steps then b in each complete gap layer, and h−1 a-steps then b at the top even layer. The proposed master expression therefore does not add a separate invariant.",
+        "searches": [
+          "Behague–Johnson arXiv:2008.12166 p. 4, weight and RDV(2,n)",
+          "Resultary 261334d3d0c0, Proof §§2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For normalized i<j and d=j−i, both records give nd−i if 2d<n and n(n−d)−j otherwise (after rearranging the second branch of fe81919abba1)."
+        ],
+        "reasoning": "For 2d>n the shorter circular arc starts at j and has length n−d. At equality n=2k, n(n−d)−j=nk−(i+k)=(k−1)n+k−i, exactly the frozen even clause. Letter actions, pair orientation and left-to-right word reading agree.",
+        "searches": [
+          "Resultary 261334d3d0c0, cost-invariant merging words",
+          "Resultary fe81919abba1, single geodesic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first has the exact pair-by-pair closed form and identical explicit master word for every n≥2; the second gives the same infinite labeling and suffix ordering for n≥3."
+        ],
+        "reasoning": "These exact closed formulas subsume any finite table. The audit's finite replay is correctness corroboration only.",
+        "searches": [
+          "Resultary fe81919abba1, displayed τ_n and W_n",
+          "Resultary 261334d3d0c0, unit-cost spectrum and nesting"
+        ]
+      },
+      "rationale": "The weighted indexed theorem 261334d3d0c0 already gives the same pair labels, unique optimal paths and common suffix structure by setting both costs to one, and the displayed master word is the block form of its forced policy. The sole additional n=2 case is a direct one-step merge. A distinct indexed result fe81919abba1 gives even the exact master expression over all n≥2. No bibliographic priority or dependence is inferred from the catalogue path dates; the mathematical coverage is explicit.",
+      "residual_risks": [
+        "Catalogue path dates establish neither origin nor scholarly priority.",
+        "The literature search is not exhaustive; older presentations may write the exact pair word differently, but the indexed claim-level coverage suffices for the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger result at n≥3; unit specialization yields exact labels and unique suffix chain",
+          "evidence": "Minimum cost is α((n−1)d−i)+βd or α((n−1)(n−d)−j)+β(n−d); proof singles out an equality letter and states that the maximum-rank geodesic visits all pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/18/SCOPE-cost-invariant-unique-optimal-merging-words-for-every-pair-of-er--261334d3d0c0/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–4, including offsets 0 and 3320",
+          "method": "Local index and mirror",
+          "title": "Cost-invariant unique optimal merging words for every pair of Černý states",
+          "trigger": "Direct overlapping weighted classification"
+        },
+        {
+          "assessment": "Exact match after algebraic rewriting; date on path later than frozen record, not evidence of priority",
+          "evidence": "Displays both parity branches of W_n and the same rank-decreasing Hamiltonian path, for n≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-a-single-geodesic-orders-every-pair-of-the-ern-automaton--fe81919abba1/RESULT.md",
+          "material_read": "Finding and scope, offset 0–2468",
+          "method": "Local index and mirror",
+          "title": "A single geodesic orders every pair of the Černý automaton",
+          "trigger": "Possible unit-cost exact match including master word"
+        },
+        {
+          "assessment": "Establishes extremal pair distance; does not display this complete labeling or word in the inspected passage",
+          "evidence": "Defines shortest path to a singleton and states the extremal length binomial(n,2), attained in the Černý automaton.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.12166",
+          "material_read": "p. 4, around offset 10350, weight and extremal rendezvous discussion",
+          "method": "OA primary passage",
+          "title": "Synchronizing Times for k-sets in Automata",
+          "trigger": "Primary extremal-pair theorem cited by frozen record"
+        },
+        {
+          "assessment": "General algorithm, not matching closed form",
+          "evidence": "Constructs a shortest-path forest via breadth-first search on pairs.",
+          "identifier_or_url": "https://www.ics.uci.edu/~eppstein/pubs/Epp-SJC-90.pdf",
+          "material_read": "p. 8, Theorem 5 proof, around offset 23680",
+          "method": "OA author manuscript",
+          "title": "Reset Sequences for Monotonic Automata",
+          "trigger": "Possible prior pair shortest-path classification"
+        },
+        {
+          "assessment": "Expected random-input costs are different from minimal word lengths",
+          "evidence": "Studies the pair automaton using expected random-input synchronization times.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.6731",
+          "material_read": "§3 pp. 5–7, around offsets 14840 and 19450",
+          "method": "OA primary passages",
+          "title": "Synchronizing Automata with Random Inputs",
+          "trigger": "Related published Černý pair automaton"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A canonical pair geodesic and exact label can be useful, but those are already supplied by the exact force-letter classification and its weighted extension. The remaining simpler notation for U_n is a direct block expansion of the known policy, and n=2 is one merging letter. Neither is an independently useful new invariant or classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

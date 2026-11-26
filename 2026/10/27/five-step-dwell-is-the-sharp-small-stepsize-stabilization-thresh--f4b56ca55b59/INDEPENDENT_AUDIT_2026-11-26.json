@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:28:33.015565Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–93, VERIFICATION.md, and check.py (inspected, not executed)",
+        "Independent integer polynomial multiplication, replay: python /workspace/independent_checks.py"
+      ],
+      "rationale": "Identifying the plane with C gives T_+=[[1-2ia,ia],[1,0]] and T_-=conj(T_+). The period matrix is T_-^m T_+^m. For the stated companion sequence u the off-diagonal cross terms in its trace cancel, leaving |u_(m+1)|²+a²|u_(m-1)|²; its determinant is a^(2m). Independent direct multiplication in the integer polynomial variable t=ia yielded p_m(1)=-3a², -2a²-15a⁴, -a²-4a⁴-63a⁶, and -2a⁴-255a⁸ for m=1,2,3,4 respectively. Strict negativity forces a real root greater than one for every a>0. The recurrence gives u_n=1-ina-(n(n+1)/2-2)a²+O(a³) for n≥3 (base u_3, then the quadratic coefficient changes by -(n+1)); parity of the norm square makes the trace error O(a⁴). For m≥2 the trace coefficient is 4-m and the determinant is O(a⁴). The simple-root branches at 1 and 0 give the stated expansions and strict small-a stability for each fixed m≥5. The exact short-dwell polynomials check both special expansions, including absence of an a⁶ term at m=4. Realification preserves moduli, and the finitely many within-period transfers preserve exponential decay when the period map is stable.",
+      "residual_risks": [
+        "The supplied check.py uses Python complex floating-point arithmetic and its eigenvalue routine forms the complex 2-by-2 matrix, not the advertised 4-by-4 real matrix. The independent coefficient reproduction uses integer arithmetic, and equality of spectral radii follows analytically from realification.",
+        "The stable interval is for each fixed m under the exact balanced schedule, not an optimal stepsize bound or a general switching theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Yu's indexed material concerns RG/ARG/OG in time-varying games including periodic monotone cases; full statement could not be inspected.",
+          "Mejstrik–Protasov analyze the continuous-time system x'=A(t)x with minimum mode durations and Lyapunov-exponent approximation.",
+          "Feng et al. give qualitative periodic OGDA divergence for a different recurrence."
+        ],
+        "reasoning": "General dwell-time language or a periodic divergence example does not imply the sharp discrete threshold and all-positive-step short-dwell obstruction. The most closely scoped broad result remains an access risk, not a negative finding.",
+        "searches": [
+          "Chen–Yu OpenReview AxhWmQBRRg, indexed abstract and OA PDF/attachment attempts",
+          "Mejstrik–Protasov arXiv:2402.04795 abstract and model",
+          "Feng et al. arXiv:2310.02604 abstract and algorithm"
+        ]
+      },
+      "checked_sources": [
+        "Resultary comparisons 689d5e743c56, 40a3f498bcf9, 63a985cd76f4",
+        "arXiv:2603.06442v2",
+        "arXiv:2310.02604",
+        "OpenReview AxhWmQBRRg (indexed abstract only)",
+        "arXiv:2402.04795"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-mode bounds control powers of one transfer, not the product of opposite signed mode powers.",
+          "The sign change acts on the past-point coefficient in the frozen record, unlike switching with a stored past gradient."
+        ],
+        "reasoning": "Properties of the individual frozen spectra do not imply a common contracting norm or give the eigenvalues of the period product. The sign switch and the higher-order cancellation at dwell four require the separate product argument.",
+        "searches": [
+          "Nguyen–Trinh–Vuong arXiv:2603.06442v2 §1",
+          "Feng et al. arXiv:2310.02604 §2",
+          "SCOPE 689d5e743c56 and 40a3f498bcf9, statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (7) has the reflected-point form with one fixed F.",
+          "Feng's OGDA past gradient uses A_(t-1), not A_t.",
+          "Record 40a3f498bcf9 alternates positive stepsizes with A=B=LJ and uses resolvents."
+        ],
+        "reasoning": "The time index in the history term changes the switched transfer matrix. Positive-step modulation on fixed skew operators is also not the stated sign-switching family. The fixed-operator equation agrees only when F does not change.",
+        "searches": [
+          "Resultary: sign-switched rotations, reflected gradient, FRB/RFB and periodic stability",
+          "Nguyen–Trinh–Vuong arXiv:2603.06442v2 §1, equation (7)",
+          "Feng et al. arXiv:2310.02604 §2",
+          "SCOPE 40a3f498bcf9, Finding and Assumptions and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact results give fixed-operator rate/stepsize bounds or two-period positive-stepsize frontiers, rather than the five-dwell dichotomy or its short-dwell polynomial table."
+        ],
+        "reasoning": "These exact results classify other parameters or schedules. No exact indexed table for the tested recurrence was located by the bounded searches; this is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary: skew rotation reflected-gradient exact stability, two-period frontiers and integer dwell threshold",
+          "Published comparison records 689d5e743c56, 40a3f498bcf9 and 63a985cd76f4, statements at offset 0"
+        ]
+      },
+      "rationale": "The closest inspected sources use a frozen operator, alternate positive steps on fixed operators, use a previous-operator history term, or concern continuous-time switched systems. None supplies the exact equal-block opposite-rotation threshold under the current reflected-point evaluation. Chen–Yu is a materially plausible overlap for time-varying reflected methods, but no decisive theorem was visible in the accessible material; the pass is bounded to the distinct exact statement supported by the comparisons, not a priority certification.",
+      "residual_risks": [
+        "Full text of Chen–Yu was unavailable after bounded lawful attempts and could contain a covering example or theorem; its snippet cannot rule out overlap.",
+        "Other switched-systems formulations may not have been recovered by the bounded searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same fixed-mode formula, no switched implication in the inspected theorem",
+          "evidence": "The update uses one F for every step.",
+          "identifier_or_url": "https://arxiv.org/html/2603.06442v2",
+          "material_read": "§1, equation (7) and adjacent fixed-operator statement, offsets about 5833–6300",
+          "method": "OA HTML passage",
+          "title": "The Popov's Algorithm with Optimal Bounded Stepsize for Generalized Monotone Variational Inequalities",
+          "trigger": "Same reflected-point update at fixed operator"
+        },
+        {
+          "assessment": "Different history coefficient on a changing operator",
+          "evidence": "The past-gradient term uses the previous game matrix A_(t-1).",
+          "identifier_or_url": "arXiv:2310.02604",
+          "material_read": "Abstract and §2 OGDA definition (HTML offset about 10400)",
+          "method": "OA HTML passage",
+          "title": "On the Last-iterate Convergence in Time-varying Zero-sum Games: Extra Gradient Succeeds where Optimism Fails",
+          "trigger": "Periodic optimistic-gradient divergence precedent"
+        },
+        {
+          "assessment": "Concrete residual overlap risk; exact recurrence and cutoff not established from accessible evidence",
+          "evidence": "The snippet places RG/ARG/OG in periodic time-varying games with monotonicity, but gives no opposite-rotation dwell formula.",
+          "identifier_or_url": "https://openreview.net/forum?id=AxhWmQBRRg",
+          "material_read": "Indexed abstract snippet only; PDF and attachment not accessible",
+          "method": "Bounded OA retrieval attempts for the same paper",
+          "title": "Similarity and Separation of Last-Iterate Convergence between Optimism and Reflected Algorithms in Time-Varying Games",
+          "trigger": "Most plausible same-method periodic overlap"
+        },
+        {
+          "assessment": "Continuous-time model, not the discrete reflected-point theorem",
+          "evidence": "Modes generate x'=A(t)x; the paper studies Lyapunov-exponent approximation.",
+          "identifier_or_url": "arXiv:2402.04795",
+          "material_read": "Abstract and model/minimum dwell definitions, offsets about 528, 1750 and 2345",
+          "method": "OA paper passages",
+          "title": "Stability under dwell time constraints: Discretization revisited",
+          "trigger": "Dwell-time formulations in switched linear systems"
+        },
+        {
+          "assessment": "Different schedule and update",
+          "evidence": "A=B=LJ with two alternating positive stepsizes and resolvent-based iterations.",
+          "identifier_or_url": "Resultary 40a3f498bcf9",
+          "material_read": "Finding and Assumptions and scope at offset 0",
+          "method": "Local mirror",
+          "title": "Exact two-period stability frontiers for two reflected splitting methods",
+          "trigger": "Closest indexed periodic skew stability comparison"
+        },
+        {
+          "assessment": "Fixed inclusion, no alternating operator sign",
+          "evidence": "A=γLJ, B=LJ and a fixed step.",
+          "identifier_or_url": "Resultary 689d5e743c56",
+          "material_read": "Statement at offset 0",
+          "method": "Local mirror",
+          "title": "Rate-optimal FRB in skew rotations",
+          "trigger": "Same planar skew setting"
+        },
+        {
+          "assessment": "Fixed-operator bound",
+          "evidence": "Threshold for a fixed strongly monotone affine operator, not a dwell cutoff.",
+          "identifier_or_url": "Resultary 63a985cd76f4",
+          "material_read": "Statement at offset 0",
+          "method": "Local mirror",
+          "title": "Strongly monotone PRG sharp threshold",
+          "trigger": "Exact reflected-gradient stability threshold retrieval"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–28 and 61–105",
+        "Fixed-mode reflected-point comparison arXiv:2603.06442v2"
+      ],
+      "rationale": "This gives a sharp switching timescale even where the individual fixed-operator reflected iterations are stable at small step. It shows how persistent instability for every positive step through dwell four gives way to stability for sufficiently small steps at dwell five, with a nontrivial quartic boundary case. It is a useful exact benchmark for time-varying reflected methods, not merely a fixed-mode stability example.",
+      "residual_risks": [
+        "No transfer to arbitrary switching, unequal dwell, nonlinear operators, unconstrained step optimization, or generic games is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

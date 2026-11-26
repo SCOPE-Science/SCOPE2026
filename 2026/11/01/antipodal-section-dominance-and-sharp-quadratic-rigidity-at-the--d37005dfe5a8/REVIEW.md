@@ -1,11 +1,21 @@
-# Review of antipodal section dominance
+# Independent mathematical audit
 
-**Correctness — PASS.** The pair-of-sections formula follows from affine slicing; the exact identity for the two radicands and the unique maximum of a one-variable quotient prove the sharp inequality. The critical-radius converse uses volume-preserving tracefree exponential changes of shape. The anisotropy/translation Hessian and spherical moment contraction were calculated symbolically and checked numerically. No finite experiment is used as an infinite proof.
+## correctness
 
-**Originality — PASS, provisional.** Full public text of the 2026 global ellipsoid Barker–Larman result confirms that the affine section-volume formula is previously available and not being claimed as new. Its injectivity theorem does not state a fixed-volume universal paired bound or the joint stability Hessian. A second full text treats normalized nested-body cap fractions rather than pairs of opposite section volumes. The new optimization is algebraically short, and earlier undocumented coverage remains the main risk.
+PASS
 
-**Mathematical value — PASS.** A global sharp all-direction antipodal section extremum, unique critical radius and positive definite joint translation/anisotropy stability are natural quantitative complements to noncentral geometric tomography. The result treats arbitrary ellipsoid center and shape, not a special axisymmetric family.
+The normal covector under the affine map is A^(1/2)u, of length sqrt(q). The hyperplane volume multiplier is sqrt(det A)/sqrt(q); the ball slice at signed distance (±1−t)/sqrt(q) gives the remaining power and hence the q^(−d/2) factor. Interior containment gives q>(1+|t|)^2. On the allowed interval h(x)=log(q−x²) is strictly concave, so [h(1−t)+h(1+t)]/2≤h(1), strictly unless t=0. The centered profile has log derivative (d−q)/(2q(q−1)), hence the unique optimum at q=d, with the stated constant. All-direction equality forces c=0,A=dI; equality of the spherical geometric mean forces all-direction equality by continuity and full support. For any other λ>1, a centered determinant-preserving perturbation along the first diagonal entry of diag(1,−1,0,…) with signed ε moving q towards d improves the section pair; λ>1 keeps strict containment for small ε. At (d,0) the first derivatives vanish and the log-pair Hessian is diagonal with entries −1/[2d(d−1)] and −(d+1)/(d−1). Substitution of q−d=εd uᵀHu+O(ε²) and t=εu·b and the fourth and second spherical moments reproduce both quadratic coefficients, uniformly by compactness of the sphere. The integrated deficit has strictly positive coefficients on tr(H²) and ||b||², including d=2.
 
-**Limitations.** Ellipsoids only; no general-convex-body theorem, and no global quantitative stability constant beyond exact local Hessian. Independently audited validity or historical priority is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the affine section formula as existing coverage. Pairing that prior formula and optimizing its scalar profile gives the basic bound and directional equality by a short calculation, so those should not be treated as a new slice identity. The supported distinct content is the combined antipodal fixed-volume optimization, identification of the single universally pointwise-optimal reference scale (including feasible improving volume-preserving deformations off that scale), and the exact integrated translation/shape second variation. No retrieved stronger extremal or stability theorem subsumes that combination.
+
+## value
+
+PASS
+
+The geometric comparison has a natural constraint and statistic: fixed enclosing volume, paired sections by the inner ball's two opposite supports. It identifies an exceptional radius, gives the exact directional equality condition even for translated bodies, and separates the shape and translation costs in the logarithmic averaged deficit. This is useful sharp local information about a natural extremum, not novelty in the affine section formula or a claim of global metric stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

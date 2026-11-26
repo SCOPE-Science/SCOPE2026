@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The included `checker.py` uses only Python's standard library. Its integer support expansion yields all 21 Laurent monomials of the sixth-moment identity without symbolic or floating-point packages. The algorithm then checks every normalized root-of-unity phase triple in the five alphabets, using exact representatives of each cyclotomic integer ring and integer comparisons of the fifth-root radical. The counted configurations are \(2^3+3^3+4^3+5^3+6^3=440\), and each has independently compared Fourier-convolution and phase-cosine moment evaluations.
+## correctness
 
-Run `python3 checker.py`. The completed run printed the five sharp values and optimizer counts and ended with:
+PASS
 
-`TRIANGULAR_SIXTH_EXACT_PASS configurations=440 formal_terms=21`
+The three phase multipliers give a free normalization to 1,z,w on the full quadratic triangular aperture and leave the Haar moment invariant. Parseval on P^3 gives an exact squared coefficient norm. An independent cyclotomic convolution checked all 440 normalized triples and all ties, recovering minima 582, 456, 582, 744−102√5, 456 and full labeled counts 8, 54, 192, 750, 432 in the stated order. Swapping z,w swaps the first and third exponents, so four of six normalized pentaphase minimizers are moved, in two pairs; every other listed minimizer is fixed. An exact Gaussian-rational convolution verified the unit-modulus witness and 89848422/198025 < 456. Each exponent of P^3 is between 0 and 6, which proves the discrete Parseval identity with both periods at least seven.
 
-The checker also independently recomputes the exact continuous unit-modulus rational witness \(89848422/198025\) by coefficient convolution and confirms it is below \(456\). The proof of nonaliasing finite sampling and the completeness of the gauge are analytical, not inferred from finite tests. No numerical optimization, unresolved symbolic assumptions, or external files are needed. Independent mathematical verification is not claimed.
+## originality
+
+PASS
+
+The supported distinct claim is the exact one-array L^6 phase classification on the six-site triangular aperture, together with its symmetry and strict continuous-witness comparison. The inspected antecedents share either support, moment order, or polyphase terminology, but do not directly or mechanically give that claim.
+
+## value
+
+PASS
+
+The full quadratic simplex is a canonical small two-variable aperture and its sixth moment is a natural higher-order measure of Fourier concentration. For five standard alphabets the exact census provides more than five numbers: it identifies all ties, a change in reflection behavior at five phases, and a strict gap between all these alphabets and continuous phases. These are usable benchmarks for phase optimization on the aperture, and do not follow from the previous fourth-moment classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

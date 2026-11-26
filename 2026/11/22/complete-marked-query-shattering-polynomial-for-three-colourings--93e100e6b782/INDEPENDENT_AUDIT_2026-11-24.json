@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:22:31.885210Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof, lines 5–62",
+        "Frozen VERIFICATION.md and verify.py (read, not executed)",
+        "/workspace/reviews/check_mathematics.py, check 2"
+      ],
+      "rationale": "Two marks on one vertex cannot both be positive. Fix a hub-answer pattern and ask that all marked leaves be positive; this forces adjacent hub colours to be distinct and to avoid their respective leaf-target palettes. Such hub colours also suffice for every leaf pattern with those hub answers: a negative leaf can use the remaining colour distinct from its target and hub. With no marked hubs the only extra failure once each palette has size at most two is identical size-two palettes. With just a marked left hub, its feasible colour set is the complement of the left palette minus the right forced colour, if the right complement is a singleton. A mark can vary iff its target lies in a feasible set of size at least two. Writing H_t=X_t−1 and C_t=1+3H_t, the choices contribute 3C_b+6D_b+6H_a C_b+6H_a D_b, which expands to the frozen left-hub term before multiplying by z. With both hubs marked, two nonempty palettes allow at most three adjacent hub pairs and cannot hit four bit patterns. With exactly one nonempty palette that palette must be a singleton u, the opposite hub must target u and its own hub can target either other colour. With both palettes empty the hub targets must differ and all four answers then occur. These cases give the claimed polynomial, including the empty support. There is no support on all vertices, and all leaves targeted at 1 plus the left hub at 2 shatter. At the top degree the one-hub terms give 6(2^a+2^b+2), and the two-hub terms add 6 for each singleton bank. At fixed s=a+b and 1≤a≤b, consecutive coefficients divided by six decrease by 2^(s−a−1)−2^a+1_{a=1}>0 for a<floor(s/2). Independent replay: python3 /workspace/reviews/check_mathematics.py 2 checks every coefficient via trace splitting on eight parameter pairs up to eight vertices, returning top counts 78 vs 60 at order six. The proof, not the computation, covers unbounded a,b.",
+      "residual_risks": [
+        "Only fixed named three-colour equality queries and a,b≥1; reconstruction is up to swapping hubs, at fixed order. No formal verification claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blanca et al. p. 1: learns the unknown edge set from H-colouring samples. Guingona et al. p. 1: exact ranks for zero sets of linear combinations. Walker p. 1: Sauer–Shelah-type bounds from binary tree dimensions."
+        ],
+        "reasoning": "Neither learning a hidden graph, a scalar dimension result for a specified family of zero sets, nor a general bound supplies the exact shattering profile of this fixed proper-colouring equality class.",
+        "searches": [
+          "arXiv:1708.05118, fixed (and known) constraint graph H",
+          "arXiv:2109.04805, family of zero sets of all non-trivial linear combination",
+          "arXiv:2203.12211, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary aefde1d2679b, 6dd09fced05e, 69c08503d33f, 93e100e6b782",
+        "arXiv:1708.05118, 2109.04805, 2203.12211"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The projected polynomial there is (1+2z)(1+z)^(a+b)+z²((1+z)^a+(1+z)^b−1), with VC dimension a+b+1. Its top coefficient is 2+1_{a=1}+1_{b=1}."
+        ],
+        "reasoning": "The scalar rank overlaps completely and is excluded from the originality finding. For example at a+b=6 both (2,4) and (3,3) have projected top coefficient 2, but marked top coefficients 132 and 108. Projected face descriptions do not make the weighted fibre sizes a formal substitution; the palette-profile count is a distinct derivation.",
+        "searches": [
+          "Resultary aefde1d2679b, Finding/Assumptions and §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary aefde1d2679b, Finding/Assumptions: counts vertex sets with some assignment of targets; frozen 93e100e6b782 counts the sets of pairs themselves."
+        ],
+        "reasoning": "On the same support consisting of a hub and a leaf on each side, mark both leaves at 1 and the chosen hub at 2: it shatters. Change that hub mark to 1 and the hub and its leaf cannot both answer yes. The existence-of-targets projection loses this distinction.",
+        "searches": [
+          "Resultary: complete marked-query shattering polynomial for proper three-colourings of double stars; count individual (vertex,named colour) query supports, not vertex projections",
+          "Web: proper 3-coloring double star VC dimension shattering vertex-color queries (search unavailable; not evidence of absence)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "93e100e6b782 is the frozen item itself. The older small-tree obstruction 6dd09fced05e works through order seven. 69c08503d33f gives marked counts on complete bipartite graphs."
+        ],
+        "reasoning": "A bounded tree classification supplies no two-unbounded-parameter coefficient law. Complete bipartite graphs add edges even on the natural same-partition vertex set; shattering for their smaller colouring class cannot count all double-star marked supports.",
+        "searches": [
+          "Resultary: prior scalar VC dimension and unmarked vertex-subset shattering supports for three-colouring double stars or trees",
+          "Resultary 93e100e6b782, aefde1d2679b, 6dd09fced05e, 69c08503d33f"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete marked polynomial and its fixed-order reconstruction coefficient, not the scalar VC dimension or vertex projection. A distinct same-day projected double-star result is a substantial comparison but does not supply target multiplicities; day-level dates establish no ordering.",
+      "residual_risks": [
+        "The web lookup was unavailable; it is not negative evidence. Targeted catalogue and primary-source comparisons support the distinction but cannot certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unmarked polynomial and rank; no marked target census in these passages",
+          "evidence": [
+            "Counts projections and explicitly excludes multiplicities of target assignments."
+          ],
+          "identifier_or_url": "Resultary aefde1d2679b",
+          "material_read": "RESULT.md Finding/Assumptions at offset 0, §3 at offset 4653",
+          "method": "Local mirror",
+          "title": "A universal two-sphere in the projected shattering complexes of double-star colourings",
+          "trigger": "Same object, same publication day and same scalar rank"
+        },
+        {
+          "assessment": "Bounded-order and scalar comparison",
+          "evidence": [
+            "Trees through order seven, including a spider of rank five."
+          ],
+          "identifier_or_url": "Resultary 6dd09fced05e",
+          "material_read": "RESULT.md Finding/Assumptions at offset 0",
+          "method": "Local mirror",
+          "title": "The first branching obstruction to three-colouring shattering on trees",
+          "trigger": "Prior tree shattering classification"
+        },
+        {
+          "assessment": "Different proper-colouring family",
+          "evidence": [
+            "The count assumes complete bipartite adjacency."
+          ],
+          "identifier_or_url": "Resultary 69c08503d33f",
+          "material_read": "RESULT.md Finding/Assumptions at offset 0",
+          "method": "Local mirror",
+          "title": "Exact shattering polynomial and palette transition for complete-bipartite proper colourings",
+          "trigger": "Same query and enumerator, nearby graph family"
+        },
+        {
+          "assessment": "Graph structure learning, not marked-support enumeration",
+          "evidence": [
+            "Unknown input graph, fixed constraint graph H."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.05118",
+          "material_read": "p. 1 abstract, offset 699",
+          "method": "Open-access paper text",
+          "title": "Structure Learning of H-colorings",
+          "trigger": "Proper-colouring hypothesis models"
+        },
+        {
+          "assessment": "Scalar theorem for a different family",
+          "evidence": [
+            "Zero sets of nontrivial linear combinations of linearly independent functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "p. 1 abstract, offset 412",
+          "method": "Open-access paper text",
+          "title": "Littlestone and VC-Dimension of Families of Zero Sets",
+          "trigger": "Possible equality/zero-set dimension analogue"
+        },
+        {
+          "assessment": "General bounds, no exact equality-query count in the inspected passage",
+          "evidence": [
+            "Binary-tree leaf-set bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "Open-access paper text",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "Potential general shattering theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof",
+        "Resultary aefde1d2679b, projected face enumerator"
+      ],
+      "rationale": "Double stars retain the minimal nontrivial coupling between two leaf banks on a tree. Their degree alone discards the arm-size distribution, and projected supports discard mark multiplicities. The full rank counts and recovery of the unordered arm sizes from just the top marked coefficient and order give a concrete refinement of these established invariants, not a finite tabulation.",
+      "residual_risks": [
+        "No assertion about arbitrary trees or the topology of the marked complex."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event identity isolates the four largest ranks and the first two. Conditional pairwise fairness supplies the exact first and second factorial moments of their four-sign sum. The pointwise quadratic inequality bounds the event by \(1/6\). Two explicit exchangeable conditional high-sign laws attain the endpoints; checking each low pair and every high–low pair establishes feasibility. Mapping iid continuous magnitudes to independent rank-dependent signs then establishes pairwise independence of the six observations. An exact rational checker verifies the complete sign laws; the proof is uniform over all magnitude laws satisfying the conditional assumption.
+PASS
 
-## Originality — PASS, with residual risk
+The missing positive-rank weight must be at most two, so the four largest signs must all be positive and the two smallest cannot both be negative. Exactly three of 64 independent fair sign vectors reject. Conditional on the entire magnitude vector, K=B_3+⋯+B_6 has E[K]=2 and E[K(K−1)]=3. Thus E[(K−1)(K−2)]=1; its values at K=0,1,2,3,4 are 2,0,0,2,6, establishing the conditional 1/6 bound. Under the proposed upper law (K=1,2,4 with weights 1/3,1/2,1/6), high-bit exchangeability gives the required pair moments, either low bit is fair given the high vector, and the low pair is jointly positive with probability (1/2)P(K=2)=1/4. The law therefore attains 1/6. Under the stated lower law the same two K moments hold and K never reaches 4, while the low bits are independent of the highs and each other. Mixtures preserve these pair laws. For any two fixed observation labels, conditioning on all magnitudes gives independent fair signs at their two determined distinct ranks. Integrating against the two independent iid magnitudes gives actual pairwise independence, with a common symmetric atomless marginal. An independent 24-ticket exact computation of the upper law and its complemented zero-size law checked all four outcomes of all 15 sign pairs and the rejection rates; replay /workspace/branches/independent_checks/wilcoxon.py. The packaged script was inspected without execution, and no LP computation is needed. For clarity, the phrase 'stronger than merely demanding pairwise independence of the observations' should be read as 'not implied by bare observation-level pairwise independence': conditional sign fairness/independence alone need not force independence of magnitudes. The Finding and its endpoint realization use the correct scopes.
 
-Wilcoxon calibration under independent signs, correlated-cluster alternatives, and generic tight pairwise-independent Bernoulli intersection bounds are already known. The weighted six-rank rejection geometry and the exact sharp range, particularly the compatible low-rank completion and construction of pairwise-independent continuous observations, were not found as statements or immediate corollaries of the inspected signed-rank literature. The general Bernoulli linear-programming method can represent the same optimization, so novelty is not claimed for generic pairwise bounds. Historical indirect coverage remains possible, and no absolute historical uniqueness is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The one-sided \(n=6\) independent-sign cutoff \(W^+\ge19\) has classical exact size \(3/64\), close to the standard five-percent level. The sharp dependent-sign range includes zero and \(1/6\), identifying a concretely attainable \(32/9\)-fold calibration failure despite fair pairwise independent signs and, in the examples, pairwise independent marginally symmetric observations. This is a complete, interpretable answer for a natural finite-sample test, not an arbitrary parameter choice.
+The tight unweighted four-success bound and the moment-LP method are known. The separate contribution is the exact calibration range for this weighted rejection event, including a feasible completion of the extremal high signs by the two low signs and realization by pairwise-independent continuous observations. No examined source covers that combined statement.
 
-## Closest literature and limits
+## value
 
-Rosenblatt–Benjamini (arXiv:1311.5354) addresses signed-rank local power under independent sampling; Datta–Nevalainen–Oja (DOI:10.1080/10485252.2012.672647) addresses asymptotically valid clustered-data signed-rank procedures; Ramachandra–Natarajan (arXiv:2006.00516) supplies general pairwise-independent Bernoulli bounds. The latter's event-intersection machinery is a substantial precursor, and a historical specialized Wilcoxon calculation might remain unidentified. The theorem requires fairness and pairwise independence of ranked signs *conditional on observed magnitudes*, not merely marginal pairwise independence of observations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sample size and tail are motivated by a conventional one-sided exact test near 5%, not by an arbitrary event. The result gives the maximum and minimum true sizes, shows attainable inflation by 32/9, and realizes it even for identically distributed symmetric observations with pairwise independence. It makes the cost of relying on pairwise rather than joint independence concrete while retaining a precisely stated conditional null.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

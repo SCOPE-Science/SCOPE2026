@@ -1,19 +1,21 @@
-# Scientific review: cubic Dickson odd-tail incidence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem precisely specifies the modulus, orbit invariants, representative-invariant valuation formulas, all boundary precisions, and the convention at zero. For even states, the map is conjugate by doubling to the Chebyshev permutation \(g(t)=4t^3-3t\); the derivative congruence \(g'(t)\equiv1\pmod4\) proves one-unit valuation growth on doubling iterate counts. For odd states, the two exact square factorizations of \(h(u)\pm1\) give their first-entered cycle periods. The nontrivial new incidence statement follows from the proved four-to-one unit-polynomial lemma modulo each dyadic precision, cycle invariance, and matching orbit cardinalities. An independent direct-orbit verifier checks all residues at precisions one through fifteen; the proof is not based on extrapolation.
+PASS
 
-## Originality — PASS, with residual risks
+The even half-coordinate is the permutation g=T3 modulo 2^r: g is the identity mod 2 and its derivative is odd. Odd inputs map into this permuted class in precisely one step. For G a power-of-two iterate, G′≡1 mod 4, so Taylor expansion of G(G(t))−t has valuation one more than G(t)−t whenever that difference is nonzero with valuation at least 3. The exhibited fixing time is a power of two, and the preceding power fails unless the point is already fixed; the period follows by divisibility. Splitting t by parity yields the stated cycle census, including r=0 and the fixed counts. For odd input 2u+1, the half-entry h is odd and its difference from the appropriate sign has valuation 1+2ν₂(u(u+1)); the other difference has valuation 1. This yields the periods and aggregate counts. For the incidence, the scaled cubic B(v)=v²(2^(s+1)v±3) is constant modulo 8 on odd v, and B′(v) has valuation exactly 1. For shifts 2^a with a≥2 all Taylor terms beyond the derivative have valuation at least a+2. The four roots at precision 3 begin the lifting induction: pairing roots separated by 2^(q−1) splits their outputs evenly at the next precision, and lifting each root duplicates it. The two signed entry classes each contain 2^j targets; g preserves their scaled unit modulo 8 and each target has period 2^j, so each class is one cycle. Restoring the discarded input bits gives 4·2^(s+1) odd predecessors per target. Independent finite corroboration: tabulated successors and odd indegrees, traversed the even cycles, and compared cycle counts, aggregate odd counts, occupied cycle counts and per-cycle-vertex indegrees for k=1 through 15 (65,534 residues). This corroborates, not proves, the general result; the uploaded verifier was inspected, not executed.
 
-Full texts examined: Gassert (arXiv:1209.4396), Iwasaki–Umeno (arXiv:1602.08238), and Lu–Dai–Li (arXiv:2605.21819). The two latter works describe ordinary Chebyshev permutation dynamics, and in particular their known even-state cycle counts are explicitly credited. Gassert treats finite fields rather than the full dyadic ring. In contrast, the final claim specifies the nonpermutation odd branch of the monic Dickson cubic and proves exact odd-leaf incidence on two distinguished cycles among ten at every active length. No matching assertion was located in the inspected text or targeted research-index searches. Ishii's relevant 2008 article has a publisher-accessible abstract, but retrieval of its full Japanese text timed out; this and other unlocated results remain originality risks. A failed search is not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The odd-branch incidence classification is a natural graph invariant of a classical arithmetic map, not an arbitrary parameter slice: it resolves which periodic components of the nonpermutation dyadic dynamical system are reached by its critical odd branch. The two-of-ten selection and uniform \(2^{s+3}\) indegree are structural statements not contained in the known even-component cycle census; the complete tail-period distribution and sharp threshold \(k=8\) provide practical global information at every precision. No broader theory or paper-sized generalization is required for the stated complete classification.
+The even-state classification is known via T3, as the result acknowledges. The nonpermutation odd-tail placement is a supported distinct contribution relative to the inspected pre-existing work. Two later indexed same-map records directly cover the one-step odd indegrees (not merely a similar-looking polynomial), and in combination with even period information give the cycle-incidence refinement; they document later coverage and are not evidence of earlier priority.
 
-## Literature boundaries
+## value
 
-Prior permutation-period theorems cover the entire even restriction after an integral change of variables; no novelty is claimed for that part. The odd-fibre image and its four-to-one structure require a separate argument and are the actual contribution. The result does not cover other primes or Dickson degrees, nor the individual indegrees at fixed nodes. No independent audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural nonpermuting monic cubic has depth-one tails for elementary reasons, but their placement is not read off from even periods. Identifying exactly two of ten occupied cycles per applicable period and computing uniform leaf multiplicities distinguishes their full nonfixed local graph structure, rather than just giving total period counts. The fixed-point leaf incidence is not claimed individually.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

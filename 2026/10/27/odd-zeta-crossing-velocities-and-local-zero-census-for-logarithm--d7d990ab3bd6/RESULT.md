@@ -1,92 +1,46 @@
-# Odd-zeta crossing velocities and local zero census for logarithmic Bergman kernels
+# Odd-zeta velocities of boundary zeros of logarithmic Bergman kernels
 
 ## Finding
-Let \(s>0\). On the unit disk \(\mathbb D\), form the weighted analytic Hilbert space with radial weight
-\[
- w_s(z)=\frac{(-\log|z|^2)^{s-1}}{\Gamma(s)}.
-\]
-Let its reproducing kernel be \(K_s(z,w)=P_s(z\overline w)\), where
-\[
- P_s(t)=\sum_{n=0}^\infty(n+1)^s t^n
-      =\frac{\operatorname{Li}_{-s}(t)}t,
- \qquad |t|<1,
-\]
-and \(P_s(0)=1\). For **every** integer \(m\ge1\), there exists \(\varepsilon_m>0\) such that the exact number of zeros of \(P_s\) in \(|t|<1\), with multiplicity, is
-\[
- N_m(s)=\begin{cases}m-1,&2m-\varepsilon_m<s\le2m,\\m,&2m<s<2m+\varepsilon_m.\end{cases}
-\]
-**All** zeros in this range are simple and lie on the negative real axis. In particular, at each even positive integer, exactly one new scalar kernel zero passes through the boundary point \(t=-1\), while the other \(m-1\) zeros remain in the open disk.
 
-Writing the unique boundary-crossing zero as \(t_m(s)\), its local real-analytic expansion is
+For \(s>0\), let the weighted analytic Hilbert space on the unit disk use normalized planar area and weight \(w_s(z)=(-\log|z|^2)^{s-1}/\Gamma(s)\). Its kernel has the form \(K_s(z,w)=P_s(z\overline w)\), with
 \[
- t_m(s)=-1+v_m(s-2m)+O_m((s-2m)^2),\quad
- v_m=\frac{\pi^2}{2m+1}\,
- \frac{2^{2m+1}-1}{2^{2m+2}-1}\,
- \frac{\zeta(2m+1)}{\zeta(2m+2)}>0.
+P_s(t)=\sum_{n\ge0}(n+1)^s t^n=\operatorname{Li}_{-s}(t)/t,\qquad P_s(0)=1.
 \]
-Consequently \(v_m\sim \pi^2/[2(2m+1)]\) as \(m\to\infty\). At the first transition, \(v_1=14\zeta(3)/\pi^2\). Every scalar zero \(|t|<1\) corresponds to an actual zero \(K_s(z,w)=0\) by choosing \(z,w\in\mathbb D\) with \(z\overline w=t\).
-
-## Assumptions and scope
-The norm uses normalized planar area: \(\|f\|_s^2=\pi^{-1}\int_{\mathbb D}|f(z)|^2w_s(z)\,dA(z)\). The weight can be singular or vanish at the origin depending on \(s\), but is locally integrable for every \(s>0\). The parameter neighborhood \(\varepsilon_m\) may depend on \(m\); the theorem makes no assertion uniform in \(m\), nor does it classify zeros at parameters outside these neighborhoods. A zero means a zero of the single complex variable \(t=z\overline w\) inside the open unit disk, not a zero of each fixed section \(z\mapsto K_s(z,w)\).
-
-## Proof
-**1. Exact radial moments and kernel.** Set \(u=|z|^2\). Angular orthogonality and the substitution \(x=-\log u\) give
+For each integer \(m\ge1\), the zero at \(t=-1\) for \(s=2m\) has a unique local real-analytic branch \(t_m(s)\). Its velocity in the scalar kernel variable is
 \[
- \|z^n\|_s^2=\frac{1}{\Gamma(s)}\int_0^1u^n(-\log u)^{s-1}\,du
- =\frac1{(n+1)^s},\qquad n\ge0.
+\boxed{t_m'(2m)=v_m=\frac{\pi^2}{2m+1}\frac{2^{2m+1}-1}{2^{2m+2}-1}\frac{\zeta(2m+1)}{\zeta(2m+2)}>0.}
 \]
-The monomials are a complete orthogonal basis: Fourier orthogonality and Tonelli identify the weighted norm of an analytic Taylor series with the sum of its monomial squared norms. Thus the reproducing-kernel coefficients are exactly \((n+1)^s\) and the displayed polylogarithm identity holds, with normal convergence for \(|t|<1\). Holomorphic dependence on \(t\) and analytic dependence on real \(s>0\) hold locally on the slit plane \(\mathbb C\setminus[1,\infty)\) by the standard polylogarithm continuation.
+Thus \(t_m(s)=-1+v_m(s-2m)+O_m((s-2m)^2)\). In particular \(v_1=14\zeta(3)/\pi^2\) and \(v_m\sim \pi^2/[2(2m+1)]\). The velocity quantifies how rapidly the branch becomes an actual kernel zero: along the branch just inside the disk, choosing equal moduli \(|z|=|w|=\sqrt{-t_m(s)}\) and opposite phases, their moduli drop below one at initial speed \(v_m/2\).
 
-**2. Exhaustive zero count at an even integer.** For an integer \(n\ge1\),
+For context, the classical negative-real zero theorem of Jurkat and Peyerimhoff [1] gives simplicity and location in the slit plane for this real-power series. In an \(m\)-dependent neighborhood of \(2m\), the integer Eulerian count together with this location theorem and the direction of the crossing gives \(m-1\) zeros in the open disk for \(s\le2m\) and \(m\) for \(s>2m\). The contribution here is the explicit crossing velocity, not a new general reality, simplicity, or zero-enumeration theorem.
+
+## Proof of the velocity
+
+In polar coordinates \(\|z^n\|_s^2=\Gamma(s)^{-1}\int_0^1u^n(-\log u)^{s-1}du=(n+1)^{-s}\). Angular orthogonality and summation of the Taylor coefficients give the kernel series. Dependence on \((s,t)\) is jointly analytic near \((2m,-1)\): choose an integer \(N>2m\), and apply \((1+t\partial_t)^N\) to
 \[
- P_n(t)=\frac{A_n(t)}{(1-t)^{n+1}},\quad A_1(t)=1,\quad
- A_{n+1}(t)=(1+nt)A_n(t)+t(1-t)A_n'(t).
+\frac{1}{\Gamma(N-s)}\int_0^\infty \frac{x^{N-s-1}e^{-x}}{1-te^{-x}}\,dx.
 \]
-The recurrence proves inductively that \(A_n\) has degree \(n-1\) and precisely \(n-1\) simple negative roots: at the ordered negative roots of \(A_n\) the sign of \(A_{n+1}\) alternates, its value at \(0\) equals one, and its leading coefficient is positive, supplying one interlacing root in each required interval including the two exterior intervals. The Eulerian coefficients are palindromic, so \(t^{n-1}A_n(1/t)=A_n(t)\). For \(n=2m\), the odd-degree reciprocal polynomial therefore has the simple root \(-1\); its other \(2m-2\) roots pair reciprocally, with exactly \(m-1\) in \((-1,0)\) and \(m-1\) in \(( -\infty,-1)\). Thus \(P_{2m}\) has precisely \(m-1\) interior zeros, all simple; \(P_{2m}(-1)=0\) is an additional simple boundary root. The only singularity of the rational function near the closed disk is its pole at \(t=1\).
+For \(\operatorname{Re}s<N\) and \(t\) in compact subsets of \(\mathbb C\setminus[1,\infty)\), the integral is locally normally convergent; its coefficients on the disk are \((n+1)^{s-N}\). Hence this representation continues the kernel series on that slit plane and justifies local analytic differentiation.
 
-**3. Uniform exclusion of new zeros near the singular boundary point.** Write \(u=-\operatorname{Log}t\) for \(t\) in a small disk about \(1\), with \(t\ne1\) and \(|t|\le1\). Then \(\operatorname{Re}u\ge0\), \(u\to0\) as \(t\to1\), and Jonquière's standard expansion gives, uniformly for \(s\) in any small real neighborhood of \(2m\),
+Let \(\eta(q)=(1-2^{1-q})\zeta(q)\). The continued value at \(t=-1\) is \(P_s(-1)=\eta(-s)\) (the alternating Dirichlet series identity, continued in the order). Thus \(P_{2m}(-1)=0\) by the trivial zero of \(\zeta\). The identity \(t\partial_tP_s=P_{s+1}-P_s\) gives at \((2m,-1)\)
 \[
- \operatorname{Li}_{-s}(e^{-u})
- =\Gamma(s+1)u^{-s-1}
- +\sum_{j=0}^\infty\zeta(-s-j)\frac{(-u)^j}{j!},
- \qquad 0<|u|<2\pi.
+\partial_tP_s=-\eta(-2m-1)\ne0,\qquad \partial_sP_s=-\eta'(-2m).
 \]
-The series is uniformly bounded as \(u\to0\) in that parameter neighborhood, whereas the leading term has modulus \(\Gamma(s+1)|u|^{-s-1}\to\infty\) uniformly. Hence \(P_s(t)\ne0\) throughout a fixed punctured neighborhood of \(t=1\) intersected with the closed disk, for all sufficiently close \(s\). This step is necessary: convergence only on compact subsets of the open disk cannot rule out newly arriving boundary zeros.
-
-**4. No other zero branches.** Exclude that small neighborhood of \(1\). On the remaining compact part of the closed disk, \(P_s\) converges uniformly to \(P_{2m}\) and has a holomorphic continuation across its boundary. Surround each simple zero of \(P_{2m}\) on or inside the boundary by a sufficiently small pairwise disjoint complex disk, and likewise each remaining zero outside when needed; apply Rouché on their boundaries. The compact complement is zero-free, so for nearby real \(s\), the only zeros in the closed disk are the continuations of the \(m-1\) strictly interior roots and possibly the continuation of \(-1\). Simplicity and the real Schwarz symmetry of \(P_s\) make every continued root real analytic and real (uniqueness implies equality with its complex conjugate). The strictly interior roots remain negative and interior.
-
-**5. Crossing velocity and positivity.** The eta-function identity for the analytic continuation is
+The implicit-function theorem gives the unique branch, real for real \(s\) by conjugation, with derivative \(-\eta'(-2m)/\eta(-2m-1)\). The zeta functional equation gives
 \[
- P_s(-1)=\eta(-s),\qquad \eta(q)=(1-2^{1-q})\zeta(q).
+\zeta'(-2m)=\frac{(-1)^m(2m)!}{2(2\pi)^{2m}}\zeta(2m+1),\qquad
+\zeta(-2m-1)=\frac{(-1)^{m+1}(2m+1)!}{2^{2m+1}\pi^{2m+2}}\zeta(2m+2).
 \]
-Here \(\eta(-2m)=0\). From \(tP_s'(t)=P_{s+1}(t)-P_s(t)\),
-\[
- \partial_tP_{2m}(-1)=-\eta(-2m-1)\ne0,\qquad
- \partial_sP_s(-1)|_{s=2m}=-\eta'(-2m).
-\]
-The real-analytic implicit-function theorem therefore yields
-\[
- t_m'(2m)=-\frac{\eta'(-2m)}{\eta(-2m-1)}.
-\]
-Use \(\eta'(-2m)=(1-2^{2m+1})\zeta'(-2m)\), \(\eta(-2m-1)=(1-2^{2m+2})\zeta(-2m-1)\), and the Riemann zeta functional equation to obtain
-\[
- -\frac{\zeta'(-2m)}{\zeta(-2m-1)}
- =\frac{\pi^2}{2m+1}\frac{\zeta(2m+1)}{\zeta(2m+2)}.
-\]
-This gives the stated strictly positive \(v_m\). Therefore \(t_m(s)\) lies to the left of \(-1\) for \(s<2m\) and to its right for \(s>2m\), as long as \(|s-2m|\) is sufficiently small. Together with step 4 this proves the exact local count and simplicity. Since \(\zeta(x)\to1\) and the power-of-two ratio tends to \(1/2\), \(v_m\sim\pi^2/[2(2m+1)]\).
+Since the derivative of the eta prefactor multiplies a zero at \(-2m\), its contribution vanishes there. The ratio of the remaining eta prefactors is \((2^{2m+1}-1)/(2^{2m+2}-1)\). These identities give the displayed velocity including its sign. Substitution of \(m=1\) and \(\zeta(4)=\pi^4/90\) gives \(v_1\); the zeta ratio tends to one and the power-of-two ratio to one half, giving the asymptotic.
 
-## Verification
-The standalone `checker.py` tests exact Gamma radial moments at twelve shape/degree combinations, compares the eta-derivative velocity against the odd-zeta formula at six transitions to high precision, follows the boundary zero numerically on both sides, and constructs the Eulerian polynomials symbolically through degree twelve to verify their interior root counts. Run `python checker.py` with the requirements given in `requirements.txt`; the resulting output is included in `check_output.txt`. These finite tests check arithmetic and formulas only; the full all-parameter local conclusion follows from the preceding analytic proof.
+## Local counting consequence and scope
 
-## Relationship to prior work
-Negative-integral-order polylogarithms and Eulerian rational identities are classical; Miller's 2008 polylogarithm identities and Durán's 2024 discussion of simple negative Eulerian roots establish relevant ingredients, not the varying-real-order kernel-zero crossings or their odd-zeta slopes. Yamamori's 2010 work uses polylogarithms to calculate Bergman kernels and analyze zeros for Fock–Bargmann–Hartogs domains with integer dimension parameters, but does not state the present logarithmic radial-weight family or local transition law. Blaschke's 2011/2012 work on asymptotic Bergman kernels treats a different *boundary-logarithmic* weight \((1-r^2)^\alpha(\gamma+\log(1/(1-r^2)))^\beta\), rather than the origin-logarithmic Mellin weight \((-\log r^2)^{s-1}\). A recent study of genuine Euclidean-distance disk weights \((1-r)^\alpha\) has another exact transition sequence with different moments, so it does not imply the result here. The present theorem combines the integer-order Eulerian zero rigidity with noninteger-order polylogarithmic analytic perturbation and an exclusion proof at the singular boundary point.
+For positive integer \(n\), \(P_n(t)=A_n(t)/(1-t)^{n+1}\), where the degree \(n-1\) Eulerian numerator has simple negative roots and is reciprocal [2]. Thus at \(n=2m\), the simple root at \(-1\) is the unpaired reciprocal root, and exactly \(m-1\) roots lie in \((-1,0)\). For real \(s>0\), [1, Theorem 4 and §4(i)] applies to the series with coefficients \(n^s\) and zero shift. Its zero at the origin is removed by dividing by \(t\); every zero of \(P_s\) in the open disk must be negative real. On the compact interval \([-1,0]\) the family converges uniformly to \(P_{2m}\) as \(s\to2m\). Small disjoint complex disks around its simple zeros each contain a unique continued root, and the rest of \([-1,0]\) is uniformly zero-free. Consequently the \(m-1\) interior branches persist, and the remaining branch crosses inward through \(-1\) as \(s\) increases. There is no assertion of an \(m\)-uniform neighborhood or of an exact disk count for all parameters. A scalar zero with \(|t|<1\) is realized by choosing \(z,w\) with \(z\overline w=t\); it is not a zero of every fixed kernel section.
 
-## Limitations
-The neighborhoods depend on \(m\), and this theorem **does not** give a zero count for every \(s>0\). It does not exclude other zeros for parameters well away from the even integers, and it gives no joint \(m,s\) uniform perturbation width. Established special-function theory already gives the numerator at every integer and several ingredients for the velocity formula, so the new claim is the combined local all-order Bergman-zero census and exact boundary-crossing law. An unindexed prior classification of negative-real-order polylogarithm zeros may still cover part or all of this statement; an independent publication-priority audit has not been performed.
+The accompanying `checker.py` and `requirements.txt` give finite checks of the radial moments, Eulerian counts, and agreement of the two velocity expressions and the local numerical branches. The general statements follow from the analytic derivation and the specified prior location theorem, not from a finite range of sample parameters.
 
 ## References
-1. S. J. Miller, *An identity for sums of polylogarithm functions*, arXiv:0804.3611v1, publicly posted 2008-04-22; https://arxiv.org/abs/0804.3611.
-2. A. Yamamori, *The Bergman kernel of a certain Hartogs domain and the polylogarithm function*, arXiv:1008.5339v1, publicly posted 2010-08-31; https://arxiv.org/abs/1008.5339.
-3. A. J. Durán, *Asymptotic for the rightmost zeros of Bell and Eulerian polynomials*, arXiv:2404.03249v1; https://arxiv.org/abs/2404.03249.
-4. P. Blaschke, *Asymptotic behavior of Bergman kernels with logarithmic weight*, Journal of Mathematical Analysis and Applications **385** (2012), 293–302, DOI:10.1016/j.jmaa.2011.06.044 (available online 2011-06-22).
-5. NIST Digital Library of Mathematical Functions, §§25.2 and 25.12, zeta and polylogarithm continuation formulas; https://dlmf.nist.gov/25.12.
+
+1. W. B. Jurkat and A. Peyerimhoff, *On power series with negative zeros*, Tohoku Math. J. **24** (1972), 207–221, Theorem 4 and §4(i), [doi:10.2748/tmj/1178241531](https://doi.org/10.2748/tmj/1178241531).
+2. A. J. Durán, *Asymptotic for the rightmost zeros of Bell and Eulerian polynomials*, [arXiv:2404.03249](https://arxiv.org/abs/2404.03249), Eulerian roots and reciprocity.
+3. NIST Digital Library of Mathematical Functions, [Chapter 25](https://dlmf.nist.gov/25), zeta and polylogarithm identities.

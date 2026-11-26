@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:48:00.271331Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two lattice identities give antitonicity and isotonicity, which force the arrow to be top on ordered inputs and bound each descending arrow by each edge in its interval. Transitivity gives the reverse bound by the meet of those edges. Conversely the interval rule satisfies the four axioms for arbitrary edge values. Underlying Heyting congruences are the terminal collapses: identifying a<b forces a equivalent to top by comparing b→a and a→a. For a cut k, each edge above it has congruent inputs to the corresponding diagonal, so its output must be at least c_k. Conversely, on a first argument in the tail and second argument b<k, the value is the minimum of a fixed lower interval meet and a tail interval meet at least c_k; this is constant modulo the cut. All other cases are immediate from the same interval formula. The proposed choices s_j=n−1 for prescribed cuts and j−1 otherwise witness all exact sets. Counting edgewise under any required set T gives the product in (6), then indicator expansion and inclusion–exclusion verify both enumerators, with s_0 free (including n=2). For the limit, E_1 has probability (1−1/n)^{n−2}; for 2≤k≤n/2 the event E_k outside E_1 requires an earlier zero independent of the tested suffix, giving the summable bound (k−1)e^{−k/3}/n for large n. For k>n/2, put r=n−k and bound (r/n)^{r−1} by r·2^{−(r−2)}/n for r≥2. Thus the excess over E_1 is O(1/n). Independent direct quotient-table enumeration, replayed with python3 /workspace/independent_arithmetic_checks.py, matched the displayed polynomials for n=2 through 6. The supplied checker was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "San Martín's Theorem 2.2 gives a general principal-congruence formula for weak Heyting algebras, with the same four basic weak-Heyting identities.",
+          "The 2015 counting title is highly relevant. Its publisher and full-text routes returned 403; only the bibliographic identity, not the alleged scope of its theorem, was independently verified."
+        ],
+        "reasoning": "Computing a principal congruence of a given algebra is a different problem from counting all expansions of an ordinary Heyting chain by their congruence sets. A general counting algorithm may be relevant; available evidence cannot determine whether that paper gives a congruence-refined census.",
+        "searches": [
+          "San Martín DOI 10.1007/s00012-016-0381-4, principal congruences of weak Heyting algebras",
+          "Alizadeh–Joharizadeh DOI 10.1093/jigpal/jzu033, counting weak Heyting algebras on finite distributive lattices"
+        ]
+      },
+      "checked_sources": [
+        "Resultary box-reduct, weak-Heyting–Brouwer, relation-induced and tense-chain findings identified above",
+        "San Martín DOI 10.1007/s00012-016-0381-4",
+        "Alizadeh–Joharizadeh DOI 10.1093/jigpal/jzu033 (bibliographic identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known adjacent-edge normal form gives the product sample space, not the exact congruence distribution; San Martín treats principal congruences in general weak Heyting algebras, while the frozen cut tests must respect the ordinary Heyting arrow as well."
+        ],
+        "reasoning": "The input normal form makes a direct cut test possible, but the full result additionally identifies the surviving patterns, their joint counts and the dependent-event bound that makes failure of simplicity asymptotically one first-cut event. The abstract-chain limit is not a specialization of the restricted relation or two-connective enumerators.",
+        "searches": [
+          "Box-reduct Finding, mirrored RESULT.md offset 0; San Martín Theorem 2.2; related congruence-rank and relation-induced Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The box-reduct Finding gives unrestricted adjacent values and the total n^{n−1} after indexing by chain size, but groups arrows by their box reduct, not by surviving congruences.",
+          "The relation-induced Finding counts operations induced by binary relations on the chosen chain; at n=3 it has 7 operations rather than the 9 abstract operations here."
+        ],
+        "reasoning": "Neither reconstruction from a box nor induction by a relation identifies the compatibility tests for the full abstract family or its uniform measure. The bound record itself was the matching search hit and is not independent priority evidence.",
+        "searches": [
+          "Resultary: finite Gödel strict implication congruence cuts, cut spectra and simplicity",
+          "2026/10/18/SCOPE-exact-box-reduct-fibers-of-finite-chain-heyting-lewis-implicatio--7dc46cf75da9",
+          "2026/11/2/SCOPE-last-occurrence-matchings-and-exact-realization-fibers-for-finit--4c5d5d5150e4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The weak-Heyting–Brouwer catalogue record tabulates congruence ranks for a two-connective family with interaction identities and Boolean congruence lattices; its simple fraction tends to one.",
+          "The tense Heyting catalogue record has a cut polynomial, but its expansion has four different operators and common-fixed-cut tests."
+        ],
+        "reasoning": "Matching an enumerative format does not match the counted object. The signatures, events and limiting laws differ, and the raw adjacent-edge count in the box record is only the specialization P_n(1).",
+        "searches": [
+          "Resultary congruence-rank spectrum and cut polynomial; 2026/10/18/SCOPE-congruence-rank-spectrum-and-unary-reconstruction-of-finite-weak--9bb111bd5f63",
+          "2026/10/18/SCOPE-congruence-cuts-and-renewal-spectra-of-finite-tense-heyting-chai--93ecd5143395"
+        ]
+      },
+      "rationale": "The supported new content is the exact surviving-cut distribution for all abstract arrows on the fixed Gödel chain, including all cut fibers and the uniform-model simplicity law. The already tabulated edge normal form and raw total are inputs. General congruence theory may streamline the individual compatibility criterion but does not provide the stated counting and asymptotic results in the passages inspected.",
+      "residual_risks": [
+        "The 2015 paper's full results were inaccessible and might include a chain refinement; this was not established either way.",
+        "The comparison is bounded and does not certify historical priority. The edge representation and total are explicitly not original claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for edge normal form and raw count, not the congruence fibers",
+          "evidence": "Unrestricted adjacent-edge values and box-reduct reconstruction.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-box-reduct-fibers-of-finite-chain-heyting-lewis-implicatio--7dc46cf75da9",
+          "material_read": "Finding, mirrored RESULT.md offset 0",
+          "method": "Original file in configured local mirror",
+          "title": "Exact box-reduct fibers of finite-chain Heyting–Lewis implication",
+          "trigger": "Same underlying abstract edge family"
+        },
+        {
+          "assessment": "Relevant categorical scope, not an expansion census in the inspected theorem",
+          "evidence": "General principal-congruence formula for the four weak-Heyting identities.",
+          "identifier_or_url": "https://sedici.unlp.edu.ar/handle/10915/138934",
+          "material_read": "Journal pp. 405–406, 408; Theorem 2.2, PDF offsets 0 and 7954",
+          "method": "Lawful OA original PDF, bounded passage inspection",
+          "title": "Principal congruences in weak Heyting algebras",
+          "trigger": "General congruence characterization potentially specializing to the cut test"
+        },
+        {
+          "assessment": "Unresolved congruence-refinement coverage; no negative inference from access failure",
+          "evidence": "Title identifies a related counting problem; no usable theorem text obtained.",
+          "identifier_or_url": "https://doi.org/10.1093/jigpal/jzu033",
+          "material_read": "Bibliographic title only; publisher abstract and PDF not available through attempted routes",
+          "method": "Lawful DOI, publisher and literature-lookup attempts",
+          "title": "Counting weak Heyting algebras on finite distributive lattices",
+          "trigger": "General enumeration over distributive lattices could include chains"
+        },
+        {
+          "assessment": "Different algebraic family",
+          "evidence": "Paired weak implication/difference, Boolean congruence lattice and limiting simple fraction one.",
+          "identifier_or_url": "2026/10/18/SCOPE-congruence-rank-spectrum-and-unary-reconstruction-of-finite-weak--9bb111bd5f63",
+          "material_read": "Finding and Congruence components/Rank enumeration, offsets 0 and 4200",
+          "method": "Original file in configured local mirror",
+          "title": "Congruence-rank spectrum and unary reconstruction of finite weak Heyting–Brouwer chains",
+          "trigger": "Nearby exact congruence-rank spectrum"
+        },
+        {
+          "assessment": "Strictly restricted relation-induced family",
+          "evidence": "Partial injections enumerate relation-induced operations, seven at n=3.",
+          "identifier_or_url": "2026/11/2/SCOPE-last-occurrence-matchings-and-exact-realization-fibers-for-finit--4c5d5d5150e4",
+          "material_read": "Finding, offset 0",
+          "method": "Original file in configured local mirror",
+          "title": "Last-occurrence matchings and exact realization fibers for finite flat Heyting–Lewis chains",
+          "trigger": "Potentially equivalent realization parametrization"
+        },
+        {
+          "assessment": "Different signature and cut mechanism",
+          "evidence": "Four tense operators and a common fixed-cut criterion.",
+          "identifier_or_url": "2026/10/18/SCOPE-congruence-cuts-and-renewal-spectra-of-finite-tense-heyting-chai--93ecd5143395",
+          "material_read": "Finding, offset 0",
+          "method": "Original file in configured local mirror",
+          "title": "Congruence cuts and renewal spectra of finite tense Heyting chains",
+          "trigger": "Close cut-spectrum analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Simplicity and preservation of congruences are intrinsic properties of the expanded algebra. Exact fibers distinguish which cuts survive, not just how many; every profile can occur and the uniform limiting simple fraction is strictly between zero and one. These answer natural classification and distribution questions not settled by counting raw arrows or their box reducts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

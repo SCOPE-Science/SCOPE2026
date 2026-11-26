@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every ideal of the \(2\times2\times6\) product poset corresponds to one of 336 four-height arrays, and a separately implemented immediate-predecessor BFS generates exactly the same 336 incidence masks. The complete 24-bit Walsh transform and 8192 direct signed sums agree. Exhaustive direct character evaluation for every singleton, pair and triple establishes the 32 cubic zeros and absence of lower-degree zeros. They form the eight displayed four-element symmetry orbits. The full frequency census gives 1,414,094 zeros, rank 15,363,122 and smallest nonzero magnitude 2. A second exact transform gives total absolute support-kernel mass 9,182,696,964; translation averaging proves the endpoint optimum among all projections. Integer Parseval and inversion checks passed. The smaller widths used for the first-occurrence statement were each fully transformed.
+## correctness
 
-## Originality — PASS (bounded comparisons)
-Ciucu/MacMahon provide the unsigned plane-partition total, Hersh–Shareshian–Stanton a single volume-parity specialization, Cook–Nagel determinant-related tiling signs, and Borodin–Gorin–Rains structured elliptic weights. The closest available public numerical Boolean spectrum is for a different 24-point box, \(2\times3\times4\), whose 490 ideals and numerical rank cannot imply the present 336-ideal spectral values. Its Walsh algorithm and unrestricted projection-averaging argument are prior methods, not claimed new. Actual published-finding corpus queries for 2×2×6, 336 ideals, exact rank and cubic cancellations and the accessible cumulative historical claims yielded no exact duplicate. Residual risks include unindexed multivariate signed tiling identities and unpublished computations; no exhaustive priority guarantee is claimed.
+PASS
 
-## Value — PASS
-All 24 cube occupancies correspond to the canonical finite plane-partition height field. Knowing whether a parity character survives convolution determines exact recoverability of that mode. The first disappearance at degree three, after all first- and second-order modes survive, is a motivated finite Fourier-information cutoff; the eight symmetry orbits characterize its geometry. The complete rank and optimal endpoint norm quantify information loss and amplification in the same natural ensemble. These numerical invariants are not consequences of the classical count alone. No result for all longer boxes is asserted.
+An order ideal is a nested sequence of layers, each one of the six square lower ideals; conversely any such sequence defines an ideal. Using this independent enumeration and layer-major bit indexing, I reproduced the entire integer Walsh census for all six widths. Width six has 336 ideals, no zeros in degrees 0–2 and 32 triples. The orbit representatives and all four images of each agree exactly with direct parity sums, with no overlaps. Coordinate exchange preserves ideals; complement after reversal is an ideal bijection and multiplies the reversed character sum by (−1)^|S|. Complete zero counts for widths 1–6 are 6,61,680,0,107510,1414094, with least vanishing degrees 1,2,1,none,1,3. Fourier diagonalization gives rank 15363122 at width six and the singular values on the recoverable range have endpoints 2 and 336, hence condition number 168. The exact transform of the complementary frequency mask verifies that the absolute sum of the unnormalized recoverable-support kernel is 9182696964; division by 2^24 reduces to 2295674241/4194304. Convolution by the normalized kernel has ℓ¹ norm equal to its total absolute mass (test a point mass), and the same ℓ∞ norm (choose a sign vector aligned to one row). For any projection onto the range, its translation conjugates all fix that same space and all have image in it; their average remains a projection and its norm is no higher. Translation commutation diagonalizes it in the Walsh basis: identity on surviving characters, zero on lost ones. This proves the unrestricted real and complex minima. ‘32 triple orbits’ in the prior-work prose is a slip; the precise Finding, table and certificate consistently give 32 triples in eight orbits. The argument and all operators are finite-dimensional.
 
-## Limitations
-The complete classification is confined to the 336 ideals of the 2×2×6 box. First occurrence is only among widths 1 through 6; unindexed overlap remains possible. This review is not an independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest earlier result gives the same type of exact spectral and projection calculation for a different 24-cube poset; no novelty is attributed to the Walsh algorithm or averaging. The separate same-day cube/diagram analogues do not determine this box's exact census or finite cutoff. The assessment is bounded and does not claim priority for the broad cubic-only phenomenon.
+
+## value
+
+PASS
+
+The canonical 2×2×n family gives a motivated finite least-degree cutoff, separating protection of first- and second-order parity information from cubic information loss. The orbit census specifies the lost low-order observables, while the rank, restricted condition number and exact optimal endpoint amplification supply complementary recovery benchmarks. These values concern this natural family and are not a restatement of the unsigned count; no larger-width theory is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

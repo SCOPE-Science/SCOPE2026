@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,4 @@
 }
 ---
 
-The exact period-closing lemma is proved by repetition for proper borders and by shortest return-path completion for border-free words. Perron–Frobenius powers establish the fixed-border probabilities and product boundary distribution. A geometric union bound controls large borders uniformly; truncation plus mixing proves exponential total-variation and moment convergence.
-
-Run `python3 check.py` to repeat finite exhaustive comparisons between the exact formula and independent enumerations of periodic completions, and to inspect the sample border moments on two small primitive matrices. These finite checks do not replace the proof of the infinite claims. The numerator in the directed lower bound excludes one explicitly counted border event before applying the union bound. Independent mathematical validation was not performed.
+The shorter-period trace counts and uniform tail bound are inputs, not separate new findings. The exact signed closing rule, the uniform relative Perron estimate for growing boundary blocks and the truncation and moment arguments prove the limit. The directed lower bound excludes a length-two match incompatible with the required endpoint relation before using a union bound. The existing package script `check.py` only checks finite instances; it provides no proof of the infinite distribution or its priority.

@@ -1,47 +1,31 @@
-# Orientation-Invariant Quantifier-Rank Profile of Finite Cycles
+# Orientation-invariant quantifier-rank profile of finite cycles
 
 ## Finding
 
-For every integer \(q\ge1\) and all \(m,n\ge3\), let \(C_m,C_n\) be undirected cycle graphs and let \(D_m,D_n\) be directed cycles whose only nontrivial relation is the immediate-successor relation \(S\). Then \(D_m\equiv_q D_n\) if and only if \(C_m\equiv_q C_n\). Equivalently, all sizes at least three are equivalent at rank one; at rank two the only exceptional size is three; and for \(q\ge3\),
-\[
-D_m\equiv_q D_n\quad\Longleftrightarrow\quad m=n\ \text{or}\ m,n\ge 2^{q-1}+3.
-\]
+Let \(C_n\) be the undirected cycle on \(\mathbb Z/n\mathbb Z\), and let \(D_n\) be its consistently directed expansion in the language with one binary relation \(S(x,y)\) meaning \(y=x+1\). For \(m,n\ge3\) and \(q\ge1\), \(D_m\equiv_q D_n\) if and only if \(C_m\equiv_q C_n\), where \(\equiv_q\) denotes agreement on first-order sentences of quantifier rank at most \(q\). At rank one all these sizes agree. At rank two, size three is the unique exceptional class. For \(q\ge3\), the classes are the individual lengths below \(2^{q-1}+3\) and the single class of all lengths at least \(2^{q-1}+3\).
 
 ## Assumptions and scope
 
-For \(n\ge3\), write \(C_n=(\mathbb Z/n\mathbb Z,E)\), where \(E(i,j)\) holds exactly when \(j-i\equiv1\) or \(-1\pmod n\). Write \(D_n=(\mathbb Z/n\mathbb Z,S)\), where \(S(i,j)\) holds exactly when \(j-i\equiv1\pmod n\). These are relational structures: the language has a binary relation, not a unary function symbol. The notation \(A\equiv_q B\) means that \(A\) and \(B\) satisfy the same first-order sentences of quantifier rank at most \(q\), equivalently that Duplicator wins the \(q\)-round Ehrenfeucht–Fraïssé game.
+Cycles are single components of length at least three. The successor is a binary relation, not a function that can be iterated within a term. Equality is available. Undirected adjacency is the quantifier-free reduct \(E(x,y)\iff S(x,y)\lor S(y,x)\).
 
 ## Proof
 
-First, on every \(D_n\) with \(n\ge3\), undirected adjacency is quantifier-free definable by
-\[
-E(x,y)\ \longleftrightarrow\ S(x,y)\lor S(y,x).
-\]
-Thus any rank-\(q\) sentence distinguishing two undirected cycles translates, without increasing quantifier rank, to a sentence distinguishing the corresponding directed cycles. In particular, directed-cycle equivalence implies undirected-cycle equivalence.
+**Rank one and rank two.** Each structure is nonempty and loopless, so every first move has a matching response. For rank two, the undirected sentence that all distinct vertices are adjacent distinguishes size three from all larger sizes and translates quantifier-free in its adjacency atoms to the directed language. On two directed cycles of length at least four, the four possible responses relative to the first vertex (itself, successor, predecessor, neither neighbor) are all available. This is a winning rank-two strategy, which also yields equivalence of the undirected reducts.
 
-At rank one, every cycle of size at least three is nonempty and loopless, so all \(D_n\) with \(n\ge3\) agree. At rank two, \(D_3\) is distinguished from every \(D_n\) with \(n\ge4\) by
-\[
-\forall x\forall y\bigl(x\ne y\to(S(x,y)\lor S(y,x))\bigr).
-\]
-Any two directed cycles of sizes at least four are rank-two equivalent: after the first choice, the second choice is either the same vertex, its successor, its predecessor, or a vertex adjacent in neither direction; each response type is available in every cycle of size at least four.
+**Distinguishing shorter lengths at rank \(q\ge3\).** Let \(d=2^{q-3}\). Write \(\delta_j(x,y)\) for a formula saying the undirected distance is at most \(j\). Use equality for \(j=0\) and equality or adjacency for \(j=1\). For \(j\ge2\), split \(j\) into \(\lfloor j/2\rfloor+\lceil j/2\rceil\) and existentially quantify an intermediate vertex satisfying the respective two distance formulas. This has rank at most \(h\) for \(j\le 2^h\).
 
-For \(q\ge3\), Brown and Hoshino prove that the exact cutoff for undirected cycles is \(g(q)=2^{q-1}+3\): distinct cycle sizes below this cutoff are distinguishable at rank at most \(q\), while all sizes at least the cutoff are rank-\(q\) equivalent. Translating their distinguishing sentences by \(E(x,y)\mapsto S(x,y)\lor S(y,x)\) gives the same lower bound for directed cycles.
+For each integer \(N\) with \(3\le N\le 4d+2\), construct a rank-\(q\) sentence holding exactly on cycles of length at most \(N\). If \(N\) is even, choose \(a,b\) in \([0,d]\cap\mathbb Z\) with \(N=2a+2b+2\). Require two centers \(x,y\) whose balls of radii \(a,b\) cover the cycle, by the matrix \(\forall z\,(\delta_a(x,z)\lor\delta_b(y,z))\) after the two existential quantifiers. Each ball has at most \(2a+1\) or \(2b+1\) vertices. Conversely, on the integer line put their centers at \(a\) and \(2a+1+b\); the union of the intervals is \([0,N-1]\). Projecting modulo the cycle length supplies a cover whenever that length is at most \(N\).
 
-For the upper bound in the directed language, use the cycle-cut and gap-splitting strategy from their cycle proof. After the first move, cut each cycle at the selected vertex and represent it as a consistently oriented path whose two endpoints are copies of that selected vertex. In the remaining \(q-1\) rounds, the endpointed-path strategy matches each short gap exactly and keeps each longer gap above the stage-dependent threshold. The strategy can be chosen to preserve the linear order of selected points: a response to a point in a gap is chosen in the corresponding gap, with short distances copied exactly. Therefore it preserves every directed successor edge, which is precisely a gap of length one, as well as the undirected adjacency relation. The published sufficient bound for this path strategy is met when both cycle sizes are at least \(2^{q-1}+3\). Hence Duplicator wins on \(D_m,D_n\) whenever \(m,n\ge g(q)\). Combined with the lower bound and the direct rank-one and rank-two cases, this proves the stated equivalence of the size partitions.
+If \(N\) is odd, choose \(a,b\) instead with \(N=2a+2b+1\) and conjoin \(\delta_{a+b}(x,y)\) inside the two existential quantifiers. It ensures intersection of the two balls: a shortest path of length at most \(a+b\) has a vertex within both radii. The union therefore has at most \(N\) vertices. Centers at \(a\) and \(2a+b\) yield consecutive intervals sharing one endpoint, with union \([0,N-1]\); their projections also satisfy the extra distance condition. This extra formula has rank at most \(q-2\), as \(a+b\le2d\). Thus each sentence has rank at most \(q\) and distinguishes length \(N\) from every greater length. Each translates to the directed language without increasing rank.
 
-## Verification
+**Directed upper bound at rank \(q\ge3\).** Suppose both lengths are at least \(L=2^{q-1}+3\). After the first choice, Duplicator can reply at any vertex. With \(r\) rounds remaining, require that for all ordered pairs of selected vertices, the clockwise distances agree if either is at most \(2^r\), and otherwise both distances are greater than \(2^r\). Distances are the least nonnegative clockwise offsets, so the invariant holds initially. At \(r=0\) it preserves equality and immediate successor.
 
-The cited cycle theorem gives \(g(2)=4\) and \(g(q)=2^{q-1}+3\) for \(q\ge3\). The rank-two boundary was checked directly using the displayed sentence and the four possible second-move types. The orientation-sensitive upper bound uses the order-preserving version of the published gap strategy; finite game checks were used only as a sanity check and are not part of the proof.
+Let \(r\ge1\), set \(h=2^{r-1}\), and let \(k=q-r\) be the number of rounds played, an upper bound for the number of distinct selected vertices. Both lengths exceed \(2h\). If the new point is within a signed offset in \([-h,h]\) of a selected point, copy that offset from its match. To see this preserves all signed offsets of magnitude at most \(h\), suppose the new point is also at such an offset from another selected point, in either structure. Subtract the two signed offsets to obtain a congruence between the two old points with signed difference in \([-2h,2h]\). This congruence transfers by the old invariant: if the difference is nonnegative it is a short clockwise distance, and if negative its magnitude is the short distance in the opposite direction. The congruence then gives the identical new offset from the second matched old point. Applying this implication in both directions proves the new invariant.
 
-## Relationship to prior work
+Otherwise the new point lies outside all signed-offset neighborhoods of radius \(h\) of the selected points. In the other structure these neighborhoods together cover at most \(k(2h+1)=k(2^r+1)\) vertices, which is strictly less than \(L\). For \(k=1,2\) the differences \(L-k(2^r+1)\) are respectively 2 and 1; for \(k\ge3\), the inequality \(2^{k-1}\ge 2k-2\) yields \(L-k(2^r+1)\ge(k-2)2^r+3-k\ge k-1>0\). Hence a response outside all the matched neighborhoods exists. It gives the same absence of short distances to every old point. Repeated choices are included in the signed-offset case with offset zero. This completes the induction and proves the upper bound without imposing an order on remote selected points.
 
-Jason I. Brown and Richard Hoshino, “The Ehrenfeucht–Fraïssé Game for Paths and Cycles,” *Ars Combinatoria* 83 (2007), 193–212, give the complete rank-threshold classification for undirected paths and cycles, including the cycle cutoff used here. Their published language has symmetric graph adjacency, not a directed successor relation. The new comparison is that the same size-equivalence partition survives the oriented relational expansion. Work on quantifier-depth bounds for finite abelian groups uses a different group language and does not state this successor-cycle classification.
+## Reproducibility and prior work
 
-## Limitations
+The proof is symbolic for all ranks and lengths. The distance invariant does not require cyclic-order preservation. Using such preservation is too restrictive at the optimal cutoff: with four rounds on lengths 12 and 11, Spoiler can choose opposite vertices in length 12, then choose the midpoint of the length-six gap matched to the gap of length at most five. Any order-preserving response places one side within distance at most two, whereas the two corresponding sides in length 12 have length three. Either the atomic diagram already differs or the last move witnesses an intermediate vertex on a directed two-edge path.
 
-The statement is restricted to cycles of size at least three and to the binary relational successor language. It does not apply to a unary function symbol for successor, where terms can iterate the function without adding quantifier rank. The lower-bound transfer is immediate from quantifier-free definability; the upper-bound transfer depends on using an order-preserving gap strategy after cutting the cycle.
-
-## References
-
-1. J. I. Brown and R. Hoshino, “The Ehrenfeucht–Fraïssé Game for Paths and Cycles,” *Ars Combinatoria* 83 (2007), 193–212. Published 30 April 2007; full text available from Combinatorial Press.
-2. W. Gomaa, “Descriptive Complexity of Finite Abelian Groups,” *International Journal of Algebra and Computation* 20(8) (2010), 1087–1116. DOI: 10.1142/S0218196710006047.
+Brown and Hoshino, *The Ehrenfeucht–Fraïssé Game for Paths and Cycles*, Ars Combinatoria 83 (2007), 193–212, give the undirected classification. The contribution here is the all-rank matching partition for binary relational successor, which does not follow from definability of the undirected reduct alone. An indexed five-round classification of directed successor cycles (record 9d45823d322e) computes the same thresholds through rank five, and gives a sufficient bound of \(2^q\) rather than the sharp directed cutoff at general ranks. The comparison makes no claim of publication priority or of a classification for a language with successor as a function.

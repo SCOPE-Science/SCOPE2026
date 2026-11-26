@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(D_k=\binom{k+d-1}{d-1}\) and \(b_k=D_{k+1}u_k^2\), the grade \(k\) coefficient of the summed self-commutator is exactly \((b_k-b_{k-1})/D_k\), so positivity and the defect trace are immediate from telescoping. Coordinate squared singular values are the exact squared weights. The sharp strong-ideal threshold follows by uniform moments of simplex coordinates; the weak endpoint follows from a sharp shell-count lower bound and grade upper bound. In the finite-trace case a bounded-region lattice-volume argument gives the beta-moment counting constant and thus the residue. The finite exact-arithmetic verifier reproduces local formulas and sample scaled counts; infinite conclusions are proved analytically. All domain, zero-tuple and exponent boundary cases are identified.
+PASS
 
-## Originality — PASS, subject to bibliographic uncertainty
+The shift sends different basis vectors to orthogonal vectors, so the coordinate singular weights are u_k√[(α_j+1)/(k+1)]. The outgoing minus incoming squared sum is ((k+d)/(k+1))u_k²−u_(k−1)², with no incoming term at 0; multiplying by D_k gives exactly b_k−b_(k−1). Positivity and the trace identity follow by telescoping. The mean of the factor (α_j+1)/(k+1) is at least 1/d, so uniformly in degree a positive fraction exceeds 1/(2d), giving the p-summability test for every p>0. A nonzero monotone b_k is eventually bounded below, forcing divergence at and below q_d. If b_k is bounded, the degree cutoff yields O(t^(−q_d)) weights above t. If it diverges, the degrees from K/2 to K contribute order K^d weights of size at least a constant times √b_floor(K/2) K^(-(d−1)/2), violating the weak bound (noncompact coordinates already fail it). For finite positive b, scale the multiindices by L=[b(d−1)!/t²]^(1/(d−1)). Outside a bounded radial simplex there are no weights above t, and a neighborhood h<ε of the origin contributes O(ε^d L^d) lattice points. Away from it the limiting indicator is x_j>h^d with h=Σx_i; its boundary has measure zero. The volume is E[V^(d/(d−1))]/d! with V~Beta(1,d−1). Multiplying by t^q_d L^d recovers the claimed C_(d,b), including the d=2 and d=3 constants. Monotone inversion and harmonic summation give the residue. The zero tuple obeys the equivalence but is excluded from the positive constant law as stipulated.
 
-The closest published explicit rank-one construction for compact sum-hyponormal spherical shifts corresponds to the constant sequence \(b_k=d\); its existence is already known. The new finding makes no originality claim for that example. Chavan–Yakubovich (2014/2015, Theorem 4.2) concern Schatten membership of **commutators** of spherical shifts, a different ideal question. Kim–Kim–Yoon (2020/2022, Theorem 2.3) give positivity criteria without coordinate spectral asymptotics. Chavan–Reza–Sequeira (2026, Theorem 2.2 and Remark 4.2) give qualitative structure and restrictions on trace-class coordinate operators. None of the inspected results asserts the all-profile trace–weak-ideal equivalence or the exact coordinate Weyl coefficient here. Residual risk: an unstated consequence of a more general theorem or unindexed literature could affect novelty; this review is not independent certification.
+## originality
 
-## Value — PASS
+PASS
 
-A positive sum of self-commutators can coexist with compact, non-normal coordinate shifts. Finite defect trace becomes an exact weak-Schatten endpoint and determines a universal spectral residue, rather than merely a qualitative compactness criterion. The uniform result across all nondecreasing radial profiles and its exact critical exponent are natural invariants for this operator family. It neither claims a classification of all commuting tuples nor treats a routine finite matrix identity as the principal contribution.
+The distinct claim is the positive-defect trace/weak-coordinate endpoint equivalence for all monotone radial profiles together with the exact trace-dependent coordinate counting law and logarithmic residue. A known rank-one example supplies one profile, and general structure and Schatten estimates for commutators are prior context. Neither yields the all-profile converse or provides the exact coordinate coefficient in the checked statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This radial model provides a natural test for what sum-hyponormality controls. Its endpoint classifies a coordinate weak ideal by an invariant of the tuple, and sharply separates finite and infinite positive defect trace even when all coordinates are compact. Recovering the entire leading singular-value scale and log residue from the total trace, independent of the defect's grade distribution, is quantitative information beyond the known existence example or strong-ideal obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

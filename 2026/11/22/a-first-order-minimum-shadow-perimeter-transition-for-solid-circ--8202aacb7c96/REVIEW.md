@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The precise assertion is the existence of a unique **height threshold** distinguishing global side-on and oblique projected-perimeter minimizers of a single-apex circular cone, **without** claiming uniqueness of every oblique optimum. The convex support of a projected disk and a point gives an exact piecewise complete/incomplete elliptic-integral expression. For each fixed positive viewing cosine, the perimeter difference relative to side-on decreases strictly in the cone height and crosses zero exactly once. An explicit derivative comparison proves strict side-on optimality for heights up to the radius. The complete-elliptic boundary expansion gives a strictly positive \(c^2\log(1/c)\) local penalty for every fixed height; compactness shows the minimax threshold is attained away from side-on, and elementary endpoint comparisons place it strictly below the axial tie height. These steps prove an abrupt rather than continuous optimizer switch.
+PASS
 
-The standalone checker independently forms the convex hull of projected rim vertices and the apex, compares the geometric perimeter with the elliptic formula, checks derivative identities and numerical examples, and passed 738 diagnostics. The numerical root \(h_*\approx1.6014993045\) is explicitly *not* an interval-certified theorem. The exact threshold is the stated minimax of unique crossings; no universal finite mesh is used as proof.
+Re-derived the projected ellipse (semiaxes 1,c) and on-minor-axis projected apex hs, and integrated their maximum support function with no factor-of-two ambiguity. In the active interval (α,π−α), cot α=z=√(h²−(1+h²)c²) and s cos α=z/√(1+h²). Moving-boundary terms cancel, giving ∂hP=2z/√(1+h²) and, after division by 2c, the stated J+J₀−B for the c derivative. The h derivative is strictly below the side-on derivative for every c>0, including at activation, so the continuous positive-at-zero difference crosses strictly once and tends to −∞ for fixed c>0 by P≤4E+2hs. In the short-cone argument the derivative of B² as a function of x=c² has sign h²−1−(1+h²)x, so B≤1/√2<π/4≤J for 0<h≤1. NIST DLMF 19.12.2 with complementary modulus k′=c gives the stated expansion; the analytic incomplete-arc correction is uniformly O(c²) on compact positive height intervals. Therefore h_c tends to ∞ at c=0 (use positivity at each fixed large height and the strict crossing), and a continuous crossing family attains its minimum; 1 cannot be the minimizer in c since a nearby inactive ellipse beats the axial tie at h₁. Attainment in the interior then gives the strict height bounds, and the uniform side-on penalty rules out oblique winners near c=0 at the switch. Axial views are excluded at all positive heights by the inactive ellipse comparison. A separate 35-digit support-quadrature calculation obtained the stationary tie c≈0.795726767064798, h≈1.601499304498265; it is not a global or interval certificate. Packaged checker inspected but not executed; the result does not assert uniqueness of the oblique latitude or a certified decimal.
 
-## Originality (PASS, best knowledge with residual priority risk)
+## originality
 
-The 2001 paper by Vickers and Brown studies random projected area/perimeter of convex solids, but its relevant right-cone formula and appendix concern **projected area** and not the strict global shadow-**perimeter** minimizer transition. Finch's arXiv:1212.5946v1 (2012-12-24) discusses **three-dimensional surface area and mean width**, not optimization of projected planar perimeter by a viewing latitude. The published published-finding corpus bicone shadow-perimeter result `0f13e384bdf1` concerns a *two-apex symmetric bicone* and a **continuous** direction bifurcation. The same-cone published published-finding corpus result `19c34891a8b8` concerns the **maximal projected area**, not its minimum planar perimeter. The statements, support functions, and extremized functionals differ, so none of the inspected claims implies this one. Exact-or-alias and broader-coverage searches found no decisive domination. An equivalent obscure historical result cannot be excluded by database search alone.
+PASS
 
-## Mathematical value (PASS)
+Best-of-knowledge pass for the global directional perimeter phase switch paired with local side-on persistence. The support integral and the elliptic singular expansion are classical ingredients; neither is itself novel. Same-cone projection literature is relevant and public full-text access to Vickers–Brown was not obtained independently, as detailed below.
 
-Minimum silhouette boundary length is a natural geometric invariant for a canonical body of revolution. The single-apex cone displays a sharp first-order optimizer transition while the side-on direction remains strictly locally stable at *every* height, unlike its nearby symmetric-bicone analogue. The logarithmic local penalty explains why the change cannot arise by an infinitesimal tilt. This distinction is geometric, structural and not merely a substitution into an existing perimeter formula.
+## value
 
-## Scope and outstanding limits
+PASS
 
-Only solid right circular single-apex cones, orthographic planar perimeters, and Euclidean normal directions are covered. The exact minimax theorem does not establish the number of all oblique stationary or minimizing latitudes; its decimal threshold has no independent interval certificate. Relevant historical sources outside the directly examined portions may contain older equivalent statements. No independent mathematical audit has been performed.
+Minimizing the perimeter of an orthogonal silhouette is natural for a canonical convex body. The global jump with strict local persistence on the losing side is stronger than a one-view ellipse formula or a numerical aspect-ratio estimate; the normalized logarithmic barrier explains the qualitative difference from the bicone. The theorem remains useful without a count of oblique minima.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

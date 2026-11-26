@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:15:55.539210Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Scaling reduces to width one. For an odd regular n-gon, the maximally separated vertices subtend π−π/n, so its circumradius is R=1/(2 cos b), b=π/(2n). The unit circular arc opposite each vertex is centered there, with half-angle b. The arc flux is 1−R cos u and the squared radius factor is R²+1−2R cos u. The Green integrals, with factors n/2 and n/4 respectively, give the stated A and I by elementary integration. Rotational symmetry forces L²=I/(2A²), so 4πL²=H(b). In `python3 /workspace/checks/independent_01_05.py` (check 5) I independently differentiated H and checked D³H′=b²P, obtained x_8 from formal division of sine by cosine, recomputed the degree-42 rational polynomial and its exact negative-tail bound, and recovered the H series. On 0<b≤π/6 convexity of tangent gives 1≤x≤2√3/π<7/6 and 0<z=b²<1/3. The tangent ODE inductively bounds a_k≤2^(−k); hence 1≤x_8≤x and x−x_8≤(3/1280)z⁹. Termwise differentiation bounds |P_x| by (13+22M)+(16+8M+48M²+4M³)/3+(48M²+24M³+5M⁴)/9<90 at M=7/6. The coefficient and tangent-tail losses are <1/1000 and <1/100 respectively after division by z², against the leading 64/45. Thus H′>0 on the stated continuum, and H(0)=1 gives strict comparison to the disk. The n^(−4) coefficient is π³/180 and n^(−4)−(n+2)^(−4)=8n^(−5)+O(n^(−6)), proving the gap and exact identification at any width. The frozen PASS is recorded, not rerun; the exact replay and analytic bounds do not infer an infinite statement from sampled orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen–Chen–Jin publisher metadata and frozen recorded abstract comparison identify fixed-order circumradius minimization. The circular-rounding catalogue result uses a regular polygon plus a disk. Assigned record 1 gives strict monotonicity in center radius at fixed n."
+        ],
+        "reasoning": "Circumradius optimization at fixed n and outer rounding do not give cross-order isotropic comparisons. The fixed-n array result can supply the radius-change part of a two-parameter comparison, but its theorem makes no comparison when n changes.",
+        "searches": [
+          "DOI:10.1007/s00022-023-00667-5: Reuleaux fixed-width extremal geometry",
+          "Resultary: circular rounding and regular arrays of intersecting disks"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and AUDIT.json of record 5",
+        "43279757dfc9",
+        "c91a8132dd83",
+        "b0c48ac08665 (direct frozen text)",
+        "e09883060ca0 (catalogue comparison)",
+        "DOI:10.1007/s00022-023-00667-5",
+        "Razumov et al. (recorded order-three comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact formula is analytic at b=0 after cancelling powers of b; it yields the adjacent-gap law by expansion and eventually gives a positive gap. The recorded prior limitations explicitly disclaim all-order monotonicity. Record 1 varies a at fixed n, whereas Reuleaux changes a=1/(2 cos b) and sector width α=2b together."
+        ],
+        "reasoning": "The leading asymptotic does not control all small odd orders. An extension of record 1's proof idea does: unfold a sector to u∈[0,1] and put t=cos(αu); at fixed a>0 the angle score ∂α log q=2au sin(αu)/d_a(t) and q both increase strictly in u for 0<α≤π/3, so its tilted covariance is positive. Combining this additional angle comparison with the radius comparison orders the Reuleaux diagonal. This is an extra inequality, not an implication of the stated fixed-n theorem alone, and no priority is inferred from same-day indexing.",
+        "searches": [
+          "Compare 43279757dfc9 formula, prior defect and recorded limitations against RESULT.md §§2–4",
+          "Compare b0c48ac08665 fixed-order theorem against the Reuleaux diagonal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "43279757dfc9 is the exact same family with the same normalized individual formulas. c91a8132dd83 uses two chord moments for identification. The identical 015afdcf4653 record is excluded as self-match."
+        ],
+        "reasoning": "Ordering L², L⁴, and normalized centroidal polar moment I/A² are equivalent here. Ordering chord moments is not: the invariant and sampling law differ. The known analytic I/A² formula poses the very derivative sign question solved here, rather than stating it.",
+        "searches": [
+          "Resultary: regular Reuleaux odd-gon polar moment, isotropic constant, strict cross-order comparison and identification",
+          "External lookup for Reuleaux polygon isotropic constant and inertia ordering across odd orders (unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue formula and frozen recorded equations (1)–(6) of the earlier note give static A, I and L² for n≥5 and the quartic defect. The frozen source notes credit a separate order-three calculation."
+        ],
+        "reasoning": "Static moments and the leading defect are already covered. The evidence available for the exact formula does not supply a proved inequality among every adjacent pair. The new result is not a recomputation of the table or a numerical census.",
+        "searches": [
+          "Resultary: 43279757dfc9 regular Reuleaux exact area and polar moment",
+          "Classical mechanical polar moment of the Reuleaux triangle, Razumov et al. (recorded source lead)"
+        ]
+      },
+      "rationale": "The supported distinct content is strict all-order monotonicity, proved by a continuum comparison. The individual formulas and quartic disk defect are prior-covered; the leading adjacent-gap law follows from the prior defect with its remainder (or the analytic formula), and is not credited as a second independent originality claim.",
+      "residual_risks": [
+        "The strongest prior exact formula was compared via its catalogue summary and labelled frozen passage evidence; fresh original-text retrieval and the external literature lookup were unavailable.",
+        "An earlier unindexed analytic inequality for the same formula or a broader theorem that compares both sector width and center radius could subsume the ordering; current evidence does not establish that."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage: individual formula and quartic defect, not a verified all-order inequality",
+          "evidence": [
+            "The frozen inspection records that the earlier note does not claim monotonicity among odd orders."
+          ],
+          "identifier_or_url": "43279757dfc9",
+          "material_read": "Local catalogue theorem summary and frozen AUDIT.json recorded equations (1)–(6) and Limitations; fresh original mirror retrieval timed out",
+          "method": "Local catalogue, labelled recorded statement evidence, attempted original-text retrieval",
+          "title": "Polar moment and isotropic constant of regular Reuleaux odd-gons",
+          "trigger": "Exact same geometry, measure, moment and invariant"
+        },
+        {
+          "assessment": "Fixed-order result and a different functional in the available statement",
+          "evidence": [
+            "Regular Reuleaux polygons minimize circumradius at fixed order and width in the recorded abstract, rather than ordering L² across orders."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00022-023-00667-5",
+          "material_read": "Publisher metadata and frozen recorded abstract comparison, not subscription full text",
+          "method": "Bibliographic check and labelled abstract evidence",
+          "title": "The circumradius of planar reduced convex bodies",
+          "trigger": "Regular Reuleaux extremal theorem for fixed width"
+        },
+        {
+          "assessment": "Same invariant; does not itself order the diagonal",
+          "evidence": [
+            "The statement fixes n and varies a; an independent sector-width monotonicity is needed to combine the comparisons."
+          ],
+          "identifier_or_url": "b0c48ac08665",
+          "material_read": "Frozen source Finding, Assumptions and proof §§1–3",
+          "method": "Direct reading of assigned record 1",
+          "title": "Strict isotropic-constant growth for intersections of regular arrays of disks",
+          "trigger": "Same invariant and a family containing the Reuleaux slice"
+        },
+        {
+          "assessment": "Related identification result based on a distinct invariant",
+          "evidence": [
+            "The available result is about two chord moments, not the area-uniform covariance determinant."
+          ],
+          "identifier_or_url": "c91a8132dd83",
+          "material_read": "Local catalogue theorem summary only",
+          "method": "Local published-record search",
+          "title": "Two chord moments identify every regular Reuleaux odd-gon",
+          "trigger": "Same identification question at every order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-order strict comparison classifies a canonical constant-width family by a single affine invariant and makes exact order identification independent of width. The small gaps quantify why identification near the disk is sensitive. The continuum sign resolves the low and intermediate orders which the known asymptotic alone cannot settle; no optimization over irregular shapes is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

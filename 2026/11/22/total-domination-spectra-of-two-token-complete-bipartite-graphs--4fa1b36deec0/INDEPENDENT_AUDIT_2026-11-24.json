@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:08:56.946727Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the token bipartition a selected cross pair covers exactly the same-shore pairs meeting its row or column. Domination of those same-shore vertices is equivalent to at most one empty row and at most one empty column. A selected same-shore pair covers cross pairs through one of its endpoints; the uncovered cross pairs are the Cartesian product of the two sets of uncovered shore vertices. Thus one shore must be completely edge-covered. Both constraints are independent including for selected vertices. Inclusion-exclusion first on occupied rows and columns, then on uncovered vertices within the two shore-edge families (subtracting the overlap of full covers), gives T=XY. For minimal sets, both independent choices must be deletion-minimal. A minimal same-shore choice is a pure shore edge cover with a leaf endpoint on every selected edge, exactly a spanning star forest; counting labelled components gives J, with K_2 counted once. With exactly one empty row and column, the cross choices have the same leaf condition and their labelled bipartite components give Phi. With no empty row or column no single edge is essential. In the asymmetric case every used vertex in the shore with an isolate has degree one, so the remaining t-1 columns map onto all r rows, giving the Stirling term, or the opposite impossible surjection from r-1 onto t. The extremes follow from at least t-1 cross cells and ceil(r/2) same-shore edges at the minimum, and the least number of spanning star components at the maximum. In particular the star forest on (1,t-1) can be one component; on (r-1,t-1) with r>=3 there are at least two and two are attained by centers on opposite shores, each joined to all other opposite vertices. The minimum count follows by counting maps from the t-1 used columns onto r-1 or r rows and minimum edge covers (a matching, or one P_3 plus a matching), including ties of shore minima. Independent replay `python3 /workspace/replay/audit_checks.py 1` (output `/workspace/replay/1.txt`) constructs token neighbours by actual legal moves, exhausts all subsets for (2,2),(3,3),(3,4), and exhausts neighbourhood covers with private witnesses on both token bipartition classes for (4,4). It checks the displayed small minimal coefficients and the full all-set coefficients at the first three pairs, not the unbounded theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source includes biclique hosts but treats ordinary domination. The second treats total domination on Johnson graphs, including J(n,2)=F_2(K_n). Record 71bde44b01fe classifies minimal sets for that complete host by P_3 unions and short-legged spiders."
+        ],
+        "reasoning": "Neither scope subsumes the open-neighbourhood problem here. In a complete host the shore pair versus cross pair bipartition does not exist and the star and surjection conditions do not follow by replacing the order parameter.",
+        "searches": [
+          "arXiv:2611.15124 ordinary domination on graphs of domination number two",
+          "arXiv:2610.04675 total domination in Johnson graphs",
+          "Resultary minimal total domination, triangular graphs, spanning forests, record 71bde44b01fe"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.31557, 2610.28936, 2611.15124, 2610.04675",
+        "Resultary 51eec929be14, 71bde44b01fe, 05740f1065c4, 007471c3c854, and same-family independent-domination analogues 1748ee050eeb and 31b42f397fa2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior ordinary scalar formulas and state decomposition do not decide the open-neighbour coverage of the selected set. The triangular-graph upper total domination formula belongs to a different host family and minimality classification."
+        ],
+        "reasoning": "Bipartite factorization for general open-neighbour coverage is elementary. The target scope and exact factors additionally require showing when one or both empty-shore allowances are saturated and identifying the asymmetric surjection configurations. No inspected stronger result supplies these factors.",
+        "searches": [
+          "arXiv:2610.31557 Lemma 2.2 and ordinary scalar result versus frozen proof §§1–4",
+          "Resultary 71bde44b01fe upper total domination and forest classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior ordinary domination characterization is on the exact token graph, but coverage of selected vertices by neighbours is not required there. The same-family Resultary record 51eec929be14 gives the ordinary polynomial on F_2(K_{2,n}), not its open-neighbourhood counterpart."
+        ],
+        "reasoning": "Open and closed neighbourhood conditions cannot be interchanged: at (3,3), ordinary domination has minimum 3 while total domination has minimum 4. Counts by cardinality of ordinary dominating sets do not supply the private open-neighbour witness tests.",
+        "searches": [
+          "Resultary: two-token complete bipartite graph total domination polynomial and minimal open-neighbourhood coverage",
+          "arXiv:2610.31557 Lemma 2.2; arXiv:2610.28936 Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table reports ordinary domination (including 3 at (3,3)). The indexed alternatives count ordinary domination on a biclique subfamily, total domination in a vertex-deleted Johnson graph, or total dominating identifying codes on two different graphs."
+        ],
+        "reasoning": "These are not tables of distinct labelled total or inclusion-minimal total dominating sets on the stated hosts. No matching non-self table was identified in the inspected results.",
+        "searches": [
+          "arXiv:2610.31557 Table 1 p. 12",
+          "Resultary: exact domination polynomial, minimum total domination and minimal sets for F_2(K_{r,t}); hits 51eec929be14, 05740f1065c4, 007471c3c854"
+        ]
+      },
+      "rationale": "The common token-state decomposition and standard tools are not new. The supported contribution is the exact open-neighbourhood census, in particular the complete minimal-set classification and its enumerator and upper extreme, for all two-token bicliques; the strongest inspected same-object results use ordinary domination and the strongest same-invariant results use other hosts.",
+      "residual_risks": [
+        "Bounded literature and Resultary checks cannot exclude an unindexed census under open-neighbourhood covering or star-forest terminology. The exact self-match is not independently prior evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph and helpful bipartition; not the studied total-domination enumeration.",
+          "evidence": [
+            "Table 1 distinguishes the invariants at K_{3,3}; Lemma 2.2 covers the closed-neighbour problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.31557",
+          "material_read": "p. 2 ordinary result and exceptions, pp. 3–4 Lemma 2.2, p. 12 Table 1; OA offsets about 6000, 11852, 39700",
+          "method": "Bounded passages of original OA PDF",
+          "title": "The domination number of the 2-token graph of the complete bipartite graph",
+          "trigger": "Exact host family and complete dominating-set characterization"
+        },
+        {
+          "assessment": "Ordinary scalar domination result, not the claimed total-domination counts.",
+          "evidence": [
+            "The theorem states ordinary gamma on the token graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.28936",
+          "material_read": "Theorem 1.1, p. 1, OA offset 1180",
+          "method": "Bounded original OA PDF passage",
+          "title": "The domination number of the k-token graph of the complete bipartite graph",
+          "trigger": "Exact host family and stronger token parameter"
+        },
+        {
+          "assessment": "Claims about ordinary domination in the passages checked.",
+          "evidence": [
+            "The complete-bipartite cases are stated using ordinary gamma."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15124",
+          "material_read": "pp. 1–3, OA offsets 2613, 7300, 10379",
+          "method": "Bounded original OA PDF passages",
+          "title": "Domination in token graphs of graphs with domination number two",
+          "trigger": "Broader family containing the biclique host"
+        },
+        {
+          "assessment": "Same invariant, but not complete-bipartite hosts.",
+          "evidence": [
+            "States gamma_t(J(n,2))=ceil(2(n-1)/3) for n>=4."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.04675",
+          "material_read": "Abstract p. 1, offset about 1000",
+          "method": "Original OA PDF passage",
+          "title": "Domination and total domination in Johnson graphs",
+          "trigger": "Total domination on an adjacent two-token graph family"
+        },
+        {
+          "assessment": "Complete hosts rather than bicliques; different component classification.",
+          "evidence": [
+            "Gives P_3 and short-legged-spider structure and Gamma_t=max(2,n-2) for the triangular graph."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-minimal-total-domination-in-triangular-graphs-short-legged-spide--71bde44b01fe",
+          "material_read": "RESULT.md Finding on minimal total sets and upper number",
+          "method": "Resultary lookup and bounded local mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Minimal total domination in triangular graphs: short-legged spiders and related enumerations",
+          "trigger": "Strongest distinct exact minimal-total-domination and upper-extreme analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete bipartite hosts are a natural benchmark for token domination; the distinct open-neighbourhood problem is not resolved by ordinary domination even at the optimal cardinality in all parameters. Full labelled enumerators and a uniform minimality structure distinguish minimum, upper, and the intervening sizes. The two asymmetric coverage regimes and their impact on the upper extreme make this more than a restatement of textbook bipartite factorization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

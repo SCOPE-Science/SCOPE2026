@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:48:40.470685Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four counting-ball families have sizes 4,3,3,4. On the nonnegative cone every affine segment of the coordinatewise maximum has a derivative given by one of the 144 row selectors, including segments with persistent ties (tied affine forms along the segment have the same slope). Each selector preserves constants, so its edge-space matrix H acts on the three unconstrained edge coordinates; the step representatives are a right inverse of the edge difference. I independently enumerated all 144 selectors and checked the coefficients of det(tI+216I-144 H^T H) over the rationals: all were nonnegative, with leading coefficient 1. Hence that polynomial has no positive root and symmetry gives 216I-144 H^T H positive semidefinite. The defect is singular only for masks (0,2,2,0) and (3,0,0,3). Integrating edge derivatives gives the stated bound for all pairs, including constant differences. For the frozen positive rational witness, independently evaluated ball averages strictly select (0,2,2,0) at both ends; their output difference is (3,3/2,3/2,0)/100, giving squared ratio 3/2. Replay: python3 /workspace/checks/frozen_exact.py 1. The submitted checker was read, not run. The result does not cover a signed absolute-value-input map or other graph sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "González-Riquelme–Kovač–Madrid, PDF p. 1 abstract and (1.1), describes sharp one-input p-variation on complete graphs and a one-input first-variation census through five vertices.",
+          "Liu–Lian–Wang, PDF p. 1 abstract and displayed suprema, uses a single input, studying ordinary/fractional and centered/uncentered variants.",
+          "Lu–Zhao's introduction concerns one-input graph constants and oscillation, with stars for the sharp edge-p formula."
+        ],
+        "reasoning": "The broader graph settings do not cure the different quantifiers. Restriction of a one-input bound to P4 gives only a bound against a constant reference, not a uniform derivative bound over arbitrary baselines.",
+        "searches": [
+          "arXiv:2603.12462v1",
+          "arXiv:2611.24180v1",
+          "arXiv:2611.15377v1",
+          "arXiv:2005.03146v3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search",
+        "SCOPE-20261122-867a1e664c41",
+        "SCOPE-20261122-909cfd4583c5",
+        "arXiv:2603.12462v1",
+        "arXiv:2611.15377v1",
+        "arXiv:2611.24180v1",
+        "arXiv:2005.03146v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-graph papers' displayed inequalities measure Var_p(Mf) or ordinary vector norms, not Var_2(Mf-Mg).",
+          "The adjacent-l1 P4 record needs the exclusion of an inadmissible selector of l1 norm 2; that selector is within the target spectral bound, and a different selector supplies the quadratic witness."
+        ],
+        "reasoning": "Substituting f−g would require the false identity M(f)−M(g)=M(f−g). Even a bound obtained from l1 by norm comparison would not establish the sharp spectral value or its attaining direction.",
+        "searches": [
+          "arXiv:2611.24180v1",
+          "arXiv:2005.03146v3",
+          "SCOPE-20261122-867a1e664c41"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local P4 adjacent-variation record, RESULT.md lines 5–19, is an l1 edge-space Lipschitz estimate with exact factor 11/6.",
+          "Lu–Zhao, PDF introduction p. 1, writes Var_p(M_G f) ≤ C_G,p Var_p(f) for a single f."
+        ],
+        "reasoning": "On the constant quotient the present constant is the supremum of active selector spectral norms. An l1 induced norm or a one-input Rayleigh-type quotient for M is not that norm. Norm equivalence does not preserve the sharp constants.",
+        "searches": [
+          "Resultary: centered maximal P4 pairwise quadratic edge variation",
+          "SCOPE-20261122-867a1e664c41",
+          "arXiv:2611.24180v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this finding itself as the exact match; the distinct P4 item is for l1 and the nearby quadratic C4 hit is for one input on a cycle.",
+          "The 2603.12462 abstract explicitly describes the finite census as sharp 1-variation, not a table of two-input edge-Hilbert coefficients."
+        ],
+        "reasoning": "No distinct checked table provides the required spectral quotient on the four-point open path. The distinction rests on the respective statements, not on nonmatching numbers alone.",
+        "searches": [
+          "Resultary: exact two-input centered maximal quadratic P4",
+          "SCOPE-20261122-743976f5abad",
+          "SCOPE-20261122-867a1e664c41",
+          "arXiv:2603.12462v1"
+        ]
+      },
+      "rationale": "The checked evidence supports the distinct exact two-input edge-Hilbert coefficient on this particular centered path operator. The identical indexed record is not separate coverage. The near matches change the norm, the graph, or a difference of nonlinear outputs to a single output. This is a qualified assessment, not a priority guarantee.",
+      "residual_risks": [
+        "The decisive visible primary statements were compared, but targeted full-text retrieval timed out and further sections were not independently inspected.",
+        "The neighboring C4 quadratic record was assessed at catalogue-summary level. Unindexed exact P4 pairwise work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The identified small-graph and complete-graph results concern one input; no whole-document exclusion is asserted.",
+          "evidence": [
+            "p. 1 abstract distinguishes complete-graph p-variation from first-variation census through five vertices; (1.1) compares Var(Mf) and Var(f)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.12462v1",
+          "material_read": "Original PDF text preview, p. 1 abstract and introduction through (1.1)",
+          "method": "Open-access original PDF preview; targeted fuller reader timed out",
+          "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+          "trigger": "Small-graph maximal variation census"
+        },
+        {
+          "assessment": "The stated general program and sharp-star claims are one-input.",
+          "evidence": [
+            "p. 1 introduction: smallest C_G,p for Var_p(M_G f) ≤ C_G,p Var_p(f), each undirected edge counted once."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.24180v1",
+          "material_read": "Original PDF text preview, p. 1 abstract and introduction including displayed defining inequality",
+          "method": "Open-access original PDF preview",
+          "title": "Variational Estimates for the Hardy–Littlewood Maximal Operator on Finite Graphs",
+          "trigger": "Same edge variation and centered operator, plausible general theorem"
+        },
+        {
+          "assessment": "The displayed variation optimization has the wrong input quantifier to cover the finding.",
+          "evidence": [
+            "p. 1 supremum of Var_q(M_alpha,G f)/Var_p(f); sharp star and complete-graph claims as described in the abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.15377v1",
+          "material_read": "Original PDF text preview, p. 1 abstract and displayed normalized variation constant",
+          "method": "Open-access original PDF preview",
+          "title": "Sharp Lp and variation inequalities for maximal operators on finite connected graphs",
+          "trigger": "Sharp graph centered maximal variation for multiple exponents"
+        },
+        {
+          "assessment": "Same two-input object, but l1 variation has a different sharp constant and extremizing mechanism.",
+          "evidence": [
+            "Equation in lines 10–15 and exceptional selector in lines 40–50."
+          ],
+          "identifier_or_url": "SCOPE-20261122-867a1e664c41",
+          "material_read": "Local frozen RESULT.md lines 5–19, 32–62",
+          "method": "Statement and selector proof comparison using authoritative local copy",
+          "title": "Sharp two-input variation sensitivity of centered maximal averaging on a four-vertex path",
+          "trigger": "Same graph and same pairwise centered maximal map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quadratic edge variation is the natural square root of the graph Dirichlet energy. An explicit strictly positive expansion example and a sharp coefficient on the first open path not a star give a usable benchmark for graph-maximal perturbation bounds in that geometry. The extremizing active selector exposes a norm-dependent mechanism distinct from the adjacent-l1 result on the same path. No path-family conclusion or equality classification is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

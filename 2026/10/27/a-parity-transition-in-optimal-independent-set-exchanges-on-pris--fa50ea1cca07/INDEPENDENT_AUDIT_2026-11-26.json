@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:33:40.298172Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 5–17 and 19–37. A rung holds at most one token and consecutive occupied columns alternate. Full occupancy closes for even n only, yielding two disjoint checkerboards. With one vacancy, the remaining occupied path has n−1 vertices. In the odd case its endpoints have opposite layers, so the only allowed exchanges fill the vacancy from one neighboring column; the moved token keeps its layer. In-place flips are impossible because each occupied column has an occupied neighbor, including n=3. A full clockwise vacancy circuit shifts the alternating word on the even-length occupied path by one cyclic position and exchanges its two phases; the exchange graph is one C_(2n). In the even case the two exposed layers agree and force a unique extension to a checkerboard. Deletions from each checkerboard form K_n and there are no edges across the two families. At two vacancies the adjacent pairs contribute 2n, and nonadjacent pairs contribute 4 times (binomial(n,2)−n), giving 2n(n−2). A vacancy can move toward the other until adjacent by filling opposite to the remaining occupied neighbor. For odd n the adjacent-vacancy states extend to maxima whose deletion cliques overlap around the maximum exchange cycle. For even n they lie in two connected Johnson graphs, and shifting an occupied block one column from its vacant end in decreasing order preserves legal layers (the already shifted neighbor has opposite layer) and changes the checkerboard class. This also works for the shortest even prism n=4. Both bundled checkers and captures were inspected, not executed; a fresh explicit vertex/edge and deletion/insertion enumeration for n=3 through 8 passed all three levels, replay via python3 /workspace/branches/independent_discrete_checks.py. The symbolic arguments establish all n≥3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ito et al. prove complexity results on general input graphs allowing an intermediate cardinality threshold, not an exact prism-level exchange graph.",
+          "The two-slack record studies powers C_L^r with r≥2, not the cubic Cartesian prism family; the Möbius-ladder record uses a twisted closure."
+        ],
+        "reasoning": "The general reachability setting is not a theorem about this family's graph of configurations. In the two closest structural analogues the underlying graph hypotheses change, so the exact parity and near-optimal statements do not specialize to prisms.",
+        "searches": [
+          "Ito et al. 2008 and 2011, independent-set reconfiguration complexity statements",
+          "Resultary powers-of-cycles surplus/reconfiguration record 1f4d3c505b47; ladder/Möbius structural searches"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic ladder/prism/stable-set and token-jump comparisons: 5713d863fdac, 455fb6108e6f, 619736a433f3, 1f4d3c505b47",
+        "Ito et al. 2008/2011 OA independent-set reconfiguration passages",
+        "Avis–Hoang arXiv:2203.16861 introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Möbius-ladder claim has the complementary parity split for maxima (odd parameter 2K_1, even parameter C_(2n)); it neither applies to the untwisted prism nor resolves the two-vacancy level.",
+          "For the even prism, bridging checkerboard classes with two vacancies requires explicit legal exchanges, which do not follow from the independent-set census or Ito's complexity statements."
+        ],
+        "reasoning": "No inspected dominating theorem yields the joint result by parameter substitution; the connectedness path and exact structural classifications are distinct from merely counting or knowing a sliding theorem.",
+        "searches": [
+          "Resultary Möbius maximum exchange 455fb6108e6f, Finding offset 60; powers-of-cycles 1f4d3c505b47, Finding offset 55",
+          "Ito independent-set sections and Avis–Hoang opening TS/TJ comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimum independent domination uses the identical graph and jump notion but adds domination and optimizes a different size. At n=3,5 the minimum size 2 ceil(n/4) equals the independent maximum, so these families coincide; its conclusions give C_6 and C_10.",
+          "Avis–Hoang distinguishes token jumps from token slides; the latter additionally require the deleted and inserted vertices to be adjacent in the underlying graph."
+        ],
+        "reasoning": "The domination record gives real small-n coverage, but its minimum-cardinality states do not equal all maximum independent sets for odd n≥7, nor the blanket near-maximum level. Sliding edges are not token-jump edges as a relation.",
+        "searches": [
+          "Resultary: prism, circular ladder, C_n Cartesian K_2, maximum stable/independent sets, one-for-one exchange and token jumping",
+          "Resultary minimum independent-domination record 5713d863fdac, Finding and Assumptions offset 60",
+          "Avis–Hoang arXiv:2203.16861, opening definitions pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The domination record's exact C_6 and implied C_10 are covered cases. The odd-independent-set polynomial also identifies the two alternating size-n words for even n.",
+          "The latter counts configurations with an additional neighborhood parity condition, not all ordinary independent sets at n−2. A size count does not specify exchange adjacency."
+        ],
+        "reasoning": "Separate exact overlaps from restricted-family counts. Even a full ordinary independent-set polynomial would give cardinalities but not the cycle/clique identities or the two-vacancy connectivity.",
+        "searches": [
+          "Resultary: n−2 circular-ladder independent sets, 2n(n−2), two vacant rungs, maximum C_2n, near-maximum two cliques",
+          "Resultary ordinary versus odd independent-set polynomial 619736a433f3 and domination record 5713d863fdac"
+        ]
+      },
+      "rationale": "The supported distinct result is the joint fixed-cardinality token-jump classification for ordinary independent sets, including the sharp even-prism connectivity threshold at two vacancies. Several indexed results overlap on exact cases or analogues; neither those nor the inspected primary results establish the full exchange geometry. No credit is assigned for the independence-number parity by itself.",
+      "residual_risks": [
+        "Ordinary circular-ladder counts could have been tabulated separately; they are not the basis of the structural originality decision.",
+        "An equivalent stability or reconfiguration classification could occur in unindexed graph-specific literature. The actual comparisons are to bounded statements and passages, not whole-literature absence or first-publication claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap at n=3,5 odd optima; distinct family generally",
+          "evidence": "Minimum independent dominating sets have size 2 ceil(n/4); C_6 stated and n=5 count/degree/connectedness give C_10.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-minimum-independent-domination-reconfiguration-on-circular-ladde--5713d863fdac/RESULT.md",
+          "material_read": "Finding and Assumptions from offset 60",
+          "method": "Local mirror, bounded original passage",
+          "title": "Minimum independent-domination reconfiguration on circular ladders",
+          "trigger": "Same graph, jump model and possibly same near-full family"
+        },
+        {
+          "assessment": "Analogue on a twisted graph; no prism-family implication",
+          "evidence": "Möbius ladder has 2K_1 for its odd parameter, C_(2n) for its even parameter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-parity-frustrated-optimal-independent-set-exchanges-on-m-bius-la--455fb6108e6f/RESULT.md",
+          "material_read": "Finding from offset 60",
+          "method": "Local mirror, bounded original passage",
+          "title": "Parity-frustrated optimal independent-set exchanges on Möbius ladders",
+          "trigger": "Exact parity-dependent analogue of maximum exchanges"
+        },
+        {
+          "assessment": "Special-subfamily overlap; no ordinary two-vacancy census/connectivity there",
+          "evidence": "Same two alternating full configurations for even n, but with an additional odd-neighborhood condition throughout.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-odd-independent-set-polynomial-of-circular-ladders--619736a433f3/RESULT.md",
+          "material_read": "Finding and Assumptions from offset 50",
+          "method": "Local mirror, bounded original passage",
+          "title": "Odd independent-set polynomial of circular ladders",
+          "trigger": "Exact enumeration on the same graph"
+        },
+        {
+          "assessment": "Different graph hypotheses",
+          "evidence": "Maximum independent-set exchange graphs for powers C_L^r with r≥2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-two-slack-reconfiguration-transition-in-powers-of-cycles--1f4d3c505b47/RESULT.md",
+          "material_read": "Finding from offset 55",
+          "method": "Local mirror, bounded original passage",
+          "title": "A two-slack reconfiguration transition in powers of cycles",
+          "trigger": "Potential general exact transition covering cyclic geometries"
+        },
+        {
+          "assessment": "General complexity results with different cardinality condition; no implication from the inspected statements",
+          "evidence": "Intermediate independent sets may have size at least k−1 in the compared complexity result.",
+          "identifier_or_url": "https://erikdemaine.org/papers/NPReconfiguration_TCS/paper.pdf",
+          "material_read": "2011 p. 4 at offset 18500; 2008 original https://erikdemaine.org/papers/NPReconfiguration_ISAAC2008/paper.pdf p. 6 at offset 16900",
+          "method": "Author-hosted OA primary passages",
+          "title": "On the Complexity of Reconfiguration Problems (2008 and expanded 2011)",
+          "trigger": "Foundational independent-set reconfiguration setting"
+        },
+        {
+          "assessment": "Structural results are scoped to TS, not TJ",
+          "evidence": "The introduction defines both, then restricts the studied reconfiguration graphs to token-sliding edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+          "material_read": "pp. 1–2, OA offsets 4300 and 7900",
+          "method": "OA primary passages",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Closest cited structural reconfiguration graph paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural cubic graph family and a concrete sharp obstruction to reconfiguration at large independent-set cardinalities. Odd optima already form an exact single cycle; even optima and one-token deletions stay separated, with all two-vacancy states connected by explicit moves. The threshold plus exchange structure is useful beyond the standard independence number or a transfer-matrix count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

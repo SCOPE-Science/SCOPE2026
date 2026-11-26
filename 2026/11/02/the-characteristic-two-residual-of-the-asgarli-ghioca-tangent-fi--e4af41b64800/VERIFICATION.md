@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python verify_residual.py` with a Python 3 interpreter. Only the Python standard library is used. The script constructs the exact characteristic-two quotient by multivariate polynomial long division and checks the original product identity.
+## correctness
 
-It then enumerates rational curve points over \(\mathbb F_8,\mathbb F_{16},\mathbb F_{32}\), candidate singular supports over the corresponding geometric subfields \(\mathbb F_4,\mathbb F_8,\mathbb F_{16}\), and the distinct smooth tangency points on all three diagonal lines. It checks that no defining-field rational point is singular and that the computed counts match the theorem.
+PASS
 
-The script also verifies, in the polynomial ring \(\mathbb F_2[A,D,S]\), the exact identity
-\[
-A^4(D+S)^3+D^4(A+S)^3+S^4(A+D)^3
-=(A+D)(A+S)(D+S)(AD+AS+DS)^2.
-\]
-This identity guarantees the critical nonzero cubic coefficient along the unique quadratic tangent in the symbolic proof.
+Each diagonal divides by substitution. On X=Y away from the common vertex, transverse differentiation gives the square of (a^(t−1)+b^(t−1))/(a+b); the underlying roots are simple since t−1 is odd. At a root the transverse derivative of H is 1/(ab(a+b)), so contact is exactly two at a smooth point. At [1:1:1] the first nonzero local term of F is uv(u+v)=B, so H=1 there. Off B, Euler for the odd degree of F and its squared partials identify the singularities with ordered nonzero distinct F_t triples summing to 1 in the s=1 chart. Inclusion–exclusion gives t²−3t+3 minus 3(t−1)−2, namely (t−2)(t−4). To verify the cusp identity, put p=A+S and h=D+S: the square of the cubic along the tangent reduces to ph(p+h)(ph+S²)², and ph+S²=AD+AS+DS=1/(abs) is nonzero. The tangent-cone criterion follows by blowing up y²+cx³+terms of higher tangent order at c≠0: the strict transform has nonzero transverse derivative and meets the exceptional line at one smooth double point. The plane blowup genus defect is one. Finite singular support excludes repeated components and Bézout excludes distinct components because there is no multibranch point. Thus the plane genus formula gives t²−5t+7. On F_q points off B, the parity test cannot have just two nonzero entries among X,Y,Z,s (the sum-zero relation would force equality or two zeros among X,Y,Z). Counting the four-nonzero case as above gives (q−2)(q−4). The subfield intersection is F₂, giving no rational boundary contacts or rational cusps; subtracting from q(d−1)+1 gives q−7. The frozen verifier was inspected but not executed; its q=8,16,32 support and point checks would be finite only. The independent check is the algebra above, valid also at t=4, when the cusp set is empty.
 
-Expected output includes the checked rational-point counts 24, 168, 840; geometric candidate cusp counts 0, 24, 168; and three-line tangency counts 2, 6, 14.
+## originality
 
-Finite enumeration is a check only: the all-\(r\) assertions rest on the equations, inclusion–exclusion, local cusp argument, and Bézout supplied in `RESULT.md`. Independent external mathematical validation has not been performed.
+PASS
+
+The full equation and its three characteristic-two line factors are established prior work. The available strongest same-equation and nearby characteristic-two passages do not determine the degree-(q−4) quotient's all-r geometry. Pass for the residual family, not for the line-factor observation, tangent filling of the original curve, or historical priority.
+
+## value
+
+PASS
+
+The reducible binary specialization of a natural finite-field construction poses a specific residual-geometry question. The answer gives an infinite family of geometrically integral high-point plane curves with a complete cuspidal defect, a separate field of definition for geometric contacts and singularities, and entirely smooth defining-field rational points. This is a usable genus and point benchmark, not just a factorization or single-parameter computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

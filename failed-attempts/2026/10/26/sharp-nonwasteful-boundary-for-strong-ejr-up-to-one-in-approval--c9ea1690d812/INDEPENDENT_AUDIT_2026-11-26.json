@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:09:38.214879Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof establishes lexicographic sharpness (voters, then seats, then candidates), not the Finding's unqualified claim that the five-candidate count is sharp within nonwasteful outcomes. Four candidates suffice even with both strict-core stability and Pareto efficiency: take winners a,b,c, sole challenger x, and ballots ax, ax, ab, ac. Both x-supporters have utility 1 and their largest coalition has 3|T|/4=3/2<2, so ordinary EJR+ holds. All four full-coalition payments are 1/4+1/2=3/4, so the strict payment test fails. The final two voters are fully satisfied, and subsets of the first two cannot afford two seats; maintaining the last two utilities forces all winners. Thus global candidate minimality is false; if the finding is meant only at the minimum electorate, the mathematical boundary survives. The three-voter witness separately checks: its profile has utility (2,2,3); challenger e has two supporters with 3>8/3; the full-coalition payments are all 4/3. The fully satisfied voter and the two-seat budget of the remaining pair certify the strict core; Pareto dominance would need all five candidates. For n=2, the one-supporter full-coalition case contributes total k+1 by nonwastefulness, and the two-supporter case is protected by ordinary EJR+ after dividing by two. For n=3 and k≤3, the guaranteed score floor(ka/3)/3+1/a exceeds k/3 for each a=1,2,3, even permitting waste. At n=3 the first possible k is thus four and then m≥k+1. Replicating each of the three voters (two distinct ballots) scales the full-coalition payments and entitlements by 1/r, while the x-supporting share and maximum budgets are unchanged. The independent exact replay `python3 /workspace/review-evidence/independent_finite_checks.py 1` confirms both witnesses and replications r=1,2,3; the general conclusions use the analytical arguments, not that finite run.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct record proves n+m≥8 and actually proves n≤2 is impossible at arbitrary k under nonwastefulness, k≤2 is impossible for any electorate, and n=k=3 is impossible.",
+          "The bound F_i≥1/a+u_i/n for n=k=3 and the k≤2 argument in that record do not require nonwastefulness."
+        ],
+        "reasoning": "The aggregate n+m bound alone would not give the minimum electorate independent of k, but the other record explicitly proves that minimum's lower bound. Its proof also entails the frozen three-voter small-seat boundary under the weaker assumption.",
+        "searches": [
+          "Resultary: strong EJR+ up-to-one nonwasteful sharp boundary three voters four seats five candidates ordinary EJR+",
+          "A sharp eight-entity separation between approval EJR+ and payment-strong EJR+, RESULT.md, proofs of the seat and voter bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2302.01989v1",
+        "https://arxiv.org/html/2610.15516v1",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-eight-entity-separation-between-approval-ejr-and-payment--7ca677c2b8dc/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 4 establishes ordinary EJR+ plus core without strong EJR+ up-to-one at n=1000,m=30,k=20, not the lexicographic optimum.",
+          "The other Resultary record explicitly gives the optimal witness and supporting impossibilities. Strict core for that profile follows directly by checking the saturated voter and the remaining two seats; replication preserves those same comparisons and merely rescales the payment cutoff."
+        ],
+        "reasoning": "The large separation would not be enough to reject the small theorem. The exact distinct coverage and its proof are, and the additional profile properties do not require or supply a different mathematical mechanism. Dates on catalog paths do not decide priority.",
+        "searches": [
+          "arXiv:2610.15516v1, Example 4",
+          "A sharp eight-entity separation between approval EJR+ and payment-strong EJR+, RESULT.md, two Pareto witnesses and lower bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Brill–Peters express a violation through an integer quota ell and a common unelected candidate. Eliminating ell yields the frozen t_i+1>k|T|/n test.",
+          "Skowron's (6) includes the challenger and has a strict payment threshold; (5) omits the challenger and uses a weak cutoff. Unit costs, approval utilities and budget k reduce (6) to the frozen score.",
+          "The eight-entity record writes winner terms as 1/max(a,s_S(d)), exactly the frozen min(1/a,1/s_S(d))."
+        ],
+        "reasoning": "The overlapping results use the same definitions, not the exact strong axiom (5), a weak Pareto core or a utility-weight variation. Equality of strong scores with the entitlement is a violation under the actual strict definition.",
+        "searches": [
+          "Resultary: strong EJR+ up-to-one nonwasteful sharp boundary three voters four seats five candidates ordinary EJR+",
+          "Web: Skowron \"strong EJR+\" \"up-to-one\" Definition 4 Example 4 Brill Peters approval committees",
+          "arXiv:2302.01989v1, §3.2 EJR+; arXiv:2610.15516v1, Definition 4 equation (6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related Resultary record states a census of five relabeling types at n+m=8, of which two are Pareto-efficient. Its explicit three-voter witness is the frozen profile: match the fully satisfied singleton voter to voter 1 and the two repeated voters to voters 2 and 3; the winner supports are singleton, singleton, pair, and full, and the challenger support is the same pair.",
+          "Skowron's 1000-voter table is not the exact three-voter witness."
+        ],
+        "reasoning": "The overlap was checked on approver sets and the challenger, not just the common counts. The four-voter witness in that record also equals the counterexample to unconditional candidate sharpness up to relabeling.",
+        "searches": [
+          "A sharp eight-entity separation between approval EJR+ and payment-strong EJR+, RESULT.md, Finding and Complete boundary census",
+          "arXiv:2610.15516v1, Example 4 and its profile table"
+        ]
+      },
+      "rationale": "A distinct Resultary record gives the identical three-voter witness up to relabeling and a broader sharp eight-entity theorem with a boundary census. Its proof includes the same nonwasteful n≤2 theorem and excludes n=3,k≤3 by bounds that do not actually use nonwastefulness. It also gives the four-candidate witness that disproves the unqualified candidate claim. The original's strict-core and replication observations are straightforward consequences of the explicit known profile and the inequalities, not a new boundary yielding a separately valuable finding. This establishes exact coverage of the substantive corrected claim, not chronological priority. The original qualifying premises and the already published general separation are distinguished below.",
+      "residual_risks": [
+        "Relative priority and independent discovery of the two exact small-profile results were not established.",
+        "Some compared sources do not name strict core or replication in their exact small-instance theorem; their relation here rests on the explicit ballots and elementary bounds, not on a claim that those words appeared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ordinary axiom in quota form; not the small payment boundary.",
+          "evidence": [
+            "Violation requires a common unelected candidate and a group of size ≥ell n/k with every member obtaining fewer than ell approved winners."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2302.01989v1",
+          "material_read": "Section 3.2, violation definition located at offset 46535 and opened from 46315 (3931 characters).",
+          "method": "Bounded OA HTML passage.",
+          "title": "Robust and Verifiable Proportionality Axioms for Multiwinner Voting",
+          "trigger": "Ordinary EJR+ definition cited for the comparison."
+        },
+        {
+          "assessment": "Exact definition and prior large separation, no evidence in the compared passages of the exact small boundary.",
+          "evidence": [
+            "Equation (6) sums over W plus the challenger and demands strict >b/n.",
+            "Example 4 has 1000 voters, 30 candidates, budget 20, and supplies ordinary EJR+ and core but failure of (6)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.15516v1",
+          "material_read": "Definition 4, equations (5)–(6), opened from offset 23764; Example 4 and constraints opened from offset 38318.",
+          "method": "Bounded OA HTML passages.",
+          "title": "Robust Proportionality Axioms for Additive Utilities",
+          "trigger": "Definition of strong payment criterion and known core separation."
+        },
+        {
+          "assessment": "Substantive exact coverage of the corrected lexicographic boundary, and an explicit counterexample to a global lower bound of five candidates.",
+          "evidence": [
+            "Its Finding gives (n,m,k)=(3,5,4) and (4,4,3) and the exact candidate approval sets.",
+            "Its proof uses the same k+1 full-coalition payment sum at n=2 and a support-independent score lower bound at n=k=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-eight-entity-separation-between-approval-ejr-and-payment--7ca677c2b8dc/RESULT.md",
+          "material_read": "Finding, definitions, arbitrary-electorate k≤2 bound, n≤2 and n=k=3 proofs, two Pareto witnesses and start of census, offsets 0–7296.",
+          "method": "Bounded mirror passages and manual matching of supporter sets and assumptions.",
+          "title": "A sharp eight-entity separation between approval EJR+ and payment-strong EJR+",
+          "trigger": "Exact overlap of separation thresholds and concrete Pareto profiles."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The motivated exact small boundary and role of the nonsupporting voter are scientifically useful, but the distinct boundary census and identical profile already supply them. On the supported lexicographic reading, the only additions are an immediate strict-core check of that profile and uniform rescaling of its ballots. They do not leave a separately valuable unresolved claim; the unsupported global five-candidate claim cannot be salvaged as stated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

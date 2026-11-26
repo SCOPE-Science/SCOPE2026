@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The finite-flatness argument uses fiberwise regular sequences and Bézout degree \(27\), not a finite sample of primes. For \(p\ne2,3\), three disjoint families of nine transverse points exhaust the degree. In characteristic two the exact relation \(G|_E=(XYZ)^3\) gives nine length-three curvilinear points. The elliptic interpretation is justified by the nine-point \(\mathbb F_4\) census and supersingularity. In characteristic three a local coordinate change yields the ideal \((u^3,v^9)\), giving the unique length-27 Gorenstein point. The included exact checker replays all nonstandard polynomial identities. Limits: a fixed integral model and no intrinsic characteristic-three osculation assertion.
+## correctness
 
-**Originality (PASS, with historical priority risk).** The 2022 paper of Szemberg–Szpond already gives the complex 27-point configuration and 6-division description; those are not claimed new. The 2017 2-Hessian paper is formulated over complex numbers. Merta and Zięba (2024) explicitly restate this same second-Hessian product and examine complex sextactic, type-nine, tangent-line and conic configurations, but do not study the two exceptional arithmetic fibers. Later complex Fermat-osculation papers and older Fermat-line-arrangement results also do not supply this bad-reduction classification. Published mathematical literature was compared by objects and implications rather than titles alone; unindexed earlier computations could exist.
+PASS
 
-**Mathematical value (PASS).** The known 27 sextactic points define a natural geometric boundary problem: which primes change the scheme, and how is its length conserved? The answer gives two qualitatively different, complete schemes: nine curvilinear triple points on a supersingular elliptic curve, identifiable as a residual finite-subgroup-scheme divisor, and a single embedding-dimension-two Gorenstein point with Hilbert function \((1,2,3,3,3,3,3,3,3,2,1)\). This arithmetic distinction is not an arbitrary finite enumeration or a renamed known table.
+F,G form a regular sequence fiberwise: off characteristic 3 the smooth irreducible cubic is not a factor of the product of lines; in characteristic 3 the line X+Y+Z is different from all three equality lines. Flatness can also be checked chartwise: a relation pH=aF+bG reduced modulo p forces (a,b) to be a multiple of (G,−F) modulo p by relative primality, so this multiple lifts and H lies in (F,G). There is no prime torsion. Properness and zero-dimensional fibers give finiteness and Bézout gives degree 27. Off 2,3 each pairwise cube equality gives nine disjoint points, with nonzero coordinates and independent gradients. In characteristic 2, G|E=(XYZ)³ and each coordinate line cuts three distinct simple points; e.g. at [1:λ:0] with λ³=1 the tangent is X+λ²Y=0, on which F=Z³. This proves flex multiplicity and the reduced nine-point E[3] identification. Cubing in F₄ yields 9 rational points, including exactly 3 over F₂. With any such flex as origin over F₄ a unique nonzero geometric 2-torsion point, if ordinary, would be F₄-rational, impossible for a group of order 9. Thus E[2] has length 4 at one point; coprime torsion decomposition gives length 4 at each point of E[3] in E[6], and subtracting the reduced Cartier divisor gives length 3. In characteristic 3 the equality lines meet the reduced cubic only at [1:1:1]. On X=1, substituting Y=1−v and Z=1+u+v gives exactly F=u³ and G=v⁹−u⁶v³; the quotient by (u³,v⁹) has the asserted length, Hilbert function, and complete-intersection Gorenstein structure. The local arithmetic and Hilbert function were independently replayed.
 
-Closest literature: Szemberg–Szpond, arXiv:2211.00494; Maugesten–Moe, arXiv:1709.01698; Merta–Zięba, arXiv:2406.13802; Moe–Toft, arXiv:2412.16993; Dumnicki–Szemberg–Tutaj-Gasińska, arXiv:1301.7440. Novelty beyond accessible records is not independently certified. The theorem does not construct intrinsic characteristic-positive sextactic loci.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equations and the generic sextactic configuration, including its point-set description as sixth minus third division points, are existing work. The distinct supported claim is the fixed integral model's finite-flat all-prime scheme classification and its explicit bad local algebras, with the characteristic-two Cartier-divisor interpretation. No inspected source supplied that classification.
+
+## value
+
+PASS
+
+The fixed polynomial model is dictated by the existing sextactic equations. Its exact special fibers distinguish a curvilinear triple thickening at each of nine flexes from a single embedding-dimension-two complete intersection; a degree count or list of support points alone cannot make that distinction. The local rings and torsion interpretation are usable information about reduction of this natural configuration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

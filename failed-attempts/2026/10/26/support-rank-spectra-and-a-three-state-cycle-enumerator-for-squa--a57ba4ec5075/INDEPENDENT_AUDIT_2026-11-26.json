@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:03:43.669358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In RESULT.md:44–64, the row for edge uv of the multiplication matrix is the equation a_u b_v+a_v b_u=0. Coordinates outside N[S] are free; each coordinate in N[S]\\S is forced to vanish by an incident supported endpoint. Dividing b_v by a_v on S reduces the internal equations to y_u=−y_v. Along a connected component one value propagates with parity of path length; an odd cycle kills it except in characteristic two, where every component allows one constant. This gives exactly (1) including isolated and empty supports, and counting coefficients gives (2). On a proper nonempty cycle support, each zero run of length l contributes min(l,2) vertices to N[S] and corresponds to one supported component, giving |S| plus one per zero run of length at least two. The three states are the preceding zero suffix length truncated at two; their cyclic path is unique for each labelled support, including the all-zero loop at the two-zero state and the all-one loop at the one-symbol state. The latter needs exactly the correction based on parity and characteristic. The determinant of lambda I−T is lambda³−(1+wz)lambda²+wz(1−z), proving (4) also at j=0 by Cayley–Hamilton. Both C5 examples agree by counting supports of each size. Static inspection of verify.py:151–191 and VERIFICATION.md:19–23 confirms modular and F4 rank comparisons in 15 cycle/field cases and two all-four-vertex-graphs suites. These are finite diagnostics, not used for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 result proves more, including full unital algebra multiplication ranks and the same cycle nullity polynomial for n≥3. Dao–Nair give the full-support unsigned incidence calculation in characteristic zero; Migliore–Miró-Roig–Nagel give coefficient normalization of general linear forms.",
+          "Nguyen–Tran's input is the edge-ideal quotient, not the frozen face algebra for the same graph."
+        ],
+        "reasoning": "Full-support WLP alone does not supply the distribution. The earlier exact Resultary rank calculation really does cover all supports, the relevant fields and the cycle family, independently of the terminology of the external papers.",
+        "searches": [
+          "Resultary d37be33201da/RESULT.md",
+          "arXiv:2112.09434",
+          "arXiv:0811.1023",
+          "arXiv:1706.05058",
+          "arXiv:2310.14368"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d37be33201da, 897b7b3d7612",
+        "arXiv:0811.1023, 2112.09434, 1706.05058, 2310.14368"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A=z M(w,1/z) has rows (1,z,0,0), (0,0,w,w), (z,z,0,0), (0,0,wz,wz). The last two columns coincide. On quotient coordinates (x1,x2,x3+x4) its induced matrix B has rows (1,z,0), (0,0,w), (z,z,wz). The killed line spanned by e3−e4 contributes zero to each positive-power trace. The determinant of lambda I−B is precisely lambda³−(1+wz)lambda²+wz(1−z).",
+          "B and the frozen T have the same characteristic polynomial and hence identical power traces in all degrees as 3×3 matrices. At degree zero the relevant trace for the recurrence is 3, not the unreduced trace 4."
+        ],
+        "reasoning": "Thus the prior four-state trace converts to a three-state trace and exactly the frozen cubic recurrence by a direct redundant-coordinate elimination, including the same full-support correction. The frozen proof interprets the reduced statistic with different states, but does not establish a new sequence or a lower recurrence order than is directly available from the earlier result.",
+        "searches": [
+          "Resultary d37be33201da/RESULT.md finding and §5, transfer matrix M(t,z)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 12 Resultary d37be33201da has rank n−z_G(S)−c_p(S), where z_G(S)=n−|N[S]| and c_p(S)=β_p(S). Its P_C(t,u) gives the exact frozen rank-frequency polynomial z^n P_C(q−1,1/z).",
+          "Same-date 897b7b3d7612 gives the same proper-support statistic on a different algebra; only on odd cycles in odd characteristic do the total cycle polynomials differ, by the full-support correction."
+        ],
+        "reasoning": "The first record is precisely equivalent, including normalization, finite characteristic and zero form. The same-date Lie comparison is a material overlap, not a priority claim or an assertion that the algebras agree.",
+        "searches": [
+          "Resultary: finite-field multiplication rank spectra, graph face algebras, cycle transfer",
+          "Resultary: cycle graphical Lie algebra adjoint rank and commutativity",
+          "square-zero graph algebra rank distribution and cyclic binary zero-run transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 12 RESULT.md gives a symbolic all-n enumerator with the exact bipartite or characteristic-two full-support correction."
+        ],
+        "reasoning": "Inverting the formal nullity variable and multiplying by z^n recovers every rank coefficient, including the C5 examples. This is stronger than an exact table for particular field orders.",
+        "searches": [
+          "Resultary: cycle support-nullity polynomial, finite-field graph multiplication rank frequencies"
+        ]
+      },
+      "rationale": "The distinct earlier October 12 Resultary finding proves the identical graph-support rank and identical cycle polynomial in nullity notation. Its four-state transfer also already implies the three-dimensional recurrence without a new enumerative argument: after converting nullity to rank two columns are equal, so the transfer descends by an explicit one-dimensional zero summand in the trace. The smaller matrix is an alternate presentation of this elementary reduction, not a materially distinct enumeration or recurrence.",
+      "residual_risks": [
+        "External historical priority was not exhaustively checked. This does not affect the demonstrated coverage by the distinct October 12 result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of rank and frequency; elementary elimination yields the same trace recurrence",
+          "evidence": "Support nullity z_G(S)+c_p(S), explicit matrix M(t,z), characteristic/parity correction, and cyclic binary transition weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-finite-field-multiplication-rank-spectra-of-graph-face-algebras--d37be33201da/RESULT.md",
+          "material_read": "Finding and proof §§2 and 5; decisive matrix and cycle transitions at offsets 1250–3285 and 5700–7043, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local catalogue and bounded mirrored RESULT.md passages; checked rank-variable and quotient reductions",
+          "title": "Finite-field multiplication rank spectra of graph face algebras",
+          "trigger": "Strongest distinct earlier match to ranks and transfer"
+        },
+        {
+          "assessment": "Same proper-support weight on a different algebra; no inferred priority",
+          "evidence": "Adjoint rank |S| plus the number of long zero runs for proper nonempty support, with full-support rank n−1.",
+          "identifier_or_url": "Resultary 2026-10-26, 897b7b3d7612",
+          "material_read": "RESULT.md finding and proof §§1–2, offsets 0–8142",
+          "method": "Local catalogue and bounded mirrored text",
+          "title": "Adjoint rank and commutativity laws for cycle graphical Lie algebras",
+          "trigger": "Distinct same-date cycle enumerator"
+        },
+        {
+          "assessment": "Generic WLP normalization, not finite-field census",
+          "evidence": "Nonzero coefficients of a general form can be rescaled to all ones in an Artinian monomial algebra over an infinite field.",
+          "identifier_or_url": "arXiv:0811.1023",
+          "material_read": "Prop. 2.2, pp. 3–4",
+          "method": "Bounded primary-paper read",
+          "title": "Monomial ideals, almost complete intersections and the Weak Lefschetz Property",
+          "trigger": "Coefficient scaling and possible rank scope"
+        },
+        {
+          "assessment": "Full-support rank in characteristic zero",
+          "evidence": "Multiplication by the sum of variables is represented by the unsigned incidence transpose, of rank n minus the bipartite component count.",
+          "identifier_or_url": "arXiv:2112.09434",
+          "material_read": "Prop. 3.1, Lemma 3.2, Thm. 3.3, pp. 6–7",
+          "method": "Bounded primary-paper read",
+          "title": "On the Lefschetz Property for quotients by monomial ideals containing squares of variables",
+          "trigger": "Unsigned incidence and cycle rank"
+        },
+        {
+          "assessment": "Covers maximal-rank parity, not all rank frequencies",
+          "evidence": "The incidence determinant for the cycle example is 0 for even length and 2 for odd length.",
+          "identifier_or_url": "arXiv:1706.05058",
+          "material_read": "§2, p. 4 and Example 3.5, p. 7",
+          "method": "Bounded primary-paper read",
+          "title": "The Weak Lefschetz property for quotients by Quadratic Monomials",
+          "trigger": "Known cycle parity subcase"
+        },
+        {
+          "assessment": "Different graph convention, generic WLP question",
+          "evidence": "The edge ideal plus squares is killed; degree-two monomials correspond to nonedges of the input graph.",
+          "identifier_or_url": "arXiv:2310.14368",
+          "material_read": "Thm. 1.2 and §2.3, pp. 2, 4–5",
+          "method": "Bounded primary-paper read",
+          "title": "The weak Lefschetz property of artinian algebras associated to paths and cycles",
+          "trigger": "Plausibly equivalent path/cycle algebra"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The complete finite-field rank spectrum has mathematical use, but it and its constant-size computation are already available. The remaining improvement is a different three-state description of a matrix whose redundant dimension can be removed directly, with no new asymptotic efficiency, classification, or mathematical obstacle resolved. The explicit reduction shows why this is a small presentation change rather than an independent result warranting a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

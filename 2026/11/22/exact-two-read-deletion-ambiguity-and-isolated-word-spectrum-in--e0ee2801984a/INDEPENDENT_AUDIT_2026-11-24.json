@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:47:33.864013Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source counts distinct outputs for distinct length-n linear words, not deletion locations. Type A requires opposite alternating phases on the differing interval; length ≥3 forces 010 in one endpoint. The two triples crossing either side of the surviving swap give the stated context tests. The oriented 01 endpoint determines the edge uniquely; each context has OGF U=(1−z)/(1−2z+z²−z³), from 1+z+z² A(z), where A counts 010-avoiders. Padding makes every permitted context two adjacent ones before and after the pair, and a matched pair must lie inside the original word. Beyond inspecting the eleven-state polynomial certificate, I independently checked the all-length isolate series via runs. In the padded word containing a zero, the 1-runs all have length ≥2; a singleton zero is allowed only between two runs of length exactly 2. Classify 1-runs as length 2 or length ≥3, set b=z/(1−z), a=z²/(1−z), v=(1,b)^T, D=z² diag(v), and R=[[b,a],[a,a]]. With boundary pads subtracted the series is (1−z)^−1 + v^T R(I−DR)^−1 v, which reduces to the claimed numerator and denominator. A swap changes the inversion parity; the matching consequence follows from König's theorem. Independent distinct-output enumeration at n=0–12 matched the neighbors and both reported sequences; replay /workspace/branches/06ec2142-f343-4801-bdd5-192a9e7ae3f2/reproduce_counts.py. That run corroborates finite values only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai et al. prove the maximal two-output intersection and Type-A characterization. The two unrestricted records count ambient edges or degrees over the full words, not degrees after imposing 010 avoidance."
+        ],
+        "reasoning": "Induced degrees require knowing which neighbors survive, not just ambient degree or ambient total edge count.",
+        "searches": [
+          "Cai et al., Coding for Sequence Reconstruction for Single Edits, Definition 8 and Proposition 9",
+          "Resultary unrestricted finite-alphabet edge census 737fed325e91; unrestricted binary degree spectrum f45a481280b1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_deletion.py, verify_transfer.py and verify_isolated.py",
+        "Cai et al. arXiv:2001.01376",
+        "Bilotta et al. arXiv:1210.7620",
+        "Resultary records 737fed325e91, f45a481280b1, 44e8c5424f44, 4a3ef99abab1, b85913bb6305 and 36dcf2861c14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Type A gives the alternating differing interval, hence immediately gives the adjacent-swap form under 010 avoidance. The same-day triple record counts a different reverse/complement orbit; its Fibonacci-context factor is not the admissible context series U here."
+        ],
+        "reasoning": "Credit the known characterization and standard transfer methods; counting sites jointly through the local isolate constraint requires more than specializing the published unrestricted count or the differently forbidden orbit.",
+        "searches": [
+          "arXiv:2001.01376 Proposition 9 and Definition 8",
+          "Resultary 44e8c5424f44 Proof and Relationship to prior work, offset near 9000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary 36dcf2861c14 finding uses cyclic 010 avoidance on rotation classes and cyclic substring-multiplicity profiles, not linear words and deletion outputs.",
+          "Bilotta et al. handle generation with alternating patterns (including the complemented motif 101 at j=1 in their source family); generation is not a two-read graph census."
+        ],
+        "reasoning": "Complementation identifies the 010 and 101 deletion-graph problems, but the inspected generative result does not count graph edges or isolates. Removing a cyclic boundary and changing the observation channel are not equivalences.",
+        "searches": [
+          "Resultary: 010-free two-read deletion ambiguity, isolated words and adjacent swaps",
+          "Resultary: binary words with no isolated ones and cyclic three-gram reconstruction",
+          "Bilotta et al., Generation of binary words avoiding alternating patterns"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact edge and triangle series are for a forbidden triple in {001,100,110,011}; the underlying record explicitly excludes the 010 orbit. Other exact series impose a uniform run cap or forbid 11, not 010."
+        ],
+        "reasoning": "Source constraints and counting variables differ. No distinct exact catalogue match for both evaluated series was found.",
+        "searches": [
+          "Resultary: exact constrained two-deletion-read edge and isolate generating functions",
+          "Same-day matches 44e8c5424f44, 4a3ef99abab1, b85913bb6305"
+        ]
+      },
+      "rationale": "The Type-A test and its adjacent-swap restriction here are prior structure and an immediate specialization, respectively. The supported distinct contribution is the exact induced-graph edge and isolate census, especially the padded local isolation criterion and its complete rational series. No inspected separate result covers those counts.",
+      "residual_risks": [
+        "Unindexed equivalent forbidden-factor or degree-zero enumeration is not excluded. Same-day dates are not used to infer priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known ambient structure; no exact induced census supplied by this theorem",
+          "evidence": [
+            "At Hamming distance ≥2, exactly two distinct common deletion descendants iff Type A."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+          "material_read": "PDF p.7, Definition 8 and Proposition 9, offsets about 34600–38877",
+          "method": "OA PDF passage inspection",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "General Type-A deletion-confusability lemma"
+        },
+        {
+          "assessment": "Related avoidance construction, inspected claim is not about deletion descendants",
+          "evidence": [
+            "The stated algorithm generates a family F avoiding (10)^j1, for j≥1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1210.7620",
+          "material_read": "PDF p.2, setup and motivation near offset 5636",
+          "method": "OA PDF passage inspection",
+          "title": "Generation of binary words avoiding alternating patterns",
+          "trigger": "Alternating forbidden patterns include complement-equivalent motif"
+        },
+        {
+          "assessment": "Unrestricted source alphabet; not the induced graph",
+          "evidence": [
+            "Canonical alternating intervals and total edges on all words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Finite-alphabet two-read single-deletion reconstruction graph edge count",
+          "trigger": "Same ambient graph and edge invariant"
+        },
+        {
+          "assessment": "Ambient degree differs from induced degree",
+          "evidence": [
+            "Degree distribution over all binary words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete degree spectrum of the binary two-read deletion reconstruction graph",
+          "trigger": "Degree zero in the same ambient graph"
+        },
+        {
+          "assessment": "Exact series for a disjoint reverse/complement orbit",
+          "evidence": [
+            "Explicitly limits the covered orbit to {001,100,110,011} and distinguishes it from 010."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-edge-and-triangle-laws-for-two-read-reconstruction-under-s--44e8c5424f44/RESULT.md",
+          "material_read": "Finding and comparison near offsets 8970–10070",
+          "method": "Local Resultary mirror",
+          "title": "Exact edge and triangle laws for two-read reconstruction under single-triple avoidance",
+          "trigger": "Same-day result on deletion graphs with a forbidden triple"
+        },
+        {
+          "assessment": "Different source constraint",
+          "evidence": [
+            "Maximum constant-run length r rather than forbidden isolated interior ones."
+          ],
+          "identifier_or_url": "Resultary 4a3ef99abab1",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two-read deletion ambiguity across all bounded-homopolymer sources",
+          "trigger": "Same-day exact constrained edge census"
+        },
+        {
+          "assessment": "Different source constraint",
+          "evidence": [
+            "No-11 words; edges enumerated by weight."
+          ],
+          "identifier_or_url": "Resultary b85913bb6305",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Weight-resolved two-read deletion ambiguity in Fibonacci-constrained words",
+          "trigger": "Same-day binary constrained edge law"
+        },
+        {
+          "assessment": "Different channel and boundary",
+          "evidence": [
+            "Counts necklaces realizing cyclic 3-gram profiles, not common deletion outputs."
+          ],
+          "identifier_or_url": "Resultary 36dcf2861c14",
+          "material_read": "Finding, offsets 0–1250",
+          "method": "Local Resultary mirror",
+          "title": "Exact cyclic three-gram reconstruction for binary words with no isolated ones",
+          "trigger": "Same forbidden motif and reconstruction terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural memory-two constrained source, edges measure precisely which source pairs are ambiguous from two distinct reads, and isolates can be included in every maximum independent code without consuming a conflict. A complete boundary-aware isolate criterion and exact isolate and edge series answer those motivated questions uniformly in length. The result does not claim the optimal code-size formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

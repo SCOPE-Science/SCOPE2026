@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:01.187832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With w fixed at the design point, the thinned Poisson intensity has log-derivatives (1,(x/sigma)^2). Integrating their outer product gives the stated 2-by-2 matrix; substituting the budget leaves F(a)/(a+kappa)^2. F>0 by strict Gram positivity, and differentiating the Gram determinant gives the rescaled kernel for aF'(a). For x=log a, the negative exponential term in the joint log kernel has negative diagonal Hessian entries and determinant 2 exp(4x)(1-u^2)>0 on the convex support 0<u<1. Prékopa applies first to the u-integral and then to the cumulative integral (multiply by the indicator of y<=x on the joint (y,x) space), so log F(exp x) is concave. The derivative E is nonincreasing; any failure of strict decrease would give a constant interval and by analyticity a global constant. The endpoints exclude this: F=(4/45)a^6+O(a^8) with analytic remainder, and the limiting Gaussian moments give F->pi with aF'->0. The log-objective derivative multiplied by a crosses zero exactly once, including kappa=0; increasing kappa strictly lowers the comparison term at a fixed a, shifting the root right, and no bounded root is possible as kappa tends to infinity. Independent high-precision direct moment quadrature and objective differentiation give a_0=2.483403229461727769, edge detection probability 0.0457920034599350, a_1=2.744175332913743488 and a_5=3.166331990571762460. Replay: python /workspace/branches/reproduce_frozen.py (transect section). The frozen checker and verification notes were inspected, not executed; finite diagnostics do not prove monotonicity. The proof uses exactly the complete marked Poisson likelihood, nominal scale and the stated cost law, not counts alone or density-only estimation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen proof uses the standard marginal log-concavity theorem but supplies and verifies joint concavity of a specific rescaled half-normal Gram derivative.",
+          "The two potentially relevant distance-sampling papers were not available in full through the attempted lawful routes."
+        ],
+        "reasoning": "The generic log-concavity theorem does not provide the model-specific kernel, strictness, endpoint calibration or budget sensitivity. No inspected broader theorem supplies the final claim.",
+        "searches": [
+          "10.1111/j.1541-0420.2009.01265.x",
+          "10.1111/2041-210X.13589",
+          "Prékopa, Acta Sci. Math. 34 (1973), 335–343"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact match",
+        "Clark (2016), DOI 10.1371/journal.pone.0149298",
+        "Johnson–Laake–Ver Hoef, DOI 10.1111/j.1541-0420.2009.01265.x (limited access)",
+        "Knights et al., DOI 10.1111/2041-210X.13589 (limited access)",
+        "Prékopa theorem as invoked in RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clark's MSE conclusions at half-normal detection compare different abundance-estimation procedures; they do not determine a joint information determinant or its global width profile.",
+          "The cited model-based inference source was not available for complete comparison."
+        ],
+        "reasoning": "Even an established Poisson likelihood gives the information formula but not automatically the strictly decreasing elasticity, unique crossing for all base-to-width costs, or minimum dimensionless width.",
+        "searches": [
+          "10.1371/journal.pone.0149298",
+          "10.1111/j.1541-0420.2009.01265.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clark, PDF pp. 1–2 and 11–12: relative abundance-estimator MSE and width-dependent strip bias, with the strip optimum discussed for a hazard-rate model.",
+          "Resultary's strongest match is this very record, not a separate source."
+        ],
+        "reasoning": "A strip-estimator MSE bandwidth is not an equivalent parametrization or loss of the joint determinant for log intensity and log scale from exact detections.",
+        "searches": [
+          "Resultary semantic lookup: half-normal distance-sampling truncation, marked Poisson information and D-optimality",
+          "10.1371/journal.pone.0149298"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit resolves to the assigned record itself; no distinct exact entry was found in the returned matches. The primary lookup returned general D-optimal design material."
+        ],
+        "reasoning": "An exact table hit would need the same two parameters and width-cost scaling. The threshold is the root of E(a)=2, not a conventional detection-probability cutoff; its recomputation is not evidence of novelty.",
+        "searches": [
+          "Resultary ID 2026/11/22/SCOPE-unique-d-optimal-truncation-width-for-a-half-normal-line-transec--6e74695755e9",
+          "Primary-literature lookup on the joint D-optimal truncation design"
+        ]
+      },
+      "rationale": "Best of current knowledge, the distinct contribution is the exact all-kappa joint-information design, including rigorous monotonicity, global uniqueness, and its minimum-width endpoint. The observation model and log-concavity theorem are not new; the verified analogous truncation work uses a different risk. No external access limitation is treated as noncoverage.",
+      "residual_risks": [
+        "The full Johnson–Laake–Ver Hoef paper was not accessible and is the main remaining direct priority risk.",
+        "Knights et al. was not available in full; older efficiency/design literature or unindexed equivalent results may have escaped retrieval."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different objective and estimator",
+          "evidence": "Introduction explains strip bias–variance tradeoff; discussion compares MSE for half-normal detection rather than maximizing a two-parameter Fisher determinant.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0149298",
+          "material_read": "PDF abstract and introduction pp. 1–2 and discussion pp. 11–12",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Statistical Efficiency in Distance Sampling",
+          "trigger": "Explicit effort/width optimization and half-normal efficiency comparison"
+        },
+        {
+          "assessment": "Model attribution is acknowledged; design coverage not determined from this source",
+          "evidence": "Publisher returned HTTP 403; alternate did not yield readable text.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1541-0420.2009.01265.x",
+          "material_read": "No accessible primary full text",
+          "method": "OA DOI/publisher and identified repository alternate attempted",
+          "title": "A model-based approach for making ecological inference from distance sampling data",
+          "trigger": "Potentially same observation model and parameters"
+        },
+        {
+          "assessment": "No full-text noncoverage inference",
+          "evidence": "Publisher returned HTTP 403; no lawful readable alternate was identified.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.13589",
+          "material_read": "Title; full text not obtained",
+          "method": "OA DOI/publisher and alternate lookup",
+          "title": "Efficient effort allocation in line-transect distance sampling of high-density species: When to walk further, measure less-often and gain precision",
+          "trigger": "Nearby survey-budget design"
+        },
+        {
+          "assessment": "Identical assigned record, no distinct coverage",
+          "evidence": "Same strict elasticity and optimizer law, including the same zero-base-cost width.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-d-optimal-truncation-width-for-a-half-normal-line-transec--6e74695755e9",
+          "material_read": "Catalogue claim compared with bound Finding and proof, lines 3–55",
+          "method": "Local Resultary lookup and original statement comparison",
+          "title": "Unique D-optimal truncation width for a half-normal line transect",
+          "trigger": "Exact Resultary result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the standard half-normal detection model, joint scale/intensity inference has a real effort-versus-information tradeoff: extending width changes both the number and leverage of the recorded distances while using budget. The strict global law and universal zero-base-cost lower bound determine the design without a grid or a guessed effective strip width and are interpretable in nominal scale units. This is an exact local-design benchmark, not a generic field recommendation or a density-only efficiency claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

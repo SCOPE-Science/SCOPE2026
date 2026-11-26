@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces all nontrivial zero products to the maximal ideal, uses nondegenerate orthogonality to force the degree-one restriction to a scalar multiple of the multiplication form, and explicitly identifies every remaining coefficient. The determinant and count are exact, with no characteristic restriction. The standalone finite enumeration of tensor constraints and nonsingular matrices over three small prime-field cases agrees with the closed formulas. Finite tests are corroboration, not a proof beyond the tested cases.
+PASS
 
-## Originality — PASS, with residual risk
+In the graded split algebra any element outside m=V⊕kz is a unit by nilpotence, so a nontrivial zero product has both arguments in m and is equivalent to β(u,v)=0. Products with z force the z-row and z-column to vanish on m. For each u≠0, b(u,−) on V is proportional to β(u,−); independence for two independent vectors and comparison at their sum make the proportionality constant, and nonzero multiples have the same constant by bilinearity. This proves necessity and sufficiency over every listed field, including when β is alternating. The free unit row and column yield dimension 2d+4. Evaluation at the unit makes the multiplication pullback injective; its equalities are ℓ=r and c=e=λ, whereas symmetry only requires ℓ=r and c=e. The symmetric and unrestricted quotient dimensions are thus 1 and d+2. Direct row/column expansion gives −ceλ^d det(B); counting the free and nonzero parameters yields all four stated counts, including precisely zero nonsingular symmetric nonfactorable forms at q=2. Surjectivity of multiplication also gives the stated tensor dimensions. Inspected RESULT.md, VERIFICATION.md and verify.py without running the supplied script. A fresh constraint-nullspace enumeration in d=2 gave constraint rank 8 in each case: over F₂ with either the alternating Gram matrix or I₂ the nonsingular total/symmetric/factorable counts were 32/8/8; over F₃ with I₂ they were 1944/108/54. These are bounded checks; the determinant and orthogonality proofs are general.
 
-The full seven-page Jia–Xiao (2026) preprint was examined at Theorem 1.2 and Lemma 2.5. It establishes the qualitative local obstruction and supplies a nonsymmetric witness, but not the present complete normal form, symmetric quotient dimension, or nonsingular census. Gardella–Thiel (2023), especially Proposition 2.4 and Examples 2.16–2.17, provides the general tensor formalism and examples in other settings without the claimed numerical theorem. Searches for Gorenstein zero-product bilinear forms, orthogonality preservers, and equivalent tensor quotient dimensions revealed no dominating statement. The orthogonality lemma is elementary and earlier implicit treatments cannot be ruled out; claim of novelty concerns the combined exact family-wide invariant, not the qualitative obstruction.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Zero-product-determinedness is a structural linear-preserver property. Knowing failure qualitatively does not determine the universal bilinear obstruction space. This classification supplies that full space for the natural Gorenstein family with Hilbert vector \((1,d,1)\); it identifies a uniform one-dimensional symmetric defect despite an unbounded unrestricted defect, and gives exact nonsingular counts including the sharp exceptional field \(\mathbb F_2\). These are intrinsic natural invariants, not arbitrary truncated enumerations.
+The general zero-product tensor formalism and qualitative local failure are prior coverage, and a distinct indexed theorem overlaps exactly in the split hyperbolic d=2 case. The supported distinct result is the normal form, symmetric defect and nonsingularity census uniformly across d and multiplication forms, in ordinary zero-product characteristic two as well as odd characteristic.
 
-## Scope and residual risk
+## value
 
-The object is a split graded socle-degree-two algebra with nondegenerate symmetric multiplication form. The invariant concerns scalar-valued bilinear forms, not all possible generalizations. Equivalent older orthogonality-preserving form classifications could subsume part of the calculation and should be independently checked before further dissemination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result quantifies rather than just detects failure of zero-product determination in a standard local Gorenstein family. It isolates a one-dimensional symmetric defect despite a much larger full defect, and shows exactly when symmetry and nonsingularity still permit nonfactorization. The sharp F₂ distinction and uniformity across multiplication form types give the census a use beyond restating qualitative non-ZPD.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

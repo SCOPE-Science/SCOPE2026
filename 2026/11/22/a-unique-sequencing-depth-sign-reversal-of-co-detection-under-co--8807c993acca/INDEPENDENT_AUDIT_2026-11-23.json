@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:47:26.751902Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At an occupied site the one-detection probabilities are 1-u^n and 1-v^n, and the negative conditional covariance is w^n-(uv)^n. The covariance of the two conditional means is p(1-p)(1-u^n)(1-v^n). Adding these contributions with the conditional covariance weighted by p gives the exact positive-prefactor times (1-p-Theta(n)) factorization. Since uv-w=(1-u)(1-v)>0, the log derivative of Theta(t) after multiplying by (uv)^(-t) is delta/(exp(delta*t)-1) minus alpha/(1-exp(-alpha*t)) and beta/(1-exp(-beta*t)), with positive alpha=-log u, beta=-log v, delta=log(uv/w). The first term is below 1/t and each subtracted one above 1/t, giving strict decay. Theta(1)=1 and Theta tends to zero, so the threshold is unique, strictly increases from 1 with p, and diverges as p approaches 1. Dividing by (uv)^t gives a factor tending to 1; taking the logarithm yields the claimed additive o(1) error. The n=2 factorization gives p cutoff 2/[(1+u)(1+v)]; with u=2/3, v=1/2, w=1/6, p=4/5, exact arithmetic gives -8/75, 0 and positive for n=1, 2 and n>=3 respectively. Independent Poisson thinning makes conditional covariance zero and leaves strictly positive covariance of conditional means. The fixed-versus-Poisson comparison does not hold for arbitrary random depths; for instance equal probabilities of depth 1 and 2 in the witness give covariance -2/45. This is consistent with the explicit scope, which excludes other random-depth laws. The source checker and verification notes were inspected, not executed; the proof is analytic and real depth is only interpolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen work credits Fukaya et al. with a conditional multinomial observation model for occupancy and depth. The decisive published and preprint passages were inaccessible, not independently verified. The inspected finite-stock aliquot theorem allows two covariance reversals with varying aliquot fraction, not arbitrary fixed-depth multinomial libraries mixed over joint occupancy."
+        ],
+        "reasoning": "A general likelihood framework can contain the sampling mechanism without supplying a universal sign theorem. A finite random stock split into disjoint aliquots does not subsume independent labeled draws conditional on a shared site state. Relative precedence of same-date records is not inferred.",
+        "searches": [
+          "Resultary: multispecies occupancy sequencing observation model multinomial read counts detectability design Fukaya",
+          "Fukaya et al. DOI 10.1111/2041-210X.13732 and lawful preprint 10.1101/2021.02.14.431192",
+          "Resultary: sequencing depth sign reversal co-detection fixed multinomial jointly occupied taxa covariance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary mirror records 37418c61ba8c, 0606274d4166 and 953c7aaa1846",
+        "Fukaya DOI and preprint bibliographic sources and retrieval attempts",
+        "Targeted primary web query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The occupied-box theorem supplies the conditional covariance for fixed sampling and implies its negative sign. For incidence rarefaction the direction is opposite, and the finite-stock mechanism admits two changes."
+        ],
+        "reasoning": "The negative conditional term and the law of total covariance give the algebraic factorization, but its monotone ratio controlling the balance of negative and positive terms is not implied by a theorem that only gives the sign of the negative term. The cross-model Poisson calculation is standard thinning; originality rests chiefly on the fixed-depth uniform cutoff and its consequences.",
+        "searches": [
+          "Resultary mirror 0606274d4166, occupied-box Finding",
+          "Resultary mirror 37418c61ba8c, incidence-based Finding and proof opening",
+          "Resultary mirror 953c7aaa1846, finite-stock Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The occupied-box mirror record gives exactly the negative conditional covariance term (without the latent mixture). The incidence-rarefaction mirror record studies pooled absence/presence from fixed incidence sets and sampling distinct units without replacement, and permits positive-to-negative switching."
+        ],
+        "reasoning": "The record's covariance balances multinomial negative association against positive covariance of conditional means. Neither the unmixed multinomial model nor finite-population incidence sampling makes that balance at fixed within-site read count; their depth or pooling parameters do not map to this mixture law.",
+        "searches": [
+          "Resultary: exact all-depth covariance of two detection indicators under multinomial sampling read depth occupancy",
+          "Resultary: incidence rarefaction theorem covariance pooled detection sets without replacement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The web results mostly concerned general occupancy-model software and no decisive exact table was identified from them. The exact indexed match is the same frozen work; the distinct occupied-box entry tabulates a different sign pattern, uniformly negative in the unmixed setting."
+        ],
+        "reasoning": "An occupied-box formula or finite-depth sign table does not cover the all-prevalence one-crossing classification. The aim is not the numerical location of one example threshold; the order and uniqueness hold at unbounded depths and across the continuous parameter range.",
+        "searches": [
+          "Web: occupancy coupled multinomial reads detection indicator covariance two taxa sign switches sampling sequencing depth multinomial occupancy negative correlation co-occurrence Poissonization",
+          "Resultary: exact all-depth covariance of two detection indicators under multinomial sampling read depth occupancy"
+        ]
+      },
+      "rationale": "Best of current knowledge: the known multinomial indicator covariance and shared-occupancy mixture mechanism are starting points. The distinct contribution is the sharp all-depth negative-to-positive one-crossing law under this coupling, with an exact threshold, prevalence asymptotic and a scoped Poisson contrast. Closely related indexed sign-switch statements are not equivalent or broader coverage; direct full-text coverage of the cited eDNA model remains an access risk.",
+      "residual_risks": [
+        "Unresolved primary full-text coverage of exact normalization or two-species covariance in Fukaya et al.; older occupancy and sampling literature may contain equivalent formulation.",
+        "No publication-priority determination from the catalog dates or search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong conceptual overlap; not equivalent across sampling spaces and directions",
+          "evidence": "Fixed incidence sets, distinct units drawn without replacement; only positive-to-negative switches.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-an-irreversible-co-detection-sign-switch-under-incidence-based-r--37418c61ba8c",
+          "material_read": "Mirrored RESULT.md, offsets 104 and 1642",
+          "method": "Resultary query and lawful local mirror reading",
+          "title": "An irreversible co-detection sign switch under incidence-based rarefaction",
+          "trigger": "Closely matching single-switch claim on pooled detection indicators"
+        },
+        {
+          "assessment": "Covers the unmixed covariance, not mixed one-crossing depth law",
+          "evidence": "For iid category draws, the off-diagonal covariance of appearance indicators is negative at every positive fixed depth, without the shared Bernoulli state.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+          "material_read": "Mirrored RESULT.md, opening at offset 0",
+          "method": "Resultary query and local mirror reading",
+          "title": "Occupied-box indicators have a strictly positive precision matrix",
+          "trigger": "Identical multinomial indicator covariance conditional on presence"
+        },
+        {
+          "assessment": "Distinct two-reversal classification; no inference based on shared catalog date",
+          "evidence": "Two disjoint aliquots of a finite random stock of at most three molecules, varying aliquot fraction, not sequencing depth conditional on shared site occupancy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-sharp-co-detection-covariance-reversals-from-at-most-three-t--953c7aaa1846",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary query and local mirror reading",
+          "title": "Two sharp co-detection covariance reversals from at most three targets",
+          "trigger": "Material overlap: exact covariance sign reversals of binary detections"
+        },
+        {
+          "assessment": "Foundational model overlap as attributed by the record; exact published coverage not independently resolved",
+          "evidence": "Publisher routes returned 403; the identified preprint PDF returned 429 or 403. Model acknowledgment is not a claim about what the inaccessible full text does or does not prove.",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.13732",
+          "material_read": "Bibliographic metadata and lawful OA locations only, not the probability-normalization or results passages",
+          "method": "Publisher DOI/full-text/PDF routes; OpenAlex DOI locations and identified bioRxiv alternate https://doi.org/10.1101/2021.02.14.431192",
+          "title": "Multispecies site occupancy modelling and study design for spatially replicated environmental DNA metabarcoding",
+          "trigger": "Plausibly encompassing multinomial depth-conditional model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed read-budget artifact can produce a negative observed association even under perfect positive coupling. A unique, prevalence-dependent cutoff gives precise conditions under which observed covariance changes its qualitative interpretation, and the Poisson comparison separates two sampling designs. This is useful as an idealized benchmark or counterexample, not a field depth recommendation, causal inference, or a finite-sample guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

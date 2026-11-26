@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:29:56.560411Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact Liouvillian normalization, seven integrated equations and stationary scales",
+        "Frozen VERIFICATION.md and verify.py, inspected for scope, not executed",
+        "/workspace/branches/d00967d5-3122-4b44-b7cb-a87ea3093134/star_matrix_check.py (independent full-resolvent replay, Python with NumPy); four positive-rate cases, N=3,4,5,6, and the N=3 zero-dephasing endpoint at J=1.3 giving 1.88422287906"
+      ],
+      "rationale": "The real Hilbert–Schmidt dissipation vanishes on an eigenmatrix with imaginary eigenvalue only if its off-diagonals and trap row/column vanish; the star-edge commutator then forces every diagonal entry to equal the zero trap entry. Thus for positive rates the resolvent gives the unconditional survival integral. Averaging the leaf-localized input over nontrap leaves preserves survival. With m=N−2, integrating the center and nontrap populations gives A=1/(2J), B=−1/(2Jm), and trace flux gives Q=1/κ. The real leaf-pair equations give C=(m−1)/(m(2γ+κ)) and, when m>1, D=−1/(mγ). The two center–leaf coherence equations then eliminate P and O; P+Q+mO gives the five coefficients as stated. The separate reciprocal terms yield strict convexity and together with the positive linear terms give compact sublevel sets for N≥4. The fixed-κ stationarity equation decreases strictly in γ and its right side decreases strictly as κ increases; the two limiting equations yield the stated strict bounds. At N=3 there is only one ordinary leaf: even at γ=0 a zero-dissipation eigenmatrix must have trap row/column zero; their eigen-equations force the center row/column zero, and the center–ordinary-leaf equations then force the remaining entry zero. The boundary formula is consequently a finite mean and has minimum √6/J at κ=√6J. If one insists on γ>0 also at N=3, this is an infimum only, as distinguished by the stated boundary case. For the large-star claim, comparison with any positive test pair on s=2 and positivity of the exact five terms first bound s=2a+b above and away from zero. The displayed scaled decomposition then bounds 1/b+(1−3/N)/a, since its negative terms are bounded and the leading term is at least N after dividing by √N. Interior limits minimize the subleading coefficient on s=2. Its strict convexity and equation a^4−2a^3+4a−2=0 give the stated root (put z=2a−1 and factor the equation as (z²+3)²−12(z−1)²=0). The b-stationarity equation gives N(1/4−1/s²)=O(1); thus the residual leading cost N(s−2)²/(4s) vanishes in the rescaled second term, giving c=f(a_*).",
+      "residual_risks": [
+        "The independent matrix examples are finite numerical checks only. The boundary minimum uses γ=0; the interior theorem uses positive rates and starts at N=4. No claim is made about other initial states or trap locations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Le et al. discuss dark subspaces and stars as sources of spectral degeneracy and illustrate paths, lattices and complete graphs in the inspected passage. Pepe et al. specify a core trap in an extended star with peripheral defects. The arbitrary coherent/mixed leaf-state theorem of 899e1cc4c3c5 remains a hub-trap theorem."
+        ],
+        "reasoning": "The scope increase in initial states or configurable dephasing does not extend the absorbing vertex to arbitrary sites. Dark-subspace theory alone does not supply the integrated mean or the rate selection.",
+        "searches": [
+          "Primary literature lookup for star-network leaf trapping, uniform dephasing and mean transfer time",
+          "Le et al. arXiv:1707.07482",
+          "Pepe–Pouthier–Yalouz arXiv:2308.15857",
+          "Resultary 899e1cc4c3c5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, relationship and references",
+        "Resultary 899e1cc4c3c5, 4514fb414d22 and 99def131cb3c exact passages",
+        "Le et al. arXiv:1707.07482",
+        "Pepe et al. arXiv:2308.15857"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hub reduction averages all leaves, whereas the trap distinguishes one leaf in the frozen equation. The friendship graph has nonzero peripheral pair hopping and no free κ in the result."
+        ],
+        "reasoning": "Resolvent linear algebra is a known method; these specific results do not specialize to the seven-variable leaf trap and cannot recover its flat leading valley and order-√N selection by reparametrization. Removing edges or moving the trap requires solving different equations.",
+        "searches": [
+          "Resultary hub proofs and their scope",
+          "Resultary 99def131cb3c scope",
+          "Pepe et al. arXiv:2308.15857 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both earlier star Findings use P_0 in the absorbing anticommutator. The same-day peripheral-trap graph is a union of triangles sharing a hub and has κ fixed at 2."
+        ],
+        "reasoning": "For N≥3, hub and leaf have distinct degrees; relabelling, population/coherence rate conventions and replacing N by the number of leaves do not interchange trap positions or delete the friendship edges.",
+        "searches": [
+          "Resultary meaning search for star transport with uniform pure dephasing, mean first capture and joint rates",
+          "Resultary 899e1cc4c3c5, 4514fb414d22 and 99def131cb3c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hub expressions give (m+1)/κ+(m−1)/γ_L+(κ+γ_L+γ_H)/(4J²) for local input, without the (2γ+κ) reciprocal and with optimized growth √m. Friendship gives z_*≈1.22693 for fixed capture and a different leading function."
+        ],
+        "reasoning": "These are the closest formula/constant entries; none tables the target symbolic peripheral-star expression or its two-rate optimum. A finite match at one parameter or leading power would not establish coverage.",
+        "searches": [
+          "Exact Resultary Findings 899e1cc4c3c5 and 4514fb414d22 for mean and optimum constants",
+          "Exact Resultary Finding 99def131cb3c for peripheral graph constants"
+        ]
+      },
+      "rationale": "The inspected related star records absorb at the hub; that permutationally different geometry gives a separable mean and square-root-size optimal time, not the leaf-absorber formula with a coupled reciprocal term. The distinct same-day friendship result shares peripheral absorption and N^(3/2)-type scaling but includes triangle edges and fixes κ, so its constants and optimum do not cover the joint star result. The primary extended-star comparison also has a core trap and energy-defect tuning. No equivalent exact leaf-absorber law or two-term jointly optimized asymptotic was verified in these comparisons.",
+      "residual_risks": [
+        "The cited Alterman–Berman–Strauch paper (arXiv:2309.00164; fully connected in the frozen description) could not be text-read via exact unversioned or v1 PDF retrieval, and substantive Novo et al. (PMC4657518) text was also unavailable in the attempted route. No absence is inferred from these access limits. A broader analytic transport formula under other terminology could implicitly apply; this judgment is bounded by the inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Hub trap, not leaf trap",
+          "evidence": "The anticommutator uses P_0; the optimum has independent rate formulas and an O(√n/J) term, with dark weight w.",
+          "identifier_or_url": "2026/11/2/SCOPE-coherence-resolved-capture-times-and-optimal-uniform-dephasing-o--899e1cc4c3c5",
+          "material_read": "Finding, scope and beginning of Proof",
+          "method": "Local-mirror exact RESULT.md offsets 0–2603",
+          "title": "Coherence-resolved capture times and optimal uniform dephasing on quantum stars",
+          "trigger": "Closest joint star rate result with uniform dephasing"
+        },
+        {
+          "assessment": "Same underlying graph but different trap and controls",
+          "evidence": "Explicit hub sink, independent leaf and hub dephasing, and optimal mean ∼2√m/J.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-noise-assisted-absorption-and-sharp-joint-rate-optimizatio--4514fb414d22",
+          "material_read": "Finding, scope and first reduction",
+          "method": "Local-mirror exact RESULT.md offsets 0–2980",
+          "title": "Exact noise-assisted absorption and sharp joint-rate optimization on quantum stars",
+          "trigger": "Localized initial leaf and exact joint optimum"
+        },
+        {
+          "assessment": "Different graph and fixed capture",
+          "evidence": "Each pair of peripherals also has a hopping edge; κ=2 and only g is optimized. No inference about priority from the equal date.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-optimal-dephasing-on-a-trapped-friendship-quantum-network--99def131cb3c",
+          "material_read": "Finding and scope",
+          "method": "Local-mirror exact RESULT.md offsets 0–2429",
+          "title": "Sharp optimal dephasing on a trapped friendship quantum network",
+          "trigger": "Distinct same-day peripheral absorber and same optimized exponent"
+        },
+        {
+          "assessment": "Central absorbing core and peripheral defects, not the target leaf trap",
+          "evidence": "Explicitly places trap in the core and compares extended star and an asymmetric chain under dephasing.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.15857",
+          "material_read": "Abstract, p. 1",
+          "method": "Open PDF, offsets 620–2169",
+          "title": "Optimized excitonic transport mediated by local energy defects: survival of optimization laws in the presence of dephasing",
+          "trigger": "Star-shaped dephased network with optimization"
+        },
+        {
+          "assessment": "Relevant mechanism; inspected passage is not a target mean-time theorem",
+          "evidence": "Relates star substructures to zero eigenvalue; gives a complete-graph illustration and trimer dark-state examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.07482",
+          "material_read": "Section III around the degeneracy discussion, Fig. 1 and complete-graph example",
+          "method": "Open PDF offsets 17200 and 21400",
+          "title": "How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures",
+          "trigger": "General dark-subspace mechanism and stars"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact formula and large-network joint optimum",
+        "Hub and friendship comparisons 899e1cc4c3c5, 4514fb414d22 and 99def131cb3c"
+      ],
+      "rationale": "Moving the sink to a leaf creates a genuinely coupled control problem: the optimal growth exponent differs from hub capture, and a flat leading order leaves the separate rates undetermined until the second term. The exact formula, sharp two-term optimization and persistence of an interior optimum for N≥4 answer this natural comparison rather than merely changing rate notation.",
+      "residual_risks": [
+        "Value concerns the specified Markovian model and a single localized initial excitation. The review makes no experimental or device-performance claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

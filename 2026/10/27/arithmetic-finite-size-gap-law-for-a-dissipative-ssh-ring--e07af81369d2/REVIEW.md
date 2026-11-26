@@ -1,19 +1,21 @@
-# Review of the finite-ring arithmetic gap law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The model is fixed at \(0<a<b\), \(g>0\) with only intracell dissipation; periodic momenta and normalization exactly match arXiv:2203.01333, Eqs. (2.5), (2.23), and Appendix A. A branch-independent square-root identity gives \(F(q)=4g^2u(q)^2/[(S(q)+R(q))(g+Y(q))]\), proving nonnegativity and locating the *only* soft momenta. The nonzero quadratic curvature \(gs^2/(s^2+g^2)\) at those points is checked by direct expansion. Uniform upper and lower minimization estimates hold even for irrational exceptionally close resonances and include exact rational zeros. Kronecker density and continued-fraction bounds justify the distinct arithmetic consequences. The bundled standard-library checker replays the finite comparisons; its finite tests are not the proof.
+PASS
 
-## Originality
+For the periodic gap 2 min Re beta, including zero rapidities, the source grid and branch formula have the stated normalization. With u=a+b cos q, v=b sin q, D=u²+(v+ig)², S=u²+v²+g² and Y=|Im sqrt D|, one has S²−|D|²=4g²u² and 2(g−Y)=4g²u²/[(S+|D|)(g+Y)]. All denominators are positive. The only zeros are ±q*, and the quadratic coefficient at either is g(b²−a²)/(b²−a²+g²). The nearest-grid distance is d_N=2π||Nθ||/N. Testing a nearest grid point gives an O(d_N²) upper bound; compactness away from the two zeros and the positive local quadratic lower bound then put every minimizer within O(d_N) of one zero. Bounding the Taylor coefficient there from below, and at a nearest point from above, gives the uniform relative O(N⁻¹) estimate regardless of which grid point minimizes and without dividing by a possible zero. Rational residue cycling, irrational density and convergent-denominator bounds give the exact resonance sizes, upper/lower limits and N⁻⁴ subsequence statements. The badly approximable lower bound follows from inf_N N||Nθ||>0. No finite script is needed for these all-size conclusions; the accompanying samples use the same band formula and are not an independent proof.
 
-**PASS with residual risk.** arXiv:2203.01333 contains the full Bloch dispersion and thermodynamic closure criterion, while arXiv:1904.08432 contains the analogous periodic damping band and the **endpoint** quartic dispersion. Neither examined full text states the finite-\(N\) commensurability classification, the uniform \(\|N\theta\|^2/N^2\) law, or its irrational \(N^{-4}\) subsequences. The latter do not follow from the endpoint quartic expansion: the interior dispersion is quadratic and the fourth power comes from arithmetic approximation. The precise results are nevertheless consequences of the published exact dispersion once the uniform minimization and number-theoretic steps are performed; specialized finite-size literature not identified here remains a novelty risk. Relevant published research searches and available overlapping research records were compared by claim and model, not title alone.
+## originality
 
-## Value
+PASS
 
-**PASS.** The primary studies call an interval of periodic parameters gapless, a continuum-band statement that does not characterize any particular finite ring. Exact commensurability gives a sharp finite/infinite boundary and distinguishes genuinely zero-gap rational sizes from irrational sizes with arbitrarily small but strictly positive gaps. The uniform arithmetic profile identifies rare relaxation-scale anomalies not described by a generic \(N^{-2}\) finite-size law, while showing why a known endpoint \(N^{-4}\) dispersion is a distinct physical mechanism. These are naturally motivated spectral invariants of the cited solvable system rather than arbitrary parameter slices.
+The exact spectral solution, allowed momenta and thermodynamic closure are prior. The supported distinction is the interior uniform relative finite-size law and its arithmetic consequences; neither the closest model-specific primary source nor the inspected related indexed results supply an equivalent theorem. This is a best-of-knowledge assessment, not priority certification.
 
-## Residual limitations
+## value
 
-The rapidity-gap convention includes zero modes and is not identical to a gap measured after deleting all stationary modes. No uniformity as \(a\) approaches the endpoint \(b\), or across dissipation strengths, is asserted. A later or unindexed study of identical finite-size Bloch sampling could reduce originality; results are not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A bulk-closed gap alone cannot distinguish exactly resonant finite rings from positive gaps or describe sporadic anomalies in their decay scale. The result gives both the sharp normalization and a usable size/parameter classification including exact zeros, typical upper envelope, and N⁻⁴ near-resonances, without confusing them with the endpoint quartic band. The value attaches to that predictable finite-size behavior, not to a new band solution or claims about every observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

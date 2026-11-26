@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:37:56.467337Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed pairs of diagonal values (d_v,s_v), an arrow gives one linear constraint on its two independent radical coordinates: q solutions if its endpoint labels differ, q² otherwise. Parallel and antiparallel arrows still use separate variables. Expansion over individually labeled edges forces the (d_v,s_v) labels constant on each spanning component, including isolates, giving the claimed q^|E| prefactor and sum. The algebra has q^(|V|+|E|) elements; dividing by its square and substituting X−1=q²/(q−1), Y−1=q−1 in the rank-subset definition gives exactly the stated Tutte evaluation. The edgeless case gives probability one, and two vertices with r parallel arrows give q^−2+(q²−1)q^(−r−2). Independently enumerated ordered products via basis multiplication, not the frozen commutator shortcut: 7936 for the two opposite arrows over F4 (using x²+x+1), and 4480 for each of two orientations of a three-edge multigraph with an isolated vertex over F2. The frozen verifier does check seven prime-field cases against the sum, but it evaluates the commutator coordinate formula rather than independently implementing xy and yx; this and the case-count description are documentation limitations, not proof defects. The Potts partition function equals the count divided by q^|E|, not the unscaled count.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 38b9edb44d0d gives the entire adjoint-rank distribution for simple underlying graphs, including Pr=q^−(|V|+|E|) R(q^−1).",
+          "The later all-arity record gives p_t=q^[−t|V|−(t−1)|E|] Z_G(q^t,q^(t−1)−1). Chen and Nasr-Isfahani study structural and homological questions, not this count."
+        ],
+        "reasoning": "The simple-graph result is stronger on its domain; its proof is insensitive to parallel edges. The later all-arity theorem explicitly includes the whole frozen formula at t=2.",
+        "searches": [
+          "Resultary records 38b9edb44d0d and 11a1e3f1ac18",
+          "arXiv:1104.4006, Theorem C",
+          "arXiv:1603.04191, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 38b9edb44d0d, f79766dd4bb5, 75cb49b6c27d, 73e61818e07a, 2b5935f3979e, 11a1e3f1ac18",
+        "arXiv:math/0503607, 1411.0848, 1104.4006, 1603.04191, 1803.04111"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed diagonal d let Z be its equal-label arrows, and S⊆Z the arrows with nonzero radical coordinate. The earlier rank formula is m−|Z|+r_G(S), with multiplicity q^(m−|Z|)(q−1)^|S| for each d,S. Its proof eliminates each nonmonochromatic arrow separately and identifies the remaining rank with that of an incidence matrix. Parallel rows are proportional (including when the orientations are opposite); they do not alter the component-rank identity.",
+          "The earlier multigraph conjugacy theorem treats the different invariant of conjugation by units and has different evaluation points."
+        ],
+        "reasoning": "The additive centralizer size from the prior rank is q^(|Z|+k(S)). Multiplying by the multiplicity above gives q^m(q−1)^|S|q^k(S) for each d,S. For each S there are q^k(S) allowed choices of d. This gives the exact multigraph count with the same argument and no new ingredient, even though the earlier rank theorem states only the simple case.",
+        "searches": [
+          "Resultary record 38b9edb44d0d, Finding eq. (1) and Proof eqs. (4)–(5)",
+          "Resultary record f79766dd4bb5, Finding and Proof §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sokal defines Z_G(Q,v)=Σ_F Q^k(F)∏_{e∈F}v_e, including repeated edges.",
+          "The later loopless multigraph adjoint-rank record states exactly the ordered commuting count in equation (4). Eberhard's bilinear-map zero-probability result does not give an algebra-specific exact evaluation."
+        ],
+        "reasoning": "The Potts and Tutte forms are the same fixed evaluation with normalization. Sokal alone does not supply the algebraic dictionary; the adjoint-rank computation does.",
+        "searches": [
+          "Resultary: radical-square-zero quiver commuting probability / Potts / Tutte",
+          "arXiv:math/0503607, eqs. (1.1), (2.26)–(2.27)",
+          "arXiv:1411.0848, Theorem 1.4",
+          "Resultary record 73e61818e07a, eq. (4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 75cb49b6c27d states the full two-vertex r-arrow specialization, not the arbitrary-vertex theorem. Record 73e61818e07a states the entire formula in equation (4); later record 2b5935f3979e gives the height-two incidence-algebra specialization.",
+          "Dutta–Basnet–Nath treat selected finite n-centralizer rings, not the uniform Kronecker family. The family-wide Kronecker precedent is sourced to the catalogue, not verified as a separate journal result."
+        ],
+        "reasoning": "There is an exact match in a distinct later catalogue record. The earlier exact Kronecker entry alone is strictly narrower and does not imply the general count.",
+        "searches": [
+          "Resultary records 75cb49b6c27d, 73e61818e07a and 2b5935f3979e",
+          "arXiv:1803.04111, §3"
+        ]
+      },
+      "rationale": "The earlier graphic-matroid adjoint-spectrum computation already resolves the simple-graph restriction and its exact rank argument extends to parallel and antiparallel arrows without any additional lemma. The earlier multigraph inner-conjugacy calculation also uses the same label/support separation, although that action's orbit counts are not additive centralizer sizes. The claimed count is a direct centralizer moment of the earlier rank computation followed by its elementary spanning-component sum. Later distinct records state the exact multigraph formula or imply it by t=2; these corroborate equivalent coverage but are not used to infer chronological precedence.",
+      "residual_risks": [
+        "Searches were bounded and do not establish journal priority; the original Fortuin–Kasteleyn full text was not recovered in the bounded check. The originality failure rests on the inspected earlier adjoint-spectrum argument, not on access gaps or later records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger on simple graphs; proof yields the multigraph moment without substantive change",
+          "evidence": "Equation (5) identifies rank via the spanning incidence subgraph and eliminates other arrows coordinate by coordinate.",
+          "identifier_or_url": "2026/10/12/Resultary 38b9edb44d0d",
+          "material_read": "RESULT.md offsets 0–4487, Finding, Assumptions, Proof steps 1–2",
+          "method": "Catalogue mirror text",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity for radical-square-zero quiver algebras",
+          "trigger": "Earlier exact centralizer distribution"
+        },
+        {
+          "assessment": "Different statistic, closely related method",
+          "evidence": "Orbit action is by A^×, with evaluations T_G(q+1,q) and T_G(q,q); it partitions arrows by equal endpoint labels.",
+          "identifier_or_url": "2026/10/12/Resultary f79766dd4bb5",
+          "material_read": "RESULT.md offsets 0–3481, Finding and Proof §1",
+          "method": "Catalogue mirror text",
+          "title": "Tutte evaluations and full inner-conjugacy spectra of radical-square-zero quiver algebras",
+          "trigger": "Earlier same algebra, underlying multigraph and polynomial"
+        },
+        {
+          "assessment": "Exact for two vertices",
+          "evidence": "Uniform formula q^−2+(q²−1)q^(−r−2).",
+          "identifier_or_url": "2026/10/04/Resultary 75cb49b6c27d",
+          "material_read": "Finding and scope",
+          "method": "Catalogue mirror text",
+          "title": "Commutator fibers and commuting probabilities of finite Kronecker path algebras",
+          "trigger": "Earlier exact parallel-arrow specialization"
+        },
+        {
+          "assessment": "Later exact coverage, not prior-publication evidence",
+          "evidence": "The ordered count includes parallel arrows and is the same component sum with the same prefactor.",
+          "identifier_or_url": "2026/11/02/Resultary 73e61818e07a",
+          "material_read": "Finding, equation (4)",
+          "method": "Catalogue mirror text",
+          "title": "Adjoint-rank enumeration and the vertex-arboricity threshold",
+          "trigger": "Exact multigraph overlap"
+        },
+        {
+          "assessment": "Later stronger coverage",
+          "evidence": "Putting t=2 in the normalized partition function gives the frozen probability exactly.",
+          "identifier_or_url": "2026/11/08/Resultary 11a1e3f1ac18",
+          "material_read": "Finding formula",
+          "method": "Catalogue mirror text",
+          "title": "Commuting tuple probabilities of radical-square-zero quiver algebras",
+          "trigger": "Higher arity"
+        },
+        {
+          "assessment": "Covers the full graph-polynomial conversion, not the algebraic count",
+          "evidence": "Component and edge weights in Z_G, with standard shift to ordinary Tutte variables.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "Page 1 eq. (1.1), §2.5 p. 8 eqs. (2.26)–(2.27)",
+          "method": "OA text passages",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Exact graph-polynomial identity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The connection between quiver commutation and the Tutte polynomial is useful, and the short two-color proof is clear. As a distinct finding, however, this is a centralizer moment of the earlier adjoint spectrum by a component sum; allowing parallel rows does not require a new result, and no narrower noncovered contribution of scientific value is demonstrated.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the Rule 184 finite-time image theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof reconstructs the binary configuration from parity-constrained equal-symbol bonds and verifies their exact local velocity and annihilation law. The forward and reverse constructions establish the same complete finite-time image for every nonnegative time, not just for finite rings. Cross-bifix-free forbidden words give the exact recurrence and generating function. The algebraic Perron-root equation follows by factoring the denominator, and the entropy limit and sharp coefficient follow by a controlled root expansion. `verify.py` passed 16 complete local transitions, 80 independent finite-language enumerations, 20,782 finite-ring lift cases and numerical root checks. These finite tests support but do not substitute for the unrestricted proof.
+PASS
 
-## Originality
+The four-cell rule gives an output 11 iff the incoming 11 from the right is not met by a 00 from the left, and likewise for 00. Alternation between marked bonds imposes odd distances for like signs and even distances for opposite signs. The words in question are exactly neighboring +,− pairs separated by 2k+2 bonds. For an output +,− pair at distance d, its input ancestors are at distance d−2, and the intervening list, even if it includes annihilated particles, contains a neighboring +,− pair. Conversely shift the desired output marks back by one step: +,− distances shrink by two but remain positive; −,+ distances grow, and same-sign distances are unchanged. Parity reconstructs an input with the required gap bound and without a collision. The no-mark case is the exchange of the two alternating configurations. This proves the bilateral image equality by induction. No forbidden word contains another; the period 11(01)^t00 proves strict inclusion. Any finite avoiding word extends bilaterally by zeros to the left and ones to the right. No forbidden word can overlap another: proper suffixes of length ≥2 do not start with 11, and the one-symbol suffix is 0 rather than 1. Each rejected one-symbol extension therefore corresponds to exactly one forbidden suffix and an arbitrary avoiding prefix. This gives the recurrence and rational series. Its first positive pole is the unique z in (0,1/φ) with 1−z−z²=z^(t+2), and nonnegative coefficients identify that pole with the radius. The equation (λ−φ)(λ+φ^(−1))=λ^(−t) bounds λ−φ by φ^(−t)/√5, so (λ/φ)^t tends to 1, yielding the stated entropy constant after taking logarithms. The no-11 shift gives the lower bound at infinite time, with the finite-time entropies giving the matching upper bound. The t=0 case gives the full shift and λ=2. Inspected the finite checker and its recorded scope without executing it; the all-time argument, not bounded ring tests, proves the claim.
 
-PASS under the accessed primary literature; historical priority remains provisional. Fukś (arXiv:math/9904182) derives arbitrary-time traffic flow and the special preimage language for zero blocks, not an evaluated whole-image forbidden basis or its entropy. Hellouin de Menibus and Sablik (arXiv:1602.06093) establish the two-species particle factor and asymptotic measure-dependent information, but do not state the reverse-lifting characterization of every image or the generating-function and sharp entropy-relaxation law. Belitsky and Ferrari (1995, 2005) are plausible earlier covering sources, but only abstracts were accessible; none of their accessible claims resolves the exact finite-time comparison. Literature searching and comparison with existing local research claims did not identify this specific theorem. The particle law itself is prior knowledge, not a novelty claim.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Entire iterated image languages and their convergence to the limit set are natural global symbolic-dynamics invariants for a classical conservative cellular automaton. A single exact all-time forbidden-word family controls every finite-time SFT, proves strict nonstabilization, and yields a closed word-count series and a sharp golden-ratio entropy-relaxation constant. This is not a one-rule one-time count or an incidental numerical value. It does not claim the original ballistic-particle interpretation or probabilistic mixing results.
+Bounded pass for the complete all-time spatial word series and sharp entropy relaxation, together with the verified finite-image presentation. Credit the established dynamics and explicit catalogue overlap on the all-time forbidden basis and strict descent; do not claim that the basis is absent elsewhere. Neither the inspected low-time exact results nor the overlapping all-time record states the all-time word series or sharp convergence law. Once the language is known these are derivable, but one must count all avoiding words using nonoverlap, factor the denominator, identify the dominant pole, and obtain the leading constant. The overlap does not establish historical priority.
 
-## Sources and limits
+## value
 
-Primary sources inspected: Fukś (1999), arXiv:math/9904182, particularly the preimage and flow results; Hellouin de Menibus and Sablik (2016), arXiv:1602.06093, especially the Rule-184 particle factor and measure-asymptotic applications. Historical-priority risks: the full Belitsky–Ferrari 2005 and 1995 papers were inaccessible. No external validation or independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full finite-time image classification for a standard elementary automaton distinguishes deterministic loss of spatial words from traffic statistics under a measure. The uniformly explicit language counts and leading entropy constant quantify a strictly descending chain whose entropy converges but whose images never stabilize. This is not just a finite catalogue of early-time automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

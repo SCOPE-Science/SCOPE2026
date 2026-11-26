@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:59:23.745108Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–78; frozen VERIFICATION.md, verify_lift.py, direct_enumerator.cpp and direct_output.txt, inspected without executing the supplied programs",
+        "Replay: python3 /workspace/reproductions/2.py (NumPy); output /workspace/reproductions/2.txt"
+      ],
+      "rationale": "The Finding explicitly says the largest primitive two-cycle exchanges the all-zero and all-one colorings (RESULT.md line 19). This is false: strict-neighbor majority fixes each globally unanimous state. The unique largest cycle exchanges the two opposite bipartition colorings, (0^10,1^10) and (1^10,0^10) in shore coordinates. Every neighbor is on the other shore, so the bits exchange in one update. The basin-size equality is an equality of cardinalities of disjoint basins. Independent exact replay constructs G(10,3), finds and checks a vertex isomorphism to the frozen 30-edge graph, computes the full majority map, seeds the states with F²(x)=x, and propagates basin identifiers and first-entry distances along reverse edges. All 1048576 states are reached; all nine basin classes, both basin-population totals and all five entry counts agree. Under the replay labeling the global states 0 and 1048575 are fixed with basin 51076 each, and 698709 and 349866 exchange with basin 102152. The base G(5,2) replay gives entries (124,260,400,120,120), phase preimage multiplicities (1:72,10:50,226:2), and exactly the two constant base phases of weight 226. Under the cover update T(x,y)=(f(y),f(x)), T⁴ applies the eventual even-phase map to both coordinates. Hence preimage weights multiply per phase, add over distinct phases of a two-cycle, and entry time is the maximum of base entry times. This verifies the census and proof mechanism but not the false orbit identification in the frozen Finding. The obvious wording correction does not leave an original claim, so no repair is submitted.",
+      "residual_risks": [
+        "The failure is not a disagreement about labelled versus symmetry-reduced totals or an unverified numerical discrepancy; it is a false identification of an actual temporal orbit."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adam et al. Definition 4.14 and Lemma 6.10 (v2; Lemma 6.12 in v1) establish bipartite expansion and the total cycle formula F(F−1)/2+F in terms of fixed-point count F.",
+          "The earlier same-graph result goes further: it gives the exact basin census, a period-split entry-time table, and the four-step sharpness identities."
+        ],
+        "reasoning": "The general recurrent-count lemma does not determine transients; the earlier explicit Desargues result does.",
+        "searches": [
+          "Adam, Dahleh and Ozdaglar arXiv:1211.0654v1/v2, bipartite expansion and recurrent orbit counts",
+          "Resultary b8bcbb0b4dff, Finding and Proof §§1–4"
+        ]
+      },
+      "checked_sources": [
+        "Earlier Resultary b8bcbb0b4dff (primary mirrored record)",
+        "Adam–Dahleh–Ozdaglar arXiv:1211.0654v1 and v2 (primary passages)",
+        "Frozen graph identity witness and independent G(10,3) match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior explicit result uses T⁴-fiber weights 1,10,226, proves weight invariance on recurrent phases, exhibits the two weight-226 symbols as constants and derives fixed weights w(u)² and two-cycle weights 2w(u)w(v)."
+        ],
+        "reasoning": "The two constants give both fixed basins of size 226² and the swapped-shore cycle of size 2·226². Even a corrected identification, the basin-size equality, both histograms and sharpness are direct consequences of the prior claim. Changing the implementation adds a cross-check but does not create a new finding.",
+        "searches": [
+          "Resultary b8bcbb0b4dff, proof §§2–4, especially offsets 5198 onward",
+          "Adam et al. arXiv:1211.0654v2, Lemma 6.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier record b8bcbb0b4dff calls its graph the Desargues graph, Petersen bipartite double, equivalently GP(10,3). Its majority is synchronous, open-neighbor, cubic and counts labelled configurations.",
+          "The independent graph isomorphism check identifies the frozen graph with G(10,3)."
+        ],
+        "reasoning": "Graph relabeling conjugates the majority maps, preserving temporal period, basin size and first-entry time with no quotient by graph automorphisms.",
+        "searches": [
+          "Resultary: Desargues graph strict majority dynamics labelled basin sizes exact distribution entry-time 20 vertices",
+          "Literature: \"Desargues graph\" majority dynamics attraction basins basin size distribution entry time exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact prior classes: fixed (1,72),(100,50),(51076,2); two-cycle (2,2556),(20,3600),(200,1225),(452,144),(4520,100),(102152,1). Prior entry-time rows by fixed/two-cycle are (124,15252),(2940,129140),(24480,442720),(32640,169920),(47040,184320)."
+        ],
+        "reasoning": "The first table is entrywise identical. Summing each row of the earlier period-split table gives 15376,132080,467200,202560,231360 exactly, including the positive time-four count.",
+        "searches": [
+          "Resultary b8bcbb0b4dff, mirrored RESULT.md Finding, offsets 0–5198"
+        ]
+      },
+      "rationale": "Published Resultary record b8bcbb0b4dff (2026-11-17) explicitly proves the same nine labelled basin-size classes, the same totals, and a strictly finer entry-time table on the same graph and update rule. Its proof also identifies the weight-226 phases as the two constant Petersen masks and pairs them to obtain the 102152 two-cycle. Thus correcting the frozen orbit label still leaves the main finding covered. General earlier bipartite cycle-count literature is context, not the decisive duplication.",
+      "residual_risks": [
+        "External graph-reference pages did not yield full text, but identity is checked directly. Additional external exact tables were not established; this does not weaken the directly inspected prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage, and a strictly finer first-entry histogram",
+          "evidence": "Same nine classes, same two totals, exact split counts at times zero through four, the same Petersen phase weights and the unique pairing of the two constant weight-226 phases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-four-step-petersen-majority-projection-and-the-desargues-doubl--b8bcbb0b4dff/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §§1–4 and verification (including offsets 0–5198 and passage starting 5198), snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror statement and proof passage inspection",
+          "title": "A four-step Petersen majority projection and the Desargues double-cover basin spectrum",
+          "trigger": "Earlier same-dynamics and exact-table Resultary hit"
+        },
+        {
+          "assessment": "General expansion and orbit counting; distinct from the exact transient census",
+          "evidence": "Expansion copies vertices and thresholds into two shores, and the formula counts F(F−1)/2+F temporal cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.0654",
+          "material_read": "v2 Definition 4.14 p. 19 offset 60818 and Lemma 6.10 p. 34 offset 109054; v1 Definition 4.14 p. 18 offset 57530 and Lemma 6.12 p. 33 offset 105128",
+          "method": "OA PDF passage inspection",
+          "title": "On Threshold Models over Finite Networks",
+          "trigger": "Attribution of bipartite expansion and orbit-count principle"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and scope",
+        "Earlier b8bcbb0b4dff Finding and Proof §§3–4"
+      ],
+      "rationale": "A complete transient census on a canonical cubic graph is a reasonable scientific target, but the exact census and a strictly finer table are already available. The frozen result neither uncovers a new invariant nor adds a structural result beyond the earlier computation. Independent reproduction is useful as audit evidence, not a distinct scientific result. Correcting the misnamed oscillator would leave only known consequences.",
+      "residual_risks": [
+        "The negative value verdict concerns this duplicate finding, not the value of such a census when first established or of independent verification as quality control."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:07:58.689743Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a terminal padded zero and strictly positive birth rates, paths of k forward jumps contribute the product of k rates times the divided difference of the end-step polynomial on the k+1 consecutive diagonal arguments (holding transitions give the extra powers). RK3: only the diagonal root rho and the two-jump factors 3-h times the triple sum in the form 3-h(a+b+c) can obstruct; its first derivative is a positive quadratic. RK4: its diagonals and second divided differences are positive; the one-jump multiplier is the average of R3(-hu) over the adjacent-rate interval (point value if equal), strictly decreasing in h; the three-jump sign is 4-h(a+b+c+d). These give nonreentrant closed horizons, with missing distances omitted. Normalize H3=1: each rate is at most rho and every three-rate sum is at most 3, so every four-rate sum is at most 3+rho and the pair roots are at least 1. At the displayed witness both a triple and a largest-rate constraint saturate and the four-rate sum is 3+rho; appending positive rates no larger than (3-rho)/2 also works at any larger n. For the strict upper bound, when H3=rho/M a pair containing M and a positive neighbor has a strictly smaller cubic root than the mean over [0,M], which vanishes at h=delta/M. When H3=3/T, every triple extends to a four-window so the ratio is at most 4/3. The family with one unit rate followed by epsilon rates tends to the endpoint ratio, since the isolated pair root tends to delta<4 and other pairs diverge. At n=4 the four-window sum equals T, so 4/S cannot limit before H3; at n<=3 no such obstruction exists. python3 /workspace/branches/independent_checks.py 2 verifies the two symbolic obstruction entries and checks signs near the five-state horizon. The exact cubic definitions govern the constants; the printed last digits of delta are slightly rounded (independently 2.78529356340528162...). Neither the original finite checks nor this replay substitutes for the inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The heterogeneous-cycle catalogue statement uses adjacent pair cubics and four-rate sums for RK4; these match the corresponding local obstruction types. A terminal zero on a serial chain degenerates those local coefficient expressions.",
+          "The pure-birth catalogue statement fixes homogeneous rates. The frozen prior comparison characterizes the invariant-set paper as a polynomial-threshold method and the graph-Laplacian paper as developing positivity-preserving schemes."
+        ],
+        "reasoning": "The ingredient is covered, but an RK4 threshold alone is not a rate-uniform comparison under both an RK3 diagonal cap and an RK3 triple cap. The homogeneous hypothesis cannot supply either witness across all positive rate vectors. No whole-body noncoverage claim is made for inaccessible papers.",
+        "searches": [
+          "Resultary 36d0a038ee0c and f681978f4cc7",
+          "arXiv:1406.6755 / Optimization Online 5534.pdf",
+          "arXiv:2102.08242"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json and VERIFICATION.md",
+        "Resultary 3dfae05a47c1, 36d0a038ee0c, f681978f4cc7 (indexed statements)",
+        "arXiv:1406.6755, arXiv:2102.08242 (frozen comparisons and primary access attempts)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The heterogeneous cycle result supplies the local RK4 algebra; the bound here needs the independent joint feasible constraints M<=rho and T<=3 after normalizing H3=1, plus a strict upper estimate and a degenerating witness.",
+          "The same-day overlap concerns different polynomial degrees and topology; its date establishes neither ordering nor absence of scientific overlap."
+        ],
+        "reasoning": "No compared statement supplies the sharp optimization with its attaining and limiting cases or the five-state minimality. The local method classification is not accepted separately as new.",
+        "searches": [
+          "Resultary same-day record 3dfae05a47c1",
+          "Resultary heterogeneous cycle record 36d0a038ee0c",
+          "RESULT.md 25–70, 76–90"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Row sums are one, so the comparison can be phrased as stochastic matrix preservation or preservation of all probability vectors. It is not a bound on spectral stability or an internal-stage SSP radius.",
+          "Resultary 3dfae05a47c1 states a sharp RK3/RK2 comparison with bounds 3/4 and 3/2 on directed cycles."
+        ],
+        "reasoning": "Alternative terminology does not change the sharp problem, but replacing RK3/RK4 by RK2/RK3 changes the polynomials and the obstructing distances. Closing an absorbing path into a cycle also changes the hypotheses.",
+        "searches": [
+          "Resultary: heterogeneous serial pure-birth Markov RK3 RK4 positivity reversal",
+          "Primary literature: completed RK4/RK3 Markov positivity and timestep thresholds",
+          "arXiv:1406.6755"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available exact index statements tabulate or classify one method, or compare a different pair of orders. None of these statements specifies the four-rate extremizer or the two endpoint expressions for this RK4/RK3 optimization."
+        ],
+        "reasoning": "A homogeneous state-count table or the usual scalar RK4 root delta is not an optimization of H4/H3 over heterogeneous birth paths. Search scope does not exclude an unindexed exact counterpart.",
+        "searches": [
+          "Resultary 3dfae05a47c1, 36d0a038ee0c, f681978f4cc7",
+          "Frozen RESULT.md 76–90 and AUDIT.json"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the optimized heterogeneous RK4/RK3 comparison, the sharp witnesses and the minimum-state theorem, not for the RK4 local coefficient formula. Heterogeneous long directed cycles already give essentially that RK4 ingredient; homogeneous pure-birth thresholds and a same-day two-method result address different quantifiers or orders.",
+      "residual_risks": [
+        "Full-text attempts did not yield the cited decisive primary passages. An uncatalogued or inaccessible cross-order result could still cover these extremal constants.",
+        "The related literature search also surfaced adaptive RK positivity and stiffness-tolerant transient Markov methods; title-level evidence for those hits is not evidence of noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different pair of completed methods and cyclic topology; no direct implication shown",
+          "evidence": [
+            "Sharp 3/4 and 3/2 bounds and a rate criterion for RK3/RK2, not RK4/RK3."
+          ],
+          "identifier_or_url": "Resultary 3dfae05a47c1",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary statement; full-text mirror retrieval attempted",
+          "title": "A sharp 25%-loss/50%-gain law for RK3 versus RK2 positivity on directed Markov cycles",
+          "trigger": "Closest two-method ratio statement"
+        },
+        {
+          "assessment": "Important covered ingredients, not the sharp cross-order theorem",
+          "evidence": [
+            "The exact cycle RK4 horizon is governed by adjacent rate cubics and consecutive four-rate sums."
+          ],
+          "identifier_or_url": "Resultary 36d0a038ee0c",
+          "material_read": "Indexed finding summary and frozen RESULT.md 56–60, 76–90 comparison",
+          "method": "Local Resultary; mirrored exact-text attempt timed out",
+          "title": "Exact RK4 positivity on heterogeneous directed cycles and a sharp CFL gain",
+          "trigger": "Same RK4 adjacency and four-rate sign constraints"
+        },
+        {
+          "assessment": "Homogeneous specialization does not determine heterogeneous sharp ratios",
+          "evidence": [
+            "State-count thresholds for the single RK4 method on homogeneous pure-birth chains."
+          ],
+          "identifier_or_url": "Resultary f681978f4cc7",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary; attempted OA mirror",
+          "title": "Exact state-count positivity thresholds for classical RK4 on pure-birth chains",
+          "trigger": "Same path domain and RK4"
+        },
+        {
+          "assessment": "General polynomial-threshold methodology credited, no whole-body noncoverage inference",
+          "evidence": [
+            "The frozen comparison identifies general invariance step bounds, not heterogeneous cross-order sharp witnesses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1406.6755",
+          "material_read": "Frozen RESULT.md 76–87 characterization; no independently read primary passage",
+          "method": "Primary lookup and official Optimization Online 5534.pdf OA alternate attempted; unavailable",
+          "title": "Steplength thresholds for invariance preserving of discretization methods of dynamical systems on a polyhedron",
+          "trigger": "General invariance framework might cover positivity horizons"
+        },
+        {
+          "assessment": "Relevant general prior work; exact priority not determined by its title",
+          "evidence": [
+            "The frozen comparison describes alternative positivity-preserving schemes, not a stated exact RK4/RK3 ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+          "material_read": "Frozen RESULT.md 76–87 comparison; no independently read primary passage",
+          "method": "Public full-text attempt; unavailable",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Graph-Laplacian ODE methods and positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives sharp limits on how much safe completed step length can change with method order on natural serial transport generators, including a concrete minimal-size loss and the obstruction that causes it. The joint optimization, not a reissue of local polynomial tests, is actionable when positivity rather than stability alone limits steps. No comparison of accuracy, cost, or internal-stage positivity follows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

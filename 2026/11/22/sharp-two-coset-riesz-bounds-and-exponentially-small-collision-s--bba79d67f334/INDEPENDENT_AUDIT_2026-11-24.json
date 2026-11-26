@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:58:31.445146Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The integral of two unit-normalized real exponential kernels is 2 sqrt(lambda mu)/(lambda+mu), i.e. sech of half the logarithmic-rate difference. Fourier transforming the resulting absolutely summable block Gram diagonals and applying Poisson summation gives diagonal F and conjugate off-diagonal entries G, with the conjugation dependent on Fourier convention; the eigenvalues are F±|G|. The half-line quadratic form is a compression of the Laurent form. Finite wave packets supported on consecutive nonnegative indices have diagonal overlap factors (1-|k|/N)_+, so at a chosen symbol eigenvector their Rayleigh quotients tend to the corresponding eigenvalue by absolute summability. Thus the extrema are sharp even on the half-line. Triangle inequality gives the upper extremum at zero, and positivity of all aliases with distinct adjacent phases gives a strictly positive lower minimum for 0<s<h. For fixed h, |G/F| squared is the characteristic function of the difference of independent copies of the alias frequency. Its moments are uniformly bounded on the compact frequency interval and its square root near one has uniform second-order term minus half the variance and remainder O_h(s^4). The minimum preserves that error; multiplying by F gives exactly the stated 4 pi^3/h^3 times the weighted index variance. For h down to zero, let a=2 pi^2/h and y=theta/(2 pi). At y=0 the two nearest side aliases give 4 exp(-a) to leading order. For 0<=y<=1/4 the central alias dominates uniformly and retaining its pairs with the two side aliases bounds the weighted variance below by (4-o(1))exp(-a)cosh(ay); for 1/4<=y<=1/2 the nearest pair alone gives order at least exp(-3a/4). This controls the actual minimum. For large h the direct Fourier coefficients and derivatives have tails O(exp(-h/2)), K''(0)=-1/4, and the s-odd first derivative of the off-diagonal series at zero is imaginary, so the modulus expansion gives 1/8+O(exp(-h/2)) uniformly. Endpoints s=0,h are excluded, the constants are squared and only the closed span is relevant. Replay: OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 /workspace/reproductions/1.py verifies finite Gram convergence and samples the collision coefficient at multiple frequencies. The frozen script's high-precision check is at theta=0, despite its theta-min comment; neither diagnostic certifies the continuous minimum or either asymptotic regime.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Semigroup-frame v1 abstract, PDF text lines 14–23, relates continuous orbit frames to discrete cogenerator-orbit frames with a factor of two in the bounds. Resultary 665865eb3d5b evaluates conditioning for geometric dilates of a single difference-of-exponentials seed. The Cambridge passage was not retrieved."
+        ],
+        "reasoning": "A structural transfer of frame bounds does not calculate the two relevant Gram eigenvalue extrema for this sequence; an exact dilation spectrum for a different fixed seed is not a law for two nearly identical sampling streams. Classical Toeplitz compression and Poisson summation supply the framework, not a prior statement of this particular stiffness or its dense prefactor.",
+        "searches": [
+          "Bailey–Gallardo-Gutierrez–Partington arXiv:2611.13867v1, structural semigroup frames versus geometric Laplace Riesz constants",
+          "Lyubarskii–Spitkovsky Sampling and interpolation for a lacunary spectrum; Cambridge publisher copy",
+          "Resultary 665865eb3d5b"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_two_coset.py",
+        "Resultary f971bbe6cbe3, 25cf612df127, bf740198d0cc and 665865eb3d5b",
+        "arXiv:2611.13867v1 (abstract); Cambridge 6133A3EB1A4A9399C78E14B8FC5B993A (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With s=h/2 the union is a single h/2 chain and its Gram is exactly that of the known result. The Poisson Gabor and difference-of-exponentials results change the construction and the coefficient being optimized."
+        ],
+        "reasoning": "Substituting a fixed spacing in the single-chain result yields the balanced optimum but cannot track s approaching zero with h fixed, which creates alternating unequal and colliding gaps. Nor does near-collision of rational-window Gabor cosets evaluate the sech-alias variance. Finite tests and general Riesz/interpolation criteria do not establish an equivalent prior sharp asymptotic.",
+        "searches": [
+          "Resultary f971bbe6cbe3 Proof §§1,3; 25cf612df127 and bf740198d0cc Findings; 665865eb3d5b Finding",
+          "arXiv:2611.13867v1 abstract; targeted external geometric Laplace/Hardy collision literature query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f971bbe6cbe3 Proof §1 has Gram entries sech((n-m)|log q|/2) of a single normalized Szego chain; §3 gives the sharp theta-function endpoints. 25cf612df127 and bf740198d0cc give two-coset Poisson-window Gabor results with exact bounds and quadratic coalescence."
+        ],
+        "reasoning": "The Hardy/Laplace Gram correspondence is exact for one chain, hence also for the h/2 reindexing. At arbitrary offset the alternating successive logarithmic gaps are s and h-s. The Gabor results concern modulation or translation of a rational Poisson window on the full line, not this normalized positive-rate Laplace Gram on a half-line index set, and their collision coefficients are not the stated sech-alias variance.",
+        "searches": [
+          "Resultary: half-line geometric normalized Szego/Hardy kernel Gram bounds; two-coset Laplace logarithmic sampling and offset collision",
+          "Resultary f971bbe6cbe3, 25cf612df127, bf740198d0cc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The verified exact spectral expression for the single-chain record gives [theta_4(sqrt(q))^2,theta_3(sqrt(q))^2]. The verified modulation-coset result gives a different sharp quadratic coefficient 8 pi^4 q/(1+q)^2 for its frame. No exact competing Laplace collision formula surfaced in the scoped searches."
+        ],
+        "reasoning": "Parametric exact formulas play the role of a table for this continuum family. The theta endpoints are a match only after the spacing-h/2 reduction; a frame coefficient depending on another system's q is not a known value of this Laplace collision constant.",
+        "searches": [
+          "Resultary exact half-line two-coset Laplace sharp squared Riesz bounds and 16 pi^3 h^(-3) exp(-2 pi^2/h) collision coefficient",
+          "Resultary f971bbe6cbe3 theta endpoints and 25cf612df127 Poisson Gabor bounds"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for arbitrary-offset half-line Laplace two-stream sharp bounds together with the explicit collision stiffness and its two mesh limits. The balanced half-period single-chain specialization is directly covered and expressly not claimed as new. The closest two-coset frame results are genuinely analogous but do not identify these Gram symbols or constants.",
+      "residual_risks": [
+        "An older equivalent Cauchy/Szego Gram, Hardy interpolating sequence or two-stream Poisson-symbol calculation with quantitative collision estimates may exist beyond the inspected sources.",
+        "The semigroup paper comparison is limited to its opening statement; the lacunary-spectrum passage was not obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact balanced specialization is covered; no arbitrary offset in the stated chain",
+          "evidence": [
+            "single-chain Toeplitz kernel sech((n-m)|log q|/2) and sharp theta endpoints independent of starting depth"
+          ],
+          "identifier_or_url": "Resultary f971bbe6cbe3",
+          "material_read": "Finding, Proof §§1 and 3",
+          "method": "configured Resultary comparison and bounded local-mirror passages",
+          "title": "Exact theta-spectrum and no spectral outliers for geometric Hardy kernel chains",
+          "trigger": "same Gram kernel on a geometric sequence"
+        },
+        {
+          "assessment": "analogous mechanism, different window and frame quantity",
+          "evidence": [
+            "rational Poisson window (t^2+w^2)^(-1), two modulation cosets and coefficient 8 pi^4 q/(1+q)^2"
+          ],
+          "identifier_or_url": "Resultary 25cf612df127",
+          "material_read": "Finding and displayed frame coefficient",
+          "method": "configured Resultary comparison and bounded local-mirror passage",
+          "title": "Sharp two-coset Poisson Gabor bounds and the optimal half-offset",
+          "trigger": "two cosets with sharp quadratic collision"
+        },
+        {
+          "assessment": "different time-translation system and frame bounds",
+          "evidence": [
+            "Poisson-window Gabor frame with two time-translation cosets; quadratic coalescence"
+          ],
+          "identifier_or_url": "Resultary bf740198d0cc",
+          "material_read": "Finding on staggered time translations and sharp bounds",
+          "method": "configured Resultary comparison and bounded local-mirror passage",
+          "title": "Exact staggered-translation Gabor bounds for the Poisson kernel",
+          "trigger": "two translation cosets and coalescing positions"
+        },
+        {
+          "assessment": "one fixed difference seed, not an offset collision coefficient",
+          "evidence": [
+            "geometric dilates of a difference of two causal exponentials"
+          ],
+          "identifier_or_url": "Resultary 665865eb3d5b",
+          "material_read": "Finding on exact bounds and dense asymptotics",
+          "method": "configured Resultary comparison and bounded local-mirror passage",
+          "title": "Sharp dense-scale conditioning of causal exponential differences",
+          "trigger": "geometric scales, causal exponentials and a dense limit"
+        },
+        {
+          "assessment": "general semigroup-frame relation in inspected passage; whole-document noncoverage not asserted",
+          "evidence": [
+            "continuous orbit frame versus discrete cogenerator orbit, with factor-of-two bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.13867",
+          "material_read": "v1 PDF abstract, extracted lines 14–23",
+          "method": "lawful arXiv PDF retrieval and passage comparison",
+          "title": "Frames Associated with C0-Semigroups",
+          "trigger": "possible structural transfer to damped exponential systems"
+        },
+        {
+          "assessment": "access-limited; not counted as negative evidence",
+          "evidence": [
+            "RESULT.md reference 3 identifies the paper; no matching theorem passage was obtained"
+          ],
+          "identifier_or_url": "Cambridge publisher article 6133A3EB1A4A9399C78E14B8FC5B993A",
+          "material_read": "citation and title only; decisive publisher passage not retrieved",
+          "method": "targeted OA and publisher page retrieval attempted",
+          "title": "Sampling and interpolation for a lacunary spectrum",
+          "trigger": "sampling bounds and lacunary structure cited in the frozen source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two interlaced decay scales form a natural stable sampling model with a genuine near-dependence when the scales collide. Optimal squared bounds separate mere existence of a Riesz sequence from quantitative stability. In particular the h^(-3) times exponentially small dense-grid prefactor, contrasted with the nonzero sparse-grid limit, supplies information not available from pointwise independence or a lower bound at one frequency. This does not purport to classify the minimizing frequency at all offsets or the joint h,s limit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

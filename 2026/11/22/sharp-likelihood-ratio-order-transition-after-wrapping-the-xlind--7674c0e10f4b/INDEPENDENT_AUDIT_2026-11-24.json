@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:05:52.830512Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–103",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed)",
+        "Independent replay: node /workspace/evidence/4-cutoff-replay.js"
+      ],
+      "rationale": "The unwrapped density integrates to one, and summing the geometric series and its first-moment series over positive wrapping shifts gives the stated positive density on the fixed branch. Let F_t(λ)=1/(t+b_λ)−λ. The log-ratio derivative is F_t(λ₂)−F_t(λ₁). The λ-derivative of F_0 has the opposite sign to K(λ), since b²+b′=K/(exp(Lλ)−1). All terms of K′ are positive and K(0)=L(4−L)<0, proving the unique positive root and the sign switch. At the terminal point the numerator controlling ∂_λF_L is strictly negative because (b+L)²+b′=(λ+2)²+1+L exp(Lλ)[2(λ+2)+L]/(exp(Lλ)−1)>0. For λ≥λ*, ∂_λF_t<0 at all interior t: if b′≥0 this is immediate, and if b′<0 the relevant reciprocal-square term strictly decreases with t. For each smaller λ, continuity gives a positive initial log-ratio slope for nearby larger parameters, but the terminal slope is still negative. For any pair the slope is negative everywhere if b₂≥b₁; otherwise it is strictly decreasing in t, so D=0 still gives strict decrease on the open branch, and D>0 gives exactly one maximum. Independent interval arithmetic gave K(0.18008)∈[-700,-545]×10⁻⁶, K(0.18009)∈[652,777]×10⁻⁶ and D(0.10,0.11)∈[1088,1093]×10⁻⁶; numerical bisection gives angle 0.46901006. The test-region consequence is the simple-pair Neyman–Pearson rule; no general UMP statement follows.",
+      "residual_risks": [
+        "The interval check confirms the numerical sign brackets, not the universal classification, which is analytic. The law can jump at the seam; endpoint slopes are one-sided and the order is not invariant under changing the cut."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison identifies the earlier LR theorem as one for the unwrapped XLindley family. The distinct indexed LR crossover ending faa9d0caf98a concerns a generalized half-logistic count family. Another adjacent result concerns modes of a wrapped Poisson–Lindley law, not a ratio of wrapped XLindley densities."
+        ],
+        "reasoning": "Reduction modulo L is not monotone from the line to the fixed interval, and the example with D>0 concretely rules out importing global LR preservation from the unwrapped result. A peak frontier for a distinct count distribution does not apply to this continuous kernel.",
+        "searches": [
+          "Chouia–Zeghdoudi, doi:10.2991/jsta.d.210607.001, Theorem 1; Bell–Nadarajah, doi:10.3390/math12162440, section 2.45",
+          "Resultary: LR crossover, wrapped-family order, and circular monotonicity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and support",
+        "Resultary exact and related summaries",
+        "Bounded primary/DOI lookups and attempted original-paper passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md lines 47–87 explicitly computes a positive-to-negative endpoint slope switch on the branch; the closest distinct indexed crossover has discrete count support and different family parameters."
+        ],
+        "reasoning": "The prior wrapped formula is a starting point, but the new quantified order range and pair classification require controlling the initial sign, proving the terminal sign for all λ and excluding extra turning points. No available matching theorem was established to supply those steps directly.",
+        "searches": [
+          "Zinhom et al. wrapped-law text, targeted retrieval for order and density passages",
+          "Exact matching statement of indexed count-family crossover ending faa9d0caf98a",
+          "Chouia–Zeghdoudi section 5 cited unwrapped comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 19–31, 35–57 and 78–85: the density is a positive normalizer times e^(−λt)(t+b_λ). A decreasing likelihood ratio is equivalent to a reverse-TP2 sign for the parameter–angle density kernel."
+        ],
+        "reasoning": "The same order can be expressed via the mixed log-derivative or ordered 2×2 determinants on the fixed branch, not via the modality of one density. The sign change below the boundary rules out uniform reverse TP2 on the entire positive parameter set.",
+        "searches": [
+          "Resultary: wrapped XLindley fixed-branch density-ratio ordering, one-peak ratios and sharp cutoff",
+          "Primary query: wrapped XLindley and likelihood ratio",
+          "Zinhom et al., doi:10.1007/s10651-023-00579-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index match ending 7674c0e10f4b is the same record. The originating source (lines 97–109) characterizes the cited survey entry as density and moment coverage; section 2.45 could not be independently recovered."
+        ],
+        "reasoning": "A density or moment table supplies inputs, not the sharp root and endpoint slope criterion. No distinct indexed exact-classification match was obtained, which is not proof that no such source exists.",
+        "searches": [
+          "Resultary: XLindley cutoff 0.18008–0.18009, boundary equation and two-parameter classification",
+          "Bell–Nadarajah, review of wrapped laws, section 2.45"
+        ]
+      },
+      "rationale": "The wrapped density and the unwrapped likelihood-ratio theorem are prior premises. The best-supported distinct content is the sharp parameter boundary plus the exact pairwise shape classification of likelihood ratios on the fixed angular branch. The literature and catalogue comparisons were bounded; no inspected statement gives this classification by specialization.",
+      "residual_risks": [
+        "Full-text coverage in the introducing paper and survey could not be independently resolved. A general ordering theorem for an applicable wrapped exponential-affine family could alter the implication comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit the density and distribution to the original paper; full-text priority for the order result unresolved",
+          "evidence": "The frozen record attributes the density, trigonometric moments, estimation and origin discussion to this source.",
+          "identifier_or_url": "https://doi.org/10.1007/s10651-023-00579-2",
+          "material_read": "Frozen RESULT.md lines 19–31 and 97–109, which identify the density and cited coverage; primary article body unavailable",
+          "method": "Targeted lawful OA and publisher attempts",
+          "title": "The wrapped XLindley distribution",
+          "trigger": "Exact same family and fixed-branch density"
+        },
+        {
+          "assessment": "Known unwrapped order, not a claim of wrapped order",
+          "evidence": "Frozen RESULT.md line 99 credits the unwrapped theorem, while lines 71–87 show the effect of choosing the branch after wrapping.",
+          "identifier_or_url": "https://doi.org/10.2991/jsta.d.210607.001",
+          "material_read": "DOI bibliographic page and frozen account of section 5, Theorem 1; theorem passage not independently retrieved",
+          "method": "DOI and targeted OA attempts; statement-level scope comparison",
+          "title": "The XLindley Distribution: Properties and Application",
+          "trigger": "Exact family before wrapping, prior LR result"
+        },
+        {
+          "assessment": "Related distribution reference, not demonstrated coverage of exact LR cutoff",
+          "evidence": "Frozen comparison identifies density and moments in the section; whole-section noncoverage was not verified.",
+          "identifier_or_url": "https://doi.org/10.3390/math12162440",
+          "material_read": "Citation and section-level characterization in frozen RESULT.md lines 97–109; primary section not recovered",
+          "method": "Targeted lawful OA and publisher attempts",
+          "title": "A Review of Wrapped Distributions for Circular Data",
+          "trigger": "Potential exact wrapped-family classification in survey section 2.45"
+        },
+        {
+          "assessment": "Same type of qualitative frontier, different objects and no identified specialization",
+          "evidence": "Indexed result separates one-peak ratios from decreasing ratios for a generalized half-logistic count law.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-likelihood-ratio-crossover-in-density-mimicking-generali--faa9d0caf98a",
+          "material_read": "Resultary statement summary; exact local mirror passage unavailable",
+          "method": "Local catalogue search and targeted mirror attempt",
+          "title": "A sharp likelihood-ratio crossover in a density-mimicking generalized half-logistic family",
+          "trigger": "Closest distinct indexed shape/classification result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–31 and 71–103",
+        "Independent cutoff replay"
+      ],
+      "rationale": "Likelihood-ratio ordering has a concrete interpretation in testing and does not survive wrapping by a straightforward preservation rule. The exact fixed-origin threshold decides whether all higher-parameter alternatives have lower-angle likelihood-ratio regions, and the pair criterion identifies when interior regions replace that geometry. The result is a full boundary and classification for a published model, not a selected numerical example or a reinterpretation of the known density.",
+      "residual_risks": [
+        "Scope is one fixed-origin family and the one-observation consequence; no rotation-free ordering or general testing-efficiency claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

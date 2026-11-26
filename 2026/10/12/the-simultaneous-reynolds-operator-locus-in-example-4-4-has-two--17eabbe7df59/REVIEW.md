@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The defining Reynolds identities were reconstructed directly for the Lie bracket \([e_1,e_2]=e_2\) and the induced \(3\)-Lie bracket \(\{e_1,e_2,e_3\}=e_2\). Exact elimination gives the eleven-polynomial system in the proof. A complete case split on the second matrix column yields exactly \(X_1\cup X_2\), and direct substitution proves the converse. Exact polynomial computation also verifies both component dimensions, their intersection, and the two explicit omitted witnesses.
+PASS
 
-## Originality
+Independent basis-pair/triple derivation, without relying on the recorded Gröbner basis: write R=[[a,b,c],[d,e,f],[g,h,i]] and v=(b,e,h). The Lie equations are Δ_ij e2=(L_ij−Δ_ij)v, with Δ=(ae−bd,af−cd,bf−ce) and L=(a+e,f,−c). If v=0 these leave af−cd=0 and the ternary equation is automatic. If v and e2 are independent they give Δ=L=0, exactly the X2 conditions; det R and the sum of its principal 2×2 minors then both vanish, giving the ternary identity. In the remaining case v=e e2, e≠0, the Lie equations give a=1, c=f=0. The ternary equation is det(R)e2=(sum of principal 2×2 minors−det R)v; here it reads ei=e(e+i), impossible. This proves necessity and sufficiency. The determinant and rank-three quadratic factors are irreducible, giving dimensions 5 and 5; adding the component ideals gives the stated A³ intersection. E13 and E21+E32 satisfy the undivided conditions and lie outside both printed charts. RESULT.md and artifacts/verify.py were inspected, not executed. This is a set-theoretic statement, not a claim of a reduced raw defect scheme.
 
-PASS. The primary source gives the raw equations but ends with two denominator-dependent parameterizations. Targeted mathematical-record and literature searches found no correction completing the \(a_{21}=0\) and \(a_{12}=0\) boundaries, no table giving \(X_1\cup X_2\), and no source stating the two-component geometry. Broader Reynolds-\(3\)-Lie papers develop structural theory rather than this exact example. The residual risk is an unindexed correction or thesis.
+## originality
 
-## Value
+PASS
 
-PASS. The omitted loci are positive-dimensional boundaries of both irreducible components, so this is not a single exceptional substitution. The result converts a denominator-dependent example into a complete intrinsic parameter variety and gives concrete boundary operators. That makes the example reliable for later low-dimensional Reynolds classifications and computational checks.
+Pass the completed set-theoretic component and boundary description, not the Reynolds identities or the undivided equations. Hou–Sheng already provide necessary-and-sufficient undivided equations via Theorem 4.2, and their example splits into cases, but the divisions in the displayed terminal parametrizations do not resolve the zero-denominator cases. The source calls the two displays operators; it does not explicitly state that those displays alone are an exhaustive iff.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This corrects a concrete zero-denominator omission in a named example: the lost operators are positive-dimensional boundary loci needed to use it as a classification. The closed components and their overlap also describe how the two families fit together. The useful result is the completed example, not re-deriving its defining equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

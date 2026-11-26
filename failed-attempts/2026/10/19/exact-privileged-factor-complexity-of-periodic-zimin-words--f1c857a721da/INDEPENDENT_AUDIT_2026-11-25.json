@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:15:24.068424Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–39",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed",
+        "Independent center and return argument; Glen et al., Theorem 2.14; Peltomäki, Proposition 3.6"
+      ],
+      "rationale": "Induction gives Z_n[i]=1+nu_2(i). A rank-k<n center has equal flanks out to distance 2^(k-1)-1; at the next distance the consecutive multiples of 2^k have unequal ranks, or the wrapped endpoint has rank 1 and its interior counterpart higher rank. All allowed strings at a given rank and radius agree. The sole rank-n center and the only equal-adjacent pair (at the seam, modulo the period) are global reflection centers. Thus the count applies even to lengths beyond a period. Consecutive occurrences at rank k<n are centered 2^k apart, except for one wrap gap of 2^k-1. In the regular case the return is centered at a higher-rank midpoint and fits its equal flanks; in the seam case the midpoint is a global reflection center. Returns between successive rank-n centers or successive seams are centered at the other reflection type. This remains valid with overlapping occurrences of long palindromes. The complete-return criterion gives richness and hence coincidence of privileged and palindrome factor sets. At n=1 the constant word has one factor of each length, and each is privileged by its return to the preceding length (length one being initial). Summing the odd contributions through one circumference gives N and the even ones give (N-1)/2, including the N=1 boundary.",
+      "residual_risks": [
+        "The finite code checks only its stated ranks and lengths; the exact all-length result instead follows from the reflection and return proof.",
+        "Distinct labels and word equality, not equivalence up to reversal or conjugacy, are essential to the counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Glen et al. Theorem 3.1(ii)=> (i) says that richness of w squared implies richness of w periodically repeated.",
+          "Peltomäki Proposition 3.6 gives privileged-palindromic factor equality for rich words; §5 gives an even/odd law for aperiodic strict episturmian words, not the Zimin staircase."
+        ],
+        "reasoning": "The strict episturmian complexity theorem is a different statement, not an alias. The general periodic-richness criterion, however, applies exactly once the known circular count proves Z_n squared is rich.",
+        "searches": [
+          "Glen–Justin–Widmer–Zamboni arXiv:0801.1656, Theorems 2.14 and 3.1",
+          "Peltomäki arXiv:1210.3146, Proposition 3.6 and §5",
+          "Bounded literature search under Zimin/ruler and episturmian/simple-Parry formulations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 46d4b0f37cce",
+        "Glen et al. arXiv:0801.1656",
+        "Peltomäki arXiv:1210.3146",
+        "Frozen RESULT.md and one targeted literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every length-at-most-N circular factor is a factor of Z_n squared, so the square contains the known (3N-1)/2 nonempty palindromes at those lengths.",
+          "The middle seam of the square joins two identical palindromic blocks. For each even length strictly above N through 2N it supplies one distinct longer palindrome, adding (N+1)/2."
+        ],
+        "reasoning": "The square has at least 2N nonempty palindromes, meeting the general length bound. It is rich, so the periodic word is rich by Theorem 3.1 and privileged complexity equals palindromic complexity, also on the perimeter. For odd length above N, a centered length-N subpalindrome must be the unique one, Z_n, whose rank-n center occurs once per period. For even length a center must be the unique equal-letter seam modulo N (n=1 is trivial). Both centers extend by global reflection, so there is exactly one palindrome of each longer length. This gives the complete remainder by direct implication without needing a new return classification.",
+        "searches": [
+          "46d4b0f37cce spectrum and center proof; Glen et al. Theorem 3.1; Peltomäki Proposition 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "46d4b0f37cce uses distinct labels a_1,...,a_n for exactly the same recursively built period. It gives one factor at each even length and n-ceil(log2(t+1)) at length 2t+1 through N, with total (3N-1)/2."
+        ],
+        "reasoning": "For t>=0, floor(log2(2t+1))=ceil(log2(t+1)). Relabel a_j as j. Through length N the floor leaves at least one odd palindrome and the formulas agree, including the exact circular total.",
+        "searches": [
+          "Local Resultary: Zimin circular palindrome spectrum; periodic Zimin, finite ruler word, privileged factor complexity",
+          "46d4b0f37cce Finding and center proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "46d4b0f37cce provides both the full indexed formula and an explicit list of the palindrome families for lengths through N."
+        ],
+        "reasoning": "This is exact analytic coverage rather than agreement of a finite numerical database. No separate table is needed.",
+        "searches": [
+          "Local Resultary exact mathematical-result lookup: complete circular palindrome spectrum of finite Zimin words"
+        ]
+      },
+      "rationale": "The indexed circular spectrum covers the finite palindrome result exactly. Its counting formula also gives the claimed periodic richness immediately by a palindrome count in the square and the established periodic-richness theorem, so the privileged counts that are absent verbatim from that indexed Finding are covered as consequences. The long-length extension uses only the occupied reflection phases. This is a statement-level implication, not an assertion of historical priority from the record dates.",
+      "residual_risks": [
+        "No priority or common origin is inferred between the assigned and indexed records.",
+        "The Simpson comparison and any unlocated aliases remain residual history risks; the finding is covered without relying on them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite palindrome spectrum; direct basis for the longer-length and richness implications",
+          "evidence": "The source lists both families and explicitly states the exact finite total; it limits its own statements to length at most N.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-complete-circular-palindrome-spectrum-of-finite-zimin-words--46d4b0f37cce/RESULT.md",
+          "material_read": "Finding, assumptions and ruler/odd center proof, offsets 0–3600; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror bounded reading",
+          "title": "The complete circular-palindrome spectrum of finite Zimin words",
+          "trigger": "Identical labeled recursion, object and circular invariant"
+        },
+        {
+          "assessment": "General theorem applicable to the square counted above",
+          "evidence": "Theorem 3.1 makes w^omega rich iff w^2 is rich; Theorem 2.14 supplies the separate complete-return criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/0801.1656",
+          "material_read": "Theorems 2.14 and 3.1, PDF p. 6, in particular text offsets 22167–22851",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Palindromic Richness",
+          "trigger": "Frozen citation; periodic richness theorem may subsume the additional claim given the circular count"
+        },
+        {
+          "assessment": "General rich-to-privileged implication; strict episturmian spectrum not the same object",
+          "evidence": "Richness is equivalent to palindromic/privileged coincidence, while the strict episturmian law has constant odd complexity |A| and is aperiodic.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.3146",
+          "material_read": "Proposition 3.6, PDF p. 5, and Theorems 5.25–5.26, PDF p. 13",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Introducing Privileged Words: Privileged Complexity of Sturmian Words",
+          "trigger": "Frozen privileged-factor reference and plausible episturmian alias"
+        },
+        {
+          "assessment": "Additional comparison unresolved and not used to decide coverage",
+          "evidence": "The source is pertinent by topic; no theorem of it is assumed.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.07.012",
+          "material_read": "Bibliographic citation and mirror record's discussion; no full text read",
+          "method": "Identified OA retrieval attempted; timed out",
+          "title": "Palindromes in circular words",
+          "trigger": "General circular-palindrome work identified by the mirror record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and return proof",
+        "46d4b0f37cce and Glen et al. Theorem 3.1",
+        "Peltomäki Proposition 3.6"
+      ],
+      "rationale": "The Zimin period and its separate seam are natural, and the exact profile is useful. The one-circumference theorem is exactly matched, however, and the long profile, richness and privileged count follow mechanically from that theorem and the standard square criterion. The frozen claim does not leave an independently useful exact invariant or structural theorem as a distinct result.",
+      "residual_risks": [
+        "This does not deny the expository benefit of the direct return classification."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

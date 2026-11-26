@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:13:50.981893Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen classification, enumeration and metric are correct; the repair narrows the contribution. A witness on the opposite shore sees the omissions at indices U except its own. Thus no shore can omit more than two, and omitting two on each forces disjoint index pairs, which suffice. A legal jump then exchanges only a color and a vacancy. Initially occupied positions of wrong color give a lower bound b, each having to be vacated. Index-labeled edges from initial to target colors give a balanced directed multigraph. With different support, all edges lie in the component containing 0 because a disjoint nontrivial component would need both nonzero colors. An Euler traversal based at 0 moves each wrong token once. With unchanged support and a mismatch, the first move fills an index required empty at the end, forcing one extra vacating, and an alternating circuit using that vacancy as a buffer attains the bound. This handles n=4 separately, and for n≥5 establishes connectivity and the unique antipode. To check the coefficients, the binomial moments of the match count are N_n, 2(n−1)(n−2)(n−3), 5(n−2)(n−3), 4(n−3), 1. Binomial inversion and the same-support corrections 4(t³−t²)+(t⁵−t⁴) give the shell polynomial. A slide crosses shores and changes their required counts. Independent direct witness enumeration checked all subsets for 4≤n≤8, then direct minimum-set exchange graphs were checked by BFS for 4≤n≤10. For n=4 there were six isolated states; for n=5 and n=10 the shells were (1,4,8,12,4,1) and (1,24,198,532,504,1), with every tested distance and the unique distance-five state agreeing. Replay: python3 /workspace/branches/f36ec071-0bbc-481c-a1c9-a9f737c069bc/audit_reproduction.py; see reproduction-small.log and reproduction-full.log beside it. The uploaded verifier was inspected, not executed. The finite runs corroborate, but do not prove, the infinite metric.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5607c6d03173 classifies and enumerates super dominating sets of K_{a,b} with a matching of size t removed.",
+          "The inspected Ghanbari–Jäger–Lehtilä results cover complete bipartite graphs.",
+          "Yamanaka et al. prove a complete-host algorithm for their ordinary swap model."
+        ],
+        "reasoning": "Setting a=b=t=n in the deleted-matching result gives the frozen enumerator and minima outright. It does not address distances after restricting to those minima. Neither the original complete bipartite graph theorem nor the different swap algorithm gives the missing restricted metric.",
+        "searches": [
+          "Resultary 5607c6d03173 (deleted matching in bicliques)",
+          "arXiv:2209.01795, Theorems 1.2(d) and 6.1(b)",
+          "arXiv:1803.06816, Theorem 15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verifier structure",
+        "Resultary 9d11a0d9ad56, 5607c6d03173, d5bbcedc7119, 25e04153e0e9, 56a4948a1a5b",
+        "arXiv:2209.01795",
+        "arXiv:1803.06816"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The deleted-matching specialization determines the state space. The connected-domination exchange model enforces only unequal pairs; ordinary swaps allow a transition between both occupied colors."
+        ],
+        "reasoning": "The state count by itself does not determine shortest paths, and deleting extra states and disallowing direct swaps can increase distances. The explicit lower bound and circuit proof for unchanged support establish a distinct unit penalty; the shells and antipode are consequences of that metric, not separately claimed independent discoveries.",
+        "searches": [
+          "Resultary 5607c6d03173 and 25e04153e0e9",
+          "arXiv:1803.06816 §2 and Theorem 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9d11a0d9ad56 gives the same omission characterization and enumerator.",
+          "25e04153e0e9 and 56a4948a1a5b use pairs of unequal two-subsets, not disjoint pairs.",
+          "Ordinary complete-host colored swapping allows direct swaps between the occupied colors."
+        ],
+        "reasoning": "The move restriction is essential: the full support swap costs two ordinary colored swaps but five vacancy-restricted jumps. The two crown exchange records allow extra overlapping configurations and are not the same metric space.",
+        "searches": [
+          "Resultary 9d11a0d9ad56 (crown super domination)",
+          "Resultary 25e04153e0e9 and 56a4948a1a5b (crown minimum-set exchange metrics)",
+          "arXiv:1803.06816, §2 (colored token swapping)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The classification records give the exact minimum count 6 binom(n,4), and 9d11a0d9ad56 gives the full crown enumerator. The two exact distance-enumeration records have different configuration rules."
+        ],
+        "reasoning": "There is exact catalogue coverage of the frozen counting claims, not merely matching values at small n. The shell formula here counts distances in the smaller disjoint-pair graph with a support penalty; the comparison records do not supply its coefficients.",
+        "searches": [
+          "Resultary 9d11a0d9ad56, d5bbcedc7119, 25e04153e0e9, 56a4948a1a5b"
+        ]
+      },
+      "rationale": "The frozen all-cardinality contribution is already covered, both directly for crowns and as an immediate deleted-matching specialization. The replacement treats the minimum-set classification only as a known input. What survives is the exact vacancy-restricted metric and its derived full distance distribution and antipode, with sliding isolation as a contrast. The strongest inspected near-matches change either the state space or the legal moves, and did not establish that remainder.",
+      "residual_risks": [
+        "A general exact result on multiset swaps restricted to arbitrary exchanges with vacancies might occur under different terminology; no such matching statement was substantiated in the bounded search.",
+        "No global claim of publication priority follows from this comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the frozen enumeration",
+          "evidence": [
+            "Omitted-index classification, bivariate enumerator and minimum count"
+          ],
+          "identifier_or_url": "Resultary 9d11a0d9ad56",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "All super dominating sets of crown graphs",
+          "trigger": "Same graph and all-cardinality invariant"
+        },
+        {
+          "assessment": "Stronger enumeration theorem; direct specialization, not a metric theorem",
+          "evidence": [
+            "Arbitrary a,b,t with a matching of size t removed"
+          ],
+          "identifier_or_url": "Resultary 5607c6d03173",
+          "material_read": "Mirrored RESULT.md, Finding and Proof steps 1–4, offset 0",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Super domination polynomial of bicliques with a deleted matching",
+          "trigger": "Broader graph family includes crowns"
+        },
+        {
+          "assessment": "Additional exact minimum-state coverage",
+          "evidence": [
+            "Minimum-set classification and count"
+          ],
+          "identifier_or_url": "Resultary d5bbcedc7119",
+          "material_read": "Mirrored finding on minimum sets",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Super and connected super domination of crown graphs",
+          "trigger": "Minimum crown super domination"
+        },
+        {
+          "assessment": "Distinct family of sets, regardless of date",
+          "evidence": [
+            "Pairs A≠B can overlap; correction term and diameter differ"
+          ],
+          "identifier_or_url": "Resultary 25e04153e0e9",
+          "material_read": "Mirrored finding on states, metric and slides",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Exact exchange distances and distance profile for minimum connected dominating sets of crown graphs",
+          "trigger": "Same graph and kind of exchange invariant"
+        },
+        {
+          "assessment": "Distinct predicate and admissible states",
+          "evidence": [
+            "Pairs A≠B rather than disjoint pairs"
+          ],
+          "identifier_or_url": "Resultary 56a4948a1a5b",
+          "material_read": "Mirrored finding on state space and metric",
+          "method": "Resultary search and bounded local mirror reading",
+          "title": "Exact reconfiguration distances for minimum zero-forcing sets of crown graphs",
+          "trigger": "Same graph and exact exchange distances"
+        },
+        {
+          "assessment": "Cited statements concern complete bipartite graphs, not the crown metric",
+          "evidence": [
+            "Values and minimum counts for K_{n,m}"
+          ],
+          "identifier_or_url": "arXiv:2209.01795",
+          "material_read": "PDF p. 2 graph classes; p. 4 Theorem 1.2(d); p. 17 Theorem 6.1(b)",
+          "method": "Targeted OA passages",
+          "title": "Super Domination: Graph Classes, Products and Enumeration",
+          "trigger": "Super domination on graph classes and exact enumeration"
+        },
+        {
+          "assessment": "Ordinary swaps are not vacancy-restricted moves",
+          "evidence": [
+            "An edge permits swapping both endpoint colors; complete-host fixed-parameter result"
+          ],
+          "identifier_or_url": "arXiv:1803.06816",
+          "material_read": "PDF p. 3 §2 definition; p. 15 Theorem 15",
+          "method": "Targeted OA passages",
+          "title": "Swapping Colored Tokens on Graphs",
+          "trigger": "Possibly equivalent complete-host move model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural question after classifying crown minima is how many one-vertex exchanges are actually required between two of them. The result gives that exact invariant for every pair, the full distance profile, and a structural distinction from both unrestricted color swaps and token sliding. In particular, the unique farthest state and the cost of recycling an unchanged occupied support address a real reachability phenomenon, rather than just recalculating the covered counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

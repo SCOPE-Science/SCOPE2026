@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-The package includes `verify_python.py` and `verify_cpp.cpp`, both readable standalone source files. In a directory containing them, run:
+## correctness
 
-```
-python3 verify_python.py
-g++ -std=c++17 -O2 verify_cpp.cpp -o verify_cpp
-./verify_cpp
-```
+PASS
 
-The projective-coordinate Python computation recovers 234 noncollinear point triangles and 234 point ovals, validates all 468 geometric minimizers and every inclusion edge, and checks a breadth-first-search histogram from every state. The independent C++17 affine-coordinate program constructs the incidence graph from 9 affine and 4 infinite points and 12 affine plus one infinity line. It exhaustively checks every subset of sizes one to seven using the original outside-vertex neighbourhood criterion, finds no optimum smaller than seven, counts exactly 234+234 minimum configurations, checks all one-vertex replacements, and computes all 468 shortest-path profiles. Both report a degree-four graph on 468 vertices, 936 edges, diameter nine, and common profile `(1,4,12,30,60,96,114,96,47,8)`.
+For at most seven selected vertices, one or two points meet at most four or seven lines, forcing at least nine or six selected lines, and zero points forces all lines. Duality then leaves only (3,3), (3,4), (4,3). Three noncollinear points force four external lines; three collinear points force their common line and three external lines, all through the unselected fourth point, which violates the upper bound. For a triangle the external line forms (1,±1,±1) have no triple concurrence, cover exactly ten points, and meet outside points at most twice. Duality yields exactly the oval configurations, with external lines forced. The four extensions of the coordinate triangle to an oval and the four triangles per oval give 234 of each. For equal-type jumps, the external lines determine the point set as the complement of their union, and the point set in turn determines the lines; no same-side replacement is possible. A cross-type jump must be triangle inclusion, and its line exchange is with the unique oval tangent at the removed point. An independently written exact checker constructs Singer translates in PG(2,3), exhausts both classes of selected vertices through total size seven using mandatory line choices, compares literal one-token adjacency with inclusion, and computes every BFS profile. It finds precisely the two asserted families, 936 edges and the common profile (1,4,12,30,60,96,114,96,47,8); thus connectivity, radius and diameter all follow.
 
-No random sampling or unbounded-order inference occurs. The proof is structural for the optimum classification, and the finite graph metric uses independently reproduced exhaustive code; it is not an external certification. No independent audit has been performed.
+## originality
+
+PASS
+
+The credited oval enumeration and oval-only metric are covered. The distinct claim is the [1,2] minimum-set classification and identification of its two-type reconfiguration graph, with evaluated mixed distances. The old oval graph is a halved graph, not itself the optimizer problem, and its scalar distance profile should not be counted again as new.
+
+## value
+
+PASS
+
+The exact optimizer geometry explains how an outside-only lower and upper neighbor count constrains seven-set exchanges in a natural symmetric incidence graph. The dual geometric classes and their single incidence move are not obtained just by recomputing the old oval metric. The mixed paths and exact diametral layer give useful reconfiguration data; the main value is the connection to the domination optimizers, not a bare table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-The assertion concerns the complete finite family of unordered edge partitions of the fixed labeled \(K_8\) into seven one-factors. Both scripts use only Python 3 standard-library integers, sets, permutations and breadth-first search; no external data or random choices are used.
+## correctness
 
-Run `python3 check_matching.py > matching_output.txt` and independently `python3 check_coloring.py > coloring_output.txt`. Both outputs must finish with the literal `VERIFY_OK`. The matching script generates \(105\) perfect matchings via recursive vertex pairing and \(6{,}240\) unordered exact covers of the 28 edges. The second generates proper edge-colorings canonically by fixing the colors incident with vertex zero, without consulting the matching partition enumerator.
+PASS
 
-Both implementations enumerate all \(28\) anchor pairs per state and all eligible bipartite components. Their recorded signed counts of component-side partitions total \(174{,}720\). The generated undirected graph is checked for symmetry, has \(6{,}240\) states, \(66{,}360\) edges, and degree counts \(420,960,30,4200,630\) at degrees \(9,14,21,23,29\), respectively.
+For anchors a,b, each other vertex is incident to two distinct factor nodes, and each non-anchor factor has one a-edge and one b-edge. Contracting factors gives the cycle components of z -> the partner of b in the factor containing az. Swapping a and b on one such cycle leaves one edge at both anchors in each affected factor and leaves all other vertices properly matched. It is an involution and preserves the cycle partition, so the excluded connected case cannot become an allowed reverse move. Full state canonicalization must retain vertex labels and erase only factor labels. My exact independent replay fixed the round order by the partner of vertex 0, used pairing recursion in each round, generated switches by permutation cycles, deduplicated targets, and obtained 6,240 states, 66,360 edges and the stated degree and cycle-signature counts. A separate alternating-cycle test identified exactly the 960 degree-14 states as perfect. Adjacent transpositions generate all of S_8, act by graph automorphisms and gave the same six orbit sizes; sparse unweighted shortest paths from each representative visited all states and reproduced all six distance vectors. Weighting representatives by orbit sizes gives eccentricity 5 for 5,790 states and 6 for 450, hence radius 5 and diameter 6 (private replay /workspace/branches/replay/switch.py and switch.txt). The matching checker was inspected; the coloring checker's VERIFY_OK does not by itself assert the printed profiles, but the matching computation and independent replay verify the full table.
 
-The matching implementation computes the exact six \(S_8\)-orbits, of orders \(30,420,630,960,1680,2520\), and performs complete BFS from one member of each orbit; all six BFS traversals reach all states. Representative eccentricities are \(6,6,5,5,5,5\) in the ordering of `RESULT.md`; thus the radius and diameter are precisely \(5\) and \(6\). The coloring implementation independently constructs the same distance profiles and verifies the expected cardinalities. The two methods use different enumeration and canonicalization algorithms.
+## originality
 
-No unbounded-order generality, external audit, or uniqueness among all possible published works is claimed. The computational proof can be independently reproduced by executing and inspecting the attached standalone algorithms; log files alone are not evidence of exhaustive correctness.
+PASS
+
+Supported for the exact fixed-label single-component switch graph, with the historical move, class census and quotient data credited separately. The 960/14 comparison is between perfect states' lack of factor moves and their nonzero fixed-label vertex-switch degrees, not a new definition or a quotient claim.
+
+## value
+
+PASS
+
+K8 is the small complete-graph case singled out by the established switch literature with a perfect class separated under factor switches. Fixing labels answers the different scheduling/reconfiguration question of how many actual moves are needed without renaming teams. The result proves all concrete schedules communicate within six moves, exactly quantifies access out of every otherwise factor-switch-frozen state, and identifies which labeled orbits attain the worst case. The six-class quotient does not determine this behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

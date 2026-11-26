@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:03:29.091798Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–86; frozen verification notes, verify.py and recorded verification_output.txt inspected, not executed",
+        "repairs/4/RESULT.md, Finding and proof",
+        "Python 3.12.3 replay: python3 /workspace/branches/21ee94ba-1b34-4c75-b2c0-d6de680f0bcc/independent_check.py; exact Newton coefficient computations match all six characteristic polynomials and a separate parity-mask DP gives 9,344,160 for B₆(14); companion independent_check_output.txt contains the expanded coefficients.",
+        "Separate bounded check enumerating all 5^6 indexed length-six words and weighting admissible words by (−1) to the number of letters in the first r colors, r=0,1,2, gives signed traces (780,−84,60), confirming the out-of-domain noninteger. Directly checked the seven witness words and one insertion in each applicable word; the local boundary argument verifies all further insertions."
+      ],
+      "rationale": "On the repaired domains, the sign average is the product of the odd-multiplicity indicators and counts labeled rim words in bijection with indexed closed walks. Sign complementation pairs terms only as used when n≡k mod 2, yielding integer counts B₄ and B₅ there. The local neighborhood condition gives cyclic distance-two properness and the hub gives odd rim classes. Small rims force singleton classes, three colors force period three (and odd class sizes precisely for n≡3 mod 6), and the parity, size bounds and verified +6 witness extension fix all remaining optimal palette sizes. The 14-rim has six rim colors and the independently reproduced rim count 9,344,160 gives 65,409,120 after seven hub choices. In the signed asymptotics all states communicate (including reversal of any pair with a four-color walk); 3- and 4-cycles ensure primitivity. The equality condition for spectral-radius comparison forces one common phase on the products along 3-cycles. Comparing triples with two common colors forces all signs equal. Only the all-positive and all-negative terms therefore contribute the leading terms, with factor 2^(1−k) on the repaired parity domains before the hub factor.",
+      "residual_risks": [
+        "The exact arithmetic replay checks the matrix factorizations and finite exceptional count; the argument with the parity projection and spectral comparison proves the unbounded claims."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The wheel paper proves that rim color classes have odd size, imposes distance two, and treats n=14 as the seven-color exception for the full wheel. The repository strong-odd census match concerns gear graphs, with a subdivided rim."
+        ],
+        "reasoning": "The known palette theorem fixes which transfer matrix is needed at each order but cannot determine its trace powers or their parity combination. Subdividing rim edges changes the neighborhood constraints, so the gear census does not specialize to the wheel census.",
+        "searches": [
+          "Manattu–Vinay–Lakshmanan arXiv:2602.03259, pp. 4–5, wheel observations and theorem",
+          "Resultary parity transitions and optimal strong odd coloring record 988975e80751"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16 and 88–98",
+        "repairs/4/RESULT.md, Relationship to prior work and limitations",
+        "arXiv:2602.03259 wheel theorem and proof",
+        "Resultary 90f832f169a9 and 988975e80751",
+        "Stanley's cited chromatic symmetric function paper landing material"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior wheel proof uses necessary parity and distance-two restrictions and constructs feasible palettes; its order-14 case is a feasibility theorem. The general CSF weights all colorings by class sizes, abstractly retaining the information used here."
+        ],
+        "reasoning": "There is no implication from existence at the optimal palette to the evaluated count. An unevaluated encoding is not the six explicit polynomials, the exceptional coefficient sum, or the leading growth constants. Those require calculation of the transfer spectra and strict separation for mixed signs.",
+        "searches": [
+          "arXiv:2602.03259, PDF p. 4, OA offsets 9650 and 10200 onward",
+          "Stanley, A symmetric function generalization of the chromatic polynomial of a graph, landing-page scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wheel rim conditions in arXiv:2602.03259 amount to proper colorings of C_n squared with odd positive class sizes. The chromatic symmetric function encodes class sizes but the general definition is not their evaluation on this graph."
+        ],
+        "reasoning": "The same census could be tabulated as the sum of fixed-palette coefficients of the chromatic symmetric function of the cycle square over positive odd exponent vectors, multiplied by k+1 hub choices. The statement in the inspected wheel paper establishes feasibility for the minimum k, not those coefficients. An explicit all-order cycle-square formula for those profiles would be materially relevant.",
+        "searches": [
+          "Resultary strong-odd wheel and parity-constrained optimal-coloring census lookup",
+          "arXiv:2602.03259, wheel Observations 1–2 and Theorem 1",
+          "Cycle-square chromatic symmetric function and odd size profiles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 90f832f169a9 is listed as forced four-colorings and seed counts on wheels; record 988975e80751 concerns the strong-odd census on gear graphs. The primary discussion at order 14 supplies seven as the wheel palette size, not the number of labeled colorings."
+        ],
+        "reasoning": "A seed count for a forced four-coloring variant and an optimizer census for a different graph family do not match the all-order named-color census or the six-rim-color exception. Full-text reach on the forced-wheel hit was incomplete, so this is not claimed as a whole-document exclusion.",
+        "searches": [
+          "Resultary wheel-census lookup, hits 90f832f169a9 and 988975e80751",
+          "arXiv:2602.03259, explicit order-14 discussion"
+        ]
+      },
+      "rationale": "The revised contribution is the evaluated optimal-coloring count with named colors and distinguished vertices, including six explicit characteristic polynomials, the exceptional count, and residue-class growth laws. The inspected primary wheel source already determines the palette and rim restrictions, as credited. Neither those statements nor the compared repository findings give this evaluated census.",
+      "residual_risks": [
+        "The bounded evidence does not exclude an explicit prior cycle-square chromatic symmetric function or restricted odd-profile formula. Full text of the forced-four-coloring near match and the cited Stanley paper was unavailable in the attempted routes; nothing decisive is inferred from that alone. No claim to absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rim conditions and palette, not evaluated census in the examined result",
+          "evidence": [
+            "Odd rim classes and 2-distance restrictions are explicit, and the proof identifies 14 as the 7-color exception. The displayed 5-color branch in the retrieved version says n≠15 but is for even n; the separately stated exception and proof identify 14."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.03259",
+          "material_read": "PDF p. 4 and following wheel proof; OA offsets 9650 and 10200, Observations 1–2, Theorem 1 and exceptional case",
+          "method": "Primary OA arXiv PDF; publisher full text unavailable",
+          "title": "On a conjecture about the strong odd chromatic number of planar graphs",
+          "trigger": "Same wheel family and exact optimal-palette theorem"
+        },
+        {
+          "assessment": "Available scope indicates different requirements and invariant; comparison limited",
+          "evidence": [
+            "Listing describes forced four-colorings and seed counts, whereas the exceptional branch here uses seven named colors and the growing branches use five or six."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-forced-four-colouring-polynomial-and-sharp-seed-census-of-wheel--90f832f169a9",
+          "material_read": "Resultary listing description; full mirror file did not return",
+          "method": "Configured Resultary lookup; bounded mirror retrieval attempt",
+          "title": "Forced four-coloring polynomial and sharp seed census of wheels",
+          "trigger": "Wheel census repository hit"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "Gear graphs subdivide the wheel rim; the indexed rim-neighborhood model of an unsubdivided wheel is not the one counted there."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-parity-transitions-and-an-optimal-strong-odd-coloring-census-of--988975e80751",
+          "material_read": "Resultary finding description, graph family and invariant",
+          "method": "Configured Resultary lookup",
+          "title": "Parity transitions and an optimal strong odd coloring census of gear graphs",
+          "trigger": "Optimizer census and parity-transfer repository hit"
+        },
+        {
+          "assessment": "General encoding relevant; exact cycle-square coverage not determined from this material",
+          "evidence": [
+            "The generic encoding is of all class-size profiles; the question here is whether the particular odd profiles of cycle squares have already been evaluated."
+          ],
+          "identifier_or_url": "Richard P. Stanley, Advances in Mathematics 111 (1995), 166–194",
+          "material_read": "Landing page and abstract only; no primary full text obtained",
+          "method": "Lawful access attempts and statement-level comparison to the general encoding",
+          "title": "A symmetric function generalization of the chromatic polynomial of a graph",
+          "trigger": "Potential general encoding of the odd-class color-count data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "repairs/4/RESULT.md, Finding, Exact counts and Growth",
+        "Manattu–Vinay–Lakshmanan wheel palette theorem in arXiv:2602.03259"
+      ],
+      "rationale": "The wheel is a canonical family with a known optimum, but an optimum palette is not a measure of how many optimal configurations exist. The exact formula exposes a qualitative difference: two odd residue classes have exponential growth while the third has a fixed 24 configurations. It also counts the exact exceptional order using the graph's actual optimum rather than extrapolating a generic branch. The parity-domain correction leaves that worthwhile comparison intact.",
+      "residual_risks": [
+        "The interpreted counts are for distinguished vertices and named colors only; no symmetry-orbit census is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

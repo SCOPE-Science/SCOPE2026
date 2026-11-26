@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:03:44.863243Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let α be the center color. A vertex with color γ in a blade where β occurs a_β times sees a_β+1_{β=α}−1_{β=γ} neighbors of color β. For m=2 either blade vertex fails if its mate has center color, otherwise both pass regardless of whether their own colors agree; the center then imposes the sole global per-color cap n. For m≥3 a monochromatic blade fails (m−1>floor(m/2)). Therefore each β has a witness γ≠β in each blade, giving exactly the stated individual caps h−1 and h. Conversely those caps suffice there and imply the center cap since nh≤floor(nm/2). For a fixed center label the multinomial count gives the restricted sum for m=2 or m![x^m]E_{h−1}E_h^{q−1} per labeled blade for m≥3; only the latter factors by blade. Multiplication by q, then inclusion-exclusion over unused labels, gives A_q and S_q, including the empty-sum and A_0 conventions. At most two colors fail by the total occupancy caps in either case. For m=3 four colors are needed and suffice with each blade a permutation of three other colors; for m=2 two non-center colors can each occur n times; for m≥4 the blade profile (1,h,m−1−h) proves three suffice. At the minimum the maps are surjective, giving the two balanced non-center counts at m=2, permutations at m=3, 6+24 one-blade maps for m=4 and 30 for m=5 with fixed center label. Splitting a nontrivial color class preserves the cap and reaches every larger used-color count. Fresh direct enumeration of neighborhood caps for (n,m)=(2,2),(3,2),(2,3) with q=2,3,4 and (2,4),(2,5) with q=2,3 matched the claimed count, including 18, 60, 144, 2700 and 2700 at the respective minima. These are finite checks, not the universal proof. Replay: RESULT.md lines 45–80; the separate artifacts/verify.py and logged finite replay in VERIFICATION.md were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Observation 6 gives 3 for complete graphs of order at least three except K_4, which needs 4; this is the n=1 boundary. Theorems 7–10 are general bounds/constructions for a scalar minimum under stated conditions, not enumerations.",
+          "The game source treats sequential two-player play and its game chromatic number. The complete multipartite candidate did not yield a primary record passage, and windmills in scope are not complete multipartite: a vertex of another blade is nonadjacent to both endpoints of an edge of a blade."
+        ],
+        "reasoning": "The closest proven scalar equality has a genuinely smaller graph scope. Even a scalar upper or lower bound applicable to a windmill would not by itself classify the admissible maps; the game parameters also concern a different problem.",
+        "searches": [
+          "arXiv:2605.23828v1 Observation 6 and Theorems 7–10",
+          "arXiv:2609.37796v1 game definition and cycle result",
+          "Resultary e7314efe9837, exact complete multipartite vertex minimum candidate"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "arXiv:2605.23828v1",
+        "arXiv:2604.20752v1",
+        "arXiv:2609.37796v1",
+        "Local Resultary comparison records listed above, with e7314efe9837 attempted only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Observation 6 uses equitable parts of a complete graph and the two-equal-colors obstruction on K_4. On an individual K_{m+1}, class-size caps are familiar; summing such bounds makes them sufficient on the windmill for m≥3.",
+          "However, the neighborhood to be tested at the shared vertex is not its complete-blade neighborhood. For m=2 the admissible within-blade case of equal off-center colors is not a strong majority coloring of K_3."
+        ],
+        "reasoning": "A substitution in the isolated clique coloring theorem cannot infer the necessary windmill bounds or the counts. One must show for m≥3 that the capped color is witnessed by a blade vertex even without testing the center locally, and for m=2 apply the different center restriction on the union of the blades. No separate novelty is claimed for standard multinomial or inclusion-exclusion steps once those rules are known.",
+        "searches": [
+          "arXiv:2605.23828v1 §2, Observation 6 including proof and Theorems 7–10",
+          "arXiv:2604.20752v1 definition and Dutch windmill formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strong majority vertex rule caps every neighborhood color, while majority C-coloring requires sharing one's own color with at least half the neighbors; the latter includes friendship graphs and a generalized-windmill result.",
+          "The same-host strong odd result assumes a proper coloring with odd multiplicities of occurring neighborhood colors. Strong majority edge-coloring caps edge colors around a vertex and counts assignments to edges, not these vertex maps."
+        ],
+        "reasoning": "Same graph, a similar parameter name, and even palette counts do not identify the predicates. For example, monochromatic blades in the majority C result are prohibited by the target rule for m≥3. In the m=2 target rule a blade's leaf pair can share a non-center color, so the target is not ordinary proper coloring either.",
+        "searches": [
+          "Primary search: strong majority vertex colorings windmill friendship clique bouquet generalized windmill number coloring enumerator",
+          "arXiv:2605.23828v1 §2 and arXiv:2604.20752v1 Dutch windmill treatment",
+          "Resultary e2105075c8f2, fb1ea8e5dc0f, e8caf65cc82a and f0815fe7bf25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-host enumeration is majority C, with Stirling-number counts, or optimal strong odd, which assumes proper coloring. The friendship all-palette strong majority polynomial counts edge labelings. Two distinct same-day windmill catalogue results enumerate defensive/offensive alliance sets."
+        ],
+        "reasoning": "The differences change the finite set being counted and, in the alliance examples, even the kind of combinatorial object. None of these inspected entries gives a table or formula for the target vertex maps; the shared date does not decide substantive overlap or priority.",
+        "searches": [
+          "Resultary semantic comparisons for static vertex strong majority, clique windmills, friendship graphs and palette counts",
+          "Resultary e2105075c8f2, fb1ea8e5dc0f, e8caf65cc82a, 87b326fa1a1b and 700ee1e5e5d1"
+        ]
+      },
+      "rationale": "Pass for the exact structural and counting statement on n≥2 clique windmills. The complete-graph minimum and the ordinary palette-splitting and inclusion-exclusion tools are prior or routine; the distinct content is precisely when the center couples blades, when the local caps suffice, and the resulting all-palette evaluation. The closest windmill treatments compared impose inequivalent vertex or edge constraints.",
+      "residual_risks": [
+        "A bounded search including windmill, friendship and bouquet terminology is not proof of global priority; synonymous formulations or concurrent work may exist. The complete-multipartite catalogue candidate could not be inspected at statement level and is not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete-graph scalar result is known; no windmill classification or palette formula in the compared passages",
+          "evidence": "Observation 6 is proved by equitable three-way splits outside K_4 and the same-color-pair obstruction in K_4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.23828",
+          "material_read": "Definition in §2, PDF p. 3 near offset 6900; Observation 6 and proof, p. 4 near 8060; scalar Theorems 7–10, pp. 4–5",
+          "method": "OA primary PDF passage inspection",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Same static vertex invariant and a plausible implication from complete graphs/general bounds"
+        },
+        {
+          "assessment": "Same graph at m=2, different rule and optimization direction",
+          "evidence": "For D_{3,t}=K_1∨tK_2 it gives floor(t/2)+1 for the maximizing majority C invariant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.20752",
+          "material_read": "Definition and maximizing objective, p. 1; Dutch windmills, p. 7, offset near 26000",
+          "method": "OA primary PDF passage inspection",
+          "title": "Majority C-coloring of graphs",
+          "trigger": "Primary windmill computation under a plausible name variant"
+        },
+        {
+          "assessment": "Different game property, not static all-map counts",
+          "evidence": "Defines a two-player game and game chromatic number.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.37796",
+          "material_read": "Abstract and game setup, PDF p. 1; cycle passage, p. 32 near 108942",
+          "method": "OA primary PDF passage inspection",
+          "title": "Structural and computational aspects of majority coloring games",
+          "trigger": "Related majority terminology in a later paper"
+        },
+        {
+          "assessment": "Different condition",
+          "evidence": "It requires each blade monochromatic and at least ceil(n/2) blades of center color; its enumeration uses Stirling numbers.",
+          "identifier_or_url": "Resultary e2105075c8f2",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Majority C-colorings of generalized windmill graphs",
+          "trigger": "Same host class and vertex-coloring enumerator"
+        },
+        {
+          "assessment": "Different predicate and counts only optimal colorings",
+          "evidence": "Uses proper colorings and odd multiplicities of appearing neighborhood colors.",
+          "identifier_or_url": "Resultary fb1ea8e5dc0f",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact optimal strong odd coloring counts for generalized windmills",
+          "trigger": "Same host and exact vertex-coloring counts"
+        },
+        {
+          "assessment": "Not the vertex enumeration",
+          "evidence": "The palette maps assign labels to edges.",
+          "identifier_or_url": "Resultary e8caf65cc82a",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact strong majority edge-colouring palette polynomial of friendship graphs",
+          "trigger": "Strong majority all-palette enumeration on m=2 host"
+        },
+        {
+          "assessment": "Different invariant; no priority inference from date",
+          "evidence": "Counts global defensive alliance sets, not colorings.",
+          "identifier_or_url": "Resultary 87b326fa1a1b",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Global defensive alliance polynomial of heterogeneous windmill graphs",
+          "trigger": "Distinct same-day result on a broader host class"
+        },
+        {
+          "assessment": "Different invariant; no priority inference from date",
+          "evidence": "Enumerates global offensive alliance sets rather than colorings.",
+          "identifier_or_url": "Resultary 700ee1e5e5d1",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "All global offensive alliances of heterogeneous windmill graphs",
+          "trigger": "Distinct same-day result on a broader host class"
+        },
+        {
+          "assessment": "Edge index, not the complete-graph vertex minimum",
+          "evidence": "Its K_4 index is 2, while the primary vertex-coloring Observation 6 gives 4.",
+          "identifier_or_url": "Resultary f0815fe7bf25",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact strong majority index of complete graphs",
+          "trigger": "Close terminology for the known complete-graph boundary"
+        },
+        {
+          "assessment": "No use of the search summary to infer scientific coverage",
+          "evidence": "No result passage recovered.",
+          "identifier_or_url": "Resultary e7314efe9837",
+          "material_read": "Resultary ranked identification only; mirrored result passage unavailable",
+          "method": "Attempted inspection via local mirror",
+          "title": "Exact strong majority vertex colouring numbers of complete multipartite graphs",
+          "trigger": "Same invariant but plausible different scalar family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This treats a natural vertex-cut family for a recently defined coloring invariant. The exact change from a coupled global constraint for two-vertex blades to independent local constraints for larger blades explains the exceptional optimal palette and supplies labeled palette counts, which the scalar minimum cannot recover. The content is the structural dichotomy and evaluation, not the routine final use of inclusion-exclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

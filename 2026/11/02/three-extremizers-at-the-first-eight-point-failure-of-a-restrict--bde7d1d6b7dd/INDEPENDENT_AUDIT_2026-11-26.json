@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:35:47.632604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primitive domain is exhausted by choosing six different interior entries and testing gcd with L. Each legal four-term sum is a sum of two disjoint two-subsets, and each such pair-of-pairs sum uses exactly four distinct entries. The independent bit-mask and disjoint-pair replay in /workspace/branches/9018dc32-5335-4289-8faa-84f4e113564f/independent_check.py gives minimum values (17,18,19,20,21,22,23,24,25,25) and minimizer counts (1,2,3,4,5,6,7,8,12,3) for L=7 through 16. At L=16 there are 5005 endpoint-normalized candidates, of which seven are all-even and 4998 primitive; the first two histogram entries are 25:3 and 26:10. The exact three sets in complete_run.txt there agree with the frozen list, and opposite paired entries sum to 16 in each set. For L≤15, the stated interval-union example supplies the matching elementary upper bound; the exhaustive search covers every possible lower diameter since no eight distinct integers fit in diameter <7. In the literature paragraph, 10+min(L,16) is a weaker consequence at k≥9 and the formal k=8 specialization, not Wang's exact right-hand side for k>8. This distinction does not change the theorem or the threshold interpretation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang's h=4 bound reads 3k−14+min(L,4k−16) for k≥9, not for k=8.",
+          "The inspected fourfold inverse results require k≥12 or higher and impose other sumset cardinalities, including 4k−14 in the reproduced Mohan–Pandey theorem."
+        ],
+        "reasoning": "The larger k hypotheses are substantive. The known k=8 counterexample forbids ignoring them; none of the stated inverse hypotheses includes k=8,L=16, support 25.",
+        "searches": [
+          "Wang arXiv:2610.25073v1 Theorem 1.8",
+          "Manna–Mohan–Pandey arXiv:2505.07415 Theorems 1.7 and 1.9–1.15"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py by inspection; independent disjoint-pair replay and output",
+        "Wang arXiv:2610.25073v1 Theorem 1.8 and counterexample",
+        "Manna–Mohan–Pandey arXiv:2505.07415 pp. 3–5",
+        "Resultary local indexed comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang's counterexample proves an upper bound of 25 at L=16 and shows failure of the extrapolated bound there. It does not exclude a lower minimum, an earlier failure, or additional equality witnesses."
+        ],
+        "reasoning": "Neither the known witness nor substituting unsupported k=8 in the broader theorem gives the requisite lower bounds. The minimum profile and two additional, inequivalent equality witnesses require the finite exhaustive argument.",
+        "searches": [
+          "Wang Theorem 1.8 and counterexample; Manna–Mohan–Pandey Theorem 1.7 and 1.9–1.15 hypotheses"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang uses the same integer normalization, distinct summands and same example A1. Its support is {6}∪[16,22]∪[28,36]∪[42,48]∪{58}.",
+          "The indexed eight-term extremal result modulo 16 works with residue multisets and admits repetitions; the eight-point twofold result concerns ordinary 2A."
+        ],
+        "reasoning": "Translation, primitivity and reflection preserve the exact normalized comparison with Wang, not the modular or unrestricted comparison. A2 and A3 are not reflections of A1 or each other; all three are separately fixed by reflection.",
+        "searches": [
+          "Resultary restricted four-fold sumset, eight-point diameter-16 primitive/classification searches",
+          "Wang arXiv:2610.25073v1 counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table entry known from Wang is the single set A1 and its 25 sums. The inspected record on eight-point unrestricted 2A contains a different diameter profile. No matching table of primitive L=16 fourfold minimizers was found."
+        ],
+        "reasoning": "An exact evaluation for one set is not a minimum or equality table over all 4998 primitive candidates. The local index check is bounded and does not establish priority by absence.",
+        "searches": [
+          "Resultary local searches near restricted-four-sum diameter profiles, including modular and unrestricted twofold hits",
+          "Wang exact L=16 support passage"
+        ]
+      },
+      "rationale": "Credit Wang for the failure witness A1 at L=16. The distinct claim is the minimum profile proving that no smaller feasible diameter fails, the matching lower bound of 25 at the known example's diameter, and the complete equality class including the two other sets. The checked sources do not supply or imply these parts at k=8.",
+      "residual_risks": [
+        "The 2024 Mohan–Pandey full text was not lawfully retrieved; the comparison uses the theorem quoted in the 2025 inverse paper. Unindexed or implicit prior exact coverage is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on failure at L=16 and one extremizer only",
+          "evidence": [
+            "k≥9 in theorem; A1 explicitly listed at k=8 and its 25-element support calculated."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.25073v1",
+          "material_read": "Theorem 1.8 and accompanying counterexample, extraction offsets 5900–13860",
+          "method": "OA HTML original passages",
+          "title": "A sharp lower bound for h-fold restricted sumsets of integers",
+          "trigger": "Exact same-bound counterexample and potential broader theorem"
+        },
+        {
+          "assessment": "Does not cover these parameters in the stated inverse theorems",
+          "evidence": [
+            "Reproduced fourfold Theorem 1.7 has k≥12 and size 4k−14; further fourfold results have separate higher k and cardinality hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.07415",
+          "material_read": "PDF pp. 3–5, text offsets 10700–15874, Theorem 1.7 and 1.9–1.15",
+          "method": "OA PDF passages",
+          "title": "Extended inverse results for restricted h-fold sumset in integers",
+          "trigger": "Potential dominating inverse classification"
+        },
+        {
+          "assessment": "Ordinary sumset, not four-distinct-element sums",
+          "evidence": [
+            "Invariant is ordinary 2A."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-eight-point-twofold-sumset-diameter-spectrum-and-its-first--98b99f87de25",
+          "material_read": "Relevant founding statement",
+          "method": "Resultary local mirror",
+          "title": "Exact eight-point twofold sumset diameter spectrum and its first failure",
+          "trigger": "Indexed same normalization and diameter-profile problem"
+        },
+        {
+          "assessment": "Different ambient group, admissibility, and statistic",
+          "evidence": [
+            "Residue multisets and modular zero-sums, allowing repetitions."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337",
+          "material_read": "Relevant founding statement",
+          "method": "Resultary local mirror",
+          "title": "Eight-term extremals in the modular zero-sum problem",
+          "trigger": "Indexed eight-term modulo-16 comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite cutoff is not chosen arbitrarily: it tests where a published cardinality threshold first becomes necessary in the first excluded size. The motivating example shows failure at one diameter but does not show that it is first, that its value is minimal, or how representative it is. The exact answer enumerates three distinct endpoint-reflection classes rather than reporting another isolated counterexample.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

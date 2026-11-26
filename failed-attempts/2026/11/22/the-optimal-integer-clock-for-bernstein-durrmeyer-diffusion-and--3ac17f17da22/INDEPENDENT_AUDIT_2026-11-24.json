@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:17:24.898590Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–87; VERIFICATION.md and check.py inspected without executing the checker",
+        "Independent replay: python3 /workspace/replays/frozen_review_checks.py 5, exact Fraction spectral products with 55-digit exponential arithmetic on 40 modes for n=1,2,5,20,100,500"
+      ],
+      "rationale": "The beta integral on monomials gives a rising factorial in j divided by (n+2)^{overline k}. Its highest Bernstein coefficient is the falling factorial of n, so selfadjointness and polynomial filtration give the Legendre eigenvalues, with zero on the orthogonal tail. Writing m=n+1, the product gives −m log λ=h_k+2m Σ_{r≤k}(artanh(r/m)−r/m), strictly exceeding h_k on positive finite-rank degrees. At k=1 exponent n fails by n log(1+2/n)<2; lower exponents, including M_n^0=I, fail there too. For k≤m/2 the cubic remainder bound gives an error at most (2/9)m^(−2)h_k²e^(−h_k); for k>m/2 including k>n, m<2k≤2h_k gives the asserted constant-4 bound from e^(−h_k). The fixed-degree cubic term is h_k²/(6m²). The displayed diagonal summable majorant gives trace convergence and hence the operator norm conclusion (maximum at h=2). For a fixed c, the remaining exponent shift d=c−1 changes the eigenvalue power by first-order −d h_k e^(−h_k)/m. The power difference at k≤m/2 is dominated after scaling by C_d h_k e^(−h_k/2) using −log λ≤C h_k/m and m−|d|≥m/2; the tail k>m/2 obeys the same type of majorant using m<2k. Replacing scale m by n is asymptotically immaterial. The claimed trace and operator constants agree with independent decimal evaluation.",
+      "residual_risks": [
+        "The replay is finite numerical corroboration. The proof, not the truncation, establishes both trace limits and the tail bounds. The comparison is Loewner order and the generator is the specified Legendre realization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b293f27b565c gives the all-dimensional Dirichlet result at positive times and every Schatten exponent, with fourth-order corrected remainder and one-sided order. Its Relationship section explicitly credits the unweighted time-one special case including clock optimality.",
+          "7bbc01919259 uses d≥2 and fixed positive power, so its spectral trace asymptotics do not by themselves cover growing iteration counts. The two older iteration references were not available in full for statement comparison."
+        ],
+        "reasoning": "The general centered theorem genuinely specializes and dominates the core asymptotics; fixed powers or strong-type convergence alone do not. The evidence does not establish historical priority over the frozen result.",
+        "searches": [
+          "Resultary b293f27b565c and 7bbc01919259",
+          "Altomare 2019; Gonska–Heilmann–Raşa 2009 on Durrmeyer iterates"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b293f27b565c and 7bbc01919259",
+        "Altomare (2019), Abel–Berdysheva (2010), Gonska–Heilmann–Raşa (2009) access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The covering record proves the same centered product identity and comparison, including the zero tail, and supplies the first-order and leading second-order laws.",
+          "Specializing its product to k=1 gives λ=n/(n+2); n log(1+2/n)<2 is exactly the lower-clock obstruction."
+        ],
+        "reasoning": "The integer lower clock is a single elementary check on the already-covered comparison and eigenvalues. To obtain the explicit constant 4, for k≤(n+1)/2 bound the same odd-power series by its cubic term times 4/3; for k>(n+1)/2 the exponential alone gives the bound from (n+1)<2h_k. No new order or asymptotic mechanism is needed.",
+        "searches": [
+          "b293f27b565c proof Steps 1–5, centered product and Loewner bound",
+          "Abel–Berdysheva 2010 spectral expansion reference"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For d=1, θ₀=θ₁=1, the Dirichlet measure is uniform on (0,1); every Bernstein basis denominator is 1/(n+1). A=2 gives q_k=k(k+1), unit multiplicity, N=n+1, and D=L²/6."
+        ],
+        "reasoning": "These are exactly the same operator, generator and clock, not a change of normalization. At t=1 the centered expansion implies the audited limit and norm constants. The real-shift formula at s=c implies the integer-shift law, since n/N tends to one.",
+        "searches": [
+          "Resultary: centered Bernstein–Durrmeyer / Dirichlet–Durrmeyer clocks and Schatten limits",
+          "b293f27b565c Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b293f27b565c expresses the leading constant as a sum or maximum over q_k and multiplicities m_k, and treats t=1 among all positive times."
+        ],
+        "reasoning": "This continuous-parameter operator problem is not a table census. The symbolic exact constant is stronger than a decimal lookup; evaluating it in the same unweighted interval case gives the two frozen constants.",
+        "searches": [
+          "b293f27b565c explicit leading-constant formula and spectral product",
+          "7bbc01919259 exact spectral powers / trace formulas"
+        ]
+      },
+      "rationale": "The distinct indexed multivariate centered-clock theorem directly covers the main assertions by specializing d=1, θ=(1,1), t=1, and Schatten p=1. It gives one-sidedness, the explicit leading coefficient with a strictly stronger remainder, and the fixed-shift law. The one-dimensional exact integer minimality is expressly acknowledged in that record, and follows immediately from its spectral product and a degree-one check. The explicit coefficient 4 in the uniform Loewner envelope is not its headline, but is a coarse elementary bound from the same centered product and its low-mode/tail split. There is no remaining substantive independent claim in the frozen package. This conclusion is about demonstrable mathematical coverage; the multivariate record itself credits an earlier unweighted theorem, and no historical ordering or source of discovery is inferred from the shared date or that unlinked attribution.",
+      "residual_risks": [
+        "Historical priority between the same-day records and any earlier equivalent specialized results was not established. Unavailable primary papers are not the basis for the failure decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct special-case coverage. The acknowledgement of an earlier exact unweighted theorem is not independent proof of priority or an identified publication sequence.",
+          "evidence": "Order and O(N⁻⁴) remainder after subtraction of tD H_t/N² in every Schatten ideal; fixed real-s limit; explicit acknowledgement of the unweighted optimal integer clock and one-sided trace-class limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-multivariate-all-schatten-fourth-order-expansion-for-centered-di--b293f27b565c/RESULT.md",
+          "material_read": "Finding and Assumptions, centered eigenvalue proof and Schatten estimates, offsets 0–7471; Relationship and Limitations from offset 7871",
+          "method": "Resultary local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Multivariate all-Schatten fourth-order expansion for centered Dirichlet–Durrmeyer semigroup powers",
+          "trigger": "Strongest broader formulation covering this exact time-one operator and its shift law"
+        },
+        {
+          "assessment": "Spectral groundwork, not a growing-clock theorem.",
+          "evidence": "Exact eigenvalue product and fixed-power asymptotics for dimension at least two.",
+          "identifier_or_url": "Resultary 2026/10/18, 7bbc01919259",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Spectral power trace cancellation for Dirichlet–Bernstein–Durrmeyer operators",
+          "trigger": "Exact spectral trace formulas on the related Dirichlet family"
+        },
+        {
+          "assessment": "Full-text comparison unavailable; not used as evidence of absence or of coverage.",
+          "evidence": "Frozen RESULT.md, Relationship and reference 1, describes strong semigroup convergence including Jacobi-weighted examples.",
+          "identifier_or_url": "https://doi.org/10.33205/cma.491601",
+          "material_read": "Bibliographic citation and frozen description only; cited Dergipark PDF timed out",
+          "method": "OA direct and alternate attempted",
+          "title": "Iterates of Markov Operators and Constructive Approximation of Semigroups",
+          "trigger": "Primary cited source on Markov iterates and diffusion approximation"
+        },
+        {
+          "assessment": "No primary full-text claim comparison; relevant classical background, not decisive coverage here.",
+          "evidence": "The frozen relationship section credits eigenvalues and single-step expansions to this work.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2009.04.004",
+          "material_read": "Landing/abstract material; no OA repository copy retrieved",
+          "method": "OA DOI and alternate repository attempt",
+          "title": "Complete asymptotic expansion for multivariate Bernstein–Durrmeyer operators and quasi-interpolants",
+          "trigger": "Closest earlier cited complete spectral/single-step asymptotics"
+        },
+        {
+          "assessment": "Potentially relevant, but abstract scope does not adjudicate classical-interval trace or clock claims.",
+          "evidence": "The stated setting concerns genuine and ultraspherical Durrmeyer operators and C² estimates.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2008.11.002",
+          "material_read": "Landing/abstract material, no repository full text recovered",
+          "method": "OA DOI and alternate repository attempt",
+          "title": "Convergence of iterates of genuine and ultraspherical Durrmeyer operators to the limiting semigroup: C² estimates",
+          "trigger": "Plausible older quantitative comparison for operator powers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof Steps 2–5",
+        "Resultary b293f27b565c Finding and Relationship to prior work"
+      ],
+      "rationale": "A sharp diffusion clock and trace-ideal leading law are scientifically useful; both are covered by the more general exact centered expansion. The residual contributions are an elementary scalar confirmation of integer minimality already acknowledged there and an explicitly nonsharp constant from the same low-mode and tail estimates. Neither supplies a distinct useful quantitative or structural result beyond the established comparison.",
+      "residual_risks": [
+        "This assessment concerns the standalone frozen contribution relative to coverage, not the scientific usefulness of the trace-norm approximation itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:29:09.229291Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each support A, reject it if any outside vertex lacks a neighbor in A. Otherwise each outside vertex with exactly one neighbor in A forces a double there, and every other outside vertex is defended irrespective of which remaining selected vertices are doubled. The coefficient contribution is thus z^{2|U|}(z+z²)^{|A|−|U|}, where U consists of the distinct forced vertices. A separately written exact implementation exhausted all 65,536 supports per graph, reproduced both full coefficient vectors and returned differences (8,224,1184,1408,1176,832,640,256) at degrees 4 to 11, zero elsewhere through degree 32. Replay: python3 /workspace/branches/d83fa4a7-b104-4079-9700-76c20ad5f04a/reproduce_italian_weights.py; recorded full vectors are in reproduce_full.json in the same directory. The frozen Python and C++ checkers were inspected, not executed. For the optimum structure, 2(16−|A|)≤6w implies w≥4; equality forces four ones, no edges among them, and two neighbors at each outside vertex. In a four-coclique, the outsider neighbor counts have sum 24 and pair-count sum 12 by the common-neighbor parameter 2, giving zero sum of squared deviations from 2. Such a coclique is maximum because it cannot extend (so no larger independent set can contain any four of its vertices). Rook cocliques are permutation transversals. For Shrikhande, the six modular adjacency differences leave exactly the four listed triples extending the origin to a four-coclique, each an order-four subgroup after adjoining the origin. Distinct subgroups have disjoint collections of cosets, and translation brings every four-coclique to one of them. The reproduced independent-set counts, 24 and 16, agree with the weight-four counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv paper gives weight counts for paths, trees and cycles, not these SRGs. The Sierpiński citation has a different graph-family focus in the available metadata.",
+          "The rook theorem does give the weight-four result and all 24 rook optima as an explicit specialization."
+        ],
+        "reasoning": "Covering the same invariant for other graph classes does not cover these graphs. The rook minimum theorem covers one extremal coefficient, not full polynomial coefficients.",
+        "searches": [
+          "arXiv:2610.00108v1, Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "10.1080/09728600.2022.2138630",
+          "Resultary 73393dbef1b4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_support.py and verify_ternary.cpp",
+        "Independent support enumeration and full vectors under branches/d83fa4a7-b104-4079-9700-76c20ad5f04a",
+        "Resultary 73393dbef1b4, 0d16d6786052 and 007471c3c854",
+        "arXiv:2610.00108v1",
+        "Math. 12 (2024), 2771",
+        "Brouwer–Van Maldeghem §10.6",
+        "10.1007/s10623-009-9351-6 (abstract)",
+        "10.1080/09728600.2022.2138630 (metadata)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fourth rook coefficient follows outright from the minimum theorem; the Shrikhande fourth coefficient is equivalent here to the maximum-coclique count, not new if that exact count is already available.",
+          "The same-pair subset-polynomial results yield no count by pair (support size, number of distinct forced doubles), which is what the Italian support sum needs."
+        ],
+        "reasoning": "Credit existing low-weight information and potential census overlap. The higher coefficients and exact tail comparison need the forced-label enumeration, not simply the ordinary domination number, the independence number, or the prior subset-polynomial separations.",
+        "searches": [
+          "Resultary 73393dbef1b4, minimum and optimizer theorem",
+          "Resultary 0d16d6786052 and 007471c3c854, exact findings",
+          "10.1007/s10623-009-9351-6, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The survey's definition confirms the Roman {2} alias. Frozen labels require weight at least two only for a zero vertex.",
+          "The local total-domination, paired-domination and identifying-code comparisons are vertex-subset enumerators. An identifying-code difference 16z⁶−64z⁷−36z⁸ for the very same pair counts different objects."
+        ],
+        "reasoning": "No alias changes the counted functions. Subset enumerators do not record the number of forced double labels on a support and hence do not give this weighted sum by a change of variable.",
+        "searches": [
+          "Italian domination / Roman {2}-domination; Mathematics 12 (2024), 2771",
+          "Local Resultary: labelled weight-polynomial comparisons for the Shrikhande and rook graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct paired and identifying-code records have IDs 0d16d6786052 and 007471c3c854. Neither is an Italian weight table.",
+          "The strongly regular graphs monograph gives α(S)=4. The maximum-independent-set design paper's abstract includes Shrikhande; inspected material does not establish whether it gives the full maximum-coclique census."
+        ],
+        "reasoning": "A table of maximum independent sets could give exactly the fourth coefficient by the regular-graph argument. It would still not supply the higher support and forced-double counts that determine the polynomial separation.",
+        "searches": [
+          "Local Resultary: Italian/Roman {2} weight vector for Shrikhande and K₄□K₄; total and paired domination and identifying-code polynomials",
+          "Brouwer–Van Maldeghem, Strongly regular graphs §10.6",
+          "10.1007/s10623-009-9351-6"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full labelled Italian weight-polynomial separation and exact high-degree agreement for these benchmark graphs. The rook minimum and all its optimizers are known, and a prior design paper may already classify Shrikhande's maximum independent sets, which would also give its minimum Italian configurations. No independent priority claim for that census is needed for the polynomial finding.",
+      "residual_risks": [
+        "The maximum-independent-set design full text was unavailable; do not claim independent priority for the sixteen Shrikhande cocliques or equivalent optimal functions.",
+        "The Sierpiński publisher article was not accessible in full. A bounded search cannot rule out an unindexed full Italian table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms aliases and scope; not evidence about uninspected passages.",
+          "evidence": [
+            "The definition restricts the neighbor-weight condition to zeros and identifies Italian domination."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12172771",
+          "material_read": "OA PDF pp. 1–2, abstract and definition",
+          "method": "OA primary passages",
+          "title": "Survey on Roman {2}-Domination",
+          "trigger": "Terminology and broad Roman {2} results"
+        },
+        {
+          "assessment": "Different graph-family focus from available evidence; no full-text noncoverage conclusion.",
+          "evidence": [
+            "The accessible source describes generalized Sierpiński graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/09728600.2022.2138630",
+          "material_read": "Title and accessible metadata; publisher full text returned 403",
+          "method": "Publisher retrieval attempt and metadata comparison",
+          "title": "Domination parameters of generalized Sierpiński graphs",
+          "trigger": "Source cited for the same domination invariant"
+        },
+        {
+          "assessment": "Same counting problem on other graph classes, no broader theorem covering these two graphs found in the inspected material.",
+          "evidence": [
+            "Applications are paths, trees and cycles."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00108v1",
+          "material_read": "Abstract and related work (offsets 0 and about 6200)",
+          "method": "OA primary passages",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "Plausible general weight enumerator over the identical labels"
+        },
+        {
+          "assessment": "Covers weight four and 24 optimizers for K₄□K₄, not the full polynomial.",
+          "evidence": [
+            "Optimal functions on the specified square rook graph are the 4! permutation transversals."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-minimum-italian-domination-on-rook-graphs-exact-optimizers-and-a--73393dbef1b4",
+          "material_read": "Mirrored RESULT.md, minimum and optimizer theorem and scope",
+          "method": "Local mirror, exact statement comparison",
+          "title": "Minimum Italian domination on rook graphs: exact optimizers and a sharp transition",
+          "trigger": "Same invariant and exact rook optimizer overlap"
+        },
+        {
+          "assessment": "Different vertex-subset invariants.",
+          "evidence": [
+            "Total and paired domination count subsets, not {0,1,2} labelings."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-paired-domination-distinguishes-two-graphs-with-identical-total--0d16d6786052",
+          "material_read": "Mirrored RESULT.md, exact comparison and objects counted",
+          "method": "Local mirror",
+          "title": "Paired-domination distinguishes two graphs with identical total-domination polynomials",
+          "trigger": "Same graph pair and a polynomial comparison"
+        },
+        {
+          "assessment": "Different invariant; no priority implication from the date.",
+          "evidence": [
+            "The difference is 16z⁶−64z⁷−36z⁸ for subsets satisfying both total domination and closed-neighborhood identification."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-total-dominating-identifying-code-polynomial-separation-of-the--007471c3c854",
+          "material_read": "Mirrored RESULT.md, exact difference and counted sets",
+          "method": "Local mirror",
+          "title": "A total-dominating identifying-code polynomial separation",
+          "trigger": "Distinct same-day exact polynomial separation of the same pair"
+        },
+        {
+          "assessment": "Covers independence number, not an exact census in the checked passage.",
+          "evidence": [
+            "Shrikhande has independence number four."
+          ],
+          "identifier_or_url": "https://homepages.cwi.nl/~aeb/math/srg/rk3/srgw.pdf",
+          "material_read": "§10.6, pp. 248–249 (around offset 823554)",
+          "method": "OA primary passage",
+          "title": "Strongly regular graphs",
+          "trigger": "Standard exact parameters and possible maximum-coclique census"
+        },
+        {
+          "assessment": "Plausible direct coverage of the census; not verified, and distinct from the full Italian enumerator.",
+          "evidence": [
+            "The abstract explicitly includes the Shrikhande graph in its study of designs formed by maximum independent sets."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-009-9351-6",
+          "material_read": "Abstract; Springer full-text route timed out and identified alternate copies did not return full text",
+          "method": "Publisher and lawful alternate retrieval attempts, abstract comparison only",
+          "title": "Designs associated with maximum independent sets of a graph",
+          "trigger": "May give the complete Shrikhande maximum-coclique configuration and thus weight-four count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rook and Shrikhande graphs are a natural strongly regular benchmark pair with identical basic parameters and the same Italian domination number. Exact labelled enumeration exposes where the refined invariant separates them and where coefficients agree, giving a usable benchmark that is not obtainable from merely comparing minima or distinct subset-domination invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

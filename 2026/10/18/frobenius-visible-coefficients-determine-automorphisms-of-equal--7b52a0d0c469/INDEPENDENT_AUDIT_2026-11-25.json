@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:07:46.237891Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–64, especially steps 2 and 5; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: cd /workspace && python3 review_evidence/independent_checks.py; visible() checks 256 substitutions in a specified coefficient subspace at d=6, p=2, of which 128 pass, and independently evaluates the arithmetic for all five reported counts"
+      ],
+      "rationale": "The degree-d homogeneous component excludes two distinct nonzero linear coefficients when m>1: the surviving coefficient of x_i^(d-p^s)x_j^(p^s) is nonzero since binom(d,p^s)=m mod p. An invertible cotangent action is sufficient by surjectivity on the maximal-ideal filtration, then finite dimensionality. For f with leading term a x_j, raising to p^s projects to the box of exponents <m, with injective Frobenius on individual coefficients even over an imperfect field. Writing that projection as b+y_j u in B[y_j]/(y_j^m), the coefficient of y_j^(m-1) in its m-th power is b(m u_0^(m-1)+bC); u_0 is a unit by its nonzero residue, b is nilpotent, so the second factor is a unit. This proves necessity and sufficiency of the nonlinear support rule, not only of the leading action. For m=1 all positive-degree monomials die under the d-th power. The remaining parameters yield the two counts and dimensions; over an algebraic closure the reduced locus is identified by its points using the Nullstellensatz on the determinant open set. The permutation charts are open and closed with irreducible torus-affine factors.",
+      "residual_risks": [
+        "The bounded replay does not exhaust the full d=6 automorphism space. The geometric result is about the reduced parameter variety, not a group-scheme smoothness assertion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both broad monomial automorphism papers state characteristic-zero scope. The K-theory paper treats multi-truncated algebras but the inspected material does not give a modular automorphism classification.",
+          "Record 4 covers arbitrary tuples of p-power exponents and arbitrary coefficient rings; specializing to a common exponent gives the exact m=1 field count but its hypotheses exclude m>1."
+        ],
+        "reasoning": "The stronger scheme theorem on the pure branch is fully credited. Neither it nor the characteristic-zero scope gives visibility truncation in a mixed exponent. The failed scan is inconclusive, not negative evidence.",
+        "searches": [
+          "arXiv:2408.02197 §4; arXiv:2609.13741 abstract and introduction; arXiv:1206.0247 abstract/§1; cited Deo–Maitra 1997 public scan",
+          "Frozen record 4 RESULT.md lines 17–32, 38–65"
+        ]
+      },
+      "checked_sources": [
+        "All eight source inspections above; frozen records 1 and 4 at cited passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After raising to p^s one can use a coprime divisibility lemma in a different quotient, but prior knowledge only at h+1 does not supply the general m lemma or restore all discarded coefficients. Counts require that the discarded and permitted visible coefficients vary independently over the original field.",
+          "Example 4.25 uses the ideal (x^2,xy,y^2), not (x^2,y^2); in addition its setting is characteristic zero."
+        ],
+        "reasoning": "The supported result is the full mixed-exponent lift and census, not a claim that Frobenius, Nakayama, or the matched special cases are new.",
+        "searches": [
+          "Frobenius-visibility comparison with the coprime unit-factor result at 2026/11/2/...-bac767308614 and frozen records 1 and 4",
+          "arXiv:2408.02197, abstract and Example 4.25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For s=0 the support rule is exactly x_{sigma(i)} times a unit, as in the catalogue result for exponent p^e+1. This equivalence fails in the original box for s>0: e.g. x+y^3 is allowed at d=6 in characteristic two yet not divisible by x.",
+          "The graded classification of record 1 gives exactly the linear-action dichotomy but by definition omits the nonlinear fibers."
+        ],
+        "reasoning": "Neither changing from coefficients to a unit-factor formulation in the coprime special case nor counting the leading substitutions is a new claim. The mixed case cannot be obtained by either identification alone.",
+        "searches": [
+          "Resultary local catalogue: modular monomial complete intersection automorphisms; 2026/11/2/...-bac767308614; 2026/11/2/...-d5a40e9576ac",
+          "Frozen record 1 RESULT.md lines 8–10, 38–46"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The symmetry-jump item has exactly the h=p^e and h+1 counts after substitution; the smoothness-boundary item has the pure-power count and dimension; the square-zero item has exact exponent-two counts in both characteristics.",
+          "The coordinate-cross item kills x_i x_j, so its counts are not a table of this box family."
+        ],
+        "reasoning": "Exact special-case matches are coverage of those cases, not of the general support rule. Catalogue dates, including same-day frozen items, do not resolve priority.",
+        "searches": [
+          "Resultary local mirror 2026/11/2/...-bac767308614, 2026/10/26/...-962bc42e198d, 2026/11/2/...-d5a40e9576ac, 2026/10/4/...-625ba30274cb"
+        ]
+      },
+      "rationale": "The strongest checked matches cover the pure-power branch, the leading monomial action, exponent two and the adjacent exponent p^e+1. Credit those cases and the classical ingredients. The supported distinction is the exact unrestricted set of ungraded coefficients and resulting census for general d=mp^s, especially m>1 and s>0, where divisibility in the smaller visible box is not divisibility in the original algebra. No inspected broader theorem implies that surviving distinction.",
+      "residual_risks": [
+        "An older specialized modular classification could imply the mixed-exponent census. The inaccessible Deo–Maitra scan and bounded catalogue/literature checks do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for exponent h and h+1, not general mixed exponents",
+          "evidence": [
+            "At h=p^e all higher coefficients are arbitrary; at h+1 substitutions are x_i mapped to x_{sigma(i)} times a unit, giving the same specialized formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-an-exact-prime-power-symmetry-jump-for-modular-monomial-complete--bac767308614",
+          "material_read": "Finding and Proof §§2–5",
+          "method": "Resultary local mirror, RESULT.md from offset 0",
+          "title": "An exact prime-power symmetry jump for modular monomial complete intersections",
+          "trigger": "Strongest matching modular count and direct change of exponent"
+        },
+        {
+          "assessment": "Exact pure-power count and reduced dimension overlap",
+          "evidence": [
+            "Pure powers allow unrestricted higher coordinates with invertible leading action."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-smoothness-boundary-for-automorphism-schemes-of-box-trun--962bc42e198d",
+          "material_read": "Finding and Proof §5",
+          "method": "Resultary local mirror, RESULT.md from offset 0",
+          "title": "A sharp smoothness boundary for automorphism schemes of box truncations",
+          "trigger": "Same group scheme and specialization"
+        },
+        {
+          "assessment": "Exact overlap at d=2",
+          "evidence": [
+            "Characteristic two specializes the pure branch and odd characteristic the coprime branch."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-non-smooth-characteristic-two-symmetry-scheme-for-square-zero--d5a40e9576ac",
+          "material_read": "Finding and Proof",
+          "method": "Resultary local mirror, RESULT.md from offset 0",
+          "title": "A non-smooth characteristic-two symmetry scheme for square-zero truncations",
+          "trigger": "Equal exponent-two subfamily"
+        },
+        {
+          "assessment": "Different algebra",
+          "evidence": [
+            "Cross products vanish; the target retains mixed standard monomials."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb",
+          "material_read": "Finding",
+          "method": "Resultary local mirror, RESULT.md from offset 0",
+          "title": "Automorphisms of truncated coordinate-cross algebras over arbitrary fields",
+          "trigger": "Closely titled arbitrary-field count"
+        },
+        {
+          "assessment": "Characteristic-zero scope, example also a different ideal",
+          "evidence": [
+            "Abstract explicitly states characteristic zero; Example 4.25 uses (x^2,xy,y^2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.02197",
+          "material_read": "Abstract and Example 4.25, p. 21, offset 89233",
+          "method": "OA PDF bounded reading",
+          "title": "The automorphism groups of zero-dimensional monomial algebras",
+          "trigger": "Broader classification might subsume the result"
+        },
+        {
+          "assessment": "Stated base field algebraically closed of characteristic zero",
+          "evidence": [
+            "Does not include the target positive-characteristic parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.13741",
+          "material_read": "Abstract and introduction, offset 0",
+          "method": "OA PDF bounded reading",
+          "title": "The structure of automorphism groups of zero-dimensional monomial algebras",
+          "trigger": "Broader structural theorem"
+        },
+        {
+          "assessment": "Inspected results concern K-theory, not nonlinear automorphism fibers",
+          "evidence": [
+            "The stated objective is K-theory of multi-truncations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.0247",
+          "material_read": "Abstract and §1, offset 0",
+          "method": "OA PDF bounded reading",
+          "title": "On the algebraic K-theory of truncated polynomial algebras in several variables",
+          "trigger": "Same box rings in another subject"
+        },
+        {
+          "assessment": "Reported graded characteristic-zero scope not independently confirmed from this scan",
+          "evidence": [
+            "Frozen RESULT.md lines 70, 79–80 distinguish this from ungraded modular automorphisms."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/266354814_Automorphism_groups_of_truncated_polynomial_algebras",
+          "material_read": "Frozen citation and scope paraphrase only; primary scan retrieval denied",
+          "method": "Lawful OA scan attempt; HTTP 403",
+          "title": "Automorphism groups of truncated polynomial algebras (Deo–Maitra, 1997)",
+          "trigger": "Very close title and graded tensor-product wreath product cited in the record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof steps 4–6; exact overlap comparisons under originality"
+      ],
+      "rationale": "The exact leading-action fibers are useful for counting and constructing ungraded symmetries of this natural family. The mixed branch distinguishes nonlinear directions x_i cannot simply absorb as unit factors and determines the component dimensions for every equal exponent. This is substantive beyond the known leading action or the already matched pure-power and exponent-two cases.",
+      "residual_risks": [
+        "No asserted value for rederiving the matched special cases by themselves; no extension to unequal non-p-power boxes or full nilpotent group-scheme structure is checked."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four Fourier eigenvalues \(0,-2(a+b),-(a+b)\pm i(a-b)\) yield exact rational formulas with a common strictly positive denominator. The diagonal and opposite-class numerators are positive, and the two directional entries have quartic numerators with strictly positive coefficients below degree four. These identities were reconstructed symbolically and checked against 240 exact direct matrix entries, not inferred from floating-point sampling. The sign of the leading quartic coefficient is precisely the ratio test \(a^2\lessgtr3b^2\) or its reverse. Descartes' rule with endpoint signs proves a unique positive root in the unsafe regime; there is no unproved infinite extrapolation.
+## correctness
 
-## Originality — PASS, subject to historical-literature risk
-The full text of the foundational 2010 study of diagonal Padé discretizations was examined, including its second-order sufficient conditions and examples. The 2012 negative-results preprint and close mathematical records about positivity of the fourth-order Padé method on other graphs and about general Markov chains were compared by implication. These establish motivations and broad conditions, but no identified result supplies this necessary-and-sufficient ratio \(1/\sqrt3\le a/b\le\sqrt3\), the unique quartic crossover, and all finite-step classifications for two-way directed four-cycles. Searches cannot establish global historical uniqueness; a specialized circulant result may have escaped indexing.
+PASS
 
-## Value — PASS
-Directed drift is a natural departure from symmetric diffusion. The sharp contrast bound quantifies the maximum asymmetry compatible with unconditional stochasticity of a classical fourth-order implicit integrator, and the exact horizon determines when its negative transition begins outside the permitted interval. This answers a natural all-parameter design question rather than a numerical spot check or arbitrary scalar evaluation.
+On the clockwise shift eigenvalues 1,−1,i,−i the generator eigenvalues are 0, −2(a+b), and −(a+b)±i(a−b). None hits the Padé denominator poles 3±i√3 after scaling by h≥0. To check the decisive numerator identities without the uploaded checker or a Fourier inversion, I put Z=h(ax+bx³−a−b) in the polynomial ring with x⁴=1 and verified exactly that the proposed numerator N=ΣN_j x^j satisfies (12−6Z+Z²)N=D(12+6Z+Z²), and N(1)=D. Thus the four coefficients divided by D are the actual four row entries with the stated orientation. The common denominator and diagonal numerator are positive on h≥0; the opposite entry is positive for h>0. Both nearest-neighbor quartics have positive coefficients at degrees zero through three. Their leading coefficients have the signs of 3b²−a² and 3a²−b², respectively. This gives strict positivity for finite h>0 in the closed rate interval. Outside, exactly one leading coefficient is negative, and its F(h)/h⁴ decreases strictly from +∞ to that negative coefficient. It has exactly one positive root, simple, with the necessary sign on both sides. The other entries stay positive. At h=0 the update is the identity; at the horizon precisely the affected entry type is zero. These calculations establish every h, including both bias endpoints.
 
-The model family is only four states and the result does not extend automatically to nonconstant or higher-dimensional networks. Independent proof audit is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported result is the exact drift ratio and complete finite-step positivity horizon for positive unequal rates on the homogeneous bidirectional four-cycle. The earlier symmetric cycle result supplies a=b, and the later one-way result agrees with b=0 after scaling. The most relevant Padé positivity literature gives general sufficient conditions and failure examples, not this sharp two-way classification. A targeted primary search returned no results and does not establish absence.
+
+## value
+
+PASS
+
+A bidirectional homogeneous four-cycle is a natural small conservative transport model where drift can vary independently of overall time scale. The criterion gives the precise drift tolerance of a standard fourth-order integrator, and the unique horizon beyond it exactly determines the permitted step range. It resolves both an all-step boundary and the finite-step behavior across the full positive two-rate family, rather than tabulating isolated parameter choices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

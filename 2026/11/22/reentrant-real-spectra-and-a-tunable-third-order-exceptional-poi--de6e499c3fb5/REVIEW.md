@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The characteristic polynomial was derived by reducing the \(m-3\) exact dark modes, and every multiple bright root was parametrized by solving the simultaneous quartic and derivative equations. Two turning points of the exact coupling map give the three positive thresholds. Their distinctness, transversality, and ordering follow from the absent cubic coefficient, nonzero quadratic contact, and the Hermitian and large-gain endpoints. A direct cubic factorization and a nonzero rank-three minor establish a defective order-three eigenvalue, not merely a numerical degeneracy. Exact symbolic tests and independent full-matrix numerical tests passed. Nonlinear or infinite-dimensional behavior is not asserted.
+## correctness
 
-## Originality — PASS on examined evidence, with priority risk
-The inspected 2012 two/three-site oligomer analysis does not cover a neutral-pendant triangle-closed star. The 2021 oligomer-chain paper **does** describe reentrant unbroken PT regions in an isolated long-range coupled trimer; hence reentrance itself is prior art and is not claimed. Its chain calculations do not imply the all-size three-threshold parameterization for our gain/loss placement and arbitrary number of neutral pendants, nor the nonzero-link third-order star point. Search comparisons included equivalent terms, broader finite-chain statements, and explicit formula searches, as well as a separately reviewed existing open-star gain/loss result. No statement-level coverage was found in the inspected primary material. Broad, possibly unindexed non-Hermitian graph analyses remain a nonzero priority risk.
+PASS
 
-## Mathematical value — PASS
-The mathematically motivated question is how closing a loop connecting balanced gain/loss sites changes exceptional-point topology when symmetry-equivalent neutral pendant leaves are attached. The result supplies sharp all-size coupling and gain thresholds, shows a double reversal of spectral reality, and identifies an exact higher-order Jordan singularity. The difference between isolated-trimer effects and the neutral-pendant family makes the exact classification a useful benchmark for non-Hermitian quantum-network spectral engineering.
+Neutral antisymmetric modes split off as a zero direct summand; in the bright block the independently computed quartic is (x²-k)(x²+gamma²-t²)-2x(x+t). A multiple nonreal root would make it a squared real quadratic, contradicting the absent cubic and nonzero linear coefficients. A multiple root at zero is excluded by P'(0)=-2t, and elimination at a positive root would force t<0. Negative repeated roots -u give the stated T_k,G_k. T_k' has just the two stated critical points, with 0<y_k<k and strict decrease between them, so the coupling interval is nonempty and contains exactly three crossings. Their gains are distinct since two negative double roots contradict the zero cubic coefficient; gamma>0, u²!=k and t!=4u³ give transverse double roots. To justify alternation, including the step not explicit in the frozen proof, P(sqrt(k))=-2k-2t sqrt(k)<0 and both tails are positive: there are always at least two real roots, so the phases must alternate 4,2,4,2 starting at the simple Hermitian spectrum. At gamma=t the simple bright zero can coincide only semisimply with dark modes (direct sum). At t=4y_k^(3/2) the quartic factors as (x+sqrt(y_k))³(x-3sqrt(y_k)); G_k(sqrt(y_k))>0, and the indicated rank-three minor is nonzero there and at every positive-gain collision. Each such multiple root therefore has one Jordan block of the claimed size.
 
-## Limitations
-The verified theorem does not describe arbitrary link strengths, inhomogeneous spokes, many-body effects, noise or finite-time dynamical boundedness. The primary-literature inspection is substantial but does not establish absolute global priority. The reproducibility scripts verify finite instances, while the proof is analytic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Reentrant PT symmetry, three gain thresholds on other graphs, and EP3 constructions are known. The distinct supported claim is the exact all-size fixed-link gain sweep and nonzero-energy EP3 for a balanced triangle with identical neutral pendant leaves at its hub.
+
+## value
+
+PASS
+
+A single closing link changes the spectral behavior of a previously unlinked balanced star. The exact open interval guarantees a second real window despite prior symmetry breaking, and the nonzero-energy Jordan block gives a sharply tunable and analytically checkable higher-order degeneracy. The bright reduction exhibits how spectator modes can affect the active spectrum without changing the dark zero eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

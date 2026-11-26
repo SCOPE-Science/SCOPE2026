@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:43:58.301383Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The inverse branch lengths add to the output length, giving a doubly stochastic transition matrix and the asserted uniform average of row entropies. In fact the stationary law is unique: full-branch cylinders shrink uniformly and map onto the interval, so every input cell contains a cylinder from which every output cell is reached along a positive-measure orbit segment, giving a positive-probability path in the resampled chain. In N-scaled coordinates, complete input cells have the given one-branch density, and shifting their index by s translates their images by the integer L, leaving entropy unchanged. When the turn is not aligned (equivalently L does not divide N by coprimality), the only leftover row is obtained by adding the two branch masses in each bin, not their entropies; both images are anchored at the integer output endpoint N, so the reflected bins and τ determine this row without any additional N dependence. Increasing N by L adds p and q full rows and keeps this row unchanged. This yields the exact recursion and all residue constants, including the aligned case N=L and N=1. Each full row has positive entropy because its image length is greater than one scaled output bin. An independent replay at (p,q,N)=(1,4,4), intersecting each input cell with clipped output-bin preimages [k/20,(k+1)/20] and [1−(k+1)/5,1−k/5] and multiplying by 4, gave rows (1,1,1,2)/5, (0,0,2,3)/5, (0,3,2,0)/5, (4,1,0,0)/5. The four full right-branch rows in a period contribute two binary entropies at each of 1/5 and 2/5, and the left gives log 5. This yields the stated H∞ and C_4=(2/25)log(32/27)>0, with C_1=−H∞<0. The fixed sign repeats by the exact recursion, not finite extrapolation. Frozen verification notes and verify.py were read, not executed; their broader finite checks do not prove the unrestricted statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 proves a piecewise-linear entropy limit and §5 evaluates the rational skew-tent case. Equation (4.27) gives the exact entropy of complete branch cells using edge lengths. Equations (4.36)–(4.38) estimate rather than evaluate the exceptional cells."
+        ],
+        "reasoning": "The general theorem and rational specialization cover the limit, even numerically for the chosen tent, but not a stronger exact finite-grid formula from which the residue coefficients can be read.",
+        "searches": [
+          "Yano Theorem 4.1, Eqs. (4.3)–(4.7), (4.21)–(4.38), and §5 Eqs. (5.4)–(5.5), arXiv:1205.1848v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1205.1848v2",
+        "Resultary e8a0b61eb7e8 and 2660877e45ea (latter summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full-cell phase arithmetic is latent in the prior formula, but the treatment of non-full cells only gives a vanishing error bound, not an exact mass vector at the crossing cell.",
+          "For the positive witness it matters that the two branch masses add within each output bin before Shannon entropy is computed."
+        ],
+        "reasoning": "The limit and complete-cell formula do not determine either the crossing correction or its sign by parameter specialization. Keeping that row and showing that it is identical at N and N+L yields the exact arithmetic law; the sign change uses the resulting correction and is not a consequence of convergence alone.",
+        "searches": [
+          "Yano arXiv:1205.1848v2, Eqs. (4.21)–(4.38), §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yano independently resamples inside the current cell and uses the entropy rate of the resulting Markov chain; the entropy definition is equivalent here.",
+          "Resultary e8a0b61eb7e8 is about persistent entropy levels of max(0,3/5−2x), not a full-branch skew tent with a decaying residue bias. Catalogue entry 2660877e45ea describes ordinal patterns, not equal-cell uniform resampling."
+        ],
+        "reasoning": "Periodic grid dependence in the first hit is a different dynamical model and asymptotic law. The ordinal chain's observable and resampling mechanism do not match, despite its skew-tent title.",
+        "searches": [
+          "arXiv:1205.1848v2 §2 and §4",
+          "Resultary: exact residue-class entropy bias for rational skew tent maps; coarse-graining Markov entropy indexed by grid residues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded ranked results did not surface an exact table/formula for these coefficients. Yano §5 gives the limit, and e8a0b61eb7e8 gives three residue-indexed levels of another map."
+        ],
+        "reasoning": "The latter levels do not tabulate N(H_N−H∞) in this model. A bounded search miss cannot exclude another table.",
+        "searches": [
+          "Resultary: exact title and C_4=(2/25) log(32/27); three-valued persistent Markov entropy comparison",
+          "Yano §5 rational limit evaluation"
+        ]
+      },
+      "rationale": "Yano already treats the same entropy, gives the full-cell row formula and computes the limit, including the stated limit in the sign example. Credit those ingredients to Yano. The distinct result supported here is the exact scaled finite-resolution bias for all rational skew tents and its explicit two-sided sign witness in the same map. The prior limit argument discards relevant boundary information and does not supply that bias or witness.",
+      "residual_risks": [
+        "No absolute priority conclusion follows from the bounded searches.",
+        "The ordinal-dynamics record could not be checked beyond its catalogue description."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, limit and exact complete rows, not evaluated crossing cells or finite bias",
+          "evidence": [
+            "Eq. (4.27) is an exact single-branch cell formula; handling of discarded cells is by an error that tends to zero.",
+            "The rational formula in §5 gives the asserted H∞ at (1,4)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.1848v2",
+          "material_read": "§2 pp. 2–3 (offsets 5500–10464), Theorem 4.1 p. 5, Eqs. (4.21)–(4.27) pp. 6–7 (16944–20995), Eqs. (4.36)–(4.38) pp. 8–9 (around 24500), §5 pp. 9–10 (around 26800–27964)",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Entropy of random chaotic interval map with noise which causes coarse-graining",
+          "trigger": "Same resampled entropy, rational skew-tent limit and exact full-cell identity"
+        },
+        {
+          "assessment": "Thematic analogue for a different map, not exact or broader coverage",
+          "evidence": [
+            "Three persistent entropy levels for the ramp with a flat part, indexed by 3N mod 5."
+          ],
+          "identifier_or_url": "Resultary e8a0b61eb7e8",
+          "material_read": "Mirrored RESULT.md, model, Finding and residue law",
+          "method": "Resultary search and local-mirror reading",
+          "title": "Three-valued persistent Markov entropy on vanishing grids of a zero-entropy map",
+          "trigger": "Grid-residue entropy dependence"
+        },
+        {
+          "assessment": "Summary refers to a different observable; no whole-document finding from inaccessible text",
+          "evidence": [
+            "The reported states are three-point ordinal patterns."
+          ],
+          "identifier_or_url": "Resultary 2660877e45ea",
+          "material_read": "Catalogue summary only; full local-mirror file unavailable",
+          "method": "Resultary search and attempted local-mirror retrieval",
+          "title": "Exact Markov law, spectral decay and entropy loss for skew-tent ordinal dynamics",
+          "trigger": "Skew-tent entropy with an exact Markov description"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the signed leading discretization bias exactly in a standard expanding family and supplies a strict witness against one-sided or monotone convergence, in both directions infinitely often for the same map. The periodic correction is useful for selecting unbiased grid sizes and cannot be recovered from the limiting entropy alone. The scientific claim is restricted to the resampled chain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

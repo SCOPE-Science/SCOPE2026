@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Mathematical verification and reproducibility
+# Independent mathematical audit
 
-The analytical proof solves the incidence-graph Laplacian in a mean-zero point gauge and uses exact sign decisions for all edge currents. The identity \(AA^\top=(r-\lambda)I+\lambda J\) follows from two-design balance; third-order balance supplies \(\lambda-\tau\) occurrences of each ordered point pair in blocks excluding a distinguished point. The resulting column sums are exact for every permissible simple three-design, not just those realized in examples.
+## correctness
 
-Run `python3 verification_checker.py` from this package. The checker depends only on the Python 3 standard library. It constructs three complete block designs and two binary affine Steiner quadruple systems, enumerates triple-incidence counts, and checks every current column's point/block divergences and exact \(\ell_1\) norms. In the complete \((6,4)\) and affine \(3\)-\((8,4,1)\) examples, an independent exact grounded-Laplacian inverse reconstructs all incidence columns.
+PASS
 
-Verified examples: complete \((6,4)\): \(\|Q\|=31/12\), \(\|P\|=35/12\) (60 columns); complete \((7,4)\): \(14/5\), \(45/14\) (140); complete \((8,4)\): \(59/20\), \(17/5\) (280); affine \(3\)-\((8,4,1)\): \(11/4\), \(3\) (56); affine \(3\)-\((16,4,1)\): \(191/56\), \(27/7\) (560). Total: 1,096 exact columns and 116 independent grounded-system columns.
+For a source incidence (i,S), eliminating block potentials leaves the scalar lambda*v/k on mean-zero point potentials. This gives x_i=(k-1)/(lambda*v), x_j=-1/(lambda*v) on S minus i, and zero elsewhere; each block potential is its average x minus 1/k on S alone. Thus the block S contributes 1, since lambda*v>k. On every other block T through i only the edge from i is positive, with absolute block sum 2[(k-1)^2+b_T]/(k*lambda*v); on a block missing i the negative and positive parts are separated by membership in S, giving 2b_T(k-b_T)/(k*lambda*v), including the zero cases. Here b_T=|T intersect (S minus i)|. The sums of b_T on the first class and b_T(k-b_T) on the second are (k-1)(lambda-1) and (k-1)(v-k)(lambda-tau) respectively. The latter count excludes exactly tau blocks through i for each cross pair. Substitution of (k-1)r=lambda(v-1) gives the claimed Q formula for every column. Q_ee=1/k+(k-1)/(lambda*v) is strictly between 0 and 1, so replacing Q by I-Q adds 1-2Q_ee to each absolute column sum. Symmetry gives the same infinity norms. The inverse-incidence and Steiner quadruple simplifications agree (e.g. Q=11/4 and P=3 at v=8,k=4,tau=1); no transitivity is used.
 
-Successful checker terminator: `DESIGN_HODGE_CERTIFICATE_OK columns=1096 grounded_columns=116`.
+## originality
 
-Checks do not exhaust all designs, all dimensions, or arbitrary real edge weights; infinite quantifiers and the absence of symmetry assumptions rely on the written proof. Independent mathematical audit has not been performed.
+PASS
+
+The exact norms for general strength-three incidence graphs, determined by third-order overlap rather than a symmetry hypothesis, pass the scoped comparison. Electrical-current representations, weaker universal bounds, and exact norms for other graph families or design regimes are prior work, not contributions of this record.
+
+## value
+
+PASS
+
+Exact endpoint norms are natural measures of worst-case absolute electrical transfer and of the canonical cycle projection. A formula for every edge across a family defined by incidence balance rather than group symmetry is informative beyond general bounds. In particular designs with the same (v,k) can have different constants, quantified by the inverse pair-incidence dependence; the strength-three calculation explains the difference and provides exact benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns a fixed zero-start Gaussian OU process, one observation, and scalar-integral conditional MSE. Stochastic Fubini and Itô isometry give explicit covariance/variance and Gaussian conditioning reduces design to maximizing a scalar ratio. For positive times, factorization gives derivative \(-2QF/D^2\), with \(Q,D>0\); the cubic has exactly one admissible crossing by strict convexity and exact endpoint signs, with a separate zero-noise factorization. Comparing the root to exact zero- and infinite-noise roots proves strict monotonicity and strictly interior placement. A uniform sandwich proves the stiff-limit expansion. A Brownian functional limit yields the small-damping root. The original theorem is analytic; the finite standard-library checker independently tests the covariance integrals and sampled loss. Remaining scientific risk: algebraic transcription and the Brownian-limit argument require external review, but all steps were reconstructed and the finite tests pass.
+PASS
 
-## Originality — PASS, with publication-priority risk
+Stochastic Fubini and one-dimensional Itô kernel integrals recover the variance and cross-covariance; Gaussian conditioning gives the variance reduction c(t)^2/(v(t)+eta). At (t,eta)=(0,0), c(t)=O(t) and v(t) is of order t, so the extension by zero agrees with the deterministic observation. I independently verified the derivative -2QF/D^2 of Q^2/D, the cubic endpoint signs and the zero-noise factorization. For positive noise strict convexity and opposite endpoint signs force a single upward crossing, and the quadratic factor gives the unique crossing at zero noise. The zero-noise root exceeds sqrt(L); at y_infinity=sqrt(2L-1) the cubic is strictly positive, and F_T<0 below this point. These give the strict positive-noise shifts, monotonicity, and a bracket independent of noise, proving the stated uniform stiff limit on taking logarithms. For small damping the kernel error gives c_lambda(t)=t-t^2/2+O(lambda t) and v_lambda(t)=t+O(lambda t^2), with v_lambda(t) at least exp(-2 lambda)t; hence the gain converges uniformly even at zero noise. The Brownian gain has the displayed unique optimizer, so the argmax converges.
 
-Actual semantic searches compared the claim and aliases against published mathematical-result records, the accessible earlier mathematical ledger, and primary literature. Pronzato–Zhigljavsky provides a general posterior-variance/energy principle but does not assert this explicit zero-start OU noisy optimal-time cubic and uniform damping law. Cai–Lam–Scarlett develops noisy Bayesian quadrature error-rate bounds, not an exact one-site minimizer for this covariance. Existing stationary OU quadrature designs use a different covariance and do not algebraically imply this result. Mukherjee's 2003 integral-design publication and dissertation constitute the closest historical priority risk: full article text was inaccessible after public-source attempts, so the accessible abstract cannot exclude an equivalent special case. All novelty conclusions are best-knowledge and subject to independent publication review.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete one-observation design classification for the scalar time integral of a nonstationary Markov Gaussian process with measurement noise. The unique explicit cubic avoids nonconvex search, strict monotonicity shows how noise moves the sensor, and a uniform large-damping law provides a robust placement rule. These facts are not merely numerical fits or arbitrary parameter slices. A one-site exact design is modest, but it resolves a meaningful finite-budget optimization question with exact boundaries. It does not generalize to multi-site or unknown-parameter designs.
+On the compared records and accessible primary material, the complete finite-noise zero-start scalar-integral design, noise monotonicity and uniform stiff law are established as a distinct package. A historical noiseless/product-covariance precursor remains plausible. The source's description of the dissertation should not be read as restricting it to trajectory risk; its abstract also mentions integral estimation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The one-reading scalar-integral placement has exact interior bounds and moves systematically with measurement noise in a zero-start Markov model. A uniform large-damping bound across noise regimes gives a genuine qualitative placement rule, and the Brownian limit connects two normalized Gaussian integral designs. This is a natural complete fixed-budget classification rather than a numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

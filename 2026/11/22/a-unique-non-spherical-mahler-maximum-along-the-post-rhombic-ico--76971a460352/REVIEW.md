@@ -1,9 +1,21 @@
-# Scientific review: unique post-rhombic icosahedral Mahler maximum
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact supporting-plane identity \(h\tau K_\tau^\circ=I\cap\bigcap_v\{\langle v,x\rangle\le h\tau\}\) identifies ordinary equal-fraction corner truncations of the icosahedron when \(\tau_0\le\tau\le h^{-1}\). Disjoint pentagonal corner caps give \(\operatorname{vol}(T_s)=\operatorname{vol}(I)(1-3bs^3)\); the polar is a dodecahedron with twelve outward pentagonal pyramids, giving \(\operatorname{vol}(T_s^\circ)=\operatorname{vol}(I^\circ)/(1-bs)\). A strictly decreasing derivative cubic proves exactly one maximizer; rational radical signs prove that it lies beyond \(\tau=1\). The proof handles both combinatorial endpoints and the constant homothetic tail. The bundled checker supplies independent arithmetic checks of the relevant strict signs and numerical root values; optional polyhedral computations were corroborative only.
+## correctness
 
-**Originality (PASS, with historical-priority risk).** Hoehner's November 2026 primary paper optimizes ordinary inscribed volume and identifies the spherical \(K_1\), not this volume-product objective. The closest earlier recorded Mahler law stops at \(\tau=1\) and is strictly increasing up to that point; it does not assert the interior maximum at \(\tau>1\) or the reversal of monotonicity. Barthe–Fradelizi gives a lower bound under reflection symmetry, not the sharp maximum here; Alexander–Fradelizi–Zvavitch concerns general vertex-limited maximal products, without the specific radial cubic in the material accessed. Targeted mathematical-record searches for the truncation parameter, dual-volume law and equivalences found no covering published claim. The full Section 7 of Hoehner and some historical sources were not retrievable for comprehensive comparison; priority is therefore provisional.
+PASS
 
-**Value (PASS).** The result settles a complete natural post-rhombic deformation problem and distinguishes two geometric optimization principles on the same canonical thirty-two-vertex object: the globally volume-maximal spherical polytope is provably not the Mahler-optimal member of its own symmetric deformation family. The exact maximizing cubic, strict inequalities and endpoint behavior supply a reproducible benchmark beyond a numerical improvement alone. No claim is made outside the specified family.
+Polarity gives (hτ)Kτ° = I intersected with the planes v·x≤a=1−bs. The largest product of distinct unit vertices is c=1/√5. For distinct v,w, the linear form (v+w)·x on I is at most 1+c, so two truncations cannot both be violated when a≥(1+c)/2. Each cap is the homothetic fraction s of the corner pyramid of height b and base area A5. With vol I=4A5/3, the volume factor is 1−3bs³. The polar volume decomposition needs more than each apex lying beyond just its own facet: for adjacent v,w the point x=(1−s)v+s w defines the supporting plane x·y=1 through the dual edge between the two adjacent face normals divided by h and the apex v/a. All other apices are below this plane when 0<s<1/2, including w/a by the strict difference b(1−2s). These triangles are all exposed outer sides of the twelve facet pyramids; their interiors together with the old dodecahedron give the hull. Indeed the exterior pyramids have disjoint interiors since each is beyond only its own facet. The volume factor is 1/a by the area-height formula, with degeneracies at s=0 and 1/2 treated by continuity. At a≥1 all truncations are redundant. The quotient's derivative has the sign of 1−9s²+6bs³, strictly decreasing on the branch and opposite in sign at s=0 and 1/2. Bracketing its root between 1/3 and 9/25 and squaring the positive comparison h<1−9b/25 gives τ*>1. The plateau is strictly below the maximum. At the interior τ* both antipodal orbits remain vertices, and any sphere containing those spanning antipodal pairs must be centered at the origin, so τ*≠1 is genuinely non-cospherical. The analytic decomposition and cubic signs are the replay; the bundled check.py and reported floating-point hull tests were inspected as support and not run.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Substantial exact overlap on [τ0,1] is credited to the matching indexed record. Acceptance rests on the classification past the unit radius: an exact continuation validated by its geometry, a unique larger Mahler maximum and eventual dual-homothetic plateau. Extending a rational expression past a formerly established range alone cannot justify that it still computes the hull volume product there. The inspected evidence does not establish that prior continuation or maximum. Same-day indexing does not establish relative priority.
+
+## value
+
+PASS
+
+The two orbits are dictated by the regular icosahedron and its dual, and the lower endpoint by a real combinatorial transition. The maximum gives an exact witness that the distinguished spherical ordinary-volume optimizer fails to optimize the affine-invariant volume product even along this natural symmetry-preserving deformation. The qualitative separation and complete post-rhombic classification matter, not the small numerical gap in isolation. There is no claim of global Mahler optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:37:57.835595Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed word the product of the three sign indicators is eight times its indicator on the admissible set, and lies between zero and four at each of at most five omitted parameters. The two monic quadratic single sums equal -1 (count solutions to (t-y)(t+y)=±1) and the linear single sum is zero. All composite polynomials are squarefree in odd characteristic: their indicated factors have disjoint roots, and t^4-1 has nonzero derivative at its roots. The two cubics have one point at infinity in genus one; t^4-1 has two rational points at infinity in genus one, so its sum has absolute value <=2sqrt(p)+1. The degree-five 2t(t^4-1) has genus two and one rational point at infinity. This gives 8N_p>=p-23-10sqrt(p), which is positive at 149 and increasing thereafter. The remaining primes were exhausted independently, not by executing the frozen checker. Replay: sieve 0 through 148, discard prime 2, and for each remaining prime form a boolean table marking x² mod p for x=1..p-1. For all t=0..p-1, form the three residues (t²+p-1,2t,t²+1) mod p; skip a zero and store the sign word from the table. This visits 2125 t over 33 primes. In lexicographic order the six words are --+, -+-, -++, +--, +-+, ++-. Missing: all six for 3 and 5; words 1,3,5 for 7; 2,3,4,5 for 13; 3,5,6 for 17; 1,6 for 29. The first witnesses at 31 are 21,4,2,6,3,8 respectively. The analytic and finite ranges cover every odd prime, and failure at 29 makes 31 the first prime from which all subsequent primes work. This confirms the claim in RESULT.md lines 5–18 and 26–57, independently of the frozen checker and recorded output.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu–Zhan obtain p²/8+O(p^(3/2)) for each sign word over their full two-parameter range, already proving eventual existence after normalization, but not prescribing sharp exceptions.",
+          "The publisher abstract for Li–Wang states an explicit formula for the all-residue count and for the all-nonresidue count where p is an odd prime; their scope is identified as the normalized family in the frozen report of the opening page."
+        ],
+        "reasoning": "Asymptotic existence is not enough for sharpness. The two exact monochromatic counts are stronger in a different way: the p modulo 8 reconstructions below remove the need for independent exact mixed-pattern character sums.",
+        "searches": [
+          "Mixed Legendre sign patterns in the Euclidean Pythagorean parametrization (primary literature)",
+          "Hu–Zhan Theorem 1 pp. 958–959",
+          "Exact title and DOI metadata search for Li–Wang"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker-output.txt",
+        "Li–Wang DOI 10.1142/S1793042126500247, publisher abstract and bibliographic deposit",
+        "Hu–Zhan DOI 10.3934/math.2022057",
+        "OEIS A344620",
+        "Resultary 345a9b314e46 and c963070ce3ea"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For p=1 mod 4 let i²=-1. Both maps t->(t+1)/(t-1), t->it permute the admissible parameters. The first swaps F and H and multiplies the triple by 2/(t-1)². The second sends the triple to (-G,iH,-F). If p=5 mod 8, chi(2)=chi(i)=-1 and these generate two orbits: {+++,---,+-+,-+-,+--,-++} and {--+,++-}. If M is the +++ count, the two orbit multiplicities per word are M and (p-5-6M)/2, since there are exactly p-5 admissible parameters.",
+          "If p=1 mod 8, chi(2)=chi(i)=1, so the same maps generate coordinate permutations. Let M_+ and M_- be the monochromatic counts and u,v the per-word counts with one or two plus signs. Then 3(u+v)=p-5-M_+-M_- and v-u=-4-M_++M_-. For the second equation sum chi(F) over admissible t: the unrestricted sum is -1 and removing 0 and ±i removes three +1 values, while ±1 contributed zero. Together with the p=3 mod 4 flips, these relations recover every mixed count for all odd primes."
+        ],
+        "reasoning": "The stated monochromatic exact results on this domain imply a complete mixed count formula by bijections and linear equations. The sharp threshold is its zero/nonzero classification: the standard effective character-sum estimate makes it a bounded test below 149. This is mathematically stronger prior information than eventual occurrence, even though the mixed exception list may not have been printed.",
+        "searches": [
+          "Li–Wang publisher-deposited abstract, DOI 10.1142/S1793042126500247",
+          "Frozen RESULT.md line 65, description of accessible opening-page material",
+          "OEIS A344620 cited in the publisher metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hu–Zhan use u=2a and v=2b-1 in (u²-v²,2uv,u²+v²); for the full p-by-p range the change t=u/v multiplies the normalized triple by v², preserving its three signs, and v=0 is excluded by the zero leg.",
+          "When p=3 mod 4, t->-t flips only the second sign and t->1/t only the first; both preserve admissibility. Thus each of the four words ending in + has the +++ count, and each ending in - has the --- count."
+        ],
+        "reasoning": "The normalized family and the full-range Hu–Zhan counts are equivalent after division by p-1. The p=3 mod 4 symmetries directly recover all mixed counts in this residue class from the earlier monochromatic statistics.",
+        "searches": [
+          "Hu–Zhan DOI 10.3934/math.2022057, equation (1.1) and Theorem 1",
+          "Same-family monochromatic formulas, Li–Wang DOI 10.1142/S1793042126500247"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A344620 uses (2a,a²-1,a²+1) but requires all three positive integer entries smaller than p and only tests the all-residue word. Its exception table includes p=31 and is not the unrestricted mixed table.",
+          "Resultary 345a9b314e46 is the same frozen record. The distinct related record c963070ce3ea uses (x,x+1,x²+x+1) over odd prime powers, not these three polynomials."
+        ],
+        "reasoning": "Neither the identical mirrored finding nor the differently defined tables prove priority here. The actual overlap comes from exact primary-literature counts with the symmetry reconstruction, even without a printed mixed table.",
+        "searches": [
+          "OEIS A344620 definition and example",
+          "Resultary exact normalized Pythagorean mixed threshold and related cyclotomic sign triples"
+        ]
+      },
+      "rationale": "On the best available evidence, Li–Wang's previously published two exact monochromatic counts for this normalized family already determine the six mixed counts by elementary parameter symmetries, not merely by a conjectural further Jacobi-sum calculation. The publisher-deposited abstract explicitly confirms exact counts for both monochromatic cases over odd primes, and the frozen record (line 65, reporting its reading of the opening page) identifies their parameter as this exact normalized family. The article cites the database entry A344620 for the same polynomials; that entry itself has an extra height restriction and is not the coverage relied on. The metadata render the formulas as placeholders, so the parameter match is based on the frozen opening-page report together with the publisher evidence, not an independent reading of the inaccessible article text. The decisive overlap is the explicit reconstruction below; a merely inaccessible article or a shared title was not treated as a reason to fail.",
+      "residual_risks": [
+        "The Li–Wang direct formula text and its precise parameter range could not be independently recovered; the scope match rests on the frozen description of their opening page corroborated by the deposited abstract and references. If a future reading reveals an additional height or range restriction, the implication would have to be reevaluated. No claim is made that Li–Wang explicitly state the mixed threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap: both exact monochromatic counts are confirmed by the primary abstract; use the reported same-family match and prove the implication, rather than claim later sections were inspected",
+          "evidence": "The abstract says it gives an explicit formula when all elements are quadratic residues (respectively nonresidues) where p is an odd prime, using Jacobi sums; the bibliography cites OEIS A344620.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793042126500247",
+          "material_read": "Publisher-deposited abstract, references and bibliography at https://api.crossref.org/works/10.1142/S1793042126500247; same abstract in OpenAlex. Exact formula tokens are not rendered in either metadata source; the frozen record explicitly identifies the domain on its report of the opening page. Full article not read.",
+          "method": "Lawful publisher and alternate-copy OA attempts (including the identified ResearchGate record) and inspection of public bibliographic metadata",
+          "title": "The number of quadratic residue Pythagorean triples",
+          "trigger": "Potential exact counts for the normalized family's two monochromatic words"
+        },
+        {
+          "assessment": "Directly yields eventual normalized occurrence, not the exact finite threshold",
+          "evidence": "For the full residue range, W(p,p,i,j,k)=p²/8+O(p^(3/2)).",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2022/1/PDF/math-07-01-057.pdf",
+          "material_read": "Equation (1.1), range definition and Theorem 1, printed pp. 958–959, offsets 3460–7840",
+          "method": "Original OA PDF passage",
+          "title": "Pythagorean triples and quadratic residues modulo an odd prime",
+          "trigger": "Exact equivalence of the full two-parameter range and normalized patterns"
+        },
+        {
+          "assessment": "Different restriction and only monochromatic; no coverage of the mixed threshold",
+          "evidence": "Requires not only quadratic residues modulo p but also positive integer entries smaller than p.",
+          "identifier_or_url": "https://oeis.org/A344620",
+          "material_read": "Definition, terms, comments and program, offsets 0–1698",
+          "method": "Original database entry",
+          "title": "OEIS A344620",
+          "trigger": "Exact database candidate with the same parameter polynomials"
+        },
+        {
+          "assessment": "Different sign family and field scope",
+          "evidence": "The polynomials are x, x+1 and x²+x+1 over odd prime powers.",
+          "identifier_or_url": "2026/11/22/SCOPE-one-elliptic-trace-controls-cyclotomic-quadratic-sign-triples-an--c963070ce3ea",
+          "material_read": "Finding and polynomial family",
+          "method": "Resultary and original Markdown via local mirror",
+          "title": "One elliptic trace controls cyclotomic quadratic sign triples",
+          "trigger": "Closest distinct catalogue match for exact quadratic pattern counts"
+        },
+        {
+          "assessment": "No statement-level exclusion made; not needed for the positive overlap",
+          "evidence": "No independently retrieved theorem passage.",
+          "identifier_or_url": "https://doi.org/10.12386/A20220113",
+          "material_read": "Bibliographic identification; OA page timed out",
+          "method": "Identified OA access attempt",
+          "title": "Pythagoras equations and quadratic residues",
+          "trigger": "Possible broader existence theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The normalized six-word threshold is a natural and interpretable sharp statistic, and the supplied proof of it is sound. On the available prior-coverage evidence, however, this exact statistic is obtained by elementary reconstruction from the earlier same-family exact monochromatic counts, followed by a bounded zero check. The checked special cases and effective Hasse–Weil bound make that computation explicit but do not establish an independently unknown exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

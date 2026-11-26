@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:43:52.289222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, geometric scope and proof; VERIFICATION.md",
+        "Frozen verify.py and operations.json certificate and replay interface (inspected; supplied script not executed)",
+        "Independent replay: python /workspace/branches/independent_exact.py 5; output in /workspace/branches/exact-5.txt"
+      ],
+      "rationale": "In the seven-point marking, the equations E²=K·E=−1 for a nonexceptional image of degree d give sum(m_i)=3d−1 and sum(m_i²)=d²+1; Cauchy gives 0≤d≤3. With r²=−2 and K·r=0 the same bound calculation gives |d|≤2. Independent finite enumeration of the norm-and-sum constraints recovers the 56 exceptional and 126 root patterns, with the exceptional types effective by the standard classification for seven points in general position. For F=−K+r all intersections with the exceptional classes are nonnegative; the independent enumeration finds 12 zeros, 32 ones and 12 twos, and verifies that each zero E has an exceptional partner F−E of intersection one. Distinct partner pairs are mutually disjoint, so two of their effective divisors give a basepoint-free pencil of class F. If its generic fiber were disconnected, the Stein factorization would make F a multiple of a fiber class, necessarily twice one with square zero and anticanonical degree one, contrary to the adjunction parity. Thus |F| gives a conic fibration and those six pairs are reducible fibers; conversely any conic bundle gives a root by adding K. Zero intersections characterize the supporting exceptional components and the matrix represents the unsigned formal labels, not Picard classes. A fresh 56×126 construction and exact integer Smith reduction gives 1^28,2^6,6,0^21, with rank 35. The inspected package's operation replay verifies unimodular row or column additions/swaps, including its row negation case, and checks a diagonal with the claimed divisibility. The transpose in the package preserves nonzero Smith factors, but the free cokernel rank comes from the 56-row map and is 21. The saturation quotient has order 384 and torsion exponent six.",
+      "residual_risks": [
+        "The result concerns geometric classes in characteristic zero and formal unsig​ned labels, not Frobenius descent or torsion in Pic(X). The obstruction is in saturation divided by image, not in the quotient by the saturated sublattice."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quartic del Pezzo comparison computes a 10-pencil/16-curve support map and Frobenius-invariant lattices. The inspected weak-approximation papers supply geometric context about conic bundles and exceptional curves, not a universal Smith formula for support incidence in all degrees."
+        ],
+        "reasoning": "Degree four is not a theorem for a family covering degree two with these 126 and 56 labels. A geometric conic-fibration result ensures the meaning of the support map without determining the integral lattice image.",
+        "searches": [
+          "Resultary: support lattices of del Pezzo pencils; integral/modular 56-by-126 Gosset block incidence",
+          "Resultary quartic del Pezzo conic-support lattices 6eecb2c62f8f",
+          "Demeio–Streeter arXiv:2111.11409 and Demeio–Streeter–Winter arXiv:2303.09299, low-degree conic-fibration geometry"
+        ]
+      },
+      "checked_sources": [
+        "Focused Resultary exact and equivalent-formulation queries, and the named separate local-mirror records",
+        "Van Maldeghem–Victoor §3.3 and the named arXiv geometry sources",
+        "Targeted Gosset/D6 support-incidence p-rank and Smith literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The building construction specifies the support sets; the graph records compute Laplacians on exceptional labels with intersection-one or intersection-weighted edges; the finite-field record recovers Frobenius data using counts of bitangents and pencil classes."
+        ],
+        "reasoning": "None gives a Smith equivalence to the rectangular unsigned support matrix or a formula for its saturation quotient. Pairwise graph intersection information and classical block geometry permit reconstruction, but not a direct inference of the 2- and 3-primary Smith data without further lattice work. Same-day dates do not establish ordering.",
+        "searches": [
+          "Compare the E7-building support equations and the frozen 56×126 map",
+          "Compare Resultary intersection-one critical group 5a6ca5940707, Geiser fixed/anti-fixed critical groups deda5c2ad673, and bitangent/conic reconstruction fb077e5a2c90"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected §3.3 passage already identifies the same Gosset graph, the 126 D6 subgraphs, and the twelve points of each support indexing a signed quadric. The alternative incidence presentation is by the maximal D6 supports (or its transpose under the other row convention)."
+        ],
+        "reasoning": "The blocks themselves and their geometry are not new. A signed quadratic equation indexed by a support is not the row of an unsigned relation lattice computation; no Smith-equivalence of the associated equations and this unsigned incidence is given.",
+        "searches": [
+          "Resultary: E7, Gosset 3_21, D6 crosspolytope incidence, 56 vertices and 126 blocks",
+          "Van Maldeghem–Victoor, Some combinatorial and geometric constructions of spherical buildings, §3.3",
+          "Targeted literature search: Gosset 3_21 E7 56 126 D6 cross-polytope support incidence matrix Smith normal form integral rank p-rank del Pezzo conic pencils"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the frozen entry aed891fd3a93 itself; its local-mirror Finding matches the original. No separate exact table appeared in these bounded returns. The targeted primary-literature query returned no usable results."
+        ],
+        "reasoning": "The identical record is not independent evidence of coverage. Empty returns or literal misses are not evidence against the existence of an unindexed modular or integral result.",
+        "searches": [
+          "Resultary exact Smith factors 1^28,2^6,6 with rank 35 and dimensions 56×126",
+          "Focused literature lookup for Gosset/D6 p-rank, Smith normal form and conic-support incidence"
+        ]
+      },
+      "rationale": "The 56-vertex Gosset geometry with 126 twelve-vertex D6 supports is explicitly known. The strongest checked source uses these supports for signed quadratic equations, not for the integral cokernel of the unsigned support incidence. The closest checked catalogue records change the degree and incidence dimensions, use the same exceptional labels with a graph Laplacian instead, or treat Frobenius arithmetic. The bounded literature and catalogue comparisons did not produce a distinct exact Smith table or a theorem implying these unsigned factors.",
+      "residual_risks": [
+        "An unindexed exact calculation of this unsigned Gosset incidence design or a not-yet-located general lattice theorem remains a historical-priority risk. The bounded review establishes no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Clear coverage of the support sets; different use of the incidence in the inspected text",
+          "evidence": "Defines the 56-vertex Gosset graph and the 126 copies of D6, and indexes 126 signed quadrics by their respective sets of twelve points.",
+          "identifier_or_url": "https://biblio.ugent.be/publication/8667571; doi:10.1017/9781108649094.009",
+          "material_read": "§3.3, Buildings of type E7, PDF pp. 10–11, OA offsets 32700 and 33800",
+          "method": "Lawful accepted-manuscript OA passages",
+          "title": "Some combinatorial and geometric constructions of spherical buildings",
+          "trigger": "Identical Gosset support geometry and potential integral-incidence calculation"
+        },
+        {
+          "assessment": "Geometric context, not the Smith calculation in inspected passages",
+          "evidence": "The passages concern weak approximation and conic-fibration geometry. Literal Smith and incidence-matrix lookups gave no matches; not a whole-paper exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.11409",
+          "material_read": "OA PDF pp. 1–2, offsets 3700 and 4800",
+          "method": "Lawful OA passages and literal lookups",
+          "title": "Weak approximation for del Pezzo surfaces of low degree",
+          "trigger": "Geometric antecedent for low-degree conic fibrations"
+        },
+        {
+          "assessment": "Geometric background, different invariant",
+          "evidence": "The inspected material treats the arithmetic/geometric role of exceptional curves and conic bundles, not the rectangular support Smith factors.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.09299",
+          "material_read": "OA PDF pp. 2–3, offset 7780",
+          "method": "Lawful OA passage",
+          "title": "Weak weak approximation and the Hilbert property for degree-two del Pezzo surfaces",
+          "trigger": "Same surface degree and exceptional-curve geometry"
+        },
+        {
+          "assessment": "Different degree and matrix",
+          "evidence": "Computes lattice data on ten pencil classes and sixteen curves in degree four, including Frobenius-invariant lattices.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-frobenius-conic-support-lattices-for-quartic-del-pezzo--6eecb2c62f8f",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Integral Frobenius conic support lattices for quartic del Pezzo surfaces",
+          "trigger": "Exact support-lattice calculation with closely related map"
+        },
+        {
+          "assessment": "Different operator on the same labels",
+          "evidence": "The operator is a critical-group Laplacian for edges defined by intersection one, not a matrix on the 126 pencil supports.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-critical-group-of-the-intersection-one-graph-of-the-56--5a6ca5940707",
+          "material_read": "RESULT.md, Finding and graph definition",
+          "method": "Local Resultary mirror",
+          "title": "Integral critical group of the intersection-one graph of the 56 exceptional curves",
+          "trigger": "Exact integral invariant of the same 56 curve labels"
+        },
+        {
+          "assessment": "Different group",
+          "evidence": "It concerns critical groups of an intersection-weighted graph and fixed/anti-fixed decomposition; there are no pencil-support columns in that operator.",
+          "identifier_or_url": "2026/11/22/SCOPE-geiser-fixed-and-geiser-anti-fixed-groups-of-the-full-del-pezzo--deda5c2ad673",
+          "material_read": "RESULT.md, Finding and graph definition",
+          "method": "Local Resultary mirror",
+          "title": "Geiser-fixed and Geiser-anti-fixed groups of the full del Pezzo intersection multigraph",
+          "trigger": "Integral geometry of the same exceptional labels and involution"
+        },
+        {
+          "assessment": "Different arithmetic problem",
+          "evidence": "Its reconstruction uses finite-field counts and Frobenius data, not the unsigned geometric support cokernel.",
+          "identifier_or_url": "2026/11/22/SCOPE-one-field-bitangent-and-conic-bundle-reconstruction-for-seven-po--fb077e5a2c90",
+          "material_read": "RESULT.md, Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "One-field bitangent and conic-bundle reconstruction for seven points",
+          "trigger": "Degree-two reconstruction using 126 geometric pencil classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen definition of the unsigned support map and its stated rank and saturation index",
+        "Independent exact re-enumeration and Smith reduction",
+        "Van Maldeghem–Victoor §3.3 for the natural geometry of the supports"
+      ],
+      "rationale": "The support vectors are fixed by all conic fibrations of a standard del Pezzo surface, and the exceptional-curve labels carry canonical incidence data before one computes a matrix. The full invariant answers a precise reconstruction question: in what rank-35 rational subspace can integer support combinations fail to generate all integral labels in that subspace, and what obstructions remain there? The exact answer gives the index 384 and a genuine order-three class as well as seven independent 2-primary factors. This is potentially useful in comparing formal support relations or integral incidence lattices; neither a rank nor the older signed equations determines it. The conclusion does not assert a geometric Picard torsion phenomenon.",
+      "residual_risks": [
+        "The result gives geometric lattice data only; it does not classify arithmetic fixed lattices or arbitrary surfaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

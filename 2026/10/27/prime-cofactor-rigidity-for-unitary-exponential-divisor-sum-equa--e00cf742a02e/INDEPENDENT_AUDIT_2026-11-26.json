@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:17:03.260819Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prime-power definitions give (q+1)U=qE with U=prod(p²+1) and E=prod(p(p+1)). For one squared prime, integrality of q=p+1+2/(p−1) gives exactly (2,5),(3,5), and the original sums agree. For at least two squared primes, every omitted factor of E/U exceeds 1, so q<p+1+2/(p−1) at each p. If the least p is at least 5, this and primality give q<p at the least p and even q+1<p there (p−1 is composite). Every repeated prime consequently divides U and is 1 modulo 4, since it divides a different factor t²+1. The 2-adic valuations of U and E are then equal, incompatible with consecutive q and q+1. If the least repeated prime is 3 (respectively 2), q is forced to be 2 (respectively 3), and every other repeated prime is again 1 modulo 4. At support size k the valuations of the two sides are respectively (k,k+2) and (k+1,k), excluding both cases. Independent divisor-pair enumeration matches 4,441 tests, 2,855 with multiple squared primes, and only 20 and 45 (common sums 30 and 60). The bounded replay corroborates, but is not the proof of, the unbounded exclusion.",
+      "replay": "python3 /workspace/evidence/replay_small.py 1",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-layer result covers Ω(n)≤4 (including p²qr with distinct primes); dyadic rigidity covers p^(2^j)q with only one repeated prime."
+        ],
+        "reasoning": "With k≥2, the target has Ω(n)=2k+1≥5, and p²qr has the reverse allocation of repeated and singleton primes at three-prime support. Both checked theorems miss the credited range.",
+        "searches": [
+          "Resultary: SCOPE-the-first-four-prime-factor-layers-of-unitary-exponential-diviso--439fe6387317",
+          "Resultary: SCOPE-dyadic-exponent-rigidity-for-equality-of-unitary-and-exponential--562f89d908cd"
+        ]
+      },
+      "checked_sources": [
+        "Trudgian arXiv:1312.4615, Question 2 and p. 6",
+        "Resultary 59314f8e910e, 439fe6387317, 562f89d908cd; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-49-layers gives (a,p,q)=(2,2,5),(2,3,5),(6,2,5),(49,2,4363953127297) for 2≤a≤49; first-four-layers gives {1,20,45} for Ω(n)≤4."
+        ],
+        "reasoning": "These implications already settle the one-repeated-prime case but do not impose an obstruction when arbitrarily many squared primes are present. The least-prime/2-adic proof is needed for the distinct claim.",
+        "searches": [
+          "First-49-layers, first-four-layers and dyadic-exponent Resultary Finding passages; Trudgian arXiv:1312.4615"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target multi-support condition is one exponent 1 and k≥2 exponents 2; equivalently n=q·rad(n/q)² with q prime and q∤n/q. Trudgian considers the same equality without this restriction but gives examples, not a classification in that generality."
+        ],
+        "reasoning": "Naming the kernel or changing the description of the exponent pattern does not turn general-search examples into a uniform exclusion.",
+        "searches": [
+          "Resultary: unitary/exponential divisor-sum equality; squarefree squared support; prime cofactor",
+          "Trudgian arXiv:1312.4615, Question 2 and examples"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Trudgian p. 6 lists 20, 45, 320, 6615 and 382200 up to 10^9; the first-49-layers theorem includes the exact a=2 classification."
+        ],
+        "reasoning": "The positive examples and singleton-support classification are covered. A list or bounded search for equality integers cannot rule out every multi-square-support solution.",
+        "searches": [
+          "Trudgian arXiv:1312.4615 pp. 5–6",
+          "OEIS A236474 (equality-number sequence)",
+          "Resultary: SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e"
+        ]
+      },
+      "rationale": "The singleton classification is prior work. Credit is limited to the uniform exclusion when the squared support has cardinality at least two. The closest checked primary and published-result statements either give numerical examples, bound total prime multiplicity by four, or permit only one repeated prime. None establishes the multi-support exclusion.",
+      "residual_risks": [
+        "A related 2014 conference abstract was flagged as only partially accessible in the frozen record; its exact coverage was not established. Unindexed equivalent formulations remain possible. The negative search is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known examples, no uniform multi-square theorem in the inspected statements",
+          "evidence": "Reports only five values found in 1≤n≤10^9 and gives further examples.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4615",
+          "material_read": "Question 2 and examples, particularly p. 6 (text offset 14724)",
+          "method": "Lawful OA PDF passage",
+          "title": "The sum of the unitary divisor function",
+          "trigger": "Primary statement of the equality question and positive examples"
+        },
+        {
+          "assessment": "Covers the singleton-support part",
+          "evidence": "Hypothesis n=p^a q, with distinct primes, 2≤a≤49; exactly two solutions at a=2.",
+          "identifier_or_url": "2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e",
+          "material_read": "Mirror RESULT.md Finding, offset 0",
+          "method": "Published Resultary mirror statement",
+          "title": "The first 49 exponent layers of the unitary–exponential divisor-sum equality",
+          "trigger": "Potential earlier exact classification"
+        },
+        {
+          "assessment": "Disjoint from the credited range",
+          "evidence": "Classifies Ω≤4, including p²qr, whereas the target with k≥2 starts at Ω=5.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-first-four-prime-factor-layers-of-unitary-exponential-diviso--439fe6387317",
+          "material_read": "Mirror RESULT.md Finding, offset 0",
+          "method": "Published Resultary mirror statement",
+          "title": "The first four prime-factor layers of unitary–exponential divisor equality",
+          "trigger": "Closest multi-prime support classification"
+        },
+        {
+          "assessment": "Already covers the singleton-support case only",
+          "evidence": "n=p^(2^j)q with distinct primes; solutions only at j=1.",
+          "identifier_or_url": "2026/10/26/SCOPE-dyadic-exponent-rigidity-for-equality-of-unitary-and-exponential--562f89d908cd",
+          "material_read": "Mirror RESULT.md Finding, offset 0",
+          "method": "Published Resultary mirror statement",
+          "title": "Dyadic-exponent rigidity for equality of unitary and exponential divisor sums",
+          "trigger": "Potential broader dyadic-exponent theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This isolates a natural next exponent pattern in an existing equality problem and rules out solutions at every squared-support size, not just in one more enumerated layer. The interaction between the prime cofactor inequality, quadratic-residue obstruction and 2-adic comparison gives a structural explanation; the already known positive examples are not the contribution. It makes no claim about composite cofactors, higher exponents or infinitude of general solutions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

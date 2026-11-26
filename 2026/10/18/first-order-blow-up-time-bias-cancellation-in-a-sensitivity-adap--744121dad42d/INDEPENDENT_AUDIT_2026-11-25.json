@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:03:42.820883Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the fixed x0>0 and k>1 in RESULT.md:15–25, the Euler update makes the signed error exactly the sum of the reciprocal defects h_j²x_j/(1+h_j x_j) minus 1/x_N. Before the cap, x_j^(-1/2) drops by ε/(2√(2k)) times 1+O(√ε) uniformly; the cap is crossed at x_j^(-1/2)=O(√ε). The leading number of uncapped steps is thus 2√(2k/x0)/ε with O(ε^(-1/2)) remainder. Each uncapped defect is ε²/(2k) times 1+O(√ε). After the cap, the reciprocal drops by at least ε^(3/2)/(2√2) per step over a distance at most kε, and the defects are bounded by ε²/2 each. The terminal reciprocal is ε+O(ε^(3/2)) because the relative overshoot is O(√ε). This gives both constants and the unique admissible cancellation at k=2/x0 for 0<x0<2; x0=2 would require the excluded k=1. At tuning only the stated upper bound on the remaining error is proved. Independent numerical recurrence checks corroborate both signed bias and work in four parameter regimes at three tolerances, not the asymptotic theorem. Replay: python3 /workspace/branches/eb9ef510-89f9-477f-8c1d-f65b2780a218/check_record2.py; corresponding saved output record2-check.txt. The frozen verify.py was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives |error|=O(ε) and N=O(ε⁻¹) for the general method.",
+          "Resultary record 6c33dcc493f9 studies a stochastic coding-tree estimator and its second-moment horizon on y'=y²."
+        ],
+        "reasoning": "Neither a general upper bound nor a stochastic estimator on the same ODE determines the sign, leading constants, or exceptional k for this deterministic update.",
+        "searches": [
+          "Hoel–Meo arXiv:2603.12957v1, Theorem 1",
+          "Resultary meaning search: scalar quadratic ODE blow-up and error asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Hoel–Meo arXiv:2603.12957v1",
+        "Resultary search and record 6c33dcc493f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The frozen coefficient comes from subtracting the terminal tail ε from the cumulative Euler defect ε√(2/(kx0)); the general bound does not identify the two quantities to leading order."
+        ],
+        "reasoning": "The result is not obtained by parameter substitution in the prior theorem. Deriving the uniform pre-cap defect and counting post-cap steps are needed to separate and cancel those terms.",
+        "searches": [
+          "Hoel–Meo arXiv:2603.12957v1, Algorithm 1, Theorem 1 and §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Substituting b'(x)=2x and F(b(x))=1/x in Algorithm 1 and §4.2 recovers exactly the frozen update and r=1/ε."
+        ],
+        "reasoning": "The reciprocal-coordinate or threshold formulation is the same method, not a distinct scheme; the difference is the statement about signed leading bias and tuning, rather than the method or coordinate choice.",
+        "searches": [
+          "Resultary meaning search: signed bias and tuning for sensitivity-adaptive forward Euler blow-up estimation",
+          "Hoel–Meo arXiv:2603.12957v1, Algorithm 1 and §4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No covering indexed statement identified; the nearby Riccati coding-tree result has different observables.",
+          "The benchmark plots cost and absolute error at x0=1/2, k=1.1, not a table of signed constants or cancelling choices."
+        ],
+        "reasoning": "No exact catalogue of this continuous two-parameter asymptotic was identified; the actual overlapping example cannot establish the coefficient or its zero.",
+        "searches": [
+          "Resultary ranked meaning searches (five queries, up to 50 results each) for this deterministic coefficient, cancellation and work",
+          "Hoel–Meo arXiv:2603.12957v1, §4.2 and Fig. 1"
+        ]
+      },
+      "rationale": "The underlying algorithm, the quadratic benchmark, and the error and work orders away from tuning are prior work. In the primary source the error is bounded in absolute value and benchmarked numerically. The signed asymptotic constant, its admissible cancellation, and the leading work constant with quantified remainder are supported distinct refinements on the fixed-parameter scalar model. No exact or stronger covering statement was identified in the checked evidence.",
+      "residual_risks": [
+        "Ranked indexing and inspected primary passages do not certify historical priority; an equivalent expansion in related stopping-time Euler analysis could remain undiscovered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the method, model benchmark and generic orders; not the signed/work constants or cancellation",
+          "evidence": "§4.2 fixes x0=1/2 and k=1.1 and uses reciprocal sensitivity; Theorem 1 estimates the absolute error.",
+          "identifier_or_url": "https://arxiv.org/html/2603.12957v1",
+          "material_read": "Algorithm 1 (OA offset 12280); Theorem 1 (13220); §4.2 and Figure 1 comparison (67800)",
+          "method": "Bounded OA full-text passages",
+          "title": "A priori adaptive numerical methods for estimating blow-up times of autonomous ODEs",
+          "trigger": "Exact algorithm and quadratic example"
+        },
+        {
+          "assessment": "Same ODE, not the same method or invariant",
+          "evidence": "The statement is about stochastic estimator second moments, not a forward Euler first-hitting-time bias.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-finite-variance-horizon-for-the-riccati-coding-tree-monte--6c33dcc493f9",
+          "material_read": "Local mirror RESULT.md, offset 0: finding and model",
+          "method": "Ranked Resultary search and bounded local-mirror inspection",
+          "title": "Sharp finite variance horizon for the Riccati coding-tree Monte Carlo estimator",
+          "trigger": "Closest indexed scalar quadratic model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the published quadratic benchmark, the signed defect separates accumulated slow Euler growth from the missing terminal tail and yields a practical parameter criterion for higher-order bias at unchanged inverse-tolerance work order. It also identifies when that improvement is inadmissible and quantifies the leading work constant, rather than claiming the same work prefactor for all k. The benefit is specific to this ODE and stopping rule.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

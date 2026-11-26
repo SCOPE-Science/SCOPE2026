@@ -1,15 +1,21 @@
-# Scientific review: four-periodic rigidity on cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns all labelled simple cycles of length at least three and the exact expansion/contraction rule for inclusion-minimal dominating sets. The proof reduces minimality to a local run condition: zero-runs and one-runs have length at most two, and a double-one run is flanked by two-zero runs. It then gives explicit legal moves for every configuration containing singleton one-runs, and shows that all-double configurations are exactly the periodic \(1100\) states. Every candidate move from those periodic states fails minimality when the cycle has at least eight vertices. Small cycles of lengths three and four are treated separately. Thus the proof is not a finite extrapolation. A separate local finite-state automaton has a unique recurrent directed four-cycle, and direct enumeration confirms the claim through length eighteen. Both accompanying standard-library programs executed and passed.
+PASS
 
-## Originality — PASS, with residual priority risk
+A cyclic dominating word has no zero run of length >=3; minimality forbids a one run of length >=3 and requires two zeros on each side of every 11 for private witnesses. These conditions are sufficient: a singleton uses itself and each endpoint of 11 uses its exterior adjacent zero. For a mixed word the slide 11001→10101 leaves the exterior gaps unchanged. For all singletons, unequal adjacent gaps can be swapped by a slide; for constant gaps two one can split a token into its two vacant neighbours, and for constant gaps one one can merge a 101, yielding independent dominating words in both cases for n>=6. All-double words are the four 1100 shifts; the only candidate moves are slides, which for n>=8 deprive a distinct intact 11 of its adjacent private witness. C3 singletons and C4 pairs are all mobile; the two alternating C4 pairs each have an adjacent consecutive pair. This proves the full classification, not connectivity beyond the isolated-state obstruction. Independently ran checks/1.py (Python 3 standard library): private-witness/explicit set-move enumeration for 3<=n<=14 and 11-bit-window automaton by source/sink peeling, leaving exactly the periodic directed four-cycle for the n>=11 check. For the automaton, changes occur only within distance one of the move centre and the private-witness predicate reads radius two, so centre offsets -3..3 contain all affected tests. The run proof stands independently of computation.
 
-Beaton's 2024 article introduces the exact expansion/contraction rule, proves connectedness for trees and split graphs, identifies disconnected prism-type examples and works out \(C_5\), but does not classify rigid minimal dominating configurations across all cycles. Adaricheva and colleagues' 2021 modulo-four result concerns a different reconfiguration graph, with **all** dominating sets under addition/removal and Hamilton-path existence as its property; it implies neither the present state classification nor rigidity. The closest published published-finding corpus four-periodic classification covers *minimum isolating sets* under unrestricted one-replacement, a different predicate and move rule. Searches of equivalent formulations, cycle patterns and index records did not identify a covering statement. An unindexed or later equivalent is still possible; this is not a claim of guaranteed global priority.
+## originality
 
-## Value — PASS
+PASS
 
-The 2024 introduction of expansion/contraction asked how inclusion-minimal solutions behave when different numbers of tokens are permitted. This theorem supplies a sharp infinite-family mobility obstruction, including the exact number and form of all frozen configurations and the small-cycle exception. Unlike a count for an arbitrary selected graph, it answers a natural structural question for every cycle and provides an explicit move certificate for every other state. The result does not establish the connectedness or diameter of the remaining states, nor any bound for arbitrary graphs.
+The distinct claim is the all-cycle classification of isolated inclusion-minimal dominating states under the exact expansion/contraction rule. Beaton supplies the move model and other graph-family results, but the checked statements do not yield the classification. Two four-periodic analogues use different feasibility or transitions. The conclusion is bounded by checked sources, not a priority certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This gives a complete structural classification under a move model that allows changing the number of selected vertices, not just a disconnection example. It provides exact periodic obstructions for a natural connected 2-regular family, explains why C4 is exceptional, and gives an explicit move certificate for the complement of the frozen states. It makes no claim about the component structure of those mobile states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:41:55.967413Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–4; VERIFICATION.md and verification.py",
+        "Miller, slide 9 and Hardy history on PDF p. 4",
+        "Pilla arXiv:2606.24710, Definition 2.3 and §3.5"
+      ],
+      "rationale": "Each transverse monomial slice reduces the operator, with squared moments n! r!/(n+r)! after a constant rescaling. For r>=1 its operator is exactly Miller's C_nu with Bergman weight parameter r-1 and nu=r+1. The cited disk and Fredholm boundary apply at these parameters, and subnormality gives norm 2/(r+1). Independently, for the Hardy block C=G_0, its matrix gives (C-I)(C-I)^*=I-diag(1/(n+1)): CC^* has entry 1/(max(i,j)+1). This implies closed range of C-I of codimension one; the forward coefficient recurrence gives injectivity. Thus C-I is Fredholm and its Calkin image is unitary, so failure-of-Fredholm points lie on the circle. Its index is -1 at the center and 0 outside the unit disk about the center, by Hardy disk spectrum; local constancy of index forces every point of the circle into the failure set. For all r, the forward recurrence gives squared weighted coefficients of order n^(r+2n0) for any putative first nonzero degree n0, excluding eigenvectors, and the zero parameter is excluded by invertibility of the formal triangular recurrence. The adjoint recurrence has at most one free coefficient: with h_n=sqrt(w_n)g_n, h_(n+1)=(1-1/(conj(lambda)(n+r+1)))h_n. Any square-summable candidate solves the adjoint equation by telescoping since h_n tends to zero. Finite-support resonances lie strictly inside the disk; otherwise summability is exactly 2 Re(1/lambda)>r+1 by the product power asymptotics. At nonzero lambda the norm-decaying tail is uniformly invertible by the Neumann bound; a circle block prevents Fredholmness, as does the Hardy block at zero. Off the circles the finite sum of block defects for 0<=r<k yields the stated binomial by the stars-and-bars multiplicities and hockey-stick identity. This also gives the x^(1-d) growth with the stated constant. The ordinary spectrum equals the largest block disk by the same uniform tail argument and presence of the Hardy block. The included finite checker was read, not executed; it does not establish the infinite-dimensional conclusions.",
+      "residual_risks": [
+        "Uses the cited weighted-Bergman one-block spectral theorem, not a new proof of it; Fredholm means invertible in the Calkin algebra, not the Weyl or Browder convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Miller's one-variable theorem supplies the exact disk, essential circle and subnormality at the needed parameter, not a Fredholm theorem for their transverse direct sum.",
+          "Closest indexed analogues treat the Hilbert–Schmidt threshold for coordinate commutators, or two-circle index geometries for different real-variable Cesàro operators."
+        ],
+        "reasoning": "These theorems concern blocks, different operators, or different invariants; none of the compared statements gives the countably many tangent circles and their finite Fredholm defects for this operator.",
+        "searches": [
+          "Miller, SEAM 27 slides 4 and 9",
+          "Pilla arXiv:2606.25885",
+          "Resultary e2799a87c22d, 9175a17bfc0c, 0a58860d98f4"
+        ]
+      },
+      "checked_sources": [
+        "Pilla arXiv:2606.24710 and 2606.25885",
+        "Miller 2011 slides",
+        "Resultary records 9175a17bfc0c, 0a58860d98f4, 90fa1275743e, e2799a87c22d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact identification G_r=C_(r+1), the kernel and adjoint defect, and the norm-decaying tail establish how the one-variable information can be combined. Each degree has binomial multiplicity and the sign and shifted binomial are fixed by summing its adjoint defect."
+        ],
+        "reasoning": "The result is derived from known input, but reading off the separate spectra is not an infinite direct-sum Fredholm calculation. Even after identifying the blocks one must control the tails and recover and sum the finite-dimensional defects. The matched primary texts don't state a result that already specializes to the full staircase.",
+        "searches": [
+          "Pilla arXiv:2606.24710 §3.5 compared with Miller slide 9 and the frozen direct-sum index proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pilla Eq. (2.4) and §3.5 identify the same operator and direct sum, and Eq. (3.39) gives the ordinary disk, not the Calkin spectrum.",
+          "Same-day Resultary record 90fa1275743e concerns the coordinate-multiplier tuple's semi-hyponormality defect, not these Cesàro operators."
+        ],
+        "reasoning": "Using failure of Fredholmness, or spectrum of the image in the Calkin algebra, gives the same target. The ordinary spectrum is genuinely different and the multiplier tuple is a different operator even on the same Hilbert space.",
+        "searches": [
+          "Resultary 90fa1275743e and e2799a87c22d",
+          "Pilla arXiv:2606.24710 §§2, 3.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant exact entry is a spectral-set/index formula, not a finite parameter table. The compared operator records give two-circle models or different spectral and ideal data. Pilla publishes the exact ordinary disk; Miller gives the exact one-variable circle."
+        ],
+        "reasoning": "Neither exact source formula records the full union and multiplicity-weighted staircase; matching a single circle or the full ordinary disk is not an exact match.",
+        "searches": [
+          "Resultary Fredholm essential circles and index staircase matches: 9175a17bfc0c, 0a58860d98f4, 90fa1275743e, e2799a87c22d",
+          "Miller slide 9 and Pilla Eq. (3.39)"
+        ]
+      },
+      "rationale": "The same operator, its monomial fibers and its ordinary disk spectrum are prior results. The single-block disks, essential boundaries and subnormality are also prior. The distinct finding is the complete global Fredholm set and the exact binomial index with its dimension-sensitive divergence. This is a synthesis of prior ingredients, not a new one-variable result.",
+      "residual_risks": [
+        "Bounded catalogue and literature review; unindexed equivalent direct-sum formulations are not excluded. No priority is claimed for the ordinary spectrum, slice reduction, general Fredholm methods, or single-variable spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operator, prior fiber reduction and ordinary spectrum; not the full Fredholm classification",
+          "evidence": [
+            "Eq. (3.39) gives the ordinary disk by decomposing into fibers indexed by transverse multi-indices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.24710",
+          "material_read": "Definition 2.3 and Eq. (2.4); §3.5, PDF pp. 9–10, OA offset 28350; Eq. (3.39)",
+          "method": "Open arXiv full text, bounded passage comparison",
+          "title": "Cesàro-Type Operators Acting on the Drury-Arveson Space",
+          "trigger": "Defining paper with the same monomial fibers"
+        },
+        {
+          "assessment": "Applicable for r>=1 after normalization; Hardy is separate",
+          "evidence": [
+            "For alpha>-1, the theorem gives disk centered at 1/(alpha+2) of radius 1/(alpha+2), essential boundary and subnormality for nu=alpha+2. The historical Hardy slide credits Brown–Halmos–Shields with the disk and Kriete–Trutt with subnormality."
+          ],
+          "identifier_or_url": "https://people.clas.ufl.edu/sam/files/miller.pdf",
+          "material_read": "Coefficient formula, PDF pp. 2–3 (offset 1000); theorem slide 9 (offset 7440); Hardy background PDF p. 4 (offset 3419)",
+          "method": "Public lecture PDF passage inspection",
+          "title": "Spectral properties of operators associated with the Cesàro operator on weighted Bergman spaces",
+          "trigger": "Exact source of weighted-Bergman block theorem and Hardy background"
+        },
+        {
+          "assessment": "Related, but not a covering Fredholm result",
+          "evidence": [
+            "Concerns operator norms and Rhaly analogues rather than the multivariable Fredholm index."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.25885",
+          "material_read": "Norm and Rhaly generalization statements",
+          "method": "Bounded open arXiv comparison",
+          "title": "Rhaly-Type Operators in Several Complex Variables",
+          "trigger": "Pilla's companion work on related coordinate operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and §§2–4",
+        "Pilla arXiv:2606.24710 Eq. (3.39)"
+      ],
+      "rationale": "The failure set has infinitely many boundaries despite an ordinary spectrum independent of d. The index on the intervening regions is a concrete stable-under-compact-perturbations invariant, and its growth distinguishes the ambient dimension. The complete classification for a natural coordinate operator is useful beyond recording its single-block spectra or a norm.",
+      "residual_risks": [
+        "No joint tuple spectrum or classification of other coordinate constructions is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

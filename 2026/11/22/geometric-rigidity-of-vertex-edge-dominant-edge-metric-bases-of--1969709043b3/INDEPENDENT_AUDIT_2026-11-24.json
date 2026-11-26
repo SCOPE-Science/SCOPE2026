@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:24:50.485913Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each edge I computed the minimum of two Hamming distances, packed the resulting distance signatures without collisions, and separately unioned the covered edges. The exact replay checks all required cardinalities against lower counts (resolving, covering, joint) (0,4,0), (0,16,0), (64,112,0), (1280,80,0) at d−1 and finds (4,32,176,160) joint sets at d. Monotonicity excludes all smaller subsets. The checks at d−2 establish ordinary minima 3 and 4 in dimensions 4 and 5. Full translation/coordinate-permutation orbits of the representative shapes give set equality, with sizes 4; 8 and 24; 16, 64 and 96; and 160. The repaired claim compares minimum cardinalities, not the possibility of augmenting every ordinary basis. Indeed, in Q5 only 160 of 1280 ordinary 4-bases are single deletions from an optimal joint set; {0,3,5,14} in binary-integer notation is a checked nonextendible ordinary basis. The complete replacement RESULT.md is under /workspace/repairs/5/. Replay: python3 /workspace/checks/5.py. No higher-dimensional conclusion follows from these tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "P2 □ P2=Q2 and C4 □ P2=Q3 are covered, with exact joint minima 2 and 3.",
+          "The complete-prism result includes K2 □ K2=Q2; the cover-based cube result gives 2^(d−1) and the two parity classes for d≥3.",
+          "Ordinary edge-resolution results include edim(Q4)=3."
+        ],
+        "reasoning": "The inspected path-by-path and cycle-by-path statements do not apply to Q4=C4 □ C4 or Q5=Q4 □ P2 as stated. The stronger vertex-cover predicate gives an upper bound for the weaker optimum, not a classification or a lower bound for it. Ordinary resolution gives a lower bound but cannot establish the one-vertex penalty.",
+        "searches": [
+          "arXiv:2211.09327 Theorems 11 and 12",
+          "Resultary --458dd571fbf7 and --7e3975f666de",
+          "arXiv:2102.10916 Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2211.09327",
+        "arXiv:2102.10916",
+        "Resultary --458dd571fbf7, --7e3975f666de, --1969709043b3, --39dab98cf56d, --6276e7d79e10",
+        "10.5614/ejgta.2023.11.1.16 (OA access limit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known product theorems imply the Q2/Q3 joint scalar minima; the complete-prism specialization implies the full Q2 row.",
+          "The published cover-based values translate to 8 and 16 in Q4 and Q5, while the compared ordinary Q4 result gives 3 with no coverage test."
+        ],
+        "reasoning": "Matching ordinary and cover-derived bounds does not decide a joint optimum: those lower and upper bounds do not coincide, and they cannot identify optimizer intersections or orbits. The repaired statement does not claim as new any values or families verified as existing special cases.",
+        "searches": [
+          "arXiv:2211.09327 Theorems 11–12, offsets 35600 and 49000",
+          "2026/11/2/SCOPE-exact-vertex-edge-dominant-edge-metric-bases-of-complete-prisms--458dd571fbf7",
+          "2026/9/30/SCOPE-dominant-edge-metric-dimension-and-minimum-bases-of-hypercubes--7e3975f666de"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The initiating paper's vertex-edge domination means incident to the edge or adjacent to an endpoint, exactly δ(s,e)≤1. Its other predicate distinguishes edges by landmark distance vectors.",
+          "The distinct hypercube cover result uses an endpoint vertex cover, i.e. coverage at distance zero, a strictly stronger condition."
+        ],
+        "reasoning": "The initiating product theorem is an exact equivalent predicate; ordinary edge resolution forgets domination, and vertex-cover domination strengthens it. Neither of the latter is an equivalent reformulation.",
+        "searches": [
+          "Resultary: vertex-edge dominant edge-metric bases of binary cubes, complete prisms and dominant edge metric dimension",
+          "arXiv:2211.09327, p. 5, offset 13800"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The complete-prism result at n=2 gives all four Q2 optima; the same-day --1969709043b3 is the frozen record itself.",
+          "The same-day Möbius–Kantor result has the same joint size gap and 512 optima on a different graph. The indexed signed-pentads statement reports 1280 four-landmark resolving configurations on Q5, not the census of joint five-landmark minima."
+        ],
+        "reasoning": "Agreement of a cardinality gap in a different graph is not coverage. Even if the four-landmark census is for this exact ordinary edge predicate, it is a potential overlap on an auxiliary count, not on sizes or shapes of the joint five-landmark optima. No independent exact table of the Q4/Q5 joint census was identified in the bounded search.",
+        "searches": [
+          "Resultary: complete-prism vertex-edge dominant edge-metric bases, Q4 176 configurations, Q5 160 configurations",
+          "Resultary --1969709043b3, --39dab98cf56d, --6276e7d79e10"
+        ]
+      },
+      "rationale": "Pass is for the repaired, credited scope. The joint minimum sizes in Q2 and Q3 follow exactly from earlier product theorems, and the whole labelled Q2 row from the earlier complete-prism classification. These are now attributed rather than offered as new. The inspected statements do not cover the joint minima or the complete geometric optima in Q4 and Q5. The Q3 classification is retained as a supplementary complete census; ordinary edge dimensions and unrelated measures are not the basis for originality.",
+      "residual_risks": [
+        "The precise signed-pentads resolving predicate and any additional theorem in that same-day record could not be confirmed from its absent mirror; within-day priority is not established.",
+        "The 2023 cover-based full text was not successfully obtained; unindexed exact censuses or stronger product statements can still affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers Q2 and Q3 minimum values; does not provide the compared full basis censuses or Q4/Q5 via its inspected product theorems",
+          "evidence": [
+            "Theorem 11 with P2 □ P2 gives 2; Theorem 12 with C4 □ P2 gives 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.09327",
+          "material_read": "p. 5 definition and Theorems 11–12, pp. 11 and 14, offsets 13800, 35600, 49000",
+          "method": "OA primary PDF passage inspection and product identification",
+          "title": "Unique identification and domination of edges in a graph: The vertex-edge dominant edge metric dimension",
+          "trigger": "Exact same parameter and potentially covering Cartesian-product results"
+        },
+        {
+          "assessment": "Covers the complete Q2 row",
+          "evidence": [
+            "At n=2 the prism is C4, with precisely four minimum sets of size two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-vertex-edge-dominant-edge-metric-bases-of-complete-prisms--458dd571fbf7",
+          "material_read": "Indexed theorem statement for K_n □ K2 and n=2 specialization",
+          "method": "Resultary statement comparison",
+          "title": "Exact vertex-edge dominant edge-metric bases of complete prisms",
+          "trigger": "Exact joint optimum classification possibly subsuming Q2"
+        },
+        {
+          "assessment": "Ordinary edge resolution, not joint coverage",
+          "evidence": [
+            "dim(Q4)=4=edim(Q4)+1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.10916",
+          "material_read": "p. 4, Theorem 4, offset 11500",
+          "method": "OA primary PDF passage inspection",
+          "title": "On Metric Dimensions of Hypercubes",
+          "trigger": "Known ordinary edge dimension and possibility of stronger joint statements"
+        },
+        {
+          "assessment": "Strictly stronger vertex-cover requirement",
+          "evidence": [
+            "Optima have size 2^(d−1) and are parity classes for d≥3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-dominant-edge-metric-dimension-and-minimum-bases-of-hypercubes--7e3975f666de",
+          "material_read": "Available indexed exact statement",
+          "method": "Resultary statement comparison",
+          "title": "Dominant edge metric dimension and minimum bases of hypercubes",
+          "trigger": "Same graph family with closely named joint parameter"
+        },
+        {
+          "assessment": "Analogous result on the Möbius–Kantor graph, not a cube classification",
+          "evidence": [
+            "Separate minima 4, joint minimum 5 and 512 joint sets."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-five-landmark-obstruction-and-an-eight-step-relocation-geometr--39dab98cf56d",
+          "material_read": "Available indexed statement",
+          "method": "Resultary statement comparison",
+          "title": "A five-landmark obstruction and an eight-step relocation geometry",
+          "trigger": "Same-day joint parameter and same gap"
+        },
+        {
+          "assessment": "Could overlap the auxiliary ordinary census; the available statement does not give the joint optimum claim",
+          "evidence": [
+            "Reports 1280 four-landmark resolving configurations; precise resolving notion not established from the available passage."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-signed-pentads-and-frozen-metric-bases-in-the-five-dimens--6276e7d79e10",
+          "material_read": "Indexed statement only; local mirror file unavailable",
+          "method": "Resultary comparison and local mirror attempt",
+          "title": "Signed pentads and frozen metric bases in the five-dimensional cube",
+          "trigger": "Same-day same cube and an exact resolving census"
+        },
+        {
+          "assessment": "No whole-paper conclusion; the cover-based variant is logically distinct",
+          "evidence": [
+            "A vertex cover requires one endpoint in the selected set, unlike the distance-one predicate."
+          ],
+          "identifier_or_url": "https://doi.org/10.5614/ejgta.2023.11.1.16",
+          "material_read": "No complete primary passage obtained on article/DOI route; compare definition with the inspected cover-based cube statement",
+          "method": "Lawful OA access attempt and statement-level predicate comparison",
+          "title": "The dominant edge metric dimension of graphs",
+          "trigger": "Potentially equivalent name for a dominating parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Q4 and Q5 are successive standard cubes where adding a local coverage constraint provably changes the optimal size relative to pure edge identification. The complete basis geometry identifies exact placements, not merely a cheap extra case of a scalar table: three distinct four-dimensional orbits collapse to one rigid five-dimensional shape. This is a natural benchmark for the published joint parameter and for studying when and how an identification set can meet a local coverage constraint. It does not rest on the known Q2/Q3 minima or on a claim of arbitrary augmentation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

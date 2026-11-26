@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:01:43.414695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Work in the translated affine span and let h_t be objective error. A positive h_t gives positive g_t≥h_t and nonzero projected gradient. Strict convexity excludes any positive-dimensional exposed face for a nonzero direction in this span; compactness and uniqueness give continuity of s(u). On the unit sphere times C restricted to ||z−s(u)||≥ε, the support gap is continuous and strictly positive, hence has a positive minimum ω(ε). For ε<diam(C)/2 the restricted set is nonempty by considering a diameter pair. Along the chosen segment the smoothness bound is f(x_t)−γg_t+Lγ²d_t²/2. The short step minimizes this bound and line search does at least as well, giving decrease at least min(g_t,g_t²/(Ld_t²))/2. With bounded d_t and g_t≥h_t this proves h_t→0; compactness then gives δ_t=dist(x_t,argmin f)→0. Convexity gives h_t≤||Π∇f(x_t)||δ_t, and therefore g_t/h_t≥ω(ε)/δ_t whenever d_t≥ε. For positive errors, the reciprocal error increment is at least the decrease divided by h_t². It is at least 1/(2h_t) in the clipped branch; in the untruncated branch it is at least 1/(2Ld_t²), or at least ω(ε)²/(2LD²δ_t²) when d_t≥ε. Fixing sufficiently small ε for each desired increment and then taking t large proves divergence along all indices, including mixed branches. Cesàro averaging proves t h_t→0. A singleton and a terminated trajectory (extended constantly) are immediate; zero gap is equivalent to constrained optimality by convexity and first-order necessity. The superflat epigraph/hypograph example is strictly convex by h''>0 off zero, continuous strict increase of h' across zero, and strict concavity of the upper curve; at the vertical tip its power-normalized support gap tends to zero. No computational or formal certificate is needed for this analytic result; scope is exact LMO, finite dimension and the two adaptive steps only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pokutta covers both adaptive steps and zero gradient where power-type LDS holds, not the excluded superflat geometry; current retrieval resolved to v3.",
+          "Kerdreux et al.'s pertinent results require power curvature or power local scaling and a positive gradient lower bound, despite discussing a general modulus.",
+          "The frozen record reports a positive modulus in the optimum-gradient direction for Dunn; the primary texts could not be inspected and are explicitly an access risk."
+        ],
+        "reasoning": "For a nonzero projected gradient at a strictly convex constrained optimum, support exposure does give a positive fixed-direction modulus, so the report suggests historical coverage of that subcase. At a zero projected gradient that specific modulus is zero for nonempty separation sets. The proof instead works uniformly over normalized current directions, and one cannot infer the flat-tip zero-gradient version from the inspected power-type hypotheses.",
+        "searches": [
+          "Pokutta arXiv:2604.28006 current retrieval and v3 Theorems 3.5–3.6, Corollary 3.8",
+          "Kerdreux et al. PMLR 130 Theorems 2.2 and 2.5",
+          "Dunn DOI 10.1137/0317015 and 10.1137/0318035"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Pokutta arXiv:2604.28006v3",
+        "Kerdreux et al. PMLR 130:19–27",
+        "Dunn DOIs 10.1137/0317015 and 10.1137/0318035 (access attempts, not full texts)",
+        "Resultary 692f96b6c955 and 4ea71c6455aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pokutta's own flat example violates the quantitative lower bound in the result on both step rules. The recorded zero-gradient quadratic on the superflat set falls within the audited theorem without satisfying that geometric bound.",
+          "A definition allowing an arbitrary curvature modulus is not itself a convergence theorem for all such moduli; the inspected Kerdreux convergence theorems use stronger hypotheses.",
+          "For fixed ε, the positive ω(ε) is needed only when d_t is bounded below by ε; small d_t itself makes the reciprocal increment large."
+        ],
+        "reasoning": "The positive fixed-separation comparison combined with the inverse-error argument covers an explicit regime excluded by the inspected theorems; it is not a direct parameter substitution. If an uninspected classical result has other hypotheses beyond the reported optimum-gradient condition, its possible implication remains open in this review.",
+        "searches": [
+          "Pokutta Corollary 3.8 and Remark A.4",
+          "Kerdreux et al. Definition 1.1 and Theorems 2.2, 2.5",
+          "Dunn reported optimum-normal condition, frozen RESULT.md line 107"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "LDS is an inequality with fixed A>0 and finite q≥2 in a neighborhood of the reference set. Pokutta explicitly uses the exp(−1/x²) mechanism to separate it from strict convexity.",
+          "The present modulus is positive at each fixed separation on a compact unit-direction/point pair space; it does not bound that modulus by a power as separation tends to zero."
+        ],
+        "reasoning": "These are not equivalent geometric hypotheses. Equivalent names for the algorithm (conditional gradient, exact line search or short step) were included in comparisons; routine terminology is not novelty.",
+        "searches": [
+          "Pokutta arXiv:2604.28006v3 Definition 3.1, Remark A.4",
+          "Resultary: Frank–Wolfe exact line search, beyond 1/t, superflat strictly convex bodies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 692f96b6c955 is an exact-line-search finite-termination theorem for diagonal quadratics on a simplex with face-minimizer starts and a vertex oracle.",
+          "Resultary 4ea71c6455aa concerns a specific quadratic trajectory on a centered 2×2 spectrahedron with a scheduled law and one-step line-search termination."
+        ],
+        "reasoning": "There is no finite table of instances that can establish this universal asymptotic theorem. The closest inspected exact-law findings are for constrained objectives, algorithms or starts and do not cover the claim, irrespective of their same-day dating.",
+        "searches": [
+          "Resultary: Frank–Wolfe exact-line-search convergence, strictly convex bodies, zero-gradient boundary optimum"
+        ]
+      },
+      "rationale": "Credit Pokutta's reciprocal-error approach, little-o convergence under power-type local dual sharpness (already including zero-gradient objectives), and the superflat obstruction. Credit the earlier nonzero-optimal-gradient overlap indicated by Dunn's reported condition, without assuming completeness of that report. The supported distinct contribution is the all-objectives convergence theorem with purely qualitative strict convexity, including zero projected gradient without power-type local geometry. None of the inspected decisive statements supplies this combination; no originality is credited to the superflat construction itself or to zero gradient with LDS.",
+      "residual_risks": [
+        "The complete Dunn texts remain unavailable after bounded lawful retrieval; an uninspected result could cover more than the reported optimum-gradient condition.",
+        "A bounded search does not exclude another formulation of the all-directions qualitative argument. No priority is claimed for compact strict convexity as a concept, the proof's standard descent tools or the flat-tip example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong close overlap, but convergence retains power-type LDS",
+          "evidence": "Corollary covers both steps with LDS; Appendix uses a superflat support tip to show strict convexity does not imply LDS.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.28006v3",
+          "material_read": "Definition 3.1 p. 7; Theorems 3.5–3.6; Corollary 3.8 p. 10; Remark A.4 p. 28; related-work comparison p. 4",
+          "method": "OA primary PDF, located passages; current record retrieved as v3",
+          "title": "Frank–Wolfe Beyond 1/t Convergence",
+          "trigger": "Same limit, algorithms, zero-gradient case and superflat example"
+        },
+        {
+          "assessment": "Power curvature or local scaling and positive gradient lower bound in decisive theorems",
+          "evidence": "Theorem 2.2 compares short steps and line search under (α,q)-uniform convexity and inf ||∇f||*>0; Theorem 2.5 uses power local scaling, with a gradient bound.",
+          "identifier_or_url": "https://proceedings.mlr.press/v130/kerdreux21a/kerdreux21a.pdf",
+          "material_read": "Definition 1.1 and Theorems 2.2 and 2.5, pp. 4–5 for the theorems",
+          "method": "OA primary PDF, located passages",
+          "title": "Projection-Free Optimization on Uniformly Convex Sets",
+          "trigger": "Earlier rate analysis with a general modulus definition"
+        },
+        {
+          "assessment": "Potential nonzero-normal overlap; broader primary claims unverified",
+          "evidence": "The reported modulus uses ∇f at the optimum, whose pairing vanishes in every feasible direction when the projected gradient is zero.",
+          "identifier_or_url": "https://doi.org/10.1137/0317015",
+          "material_read": "Primary text unavailable; secondary description in Pokutta p. 4 and the frozen record's report at line 107",
+          "method": "SIAM DOI page 403; lawful OA recovery found no same-paper copy",
+          "title": "Rates of Convergence for Conditional Gradient Algorithms Near Singular and Nonsingular Extremals",
+          "trigger": "Historical little-o result and possible singular-optimum coverage"
+        },
+        {
+          "assessment": "Possible historical coverage left unresolved",
+          "evidence": "No verified complete theorem statement; do not infer that it rules out or proves the new combination of hypotheses.",
+          "identifier_or_url": "https://doi.org/10.1137/0318035",
+          "material_read": "Primary text unavailable; frozen literature note and Pokutta related-work context",
+          "method": "SIAM DOI page 403; lawful OA recovery found no same-paper copy",
+          "title": "Convergence Rates for Conditional Gradient Sequences Generated by Implicit Step Length Rules",
+          "trigger": "Possible earlier exact-line-search rate in the same setting"
+        },
+        {
+          "assessment": "Special instance class; no implication to qualitative strict convexity",
+          "evidence": "Exact line-search finite termination for diagonal quadratics from specified face-minimizer starts.",
+          "identifier_or_url": "Resultary 692f96b6c955",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "local source mirror",
+          "title": "Line-search Frank–Wolfe becomes fully corrective on diagonal simplices",
+          "trigger": "Same algorithm and a stronger exact asymptotic outcome in title"
+        },
+        {
+          "assessment": "Distinct specialized spectrum and trajectory",
+          "evidence": "ERSO-FW on a particular quadratic over a centered 2×2 spectrahedron, not the unrestricted convex-objective class.",
+          "identifier_or_url": "Resultary 4ea71c6455aa",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "local source mirror",
+          "title": "Exact rank identification and a t^(-8−4√2) objective law",
+          "trigger": "Frank–Wolfe exact line-search and rate comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem removes a quantitative geometric hypothesis, not merely an exponent in an already valid estimate. It gives a strict asymptotic improvement over the general 1/t scale for both standard adaptive steps on all compact relatively strictly convex feasible sets, including bodies too flat for every fixed power and objectives with zero projected optimal gradient. The fixed-separation argument explains why that gain is possible without any uniform numerical rate claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

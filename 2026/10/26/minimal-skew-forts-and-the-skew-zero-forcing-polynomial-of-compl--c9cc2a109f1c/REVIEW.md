@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The open-neighborhood identities in the proof are evaluated for all vertices, including white ones. The resulting complete case analysis of cardinalities zero, one, two, and at least three on each layer proves the minimal-fort list. A first-force argument proves the exact equivalence between unsuccessful initial configurations and those whose white complements contain skew forts. The closed polynomial follows from an explicit disjoint-case count and two necessary overcount corrections. Boundary cases \(n=3,4\), extremal coefficients, and the skew span are handled separately. The standalone program checks every subset at orders \(3\) through \(8\), confirms minimal-fort classification, coefficient counts, and obstruction duality, and returned the expected `VERIFY_OK` output. Finite checks corroborate but do not replace the all-order proof.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+With both colors eligible to act, the first-layer neighbor count is a−1_{i∈A}+1_{i∈B}, and similarly for the other layer. For a nonempty skew fort neither side can be empty. A singleton side requires the other side to be exactly the complementary indices, which is possible precisely at n≥4. A side of size two requires its indices to be in the opposite side, so the set contains a two-column fort. Both side sizes at least three always give a fort; after excluding two common columns, the inclusion-minimal possibilities are 3+3 with overlap at most one (possible starting at n=5). These and the singleton-layer forts have no proper subfort. A skew fort blocks the first force into it and a terminal nonempty white set is such a fort, validating the obstruction test independent of forcing choices. Avoidance gives the disjoint cases by side sizes, with overlap at most one in the side-two case; the apparent duplicates of the two orientations occur exactly at 1+1 and 2+2 and account for the two subtractions in W_n. For n=3 only the three two-column obstructions occur, giving twelve successful four-white sets. The top white coefficient is 56 for n=4, and 2+2n(n−1)+2 C(n,2)(C(n,2)−C(n−2,2)) for n≥5. A minimum-size skew fort has four vertices, and success/failure are monotone in opposite directions, yielding the claimed failed size and span including n=3,4. Counting 3+3 configurations with overlap zero or one gives the stated fort count. Independent adjacency and legal-move DP checked all 87360 initial subsets across 3≤n≤8, exact minimal families, coefficient vectors, and both extremal quantities and span. Minimal-fort totals: 3,14,50,227,805,2284; minimum-set counts: 12,56,182,332,548,842. Replay: python3 /workspace/reproductions/check_fan_crown_skew.py skew. The file verification/verify_skew_prism.py was inspected at its actual nested path; its claimed 174720 checks are reported evidence, distinct from the independent reproduction. The local analysis, not the finite test, establishes all orders.
 
-The relevant primary works were inspected to compare the **statements**, not their titles. Curl–Geneson–Hogben (2019) develops skew throttling, not the complete-prism all-set enumerator. Jacob (2023) introduces the skew variant of the zero-forcing polynomial and the span identity, but does not give this family polynomial or classify its skew forts. Johnson–Vick–Narayan (2022) characterizes failed-skew-number-one graphs; the present graphs have failed skew number \(2n-4\). Cooper–Fickes (2023) addresses closure operators and tree/hypergraph nullity, not the claimed complete-prism fort hypergraph. Abiad et al. (2022) studies cospectral constructions using graph products and skew forcing and does not supply this exact counting theorem. Comparisons to related indexed results and mathematical comparisons with ordinary forcing results revealed no implication of this theorem. The corresponding ordinary forcing census is not an equivalent skew-forcing result. Priority against unindexed or differently formulated literature remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact minimal-obstruction hypergraph naturally characterizes resilient propagation failures, allowing **all-budget enumeration** rather than a scalar optimum alone. The distinct minimal-fort geometries (paired columns, a singleton against its opposite complement, and small balanced configurations) explain the changes at orders four and five. The polynomial determines both the minimum successful-resource level and the maximum failed-resource level, their counts, and the skew span; each is a natural graph invariant. The complete proof and finite algorithm are independently reproducible without external dependencies.
+The supported distinct claim is the complete-prism skew obstruction classification and full labeled forcing polynomial. Neither the same-graph one-leaky/ordinary records nor the same-parameter clique-bouquet record covers that claim. The span relation is already known and is not credited as new.
 
-## Limitations and sources
+## value
 
-No exhaustive search verifies the infinite case; general correctness depends on the detailed proof. Sources examined: arXiv:1909.07235v1 (full primary PDF), arXiv:2309.06234 (available full parsed text), arXiv:2209.09379 (available full parsed text), arXiv:2303.17419 (available full parsed text), and DOI:10.13001/ela.2022.6737 (full primary PDF). Indexed similarity searches do not establish universal novelty. Independent external audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete prisms form a natural Cartesian-product family. The three obstruction types give an all-set membership criterion and exact full coefficient array, including small-order transitions and both success and failure extrema, useful in distinguishing skew from ordinary and one-leaky forcing on the same family. This is more than an application of the known span identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

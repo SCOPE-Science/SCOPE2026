@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditional antipodal signs are independent fair bits even for heterogeneous radial/projective distributions. The exact walk count identity reduces the halfspace-depth event to a two-absorbing-barrier path count. The reflection-image sum and complete residue-class partition prove the entire stated law for every integer sample size and threshold. The standalone script verifies 85 exhaustive finite identities for sample sizes through 14; it does not substitute for the all-size proof.
+## correctness
 
-**Originality — PASS (qualified).** The full all-depth, non-identically distributed centrally symmetric planar sample law was not found in the research records or inspected primary sources. Wendel covers only the first positive depth. Yuan derives general-window circular scan laws for selected event levels under uniform circular sampling. Fojtík and collaborators solve deterministic computation of central regions, not this random-sample distribution. Puthawala and collaborators establish a directed-spanning characterization, not probability across arbitrary depths. A recent preprint addressing Gaussian ReLU injectivity was available only via abstract, so implicit coverage remains a documented risk. A different formulation in older covering literature is also possible.
+PASS
 
-**Mathematical value — PASS.** The exact probability at every possible halfspace-depth threshold is a natural finite-sample law central to robust planar geometry; the heterogeneous distribution-free invariance and one-line binomial residue formula provide precise benchmark probabilities absent from the inspected general computational and selected-threshold scan sources. It simultaneously quantifies all levels of a directed-spanning active-row count, rather than a single existence event. The generalization is structural, not a minor numerical parameter substitution.
+Antipodal invariance gives a fair direction sign conditional on the entire unoriented vector (line and radius); independence makes the conditional joint sign law a product, including after the almost surely strict projective sort. In a generic half-turn sweep, each point changes membership once, giving counts C_j=(n+s)/2-S_j, with the other half-turn giving n-C_j. A boundary with one point places each of the open/closed counts among the two adjacent generic counts, and cannot lower the minimum below the generic one. Thus the event at threshold r is exactly |s-2S_j|≤n-2r for all j. For |s|≤n-2r of the correct parity, the confinement becomes a killed walk on sites 1,…,h-1 with endpoints a=(h-s)/2, b=(h+s)/2 and h=n-2r+2. Odd image extension at 0 and h satisfies the walk recurrence with zero boundary and the correct initial delta, so the images b+2kh and -b+2kh give binomial indices (n+s)/2+kh and r-1+kh (up to reindexing). The allowed endpoints' first indices span all but the r-1 residue class, while each of the h-1 second image sums subtracts that same class. Dividing the resulting 2^n minus h times the residue sum by 2^n proves the claim. Generic antipodal counts sum to n, giving zero past floor(n/2); r≤0 is certain. At r=1 the remaining binomials are the two extremes, and at r=2, n≥5, they have indices 1 and n-1. No assumption of identical or uniform underlying laws, or of independent order statistics, is used. For planar rows in general position, any two active rows span, so testing the generic active sets suffices for the stated zero-bias application.
 
-**Scope and residual risks.** Independence, individual antipodal symmetry, and pairwise noncollinearity are necessary hypotheses for the proof. The statement is planar only; its value is an exact finite-sample law, not a new general-purpose neural-network theorem. Direct full-text comparison to arXiv:2610.07492 was not possible, and incomplete coverage of older circular covering theory remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Wendel first-depth law and Yuan's twofold uniform semicircle law are exact overlaps and are not credited as new. A standard two-barrier reflection kernel is also a proof ingredient, not a new kernel. The checked evidence does not supply the endpoint-summed all-depth identity or its heterogeneous distribution-free consequence; the pass is for that distinct family, not for all associated coverage/ReLU ingredients.
+
+## value
+
+PASS
+
+Halfspace depth is a natural random geometric invariant and all threshold probabilities describe the robustness of center containment rather than one event. The conditional sign sweep and endpoint sum obtain a single binomial-residue formula at every threshold, even under heterogeneous direction laws; this goes beyond using a textbook onefold coverage formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

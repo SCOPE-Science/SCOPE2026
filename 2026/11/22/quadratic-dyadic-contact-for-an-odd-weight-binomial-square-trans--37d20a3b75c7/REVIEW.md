@@ -1,15 +1,21 @@
-# Review of the quadratic dyadic contact theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. The statement has explicit quantifiers and normalization. The expansion of the binomial-square transform about the zero index is exact; the quadratic coefficient is \(A(t)\equiv4\pmod8\) for \(t\equiv3\pmod4\). Explicit factor-wise estimates put every coefficient of higher index degree inside \(512\mathbb Z_2\), proving a strictly dominant quadratic term at all indices divisible by eight. The separate checker verifies integer evaluations, the small coefficient arithmetic, the convergence-bound arithmetic over a long finite range, and the sharp excluded boundary. Finite tests alone are not the proof.
+## correctness
 
-## Originality
-PASS within inspected sources. Sun's full Delannoy-polynomial theorems address sum integrality and primarily odd-prime congruences; Jia and Huang's 2024 paper treats mixed sums rather than weighted, even-prime per-index differences. A published cubic-contact theorem for classical central Delannoy values concerns only the distinct specialization \(t=1\); the generalized central-trinomial valuation theorem concerns odd values rather than their distances from one. Searches using binomial-square, transformed Legendre, weighted Delannoy and equivalent-congruence language did not locate an equal or dominating theorem. Unindexed earlier parameter congruences remain a priority risk.
+PASS
 
-## Mathematical value
-PASS. This identifies a natural sharp quadratic-vs-cubic phase distinction in a classical binomial-square/Legendre family, with an infinite two-parameter valuation theorem and an exact geometric distribution of the contact orders. The unavoidable index cutoff is exposed by a simple explicit boundary witness. The result is a focused local invariant, not a claimed general classification of the full polynomial family.
+The valuation can be checked directly on finite sums. Divide F_n(t)−1 by n²; the j-th term is (2t)^j/j² times the product of (1−n/i)² for 1≤i<j. For 8|n its valuation is at least j−2ν₂(j)−2Σ_(r≥4)⌊(j−1)/2^r⌋. At j≥9 this is at least (j+1)/4>2, using ν₂(j)≤j/4, and hence zero modulo 8. At j≤8, only j=1,2,4,8 can contribute; the product can be replaced by 1 modulo 8 after including each prefactor (the nonconstant coefficients have sufficient powers of 2). These four terms are always present for the allowed n and give 2t+t²+t⁴+4t⁸≡2t+6≡4 modulo 8. Thus the normalized difference has valuation exactly 2, for positive and negative admissible weights. This also verifies the leading-term argument in the frozen proof; its coefficient bounds grow with j and justify its restricted series. Each r≥3 occurs and has frequency 2^(−(r−2)) conditional on 8|n. A separately written exact-integer replay matched 40 signed-weight cases at n=8,16,24,40,64 and reproduced F_4(3)=6145 with difference valuation 11. The replay is finite and is not the proof; see /workspace/branches/217d5353-dfe9-4245-acd8-da9282aa4d88/replay.py and replay.log. The source checker was inspected, not executed.
 
-## Limitations
-Only the indicated weight congruence class and indices divisible by eight are established. No general valuation theorem for the other weights or all indices follows from this argument. Independent priority or proof checking has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the known central Delannoy contact and image results at t=1. The supported distinct claim is the exact all-index valuation on 8|n for an entire signed weight class t≡3 modulo 4, where the leading order changes from cubic to quadratic.
+
+## value
+
+PASS
+
+The weight is a standard polynomial deformation of a sequence with known cubic dyadic contact. The first coefficient after normalizing by n² selects the residue class of the weight, and the cut at 8|n is material, as the n=4 witness shows. The exact law determines a full local valuation spectrum and its conditional frequencies; it is more than recomputing the classical sequence or verifying a finite congruence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

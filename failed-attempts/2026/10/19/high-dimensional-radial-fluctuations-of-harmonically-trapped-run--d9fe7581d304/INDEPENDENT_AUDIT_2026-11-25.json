@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:08:50.453514Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–97",
+        "Frozen VERIFICATION.md and check.py lines 10–95 (code inspected, not executed)"
+      ],
+      "rationale": "At a stationary observation time the backward Poisson inter-event gaps, including the age, are independent exponentials; weighting them by the exponential trap kernel gives the stated Beta(1,alpha) breaks and independent directions. Under the nested Gaussian coupling each fixed pair of directions becomes orthogonal almost surely, and the sum of discarded weights bounds the positional truncation error uniformly in dimension. For fixed masses, all distinct pairwise dot products are uncorrelated (condition on all directions except one occurring in just one of the two pairs) and each has variance 1/d. This gives Var(Q_d|P)=2(H^2-K)/d. The Beta recursion gives E H=1/(alpha+1), E K=6/D, and E H^2=(alpha+6)/D, with D=(alpha+1)(alpha+2)(alpha+3), yielding both finite-dimensional moment formulas. For a finite set of pairs, the coordinate products satisfy the multivariate CLT with identity covariance; the Gaussian direction normalizers tend to 1 after division by sqrt(d). After multiplying by sqrt(d), omitted pairs have conditional squared error at most 4H times the sum of omitted squared weights, uniformly in d, so finite truncation passes to the full conditional limit. H>0 permits the stated delta method. A first break near 1 forces the mixing variance near 0, whereas first two breaks in (1/3,1/2) give a positive lower bound; both events have positive probability. The normal mixture is consequently non-Gaussian.",
+      "residual_risks": [
+        "The almost-sure statement is about the specified cross-dimension coupling, not all possible couplings; alpha is fixed and thermal diffusion absent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guéneau–Majumdar–Schehr supply the exact Dirichlet-mean representation and radial/coordinate moments.",
+          "Bignamini–Casini–Martinelli prove the finite-step almost-sure squared-length limit. ce908bc7458e gives a finite spherical array conditional W_1 bound for normalized squared-length fluctuations. b9f048a9e93f supplies the stronger joint limit for the full infinite mass sequence in the same model."
+        ],
+        "reasoning": "The primary RTP source gives the input distribution, not the conditional CLT; generic finite-array results need the mass tail argument. The indexed same-model joint result already includes that argument and the radial marginal.",
+        "searches": [
+          "arXiv:2602.08436v1 Eqs. (43)–(44) and (A20)–(A22)",
+          "arXiv:2609.05195v1 Theorem 4.3",
+          "Resultary ce908bc7458e and b9f048a9e93f"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b9f048a9e93f and ce908bc7458e",
+        "arXiv:2602.08436v1 and 2609.05195v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed limit has radial component sqrt[2(S^2-T)] G_2, with G_2 independent of the masses. The proof uses an infinite-weight tail estimate. For any finite prefix under the common nested Gaussian coupling the squared norm converges almost surely to its sum of squared weights, as in the finite Pearson theorem."
+        ],
+        "reasoning": "Projecting the joint limit onto its second component gives the radial mixture; conditioning and applying the square-root derivative at S>0 gives the radius limit. Uniform approximation by finite prefixes gives the almost-sure statement since the mass tail goes to zero. Neither is a non-mechanical remainder.",
+        "searches": [
+          "Resultary b9f048a9e93f, Finding item 2 and Assumptions; proof tail step",
+          "arXiv:2609.05195v1 p. 5, Theorem 4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b9f048a9e93f RESULT.md, offset 0–3898: same independent rate-gamma spherical refreshes, no thermal diffusion, and same normalized Q_d and fixed alpha. Its S and T are identically H and K."
+        ],
+        "reasoning": "The conditional radial fluctuation is the second component of the stated joint theorem, with exactly the frozen normalization and random variance. Changing the names of the sums or considering radius rather than radius squared does not change the content.",
+        "searches": [
+          "Resultary: high-dimensional harmonic run-and-tumble, random radius, stick-breaking, and conditional Gaussian fluctuations; b9f048a9e93f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b9f048a9e93f gives conditional MSE 2(S^2-T)/d and exactly 2 alpha/[d(alpha+1)(alpha+2)(alpha+3)] after averaging, and the same E S and Var(S). The primary paper gives all-dimensional moment relations, including regimes beyond the finite moment checks."
+        ],
+        "reasoning": "The relevant exact lookup is for formulas rather than a finite numerical table. The unconditional Var(Q_d) is the sum of the indexed Var(S) and indexed averaged squared error.",
+        "searches": [
+          "Resultary b9f048a9e93f, exact conditional MSE and mass moments in Finding items 1 and 3",
+          "arXiv:2602.08436v1 Eq. (18) and Appendix A.3"
+        ]
+      },
+      "rationale": "A distinct indexed theorem in the same physical model gives exactly the conditional radial law, exact finite-dimensional conditional and averaged errors, and a stronger joint coordinate/radius limit. The non-Gaussian mixture assertion for the radial component, radial delta method, and unconditional moments are immediate consequences. The additional almost-sure coupling uses the known finite Pearson-walk orthogonality limit and the elementary summable-mass tail, so it does not leave a distinct substantive finding. This is material coverage, not a chronological priority claim: the closest matching indexed record is dated later in its path, and the inspected original RTP paper does not state the conditional CLT.",
+      "residual_risks": [
+        "Later index dates do not establish earlier priority or derivation history. The full extent of the cited Stam (1982) result was not resolved via accessible full text; the verdict does not rely on that source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct and broader scientific coverage, chronological priority not established",
+          "evidence": [
+            "Exact same conditional and unconditional MSE and stable joint radial/coordinate law with radial variance 2(S^2-T)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-random-radius-law-and-conditional-gaussian-fluctuations-in-hig--b9f048a9e93f",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–3898, and proof tail passage",
+          "method": "Targeted local mirror reading; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A random-radius law and conditional Gaussian fluctuations in high-dimensional harmonic run-and-tumble dynamics",
+          "trigger": "Strongest indexed same-model comparison"
+        },
+        {
+          "assessment": "Representation and moments are inherited; no conditional CLT in the inspected passages",
+          "evidence": [
+            "Beta stick-breaking representation as a Dirichlet-process mean and exact all-dimensional radial moment relations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.08436v1",
+          "material_read": "p. 5 Eq. (18), p. 9 Eqs. (43)–(44), p. 27 App. A.3 Eqs. (A20)–(A22)",
+          "method": "Targeted OA paper read",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Primary source for the exact stationary model"
+        },
+        {
+          "assessment": "Covers first-order finite-prefix mechanism",
+          "evidence": [
+            "Dimension-independent finite collection of lengths has squared norm converging almost surely to the sum of squared lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.05195v1",
+          "material_read": "p. 5 Theorem 4.3, OA offsets 18700–19143",
+          "method": "Targeted OA paper read",
+          "title": "Asymptotic Behaviour for Isotropic Pearson Random Walks",
+          "trigger": "General spherical-array high-dimensional limit"
+        },
+        {
+          "assessment": "Covers finite arrays, not the physical stationary model or infinite-mass passage by itself",
+          "evidence": [
+            "Bound 25/sqrt(d) uses the same pair-sum variance, with sum over i<j of P_i^2 P_j^2=(H^2-K)/2."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-dimension-free-gaussian-approximation-for-self-normalized-pearso--ce908bc7458e",
+          "material_read": "Finding, conditional W_1 bound for squared radius",
+          "method": "Targeted local mirror reading",
+          "title": "Dimension-free Gaussian approximation for self-normalized Pearson walks",
+          "trigger": "Generic indexed conditional CLT comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof Steps 2–5",
+        "Guéneau–Majumdar–Schehr arXiv:2602.08436v1 stationary representation and moment relations"
+      ],
+      "rationale": "The statement addresses a natural physical limit: it separates persistent renewal-history randomness from shrinking angular noise and identifies the angular correction as a mixture. This is informative for high-dimensional approximations and is not simply a low-dimensional moment recomputation, although the indexed coverage prevents crediting a distinct contribution.",
+      "residual_risks": [
+        "No conclusions for increasing alpha with dimension, positive thermal diffusion, or joint trajectory fluctuations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

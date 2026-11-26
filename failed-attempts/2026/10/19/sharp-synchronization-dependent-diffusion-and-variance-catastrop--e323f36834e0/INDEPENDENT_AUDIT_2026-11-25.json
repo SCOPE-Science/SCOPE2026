@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:46:55.169434Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For chi<1, the stationary stiffness average is K>0; the two-sided convolution converges conditionally on the chain. Coupling two candidate stationary starts with the same chain state and the same future noises contracts their Y difference, proving uniqueness without a moment assumption. Reversibility and the Gaussian conditional variance give the integral of exp(-sH), H=2diag(K+phi)-Q. Its smallest eigenmode is strictly positive by irreducibility, so no stationary-state coordinate can avoid divergence when the smallest eigenvalue is nonpositive, including zero. The opposite-state difference mode for psi has eigenvalue 2(K+2lambda) in H. The remaining block of H/2 has pivots K+lambda and K+alpha with Schur complement K+alpha-A/(K+lambda)-alpha^2/(K+alpha), whose sign is B. Directly solving Hw=D1 yields w=DN/(2B) for each nonreciprocal state. Qpsi=-2lambda psi and phi psi=0 give covariance A w exp(-(K+2lambda)|t|)/2 for the propulsion drift, not for the white-noise part. Twice the triangular covariance integral plus Dt gives the stated variance. B at alpha=0 and lambda gives the two strength boundaries; the quotient derivative has numerator D A[K(K+lambda)-A]/2 and at the interior pole KN=A alpha_c, giving exactly the residue stated. For B<=0 the no-jump event in a nonreciprocal state leaves a nonzero multiple of the heavy-tailed Y_0 plus independent finite-variance noise at each t>0, so the raw second moment is infinite (a finite mean is not asserted). At chi=1 with a<K, bounded positive damping suffices in both closed classes; the nonreciprocal class has E[Y^2]=2D/K, the reciprocal drift vanishes, and w tends to D/(2K) from chi<1, giving the specified class average. The packaged script was inspected, not executed; the proof provides the parameter-uniform checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The modulated OU sources provide finite-state moment recursion, stationary exponential functionals, and examples of switching harmonic potentials. They do not supply the specific synchronization response in the passages checked."
+        ],
+        "reasoning": "The general frameworks supply proof ingredients; the exact specialized coverage comes from 67fbebac3f6b, not from treating the generic OU literature as an explicit physical phase diagram.",
+        "searches": [
+          "arXiv:1412.7952v1",
+          "arXiv:2012.10712v1",
+          "arXiv:2202.02630v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and supporting verification files",
+        "Resultary 67fbebac3f6b",
+        "arXiv:2304.07738v1",
+        "arXiv:1412.7952v1",
+        "arXiv:2012.10712v1",
+        "arXiv:2202.02630v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed record states infinite increment square expectation in the non-finite regime using a no-switch event. It supplies the critical strength range, monotonicity, and the rational expression with the same affine denominator.",
+          "The original paper explicitly limits its exact calculation to chi=1 and gives the closed-class endpoint results.",
+          "The frozen pole residue is obtained by evaluating the numerator at the root of that affine denominator. In the stated a<K endpoint regime the same rational formula at delta down to zero gives half the nonreciprocal enhancement over D/2."
+        ],
+        "reasoning": "The displayed residue and endpoint arithmetic-mean comparison are minor direct consequences of the existing exact statements. The distinct near-duplicate is catalogued on October 26, versus October 19 on the frozen record; the comparison establishes overlap, not precedence or derivation between records.",
+        "searches": [
+          "Resultary 67fbebac3f6b, §§2–4, especially mirror offsets 4010–6027 and following boundary formula",
+          "arXiv:2304.07738v1, Eq. (18), supplement Fig. S1 and §B"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 67fbebac3f6b §§2–4, set k=K/2, c=a/2, delta=1-chi, D_x=D. Its script-D(delta)=B/4, its h=DN/(2B), and its rate 2(k+lambda)=K+2lambda.",
+          "Its finite-time variance coefficients and D_eff=D_x/2+c^2 h/(k+lambda) become the frozen coefficients, and its derivative sign in delta is the sign of K(K+lambda)-A after multiplication by a positive constant."
+        ],
+        "reasoning": "The state generator and displacement observables coincide after the change of variables. This is the same full transport theorem on chi<1, not just an asymptotic or verbal resemblance.",
+        "searches": [
+          "Resultary: partially synchronized nonreciprocal Brownian dimer, exact transport and fluctuation stability; record 67fbebac3f6b",
+          "arXiv:2304.07738v1, Eqs. (14)–(18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary entry is a symbolic formula covering the entire irreducible parameter domain, stronger than a table of examples. The motivating paper's exact discrete-fluctuation MSD only treats the perfectly synchronized nonreciprocal sector."
+        ],
+        "reasoning": "The indexed formula covers every sample and regime of the frozen partial-synchronization result, regardless of whether it prints the same examples or the residue as a separate expression.",
+        "searches": [
+          "Resultary: partial-synchronization transport, normalized velocity autocorrelation and variance instability; 2026/10/26 record 67fbebac3f6b",
+          "arXiv:2304.07738v1, Fig. S1 and Eqs. (17)–(18)"
+        ]
+      },
+      "rationale": "The partial-synchronization core is already represented by a distinct published Resultary record: the same finite-moment region, full finite-time variance, relaxation eigenmode, effective diffusivity, flatness and derivative sign, and all-positive-time divergence. This is equivalent coverage, not a finding that the later-dated catalogue entry has historical priority. The explicit pole coefficient follows by expanding its exact rational law; the a<K endpoint average follows by taking that law's one-sided limit and comparing it with the two known closed-class values. No independently substantial uncovered remainder was identified.",
+      "residual_risks": [
+        "The catalogue dates do not establish historical priority, independence, or any relationship between the records.",
+        "The search is bounded; precedence relative to any earlier unindexed work is not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent core on the full chi<1 domain",
+          "evidence": [
+            "script-D=B/4; h=w; identical covariance, variance, D_eff, critical strength and derivative sign after substitution"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-transport-and-fluctuation-stability-threshold-for-a-partia--67fbebac3f6b/RESULT.md",
+          "material_read": "Finding and proof §§2–4, including offsets 4010–6027 and the subsequent threshold passage",
+          "method": "Read indexed result in local mirror and substituted parameters in its equations",
+          "title": "Exact transport and fluctuation stability threshold for a partially synchronized nonreciprocal dimer",
+          "trigger": "Same chain, finite second moments and exact center diffusion response"
+        },
+        {
+          "assessment": "Defines general chain; solves perfect synchronization only in the inspected discrete MSD calculation",
+          "evidence": [
+            "Main text: ‘we consider here the limiting case chi=1 only’; its nonreciprocal diffusivity maps to D/2+AD/[2K(K+2lambda)]"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.07738v1",
+          "material_read": "Main p. 4 Eqs. (14)–(18), supplement Fig. S1 and reciprocal-class discussion, PDF p. 13",
+          "method": "Read primary PDF passages and compare class restrictions",
+          "title": "Active Bound States Arise From Transiently Nonreciprocal Pair Interactions",
+          "trigger": "Identical physical protocol and perfect synchronization baseline"
+        },
+        {
+          "assessment": "General OU moment machinery, not the phase diagram",
+          "evidence": [
+            "State-dependent coefficients and moment recursions are general; they do not specify this propulsion observable or its reduced phase law"
+          ],
+          "identifier_or_url": "arXiv:1412.7952v1",
+          "material_read": "Finite-state model and moment-recursion discussion around OA offset 10000",
+          "method": "Read primary model and recursion passages",
+          "title": "Markov-modulated Ornstein–Uhlenbeck processes",
+          "trigger": "Generic moment equations could subsume stability calculation"
+        },
+        {
+          "assessment": "Broader stationarity representation, not specific diffusion",
+          "evidence": [
+            "Stationary MMGOU representation rather than a center-of-mass law"
+          ],
+          "identifier_or_url": "arXiv:2012.10712v1",
+          "material_read": "Introduction, OA offsets 5200–5702",
+          "method": "Read primary passages",
+          "title": "Markov-modulated generalized Ornstein–Uhlenbeck processes and an application in risk theory",
+          "trigger": "Stationary exponential functional"
+        },
+        {
+          "assessment": "Related method, not this synchronization response",
+          "evidence": [
+            "Finite-state potential framework and two-state OU moments for entropy production"
+          ],
+          "identifier_or_url": "arXiv:2202.02630v1",
+          "material_read": "§2.1 and §4.1, Eqs. (37)–(39)",
+          "method": "Read primary passages",
+          "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+          "trigger": "Related harmonic switching moment system"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As mathematics the full phase diagram addresses a natural transport problem: stationary separation can coexist with infinite increment square expectation at every positive time, and the sign reversal, exact flat surface, and critical synchronization separate distinct physical regimes. This substantive content does not rescue the failed originality axis; the remaining explicit coefficient and endpoint comparison do not by themselves support a separate repaired finding.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

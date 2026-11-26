@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:55:07.089349Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A codeword with adjacent ones loads one weight-one output; a nonadjacent pair loads two distinct such outputs. Hence a+2b≤ℓm and a≤m, giving the stated bound after also taking the total number of pairs. The selected adjacent words use one slot at each weight-one output, and each added nonadjacent word (i,j+1) uses a slot at i and j, so any simple graph of maximum degree at most ℓ−1 respects these constraints. The three preimages listed in RESULT.md exhaust insertion of a zero before, between or after the two ones. For ℓ=2 and adjacent output ones, forbidding consecutive graph edges removes the only third candidate; for nonadjacent output ones, either the middle candidate is absent, or its edge excludes both outer candidates by sharing an endpoint with each. The distant-index matching attains the bound for m≥3. For ℓ≥3 the circular offsets give the required even degrees, and the extra matching for odd d is disjoint from the previous offsets. In odd m its offset (m−1)/2 is coprime to m, so the matching from that cycle really misses just one vertex. n=2 permits the sole word; for (n,ℓ)=(3,2) all three inputs share output 11, but the two adjacent inputs work. Independent bit-deletion replay (python3 /workspace/branches/independent_replays.py, function deletion) exhausts all subsets at n=2,…,6, with ℓ=2,…,n+1 and confirms the exception and formula. The proof, not that replay, establishes arbitrary lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lin supplies asymptotic general binary list-deletion lower bounds; Guruswami–Håstad give a two-deletion size-two-list construction; Cullina–Kulkarni–Kiyavash use constant-weight layers for unique decoding."
+        ],
+        "reasoning": "A general-code lower bound need not preserve weight two, and neither a different deletion count nor unique decoding provides exact upper and lower bounds on this per-output incidence problem.",
+        "searches": [
+          "arXiv:2609.26650 p. 1",
+          "arXiv:2007.10592 p. 1 and Theorem 4.5",
+          "arXiv:1211.4056 p. 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1370efa22dd5 and cc9ec0df2283",
+        "arXiv:1211.4056",
+        "arXiv:2609.26650",
+        "arXiv:2007.10592",
+        "A(n,d,w) Hamming-distance table search hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest same-day statement gives n−1−floor((n+1)/4) for list one; the earlier record gives the same value as floor((3n−2)/4).",
+          "For list two, incidences at one surviving one admit a matching's worth of added words, subject to a separate triple-output obstruction."
+        ],
+        "reasoning": "Neither one-list formula logically forces this extremum or the special triple collision. The records were compared by channel hypotheses; same-day indexing does not establish priority.",
+        "searches": [
+          "Resultary 2026/10/18 1370efa22dd5 and 2026/10/13 cc9ec0df2283, actual Finding",
+          "arXiv:1211.4056 p. 5, constant-weight strategy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1211.4056, p. 5, Lemmas 2–3: constant-weight induced deletion-conflict graphs, independent sets and colorings for unique decoding",
+          "A word 0^a10^b10^c has both gap-decrement outputs and one-surviving-one outputs; list decoding is a load constraint on each output hyperedge."
+        ],
+        "reasoning": "Ordinary graph independence forbids all shared outputs. Larger lists permit pairwise overlap and bound simultaneous overlap over each specified descendant, which is not recoverable from a single independent-set optimum.",
+        "searches": [
+          "Resultary: weight-two binary single-deletion list capacity and bounded-degree deletion packing",
+          "Web: constant weight two binary single deletion exact list decoding size list capacity two optimal code deletion packing prescribed Hamming weight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 1370efa22dd5 and cc9ec0df2283 give list-one weight-two maxima; a close finite general binary profile uses unrestricted weights. The A(n,d,w) search hit concerns Hamming distance."
+        ],
+        "reasoning": "The two exact list-one formulas are equivalent but use the wrong list size; unrestricted finite profiles and a different distance statistic do not tabulate this problem.",
+        "searches": [
+          "Resultary: exact binary weight-two deletion capacities, including finite list profiles",
+          "Web query returned A(n,d,w) constant-weight tables at https://aeb.win.tue.nl/codes/Andw.html"
+        ]
+      },
+      "rationale": "The exact two-or-more-list capacity and exceptional binary weight-two collision are distinct from unique decoding on the identical weight slice. No examined result or code table supplies the required all-length equalities under the same list and channel constraints.",
+      "residual_risks": [
+        "Unindexed low-weight deletion-list packings or tables may overlap. Same-day ordering for the separate unique-decoding record is unresolved, but that result does not state the target list capacities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "List-one result only, no same-day priority inference",
+          "evidence": "Exact size n−1−floor((n+1)/4) under unique decoding.",
+          "identifier_or_url": "Resultary 2026/10/18 1370efa22dd5",
+          "material_read": "RESULT.md, Finding and Assumptions, local-mirror offset 0",
+          "method": "Resultary local search and mirror text",
+          "title": "Exact optimum for binary weight-two single-deletion-correcting codes",
+          "trigger": "Closest same-day, identical channel and weight"
+        },
+        {
+          "assessment": "Same unique-decoding statistic, not the reviewed list sizes",
+          "evidence": "Exact size floor((3n−2)/4) for list one.",
+          "identifier_or_url": "Resultary 2026/10/13 cc9ec0df2283",
+          "material_read": "RESULT.md, Finding, local-mirror offset 0",
+          "method": "Resultary local search and mirror text",
+          "title": "Exact single-deletion code capacity at binary Hamming weight two",
+          "trigger": "Earlier exact constant-weight counterpart"
+        },
+        {
+          "assessment": "Related graph method, different decoding condition",
+          "evidence": "Selects independent sets in constant-weight induced subgraphs and combines separated weights; constructs proper colorings.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+          "material_read": "p. 5, Lemmas 2–3, OA offsets 23800–26270",
+          "method": "OA primary PDF",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes",
+          "trigger": "Closest public constant-weight graph method"
+        },
+        {
+          "assessment": "Unrestricted asymptotics, not exact weight-two capacity",
+          "evidence": "Defines t-list k-deletion codes and studies asymptotic achievable sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.26650",
+          "material_read": "p. 1, OA offset 453",
+          "method": "OA primary text",
+          "title": "Lower Bounds for all List-Decodable Deletion Codes",
+          "trigger": "General list-decoding result"
+        },
+        {
+          "assessment": "Two deletions, general code family",
+          "evidence": "Constructs size-two-list codes against two deletions with asymptotic guarantees.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.10592",
+          "material_read": "p. 1 and Theorem 4.5, p. 10, OA offsets 0 and 34500",
+          "method": "OA primary text",
+          "title": "Explicit two-deletion codes with redundancy matching the existential bound",
+          "trigger": "Two-list construction using runs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weight two is the first small slice in which deletion of a one can impose a genuine two-endpoint constraint and deletion of a zero a distinct three-way constraint. The exact formula and extremizers for every list size, including the isolated obstruction and full-space saturation threshold, resolve both constraints rather than merely evaluating a short instance. They give a usable benchmark for more general constant-weight deletion packings.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

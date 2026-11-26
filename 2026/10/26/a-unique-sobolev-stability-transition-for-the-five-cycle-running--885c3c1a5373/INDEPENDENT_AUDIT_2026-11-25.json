@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:06:22.050823Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof, Verification; VERIFICATION.md; checker.py",
+        "/workspace/branches/replay_four.py"
+      ],
+      "rationale": "The median is continuous and linear on each closed order cone. Split a segment at its finitely many isolated coordinate-order ties; ties holding on the entire segment can be resolved by any consistent order because tied coordinates coincide on that segment. The triangle inequality bounds the global modulus by the largest induced selector norm. Conversely a sufficiently small top-eigenvector perturbation of any strict chamber point attains a selector norm there. I independently rebuilt the eight dihedral classes from 120 orders, the eight determinant polynomials, and the 20 nonnegative integer coefficient certificates. For selector (0,0,3,2,0) the generalized roots are 0 (twice), 1, R, and (6g²+5g+1)/d<R. The sixth selector has two zeros, 1 and the two quadratic roots with upper root C as stated. Its substitution gives F(g,C)<0 for C>2; the signs at 1 and 2 and the cubic leading sign locate one root in each of (−∞,1), (1,2), (2,∞), so C<B. All other excluded classes are strictly below R by positive leading minors or isospectrality. For R>2, F(g,R)=−H/d identifies the branch order, and one sign variation with H(0)<0 implies exactly one positive simple crossing, confirmed numerically at 0.3707963445579808775. The limits follow from F(0,z)=(z−1)(z−2)² and the normalized leading large-g cubic. Replay: python /workspace/branches/replay_four.py. The frozen checker was read, not executed.",
+      "residual_risks": [
+        "The endpoint g=∞ is a limiting modulus, not a positive-definite norm at infinity.",
+        "The switch is of extremizing chambers, not between contraction and expansion: L(g)>√2 throughout."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qiu's opening statement concerns minimization of a local smoothness/data-discrepancy cost; Arias-Castro–Donoho's opening comparison is in statistical minimax MSE and edge preservation.",
+          "The graph-Sobolev catalogue uses the same I+γL family but has diagonal positive-part selectors rather than median rank selectors."
+        ],
+        "reasoning": "Neither the statistical objective nor the local one-input optimization controls this exact two-input weighted norm; a theorem for diagonal truncation masks is not a theorem for median selectors that route or duplicate coordinates.",
+        "searches": [
+          "Qiu, Functional Optimization Properties of Median Filtering, p. 64",
+          "Arias-Castro–Donoho, arXiv:math/0612422, p. 1172",
+          "Resultary graph-Sobolev positive-part truncation record ending 1700b3de04ff"
+        ]
+      },
+      "checked_sources": [
+        "Listed distinct Resultary source passages",
+        "Qiu p. 64 and Arias-Castro–Donoho p. 1172",
+        "Targeted web and catalogue searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The BV sharp constant 2 and the uncentered zero-penalty √3 do not encode the competing positive-g spectra. The two winners have different selector structures and are the only classes surviving the strict parameter-uniform comparisons."
+        ],
+        "reasoning": "An available chamber enumeration could provide input matrices, but it does not mechanically yield the exact spectral envelope or the unique algebraic threshold. The new part is the full all-positive-g comparison, not the general method of reducing to selectors.",
+        "searches": [
+          "Comparison of frozen chamber reduction and positive-g determinant certificates against 59530ef626eb and a46db73ca883",
+          "Comparison of graph-Sobolev truncation equality cases against median selectors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chamber selectors reduce the invariant to a maximum weighted generalized eigenvalue, equivalently a Euclidean operator norm after conjugating by (I+gL)^(1/2). The closest same-operator catalogue uses a BV seminorm, not that conjugation.",
+          "The separate centering study exhibits uncentered Euclidean gain √3 and gives centered gain √2 at five sites."
+        ],
+        "reasoning": "An unweighted gain or a centered quotient norm supplies no positive-g determination. Total variation sums absolute edge differences; even the large-g limit here uses the square-summable edge differences, not BV.",
+        "searches": [
+          "Resultary: sharp two-input five-cycle Sobolev running median modulus I+gL",
+          "Resultary: median selector matrices weighted Euclidean/Sobolev operator norm",
+          "Web: \"running median\" \"Lipschitz\" Sobolev cycle sharp modulus selector matrix weighted operator median filter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-date 59530ef626eb gives sharp cyclic BV factor 2 at five sites with strict chambers and arbitrary input pairs.",
+          "a46db73ca883 gives the centered-Euclidean modulus √2 at five sites and exhibits uncentered gain √3.",
+          "2838da38a2fb uses five-cycle finite averaging matrices for the centered Hardy–Littlewood maximal operator."
+        ],
+        "reasoning": "The BV result is a genuine overlap of object and approach, not of invariant; the two Euclidean comparisons overlap in geometry or an endpoint only. None gives the R/B family or its positive crossing. Same publication date does not determine priority.",
+        "searches": [
+          "Resultary record ending 59530ef626eb, Finding and proof §1",
+          "Resultary record ending a46db73ca883, Finding and proof §§1, 4",
+          "Resultary record ending 2838da38a2fb, Finding and proof"
+        ]
+      },
+      "rationale": "Rank-based selector reductions and unweighted or BV median bounds are antecedents. The supported distinct claim is the full positive-g weighted two-input modulus and unique switch of strict-chamber extremizer for the five-cycle, not an unweighted gain, a BV bound or local cost optimality.",
+      "residual_risks": [
+        "Pasquini et al. was unavailable for detailed assessment; older or unindexed weighted nonlinear-filter norm analyses may exist.",
+        "No global priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-operator overlap; different invariant",
+          "evidence": [
+            "Cyclic total variation has sharp gain 2 at five sites, obtained through strict-chamber selectors."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb",
+          "material_read": "RESULT.md Finding and proof §1, text offset 0",
+          "method": "Published local mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp BV perturbation threshold for cyclic three-point medians",
+          "trigger": "Same filter, five sites and arbitrary two-input differences"
+        },
+        {
+          "assessment": "Relevant zero-penalty endpoint, no positive-g assertion",
+          "evidence": [
+            "Centered five-site gain √2; exhibited uncentered gain √3."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-five-site-centering-defect-and-six-site-saturation-for-cyclic-ru--a46db73ca883",
+          "material_read": "RESULT.md Finding and proof §§1, 4, text offset 0",
+          "method": "Published local mirror",
+          "title": "Five-site centering defect and six-site saturation for cyclic running medians",
+          "trigger": "Same operator and Euclidean two-input gain"
+        },
+        {
+          "assessment": "Different nonlinear operator",
+          "evidence": [
+            "Positive-part truncation uses coordinate masks in I+γL."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-weighted-degree-bound-and-bipartite-rigidity-for-graph-sob--1700b3de04ff",
+          "material_read": "RESULT.md Finding and proof §1, text offset 0",
+          "method": "Published local mirror",
+          "title": "Sharp weighted-degree bound and bipartite rigidity for graph-Sobolev truncation",
+          "trigger": "Same graph-Sobolev metric and weighted norm proof"
+        },
+        {
+          "assessment": "Different operator and objective",
+          "evidence": [
+            "Centered Hardy–Littlewood maximal averaging, not a median and no varying Sobolev metric."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-the-exact-hilbert-norm-of-centered-maximal-averaging-on-the-five--2838da38a2fb",
+          "material_read": "RESULT.md Finding and proof, text offset 0",
+          "method": "Published local mirror",
+          "title": "The exact Hilbert norm of centered maximal averaging on the five-cycle",
+          "trigger": "Same cycle and finite matrix norm method"
+        },
+        {
+          "assessment": "Inspected objective differs from sharp two-input modulus",
+          "evidence": [
+            "Cost measures local smoothness and discrepancy from the original signal."
+          ],
+          "identifier_or_url": "https://people.cs.nott.ac.uk/pszqiu/webpages/Papers/Functional%20Optimisation%20Properties%20of%20Median%20Filtering.pdf",
+          "material_read": "p. 64, abstract, text offset 0",
+          "method": "OA primary PDF passage",
+          "title": "Functional Optimization Properties of Median Filtering",
+          "trigger": "Classical variation-sensitive median optimization"
+        },
+        {
+          "assessment": "Inspected claim concerns statistical risk",
+          "evidence": [
+            "Large-sample decision-theoretic and worst-case MSE comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0612422",
+          "material_read": "p. 1172, abstract, text offset 0",
+          "method": "OA primary PDF passage",
+          "title": "Does Median Filtering Truly Preserve Edges Better than Linear Filtering?",
+          "trigger": "Median stability and preservation comparator"
+        },
+        {
+          "assessment": "Coverage not assessed from access failure",
+          "evidence": [],
+          "identifier_or_url": "https://iris.unitn.it/retrieve/handle/11572/161311/110075/median_final.pdf",
+          "material_read": "No substantive passage retrieved",
+          "method": "Lawful direct and VPN PDF requests returned 403; repository landing request timed out",
+          "title": "A Deterministic Approach to Detect Median Filtering in 1D Data",
+          "trigger": "Potential deterministic rank-pattern antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen result and independently reconstructed envelope",
+        "Distinct BV and centered-Euclidean comparator claims"
+      ],
+      "rationale": "The five-cycle is the smallest odd periodic size with a genuinely local three-site median window. A worst-case two-input amplification bound is a natural stability invariant, and an arbitrary choice of a small or large g would miss the change of extremizers. The full function gives an exact benchmark and shows why a single selector formula cannot extend across the positive coupling range.",
+      "residual_risks": [
+        "Confined to the specific cycle, equal edge weights and window size; no algorithmic minimax-risk improvement is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

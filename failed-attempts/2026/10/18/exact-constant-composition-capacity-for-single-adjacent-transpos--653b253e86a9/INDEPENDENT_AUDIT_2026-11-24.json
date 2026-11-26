@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:31:15.831937Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–46 and verification package (uploaded code inspected, not run)",
+        "Independent replay: python3 /workspace/branches/9820435f-ad70-4e1a-97af-6bd2bfdd498a/record4_independent_graph_check.py. Exact delete-or-include vertex recursion on the swap graph checked all 6 compositions at q=2,n=5 and all 15 at q=3,n=4; the respective total optima were 20 and 45."
+      ],
+      "rationale": "An adjacent unequal swap reverses inversion parity. The first unequal designated pair remains first after the swap, so exchanging it partitions all nonfixed words into disjoint graph edges without changing content. Fixed words consist of doubled letters and possibly a last singleton, and have even parity since cross-pair inversions come in fours and inversions with the singleton in twos. The edge-and-singleton partition bounds the independent set by the even side, which attains the bound. Fixed words have the required count F in each composition, and globally have q^ceil(n/2) choices. The n=1 case and zero multiplicities cause no exception. The finding treats detection, not correction.",
+      "residual_risks": [
+        "The exact graph computation covers the two stated slices only; the matching proof gives the unrestricted result. The discussion of Abdel-Ghaffar's channel as necessarily joint is not established by the accessible abstract; this does not affect the audited theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim pairs all standard tableaux outside the domino subset by switching the smallest eligible pair 2i−1,2i, for arbitrary even skew shapes.",
+          "Gregor–Merino–Mütze use a star swap rather than adjacency; arXiv:2309.11781 merely favors adjacency and also allows other swaps.",
+          "Wang–Vu–Tan arXiv:2301.11680, and arXiv:1601.06885v3 and arXiv:2112.09971, study correction rather than detection."
+        ],
+        "reasoning": "The skew tableau result applies to arbitrary row lengths: take μ_i=sum_{j>i}r_j and λ_i=sum_{j≥i}r_j after omitting zero rows. These are partitions with disjoint occupied columns for their rows. No Hamilton path in the full swap graph is needed.",
+        "searches": [
+          "Web: \"sign-reversing involution\" \"domino\" linear extensions first pair Sjostrand White sign imbalance tableaux not adjacent",
+          "Web: Stachowiak adjacent transposition Gray code multiset permutations Hamilton path signed inversion parity",
+          "Web: \"adjacent transposition\" detecting codes exact maximum size detection code permutations",
+          "arXiv:0711.1035v4 §4.2; arXiv:2108.07465v2 p. 1; arXiv:2309.11781 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0711.1035v4, arXiv:2108.07465v2, arXiv:2309.11781, arXiv:2301.11680, arXiv:1601.06885v3, arXiv:2112.09971",
+        "DLMF §26.16; DOI 10.1093/comjnl/41.4.270 (abstract only) and DOI 10.1137/0405016 (metadata only)",
+        "Resultary 75a793e6ae90, 6a43245eae5f and 7abdf29f158b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim's two-element orbits become disjoint swap edges. In a row-disjoint shape the excluded tableaux have every designated pair in one row, i.e. all such pairs of letters equal. Apply to even prefixes of odd words, keeping their final symbol fixed. In both cases the unmatched words are all even by the doubled-letter count, and their number is F in a composition.",
+          "Every independent set picks at most one vertex per matched edge plus the unmatched vertices. Thus the known matching gives (M+F)/2 directly, and summing gives the global formula."
+        ],
+        "reasoning": "The prior work supplies the structural argument claimed beyond the classical signed count. No inference about the older detection paper's full text is required.",
+        "searches": [
+          "arXiv:0711.1035v4 p. 13, §4.2 opening paragraph before Lemma 4.4",
+          "DLMF 26.16.1–2",
+          "Web: \"Detecting Substitutions and Transpositions of Characters\" Abdel-Ghaffar full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The detection problem is the independence number of the graph whose edges are neighboring unequal swaps, or of the labeled linear-extension graph of disjoint chains of sizes r_i.",
+          "arXiv:0711.1035v4 §4.2 gives a matching in the latter formulation via skew shapes of disjoint rows.",
+          "Resultary 75a793e6ae90 concerns deletion/transposition correction at binary length seven; 6a43245eae5f and 7abdf29f158b concern correction in restricted word classes."
+        ],
+        "reasoning": "Mark copies of each letter in increasing occurrence order. Neighbor swaps preserve this order, giving exactly the linear-extension graph of the row chains. Correction problems count a different packing invariant and are not needed for the verified overlap.",
+        "searches": [
+          "Resultary: maximum independent set one adjacent unequal transposition detecting code constant composition multiset permutation graph",
+          "Resultary: single adjacent transposition detection exact capacity inversion parity constant composition",
+          "Web: adjacent transposition graph multiset permutations independence number matching even inversion parity theorem",
+          "Web: multiset permutations sign reversing involution first pair unequal positions adjacent q-multinomial q=-1 sign balance domino linear extensions first incomparable pair Stanley"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF 26.16.2 identifies the inversion polynomial with the Gaussian multinomial; at its parameter −1 it counts even minus odd words, not an independence number.",
+          "The catalogue's exact correction optima use stricter or different channels."
+        ],
+        "reasoning": "Even/odd enumeration is already determined, but such tabulation alone would not imply that even words are optimal. The decisive additional ingredient is the known matching.",
+        "searches": [
+          "NIST DLMF §26.16, equations 26.16.1–2",
+          "Resultary detection/independence queries recorded above"
+        ]
+      },
+      "rationale": "Kim's published sign-reversing involution for skew tableaux specializes to precisely the claimed adjacent-edge matching, not merely to the inversion-parity enumeration. To see this, place each symbol's copies in its own horizontal skew row, with disjoint column sets. Assign the label j to the next cell in the row prescribed by the j-th letter. Standard fillings and words of the composition are then in bijection. Kim's first pair of consecutive entries 2i−1,2i in distinct rows and columns becomes the first unequal designated pair of letters. For odd word length, fix the final symbol and apply the same even-size construction separately on each prefix slice. The parity of unmatched words and the independence bound then follow immediately, completing the exact formulas without a new structural theorem. This is broader prior coverage by reduction; it is not a claim that Kim states a detection code result.",
+      "residual_risks": [
+        "The two inaccessible full texts may give direct detection or related Hamilton-path coverage. The verdict rests on the inspected exact involution and mathematical reduction, not on either retrieval failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact matching under the disjoint-row specialization; routine prefix extension covers odd lengths",
+          "evidence": "For even skew size, if entries 2k−1 and 2k share neither row nor column for some k, switch them for the smallest such k. The map is a sign-reversing involution on the non-domino tableaux.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.1035v4",
+          "material_read": "PDF title page and p. 13 §4.2 opening through Lemma 4.4 (offsets 41350–44742)",
+          "method": "Primary OA PDF, located 'smallest' then paged",
+          "title": "Skew Domino Schensted Correspondence and Sign-Imbalance",
+          "trigger": "First-pair sign-reversing involution on linear extensions in a skew tableau formulation"
+        },
+        {
+          "assessment": "Gives enumeration, not the graph optimum on its own",
+          "evidence": "The inversion generating function is the q-multinomial coefficient, defined as a product of Gaussian binomials.",
+          "identifier_or_url": "https://dlmf.nist.gov/26.16",
+          "material_read": "Equations 26.16.1–2, HTML offset 1250 onwards",
+          "method": "Primary reference page, located and paged",
+          "title": "DLMF §26.16 Multiset Permutations",
+          "trigger": "Prior exact inversion-parity enumeration"
+        },
+        {
+          "assessment": "Unresolved; the indexed abstract does not substantiate the frozen text's description of a necessarily joint constraint",
+          "evidence": "The available abstract describes detection of a single substitution error or a single transposition error without settling whether separate optima are treated.",
+          "identifier_or_url": "10.1093/comjnl/41.4.270",
+          "material_read": "Indexed publisher abstract only; no full text recovered",
+          "method": "Publisher direct/VPN and lawful DOI/repository lookup; indexed abstract",
+          "title": "Detecting Substitutions and Transpositions of Characters",
+          "trigger": "Potential identical detection-channel result"
+        },
+        {
+          "assessment": "Unresolved; not the basis of FAIL",
+          "evidence": "The title identifies a related graph problem but no theorem was retrieved.",
+          "identifier_or_url": "10.1137/0405016",
+          "material_read": "Title and DOI only",
+          "method": "Publisher direct/VPN and DOI recovery attempt",
+          "title": "Hamilton Paths in Graphs of Linear Extensions for Unions of Posets",
+          "trigger": "Potential stronger result on the same linear-extension graphs"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "A star swap uses position one and any other position; the introduction contrasts this with swaps of neighboring positions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.07465v2",
+          "material_read": "Abstract and introduction, p. 1, offsets 0 and about 4220",
+          "method": "Primary OA PDF, bounded reading",
+          "title": "Star Transposition Gray Codes for Multiset Permutations",
+          "trigger": "Gray codes and Hamilton structures on multiset permutations"
+        },
+        {
+          "assessment": "Mixed correction channel, not the stated detection problem",
+          "evidence": "The code corrects an asymmetric adjacent shift and deletions, rather than optimizing a detection-only independent set.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.11680",
+          "material_read": "Abstract, offsets 760–3554",
+          "method": "Primary OA HTML, bounded passage",
+          "title": "Codes for Correcting Asymmetric Adjacent Transpositions and Deletions",
+          "trigger": "Same neighboring error move, potential stronger coding result"
+        },
+        {
+          "assessment": "Special length and different channel",
+          "evidence": "The exact maximum 16 and 28 labeled optima concern binary length seven and correction of deletion or transposition.",
+          "identifier_or_url": "2026/10/13/SCOPE-equality-classification-of-seven-bit-codes-correcting-a-deletion--75a793e6ae90",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary query and bounded local mirror read",
+          "title": "Equality classification of seven-bit codes correcting a deletion or an adjacent transposition",
+          "trigger": "Closest earlier catalogue hit in coding terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–4; Kim, arXiv:0711.1035v4 §4.2 and the disjoint-row reduction; DLMF §26.16"
+      ],
+      "rationale": "The single-swap detection optimum is a natural quantity, but the claimed advance over classical parity enumeration is the matching certificate, and that certificate is already supplied by the same first-pair construction in a broader result. The swap-channel reformulation and counts are useful exposition, not a distinct nonroutine contribution or a new code property beyond the implication.",
+      "residual_risks": [
+        "Neither the frozen theorem nor this reduction addresses one-error correction or broader error models. Correcting the characterization of the older literature would not restore a distinct theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

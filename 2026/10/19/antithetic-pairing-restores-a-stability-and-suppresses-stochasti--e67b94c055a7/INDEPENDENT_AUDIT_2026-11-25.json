@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:51:38.874606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–49; VERIFICATION.md and check.py inspected, not executed",
+        "Complete repairs/4/RESULT.md: scalar contraction algebra, log expansion, iid CLT, and exact expectation-centering correction",
+        "Bochacik–Przybyłowicz arXiv:2404.19059v3, Sections 1.2 and 3.2"
+      ],
+      "rationale": "The frozen proof used a real logarithm of the expected signed output while allowing negative x0. The complete repaired result specifies real x0, takes logs of positive amplification factors for h small, and retains the Gaussian statement for either sign. Factoring the denominator shows no pole in the open left half-plane; its squared-modulus advantage over the numerator is −4 Re(z)(1+u(1−u)|z|²)>0. Compactness in u yields a uniform contraction for each fixed z, and a uniformly bounded intervening factor yields odd-iterate decay without monotonicity. For the original independent method and z=−x with x>2, the phase interval 0≤u≤1/x gives E|R|²≥(x/2−1)²/x, which diverges. For real λh, independent expansion of the pair log gives 2λh+(2/3−2C)λ³h³+O(h⁵) with C=U(1−U), and the single-step log gives λh+(U−1/2)λ²h²+O(h³). The uniform moments Var(C)=1/180 and Var(U)=1/12 follow by integrating the polynomials. The centered independent remainder sums are O(√M h⁵) and O(√M h³) in L², negligible at their respective scales, with M=T/(2h) and T/h. The ordinary iid CLT yields the log variances Tλ⁶/90 and Tλ⁴/12. Jensen centering differs by M log E exp(W_h), for centered log increments W_h=O(h³) and O(h²); expanding the exponential makes those differences O(h⁵) and O(h³). The output exponential delta method multiplies by x0² exp(2λT). This avoids taking a log of the signed output or assuming away deterministic bias.",
+      "residual_risks": [
+        "The Gaussian limits apply to real scalar decay and iid uniform draws per independent unit of the method, not arbitrary laws or nonlinear vector equations. Pairwise A-stability is not per-step monotonicity, stiff L-stability or a deterministic error-order improvement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3d7701908c6c treats the same amplification for iid stages with other laws, not paired draws. 5cbf318aa8d6 treats paired explicit stages and improves a bounded negative-real stability interval. ed6af91e7d5b exhibits the same scaling-exponent pattern for an explicit RK scheme with paired Hessian covariance and centering after a deterministic bias.",
+          "The originating implicit paper supplies R and the bounded iid mean-square stability region. The explicit-method paper gives an iid explicit stability theorem."
+        ],
+        "reasoning": "Matching exponents or the name RK2 does not produce the λ⁶ and λ⁴ coefficients for this rational implicit factor. Stability for iid laws or for an explicit method is not a Gaussian comparison across these two implicit couplings.",
+        "searches": [
+          "Resultary: randomized implicit two-stage Runge-Kutta Bochacik Przybylowicz mean-square A-stability",
+          "Resultary: h^-5/2 h^-3/2 randomized implicit RK2 complementary pairs variance",
+          "arXiv:2404.19059v3 §§1.2, 3.2; arXiv:2006.12131 p. 14, Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Bochacik–Przybyłowicz arXiv:2404.19059v3",
+        "Blanes–Casas–Murua arXiv:0812.0377",
+        "Related explicit analysis arXiv:2006.12131",
+        "Resultary 2c39a18b1c6f, 171902a77c86, ed6af91e7d5b, 3d7701908c6c and 5cbf318aa8d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "171902a77c86 proves a pairing-induced reduction in fluctuations for random ordering of backward-Euler resolvents: h^(3/2) versus h^(1/2) with a commutator covariance. The random-time-step lookups did not resolve a matching general theorem; an exact-title lookup did not return usable source text."
+        ],
+        "reasoning": "The commutator mechanism for a noncommuting operator product is not the commuting scalar midpoint-subdivision mechanism, whose first random term is cubic. The common CLT technique is standard; the distinct calculation is the cancellation and its order/constants at equal work for these methods. Neither unrelated search output nor the inaccessible material establishes absence of general coverage.",
+        "searches": [
+          "Resultary: randomized implicit RK2 adjoint theta method composition paired Gaussian limits",
+          "Literature: probabilistic numerical ODE random time step implicit midpoint complementary random substeps Gaussian central limit fluctuations random time step Abdulle Garegnani fixed total time centered random mesh commutator",
+          "Literature: Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration Abdulle Garegnani arXiv DOI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar identity R_(1−u)(z)=1/R_u(−z) gives exactly the adjoint pairing.",
+          "Rearranging B into (1+uz)/(1−uz) times (1+(1−u)z)/(1−(1−u)z) identifies midpoint substeps of lengths 2uh and 2(1−u)h whose sum is deterministic. Blanes–Casas–Murua describe adjoints and symmetric compositions.",
+          "The targeted literature lookup did not yield a relevant fluctuation paper."
+        ],
+        "reasoning": "Midpoint stability covers contractivity of each pair even without a dedicated randomized theta theorem; it does not give the Gaussian variance of randomness in the step subdivision, the independent RK2 comparator, or nonlinear equivalence.",
+        "searches": [
+          "Resultary: antithetic pairing randomized implicit RK2 A-stability complementary parameter",
+          "Resultary: randomized implicit RK2 adjoint theta method composition paired Gaussian limits",
+          "Literature: antithetic randomized theta method Runge-Kutta complementary step pairs Gaussian limit fluctuation h^(5/2) h^(3/2)",
+          "arXiv:0812.0377, p. 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2c39a18b1c6f gives the identical B and scalar contractivity plus results on uniform-marginal coupling rigidity and stiff damping. Its inspected finding does not give the two centered terminal Gaussian laws. ed6af91e7d5b gives explicit-method fluctuation formulas."
+        ],
+        "reasoning": "This is an exact formula match for the stability transfer, not merely a title match, and is credited separately from relative dates. No tabulated values are needed for a CLT; the corresponding meaningful check is for exact closed-form limit laws, not only numerical values or exponent matches.",
+        "searches": [
+          "Resultary: randomized implicit two-stage Runge-Kutta Bochacik Przybylowicz mean-square A-stability",
+          "Resultary: h^-5/2 h^-3/2 randomized implicit RK2 complementary pairs variance"
+        ]
+      },
+      "rationale": "The retained distinct claim is the centered fluctuation comparison with two exact variance constants for this implicit RK2 and these two couplings. The symmetric composition is standard and scalar pair contractivity follows directly from an equivalent midpoint factorization; an inspected later record explicitly gives the same B and contractivity, so these alone are not treated as the novel result. The closer fluctuation precedents have different schemes or coefficients and do not cover both quantitative limits.",
+      "residual_risks": [
+        "Publisher access failed for the cited Pesterev adjoint-composition and Higham stochastic-theta papers; neither was treated as negative evidence. A closer random-time-step theorem or precedent for the specific scalar CLT may remain unlocated. Priority for the overlapping stability observation is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact iid method and stability antecedent, no paired Gaussian comparison in inspected results",
+          "evidence": "Independent uniform draws, common scalar R, bounded mean-square stability region.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.19059v3",
+          "material_read": "§1.2 pp. 2–4; §3.2 pp. 8–10",
+          "method": "OA full-text equation and theorem comparison",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Same implicit randomized scheme and iid comparator"
+        },
+        {
+          "assessment": "Standard structural mechanism, not the two stochastic limits",
+          "evidence": "Adjoint and symmetric-composition definitions yield the scalar complement identity.",
+          "identifier_or_url": "https://arxiv.org/pdf/0812.0377",
+          "material_read": "PDF p. 11, offsets 34518–35270",
+          "method": "OA definition and scalar specialization",
+          "title": "Splitting and composition methods in the numerical integration of differential equations",
+          "trigger": "Adjoint composition is the scalar pairing mechanism"
+        },
+        {
+          "assessment": "Direct stability overlap; distinct later result does not state the centered Gaussian comparison",
+          "evidence": "The same B, contractivity, coupling rigidity, dissipative matrices and stiff damping.",
+          "identifier_or_url": "2026/10/25/2c39a18b1c6f",
+          "material_read": "Mirrored RESULT.md, offsets 0–7996",
+          "method": "Local mirror algebra and conclusion comparison",
+          "title": "Antithetic coupling rigidity and logarithmic stiff damping for randomized implicit RK",
+          "trigger": "Exact same paired transfer and scalar contraction"
+        },
+        {
+          "assessment": "Prior pairing mechanism in a different setting",
+          "evidence": "h^(-3/2) vs h^(-1/2) for balanced resolvent orders vs independent operator choices, with commutator covariance.",
+          "identifier_or_url": "2026/10/18/171902a77c86",
+          "material_read": "Mirrored RESULT.md, offsets 0–10679",
+          "method": "Local mirror comparison of operators, normalization and limiting covariance",
+          "title": "A commutator central limit law for balanced randomized backward Euler",
+          "trigger": "Earlier pairing-induced improvement of a numerical fluctuation CLT"
+        },
+        {
+          "assessment": "Related later explicit RK law; does not imply the implicit result",
+          "evidence": "Hessian-driven paired covariance and bias centering for an explicit method, with an h^(-3/2) noncomplementary example.",
+          "identifier_or_url": "2026/11/8/ed6af91e7d5b",
+          "material_read": "Mirrored RESULT.md, offsets 0–4777",
+          "method": "Local mirror assumption and covariance comparison",
+          "title": "Unique antithetic stage pairing and a Hessian-only Gaussian error law",
+          "trigger": "Same exponents and complementary stages"
+        },
+        {
+          "assessment": "Prior iid stability results",
+          "evidence": "Mean-one-half iid obstruction and a stable two-point law with a different mean, not complementary pairs.",
+          "identifier_or_url": "2026/10/12/3d7701908c6c",
+          "material_read": "Mirrored RESULT.md, offsets 843–5284",
+          "method": "Local mirror sampling law comparison",
+          "title": "Sharp mean-stage obstruction and two-point A-stability frontier",
+          "trigger": "Same scalar amplification"
+        },
+        {
+          "assessment": "Paired explicit method, different region and no matching CLTs",
+          "evidence": "Improves a finite negative-real interval from 1.59607… to 1.89655….",
+          "identifier_or_url": "2026/10/13/5cbf318aa8d6",
+          "material_read": "Mirrored RESULT.md, offsets 0–6885",
+          "method": "Local mirror factor and stability-region comparison",
+          "title": "Antithetic stage pairing sharply expands mean-square stability",
+          "trigger": "Prior use of complementary stages for stability"
+        },
+        {
+          "assessment": "Different scheme and coupling",
+          "evidence": "Mean-square analysis of the explicit randomized method, not the implicit complementary pair.",
+          "identifier_or_url": "https://arxiv.org/pdf/2006.12131",
+          "material_read": "PDF p. 14, Theorem 3 and nearby stability calculations",
+          "method": "OA full-text theorem comparison",
+          "title": "Randomized Runge–Kutta method – Stability and convergence under inexact information",
+          "trigger": "Primary iid explicit RK comparator used in this literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired scalar proof and centering estimates",
+        "Primary iid implicit RK stability analysis and prior explicit/commutator comparisons"
+      ],
+      "rationale": "Equal-cost complementary coupling removes leading stochastic error in a specific solvable test problem. The two centered Gaussian laws distinguish actual fluctuation improvement by one order from classical midpoint stability and from deterministic order restoration. Explicit nonzero variance constants make the comparison a reproducible benchmark for randomized integrators rather than an observation about a sampled stability plot.",
+      "residual_risks": [
+        "Scalar fixed-horizon fluctuations are not a guarantee for nonlinear dynamics, stiffness-dependent accuracy, or smaller deterministic bias."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

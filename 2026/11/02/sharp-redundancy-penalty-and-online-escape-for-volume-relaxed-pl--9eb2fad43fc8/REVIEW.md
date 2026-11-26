@@ -1,17 +1,21 @@
-# Review of sharp volume-relaxed planar block projections
+# Independent mathematical audit
 
-## Correctness — PASS
-For every two-row block, the exact projector is the identity. The specific source relaxation gives scalar error multiplier \( -\sqrt{1-v/v_\star} \); averaging its square is exact. A doubled-angle chord representation and the parallelogram identity give the strict universal bound, and the explicit collapsing configuration proves sharpness for each row count. The exact geometric stopping-time law and online first-step behavior follow from whether the sampled pair has maximal volume. The standalone checker of rational identities is supplementary to the proof.
+## correctness
 
-## Originality — PASS (with priority risk)
-Entezari–Banerjee–Kalantari, arXiv:2610.12346v1, Theorem 2, **already gives the general volume-dependent factor** and suggests a running maximum; these are credited. The separate sharp \(M\)-row envelope, asymptotically extremizing geometry, expected first-hit maximum and fixed-versus-online behavior are not stated in its examined sections. Earlier related works arXiv:2111.06931v3 and arXiv:2503.09469v3 concern, respectively, unrelaxed volume sampling and different relaxation laws. Two related accessible prior results were compared at the statement level: a two-row *single-row* relaxation calculation and an unrelaxed volume-sampling spectral bound. Neither has the present two-row-block row-count envelope. Other relevant mathematical publications were also checked. A geometric identity might be known in stronger form, and an unlocated source may already apply it to this algorithm.
+PASS
 
-## Mathematical value — PASS
-The theorem answers a sharp natural convergence-factor question in the fully informative block regime, gives explicit adversarial row families and a quadratic expected exact-hit penalty, and explains why using the empirically updated maximum is materially different from using a precomputed global maximum. No claims are made about larger ambient dimensions with undersized blocks, inconsistent data, or actual runtime performance in large applications. The outcome is not an independent external certification.
+For each invertible two-row block the block projector is I, so the exact error multiplier is -sqrt(1-v_ij/v_star). Squaring and using independent uniform draws proves the product mean-square law; q is nonnegative since every v_ij<=v_star. The doubled angles turn 4v_ij into squared chord distances. For a diameter pair of squared length d², the sum of the two squared distances from any third point equals d²/2 plus twice its squared distance from the midpoint. The midpoint is strictly inside the unit circle, so retaining just these terms and the diameter gives sum(v_ij)>Mv_star/2 for M>=3 and hence q<(M-2)/(M-1). With row angles -t,t and distinct c_j t², the unique largest angle difference is 2t in the monotonic range of sin²; the volume ratios tend to 1 for that pair, 1/4 for the 2(M-2) incident pairs, and 0 for the rest, proving the nonattained supremum. A separate rational check on M=3..6 and t=1/8,1/32,1/128 corroborated the unique maximizer, chord identity, and strict bound; the limit argument, not the checks, proves sharpness. From nonzero initial error, the first exact hit is the first draw of one of the r maximizing pairs, giving an independent geometric law and largest mean binom(M,2) on the same sharpness family. Unrelaxed projection and normalization from the first draw before its update both solve in one step. These statements are for exact arithmetic, consistent planar systems, and the stated initialization, not arbitrary online maxima. The supplied verifier was inspected, not executed; its recorded output is supplementary.
 
-## Main sources and boundaries
-- arXiv:2610.12346v1, Section 3.3 Theorem 2 and online normalization note: https://arxiv.org/html/2610.12346v1
-- arXiv:2111.06931v3 and arXiv:2503.09469v3: predecessor algorithmic frameworks
-- arXiv:2001.02745: familiar sphere distance-energy relations (abstract consulted)
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the relaxation and square-block convergence factor to the inherited scheme; the one-step online fact alone is also immediate from its known rule and full rank. The distinct assessed result is the nonattained sharp planar row-count envelope and its near-extremizers exhibiting maximal quadratic mean waiting time under fixed normalization versus the one-step online behavior. The strongest inspected statements do not supply this joint sharp classification. Priority is not certified.
+
+## value
+
+PASS
+
+The diagnostic is sharp in a setting where every unrelaxed block would be an exact solver. It quantifies a concrete loss from global relaxation as redundant rows are added and distinguishes two quantities that could otherwise be confused: worst mean-square contraction and the first exact hit. The same family approaching the contraction bound exhibits the longest expected exact-hit time, while the online initialization removes this delay. No extrapolation to noisy problems, smaller blocks or empirical runtime is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

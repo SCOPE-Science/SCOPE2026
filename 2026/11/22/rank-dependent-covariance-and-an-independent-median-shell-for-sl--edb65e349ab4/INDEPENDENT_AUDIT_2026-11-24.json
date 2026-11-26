@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:34:55.975807Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the corrected RESULT.md: atomlessness plus the probability integral transform preserves all ranks almost surely. Given the shared endpoint x at lag k, the two retention events are conditionally independent, with equal parameters by time reversal. Within one pair, either both replacement endpoints are below Z_{j−1} or both above Z_j for a shared j-th value. Integration of the fresh uniform endpoint gives h(x)=E[Z_{j−1}1{x<Z_{j−1}}+(1−Z_j)1{x>Z_j}]. For the size-k−1 uniform sample, x f_{Z_{j−1}}(x) and (1−x)f_{Z_j}(x) are respectively (j−1)/k and (k−j)/k times the same Beta(j,k+1−j) density, and h(0)=(j−1)/k. Hence the covariance is Var(h(U)), with a strictly positive CDF variance; the coefficient vanishes exactly at the odd-width central rank. In that case the common conditional Bernoulli parameter is constant, giving independent indicators. More distant input sets are disjoint. The new repair checker, replayed with cd /workspace/repairs/2 && python3 -B verify.py, exhausts 5040 and 362880 relative orders at k=3 and 4 and gives respectively 0 and (11/1400,11/1400) for the interior ranks. The proof, not these small checks, covers all widths. Frozen verify.py was inspected, not executed; the corrected verification front matter was preserved verbatim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vila–Almeida's abstract and introduction characterize independence of one order-statistic value from its source-rank indicator, not two change indicators. The strongest Resultary comparisons outside the plateau and maxima records concern ordinal-pattern counts, adjacent comparison bits, deterministic variation or a scalar iterative quantile algorithm. The two 1987 papers were not recovered in full."
+        ],
+        "reasoning": "A two-output analog covariance, a one-sample rank identification law or a law for a distinct comparison process does not determine two retention events from four windows. Broader historical joint laws remain a qualified access risk; failed retrieval is not evidence against coverage.",
+        "searches": [
+          "Resultary: general multivariate change events, rank comparisons, and rank-dependent sliding-filter variation",
+          "Primary query: running sample median sliding order statistics indicator change independence covariance overlap one observation lag window width streaking exact random iid",
+          "Bovik DOI 10.1109/TASSP.1987.1165153; Bovik–Restrepo DOI 10.1016/0016-0032(87)90378-4; Vila–Almeida arXiv:2608.05428"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; repaired RESULT.md, verification notes and checker",
+        "Resultary plateau and maxima exact statements; exact target self-hit",
+        "Resultary ordinal-pattern, comparison-bit, deterministic rank-filter and quantile-Kaczmarz comparators",
+        "Bovik, Bovik–Restrepo access-limited checks; Vila–Almeida abstract/introduction; Suomela arXiv:1406.1717 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The plateau law gives S(ℓ)=P(R_0=⋯=R_{ℓ−1}) for consecutive outputs. In particular adjacent retention is joint equality of three consecutive outputs, whereas full-width joint retention is {R_0=R_1}∩{R_k=R_{k+1}}, with different retained observations allowed. The extrema formula yields no median exception."
+        ],
+        "reasoning": "Adjacent covariance and its optimizer are direct consequences of the plateau formula and are omitted in the repair. Full-width retention is not a single run, so the given run law does not determine it. The shared-input conditioning and rank-dependent cancellation in h(x) supply the separate mathematical step at lag k.",
+        "searches": [
+          "Universal rank laws Resultary Finding and Proof §§1–2; cyclic maxima Resultary Finding and lag-k proof; separate median-streak and overlapping-order-statistic literature checks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact lag-k interior search retrieved the assigned record as a self-match. The plateau theorem works in upper ranks, so r=k+1−j; it concerns a run of consecutive retained outputs. The cyclic-maxima local model agrees with the bi-infinite model on the 2k+1 involved inputs when n≥2k+2."
+        ],
+        "reasoning": "Selection-index changes and value changes coincide almost surely. Upper/lower rank reflection translates the maxima law to the lower extremum as well, but not to any interior rank. Neither equivalent formulation of a plateau computes the joint law at separation k.",
+        "searches": [
+          "Resultary: exact independence sliding sample median change indicator at lag window width one common endpoint conditional retention beta CDF covariance interior sliding order-statistic update indicator",
+          "Resultary: all-rank sliding order-statistic plateaus; cyclic sliding-window maxima updates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed interior lag-k match is the frozen item itself. The exact symbolic maxima table covers both extremes by duality; the indexed plateau probabilities determine adjacency. No distinct match for the repaired symbolic interior formula was identified."
+        ],
+        "reasoning": "The small-width verification values are not the originality claim. The relevant exact database comparison is the indexed all-width law and whether its rank- and lag-domain includes the repaired theorem.",
+        "searches": [
+          "Resultary: exact interior lag-k order-statistic retention covariance and median change independence; conditional rank comparison; cyclic maxima and all-rank plateaus"
+        ]
+      },
+      "rationale": "The repaired claim is restricted to full-width separation and interior ranks. It removes the overlapping lag-one formulas and rank optimizer, expressly credits and excludes the extrema, and does not claim novelty for independence beyond the overlap range. The exact interior-rank formula and unique median exception are distinct on the inspected evidence.",
+      "residual_risks": [
+        "The full texts of the relevant 1987 median-streak and overlapping-order-statistic papers were not verified; a broader joint-law result could encode parts of the repaired theorem. No priority ordering between same-day catalogue records is inferred. The affirmative decision is for the repaired scope only and based on bounded statement-level evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determines original adjacency formula and optimizer; not the repaired separated pair",
+          "evidence": [
+            "The explicit factorial sum is the repeated-output probability for a contiguous run, with the conditional start law obtained by differences."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-universal-rank-laws-and-the-endpoint-atom-transition-for-sliding--84df51b07fe1/RESULT.md",
+          "material_read": "Finding and Proof §§1–2 from RESULT.md offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Universal rank laws and the endpoint-atom transition for sliding order-statistic plateaus",
+          "trigger": "Closest distinct all-rank result on exactly equal adjacent sliding outputs"
+        },
+        {
+          "assessment": "Covers the extrema, excluded in the repair",
+          "evidence": [
+            "At lag k, (k−1)²/[(k+1)²(2k+1)] is the maximum covariance, also obtained from the beta formula at j=k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-negative-to-positive-lag-transition-for-cyclic-sliding-window--14cb4a65704f/RESULT.md",
+          "material_read": "Finding, scope and proof of lag k, RESULT.md offsets 0–4300",
+          "method": "Resultary local mirror",
+          "title": "A negative-to-positive lag transition for cyclic sliding-window maxima",
+          "trigger": "Exact lag-k update covariance on the same overlap geometry"
+        },
+        {
+          "assessment": "Potential historical overlap unresolved",
+          "evidence": [
+            "The title and frozen discussion indicate running-median streaks; this does not establish what the paper proves about two separated retention events."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TASSP.1987.1165153",
+          "material_read": "Bibliographic and search evidence only; no paper passage inspected",
+          "method": "IEEE and focused lawful retrieval attempted; HTTP 202 or bibliographic snippets",
+          "title": "Streaking in median filtered images",
+          "trigger": "Historical exact equality and streaks for the central rank"
+        },
+        {
+          "assessment": "Relevant analog-output comparator, full scope unverified",
+          "evidence": [
+            "Descriptions concern analog moving L-estimates and overlapping samples; full-text implications for change-event indicators could not be checked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0016-0032(87)90378-4",
+          "material_read": "Landing/abstract material, no full text",
+          "method": "OA lookup and publisher attempt; ScienceDirect returned HTTP 403",
+          "title": "Spectral properties of moving L-estimates of independent data",
+          "trigger": "Potentially broader overlapping order-statistic laws"
+        },
+        {
+          "assessment": "Different independence problem in the inspected scope",
+          "evidence": [
+            "Reweights according to the probability that one source observation occupies a prescribed rank; the stated variables are an order-statistic value and a source indicator, not two sliding updates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.05428",
+          "material_read": "Abstract and introduction, PDF pp. 1–3, extraction offsets 0–9500",
+          "method": "OA arXiv PDF",
+          "title": "Characterizations of independence between order statistics and rank indicators",
+          "trigger": "Plausible general rank-independence theorem in focused search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Lag k is the last lag with shared input, so the distinction between the central rank and every other interior rank is a natural sharp dependence boundary rather than a selected numerical case. The exact formula identifies the mechanism and a usefully reusable covariance even when it is nonzero; disjoint-window independence serves only as context.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

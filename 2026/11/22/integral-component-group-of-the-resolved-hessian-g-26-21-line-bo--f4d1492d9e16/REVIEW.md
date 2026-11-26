@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct exact calculation in \(\mathbb Q(\omega)\) confirms the full \(21\)-line incidence census, all exceptional-component and original-double-point edges, the \(42\)-vertex stable-curve graph and arithmetic genus \(91\). The exact Schur determinant and Laplacian characteristic polynomial agree on the spanning-tree count. Prime-local Smith elimination at all determinant primes using two different roots yields the same eight nonunit integral invariant factors; every claimed prime-power is reconciled with the full determinant. The standalone verifier is supplied as executable source. The Néron interpretation is conditional on regular split semistable unit-thickness smoothing.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Hoge–Röhrle's G26 mirror polynomial is prior. Roulleau's \((t_2,t_4,t_5)=(36,9,12)\) census is prior. Busonero–Melo–Stoppino's general critical-group correspondence is prior. None of these gives the exact \(41\times41\) reduced Laplacian's Smith form; relevant published-record searches under group, sandpile, Néron and Jacobian aliases returned no matching decomposition. An unindexed older graph invariant table remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** The full Hessian arrangement is a classical, symmetrical geometric configuration; resolving its higher-multiplicity singularities yields a natural stable curve. The integral group and the eight \(67\)-primary summands provide meaningful degeneration data inaccessible from the arrangement's incidence counts. This is a complete natural invariant, not a gratuitous numerical slice.
+Distinct projective lines meet once. At each point of multiplicity four or five their distinct tangent directions meet the exceptional curve in different transverse points after one blowup; the untouched double points are still ordinary nodes. Replacing these line cliques by incidence stars keeps the dual graph connected. Independent exact enumeration in Q(ω) gives 36 double, nine fourfold and twelve fivefold points, and 42 graph vertices, 132 edges and b₁=91. The line degrees are 8 and the other degrees 4 or 5, hence every rational component is stable. The independent integer calculation reproduced the degree-42 Laplacian polynomial t(t−9)^3(t−4)^3(t³−25t²+188t−392)(t⁴−25t³+218t²−788t+1005)^8 and determinant 453182126519595584330100000000, with factorization 2^8·3^13·5^8·7·67^8. Direct integer Smith form of a 41-square reduced Laplacian independently gave 33 units followed by 335, 1005 four times, 36180 twice, and 1013040. The determinant also follows from −P′(0)/42. All eight nonunit factors have valuation one at 67, not higher powers. For the conditional interpretation, the intersection matrix of the split reduced fiber is −L: the off-diagonal terms count transverse unit-thickness nodes and row sums are zero because the total fiber is principal. The regular semistable degree-class formula gives the sum-zero multidegree lattice modulo this intersection image, isomorphic to the reduced Laplacian cokernel. This applies with the stated smoothing hypotheses and does not assert existence of a smoothing with other thicknesses or reductions.
 
-**Closest literature and limits.** Hoge–Röhrle (arXiv:1209.1919), Hirzebruch (1983), Roulleau (DOI:10.1216/rmj.2021.51.721), Busonero–Melo–Stoppino (arXiv:0808.1529). The new proof does not cover different blowups, arbitrary node thickness, or unrelated arithmetic forms. No claim of external validation or certified publication priority is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The geometry, multiplicity census and general component-group correspondence are prior. The supported distinct content is the exact Laplacian and complete integral group for the specified full G26 stable boundary. The closest catalogue items on Hesse boundaries concern a different arrangement or surface; no exact independent Smith computation for this graph was recovered. The focused web query was nondiagnostic, not negative evidence.
+
+## value
+
+PASS
+
+This is a complete integral invariant of a natural stable curve attached to a distinguished reflection arrangement, with the blowup choice determined by separating multiple points while retaining nodes. The exact group can be used in studying geometric component groups of smoothings, and distinguishes eight independent 67-classes and the higher prime powers from mere information on the number of spanning trees. The object and invariant are motivated independently of the arithmetic outcome.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over fixed distinct positive Gaussian parameters and strictly positive continuous spectra with at most polynomial upper growth. The zero-intensity normalization is the scaled version of the published formula; an independent Gaussian-tilted variance calculation gives \(I_c=2c\operatorname{Var}\). Equality at one resolution gives an exponential affine relation between Gaussian convolutions. Entire Laplace transforms and Fourier uniqueness give the exact raw spectral shift-tilt orbit. Compatibility of two such orbits yields a global finite-difference equation for \(\log S\), whose solutions are Gaussian exponentials multiplied by positive periodic functions. The growth hypothesis excludes the otherwise degenerate non-Gaussian branches. A direct two-width construction supplies the converse and ensures nonproportional aliases. The accompanying executable checker reproduces the key formulas and a nonconstant smooth example. Computation is corroboration, not proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The strongest direct predecessor is Escudero, Koliander, and Romero, arXiv:2609.18689, Theorem 1.1 and Remark 5.1. It gives a single-width first intensity and a smoothed-PSD affine gauge, not the intersection of two widths. Earlier stationary-Gaussian-analytic-function work by Feldheim (arXiv:1105.3929) provides the general expected-zero framework, not a two-resolution inverse classification. A known single-window raw-spectral orbit is acknowledged and used as the first step; it does not supply the two-width finite-difference classification. Searches for heat-kernel log-curvature equivalences, Gaussian-periodic ambiguities and two-resolution spectrogram identifiability found no directly dominating statement; this is not a proof of literature-wide novelty. Residual risk: a heat-semigroup inverse problem or periodic exponential-family paper may already encode the equivalence.
+PASS
 
-## Value — PASS
-One-width zero-intensity data has a genuine translation-exponential gauge ambiguity. The theorem answers a motivated design question: whether changing the Gaussian width breaks that gauge. It gives generic recovery, an exact exceptional family rather than an ad hoc counterexample, and constructive smooth nonconstant aliases. The nonuniqueness class is infinite-dimensional and identifies a boundary relevant to population spectral inference. No finite-sample or stability claim is made.
+For each c, log-curvature equality gives Z_T/Z_S = exp(AR+B); multiplication by exp(cR²) and continuation of the Gaussian-damped bilateral Laplace transforms give a shift by k=A/(2c). Fourier uniqueness of the finite measures yields the pointwise gauge by continuity. If the two shifts coincide, c1≠c2 forces zero shift. Otherwise taking logarithms produces a global affine first difference with quadratic coefficient α=(c1 k1−c2 k2)/(k1−k2). Subtracting the quadratic-affine solution gives a bounded periodic logarithm. Growth rules out α>0, and α=0 forces b=0 by growth of S and then k1=k2=0 by growth of T. With α=−a<0, the compatibility equation gives the stated shifts, and periodicity and the common envelope slope give sufficiency. The alias-to-spectrum ratio has nonzero exponential slope times a bounded, bounded-away-from-zero factor, so it cannot be constant. The Fourier window squared gives c=2π/σ²; the unit-window intensity formula transforms with area Jacobian one and frequency second-derivative factor σ², giving 1/(2c). CHECK.py was inspected, not executed: its finite quadrature corroborates selected examples only; neither direction of the result needs numerical integration.
 
-## Scientific scope
-Only strict positive continuous spectra and complete population profiles at two fixed distinct resolutions are handled. Equality of first intensities does not mean equality of entire zero processes. Identification is up to global power scale in the generic case. No publication-priority or independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The one-width shift/tilt orbit is established in the distinct same-day record, and the affine ambiguity of the smoothed PSD is explicitly established in the cited paper. Neither inspected statement solves the simultaneous fixed-width gauge constraints. The classification of their intersection, including the exact periodic exception with only upper growth, is the supported distinct claim, to the best of the checked evidence.
+
+## value
+
+PASS
+
+It settles a natural identifiability question left by the known single-window ambiguity. It gives exact conditions for when a second instrument width resolves all non-scale ambiguity, and constructively characterizes the smooth non-Gaussian failure modes as well as Gaussians. It makes no finite-data or stability claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

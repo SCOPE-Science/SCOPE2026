@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:40:44.201853Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the finite irreducible jump chain, the number of jumps to a fixed target has a geometric tail by a uniform positive hitting probability in a finite block. Conditioning on the stopped embedded path, the second moments of its holding times are bounded by the maximum conditional second moment over positive-probability edges; Cauchy–Schwarz bounds the second moment of the sum by that maximum times the squared jump count. The entry-epoch first-step mean recursion is therefore well defined and uses only the row means. The second recursion uses the unconditional second hold moment and the joint first cross-moments with destination, with killed-chain invertibility for each target. In the difference of the semi-Markov and comparator recursions the data agree for target t exactly when d_i+2 c_i h^t=0 for departures i!=t. The mean equation extends to the target row with correction -(pi mu)/pi_t by stationarity. For Z=(I-P+1 pi)^(-1), c_i 1=0 gives c_i h^t=c_i Z mu-[(pi mu)/pi_t](c_i Z)_t. Having every t except i makes (c_i Z)_t/pi_t constant A on those targets; the zero row sum makes c_i Z=A(pi-e_i), hence c_i=A(P_i-e_i). Its i-th coordinate vanishes because both joint cross-moments on the forbidden self-loop vanish. Since P_ii=0, A=0 and d_i=c_i=0. The converse is the identical right-hand side of the unique killed-chain solution. No division by a zero-probability destination is needed; that cross-moment condition is vacuous. The two lognormals in the witness have the stipulated common mean and distinct variances; their mixture has the desired second moment and is not exponential (its density tends to zero at zero). I also reproduced exact inversion on a sparse chain and a deterministic cycle and checked a separate positive finite-atom witness, using python3 /workspace/review-checks.py (semi_markov section).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier version of Voits gives the general forest formula and the mean comparison. Silvestrov–Manca’s killed-chain moment equations give a forward solver conditional on the transition and reward data."
+        ],
+        "reasoning": "A fixed-target forward solution and a forest expansion leave open whether the relevant linear constraints for all targets have a kernel. Proving the kernel trivial uses the target-row correction, zero row sum and absence of self-loops together.",
+        "searches": [
+          "Voits arXiv:2610.13505v1 §5 Theorem 15; v2 §5 Eqs. (117)–(123); Silvestrov–Manca arXiv:1603.05693 §2 Eqs. (10)–(14)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.13505v1 and v2",
+        "arXiv:1603.05693 / DOI 10.1007/s11009-017-9559-2",
+        "Resultary 2fe27acb9c54",
+        "Resultary a3d499e4efd1",
+        "Resultary 77c044007472",
+        "Resultary 7880c43ebd00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Voits v1 explicitly gives pseudo-rate mean equality after the proof of Theorem 15 (PDF p. 21, text offset 71792), without the v2 correction discussion. Voits v2 (PDF front matter dated 5 Nov 2026) separates the Markov term and a weighted sum of edge derivative terms, then sets edge derivatives to zero for sufficiency."
+        ],
+        "reasoning": "A weighted sum vanishing does not by itself force every term to vanish. Across all targets the new inversion deduces proportionality c_i=A(P_i-e_i), and the forbidden diagonal kills it. Voits’s Laplace-resolvent inversion and single-row tomography from full time profiles are inversions of different data and do not supply this step.",
+        "searches": [
+          "Version-specific comparison of Voits §5; Silvestrov–Manca §2; Resultary 2fe27acb9c54, 77c044007472 and a3d499e4efd1 findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Voits v2 Eq. (122): matching the ratio E[tau_i^2]/(2 E[tau_i]) to the conditional mean on each positive edge cancels the correction termwise. Weighted averaging shows exact equivalence to the two local moment constraints. The earlier alternating-renewal record 2fe27acb9c54 uses stationary two-time laws."
+        ],
+        "reasoning": "The v2 sufficient condition is the same local condition in different notation, not a different local constraint. Matching stationary lag laws is not matching all entry-epoch second hit moments, and edgewise cancellation does not assert it is forced by all-target equality.",
+        "searches": [
+          "Resultary: all-target second first-hitting moments semi-Markov pseudo-rate Markov chain local second holding moment destination-conditioned first moment necessary sufficient",
+          "Resultary: pseudo-rate CTMC coefficient of variation one and conditional destination means equal unconditional mean",
+          "Web: semi-Markov pseudo-rate hitting time second moments inverse Markov all targets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Records 2fe27acb9c54 and a3d499e4efd1 concern stationary two-time laws and transport mean-square displacement respectively; 77c044007472 uses full transient occupation for one-row tomography; 7880c43ebd00 is a variance bound for threshold passage."
+        ],
+        "reasoning": "None of these observed statements gives the exact iff for the stated data; the same-date transport record does not share the hitting observable. These are bounded corpus comparisons, not a historical uniqueness claim.",
+        "searches": [
+          "Resultary: all-pairs entry-epoch first and second hitting-time moment matching finite semi-Markov networks and rate-matched CTMC; inverse identification and non-Markov-mimic aliases"
+        ]
+      },
+      "rationale": "The forward recursion, equality of means with pseudo-rates, and general forest expansion are prior. In particular Voits’s version 2 calculates exactly the edgewise sufficient cancellation condition; that is a later-dated revision, and in either version it is not the all-target necessity result. The supported original content is elimination of all possible cancellation across the complete hitting-moment table, not the already available moment machinery or the notion of non-Markov mimicry alone.",
+      "residual_risks": [
+        "Additional inverse first-passage literature may express the same trivial-kernel result in another parameterization. The inspected forward results and catalogue comparisons do not certify exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior forward analysis, no inspected all-target inverse iff",
+          "evidence": "Following Eq. (140) the mean is explicitly shared with the pseudo-rate network; the version then proceeds to Kemeny’s constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13505v1",
+          "material_read": "§5, Theorem 15 proof and mean comparison, PDF p. 21",
+          "method": "Version-specific OA primary text near offset 71792",
+          "title": "Graph-theoretic framework for semi-Markov networks: transient and stationary occupation probabilities, hitting times and weak ergodicity breaking",
+          "trigger": "Prior general moments and pseudo-rate comparison"
+        },
+        {
+          "assessment": "Equivalent sufficient cancellation condition, not all-target necessity; dated after the frozen record",
+          "evidence": "5 November 2026 front matter. Eq. (122) is E[tau_i^2]/(2 E[tau_i])-E[tau_i | i to j]; setting it to zero on every edge yields sufficiency. The resolvent formulas invert a Laplace-space matrix, not a hitting-moment table.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.13505v2",
+          "material_read": "PDF front matter and p. 21 Eqs. (117)–(123); resolvent comparison at pp. 11–12 Eqs. (49), (55)–(58)",
+          "method": "OA primary text, version read from front matter; correction passage at offset 71792 of unversioned PDF resolving to v2",
+          "title": "Graph-theoretic framework for semi-Markov networks (revision 2)",
+          "trigger": "Strongest apparent overlap with local conditions; priority depends on version"
+        },
+        {
+          "assessment": "Forward recursions and killed-chain inversion, not the all-target inverse criterion",
+          "evidence": "Computes moments for a prescribed target and given local data.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.05693",
+          "material_read": "§2 Eqs. (10)–(14), pp. 3–5",
+          "method": "OA text around offsets 5900 and 12360",
+          "title": "Reward Algorithms for Semi-Markov Processes",
+          "trigger": "General first-step moment equations"
+        },
+        {
+          "assessment": "Different observational equivalence",
+          "evidence": "Mimics every stationary two-time law in two states, not the all-pairs first/second entry-epoch passage table.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54",
+          "material_read": "RESULT.md Finding at offset 68",
+          "method": "Local mirror passage",
+          "title": "Markov two-time laws do not identify memorylessness in stationary alternating renewal processes",
+          "trigger": "Closest mimicry claim in the catalogue"
+        },
+        {
+          "assessment": "Different data and unknowns",
+          "evidence": "One outgoing kernel row from complete time profiles while other rows are known.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-single-start-tomography-and-projective-response-rigidity-in-semi--77c044007472",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local mirror passage",
+          "title": "Single-start tomography and projective response rigidity in semi-Markov networks",
+          "trigger": "Related inverse problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete passage table neither determines the full holding laws nor hides arbitrary local discrepancies: it exactly recovers the second hold moments and first-order dependence on the destination for the stipulated comparator. The necessity proof and the destination-dependent positive witness separate those two limits, for a natural semi-Markov inverse problem. The result does not extend by itself to arbitrary observation epochs, self-loops, or entire passage distributions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

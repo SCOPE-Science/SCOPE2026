@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:31:51.773559Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source protocol yields exactly the frozen two-state kernel for emitted signed gross works: use its equations (6)–(7), take the positive initial heading, and count each new sign, not the initial one. Information-erasure cost is not counted. Set A=√(ad), B=√(bc). The tilt at θ*=½ log(d/a) has diagonal A,A and off-diagonal product B², so its Perron eigenvalue is L=A+B and the other eigenvalue is A−B. The Perron eigenvalue at additional real tilt x is A cosh x + √(B²+A² sinh² x), giving zero slope and log-curvature A/B. The normalized projector paired with the stated initial and terminal vectors gives (1+√(ac/bd))/2. Conjugate at θ* to the symmetric Doob chain, divided by L, and write the complex perturbation as that chain times diag(e^{it},e^{−it}). The chain is a strict contraction off the constants; an eigenvector with eigenvalue of modulus one requires its phased vector to be constant and then itself constant. Thus only t=0,π modulo 2π attain spectral radius one. Gaussian inversion gives the factor of two on the even subsequence; odd return is impossible. Cauchy–Schwarz on the two square-root row vectors (swapping the second row's coordinate order) gives L<1 unless q=1. In fact L²=1−(1−q)²/(√(ab)+√(cd))², yielding the stated quadratic coefficient. At fixed p the saddle expansions and complementary spectral gaps can all be bounded uniformly for q in a compact neighborhood of 1, including 1, since the positive entries, simple Perron mode and positive limiting curvature persist. Thus n log L has the stated crossover limit. Equal stationary masses force the common flip probability φ; its entropy rate is −log L plus the binary relative entropy to φ*=B/L, including at the irreducible but periodic endpoint φ=1 by continuity (the proof's open interval omits this endpoint, which is strictly suboptimal). The Doob entries agree with that minimizer. The frozen files were inspected, not executed. Fresh run-counting code /workspace/audit_checks/02_work_returns.py uses binomial counts of alternating sign runs, not forward propagation or the asymptotic derivation; its ten fixed-q ratios were within 0.0012 of one, and its six crossover ratios within 0.0078, on the bounded parameter grid in the script. Those are corroborations, not the limiting argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-combinatorial framework starts with the same general family of discrete two-state Markov kernels, and its finite pair-transition counts contain occupation counts by summing over all compatible transition counts. Its detailed two-state observable in §IV is the flux t12/n, not the occupation fraction. Willaert et al. use continuous time and a different current."
+        ],
+        "reasoning": "General spectral large deviations cover the exponential-order problem and generic local methods suggest a proof; a large-deviation rate or a fixed-law Gaussian limit does not determine the periodic amplitude under a specified initial state or its uniform variation in a triangular array.",
+        "searches": [
+          "arXiv:2201.00582v2 general pair empirical occupations and §IV equations (53)–(61)",
+          "arXiv:1404.3479v1 sections 2–3",
+          "General Markov-additive local limit theorem returned by literature search (OA retrieval did not complete)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2410.18783v1 main text and bounded supplement slice",
+        "arXiv:2201.00582v2",
+        "arXiv:1404.3479v1",
+        "1980 and Journal of Applied Probability occupation-time listings and their retrieval attempts",
+        "Resultary d16437974fb4 and 67e1fbd0a28d (catalog summaries; exact local files not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source engine gives the q=1 variance as well as finite-time moments and propagators. A general finite count split by endpoints can specialize to exactly the finite return probability by fixing the occupation counts; the explicit n-dependent near-symmetry limit requires additional asymptotic control."
+        ],
+        "reasoning": "The elementary two-state rate and Doob/entropy identities are obtainable by standard methods; the work is not credited for their methods or for the separate symmetric diffusion case. To obtain the supported contribution one needs the two contributing Fourier phases, the nontrivial endpoint-dependent Perron amplitude, and a uniform gap and Taylor error at q→1; substitution into finite-time statistics, a rate, or a fixed-q central limit result alone does not give these.",
+        "searches": [
+          "arXiv:2410.18783v1 equations (6)–(12), plus bounded supplement comparison",
+          "arXiv:2201.00582v2 §§I and IV, initial-state prefactors and finite path/cycle counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "N_n=0 is exactly occupation of the positive heading on n/2 of times 1 through n in a discrete two-state chain, started in + at time 0. The engine paper's propagators encode precisely this chain. Resultary d16437974fb4 (catalog summary only) instead treats a four-direction planar walk.",
+          "The search found exact occupation-law antecedents under the equivalent two-state occupation terminology, not just under the engine terminology."
+        ],
+        "reasoning": "A return theorem for a persistent one-dimensional walk with its direction interpreted as this Markov chain would be directly relevant. Continuous-time exchange currents count jumps, and hitting time statistics do not give this fixed-cycle point mass.",
+        "searches": [
+          "Resultary queries for lazy quantum-engine zero gross work and sharp return laws",
+          "two state Markov chain occupation time 50 percent local large deviations exact asymptotic prefactor asymmetric persistent random walk return probability discrete time",
+          "arXiv:2410.18783v1 equations (6)–(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1980 abstract describes an exact law for numbers of visits during (1,n] from fixed initial state i, so the finite point probability is covered by that formulation. The stationarity-based JSTOR listing describes finite cumulative probability tables; only the listing was inspected. The engine already encodes exact finite probabilities by its work propagators."
+        ],
+        "reasoning": "The target is the asymptotic amplitude with an explicitly fixed initial state and a transition window, not the finite law itself. Evaluating a finite table or identifying its occupancy index does not establish either limit. The unavailable full occupation-time texts do not support a whole-document exclusion.",
+        "searches": [
+          "Occupation times for two-state Markov chains (1967 and 1980 search hits)",
+          "Effect of Dependence on the Occupation Time in a Two-State Markov Chain (JSTOR 2287681, search result)",
+          "arXiv:2410.18783v1 finite work propagator"
+        ]
+      },
+      "rationale": "Credit the explicit initial-state-dependent local return prefactor and the uniform near-symmetric crossover for the engine. The sign kernel, exact finite-time propagators, basic tilted eigenvalue method and general entropy/Doob prescription are antecedents, not distinct findings; the rate and symmetric kernel are explicit model consequences that explain the return result. No checked statement gives the local amplitude and uniform parameter-dependent profile. This is a bounded best-of-knowledge decision with a significant inaccessible-prior-work risk for the two-state occupation problem.",
+      "residual_risks": [
+        "Highly relevant earlier two-state occupation-time articles could contain an explicit equivalent fixed-law asymptotic; their full text could not be lawfully retrieved in the routes tried.",
+        "The general local-limit result surfaced by search was not checked at theorem level. Neither keyword absence in the engine text nor failure of retrieval is evidence of absence.",
+        "The catalog comparison is bounded and two tangential entries were assessed from summaries only; it does not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same process and strong finite-time antecedent; no target limit in inspected passages",
+          "evidence": "The outgoing flip probabilities are p_j p_l and 1−(1−p_j)p_l. The exact generating functions and symmetric diffusive variance are prior. Net after erasure is different from gross work.",
+          "identifier_or_url": "https://arxiv.org/html/2410.18783v1",
+          "material_read": "HTML offsets 6000–11199, 13900–19395 (equations (6)–(12)), 19600–22386 (erasure cost), supplementary slice 47700–52625",
+          "method": "Targeted primary HTML text by offsets",
+          "title": "Run-and-tumble exact work statistics in a lazy quantum measurement engine: stochastic information processing",
+          "trigger": "Same physical protocol, kernel and exact work propagators"
+        },
+        {
+          "assessment": "Generic same-state framework and finite counts; example asymptotics target a different observable",
+          "evidence": "Equation (54) fixes the number of 1→2 jumps, not time spent in 1; equations (60)–(61) show exact path/cycle occupation-transition combinatorics from which the finite return count can be extracted.",
+          "identifier_or_url": "https://arxiv.org/html/2201.00582v2",
+          "material_read": "§I around offsets 8969–9700 and §IV offsets 55120–62375, equations (53)–(61)",
+          "method": "Located and read relevant bounded HTML passage",
+          "title": "Graph-combinatorial approach for large deviations of Markov chains",
+          "trigger": "Strong broad prior framework and general asymmetric two-state example"
+        },
+        {
+          "assessment": "Credited exact finite occupation distribution from abstract; scope of asymptotics not determined",
+          "evidence": "Abstract explicitly states results for the number of visits to j in (1,n] given state i at time zero.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0166218X8090044X",
+          "material_read": "Search-displayed abstract only; full text not accessible in attempted routes",
+          "method": "Tried lawful direct/VPN retrieval from publisher and the identified Academia copy at /109067841/Occupation_times_for_two_state_Markov_chains; HTTP 403",
+          "title": "Occupation times for two-state Markov chains (1980)",
+          "trigger": "Exact alias of the two-state event with specified initial sign"
+        },
+        {
+          "assessment": "Highly relevant; insufficient material to compare exact limit",
+          "evidence": "The extract specifies two ergodic states with discrete times 0,1,…,n.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/occupation-times-for-two-state-markov-chains/56F185834F728581DE0C958E9FE3C850",
+          "material_read": "Search-displayed extract, not full article",
+          "method": "Publisher route and VPN attempted; no readable linked OA copy",
+          "title": "Occupation times for two state Markov chains (Journal of Applied Probability)",
+          "trigger": "Same occupation problem under older terminology"
+        },
+        {
+          "assessment": "Different process and observable",
+          "evidence": "Continuous-time exchange-current tilt and large-deviation function, not the discrete emitted-sign occupation local limit.",
+          "identifier_or_url": "https://arxiv.org/html/1404.3479v1",
+          "material_read": "Sections 2–3, HTML offsets 0–4999 and 10800–14269",
+          "method": "Targeted primary text",
+          "title": "Fluctuation symmetry in a two-state Markov model",
+          "trigger": "Two-state fluctuation theory cited in the submission"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A mean or a variance does not quantify the cycle probability of zero gross extraction once feedback is weak but nonzero. The precise parity-sensitive probability and near-symmetric crossover quantify the change from polynomial to exponentially small returns on the natural (1−q)⁻² scale. The explicit driven kernel interprets the balanced-work trajectories within the stated entropy minimization, without pretending to determine cost-adjusted work or general conditional path limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

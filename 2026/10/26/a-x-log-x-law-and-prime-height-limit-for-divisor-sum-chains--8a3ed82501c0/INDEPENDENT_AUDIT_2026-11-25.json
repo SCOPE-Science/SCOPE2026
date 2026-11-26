@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:13:39.550563Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct primes p<q, only the two middle divisor sums p+1 and q+1 need testing for comparability. The chain condition is q=-1 modulo p+1; the only positive integer in that class at most p is p itself. The fixed-modulus prime number theorem therefore gives the displayed fixed-p main term, also at tX for each fixed t>0. For p<=X^(1/3), the Brun–Titchmarsh logarithm is at least (log X)/3-log(1+X^(-1/3)), giving the stated bound with 7 eventually. Above the split, counting q=p+j(p+1), j>=1, gives at most X/[p(p+1)] per p, hence O(X^(2/3)) even summing over all integer p in the upper range. The elementary bound phi(m)>=sqrt(m/2) follows from the prime-power formula (the factor phi(l^e)^2/l^e is at least 1 except at l^e=2), giving a summable dominating prime series in the lower range. This justifies the total asymptotic, not just its finite truncations. The fixed-p counts at tX give the limiting rectangles, with t=0 automatic and tightness supplied by the same tail bound. Landau's two-factor asymptotic gives the proportion since squares are negligible and a fixed finite list of least primes contributes only O(X/log X) in the unrestricted set. The supporting numerical checks were inspected, not run, and do not establish any asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koukoulopoulos counts shifted primes that have some divisor in an interval and gives bounds, including an order-x/log x lower bound in a particular interval regime, not a weighted ordered-prime-pair asymptotic.",
+          "The local progression theorem adds a prescribed pq residue modulo fixed m to the condition p dividing q-1."
+        ],
+        "reasoning": "An existence-of-divisor count forgets multiplicity, a prime-minus-shift constraint on the divisor, and the product cutoff. A refinement still restricted to p dividing q-1 does not cover the chain condition.",
+        "searches": [
+          "Koukoulopoulos, arXiv:0905.0163, abstract/intro and Theorem 1.4",
+          "Resultary 2026/10/25/SCOPE-exact-progression-laws-and-forbidden-classes-for-noncyclic-squar--39c9627fba81"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected)",
+        "Huber, arXiv:2610.02264, Proposition 2.6",
+        "Koukoulopoulos, arXiv:0905.0163, abstract/introduction and Theorem 1.4",
+        "The two Resultary records identified in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huber determines the family, while the fixed-modulus theorem gives its single-p contributions. A tail estimate for the growing moduli is needed to pass to the total and to the normalized masses. Neither the analogous fixed-p term 1/[p(p-1)] nor Landau's unconditioned asymptotic supplies that estimate for the chain family."
+        ],
+        "reasoning": "The analytic ingredients and proof pattern are standard, but the inspected prior statements do not imply the weighted aggregate for this population by specializing an existing result. Given the aggregate and fixed-prime counts, the height law does follow directly by scaling.",
+        "searches": [
+          "Huber Proposition 2.6",
+          "Resultary 2026/10/12/SCOPE-the-exceptional-law-for-noncyclic-squarefree-semiprimes--05d9813b37ff, Finding and fixed-prime term",
+          "Fixed-modulus prime number theorem, Brun–Titchmarsh, and Landau as used in RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huber's proposition gives width one for p+1 dividing q+1 and width two otherwise; this is precisely the reduction used here.",
+          "The nearest Resultary exceptional law uses p dividing q-1. For instance 3*11 is in the chain class but not in that exceptional class."
+        ],
+        "reasoning": "Rephrasing the divisor-sum condition as a congruence is known and gets no originality credit. Replacing it by p dividing q-1 changes the family, not just its notation.",
+        "searches": [
+          "Huber, arXiv:2610.02264, Proposition 2.6",
+          "Resultary comparisons of divisor-sum chains and exceptional semiprime progression laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The explicit constant in the October 12 indexed record is sum_p 1/[p(p-1)], not sum_p 1/[p phi(p+1)]. The October 25 record gives constants for fixed progressions in that other class. Huber tabulates the two width cases, not their densities."
+        ],
+        "reasoning": "No inspected entry gives the constant or joint law for the same population. A finite list of width values would not certify the limiting distribution.",
+        "searches": [
+          "Resultary shifts and squarefree-semiprime counting records",
+          "Huber Proposition 2.6 and its displayed width cases",
+          "Public literature lookup for the counting and prime-height law (no useful hits returned)"
+        ]
+      },
+      "rationale": "The chain criterion is exactly Huber's; the result being credited is the aggregate asymptotic and the limiting least-prime mass for that criterion. The height law is a useful consequence of these asymptotics, not a separate prime-distribution breakthrough. The strongest indexed analogues count different congruences and do not supply this law, although the summation method is closely analogous.",
+      "residual_risks": [
+        "The general public query yielded no useful sources and carries no negative evidentiary weight. An uninspected general theorem on suitably weighted shifted-prime pairs might cover this asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the chain criterion, not the credited asymptotic",
+          "evidence": "Width one iff p+1 divides q+1, otherwise two.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.02264",
+          "material_read": "Proposition 2.6, PDF p. 3 (text offset about 8395)",
+          "method": "Bounded OA PDF passage",
+          "title": "Antichains among Divisor Sums of Divisors",
+          "trigger": "Exact divisor-sum-chain criterion"
+        },
+        {
+          "assessment": "Related bounds for a different counting statistic",
+          "evidence": "Counts shifted primes having some interval divisor; the inspected theorem gives a lower bound, not the ordered prime-pair law.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.0163",
+          "material_read": "Abstract/introduction on p. 1 and Theorem 1.4 on p. 3 (offset about 9660)",
+          "method": "Bounded OA PDF passages",
+          "title": "Divisors of shifted primes",
+          "trigger": "Possible stronger shifted-prime count"
+        },
+        {
+          "assessment": "Same counting pattern, different set and constant",
+          "evidence": "p divides q-1 and the weights are 1/[p(p-1)].",
+          "identifier_or_url": "2026/10/12/SCOPE-the-exceptional-law-for-noncyclic-squarefree-semiprimes--05d9813b37ff",
+          "material_read": "Finding and fixed-prime formula (offsets about 192 and 1980)",
+          "method": "Local mirror passages",
+          "title": "The exceptional law for noncyclic squarefree semiprimes",
+          "trigger": "Strongly analogous exceptional semiprime law"
+        },
+        {
+          "assessment": "Refines the other exceptional class",
+          "evidence": "p divides q-1 remains a requirement; pq is further constrained modulo a fixed m.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-progression-laws-and-forbidden-classes-for-noncyclic-squar--39c9627fba81",
+          "material_read": "Finding and progression assumptions (offsets about 152, 891 and 1181)",
+          "method": "Local mirror passages",
+          "title": "Exact progression laws and forbidden classes for noncyclic squarefree semiprimes",
+          "trigger": "Potentially more general progression result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a quantitative law for a natural poset condition already singled out in prior work. It identifies the rarity scale among semiprimes and an explicit tight least-prime population, in contrast to the diverging least prime under uniform unrestricted sampling. The aggregate requires controlling primes beyond every fixed cutoff; the value is in that law and its concrete conditional mass, not in the known congruence test or an arbitrarily selected case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

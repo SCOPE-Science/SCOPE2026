@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:24:36.637988Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–34, 39 and 43–85; VERIFICATION.md, direct_output.txt, distribution_output.txt, and accompanying checkers inspected, not executed.",
+        "Independent reproduction: python3 /workspace/reproduction/check.py 1; stdout /workspace/reproduction/1.txt. Exhaustive rank-profile deletion for layered sources through n=12, all permutations checked for pattern avoidance through n=7, and exact finite cut-covariance checks."
+      ],
+      "rationale": "Directly in the layer composition, deleting in a part larger than one decreases its size by one, giving distinct vectors of unchanged part count. Deleting a singleton gives one fewer part; deleting two different singleton positions yields the same vector exactly when all parts from one to the other are singletons. Thus the statistic counts long parts plus runs of singleton parts. The two-component sequence GF gives the stated rational function; normalization is by 2^(n-1). A j-component sequence needs length at least j+floor(j/2); the minimal alternating construction can absorb any surplus, and at the maximum the slack is at most one. Separating the zero-slack placements and the one-unit surpluses gives the three residue counts, including n=1,2. Independent fair cuts give summands X_i(1-X_{i-1}X_{i+1}); summing the boundary and interior covariances gives 7(n-1)/64 for n>=5, with the small cases checked separately. Two gaps between retained blocks of size floor(n^(1/3)) make the block sums independent; the removed centered sum has variance o(n) by two-dependence, so the retained variance is asymptotic to 7n/64. The uniform block bound is o(sqrt(n)), giving Lindeberg and the claimed CLT.",
+      "residual_risks": [
+        "The computation corroborates finite cases, not the infinite limit; the latter follows from the blocking argument. The statistic counts distinct standardized outputs, not deletion positions or an output distribution under a random deletion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homberger aggregates bond counts over S_n; Wu et al. formalize relative-rank deletion and study systematic codes."
+        ],
+        "reasoning": "The S_n marginal lacks the joint count with the avoidance event; the code setting likewise does not give it. Neither dictates the patterned-source frequencies or limiting constants.",
+        "searches": [
+          "Homberger §4, pp. 4–5",
+          "Wu et al., arXiv:2609.37578, pp. 1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and cited comparison; primary Homberger, Wu et al. and Kabela et al.; distinct Resultary mirror statements identified above."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior pointwise theorem identifies the counted statistic but not the law of alternating components or its residue-dependent extrema. The two mirror generating functions refer to distinct source classes.",
+          "The largest layered volumes need a minimum-length composition argument; an unrestricted extremal value does not count layered maximizers."
+        ],
+        "reasoning": "The exact conditional GF and extremal counts do not follow as substitutions into the inspected distribution laws. The resulting moments and Gaussian limit are consequences of the new conditioned analysis, not a claim of a new general limit method.",
+        "searches": [
+          "Homberger, arXiv:1211.7117, Theorem 6 and §4",
+          "Closest 132/321 mirror RESULT.md findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Homberger proves V=n−C for bonds C; the layer structure in Kabela et al. is the 231,312-avoidance formulation.",
+          "The exact local equivalent in cuts counts endpoints of the singleton-run correction through X_i(1−X_{i-1}X_{i+1})."
+        ],
+        "reasoning": "The bond identity is prior, not independent new coverage. Applying it pointwise does not give a prior probability law for the uniform composition measure.",
+        "searches": [
+          "Resultary: layered permutations, standardized deletion sphere/reconstruction spectrum, adjacent value bonds",
+          "Homberger, arXiv:1211.7117, Theorem 6 and §4",
+          "Kabela et al., arXiv:2110.01723, abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 132 record gives a quadratic GF and Gaussian law for a different class; the 321 record gives a joint ascending/descending bond law and Gaussian limit in a different class. The homogeneous layered record counts extension types rather than standardized descendants."
+        ],
+        "reasoning": "Same-channel analogues in other permutation classes do not tabulate the conditional layered law; the same-day indexing does not establish priority or decide equivalence.",
+        "searches": [
+          "Resultary mirror: SCOPE-algebraic-one-deletion-reconstruction-spectrum-law-for-132-avoid--89e00cc30dc1",
+          "Resultary mirror: SCOPE-two-scale-one-deletion-diversity-in-321-avoiding-permutations--98cd630b2ea9",
+          "Resultary mirror: SCOPE-all-arity-type-spectrum-blindness-in-homogeneous-layered-permuta--15800c005594"
+        ]
+      },
+      "rationale": "Credit the general deletion-bond identity and the established layered class. The supported distinct claim is the conditional exact law, sharp extremal counts and associated moments and normal limit in Av(231,312), not the general identity or the PID channel. Neither the unrestricted theorem nor the closest same-channel indexed records supplies that specialization.",
+      "residual_risks": [
+        "The broad web lookup was nonresponsive; it provides no negative evidence. Retrieval of Bevan–Homberger–Tenner arXiv:1608.06931 on unrestricted maximal deletion diversity timed out, so no primary-passage conclusion is drawn about that paper. Unindexed equivalent layered-composition enumerations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior pointwise identity and unrestricted distribution; no implication of the conditional law in the checked passages",
+          "evidence": "Theorem 6 gives n minus adjacent consecutive-value bonds; §4 chooses a random full S_n permutation.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.7117",
+          "material_read": "PDF Theorem 6 p. 4; §4 pp. 4–5, text offsets 12250 and 14200–18320",
+          "method": "OA primary PDF text",
+          "title": "Counting Fixed-Length Permutation Patterns",
+          "trigger": "Exact same distinct-deletion statistic"
+        },
+        {
+          "assessment": "Same channel and type of law, different source class",
+          "evidence": "The quadratic bond GF and limit are on Av(132), not conditioned further on Av(231,312).",
+          "identifier_or_url": "2026/11/22/SCOPE-algebraic-one-deletion-reconstruction-spectrum-law-for-132-avoid--89e00cc30dc1",
+          "material_read": "RESULT.md Finding, offset 0; relationship section, offset 8472",
+          "method": "Local Resultary GitHub mirror",
+          "title": "Algebraic one-deletion reconstruction-spectrum law for 132-avoiding permutations",
+          "trigger": "Strongest distinct indexed exact spectrum"
+        },
+        {
+          "assessment": "Analogue in another class",
+          "evidence": "Joint ascending/descending bonds and a Gaussian limit for Av(321); that class does not enumerate the general layered source with long decreasing blocks.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-scale-one-deletion-diversity-in-321-avoiding-permutations--98cd630b2ea9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary GitHub mirror",
+          "title": "Two-scale one-deletion diversity in 321-avoiding permutations",
+          "trigger": "Strong indexed same-channel limit law"
+        },
+        {
+          "assessment": "Different counted object",
+          "evidence": "Extension types rather than one-deletion descendant volume.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-arity-type-spectrum-blindness-in-homogeneous-layered-permuta--15800c005594",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary GitHub mirror",
+          "title": "All-arity type-spectrum blindness in homogeneous layered permutations",
+          "trigger": "Indexed layered-class spectrum"
+        },
+        {
+          "assessment": "Channel and coding context",
+          "evidence": "Systematic-code problem, no conditioned enumerator in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37578",
+          "material_read": "PDF p. 1 and p. 3 definition, offset 15400",
+          "method": "OA primary PDF text",
+          "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions",
+          "trigger": "Same rank-standardized deletion model"
+        },
+        {
+          "assessment": "Source-class identity, not this statistic",
+          "evidence": "Identifies layered permutations with 231,312 avoidance and asks about pattern density.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.01723",
+          "material_read": "PDF p. 1 abstract, offset 350",
+          "method": "OA primary PDF text",
+          "title": "Density maximizers of layered permutations",
+          "trigger": "Alias for the source class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35 and 93–101; Homberger §4 for the unrestricted contrast."
+      ],
+      "rationale": "An all-length law for a natural hereditary source measures the spread of ambiguity after rank-order deletion, not merely the size of the language. It separates the typical layered volume near 3n/8 from nearly n for the unrestricted source, quantifies fluctuations and gives exact finite-block frequencies and extreme multiplicities. The result is useful even though it does not solve a code-packing problem.",
+      "residual_risks": [
+        "Value is limited to this uniform class and one deletion; no code capacity, decoding benefit or multi-deletion result was established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

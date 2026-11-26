@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification of the sharp viability theorem
+# Independent mathematical audit
 
-The source's three polynomial differential equations are transcribed in `RESULT.md`. For all nonnegative species densities, the coordinate hyperplanes are invariant. At full habitat occupancy, the exactly derived free-space derivative is
+## correctness
 
-\[
-\dot s=(1-\alpha)p+\varepsilon\beta q+\xi r+(1-\varepsilon)pq-(1-\eta)pr-(\delta-\varepsilon\gamma)qr.
-\]
+PASS
 
-Fixing the parasite density, concavity in the prey/predator allocation gives an exact two-edge minimum. Each edge flux is nonnegative precisely under its displayed square-root inequality; this establishes the full real-parameter theorem including boundary equality, not just a numerical test. Failure gives an outward-pointing initial state; success gives global invariance on a compact simplex.
+The original equations (6)–(7) preserve coordinate faces; all free-space benefit terms vanish at p+q+r=1. The remaining inward flux is (1−α)p+εβq+ξr+(1−ε)pq−(1−η)pr−(δ−εγ)qr. At (1,0,0) this forces α≤1. For fixed r the flux is concave in p, including the affine case ε=1, so a global minimum lies on p=0 or q=0. On either edge, writing u for the non-parasite fraction, the two mortality contributions divided by u(1−u) are d_i/(1−u)+ξ/u. Their infimum is (√d_i+√ξ)² by Cauchy–Schwarz, with the endpoint limit included when d_i=0. The edge endpoints are already inward or tangent, and strict violation yields negative flux at an interior edge point. The polytope tangent-cone criterion applies to this locally Lipschitz field, and compactness supplies global existence; a strictly negative flux gives immediate exit from the boundary. At the source parameters d_P=0, e_P=9/10 and the other edge satisfies the threshold at ξ=9/10 since (129/100−2/25−9/10)²=961/10000≤36/125=4(2/25)(9/10). Monotonicity and the prey edge establish the cutoff. Independent exact rational substitution directly into the three species equations returned ds/dt=−39/1000 and −1529/50000 at the two printed witnesses. The frozen verifier was inspected, not run. Contrary to the ancillary description in RESULT.md, it asserts only the first witness and computes an equivalent reduced flux rather than independently summing the original three equations. Its finite tests cannot certify the real-parameter theorem; the analytical proof and independent witness checks do not depend on that description.
 
-`python3 verify.py` was run from the package staging directory. It reported:
+## originality
 
-```text
-EXACT_CHECK_OK 5000 parameter tuples, 3222 inward and 1778 outward; boundary grid evaluations: 330000
-Source reference outward flux: -39/1000
-Source reference sharp xi cutoff: 9/10
-```
+PASS
 
-The script uses `fractions.Fraction` to test 5,000 rational coefficient tuples, exact edge minimizers, 330,000 full-occupancy grid points and source-parameter threshold/witness cases. Finite cases cannot certify an infinite family. The proof in `RESULT.md` provides the unbounded quantifier argument. No numerical simulation is used to claim the existence of an impossible trajectory or of a global attractor.
+The same model, numerical examples, and general mathematical tools are prior. The inspected original article describes physically meaningful starting states and boundedness of selected trajectories, not an all-start equivalent parameter test. Other inspected ecological models and indexed findings differ in their interaction coefficients or domain. The edge reduction, two sharp thresholds, and source-specific all-start cutoff distinguish the claim.
 
-Independent audit and independent validation have not been performed. A residual literature-priority risk remains because unlocated specialized results may exist.
+## value
+
+PASS
+
+For a published ecological model, a sharp all-start threshold tests whether the physical domain assumed by the model is actually respected. The source's standard parameter choice fails it, even at a strictly positive three-species boundary point. The exact reduction to two edges makes the criterion practical and explains why no interior full-occupancy minimization is needed. This is a domain-of-validity result, not a restatement of coordinate positivity or simulated boundedness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

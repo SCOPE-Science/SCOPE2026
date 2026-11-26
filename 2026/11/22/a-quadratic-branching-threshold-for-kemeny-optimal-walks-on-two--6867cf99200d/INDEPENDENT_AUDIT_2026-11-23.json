@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:17:29.525581Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md, Proof §§1–4; inspected METADATA.json, SLOGAN.txt, REVIEW.md, AUDIT.json, VERIFICATION.md and verify.py as frozen evidence. The bundled inversion and sampled designs use floating-point diagnostics, not exact proofs of the optimum.",
+        "Independent exact-arithmetic frontier signs for 2≤k≤100 and representative rational boundary cost sums; replay derivations and ranges: /workspace/branches/7c3a6153-3e75-43ff-8bbd-86d7a0d51a3e/check.md. The frozen verifier was not run. Universal coverage comes from the cut/convexity argument and adjacent-integer identities."
+      ],
+      "rationale": "For a symmetric irreducible chain, L=I-P is the weighted Laplacian, including when P is periodic. Summing effective resistances over unordered pairs gives N tr(L^+), and deleting a tree edge puts exactly s(N-s) pairs across it. Each edge must be positive for irreducibility; a sublevel of the resulting sum of positive reciprocal terms bounds every edge away from zero. The row-capacity polytope is bounded and the positive-edge objective strictly convex, so a minimizer exists and is unique before imposing orbit symmetry. The automorphisms then force the two weights x,y. Leaf capacity is slack since y=(1-x)/m<1; this saturation of each child's capacity minimizes cost for fixed x. Minimizing A/x+B/(1-x) on (0,1/k] gives the stated weights and branch costs. The sign controlling strict root holding is F_k(m); its negative constant term gives exactly one positive zero. At t=k²-3k+4 the values F_k(t)=4, F_k(t-1)=3-kt<0 straddle that zero, including k=2 where t=2. No integer tie occurs. For R=m sqrt(b/a), (R/k)^2=m²/[k((k-1)m+k)]→rho, giving the stated crossover even at rho=1. At fixed k the interior cost and equal-edge cost are asymptotic to km² and (2k-1)m², respectively, and the common step 1/(m+1) is feasible once m+1≥k. The one-unit target convention causes no shift in the displayed formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel et al., Problem 1, Theorem 4 and the SDP formulation give the general prescribed-stationary reversible optimization and its convexity.",
+          "Durastante et al. preserve a specified stationary law and sparsity pattern, focusing on perturbation feasibility and algorithms. Zeng's input fixes a multiset of edge weights and its walk has degree-proportional stationary law."
+        ],
+        "reasoning": "General convex formulation covers the optimization model, not the location of its family-specific active-set threshold; Zeng's shape extremization changes the wrong variables and stationary law.",
+        "searches": [
+          "Patel–Agharkar–Bullo DOI 10.1109/TAC.2015.2426317",
+          "Durastante–Gnazzo–Meini DOI 10.1007/s10543-026-01152-6",
+          "Zeng arXiv:2109.09249"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1109/TAC.2015.2426317",
+        "arXiv:2109.09249",
+        "doi:10.1007/s10543-026-01152-6",
+        "arXiv:2503.13382",
+        "Resultary beaabd41094a",
+        "Resultary bdd8dd3206e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree formula determines the objective, not which row cap binds. The equations F_k(t)=4 and F_k(t-1)=3-kt and the uniform scaling of the minimizer are not outputs of the cited convexity/SDP theorem or of the two sibling tree formulas."
+        ],
+        "reasoning": "A general solver could recover particular numerical optimizers, but an all-k exact integer transition, no ties and the scaling claim require the additional derivation in the finding.",
+        "searches": [
+          "Patel et al., Problem 1 and Theorem 4",
+          "Durastante et al., fixed-pattern reversible formulation",
+          "Resultary double-star and three-generation two-bough results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day double-star record solves A/(1-z)+B/z with z on the single edge joining two hubs; both hubs are saturated. Subdividing that edge introduces a new degree-two vertex and new cut coefficients and capacities; it does not transfer the double-star solution, even when k=2.",
+          "The same-day three-generation two-bough record has three edge orbits, two top branches, and terminal branching at a third depth; its assumptions m,ℓ≥2 do not permit deleting the bottom generation. It derives different active sets and does not cover arbitrary k here."
+        ],
+        "reasoning": "Aliasing as a rooted depth-two tree or, for k=2, a subdivided double star does not identify its feasible design with those studied in the nearest records.",
+        "searches": [
+          "Kemeny constant optimal symmetric stochastic walk balanced rooted trees two-level trees conductance row capacity closed form branching threshold convex design",
+          "Resultary: Kemeny minimization symmetric stochastic two level tree root integer branching threshold conductance double star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary item is the same frozen finding, not independent antecedent evidence. Adjacent entries concern double stars, deeper rooted trees, or other invariants. arXiv:2503.13382 studies Kemeny approximation from spectral sparsifiers rather than optimizing free holding on fixed two-level trees."
+        ],
+        "reasoning": "No separate indexed exact threshold/table was identified; this check addresses a symbolic family rather than numerically re-evaluating Kemeny constants of prescribed walks.",
+        "searches": [
+          "Resultary: Kemeny minimization symmetric stochastic two level tree root integer branching threshold conductance double star",
+          "Kemeny constant optimal symmetric stochastic walk balanced rooted trees two-level trees conductance row capacity closed form branching threshold convex design"
+        ]
+      },
+      "rationale": "The design objective, prescribed-stationary reversible formulation, and tree resistance identity are not new. What survives comparison is the explicit unique optimizer with its exact no-tie integer holding cutoff and quantitative limits on this two-generation family. No inspected source mechanically supplies that cutoff or its consequences; the result adds a family-specific capacity and integer-sign calculation.",
+      "residual_risks": [
+        "Equivalent closed forms in graph-family or electrical-network literature under other names are possible.",
+        "Same-day corpus comparisons do not establish a within-day priority ordering; no worldwide priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers formulation and convexity, not the claimed closed form in inspected material.",
+          "evidence": [
+            "Theorem 4 gives convexity on irreducible reversible matrices of fixed stationary law; Problem 2 represents the optimization by an SDP."
+          ],
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "Author abstract and Problem 1/Theorem 4/Problem 2 passage",
+          "method": "Lawful author PDF full-text excerpts",
+          "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+          "trigger": "Potentially covering general Kemeny design"
+        },
+        {
+          "assessment": "Different design variables and stationary normalization.",
+          "evidence": [
+            "The walk uses the edge weights normalized by weighted degree; Theorem 1.3 ranges over trees with a fixed edge-weight multiset."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2109.09249",
+          "material_read": "Introduction, random-walk definition, Theorem 1.3 setting",
+          "method": "OA arXiv HTML",
+          "title": "On average hitting time and Kemeny's constant for weighted trees",
+          "trigger": "Possible stronger tree extremization"
+        },
+        {
+          "assessment": "General framework, not an explicit branching cutoff in inspected material.",
+          "evidence": [
+            "The paper restricts perturbations to reversible chains sharing a prescribed stationary distribution and a sparsity pattern."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "Abstract, reversible setup, fixed-pattern perturbation passage with Proposition 2",
+          "method": "Publisher OA PDF",
+          "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Broader fixed-pattern optimization"
+        },
+        {
+          "assessment": "Similar proof device, different cut coefficients and no root cap.",
+          "evidence": [
+            "One bridge joins the adjacent hubs and the leaf weight on each side uses remaining capacity 1-z."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-kemeny-optimal-double-star-walks-and-an-exact-reversal-against-f--beaabd41094a",
+          "material_read": "Finding and bridge cut/saturation derivation",
+          "method": "Resultary local mirror full-text passages",
+          "title": "Kemeny-optimal double-star walks and an exact reversal against fastest mixing",
+          "trigger": "Closest two-orbit radical optimization"
+        },
+        {
+          "assessment": "Overlapping method but different feasible family.",
+          "evidence": [
+            "Three edge levels with two top branches and positive lower branching; root and depth-one holds exchange roles at cutoffs near 4m²."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-quadratic-three-phase-holding-law-for-kemeny-optimal-walks-on--bdd8dd3206e0",
+          "material_read": "Definition and exact three-phase statement",
+          "method": "Resultary local mirror full text",
+          "title": "A quadratic three-phase holding law for Kemeny-optimal walks on three-generation two-bough trees",
+          "trigger": "Potential stronger same-object phase classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first branching tree with repeatable identical depth-one branches is a natural test of where a free-holding uniform-stationary design spends capacity. The exact integer location and the distinct quadratic scaling profile answer a design question that a generic convexity result does not; the equal-edge ratio gives a nonvanishing comparison to a standard feasible allocation. This is not a claim about faster mixing or about arbitrary tree designs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

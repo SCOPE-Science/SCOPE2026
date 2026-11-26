@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Symmetry and the test valuation \(V(p)=\{w\}\) make the local criterion necessary; a singleton-successor witness makes it sufficient for both possible truth values at the root. Propagating this criterion to the witness yields the global involution normal form. The labelled counts follow from disjoint singleton/two-cycle decomposition and rooted inclusion-exclusion. The sparse law follows from exact factorial moments. The checker independently enumerates valuations and adjacency matrices, then verifies the claimed counts; its bounded tests are not substituted for infinite proofs.
+## correctness
 
-**Originality — PASS within checked literature.** Van Benthem–ten Cate–Yang (arXiv:2603.12171, Section 5.4) prove unrestricted finite-frame coNP-completeness, but do not treat the symmetric correspondence or rooted random-graph incidence. Chen–Ma (DOI:10.1007/s11225-024-10145-x, Sections 2–3) establish local correspondence only on weakly transitive frames; their result is acknowledged as broader in its own restricted domain. The present local criterion includes symmetric frames not assumed weakly transitive. Targeted source and mathematical-result searches did not uncover an equivalent symmetry-specific theorem, though non-discovery does not establish priority. The involution numbers and Poisson calculation techniques are classical and not independently claimed original.
+PASS
 
-**Value — PASS.** This is a motivated exact boundary for a high-complexity modal correspondence problem: one natural axiom of symmetry converts a non-first-order, coNP-complete unrestricted frame-validity test into a local first-order criterion and a full global structural classification. It also gives exact rooted finite counts and a nonmonotone sparse random-frame validity law with a unique optimal mean-degree scale. The result addresses modal semantics and finite-model testing, not an arbitrarily selected graph statistic.
+At a root w, any u with wRu and R(u)={w} either refutes the antecedent or witnesses the consequent, according to the truth value at w. Conversely, set p true only at w. Symmetry makes the antecedent true and the consequent true exactly if there is such a u; an isolated root fails because the antecedent is vacuous and the consequent false. No finiteness is needed. At a witness u in a globally validating frame, w is the only possible return witness, forcing R(w)={u}; this gives involution components including singleton loops. Pairing exactly 2j labels gives the involution counts. A constant-across-endpoints valuation on a two-cycle simulates each loop valuation, and evaluating both modalities at the unique partner gives the two-endpoint Boolean translation. Fixing r putative leaves forces their root edges and forbids r(n−2)−binom(r,2) other edges, leaving binom(n−r,2) free edges. This proves both exact inclusion-exclusion sums. The resulting ordered-tuple moments converge to (ce^(−c))^r for every fixed r; Poisson moment determinacy yields convergence in law, which at the event threshold 1/2 gives the stated positive-count limit. Its sole optimum is c=1, without a claim about finite-n optimizers. Independent bounded checks tested direct valuations on 1098 symmetric frames and rooted graph counts through n=6 (0,1,3,19,215,4551; python3 /workspace/evidence/review_checks.py 5); the proofs establish the unbounded claims.
 
-Closest inspected work: van Benthem–ten Cate–Yang (2026, full accessible HTML, Section 5.4); Chen–Ma (2024/2025, lawful institutional repository PDF, introduction and Sections 2–3); Goldblatt (1991, abstract/background only). Residual risk: possible older correspondence descriptions specialized to symmetric accessibility, and graph-theory literature on pendant-neighbor probability. All formula complexity reductions are to the two-cycle and no general random-graph concentration claim is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported result is the pointwise symmetry-only correspondence, with its identification of an exact fixed-root random-graph validity event. The classical involution sequence and the Poisson thinning calculation are not independently claimed new. Prior weakly transitive correspondence and sparse directed validity concern different hypotheses or events.
+
+## value
+
+PASS
+
+A natural frame restriction collapses a difficult universal-valuation property to a pointwise first-order test, with a complete global structural classification and a two-world test frame. Interpreting the test as a pendant-neighbor event gives exact rooted incidence and a nonmonotone, sharply maximized sparse validity profile. The value is in this logical and probabilistic connection, not new involution numbers or a new Poisson approximation technique.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

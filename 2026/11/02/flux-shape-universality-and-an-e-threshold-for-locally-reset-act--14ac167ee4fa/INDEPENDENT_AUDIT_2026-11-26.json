@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:40:03.764608Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The corrected result is /workspace/repairs/2/RESULT.md. The original general theorem follows under its hypotheses, but the displayed second current and four numerical examples have f''(0)=0, contrary to a literal all-domain f''<0 reading. The repair specifies strict curvature on the open gas density interval, retaining a nondegenerate interior peak and f'(0)>0; the verification script and scientific notes remain applicable, unaltered. Re-derived under the corrected assumptions: summing and subtracting gives S'=-rρ and R'=−(r+α)σ. With c=√(r/(r+α)), D=S−cR satisfies D'=(Λ/v)D; its absolute value cannot decrease in the positive-speed tail, so decay sets it to zero and flux continuity and ODE uniqueness preserve zero in the core. Hence R'=-Λρ and R is Λ times remaining rightward tail mass, with R(0+)=MΛ/2. Reflection yields jumps of ±rM/2 in the two directional transport fluxes, exactly cancelling the two resetting sources. The increasing-branch inverse exists out to infinity since f'(0)>0, and monotonicity prevents a decreasing-current-side gas tail. Peak equality gives a continuous cusp but a well-defined flux and weak gas solution; Taylor expansion at the peak gives the claimed origin-density fold. Interface flux J sets tail mass J/Λ and fixes the lower gas root; the linear dense current yields exponential density and a core iff MΛ/2>J. The derivative of (log t)/t changes only at e for t>1, so the strict coexistence comparisons, including upper equality, and the mass fraction follow. The two examples have maxima 2 and 16/(3√3) by differentiation, on opposite sides of e for common J=1; both now satisfy the stated curvature condition. No dynamical conclusion is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c82a3ef3fe29 proves gas-independent geometry from matched flux for general dense currents; its p=1 case gives precisely the logarithmic width, normalized optimum e and the stated gas mass. It only samples the gas current up to the matched interface density. 87cfaf099ebd gives gas-mass invariance for distinct tumble rates across phases with linear gas motility and width depending on dense tumbling."
+        ],
+        "reasoning": "The former covers the repaired droplet formulas regardless of how its dated path is interpreted. Fixing a lower gas matching root does not classify existence of a gas-only stationary branch above that root, nor its peak fold. The two-rate work generalizes a different parameter and does not provide arbitrary-current comparison.",
+        "searches": [
+          "Resultary: arbitrary strictly concave gas current universal droplet width locally resetting active particles",
+          "Resultary: gas-independent droplet geometry power-law optimal resetting constant dense speed"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT §§Finding, Model assumptions, Proof and Verification; VERIFICATION.md; verify.py",
+        "Repaired RESULT.md",
+        "Grange arXiv:2610.26149v1/v2",
+        "Resultary c82a3ef3fe29, 87cfaf099ebd, 87e6f4c012d9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grange's explicit origin density includes the square root and his gas cutoff plus width optimum implies the special-case e comparison. 87e6f4c012d9 uses that linear-law cutoff and analyzes a spatial cusp and information metrics, not the parametric generic fold."
+        ],
+        "reasoning": "The square-root exponent is routine once a nondegenerate peak is identified; the distinct comparison is that the same dense-arm optimum can lie on either side of the gas cutoff as the gas-current shape changes while controls stay fixed. It requires constructing and comparing both stationary branches over the general class, not asserting novelty for the exponent.",
+        "searches": [
+          "Resultary: square-root spinodal endpoint maximum current gas-only reset profile",
+          "Resultary: gas-only stationary branch current maximum local resetting density onset square-root",
+          "Grange v1 Eqs. (39)–(41); v2 Eqs. (41)–(45)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grange §2 defines R=vρ and S=vσ and derives the flux first integral. In his model u=v0/ρ_m, J=v0, χ=Λ/v0 and Fmax=v0ρ_m/4; the repaired sharp ratio reduces to the comparison ρ_m/4 versus e."
+        ],
+        "reasoning": "The physical parameter changes and first-integral repackaging are not novelty. The comparison is made over a function class, rather than rescaling a single normalized current.",
+        "searches": [
+          "Resultary: Grange 2610.26149 local stochastic resetting run-and-tumble",
+          "Web: local stochastic resetting run-and-tumble Grange 2610.26149 arbitrary concave current droplet width e threshold",
+          "Grange v2 §§2–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest exact formula source lists width, mass, optimum and a quadratic-law gas cutoff. No exact general-current branch table or joint classification was found among the retrieved records."
+        ],
+        "reasoning": "The question is a continuum classification, so matching a finite parameter table would at most give special cases; here the exact linear-law formulas are already direct coverage of those cases.",
+        "searches": [
+          "Resultary: Fmax/J=e threshold pure gas and dense droplet stationary branch resetting",
+          "Grange v2 Eqs. (33),(37),(38),(41)–(45)"
+        ]
+      },
+      "rationale": "Pass for the repaired joint stationary branch comparison over the current class, not for the first integral, width, optimum, or linear-law coexistence and fold taken in isolation. Grange already gives those in the specific linear-speed model, from which its special-case ratio boundary follows. A separate broader matched-flux theorem covers the dense geometry and e at constant dense speed but does not constrain a competing gas-branch peak. The general gas-cutoff proof and the independently variable relation to the universal optimum distinguish the corrected finding.",
+      "residual_risks": [
+        "A broader external stationary coexistence analysis could exist outside the bounded indexed search. Priority among dated same-day records is not inferred. The comparison assesses stationary existence, not stability signatures or observed transitions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial exact special-case coverage and first-integral precedent",
+          "evidence": "Linear gas speed v0(1−ρ/ρ_m); constant dense speed v0/ρ_m; logarithmic droplet size, maximizing reset rate, gas threshold and explicit square-root origin density. None of these special-case facts is credited as distinct.",
+          "identifier_or_url": "https://arxiv.org/html/2610.26149v2; arXiv:2610.26149v1",
+          "material_read": "v2 §2, Eqs. (1),(9)–(11), §§3.2–3.3 Eqs. (33)–(38), §§4.1–4.2 Eqs. (41)–(45); corresponding v1 width, mass and origin-density passages",
+          "method": "OA HTML with bounded section reads",
+          "title": "Motility-Induced Phase Separation of Run-and-Tumble Particles under Local Stochastic Resetting",
+          "trigger": "Exact kinetic model and special-case phase thresholds and optimum"
+        },
+        {
+          "assessment": "Broader direct droplet-formula overlap, no gas-only comparison",
+          "evidence": "General matched current fixes gas mass; b is an integral of dense current derivative divided by density. Its linear dense branch gives t*=e, but the gas domain ends at the matching density.",
+          "identifier_or_url": "2026/11/8/SCOPE-gas-independent-droplet-geometry-and-power-law-optimal-resetting--c82a3ef3fe29",
+          "material_read": "Finding, assumptions and proof, offsets 0–9010 across passages",
+          "method": "Local mirror",
+          "title": "Gas-independent droplet geometry and power-law optimal resetting in active matter",
+          "trigger": "General theorem with exact p=1 geometry and optimum"
+        },
+        {
+          "assessment": "Different extension, exact overlapping mass mechanism",
+          "evidence": "Grange-type linear gas slowdown and different gas/liquid reorientation rates; width changes with liquid rate and gas mass does not. No arbitrary-current peak classification; no same-date order assumed.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-rate-active-droplets-conserved-condensed-mass-and-a-singular--87cfaf099ebd",
+          "material_read": "Finding and theorem at offset 0",
+          "method": "Local mirror",
+          "title": "Two-rate active droplets: conserved condensed mass and a singular limit",
+          "trigger": "Same date and model with generalized kinetic rates"
+        },
+        {
+          "assessment": "Different fold-related observable in the linear model",
+          "evidence": "Spatial cusp as position tends to zero and associated information measures, rather than generic variation of the origin density with reset flux.",
+          "identifier_or_url": "2026/11/8/SCOPE-truncated-Pareto-position-scores-and-a-singular-location-informa--87e6f4c012d9",
+          "material_read": "Finding, assumptions and proof passages, offsets 0–4268 and 4500–8703",
+          "method": "Local mirror",
+          "title": "Truncated-Pareto position scores and a singular location information regime",
+          "trigger": "Square-root behavior near gas threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At fixed dense flux and kinetic controls, varying the gas shape leaves the optimal droplet size and mass partition unchanged but can switch whether a competing stationary gas state exists at that optimum. The explicit admissible pair isolates that effect, giving a sharp criterion usable to separate geometric optimization from branch availability. The claimed value does not rest on an isolated derivative calculation, a new name for the flux integral, or a claim of experimental hysteresis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

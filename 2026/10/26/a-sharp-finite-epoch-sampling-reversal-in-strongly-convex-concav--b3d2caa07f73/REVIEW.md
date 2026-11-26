@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two choices in reshuffling and four ordered IID choices are explicitly enumerated. Exact matrix products show cancellation of off-diagonal risk differences and give two factorized diagonal coefficients. In the stated interval \(0<h<1/b\), the second coefficient is strictly positive; the first has a unique zero \(h_*=2(b-a)/(2a(b-a)+c^2)\). The exact-rational example uses component-Lipschitz-admissible steps and strictly contractive component maps (positive-definite squared-norm defects). `verify.py` reproduces the universal symbolic factorization and 191 independent rational checks. This is an algebraic proof, not an inference from finite tests.
+## correctness
 
-## Originality — PASS (publication priority remains uncertain)
-The closest direct method is the simultaneous shuffled SGDA of Das–Schölkopf–Muehlebach (2022), which proves multi-epoch convergence-rate bounds rather than an exact comparison of RR and IID after two component uses. Cho–Yun (2022) also gives SGDA reshuffling convergence bounds; Emmanouilidis–Vidal–Loizou (2024) uses a different, extragradient map. De Sa (2020) proves known non-dominance examples for different, symmetric-matrix optimization constructions, and its small-step dominance result assumes symmetry; the present sharp two-component nonsymmetric saddle-risk law is not an implication. Liu (2026) treats convergence-rate domination for convex minimization, not this pointwise saddle-game risk. Mathematical-record and preceding-claim searches using reshuffling, two components, bilinear coupling, equivalent four-path matrix comparison, and noncommutative means found no covering result; this is not an assertion of global uniqueness.
+PASS
 
-## Value — PASS
-This exact boundary answers a motivated finite-budget stochastic minimax-design question left unresolved by convergence bounds: is reshuffling always at least as safe as independent sampling after one pass if all components share the saddle? It fails in the smallest nontrivial game and at arbitrarily small steps. The full direction-dependent risk matrix and sharp crossover show a non-obvious transition, even with strict individual-step contractivity, that a mere numerical counterexample would not explain. The result is intentionally restricted to the two-component quadratic family and squared Euclidean error.
+Use P=diag(u,v), u=1-ah, v=1-bh, and Q=P+K with K=tJ, t=ch, J the skew unit rotation. Uniform sampling yields four times the IID-minus-RR matrix as the sum of the Gram matrices of P² and Q² minus those of PQ and QP. Expand with A=P², B=PK, C=KP, E=K²=-t²I: Q²=A+B+C+E, PQ=A+B, QP=A+C. The surviving terms are 2AE+E²+B^TC+C^TB because B+C is skew; B^TC=C^TB=t²uvI. Thus 4D=t⁴I+2t²uvI-2t²P², giving the displayed polynomial. For 0<h<1/b the y coefficient is positive and the x coefficient has its only positive-step zero at h_*=2(b-a)/(2a(b-a)+c²). Its placement inside the interval is equivalent to c²>2(b-a)², with all-direction weak RR dominance at equality and strict away from the x axis there. Substitution at the three rational steps gives all the recorded diagonal entries. The example Frobenius bound sqrt(45)/2<4 ensures h<1/l at 1/10 and 1/4; the contraction defects have positive leading minors (for Q their determinants are 1421/40000 and 65/1024, respectively).
 
-## Limitations and priority risks
-The literature may contain an uncatalogued equivalent special-case identity. No claim is made about more than one epoch, other metrics, component counts or nonsimultaneous descent-ascent. The broader fact that reshuffling may underperform is already known; originality attaches to the exact saddle-family sign classification and crossover. No external scientific validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact common-saddle simultaneous-SGDA risk matrix and the sharp all-direction crossover for one uncoupled and one coupled component remain distinct after comparing the closest formulations. Credit earlier directional and step-size reversals in minimization and opposite-coupling saddle games as material related coverage; the generic possibility of reshuffling underperformance and the four-path expectation identity are not new claims.
+
+## value
+
+PASS
+
+This is a minimal and motivated test of whether common saddle, strong curvature and stable component maps suffice for a uniform finite-epoch sampling order. They do not even as h tends to zero. Moreover the exact cutoff and the same-instance contractive crossover show that increasing rather than decreasing the step can restore the desired pointwise ordering. That is a useful quantitative boundary, not just an arbitrary two-by-two multiplication or a claim of asymptotic superiority.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

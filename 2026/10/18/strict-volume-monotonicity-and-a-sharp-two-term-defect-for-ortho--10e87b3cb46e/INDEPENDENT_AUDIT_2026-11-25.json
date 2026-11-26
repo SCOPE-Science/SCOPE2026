@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:47:19.227594Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–83",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python /workspace/branches/independent_replay.py 2; series composition and integration-by-parts quadrature, including square and tricylinder checks"
+      ],
+      "rationale": "Partition away from null ties by the least absolute coordinate. Fixing the other k=n-1 coordinates y in the unit k-ball gives an interval of length 2 min|y_j|, because the strongest cylinder constraint omits the least coordinate. The homogeneous function m=min|y_j| has ball radial integral 1/n and Gaussian radial integral Γ(n/2)/2. Hence 2n times its ball integral equals 4/Γ(n/2) times its integral with weight exp(-|y|²) on R^k. Product integration and the layer-cake formula give the latter as π^(k/2) times the integral of erfc(t)^k. Dividing by κ_n gives the exact stated factor 2n/√π. With u=erf(t) this is E[f(U_n)] for f=exp((erf^{-1}u)^2) and U_n=1-W^(1/n) for uniform W. This coupling makes U_n strictly decrease and f strictly increases. Also 1<f(u)≤1/(1-u) for 0<u<1 by the shifted Gaussian tail, giving finite expectations and convergence to 1. At n=2 the body is the square and R_2=4/π. Writing x=√π u/2 gives erf^{-1}(u)=x+x³/3+O(x⁵), so f=1+x²+(7/6)x⁴+O(x⁶). The exact beta moments j!/[(n+1)…(n+j)] give both coefficients; restricting first to a fixed small interval gives an O(n^-6) local remainder and the tail bound gives exponentially small error on its complement. Finally min_i v_i²≤1/n, with equality for equal magnitudes, gives the claimed maximal radius and its distinct defect scale.",
+      "residual_risks": [
+        "Quadrature through selected n corroborates only those cases. No assertion for unequal radii or other cylinder families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The OEIS entries tie both reports to higher-dimensional coordinate-cylinder intersections. Official links timed out in direct and alternate configured retrieval; no identified authorized full text was read."
+        ],
+        "reasoning": "These are plausible same-family overarching sources, whose title and citation context do not resolve whether an arbitrary-dimensional integral, order or asymptotic was proved. No negative full-text conclusion is warranted.",
+        "searches": [
+          "Illinois Geometry Lab 2012 and 2013 reports on higher-dimensional intersecting cylinders; official links and lawful-copy lookup",
+          "OEIS A349579 and A349580 references"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A349579 and A349580",
+        "Resultary 14663bdfc53a and 3cfa0dcd5df1",
+        "Finch arXiv:1211.4514",
+        "Illinois 2012/2013 report access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 3D polar calculation states 8(2-√2); the entries give distinct exact n=4 and 5 volumes rather than an all-n theorem."
+        ],
+        "reasoning": "Knowing the geometric family, a polarity in dimension three and several exact volumes does not imply a dimension comparison or the coefficients. The present minimum-coordinate dissection and beta-law coupling are the steps that extend across dimensions; the inaccessible reports could overlap with the former.",
+        "searches": [
+          "Resultary 14663bdfc53a, polar comparison",
+          "OEIS A349579/A349580, formulas and scaling notes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 14663bdfc53a identifies the tricylinder as its three-disk convex hull's polar and cites its volume.",
+          "Finch p. 1 treats the convex hull of two disks in dimension three; the same-day 3cfa0dcd5df1 treats a tetrahedron inscribed in a two-cylinder bicylinder."
+        ],
+        "reasoning": "Polarity gives the same three-dimensional intersection only with the appropriate three disks and a polar operation. A hull volume is not its polar volume, and neither the hull calculation nor the bicylinder problem classifies the sequence for n coordinate cylinders in n dimensions.",
+        "searches": [
+          "Resultary: orthogonal hypercylinder, generalized Steinmetz solid and polar of coordinate disks",
+          "arXiv:1211.4514"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS identifies the exact four- and five-cylinder constants at unit diameter and their factors 2^4 and 2^5 for unit radius. The inspected Resultary polar entry gives the known n=3 value.",
+          "No inspected entry gives the all-dimensional sequence by the two integral formulas together with the strict order and sharp defect."
+        ],
+        "reasoning": "The finite constants are already known and differ in normalization; after correct rescaling they supply checks, not a derivation of monotonicity or the n→∞ expansion.",
+        "searches": [
+          "OEIS A349579",
+          "OEIS A349580",
+          "Resultary: normalized intersection volume of n perpendicular cylinders"
+        ]
+      },
+      "rationale": "Prior coverage includes the coordinate-cylinder family, the exact low-dimensional volumes and a polar description in dimension three. The inspected statements do not give the strict order of the normalized all-dimensional sequence or the two-term defect with the stated remainder. No inspected source gave the integral representations either; full-text priority for those reductions, as well as the conclusions, remains open because the closest reports could not be read. The verdict credits the known cases and assesses the supported comparative and asymptotic result, not discovery of these bodies.",
+      "residual_risks": [
+        "Both relevant Illinois report texts were unavailable; they could contain all-dimensional reductions or additional theory.",
+        "The bounded searches and known tables do not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial unresolved overlap risk",
+          "evidence": [
+            "Cited for higher-dimensional orthogonal intersections by A349579 and A349580."
+          ],
+          "identifier_or_url": "https://conf.math.illinois.edu/igl/Projects-Fall2012/Hildebrand2/report.pdf",
+          "material_read": "Bibliographic description and citation context in OEIS, no primary text",
+          "method": "Official direct and VPN retrieval; alternate-copy check",
+          "title": "Applications of n-dimensional Integrals: Random Points, Broken Sticks and Intersecting Cylinders",
+          "trigger": "Closest general-integration project on the same family"
+        },
+        {
+          "assessment": "Unresolved; cannot exclude stronger coverage",
+          "evidence": [
+            "OEIS lists the report as a source for the 4D and 5D constants."
+          ],
+          "identifier_or_url": "https://faculty.math.illinois.edu/~hildebr/ugresearch/cylinder-spring2013report.pdf",
+          "material_read": "Bibliographic description and citation context, no primary text",
+          "method": "Official direct and VPN retrieval; alternate-copy check",
+          "title": "Intersecting Cylinders: From Archimedes and Zu Chongzhi to Steinmetz and Beyond",
+          "trigger": "Follow-on same-family project"
+        },
+        {
+          "assessment": "Known finite volume values, not the normalized all-dimensional theorem",
+          "evidence": [
+            "Unit diameter for the listed constants; multiply by 2^4 and 2^5 to get unit radius."
+          ],
+          "identifier_or_url": "https://oeis.org/A349579 and https://oeis.org/A349580",
+          "material_read": "Definitions, report references, formulas and radius scaling at offsets 0, 800, 1770 and 0, 785, 1750 respectively",
+          "method": "Primary entry text, bounded passage inspection",
+          "title": "OEIS four- and five-dimensional perpendicular-cylinder constants",
+          "trigger": "Exact database comparison"
+        },
+        {
+          "assessment": "Overlaps the n=3 benchmark only",
+          "evidence": [
+            "The principal object is a convex hull; its polar is the tricylinder of volume 8(2-√2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+          "material_read": "Finding and polar paragraph at offset 6922",
+          "method": "Local Resultary mirror, statement comparison",
+          "title": "Exact intrinsic volumes and boundary decomposition of the orthogonal three-disk hull",
+          "trigger": "Polar link to the exact same dimension-three solid"
+        },
+        {
+          "assessment": "Different operation and dimension scope",
+          "evidence": [
+            "Two orthogonal disks in R^3; convex hull rather than intersection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.4514",
+          "material_read": "p. 1, offset 875: object and volume problem",
+          "method": "Open arXiv passage",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Potential dual reformulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 56–83; OEIS benchmarks and the three-disk hull polar comparison"
+      ],
+      "rationale": "Normalization by the inscribed unit ball separates the effect of increasing dimension from trivial unit-ball scaling for a natural Steinmetz family. Strict ordering and an exact leading and next contribution to volume quantify a phenomenon not visible from the maximal radius: the radius defect is of order n^-1 but the relative volume defect is of order n^-2. The beta representation explains this distinction and controls the error rather than fitting finite values.",
+      "residual_risks": [
+        "The comparison is specific to all n coordinate directions with equal cylinder radii."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

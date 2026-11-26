@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:17:35.512649Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt, verify_cocktail.py (inspection only) and verification_output.txt",
+        "Independent replay: python3 /workspace/branches/b88bd404-ca08-4210-a4d7-327a72fdcdc4/ordinal5_replay.py",
+        "ordinal5_replay_output.txt in the same directory"
+      ],
+      "rationale": "Independent endpoint-disjoint enumeration gave 24 allowed graph edges and augmented face counts (1,24,156,272,60). The stated priority toggles produced 217 disjoint Hasse pairs and exactly 79 unmatched three-edge faces. Topological elimination exhausted all 513 faces and all 1392 directed augmented cover relations. Restricting to the ordinary nonempty face poset discards the empty-face pair and retains a DAG (512 faces, 1368 arcs), with exactly one critical vertex and 79 critical 2-cells and no other critical cells. The discrete Morse CW model therefore attaches all 2-disks by their boundaries to the single vertex, giving a wedge of 79 two-spheres and the stated integral homology. The Euler characteristic 80 is a check, not the homotopy argument.",
+      "residual_risks": [
+        "The exact matching pertains to this fixed eight-vertex graph; no extrapolation to cocktail-party graphs of other sizes or to equivariant homotopy is supported."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The outerplanar theorem does not apply: this graph has 24 edges, above 2·8−3=13.",
+          "The complete-graph theorem applies before deleting any edge; the same-date low-fault Resultary entry is explicitly limited to at most three deleted edges.",
+          "Full classification of general complete multipartite matching complexes was not established by the inspected sources."
+        ],
+        "reasoning": "Four disjoint deletions on eight vertices are outside all those hypotheses. In particular the three-fault boundary cannot be iterated without a separate gluing or Morse argument.",
+        "searches": [
+          "Bayer–Jelić Milutinović–Vega arXiv:2411.04601v1 Theorem 2",
+          "Mondal–Mukherjee–Saha arXiv:2305.02973, Examples 2.1 and 3.3",
+          "Resultary low-fault homotopy profile d148e7a31082"
+        ]
+      },
+      "checked_sources": [
+        "Mondal–Mukherjee–Saha arXiv:2305.02973",
+        "Bayer–Jelić Milutinović–Vega arXiv:2411.04601v1",
+        "Resultary exact-object and low-fault comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M(K₈) is already a wedge of 132 two-spheres; the audited matching complex is the induced subcomplex obtained by deleting four of its vertices."
+        ],
+        "reasoning": "The homotopy type of a complex does not determine that of a specified induced subcomplex. The Euler characteristic alone cannot establish simple connectivity or concentration in degree 2. The 79-sphere conclusion needs the additional topology supplied by the Morse certificate.",
+        "searches": [
+          "Mondal–Mukherjee–Saha arXiv:2305.02973, Example 2.1(8) and complete-graph connectivity theorem; Resultary d148e7a31082"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is this record; results on octahedral two-matching and three-nonmatching complexes do not concern the same complex.",
+          "The equivalent graph aliases are the order-eight cocktail-party graph, K₂,₂,₂,₂ and the 4-crosspolytope skeleton; the matching complex is the independence complex of its line graph."
+        ],
+        "reasoning": "Neither the independence complex of the crosspolytope skeleton itself nor a complex allowing graph degrees above one describes these faces. No separate matching or equivalent line-graph homotopy calculation was identified in the available materials.",
+        "searches": [
+          "matching complex complete multipartite K2,2,2,2 cocktail party graph cross polytope 79 spheres perfect matching deletion K8 homotopy Jonsson (web search unavailable)",
+          "Resultary: matching complex of K_{2,2,2,2} cocktail party graph 8 cross polytope matching deletion 79 two spheres complete multipartite",
+          "Bayer–Jelić Milutinović–Vega arXiv:2411.04601v1, Proposition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper's exact 132-sphere number and matching counts are for all two-element subsets as edges (K₈); the low-fault table runs only through three deletions."
+        ],
+        "reasoning": "The target face counts can in principle be recovered by elementary inclusion–exclusion, but neither those counts nor intact-graph tables certify the homotopy type after four deletions. No separate exact 79-sphere entry was seen in available evidence.",
+        "searches": [
+          "Resultary cocktail-party/matching-deletion query above",
+          "Mondal–Mukherjee–Saha arXiv:2305.02973, face count equation (2.1) and Example 2.1"
+        ]
+      },
+      "rationale": "Best of knowledge: the exact two-sphere wedge for this canonical perfect-matching deletion is distinct from the intact graph calculation and from the broader published results inspected. Literature coverage is not exhaustive.",
+      "residual_risks": [
+        "The attempted web literature lookup was unavailable and is not negative search evidence. A broader multipartite or sparse-deletion theorem or an unindexed computation could cover this finite case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the 132-sphere comparator; its complete-graph theorem does not cover the deletion",
+          "evidence": [
+            "Example 2.1(8) explicitly states the 132-sphere wedge for M₈; the defined Mₙ is the matching complex of the complete graph of order n."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.02973",
+          "material_read": "Open PDF text including theorem hypotheses, complete-graph definition, Eq. (2.1), Example 2.1(8) and reference there to Example 3.3",
+          "method": "Compared the graph class and homotopy statement",
+          "title": "Topology of matching complexes of complete graphs via discrete Morse theory",
+          "trigger": "Closest intact K₈ result and Morse method"
+        },
+        {
+          "assessment": "The theorem does not apply to this nonouterplanar graph",
+          "evidence": [
+            "The theorem assumes an outerplanar graph and asserts contractibility or a sphere wedge; no extension there to the audited graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2411.04601v1",
+          "material_read": "Open full HTML, Definition 1, Theorem 2, Proposition 4 and the statement on planar graphs",
+          "method": "Checked graph hypotheses against the enumerated order and edge count",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Possible broader wedge-of-spheres theorem"
+        },
+        {
+          "assessment": "Advertised profile stops at three deleted edges; no full-text exclusion asserted",
+          "evidence": [
+            "The synopsis quantifies over deleting at most three edges."
+          ],
+          "identifier_or_url": "d148e7a31082",
+          "material_read": "Published Resultary synopsis",
+          "method": "Compared the explicitly advertised deletion bound",
+          "title": "Complete low-fault homotopy profile of the eight-point matching complex",
+          "trigger": "Nearby exact deletion-profile result for the same intact K₈"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md; intact K₈ comparison arXiv:2305.02973; acyclic-matching reconstruction"
+      ],
+      "rationale": "Deleting a whole perfect matching is a canonical symmetric boundary case, not an arbitrary graph-census entry. A complete homotopy comparison with intact K₈ shows the same sphere dimension and an exact fall from 132 to 79 summands after all four pair deletions. The finite certificate gives more than a change in Euler characteristic or field Betti numbers.",
+      "residual_risks": [
+        "One finite deletion comparison; no monotonicity or general deletion-stability inference."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification procedures and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file. The checker uses only the Python 3 standard library and reports `12532 checks passed` on the packaged bytes. It reconstructs the transient transition matrix, checks the exact determinant formula and diagonal bound over exact-rational grids, compares the direct Perron eigenvalue with the exact sign inequality over deterministic parameter samples, checks the unique critical-ratio calculation, and tests the exact \(k=2\) quadratic interval.
+## correctness
 
-The analytic proof in `RESULT.md` establishes the full continuous ranges \(0<r<1\), \(\alpha,\mu>0\) and \(d\ge0\), not merely the finite tests. The code's finite random samples are diagnostics, not exhaustive certification. Full-text inspection of Blowes and Connolly (2012) was unavailable; the priority comparison to that work remains bounded by accessible abstract evidence. Independent audit has not been performed.
+PASS
+
+For row-vector occupancy the catastrophe step precedes colonization, yielding the frozen transient product. At zero distance its Perron eigenvalue is 1−r; at infinity the triangular limit gives L=1−r/2. For positive finite distance the off-diagonals are positive, the eigenvalues are distinct, and the smaller eigenvalue is below M₁₁<L. Thus the characteristic polynomial at L has the opposite sign to ρ−L. Direct expansion gives det(LI−M)=(r/4)[rq−c(A−Bq)], so all three comparisons reduce to the level r of q^(k−1)(A−Bq) on 0<q<A/B. For k≤1 this positive function strictly decreases with q from a value above r to zero. For k>1 differentiation puts its sole maximum at q*=(k−1)A/(kB). The maximum H_r(k) strictly decreases with k by comparing at the interior maximizer for the larger k, and its endpoint limits are A>r and 0. Hence the unique critical k, all counts and directions of crossing, tangency and strict inequalities follow. Continuity and the limit at infinity imply finite attainment whenever there is a strict gain, and exclude it in the strict no-gain regime. For k=2 the quadratic threshold and the two example endpoints check. Independently differentiating the larger eigenvalue in q and bisecting near q=0.25654375 gives ρ≈0.957274401341 at d≈1.360456062, consistent with the quoted approximate point up to about 4.4×10⁻⁸ in distance.
+
+## originality
+
+PASS
+
+The baseline process, exponential kernels and Perron objective belong to Wagner–Ross–Possingham. Their inspected baseline passages calculate the eigenvalue and discuss numerical optima and an apparent plateau. The supported distinct contribution is the exact all-parameter comparison with its infinite-distance limit, including a bounded gain interval, equality at a single interior distance, and no finite maximizer. The closest indexed result concerns a different continuous-time model and compares two finite optima. The bounded comparison is not a claim of historical priority.
+
+## value
+
+PASS
+
+The exact criterion separates three scenarios that numerical persistence curves can make indistinguishable: an interior strict advantage, an exactly tied finite optimizer, and a limiting benchmark unattained anywhere finite. The natural comparison applies for the entire model parameter domain and explains why a plateau does not prove either a finite optimum or its absence. It is a theoretical diagnostic for this baseline, not a fitted conservation recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unique equilibrium exists because its right-hand side is strictly increasing. Implicit differentiation gives the exact sign of the survival derivative. When predators decay more slowly than seed input, seed density decreases strictly and crosses the critical saturation value at most once; the endpoint comparison follows by evaluating the increasing equilibrium map at a scaled source density. A strict derivative inequality proves the cutoff function increases from its critical limiting value to infinity. All boundary cases are covered. The analytic proof, not diagnostic enumeration, establishes the theorem. A standalone standard-library checker returned 3,614 supplemental assertions.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-The 2004 Nathan–Casagrandi full text and appendix prove an establishment-pattern criterion and use a finite 95th-percentile survivorship comparison. They do not state the global one-trough theorem or the explicit source-to-endpoint crossing law. The 2012 Beckman–Neuhauser–Muller-Landau full text uses a different simulation model and finite-radius pattern groups. The full-text transcriptions of the 2008 and 2009 Mari and coauthors studies were examined: they use explicitly evolving predator densities and assess movement-derived recruitment configurations rather than the exact fixed-predator exponential survey-window cutoff. The accessible mathematical research summaries and comparable published results did not supply a stronger theorem covering the same model. These are bounded priority checks, not an assertion that the complete literature has been exhausted.
+PASS
 
-## Value — PASS
-A natural ecological question is whether apparent near-parent predator satiation persists across the sampling domain. The prior published analysis adopts finite cutoffs and a tolerance, yet a source-to-radius classification may change when observation extends farther away. The result supplies exact necessary and sufficient conditions, a unique trough, a unique endpoint recovery radius, and a sharp source-intensity threshold that make this dependence testable in the idealized model. It is a structural constraint on spatial sampling interpretation, not merely a numerical example or a field prediction.
+The loss curve at fixed radius increases strictly from zero to infinity, with derivative J=mu+aN/(1+ahS)^2, giving a unique positive smooth S. With Q=aN/(1+ahS), implicit differentiation gives S'/S=(-d mu+(n-d)Q)/J and P'/P=Q[n-(d-n)ahS]/[(1+ahS)J]. If n>=d the latter is strictly positive; otherwise S falls strictly to zero, giving precisely one interior minimum when the source bracket is negative. At equality only the source derivative vanishes. For a trial density xS(0), x=exp(-dR), the arrival-minus-loss residual divided by xS(0)aN(0)>0 is 1/(1+y0)-z/(1+xy0), z=exp(-nR). Its sign is (1-z)+(x-z)y0, hence also the sign of P(R)-P(0). For n<d the cutoff Y has log derivative n/(1-exp(-nR))-(d-n)/(exp((d-n)R)-1)>0 since the two terms straddle 1/R. Its open endpoints are n/(d-n) and infinity. This establishes the sign law, boundary cases, unique return beyond the trough, and strict F0 cutoff by source balance. Independently solving the example equilibrium by bisection gives r_min=1.2220613022, P(r_min)=0.4242721190, P(2)=0.4464195167, P(2 log 4)=0.5, and P(4.7438645184)=0.6920159049. For replay, bisect the increasing loss-minus-arrival function on [0,F(r)/mu]. The finite diagnostic script was inspected, not executed; universal validity is analytic. The fraction is the fraction of equilibrium loss not due to predation, not a prediction of successful establishment.
 
-## Closest sources and limitations
-Nathan & Casagrandi (2004), DOI 10.1111/j.0022-0477.2004.00914.x, is the exact parent model. Beckman et al. (2012), DOI 10.1111/j.1365-2745.2012.01978.x, supplies the closest distinct simulation-based classification. Mari et al. (2008), DOI 10.1086/591687, and Mari et al. (2009), DOI 10.1016/j.tpb.2009.08.001, have accessible full-text transcriptions; the outstanding risk is unlocated historical equivalent mathematical work, not access to these two papers. The theorem excludes nonexponential kernels, dynamic predators and subsequent life stages. No independent literature certification or empirical validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: pass the joint classification and exact, strictly ordered source-to-endpoint cutoff, not the parent-centered exponential/Holling-II model, qualitative finite-window effects or an establishment-density criterion. The published model is credited as prior. No verified source supplies or supersedes the exact escape-fraction law; the foundational original's decisive passages could not be reread, so the comparison is explicitly bounded.
+
+## value
+
+PASS
+
+For a standard mechanistic equilibrium and a motivated finite survey comparison, the law gives a directly usable separation: the survey extent alone can reverse the near-versus-far ordering with fixed biology and a fixed interior trough. It identifies the unique radius, the parameter regime in which such sensitivity is possible, and an equivalent source-arrival threshold, without confusing escape with recruitment or asserting field power.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

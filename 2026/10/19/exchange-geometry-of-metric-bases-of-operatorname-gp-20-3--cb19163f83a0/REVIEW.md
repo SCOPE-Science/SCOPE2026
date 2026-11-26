@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact target is the labelled metric-basis exchange graph on \(\operatorname{GP}(20,3)\). The complete \(\binom{40}{4}\) and \(\binom{40}{5}\) searches justify minimum size five and the complete vertex count. All \(175\) possible exchanges from each basis are tested, with symmetric adjacency and degree-sum checks. Dihedral symmetry preserves both graph distances and exchanges; BFS from every one of the \(1{,}032\) orbits' representatives proves connectedness and every eccentricity class. The independent pair-separation implementation corroborates the base and edge counts and verifies a radius witness and diameter witness. These are complete finite certificates, not infinite-family deductions.
+## correctness
 
-**Originality — PASS, subject to literature coverage risk.** The accessible 2014 primary paper gives metric-dimension bounds, the full 2018 primary text establishes \(\dim(\operatorname{GP}(20,3))=5\), and the 2025 primary text treats the large-parameter family. None of the inspected material determines all \(41{,}040\) minimum bases, their exchange graph, or its radius, diameter and eccentricity profile. Published exact minimum-basis exchange results on the Tutte–Coxeter graph, rook graph and Shrikhande graph concern distinct graphs. Semantic mathematical-record searches found no dominating claim, but incompleteness of indexing and uninspected portions of the 2014 PDF remain residual risks; nonappearance in search results alone is not asserted to prove priority.
+PASS
 
-**Value — PASS.** The graph at \(n=20\) is singled out by an established exceptional metric dimension of five. Counting and connecting every optimal five-landmark placement gives the exact robustness of optimal sensor-location arrangements under replacing a single landmark, including the sharp worst-case seven-move distance and its rare peripheral configurations. The contribution is a complete natural finite reconfiguration metric, not merely the known dimension or an arbitrary numerical slice. No general infinite-family conclusion is made.
+Independently reproduced the complete finite classification using reviews/evidence/gp20.py (Python with NumPy/SciPy). The code builds the labelled graph using cyclic rim distances and computes its distance matrix by Floyd–Warshall. A candidate resolves exactly when its landmark mask hits the separator mask for every pair. It tests all 91,390 four-sets (none resolve) and 658,008 five-sets; any smaller resolver would extend to a resolving four-set. The 41,040 successful five-sets have outer counts 1720,13400,20520,5300,100 for r=1,...,5 and zero for r=0. To build the exchange graph independently of trial replacements, all bases containing each shared four-set are connected in a clique; every exchange edge is generated exactly once. This gives 670,930 edges and degree extremes 7,69. Independent simultaneous rotations and reflections preserve the given edges, so eccentricity and rim count are constant on each orbit. There are 12 orbits of size 20 and 1,020 of size 40. Exact unweighted shortest paths from each of the 1,032 orbit representatives reach all states. Orbit-weighted eccentricities are 6 for 40,180 states and 7 for 860. The latter consist of one orbit of size 20 and 21 of size 40 and have rim counts 360,420,80 for r=2,3,4. The designated center and periphery have eccentricities 6 and 7, and the designated witness is distance 7 from the latter. To replay run python3 /workspace/reviews/evidence/gp20.py, or give consecutive half-open orbit ranges [0,256), [256,512), [512,768), [768,1024), [1024,1032) as two integer arguments and sum the weighted profiles. The original source programs and outputs were inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct finding is the full one-replacement graph classification for ordinary resolving bases of GP(20,3), not the previously reported dimension 5. The closest inspected catalogue results are on different underlying graphs and, in one case, a stronger condition on the state sets. A potentially related reconfiguration thesis listing remains bibliographic only and supplies no competing result.
+
+## value
+
+PASS
+
+GP(20,3) is a motivated small parameter in the family because it has the known elevated metric dimension 5, singled out by the small-parameter dimension results rather than chosen by scanning an arbitrary range for a census. This makes it a natural test of reconfiguration of optimal landmarks. The exact data show that all minimum configurations are mutually reachable but that some require seven legal exchanges although any two five-sets can be joined by at most five unrestricted replacements. Radius, peripheral profile and orbit weights give useful exact benchmarks for structural or symmetry-reduced exchange bounds in this exceptional case, beyond recomputing dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

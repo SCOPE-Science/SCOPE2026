@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact proof covers all nonnegative outer and inner zero gaps, including adjacent ones and the two-letter degenerate case. Counting occurrences rather than distinct strings is made explicit. Classifying possible borders of factors with zero, one and two marked letters gives a complete list of maximizing intervals; the resulting disjoint cases yield the rational generating functions and exact coefficient formulas. The joint limit follows from uniformly distributed simplex spacings and direct area calculations. Independently implemented KMP-interval and integer-family checks agree on every tested case, as documented in VERIFICATION.md and the reproducible outputs.
+PASS
 
-## Originality (O): PASS for the assessed claim
+For a single-one factor, a border exists exactly when both sides have nonzero zero runs. For a two-one factor, equal endpoint symbols give a one-letter border; when only the leading zero run is present, the only possible proper prefix ending in 1 is the run followed by the first 1, which is a suffix exactly when the run is at most the central gap. Reversal deals with a trailing run. This proves the occurrence counts, including the singletons of 11, with no deduplication by factor string. The disjoint gap classes sum to the stated series; [z^n]B counts (n-2)/3 < m <= (n-2)/2. Uniform gaps converge by simplex Riemann sums, and ties lie on area-zero lines. On Q=2 the inner gap is the simplex maximum, giving one third of its inclusion-exclusion CDF. On Q=1, requiring both outer gaps at least 1-t gives (2t-1)_+^2, with one third of the translated simplex with all gaps at least 1-t excluded. Integrals give conditional means 29/36 and 11/18 and the stated marginal mean. The independent raw substring prefix/suffix checker and separate expansion of the rational series agreed on all 3654 words of lengths 2–28; replay: /workspace/branches/4fc04731-0aed-42bc-94c7-65db87324ec8/independent_check.py. The source scripts and saved outputs were inspected but not executed; the bounded replay supplements the all-length proof.
 
-The two-marker longest-border spectrum, together with the equality of longest unbordered length and least period in this specific family, already covers the *univariate length law*; that law is deliberately not asserted as original. The new claim is instead the **complete occurrence multiplicity classification, four-valued all-length enumerator, and joint length–multiplicity limit**. The full 2026 Mieno algorithm text was inspected and treats arbitrary-instance reporting and complexity rather than the symbolic fixed-weight census. The full earlier independent-letter random-source analysis was inspected; it does not apply to the rare fixed-weight-two conditioning. The full published scientific RESULTS of the two-marker border-spectrum and three-marker longest-factor studies were read: both classify scalar lengths, without enumerating longest-unbordered occurrence intervals or their joint count distribution. An unindexed equivalent remains a priority risk.
+## originality
 
-## Value (V): PASS
+PASS
 
-The newest global algorithm returns **all occurrences**, so their exact output multiplicities form an intrinsically motivated combinatorial invariant. The theorem solves this output-size question at every length for the smallest nontrivial sparse binary ensemble, identifies the unique four-occurrence extremizers and gives the probability of genuine multiplicity under a natural fixed-content source. The joint limit separates one- and two-occurrence cases by different conditional maximum-length laws. This is a structural and enumerative benchmark, not merely a restatement of the previously known longest-length marginal or a claimed improvement in running time.
+The known longest-border spectrum implies the maximum-length marginal, as the finding already credits. Neither that spectrum nor the inspected all-occurrences algorithm gives the closed occurrence-interval classification, multiplicity census or joint limit. Those are the distinct claim; priority beyond the checked evidence is not certified.
 
-## Limits
+## value
 
-The result concerns only words with exactly two ones and counts interval occurrences. No claim is made for other Hamming weights or unrestricted random sources. Publicly indexed scientific coverage remains incomplete, and no independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+In the first sparse binary family with interacting marker gaps, the number of optimal positions is genuine information beyond the already known optimal length and is the output size for all-occurrences reporting. The classification exposes the exceptional ties, gives their exact frequencies, and shows how optimum length differs between the two positive-probability multiplicity classes. This is a complete natural fixed-content refinement rather than a repeat of the marginal spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:55:21.808129Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–59; VERIFICATION.md; check.py inspected as finite checks, not executed."
+      ],
+      "rationale": "The shared-uniform map is monotone in its real argument, and its expected output is the argument. Thus the coupled expected distance is exactly the distance between the inputs, giving one-step contraction by 1−ε. Banach's fixed-point theorem on finite-first-moment probabilities gives existence and convergence from every integer start; integration of the bounded probability of each state proves uniqueness even among invariant laws with no moment assumption. A fixed finite reflecting interval [−M,M+1] of integers is closed: the affine images of its endpoints are M+1+ε(−M−1/2+2c−cε) and −M+ε(M+1/2+2c−cε), both strictly interior for the stated M and small ε. Writing R(n)=1−n and t(n)=n−1/2+2c, first-step rounding perturbations are reversed in the next reflection, while second-step perturbations are added. Hence the first-order two-step upward rate is (−t(n))_++(t(R(n)))_+ and the downward rate is (t(n))_++(−t(R(n)))_+, including t=0 by the O(ε²) remainder. The upward and downward positivity thresholds are n<1/2+2|c| and n>1/2−2|c|; these give the stated closed interval, all other states transient, and strictly positive interior edge rates, also at staircase thresholds. Dividing the two-step stationarity equation by ε identifies every compact subsequential limit with the unique stationary detailed-balance law; finite support makes this TV convergence. Reflection and evenness follow from the rates. At c=1/2 the ratios give 1:6:6:1 and variance 15/28. For |c|≤1/4 the two affine images of 0 and 1 remain strictly in (0,1), even at equality because the ε² term is inward; the stationary mean is θ_ε, which fixes the exact Bernoulli weights.",
+      "residual_risks": [
+        "The argument fixes real c, uses exact affine arithmetic and fresh unbiased integer rounding, and neither supplies a uniform-in-c rate nor proves convergence of trajectories to a continuous-time process."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weiß–Zhu handles rounded ARMA processes with iid innovations and gives stationary results under the paper's noise and stability hypotheses.",
+          "Record eff25e390ccd establishes a Bernoulli/three-state transition for rounded affine slopes −1/2≤a<0."
+        ],
+        "reasoning": "General stationary existence is different from singular identification of stationary weights; the fixed-slope theorem does not cover a=−1+ε approaching −1 or its growing sequence of possible support sizes.",
+        "searches": [
+          "arXiv:2402.15772 Sections 3.1 and 3.2.1",
+          "Resultary eff25e390ccd, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic results and direct comparisons 4edb1a74d619 and eff25e390ccd",
+        "Weiß–Zhu arXiv:2402.15772",
+        "Frozen RESULT.md, relationship and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-phase limit gives the c=0 case and not uniform near-resonant information; the stationary framework specifies no critical-class classification. The earlier threshold statement does not give a near-flip limit."
+        ],
+        "reasoning": "Birth–death detailed balance gives a routine product once the limiting rates and surviving class are known, but the inspected earlier results do not give those rates or that class in the simultaneous scaling.",
+        "searches": [
+          "Resultary 4edb1a74d619 and eff25e390ccd, Findings",
+          "Weiß–Zhu arXiv:2402.15772 Eq. (2.1), Eq. (3.1) and Section 3.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 4edb1a74d619 uses the same affine recurrence and gives a Gaussian limit off the fixed resonance and the exact fair Bernoulli law at θ=1/2.",
+          "Weiß–Zhu's floor plus Bernoulli rounding is the same kernel as floor(y+U)."
+        ],
+        "reasoning": "Neither equivalent convention nor reparameterization turns the earlier fixed phase into a moving phase with (θ_ε−1/2)/ε=c. Credit prior coverage at c=0.",
+        "searches": [
+          "Resultary semantic searches for critical detuning and fixed-phase stochastic rounding at negative slope",
+          "Resultary 4edb1a74d619, Finding",
+          "arXiv:2402.15772, Section 2, Eq. (2.1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-window queries retrieved the frozen finding itself; distinct close records were 4edb1a74d619 and eff25e390ccd, whose Findings describe fixed-phase or bounded-slope cases rather than the moving window."
+        ],
+        "reasoning": "This is an uncountably parameterized theorem, not novelty based on an isolated numerical entry. No distinct inspected record or table covers its full support/weight family; a search miss does not establish priority.",
+        "searches": [
+          "Resultary for birth–death product weights and support thresholds of near-flip stochastic lattice rounding",
+          "Resultary for scalar rounded-contraction support thresholds"
+        ]
+      },
+      "rationale": "The supported contribution is the simultaneous near-flip/window law, including its exact limiting support and weights. The exact c=0 fair Bernoulli case, fixed-phase Gaussian limit, rounding mechanism, and general balance or stationarity methods are not new. The nearest inspected support-threshold theorem treats a disjoint range of slopes, and the nearest inspected same-slope asymptotic holds at fixed phase. Neither supplies the stationary boundary-layer family.",
+      "residual_risks": [
+        "No independent full-text scope confirmation for 3bd484d77163; unindexed near-unit negative autoregression and rounded-chain work may also overlap. PASS is scoped to inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial prior coverage, not the detuned family",
+          "evidence": "States the fixed-θ Gaussian law with variance ψ(2θ) on the normalized scale and the exact fair two-point law at θ=1/2.",
+          "identifier_or_url": "Resultary 4edb1a74d619",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Lattice-phase Gaussian law at the flip boundary of stochastic-rounding descent",
+          "trigger": "Same affine chain and boundary"
+        },
+        {
+          "assessment": "Support threshold in a disjoint slope range",
+          "evidence": "At −1/2≤a<0 the finding separates stationary Bernoulli and exactly three occupied states by the t=r/(1+r) threshold.",
+          "identifier_or_url": "Resultary eff25e390ccd",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-state threshold and threefold noise inflation for stochastic rounding",
+          "trigger": "Same chain and stationary support threshold"
+        },
+        {
+          "assessment": "Operator and general methods prior; different stationary theorem",
+          "evidence": "Defines floor plus Bernoulli rounding, the rounded ARMA recursion with iid innovations, and stationary probability results under model assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.15772",
+          "material_read": "OA PDF pp. 2, 4, 6; §2 Eq. (2.1), §3.1 Eq. (3.1), §3.2.1",
+          "method": "Targeted OA full-text passages",
+          "title": "Mean-preserving rounding integer-valued ARMA models",
+          "trigger": "Equivalent rounding and broader stationarity"
+        },
+        {
+          "assessment": "Separate source's fuller coverage unresolved",
+          "evidence": "The exact-title search instead led to 4edb1a74d619; overlap at fixed phase is confirmed by that separate inspected statement, not by assuming the unavailable text says nothing else.",
+          "identifier_or_url": "Resultary 3bd484d77163",
+          "material_read": "Frozen RESULT.md reference and scope description only; original not retrieved",
+          "method": "Local mirror lookup and exact-title Resultary search",
+          "title": "A sign-reversal Gaussian limit for unbiased lattice rounding",
+          "trigger": "Frozen citation to same-map fixed-phase analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 4edb1a74d619, fixed-phase comparison"
+      ],
+      "rationale": "The half-grid is a natural resonance where fixed-phase Gaussian scaling ceases to describe the state. The critical detuning resolves that mismatch with a whole discrete stationary family: it predicts exactly when outer states acquire positive limiting weight and determines the measurements of all occupied states. This is more than a stationary-mean identity or a selected numerical example.",
+      "residual_risks": [
+        "No conclusion for floating-point hardware, arbitrary innovations, or mixing times."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

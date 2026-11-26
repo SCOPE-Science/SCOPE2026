@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:03.218818Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Same-shore pairs have a common neighbor since only two opposite vertices can be forbidden; a deleted cross pair has a three-edge path and is the only forbidden type. In any pairing of an even set of size >=4, switching the partners of a forbidden pair and another pair removes that forbidden pair and creates none. For domination, two selected vertices on each shore suffice; a singleton in a mixed set must be unmatched or accompanied by its deleted partner. Two singletons must be both unmatched or be a deleted pair, and a pure shore must be selected in full. Counting these disjoint cases yields D and its even part minus tz^2 yields S. A minimal four-set contains no unmatched cross pair: for 2+2 this requires one selected shore to be entirely matched; for 1+3 the singleton is either unmatched and faced by three matched vertices, or matched with its partner in the triple. Full size-four shores add the indicators. Every larger even mixed dominating set contains a dominating 2+2 or 1+3 subset; larger even full shores are minimal and there are no other cases. Size four exists by choosing 2+2, so the absence of unmatched pairs gives minimum four. In the crown-to-one-restored comparison the shore indicators cancel (the intermediate expressions omit the same two terms at n=4); the difference is -(n-1)^2 - 2 binom(n-1,2) + 2 binom(n-1,3), giving the claimed identity and signs, including -8 at n=9 and 15 at n=10. No unmatched cross pair exists in the crown, so its stated even-order spectrum follows. Independent enumeration matched all three polynomials for 78 instances and 83,378 nonempty subsets, with both shores 3–6 and every t. The unrestricted claim rests on the proof, not this bounded replay.",
+      "replay_paths": [
+        "/workspace/branches/6dd8c465-ce39-4424-8234-6a065f7b2fa4/independent_check.py",
+        "/workspace/branches/6dd8c465-ce39-4424-8234-6a065f7b2fa4/independent_check.out"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1904.00964 theorem is NP-completeness of semipaired domination in bipartite graphs; 2008.13491 addresses complexity and algorithms for other graph classes, including the split-graph theorem."
+        ],
+        "reasoning": "General optimization hardness or class-specific algorithms do not fix the coefficient distributions or edge-restoration difference. The outbound literal query returned no results and carries no negative priority inference.",
+        "searches": [
+          "\"semipaired domination polynomial\" \"matching deleted\" biclique inclusion-minimal crossover",
+          "arXiv:1904.00964v1 Section 4.1 Theorem 4.1",
+          "arXiv:2008.13491v3 Section 3 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4e77c17906ee",
+        "Resultary b77a268d75fe",
+        "arXiv:1904.00964v1",
+        "arXiv:2008.13491v3",
+        "https://dc.etsu.edu/etsu-works/10335/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier characterization permits recovering the crown minimal-size spectrum by considering dominating 2+2 sets and full shores. It has no count after a single edge is restored; after restoration an unmatched dominating cross-shore pair also exists, changing the minimal-four exclusion condition."
+        ],
+        "reasoning": "One cannot infer the adjacent-deletion sign or arbitrary partial-deletion formulas from the full-deletion identity or from the optimization literature.",
+        "searches": [
+          "Resultary b77a268d75fe, crown even-domination characterization and census",
+          "arXiv:1904.00964v1, bipartite NP-completeness theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b77a268d75fe gives equivalence to even domination of size >=4 in the full balanced crown. Distance-one paired domination is a different pairing constraint from the distance-at-most-two condition in this theorem."
+        ],
+        "reasoning": "Crown graphs are exactly the balanced full-matching deletion case, not all matching-deleted bicliques. The even-domination correspondence in the crown does not count proper partial deletions.",
+        "searches": [
+          "Resultary: semipaired domination matching deleted biclique census inclusion-minimal polynomial edge restoration crossover",
+          "Resultary: inclusion-minimal semipaired dominating sets polynomial crown graph matching deleted complete bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former supplies the exact crown all-set polynomial and minimum-set count; the latter supplies the full formulas but is the same frozen item."
+        ],
+        "reasoning": "The self-match provides no independent coverage; the earlier crown formula covers one specialization but no indexed two-deletion count comparison was established.",
+        "searches": [
+          "Resultary b77a268d75fe Finding",
+          "Resultary 4e77c17906ee Finding"
+        ]
+      },
+      "rationale": "The all-set census at full deletion in balanced shores and some of its consequences are covered by the earlier crown-graph record. On inspected evidence, the arbitrary matching-deletion two-shore censuses, full mixed/pure-shore inclusion-minimal classification, and comparison between two adjacent deletion sizes are distinct. This does not award priority for the already covered crown specialization.",
+      "residual_risks": [
+        "The 2018 Haynes–Henning institutional page did not provide full text; alternate or unindexed equivalent enumerations may exist. The decision is limited to distinct coverage supported by the sources inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full-deletion all-set specialization only; the characterization also yields consequences for the crown spectrum",
+          "evidence": "Crown semipaired sets are dominating sets of even cardinality at least four; explicit polynomial and minimum count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-semipaired-domination-polynomial-of-crown-graphs--b77a268d75fe/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary and mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Semipaired-domination polynomial of crown graphs",
+          "trigger": "Exact same semipaired object for full balanced matching deletion"
+        },
+        {
+          "assessment": "Identical record, not an independent comparison",
+          "evidence": "Same all-set and minimal-set formulas and same restoration threshold.",
+          "identifier_or_url": "Resultary 4e77c17906ee",
+          "material_read": "Finding, checked against frozen title, ordinal and source",
+          "method": "Local Resultary mirror",
+          "title": "Semipaired-domination censuses of matching-deleted bicliques and an edge-restoration crossover",
+          "trigger": "Exact full overlap"
+        },
+        {
+          "assessment": "Inspected results concern a different question",
+          "evidence": "Theorem 4.1 proves NP-completeness in bipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.00964",
+          "material_read": "Abstract p. 1; Sec. 4.1, Theorem 4.1 p. 4, extracted offset 11200",
+          "method": "Primary PDF, targeted full-text passages",
+          "title": "Complexity and Algorithms for Semipaired Domination in Graphs",
+          "trigger": "Bipartite semipaired domination"
+        },
+        {
+          "assessment": "Inspected scope is complexity and algorithms rather than these two coefficient censuses",
+          "evidence": "The split-graph theorem and abstract's block-graph algorithm and degree-three complexity focus.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.13491",
+          "material_read": "Abstract p. 1 and Sec. 3, Theorem 3.1 p. 5, extracted offset 17600",
+          "method": "Primary PDF, targeted full-text passages",
+          "title": "Semipaired Domination in Some Subclasses of Chordal Graphs",
+          "trigger": "Further class-specific semipaired domination"
+        },
+        {
+          "assessment": "Full-text comparison unresolved",
+          "evidence": "Description introduces the concept and identifies tree characterizations; it does not state a partial-matching-deletion census.",
+          "identifier_or_url": "https://dc.etsu.edu/etsu-works/10335/",
+          "material_read": "Institutional description offset 197 and citation offset 1392; not full text",
+          "method": "Public bibliographic page",
+          "title": "Semipaired domination in graphs",
+          "trigger": "Original treatment of the invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting a matching is a natural perturbation of a complete bipartite graph that retains near-complete adjacency while forbidding specific pairing partners. The closed forms distinguish inclusion-minimal from minimum, identify large minimal whole-shore sets and missing sizes, and show a concrete reversal in the effect of restoring one interaction. The full deletion-parameter result and quantified reversal supply usable structure beyond the known crown specialization or a finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

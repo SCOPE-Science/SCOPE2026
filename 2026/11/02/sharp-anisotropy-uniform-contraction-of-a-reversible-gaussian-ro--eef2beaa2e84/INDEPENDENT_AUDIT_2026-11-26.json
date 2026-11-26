@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:40:36.979002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–53 and 65–67",
+        "Frozen VERIFICATION.md and verify_split.py (inspected, not executed)",
+        "python3 /workspace/independent_replay.py (record 2)"
+      ],
+      "rationale": "Whitening maps the rotational noise to √2 JY and the target to N(0,I₂). Each OU half-step and the symmetric-angle rotation kernel is individually self-adjoint and target-preserving, as is the palindromic product. With shared noise the difference is multiplied by DRθD; its two diagonal moments evolve by the stated symmetric positive-entry matrix with determinant kpr and trace (1+k)(p+r)/2. Its strictly positive Perron eigenvector sees every nonzero squared-coordinate initial vector, so the larger root is the exact asymptotic factor. The cross moment has multiplier k√(pr) and does not feed the diagonal. The increasing entries in r give the worst endpoint at r=1. Both endpoint column sums are strictly below 1: the first basis vector is shortened by the first D, and the second is shortened by the last D for a set of angles of positive probability. The first-order endpoint matrix has coefficient [[−4,2],[2,−2]], whose largest eigenvalue is −3+√5; the large-h limit matrix is diag(0,1/2). The matrix operator norm gives the √2 factor via Cauchy–Schwarz conditional on the initial pair; averaging over an initial optimal coupling gives the W₂² bound. For uniqueness without a moment assumption, synchronous pair differences satisfy the deterministic bound ∥e_n∥≤e^(−λhn)∥e_0∥ for λ>0. Couple arbitrary invariant initial laws and apply dominated convergence to bounded Lipschitz test functions. The fresh bounded replay tested the rational determinant and integrated all three moment coordinates independently at h=log(4), λ=1/2 (maximum absolute discrepancy 4.3×10⁻¹⁶).",
+      "residual_risks": [
+        "Sharpness is for the synchronous squared-error exponent, not an optimal Wasserstein exponent or discrete L² spectral gap.",
+        "The conditional transition is generally a Gaussian mixture over angles; reversibility is with respect to the Gaussian law.",
+        "λ=0 is used only as a continuous endpoint of the bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2019 paper treats generator symmetry and invariance for a continuous perturbed SDE.",
+          "The Duncan et al. split uses a deterministic nonreversible flow and studies ergodicity, bias and asymptotic variance.",
+          "Louis et al. report an exact OU substep but use RK4 for the perturbation in the numerical section."
+        ],
+        "reasoning": "These frameworks provide ingredients or related analysis, not a covering exact synchronous second-moment result under these finite-step assumptions.",
+        "searches": [
+          "Louis–Pavliotis–Vilmart §6.3 and continuous Gaussian spectral theorem",
+          "Abdulle–Pavliotis–Vilmart arXiv:1903.03024, Theorems 1.1–1.2",
+          "Duncan–Pavliotis–Zygalakis arXiv:1701.04247, equations (1.10)–(1.12)",
+          "Focused primary-literature search on random rotation/OU splittings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03191v1",
+        "arXiv:1903.03024",
+        "arXiv:1701.04247",
+        "Resultary a3c5aa1293de and ba2056df054f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous gap already has the limiting constant 3−√5 in the strongly anisotropic two-dimensional case.",
+          "§6.3 analyzes/numerically implements a different perturbation step and does not give the finite-h function; the conclusion identifies discrete analysis as open."
+        ],
+        "reasoning": "Do not count the small-step coefficient as new by itself. It does not determine the finite-h moment recurrence, strict endpoint contraction for every h, or the limiting factor 1/2 at large steps.",
+        "searches": [
+          "arXiv:2610.03191v1 Gaussian result and §6.3 equations (35)–(36), conclusion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whitening converts the prior multiplicative Stratonovich term to the infinitesimal rotation √2 JY.",
+          "The exact noise subflow is therefore Gaussian-angle rotation, without a new modeling assumption."
+        ],
+        "reasoning": "The analytic exact subflow is mechanically available from the continuous model. The checked distinction is the spectral factor of the finite-step palindromic kernel, not the whitened reformulation.",
+        "searches": [
+          "Resultary: Gaussian rotation–OU splitting, exact Strang sampler, anisotropy-uniform synchronous mean-square rate",
+          "Louis–Pavliotis–Vilmart arXiv:2610.03191v1, whitening of its two-dimensional quadratic model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "a3c5aa1293de is a stochastic-rounded Euler chain on four corner states.",
+          "ba2056df054f is random-order drift/free-diffusion splitting with covariance and fourth-cumulant results."
+        ],
+        "reasoning": "The relevant exact entries are symbolic, not tables. Neither matched update gives the stationary OU–Gaussian-angle–OU chain or its Perron factor; no exact matching entry was located in the returned results.",
+        "searches": [
+          "Resultary: exact reversible Gaussian rotation splitting and discrete spectral/covariance rates"
+        ]
+      },
+      "rationale": "The continuous model, the exact rotational subflow as an immediate special case of the SDE, and the preservation and reversibility principle for symmetric products are not credited as new. The distinction supported by the inspected passages is the exact finite-step synchronous Perron law, including the sharp uniform curvature endpoint for this exact-subflow kernel. The closest paper's numerical split uses RK4 for its perturbation flow and its Gaussian rate is a continuous-time one. Earlier perturbation and deterministic nonreversible splitting results do not supply the discrete moment operator for this chain.",
+      "residual_risks": [
+        "A specialized older finite-step calculation is possible; the focused lookup did not prove absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for the continuous model and matching small-step constant; not covering the finite-step spectral law",
+          "evidence": "Exact OU with RK4 perturbation map in the implemented numerical split; Gaussian rate is for the SDE.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03191v1",
+          "material_read": "Continuous Gaussian guarantee, PDF p. 4, offset 12700; §6.3 equations (35)–(36), pp. 35–37, offsets 114000–127941; concluding discrete-analysis remarks",
+          "method": "OA PDF passages",
+          "title": "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics",
+          "trigger": "Same Gaussian dynamics and a symmetric splitting section"
+        },
+        {
+          "assessment": "Continuous-time invariance and reversibility prior art",
+          "evidence": "Generator L+A² is symmetric and the SDE preserves π under the divergence-free condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.03024",
+          "material_read": "p. 3, equations (11)–(13) and Theorems 1.1–1.2, text offsets 12500–16060",
+          "method": "OA PDF literal locate followed by bounded passage",
+          "title": "Accelerated convergence to equilibrium and reduced asymptotic variance for Langevin dynamics using Stratonovich perturbations",
+          "trigger": "Earlier reversible Stratonovich framework"
+        },
+        {
+          "assessment": "Different split and analyzed quantities",
+          "evidence": "The deterministic perturbation flow dx/dt=γ(x) is paired with a reversible integrator, not a symmetric Gaussian-angle subflow chain.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.04247",
+          "material_read": "Equations (1.10)–(1.12) and contribution summary, offsets 13700–16149",
+          "method": "OA PDF literal locate followed by bounded passage",
+          "title": "Nonreversible Langevin Samplers: Splitting Schemes, Analysis and Implementation",
+          "trigger": "Earlier convergence analysis of splitting Langevin dynamics"
+        },
+        {
+          "assessment": "Different chain",
+          "evidence": "Four-corner stochastic-rounded Euler with circulation and entropy production, not the rotational Gaussian chain.",
+          "identifier_or_url": "a3c5aa1293de",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Exact timestep-invariant circulation and increasing entropy production",
+          "trigger": "Related exact discrete invariant and convergence structure"
+        },
+        {
+          "assessment": "Different split",
+          "evidence": "Random-order exact drift/free-diffusion scheme and fourth cumulants, not OU half-steps bracketing a random rotation.",
+          "identifier_or_url": "ba2056df054f",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Spectral minimax calibration and unavoidable fourth-order dependence",
+          "trigger": "Related exact Gaussian split moment/spectral result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations",
+        "Louis–Pavliotis–Vilmart §6.3"
+      ],
+      "rationale": "For a concrete, exactly implementable split model the finite-step proof separates bias-free stationarity from sharp coupling decay and shows that anisotropy does not collapse the normalized squared-error rate. This makes the exact finite-step law, including both step-size boundaries, useful beyond the known continuous guarantee or general symmetry argument.",
+      "residual_risks": [
+        "No efficiency, asymptotic variance, higher-dimensional extension, or RK4 accuracy claim follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

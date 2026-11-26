@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:13:07.963872Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent truncation check verifies the full threshold, including equality. For each fixed level c>0, summing cell probabilities of an entry greater than c n² gives exactly A_n=n² μ{f>c n²}, by equal cell areas. Since f is integrable, A_n tends to zero; by within-row independence the probability of such an entry is asymptotic to A_n when it is positive. By interchanging nonnegative sums and integrals, Σ_n A_n is finite exactly when E f^(3/2) is finite, since Σ_{n<sqrt(f/c)} n² grows as f^(3/2). Truncate entries at c n² by discarding larger ones: the normalized row variance is at most n^(−2)∫f² 1_{f≤c n²}, summable under the same moment condition by summing n^(−2) over n≥sqrt(f/c). Truncated expectations approach I. A union bound, Chebyshev and first Borel–Cantelli give convergence in the finite-moment regime. Otherwise fresh-row independence and second Borel–Cantelli at each positive integer level give limsup infinity. For any fixed bounded truncation the n^(−2) variance bound gives almost-sure convergence to its integral; monotone approximation from below yields liminf≥I. Fixed bounded truncation and the integrable tail also give convergence in probability, hence an almost-sure convergent subsequence and liminf=I. Finally the gap density is 2(1−t); the moment integral has t-power −3α/2 and log-power −3β/2, giving strict β>2/3 at α=2/3. This agrees with the frozen band, truncated critical moment, and one-entry divergence estimates. The almost-sure conclusions are for each fixed pair, not a uniform parameter limit; the converse uses the fresh redraw assumption. The inspected checker.py gives finite diagnostics, not a proof, and was not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grahl describes independent sampling on sequences of interval partitions, a moment-and-partition-size summability sufficient condition and a partial converse with mesh restrictions. Owen–Rudolf obtain an L^p, p>1, strong law under scrambled digital-sequence assumptions."
+        ],
+        "reasoning": "The moment and partition-size framework is relevant to sufficiency but the inspected statements do not give the exact equality-case summability and both limit bounds under the fresh square-grid sampling law. The scrambled sequence theorem changes the sampling design.",
+        "searches": [
+          "Grahl, Exceptional Lebesgue densities and random Riemann sums, introduction and Ch. 5",
+          "Owen and Rudolf, arXiv:2002.07859v3, Theorems 1 and 5"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1090/S0002-9939-96-03100-0, indexed abstract and secondary thesis account",
+        "Grahl, UCL thesis 1346450, pp. 4 and 84",
+        "arXiv:2002.07859v3, Theorems 1 and 5",
+        "arXiv:1609.07444v3, abstract",
+        "Resultary 8ea0fc6d98db, Finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The accessible one-dimensional comparison reports the dense equal-interval L² boundary. The replica result changes how many independent large entries must occur to move the estimator. The frozen proof and the independent truncation comparison distinguish the sparse row schedule and show divergence at α=β=2/3."
+        ],
+        "reasoning": "The L² sufficiency result can cover a smaller integrable region after suitable comparison, not convergence on the whole L^(3/2) boundary. Failure on a dense sequence does not imply failure on square sizes. The exact decision requires tail and truncated second-moment summation over those sizes and independent lower excursions.",
+        "searches": [
+          "Pruss, DOI:10.1090/S0002-9939-96-03100-0; Grahl pp. 4 and 84; Owen–Rudolf Theorem 5; Resultary 8ea0fc6d98db Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pruss is reported to give the L² criterion for ordinary equal-interval sums. Here there is a fresh row of n² samples at each n, not one row at every total sample count.",
+          "The closest distinct published Resultary record uses one-dimensional endpoint singularities and a median of independently replicated estimates."
+        ],
+        "reasoning": "The cardinality schedule, estimator and dependence are part of the theorem, not notation. The summed one-entry probability uses Σ_n n² μ{f>c n²}, rather than Σ_N N μ{f>c N} or a median-of-replications tail.",
+        "searches": [
+          "Randomly sampled Riemann sums complete convergence Pruss stratified sampling",
+          "Resultary: independent jitter, diagonal power-log quadrature and replica strong-law thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For r=2 the indexed replica-median result has power boundary 2/3 but log condition β>1/3, not β>2/3. Basu–Owen use the same singular geometry but examine triangular QMC, extensions and transformations for error rates."
+        ],
+        "reasoning": "A matching power or singular set is insufficient. Neither exact statement is an entry or theorem for the frozen single fresh square-grid estimator.",
+        "searches": [
+          "Resultary 8ea0fc6d98db, sharp replica and logarithmic strong-law thresholds for stratified quadrature",
+          "Basu and Owen, arXiv:1609.07444v3, diagonal-singularity quadrature"
+        ]
+      },
+      "rationale": "The supported distinction is the sharp boundary and both almost-sure limits for this fresh one-point-per-square sequence. Standard stratified-sampling truncation makes the rate of row cardinalities central: a new diagonal-specific probability inequality is not required. The inspected comparison statements do not cover the exact n²-row moment boundary, its endpoint, and the infinite excursions together.",
+      "residual_risks": [
+        "Original Pruss full text could not be retrieved lawfully in this review, leaving broader array variants unverified.",
+        "The inspected Grahl passages describe but do not exhaust its partition-sequence results. A prior exact fresh-array criterion for sparse row sizes under another name remains possible.",
+        "The same-day Resultary comparison is based on mathematics, not inferred priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equal-interval L² comparison is supported; exact original theorem hypotheses remain unverified",
+          "evidence": [
+            "The accessible descriptions identify L²[0,1] and equal-interval randomized sums; the attempted primary versions did not return full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-96-03100-0",
+          "material_read": "Indexed abstract snippet and Grahl's description of the Pruss and Kahane criterion; not the original theorem body",
+          "method": "Bounded literature search and lawful full-text attempts at the AMS and DOI routes",
+          "title": "Randomly sampled Riemann sums and complete convergence in the law of large numbers for a case without identical distribution",
+          "trigger": "Plausible general complete-convergence predecessor"
+        },
+        {
+          "assessment": "Related sufficient criteria and a partial converse; the checked passages do not establish the frozen classification",
+          "evidence": [
+            "The setup is independent uniform draws in intervals, including a prescribed partition sequence; the chapter credits the L² equal-interval threshold to Kahane and Pruss."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/1346450/1/1346450.pdf",
+          "material_read": "Introduction p. 4 and Chapter 5 p. 84, text offsets 3568 and 175739",
+          "method": "Targeted primary thesis passages",
+          "title": "Exceptional Lebesgue densities and random Riemann sums",
+          "trigger": "Potential broader deterministic-sequence stratified strong law"
+        },
+        {
+          "assessment": "Different sampling assumptions",
+          "evidence": [
+            "The relevant L^p law is for randomized digital (t,d)-sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2002.07859v3",
+          "material_read": "Theorems 1 and 5, pp. 8 and 11, text offsets 81078 and 93200",
+          "method": "Targeted primary preprint passages",
+          "title": "A strong law of large numbers for scrambled net integration",
+          "trigger": "Potential general integration strong law"
+        },
+        {
+          "assessment": "Same type of singularity; the inspected claims address different estimators and error rates",
+          "evidence": [
+            "Triangular QMC, extension and variable transformation are the analyzed approaches."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1609.07444v3",
+          "material_read": "Abstract, p. 1, offset 703",
+          "method": "Targeted primary preprint passage",
+          "title": "Quasi-Monte Carlo for an Integrand with a Singularity along a Diagonal in the Square",
+          "trigger": "Identical diagonal geometry"
+        },
+        {
+          "assessment": "Distinct geometry, estimator and critical logarithmic condition",
+          "evidence": [
+            "For the median with r=2 the critical power is 2/3 and the log cutoff is 1/3 for one-dimensional endpoint powers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-replica-and-logarithmic-strong-law-thresholds-for-stratifi--8ea0fc6d98db",
+          "material_read": "Mirrored RESULT.md Finding, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Targeted local mirror inspection",
+          "title": "Sharp replica and logarithmic strong-law thresholds for stratified quadrature",
+          "trigger": "Related exact strong-law and logarithmic threshold in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an integrable singularity on a natural grid, unbiasedness and convergence in probability hide a sharp almost-sure failure even at the pure critical power and logarithmic equality. The threshold distinguishes algorithms that converge on almost every full sequence of fresh grids from those that produce unbounded sporadic estimates. The exact lower limit additionally shows that these excursions do not reflect a persistent upward shift.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

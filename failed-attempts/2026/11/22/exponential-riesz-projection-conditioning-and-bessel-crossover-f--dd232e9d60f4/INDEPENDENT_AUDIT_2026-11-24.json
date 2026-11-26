@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:35:38.795399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On complex ell2, C_t=D(I-tS)^(-1) is compact and its nonzero spectrum is the listed eigenvalues; the accumulation point 0 is also in the spectrum. The least nonzero coordinate identifies the eigenvalue and the triangular recursion leaves one free coordinate. The stated right and left vectors solve their eigen-equations and pair to one, ruling out a generalized chain and giving the rank-one Riesz projector. Parseval and the circle automorphism with its boundary Jacobian give the exact ratio of squared norms, hence the stated formula. The integral for W_m has a single nondegenerate maximum on the circle at zero; the quadratic coefficient t/(1+t)^2 gives the displayed fixed-t Gaussian prefactor and relative O_t(1/m). In the regime m t_m bounded, the factorial majorant gives convergence of the finite sum to I0(2 tau) and the prefactor tends to one. For t=0 the projections are orthogonal. Completeness follows because orthogonality to the system annihilates all Taylor coefficients of an analytic function at t. The biorthogonals give minimality, while the growing coordinate projection norms preclude any Schauder ordering or bounded similarity to a normal or scalar-type spectral operator. No conclusion is asserted at t=1.",
+      "replay": "python3 /workspace/review_checks.py 3; Lagrange spectral polynomials were evaluated exactly on e_m and its dual for 25-by-25 triangular truncations at t=0,1/5,2/5 and m=0,1,2,3. The maximum difference of squared norms from the infinite formula was 5.51e-11 or less, bounded by the corresponding geometric truncation tail. Frozen checker inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fixed-order, large-degree associated Legendre formula 14.15.13 has a relative O(1/m) error uniformly over xi>0; at order zero its leading term is (xi/sinh xi)^(1/2) I0((m+1/2)xi).",
+          "The neighboring Fock record has a Laguerre law and Bessel crossover in a different operator and scaling; local full text was unavailable, so this is a catalogue-level comparison only."
+        ],
+        "reasoning": "At fixed t, the standard large-argument I0 asymptotic yields the claimed exponential base and prefactor; when m t_m tends to tau, (m+1/2)xi tends to 2 tau and the prefactors tend to one. Thus the two separate asymptotic assertions are covered by the same broader theorem once the exact expression is read as a Legendre evaluation.",
+        "searches": [
+          "https://dlmf.nist.gov/14.15 section (iii), equation 14.15.13",
+          "DLMF 10.40.1 modified Bessel expansion; Resultary sharp Laguerre spectral-projection instability 8b975c0fad5e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:4–93, VERIFICATION.md and nested checker source",
+        "Rhaly; Curbera–Ricker; Albanese–Bonet–Ricker passages above",
+        "NIST DLMF §§15.8, 18.5, 14.15, 10.40",
+        "Resultary 8b975c0fad5e description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At c=1, Euler sends (m+1,m+1) to (-m,-m) and multiplies the transformed series by (1-t²)^(-2m-1).",
+          "At zero Jacobi parameters, 18.5.8 evaluates the terminating sum in the exact norm; taking xi=2 atanh(t) in 14.15.13 gives the inclusive asymptotic comparison for positive t, with zero handled exactly.",
+          "A Schauder basis has bounded partial-sum operators and therefore bounded individual coordinate projections. A bounded similarity to a scalar-type spectral operator would also bound the projections."
+        ],
+        "reasoning": "Each quantitative conclusion is determined by one of the exact known formulas or a parameter specialization of a stronger asymptotic, and the final qualitative obstructions are direct standard consequences. The alternate disk-substitution and elementary Laplace proofs are correct but do not change that implication.",
+        "searches": [
+          "Albanese–Bonet–Ricker Lemma 3.4 and Proposition 6.7(ii), DLMF 15.8.1, 18.5.8, 14.15.13, 10.40.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published right and left eigenvectors have the exact binomial coefficients entering the two norm factors, and their overlap is one from their supports.",
+          "The equivalent Legendre polynomial formulation is the direct Jacobi binomial-sum specialization at z=(1+t²)/(1-t²)."
+        ],
+        "reasoning": "The operator's exact rank-one norm is the product of the norms of the known eigenvectors. The sum is not just numerically similar to a Legendre value; the substitution in 18.5.8 proves identity for every m and t in scope.",
+        "searches": [
+          "Resultary generalized Cesàro projection conditioning, Bessel crossover, eigenvector basis and exact projection norms",
+          "Rhaly DOI 10.4153/CMB-1984-064-5; Curbera–Ricker arXiv:2302.08750 Lemma 3.6; Albanese–Bonet–Ricker DOI 10.1007/s13398-023-01470-2 Prop. 6.7(ii)",
+          "DLMF 18.5.8 at alpha=beta=0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF tabulates the Euler transformation, Jacobi binomial sum and the uniform associated Legendre Bessel formula relevant here.",
+          "Resultary 8b975c0fad5e describes affine Gaussian-Fock operators, not the same compact discrete Cesàro matrix."
+        ],
+        "reasoning": "No table labeled generalized-Cesàro projection norms is needed: the table identities are exact on the two known norm series after parameter substitution. The different Laguerre object does not constitute same-matrix table coverage.",
+        "searches": [
+          "DLMF 15.8.1, 18.5.8 and 14.15.13",
+          "Resultary spectral projection conditioning, binomial, Legendre, Laguerre and Bessel crossover"
+        ]
+      },
+      "rationale": "The exact quantitative result is mechanically implied by the published biorthogonal eigenvector coefficients and tabulated identities, and both scales are specializations of a single stronger classical uniform asymptotic. With x=t², the left squared norm is F(-m,-m;1;x); the right is F(m+1,m+1;1;x). Euler's transformation gives their exact ratio (1-x)^(-2m-1), and DLMF 18.5.8 at alpha=beta=0 gives ||P_m(t)||=(1-t²)^(-1/2) L_m((1+t²)/(1-t²)), where L_m is the Legendre polynomial. DLMF 14.15.13, uniform for xi>0, already gives L_m(cosh xi)=(xi/sinh xi)^(1/2) I0((m+1/2)xi)(1+O(1/m)). For xi=log((1+t)/(1-t)), this gives both the exact critical profile and, via 10.40.1, the fixed-t prefactor and rate. Uniform boundedness of coordinate or spectral projections then gives the structure obstructions directly. No exact prior operator-theoretic wording is alleged; the rejection is based on this explicit chain of standard equalities and a stronger prior asymptotic, not the title similarity of an indexed Fock result.",
+      "residual_risks": [
+        "It was not determined whether the discrete operator norm equality and basis obstruction have also appeared verbatim. The Fock overlap does not determine historical priority, and its missing full text is not used to fail the finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operator family and nonzero spectrum",
+          "evidence": "Compactness and spectrum for 0<t<1; no projection-norm formula inferred from this passage.",
+          "identifier_or_url": "https://doi.org/10.4153/CMB-1984-064-5",
+          "material_read": "p. 417, OA offset 650",
+          "method": "Open-access Cambridge PDF",
+          "title": "Generalized Cesàro Matrices",
+          "trigger": "Original compact generalized Cesàro operator on ell2"
+        },
+        {
+          "assessment": "Same exact right vectors",
+          "evidence": "Binomial coefficients times t to the displacement from the first nonzero index.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.08750",
+          "material_read": "Lemma 3.6, eqs. (3.10)–(3.11), pp. 8–9 around OA offset 31500",
+          "method": "Open-access PDF",
+          "title": "Fine spectra and compactness of generalized Cesàro operators in Banach lattices",
+          "trigger": "Previous exact eigenvectors"
+        },
+        {
+          "assessment": "Both factors in the rank-one norm are specified exactly",
+          "evidence": "The right eigenvector starts at m and the adjoint eigenvector ends at m, both with entry one there; the latter has alternating binomial coefficients.",
+          "identifier_or_url": "https://doi.org/10.1007/s13398-023-01470-2",
+          "material_read": "Lemma 3.4 eq. (3.8) and Proposition 6.7(ii) eq. (6.9), PDF pp. 11–12 and 29, offsets around 36000 and 103200",
+          "method": "Open-access PDF",
+          "title": "Spectral properties of generalized Cesàro operators in sequence spaces",
+          "trigger": "Previous exact right/left eigenvectors could give the projection directly"
+        },
+        {
+          "assessment": "Direct stronger uniform asymptotic after substitution",
+          "evidence": "Uniform in xi>0, the order-zero associated Legendre evaluation is (xi/sinh xi)^(1/2) I0((m+1/2)xi) with relative O(1/m).",
+          "identifier_or_url": "https://dlmf.nist.gov/14.15#E13",
+          "material_read": "14.15(iii) Eq. 14.15.13 and uniformity statement after Eq. 14.15.14, OA offsets 10100–13091; associated identity 18.5.8 and I0 asymptotic 10.40.1",
+          "method": "Original DLMF equation pages",
+          "title": "NIST Digital Library of Mathematical Functions",
+          "trigger": "Broader asymptotic encompassing both claimed regimes"
+        },
+        {
+          "assessment": "Different family at the description level",
+          "evidence": "Affine Gaussian-Fock composition operators, Laguerre law and sqrt(n)|u| scaling; no claim inferred beyond the description.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-laguerre-spectral-projection-instability-for-affine-fock-c--8b975c0fad5e",
+          "material_read": "Indexed description only; no local full-text mirror located",
+          "method": "Local catalogue lookup",
+          "title": "Sharp Laguerre spectral projection instability for affine Fock composition",
+          "trigger": "Exact projection norm, Bessel crossover and no Schauder ordering in a nearby setting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Projection conditioning for compact nonnormal operators is a motivated invariant. Here the evaluated invariant is already determined by the published binomial eigenvectors and the tabulated transformations, and the two regimes split a known stronger uniform estimate. The remaining basis and similarity properties are routine consequences of projection unboundedness, not a distinct structural result. A restatement as a Legendre law or as a boundedness obstruction would not remedy this.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

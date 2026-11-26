@@ -1,0 +1,80 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:07:16.228218Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent replay `python3 /workspace/reviews/2-check.py` builds the three metrics by Floyd–Warshall and tests each unordered triple by comparing twice its largest pairwise distance with the sum of its three distances. It checked connectivity and reproduced forbidden triple counts 30, 50, 33 and nonempty face vectors (10,45,90,80,30,5), (10,45,70,38,6), (9,36,51,24,3). All nonempty faces participate in the oriented Hasse acyclicity check, with 860, 482, 336 incidences. The disjoint toggles give 129, 82, 60 pairs and critical cell counts (1,0,0,1), (1,1,3,0), (1,0,2,0) from dimension zero upwards. Relabeling the five ground labels sends any two-set to any two-set and any disjoint pair to any disjoint pair, so testing the representative faults is exhaustive. By discrete Morse theory the first and last complexes reduce up to homotopy to CW complexes with only the indicated 0/3- or 0/2-cells; these are the stated sphere or wedge. For the edge fault an independent exact calculation avoids reliance on the bundled signed gradient implementation: the complete simplicial one-skeleton has a star spanning tree, and projection onto the 36 non-tree edges identifies the rational cycle space with Q^36. The projected oriented triangle boundaries span rank 35, so b1=1. In the Morse CW model the sole 1-cell is a circle and its three 2-cell attaching maps have integral degrees. A single nonzero degree would make rational b1=0, so all three degrees are zero and all three attachments are nullhomotopic. Thus the wedge is an integral homotopy statement, not just a mod-two check. The frozen signed recursion is consistent with cancellation of unit face incidences in acyclic order; the independent route establishes the required vanishing without executing that script. No extrapolation to simultaneous or larger faults.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General position polynomials treats graph operations such as joins and Cartesian products and Kneser families, with counts or unimodality as conclusions."
+        ],
+        "reasoning": "The fault graphs are not the undamaged Kneser graphs to which those statements apply; a counting polynomial even for the exact fault would not imply the homotopy type.",
+        "searches": [
+          "arXiv:2401.05696, Sections 2–4 / Kneser discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.05696v1",
+        "Frozen RESULT.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt, VERIFICATION.md, verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a vertex deletion the prior complex restricted to the nine remaining vertices would exclude only 21 triples: intact has 30 forbidden triples with three incidences each and ten equivalent vertices, so nine were incident to the deleted vertex. The recomputed complex instead excludes 33. Edge deletion keeps all ten vertices but changes the forbidden count to 50."
+        ],
+        "reasoning": "Using the intact facet list and simplicial restriction cannot give the vertex-fault complex; unchanged vertices do not give the edge-fault metric complex either. The new topology requires both the changed geodesics and the CW reduction; neither follows mechanically from the prior enumerator.",
+        "searches": [
+          "arXiv:2401.05696, Proposition 2.2 and intact facet list; independent metric recomputation in 2-check.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's geodesic definition is exactly the distance-equality forbidden-triple definition used in the review. It describes the intact complex by ten maximal sets, not the metric complexes after a fault."
+        ],
+        "reasoning": "An equivalent claim may be expressed using shortest-path betweenness or the forbidden-triple hypergraph. The prior intact object agrees under those translations, but it is not either of the two changed-metric objects. Failed queries provide no negative evidence.",
+        "searches": [
+          "Resultary: Petersen graph geodesic general position simplicial complex discrete Morse edge vertex deletion homotopy (unavailable)",
+          "Web: Petersen graph general position complex geodesic betweenness homotopy sphere Petersen edge deletion general position polynomials fault topological (unavailable)",
+          "arXiv:2401.05696, Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior table enumerates facet intersections for the intact graph and yields the exact intact face vector recorded here. It is not a table of any single-fault invariants."
+        ],
+        "reasoning": "The known intact vector is explicitly a cross-check. Neither the fault vectors nor the attaching degrees are read off that table.",
+        "searches": [
+          "arXiv:2401.05696, Table 1 and ensuing Petersen polynomial"
+        ]
+      },
+      "rationale": "Best of knowledge, the previously computed intact Petersen general-position polynomial and facet list do not cover the two fault-metric homotopy types. The intact type is only a baseline; originality does not rest on having new intact faces or a new method of discrete Morse theory.",
+      "residual_risks": [
+        "Broad web and semantic queries did not return usable evidence; prior equivalent small-graph calculations cannot be ruled out.",
+        "No novelty assigned to the intact face census; its known facet data already specify the entire intact complex."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all intact GP faces and the intact enumerator, not the two fault-metric homotopy claims in the inspected results.",
+          "evidence": [
+            "Section 2 lists five maximal six-sets and five maximal four-sets.",
+            "Table 1 and the polynomial on p. 4 yield the intact 260 nonempty faces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.05696",
+          "material_read": "Primary PDF text: abstract, introduction, Proposition 2.2, complete Petersen example and Table 1; graph-operation and Kneser scope identified in the introduction.",
+          "method": "Compared geodesic definitions, exact facet cardinalities and the table's graph and invariant to the fault metrics.",
+          "title": "General position polynomials",
+          "trigger": "Same intact graph and exact GP facet list."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen graph is a natural symmetric test case for shortest-path betweenness under faults. All single deletions fall in just the two canonical orbits, so the result is a complete first-fault calculation rather than a hand-picked edge. A single lost edge creates a loop, while a lost vertex leaves the complex simply connected; the integral homotopy classification gives usable information not supplied by forbidden counts or Betti numbers alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

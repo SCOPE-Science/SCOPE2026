@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For independent isotropic Gaussian training and evaluation gradients, the normalized hypergradient at zero preconditioner equals a Gaussian projection divided by a chi-square radius, giving the exact Student-ratio law and the one-half zero atom. The second independent noisy objective comparison gives acceptance probability \(\overline\Phi(p\sqrt U/2)\); the size-bias identity \(\mathbb E[U_d q(U_d)]=d\mathbb E[q(U_{d+2})]\) proves the exact accepted risk. The clipped Cauchy boundary-layer integral, the logarithmic \(d=2\) split, and dominated convergence for \(d\ge3\) rigorously establish all three sharp coefficients. The positive cap \(M\), positive learning rate \(\eta\), dimension \(d\ge1\), minibatch \(b\ge1\), and tie convention were explicitly assessed. The standalone `check.py` passed 70 analytical and seeded independent-replay test families. The proof, not finite tests, establishes all universal claims.
+PASS
 
-## Originality
+At the first zero proposal, the negative feedback derivative is the validation projection onto the training direction divided by the training norm. Conditional on the training vector, the standardized projection has a fixed standard normal law, independent of the chi-square radius; the common sigma/sqrt(b) cancels. Projection yields the stated law and atoms. The second update uses fresh samples; at fixed p>0 the acceptance condition is a one-sided normal test at p sqrt(U_d)/2. Weighting by the true squared displacement multiplies the chi-square density by U_d, exactly d times the chi-square_(d+2) density. At p=0 the tie cannot affect risk; A_d(0)=1/2 is the continuous tail extension, not the actual tie acceptance probability. For d=1, rescale the Cauchy integral by y=eta r; the limiting coefficient is [integral_0^M A_1(y) dy+M A_1(M)]/pi, and integrating the t_3-ratio tail using (p arctan(p/2))' gives the printed positive formula. For d=2, r^2 rho_2(r)=1/(2r)+O(r^-3) above r=1; the Lipschitz tail A_2(eta r)=1/2+O(eta r) up to r=M/eta changes the clipped logarithmic contribution only by O_M(eta^2), as does the saturated tail. Above d=2 the clipped risk is dominated after eta^-2 rescaling by (R_d)_+^2, of mean 1/[2(d-2)]. Replacing the acceptance factor by one checks all proposal constants. These arguments verify RESULT.md lines 55–109 at fixed M,b,sigma,d. The self-review's 70 finite checks are reported in VERIFICATION.md; check.py was inspected, not executed.
 
-**PASS, qualified by residual search risk.** Zhang, Gao, Ye, and Udell's stochastic online scaling paper introduces independent-validation hypergradient feedback and null-step acceptance, but its relative-gradient-noise guarantees cannot cover the additive Gaussian model at the optimum. Gao, Chu, Ye, and Udell's original deterministic online scaling work does not entail this noisy acceptance calculation. Classical Cauchy/Student-t ratios and inverse chi-square moments are prior art and are not claimed as new. The closest identified indexed mathematical comparison analyzes scalar *random curvature* and population-scale stability, rather than dimension-dependent accepted risk with *additive Gaussian noise*. No full equivalent was found in the inspected relevant primary sections or searched record indexes. The search is not a uniqueness proof; specialized probabilistic or algorithm-specific prior work remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result exposes a precise noninterpolation regime in which increasing gradient minibatch size scales the primal risk by \(1/b\) without making the learned scalar step any less heavy-tailed. The sharp \(\eta\), \(\eta^2\log(1/\eta)\), \(\eta^2\) phase distinction and the change from \(d\) to \(d+2\) in the validation-acceptance tail give useful, directly reproducible diagnostic constants for two-update algorithm analysis. The null step is genuinely accounted for rather than omitted.
+Qualified pass for the exact accepted two-update diagnostic and its sharp dimension- and cap-dependent coefficients, not for the algorithm, Student-ratio identity, or chi-square size bias in isolation.
 
-## Scope and residual limitations
+## value
 
-Exact, two-step, isotropic Gaussian, fresh independent training/evaluation expectation oracle initialized at the population minimizer with zero initial scaling. The paper's relative-noise conditions are violated; no global convergence, performance, stationary-tail or finite-dataset claim is made. Earlier specialized Student-ratio treatments remain possible; the relevant primary source sections were read in full, while the general heavy-tail SGD work was examined through its abstract only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A noisy validation null step is designed to protect the primal iterate, so its exact residual risk at a noninterpolating optimum is a natural diagnostic. Even when larger batches reduce this risk by 1/b, they do not stabilize the normalized feedback law. The critical dimensions and exact factors quantify how the safeguard and cap modify the risk, separating a heavy-tail boundary layer from a finite-moment regime. This is a specific mechanism, not a claim about eventual convergence or a new optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

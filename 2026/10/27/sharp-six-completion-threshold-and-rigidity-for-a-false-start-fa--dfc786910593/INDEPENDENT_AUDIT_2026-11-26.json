@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:58:20.814457Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With y=1−x the signed block polynomial is −∏_{j<i}(1−y^{2^j}), so its first nonzero x coefficient is −2^{i(i−1)/2} at degree i. Translating a block for appending multiplies by y to the preceding length, which leaves this leading coefficient unchanged; appending the prescribed number cancels degree i without disturbing lower degrees. This proves the divisibility test and justifies truncation through degree six in the exhaustion. Sign inversion preserves stage admissibility and exchanges the appended blocks with their complements. At each length there is just one normalized exceptional word; both length-one words are exceptional. The independent bounded replay checked all 131054 normalized nonexceptional words of lengths 2–17, with zero survivors through 16 and the single survivor T4T0 at 17, giving two words before normalization. Direct materialized arithmetic yields stage counts (−1,−1,−1,−1,−2,−4,−12) and length 960 after stage six. The stage-seven coefficient is −192675840, not divisible by 2^21, so the first failed stage is seven. By the source's period theorem the tail repeats T8 (up to its stated sign convention), with least period 256; the two halves are complements, so no proper divisor of 256 can be a period. Period 256 therefore requires stage-six admissibility and cannot occur at a shorter nonexceptional length. Admissibility through six alone does not imply period exactly 256 for other words. This is an exact finite computation for the sixth stage, not a formula for all stages or a formal certificate.",
+      "replay_paths": [
+        "/workspace/branches/fcab0049-460b-4759-bb6f-f0668c80b9d8/replay_threshold.py",
+        "/workspace/branches/fcab0049-460b-4759-bb6f-f0668c80b9d8/full_replay.json"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 7 gives λ(i)≤2^{i−2}+1 by T_{i−2}T0 and λ(2a)≥2a−1. At stage six these give 5≤λ(6)≤17 and the claimed witness already.",
+          "The source relates maximum continuation period by prefix length to the largest admissible completion stage but does not fix λ(6) from these bounds."
+        ],
+        "reasoning": "The general construction supplies attainability at length 17 but neither excludes 5–16 nor proves the number of extremizers at 17.",
+        "searches": [
+          "arXiv:2610.00880v1 §7, general lower and upper bounds for λ(i) and their construction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.00880v1",
+        "Resultary records c87c61737c36 and 93146644bbb8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting i=6 in T_{i−2}T0 recovers T4T0 and length 17; the period theorem already supplies the continuation-period framework, and stage-seven failure certifies the exact period for this witness.",
+          "Nothing in the inspected bounds makes the length-17 construction extremal or rules out a second inequivalent normalized minimizer."
+        ],
+        "reasoning": "The witness, the existence of a length-17 continuation and the conversion to period are not credited. The exclusion of every shorter word and all other length-17 candidates is the independently verified difference.",
+        "searches": [
+          "arXiv:2610.00880v1 §7 upper-bound proof and Theorems 4.6, 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 4.4 uses exactly the reported recursive integer coefficient test. The first failure at stage i gives a repeated T_{i+1} tail, of least period 2^{i+1}.",
+          "The nearest Thue–Morse catalogue match c87c61737c36 classifies fair lengths of Thue–Morse prefixes, not the length needed for a nonexceptional word to survive a completion stage."
+        ],
+        "reasoning": "The first-period attainment statement is the same threshold problem via the theorem, not an extra independent novelty. Fairness of the exceptional prefixes alone is not recursive admissibility for nonexceptional ones.",
+        "searches": [
+          "Khovanova–Madhavarapu, arXiv:2610.00880v1 Definition 4.4, Theorems 4.6 and 6.1, and §7",
+          "Resultary fair-duel completion, Thue–Morse and eventual-period formulations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary numerical table gives minimum lengths 2,4,8,16,32,48,96,144,192,240 for successive fairness exponents, a Littlewood-polynomial root multiplicity question, not λ for recursively completable prefixes.",
+          "The nearest apparent numerical hit 93146644bbb8 is about shortest reaching words for binary automata and the Thue–Morse catalogued profile concerns exceptional prefixes. Neither tabulates this invariant."
+        ],
+        "reasoning": "No inspected table evaluates the underlying λ(6) lower bound or all minimizers. A focused primary literature lookup yielded no usable additional comparison; that is not evidence of absence.",
+        "searches": [
+          "arXiv:2610.00880v1 numerical table on PDF pp. 5–6, extracted offset 24500",
+          "Configured Resultary threshold, signed Thue–Morse witness and period searches; actual hits 93146644bbb8 and c87c61737c36"
+        ]
+      },
+      "rationale": "The original paper already gives the completion recursion, period correspondence, length-17 construction and general bound giving λ(6)≤17. Credit only the sharp lower bound and uniqueness up to sign at equality, and hence the first length attaining the known witness period. Neither the upper-bound construction nor the period map is new.",
+      "residual_risks": [
+        "The bounded source search cannot exclude an unindexed completion census or equivalent proof. The originating paper was inspected from extracted PDF text; a separate rendered-page check was not available."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the framework and the length-17 witness, not the sharp minimum or rigidity",
+          "evidence": "The two general inequalities give 5≤λ(6)≤17. The upper witness is already T4T0 up to sign; the first failed stage i gives least period 2^{i+1}. The table concerns fairness exponent rather than completion minimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00880v1",
+          "material_read": "Definition 4.4 and Theorem 4.6 (PDF pp. 8–9, offsets 38000–45404); §6 (p. 12, offsets 61302–61998); §7 (p. 15, offset 75000); fairness table (pp. 5–6, offset 24500)",
+          "method": "OA full PDF passage extraction; indexing cross-checked across definitions and theorem statements",
+          "title": "Fair Duels after a False Start",
+          "trigger": "Originating completion scheme, completeness of prior general bounds, period indexing and related exact table"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "Classifies fairness of Thue–Morse prefixes, which are excluded as exceptional in the present threshold.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-automatic-fair-length-profile-of-thue-morse-prefixes--c87c61737c36",
+          "material_read": "Matching indexed finding and scope",
+          "method": "Configured Resultary search and local catalogue comparison",
+          "title": "Exact automatic fair-length profile of Thue–Morse prefixes",
+          "trigger": "Nearest indexed Thue–Morse fairness profile"
+        },
+        {
+          "assessment": "Unrelated object and invariant",
+          "evidence": "Concerns reaching words in eight-state binary automata, not signed word completion.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-unique-don-bound-obstruction-and-shortest-reaching-word-spec--93146644bbb8",
+          "material_read": "Matching indexed finding and scope",
+          "method": "Configured Resultary search and local catalogue comparison",
+          "title": "The unique Don-bound obstruction and shortest reaching-word spectrum",
+          "trigger": "Numerically similar shortest-reaching hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The originating work's λ(i) bounds leave an explicit gap between its witness and the true minimum at stage six. Closing that gap and identifying every equality case resolves a natural exact boundary, and supplies a proved datum on the tightness of the proposed Thue–Morse-based upper-bound family and the attainable periods for short false starts. The value is the lower bound and rigidity, not the already-known witness or a claim to resolve general growth.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

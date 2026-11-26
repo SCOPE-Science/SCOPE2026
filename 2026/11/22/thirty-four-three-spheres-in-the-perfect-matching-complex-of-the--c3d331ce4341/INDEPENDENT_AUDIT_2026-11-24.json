@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:24:39.756245Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and all three certificates",
+        "Frozen check.py, VERIFICATION.md and verification_output.txt, inspected but not executed as code",
+        "Independent replay: python3 /workspace/audit_recompute_4.py"
+      ],
+      "rationale": "I independently reconstructed the checkerboard bipartition of the graph and tested all 9! bijections of its two parts for adjacency. This yielded exactly 108 perfect matchings; nonempty bit submasks produced the stated 30353 faces. For each of the 14436 listed collapse pairs I verified the unique immediate coface against the current face set, and checked that the upper face was maximal. The terminal down-set has f-vector (30,270,694,487) and no faces of larger dimension. The listed 29 tree edges connect all 30 vertices. In order, all 241 triangle relations then have exactly one not-yet-trivial edge loop after setting the tree edges to 1; every remaining generator is killed. This establishes simple connectivity, and the rank of the degree-two boundary is 270-29=241. I reconstructed the oriented degree-three boundary from the terminal masks and independently cleared the 453 indicated unit pivots by column additions, followed by row additions affecting only the pivot column. The terminal matrix is zero, giving image rank 453 and primitivity in the full degree-two chain group. The simplicial boundary identity puts that image in the degree-two kernel of rank 694-241=453, so they are equal (including integrally). Degree-three homology is free of rank 487-453=34. Hurewicz in degrees two and three makes the core two-connected and realizes a basis by three-spheres; wedging their maps gives a homology equivalence of simply connected CW complexes, hence a homotopy equivalence. The nonzero H3 precludes shellability of the original pure eight-dimensional complex.",
+      "residual_risks": [
+        "None found in the finite computation or homotopy inference. This does not determine an equivariant homotopy type or other circumferences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The open three-row grid theorem covers P3 square P_(2n), with S^2 at six columns; it excludes column wrap-around.",
+          "Circular ladders are P2 square C_n, and the honeycomb result is for a different graph family."
+        ],
+        "reasoning": "None of those families specializes to this three-row cylinder. Adding wrap-around graph edges changes the permitted perfect matching facets, with no implication for the new homotopy type from the old one.",
+        "searches": [
+          "arXiv:2611.18058, Theorem 1.1",
+          "arXiv:2608.30601v2, definition of circular ladder",
+          "doi:10.37236/11525, abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.18058",
+        "arXiv:2608.30601v2",
+        "doi:10.37236/11525",
+        "Resultary 0ec52badec4f, df407dba2e4c, c400769702b4, 8a92b1684726 and c3d331ce4341 (target itself)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Longitudinal closure produces an 18-vertex square cylinder with extra edges relative to the open theorem; transverse closure makes C3 square P6, not the graph in the claim.",
+          "The new certificates give a simply connected three-dimensional core and integral unit pivots, not just a count or an Euler characteristic."
+        ],
+        "reasoning": "A formula for the homotopy type under these exact new edge conditions, or explicit equivalence of complexes, would be needed for prior implication. Neither neighboring topology nor prior graph counts provides it.",
+        "searches": [
+          "arXiv:2611.18058, Theorem 1.1",
+          "Resultary c400769702b4 and df407dba2e4c, Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the down-closure of the perfect matchings, not all disjoint edge sets.",
+          "The exact graph has a published ordinary matching complex homotopy type, a wedge of 48 five-spheres, but the ordinary complex includes nonextendible partial matchings."
+        ],
+        "reasoning": "Graph isomorphism matches only the ambient graph: the homotopy type of the larger matching complex does not determine this subcomplex. The two face-set definitions must not be identified.",
+        "searches": [
+          "Resultary: perfect-matching extendibility, perfect matching complex, matching complex, P3 square C6, cylinder and periodic strip",
+          "Resultary 0ec52badec4f, Finding and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct exact-family entry gives eleven S^2 for P3 square C4; the eight-column boundary table gives S^2 for P3 square P6 and three S^2 for C3 square P6.",
+          "The six-periodic mirror-character entry concerns the open P3 square P_(2n) family. The exactly titled 34-sphere hit is the assigned record."
+        ],
+        "reasoning": "Matching circumference, row number, and boundary direction is necessary, and the inspected exact entries miss at least one of these or use the ordinary complex. No extrapolation from the four-column case proves the six-column topology.",
+        "searches": [
+          "Resultary df407dba2e4c, c400769702b4, 8a92b1684726, 0ec52badec4f and target c3d331ce4341"
+        ]
+      },
+      "rationale": "The checked exact-graph, exact-complex-family, and related classification sources do not contain or imply the asserted wedge for the longitudinally closed, three-row, six-column extendibility complex. An exact Resultary hit is the assigned record itself.",
+      "residual_risks": [
+        "The focused external search did not return relevant new items; absence of its hits is not evidence of absence.",
+        "Comparisons are bounded to the inspected statements; a different indexed formulation or uninspected revision remains possible. No order is assumed for same-day catalogue items."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different boundary condition; does not specialize",
+          "evidence": "P3 square P_(2n) uses open columns and gives one two-sphere at six columns.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.18058",
+          "material_read": "Theorem 1.1, p. 2 (OA text near offset 7586)",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "Closest general perfect-matching-complex theorem with three rows"
+        },
+        {
+          "assessment": "Circular ladder has two rows, not three",
+          "evidence": "A cycle times a path of length one; classifications are by cycle-length cases for this product.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601v2",
+          "material_read": "Abstract and introduction p. 1 (OA text near offset 1300)",
+          "method": "Bounded primary OA PDF reading",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Broader periodic cylinder result may cover six-cycle"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": "Includes a wedge of two three-spheres for the 2×2×2 honeycomb graph.",
+          "identifier_or_url": "https://doi.org/10.37236/11525",
+          "material_read": "Abstract, p. 1 (OA text near offset 1035)",
+          "method": "Bounded primary OA PDF reading",
+          "title": "Perfect Matching Complexes of Honeycomb Graphs",
+          "trigger": "Earlier wedge of three-spheres in the same type of complex"
+        },
+        {
+          "assessment": "Same graph, different complex",
+          "evidence": "All partial matchings are allowed; 48 five-spheres for that complex.",
+          "identifier_or_url": "2026/11/17/SCOPE-forty-eight-five-spheres-in-the-matching-complex-of-p-3-square-c--0ec52badec4f",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Forty-eight five-spheres in the matching complex of P3 square C6",
+          "trigger": "Exact graph"
+        },
+        {
+          "assessment": "Different exact circumference",
+          "evidence": "P3 square C4 has eleven two-spheres; not a family formula for C6.",
+          "identifier_or_url": "2026/11/22/SCOPE-eleven-two-spheres-in-the-three-row-square-cylinder-perfect-matc--df407dba2e4c",
+          "material_read": "RESULT.md Finding and Assumptions and scope, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Eleven two-spheres in the three-row square-cylinder perfect-matching complex",
+          "trigger": "Closely matching catalogue result for a three-row cylinder"
+        },
+        {
+          "assessment": "Open or transverse-periodic, not longitudinal-periodic",
+          "evidence": "At six columns gives P3 square P6 and C3 square P6, not P3 square C6.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-boundary-sensitive-eight-column-classification-of-three-row-pe--c400769702b4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "A boundary-sensitive eight-column classification of three-row perfect-matching complexes",
+          "trigger": "Exact six-column row in a boundary table"
+        },
+        {
+          "assessment": "Periodicity of open-strip mirror character, not cyclic columns",
+          "evidence": "Studies row reflection on P3 square P_(2n).",
+          "identifier_or_url": "2026/11/22/SCOPE-a-six-periodic-mirror-character-for-three-row-perfect-matching-c--8a92b1684726",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "A six-periodic mirror character for three-row perfect-matching complexes",
+          "trigger": "Same terminology with six-periodicity and possible covering family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and scope",
+        "arXiv:2611.18058, Theorem 1.1",
+        "Reconstructed frozen collapse and integral-boundary certificates"
+      ],
+      "rationale": "Closing the six-column open strip is a natural boundary change in a studied family. It changes one two-sphere to 34 three-spheres; the result fixes connectivity, torsion and integral homotopy and disproves shellability for this cylinder. The exact topology gives a useful boundary-sensitive datum beyond face counts or homology ranks alone, without presuming a pattern for larger cylinders.",
+      "residual_risks": [
+        "A single natural cylinder; no claim about a complete periodic family or its symmetry action."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

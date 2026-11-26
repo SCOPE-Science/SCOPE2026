@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,11 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
-The analytical calculation is in `RESULT.md`. A separate finite-dimensional verification program is in `artifacts/verify.py` and requires NumPy (`requirements.txt`). Run `python3 artifacts/verify.py`. The expected successful summary is:
 
-```
-VERIFY_OK full_spectrum_axis_cases=270 Kraus_outputs=30 N=2..6 p=9 both_channels
-```
+# Independent mathematical audit
 
-The code calculates matrices on the entire \(2^N\)-dimensional Hilbert space, retains zero-eigenvalue transitions in the spectral Fisher formula, verifies all three spin directions for both channels and nine strengths at each size from two through six, and compares both exact output density matrices with direct Kraus tensor products for sizes two to four and five strengths. The checks include \(p=0\) and \(p=1\). Small finite matrices are corroboration, **not** a proof for arbitrary \(N\), nor publication-priority evidence. The algebraic proof covers all \(N\ge2\) and \(p\in[0,1]\). Independent evaluation is not reported.
+## correctness
+
+PASS
+
+The two-site mismatch in each W off-diagonal gives phase attenuation (1-p)^2; under amplitude damping each excitation survives with weight 1-p, with the lost weight going to the vacuum. For PD the transverse generator has no support-to-support entries, so the ordered-pair SLD expression reduces to 4 tr(rho J_x^2): the pure W value is 3N-2 and the uniform excitation mixture gives N. For AD the squared transverse matrix elements on the vacuum–W and W–two-excitation edges are N/4 and (N-1)/2. With their SLD weights this gives N(1-2p)^2+2(N-1)(1-p), including when either occupied weight becomes zero. Commutation with J_z and rotation about z give F(J_u)=(1-u_z^2)F(J_x). Factoring F_AD-N as 2(1-p)(N-1-2Np) verifies the threshold and equality points, and the convex quadratic has the stated interior minimizer and positive minimum. The N=3 comparisons agree with the 2014 channel and per-qubit conventions. The proof suffices for all N. The finite-grid program artifacts/verify.py was inspected, not executed; VERIFICATION.md supplies an expected output, not an independent numerical replay.
+
+## originality
+
+PASS
+
+The supported distinct result is the exact all-N matched-channel correction, including the collective optimum and the damping/shot-noise boundaries, not the general rank-deficient SLD identity or the first qualitative observation of robustness. No implication-equivalent claim was established by the closest comparisons.
+
+## value
+
+PASS
+
+Corrects a specific discontinuous/zero prediction under identical channel and observable conventions. The all-size formulas separate loss of metrological enhancement from disappearance of QFI, and give the exact AD optimum axis, minimum and threshold; these are usable checks for decohered collective probes rather than merely an exercise in restating the spectral formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

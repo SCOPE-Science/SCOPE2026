@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:40:46.502570Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: Finding, assumptions, proof steps 1–5; VERIFICATION.md; checker.py (read, not executed)",
+        "/workspace/review_reproduction.py: id_counts(), exact PMF log recurrence at lambda=1 and rational threshold bracket"
+      ],
+      "rationale": "The pgf has quartic numerator (1-qz)^4+delta^4 and a pole of order five at 1/q. Its log coefficients are q^n/n times five minus the reciprocal power sum of the four rescaled numerator roots. For delta >= sqrt(2) all rescaled moduli are at least one, giving coefficients between q^n/n and 9q^n/n, hence summability and compound Poisson including equality. Below the threshold the nearer conjugate pair dominates along infinitely many n with cosine > 1/2 (periodicity or irrational rotation); the farther pair decays. Each pure endpoint is negative binomial, with positive summable log coefficients. The density as displayed splits into normalized exponential and shape-five gamma components, giving q=1/(1+lambda), delta^4=576/[lambda(1+lambda)^4(lambda^5+48)], and the stated unique cutoff by strict monotonicity; positive intensity variance verifies overdispersion.",
+      "residual_risks": [
+        "The small computation corroborates only the diagnostic and decimal bracket; the classification uses the analytic proof. Independent full-text confirmation of the original XRani attribution was limited; the theorem for the density as explicitly specified was checked."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior §§1–3 give the m-root coefficient formula, threshold c >= 2 cos(pi/m), and the log-series radius obstruction at the dominant zero when the cutoff fails, for all positive integer m.",
+          "The same-day shape-three catalogue hit concerns uniform thinning self-decomposability, not this cutoff."
+        ],
+        "reasoning": "The m=4 obstruction applies unchanged when the pole contribution has a larger multiplicity. The primary search and unsuccessful retrieval of the XRani paper do not establish its scope.",
+        "searches": [
+          "Resultary 2026/10/18 zero-inflated NB integer-shape theorem and full proof, §§1–4",
+          "Primary search for Borbye, Nasiru and Ajongba, Poisson XRani Distribution"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §Relationship to prior work",
+        "Earlier Resultary record e4339a2d413f, full critical proof",
+        "Same-day Resultary thinning record 669cf2e9718e, indexed statement",
+        "Borbye et al. DOI 10.1155/2024/5554949 and Etaga et al. DOI 10.36347/sjpms.2023.v10i07.003, retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the sufficient side multiplication by A preserves compound Poisson. On the other side the earlier minimum zero modulus R<1/q and regularity at the positive real R persist after adding log A. Removing finitely many negative terms by a polynomial would give a nonnegative-coefficient series with the same radius, still analytic at R, contradicting Pringsheim."
+        ],
+        "reasoning": "This is a direct transfer of the prior proof, not the invalid inference that a convolution with an ID law is automatically non-ID whenever one factor is non-ID. XRani then requires only expansion of the given density into its two components and substitution.",
+        "searches": [
+          "Earlier Resultary zero-inflated NB RESULT.md, original proof §§1–3, local mirror offset 1450–5532"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For A=(1-q)/(1-qz), G=A[w+(1-w)A^4]. The bracket is precisely the earlier zero-inflated NB pgf at m=4, with its c equal to the current delta."
+        ],
+        "reasoning": "The laws differ by a geometric convolution, but the quartic numerator, the controlling zeros, and the exact threshold coincide. The self-hit is not independent evidence.",
+        "searches": [
+          "Resultary: exact geometric/NB(5) condition; exact Poisson–XRani lambda polynomial; zero-inflated negative-binomial infinite-divisibility threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact polynomial search returned the assigned record itself. The earlier record tabulates the equivalent m=4, q=1/2 case as w*=1/65, alongside its all-parameter formula."
+        ],
+        "reasoning": "The named XRani polynomial need not have been indexed separately; the earlier symbolic classifier with the same quartic is stronger than a numerical table match.",
+        "searches": [
+          "Resultary: general geometric/NB(5) boundary and exact XRani cutoff polynomial; matched October 18 record, proof §4"
+        ]
+      },
+      "rationale": "The earlier integer-shape zero-inflated NB result materially covers the phase transition and its purported strengthening. Its full proof treats the identical quartic numerator at shape four. The extra geometric factor changes the pole order but cannot change the smaller logarithmic convergence radius on the subcritical side, or produce a singularity at the positive real point at that radius. The same prior Pringsheim argument implies infinitely many negative coefficients by subtracting a polynomial if there were only finitely many. The XRani boundary then follows by substituting the explicit mixture weights. Different pgfs do not give distinct threshold mathematics here.",
+      "residual_risks": [
+        "The original model papers and cited generic mixed-Poisson reference were not independently read in full. The demonstrable earlier coverage does not depend on their accessibility or on an exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material prior coverage by implication",
+          "evidence": "The nearest numerator zero has modulus R<1/q below threshold, with no singularity on the positive axis at R; the proof invokes Pringsheim for nonnegative coefficients. The m=4 example expressly yields w*=1/65 at q=1/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-infinite-divisibility-threshold-for-zero-inflated-negative--e4339a2d413f/RESULT.md",
+          "material_read": "Finding and coefficient formula; proof §§1–4, offset 1450–5532",
+          "method": "Bounded local mirror reading",
+          "title": "Sharp infinite-divisibility threshold for zero-inflated negative-binomial laws of integer shape",
+          "trigger": "Exact quartic threshold after geometric factorization"
+        },
+        {
+          "assessment": "Scope not independently determined",
+          "evidence": "No scientific passage recovered; the frozen attribution is not evidence of absence of prior ID results.",
+          "identifier_or_url": "https://doi.org/10.1155/2024/5554949",
+          "material_read": "Bibliographic identification only; no independently retrieved proof or equations",
+          "method": "Primary search and attempted lawful OA retrieval",
+          "title": "Poisson XRani Distribution: An Alternative Discrete Distribution for Overdispersed Count Data",
+          "trigger": "Original named count law"
+        },
+        {
+          "assessment": "Access limitation only",
+          "evidence": "The frozen explicit density and its normalization were independently checked algebraically rather than inferred from an unread source.",
+          "identifier_or_url": "https://www.saspublishers.com/media/articles/SJPMS_107_160-176.pdf",
+          "material_read": "No full-text passage retrieved",
+          "method": "Direct and configured alternate OA PDF retrieval attempted",
+          "title": "A New Modification of Rani Distribution with More Flexibility in Application",
+          "trigger": "Original continuous mixture used in the named model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5",
+        "Earlier zero-inflated NB proof §§1–3"
+      ],
+      "rationale": "The infinite-divisibility question for the named law is natural, but the asserted mathematical advance is the same root obstruction already proved for the identical quartic. Adding the known geometric log series, removing a possible finite negative polynomial, and substituting the elementary XRani weights do not supply a substantively distinct result under this standard.",
+      "residual_risks": [
+        "This decision concerns the submitted advance, not the usefulness of the named distribution or of the earlier infinite-divisibility classifier."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

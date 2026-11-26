@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved for every \(r\ge1\) by an explicit bijective parametrization of all relevant permutations: row permutations \(p,q\) and column bits \(\varepsilon\), followed by the necessary and sufficient cycle-invariance condition. The cycle-enumerator recurrence and the independently counted one-sided denominator are complete. `python verify.py` returned `VERIFY_OK` after direct enumeration for \(r=1,2,3,4\), a separate parametrized enumeration for those sizes, and cycle sums through \(r=7\). The finite checks are corroboration, not proof of the universal result.
+## correctness
 
-## Originality — PASS, qualified
-Araújo et al. (arXiv:2608.25092v1) give separate existence of handedness variants in Proposition 1.3 and study rectangular bands and their own distinct definition of strong complete mappings in Sections 12–13. These do not supply an exact count for **one** permutation satisfying both orientations. Search comparisons of equivalent formulations, stronger statements, exact tables, and earlier related counts yielded no covering result. The principal residual risk is an unlocated general theorem on constrained permutation arrays that may entail this specialization. No claim of absolute historical priority or independent verification is made.
+PASS
 
-## Mathematical value — PASS
-The bidirectional requirement is an intrinsic symmetry question for a noncommutative multiplication table, rather than an arbitrary numerical slice. The first nontrivial rectangular-band width permits a sharp classification; the exact proportion \((r+1)/2^r\to0\) shows that existence of both oriented transversals is dramatically weaker than compatibility for the same bijection. The cycle-colouring refinement provides a transferable explanation, while counts for both factors at least three remain unresolved here.
+RESULT.md lines 29–52: write α(i,j)=(a_i(j),b_i(j)). The map xα(x) is bijective exactly if b_0=p and b_1=q are permutations. For α itself to be bijective, each target second coordinate has two preimages with complementary output first coordinates, independently giving two choices at each target, hence L_r=2^r(r!)². The map α(x)x additionally requires complementary output first coordinates at each source column, so write them ε_j and 1−ε_j. The target condition now reads ε_j=ε_(q^(−1)p(j)), proving the fixed-(p,q) count including common matching edges (fixed points). Summing over ρ=q^(−1)p gives r! times its cycle enumerator at 2; inserting a singleton or using one of r−1 insertion positions multiplies by r+1, yielding B_r=r!(r+1)! and the stated fraction. Opposite-band symmetry exchanges the two products, and inversion exchanges the two one-sided sets, so the counts also hold for two columns. Minor scope wording: the displayed premise min(|I|,|J|)=2 forces r≥2, even though the proof and assumptions discuss r=1. The r=1 extension indeed holds for 2×1 and 1×2 (both maps are complete); the displayed implication for its stated premise remains true.
 
-## Scope and limitations
-Counts are of labelled bijections. The two-sided condition is not the paper's *strong complete mapping* condition. The proof does not provide an all-\(m,n\) formula; broader historical coverage remains a literature-search risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the same-permutation intersection and its relative-permutation fiber theorem on the first nontrivial rectangular bands. One-sided existence and the cycle polynomial are standard; the closed count follows from the polynomial once the band-specific fiber characterization has been proved. Bounded comparisons did not identify this characterization or the joint count in prior work.
+
+## value
+
+PASS
+
+Requiring a single transversal permutation to work in both the table and its opposite is a natural symmetric restriction unnoticed by separate-existence statements. The two-row family is the first nondegenerate family, the exact fraction quantifies failure of simultaneous compatibility, and the fiber count identifies when prescribed row maps admit many choices. The value is in the structural enumeration, not in re-evaluating the standard cycle polynomial or a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:04:28.898100Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sign word and c₀ are a bijective encoding exactly when 3 divides W=2p−n. A move exchanges the two signs incident to the recoloured site and is available exactly when they differ. This gives the sector sizes and the edge count by dividing the count of legal site choices by two. All-equal sign sectors consist of three frozen states (including the n=3 cases). The twisted height representation h_(i+n)=h_i+W is parity-consistent because W≡n mod 2. Its projective ambiguity is translation by 6, not 3, and a move lifts uniquely to a peak lowering or valley raising by 2 on one residue class. For H≤T, a coordinate with positive gap can be followed down until a valley; the gap does not decrease because both profiles have unit slopes, and both signs prevent a descending circuit across a full period. Raising the valley retains the bound, and the total integer gap drops by two. The pointwise minimum of two lifts retains parity, twist and Lipschitz bound, proving mixed-sector connectivity. In a closed projected walk the lift displaces all heights by 6t; its length is at least 3n|t| and congruent to 3nt mod 2. For existence through an edge, orient it as a raise H→H' and complete monotonically to H+6 in the lifted graph. There are 3n total raises, and any repeated projected colour before completion would require a uniform shift of at least 6, already costing the entire length. Thus the cycle is simple. The colour-sum mod 3 gives a graph 3-colouring; the odd cycle gives equality when n is odd, and a connected nonempty bipartite sector has chromatic number two. One minority sign gives a connected 2-regular sector of size 3n. Otherwise the two boundaries in a two-block sign word are nonadjacent recolouring sites and commute to give a four-cycle; triangles are ruled out by the closed-walk bound. A backtrack gives length two, so the stated nonlazy periods follow. The analytic replay is RESULT.md Steps 1–5. Both uploaded verifiers were read, not executed; their rooted odd-walk tests and unprescribed monotone lifts are finite corroboration, not a certificate for every edge.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson et al. give the terminal absolute-height lower bound and construct a path of length one half of the sum of absolute target heights for the specified height parameter; the constructive Lemma 14 is stronger than the minimized distance statement.",
+          "Wrochna realizes prescribed even-length vertex walks when topologically valid and not obstructed by tight cycles; homotopy type alone in Čukić–Kozlov has no word-metric bound.",
+          "The later catalogue systole spectrum assumes target C_N with N≥5 and the separate 3n parity theorem assumes trees; neither is used as prior coverage of cycle sectors."
+        ],
+        "reasoning": "It is the pre-existing exact metric construction for specified lifts, not a connectivity or homotopy classification, that yields the invariant in this case.",
+        "searches": [
+          "Johnson et al. arXiv:1403.6347, Lemmas 2, 7–9, 14 (pp. 6, 9–11, 13–15)",
+          "Wrochna arXiv:1408.2812, Theorem 6.1",
+          "Čukić–Kozlov arXiv:math/0408015v3, Thm. 6.1",
+          "Resultary 2d436afb9ad6 and 8138294735b4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, verify_direct.py and verify_sign_lift.cpp",
+        "Johnson et al. arXiv:1403.6347; Cereceda et al. LSE-CDAM-2007-31; Wrochna 1408.2812; Čukić–Kozlov math/0408015v3",
+        "Resultary 2d436afb9ad6, 7187d34b8852, cdcce5aaaf0a, 8138294735b4, d41f740a6f49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In a mixed sector at least one vertex is initially peelable by Lemma 2. The remaining induced path components have endpoints of degree at most one, so peeling leaves nothing. Thus the fixed sets in Lemma 14 are empty. For identical endpoint colourings the relative height is zero. The choice k=6 is admissible and yields length (6n)/2. Lemmas 7–9 give one ±2 change at a time and show every closed walk has constant terminal height 6t, hence length ≥3n|t| and congruent to 3nt mod 2.",
+          "For a chosen edge α→β, orient it to add height 2 at site i. For the return β→α, the relative height normalized at any unchanged site is −2 at i and 0 elsewhere (read it off the reverse single move with Lemma 7). An unchanged site can be chosen as the focal median since only one entry differs. The edge is already an actual recolouring, so the necessary edge-weight compatibility (A2) holds. At the focal site the colours are equal, so k=6 satisfies the congruence in either sign convention. Lemma 14 with this k gives length J(6)/2=(6n−2)/2 and realizes the target heights 6−2·1_{i}; the proof explicitly reaches those heights. Prepend the edge to reach net uniform 6 in exactly 3n moves. Equality forces all moves to raise, so no proper subsegment can repeat a projected state. This proves the every-edge version as well as existence."
+        ],
+        "reasoning": "This specialization is not an argument that mere pairwise shortest-path knowledge controls longer loops. It uses the actual stronger constructive lemma at a prescribed terminal lift. Seeing the two nonadjacent commuting moves or the single-minority cycle in the sign encoding does not salvage an independent novelty claim.",
+        "searches": [
+          "Johnson et al. arXiv:1403.6347, fixed-vertex peeling Lemma 2, absolute heights Lemmas 7–9, focal median p. 11, Lemma 14 and proof (PDF offsets 17470, 27813, 33680, 40770, 46673)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cycle recolouring is the sign exclusion graph with an additional three-colour lift. Winding invariance is pre-existing, and the odd-girth statistic is the least odd length among closed walks in the lifted colour sector, not in the sign-only graph.",
+          "The local exact same-object degree spectrum 7187d34b8852 does not state the odd-girth claim, and d41f740a6f49 is for circular ladders, not cycles."
+        ],
+        "reasoning": "Labelled colours and colour holonomy must be retained. In particular odd length n in the token base does not give odd length n in the ternary lift. No verbatim earlier odd-girth statement is required when the prior height-path lemmas already give the claim.",
+        "searches": [
+          "Resultary semantic lookup for labelled cycle 3-colouring reconfiguration odd girth, parity, winding cover and every-edge cycles",
+          "Cereceda–van den Heuvel–Johnson, Finding Paths Between 3-Colourings, Lemma 5",
+          "Wrochna arXiv:1408.2812, §§4 and 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7187d34b8852 has same-object degree counts, not a table of sector odd girth. cdcce5aaaf0a concerns shortest cycles in the token graph before the colour lift. The later spectrum 2d436afb9ad6 expressly excludes target C₃ and C₄."
+        ],
+        "reasoning": "The relevant exact-data checks are all-n graph-invariant claims in the catalogue, not finite verifier runs or a census of a different graph. The decision instead follows from the earlier general construction.",
+        "searches": [
+          "Local Resultary closed-form/census results 7187d34b8852, cdcce5aaaf0a and 2d436afb9ad6"
+        ]
+      },
+      "rationale": "The conclusion is covered as a specialization of the absolute-height path lemmas of Johnson et al., even though their headline shortest-path theorem does not give a nontrivial distance from a colouring to itself. The relevant prior construction handles an arbitrary admissible terminal height k before minimizing over k. It yields the sharp length and the prescribed-edge completion by taking k=6 at a suitable focal vertex. The remaining counts and small girth cases are immediate sign-encoding consequences; no separate valuable new assertion is established.",
+      "residual_risks": [
+        "No claim about earliest explicit articulation of the sector invariant. An inaccessible copy of the separate 2006 report and a non-decisive web search did not affect the constructive prior implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the parity, sharp odd girth and every-edge construction as direct specializations",
+          "evidence": "Lemmas 7–9 give height increments, bound and congruence; Lemma 14 constructs a recolouring attaining target heights k+h at cost J(k)/2 without minimizing over admissible k.",
+          "identifier_or_url": "https://arxiv.org/pdf/1403.6347",
+          "material_read": "Sec. 2: Lemmas 2, 7–9, focal median definition, Lemma 14 with construction and Theorem 1 proof (pp. 6, 9–15)",
+          "method": "Lawful OA primary PDF; checked constructive lemma against mixed sectors and chosen-edge return",
+          "title": "Finding Shortest Paths between Graph Colourings",
+          "trigger": "Possible exact path-length result for prescribed integer height offsets"
+        },
+        {
+          "assessment": "Prior winding and path tools",
+          "evidence": "Oriented cycle weight is constant within a recolouring component; this passage does not state the odd-girth theorem.",
+          "identifier_or_url": "https://matthewjohnsondurham.github.io/papers/cdam-2007-31.pdf",
+          "material_read": "Lemma 5, p. 4, offset 9800",
+          "method": "OA primary PDF",
+          "title": "Finding Paths Between 3-Colourings",
+          "trigger": "Earlier same moves and winding invariant"
+        },
+        {
+          "assessment": "Related general realization result, not the decisive every-edge comparison",
+          "evidence": "Prescribed even vertex walk subject to topology and tight-cycle restrictions, with reduced conjugate traces at the other vertices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.2812",
+          "material_read": "Sec. 4.3, p. 9, offset 30350 and Theorem 6.1 and proof opening p. 11, offset 38056",
+          "method": "OA primary PDF",
+          "title": "Homomorphism reconfiguration via homotopy",
+          "trigger": "Stronger result for specified topological walk rather than just distance"
+        },
+        {
+          "assessment": "Topological coverage only in the inspected theorem",
+          "evidence": "Components have homotopy type point or circle; no one-skeleton length follows from the type alone.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0408015v3",
+          "material_read": "Theorem 6.1, pp. 8–9, offset 57800",
+          "method": "OA primary PDF",
+          "title": "The homotopy type of complexes of graph homomorphisms between cycles",
+          "trigger": "Same Hom-complex and topological loop classification"
+        },
+        {
+          "assessment": "Later, different target range",
+          "evidence": "Length |q|mN/gcd(N,2) for N≥5; excludes target C₃ and C₄.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-winding-length-spectrum-of-cycle-graph-coloring-hom-comple--2d436afb9ad6",
+          "material_read": "Finding and proof opening offsets 0–5985, limitations within offsets 5900–10837",
+          "method": "Local mirror",
+          "title": "Sharp winding length spectrum of cycle graph colouring Hom complexes",
+          "trigger": "Closest catalogue systolic analogue"
+        },
+        {
+          "assessment": "Same object but different statistic",
+          "evidence": "Degree distribution and total edges, not shortest odd cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-complete-recolouring-degree-spectrum-of-proper-ternary-cycle-col--7187d34b8852",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Complete recolouring degree spectrum of proper ternary cycle colourings",
+          "trigger": "Same labelled reconfiguration graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Odd girth through each edge is a natural and useful quantitative invariant, and the specialized proof is clear. But the sharp numerical answer and the prescribed-edge construction already follow directly from an existing constructive metric lemma; the remaining ordinary-girth and count observations are routine. The frozen finding adds a readable specialization rather than a separate useful new mathematical fact.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -17,6 +20,6 @@
 ---
 # Verification and scope
 
-Run `python3 verify.py` in the package directory (standard Python 3, no external dependencies). The script enumerates 4096 directed, four-vertex, pair-parent hyperedge masks and every subset support, validates the greatest Boolean fixed point and existence of half-density subsolutions when the common infection multiplier is 4 and recovery is 1, and numerically checks a multi-layer no-core five-vertex example against the derived explicit decay bound.
+Run `python3 verify.py` in the package directory (standard Python 3.8 or later, no external dependencies). It checks 4096 directed four-vertex pure-triadic edge patterns and computes every Boolean fixed support of each pattern. It compares their union with the iterated core and tests the half-density subsolution inequalities at unit weights and recoveries and common multiplier 4. These are integer tests after clearing the positive denominators. They test Boolean supports and subsolutions, not equilibria computed independently of the proof.
 
-The checker uses exact representable quarters for its subsolution test. The mathematical proof, not enumeration, establishes the result for every finite vertex set and all positive weights, recoveries and allowable steps. No claim is made about stability of a nonzero equilibrium, global convergence when the core is nonempty, or finite stochastic epidemic extinction times.
+For the five-vertex empty-core example, the checker includes the initial set but not a duplicate final empty layer. It numerically checks each layer's bound at each time from 0 through 100. These examples do not certify a universal theorem; the proof in `RESULT.md` supplies the support and extinction implications.

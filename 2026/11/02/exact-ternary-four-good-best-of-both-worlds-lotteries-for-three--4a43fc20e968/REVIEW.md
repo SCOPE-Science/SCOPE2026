@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is a finite universal statement: all \(3^{12}=531{,}441\) positive integer valuation matrices are partitioned under independent agent/good relabelings into 5,053 canonical classes. The supplied standard-library verifier reconstructs every canonical class, tests a nonnegative rational lottery summing to one, checks every ex-post EFX removal inequality, tests Pareto nondomination against every one of the 81 complete allocations, and verifies all six ex-ante envy inequalities with exact fractions. Orbit-weighted count checks full labeled coverage. The maximum displayed support has size four. The original rational witness files and verifier were executed from the packaged content. No infinite extrapolation is made.
+## correctness
 
-## Originality — PASS, with residual risk
-Aziz (arXiv:2608.08966v1, Section 6) establishes a counterexample for general positive valuations at the same numbers of agents/goods, but its entries go as high as five. The present common three-valued alphabet is not covered by that counterexample. Bu et al. (arXiv:2410.06877v2, Section 5) treat bi-valued agents, whereas 392 canonical profiles here have all three agents using three values. The 2026 subsidy paper's abstract provides a conditional theorem that does not by itself yield the present finite unconditional claim; its full text was inaccessible. Targeted literature and mathematical-record searches found no equivalent exact enumeration or a stronger directly implying statement. Unindexed work or a hidden implication is a residual priority risk; this is not a uniqueness certificate.
+PASS
 
-## Value — PASS
-The result locates a mathematically natural small-integer positive domain on the existence side of the three-agent/four-good BoBW EFX+PO impossibility exhibited by Aziz, beyond bi-valued guarantees. It provides complete exact finite coverage instead of selected examples and, for every such valuation profile, a rational lottery with at most four outcomes. This is a meaningful first bounded-arithmetic instance of a three-agent compatibility problem, not a general impossibility threshold over all three-valued magnitudes.
+Exhaustively and independently checked the supplied JSON as data. The canonical ordering is the lexicographically least sorted sequence of base-3 column codes under row permutations. Explicitly expanded every representative under both row and column permutations, marking all 531441 labeled profiles with no intersection between representative orbits. Checked each positive unique support and exact normalization with cleared integer denominators; checked the six expected envy inequalities, EFX by removal of each comparison bundle's least-valued good for the evaluating agent, and nondomination against the own-utility vectors of all 81 complete allocations. All 5053 witnesses pass, including the illustrative lottery; 392 profiles have all three levels in every row, and the support histogram is (1123,2091,1772,67). Relabeling preserves every condition, so this is exhaustive for the claimed finite domain. Replay: `python3 /workspace/branches/frozen_replay.py 3`.
 
-## Limitations
-The general arbitrary-positive case fails and is not contradicted. The claim does not establish support-size optimality, fractional Pareto optimality, or validity for four-valued or general real-valued preferences. One highly relevant newer paper could be compared only at abstract level. The self-review is not independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct finding is the joint EF/EFX/integral-PO guarantee, with four support points sufficient, on the fixed smallest consecutive positive three-level alphabet at the four-good, three-agent size. The closest indexed material gives a three-level counterexample on a different numerical alphabet; available positive theorems restrict the valuations in different ways or have extra hypotheses. No inspected prior statement or mechanical implication establishes this fixed-domain theorem.
+
+## value
+
+PASS
+
+The first consecutive positive integer alphabet beyond the known bi-valued guarantee settles a meaningful compatibility boundary in the same small market that already permits impossibility. The comparison with the nearby {1,3,4} counterexample shows that the actual levels, not just their cardinality, matter. The certificate gives an exact finite benchmark for identifying which domains allow ex-ante fairness with complete EFX/PO support, plus a usable uniform support bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

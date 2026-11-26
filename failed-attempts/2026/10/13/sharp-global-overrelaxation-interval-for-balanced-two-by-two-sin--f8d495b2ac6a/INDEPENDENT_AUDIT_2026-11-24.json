@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:00:49.081909Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ratios produce relaxed coordinate minimization of log Z. Positivity gives an affinely spanning support, positive definite covariance Hessian and compact sublevels (cosh lower bound). At fixed other coordinate the partition function is a positive factor times cosh((coordinate−minimizer)/2). Its argument is multiplied by h=1−ω at each half-step, yielding strict descent for |h|<1 except at the coordinate minimum, exact conservation for h=−1, and ascent for |h|>1 off that minimum. A sweep with zero decrement in the open interval is the unique balanced critical point; compactness and continuity give convergence. Conversely, convergence of either coupling would force ratio convergence (recover each ratio from two positive entries after dividing out K), so the higher-energy starts at and above 2 cannot converge to the balanced plan. At 0 the sweep is the identity. Averaging the log scales gives z'=h²z−ωh c(y)−ω d(x'); at equilibrium c=d=log Z and 1−h²=ω(1+h), yielding z→−log Z in the open interval. The log-ratio Jacobian has trace 2h+ω²ρ² and determinant h², with |ρ|<1 including ρ=0 for rank one; all three Schur inequalities are strict. It contracts locally in an adapted norm, and the driven scalar recurrence is geometrically convergent (enlarge the base slightly in case of coincident decay rates). Thus both normalized and actual coupling rates follow for the stated exact-data regime. Source diagnostics were read, not executed; no numerical premise is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adaptive global convergence in Thibault et al.; fixed global sufficient interval 0<ω<2/(1+Λ) in Lehmann et al.; symmetric-family endpoint dynamics in 76301798266c"
+        ],
+        "reasoning": "The general literature results alone do not give the full fixed global interval when Λ>0; the narrower endpoint record is not the all-kernel theorem. The earlier catalogue record directly supplies it.",
+        "searches": [
+          "arXiv:1711.01851v2, abstract/conclusion",
+          "arXiv:2012.12562v3, Theorems 1 and 3",
+          "Resultary endpoint record 76301798266c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md (especially §§2–5), VERIFICATION.md, verify.py",
+        "Resultary 2726c1477dda and 76301798266c",
+        "arXiv:1711.01851v2 and arXiv:2012.12562v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unnormalized convergence implies normalized convergence by continuity at mass one. Ratio convergence plus standard local stability gives eventual geometric convergence, with rank-one ratios decoupling linearly."
+        ],
+        "reasoning": "The main theorem including the endpoint is already stated; the added normalization equivalence and nonuniform eventual-rate detail follow by elementary continuity and local fixed-point analysis rather than giving a new global rate bound.",
+        "searches": [
+          "2726c1477dda, Proof and Limitations (including geometric-rate passage)",
+          "arXiv:2012.12562v3, Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identical multiplicative row-then-column updates, same allowed kernels and the same log-cosh reflection invariant"
+        ],
+        "reasoning": "Earlier balanced means prescribed margins, not a restriction to symmetric kernels; both cover arbitrary kernels including rank-one. This is equivalent coverage.",
+        "searches": [
+          "Resultary: balanced two-by-two fixed overrelaxed Sinkhorn, exact (0,2) and endpoint integral",
+          "2726c1477dda, Finding and log-ratio proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact analytic frontier and exclusion of every nonoptimal projective start at and above 2 in catalogue record"
+        ],
+        "reasoning": "No finite table could establish the all-real-parameter and all-initialization statement; the relevant exact database match is an analytic theorem, which covers it.",
+        "searches": [
+          "Published Resultary record 2726c1477dda, Finding and Proof"
+        ]
+      },
+      "rationale": "A distinct earlier dated Resultary record proves the same exact fixed relaxation interval for every strictly positive 2×2 kernel and arbitrary positive start with uniform margins, including unnormalized convergence and the same endpoint energy obstruction. The normalized claim follows from it. The rate is local linearization after convergence, rather than a new global rate theorem.",
+      "residual_risks": [
+        "Dated paths differ by a day; precise publication timestamps were not checked. The demonstrated coverage of the main theorem is distinct from a claim about priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for main finding",
+          "evidence": [
+            "Full (0,2) global interval; same logarithmic projective conserved potential at 2; actual coupling convergence"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-global-relaxation-interval-for-balanced-two-by-two-sinkhor--2726c1477dda/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–8556; rate limitation near offset 10747",
+          "method": "Published local mirror, 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp global relaxation interval for balanced two-by-two Sinkhorn",
+          "trigger": "Exact Resultary match"
+        },
+        {
+          "assessment": "Local stability and smaller general global sufficient range; not full sharp global claim",
+          "evidence": [
+            "Θ²>0 condition in local theorem; Λ dependence in global theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2012.12562v3",
+          "material_read": "Theorem 1 (offsets 4800–6649), Theorem 3 (19100–22395)",
+          "method": "OA full text",
+          "title": "A note on overrelaxation in the Sinkhorn algorithm",
+          "trigger": "General fixed-relaxation results"
+        },
+        {
+          "assessment": "Read passages establish adaptive rather than fixed global convergence",
+          "evidence": [
+            "Adaptive Lyapunov-decreasing relaxation and local SOR analysis"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1711.01851v2",
+          "material_read": "Abstract (650–2350), conclusion (51600–53396)",
+          "method": "OA full text",
+          "title": "Overrelaxed Sinkhorn-Knopp Algorithm for Regularized Optimal Transport",
+          "trigger": "Origin of relaxed algorithm and Lyapunov method"
+        },
+        {
+          "assessment": "Narrower symmetric family and different endpoint question",
+          "evidence": [
+            "Invariant ovals and rotation dynamics for K with equal diagonal entries 1 and equal off-diagonals c"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-conserved-convex-energy-and-invariant-ovals-at-the-reflection-en--76301798266c",
+          "material_read": "Finding, RESULT.md offsets 0–2700",
+          "method": "Published local mirror",
+          "title": "Conserved convex energy and invariant ovals at the reflection endpoint",
+          "trigger": "Adjacent endpoint dynamics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Closing the local/global gap at 2 with an exact endpoint obstruction is useful in principle, but this submission repeats the already available result and potential. The incremental local-rate and normalization remarks are routine corollaries here and do not justify a standalone repaired claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

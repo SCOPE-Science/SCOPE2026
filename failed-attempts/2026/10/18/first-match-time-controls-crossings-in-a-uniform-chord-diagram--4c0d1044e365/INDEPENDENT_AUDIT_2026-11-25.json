@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:07:43.855703Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditionally on first closure at endpoint t, count t−1 early chords, of which one is complete, and n−t+1 late chords. Uniformity of the completion gives crossing probabilities 1/2 for two early chords and 1/3 for an open early chord paired with a late chord or for two late chords; the completed early chord cannot cross a late chord. This gives the polynomial in RESULT.md:24–33 for the full support 2≤t≤n+1. Subtracting the unconditional mean gives the sign boundary and the integer congruence; covariance with T is positive by strict monotonicity on a nondegenerate support. The exact survival product gives a Gaussian tail bound on the √n scale and the limit of T/(2√n) with survival exp(−x²), so moments through degree three converge after normalization. Substitution gives the stated covariance and, with Var(C)=n(n−1)(n+3)/45, the correlation constant. The latter variance also follows independently by labeled random endpoints: pairs of crossing indicators sharing a chord have covariance 1/45 from E[(2U(1−U))²]−1/9 for U uniform on (0,1); disjoint pairs are independent. Independent matching enumeration at n=2,3,7 reproduced every conditional mean; at n=7 it covered 135135 matchings. The frozen checker was inspected, not run; finite enumeration is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source treats the first match as a marginal; Theorem 3 of Flajolet–Noy gives the crossing moments. Acan discusses crossing-count limits and chord degrees."
+        ],
+        "reasoning": "The inspected marginal results do not determine a mixed conditional mean; the exact indexed joint statement, not the marginal literature, establishes material coverage.",
+        "searches": [
+          "Acan–Hitczenko arXiv:1411.5751, abstract and §3",
+          "Flajolet–Noy, Analytic Combinatorics of Chord Diagrams, Theorem 3",
+          "Acan arXiv:1501.01489, p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary record 2c7c76d56c57",
+        "Acan–Hitczenko 1411.5751",
+        "Flajolet–Noy Theorem 3",
+        "Acan 1501.01489"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed exact conditional mean and the standard unconditional mean E[C]=n(n−1)/6 yield the frozen excess; taking conditional covariance gives the listed finite identity."
+        ],
+        "reasoning": "The adjacent increment, quadratic sign boundary and mod-4 integrality test require only subtraction, differencing, solving the quadratic and reducing modulo four. These do not leave a distinct surviving contribution.",
+        "searches": [
+          "Resultary record 2c7c76d56c57, Finding, compared with frozen RESULT.md:3–19",
+          "Flajolet–Noy, Theorem 3, unconditional crossing moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding states n(n−3)/6+(t−1)(t+2)/12 under the same hypotheses and gives the same covariance and correlation equivalents."
+        ],
+        "reasoning": "Expanding the product yields exactly (2n²−6n+t²+t−2)/12. First completed pair is the earliest right endpoint under the stated scan convention, with no shift in t.",
+        "searches": [
+          "Resultary meaning search for conditional crossings at the first completed pair or first right endpoint",
+          "Resultary record 2c7c76d56c57, actual Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its Finding gives the formula throughout the same admissible range, not only small-n cases."
+        ],
+        "reasoning": "The indexed entry covers the entire table of conditional means and asymptotic mixed measures. No numerical table or finite match is being used as evidence of the general equality.",
+        "searches": [
+          "Resultary exact mathematical entry 2026/10/25/SCOPE-exact-quadratic-crossing-regression-at-the-first-completed-pair--2c7c76d56c57"
+        ]
+      },
+      "rationale": "A distinct indexed publication states the same regression for the same uniform matching and first completed pair, with the same leading covariance and correlation asymptotics. Its different polynomial presentation does not distinguish the claims. The remaining excess, sign change, congruence and finite covariance identity follow directly from the identical regression and the standard global mean. This establishes scientific coverage at review, not the chronological priority of either record or copying.",
+      "residual_risks": [
+        "Path dates alone do not establish dissemination order, authorship or a priority relationship. No assertion is made that the inspected literature is historically exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Materially exact coverage by a distinct indexed record",
+          "evidence": "Polynomial n(n−3)/6+(t−1)(t+2)/12 and the same covariance and correlation constants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-quadratic-crossing-regression-at-the-first-completed-pair--2c7c76d56c57",
+          "material_read": "RESULT.md Finding, offset 0 in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local-mirror statement inspection",
+          "title": "Exact quadratic crossing regression at the first completed pair",
+          "trigger": "Exact conditional statistic and mixed asymptotics"
+        },
+        {
+          "assessment": "Covers first-match marginal inputs",
+          "evidence": "Rayleigh limit and marginal moments, not the inspected conditional crossing claim.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.5751",
+          "material_read": "Abstract and §3, Proposition 7 (p. 5; OA offsets 18923–22121)",
+          "method": "Bounded OA text inspection",
+          "title": "On a memory game and preferential attachment graphs",
+          "trigger": "First repeated card equals first chord closure"
+        },
+        {
+          "assessment": "Covers unconditional crossing moments",
+          "evidence": "The unconditional variance is n(n−1)(n+3)/45; the theorem alone gives no first-closure regression.",
+          "identifier_or_url": "Flajolet–Noy, FPSAC 2000, pp. 191–201",
+          "material_read": "Theorem 3, PDF p. 10 (OA offset 18973 onward)",
+          "method": "Bounded OA text inspection",
+          "title": "Analytic Combinatorics of Chord Diagrams",
+          "trigger": "Exact crossing variance and its enumeration"
+        },
+        {
+          "assessment": "Relevant context, no mixed regression in the passage",
+          "evidence": "Discusses crossing count limits and degree of a random chord.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+          "material_read": "p. 2, OA offset 4789 onward",
+          "method": "Bounded OA text inspection",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Uniform chord intersection statistics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical statement, the joint regression gives an exact dependence measure between two natural observables that their marginal laws cannot supply, including the finite sign threshold and the leading decay of correlation. This is scientific usefulness of the relation, not credit for a new contribution in this submission: the exact relation is already covered in the checked index.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

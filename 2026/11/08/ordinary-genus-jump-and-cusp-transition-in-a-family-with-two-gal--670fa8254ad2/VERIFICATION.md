@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact finite-field script `verify.py` was run with Python 3 from the standalone supplied file and completed successfully. It implements polynomial-field addition, multiplication, and inversion directly, then counts points of the smooth normalization via the fiber-product equations. Tests include all field elements of F_(3^n) for n=1..8 in the c=2 case and n=1..4 in the c=1 case; no point sample is mistaken for an exhaustive proof over all primes or parameters.
+## correctness
 
-The zeta-numerator leading halves are [1,2,9,14,40] for c=1 (expected genus 4), and [1,4,22,60,201,432,1094,1928,3956] for c=2 (expected genus 8). In each case the middle coefficient is nonzero modulo 3, confirming ordinary p-rank given the proven genus. Independent local polynomial expansions check both singular points for p=3,5,7 and c=1,2. The recorded output concludes `POINT_COUNT_AND_LOCAL_CHECKS_PASSED`.
+PASS
 
-Exact geometric genus, connectedness, cusp unibranchedness, and general p-rank rely on the local Artin–Schreier ramification argument, Riemann–Hurwitz, and Deuring–Shafarevich provided in RESULT.md. Historical priority and any stronger unpublished computations have not been independently certified.
+The affine ring identifies with the two Artin–Schreier equations over k[t,t^-1] by t=B+A, t^-1=B-A; its monic free presentation embeds in the generic fiber. Each nonzero F_p-combination has a simple pole at 0 or infinity, so the generic fiber is a field of degree p². Locally the regular terms are Artin–Schreier coboundaries over k[[u]] and the simple-pole coefficient spans rank one exactly for c=1, rank two otherwise. Nontrivial inertia characters have Swan one, hence the different is 2(e-1). The contributions of the two branch fibers give the stated values by Riemann–Hurwitz and Deuring–Shafarevich. Above infinity the leading terms of x^p and y^p agree, so x/y tends to 1, and above zero they are opposite, so x/y tends to -1. All branches at infinity are thus accounted for. Direct expansion gives distinct tangents and p smooth branches at c=1, and otherwise the unique tangent of multiplicity p-1 with intersection order p and one normalization branch. The two delta invariants in either case agree with the degree-2p arithmetic genus. The affine derivatives rule out further singularities.
+
+## originality
+
+PASS
+
+The supported increment is the exact nonexceptional ordinary genus and the accompanying inertia/Swan and singularity transition throughout Fukasawa's family. The exceptional Artin–Mumford genus and ordinarity, the construction, and the two plane singular locations are prior results, as the record acknowledges. The closest same-family general result bounds the nonexceptional genus rather than determining it, and the inspected general fiber-product formulas require the separate parameter-dependent pole calculation.
+
+## value
+
+PASS
+
+The exact nonexceptional genus improves the prior family bound and the conductor computation explains why a jump in genus is compatible with ordinarity. Relating the local inertia to the plane branches identifies a genuine geometric change, not merely a numerical example or a restatement of the exceptional case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

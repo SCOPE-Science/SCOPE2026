@@ -1,15 +1,21 @@
-# Scientific review: spectral-order conductance activation on friendship networks
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact weighted Laplacian has eigenvalues \(a\), \(a+2b\) and \((2m+1)a\) with the stated multiplicities. Strict convexity of the spectral trace for \(x^{-p}\) (\(p>0\)) and \(-\log x\) on positive matrices, plus injectivity of the graph Laplacian edge map, yields unrestricted uniqueness and orbit-symmetric conductances. Differentiating the resulting one-variable objective establishes all parameter boundaries; the derivative of the logarithm of the pair-to-spoke ratio has a strictly decreasing numerator which crosses zero exactly once in the activation price window. The asymptotic ratio follows from a convergent logarithmic limit. The packaged standard-library numerical and exact rational checks returned `VERIFY_OK 2239`; they corroborate but do not replace the universal proof.
+## correctness
 
-## Originality — PASS on the inspected scope, with risk
-The complete full-text `RESULT.md` of the two closest published clique-windmill papers and of the general D-optimal cactus theorem was inspected. Both already establish the first-moment (Kirchhoff index) price threshold for all clique sizes, which implies the present \(p=1\) slice; no originality is assigned to that slice. General conductance budget convexity and spectral-moment coherence definitions also predate the result. Neither inspected prior special-case statement supplies the continuous spectral-order threshold, exact determinant-to-positive-moment activation, the unique investment peak, or high-order withdrawal. At the determinant endpoint, the published D-optimal cactus theorem covers the entire \(p=0\) case; no novelty is assigned there. The full primary PDFs of Ghosh–Boyd–Saberi and Patterson–Bamieh were searched and their relevant sections read. The fixed-unit-resistance windmill article was only accessible by abstract and remains a stated priority risk. Unindexed equivalent work cannot be ruled out, and no independent priority audit has been performed.
+PASS
 
-## Value — PASS
-This is a natural and complete support classification for the smallest repeated-triangle family under a standard design budget, with all independent edge weights admitted. The optimization objective changes across the canonical determinant, coherence and spectral-gap priorities; the exact finite-order activation and unique allocation peak show how a price premium can make a whole edge orbit useful only in a spectral-moment range. The result is mathematically substantive beyond replacing a parameter in known determinant and first-order formulas, because the original order-dependent cutoff and strictly unimodal expenditure response require comparison of the entire spectral family. It is not a claim about an exact second finite deletion point.
+The star is feasible. On the compact budget simplex eigenvalues are bounded above and approach to disconnection sends a restricted eigenvalue to zero, so sublevels of either objective avoid disconnection. Scaling to spend the budget strictly improves any underspend. Restriction to 1⊥ preserves injectivity of the edge-weight-to-Laplacian map; trace Hessian coefficients are strictly positive, including at eigenvalue collisions. Thus uniqueness among unrestricted independent edge weights forces the two orbit weights a,b. Pair differences, differences of pair means, and the hub-versus-periphery mode give a+2b (m), a (m−1), and (2m+1)a (1), respectively. With c=4γ−1, s=1+2b/a and U=m−1+(2m+1)^(−p), differentiating at p>0 reduces to the sign of U−mc s^(−p−1), even if c≤0. At p=0 the log expression reduces to the sign of s−c. This gives the boundary and exact formulas, including b=0 at threshold equality. At the strictly intermediate prices the activation equation U=mc has a unique p_c. On the active interval h=log(mc/U) is increasing and strictly concave; the derivative sign of log s is that of (p+1)h′−h, which strictly decreases from positive to a negative limit. Thus the spending fraction, an increasing function of s, has one strict global peak and tends to zero with b/a asymptotic to log(mc/(m−1))/(2p). No disappearance at a second finite order or uniqueness for the separate spectral-gap endpoint is implied. The packaged checker was inspected, not executed; finite diagnostics cannot prove unrestricted optimality.
 
-## Closest prior material and limits
-Ghosh, Boyd and Saberi, *Minimizing Effective Resistance of a Graph* (2006/2008); Patterson and Bamieh, *Consensus and Coherence in Fractal Networks* (2013); *Universal edge-support threshold in Kirchhoff-index design of clique windmills* (2026); *Universal price cutoff for resistance-optimal clique windmills* (2026); *Exact price-driven support transitions for D-optimal conductances on cactus networks* (2026); Sardar and Xu, *Resistance Distance and Kirchhoff Index in Windmill Graphs* (2024, abstract only). Restrictions to two uniform price classes, a shared linear budget and a finite undirected graph are essential.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The determinant and inverse-first-moment slices are already covered. A same-day triangular-book theorem proves the same qualitative activation, peak and asymptotic withdrawal pattern for its two-page book and uses the same scalar mechanism. The surviving distinct result is the exact priced friendship-family law for every m≥2 and all real orders, including the one-peak window for every such m, not priority for the generic peak method or phenomenon.
+
+## value
+
+PASS
+
+For a natural network family the result gives a complete tractable design law under unrestricted edge allocation, which reveals a finite-order activation and exactly one maximum followed by withdrawal at every family size in the explicit price window. Even knowing boundary criterion designs, or the effect on the two-page book, does not determine this family's nonmonotone investment size. The exact cutoffs and finite-order versus limiting distinction are useful beyond re-evaluating the known p=0 and p=1 designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

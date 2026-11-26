@@ -1,7 +1,7 @@
 # Sharp \(2k-3\) attack-size ranking reversals among equal-mean susceptibility mixtures
 
 ## Finding
-Consider two populations, each having at most \(k\ge2\) distinct fixed susceptibility types, with identical mean susceptibility. Both obey a homogeneous-infectivity SIR fluid model with the same initial fractions \(s_0>0\), \(i_0>0\), \(r_0\ge0\), \(s_0+i_0+r_0=1\). As the transmission-to-recovery ratio \(\eta\) varies over all positive values, their total final *new-infection fractions* can agree at no more than \(2k-3\) distinct values. This upper bound is attained as strict sign-changing crossings for every \(k\).
+Consider two populations with distinct fixed susceptibility laws, each supported on at most \(k\ge2\) types, and with identical mean susceptibility. Both obey a homogeneous-infectivity SIR fluid model with the same initial fractions \(s_0>0\), \(i_0>0\), \(r_0\ge0\), \(s_0+i_0+r_0=1\). As the transmission-to-recovery ratio \(\eta\) varies over all positive values, their total final *new-infection fractions* can agree at no more than \(2k-3\) distinct values. This upper bound is attained as strict sign-changing crossings for every \(k\). If the two laws are identical, the final fractions instead agree at every positive ratio.
 
 For two types, take
 \[
@@ -17,7 +17,7 @@ Below this value A has the smaller attack fraction, and above it B has the small
 ## Assumptions and scope
 For each population let \(\mu\) be a probability law on \([0,\infty)\) supported on at most \(k\) points. Each initially susceptible individual's susceptibility is drawn from \(\mu\), held fixed throughout susceptible life, and does not alter infectiousness. In the deterministic infinite-population limit, recovery occurs at rate \(\gamma>0\) and mass-action transmission at rate \(\beta>0\), with \(\eta=\beta/\gamma\). Separate experiments begin from identical positive seed \(i_0\), initial susceptible \(s_0\) and removed \(r_0\), and vary only \(\eta\). Let \(z_\mu(\eta)\) be the eventual fraction of the total population newly infected among the initial susceptibles. This is not the initially infected share.
 
-The same-mean condition is \(\int \lambda\,d\mu_A=\int\lambda\,d\mu_B\). It does not require equal variance or equal class masses. Equality of initial reproduction numbers follows because susceptibility enters only acquisition and infectiousness is homogeneous.
+The bound on the number of ties assumes \(\mu_A\ne\mu_B\). The same-mean condition is \(\int \lambda\,d\mu_A=\int\lambda\,d\mu_B\). It does not require equal variance or equal class masses. Equality of initial reproduction numbers follows because susceptibility enters only acquisition and infectiousness is homogeneous.
 
 ## Proof
 **1. Final-size comparison as a Laplace-transform comparison.** Write \(G_\mu(a)=\int e^{-a\lambda}\,d\mu(\lambda)\). The cumulative infection pressure \(a(t)=\beta\int_0^t i(u)du\) gives \(s(t)=s_0G_\mu(a(t))\) and \(r(t)=r_0+a(t)/\eta\). At the terminal state, \(i(\infty)=0\), so \(a=a_\mu(\eta)>0\) uniquely solves

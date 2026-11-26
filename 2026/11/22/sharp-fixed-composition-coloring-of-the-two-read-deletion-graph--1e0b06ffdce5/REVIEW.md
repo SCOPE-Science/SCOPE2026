@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph has one vertex for each indexed binary word of specified weight, and edges are defined through **sets** of distinct deletion outputs. The established Type-A criterion [2] identifies each adjacency with exactly one alternating phase flip. On a fixed-weight layer that interval has even length \(2t\), with \(1\le t\le \min\{k,n-k\}\). Its one-position sum changes by \(\pm t\), never zero modulo \(1+\min\{k,n-k\}\). The explicit \(r+1\)-member clique has pairwise alternating even intervals, matching the upper bound. Every induced-cycle witness pair was checked by independently generated deletion sets, and the padding argument preserves its difference interval. These steps prove the all-length claim using the properly cited external Type-A lemma. Finite programs independently checked all 124,453 eligible pairs through length ten and alternating-interval edges through length fourteen, with padded cycles through length sixteen. No reliance on experiment for infinite claims.
+## correctness
 
-## Originality — PASS, qualified
-The position-weight checksum is classical and is not new. Cai et al. [2] already use a related inversion residue with an alternating-run restriction to construct two-read codes. The present result derives a fixed-weight **global** color partition without that extra restriction, matches it by a layer-specific extremal clique, and finds an induced five-cycle despite exact chromatic–clique equality. The all-alphabet clique result [4] proves a stronger unrestricted clique bound but not the fixed-weight chromatic number, and the unrestricted clique-cover analysis [3] does not entail it. Indexed-result comparisons found neighboring degree spectra, one weight-two independent-set formula, and two-read graph clique counts, but no same layerwise coloring/nonperfection result. The observed originality is a new **combination and sharp scope of known mechanisms**, not an invention of inversion-syndrome coding. Equivalent unindexed theorems remain a risk.
+PASS
 
-## Value — PASS
-Partitioning all fixed-composition words into as few two-read-decodable codebooks as possible is a natural resource-allocation and channel-design invariant, unlike an arbitrary slice or parameter. The theorem provides the exact optimum for all integer blocklengths and weights and an explicit constructive partition. The induced odd-hole witness prevents a mistaken explanation by perfect-graph theory and demonstrates the strength of the global equality despite complex induced subgraphs. It does not overstate the maximum size of an individual code.
+Cai et al.'s Type-A characterization applies because two distinct equal-weight words differ in at least two positions. It also has a direct proof here: with first/last differences L<R, any common read made by deleting at i in x and j in y with i<j must satisfy i≤L<R≤j and y_m=x_{m+1} for i≤m<j. Before L both words agree, so x_i through x_L are constant and all alignments of this orientation give the same read. The other orientation similarly gives at most one. Both are needed for two distinct reads, and together force opposing alternating phases throughout [L,R]; conversely the two end alignments of such an interval give distinct reads. Fixed weight forces an even length 2t, and the one-position sum changes by ±t with 1≤t≤r, hence separates every edge modulo r+1. The proposed r+1 words have opposite phases on exactly the indicated even interval for each pair; complementing and padding cover unbalanced layers and r=0 is a singleton. The base five words have the cyclic pair intersection sizes 2 and the other five intersection sizes 0; padding preserves the differing interval, so the induced obstruction persists in every stated layer. An independent enumerator compared the interval criterion, residue and actual distinct deletion sets for 32,587 pairs through n=9 and computed all ten witness intersections (`python3 /workspace/review_checks.py 4`). The general proof does not depend on the finite census.
 
-## Closest literature and limits
-- [1] provides the archival deletion-coding context and early position-sum syndrome, not two-read fixed-weight chromaticity.
-- [2] is essential for the alternating-interval lemma; its run-restricted inversion construction is the closest constructive overlap.
-- [3] studies unrestricted two-read code families and clique bounds; no all-weight coloring criterion is established there.
-- [4] computes the whole graph's clique number and its local structure; a layerwise chromatic equality is not implied by the unrestricted clique value.
-- Independently performed mathematical review, priority certification, exact independence numbers and classification of all perfect cases are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The binary alternating-block criterion, inversion/VT mechanism, and alternating-block clique structures are established ingredients, not new here. The evidence supports the exact full-layer proper partition with matching lower bound, together with the induced odd-hole phenomenon. Closest same-graph indexed records concern degrees and edges, unrestricted cliques, or maximum individual code size. The near-parallel Dyck result has a different vertex constraint and does not give the assigned full-layer invariant.
+
+## value
+
+PASS
+
+The fixed-composition layer is a natural channel class and the minimum number of jointly reconstructible codebooks is a concrete partition cost; neither a bound on just one codebook nor edge enumeration answers it. A simple optimal syndrome and explicit sharp obstruction cover every composition, while the embedded C₅ shows that the equality is not explained by perfection. This gives a precise graph/coding distinction rather than an isolated finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

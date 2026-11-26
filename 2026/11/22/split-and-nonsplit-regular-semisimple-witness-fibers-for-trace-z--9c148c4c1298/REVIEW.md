@@ -1,15 +1,21 @@
-# Scientific review: semisimple first-factor commutator fibers
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proof identifies the image of the adjoint of a unit-determinant-type trace-zero matrix with its trace-orthogonal plane over a finite chain ring; the kernel is exactly one free rank-one submodule. Each prescribed bracket count then becomes a primitive linear lifting count multiplied by a split or nonsplit binary quadratic-form representation count. The proof includes the radical plane at isotropic leading targets, the special zero-target case, and exact counting of missing nonsplit targets. All six complete finite-ring pair/target enumerations agree with these formulas, across mixed- and equal-characteristic local rings. Risk: the executable tests cover only prime residue fields of orders 3 and 5, not every odd prime power or arbitrary length; the generality rests on the ring-theoretic proof, not experimentation.
+## correctness
 
-## Originality (PASS, qualified)
-Stasinski's 2012 full-matrix commutator theorem and 2016 trace-zero/regular-factor study address qualitative representation, not class-restricted labeled fibers. The 2016 determinant-fiber theorem counts full matrices with given determinant, not trace-zero Lie-bracket witnesses of specified splitting type. Inspected later related finite-field research gives either primitive square-zero first factors (disjoint from regular-semisimple types) or all first factors in a specific Takiff algebra, which does not determine the two constrained distributions. Scientific claim comparison therefore finds no direct coverage in the inspected material. Risk: stronger general finite-ring orthogonal or orbit-incidence formulas could imply the explicit counts; comprehensive historical priority is not established.
+PASS
 
-## Value (PASS)
-Fixing the split/nonsplit residue type is a natural Lie-theoretic restriction: it distinguishes maximal split and anisotropic tori and asks whether every target admits a witness of that type. The resulting sharp all-length dichotomy (surjective split versus a quantitatively missing nonsplit isotropic-leading locus), together with every prescribed fiber and ring-presentation independence, is a complete constrained word-map invariant rather than a toy or arbitrary numerical slice. The exceptional locus has arithmetic meaning and persists through all local nilpotence depths.
+For odd residue order the trace pairing on sl_2(R) is unimodular. A permitted X is primitive, and ad_X has residue rank two. In a basis extending X its first column is zero and the other two columns have a unit minor; they give exactly the orthogonal hyperplane by reduction and Nakayama, so each admissible X gives q^k second factors. If Z has valuation j, the annihilator of pi^j is (pi^{k-j}). Solve the resulting primitive linear equation modulo pi^{k-j} by a unit pivot: each allowed residue X has q^{2(k-1)}q^j lifts, including at j=0 and j=k-1. Over the residue field any nonzero trace-zero leading coefficient is similar to the companion matrix with columns (0,1) and (t,0), t=Q(leading coefficient); its orthogonal plane has form c^2-t b^2. At t=0 this gives square values only and q(q-1) square-norm vectors; at t nonzero the split product or nonsplit field norm gives q-chi(t) vectors per nonzero value. At Z=0, summing ab=t-c^2 gives q^2+q chi(t) vectors per t nonzero and q^2 at t=0; multiplying by first- and second-factor lift counts proves the zero fiber and summing nonzero isotropic leading coefficients proves the missing-target count. The proof uses no ring coefficient field. A fresh exhaustive replay checked every target and both types in F_3, Z/9 and F_3[t]/(t^2); the original C++ was inspected, not executed.
 
-## Scope of verification and limitations
-The theorem requires finite commutative chain rings with odd residue characteristic. It does not treat even residue characteristic or finer individual determinant values/conjugacy classes. The cited works supply classical prerequisites and context, but no exhaustive literature-priority guarantee. Actual standalone code and its captured output are included, with no claim of independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the two conditioned labeled fiber formulas and the resulting exact image obstruction, not for regular commutator existence or classical quadratic form counts.
+
+## value
+
+PASS
+
+Regular semisimple witness types are intrinsic, not arbitrary filters. The result replaces qualitative existence by exact uniform conditioned counts and shows an actual asymmetry of images: all targets occur in the split type, while the nonsplit type misses precisely the nonzero isotropic leading coefficients, at every valuation. This supplies a usable baseline for finer bracket statistics over chain rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

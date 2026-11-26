@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses an exact multiplicity-invariant quotient by the universal-twin color support. `verification/signature_certificate.py` directly constructs the 189 and 567 possible finite signatures, checks every classified support coefficient against the displayed ten-cell tables, and verifies that their surjection-weighted populations simplify to the closed all-order formula. The final output marker is `SIGNATURE_CERTIFICATE_OK`.
+# Independent mathematical audit
 
-`verification/direct_enumeration.py` builds the original neighbor-based global map for both deletion patterns independently of the signature reduction, extracts all functional-graph cycles and backwards transient depths, and checks the complete first-entry/period census on every size from five through nine. The final marker is `DIRECT_ENUMERATION_OK`.
+## correctness
 
-Both programs were run successfully from the actual package paths. Small graph enumeration independently corroborates the table but by itself cannot prove all orders; the finite quotient and a direct surjection argument provide the unbounded-size step. The result does not certify individual nonzero attraction basins or general edge deletions. No independent external audit has been carried out.
+PASS
+
+The two deleted-edge incidence types exhaust all pairs up to relabelling. On either graph, for each surviving color lineage in the universal clique, its next color depends only on its current color, the exact states of the fault endpoints, and whether any twin is excited. A resting twin cannot itself be that excited witness. All copies of an initial twin color thus follow the same lineage. Keeping one labelled representative of every initial color preserves state equality at every pair of times in both directions, even if lineages merge. The reduction does not merely classify cycles in the quotient by the current unordered support. I independently built neighbor sets and computed the first t with F^(t+3)(s)=F^t(s) for every one of the 189 and 567 endpoint/support representatives. Such a t was always found by 4; the period is 1 if the state is fixed and 3 otherwise. First equality at distance 3 is first periodic entry because any eventual period divides 3. All ten support triples in each family matched. For support coefficient triple (c,d,e) and r fault endpoints, the exact coefficients of (1,2^n,3^n) are (c-2d+3e,(d-3e)/2^r,e/3^r) by surjection counts; this independently matches every reported formula. Direct full-state enumeration at n=5,6,7 also agreed. The (0,3) counts divided by three imply the two-orbit difference, and summing period-one cells gives the six-state extinction difference. The nonzero singleton-support counts at t=4 ensure sharpness for every allowed n. At the excluded n=4 disjoint boundary the labelled word (1,0,0,2) has least period four, independently confirming the exception.
+
+## originality
+
+PASS
+
+No inspected theorem supplies the full joint least-period and first-entry census for these two graph families under the specified Greenberg–Hastings update. The closest graph match uses a different rule, and the closest census in the same rule uses split graphs. The general graph results are credited for synchronization criteria, not mistaken for the joint enumeration.
+
+## value
+
+PASS
+
+These exhaust the two ways of imposing the same smallest nontrivial edge-incidence comparison on a dense clique. Exact conditioning on the least period and first-entry clock finds a redistribution at maximal latency and a constant difference in orbit and extinction counts invisible to edge count. The finite lineage reduction is an explicit all-order mechanism for obtaining these sharp counts, not a fit at small n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

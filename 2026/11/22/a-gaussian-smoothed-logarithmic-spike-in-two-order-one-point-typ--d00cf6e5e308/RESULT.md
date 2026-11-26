@@ -3,14 +3,7 @@
 ## Finding
 Let \(\mathcal R\) be the countable homogeneous structure of two independent linear orders. For each \(n\ge1\), let a finite, individually named \(n\)-point parameter structure be chosen uniformly from the \(n!\) possible permutations. Let \(H_{\pi,n}(k)\) count complete nonalgebraic singleton types whose insertion reverses the relative order of precisely \(k\) named parameters between the two orders. Write \(M_{n,k}=\mathbb E_\pi H_{\pi,n}(k)\), for \(0\le k\le n\).
 
-**Exact spectrum.** If \(B_{n,k}\sim\operatorname{Beta}(k+1,n-k+1)\), then
-\[
- M_{n,k}=(n+1)\mathbb E[-\log|1-2B_{n,k}|]
- =(n+1)^2\binom nk\int_0^1 p^k(1-p)^{n-k}[-\log|1-2p|] \,dp.
-\]
-The integral converges, defines a rational number, and admits the finite rational sum in the proof below. In particular, \(\sum_{k=0}^nM_{n,k}=(n+1)^2\) and \(M_{n,k}=M_{n,n-k}\).
-
-**Critical local limit.** For every fixed real \(s\), set \(k_n=\lfloor n/2+s\sqrt n\rfloor\), defined within \(\{0,\ldots,n\}\) for all sufficiently large \(n\). With \(Z\sim N(0,1)\),
+The claim is the local asymptotic at the logarithmic singularity of the known macroscopic degree law. For every fixed real \(s\), set \(k_n=\lfloor n/2+s\sqrt n\rfloor\), defined within \(\{0,\ldots,n\}\) for all sufficiently large \(n\). With \(Z\sim N(0,1)\),
 \[
  \frac{M_{n,k_n}}{n+1}-\frac12\log n
  \longrightarrow -\mathbb E\log|Z+2s|.
@@ -19,7 +12,7 @@ In particular, with Euler's constant \(\gamma\),
 \[
  M_{n,\lfloor n/2\rfloor}=(n+1)\left(\frac12\log n+\frac{\gamma+\log2}{2}+o(1)\right).
 \]
-Away from the singularity, if \(k_n/n\to t\in(0,1)\setminus\{1/2\}\), then
+For comparison, away from the singularity, if \(k_n/n\to t\in(0,1)\setminus\{1/2\}\), the same finite representation immediately gives
 \[
  M_{n,k_n}/(n+1)\to -\log|1-2t|.
 \]
@@ -38,9 +31,14 @@ and \(H_{\pi,n}(k)=|\{(i,j):d_\pi(i,j)=k\}|\). The statistic counts named elemen
 \[
  p(u,v)=u(1-v)+(1-u)v=u+v-2uv.
 \]
-Hence the disagreement count \(D\) conditional on \((U,V)\) is \(\operatorname{Bin}(n,p(U,V))\), and \(\Pr(D=k)=M_{n,k}/(n+1)^2\).
+Hence the disagreement count \(D\) conditional on \((U,V)\) is \(\operatorname{Bin}(n,p(U,V))\), and \(\Pr(D=k)=M_{n,k}/(n+1)^2\). This conditional-binomial law is an immediate specialization of the independent-point permutation model and inversion kernel in [1, §§2.3–2.4, Eq. (2.8)], after distinguishing one vertex and translating degrees to types.
 
-**2. The mixing law and rationality.** The variables \(X=1-2U\), \(Y=1-2V\) are independent uniform variables on \([-1,1]\). As \(1-2p(U,V)=XY\), the density of \(p(U,V)\) on \((0,1)\) is exactly \(f(p)=-\log|1-2p|\) (the product of two independent uniform \([-1,1]\) variables has density \(-\frac12\log|w|\) for \(|w|<1\)). Conditioning on \(p\) gives the integral in the finding. Normalizing a beta integral gives the beta expectation.
+**2. Finite representation used in the proof.** Corollary 2.2 of [1] gives the mixing density \(f(p)=-\log|1-2p|\); it also follows by writing \(1-2p(U,V)=(1-2U)(1-2V)\), a product of independent uniform variables on \([-1,1]\). Conditioning on \(p\) in Step 1 and normalizing a beta integral give, for \(B_{n,k}\sim\operatorname{Beta}(k+1,n-k+1)\),
+\[
+ M_{n,k}=(n+1)\mathbb E[-\log|1-2B_{n,k}|]
+ =(n+1)^2\binom nk\int_0^1 p^k(1-p)^{n-k}[-\log|1-2p|] \,dp.
+\]
+This convergent exact formula is used as a direct consequence of prior ingredients, not as a separate originality claim.
 
 For an explicit rational certificate, set \(c_r=[x^r](1+x)^k(1-x)^{n-k}\). With \(x=2p-1\), use parity and \(\int_0^1 x^{2r}(-\log x)\,dx=1/(2r+1)^2\) to obtain
 \[
@@ -49,7 +47,7 @@ For an explicit rational certificate, set \(c_r=[x^r](1+x)^k(1-x)^{n-k}\). With 
 \]
 This also proves rationality. Reflection \(p\mapsto1-p\) proves symmetry in \(k\), and summing the binomial probabilities proves the total.
 
-**3. Bulk.** Let \(B_{n,k}\sim\operatorname{Beta}(k+1,n-k+1)\). If \(k/n\to t\in(0,1)\), the beta law concentrates at \(t\) with variance \(O(1/n)\). When \(t\ne1/2\), the singularity of \(-\log|1-2p|\) lies a fixed distance away; a standard beta large-deviation bound makes its contribution on a small neighborhood of the singularity exponentially small even after multiplication by the logarithmic integral. Uniform integrability on the remainder establishes the stated bulk limit.
+**3. Bulk.** If \(k/n\to t\in(0,1)\), the beta law concentrates at \(t\) with variance \(O(1/n)\). For \(t\ne1/2\), take a fixed closed neighborhood of \(1/2\) disjoint from \(t\). The beta density there is at most its maximum \(O(\sqrt n)\) times \(e^{-cn}\) for some \(c>0\): the exponent divided by \(n\) is \((k/n)\log p+(1-k/n)\log(1-p)\), whose maximum is strictly higher at \(p=k/n\) than on that neighborhood. The logarithm is integrable there and bounded off that neighborhood. This gives the bulk limit.
 
 **4. Central window and the constant.** With \(k_n=\lfloor n/2+s\sqrt n\rfloor\), write \(Y_n=\sqrt n(2B_{n,k_n}-1)\). The beta central limit theorem, obtained for instance by expressing beta variables as ratios of independent gamma variables with shapes \(k_n+1\) and \(n-k_n+1\), gives \(Y_n\Rightarrow Z+2s\). Stirling's estimate for the beta density at its mode gives a uniform bound for the densities of \(Y_n\) when \(s\) is fixed and \(n\) is large. Furthermore \(\sup_n\mathbb E Y_n^2<\infty\). The bounded density controls the negative-log singularity: uniformly, the expected contribution from \(|Y_n|<\delta\) is at most \(C\delta(1+|\log\delta|)\). The second-moment bound controls the positive-log tails beyond \(R\), tending to zero as \(R\to\infty\). Therefore \(\{\log|Y_n|\}\) is uniformly integrable, and
 \[
@@ -61,7 +59,7 @@ The identity \(-\log|1-2B_{n,k_n}|=\frac12\log n-\log|Y_n|\) proves the critical
 The supplied, standard-library-only `verify.py` compares three genuinely distinct finite expressions: a direct enumeration of all permutations and two-gap insertions, an exact hypergeometric overlap sum, and the independently derived rational logarithmic-integral formula. All three agree at every \(k\) for \(1\le n\le6\); the latter two agree at every \(k\) for \(7\le n\le12\), with all coefficient sums and palindromicity tested. Central exact examples are \(M_{6,3}=176/15\), \(M_{8,4}=563/35\), \(M_{10,5}=6508/315\), and \(M_{12,6}=88069/3465\). A finite checker does not establish the infinite asymptotic claims, whose proof uses the beta central limit theorem and uniform integrability.
 
 ## Relationship to prior work
-Bhattacharya and Mukherjee established the macroscopic limiting empirical degree-proportion law of uniformly random permutation graphs, with density \(-\log|1-2t|\), in their 2015 preprint (Corollary 2.2 of the later journal text). That density, the permutation-graph interpretation, and standard beta/Gaussian facts are *prior inputs*. Convergence of a continuous global distribution does not determine the probability of an individual integer degree, its \(\sqrt n\)-wide singular crossover, or the explicit second-order Euler-constant term. The finding isolates these more precise **finite-base graded one-point type** properties. Hoppen et al. supply the more general permutation-limit framework, not this central coefficient calculation. Historical novelty is provisional, and equivalent local laws elsewhere may exist.
+Bhattacharya and Mukherjee [1] use the independent-point permutation representation and inversion kernel in §§2.3–2.4 and give the logarithmic density in Corollary 2.2. Together these already imply the exact degree probability of a uniformly chosen vertex by conditioning on its coordinates. The degree-to-type translation and finite beta and rational formulas above are explicit calculations from those inputs, not asserted as new. The contribution is the fixed-offset \(\sqrt n\)-window asymptotic for exact degree probabilities, including its Gaussian-log profile and constant term. The global weak limit does not give this local asymptotic, and Theorem 3.4 in [1] instead concerns the weak limit of the rescaled degree of the vertex at a fixed middle first-order rank. Here the vertex ranges over all ranks and the result concerns one exact integer degree at a time. Hoppen et al. [2] supply the permutation-limit framework. Historical priority remains provisional.
 
 ## Limitations
 The expectation is over uniformly sampled parameter permutations; there is no claimed almost-sure or high-probability concentration of an individual type histogram. The critical limit is pointwise for each fixed \(s\), not uniform in an expanding window, and the bulk result excludes the endpoint regimes and \(t=1/2\). The statement concerns singleton types with both linear orders named, not reducts or higher tuple arities. No independent mathematical audit has been performed.

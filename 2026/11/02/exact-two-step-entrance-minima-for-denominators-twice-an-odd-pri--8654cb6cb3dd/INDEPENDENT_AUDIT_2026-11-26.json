@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:29:08.445585Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a=2pq+r in lowest terms, the first iterate is q(2p+r)/(2p), so its reduced denominator is d=2p/gcd(q,2p) and its floor is Q=q+floor(qr/(2p)). Applying the same reduction to a number of denominator d gives the necessary and sufficient conditions d>1 and d divides Q. For q<q0=2 ceil((p+1)/4) one has q<p; for even q, Q<=2q-1<p=d, and for odd q, Q<2p=d. At q0 the denominator is p and the only feasible positive multiple is Q=p, so the problem reduces to the half-open remainder interval in the proof. For p=3 mod 4 it starts at 2p-4+4/(p+1) and ends at 2p; the smallest odd r is 2p-3, except when it equals p at p=3 and r=5 is needed. For p=1 mod 4 the endpoints are 2p-12+36/(p+3) and 2p-8+24/(p+3). At p>=37 the first odd r is 2p-11, below the upper endpoint and coprime to p. The only smaller primes of that class are 5,13,17,29; their intervals yield r=3,17,25,49, respectively. Thus in every branch the first possible quotient is feasible, and the least remainder there gives global minimality. Independent bounded replay: python3 /workspace/reproductions/frozen_checks.py entrance checked all smaller reduced numerators and the first exact-two numerator for 33 odd primes below 142 by unreduced integer two-step arithmetic. Frozen verification code and notes were inspected, not executed, and the finite check is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 provides residue classes modulo M^(n+1) and a recurrence for counts. The same-map Resultary record 55eb9f2dd896 treats counts and stopping-time tails at fixed composite denominators."
+        ],
+        "reasoning": "Those results can enumerate or count candidates but do not extract the least representative as a function of p. A quotient lower bound and uniform coprime rounding analysis are required here.",
+        "searches": [
+          "Carvalho Theorem 3.1, exact-order residue classes",
+          "Resultary: same-map mixed denominators, order distributions and minima"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Carvalho arXiv:2605.21802v1",
+        "Lagarias–Sloane arXiv:math/0309389",
+        "Azevedo–Carvalho–Machiavelo arXiv:1210.0042",
+        "Resultary fbd8012ff8d1 and 55eb9f2dd896"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior same-map criterion and counts do not show that the first feasible quotient is the least even integer above (p+1)/2. The bounded remainder argument then yields distinct mod-four branches and a finite exceptional set."
+        ],
+        "reasoning": "This is a closed-form solution on a new natural family, not a lookup or prime-power specialization. The same-day tails record does not establish priority or imply the minimum.",
+        "searches": [
+          "Carvalho Question 3.5 paired with Theorem 3.1",
+          "Resultary fbd8012ff8d1 and 55eb9f2dd896"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Question 3.5 asks the same minimum problem for T, not a different notion of period.",
+          "Lagarias–Sloane use x ceil(x), not floor(x)(1+{x})."
+        ],
+        "reasoning": "The quoted denominator-two valuation formula for approximate squaring cannot be transferred merely because both problems ask when a rational iterate becomes integral.",
+        "searches": [
+          "Carvalho arXiv:2605.21802v1, Theorem 3.1 and Question 3.5",
+          "Lagarias–Sloane, approximate squaring and rational stopping times"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary fbd8012ff8d1 classifies prime-power minima and explicitly excludes multiple distinct prime factors.",
+          "Figure 2 of arXiv:1210.0042 tabulates order-class counts for small denominators for x ceil(x), not minima for T."
+        ],
+        "reasoning": "No inspected matching table supplies these least numerators, and the prime-power theorem does not cover any 2p with p odd.",
+        "searches": [
+          "Resultary: exact two-step entrance minima, prime powers and twice an odd prime",
+          "Azevedo–Carvalho–Machiavelo arXiv:1210.0042, Corollary 2.4 and Figure 2"
+        ]
+      },
+      "rationale": "The map, entrance-order problem, general residue recurrence and divisibility criterion are prior. The supported distinct claim is the exact minimum for the mixed denominator family 2p, including the first feasible quotient and every rounding and coprimality exception. The finite-class description allows a search for a fixed p, but does not identify the minimum uniformly in p.",
+      "residual_risks": [
+        "An unindexed earlier closed-form evaluation remains possible; this is not an exhaustive priority claim.",
+        "The dates of same-day catalog records do not establish chronology; the distinction here is by their mathematical statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior residue tools and statement of the question; no 2p formula in the compared passages.",
+          "evidence": "The question explicitly defines the minimum after the order-class theorems. Full characterization for M=2 does not include 2p.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.21802",
+          "material_read": "Theorem 3.1 pp. 4–5; Question 3.5 p. 8, v1",
+          "method": "Lawful open primary PDF passages",
+          "title": "Rational dynamics of a prime-representing map",
+          "trigger": "Exact same map and minimization question"
+        },
+        {
+          "assessment": "Different iteration, no implication for the bound map's minimum.",
+          "evidence": "Theorem 1 gives nu_2(l)+1 for (2l+1)/2 under x ceil(x).",
+          "identifier_or_url": "https://arxiv.org/abs/math/0309389",
+          "material_read": "Map definition p. 1, §2 Theorem 1, floor-map discussion and §5 Theorem 9",
+          "method": "Lawful open primary PDF passages",
+          "title": "Approximate Squaring",
+          "trigger": "Nearby rational entrance maps and exact denominator results"
+        },
+        {
+          "assessment": "Different map and order-class counts rather than minima.",
+          "evidence": "Uses chi(x)=x ceil(x), with tables for n<=5 and M<=20.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.0042",
+          "material_read": "Abstract and §2, including Corollary 2.4 and Figure 2, pp. 6–7",
+          "method": "Lawful open primary PDF passages",
+          "title": "Dynamics of a quasi-quadratic map",
+          "trigger": "Exact-order congruences and tables for a nearby map"
+        },
+        {
+          "assessment": "Same T and exact order, expressly different denominators.",
+          "evidence": "Its general divisibility criterion applies, but its solved minimum branches are for prime powers.",
+          "identifier_or_url": "Resultary fbd8012ff8d1",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp two-step entrance minima for prime-power denominators",
+          "trigger": "Closest matching exact-order minimum classification"
+        },
+        {
+          "assessment": "Fixed-denominator order densities and tails, not least-numerator evaluation.",
+          "evidence": "Uses a residue-count recurrence; knowing the cardinalities or tails does not identify the first qualifying numerator.",
+          "identifier_or_url": "Resultary 55eb9f2dd896",
+          "material_read": "RESULT.md Finding and proof",
+          "method": "Local Resultary mirror",
+          "title": "Universal dominant-prime law for rational stopping orders",
+          "trigger": "Same-day record on the same T and mixed denominators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a concrete case of an explicitly posed minimum problem, for the natural smallest-even-factor mixed family beyond prime powers. A quotient obstruction plus finite coprime rounding yields a complete classification across an infinite family, with exceptional primes proved exhaustive. It is more than checking that some orbit works or counting admissible classes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

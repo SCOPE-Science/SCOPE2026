@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Distinct shifts give a full-rank Vandermonde system for at most \(d\) translates, establishing total homogeneous equidistribution and exact finite-modulus laws. The prime-power inclusion–exclusion computes the local mass. Holdridge's published large-prime result and fixed-prime high-valuation bounds establish tightness, so the Euler product is a genuine infinite joint distribution rather than merely a finite-modulus heuristic. The \(d\)-th finite difference gives an exact arithmetic obstruction at \(d+1\) consecutive shifts. The bundled checker reproduced finite CRT/local profiles and sample observations. Infinite conclusions depend on the cited published tail theorem.
+PASS
 
-## Originality
+For r≤d the first r translate moments form an invertible Vandermonde system, so any nontrivial integer combination has a nonconstant coefficient that is a nonzero rational multiple of α. Its leading nonzero nonconstant term stays irrational on any arithmetic progression after dividing by a fixed modulus. Weyl and the floor-residue boxes therefore give joint uniform residues with n and the claimed lcm denominator. Inclusion–exclusion gives the displayed local factors; for two equal exponents a single increment increases the exponent by 2 and both by 3, while for unequal exponents the two separate increments cost 1 and 2. For tightness, the full-N large-prime estimate quoted from Holdridge is exactly what is needed. The exact statement of Theorem 1.3 was inaccessible, but the required tail can also be derived from the natural-density coprimality result announced in Holdridge’s PDF abstract (its one-polynomial case, with Weyl equidistribution assured by an irrational leading coefficient). In detail, write n=am with a the part supported on primes ≤R. A common prime >R then gives gcd(m,⌊f(am)⌋)>1, while no prime ≤R divides both. For each fixed a this latter superset has density c_R=∏_{p≤R}(1−p⁻²)−1/ζ(2), by fixed-prime Weyl and the one-polynomial coprimality theorem applied to f(a·), which still has irrational leading coefficient. Summing the limsup bound c_R/a over smooth a is justified by the summable majorant 1/a for fixed R. The resulting bound c_R ∏_{p≤R}(1−1/p)⁻¹ is O(R⁻¹/²): c_R=O(1/R) and bounding the reciprocals of odd primes by those of odd integers gives O(√R) for the inverse product. This checks the needed large-prime step without relying on the exact wording of Theorem 1.3. A finite union over shifts and the fixed-p bound p⁻²ᴷ control all tails. CRT gives the same finite-prime laws as the shared Haar model, whose gcd ideals almost surely have finite positive generators since ∑_p r/p² converges. Every specified finite valuation profile has positive probability, and at all other primes the factors are 1−O_r(p⁻²). For d+1 consecutive shifts the integer finite difference of the floor values lies within 2^d of αd!; the choice α>2^d/d! irrational and p>αd!+2^d excludes all simultaneous multiples despite the positive proposed formula. This is existential in α for each d, not failure for every α. The uploaded finite checker was inspected, not executed and not used for the limit.
 
-PASS, with residual literature risk. Holdridge gives one common-GCD coprimality event and a large-prime estimate, not the separate GCD-vector probability law or the sharp translate cutoff. Banks–Shparlinski addresses polynomial-floor gcds under other hypotheses; a published split-integer-polynomial theorem concerns one common GCD with a polynomial first coordinate. Search comparisons considered the shared-coordinate probabilistic model, arbitrary-lag formulations, and the Vandermonde threshold, not only title matches. A sufficiently general random-profinite or adelic result might implicitly subsume the conclusion and remains a priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Simultaneous separate GCD statistics are not equivalent to a single joint coprimality event, because the components share the integer \(n\). The theorem identifies the complete dependence structure, exact all-vector masses and a sharp, motivated arithmetic transition at the first linearly dependent translate count. It supplies an infinite-family classification and a boundary counterexample, not an arbitrary finite table or a normalization identity.
+Best-of-knowledge pass only for the joint law of separate dependent GCDs for at least two translates and the sharp universal rank threshold with an explicit obstruction. The fixed-modulus Weyl method, the large-prime control from Holdridge and the r=1 case are not original contributions. The primary abstract directly establishes a strong common-coprimality result, not this separate joint law; unresolved full-text coverage is noted rather than treated as absence.
 
-## Limits of review
+## value
 
-Primary Theorem 1.3 is used as published and is not reproved here. Finite computational checks are supporting evidence, and unrelated or unindexed broader literature may affect originality. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gives a complete law and exact local correlations for the natural shared-coordinate problem, not just the frequency of one common gcd being 1. The finite-difference counterexample identifies precisely the universal degree-controlled number of translates at which the law can fail. The explicit positive factors and the obstruction are useful even though the hard tail estimate is borrowed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

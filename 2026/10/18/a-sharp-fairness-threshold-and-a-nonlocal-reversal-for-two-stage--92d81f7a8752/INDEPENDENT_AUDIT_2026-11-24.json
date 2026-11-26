@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:54:44.789616Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked stationary renewal reward, the Perron branch and the strict comparison. Integrating the Erlang-2 survival function and multiplying by the rate gives (1+y)exp(-2y), with continuous no-booster limit 1. With t=alpha/2, the larger eigenvalue is (1-t)m+sqrt(t²m²+(1-2t)d²), where m and d are the half-sum and half-difference of the positive susceptibilities. The discriminant has the equivalent strictly positive form (1-t)²d²+t²s1s2. The symmetry makes the first derivative zero; the second derivative from the expansion is c²[F''+2(1-alpha)(F')²/(alpha F)] at c, with sign given by 1+4c+4c²-alpha(1+2c+2c²). At alpha=3/2, c=3/8 it is 3exp(-3/4)/1408, strictly positive. For a=exp(-3/4) the endpoint characteristic polynomial has negative constant term and thus precisely one positive root; substituting the positive fair value (11/8)a gives a(130a-44-77a²)/128. The degree-five alternating sum is 19339/40960>47/100 and the exponential upper bound gives a<1/2. The bracket increases on that interval and is 907/10000 at 47/100. Thus the endpoint's positive root is strictly smaller. For exponential clocks, s1s2=exp(-2c) is constant and the Perron branch is strictly increasing with the half-sum for t<1; that sum strictly increases in |x|. At t=1 the radius is sqrt(s1s2), constant for exponential boosters and strictly decreasing in |x| for Erlang-2. This verifies the exact model-specific statements without running the frozen script or treating its finite grid as a proof. Neither the degenerate curvature boundary nor global optimality of the concentrated endpoint is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foutel-Rodier–Charpentier–Guérin give the renewal and matrix framework (Eqs. (21), (24)–(28)) and prove fair allocation optimal for alpha in [0,1] in Proposition 6."
+        ],
+        "reasoning": "The general matrix and cost formulas are credited as prior. The recorded threshold is strictly between 1 and 2 for positive c, and the strict local/global mismatch at alpha=3/2 lies outside Proposition 6. A general representation of the objective is not the claimed all-c curvature sign boundary or the nonlocal inequality.",
+        "searches": [
+          "Resultary: Foutel-Rodier Charpentier Guérin Proposition 6 fixed dose rate two group vaccination fairness",
+          "arXiv:2306.13633v3 §5: The next-generation matrix; Proposition 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.13633v3 (doi:10.1007/s00285-024-02171-z)",
+        "arXiv:2112.08756v1",
+        "Resultary b1779b85de6a",
+        "Resultary 26c046e62806"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known optimizer theorem is for the assortative range; the older curvature result pertains to an affine susceptibility-budget coordinate; the nearby recurrent spectral allocation record changes both renewal and waning laws."
+        ],
+        "reasoning": "No inspected result implies the coexistence of a positive equal-allocation Hessian and a better endpoint for these Erlang-2 recurrent intervals under the fixed rate constraint. The simple exponential special case is a comparison, not the principal originality credit.",
+        "searches": [
+          "arXiv:2306.13633v3, §5, Eqs. (24)–(28), Prop. 6",
+          "arXiv:2112.08756v1, §4, Eq. (32), Prop. 4.1",
+          "Resultary b1779b85de6a, original RESULT.md Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Delmas–Dronnier–Zitt Eqs. (5)–(8) use the same form rho(K diag(eta)), but their budget is affine in residual susceptible fractions eta. Proposition 4.1 gives concavity in those fractions in the disassortative case."
+        ],
+        "reasoning": "Reparameterizing by susceptibility does not preserve the affine budget. Here the feasible dose-budget curve is the image under the nonlinear map F; concavity on affine coverage slices does not determine the sign of curvature along that curve.",
+        "searches": [
+          "Resultary: recurrent vaccination Erlang-2 fairness local curvature threshold equal allocation concentration fixed dose rate",
+          "Resultary: Delmas Dronnier Zitt Proposition 4.1 concavity spectral radius cost linear susceptible vaccination",
+          "arXiv:2112.08756v1, §§2.1 and 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-a-sharp-waning-dependent-fairness-reversal-in-disassortative-boo--b1779b85de6a: its Finding treats periodic boosters with exponential waning and provides a curvature threshold plus a fair/concentrated comparison at alpha=2, u=0.1. The same-day SCOPE hit 26c046e62806 instead concerns submodularity of overload protection in a one-generation star model."
+        ],
+        "reasoning": "The nearest catalog result is conceptually close, but does not state the same clocks or susceptibility law or a strict local minimum with a better fully concentrated allocation at the same parameter pair. The comparison rests on statements, not catalog dates. There is no finite table underlying the present analytic claim.",
+        "searches": [
+          "Resultary: A sharp fairness threshold and a nonlocal reversal for two-stage vaccination renewal Erlang-2",
+          "Resultary: Erlang-2 recurrent booster vaccination fairness threshold local minimum nonlocal reversal"
+        ]
+      },
+      "rationale": "The fixed-dose-rate spectral optimization problem and known concentration effects are not new. Credit only the stated Erlang-2/step-immunity exact threshold and the strict local-minimum/better-endpoint witness, with the memoryless calculation as a control. The strongest located material uses different coverage coordinates or different booster and waning laws; statement-level comparisons did not establish equivalent or stronger coverage of that remaining claim.",
+      "residual_risks": [
+        "Bounded Resultary and targeted primary-text checks do not certify exhaustive priority in wider renewal allocation literature.",
+        "A later bounded read around Delmas–Dronnier–Zitt Theorem 4.2 timed out; the assessment uses the directly inspected cost definitions and Proposition 4.1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the framework and assortative fair optimum, not the disassortative threshold or witness.",
+          "evidence": [
+            "Eq. (27): fixed per-capita dose rate sums group masses divided by the mean intervals.",
+            "Proposition 6 treats alpha in [0,1]."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.13633v3",
+          "material_read": "§5 contact convention, renewal mean Eq. (21), matrix and cost Eqs. (24)–(28), and Proposition 6; bounded OA reads from offsets 89800, 96000 and 104200.",
+          "method": "OA primary-text locator and bounded passages.",
+          "title": "Optimal Vaccination Policy to Prevent Endemicity: A Stochastic Model",
+          "trigger": "Originating model and closest fixed-rate fairness theorem"
+        },
+        {
+          "assessment": "Material background on coverage optimization, but linear coverage cost is not fixed recurrent dose-rate cost.",
+          "evidence": [
+            "C(eta)=1-sum_i mu_i eta_i; Proposition 4.1 proves concavity for disassortative mixing in eta."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2112.08756v1",
+          "material_read": "§2.1 Eqs. (5)–(8); Eq. (32) and Proposition 4.1 in §4; bounded passages near offsets 18500, 50000 and 54500.",
+          "method": "OA primary-text locator and bounded passages.",
+          "title": "Optimal vaccination: Various (counter) intuitive examples",
+          "trigger": "Possible general theorem on disassortative curvature and concentration"
+        },
+        {
+          "assessment": "Material conceptual overlap, not equivalent claims; no priority inference from catalog date alone.",
+          "evidence": [
+            "Periodic boosters with exponentially waning immunity; endpoint example at alpha=2,u=0.1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-waning-dependent-fairness-reversal-in-disassortative-boo--b1779b85de6a",
+          "material_read": "Original RESULT.md Finding and model assumptions, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary semantic query and bounded original passage in the local mirror.",
+          "title": "A sharp waning-dependent fairness reversal in disassortative boosting",
+          "trigger": "Strongest plausible Resultary overlap in threshold plus endpoint reversal"
+        },
+        {
+          "assessment": "Different model and invariant.",
+          "evidence": [
+            "One-generation star with shared Beta infectivity, not two-group renewal allocation."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-correlation-threshold-for-submodular-outbreak-overload-p--26c046e62806",
+          "material_read": "Original RESULT.md Finding.",
+          "method": "Bounded original passage in local mirror.",
+          "title": "A sharp correlation threshold for submodular outbreak overload protection",
+          "trigger": "Same-day indexed hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact threshold separates local behavior across the natural mixing parameter in an existing constrained allocation problem. The witness shows that even a strict local optimum at the symmetric allocation does not justify a global fairness conclusion under the same budget; the exponential control isolates a substantive effect of the renewal law. This is a usable caution for spectral-factor optimization in the stipulated model, not a real-world vaccination recommendation or a general global solution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The focal sampling pools differ by one distinguished individual's type; coupling the uniform samples reduces the benefit difference to a hypergeometric marginal-gain expectation. A second one-individual coupling produces an exact finite difference whose sole variable sign factor is \(MZ-N(k+1)\). The proof explicitly treats inactive support boundaries, plateau cases and the high-cooperation endpoint. Independent direct payoff summations and exact-rational verification reproduce the formulas. The symbolic coupling/factorization—not numerical enumeration—is the universal proof.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The originating 2008 and 2011 threshold-stag-hunt studies contain the finite-population model, its payoff sums and numerical phase descriptions, which are acknowledged as prior knowledge. The inspected finite-population sections do not state the precise mode formula \(\lceil MZ/N-1\rceil\), the adjacent-mode divisibility condition or the exact sign-change threshold. The gain-from-switching results in Peña–Lehmann–Nöldeke concern binomial large-population sampling and do not alone imply the hypergeometric finite difference. The related deterministic threshold-game study by Bach–Helvik–Christiansen was checked at the abstract/metadata level only. An unlocated equivalent derivation elsewhere remains a residual originality risk.
+PASS
 
-**Mathematical value — PASS.** The finite-state collective-action payoff curves were treated numerically in motivating work. A closed structural formula now locates the composition where selective incentives are greatest for every population size and every interior threshold, without optimizing numerically over composition. Two exact benefit thresholds classify whether any cooperative advantage exists and whether the advantage is bounded by negative selection at both ends. This directly addresses finite-population collective-action bistability and excludes more complicated selective sign sequences under the stated mechanism.
+Couple the two distinct focal sampling pools by swapping the other focal individual. When that individual is drawn, both groups have the same cooperator count; otherwise the count difference is the unit increment of j·1{j≥M} in the common Z−2 pool. This gives the factor (Z−N)/(Z−1) and the stated H. Coupling adjacent compositions by recoloring one background individual gives the difference of the two adjacent hypergeometric masses at M−2 and M−1. Factoring the binomials gives the sign of MZ−N(k+1) wherever M−1≤k≤Z−N+M−1; outside this interval both relevant masses are zero. The root lies strictly inside this interval, including the case Z=N+1. This proves the mode and adjacent tie rule, H(1)=0, H(Z−1)=1 and H_*>1. Strict upper level sets are consecutive, empty at or below Fcrit, with precisely the mode(s) neutral at equality. Fcrit is the infimum, not an attained minimum for strict advantage. The sign on the right endpoint changes at Ftail, and both extremes are negative with a positive intermediate band for Fcrit<F<Ftail (zeros at interfaces do not add sign reversals). The claim concerns drift sign under positive Fermi comparison intensity, not fixation or extra absorbing states. Separate-pool exact rational checks implemented independently for 4≤Z≤15 passed 4,095 payoff comparisons, 3,731 adjacent-difference comparisons and the mode checks; verify.py and its recorded results were inspected, not executed.
 
-**Scientific limits.** No claims are made about fixation probabilities, stochastic-process absorbing states at neutral payoff equality, or heterogeneous meeting patterns. The finding has not undergone external independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The payoff model, separate finite hypergeometric expectations and qualitative intermediate band are prior. Credit is for the exact without-replacement adjacent-difference factorization, universal lattice mode/tie and quantitative finite threshold consequences, not for the game or the existence of interior positive drift alone. The strongest inspected continuous-limit and indexed finite-game comparisons do not establish these results for this payoff class.
+
+## value
+
+PASS
+
+An exact finite mode and threshold fill a natural gap between separate hypergeometric payoff sums, simulations and the infinite-population analogue. The values identify the compositions most favorable to cooperation without scanning all compositions, distinguish the first possible positive drift from positive drift at the high endpoint, and capture a finite-size suppression and exact tie that a continuous approximation misses. The result does not imply fixation behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

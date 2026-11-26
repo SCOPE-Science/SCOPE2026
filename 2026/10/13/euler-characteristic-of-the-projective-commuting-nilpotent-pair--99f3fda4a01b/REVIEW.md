@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The one-parameter subgroup combines diagonal conjugation with a large relative scalar shift between the two matrix factors. Ordered off-diagonal weights are pairwise distinct, the two factors have disjoint weight sets, and the only repeated ambient weights are the diagonal subspaces.
+## correctness
 
-A nonzero diagonal complex matrix cannot be nilpotent, so those positive-dimensional ambient fixed spaces contribute nothing. Every off-diagonal matrix unit \(E_{ij}\) satisfies \(E_{ij}^2=0\), giving exactly two fixed points for every ordered pair \(i\ne j\). Euler localization therefore gives
-\[
-\chi_{\mathrm{top}}(\mathbb P\mathcal N_{2,n})=2n(n-1).
-\]
+PASS
 
-The bundled checker independently verifies the weight separation and coordinate fixed-point count over a broad finite range. Finite computation is regression evidence only.
+An independent two-step localization proves the same formula for simultaneous-scaling projectivization. Relative scaling [A:B] ↦ [zA:B] preserves nilpotency and commutation. Its only fixed points have A=0 or B=0, so the fixed locus is two disjoint copies of the projectivized nilpotent cone. On either copy use diagonal conjugation with weights 2^(j−1): off-diagonal weight differences are nonzero and distinct by their sign and 2-adic valuation, and the diagonal weight space contains no nonzero nilpotent matrix. Every off-diagonal matrix unit squares to zero. Thus each copy contributes n(n−1) fixed points, and projectivity identifies the localized compactly supported Euler count with ordinary Euler characteristic. This yields 4,12,24 for n=2,3,4. The indexed publisher abstract of Silva–Vainsencher explicitly reports degrees 4,72,5440 for the projective varieties of pairs of commuting nilpotent matrices of those sizes. The degree comparison uses that published statement about varieties, not a claim about possible nonreduced scheme structures; the paper's construction was not accessible for inspection. The symbolic argument is not a rerun of the finite checker.
 
-## Originality
-PASS. Full-text inspection of the accessible commuting-nilpotent tuple paper found irreducibility, dimension, and perturbation results but no Euler- or fixed-point statement. The projective enumerative source gives degrees for \(n=2,3,4\) but no Euler formula in the accessible material.
+## originality
 
-Targeted literature and semantic-database searches did not locate the all-\(n\) Euler formula or an equivalent two-copy off-diagonal fixed-point count. Residual risk remains because the localization proof is short and the classical literature is extensive.
+PASS
 
-## Value
-PASS. This is a uniform topological invariant for a classical singular projective family tied to punctual Hilbert schemes. Its quadratic closed form contrasts sharply with the rapidly growing published projective degrees, exposing a structurally meaningful collapse rather than a small-case numerical coincidence.
+The strongest distinct indexed record treats the unrestricted commuting variety and expressly distinguishes a previously recorded nilpotent-pair result, without supplying an independently covering earlier result for the exact nilpotent value. The inspected literature covers irreducibility, higher tuple geometry, or degree. No equivalent or stronger nilpotent-pair Euler statement was located in the bounded checks. The classical degree values are comparison data, not claimed new results.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The same natural projective pair variety has been studied enumeratively, making its global topological invariant worth determining separately. The exact formula identifies a geometric source of the Euler count: the stratum where both entries are nonzero contributes zero, and all contributions come from the two nilpotent axes. The known degrees and unrestricted commuting-pair formula do not give this count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

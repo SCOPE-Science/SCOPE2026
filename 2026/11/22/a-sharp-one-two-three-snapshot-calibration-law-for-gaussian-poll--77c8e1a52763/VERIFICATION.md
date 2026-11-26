@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Mathematical reconstruction
+## correctness
 
-The proof determines the complete rank trichotomy via elementary affine geometry. For the spherical middle case it separates off-center sources, whose log-spatial differences are nonzero and yield the puff age from two known clock readings, from the exact circumcenter where all those differences vanish. The two exact scalar identities needed there are (1) strict monotonicity of the shifted harmonic-mean integral for equal known-mass readings and (2) at-most-one-turning-point behavior of the two-age log profile ratio for unknown-mass three-time readings. For one-time and two-time lower bounds, the unimodal Gaussian response and folded time-shift ratio produce positive distinct exact parameter pairs. The proof covers all positive masses and diffusivities as assumed (diffusivity fixed and known), all dimensions, all postrelease observation times, and every finite fixed sensor array.
+PASS
 
-## Executed reproductions
+The rank cases are exhaustive: affine deficiency permits a fixed reflection twin at every time; at full affine rank, dependence of the squared-norm column is equivalent by completing the square to lying on one sphere of positive radius. Full rank of H recovers the entire log quadratic from one round: its negative quadratic coefficient gives positive age for known D, its linear coefficient gives center, and its intercept gives mass. In the spherical case the vector of spatial log contrasts is proportional to (z−o)/(t−t₀), with a full-rank linear map, so two distinct times identify any off-center source and no such source is confused with an exactly central one. At the center g(u)=u^(−p)e^(−a/u) with a,p>0. Equal known-mass observations at distinct ages u<v require a/p to equal the integral of the weighted harmonic mean of u,v; that integral strictly increases on shifting both ages by any positive gap, so there cannot be a second match. The one-round collision follows from the strictly unimodal g with zero limits. In the unknown-mass case the derivative of log[g(u+h)/g(v+h)] has the sign of −p+a[(u+h)^(−1)+(v+h)^(−1)], strictly decreasing, so a fixed ratio cannot occur at three distinct offsets. Conversely g(u+Δ)/g(u) strictly decreases then increases, tends to infinity at zero and to 1 on the increasing tail, so levels strictly between its minimum and 1 give two distinct ages and positive mass rescalings for every gap Δ>0. The exact planar witness follows by bounding the stated exponentials (RESULT.md lines 113–119). Replay: RESULT.md Proof §§1–6, especially the two scalar derivative signs at lines 97–109; supplied checker inspected as text only. These are global structural minima for fixed exact sensor locations, a known isotropic D and noiseless, positively calibrated data, not per-source thresholds or finite-noise claims.
 
-Run \(\texttt{python3 checker.py}\) with the Python 3 standard library. The checker was executed before final review and returned:
+## originality
 
-```text
-PASS: 34099 deterministic numerical/exact assertions; analytic bounds in RESULT.md
-```
+PASS
 
-It checks exact rational ranks, hyperplane reflection and spherical geometry for dimensions one through five, then recreates raw Gaussian readings from synthetic sources and recovers unknown mass, location and age from one nonspherical round or two spanning-sphere rounds for noncentral sources. It also exercises central-source mass/age ambiguity, nonlinear branch inequalities, and monotonic derivative signs at multiple dimensions and parameter choices. Random cases are deterministic by the fixed internal seed. Assertions are supplementary finite evidence, not a proof of injectivity for continuously many sources.
+The supported distinct contribution is the sharp finite raw-snapshot classification, particularly the central 2-versus-3-round threshold under mass calibration. Earlier Gaussian-kernel reconstruction, log-quadratic interpolation and affine reflection are not in themselves distinct contributions.
 
-## Scope of verification
+## value
 
-No external data, paid software, internet, or third-party libraries are required to run the checker. The exact mathematical statements and derivations are in RESULT.md, and the primary literature comparisons are in REVIEW.md. Independent validation of this claim has not yet been performed. This package does not verify transport-model realism, sensor calibration, or statistical robustness.
+PASS
+
+The result resolves an exact resource tradeoff on minimal full-span arrays: externally knowing mass saves an entire observation round even though the obstruction is confined to one specific possible center. It also distinguishes arrays where time cannot compensate for missing spatial affine span from those where one added sensor can save two rounds. These are noiseless design and identifiability benchmarks, not claims of stability or field performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

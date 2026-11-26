@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies independent uniform-endpoint chords, a sampling-label distinguished chord, and both normalizations. The crossing kernel is an exact opposite-side endpoint test; the first Hoeffding variance is \(1/45\). The key mixed projection is proved by an explicit arc-translation integral, giving \(q(t)^2/6\). A degenerate order-two remainder has \(O(n^2)\) variance; the conditional bounded-vector CLT then proves the mixed-normal limit. Exact rational finite checks passed 142 assertions. The finite test does not substitute for the limit proof.
+PASS
 
-## Originality — PASS (historical-priority qualification)
+Rotate the marked chord to endpoints 0,t. The crossing event has probability q=2t(1-t); given a crossing, one endpoint of the other chord is uniform on (0,t) and the other on (t,1), independently. Their positive difference has mean 1/2 and variance [t^2+(1-t)^2]/12, so the mean crossing propensity of that chord is 1/3+q/6. The resulting cross-projection is q^2/6. The global first projection h=q-1/3 has variance 1/45. The remaining degenerate order-two sum has variance O(n^2), because terms with at most one common index are uncorrelated, and the marked crossings change the n^(3/2)-scaled global statistic by O(n^(-1/2)). A bounded i.i.d. two-dimensional CLT for each first chord, then bounded convergence of the conditional characteristic functions jointly with T and the vanishing remainder, proves the stated mixed limit, including the point-mass deletion variance at degenerate endpoints. Z has a constant conditional law while the positive cross-covariance averages to 1/45; the mixing of nonconstant deletion variances gives positive fourth cumulant, hence a non-Gaussian W. The finite moment sums the n-1 local variances and the (n-1)(n-2) shared-index covariances, giving (n-1)/5+(n-1)(n-2)/45, also valid at n=2.
 
-The previously published marginal crossing CLT (Flajolet–Noy), macroscopic chord-degree law (Acan), and improved marginal CLT rate (Paguyo) do not contain the conditional two-scale joint fluctuation law. Particularly close published findings on marked-degree regression, conditional crossing variance, and global span–crossing covariance were read: none gives the conditional mixed-normal covariance kernel. Generic U-statistic CLTs supply methodology, but obtaining the chord-specific mixed covariance and a joint deletion-noise law requires an extra specialization and calculation. A broader previously published conditioned-U-statistic result or refined enumerator could imply it; independent historical validation remains warranted.
+## originality
 
-## Value — PASS
+PASS
 
-Deleting one chord removes its entire crossing degree, a natural edge-count influence diagnostic in a random circle graph. The \(n\)-scale deletion response is geometry-driven, while its \(\sqrt n\)-scale centered error is random; the explicit joint Gaussian mixture tells whether global crossing fluctuations predict that error. The distinction between asymptotic independence at the macroscopic scale and positive covariance at the finer scale is useful in sampling and leave-one-out uncertainty calibration, beyond a rederivation of either marginal CLT.
+Pass is for the geometry-conditioned joint weak law of the global crossing statistic and the conditionally centered marked deletion noise, not for the covariance formula alone. The strongest prior rank-conditional covariance implies both the geometry-conditioned cross-covariance coefficient and, with the binomial marked-degree variance, the finite mixed moment. This is substantive prior coverage of the second moments and should be credited as such. The compared moment identities and separate marginal or two-global-statistic limit theorems do not determine the conditional mixed-normal law or show independence from the geometry together with dependence on the centered deletion fluctuation.
 
-## Evidence and limitations
+## value
 
-Evidence consists of the explicit kernel calculation, Hoeffding decomposition, standard conditional multivariate CLT, exact finite identity, exhaustive small matching enumeration, and inspected primary literature. Scope is independent uniform-endpoint chords; no quantitative convergence rate or uniqueness claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural intervention of deleting one independently marked chord separates geometry-scale effects from √n local noise. A marginal global CLT, a degree regression, and even exact finite mixed moments do not give the conditional joint law needed to distinguish independence from the geometry from dependence on deletion noise. This structural distinction and the explicit conditional normal mixture are useful on their own, without crediting the known second moments or the standard CLT method as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

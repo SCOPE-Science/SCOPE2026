@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof establishes the theorem for every \(r\ge2\) and every profile \((m_1,\ldots,m_r)\) with \(m_i\ge2\). The included `verify.py` is a finite replay check rather than evidence for extrapolation.
+## correctness
 
-For each tested graph, the verifier forms every vertex subset. It precomputes the union of open neighborhoods of each subset and uses subset dynamic programming to count all legal orderings of that exact subset. It then selects the subsets whose open neighborhoods cover the whole graph, determines the maximum sequence length, and checks:
+PASS
 
-- the maximum length is \(2r\);
-- a maximum set without the center has exactly two vertices in every blade;
-- a maximum set with the center has exactly one one-vertex blade and two vertices in every other blade;
-- every no-center maximum set supports exactly \((2r)!\) legal orderings;
-- every center-containing maximum set supports exactly \((2r-1)!\) legal orderings, necessarily with the center last;
-- the closed formulas for the number of maximum sets and maximum sequences agree with exhaustive counts.
+In the stated regime, the first selected vertex of an untouched blade footprints another vertex there; the second footprints the first; two already dominate that blade and the center. Hence at most two vertices of each blade are legal, and selecting two in each attains length 2r in any order. Starting at the center yields length at most two. If the center is used after a peripheral vertex, it must be last; it cannot follow two selections in every blade because all vertices are already dominated. This last observation makes explicit the upper bound for sequences containing the center, implicit in RESULT.md lines 59–65. At length 2r with a terminal center, exactly one blade thus contributes one vertex, which itself remains undominated until the center. All permutations of the peripheral prefix work. Counting the two disjoint classes gives M(W) and Q(W), with per-set multipliers (2r)! and (2r−1)!, respectively. The homogeneous specialization follows; for two triangular blades there are five supports and 48 sequences.
 
-The tested family contains all profiles with \(2\le r\le4\) and every \(m_i\in\{2,3\}\), plus five additional heterogeneous profiles containing a blade of size \(4\). The largest checked graph has order \(13\).
+## originality
 
-Replay output:
+PASS
 
-`VERIFY_OK profiles=33 subset_masks=49151 append_checks=278544 classification_checks=5633 maximum_set_checks=2130 sequence_checksum=17321556 max_order=13`
+The scalar value and the terminality of the first switch of join parts are covered by modular decomposition. The supported distinct increment is the complete two-type equality classification for heterogeneous blades, including which prefixes can precede the center, and the exact all-profile counts of labeled supports and legal orderings. The strongest inspected sources cover the scalar, witness construction, adjacent invariants, or other graphs, not that enumeration.
 
-Unproved by computation: no finite replay establishes the theorem for larger profiles. Those cases are covered only by the combinatorial proof in `RESULT.md`.
+## value
+
+PASS
+
+The scalar alone cannot tell whether the universal center appears or how its presence changes the number of orders. This natural and fully heterogeneous family admits an exact description and different per-support multiplicities, useful for comparing center participation, counting, or sampling extremizers without enumerating orders. This is a modest complete classification, not a new algorithm for general cographs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

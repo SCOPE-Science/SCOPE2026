@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:00.136837Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Left-associated products of natural basis vectors select coefficients along an index walk, so the right power at r is nonzero iff a length-(r−1) walk has nonzero product. Reduction preserves elementwise nilness. Independently, if the residue digraph has a directed cycle, a shortest cycle has no extra arcs on its vertex set; the sum of its basis vectors never has a zero left-associated power, as multiplication by that sum updates its cycle coordinates cyclically by nonzero coefficients. Conversely, acyclicity bounds a unit run by n−1, so a walk with t nonunit edges has length at most n(t+1)−1. A length-ns walk therefore has zero product. At length ns−1 a nonzero product forces s−1 valuation-one breaks and s Hamiltonian unit runs in the unique forced topological order. Each break is the same return entry, and its (s−1)-fold product times units is nonzero; when s=1 there are no breaks, and at n=1 the return is diagonal. Clauses 2–3 are on the finite-index (nil-table) domain of ν; a Hamiltonian path in a cyclic residue graph does not suffice. Source inclusion–exclusion counts residue DAGs, every residue has q^(s−1) lifts, and the unique Hamiltonian order avoids overcounting: n−1 unit entries, one valuation-one return when s≥2, freely chosen other forward entries and nonunit backward/diagonal entries give the stated exponents. An independently written exhaustive rank-two Z/4 check verified 48 nil and 16 index-five tables among 256, checking principal powers and right-power submodules directly. Private replay: /workspace/branches/fed4ad06-f650-4e7a-92f3-e205ba643cd9/bounded_check_n2_z4.py. The frozen script and recorded runs were inspected rather than executed; they supplement but do not prove the arbitrary-ring statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tian–Zou Theorem 2.3 supplies a coefficient-ring path-product criterion; Theorem 2.4's triangularity equivalence assumes a domain and does not cover s≥2.",
+          "The two field sources give nilness/acyclicity or nilness/right-nilpotence/triangularity. The indexed functional-square filtration instead treats ordinary powers over fields and at most one target per basis square."
+        ],
+        "reasoning": "These results give useful general or field inputs, but not the sharp run-and-return structure over chain rings with zero divisors. The equality argument needs additive valuations and simultaneity of maximal unit runs in a uniquely ordered residue graph.",
+        "searches": [
+          "Tian–Zou arXiv:1404.5523 Theorems 2.3–2.4",
+          "Elduque–Labra arXiv:1312.4685 Theorem 3.4",
+          "Casas–Ladra–Omirov–Rozikov arXiv:1004.1050 Theorem 2.7",
+          "Resultary 05e683947fe8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verification_output.txt and verify.py",
+        "Tian–Zou, Elduque–Labra and both Casas et al. papers at cited theorem passages",
+        "OEIS A003024 and A081064",
+        "Indexed records 05e683947fe8, ad12642b40a6 and bb8c934f4813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general path criterion does not characterize which walks survive longest; over a chain ring the length bound can be saturated only by repeatedly traversing the full unique residue order and returning on an entry of valuation one.",
+          "Field extremal supports ignore every nonunit entry; the extremal chain-ring count changes when the return entry is moved within the same fixed residue class from valuation one to a higher valuation."
+        ],
+        "reasoning": "The new equality condition and its exact enumerative consequence require simultaneous optimization over unit-run lengths and the finite valuation budget; they are not consequences of merely replacing q in a known graph-count formula or changing the name of the field extremal index.",
+        "searches": [
+          "Tian–Zou Theorem 2.3 path products versus saturated walk lengths",
+          "Casas et al. Theorem 3.6 field support",
+          "A081064 arc polynomial versus H_{n,s}(q)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a residue DAG a Hamiltonian path is equivalent to a unique topological order with every consecutive forward entry nonzero.",
+          "Casas et al. already have this support pattern for maximal ordinary nilindex over a field, but their index uses all parenthesizations and their theorem has no positive-valuation return or enumeration over chain rings.",
+          "Two distinct same-day indexed results ad12642b40a6 and bb8c934f4813 study endomorphism ranks, monoids or ideals of fixed chain algebras; they do not count based multiplication tables."
+        ],
+        "reasoning": "The field support equivalence is real overlap and must be credited. A graph of a fixed canonical chain and its endomorphism-composition index do not encode products of nonunits in arbitrary lifted multiplication tables.",
+        "searches": [
+          "Resultary: finite chain ring evolution algebra, right powers, return valuation, Hamiltonian extremizers and labeled table counts",
+          "Casas et al. arXiv:1208.1709, Theorem 3.6 and ordinary/right power definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A003024 gives D_n(2). A081064 gives the full arc-enumerating polynomial via the same recurrence with the cross-edge factor (1+x)^(k(n−k)); evaluation at x=q−1 is exactly D_n(q).",
+          "Once nilness is identified with a residue DAG, multiplying this known polynomial by q^((s−1)n²) is the direct independent lift. No exact valuation-one extremizer count H_{n,s}(q) for s≥2 was established in the inspected index records."
+        ],
+        "reasoning": "The ordinary nil-table census is a translation of known DAG enumeration and a lift, not the new part. For maximal index, the specific return entry is constrained to a proper nonzero valuation class; neither the arc-count table nor its uniform lift encodes that event.",
+        "searches": [
+          "OEIS A003024 labelled DAG counts",
+          "OEIS A081064 labelled DAG counts refined by arc count; MAPLE and MATHEMATICA recurrence",
+          "Resultary: exact nil and maximal-index counts over finite chain rings"
+        ]
+      },
+      "rationale": "Novelty credit is for the supported sharp classification over finite chain rings of length s≥2 and the valuation-sensitive extremal table count. The field triangularity/path ingredients and the DAG polynomial or its independent lift are not claimed as standalone new combinatorics; the ordinary-index field extremal support is also antecedent. The strongest inspected comparisons do not identify the saturated valuation-one return structure and corresponding finite-chain-ring extremal census.",
+      "residual_risks": [
+        "A weighted path theorem or finite-ring counting result outside the inspected index/primary passages may give equivalent extremal coverage. The comparisons establish scope differences and known components, not historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the path-product criterion, not sharp chain-ring equality",
+          "evidence": "Nilpotency criterion via vanishing products along index sequences; triangularity theorem restricted to a domain.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.5523",
+          "material_read": "p. 6 Theorems 2.3–2.4, locator 13548",
+          "method": "OA primary-text comparison",
+          "title": "Finitely Generated Nil but Not Nilpotent Evolution Algebras",
+          "trigger": "General coefficient-ring path-product antecedent"
+        },
+        {
+          "assessment": "Covers field acyclicity equivalence",
+          "evidence": "A field evolution algebra is nil iff its basis graph has no oriented cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1312.4685",
+          "material_read": "p. 6 Theorem 3.4, locator 15684",
+          "method": "OA primary-text comparison",
+          "title": "Evolution algebras and graphs",
+          "trigger": "Field residue-graph reduction"
+        },
+        {
+          "assessment": "Field background",
+          "evidence": "Strict triangularity, nilness, and right nilpotence are equivalent in the field setting.",
+          "identifier_or_url": "https://arxiv.org/abs/1004.1050",
+          "material_read": "p. 6 Theorem 2.7, locator 13816",
+          "method": "OA primary-text comparison",
+          "title": "On evolution algebras",
+          "trigger": "Nilness and right-nilpotency antecedent"
+        },
+        {
+          "assessment": "Field support overlaps, ordinary index differs",
+          "evidence": "Maximal ordinary index 2^(n−1)+1 occurs under nonzero consecutive upper-triangular coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.1709",
+          "material_read": "pp. 3–4 power definitions and p. 6 Theorem 3.6",
+          "method": "OA primary-text comparison",
+          "title": "On nilpotent index and dibaricity of evolution algebras",
+          "trigger": "Very close extremal chain-support theorem"
+        },
+        {
+          "assessment": "Exact D_n(q) under edge-weight evaluation",
+          "evidence": "Replace x by q−1 in the recurrence using (1+x)^(k(n−k)); A003024 is the x=1 specialization.",
+          "identifier_or_url": "https://oeis.org/A081064",
+          "material_read": "Sequence definition and polynomial recurrence in MAPLE/MATHEMATICA, around offsets 2965–3714",
+          "method": "OA public-page comparison",
+          "title": "Labelled acyclic digraphs with a prescribed number of arcs",
+          "trigger": "Test exact weighted DAG formula in the census"
+        },
+        {
+          "assessment": "Different power operation and support class",
+          "evidence": "Ordinary index 2^L+1 on a field support class with at most one target per basis square, rather than right index on arbitrary chain-ring lifts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-ordinary-power-filtration-of-functional-square-nilpotent-e--05e683947fe8/RESULT.md",
+          "material_read": "Finding, opening passage",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact ordinary-power filtration of functional-square nilpotent evolution algebras",
+          "trigger": "Closest indexed graph-power filtration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Keeping the residue support fixed can hide all nonunit information. The classification identifies exactly the one return entry and valuation needed for the longest nonzero right powers, and counts how frequently this extremal behavior occurs in labelled lifts across finite chain rings. This supplies a meaningful sharp boundary and an exact census without conflating ordinary and right nilindices or isomorphism classes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

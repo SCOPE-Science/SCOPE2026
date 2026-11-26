@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:26:02.589692Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At fixed semilength a legal Dyck gap vector has nonnegative integer coordinates, total n and all prefix sums at least their prefix lengths. Each opening relocation changes one unit between coordinates, decreasing the positive surplus relative to the target by at most one. Any matching of all surplus to deficit units yields a legal path by doing all leftward transfers first: those only raise prefixes, and thereafter each prefix's excess over the target equals the count of outstanding rightward transfers crossing it. Donors are never overdrawn. The shared first opening gives distance at most n−1, attained by mountain versus alternating; since U_n is a subgraph of R_n, the upper bound carries over, and one arbitrary relocation cannot increase binary runs by more than two, giving a matching lower bound for that pair. For n=1 both are singletons. My independent replay constructs edges by shared same-symbol deletion traces (rather than enumerating insertion slots); BFS exhausts all 203455 ordered pairs in each graph for 1≤n≤7 and confirms the opening metric and both diameters. The universal claim is proved analytically, not by the finite test. Replay: python3 /workspace/checks/2.py. The informal frozen slogan's 'any two' is scoped by the theorem to equal semilength.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.3(b)–(c) states the augmentation and base exchange criteria for a finite downset of nonnegative integer vectors: for two bases u,v and any surplus at i there is a deficit j with u−e_i+e_j a base.",
+          "On coordinates 0,…,n−1 take P={x∈Z_+^n: sum over i≥k of x_i ≤ n−k for all k}. It is a finite downset. If |u|<|v| and u has a tight suffix, let t be its smallest starting index. All j<t can be incremented and at least one has u_j<v_j: otherwise the earlier total cannot increase, nor can the tight suffix total. If no suffix is tight, any deficit can be incremented. This is exactly Theorem 2.3(b)."
+        ],
+        "reasoning": "Every member with total below n can be augmented in position zero, so the bases are exactly the vectors of total n. Their suffix bounds are precisely the Dyck prefix inequalities. The published larger theorem therefore applies to the actual feasible gap vectors under the actual moves.",
+        "searches": [
+          "Herzog–Hibi, Discrete Polymatroids, arXiv:math/0307236, Theorem 2.3, p. 6, offset 17991"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0307236 Theorem 2.3",
+        "arXiv:2510.17799v1 introduction",
+        "arXiv:2202.01280v4 §4.4",
+        "Vajnovszki–Wong author PDF p. 2",
+        "Resultary --e6d398d88936 (identical item) and related Catalan matroid index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under the verified suffix-capacity specialization, every exchange toward a deficit is exactly an opening move, and Theorem 2.3(c)(ii) supplies one such move from any non-target base. Repetition decreases half-L1 by one to zero. The coordinate-change lower bound gives equality.",
+          "Since both first coordinates are positive, the formula immediately gives the opening diameter upper bound n−1 and hence the unrestricted one. For the mountain/alternating pair, their longest common subsequence has length n+1, and after k relocations at least 2n−k original symbols have not moved, in their original order. Thus both upper bounds are attained; equivalently use the binary-run bound."
+        ],
+        "reasoning": "No additional nonroutine restriction is needed to pass from the general exchange theorem to the claimed opening metric, and the unrestricted diameter adds only an elementary extremal witness. The left-before-right proof is correct but does not remove the coverage of the stated invariant.",
+        "searches": [
+          "arXiv:math/0307236, Theorem 2.3(c)(ii), OA PDF p. 6 and following proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary Dyck edit distance edits an input into a balanced string; a transposition swaps letters. These differ from relocation paths within the fixed Catalan state space.",
+          "Ordinary Catalan matroid bases mark the actual up-step positions: for semilength five the up-position bases of mountain and alternating have basis distance two while the opening relocation distance is four. Gap counts instead give integer, not ordinary matroid, bases."
+        ],
+        "reasoning": "The right equivalent formulation is the base exchange graph on multiplicity vectors with suffix capacities, not ordinary positional basis exchange, a Gray-code listing, or edit distance to the language.",
+        "searches": [
+          "Resultary: Dyck opening-symbol relocation, gap exchange, deletion confusability and Catalan matroid",
+          "arXiv:2510.17799v1, introduction, offset 7600",
+          "Mütze arXiv:2202.01280v4, §4.4, offset 106000",
+          "Vajnovszki–Wong author PDF p. 2, offset 4753"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-geodesic-opening-symbol-relocations-in-dyck-words-and-a-sharp-ed--e6d398d88936 is the identical frozen record, not a separate priority match.",
+          "The nearby indexed Catalan-matroid degree result concerns a different graph and does not enumerate these distances. The frozen 1≤n≤7 comparison is a reproduction, not a priority source."
+        ],
+        "reasoning": "No distinct exact distance table was established by the bounded catalogue check; an exact table is unnecessary to demonstrate the stronger exchange-theorem implication.",
+        "searches": [
+          "Resultary: geodesic opening-symbol relocations and sharp editing diameter in Dyck words",
+          "Resultary: Catalan matroid basis graphs and Dyck deletion adjacency"
+        ]
+      },
+      "rationale": "The central exact opening-only metric is covered by a direct discrete-polymatroid base-exchange specialization. This is a demonstrated implication, not a judgment from a title, an inaccessible source, or the mistaken ordinary Catalan-matroid encoding. With that metric the two sharp diameters are immediate from the first gap and the mountain/alternating witness, using the elementary run-count or unchanged-subsequence bound for either-symbol moves. No separately substantial unexplained remainder in the frozen claim was identified. This does not assert that a previous paper printed the identical Dyck wording.",
+      "residual_risks": [
+        "An older source may write the same Dyck specialization explicitly; that question is not necessary to the demonstrated implication.",
+        "The opening-only formula is not claimed or tested as a formula for every distance in the either-symbol graph. No historical assertion about an unrestricted all-pairs metric is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the opening-only distance under the exact suffix-capacity specialization",
+          "evidence": [
+            "Theorem 2.3(b): if |v|>|u| then an increment u+e_i in P exists with u+e_i≤u∨v; (c)(ii) exchanges any surplus to some deficit while staying a base."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0307236",
+          "material_read": "Theorem 2.3 and adjacent proof, pp. 6–7, offset 17991",
+          "method": "OA PDF literal locator, followed by bounded original passage and explicit hypotheses check",
+          "title": "Discrete Polymatroids",
+          "trigger": "A stronger augmentation/base exchange theorem on integer vectors may directly cover the gap metric"
+        },
+        {
+          "assessment": "Different edit operations and target condition",
+          "evidence": [
+            "Uses insertion, deletion and substitution to reach a well-balanced word."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.17799v1",
+          "material_read": "Introduction p. 2, offset 7600",
+          "method": "OA primary passage inspection",
+          "title": "Dynamic Dyck and Tree Edit Distance: Decompositions and Reductions to String Edit Distance",
+          "trigger": "Potential equivalent edit distance formulation"
+        },
+        {
+          "assessment": "Inspected Gray-code statements do not supply relocation distances",
+          "evidence": [
+            "Discusses listings under transpositions and prefix shifts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2202.01280v4",
+          "material_read": "§4.4, offset 106000",
+          "method": "OA primary HTML section inspection",
+          "title": "Combinatorial Gray codes—an updated survey",
+          "trigger": "Prior Dyck reconfiguration metrics or operations"
+        },
+        {
+          "assessment": "Transposition adjacency is not single-symbol relocation",
+          "evidence": [
+            "A transposition swaps two bit positions."
+          ],
+          "identifier_or_url": "https://v.vincent.u-bourgogne.fr/0ABS/0ART/greedy_dyck.pdf",
+          "material_read": "Author PDF p. 2, offset 4753",
+          "method": "OA primary PDF definition passage",
+          "title": "Greedy Gray codes for Dyck words and ballot sequences",
+          "trigger": "Strong related constructive Dyck traversal theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Dyck routing is a natural setting and the proof is a useful elementary illustration. However the exact opening metric is mechanically available from established augmentation/exchange for a single suffix chain. The worst-case diameters then use the mandatory first up step and one elementary extremal pair. The frozen claim does not isolate a separate independently useful structural theorem or unknown invariant beyond these routine deductions. The correct two-phase proof is not, as stated, a substantively different result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

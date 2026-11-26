@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:15:31.208184Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The positive Fourier spectrum gives strict positive definiteness on these distinct periodic sites. The Bernoulli polynomial gives K(t,0)=k0-a t^2(1-t)^2 on [0,1]; convolving the sine-density coefficients gives the stated absolutely four-times differentiable kernel mean and the constants b0 and b2. I checked the two-site sum and difference limits b0/k0 and -b2/(2a), and the exact reduced determinant for three sites: 8 k0 a h^3-12 k0 a h^4-2 a^2 h^4(1-h)^4. Its cubic term survives quadratic cancellation. The numerator of the averaged outer weight has quadratic coefficient k0 b2/2+a b0. The outer difference is bounded and the middle weight is -2A/h+O(1). Hence A>0 gives the eventual signs, the exact leading l1 operator norm on arbitrary nodal perturbations, and the variance law for independent centered equal-variance errors. An independent evaluation from the determinant and the convergent mean series gave A=0.04457579267013564 and middle weight -11.5313217985 at N=128. Replay: RESULT.md lines 44–93 and the displayed determinant; read VERIFICATION.md and verify.py without running the frozen script. Distinctness for N>=3 is of transformed sites; the advertised physical-node distinctness holds throughout N>=5. Neither added-noise variance nor a single deliberately collapsing subset is a statement about inherent deterministic error or typical random subsamples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bartel et al. introduce the same density and solve; feb80935de99 treats the full lattice. The universal three-site comparison assumes a finite second Gaussian mixing moment, with a fourth-order determinant and inverse-square blowup."
+        ],
+        "reasoning": "A full-grid approximation or positivity estimate does not transfer to inverses on three clustering sites; a fourth-order short-distance analysis assuming a finite mixing moment cannot specialize to the nonzero cubic term here.",
+        "searches": [
+          "Resultary: periodized Korobov quadrature subset colliding nodes exact asymptotic weights",
+          "arXiv:2610.01113v1",
+          "feb80935de99",
+          "d5fbecc13c52"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting verification files",
+        "Bartel et al. arXiv:2610.01113v1",
+        "Resultary feb80935de99, d5fbecc13c52, 34d52f2ee2dd and 841cfe0433d1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The preceding method supplies K_J w_J=kappa_J. The related three-site result supplies a symmetric reduction, but its claimed asymptotic uses K(d)=1-q1 d^2+q2 d^4/2+o(d^4), incompatible with the cubic Korobov expansion. The two-site collision comparison uses random uniform nodes and a different kernel."
+        ],
+        "reasoning": "The method and shared Cramer algebra are credited, not claimed anew. Neither the distinct prior asymptotics nor positivity theory supplies the near-null-direction excitation and the cubic determinant needed for A or the bounded-versus-linear comparison.",
+        "searches": [
+          "arXiv:2610.01113v1",
+          "Resultary:d5fbecc13c52",
+          "Resultary:841cfe0433d1",
+          "Resultary:feb80935de99"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact search identified the identical frozen record; independent comparisons are d5fbecc13c52 (Gaussian-mixture kernel quadrature) and 34d52f2ee2dd (trigonometric interpolation)."
+        ],
+        "reasoning": "Translation to symmetric sites (-h,0,h) does not make the sine-density mean symmetric around the middle site h. The covariance still has the periodic cubic |t|^3 term, and trigonometric interpolation is not the indexed Gram solve.",
+        "searches": [
+          "Resultary: two-to-three-node instability transition periodized Korobov boundary cluster weights",
+          "Resultary: coalescing nodes kernel quadrature weights Korobov spline signed vector noise amplification",
+          "Korobov kernel quadrature coalescing sites weights sine periodization boundary cluster three-node subset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact law matches the frozen record only among inspected hits; feb80935de99 tabulates a full-lattice regime, not this cluster."
+        ],
+        "reasoning": "The invariant is a sharp asymptotic coefficient under fixed-cardinality coalescence, not a finite tabulated cubature weight. The exact catalogue match must not be counted as independent prior coverage.",
+        "searches": [
+          "Resultary: two-to-three-node instability transition periodized Korobov boundary cluster weights",
+          "Resultary: periodized Korobov quadrature subset colliding nodes exact asymptotic weights"
+        ]
+      },
+      "rationale": "The distinct claim is the sharp two-to-three-site contrast for this periodic kernel and sine density, including the explicit linear coefficient. The closest collision work uses the same general Gram reduction but a quartic rather than a cubic determinant under hypotheses excluding this kernel. The inspected full-lattice results do not govern inversion of a fixed-cardinality principal submatrix. This is a bounded originality decision, not a priority certification.",
+      "residual_risks": [
+        "The bounded literature search does not exclude an unindexed periodic-spline or coalescent RBF formulation.",
+        "The date of the related three-node record does not settle relative priority; the mathematical regimes were compared directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational method, not the evaluated cluster asymptotic",
+          "evidence": "Defines the sine transform/density and subsample Gram solve; discusses positivity in product integration without a two-to-three fixed-cluster law in those passages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.01113v1",
+          "material_read": "PDF pp. 3, 5 and §7.2 pp. 28–29; extraction offsets 10600, 19600 and 137200",
+          "method": "OA paper PDF",
+          "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+          "trigger": "Same periodization and kernel-integration construction"
+        },
+        {
+          "assessment": "Different lattice design",
+          "evidence": "Full N-site lattice, weights approximating density divided by N with bounded total negative mass; no fixed-size principal system.",
+          "identifier_or_url": "Resultary:feb80935de99",
+          "material_read": "RESULT.md finding and relationship passages, offsets 0 and 6900",
+          "method": "Local Resultary mirror",
+          "title": "Quantified asymptotic positivity for higher-order periodized Korobov quadrature",
+          "trigger": "Same Korobov family and same sine density"
+        },
+        {
+          "assessment": "Shared reduction; distinct hypotheses and asymptotic",
+          "evidence": "Requires a symmetric integration law and E Q^2 finite for its Gaussian mixture. It explicitly excludes rougher kernels from that power law and obtains d^(-2) rather than h^(-1) weights.",
+          "identifier_or_url": "Resultary:d5fbecc13c52",
+          "material_read": "RESULT.md offset 0 and proof §§1–3",
+          "method": "Local Resultary mirror",
+          "title": "A universal quadratic noise threshold for colliding three-node kernel quadrature",
+          "trigger": "Closest same-day three-node kernel collision"
+        },
+        {
+          "assessment": "Different rule",
+          "evidence": "Full-grid trigonometric interpolation, not the exact kernel-mean Gram system on a fixed subset.",
+          "identifier_or_url": "Resultary:34d52f2ee2dd",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp three-site positivity transition and quadratic noise blowup",
+          "trigger": "Three-site sign and noise terminology"
+        },
+        {
+          "assessment": "Different collision model",
+          "evidence": "Two random uniform nodes with a power-exponential kernel; no deterministic Korobov three-site coefficient.",
+          "identifier_or_url": "Resultary:841cfe0433d1",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A roughness threshold and exact noise tails for colliding-node kernel quadrature",
+          "trigger": "Earlier collision/noise comparison identified by the finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated adverse design for an existing integration method. It separates simple ill-conditioning from actual weight instability: two nearly coincident sites remain bounded, while the next cluster develops a quantitatively sharp signed mode and an evaluation-noise penalty. The finite design and leading coefficient are useful to judge claims of positivity or robustness under deterministic subsampling, without implying typical-case failure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:23:22.631047Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–39 and VERIFICATION.md lines 19–27",
+        "graph/paley13_t2.txt and graph/paley13_t3.txt",
+        "verification/census_detail.cpp, paley13_peel.cpp, verify_package.py and the four recorded output tables (read, not executed)",
+        "/workspace/reviews/evidence-5.py (independently executed; 100000-state transition sample then all 1594323 states at both thresholds)"
+      ],
+      "rationale": "An independent integer census (python3 /workspace/reviews/evidence-5.py with NumPy) constructed both transition maps by squaring residues modulo 13, applying the stated synchronous update, and iterating nested full images. At the first equality of consecutive image sizes the restrictions are a finite permutation, so the image is precisely the recurrent set and that iteration is the sharp maximum entry time. Walking the cycles of this image and following all unresolved initial states until first entry yields the primitive cycle counts (1,2288,6), recurrent populations (1,6864,78), basin totals (1498799,88114,7410), six individual 13-basins of size 1235, and sharp depth 14 attained by 624 states at threshold two. Since the least common multiple of the periods is 39 and depth-14 states are not yet periodic at time 13, F_2^53=F_2^14 but F_2^52≠F_2^13. The independent transition map sends 0000002221110 to its translate by +3, and for each affine image with multiplier a the speed is 3a; these are the six distinct quadratic residues. The 78 affine images are distinct and equal the independently enumerated period-13 set. At threshold three the stabilized image is just zero, at time four, with 101062 states first entering at that time. The frozen transcript and its two inspected classifier algorithms are consistent with these independently obtained results.",
+      "residual_risks": [
+        "Exact, finite computation and wave verification for the labelled Paley graph of order 13 only; no proof-assistant certification or extension to larger orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "fc90f3212227: every Paley graph of admissible prime-power order ≥13 becomes resting from every initial state at exact half degree. 352367f51e91: strict e(U)<θ|U| for all U suffices, with equality example sustaining a four-cycle. 7c3fe196f42d: primitive-three states at half degree must be balanced proper three-colorings in connected even-regular graphs. 661b1e5fd561: excited-set contraction for θ>Δ/2."
+        ],
+        "reasoning": "Here |E|=39=3·13, hence strict density fails at both thresholds. Half-degree three-color balance forbids primitive three-cycles at threshold three because 3 does not divide 13, not all other cycles. Above-half-degree contraction assumes θ>3. Only the general same-model Paley result settles eventual extinction here, without a four-step or multiplicity implication from its available statement.",
+        "searches": [
+          "Resultary: critical contact extinction on Paley graphs, densest-subgraph excitation budget, half-degree rigidity, above-half-degree extinction",
+          "Targeted Paley-13 primary literature search"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:fc90f3212227, 352367f51e91, 7c3fe196f42d, 661b1e5fd561, f5bb1d442b7d, 4fe1eb5b56d1",
+        "Frozen RESULT.md lines 41–58 and bounded primary literature retrieval evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit fc90f3212227 hypotheses include order 13 at θ=3 but not θ=2. The frozen sharp depth-four class has size 101062; at θ=2 there are six primitive thirteen-cycles forming one 78-element affine orbit and sharp period-entry depth 14."
+        ],
+        "reasoning": "The broader theorem implies no nonzero periodic state at θ=3. Neither universal eventual decay nor finite state-space size alone implies sharp depth four or the count at that time. It also cannot exclude or identify waves at the lower threshold. These distinct quantitative and subcritical claims retain originality on available evidence.",
+        "searches": [
+          "Compare the exact fc90f3212227 indexed statement against the order-13 census and w→translate_3(w)",
+          "Resultary same half-degree and critical-density comparisons above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quadratic residues modulo 13 are exactly ±1, ±3, ±4; Paley(13) equals C13(1,3,4) under this labelling. Resultary fc90f3212227 states three-state excitation at exact half degree, and in order 13 this is threshold 3. Frozen references Gravner–Lyu–Sivakoff arXiv:1610.07320 and Doba 2018 are described as using activation by one excited neighbor."
+        ],
+        "reasoning": "Changing between the circulant and Paley descriptions, or relabelling colors with the same refractory rule, does not create a new problem. A one-neighbor excitation or two-state majority rule is not the same map. The critical-contact same-rule Paley statement must be credited for eventual threshold-three extinction.",
+        "searches": [
+          "Primary search for Paley-13 / C13(1,3,4) higher-threshold Greenberg–Hastings census and traveling waves",
+          "Resultary check for critical-contact Paley extinction; fc90f3212227 Critical-contact extinction on Paley graphs 13 exact half degree extinction time four 101062 maximal transient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The critical-contact Paley summary exposes exact wave and basin data for orders 5 (two primitive five-cycles) and 9 (four primitive three-cycles), and says order 13 and above extinguish. Resultary f5bb1d442b7d gives critical clocks on Shrikhande and the 4×4 rook graph; 4fe1eb5b56d1 gives critical extinction and first-two-order clocks on triangular graphs."
+        ],
+        "reasoning": "An exact clock or orbit table on another graph, order, or threshold is not the target table. The bounded available summaries did not expose an order-13 sharp clock/count or threshold-two spectrum of temporal periods and basins. No claim is made that unavailable complete tables lack those entries.",
+        "searches": [
+          "Resultary exact-ID/title search for fc90f3212227 and 101062/four updates",
+          "Targeted primary Paley-13 higher-threshold census, waves and basin search"
+        ]
+      },
+      "rationale": "Do not credit eventual extinction itself at the half-degree threshold: Resultary fc90f3212227 has a general same-model statement for all admissible Paley orders at least 13, directly covering it. Credit the exact threshold-two recurrent and transient classification and affine traveling-wave geometry, and at threshold three only the quantitative sharp four-step cutoff and maximal-depth census. The strongest accessible broader statement does not imply those quantities, and its indexed exact census describes exceptional orders 5 and 9, not the order-13 collapse count. This assessment does not infer priority from the common date and expressly leaves a source-access risk for the Paley-13 clock in that record's full text.",
+      "residual_risks": [
+        "The full indexed critical-contact Paley record and cited primary studies were not retrieved in this bounded pass. A matched order-13 cutoff or quantitative table in inaccessible text could change credit for the corresponding component. The distinct threshold-two census and affine waves are not implied by the accessed broader critical-threshold statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broader coverage of Paley-13 eventual extinction regardless of unresolved same-day priority. No accessible sharp four-step count for order 13 or coverage of threshold two.",
+          "evidence": "Every admissible Paley order at least thirteen rests at half degree; only orders five and nine sustain waves, with their basins and cutoffs described in the index.",
+          "identifier_or_url": "Resultary:fc90f3212227",
+          "material_read": "Indexed mathematical summary, including its exact quantified eventual-rest statement and exceptional-order census description. Full mirror text could not be retrieved.",
+          "method": "Local Resultary search, targeted exact-ID and quantitative-claim query, and bounded local-mirror retrieval attempt.",
+          "title": "Critical-contact extinction on Paley graphs, with two exceptional wave orders",
+          "trigger": "Same graph family, same update rule, exact half-degree threshold; directly subsumes part of the claim."
+        },
+        {
+          "assessment": "Strict criterion inapplicable because the full graph has average induced edge density exactly three.",
+          "evidence": "Strict e(U)<θ|U| for every U; K_(2θ,2θ) supports a primitive four-cycle at equality.",
+          "identifier_or_url": "Resultary:352367f51e91",
+          "material_read": "Indexed hypothesis and equality example.",
+          "method": "Local Resultary statement comparison; bounded mirror attempt did not recover full text.",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "Potential general extinction implication at threshold equal to E/V."
+        },
+        {
+          "assessment": "Rules out primitive period three at critical threshold on this graph, but not extinction time or all other periods. The example graph family is different.",
+          "evidence": "Connected even-regular half-degree primitive-three states are balanced, impossible on thirteen vertices.",
+          "identifier_or_url": "Resultary:7c3fe196f42d",
+          "material_read": "Indexed result on a balanced proper three-coloring and squared-cycle examples.",
+          "method": "Local Resultary statement comparison; no full text recovered.",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse on squared cycles",
+          "trigger": "Prior exact half-degree criterion and finite cutoffs."
+        },
+        {
+          "assessment": "The described one-neighbor theorem is not direct coverage. No whole-document exclusion inferred from failed access.",
+          "evidence": "Frozen RESULT.md line 43 identifies the inspected main results as being at one-neighbor threshold.",
+          "identifier_or_url": "arXiv:1610.07320",
+          "material_read": "Frozen related-work description and bibliographic locator, not full primary text.",
+          "method": "OA retrieval attempt; compared the described one-contact dynamics with the frozen two- and three-contact maps.",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Canonical same-state-space studies on general graphs."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–39; independent exhaustive results; Resultary half-degree and critical Paley comparisons"
+      ],
+      "rationale": "A canonical small six-regular residue graph is a natural adjacent-threshold test: the strict half-degree estimate does not decide the critical case, while one contact below it the long cycles have an affine wave classification, not merely an isolated numerical witness. The full basins distinguish abundant short periodic states from the few long waves, and the exact cutoffs supply a finite benchmark unavailable from qualitative extinction. Value rests on these sharp and geometric facts rather than restating the already covered eventual-rest result.",
+      "residual_risks": [
+        "No monotonicity claim in θ for arbitrary initial states or general Paley classification is being credited to this record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:19:29.633709Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–30 and 35–68",
+        "Frozen VERIFICATION.md lines 18–21 and checker.py",
+        "Independent replay: python3 /workspace/branches/reproduce_05.py"
+      ],
+      "rationale": "Independent row and column translations change only phases; applying L and its inverse transpose preserves pairings. The two row orbits follow from affine transitivity on triangles and the complements of pairs on a five-point line. For the line orbit, distinct first coordinates are necessary and sufficient by Vandermonde; the two pentagonal triple types contribute five projections each and 125 lifts per projection. I independently enumerated all 4,600 representative minors using det(M M*) rather than the supplied determinant expansion: with cyclic off-diagonal Gram entries a,b,c, det(M M*)=27-3(|a|²+|b|²+|c|²)+2 Re(abc). Exact reduction of integer character sums gave the stated spectra, the 625 first-coordinate maximizing lifts and exactly the disjoint union of the two displayed 25-element cap orbits. Counting 300 line triples and 2,000 triangles gives 287,500 maximizing, 615,000 singular and 4,675,000 nonsingular support pairs. Consistent with the explicit 2,300-choice quantifier, each support has three distinct points and the two supports may coincide.",
+      "residual_risks": [
+        "Unnormalized character matrix, exactly F_5^2 and exactly order-three minors; determinant magnitude does not classify the condition number."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The affine-plane result covers ranks at every prime p≥3.",
+          "Caragea–Lee's non-square-free cyclic theorem yields a vanishing principal minor, not a classification of all minors; Z/25 and F_5^2 are not isomorphic."
+        ],
+        "reasoning": "The broader same-group rank result determines singularity only. The principal/cyclic and prime-square cyclic rank results do not transfer to these positive magnitudes.",
+        "searches": [
+          "Resultary: prime affine-plane Fourier rank and cyclic prime-square rank",
+          "arXiv:2409.09793 Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ba0b52ec-4cec-4558-ae98-7f2dff2d78cf",
+        "Resultary feb52ea6712b",
+        "arXiv:1904.04487",
+        "arXiv:2409.09793"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At p=5 the first result gives exactly 1,050 and 150 singular partners in the respective row orbits, and 15,000 rank-one, 600,000 rank-two and 4,675,000 rank-three pairs overall.",
+          "The tightness definition is a maximum without a characteristic-five evaluation. The cyclic census instead implies 102,500 singular pairs at p=5."
+        ],
+        "reasoning": "The claimed binary singular/nonsingular counts are a direct specialization. The seven positive levels, their nonuniform multiplicities and maximizing orbits distinguish minors that rank deliberately identifies; they are not supplied by that specialization.",
+        "searches": [
+          "Resultary ba0b52ec-4cec-4558-ae98-7f2dff2d78cf, Finding at local mirror offsets 0–5746",
+          "Resultary feb52ea6712b, Finding",
+          "arXiv:1904.04487, printed pp. 15–16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferguson–Mayeli–Sothanaphan's D(E) is the maximum of the absolute unnormalized character determinant over same-size partner sets."
+        ],
+        "reasoning": "Squaring the tightness gives precisely this maximum-volume invariant; the existence and definition of the invariant are not new. The definition does not evaluate the positive spectra or identify attaining partners.",
+        "searches": [
+          "Resultary: determinant tightness and affine-plane determinant spectrum",
+          "arXiv:1904.04487 Definitions 3.6, 3.9–3.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary ba0b52ec-4cec-4558-ae98-7f2dff2d78cf gives the exact zero counts for both fixed row types and the global rank census; its table is a rank table, not a determinant-volume table.",
+          "The inspected cyclic census is for another group. The bounded external lookup did not retrieve a comparable magnitude table."
+        ],
+        "reasoning": "The matched zero entries are not original; no inspected table supplies the positive levels or their counts. An unproductive lookup is not evidence against unindexed tables.",
+        "searches": [
+          "Resultary: exact three-point determinant spectrum on F_5^2; affine-plane and cyclic prime-square rank tables",
+          "External literature lookup for the exact Fourier-minor spectrum and maximum"
+        ]
+      },
+      "rationale": "The zero level and its counts are already implied by the exact affine-plane rank classification. I credit novelty only to the positive squared-volume spectrum, its multiplicities and the equality-case geometry; neither that rank theorem nor the inspected determinant tightness framework determines those data.",
+      "residual_risks": [
+        "Bounded literature and database coverage; equivalent older Hadamard-minor, Vandermonde or signal-design tables could be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, no F_5^2 three-point classification in the inspected result",
+          "evidence": [
+            "Character entries are unnormalized and D(E)=max_B |det T(E,B)|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.04487",
+          "material_read": "Printed pp. 15–16, Definitions 3.6 and 3.9–3.10",
+          "method": "Lawful OA PDF text inspection",
+          "title": "Riesz bases of exponentials and multi-tiling in finite abelian groups",
+          "trigger": "Equivalent determinant-tightness formulation"
+        },
+        {
+          "assessment": "Different group and principal-minor restriction",
+          "evidence": [
+            "For cyclic non-square-free N, the theorem gives existence of a vanishing r×r principal minor for 2≤r≤N−2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.09793",
+          "material_read": "Printed p. 2, Theorems 1.1–1.2",
+          "method": "Lawful OA PDF text inspection",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Plausible broader Fourier-minor theorem"
+        },
+        {
+          "assessment": "Covers every zero partner count in the frozen table and both global singularity counts, not positive spectrum",
+          "evidence": [
+            "At p=5, collinear/noncollinear singular partner counts are 1,050/150; aggregate rank counts are 15,000/600,000/4,675,000."
+          ],
+          "identifier_or_url": "ba0b52ec-4cec-4558-ae98-7f2dff2d78cf",
+          "material_read": "Finding, local mirror offsets 0–5746",
+          "method": "Local Resultary mirror read",
+          "title": "Complete three-by-three Fourier minor rank geometry on prime affine planes",
+          "trigger": "Exact same group and minor orders, broader prime range"
+        },
+        {
+          "assessment": "Cyclic rank result on a nonisomorphic group",
+          "evidence": [
+            "Counts imply 102,500 singular pairs for the cyclic group of order 25."
+          ],
+          "identifier_or_url": "feb52ea6712b",
+          "material_read": "Finding, local mirror offsets 0–5777",
+          "method": "Local Resultary mirror read",
+          "title": "All singular three-by-three minors of prime-square Fourier matrices",
+          "trigger": "Prime-square census could be mistaken for affine-plane census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–32",
+        "arXiv:1904.04487, determinant tightness"
+      ],
+      "rationale": "This is the full volume distribution of the natural three-point Fourier basis-selection problem in characteristic five. In particular it gives the exact geometric cost of constraining the row support to a line (a loss of five in the best squared volume) and all the attainable optimal frequency supports. Neither the known rank counts nor a computation of one maximizing example answers those design questions.",
+      "residual_risks": [
+        "No inference about condition numbers or general primes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

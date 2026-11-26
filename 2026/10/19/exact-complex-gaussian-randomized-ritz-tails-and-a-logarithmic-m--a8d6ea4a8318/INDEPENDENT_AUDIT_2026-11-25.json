@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:49:02.838120Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the frozen record and the narrowed theorem in /workspace/repairs/1/RESULT.md, independently solve (A-mu I)(c,eta,s)^T proportional to K, where K represents the Haar null line of Omega*. The solution is mu=bsK1/(sK1-cK3) and eta=-bscK2/((a-b)sK1-acK3). The first denominator expresses pencil nonsingularity, the second excludes collision with the exact spectator a, and the fixed-sketch branch tends to zero as K3 is nonzero a.s. The denominator of eta is independent of K2 with variance (a-b)^2 s^2+a^2 c^2=(a-beta)^2+gamma^2, proving |eta|^2=q V/U with independent unit exponentials. Normalization then yields S=s^2+c^2 qV/(U+qV). The exponential-ratio CDF gives the stated compact-interval law, and integrating its complement gives Phi with the continuous uniform case q=1. Substituting q=(b/a)^2 theta^2+O(theta^4) into -q log(q)+O(q) verifies the leading coefficient and O(theta^2) remainder. The near-zero deterministic branch is w1 and its deterministic tie at resonance is handled explicitly in the repair. Separately, subtracting beta from mu gives gamma times a quotient of independent unit complex Gaussians via the orthogonal forms cK1+sK3 and sK1-cK3; the tail and divergence are correct but already covered. The frozen simulation and quadrature checker was inspected, not needed for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both older records give radial tails and moment thresholds for the non-spectator eigenvalue with an invariant spectator subspace. The general two-direction joint Cauchy result is for first-order errors."
+        ],
+        "reasoning": "The older exact scalar theories do dominate the frozen eigenvalue component. They do not specify the finite-angle mixing relative to the spectator eigenvalue, which is precisely the claim retained.",
+        "searches": [
+          "Resultary 6cfe0d1021ce, non-spectator law; ec7a4a7d4b05, Gaussian oversampling thresholds",
+          "Shao Theorem 2 and Resultary 629c63caaa73"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6cfe0d1021ce, ec7a4a7d4b05, 629c63caaa73 and 78ac65592bb6",
+        "Shao arXiv:2604.01037v1",
+        "Nakatsukasa–Tropp §6.8, PDF p. 18, nonreal sketched symmetric Ritz values",
+        "Haas–Nakatsukasa arXiv:2506.01207v2 Theorem 1, deterministic Ritz bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With w=(c,0,s)^T, V=e2, rho=beta and sigma=gamma, the known non-spectator root gives exactly the frozen eigenvalue law. The same is the nu=1 complex oversampling law.",
+          "The Cauchy limiting vector slope has divergent squared mean."
+        ],
+        "reasoning": "The first implication is exact and is credited, not republished as distinct. To obtain the repaired result one needs the full angle-dependent denominator including a-mu and the spherical normalization; integrating a first-order slope distribution is not a justified derivation of E[S].",
+        "searches": [
+          "6cfe0d1021ce Proof steps 1–2",
+          "ec7a4a7d4b05 tail formula at s=m",
+          "629c63caaa73 Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shao uses the same square complex-Gaussian pencil but gives high-probability statements. Record 629c63caaa73 gives a first-order limiting angle law; 78ac65592bb6 studies an exact finite-angle refined eigenvalue statistic in a different example."
+        ],
+        "reasoning": "Neither a rescaled weak limit nor a refined eigenvalue error equals the non-infinitesimal normalized vector angle. The infinite-moment limiting coefficient distribution does not determine the finite-angle saturation and its expectation.",
+        "searches": [
+          "Resultary search for exact finite-angle Ritz-vector laws and expected angle logarithms",
+          "Shao arXiv:2604.01037v1, Algorithm 1 and Theorem 2",
+          "Resultary 629c63caaa73 and 78ac65592bb6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Shao §5.3 is empirical. The exact catalog matches give scalar radial tails or limiting joint errors; the distinct finite-angle risk entry concerns a refined eigenvalue rather than E[S]."
+        ],
+        "reasoning": "The distribution now claimed is exact for all angles in the stated model, including resonance. The inspected exact entries and empirical success rates do not tabulate or identify this statistic.",
+        "searches": [
+          "Resultary exact Ritz tail and finite-angle risk term searches",
+          "Shao §5.3, success rates"
+        ]
+      },
+      "rationale": "PASS is for the repaired finite-angle eigenvector law and expected squared-sine asymptotic only. The frozen originality claim is too broad: the unrefined eigenvalue law and infinite second moment are directly covered by earlier indexed results. The repair removes that component from the Finding as a new claim and explicitly credits it as background. The finite-angle normalized eigenvector distribution and its mean remain distinct from the strongest inspected prior coverage.",
+      "residual_risks": [
+        "External prior work with an equivalent finite-angle eigenvector law under different terminology was not ruled out. The assessed novelty does not rest on catalogue date ordering or on the absence of a search hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of original eigenvalue component",
+          "evidence": [
+            "Y=rho+sigma Z1/Z0 in distribution and E|Y-lambda|^2 is infinite. The projected residual here is gamma times a unit vector."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-three-independent-gaussian-ritz-sketches-recover-the-exact-resid--6cfe0d1021ce/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–2, offsets 0–5818",
+          "method": "Read published record from local mirror and specialize its parameters",
+          "title": "Three independent Gaussian Ritz sketches recover the exact residual mean-square scale",
+          "trigger": "Same square Gaussian pencil with invariant spectator subspace and infinite second moment"
+        },
+        {
+          "assessment": "Also covers eigenvalue component, not vector angle",
+          "evidence": [
+            "Complex tail exponent nu=s-m+1 equals 1 for a square sketch."
+          ],
+          "identifier_or_url": "ec7a4a7d4b05",
+          "material_read": "Mirrored Finding and assumptions, offset 0–3360",
+          "method": "Read exact complex tail and specialize to a square sketch",
+          "title": "Sharp real–complex Gaussian oversampling thresholds for sketched Ritz moments",
+          "trigger": "Stronger scope for complex-Gaussian Ritz eigenvalue moments"
+        },
+        {
+          "assessment": "Same method, not the exact finite-angle mean-risk law",
+          "evidence": [
+            "Theorem 2 gives high-probability eigenpair bounds; §5.3 gives empirical success frequencies."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.01037v1",
+          "material_read": "Introduction and Algorithm 1; Theorem 2 in §4.3 (offset 41450) and §5.3 (offset 67524)",
+          "method": "Read relevant OA HTML passages",
+          "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+          "trigger": "Originating same-pencil Gaussian Rayleigh–Ritz analysis"
+        },
+        {
+          "assessment": "First-order joint limit, not finite-angle expected squared sine",
+          "evidence": [
+            "The universal density is for limits of normalized first derivatives; the physical angle is only given after division by epsilon and taking epsilon to zero."
+          ],
+          "identifier_or_url": "629c63caaa73",
+          "material_read": "Mirrored Finding and assumptions, offset 0–3395",
+          "method": "Read exact law and compare asymptotic normalization",
+          "title": "Sharp joint complex-Cauchy error law for two-dimensional randomized Rayleigh–Ritz",
+          "trigger": "Closest general angle-law match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired model supplies an exact diagnostic for an established algorithm, separating fixed-confidence angle accuracy from expected squared-sine performance on the very same trial plane. The finite-angle normalization produces an explicit logarithmic loss versus deterministic Ritz and gives the coefficient and resonance law, quantities that neither an eigenvalue heavy-tail bound nor the limiting angle slope alone supplies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

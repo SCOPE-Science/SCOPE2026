@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:39:23.356142Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 20–51; VERIFICATION.md and verify.py inspected as evidence, not executed",
+        "Independent bounded check: python3 /workspace/branches/ade9e5cf-7522-4a8f-8a3f-cac2bd974dae/check_k222_exact.py enumerated 64 subsets and 64 signings; found 10 independent sets and {-2:27, 2:27, 6:9, 10:1}"
+      ],
+      "rationale": "For closed intervals in nondecreasing right endpoint order, an earlier interval is disjoint from interval i exactly if its right endpoint is strictly less than the left endpoint of i. The earlier intervals eligible to accompany i thus form exactly the first k_i vertices (also with tied endpoints). Splitting independent sets by inclusion of i gives Z_i=Z_{i-1}+s_i Z_{k_i}. Choose each new sign to cancel the two terms if both are nonzero; induction from Z_0=1 keeps every prefix in {-1,0,1}. Every signed summand is odd, so this construction attains the least permitted magnitude, including for the empty graph. Walsh characters diagonalize the unnormalized convolution; the maximum magnitude is the unsigned count and the unit minimum in the invertible case gives the claimed norm and condition number. The sign scan is linear with predecessors given; sorting and strict predecessor searches take O(n log n). For the path power, [i,i+h] realizes the required edges and gives the stated predecessor index. For K_{2,2,2}, a nonempty independent set stays in one part, so the multiplier is 4t-2 where t counts parts having both signs positive; each other part has three sign patterns. This yields the claimed spectrum, and two parts induce a 4-cycle, outside interval graphs.",
+      "residual_risks": [
+        "The bounded enumeration covers the obstruction only; the universal conclusion follows from the induction, not from the frozen recorded test output."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Accessible Codara–D'Antona passages give unsigned enumeration for powers of paths/cycles. Windmill record 4482b9215eb1 reaches zero/unit magnitudes for its specified family. The Gupta–Lee–Leung DOI route did not supply full text."
+        ],
+        "reasoning": "No general signed theorem was found in inspected material. An unsigned recurrence computes parity but does not itself supply an attaining character.",
+        "searches": [
+          "Resultary interval/independent-set operator and clique-windmill comparisons; Gupta–Lee–Leung DOI 10.1002/net.3230120410; arXiv:1210.5561 and arXiv:1410.4080"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records fc4afc5a48fd, 4482b9215eb1, 7c29da750970",
+        "Codara–D'Antona arXiv:1210.5561 and arXiv:1410.4080",
+        "DOI 10.1002/net.3230120410 (attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An odd number of ±1 summands always excludes zero, but the converse fails even at the ten-set octahedral example. Prior positive-lag/path-square witnesses do not provide compatible choices for varying predecessor indices."
+        ],
+        "reasoning": "The additional step is a simultaneous prefix invariant under arbitrary legal predecessor changes, which gives an attained lower bound while preserving the usual upper bound. Neither unsigned parity nor the graph-family special cases imply it.",
+        "searches": [
+          "RESULT.md prior-work comparisons checked against fc4afc5a48fd, 4482b9215eb1, 7c29da750970 and arXiv:1410.4080"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Path-square record fc4afc5a48fd has exactly the signed cancellation interpretation on P_n^2, with a fixed lag-three recurrence.",
+          "Same-day record 7c29da750970 concerns inclusion-maximal independent sets, not all independent sets, so its multiplier sums over a different support."
+        ],
+        "reasoning": "The corresponding formulation is a zero or unit signed independence-polynomial evaluation at a Boolean corner. Neither a fixed-lag signing nor a multiplier theorem for only maximal sets yields the arbitrary-predecessor result.",
+        "searches": [
+          "Resultary comparison of signed independence, Walsh invertibility and path recurrences; primary literature lookup for interval graph signed independence/Walsh criteria"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact path-square values and specialized windmill spectra cover restricted inputs. The path-power counts can tabulate parity for that subfamily but are not a table of interval-graph signed extrema."
+        ],
+        "reasoning": "The principal claim is a uniform witness and theorem on arbitrary interval input, not retrieval of a tabulated count or multiplier. No novelty weight is assigned to an individual table entry.",
+        "searches": [
+          "Resultary path-square and windmill exact spectrum records fc4afc5a48fd and 4482b9215eb1; Codara–D'Antona arXiv:1410.4080 exact generalized Fibonacci/Lucas counts"
+        ]
+      },
+      "rationale": "Credit prior Walsh zero/unit criteria on path squares and clique windmills, and unsigned path-power recurrences. Pass the distinct all-interval prefix cancellation and sharp lower multiplier result, not the prior special cases, Walsh diagonalization, or ordinary independent-set counting by themselves. No inspected statement covers that general signed extension.",
+      "residual_risks": [
+        "The Gupta–Lee–Leung full text was not inspected.",
+        "An equivalent greedy signing lemma in unindexed interval scheduling or independence-polynomial work is not excluded; the judgment is bounded by sources inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special-case coverage",
+          "evidence": "Fixed lag-three recurrence and seven-sign extension for path squares.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-seven-periodic-walsh-invertibility-and-sharp-multiplier-gaps-for--fc4afc5a48fd",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Seven-periodic Walsh invertibility and sharp multiplier gaps for squared-path independent sets",
+          "trigger": "Same spectrum problem on an interval subfamily"
+        },
+        {
+          "assessment": "Special-case coverage",
+          "evidence": "Windmill formula uses peripheral-clique sizes, not an arbitrary interval representation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-parity-controlled-fourier-invertibility-and-sharp-endpoint-proje--4482b9215eb1",
+          "material_read": "RESULT.md Finding and Proof, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Parity-controlled Fourier invertibility and sharp endpoint projection norms for clique windmills",
+          "trigger": "Competing zero/unit extrema"
+        },
+        {
+          "assessment": "Different support, not equivalent",
+          "evidence": "The path family is restricted to maximal sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-seven-period-invertibility-criterion-for-maximal-independent-s--7c29da750970",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "A seven-period invertibility criterion for maximal independent sets on paths",
+          "trigger": "Distinct same-day closely related theorem"
+        },
+        {
+          "assessment": "Related unsigned enumeration",
+          "evidence": "Studies Hasse diagrams of independent subsets of path and cycle powers.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.5561",
+          "material_read": "Primary PDF opening at offset 0",
+          "method": "Open-access primary text",
+          "title": "On the independent subsets of powers of paths and cycles",
+          "trigger": "Possible predecessor recurrence antecedent"
+        },
+        {
+          "assessment": "Unsigned count recurrence on related input",
+          "evidence": "Inspected recurrences count independent subsets or diagram edges, not signed Walsh minima.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.4080",
+          "material_read": "Primary PDF opening and recurrence passages around offsets 39000–41422 and 45600–48316",
+          "method": "Open-access primary text",
+          "title": "Generalized Fibonacci and Lucas cubes arising from powers of paths and cycles",
+          "trigger": "Exact recurrences on path powers"
+        },
+        {
+          "assessment": "Unresolved access",
+          "evidence": "The DOI route returned HTTP 403; no inference about full-text coverage is drawn from it.",
+          "identifier_or_url": "https://doi.org/10.1002/net.3230120410",
+          "material_read": "DOI access attempt; no primary passage retrieved",
+          "method": "Lawful DOI access",
+          "title": "Efficient algorithms for interval graphs and circular-arc graphs",
+          "trigger": "Possible interval-order predecessor antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, signed recurrence, Hilbert norm and sharp boundary",
+        "Path-square and windmill special-case comparisons"
+      ],
+      "rationale": "The minimum multiplier decides whether exact recovery is possible and, when it is, gives its sharp spectral conditioning. The predecessor-based construction supplies a uniform, efficiently findable witness across arbitrary interval graphs, replacing special-purpose periodic signings. The even-count invertible octahedron isolates why the easy general parity argument cannot give the converse without structure.",
+      "residual_risks": [
+        "No claim about higher-dimensional graph classes or singular-case projection norms follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

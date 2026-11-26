@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:16:07.204260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–61; VERIFICATION.md and verify.py, inspected without executing",
+        "Independent exact enumeration: iterate all labeled parent choices, use products of the conditional probabilities, compute leaf counts and root-depth sums directly",
+        "Leckey–Neininger arXiv:1202.2439, Theorems 2.5–2.7"
+      ],
+      "rationale": "Writing J for a leaf-parent indicator and d for parent depth gives leaf/path increments 1−J and 1+d and leaf-depth increment 1+(1−J)d. The conditional mixed covariance is L_n P_n/W_n²−Q_n/W_n; the covariance of the conditional means has coefficient 1−1/W_n², so combining gives C_(n+1)=C_n−delta_n/W_n as stated. The mean leaf-depth recurrence gives delta_(n+1)=(1−1/W_n)delta_n+1/2−h/[2W_n(W_n+1)], h=theta(1−theta); the forcing and the base theta/(theta+1) are positive. With D_n=(W_n−1)(delta_n−W_n/4), one obtains D_(n+1)−D_n=−h/[2(W_n+1)] and D_2=−theta(theta−1)^2/[4(theta+1)]. Summing this recurrence and then C_(n+1)−C_n gives the displayed exact harmonic term by partial fractions; C_2=0 and C_3=−theta/(theta+1)^2. The fixed-theta error and the correlation normalization follow. For x=theta+1>1, trigamma(x)<x^−2+x^−1<2/x, proving positivity of the variance constant. An independent exact enumeration of 29,565 weighted tree instances agreed in all 35 cases (sizes 2–8, root weights 1/3, 1/2, 1, 2, 5).",
+      "residual_risks": [
+        "Enumeration is finite corroboration. Asymptotic statements fix theta; the error term does not assert uniformity in a varying theta."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leckey–Neininger give the matching model and the separate variances. Hiesmayr–Işlak describe weighted growth models and leaf/depth statistics in the passages read. Lundblad–Wagner do mark the leaf count separately from external path length and total path length; their recursive-tree generating equation implicitly gives mixed moments for the uniform recursive ensemble."
+        ],
+        "reasoning": "The general Hoppe marginals cannot give a mixed second moment by themselves. The multivariate theorem for ordinary increasing-tree weights does not introduce a constant bias only at the distinguished root. An implicit uniform-case generator is credited.",
+        "searches": [
+          "Leckey–Neininger arXiv:1202.2439, model and Theorems 2.5–2.7",
+          "Hiesmayr–Işlak arXiv:1712.03572, weighted-model abstract and introduction",
+          "Lundblad–Wagner AofA 2026, §5 and equation (13)"
+        ]
+      },
+      "checked_sources": [
+        "Primary Hoppe/weighted and AofA passages above",
+        "Exact earlier and same-day uniform-tree Findings from the local mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A uniform-tree generating equation with leaf and total path markers yields the uniform mixed moment by the mixed derivative after coefficient extraction. In the root-biased process the compensator uses the extra joint leaf-depth mean, not just the two known variance constants. The complete Dobrow–Fill text was not recovered."
+        ],
+        "reasoning": "Ordinary uniform recursive-tree results do not give the harmonic root-bias correction by specialization; the proof has to track a new mixed update. The correlation limit is a consequence of that computation and published marginals, not an independently novel marginal theorem.",
+        "searches": [
+          "Lundblad–Wagner §5 equation (13), recursive-tree mixed derivatives",
+          "Leckey–Neininger Theorems 2.5–2.7",
+          "Dobrow–Fill DOI:10.1017/S0963548399003855 full-text lookup"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "b67cdf22fe00 explicitly gives Cov(L_n,P_n)=−(n−2)/4 under uniform parent selection. The distinct same-day 57e8450fa564 gives that exact formula, its sharp correlation, and stronger mixed-scale independence for uniform parent selection only. Total search cost here is the sum of depths, not the Wiener index or the sum of leaf depths."
+        ],
+        "reasoning": "These are genuine special-case overlaps; the same-day date does not assign priority. Neither covers theta different from 1.",
+        "searches": [
+          "Resultary: Hoppe tree covariance leaf count internal path length root weight theta",
+          "Indexed leaf/search-cost covariance b67cdf22fe00 and path/leaf covariance 57e8450fa564"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact uniform covariance is indexed in b67cdf22fe00 and 57e8450fa564. The related leaf–Wiener records concern total pairwise distances, not sum of distances to the root. The relevant Hoppe paper tables/theorems concern marginal means and variances."
+        ],
+        "reasoning": "No exact all-theta data entry was established by the checked material. Finite enumeration supports correctness, not the absence of a prior formula.",
+        "searches": [
+          "Resultary exact covariance searches for recursive and Hoppe trees",
+          "b67cdf22fe00 and 57e8450fa564 Findings; local leaf–Wiener covariance records"
+        ]
+      },
+      "rationale": "Credit the exact mixed formula, its strict sign and asymptotic consequences across fixed positive root weights, not the exact uniform-tree covariance or either marginal variance. The inspected uniform-tree records have exact overlap at theta=1; the strongest same-day result additionally proves asymptotic independence there, but its growth law fixes theta=1 and its theorem does not subsume the root-biased formula.",
+      "residual_risks": [
+        "An earlier root-specific multivariate generating function or exact mixed moment outside the inspected passages could affect credit. The inaccessible Dobrow–Fill text is not presumed silent; no historical priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATCHING_MARGINALS",
+          "evidence": "Leaf variance n/12+O(1), path variance [2/(theta+1)−trigamma(theta+1)]n²+o(n²), and a nondegenerate path-length limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1202.2439",
+          "material_read": "PDF pp. 2–3, introduction and Theorems 2.5–2.7",
+          "method": "OA PDF text",
+          "title": "Asymptotic analysis of Hoppe trees",
+          "trigger": "Exact same model and asymptotic constants"
+        },
+        {
+          "assessment": "RELATED_NO_MIXED_FORMULA_IN_PASSAGES",
+          "evidence": "Discusses the weighted model with leaf, branch, height and depth statistics; the cited passages do not identify the mixed path-length covariance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.03572",
+          "material_read": "PDF pp. 1–2, abstract and introduction",
+          "method": "OA PDF text and targeted lookup",
+          "title": "Asymptotic results on Hoppe trees and its variations",
+          "trigger": "Weighted recursive-tree candidate"
+        },
+        {
+          "assessment": "IMPLICIT_UNIFORM_CASE",
+          "evidence": "Equation (13) specifies F_r(x,y,z,u) for ordinary recursive trees, with y the leaf marker and u marking total path length; external path length is separately marked. The case with one distinguished root of exceptional constant weight is not that equation.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+          "material_read": "PDF pp. 2–3 definitions, p. 12 equation (13) and derivative discussion, offsets 39500–42439",
+          "method": "OA publisher PDF",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "Potential implicit mixed-law coverage"
+        },
+        {
+          "assessment": "EXPLICIT_UNIFORM_SPECIAL_CASE",
+          "evidence": "Exact covariance −(n−2)/4 and increment −1/4 under uniform attachment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-leaves-and-search-cost-have-an-exact-quarter-step-covariance-in--b67cdf22fe00/RESULT.md",
+          "material_read": "Finding and proof excerpt, offsets 0–3256",
+          "method": "Resultary and local mirror",
+          "title": "Leaves and search cost have an exact quarter-step covariance",
+          "trigger": "Exact finite-size overlap"
+        },
+        {
+          "assessment": "UNIFORM_CASE_OVERLAP_SAME_DATE",
+          "evidence": "Same exact covariance and sharp rate, with mixing of the Gaussian leaf limit; uniform independent parent choices only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-negative-path-leaf-covariance-and-an-independent-mixed-sca--57e8450fa564/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2551",
+          "method": "Resultary and local mirror",
+          "title": "Exact negative path–leaf covariance and an independent mixed-scale limit in recursive trees",
+          "trigger": "Distinct same-day covariance and correlation match"
+        },
+        {
+          "assessment": "PRIMARY_TEXT_NOT_INSPECTED",
+          "evidence": "The title alone supplies no joint leaf/path statement and is not used as negative evidence.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+          "material_read": "Bibliographic citation only; OA full-text attempt timed out",
+          "method": "OA attempt",
+          "title": "Total Path Length for Random Recursive Trees",
+          "trigger": "Possible early joint-moment comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof; known separate variance results"
+      ],
+      "rationale": "An exact finite-size dependence law distinguishes one model bias from universal behavior: every positive fixed root weight gives strict negative dependence, the linear covariance coefficient is bias-independent, and its correlation coefficient depends on theta through a known fluctuation scale. This is a useful benchmark for joint limits and not merely the established uniform parameter case.",
+      "residual_risks": [
+        "The result is second-moment information only and does not establish independence or a joint limit law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

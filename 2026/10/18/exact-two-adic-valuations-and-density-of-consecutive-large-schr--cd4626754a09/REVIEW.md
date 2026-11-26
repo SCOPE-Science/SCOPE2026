@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Narayana expansion is identical to Cao–Pan equation (7). The factor \(2^k/k\) gives uniform two-adic convergence for arbitrary integer-valued binomial polynomials. Direct geometric-series evaluation proves \(\mathcal D(0)=\mathcal D(-2)=0\). Cao–Pan's *stronger* Theorem 2 extends by density to the interpolation, giving an exact valuation of every shift of the first difference by an odd multiple of \(2^\alpha\), \(\alpha\ge2\). Anchoring at zero and minus two proves the full even-index formula. The \(\alpha=1\) congruence and \(D_1=4\) cover odd indices. The valuation levels are two exact arithmetic progressions modulo powers of two, which proves natural densities. The initial value at index zero is explicitly excluded from the claim. The packaged arithmetic checks cover 2,030 positive differences and selected finite congruences but are not used as infinite proofs.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The closest work is Cao and Pan (2015), Theorem 2 and equation (7). The prior shift congruence and Narayana sum are credited. Their result does not identify zero locations for the interpolated forward difference and does not evaluate the exact valuation of consecutive differences or their frequencies. The latter are not merely the stated congruence with a parameter substituted: the two negative/nonstandard two-adic evaluations are needed to anchor the isometry and identify the valuation fibre centers. OEIS A006318 lists the classical sequence and references. The 2024 Jia–Huang paper concerns weighted sums of Delannoy/little Schröder numbers and does not supply this valuation classification. Searches of relevant mathematics records and accessible previously listed findings did not identify the same statement or a dominating result. This is best-knowledge originality, not an assertion that all literature has been exhausted. Earlier unindexed or more general results remain a risk.
+PASS
 
-## Value — PASS
-This evaluates a complete natural arithmetic invariant of consecutive terms of a classical combinatorial sequence, replacing an infinite collection of modulus-by-modulus checks by an exact two-adic law. In particular it isolates the absent level three and determines the full natural-density distribution, with a structural explanation by two 2-adic zeros and a scaled isometry. The endpoint convention is mathematically material; the theorem does not use the interpolation to make an invalid claim at zero.
+The binomial interpolation converges uniformly because the kth term has valuation at least k−ν₂(k), and agrees with the combinatorial sequence at each positive index. At 0 and 1 its value is 2; at −1 and −2 it is −2 by the geometric and weighted geometric series, so its forward difference vanishes at 0 and −2. Cao–Pan Theorem 2 extends by continuity to the four residue classes. At even x the signs at x and x+1 are opposite, so the forward-difference increment for a shift by 2^α, α≥2, is 2^(α+2) modulo 2^(α+3). Summing an odd number of increments preserves this exact valuation, giving a distance factor of 1/4 on each even class modulo four. Anchoring at 0 or −2 gives ν₂(n)+2 or ν₂(n+2)+2, respectively; the other factor of n(n+2) has valuation one. On odd indices the α=1 congruence makes D_n constant modulo 16 along steps of two, with D_1=4. The two distinct exact-level classes modulo 2^(j−1) give the stated densities; index zero is correctly excluded. Independent exact rational sums of the displayed binomial series through n=64 checked all first-difference valuations through n=63 and residue sets at levels 4–6. The uploaded recurrence checker was inspected, not executed; neither finite check is the all-index proof.
 
-## Closest sources and limits
-Cao and Pan, *A Stern-type congruence for the Schroder numbers*, arXiv:1512.06310v1, Theorem 2 and equation (7); OEIS A006318; Jia and Huang, arXiv:2410.17522. The proof depends on the credited shift theorem, the 2-adic interpolant is not the conventional initial value at zero, and the originality assessment has the residual risk of an earlier equivalent theorem. No odd-prime extension is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The oldest resolved matching machinery supplies shifts of the sequence and its binomial coefficients, not the anchors or exact consecutive-difference valuation fibres. A distinct indexed record is exactly equivalent after normalization, but the evidence places that publication after the frozen finding and establishes no earlier coverage. This is a judgment on the frozen result against evidenced earlier work, not a claim of unique discovery or historical priority.
+
+## value
+
+PASS
+
+An exact first-difference valuation, not just a congruence bound, for a classical combinatorial sequence determines every divisibility level and its frequency. The two explicit 2-adic roots and local isometry explain the full split of indices, including the missing level three. This is a usable arithmetic classification, not finite table reconstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

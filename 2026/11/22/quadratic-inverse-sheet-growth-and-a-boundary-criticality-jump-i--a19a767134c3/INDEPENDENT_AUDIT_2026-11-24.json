@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:20:23.106799Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–86",
+        "VERIFICATION.md lines 19–30",
+        "inverse_count_verify.py lines 12–76"
+      ],
+      "rationale": "The second coordinate uniquely imposes y=V−x. The phase bx cos(V−x) ranges over R and is analytic and nonconstant. Its derivative is b√(1+x²) cos(V−x−arctan x); the angle decreases at speed between 1 and 2, so there are O(R+1) monotonicity pieces. Counting distinct phase levels on each piece costs a bounded error including shared endpoints. There are two disjoint levels per 2π in the interior and one at either edge. The variation is b∫|x sin(V−x)|dx+O(bR)=2bR²/π+O(b(R+1)), using a bounded periodic primitive of |sin|−2/π separately on each half. This yields the stated coefficients and no solutions outside the strip. Each nonempty full fiber is infinite and its analytic zeros are locally finite. The determinant along the fiber is a cos(phase) times the phase derivative: every edge preimage is critical, and at most O(R+1) interior ones are. Removing only bounded-length end portions for the square window costs O(R+1) by the same count. O(R) is an assertion for R tending to infinity, not a bound down to zero. The frozen Python code uses floating-point sign changes and generic endpoints; its recorded finite samples do not certify exact tangencies or the square window. No frozen code was executed.",
+      "residual_risks": [
+        "No assertion for coordinates reduced modulo a period, or for windows with V moving with R."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The eight-map comparison includes R² and R³ regimes and the same interior/edge ratio, but its theorem enumerates specific models; its Model 2 uses ωx[1−b(|q|−1)] rather than bx cos q."
+        ],
+        "reasoning": "This is strong precedent for the proof technique and boundary effect, not a theorem quantifying over MM1's phase or providing its variation asymptotic.",
+        "searches": [
+          "Resultary 6dcb1b1c26ac and 9e4c97a48e8c",
+          "Yihyis et al. DOI 10.3390/sym15081574, Table 1"
+        ]
+      },
+      "checked_sources": [
+        "Ramadoss et al. (2022), DOI 10.3390/sym14102110",
+        "Yihyis et al., DOI 10.3390/sym15081574",
+        "Resultary 6dcb1b1c26ac and 9e4c97a48e8c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sine-level halving already appears for other branches; computing the new coefficient requires bounding the number of phase turns and evaluating the weighted periodic variation for x cos(V−x)."
+        ],
+        "reasoning": "The known level-density rule and the forward map do not themselves give a global inverse classification; the asymptotic evaluation is a short model-specific argument, not a parameter specialization of the inspected theorem.",
+        "searches": [
+          "Ramadoss et al., Eq. (5) and MM1 dynamical sections",
+          "Resultary 6dcb1b1c26ac, exact inverse claim"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (5) is exactly this map after renaming the two output coordinates. Reducing its inverse to sin(bx cos(V−x))=s makes clear what a scalar reformulation would have to count.",
+          "Resultary 6dcb1b1c26ac instead uses phases of eight different models; 9e4c97a48e8c has phase ωx(1+b−b(V−x)²)."
+        ],
+        "reasoning": "A cubic polynomial phase is not the linearly growing oscillatory cosine phase, and no equivalence preserving the fixed-target real truncation was identified in the closest records.",
+        "searches": [
+          "Local Resultary: sine–cosine memristor inverse sheets, critical boundary, quadratic growth",
+          "Ramadoss et al. DOI 10.3390/sym14102110, Eq. (5) and Table 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The printed table specifies forward maps; the inspected MM1 passages treat fixed points and iteration. The analogous Resultary counts concern different model lists."
+        ],
+        "reasoning": "A finite forward trajectory or finite inverse sample cannot be an exhaustive table of this asymptotic invariant. No identified exact formula table covers the displayed MM1 coefficients and critical status.",
+        "searches": [
+          "Closest local Resultary inverse-sheet entries 6dcb1b1c26ac and 9e4c97a48e8c",
+          "Ramadoss et al. Table 1 and MM1 analysis"
+        ]
+      },
+      "rationale": "The known map and standard level counting are not credited as novel. The supported distinct claim is its exact global inverse growth with a boundary transition and a regular-sheet count. The closest same-day comparisons substantially overlap in method and transition but do not cover this map; their date is not taken as scientific priority evidence.",
+      "residual_risks": [
+        "Bounded priority review; broader unindexed scalar level-counting applications to this exact phase could exist. The same-day overlaps establish no order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map; forward dynamics, not an MM1 inverse-growth statement in inspected passages.",
+          "evidence": "x'=a sin(b x cos y)+c, y'=y+x; fixed points, stability and bifurcation analysis.",
+          "identifier_or_url": "https://doi.org/10.3390/sym14102110",
+          "material_read": "Equation (5), PDF p. 3, offset 11200; Table 1, p. 4, offset 12269; ensuing MM1 passages",
+          "method": "Bounded open full-text passages",
+          "title": "Discrete Memristance and Nonlinear Term for Designing Memristive Maps",
+          "trigger": "Exact origin of MM1"
+        },
+        {
+          "assessment": "Different phases; substantial common counting method and boundary effect, no demonstrated coverage of MM1.",
+          "evidence": "R² or R³ for its finite list and level-density drop; Model 2 uses the absolute-value memory phase.",
+          "identifier_or_url": "Resultary 2026/11/22, suffix 6dcb1b1c26ac",
+          "material_read": "RESULT.md finding, offset 0; original model list in DOI 10.3390/sym15081574, Table 1, p. 6, offset 19440",
+          "method": "Local Resultary mirror and bounded open primary-paper passage",
+          "title": "A second-order inverse-sheet signature across eight sine memristor maps",
+          "trigger": "Closest mathematical overlap"
+        },
+        {
+          "assessment": "Related but different coefficient, phase and growth.",
+          "evidence": "Phase ωx(1+b−bq²) gives cubic window growth.",
+          "identifier_or_url": "Resultary 2026/11/22, suffix 9e4c97a48e8c",
+          "material_read": "Exact map and inverse-growth finding",
+          "method": "Local Resultary mirror",
+          "title": "Universal inverse-sheet crossover and two-term branch law in a quadratic memory map",
+          "trigger": "Same triangular memory and edge-critical relation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 3–26 and 58–86",
+        "Ramadoss et al., Eq. (5)"
+      ],
+      "rationale": "For a natural published real-plane map, the result distinguishes infinite ambiguity from quantitative inverse multiplicity and shows that a boundary target has half as many ancestors to leading order yet no regular ancestor at all. The symmetric-window statement makes the comparison meaningful for bounded observations of both coordinates. The analytic proof is elementary, but the coefficient and the regular/critical contrast are global features not supplied by the forward dynamics or by computing the determinant alone.",
+      "residual_risks": [
+        "One-step result only; no value is attributed to implications for attractors or security."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

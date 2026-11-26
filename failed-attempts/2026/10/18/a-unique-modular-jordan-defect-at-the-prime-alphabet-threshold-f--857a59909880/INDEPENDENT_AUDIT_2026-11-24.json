@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:22:27.891039Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The result concerns the full unital monoid algebra. The word-count recurrence gives b_r=(x)_r, including b_(n+1)=0. For n=p this gives x^p-x=b_p, the sum of distinct full words. Every full word absorbs every basis word on the right, so all columns of L_b_p are the same nonzero vector and its rank is one; L_b_p^2=p! L_b_p=0 and x b_p=0 by the recurrence. The split annihilator T^2 product_(j=1)^(p-1)(T-j) forces all nonzero blocks to be simple and zero blocks to have size at most two, and T^p-T has rank one per size-two zero block. The integer matrix has characteristic-zero multiplicities n!/j! by the cited module formula and the derangement identity; independently, each word of length r acts as an idempotent of rank equal to the number of injective words on the remaining n-r letters. Traces of the falling factorials (L_x)_r then recover the same n!/j! by a triangular system. Reduction of the characteristic polynomial adds only the 0 and p multiplicities. The same annihilator before the collision has distinct linear factors, proving semisimplicity for n<p. Independent replay: python3 /workspace/check_frozen_mathematics.py 4 (NumPy), for p=2,3,5, dimensions 5,16,326. It checks the literal defect vector in every column and the requisite finite-field kernels. The frozen program constructs only the one-letter left-action columns, not the complete multiplication table as its verification prose says; that is sufficient for the stated finite checks, which are not the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BCR Lemma 2.5 holds over arbitrary coefficients and gives x x_r=r x_r+x_(r+1) on orbit sums. Theorem 2.9 identifies k[x] with the quotient by the exact falling-factorial annihilator. Theorem 4.11 gives the eigenspace decomposition on the full algebra when n! is invertible. Saliola's path-algebra identification does not itself identify this operator's Jordan form."
+        ],
+        "reasoning": "The threshold and maximum zero block size already follow from the exact annihilator; ordinary multiplicities follow from the applicable characteristic-zero case of the full-module theorem. The remaining block count follows from the explicit orbit sum, not merely from the abstract quotient.",
+        "searches": [
+          "arXiv:2206.11406 Lemma 2.5, Theorems 2.9 and 4.11",
+          "arXiv:math/0608698 Theorem 13.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.11406",
+        "arXiv:math/0006145",
+        "arXiv:math/0608698",
+        "Resultary 0fe13e73c6bf and summary of 218bc561696d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.5 iterated at r=p gives x^p-x=x_p in characteristic p. For every basis vector w, x_p w=x_p by the defining product, so every column is x_p and rank is one. In n=p, Theorem 2.9 gives T^2 times the product of the nonzero linear factors; the rank counts size-two zero blocks. In characteristic zero Theorem 4.11 gives multiplicities p!/j! by the derangement sum, and characteristic-polynomial reduction merges only 0 and p."
+        ],
+        "reasoning": "The n! invertibility restriction does not need to be removed from Theorem 4.11; it is used only before reducing the integer characteristic polynomial. The rank-one step is the immediate basis-product evaluation of the earlier integral formula. These entail the exact modular multiplicities and rank as well as the previously covered first threshold.",
+        "searches": [
+          "BCR arXiv:2206.11406, basis (1), Lemma 2.5 pp. 5–6, Theorem 2.9 pp. 8–9 and Theorem 4.11 p. 22"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "BCR x=x_1 is the same uniform sum of letters. Brown's full-word random-to-top matrix and the older shuffle polynomial reported in BCR Remark 3.5 concern the permutation space, not the full unital algebra."
+        ],
+        "reasoning": "The chamber restriction is not equivalent to the claim. On the full module, p_F(L_x)=L_(p_F(x)) and evaluation on the unit also recovers p_F(x). This transfers BCR's exact polynomial information without losing faithfulness.",
+        "searches": [
+          "Resultary: free left-regular band modular Jordan form, sum-of-letters operator, prime alphabet and x^p-x defect",
+          "arXiv:2206.11406 §2, Remark 3.5 and Theorem 4.11; arXiv:math/0006145 §1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected Resultary record 0fe13e73c6bf concerns image ranks of monoid retractions, not operator kernels. The available entry for 218bc561696d concerns the modular Jordan plane relation [X,Y]=Y^2, not the free-LRB action; full text was unavailable."
+        ],
+        "reasoning": "Neither adjacent entry gives an exact table for this operator. Absence from returned records does not overcome the positive primary-source implication.",
+        "searches": [
+          "Resultary: free-LRB modular Jordan block, uniform sum-of-letters operator, prime-alphabet threshold, rank of x^p-x"
+        ]
+      },
+      "rationale": "The full modular Jordan form is a direct corollary of the earlier Brauner–Commins–Reiner results and their multiplication definition. This is stronger evidence than mere overlap of the minimal polynomial: Lemma 2.5 already yields the exact orbit sum for x^p-x, so its rank on the full algebra is mechanically read off from the fact that every word in that sum contains the entire alphabet. No historical claim is made that the corollary was printed as a separate Jordan theorem.",
+      "residual_risks": [
+        "Garsia's reported shuffle notes and the full Jordan-plane record were not retrieved. This limits historical attribution but does not affect the demonstrated mathematical implication from the inspected primary source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive combination of explicit integral powers and ordinary eigenspace dimensions",
+          "evidence": [
+            "x x_r=r x_r+x_(r+1) over arbitrary coefficients; k[x] is the full indicated quotient; |G| invertible for the full-module eigenmodule statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.11406",
+          "material_read": "§2 orbit sums and Lemma 2.5, pp. 5–6; Theorem 2.9, pp. 8–9; Remark 3.5 p. 15; Theorem 4.11 p. 22",
+          "method": "Open-access PDF passages including offsets 20300, 31500, 61470, 88160",
+          "title": "Invariant Theory for the free left-regular band and a q-analogue",
+          "trigger": "Exact same algebra and operator, potential coverage of threshold and Jordan structure"
+        },
+        {
+          "assessment": "Related chamber spectrum, different module and coefficient regime",
+          "evidence": [
+            "Tsetlin/random-to-top walk on permutations with ordinary probability weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0006145",
+          "material_read": "§1.3, pp. 2–3, and diagonalizability theorem p. 7",
+          "method": "Open-access PDF, offsets 7205–10178 and 24378",
+          "title": "Semigroups, Rings, and Markov Chains",
+          "trigger": "Classical free-LRB shuffle spectra"
+        },
+        {
+          "assessment": "Quiver identification, not an operator formula",
+          "evidence": [
+            "The free band algebra is its quiver path algebra."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0608698",
+          "material_read": "Theorem 13.1 p. 20 at offset 43501",
+          "method": "Open-access PDF passage",
+          "title": "The Quiver of the Semigroup Algebra of a Left Regular Band",
+          "trigger": "Structural theorem for the full algebra"
+        },
+        {
+          "assessment": "Different rank invariant",
+          "evidence": [
+            "Counts retractions and records sizes of their images."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-the-first-image-rank-gap-for-retractions-of-free-left-regular-ba--0fe13e73c6bf",
+          "material_read": "Finding, offsets 31 and 903",
+          "method": "Local published-record mirror",
+          "title": "The first image rank gap for retractions of free left-regular bands",
+          "trigger": "Exact rank in the same monoid family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The operator and the exact block size are naturally motivated, and a compiled corollary can be a useful reference. The specific invariant submitted here, however, is mechanically implied by prior explicit orbit-sum and spectral formulas with the defining full-word product and no additional structural argument. No independent valuable remainder is established for this narrow exact claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

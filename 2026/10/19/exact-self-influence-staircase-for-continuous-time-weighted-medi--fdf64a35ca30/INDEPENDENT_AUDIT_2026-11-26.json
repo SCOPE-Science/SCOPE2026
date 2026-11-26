@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:07:59.072984Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–54; VERIFICATION.md; verify.py",
+        "Han et al., arXiv:2404.16318v3, Theorem 8",
+        "/workspace/branches/independent_checks.py (case 4)"
+      ],
+      "rationale": "The focal opinion meets the two half-weight inequalities exactly for ranks L through R in a strict ordering. Below L, earlier candidate ranks have too much weight above, while L is admissible; reflection gives R for upper ranks. If L>R, the same inequalities put every lower-half target at the upper central value and every upper-half target at the lower central value. The resulting linear equations preserve all ranks: same-side gaps scale as e^(-t); the central gap in the moving-pair case scales as e^(-2t). The central mean is conserved and supplies the stated forced linear solutions. For ties, the nearest admissible value is the focal value projected onto the interval of medians. Its ends are the first weighted order statistics at cumulative weight >=1/2 and >1/2, respectively. Both are 1-Lipschitz in sup norm (coordinatewise monotone and translation-equivariant), and projection via min and max preserves this bound, proving unique continuous dependence and the tie extension. Substituting even and odd n into q gives the displayed strict cutoffs for convergence to consensus, not finite-time arrival, and the integer jumps as stated. Independent exact replay: python3 /workspace/branches/independent_checks.py 4, with 25,128 rational weighted-quantile/ODE comparisons at weight thresholds and between them, for strict and tied profiles.",
+      "residual_risks": [
+        "Consensus here is asymptotic. Exact generic cluster counts require distinct initial values, and the rank laws use precisely the specified homogeneous weights and nearest-own rule."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han et al. establish nonexpansiveness and uniqueness, equilibrium structure via maximal cohesive sets, and a criterion for universal consensus on general networks. Cheng–Mei apply analogous cohesive-set logic to synchronous discrete-time adjustments using the nearest-own rule."
+        ],
+        "reasoning": "These broader theorems cover the qualitative criteria, but do not evolve initial order statistics in time. They neither identify the forced central-pair motion and its decay rate nor select the limiting opinion values from the full initial configuration.",
+        "searches": [
+          "Han et al., arXiv:2404.16318v3 Theorems 8, 9, 12",
+          "Cheng–Mei arXiv:2610.16406v1 §2.2, Eq. (6), Theorem 11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.16318v3, 2610.16406v1; arXiv:2406.17552 abstract",
+        "Local Resultary 8d72274b15f4 and 2cba793af93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a set of s agents, cohesion is a+(s-1)b≥1/2, equivalently s≥L. Maximality for a proper cohesive set is s b≤1/2 for outsiders, equivalently s≤q. Hence a proper maximal cohesive set exists iff L≤q, the negation of the parity cutoffs in the finding."
+        ],
+        "reasoning": "The exact consensus threshold is consequently prior coverage even though not stated in this notation. The main finding is a trajectory theorem, not the cutoff alone: no substitution into the criterion for universal consensus yields the selected central order statistics, the central mean, or which ranks stay fixed and attract exterior ranks.",
+        "searches": [
+          "Han et al., arXiv:2404.16318v3 Theorem 12; cohesive and maximal cohesive conditions",
+          "Frozen RESULT.md lines 25–29, 51, 57"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Han et al. use the same continuous-time weighted-median vector field and tie rule. At a=1/n all rows are uniform, and the later rank-one discrete-time exact projection law agrees with the sampled continuous trajectory under a step factor 1-e^(-Δt)."
+        ],
+        "reasoning": "The sampling equivalence is real on a=1/n, not a whole-range equivalence: away from that weight the rows are different, and the even central-pair interaction cannot be obtained by projection onto a common stationary interval.",
+        "searches": [
+          "arXiv:2404.16318v3, nearest-own rule and Theorem 8",
+          "Resultary 8d72274b15f4, rank-one common-row median dynamics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later 8d72274b15f4 has the common-row rank-one discrete-time result. Later 2cba793af93d has indexed two-group bipartite median-gap decay with the same two rates; the full statement was unavailable after a bounded attempt."
+        ],
+        "reasoning": "The inspected rank-one result covers only a single common-row weight under interpolation. The same two decay rates alone do not establish equivalence of the bipartite and homogeneous complete-network median rules or of their full trajectory formulas. No matching exact statement was established.",
+        "searches": [
+          "Local Resultary searches for exact weighted-median trajectories, homogeneous self-weight, polarization, and central medians"
+        ]
+      },
+      "rationale": "The finding's new mathematical content is the explicit all-time order-statistic solution and its exact limiting selection and cluster-count staircase. Credit the ODE, the tie rule and the qualitative theory to Han et al.; the universal-consensus cutoff alone is covered as a direct corollary of their Theorem 12, not a separate original result. The inspected prior material does not determine the rankwise trajectory or selected limits from each initial profile.",
+      "residual_risks": [
+        "A more general explicit rankwise trajectory result could subsume parts of this theorem. The exact statement of the bipartite index hit was not verified. The earlier universal-consensus implication should be credited when describing the distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent of model and mechanically implies universal-consensus threshold, not the whole trajectory theorem",
+          "evidence": [
+            "Theorem 8 gives nonexpansiveness and uniqueness. Theorem 9 treats maximal cohesive sets at equilibrium; Theorem 12 equates universal consensus with the whole vertex set being the sole maximal cohesive set."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2404.16318v3",
+          "material_read": "Model/tie rule at offset 15400; Theorems 8 (25950), 9 (30800), 12 (37000)",
+          "method": "Bounded OA HTML passages",
+          "title": "Modeling, Analysis, and Control of Continuous-Time Weighted-Median Opinion Dynamics",
+          "trigger": "Same continuous-time model, rule, and potentially stronger consensus theorem"
+        },
+        {
+          "assessment": "Related discrete-time result with a cohesive-set consensus criterion",
+          "evidence": [
+            "Synchronous adjustments toward nearest-point medians; theorem characterizes all-initial consensus, not continuous-time rankwise flow."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.16406v1",
+          "material_read": "§2.2 Eq. (6) offset 8800; Theorem 11 offset 40380",
+          "method": "Bounded OA HTML passages",
+          "title": "Cheng and Mei's synchronous weighted-median model",
+          "trigger": "Similar response and possible prior consensus coverage"
+        },
+        {
+          "assessment": "Material partial equivalence at a=1/n only",
+          "evidence": [
+            "Discrete-time common-row model gives geometric motion toward a weighted-median interval, with no moving pair."
+          ],
+          "identifier_or_url": "Resultary 8d72274b15f4",
+          "material_read": "Mirrored RESULT.md Finding and scope",
+          "method": "Local search and mirror",
+          "title": "Frozen weighted-median gaps and the exact polarization law on fully connected rank-one influence matrices",
+          "trigger": "Exact projection trajectories for nearest-own medians"
+        },
+        {
+          "assessment": "Structural overlap; exact formulation unresolved",
+          "evidence": [
+            "The summary's rates match the moving-pair subcase, but it describes a bipartite setting, not the stated self-weight classification."
+          ],
+          "identifier_or_url": "Resultary 2cba793af93d",
+          "material_read": "Local index summary only; full RESULT.md not recovered",
+          "method": "Local search and bounded mirror retrieval attempt",
+          "title": "Two-median conservation and exact relaxation on bipartite opinion networks",
+          "trigger": "Indexed central gap e^(-2t) and within-group relaxation e^(-t)"
+        },
+        {
+          "assessment": "Related scope; no full-text verdict drawn",
+          "evidence": [
+            "The accessible abstract describes numerical network dynamics and a configuration-model mean-field approximation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.17552",
+          "material_read": "Abstract only",
+          "method": "Bounded OA HTML",
+          "title": "A Weighted-Median Model of Opinion Dynamics on Networks",
+          "trigger": "Nearby weighted-median network literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–32, 45–51; Han et al. Theorems 9 and 12"
+      ],
+      "rationale": "A homogeneous complete network is a natural exact benchmark of the already established model. The solution replaces a qualitative convergence result with initial-condition-specific limits, two distinct transient decay rates, and all self-weight boundaries for the number of limiting opinions. It also resolves equal initial opinions and threshold ties. This is useful independently of the prior universal-consensus criterion.",
+      "residual_risks": [
+        "The benchmark does not imply rank preservation on arbitrary networks or make empirical claims about polarization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

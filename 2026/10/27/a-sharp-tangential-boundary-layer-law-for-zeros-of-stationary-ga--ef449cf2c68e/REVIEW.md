@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The claim follows from the exact covariance-kernel factorization, the Edelman–Kostlan one-point intensity formula, positivity and harmonicity of the Poisson extension, its continuously differentiable boundary trace, and the explicitly normalized nonlocal derivative in (4). On the critical angular scale, the value of the Poisson extension has two **equal-order** contributions. The normalized density and sector-count formula are derived with compact-uniform error control, not by interchanging unproved pointwise limits. The finite trigonometric test family supplies numerical corroboration of constants, not a replacement for proof.
+## correctness
 
-## Originality
-The companion Shirai 2025 spectral-correlation study derives an exact one-point spectral identity, not a moving-angle limit. The 2021 Noda–Shirai study concerns expected zero counts and degeneracies of spectral densities. Shirai's 2025 Theorem 2.1 is the closer source: its fixed-direction formulas imply neither compact-uniform tangential/radial crossover nor the positive-sector counting law as stated, because the constants in the fixed-direction limits become singular as the chosen direction tends to the spectral zero. The joint-angle theorem requires an additional uniform boundary-jet argument. Relevant earlier published records and alternative formulations were searched, without locating this full crossover classification. The exact classical intensity identity and fixed-direction results are acknowledged as antecedents. Unindexed prior equivalents remain a risk.
+PASS
 
-## Value
-A spectral zero causes a striking suppression of Gaussian analytic zeros along one boundary direction. The theorem identifies the previously unresolved *width* of the suppressed angular region, proves the unique scale at which the suppression becomes nontrivial, and computes a sharp leading expected count in boundary boxes. This resolves a natural two-parameter asymptotic and gives an observable consequence rather than a reformulation of a fixed-direction limit.
+In the spectral Fourier convention of the cited Gaussian power-series literature, the diagonal kernel is u/(1-r²), with u the Poisson extension at the same angle (the opposite Fourier convention reflects the angular label). Positivity and harmonicity give Δ log u=-|∇u|²/u², and the ordinary-area Edelman–Kostlan formula gives (3), including the factor π. Under C^(2m+2), the derivative Fourier series converge uniformly up to the boundary. The Poisson quotient at the zero is dominated by a constant multiple of w(θ0+s)/(1-cos s), integrable because m>=1; its limit is b>0 and u_r tends to -b there. Consequently u=as^(2m)+bδ+o(δ)+O(|s|^(2m+1)) for δ=1-r and s→0, with derivatives tending to (-b,0); the δ remainder is uniform along approaching angles. At s=δ^(1/(2m))x the denominator after dividing by δ is uniformly bounded below on compact x-sets, yielding the profile, including x=0. At fixed x≠0 the outer and inner powers give respectively normalized limits 1 and 0. For δ=εt, t in [1,2], the same uniform estimate gives u/ε→bt+ax^(2m) and ε²ρ tends to the stated integrand with 1/(4πt²). The polar area factor is (1-εt)ε^(1+1/(2m)); the resulting constant is positive for C>0. A closed-form sanity check is w=2-2 cos θ, for which u=2(1-r cos θ), b=2, and the normalized formula is 1-[(1-r²)/(2(1-r cos θ))]². The frozen checker corroborates the critical-scale profile and boundary slopes only; it does not itself test both off-critical angular exponents or prove uniformity. The analytic proof covers those claims.
 
-## Limits
-Only the one-point density and expectation are controlled; no distributional process convergence or variance asymptotic is claimed. Smoothness and finite order of spectral vanishing are essential to the present proof. The complete 2025 source was checked for the distinctive joint-angle statement; its fixed-direction coverage remains prior art.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The nonlocal slope, covariance description and fixed-angle asymptotics have explicit precedents. The distinct claim is the compact-uniform angular crossover at a smooth even-order zero, its scale separation and the local sector coefficient. The closest inspected moving-angle result concerns a jump, while the closest smooth-zero results give a radial direction or disk integral, not this local law. No priority beyond the compared evidence is asserted.
+
+## value
+
+PASS
+
+A fixed-ray law cannot quantify how zeros return to the generic intensity across the boundary near spectral degeneracy. The theorem gives the exact crossover scale, distinguishes a local Taylor coefficient from a nonlocal spectral contribution, and determines a measurable sector first moment on that scale for any width and finite even order. The conclusion is local and first-moment only, with no supported claim about fluctuations or convergence of the zero process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

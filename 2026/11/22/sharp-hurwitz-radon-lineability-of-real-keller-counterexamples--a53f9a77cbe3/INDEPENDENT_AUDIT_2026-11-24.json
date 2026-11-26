@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:43:20.827249Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–49; VERIFICATION.md and checker.py (read, not executed)",
+        "/workspace/review_reproduction.py: keller(), exact symbolic determinant and three real rational preimages",
+        "Classical Hurwitz–Radon construction and Adams sphere vector-field bound"
+      ],
+      "rationale": "Nonemptiness in dimension three follows from the displayed exact collision and constant determinant; adjoining identity coordinates preserves both. On every admissible linear family derivative evaluation at zero is injective and sends its punctured space to nonsingular matrices, so the real matrix bound applies even if finite dimension was not assumed. Independently, the bound follows from Adams's sphere vector-field theorem: normalize the matrix space to contain I, then for each unit x project the remaining basis images A_i x onto x-perp. Any dependence would give a nonzero matrix in the space killing x. Conversely the Hurwitz–Radon skew, pairwise anticommuting generators give A^T A=(sum of squared coefficients)I, and hence an invertible-output space containing I. For any fixed eligible F, composing on the output preserves its real collisions and multiplies its constant Jacobian determinant by det A. The map from the matrix space is linear and injective and contains F via I. This proves both sharpness and pointwise attainment; odd n gives rho(n)=1, and even n>=4 gives rho(n)>=2, with no assertion for n=2.",
+      "residual_risks": [
+        "The independent calculation checks the seed, not the classical all-dimensional matrix theorems, which are used analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 treats a larger class of nonsingular constant-Jacobian maps but only over C, and Theorem 5.2 extends the non-2-lineability result to odd dimensions over real closed fields. Question 2 explicitly asks about even real dimensions.",
+          "The classical matrix theorem bounds the dimension of a real nonsingular matrix space and supplies sharp examples, without a polynomial noninjectivity hypothesis."
+        ],
+        "reasoning": "Neither the complex larger-class statement nor the odd-real result addresses the even-real lower bound. Classical matrix maximality alone has no statement about polynomial collisions.",
+        "searches": [
+          "Primary literature search on Keller/Jacobian counterexample lineability and Hurwitz–Radon",
+          "arXiv:2611.03572v1 pp. 4, 11; ALP DOI 10.2307/2033871; Geramita–Pullman DOI 10.1090/S0002-9939-1974-0332764-4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact frozen self-hit a53f9a77cbe3 and focused related results",
+        "Bernal-González et al., arXiv:2611.03572v1",
+        "Adams–Lax–Phillips and Geramita–Pullman, classical input, retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior polynomial argument finds a root of det(JF+w JG) over C, reused in odd real degree. It does not transfer extremal matrix spaces to a polynomial family. The frozen lift A -> A composed with F jointly proves constant Jacobian, retained collisions, and attainment through F."
+        ],
+        "reasoning": "The upper-bound link is close to the prior determinant-pencil argument. The two-way equivalence, specifically the collision-preserving lower bound for every F, goes beyond picking a parameter in an existing polynomial theorem; it closes the question the same prior work leaves open.",
+        "searches": [
+          "arXiv:2611.03572v1 p. 4, Theorem 2.1 proof, and p. 11, Theorem 5.2 and Question 2",
+          "ALP and Hurwitz–Radon matrix statements compared with frozen proof lines 24–49"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The focused exact hit a53f9a77cbe3 is the assigned record itself. The prior paper defines the same class via real noninjectivity and a nonzero constant Jacobian, and lineability of its punctured subspaces."
+        ],
+        "reasoning": "The older question is for the same object, not for a normalized determinant or only for complex points; its statement asks for, rather than gives, the even-real answer.",
+        "searches": [
+          "Resultary broad real Keller counterexample lineability search, then focused exact Hurwitz–Radon real dimension search",
+          "arXiv:2611.03572v1, definition of CJC_N and lineability, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's exact dimension and pointwise-attainment match is the frozen record; the numeric rho sequence is already classical for matrices."
+        ],
+        "reasoning": "Novelty is not ascribed to computing the tabulated rho values. The additional exact statement is their equality to the polynomial invariant with pointwise attainment.",
+        "searches": [
+          "Focused Resultary exact rho(n) and through-every-F query",
+          "Classical Hurwitz–Radon formula as identified in the frozen references"
+        ]
+      },
+      "rationale": "The known exact invariant is for real matrix spaces. The prior polynomial lineability paper gives the odd-real obstruction and leaves even-real 2-lineability open. The frozen result identifies the matrix invariant with the noninjective polynomial one via both evaluation and a collision-preserving lift through an arbitrary seed. The defensible novelty is that identification and its application to the stated question, not the Hurwitz–Radon function, its sample values, or the odd-real maximum.",
+      "residual_risks": [
+        "The precise polynomial lift could have appeared independently elsewhere; the indexed evidence does not establish historical priority. Original bodies of the matrix papers were not recovered, so absence of a polynomial application from their complete texts is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage only: odd-real and complex regimes; even-real question expressly open there",
+          "evidence": "Question 2: 'Is CJC_N(R) also not 2-lineable for every even N >= 4?' Theorem 5.2 states non-2-lineability over real closed fields for odd N.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.03572v1",
+          "material_read": "p. 2 definitions; p. 4 Theorem 2.1 proof and Corollary 2.2; p. 11 Theorem 5.2 and Question 2",
+          "method": "OA PDF passage retrieval by offset",
+          "title": "Counterexamples to the Jacobian Conjecture from the viewpoint of lineability",
+          "trigger": "Same object, exact question, and odd-dimensional result"
+        },
+        {
+          "assessment": "Established matrix input; no paper-wide claim about the inaccessible original",
+          "evidence": "The bound needed here is on linear spaces whose nonzero real matrices are nonsingular; its upper-bound mechanism can be recovered from independent vector fields on the sphere.",
+          "identifier_or_url": "https://doi.org/10.2307/2033871",
+          "material_read": "Identified bibliography and classical theorem used in frozen proof; original paper body not recovered",
+          "method": "Attempted lawful PDF and cited mirror retrieval",
+          "title": "On Matrices Whose Real Linear Combinations Are Nonsingular",
+          "trigger": "Exact rho(n) matrix bound"
+        },
+        {
+          "assessment": "Classical construction credited; access limitation for priority checks",
+          "evidence": "Frozen proof uses rho(n)-1 skew orthogonal anticommuting matrices to construct the sharp matrix family; it does not claim that construction as new.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1974-0332764-4",
+          "material_read": "Identified theorem citation; original paper body not recovered",
+          "method": "Attempted lawful retrieval of cited copy",
+          "title": "A Theorem of Hurwitz and Radon and Orthogonal Projective Modules",
+          "trigger": "Exact orthogonal-matrix construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Prior Question 2 and Theorem 5.2",
+        "Frozen upper and pointwise lower bounds"
+      ],
+      "rationale": "An explicit problem in the predecessor paper is resolved negatively in every admissible even dimension, and strengthened to a sharp structural invariant attained through every existing real counterexample. The transfer is short but makes the old matrix obstruction and construction solve a natural problem about preserving noninjectivity in linear families.",
+      "residual_risks": [
+        "The result does not classify extremal subspaces, fix their determinant values, or resolve the two-variable problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

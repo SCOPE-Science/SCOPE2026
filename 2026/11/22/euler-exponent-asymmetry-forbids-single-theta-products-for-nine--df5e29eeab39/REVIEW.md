@@ -1,19 +1,21 @@
-# Scientific review of the no-single-theta-product theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is scoped to \(P_0,\dots,P_9\) over \(\mathbb F_{19}\), with integer powers and scalar monomial shifts. Formal Euler exponent uniqueness through degree \(18\) follows by coefficient elimination or the explicit logarithmic derivative recurrence; these steps need no unproved structural lemma. Each candidate theta monomial necessarily has paired Euler exponents at \(a\) and \(19-a\). The 18-case table supplies an incompatible pair for every nonzero component. The bundled verifier computes the components by two independent arithmetic paths and reconstructs Euler factors exactly, so the finite certificate is sufficient to exclude all formal identities in the claimed domain. Risk: transcription or implementation error in the table; independently specified generation paths and the exact source dissection mitigate it.
+PASS
 
-## Originality — PASS, qualified
+For any putative scalar-shifted monomial the valuation and initial coefficient are forced; normalizing leaves a unit. Removing (1-y^j) factors successively determines unique exponents mod 19 through degree 18. Frobenius gives (1-y^j)^19 = 1 mod y^19, so this test applies to arbitrary integer powers, including negative powers. P0 is trivial in this truncation and each Pa forces equal exponents at a and 19-a. An independent reproduction computes integral colored-partition coefficients through q^379 via n p9(n) = 9 sum_{j=1}^n sigma_1(j) p9(n-j), then reduces mod 19 and removes Euler factors by geometric-series division. It reproduces every row, with valuation 1 only at residues 6 and 13; the pair (1,18) disagrees except at residue 3, where (2,17) gives (10,18). The finite mismatch contradicts any full identity; infinite vanishing at 17 instead follows from Bilgici's dissection, not the computed zero truncation.
 
-The motivating 2026 work establishes two-term theta dissections and expressly presents single-product reduction as Question 2. It does not provide an impossibility theorem in the unrestricted integer-power alphabet, nor does its count of two terms imply impossibility after theta relations. Hirschhorn's 2000 work gives *positive* product identities at modulus \(11\) instead of an obstruction at \(19\). Searches of indexed partition-congruence work and available related records revealed no equivalently strong claim. An unindexed older theta or eta-quotient identity could still encode the obstruction; priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-A specifically posed reduction question receives a complete negative answer for all eighteen nonvanishing classes, with a structural mod-\(19\) invariant that excludes not only quartic products but arbitrary products and quotients in the original theta alphabet. The result clarifies why the two-term dissection cannot be collapsed via identities among those factors. It is a finite exact obstruction with a natural target, not a random finite sample or an unmotivated coefficient coincidence. It does not settle representations with additional theta functions or the other open questions.
+The surviving distinct result is the unrestricted integer-exponent obstruction for all eighteen nonzero normalized components in the stated alphabet. The dissection and zero component are known; so is the narrower quartic-product observation in the motivating paper. The exact published catalogue match is the same record, not a distinct antecedent. No inspected distinct source covers the unrestricted obstruction.
 
-## Closest literature and limitations
+## value
 
-Bilgici, *Nine-Colored Partition Components Modulo 19*, arXiv:2611.24516v1 (2026-11-18), Theorem 2.3, Theorem 3.2, and Section 8 Question 2, is the direct source. Hirschhorn, *Winquist and the Atkin–Swinnerton-Dyer partition congruences for modulus 11* (2000), shows the contrasting positive phenomenon. See RESULT.md for exact scope, proof and reproducible computations. An independent mathematical audit remains necessary before treating the priority assessment as definitive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This answers a concrete question in Bilgici's Section 8 for the factor alphabet of the dissection. The paired-exponent test covers infinitely many exponent vectors at once and excludes denominator identities as well as quartic products. The value is the complete obstruction, not the known zero progression or another table of dissection terms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

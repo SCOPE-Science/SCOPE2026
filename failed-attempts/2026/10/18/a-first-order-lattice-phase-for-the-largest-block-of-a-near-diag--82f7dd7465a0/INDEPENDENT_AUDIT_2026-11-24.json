@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:45:32.143522Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–64",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/reproductions/finite_checks.py 5",
+        "Arratia–DeSalvo arXiv:1606.04642, Theorem 3.3 and Conjectures 3.7–3.8"
+      ],
+      "rationale": "Separate the pair-only profile W0, profiles with only tripletons above size two, profiles with one size-four block, and the remainder. Label counting gives the frozen falling/rising factorial ratio; the uniform log expansion for at most C log r tripletons has first-order term (2ju−j(2j−1))/r, and the bounding exponential series has a superpolynomially small tail. Summing yields 2uλ−2λ²−λ in S/W0. A single four-block multiplies the j-tripleton ratio by (r−2j) falling 3 divided by 3(n−2r+1+j) rising 2; after scaling by r this tends uniformly on compact u ranges to u²/3 for each fixed j, and a bounded exponential series dominates the j sum uniformly. The remaining categories contribute O(r⁻²) since the combined weights of size ≥5 are O(r⁻²) and the size-four weight is O(1/r). Reciprocation gives 2u/3−7u²/9. The floor contributes r(u−t²)=−2t²δ+o(1); the two sequences at t=1 and the stated interval follow. For endpoint phases use n=ceil((m/t)²) and n=ceil((m/t)²)−1, respectively, giving approach from at/above and strictly below the m threshold. The primary conjecture's parameters and fixed-coefficient meaning match. Independently verified selected exact probabilities using coefficient recursion for [(e^z−1)/z]^(n−r); python3 /workspace/reproductions/finite_checks.py 5, at r=40,80,160 on both sequences. Finite checks support, but do not prove, the uniform remainder.",
+      "residual_risks": [
+        "The proof is for ordinary uniform set partitions and compact positive u ranges; the conjecture comparison uses its set-partition specialization only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Temme's expansion is uniform in m and treats the saddle tending to zero. Louchard §3 develops exponent strictly above 1/2 and §4's stated O(1/r) accuracy is the order of the desired correction. The rook-based total variation bound is also O(1/r) here."
+        ],
+        "reasoning": "Only Temme among these inspected statements has the broader precision needed to entail the frozen coefficient directly. An error bound of the same order as the target correction cannot by itself identify that correction.",
+        "searches": [
+          "Temme, Asymptotic Estimates of Stirling Numbers, equations (2.5)–(2.10), (4.2)",
+          "Louchard, Asymptotics of the Stirling numbers of the second kind, §§3–4",
+          "Arratia–DeSalvo arXiv:1807.03926 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Temme 1993 §§2, 4",
+        "Louchard §§3–4",
+        "arXiv:1606.04642 and arXiv:1807.03926 (specified passages)",
+        "Resultary e02b38cbb42b, 8198e77842ad, 9aede18ef392, 95a2b9a3088b, d9cbbc1f009e, 502128e50e90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The normalized older Stirling expansion gives log(S/W0)=2u/3+(7u²/9−2u/3)/r+O(r⁻²) by the displayed extraction. Conjecture 3.7 asks for one coefficient at fixed t with r=floor(t√n), while 3.8 proposes a value."
+        ],
+        "reasoning": "The reciprocal and one Taylor expansion in the floor offset imply all the stated phase coefficients and refute fixed C(t). Explicitly noticing the consequence is useful, but not a new asymptotic theorem under the stated implication standard.",
+        "searches": [
+          "Temme 1993 §§2 and 4 and bounded first correction",
+          "Arratia–DeSalvo arXiv:1606.04642 Conjectures 3.7–3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact singleton/pair count converts the largest-block probability into W0/S(n,n−r). Temme's second-kind saddle expansion covers this denominator and yields the same log ratio by the extraction above."
+        ],
+        "reasoning": "Changing from the Stirling denominator to the probability is an exact reduction. The matching coefficient and uniformity follow from the published expansion, not coincident parameter names.",
+        "searches": [
+          "Resultary: largest block near-diagonal set partitions, first-order phase and Stirling coefficient",
+          "Temme 1993 §§2, 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e02b38cbb42b treats fixed-block singleton/size-class covariance with block-to-label ratio in (0,1), away from the near-diagonal boundary. 8198e77842ad treats unrestricted Bell partitions and a covariance sign switch. The distinct same-day hits concern fixed-m Stirling 2-adic valuations, noncrossing partitions, integer partitions via Euler products, and Ewens block-count cumulants, respectively."
+        ],
+        "reasoning": "These are actual model/observable differences, not exclusions based on a shared date. No exact database hit is needed for the prior-implication verdict, and the ranked result list does not establish absence.",
+        "searches": [
+          "Resultary first-order largest-block and floor-phase scans",
+          "Resultary e02b38cbb42b, 8198e77842ad and same-day 9aede18ef392, 95a2b9a3088b, d9cbbc1f009e, 502128e50e90"
+        ]
+      },
+      "rationale": "Prior implication is demonstrable, not merely an access risk: Temme's 1993 uniform second-kind Stirling expansion gives the full frozen 1/r coefficient in this regime. Here is the extraction. Put m=n−r, ρ=r/m, B(x)=(e^x−1)/x, and choose x by x(log B)'=ρ, equivalent to Temme (2.5). Equations (2.6)–(2.10) and (4.2) give S(n,m)=(n!/m!)(m^r/r!) exp(A)(f(ρ)+O(1/m)); A=m log B(x)−r+r log(ρ/x). The saddle prefactor is f(ρ)=[ρ/(x dρ/dx)]^(1/2), by differentiating the saddle change of variable. The first correction in (4.2) is bounded in this limit, so m⁻¹=o(r⁻¹), and f(ρ) tends to one. Hence log(S/W0)=m log B(x)−r+r log(2ρ/x)+log f(ρ)−Σ_{j=0}^{r−1}log(1−j/m)+O(m⁻¹). Now log B=x/2+x²/24+O(x⁴) and x=2ρ−2ρ²/3+4ρ³/9+O(ρ⁴). The first three terms combine to mρ²/6−mρ³/18+O(mρ⁴); log f=−ρ/6+O(ρ²); the negative sum is mρ²/2−ρ/2+mρ³/6+O(r⁻²). Together this is 2mρ²/3+mρ³/9−2ρ/3+O(r⁻²)=2u/3+(7u²/9−2u/3)/r+O(r⁻²), uniformly as required. Exponentiating its negative gives the frozen formula. Substituting r=floor(t√n) then gives the entire phase law and the two-subsequence counterexample. I do not claim Temme printed the probability or the later conjecture; the coverage is by implication from the stronger published asymptotic. The profile proof is direct and informative, but the frozen finding claims the expansion and its floor consequence, not a distinct theorem about profile contributions.",
+      "residual_risks": [
+        "This is a claim of mathematical implication, not of prior publication of the precise floor-phase statement or refutation. No conclusion about priority of this profile-counting proof is needed for the disposition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger prior result implies the coefficient and phase law; not an explicit probability statement in the paper.",
+          "evidence": "The transformed coefficient integral is exp(A) times n!/m! times [t^r] exp(mt)f(t); full expansion uses powers of 1/m with f1 bounded, and the saddle relation gives (1−exp(−x))/x=m/n.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/2304/2304D.pdf",
+          "material_read": "Abstract, §2 equations (2.5)–(2.10), pp. 234–237, and §4 equation (4.2) through boundedness of f1, pp. 240–242 (PDF offsets 6150–10013 and 17210–21990)",
+          "method": "OA PDF passage inspection, saddle coefficient extraction against exact W0",
+          "title": "Asymptotic Estimates of Stirling Numbers",
+          "trigger": "Strong same-denominator uniform asymptotic at the near-diagonal boundary"
+        },
+        {
+          "assessment": "Leading law prior; fixed coefficient is conjectural and refuted in the ordinary set-partition specialization.",
+          "evidence": "Leading Poisson law has error O_t(log²(n)/√n); Conj. 3.7 assumes fixed t, r=floor(t√n), and one coefficient C(t).",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.04642",
+          "material_read": "Theorem 3.3 pp. 19–21 and Conjectures 3.7–3.8 p. 22",
+          "method": "OA PDF passage inspection",
+          "title": "Poisson and independent process approximation for random combinatorial structures with a given number of components, and near-universal behavior for low rank assemblies",
+          "trigger": "Exact conjecture and leading limit"
+        },
+        {
+          "assessment": "Weaker precision than the evaluated first-order correction.",
+          "evidence": "Total variation for the block-size vector is bounded at order exp(4r²/(3n)) r³/n².",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.03926",
+          "material_read": "Theorem 1.2, p. 2 (PDF offset 4877)",
+          "method": "OA PDF passage inspection",
+          "title": "Attacks and alignments: rooks, set partitions, and permutations",
+          "trigger": "Follow-up quantitative approximation"
+        },
+        {
+          "assessment": "§3's boundary excludes this exponent; §4's stated error is of target order, unlike the precision available from Temme.",
+          "evidence": "§3 m=n−n^α for α>1/2; §4 gives the extension with r→∞, r=o(n) and O(1/r) error.",
+          "identifier_or_url": "https://pefmath.etf.bg.ac.rs/vol7num2/AADM-Vol7-No2-193-210.pdf",
+          "material_read": "§§3–4, including pp. 205–206",
+          "method": "OA PDF passage inspection",
+          "title": "Asymptotics of the Stirling numbers of the second kind",
+          "trigger": "Another near-diagonal primary expansion"
+        },
+        {
+          "assessment": "Different parameter region and observable.",
+          "evidence": "Singleton/size-j covariance for a fixed block count with k/n tending to a point of (0,1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-conditional-singleton-size-class-covariance-has-a-sharp-hierarch--e02b38cbb42b/RESULT.md",
+          "material_read": "Finding in local mirror",
+          "method": "Resultary search and actual mirror passage",
+          "title": "Conditional singleton–size-class covariance has a sharp hierarchy",
+          "trigger": "Closest indexed ordinary fixed-block partition result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Arratia–DeSalvo Conjecture 3.7",
+        "Frozen RESULT.md Proof §§2–4",
+        "Temme 1993 §4"
+      ],
+      "rationale": "Explaining why a fixed coefficient in a published conjecture fails is worthwhile: changing from a moving intensity to the fixed limiting intensity creates an oscillation at exactly the order the conjecture concerns. The profile proof also exposes the size-four block contribution. This usefulness does not make the implied main expansion original.",
+      "residual_risks": [
+        "No independently distinct replacement theorem or extension to arbitrary assemblies was established; there is no repaired finding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

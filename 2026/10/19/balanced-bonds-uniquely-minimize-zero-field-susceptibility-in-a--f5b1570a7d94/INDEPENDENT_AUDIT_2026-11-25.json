@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:55:08.370656Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–104; VERIFICATION.md; verify_ising.py lines 37–110; /workspace/branches/replay_frozen_checks.py (argument 3)"
+      ],
+      "rationale": "The even-edge expansion on a cycle gives only empty and full subgraphs; two spin insertions select the two complementary arcs. Each unordered pair contributes both arc products to its covariance, and Var(M) counts each unordered pair twice, giving the factor 2/[n(1+P)]. At fixed length k, moving one strong bond count from an entry at least two larger to a smaller entry strictly reduces the relaxed sum of q to those powers. The floor word attains the lower bound at all k simultaneously. Conversely balance bounds the range of prefix discrepancies strictly below one; its maximum gives an intercept for the floor word. The reduced-slope residue grid and coprimality make all intercepts rotations, including nonprimitive words. Geometric domination by x^k gives the limits, and subtraction yields the stated positive square. Independent exact Gibbs enumeration agreed with the formula and the full equality sets on 984 layouts (n=3 through 8, two contrasts). The comparison is not a claim of blocked maximality or of optimality at zero coupling, zero temperature, or nonzero field.",
+      "residual_risks": [
+        "The original script's direct spin sum checks the integrated second moment, not separate two-point values; neither finite enumeration substitutes for the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van Enter–Koivusalo–Miękisz p. 17, around extraction offset 37380, distinguishes earlier strictly convex repulsive lattice-gas interactions and its constructed infinite-range ground-state Hamiltonians. Bhattacharya–Paul §III treats selected periodic/quasiperiodic chains."
+        ],
+        "reasoning": "The spacing mechanism is related: expanding q^c−1−c(q−1) as (q−1)^2 times the sum of q^(j−1)(c−j) for j=1 through c−1 rewrites arc contributions using distances between successive j-th strong bonds and truncated linear penalties. This bridge credits convex spacing methods, but the pressure derivative, the finite cyclic objective with neighbor-rank weights, and its evaluated extrema are not stated in those broader sources.",
+        "searches": [
+          "Resultary: Ising susceptibility most homogeneous balanced sequence",
+          "\"inhomogeneous Ising\" susceptibility balanced sequence bond arrangement optimization most homogeneous",
+          "arXiv:1906.12103v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/0306600v1",
+        "arXiv:1311.4904v1",
+        "arXiv:1906.12103v2",
+        "Resultary 0b67a9f3e612"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can differentiate the Fibonacci-order transfer matrices for that order; their computation does not compare every permutation. Balance is prior, but a characterization of words by balance alone does not express the susceptibility as convex window sums."
+        ],
+        "reasoning": "The concrete bridge from the Ising covariance to simultaneous strict convex bounds, and the exact evaluated minimum and block contrast, are the supported distinct application. No unchanged cited theorem covering the whole claim was found.",
+        "searches": [
+          "arXiv:cond-mat/0306600v1 §III, Eqs. (23)–(32)",
+          "arXiv:1311.4904v1 p. 1",
+          "arXiv:1906.12103v2 pp. 1, 17"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fici p. 1 defines balance by counts on equal-length factors differing by at most one. The related catalogue record 0b67a9f3e612 instead optimizes rotation-profile variance of scattered 01 subsequence counts."
+        ],
+        "reasoning": "The field-second-derivative and cyclic-arc-product problems here are equivalent by the spin expansion. A shared balanced optimizer for a scattered subsequence objective does not identify these objectives or their values.",
+        "searches": [
+          "Resultary: balanced bonds uniquely minimize zero-field susceptibility",
+          "Resultary: circular words minimize convex window counts balanced words",
+          "arXiv:1311.4904v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant exact catalogue hit 0b67a9f3e612 tabulates/states dispersion results for rotation subsequence counts, not susceptibility or the same arc-product sum."
+        ],
+        "reasoning": "The sharp finite value and the positive thermodynamic difference are parametric invariants; no matching table/formula was identified in the bounded comparison, not proof of absence.",
+        "searches": [
+          "Resultary: finite periodic ferromagnetic Ising ring zero-field susceptibility optimization fixed composition two bond strengths arrangement balanced bonds exact minimizer",
+          "Resultary: circular words minimize convex window counts balanced words"
+        ]
+      },
+      "rationale": "Distinct contribution identified: the sharp finite-ring fixed-inventory Ising susceptibility formula, strict complete equality classification at every positive temperature, and evaluated segregation contrast. Neither balanced words nor convex equalization is a new combinatorial principle. Closely related classical convex lattice-gas spacing results make the minimizing geometry less surprising; the inspected statements do not give this finite susceptibility optimization and evaluation.",
+      "residual_risks": [
+        "An older finite cyclic rearrangement result or exact inhomogeneous susceptibility optimization could supply closer coverage; the search does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related computation, not fixed-composition optimization",
+          "evidence": [
+            "Field-dependent transfer matrices for prescribed Fibonacci ordering of long/short bonds."
+          ],
+          "identifier_or_url": "arXiv:cond-mat/0306600v1",
+          "material_read": "§III, PDF pp. 4–5, Eqs. (23)–(32), extraction around 16850",
+          "method": "Open primary PDF bounded passage",
+          "title": "Ising Model on periodic and quasi-periodic chains in presence of magnetic field: some exact results",
+          "trigger": "Exact inhomogeneous closed-chain field response"
+        },
+        {
+          "assessment": "Prior combinatorial structure, not Ising response",
+          "evidence": [
+            "Balance concerns counts on equal-length factors."
+          ],
+          "identifier_or_url": "arXiv:1311.4904v1",
+          "material_read": "p. 1, definitions and context around extraction offset 2000",
+          "method": "Open primary PDF passage",
+          "title": "On the Structure of Bispecial Sturmian Words",
+          "trigger": "Established balanced/Christoffel description"
+        },
+        {
+          "assessment": "Related convex spacing method; different Hamiltonians and observable",
+          "evidence": [
+            "Discussion near Theorem 5.2 distinguishes convex two-body repulsion with chemical potential from its constructed ground-state Hamiltonians."
+          ],
+          "identifier_or_url": "arXiv:1906.12103v2",
+          "material_read": "Abstract p. 1; p. 17, extraction offset 37380",
+          "method": "Open primary PDF passage",
+          "title": "Sturmian ground states in classical lattice-gas models",
+          "trigger": "Convex repulsion and most-homogeneous minimizers"
+        },
+        {
+          "assessment": "Different objective; later catalogue date is not needed to distinguish the claims",
+          "evidence": [
+            "Minimizes variance across rotations of scattered 01 counts, not the sum of finite Ising arc products."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-rotation-dispersion-bounds-for-binary-circular-parikh-coun--0b67a9f3e612",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp rotation dispersion bounds for binary circular Parikh counts",
+          "trigger": "Same balanced rotation orbit in a cyclic extremal problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–42, 53–104"
+      ],
+      "rationale": "The result separates a bond-order-blind partition function from an order-sensitive response and gives every minimizing layout, at every composition and contrast, without enumerating layouts. The nonzero limiting segregation penalty demonstrates that the effect is not just finite-size.",
+      "residual_risks": [
+        "No claim about nonlinear response or the global maximizer."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

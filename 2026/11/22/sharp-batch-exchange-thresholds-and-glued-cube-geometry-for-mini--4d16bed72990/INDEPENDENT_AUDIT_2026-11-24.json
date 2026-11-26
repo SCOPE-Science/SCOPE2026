@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:50:59.021997Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Steps 1–4",
+        "VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent bounded computation: python3 /workspace/branches/independent_math_checks.py (record 2 output)"
+      ],
+      "rationale": "Counting the abc triangles by deleted-edge incidences proves the ab lower bound. Equality forces exactly one deletion per triangle, only on largest-incidence sides. This gives the unique minimum or independent switches at A in the first two cases. In the balanced exact-one equations, two differing AB rows have a nonzero constant difference and hence are constant 0/1 rows; subtraction against either forces every AB row constant, AC complementary, BC zero. Column variation is the symmetric case. A constant AB matrix either is a pure side or leaves a C-split. Two families meet only at their common pure-side state. Within a family the batch cost is class size times Hamming distance. Across two balanced families the only overlap is on AB, of size (n−p)(n−q), so the cost n(p+q)−pq exceeds n for p,q≥1 and n≥2. This proves both sharp thresholds and that the cubes are glued solely at the specified corners. The antipodal corner distance is n, so leaving a cube cannot shorten its internal metric; for distinct cubes the two shortest routing options have lengths s and 3n−s, for s the sum of distances to their shared corner. All integers 0≤s≤2n are realized, giving diameter floor(3n/2). Independent exact-one branching and BFS gave balanced (count, diameter) (9,3), (21,4), (45,6), (93,7) at n=2,3,4,5; it also checked representative asymmetric cases.",
+      "residual_risks": [
+        "Finite branching checks only selected hosts; the incidence and distance proof supplies all quantifiers. Batch moves require legal endpoints, not legal one-edge intermediates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Amarnani et al. §2 p. 2, offset 5537, parametrizes all transversals for bilaterally-complete tripartite hosts by one deleted side subset and a vertex cover for each vertex of the opposite class. Section 1, p. 2 credits Lakshmanan–Bujtás–Tuza with the complete-tripartite min-max equality."
+        ],
+        "reasoning": "This gives stronger cover coverage and yields the optimum families via an equality restriction; it does not supply the cross-family symmetric-difference calculation or shortest-path geometry.",
+        "searches": [
+          "arXiv:2307.08824 transversal",
+          "10.1007/s00373-011-1048-8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact match and distinct neighbor 59345d0fcabe",
+        "arXiv:2307.08824 §§1–2",
+        "Lakshmanan–Bujtás–Tuza through secondary attribution and lawful access attempts",
+        "Targeted primary reconfiguration query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The former supplies descriptions of covers, the latter a batch threshold in a different state space. Neither supplies the cost n(p+q)−pq between split families of this fixed host or the antipodal corner identification."
+        ],
+        "reasoning": "The optimum-cover catalogue alone does not determine the claimed metric as a stated corollary: one must analyze actual overlaps of edges and the resulting routes. This is the supported distinct contribution, not a re-claim of the cover catalogue.",
+        "searches": [
+          "arXiv:2307.08824 §2",
+          "2026/11/22/SCOPE-sharp-all-or-nothing-exchange-connectivity-among-labelled-tur-n--59345d0fcabe"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Amarnani–De Burgos–Broughton §2 uses triangle edge covers. Complementing the deletion states gives maximum triangle-free spanning subgraphs and preserves the replacement count.",
+          "The nearest indexed Turán graph uses atomic edge replacement but differs in feasible states."
+        ],
+        "reasoning": "The transversal and spanning-subgraph formulations are isomorphic under complementation. Neither the packing min-max equality nor reconfiguration of complete multipartite Turán extremizers states this complement-equivalent metric graph.",
+        "searches": [
+          "minimum triangle transversal complete tripartite optimum preserving exchange graph batch reconfiguration",
+          "\"triangle transversal\" reconfiguration exchange graph optimal covers tripartite Amarnani Lakshmanan Bujtas Tuza"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit 4d16bed72990 is the assigned record. Distinct neighboring record 59345d0fcabe was compared at its actual Finding, text 0–3391."
+        ],
+        "reasoning": "The neighbor's sharp thresholds q or 2(q−1) are for all labelled Turán extremizers; these are not a table or parameter instance of optimal deleted-edge subsets of a fixed tripartite host. Same-day indexing is not ordering evidence.",
+        "searches": [
+          "sharp batch-exchange thresholds glued cubes minimum triangle transversals tripartite",
+          "minimum triangle transversal complete tripartite optimum preserving exchange graph batch reconfiguration"
+        ]
+      },
+      "rationale": "The distinct contribution is the first connected optimum-preserving batch graph and its exact geometry. The scalar optimum and the broader transversal description are prior coverage; the minimum-family description is treated as a specialization with equality, not independently claimed. No inspected statement covers the exchange metric, subject to the stated access and indexing limitations.",
+      "residual_risks": [
+        "The 2012 full text was not independently accessible; the scope beyond secondary attribution is unverified.",
+        "Unindexed equivalent optimum-reconfiguration results are possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior scalar optimum and general cover parametrization; no inspected exchange-metric theorem",
+          "evidence": [
+            "Remaining graph after deleting chosen BC edges is covered at each opposite vertex by a vertex cover; converse and size formula are given."
+          ],
+          "identifier_or_url": "arXiv:2307.08824",
+          "material_read": "§§1–2 p. 2, offsets 3870 and 5537 onward; reference [5] p. 7 offset 25672",
+          "method": "Lawful OA literal lookup and bounded passage read",
+          "title": "Packing and Covering Triangles in Bilaterally-Complete Tripartite Graphs",
+          "trigger": "Stronger triangle-transversal result on the same hosts"
+        },
+        {
+          "assessment": "Scalar equality credited; exact scope of inaccessible original unverified",
+          "evidence": [
+            "Amarnani et al. attributes triangle packing/transversal equality for complete tripartite graphs to Lakshmanan, Bujtás and Tuza."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00373-011-1048-8",
+          "material_read": "No full text; secondary attribution in Amarnani et al. §1, p. 2",
+          "method": "Primary websearch, DOI and Springer article/PDF attempts, identified ResearchGate page",
+          "title": "Small Edge Sets Meeting All Triangles of a Graph",
+          "trigger": "Earlier work on equality in the complete-tripartite case"
+        },
+        {
+          "assessment": "Distinct reconfiguration problem, not a claim about edge covers of a fixed tripartite graph",
+          "evidence": [
+            "Thresholds q when r>0 and 2(q−1) when r=0, in a labelled Turán extremizer state space."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-all-or-nothing-exchange-connectivity-among-labelled-tur-n--59345d0fcabe",
+          "material_read": "Mirrored RESULT.md Finding, offsets 0–3391",
+          "method": "Resultary search and local mirror read",
+          "title": "Sharp all-or-nothing exchange connectivity among labelled Turán extremizers",
+          "trigger": "Very close atomic edge-exchange objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Steps 3–4",
+        "Independent threshold-graph tests"
+      ],
+      "rationale": "In a natural family of extremal graph problems the minimum exchange size determines when any optimum can be changed at all; at the onset the result gives the full labelled state graph and worst-case distance. The balanced three-cube gluing captures a genuine qualitative change from the single cube with two tied classes, beyond the scalar optimum or the number of optima.",
+      "residual_risks": [
+        "No general host or nonoptimal-state reconfiguration claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

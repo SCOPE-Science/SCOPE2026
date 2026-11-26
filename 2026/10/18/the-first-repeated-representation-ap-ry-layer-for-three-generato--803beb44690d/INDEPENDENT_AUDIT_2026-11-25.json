@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:45:47.288025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing N=mk+r, each pair (y,z) is uniquely in row t≥0 with y+(b+1)z=r+tm. Divide r+tm by b+1 to get quotient h_t and remainder s_t. With j=h_t−z in [0,h_t], the threshold k for a nonnegative x is t+h_t+s_t+bj. Distinct (t,j) count separately, including ties. Since m=b(b+1)+1, row minima rise by b+2 without carry and by 2 with carry. Thus beyond the cheapest pair at (t,j)=(0,0), the next threshold is the minimum of row one's first threshold and, if q≥1, row zero's second threshold. This gives q+b+2 for s=b (including the tie when b=2,q≥1), s+b+2 for q=0,s<b and q+s+b otherwise, including q=b,s=0. Upon adding m, incrementing x retains all representations. Thus n_1 is the sum of the heights, and g_1 is max W_r−m. The four maxima of W_r are (2b+2)m−2, (3b−1)m−3, (2b+1)m+b−1 and (2b+1)m−1 for s=b, interior q≥1 and s<b, q=0 and s<b, and the endpoint q=b,s=0 respectively. Only the first two compete; their difference in the order second minus first is (b−3)m−1. Summing the three branches over q=0 and s<b, 1≤q≤b−1 and s<b, s=b, and the endpoint gives b(4b²+b+11)/2, counting zero as deficient. An independent x=0 pair-threshold enumeration corroborates all 3097 thresholds and both invariants for bases 2–20: python3 /workspace/branches/independent_replay.py 3. The row argument proves the unbounded b claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu's consecutive lengths give successive gaps B^n,B^{n+1}, n≥1; his shifted-geometric theorem gives first gap a(B−1)B^n with positive integral parameters, not 1.",
+          "Subwattanachai's theorem needs an outside coin divisible by one of the other coins reduced by their pairwise gcd, and treats specified multiplicity levels. Here the pairwise gcds are 1,1,gcd(2,b). When the gcd is 1 no coin divides another (all three lie in [m,2m)); for gcd 2, twice m is greater than either remaining coin but less than twice either, so neither divides twice m.",
+          "Woods gives explicit generalized Frobenius statistics in a sufficiently large level regime (Thm. 12), not a formula for this first-repeat classification."
+        ],
+        "reasoning": "The hypotheses of the stronger positive-p family formulas or large-level formulas do not produce the stated all-base second thresholds. Equal-step arithmetic progressions also do not match gaps 1 and b≥2.",
+        "searches": [
+          "DOI 10.5802/crmath.394 Thm. 5 and §3.1 Lemma 9",
+          "arXiv:2209.13118v2 §3 Thm. 1",
+          "arXiv:2309.09149 Thm. 1 and Remarks 2–3",
+          "Kevin Woods generalized Frobenius problem via restricted partition functions three variables first two representations, arXiv:2011.00600v3 Thm. 12"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.01106v1, 2209.13118v2, 2309.09149 and 2011.00600v3",
+        "DOI 10.5802/crmath.394",
+        "Resultary 6e6d0d63c1d4 and 744c0cbe8f87",
+        "DOI 10.3390/sym15071328 access attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-gap theorem orders row costs using y+4z and cost decrease 3 per unit of z; its theorem fixes the 4 and does not state a result for arbitrary gaps. Its Proof compares the first and second row candidates by precisely the same type of argument.",
+          "For A_3 the old difference δ_{13,r} is 2 if r mod 4=3 and 5 otherwise, giving the exact target thresholds in each residue.",
+          "Neither the ordinary-generalized-repunit Apéry theorem nor Komatsu's distinct consecutive-repunit triple gives W_r beyond this known specialization."
+        ],
+        "reasoning": "Generalizing the method to variable gap and using m=b(b+1)+1 to order rows, then comparing and summing all residue regimes, is not substitution into a covering theorem. The exact changeover and census of all heights are additional.",
+        "searches": [
+          "Resultary 6e6d0d63c1d4 Finding and Proof offsets 0,2080",
+          "arXiv:2112.01106v1 Thm. 15",
+          "Komatsu DOI 10.5802/crmath.394 Lemma 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At a=1,n=3 the ordinary generalized repunit generators are exactly m,m+1,m+b+1.",
+          "The 1-Apéry convention asks for more than one coefficient triple, so both zero and one representation count as deficient. The fixed-gap-4 Resultary theorem 6e6d0d63c1d4 uses the same convention and residue modulus."
+        ],
+        "reasoning": "Changing from first repeated representation to 1-Apéry, or taking the maximum and residue-height sum, does not change which layer must be computed. Ordinary Apéry data give the first order statistic only.",
+        "searches": [
+          "Resultary: first-repeat layer, 1-Apéry and p-Frobenius for consecutive first two generators with gaps 1,b",
+          "arXiv:2112.01106v1 Thms. 6 and 15",
+          "Komatsu DOI 10.5802/crmath.394 §3.1 Lemma 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The shifted-square table at a=13 lists g_1=89, n_1=75, and its full threshold formula gives every W_r for (13,14,17). This is the exact b=3 case.",
+          "The later record 744c0cbe8f87 lists an exact g_1 for (m,m+b,2m−1), not the same triple."
+        ],
+        "reasoning": "The fixed-gap family covers b=3 only, with no precedence inferred from the same date. No all-base table for the target was established from the checked material.",
+        "searches": [
+          "Resultary exact generalized-repunit first-repeat layer and g_1,n_1 queries",
+          "Resultary 6e6d0d63c1d4 Finding including small-base table, offset 0"
+        ]
+      },
+      "rationale": "Pass is for the uniform b-dependent classification and its invariant formulas, not the first-repeat method or the exact b=3 case. A distinct same-day Resultary finding gives the identical p=1 layer at b=3 by the same row-cost technique for fixed gap 4. Its theorem does not cover the varying gap b+1 or the comparison between residue maximizers as b crosses 4. The generalized repunit literature covers the same triple for one representation; other inspected positive-p formulas have different generator or count-range hypotheses.",
+      "residual_risks": [
+        "A broader small-multiplicity rule for three coins with consecutive first two coins might have gone unlocated.",
+        "Full text of the arithmetic-progression paper was not available; day-level dates cannot order the two Resultary records with exact b=3 overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact generators and ordinary Apéry only",
+          "evidence": [
+            "Specialization a=1,n=3 yields (m,m+1,m+b+1); ordinary Apéry is the least representable element in each residue."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01106v1",
+          "material_read": "Thm. 6 p. 4 and Thm. 15 pp. 7–8 (offsets about 10400 and 22200)",
+          "method": "OA PDF passages",
+          "title": "The Frobenius problem for generalized repunit numerical semigroups",
+          "trigger": "Exact generator family and potential Apéry layer coverage"
+        },
+        {
+          "assessment": "Different consecutive-length repunit family",
+          "evidence": [
+            "Successive gaps are B^n and B^{n+1} rather than 1 and b."
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/crmath.394",
+          "material_read": "Thm. 5 and §3.1 Lemma 9, extracted offsets 13515 and 24296",
+          "method": "OA PDF passages",
+          "title": "The Frobenius number associated with the number of representations for sequences of repunits",
+          "trigger": "Repunit p-Apéry results including p=1 for triples"
+        },
+        {
+          "assessment": "Inspected theorem does not have the target first gap under its positive parameters",
+          "evidence": [
+            "Successive gaps are a(B−1)B^n and B times that quantity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13118v2",
+          "material_read": "§3 Thm. 1 and parameter definition around offset 10811",
+          "method": "OA PDF passages",
+          "title": "The Frobenius number for shifted geometric sequences associated with the number of solutions",
+          "trigger": "Potentially broad p-Frobenius triple theorem"
+        },
+        {
+          "assessment": "Cannot use the divisibility theorem for this target",
+          "evidence": [
+            "One of the other two coins divided by their gcd must divide the outside coin; checked under each permutation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.09149",
+          "material_read": "Thm. 1 and Remarks 2–3 p. 3 from offset 7750",
+          "method": "OA PDF passages",
+          "title": "Generalized Frobenius Number of Three Variables",
+          "trigger": "General three-generator theorem with divisibility hypotheses"
+        },
+        {
+          "assessment": "Formula in sufficiently large level regime, not the asserted first-repeat layer",
+          "evidence": [
+            "Thm. 12 states the formulas for sufficiently large s at multiplicity f(sp)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.00600v3",
+          "material_read": "Theorem 12 and Definition 11 from offset 10700",
+          "method": "Targeted literature search and OA PDF passage",
+          "title": "The generalized Frobenius problem via restricted partition functions",
+          "trigger": "General formulas for maxima and counts at low representation multiplicity"
+        },
+        {
+          "assessment": "Exact full-layer and scalar overlap at b=3, method overlap, but fixed gap does not determine the variable-b family",
+          "evidence": [
+            "All (a,a+1,a+4) for a≥2; (13,89,75) in table; row minima argument with decrement 3 per step."
+          ],
+          "identifier_or_url": "Resultary 2026/10/18 6e6d0d63c1d4",
+          "material_read": "Finding, small-base table and Proof steps 1–3, offsets 0 and 2080",
+          "method": "Local Resultary mirror passage reads",
+          "title": "First-repeat Apéry thresholds of shifted-square triples",
+          "trigger": "Strongest exact matching case and shared proof method"
+        },
+        {
+          "assessment": "Different triple and later date",
+          "evidence": [
+            "(m,m+b,2m−1) rather than (m,m+1,m+b+1)."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 744c0cbe8f87",
+          "material_read": "Finding including generator triple",
+          "method": "Local Resultary mirror read",
+          "title": "Exact one-Frobenius number for a three-generator generalized repunit family",
+          "trigger": "Very similar title and parametric multiplicity"
+        },
+        {
+          "assessment": "The target is not an arithmetic progression; broader coverage in the inaccessible text is not excluded",
+          "evidence": [
+            "The target's successive differences are unequal for every allowed b."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym15071328",
+          "material_read": "Citation and arithmetic-progression scope only; full text not obtained",
+          "method": "OA landing and PDF routes attempted (403)",
+          "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+          "trigger": "Potential broader p-Apéry formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three minimal generators arise from a named family already studied at the ordinary Apéry layer. This complete second layer resolves all deficient residues at once, and the controlling maximum actually changes at b=4 rather than following the smallest cases. The explicit layer, transition and uniform count give useful exact information for comparisons with higher representation levels; the advancement is not the shared b=3 datum or the existence of a counting algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

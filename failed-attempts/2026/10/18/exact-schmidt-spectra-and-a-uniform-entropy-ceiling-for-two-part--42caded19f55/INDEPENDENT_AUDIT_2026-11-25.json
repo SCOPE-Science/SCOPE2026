@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:28:30.414622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and scope, Proof (lines 3–112)",
+        "Frozen VERIFICATION.md and verify.py (recorded finite checks, not executed in this review)"
+      ],
+      "rationale": "In the specified arc convention the support is the opposite-side component K_{q,q}, q=mn. On an orientation sector, a double step reflects independently at the two endpoints of this component, so the fourth power is identity. In particle-arc coordinates the off-diagonal block at step one is a signed rectangular reshaping of a reflected column, G/sqrt(2), up to row/column permutations and transposition; the inverse step has the same singular values. At step two the block is G ⊗ G^T/sqrt(2). Exchange symmetry gives a second copy of its squared singular values. The norm of G is 1 in Frobenius norm, and the sum of squares of its two-by-two minors is 4(m-1)(n-1)/q^2, giving the squared singular values in the finding even when one vanishes. Product probability entropy then gives the three time classes, the sharp log(8) ceiling, and the saturation cases by rank. The determinant at fixed q increases as m+n falls. When both sizes diverge the smaller weight is (4/q)(1+o(1)); the stated entropy asymptotic is valid at its stated o(log(q)/q) precision. An independent finite reproduction used the explicit degree-product scattering rule, repeatedly formed the arc coefficient matrix and computed its squared singular values for both signs at t=0,...,4. For K_{2,3} it recovered (1/2 twice), (1/3 twice, 1/6 twice), and (2/9 twice, 1/9 four times, 1/18 twice) in the three time classes; K_{1,3} gave 1/2 twice at every tested step. The unrestricted check is the reflection and block calculation, not that finite test.",
+      "residual_risks": [
+        "The result applies to the product-graph coin, the specified initial state and the particle-factor entropy, not to an independent-particle coin or an operational entanglement notion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kubota–Matsubara–Segawa’s regular calculation for K_{n,n}, Lemma 4.2 and Theorem 4.5, covers the diagonal subfamily; Resultary 19cb5844655b explicitly also covers the irregular family."
+        ],
+        "reasoning": "The original literature gap relative to regular bicliques is real, but the exact same larger family and observable are covered by the distinct indexed result.",
+        "searches": [
+          "Resultary: all-residue Schmidt spectrum K_{m,n} irregular complete bipartite Grover walk",
+          "arXiv:2607.09066v1 §4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 19cb5844655b",
+        "arXiv:2607.09066v1",
+        "arXiv:1511.04828v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "KMS Lemma 4.2 and inverse step give the regular-family amplitudes, which suffice for its regular spectra.",
+          "Resultary 19cb5844655b gives the irregular squared singular values. At fixed q their product is 4(q+1-m-n)/q², so monotonic binary entropy gives the optimizer. With both sizes large, small-weight binary entropy directly gives the estimate.",
+          "Carson–Loke–Wang use a different local-interaction coin and do not give the same spectra by their model definition."
+        ],
+        "reasoning": "The two extra consequences need no new spectral or asymptotic input beyond standard binary entropy and the existing all-size formula.",
+        "searches": [
+          "Resultary: Kubota Matsubara Segawa explicit amplitudes periodic entropy K_{n,n} two-particle Grover walk",
+          "arXiv:2607.09066v1 §4",
+          "arXiv:1511.04828v1 around Eqs. 7–8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 19cb5844655b, RESULT.md offsets 0–5559 and 5200–10273: same opposite-edge initialization, two exchange signs, and complete probability spectra at all time residues for arbitrary positive m,n."
+        ],
+        "reasoning": "The same object, Schmidt probabilities (rather than just saturation) and quantifiers match; reordering the probability list or switching exchange sign does not distinguish them.",
+        "searches": [
+          "Resultary: exact Schmidt spectra uniform entropy ceiling two-particle Grover complete bipartite graphs",
+          "Resultary: all-residue Schmidt spectrum K_{m,n} irregular complete bipartite Grover walk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 19cb5844655b, RESULT.md offsets 5200–10273 gives the exact spectra and rank-eight/log-eight consequences."
+        ],
+        "reasoning": "The indexed match is a closed-form result for every parameter pair, stronger than any table of overlapping sizes. Agreement at small sizes alone was not used to determine coverage.",
+        "searches": [
+          "Resultary: entropy upper bound log 8 Schmidt rank two particle Grover walk complete bipartite graph"
+        ]
+      },
+      "rationale": "A distinct indexed result explicitly proves the same all-m,n, both-sign, all-time Schmidt spectra and the same rank-eight/log-eight ceiling for the same product-graph walk and initial state. The frozen fixed-q optimizer and diverging-parts estimate are immediate consequences of that formula, not a surviving distinct invariant. This is a coverage determination, not a claim about priority or provenance.",
+      "residual_risks": [
+        "This comparison does not establish publication order or provenance from index path dates. The general literature lookup did not return a decisive match and contributes no negative originality evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the principal finding; immediate implication of the stated corollaries",
+          "evidence": "All positive part sizes, both exchange signs, all time residues; full spectra and rank-eight/log-eight results.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-two-particle-entanglement-spectra-on-complete-bipartite-gr--19cb5844655b/RESULT.md",
+          "material_read": "RESULT.md offsets 0–5559 and 5200–10273",
+          "method": "Read matching local mirror passages and compared formulas and assumptions",
+          "title": "Exact two-particle entanglement spectra on complete bipartite graphs",
+          "trigger": "Exact Resultary match by object, spectrum and entropy ceiling"
+        },
+        {
+          "assessment": "Same model; regular K_{n,n} coverage, not itself the stated irregular theorem",
+          "evidence": "Graph product walk, exchange-paired initial state, four-periodicity and explicit steps on the regular family.",
+          "identifier_or_url": "https://arxiv.org/html/2607.09066v1",
+          "material_read": "§3.1–3.2, OA offsets 20297–27392; §4 initial state, Lemma 4.2, Theorem 4.5 and inverse-step state at offsets 35600–44959 and 49000–53135",
+          "method": "Read relevant open-access definitions, amplitudes and theorem passages",
+          "title": "Entanglement entropy in two-particle Grover walks on graphs",
+          "trigger": "Cited primary source for the exact walk and the complete-bipartite family"
+        },
+        {
+          "assessment": "Different mechanism; no direct implication from the inspected model",
+          "evidence": "Tensor-product Grover coins with a local modification are not the degree-product reflection used here.",
+          "identifier_or_url": "https://arxiv.org/html/1511.04828v1",
+          "material_read": "Coin definition around Eqs. 7–8, OA offsets 9211–11757",
+          "method": "Read open-access model definitions and compared the reflection rules",
+          "title": "Entanglement dynamics of two-particle quantum walks",
+          "trigger": "Potential alternative two-particle Grover dynamics and entropy results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 31–39 and 110–112",
+        "Resultary 19cb5844655b, RESULT.md offsets 5200–10273"
+      ],
+      "rationale": "An unknown full entanglement spectrum for this irregular family would be a motivated invariant, but it is already available. The only additional formulas here are monotonicity in a single determinant parameter and the first small-weight binary-entropy estimate. Neither addresses a remaining scientific gap or extends that known invariant.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

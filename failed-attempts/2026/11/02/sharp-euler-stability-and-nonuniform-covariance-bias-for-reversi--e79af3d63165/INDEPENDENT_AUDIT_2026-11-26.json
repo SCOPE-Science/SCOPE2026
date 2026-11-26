@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:09.425867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conjugation by D=diag(1,√λ) gives D(δJS)D⁻¹=√c J; this is the identity needed for the displayed update (the normalization prose at line 58 puts an extra √λ in front of δJS). The diagonal raw moments are forced by 2h(1,λ) and propagated by the nonnegative symmetric T with diagonal squares (1−mh)²,(1−nh)² and off-diagonal 2ch. Its Rayleigh quotient at (1,1) bounds the absolute cross-moment multiplier. On (0,2/m), I−T has positive diagonal entries; det(I−T)/h²=mn(2−mh)(2−nh)−4c² decreases strictly and crosses zero once, at the smaller quadratic root stated. At and above 2/m, irreducibility makes the Perron eigenvalue strictly greater than the already ≥1 first diagonal entry. Positive forcing in the Perron direction proves the exact linear/exponential growth orders from zero and impossibility of any finite-second-moment invariant there. In the stable case the same-noise coupling contracts in mean square after finitely many steps, giving existence and uniqueness in W₂; the invariant mean vanishes as both drift multipliers are strictly inside the unit circle. The two-by-two inverse yields the stated diagonal covariance, and the positive resolvent applied to h²(m²,n²) proves strict inflation. Substitution c=1 gives the fixed-h limits. Writing R=√((1−λ)²+4c²), the gap numerator is 2(λ+c)−4c²/(R+1−λ) near c=0, and 1+λ−(1−λ)²/(R+2c) for c→∞. These yield the three scaling limits; expanding the exact denominator as 4[λ+c(1+λ)]−2mn(m+n)h+(mn)²h² gives 4c(1−t) to leading order at h=t/c². Both variance numerators are asymptotic to 4c. Read verify.py and VERIFICATION.md without executing the uploaded script; its finite samples are supplementary. Interpret the reference to optimized perturbation as the critical continuous-time scaling, not a claim that δ=λ^(−1/2) is a finite-λ maximizer of g; §4.2 Lemma 1 of the cited paper shows the covariance rate is increasing in δ for 0<λ<1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The catalog theorem is for all λ>0 and δ≥0 and additionally gives W₂ convergence. It records the inverse-fourth-power strong-perturbation scale at fixed λ.",
+          "The primary continuous paper's §3.1 gives an L² bound at critical scaling, §4.2 gives covariance-rate regimes, and §6.1 reports Euler–Maruyama at h=10⁻⁴ with 10⁴ trajectories.",
+          "Buckwar–Sickenberger arXiv:0912.1968 supplies general linear mean-square context; no specific threshold for this sampler was needed from it."
+        ],
+        "reasoning": "The exact catalog formulas already specialize to the frozen parameter range. The continuous-time analysis and fixed-step simulations are not themselves the competing discrete theorem.",
+        "searches": [
+          "Resultary 494cc24da1b8 Finding and assumptions",
+          "arXiv:2610.03191v1 §§3.1, 4.2, 6.1",
+          "arXiv:0912.1968"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03191v1",
+        "Resultary 494cc24da1b8, 20da1a5ec768, 2f2752b5d5bf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "494cc24da1b8 gives the exact h*, Δ(h), u_h and v_h for all claimed parameters. The primary §4.2 Lemma 1 gives the continuous gap limits at δ=λ^(−α).",
+          "Substitute h=t/c² in the catalog Δ: its constant term is asymptotic to 4c, the linear term to −4tc, and the quadratic term is O(1); each numerator is 4c+o(c). With c=λ^(1−2α) this gives the claimed persistent limit directly."
+        ],
+        "reasoning": "The extra joint limit was not located as an explicit catalog statement, but follows by dominant-term comparison in already exact formulas, not a new stability or covariance argument. No independent distinct scientific remainder survives on this evidence.",
+        "searches": [
+          "Resultary 494cc24da1b8 Finding, offsets 0–5023",
+          "arXiv:2610.03191v1 §4.2 Lemma 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "494cc24da1b8, Finding and Proof §1, local offsets 0–5023: set a=c, A=m, D=n and Y=S^(1/2)X to obtain the identical update, threshold radical, determinant and two normalized variances.",
+          "Louis–Pavliotis–Vilmart §4.2 Eq. (23) and Lemma 1 give the continuous covariance equation and g=m+n−√((m−n)²+4c²), not a discrete Euler stability bound."
+        ],
+        "reasoning": "The difference from the continuous paper is genuine: h*=g/(mn), not g. But the distinct catalog formulation is identical under direct renaming, including the covariance inflation and the critical c=1 limits.",
+        "searches": [
+          "2026/11/8/SCOPE-sharp-euler-mean-square-stability-and-covariance-bias-for-revers--494cc24da1b8/RESULT.md",
+          "arXiv:2610.03191v1 §4.2 Eq. (23), Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "494cc24da1b8 gives the exact threshold and covariance closed forms rather than numerical data, and the same variance limits at c=1.",
+          "Same-day 20da1a5ec768 treats scalar derivative-free Langevin with correlated OU probes; 2f2752b5d5bf treats two additive-noise stochastic Runge–Kutta samplers and time-average variance."
+        ],
+        "reasoning": "Only the later-dated separate entry matches the actual object and formulas; the same-day entries do not. Catalog dates do not resolve order of discovery.",
+        "searches": [
+          "Local Resultary: reversible Stratonovich Gaussian Langevin Euler sharp mean-square stability, invariant covariance and λ scaling",
+          "2026/11/8/...--494cc24da1b8",
+          "2026/11/2/...--20da1a5ec768",
+          "2026/11/2/...--2f2752b5d5bf"
+        ]
+      },
+      "rationale": "A distinct Resultary record, 494cc24da1b8, already covers the core result on a larger parameter set: same noise and Itô Euler scheme, identical sharp threshold, boundary/supercritical behavior, exact stationary covariance, strict bias and critical stability and variance limits. The additional power-law trichotomy and persistent-bias limit are direct asymptotic substitutions in those identical closed forms. This is demonstrated equivalent catalog coverage and implication, not a finding that the later catalog label establishes temporal priority or copying.",
+      "residual_risks": [
+        "No chronology beyond displayed catalog dates or relationship between the two records was established. Equivalent coverage is not historical priority.",
+        "Inspected primary passages and targeted catalog comparisons are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies continuous gap and critical scaling, not the exact discrete threshold in inspected passages",
+          "evidence": [
+            "Eq. (23) continuous covariance ODE; Lemma 1 crossover and increasing rate; §6.1 fixed small Euler step"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.03191v1",
+          "material_read": "§3.1 theorem near offset 14283; §4.2 Eq. (23) and Lemma 1 near offsets 41577–46300; §6.1 near offset 115555",
+          "method": "Targeted OA HTML passages",
+          "title": "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics",
+          "trigger": "exact diffusion, continuous rate and Euler simulation"
+        },
+        {
+          "assessment": "Direct substantive overlap including broad parameter coverage; different record, later catalog label",
+          "evidence": [
+            "Same S, J and Itô scheme, same radical after a=c, same denominator and variances, same zero-start growth dichotomy and same c=1 stiffness limits"
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-euler-mean-square-stability-and-covariance-bias-for-revers--494cc24da1b8",
+          "material_read": "RESULT.md Finding, assumptions and Proof §1, offsets 0–5023",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Euler mean-square stability and covariance bias for reversible-noise Gaussian Langevin sampling",
+          "trigger": "exact equivalent higher-coverage catalog statement"
+        },
+        {
+          "assessment": "Different noise and integrator",
+          "evidence": [
+            "Temporally correlated probes in one; additive-noise Runge–Kutta and time averaging in the other"
+          ],
+          "identifier_or_url": "Resultary 20da1a5ec768 and 2f2752b5d5bf",
+          "material_read": "Findings and method assumptions",
+          "method": "Local Resultary comparisons",
+          "title": "Same-day Gaussian-probe and stochastic Runge–Kutta comparisons",
+          "trigger": "same-day apparent numerical sampling overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact stability frontier and bias are useful numerical facts, but the separate broader record already supplies them. After accounting for that coverage, the remaining c=λ^(1−2α) cases and h=t/c² bias follow by direct leading-term substitution in fully explicit formulas. The joint-limit interpretation is useful as a corollary, not sufficient as a separate exact contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

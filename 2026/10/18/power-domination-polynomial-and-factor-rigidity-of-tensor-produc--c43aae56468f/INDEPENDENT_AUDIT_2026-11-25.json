@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:41:06.853312Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definitions and Steps 1–5",
+        "Frozen VERIFICATION.md and verification/verify_power_direct_product.py and verification/output.txt (inspected, not executed)",
+        "/workspace/audit_evidence/replay.py 4; /workspace/audit_evidence/results.txt"
+      ],
+      "rationale": "In the direct product a diagonal pair leaves at most the two cross-corners unobserved. An observed vertex in a third row and one of the pair's columns sees only the missing corner in the other column, so both corners can be forced. A set meeting two rows and columns contains a diagonal pair: a pair in different rows either already works or shares a column, and a vertex in another column forms a diagonal pair with at least one of them. Two or more vertices in a single row initially observe every vertex outside that row; if u vertices of the row remain, each outside vertex sees u or u-1 of them. Thus u>=3 stalls and u<=2 succeeds. The column case is symmetric. A singleton leaves a cross of unobserved vertices; its observed neighbors each see m+n-4 of them and no force is possible. Subtracting the empty set, singletons and disjoint row/column failures gives the coefficient formula; diagonal pairs and the applicable length-four fibers give the two-sensor count. The top degree is mn and the last deficit is max(m,n)-3, also for 4x4, yielding the unordered factors. Independent sequential-forcing replay matched all 2,162,688 subsets on 4x4, 4x5 and 5x4; checked all fiber placements plus sampled subsets on 5x6 and 8x6.",
+      "residual_risks": [
+        "The larger replay boards were not exhausted; the full result follows from the proof. Recovery is only within the two-complete-factor family with both orders at least four."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November record has m,n>=3, the same classification with at least two sensors, and one-round completion and sparse-sensor limits. Dorbec concerns direct products of paths; Benson includes path-by-complete and cycle-by-complete scalar results. Brimkov's inspected decompositions are for unions and joins."
+        ],
+        "reasoning": "The reviewed range is a literal specialization of the later indexed structure theorem. Earlier primary results either vary different factors or describe a scalar or decomposition not applicable here; these products are connected and their complements are connected.",
+        "searches": [
+          "November categorical-product record Finding, offset 0",
+          "Dorbec et al. direct-product section",
+          "Benson et al. Proposition 3.4 and Theorem 3.6",
+          "Brimkov et al. Proposition 14 and Theorem 17"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact and near matches and primary passages listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "November states max(1,m-3,n-3) as the maximum size of a failed nonempty placement and gives the polynomial of degree mn. Vemuri gives ordinary domination number 3 for two complete factors of smaller order at least 3."
+        ],
+        "reasoning": "On m,n>=4 the November maximum and degree reconstruct the larger and smaller factors immediately, even without an explicit rigidity sentence. Ordinary domination or knowledge of the minimum power-domination size alone does not determine classifications, counts of larger sets, or the last deficit.",
+        "searches": [
+          "November categorical-product Finding, maximum failed size and polynomial",
+          "Vemuri arXiv:1908.02445, ordering convention and ordinary domination for complete factors",
+          "Benson et al. Observation 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A power-dominating set is precisely one whose closed neighborhood is zero forcing. The November categorical-product record uses exactly the both-coordinates-differ graph and the same three types of successful placement on the frozen range. The October rook-graph record uses shared-row-or-column adjacency and the criterion r(S)>=p-1 or c(S)>=q-1."
+        ],
+        "reasoning": "The zero-forcing reduction is equivalent but does not classify N[S] for this family by itself. Graph complementation from the Cartesian rook graph does not preserve power domination; its polynomial is not equivalent. The later categorical result really is an exact overlap, not just a terminology match.",
+        "searches": [
+          "Local Resultary search for categorical/direct/tensor complete-product power domination, rook graphs and power-domination polynomial",
+          "Benson et al., arXiv:1510.02421, Observation 1.1 and product definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November catalogue record 954eaddb1e98 gives the identical binomial-minus-fiber-sums polynomial and the matching two-sensor count for m,n>=4. October record 48ce98e1f82f enumerates sets for the complementary Cartesian graph."
+        ],
+        "reasoning": "There is an exact indexed enumerator match; it is a later entry with uncertain relationship, not a demonstrated earlier source. The inspected polynomial literature passages do not give that coefficient sequence for this product.",
+        "searches": [
+          "Local Resultary search for exact power-domination polynomial and spectra of categorical products of complete graphs",
+          "Brimkov et al. arXiv:1805.10984, Definition 1 and family/decomposition passages"
+        ]
+      },
+      "rationale": "The strongest indexed overlap gives the exact same structure and polynomial on a larger parameter range and implies factor recovery on the reviewed range. It is indexed after the frozen record, not evidence of antecedent coverage. The inspected earlier primary literature gives known power-domination polynomial machinery, zero-forcing equivalences or scalar parameters, not this complete-family enumerator. The originality judgment credits the earlier-indexed classification and enumerator only on the supported evidence, not factor recovery as an independent advance over a source already giving the same polynomial.",
+      "residual_risks": [
+        "The exact later catalogue overlap does not specify its relationship to the frozen record; indexed chronology is not a full provenance history. Brešar–Klavžar–Rall full text was unavailable in this check. An older equivalent complete-product statement remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on the frozen range, including implied factor recovery, in a later indexed result",
+          "evidence": [
+            "Identical polynomial; max failed size max(1,m-3,n-3); m,n>=3 plus extra forcing-round and limiting results."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-power-domination-spectra-and-sparse-sensor-limits-for-categorica--954eaddb1e98",
+          "material_read": "RESULT.md Finding and assumptions, local-mirror offset 0; proof comparison",
+          "method": "Local Resultary search and local-mirror full text",
+          "title": "Power-domination spectra and sparse-sensor limits for categorical products of complete graphs",
+          "trigger": "Strongest matching statement and wider parameter range"
+        },
+        {
+          "assessment": "Different adjacency and criterion",
+          "evidence": [
+            "Cartesian product; at least p-1 occupied rows or at least q-1 occupied columns."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-complete-power-domination-set-classification-and-polynomial-of-r--48ce98e1f82f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and local-mirror full text",
+          "title": "Complete power-domination-set classification and polynomial of rectangular rook graphs",
+          "trigger": "Close indexed polynomial on the complementary graph"
+        },
+        {
+          "assessment": "Definitions, unions and joins; no matching direct-product statement in these passages",
+          "evidence": [
+            "Coefficient convention P(G;x)=sum p(G;i)x^i; disjoint-union and join formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.10984",
+          "material_read": "Definition 1 p. 2; Prop. 14 p. 8; Thm. 17 p. 9; offsets 6284, 27352, 32137",
+          "method": "Bounded OA PDF passages",
+          "title": "Power domination polynomials of graphs",
+          "trigger": "Foundational polynomial definition and explicit enumerators"
+        },
+        {
+          "assessment": "Matching operation, results for direct products of paths, not this polynomial",
+          "evidence": [
+            "Direct adjacency in both coordinates, focus on minimum numbers for path products."
+          ],
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/PowerDomFinal.pdf",
+          "material_read": "pp. 1 and 3, offsets 554 and 6527; direct-product scope",
+          "method": "Author-hosted OA PDF passages",
+          "title": "Power Domination in Product Graphs",
+          "trigger": "Same product and power-domination invariant"
+        },
+        {
+          "assessment": "Equivalent characterization by zero forcing and related scalar product results, not the enumerator",
+          "evidence": [
+            "S power dominates iff N[S] zero forces; minimum numbers for path-by-complete and cycle-by-complete families."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.02421",
+          "material_read": "Observation 1.1 p. 2, product definitions p. 3, Prop. 3.4 and Thm. 3.6 p. 7; offsets 5800, 10599, 29899",
+          "method": "Bounded OA PDF passages",
+          "title": "Power domination and zero forcing",
+          "trigger": "Relevant reduction and direct products with complete factors"
+        },
+        {
+          "assessment": "Unresolved access risk; accessible different primary comparator inspected separately",
+          "evidence": [
+            "Bibliographic title confirms ordinary domination is the topic; no theorem inferred from metadata alone."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2006.09.013",
+          "material_read": "Citation metadata only; technical text not inspected",
+          "method": "Bounded DOI retrieval",
+          "title": "Dominating direct products of graphs",
+          "trigger": "Cited foundational direct-product domination paper"
+        },
+        {
+          "assessment": "Same graphs but different invariant",
+          "evidence": [
+            "Ordinary domination number 3 for two complete factors with smaller order at least 3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.02445",
+          "material_read": "pp. 1–2, offsets 0 and 3420",
+          "method": "Bounded OA PDF passages",
+          "title": "Domination in direct products of complete graphs",
+          "trigger": "Accessible exact comparison for ordinary domination on the same graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–5",
+        "Brimkov et al. polynomial definition and Dorbec et al. product problem scope"
+      ],
+      "rationale": "The exact placement classification sharpens minimum sensor number to describe all successful placements and the precise obstructions at every cardinality. Its polynomial distinguishes factor pairs of equal vertex count, while the coefficient deficits expose where all placements become successful. The structural classification is the main value; factor recovery is a useful consequence, not a separate difficult theorem.",
+      "residual_risks": [
+        "No general recognition or uniqueness theorem for arbitrary graphs follows from this invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

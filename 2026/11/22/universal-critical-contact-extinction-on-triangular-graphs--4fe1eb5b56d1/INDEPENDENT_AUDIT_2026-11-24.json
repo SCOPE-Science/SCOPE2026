@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:32:01.099923Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen periodic counting proof is valid: for each edge every excited event can match at most one opposite event at a time offset ±1 (spacing at least three), and at half degree the incoming threshold saturates the global edge bound. This gives Au_t=r(u_{t−1}+u_{t+1}); B^TB−2I has spectrum {2r,n−4,−2}; for n≥5 the two nonprincipal ratios to r=n−2 are nonintegral rationals, impossible for a root-of-unity sum. This is correct, but not distinct. The repair claims only the n=5,6 transient census. For disjoint excited/refractory masks X,Y with K_n-endpoint degrees d_X, an edge uv outside X is eligible iff d_X(u)+d_X(v)≥n−2; no excited edge is counted twice. The successor (Z,X) with Z subset of eligible E(X) has exactly 2^(m−|X|−|E(X)|) predecessors with that X, because Y on E(X) is fixed and the remaining bits outside X are free. Only all-rest needs reassignment from time 1 to 0. Ran the self-written exact replay `python /workspace/repairs/4/verification/exact_grouped.py 5 6`: 14,476 groups/59,049 states and 1,662,308 groups/14,348,907 states, exact repaired histograms and minimum base-three time-four witnesses 94 and 3199. Direct evaluation of the displayed witnesses separately confirms the last refractory-to-rest step. The frozen C++ sources and verification notes were inspected, not executed; no compiler is needed for the new proof. An earlier independent traversal also gave one fixed point and two primitive three-cycles for n=3,4, now cited background only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The integral-spectrum theorem assumes 2r-regularity and absence of −r,0,r from the spectrum; {2r,n−4,−2} satisfies this for n≥5. The Paley and projective records give the same general critical relation. The strict density criterion misses equality; earlier primitive-three rigidity is not a transient theorem. The arbitrary-host 2016 GHM result is at threshold one."
+        ],
+        "reasoning": "The broader spectral and triangle-based results already imply eventual extinction; their Fourier constraints concern periodic orbits only, not the length or distribution of transients.",
+        "searches": [
+          "Local Resultary: 3ebebc11989a, fc90f3212227, 65cafa495105, 352367f51e91, 7c3fe196f42d",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320v1 §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both C++ verification sources",
+        "Resultary 76b9562220e5, 3ebebc11989a, fc90f3212227, 65cafa495105, ccade4380bb4, 352367f51e91, 7c3fe196f42d",
+        "arXiv:1610.07320v1 and Fisch–Gravner, Complex Systems 9 (1995) 329–348",
+        "Complete repaired files and integer replay under /workspace/repairs/4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The duration twelve in 3ebebc11989a is a period ceiling, not a bound on entry time. The absence of balanced three-colorings gives no count for states still refractory at times 1–3. The other line graph is not isomorphic at the critical threshold."
+        ],
+        "reasoning": "The broad main theorem was a direct implication; the repaired sharp cutoff requires additional exact transient analysis, and the histogram resolves more than the cutoff.",
+        "searches": [
+          "Johnson and triangle-locking theorem 76b9562220e5; integral-spectrum 3ebebc11989a §§2–3; Petersen line-graph census ccade4380bb4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T(n)=J(n,2)=L(K_n); the Johnson theorem at ceiling of half degree matches the frozen threshold exactly and gives all n≥5. T(3)=K_3 and T(4)=J(4,2) have matching primitive three-cycles by the same classification."
+        ],
+        "reasoning": "The frozen result cannot claim the recurrent classification under a different name; recoding initial states by two disjoint edge sets does not turn a recurrent classification into a finite-time census.",
+        "searches": [
+          "Local Resultary: triangular graph, Johnson graph, line graph and critical-contact extinction; Paley and projective nonincidence critical spectra",
+          "76b9562220e5 Finding; 3ebebc11989a proof §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact checked triangular histograms occur in the assigned 4fe1eb5b56d1 itself. The distinct Johnson original expressly makes no settling-time claim in its Finding. The nearby complete census ccade4380bb4 is for the Petersen line graph at threshold two, not T(5) or T(6)."
+        ],
+        "reasoning": "No distinct compared original tabulates transient first-hit counts or the maximum four for these two triangular graphs.",
+        "searches": [
+          "Local Resultary: triangular/Johnson/line-graph extinction census and settling-time matches; 76b9562220e5, ccade4380bb4, 4fe1eb5b56d1"
+        ]
+      },
+      "rationale": "Frozen originality fails for its headline: same-day distinct records directly cover the infinite-family extinction and the small recurrent exceptions; their exact UTC order is not inferred. The repaired finding expressly attributes those results and contributes only the sharp finite settling-time cutoff and full histograms at the first two extinguishing orders. None of the checked originals gives these transient invariants or implies them by a parameter substitution.",
+      "residual_risks": [
+        "Bounded search, not exhaustive historical priority. Same-day order remains undetermined; the repair does not depend on it.",
+        "The cited Durrett–Griffeath arXiv path patt-sol/9303002 was unavailable in bounded OA attempts, not inspected full text and not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct same-day coverage of frozen recurrent classification",
+          "evidence": "J(n,k) universally goes to rest for n≥2k≥4 except (4,2) with two three-cycles; the triangle theorem gives the K_3 case. It expressly does not claim a uniform settling time.",
+          "identifier_or_url": "76b9562220e5",
+          "material_read": "Original RESULT.md Finding (offset 0) and proof §§3–5",
+          "method": "Local Resultary mirror",
+          "title": "Triangle-locked critical excitation and the Johnson-graph extinction dichotomy",
+          "trigger": "Exact Johnson alias and rounded half-degree"
+        },
+        {
+          "assessment": "Broader repeated coverage, not a transient theorem",
+          "evidence": "Spectrum avoiding {−r,0,r} excludes persistent excitation at half degree on integral 2r-regular graphs.",
+          "identifier_or_url": "3ebebc11989a",
+          "material_read": "RESULT.md proof §§2–3, offset 3500",
+          "method": "Local Resultary mirror",
+          "title": "A twelve-step spectral ceiling for critical excitation on integral graphs",
+          "trigger": "Potential dominating integral regular graph result"
+        },
+        {
+          "assessment": "Generic obstruction applies to frozen claim",
+          "evidence": "Nonprincipal eigenvalues divided by half degree failing to be algebraic integers obstruct nonconstant temporal modes.",
+          "identifier_or_url": "fc90f3212227",
+          "material_read": "RESULT.md §2, near offset 4700",
+          "method": "Local Resultary mirror",
+          "title": "Critical-contact extinction on Paley graphs",
+          "trigger": "Same temporal spectral argument"
+        },
+        {
+          "assessment": "Different family but overlapping general method",
+          "evidence": "The pointwise recurrence and its Fourier form are for general finite 2r-regular graphs at threshold r.",
+          "identifier_or_url": "65cafa495105",
+          "material_read": "RESULT.md §§1–3, near offsets 0 and 4500",
+          "method": "Local Resultary mirror",
+          "title": "Critical threshold spectral extinction on projective nonincidence networks",
+          "trigger": "General half-degree recurrence"
+        },
+        {
+          "assessment": "Distinct object and cutoff",
+          "evidence": "Six-update cutoff at threshold two on the Petersen line graph, not either triangular graph here.",
+          "identifier_or_url": "ccade4380bb4",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Complete excitation and extinction censuses on the Petersen line graph",
+          "trigger": "Exact finite settling census on another line graph"
+        },
+        {
+          "assessment": "One-contact model not the repaired rule",
+          "evidence": "Circulation criterion for one-contact activation, not thresholds 3 and 4.",
+          "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+          "material_read": "HTML §§1–2, offsets 0, 8000, 13385",
+          "method": "OA original HTML",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Broad finite-host GHM dynamics"
+        },
+        {
+          "assessment": "Different host",
+          "evidence": "Analysis is for one-dimensional arrays on the integers.",
+          "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2018/02/09-5-1.pdf",
+          "material_read": "pp. 329–331",
+          "method": "OA PDF",
+          "title": "One-dimensional Deterministic Greenberg–Hastings Models",
+          "trigger": "Primary threshold literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scopes n=5 and n=6 are motivated as the first two extinguishing family members immediately past the periodic exceptions. At a threshold exactly equal to half degree a recurrent-mode obstruction alone has no implication for rapid settling. The exact worst case of four and distribution of late transients give concrete small-order baselines for further settling-time theory or validation of dynamics on this natural family; the precise four-step fractions are immediately available. The repair does not pitch routine spectral specialization or larger-order extrapolation as novelty.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claim
+# Independent mathematical audit
 
-Run `python check_fixed_sink.py` from the same directory. Dependencies are NumPy and SciPy.
+## correctness
 
-Analytic checks: independent boundary degrees are binomial; the centered internal Laplacian's matrix-Bernstein variance proxy is \(2p(1-p)(mI-\mathbf1\mathbf1^{\mathsf T})\); the orthogonal block remains invertible with high probability; its inverse gives a leading factor \((pm)^{-1}\); and the sample boundary-degree variance tends to \(sp(1-p)\). The binomial central limit theorem and Slutsky's theorem complete the infinite-size argument.
+PASS
 
-Computational checks from the delivered standalone script: 253 deterministic finite eigenvalue brackets, 60 exact Schur-identity numerical comparisons, and 216 sampled random habitat eigenvalues. At \(s=2\) and \(p=0.4\) the correction means for total graph sizes 96, 192 and 384 were 1.228406, 1.219869 and 1.205519, versus the proved limit 1.2. The script's sampled Gaussian variances were 0.424736, 0.630719 and 0.404032, versus limiting variance 0.48. These are finite numerical diagnostics, not an infinite-dimensional certificate.
+For fixed p and s, the uniform-vector block is the sample mean of iid Binomial(s,p) sink degrees, and the squared coupling to its orthogonal complement is their sample variance. The edge rank-one summands give the stated Bernstein variance proxy; the orthogonal internal block is pm times identity to relative o_P(1). Positivity and the Rayleigh upper bound give spectral separation, so the exact Schur complement yields m(B/m−xi) tending to sp(1−p)/p. This argument also proves the finite gap bracket. Binomial CLT and the o_P(n^−1/2) error prove the credited consequence, including strict window probabilities by continuity. Independent K5 test with z=(0,1,2,1,0): the lowest root below 5 of 2/(5−xi)+2/(6−xi)+1/(7−xi)=1 is 0.694102470667; the calculated Schur difference matches the eigenvalue difference 0.105897529333 to 1.25e−16. This is a finite check only. Supplied checker and verification notes were inspected, not executed.
 
-Limits: no exact finite-\(n\) distribution is claimed; no assertion applies to network-adaptive absorbing sites, nonconstant \(p\), or growing \(s\). Independent scientific validation has not been performed.
+## originality
+
+PASS
+
+On available evidence, evaluating the second-order coefficient is distinct from prior first-order equivalence and from the O_P(1/m) error estimate implicit in the earlier gap argument. The repair removes the Gaussian window from the originality claim and documents its derivation from that argument.
+
+## value
+
+PASS
+
+The retained coefficient quantifies the first systematic error incurred by replacing the principal eigenvalue by the observed boundary mean. It verifies strict positive relaxation at a scale invisible to the Gaussian window and identifies how it depends on sink count and density. It is useful for assessed accuracy of the boundary-density approximation, not a claim about finite-population persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

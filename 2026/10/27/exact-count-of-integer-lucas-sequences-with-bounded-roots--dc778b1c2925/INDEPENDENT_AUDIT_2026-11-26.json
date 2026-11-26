@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:27:54.670207Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–50",
+        "Frozen VERIFICATION.md lines 19–23",
+        "Frozen verify.py lines 3–37",
+        "Independent exact lattice enumeration, integer radii 2 through 40"
+      ],
+      "rationale": "The sequence determines (A,B) from U2 and U3. For a conjugate pair the root bound is B <= T^2 and entails T|A| <= T^2+B by AM–GM. For real roots the latter inequality is equivalent to both endpoint product tests; if either root were outside [-T,T], the product constraint |B| <= T^2 would place the other strictly inside, violating the corresponding endpoint test. The resulting triangle has vertices (0,-T^2), (2T,T^2), (-2T,T^2), area 4T^3 and 8T boundary points, so Pick's theorem independently gives 4T^3+4T+1 lattice points. The two axes contribute 2T^2+2T+1. In the quadratic splitting field the only possible orders of a unit ratio are 1,2,3,4,6. Order 2 is on the removed axis; the identity A^2/B=2+epsilon+epsilon^(-1) and integrality give exactly (2r,r^2), (r,r^2), (2r,2r^2), (3r,3r^2) for nonzero r. The trace equation also proves the converse. Their moduli are |r|, |r|, sqrt(2)|r|, sqrt(3)|r|; the families are disjoint off the axes. Subtraction gives the claimed exact formula including all closed-disk boundary points. Independent exact enumeration over T=2..40 used the rectangle |A|<=2T, |B|<=T^2, retained pairs with T|A|<=T^2+B, then excluded AB=0 and A^2=kB for k=1,2,3,4; the floors were obtained with isqrt(T^2//k). Retained counts include 16, 3756, 252618 at T=2,10,40. The enumeration is a bounded check, not the universal proof; the uploaded checker was read, not executed.",
+      "residual_risks": [
+        "The formula was reviewed under the frozen nondegeneracy convention, for integer radii only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hajdu–Tijdeman cover the broader real-radius regime with upper and lower bounds, and note integer improvements.",
+          "Akiyama–Pethő is plausible bounded-root geometry context; only abstract-level information was available, not a full quadratic lattice theorem."
+        ],
+        "reasoning": "The broader radius range alone does not dominate the precision of the claimed result. Real-coefficient distributions or volume alone do not count lattice boundary points or remove the root-of-unity families. No uninspected portion of the Akiyama–Pethő paper is ruled out.",
+        "searches": [
+          "arXiv:2408.04982, Theorem 2.2 and Remark 3",
+          "doi:10.2969/jmsj/06630927; identified Project Euclid copy"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query results",
+        "Hajdu–Tijdeman arXiv:2408.04982 pp. 4, 9",
+        "Akiyama–Pethő DOI 10.2969/jmsj/06630927, limited access"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two bounds in the accessible arXiv theorem are 4t^3−10t^2−29t and 4t^3−t^2+7t.",
+          "Lemma 4.1 yields the three nonreal degeneracy families assuming AB(A^2−4B)≠0."
+        ],
+        "reasoning": "The prior degeneracy list supplies most of the exclusions but omits the repeated-root case by hypothesis. The bounds do not determine the exact number of lattice points; the final count requires exact integer geometry and counting the additional exclusions under the stated convention.",
+        "searches": [
+          "arXiv:2408.04982, Theorem 2.2, Remark 3, and Lemma 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 2.2 uses the same maximum-root-modulus scale and states two-sided bounds for real t>=2.",
+          "The screened catalogue candidates did not match the exact count."
+        ],
+        "reasoning": "The equivalent problem is a monic quadratic coefficient-lattice count under a house bound with degenerate parameters removed. It is not the Mahler-measure count under the same numerical bound; two moduli greater than 1 contribute their product to Mahler measure, not their maximum. The theorem is a direct comparison on the same object, but its bounds are not an equality.",
+        "searches": [
+          "Resultary semantic lookups for the exact integer Lucas root-disk count and its formula",
+          "'Integers represented by Lucas sequences' Hajdu Tijdeman bounded characteristic roots exact count integer radius Lucas sequences",
+          "arXiv:2408.04982, Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No materially corresponding catalogue entry was identified for local-mirror comparison.",
+          "The closest located prior statement gives bounds, not an exact formula or table."
+        ],
+        "reasoning": "A prior exact table or formula for the coefficient pairs, with matching exclusions or a directly removable list, would count as coverage. The bounded counts reproduced here are not evidence of a prior table and do not prove one absent.",
+        "searches": [
+          "Resultary semantic searches by frozen count, integer radius, and closed form",
+          "arXiv:2408.04982, integer-radius remark"
+        ]
+      },
+      "rationale": "The closest primary work studies precisely the bounded-root Lucas count and supplies bounds and part of the exclusions. No equivalent exact integer-radius count, or stronger exact enumeration that would supply it mechanically, was established in the inspected passages or catalogue evidence. This credits the prior count problem and degeneracy taxonomy; it is not a priority guarantee.",
+      "residual_risks": [
+        "The published Hajdu–Tijdeman remark and its precise claimed improved lower bound were not independently verified; the decision rests on the accessible arXiv statements.",
+        "Full Akiyama–Pethő text was not readable; an equivalent enumeration in other sources is possible.",
+        "An empty web lookup is not evidence of no literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: earlier bounds and three degeneracy families",
+          "evidence": "Theorem states bounds rather than equality; Lemma 4.1 assumes nonzero discriminant and misses repeated roots by design.",
+          "identifier_or_url": "https://arxiv.org/pdf/2408.04982",
+          "material_read": "p. 4 Theorem 2.2 and Remark 3, bounded text around offset 8500; p. 9 Lemma 4.1 around offset 20200",
+          "method": "Lawful OA primary-text passage lookup and read",
+          "title": "Integers represented by Lucas sequences",
+          "trigger": "Same parameter count and degeneracy taxonomy"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; no inference of noncoverage from access",
+          "evidence": "The available description concerns real-coefficient distributions and volumes, not a stated exact Lucas count.",
+          "identifier_or_url": "https://doi.org/10.2969/jmsj/06630927",
+          "material_read": "Abstract-level context only; DOI and Project Euclid did not supply readable full text",
+          "method": "Lawful OA DOI and identified host lookup",
+          "title": "On the distribution of polynomials with bounded roots, I. Polynomials with real coefficients",
+          "trigger": "Related bounded-root coefficient geometry might imply a lattice count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen lattice count and exclusions",
+        "Hajdu–Tijdeman, Theorem 2.2 and Lemma 4.1"
+      ],
+      "rationale": "This gives the exact size of the same natural finite population used in earlier bounded-root Lucas counting, rather than choosing an arbitrary coefficient box. The explicit boundary and root-of-unity corrections give exact denominators for finite-radius enumeration and distinguish the contributions of the repeated-real and nonreal excluded families; neither the leading volume nor prior bounds supplies those quantities. The contribution is a bounded exact refinement, not a new general enumeration technique.",
+      "residual_risks": [
+        "No claim about term distributions, nonintegral radii, or general polynomial degree follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

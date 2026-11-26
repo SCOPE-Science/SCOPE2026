@@ -1,11 +1,21 @@
-# Review of the reflection-convexity-center classification
+# Independent mathematical audit
 
-**Correctness — PASS.** Strict positive curvature follows from the exact radius \(h+h''=R-8\varepsilon\cos3\theta>0\). A common supporting line forces equality of the two smooth support points if the union is convex. The half-support difference \(f_z=\varepsilon\cos3\theta-z\cdot n\) is anti-periodic, so has a sign-changing zero, which must be triple or higher; its first three derivatives force one of exactly three possible centers. Each candidate has the exact cubic factorization \(f_z=4\varepsilon\cos^3(\theta-2\pi k/3)\), giving matched support points at both switches. The center belongs to both bodies, hence the support-boundary coverage proves the union convex. The union support is explicitly \(R+4\varepsilon|\cos\theta|^3\), and classical exact support integrals give the area and perimeter. The standalone checker verifies the formulas and representative cases, but does not purport to prove the continuous classification.
+## correctness
 
-**Originality — PASS, provisional historical priority.** Schneider (2015) proves the universal existence of at least three convexity points and its middle-line criterion, not the exact three-center analytic oval. Schneider (2016) lists triangles and Reuleaux triangles as exactly-three examples and proves Baire-typical multiplicity is infinite; it does not give this smooth example or union measurements. The inspected published results for quadrilaterals and regular odd polygons cover nonsmooth objects and have no implication classifying this oval. The published odd-harmonic Wigner-caustic study determines cusp parameters, not the necessary-and-sufficient reflection union condition or exact union support. Search limitations leave possible unpublished or unindexed prior observations, and the argument's building blocks are classical; there is no claim of definitive priority.
+PASS
 
-**Value — PASS.** Sharpness of the universal three-center lower bound is achieved within a real-analytic, strictly positively curved, constant-width family, whereas the explicit examples highlighted by the foundational paper are nonsmooth. The exact reflection-union support and area/perimeter increments give a quantitative convexification formula and identify a \(C^2\)-but-not-\(C^3\) join. The exact count is not implied merely by knowing three cusps of the associated midpoint locus. The problem is a natural classification of reflection convexity, not a manufactured parameter slice.
+The positive radius h+h''=R−8ε cos(3θ) gives a unique analytic oval of width 2R. A zero of the support half-difference f=ε cos(3θ)−z·n must have f'=0 for a convex union, since two distinct singleton support points leave their joining segment uncovered. Analyticity and antipodality force a sign-changing zero; its multiplicity is then at least three. At that zero f''=−8ε cos(3θ), and f=f'=f''=0 yields exactly the three candidate vectors listed. For z=(−3ε,0), f=4ε cos³θ; at the only two switches the support points coincide. All boundary points of the hull are therefore covered, and the common point z (inside the disk of radius R−ε contained in K) gives coverage of the interior along rays. Rotation gives the other cases. The centered support is R+4ε|cos θ|³. At a join, the radius is R+24ε|θ−θ₀|+O(|θ−θ₀|³). Positive radius makes arclength a C¹ change of normal angle; the tangent is C¹ with respect to arclength, but curvature has unequal one-sided derivatives, proving C² and not C³ for the geometric boundary. The support integrals use ∫|cos θ|³=8/3, ∫cos⁶ θ=5π/8, and ∫9cos⁴ θ sin² θ=9π/8 over the full circle, giving the claimed perimeter and both areas. This is analytic throughout; the frozen sampling code was inspected as a diagnostic, not used as proof.
 
-**Limits.** The classification is restricted to a single odd support harmonic, with \(R>8\varepsilon>0\). No endpoint, arbitrary-oval or historical-priority completeness theorem is claimed. Independent mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest known general reflection results supply the lower bound and a criterion, not exactness for this smooth oval. Closely matching records concern the same family's Wigner caustic or orthoptic, not reflection unions. The exact centers and the union formulas survive the targeted comparison; historical priority is not certified.
+
+## value
+
+PASS
+
+This is a sharpness example for a classic three-center lower bound in the restrictive class of analytic, strictly positively curved constant-width bodies. Unlike a cusp count alone it characterizes every reflection union that is convex, and the exact support, area gain and curvature joins give reusable information about those unions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

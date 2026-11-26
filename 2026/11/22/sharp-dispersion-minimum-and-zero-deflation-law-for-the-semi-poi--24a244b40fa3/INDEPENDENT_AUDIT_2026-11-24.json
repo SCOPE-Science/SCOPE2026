@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:16:18.062417Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 28–98",
+        "Frozen VERIFICATION.md and checker.py",
+        "Independent exact coefficient and interval replays"
+      ],
+      "rationale": "Verified normalization by the series, then μ=tS′/S−2 and v=tμ′ by exponential-family differentiation. The decreasing birth ratio gives v−μ=Cov(X,r_X)<0 by the independent-copy covariance identity and nondegeneracy. Reconstructed A, T and all four exponential coefficients of N using formal differentiation with z=e^t. Exact coefficients vanish through degree 9, are negative in degrees 10–14, then positive through degree 25; the shifted Q_k at n=26+u have strictly positive coefficients, establishing the positive tail. Thus N/t^14 is strictly increasing from minus to plus infinity (the negative t⁻⁴ and positive t terms suffice at the ends); its unique zero changes F′ from negative to positive. Independent rational Taylor and interval calculations certify both the quoted t* bracket and the quoted minimum interval. Since (log R)′=(v−μ)/t, R is strictly decreasing; the small-t normalization and large-t μ=t+(t−2)/(t²−t+1)+O(e^(−t)/t) give limits 1 and 1/2. The normalization also yields the quoted expansions for F. Replay: python3 /workspace/branches/review_replay.py 2 (symbolic and sign checks); interval replay at /workspace/branches/293d66c6-a087-406a-b657-88584f045100/record2_replay.py. The supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "The result is for the exact population mass function at t>0; empirical fits, zero-modified laws and mixtures were not reassessed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 weighted-Poisson criterion gives underdispersion for parameter-independent log-concave weights; w(n+1)/w(n) is strictly decreasing here.",
+          "The 2024 reference was inaccessible in bounded lawful full-text attempts; broader sign coverage is already evidenced by the accessible 2021 source."
+        ],
+        "reasoning": "Credit the general dispersion sign and its application to this law. The criterion does not determine the sign changes of F′, a certified minimizer, or the model-specific range of the zero-calibration ratio.",
+        "searches": [
+          "Cahoy, Di Nardo and Polito DOI 10.1007/s00362-021-01222-7 Theorem 3.2 and Remark 3.1",
+          "Puig, Valero and Fernández-Fontelo DOI 10.1111/sjos.12677, cited Proposition 5"
+        ]
+      },
+      "checked_sources": [
+        "Almuhayfith et al. (2023), DOI 10.3390/math11051122",
+        "Cahoy, Di Nardo and Polito (2021), DOI 10.1007/s00362-021-01222-7",
+        "Resultary 24a244b40fa3 (identical target)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For this exponential family, (log R)′=(v−μ)/t; therefore zero-deflation and monotonicity follow from the existing sign criterion and the limit at zero. The limit at infinity follows from the specific normalizer.",
+          "Existence and exact uniqueness of the dispersion minimum require an additional all-orders coefficient sign argument not contained in the prior sign criterion or moment formulas."
+        ],
+        "reasoning": "The added result is not a new weighted-Poisson mechanism. A formula for F or its sign relative to one is not a result identifying its critical points or strict global shape.",
+        "searches": [
+          "DOI 10.1007/s00362-021-01222-7 eqs. and criterion in §3",
+          "DOI 10.3390/math11051122, printed pp. 4–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The semi-Poisson counts are Poisson(t) weighted by w(n)=(n+1)/(n+2), not the similarly named level-spacing law.",
+          "The primary model article prints the corresponding index of dispersion but says it exceeds one and reports a maximum 1.099 at λ=1.4."
+        ],
+        "reasoning": "The same mass function and parameter are being compared, and the article's textual assertion does not establish the corrected minimum or its global uniqueness.",
+        "searches": [
+          "Almuhayfith et al. DOI 10.3390/math11051122 §2.1 and index of dispersion",
+          "weighted-Poisson criterion DOI 10.1007/s00362-021-01222-7 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record itself.",
+          "The 2023 model article reports a maximum near 1.4 above one, not an established global minimum near that rate."
+        ],
+        "reasoning": "A similar parameter to one decimal place and the same model are not an earlier certification of the corrected extremum; the identical catalogue hit contributes no independent coverage.",
+        "searches": [
+          "Resultary semi-Poisson population dispersion minimum and mean-matched zero probability, strongest hit 24a244b40fa3",
+          "Almuhayfith et al., index of dispersion discussion, DOI 10.3390/math11051122"
+        ]
+      },
+      "rationale": "The published model definition and general weighted-Poisson underdispersion are prior. The supported distinct contribution is the proof of the model's global dispersion shape and certified unique minimum, together with the explicit sharp mean-matched zero calibration for that same law. The general sign theorem plus exponential-family differentiation already supplies the direction of zero-ratio monotonicity; that general mechanism is not new.",
+      "residual_risks": [
+        "An earlier correction or extremum proof under another weighted-Poisson name may exist; Resultary self-match and limited literature are not a priority guarantee.",
+        "Puig et al. Proposition 5 was not independently read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and dispersion formula; contrary qualitative assertion, not the proved minimum",
+          "evidence": "States ID>1 for all permitted rates and maximum 1.099 at λ=1.4.",
+          "identifier_or_url": "https://doi.org/10.3390/math11051122",
+          "material_read": "§2.1 weighted form, printed p. 4, offset 12000; dispersion formula and prose, pp. 5–6, offsets 21900 and 23196",
+          "method": "OA primary PDF, bounded passages",
+          "title": "A Flexible Semi-Poisson Distribution with Applications to Insurance Claims and Biological Data",
+          "trigger": "Original proposal, identical count law and apparently conflicting extremum"
+        },
+        {
+          "assessment": "Covers underdispersion by log-concavity; not the unique minimizer",
+          "evidence": "Criterion specializes to parameter-independent log-concave weights.",
+          "identifier_or_url": "https://doi.org/10.1007/s00362-021-01222-7",
+          "material_read": "§3 Theorem 3.2 and Remark 3.1, printed pp. 2980–81, offset 39800",
+          "method": "OA primary PDF, bounded passage",
+          "title": "Flexible models for overdispersed and underdispersed count data",
+          "trigger": "General weighted-Poisson inequality may subsume a purported discovery"
+        },
+        {
+          "assessment": "Unresolved access, not treated as evidence of no coverage",
+          "evidence": "Comparable weighted-Poisson sign coverage verified in the accessible 2021 source.",
+          "identifier_or_url": "https://doi.org/10.1111/sjos.12677",
+          "material_read": "Frozen citation to Proposition 5; no primary passage independently read",
+          "method": "Bounded lawful OA retrieval attempts, HTTP 403",
+          "title": "Some mechanisms leading to underdispersion: Old and new proposals",
+          "trigger": "Referenced broader underdispersion principle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, prior-work comparison and scope",
+        "Almuhayfith et al., dispersion discussion"
+      ],
+      "rationale": "The Fano factor and the zero probability at matched mean are natural diagnostics for deciding whether this count family behaves like an ordinary Poisson law. The theorem corrects a published qualitative characterization, gives a nontrivial global shape and a sharp worst departure, and distinguishes that nonmonotone profile from the monotone zero calibration. These population facts are useful without making a claim about the original datasets or fit procedures.",
+      "residual_risks": [
+        "No empirical improvement or inference-performance result follows just from these exact population diagnostics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:58:12.965278Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, VERIFICATION.md, orbit_profiles.json and source verifier inspected (not run)",
+        "Independent exact replay: python /tmp/opencode/scope_affine_descent_repro.py"
+      ],
+      "rationale": "In the six-dimensional even-subsets/complement symplectic module, matchings give 105 distinct Lagrangians; all 15 Lagrangians through a specified two-subset class are accounted for by matchings containing that pair. The seven affine plane-partition classes close as the nonzero part of a Lagrangian and have zero pairings. Their partition families recover the affine structure: after choosing an origin, choose the side of each partition containing it and thereby recover all affine linear coordinates up to affine change. The 30 structures exhaust the complement of the matchings among 135 Lagrangians. For every partition, I independently inventoried elements of each S8 cycle type in AGL(3,2), used the centralizer/coset formula on powers, and inverted the fixed numbers; all 22 rows of orbit_profiles.json and the displayed profiles agree. The matching counts independently follow by viewing a matching as an involution without fixed points commuting with Frobenius: pair equal-length cycles with an arbitrary alignment, or exchange an even-length cycle with itself by a half-turn. At (1,7), the fixed cosets number 2 and the remaining 28 form four 7-cycles; no matching is fixed. An odd-order permutation cannot swap complementary subsets, and the only invariant even subsets here are empty and full. Thus there is no nonzero rational 2-torsion despite the two stable subgroup schemes. Direct FLINT factorization confirms x^7+x+1 is irreducible over F5 and its product with x is squarefree; the smooth degree-eight hyperelliptic model has genus three and these eight finite branch points. The zeta function follows from two degree-one and four degree-seven places.",
+      "residual_risks": [
+        "This is rationality of subgroup schemes, not of all their points, nor an assertion about a Jacobian quotient over the ground field. Only branch types realized by the curve apply."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Cayley-octad table covers all 135 kernels and splits fixed counts by type for all 22 permutations. Smith already studies tractable hyperelliptic kernels and their rationality, with (1,7) giving none; the earlier indexed hyperelliptic Klein-four pencil uses both matching and affine types."
+        ],
+        "reasoning": "Although these geometric families are not nested, the Cayley-octad computation covers every conjugacy class of the exact ambient action common to them. The hyperelliptic setting does not supply extra parameters to the fixed-count problem.",
+        "searches": [
+          "Resultary full 135-kernel formula for Frobenius on an eight-label marking",
+          "Smith arXiv:0806.2995 §§3,9",
+          "Resultary Klein-four pencil a1f863766189"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Cayley-octad and Klein-four results",
+        "Smith arXiv:0806.2995; Ren–Sam–Schrader–Sturmfels arXiv:1208.1229",
+        "Moriya–Kudo arXiv:2209.02926 abstract and Ohashi et al. arXiv:2401.10500 abstract/introduction for Richelot context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cayley octad (7,1) gives 0 matching and 2 affine fixed kernels, as well as the same even-subset quotient as the hyperelliptic proof."
+        ],
+        "reasoning": "An order-seven action in that quotient has no nontrivial fixed class by invariance of representatives under odd-order permutations. The enabled hyperelliptic realization can be obtained over every odd finite field by taking x times any monic irreducible degree-seven polynomial. Specifying one such polynomial over F5 does not create a further substantive invariant or a new boundary.",
+        "searches": [
+          "Cayley-octad Finding row (7,1) and proof (1)–(2)",
+          "Smith Remark 3 and matching rationality table",
+          "Klein-four pencil indexed Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Cayley-octad proof defines V as even subsets modulo full set, with intersection pairing, and identifies the two invariant subsets by perfect matchings and affine hyperplane classes. Ren–Sam–Schrader–Sturmfels describe the classical 105 Pascal and 30 Fano configurations."
+        ],
+        "reasoning": "Any bijection of eight labels identifying the partitions transports the two-torsion modules equivariantly. In both settings the distinguished 30-set is the same S8 homogeneous space S8/AGL(3,2), not merely another set of the same size.",
+        "searches": [
+          "Resultary: genus-three nontractable/non-pairing Richelot or Göpel kernels, affine structures, Fano and Pascal configurations, all branch types",
+          "arXiv:1208.1229 §6",
+          "Resultary 8a91037e03f9 proof (1)–(3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The third column gives the affine fixed count separately at each type (e.g. (7,1): 0+2; (2²,1⁴): 9+6; (1⁸): 105+30)."
+        ],
+        "reasoning": "If f(τ) is its affine fixed column, then the count of length-d cycles of σ is (1/d) Σ_{e|d} μ(d/e) f(σ^e). Every σ^e type is in the published table, obtained by the gcd rule on each part. For example at (4,3,1), the proper divisor powers 1,2,3,4 have zero affine fixed points, the sixth power has six, and the twelfth has thirty, yielding one 6-cycle and two 12-cycles exactly as in the frozen record. The full 30-way table is mechanically recoverable even though not separately printed there.",
+        "searches": [
+          "Finding, 22-row table titled Complete Frobenius spectra of Göpel kernels for Cayley-octad quartics, 8a91037e03f9"
+        ]
+      },
+      "rationale": "Demonstrable equivalent coverage: the distinct indexed Cayley-octad Göpel classification (record 8a91037e03f9) gives the identical S8-set of 30 affine structures and tabulates its fixed cardinality on every conjugacy class of S8, alongside every matching fixed count. The change from a Cayley octad to a branch octad does not change this action. All cycle counts in the frozen table and the highlighted two-kernel/no-pairing descent then follow directly from those data; no within-day publication order is asserted. The additional rational-torsion observation is immediate from the same eight-label model, and the explicit equation is a routine realization of a prescribed branch type, not a distinct original arithmetic classification.",
+      "residual_risks": [
+        "Same-day dates give no within-day priority; this judgment rests on the identical finite action and determined cycle counts, not claimed publication order. The calculus of explicit polarized quotient targets is not compared because the frozen claim does not provide them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact mechanical coverage of all affine cycles despite different geometric interpretation",
+          "evidence": "All 22 types have split matching/affine fixed counts; the proof explicitly constructs the same even-subset action and both distinguished orbits.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-frobenius-spectra-of-g-pel-kernels-for-cayley-octad-qua--8a91037e03f9/RESULT.md",
+          "material_read": "Finding full table, scope and proof (1)–(4), local mirror offsets 0 and 4305",
+          "method": "Resultary and decisive passages in local mirror",
+          "title": "Complete Frobenius spectra of Göpel kernels for Cayley-octad quartics",
+          "trigger": "Identical ambient action and same two-fixed-kernel exceptional type"
+        },
+        {
+          "assessment": "Known rational matching counts and nontractable subgroups",
+          "evidence": "Exhibits a maximal isotropic subgroup without branch differences and gives the rational tractable table, with (1,7) included in Other: 0.",
+          "identifier_or_url": "https://arxiv.org/abs/0806.2995",
+          "material_read": "§3 Proposition 1, Remark 3, Lemma 1, pp. 5–6 (offsets 12500–18922)",
+          "method": "OA PDF",
+          "title": "Isogenies and the Discrete Logarithm Problem in Jacobians of Genus 3 Hyperelliptic Curves",
+          "trigger": "Earliest close hyperelliptic tractability comparison"
+        },
+        {
+          "assessment": "Restricted branch types, already uses the split",
+          "evidence": "Gives rational counts on a two-parameter family and separates matching and affine contributions.",
+          "identifier_or_url": "2026/11/2/SCOPE-rational-2-2-2-isogeny-kernels-in-a-genus-three-klein-four-penci--a1f863766189",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Local mirror",
+          "title": "Rational (2,2,2)-isogeny kernels in a genus-three Klein-four pencil",
+          "trigger": "Same arithmetic in a hyperelliptic subfamily"
+        },
+        {
+          "assessment": "Classical decomposition, not the arithmetic table",
+          "evidence": "The 135 Lagrangians correspond to 30 Fano and 105 Pascal configurations.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.1229",
+          "material_read": "§6, pp. 24–25, offsets 89179–91956",
+          "method": "OA PDF",
+          "title": "The universal Kummer threefold",
+          "trigger": "Equivalence with classical Pascal/Fano language"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen arithmetic table and F5 construction",
+        "Cayley-octad table and its shared symplectic model"
+      ],
+      "rationale": "Descent of non-pairing kernels is a natural invariant, but every displayed exact arithmetic profile is a direct decoding of existing split fixed-count data. The only residual specialization is a genus-three equation exhibiting (1,7) and the immediate no-fixed-vector observation for that permutation. This is a routine prescribed factorization and fixed-subset check, not a further obstruction or motivated new exact invariant. No useful new claim survives narrowing the supplied result to what is not already in the table.",
+      "residual_risks": [
+        "A separate result finding new information about an explicit quotient or its descent could have value; none is supplied here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

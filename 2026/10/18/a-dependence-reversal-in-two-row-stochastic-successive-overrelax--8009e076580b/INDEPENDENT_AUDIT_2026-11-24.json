@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:41:31.445632Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–81",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/reproductions/finite_checks.py 2"
+      ],
+      "rationale": "Both laws give the same individual marginals and the reference A is SPD; the sweep is the stated sequential substitution with independent draws between sweeps. At omega=1 the update eliminates the first input component and the exact second-moment multiplier for the surviving recursion is E[(bc)^2], respectively 64/625 and 136/625; the sharp vector rate follows by conditioning on each fresh draw. At omega=1.87, every trace discriminant is negative and det M=(0.87)^2. I constructed the covariance operator directly on (x²,xy,y²) and independently verified the displayed Lyapunov residual, including both strictly positive leading minors, and the exact positive-definite covariance eigenmatrix with eigenvalue 1.00028424. Conditional quadratic contraction gives exponential stability for shared coupling. The anti eigenmatrix decomposes as a sum of deterministic-start rank-one matrices; its exponentially growing trace forces at least one such start to grow exponentially along a subsequence. The all-start stability criterion is equivalent to covariance spectral radius below one because deterministic rank-one matrices span symmetric matrices. Strict separation, strict spectral stability of the sample matrices and the omega=1 rate ordering persist by continuity. Replay: python3 /workspace/reproductions/finite_checks.py 2; shared omega=1.87 covariance radius is about 0.917477872302 (supplementary numerical value only).",
+      "residual_risks": [
+        "The counterexample concerns the given homogeneous i.i.d.-sweep effective-coefficient model, not actual IEEE stochastic rounding or all inhomogeneous starts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lindquist et al. bound forward error under stored-matrix and arithmetic perturbations and an exact-iteration norm assumption; they explicitly include SOR and also give a high-probability rounding bound.",
+          "Richtárik–Takáč use independently sampled sketch matrices in stochastic projection/gradient updates. Connolly–Higham–Mary's primary passage was not retrieved."
+        ],
+        "reasoning": "The inspected general results use materially different hypotheses and outputs, and do not imply the two opposite stability outcomes for the prescribed coupled SOR laws.",
+        "searches": [
+          "arXiv:2610.06414 full PDF Theorem 2.1 and SOR discussion",
+          "arXiv:1706.01108 stochastic reformulations and L2 framework",
+          "DOI:10.1137/20M1334796 rounding theory"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.06414, 1706.01108 and 1505.03512 (specified passages)",
+        "DOI:10.1137/20M1334796 (metadata)",
+        "Resultary 976c0931eb60, 5fcdeaa378c0, 5f95cb30e1af and 9ae0040f2dac (actual passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fox–Parker relate deterministic splitting operators and Gaussian Gibbs rates and note antithetic Gibbs work. The damped-shear model has within-block joint choice of subflows, not shared/anti coupling of coefficient values in a simultaneous law for ordered SOR updates."
+        ],
+        "reasoning": "Prior covariance/splitting methods supply a way to test random laws, not the evaluated reversal, positive-definite growth witness, or stable-shared example here. The exact example, not the broad concept, receives the pass.",
+        "searches": [
+          "arXiv:2610.06414 pp. 3, 5–6",
+          "arXiv:1505.03512 abstract",
+          "Resultary 976c0931eb60 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "976c0931eb60 compares repeat/switch within blocks of damped shear subflows; the optimum reverses at 2bh=2 and the endpoint couplings can differ in mean-square stability.",
+          "9ae0040f2dac treats independent stale-read delays and random coordinate selection with exact transfer coefficients."
+        ],
+        "reasoning": "The shear result has substantial conceptual overlap but a different random operator law. The stale-read recurrence is not the deterministic two-coordinate order with two within-sweep dependent effective coefficients.",
+        "searches": [
+          "Resultary: same-marginal dependence reversal in stochastic SOR, Gauss–Seidel and random product stability",
+          "Resultary 976c0931eb60 and 9ae0040f2dac"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5fcdeaa378c0 optimizes dependence for a static rounded matrix by two competing least-singular-value and finite-rank-deficiency objectives. 5f95cb30e1af compares exact mean-square losses of four Kaczmarz row-sampling policies."
+        ],
+        "reasoning": "Both same-day hits materially concern numerical randomness, but the former is static and the latter changes row policies; neither is the covariance reversal for this SOR pair law. A ranked index is not exhaustive and same-day dates imply no ordering.",
+        "searches": [
+          "Resultary exact example and fixed same-marginal SOR coefficients",
+          "Resultary same-day 5fcdeaa378c0 and 5f95cb30e1af"
+        ]
+      },
+      "rationale": "The supported distinction is the concrete two-coordinate SOR dependence reversal with fixed coefficient marginals and exact strict certificates. Random-product instability despite individually stable factors and covariance lifting are not new general principles. The strongest accessible conceptual analogue has a different shear-flow law, and the directly relevant mixed-precision SOR passages treat different perturbations and bounds.",
+      "residual_risks": [
+        "An older equivalent stochastic SOR or random-matrix-product example may exist. Connolly–Higham–Mary's primary text was not retrieved independently; no whole-document negative claim is made for that paper or for abstract-level comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but perturbations and conclusions differ.",
+          "evidence": "Forward-error bound for A=M+N under norm convergence of the exact iteration; SOR included in stationary block-lower-triangular splittings, not the paired stochastic coefficient example.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06414",
+          "material_read": "Abstract p. 1, Thm. 2.1 p. 3, probabilistic bound p. 5, SOR p. 6",
+          "method": "OA primary PDF passage inspection; full text now accessible",
+          "title": "A Mixed-Precision Model for Matrix-Splitting Methods",
+          "trigger": "Same motivating matrix-splitting and explicit SOR family"
+        },
+        {
+          "assessment": "Material conceptual overlap, different flow model; later record date.",
+          "evidence": "Fixed uniform choice marginals in two-subflow blocks; reversal at 2bh=2 and stability difference between endpoint couplings despite Hurwitz flows.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-repeat-or-switch-threshold-for-correlated-damped-shear-s--976c0931eb60/RESULT.md",
+          "material_read": "Finding and setup, local mirror offsets 0–2963",
+          "method": "Resultary search and actual mirror passage",
+          "title": "A sharp repeat-or-switch threshold for correlated damped-shear splitting",
+          "trigger": "Strongest same-marginal random-product reversal analogue"
+        },
+        {
+          "assessment": "Different static optimization, no SOR sweeps.",
+          "evidence": "Rank-one matrix with repeated two-coordinate rows; antithetic spectral objective and different three-direction finite-sample rank-deficiency optimum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-optimal-coupled-stochastic-rounding-separates-spectral-regulariz--5fcdeaa378c0/RESULT.md",
+          "material_read": "Finding and setup, local mirror offsets 0–3560",
+          "method": "Resultary search and actual mirror passage",
+          "title": "Optimal coupled stochastic rounding separates spectral regularization from rank failure",
+          "trigger": "Same-day fixed rounding marginals and dependent numerical outcomes"
+        },
+        {
+          "assessment": "Different iteration and law.",
+          "evidence": "Four row-sampling policies ordered by exact mean-square losses, rather than fixed SOR coefficients' marginals with different joint draws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-four-way-kaczmarz-shuffling-constants-on-a-power-law-famil--5f95cb30e1af/RESULT.md",
+          "material_read": "Finding, local mirror offsets 0–2503",
+          "method": "Resultary search and actual mirror passage",
+          "title": "Exact four-way Kaczmarz shuffling constants on a power-law family",
+          "trigger": "Same-day exact iterative mean-square effects"
+        },
+        {
+          "assessment": "Distinct source of randomness and no paired dependence reversal.",
+          "evidence": "Uniform coordinate selection with independent stale reads and an exact scalar mean-square recurrence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac/RESULT.md",
+          "material_read": "Finding and setup, local mirror offsets 0–3544",
+          "method": "Resultary search and actual mirror passage",
+          "title": "Exact stochastic delay law for randomized Gauss–Seidel",
+          "trigger": "Earlier two-coordinate mean-square Gauss–Seidel result"
+        },
+        {
+          "assessment": "Framework under different stochastic projection/gradient updates.",
+          "evidence": "Sampling S_k independently per iteration; L2 convergence analysis of random-sketch reformulations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.01108",
+          "material_read": "Abstract, p. 3 update and p. 7 convergence discussion",
+          "method": "OA PDF passage inspection",
+          "title": "Stochastic Reformulations of Linear Systems: Algorithms and Convergence Theory",
+          "trigger": "General stochastic-linear-system and L2 convergence theory"
+        },
+        {
+          "assessment": "Relevant Gaussian-sampling analogy only within the inspected portion.",
+          "evidence": "States correspondence between Gibbs and Gauss–Seidel splitting operators, convergence conditions and geometric rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.03512",
+          "material_read": "Abstract, p. 1",
+          "method": "OA PDF inspection",
+          "title": "Accelerated Gibbs sampling of normal distributions using matrix splittings and polynomials",
+          "trigger": "Related split iterations and antithetic Gibbs"
+        },
+        {
+          "assessment": "Unresolved access, not evidence of noncoverage.",
+          "evidence": "SIAM PDF returned HTTP 403; alternate repository retrieval timed out.",
+          "identifier_or_url": "https://doi.org/10.1137/20M1334796",
+          "material_read": "Bibliographic information only; no primary passage retrieved",
+          "method": "Lawful OA attempts via SIAM and alternate repository routes",
+          "title": "Stochastic Rounding and Its Probabilistic Backward Error Analysis",
+          "trigger": "Potential closer treatment of dependence among rounding choices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen SOR model and Proof",
+        "Independent covariance and Lyapunov replay",
+        "Lindquist et al. SOR discussion"
+      ],
+      "rationale": "This is a motivated counterexample to transferring the Gauss–Seidel benefit of antithetic coupling to overrelaxed sweeps, even when the individual factor laws are unchanged and every realized sweep is Schur-stable. Exact strict witnesses make the distinction reproducible and robust rather than a barely discernible simulation artifact.",
+      "residual_risks": [
+        "Not a hardware performance claim, a claim about generic favorable couplings, or a complete SOR stability diagram."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

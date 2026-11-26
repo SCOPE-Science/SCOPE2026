@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:01:16.326125Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hurwitz stability makes each response exponentially decaying; the input has finite fourth moment 24D²/r² from its exponential age, so the stationary convolutions exist in L⁴. Conditioned on the reset clock, Brownian increments on separate gaps are independent. An increment at backward age u between T_j and T_(j+1) enters the response with coefficient equal to the integral of h on [T_j,u]. Itô isometry gives the stated V, finite almost surely, and the conditional fourth moment 3V² ensures its finite second moment. The Gaussian mixture formula and independence give 3 times the sum of the variance contributions, with no term from independent Gaussian thermal forcing. If a nonzero response had constant V, Mecke's identity would force insertion of a clock point to preserve it for almost every clock and almost every insertion time. In each gap the continuous change is 2D F(t)[(b−t)F(t)−2 integral_t^b F], for F(t)=integral_a^t h. It must vanish everywhere in the gap. On a component where F is nonzero, differentiation forces F(t)=C(b−t); continuity and F=0 at its left boundary give C=0, a contradiction. All gaps then force h to vanish. This handles signed and unobservable channels, with strictness iff at least one response is nonzero. The covariance of the reset input is (2D/r)exp(−r|lag|), by survival across the lag, and the Gaussian OU replacement has exactly that covariance, so all linear output cross-covariances at all lags agree. An independently written exact generator solve reproduced both scalar formulas and the signed e^(−s)−2e^(−2s) example (variance 1/9, fourth cumulant 481/33075); these checks are corroborative. The frozen source was read but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record d0ea0b36a797 states a narrower every-site theorem for endpoint-damped finite chains, but explicitly derives the age-conditioned variance mean H(a) and H'(a) for a general causal exponentially decaying response, not just chain kernels. The chain specialization is first used to assert a positive transfer at r.",
+          "Sarkar–Roy report finite-chain kurtosis profiles; Knight–Kaveh–Pruessner give unfiltered wall correlations. These do not on their own assert the arbitrary signed-filter theorem."
+        ],
+        "reasoning": "Although the matching catalog Finding is a special-case application, the all-kernel identity in its proof already supplies the stronger input needed to deduce the precise frozen claim. Pointwise sign of a four-time kernel alone cannot control arbitrary signed filtering.",
+        "searches": [
+          "Record d0ea0b36a797, Nondegenerate conditional variance",
+          "Sarkar–Roy, arXiv:2307.06127, §3.2",
+          "Knight–Kaveh–Pruessner, arXiv:2507.22199, supplemental §SIII.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and records d0ea0b36a797, c69dc0d762a5",
+        "Primary-literature lookup on reset Brownian fourth cumulants",
+        "arXiv:2306.09453",
+        "arXiv:2307.06127",
+        "arXiv:2507.22199"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write G(a)=integral_0^a h and I(a)=integral_a^infty h(t)exp(−r(t−a))dt. The matching proof gives H'(a)=2D G(a)²−(4D/r)h(a)I(a) for the conditional mean H=E[V|age=a]. For the frozen analytic impulse responses set h(a)=c a^p+O(a^(p+1)), c nonzero. If I(0) is nonzero, H' has leading term −(4D/r)c I(0)a^p. If I(0)=0, the exact identity I(a)=−exp(ra) integral_0^a h(t)exp(−rt)dt gives leading term I(a)=−c a^(p+1)/(p+1); then H' has leading term (4D/r)c² a^(2p+1)/(p+1), since G² is higher order. Either way H is nonconstant and Var(V)>0.",
+          "Even the continuous-kernel lemma is obtainable from this identity: H constant would imply hI=(r/2)G²≥0 and (exp(−2ra) I²)'=−2 exp(−2ra) hI≤0. If I(0)=0 this forces I and h to vanish. Otherwise G(0)=0 and G'=(r/2)G²/I give G=0 by local uniqueness as long as I≠0; I'=rI on that solution, so it continues with nonzero I and contradicts decay."
+        ],
+        "reasoning": "The missing transfer-zero case is an elementary sign computation from the explicit age formula. Independent channels then add fourth cumulants and covariance matching is already explicit. The Mecke proof is an alternate derivation of nondegeneracy, not a distinct new mathematical conclusion in this record.",
+        "searches": [
+          "Record d0ea0b36a797, proof at offset 3000, Nondegenerate conditional variance",
+          "Record c69dc0d762a5, Finding at offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strict fourth cumulant of the single-reservoir output is equivalent to a nonconstant variance conditional on the clock. The Gaussian thermal term does not enter the cumulant.",
+          "The scalar harmonic-filter cumulant is a direct consequence of Eqs. (E.2)–(E.3) of arXiv:2306.09453, with the diffusion rescaled by r² to absorb its reservoir amplitude normalization. Nonnegative kernels in record c69dc0d762a5 are not equivalent to general signed filters."
+        ],
+        "reasoning": "The relevant strictness claim must survive arbitrary sign changes and, in particular, cancellation of the filter's Laplace transform at the reset rate. A statement about scalar monotone filtering alone cannot establish that.",
+        "searches": [
+          "Resultary: strict fourth cumulants of linear networks, Brownian resetting and covariance-matched Gaussian reservoirs",
+          "Resultary records d0ea0b36a797 and c69dc0d762a5",
+          "Guéneau–Majumdar–Schehr, arXiv:2306.09453, Appendix E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The scalar result is exactly reconstructible from published tabulated moments. The closest database records d0ea0b36a797 and c69dc0d762a5 explicitly give the covariance equivalence and strict positive output cumulants for chain and nonnegative-filter cases, respectively.",
+          "No full arbitrary signed-network statement was seen verbatim in those Findings. The general literature query returned no useful hits and is not negative evidence."
+        ],
+        "reasoning": "A same-formula table for the exact signed example would not decide coverage of the general strict theorem. The decision follows from the all-kernel age identity actually printed in the catalog proof.",
+        "searches": [
+          "Resultary: reset Brownian reservoirs, filtered fourth cumulants, finite harmonic chains",
+          "arXiv:2306.09453, Appendix E",
+          "arXiv:2307.06127, §3.2"
+        ]
+      },
+      "rationale": "The inspected chain theorem is narrower as a stated theorem, but its proof explicitly gives the conditional age-mean formula and derivative for an arbitrary signed exponentially decaying filter. The formulas themselves imply the frozen strict sign, including at transfer-function zeros, by a direct two-case argument. This is demonstrated coverage by implication in the accessible catalog, not a claim that an exact general theorem was printed earlier or that the alternate gap-splitting proof already appeared.",
+      "residual_risks": [
+        "The decisive catalog record has a later path date than the frozen record; the statement-level comparison establishes available coverage, not which argument was first or whether the records share a source.",
+        "The literature comparison is bounded and does not establish priority for the Mecke proof or the general strict-sign calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive coverage by implication despite a narrower Finding",
+          "evidence": "The proof gives H and H' for an arbitrary (not necessarily positive) exponentially decaying response before specializing to chain transfer positivity. The formula implies strictness even when that positivity argument is unavailable, as shown in the implication check.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-strict-non-gaussian-velocity-fluctuations-at-every-site-of-a-res--d0ea0b36a797/RESULT.md",
+          "material_read": "Finding at offset 0; offset 3000–6299, conditional age mean H and derivative; references at offset 9240",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Strict non-Gaussian velocity fluctuations at every site of a resetting-driven harmonic chain",
+          "trigger": "Closest same-reservoir strictness result, possible generally applicable proof"
+        },
+        {
+          "assessment": "Direct overlap on nonnegative filters and the covariance comparison",
+          "evidence": "It states fourth-order distinctions for nonnegative filters with the same pair covariances. The sign conclusion by integration does not itself address changing signs of the filters.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four-time sign fingerprints of covariance-matched resetting, Gaussian, and telegraph baths",
+          "trigger": "Filtered cumulants and full covariance matching for the same bath"
+        },
+        {
+          "assessment": "Exact scalar special case after normalization",
+          "evidence": "The second and fourth moments yield the frozen scalar formula upon identifying beta=r/kappa and setting D in the frozen convention to r² times the paper's D.",
+          "identifier_or_url": "arXiv:2306.09453",
+          "material_read": "Eqs. (33)–(38), Appendix E, Eqs. (E.2)–(E.3), printed p. 44",
+          "method": "OA PDF passage inspection",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Exact scalar stationary moments with Brownian resetting forcing"
+        },
+        {
+          "assessment": "Numerical finite-chain kurtosis profiles, not decisive general strictness coverage",
+          "evidence": "The passages report non-Gaussian velocities, the nonzero bulk kurtosis scaling and boundary profiles.",
+          "identifier_or_url": "arXiv:2307.06127",
+          "material_read": "Abstract and §3.2 (OA offsets 1348, 16001, 27085)",
+          "method": "OA passages",
+          "title": "Stationary state of harmonic chains driven by boundary resetting",
+          "trigger": "Prior harmonic-chain velocity kurtosis"
+        },
+        {
+          "assessment": "Input moment and connected-kernel evidence, not an arbitrary-filter nondegeneracy theorem",
+          "evidence": "Eq. (S77) gives the four-time input moment; Eq. (S78) gives the connected moment subtraction. The coverage decision does not rely on the printed simplification in Eq. (S79).",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.22199",
+          "material_read": "Supplement §SIII.2, PDF p. 16, Eqs. (S77)–(S79), offset 99500",
+          "method": "OA PDF passage inspection",
+          "title": "Self-propulsion symmetries determine entropy production of active particles with hidden states",
+          "trigger": "Same Brownian-reset input, prior four-time correlations"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sign theorem that distinguishes covariance-matched linear outputs despite sign changes is well motivated. But the exact strictness result is mechanically implied by the existing all-kernel conditional age-mean identity, and the matching second-order statistics follow by linearity from the known input covariance. The record provides an alternate proof rather than an additional exact invariant or structural consequence that survives the coverage check.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

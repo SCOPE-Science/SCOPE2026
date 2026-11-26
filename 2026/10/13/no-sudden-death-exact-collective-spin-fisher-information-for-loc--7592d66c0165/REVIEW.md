@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two channel-output density operators follow directly from their sitewise Kraus maps, with no hidden assumptions about off-support eigenvectors. The complete rank-deficient spectral formula includes zero-eigenvalue transitions. For phase damping, one-to-zero/two-excitation spin transitions give \(4\operatorname{tr}(\rho J_x^2)=N+2(N-1)(1-p)^2\). For amplitude damping, exactly the vacuum–one-excitation and one-to-two-excitation transitions contribute, giving \(N(1-2p)^2+2(N-1)(1-p)\). Axial symmetry and commuting \(J_z\) prove transverse optimality. Exact endpoints, inequalities, and quadratic minimum were rederived. Independent matrix construction of the channels and full spectral QFI for finite sizes corroborates this proof. Risk: channel order and generator conventions are essential.
+## correctness
 
-## Originality — PASS, with priority risks
-Özaydın, arXiv:1403.2376v1, writes a different per-qubit prediction for these very channels at \(N=3\), including sudden death; the evaluated result contradicts these statements already at \(p=1/2\). Liu et al. (arXiv:1312.6910v1; arXiv:1401.3154v1) supply the general arbitrary-rank QFI machinery, not evaluated all-size noisy-W expressions. Özaydın et al. (2015; DOI: 10.12693/APhysPolA.127.1233) compare pure and reduced three-qubit W states under these channels via plots, while Erol (arXiv:1704.07367) plots noisy three-qubit W/GHZ superpositions; these are relevant parameter-restricted antecedents, not the evaluated all-N formula. Zhao, Zhang and Yang (2018; DOI: 10.7498/aps.67.20180040) study \(W\)/GHZ superpositions of three and five qubits and independently report resistance to phase damping, so prior recognition of the qualitative phenomenon must be credited. The all-\(N\) exact formulas, direct published-formula contradiction, precise amplitude threshold and minimum have not been found in the inspected primary texts. A broader or overlooked statement may cover part or all of them; bibliographic priority is not independently established.
+PASS
 
-## Value — PASS
-The corrected formula changes a physically relevant conclusion from complete loss of rotation sensitivity to a strict quantum-enhanced advantage under every incomplete phase damping. The amplitude formula removes a spurious discontinuity, quantifies the attainable residual sensitivity, and gives an explicit shot-noise crossover. This corrects the interpretation of an established benchmark family without requiring a larger conjectural theorem. It concerns rotation encoding *after* noise only, not a universal noise robustness claim.
+The two-site mismatch in each W off-diagonal gives phase attenuation (1-p)^2; under amplitude damping each excitation survives with weight 1-p, with the lost weight going to the vacuum. For PD the transverse generator has no support-to-support entries, so the ordered-pair SLD expression reduces to 4 tr(rho J_x^2): the pure W value is 3N-2 and the uniform excitation mixture gives N. For AD the squared transverse matrix elements on the vacuum–W and W–two-excitation edges are N/4 and (N-1)/2. With their SLD weights this gives N(1-2p)^2+2(N-1)(1-p), including when either occupied weight becomes zero. Commutation with J_z and rotation about z give F(J_u)=(1-u_z^2)F(J_x). Factoring F_AD-N as 2(1-p)(N-1-2Np) verifies the threshold and equality points, and the convex quadratic has the stated interior minimizer and positive minimum. The N=3 comparisons agree with the 2014 channel and per-qubit conventions. The proof suffices for all N. The finite-grid program artifacts/verify.py was inspected, not executed; VERIFICATION.md supplies an expected output, not an independent numerical replay.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct result is the exact all-N matched-channel correction, including the collective optimum and the damping/shot-noise boundaries, not the general rank-deficient SLD identity or the first qualitative observation of robustness. No implication-equivalent claim was established by the closest comparisons.
+
+## value
+
+PASS
+
+Corrects a specific discontinuous/zero prediction under identical channel and observable conventions. The all-size formulas separate loss of metrological enhancement from disappearance of QFI, and give the exact AD optimum axis, minimum and threshold; these are usable checks for decohered collective probes rather than merely an exercise in restating the spectral formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

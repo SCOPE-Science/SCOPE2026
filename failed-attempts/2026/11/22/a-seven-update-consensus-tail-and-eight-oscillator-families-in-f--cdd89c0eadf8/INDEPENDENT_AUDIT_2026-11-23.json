@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:29:36.625734Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60, CENSUS.txt, SYMMETRY.txt, NUMPY_CHECK.json and verifier sources; no frozen scripts executed",
+        "Independent replay: python3 /workspace/branches/ebf72853-2bd6-4e8b-acb8-51f991a6ee5f/folkman_replay.py; output folkman_replay.out",
+        "Unanimous first-hit check: python3 /workspace/branches/ebf72853-2bd6-4e8b-acb8-51f991a6ee5f/folkman_unanimous_pullback.py; output folkman_unanimous_pullback.out"
+      ],
+      "rationale": "The incidence graph has 20 degree-four vertices and 40 edges. Tie retention is equivalent to majority of the four neighbors and the vertex's own bit. Independently constructing the transition on all 2^20 states, then testing the first F^(t+2)(x)=F^t(x) through t=7, reproduces all twelve nonzero first-entry/period cells and leaves no unclassified state. Testing F^(t+1)(x)=F^t(x) at entry separates fixed and primitive period-two states, yielding 4,036 fixed states, 702 period-two states (351 temporal orbits), and basin totals of 959,624 and 88,952. The time-seven row has 960 members, split 480/480 between the two unanimous equilibria. A separate pullback of the all-zero state using update masks for the two bipartition classes gives exactly 960 first hits at time six and 480 at time seven; global complementation proves identical counts for all-one. These exhaust the two late fixed-basin rows. The five doubled pairs are precisely the non-singleton identical-open-neighborhood classes. Each permutation of those pairs forces the edge-vertex permutation, and arbitrary internal twin swaps are allowed. Thus the nine natural generators give the full group of order 3840. Its orbit traversal, including a temporal phase swap only among period-two states, yields the exact 44/8 class counts and both stated size histograms.",
+      "residual_risks": [
+        "The exhaustive verification concerns the specified fixed graph, fully synchronous update, and current-opinion tie rule only. It does not imply seven-step convergence or unanimity for other regular graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general majority theorem bounds first two-periodic entry after reducing twin families. On Folkman the asymmetric graph retains all twenty vertices and forty edges, all vertices even, giving 1+min(40,20+5+35)=41. The comparator's exact same-graph finding additionally enumerates 26 individual-attractor basin sizes, including 207,670 at each unanimous attractor."
+        ],
+        "reasoning": "The general theorem handles the right rule, but its upper bound does not imply sharp time seven or any exact state counts. The broader exact same-graph comparator, not the general convergence bound, is what establishes overlap.",
+        "searches": [
+          "Kaaser–Mallmann-Trenn–Natale arXiv:1508.03519, Definitions 3, 5–6 and Theorem 1.2; OA HTML at offsets 8608, 12476, 44662",
+          "Comparator 82371cbac77e RESULT.md, offsets 4289–9236, and basin_catalog.tsv"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror 82371cbac77e with both verifier implementations and saved result passages",
+        "Kaaser–Mallmann-Trenn–Natale arXiv:1508.03519",
+        "MathWorld Folkman Graph; Folkman's DOI retrieval attempt, not full-text inspection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator's iterate verifier stores entry, period and terminal representative for each state. Counting these stored values at t=6 or t=7 gives the consensus split without a new dynamical computation or theorem. Its symmetry verifier builds each complete group orbit in active and tallies classes by period; tallying active.size() in the same loop gives the size histograms. These extra numbers are not stated in the comparator's persisted outputs.",
+          "The early end to the two-cycle basin is already a direct reading of its entries at t>=4."
+        ],
+        "reasoning": "The claimed detailed outputs differ only by elementary aggregation of exactly the partitions already computed and published with the stronger census. This review does not mistake the prior aggregate totals by themselves for proof of the extra splits; it verifies coverage at the level of the complete finite classifications and their stored counters.",
+        "searches": [
+          "Local published mirror 82371cbac77e, verify_folkman.cpp and verify_folkman_functional.cpp, relevant entry/representative and orbit traversal code",
+          "Comparator verification_iterate.txt, verification_functional.txt and basin_catalog.tsv, opening passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After the assigned record itself, the highest-scoring local hit is a different record titled Majority dynamics on the Folkman graph: a sharp seven-step clock and 26 basin sizes. Both define the subdivided double of K5 and use synchronous majority with lazy tie retention. The witness integer 64340 becomes 64030 after changing twin-bit numbering from 2i+epsilon to i+5epsilon and keeping the lexicographic edge-bit order."
+        ],
+        "reasoning": "The bit permutation conjugates the two encodings of the map. Neither a different witness integer nor counting 702 labelled two-cycle states instead of 351 temporal orbits distinguishes theorems. The entry-time tests and spatial/temporal quotient conventions also match.",
+        "searches": [
+          "Resultary: synchronous tie-retaining majority dynamics on the 20-vertex Folkman graph, exact fixed point and two-cycle census, seven-update transient bound and symmetry orbits",
+          "Comparator 82371cbac77e RESULT.md, offsets 0–4289; arXiv:1508.03519 §§1.1 Definitions 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparator's Finding gives the identical 4,036/351 recurrent counts, twelve nonzero entry/period populations, 959,624/88,952 total basins, sharp seven-step bound, and 44/8 symmetry-class totals under the same conventions. It has a distinct record ID. The public records carry the same date, which does not order them."
+        ],
+        "reasoning": "This is a same-object, same-rule, same-population table—not a title match or evidence from a nonisomorphic graph. The persisted table does not print terminal-color splits or orbit-size multiplicities; those require the mechanical readouts below. The metadata does not settle authorship or precedence.",
+        "searches": [
+          "Resultary query above; published mirror 82371cbac77e RESULT.md and verification_iterate.txt and verification_functional.txt",
+          "Comparator SOURCE.json and SOURCE.md, offset 0"
+        ]
+      },
+      "rationale": "A distinct published Resultary record on exactly this 20-vertex graph and update already gives the core sharp clock, complete entry/period table, basin totals, and 44/8 symmetry classification, as well as a larger individual-attractor basin census. The additional printed late-consensus splits and symmetry-class size histograms in this frozen record are direct readouts of that comparator's existing per-state terminal and per-orbit member computations, not an independently new classification. This is an exact coverage finding; relative same-day provenance or temporal priority is not determined.",
+      "residual_risks": [
+        "The same-day pairing might reflect common provenance or separate work. The review establishes exact public overlap, not chronological priority, authorship, or misconduct. Folkman's original full text was not obtained."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same core classification and a larger basin census; two extra printed aggregations recoverable from already computed quantities",
+          "evidence": [
+            "Same twelve cells, sharp seven, attractor counts and symmetry totals; iterate code retains entry, period and representative, functional code constructs active orbit members.",
+            "SOURCE.json records the comparator's source commit time as 2026-11-22T16:58:45Z and sync time as 2026-11-22T17:32:04Z; these recorded times neither independently verify source history nor order the two results."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-majority-dynamics-on-the-folkman-graph-a-sharp-seven-step-clock--82371cbac77e",
+          "material_read": "RESULT.md offsets 0–9236; verifier code, verification outputs, basin catalog and source metadata passages",
+          "method": "Local published mirror, statement and exact-output/source variable comparison; no supplied code executed",
+          "title": "Majority dynamics on the Folkman graph: a sharp seven-step clock and 26 basin sizes",
+          "trigger": "Distinct near-exact entry in semantic search"
+        },
+        {
+          "assessment": "Same process but non-sharp upper bound, not the population census",
+          "evidence": [
+            "Time is the first f_(t+2)=f_t, with the current color kept on ties. No family reduction removes any vertex of the Folkman graph, and the general bound here is 41."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1508.03519",
+          "material_read": "§§1.1 definitions at offset 8608; Definition 5/6 and Theorem 1.2 at offset 12476; proof at offset 44662",
+          "method": "OA HTML locate and passage reads; evaluated reduction bound for the graph",
+          "title": "On the Voting Time of the Deterministic Majority Process",
+          "trigger": "Potential broader exact implication under identical synchronous tie handling"
+        },
+        {
+          "assessment": "No full-text historical exclusion is claimed",
+          "evidence": [
+            "The secondary entry identifies the 20-vertex semisymmetric graph and cites Folkman (1967)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0021-9800(67)80069-3",
+          "material_read": "No primary passage obtained; secondary MathWorld Folkman Graph entry inspected for identification",
+          "method": "OA DOI and publisher access attempts; MathWorld public entry at offset 0",
+          "title": "Regular line-symmetric graphs",
+          "trigger": "Original source for the named graph"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The smallest semisymmetric graph and distinction between short oscillatory tails and long consensus tails are well motivated. As a standalone finding, however, almost the entire classification is already present in the exact public comparator, which also goes further on individual basin sizes. The added late terminal-color counts and group-orbit size multiplicities are mechanical tallies of that complete computation, not a surviving independent invariant requiring new analysis. Revalidating the package is useful as a check, but does not give the frozen claim independent scientific value under the review standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

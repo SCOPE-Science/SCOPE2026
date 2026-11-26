@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:40:56.708606Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a mixed word some zero borders a one, so precisely the two constant words map to all zero, and no word maps to all one. For a checkerboard the two-step local filter is a radius-two de Bruijn edge label; overlapping states on a closed walk identify exactly one cyclic indexed input, with repeated sites forced consistently even at n=2. The seven recurrent states give the four stated classes: each allowed pair of source and destination classes determines the individual destination, making every closed class-walk lift uniquely. All directed simple cycles in K contain the loop vertex: one length-one loop, two 2-cycles, two 3-cycles and one 4-cycle, giving det(I−zK)=1−z−2z²−2z³−z⁴. Its logarithmic derivative gives the numerator z+4z²+6z³+4z⁴, the recurrence and initial terms. Primitivity (irreducibility and a loop) gives one leading eigenvalue, so tr(K^m)~ρ^m. Independent replay: /workspace/branches/c73fdfd5-57cd-47d7-9e0c-e1ef6a594cbd/independent_check.py, recoded window/row/class tests, permutation determinant, traces through m=20, recurrence through m=30, direct indexed exhaustive tests to n=12 (both phases 1,5,13,29,66,155). Finite checks corroborate but do not prove the growth statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General methods evaluate labeled path and walk counts. The inspected Rule 50 results address one-step finite blocks or variable time for fixed blocks."
+        ],
+        "reasoning": "The generic method provides a radius-two operator, but does not state or evaluate the destination-determined four-class reduction or quartic for this cyclic target.",
+        "searches": [
+          "Jen 1989 de Bruijn and recurrence pp. 433–434",
+          "Fukś arXiv:1305.6533 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, rows and verification summary; independent finite replay",
+        "Resultary 61b752304895 and 8fa574301e73",
+        "Jen (1989); Fukś (2003)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-step enumerator for isolated-one blocks does not encode their intermediate configuration compatibility with F(x) under a second step on a closed ring."
+        ],
+        "reasoning": "The composed-rule labeled graph and unique lifting are substantive extra calculations that determine the exact denominator and Perron coefficient. The zero and all-one cases follow immediately from the local rule and are not the novelty basis.",
+        "searches": [
+          "Jen 1989 Rule 50 one-step fiber and de Bruijn construction",
+          "Fukś arXiv:1305.6533 fixed-block definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match is the frozen record itself. The Rule 28 Lucas fiber law is one-step and uses a different local map. Jen's Rule 50 isolated-one block method is one-step; Fukś applies an iterated map to fixed short spatial targets."
+        ],
+        "reasoning": "Fixing spatial period two while increasing the actual ring length does not count fixed blocks with free boundary, and the double update is not the one-step inverse fiber.",
+        "searches": [
+          "Resultary: Rule 50 two-step checkerboard preimages; cyclic inverse fibers",
+          "Jen 1989 pp. 427, 433–434",
+          "Fukś arXiv:1305.6533 Rule 50 appendix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only exact catalogue hit was the self-match. The primary table indexes iterations of an 8-block family rather than checkerboard period lengths. OEIS was not checked."
+        ],
+        "reasoning": "There was no independently identified table of the same object and lengths. Similar small counts alone would not identify the same recurrence.",
+        "searches": [
+          "Resultary: 61b752304895 and 8fa574301e73",
+          "Fukś arXiv:1305.6533 Rule 50 appendix"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the evaluated two-step checkerboard fiber law on growing indexed even rings, not for general preimage or de Bruijn machinery.",
+      "residual_risks": [
+        "Bounded search, no OEIS lookup. A differently encoded prior formula for the same cyclic transfer graph is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precedent for method, different count",
+          "evidence": "One-step Rule 50 formulas, finite blocks and de Bruijn counting.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+          "material_read": "pp. 427, 433–434 (offsets 14477, 26783)",
+          "method": "OA primary PDF",
+          "title": "Enumeration of Preimages in Cellular Automata",
+          "trigger": "Rule 50 exact preimage counts and graph method"
+        },
+        {
+          "assessment": "Different length/time regime",
+          "evidence": "Iterated preimages of fixed short blocks, not fixed two-step fibers on closed growing checkerboards.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6533",
+          "material_read": "PDF pp. 1–2 and 13 (offsets 2685, 6007, 39102)",
+          "method": "OA primary PDF",
+          "title": "Sequences of Preimages in Elementary Cellular Automata",
+          "trigger": "Rule 50 iterated preimage table"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Same suffix, spectrum, two steps and quartic law.",
+          "identifier_or_url": "Resultary 61b752304895",
+          "material_read": "Indexed record identifier and finding summary compared with frozen Finding",
+          "method": "Local Resultary lookup and original source read",
+          "title": "Quartic two-step predecessor law for the checkerboard in cyclic Rule 50",
+          "trigger": "Exact parameter and statement match"
+        },
+        {
+          "assessment": "Different objects",
+          "evidence": "Rule 28 one-step fibers, not Rule 50 two-step checkerboards.",
+          "identifier_or_url": "Resultary 8fa574301e73",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary lookup",
+          "title": "Sharp Lucas inverse fiber law for cyclic Rule 28",
+          "trigger": "Close methodological analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The checkerboard is the natural nonconstant spatial period-two target (and oscillates under the rule). The law answers how often exactly two updates select a given indexed phase from uniform input at increasing size; stating a generic de Bruijn method does not give that probability or the unexpectedly small quartic. No broader maximum-fiber or all-target claim is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

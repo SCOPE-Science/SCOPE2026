@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:24:14.669946Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a feasible equilibrium Bx*=A with A_i=-a_i<0. Put X=diag(x*), let P have its ones in the unique successor columns, and write BX=-DP+R with D_ii=c_i x*_(i+1)>0. Every row sum of R is D_ii-a_i, so D^(-1)R is nonnegative with maximum row sum strictly below 1, also when some chords vanish. Factor BX=(-DP)(I-P^(-1)D^(-1)R). The second determinant is positive since interpolation from I to I-P^(-1)D^(-1)R stays invertible by the row norm bound, while det(-DP)=-prod_i D_ii by the permutation sign of one n-cycle. Therefore B is invertible, giving uniqueness among strictly positive solutions, and J=-XB gives det(-J)<0. The real monic characteristic polynomial is negative at zero and positive far to the right, so it has a positive real root; for this smooth flow a positive real part yields Lyapunov instability. In the witness x*=1 the per-capita rates cancel and J1=1. There is no implication about the absence of unstable equilibria, positive periodic trajectories, or global extinction. Replay: frozen RESULT.md lines 25–50; exact finite-check code inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader theorem rules out stable coexistence for an odd number k of disjoint cycles at n>=4. Its proof uses the positive diagonal, nonpositive off-diagonal, strictly diagonally dominant matrix obtained after scaling by the equilibrium and permuting columns, and gives sign det(B)=(-1)^k."
+        ],
+        "reasoning": "The frozen theorem is k=1. With some off-cycle or reciprocal nonbeneficial coefficients set to zero, the matrix stays a Z-matrix and the row margin stays exactly -A_i>0. This is a direct consequence of the stronger proof, not a continuity inference at an unchecked singular boundary.",
+        "searches": [
+          "arXiv:2609.09286v1, odd disjoint obligate cycles, Theorem 3.4 and displayed determinant parity"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2609.09286v1 and current PDF",
+        "arXiv:2309.16261v1 and current HTML",
+        "Resultary 1a9c903c1d42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.4 proof gets det(B)<0 at k=1 before invoking stability for its final contradiction. Older Meng et al. Results call infinite obligate-cycle families conjectural, but the September 2026 source explicitly covers this odd-cycle family."
+        ],
+        "reasoning": "Invertibility of B gives at most one coexistence equilibrium; the positive diagonal scaling gives det(-J)=det(X)det(B)<0; monicity and the sign at zero give a positive real root. These are immediate implications of the earlier proof, even though it states impossibility of stable coexistence rather than highlighting the root. The uniform feasibility example follows by solving the identical row-sum condition and does not establish a separate uncovered theorem.",
+        "searches": [
+          "arXiv:2609.09286v1 p. 8 and continuation, eqs. in Theorem 3.4 proof (text characters 30306–34376)",
+          "arXiv:2309.16261 and arXiv:2309.16261v1, Methods and Results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The record's unique beneficial successor is the unique prey column i+ of the prior theorem. Meng et al.'s three-species calculation gives a_3=D x*y*z* with D<0 in the cubic characteristic polynomial."
+        ],
+        "reasoning": "With the same Lotka–Volterra sign convention Bx*=A, the cubic coefficient is det(-J), and a negative value implies a positive real zero. Sign-pattern instability alone is not sufficient; the decisive equivalence is the equilibrium-scaled determinant.",
+        "searches": [
+          "Resultary: obligate prey-predator cycles with inner competition, single-benefactor cycles and positive real eigenvalue",
+          "arXiv:2309.16261, Obligate cyclic predation",
+          "arXiv:2609.09286v1, Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue record, 2026/10/25 1a9c903c1d42, treats even collections of at least two cycles and references Theorem 3.4 on the odd case."
+        ],
+        "reasoning": "The catalogue finding itself has distinct parity and does not give the single-cycle case. The cited broader primary determinant result is the decisive coverage.",
+        "searches": [
+          "Resultary: obligate prey cycles, positive instability mode and competition",
+          "Resultary record 1a9c903c1d42, Finding and Relationship to prior work"
+        ]
+      },
+      "rationale": "Theorem 3.4 of Stable Coexistence in Ecologies and Games (arXiv:2609.09286v1, 8 September 2026) proves an odd-cycle result whose proof gives the same signed determinant calculation with k=1. Its determinant computation uses only feasibility, not stability. The displayed dominance and nonsingular M-matrix argument is unchanged for zero competitive or antagonistic entries, since negative intrinsic growth still makes dominance strict and the off-diagonal sign condition is nonpositive, not strictly negative. Uniqueness and the positive real eigenvalue follow immediately from the determinant sign. The n=3 subcase is already present in the algebra of Meng et al.; the column-scaling argument also applies without change at n=3. This is demonstrated mathematical coverage, not an inference from a title or a search miss.",
+      "residual_risks": [
+        "The earlier source states strict competition away from the beneficial entries; coverage of zero chords is proof-level rather than verbatim theorem wording. The preserved strict dominance explicitly resolves that distinction.",
+        "No priority claim among other papers is needed for the demonstrated coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior determinant proof; covers the target directly for positive chords and by the same inequality for zero chords",
+          "evidence": "The proof shows beta_i exceeds the sum of other entries, constructs a nonsingular M-matrix, and concludes sign det(B)=(-1)^k before the stability contradiction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.09286v1",
+          "material_read": "Theorem 3.4, p. 8 and proof continuation; text characters 30306–34376; compared with unversioned current PDF",
+          "method": "Direct OA PDF passage reading",
+          "title": "Stable Coexistence in Ecologies and Games",
+          "trigger": "Stronger odd-cycle theorem with the same sign pattern for one cycle"
+        },
+        {
+          "assessment": "Covers the three-species determinant reasoning; does not supersede the stronger 2026 source",
+          "evidence": "At positive equilibrium the negative D gives a negative constant term; the paper describes larger obligate-cycle families as conjectural.",
+          "identifier_or_url": "https://arxiv.org/html/2309.16261v1",
+          "material_read": "Methods, Oblig ate cyclic predation (HTML around 43300; PDF p. 8); Results on larger networks (HTML around 24353); compared with current unversioned HTML",
+          "method": "Direct OA HTML and PDF passage reading",
+          "title": "Impossible ecologies: Interaction networks and stability of coexistence in ecological communities",
+          "trigger": "Frozen source's prior three-species proof and conjecture about families"
+        },
+        {
+          "assessment": "Different cycle parity; relevant as citation locator",
+          "evidence": "The displayed instability theorem is for even k>=2; it cites the earlier odd-cycle theorem in arXiv:2609.09286.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-positive-instability-mode-for-even-collections-of-obligate-pre--1a9c903c1d42",
+          "material_read": "Finding and Relationship to prior work",
+          "method": "Local Resultary mirror",
+          "title": "A positive instability mode for even collections of obligate prey cycles",
+          "trigger": "Closest catalogue hit for positive real spectral instability"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact instability mode and its determinant criterion would be useful for ecological coexistence if new, but the existing determinant proof already supplies the full sign criterion. Replacing its M-matrix step with a dominance homotopy and restating immediate spectral and uniqueness consequences adds no distinct criterion. The uniform equilibrium witness is a direct row-sum example rather than a separate motivating result. No genuinely valuable uncovered remainder was established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:28:06.621466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The coordinate garbling sends rare output probability q=a+(1-a)ρ to (1-q)a/(1-a)=a(1-ρ); its unchanged stochastic matrix is nonnegative for all 0<a≤1/2, including the swap at equality. Tensoring gives the identity simultaneously in ρ for every input. Integrating or differentiating a finite row preserves the identity and stochastic contraction holds for complex row vectors. Multiplying the kernel by μ(x) gives a symmetric matrix even for complex combinations, so the L¹ induced norm (max weighted column absolute sum normalized at the input) equals the L∞ norm (max row absolute sum). At endpoints the derivatives extend polynomially or by the chain rule in time. The channel itself is parameter-independent and remains stochastic; it is the resampling-law interpretation that the interval in the assumptions guarantees. For equal biases, each rare-start mass depends only on the level j. The derivative of (1-q+qz)^n is (n)_k(z-1)^k(1-q+qz)^(n-k); this proves the stated signed difference and vanishing above degree n. For k=1, the total variation of consecutive binomial masses padded with zeros is twice the maximal mass, also for a tied mode, a singleton mass at q=1 or n=1. Interior Hermite convergence can be checked from the score S=k!e_k(η_1,…,η_n), where η_i=(Y_i-q)/(q(1-q)) for iid Bernoulli(q). The normalized power sums of η converge for orders 1 and 2 by the CLT and LLN and vanish above order 2, giving the fixed-order coefficient limit. Distinct k-subset products are orthogonal, yielding the required uniform second moment and absolute-moment convergence. At the boundary the complementary binomial law converges in total variation to Poisson(λ), which controls the maximal atom and its integer-mode ties. The supplied exact rational verifier was inspected without execution; it checks finite row maxima, homogeneous derivative differences and peak formulas, not general asymptotics or every complex mixture. Replay paths for the all-parameter proof and corroborative checks are RESULT.md steps 1–5 and check.py in the source package.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Oct. 25 record explicitly proves rare-vertex norming for every complex Fourier-diagonal multiplier; P_ρ has multipliers ρ^|S|, so its mixtures and derivatives are included in that broader conclusion.",
+          "Keller's earlier result gives biased noise multipliers and a hypercontractive bound, not an endpoint signed-row extremum or an exact derivative profile."
+        ],
+        "reasoning": "The broader norm theorem is mathematically covering for norm reduction, but later dated in the indexed comparison and not a demonstrated earlier higher-order profile. The classical hypercontractive inequality does not yield the required exact norms.",
+        "searches": [
+          "Resultary semantic comparison: arbitrary heterogeneous Fourier-diagonal multipliers and stochastic garbling",
+          "SCOPE-20261025-40f4b54b28c0 RESULT.md offsets 0–7835 and 7800 onward",
+          "arXiv:1001.1167v2 Proposition 1.3; O'Donnell §8.4"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261018-2d1e4412cee2",
+        "SCOPE-20261025-40f4b54b28c0",
+        "SCOPE-20261011-ec79809353f9",
+        "arXiv:1001.1167v2",
+        "O'Donnell, Analysis of Boolean Functions, specified passages",
+        "Blackwell 1953 (identification only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The noise diagonalization gives the Fourier multiplier of each derivative, not the weighted absolute binomial score or a limit of its absolute moment.",
+          "Standard Hermite generating functions identify the potential limit, but obtaining the expectation constant needs convergence of the normalized binomial score coefficients and a uniform integrability argument; neither follows from the first-chaos witness or the degree-two endpoint table alone."
+        ],
+        "reasoning": "The earlier and same-day inputs are sufficient for substantial constituent facts, not the full higher-order correlated binomial derivative theorem with sharp interior constants. The later multiplier result should be acknowledged as subsuming the norm-reduction part, not as earlier historical priority.",
+        "searches": [
+          "O'Donnell, Analysis of Boolean Functions, Definition 2.46/Proposition 2.47; §§8.4 and 11.2",
+          "arXiv:1001.1167v2 Proposition 1.3",
+          "SCOPE-20261018-2d1e4412cee2 and SCOPE-20261025-40f4b54b28c0 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first-chaos record gives complex L¹ and L∞ rare-vertex norms for all vectors of coefficients and the scalar convex order (Z-a)/a ≥cx -(Z-a)/(1-a). Its argument applies to any multilinear polynomial in the coordinate row factors since conditional on the other coordinates it is affine in the remaining factor.",
+          "The same two-point interpolation gives the unique coupling with E[U|V]=V for the rare and common factors U,V, and hence, by reversing conditional transition, the explicit stochastic channel sending the rare signed density 1+ρU to 1+ρV."
+        ],
+        "reasoning": "There is genuine mathematical overlap beyond the exact rho=0 first-chaos formula. At a fixed correlation, the homogeneous first derivative is (1-a)/(1-b) times the first-chaos projection norm at effective bias b=min(q,1-q), by comparing both to E|Bin(n,q)-nq| and reflecting the binomial if needed. Thus its Gaussian/Poisson cases are essentially the same first-chaos profiles. Higher derivatives are signed differences of order greater than one, not first-chaos norms. Same-day order is unresolved.",
+        "searches": [
+          "Resultary semantic comparison: biased Boolean Fourier multipliers, rare vertex, endpoint noise derivatives",
+          "SCOPE-20261018-2d1e4412cee2 RESULT.md offsets 700–1632 and 2750–4300"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier lattice-phase record computes the fair-cube degree-two projection norm and its asymptotics, which match the k=2, a=1/2, ρ=0 derivative after multiplication by 2.",
+          "The same-day first-chaos record gives the exact binomial maximal-mass formula and a Poisson boundary regime. Neither gives the higher-order varied-correlation derivative norm formula."
+        ],
+        "reasoning": "These are exact quantitative overlaps, not evidence that the same full derivative table exists. The identified special cases are excluded from the distinct contribution.",
+        "searches": [
+          "Resultary semantic comparison: exact degree-two projection and biased derivative norm constants",
+          "SCOPE-20261011-ec79809353f9 finding, RESULT.md offset 0",
+          "SCOPE-20261018-2d1e4412cee2 homogeneous first-chaos formula"
+        ]
+      },
+      "rationale": "Pass the full noise-family result with explicit simultaneous garbling and the exact higher-order correlated derivative profile. Do not credit the one-coordinate convex-order comparison, the first-chaos case, or the standalone homogeneous first-derivative profiles as distinct from the contemporaneous first-chaos treatment. Its lemma actually implies the row-norm domination by conditioning on the other coordinates of any multilinear multiplier, and the garbling can be reconstructed from the same two-point interpolation. The later all-multiplier norming result explicitly covers the norm reduction, but supplies no evidence that it preceded this record and does not give the higher-order finite-correlation binomial and Hermite profiles as its conclusion. Earlier retrieved sources do not cover that combined derivative result.",
+      "residual_risks": [
+        "No priority order is inferred between the October 18 records. The two-point comparison in the first-chaos record accounts for more than just the special endpoint norm.",
+        "Earlier general kernel-garbling or exact binomial-score norm results may exist; the bounded literature inspection, including the unavailable Blackwell text, cannot certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct quantitative first-chaos overlap; key lemma also implies broader row domination",
+          "evidence": [
+            "The centered common factor lies between the endpoints of the rare factor and is mean zero; secant convexity is the row comparison.",
+            "The homogeneous norm is twice n(1-a) times a binomial modal mass."
+          ],
+          "identifier_or_url": "SCOPE-20261018-2d1e4412cee2",
+          "material_read": "RESULT.md finding, offsets 700–1632; two-point lemma and row comparison, 2750–4300",
+          "method": "Read-only local mirror",
+          "title": "A universal rare-vertex principle for Bernoulli first-chaos multipliers",
+          "trigger": "Same rare vertex, endpoint norms and crossover"
+        },
+        {
+          "assessment": "Directly subsumes endpoint norm reduction but is later dated",
+          "evidence": [
+            "The class is all complex Fourier-diagonal multipliers on heterogeneous biased products."
+          ],
+          "identifier_or_url": "SCOPE-20261025-40f4b54b28c0",
+          "material_read": "RESULT.md offsets 0–7835 and 7800 onward",
+          "method": "Read-only local mirror",
+          "title": "A universal rare-vertex norming law for biased Boolean Fourier multipliers",
+          "trigger": "Possible broader exact endpoint theorem"
+        },
+        {
+          "assessment": "Earlier quantitative overlap at order two, uniform bias, zero correlation",
+          "evidence": [
+            "The operator is the homogeneous degree-two Walsh projection, not a correlated derivative."
+          ],
+          "identifier_or_url": "SCOPE-20261011-ec79809353f9",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Read-only local mirror",
+          "title": "A lattice-phase second term for second-chaos projection constants on the Boolean cube",
+          "trigger": "Exact higher-order derivative endpoint special case"
+        },
+        {
+          "assessment": "Classical spectral and hypercontractive setting, not the derivative result in inspected passages",
+          "evidence": [
+            "The multiplier δ^|S| is used in a hypercontractive inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1001.1167v2",
+          "material_read": "p. 3 Proposition 1.3, OA offset 8480",
+          "method": "Lawful OA primary text",
+          "title": "A Simple Reduction from a Biased Measure on the Discrete Cube to the Uniform Measure",
+          "trigger": "Earlier biased noise-family theorem"
+        },
+        {
+          "assessment": "Covers basic ingredients, not the combined theorem in the inspected material",
+          "evidence": [
+            "Gives the standard noise spectrum, biased product basis and Hermite generating function."
+          ],
+          "identifier_or_url": "https://www.analysisofbooleanfunctions.org/",
+          "material_read": "pp. 55–56 Def. 2.46/Prop. 2.47; §8.4 p. 221; §11.2 pp. 337–338",
+          "method": "Lawful OA book passages",
+          "title": "Analysis of Boolean Functions",
+          "trigger": "Standard product-noise, biased basis and Hermite foundations"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Access did not yield a theorem statement permitting a mathematical comparison."
+          ],
+          "identifier_or_url": "Blackwell (1953), Project Euclid",
+          "material_read": "Identification and landing page only; full text not retrieved in attempted routes",
+          "method": "Lawful OA attempts",
+          "title": "Equivalent comparisons of experiments",
+          "trigger": "Possible earlier parameter-independent experiment garbling theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sharp endpoint norms concern a natural regularity question for biased product-noise operators. Their single row formula is simultaneous in heterogeneous biases and all derivative orders, while explicit higher-order formulas and Hermite constants quantify regularity beyond one spectral level or a first derivative. The first-order crossover is useful context but not the sole reason for acceptance. No sharp intermediate-Lp or moving-window all-order theorem is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete 10-vertex Kneser graph is reconstructed directly from disjoint two-subsets, with exhaustive membership checking over every vertex subset. The included verifier constructs a full acyclic discrete Morse matching for the complex, its induced deletion, and its vertex link, checks every Hasse cover and every critical cell, and independently computes mod-two boundary ranks. One critical vertex and only nine degree-three cells, respectively four degree-three cells, respectively five degree-two cells, give the asserted integral wedge homotopy types. The standard star–deletion–link pair sequence then proves the claimed primitive inclusion and free rank-five quotient. All ten vertices are equivalent under the natural symmetric group action.
+## correctness
 
-**Originality — PASS, with limitations.** The 2026 robust-clique paper develops the complex in square-sequence/bipartite graphs, rather than Petersen. Earlier 2022 work on bounded-independence complexes focuses on general collapsibility bounds; it gives no located local Petersen classification. The earlier total three-cut computation for Petersen proves a result Alexander-dual to the ambient rank-nine homology, and that ambient rank is explicitly credited here. A prior result on a *nonmatching edge-subset complex* concerns a different ground set and therefore cannot imply the asserted vertex link/deletion maps. Targeted meaning searches for Petersen robust clique punctures, their duals and their integral link inclusions found no equivalent statement. Unindexed prior work remains a risk, and general non-specialized theorems could in principle yield the values indirectly.
+PASS
 
-**Mathematical value — PASS.** This is the first local robustness profile for the canonical nonbipartite Petersen cage in a recently developed graph complex: it determines not merely the homology rank, but exactly how many integral classes survive a single vertex erasure, and certifies the class image primitive. It gives a complete vertex-uniform local homotopy and inclusion classification, motivated directly by the distinction between robust graph complexes and their Alexander-dual total-cut analogues. A single canonical 10-vertex example is a natural structural boundary test, not an arbitrary parameter slice.
+The minimal nonfaces are precisely the pairwise-intersecting triples of distinct two-subsets (stars or triangles). I independently used this characterization to enumerate all faces, and used coface-first matching rather than the frozen coreduction program. The three full oriented Hasse DAGs have respectively 232, 159, 72 faces; 720, 471, 168 covers; 111, 77, 33 matched pairs; and critical counts {0:1,3:9}, {0:1,3:4}, {0:1,2:5}. The acyclic-matching theorem therefore gives the asserted wedges: with one vertex and just one positive cell dimension, the attaching maps are constant. The S5 action on two-subsets transports the computation to every vertex. The relative chain complex of (K,D_v) is the augmented link chain complex shifted by one, by removing v from each surviving simplex (with v oriented first). Thus the pair sequence gives exactly 0 -> Z^4 -> Z^9 -> Z^5 -> 0 over Z; the free quotient makes the image primitive and gives a noncanonical splitting. The ranks describe the image and quotient, not recovery of four distinguished basis elements. Replay: python3 /workspace/reproductions/2.py; the original script and expected output were inspected, not executed.
 
-**Sources and residual risks.** The closest source is the published Petersen total three-cut wedge computation, together with the original robust-clique paper and the defining total-cut literature. The ten-vertex scope is deliberately finite and does not imply wider vertex-stability theorems or an equivariant splitting. Independent replication and exhaustive publication-priority review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ambient rank nine is already known via the earlier exact total-cut record. The supported contribution is the complete local wedge profile and its integral inclusion consequence; neither duality applied just to the known ambient calculation nor an unrelated nine-sphere result computes the puncture. No equivalent or dominating statement for the local claim was located in the inspected evidence.
+
+## value
+
+PASS
+
+Petersen is a canonical nonbipartite test for a graph complex studied on bipartite families. Knowing the ambient nine classes does not tell what survives a vertex failure; the exact local wedge types and primitive rank-four image distinguish local loss of five free classes from possible torsion or different local topology. The classification is uniform for every vertex and useful at its finite scale, without claims about multiple punctures, particular generators, or equivariant splittings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

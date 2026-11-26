@@ -1,23 +1,21 @@
-# Review of the rigidity criterion for a unique Seshadri curve
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is conditional on three explicit incidence properties, so no unproved existence statement is hidden in its quantifiers. Bézout against the full \(2m\)-line divisor gives the sharp lower bound for every non-component curve, and \(\ell<m\) excludes equality for arrangement components. If another curve attained the bound, both intersection inequalities would be equalities: the curve would avoid all points of multiplicity greater than two, and would have multiplicity equal to its degree at the two distinct designated double points. Bézout against their common transversal then contradicts its degree. This checks all irreducible degrees and works in arbitrary characteristic. Exceptional curves on the blow-up have positive intersection with \(D\), so the null locus is exactly the strict transform of \(M\). The finite-field checker certifies every input incidence assertion used in the explicit \(\mathbb F_7\) application. The checker is not treated as a proof of the general theorem.
+PASS
 
-## Originality — PASS, with stated risk
+The m distinct ordinary doubles on M exhaust its 2m incidences with the arrangement, so M contains no further marked points and contains the designated doubles. For an integral noncomponent curve C of degree e, the sum of intersections with the arrangement is 2me, at least the sum of r_P mult_P C, which is at least twice the sum of mult_P C. The strict bound on points per arrangement line excludes those components. If C attains 1/m, every term lost in the two inequalities is zero: all intersections with arrangement lines are supported at ordinary doubles, and the local multiplicity is exactly mult_P C. On each of the two designated lines this forces mult_P C=e at its sole double. If C differs from M, Bézout on M then gives e≥2e at the two distinct points. This argument applies in arbitrary characteristic and does not assume C is smooth. Exceptional curves have intersection 1 with D; for strict transforms the same bound gives nefness and the equality test gives the sole null curve. For the example D²=64−38=26 and nefness implies bigness; the transform of M has square 1−8=−7.
 
-The directly initiating article, arXiv:2611.03797v1, §6, provides the sixteen-line arrangement and its external eight-point transversal, and identifies the numerical counterexample. The present finding instead supplies a sufficient uniqueness-of-all-degrees criterion for arbitrary even line arrangements and determines the entire null locus of a corresponding nef class. The published construction does not formulate that equality classification. The complex point-curve configuration literature (Janasz–Pokora, 2020) and Jacob's 2026 uniqueness/differentiability theory do not imply the incidence criterion or its characteristic-seven application under their statements. Targeted full-text and mathematical-record searches found no stronger covering theorem. The input example and its eight-point transversal are expressly credited to the initiating article. Residual risk: the elementary argument or the particular unique-null-curve conclusion may already occur implicitly or unindexed in prior work.
+## originality
 
-## Value — PASS
+PASS
 
-A multipoint Seshadri constant alone does not classify its computing curves or determine the null locus of the boundary nef divisor. The criterion supplies both from two local combinatorial leaves in a fully matched double-point transversal, uniformly for all even arrangements satisfying the hypotheses. The characteristic-seven example has a 38-point blow-up, with an explicitly big and nef class of square \(26\) whose only null curve is a \((-7)\)-curve. That identifies the whole zero-intersection face relevant to local positivity and possible contractions, without asserting semi-ampleness or more global properties. The finding is a structural equality-case lemma with a motivated application, not merely a re-evaluation of the known bound \(1/8\).
+Credit the arrangement, M, its line extremality and the numerical bound to existing results. Even the exact value follows by applying the existing covering criterion to the published data. The contribution surviving comparison is the uniform all-degree equality exclusion by the two distinct incidence leaves, and hence the full list of curves orthogonal to the specified nef divisor. No covering equality classification was identified in the inspected material.
 
-## Sources, comparison and limits
+## value
 
-- Dumnicki et al., *Seshadri constants of singular loci of line arrangements with at most twelve lines*, arXiv:2611.03797v1, §§1, 2, 6 and 7: supplies the concrete configuration and comparison numerical statement.
-- Janasz–Pokora, *On Seshadri constants and point-curve configurations*, Electronic Research Archive 28 (2020), 795–805: numerical and geometric context, but not the general criterion.
-- Jacob, *Seshadri functions on surfaces*, arXiv:2611.01138v1, §§1–2: contextual uniqueness results for one-point complex surface problems, not this conditional multipoint positive-characteristic case.
+PASS
 
-The theorem does not claim a complete classification of all line arrangements, nef cones, or curves of near-minimal Seshadri ratio. Generality is conditional; novelty remains subject to independent literature scrutiny.
+Which curves tie the threshold is a distinct problem from finding its value. The incidence criterion solves it for all degrees in every covered arrangement, without solving new polynomial incidence equations for possible competitors. In the motivated 38-point example it identifies the unique negative curve in the null locus of the specific big nef class, rather than simply rechecking a numerical counterexample.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

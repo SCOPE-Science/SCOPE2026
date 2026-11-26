@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:00:44.368414Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–61",
+        "Frozen VERIFICATION.md lines 19–25 and verify.py lines 18–101 (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/1edd1638-8ab4-4f90-86dd-1341e3ebf916/triple_bound_check.py (5440 directed implication triples on up to six variables; maximum 9/16)"
+      ],
+      "rationale": "For E_{a,b}, a is the target and b the source. The forced edge a→b and external restrictions X_b≤X_a give the exact single-event weight. Two events with the same target require two forced edges and have five allowed assignments out of eight at every external vertex; the remaining internal edge is free. Reversal gives the same weight for the shared source. Counting unordered pairs yields B_n with half from each type. Reciprocal events conflict; a three-vertex chain forces a transitive triangle and allows four of eight external patterns; disjoint endpoints have two independent restrictions of weight 3/4 per outside vertex. For triples, reciprocal constraints enforce equality; a triangle allows at most four of eight assignments; a star with k arcs of one orientation has 2^k+2^(3−k)≤9 of sixteen. In the three-edge path, each failed implication has weight 1/4, the disjoint pair has 1/16, and each adjacent pair has 0 or 1/8. If both adjacent intersections are nonzero, the triple fails simultaneously with weight 1/16, giving valid weight 1/2; otherwise it is smaller. The remaining disconnected patterns have weights at most 15/32 and 27/64. The independent enumeration also confirms the sharp triple bound. Conditioning on internal edges leaves independent external blocks, giving S_3≤binom(N,3)(9/16)^(n−6) for n≥6. Bonferroni gives the claimed union error after subtracting the noncluster pair mass. The bound binom(w,2)−1_{w≥2}≤2 binom(w,3) gives the two-obstruction asymptotic. At W≥3 at most 3S_3 pair mass can contribute in expectation, so each shared-coordinate type accounts for B_n/2+o(B_n) among exactly-two cases; their overlap is impossible for two distinct events.",
+      "residual_risks": [
+        "Independent exhaustive checking covers the local three-implication lemma, not all n-vertex tournaments. The asymptotics rely on independence across external vertices and the analytic factorial-moment estimates; they are not uniform over arbitrary biased orientations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The product (1−p_{i,j}) times the product over k≠i,j of (1−p_{i,k}p_{k,j}) specializes to the exact one-pair failure probability and gives A_n by summation. Linusson–Leander's results concern unrestricted reachability with four distinct vertices."
+        ],
+        "reasoning": "The first result covers the leading first-moment term exactly, but not joint failures. Unrestricted reachability is not reachability within two edges and the dominant overlaps here use only three endpoints, so the correlation result is not a covering specialization.",
+        "searches": [
+          "Manurangsi–Suksompong, Theorem 5.1 proof for independent possibly biased orientations",
+          "Linusson–Leander, general directed reachability correlations"
+        ]
+      },
+      "checked_sources": [
+        "Manurangsi–Suksompong DOI 10.1007/s10458-022-09557-7",
+        "Fey, Choosing from a Large Tournament",
+        "Linusson–Leander arXiv:1303.3961",
+        "Resultary 78f1f920385c and self-hit cd69f9872e0a",
+        "Maurer and Biswas et al. access limitations recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A_n is the sum of probabilities already supplied by the fixed-pair product. The correction instead counts two types of shared-coordinate joint events with per-outside-vertex weight 5/8 and separates them from every triple using a 9/16 bound."
+        ],
+        "reasoning": "A one-pair law or universal-kings prevalence does not mechanically determine overlaps and third factorial moments. These are the additional comparisons behind the second term and its interpretation.",
+        "searches": [
+          "Compare the proof of Theorem 5.1 (Manurangsi–Suksompong, publisher p. 20) with frozen RESULT.md lines 31–57",
+          "Compare Fey's uncovered-set conclusion and the later Resultary score refinement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "E_{a,b} holds exactly when a beats b and all out-neighbors of b are out-neighbors of a, i.e. a covers b. The 2-kings are the uncovered set; having no failed pair is the all-vertices uncovered event. Fey proves high-probability prevalence of the latter."
+        ],
+        "reasoning": "This identifies the same event under the social-choice terminology and credits existing prevalence results. Prevalence alone does not quantify the next exponential term or the rare event conditioned on multiple covers.",
+        "searches": [
+          "Random tournament kings, diameter two, covering, and overlapping reachability failures",
+          "Fey, Choosing from a Large Tournament; Manurangsi–Suksompong, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 11/8 hit is cd69f9872e0a itself. Resultary 78f1f920385c of 11/22 contains the same shared-coverer/covered intersection probability and credits the 11/8 result for second-order probability and multiplicities."
+        ],
+        "reasoning": "The self-hit is not an independent precedent. The distinct record overlaps and is evidence of reuse, not of earlier priority: it explicitly attributes the unmarked law and contributes marked score asymptotics, not an independent prior table supplying the claimed union correction.",
+        "searches": [
+          "Local Resultary search for covering-pair counts and rare exceptions to tournament universal kingship",
+          "Compare explicitly indexed first and second exponential scales"
+        ]
+      },
+      "rationale": "The supported distinct result is the second-exponential overlap correction, with its explicit smaller-base error and the conditional two-obstruction law. The one-pair probability, universal-kings prevalence, and the uncovered-set formulation are prior. A later indexed refinement expressly uses the correction and adds a different statistic. Reasonable access attempts did not yield Maurer's full text; that historical risk does not decide the review.",
+      "residual_risks": [
+        "No definitive historical priority is claimed. Maurer's detailed proof and the unavailable Biswas et al. text were not assessed; specialized or unindexed covering-relation counts could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact one-pair formula and prevalence, not the correction or cluster law in the inspected passages",
+          "evidence": "The proof multiplies an adverse direct edge probability by the outside-vertex product; fair independent orientations give (1/2)(3/4)^(n−2). The location is §5 and Theorem 5.1, not a separate §5.1 subsection.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-022-09557-7",
+          "material_read": "Publisher p. 2, uncovered-set equivalence; §5 proof of Theorem 5.1, publisher p. 20 (OA offset 67042)",
+          "method": "Lawful primary OA text passages",
+          "title": "Generalized kings and single-elimination winners in random tournaments",
+          "trigger": "Same random tournaments and fixed-pair two-step reachability"
+        },
+        {
+          "assessment": "Prior all-kings prevalence; no second-order assertion in those passages",
+          "evidence": "The uncovered set, top cycle and Banks set asymptotically equal the full alternative set with probability tending to one.",
+          "identifier_or_url": "https://www.rochester.edu/college/faculty/markfey/papers/TourneyWeb.pdf",
+          "material_read": "Author PDF p. 1, abstract; introductory prevalence statement on PDF p. 3",
+          "method": "Lawful author-hosted PDF passages",
+          "title": "Choosing from a Large Tournament",
+          "trigger": "Equivalent uncovered-set event in large random tournaments"
+        },
+        {
+          "assessment": "Different events and endpoint assumptions",
+          "evidence": "The correlation comparison uses unrestricted paths and four distinct vertices, not failed length-at-most-two paths whose endpoints can coincide.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.3961",
+          "material_read": "Primary PDF p. 1 abstract and introduction",
+          "method": "Lawful primary OA PDF passage",
+          "title": "Correlation of paths between distinct vertices in a randomly oriented graph",
+          "trigger": "Random tournament joint reachability probabilities"
+        },
+        {
+          "assessment": "Classical precedence for prevalence credited; detailed claim coverage unresolved",
+          "evidence": "The located record identifies the 1980 Mathematics Magazine article. Retrieval failures provide no evidence of absence of a second-order comparison.",
+          "identifier_or_url": "https://doi.org/10.2307/2689952",
+          "material_read": "Bibliographic/secondary attribution only; no relevant full-text passage read",
+          "method": "Attempted lawful OA at Swarthmore item and its exact repository PDF (article=1145, context=fac-math-stat), and identified JSTOR PDF; no readable passages returned",
+          "title": "The King Chicken Theorems",
+          "trigger": "Classical prior universal-kings result for the same model"
+        },
+        {
+          "assessment": "Detailed coverage unresolved",
+          "evidence": "No passage was available to support an originality conclusion from this paper.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2022.08.014",
+          "material_read": "Citation only; full text not obtained",
+          "method": "Attempted lawful DOI and repository copies",
+          "title": "Finding kings in tournaments",
+          "trigger": "Potential overlap on two-step tournament reachability"
+        },
+        {
+          "assessment": "Exact overlapping input law explicitly attributed to the frozen finding; marked refinements are different",
+          "evidence": "It gives the same shared-coverer/covered pair probability and attributes the leading and second-order correction and multiplicities to the 11/8 result.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-score-polarized-rare-exceptions-to-universal-kingship-in-fair-ra--78f1f920385c",
+          "material_read": "Mirrored RESULT.md intersection and comparison passages at offsets 3400 and 6700",
+          "method": "Local Resultary and mirrored RESULT.md",
+          "title": "Score-polarized rare exceptions to universal kingship in fair random tournaments",
+          "trigger": "Same rare-event setting and covering-pair clusters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–17 and 31–57",
+        "Prior single-pair and later marked-cluster comparisons above"
+      ],
+      "rationale": "The correction identifies the dominant dependence mechanism, not just a small improvement in the error term. It gives the leading probability of multiple failures, the exponential separation from other overlap patterns, and an exact description in the limit of how the two obstructions typically share an endpoint. The result refines a classical tournament property at a scale that the first moment cannot distinguish.",
+      "residual_risks": [
+        "The error is an envelope, not a third-order coefficient; no claim of uniformly accurate small-n truncation is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

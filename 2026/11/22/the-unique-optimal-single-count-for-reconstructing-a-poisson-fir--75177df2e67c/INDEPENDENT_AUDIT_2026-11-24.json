@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:35:57.016381Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/checks/1.py (mpmath, 65 decimal places)"
+      ],
+      "rationale": "For zero observed events memorylessness gives conditional mean x+1/lambda and variance 1/lambda^2; for k>=1 the first arrival is the minimum of k uniform times and gives mean x/(k+1). Projection in L2 is optimal even without restricting the estimator family. With z=lambda*x, the squared mean average reindexes to exp(-z)(1+2z+zF(z)), where F is the given entire series. Subtracting it from 2 gives normalized risk; differentiating yields R'=-exp(-z)g, g(0+)=1, g'(0+)=0 and g''=(1+z-exp(z))/z^2<0. A negative slope at z=1 supplies a linear negative upper bound for g thereafter. Its sole crossing proves global optimality including x=0; separately the large-z risk tends to 1. For the retained bit the law of total variance subtracts z^2/expm1(z) from 1; the gain derivative has sign of (2-z)exp(z)-2 for z>0, with exactly one positive sign change. Independent differentiation and numerical optimization of a direct posterior-variance mixture and of the bit risk reproduced both times, risks and the stated improvements.",
+      "residual_risks": [
+        "Numerical replay checks the decimals locally; analytic proof supplies uniqueness and global validity. The model does not cover unknown intensity, observation charges, multiple queries or adaptive timing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The quadrature entries optimize encodings of a count for the integrated count or optimize one count for its quadratic integral. Przybyłowicz optimizes asymptotic global jump-SDE approximation; the later joint paper focuses on randomized Euler approximation and worst-case complexity."
+        ],
+        "reasoning": "A broader observation budget, approximation framework or encoding family does not subsume the theorem when the target and risk are different. No inspected theorem yields its single-query finite-design minimum.",
+        "searches": [
+          "Resultary: optimized full-count vs binary Poisson observation design",
+          "arXiv:1701.08311, Theorem 4.2; arXiv:2108.02394, information-based approximation bounds"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and local passages for three nearest distinct records",
+        "arXiv:1701.08311",
+        "arXiv:2108.02394",
+        "DOI 10.1002/nav.22271 (retrieval attempted; full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Projection and the uniform order-statistic conditional law give the fixed-time optimum. The located SDE theorems have grid/refinement limits; the closest bit result optimizes a different response."
+        ],
+        "reasoning": "The standard conditional facts do not themselves decide the global optimizer; the new risk equation and one-crossing proof are not a parameter substitution into those prior results.",
+        "searches": [
+          "arXiv:1701.08311 Theorem 4.2; arXiv:2108.02394 error/complexity sections; local quadrature records' main statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-saturation-shifts-optimal-one-bit-quadrature-to-the-first-arriva--d3842c2a4a49 states a high-rate limit for estimating the integral of the count path, with root 2(1-exp(-c))=c."
+        ],
+        "reasoning": "The positive root is algebraically the same as the bit benchmark, but its statement is asymptotic for the integrated path, not exact for the first arrival. The full-count optimizer has a different equation.",
+        "searches": [
+          "Resultary: first arrival from one cumulative count N_x; deterministic-time posterior-mean first-arrival reconstruction; saturated presence/absence bit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record matches both 1.78566038362847... and 0.321738802011786.... The nearest distinct result with a matching number gives 1.59362426004004... for a limiting bit design, not the count pair."
+        ],
+        "reasoning": "The exact count objective and optimizer were compared, not just decimal matches; the same-day distinct record is relevant overlap in the bit root, not equivalent coverage or evidence about priority.",
+        "searches": [
+          "Resultary: exact estimator and optimized single-observation risks for first arrival",
+          "Frozen/neighboring Poisson design results, exact constants and risk types"
+        ]
+      },
+      "rationale": "The supported distinct claim is the globally optimal time and risk for a single deterministic full cumulative count when estimating the latent first arrival. Neither the standard posterior mean construction nor the binary root considered alone is claimed as new. The strongest neighboring result gives the same binary constant as a limiting design for a different target.",
+      "residual_risks": [
+        "The Hornberger paper might contain a closer result than the frozen description suggests. The targeted primary web lookup was uninformative. Priority outside the inspected sources is undetermined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matching bit constant; different target and asymptotic quantifier",
+          "evidence": "For J=integral_0^1 N(s) ds the limit of lambda times the optimal query time has root 2(1-exp(-c))=c.",
+          "identifier_or_url": "2026/11/22/SCOPE-saturation-shifts-optimal-one-bit-quadrature-to-the-first-arriva--d3842c2a4a49",
+          "material_read": "RESULT.md finding and target, offset 0",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Saturation shifts optimal one-bit quadrature to the first-arrival timescale",
+          "trigger": "Same observation bit and exact matching root"
+        },
+        {
+          "assessment": "Different target",
+          "evidence": "Optimizes bit encodings for the integrated path, with finite-rate threshold reduction and high-intensity time tending to 2/3.",
+          "identifier_or_url": "2026/11/22/SCOPE-optimal-one-bit-quadrature-of-a-poisson-counting-path-exact-thre--39109e244f65",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Optimal one-bit quadrature of a Poisson counting path",
+          "trigger": "Potentially broader one-count encoding theorem"
+        },
+        {
+          "assessment": "Different target and risk",
+          "evidence": "Unique count-time optimum with quartic design equation for integral_0^1 N(t)^2 dt.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-intensity-dependent-one-count-design-for-quadratic-poiss--eb9a587bbdf1",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "A sharp intensity-dependent one-count design for quadratic Poisson quadrature",
+          "trigger": "Closest full-count design analogue"
+        },
+        {
+          "assessment": "Different target and limit",
+          "evidence": "Asymptotically optimal sampling classes and error rates for strong global jump-SDE approximation, not latent first-arrival estimation from one count.",
+          "identifier_or_url": "https://arxiv.org/pdf/1701.08311",
+          "material_read": "Abstract, PDF p. 1; Theorem 4.2, PDF p. 20 and near offset 71300",
+          "method": "Open-access PDF passage inspection",
+          "title": "Optimal sampling design for global approximation of jump diffusion SDEs",
+          "trigger": "Potentially stronger Poisson sampling design theorem"
+        },
+        {
+          "assessment": "Different target and complexity quantity",
+          "evidence": "Pointwise randomized Euler approximation and worst-case epsilon-complexity, not the optimized risk here.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02394",
+          "material_read": "Abstract and PDF pp. 13–14 around offset 52900",
+          "method": "Open-access PDF passage inspection",
+          "title": "Efficient approximation of SDEs driven by countably dimensional Wiener process and Poisson random measure",
+          "trigger": "Possible finite-information approximation result"
+        },
+        {
+          "assessment": "Inaccessible; not counted as noncoverage",
+          "evidence": "Frozen record describes mixing/rate inference, but that distinction could not be confirmed against the article's theorem text.",
+          "identifier_or_url": "https://doi.org/10.1002/nav.22271",
+          "material_read": "Citation and model characterization in frozen RESULT.md only; article statements unread",
+          "method": "Lawful OA attempts at DOI/publisher and repository discovery",
+          "title": "Finite-Horizon Behavior of the Periodically Observed Time-Homogeneous Poisson Process",
+          "trigger": "Closest cited periodic observation literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen model and loss",
+        "Independent posterior-variance optimization",
+        "Nearest distinct saturation and single-count design statements"
+      ],
+      "rationale": "First-arrival reconstruction is a natural latent-event inference target. The unique scale-free optimal query time and risk solve the full information-budget design problem, not just the textbook fixed-time regression. The separately optimized binary comparison quantifies the benefit of retaining count magnitude instead of only detecting arrival.",
+      "residual_risks": [
+        "The practical comparison is for exact counts, known rate, untruncated time and no waiting cost."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

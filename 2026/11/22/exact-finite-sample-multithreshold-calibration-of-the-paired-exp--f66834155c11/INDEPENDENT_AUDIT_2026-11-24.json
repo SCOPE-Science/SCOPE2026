@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:08:51.273468Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–46",
+        "Frozen VERIFICATION.md and CHECK.py inspected, not executed",
+        "Independent four-mark polytope integration described above"
+      ],
+      "rationale": "For a common-rate exponential pair the sum and fraction have joint density λ²s exp(−λs) on s>0, 0<t<1; folding t gives a uniform ratio independent of the sum. Conditional on all labeled sums, the marks remain iid uniforms, and sorting the sums only permutes them. With any nonempty sum-measurable K fixed by this conditioning, adding the next uniform and truncating at jc exactly propagates the restricted partial-sum density. The zero and one CDF boundaries follow from the open uniform support. The maximum has no atoms, since each level set lies in the union of finitely many nonconstant linear level sets. The upper scan p-value is therefore uniform conditional on the sums and hence unconditionally, at every λ. The lower scan follows by reflection, not by combining two unadjusted tails. The stated covariance follows from sharing k uniform terms between prefixes k and ℓ. Independently, in the four-pair example write u=Z₁+Z₂. For u≤3/2 the feasible area in (Z₃,Z₄) is 1 up to u=1, then 1−(u−1)²/2 up to 5/4, then 2−u+7/32 up to 3/2, and zero above. Weighting by the triangular density gives 1/2+1331/6144+409/3072=5221/6144, distinct from the marginal product 19159/24576. This is a CDF value; at that observed maximum the upper p-value is 923/6144.",
+      "residual_risks": [
+        "VERIFICATION.md overstates its assertions: CHECK.py lines 47–48 computes and prints the four-pair number but does not assert it. The independent calculation establishes the number.",
+        "The entire prefix vector is pivotal. For random K the reported CDF is conditional on the sums, not an assertion that the marginal law of M_K stays rate-free under every scale-dependent choice of K.",
+        "No claim for mark-dependent selection, data-dependent pairing, averaging across pairings, or an unadjusted union of two tails."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The threshold curve provides the same population contrast; common-shape gamma sum–fraction independence is classical and only provides the mark law here.",
+          "The inspected tests and whole-sample randomization calculate fixed-threshold or matching-averaged quantities, not a rank-scanned exact familywise law."
+        ],
+        "reasoning": "A marginal characterization or asymptotic variance does not furnish the joint truncation probabilities or the conditional calibration across chosen ranks.",
+        "searches": [
+          "Asmussen–Lehtomaa threshold curve, pp. 2–3",
+          "Karagrigoriou et al. fixed-threshold statistic and randomization, pp. 4–8",
+          "Iwashita–Klar doi:10.1111/stan.12316 and Lukacs doi:10.1214/aoms/1177728540"
+        ]
+      },
+      "checked_sources": [
+        "Asmussen–Lehtomaa 2017",
+        "Karagrigoriou et al. 2023",
+        "Resultary f234830e1ae5",
+        "Iwashita–Klar and Lukacs identified; full texts not read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same ratio and its null mean are already known. The inspected comparators do not calculate a joint event for the nested, adaptively sum-selected sets, and permutation averaging does not preserve the same conditional mark-vector experiment."
+        ],
+        "reasoning": "The new scope is the use of independence of the entire marked-sum vector to implement a concrete, exact conditional scan with multiple dependent barriers. Neither marginal calibration nor an asymptotic matching-average result directly provides it.",
+        "searches": [
+          "Resultary f234830e1ae5 actual Finding, scope and limitations",
+          "Karagrigoriou et al. fixed threshold and permutation sections; Asmussen–Lehtomaa threshold curve"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exponential ratio is the same sum-conditioned contrast in the two antecedents. The frozen event is a sequence of common-slope partial-sum barriers for iid uniforms once ranked by the sums.",
+          "The closest indexed distinct record f234830e1ae5 averages at zero threshold over random matchings and studies variance and a Gaussian limit."
+        ],
+        "reasoning": "A single conditional tail mean, or averaging changes to the pairing at zero threshold, is not equivalent to the maximum of dependent nested prefix means under a fixed pairing.",
+        "searches": [
+          "Resultary: paired exponential threshold scan, fixed pairing and joint rank-prefix null calibration",
+          "Asmussen–Lehtomaa doi:10.3390/risks5010010; Karagrigoriou et al. doi:10.3390/risks11100169"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-threshold paper uses critical values for its own single-threshold or permutation scheme. The distinct Resultary hit gives exact variance and asymptotic law for a zero-threshold matching average, not a CDF of the scan.",
+          "No equivalent exact scan table was established by these comparisons; 5221/6144 is independently reproducible and not a priority test by itself."
+        ],
+        "reasoning": "Exact results for a different statistic do not tabulate the prefix-barrier law; a missing numeric table does not itself prove novelty.",
+        "searches": [
+          "Resultary: exact multithreshold paired exponential calibration and joint uniform prefix averages",
+          "Karagrigoriou et al. testing section and permutation calibration"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact dependent finite-sample null calculation for a nested scan of sum-ranked prefixes, valid conditional on a sum-only choice of ranks. The ratio, sum–fraction independence, convolution and probability-integral transform are established ingredients. The closest inspected fixed-threshold and permutation-averaged antecedents address different outputs and do not supply this selection-conditional scan calibration. This is a bounded assessment, not a historical-priority certification.",
+      "residual_risks": [
+        "An equivalent uniform-prefix barrier calculation or an earlier application of that reduction to this ratio may exist elsewhere.",
+        "Full gamma-statistic and Lukacs article access did not settle any stronger coverage; the pass is scoped to the combined fixed-pair conditional calibration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same base ratio, different null calibration and no equivalent joint scan in the decisive inspected passages",
+          "evidence": "Fixed-threshold conditional-tail ratio and exact exponential mean; random permutations average the statistic, including a 50-permutation implementation.",
+          "identifier_or_url": "https://doi.org/10.3390/risks11100169",
+          "material_read": "Full-text passages pp. 4–6 on the fixed threshold and p. 8 §3.2.1 on permutation averaging (PDF offsets 15596–38545 in bounded passages)",
+          "method": "Bounded OA primary PDF passage inspection",
+          "title": "An Exponentiality Test of Fit Based on a Tail Characterization against Heavy and Light-Tailed Alternatives",
+          "trigger": "Closest primary inferential use of the same ratio"
+        },
+        {
+          "assessment": "Covers the population contrast and its dependence on threshold, not exact finite-sample prefix-scan inference in the inspected passage",
+          "evidence": "Defines the pair ratio and its sum-conditioned tail contrast.",
+          "identifier_or_url": "https://doi.org/10.3390/risks5010010",
+          "material_read": "pp. 2–3, offsets 3703–10147",
+          "method": "Bounded OA primary PDF passage inspection",
+          "title": "Distinguishing Log-Concavity from Heavy Tails",
+          "trigger": "Original ratio and threshold-curve formulation"
+        },
+        {
+          "assessment": "Related but distinct; same day does not establish priority",
+          "evidence": "Exact variance and Gaussian limit for a whole-sample random-matching average at zero threshold, expressly excluding positive or data-dependent thresholds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-variance-and-a-gaussian-law-for-permutation-averaged-expon--f234830e1ae5/RESULT.md",
+          "material_read": "Finding, proof, scope and limitations, offsets through 9860",
+          "method": "Bounded local-mirror inspection",
+          "title": "Exact variance and a Gaussian law for permutation-averaged exponential tail-ratio statistics",
+          "trigger": "Closest distinct indexed result, with same ratio kernel"
+        },
+        {
+          "assessment": "Unresolved exact coverage; the frozen description is not an independent primary comparison",
+          "evidence": "Available title concerns gamma tail statistics and asymptotics. The publisher routes did not supply full text.",
+          "identifier_or_url": "https://doi.org/10.1111/stan.12316",
+          "material_read": "Bibliographic description; no full-text passage retrieved",
+          "method": "Lawful publisher landing and PDF routes attempted",
+          "title": "A gamma tail statistic and its asymptotics",
+          "trigger": "Plausibly overlapping gamma-based inference"
+        },
+        {
+          "assessment": "Classical independence not claimed as new; exponential special case verified directly",
+          "evidence": "No page-specific article claim is made from the unsuccessful full-text access.",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177728540",
+          "material_read": "Indexed identification/landing or abstract, not article full text",
+          "method": "Lawful Project Euclid attempts",
+          "title": "A characterization of the gamma distribution",
+          "trigger": "Canonical sum–proportion independence comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, joint CDF and scope",
+        "Independent joint-versus-marginals calculation",
+        "Primary fixed-threshold test comparison"
+      ],
+      "rationale": "Choosing a threshold after examining the scan invalidates single-threshold calibration when the same marks recur in several prefixes. This result gives an exact finite-sample answer to that multiplicity problem at unknown rate, including flexibility to choose the set of candidate ranks from all pair sums. The four-pair discrepancy makes the dependence practically relevant even at very small sample sizes. It does not claim power superiority or an efficient large-sample implementation.",
+      "residual_risks": [
+        "Power and computational scaling are open; the flexibility is limited to sum-only selection of candidate ranks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

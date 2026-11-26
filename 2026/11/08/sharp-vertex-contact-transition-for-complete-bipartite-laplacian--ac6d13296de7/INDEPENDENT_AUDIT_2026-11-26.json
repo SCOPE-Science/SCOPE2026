@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:33:39.185290Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61 (analytic recalculation of distances, certificate and examples)",
+        "Frozen VERIFICATION.md and check_circumball.py (inspected, not executed)"
+      ],
+      "rationale": "Connectedness gives ker L=span{1}, so the columns are affinely independent. The maximum squared distance is strongly convex; its unique minimizer lies in the zero-sum plane and is fixed under permutations in the two classes. For c=(a1_p,−pa1_q/q), direct column inner products give D_A=q(q+1)+pNa²/q−2Na and D_B=p(p+1)+pNa²/q+2Npa/q. Their difference is (q−p)(N+1)−2N²a/q. The upper envelope follows D_A up to the crossing a_0, and follows D_B after it. On the latter interval D_B increases; D_A has its minimum at q/p. Thus a*=min(a_0,q/p). At the crossing the common squared distance is the average squared vertex norm plus ||c||², giving the first displayed radius; at q/p, D_A=q²(p−1)/p and D_A−D_B is the stated clearance. Contact weights (1+a)/N and (1−pa/q)/N are nonnegative at the optimum and map under L to c; in the screened case the latter vanish. This also directly certifies the global optimum. The screened-test integer numerator is −2 for (3,13) and 16 for (3,14), hence the cited clearance 16/3. Literal equality in the transition condition cannot occur for the allowed integers: it would force N+1 to divide 2N², thus to divide 2. Its stated contact behavior is a correct boundary description of the scalar minimization, not an actual integer instance.",
+      "residual_risks": [
+        "The check script is finite; its SLSQP branch is restricted to N≤18 and starts near the predicted answer. The convex-contact identity, not that solver, guarantees global optimality. The metric is the full-column inherited Euclidean metric."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "841b23980b76 gives the common circumsphere of radius √(k(k+1)) for connected vertex-transitive graph Laplacian simplices. babf30c1866a gives endpoint screening for paths in the full-column Euclidean construction.",
+          "Braun–Meyer develop lattice/Ehrhart properties, not intrinsic Euclidean enclosing balls."
+        ],
+        "reasoning": "The vertex-transitive theorem does cover p=q: k=p and the centroid 0 is the optimal center by equal convex weights. It does not cover unequal degrees. A path-specific endpoint screening result is not a superfamily containing these bicliques.",
+        "searches": [
+          "Resultary 841b23980b76 and babf30c1866a",
+          "Braun–Meyer arXiv:1706.07085 introduction and Sec. 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1706.07085, 1809.02960, 1111.7246",
+        "Resultary 841b23980b76, 63fef57c7866, 7ae3b012c6d5, babf30c1866a, ac6d13296de7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular/more symmetric overlap only gives the balanced case. In unequal classes the circumsphere remains defined but need not minimize the enclosing radius. The different screening record uses −2p²+2q(q−2)p+q²(q−2) with additional generators."
+        ],
+        "reasoning": "The general contact-hull principle certifies a proposed solution but does not specify the active class or threshold for K_{p,q}. Finding whether the equidistant center lies before or beyond the smaller-class centroid, including strict clearance when the latter binds, requires the graph-specific distance calculation. Neither the width law, the symmetric radius nor the other screening polynomial implies it.",
+        "searches": [
+          "Resultary 841b23980b76, 63fef57c7866, 7ae3b012c6d5; arXiv:1706.07085 Sec. 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braun–Meyer use a deleted-column/reduced Laplacian lattice representative; the coding sequel's K_{2,2} passage concerns reflexivity. Manjunath–Sturmfels use a simplex-induced distance on the lattice.",
+          "63fef57c7866 uses the same full row/column embedding of K_{p,q}; 7ae3b012c6d5 includes the origin and mixed vertices C_{ij}."
+        ],
+        "reasoning": "L is symmetric so full rows and columns yield the same simplex, but the width/normal-cone result is a different invariant. Deletion and general lattice transformations do not preserve the given Euclidean metric. The composition polytope has different dimension and vertices and is not an alternative description of this simplex.",
+        "searches": [
+          "Braun–Meyer arXiv:1706.07085 Sec. 3.1; Meyer–Pllaha arXiv:1809.02960 p. 21; Manjunath–Sturmfels arXiv:1111.7246 abstract",
+          "Resultary 63fef57c7866 and 7ae3b012c6d5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit ac6d13296de7 is the frozen record itself. The same-object 63fef57c7866 has an exact/asymptotic normal-cone and width Focus, not a minimum-ball table. 7ae3b012c6d5 gives a different screening polynomial for a different polytope."
+        ],
+        "reasoning": "Resultary is the relevant statement index; a graph list or a table of abstract simplex types would not give this parameterized Euclidean invariant. The same-day screening result was compared by dimension, generating points, and threshold, not discarded on dating.",
+        "searches": [
+          "Resultary exact biclique Laplacian simplex and contact screening comparison: ac6d13296de7, 63fef57c7866, 841b23980b76, 7ae3b012c6d5, babf30c1866a"
+        ]
+      },
+      "rationale": "The balanced radius is prior. The same simplex was studied for other geometric invariants, and a separate composition polytope has a similar two-block transition, but the inspected statements do not cover the exact unbalanced contact criterion and clearance in this embedding. The pass credits only that distinct part of the classification, not the embedding, balanced case, or general minimum-ball principles.",
+      "residual_risks": [
+        "Bounded coverage, especially under other simplex geometry terminology. The exact-phrase web lookup produced no reliable further evidence; priority is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Lattice equivalence, not metric isometry",
+          "evidence": "Deletes a column or uses L_B=LA to obtain a reduced lattice representative.",
+          "identifier_or_url": "https://arxiv.org/pdf/1706.07085",
+          "material_read": "Introduction p. 2 and Sec. 3.1, Def. 3.3 and Prop. 3.4, pp. 5–6",
+          "method": "Lawful arXiv PDF passages",
+          "title": "Laplacian Simplices",
+          "trigger": "Potential alternative embedding or prior invariant for the same graph simplex"
+        },
+        {
+          "assessment": "Coding/reflexivity use of the graph, not a sphere result",
+          "evidence": "Balanced example appears in discussion of reflexivity.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.02960",
+          "material_read": "p. 21, K_{2,2} passage",
+          "method": "Lawful arXiv PDF passage",
+          "title": "Laplacian Simplices II: A Coding Theoretic Approach",
+          "trigger": "Same terminology and an explicit complete-bipartite example"
+        },
+        {
+          "assessment": "Different object and distance",
+          "evidence": "Uses a regular-simplex-induced distance for lattice packing, covering and Delaunay questions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7246",
+          "material_read": "Abstract p. 1, offset 2475",
+          "method": "Exact-title lawful arXiv PDF passage",
+          "title": "The Laplacian lattice of a graph under a simplicial distance function",
+          "trigger": "Possible alternative metric/covering terminology"
+        },
+        {
+          "assessment": "Balanced case covered, unbalanced case outside hypotheses",
+          "evidence": "Common sphere of radius √(k(k+1)) for degree-k vertex-transitive graph.",
+          "identifier_or_url": "Resultary 841b23980b76",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Vertex-transitive Laplacian simplices have spectral inradii and degree-controlled circumradii",
+          "trigger": "Prior Euclidean radius for this family when balanced"
+        },
+        {
+          "assessment": "Different geometric invariant",
+          "evidence": "Predicts width/exposed-color asymptotics and normal-cone behavior in the canonical embedding.",
+          "identifier_or_url": "Resultary 63fef57c7866",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "A logarithmic normal-cone crossover in near-regular Laplacian simplices",
+          "trigger": "Same biclique and inherited Euclidean metric"
+        },
+        {
+          "assessment": "Real analogue, not the same vertex set or transition",
+          "evidence": "Full-dimensional polytope generated by 0, A_i, B_j and C_{ij}, with a different screening polynomial.",
+          "identifier_or_url": "Resultary 7ae3b012c6d5",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–6086",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Euclidean contact screening in two-part composition polytopes",
+          "trigger": "Same-day two-block minimum-enclosing-ball transition"
+        },
+        {
+          "assessment": "Path-specific, not biclique coverage",
+          "evidence": "Endpoints become screened for paths with n≥5.",
+          "identifier_or_url": "Resultary babf30c1866a",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Quartic contact weights and endpoint screening in path Laplacian simplices",
+          "trigger": "Same invariant and embedding for another graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–28 and 39–61; same-object comparisons in originality"
+      ],
+      "rationale": "This is a natural exact Euclidean invariant of a standard family, with a complete classification of which vertices determine the minimal ball. The distinction between an equidistant circumsphere and an optimal ball has a concrete witness at adjacent parameters K_{3,13} and K_{3,14}; the formula also quantifies clearance throughout the latter phase. This is useful information beyond the balanced radius and beyond a numerical convex-hull test.",
+      "residual_risks": [
+        "No inferred result for weighted or general bipartite Laplacians, or for a changed coordinate metric."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: circular reciprocal nearest-neighbor power weights
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge5\) and real \(\alpha>0\), the proof identifies each reciprocal pair with one cyclic local-minimum gap. The Dirichlet–gamma factorization correctly converts exponential weighted moments into normalized circular moments. The distance-two mixed moment is integrated over two half-planes explicitly; nearest-neighbor indices beyond distance two use disjoint exponential coordinates. Summing the five offsets gives exact cancellation of the diagonal and immediate-neighbor terms. The positivity and fixed-power asymptotics follow by elementary inequalities and gamma ratios. Exact independent rank-order enumeration verified 69 rational assertions for \(n=5,6,7,8\) and integer powers zero through three. The finite checks are corroboration, not infinite proofs.
+## correctness
 
-## Originality — PASS, qualified
-The full Penrose–Wade (2006) treatment concerns total directed lengths, and Bahadır–Ceyhan (2016) concerns unweighted reflexive-pair counts. Two close published technical results were examined in full: circular count versus total directed length (negative covariance at exponent one), and interval count versus reciprocal-pair ordinary length (positive covariance and asymptotics). They do not state or directly imply the exact circular reciprocal-only formula for every positive real power or its power-dependent scaling. The earlier interval result contains relevant interior local-integral computations, so the present calculation is an extension using related methods, not a claim to have invented those local moments. Residual risk: a more general old weighted-nearest-neighbor theorem may cover the formula; lack of search hits is not proof of absolute priority.
+PASS
 
-## Value — PASS
-Power-weighted edge length is a natural geometric-network cost family, not an arbitrary parameter substitution: changing \(\alpha\) emphasizes short versus long reciprocal edges. The theorem calibrates the covariance of component count with this cost at every sample size, reveals a strict positive sign across the full family, identifies the unique power with order-one covariance, and sharply contrasts reciprocal-edge weighting with the negative count–total-directed-length coupling on the same model. It offers a reusable finite-sample benchmark that cannot be recovered from the marginal count law or whole-directed-length moments alone. The power-one interval analogue is acknowledged; value lies in the circular all-power law and its complete sign/scale classification.
+Anchor the cyclic ordering at a labeled sample point so that rotating to that point gives Dirichlet(1,...,1) gaps. The minimum of the two incident arc gaps equals a point's nearest-neighbor distance; a local-minimum gap is necessarily shorter than a semicircle. Thus the mutual pairs are exactly the strict cyclic gap minima. With independent Exp(1) gaps before normalization, the Gamma total is independent of the normalized vector and both gap ranks and mutual-pair labels survive normalization. Consequently the raw mixed covariance divides by E[S^alpha], not by (E[S])^alpha. Put m=Gamma(alpha+1)/3^(alpha+1). Per index, the diagonal 2m/3 cancels the two adjacent terms -m/3. At offset two there are exactly five distinct gaps even for n=5. Integrating the first marked gap out of exp(-2x-2y-max(x,y)) gives (1/2)exp(-3y)-(1/6)exp(-5y); multiplication by y^alpha and subtraction of m/3 gives Gamma(alpha+1)(3^(-alpha-1)-5^(-alpha-1))/6. Both offsets contribute, and larger offsets use disjoint exponential variables. This proves the mean and covariance, including the alpha=0 extension, the alpha=1 constants and the scale change via the gamma ratio. The supplied rational rank-order code was inspected, not executed; its finite integer-power cases are not the all-real proof.
 
-## Closest sources and limitations
-Penrose–Wade, arXiv:math/0603561v1 (2006-03-23); Bahadır–Ceyhan, arXiv:1605.01940v1 (2016-05-06); published circular directed-length result (2026-10-27); published interval reciprocal-length result (2026-11-08). Scope is the intrinsic unit-circle uniform model, \(n\ge5\), \(\alpha>0\). The formula is not a claim for three or four points, other geometries or densities. Some older literature may provide stronger general results; no priority guarantee or external validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite-n circular covariance for the mutually marked power sum differs materially from the inspected directed, unweighted, and interval results. Credit the interval power-one constant and the shared distance-two computation rather than treating either as new. The bounded comparisons do not establish historical priority.
+
+## value
+
+PASS
+
+Mutual edges are a natural subgraph and powers are a standard one-parameter family of length costs. The exact covariance shows how using that subgraph reverses the sign of the ordinary-length directed result and identifies precisely which length cost has order-one count coupling as sample size changes. The power-one limiting constant alone would not add the same value; the finite-sample result for every positive power makes a useful benchmark for marked geometric-graph moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

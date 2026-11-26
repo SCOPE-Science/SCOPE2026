@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:54:18.890021Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–73, VERIFICATION.md and check.py (read as evidence)",
+        "python3 /workspace/review-evidence/recompute.py 2; output /workspace/review-evidence/2.txt"
+      ],
+      "rationale": "The Gram matrix has diagonal 4 and conjugate off-diagonal entries of magnitude |z_S|<4, so determinant, smallest eigenvalue, inverse trace and squared sampler condition number have strict monotonic dependence on |z_S| in the required direction. For four unit roots summing to zero, both odd coefficients of the monic polynomial vanish by conjugacy; evenness forces two antipodal pairs. On an odd grid, the two opposite-side pairings of a cyclically ordered quadrilateral cannot both have equal opposite chord lengths (that would yield an inscribed parallelogram and hence antipodes). For an unequal pairing, the reverse triangle inequality and the strictly increasing consecutive drops in 2 cos(pi d/N) give the first drop as lower bound. Equality forces distances 1,2 and opposite pair-sum phases, which gives exactly b=a+(N-1)/2 for the distance-two pair's start. This construction is distinct-site even for N=5; an odd cyclic group has no nontrivial translation stabilizer of a four-set. The stated asymptotics and covariance ratio follow by expansion and the fixed trace. Separate 45-digit computations of squared magnitudes using the six pairwise cosine contributions on 230300 anchored four-sets for N=4..50 recover the optimizer families after translations.",
+      "residual_risks": [
+        "Numerical enumeration is corroboration only, and does not certify exact ties or the all-orders proof. The variance interpretation assumes the stated observation covariance and the normalization in the record."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8941e9dc35a8 extends the exact formula and equality families to all primitive frequencies, with multiplication by k permuting residues.",
+          "Barber's Section 2 studies the smallest nonzero sum with repeated roots allowed; his odd extremizer repeats one node and has a different gap. Dozzi et al. optimize a sampling density in continuous-time identification."
+        ],
+        "reasoning": "The broader primitive-frequency result contains the target k=1 verbatim as a modulus problem. Relaxing the distinct-site or nonzero constraint in a different optimization instead changes the answer.",
+        "searches": [
+          "Resultary 8941e9dc35a8 primitive-frequency statement",
+          "Barber arXiv:2104.15057 §2 Proposition 3(c); Dozzi–Oomen–González arXiv:2605.13120 §4"
+        ]
+      },
+      "checked_sources": [
+        "8941e9dc35a8 Finding and assumptions; Barber §2; Dozzi et al. abstract and §4; Munemasa–Núñez Ponasso abstract",
+        "Indexed exact Fourier comparisons bb69c4d14769, 8f6d57abce9f, 1200745c9cae (Findings)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the two fixed columns, the eigenvalues are exactly 4±|z_S|, so knowing the exact sharp modulus determines all four stated optima. The indexed modulus expansion is already 3 pi^2/N^2+O(N^-4)."
+        ],
+        "reasoning": "Substitution, squaring, and taking an inverse trace at fixed trace 8 give the additional corollaries without a new extremal problem. The exact equality sets transfer unchanged.",
+        "searches": [
+          "8941e9dc35a8 RESULT.md Finding and hypotheses; frozen RESULT.md Proof §1 and §5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparator minimizes |sum zeta_N^a| on unweighted four-element subsets. Its odd set {0,1,m+1,m+3} with m=(N-3)/2 is exactly the frozen base set; the even optimizers are precisely two antipodal pairs, as in the frozen record."
+        ],
+        "reasoning": "The off-diagonal entry of the Gram matrix of columns 0,1 is this root sum. Choice of Fourier sign gives a conjugate and does not affect its modulus. The two optimization problems are exactly equivalent.",
+        "searches": [
+          "Resultary: four distinct cyclic grid sites, first Fourier harmonic cancellation, root-sum parity and sharp odd equality family",
+          "Resultary 8941e9dc35a8 RESULT.md Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8941e9dc35a8 is an exact symbolic all-order classification, including the N translates for odd N and the full family for even N.",
+          "The four-point Wiener record minimizes a sum over all nonzero frequencies through order 128, not one Fourier coefficient. The indexed 4-by-4 determinant and 3-by-3 Riesz results have different matrix sizes and constraints."
+        ],
+        "reasoning": "The relevant exact data are the all-order formula and equality rule, not a finite matching table or other Fourier design optimization. The even count is just choosing two out of N/2 pairs.",
+        "searches": [
+          "Resultary 8941e9dc35a8, bb69c4d14769, 8f6d57abce9f, and 1200745c9cae"
+        ]
+      },
+      "rationale": "A distinct indexed record, Parity and the sharp primitive-Fourier cancellation gap for four-point cyclic masks, states the identical extremal modulus and the complete even and odd equality families for every N>=4. It also covers all primitive frequencies. The frozen record's four optimal matrix criteria, parity, asymptotics and variance inflation follow by substitution in the equal-diagonal two-column Gram matrix. Same-day dating is not used to infer an order of priority.",
+      "residual_risks": [
+        "The distinct records on 2026-11-22 have unresolved priority order. The failure is based on equivalent coverage, not timing.",
+        "The bounded primary-literature lookup did not resolve historical priority outside the inspected records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap, with broader primitive-frequency coverage",
+          "evidence": [
+            "Delta_4(N)=0 for even N and 2(cos(pi/N)-cos(2pi/N)) for odd N, with precisely the antipodal and translated families claimed in the frozen design."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-parity-and-the-sharp-primitive-fourier-cancellation-gap-for-four--8941e9dc35a8/RESULT.md",
+          "material_read": "Finding, Assumptions and opening proof, offset 0",
+          "method": "Local mirror original text",
+          "title": "Parity and the sharp primitive-Fourier cancellation gap for four-point cyclic masks",
+          "trigger": "Distinct indexed record with identical object, minimum and equality family"
+        },
+        {
+          "assessment": "Different minimum because of repetitions and nonzero constraint",
+          "evidence": [
+            "Odd optimum for sufficiently large order is 4 sin^2(pi/(2N)); the displayed sum e(0/N)+2e(a/N)+e(2a/N) repeats a root."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.15057",
+          "material_read": "§2, Prop. 3(c) and proof, pp. 4–5, offsets 11278 and 12625",
+          "method": "Open-access original PDF text",
+          "title": "Small sums of five roots of unity",
+          "trigger": "Related four-root minimum and pairing method"
+        },
+        {
+          "assessment": "Optimization over a sampling density, not this four-site extremum",
+          "evidence": [
+            "§4 optimizes a sampling distribution p_T(t) in the continuous-time identification setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.13120",
+          "material_read": "Abstract and §4 D-optimality passage, offset 29013",
+          "method": "Open-access original PDF text",
+          "title": "D-Optimized Sampling Design for System Identification",
+          "trigger": "Fourier D-optimality context"
+        },
+        {
+          "assessment": "Fixed order five with varying number of summands and repetition",
+          "evidence": [
+            "The number of fifth roots can vary and roots can be repeated."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.00825",
+          "material_read": "Abstract, p. 1 offset 0",
+          "method": "Open-access original PDF text",
+          "title": "The Minimal Absolute Value of Sums of Fifth Roots of Unity",
+          "trigger": "Related quantities under another root-order constraint"
+        },
+        {
+          "assessment": "Sum over nonzero harmonics, finite order range, different optimizer families",
+          "evidence": [
+            "For odd orders the reported optimizer family comprises affine four-term progressions for the Wiener objective."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-certified-four-point-cyclic-wiener-minimizers-through-modulus-12--8f6d57abce9f",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror original text",
+          "title": "Certified four-point cyclic Wiener minimizers through modulus 128",
+          "trigger": "Same four-site sets but apparently different Fourier objective"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Gram reduction; 8941e9dc35a8 all-order formula and equality families"
+      ],
+      "rationale": "The sharp four-site cancellation gap and optimizing masks are well-motivated invariants, but they are already available. The remaining design expressions are fixed-trace 2-by-2 matrix identities at the known optimizer, so no substantive independent result survives narrowing.",
+      "residual_risks": [
+        "This judgment does not apply to different frequency bands, weights, or sample counts, none of which is an independent theorem in the record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

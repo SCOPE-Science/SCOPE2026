@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source model's neutral drift is \((q-x^2)/(2(x+m))\), and its first two weak moment derivatives are exactly \(\dot m=vG/2\) and \(\dot q=-mvG\), with \(G=\int(x+m)^{-1}d\mu>0\). These imply the quadratic first integral \(q+m^2\). Since initial mean is positive, \(m\ge m_0\), \(G\ge1/2\), and \(v(t)\le v_0e^{-m_0t}\), establishing convergence, the exact selector, and sharp equality cases without numerical assumptions. The all-zero point mass is treated separately. Exact-rational checks and eight numerical trajectories are supplementary.
+PASS
 
-## Originality — PASS (bounded literature comparison)
+For positive initial mean, the velocity is locally Lipschitz in the characteristic position and the two moments on m≥m₀/2; q∈[0,1] gives inward boundary velocities. Local characteristic iteration gives the probability evolution, and monotonicity of m extends it globally. Independently, differentiating q+m² gives the single integral ∫2(x+m)V dμ=∫(q−x²)dμ=0. Writing V=v/[2(x+m)]−(x−m)/2 gives m′=vG/2 and v′=−2mvG, so m≥m₀ and G≥1/2, giving variance decay and convergence to the stated Dirac mass in W₂. Jensen and x²≤x give the exact extremizers at each interior mean. The all-zero initial law is separately stationary by convention, and the empirical law proof uses the full-sum degree normalization, not leave-one-out or stochastic fixation. The independent unequal-mass example in python3 /workspace/independent_checks.py (section 2) verifies the neutral moment identities with L²=102497/264600; the characteristic/moment argument establishes the universal claims.
 
-The closely related Russell–Nugent–Bara manuscript was inspected in the model, general convergence, two-cluster theorem, and Appendix B proof sections. Its two-cluster potential equals the restriction of this result's quadratic invariant, so the binary case is credited as known. The general probability-law selector and sharp fixed-mean extremal classification are not given there; a two-class restriction alone does not imply these all-distribution statements. Comparison with the full texts of Hendrickx–Olshevsky on symmetric continuum interactions and Brede on bounded-confidence adaptive rewiring found different dynamical hypotheses and no covering selector. Related publicly indexed mathematical results on noisy utility-weighted learning and cubic consensus have distinct update rules. A broadly formulated older conservation theorem could still subsume this result, and publication-priority claims require independent review.
+## originality
 
-## Value — PASS
+PASS
 
-The original source establishes convergence of an infinite-dimensional nonlinear population distribution but does not identify where an arbitrary distribution converges. The new selector solves that motivated missing observable for every admissible initial law, identifies variance as the sole initial-distribution correction to mean cooperation, and proves the sharp polarization optimum with rigidity for a fixed starting mean. This is a structural classification over an unrestricted class of initial distributions, not a recomputation of a numerical table.
+Bounded pass for the arbitrary-law first integral, exact selector and fixed-mean rigidity, not for general convergence, the transport model, or the endpoint mixture value. The primary equation implies the new conservation law via a short extra model-specific cancellation, and the primary convergence theorem can then replace the convergence part of the proof. No inspected prior theorem supplies the arbitrary-law conservation or selector as a restriction; the primary two-atom invariant alone does not establish conservation for other laws.
 
-## Scope and risks
+## value
 
-The result concerns deterministic fast-network, selection-free, noise-free dynamics with the precise source normalization. It does not settle nonzero selection, noisy dynamics, slower network adaptation, or stochastic agent fixation. The strongest historical overlap is the source's two-atom invariant; whether an older general theorem of nonlinear consensus contains the full-law first integral remains a genuine literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant computes the previously unspecified limiting cooperation for arbitrary laws, including continuously supported ones, and shows exactly which heterogeneous laws can maximize or minimize it at fixed mean. This is an exact observable and structural equivalence of moment-matched initial distributions, not another numerical trajectory or a restatement of convergence. It is limited to the stipulated deterministic neutral model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

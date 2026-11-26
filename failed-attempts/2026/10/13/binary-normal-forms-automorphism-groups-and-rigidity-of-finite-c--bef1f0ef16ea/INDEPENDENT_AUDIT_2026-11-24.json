@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:05:41.424093Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Bochvar representation identifies the canonical fibers with intervals below strictly descending supports S_i of the first finite Boolean algebra P([k]). In these coordinates the transition maps are restrictions: each p_0j kills the complement of S_j and is the stated interval isomorphism on S_j, and compatibility and surjectivity determine the later transition maps. The quotient intervals have sizes 2^{|S_i|}, and disjointness gives a binary expansion with no repeated powers. Nested initial segments with the indicated lengths satisfy the converse representation, including the trivial first fiber for N=1 and a terminal zero support when the final exponent is zero. Equal-length flags are conjugate by an atom permutation matching successive differences. A finite chain has no nontrivial order automorphism; every algebra automorphism fixes each support and is determined by its first-fiber permutation, since J₂ is injective on each fiber. The equivariant restriction maps and external operations give the converse. The stabilizer is the independent product of the layer permutation groups. Its factors are trivial exactly when the exponents are consecutive ending in 0 or 1, which gives the two stated sets of rigid sizes. The generating functions follow by choosing the lower bits freely. The bundled verify.py was inspected, not executed; it is a bounded flag, stabilizer and axiom check rather than a proof for all finite ranks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The categorical theorem includes arbitrary Bochvar algebras and their morphisms. The involutive-bisemilattice census allows arbitrary Boolean transition homomorphisms, unlike the Bochvar interval condition. The two-stage Resultary correction gives a partition invariant and demonstrates a failure of a rank-only count there."
+        ],
+        "reasoning": "The Bochvar equivalence is the stronger theorem relevant to coverage. The broader reduct census has different morphisms and permits noninjective Stone-dual transition functions, so it cannot by itself justify these counts; its published two-fiber counts should not be relied upon in the affected cases.",
+        "searches": [
+          "Bonzio–Paoli–Pra Baldi, arXiv:2412.14911, categorical equivalence and construction of A_i",
+          "Bonzio–Pra Baldi–Valota, arXiv:2107.10540, §4, Theorems 23–25",
+          "Resultary b85b5c95d139"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2305.05457",
+        "arXiv:2412.14911",
+        "arXiv:2107.10540",
+        "Resultary b85b5c95d139"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cases of the prior equivalence with a linearly ordered designated family are Boolean pairs (P([k]), {S_0⊃⋯⊃S_{r−1}}); a pair isomorphism is a Boolean isomorphism carrying the designated family onto the designated family."
+        ],
+        "reasoning": "The family is ordered, so an isomorphism must match supports in order. Sizes of the layers give all flag orbits by matching disjoint sets, and the automorphisms are independent permutations of those layers. The quoti­ent associated to S_i has precisely 2^{|S_i|} elements, so reading off the total size and inverting by binary digits gives one flag orbit per positive cardinality. Triviality of the known stabilizer exactly means gaps of at most one; the formal generating functions record the same binary choices. These are direct evaluations of the existing classification, not a new condition on its objects.",
+        "searches": [
+          "arXiv:2412.14911, Definition 8, quotient system construction, and Theorem 16; compare frozen Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first article gives the interval-support form with distinct endpoints and the converse. The second gives the equivalence with a Boolean algebra and a meet-subsemilattice containing the unit, and explicitly builds the fiber at i as the quotient by the principal filter [i)."
+        ],
+        "reasoning": "For finite Boolean algebras, writing a principal filter quotient as the subsets of its generator's support changes presentation, not the data. A chain of supports in a Boolean algebra is exactly an ordinary subset flag; the index order is its dual.",
+        "searches": [
+          "Bonzio–Pra Baldi, arXiv:2305.05457, Proposition 16 and Theorems 19 and 21 (preprint numbering)",
+          "Bonzio–Paoli–Pra Baldi, arXiv:2412.14911, Definition 8 and Theorem 16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed correction treats exactly two nontrivial Boolean fibers with an arbitrary transition, classifies by the sizes of preimages under the Stone-dual map and gives an automorphism-order formula."
+        ],
+        "reasoning": "In the two-fiber Bochvar case the dual map is injective, so its occupied preimages all have size one. Its group order is then (e_0−e_1)!e_1!, agreeing with the frozen result in that scope. The correction neither contradicts nor enumerates the arbitrary-length Bochvar census. No need for a tabulated list to decide the exact census: the prior general Bochvar classification determines it by binary expansion.",
+        "searches": [
+          "Resultary lookup for chain-indexed Bochvar classifications, fiber-partition invariants and automorphism counts; mirrored RESULT.md b85b5c95d139"
+        ]
+      },
+      "rationale": "The binary formulas are correct but mechanically implied by the prior categorical classification of Bochvar algebras by Boolean algebras with a designated meet-subsemilattice. On the chain subclass that theorem already classifies the objects and isomorphisms as Boolean flags and flag-preserving atom permutations, with explicitly given quotient fibers. Taking the sizes of those quotients and the symmetric groups of the disjoint layers yields the exact formulas. No new restriction on the flags or their symmetries is needed. This does not assert that the earlier authors printed the formulas verbatim.",
+      "residual_risks": [
+        "The inspected statements of the representation theorems do not print the exact binary rigidity spectrum. The decision relies on an explicit implication from the earlier equivalence, not on a finding of a verbatim earlier census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the necessary and sufficient interval representation and uniqueness",
+          "evidence": [
+            "Fibers are identified with intervals below the J₂(1_i); surjective transitions and strict support nesting apply along a chain, and the converse reconstructs Bochvar operations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.05457",
+          "material_read": "Preprint pp. 11–14, Proposition 16, Theorems 19 and 21 (journal numbering differs)",
+          "method": "Lawful primary PDF, bounded passages",
+          "title": "On the Structure of Bochvar Algebras",
+          "trigger": "Exact support and transition assumptions needed for the frozen proof"
+        },
+        {
+          "assessment": "Directly forces the flag classification, including isomorphisms, after restriction to the chain subclass",
+          "evidence": [
+            "A system is a Boolean algebra with a meet-subsemilattice containing the unit; the Boolean fiber at i is B/[i). Theorem 16 establishes the categorical equivalence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.14911",
+          "material_read": "Definition 8 and quotient construction, pp. 8–9; Theorem 16, pp. 14–15",
+          "method": "Lawful primary PDF, bounded passages",
+          "title": "Bochvar algebras: A categorical equivalence and the generated variety",
+          "trigger": "Potential stronger theorem classifying both objects and automorphisms"
+        },
+        {
+          "assessment": "Different signature and broader transition data; affected rank-only formula is not used",
+          "evidence": [
+            "These involutive bisemilattices may have transition maps not given by restricting to nested supports."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.10540",
+          "material_read": "§4, two-fiber factor and Theorems 23–25, pp. 14–15 for the latter",
+          "method": "Lawful primary PDF, bounded passages",
+          "title": "Counting Finite Linearly Ordered Involutive Bisemilattices",
+          "trigger": "Prior count with similar chain-index objects"
+        },
+        {
+          "assessment": "Covers a different two-fiber census but overlaps on its injection case",
+          "evidence": [
+            "For two nontrivial Boolean fibers and an arbitrary transition, positive dual-map fiber sizes form a complete invariant; the all-singleton partition gives the same group order in the injection case."
+          ],
+          "identifier_or_url": "Resultary b85b5c95d139",
+          "material_read": "Mirrored RESULT.md Finding, partition classification and automorphism-order formula",
+          "method": "Configured local mirror, bounded passage",
+          "title": "Fiber-partition classification corrects the two-stage involutive-bisemilattice census",
+          "trigger": "Closest indexed comparison on finite fibers, exact counts and group orders"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As a mathematical description, this is a complete, usable normal form for a natural finite subclass. It constructs a representative, gives its full symmetry group, and recognizes rigidity directly from size. The scientific utility is in that classification, not in the routine generating functions or in any claim of novelty.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every cycle gradient is a zero-sum edge vector. The symmetric edge generator and its exact Dirichlet form follow by subtraction. The weighted zero-sum \(\ell^1\) unit ball has two-coordinate extreme directions, and their right derivatives yield the exact semigroup logarithmic norm. Far-separated pairs induce the complementary-square-cycle graph; its regularity, connectedness and odd cycle force all weight Laplacians to vanish from a zero-sum argument. The six-cycle construction uses surjectivity of the symmetric connected generator onto zero-sum vectors. The checker tests these finite identities with rational arithmetic, but no numerical experiment substitutes for the all-dimensional proof.
+## correctness
 
-**Originality — PASS, subject to stated risk.** The Dobrushin/Doeblin extreme-pair formula and a weighted Dobrushin coefficient are established in Gaubert–Qu and Mao–Zhang–Zhang, and are explicitly attributed. The surviving claim is instead the sharp **seven-edge cyclic rigidity** for arbitrary vertex masses, including positive-time step-function witnesses and the complete small-cycle weight design. The examined primary texts concern general weighted contraction coefficients and graph heat gradient estimates, without the cyclic far-pair graph argument or threshold; previously accessible tree-specific weighted variation results apply to a gradient space without the cycle's zero-sum constraint. Searches of publicly available mathematical records returned no statement implying the threshold. Search incompleteness and possible unindexed rediscovery remain genuine risks.
+PASS
 
-**Value — PASS.** Exact preservation of total variation is a natural stability requirement for discrete diffusion. The theorem proves a qualitative change at a specific minimal cycle size, rather than only a small numerical bound: arbitrarily small changes to a long cycle's variation weights destroy every-time contraction, whereas nonuniform weights remain possible on each shorter cycle. The conclusion survives arbitrary positive vertex masses, and the sharp derivative test provides checkable witnesses and design constraints.
+Subtracting the vertex equations gives the stated symmetric edge generator, acting on precisely the zero-sum gradients. Transport of positive gradient entries to negative ones decomposes each gradient into signed two-coordinate dipoles with additive weighted norm. Thus it is exact to maximize over these dipoles, each realized by an arc indicator. One-sided expansion gives F_ij and the sharp initial rate; submultiplicativity via N_w(t/m)^m gives the exponential bound. For pairs at distance >=3 the column neighbor supports do not overlap and F_ij=(Mw)_i+(Mw)_j. The far graph is (n-5)-regular. At n=7 the step-three graph is an odd cycle, at n=8 steps of length three connect and the cited five-cycle is valid, and at n>=9 steps three and four connect and 0,3,6 is a triangle. Summing nonpositive far-pair tests forces equality at each edge; the odd cycle and connectivity force Mw=0, and the positive energy form makes w constant. Then column stochasticity proves contraction. At constant weights near-pair tests are strictly negative from direct communication or a shared neighbor. Thus sufficiently small nonconstant perturbations work for n<=5; for n=6 choose nonzero M u of alternating signs, possible by symmetry and the one-dimensional kernel, and the perturbation preserves the antipodal equalities. Checking the near-pair supports gives A_i and B_i in the stipulated uniform-mass regimes; on C_6 harmonicity of the opposite sums forces them equal, and the alternating-weight distance-two test gives |epsilon|<=1/3. Common mass scaling multiplies rates by a positive constant and leaves the test unchanged.
 
-**Closest literature and scope.** The general weighted pairwise coefficient itself is not novel; the claims concern unit-conductance, finite, undirected cyclic heat, and do not establish other conductance geometries. Independent scientific audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported distinct content is the exact rigidity threshold and nonconstant low-order existence for every positive mass vector, with the corresponding sharp graph-specific infinitesimal witnesses and criterion. The two-point norm method is established, and a closely matching indexed cycle record covers the uniform-mass classification essentially in full. The judgement does not credit that shared case as independent additional novel content and does not infer priority from the later indexed date.
+
+## value
+
+PASS
+
+The result decides whether edge variation weights can be independently designed to retain contraction under inhomogeneous holding rates. The sharp transition survives arbitrary masses even though the uniform-mass symmetry is lost, and the proof explains why the far-pair graph and its six-edge exception control it. The exact tests and arc witnesses let one check or falsify an individual design, not just infer failure asymptotically. This is useful beyond repeating the indexed uniform classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

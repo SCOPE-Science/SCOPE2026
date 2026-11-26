@@ -11,85 +11,83 @@ with \(\alpha>0\), \(\beta\in\mathbb R\setminus\{0\}\), and no bulk degradation.
 \[
  \gamma=\gamma_c=\frac{\beta^2}{\alpha}\left(\frac{4\sqrt2}{9}-\frac23\right),
 \]
-the smooth small-amplitude periodic branch of Pelz–Scheel, parameterized by the real first Fourier harmonic \(a(t)=r\cos(\omega t)+O(r^2)\), satisfies
+the smooth small-amplitude periodic branch of Pelz–Scheel, parameterized so that the first harmonic of \(a(t)\) is exactly \(r\cos(\omega t)\), satisfies
 \[
- \boxed{\displaystyle \mu(r)=K\frac{\beta^4}{\alpha^{7/2}}r^4+O(r^6),\qquad
- 0.70584603791928416421<K<0.70584603791928416422.}
+ \mu(r)=K\frac{\beta^4}{\alpha^{7/2}}r^4+O(r^6),\qquad
+ K=-\frac59+\frac{23\sqrt2}{27}+\frac{5\sqrt6}{216}.
 \]
-The coefficient \(K\) is specified *exactly* by the finite algebraic Fourier recursion in the proof. In particular the degenerate critical branch bends to \(\mu>0\), with the fourth-root onset
+In particular \(0.70584603791928416421<K<0.70584603791928416422\). The branch bends to \(\mu>0\), with the fourth-root onset
 \[
  |r|\sim\left(\frac{\mu\alpha^{7/2}}{K\beta^4}\right)^{1/4}\quad (\mu\downarrow0).
 \]
-For normalized parameters \(\alpha=\beta=1\), the frequency has the further verified expansion
+For normalized parameters \(\alpha=\beta=1\), write
 \[
- \omega(r)=1-1.13807118745769834960\,r^2-0.75482240260628012349\,r^4+O(r^6).
+ \omega(r)=1+w_2r^2+w_4r^4+O(r^6),\qquad
+ w_2=-\frac{2+\sqrt2}{3},\qquad
+ w_4=\frac{149}{108}-\frac{11\sqrt2}{9}-\frac{7\sqrt3}{54}-\frac{2\sqrt6}{27}.
 \]
-This establishes the leading finite-amplitude parameter law at the cubic criticality. No assertion about orbital stability of these degenerate cycles is made.
+The respective coefficient approximations are \(w_2\approx-1.13807118745769834960\) and \(w_4\approx-0.75482240260628012349\). No assertion about orbital stability of these degenerate cycles is made.
 
 ## Assumptions and scope
 
-The equation is the \(\sigma=0\) case of the cubic dynamic-boundary model in Pelz and Scheel (2026), Section 3, equation (3.1). We use the branch existence and smoothness (evenness of \(\mu\) and \(\omega\) in \(r\)) proved in their Theorem 1.4 and the identification of the cubic degeneracy from their Corollary 3.3. The branch normalization fixes the first harmonic exactly to \(r\cos s\), with phase \(s=\omega t\) and all higher amplitude corrections having zero first-harmonic projection. The far-field constant mode is allowed, as required by the source's half-line setting. The conclusions concern only the local branch as \(r\to0\); they do not assert uniqueness of arbitrary large-amplitude cycles.
+The equation is the \(\sigma=0\) case of the cubic dynamic-boundary model in Pelz–Scheel [1], Section 3, equation (3.1). The proof uses their Theorem 1.4 for the smooth local branch, with its hypotheses verified for this model in Lemma 3.1, and their Corollary 3.3 and Remark 3.4 for cubic degeneracy. Phase is chosen so that the first Fourier harmonic is real, and its signed cosine coefficient is the branch coordinate. This coordinate has derivative one with respect to the original amplitude at zero and is therefore a smooth local coordinate. Reversing its sign corresponds to a phase shift by \(\pi\); the parameters \(\mu\) and \(\omega\) are smooth even functions of this coordinate. The bounded zero bulk mode is allowed and corresponds to a far-field constant. The branch claims are local as \(r\to0\).
 
 ## Proof
 
-**1. Reduction and scaling.** With \(\tau=\alpha t\), \(\xi=\sqrt\alpha\,x\), and \(v=(\beta/\alpha)u\), the system takes the same form with \(\alpha=\beta=1\), effective cubic \(g=\gamma\alpha/\beta^2\), and effective unfolding \(m=\mu/\sqrt\alpha\). The normalized first-harmonic amplitude is \(R=(\beta/\alpha)r\), possibly signed. Hence it suffices to prove \(m(R)=KR^4+O(R^6)\) at \(g=4\sqrt2/9-2/3\).
+**Scaling.** Set \(\tau=\alpha t\), \(\xi=\sqrt\alpha\,x\), and \(v=(\beta/\alpha)u\). Then the equation takes the same form with \(\alpha=\beta=1\), cubic coefficient \(g=\gamma\alpha/\beta^2\), and unfolding parameter \(m=\mu/\sqrt\alpha\). Its normalized first-harmonic amplitude is \(R=(\beta/\alpha)r\), which may be signed. The frequency below is with respect to normalized time \(\tau\).
 
-**2. Fourier equations.** For a \(2\pi\)-periodic boundary trace \(v(s;R)\), the decaying positive and negative Fourier modes of the bulk heat equation give the Dirichlet-to-Neumann multiplier \(q_j(\omega)=\sqrt{ij\omega}\) (principal square root); the zero mode has multiplier zero. Define
+**Fourier equations.** With phase variable \(s=\omega\tau\), the normal-flux multiplier for a nonzero Fourier mode \(j\) of the bounded bulk solution is the principal square root \(\sqrt{ij\omega}\); the bounded zero mode is constant with multiplier zero. Thus, for the boundary trace (also denoted by \(v\)),
 \[
- L_j(\omega,m)=1+ij\omega-(\sqrt2+m)\sqrt{ij\omega},\quad
- \Lambda_j=L_j(1,0),\quad
- A_j=-\sqrt{ij},\quad B_j=ij-\frac{\sqrt2}2\sqrt{ij}.
+ L_j(\omega,m)[v]_j=[v^2+gv^3]_j,\qquad
+ L_j(\omega,m)=1+ij\omega-(\sqrt2+m)\sqrt{ij\omega}.
 \]
-The periodic equation is \(L_j(\omega,m)[v]_j=[v^2+gv^3]_j\). Expand
+Set \(\Lambda_j=L_j(1,0)\), \(A_j=-\sqrt{ij}\), and \(B_j=ij-(\sqrt2/2)\sqrt{ij}\). The only vanishing \(\Lambda_j\) are at \(j=\pm1\): for \(j\ge0\), \(\Lambda_j=1-\sqrt j+i(j-\sqrt j)\), and the negative-frequency multipliers are conjugates. Use the expansions
 \[
- v(s;R)=\sum_{n=1}^4R^nV_n(s)+O(R^5),\quad
- m(R)=m_2R^2+m_4R^4+O(R^6),\quad
- \omega(R)=1+w_2R^2+w_4R^4+O(R^6),
+ v(s;R)=\sum_{n=1}^4 R^n V_n(s)+O(R^5),\quad
+ m(R)=m_2 R^2+m_4 R^4+O(R^6),\quad
+ \omega(R)=1+w_2 R^2+w_4 R^4+O(R^6).
 \]
-where \([V_1]_{\pm1}=1/2\), all other \([V_1]_j=0\), and \([V_n]_{\pm1}=0\) for \(n\ge2\). Set \(F_n=[(\sum_{k<n}R^kV_k)^2+g(\sum_{k<n}R^kV_k)^3]_{R^n}\), with the extraction taken coefficientwise in Fourier modes. Equivalently, convolution only involves lower-order known coefficients.
-
-At order two, \([V_2]_j=[F_2]_j/\Lambda_j\), for \(j=0,\pm2\). At order three, first-harmonic solvability is
+Here \([V_1]_{\pm1}=1/2\), with all other modes zero, and all higher Taylor coefficients have zero first-harmonic projection. Denote by \(F_n\) the coefficient of \(R^n\) in the nonlinear term evaluated on the sum of the already known terms \(R^kV_k\), \(k<n\). This gives, in particular,
 \[
- \frac12(A_1m_2+B_1w_2)=[F_3]_1.
+\begin{aligned}
+ F_2&=V_1^2,\\
+ F_3&=2V_1V_2+gV_1^3,\\
+ F_4&=2V_1V_3+V_2^2+3gV_1^2V_2,\\
+ F_5&=2V_1V_4+2V_2V_3+3g(V_1^2V_3+V_1V_2^2).
+\end{aligned}
 \]
-The explicitly published third-order result gives
+At order two, \([V_2]_j=[F_2]_j/\Lambda_j\) for \(j=0,\pm2\). At order three, \((A_1m_2+B_1w_2)/2=[F_3]_1\). At \(g=4\sqrt2/9-2/3\) this gives \(m_2=0\) and \(w_2=-(7/6+3g/4)=-(2+\sqrt2)/3\), consistently with [1]. The only nonzero possible modes at order three are \([V_3]_{\pm3}=[F_3]_{\pm3}/\Lambda_{\pm3}\). At order four the potentially nonzero coefficients are
 \[
- m_2=0,\qquad w_2=-\left(\frac76+\frac34g\right)=-1.13807118745769834960\ldots,
-\]
-when \(g=4\sqrt2/9-2/3\). The remaining third-order modes satisfy \([V_3]_{\pm3}=[F_3]_{\pm3}/\Lambda_{\pm3}\).
-
-At order four, for \(j=0,\pm2,\pm4\),
-\[
- [V_4]_j=\frac{[F_4]_j-B_jw_2[V_2]_j}{\Lambda_j}.
+ [V_4]_j=\frac{[F_4]_j-B_j w_2[V_2]_j}{\Lambda_j},\qquad j=0,\pm2,\pm4.
 \]
 At order five, the resonant equation is
 \[
- \frac12(A_1m_4+B_1w_4)+\frac12D_1=[F_5]_1,
- \qquad D_1=\frac{\sqrt2\sqrt i}{8}w_2^2.
+ A_1m_4+B_1w_4=2[F_5]_1-D_1,\qquad D_1=\frac{\sqrt2\sqrt i}{8}w_2^2.
 \]
-Here the extra \(D_1\) term comes from the quadratic Taylor term in \(\sqrt\omega\): omitting it would change the fourth-order coefficient. The unique real solution \((m_4,w_4)\) is obtained by taking real and imaginary parts. This is a **finite exact algebraic specification** of \(K=m_4\) using only rational operations and square roots of small integers. The determinant \(\mathrm{Re}(A_1)\mathrm{Im}(B_1)-\mathrm{Im}(A_1)\mathrm{Re}(B_1)\) is nonzero, so the solution is well defined.
+The term \(D_1\) is the quadratic Taylor term from \(\sqrt\omega\); the mixed \(m_2w_2\) term vanishes at criticality. There is no unknown order-five first-harmonic contribution to the left-hand side from the trace itself, and none enters the quadratic or cubic products.
 
-**3. Rigorous coefficient sign.** The standalone script `verify_quintic.py` evaluates exactly the recursions above by outward-rounded fixed-point *integer* interval arithmetic, bounding \(\sqrt2\) and \(\sqrt6\) using integer square-root inequalities and performing every division with directed rounding. It confirms
+**Exact coefficients.** Since \(A_1=-(1+i)/\sqrt2\) and \(B_1=(-1+i)/2\), writing \(Y=2[F_5]_1-D_1\) gives \(m_4=-(\operatorname{Re}Y+\operatorname{Im}Y)/\sqrt2\) and \(w_4=\operatorname{Im}Y-\operatorname{Re}Y\). In the convolution one uses \(\sqrt{2i}=1+i\), \(\sqrt{3i}=(1+i)\sqrt6/2\), \(\sqrt{4i}=(1+i)\sqrt2\) and their conjugates. Substituting the indicated second-, third- and fourth-order coefficients into \(F_5\), summing and differencing the real and imaginary parts as above, yields
 \[
- \frac{70584603791928416421}{10^{20}}<m_4<\frac{70584603791928416422}{10^{20}}.
+ m_4=-\frac59+\frac{23\sqrt2}{27}+\frac{5\sqrt6}{216},\qquad
+ w_4=\frac{149}{108}-\frac{11\sqrt2}{9}-\frac{7\sqrt3}{54}-\frac{2\sqrt6}{27}.
 \]
-All other Fourier factors up to order five are rational combinations of these radicals. Thus \(m_4>0\) is a rigorous finite inequality, not a conjecture inferred from floating-point experiments.
+These operations take place over \(\mathbb Q(\sqrt2,\sqrt3)\) for the real and imaginary parts. For example, strict decimal bounds on \(m_4\) follow by substituting the rational radical endpoints \(\lfloor\sqrt{qN^2}\rfloor/N\) and \((\lfloor\sqrt{qN^2}\rfloor+1)/N\), \(q=2,6\), with \(N=10^{30}\), using the positive coefficients of both radicals in \(m_4\).
 
-**4. Consequences.** Smooth even dependence of the established branch gives \(m(R)=KR^4+O(R^6)\). The strict positive coefficient implies \(m(R)>0\) for all sufficiently small nonzero \(R\), and inversion of the leading law yields the fourth-root amplitude asymptotic. Undoing the scaling in step 1 proves the stated \(\alpha,\beta\) formula. The normalized \(w_4\) from the same exact order-five solvability equation is contained in the verification record.
+**Consequences.** Smooth evenness gives \(m(R)=m_4R^4+O(R^6)\) and the analogous frequency expansion. Positivity of \(m_4\) gives positive unfolding for sufficiently small nonzero \(R\) and the fourth-root law. Undoing the scaling gives \(\mu=\sqrt\alpha\,m\) and \(R=(\beta/\alpha)r\), as asserted.
 
 ## Verification
 
-Run `python3 verify_quintic.py` with the Python 3 standard library. The script constructs complex Fourier coefficients through order four and the order-five resonant right-hand side, using integer-enclosed radical intervals and outward integer operations. It checks the published third-order coefficient and verifies the strict rational bounds on \(K\). The expected terminal line is `EXACT_OUTWARD_INTERVAL_QUINTIC_SIGN_PASS`. In addition, a separate high-precision Fourier computation gave \(K\approx0.70584603791928416421526456\) and \(w_4\approx-0.75482240260628012348875401\), consistent with the interval certificate. These numerical values are supplementary; the sign follows from the exact interval calculation and the branch expansion from analysis.
+The accompanying standalone `verify_quintic.py` uses integer-only outward interval arithmetic to evaluate the finite Fourier recursion and enclose \(m_4\) strictly between the stated rational endpoints. The expected final line is `EXACT_OUTWARD_INTERVAL_QUINTIC_SIGN_PASS`; see `verification_output.txt`. The coefficients in the frequency expansion above are exact; the decimal values are only rounded approximations. The computation certifies the finite algebra conditional on the smooth branch theorem, not that theorem or the stability of its solutions.
 
 ## Relationship to prior work
 
-Pelz and Scheel (2026), Theorem 1.4, establishes the smooth local periodic branch despite essential spectrum; Corollary 3.3 and Remark 3.4 compute its quadratic unfolding \(m_2\) and the explicit cubic-degeneracy threshold. Their stability theorem classifies the nondegenerate regimes \(m_2>0\) and \(m_2<0\); the equality case does not follow from either strict inequality. The fourth-order coefficient and fourth-root emergence at equality are not stated there. The broader generalized-Hopf/Bautin framework motivates this codimension-two question, but does not determine the nonlocal square-root Dirichlet-to-Neumann coefficient for this particular model. A later Pelz paper (arXiv:2608.08537) addresses two boundaries coupled through a diffusion field, with a different configuration; its abstract does not establish this one-boundary coefficient. No priority claim is made beyond the examined literature.
+Pelz–Scheel [1], Theorem 1.4, establishes the local periodic branch despite essential spectrum. Corollary 3.3 and Remark 3.4 supply the quadratic unfolding, cubic degeneracy and lower-order boundary profile; the strict nondegenerate stability cases do not resolve the equality case. The further contribution here is the order-five solvability calculation at equality and the resulting branch-side and amplitude law, not existence of the branch or the lower-order coefficients. Generalized-Hopf theory motivates the calculation but does not specify these square-root Fourier coefficients for this boundary equation. Pelz [2] treats a different system with two dynamic boundaries. The comparisons do not establish exhaustive historical priority.
 
 ## Limitations
 
-This theorem uses \(\sigma=0\), \(\beta\ne0\), the exact cubic degeneracy, and the specific half-line geometry. It determines the direction and amplitude scaling of the local periodic branch, not its nonlinear or spectral stability at the degenerate point. The source establishes the existence and smoothness of the branch; those analytic foundations are invoked rather than reproved here. A historical source with an equivalent explicit fifth-order coefficient might alter the originality assessment. The verification script certifies the finite algebraic sign only; it does not independently certify the infinite-dimensional branch-existence theorem.
+The result uses a single half-line boundary without bulk degradation, \(\beta\ne0\), and exactly the stated cubic degeneracy. It makes no stability claim at degeneracy. The quartic frequency term uses the specified exact first-harmonic amplitude and need not be invariant under arbitrary nonlinear amplitude changes. The result is local and does not address other finite-amplitude cycles.
 
 ## References
 
-1. Merlin Pelz and Arnd Scheel, *Oscillations in a scalar differential equation coupled to a diffusive field*, arXiv:2604.01135v1, first posted 2026-04-01, especially Theorem 1.4, equation (3.1), Corollary 3.3, and Theorem 4.1. https://arxiv.org/html/2604.01135v1
-2. Merlin Pelz, *Dynamical behavior of diffusively coupled scalar differential equations as Wentzell boundary conditions*, arXiv:2608.08537v1, first posted 2026-08-09. https://arxiv.org/abs/2608.08537
+1. Merlin Pelz and Arnd Scheel, *Oscillations in a scalar differential equation coupled to a diffusive field*, arXiv:2604.01135v1, especially Theorem 1.4, equation (3.1), Lemma 3.1, Corollary 3.3 and Remark 3.4. https://arxiv.org/html/2604.01135v1
+2. Merlin Pelz, *Dynamical behavior of diffusively coupled scalar differential equations as Wentzell boundary conditions*, arXiv:2608.08537v1. https://arxiv.org/abs/2608.08537

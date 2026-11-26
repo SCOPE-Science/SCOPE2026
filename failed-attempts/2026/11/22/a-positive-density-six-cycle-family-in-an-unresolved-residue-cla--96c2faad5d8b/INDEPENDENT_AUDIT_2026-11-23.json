@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:47:31.260166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact identity g³−X=−X²P and P(0)=3 give least period three at every root for p>3 (only 1 and 3 can divide its return time, and the sole fixed point is zero). The supplied second-iterate identity and resultant 1 are also correct. Starting at (−1,y), even iterates follow g and odd iterates have first coordinate g^j(y)−1, never −1 since the g-cycle is nonzero. Each three-root block thus gives one distinct primitive six-cycle. Over Q the squarefree sextic has two such blocks, and the Galois group centralizes their rotations. Irreducibility mod 5 and the distinct 1+1+1+3 factorization mod 11 yield a 6-cycle that swaps the blocks and a one-block rotation; conjugating by the swap generates the other rotation, giving the full order-18 wreath group. Its only quadratic subfield is the discriminant field Q(√−2), contained in Q(ζ_8) and hence in Q(ζ_24). The intersection has degree dividing gcd(18,8)=2, so the compositum has degree 72. Frobenius at 19 mod 24 is trivial on Q(√−2); among the nine rotations in its fiber, both blocks move for four elements, exactly one moves for four, and neither moves for one. Those are conjugacy-invariant sets in the fiber, so Chebotarev gives the stated densities, and functional-graph components each contain one cycle. A six-cycle is additional to the p fixed-point components. Independent exact polynomial, factorization and example-orbit checks agree; replay: python3 /workspace/branches/2043cce8-62ac-4764-958c-f39997638274/ordinal3_arithmetic_check.py. The uploaded checker was inspected, not executed. This is a proof of the witness density and finite certificates only, not a count of every six-cycle, a solution for the whole residue class, or a finite-sample inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chernev–Chernev Lemma 5.1 already lifts g-cycles of length m>1 to ring-graph cycles of length 2m, and Hypothesis 5.5 follows its discussion of the unresolved class p=7 mod 12.",
+          "Bridy–Garton give general wreath-product/Frobenius machinery; their Cor. 4.3 is not directly applicable to g³−X with its repeated fixed root.",
+          "Morton gives the full specialized sextic Galois classification and a discriminant formula, so it is his result, not generic monodromy, that directly covers the input."
+        ],
+        "reasoning": "The squarefree dynatomic factor itself is the object to which standard Frobenius density applies; the repeated root of g³−X does not create a new density obstruction. The cycle lift is prior. Neither paper is asserted to classify all cycles or every prime of the graph conjecture.",
+        "searches": [
+          "Bridy–Garton, arXiv:1609.09186, Cor. 2.4, Thm. 3.5, Frobenius Density Theorem and Cor. 4.3",
+          "Chernev–Chernev, arXiv:2611.07521v1, Section 5",
+          "Morton (1992), Theorems 6 and 8 and p. 358"
+        ]
+      },
+      "checked_sources": [
+        "Morton (1992), exact open PDF",
+        "Chernev–Chernev, arXiv:2611.07521v1",
+        "Bridy–Garton, arXiv:1609.09186",
+        "Resultary comparative index query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Morton's specialization gives an order-18 two-block wreath action and discriminant square class −2. The only possible intersection with the degree-eight cyclotomic field is of degree at most two, and the discriminant field is visibly inside it. The congruence fiber over 19 is exactly the no-swap subgroup C₃×C₃. Fixed-block conditions then give the immediate count 4,4,1 and hence 5/72 among all primes.",
+          "The affine conjugacy and g³−X=−X²P identify the witness; for p>3 the zero fixed point is not a root of P, so interpreting a fixed root as an exact three-cycle needs no additional classification."
+        ],
+        "reasoning": "This supplies an explicit implication chain from the prior general classification and already published graph reduction to every claimed witness density. The ordinary intersection, quadratic symbol and two-coordinate count are direct consequences once the prior formula is specialized. The proof in the record is a valid alternative exact certificate, but not an uncovered theorem under the stated novelty standard.",
+        "searches": [
+          "Morton (1992), Acta Arithmetica 62.4, pp. 349–350 and 358",
+          "Chernev–Chernev Lemma 5.1 and Hypothesis 5.5",
+          "Bridy–Garton Frobenius Density Theorem, p. 13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The involution z=1/2−x conjugates g to z²+1/4. The period-three dynatomic factor is therefore Morton's sextic at a=1/4, up to that variable substitution.",
+          "The rational irreducibility exception would require s²=−8; the cyclic exceptions are a=0,−7/2. The S₃ exception would give a rational root of t³+33t²+315t+867, which is monic with no root mod 5."
+        ],
+        "reasoning": "The change of coordinates preserves the root action and fields, so Morton's theorem already yields the exact order-18 wreath group of this particular sextic, with no appeal to a generic specialization heuristic.",
+        "searches": [
+          "Web: Arithmetic properties of periodic points of quadratic maps Morton period three sextic trace splitting field quadratic period three 1/4",
+          "Web: X^6 -41472 period three z^2+1/4 dynatomic polynomial density cycles quadratic parabolic c=1/4 n=3 Chebotarev Galois primitive period",
+          "Morton (1992), Theorems 6 and 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact Resultary hit is the assigned result itself. The exact-fraction web lookup was unavailable and supplies no evidence. Chernev–Chernev's finite computations extend only to 2077 for the class. Morton's polynomial discriminant formula −(4a+7)³(16a²+4a+7)² evaluates at 1/4 to −41472."
+        ],
+        "reasoning": "The finite table cannot prove a density; the parameter-uniform exact formula does supply the specific quadratic field even in the absence of an indexed table entry for the final fraction.",
+        "searches": [
+          "Resultary: prime-field structure graph ring a+b ab x-x^2 prime residue 19 modulo 24 six-cycle graph exact Chebotarev density",
+          "Morton, p. 358, exact sextic discriminant formula",
+          "Web: 5/72 six-cycles ring structure graph prime 19 24 Chebotarev exact density"
+        ]
+      },
+      "rationale": "The decisive arithmetic of the exact sextic is already covered by Morton's explicit period-three classification and discriminant formula, not merely by a generic wreath-product heuristic. With the earlier graph-lift lemma, the density and multiplicity statements are mechanically implied by these specialized data and the standard Chebotarev count in a cyclotomic fiber. The particular fraction need not have been printed to be covered.",
+      "residual_risks": [
+        "The literal numerical statement was not found as a printed earlier theorem. The fail is based on the demonstrated implication, not on a look-alike title or on absence of search hits.",
+        "The attempted Lipkovski DOI and repository routes did not provide readable primary text in this check; no negative inference is made from that access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the exact sextic group and discriminant inputs",
+          "evidence": "The excluded rational parameters do not include a=1/4, yielding C₃ wreath C₂; the discriminant formula there specializes to −2⁹3⁴.",
+          "identifier_or_url": "https://matwbn.icm.edu.pl/ksiazki/aa/aa62/aa6243.pdf",
+          "material_read": "Theorems 6 and 8, printed pp. 349–350 (OA offset 15932), and exact discriminant formula p. 358 (offset 31858)",
+          "method": "Open publisher PDF text, decisive pages",
+          "title": "Arithmetic properties of periodic points of quadratic maps",
+          "trigger": "Potential exact coverage after quadratic conjugacy"
+        },
+        {
+          "assessment": "Prior graph reduction and motivating scope; not a stated asymptotic density",
+          "evidence": "The two-step return to (−1,g(a)) lifts an m-cycle to length 2m; p=7 mod 12 is explicitly left open, with computations through 2077.",
+          "identifier_or_url": "https://arxiv.org/html/2611.07521v1",
+          "material_read": "Section 5 Lemma 5.1 and discussion of Hypothesis 5.5; Section 8 computation scope",
+          "method": "Open arXiv HTML text",
+          "title": "On the Connected Components of Structure Graphs of Associative Rings",
+          "trigger": "Same graph and unresolved prime class"
+        },
+        {
+          "assessment": "Covers general method, not the fixed residue calculation by itself",
+          "evidence": "Root-prime density is the proportion of group elements with a fixed point. The dynamical corollary has a squarefreeness hypothesis on the iterate equation, distinct from squarefreeness of the degree-six factor used here.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.09186",
+          "material_read": "Corollary 2.4 p. 7, Theorem 3.5 p. 10, Frobenius Density Theorem p. 13, and Corollary 4.3 pp. 13–14 (OA offsets 23883, 31794, 39734, 47655)",
+          "method": "Open arXiv PDF text, decisive pages",
+          "title": "Dynamically Distinguishing Polynomials",
+          "trigger": "Potential generic density and group coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The open congruence class and the canonical-cycle statistic are natural and the presentation is useful as an explicit worked example. However, the exact statistic is mechanically obtained from a stronger period-three classification at the same parameter and an already published cycle-lift lemma, followed by a degree gcd and a two-block Chebotarev count. It does not treat the remainder of the class, classify any further cycles, or introduce an independently useful new exact fact under the stated standard. The correct self-contained certificate does not cure that limitation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

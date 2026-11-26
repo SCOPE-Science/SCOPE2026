@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full geometric automorphism group is established in Tafazolian, Proposition 8.2. All generators are defined over the prime field; therefore the conjugacy-class description of the nonabelian descent set is exact. The four models were matched to their Frobenius cocycles by explicit substitutions and quadratic twisting. Point-count formulas incorporate the ramified rational pole points and the absence of rational points at infinity in the quadratic models. A complete quadratic-character sum proves the frequencies for every prime. The standard-library verification script checks all coefficients at primes through 37 and is supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS, with acknowledged literature risk
+Tafazolian Prop. 8.2 applies geometrically with p≥5 and c≠0. Independently, for z=2x−(y^p−y) the quadratic cover is branched at the simple roots of f(y)=y^(2p)−2y^(p+1)+y²−4c. Any nonaffine Möbius map preserving those roots has finite pole q and sends their sum to zero. Writing it as α+β/(y−q), the transformed sum forces f′(q)=0 (q is not a branch point), hence q∈F_p; the inverse likewise puts α∈F_p. Composing with translations reduces to y↦β/y, contradicted by the nonzero degree-(2p−2) term of y^(2p)f(β/y), absent in f for p≥5. For an affine map, comparing coefficients of y^(p+1), y^p and 1 shows the multiplier is ±1 and the shift is in F_p. The hyperelliptic involution provides the central kernel and translations/sign lift over F_p. Thus the full group is constant C₂×D_(2p); its conjugacy classes give (p+1) rotation/central types plus two reflection types. The Artin–Schreier shift and nonsquare quadratic descent realize the A and B types, and x=−δX,y=δY with δ²=d and δ^p=−δ realizes the sign twist R; a further central quadratic descent realizes S. These account for every class, independently of coincidences among point counts. Two simple poles give genus and geometric p-rank both p−1. A,R have one rational point over each of 0,∞ by total ramification; B,S have no rational point at infinity because their even-degree hyperelliptic polynomials have nonsquare leading coefficient after dividing by d. For finite coordinates the A quadratic discriminant gives p(1+χ), B gives p(1−χ), R gives one solution for each nonzero X, and S uses the complete quadratic character sum −1. The latter follows from counting factorizations (t−z)(t+z)=b≠0; separating a=0 at value χ(−c) and pairing a with −a gives all three frequencies. Choosing t∈F_p^× with t²≠c yields a nonzero square discriminant and a pointless B twist. The finite supplied verifier was inspected but not executed; these checks establish the all-prime scope analytically.
 
-Tafazolian (2026, Proposition 8.2) determines geometric automorphisms and geometric parameter equivalence but does not classify all forms over the prime field or their point counts. Ho and Pries (2022) count marked Artin–Schreier covers via weighted mass formulas, not these unmarked forms and their four descent classes. The classical paper of van der Geer and van der Vlugt (1991) is relevant to Kloosterman sums and Jacobian torsion, but was unavailable in full text; a previously implicit equivalent statement remains possible. Neither the checked sources nor directed mathematical-record searches supplied a dominating statement.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete arithmetic classification of forms of a natural large-automorphism genus-\(p-1\) family, not an arbitrary parameter slice. The exact point-count distribution depends on the two quadratic characters of \(c\) and \(-c\). In every characteristic covered, the same geometrically ordinary curve has a point-free arithmetic form and forms attaining the sharply distinct point counts listed in the theorem. These numerical invariants are not consequences of geometric automorphism order alone.
+The known geometric automorphism group is fully credited. The supported distinction is exhaustion by explicit unmarked forms of a fixed geometric curve and a frequency-weighted point spectrum across them, not geometric parameter equivalence or an aggregate mass of covers. No matching theorem surfaced in the inspected sources. An inaccessible relevant older paper remains a specific risk, not evidence for or against equivalence.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural complete classification problem for an ordinary genus-(p−1) Artin–Schreier curve, where geometric isomorphism does not settle even rational point existence. The explicit models and their exact frequencies determine which point counts can be realized by descent, including a pointless form for every allowed c. The value lies in the complete constructive spectrum rather than just counting conjugacy classes or applying a single character sum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

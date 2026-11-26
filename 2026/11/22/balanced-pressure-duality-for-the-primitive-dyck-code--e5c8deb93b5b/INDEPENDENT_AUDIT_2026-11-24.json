@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:46:40.473861Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In a finite core all complete excursions contribute zero signed sum and the two end fragments are uniformly bounded; that interval bound survives closure and integration gives exact balance. For entropy density, mixing the target with a small amount of fair Bernoulli makes all block probabilities positive without changing balance or significantly lowering entropy. Its stationary k-step approximation matches the required cylinder probabilities for large k, is mixing because the full de Bruijn graph is positive on its allowed edges, and has entropy no smaller than the approximated process. The typical-word step gives exponentially many words of the desired empirical frequencies and |signed sum|<=δm. Selecting one signed-sum class loses only a factor O(m); balancing by appending at most δm symbols, rotating at a height minimum, and wrapping with + and − gives primitive equal-length generators with at most L preimages each. The distortion of fixed block frequencies is O(δ+1/m), since rotation changes cyclic frequencies by zero and changes at the padding/wrapper and concatenation boundaries are bounded by the block length. On concatenations the global lowest height identifies generator boundaries (every proper prefix is strictly above it); the randomized fixed length phase and iid generators therefore yield entropy log|E|/ℓ. Choose δ smaller than the positive Markov entropy and then large m to obtain the lower-entropy approximation. The pressure limit follows for all continuous potentials; concavity and upper semicontinuity of constrained free energy give a supporting slope at the interior frequency 1/2, so the multiplier minimum is attained. For pair potentials, stationarity and balance reduce the joint law to one flip probability; conditional entropy is optimized by the symmetric Markov chain. The Perron root for the full shift is at least sqrt(e^a e^d)+e^((b+c)/2) with equality iff a=d. The finite renewal root follows from the cyclic transition counts and Narayana numbers (including the sole semilength-one generator). At the root it is weighted free energy, not bare name entropy, that the Bernoulli weights optimize. Inspected the finite code and verification notes; no frozen script executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hedges's general theorem identifies the limit with the supremum over sequential measures rather than specifying which other invariant measures they approximate in entropy",
+          "The earlier record provides quantitative convergence of entropy at φ=0, rather than a theorem about the whole space of potentials."
+        ],
+        "reasoning": "A general exhaustion theorem does not characterize the sequential free-energy support functional on this presentation. The zero signed sum of each generator establishes one inclusion only; the converse uses balancing, rotating and wrapping typical words with controlled loss.",
+        "searches": [
+          "Hedges arXiv:2609.09406v1 Theorem 1.1, coded-shift pressure exhaustion",
+          "Resultary  cc17d7fdec34; cutoffs and sharp entropy asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_dyck_pressure.py",
+        "arXiv:2609.09406v1, pp. 2–3 and 12–14",
+        "Local Resultary cc17d7fdec34 and indexed copy of target e5c8deb93b5b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior unweighted limit is log 2 and arbitrary-potential equality there concerns residual pressure; the frozen functional instead optimizes over all balanced invariant measures.",
+          "A one-step field with a≠d has a strict sequential/full gap, while a=d gives equality."
+        ],
+        "reasoning": "Full residual pressure, nested convergence to sequential pressure and the exact zero-potential root do not imply the constraint converse. Given the new entropy approximation, the supporting-line and Markov optimization steps are standard and credited as consequences rather than independent novelty claims.",
+        "searches": [
+          "Hedges §3.2, equations (3.6)–(3.15), compared with the frozen Steps 1–4",
+          "cc17d7fdec34 RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hedges uses exactly the same primitive positive-excursion code and proves unique decoding, full binary shift as closure, sequential entropy log 2 and full residual pressure",
+          "cc17d7fdec34 concerns the same length cutoffs at zero potential"
+        ],
+        "reasoning": "The correct other formulation is as an identification of sequential pressure. Do not confuse sequential and residual pressure, or the zero-potential equality with all potentials. Weak-star entropy-lower density is stronger than equality at one potential and does not assert equality of the actual core and balanced measure sets.",
+        "searches": [
+          "Resultary: primitive positive binary Dyck excursions, finite core entropy/pressure, balanced measures",
+          "Hedges arXiv:2609.09406v1 Theorem 1.1 and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cc17d7fdec34 gives the unweighted root and 2N(log 2−h_N) = (log N)/2 + log log N + (log π)/2 + o(1)",
+          "The exact Catalan/Narayana generator counts are classical and are not novelty evidence."
+        ],
+        "reasoning": "The exact enumeration covers the unweighted root, and weighted generator enumeration is a natural extension; neither a table of generator counts nor that asymptotic establishes entropy density or the arbitrary continuous-potential variational statement.",
+        "searches": [
+          "Resultary exact bounded primitive Dyck entropy/pressure root and constrained free-energy search; cc17d7fdec34"
+        ]
+      },
+      "rationale": "The code, its full-shift closure and unique decoding, qualitative exhaustion of sequential pressure, and the unweighted entropy limit are established antecedents. The distinction supported by the inspected sources is identifying the entire entropy-lower accessible family of invariant measures and thus the sequential-pressure functional for every continuous potential. The nearest-neighbor formula is a consequence of that identification, not a new transfer-matrix or Narayana formula.",
+      "residual_risks": [
+        "Bounded search does not rule out earlier equivalent bounded-height approximation or constrained-pressure results in the coded-shift or combinatorics literature.",
+        "Classical cycle rotation, Markov approximation, entropy duality and weighted Catalan enumeration are not standalone novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial partial coverage, not the constrained functional",
+          "evidence": "Exhaustion to sequential pressure for continuous potentials, same code and unique decoding, full-shift closure and log 2 at zero potential; equality for every continuous potential in the example is with residual pressure, not the claimed sequential balance formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09406v1",
+          "material_read": "Theorem 1.1 pp. 2–3; §3.2 pp. 12–14, eqs. (3.6)–(3.15)",
+          "method": "Original OA PDF, theorem and example passages",
+          "title": "Finite-Core Exhaustion and the Failure of Strict Sequential-Pressure Approximation in Coded Shifts",
+          "trigger": "Primary antecedent with exactly the same coded presentation and arbitrary-potential finite-core theorem"
+        },
+        {
+          "assessment": "Exact special-case coverage only",
+          "evidence": "Computes unweighted entropy at every cutoff and the sharp log/log-log deficit; no entropy-density statement for prescribed balanced measures.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-logarithmic-finite-core-entropy-deficit-for-primitive-dyck--cc17d7fdec34",
+          "material_read": "RESULT.md Finding, unweighted pressure root and deficit asymptotic",
+          "method": "Local Resultary mirror, original statement",
+          "title": "Sharp logarithmic finite-core entropy deficit for primitive Dyck excursions",
+          "trigger": "Same generators and finite cores; exact root and limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Topological density of the cores in the binary full shift does not say what free energies they approximate. The theorem identifies a natural, exact surviving measure constraint, proves entropy approximation even for nonergodic targets, and resolves when a continuous potential can recover full pressure. The full nearest-neighbor equality locus supplies a concrete strict-gap application beyond the previously understood zero potential.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

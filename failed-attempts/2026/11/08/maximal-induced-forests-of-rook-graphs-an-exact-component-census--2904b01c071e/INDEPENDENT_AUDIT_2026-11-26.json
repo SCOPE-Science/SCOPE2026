@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:29:07.737247Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof Steps 1–4",
+        "Frozen VERIFY.py and VERIFICATION.md inspected; no execution of frozen code"
+      ],
+      "rationale": "A selected edge graph gives an acyclic rook line graph precisely when it is a linear forest. If both shores have degree-deficient vertices, maximality requires every opposite-shore deficient pair to lie in the same component; otherwise the joining edge could be added. Thus all deficient vertices are the two opposite-shore endpoints of one path, and every base vertex is in that path since any other component would have a deficient vertex. This forces a square. A saturated shore of size n≥m would give 2n≥m+n edges, impossible for a forest; in a square this rules out saturation of either shore. Thus a rectangular maximal edge set saturates the smaller shore, which suffices for maximality. Square paths have (m!)² undirected orderings. In a rectangle choose an ordered composition of m into s positive path sizes, order the m labels and choose an ordered list of m+s larger-shore labels, then divide by 2^s s! for orientations and path order. This independently gives every coefficient and its range, and agrees with the examples. Complementation and comparison of the degrees in m at fixed n−m prove the remaining claims.",
+      "residual_risks": [
+        "The supplied finite enumeration was inspected, not replayed. The independently reconstructed classification and count establish the unrestricted result without those enumerations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1546c7e42908 gives a bivariate generating function for all induced rook forests by size and components, not just extrema, as well as the extremal coefficients.",
+          "Theorem 6.7 covers equal cliques linked by a matching, giving the K₂ Cartesian rook family at the level of purity. Stones forbids induced even cycles in the rook interpretation and permits triangles."
+        ],
+        "reasoning": "Prior bivariate all-forest enumeration plus purity dominates the whole census. The classical two-row purity result and general base spanning-forest counts alone would not cover the higher-row census.",
+        "searches": [
+          "Resultary 1546c7e42908, Finding",
+          "Jafarpour-Golzari arXiv:2105.14339v1, Theorem 6.7",
+          "Stones, DOI:10.46298/dmtcs.1248, Lemma 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1546c7e42908 and 63c5479b7a8c",
+        "arXiv:2105.14339v1; arXiv:2108.09146v1 (lexicographic, not Cartesian)",
+        "Stones DOI:10.46298/dmtcs.1248",
+        "arXiv:2103.05294v2",
+        "OEIS A001044 and MathWorld Feedback Vertex Set Number"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Keeping d=b−a fixed in the prior N formula after removing a!b!, the k=d term has degree d−1 and each other term has degree at most d−2. The prior common size gives the complementary minimum FVS and purity makes every minimal FVS minimum."
+        ],
+        "reasoning": "The asymptotic, size, connectivity and complement claims follow directly from the existing statements without a new classification or count.",
+        "searches": [
+          "Resultary 63c5479b7a8c, maximality and purity theorem",
+          "Resultary 1546c7e42908, N_{a,b,k} and FVS claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "63c5479b7a8c states that every maximal induced rook forest is maximum and classifies it as a square Hamilton path or a rectangle with degree two on the smaller shore.",
+          "1546c7e42908 counts maximum acyclic induced cell subsets, not isomorphism classes or oriented paths."
+        ],
+        "reasoning": "Because maximum always implies maximal and the earlier purity theorem gives the reverse implication, the two enumerators count exactly the same sets with identical component statistic.",
+        "searches": [
+          "Resultary 63c5479b7a8c, RESULT.md, Finding and proof §§3–4",
+          "Resultary 1546c7e42908, RESULT.md, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "N_{a,b,k}=a!b! binom(a−1,k−1)/(2^k k! (b−a−k)!) for a<b with exactly the frozen range; the square count is (a!)² in component class one.",
+          "The inspected A001044 passage supplies squares of factorials; the inspected MathWorld entry defines the scalar FVS statistic and lists rook graphs, but does not show the asserted numeric formula."
+        ],
+        "reasoning": "The exact indexed component counts on the same graph family provide a decisive match; square factorial values alone would not establish equivalence.",
+        "searches": [
+          "Resultary 1546c7e42908, extremal N_{a,b,k}",
+          "OEIS A001044",
+          "MathWorld, Feedback Vertex Set Number"
+        ]
+      },
+      "rationale": "Two earlier Resultary results jointly cover the claimed classification and entire component census. One explicitly identifies all maximal forests with the maximum forests and gives the same structural types; the other states the exact same maximum-forest component coefficients under identical labeled-board assumptions. The fixed-d limit follows by comparing degrees in that prior formula. The numerical consequences and refinements asserted here are thus already stated or immediate.",
+      "residual_risks": [
+        "This is a statement-level demonstration of prior coverage, not a claim to identify the first publication of every scalar formula. In particular, the cited MathWorld passage alone does not establish the scalar priority attribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior maximum-forest census, with broader bivariate enumeration",
+          "evidence": "States N_{a,b,k} with the identical coefficient and range; square term (a!)²; labeled subsets and acyclic rook adjacency defined as in the frozen result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-induced-forest-enumerator-and-extremal-component-spectrum-of-rec--1546c7e42908/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Local mirror; matched variables, statistic and hypotheses",
+          "title": "Induced-forest enumerator and extremal component spectrum of rectangular rook graphs",
+          "trigger": "Exact component formula on same labeled boards"
+        },
+        {
+          "assessment": "Direct prior purity and structural classification",
+          "evidence": "Explicit equality of maximal and maximum, with the square spanning alternating path and rectangular smaller-shore degree-two classes; includes the univariate maximal size polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-purity-and-complete-forest-enumeration-of-rectangular-rook-graph--63c5479b7a8c/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0; proof §§3–4",
+          "method": "Local mirror; compared statements and scope",
+          "title": "Purity and complete forest enumeration of rectangular rook graphs",
+          "trigger": "Exact same maximality predicate and structural types"
+        },
+        {
+          "assessment": "Subfamily overlap on purity only",
+          "evidence": "Equal disjoint cliques linked by a matching cover K₂ square K_q at the level of common order, not general component counting.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.14339",
+          "material_read": "Definition on p. 3 and Theorem 6.7 on p. 10",
+          "method": "Lawful public paper passages",
+          "title": "Graphs whose all maximal induced forests are of the same order",
+          "trigger": "Same purity notion and two-row rook subclass"
+        },
+        {
+          "assessment": "Different property and statistic",
+          "evidence": "The line-graph characterization excludes induced even cycles but permits triangles, so it counts neither acyclic induced rook graphs nor their maximal members.",
+          "identifier_or_url": "https://dmtcs.episciences.org/articles/1248",
+          "material_read": "Counting definition p. 1; line-graph identification p. 4; Lemma 4 p. 5",
+          "method": "Lawful public paper passages",
+          "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+          "trigger": "Same host and rook line-graph interpretation"
+        },
+        {
+          "assessment": "Different counting problem",
+          "evidence": "Counts spanning trees containing a prescribed base forest, not rook-graph induced maximal forests.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+          "material_read": "Abstract, p. 1",
+          "method": "Lawful public paper passage",
+          "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+          "trigger": "Potential complete bipartite enumeration overlap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof Step 4",
+        "Resultary 63c5479b7a8c and 1546c7e42908"
+      ],
+      "rationale": "Uniform maximal order and an exact component distribution on rook graphs are meaningful, but the previously stated purity and exact component results already supply them here. The remaining fixed-d limit is an immediate leading-degree comparison, not a separate substantive new finding.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

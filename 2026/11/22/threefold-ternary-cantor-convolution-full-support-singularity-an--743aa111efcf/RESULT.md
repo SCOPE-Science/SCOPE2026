@@ -1,79 +1,37 @@
-# Threefold ternary Cantor convolution: full support, singularity, and exact collision dimension
+# Exact typical digit frequencies of a threefold 3-adic Cantor sum
 
 ## Finding
-Let \(C\subset\mathbb Z_3\) consist of all \(3\)-adic integers with digits in \(\{0,1\}\), and let \(X_1,X_2,X_3\) be independent random elements of \(C\), each with independent equiprobable binary digits. Write \(\mu\) for the law of \(X_1+X_2+X_3\). Then \(\mu\) is nonatomic, singular with respect to normalized Haar measure on \(\mathbb Z_3\), and has **full topological support** \(\mathbb Z_3\). Under \(\mu\), almost every \(3\)-adic integer has digit frequencies
-\[
- (f_0,f_1,f_2)=\left(\frac{11}{40},\frac{14}{40},\frac{15}{40}\right),
-\]
-whereas under Haar measure all three frequencies are \(1/3\).
 
-Define \(A_k=\{\sum_{j=0}^{k-1}\epsilon_j3^j:\epsilon_j\in\{0,1\}\}\) and
+Let \(X_i=\sum_{j\ge0}\epsilon_{i,j}3^j\), for \(i=1,2,3\), where the \(\epsilon_{i,j}\) are mutually independent with probability \(1/2\) for each of \(0,1\). In \(\mathbb Z_3\) let \(\mu\) be the law of \(X_1+X_2+X_3\). Write the ternary digits of the sum in order from least to most significant. Then for \(\mu\)-almost every sum their empirical frequencies converge to
 \[
-R_k(t)=\#\{(a,b,c)\in A_k^3:a+b+c\equiv t\pmod{3^k}\},\qquad
-E_k=\sum_{t\bmod 3^k}R_k(t)^2.
+(f_0,f_1,f_2)=\left(\frac{11}{40},\frac{14}{40},\frac{15}{40}\right).
 \]
-The exact collision-energy sequence is
-\[
-E_0=1,\qquad E_1=22,\qquad E_{k+2}=26E_{k+1}-90E_k\quad(k\ge0).
-\]
-Consequently the \(L^2\) (correlation) dimension defined through \(3\)-adic residue cylinders is
-\[
-D_2(\mu)=\lim_{k\to\infty}\frac{-\log\bigl(\sum_{t\bmod3^k}\mu(t+3^k\mathbb Z_3)^2\bigr)}{k\log3}
-=\log_3\left(\frac{64}{13+\sqrt{79}}\right)=0.9766281250\ldots<1.
-\]
-In particular the cylinder-level \(\chi^2\) divergence from Haar grows exponentially with exact rate \(3(13+\sqrt{79})/64>1\).
+Thus the set of sums with this frequency vector is a Borel set of full \(\mu\)-measure and zero normalized Haar measure. The law \(\mu\) is nonatomic and its topological support is all of \(\mathbb Z_3\).
 
-## Assumptions and scope
-All indices \(k\) are integers \(k\ge0\). The \(3\)-adic digits are ordered from least significant to most significant. In \(R_k\), the three summands are **ordered** and each of the \(2^k\) elements of \(A_k\) is counted once. Residues \(t\) range through \(\mathbb Z/3^k\mathbb Z\). For \(k=0\), the ring has one class and \(A_0=\{0\}\). The probability measure \(\mu\) is the additive threefold convolution of the fair binary-digit Cantor measure, not the uniform distribution on its support.
+## Motivation and scope
+
+Two summands of this kind never produce a carry. Three summands are the first case in which a carry changes the typical digit distribution. A frequency vector gives an explicit digit statistic that distinguishes typical sums from Haar-typical expansions even though every finite digit word is possible. The result is for exactly three fair digit streams added in \(\mathbb Z_3\); it does not assert independence of the output digits or a dimension formula.
 
 ## Proof
-**1. Carries and weighted digit matrices.** At digit \(j\), the raw sum of the three independent binary digits is \(s\in\{0,1,2,3\}\) with respective multiplicities \(1,3,3,1\). Starting from carry \(c\in\{0,1\}\), the output digit is \(d\equiv s+c\pmod3\) and the next carry is \(c'=\lfloor(s+c)/3\rfloor\). These are the only possible carries: \(s+c\le4\). Define the integer matrices \(M_d\) with incoming carry indexing rows and outgoing carry indexing columns. Direct enumeration gives
-\[
-M_0=\begin{pmatrix}1&1\\0&3\end{pmatrix},\qquad
-M_1=\begin{pmatrix}3&0\\1&1\end{pmatrix},\qquad
-M_2=\begin{pmatrix}3&0\\3&0\end{pmatrix}.
-\]
-For the least-to-most-significant digit expansion \(t=\sum_{j=0}^{k-1}d_j3^j\), the exact fiber count is
-\[
-R_k(t)=(1,0)M_{d_0}\cdots M_{d_{k-1}}\binom11.
-\]
-The initial row prescribes carry zero, and the final all-one column counts either outgoing carry, because congruence modulo \(3^k\) ignores the carry beyond position \(k-1\). This identity is an exact weighted automaton for every \(k\), not an asymptotic approximation.
 
-**2. Full support and non-atomicity.** Every output digit \(d\in\{0,1,2\}\) can be formed with carry zero from a fixed choice of three digits: \(000\), \(100\), or \(110\). Thus any prescribed finite output digit word has a realization with no carry, hence positive cylinder probability. All cylinders meet the support, so \(\operatorname{supp}\mu=\mathbb Z_3\). The original fair Cantor measure gives zero mass to every singleton, since each successive input-digit cylinder has mass \(2^{-k}\). By conditioning on \(X_2+X_3\), \(\Pr(X_1+X_2+X_3=x)=0\) for every \(x\), so \(\mu\) is nonatomic.
+Let \(S_j=\epsilon_{1,j}+\epsilon_{2,j}+\epsilon_{3,j}\). The raw sums \(0,1,2,3\) have probabilities \(1/8,3/8,3/8,1/8\). The initial carry is \(C_0=0\); the output digit is \(D_j=(S_j+C_j)\bmod 3\) and the new carry is \(C_{j+1}=\lfloor(S_j+C_j)/3\rfloor\). These equations compute the sum modulo \(3^k\) using the first \(k\) digits and therefore compute the digits of the \(3\)-adic sum. Since \(S_j+C_j\le4\), the only carry states are \(0,1\). The independent raw sums give the carry transition matrix and the conditional digit table
+\[
+Q=\frac18\begin{pmatrix}7&1\\4&4\end{pmatrix},\qquad
+\bigl(\mathbb P(D_j=d\mid C_j=c)\bigr)_{c=0,1;\,d=0,1,2}
+=\frac18\begin{pmatrix}2&3&3\\3&2&3\end{pmatrix}.
+\]
+The first matrix is irreducible, with stationary row vector \(\pi=(4/5,1/5)\). The time averages of the carry-state indicators converge almost surely to the corresponding entries of \(\pi\), also when starting at zero. For each \(d\), the deviations of \(\mathbf 1_{\{D_j=d\}}\) from its conditional mean given the raw sums up through position \(j-1\) are bounded martingale differences. Their empirical average tends to zero almost surely, by the exponential martingale deviation bound and Borel–Cantelli. Thus the empirical digit frequencies are the \(\pi\)-weighted averages in the conditional digit table, yielding the three displayed fractions.
 
-**3. Exact energy recurrence.** The tensor-square transfer matrix \(T=\sum_{d=0}^2M_d\otimes M_d\), in carry-pair order \((0,0),(0,1),(1,0),(1,1)\), is
-\[
-T=\begin{pmatrix}
-19&1&1&1\\12&6&0&3\\12&0&6&3\\10&1&1&10
-\end{pmatrix}.
-\]
-By squaring the product expression for \(R_k\) and summing independently over its \(k\) digits,
-\[
-E_k=(1,0,0,0)T^k(1,1,1,1)^\mathsf T.
-\]
-With \(w_0=(1,1,1,1)^\mathsf T\), exact multiplication gives
-\[
-Tw_0=(22,21,21,22)^\mathsf T,\quad
-T^2w_0=(482,456,456,482)^\mathsf T,
-\]
-and the **vector identity** \(T^2w_0=26Tw_0-90w_0\). Multiplying this identity by any \(T^k\) and taking the first coordinate proves the recurrence, including its initial values. Its characteristic roots are \(\lambda_\pm=13\pm\sqrt{79}\), where \(\lambda_+>\lambda_->0\). The coefficient of \(\lambda_+^k\) in \(E_k\) is \((22-\lambda_-)/(\lambda_+-\lambda_-)>0\); hence \(E_k\sim c\lambda_+^k\). Every input triple among the \(8^k\) finite triples has probability \(8^{-k}\), so \(\mu(t+3^k\mathbb Z_3)=R_k(t)/8^k\). Therefore \(\sum_t\mu(t+3^k\mathbb Z_3)^2=E_k/64^k\), which gives the stated dimension. For Haar measure each such cylinder has mass \(3^{-k}\), hence the cylinder \(\chi^2\) divergence is \(3^kE_k/64^k-1\), with the asserted exponential base.
+For Haar measure the digit indicators come from independent uniform ternary digits (the cylinder masses at depth \(k\) are all \(3^{-k}\)). Their limiting frequencies are \((1/3,1/3,1/3)\) almost surely. Since the two vectors differ, the sets of expansions realizing them are disjoint. Each of these sets is Borel because it is defined by limits of measurable empirical averages.
 
-**4. Almost-sure digit frequencies and singularity.** After normalization by eight, the carry transition matrix is
-\[
-Q=\frac18(M_0+M_1+M_2)=\frac18\begin{pmatrix}7&1\\4&4\end{pmatrix}.
-\]
-It is irreducible and aperiodic and has stationary distribution \(\pi=(4/5,1/5)\). The stationary probability for output digit \(d\) is \(\pi M_d(1,1)^\mathsf T/8\), yielding exactly \(11/40,14/40,15/40\). The ordinary finite-state Markov-chain ergodic theorem, applied to the joint carry and digit transitions, gives almost-sure convergence of each output digit's empirical frequency to these constants even though the initial carry is zero. Under normalized Haar measure on \(\mathbb Z_3\), digits are iid uniform and the frequencies converge to \((1/3,1/3,1/3)\). The two mutually exclusive full-measure events prove \(\mu\perp\mathrm{Haar}\). Together with the preceding step this is full-support singular continuity.
+Each individual input is nonatomic: for a given value its first \(k\) digits have probability at most \(2^{-k}\). Conditioning on \(X_2+X_3\) then proves that the sum has no atoms. Finally, every output digit can be made from three binary digits with carry zero and no new carry, using \(000\), \(100\), or \(110\). Choosing these triples for any desired prefix gives that cylinder positive probability. This proves full topological support.
 
 ## Verification
-Run `python3 check.py` using the accompanying standalone checker (Python standard library only). It verifies the three carry matrices from binomial multiplicities; the tensor-square matrix and the **exact, infinite-depth vector identity**; rational stationary probabilities; transfer-energy recurrence through depth nine; every output fiber and full support through depth eight; and independent three-summand direct enumeration through depth four. The executed checker printed `VERIFY_OK 9993 finite and exact checks`. The all-depth mathematical conclusions rest on the exact vector identity and the ergodic theorem, not on finite enumeration.
 
-## Relationship to prior work
-Abram and Lagarias, *p-adic path set fractals and arithmetic* (first publicly submitted October 9, 2012), Theorem 1.3 and section 4.2, construct finite automata for **Minkowski sumsets** of \(p\)-adic path sets. Their unweighted support theorem and carry construction motivate the question but do not imply the particular weighted threefold convolution's stationary digit law, exact energy recurrence or correlation dimension. Their paper discusses dimensions of sets, which must not be substituted for dimensions of the convolution measure. Abram and Lagarias's work on multiplicative intersections concerns a different operation. Nazarov–Peres–Shmerkin investigate real Cantor convolutions at incommensurable contraction scales, which is not this equal-scale \(3\)-adic problem. Prior unpublished or differently phrased weighted-carry calculations might contain an equivalent formula, so historical priority is not independently certified.
+Run `python3 check.py` to check the carry and digit tables, stationary frequencies, and digit marginals through eight positions using rational arithmetic and integer prefix counts. The almost-sure assertion is a consequence of the proof, not the finite marginal checks.
 
-## Limitations
-The theorem is specific to three fair \(\{0,1\}\)-digit summands over \(\mathbb Z_3\); no classification for all convolution orders, biases, primes, or shifted/multiplied factors is claimed. It establishes the correlation dimension, not an independent formula for entropy/Hausdorff dimension of \(\mu\). The analytic singularity proof is self-contained apart from the standard finite-state ergodic theorem and Haar digit law. The literature comparison is bounded and is not a proof that no earlier equivalent exists; independent audit has not been performed.
+## Relationship to related results
 
-## References
-1. W. Abram and J. C. Lagarias, *p-adic path set fractals and arithmetic*, arXiv:1210.2478 (first submitted 2012-10-09), Theorem 1.3 and §4.2. https://arxiv.org/html/1210.2478v4
-2. W. Abram and J. C. Lagarias, *Intersections of multiplicative translates of 3-adic Cantor sets*, arXiv:1308.3133 (first submitted 2013); J. Fractal Geom. 1 (2014), 349–390. https://arxiv.org/abs/1308.3133
-3. F. Nazarov, Y. Peres and P. Shmerkin, *Convolutions of Cantor measures without resonance*, arXiv:0905.3850 (first submitted 2009). https://arxiv.org/abs/0905.3850
+- W. Abram and J. C. Lagarias, [*p-adic path set fractals and arithmetic*](https://arxiv.org/abs/1210.2478), Theorem 1.3 and §4.2, construct support automata for Minkowski sums. In contrast, the frequency computation uses the probabilities of different inputs reaching a given carry and producing each digit; these are not given by the support language.
+- V. P.-W. Fong, K. E. Hare and D. L. Johnstone, *Multifractal Analysis for Convolutions of Overlapping Cantor Measures*, Asian J. Math. **15** (2011), 53–70, §4, study local dimensions of the real triple Cantor convolution projected to the circle. The folded finite prefix counts considered there are closely related to finite residue counts here by digit reversal and multiplication by the ternary unit two. Local dimensions are a different statistic from typical digit frequencies in the stated \(3\)-adic law.
+- [*Exact sixth Fourier moments of finite middle-thirds Cantor spectra*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-sixth-fourier-moments-of-finite-middle-thirds-cantor-spect--a30ba852d85c) gives the finite **integer** collision transfer for the same three input streams. Its carry matrix also computes the **modular** collision count by allowing every terminal carry rather than requiring carry zero. This collision calculation and its dimension exponent are not part of the finding here. The difference-carry matrix for two independent sums does not track the frequencies of the output digits of a single sum.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:06:33.967341Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The operator factors through the contractive E_d and is determined by its finite matrix on equal-measure atoms; dyadic automorphisms give identical absolute column sums. Prefix-shell multiplicities 2^(d−ℓ−1), entries 2^(−d)(A_ℓ−b_(ℓ+1)2^ℓ) and the diagonal 2^(−d)A_d give the control objective. The two Bellman branches with k≥2 differ by (1−c)(t−1/2) when the preceding value function is a+c|t−1/2|; the update c↦(1−c)/2 preserves c<1. For one remaining step the value from digit 1 is 1 versus t from digit 0, so 1 is forced for every reachable t<1. If the depth is at least two, the first digit forces t=1/2; only at the second digit and d≥3 does a tie occur. Each subsequent strict action maps an interior state to the opposite open half and cannot hit 1/2, proving alternation and excluding every other candidate. The cases d=1,2 have sole optima (1),(1,1). The update for a recovers the stated (known) sharp value. Xoring the initial frequency segment by N shifts it exactly to the selected blocks, and Walsh multiplication is an L¹ isometry, giving the index classification without changing norms. Summing the digit patterns gives the two listed indices. Replay: repaired RESULT.md, or original lines 24–80; checker.py was inspected, not executed. Finite regression tests are not the all-depth proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Seeger–Ullrich select full Haar levels but estimate projections on Sobolev–Triebel–Lizorkin spaces rather than finite strong L¹; Theorem 1.1 does not classify these endpoint equalities.",
+          "Same-day a5c8729c48e8 treats branching b≥3 and predictable signs with an alternating root-to-leaf path criterion. 1564c6e21e01 gives an analogous homogeneous selector result at q≥3; its stated hypotheses exclude q=2. b891474b0dac optimizes independent signs on all Haar coefficients of binary trees, a different multiplier class."
+        ],
+        "reasoning": "Results with higher branching or different admissible multipliers cannot be specialized by simply taking the same depth. A smoothness-space result likewise does not give the finite strong L¹ equality set.",
+        "searches": [
+          "arXiv:1511.01470v1, Theorem 1.1",
+          "Resultary: finite binary Haar martingale transform scale selection L1 L-infinity norm exact sequence alternating masks",
+          "Resultary a5c8729c48e8, 1564c6e21e01, b891474b0dac"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "arXiv:2412.03164v1, 1511.01470v1",
+        "Faure doi:10.4064/aa-55-4-333-350 and the 2005 Fine follow-up doi:10.1007/s10958-005-0082-6 (access attempts)",
+        "Resultary a5c8729c48e8, 1564c6e21e01 and b891474b0dac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fine's pointwise formula in Theorem 1 evaluates L_N from all set bits; the exact maximum and one index are stated separately on p. 4. These permit checking any proposed alternate maximizing index, but no equality exclusion over the full dyadic block is stated in those passages.",
+          "The repair proves exclusion by displaying both affine Bellman branches and proving that only one nonterminal tie can be reached. Its novelty does not rest on turning a recognized equality into a different operator name or evaluating the value at an already known index."
+        ],
+        "reasoning": "The accessible prior statements establish the norm maximum entirely. They do not mechanically supply an all-indices necessity condition without a further exact optimization argument. The original Faure lemma and other plausible equality treatments could change that comparison if readable.",
+        "searches": [
+          "arXiv:2412.03164v1 Theorem 1 (Fine), Theorem 2 and p. 4",
+          "Faure, Acta Arith. 55 (1990), 333–350, Lemme 4.1, doi:10.4064/aa-55-4-333-350",
+          "doi:10.1007/s10958-005-0082-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For N=Σ b_m2^(m−1), the highest bit of N xor j for j<N is precisely the first bit at which j is smaller. Thus N xor [0,N) is the union of the chosen Walsh blocks. Multiplication by w_N conjugates the Walsh partial-sum projector to P_S, so its norm is L_N.",
+          "Dick–Pillichshammer Theorem 2 identifies L_N with the non-normalized binary van der Corput discrepancy d_N, and p. 4 states the same sharp formula on the dyadic block. The N=2^d boundary of its closed block is excluded here (it has value 1); the lower-depth maxima do not increase the deeper block maximum."
+        ],
+        "reasoning": "The norm and sharp value are directly equivalent, not merely similar logarithmic asymptotics. The surviving question is the entire set of equality cases under the bijection of N and selector digits.",
+        "searches": [
+          "Fine 1949 Walsh Lebesgue constants exact maximum L_n for 0≤n<2^d extremal indices sequence maximum Walsh Paley Lebesgue function",
+          "Resultary: Walsh-Paley Lebesgue constants exact dyadic block maxima and all maximizing indices",
+          "arXiv:2412.03164v1 Theorems 1–2 and p. 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact value match is the literature dyadic-block maximum r/3+7/9+(−1)^r/(9·2^(r−1)), with one index (2^(r+1)+(−1)^r)/3 specified. This is stronger evidence than a numerical table and forces credit of the value.",
+          "The inspected statement does not give the full index pair consisting of that index and (5·2^(r−1)−(−1)^r)/3, nor say that no other index attains. The catalogue hits explicitly differ in branching or selector class."
+        ],
+        "reasoning": "The exact previously tabulated/evaluated quantity is not a novelty after repair. Comparison focused on the full optimizing set, not just the maximum value sequence or instances of an alternating pattern.",
+        "searches": [
+          "Resultary: dyadic Haar homogeneous scale projection exact finite-depth L1 norm extremizing selectors d/3 + 7/9",
+          "Resultary: binary dyadic Haar level projection selector exact L1 norm two maximizing selectors",
+          "Resultary: Boolean cube Fourier partial sums Walsh Dirichlet kernel endpoint L1 L-infinity Lebesgue constant extremal indices",
+          "arXiv:2412.03164v1 p. 4"
+        ]
+      },
+      "rationale": "The numerical maximum in the frozen result is covered: the Walsh reduction makes it the exact dyadic-block maximum of the Walsh–Paley Lebesgue constants; Dick–Pillichshammer give that expression via the binary van der Corput discrepancy, citing Faure. The repair expressly credits the known value and keeps full equality classification only. The inspected statement supplies one attaining index, not an exclusion of all the others. The repaired strict Bellman comparison proves that exclusion. No priority is asserted for a witnessing digit pattern, the value, or the pointwise norm formula; older full equality results remain a real access risk.",
+      "residual_risks": [
+        "The full Faure lemma and the plausible later Fine follow-up could contain a stronger equality classification; lawful text retrieval did not provide decisive passages.",
+        "The inspected maximum source names an attaining index, not necessarily the sole one; this is not evidence that no older text lists both or proves necessity.",
+        "The pass is only for the supported full equality classification, not the numerical maximum, asymptotic slope or a single realizing sequence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact numerical maximum and one attaining index covered; no exhaustive equality assertion in the read statement",
+          "evidence": [
+            "Theorem 2 says d_N=L_N; p. 4 prints precisely the repaired sharp value and exhibits (2^(r+1)+(−1)^r)/3, citing Faure Lemme 4.1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2412.03164v1",
+          "material_read": "Theorem 1 p. 2, Theorem 2 p. 3, dyadic-block maximum passage p. 4 (offset 12540–14036)",
+          "method": "Lawful OA PDF, located bounded passages",
+          "title": "Lebesgue constants for the Walsh system and the discrepancy of the van der Corput sequence",
+          "trigger": "Equivalent norm via Walsh–Paley modulation; plausible known exact value and equality cases"
+        },
+        {
+          "assessment": "Known value credited via the accessible reproduction; primary coverage of all extremizers unresolved",
+          "evidence": [
+            "The publicly listed Faure article is Acta Arith. 55 (1990), pp. 333–350. The only inspected formula attribution is the explicit p. 4 statement in arXiv:2412.03164v1."
+          ],
+          "identifier_or_url": "https://doi.org/10.4064/aa-55-4-333-350",
+          "material_read": "Publisher issue listing and bibliographic identity, plus the citation and maximum statement in Dick–Pillichshammer; original lemma not read",
+          "method": "Lawful OA attempts at DOI and identified official public PDF link, direct and alternate route; text retrieval failed",
+          "title": "Discrépance quadratique de la suite de van der Corput et de sa symétrique",
+          "trigger": "Primary Lemme 4.1 cited for the exact maximum; it could contain further equality information"
+        },
+        {
+          "assessment": "Pointwise formula covered; full historical equality coverage unresolved",
+          "evidence": [
+            "Theorem 1 gives the exact expression in the bit positions, not the maximizing set in its pointwise formula."
+          ],
+          "identifier_or_url": "Fine (1949), Trans. Amer. Math. Soc. 65:372–414; doi:10.1007/s10958-005-0082-6",
+          "material_read": "Fine formula as printed in Dick–Pillichshammer Theorem 1; primary attempts on Fine and the later paper did not yield decisive passages",
+          "method": "Lawful AMS/identified alternate and DOI retrieval attempts; verified formula via accessible citing paper",
+          "title": "On the Walsh functions / On Fine’s results for Lebesgue constants of the Walsh system",
+          "trigger": "Classical pointwise evaluation and potential older optimization theorem"
+        },
+        {
+          "assessment": "Related scale construction in a different norm",
+          "evidence": [
+            "The lower bounds concern F^s_(p,q) norms, not the finite strong L¹ norm and its complete equality classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.01470v1",
+          "material_read": "Abstract and introduction p. 1, Theorem 1.1 and construction pp. 3–4",
+          "method": "Lawful OA full text, relevant bounded passages",
+          "title": "Lower bounds for Haar projections: deterministic examples",
+          "trigger": "All-scale selection in a cited same-system paper"
+        },
+        {
+          "assessment": "Different branching and predictable sign class",
+          "evidence": [
+            "The regime is b≥3 and signs are prescribed on a maximizing path, not binary homogeneous 0/1 levels."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-finite-depth-endpoint-norms-and-maximizing-paths-for-highe--a5c8729c48e8",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact finite-depth endpoint norms and maximizing paths for higher branching",
+          "trigger": "Distinct same-day result with endpoint equality classification"
+        },
+        {
+          "assessment": "Restricts to q≥3",
+          "evidence": [
+            "The exact norms and equality masks are asserted at regular branching q≥3 rather than in the binary tree."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-endpoint-norms-and-alternating-mask-rigidity-on-regular-q--1564c6e21e01",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published-record mirror",
+          "title": "Exact endpoint norms and alternating-mask rigidity on regular q-ary filtrations",
+          "trigger": "Closest homogeneous-level analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The binary dyadic filtration and Walsh Lebesgue constants are standard exact endpoint objects. Knowing one high-norm selector and the sharp value does not say whether many distinct scale patterns tie, or which alterations are possible. The all-depth necessity-and-sufficiency theorem answers that structural question: one binary tie, forced alternation among subsequent nonterminal choices, and a forced terminal digit. Through the isometry it also gives a complete optimizing-index classification for the discrepancy/Walsh formulation. This distinct equality question, not the recomputation of the known maximum, justifies retention.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

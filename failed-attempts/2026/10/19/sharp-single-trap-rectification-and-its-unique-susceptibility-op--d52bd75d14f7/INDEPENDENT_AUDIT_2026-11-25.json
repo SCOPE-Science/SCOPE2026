@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:47:38.731854Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent symbolic check uses the physical backward generator, its centered Poisson problems at zero bias, and left boundary current (rho_L-E[n_1])/2, rather than the uploaded forward bond-flux perturbation code. Stationarity conserves flux and makes these currents equal. It verifies both rational coefficient identities, positive polynomial coefficients, and exactly one derivative root on (0,1) by Sturm counting, with negative/positive endpoint signs. The verified optimum is u=0.318913576516811551474..., magnitude 0.00323613399987347948353..., and -log(u)=1.14283513291274316975.... At u=1 the first-moment equations are the linear current equations of five unit-resistance links (three interior and two reservoir), giving d/10. Reflection makes the three-site centered-defect current odd, and there is no interior site on shorter chains. Positive transition rates under the stated hypotheses imply analyticity at d=0 via the normalized finite stationary system. Replay: python3 /workspace/reviews/evidence/trap_response.py; output reviews/evidence/trap_response.txt. The proof verifies near-equilibrium optimization only, not optimal finite bias.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier boundary-driven paper studies general site disorder, explains rectification and exactly rules it out for reflection-symmetric equilibrium profiles. Its second-order formula is within an approximation.",
+          "The related earlier ring analysis applies external field driving, not open reservoir densities."
+        ],
+        "reasoning": "A broader model and a symmetry obstruction are not a proof of a necessary-and-sufficient single-trap sign rule or an exact optimizer.",
+        "searches": [
+          "arXiv:2609.03560 Sec. II and Sec. IV D, equations (52), (58)–(63)",
+          "arXiv:2512.03316 Sec. II"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026/11/2/SCOPE-exact-local-rectification-and-the-minimal-one-defect-open-exclus--26cacba53749",
+        "arXiv:2609.03560v1",
+        "arXiv:2512.03316",
+        "targeted primary-literature web query for exact one-defect rectification (no useful hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed formula gives the identical full dip on 0<u<1, since C_2=2[d^2]J.",
+          "Differentiating that same rational function and applying ordinary polynomial root counting gives precisely one interior zero and the stated maximizer; the indexed record does not print the critical point or prove uniqueness."
+        ],
+        "reasoning": "The optimization is a direct one-variable algebraic extraction from the duplicate exact coefficient and does not change the model, parameter range or objective. This is not an assertion that the earlier paper proved the optimum.",
+        "searches": [
+          "Compare matched Resultary C_2(t) with the frozen derivative of [d^2]J",
+          "Independent exact symbolic differentiation and Sturm check, reviews/evidence/trap_response.py"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/2/SCOPE-exact-local-rectification-and-the-minimal-one-defect-open-exclus--26cacba53749 uses rates twice the frozen physical rates and the same contrast.",
+          "After t=u, all coefficient numerators B,P and shared denominator Q agree, with C_j=2[d^j]J. The homogeneous current d/5 in that record becomes d/10 in physical units."
+        ],
+        "reasoning": "A common time rescaling multiplies current and each Taylor coefficient by two without affecting sign, the minimum channel length or the optimizing defect rate.",
+        "searches": [
+          "Resultary semantic lookup: exact four-site single-defect open exclusion rectification coefficient and optimum",
+          "Sakai and Akimoto arXiv:2609.03560 model and reservoir parametrization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed Resultary result gives the exact rational functions and a finite-bias numerical orientation check, not a table of exact finite-bias currents.",
+          "Tables I–III provide a qualitative comparison and approximation-truncation errors, not exact one-defect current functions or optimizer values."
+        ],
+        "reasoning": "The exact-function match is stronger evidence than a table of sampled parameter values; the inspected paper's own tables do not cover the theorem.",
+        "searches": [
+          "Matched Resultary RESULT.md, offsets 0–4952",
+          "arXiv:2609.03560 Tables I–III, PDF pp. 12–13"
+        ]
+      },
+      "rationale": "The distinct Resultary record on minimal one-defect exclusion gives exactly the same two rational coefficients, sign theorem and minimal channel, in time units doubling all rates. Its coefficient determines the entire one-variable susceptibility curve, including the same critical-point equation; root counting and numerical isolation add a check and the evaluated optimizer, not a different response law or optimization problem. The duplicate coverage is demonstrated in the current corpus, not asserted as earlier priority: the matched record path date is November 2, the assigned path October 19. Earlier same-model primary literature establishes the phenomenon and symmetry obstruction, not the exact polynomial found here.",
+      "residual_risks": [
+        "The provenance relationship of the two exact records is unestablished; no earlier-priority claim is based on the catalogue dates.",
+        "An independently published prior exact formulation outside the inspected sources was not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coefficient theorem and size boundary; optimizer not explicitly evaluated; later path date is not priority evidence",
+          "evidence": "Same polynomial B,Q,P and nonvanishing criterion; physical current differs only by the common rate factor two.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-local-rectification-and-the-minimal-one-defect-open-exclus--26cacba53749",
+          "material_read": "Mirrored RESULT.md offsets 0–4952",
+          "method": "Local Resultary semantic search and mirrored statement inspection",
+          "title": "Exact local rectification and the minimal one-defect open exclusion chain",
+          "trigger": "Exact indexed model and coefficient match"
+        },
+        {
+          "assessment": "Same model and symmetry obstruction; no complete exact single-defect result in inspected passages",
+          "evidence": "Approximation for nonlinear response; exact reflection obstruction; tables are qualitative or record truncation errors.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.03560v1",
+          "material_read": "Sec. II pp. 2–3; Sec. IV D pp. 9–10 and surrounding equations (52), (58)–(63); Tables I–III pp. 12–13",
+          "method": "OA PDF model, response and table passages",
+          "title": "Sample-specific rectification-like response in a boundary-driven exclusion process",
+          "trigger": "Earlier primary source of same open dynamics and rectification phenomenon"
+        },
+        {
+          "assessment": "Different system and forcing",
+          "evidence": "Periodic externally biased system, not boundary reservoirs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2512.03316",
+          "material_read": "Sec. II pp. 1–2, offsets 0–9084",
+          "method": "OA PDF model passages",
+          "title": "Symmetry Breaking of Current Response in Disordered Exclusion Processes",
+          "trigger": "Related exact symmetry of disordered exclusion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "As an exact benchmark the full claim isolates the smallest asymmetric interior trap, supplies a sign diagnostic and quantifies the most sensitive trap rate in the stated dynamics. These are useful checks on approximations and distinguish the quadratic response from finite-driving efficiency. Re-evaluating the bare optimizer from the already indexed curve is not a separate valuable repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

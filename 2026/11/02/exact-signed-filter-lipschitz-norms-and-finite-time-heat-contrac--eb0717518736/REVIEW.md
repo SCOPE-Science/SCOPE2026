@@ -1,19 +1,21 @@
-# Scientific assessment: signed Kneser adjacency-filter norms and heat contraction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is explicitly the two-subset Kneser graph with \(n\ge5\), the norm is the real graph-distance Lipschitz norm modulo constants, and the generator is the unnormalized rate-one combinatorial Laplacian. Edge transitivity reduces the operator norm to one signed edge measure. For \(n\ge6\), a fixed-point-free outsider permutation gives a cost-one matching for every positive/negative coefficient, and a bounded-range Lipschitz potential attains the full absolute coefficient sum. For \(n=5\), averaging reduces the optimization to a two-dimensional polygon; every extremal corner is realized by valid graph-distance potentials. The exact adjacency quadratic identity yields the two nonconstant eigenvalues; their heat multipliers give the asserted formula for all nonnegative times. Differentiating its explicit positive two-exponential form proves the strict rate acceleration. Exact-integer/rational replay and numerical Kantorovich dual checks were executed; no finite enumeration is used as proof for all dimensions.
+PASS
 
-## Originality — PASS, with stated historical risk
+For the repaired signed geometry, row cancellation gives y=−x+sum(V)−sum(U) on a fixed edge. At n≥6 the derangement matches disjoint pairs and bounds |x+y| by 2(n−4); four feasible corners have values in an interval of length one. This also corrects the frozen proof's informal 'full sum of absolute coefficients' wording: sign potentials of magnitude 1/2 take half that sum, exactly the claimed norm. At n=5 symmetrization preserves the pair, and distances imply |z|≤2, |z−x|≤2 for z=q−p, hence |y|+|x|≤4. The three prescribed tests and negatives satisfy the metric conditions on all six support points and extend by the explicit McShane formula. Convex combinations fill the respective regions and their support functions give all signs and zero coefficients. The common-neighbor identity is valid on diagonal, disjoint and intersecting entries and J vanishes on the quotient. An independently constructed edge-potential LP anchoring one vertex agreed exactly numerically on all 49 integer coefficient pairs −3…3 for each of n=5,6; replay with graph disjointness, two inequalities per edge, and fixed edge objective. Independent heat LP checks at t=0,0.001,0.05,0.3,1.4 matched the original formula to 6e−16; its increasing log-rate and t=0 Petersen degeneracy also follow by differentiating the exact two-exponential formula. Those finite checks are not an all-n proof. The frozen verification and both checkers were inspected, not executed.
 
-The closest inspected primary work provides (i) a general equivalence of curvature lower bounds and Lipschitz heat estimates (Münch–Wojciechowski, arXiv:1712.00875), (ii) geometric rigidity and Petersen curvature/spectral information (Cushing et al., arXiv:1807.02384), and (iii) formulas for infinitesimal Ollivier curvature on strongly regular graphs including the Petersen zero-curvature case (Bonini et al., arXiv:1907.06733). These compare to the present statement but do not imply a complete unrestricted *signed* two-parameter adjacency-filter norm or its exact positive-time heat coefficient. Semantically related published research records and accessible historical claims were compared against the all-filter and heat formulations, including domination by general transport/curvature theorems; no covering statement was identified. A previously published equivalent computation under a different semigroup, spectral-multiplier or earthmover convention remains a nonzero historical-priority risk. This assessment is not independent novelty certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The operator norm is an exact natural invariant for all real two-parameter spectral filters on a prominent infinite family of finite graph Lipschitz spaces; the exceptional Petersen facet and the sharp matching transition at \(n=6\) are structural, not arbitrary parameter selections. Its heat specialization gives a full-time Wasserstein-one coefficient, distinguishes vanishing *initial* curvature from strictly positive later contraction, and proves a strict acceleration law. The result does not seek all graph heat semigroups or the exact norms of arbitrary non-polynomial operators.
+The remaining exact joint feasible regions support arbitrary real signed filters. Positive-walk idleness results cover the removed heat finding and the positive support directions, not the claimed full geometry. The opposite-sign Petersen corners in particular require additional feasible potentials; no matching signed-region statement was found in the inspected sources. The all-signed shape is retained as one invariant, not each sign sector as a separate novelty claim.
 
-## Verification and limitations
+## value
 
-The executed standard-library certificate checked 123188 exact adjacency identities, 767 signed-filter witness/matching cases, and 225 rational spectral-heat identities. Finite numerical linear programs tested 75 additional signed-filter and heat cases on orders \(5\) through \(9\). The theorem itself is proved analytically for all stated parameters and times. Generalizations to higher-subset Kneser graphs, non-unit weights, and other Wasserstein exponents are not established. The investigation cannot exclude every older equivalent theorem; independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact joint region is the finite-dimensional invariant controlling every affine adjacency filter and hence every polynomial filter on this quotient. The opposite-sign directions are needed for shifted adjacency and other non-Markov filters, for which idleness comparisons cannot give the amplification. The Petersen hexagon versus the stable parallelogram for n≥6 gives a genuine change in the optimization, including a flat branch for small positive shifts on Petersen. The positive heat calculations alone would be routine applications of prior theorems and were removed as a contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

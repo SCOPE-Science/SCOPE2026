@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:24:55.127652Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–58; VERIFICATION.md, lines 19–21; verify_frucht.py (inspected, not executed)",
+        "Independent subset and spin enumeration: use the frozen 18 edges, scan 12-bit masks counting only masks containing no entire edge; scan 12-digit ternary words, tabulate the least m by k, resetting the multiplicity and site tallies when m drops and adding to them when m equals the current minimum.",
+        "NetworkX small.py, frucht_graph constructor, OA offsets 9540–11338"
+      ],
+      "rationale": "The specified edge list is the standard labelled Frucht graph. Three disjoint triangles and the residual three-vertex path bound the independent set size by five; equality forces the two path endpoints and then fixes one vertex of each triangle, giving only A. Its complement B induces a three-edge matching and one isolate. For a favoured set S of size k, m>=e(S)>=3(k−6) by cubic degree counting. At k=6, e(S)<=1 would allow deletion of a vertex to leave A, but every vertex of B has at least two neighbours in A, so m>=2 instead. These bounds exclude every population other than 5 before h=3/2, 7 between 3/2 and 3, and exactly 5 and 7 at their first crossing. At k=5 equality forces A and gives 2^4 labelled completions; at k=7 equality in the degree bound forces the complement to be A and gives 2^5 completions. For h>3 only k=12 can attain the linear lower bound. At h=3, for T=V\\S the energy is −18+e(T)+m_T, where m_T counts monochromatic edges inside T. Equality is equivalent to independence of T, with two freely chosen colours at its vertices. Independently enumerating all 4096 subsets gives coefficient vector (1,12,48,73,34,1) and I_G(2)=1377. A separate exhaustive base-three enumeration of all 531441 spin assignments gives population minima (3,2,1,0,0,0,2,3,6,9,12,15,18) and corresponding degeneracies (2,12,24,16,112,16,544,32,544,584,192,24,1). It finds all 16 k=5 minimizers supported on A and all 32 k=7 minimizers supported on B. There are 48 at the first crossing; every site switches between the adjoining strict intervals, not at a unique ground configuration at the crossing itself.",
+      "residual_risks": [
+        "The frozen certificate can be replayed with python3 verify_frucht.py in its source directory; the reported independent counts were obtained separately. The all-real-field result rests on the exact inequalities, not sampled fields. The scope is zero temperature and h>0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shrock–Xu treat a generalized field favouring a subset of spin values and the proper-colouring specialization, with inspected explicit results for paths.",
+          "Distinct same-day SCOPE-two-field-thresholds-and-exact-critical-occupation-polynomials-i--8039a29611d5 treats K_(a,b,c) for a>b>c and has switch fields a and a+b, with different occupational sectors."
+        ],
+        "reasoning": "The formalism defines the partition functions but does not evaluate the Frucht diagram in the inspected passages. A complete tripartite theorem with unequal positive shores cannot specialize to this cubic graph.",
+        "searches": [
+          "Shrock–Xu arXiv:1009.1182v1, abstract and §V",
+          "Resultary comparisons for exact single-colour-field diagrams and critical occupancies"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and prior-work notes",
+        "Resultary exact self-match and distinct same-graph, truncated-tetrahedron, Clebsch, and complete-tripartite matches",
+        "Shrock–Xu arXiv:1009.1182v1",
+        "NetworkX Frucht constructor"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Frucht intermediate branch has m=3, so it is invisible to a polynomial that counts only proper colourings.",
+          "For cubic graphs saturation at h=3 admits the structural reduction to independent complements; the graph-specific polynomial and the earlier inversion still require evaluating the Frucht structure.",
+          "The truncated-tetrahedron record has a 4-to-6-to-8 population progression; the complete tripartite record goes from shore A to A union B at the first crossing."
+        ],
+        "reasoning": "General lower-envelopes and independence counting are not distinct claims here. No inspected adjacent result forces an earlier crossing from A to its complement, its strict uniqueness in each interval, or the complete set of Frucht degeneracies.",
+        "searches": [
+          "Shrock–Xu arXiv:1009.1182v1, proper-colouring specialization and §V",
+          "Truncated tetrahedron and complete tripartite Resultary records, Findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The asserted switch is between the unique complementary occupancy sets A and B of sizes 5 and 7 at H/J=3/2; the finite-energy Hamiltonian is m−hk, not a proper-colouring-only model.",
+          "Same-graph SCOPE-a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7 gives a table of pairs of eventual periods for two cellular automata, not field-energy sectors."
+        ],
+        "reasoning": "The Frucht labeling agrees with the canonical graph, so relabelled results would count. A dynamical period table on the same graph and spin alphabet is not equivalent to the occupancy properties of ground states.",
+        "searches": [
+          "Resultary: Frucht graph three-state Potts antiferromagnet magnetic field ground-state energy degeneracy",
+          "Resultary focused sitewise inversion query",
+          "NetworkX frucht_graph canonical edge construction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit SCOPE-sharp-field-induced-sitewise-colour-inversion-on-the-frucht-pott--cdac100cbc4d is the assigned record itself.",
+          "SCOPE-complete-three-color-potts-field-diagram-on-the-truncated-tetrah--71fbb24aea5c treats a different twelve-vertex graph: its positive crossings are 1, 2, 3 and at 3 its degeneracy is 1273, not 1377.",
+          "An indexed Clebsch analogue concerns a sixteen-site graph, not this table."
+        ],
+        "reasoning": "Matching size, a saturation field, or enumeration method is not table equivalence. The Frucht result requires the exact positive-field sectors and the occupancy sets, not just an independence polynomial value at one field.",
+        "searches": [
+          "Resultary: Frucht graph three-state Potts antiferromagnet magnetic field ground-state energy degeneracy",
+          "Resultary finite-graph field envelope and exact degeneracy comparisons"
+        ]
+      },
+      "rationale": "The supported distinction is the exact positive-field envelope and complete strict-side inversion for this graph. Prior formalism includes the Hamiltonian, and other records specialize the same model to other graphs, but the inspected sources do not establish this ground-state support or these counts for Frucht.",
+      "residual_risks": [
+        "The bounded primary-literature lookup supplied no additional direct result. This is not evidence of historical priority or of absence from unindexed finite-cluster work. No whole-paper absence is inferred from a keyword miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General setup and related specializations, not evidence of this graph's envelope",
+          "evidence": [
+            "The antiferromagnetic proper-colouring specialization is a weighted-set chromatic polynomial; the m=3 branch here requires finite exchange energy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.1182v1",
+          "material_read": "Abstract p. 1 and §V path passages pp. 15–16 (OA offsets 44250–49376)",
+          "method": "Primary OA PDF, bounded passages",
+          "title": "Exact Results on Potts Model Partition Functions in a Generalized External Field and Weighted-Set Graph Colorings",
+          "trigger": "General field formalism and possible exact specialization"
+        },
+        {
+          "assessment": "Different dynamics and statistic",
+          "evidence": [
+            "Joint period counts for the cyclic cellular automaton and the Greenberg–Hastings model."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-1-496-state-period-split-between-cyclic-and-excitable-dynamics--09b39afb00c7",
+          "material_read": "RESULT.md Finding, offsets 0–1760",
+          "method": "Local mirror primary record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A 1,496-state period split between cyclic and excitable dynamics on the Frucht graph",
+          "trigger": "Same graph, three labels and an exact full census"
+        },
+        {
+          "assessment": "Different graph with four disjoint triangles and different sectors",
+          "evidence": [
+            "Positive crossings 1,2,3 and critical degeneracies 984,1824,1273."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-complete-three-color-potts-field-diagram-on-the-truncated-tetrah--71fbb24aea5c",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–1818",
+          "method": "Local mirror primary record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete three-color Potts field diagram on the truncated tetrahedron",
+          "trigger": "Same field model on a twelve-vertex cubic graph"
+        },
+        {
+          "assessment": "Covers unequal complete tripartite graphs only, not Frucht",
+          "evidence": [
+            "Crossings are a and a+b, and strict-side favoured populations are a, a+b and a+b+c."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-two-field-thresholds-and-exact-critical-occupation-polynomials-i--8039a29611d5",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–1910",
+          "method": "Local mirror primary record, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Two field thresholds and exact critical occupation polynomials in a tripartite Potts antiferromagnet",
+          "trigger": "Distinct same-day result with two transitions and exact multiplicities"
+        },
+        {
+          "assessment": "Exact vertex-label and edge match",
+          "evidence": [
+            "cycle_graph(7) plus the eleven source-listed edges."
+          ],
+          "identifier_or_url": "https://networkx.org/documentation/stable/_modules/networkx/generators/small.html",
+          "material_read": "frucht_graph constructor, OA offsets 9540–11338",
+          "method": "Open source documentation",
+          "title": "NetworkX graph generator source",
+          "trigger": "Graph identity under alternate labellings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and structural proof",
+        "Independent population and occupancy verification"
+      ],
+      "rationale": "This gives a small, natural finite-graph witness that a positive uniform field can increase total occupation of the favoured colour while switching its site indicator at every vertex. The uniqueness of each strict-side favoured set makes the phenomenon stronger than a change in mean occupation or a choice of representatives from degenerate sectors. The exact envelope and multiplicities make the example usable as a reproducible benchmark.",
+      "residual_risks": [
+        "The example does not establish a minimum graph size, generic behavior, or a finite-temperature discontinuity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

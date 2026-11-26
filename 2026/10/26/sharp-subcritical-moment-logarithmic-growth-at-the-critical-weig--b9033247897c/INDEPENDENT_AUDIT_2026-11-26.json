@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:51:47.729291Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–118",
+        "Frozen VERIFICATION.md and checks/reproduce.py"
+      ],
+      "rationale": "With u_i=|x_i|^p/i, the admissible set is exactly the probability simplex and F_k=Σ_{i>k}i u_i/(i−k). Set r=q/p. The uniform column bound for the first m=floor(δN) rows is mH_m, by monotonicity in i past m; Jensen then bounds the contribution to the normalized r-moment by (m/N)(H_m/log N)^r, tending to δ. On m≤k<N independently apply Hölder to (NF_k/(k log N))^r(k/N)^r. The two resulting factors are (Σ F_k/(k log N))^r and ((1/N)Σ(k/N)^{r/(1−r)})^{1−r}. The reciprocal decomposition i/[k(i−k)]=1/k+1/(i−k), with the first sum O_δ(1) and second ≤H_N per column, bounds the limsup of the first by one; the second is bounded in the limit by (1−r)^{1−r}. This verifies the sharp upper estimate without any restriction on support. For u_i=f(i/N)/Σf(j/N), f(s)=s^{r/(1−r)}/(1−r), the denominator is asymptotic to N. In bulk, writing i=k+j gives a bounded unweighted summand and a weighted harmonic sum with leading term (k/N)f(k/N)log N; split at j=ηN, use uniform continuity inside the split and bounded harmonic mass outside, then send η to zero. The integral of (sf(s))^r is (1−r)^{1−r}. The root converts the log exponent to 1/p and yields the claimed coefficient. For point-mass u at i≤N, the normalized sum is bounded by i^r/N times Σ_{j≤i}j^{−r}; i>N is no larger than i=N by monotonicity. No triangle inequality for q is used. The optional frozen finite witness diagnostic was inspected, not run.",
+      "residual_risks": [
+        "The limit is for fixed p,q; neither a uniform q→p statement nor a finite-horizon optimizer classification is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "e438690c71d4 Finding restricts regular variation to 0<α<1/p; be95f46b7fe9 Finding and Proof §§2–4 treat a strict subcritical finite q bound via two masses.",
+          "Arnold Theorem 4.1/Corollary 4.4 require absolute Cesàro boundedness; Abbar–Arnold–Coine Example 3.10 excludes the critical shift."
+        ],
+        "reasoning": "Neither the broader weight family at an excluded endpoint nor a theorem conditional on a finite absolute Cesàro bound can be specialized to this unbounded critical profile.",
+        "searches": [
+          "critical weighted backward shift q-moment logarithmic growth sharp subcritical coefficient",
+          "arXiv:2610.00271v1 §§3–4, queries 'Theorem 4.1' and 'log(N+1)'"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.24601",
+        "arXiv:2506.04476v1",
+        "arXiv:2610.00271v1",
+        "arXiv:2611.16007v1",
+        "e438690c71d4",
+        "1b6cb9a310fc",
+        "c1795c3e8b5a",
+        "be95f46b7fe9",
+        "f7c514683b0a (frozen summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coordinate-column maximum is NH_N in the frozen k=0 through N−1 convention, so the prior p-method yields C_{p,p}(N)^p=H_N.",
+          "The frozen diffuse profile instead matches a bulk reciprocal bound weighted by k^{−1}."
+        ],
+        "reasoning": "The linear coordinate reduction and Jensen yield an upper envelope with coefficient one but do not determine the strict subunit coefficient, and basis vectors that attain the endpoint stay uniformly bounded at q<p.",
+        "searches": [
+          "arXiv:2506.04476v1 Corollary 58 and equation (26)",
+          "arXiv:2609.24601 Example 3.10; arXiv:2610.00271v1 Theorem 4.1 and Corollary 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abbar–Arnold–Coine arXiv:2609.24601, Theorem 3.4 and Example 3.10; Kanjilal arXiv:2611.16007v1, Theorem 2.2 and (2.8)."
+        ],
+        "reasoning": "Isometric conjugation gives the classical backward shift with weights ((i+1)/i)^{1/p} and the positive triangular kernel applied to probability masses. The inspected continuous two-weight Hardy theorem treats a cumulative operator and comparable constants, not the sharp discrete shifted harmonic kernel in this limit; the weighted-shift criterion concerns boundedness and the linear or superlinear regime, not this concave optimization.",
+        "searches": [
+          "sharp subcritical q-moment logarithmic growth coefficient critical weighted shift harmonic kernel 0<q<p",
+          "critical weighted backward shift finite-horizon q-moment logarithmic asymptotic sharp constant q<p weighted Hardy harmonic kernel"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1b6cb9a310fc Finding gives a sharp power-norm profile under a finite p-Cesàro budget K; c1795c3e8b5a Finding gives a weak endpoint for a finite-K extremizer.",
+          "The frozen prior discussion points to f7c514683b0a at summary level only; the matching harmonic p endpoint is independently recovered from the cited coordinate formula."
+        ],
+        "reasoning": "Power norms and weak endpoints are not the concave finite-window objective. Even if the summary of the harmonic profile describes the identical shift, the p-moment finite-horizon number does not furnish the q-moment exact coefficient.",
+        "searches": [
+          "exact harmonic p-moment finite-horizon profile extremal critical weighted backward shift",
+          "critical weighted shift p-absolutely Cesaro finite-horizon harmonic-number moment profile extremal operator"
+        ]
+      },
+      "rationale": "Prior work gives boundedness failure, exact coordinate reduction at p, and adjacent finite-budget/weak-endpoint results. On this exact critical shift the p-moment is H_N before taking the root, whereas passing to q<p by Jensen gives only the leading coefficient one, not the strictly smaller sharp constant or a diffuse asymptotically maximizing profile. The strongest inspected lower-moment record uses the strict weight inequality α<1/p and a finite bound, not the critical harmonic divergence.",
+      "residual_risks": [
+        "The full f7c514683b0a result was not independently recovered; its reported claim concerns the p endpoint.",
+        "An equivalent nonlinear discrete Hardy or convolution asymptotic may exist outside the inspected sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Critical boundedness failure, not finite-window sharp growth",
+          "evidence": "Criterion for q≥p; Example 3.10 uses r≥1 and requires pα<1.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.24601",
+          "material_read": "Theorem 3.4, p. 8, and Example 3.10, p. 15",
+          "method": "OA full-text passages, offsets 29773 and 57821",
+          "title": "On absolutely Cesàro bounded operators",
+          "trigger": "Same critical power weighted shift"
+        },
+        {
+          "assessment": "Covers p-moment after adjusting the time index, not q<p",
+          "evidence": "Linear supremum over coordinates and horizons.",
+          "identifier_or_url": "https://arxiv.org/html/2506.04476v1",
+          "material_read": "Corollary 58, equation (26)",
+          "method": "OA HTML passage at offset 112302",
+          "title": "On the dynamics of weighted composition operators",
+          "trigger": "Known exact weighted-shift coordinate reduction"
+        },
+        {
+          "assessment": "Hypothesis fails on critical shift",
+          "evidence": "Requires absolute Cesàro boundedness and Banach-space type.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00271v1",
+          "material_read": "§4, Theorem 4.1 and Corollary 4.4",
+          "method": "OA HTML passages, offsets 22902 and 30653",
+          "title": "Self-improvement for absolutely Cesàro bounded operators",
+          "trigger": "Logarithmic moment bound"
+        },
+        {
+          "assessment": "Excludes current weight exponent",
+          "evidence": "0<α<1/p, strong cutoff 1/α and weak endpoint characterized by almost-decrease.",
+          "identifier_or_url": "2026/10/18/SCOPE-critical-weak-ces-ro-endpoints-for-regularly-varying-backward-sh--e438690c71d4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Read-only local mirror",
+          "title": "Critical weak Cesàro endpoints for regularly varying backward shifts",
+          "trigger": "Closest early indexed critical-weight topic"
+        },
+        {
+          "assessment": "Distinct weight regime, constant and extremal profile",
+          "evidence": "Two-mass improvement for α<1/p, not critical α=1/p logarithmic divergence.",
+          "identifier_or_url": "2026/11/22/SCOPE-fractional-two-pulse-amplification-below-the-ces-ro-ambient-expo--be95f46b7fe9",
+          "material_read": "RESULT.md Finding and Proof §§2–4, offsets 0 and 2950–5488",
+          "method": "Read-only local mirror",
+          "title": "Fractional two-pulse amplification below the Cesàro ambient exponent",
+          "trigger": "Close lower-moment variational problem"
+        },
+        {
+          "assessment": "Different kernel and conclusion",
+          "evidence": "Continuous cumulative Hardy operator and constant comparisons under a testing criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.16007",
+          "material_read": "Theorem 2.2, equation (2.8), p. 5",
+          "method": "OA PDF passage around offset 19100",
+          "title": "Sharp constants and martingale proofs for two-weight Hardy inequalities with general measures",
+          "trigger": "Potential stronger Hardy inequality for q<p"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of both sharp bounds",
+        "arXiv:2609.24601 Example 3.10; arXiv:2506.04476v1 Corollary 58"
+      ],
+      "rationale": "The critical power weight is singled out by the loss of absolute Cesàro boundedness, and the exact lower-moment coefficient answers a natural refinement left open by the endpoint envelope. The argument identifies a structural change from a single-coordinate extremizer at p to diffuse lower-moment near-extremizers; neither nonboundedness alone nor the logarithmic order from interpolation gives that information.",
+      "residual_risks": [
+        "No classification of all near-extremizers or claim for other weights is needed or established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

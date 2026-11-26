@@ -1,19 +1,21 @@
-# Scientific review: Gaussian first-exit crossover for randomly switched intermittent maps
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact neutral-branch conjugacy sends an initial point approaching zero to a decreasing positive coordinate \(z\). One-step Taylor bounds are uniform on \(z\ge1\); the positive potential \(H_t(z)=\int_0^z(1+u)^{-t}\,du\) gives integrable stopping-time weighted occupations, including the terminal region. These bounds yield the stopping identity (2) with \(O_{\mathsf P}(\log Z)\) remainder, a fluid clock, and a weighted slow-choice law. A Bernoulli invariance principle evaluated at the asymptotically deterministic random stopping time supplies the normal component. Each of the three limits follows at its stated scale. The included finite checker also verifies exact rational cases and numerical consistency. Infinite limits do not depend on simulation.
+PASS
 
-## Originality
+The exact z=(2x)^(-alpha) updates give a uniform positive fast decrement, terminal z in (0,1], and uniform errors O(z^-1) and O(z^(-1-2s)). The fast-choice conditional drift of the decreasing potential bounds E sum_{i<tau} z_i^-u by O(Z^(1-u)), O(log Z), or O(1), according as u<1, u=1, or u>1. The time of ceil(Z/c_alpha) fast choices dominates tau; summing the decrements gives tau=Z/(alpha p)-S_Z/p-M_tau/p+O_P(log Z). The occupation bound and a Bernoulli maximal inequality give tau/Z -> 1/(alpha p). Independently of the fluid Riemann-sum proof, for 0<s<1 telescope z^(1-s)/(1-s). Its fast decrement is alpha z^-s+O(z^(-1-s)); the slow decrement is O(z^-2s), since z_next/z is uniformly bounded away from zero. The total errors are o_P(Z^(1-s)) by occupation. Replacing the fast indicators by p has variance bounded by pq E sum z^-2s, which is o(Z^(2-2s)); the same estimate replaces the slow indicators by q. This gives S_Z/Z^(1-s) -> q/[alpha p(1-s)]. For s>1/2, the occupation estimate directly gives S_Z=o_P(sqrt Z), including s>=1. The Bernoulli functional CLT and convergence of tau/Z to a constant give M_tau/sqrt Z => N(0,q/alpha) without independence of the clock and increments. Substitution gives both Gaussian variances q/(alpha p^2), the critical shift -2q/(alpha p^2), and the asserted negative subcritical correction. The frozen script was inspected, not executed; its seeded ensembles are finite consistency checks, not evidence for convergence or Gaussianity.
 
-**PASS, with residual historical-priority risk.** Bahsoun--Bose--Duan (arXiv:1305.6588, Sections 2 and 4) analyze the identical random LSV family and derive polynomial return-interval bounds, not a second-order distribution for a small deterministic starting point. Bahsoun--Bose (arXiv:1503.06157, Theorem 1.1 and Section 2) establish a sharp almost-sure **first-order** random backward-interval location. Bahsoun--Bose--Ruziboev (arXiv:1706.04158, Section 5 and Proposition 5.5) establish quenched first-order scaling; they do not establish the proposed forward first-exit fluctuation or critical mean shift. Nicol--Török--Vaienti (arXiv:1510.03214, Introduction and Sections 3 and 5) give CLTs for Birkhoff sums of observables, not for an initial-state-dependent laminar stopping clock. The earlier technical bound \(\beta<3\alpha/2\) mentioned in arXiv:1305.6588 concerns a distinct correlation-decay argument and implies none of the three probability limits here. Published-paper and mathematical-record searches found no equivalent or stronger specific result; a negative search is not a uniqueness proof. Broader generic Markov-process first-passage theory and historically unindexed treatments remain risks.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A large neutral-point residence time is a canonical observable for intermittency, and its first-order speed was already an object of published study. The present law resolves the competition between rare slow-map corrections and unavoidable Bernoulli fluctuations: it identifies a genuine trichotomy, a sharp exponent ratio, the drift coefficient, and the variance. The threshold is not an arbitrary parameter slice and changes the limiting distribution, providing a natural finite-size refinement of first-order intermittent escape.
+The leading inverse interval and first-order clock are established in the earlier random LSV literature. The supported distinct result is the annealed second-order clock crossover, including its coefficient and variance. Neither the strongest matching inverse asymptotics nor the checked Birkhoff-sum CLT yields that result under its stated hypotheses.
 
-## Limitations and external validation
+## value
 
-Only iid map choices and a deterministic small initial state are covered. This is an annealed first-exit theorem, not an invariant-measure or fixed-environment CLT. A further centered CLT in the subcritical range would require additional drift terms and is not claimed. Independent historical-priority review remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Laminar exit time controls the duration of intermittent excursions. Once the first-order clock is known, comparing the systematic slow-step correction with fast-step sampling noise is a natural next question. The exact exponent threshold and shifted law resolve it and are not obtainable from a first-order bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

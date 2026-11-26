@@ -18,14 +18,14 @@ For a constructive classification, set \(h=(N-1)/2\) and associate to each origi
 
 For each \(a\in\mathbb Z/N\mathbb Z\), let \(H_a\) be the group of permutations obtained by **independently** swapping or not swapping each pair \(\{i,a-i\}\), with the unique solution of \(2i=a\) fixed. (There are \(h\) pairs and hence \(|H_a|=2^h\).) Then equality holds if and only if \(\rho\) is either a cyclic rotation \(i\mapsto i+c\) or an element of one of the \(H_a\). The intersection of distinct \(H_a\) is the identity, and no nonidentity rotation lies in any \(H_a\).
 
-Moreover, the nonleading eigenvalues lying on the extremal circle of radius \(\cos(\pi/N)\) are restricted to
+Moreover, the nonleading eigenvalues of the normalized finite Markov matrix lying on the extremal circle of radius \(\cos(\pi/N)\) are restricted to
 
 \[
 -\cos(\pi/N)e^{2\pi\mathrm{i}c/N}\quad(c\in\mathbb Z/N\mathbb Z),\qquad
 +\cos(\pi/N).
 \]
 
-Every displayed location occurs, and no other point on that circle occurs. Thus the doubling-map case of the outer-circle assertion in Conjecture 2.4.1 of Byott--Holland--Zhang is settled. The new content is the equality-case rigidity and exact enumeration; the magnitude of the sharp upper bound and examples attaining it were already known.
+Every displayed location occurs in these matrices, and no other point on that circle occurs in their spectra. For odd \(N\ge5\) this describes the full bounded-variation transfer spectrum on that circle, since it is outside the essential radius. This gives the doubling-map outer-circle conclusion of Conjecture 2.4.1 of Byott--Holland--Zhang for the Markov spectra at all odd \(N\), and for the full transfer spectra when \(N\ge5\); it does not address the conjectured convex-hull containment. At \(N=3\), the extremal circle is the essential-radius circle and additional transfer eigenvalues can occur there. The new content is the equality-case rigidity and exact enumeration; the magnitude of the sharp upper bound and examples attaining it were already known.
 
 For uniform random \(\sigma\), the exact proportion of worst-mixing shuffles is \(N2^{(N-1)/2}/N!\); for \(N=3,5,7\) the counts are \(6,20,56\), respectively.
 
@@ -118,7 +118,9 @@ Any nonidentity rotation moves every vertex and hence does not lie in the union,
 1+N(2^h-1)+(N-1)=N2^h.
 \]
 
-The rotation and reflection eigenvalues computed above also prove that the only possible eigenvalues on the outer circle are \(-t e^{2\pi\mathrm{i}c/N}\) and \(+t\), and that they all occur. Finally, \(t>1/2\) for \(N\ge5\), so maximizing the matrix subleading modulus is equivalent to maximizing the transfer mixing rate. For \(N=3\), \(t=1/2\) and all \(3!=6=3\cdot2^1\) shuffles attain it, precisely as the same classification predicts. This completes the proof.
+The rotation and reflection eigenvalues computed above also prove that the only possible **finite-matrix** eigenvalues on the outer circle are \(-t e^{2\pi\mathrm{i}c/N}\) and \(+t\), and that they all occur. Finally, \(t>1/2\) for \(N\ge5\), so maximizing the matrix subleading modulus is equivalent to maximizing the transfer mixing rate, and the spectra coincide on that circle. For \(N=3\), \(t=1/2\) and all \(3!=6=3\cdot2^1\) shuffles attain it, precisely as the same classification predicts. This completes the optimizer count for all odd \(N\).
+
+**Why the transfer-spectrum qualification at \(N=3\) is necessary.** Use the identity shuffle and write \(\mathcal L\) for the doubling transfer operator. For \(a\in(0,1)\setminus\{1/2\}\) set \(u_a=\mathbf1_{[a,1)}-(1-a)\), a mean-zero \(BV\) function. Directly from \((\mathcal L v)(x)=[v(x/2)+v((x+1)/2)]/2\), one obtains \(\mathcal L u_a=u_{D(a)}/2\). Along the three-cycle \(a_j=2^j/7\), \(0\le j<3\), the three jump functions are linearly independent. For \(\zeta=e^{2\pi\mathrm i/3}\), the nonzero vector \(\sum_{j=0}^2\zeta^{-j}u_{a_j}\) has eigenvalue \(\zeta/2\). This eigenvalue is on the extremal circle at \(N=3\) but is absent from the displayed finite-matrix list. In particular the literal transfer-spectrum outer-circle assertion, with no qualification at the essential radius, is false at \(N=3\).
 
 ## Verification
 
@@ -128,7 +130,7 @@ The finite numerical checks are corroborative: the theorem for all odd \(N\) fol
 
 ## Relationship to prior work
 
-Byott, Holland and Zhang (arXiv:1203.5145, first publicly posted 22 March 2012) proved that for coprime slope and cell count the maximal transfer mixing rate equals \(\sin(m\pi/N)/(m\sin(\pi/N))\), and exhibited permutations attaining the bound. In the doubling case this is \(\cos(\pi/N)\). Their Section 4 derives the finite Markov spectral correspondence and the circulant singular-value inequality. Their Conjecture 2.4.1 concerns the geometric location of eigenvalues on the extremal circle. The present theorem supplies the **complete equality classification**, the closed-form number of extremizing shuffles, and a proof of that conjecture's boundary assertion when \(m=2\) and \(N\) is odd. It does not prove the conjecture for other slopes.
+Byott, Holland and Zhang (arXiv:1203.5145, first publicly posted 22 March 2012) proved that for coprime slope and cell count with \(N>m\) the maximal transfer mixing rate equals \(\sin(m\pi/N)/(m\sin(\pi/N))\), and exhibited permutations attaining the bound. In the doubling case this is \(\cos(\pi/N)\). Their Section 4 derives the finite Markov spectral correspondence and the circulant singular-value inequality. Conjecture 2.4.1 includes a boundary assertion and a stronger convex-hull assertion. The present theorem supplies the **complete equality classification**, the closed-form number of extremizing shuffles, and the precise outer-circle statement above for slope two. It does not address the convex-hull assertion or other slopes.
 
 Byott, Lin and Zhang (arXiv:1405.0481, first posted 2 May 2014), studying maps with varying branch orientation, recover and extend the worst-rate value for stretch-and-fold maps; their inspected results do not enumerate the maximizing shuffles. The counting result here is not implied by knowing only that an upper bound is sharp: its proof needs the equality cases in the Fourier singular-value argument, including many non-dihedral partial pair swaps.
 

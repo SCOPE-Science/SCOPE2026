@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact normal-matrix identity reduces the Euclidean squared-amplification functional to a scalar rational expectation. Differentiating yields the complete convex case and, beyond the oscillation boundary, an exact globally valid tangent-line certificate whose zero set forces the unique two-point law. The piecewise convex minorant and Jensen determine all means; an explicit positive-support approximation proves the strict-positivity nonattainment statement. The symbolic checker verifies the factorizations and a rational example; 16,000 finite-support checks are supplementary, not exhaustive proof.
+## correctness
 
-## Originality — PASS (qualified)
-Full texts inspected: Abdulle–Garegnani, arXiv:1801.01340 (intro, random-time-step definition/assumptions, and convergence results), and Eisenmann–Kovács–Kruse–Larsson, arXiv:1709.01018 (the randomized fixed-step scheme, introduction, and its scope). Neither proves the fixed-mean distributional optimizer for backward-Euler damping on a damped rotation. Publicly indexed nearby research on implicit-midpoint random-step damping, harmonic-oscillator moment isotropization, and symplectic-Euler randomization involves distinct updates and criteria. Exact equivalence in an unlocated convex-order treatment remains a residual priority risk. The general convex-envelope technique itself is not claimed as original.
+PASS
 
-## Value — PASS (qualified)
-The oscillation-versus-decay criterion \(b^2=3a^2\), the sharp mean-step switch, and the unique maximizing-damping law give a full boundary classification for a natural A-stable integrator. The nonattainment result makes explicit the conflict with strictly positive step assumptions in random-time numerical methods. This sharp structural benchmark is useful for distinguishing damping optimization from convergence-order and physical-time accuracy; it does not establish cost advantage.
+Backward Euler is a scaled orthogonal map, with squared gain f(t)=1/(1+2at+r²t²). Independently, the slope magnitude of the chord from (0,1) is (1−f(t))/t=(2a+r²t)/(1+2at+r²t²); the derivative has the sign of r²−(2a+r²t)². For r>2a its unique peak at s=(r−2a)/r² gives a global supporting line touching only at 0 and s, and f is strictly convex from s onward by the displayed second derivative. At an interior mean of the affine face, equality in the line bound fixes the two masses. For h>s the tangent of the convex minorant has a unique contact at h on the whole half-line; at h=s the first supporting line restricts the support to {0,s} and the mean forces the point mass. For r≤2a strict convexity holds even at the r=2a boundary (f''>0 for t>0). The lower bounds apply to arbitrary finite-mean laws by the affine supporting-line inequalities. Replacing the zero atom by ε and reweighting gives the positive-only nonattainment result; i.i.d. stages multiply the expected gains. The rational example and positive approximants were independently spot-checked.
 
-## Scope and limitations
-Autonomous normal planar system, exact backward Euler, prescribed mean nonnegative step, expected one-stage squared Euclidean norm. No nonnormal systems, fixed physical-time accuracy or solver speed claims. Unrestricted distributions include zero steps; the strictly-positive case has infimum only in the nontrivial regime. Older undiscovered equivalents cannot be excluded solely by search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified pass for the complete integrator-specific partition of regimes and optimizing laws, not for convex envelopes, random time stepping, or the deterministic backward-Euler transfer function. The strongest available indexed statements either change the one-stage gain or change the constraint and objective. No covering result was established after the stated comparisons.
+
+## value
+
+PASS
+
+A complete boundary classification for a standard integrator answers when variance can actually improve a natural mean-square damping metric and whether any strictly positive law attains it. The exact split is more useful than a local failure of Jensen: it specifies the optimizer for every mean and reveals the skipped-stage obstruction. Its value is as a benchmark, not as a speed or accuracy claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

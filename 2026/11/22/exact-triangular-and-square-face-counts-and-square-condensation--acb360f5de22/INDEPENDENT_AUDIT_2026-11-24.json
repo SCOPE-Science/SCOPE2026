@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:04:40.939723Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the 0/1 coordinates of a relative interior. With the cap slack, the dimension is the number of free coordinates minus one, so a two-face has three free coordinates of residual rank one, or rank two with at most one tail among them. In rank one choose the r−1 fixed head ones first and then choose any triple from the remaining p+t−r+1 positions. In rank two the counts are C(p,3)C(p−3,r−2) and t C(p,2)C(p−2,r−2). With a fixed tail one, the residual three free head coordinates have rank one or two; Pascal gives t C(p,3)C(p−2,r−2). On the tight cap the face lattice is that of the direct product of the head hypersimplex of rank r−1 and the tail rank-one simplex. Its squares are exactly edge × edge, giving C(p,2)C(p−2,r−2)C(t,2); its triangles have the other factor fixed. Those with tail factor fixed are in the fixed-tail-one count, and those with head factor fixed in the first count with three free tails. This accounts for all cap-active triangles exactly once. Free coordinates and fixed ones distinguish the faces; the reasoning includes r=p and zero binomial terms. The triangles have sides √2 and square factors are orthogonal of length √2. For fixed r, the first and last triangle terms have degree r+2 and the middle terms are lower degree, giving the stated Φ with k=r−1. The odds Φ/(1−Φ) are (3/2)kα(1−α)²/[1+kα²(1−α)]. Their derivative has sign 1−3α−kα²(1−α), strictly decreasing from positive to negative on (0,1/3) and negative beyond it. The root satisfies kα²=(1−3α)/(1−α), giving α=k^(−1/2)+O(k^(−1)). At the root inverse odds are 2(2−3α)/[3kα(1−α)²]=4/(3√k)+O(k^(−1)), giving the same leading frequency deficit. No simultaneous N-and-r asymptotic or reliance on the supplied finite checker is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.5 gives the f-polynomial for any connected split matroid, and the panhandle is a one-cap split of a hypersimplex. An–Jung–Kim give structural face descriptions by matroid operations and block tilings. The cap product and the hypersimplex two-face geometry give a short specialization to squares; one can then subtract from the unrefined count to obtain triangles."
+        ],
+        "reasoning": "This earlier machinery covers the total number of faces and supports a specialization for the two type counts. It does not supply the evaluated proportion, unique optimizer, or sharp ordered-limit square deficit.",
+        "searches": [
+          "Ferroni–Schröter arXiv:2310.05487, Theorem 2.5 and Example 2.11",
+          "An–Jung–Kim arXiv:1701.00362 §§ on face structure"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.12442",
+        "arXiv:2310.05487",
+        "arXiv:1701.00362",
+        "Resultary acb360f5de22, 2d00263d0134, ade82e931a0f, a84f4820619e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Panhandle inequality description, general matroid triangle/square geometry, and split-polynomial methods establish ingredients of the count. Complete-bipartite zonotopes have a square limit (p−1)/p at fixed side p and have rhombi rather than the panhandle triangles."
+        ],
+        "reasoning": "Neither the different family's limiting law nor the general f-vector, which has no separate square variable, gives the rank-dependent optimization on panhandles. The derivative and sharp deficit concern a fixed-r proportional-size limit followed by r→∞, not a similarity between geometries or a date-based priority claim.",
+        "searches": [
+          "arXiv:2201.12442 Proposition 4.4",
+          "arXiv:2310.05487 Theorem 2.5 and Example 2.11",
+          "Resultary 2d00263d0134, ade82e931a0f and a84f4820619e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Type multiplicities and the two-area spectrum are equivalent in the fixed incidence metric. The at-most-one-tail bases are the lattice-path interval restriction b_i≤p for i<r, b_r≤p+t. The same-family Resultary hit 2d00263d0134 concerns a minimum enclosing sphere and (r−1)t=p, not face frequencies."
+        ],
+        "reasoning": "The known lattice-path description identifies the combinatorial object, but does not by itself evaluate the shape frequency. The same-family sphere transition neither matches the invariant nor implies the optimizer.",
+        "searches": [
+          "Resultary: panhandle triangle/square two-face counts and area-frequency optimizer equation",
+          "Hanely et al. Proposition 4.4",
+          "An–Jung–Kim arXiv:1701.00362"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieves the identical assigned record acb360f5de22, not independent priority evidence. Example 2.11 is a rank-four sparse-paving family (420 squares and 448 triangles at m=3), not a panhandle census. The related Resultary records ade82e931a0f and a84f4820619e have different area spectra on different objects."
+        ],
+        "reasoning": "Neither the exact polygon tables on other matroid families nor differently normalized area tables establish the present counts and proportions. Empty web results were not treated as evidence.",
+        "searches": [
+          "Resultary: exact panhandle triangle/square counts; optimizer cubic",
+          "Ferroni–Schröter Example 2.11"
+        ]
+      },
+      "rationale": "The supported distinct result is the evaluated, type-refined panhandle law with its ordered-limit optimizer and sharp high-rank deficit. The two face shapes and their areas, the defining inequalities, and general methods that already compute the unrefined f-vector are prior—not independent novelty claims. The finite counts are an explicit specialization, not a new general counting method.",
+      "residual_risks": [
+        "Earlier general face counts and split geometry can produce the finite specialization; an already evaluated exact specialization or optimizer may exist outside the inspected sources.",
+        "The binary comparison does not certify historical precedence over unindexed work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the exact polytope model, not the square-frequency theorem.",
+          "evidence": [
+            "Sum of all coordinates r and tail sum at most one within the unit box."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.12442",
+          "material_read": "Proposition 4.4, p. 8",
+          "method": "Open primary text passage comparison",
+          "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+          "trigger": "Identical bases and defining cap"
+        },
+        {
+          "assessment": "Stronger for unrefined face counts; its inspected shape-refined example is on another family.",
+          "evidence": [
+            "f-polynomial for connected split matroids with stressed-subset and modular-pair correction terms; Example 2.11 counts squares and triangles in a rank-four sparse-paving family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2310.05487",
+          "material_read": "Introduction pp. 1–3, Theorem 2.5 pp. 7–8, Example 2.11 p. 11",
+          "method": "Open primary PDF passages and specialization comparison",
+          "title": "Face enumeration for split matroid polytopes",
+          "trigger": "General f-vector coverage and numerical two-face examples"
+        },
+        {
+          "assessment": "Structural antecedent, not an evaluated panhandle square proportion.",
+          "evidence": [
+            "Interval-presentation definition and face descriptions via deletions, contractions, direct sums and block-tiled bottoms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.00362",
+          "material_read": "Definition 2 p. 3 and face correspondences pp. 9, 11 and 13",
+          "method": "Open primary PDF passages and interval-presentation comparison",
+          "title": "Facial structures of lattice path matroid polytopes",
+          "trigger": "Panhandles are lattice-path matroids"
+        },
+        {
+          "assessment": "Same family in p>r but different invariant.",
+          "evidence": [
+            "Radius/contact transition at (r−1)t=p."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/2d00263d0134",
+          "material_read": "Mirrored RESULT.md, finding and scope starting at character 0",
+          "method": "Resultary search and mirror passage comparison",
+          "title": "A sharp two-orbit minimum-sphere transition for panhandle matroid polytopes",
+          "trigger": "Same object and dated set"
+        },
+        {
+          "assessment": "Different polytope, shapes, and limiting law.",
+          "evidence": [
+            "Rhombi of area √3 and squares of area 2; square frequency tends to (p−1)/p for fixed p."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/ade82e931a0f",
+          "material_read": "Mirrored RESULT.md, finding starting at character 0",
+          "method": "Resultary search and mirror passage comparison",
+          "title": "A two-area law and a thin-side square limit for complete bipartite graphical zonotopes",
+          "trigger": "Exact two-area counts and square-frequency limit"
+        },
+        {
+          "assessment": "Different family and area spectrum.",
+          "evidence": [
+            "Several triangular area classes and n squares of area 4."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/a84f4820619e",
+          "material_read": "Mirrored RESULT.md, finding starting at character 0",
+          "method": "Resultary search and mirror passage comparison",
+          "title": "Exact Euclidean two-face area spectrum of cycle cosmological polytopes",
+          "trigger": "Related area-spectrum problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The distribution of the two polygon areas is a concrete metric refinement of the f-vector in a standard matroid family. It reveals a unique proportional choice favoring squares and a sharp rank-dependent approach to square dominance. This is more than recomputing generic shape possibilities or tabulating small cases, and it makes no claim for simultaneous size-and-rank growth.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

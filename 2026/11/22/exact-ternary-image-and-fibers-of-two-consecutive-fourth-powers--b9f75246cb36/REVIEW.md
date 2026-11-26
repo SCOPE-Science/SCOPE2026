@@ -1,19 +1,21 @@
-# Review: Exact ternary image and fibers of two consecutive fourth powers
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(F(x)=x^4+(x+1)^4\), the integral-to-three affine substitution \(t=2x+1\) gives \(8F=t^4+6t^2+1\). Hensel's lemma maps each of the two unit input classes bijectively to the full target residue disk \(1+3\mathbb Z_3\). On the unique singular input class \(t=3s\), the map is \(1/8+(27/4)s^2(1+(3/2)s^2)\); the square-root coordinate change is a bijective three-adic isometry. Root counting for squares at every precision then yields the exact target-by-target fiber law, the image-count formula and the rational density \(25/72\). The embedded exhaustive enumeration of the formula and direct polynomial images passes for \(3^1\) through \(3^9\). Computation is a consistency check, not the infinite proof.
+PASS
 
-## Originality — PASS on inspected evidence
+Centering with t=2x+1 gives 8G=t^4+6t²+1. For t≡±1 mod 3 the target is 1 mod 3 and the derivative is a unit, giving exactly one root per class at every finite level and full 3-adic coverage of that output ball. On t=3s the normalized displacement is H(s)^2, with H(s)=sR(s) and R(s) the Hensel square root of 1+(3/2)s² congruent to 1. Factoring R(s)^2−R(u)^2 shows H(s)−H(u) is s−u times a factor congruent to 1 modulo 3; hence H induces a bijection at each precision and on the inverse limit. The singular outputs are c+27H(s)^2/4, disjoint from the first ball. For k≤2 the singular branch contains 3^(k−1) inputs and one output. For k≥3 there are nine lifts from each square root modulo 3^(k−3) to s modulo 3^(k−1), including the modulus-one case k=3. At j>0 a zero square has 3^floor(j/2) roots; an even positive or zero valuation 2a<j with square unit part has 2·3^a, and other targets have none. Summing the image by attained valuations gives Q_3 and the limit 1/3+(3/8)/27=25/72. Independent finite replay compared each target for k=1…9, confirming counts 2,4,10,29,85,254,760,2279,6835 and all fiber sizes; the all-k argument is analytic, not inferred from this check.
 
-Ding and Zieve's 2023 preprint, arXiv:2309.14979, gives finite-field quartic-value-set cardinalities and sums (Lemma 3.1 and Theorem 1.3); the full text was inspected and does not assert the prime-power residue-ring image or fiber distribution of this polynomial. Finch-Smith, Harrington and Wong's 2023 published scope concerns polynomial residues modulo primes at least five, so excludes characteristic three and higher prime powers. Sun's 2003 quartic-congruence paper is explicitly for primes greater than three, not this local ring. Indexed public records with ternary square branches concern different polynomial families. No statement was found implying the presented exact \(3\)-adic image and every finite fiber. Nonetheless a general local quartic algorithm or an unindexed source could implicitly recover the specialization, so global priority remains uncertain.
+## originality
 
-## Value — PASS
+PASS
 
-The sum of consecutive fourth powers is a natural Diophantine polynomial, and three is an arithmetically exceptional prime: its derivative degenerates on exactly one residue class. This sharp classification quantifies both the full ball coming from smooth branches and the nontrivial quadratic obstruction in the singular branch. In addition to deciding local solvability, the theorem determines the complete multiplicity of each congruence and the exact Haar density. The local denominator \(72\) is not an arbitrary finite table entry; it comes from a structural splitting into one full residue ball and a scaled square-value set.
+The inspected works do not determine this combination of centered even quartic with coefficient 6, the prime three, and target-by-target lift counts. Credit is for the exact singular image and finite fibers together with smooth-branch coverage, not Hensel's lemma, finite-field counts or the square-root formula by themselves. The check is bounded; relevant abstract-only sources are not used to assert whole-paper noncoverage.
 
-## Closest sources and limitations
+## value
 
-The 2023 finite-field work of Ding and Zieve is the closest primary treatment of quartic images; it is carefully distinguished from residue rings modulo \(3^k\). Published analyses of a sixth binomial polynomial modulo powers of three and fourth-degree Dickson polynomials modulo powers of two are methodologically related but concern different input objects. Only the local prime three and exponent four are classified. The finite checker does not constitute an infinite or independent proof, and an implicit previously published general quartic theorem remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural sum of consecutive powers the singular class is genuinely different from the two smooth classes. Its square obstruction and lift factor solve the congruence and determine the multiplicity of every solution at every precision, beyond selected finite counts or an image-density estimate. This survives the corrected scaling and provides a reusable complete local invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

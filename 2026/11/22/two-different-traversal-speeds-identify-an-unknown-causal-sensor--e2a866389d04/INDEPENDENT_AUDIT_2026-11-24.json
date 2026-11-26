@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:00:39.384578Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–27, 29–62; VERIFICATION.md lines 3–13, 19–23; supplied verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/f8921fa0-8e3a-4590-b594-3e87b7da913e/independent_check.py"
+      ],
+      "rationale": "The stated noiseless model on the entire line gives an L1 convolution with k_v(s)=h(s/v)/v for s>=0 and zero otherwise. Its transform is C(xi)H(v xi). Both transforms have no real zeros; with a=v2/v1 in (0,1), the N-term measured ratio product at a^j omega/v1 is H(omega)/H(a^N omega). H is continuous at 0 and H(0)=1, proving the exact reconstruction including omega=0 without any branch of a logarithm or extra moment condition. Division gives C and Fourier injectivity gives uniqueness a.e. At one fixed positive speed, use distinct unit-mass exponential h1,h2 and the unit-mass Laplace g. Swapping their spatial kernels between convolution with g and the sensor leaves the same product and produces distinct admissible nonnegative sources and responses with nonzero transforms. The finite-second-moment formulas solve the two mean and variance equations of X+vU; for existing higher cumulants independence gives the analogous linear equations. An independent arithmetic replay gave a telescope error of about 1.24e-16 (1/normalization limit error 4.87e-13 at 40 factors), recovered E[U]=0.6 and variances 0.573333 and 1.28, and reproduced the one-speed alias at a frequency where the source transforms were separated by 0.222.",
+      "residual_risks": [
+        "Arithmetic replay is finite; the transform argument proves the functional statement. This is L1 exact identifiability, not stability, finite-window recovery or field validation. Both runs require known distinct positive speeds, alignment, common stationary source and response, gain normalization and the claimed nonvanishing hypotheses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mulleti et al. give sparse finite-dimensional multichannel identification up to their ambiguity class. No inspectable Carasso primary text was obtained after OA lookup and identified alternate attempts."
+        ],
+        "reasoning": "The inspected multichannel hypotheses do not dominate arbitrary L1 impulse responses; no conclusion of scope is drawn from the unavailable Carasso text.",
+        "searches": [
+          "Mulleti, Lee and Eldar arXiv:2001.00613 p. 1 and Theorem 1; Carasso doi:10.1137/S0036139999362592"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and published-record local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "OA primary passages arXiv:2001.00613, 1411.3810, 1503.03184; named unavailable sources above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected multichannel theorem uses sparse filters/Fourier measurements; the ambiguity paper gives generic unidentifiability for unstructured pairs. Neither argument establishes this scale-linked inverse. Neither Russell full text was recoverable via the attempted OA routes."
+        ],
+        "reasoning": "The new conclusion exploits the contraction orbit ending at the known gain H(0)=1, not the generic Fourier ratio or existence of ambiguous factorizations. Practical calibration and a mathematical identifiability theorem should not be equated. Access failures do not settle scope or priority.",
+        "searches": [
+          "arXiv:2001.00613 p. 1, p. 5/offset 36000",
+          "Russell et al. 10.26434/chemrxiv-2024-pjxtj and 10.1021/acsestair.3c00043",
+          "Choudhary–Mitra Part I p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing the model as a multichannel blind convolution, its kernels are tied by k_v(s)=h(s/v)/v. The general ambiguity kernel papers address unstructured or canonically sparse pairs."
+        ],
+        "reasoning": "The substitution is exact, but identifying a generic sparse or finite-dimensional pair and establishing ambiguity in a larger class do not give the dilation-specific inverse and normalized positive causal witness. The factor swap itself is a specialization of elementary commutativity.",
+        "searches": [
+          "Resultary: geometric Fourier dilation; variable-speed sensor identification; one-speed causal factor swaps",
+          "Targeted primary search for speed-dilation and multichannel blind deconvolution",
+          "arXiv:1411.3810; arXiv:1503.03184"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local published finding e2a866389d04 contains the same geometric product, ambiguity and moment recovery, and is exactly the frozen record. The distinct same-day two-speed threshold-resetting hit concerns a resetting-particle problem."
+        ],
+        "reasoning": "The identical record is not a predecessor; the distinct result is a mismatch on the underlying model, not excluded by date. No independent exact listing was established.",
+        "searches": [
+          "Resultary: exact title/claim; geometric Fourier dilation; variable-speed sensor identification; one-speed causal factor swaps"
+        ]
+      },
+      "rationale": "The supported distinction is the explicit nonparametric inverse for two full outputs of a common source through positive speed dilations of a single normalized causal L1 sensor, with one speed minimal in that class. Blind multichannel identification, convolution ambiguity and Fourier factorization are prior principles, not new here. The strongest inspected multichannel theorem relies on finite-dimensional sparse channel structure, not satisfied by the general impulse responses here. No independent covering statement was established by the bounded comparison.",
+      "residual_risks": [
+        "Unresolved Russell and Carasso full-text comparisons. Bounded literature and catalog evidence does not exclude unindexed formulations in deconvolution or measurement-error models and does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same indexed finding, not independent coverage",
+          "evidence": "Same dilation product inverse and one-pass alias in the same model.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-different-traversal-speeds-identify-an-unknown-causal-sensor--e2a866389d04",
+          "material_read": "Finding and assumptions",
+          "method": "Local published-record mirror compared with frozen original",
+          "title": "Two different traversal speeds identify an unknown causal sensor response and a stationary pollutant profile",
+          "trigger": "Exact catalog hit"
+        },
+        {
+          "assessment": "Relevant identification principles, incompatible generality of channel hypotheses",
+          "evidence": "Common source with sparse channel filters, Fourier-measurement conditions and finite-dimensional ambiguity classes, not an arbitrary continuous L1 response across speeds.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.00613",
+          "material_read": "Primary PDF p. 1 / offset 0 and p. 5 / offset 36000, including Theorem 1 and discussion",
+          "method": "OA PDF text",
+          "title": "Identifiability Conditions for Compressive Multichannel Blind Deconvolution",
+          "trigger": "Potentially stronger multichannel inverse"
+        },
+        {
+          "assessment": "Broad ambiguity prior art; not an exact two-speed theorem comparison beyond the inspected material",
+          "evidence": "Unstructured input pairs for Part I and canonical sparsity for Part II. The standard convolution symmetry is separately credited.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.3810 ; https://arxiv.org/abs/1503.03184",
+          "material_read": "Primary abstracts p. 1/offset 0 of both texts",
+          "method": "OA PDFs",
+          "title": "Fundamental Limits of Blind Deconvolution, Parts I and II",
+          "trigger": "Prior ambiguity and factor-swap principles"
+        },
+        {
+          "assessment": "Field-study comparison unresolved at primary-text level; not negative evidence",
+          "evidence": "Both versions were blocked on attempted retrieval; no readable alternate copy identified.",
+          "identifier_or_url": "https://doi.org/10.26434/chemrxiv-2024-pjxtj ; https://doi.org/10.1021/acsestair.3c00043",
+          "material_read": "No readable primary full text on tried access routes",
+          "method": "Direct and lawful alternate/repository attempts",
+          "title": "Hyperlocal Air Pollution in London Part 1: Validating Low-Cost Sensors for Mobile Measurements from Vehicles",
+          "trigger": "Same air-pollution sensing context"
+        },
+        {
+          "assessment": "No independent scope assessment from inaccessible text",
+          "evidence": "Primary retrieval blocked; no lawful alternate was located in the bounded check.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036139999362592",
+          "material_read": "No readable primary full text",
+          "method": "OA retrieval and repository lookup",
+          "title": "Direct Blind Deconvolution",
+          "trigger": "Possibility of closed-form blind inverse from alternative blur constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–15, 23–27, 29–62, 74–76; multichannel primary comparison above"
+      ],
+      "rationale": "Two controlled traversal speeds supply a minimal sufficient experimental design within an infinite-dimensional blind model: the sensor need not first be externally calibrated, and repeating the same speed cannot substitute. The exact inverse and the one-speed indistinguishable pairs give complementary benchmarks for subsequent stability, sampling or calibration work. This goes beyond reporting a Fourier-domain product.",
+      "residual_risks": [
+        "Idealized full-road, noise-free model; division by small spectra and speeds close together can restrict practical use. No performance or robustness is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

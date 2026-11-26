@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nineteen vertices follow from deleting one hypersimplex vertex along a non-edge-cutting facet hyperplane. Active primitive facet normals exhaust all normal cones. Their explicit signed-coordinate and circuit-ray relations yield the six nonsimplicial rank-three conifold cones and ten nonsimplicial rank-five Segre cones; all remaining cones have a saturated primitive basis. The exhaustive exact-integer face-and-cone certificate returns a face vector \((19,81,111,60,13,1)\), singular-orbit counts \((19,18,6)\), and precisely sixteen maximal singular faces. Face-orbit incidence proves the plane grid. The code does not substitute for the semigroup-ring proof identifying local models and multiplicities.
+PASS
 
-## Originality — PASS, qualified
+The truncating hyperplane deletes the one corner without creating vertices; the retained coordinate facets and new product facet exhaust the facets. Outside the new facet the proper fixed-coordinate subsets are saturated, while the ten vertex cones have six rays in rank five. Inside the product facet the full facet, its facets and its square faces have independent saturated normals; the triangular faces have four rays, any three a basis of their rank-three saturation, with primitive 2-versus-2 relation. In such a basis the dual semigroup consists of (a,b,c) with a,b,c nonnegative and c at most a+b; its four generators give the determinant of a 2-by-2 matrix. Every edge or vertex of the product lies in one of the triangles; its normal cone contains a nonsimplicial face, so it too is nonsimplicial. Orbit closures are unions over subfaces, so the six unimodular triangles give standard projective planes with nine distinct cross-family incidences. The ten remaining charts are the equal-total row/column margin semigroup: every nonnegative integral margin pair is a sum of unit row-unit column pairs. This is the rank-one 3-by-3 cone, smooth off its vertex and of Segre degree six. The tensor product with the orbit torus at each triangle leaves transverse multiplicity two. Thus exactly the nonsimplicial cones are singular and the orbit profile is (19,18,6). Independent replay: python3 /workspace/branches/check_1.py enumerates the coordinate patterns with and without the cut active and independently verifies ranks, saturation, maximal singular faces and intersection counts.
 
-Ferroni and Schröter, *Face enumeration for split matroid polytopes*, Example 2.2, explicitly treat the same nineteen-basis matroid and publish its face vector: neither is original here. The difference is the orbit-by-orbit toric singularity classification, plane-intersection arrangement and local conifold/Segre models. The matroid split literature and global Gorenstein/polytope literature do not imply those local statements merely by giving face counts or smoothness inequalities. Relevant full texts and available searchable mathematical records were compared; a differently formulated or unindexed local classification remains a meaningful risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural, smallest one-circuit hyperplane perturbation of the hypersimplex \(\Delta(3,6)\). Identifying how one split facet changes the toric singularities from determinantal isolated singularities into a nontrivial six-plane incidence grid gives a complete singular stratification of a canonical fivefold; the precise multiplicities and transversal types are potentially useful for intersection theory, birational investigations and comparison with matroid-toric degenerations. The value is in the specific structural classification, not in the already-known face vector.
+Credit the previously published identical matroid and face vector, and the general Resultary calculation of its maximal-cone rays, fixed-point singularity and class groups. The supported distinct contribution is the full reduced singular stratification with component incidence and transverse rings and multiplicities; it is not a claim that the fixed points or the face vector are new.
 
-## Scientific limitations
+## value
 
-The classification concerns the reduced singular locus and normal-fan toric variety. No new global Gorenstein theorem or description of the singular subscheme is asserted. Literature coverage cannot logically exclude every unpublished equivalent treatment; no independent validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural test of how removing one basis changes the projective toric singularities of a uniform matroid. The decomposition tells a reader exactly which directions acquire nonisolated singularities, how those components meet, where the isolated Segre model persists, and whether non-factoriality is a reliable detector in this case. Such explicit strata can be used as a benchmark for other splits and are not just the known face vector or an undifferentiated list of singular fixed points. The finding is a focused example, not a general classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

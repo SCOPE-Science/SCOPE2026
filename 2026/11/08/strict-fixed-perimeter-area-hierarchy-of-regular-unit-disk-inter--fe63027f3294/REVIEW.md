@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The family is defined with explicit admissible center radius \(0<t_m<1\). Adjacent-circle geometry determines the individual boundary-arc angle and hence verifies that **every** member has the same prescribed perimeter. Polygon-plus-circular-segment decomposition gives the exact area, including the two-disk degeneration. The strict hierarchy follows by differentiating a positive trigonometric interpolation and applying strict concavity of \(z\cot z\); this proves every integer case, not merely a sample. The expansions follow from Taylor series with fixed parameters and uniform analytic remainders on small parameter neighborhoods. An independent radial quadrature has been executed and agrees within stated numerical tolerance. The proof does not rely on finite experiments for its universal quantifiers.
+## correctness
 
-## Originality — PASS (priority provisional)
-The most closely motivating source, Drach–Tatarko (arXiv:2610.40291v1, 2026-10-29), determines the two-disk **global area minimum** at fixed perimeter; it does not give intermediate regular arc-count comparisons. Classical isoperimetry gives the limiting disk maximum, not the strict hierarchy. Basit–Lángi (arXiv:2307.04026) proves disk-polygon Dowker-type results around an ambient fixed body, a different constraint. Kratky (1978) is an important precursor on exact intersection-area formulas, so the formula alone is not the novelty claim. A public result on strictly convex circular-gap scores for intersections of disks with fixed center-circle radius has been identified from its available summary; it does not state the current fixed-perimeter monotonicity or the small-perimeter singular transition. Its complete text was not accessible for a conclusive full comparison, a residual historical-priority risk. Relevant searches found no encompassing fixed-perimeter theorem; absence of a search hit is not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The new statement gives a complete, sharp, nonasymptotic hierarchy for a canonical geometrically defined interpolation from the reverse-isoperimetric lens extremizer to the ordinary isoperimetric disk extremizer. It identifies a strict global ordering for **every** arc count at the same perimeter, proves a sharp convergence coefficient, and exposes a change of the small-perimeter decay exponent exactly at two arcs. These are natural structural facts about finite disk intersections, not arbitrary parameter sampling or a recomputed known table. No extremality over irregular disk configurations is asserted.
+Since 0<t_m<1, the origin is interior to every disk. Along each radial direction the farthest center is the one nearest the opposite direction, so the active circle changes at the bisectors, producing exactly m genuine arcs. At a switching point of radial distance s, resolving the unit vector from the center gives sin β=s sin α and cos β=t_m+s cos α, hence sin(α−β)=t_m sin α and β=(π−u)/m. Polygon area plus the m unit circular segments gives A_m=mβ−m sin β sin(α−β)/sin α, including the zero polygon area of the lens. For F(x)=sin(ux)sin((π−u)x)/(x sin πx), the sign of its logarithmic derivative after multiplication by x is g(ux)+g((π−u)x)−g(0)−g(πx), where g(z)=z cot z. Strict concavity on [0,π/2] makes this positive by applying the strict chord inequality twice. This yields strict increase of A_m and the disk limit from F(0)=u(π−u)/π. Taylor expansion gives the deficit coefficient u²(π−u)²/(3π). With q=P/2 the formula is q−(m/2)sin(2q/m)+m cot(π/m)sin²(q/m), giving both small-perimeter expansions and the zero quadratic term at m=2. Expanding instead at u=0 gives A_m=π−2u+cot(π/m)u²/m+O_m(u³). The frozen numerical script was inspected, not executed; none of the strict claims depends on sampled inequalities.
 
-## Scope and limits
-The statement is planar, uses congruent unit disks with regularly spaced generating centers, and excludes degenerate perimeter endpoints. The oldest relevant area-formula literature and the unavailable complete text of a close disk-intersection study leave historical-priority uncertainty. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the established lens and disk bounds; formula-level priority is not asserted. The distinct contribution supported by the comparison is the strict ordering of the intermediate regular intersections at common perimeter, with precise convergence and endpoint behavior. The closest fixed-perimeter reuse in the corpus is later and expressly credits this result.
+
+## value
+
+PASS
+
+Holding perimeter fixed compares a natural sequence linking two familiar extremizers without changing the resource being constrained. The strict intermediate order is stronger than the two endpoint inequalities, and the positive deficit coefficient and cubic-to-quadratic change at the lens quantify geometrically different regimes. These are useful as exact benchmarks even without optimization over irregular centers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

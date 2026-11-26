@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The finite conditional slack representation is reconstructed with unit Jacobian, sorted exponential density, exact Fibonacci inverse, and independent scaled exponential slacks. Binet estimates \(a_{j,r}=O_j(\varphi^{-r})\) and the strong law yield almost-sure coupled joint rank-wise convergence. The first overshoot coefficient is \(\varphi^{-1}\), strictly above all subsequent ones; the telescope \(\prod_{r=2}^{N}(1-\varphi b_r)^{-1}=G_N/\varphi^{N-1}\) yields \(\varphi^3/\sqrt5\), with a stronger exponential moment validating the asymptotic tail. Finite exact tests: 6,966 passed; infinite claims follow from proof, not from enumeration.
+## correctness
 
-## Originality (PASS, with residual priority risk)
-The probability formula and triangular slack transform are established prior results, notably in Mukerjee (2022), not claimed as new. Barczy–Lovas (2026) and Brennan–Callow–Lin (2026) examine no-triangle or polygon probabilities but do not establish the displayed joint conditional top-rank limit or sharp limiting overshoot tail. Related published Pareto stick work has different distributional assumptions and a probability-rate result. Targeted original-source, published-finding corpus and accessible prior-ledger comparisons did not find a stronger theorem covering the specific limiting profile plus tail coefficient. A broad earlier theory for linear functionals of Dirichlet vectors may subsume the derivation, and independent priority review is warranted.
+PASS
 
-## Mathematical value (PASS)
-The natural question is the geometry of a rare no-triangle sample, beyond its known avoidance probability. The largest-stick fraction is not merely concentrated at \(\varphi^{-2}\): its excess has a precise non-Gaussian scale, a coupled family of rank fluctuations, and an exact exponential-tail prefactor. These give a reproducible conditional shape description for probabilistic broken-stick models, rather than a routine recomputation of a known probability.
+For each possible largest index i in a triple, the maximal sum of two smaller lengths is Y_{i−1}+Y_{i−2}. The no-triangle condition therefore gives exactly the nonnegative slack orthant (ties are null), and the triangular map has Jacobian one. Inverting by the Fibonacci recurrence and summing gives the column weights G_r. After conditioning, rescaling and reversing indices gives a common exponential coupling: the numerator for rank j is weighted by 0 for r≤j and F_{r−j}/G_r otherwise, and the denominator is the sum of the first n exponentials. Subtract c_j inside the numerator. Binet gives summable deviations O_j(φ^{−r}); Tonelli gives absolute almost sure and L1 convergence of the series and the strong law gives the common denominator/n→1. This proves joint fixed-rank convergence and the conditional deterministic shape. For j=0, φ²F_r−F_{r+2}=−(−1/φ)^r gives the positive coefficients, b_1=1/φ is the unique largest, and F_r/G_r≤1/2 for r≥2 by the Fibonacci recurrence. Splitting off the first exponential leaves a remainder with a strictly stronger exponential moment. The exact identity 1−φb_r=φ(G_r−F_r)/G_r=φG_{r−1}/G_r gives the telescoping prefactor G_N/φ^{N−1}→φ³/√5. Conditioning on the remainder gives that prefactor and the remainder tail is negligible by the stronger moment. The positive support and positive variance exclude a Gaussian; the product Laplace formula follows by bounded convergence. An independent numerical check with explicit geometric truncation bounds agrees with the three stated constants.
 
-## Remaining limits
-Fixed-rank only; no claim for growing ranks, finite-sample uniform tail asymptotics, or non-exponential sampling. Exact finite-dimensional slack changes are explicitly credited. General historical Dirichlet asymptotic coverage remains a priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mukerjee's proof already determines the exact finite joint law by exponentials in the Fibonacci slack coordinates. Neither the finite conditional law nor the avoidance probability is new. The distinct contribution is the joint conditional asymptotic extraction at fixed top ranks and, especially, the sharp limiting upper tail from isolating a unique dominant exponential and exactly telescoping its remainder moment. The prior representation is the starting point for those arguments, not a prior asymptotic theorem or a mechanical identification of the tail coefficient.
+
+## value
+
+PASS
+
+The rare-event probability does not describe which sticks dominate the surviving samples. The joint rank profile and one-sided non-Gaussian fluctuations quantify that conditional geometry. The exact leading tail coefficient gives more than a rate bound: it resolves the contribution of all remaining slack coordinates in closed form by a Fibonacci telescope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

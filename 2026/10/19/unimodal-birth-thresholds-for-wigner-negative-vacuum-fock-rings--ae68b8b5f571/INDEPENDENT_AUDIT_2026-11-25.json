@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:16:53.083934Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated 1/(2π) Wigner convention, the Fourier Gaussian in Mehler's series yields exp(−(1−u)(q²+p²)/(1+u))/(π(1+u)); comparison with the ordinary Laguerre series gives the factor e^(−s/2)/π and bracket 1−t+t(−1)^n L_n(s). The n simple positive zeros (orthogonality) and Rolle plus degree give exactly one simple critical point in each interior sign gap and none outside. Thus each negative lobe produces one component precisely at strict exceedance of its depth threshold. The initial odd lobe is monotone up from −1, and t=1/2 includes no negative origin; the subsequent component is a disk. At interior threshold the second s-derivative of Q_n is nm_j/s_j>0 and the t-derivative of the bracket is −(1+m_j), giving the stated square-root fold locally at each contributing radius, even for simultaneous births. For t=0 the bracket is positive; for t=1 the regions coincide with the strict negative lobes. Differentiating L_n²+s(L_n′)²/n gives (2s−1)(L_n′)²/n; strict decrease then increase on either side of s=1/2 orders the sampled squared depths, with one possible ambiguous/tied adjacent step across that point. The endpoint energy is 1. A new exact-rational script /workspace/reproductions/01_laguerre.py certified the finite cutoff: three independent derivative sign-change brackets and a Descartes upper bound after a Möbius interval map certify the first three roots, and rational bisection and a derivative error bound certify the depth comparisons and displayed enclosing intervals at 22 and 24. It returned m₂>m₁ for each even degree 4..22 and m₁>m₂ at 24. Frozen verification notes, checker, requirements and recorded output were inspected, not executed; the new replay does not substitute for the all-degree proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first gives the vacuum/one-Fock-level coherence family and its positivity bound. Vanbever's majorization conclusion assumes Wigner positivity. Kenfack–Życzkowski give the Fock Laguerre formula and integrated negativity examples."
+        ],
+        "reasoning": "The standard Laguerre polynomial formula and positive-region coverage are credited. Neither a hypothesis of positivity nor an integrated negativity diagnostic supplies all the births or their radial ordering.",
+        "searches": [
+          "arXiv:2609.24670 App. A §2 Eqs. (A4)–(A8) and App. B Eqs. (B1)–(B4)",
+          "arXiv:2104.14996 §3",
+          "arXiv:quant-ph/0406015 §IV"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bd630ca1caac",
+        "Resultary e0cc28c7853e",
+        "Resultary 0797afcbc5ff",
+        "arXiv:2609.24670",
+        "arXiv:quant-ph/0406015",
+        "arXiv:1502.04523",
+        "arXiv:2104.14996"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hard-edge record treats the extrema of the weighted primitive F_{n,α}=∫t^α e^(−t)L_n^(α)(t)dt at polynomial zeros; the frozen result concerns the heights of the unweighted polynomial at derivative zeros. The usual Laguerre ODE supplies the energy identity once the relevant energy is chosen."
+        ],
+        "reasoning": "The per-lobe sign analysis uses standard facts and no novelty is ascribed to the differential-equation method itself. The primitive's critical heights and a global positivity bound do not supply the frozen negative-minimum ordering and the exact cutoff, which compare different critical values.",
+        "searches": [
+          "Resultary e0cc28c7853e, Finding and §2 Sonin identity",
+          "Resultary bd630ca1caac, exact radial positivity formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The bracket in bd630ca1caac's radial infimum is exactly the frozen radial sign polynomial, for the same levels. Its setting is an added off-diagonal coherence and it studies the nonnegative domain and near-vacuum saturation. 0797afcbc5ff studies coherent pure-state islands, not the radial incoherent mixture."
+        ],
+        "reasoning": "At zero coherence the positivity threshold is the minimum of the birth thresholds. A single positivity boundary does not order the thresholds of the remaining lobes or classify their later births.",
+        "searches": [
+          "Resultary bd630ca1caac, maximal Wigner-positive Fock coherence",
+          "Resultary 0797afcbc5ff, weak vacuum–Fock negativity disk geometry",
+          "arXiv:2609.24670 Appendices A and B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected low-order tables/formulas concern pure Fock integrated negativity or the vacuum–single-photon qubit. No matching exact born-ring critical-depth table through degree 24 was found in the material inspected; the independent rational certificate verifies that comparison but does not certify its originality."
+        ],
+        "reasoning": "Neither the qubit's one disk nor the low-order volume data decides which of two annuli is born first through the near-tie degrees 22 and 24. The cutoff is confined to the first two rings and even orders, as stated.",
+        "searches": [
+          "arXiv:quant-ph/0406015 §IV, low-order Fock negativity calculations",
+          "arXiv:1502.04523 Eq. (4)",
+          "Resultary searches on vacuum–Fock ring births, radial Laguerre minimum ordering and first even-order reversal"
+        ]
+      },
+      "rationale": "The Fock Laguerre Wigner formula and the zero-coherence positivity test are prior ingredients, and the disk at order one is already implicit in a known qubit formula. The supported distinct contribution is the complete, depth-ordered set of negative-component births for the incoherent family, including the single-turning-point law and the exact first innermost even-order reversal. The inspected positive-region/coherence and Laguerre-primitive results do not give those statements. This is a bounded comparison, not a priority certification.",
+      "residual_risks": [
+        "Equivalent extremum-order results could appear in classical special-function literature under non-Wigner terminology. No specific classical source for the Sonin attribution was verified; no novelty is assigned to that method.",
+        "Searches and inspected passages are bounded; they do not exclude unindexed exact depth comparisons or establish chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the diagonal condition as a special case; does not give higher births/ordering in inspected material",
+          "evidence": "Radial infimum has numerator sqrt(n!)·[1−t+t(−1)^nL_n(z)] and denominator 2z^(n/2), and the result follows the minimizer for small t at maximal coherence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/4/SCOPE-sharp-near-vacuum-boundary-layer-for-maximal-wigner-positive-foc--bd630ca1caac/RESULT.md",
+          "material_read": "Finding, assumptions and proof, including opening 2327 characters",
+          "method": "Local index and mirror",
+          "title": "Sharp near-vacuum boundary layer for maximal Wigner-positive Fock coherence",
+          "trigger": "Same levels and exact radial positivity expression"
+        },
+        {
+          "assessment": "Subsumes the diagonal positivity test; the inspected appendices do not order the negative components beyond it",
+          "evidence": "Derives the two-level coherence-dependent Wigner expression and associated maximal-coherence condition.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.24670",
+          "material_read": "App. A §2, Eqs. (A4)–(A8), p. 8; App. B Eqs. (B1)–(B4), pp. 9–10",
+          "method": "OA primary bounded passages",
+          "title": "Wigner-positive quantum states can have lower entropy than the vacuum",
+          "trigger": "Primary source with vacuum–Fock positivity boundary"
+        },
+        {
+          "assessment": "Provides the Fock formula and integrated negative-volume examples, not the full diagonal birth sequence",
+          "evidence": "Number-state Wigner profiles are given by Laguerre polynomials times a radial Gaussian.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0406015",
+          "material_read": "§IV, p. 8, Eqs. (4.10)–(4.11), near offset 30593",
+          "method": "OA primary bounded passages",
+          "title": "Negativity of the Wigner function as an indicator of nonclassicality",
+          "trigger": "Original Fock Wigner formula and exact low-order calculations"
+        },
+        {
+          "assessment": "Overlapping n=1 formula only",
+          "evidence": "Uses the vacuum/single-photon qubit Wigner function.",
+          "identifier_or_url": "https://arxiv.org/pdf/1502.04523",
+          "material_read": "Eq. (4), p. 3, around offset 18694",
+          "method": "OA primary passage",
+          "title": "Statistical mixtures of states can be more quantum than their superpositions",
+          "trigger": "Vacuum–single-photon mixture precedent"
+        },
+        {
+          "assessment": "Conditional Wigner-positive mixture majorization, not topology of negative regions",
+          "evidence": "Nonnegative Wigner function is an assumption of the inspected majorization claim.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.14996",
+          "material_read": "§3, pp. 5 and 9",
+          "method": "OA primary passages",
+          "title": "In Wigner phase space, convolution explains why the vacuum majorizes mixtures of Fock states",
+          "trigger": "Broader Fock mixtures and positive-domain result"
+        },
+        {
+          "assessment": "Related method, different function and critical points; no priority inference from date",
+          "evidence": "Uses height comparisons for a weighted primitive, whose derivative zeros are the zeros of the polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-a-hard-edge-transition-for-sharp-generalized-laguerre-bounded-va--e0cc28c7853e/RESULT.md",
+          "material_read": "Finding, definition of F and §2, including offset 3332",
+          "method": "Local index and mirror",
+          "title": "A hard-edge transition for sharp generalized Laguerre bounded-variation coefficients",
+          "trigger": "All-degree ordering from a related Sonin method"
+        },
+        {
+          "assessment": "Different state family",
+          "evidence": "The weak negativity islands are for a coherent pure-state superposition, not the diagonal mixture.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/25/SCOPE-universal-disk-geometry-of-weak-vacuum-fock-wigner-negativity--0797afcbc5ff/RESULT.md",
+          "material_read": "Finding and scope",
+          "method": "Local index and mirror",
+          "title": "Universal disk geometry of weak vacuum–Fock Wigner negativity",
+          "trigger": "Same levels and negative-set geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number and ordering of negative components give geometry that neither integrated negativity nor the first positivity threshold captures. The universal radial ordering constrains every number state, and the certified comparison marks the first even level at which the two innermost annuli exchange birth order. The compared radii and even subfamily are natural, not an arbitrary computational slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

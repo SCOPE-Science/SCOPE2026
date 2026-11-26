@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:58:44.846576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The equation is A²=0 and AB+BA=0, with the entry-equation scheme as base, not its reduced orbit closure. Rank r forces Jordan type (2^r,1^s), s=n−2r. With a decomposition into image, s-dimensional middle space, and complement to the kernel, A is the identity block from the last summand to the first. Writing those indices as I,H,J, the independent constraints on B are B_JI=B_JH=B_HI=0 and B_JJ+B_II=0. They give 2r²+2rs=2r(n−r) constraints even in characteristic two. The group centralizer is open in the linear commutant, of dimension 2r²+2rs+s², hence the orbit has dimension 2r(n−r) and is geometrically irreducible. The linear maps in B have constant rank on that orbit, giving a kernel vector bundle and an irreducible total space of dimension n². All closures are distinct (rank cannot increase on specialization); equal dimension precludes proper containment. Since they cover the geometric reduced support, they are exactly its components. Choosing image, containing kernel, and the quotient-to-image isomorphism gives the two Gaussian coefficients and GL_r; multiplying by the kernel size gives the exact summand including r=0. The independent replay directly tested pairs for (q,n)=(2,2),(3,2),(2,3), with rank counts (16,12),(81,72),(512,672), and used elimination of the explicit anticommutator at (2,4), obtaining (65536,107520,53760). Replay and results: /workspace/branches/da23c851-285d-4493-9bb8-b95b76882176/independent_replay.py and independent_replay_results.txt in the same directory. Frozen verify.py was inspected, not run. The replay is bounded and does not independently test the recorded extension-field cases; the proof covers them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The power-zero Finding gives R_m(λ)=Σ_{i,j}max(0,λ_i+λ_j−m) and the all-Jordan-type count over split dual numbers, in all characteristics.",
+          "The Bockstein record counts fibers by the induced map on ker A/im A for length-two chain rings; the Smith census refines the split dual-number rank count by Smith type.",
+          "Bleher et al. identify the ordinary representation variety for K[X]/(X²) as irreducible, without claiming the corresponding first-jet geometry."
+        ],
+        "reasoning": "The power-zero hypotheses include exactly the frozen equation and all fields. The two arithmetic refinements cover the rank-by-rank lift counts; the older irreducibility result concerns only the base.",
+        "searches": [
+          "Resultary power-zero matrix schemes, Bockstein equidistribution and square-zero Smith census",
+          "Bleher–Chinburg–Huisgen-Zimmermann arXiv:1407.3045, one-loop algebra"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary power-zero, rank law, Bockstein, Smith census, 3×3 jets and commuting product-fiber records",
+        "Moreau–Yu arXiv:1411.6427 and Bleher–Chinburg–Huisgen-Zimmermann arXiv:1407.3045 at the listed passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The (2,2) ordered pairs contribute 2r², the (2,1) and (1,2) pairs contribute 2r(n−2r), and (1,1) contributes zero. Thus the stronger theorem gives R_2=2r(n−r), exactly the frozen fiber codimension.",
+          "Its finite-field partition summand is the number of rank-r reductions times q^{n²−R_2}. On the geometric side its same differential has constant rank on each orbit, whose usual dimension is 2r(n−r). Rank-closed conditions separate distinct equal-dimensional closures."
+        ],
+        "reasoning": "This is a direct specialization plus the standard kernel-bundle and finite-stratification arguments; it proves the entire component and census claim without a new classification beyond the stronger theorem. The broader source's date does not determine priority.",
+        "searches": [
+          "Resultary power-zero matrix schemes Finding, Assumptions and scope, and first proof step; evaluate R_2 at (2^r,1^{n−2r})"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The power-zero record specifies the coordinate entries of X^m alone, excluding characteristic-polynomial coefficients and any radical replacement, exactly matching the frozen scheme at m=2.",
+          "Moreau–Yu work over C with reduced orbit closures. The commuting product-fiber record requires both factors square-zero, unlike the unconstrained second factor of this claim even in characteristic two."
+        ],
+        "reasoning": "Switching to the first jet of the entry-equation scheme preserves the object; replacing the base by a reduced orbit closure or adding B²=0 does not. Thus qualitative reduced-jet reducibility is related, but no identity of those schemes is used.",
+        "searches": [
+          "Resultary: square-zero matrices over dual numbers, residue rank, tangent scheme and commuting square-zero matrices",
+          "Moreau–Yu arXiv:1411.6427, definition of first jets and reducible jets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rank-law record gives q^(n²) Φ_n/(Φ_r Φ_{n−2r}) for each residue rank r, where Φ_j=∏_{i=1}^j(1−q^(−i)). The two Gaussian coefficients times |GL_r| simplify to q^{2r(n−r)}Φ_n/(Φ_r Φ_{n−2r}), making its rank term identical.",
+          "The Smith census gives the same rank marginal from a finer table. The 3×3 jets record at length two gives exactly two components of dimension 9."
+        ],
+        "reasoning": "These are exact rank matches or a specific geometric specialization, not conclusions inferred solely from coincident examples. The 3×3 comparison alone would not cover all n.",
+        "searches": [
+          "Resultary: asymptotically uniform rank law, exact square-zero dual Smith census, equidimensional jets of the square-zero 3×3 scheme"
+        ]
+      },
+      "rationale": "The strongest distinct indexed power-zero theorem uses the same entry-equation scheme and supplies the rank of the defining differential and the exact labelled dual-number count for arbitrary exponent, characteristic and Jordan type. Its exponent-two specialization gives every frozen arithmetic summand and mechanically gives the full geometric conclusion: constant rank on each irreducible orbit, sum of base and fiber dimensions n², and distinct equal-dimensional closures. Several additional records explicitly reproduce or refine the arithmetic marginal; one reproduces the n=3 geometric example. These are existing equivalent or stronger mathematical coverage at review time, not evidence of who published or discovered the result first. The earlier reduced nilpotent-jet literature is not the reason for failure.",
+      "residual_risks": [
+        "Priority, dependence between dated records, and other independent prior formulations are not determined. The exact existing coverage is established without resolving these questions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger arithmetic result and sufficient differential theorem for geometric implication",
+          "evidence": "Entry equations alone, arbitrary field and exponent; gives R_m, tangent dimension and partition-sum orbit census.",
+          "identifier_or_url": "2026/11/2/SCOPE-power-zero-matrix-schemes-exact-dual-number-fibers-and-a-generic--5c39e77ec446",
+          "material_read": "RESULT.md offsets 0–4073: Finding, Assumptions and scope, and proof of differential reduction",
+          "method": "Resultary local mirror and formula specialization",
+          "title": "Power-zero matrix schemes: exact dual-number fibers and a generic-reducedness divisibility criterion",
+          "trigger": "Stronger same-scheme apparent match"
+        },
+        {
+          "assessment": "Same exact rank census plus an asymptotic law",
+          "evidence": "The Φ-products give precisely the frozen rank summands.",
+          "identifier_or_url": "2026/11/2/SCOPE-square-zero-matrices-over-finite-dual-numbers-exhibit-an-asympto--365a20493bf8",
+          "material_read": "RESULT.md Finding, offset 92 onward",
+          "method": "Resultary local mirror",
+          "title": "Square-zero matrices over finite dual numbers exhibit an asymptotically uniform rank law",
+          "trigger": "Explicit rank-refined arithmetic overlap"
+        },
+        {
+          "assessment": "Implies the frozen fixed-A count by summation",
+          "evidence": "q^{2r(n−r)} lifts per secondary endomorphism; there are q^{(n−2r)^2} such endomorphisms.",
+          "identifier_or_url": "2026/10/25/SCOPE-bockstein-equidistribution-and-image-shape-counts-for-square-zer--150f31c550b3",
+          "material_read": "RESULT.md Finding, offset 111 onward",
+          "method": "Resultary local mirror",
+          "title": "Bockstein equidistribution and image-shape counts for square-zero lifts",
+          "trigger": "More refined fixed-reduction lift count"
+        },
+        {
+          "assessment": "Covers the same arithmetic marginal",
+          "evidence": "Counts by residue rank and Smith type and gives the rank marginal.",
+          "identifier_or_url": "2026/10/26/SCOPE-square-zero-dual-matrices-an-exact-smith-census-and-a-uniform-re--9ce1162ea15b",
+          "material_read": "RESULT.md Finding, offset 83 onward",
+          "method": "Resultary local mirror",
+          "title": "Square-zero dual matrices: an exact Smith census",
+          "trigger": "Exact finer split-dual-number table"
+        },
+        {
+          "assessment": "Gives the n=3 special case at length two, not alone the all-size theorem",
+          "evidence": "Two components of dimension 9 at length two.",
+          "identifier_or_url": "2026/11/8/SCOPE-equidimensional-jets-of-the-square-zero-3-times3-matrix-scheme--5cf076352a99",
+          "material_read": "RESULT.md Finding, offset 70 onward",
+          "method": "Resultary local mirror",
+          "title": "Equidimensional jets of the square-zero 3×3 matrix scheme",
+          "trigger": "Direct geometric match in one dimension"
+        },
+        {
+          "assessment": "Qualitative overlap in reduced jets; different scheme and field hypotheses",
+          "evidence": "Works over C with reduced nilpotent orbit closures, including reducibility conditions relevant to square-zero partitions.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.6427",
+          "material_read": "Pp. 1, 3–4, reducibility definitions and Theorem 3; OA offsets 0, 9690–10258, 13018",
+          "method": "Public original paper excerpts",
+          "title": "Jet schemes of the closure of nilpotent orbits",
+          "trigger": "Closest established reduced-orbit jet literature"
+        },
+        {
+          "assessment": "Covers ordinary representation variety only in this passage",
+          "evidence": "Irreducibility for the one-loop representation variety of K[X]/(X²).",
+          "identifier_or_url": "https://arxiv.org/abs/1407.3045",
+          "material_read": "P. 14 one-loop discussion, OA offset 45100",
+          "method": "Public original paper passage",
+          "title": "The geometry of finite dimensional algebras with vanishing radical square",
+          "trigger": "Ordinary representation geometry"
+        },
+        {
+          "assessment": "Different object",
+          "evidence": "Both factors must be square-zero and their prescribed common product is an additional constraint.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-finite-field-product-fibers-for-pairs-of-commuting-squa--c8a4349a84d7",
+          "material_read": "RESULT.md Finding, offset 84 onward",
+          "method": "Resultary local mirror",
+          "title": "Complete finite-field product fibers for pairs of commuting square-zero matrices",
+          "trigger": "Possible characteristic-two commuting interpretation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Giving all irreducible components of a natural first-order matrix representation locus is substantively useful: every rank stratum contributes, despite the one-component ordinary representation variety, and the same stratification yields an exact characteristic-uniform point count. This is a meaningful structural question and not merely a small table, though the separate originality check finds existing mathematical coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

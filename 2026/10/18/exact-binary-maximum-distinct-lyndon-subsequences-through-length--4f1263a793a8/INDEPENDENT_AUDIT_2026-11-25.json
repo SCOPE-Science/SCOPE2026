@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:14:47.406876Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen claim is a census of distinct, nonempty scattered Lyndon strings in each linear binary host, with 0<1 and no quotient on host words. The append/omit set recursion and strict cyclic rotation test are correct, including single letters and exclusion of periodic longer candidates. An independent full census instead inserted every strictly least rotation word up to length 20 into a shared-prefix trie. At each prefix, the earliest greedy embedding leaves maximal space for continuation; a failed next occurrence rules out all longer completions from that prefix. Each reachable terminal therefore contributes one distinct subsequence. The host loops are exhaustive, not merely witness checks: 2^n visits at each length, 2,097,150 total and 1,048,576 at n=20. Replay: `python /workspace/branches/3c7fd282-4efa-422e-bc8e-d396524b8025/replay_trie.py 20`; `replay_trie_n20.txt` and `comparison.txt` in that directory record exact agreement with all 20 frozen maxima, tie counts and complete optimizer lists. In particular n=20 has count 4701 and unique word 00010101010101101011. The two source programs were inspected but not executed; the packaged second program has only longer-length witness checks, whereas this reproduction establishes the entire finite upper-bound classification. No length beyond 20 is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Counting Lyndon Subsequences treats general alphabets and leaves the exact MDS entry open while solving other counting questions.",
+          "Bannai et al. maximize the length of a selected subsequence, not the size of its distinct Lyndon language.",
+          "The focused broader literature tool lookup was unavailable; no claim of a negative search result is based on it."
+        ],
+        "reasoning": "No theorem in the inspected material supplies both the sharp finite upper bounds and binary equality cases by specialization. A maximum-length algorithm cannot establish the required distinct counts.",
+        "searches": [
+          "arXiv:2106.01190 Table 2",
+          "DOI 10.1007/s00453-023-01125-z",
+          "Web literature lookup: maximum number of distinct Lyndon subsequences binary exact MDS exhaustive 4701 3132 Hirakawa open problem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify/census.cpp, verify/independent.cpp and data/maxima.tsv",
+        "arXiv:2106.01190",
+        "OEIS A290743 and its cited Counting Lyndon Factors",
+        "Bannai et al., DOI 10.1007/s00453-023-01125-z",
+        "Resultary lexical and exact-tuple lookups including 25d2fdb342a5 and 02ced6be8097; 25d2fdb342a5 mirror attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The natural multiplicity maximizer 000111 at n=6 has only eleven distinct Lyndon strings; the census gives thirteen at 001011.",
+          "An expectation may bound a maximum but does not specify its exact value or attaining words; the catalogue description supplies no evidence of a relevant fixed-length extremal bound."
+        ],
+        "reasoning": "Neither the known multiplicity theorem nor the related length and factor studies mechanically imply the twenty exact MDS values and equality cases. The finite proof requires a new exhaustive host classification rather than evaluating a known closed expression.",
+        "searches": [
+          "arXiv:2106.01190 pp. 2–3, MDS definition, future work and Table 2",
+          "Counting Lyndon Factors §2",
+          "Resultary 25d2fdb342a5 and 02ced6be8097"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hirakawa et al. call the same invariant MDS(σ,n), not the total count of occurrences nor the expectation.",
+          "Resultary 25d2fdb342a5 describes growth of an expectation under an i.i.d. source in its catalogue summary; the mirrored finding was unavailable. The tuple query returned a four-run longest-Lyndon-subsequence deficiency record (02ced6be8097) and different types of binary census, not a direct numerical or optimizer match."
+        ],
+        "reasoning": "MDS(2,n) is exactly D(n) under the fixed alphabet order. Neither the expectation over hosts nor the length of a single longest Lyndon subsequence fixes the maximum number of distinct Lyndon subsequences.",
+        "searches": [
+          "Resultary: binary distinct scattered Lyndon subsequence maximizers and exact length-20 witness",
+          "Resultary: scattered subsequences Lyndon strictly lexicographically least conjugate counts binary MDS 1,3,4,6,8,13,18,28,41,63,96,141,225,335,538,803,1292,1941,3132,4701 length 20 table",
+          "arXiv:2106.01190 pp. 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A290743 concerns contiguous binary factors; its cited primary formula gives 11 at n=6, not this scattered maximum of 13.",
+          "The exact tuple lookup did not yield readable OEIS material; the Resultary tests found no evidenced matching table. Frozen data/maxima.tsv was independently reproduced, not treated as external originality evidence."
+        ],
+        "reasoning": "Several entries may coincide at small lengths because factors are subsequences, but the invariants and actual n=6 maxima differ. The comparison concerns the values and full optimizer lists, not just one example word.",
+        "searches": [
+          "OEIS A290743 and its cited Counting Lyndon Factors, §2",
+          "OEIS sequence search for 1,3,4,6,8,13,18,28,41,63,96,141",
+          "Resultary exact count tuple and length-20 maximizing word"
+        ]
+      },
+      "rationale": "The checked distinct contribution is the complete finite binary MDS census through length 20, including all equality cases. The strongest accessible primary source defines the very same maximum and leaves its exact determination open; multiplicity, expectation, longest-length optimization, and contiguous-factor counts are different. Bounded catalogue comparisons did not establish a matching or stronger census. The broad primary literature lookup and exact-OEIS-query access were unavailable; this neither proves priority nor defeats the affirmative statement-level distinctions from the strongest accessible sources.",
+      "residual_risks": [
+        "The comparison record 25d2fdb342a5 was available only as a catalogue summary, not a full finding.",
+        "Broader literature search and a direct exact-sequence database lookup were unavailable. An unindexed or inaccessible earlier census may exist; this is a bounded assessment rather than first-public priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precisely defines the relevant invariant and leaves its exact value open; not an exact finite table",
+          "evidence": [
+            "MDS(σ,n) is maximum number of distinct Lyndon subsequences; exact determination is future work, Table 2 marks it open."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01190",
+          "material_read": "PDF p. 2 offsets 7209 and 7917; p. 3 Table 2 offset 8610",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "Counting Lyndon Subsequences",
+          "trigger": "Same MDS extremal problem over a general alphabet"
+        },
+        {
+          "assessment": "Exact database entry for a different statistic",
+          "evidence": [
+            "Counts distinct contiguous factors, not arbitrary scattered subsequences."
+          ],
+          "identifier_or_url": "https://oeis.org/A290743",
+          "material_read": "Entry description and starting data, offset 0",
+          "method": "Official sequence webpage inspection",
+          "title": "OEIS A290743",
+          "trigger": "Plausible competing database maximum for binary Lyndon substrings"
+        },
+        {
+          "assessment": "Different objective even at small lengths",
+          "evidence": [
+            "Defines D(σ,n) for distinct factors and gives D(2,6)=11."
+          ],
+          "identifier_or_url": "Glen, Simpson and Smyth; primary article linked by OEIS A290743",
+          "material_read": "§2, PDF p. 3, offset 6521",
+          "method": "Open-access primary PDF passage inspection",
+          "title": "Counting Lyndon Factors",
+          "trigger": "Proof underlying the potentially confusable maximum table"
+        },
+        {
+          "assessment": "Longest length, not number of distinct words or maximizers of that count",
+          "evidence": [
+            "Optimizes the length of one Lyndon subsequence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00453-023-01125-z",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "Open-access primary statement inspection",
+          "title": "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+          "trigger": "Same scattered Lyndon objects and possible stronger algorithmic coverage"
+        },
+        {
+          "assessment": "Identified summary concerns optimizing expected counts under an i.i.d. source; inaccessible finding leaves a residual risk, not a whole-document exclusion",
+          "evidence": [
+            "Summary refers to source bias and expected growth rather than maximizing over deterministic binary host words."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-bias-sensitive-lyndon-subsequence-growth-and-a-sharp-uniform-source-optimizer--25d2fdb342a5",
+          "material_read": "Resultary catalogue summary; RESULT.md could not be read via local mirror",
+          "method": "Local catalogue and bounded mirror retrieval attempt",
+          "title": "Bias-sensitive Lyndon subsequence growth and a sharp uniform-source optimizer",
+          "trigger": "Same distinct scattered Lyndon count, potential overlap in maximization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximum is a natural explicitly open invariant in primary combinatorics literature, distinct from the solved occurrence maximum. The census gives exact best values and all equality cases on the full binary space through the million-host depth-20 level. It supplies useful benchmark data, reveals nontrivial ties and eventual uniqueness within the measured range, and distinguishes the optimum from the known multiplicity extremizer as early as length six. The cutoff marks the demonstrated exhaustive range, not a claimed structural threshold or an answer for general n.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

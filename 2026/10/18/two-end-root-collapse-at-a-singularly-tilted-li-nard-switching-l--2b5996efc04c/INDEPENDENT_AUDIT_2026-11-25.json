@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:54:39.060532Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–67 and 73–90; frozen VERIFICATION.md and verify.py (read only)",
+        "Independent replay: python3 -B /workspace/reviews/reproduce_2_4.py, direct split angular quadrature with odd terms and exact Sturm counts in disjoint inner, finite and outer brackets"
+      ],
+      "rationale": "Polar-coordinate first variation gives the stated angular integrand. Odd terms cancel under the half turn; the even forcing integral is twice the integral of a cosine-power primitive over the positive switching semicircle, giving 4 sin^(2j+1)(φ)/(2j+1) before period normalization. The disjoint even and odd monomials give the Descartes bound at fixed tilt. Prescribing p+q+1 distinct positive zeros gives a nonzero coefficient vector; the same bound rules out missing monomials, multiple zeros, or extra positive zeros. For fixed coefficients, simple finite roots persist by the implicit function theorem. A sequence of small roots forces r/s→−B0/A0, and r=su gives a simple limiting equation. A sequence of escaping roots must have sr→∞; comparing the two leading terms rules out q≤p and equal signs, and otherwise forces s^γr→(−A_p/B_q)^(1/d), d=2(q−p)−1, γ=(2q+1)/d. On this scale both lower-degree remainders converge to zero in C¹ near the candidate, ensuring exactly one simple root. Compactness in the extended radius line rules out any others. On a fixed crossing annulus at a fixed positive tilt, composing the two smooth crossing flow segments gives the C¹ first variation of the return map and hence a hyperbolic cycle at each simple zero.",
+      "residual_risks": [
+        "The frozen verifier's comment giving the second damping family says −5x² but its code uses −10x²; that comment is not used as evidence. The stated theorem and the main explicit example are unaffected. No conclusion for non-simple positive roots of F, vanishing A0B0, or a joint ε–tilt limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Llibre treats two-ray non-regular switching boundaries and degree-dependent first-order counts or bounds. Llibre–Mereu–Novaes gives persistence conditions near averaged zeros."
+        ],
+        "reasoning": "Neither the degree counts for varying a sector opening nor the persistence theorem locates or exhausts the inner and outer roots for fixed coefficients and the straight-line tilt studied here.",
+        "searches": [
+          "Li–Llibre 2021, DOI 10.1016/j.physd.2021.132855, Theorems 1–2",
+          "Llibre–Mereu–Novaes 2015, DOI 10.1016/j.jde.2015.01.022, Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4bcf631ba6b2",
+        "arXiv:2307.09599v1; arXiv:2609.14140v2",
+        "DOI 10.1016/j.physd.2021.132855 and 10.1016/j.jde.2015.01.022"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Read passages support zero-tilt cancellation and the optimized basis-level count; the angle-dependent result concerns non-regular switching with a different geometry."
+        ],
+        "reasoning": "Even the exact basis and zero-angle limit imply only compact-radius convergence without further work. The exclusion of all other escaping or collapsing roots and the coefficient-sign tests require the separate leading-balance and local uniqueness arguments. No read theorem supplies them.",
+        "searches": [
+          "arXiv:2609.14140v2 Section 3",
+          "arXiv:2307.09599v1 pp. 4–5",
+          "Li–Llibre 2021 Theorems 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The horizontal-switch average has the same even-versus-odd basis. Vertical switching cancels univariate forcing at first order. Resultary 4bcf631ba6b2 describes an exterior escaping orbit with a different parameter and an inverse-square-root scale."
+        ],
+        "reasoning": "At each s≠0 one can realize the known horizontal basis by rescaling the coefficients, but the rescaling is singular in the reverse direction at s=0 and does not preserve the premise of holding the original coefficients fixed. An escaping orbit in a different return map is not the same asymptotic average-root claim.",
+        "searches": [
+          "arXiv:2307.09599v1 Theorem 2 and averaged-function calculation",
+          "arXiv:2609.14140v2 introduction and Section 3",
+          "Resultary local search for singular tilt and an escaping Liénard cycle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed result concerns a compactly supported piecewise-affine Liénard family with four jumps and an exterior orbit Rλ~sqrt(102/[125(−λ)]). No matching indexed classification was surfaced."
+        ],
+        "reasoning": "The indexed scale concerns an actual return map as a different parameter tends to zero and cannot substitute for the degree-dependent two-end count of first-order averaged roots.",
+        "searches": [
+          "Resultary local semantic search for fixed-coefficient tilt and two-end or escaping roots, including 4bcf631ba6b2"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exhaustive fixed-coefficient collapse and escape law at a straight-line tilt, with exact leading scales and sign criteria. The vertical cancellation, horizontal-switch optimized count, and standard simple-zero cycle-persistence mechanism are not claimed as new.",
+      "residual_risks": [
+        "An equivalent leading-balance analysis in broader switching or polynomial perturbation literature is possible. Bounded semantic searches or non-diagnostic results do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers cancellation, not singular root laws",
+          "evidence": "Any univariate switched g(x) contributes zero to the vertical first-order average.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.14140v2",
+          "material_read": "Introduction p. 2 (offset 6800), Section 3 p. 5 (18000)",
+          "method": "OA full-text passages",
+          "title": "Estimates for the Number of Limit Cycles in Discontinuous Generalized Liénard Systems with Bivariate Perturbation",
+          "trigger": "Same vertical-switch cancellation"
+        },
+        {
+          "assessment": "Covers optimized count under fixed-coefficient rescaling at a fixed nonzero angle, not the limit with original coefficients fixed",
+          "evidence": "The horizontal-switch average separates damping odd powers from switched even powers and has a sharp count.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.09599v1",
+          "material_read": "Theorem 2 p. 2 (9000), pp. 4–5 (20100–22700)",
+          "method": "OA full-text passages",
+          "title": "Sharp estimates for the number of limit cycles in discontinuous generalized Liénard equations",
+          "trigger": "Potential equivalent horizontal-switch result"
+        },
+        {
+          "assessment": "Related angle but different boundary and conclusions",
+          "evidence": "Two rays define a sector; degree-based count statements are not fixed-coefficient singular tilt laws.",
+          "identifier_or_url": "https://doi.org/10.1016/j.physd.2021.132855",
+          "material_read": "pp. 1–4 abstract, setup, Theorems 1–2 (offsets 653,4817,8000,11400)",
+          "method": "OA full-text passages",
+          "title": "Limit cycles in piecewise polynomial systems allowing a non-regular switching boundary",
+          "trigger": "Broader angular switching literature"
+        },
+        {
+          "assessment": "Methodological antecedent",
+          "evidence": "First-order conditions for periodic solutions near averaged zeros.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jde.2015.01.022",
+          "material_read": "Theorem A, p. 4 (offset 15150)",
+          "method": "OA full-text passage",
+          "title": "Averaging theory for discontinuous piecewise differential systems",
+          "trigger": "Known crossing persistence framework"
+        },
+        {
+          "assessment": "Different parameter and mechanism",
+          "evidence": "Exterior cycle of a piecewise-affine Liénard system with a four-jump family, not a straight-line switching tilt average.",
+          "identifier_or_url": "Resultary 4bcf631ba6b2",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two focal moments and a unique cycle escaping to infinity",
+          "trigger": "Close indexed escape phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–9, 43–67 and 88–90",
+        "de Abreu–Martins Theorem 2, for the contrast with coefficient optimization"
+      ],
+      "rationale": "The optimized count at each fixed angle does not say what happens under a small physical tilt without retuning coefficients. The classification answers that question, gives precise radius scales for branches entirely missed by compact-annulus convergence, and identifies which averaged crossings can persist without claiming more uniform cycle existence than proved.",
+      "residual_risks": [
+        "The result is first-order and generic under its stated coefficient and simplicity hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

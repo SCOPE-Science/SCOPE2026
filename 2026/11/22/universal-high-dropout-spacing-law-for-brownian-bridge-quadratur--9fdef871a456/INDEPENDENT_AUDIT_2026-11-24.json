@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:13:36.826604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired theorem concerns fixed n>=3. Conditioning on retained exact sites splits the Gaussian residual into independent bridge pieces, including zero gaps at coincident sites. Double integration gives h^3/12. The all-surviving sum of strictly convex cubes of affine gaps is strictly convex because the gap vector determines the placement; its positive weight gives uniqueness even on the closed boundary. Reflection then fixes the minimizer. A single retained site contributes (x_i-1/2)^2/4 over the midpoint, and the remaining change has absolute bound (n-1)r^2||x-m||_1/4, since active derivatives are bounded by 1/4 and summing the probabilities for a given survivor accompanied by any other gives r(1-q^{n-1}). This gives ||x*-m||=O_n(r). The pair variance changes by -r(y_j-y_i)/16+O(r^2) at scaled locations m+ry. Terms with at least three survivors are O_n(r^4) in risk difference, uniformly for bounded y. The limiting objective has unique ordered minimizer y_i=(2i-n-1)/8, so boundedness, uniformity and comparison with that trial design establish the claimed full convergence. The frozen two-node formula is also mathematically correct but is not claimed in the repair. Independently checked 33 finite integer-coefficient risk polynomials using consecutive-survivor probabilities, with scaled offsets and n=2..12; replay /workspace/branches/spectral_design_replays.js, dropoutCheck. The packaged script was inspected, not run. Its covariance matrix checks are floating point, not rational as implied by the frozen verification prose. The revised notes describe the unchanged checker accurately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "47f6c01bcecf explicitly solves the same two-node integral objective for arbitrary feasible joint success. Setting its marginal p=r and joint q=r^2 in its Finding gives the frozen radical after rationalization.",
+          "849744f935dc gives exact all-n nodes for expected squared-gap path-reconstruction MSE, t_i=[1+(i-1)r]/[2+(n-1)r], with adjacent spacing r/2+O_n(r^2)."
+        ],
+        "reasoning": "The first source subsumes the original exact n=2 clause, which was removed rather than passed. The second has all-n domain but an inequivalent loss; it does not dominate the repaired claim.",
+        "searches": [
+          "Resultary: exact two-sensor quadrature under correlated observation erasures",
+          "Resultary: exact optimal sampling for Brownian-bridge path reconstruction under independent erasures"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 47f6c01bcecf",
+        "Resultary 849744f935dc",
+        "Resultary 15716724ea95",
+        "arXiv:1404.7711",
+        "arXiv:2210.15959"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent two-site probabilities in 47f6c01bcecf give d=r/[2(2-r+sqrt((2-r)^2+3r^2))], exactly the rationalization of the frozen formula.",
+          "Santin proves unique equal spacing for the sup-norm Brownian-bridge-kernel interpolation power function with no erasures. In the path-MSE catalogue record the conditional integrated variance is h^2/6; for the integral estimator it is h^3/12 via a double integral."
+        ],
+        "reasoning": "The exact two-node formula implies only an n=2 asymptotic. Neither the interpolation optimum nor the squared-gap exact law implies the repaired fixed-n cubic law; the singleton and pair terms have to be computed for the stated objective.",
+        "searches": [
+          "47f6c01bcecf Finding and assumptions",
+          "849744f935dc Finding and proof §1",
+          "Santin arXiv:2210.15959 Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For known endpoints, integrating squared distance to the nearest delivered site or endpoint is exactly h^3/12 on a gap of length h, hence the same variational problem for squared average distance.",
+          "Frasca et al. take an expected maximum distance and show exact midpoint co-location at high failure. The difference from the nonzero O(r) spacing here is substantive."
+        ],
+        "reasoning": "Comparison must be on the expected cubed-gap objective, not the common reliability mechanism. The inspected unreliable-coverage theorem does not transfer.",
+        "searches": [
+          "Resultary: Brownian bridge integral-variance quadrature with observation erasures",
+          "Frasca et al., arXiv:1404.7711, abstract and Proposition 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "47f6c01bcecf contains direct symbolic coverage of the two-node formula as above. 849744f935dc and 15716724ea95 concern, respectively, path-MSE and additive Gaussian measurement noise—not an exact match to the remaining law."
+        ],
+        "reasoning": "No numerical table is required for this symbolic asymptotic family. Catalogue searches identified the exact overlapping subcase and close but nonmatching alternatives.",
+        "searches": [
+          "Resultary: Brownian-bridge quadrature, exact optimal node positions, independent dropout",
+          "Resultary: Brownian bridge additive-noise two-node quadrature"
+        ]
+      },
+      "rationale": "The original Finding bundled an exact two-node law which is explicitly covered by a broader, distinct same-day catalogue record; neither chronological precedence nor duplication of the all-n claim follows. The repaired files claim only uniqueness and the high-dropout spacing law for fixed n>=3. The nearest located all-size result uses squared gaps and gives a different coefficient. No inspected result gives or implies the repaired fixed-size cubic-gap law. This is a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "Other cubed-gap or mean-squared-distance facility-location formulations with redundant endpoint observations may exist outside the bounded comparison.",
+        "The shared date 2026-11-22 does not determine chronological priority between catalogue results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly subsumes original two-sensor clause; no n>=3 claim",
+          "evidence": "The half-separation is joint delivery divided by twice the sum of 2p-q and sqrt((2p-q)^2+3q^2). The loss, exact observations and ordered feasible pair all coincide.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-two-sensor-brownian-bridge-quadrature-under-correlated-obs--47f6c01bcecf/RESULT.md",
+          "material_read": "Finding, assumptions, and initial proof, offsets 0–3961",
+          "method": "Configured local Resultary mirror, exact formula substitution",
+          "title": "Exact two-sensor Brownian-bridge quadrature under correlated observation erasures",
+          "trigger": "Plausible exact scope overlap"
+        },
+        {
+          "assessment": "Analogous, different loss",
+          "evidence": "Integrated pointwise variance yields h^2/6 and the exact spacing r/[2+(n-1)r], not the cubic-gap law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-optimal-sampling-for-brownian-bridge-path-reconstruction-w--849744f935dc/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–2, offsets 0–4029",
+          "method": "Configured local Resultary mirror, objective and small-r comparison",
+          "title": "Exact optimal sampling for Brownian-bridge path reconstruction with independent observation erasures",
+          "trigger": "All-budget exact optimizer under same erasure model"
+        },
+        {
+          "assessment": "Different distance criterion",
+          "evidence": "Expected maximum distance yields exact single-cluster minimizers near certain failure.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.7711",
+          "material_read": "Abstract and Proposition 2 with proof, OA PDF p. 10, offset about 35600",
+          "method": "Lawful OA primary text",
+          "title": "Optimal one-dimensional coverage by unreliable sensors",
+          "trigger": "Closest geometrical reliability analogue"
+        },
+        {
+          "assessment": "No dropout; different loss",
+          "evidence": "Theorem optimizes the sup-norm interpolation power function.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.15959",
+          "material_read": "Theorem 5, p. 5, OA offset about 21480",
+          "method": "Lawful OA primary text",
+          "title": "Equally spaced points are optimal for Brownian Bridge kernel interpolation",
+          "trigger": "Brownian-bridge equal-spacing theorem"
+        },
+        {
+          "assessment": "Additive noise, not erasures",
+          "evidence": "It gives a high-noise separation law for Gaussian-additive measurements, not an n>=3 fixed-budget thinning result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-noncolliding-optimal-locations-for-two-noisy-brownian-bri--15716724ea95/RESULT.md",
+          "material_read": "Finding and observation model",
+          "method": "Configured local Resultary mirror",
+          "title": "Unique noncolliding optimal locations for two noisy Brownian-bridge observations",
+          "trigger": "Two-node quadrature with vanishing information"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired result resolves the microscopic geometry of the entire optimal design at arbitrary fixed budget at least three. A midpoint limit or a deterministic equal-spacing theorem alone does not say whether sensors actually separate. The first nonzero slope quantifies the effect of rare simultaneous observations and distinguishes estimating an integral from reconstructing the path or minimizing worst-case coverage radius. This is a useful exact asymptotic design law independent of the removed two-site formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

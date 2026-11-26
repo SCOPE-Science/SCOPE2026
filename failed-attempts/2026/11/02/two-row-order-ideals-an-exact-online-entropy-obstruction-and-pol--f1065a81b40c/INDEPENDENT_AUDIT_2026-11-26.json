@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:59:46.141155Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact recurrence, near-entropy bound and finite obstruction",
+        "VERIFICATION.md, verify_grid_ideal_learning.py and exact_table_1_to_60.json inspected",
+        "Independent bounded replay: python /workspace/branches/audit_replay_2.py"
+      ],
+      "rationale": "Ideals correspond bijectively to the triangular set of row lengths, and the width equals VC dimension since downward closure realizes all labels on an antichain. A cell query is a threshold cut on one coordinate. Both children of every proper cut are smaller interval-triangle states; the max of one plus the smaller child depth is necessary and sufficient by the two complete subtrees at the root. The endpoint count yields the claimed arithmetic complexity. An independent translated-state program, with separated product states evaluated directly, reproduced all 60 rows and ten thresholds. At n=7 the maximal smaller child among the fourteen possible first queries has size 15, too few for depth four, and a 4-by-4 product subfamily realizes depth four. The balanced product subfamily gives the all-size lower bound: for X=floor(n/2)+1, Y=ceil(n/2)+1, the concept count is less than 2XY, and rounding the two logarithms costs at most one additional bit.",
+      "residual_risks": [
+        "The finite threshold classification is only checked through 60; no claims on larger threshold locations or taller posets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior record gives the exact normalized four-endpoint recurrence for all n>=0 with O(n^4) states and O(n^5) operations, plus the same product-subfamily and cardinality bounds.",
+          "Ghazi et al. give general Boolean closure bounds O(k d log k); Hanneke relates general dimensions and finite class cardinality, not this table."
+        ],
+        "reasoning": "The prior catalogue recurrence already specializes without additional hypotheses; general literature is background, not needed for the coverage decision.",
+        "searches": [
+          "Resultary 6262182a47f2, recurrence proof and growth paragraph at offset 5500",
+          "arXiv:2007.03668 Proposition 2.3",
+          "PMLR 247 Hanneke (2024), p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6262182a47f2",
+        "Resultary 31054849abf0",
+        "arXiv:2007.03668",
+        "Hanneke PMLR 247 (2024)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior dimensions at n=1..7 are 1,2,3,3,4,4,4 and the class size is (n+1)(n+2)/2.",
+          "Prior lower bound uses lengths X=floor(n/2)+1 and Y=ceil(n/2)+1; its upper bound is the concept count exponent."
+        ],
+        "reasoning": "The prior table and counts imply equality for 1..6 and strictness at 7; N<2XY and floors show the two-bit estimate from the prior displayed bounds. The fourteen-query census gives an elementary direct verification of an already implied obstruction.",
+        "searches": [
+          "Resultary 6262182a47f2, Finding, recurrence and product/count bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record uses 0<=b<=a<=n, the frozen record uses 0<=a<=b<=n; in each case one membership query cuts a single row length at a column."
+        ],
+        "reasoning": "Swap row names and relabel queries: the hypothesis and label trees are isomorphic. This is not a different concept class or query model.",
+        "searches": [
+          "Resultary: two-row grid ideals, two coordinate thresholds and Littlestone recurrence",
+          "Resultary 6262182a47f2, Finding and model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6262182a47f2 lists exactly the ten threshold locations 1,2,3,5,8,12,17,25,36,52.",
+          "31054849abf0 treats 35 interleavings of chains of sizes 3 and 4 under comparison queries, not the 36-concept ideal-membership class."
+        ],
+        "reasoning": "The first match is exact; the second is not a competing exact instance even though both exhibit dimension four and cardinality exponent five. From threshold ten at 52, monotonicity and the count at 60 give the tail entries automatically.",
+        "searches": [
+          "Resultary 6262182a47f2, threshold table",
+          "Resultary 31054849abf0, Finding and relationship to prior work"
+        ]
+      },
+      "rationale": "The October 26 Resultary record 6262182a47f2 is directly prior coverage of the same membership-query family, normalized four-bound recurrence, its complexity, and the identical ten jump thresholds. Its explicit lower and upper bounds also imply the two-bit inequality by the elementary rounding calculation, and its table implies exactly the first strict information-bound failure at seven columns. A direct first-query count is a different proof certificate, not a new obstruction.",
+      "residual_risks": [
+        "The broader web lookup was uninformative, not evidence of no other coverage. The direct earlier catalogue match suffices for the finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent and implication coverage",
+          "evidence": "Identical thresholds and four-bound recurrence; growth paragraph restricts to two independent threshold classes of the same sizes and gives the same cardinality bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-polynomial-state-littlestone-recurrence-for-two-row-order--6262182a47f2/RESULT.md",
+          "material_read": "Finding, recurrence and verification; growth proof at offsets 5500–7000",
+          "method": "Resultary match and bounded local mirror passages",
+          "title": "Exact polynomial-state Littlestone recurrence for two-row order ideals",
+          "trigger": "Same family, geometry and numerical thresholds"
+        },
+        {
+          "assessment": "Different query class; independently points to known two-row recurrence",
+          "evidence": "Its example concerns comparison queries among 35 interleavings; it explicitly treats the two-row recurrence as already available.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-first-entropy-obstruction-for-two-chain-comparison-shatterin--31054849abf0/RESULT.md",
+          "material_read": "Finding offset 0 and relationship to prior work offset 5352",
+          "method": "Resultary match and bounded local mirror passages",
+          "title": "The first entropy obstruction for two-chain comparison shattering",
+          "trigger": "Related entropy obstruction"
+        },
+        {
+          "assessment": "General bounds, not exact ordered-threshold enumeration",
+          "evidence": "Guarantees an O(k d log k) bound for Boolean aggregation of k classes with Littlestone dimension at most d.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+          "material_read": "Section 2.2 Proposition 2.3, pp. 2–3",
+          "method": "Primary OA passage",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "Closure of threshold classes"
+        },
+        {
+          "assessment": "General dimension inequalities, not exact recurrence or threshold table",
+          "evidence": "Includes a product lower bound involving star and Littlestone dimensions in terms of log class cardinality; its threshold dimension is not a parameter counting row cuts.",
+          "identifier_or_url": "https://proceedings.mlr.press/v247/hanneke24a.html",
+          "material_read": "p. 2, OA text offset 5800",
+          "method": "Primary OA passage",
+          "title": "The Star Number and Eluder Dimension: Elementary Observations About the Dimensions of Disagreement",
+          "trigger": "Potential general implication for finite concept families"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and finite cutoff",
+        "Resultary 6262182a47f2, earlier recurrence, thresholds and growth bounds"
+      ],
+      "rationale": "The first online entropy obstruction is a natural mathematical boundary, but the frozen finding chiefly recomputes a known recurrence and threshold table. The residual branch census is an elementary direct certificate of an already determined value, and the two-bit form simply rounds already stated bounds; neither yields an independently useful new invariant or boundary in this claim.",
+      "residual_risks": [
+        "This judgment concerns the frozen contribution, not the intrinsic usefulness of the known recurrence or of studying other grid heights."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

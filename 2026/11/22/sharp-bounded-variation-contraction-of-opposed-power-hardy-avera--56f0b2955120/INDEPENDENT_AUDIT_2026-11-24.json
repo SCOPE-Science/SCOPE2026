@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:51:12.377342Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a real BV equivalence class, f is a constant plus the integral of h_s=1_(s,1) against Df, whose total variation is the seminorm on the open interval. The two averaging kernels preserve constants and monotonicity (write their arguments as xU and 1−(1−x)U with power-distributed U), so each composed step gain is its output endpoint difference. Fubini and the triangle inequality bound the seminorm by the integral of these gains against |Df|; a step realizes the gain, giving equality for the supremum. For right after left, the endpoints are 1−s^α and β∫_s^1(1−u)^(β−1)[1−(s/u)^α]du. Their difference has derivative αs^(α−1)[β∫_s^1(1−u)^(β−1)u^(−α)du−1]. The bracket is strictly decreasing from a positive limit (the full probability average of u^(−α) exceeds 1, possibly infinitely) to −1. For left after right, the endpoints are 1−s^α+α(1−s)^β∫_0^s u^(α−1)(1−u)^(−β)du and (1−s)^β. The derivative is β(1−s)^(β−1) times 1 minus the corresponding truncated integral with its α factor; this bracket strictly decreases from 1 to a negative limit. Both stationarity equations give the stated interior norm values, strictly between zero and one. A norming |Df| must concentrate at the unique maximizer, yielding exactly the stated single jumps modulo constants. Separately, the one-sided step gains 1−s^α and 1−(1−s)^β approach 1 at their respective maximizing endpoints. For β=1 direct integration gives s=α^(1/(1−α)) or e^(−1). At (1,2), the left-after-right profile is 2s(1−s); the opposite profile at 1/3 is (2/3)log 3−2/9>1/2 by the positive log series. Bisection of 2s−3−2log(s)=0 gave s≈0.301709562684336 and the opposite norm ≈0.512390465153499. Analytic replay: RESULT.md lines 39–71; the bundled checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gogatishvili and Mustafayev, arXiv:1503.04079v1 p. 1 abstract: weighted Lebesgue composition inequalities and monotone-cone reductions.",
+          "Fu–Lu–Yuan DOI and Mizuta–Nekvinda–Shimomura DOI returned listings without substantive inspected passages."
+        ],
+        "reasoning": "A general sharp norm theorem for these compositions in derivative-measure geometry could subsume the claim. In weighted Lebesgue spaces, including on a cone of monotone functions, the norms do not simply evaluate the variation of a monotone output as its endpoint difference and control all signed derivative measures. No covering theorem appears in the available abstract; the inaccessible papers are not excluded.",
+        "searches": [
+          "Literature: \"Weighted iterated Hardy-type inequalities\" Gogatishvili Mustafayev 2017 DOI 10.7153/mia-20-45 full text Hardy Copson",
+          "Literature: \"A Weighted Variant of Riemann-Liouville Fractional Integrals on R^n\" Fu Lu Yuan 2012 780132 full text positive Hardy operator",
+          "Literature: \"Hardy Averaging Operator on Generalized Banach Function Spaces and Duality\" Mizuta Nekvinda Shimomura 2013 233 255 Hardy averaging"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_hardy.py",
+        "Resultary 56f0b2955120, 7824877894c7 and 3a2a7c7e01f9",
+        "Gaubert–Qu PDF p. 1",
+        "Gogatishvili–Mustafayev arXiv:1503.04079v1 p. 1",
+        "Fu–Lu–Yuan and Mizuta–Nekvinda–Shimomura DOI listing/retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 7824877894c7 summary describes the two orders and unique jumps for BV-to-L¹ composition approximation error.",
+          "Resultary 3a2a7c7e01f9 summary concerns convex mixtures and the BV-to-L¹ identity defect.",
+          "RESULT.md lines 39–71 maximize the endpoint differences of the outputs themselves, without subtracting the input."
+        ],
+        "reasoning": "The same averaging names, two-order structure and use of step extremizers do not make an integrated L¹ approximation error equal to the BV seminorm of the composition. For monotone output, one objective is an endpoint gap and the other integrates the error over the interval; their optimizer calculations are not interchangeable. The same-date record is compared on this basis, not presumed later.",
+        "searches": [
+          "Resultary: Hardy Copson composition BV total variation operator seminorm one-sided averages opposite order exact norm",
+          "Local mirror retrieval: Resultary 7824877894c7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 39–67 establish equivalence to maximizing the difference of the two output endpoint laws on an upper interval (s,1).",
+          "Gaubert and Qu, PDF p. 1 abstract and introduction: total variation contraction on probability measures for stochastic matrices and a dual oscillation formulation."
+        ],
+        "reasoning": "The relevant equivalent positive-kernel problem can be posed on distributional derivatives, with column mass equal to the endpoint step gain. This is not the general Dobrushin contraction of differences of probability measures. Even when a Markov-kernel endpoint distance is another route, its formula alone does not evaluate these integrals or show a unique maximizing threshold and all BV normers.",
+        "searches": [
+          "Resultary: sharp bounded variation contraction opposed normalized power Hardy averages L_alpha R_beta one-jump normers",
+          "Literature: Dobrushin coefficient positive integral Markov kernel contraction total variation BV functions bounded variation sharp kernel oscillation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit 56f0b2955120 is the assigned record itself.",
+          "Resultary 7824877894c7 and 3a2a7c7e01f9 are indexed related exact coefficients, in BV-to-L¹ identity-error norms.",
+          "RESULT.md lines 5–27: the requested invariant is an interior root for each order, not simply the e^(−1) unweighted case."
+        ],
+        "reasoning": "An exact table or closed formula for both operator seminorms at arbitrary powers would overlap; matching numbers in an isolated parameter slice or a table of approximation errors in a different norm would not supply this theorem. The nearby catalogue statements identify no such table; availability limits remain.",
+        "searches": [
+          "Resultary: Hardy Copson composition BV total variation operator seminorm one-sided averages opposite order exact norm",
+          "Resultary: sharp bounded variation contraction opposed normalized power Hardy averages L_alpha R_beta one-jump normers"
+        ]
+      },
+      "rationale": "The distinct contribution supported by the comparisons is the exact real BV-seminorm contraction for both orders for general positive power parameters, together with the unique interior jump normers and explicit order asymmetry. General Hardy norm theory and the positive-measure reduction are not claimed as new. The closest indexed two-order Hardy–Copson result concerns an identity error in a different output norm.",
+      "residual_risks": [
+        "The closest Resultary neighbor was not available as full text. There could be related endpoint-law formulas beyond the indexed claims.",
+        "The scope of weighted Hardy results outside the inspected abstract, and the contents of the inaccessible Fu and Mizuta full texts, were not resolved. An earlier special-case formula or abstract BV theorem with explicitly evaluated power kernels cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related contraction theory in a different geometry, not an evaluated sharp power-averaging BV formula",
+          "evidence": [
+            "The stochastic-matrix coefficient is stated for total variation on probability measures; the dual formulation concerns Hopf oscillation."
+          ],
+          "identifier_or_url": "Gaubert and Qu, Integral Equations and Operator Theory 81 (2015), 127–150, PDF p. 1",
+          "material_read": "PDF first-page abstract and introduction with stochastic row-distance formulation",
+          "method": "Primary literature lookup and PDF passage inspection",
+          "title": "Dobrushin’s ergodicity coefficient for Markov operators on cones",
+          "trigger": "Possible abstract sharp positive-kernel contraction covering the seminorm"
+        },
+        {
+          "assessment": "Nearby composition framework; not a matching theorem in the inspected passage",
+          "evidence": [
+            "Abstract states weighted Lebesgue-space reduction and equivalence, including monotone-cone cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.04079 ; https://doi.org/10.7153/mia-20-45",
+          "material_read": "arXiv:1503.04079v1 p. 1 abstract",
+          "method": "Primary literature title/DOI search and bounded PDF inspection",
+          "title": "Weighted iterated Hardy-type inequalities",
+          "trigger": "Weighted Hardy/Copson compositions, including monotone functions"
+        },
+        {
+          "assessment": "Strong related hit with different norm and objective; deeper possible overlap is unresolved",
+          "evidence": [
+            "Indexed theorem concerns a BV-to-L¹ approximation error, not the BV-seminorm norm of the output."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-asymmetric-hardy-copson-composition-error-and-its-unique--7824877894c7",
+          "material_read": "Indexed summary; local mirror Finding retrieval timed out",
+          "method": "Local Resultary search and lawful mirror attempt",
+          "title": "A sharp asymmetric Hardy–Copson composition error and its unique jump extremizers",
+          "trigger": "Opposite orders and unique one-jump extremizers"
+        },
+        {
+          "assessment": "Different operator (mixture) and different output criterion",
+          "evidence": [
+            "Summary describes an identity defect in BV-to-L¹ for convex mixtures."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-entropy-optimal-balancing-of-forward-and-reflected-hardy-average--3a2a7c7e01f9",
+          "material_read": "Indexed summary",
+          "method": "Local Resultary search",
+          "title": "Entropy-optimal balancing of forward and reflected Hardy averages",
+          "trigger": "Same general averaging family and sharp BV-domain objective"
+        },
+        {
+          "assessment": "Theorem-level comparison unresolved for these papers",
+          "evidence": [
+            "No substantive passage was accessible from either DOI; no inference of noncoverage follows from the listings."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2012/780132 ; https://doi.org/10.4171/ZAA/1483",
+          "material_read": "Publisher identification and citation metadata only",
+          "method": "Exact-title literature lookup and bounded lawful OA/DOI retrieval attempts",
+          "title": "A Weighted Variant of Riemann-Liouville Fractional Integrals on R^n; Hardy Averaging Operator on Generalized Banach Function Spaces and Duality",
+          "trigger": "Potential broader positive Hardy averaging estimates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The one-sided normalized averages individually have no strict margin in variation, yet composition in either opposite order does. Exact norms give both the worst jumps and the magnitude of the margin for all positive parameters, and distinguish the two orders even for simple powers. Neither the product of the separate norm bounds nor a qualitative smoothing result gives this information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

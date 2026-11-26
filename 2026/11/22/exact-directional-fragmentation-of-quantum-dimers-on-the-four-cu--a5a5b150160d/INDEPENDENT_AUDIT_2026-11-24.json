@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:14:07.345976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–41; VERIFICATION.md; verify_directional_plaquettes.py (read only); component_spectra.json",
+        "python3 -B /workspace/review_evidence/independent_checks.py 1; /workspace/review_evidence/correctness.md §1"
+      ],
+      "rationale": "I enumerated all 8! assignments from even to odd vertices, retaining exactly the 272 adjacent bijections. A transposition of two assigned odd vertices is legal exactly when both cross-edges are cube edges, which identifies the unique coordinate square and its orientation. Merging component labels over the retained links exhausts all 64 repertoires, agreeing with all eleven frozen rows and JSON component totals. Each orientation has 128 links; the full case is 264 plus eight isolated states. Each single deletion gives 198,32,32 and ten singletons, eight of which were already isolated, so no proper subset can preserve the original mobile component. Coordinate permutations act on repertoires. At two edges the orientation graph is adjacent or disjoint, at three it is a triangle, path or star, and complements check the larger cases; degrees distinguish these classes and all eleven computed signatures are distinct. Positivity of each RK term forces equality along every enabled flip, so one constant per component gives the full kernel.",
+      "residual_risks": [
+        "Covers only coordinate-square flips in Q4, with every square of an enabled orientation present. Positive weights preserve zero-mode multiplicity, not the excited-state spectrum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6 gives connectivity of D_{2d−2}(Q_d); at d=4 this permits alternating cycles up to length 12. The rhombicuboctahedron result uses square faces but its graph has 24 vertices and 18 squares."
+        ],
+        "reasoning": "Connectivity of a supergraph cannot imply the component sizes after removing every longer switch and one or more coordinate-pair types. The other polyhedral graph is not a parameter instance of this census.",
+        "searches": [
+          "Hartarsky–Lichev–Toninelli arXiv:2304.10930 §§1.1–1.3, Theorem 6",
+          "Resultary same-day rhombicuboctahedron record 985b3df0c75e"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and local mirror records identified above",
+        "arXiv:2007.08474 Example 2.2; arXiv:2304.10930 Theorem 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "All-square counts and distances do not specify the components of a union of selected orientation classes. In particular, an isotropic distance path can use an omitted orientation.",
+          "Once the restricted component counts are known, the positive RK kernel correspondence follows by the weighted graph Laplacian quadratic form."
+        ],
+        "reasoning": "A labelled exact rebuild with orientation information is needed beyond the published uncoloured counts and distances; the standard Laplacian implication is credited separately.",
+        "searches": [
+          "Klivans–Saldanha Example 2.2; Hartarsky–Lichev–Toninelli Theorem 6; Resultary full-square census and distance records above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Q4 perfect matchings and four-dimensional side-two domino tilings are equivalent, as is an alternating 4-cycle switch and an all-squares plaquette flip. A repertoire S additionally deletes all links in the omitted direction pairs.",
+          "Klivans–Saldanha's known isotropic figures are identical to the last row."
+        ],
+        "reasoning": "Relabelling tilings as dimers or rotations of coordinate axes does not add novelty to the full case. It does not eliminate the genuinely different choice of which coordinate-pair types to retain.",
+        "searches": [
+          "Resultary focused Q4 square-flip orientation/fragmentation comparisons",
+          "Klivans–Saldanha arXiv:2007.08474, Example 2.2",
+          "Resultary db180e339d90"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target hit a5a5b150160d is this same result. The earlier db180e339d90 gives 272 vertices, 768 links and the isotropic decomposition; 22eb72e87c33 and 84ee7ca2c7ef concern flip distances with full repertoire.",
+          "The inspected same-day 985b3df0c75e concerns 1,088 matchings and 69 components on a different graph."
+        ],
+        "reasoning": "The inspected baseline and distance records have no type-restricted census in the decisive passages. A same-day different record is evaluated by mathematical content, not presumed ordering.",
+        "searches": [
+          "Resultary Q4 isotropic census, square-flip distances and restricted square-face fragmentations",
+          "Local mirror: a5a5b150160d, db180e339d90, 22eb72e87c33, 84ee7ca2c7ef, 985b3df0c75e"
+        ]
+      },
+      "rationale": "The known full square-flip graph already has the credited 264-state mobile component plus eight frozen states. The supported distinct claim is the eleven-class census as a function of the enabled coordinate-plane types, including the sharp single-deletion split and six-type necessity. Neither the prior isotropic and distance results nor connectivity with longer cycles determine these subgraphs. The RK degeneracy is a standard corollary rather than an independent priority claim.",
+      "residual_risks": [
+        "Searches are bounded; a web query did not add relevant results. Independent coverage of orientation-deletion spectra under different tiling terminology could still exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers precisely the credited isotropic census",
+          "evidence": "272 tilings, nine components, eight singletons and largest size 264 at N=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.08474",
+          "material_read": "PDF p. 5, Example 2.2, extracted offset 12814",
+          "method": "Primary OA PDF passage",
+          "title": "Domino tilings and flips in dimensions 4 and higher",
+          "trigger": "Same Q4 state space and flips"
+        },
+        {
+          "assessment": "Longer-cycle move rule, not orientation-selective square flips",
+          "evidence": "Theorem 6 gives connectivity of D_{2d−2}(Q_d) under cycle switches of length up to 2(2d−2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10930",
+          "material_read": "PDF §§1.1–1.3, pp. 2–5, extracted offsets 7400, 10226, 13906 and 17086",
+          "method": "Primary OA PDF passages",
+          "title": "Local dimer dynamics in higher dimensions",
+          "trigger": "Potential stronger all-hypercube connectivity theorem"
+        },
+        {
+          "assessment": "Substantial baseline overlap only",
+          "evidence": "All coordinate squares enabled; 272 vertices, 768 edges, 264 mobile and eight isolated.",
+          "identifier_or_url": "2026/11/8/SCOPE-frozen-sectors-and-exact-square-flip-connectivity-in-hypercube-q--db180e339d90",
+          "material_read": "RESULT.md Finding and scope at offset 363",
+          "method": "Published local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Frozen sectors and exact square-flip connectivity in hypercube quantum-dimer configurations",
+          "trigger": "Exact Q4 component catalogue"
+        },
+        {
+          "assessment": "Unrestricted square moves and distances, not orientation-subgraph sizes",
+          "evidence": "All 24 squares allowed; distances in the 264-state component.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-square-flip-distances-and-diametral-geometry-of-four-cube--22eb72e87c33",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Sharp square-flip distances and diametral geometry of four-cube domino tilings",
+          "trigger": "Same graph and exact metric census"
+        },
+        {
+          "assessment": "Same isotropic component; provenance relationship to other distance record not determined",
+          "evidence": "Distance calculation in the unrestricted 264-state sector.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-square-flip-distances-in-the-four-dimensional-hypercube--84ee7ca2c7ef",
+          "material_read": "RESULT.md Finding excerpt, offset 300",
+          "method": "Published local mirror",
+          "title": "Exact square-flip distances in the four-dimensional hypercube",
+          "trigger": "Earlier cited Q4 square-flip enumeration"
+        },
+        {
+          "assessment": "Different state graph",
+          "evidence": "24-vertex rhombicuboctahedral graph, 18 square faces, 1,088 matchings and 69 components, not Q4.",
+          "identifier_or_url": "2026/11/22/SCOPE-square-face-quantum-dimer-fragmentation-and-parity-charge-double--985b3df0c75e",
+          "material_read": "RESULT.md opening Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Square-face quantum-dimer fragmentation and parity-charge doublets on the rhombicuboctahedron",
+          "trigger": "Close same-date face-selective fragmentation hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and limitations; independently reproduced eleven signatures"
+      ],
+      "rationale": "The move repertoire is a natural anisotropic control on the smallest stated hypercube setting with a large mobile component and frozen states. The one-deletion split resolves whether any orientation is redundant; the full census gives the exact ways such controls alter fragmentation and positive-weight zero-mode multiplicity. Neither the arbitrary choice of representative labelling nor recalculating the known isotropic graph is the source of value.",
+      "residual_risks": [
+        "Finite Q4 classification only; not a claim about general-dimensional fragmentation or dynamic mixing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

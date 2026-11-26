@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:17:42.784957Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 26–66; VERIFICATION.md, checker.py and checker_output.txt read-only",
+        "Fresh bounded reproduction: /workspace/branches/2d37a0d5-3e03-45c4-8d1d-09b2d8e6d5b4/reproduce.py and reproduce-output.txt; over F_3 all 3^10 degree-one-plus-degree-two inputs give pair-fiber sizes 2421 and 234 at zero and at each of 242 nonzero targets, respectively; all 2^10 such inputs over F_2 square to zero."
+      ],
+      "rationale": "With y=v+w+z+t in consecutive exterior degrees, y^2=2v wedge w+w wedge w and y^3=0; z,t give q^5 free choices. In coordinates the Pfaffian of w is a dot product of (w12,w13,w14) with (w34,-w24,w23), so a fixed nonzero top component gives (q^3-1)q^2 bivectors. Each is nondegenerate and v maps isomorphically to degree three under v -> 2v wedge w. With zero top and nonzero cubic component, a nonzero decomposable w can occur exactly when its plane lies in the cubic's three-dimensional support. This gives (q-1)(q^2+q+1)=q^3-1 choices, each allowing q^2 vectors v. For zero target the pair count is q^4+q^2(q^2+1)(q^3-1), giving the stated zero fiber after multiplication by q^5. At a nonzero scalar root a the unique correction is b_+/(2a)-b_+^2/(8a^3), by cubically nilpotent truncation; there are two such a for every nonzero square scalar. In characteristic two the algebra is commutative with square-zero generators, and scalar Frobenius is bijective. The image count follows by adding all targets with nonzero square scalar component to J^3.",
+      "residual_risks": [
+        "The bounded reproduction checks these fields and the reduced radical map, not all fields or scalar targets. The proof supplies the full census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Jordan census treats the full four-generator space and multiple characteristics. Domokos–Zubor and Bavula concern subalgebras and automorphism structure, respectively. The other prescribed-square examples concern cyclic Nakayama or spin-factor Jordan algebras."
+        ],
+        "reasoning": "For this claim the decisive broader information is the exact counts by multiplication rank in the same algebra. Similar uniformity on a torus in a different algebra neither implies nor contradicts the exterior result.",
+        "searches": [
+          "Resultary f47eadf1cf1d Jordan strata and motivic count; nearby square-map records 792e17e844e1, c462f91098a0 and cf9be84f0007; Domokos–Zubor arXiv:1403.2916; Bavula arXiv:math/0703352; Fonseca arXiv:1403.0888"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f47eadf1cf1d, b94809d1e9e0, 792e17e844e1, c462f91098a0, cf9be84f0007",
+        "Domokos–Zubor arXiv:1403.2916; Bavula arXiv:math/0703352; attempted Fonseca arXiv:1403.0888"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For degree-three u and degree-four s, conjugation by the unit 1+ell with ell in V sends u+s to u+s+2 ell wedge u; its inverse is 1-ell. For u nonzero, ell wedge u spans degree four. GL(V) acts transitively on nonzero cubic forms (all are decomposable in dimension four), and its determinant acts transitively on nonzero top forms."
+        ],
+        "reasoning": "Squaring commutes with each of these automorphisms, which preserve J. Thus all (q^4-1)q targets with nonzero cubic part form one orbit, and all q-1 pure nonzero top targets form another. Divide the earlier rank-two count by (q^4-1)q to get q^7(q^3-1), and the earlier rank-one count by q-1 to get the identical result since R4=q^2(q-1)(q^3-1). Summing the zero-square rows gives the zero fiber. The remaining cases are the usual scalar lifting in a nilpotent ideal and Frobenius in characteristic two. This is a direct implication even though the source does not label the two quotients as square-root counts.",
+        "searches": [
+          "f47eadf1cf1d, explicit square and rank formulas at offsets 4000 and 5737 and table at offset 760"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary f47eadf1cf1d treats the same algebra, with the odd-field radical rows split by rank(L_y^2)=0, 1, 2. Its proof §§2–3 identifies the rank-one locus by a pure nonzero degree-four square and rank two by a nonzero cubic component."
+        ],
+        "reasoning": "The source is written in terms of the regular multiplication representation, but L_y^2=L_(y^2), so these ranks identify the relevant nonzero target classes rather than just some unrelated input statistic. The action and division required to pass to exact fibers are stated below.",
+        "searches": [
+          "Local Resultary searches for prescribed square-root fibers, uniform Grassmann-algebra fibers, four-generator Jordan strata, and nonhomogeneous exterior-algebra square maps",
+          "Bounded primary-literature query for prescribed squares in the four-generator exterior algebra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f47eadf1cf1d counts q^5 R4(q) inputs with rank-one square and (q^4-1)(q^6-q^3)q^5 with rank-two square. Its rank-zero rows sum to q^12+q^10-q^7. b94809d1e9e0 counts commutators, not squares."
+        ],
+        "reasoning": "The table is an exact all-q result, not just evidence from a finite field example. Its two nonzero rows can be divided by orbit sizes, yielding the complete nonzero radical-fiber table.",
+        "searches": [
+          "Local mirror f47eadf1cf1d, odd-characteristic table at offset 760 and counts at offset 5737; cited commuting-pair census b94809d1e9e0"
+        ]
+      },
+      "rationale": "The earlier indexed exact Jordan-stratum census already implies the prescribed-target law on J by its rank-one and rank-two counts and elementary algebra-automorphism equivariance. Although it does not print the per-target table, passing from those counts to it requires only division by the sizes of two explicit transitive target orbits. The scalar and characteristic-two completions are immediate ring identities, so no independent remainder survives.",
+      "residual_risks": [
+        "No historical-priority or provenance judgment beyond the demonstrated implication; the inaccessible graded-identities text and unindexed literature are not assessed exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers per-target law by equivariant orbit counting",
+          "evidence": [
+            "The proof gives n^2=2vb(1+alpha) for nonzero v, with square rank two when b is nonzero, and the Pfaffian formula for v=0. The table supplies both nonzero class totals."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-regular-multiplication-jordan-strata-in-the-four-genera--f47eadf1cf1d/RESULT.md",
+          "material_read": "Table at offset 760 and proof at offsets 4000 and 5737",
+          "method": "Local mirror statement, table and proof inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete regular-multiplication Jordan strata in the four-generator exterior algebra",
+          "trigger": "Exact census of the same algebra using ranks of squares of multiplication operators"
+        },
+        {
+          "assessment": "Different invariant in the inspected passages",
+          "evidence": [
+            "Commutative subalgebras and square-zero subspaces rather than fibers of general nonhomogeneous squares."
+          ],
+          "identifier_or_url": "arXiv:1403.2916",
+          "material_read": "Abstract; Theorem 4.3, §4, PDF offset 17764",
+          "method": "OA statement inspection",
+          "title": "Commutative subalgebras of the Grassmann algebra",
+          "trigger": "Grassmann algebra and square-zero subspaces"
+        },
+        {
+          "assessment": "Methodological relevance only on this evidence",
+          "evidence": [
+            "Automorphism and Jacobian group structure; the needed conjugation formula above is verified directly."
+          ],
+          "identifier_or_url": "arXiv:math/0703352",
+          "material_read": "Abstract, offset 0",
+          "method": "OA abstract inspection",
+          "title": "The Jacobian map, the Jacobian group and the group of automorphisms of the Grassmann algebra",
+          "trigger": "Automorphism action relevant to fiber equivalence"
+        },
+        {
+          "assessment": "Unresolved at theorem level; not used as negative evidence",
+          "evidence": [
+            "The retrieval failure does not affect the affirmative implication from the exact local census."
+          ],
+          "identifier_or_url": "arXiv:1403.0888",
+          "material_read": "No PDF theorem passage retrieved",
+          "method": "OA direct/VPN retrieval attempts returned 404",
+          "title": "Z_2-graded identities of the Grassmann algebra over a finite field",
+          "trigger": "Finite-field Grassmann algebra reference in frozen record"
+        },
+        {
+          "assessment": "Different algebra or restriction",
+          "evidence": [
+            "Zero-gap laws in cyclic Nakayama radicals; uniform torus fibers for odd cycles; quadratic-form laws in a spin-factor Jordan algebra."
+          ],
+          "identifier_or_url": "792e17e844e1; c462f91098a0; cf9be84f0007",
+          "material_read": "Finding of each corresponding local RESULT.md, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Related Resultary prescribed-square records",
+          "trigger": "Radical squaring, torus uniformity and square-root fibers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; f47eadf1cf1d table and rank formulas, combined with explicit target orbits"
+      ],
+      "rationale": "Prescribed-target multiplicities are a natural invariant, but here the exact answer follows mechanically from the published same-algebra table by equivariance and orbit sizes. The two scalar roots with unique radical corrections and the even-characteristic boundary add no independently useful unknown invariant.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:41:40.506659Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The critical unit-lattice Zak map sends the shifts and modulations to the orthonormal Fourier characters times Zg, so Parseval gives the multiplier |Zg|² for the stated unit-integral window. Expanding the three Zak terms gives H=1-V+V²T²/4. Its V derivative is at most -1/2; together with the independent laws of T and V this justifies conditioning and the CDF and density formulas, including absence of atoms. The only interior critical value is the saddle at (0,1/2), with x=0 and x=1 identified. Its local quadratic form is -2u²+π²w²/2; rescaling to q²-p² gives area factor 1/π, and the product-coordinate coarea integral contributes log(1/|s-1/4|)+O(1). The Jacobian error is integrable uniformly there. To check the lower-edge remainder directly, write z=1-v_s(t). Then s-t²/4=z(1-t²/2+t²z/4), uniformly with t≤2√s, z=O(s). In the density put t=2√s r; the integral is (1/π) times the integral of (1-r²)^(-1/2) with relative error O(√s). This gives 1/2+O(√s) and the stated resolvent remainder. At the upper edge v_s(t)=(1-s)(1+O(1-s)) uniformly and the integral gives 1/(π√(1-s)). The product moments give 11/20, and the full essential range and atomless level sets give the stated multiplication-operator conclusions. Step 3's C² wording is correct for H, not for the underlying spline window g, which is only C¹. The frozen verify_b3.py and verification_output.txt provide quadrature and finite sampling corroboration, not proof or an independent replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kloos–Stöckler and Kloos develop the Zak-zero/frame framework. Hasannasab–Lemvig applies a Zibulski–Zeevi zero criterion for integer oversampling and explicitly credits the unit-scale unique-zero case.",
+          "The classic Van Hove paper was identified as the general singularity comparator; its primary APS routes were unavailable, so its conventions were not read or compared."
+        ],
+        "reasoning": "The generic saddle mechanism is prior, and any general zero or frame-status theorem is too coarse to fix the distribution. Even a general Morse coarea formula would require the actual symbol, location, Hessian, count of saddles and separate treatment of the nonisolated maximum to obtain this trichotomy.",
+        "searches": [
+          "arXiv:1311.7359v1 on Zak zeros and Gabor frames for totally positive functions and exponential B-splines",
+          "arXiv:1411.1539v1 on unique Zak zeros",
+          "arXiv:2609.13116v1, pp. 1–3",
+          "Van Hove DOI:10.1103/PhysRev.89.1189"
+        ]
+      },
+      "checked_sources": [
+        "Hasannasab–Lemvig arXiv:2609.13116v1, pp. 1–3",
+        "Kloos–Stöckler arXiv:1311.7359v1 and Kloos arXiv:1411.1539v1, opening result descriptions",
+        "Three mirrored Resultary Findings listed above",
+        "Van Hove DOI, access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cited unit-scale result fixes the minimum's zero location only. The checked exact frame-bound record gives two extremal numbers for a different multiplier.",
+          "The frozen result requires an interior saddle at 1/4, one saddle on the identified torus, and a maximum along an entire circle; none of those follow from a claim of a unique Zak zero."
+        ],
+        "reasoning": "The exact coefficients need the quantitative local geometry and normalized torus area, not a substitution into a zero theorem. The lower-edge coefficient and controlled remainder additionally determine the resolvent divergence. The saddle logarithm alone is a standard implication of its verified Morse type and is not credited as new general theory.",
+        "searches": [
+          "Hasannasab–Lemvig arXiv:2609.13116v1, p. 3",
+          "Mirrored unique-zero threshold and triangular-spline Findings",
+          "Van Hove DOI:10.1103/PhysRev.89.1189"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hasannasab–Lemvig p. 3 gives the unique zero (1/2,1/2) for Z_1 B_n with n≥2, using the centered unit-scale convention.",
+          "The quantity under review is the distribution of |Zg|² for torus area; a zero-set result specifies the bottom point but not the density of values, its saddle, or its integrated reciprocal."
+        ],
+        "reasoning": "Treating the problem as the density of states of the scalar Zak symbol is equivalent to the normalized fiber spectral measure; it is not a trace or merely the zero set of Zg. Changing the window normalization scales levels and coefficients, so comparisons must use the unit-integral B3.",
+        "searches": [
+          "Resultary: quadratic cardinal B-spline Zak critical unit lattice spectral measure density, van Hove singularity, spectral saddle and inverse mean",
+          "arXiv:2609.13116v1, centered B-splines, classical lambda=1 case and integer oversampling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/18/SCOPE-exact-gabor-frame-bounds-for-the-triangular-spline-at-the-ration--28776a6c4316 concerns the order-two tent and b=m/(m+1)<1, with exact frame bounds, not a density.",
+          "2026/11/8/SCOPE-a-sharp-unique-zero-threshold-for-the-quadratic-b-spline-zak-tra--9b8013d10bf9 includes the unit-scale unique center zero and varies lambda over [1/2,1].",
+          "2026/11/16/SCOPE-exact-reciprocal-integer-zak-zero-geometry-for-centered-cardinal--8f35218fd14b is a zero-set result at lambda=1/m for m≥3."
+        ],
+        "reasoning": "The closest same-window indexed statement covers the zero at the minimum but does not determine the claimed spectral density. The exact frame-bound entry changes both spline order and lattice density. No inspected ranked hit supplies the same one-dimensional pushforward law or singular constants; this is not an exhaustive search.",
+        "searches": [
+          "Resultary: quadratic B-spline Zak-transform density or exact spectrum, order-three critical window, exact frame bounds and Zak zeros"
+        ]
+      },
+      "rationale": "The supported distinct claim is the quantitative spectral measure for this unit-integral B3 at a=b=1: the one-dimensional law, all singular levels with their exact normalized coefficients, and the regularized inverse mean. The unique Zak zero, critical non-frame behavior, multiplier framework and the general two-dimensional Morse-saddle mechanism are not new. The strongest inspected primary and indexed comparisons concern zero sets and frame bounds, not the measure near an interior level or its quantitative tails.",
+      "residual_risks": [
+        "An older equivalent density-of-states calculation under a different symbol representation or window normalization could have been missed.",
+        "The classic Van Hove full text was unavailable through the attempted routes; the accessible Hasannasab–Lemvig PDF was checked at relevant passages, not exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for the unique center zero and relevant frame context, not the density in the compared statements",
+          "evidence": "For lambda=1 the paper identifies (1/2,1/2) as the classical unique Zak zero for B_n, n≥2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.13116v1",
+          "material_read": "Abstract, introduction's oversampling criterion and p. 3 discussion of unit scale, near offsets 231, 6378 and 10360",
+          "method": "Relevant pages of the accessible OA PDF, not an abstract-only comparison",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames",
+          "trigger": "Closest primary study of the same centered B-splines and unit-scale Zak zeros"
+        },
+        {
+          "assessment": "Framework coverage; the referred-to results concern zeros and frames",
+          "evidence": "The paper describes Zak zero results for exponential B-splines and frame conditions for the corresponding windows.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.7359v1",
+          "material_read": "p. 1 explanation of the Zak-zero and Gabor-frame results, around offset 401",
+          "method": "Bounded OA PDF passage",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Prior spline Zak and Gabor-frame framework"
+        },
+        {
+          "assessment": "Zero uniqueness, not spectral density",
+          "evidence": "The scope is unique zeros for a class of totally positive functions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.1539v1",
+          "material_read": "p. 1 statement near offset 125",
+          "method": "Bounded OA PDF passage",
+          "title": "Zeros of the Zak transform of totally positive functions",
+          "trigger": "General zero uniqueness in the Zak setting"
+        },
+        {
+          "assessment": "Related exact results of different scope; same-window record overlaps the zero geometry, not the quantitative pushforward",
+          "evidence": "Order-two b=m/(m+1) frame bounds, order-three lambda in [1/2,1] zero uniqueness, and reciprocal-integer lambda=1/m zero sets respectively.",
+          "identifier_or_url": "Resultary records 28776a6c4316, 9b8013d10bf9 and 8f35218fd14b; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Each mirrored RESULT.md Finding near offset 0",
+          "method": "Resultary searches and mirrored full-text Finding excerpts",
+          "title": "Exact Gabor frame bounds for the triangular spline at the rational lattice; sharp unique-zero threshold for the quadratic B-spline Zak transform; exact reciprocal-integer Zak-zero geometry for centered cardinal splines",
+          "trigger": "Closest indexed exact spline/frame-bound and same-window zero-set results"
+        },
+        {
+          "assessment": "General mechanism is not claimed as new; the paper's precise coefficient convention was not compared",
+          "evidence": "Both APS routes returned HTTP 403.",
+          "identifier_or_url": "10.1103/PhysRev.89.1189",
+          "material_read": "No primary full-text passage recovered",
+          "method": "APS PDF and abstract endpoint retrieval attempts",
+          "title": "The Occurrence of Singularities in the Elastic Frequency Distribution of a Crystal",
+          "trigger": "Classic general van Hove singularity mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At critical sampling the zero lower frame bound indicates noninvertibility but says nothing about how much fiber area has poorly conditioned response. The exact lower-tail constant controls the normalized regularized inverse, and the interior singularity and two different edge scales give quantitative structure independent of the spectral range. These are motivated invariants of a standard spline and critical Gabor operator, not values on an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

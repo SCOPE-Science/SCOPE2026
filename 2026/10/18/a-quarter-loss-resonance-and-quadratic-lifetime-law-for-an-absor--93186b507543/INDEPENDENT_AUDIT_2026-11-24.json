@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:11:41.111007Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–104",
+        "Frozen VERIFICATION.md; artifacts/verification.py, artifacts/test_survival.py and artifacts/requirements.txt (inspected, not executed)",
+        "Repaired RESULT.md, conditions and independent secular-equation proof"
+      ],
+      "rationale": "Verified both the frozen formulas and the narrowed repair. Tensor projectors give four bands, only the middle two of which can collide, and four positive detector weights. The permanent dark complement is orthogonal, invariant and loss-free; the four-band sector has precisely one simple real root at resonance because any real eigenvector must be detector-orthogonal and simultaneously an eigenvector of the unperturbed operator. Thus the sitewise absorption drop is the squared overlap with the normalized middle-band dark vector. For the linewidth, independently write y=z-E_2, let E_1-E_2=delta and denote the two middle weights by u=(n-1)/(mn), v=(m-1)/(mn), with W=u+v. Rank-one expansion of the characteristic determinant gives W y-v delta=(2i/gamma-F)y(y-delta), where F is the real-at-resonance sum of the two noncolliding resolvent terms. Its derivative in y at the collision is W>0. The first-order root is y=v delta/W, so Im y=-2uv delta^2/(gamma W^3)+O(|delta|^3), yielding the asserted population factor of 4. The slow spectral projection tends to the orthogonal detector-null middle vector projection, which has squared site overlap D, and the permanent dark complement contributes 1-Q. A fixed fast-spectrum contour strictly below the real axis bounds the remaining propagator uniformly for both signs of sufficiently small detuning, including at repeated fast roots. This proves the t=s/delta^2 limit for s>0. All conclusions hold at fixed finite m,n>=2 and positive beta,gamma, without assuming any nonnormal eigenbasis or running source scripts.",
+      "residual_risks": [
+        "The limit is not uniform as the graph grows or detector strength tends to zero or infinity; it is not the instantaneous t=0 survival."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangular theorem gives both the asymptotic capture of every input and the rank (1+min(r,m-1))(1+min(s,n-1))-epsilon, hence rank four or three in the singleton case; its finding is an infinite-time capture theorem.",
+          "For the same rank-one sink, Razzoli et al. use Krylov reduction. Their strongly regular evaluation covers the equal-hopping 3-by-3 rook graph, with parameters (9,4,1,2) and probability 1/4 from every nontrap vertex."
+        ],
+        "reasoning": "General visibility and exact eventual decay losses, even when known at all detector rectangle sizes, do not specify the poles of the lossy resolvent near the collision. The strongly regular calculation neither retains the arbitrary anisotropy nor supplies the approach rate.",
+        "searches": [
+          "Resultary b4df55b6d4bf: Finding and limitations of the rectangular detector theorem",
+          "arXiv:2011.13794, §§3 and 4.2, equations (23)–(27)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b4df55b6d4bf, 57062606578c and 5e7f1f10213d",
+        "arXiv:2011.13794",
+        "Repaired RESULT.md and its exact prior static attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The detuned infinite-time dark projection is constant in nonzero delta; the static loss gap determines D but contains no relaxation law.",
+          "The lossy-star secular equation g^2 P'(z)=epsilon(i gamma/2+epsilon z)P(z) concerns its leaf-energy critical-point roots, not the rank-one perturbation of the four product bands."
+        ],
+        "reasoning": "The repair must and does compute the near-real pole and justify a uniform fast decay estimate. It is not a renaming, substitution into a prior formula for the trap projector, or a general claim about quadratic perturbations.",
+        "searches": [
+          "Resultary b4df55b6d4bf static finding and scope; 57062606578c finding and secular equation",
+          "arXiv:2011.13794, §§3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b4df55b6d4bf: specialization to R=T={0} and sink-rate coefficient gamma/2 gives exactly Q off resonance and Q-D on resonance; the denominator mn(1/(m-1)+1/(n-1)) is the reciprocal of the prefactor in D.",
+          "Resultary 57062606578c: a lossy star with unequal leaf detunings has quadratic leakage with coefficient gamma/(g^2 S_j) and a rescaled survival mixture."
+        ],
+        "reasoning": "The singleton case is equivalent even under the different sink convention because eventual capture is rate-independent. The star varies distinct leaf potentials and has a different slow cluster and effective coupling; its explicit coefficients (including dependence on gamma rather than inverse gamma) do not specialize to this particular weighted-rook law.",
+        "searches": [
+          "Resultary: weighted rook product K_m × K_n, single lossy corner, resonance and sink linewidth",
+          "Primary search: weighted rook Cartesian-product detuning linewidth, single absorbing trap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier rectangular result gives the exact Q,D values and rank change as a special case, not just a numerical example.",
+          "The same-day result 5e7f1f10213d gives a quadratic detuning lifetime on antipodally linked hypercubes, for the mean absorption time; its geometry, observable and coefficient differ."
+        ],
+        "reasoning": "There is exact static coverage, which is removed from the novelty claim. A mean absorption-time law on a different graph is not an eigenvalue linewidth or an all-start scaled survival profile. The same-day date does not establish priority.",
+        "searches": [
+          "Resultary: exact weighted-rook sitewise capture, resonance rank and quadratic survival",
+          "Resultary b4df55b6d4bf and 5e7f1f10213d; arXiv:2011.13794 Eq. (25)"
+        ]
+      },
+      "rationale": "The original attribution of the evaluated static weighted-rook capture discontinuity as new fails: the October 13 rectangular-detector theorem specializes exactly to it, including the quarter loss on averaging. The repair no longer advances that result and credits it inline as background. The independently retained distinct assertion is the explicit near-resonance linewidth and site-resolved time limit. No exact coverage of those dynamical quantities was established in the inspected sources; neither the general quadratic mechanism nor the static weights are claimed as novel.",
+      "residual_risks": [
+        "The focused primary search was noisy, and an equivalent specialization of rank-one non-Hermitian perturbation theory in unlocated literature remains possible. Finite searches do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger coverage of the static claim; not a computed linewidth or scaled-time limit",
+          "evidence": "Formula uses c_R c_T minus (h_R-h_T)^2/[mn(r/(m-r)+s/(n-s))]; for the singleton r=s=1 this is exactly Q-D, and bright rank decreases from four to three.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-rectangular-detectors-on-weighted-rook-quantum-networks-exact-re--b4df55b6d4bf/RESULT.md",
+          "material_read": "RESULT.md Finding and scope, plus the limitation on near-resonant relaxation",
+          "method": "Resultary search and local-mirror passage inspection",
+          "title": "Rectangular detectors on weighted rook quantum networks: exact resonance and capture laws",
+          "trigger": "Same graph, trap resonance and generalization of the detector geometry"
+        },
+        {
+          "assessment": "Prior analogue, different spectral perturbation and coefficient",
+          "evidence": "Distinct small leaf shifts give k-1 roots with Im(lambda_j)=-gamma epsilon^2/(2g^2 S_j)+O(epsilon^3) and a survival mixture.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-critical-point-law-for-weak-disorder-decay-on-a-lossy-quantum-st--57062606578c/RESULT.md",
+          "material_read": "Finding, assumptions and Steps 1–3, offsets 0–4413",
+          "method": "Local-mirror passage inspection",
+          "title": "Critical-point law for weak-disorder decay on a lossy quantum star",
+          "trigger": "Explicit quadratic near-dark decay and scaled survival"
+        },
+        {
+          "assessment": "General permanent absorption method and exact static small-board overlap",
+          "evidence": "Adjacent and nonadjacent efficiencies are 1/k and 1/(N-k-1) in the relevant strongly regular class.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.13794",
+          "material_read": "Abstract, §3 (p. 3), §4.2 equations (23)–(27), pp. 8–9",
+          "method": "OA PDF passage inspection",
+          "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+          "trigger": "Same non-Hermitian single-trap dynamics; parameter match for resonant 3-by-3 board"
+        },
+        {
+          "assessment": "Different graph and observable; no priority inference from the dates",
+          "evidence": "The near-resonance result is for mean absorption time from an antipodal input, not a linewidth and site-by-site survival law.",
+          "identifier_or_url": "Resultary 5e7f1f10213d",
+          "material_read": "Finding, offsets 0–5479",
+          "method": "Local-mirror passage inspection",
+          "title": "Arithmetic dark-state resonances and sharp near-resonance lifetimes in antipodally linked hypercubes",
+          "trigger": "Closest same-day detuning-lifetime analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and proof",
+        "Resultary b4df55b6d4bf and 57062606578c"
+      ],
+      "rationale": "The narrowed finding moves beyond known eventual capture and the generic existence of dark states: the explicit positive coefficient sets a lifetime across all finite board sizes, while the crossover identifies exactly how much probability persists for each source at that time scale. Together the prefactor, detector-strength dependence and site weights quantify a genuine singular transport limit that cannot be learned from the old rank drop. The narrow dynamical result is worthwhile on its own.",
+      "residual_risks": [
+        "No claim of broader detector geometry, new general perturbation technique or new static law remains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

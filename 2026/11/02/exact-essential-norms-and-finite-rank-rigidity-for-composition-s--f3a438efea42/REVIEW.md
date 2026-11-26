@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses only the stated normed level decomposition, the finite-rank input truncations, a weak-null tail witness proved via the \(c_0\)-sum restriction of arbitrary dual functionals, and finite-dimensional duality. It separately checks the absolute-row formula at \(p=\infty\), the finite-partition palette (which forces stabilization), and the two-point dual norm and sphere-cardinality ratio for the endpoint example. The 3494 finite assertions in `verify.py` are checks, not substitutes for these infinite-dimensional arguments. No individual boundedness assumption is covertly needed if the finite sum itself is bounded.
+PASS
 
-## Originality — PASS (best-knowledge)
+The frozen norms and rigidity are mathematically correct; the repair narrows the distinct contribution, not the mathematical identities. QP_R is finite rank. For the reverse norm inequality, a near-norming tail input can be restricted to the finitely many coordinates used by a near-norming output level without increasing input norm. The resulting sequence lives in the level c0-sum and escapes every finite set of levels; every full-space functional restricts to an ell1 family there, so the sequence is weakly null in the full space. Compact operators send it to zero in norm. This proves the exact tail identity; the argument is not valid for arbitrary bounded operators without locality. At fixed output level finite-p duality gives c_n^(-1/p) times the dual optimization and each input support function contributes c_l^(1/p) times the conjugate-space norm. This includes p=1; at p=infinity the row phases give the absolute grouped sum exactly. At the endpoint each retained row induces a partition of a subset of the finite coefficient list; its possible norms form a finite set and the supremum belongs to it. The monotone sequence stabilizes, and compactness forces its eventual value to be zero, whence Q=QP_R and finite rank. The converse is immediate. For Liu–Ma's example the two-coordinate norm factor is 2^(1-1/p), the normalized sphere ratio is q^(-ceil(n/2)), and the first admissible n for large R is 2(R+1); at infinity every surviving row has norm 2. This confirms both iterated limits. The replacement's finite-p re-representation is also valid: sign-randomize the finitely many used inputs at a level; Jensen conditional on one group's image sign bounds that group's p-norm by ||Q||/|b_G|. Complete each group map by root values, then subtract the excess root term with a single root map because the sum of the present groups' coefficients is row independent. This verifies the same operator class in a different presentation. The frozen 3,494 assertions are supplementary recorded checks, not a fresh run or a proof of the tail principle.
 
-The full mathematical statements and proofs of Liu–Ma arXiv:2610.33717v1 were inspected, including Theorem 3.3, Theorem 3.8, and Example 4.1. Their scalar tail criterion characterizes zero essential norm for finite \(p\), but does not give the exact numerical formula, does not treat the \(p=\infty\) endpoint, and does not establish endpoint finite-rank rigidity. The earlier tree-composition source arXiv:1609.09729v1, Corollary 5, already gives compactness-if-and-only-if-finite-image for a single operator on \(\mathbb T_\infty\); that single-map case is not claimed new. The new endpoint statement is for arbitrary finite sums with cancellation; the 2020 paper's accessible abstract confirms single-operator scope. Related existing exact essential norms for tree Lipschitz multipliers and on non-tree sequence spaces do not imply the stated rooted-tree all-exponent, finite-composition result as published. Other broad finite-row matrix results might imply an abstract part of the formula: this is a residual priority risk, not a claim of global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 motivation is explicitly a *qualitative* compactness classification for finite sums. The result supplies an exact quantitative invariant for the entire natural class, with all cancellation terms retained through block duality. At the previously untreated endpoint, finite coefficient palettes force the unusually strong compact-if-and-only-if-finite-rank classification, while a concrete sharp profile proves that all finite-exponent compactness results can fail at the endpoint. Both the invariant and the singular exponent boundary have plausible use in studying perturbations and composition-sum algebras.
+The frozen bundled originality claim is not established for the finite-p exact formula: there is material equivalent catalogue coverage, not merely a matching title. Distinguishing individually bounded displayed summands does not distinguish the class of operators, as the re-representation proves. No chronology is inferred from date labels. The complete replacement keeps finite p as shared mathematical context and claims only the finite-sum p=infinity stabilization/rigidity and exact endpoint-separating tail profile of the credited map pair; those claims were re-audited against the indexed overlap and primary work.
 
-## Sources and limitations
+## value
 
-Liu–Ma, arXiv:2610.33717v1, full HTML Sections 2–4; Muthukumar–Ponnusamy, arXiv:1609.09729v1, accessible posted full text; Muthukumar–Ponnusamy, arXiv:2004.03171v1, accessible abstract and 2020 publisher abstract. The mathematical results are independent of the uninspected full 2020 paper, but an unforeseen broader source or an equivalent finite-row matrix theorem may affect novelty. The endpoint finite stabilization is nonconstructive in terms of an explicit cutoff. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result makes a precise distinction between compactness via geometric dilution at every finite exponent and actual loss of all high-input dependence at infinity. Stabilization resolves the possibility of infinite-rank compact finite sums; the natural existing example measures the discontinuity by an exact tail and its noncommuting limits. The value does not rely on asserting novelty for the shared finite-p formula or the map construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

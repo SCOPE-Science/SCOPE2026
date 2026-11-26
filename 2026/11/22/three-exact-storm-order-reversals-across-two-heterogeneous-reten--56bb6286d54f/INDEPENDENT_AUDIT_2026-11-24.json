@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:46:24.577801Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–76; VERIFICATION.md; verify.py (inspected, not executed)",
+        "Independent exact branch replay: python3 /workspace/reviews/evidence/roof_branches.py"
+      ],
+      "rationale": "The matched initial state is s times each roof's own capacity, with the same q within that roof for both drying intervals. Set z=qCs and use x>y. In one roof, if neither first event fills it, the two second-event overflow arguments differ by −(1−q)(x−y), so the order difference is nonpositive. If even the smaller first event fills it, z≤qC implies both second events also fill it; the difference is zero. In the intervening straddling regime, substituting the first-event caps gives −(1−q)(C−z−y)<0 if qC+y≥C. Otherwise the difference is min(z+x−C,(1−q)z−qy); the first argument is positive, and the second has strictly positive slope. The three regimes occur in order as s increases, hence there is at most one strict sign change on a single roof. I derived all knot candidates by solving the first and unsaturated-second spill equalities, with constant second overflow when the first event fills the store, then evaluated each affine piece by exact mass balance. The four interior knots are 85/108,65/81,5/6,35/36. The five joint-overflow differences have slopes 2/25,−403/25,2/25,47/25,2/25, and none of the knots or endpoints is a zero. Of their five candidate roots only 5/8,635/806,45/47 belong to their pieces. The signs alternate from D(0)=−1/20 to D(1)=3/100. This establishes exactly three distinct strict reversals and the minimality of two roof types for that phenomenon; a finite sample alone would not.",
+      "residual_risks": [
+        "The no-more-than-one argument uses the capped pulse model and the same retention fraction in both dry intervals within a roof. The result is not a model-fit result, a universal two-roof upper bound, or a peak-flow comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first Resultary comparison optimizes a middle gap for an initially empty store using a convex envelope; the second studies optimal permutations with three or four pulses from an empty single store.",
+          "Inspected Bartlett passages model stochastic jumps and moisture loss, not a deterministic aggregate reversal theorem. The Raimondi–Becciu paper was not available as full text in attempted routes."
+        ],
+        "reasoning": "Variable-gap and longer-permutation theorems from one initially empty reservoir do not give the order sensitivity of summed independent reservoirs over initial conditions. A more general physical model framework alone is not a theorem covering the three switches.",
+        "searches": [
+          "Resultary: aggregate overflow and piecewise storm ordering (6830145589ea and e27dfe4f22cd)",
+          "Bartlett et al., Stochastic rainfall-runoff model with explicit soil moisture dynamics; Raimondi–Becciu DOI 10.1007/s11269-020-02712-3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0f749631eeb3, d7dd28e86fa3, 6830145589ea, e27dfe4f22cd",
+        "Bartlett et al. (2015) pp. 1 and 3",
+        "Raimondi–Becciu DOI 10.1007/s11269-020-02712-3 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-store comparator fixes pre-storm water and varies inter-event loss, and its sign theorem can be applied point by point in s. The periodic result studies a single steady state under a different storm sequence."
+        ],
+        "reasoning": "The single-store sign theorem captures the one-roof bound after the fixed-q slice and outer regimes are accounted for. It does not certify the relative magnitudes of the two responses needed to alternate the sign of their sum three times. The periodic capacity window does not resolve that comparison either.",
+        "searches": [
+          "0f749631eeb3, Finding and proof; d7dd28e86fa3, Finding and proof",
+          "Resultary searches on two-pulse and periodic overflow"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0f749631eeb3 gives exactly the two-order single-store difference as four positive-part terms and, in the straddling regime, Kc=log(1+B/z) with q=exp(−K).",
+          "The broader primary search returned work on recovery between events, monitored roofs and calibrated retention models, not an inspected equivalent aggregation classification."
+        ],
+        "reasoning": "In the single-roof formula Kc=log(1+B/z) is equivalent to (1−q)z=qB. Rewriting fixed-antecedent loss variation as a fixed-q slice is not novel by itself. The frozen claim compares the positively weighted sum of two different such functions at matched fractional fill, not the sign of one function.",
+        "searches": [
+          "Resultary: two-pulse capped store, antecedent-moisture order reversal, and parallel-roof reversal; 0f749631eeb3",
+          "heterogeneous parallel retention roofs pair rainfall pulse order sign reversal antecedent saturation aggregate overflow nonlinear capped storage two storm event order green roofs analytical"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact periodic comparator provides a capacity window for a stationary order comparison of three repeating pulses, not an initial-fill zero table for the specified roofs.",
+          "Located primary models and monitoring studies address runoff performance, not an inspected exact table of paired-order differences at these rational parameters."
+        ],
+        "reasoning": "This is an existence theorem for continuous parameters, rather than a count drawn from a natural finite database. An exact tabulation or a result forcing the same three aggregate changes would count as coverage; the retrieved exact and empirical results are not that table.",
+        "searches": [
+          "Resultary: parallel-roof triple reversals, aggregate piecewise overflow and periodic pulse ordering (d7dd28e86fa3)",
+          "Primary search for pair-pulse order and heterogeneous-roof overflow"
+        ]
+      },
+      "rationale": "Pass the heterogeneous two-roof three-reversal construction and the sharp minimal number of types, not the general idea of a capped store or its single-store crossover. The strongest same-day comparator uses precisely the single-store runoff difference after identifying its antecedent absolute water with z=qCs. Its mixed-saturation threshold is the same equality (1−q)z=qB written in the inter-event loss variable. This is material overlap, including a route to the single-roof sign bound; it does not imply the three zero crossings of a positive sum evaluated along two different roof responses. No inspected result gives that aggregation claim.",
+      "residual_risks": [
+        "The same calendar date does not order the single-roof and two-roof results. The judgment rests on different conclusions, not chronology.",
+        "Full text was unavailable for the cited Raimondi–Becciu, Paus–Braskerud and Ashitey et al. papers. An earlier exact parallel-store result outside the inspected sources is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single-store sign criterion materially overlaps; no two-store aggregate reversal result.",
+          "evidence": [
+            "Under straddling first overflow, the loss-dose threshold is log(1+B/z) for pre-first-event water z, equivalent to z(1−q)=qB."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-antecedent-moisture-criterion-for-a-unique-two-storm-runoff-o--0f749631eeb3/RESULT.md",
+          "material_read": "Finding, assumptions and proof, offsets 0–4784",
+          "method": "Resultary search and bounded local-mirror read",
+          "title": "An antecedent-moisture criterion for a unique two-storm runoff-order reversal",
+          "trigger": "Closest exact two-pulse runoff comparison, same publication date"
+        },
+        {
+          "assessment": "One periodic store rather than two transient ones.",
+          "evidence": [
+            "Three repeating rainfall pulses have a strict cyclic-ordering window in capacity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-storm-ordering-window-for-saturation-runoff-in-a-periodi--d7dd28e86fa3/RESULT.md",
+          "material_read": "Finding and proof, offsets 0–4955 and 4900–8154",
+          "method": "Resultary search and bounded local-mirror read",
+          "title": "A sharp storm-ordering window for saturation runoff in a periodic linear store",
+          "trigger": "Exact capped-storage order comparator"
+        },
+        {
+          "assessment": "Different control variable and feasible states.",
+          "evidence": [
+            "For an initially empty single store, optimize the time of the middle event for three ordered pulses."
+          ],
+          "identifier_or_url": "Resultary 6830145589ea",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and bounded local-mirror read",
+          "title": "Convex overflow envelope and exact gap allocation for three rainfall pulses",
+          "trigger": "Piecewise runoff and stronger multi-pulse comparison"
+        },
+        {
+          "assessment": "One initially empty store, not an aggregate sensitivity theorem.",
+          "evidence": [
+            "Largest-first can minimize for three pulses; a four-pulse counterexample breaks that existence result."
+          ],
+          "identifier_or_url": "Resultary e27dfe4f22cd",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and bounded local-mirror read",
+          "title": "The largest-storm-first rule holds through three pulses but fails at four",
+          "trigger": "Potential stronger rule for order permutations"
+        },
+        {
+          "assessment": "Scientific background for storage and instantaneous pulses, not the deterministic reversal statement in the inspected sections.",
+          "evidence": [
+            "Stochastic instantaneous rainfall jumps act on finite soil moisture storage with modeled losses and runoff."
+          ],
+          "identifier_or_url": "Bartlett et al., Proc. R. Soc. A 471 (2015), article 20150389",
+          "material_read": "PDF p. 1 offset 1900; p. 3 offset 9800, Eqs. 2.1–2.3",
+          "method": "Bounded OA PDF reads",
+          "title": "Stochastic rainfall-runoff model with explicit soil moisture dynamics",
+          "trigger": "Primary pulse-storage model comparator"
+        },
+        {
+          "assessment": "Residual risk; no full-text noncoverage conclusion.",
+          "evidence": [
+            "Analytical green-roof antecedent-state context is relevant, but exact coverage of the reversal claim was not established."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11269-020-02712-3",
+          "material_read": "Landing-page material only; no full paper read",
+          "method": "Lawful OA attempts including the identified Politecnico di Milano PDF copy; publisher/repository full text not obtained",
+          "title": "Performance of Green Roofs for Rainwater Control",
+          "trigger": "Closest cited primary analytic treatment of partially filled roofs and consecutive events"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, Assumptions, Proof and Limitations; exact branch replay; exact single-store comparator"
+      ],
+      "rationale": "The sum of two minimal storage responses is an informative obstruction to transferring a single-roof order rule to aggregated runoff. Matching initial fractional fill and reversing the same two depths keeps the comparison well defined; differing capacities and drying move branch thresholds so one component's negative interval interrupts the other's sign progression. The exact three switches and proof that one component cannot achieve them give a sharp structural counterexample rather than an arbitrary set of simulated curves.",
+      "residual_risks": [
+        "The roofs and weights are constructed rather than calibrated; no validation of field runoff or claim about storm-order control is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

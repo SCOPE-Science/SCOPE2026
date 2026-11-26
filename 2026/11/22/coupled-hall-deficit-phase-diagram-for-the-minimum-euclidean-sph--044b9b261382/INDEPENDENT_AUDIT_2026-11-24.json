@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:59:57.774460Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md lines 70–100: projection of 0 onto the convex hull of equal-norm roots gives a covering ball of squared radius 2−||c||², and averaging squared distances with any edge decomposition of c forces every other center's required squared radius to be strictly larger. Reflecting right coordinates is orthogonal; uniqueness enforces block symmetry. To check sufficiency of the Hall inequalities directly, assign x₃ to (3,1), satisfy y₃ from (1,3), distribute x₂ among the remaining V₁,V₂ capacities, then finish with U₁. Block flows lift by uniform allocation to the complete cells. If a vertex coordinate were zero, connectivity gives an adjacent positive vertex; redirecting a small positive edge weight at that vertex to the zero endpoint lowers the norm to first order. Thus positivity constraints are inactive. Centering the two Hall normals within each side gives the displayed K as their Gram matrix. They are independent by their different left-side steps; strict feasibility is witnessed by putting nearly all left and right mass in U₁,V₁. The stated cases solve the 2×2 complementarity problem, with exclusive positive supports and consistent zero-multiplier boundaries. The norm increase is λᵀKλ=λᵀδ. In 2(u_i+v_j−||c||²), this identity cancels the constant terms, leaving the two displayed allowed-cell indicator terms, with the stipulated sign for squared-radius clearance. Direct substitution gives λ=(2/23,1/23), norm correction 1/46, R²=34/23, and the three opposite-diagonal contacts for the worked example. The frozen rational checker is a finite, statically inspected consistency check, not a proof or an independent computation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The update-and-stabilize introduction treats active-set and first-order computations over polyhedra, including network-flow examples. The separate principal-sequence lead concerns a submodular base polytope, not an identified base-polytope theorem for the whole reflected Ferrers edge hull."
+        ],
+        "reasoning": "The general methods apply at the optimization level, but no inspected graph-family theorem makes the six-cell exact metric classification a mechanical substitution. Two separate single-cut projections would in general not give the projection onto the intersection.",
+        "searches": [
+          "principal partition minimum norm point convex polyhedron bipartite graph Ferrers transportation",
+          "Fujishige–Kitahara–Végh DOI:10.1007/s10107-024-02077-0, pp. 281–282",
+          "Resultary a696c8661d8e, proof §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a696c8661d8e Finding and proof §§2–4",
+        "Fujishige–Kitahara–Végh DOI:10.1007/s10107-024-02077-0 introductory claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-cut result calculates one quadratic penalty. In the new worked example δ₁=δ₂=1/6 and K₁₂=5/6; the joint penalty is 1/46, obtained from λ=(2/23,1/23), not the sum of δ₁²/K₁₁ and δ₂²/K₂₂."
+        ],
+        "reasoning": "One omitted rectangle does not include the two independent cuts or classify when the mixed coupling suppresses a nominally positive deficit. Neither the algorithmic comparator nor the one-cut theorem states the critical two-constraint regime or complete squared clearance law.",
+        "searches": [
+          "Resultary a696c8661d8e Finding and proof §§2–4",
+          "DOI:10.1007/s10107-024-02077-0 active-set problem statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Right sign reflection gives the same metric problem on unsigned incidence vectors. The equivalent strictly convex margin program is weighted norm minimization with two nested Hall inequalities; solving its dual gives the positive off-diagonal Gram entry and complementary slackness."
+        ],
+        "reasoning": "A general minimum-norm characterization is not a competing closed form unless it also yields which cuts bind and their actual response. The ordinary equal-norm sphere principle, sign reflection, and quadratic optimization are not asserted as new.",
+        "searches": [
+          "Ferrers bipartite edge/root polytope minimum enclosing sphere; least-norm quadratic transportation and principal-partition/graph polytope formulations",
+          "Fujishige–Kitahara–Végh DOI:10.1007/s10107-024-02077-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Strongest distinct hit is the two-step Ferrers minimum-sphere theorem with one missing biclique, one deficit and one contact transition; there was no verified prior table giving the coupled formula. The bundled 4096 cases are finite test evidence, not independent priority evidence."
+        ],
+        "reasoning": "The result is a symbolic formula for unbounded six-block sizes, including exact transition and contact formulas, not re-tabulation of the single-cut cases. Catalogue search is not exhaustive.",
+        "searches": [
+          "Resultary: three-step Ferrers root polytope exact minimum Euclidean enclosing ball Hall-tail complementarity and contact clearance",
+          "Resultary a696c8661d8e Finding"
+        ]
+      },
+      "rationale": "Supported claim is the explicit quantitative two-cut classification, not the equal-norm reduction, Hall inequalities, or generic KKT. The directly relevant earlier single-cut theorem does not determine the active-active case. The inspected general minimum-norm framework supplies algorithms, not the explicit formulas, contact sets or the specification of which inequalities suffice for these margins.",
+      "residual_risks": [
+        "A stronger graph-specific canonical partition or weighted isotonic formula for these margins could subsume the computation; no such coverage was established from the inspected text.",
+        "The broad algorithmic comparator was inspected at its problem statement and claimed scope, not excluded whole-document by a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct one-cut overlap, not the coupled law.",
+          "evidence": [
+            "One deleted biclique, a single Hall threshold, one quadratic correction and one possible screening transition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-hall-deficit-quadratic-law-for-minimum-spheres-of-two-step-ferre--a696c8661d8e/RESULT.md",
+          "material_read": "Finding and proof §§2–4",
+          "method": "Configured Resultary hit and local mirror",
+          "title": "Hall-deficit quadratic law for minimum spheres of two-step Ferrers root polytopes",
+          "trigger": "Closest exact metric predecessor"
+        },
+        {
+          "assessment": "Algorithmic generality; the inspected claims do not give the Ferrers phase boundaries.",
+          "evidence": [
+            "Active-set/first-order framework for minimum norm over polyhedra, including network-flow instances."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10107-024-02077-0",
+          "material_read": "Abstract and introductory material pp. 281–282",
+          "method": "OA article extraction",
+          "title": "An update-and-stabilize framework for the minimum-norm-point problem",
+          "trigger": "General convex projection and network-flow coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The six-parameter formula answers the next nested-neighborhood case after a genuine one-cut result. It gives the exact metric invariant together with which edges attain it and identifies when a positive Hall deficit is inactive because of the other cut. That interaction and the three-cell contact set make the classification more than the two single-cut cases or a generic projection algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:32:18.027329Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Necessity follows by the indegree sum and existence of a source. In the induction, deleting a zero-bit vertex as source toggles the opposite part, preserving feasibility because the edge count drops by the size of that part. For parts of size at least two, if deleting a zero on side A makes every remaining bit one, then A had only that zero and B was all zero. Deleting a zero on B instead turns all the originally odd A bits to zero and avoids the obstruction. If A was all one, deleting a zero from B also works. Stars are forced by the leaf bits and the global sum. The all-odd vector is globally feasible only for two even part sizes. For K(2,b), every simple directed cycle is a 4-cycle and exists precisely when both mixed columns occur. Thus odd columns use one common type, and the number of all-one columns fixes the row bits modulo two. If there are even columns, flipping one fixed even column pairs the assignments of the two row parities. This gives 2^(b−1) at t=0 and 2^(b−t) when 0<t<b. At t=b, the two mixed choices give the two distinct feasible row signatures if b is odd, or both give (0,0) if b is even. An independently written literal orientation census using Kahn sorting passed 1,580 signature checks (790 globally feasible) and 504 two-row fibre checks; scope was 1≤a≤3, a≤b≤5, plus K(2,6) and K(2,7). Replay: /workspace/branches/dacb3b45-e4a3-4449-b345-93da39a44d7e/biclique_parity_census.py with its settings documented in census-bounded.txt. The uploaded checker was inspected, not run. Finite evidence does not replace the proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The arXiv paper frames general T-odd acyclic orientation and discusses source/sink constraints and Cartesian-product examples; the inspected passages do not give either target count.",
+          "Record 405d52691d1c gives the complete signed transform, not only spectral bounds, for the indicator of all three-row acyclic edge orientations."
+        ],
+        "reasoning": "A complete signed transform determines counts with any fixed edge coordinates and any linear parity restrictions by orthogonality. The third-row source constraint is such a fixed slice and gives exactly the two-row indicator. The fact that K(3,b) is larger does not make its spectrum alone decisive; it is the complete coefficient formula that covers this slice.",
+        "searches": [
+          "Gravier–Petiteau–Sivignon arXiv:2603.09475, pp. 2–3",
+          "Resultary 405d52691d1c, Sharp Walsh conditioning of acyclic orientations of K(3,n)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py; independent finite census",
+        "Resultary 361e3944de6f, 405d52691d1c and b94aa3a64173",
+        "arXiv:2603.09475, 1912.08850, 2303.09021 and 1412.3685",
+        "Knuth, Parades and Poly-Bernoulli Bijections, opening total table; Khera dissertation landing abstract; ScienceDirect 0012365X94002225 retrieval only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the Walsh source's encoding a zero third-row bit makes that row a source when fixed in every column. Restrict the column sets to integers 0,1,2,3 by averaging over the third-row frequency in each column. In the positive sum over row orders the surviving sets are {0} twice, {0,1} and {0,2} once each, and {0,1,3}, {0,2,3} once each. The subtracted terms restrict to {0,1}, {0,2}, {0,3}, and {0} three times, with the last positive term contributing {0}. Cancellation leaves the two products for {0,1,3} and {0,2,3}, minus the product for {0,3}. Inverting therefore counts two independent-column families with common mixed type, subtracting the all-unmixed overlap.",
+          "Prescribed column parity with t>0 eliminates the overlap; each family has 2^(b−t−1) assignments when an even column is available, with row parity deciding which families contribute when none is available. At t=0 the two terms and overlap all have 2^(b−1) assignments. In the Walsh encoding row sums are indegrees and the column indegree is 2 minus its column sum, which gives the same parity constraints and the same boundary values."
+        ],
+        "reasoning": "This direct specialization of an actual complete formula yields every branch of the exact count. The closed form is cleaner, but the refinement over general feasibility does not provide a distinct uncovered claim once the stronger Walsh enumeration is credited.",
+        "searches": [
+          "Resultary 405d52691d1c, RESULT.md Finding and thirteen-product expression, offsets 0–2274"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 361e3944de6f writes T={v:p(v)=1}. Its condition |T|≡ab (mod 2), T≠V is exactly the frozen iff statement, with the same positive labelled parts.",
+          "Acyclic biclique orientations are lonesum binary matrices; with ones for row-to-column edges, column sums are column indegrees and b minus each row sum is the row indegree."
+        ],
+        "reasoning": "Both the subset formulation of feasibility and the parity-refined lonesum form are exact translations. The latter identifies what a covering generating function must resolve, beyond just a total.",
+        "searches": [
+          "Resultary: Labelled K_{2,b} prescribed indegree parity exact number acyclic orientations by individual signature, two-row lonesum matrices row and column sum parity fibres, mixed types",
+          "arXiv:1912.08850, lonesum-matrix characterization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The unrefined poly-Bernoulli totals count all acyclic biclique orientations; they cannot determine the individual parity fibres. The fan record counts parity fibres but on a different graph. The exact all-frequency formula in 405d52691d1c determines the finer counts without needing a finite table."
+        ],
+        "reasoning": "The decisive exact comparators for an all-parameter question are the matching feasibility theorem and the full signed enumeration, not totals or a single small-instance count.",
+        "searches": [
+          "Resultary 361e3944de6f, 405d52691d1c and b94aa3a64173",
+          "lonesum matrices parity row column enumeration prescribed parity acyclic orientation complete bipartite two rows indegree parity fibre",
+          "Cameron et al. arXiv:1412.3685 p. 5; Carballosa–Khera–Reyes arXiv:2303.09021 Proposition 3.1; Knuth, Parades and Poly-Bernoulli Bijections"
+        ]
+      },
+      "rationale": "The general existence result is stated identically in an independently indexed feasibility record. The two-row refinement is not covered by feasibility alone or by the poly-Bernoulli totals, but it is a mechanical restriction and parity marginal of the independently indexed complete three-row Walsh formula. That formula gives the two-row allowed-column product identity by forcing the third row to be a source. Neither component survives as a distinct exact result under the statement-and-implication standard. This is existing coverage, not a conclusion about historical priority, chronology of discovery or the correctness of the frozen result.",
+      "residual_risks": [
+        "Catalogue path dates do not establish priority or provenance. The decisive evidence is scope and mathematical implication, not an inferred priority timeline.",
+        "The Khera dissertation abstract and the inaccessible ScienceDirect paper did not establish any statement about the exact fibres; no inference of absence is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical broad feasibility theorem; explicitly not a fibre count",
+          "evidence": [
+            "Exact subset condition |T|≡ab and T≠V; counts realizable signatures, not orientations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-parity-complete-characterization-of-acyclic-orientations-of-co--361e3944de6f",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2200",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A parity-complete characterization of acyclic orientations of complete bipartite graphs",
+          "trigger": "Same labelled parity-feasibility problem"
+        },
+        {
+          "assessment": "The exact signed formula covers the fibre formula by a fixed-row slice and parity counts",
+          "evidence": [
+            "Contains all six chain products with signs +, six three-element products with signs − and one two-element product with sign + over binary columns."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-sharp-walsh-conditioning-of-acyclic-orientations-of-k-3-n--405d52691d1c",
+          "material_read": "RESULT.md Finding, scope and exact thirteen-product displayed formula, offsets 0–2274",
+          "method": "Local Resultary mirror, same snapshot",
+          "title": "Sharp Walsh conditioning of acyclic orientations of K(3,n)",
+          "trigger": "Complete edge-indicator transform plausibly covers source-constrained two-row marginals"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": [
+            "Four-state recurrence on a path with a universal vertex; it does not specialize to the arbitrary-width biclique."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-parity-fibres-and-all-obstructions-for-acyclic-orientation--b94aa3a64173",
+          "material_read": "RESULT.md Finding, offsets 0–2078",
+          "method": "Local Resultary mirror",
+          "title": "Exact parity fibres and all obstructions for acyclic orientations of fan graphs",
+          "trigger": "Same fibre statistic"
+        },
+        {
+          "assessment": "Related framework; not the decisive coverage",
+          "evidence": [
+            "Definition of acyclic T-odd orientation, necessary conditions, and studied grid-like families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.09475",
+          "material_read": "PDF pp. 2–3, offsets 6992 and 13178",
+          "method": "OA primary PDF passage inspection",
+          "title": "Some polynomial classes for the acyclic orientation with parity constraint problem",
+          "trigger": "Same general orientation problem"
+        },
+        {
+          "assessment": "Gives the standard bijection and forbidden matrices underlying the fibre computation",
+          "evidence": [
+            "Biclique orientations correspond to lonesum matrices via exclusion of the two 2×2 permutations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.08850",
+          "material_read": "p. 2, around offset 4466",
+          "method": "OA primary PDF passage inspection",
+          "title": "Asymptotic Enumeration of Lonesum Matrices",
+          "trigger": "Equivalent binary matrix formulation"
+        },
+        {
+          "assessment": "Inspected proposition gives only the unrefined total",
+          "evidence": [
+            "Equation (3.4) gives the standard Stirling-number sum for the poly-Bernoulli total."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.09021",
+          "material_read": "p. 10, Proposition 3.1, offsets 30485–31705",
+          "method": "OA primary PDF passage inspection",
+          "title": "Encoding and Enumerating Acyclic Orientations of Graphs",
+          "trigger": "Potential exact general enumeration"
+        },
+        {
+          "assessment": "The inspected result is an aggregate count",
+          "evidence": [
+            "Counts all complete bipartite acyclic orientations by a poly-Bernoulli number."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.3685",
+          "material_read": "p. 5 around offset 9973",
+          "method": "OA primary PDF passage inspection",
+          "title": "Acyclic orientations and poly-Bernoulli numbers",
+          "trigger": "Potential fibre enumeration through binary matrix counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Prescribed vertex parity is a natural constraint in acyclic orientation, and the full labelled fibre distribution answers a substantive counting question that existence or unrefined totals do not answer. The especially small all-odd boundary fibre explains an actual change in structure. This mathematical usefulness does not remove the demonstrated overlap with existing exact coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

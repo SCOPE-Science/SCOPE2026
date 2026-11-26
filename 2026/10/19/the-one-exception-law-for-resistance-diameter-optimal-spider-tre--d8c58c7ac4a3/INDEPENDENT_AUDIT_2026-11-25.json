@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:01:52.697503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and scope, Proof steps 1–5; VERIFICATION.md and verify_spider.py inspected as supplementary numerical evidence, not used for the universal proof"
+      ],
+      "rationale": "On a tree the resistance distance is the sum of r_e=1/w_e along the unique path. Positive radii imply that the diameter is the largest sum of two distinct leaf radii. For fixed R_i, Hölder applied to the factors (c_e r_e^{-alpha})^{1/(alpha+1)} and r_e^{alpha/(alpha+1)} gives cost at least S_i^{alpha+1}/R_i^alpha, with equality uniquely at r_e=R_i c_e^{1/(alpha+1)}/S_i. At unit diameter the feasible radii satisfy rho_i+rho_j<=1. The positive-coordinate cost is strictly convex and diverges on zero-coordinate boundaries of the bounded feasible set. If no radius exceeds 1/2, increasing all smaller radii to 1/2 strictly improves cost. If rho_j=x>1/2, the others must be at most 1-x and all can attain this bound, which uniquely minimizes cost at fixed x. The strictly convex one-variable cost has derivative at 1/2 with the sign of C-2C_j, and an interior minimum precisely at strict dominance. Solving its first-order equation gives rho_j=U/(U+V) and the value (U+V)^{alpha+1}; at threshold equality the balanced endpoint alone minimizes it. There cannot be two strict majority indices. Both optimal vectors attain unit diameter. Scaling to diameter d makes the minimum expenditure F/d^alpha, so matching B gives the displayed attained minimum and strict uniqueness, including for concave pricing in w. With unit prices the competing ratio sum (ell_i/L)^{alpha+1} decreases strictly from sum ell_i/L to zero for the unique-longest-arm case; this verifies both boundary regimes and the stated exponent for (3,2,2).",
+      "residual_risks": [
+        "Uses positive prices, budget and conductances and nonempty arms on a fixed finite spider; no general-tree or discrete-budget guarantee. Numerical checks are not the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The resistance-design papers give the max-resistance convex/SDP formulation for a linear budget, and a different explicit tree objective based on sum of all pair resistances. The frozen audit quotes the Chepoi et al. §1 LP constraints with bounded length reductions x(e) and cost sum c(e)x(e); lawful re-fetch did not establish whole-paper coverage."
+        ],
+        "reasoning": "General convex formulations supply neither the exact radii nor the branch threshold. Total resistance and bounded linear reductions are different problems at the level of objective or feasible set. A theorem for nonlinear inverse-power upgrade costs would matter, but was not verified in the accessible material.",
+        "searches": [
+          "Ghosh–Boyd–Saberi 2006 p. 1195 and 2008 §8, with §§1 and 2.3 on the objective and tree case",
+          "Chepoi–Noltemeier–Vaxès DOI 10.1002/net.10055; Hambrusch–Lim DOI 10.1142/S0129626499000335"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh–Boyd–Saberi proceedings and extended original papers; Resultary 8d2288c947e1 and 51ff8fe407b5; frozen source and reported tree-upgrading model"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reducing each arm by Hölder produces a one-edge aggregate problem with parameters C_i and the original inverse-power exponent, not a linear conductance-cost problem at arbitrary alpha. The frozen dominant-branch minimizer and unit-price exponent change both depend on alpha."
+        ],
+        "reasoning": "For alpha=1 the multi-edge formula follows from arm aggregation plus the earlier star case, and is not the main originality basis. For arbitrary alpha the earlier star result is insufficient; the simultaneous active constraints and equality case, closed-form conductances, and sharp exponent boundary require the new scope of the analysis.",
+        "searches": [
+          "Compare prior weighted-star Finding 8d2288c947e1 and resistance SDP §8 with frozen normalization and exponent transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 8d2288c947e1 Finding gives the same majority-price threshold and unique weighted-star optimum under a linear conductance budget. Resultary 51ff8fe407b5 Finding gives a matching star statement. Substitution r_e=1/w_e in the frozen optimization gives a path-length design with inverse-power final-length costs."
+        ],
+        "reasoning": "The earlier star law is exactly the specialization ell_i=1, alpha=1. Linear costs for reducing bounded initial lengths are not the reciprocal-variable formulation, where each final length r_e costs c_e r_e^{-alpha}.",
+        "searches": [
+          "Local Resultary search for star/spider minimax effective resistance and majority dominance",
+          "Primary search for exact resistance diameter design and continuous tree diameter upgrading"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One exact formula record is earlier and one later by recorded date; both are for one-edge arms and linear costs in conductance."
+        ],
+        "reasoning": "These establish formula-level overlap for a proper special case, not an exact reference table or closed-form entry over multi-edge arms and all alpha. A catalogue miss by itself does not establish priority.",
+        "searches": [
+          "Local Resultary records 8d2288c947e1 and 51ff8fe407b5, exact optimizer Findings"
+        ]
+      },
+      "rationale": "Do not credit the introduction of minimax resistance design, its linear-budget SDP formulation, or the exact linear-budget weighted star majority transition. The latter is explicitly covered by an earlier Resultary record. The supported advance is the arbitrary-price multi-edge spider law for every positive conductance-cost exponent: unique per-edge and radial allocation, normalized threshold on arm aggregates, and the resulting exponent-driven transition. The inspected general optimization papers do not provide or mechanically yield that classification.",
+      "residual_risks": [
+        "Uninspected portions of the two edge-reduction papers could contain stronger variants. The assessment credits the earlier star result and does not claim absolute priority or infer absence from retrieval limits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Minimax framework prior, no spider optimizer in decisive passage",
+          "evidence": "Notes convexity of maximum pairwise resistance and an SDP formulation.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "PDF p. 11 / printed p. 1195, about text offset 79800",
+          "method": "Lawful open proceedings PDF",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Early primary minimax resistance-design formulation"
+        },
+        {
+          "assessment": "Different objective in the tree formula; minimax framework only in §8",
+          "evidence": "Tree formula is the total pairwise sum, with edge coefficients divided by conductances; §8 repeats the max objective and convex SDP observation.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "§1 problem (2), §2.3 eq. (5), and §8 p. 65",
+          "method": "Lawful author-hosted PDF",
+          "title": "Minimizing Effective Resistance of a Graph (extended)",
+          "trigger": "General tree solution might imply the proposed design"
+        },
+        {
+          "assessment": "Exact prior overlap at alpha=1 with one edge per arm",
+          "evidence": "Unique optimum and majority-price threshold for weighted stars under a linear conductance budget.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-majority-price-transition-for-minimum-resistance-diameter-on-w--8d2288c947e1",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A majority price transition for minimum resistance diameter on weighted stars",
+          "trigger": "Material earlier exact match of objective and threshold"
+        },
+        {
+          "assessment": "Later recorded star-scale overlap",
+          "evidence": "Same weighted-star scale and dominance boundary, not the all-exponent spider result.",
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-dominant-price-threshold-for-resistance-diameter-design--51ff8fe407b5",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "An exact dominant-price threshold for resistance diameter design",
+          "trigger": "Second matching star threshold"
+        },
+        {
+          "assessment": "Reported §1 model is different; full-paper implication unresolved",
+          "evidence": "The frozen comparison gives linear reduction prices and per-edge initial-length bounds, not inverse-power cost of final lengths.",
+          "identifier_or_url": "10.1002/net.10055",
+          "material_read": "Frozen proof comparison and frozen AUDIT.json quotation of §1 model; no independently loaded full text",
+          "method": "DOI/OA recovery and identified ResearchGate author-copy URL attempted; access denied",
+          "title": "Upgrading Trees Under Diameter and Budget Constraints",
+          "trigger": "Closest other tree-diameter optimization model"
+        },
+        {
+          "assessment": "No decisive equivalence assessment from available material",
+          "evidence": "Concerns costed edge reductions; the available description does not settle coverage of inverse-power final lengths.",
+          "identifier_or_url": "10.1142/S0129626499000335",
+          "material_read": "Frozen description of abstract and bibliographic information only; full text unavailable",
+          "method": "Lawful DOI and repository recovery attempted",
+          "title": "Minimizing the Diameter in Tree Networks Under Edge Reductions",
+          "trigger": "Earlier edge-reduction algorithms for the same graph objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independently checked optimizer classification; general minimax program and earlier weighted star comparisons"
+      ],
+      "rationale": "The optimization depends on every conductance and does not appear convex in the original coordinates for all exponents. Nonetheless an explicit unique design and tight sharp criterion distinguish when all radii coincide and when exactly one can differ, even under heterogeneous prices. The (3,2,2) example shows a genuine change in the geometry of the optimizer caused solely by the exponent. This gives exact benchmark solutions and a structural explanation beyond numerical optimization or redoing the linear weighted-star case.",
+      "residual_risks": [
+        "No claim about cyclic topology, engineering constraints, or asymptotic algorithms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

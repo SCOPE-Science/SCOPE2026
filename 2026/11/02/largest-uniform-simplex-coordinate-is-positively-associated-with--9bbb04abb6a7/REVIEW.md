@@ -1,12 +1,21 @@
-# Review of the largest-coordinate / Schur-convex dependence theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the constant-density linear map from the ordered simplex chamber to the ranked gaps \(Y_j=j(x_j-x_{j+1})\); a divergence theorem identity for uniform Dirichlet yields an exact covariance representation with positive pairwise weights. The Schur–Ostrowski gradient order makes each term nonnegative, and positivity of the simplex density plus connectedness proves strictness for every nonconstant admissible function. Shannon entropy follows by regularization and monotone convergence, with a separately checked two-dimensional calculation. The extracted standalone program passed 64 independent rational/analytic assertions. Boundary degeneracies and all-dimensional quantifiers are addressed in the proof; finite tests are not offered as proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The inspected sections of Barthe–Gamboa–Lozada-Chang–Rouault (arXiv:1002.1544) show negative association for disjoint coordinate subsets but not for the maximum and a symmetric Schur-convex statistic, which both depend on all coordinates. Itkin (arXiv:2302.13707) studies ranked Dirichlet distributions and moment information, not the universal covariance ordering. An exact previous maximum/Greenwood covariance is a single special case and does not imply this class-wide sign theorem. Semantic and phrase searches for the full generality, rank-gap transformation, and entropy dependence found no dominating statement. An older majorization/association theorem or uninspected source could still cover it; searches do not certify worldwide historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-The maximum component and Schur-convex concentration indices measure complementary aspects of unevenness in random probability vectors, while Schur-concave entropies measure diversity. Determining the sign for an entire natural preorder class removes the need for case-specific mixed-moment calculations. The positive-pair formula is a structural mechanism, rather than merely a reparameterized Greenwood calculation; it covers functions for which no simple polynomial moment expression is available. Applications to nonlinear diversity statistics and uniform spacings are plausible. No novel marginal distribution or joint stochastic domination is claimed.
+The invertible linear map y_j=j(x_j-x_{j+1}) sends the constant-density ordered chamber to the uniform simplex. In the first m-1 coordinates the divergence of the coefficient field y_i(delta_{iℓ}-y_ℓ) is 1-m y_i; its flux vanishes on coordinate faces and on y_m=0 (the sum of its components is y_i y_m). Integration by parts and pairing i,j therefore give the claimed covariance identity with factor 1/m. The two-coordinate transfer criterion orders the gradient of F on the strict chamber. The prefix means b_i-b_j for i<j are (1/(ij)) times the sum of all g_k-g_ℓ for k≤i<ℓ≤j, so they are nonnegative. Equality forces every tangential derivative of f to vanish throughout the interior, hence constancy by connectedness, continuity and symmetry. For p>1, the positive-part p-power supplies a C¹ extension. For entropy the smoothed differences are sums of positive log ratios that increase as epsilon decreases; uniform convergence on the simplex and monotone convergence in the identity give strictly positive covariance for negative entropy. At m=2, E[M H]=7/24+log(2)/12, E[M]=3/4 and E[H]=1/2, giving exactly the claimed covariance.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the strict all-statistics covariance law and its positive-pair identity, not the already-known largest-spacing/Greenwood covariance or the ranked-gap substitution itself. The closest exact records share the quadratic special case and in one case the same coordinates, but do not cover general symmetric Schur-convex statistics. No inspected primary theorem implies the credited claim.
+
+## value
+
+PASS
+
+A single inequality with a sharp equality condition treats simultaneous dependence of the maximum with all admitted dispersion scores, including nonseparable ones; entropy and power sums illustrate why a one-statistic formula does not settle this question. The positive-pair representation explains the sign and strictness, rather than just computing selected moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

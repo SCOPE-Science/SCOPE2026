@@ -1,21 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns maximization of the finite trace of a rank-one Nyström matrix on the screened infinite half-line, and near-threshold global landmark switches on long finite ordinary paths. The resolvent derivative identity rigorously gives the captured trace even though the infinite whole trace diverges. The half-line kernel is verified by the boundary and interior recurrences; the finite-path diagonal factors exactly. Strict log-concavity, unique strictly ordered crossings, and the Rolle/Lambert argument prove all infinite-volume assertions. Uniform finite-path tail bounds, an isolated pairwise crossing, and a simple-root expansion prove the finite-size global switch and its leading coefficient. The standalone exact-matrix and high-precision checks reproduce key algebra but do not substitute for the proof. Risk: extension to small fixed path sizes and multiple columns is not claimed.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+The rank-one approximation is positive and trace class even though K itself is not (K≥I/(μ+4)); differentiation of the bounded resolvent gives capture −∂μ log K_jj. Independently recovered the half-line diagonal by reflecting the infinite-line resolvent across −1/2, and the finite one by principal minors: the determinant of the first k<n rows/columns is (q^(−k)+q^(k+1))/(1+q) by the continuant recurrence; applying the second degree-one endpoint row gives the full determinant (1−q)(q^(−n)−q^n)/(1+q). Cramer's rule gives the stated product of the two boundary factors; log differentiation proves both capture formulas. The odd-index sequence f_a is strictly log-concave and tends to zero, so a neighboring equality at a simple root of a−(a+2)q²−2q^(a+2) is an exact two-site maximum; at that root the next neighboring difference is strictly positive, which orders the thresholds. The continuous maximum of a↦f_a is at aβ=c; Rolle gives c/(a+2)<β_j<c/a and each discrete maximum is within two in a of the continuous one for small β. With μ=β²+O(β⁴) this gives both stated scaling results. On the left half of each finite path, the right-image term goes to zero uniformly on compact positive-β intervals. A strict half-line gap persists uniformly near each fixed threshold: truncate the uniformly vanishing half-line tail and use continuity on the finitely many remaining sites. Thus only the adjacent reflected pairs compete. Their contrast is D_a+f_b−f_(b−2), b=2n−a. Its derivative converges uniformly to D'_a on such a neighborhood, giving a unique crossing, and the mean-value theorem gives its displacement as −(f_b−f_(b−2))(β_j)/(d_j+o(1)). Since the numerator contrast is −(e^(2β_j)−1)b e^(−bβ_j)(1+o(1)), the displacement is upwards with the stated coefficient after changing to μ. At β_0=log 2 the derivative is 2/3 and ∂βμ=3/2, yielding 27/4. The same uniform gap gives stability away from thresholds.
 
-The 2013 Gittens–Mahoney full text provides Nyström trace-norm bounds, not the explicit screened-path optimal site sequence. The 2024 Fornace–Lindsey full text contains the general captured-trace formula; that objective is prior art and is explicitly credited. Its inspected selection methods and graph Laplacian results do not supply the odd-index exact staircase, the Lambert constant, or the exponentially small finite-path shift. Related exact claims on a Toeplitz exponential covariance grid and a weak-link cycle concern different kernel structures and do not imply the half-line optimizer; a graph path probing result concerns Rademacher variance, not a Nyström column. Searches of mathematical records and relevant primary literature did not disclose an equivalent or stronger half-line theorem. Search incompleteness and possible equivalent unpublished or unindexed results remain genuine risks. There is no claim of independently established publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-For the natural one-dimensional boundary-layer model of a sparse inverse, a one-column subset-design problem that varies with the screening parameter admits an exact optimizer rule at every positive shift, with all ties, a physically interpretable growing optimal depth, and an explicit exponentially small boundary-interaction correction on long finite systems. In particular, \(\mu=1/2\) is a sharp limiting endpoint transition, not an arbitrary numerical example. The finite-path correction distinguishes an actual path from an infinite half-line near a design threshold. The result is a natural complete classification for its infinite object; it makes no claim of a general multi-column theorem.
+Best-of-knowledge pass for the exact rank-one site staircase at reflecting boundaries and the fixed-index finite shift, not for the capture objective, resolvent identities or one-dimensional Green functions. The principal cited prior work defines precisely the same finite selection objective, but its graph-Laplacian methods and theory concern general algorithms rather than these site thresholds. The strongest indexed same-day neighbor reports a different landmark-budget comparison; date alone was not used.
 
-## Sources and limits
+## value
 
-- Gittens and Mahoney, *Revisiting the Nyström Method for Improved Large-Scale Machine Learning*, arXiv:1303.1849 (first public 2013-03-07): abstract, introduction, trace-norm analysis and relevant proof were inspected.
-- Fornace and Lindsey, *Column and row subset selection using nuclear scores*, arXiv:2407.01698 (first public 2024-07-01): introduction, Section 2.1 objective, inverse graph-Laplacian setup and relevant general comparisons were inspected.
-- Mathematical claim comparisons included screened paths, one-column Nyström trace capture, exponential covariance grids, weak-link cycles, and more general selection bounds. Some relevant equivalent results may remain unindexed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact optimum and its dependence on screening answer a natural one-landmark problem for a canonical graph, and the winner is not the one chosen by the simpler determinant criterion. The infinite staircase with tie rules, the diverging optimum depth constant, and the signed sharp shift show both boundary behavior and when a long finite path reproduces it. This is useful exact information beyond solving the tridiagonal recurrence or showing that the endpoint is sometimes optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

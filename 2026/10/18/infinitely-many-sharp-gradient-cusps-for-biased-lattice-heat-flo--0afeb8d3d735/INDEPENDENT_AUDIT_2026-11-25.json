@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:19:29.170988Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent Poisson jumps give the stated Skellam kernel; a sign input at one edge attains the ℓ¹ sum of the shifted kernel differences. The strict shape used to telescope that sum can also be checked without a Turán citation: R_j=I_{j+1}/I_j starts as z/[2(j+1)] and solves R_j'=1−(2j+1)R_j/z−R_j². A first contact of R_j with R_{j+1} from above is impossible because the derivative difference at contact is 2R_j/z>0. Also R_j lies below the increasing positive Riccati nullcline, by its initial slope and a first-contact comparison, so R_j'>0 and R_0<1. This gives strict log-concavity on both halves and across index zero, hence the telescoping norm 2 max p_t. For a>b, reflection of the mass excludes negative modes; the ratios increase from 0 to √(a/b)>1 and strictly decrease in j, and the defining series gives R_j≤z/[2(j+1)] at fixed z. This proves unique ordered switches escaping to infinity. Differentiation at a tie gives 2p_t(k)r'_k(t)=4a p_t(k)R'_k(2t√(ab)); the symmetric case has a single analytic branch. For the asymptotic, put u=√t θ and y=k−(a−b)t. The real part of the phased difference factor on |u|≤t^{1/10} is −[(y+1/2)u²+(a−b)u⁴/6]/t plus a bound of t⁻² times a fixed polynomial in |u|, uniformly in bounded y. Replacing the cosine weight by exp(−(a+b)u²/2) costs O(t⁻¹) times a Gaussian-weighted polynomial before multiplication by the O(t⁻¹) difference factor; the complement is exponentially small. The second and fourth Gaussian moments give the bracket y+1/2+(a−b)/[2(a+b)]+O(t⁻¹). Bracketing the unique zero at t=(k±C)/(a−b) and inserting it in that uniform estimate gives the stated O(k⁻¹) in time. Reflection exchanges rates; the time locations depend on the sum as well as on the drift magnitude, and no drift-uniform claim is made. The finite checker was inspected but not executed; it is not required for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hornik–Grün gives Amos-type Bessel-ratio bounds. Ciaurri et al. p. 7 constructs the symmetric heat kernel and formulas (37)–(38) give its differences. Neither inspected comparison is the exact biased norm as time varies.",
+          "The same-day degree-normalization result gives sharp bounded-input norms and crossings between different partition-size curves on finite complete bipartite graphs, not the moving modal maxima in a single flow on ℤ. The same-day first off-origin sign-transition result concerns a time-derivative kernel in d≥2."
+        ],
+        "reasoning": "Neither specializing the symmetric gradient-peak theorem nor substituting graph parameters from the finite or higher-dimensional results recovers the fixed biased ℤ theorem. Standard ratio bounds should not be credited as an all-switch asymptotic unless they imply the stated second term with its error.",
+        "searches": [
+          "Resultary: Exact switching staircase discrete-Gaussian gradient peaks relation Skellam modal norm",
+          "Resultary: biased lattice heat semigroup sharp gradient norm Skellam mode transition cusp",
+          "doi:10.1016/j.jmaa.2013.05.070"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding–Proof",
+        "Frozen VERIFICATION.md and checker.py (read only)",
+        "Published staircase, degree-normalization and sign-transition records above",
+        "Primary Bessel, Skellam and discrete heat sources above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bessel ratios and unimodality account for the reduction and classical monotonicity ingredients; the consulted heat sources identify symmetric kernel coefficients and their differences. The published symmetric gradient staircase's limiting comparison does not supply the offset 1/[2(a+b)] or an O(k⁻¹) remainder for the biased tie."
+        ],
+        "reasoning": "Once an ordered, transverse change between two modal masses is known, the derivative jump follows by differentiation; it is not a standalone novelty. The complete sharp-norm result, in particular the two-term location law, was not supplied or directly implied by the results inspected.",
+        "searches": [
+          "\"Skellam distribution\" mode modes Bessel ratio mode location",
+          "arXiv:1311.1450v1",
+          "doi:10.1016/j.jmaa.2013.05.070",
+          "2026/10/25/SCOPE-exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent probability problem is the modal staircase of a Poisson difference of means at and bt along a fixed ray, with ties given by I_{k+1}/I_k=√(b/a) for a>b. Balachandran–Viles–Kolaczyk arXiv:1311.1450v1 p. 1 compares Bessel-ratio bounds, Skellam point masses and concentration, not an exact staircase. Koopman–Lit–Lucas pp. 1–2 models statistical time-varying intensities, not this fixed-ray modal threshold theorem.",
+          "The published discrete-Gaussian staircase compares first-gradient coefficients for an ℓ¹→ℓ∞ norm; it uses second Bessel differences to locate ties."
+        ],
+        "reasoning": "Mode, norm, and coefficient-peak terminology were compared at the actual optimization and crossing equations. A peak of the first differences is not the peak of the kernel, nor is this an interchange of dual norms of one operator.",
+        "searches": [
+          "Skellam distribution mode time dependent Poisson rates Bessel ratio crossings biased random walk heat semigroup sharp gradient norm",
+          "Resultary: Skellam edge gradient modal crossings biased nearest neighbor heat norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue staircase's RESULT.md uses roots of I_n−2I_{n+1}+I_{n+2} and expressly does not assert the transition correction formula. The frozen checker reports finite sample crossings only."
+        ],
+        "reasoning": "This is a continuum of rate pairs with an infinite sequence of transitions, not a claim to a new numerical table. The closest indexed exact switch law has a different defining sequence; the sampled roots do not settle coverage.",
+        "searches": [
+          "Resultary: Infinitely many sharp gradient cusps for biased lattice heat flow",
+          "Resultary: transition asymptotic (k+1/2)/drift plus 1/(2 total rate) Bessel ratio",
+          "2026/10/25/SCOPE-exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c"
+        ]
+      },
+      "rationale": "The Skellam representation, Bessel ratio tools, and unimodal total-variation identity are ingredients, not distinct claims to priority. The supported contribution in the inspected comparison is the biased sharp-norm switching law with strict derivative discontinuities and the fixed-rate two-term switching-time expansion. The closest indexed staircase has a different norm, symmetric rates, and a different switch equation.",
+      "residual_risks": [
+        "This is a bounded comparison, not a priority determination. The inspected Bessel and Skellam passages do not exclude less visible mode-threshold or uniform-asymptotic formulations; several were read only at the relevant opening passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different invariant; no competing transition expansion in the inspected statement",
+          "evidence": [
+            "Symmetric flow, ℓ¹→ℓ∞, switches at second Bessel differences."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-exact-switching-staircase-for-discrete-gaussian-gradient-peaks--14f278a0557c",
+          "material_read": "RESULT.md, mirror offsets 0–3372 and 5600–7451",
+          "method": "Bounded mirror passages",
+          "title": "Exact switching staircase for discrete-Gaussian gradient peaks",
+          "trigger": "Closest heat-gradient switch law"
+        },
+        {
+          "assessment": "Graph-family comparison, not biased lattice mode switches",
+          "evidence": [
+            "Finite complete bipartite graphs and crossings among different partition-size curves."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-degree-normalization-reverses-sharp-heat-gradient-ordering-on-co--90f889565d65",
+          "material_read": "RESULT.md, Finding, mirror offset 0",
+          "method": "Bounded mirror passage",
+          "title": "Degree normalization reverses sharp heat-gradient ordering",
+          "trigger": "Same-day sharp gradient crossing result"
+        },
+        {
+          "assessment": "Different derivative and quantifier",
+          "evidence": [
+            "Time-derivative signs in dimension at least two; asymptotic in dimension."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-first-off-origin-sign-transition-of-multidimensional-lattice--e0bc15d88f35",
+          "material_read": "RESULT.md, mirror offsets 0–3676",
+          "method": "Bounded mirror passage",
+          "title": "The first off-origin sign transition of multidimensional lattice heat flow",
+          "trigger": "Same-day lattice transition and asymptotics"
+        },
+        {
+          "assessment": "Classical symmetric ingredients",
+          "evidence": [
+            "Kernel e^(−2t)I_m(2t) and integral representations of Bessel differences."
+          ],
+          "identifier_or_url": "arXiv:1401.2091",
+          "material_read": "PDF p. 7, offset 18200, and p. 20 formulas (37)–(38), offset 57380",
+          "method": "OA PDF passages",
+          "title": "Harmonic Analysis associated with a discrete Laplacian",
+          "trigger": "Discrete heat-gradient identities"
+        },
+        {
+          "assessment": "Related bounds; no exact switch law in inspected passage",
+          "evidence": [
+            "Bounds for Bessel-ratio sums, point masses and Skellam concentration."
+          ],
+          "identifier_or_url": "arXiv:1311.1450v1",
+          "material_read": "PDF p. 1, offset 1080, abstract-level scope",
+          "method": "OA PDF passage",
+          "title": "Exponential-type Inequalities Involving Ratios of the Modified Bessel Function of the First Kind and their Applications",
+          "trigger": "Bessel ratio and Skellam mass estimates"
+        },
+        {
+          "assessment": "Ratio inequalities, not a heat-gradient theorem in the inspected material",
+          "evidence": [
+            "Bounds on I_{ν+1}/I_ν rather than a statement of its heat-flow mode switches."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jmaa.2013.05.070",
+          "material_read": "PMC article opening, offset 0",
+          "method": "OA article passage",
+          "title": "Amos-type bounds for modified Bessel function ratios",
+          "trigger": "Potential exact implication for the transition thresholds"
+        },
+        {
+          "assessment": "Different statistical use of time",
+          "evidence": [
+            "Time-varying intensities for count data, not the ordering and asymptotics of ties along a fixed ray."
+          ],
+          "identifier_or_url": "https://www2.gwu.edu/~forcpgm/OxMetrics2014_files/KoopmanLitLucas-OxM14-NaisSkellamPaper.pdf",
+          "material_read": "PDF pp. 1–2, offset 2200",
+          "method": "OA PDF passage",
+          "title": "The Dynamic Skellam Model with Applications",
+          "trigger": "Time-dependent Skellam rates as an equivalent-formulation lead"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural endpoint smoothing norm, sharpness and its time regularity are different issues. The theorem identifies an extremizing sign input and gives a full nonsmoothness law caused by arbitrarily small fixed nonzero drift, contrasting with the symmetric analytic norm even though individual kernel coefficients stay analytic. The quantitative correction locates these corners more precisely than the mean drift of the walk.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

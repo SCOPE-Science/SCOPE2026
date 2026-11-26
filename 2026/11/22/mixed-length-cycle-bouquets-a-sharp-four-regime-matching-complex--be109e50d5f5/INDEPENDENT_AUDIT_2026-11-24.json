@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:11:41.905880Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–58",
+        "Frozen verify.py, lines 9–91, and verify_output.txt"
+      ],
+      "rationale": "The hub-free subcomplex is A=∗ᵢ Ind(P_{mᵢ−2}); at most one spoke can be chosen, and each spoke attaches a cone on the join with only that petal's factor shortened by one endpoint. To see the path recurrence, for a path on n≥3 vertices send vertex n−2 to n, fixing the other vertices. This gives a simplicial retraction on independence complexes contiguous to the identity, since N(n)⊆N(n−2); deleting n−2 leaves P_{n−3} and an edge. The recurrence and the n=0,1,2 bases give the three residue types. In the 2-residue case the shortened factor includes by a homotopy equivalence: the added endpoint has contractible link Ind(P_{3k−2}). With at least two 0-residue petals the base and every spoke link are contractible. With one such petal, the base is contractible, and its two spokes have spherical links S^{K−2}; their maps factor through the contractible base even after the first attachment. With no 0-residue petals the base is S^{K−1}; 1-residue links are contractible. If there are any 2-residue spokes, the first kills the base and the other 2ν₂−1 have null-homotopic attaching maps and add its suspensions. All attachments are along subcomplexes. For triangular petals the shortened factor is the augmented join unit; r≥2 ensures an exceptional spherical link is nonempty. Since K≥2, the noncontractible cases have positive reduced homology in the specified degree. Line 10's u₀ is a notation typo for ν₀, whose meaning is unambiguous from the definition and proof.",
+      "residual_risks": [
+        "The 48 output cases are not all two- or three-petal bouquets: verify.py lines 81–84 also include the six one-cycle tests (42 in-scope cases). This wording error does not affect the homotopy proof. Finite-field checks do not prove contractibility or exclude all torsion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 covers all nonempty outerplanar graphs and gives only a wedge of spheres or contractibility. The polygonal tiling theorem requires consecutively edge-glued cycles of lengths at least four."
+        ],
+        "reasoning": "The bouquet is outerplanar, but the broad theorem does not choose which homotopy type occurs, its dimension, or multiplicity. The other theorem's gluing hypothesis is false at the single-vertex hub.",
+        "searches": [
+          "Bayer, Jelić Milutinović and Vega, Matching Complexes of Outerplanar Graphs, arXiv:2411.04601v2, Theorem 2",
+          "General polygonal line tilings and their matching complexes, arXiv:2211.12559, Definition 12 and Theorem 13"
+        ]
+      },
+      "checked_sources": [
+        "Donovan–Scoville Thm. 5.8",
+        "Bayer–Jelić Milutinović–Vega Thm. 2 and Prop. 4; their polygonal tilings Def. 12 and Thm. 13",
+        "Resultary matched records and distinct scope comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.8 gives the three diagonal cases *, S^{rk−1}, and a wedge of 2r−1 copies of S^{rk} for m=3k, 3k+1, and 3k+2. For r≥2 the case ν₀=1 cannot occur on the diagonal."
+        ],
+        "reasoning": "The known theorem neither predicts the outcome with one 0-residue petal nor shows how only 2-residue petals contribute to the multiplicity when mixed with 1-residue petals. Exact dimensions and ranks require controlling the shortened-path inclusions and their interaction with the common base. The inspected prior tools permit that argument but do not state the needed mixed gluing result.",
+        "searches": [
+          "Donovan–Scoville, Theorem 5.8",
+          "Resultary integral wreath-product homology entry, Finding and Relationship to prior work",
+          "Outerplanar paper, Theorem 2 and Proposition 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M(B)=Ind(L(B)); independence complexes of other graphs, higher independence complexes of B, and complexes of strong Morse matchings are not equivalent objects here. The same-day Ind₂ triangle–cycle record and the strong Morse triangle–cycle record cover these distinct objects."
+        ],
+        "reasoning": "The line graph is the valid equivalent formulation. No statement found on its mixed-length bouquet specialization gives all four types; the near matches change the independent sets or the graph itself.",
+        "searches": [
+          "Resultary: mixed cycle bouquet ordinary matching complex; Dutch windmill and polygon bouquet",
+          "Literature lookup: Dutch windmills/friendship graphs and matching/line-graph independence complexes",
+          "Outerplanar paper, Proposition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mixed-length query returned the assigned finding itself. The distinct entries treat identical petals, refining integral or rational homology by symmetries. The same-day bridge-sensitive entry takes disjoint cycles joined by an edge rather than intersecting cycles."
+        ],
+        "reasoning": "There is no distinct exact match in the inspected entries. In particular the bridge changes the allowed combinations of cycle edges and does not implement the common-hub constraint.",
+        "searches": [
+          "Resultary exact mixed-length cycle bouquets ordinary matching complex",
+          "Resultary homogeneous windmill integral and rational homology entries 67e4c8f31bec and 4a7f2d144faf"
+        ]
+      },
+      "rationale": "The equal-petal case and the general qualitative outerplanar conclusion have exact prior coverage and receive no new credit. The supported distinct claim is the full residue interaction for arbitrary petal lengths, including the conditional multiplicities and the sharp mixed contractibility criterion.",
+      "residual_risks": [
+        "An unindexed exact mixed formula or stronger gluing theorem could supply prior coverage. The searches establish bounded comparisons, not absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equal-petal overlap",
+          "evidence": "Defines the windmill as copies of one C_m at a vertex and gives the three diagonal types listed above.",
+          "identifier_or_url": "https://nyjm.albany.edu/j/2023/29-54v.pdf",
+          "material_read": "Theorem 5.8, journal p. 1409, extraction offset 43800",
+          "method": "Bounded OA PDF passage",
+          "title": "Star clusters in the matching, Morse, and generalized complex of discrete Morse functions",
+          "trigger": "Exact Dutch-windmill matching homotopy theorem"
+        },
+        {
+          "assessment": "Qualitative coverage only",
+          "evidence": "Contractible or wedge of spheres, without residue data; matching complexes are independence complexes of the line graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.04601v2",
+          "material_read": "Theorem 2, p. 2, extraction offset 4800; Proposition 4",
+          "method": "Bounded OA PDF passage",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Broader theorem whose input includes the bouquet"
+        },
+        {
+          "assessment": "Different graph family",
+          "evidence": "Consecutive cycles intersect in an edge and have lengths at least four.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.12559",
+          "material_read": "Definition 12 and Theorem 13, p. 5, extraction offset 10000",
+          "method": "Bounded OA PDF passage",
+          "title": "General polygonal line tilings and their matching complexes",
+          "trigger": "Variable lengths in a family formed by gluing cycles"
+        },
+        {
+          "assessment": "Identical-petal exact coverage plus symmetry refinement",
+          "evidence": "The result concerns D_m^n with n identical C_m petals and explicitly credits Donovan–Scoville for the underlying homotopy types.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-wreath-product-homology-of-dutch-windmill-matching-comp--67e4c8f31bec",
+          "material_read": "RESULT.md Finding and Relationship to prior work, offsets 0 and 10243",
+          "method": "Bounded local mirror passage",
+          "title": "Integral wreath-product homology of Dutch windmill matching complexes",
+          "trigger": "Strongest exact catalogue overlap"
+        },
+        {
+          "assessment": "Different complexes or gluing",
+          "evidence": "The first is Ind₂ of a vertex wedge; the second uses a bridge between disjoint cycles; the third uses the strong discrete-Morse matching complex.",
+          "identifier_or_url": "f880c01eacb4; fa6ec0fb3f7e; faf3b520e7e7",
+          "material_read": "Each RESULT.md Finding at offset 0; scope for the strong Morse result",
+          "method": "Bounded local mirror passages",
+          "title": "Four-periodic 2-independence homotopy of triangle–cycle bouquets; Bridge-sensitive homotopy classification of two-cycle matching complexes; First mixed-dimensional strong Morse homotopy in triangle–cycle bouquets",
+          "trigger": "Closest same or nearby date catalogue matches on mixed cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen four cases and cone-attachment proof",
+        "Homogeneous windmill theorem and qualitative outerplanar theorem"
+      ],
+      "rationale": "Vertex-gluing cycles of arbitrary lengths is a natural family where the broad outerplanar theorem leaves all numerical invariants undetermined. The mixed theorem identifies a new contractibility boundary through the number of 0-residue petals, and determines the dimension and multiplicity in every other residue pattern, rather than just giving another equal-petal count. The endpoint-inclusion analysis explains the distinction between killing a sphere and adding suspensions.",
+      "residual_risks": [
+        "The classification is nonequivariant and does not address arbitrary block/cut-vertex gluing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

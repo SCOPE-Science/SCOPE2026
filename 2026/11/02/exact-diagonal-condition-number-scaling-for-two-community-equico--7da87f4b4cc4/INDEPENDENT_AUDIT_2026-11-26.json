@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:23:09.402430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–84",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution"
+      ],
+      "rationale": "The two fluctuation eigenspaces have eigenvalues δx and ε; the normalized block means give Q(x) with diagonal rx,s and squared off-diagonal mn a²x. Q is positive definite and its top eigenvalue exceeds both fluctuation levels. Any positive diagonal congruence with condition number k produces H=λ_min(DAD)D⁻² satisfying H≼A≼kH, and feasibility implies condition number at most k in the reverse direction. Averaging H under block permutations preserves feasibility. At optimal k the averaged scaling must attain both spectral bounds 1 and k. Its upper PSD slack has a strictly positive null vector w by Perron–Frobenius; every summand's PSD slack must annihilate w, forcing H equal to its average, since the difference is diagonal. Thus unrestricted optimal scalings cannot break the symmetry. Of the three competing ratios, λ+/λ− decreases then increases about x₀ by the trace divided by square root of determinant; λ+/(δx) strictly decreases and λ+/ε strictly increases by comparing positive Perron matrices Q/x and Q. For x_E≤x₀, δx≥ε throughout the candidate interval, so the competition there is between the decreasing quotient and increasing ε-branch. The sign of det(Q−εI) is the sign of λ−−ε; its affine root is the first claimed crossing if rc>ma², otherwise the quotient dominates. For x_E≥x₀, δx≤ε throughout the candidate interval, and det(Q−δxI)/x is affine decreasing with root (bs−na²)/(b(1−b)). Strict monotonicity outside each interval and the competing monotone branches inside prove both clipping and uniqueness; if x_E=x₀ the interval is a point. In the all-n example the eigenvalues are 1/2 and (n+2)/2 on the quotient and 3/4 and 1/2 on fluctuations at x=5/6; at n=3,x=1 the least eigenvalue is 1/2 and the largest is (16+√106)/10. All strict hypotheses hold in these checks.",
+      "residual_risks": [
+        "The packaged finite exact and numerical checks were not rerun. The independent analytic check applies to the strict positivity and SPD domain only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braatz–Morari eq. (3) and Lemma 2.3 provide general row/column scaling optimization, not the claimed exact crossing rule in the inspected passages.",
+          "Takapoui–Javadi discuss equilibration as a heuristic in Section 2.",
+          "Shapiro's abstract advertises block scaling and some closed forms; full theorem-level coverage was not accessible. The two Kolotilina theorem statements were not accessible in this review."
+        ],
+        "reasoning": "An optimization framework is not a solution of its parameter-dependent scalar problem. Full block scalings, where allowed, also change the admissible set. The uninspected special cases remain a named uncertainty rather than evidence against coverage.",
+        "searches": [
+          "Braatz–Morari DOI 10.1137/S0363012992238680",
+          "Takapoui–Javadi arXiv:1610.03871v1",
+          "Shapiro DOI 10.1137/0722005",
+          "Kolotilina DOI 10.1016/S0024-3795(01)00412-8 and 10.1023/B:JOTH.0000026285.08558.74"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 3470d222a671, 2a376f6167cd, 65800581cc6b and 8c423dd752b2",
+        "Braatz–Morari, Takapoui–Javadi, Shapiro, and both cited Kolotilina papers, to the access limits stated"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-hub material lacks one fluctuation subspace; the sparse paired/windmill models instead have zero correlations across specified leaf pairs.",
+          "The exact matching rule in 3470d222a671 implies the optimum value and symmetric optimizer in the frozen record but does not rule out nonsymmetric minimizers."
+        ],
+        "reasoning": "Averaging alone gives existence of symmetric optimizers, not exclusion of other optimizers. That conclusion requires a positivity/equality argument. The two competing fluctuation modes and their crossovers are not obtained by substituting parameters into the different earlier sparse or one-hub results.",
+        "searches": [
+          "Braatz–Morari, Section 1 and Lemma 2.3",
+          "Resultary 3470d222a671, 2a376f6167cd, 65800581cc6b and 8c423dd752b2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3470d222a671 treats the same matrix and gives equivalent clipped ratios. Its (u,v,g,α,β,a_f,b_f,Δ) correspond to (b,c,a,r,s,δ,ε,mna²), and x_c=b_f/a_f equals x_E.",
+          "It asserts global attainment and uniqueness of the block-constant ratio, but not uniqueness over all coordinatewise positive diagonal scalings."
+        ],
+        "reasoning": "The rule itself is shared, not simply similar. Its later catalogue date does not settle priority. The stronger rigidity in the frozen statement and its all-n example must be distinguished from the common rule.",
+        "searches": [
+          "Resultary: two-community equicorrelation optimum and fluctuation phase transitions",
+          "Resultary 3470d222a671, mirrored statement and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 3470d222a671 exact rule includes a four-dimensional illustration rather than the m=3 and arbitrary n example.",
+          "The one-hub exact family 2a376f6167cd has a singleton block, outside m,n≥2."
+        ],
+        "reasoning": "The relevant lookup is an exact formula catalogue rather than numeric tables. The direct match is counted as exact overlap for the ratio; neither compared example tabulates the frozen all-size saturation claim.",
+        "searches": [
+          "Resultary for two-community closed forms and rigidity",
+          "Resultary 3470d222a671 and 2a376f6167cd"
+        ]
+      },
+      "rationale": "General condition-number formulations and neighboring structured examples are known. The strongest indexed overlap 3470d222a671 independently records an algebraically equivalent clipped rule on the same domain, but does not establish that it preceded this finding and does not assert unrestricted uniqueness. The compared earlier material does not establish the full two-fluctuation classification with unrestricted rigidity and the all-size saturation example. This is a bounded originality assessment, not a priority claim or a claim that the formula appears nowhere else.",
+      "residual_risks": [
+        "The equivalent rule in 3470d222a671 is a substantial overlap and catalogue dates do not prove ordering of discovery or publication.",
+        "Shapiro's specialized closed forms and the full block-scaling theorems of Kolotilina could not be compared at theorem level."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent clipped rule; does not assert unrestricted rigidity; appears under a later catalogue date but priority not inferred",
+          "evidence": [
+            "Matched both crossing expressions by changing notation; different example and scope of uniqueness."
+          ],
+          "identifier_or_url": "Resultary 3470d222a671",
+          "material_read": "Mirrored RESULT.md, offsets 0–4995 and 4800–8936",
+          "method": "Local mirror statement and proof inspection",
+          "title": "Exact four-mode diagonal preconditioning for two-community correlation matrices",
+          "trigger": "Same optimization problem and clipped phase rule"
+        },
+        {
+          "assessment": "General optimization, not explicit family phase rule in inspected text",
+          "evidence": [
+            "Diagonal left/right scaling expressed as convex optimization."
+          ],
+          "identifier_or_url": "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+          "material_read": "Abstract, eq. (3), Lemma 2.3 eq. (17), pp. 1764–66",
+          "method": "Primary PDF passage inspection",
+          "title": "Minimizing the Euclidean Condition Number",
+          "trigger": "General prior convex scaling"
+        },
+        {
+          "assessment": "Related heuristic, not the claimed phase rule",
+          "evidence": [
+            "Formulation in DAE and norm equilibration heuristic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.03871v1",
+          "material_read": "Sections 1–2, pp. 1–2",
+          "method": "Primary PDF passage inspection",
+          "title": "Preconditioning via Diagonal Scaling",
+          "trigger": "Exact versus heuristic scaling methods"
+        },
+        {
+          "assessment": "Potential earlier specialized coverage unresolved",
+          "evidence": [
+            "Abstract describes block scaling, symmetric lower bounds and closed forms in some cases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0722005",
+          "material_read": "Publisher abstract; full text not available through attempted lawful routes",
+          "method": "Abstract inspection and access attempt",
+          "title": "Optimal Block Diagonal ℓ₂-Scaling of Matrices",
+          "trigger": "Plausible earlier closed-form special cases"
+        },
+        {
+          "assessment": "Exact theorem coverage not independently determined",
+          "evidence": [
+            "The 2002 metadata confirms the block-conditioning topic; no full theorem statements were read."
+          ],
+          "identifier_or_url": "10.1016/S0024-3795(01)00412-8; 10.1023/B:JOTH.0000026285.08558.74",
+          "material_read": "2002 landing page/abstract; 2004 retrieval failed",
+          "method": "Abstract inspection and lawful access attempts",
+          "title": "Optimally Conditioned Block Matrices; A Class of Optimally Conditioned Block 2×2 Matrices",
+          "trigger": "Block-diagonal antecedents with possibly relevant special cases"
+        },
+        {
+          "assessment": "Related, distinct domains",
+          "evidence": [
+            "Singleton hub or disjoint sparse pairs, rather than two positive communities with sizes at least two."
+          ],
+          "identifier_or_url": "Resultary 2a376f6167cd, 65800581cc6b and 8c423dd752b2",
+          "material_read": "Mirrored Findings and hypotheses; 2a376f6167cd offsets 0–4984 and 4800–8586; others offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Sharp dimension-dependent diagonal scaling of one-hub equicorrelation; A sparse pair transition in optimal diagonal conditioning of hub matrices; A sharp mode switch law on windmill matrices",
+          "trigger": "Special-family phase rules, including distinct same-date records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–38 and 43–81"
+      ],
+      "rationale": "Two exchangeable communities are a natural correlation model. A closed-form rule determines when each of two different within-community fluctuation levels, rather than quotient balancing, sets the optimum. It removes any entrywise optimization and establishes that a nonsymmetric diagonal cannot tie it. The fixed-ratio all-size example and the strict Jacobi gap illustrate directly why unit diagonal does not suffice. This is useful as an exact benchmark for general preconditioning, not merely a numerical improvement on one selected matrix.",
+      "residual_risks": [
+        "The result concerns spectral condition numbers for this strict family. It does not establish gains in iteration counts or floating-point behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:46:21.727487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–118",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python /workspace/branches/independent_replay.py 1; exact symbolic generator/cofactor and finite-difference checks"
+      ],
+      "rationale": "The generator in RESULT.md has the stated directional transitions, including absorption from a singleton at the remaining extinction rate. For fixed S,c set X=(z+S+c)^2, Y=z+S+2c, D_p=zX+pY. I independently checked the determinant, resolvent numerators and the survival transform (X-p)/D_p. More directly than differentiating, for 0<p<q<=S^2/4 the difference of survival transforms is (q-p)(X/D_p)((z+Y)/D_q). The first factor after q-p inverts to survival plus p times the inverse of 1/D_p, nonnegative by the U,V cofactor ac/D_p if c>0 and by convolution of three exponentials if c=0. It is strictly positive by the no-event path. The second factor inverts to the sum of the two singleton occupation probabilities from B divided by their respective first-jump rates. Exactly one extinction and no further jump gives strict positivity at every positive time. Uniqueness of the Laplace transform and the strictly positive convolution therefore give the order, even at the balanced comparison endpoint. Since P=(S^2-(a-b)^2)/4, this proves strict imbalance ordering and the unique balanced minimum. The z=0 mean and the example also check. Only the stated positive-rate domain is required; in its closure a zero-rate patch persists forever, so the prose about positivity should not be read as excluding a strict zero-versus-positive comparison.",
+      "residual_risks": [
+        "No result for asymmetric recolonization, other initial states or a general network. The exact algebra check is not an exhaustive time or parameter experiment."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 rescue-allocation result e0480495a6f4 optimizes the mean under a directional rescue budget.",
+          "The October 18 fragmentation result 9c6080bacd0c compares one reserve with two equal half-reserves using an area-power law and a recolonization threshold."
+        ],
+        "reasoning": "Neither the directional-budget mean optimum nor the different reserve comparison includes redistribution between arbitrary positive hazards of fixed sum in this two-patch chain. The inaccessible reliability papers do not supply a negative full-text finding.",
+        "searches": [
+          "Resultary: same-model two-patch directional rescue and one-crossing fragmentation",
+          "DOIs 10.1287/opre.21.3.748 and 10.1155/2013/192545"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e0480495a6f4, 9951fe7701bf, 9c6080bacd0c, dfcb35b95e14 (RESULT.md findings and relevant proof text)",
+        "arXiv:1804.03098",
+        "The four DOI access checks listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With c=d the prior rational absorption transform is p(2z+S+2c)/D_p, hence determines the present survival transform; its displayed sign comparison instead fixes a,b and compares cd.",
+          "Real-axis ordering of transforms does not give pointwise ordering of their inverses. The distinct step here is the product of inverse-nonnegative resolvent factors, strict at positive horizons."
+        ],
+        "reasoning": "Credit the transform overlap fully; neither the displayed transform sign nor the standby hazard-rate theorem is a corollary route to the claimed all-deadline order without a new sign argument. The same publication date does not resolve chronological priority.",
+        "searches": [
+          "Resultary 9951fe7701bf, RESULT.md, Proof at offsets 2290–4316",
+          "arXiv:1804.03098 Proposition 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Corujo–Valdés–Laria §§2–3 and Proposition 2 concern a principal/standby system with different operational states and an order in the repair rate at fixed lifetime laws.",
+          "The same-day Resultary balanced-rescue result fixes extinction rates and varies recolonization rates, not vice versa."
+        ],
+        "reasoning": "The change from ecological to repair terminology can conceal an equivalent model, but the inspected standby theorem is not for simultaneously exposed active patches with the stated transition structure. The closest same-chain comparison varies a different parameter.",
+        "searches": [
+          "Resultary: two-patch extinction survival, winking-patch rescue and allocation",
+          "DOI 10.1086/321986",
+          "arXiv:1804.03098"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest entries are balanced rescue 9951fe7701bf, fragmentation 9c6080bacd0c and all-deadline rescue dfcb35b95e14; their result statements concern the distinct comparisons described here."
+        ],
+        "reasoning": "An exact entry must contain the fixed-horizon order for arbitrary admissible allocations, not just example survivals or a mean. The later all-deadline entry orders survival in the product of recolonization rates, not extinction rates. No exact matching entry was identified in this bounded comparison.",
+        "searches": [
+          "Resultary: strict two-patch stochastic survival order under fixed-sum extinction allocation"
+        ]
+      },
+      "rationale": "Pass is limited to the strict usual stochastic order at every positive deadline for extinction-rate redistribution with common positive recolonization; the zero-recolonization case is classical. The strongest same-day comparison gives a more general absorption transform and a different allocation optimum. Its symmetric specialization covers the transform and yields a Laplace-transform order, not the pointwise survival sign proved by inversion with positive kernels. No earlier or same-day full coverage of that sign was established. This is a best-of-knowledge conclusion, not a priority determination.",
+      "residual_risks": [
+        "The 2001 winking-patch paper and the identified other inaccessible primary papers could contain a closer comparison.",
+        "The same-day generalized transform has no established publication-time ordering relative to this record; exact equivalence of the strict signs was not found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact transform overlap, distinct pointwise comparison",
+          "evidence": [
+            "Three transient states and rational absorption transform; fixed-C difference in Laplace transforms varies cd."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-distributional-symmetry-and-sharp-balanced-rescue-optimum-in-t--9951fe7701bf/RESULT.md",
+          "material_read": "Finding and proof, especially offsets 2290–4316",
+          "method": "Local Resultary mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4; substitution c=d",
+          "title": "A distributional symmetry and sharp balanced rescue optimum in two-patch extinction",
+          "trigger": "Same chain and a more general transform"
+        },
+        {
+          "assessment": "Different system and parameter",
+          "evidence": [
+            "Two operational warm-standby states; Proposition 2 compares repair rates for equal unit lifetime laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1804.03098",
+          "material_read": "PDF model §§2–3 and Proposition 2, pp. 3–4 and 9",
+          "method": "Open primary PDF and generator/hypothesis comparison",
+          "title": "Stochastic Comparisons of Two-Units Repairable Systems",
+          "trigger": "Potentially equivalent lifetime order"
+        },
+        {
+          "assessment": "Unresolved, not excluded",
+          "evidence": [
+            "The frozen result lines 123–129 reports a related management rule, not an independently inspected theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/321986",
+          "material_read": "Bibliographic identification; no independent primary full text or abstract",
+          "method": "DOI, publisher and repository recovery attempts",
+          "title": "Rules of Thumb for Conservation of Metapopulations Based on a Stochastic Winking-Patch Model",
+          "trigger": "Closest ecological redistribution question"
+        },
+        {
+          "assessment": "Unresolved",
+          "evidence": [
+            "Frozen literature comparison mentions qualitative rankings, not verified in the primary text in this audit."
+          ],
+          "identifier_or_url": "https://doi.org/10.1086/428293",
+          "material_read": "Bibliographic identification; primary passages unavailable",
+          "method": "DOI, publisher and lawful copy lookup",
+          "title": "Metapopulation Persistence in Heterogeneous Landscapes: Lessons about the Effect of Stochasticity",
+          "trigger": "Heterogeneity and persistence rankings"
+        },
+        {
+          "assessment": "No affirmative evidence of coverage; theorem text unavailable",
+          "evidence": [
+            "The cited title specifies warm standby; no theorem passage was recovered."
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/opre.21.3.748",
+          "material_read": "Bibliographic identification only",
+          "method": "DOI, INFORMS and lawful copy lookup",
+          "title": "Probabilistic Analysis of a Two-Unit System with a Warm Standby and a Single Repair Facility",
+          "trigger": "Repair-system lifetime alias"
+        },
+        {
+          "assessment": "Unresolved",
+          "evidence": [
+            "No primary theorem passage recovered."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2013/192545",
+          "material_read": "Bibliographic identification only",
+          "method": "DOI, publisher and alternate PDF attempts",
+          "title": "Stochastic Analysis of a Two Non-Identical Unit Parallel System with Different Types of Failures Subject to Preventive Maintenance and Repairs",
+          "trigger": "Parallel rather than standby reliability model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Founded model and restrictions in RESULT.md lines 3–27 and 123–129; related budget and fragmentation statements discussed above"
+      ],
+      "rationale": "In a canonical minimal rescue model, the ranking at one management deadline need not in general predict another from the mean alone. The theorem rules out crossings for this exact fixed total hazard comparison at any finite common rescue rate and identifies the unique worst allocation. This extends the independent-parallel case in a structurally useful way without suggesting that the fixed-budget mechanism holds in field systems.",
+      "residual_risks": [
+        "The fixed-sum constraint is stylized; no ecological intervention, general topology or stronger hazard order follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

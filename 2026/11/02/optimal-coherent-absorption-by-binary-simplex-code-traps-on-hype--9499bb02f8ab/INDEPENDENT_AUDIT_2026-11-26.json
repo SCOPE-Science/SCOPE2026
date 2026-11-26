@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:47:46.200722Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Walsh characters diagonalize adjacency by weight. On an affine trap set each restricts to a nonzero phase times a parameter character indexed by the syndrome consisting of the XOR of its selected columns. The restricted rank is therefore the number of distinct syndromes, independent of translation. Complement preserves rank. At weights 0,N the rank is one. If r1≤N−1, the symmetric deficits at 1,N−1 alone give B≤N²−3. If r1=N all columns are distinct (zero need not be excluded), so no two sum to zero, r2≤N, and the combined low- and high-shell deficits give the same bound. For simplex, the shell Gram diagonal is c=binom(N,w) and the common off-diagonal is b_w=[z^w](1−z)(1−z²)^(L−1), L=(N+1)/2. By the displayed decreasing successive ratios within each parity, c/|b_w| on the interior is at least the endpoint ratio N(N−2)/3>N, including the two interior weights at N=7. Both Gram eigenvalues are positive there. The endpoint ranks follow from actual size-one and size-two syndrome sets and complement. The dark subspace is a direct sum of shell kernels (a vector in the sum need not itself be a single eigenvector); it is reducing, Gamma vanishes there, and a real-energy eigenvector anywhere would have zero Gamma expectation and hence lie in a shell kernel. The complementary finite-dimensional semigroup therefore decays even without diagonalizability. The captured fraction for arbitrary density matrix is its bright projection weight, so for the maximally mixed state it is B/2^N. `python3 /workspace/review-evidence/reproduce.py 5` derives physical Walsh rank lower bounds matching the analytic upper bounds at N=7, tests exact syndrome enumerators for m=3 through 7, and exhausts the 2696 spanning column multisets at m=3, obtaining 176 attainers. These finite checks do not replace the proof for all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-date catalogue records treat complete product-repetition supports and complete Hamming spheres respectively, with shell/capture statements. Related walk papers use different trap geometry or measurement rules, such as Poisson measurements or discrete-time walks on embedded hypercubes."
+        ],
+        "reasoning": "The inspected exact support families and models do not dominate arbitrary affine dimension-m support choices, and neither date nor a shared rank description decides priority.",
+        "searches": [
+          "Resultary f5e3ff20d803 and 519ce4796df0",
+          "arXiv:1311.6298",
+          "arXiv:1510.08388",
+          "arXiv:0803.3446"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1104.0172",
+        "arXiv:quant-ph/0104137",
+        "arXiv:quant-ph/0606094",
+        "arXiv:0803.3446",
+        "arXiv:1311.6298",
+        "arXiv:1510.08388",
+        "Resultary f5e3ff20d803 and 519ce4796df0",
+        "ScienceDirect 0012365X85900251 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known constant-weight simplex dual structure mechanically gives the two Hamming coset enumerators and thus this optimizer's profile. The upper bound needs a separate endpoint-deficit dichotomy for arbitrary column multisets, including repeated columns."
+        ],
+        "reasoning": "The inspectable coverage establishes a large part of the simplex calculation but not optimality; the universal r1/r2 argument is the supported difference. This is not priority for the rank formula itself or for quantum-walk dark subspaces.",
+        "searches": [
+          "Resultary f5e3ff20d803 Finding and prior-work section",
+          "Resultary 519ce4796df0 Finding",
+          "Jurrius arXiv:1104.0172",
+          "arXiv:1311.6298"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a full-rank binary generator G, the shell observable is the number of cosets of ker G meeting the weight-w sphere. The simplex instance is realized by the binary Hamming parity-check matrix. Dark-state subspaces are already studied in the hitting-time literature."
+        ],
+        "reasoning": "This dual formulation identifies the exact classical ingredient and also its limit: fixing ker G as Hamming only computes one candidate, not an extremum over all full-rank G.",
+        "searches": [
+          "arXiv:1104.0172, simplex generator description",
+          "On the cosets of the simplex code, ScienceDirect 0012365X85900251",
+          "Krovi–Brun quant-ph/0606094"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Let P(z)=(1−z)^L(1+z)^(L−1). Classical character inversion gives the zero-syndrome enumerator ((1+z)^N+NP(z))/(N+1) and the nonzero-syndrome enumerator ((1+z)^N−P(z))/(N+1). These exact coefficients recover every simplex shell rank as a positivity test. The retrieved catalogue formulas are for other supports."
+        ],
+        "reasoning": "The simplex part is already determined by exact enumerator data, but this enumerator does not compare different affine placements. No exact earlier table/classification for the universal maximum was established from the inspected sources.",
+        "searches": [
+          "Jurrius arXiv:1104.0172, pp. 1,4",
+          "Resultary f5e3ff20d803 and 519ce4796df0, Findings",
+          "ScienceDirect 0012365X85900251 (access-limited)"
+        ]
+      },
+      "rationale": "The distinct claim supported here is the sharp optimum across ALL affine dimension-m placements with the specified trap budget, attained by simplex. The simplex shell profile is the support of a classical Hamming-code coset weight enumeration; it is a coding-theory consequence after translating the observable, not an independent priority claim about those ranks or enumerators. Dark spaces and algebraic walk frameworks also predate this theorem. Neither the exact enumerator for one code nor the inspected prior studies of other support families provide the universal upper bound.",
+      "residual_risks": [
+        "A specialist coding or observability theorem might already optimize the same summed coset support across all linear codes of this dimension. A plausible coset paper was unavailable; its contents cannot be inferred.",
+        "The Hamming coset enumerator covers the simplex profile; no claim of independence from that established coding theory is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical generator and enumerator setting, not the affine-trap optimum",
+          "evidence": "Simplex generator columns are the nonzero vectors up to scalar; the paper studies generalized and extended weight enumerators.",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.0172",
+          "material_read": "pp. 1 and 4, offsets 0 and 11349",
+          "method": "Bounded OA PDF text",
+          "title": "Weight enumeration of codes from finite spaces",
+          "trigger": "Simplex coding-theory antecedent"
+        },
+        {
+          "assessment": "Scope undetermined; the title concerns simplex cosets, not sufficient evidence for the Hamming dual cosets or the global optimum",
+          "evidence": "No theorem or appendix text inspected.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/0012365X85900251",
+          "material_read": "Bibliographic title; full text not retrieved",
+          "method": "Lawful OA attempt returned 403; no decisive passage available",
+          "title": "On the cosets of the simplex code",
+          "trigger": "Plausible specialist coset-enumerator lead"
+        },
+        {
+          "assessment": "Same physical rank framework; narrower and different family, no chronology inferred",
+          "evidence": "Shell-rank polynomial and capture for complete product-repetition-code supports.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-geometry-independent-dark-spectra-for-block-repetition-code-abso--f5e3ff20d803",
+          "material_read": "RESULT.md Finding at offset 0 and prior-work section near offset 6240",
+          "method": "Bounded local published-mirror text",
+          "title": "Geometry-independent dark spectra for block-repetition-code absorbers",
+          "trigger": "Close same-date affine-code hypercube absorption record"
+        },
+        {
+          "assessment": "Different placement family",
+          "evidence": "Energy-resolved ranks and an odd/even absorption law for complete Hamming spheres.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-parity-sharp-coherent-absorption-by-hamming-h--519ce4796df0",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Bounded local published-mirror text",
+          "title": "Parity-sharp coherent absorption by Hamming hyperspheres",
+          "trigger": "Same-date hypercube shell-rank theorem"
+        },
+        {
+          "assessment": "Framework antecedent, not this optimum in inspected passages",
+          "evidence": "Infinite-hitting-time states form a subspace tied to symmetry; hypercube discussed.",
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0606094",
+          "material_read": "pp. 1 and 7, offsets about 850 and 17000",
+          "method": "Bounded OA PDF text",
+          "title": "Quantum walks with infinite hitting times",
+          "trigger": "Dark spaces on hypercube walks"
+        },
+        {
+          "assessment": "Different detection setup",
+          "evidence": "Poisson-distributed measurements and conditions for infinite hitting time.",
+          "identifier_or_url": "https://arxiv.org/pdf/0803.3446",
+          "material_read": "p. 1 near offset 1807",
+          "method": "Bounded OA PDF text",
+          "title": "Hitting time for the continuous quantum walk",
+          "trigger": "Continuous-walk absorption/hitting analogue"
+        },
+        {
+          "assessment": "Related mechanism, different inspected geometries; no whole-paper noncoverage inferred",
+          "evidence": "Chains, rings and random higher-dimensional lattice traps.",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.6298",
+          "material_read": "Abstract, p. 1",
+          "method": "Bounded OA PDF text",
+          "title": "Survival of classical and quantum particles in the presence of traps",
+          "trigger": "Closest traditional non-Hermitian trap-survival reference"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result optimizes an operationally defined total capture probability under a natural affine-placement constraint, not merely evaluates a standard code table. The forced low-weight deficits explain why even the best affinity-constrained layout fails to saturate the naive rank bound, and an explicit physical layout reaches the sharper bound for all m. No interpretation as fastest decay or optimum among unconstrained trap sets is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

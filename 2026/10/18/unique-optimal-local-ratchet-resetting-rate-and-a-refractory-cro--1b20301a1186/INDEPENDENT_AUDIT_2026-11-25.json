@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:27:51.090882Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, assumptions and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed"
+      ],
+      "rationale": "The Brownian position at the independent exponential time has the stated symmetric Laplace law: its characteristic function is r/(r+Dk²). Summing the two snapped-jump tails gives the signed mean step in frozen Eq. at lines 43–45. The mean duration of an independent cycle is r⁻¹+τ; dependence between its own reward and duration is allowed. For control of the unfinished cycle, let K(t) be the first cycle index at which cumulative duration exceeds t. Its count is at most one plus the Poisson count using the same exponential durations with all delays omitted. An envelope for the displacement within a cycle is the maximum Brownian displacement up to its exponential capture plus L, and has finite second moment. The envelope of cycle K(t) is o(t) almost surely by the integrable iid envelope tail bound and K(t)=O(t) almost surely. In expectation its magnitude is O(√(1+t)): the square of this envelope is bounded by the sum of squared envelopes up to K(t), and inclusion of cycle i in that sum depends only on preceding cycles. The same predictable sum argument for cycle rewards, with the last reward subtracted, gives the mean limit since K(t)/t converges in mean by the Poisson bound and the renewal law. Strict convexity of sinh gives G_y<0; opposite endpoint signs give the sole global maximizer, and G_η<0, G_δ>0 give the stated strict optimization shifts. For fixed δ the large-delay root tends to 0 and the hyperbolic difference is (1−δ²)y/3+O(y³), so η y_*⁴ tends to 6/(1−δ²); the prefactors of r_* and the maximum speed follow by substitution. For fixed η and δ↑1 the root must diverge. At that root the difference coth y−δ coth(δy), divided by 1−δ, tends to one by the mean-value theorem applied to b coth(by), since its derivative tends uniformly to one for b between δ and 1 there. Therefore the stationary balance gives the two claimed exponents and constants without exchanging limits at a fixed rate. At δ=0 the speed vanishes; at δ=1 the positive speed is increasing in y, with no interior optimum.",
+      "residual_risks": [
+        "The frozen assertions are for fixed deterministic immobile delay with independent restarts, not noisy or rate-dependent returns. The two nearly perfect-asymmetry laws fix η; no general joint-limit scaling is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roberts et al. solve a broader finite-strength switched ratchet and also a separate static-potential stop-and-start model with deterministic downhill returns. Ghosh et al. study numerical rectification maxima with an active potential and immobile latency. The indexed refractory-threshold record studies ring winding; the indexed exact-drift record primarily adds a diffusivity result."
+        ],
+        "reasoning": "These models are either different dynamical systems or cover reward identities and other observables. Potential-driven downhill travel is not a fixed wait after instantaneous capture. The inspected broader results do not supply the strict optimum theorem for the submitted design problem.",
+        "searches": [
+          "Local Resultary: refractory renewal ratchet and rate optimum; arXiv:2405.10698 Appendix C; arXiv:2307.06202 finite-latency model; arXiv:2401.12772"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact ratchet drift and refractory comparisons",
+        "arXiv:2405.10698, 2307.06202 and 2401.12772",
+        "The two distinct indexed records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact no-delay speed and the latency multiplier together give the frozen F after normalization. The exact-drift indexed record gives the same no-delay reward while the ring-winding record reduces immobile overheads to their mean. Neither gives strict log-derivative monotonicity for this objective or analyzes its shrinking/diverging rate roots."
+        ],
+        "reasoning": "Credit all equivalent objective formulas. The new comparison concerns the optimization and two-parameter regimes, which require a global sign argument and asymptotic balance, not substitution of an earlier optimal-rate theorem.",
+        "searches": [
+          "arXiv:2405.10698 §IV and Appendix C; arXiv:2307.06202 Eq. (7) and Fig. 4; indexed exact-drift and refractory-threshold Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing ℓ=2y and the Roberts apex fraction as 1−a/L maps their signed instantaneous current to the frozen mean jump per cycle. The distinct exact-drift record uses the opposite basin-distance convention. Ghosh et al. rescale the no-latency speed by 1/(1+τ₀/τ_excursion), i.e. 1/(1+rτ₀)."
+        ],
+        "reasoning": "The current and time rescaling are known under an explicit conversion of variables. For the mean speed an iid rate-independent immobile overhead with finite mean is equivalent to deterministic latency of that mean; it does not change the rate governing the jump distribution or imply equivalent fluctuations.",
+        "searches": [
+          "Local Resultary: instantaneous Brownian ratchet capture, exact drift and delay; Roberts–Sezik–Lardet arXiv:2405.10698 §IV; Ghosh et al. arXiv:2307.06202 Eq. (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Eq. (24) is an exact hyperbolic formula for the instantaneous current and Eq. (27) converts to drift. Fig. 4 of Ghosh et al. illustrates the exact finite-latency rescaling; its speed comparisons are not a global uniqueness result."
+        ],
+        "reasoning": "This is a continuous-parameter theorem, so the relevant exact comparison is published formulas and parameter curves, not a finite census. Those supply the objective but do not establish its critical point count or singular exponents.",
+        "searches": [
+          "Local Resultary and focused literature search: exact ratchet optimization, near-perfect asymmetry and strong refractory scaling",
+          "Roberts–Sezik–Lardet §IV, Eqs. (24), (27); Ghosh et al. Fig. 4 and Eq. (7)"
+        ]
+      },
+      "rationale": "The instantaneous-capture drift without latency is explicitly covered by Roberts–Sezik–Lardet, and the fixed-latency speed correction is already given by Ghosh et al. Combining these antecedents supplies the objective, so that objective and the renewal overhead factor are not credited as new. The supported distinct part is its all-parameter rate optimization: strict uniqueness and comparative statics, the large-delay scale, and the two different divergences at nearly perfect asymmetry. The strongest inspected exact-current and refractory comparisons do not give those results as stated theorems or direct specializations. This judgment is limited to the inspected sources.",
+      "residual_risks": [
+        "A general renewal optimization result whose hypotheses specialize to this objective, or an unindexed equivalent ratchet optimization theorem, remains possible. The bounded search is not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact zero-delay antecedent; the static stop-and-start return is not a fixed refractory wait",
+          "evidence": [
+            "Eq. (24) has numerator sinh((1−2δ_R)ℓ/2) and denominator 2 sinh(ℓ/2). Eq. (C1) keeps the potential force during diffusion and downhill return; restart occurs on arrival."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.10698",
+          "material_read": "§II pp. 2–3; §IV Eqs. (24), (27), pp. 9–10, offsets about 63100 and 69400; Appendix C, offset 131000",
+          "method": "Lawful OA PDF, parameter conversion and direct reading",
+          "title": "Ratchet-mediated resetting: Current, efficiency, and exact solution",
+          "trigger": "Exact instantaneous current and related stop-and-start model"
+        },
+        {
+          "assessment": "Earlier numerical optimum and exact latency correction, not the free-excursion optimization theorem",
+          "evidence": [
+            "Eq. (7) divides the zero-latency speed by 1+τ₀/τ_excursion. The active excursions in the modeled ratchet include a substrate-potential force."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.06202",
+          "material_read": "Abstract/model on p. 1; active Langevin equation (1) on p. 2; finite latency p. 4, Eq. (7) and Fig. 4, offsets about 40980–45317 and 47800 onward",
+          "method": "Lawful OA PDF; read exact delay equation and model context",
+          "title": "Autonomous Ratcheting by Stochastic Resetting",
+          "trigger": "Optimal resetting phenomenology and finite latency"
+        },
+        {
+          "assessment": "Symmetric nearest-site and diffusivity antecedent rather than asymmetric drift design",
+          "evidence": [
+            "Studies the effective diffusion of local resetting rather than a directional mean-velocity optimum for asymmetric catchments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.12772",
+          "material_read": "pp. 2–4, including text offsets about 7000 and 26400",
+          "method": "Lawful OA PDF, model and observable comparison",
+          "title": "Boosting macroscopic diffusion with local resetting",
+          "trigger": "Potential antecedent via local nearest-site resetting"
+        },
+        {
+          "assessment": "Overlapping exact drift but different optimization observable; no date-based priority inference",
+          "evidence": [
+            "v=rLM(ℓ,δ) is the same no-delay velocity with opposite distance convention. The diffusivity analysis explicitly does not claim uniqueness of its maximizer."
+          ],
+          "identifier_or_url": "SCOPE-exact-drift-dependent-diffusivity-and-weak-reset-enhancement-in--1be33cfa05c2",
+          "material_read": "Local-mirror Finding and assumptions, offsets 0–7834",
+          "method": "Local mirror, compare models and formulas",
+          "title": "Exact drift-dependent diffusivity and weak-reset enhancement",
+          "trigger": "Same instantaneous Brownian projection model and exact velocity"
+        },
+        {
+          "assessment": "Shares the mean-overhead principle, not the ratchet rate theorem",
+          "evidence": [
+            "Independent immobile waiting enters the ring-winding mean only through its expected duration."
+          ],
+          "identifier_or_url": "SCOPE-a-sharp-one-ninth-refractory-threshold-for-topological-accelerat--30a5a19ba9b3",
+          "material_read": "Local-mirror Finding and proof of mean refractory correction",
+          "method": "Local mirror, compare regenerative observables",
+          "title": "A sharp one-ninth refractory threshold for topological acceleration",
+          "trigger": "Rate-independent overhead equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Roberts–Sezik–Lardet §IV",
+        "Ghosh et al. Eq. (7)"
+      ],
+      "rationale": "The optimization is a natural design question for a well-established ideal local-reset ratchet. Knowing the exact current alone does not tell an experimenter whether increasing the reset rate helps or where its optimum moves. The theorem gives unambiguous parameter ordering and shows that any fixed positive dead time changes the near-singular optimal-rate exponent, an effect not captured by the no-delay optimum. This is a parameter-wide structural result, not merely a numerical reoptimization of a known curve.",
+      "residual_risks": [
+        "The design interpretation applies to instantaneous capture with immobile overhead, not efficiency, fluctuations, or finite-potential experimental ratchets without a model-approximation argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

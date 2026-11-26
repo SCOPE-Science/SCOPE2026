@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:36:49.053850Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–43; VERIFICATION.md lines 19–27; verify_online_efx.py lines 11–63 (inspected, not executed)",
+        "Independent enumeration: base-five profiles, all first/second outcomes with integer weights in quarter-units, both final recipients tested by direct removal inequalities; positive upper witnesses (2,2,1) and (2,2,4)"
+      ],
+      "rationale": "For one singleton and one pair, the singleton owner's good must be weakly maximal in her values, with no further restriction. Fixing arrival-order tie breaks gives strict rankings for the proof without changing that sufficiency. When the first two rankings disagree, one first-coin outcome leaves both agents with their preferred early good; this succeeds unless both rank the third good top, in which case the other outcome, stacking the two early goods, succeeds. If both favor the first good, the success lower bound conditional on first recipient i is (1−T_i+T_j)/2 for T_i the indicator that the third ranks top; averaging cancels the indicators. If both favor the second, exactly one second-coin branch certifies success based on the other agent's top. For identical positive inputs (1,1,ε) and (1,1,L), 0<ε<1<L, only 1+2 splits can be EFX, and the first two goods must be split on the low-tail input and stacked on the high-tail input. The distribution on that decision is shared, so one success probability is at most 1/2. An independent direct enumeration of the policy found 9,200, 2,800, 3,625 profiles at probabilities 1/2, 3/4, 1 over {0,…,4}⁶, and checked all eight recipient strings for each of two positive tails.",
+      "residual_risks": [
+        "Minor wording issue: ‘otherwise choose either recipient’ does not literally guarantee a 1+2 split; stacking the third on a no-completion branch gives 3+0. One may always choose a 1+2 split on such branches (and when 3+0 satisfies EFX, the empty agent values each good at zero and can instead receive the third). This does not affect the theorem. Enumeration is not a proof for all real values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary lower guarantee works for normalized nonnegative monotone valuations; its upper bound uses strictly positive additive inputs. Cohen–Teh–Wooldridge Theorem 5.4 gives 1/n! as an upper bound and 2/((n+1)n!) as the companion constructive guarantee."
+        ],
+        "reasoning": "Restriction of a broader lower-bound algorithm to additive inputs retains its guarantee; additive witnesses retain the converse. The n-agent guarantee instead gives only 1/3 at n=2.",
+        "searches": [
+          "Resultary 5609d624fa0a, nonnegative monotone, not necessarily additive EFX; arXiv:2609.28333v1 §5.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–37 and 45–59",
+        "Resultary 5609d624fa0a; arXiv:2609.28333v1, 2504.03951v1, 2410.08986v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior sharp theorem follows in the additive model by two opposite inequalities, not by identical pseudocode. Garg–Sharma start from a full fair-division instance; their ex-post EFX result does not give an irrevocable revelation-order policy."
+        ],
+        "reasoning": "The distinct disagreement rule in the frozen proof neither changes the covered optimal probability nor shows a stronger guarantee, cheaper randomization, or a separately motivated tradeoff.",
+        "searches": [
+          "5609d624fa0a, Finding and policy proof; arXiv:2609.28333v1 Theorem 5.4; arXiv:2410.08986v2 Algorithm 4 and Theorem 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5609d624fa0a, Finding and assumptions at offsets 89–2749, use the same final removal-of-every-good definition (including zero-valued goods), current singleton-value disclosure, and irrevocable assignment against a fixed input."
+        ],
+        "reasoning": "Exactly the same event, adversary, information and horizon; known horizon is allowed by the frozen policy and its upper bound even with that knowledge.",
+        "searches": [
+          "Resultary: two agents, three goods, sharp one-half success frontier for online EFX (5609d624fa0a)",
+          "Cohen–Teh–Wooldridge, exact success as α-EFX at α=1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed result is a proof of the exact probability 1/2, not a table or finite sample. Proposition 3.6 gives a tight offline count of n EFX allocations at m=n+1."
+        ],
+        "reasoning": "The exact invariant is the minimax online success probability, not the number of offline outcomes nor a histogram of one policy on a finite grid. The indexed proof covers the invariant.",
+        "searches": [
+          "Resultary exact sharp success probability lookup, result 5609d624fa0a; Neoh–Teh arXiv:2504.03951v1 Proposition 3.6"
+        ]
+      },
+      "rationale": "Resultary 5609d624fa0a states the exact optimal 1/2 guarantee for the same horizon and information model and proves it even for normalized nonnegative monotone set valuations. It supplies an additive upper witness, so the additive restriction here changes neither the lower nor the upper bound. The frozen policy is not identical, but the mathematical finding is already covered.",
+      "residual_risks": [
+        "Catalogue entry and mathematical implication establish coverage in the inspected corpus, not authorship, publication priority across venues, or dependence of one proof on another."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING; broader valuation class with additive upper witnesses",
+          "evidence": "Exact worst-case 1/2 after three goods observing both singleton values, fixed ordered nonnegative monotone valuations and irrevocable assignment.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-sharp-one-half-success-frontier-for-online-efx-with-two-agen--5609d624fa0a/RESULT.md",
+          "material_read": "Finding, Assumptions and scope and proof, offsets 89–8040; mirrored commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, hypothesis and conclusion comparison",
+          "title": "The sharp one-half success frontier for online EFX with two agents",
+          "trigger": "Exact title, horizon and probability match"
+        },
+        {
+          "assessment": "Upper bound only at the sharp value",
+          "evidence": "At n=2 and α=1 the upper bound is 1/2 but the general constructive guarantee is 1/3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.28333v1",
+          "material_read": "Model p. 7, offset 30246; Thm. 5.4 pp. 18–19, offset 73783",
+          "method": "OA primary text",
+          "title": "Online Fair Division Against an Oblivious Adversary",
+          "trigger": "Published-model upper and lower bounds"
+        },
+        {
+          "assessment": "Offline count, not online minimax",
+          "evidence": "For m=n+1 the minimum possible number of offline EFX allocations is n.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.03951v1",
+          "material_read": "Prop. 3.6 p. 4, offset 30712",
+          "method": "OA primary text",
+          "title": "Understanding EFX Allocations: Counting and Variants",
+          "trigger": "Potential source of matching lower guarantee"
+        },
+        {
+          "assessment": "Different information and allocation model",
+          "evidence": "Algorithm 4 takes a full fair-division instance; ex-post EFX is not a statement about sequential irrevocable allocation with unseen future values.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.08986",
+          "material_read": "v2 abstract p. 1; Alg. 4 and Thm. 8 pp. 9–10, offset 25588",
+          "method": "OA primary text",
+          "title": "Best-of-Both-Worlds Fairness of the Envy-Cycle-Elimination Algorithm",
+          "trigger": "Two-agent randomized ex-post EFX"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 22–43; Resultary 5609d624fa0a, Finding and proof"
+      ],
+      "rationale": "The original exact 1/2 benchmark for the first nontrivial horizon is meaningful. Here it is a restriction of an existing sharp theorem with an equally elementary online rule. The changed policy and exhaustive grid cross-check do not give a separately motivated improvement or new invariant, and the additive restriction is not a surviving distinct result.",
+      "residual_risks": [
+        "No claim that this alternate policy could never have another use; none is established in the record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:02:34.398075Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fixed set of an extensive monotone idempotent map contains the top and is meet-closed by extensivity and monotonicity. Conversely the meet of its members above each input is its least member above that input and defines the unique such map. Let A and B record occupied lower and upper positions; n−1 must be in B. If A has maximum m, a meet with the lower point at m forces B∩[0,m]⊆A, and that condition suffices for every cross-row meet. For A empty the weight is t(1+t)^(n−1); otherwise columns below m are empty, lower-only or both, while the lower point at m and the top are compulsory, leaving n−1−m optional upper points. The resulting telescoping geometric sum gives (1+t+t²)^n−(1+t)^(n−1). At n=1 this is t+t²; all ranks up to n occur by taking just upper points, and larger ranks by adding an initial segment of lower points to the full upper row. Reversing both coordinates transports Bao et al.'s characteristic interior map to a closure and preserves fixed cardinality. The characteristic minimum is the target itself iff no proper subgroup transfers to it. Finally the normalized law is the difference of 3^n times the law of an iid ternary sum and 2^(n−1) times the fair-binomial law, divided by the difference of these weights. Its distance from the ternary sum is at most 2^(n−1)/(3^n−2^(n−1)); the latter sum has mean n and variance 2n/3, proving the stated CLT. The verification notes and script match their claimed finite scope and were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hafeez et al.'s rectangular recurrence, Stirling formula, and exponential generating function are for totals. Setting the first prime exponent to 1 and the second to n−1 gives 3^n−2^(n−1).",
+          "Glück counts chains, diamonds and bottomless diamonds and uses isolated-suborder recursions; some count sets containing specified points, but the inspected formulas are not a fixed-cardinality polynomial for these product chains."
+        ],
+        "reasoning": "A broad unweighted counting formula even on the identical objects does not determine their weight distribution. The grid description is a route to computing the statistic, not an existing formula for it.",
+        "searches": [
+          "Resultary: Hafeez Marcus Ormsby Osorno saturated transfer systems total counts rectangular subgroup lattices rank polynomial",
+          "Web: \"Saturated and linear isometric transfer systems for cyclic groups\" rectangular subgroup lattices counts \"3^n\" OR \"2^n\" Hafeez; \"Transfer systems for rank two elementary Abelian groups\" Theorem 2.8 Remark 2.9 characteristic function interior operators saturated; \"Isolated Suborders\" closure operators product of two chains fixed-point counts",
+          "arXiv:2109.08210, Theorems 1.1, 3.2, 4.7 and §4",
+          "arXiv:2302.13081, §§7.1–7.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2109.08210",
+        "arXiv:2310.13835",
+        "arXiv:2302.13081",
+        "Balchin–MacBrough–Ormsby note",
+        "Local Resultary two-row S4 record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known saturation model specifies eligible cover arrows but the stated recurrence and its closed form do not assign weight to targets without a proper incoming transfer.",
+          "The modal record imposes meet and top preservation for its interior modalities and derives bounded sublattices. The BMO note's direct rectangular calculation is unfinished in the inspected copy and points to the known total."
+        ],
+        "reasoning": "The necessary additional step is the cross-row meet condition and its weighted column decomposition. Neither the count specialization nor the smaller modal family mechanically yields this decomposition. Once the polynomial is known the transfer statistic and CLT are direct consequences, not independent originality claims.",
+        "searches": [
+          "arXiv:2109.08210, Theorem 3.2 and §4",
+          "https://e-infinity.space/files/MRC/closure.pdf, Dodecatheorem 1.20 and §4",
+          "2026/10/12/SCOPE-rank-graded-s4-modalities-on-finite-two-row-stable-kripke-frames--00d57ca864fb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bao et al. send a transfer system to the minimum incoming source at each target and identify the saturated systems with interior operators. Their self-dual remark gives the closure formulation. Balchin–MacBrough–Ormsby give the dual saturated/cosaturated and closure correspondence in Dodecatheorem 1.20."
+        ],
+        "reasoning": "These are genuine equivalences; consequently a prior polynomial counting targets with no proper incoming transfers would cover the result. The inspected equivalences transport the statistic but do not enumerate it.",
+        "searches": [
+          "Resultary: closure operators product two chains C2 x Cn meet-closed fixed point subsets polynomial",
+          "Resultary: saturated transfer systems cyclic group C_p q^(n-1) interior operators characteristic fixed subgroups counts",
+          "Bao et al. arXiv:2310.13835, Definition 2.2, Theorem 2.8, Remarks 2.9–2.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Bao Boolean-lattice table includes 7 for the two-by-two case, not a fixed-size histogram; the general total is independently verified from Hafeez et al. The cited OEIS A083313 page was unavailable in the checked routes.",
+          "The local catalogue match 2026/10/12/SCOPE-rank-graded-s4-modalities-on-finite-two-row-stable-kripke-frames--00d57ca864fb supplies a different polynomial: at n=2 it gives u²+2u³+u⁴ rather than t+3t²+2t³+t⁴."
+        ],
+        "reasoning": "Agreeing totals or using the same chain parameters does not establish an exact weighted table match. The modal record's fixed sets are bounded sublattices, not all top-containing meet-closed sets.",
+        "searches": [
+          "Resultary: fixed-point rank polynomial closure operators C2 times Cn (1+t+t^2)^n minus (1+t)^(n-1)",
+          "Resultary: OEIS A083313 3^n-2^(n-1) closure systems two-row chain C2 x Cn exact rank polynomial",
+          "Bao et al. arXiv:2310.13835, Remark 2.10"
+        ]
+      },
+      "rationale": "The supported result is the all-closure fixed-set-size refinement on this two-row lattice and its consequences, not the unrefined count or the characteristic-map correspondence. The closest rank-graded calculation on exactly the same lattice has a stricter map class and a different polynomial. Earlier general rectangular enumeration establishes the total but not the weighted distribution in the passages checked.",
+      "residual_risks": [
+        "The cited OEIS page could not be inspected; the total overlap is established independently by the primary rectangular theorem.",
+        "A refinement under different lattice or transfer terminology could be unindexed; no exhaustive priority assertion is warranted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior unrefined specialization, no fixed-target weights in the inspected results",
+          "evidence": "At exponents (1,r) the total is 3^(r+1)−2^r, independent of the primes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2109.08210",
+          "material_read": "Theorems 1.1, 3.2 and 4.7; §4 recurrence and total generating function",
+          "method": "OA original article with targeted PDF passages and theorem HTML",
+          "title": "Saturated and linear isometric transfer systems for cyclic groups of order p^m q^n",
+          "trigger": "Same rectangular lattices and all saturated systems"
+        },
+        {
+          "assessment": "Establishes the used correspondence and duality; not the rank enumeration",
+          "evidence": "The greatest elements in the fibers of the characteristic map are the saturated transfer systems, in bijection with interior operators; self-duality yields closure operators.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.13835",
+          "material_read": "Definition 2.2 (p. 7), Theorem 2.8 (p. 8), Remarks 2.9–2.10 (p. 9)",
+          "method": "OA original PDF passage inspection",
+          "title": "Transfer systems for rank two elementary Abelian groups: characteristic functions and matchstick games",
+          "trigger": "Exact transfer-to-operator dictionary and potential table"
+        },
+        {
+          "assessment": "Unweighted counts and isolated-suborder counting machinery",
+          "evidence": "Diamond of width two has seven closure systems. The inspected statements do not weight by fixed-set cardinality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.13081",
+          "material_read": "§7.1 Lemmas 7.3, 7.5, 7.7 and §7.2 formulas (7.3)–(7.4), offsets 51278–56230",
+          "method": "OA original PDF passage inspection",
+          "title": "Isolated Suborders and their Application to Counting Closure Operators",
+          "trigger": "Closure-system enumeration, including small overlapping lattice"
+        },
+        {
+          "assessment": "Prior duality and known rectangular total, not a rank formula",
+          "evidence": "Identifies closure operators with saturated transfer systems on the opposite lattice; inspected direct rectangular argument is marked unfinished.",
+          "identifier_or_url": "https://e-infinity.space/files/MRC/closure.pdf",
+          "material_read": "Dodecatheorem 1.20, Corollary 1.21, §4 around offset 27000",
+          "method": "OA note PDF passage inspection",
+          "title": "Closure Operators and Cosaturated Transfer Systems",
+          "trigger": "Alternate dual formulation and direct rectangular count"
+        },
+        {
+          "assessment": "Different map class, demonstrably different grading even at n=2",
+          "evidence": "Fixed sets correspond to bounded sublattices; total is 2^(n−5)(n²+11n+6), and the n=2 histogram has four rather than seven objects.",
+          "identifier_or_url": "2026/10/12/SCOPE-rank-graded-s4-modalities-on-finite-two-row-stable-kripke-frames--00d57ca864fb",
+          "material_read": "RESULT.md offsets 0–10342, statement and fixed-sublattice derivation",
+          "method": "Local Resultary mirror",
+          "title": "Rank-graded S4 modalities on finite two-row stable Kripke frames",
+          "trigger": "Same two-row lattice and analogous fixed-point polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula refines a natural established enumeration by the fixed-set size rather than merely rederiving the total. It answers every cardinality query, gives a transparent structural explanation in terms of the highest selected lower point, and yields a quantitatively accurate normal-law model. Under the transfer correspondence the coefficients count a concrete target statistic (no proper incoming transfer), not an artificial extra parameter of the proof.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

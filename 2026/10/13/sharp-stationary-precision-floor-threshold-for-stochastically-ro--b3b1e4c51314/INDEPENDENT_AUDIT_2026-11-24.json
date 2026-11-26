@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:59:08.264426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Same-uniform rounding preserves the order of the real arguments, giving expected distance equal to their difference by unbiasedness. Applied to the affine arguments, this contracts W1 by at most |a|, and completeness yields one invariant law of finite first moment. To exclude invariant laws outside that space (a small omitted step in the written proof), let R=1/(1-|a|). Pathwise distance from beta is at most |a|^n times the initial distance plus R. Invariance gives pi(|J-beta|>R+eps) at most pi(|J-beta|>eps/|a|^n), tending to zero; a=0 resets in one step. Thus every invariant law is finitely supported. Unbiasedness then gives mean beta. The integer inequality j(j-1)>=0 gives the sharp error bound beta(1-beta), with equality precisely for the Bernoulli law. Both Bernoulli atoms have positive mass, so invariance at the floor is equivalent to both affine images being in [0,1]. For a=-c these are (1+c)beta and beta-c(1-beta), giving exactly the two stated inequalities, inclusive. At beta=1/4, c in (1/3,3/5], the three affine images lie respectively in (0,1], (0,1), (-1,0); the three-site class is closed and communicates. Flow into -1 and the invariant mean give p(-1)=p(1)(3c-1)/4 and p(1)-p(-1)=1/4. The excess variance is 2p(-1). Past c=3/5, the negative site sends positive mass to 2 and a two-site substitute is already impossible. Exact integer balance and variance checks at c=1/3,2/5,1/2,3/5 independently confirmed the endpoints and 65/304 example (node /workspace/branches/independent-checks.js, record 2 block). The frozen verifier was inspected, not executed; global claims follow from the proof, not the test points.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 Finding proves uniqueness, convergence in W1 at rate c, and stationary mean beta on the whole negative-multiplier range, plus exact half-grid behavior and Gaussian asymptotics elsewhere.",
+          "The staircase record studies a coupled near-half-cell and near-flip limit; the ARMA paper imposes full-support integer noise in its ergodicity results."
+        ],
+        "reasoning": "The Gaussian and staircase statements are not a determination of where the finite-parameter variance equals the lattice floor. The ARMA result uses a different noise model and provides no phase diagram for this one.",
+        "searches": [
+          "2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619",
+          "2026/11/22/SCOPE-critical-half-grid-staircase-for-a-stochastically-rounded-flip-c--970d51a25c09",
+          "Weiß–Zhu arXiv:2402.15772 Sec. 3.2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "November 8 three-state classification, November 2 Gaussian flip boundary, November 22 critical half-grid staircase",
+        "arXiv:2402.15772, arXiv:2301.09511, doi:10.1137/20M1334796"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The November 8 range stops at c=1/2; above it a general three-site formula can no longer be asserted for every fractional position. At beta=1/4 the affine image of -1 reaches 1 at c=3/5, giving the additional closure boundary.",
+          "The stationary asymptotic bound and W1 contraction alone do not locate where positivity first forces a mass outside the two nearest sites. The primary rounding papers establish unbiasedness/error analysis or convergence results rather than that exact boundary in inspected passages."
+        ],
+        "reasoning": "The full-range threshold uses equality in the integer variance bound and the two-site closure criterion in the regime not covered by the exact classification. The additional interval of exact stationary law requires checking the support and its exit, not extrapolating the earlier domain. Similar dates make no priority inference.",
+        "searches": [
+          "November 8 three-state RESULT.md Finding and scope",
+          "November 2 flip-boundary RESULT.md Finding, assumptions and rounding identities",
+          "Xia et al. arXiv:2301.09511; Connolly–Higham–Mary doi:10.1137/20M1334796"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distance-proportional rounding and floor(y+U) specify identical transition probabilities, including integral y.",
+          "The November 8 threshold t>=r/(1+r) with t=min(beta,1-beta) is exactly c<=c_crit(beta) when r=c is in its domain; the quarter-cell stationary formulas agree on 1/3<c<=1/2."
+        ],
+        "reasoning": "This is genuine partial overlap on the same kernel, not separate because the target and negative multiplier use different letters.",
+        "searches": [
+          "Resultary: stationary precision floor / stochastic rounding scalar contractions / three-state threshold; indexed 2026/11/8/SCOPE-sharp-three-state-threshold-and-threefold-noise-inflation-for-st--eff25e390ccd",
+          "Primary literature: mean-preserving rounding, integer-valued ARMA and fixed-grid stochastic gradient descent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed three-state probabilities and variance include the exact quarter-cell value at c=2/5 even without tabulating 65/304.",
+          "The same-day hits concern ternary gradient quantization and an always-move selection chain, not the same stationary scalar kernel."
+        ],
+        "reasoning": "Credit the explicit approximate-grid stationary formula on its actual domain, including its numerical corollaries. An exact benchmark already given by a formula does not supply separate novelty; the exact phase exit at 3/5 is outside the formula's stated domain.",
+        "searches": [
+          "2026/11/8/SCOPE-sharp-three-state-threshold-and-threefold-noise-inflation-for-st--eff25e390ccd, Finding and explicit variance",
+          "Resultary same-day exact-roundoff hits 2026/10/13/SCOPE-terngrad-s-exact-variance-constant-is-sqrt-d-1-2--6e698dafd0fe and 2026/10/13/SCOPE-exact-markov-error-floor-for-the-always-move-direct-structured-s--ac7b084f1951"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp precision-floor criterion across the entire scalar contraction range, together with the exact upper endpoint of the quarter-cell three-site phase. Do not credit the contraction argument, the overrelaxed invariant-law existence and rate, or the formulas within the already covered interval as independently new. The closest three-site classification assumes a>=-1/2; a separate same-model Gaussian result covers the full overrelaxation range for other conclusions but does not classify the sharp nonasymptotic floor or phase exit there.",
+      "residual_risks": [
+        "The mirror passage of 2026/11/8/SCOPE-a-sign-reversal-gaussian-limit-for-unbiased-lattice-rounding--3bd484d77163 was unavailable; its fixed-phase description via the staircase record is indirect evidence only.",
+        "The bounded literature comparison does not exclude earlier unindexed equivalents. The demonstrated indexed overlaps are explicitly credited without any inference of priority from dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers threshold, support and formulas for a>=-1/2 only",
+          "evidence": "The hypotheses explicitly give -1/2<=a<1; negative branch criterion is t>=r/(1+r), with displayed p(-1) and p(1) in the other branch.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-three-state-threshold-and-threefold-noise-inflation-for-st--eff25e390ccd",
+          "material_read": "RESULT.md Finding, assumptions, and beginning of proof, offset 0–3855",
+          "method": "Local Resultary and GitHub mirror",
+          "title": "Sharp three-state threshold and threefold noise inflation for stochastic rounding of scalar contractions",
+          "trigger": "Strongest indexed match for identical scalar recursion, threshold and variance"
+        },
+        {
+          "assessment": "Covers invariant existence, mean, W1 rate for a<0 and Bernoulli at the half-grid, but not full equality threshold or quarter-cell phase cutoff",
+          "evidence": "The theorem's variance statement compares (1-q^2)V_q to the fractional-position variance of 2 theta; it gives a Gaussian limit away from theta=1/2.",
+          "identifier_or_url": "2026/11/2/SCOPE-lattice-phase-gaussian-law-at-the-flip-boundary-of-stochastic-ro--4edb1a74d619",
+          "material_read": "RESULT.md Finding, assumptions and rounding identities, offset 0–3480",
+          "method": "Local Resultary and GitHub mirror",
+          "title": "Lattice-phase Gaussian law at the flip boundary of stochastic-rounding descent",
+          "trigger": "Exact model over the full negative-multiplier range"
+        },
+        {
+          "assessment": "Related ergodicity result with different assumptions",
+          "evidence": "The stationary ARMA theorem uses spectral-radius, moments and full-support integer noise; it does not describe the adjacent-site variance threshold in this noiseless affine update.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.15772",
+          "material_read": "Section 3.2.1, pp. 5–6",
+          "method": "Open full-text passages",
+          "title": "Mean-preserving Rounding Integer-valued ARMA Models",
+          "trigger": "Closest external primary stationary theory for integer stochastic rounding"
+        },
+        {
+          "assessment": "Context only, not an exhaustive reading of either paper",
+          "evidence": "The inspected statements concern mean-independent rounding and backward error, and fixed-point optimization convergence rates under a PL condition, respectively.",
+          "identifier_or_url": "https://doi.org/10.1137/20M1334796 ; https://arxiv.org/abs/2301.09511",
+          "material_read": "Connolly–Higham–Mary preprint p. 2 abstract; Xia et al. p. 1 abstract",
+          "method": "OA excerpts",
+          "title": "Stochastic Rounding and Its Probabilistic Backward Error Analysis; On the Convergence of the Gradient Descent Method with Stochastic Fixed-Point Rounding Errors under the Polyak–Łojasiewicz Inequality",
+          "trigger": "Cited unbiased rounding and fixed-point gradient descent context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies when overrelaxation can be used without any increase in stationary squared error, a concrete boundary that unbiasedness or a contraction rate alone does not give. At a quarter-cell, the exact interval of three occupied sites and its distinct exit threshold quantify when a new grid point is necessary. The value is that finite-parameter phase information, not a claim about practical floating-point implementations or the already covered numerical value in isolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

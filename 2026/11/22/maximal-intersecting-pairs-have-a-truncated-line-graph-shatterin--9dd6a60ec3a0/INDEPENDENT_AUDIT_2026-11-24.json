@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:23:57.604951Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–46",
+        "VERIFICATION.md, both frozen verifiers and their outputs (inspected, not executed)",
+        "Independent replay: python3 /workspace/reproductions/1.py; enumerates maximal cliques and trace supports and computes exact adaptive depth for n=4,5,6; output at /workspace/reproductions/1.txt"
+      ],
+      "rationale": "The hypotheses are exactly full stars and triangles. The all-positive trace excludes disjoint pairs; for four edges at a common center, marking three positive forces the full star and cannot exclude the fourth. For either type of triple the proof has all eight witnesses, including the triangle of the leaves for the zero trace on a star and an outside star for the zero trace on a triangle; both work at n=4. Counting gives the stated f-polynomial and purity. Following any first positive answer, the next positive branch of any nonconstant query has at most two concepts, insufficient for a remaining depth of two in a putative depth-four tree. The star two-skeleta are simply connected; their singleton overlaps underlie K_n. Each added triangle kills the corresponding triangular loop, and those based at a fixed vertex normally generate the graph's fundamental group. Thus the two-dimensional complex is simply connected; Euler characteristic gives B_n, and Hurewicz and homological Whitehead give the wedge of spheres. Inclusion in the full complex kills the extra n binom(n−2,3) classes: each full star simplex fills its own two-skeleton cycles, which have rank binom(n−2,3), with disjoint triangle supports across distinct stars. At n=4 there are no extra cycles of this kind.",
+      "residual_risks": [
+        "The independent computation is finite and does not certify integral homotopy. The integral claim and uniformity in n follow from the proof, not the frozen mod-two ranks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frankl–Kupavskii bound numbers of maximal intersecting families. Goyal–Shukla–Singh §3 treat full clique complexes of line graphs and obtain a wedge result for connected chordal host graphs.",
+          "Their full line-graph complex relates to the two-skeleton of the host graph's own clique complex, not the two-skeleton of the line-graph clique complex."
+        ],
+        "reasoning": "These general results cover the credited underlying structure and full topology, not the membership-trace identification or adaptive bound.",
+        "searches": [
+          "arXiv:1701.04110",
+          "arXiv:2009.12130v2",
+          "arXiv:2007.13082"
+        ]
+      },
+      "checked_sources": [
+        "The cited preprint and mirror passages",
+        "Frozen RESULT.md, lines 54–66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full-complex simple connectivity passes to the two-skeleton; known face structure plus Euler characteristic then yields its wedge rank. The prior conclusion makes no identification of that skeleton with all realizable membership traces."
+        ],
+        "reasoning": "The topology is a derived consequence once the new support predicate is proved. The proof of the predicate uses explicit proper and empty traces; the adaptive upper bound counts the hypotheses containing both the first and second queried pairs. Neither check follows from the cited topological or finite-field statements.",
+        "searches": [
+          "Goyal–Shukla–Singh, Lemma 3.2 and Theorem 3.4",
+          "Equivariant star-collapse model 559a0d730ca9",
+          "Finite Grassmann shattering 787364616cde"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The class can be phrased as maximal cliques in L(K_n)=J(n,2), or as maximal independent families in its Kneser complement. Nikseresht's Lemma 2.1 supplies the star/triangle clique geometry.",
+          "The Grassmann record also has maximal-clique membership and VC=Littlestone=3, but its vertices are subspaces of a vector space over a finite field and its support criterion is different."
+        ],
+        "reasoning": "A formal q=1 analogy with a Grassmann graph is not an instance of its finite-field theorem. The clique geometry alone does not test the required negative labels.",
+        "searches": [
+          "Resultary: inclusion-maximal intersecting pairs, maximal-clique shattering, VC and Littlestone dimensions",
+          "arXiv:2007.13082",
+          "2026/11/22/SCOPE-shattering-by-maximal-cliques-of-finite-grassmann-graphs--787364616cde"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier star-collapse record gives exactly the full-complex wedge rank binom(n−1,3). The exact hit for the truncated shattering result is the frozen entry itself."
+        ],
+        "reasoning": "For n≥5 the full complex includes star faces of dimension at least three and is not the shattering complex; the two coincide at n=4, where the topology is already covered.",
+        "searches": [
+          "Resultary: complete-graph line-graph star collapse, two-skeleton shattering and dimensions",
+          "2026/11/1/SCOPE-an-equivariant-star-collapse-model-for-line-graph-clique-complex--559a0d730ca9",
+          "2026/11/22/SCOPE-maximal-intersecting-pairs-have-a-truncated-line-graph-shatterin--9dd6a60ec3a0"
+        ]
+      },
+      "rationale": "The line-graph clique classification and full-complex topology are prior. The supported distinct claim is that maximal-clique membership traces on L(K_n) give this precise truncation and that both the static and online ranks are three. The Betti formula is a consequence of the identification and elementary skeleton topology, not an independent discovery about full line-graph clique complexes.",
+      "residual_risks": [
+        "No close additional primary source was retrieved by the general query. This is a statement comparison, not an absence proof or a historical-priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full-complex topology covered",
+          "evidence": "The domain of the result is the full ΔL(G); its comparison skeleton is formed from G itself.",
+          "identifier_or_url": "https://arxiv.org/html/2009.12130v2",
+          "material_read": "§3, Lemma 3.2 and Theorem 3.4, offsets 20304 and 22061",
+          "method": "OA preprint text",
+          "title": "Topology of Clique Complexes of Line Graphs",
+          "trigger": "same line graph and wedge-of-spheres claim"
+        },
+        {
+          "assessment": "Underlying cliques covered",
+          "evidence": "A clique of the line graph consists of host edges sharing an endpoint or the edges of a triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.13082",
+          "material_read": "§2 Lemma 2.1 proof, p. 3, offset 6200",
+          "method": "OA preprint",
+          "title": "Algebraic Properties of Clique Complexes of Line Graphs",
+          "trigger": "same star/triangle characterization"
+        },
+        {
+          "assessment": "Enumeration rather than learning",
+          "evidence": "The passage bounds numbers of maximal intersecting families.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.04110",
+          "material_read": "Maximal-family count passage, p. 7, offset 32500",
+          "method": "OA preprint",
+          "title": "Counting intersecting and pairs of cross-intersecting families",
+          "trigger": "maximal intersecting uniform families"
+        },
+        {
+          "assessment": "Material coverage of full topology",
+          "evidence": "The full complex for K_n has wedge rank binom(n−1,3).",
+          "identifier_or_url": "2026/11/1/SCOPE-an-equivariant-star-collapse-model-for-line-graph-clique-complex--559a0d730ca9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "An equivariant star-collapse model for line-graph clique complexes",
+          "trigger": "same full complex and exact sphere rank"
+        },
+        {
+          "assessment": "Distinct analogue; no priority inference from same-day dating",
+          "evidence": "Finite Grassmann graph concepts give both ranks three but on different query supports.",
+          "identifier_or_url": "2026/11/22/SCOPE-shattering-by-maximal-cliques-of-finite-grassmann-graphs--787364616cde",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Shattering by maximal cliques of finite Grassmann graphs",
+          "trigger": "maximal-clique membership with both dimensions three"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Full-complex theorem and star-collapse comparison"
+      ],
+      "rationale": "The claim identifies all membership supports in a canonical unbounded family and gives a uniform adaptive limit despite the growing number of concepts. The truncation changes the second Betti rank from order n³ to order n⁴ while preserving purity and simple connectivity. This quantifies the difference between structural feasibility of positive edges and full realizability of patterns, an invariant useful for comparison with other maximal-clique models.",
+      "residual_risks": [
+        "Restricted to pair membership on maximal intersecting 2-sets; no higher uniformity or general host-graph theorem follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

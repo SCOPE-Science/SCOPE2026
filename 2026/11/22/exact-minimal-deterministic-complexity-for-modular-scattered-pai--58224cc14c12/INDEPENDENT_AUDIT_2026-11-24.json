@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:00:38.979675Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–50",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing",
+        "/workspace/branches/review_checks.py (ordinal 2)"
+      ],
+      "rationale": "Track zero residue a, scattered-pair residue c and trailing-zero length truncated at r. At length r no continuation containing 1 is legal, and all-zero continuations preserve c, so the terminal right languages are exactly 0* and the empty language, the latter shared with the sink. The witness 01^(t+1)(01)^(k-1)0^j realizes any active (a,c,j): choose positive k congruent to a-j and nonnegative t congruent to c-k(k+1)/2; each zero-run followed by 1 has length one. For any active j, the legal suffix 1^b 0 1^d leaves residue c+a(b+d)+d. For each chosen total f modulo m, choose d=-c-af and b=f-d modulo m, represented by positive integers. This accepts from (a,c) and leaves residual (c'-c)+(a'-a)f from (a',c'). A nonidentical pair is distinguished by one of f=0,1, without assuming a field or dividing by two modulo m. For identical counters and j<j'<r, first add r-j' zeros and use the same family of suffixes: the larger run is forced to reject and the smaller admits a zero residue. The active states admit a continuation containing 1, so they differ from both terminal classes. For r=1 the avoidance language is 1*0*, the count is identically zero and the three distinct right languages are 1*0*, 0* and empty. Independent zero-budget quotient enumeration and positional word checks agreed for 42 parameter pairs including r=1, m composite, and short and long trailing runs. Replay: `python3 /workspace/branches/review_checks.py 2`.",
+      "residual_risks": [
+        "The analytic witnesses establish the unbounded result; finite checks are not exhaustive in r or m. The formula includes the sink of a complete DFA."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The binomial-equivalence paper's inspected definition is an underlying counting convention, not an exact complexity theorem.",
+          "The q-deformation treats modular subsequence languages without the specified contiguous avoidance condition.",
+          "294ac7d4ffb0 counts trim partial and Wheeler states for avoidance alone."
+        ],
+        "reasoning": "Recognizability of a modular constraint and recognizability of factor avoidance give a product, but do not show which product states survive the Boolean quotient. A Wheeler bound pertains to a different automaton model.",
+        "searches": [
+          "arXiv:2001.11732",
+          "arXiv:2402.05838 §6, ordinary congruence language (14) and q-deformed analogue (15)",
+          "Resultary 294ac7d4ffb0, avoidance only"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 58224cc14c12, 60f4e56820b8, b7d2cb9e9777, 294ac7d4ffb0, 9df1828ce330, 8fc07c00f15e and de3d7262f980",
+        "arXiv:2001.11732 and arXiv:2402.05838"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "9df1828ce330 gives m² states for an unrestricted Boolean scattered-01 residue class.",
+          "294ac7d4ffb0 gives r+1 trim partial states for avoidance alone.",
+          "The frozen merge at trailing length r uses invariance of the scattered-pair residue on all-zero extensions, and active separation uses legal suffixes with consecutive modular increments."
+        ],
+        "reasoning": "Intersecting the existing automata by a full product does not imply the sharp size (r+1)m²+1 before the long-run quotient, versus rm²+2 after the quotient for r>=2). Worst-case product bounds cannot show active-state distinguishability for these specific languages.",
+        "searches": [
+          "Resultary 9df1828ce330, unrestricted 0^d1 counter, d=1 specialization",
+          "Resultary 294ac7d4ffb0, avoidance-only exact state count",
+          "Frozen RESULT.md lines 17–50"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "60f4e56820b8 counts scattered 01 but forbids 11 and computes a syntactic monoid.",
+          "b7d2cb9e9777 counts scattered 001 and forbids a run 1^r.",
+          "Definition 2 of arXiv:2001.11732 counts positional, not necessarily contiguous, subsequences."
+        ],
+        "reasoning": "Complementing letters would change both the forbidden factor and the counted pair; it cannot change the length of the counted pattern from two to three or equate mixed-symbol forbidden factors with pure runs. Contiguous 001 avoidance at r=2 is only the regular side of the target intersection.",
+        "searches": [
+          "Resultary semantic search: scattered 01 residue-zero DFA with forbidden 0^r1, including contiguous 001 avoidance",
+          "Resultary 60f4e56820b8 and b7d2cb9e9777",
+          "arXiv:2001.11732 Definition 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "58224cc14c12 is this assigned record itself.",
+          "8fc07c00f15e and de3d7262f980 study Walsh stability and terminal VC shattering for 001 avoidance, respectively.",
+          "The same-day constrained-count records change either both patterns or the forbidden factor and invariant."
+        ],
+        "reasoning": "No inspected distinct entry states the target quotient. Same-day entries were compared by content; the date supplies no order. No numerical table is probative for this parameterized state-count theorem.",
+        "searches": [
+          "Resultary 58224cc14c12, 8fc07c00f15e, de3d7262f980, b7d2cb9e9777 and 60f4e56820b8"
+        ]
+      },
+      "rationale": "Earlier exact results cover the two components separately, and a general product gives only an upper bound. The exact active classes and the collapse from all long-run counter states to two terminal right languages are distinct. Other close indexed constrained counters change the scattered pattern, the forbidden factor or the invariant. The comparison supports the specified interaction, not priority for modular pair counters or forbidden-factor automata in isolation.",
+      "residual_risks": [
+        "Bounded primary and catalogue searches do not exclude an unindexed constrained-language result or an equivalent general theorem not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Avoidance only; distinct automaton cost models",
+          "evidence": [
+            "r+1 trim partial DFA states and 2r+1 Wheeler states; no scattered counts."
+          ],
+          "identifier_or_url": "294ac7d4ffb0",
+          "material_read": "Mirror RESULT.md, opening finding, offset 0",
+          "method": "Resultary search and mirror passage",
+          "title": "Exact prefix-sorting state cost for avoiding a binary zero-run factor",
+          "trigger": "Identical avoidance side"
+        },
+        {
+          "assessment": "Unrestricted residue-class predecessor, not the joint constraint",
+          "evidence": [
+            "For any target residue the complete DFA has mP_d(m) states, which at d=1 is m²."
+          ],
+          "identifier_or_url": "9df1828ce330",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Indexed prior comparison using the local mirror",
+          "title": "Exact state complexity of modular scattered zero-power–one counts",
+          "trigger": "Exact unrestricted count side at d=1"
+        },
+        {
+          "assessment": "Different forbidden factor and invariant",
+          "evidence": [
+            "The forbidden factor is 11, and the theorem concerns the syntactic monoid."
+          ],
+          "identifier_or_url": "60f4e56820b8",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Resultary search and mirror passage",
+          "title": "A Rees zero-matrix syntactic monoid for modular scattered pairs",
+          "trigger": "Same scattered pair counter with a forbidden factor"
+        },
+        {
+          "assessment": "Sidesteps neither required change of pattern",
+          "evidence": [
+            "Counts scattered 001, forbids contiguous 1^r, with rm²+1 at odd m and 2rm²+1 at even m."
+          ],
+          "identifier_or_url": "b7d2cb9e9777",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Resultary search and mirror passage",
+          "title": "Sharp state complexity for run-capped modular scattered-triple counters",
+          "trigger": "Closest constrained exact DFA count"
+        },
+        {
+          "assessment": "Terminology and general framework; no proof of this count in inspected passage",
+          "evidence": [
+            "Occurrences are counted as not necessarily contiguous subsequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.11732",
+          "material_read": "Definition 2, PDF p. 2, offset 5532",
+          "method": "Open arXiv PDF passage",
+          "title": "On the binomial equivalence classes of finite words",
+          "trigger": "General scattered-count framework"
+        },
+        {
+          "assessment": "Modular recognizability framework is separate from restricted state minimization",
+          "evidence": [
+            "The congruence definitions impose a residue on one counted pattern, not simultaneous factor avoidance."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.05838",
+          "material_read": "§6 congruence language definitions (14)–(15), around offset 113646",
+          "method": "Open arXiv HTML passage",
+          "title": "Introducing q-deformed binomial coefficients of words",
+          "trigger": "General modular recognition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–50",
+        "Resultary 294ac7d4ffb0 and 9df1828ce330"
+      ],
+      "rationale": "The result is an exact quotient for a motivated combination of a local run constraint and a global modular count. It resolves where the standard product wastes states: residues cease to matter except for acceptance when the run reaches r, but none of the active residues or run lengths collapse. This quantifies a real interaction uniformly over composite moduli, and the r=1 change illustrates precisely when the count becomes vacuous.",
+      "residual_risks": [
+        "No implication for arbitrary forbidden patterns, output machines or nondeterministic state complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

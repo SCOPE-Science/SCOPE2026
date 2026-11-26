@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:54:52.386579Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 26–57; counts.csv; VERIFICATION.md",
+        "Frozen verifier.cpp and gray_check.cpp (inspected, not executed)",
+        "/workspace/branches/b9a1c2c8-deca-4654-9e03-90044ec912a8/independent_wheel.py",
+        "/workspace/branches/b9a1c2c8-deca-4654-9e03-90044ec912a8/independent_counts.txt"
+      ],
+      "rationale": "Both endpoints force the odd residue mod 2, which covers every odd offset. For an even-offset subset T, asking for all selected offsets to remain uncovered while both endpoints are coprime excludes exactly the distinct residues in {0,-h} union {-j:j in T} at each odd prime less than h. CRT multiplies those local choices and inclusion–exclusion gives the displayed count, also when a prime divides h and the endpoint exclusions coincide. An independent exact computation directly enumerated the endpoint-admissible wheel for primes up to 13 and applied inclusion–exclusion over the even offsets left uncovered, with Gray-code updates for the remaining primes. It completed all 31 even lengths from 4 through 64 and matched every CSV row, including all nine displayed values. Exact fraction summation reproduced 61370211356863231369/29555095284933631875. These are local finite residue classes, not pairs of consecutive primes.",
+      "residual_risks": [
+        "Does not determine the infinite tail or prove a prime-gap frequency. The original binaries were not run; the separate replay checks the complete claimed finite range."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary lower-bound record explicitly includes the full finite truncation as an intermediate result. Gafni–Tao give the local coefficient framework; Uğurdoğan treats more general local multiplicities but reports estimates for the target range."
+        ],
+        "reasoning": "The published general frameworks do not by themselves give the nine exact numerical evaluations. The indexed lower-bound statement does include and exactly evaluate the assigned finite quantity.",
+        "searches": [
+          "Resultary 113c25486601, certified lower bound for the rough-prime-gap constant",
+          "arXiv:2508.06463v1, §4; arXiv:2610.10582v1, §§1.1 and 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 113c25486601",
+        "Resultary c973a190f540",
+        "arXiv:2610.34525v1",
+        "arXiv:2508.06463v1",
+        "arXiv:2610.10582v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier indexed result reports exact CRT dynamic programming; its displayed S64 and nine counts are already the claimed conclusions. The reported finite interval 2.076468035 to 2.076469131 in Mossinghoff–Trudgian alone would not determine the rational value."
+        ],
+        "reasoning": "Direct prior statement makes no new inference necessary. A different ordering of exact inclusion–exclusion and an additional corroboration do not furnish a distinct mathematical claim in this record.",
+        "searches": [
+          "Resultary 113c25486601, Finding, assumptions and computation; Resultary c973a190f540, different multiplicity statistic",
+          "arXiv:2610.34525v1, §3 finite-sum interval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record 113c25486601 defines the same endpoint-coprime classes modulo P_h with gcd greater than one at every interior offset. Mossinghoff–Trudgian use the same local count in the coefficient c_h."
+        ],
+        "reasoning": "The counts do not depend on any conjectural asymptotic or actual prime pairs. The alternative rough-gap headline does not change the matching definition or normalization.",
+        "searches": [
+          "Local Resultary: exact Omega(h) at even 48–64, frangible prime gaps, exact S64 fraction",
+          "arXiv:2610.34525v1, §§2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 113c25486601, Finding and table: all nine integers agree and S64=61370211356863231369/29555095284933631875. Mossinghoff–Trudgian provide exact entries through 46 and bounds at 48–64. The other two exact tables end at 18 and 36, respectively."
+        ],
+        "reasoning": "The nine entries are not forced by the interval tables; they are already given exactly in the indexed record.",
+        "searches": [
+          "Local Resultary exact-value and exact-fraction lookup: 113c25486601",
+          "arXiv:2610.34525v1, Tables 1–2; arXiv:2508.06463v1, §4 Table 1; arXiv:2610.10582v1, §4.1 Table 1"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary result explicitly gives the same nine exact counts for the same residue classes and the same reduced rational S64 as intermediate results of a broader bound. The frozen comparison with the Mossinghoff–Trudgian paper's bounds alone misses this direct catalogue coverage. This is a statement overlap, not a judgment about authorship.",
+      "residual_risks": [
+        "No historical authorship or attribution determination is made; the exact available indexed statement is decisive regardless of its broader headline."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct full coverage of both frozen conclusions",
+          "evidence": "Same P_h residue definition, all nine identical counts, and the same reduced S64. The main lower-bound theorem is different, but its exact finite ingredients coincide.",
+          "identifier_or_url": "Resultary 2026/10/18, 113c25486601; https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-certified-2-741607-lower-bound-for-the-rough-prime-gap-constan--113c25486601/RESULT.md",
+          "material_read": "RESULT.md, Finding, count table, assumptions and computation; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary index and mirror",
+          "title": "A certified 2.741607 lower bound for the rough prime gap constant",
+          "trigger": "Exact fraction and target-length count hits in a broader indexed result"
+        },
+        {
+          "assessment": "Numerical bounds, not exact values, at the target lengths",
+          "evidence": "At h=48, for example, the lower and U3 upper bounds are 270434770380 and 279846011304. The paper states a finite-sum interval, not the exact S64 fraction.",
+          "identifier_or_url": "https://arxiv.org/html/2610.34525v1",
+          "material_read": "Introduction and §§2–3, Tables 1–2 and finite-sum interval; HTML offsets about 18500 and 26500 for the tables",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Frangible prime gaps",
+          "trigger": "Closest paper for the identical local count and the specified cutoff"
+        },
+        {
+          "assessment": "Overlapping framework but shorter table",
+          "evidence": "Table 1 gives local data only through h=18 and notes the computation's increasing difficulty.",
+          "identifier_or_url": "https://arxiv.org/html/2508.06463v1",
+          "material_read": "§4 and Table 1, HTML offset about 52000",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Rough numbers between consecutive primes",
+          "trigger": "General local coefficient identity and table"
+        },
+        {
+          "assessment": "Exact table ends short of the target lengths",
+          "evidence": "Exact entries through h=36; Monte Carlo estimates over 38≤h≤900 do not determine the nine coefficients.",
+          "identifier_or_url": "https://arxiv.org/html/2610.10582v1",
+          "material_read": "§1.1 and §4.1, Table 1 and its accompanying text, HTML offset about 43750",
+          "method": "Primary OA HTML passage inspection",
+          "title": "Multiplicity Constants for Rough Numbers in Prime Gaps",
+          "trigger": "Broader multiplicities could include exact special-case coefficients"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary 113c25486601, Finding and table",
+        "Frozen RESULT.md, Finding and Limitations",
+        "arXiv:2610.34525v1, Table 2"
+      ],
+      "rationale": "Through 64 is a meaningful cutoff set by the published bound table, and exact coefficients and normalization would be useful if unknown. However, the full table extension and rational truncation are already available in an indexed result. Reproducing them by another enumeration is useful corroboration but does not fill a remaining mathematical gap, prove a new efficiency result, or extend the exact range.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

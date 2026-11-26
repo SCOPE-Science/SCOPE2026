@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact idempotency equation is \(Mx^{[2]}=x\) for the explicitly specified basis convention. Transitivity of \(\mathrm{GL}_n(\mathbb F_q)\) gives the first moment. Distinct nonzero idempotents cannot be collinear, so their simultaneous probability reduces to independence of squared-coordinate vectors. In odd characteristic the square-collision count for a fixed support of size \(s\) is exactly \((q-1)(2^{s-1}-1)\), giving the stated finite formula. In characteristic two the square map is a field automorphism; the complete distribution follows from an independently proved fixed-space dimension bound, ordered-tuple moments, and binary Gaussian-binomial inversion. Ten exhaustive matrix enumerations agreed with the exact identities. Computations are supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS (self-review only)
+Transitivity on nonzero vectors gives mean one. Ordered simultaneous nonzero idempotents cannot be distinct collinear vectors (t²=t forces t=1). For the D=(q^n−1)(q^n−q) ordered independent pairs, prescribing the images of both squared vectors has probability 1/D when those squares are independent and zero otherwise. In odd characteristic, for fixed x of support s, y with proportional squares has the same support and is a nonzero scalar times a coordinatewise sign change; this gives (q−1)2^{s−1} distinct y, of which q−1 are collinear. Summing the remainder against binomial(n,s)(q−1)^s gives exactly B=(q−1)((2q−1)^n−2q^n+1)/2. Since the mean is one, 1−B/D is the variance. B>0 from s=2; the correction (not the variance) tends to zero in both stated regimes, and for n=2 it equals (q−1)/(q(q+1)). In characteristic two Frobenius preserves independence, and a binary-independent list of fixed vectors is field-independent: applying T to a first relation over the extension makes its unique coefficients Frobenius-fixed. Thus R≤n, expected counts of ordered fixed k-frames are exactly one, and E[{R choose k}_2]=1/|GL_k(F₂)|. The proposed inverse follows from {k choose r}_2{j choose k}_2={j choose r}_2{j−r choose k−r}_2 and the binary binomial product ∏_{i=0}^{j−r−1}(1−2^i), which vanishes when j>r. This proves the full law and extension independence. Audited the frozen checker without executing it. Independent replay: python3 -I /workspace/independent_reproductions.py enumerates matrices with a direct kernel test and counts point solutions for (2,2), (4,2), (3,2), (3,3). Variances 1,1,5/6,23/26; the F₂ and F₄ dimension-two normalized histograms agree exactly. These are bounded cross-checks, not the proof.
 
-García-Martínez–Pérez-Rodríguez (arXiv:2512.12418, Section 3.3) and Hu–Wen (arXiv:2609.25023, Theorem 2.1) address idempotents of evolution algebras without this all-invertible-matrix second factorial moment. Wei–Zou (arXiv:2310.12368) count isomorphism classes of *perfect algebras*, a different statistic. A later survey (arXiv:2610.22248, Remark 23) supplies the already-known mean-one identity and proposes a limiting fixed-point-permutation law, but not the finite odd-characteristic variance correction. Classical Shintani descent concerns the more general characteristic-two semilinear correspondence, so the characteristic-two distribution is not presented as a fundamentally new semilinear theory. The novelty supported by the comparisons is the explicit odd-characteristic support-collision correction within a uniform all-dimensions theorem. Residual risk: an unindexed equivalent formula or stronger nonlinear finite-field point-count theorem may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The statistic counts solutions of a natural polynomial system in the full perfect evolution-algebra ensemble and directly sharpens the previously considered first moment. The finite-field characteristic bifurcation is exact in all dimensions and gives a strict odd-characteristic deviation from the characteristic-two universal second moment. The complete even-characteristic law further distinguishes the model from an asserted Poisson limit. This is a family-wide structural count, not a restatement of a table entry or an arbitrary numerical slice.
+The supported distinct contribution as of the frozen finding is the exact all-dimension odd-characteristic finite-q variance defect. The mean was explicitly known; the binary distribution is a consequence of established semilinear descent and binary fixed-space counting, albeit with a self-contained proof here. Two separate later catalogue findings overlap exactly with these components; they are not independent evidence of pre-finding priority. No inspected earlier source gives or implies the odd-characteristic defect.
 
-## Scope and limitations
+## value
 
-The ensemble weights invertible matrices equally, not isomorphism classes. A full distribution in odd characteristic is not obtained. The characteristic-two law is compatible with established semilinear theory, and no independent audit or certification is claimed. The sources and search results do not establish worldwide uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact, strictly positive odd-characteristic defect answers a natural second-moment question left open by the known normalization and large-field motivation. Its dimension and field dependence is essential: it quantifies the finite ensemble’s difference from characteristic two and identifies the projective square-collision obstruction. This is an all-parameter refinement, not a single field/dimension census; no full odd-characteristic law is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

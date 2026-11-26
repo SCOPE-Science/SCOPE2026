@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:51:34.111320Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof, VERIFICATION.md and check_parity.py; frozen checker inspected, not executed.",
+        "Independent tuple-state replay: python3 branches/651e5ad5-a255-45af-a628-c01e5875aea1/independent_binary_pell_check.py; captured independent_binary_pell_check.txt. All complete cycles for k=2–18 have the stated parity of period; each k≡2 mod 4 has period 2 modulo 4, a complementary half-shift at every position and equal numbers of ones and zeros. Sample periods at k=2,6,10,14,18 were 2,30,434,1638,114674."
+      ],
+      "rationale": "With the impulse at index one, the binary recurrence gives F(z)=z/(1+z²+⋯+z^k) for n≥0 with coprime numerator and denominator. The state transition is invertible because the oldest bit has coefficient one. A scalar period T holds exactly when the reduced denominator divides 1+z^T: in the converse direction the numerator after clearing that denominator has degree 1+T−k<T. Reciprocation gives the unit order modulo C_k=x^k+sum_{i=0}^{k−2}x^i, and the scalar sequence equality extends to negative indices by invertibility. The derivative of (x+1)C_k=x^{k+1}+x^k+x^{k−1}+1 is x^{k−1} for odd k, and x^{k−2}(x+1)² for even k. The product has nonzero constant term, so in even order only x+1 can repeat. C_k(1)=0 and C'_k(1)=(k−2)/2 mod 2 for even k, giving a simple root if 4|k. Otherwise the product has multiplicity at least three, and cannot have multiplicity four or more because its derivative vanishes to exactly order two there. Thus C_k has exactly a square factor (x+1)² in that case, with squarefree part Q_k coprime to it. All orders in the squarefree quotient are odd; the squared factor contributes exact order two, including k=2 when Q_k=1. The divisibility C_k|(x+1)(x^{L_k}+1) says the difference of the sequence and its half-period shift is constant, and minimality excludes zero. Hence the flip holds on every index and gives exact balance only in this class.",
+      "residual_risks": [
+        "Finite cycles corroborate the proof but do not replace it. All-order validity pertains only to the stated impulse conditions and modulus two; the odd factor is characterized by a polynomial order, not supplied as a closed function of k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018 title and abstract expressly concern order-k Pell sequences in specified direct and semidirect products built from dihedral and cyclic groups. The opening passage credits the 2015 work for extending the concept to Pell sequences.",
+          "No interior 2018 passage or 2015 full-text theorem was accessible in the bounded comparison. Those files do not support a negative whole-document finding."
+        ],
+        "reasoning": "A group period theorem that uses a scalar period as input does not imply a valuation formula for that input. The verified scope does not establish a stronger result covering the scalar impulse period, but the possibility of a relevant interior formula remains open.",
+        "searches": [
+          "Deveci–Avcı–Karaduman (2018), journal p. 283 abstract and p. 284 introduction; Deveci–Karaduman (2015), Utilitas Mathematica 96, alternate full-text lookup"
+        ]
+      },
+      "checked_sources": [
+        "Deveci–Avcı–Karaduman journal abstract and introductory attribution; older bibliographic/access evidence; local exact self-match and the distinct Pell records specified above; OEIS A351889"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General finite-state invertibility proves periodicity and the standard polynomial-order criterion identifies the relevant order, but it does not isolate the repeated root at 1 supplied by the calculation for this C_k.",
+          "The inspected earlier fixed-order spectrum verifies one case; the arithmetic of the companion polynomial and its divisibility by (x+1)(x^{L_k}+1) is needed for the uniform complement law. No inspected comparison gives that law as an immediate specialization."
+        ],
+        "reasoning": "Credit known periodicity and any exact overlapping fixed-order periods. The all-order factor-multiplicity test and scalar shift conclusion are the supported distinction, rather than a claim to new general period machinery.",
+        "searches": [
+          "2018 finite-group scope versus the frozen minimal denominator/multiplicity lemma; Resultary fixed-order spectra and indexed Fibonacci period result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact dichotomy/anti-period result 497a63a751d5 is the frozen finding itself. The distinct three-step all-seed result b14d6eaa3ba8 covers a single k, including binary period 7 for its nontrivial cycles. The residue-3 finding e14633894234 concerns first occurrence modulo 8."
+        ],
+        "reasoning": "Order of the companion operator on the cyclic impulse state is equivalent to scalar least period on the same recurrence, whereas balance without a uniform complementary shift would be weaker. The searched near matches do not state this classification and shift action for all k.",
+        "searches": [
+          "Resultary binary k-Pell least period, dichotomy, anti-period and shift complement; local mirror 497a63a751d5, b14d6eaa3ba8 and e14633894234"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A351889 gives periods for a k-step Fibonacci family; it is not the lag-one-zero binary Pell recurrence. The indexed order-three Pell spectrum directly overlaps k=3 only; the classical Pell companion record concerns k=2. The interior tables in the older finite-group papers were not read."
+        ],
+        "reasoning": "A fixed-order spectrum, even for all binary seeds or at higher moduli, does not decide a valuation indexed by k modulo four. A keyword miss is not evidence that no exact table exists.",
+        "searches": [
+          "OEIS query for k-step Pell periods modulo 2; OEIS A351889; Resultary 4eeed3c3b3c2, 2a4860fa5277 and b14d6eaa3ba8; 2015/2018 tables as access leads"
+        ]
+      },
+      "rationale": "The supported distinct result is the all-k residue-class classification of the scalar binary impulse least period's 2-primary part and the exact complement action of its odd half-period. The recurrence, ordinary periodicity, polynomial-order framework and finite-group Pell period theory are antecedents. The checked statements either concern a different recurrence, a fixed order, another modulus/invariant, or finite-group rather than scalar periods. Older articles' uninspected interior tables leave a real risk, not evidence of coverage or demonstrated absence.",
+      "residual_risks": [
+        "The 2015 full text and 2018 interior formulas or tables could not be compared. A prior uniform scalar formula or shift law in those or other sources could change the originality assessment. Same-day dates alone do not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified finite-group scope, unresolved interior scalar formulas and tables",
+          "evidence": [
+            "The abstract specifies generalized order-k Pell periods in the given direct and semidirect products for n,i≥3."
+          ],
+          "identifier_or_url": "http://www.math.uaic.ro/~annalsmath/pdf-uri_anale/F2%282018%29/Omur_Deveci.pdf",
+          "material_read": "Primary journal PDF p. 283 title and abstract and p. 284 introductory attribution, extracted lines 7–29 and 54–59; no interior formulas or tables relied on",
+          "method": "Bounded primary journal PDF passage; HTTPS retrieval for deeper inspection unavailable; alternate lookup found journal PDF and bibliography only",
+          "title": "The periods of the k-step Fibonacci and k-step Pell sequences in direct and semidirect products",
+          "trigger": "Most direct cited finite-group period comparison and possible embedded scalar formulas"
+        },
+        {
+          "assessment": "Material historical coverage risk, no statement-level negative inference",
+          "evidence": [
+            "The 2018 opening attributes expansion of the group recurrence concept to this work."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/295591003_The_Pell_Sequences_in_Finite_Groups",
+          "material_read": "Bibliographic records and 2018 attribution only",
+          "method": "Lawful direct and alternate PDF access attempts; full text not reached",
+          "title": "The Pell Sequences in Finite Groups",
+          "trigger": "Foundational Pell periods and possible binary table or stronger general scalar results"
+        },
+        {
+          "assessment": "Overlaps k=3 only; chronology not inferred",
+          "evidence": [
+            "An all-seed dyadic state-cycle spectrum at k=3 uses periods 7 times powers of two."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-all-seed-dyadic-cycle-spectrum-for-the-three-step-pell--b14d6eaa3ba8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Complete all-seed dyadic cycle spectrum for the three-step Pell recurrence",
+          "trigger": "Closest same-day exact Pell-period overlap"
+        },
+        {
+          "assessment": "Different invariant and modulus",
+          "evidence": [
+            "Its table concerns the first index taking value 3 modulo 8, not the scalar binary least period."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-first-occurrence-of-residue-3-modulo-8-in-generalized-pell--e14633894234",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Sharp first occurrence of residue 3 modulo 8 in generalized Pell numbers",
+          "trigger": "Same-day recurrence and congruence-class classification"
+        },
+        {
+          "assessment": "Different recurrence; not Pell coverage",
+          "evidence": [
+            "The entry identifies the recurrence as n-step Fibonacci, and its conjecture concerns the Fibonacci periods."
+          ],
+          "identifier_or_url": "https://oeis.org/A351889",
+          "material_read": "Entry opening, including the stated power-of-two conjecture",
+          "method": "Bounded public database entry inspection",
+          "title": "Period of n-step Fibonacci numbers modulo k",
+          "trigger": "Database analogue of all-order binary period formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof of multiplicities, least period and complementation; independent complete cycles k=2–18"
+      ],
+      "rationale": "This classifies the exact 2-primary period of a standard recurrence uniformly in its order without computing its variable odd part. It explains why perfect binary balance occurs despite very different periods: there is an explicit involution on positions pairing every occurrence with its complement. This makes the result a structural statement on the impulse orbit rather than a finite table or parity spot check.",
+      "residual_risks": [
+        "No uniform formula for odd factors, higher moduli or other initial seeds is established by this finding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

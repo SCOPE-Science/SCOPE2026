@@ -1,9 +1,21 @@
-# Review of the sharp five-vertex type-count collision
+# Independent mathematical audit
 
-**Correctness — PASS.** The forbidden triple is a complete transitive tournament. The local sign-profile rule gives a bijection from unary types to allowed ternary vectors, and the pair-compatibility matrix gives the bijection for adjacent ordered pairs. For each base size zero through five, the verifier visits every ternary edge assignment, filters the forbidden transitive triples, counts all legal sign vectors, and takes canonical forms under every vertex permutation and optional simultaneous reversal. The resulting 79 converse-isomorphism classes at size five collapse to 78 numerical signatures with only one double fiber. Exact three-point calculations follow by splitting internal diagrams according to their zero, one, two or three arcs; direct independent finite-diagram enumeration checks both exceptional values. No finite experiment is presented as proof of an unrestricted-size statement.
+## correctness
 
-**Originality — PASS, provisional.** The closest foundational primary literature constructs/classifies homogeneous directed graphs and analyzes global asymptotic populations of transitive-triangle-free oriented graphs. These statements do not classify the first collision of locally counted one- and two-point extension types. The closest available numerical type-score findings concern different Fraïssé ages (undirected Henson graphs, dense local order, or unrestricted generic digraphs), whose constraints do not imply this explicit five-point result. Targeted published-finding corpus and literature searches found no covering statement. Full historical priority has not been certified; the 1998 Cherlin monograph full text was not accessible in this review.
+PASS
 
-**Mathematical value — PASS.** Low-arity type counts are natural finite-base orbit invariants of a homogeneous relational structure. Identifying the exact first nonconverse failure of reconstruction, proving uniqueness, and exhibiting a strict third-arity separation makes a natural and sharp finite classification. The comparison is not a renamed undirected-graph table: orientations and the directed cyclic-triple constraint are essential, and global converse must be accounted for separately.
+The forbidden tournament is complete, so a free amalgam cannot introduce it across the two sides, and the Fraïssé extension property realizes every valid finite extension over the named base. Homogeneity makes each ordered, distinct-new-vertex diagram a single orbit and hence a single complete type; distinct diagrams are distinguished by atomic formulas. A common adjacency on a triple with an arc can only close a cycle. This gives the stated unary and directed-pair conditions and t2=q^2+2R. For t3 the zero-arc term is q^3, the six oriented single-arc choices give 6qR, the two types of two-arc stars give the two square-sums with three choices of center, the oriented paths give six row-column products, and the two cycles give twice tr(A^3). An independent exact enumeration of all ternary base diagrams for n=0,...,5, with all relabellings and converses, recovered labelled counts (1,1,3,21,317,9735), class counts (1,1,2,5,17,79), and signature counts (1,1,2,5,17,78). It identified the sole collision (q,R)=(44,973) with the two stated representatives, and direct checks of all 21 new-triple diagrams gave 653452 and 658282. The underlying triangle versus K_{2,3} precludes converse-isomorphism. The frozen replay references are verify.cpp, crosscheck.py and verification_output.txt; the independent reproduction did not execute the uploaded code. This establishes only the claimed fixed-size reconstruction boundary and the specified separation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the exact reconstruction boundary modulo converse for the transitive-tournament-free oriented age, including the unique five-vertex double fiber and its ternary split. The closest inspected numerical reconstruction theorems concern the undirected triangle-free age or its tree-base slice, not this age. The accessible foundational and asymptotic directed results do not supply this finite extension census. This is a bounded assessment, not a priority claim.
+
+## value
+
+PASS
+
+Counting low-arity extension orbits is a concrete coarse reconstruction problem for the generic oriented structure. Reversal is an unavoidable ambiguity, so the first collision beyond it measures a genuine limit of these invariants. The result identifies that limit exhaustively, provides genuinely different underlying graphs at the collision, and shows exactly how the next arity resolves the ambiguity at the first failing order. That gives a usable small benchmark without asserting reconstruction above five vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

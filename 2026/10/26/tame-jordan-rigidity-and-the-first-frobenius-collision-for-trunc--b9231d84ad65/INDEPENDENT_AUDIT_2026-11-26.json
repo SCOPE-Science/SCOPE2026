@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:06:28.535952Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a first nonlinear term a t^{d+1}, N sends t^i into degrees ≥i+d, with coefficient i a at i+d. In a j-fold iterate the coefficient at i+jd is a^j times the product of i+hd for h=0,…,j−1; terms of higher filtration cannot contribute there. In the tame range, if that degree survives, all factors lie in [1,m−1−d]⊆[1,p−1], giving one independent pivot per surviving i and no other nonconstant inputs. At m=p+d+1, N kills t^p by Frobenius since p(d+1)≥m, and kills t^{p+1} and higher by filtration. At power j, any input with i+(j−1)d≥p is therefore killed; all remaining positive i give distinct nonzero pivots by the same product. This reproduces both ranks and the fixed ideals with constants; the one-rank loss is relative to the tame prediction only when that prediction is positive, as specified in the Finding, not for already zero powers. The ranks identify the two shift partitions by chains in residues 1,…,d and the extra singleton blocks. At the common truncation the depth-(d+1) map is tame. The two ranks at j=1 are p−1, while at j=2 they are max(p−1−d,0) and max(p−2−d,0); when both are zero all later powers vanish, proving the exact collision criterion. This works also in characteristic 2. Counting the first nonzero and later coefficients gives the stratum sizes and, in the short tame range, fixed dimension d+1 and distinct ranks for distinct depths. Static inspection of artifacts/verify.py:39–153 and VERIFICATION.md:19–26 confirms direct finite matrix-power checks in the specified regimes and selected comparisons, not a proof for arbitrary truncations. No frozen code was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "D’Alessandro–Szechtman treat general coefficient rings, compute depth bounds for p-iterates and quotient exponents, and explicitly use substitution matrices. The Nottingham brace result computes the socle filtration for the brace action. The same-date automorphism-scheme record compares smoothness with p not dividing m."
+        ],
+        "reasoning": "These are overlapping settings with different invariants. A result on quotient exponents can control an upper bound on a largest block, but cannot determine multiplicities, lengths of all blocks, or similarities between individual elements.",
+        "searches": [
+          "arXiv:2606.11461v1 Theorem 3.5 and York Lemma 3.6",
+          "Resultary fdfe4aefbe51 Nottingham braces",
+          "Resultary 6aede90aadc6 truncated polynomial automorphism schemes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2008.04971 §1.2",
+        "arXiv:2606.11461v1 §§2–4 and relevant current passages",
+        "Resultary fdfe4aefbe51, 6aede90aadc6, 0baa1992ba37, 748cf1f7f8fb, c2ffbfc6824a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 3.3 gives the jump filtration, and York's Lemma 3.6 identifies a Frobenius restriction on matrix entries from inputs whose degrees are multiples of p. The p-iterate bounds use matrix paths out of input degree 1. The audited theorem instead counts surviving independent pivots from all input degrees, including the lost pivot at p, for every j.",
+          "For example at p=3, m=5, t→t+t² has N ranks (2,1,0,…), and t→t+t³ has (2,0,…), though both have order 3 and the same fixed dimension. Thus composition order and fixed dimension together do not give the similarity distinction."
+        ],
+        "reasoning": "The standard filtration lemmas explain the proof ingredients but do not themselves classify all the images of arbitrary powers or establish the exact transition of collision with depth. The full module statement is not a specialization of the asserted group exponent or fixed-space statements.",
+        "searches": [
+          "arXiv:2606.11461v1 §2 matrix powers, Lemmas 3.3 and 3.6, Theorems 3.4–3.5",
+          "arXiv:2008.04971 §1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen Jordan profile is equivalently the cyclic group module decomposition into chains for phi−1. Ramification break sequences track the depths of composition powers indexed by powers of p, rather than dimensions of all images of (phi−1)^j.",
+          "The later truncation profile Resultary 748cf1f7f8fb has floor((N−1)/d^r) for a nilpotent substitution t→f(t) with ord(f)≥2, not for phi−1 of a normalized automorphism."
+        ],
+        "reasoning": "In characteristic p, (phi−1)^{p^e}=phi^{p^e}−1, but composition break ranks do not amount to the whole ordinary power sequence. Recasting the partition in cyclic module notation does not change the invariant or match the noninvertible substitution theorem.",
+        "searches": [
+          "Resultary: Nottingham normalized substitutions, natural-module Jordan type and nilpotent power ranks",
+          "arXiv:2008.04971 §1.2 ramification depth and lower break sequences",
+          "arXiv:2606.11461v1 §§2–4 substitution matrices and powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later Resultary 0baa1992ba37 has the same normalized short-range fixed-space count for p>m. Later c2ffbfc6824a counts characteristic-two involutions by depth. Neither table gives the claimed higher-rank and similarity data across the stated characteristic boundary."
+        ],
+        "reasoning": "The fixed-space count gives the number of blocks but not their lengths; the involution count restricts behavior under composition, not the rank profile for arbitrary p and depth.",
+        "searches": [
+          "Resultary: truncated polynomial fixed-subalgebra spectra, Nottingham depth strata and involution census"
+        ]
+      },
+      "rationale": "Credit is limited to the complete natural-module rank profiles, sharp first loss, and first-wild collision criterion. Substitution matrices, their filtration estimate and Frobenius support restrictions are known; the short-range fixed-space count is included as context rather than credited as novel. Exact statement comparisons did not supply the higher-power ranks or the different-depth natural-module similarity criterion. In particular the previously inaccessible exponent paper was retrieved and inspected at its relevant matrix and ramification lemmas. Its aim and results use p-power matrices to track compositions, not all natural-module ranks.",
+      "residual_risks": [
+        "This was a targeted comparison. Earlier natural-module treatments under different representation terminology might exist.",
+        "The general leading-term method and short-range fixed dimensions are not separately credited as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior matrix ingredients and composition-power bounds, not the natural-module rank classification",
+          "evidence": "The paper computes exponents of H_r in G_n, uses M^p=I+Δ^p and proves the inclusion of the subgroup of p-th powers in the appropriate depth filtration; York's lemma gives divisibility of output degrees for multiples-of-p input. This resolves the frozen note that the PDF was not accessible, not the question of exhaustive worldwide priority.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.11461v1",
+          "material_read": "v1 abstract and setup pp. 1–2; offsets 2380–5203 and 7440–11606, §§2–4 and Lemmas 3.3, 3.6, Theorems 3.4–3.5; current PDF retrieved and compared at the scoped passages",
+          "method": "Lawful OA PDF and bounded reading of actual results and proofs",
+          "title": "Substitution groups of formal power series",
+          "trigger": "Strong plausible overlap: same group, substitution matrices and the p-boundary"
+        },
+        {
+          "assessment": "Depth and lower breaks for formal composition iterates; not a rank profile",
+          "evidence": "Lower breaks use depth at powers sigma^{p^i} of a finite-order series.",
+          "identifier_or_url": "arXiv:2008.04971",
+          "material_read": "Abstract and §1.2, p. 4, OA offsets 0 and 18150",
+          "method": "Bounded OA paper read",
+          "title": "Automata and finite order elements in the Nottingham group",
+          "trigger": "Potential equivalent ramification description"
+        },
+        {
+          "assessment": "Different action/invariant",
+          "evidence": "The socle series for the brace action and multipermutation level N−1 do not classify individual linear substitutions.",
+          "identifier_or_url": "Resultary 2026-10-04, fdfe4aefbe51",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local catalogue and mirrored passage",
+          "title": "Truncated Nottingham braces attain maximal multipermutation level at every odd prime",
+          "trigger": "Earlier same-setting catalogue hit"
+        },
+        {
+          "assessment": "Smoothness threshold, not a module similarity threshold",
+          "evidence": "The automorphism scheme is smooth iff p does not divide m, with additional scheme structure for a power of p.",
+          "identifier_or_url": "Resultary 2026-10-26, 6aede90aadc6",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local catalogue and mirrored passage",
+          "title": "Smoothness threshold for automorphism schemes of truncated polynomial algebras",
+          "trigger": "Distinct same-date hit and same base algebra"
+        },
+        {
+          "assessment": "Later and narrower direct overlap of a background count",
+          "evidence": "For p>m the linear-coefficient-one slice has (q−1)q^{m−2−j} elements of fixed dimension 1+j, plus the identity.",
+          "identifier_or_url": "Resultary 2026-11-08, 0baa1992ba37",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local catalogue and mirrored passage",
+          "title": "Cyclotomic fixed-subalgebra spectra of tame truncated polynomial algebras",
+          "trigger": "Fixed-space spectrum and all linear coefficients"
+        },
+        {
+          "assessment": "Different linear operator",
+          "evidence": "It studies powers of the substitution itself when the linear coefficient of f is zero; in this record the substitution has linear coefficient one, and the operator is its difference from the identity.",
+          "identifier_or_url": "Resultary 2026-11-22, 748cf1f7f8fb",
+          "material_read": "RESULT.md finding, offset 430",
+          "method": "Local catalogue and mirrored passage",
+          "title": "Jordan profiles and a pure-point depth law for nilpotent truncated substitution endomorphisms",
+          "trigger": "Nearest Jordan terminology and same truncated ring"
+        },
+        {
+          "assessment": "Involution enumeration, not the claimed representation classification",
+          "evidence": "Counts substitutions with f composed with itself equal to the identity.",
+          "identifier_or_url": "Resultary 2026-11-22, c2ffbfc6824a",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local catalogue and mirrored passage",
+          "title": "An all-depth involution census for characteristic-two truncated substitutions",
+          "trigger": "Exact depth census at the exceptional prime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural module is a canonical representation of these truncated groups. The formula finds the exact boundary of coefficient-independent shift ranks and shows exactly when this representation first fails to distinguish consecutive depths. It yields full similarity information, not merely group order or fixed-space size. The all-characteristic transition and its sharp collision criterion provide substantive structure beyond a routine enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

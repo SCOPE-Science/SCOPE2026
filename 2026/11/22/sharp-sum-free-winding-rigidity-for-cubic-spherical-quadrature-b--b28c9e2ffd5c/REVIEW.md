@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** All-dimensional proof explicitly converts normalized arclength into Fourier character means (constant speed plus primitive winding), determines necessary radii from second moments, eliminates cubic resonances by the precise repeated-sum-free condition, and proves the sharp sum-of-squares lower bound by finite reflection pairing on each prefix. Equality and the fourth-degree exclusion follow exactly. Exact finite regression is supplementary and not an infinite proof.
+## correctness
 
-**Originality — PASS, within the available comparisons.** Ehler and Gröchenig introduced the sphere-design-curve framework in 2023; King and Mixon (2026) explicitly give the symmetric moment curve as a *known* \(3\)-design and conjecture its unrestricted global shortest status. This result is not the known construction: it proves a complete iff test for *all* primitive diagonal one-phase windings and exact uniqueness of the restricted shortest design. The relevant primary full texts were compared, and indexed Clifford-torus sampling results do not imply this claim. Unindexed equivalents remain possible.
+PASS
 
-**Mathematical value — PASS.** The one-parameter diagonal unitary orbit is a canonical, motivated phase-only family and contains the precise globally conjectured extremizer. A sharp necessary/sufficient cubic exactness criterion, all-dimensional optimal arclength, and equality rigidity provide substantive constrained resolution of an open design-curve optimization. This does not settle the unrestricted conjecture.
+Primitivity, positive radii and Bézout give injectivity modulo 2pi and positive constant speed, so normalized arclength is uniform in t. In the complex monomial basis, independent rotations of sphere coordinates kill all unbalanced targets; through degree three only the constants and |z_j|^2 survive. The first and second moments force nonzero winding, equal radii and distinct absolute frequencies, respectively by testing singleton, diagonal and mixed moments. Every cubic zero frequency now corresponds to a+b=c with repetitions allowed; the corresponding monomial has nonzero amplitude, independently of phase. Thus the repeated-sum-free test is both necessary and sufficient. Reflecting the positive integers below the maximum a_j of each sorted prefix gives at most floor((a_j-1)/2) admissible smaller elements; the midpoint is itself forbidden. Hence a_j>=2j-1, and the speed formula gives the sharp length and unique odd spectrum. At degree four the sphere gives |z_j|^4 mean 2/(d(d+1)), not the constant 1/d^2 attained by a three-design orbit. A separate exact cyclic-character replay checks 1,290 primitive positive frequency spectra in d=3,4; this does not replace the signed all-dimensional proof.
 
-**Scientific limitations and risks.** Proof uses a constant-radius, one-frequency-per-coordinate class; no global minimization or finite stability is stated. Published odd-frequency construction is acknowledged as prior art. Related sources accessible only as indexed records cannot be excluded as equivalent without full inspection. No independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The odd-frequency symmetric moment curve and its known cubic exactness are prior art, and neither the elementary reflection bound nor Fourier orthogonality is itself a new result. The supported distinct claim is the complete repeated-sum-free criterion and sharp restricted-class minimum with equality for arbitrary primitive diagonal windings. The strongest compared prior passages give the example and a global conjecture, not this classification or a proved minimum for a class that contains these orbits; access limitations are retained.
+
+## value
+
+PASS
+
+The natural constant-modulus phase-only class contains the known symmetric moment curve that motivates the global length conjecture. A test for every winding vector, a sharp restricted length, and equality rigidity resolve a constrained quadrature optimization rather than just recomputing that example. The elementary sum-free rank bound is a tool, not the contribution by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

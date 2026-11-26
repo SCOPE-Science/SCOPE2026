@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:29.706225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–46; VERIFICATION.md; witnesses.json; verify.py (inspected, not executed); /workspace/reproduction/independent_2.py with witnesses.json as argument (executed).",
+        "Clarke et al., DOI 10.2140/astat.2024.15.199, Proposition 3.3 and Theorem 3.6."
+      ],
+      "rationale": "A rank-five symmetric complex matrix admits C=XBX^T with X of full column rank and B invertible symmetric. For |I|=5, det C[I]=det B (det X_I)^2, so nonzero minors are exactly the bases of the row matroid. Every principal 3-minor is 2c_ij c_ik c_jk≠0, hence there is no row circuit of size ≤3. The dual is rank two; its hyperplanes consist of the loops together with one nonloop parallel class, so all class sizes satisfy a_j≤t−4 for t nonloops. Thus 5≤t≤7, and the number of dual bases is the number of cross-class nonloop pairs. Enumerating bounded partitions gives 1, 4 and 8 patterns for t=5,6,7. Separately verified the supplied integer matrices without running the supplied checker: exact nullspaces gave rank and the dual class data (the kernel is the relation space of X^T); exact principal determinants independently confirmed all thirteen patterns and count set {10,12,13,14,15,16,17,18,19,20,21}. The factor interpretation is the order-five layer of the published product formula, not an ML-degree conclusion.",
+      "residual_risks": [
+        "No statement about scheme structure, rank other than five, or characteristic two is verified. The related-work line about rank-three minima should be read as tabulated candidate values, not established global minima at d=7,8."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oldekop's all-d realization has rank three with all principal-determinant factors vanishing; the proven ML-degree minimum is through d=6. The representability discussion on p.18 does not give a blanket realization theorem.",
+          "Clarke et al.'s relevant all-value results are for independence/Segre models. Resultary b10901525680 concerns a base-polytope graph invariant, not a symmetric scaling realization."
+        ],
+        "reasoning": "All d with rank three does not dominate rank five; d≤6 comparisons are not even on the seven-element ground set. None of these results yields realizability of the admissible rank-two duals under the hollow symmetric condition.",
+        "searches": [
+          "arXiv:2606.16482 Theorems 1.6, 1.7, 3.1, 5.7 and Proposition 3.2; arXiv:2312.10010 Theorems 1.3–1.4",
+          "Resultary rank-two matroid and second-hypersimplex support queries"
+        ]
+      },
+      "checked_sources": [
+        "Clarke et al. arXiv:2312.10010 and DOI 10.2140/astat.2024.15.199; Oldekop arXiv:2606.16482",
+        "Resultary b10901525680 (rank-two base graph) and 5297f4a837b3 (Δ_{5,2} ternary code)",
+        "MathDB 375360 (metadata only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-factor formula gives the interpretation, but no constraint or completeness theorem on realized rank-five principal support. The rank-three examples have all order-five minors zero and fall outside the domain.",
+          "The thirteen exact matrices meet the new compatibility condition between an abstract dual matroid and a dense hollow symmetric rank-five matrix."
+        ],
+        "reasoning": "The cocircuit bound and partition enumeration exclude eleven, but abstract representability of rank-two partitions alone does not settle sharpness. The available general literature does not mechanically deliver the upper inclusion and all realizations together.",
+        "searches": [
+          "Compare arXiv:2312.10010 Theorem 3.6 and arXiv:2606.16482 Theorems 3.1 and 5.7 to frozen factorization and certificate logic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clarke et al.'s factor formula identifies precisely all indexed |I|≥4 principal minors of W, including the 21 factors in question.",
+          "Oldekop relates principal-minor support to representable delta-matroids; the theorem on ML-degree invariance in the relevant discussion has d≤6."
+        ],
+        "reasoning": "The amount of order-five support equals the number of bases of the dual rank-two matroid, not ML degree, rank of the scaling, or the support of all factors. Invariance of ML degree within strata does not enumerate d=7 rank-five strata.",
+        "searches": [
+          "Rank-five hollow symmetric 7×7 principal minors; second hypersimplex order-five principal determinant support; dual rank-two loop and parallel-class pattern realization",
+          "Clarke–Hoşten–Kushnerchuk–Oldekop arXiv:2312.10010, Proposition 3.3 and Theorem 3.6; Oldekop arXiv:2606.16482, Theorem 5.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 5 gives a d=7 all-factor-vanishing ML degree 15 example, not rank five or a count of maximal-order nonzero minors.",
+          "The nearest indexed second-hypersimplex result, 5297f4a837b3, tabulates weights of a ternary code on Δ_{5,2}, not the desired counts."
+        ],
+        "reasoning": "Neither tabulation is the thirteen-pattern spectrum or data from which its d=7 rank-five realizability follows.",
+        "searches": [
+          "Clarke et al., arXiv:2312.10010 Table 5, p.23; published ML degree stratification companion; Resultary order-five factor support and seven-point second hypersimplex"
+        ]
+      },
+      "rationale": "The principal determinant, standard symmetric factorization and rank-two matroid counting are known ingredients. The distinct content is the exhaustive order-five spectrum on the d=7 rank-five locus, including realizability of all thirteen admissible dual patterns by dense hollow symmetric matrices. Inspected papers cover rank-three constructions or stratifications through d≤6, not that realizability issue. A rank-two matroid realized abstractly by vectors need not thereby be the dual of a hollow symmetric scaling of the specified rank.",
+      "residual_risks": [
+        "MathDB 375360 did not yield an actual statement. Unindexed equivalent realizability theorems or exact d=7 data remain possible; the conclusion is based on the inspected results, not on search absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes interpretation and different rank-three example, not the rank-five layer.",
+          "evidence": "E is the product of det W[I] for |I|≥4; d=7 Table 5 example has all these factors vanish and has ML degree 15.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.10010 ; DOI 10.2140/astat.2024.15.199",
+          "material_read": "Theorems 1.3–1.4 (p.2), Proposition 3.3 and Theorem 3.6 (pp.21–22), Table 5 (p.23).",
+          "method": "Lawful OA preprint passages.",
+          "title": "Matroid Stratification of ML Degrees of Independence Models",
+          "trigger": "Same second hypersimplex, precise product and d=7 example."
+        },
+        {
+          "assessment": "Rank-three construction in general dimension; finite stratification/minimum statements do not cover d=7 rank five.",
+          "evidence": "Rank-three scalings attain ML degree binom(d−1,2) with all discriminant factors vanishing; theorems proving global minimum and ML-degree invariance have d≤6.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.16482",
+          "material_read": "Theorems 1.6, 1.7, 3.1, 5.7; Proposition 3.2 (pp.8–9); representability discussion p.18.",
+          "method": "Lawful OA full-text passage inspection.",
+          "title": "Euler Stratifications of Second Hypersimplices via Delta-matroids",
+          "trigger": "Plausibly dominating representability or stratification theorem."
+        },
+        {
+          "assessment": "No statement-level comparison possible from the returned material.",
+          "evidence": "No mathematical statement was retrieved.",
+          "identifier_or_url": "https://mathdb.com/p/375360/rank-four-principal-minor-conjecture-for-scaling-matrices",
+          "material_read": "Only search result metadata; OA access failed.",
+          "method": "Lawful online retrieval attempt.",
+          "title": "Rank-four principal-minor conjecture for scaling matrices",
+          "trigger": "Principal minors of scaling matrices, potentially related."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and limits; thirteen exact certificates; Clarke et al. Theorem 3.6; Oldekop Theorems 1.6 and 5.7."
+      ],
+      "rationale": "On rank five the highest potentially nonzero principal-determinant layer is order five. Its support count is therefore a natural statistic of these scaling strata, not a randomly chosen subset of factors. A sharp hole at eleven and full realization of all compatible dual patterns give useful exact constraints on a dimension just beyond the published d≤6 classification. No claim is made that this computes ML degrees or the whole stratification.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

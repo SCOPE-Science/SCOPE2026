@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact sine eigenbasis gives the reflected kernel identity (1), including endpoint and diagonal cases. Rademacher fourth moments reduce covariances to signed unordered-pair counts: \(n-m\) difference pairs, \(2\lfloor(m-1)/2\rfloor\) reflection pairs, and precisely two cross-degree reflection pairs for any distinct equal-parity degree pair. The block eigenanalysis and finite spectral identities yield the exact rank, risk and unique null direction. Independent exact matrix-recurrence and full-sign-space calculations corroborate all tested instances. Boundaries are \(n\ge2\), \(1\le j,k\le n\), and half-adjacency, not degree normalization.
+## correctness
 
-## Originality — PASS, qualified
-Hallman (arXiv:2101.00325) gives a Chebyshev product identity and an evaluation algorithm, not an exact covariance classification for a specific path matrix. Hallman–Troester (arXiv:2103.10516) give multilevel decomposition and variance/cost optimization, but do not compute this path's cross-degree covariance. Han and collaborators' older Chebyshev trace framework and Noschese–Pasquini–Reichel's tridiagonal Toeplitz analysis supply general prior tools, but not the same closed covariance statement in inspected material. A previously recorded cycle calculation has positive complementary-degree aliasing, which neither dominates nor implies negative same-parity reflection covariance for a path. Searches for the exact parity law, equivalent Toeplitz/Hankel reflections, and a pre-existing exact table found no decisive matching result. Residual risk: a classical sine-transform or tridiagonal polynomial identity may already encode the same calculation.
+PASS
 
-## Value — PASS
-For the canonical Dirichlet chain, the theorem is a complete all-degree, all-coefficient stochastic trace-risk formula, not merely one computed instance. Negative cross-degree covariance and a single deterministic null mode show why reusing one probe can fundamentally differ from independently probing each Chebyshev term. The exact rank and block spectrum provide a reproducible finite benchmark for multilevel or shared-probe polynomial trace estimation. No computational speedup is claimed.
+Independent kernel derivation: put N=n+1 and extend a path vector oddly across 0 and N to the 2N-cycle. The two unit cyclic shifts U and U^{-1} preserve the odd subspace in their sum; their half-sum restricts to the half-adjacency. The Chebyshev recurrence on the cycle gives 2T_m=(U^m+U^{-m}), whose restriction counts the forward difference and the two odd reflections, yielding (1). At a<b only d=b−a and h=min(a+b,2N−a−b) can contribute, with opposite signs unless h=N (outside the window). At fixed m the d-count is n−m and the h-count is twice floor((m−1)/2); at distinct equal-parity j<k each of a+b=k and a+b=2N−k gives exactly one feasible pair of difference j, and opposite parities give none. The centered scores are 2 times the sum of off-diagonal entries times z_a z_b; distinct unordered pairs are orthonormal in sign space, so all covariance constants follow. Each parity block is scalar minus twice the all-ones matrix: the parity of n has eigenvalue zero on constants and the other parity eigenvalue one, with the stated scalar eigenvalues on orthogonal contrasts. The finite sine sum for U_n(x) gives twice the sum of the parity-n Chebyshev terms plus I for even n; U_n(A_n)=0 on the sine eigenangles. This covers n=2, where the even block is identically zero and has no off-diagonal correlation claim. Independent replay gave 216224 kernel entries, 9454 Gram entries, 9454 null-polynomial entries and 203 exact raw full-sign-space covariance entries.
 
-## Scope and residual risks
-No claim is made beyond degree \(n\), alternative normalization, other graphs, or independent per-degree sign samples. General matrix variance identities and the deterministic polynomial identity are prior mathematical tools; the claimed contribution is their exact nontrivial path-wide covariance resolution. Historical equivalence has not been ruled out by independent specialist assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the explicit off-diagonal Gram/covariance law and its benchmark interpretation. The reflected kernel is a specialization of known Dirichlet spectral matrix-function structure, and the null polynomial is a classical Chebyshev characteristic identity. Neither is credited as independently new. The older Toeplitz–Hankel framework is closer to the proof than the trace-estimation papers and should be credited.
+
+## value
+
+PASS
+
+For a standard Dirichlet test matrix this gives the exact stochastic risk of every degree≤n polynomial in one shared sample, with systematic variance cancellation absent from independently sampled degrees. A researcher comparing sampling and polynomial designs can use the signed covariance, exact spectrum and deterministic null contrast as a complete finite-size benchmark. The result makes no speedup claim and derives meaningful all-size constants, not just sample covariances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

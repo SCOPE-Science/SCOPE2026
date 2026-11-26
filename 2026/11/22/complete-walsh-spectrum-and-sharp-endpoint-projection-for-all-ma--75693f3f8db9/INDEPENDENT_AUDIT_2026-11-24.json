@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:54:40.958342Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Findings and Proof; VERIFICATION.md; spectrum.csv; verify_fwht.cpp and verify_dp.cpp (inspected, not run)",
+        "Independent replay: python3 /workspace/checks/review_4.py <frozen spectrum.csv> (Python 3.12.3, integer NumPy 2.5.3)"
+      ],
+      "rationale": "There are Σ_k binom(5,k)²k!=1546 matchings including the empty one. I reproduced the signed multiplier at each row-profile using a different formula: for a column subset C, the kth elementary symmetric function of the five signed row sums over C counts assignments of k distinct rows to columns in C, allowing repeated columns. Inclusion–exclusion over subsets of each k-column target forces bijections and gives the signed matching sum over all sizes. All 376,992 unordered row profiles, with multiplicities 5! divided by the product of the row-multiplicity factorials, account for all 2²⁵ signs. The replay matches all 187 signed CSV entries (1,183,200 zeros, rank 32,371,232, moduli 2 through the maximum 1546 at the extremes, hence ratio 773). The calculation marks the individual zero frequencies and transforms their indicator, using the constant full-set transform to obtain the complement's unnormalized absolute sum 25,902,311,232. Averaging any projection over translations preserves its range and its restriction to that range and cannot raise either endpoint norm. The averaged projection is uniquely the Fourier-support multiplier 1_S. Its counting kernel has ℓ¹ norm 2⁻²⁵ times the computed sum, attaining the ℓ¹ operator norm on a delta and the ℓ∞ operator norm on a translating kernel's sign vector. Normalizing the measure does not change these induced norms. The Finding's phrase 'zero frequency multiplicity' means multiplicity of eigenvalue zero, not the trivial frequency, which has value 1546.",
+      "residual_risks": [
+        "An exact fixed-size certificate for the complete square board and counting convention, not a boards-of-all-sizes norm formula. The condition ratio uses only the nonzero spectral subspace."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5bf177d89df5 gives a parity criterion for Walsh-zero existence and sharp gap at K3,n; 3f0888fdee6d gives the first zero degree and lower-degree bounds in that same three-row regime.",
+          "9046021fcb99 covers two-edge matchings on K3,n, with a projection retaining matching-indexed characters, not retaining every nonzero frequency of the all-matchings convolution."
+        ],
+        "reasoning": "The row dimension and matching sizes are essential. None of these statements specializes to K5,5 with every size included. The permanent construction is a computation of individual weights, not a general evaluated spectral or norm classification.",
+        "searches": [
+          "Resultary 5bf177d89df5 and 3f0888fdee6d for full matching families; 9046021fcb99 for exact coefficients and sharp projections; Huo et al. arXiv:0708.1641v2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary IDs 75693f3f8db9, 69d359ed8a05, 5bf177d89df5, 3f0888fdee6d, 9046021fcb99",
+        "Mitchell arXiv:math/0407004v1",
+        "Huo–Liang–Liu–Bai arXiv:0708.1641v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Walsh transform is linear for pointwise sums of disjoint-size indicators, but the marginal histogram for perfect matchings gives no joint distribution with the smaller sizes.",
+          "In Fourier projection, averaging shows minimality of the support projection in general; the numerical value requires the actual location of the zeros, not just their number or the signed marginal histogram."
+        ],
+        "reasoning": "No inspected bound, table, or formula computes the exact nonzero frequency set and its kernel norm at these parameters without the new census. Conversely the rank, spectral gap and ratio are consequences of the signed census and are not separate novelty claims.",
+        "searches": [
+          "Resultary 69d359ed8a05, 9046021fcb99 and 5bf177d89df5 Findings; arXiv:0708.1641v2, Abstract and Introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A frequency is a ±1 board; its multiplier is a signed sum of the weights of nonattacking rook placements of all sizes, or the sum of corresponding permanental minors including the empty one.",
+          "Mitchell p. 1 treats computing unsigned restricted-permutation rook counts. Huo et al. Abstract/Introduction treats conversion of all-matching counts into a perfect-matching count on an extended graph. The Resultary K3,n result explicitly uses a signed matching identity for three rows."
+        ],
+        "reasoning": "Ordinary rook numbers at the all-positive board, an encoding via a permanent, or a formula for three rows is not the distribution over all signs on five rows. The strength required here is the evaluated histogram and the support geometry entering the norm, not a new formula identifying the object.",
+        "searches": [
+          "Primary literature lookup for K5,5 all-partial-matching Walsh spectrum, signed rook/matching sums and the specific range-projection norm",
+          "Mitchell arXiv:math/0407004v1; Huo et al. arXiv:0708.1641v2; Resultary 5bf177d89df5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "75693f3f8db9 is the identical frozen record, not independent coverage.",
+          "69d359ed8a05 gives a complete absolute spectrum for the 120 permutation matrices and the norm 33045/4096 for the projection whose symbol is their indicator."
+        ],
+        "reasoning": "The exact same-board table is for perfect matchings only, reports absolute values rather than signed multiplicities, and uses a different projection symbol. It does not supply the assigned table or constant.",
+        "searches": [
+          "Local Resultary lookup for 5-by-5 signed matching Walsh distribution and endpoint projection, including 75693f3f8db9 and 69d359ed8a05"
+        ]
+      },
+      "rationale": "The supported distinct advances are the signed histogram for all partial matchings of the 5-by-5 square and the computed optimal range-projection constant. Unsigned rook counting, other board shapes, size slices, and the same-board perfect-matching spectrum were compared; none of the established results provides the two claimed exact invariants. The averaging argument and standard convolution diagonalization are not novelty claims.",
+      "residual_risks": [
+        "The primary literature index lookup returned unrelated hits, which are not negative evidence. The assessment is based on the retrieved scientific statements, and an unindexed prior signed census or equivalent exact projection calculation remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not the same kernel or projection",
+          "evidence": [
+            "120 perfect matchings; absolute spectrum; 33045/4096 for symbol equal to the permutation indicator."
+          ],
+          "identifier_or_url": "Resultary 69d359ed8a05",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Exact order-five binary permutation Fourier spectrum and endpoint projection",
+          "trigger": "Same group and board, close matching-spectrum and endpoint-norm claim"
+        },
+        {
+          "assessment": "Closely related, covers K3,n rather than K5,5",
+          "evidence": [
+            "Signed matching identity, parity zero criterion and gap in the former; first-zero degree and lower-degree bounds in the latter."
+          ],
+          "identifier_or_url": "Resultary 5bf177d89df5 and 3f0888fdee6d",
+          "material_read": "Each RESULT.md Finding and scope, offset 0",
+          "method": "Local mirror full-text passages",
+          "title": "Complete Walsh singularity and sharp spectral gap for all matchings; Sharp first Walsh-zero threshold for partial matchings",
+          "trigger": "All-size matching family and Walsh cancellation"
+        },
+        {
+          "assessment": "Different matching slice and different projection",
+          "evidence": [
+            "Two-edge matchings of K3,n; matching-index support, not convolution-range support."
+          ],
+          "identifier_or_url": "Resultary 9046021fcb99",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Exact zero-free residues and sharp Fourier norms for two-edge matchings",
+          "trigger": "Matching coefficient census plus norm"
+        },
+        {
+          "assessment": "Inspected statements concern computation of rook polynomials",
+          "evidence": [
+            "Rook polynomials encode restricted-permutation counts and are handled by a block decomposition algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0407004v1",
+          "material_read": "PDF p. 1, Abstract and Introduction (text offsets 780–2510)",
+          "method": "OA original PDF text",
+          "title": "A Block Decomposition Algorithm for Computing Rook Polynomials",
+          "trigger": "Unsigned rook formulation of all partial matchings"
+        },
+        {
+          "assessment": "Inspected statements provide a matching-count reduction, not the specified spectrum or norm",
+          "evidence": [
+            "Reduce bipartite all-matching partition-function computation to the permanent of an extended graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0708.1641v2",
+          "material_read": "Abstract and Introduction (PDF text offsets 600–2481 and 5200–6695)",
+          "method": "OA original PDF text",
+          "title": "Computing the Monomer-Dimer Systems through Matrix Permanent",
+          "trigger": "Equivalent all-size matching count and permanent method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, spectrum.csv, and projection argument",
+        "Resultary 5bf177d89df5 and 69d359ed8a05 (related three-row and perfect-matching treatments)"
+      ],
+      "rationale": "The all-matchings indicator on a complete square board is canonical and its Fourier zero set governs exact recoverability. The sharp endpoint projection constant quantifies a distinct stability cost of projecting arbitrary data to the recoverable subspace; it cannot be read off from the spectral condition ratio. Together the full signed table and sharp norm give substantive exact benchmark data for finite-board results beyond the three-row family and the perfect-matching slice.",
+      "residual_risks": [
+        "No assertion that five is a transition threshold, or that the projection is optimal for noisy inversion. The numerical phenomenon is established only for this board."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

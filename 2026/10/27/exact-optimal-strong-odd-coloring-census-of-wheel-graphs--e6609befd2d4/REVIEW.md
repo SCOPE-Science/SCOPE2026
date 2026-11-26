@@ -1,15 +1,21 @@
-# Scientific review — optimal wheel strong odd coloring census
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact object is the labeled wheel with a rim of length \(n\ge3\). The reduction from proper neighborhood oddness to cyclic square coloring with every class of odd cardinality is bidirectional, including the hub neighborhood. The palette sizes are independently justified by the parity of the number of classes, independence bounds for cyclic distance two, and explicit witnesses closed under a six-position insertion. The weighted transfer trace is proved by a bijection between closed walks and cyclic words; the Walsh parity projection counts exactly the all-odd class-size assignments. The six character polynomials are determinants of explicitly defined finite integer matrices, independently reproduced by exact Newton identities in `verify.py`. The exceptional 14-rim value is certified by two distinct integer computations. Standard Perron–Frobenius strict comparison and three-cycle sign products justify the exact exponential constants. The verification code checks the original neighborhood condition in independent bounded cases; it does not purport to establish the infinite formulas by experiment.
+## correctness
 
-## Originality — PASS, with stated priority risk
-Kwon–Park (arXiv:2401.11653, initially 2024-01-22) introduces the invariant. Caro–Petruševski–Škrekovski–Tuza (arXiv:2410.02336, initially 2024-10-03) establishes broader bounds and universal-vertex behavior. Most critically, Manattu–Vinay–Lakshmanan (arXiv:2602.03259, initially 2026-02-03) proves an exact *chromatic-number* theorem for \(W_n\) and even states the two necessary restrictions on its rim (Section 2, Observations 1–2 and Theorem 1). It does not enumerate its optimal colorings, provide the parity-trace characteristic polynomials, or prove the disparate optimizer asymptotics. The present contribution excludes that known scalar result and derives a strictly finer count. Searches for an explicit chromatic-symmetric-function expression of squared cycles and for equivalent parity-restricted 2-distance-coloring counts did not reveal a covering formula; absence of search hits is not proof of priority. A specialized unindexed symmetric-function enumeration could dominate the new enumeration.
+PASS
 
-## Value — PASS
-The known optimizer *number* does not indicate the number of configurations realizing it. The result gives a complete, reproducible all-order labeled count and precise growth laws. In particular, among the odd rim orders the three residue classes \(1,3,5\pmod6\) split into two exponentially growing families and an exactly rigid family of 24 colorings; the exceptional 14-rim graph has exactly 65,409,120 named optimal colorings. These are natural optimizer multiplicities for a published graph-coloring parameter and provide more than a restatement of the previously known chromatic number.
+On the repaired domains, the sign average is the product of the odd-multiplicity indicators and counts labeled rim words in bijection with indexed closed walks. Sign complementation pairs terms only as used when n≡k mod 2, yielding integer counts B₄ and B₅ there. The local neighborhood condition gives cyclic distance-two properness and the hub gives odd rim classes. Small rims force singleton classes, three colors force period three (and odd class sizes precisely for n≡3 mod 6), and the parity, size bounds and verified +6 witness extension fix all remaining optimal palette sizes. The 14-rim has six rim colors and the independently reproduced rim count 9,344,160 gives 65,409,120 after seven hub choices. In the signed asymptotics all states communicate (including reversal of any pair with a four-color walk); 3- and 4-cycles ensure primitivity. The equality condition for spectral-radius comparison forces one common phase on the products along 3-cycles. Comparing triples with two common colors forces all signs equal. Only the all-positive and all-negative terms therefore contribute the leading terms, with factor 2^(1−k) on the repaired parity domains before the hub factor.
 
-## Scope and limitations
-The theorem does not count nonoptimal colorings or automorphism orbits. The root-sum formulas are algebraic exact forms rather than elementary single-base expressions; six polynomial factorizations and the finite exceptional computation are machine-replayable. The external scientific bibliography is not exhaustive; any earlier explicit formula for the relevant chromatic symmetric functions of cycle squares may affect priority. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The revised contribution is the evaluated optimal-coloring count with named colors and distinguished vertices, including six explicit characteristic polynomials, the exceptional count, and residue-class growth laws. The inspected primary wheel source already determines the palette and rim restrictions, as credited. Neither those statements nor the compared repository findings give this evaluated census.
+
+## value
+
+PASS
+
+The wheel is a canonical family with a known optimum, but an optimum palette is not a measure of how many optimal configurations exist. The exact formula exposes a qualitative difference: two odd residue classes have exponential growth while the third has a fixed 24 configurations. It also counts the exact exceptional order using the graph's actual optimum rather than extrapolating a generic branch. The parity-domain correction leaves that worthwhile comparison intact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

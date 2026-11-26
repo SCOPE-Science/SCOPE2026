@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:09:50.598830Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–84; VERIFICATION.md and verify.py (read only)",
+        "Independent exact survivor-state and split check under the frozen HED definition"
+      ],
+      "rationale": "Independence gives edge weight ℓq^(m−1) for a focal edge with m descendant tips. The common ancestral path cancels, and ultrametricity ensures the remaining coefficient sum is zero, so the difference factors as (q−1) times a sum of truncated geometric series. For at most six tips singleton splits have fixed sign and the other splits are (2,2), (2,3), (3,3) with degree at most one, or (4,2) with strictly positive derivative a₄(1+2q)+a₃. The new seven-tip splits (1,6), (2,5), (3,4) give fixed sign, monotonicity, and degree at most two respectively. Identical score polynomials and the tie at q=1 do not count. The witness is fully binary with positive lengths and all heights 4; its two marginal polynomials differ by (q−1)(q−3/10)(q−4/5). An independent enumeration of all 64 survivor subsets for each focal tip gives differences −63/500, 3/100, −3/500 at q=1/10, 1/2, 9/10. Attaching a new root above the old tree with one new sister tip adds the same tq^(n−1) to both scores, preserving both crossings.",
+      "residual_risks": [
+        "No sharp bound for n>7 is established; persistence there is existence only. No machine-checked proof is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unrestricted rooted binary threshold is five, and the five-tip witness has unequal heights. Martyn et al. compare empirical HED and Fair Proportion with two extinction-risk calibrations; Fischer et al. recompute Fair Proportion after realized leaf deletion."
+        ],
+        "reasoning": "Neither the unrestricted threshold nor comparisons changing score, tree, or risk vector give the sharp first occurrence on one ultrametric tree under common continuously varying risk.",
+        "searches": [
+          "Resultary five-taxon re-entrant single-species protection and eight-taxon best protector",
+          "Martyn et al. 10.1186/1748-7188-7-6 §4.2",
+          "Fischer–Francis–Wicke arXiv:2107.00748v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records c84204c65b93, fe2545590f3f, 687e4009c01e, 0dffbe31b8d3",
+        "Steel–Mimoto–Mooers Theorem III.1",
+        "Martyn et al. §4.2",
+        "Fischer–Francis–Wicke abstract and §1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known edge formula yields a polynomial, but the factor q−1 forced by equal heights and the small clade split monotonicity give the obstruction; the unrestricted five-tip example has no such equal-height constraint."
+        ],
+        "reasoning": "The inspected results do not mechanically imply exclusion through six together with attaining two crossings at seven.",
+        "searches": [
+          "Comparison of established HED identity and the re-entrant protection-gain result with the equal-height child-clade cases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For q=1−p, the single-species protection gain is q times the conditional HED score, a positive scaling on the domain; the five-tip competing result therefore really compares the same ranking.",
+          "The five-tip witness is not ultrametric. The HED edge-product formula is already Theorem III.1."
+        ],
+        "reasoning": "The same comparison objective under a different name is recognized; the positive-length equal-height restriction matters to the sharp answer.",
+        "searches": [
+          "Resultary re-entrant single-species protection, HED pairwise crossings and common-risk expected marginal PD",
+          "Steel–Mimoto–Mooers arXiv:0704.2649v1 Theorem III.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day seven-tip record fe2545590f3f concerns expected-PD curve identifiability of unlabeled topologies, not signs for a fixed pair. Records 687e4009c01e and 0dffbe31b8d3 concern a global best protector on unit-edge trees and expected total PD across shapes, respectively."
+        ],
+        "reasoning": "None supplies the same invariant; the same-day result was compared by statement, not presumed ineligible by date.",
+        "searches": [
+          "Resultary seven taxa ultrametric HED double crossing or priority reversal"
+        ]
+      },
+      "rationale": "Credit the exact ultrametric seven-tip onset for two sign reversals of a fixed HED pair. Expected marginal PD and its edge identity are known; the closest equivalent protection-gain formulation has a five-tip threshold without the ultrametric constraint. Its five-tip counterexample cannot decide the restricted threshold. No inspected result settles that precise restriction.",
+      "residual_risks": [
+        "The thesis comparison remains incomplete. These statement-level comparisons do not exclude unindexed work or a mathematically equivalent result under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known edge identity, no inspected exact onset",
+          "evidence": "Product of the extinction risks of the other descendants on each focal edge.",
+          "identifier_or_url": "https://arxiv.org/html/0704.2649v1",
+          "material_read": "§III.1, Theorem III.1, HTML offsets 8000–13999",
+          "method": "OA primary text",
+          "title": "Hedging our bets: the expected contribution of species to future phylogenetic diversity",
+          "trigger": "Original definition and strongest general formula"
+        },
+        {
+          "assessment": "Closest material parallel; non-ultrametric witness, not the restricted threshold",
+          "evidence": "G_a−G_d=q(q−1/5)(q−4/5) and specified root-to-tip heights are unequal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-taxa-are-sharp-for-re-entrant-single-species-conservation-p--c84204c65b93",
+          "material_read": "RESULT.md finding and proof, offsets 0–7190",
+          "method": "Local Resultary mirror",
+          "title": "Five taxa are sharp for re-entrant single-species conservation priority",
+          "trigger": "Exact repeated crossing for equivalent rankings"
+        },
+        {
+          "assessment": "Different quantity and statement",
+          "evidence": "Equality of the expected-PD curve for different unlabeled topologies, not repeated zeros of a focal-pair difference.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-seven-taxa-are-the-sharp-first-failure-of-topology-recovery-from--fe2545590f3f",
+          "material_read": "Indexed finding comparing entire expected-PD curves",
+          "method": "Local Resultary comparison",
+          "title": "Seven taxa are the sharp first failure of topology recovery from expected PD",
+          "trigger": "Same seven-tip ultrametric parameters"
+        },
+        {
+          "assessment": "Empirical comparison does not settle the threshold",
+          "evidence": "Uses Isaac and IUCN 100 extinction probability estimates on mammal trees and compares HED to FP.",
+          "identifier_or_url": "https://doi.org/10.1186/1748-7188-7-6",
+          "material_read": "§4.2 and Figure 3, PDF pp. 5–6",
+          "method": "OA PDF passage inspection",
+          "title": "Computing evolutionary distinctiveness indices in large scale analysis",
+          "trigger": "HED ranking sensitivity"
+        },
+        {
+          "assessment": "Different score and changing pruned tree",
+          "evidence": "Recomputes FP after deleting one taxon or one taxon per cherry.",
+          "identifier_or_url": "https://arxiv.org/html/2107.00748v1",
+          "material_read": "Abstract and §1 setup, HTML offsets 0–3984",
+          "method": "OA primary text",
+          "title": "Phylogenetic Diversity Rankings in the Face of Extinctions: the Robustness of the Fair Proportion Index",
+          "trigger": "Sharp phylogenetic ranking reversal under extinctions"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not negative evidence",
+          "evidence": "The frozen bibliography points to chapters 5 and 8; independent inspection of those chapters was not possible via this copy.",
+          "identifier_or_url": "https://ir.canterbury.ac.nz/server/api/core/bitstreams/3d4d299a-b57b-4cee-bf39-863e1b4ac05a/content",
+          "material_read": "No thesis text retrieved",
+          "method": "Configured OA direct and VPN both returned HTTP 403",
+          "title": "Mathematical aspects of phylogenetic diversity measures",
+          "trigger": "Cited thesis on robustness of diversity scores"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof, especially the small splits and seven-tip witness",
+        "Steel–Mimoto–Mooers definition of HED",
+        "Closest non-ultrametric Resultary protection-gain comparison"
+      ],
+      "rationale": "The first possible repeated change of a fixed priority comparison is a meaningful robustness boundary for an established conservation score. Both the impossibility below the boundary and a rational tree attaining it matter. The comparison with the non-ultrametric five-tip threshold isolates the mathematical effect of imposing equal heights. This does not establish that such crossings are frequent in data or quantify the maximum for larger trees.",
+      "residual_risks": [
+        "Conservation implications are confined to common independent risks and the fixed-tree conditional score."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes the full domain, including disconnected Cayley graphs, and defines strong odd coloring by neighborhood parity. For odd degree, the linear-functional bipartition colors properly with an odd count. For even degree, the inclusion-maximal-support argument establishes at least one nonzero squarefree moment, minimality makes all projection-fiber parities one, and the pair coloring uses two odd-size neighbor classes. Independently, the characteristic-two adjacency identity \(A^2=0\), combined with \(A\mathbf1=0\), rules out a strong odd proper three-coloring via \(Ax_c=\mathbf1+x_c\). These arguments are exhaustive for all dimensions and all admissible generator sets. The verifier directly checked \(3,940\) exhaustive admissible pairs in dimensions at most \(4\), \(240\) deterministic sampled cases at dimensions \(5\)–\(6\), and \(20\) odd-distance shells through dimension \(8\). No finite experiment is substituted for an infinite proof.
+PASS
 
-## Originality — PASS (residual literature risk)
+Odd valency gives the bipartition coloring directly. At even valency, a maximal support supplies a nonzero Boolean moment and a minimal nonzero moment has positive degree and all proper submoments zero. Expanding a pattern indicator leaves precisely that moment in the parity sum, for every pattern. Translating by a vertex shows that both second-color classes in its opposite shore have odd size and the pair construction is proper. A hypothetical proper strong odd coloring with at most three colors at positive even degree must use both other colors at every vertex, giving A x_c = 1+x_c over F₂. Since the translations commute and square to the identity, A²=0 and A1=0; applying A forces x_c=1, impossible. None of the arguments requires connectedness. The odd Hamming shell has the coordinate-sum bipartition and degree binomial(d,r), including r=d when allowed.
 
-The 2024 introductory strong-odd-coloring paper proves bounds depending on sparsity and maximum degree rather than the uniform exact dichotomy for cubelike graphs. The 2024 graph-product paper proves product bounds, not a characterization for dependent Boolean generators. A 2025 study proves the ordinary hypercube subcase, which is explicitly treated as previously known rather than a novelty claim. Searches for cubelike, binary Cayley, odd Hamming-distance, parity-projection, and equivalent chromatic formulations uncovered no stronger covering result among the inspected texts or semantic database hits; this is evidence of noncoverage, not a proof of global uniqueness. A broader theorem hidden under different historical terminology remains a residual risk. The mathematical comparisons and scope of full-text inspection are recorded in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem computes an exact strengthening of ordinary coloring for every bipartite cubelike graph, a class that includes connected and disconnected, sparse and dense, arbitrary dependent generator configurations. It is uniform in dimension and degree, proves an algebraic obstruction to fewer colors, and gives a coordinate-projection algorithm for the optimum. Its explicit odd-distance-Hamming-shell consequence ranges far beyond the previously known ordinary hypercube and creates a bitwise parity classification of a natural family.
+Credit the immediate odd-degree bipartition argument and the known hypercube and complete-bipartite special cases. The supported distinct assertion is the exact even-degree result and odd-fiber construction for unrestricted admissible Boolean generator sets, including dependent sets. No inspected earlier statement supplies this remainder.
 
-## Closest literature and limits
+## value
 
-See arXiv:2401.11653 (strong odd colorings and sparse bounds), arXiv:2410.02336 (graph products), arXiv:2509.20763, Proposition 26 (previously known hypercube case), and arXiv:2202.12882 (ordinary odd colorings of bounded-treewidth product structures). This result does not cover nonbipartite binary Cayley graphs. No independent verification, historical uniqueness certification, or exhaustive publication search is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The hard even-degree branch gives a dimension- and valency-independent exact invariant for a natural class of constrained Cayley graphs and an optimal coloring from a Boolean projection. The obstruction and construction extend beyond independent generators and the ordinary cube to dependent systems and odd-distance shells, where binomial parity becomes an explicit decision rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

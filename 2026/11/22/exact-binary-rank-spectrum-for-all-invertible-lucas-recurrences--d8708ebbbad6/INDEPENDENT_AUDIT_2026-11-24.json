@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:02:57.542374Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The recurrence is invertible because Q is a unit, so the reduced state returns to (0,1); its mod-two zeros are precisely the multiples of 2 for even P and of 3 for odd P. The polynomial identities U_{2k}=U_k V_k, V_{2k}=V_k^2-2Q^k and U_{km}=U_k U_m(V_k,Q^k) hold also for degenerate lifts, either by the companion identity or by polynomial continuation from distinct roots. For an even trace in the second recurrence and odd determinant, the last factor is odd for odd m. On the even-P branch V_2=2 mod 4, and this persists on doubling. Hence at indices 2^j times an odd multiplier, the valuation is v2(P)+j-1, with zero interpreted as infinite valuation. The fiber of valuation h<a has 2^{a-h-1} traces and every odd Q is allowed; P=0 mod 2^a alone has rank 2. For odd P the first candidate is U_3=A=P^2-Q and V_3=P B, B=P^2-3Q=3A-2P^2. Valuations t=v2(A), s=v2(B) are even-input valuations with exactly one equal to 1 and the other at least 2; v2(U_6)=t+s, and V_6=2 mod 4 supplies one per further doubling. Each fixed odd P gives uniform even A, and conditional on t=1 the variable 3(A/2)-P^2 is uniform even modulo 2^{a-1}. For a>=3 rank 3 has probability 2^{-(a-1)} within odd traces. Rank 6 comes from t=a-1 or from t=1 and s>=a-1, giving 3 times that mass. For rank 3*2^j with j>=2 the condition is t+s=a-j+1: the two mutually exclusive possibilities for the larger valuation give total mass 2^{-(a-j-1)} for 2<=j<=a-2. Counting all odd P multiplies these probabilities by 2^{2a-2}. The two smallest exponents give exactly the stated exceptions. Working with truncated or infinite valuations yields the same residue ranks; no restriction on a chosen lift is needed. An independent projective-row return enumeration reproduced all multiplicities for a=1..8 over 43,690 pairs. For C=[[P,-Q],[1,0]], the (1,2) entry of C^k is -Q U_k, and its vanishing is equivalent to C^k scalar. This is a projective order on the companion slice, not a full matrix period or a count over every matrix in the group. The frozen self-review suggestion that some residue pairs do not admit nondegenerate lifts is not used: one can take Q positive and P arbitrarily large positive in the required classes. The actual theorem is valid regardless of the lift.",
+      "replay": [
+        "/workspace/reproductions/analytic_checks.py (lucas)",
+        "/workspace/reproductions/analytic_checks.txt"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riasat's local parameter theorem assumes an odd prime with conditions excluding 2; the closest Resultary rank-distribution summary treats odd primes at Q=1",
+          "Riasat's description of Müller concerns fields; finite fields of order 2^a at a>1 are not Z/2^a Z",
+          "The even-trace Resultary image-ball result fixes Q=1, assumes 4|P, and counts or describes values rather than rank fibers"
+        ],
+        "reasoning": "The available broader pointwise literature is not evidence of a stronger covering aggregate theorem. Field distributions may overlap the trivial a=1 layer, but a finite field of characteristic two does not model dyadic valuation lifting through the ring.",
+        "searches": [
+          "Resultary 9f2cc47756b9 and 23ba7f995042",
+          "Riasat arXiv:2611.20650 Theorem 1.3 and Müller reference [10]",
+          "Sanna DOI 10.1080/00150517.2016.12427821; Ray–Irmak–Patel DOI 10.3906/mat-1705-116"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.20650",
+        "DOI 10.1080/00150517.2016.12427821 (partial)",
+        "DOI 10.3906/mat-1705-116 (partial)",
+        "Müller (2001), as cited in arXiv:2611.20650",
+        "Resultary 9f2cc47756b9 (indexed statement)",
+        "Resultary 23ba7f995042",
+        "Resultary d8708ebbbad6 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known local valuation identities determine first-zero ranks for a given recurrence and are credited as prior arithmetic",
+          "Even fixing odd P, the exact 3:1 rank-six/rank-three split is a two-stratum residue count near Q=P^2 and 3Q=P^2; it is not stated by a pointwise valuation formula"
+        ],
+        "reasoning": "The proof is elementary once valuations are isolated, but it requires evaluating the joint rank fibers, accounting for high valuations in both branches and their endpoints. No inspected general census yielded those frequencies by substitution.",
+        "searches": [
+          "Sanna valuation paper DOI 10.1080/00150517.2016.12427821",
+          "Ray–Irmak–Patel DOI 10.3906/mat-1705-116",
+          "arXiv:2611.20650 Theorem 1.3 and literature discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identity C^k=[[U_{k+1},-Q U_k],[U_k,-Q U_{k-1}]] proves equality with order in PGL_2 over the residue ring, not GL_2 order or a full group-order census",
+          "For odd P the unit rescaling U_k(P,Q)=P^{k-1} U_k(1,Q/P^2) shows that any evaluated fixed-P=1, variable-Q binary census would already cover that branch"
+        ],
+        "reasoning": "Neither an order law for an unrelated group distribution nor the odd-prime, fixed-Q=1 census is equivalent. No inspected source gave the fixed-P=1 binary rank distribution or the distribution for the whole specified companion family.",
+        "searches": [
+          "Resultary and focused literature lookup: two-parameter Lucas first-zero/rank-of-apparition spectrum modulo powers of two and companion projective order",
+          "Riasat arXiv:2611.20650 p. 4 on finite-field rank distributions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary d8708ebbbad6 is the exact assigned record, not an independent table",
+          "The closest returned separate census 9f2cc47756b9 is indexed with odd primes and a fixed unit coefficient; Müller is cited in a finite-field context"
+        ],
+        "reasoning": "No independent same-object table was verified. The replay of 43,690 pairs is correctness evidence only.",
+        "searches": [
+          "Resultary: complete rank-frequency law with varying P and odd Q modulo 2^a",
+          "Primary web lookup: Lucas rank of apparition distribution and projective orders at binary prime powers"
+        ]
+      },
+      "rationale": "The pointwise Lucas valuation and projective-order methods are not claimed as new. The identified additional content is the exact frequency of each first-zero rank over the full two-coefficient binary companion slice, including degenerate chosen lifts. No inspected evaluated distribution covers that slice. The finite-field and known pointwise results materially constrain novelty but do not give the residue-fiber counts.",
+      "residual_risks": [
+        "Primary full texts for Sanna, Ray–Irmak–Patel and Müller were not inspected; available descriptions do not exclude additional results beyond the stated scope.",
+        "A binary fixed-trace or projective-order distribution with suitable companion-fiber weights could reproduce part or all of this census; none was identified within the checked statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected varying-parameter theorem excludes two",
+          "evidence": "The local multiplicity statement is for odd p with p not dividing 2v times the discriminant. The discussion identifies Müller as a finite-field rank-distribution precursor.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.20650",
+          "material_read": "PDF p. 3 Theorem 1.3 around offset 8982, p. 4 discussion around 11065, p. 16 reference [10] around 47000",
+          "method": "Primary OA PDF passage inspection",
+          "title": "On Primitive Divisor Multiplicities of Lucas Sequences",
+          "trigger": "Local parameter variation and rank arithmetic"
+        },
+        {
+          "assessment": "Pointwise valuation precursor indicated; whole-paper scope unresolved",
+          "evidence": "Available description characterizes p-adic valuations in terms of index and rank; no evaluated coefficient-pair census was identified in that material.",
+          "identifier_or_url": "https://doi.org/10.1080/00150517.2016.12427821",
+          "material_read": "Bibliography and search description, not full text",
+          "method": "OA DOI and open-copy retrieval attempts; no full text obtained",
+          "title": "The p-Adic Valuation of Lucas Sequences",
+          "trigger": "Closest classical pointwise valuation theorem"
+        },
+        {
+          "assessment": "Material scope limit, no complete-text exclusion",
+          "evidence": "Available description focuses on rank-of-apparition prime-power results, with no retrieved statement varying all P,Q and counting their rank fibers.",
+          "identifier_or_url": "https://doi.org/10.3906/mat-1705-116",
+          "material_read": "Journal landing page/abstract and search description only",
+          "method": "Landing-page inspection and attempt at an identified alternate PDF",
+          "title": "The rank of apparition of powers of Lucas sequence",
+          "trigger": "Potential overlap on ranks at prime-power moduli"
+        },
+        {
+          "assessment": "Possible field-case overlap; no demonstrated ring-wide coverage",
+          "evidence": "Documented setting is a finite field. For a>1 the audited modulus ring has nilpotent 2, unlike a finite field.",
+          "identifier_or_url": "S. Müller (2001), reference [10] in arXiv:2611.20650",
+          "material_read": "Title and Riasat's description p. 4; primary full text not retrieved",
+          "method": "Read the citing OA passage and bibliography",
+          "title": "On the rank of appearance and the number of zeros of the Lucas sequences over F_q",
+          "trigger": "Independently identified varying-parameter rank-distribution work"
+        },
+        {
+          "assessment": "Does not cover binary two-parameter case on the available statement",
+          "evidence": "The indexed distribution fixes Q=1 and ranges over odd prime powers.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-prime-power-rank-distributions-for-generalized-fibonacci-s--9f2cc47756b9",
+          "material_read": "Resultary indexed mathematical summary only; matching mirror file not obtained",
+          "method": "Read the statement available in catalogue results",
+          "title": "Exact prime-power rank distributions for generalized Fibonacci sequences",
+          "trigger": "Closest indexed aggregate census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First-zero rank is a natural invariant of invertible second-order recurrences, and the dyadic modulus has an exceptional extra valuation stratum. Determining every frequency over the entire residue parameter space, not a selected finite modulus or a single recurrence, quantifies the disagreement between even and odd trace and supplies exact probabilities for generating recurrences of each projective order. The rank-six mass and the endpoint of the odd-trace branch are useful concrete invariants; the value is the evaluated aggregate law, not standard doubling identities or a full-period claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

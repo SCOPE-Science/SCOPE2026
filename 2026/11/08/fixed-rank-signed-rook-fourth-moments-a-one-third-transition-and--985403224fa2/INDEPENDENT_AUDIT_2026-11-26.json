@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:43:38.242610Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked cell and disjoint-pair occupancy and sign cancellation, giving the normalized simplex quadratic in RESULT.md lines 36–50. Expanding that quadratic into constant, row, column and zero-margin parts gives the first exact deficit. Interpolating from the critical quadratic to the full-permutation endpoint gives the second deficit via the permutation variance. Its equality conditions force a pairwise-intersecting support and constant permutation sum, hence a whole row or column of equal masses. At criticality the only constraint besides simplex membership is zero interaction. The upper proof uses the clique support reduction by strict convexity on a pair of conflicting cells and the uniform masses on a largest matching; the only q>1 cases are (2,2) and (3,3), and q=1 only at (4,4). The sphere gives the interval. Averaging both quadratic comparison inequalities over row/column signs and permutations removes off-diagonal terms and makes the diagonal constant, proving the claimed exact Banach–Mazur distance. The supplied checker and its verification description were inspected, not executed; the proofs do not depend on exhaustive experiments. 'Positive slice' means the nonnegative simplex intersection, as the stated extremizers can include zeros.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pass–Spektor p. 1 treats pairwise-independent Rademachers; Malandro p. 1 studies rook-monoid spectral analysis; Everitt–Fountain p. 3 defines partial permutations."
+        ],
+        "reasoning": "The random mask here introduces zeros and occupancy dependence; these frameworks as inspected do not give the sharp moments for the unrestricted real coefficient space.",
+        "searches": [
+          "arXiv:1412.7859",
+          "arXiv:1110.5679",
+          "arXiv:0812.2789"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and rook_rank_checker.py",
+        "Resultary 3b64156ccbbd, 4f870a695087, and self-hit 985403224fa2",
+        "arXiv:1110.5679, 0812.2789, 1412.7859"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete-permutation endpoint has only q=3/(n−1), whereas the change in the row-column coefficient occurs at q=1/(n−1)."
+        ],
+        "reasoning": "Endpoint control is used in the proof, but it alone does not determine the new critical quadratic, its nullspace, or the sharp deficit on both sides. A generic fourth-moment inequality for signs also leaves optimization over this matching distribution unresolved.",
+        "searches": [
+          "Resultary 3b64156ccbbd Finding",
+          "arXiv:1412.7859 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3b64156ccbbd states the identical endpoint and extremizer classification at k=n; 4f870a695087 concerns centered rank-one coefficients on unsigned permutations."
+        ],
+        "reasoning": "Setting k=n removes the variable that drives the lower-equality transition; neither the endpoint nor restricting to rank-one test matrices recovers the fixed-matching law.",
+        "searches": [
+          "Resultary fixed-rank signed-rook and signed-permutation fourth-moment comparison",
+          "Literature search for fixed-size signed matchings and sharp fourth moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned 985403224fa2 entry is a self-hit; 3b64156ccbbd contains exactly the k=n exceptional cases. The rank-one entry 4f870a695087 does not tabulate the requested invariant."
+        ],
+        "reasoning": "Credit the indexed full-rank values; no separate all-k table was located among the actual matches.",
+        "searches": [
+          "Local Resultary for the sharp bounds and exceptional cases"
+        ]
+      },
+      "rationale": "The full-rank fourth-moment and equality theorem has exact indexed overlap, not an independently new special case; the catalog date does not establish order. The supported distinction is the sharp fixed-rank family, in particular the codimension away from complete matchings, the transition n=3k−2 and the critical equality set. No inspected source supplies these or a theorem implying them by parameter substitution.",
+      "residual_risks": [
+        "The bounded literature search does not exclude other formulations in moment inequalities or graph-simplex optimization.",
+        "No priority claim is made between the same-day indexed records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the k=n boundary",
+          "evidence": [
+            "1 ≤ K ≤ max(4,n) with identical complete-row, diagonal and small-n equality cases."
+          ],
+          "identifier_or_url": "Resultary 3b64156ccbbd",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror primary record",
+          "title": "Sharp fourth moments and a rank-four threshold for signed permutation matrix coefficients",
+          "trigger": "Exact full-rank match"
+        },
+        {
+          "assessment": "Different model and coefficient class",
+          "evidence": [
+            "Centered rank-one coefficients on ordinary uniform permutations."
+          ],
+          "identifier_or_url": "Resultary 4f870a695087",
+          "material_read": "Finding",
+          "method": "Local mirror primary record",
+          "title": "Sharp fourth moments of rank-one permutation matrix coefficients",
+          "trigger": "Same-day related moment record"
+        },
+        {
+          "assessment": "Context, not sharp fourth moments",
+          "evidence": [
+            "Rank-based rook monoid spectral analysis for partially ranked data."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.5679",
+          "material_read": "p. 1, offsets 300 and 2780",
+          "method": "Open primary PDF",
+          "title": "Inverse semigroup spectral analysis for partially ranked data",
+          "trigger": "Rank-stratified rook model"
+        },
+        {
+          "assessment": "Overlaps the setting, not the invariant",
+          "evidence": [
+            "Definition of partial permutations and symmetric inverse monoid."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.2789",
+          "material_read": "p. 3, offset 9360",
+          "method": "Open primary PDF",
+          "title": "Partial symmetry, reflection monoids and Coxeter groups",
+          "trigger": "Partial monoid framework"
+        },
+        {
+          "assessment": "Different class of dependence",
+          "evidence": [
+            "Rademacher hypothesis and exchangeable p=4 problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.7859",
+          "material_read": "p. 1, offset 300",
+          "method": "Open primary PDF",
+          "title": "On Khinchine type inequalities for pairwise independent Rademacher random variables",
+          "trigger": "Sharp fourth moments for signs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed cardinality is a natural regime between a single occupied cell and a signed permutation. The entire equality family changes structure at a specific density, where the minimizing set gains nontrivial row-column degrees of freedom. This gives usable optimum and distortion data, not just another calculation at an isolated size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

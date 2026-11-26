@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:03:13.399244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Wunderlich's Theorem 1.1 has the stated finite-graph scope and exact forbidden list. A cactus has no diamond, eliminating gem and watch; its cycles are induced. External neighbors of different vertices of a triangle must lie in disjoint branches and be mutually nonadjacent, since a path between two branches would produce a second cycle sharing a triangle edge. Thus an induced net exists at precisely a triangle with no degree-two corner. In a branch whose root already meets a parent block, a child triangle needs one of its nonroot corners bare, so its contribution is s(T^2-(T-x)^2)/2; rooted edges contribute T and each long even cycle contributes tT^{2k-1}/2 by reversal. SET of child blocks gives the implicit T equation. At a free root the only missed case is a lone triangle with both other corners nonbare, giving sx(T-x)^2/2. These cases are disjoint and cover the singleton too. For the singularity, the nonnegative equation in U=T-x is analytic when x+U<1 and has positive second U-derivative; rooted trees yield consecutive positive coefficients, giving aperiodicity. The critical ordinate y_c(x) solves y(1+x+B'(y))=1 for B=y^5/[2(1-y^2)]: the left side increases from 0 to infinity. On the interval up to the unique x=y_c(x), h(x)=log(x/y_c)+F(x,y_c) increases strictly since h'=1/x+y_c-x; h starts negative and ends positive. The smaller root T lies between x and y_c before this first contact. The smooth implicit-function theorem and transfer therefore apply. The rooted square-root coefficient is -(1+rho(tau-rho))kappa, and division by n yields n^-5/2 for the unrooted EGF coefficients. Independent numerical solving gave rho=0.27382690559655265, tau=0.5719059969810869, A=0.1629352693913701, rho0=0.23874014368511712 and A0=0.12014981250116957, hence base 0.8718651776201598 and prefactor 1.3561009043587482. As an exact check at n=6, the unrestricted triangle-and-bridge tally 3996 loses 120 labeled nets and gains 60 six-cycles, giving 3936. Symbolic decomposition, not this finite check or the reported verifier run, proves the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 works for all finite graphs but is a characterization by induced obstructions, not a counting formula.",
+          "The Voblyi–Meleshko abstract gives exact and asymptotic enumeration of labeled block-cactus and Eulerian block-cactus graphs."
+        ],
+        "reasoning": "Ordinary block-size weights cannot exclude nets: each of the three bridges and the triangle block in a net is allowed individually. A restriction on incidences at triangle corners, absent from the inspected broader statements, is needed.",
+        "searches": [
+          "Wunderlich arXiv:2610.07924v1, Theorem 1.1",
+          "Voblyi–Meleshko DOI 10.1134/S1990478914030156, available abstract and lawful full-text locations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; uploaded verifier not executed",
+        "arXiv:2610.07924v1",
+        "DOI:10.1134/S1990478914030156 (abstract)",
+        "OEIS A091485",
+        "arXiv:1808.06264v1",
+        "Resultary db04d4cd229b, 40f119d1bafa and 8e8760549ada search comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The obstruction theorem removes the diamond-containing cases in cacti and implies the degree-two triangle witness.",
+          "An unrestricted block assembly retains nets; applying only the allowed size restrictions retains them too. The branching and free-root equations must treat triangle corner occupancy separately."
+        ],
+        "reasoning": "Credit prior coverage of the predicate and routine analytic transfer. The nontrivial new input to the count and ratio is the incidence-sensitive decomposition, not a substitution of block weights in the unrestricted cactus generating function.",
+        "searches": [
+          "Wunderlich Theorem 1.1 and Figure 1.1 obstruction definitions",
+          "Voblyi–Meleshko accessible abstract",
+          "Mathar pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wunderlich uses the same maximal 1-rectangle intersection and hereditary definition; Theorem 1.1 implies the cactus obstruction specialization.",
+          "Mathar's unlabelled C-trees require pairwise vertex-disjoint cycles, unlike the frozen labeled class.",
+          "The closest indexed cactus records concern random-cluster covariance and acyclic-orientation shattering; the closest bivariate scarcity record concerns partitions."
+        ],
+        "reasoning": "The graph predicate is prior. Neither the alternative C-tree terminology nor the closest indexed statements converts to the marked cactus enumeration.",
+        "searches": [
+          "Resultary: beautiful cactus, net-free cactus, cactus bivariate enumeration and rarity",
+          "Wunderlich arXiv:2610.07924v1, definition and Theorem 1.1",
+          "Mathar arXiv:1808.06264v1, C-tree definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A091485 explicitly enumerates labeled 2,3-cacti, and its n=6 term is 3996 rather than 3936.",
+          "At n=6 the net exclusions and six-cycle inclusions account for the discrepancy; the matching initial terms do not identify the sequences."
+        ],
+        "reasoning": "The most plausible exact sequence hit counts a different class and gives neither the second cycle mark nor the density ratio.",
+        "searches": [
+          "OEIS A091485",
+          "Resultary: bivariate rarity for beautiful cactus graphs"
+        ]
+      },
+      "rationale": "The protected triangle condition is an elementary specialization of a prior forbidden-subgraph characterization, and unrestricted cactus enumeration is not claimed as new. The supported distinct claims are the coupled two-marked labeled enumeration and the sharp density consequence. The nearest sources examined do not supply their constrained rooting decomposition or ratio. This is a bounded originality assessment, with the access limitation below.",
+      "residual_risks": [
+        "Full text of Voblyi–Meleshko unavailable via the lawful locations tried; exact coverage elsewhere in the paper is unresolved.",
+        "Searches cannot exclude earlier net-free cactus enumeration under another name. Approximate constants are evaluations of the exact defining equations, not certified decimal enclosures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the dependency; does not state the enumeration",
+          "evidence": [
+            "Forbidden induced C4, gem, net, watch, and odd holes; watch is a diamond plus a pendant vertex at each degree-three corner."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.07924",
+          "material_read": "v1 abstract and p. 2 Theorem 1.1 plus net/watch definitions (PDF text near offset 5800)",
+          "method": "OA PDF passage inspection",
+          "title": "A forbidden-induced-subgraph characterization of beautiful graphs",
+          "trigger": "Essential definition and theorem used by the proof"
+        },
+        {
+          "assessment": "Unrestricted exact and asymptotic overlap; full-text coverage of restricted subclass unresolved",
+          "evidence": [
+            "The abstract refers to labeled block-cacti and Eulerian block-cacti, not beautiful or net-free cacti."
+          ],
+          "identifier_or_url": "https://doi.org/10.1134/S1990478914030156",
+          "material_read": "Available abstract; full text not read",
+          "method": "Publisher and DOI recovery, followed by identified lawful alternate access attempt",
+          "title": "Enumeration of Labeled Block-Cactus Graphs",
+          "trigger": "Closest unrestricted labeled enumeration and asymptotics"
+        },
+        {
+          "assessment": "Different class",
+          "evidence": [
+            "Six-vertex count is 3996."
+          ],
+          "identifier_or_url": "https://oeis.org/A091485",
+          "material_read": "Description and initial terms",
+          "method": "Public record inspection",
+          "title": "Number of labeled 2,3 cacti (triangular cacti with bridges)",
+          "trigger": "Candidate exact count sequence"
+        },
+        {
+          "assessment": "Different topology and labeling convention",
+          "evidence": [
+            "No common cycle vertices; ordinary generating functions for unlabelled objects."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1808.06264",
+          "material_read": "v1 pp. 1–2, C-tree convention and generating function setup",
+          "method": "OA PDF passage inspection",
+          "title": "Counting Connected Graphs without Overlapping Cycles",
+          "trigger": "Possible equivalent cactus definition and generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact enumeration removes a genuine incidence obstruction that standard independent block products miss. The two marks separate triangles subject to that obstruction from allowed long even cycles. The asymptotic compares the hereditary class to a natural ambient labeled family and quantifies how restrictive the condition is, beyond merely listing small-order counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

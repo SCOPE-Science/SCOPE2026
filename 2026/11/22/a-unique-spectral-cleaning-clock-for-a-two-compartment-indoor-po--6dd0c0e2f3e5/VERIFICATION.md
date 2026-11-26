@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The script depends only on `math` and `random` from the standard library; no network, external datasets, or third-party modules are required. In the checked environment its output was:
+## correctness
 
-```text
-PASS 31536 numerical comparisons; example optimal time: 1.954697195672 exposure benefit: 0.235189905680
-```
+PASS
 
-The checker evaluates 500 randomized positive parameter triples, examines 61 grid points for each resulting finite-horizon benefit and compares nearby times; for 30 cases it integrates the full three-variable state/exposure ODE with RK4 before and after instantaneous cleaning and compares the result to the matrix-exponential benefit. It also verifies modal-rate invariance under three different coefficient triples, short-horizon and long-horizon approximations, and the reproducible 12-hour illustration. Exact universal validity rests on the analytical proof in `RESULT.md`, not on a finite set of numerical trials. The RK4 comparisons have finite discretization error, and the grid checks cannot rule out critical points between grid locations without the strict-concavity proof. Independent third-party proof audit and field validation have not been performed.
+With v,a,d>0, the rate polynomial is positive at 0 and negative at d, so the two positive rates straddle d. The off-diagonals of the unperturbed propagator are a f/k and d f/k, k=r−s. The first builds the surface load from the air-only pulse and the second propagates the removed load to the air objective over the remaining time. This yields the exact positive-factor gain qQad f(τ)L(T−τ)/k², with zero gain at both endpoints. The logarithmic derivative g=f′/f strictly decreases. To check h=f/L decreases, f′L−f²<0 is immediate when f′<=0; otherwise the strict log-tangent bound for f on (0,t) gives L<f²/f′. The stationarity expression g(τ)−h(T−τ) is therefore strictly decreasing in τ and increasing in T. The unique interior root lies below the surface peak t0, increases with T, and converges to t0 as h tends to zero. For short horizons, writing x=τ/T and multiplying the root equation by T gives 1/x−2/(1−x)−(r+s)T/6+O(T²) near x=1/3. The first two terms have a simple zero there with derivative −27/2, giving the stated −(r+s)T²/81 coefficient in τ. At large T, h(u) is asymptotic to sr exp(−su)/k and g′(t0)=−sr, which gives the stated exponential peak approach. An independent augmented-matrix-exponential computation reproduced the example optimizer 1.954697195671885 h, baseline burden 1.455061340406646, and reduction 0.235189905679788.
+
+## originality
+
+PASS
+
+The physical two-state exchange model and cleaning of surface reservoirs are prior. The supported distinct contribution is the evaluated one-wipe, source-free finite-horizon timing theorem, including uniqueness, spectral dependence, horizon monotonicity and its two endpoint laws. The strongest overlapping scalar window result uses different dynamics and cannot be specialized to this two-mode jump.
+
+## value
+
+PASS
+
+An explicit timing criterion distinguishes maximizing removed surface burden from minimizing cumulative air exposure. The optimum is strictly earlier than the burden peak and can be selected from the two air-decay rates without identifying the individual transfer rates or removal fraction. The horizon dependence gives actionable limiting intuition and an exact test case for richer compartment models; this is a meaningful structural result within the stated idealization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

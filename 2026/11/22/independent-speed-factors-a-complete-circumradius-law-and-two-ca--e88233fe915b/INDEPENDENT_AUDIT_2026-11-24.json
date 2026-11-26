@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:39:50.402644Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof",
+        "VERIFICATION.md and verify_circumradius.py (static inspection)",
+        "/workspace/repairs/2/RESULT.md (corrected statement, localized proof and citations)"
+      ],
+      "rationale": "PASS is for repairs/2/RESULT.md. In the frozen wording the claim at line 33 about critical values is false if read for the ordinary radius map on distinct-vertex triangles: its derivative never vanishes. Indeed the half-sum map is a local diffeomorphism, q' vanishes only at 0 and π/2 modulo π, and any critical triple of half-sums repeats a value, forcing two original angles to coincide modulo 2π. The repair distinguishes the smooth full-torus extension, which has the stated two interior critical values, from the ordinary nondegenerate domain; the random law is unchanged because coincident vertices have probability zero. Chord factors cancel against four times the area after the affine map from the circle, and the integer half-sum map in doubled coordinates is an onto finite covering, preserving normalized Haar in the pushforward. Transforming an arcsine variable yields the displayed Mellin and log-convolution laws. I reconstructed the localized saddle integral: integrating first in w=B(y²+z²) gives π/B times a smooth angularly averaged Jacobian in (x,w), evaluated at w=s+Ax². A smooth extension across w=0 shows the only first-order nonsmooth contribution is the missing x interval of length 2√(-s/A) for s<0 with weight 1+O(|x|+|s|); its error is O(|s|). At b, A=bd/(2a²) and B=d/(2b); reversed signs at a give A=ad/(2b²), B=d/(2a). Three saddles and density π⁻³ give both coefficients and their sides; the endpoint ellipsoid volume gives the two tail constants. The orthogonal cosine expansion of log q gives one-factor variance Li₂(ρ²)/2, hence the total variance and strictly invertible axis ratio. Scale comes from exp(L)=m/(1−ρ²). The frozen checker was inspected, not executed; it supplies finite numerical diagnostics, not the cusp proof.",
+      "residual_risks": [
+        "Cusp remainder for fixed a>b>0 only; no uniform near-circle bound.",
+        "No assertion about Euclidean-arclength sampling, and the extension assigns no circumcircle to a degenerate triangle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garcia and Romaskevich analyze centers associated with 3-periodic elliptic billiard orbits, a constrained family rather than the three independent samples.",
+          "The Nov. 22 parabolic triangles endpoint law uses three sampled parameters on a parabola and is not a general conic formula that contains this ellipse law."
+        ],
+        "reasoning": "Neither a formula along a one-parameter billiard family nor an endpoint theorem for a different curve supplies the three-dimensional Haar factorization or the pushforward on the stated torus. The law does not claim novelty for the classical affine area or chord identity.",
+        "searches": [
+          "arXiv:1607.00179 Garcia, Abstract and §1",
+          "arXiv:1304.7588 Romaskevich, Abstract and §1",
+          "Resultary ellipse/circumradius law and endpoint/cusp searches"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d371bd320795, 06c38ac25e1d, cbedc9fbaebb, 1215e86491de",
+        "arXiv:1607.00179; arXiv:1304.7588",
+        "Repaired RESULT.md Findings and scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each r in (b,a), the circle of radius r centered at the ellipse center meets the ellipse in four points; any three give that same center and distinct possible radii as r varies.",
+          "The known moment/caustic information on the center, and known angular geometry, do not give the independent product. The determinant-two half-sum transformation and the three-dimensional density localization are the operative additional arguments."
+        ],
+        "reasoning": "The center statistic loses radius information and the area-uniform disk joint law cannot be converted to the boundary eccentric-anomaly law by ordinary scaling. Classical ingredients are credited; no inspected theorem mechanically supplies the random product, the two coefficients, or the population inverse for this sampler.",
+        "searches": [
+          "Resultary d371bd320795, Finding",
+          "Resultary 06c38ac25e1d, Finding and joint density",
+          "Garcia and Romaskevich, §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected Nov. 17 astroid record uses the identical sampler but its finding is the normalized circumcenter's two-dimensional astroid-supported marginal.",
+          "The inspected Nov. 1 joint circumradius-circumcenter density uses area-uniform points in a disk, not eccentric-anomaly-uniform boundary samples."
+        ],
+        "reasoning": "A radius marginal extracted from an actual joint law could cover this formulation, so the hypotheses of the joint-law hit matter. A fixed ellipse's center marginal is a different random observable; many radii in (b,a) can correspond to the same center.",
+        "searches": [
+          "Resultary: random ellipse circumradius, independent eccentric anomaly, joint circumradius-circumcenter law and elliptic speed product",
+          "Primary literature: ellipse-inscribed random triangle circumradius, product and density caustics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target itself appears in the index; it is the identical record, not evidence of distinct coverage.",
+          "Distinct same-date records cbedc9fbaebb and 1215e86491de address parabolic radius endpoint tails and acute ellipse-triangle probabilities respectively."
+        ],
+        "reasoning": "Compared the actual hypothesis/observable in each distinct hit rather than assuming a priority order from date. No separate matching formula record was identified in these searches; an exact numerical table is not the object under review.",
+        "searches": [
+          "Resultary: ellipse circumradius independent factors, Mellin and log-radius moments",
+          "Resultary Nov. 22 parabolic circumradius and ellipse acute probability hits"
+        ]
+      },
+      "rationale": "The repaired result preserves the same distributional contribution: independent three-speed factorization, full density and explicit caustics, and invertible log moments. The strongest inspected same-model comparator gives the center marginal only; neither that statement nor the different-model joint radius-center law covers this contribution. The critical-domain clarification itself is not claimed as novelty.",
+      "residual_risks": [
+        "Historical priority is not certified: older differently worded or unindexed conic-probability or special-function treatments could contain equivalent statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-model comparison; different marginal",
+          "evidence": "Astroid-supported normalized circumcenter law with moments and cusp behavior, no radius variable in that law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-the-universal-astroid-law-and-sharp-cusp-scaling-of-random-ellip--d371bd320795/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary lookup and local mirror passage, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The universal astroid law and sharp cusp scaling of random ellipse circumcenters",
+          "trigger": "Identical ellipse model and caustic terminology"
+        },
+        {
+          "assessment": "Joint law but different probability space",
+          "evidence": "Independent area-uniform points in a disk; density j(r,s) for radius and center distance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-joint-circumradius-circumcenter-law-for-three-uniform-points--06c38ac25e1d/RESULT.md",
+          "material_read": "RESULT.md Finding, offset 0; density around offset 762",
+          "method": "Resultary lookup and local mirror passage",
+          "title": "The joint circumradius–circumcenter law for three uniform points",
+          "trigger": "Joint law could imply radius marginal"
+        },
+        {
+          "assessment": "Periodic orbits, not independent random boundary triples",
+          "evidence": "Three-periodic elliptic-billiard incenter loci.",
+          "identifier_or_url": "https://arxiv.org/abs/1607.00179",
+          "material_read": "PDF abstract and §1, offset 0",
+          "method": "Lawful OA paper passage inspection",
+          "title": "Centers of inscribed circles in triangular orbits of an elliptic billiard",
+          "trigger": "Cited ellipse-triangle geometry"
+        },
+        {
+          "assessment": "Periodic orbits, not independent random boundary triples",
+          "evidence": "Incenters of triangular billiard trajectories.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.7588",
+          "material_read": "PDF abstract and §1, offset 0",
+          "method": "Lawful OA paper passage inspection",
+          "title": "On the incenters of triangular orbits in elliptic billiard",
+          "trigger": "Cited ellipse-triangle geometry"
+        },
+        {
+          "assessment": "Different curve and different observable respectively",
+          "evidence": "First samples uniformly in a parabola parameter for endpoint radius laws; second includes eccentric-angle sampling but computes acute-triangle probabilities.",
+          "identifier_or_url": "Resultary records cbedc9fbaebb and 1215e86491de",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Resultary lookup and local mirror passages",
+          "title": "Two distinct endpoint laws for circumradii of random parabolic triangles; A sharp sampling exponent reversal for acute triangles on nearly circular ellipses",
+          "trigger": "Same-date plausible radius and sampling overlaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md §§ Finding, Proof",
+        "Resultary d371bd320795 (same-model center law)"
+      ],
+      "rationale": "The circumradius is a natural scalar invariant of three boundary samples. The shared-angle factors turn out to be independent, giving an exact law with two distinct, quantifiable non-smooth transitions rather than only simulation or moments. Population recovery of an ellipse from two statistics of this same invariant is a meaningful inverse result. These contributions survive verbatim in the repaired result; there is no claim of novelty for the extrema or the elementary Fourier/dilogarithm calculation in isolation.",
+      "residual_risks": [
+        "The inversion is at the population level only, without sample-error or stability bounds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

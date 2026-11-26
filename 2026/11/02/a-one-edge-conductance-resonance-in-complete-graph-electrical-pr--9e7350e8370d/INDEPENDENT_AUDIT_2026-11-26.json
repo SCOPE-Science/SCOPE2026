@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:55:33.757996Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–95",
+        "Frozen VERIFICATION.md line 18 and verify.py lines 7–60 (inspected, not executed): exact grounded-Laplacian row test and separate floating-point bound checks"
+      ],
+      "rationale": "On mean-zero vertex potentials the Laplacian eigenvalues are D=n-2+2c in the e_1-e_2 direction and n orthogonally. For the unit ordinary-edge injection e_1-e_3 the potentials are (1/(2n)+1/(2D), 1/(2n)-1/(2D), -1/n, 0, ...). Summing their absolute differences with multiplier t=sqrt(c) at edge {1,2} gives A_n; the second potential changes sign at c=1, while its difference from the third is (n-3+3c)/(nD)>0 in both ranges. Exceptional injection acts in the D-eigendirection and gives the diagonal 2c/D and 2(n-2) entries of magnitude t/D. For a remote edge the injection is in the n-eigenspace, so its row is unweighted. No remote row exists at n=3. The row-sum characterization on the full real edge space follows by aligning the edge input signs with a maximizing row. Write M=(1+sqrt(2n-3))/2, so n-2=2M(M-1). Then D(M-E_n)=2(M-1)(t-M)^2. For 0<t<=1 the adjacent row is 1+(n-3+t)/D<2; to handle n=3,4,5, its bounds are respectively 1+1/(2sqrt(2)), 1+(1+sqrt(2))/4, and 9/5, all below M. For n=5 the last bound follows from 8t^2-5t+2>0. For t>=1 the factorization of A_n-R_n shows A_n<=R_n for t>=(n-2)/2; on 1<=t<=(n-2)/2 the factorization of E_n-A_n gives a nonnegative difference since the bracket is at least n(n-2). The numerical quantity R_n<M even for n=3, where it is only a comparison constant. Thus the full norm reaches M at c=M^2. Orientations conjugate by a diagonal sign matrix and do not affect the norm.",
+      "residual_risks": [
+        "The finite supplied checks were not independently replayed; the all-parameter inequalities and attained maximum were derived analytically.",
+        "The notation 'incidence row' in the proof is used as a column in outer products; the edge-by-vertex definition and eigenbasis computation fix the intended convention."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact projector entry update at Resultary 100837ac2e20, offset 3450, applies for any one-edge change with a connected unit starting graph. Its optimized norm theorem uses the specific K_(r,r) transfer-current entries and a separate K_(r,r) nonexceptional-column argument.",
+          "Kelner–Maymounkov uses the symmetric projector in a weighted-conjugated 1-norm congestion bound and derives a general square-root-of-edge-count estimate.",
+          "Resultary a883b79978a2 varies direction-wise weights on Cartesian products. In one factor K_n it weights all edges identically."
+        ],
+        "reasoning": "Generic entry updates and bounds do not give the needed adjacent-row sign and dominance comparison. Neither the direction-wise product theorem nor the balanced-bipartite maximum subsumes a clique with just one varied conductance.",
+        "searches": [
+          "Resultary: single exceptional edge weighted complete graph K_n exact ell infinity norm symmetric electrical gradient projection optimized conductance",
+          "Kelner–Maymounkov arXiv:0909.2859v1 Theorems 1.2, 3.1 and Appendix A",
+          "Resultary 100837ac2e20 Proof §§2–4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 100–109",
+        "Resultary 100837ac2e20, a883b79978a2, 0f6b407e194c, 169e544dd2d8",
+        "arXiv:0909.2859v1 and arXiv:1312.2946v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older K_(r,r) proof uses H=1+(c-1)h and optimizes the exceptional column via a 2-by-2 quotient, with its own ordinary-column comparison; its optimum is (1+sqrt(1+9(r-1)^2/(2r-1)))/2 for both cut and cycle norms.",
+          "For K_n the prior update can be used with h=2/n and exceptional off-diagonal magnitudes 1/n; this recovers E_n directly. To conclude the full norm theorem one still has to compute absolute adjacent sums and prove their global dominance bound across the sign change and all n, neither of which is supplied by the inspected theorem."
+        ],
+        "reasoning": "The exceptional-row mechanism and generic entry computation are not new. The full-clique exact invariant and sharp all-row result are not a substitution instance of the prior norm claims.",
+        "searches": [
+          "Resultary 100837ac2e20 Finding and Proof §§2–4",
+          "Resultary a883b79978a2 Finding and scope",
+          "Kelner–Maymounkov arXiv:0909.2859v1 Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kassel–Wu arXiv:1312.2946v1, pp. 2–3: transfer current has a Green-function formulation and a symmetric kernel; this is the pertinent kernel language but the passage is not a row-norm calculation.",
+          "The induced infinity norm equals the induced 1-norm here by symmetry. Resultary 100837ac2e20 therefore computes the same kind of norm, using columns, but for K_(r,r).",
+          "Resultary 169e544dd2d8 uses a wheel with a whole spoke class sharing one weight, not a weighted clique with one changed edge."
+        ],
+        "reasoning": "Kernel, endpoint-Hodge, and symmetric cut-projection formulations were compared at the level of operators. The earlier wheel and bipartite graph parameter restrictions do not give the all-n one-edge weighted clique. Unscaled current and routing-congestion norms have a different normalization.",
+        "searches": [
+          "Resultary: electrical projection induced infinity norm weighted complete graph single exceptional edge conductance sharp norm optimization",
+          "Resultary: weighted cycle triangle equivalence transfer current electrical projection norm exceptional edge complete graph",
+          "Literature: \"one edge\" conductance electrical projection infinity norm complete graph weighted"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 0f6b407e194c gives an exact unweighted complete-multipartite norm, with K_n arising from singleton parts and returning 2(n-1)/n.",
+          "The indexed exact weighted K_(r,r), wheel and product norm findings give different graph/weight families; no exact clique conductance table or row-class formula for this family was found in the inspected matches."
+        ],
+        "reasoning": "The unweighted K_n formula is a baseline, not the full c-dependent table or its maximum. A triangle-only equivalent via a one-dimensional cycle space would not give the uniform-in-n claim.",
+        "searches": [
+          "Resultary: exact infinity norm electrical gradient projection K_n complete graph one distinguished exceptional edge weight",
+          "Resultary: weighted cycle triangle equivalence transfer current electrical projection norm exceptional edge complete graph"
+        ]
+      },
+      "rationale": "Credit the earlier balanced complete-bipartite exceptional-edge result for the same general rank-one entry update and optimization of an exceptional row in that model. Substitution of the unweighted clique entries gives the exceptional row and its extremum by the same method. The distinct claim assessed here is the exact full induced norm on the one-edge weighted clique, including the sign-sensitive adjacent rows and proof that no row in any conductance range or graph order n>=3 exceeds the exceptional peak. The inspected analogue and general routing bounds do not establish this conclusion.",
+      "residual_risks": [
+        "The same-day product record is compared by statement, not assumed to precede or follow the claim.",
+        "Aldous–Fill §3.3 was unavailable in the checked route. The bounded comparisons do not exclude an unlocated exact historical one-edge clique result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partially overlapping method and mechanism; no clique theorem",
+          "evidence": [
+            "Generic rank-one entry identity; separate K_(r,r) exceptional quotient and K_(r,r) nonexceptional-column bound."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-one-edge-conductance-amplification-of-the-endpoint-hodge-n--100837ac2e20/RESULT.md",
+          "material_read": "Finding, offset 680–4096; Proof §§2–4, offset 3450 onward",
+          "method": "Published record via local mirror",
+          "title": "Sharp one-edge conductance amplification of the endpoint Hodge norms on K_(r,r)",
+          "trigger": "Closest prior graph family and same norm mechanism"
+        },
+        {
+          "assessment": "Different class of weight perturbations",
+          "evidence": [
+            "Optimizes direction-wise rates q_j c_j, not a weight on a single edge."
+          ],
+          "identifier_or_url": "Resultary a883b79978a2",
+          "material_read": "Theorem and scope, offsets 820–3002",
+          "method": "Published record via local mirror",
+          "title": "Sharp endpoint norms and conductance resonance for Cartesian products of complete graphs",
+          "trigger": "Same-day complete-graph conductance norm result"
+        },
+        {
+          "assessment": "Unweighted baseline only for K_n",
+          "evidence": [
+            "The all-singleton case gives 2(n-1)/n."
+          ],
+          "identifier_or_url": "Resultary 0f6b407e194c",
+          "material_read": "Finding, offsets 0–2122",
+          "method": "Published record via local mirror",
+          "title": "Sharp endpoint norms of complete multipartite electrical gradient projections",
+          "trigger": "Broader graph-family norm census"
+        },
+        {
+          "assessment": "Distinct graph and weights",
+          "evidence": [
+            "Unit rim and a common conductance for all spokes."
+          ],
+          "identifier_or_url": "Resultary 169e544dd2d8",
+          "material_read": "Finding, offsets 0–3100",
+          "method": "Published record via local mirror",
+          "title": "A moving conductance threshold for sharp cut–cycle projection norms on weighted wheels",
+          "trigger": "Weighted wheel, triangle, and cycle formulation"
+        },
+        {
+          "assessment": "Relevant operator framework, not the sharp clique endpoint norm",
+          "evidence": [
+            "Conjugated routing bound and general O(sqrt(m)) estimate derived from the Euclidean projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0909.2859v1",
+          "material_read": "Theorems 1.2 and 3.1, pp. 3 and 7; Appendix A, p. 14",
+          "method": "Open primary PDF passages",
+          "title": "Electric Routing and Concurrent Flow Cutting",
+          "trigger": "General weighted electrical projection norms"
+        },
+        {
+          "assessment": "Kernel formulation and spanning-tree correlation focus, not a clique row-norm optimization in the inspected passages",
+          "evidence": [
+            "Green function identity and symmetry/reciprocity description."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.2946v1",
+          "material_read": "Abstract and §1, pp. 2–3",
+          "method": "Open primary PDF passages",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Equivalent transfer-current matrix language"
+        },
+        {
+          "assessment": "Not used to rule out overlap",
+          "evidence": [],
+          "identifier_or_url": "https://stat-www.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch3.S3.html",
+          "material_read": "No chapter text obtained",
+          "method": "Bounded open URL attempt; certificate hostname mismatch",
+          "title": "Reversible Markov Chains and Random Walks on Graphs, §3.3",
+          "trigger": "Cited electrical network identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 20–39 and 70–95",
+        "Resultary 100837ac2e20",
+        "Kelner–Maymounkov arXiv:0909.2859v1, Appendix A"
+      ],
+      "rationale": "The graph and norm are natural: the unweighted clique has a uniform bound below two, yet a single varied conductance in symmetric electrical-gradient coordinates produces a sharp order-sqrt(n) norm. Exact determination of all row families and the optimizer shows which responses can dominate and is meaningful for comparing endpoint amplification between symmetric network families; generic perturbation entries or a universal growth estimate are not an adequate substitute. The analogous complete-bipartite mechanism is already known, so the value is the exact clique result, not discovery of the general amplification mechanism.",
+      "residual_risks": [
+        "The weighted coordinate norm is not an unscaled physical-current norm or an electrical routing competitive ratio."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:25:34.739859Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; VERIFICATION.md and checker.py inspected",
+        "Independent replay: python3 /workspace/branches/independent-checks/parking_small.py"
+      ],
+      "rationale": "For a fixed spot order, when car sigma_j arrives, the smaller-labeled cars occupy exactly their designated spots; the allowed preferences for sigma_j run from one past the nearest larger label on its left up to j. This proves the fiber product by induction over arrivals. For a rise a<b at i,i+1, the two old distances A,B satisfy A+1<=B<=i+1 and the two new distances are B-1,1. A later nearest larger predecessor changes only for a value strictly between a and b with no larger entry in the intervening suffix; then its distance increases from j-i-1 to j-i. Thus the local factor is between 1/(i+1) and i/(i+1), and the later factors lie between 1 and their full telescoping product n-i. The increasing order and the stated (2,...,i,1,n,i+1,...,n-1) order realize the respective extremes, including empty prefix or suffix. For the global maximum, t+(n+1)/t-2 sqrt(n+1)=(t-sqrt(n+1))^2/t gives the rounding error; the endpoint and small-n inequalities follow from the exact envelopes. Independent raw preference enumeration through n=5 confirmed both extrema at each position, checking 1, 6, 36 and 240 rising swaps respectively.",
+      "residual_risks": [
+        "The independent replay is a small-n cross-check only; the exact case analysis supplies the proof for all n. No claim is made for swaps of nonadjacent positions or changed parking rules."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Naples enumeration paper gives the general classical product identity in its classical section, but the relevant proposition does not optimize relative masses on covers.",
+          "The frustrated-parking record concerns a different rule (on a conflict, use the largest vacant spot above the request) and a car-indexed outcome; it does not specialize to the forward first-available rule of the frozen theorem."
+        ],
+        "reasoning": "Neither these different parking rules nor the inspected broader enumerative statements provide a covering adjacent-ratio theorem for classical parking.",
+        "searches": [
+          "arXiv:2009.01124, Proposition 3.3 and proof",
+          "Resultary 2026/10/25, outcome-fibers-and-modal-parking-orders-of-frustrated-parking-fu--0c01af7493c0"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.11529",
+        "arXiv:2009.01124",
+        "Resultary e0f7e729d464, 5673f1b918ad, 0c01af7493c0, 9be7b6e973cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pinsky's largest and smallest atoms yield only unrestricted global bounds between 1/n! and n! on pairwise ratios. The known exact product computes any given ratio, but the sharp positionwise optimization requires the change-of-predecessor case analysis, telescoping upper bound, and attainment of that bound."
+        ],
+        "reasoning": "The new extremal result is not a direct parameter specialization of the known atom extrema or the product evaluation theorem.",
+        "searches": [
+          "Pinsky equations (1.4)–(1.5), Corollary 4; Colmenarejo et al. Proposition 3.3; frozen RESULT.md equations (1) and sharpness argument"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A rise-to-descent adjacent swap is a right weak-order cover in the spot-indexed outcome convention; the optimizing quantity is also the ratio of two parking-fiber counts since the normalization cancels.",
+          "The papers give the underlying atom or fiber formula; Pinsky optimizes a single atom over all permutations, not the ratio at adjacent covers."
+        ],
+        "reasoning": "Mass, fiber-count and weak-order wording express the same local ratio problem after accounting for convention; global atom extremizers are not equivalent to local ratio extremizers.",
+        "searches": [
+          "Pinsky, arXiv:2404.11529, §1 equations (1.4)–(1.5) and Corollary 4",
+          "Colmenarejo et al., arXiv:2009.01124, Proposition 3.3",
+          "Resultary classical parking outcome permutations and outcome-fiber comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary e0f7e729d464 and 5673f1b918ad concern parity of the same outcome law, not a catalog or formula of positionwise cover ratios; 0c01af7493c0 concerns a different parking rule, and 9be7b6e973cd concerns preference multiplicity and arrival luck.",
+          "The published exact global atom extrema do not tabulate two-atom ratios on covers."
+        ],
+        "reasoning": "No covering exact table was identified among these inspected matches. A finite table alone would not cover the simultaneous all-n formulas.",
+        "searches": [
+          "Local Resultary mirror: classical outcome permutations, fiber products and modal outcome comparisons; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:2404.11529 §1 and Corollary 4"
+        ]
+      },
+      "rationale": "The mass identity and global atom extrema are known and are not credited as new. The supported distinct claim is the exact mass-ratio envelope on rising adjacent covers, the positionwise witnesses and the resulting global maximum over covers. None of the closest inspected statements gives this optimization; the affected suffix factors must be located and bounded with simultaneous attainment. This is a best-of-knowledge decision.",
+      "residual_risks": [
+        "Bounded comparison, not certification of historical priority; unlocated work on weak-order variations of parking fibers could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same mass formula; distinct global atom optimization",
+          "evidence": [
+            "Mass equals L_n/(n+1)^(n-1); the increasing and decreasing permutations are unique maximum and minimum atoms respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.11529",
+          "material_read": "PDF pp. 3–4, §1 equations (1.4)–(1.5) and Corollary 4",
+          "method": "OA primary PDF, bounded passage starting at extracted-text offset 7600",
+          "title": "The distribution on permutations induced by a random parking function",
+          "trigger": "Same law, exact mass and extremizers"
+        },
+        {
+          "assessment": "Gives the classical fiber product, not the adjacent-ratio envelopes in the inspected passage",
+          "evidence": [
+            "The factors count the consecutive suffix up to a spot with labels at most that spot's label."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.01124",
+          "material_read": "PDF pp. 5–6, Proposition 3.3 and proof",
+          "method": "OA primary PDF, bounded passage starting at extracted-text offset 18450",
+          "title": "Counting k-Naples parking functions through permutations and the k-Naples area statistic",
+          "trigger": "Known fiber count and potentially broader permutation comparison"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "Comparing total mass of the two parity classes does not identify adjacent edge maxima."
+          ],
+          "identifier_or_url": "Resultary e0f7e729d464; 5673f1b918ad",
+          "material_read": "Findings on the even–odd imbalance",
+          "method": "Local mirrored records",
+          "title": "Universal even-parity bias in random parking outcomes and related parity result",
+          "trigger": "Same classical stochastic object and inversion-related statistic"
+        },
+        {
+          "assessment": "Different rule and optimization",
+          "evidence": [
+            "Largest rather than smallest available site above the request on conflict, and maximum fiber rather than adjacent ratio."
+          ],
+          "identifier_or_url": "Resultary 0c01af7493c0",
+          "material_read": "Finding, parking rule and outcome convention",
+          "method": "Local mirrored record",
+          "title": "Outcome fibers and modal parking orders of frustrated parking functions",
+          "trigger": "Closest related fiber/mode optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact envelopes, witnesses and global optimization",
+        "Pinsky Corollary 4 as the global-mode baseline"
+      ],
+      "rationale": "Knowing the increasing outcome is the most likely does not tell whether a single new inversion makes a nearby outcome less likely. The exact positionwise envelope gives the first size allowing an increase, distinguishes the last position from all earlier positions for n>=4, and shows a single local move can amplify mass by order n at positions of order sqrt(n). These are quantitative features of the classical permutation law not supplied by its global mode or an isolated example.",
+      "residual_risks": [
+        "The result concerns only one rising adjacent swap; it does not order aggregate inversion statistics or characterize general move sequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

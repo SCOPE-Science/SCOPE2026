@@ -1,19 +1,21 @@
-# Scientific review of the uniform-petal sunflower fixation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The selected claim is a single exact fixation-and-limit theorem for fitness-proportional whole-hyperedge replacement on a disjoint-petal sunflower. The proof specifies integers \(s,m\geq1\), fitness \(r>0\), and all normalization conventions. Once a petal has been updated, it is homogeneous forever; the reduced \((h,j)\) chain has two absorbing states and four possible nontrivial transition types. Its first-step equations yield one geometric ratio, determine hub fixation through the boundary conditions, and determine leaf fixation from its first non-self-loop event. All initial locations and group sizes are covered, including \(s=1\), \(m=1\), and \(r=1\). The neutrality, derivative, and fixed-fitness asymptotics follow by explicit algebra and geometric-sum estimates. Exhaustive small-state Markov checks and exact-rational recurrence checks support the proof. The analytical argument, not a finite experiment, establishes generality.
+PASS
 
-## Originality — PASS, with residual risk
+Under whole-hyperedge copying, homogeneous petals stay homogeneous. With j mutant petals, a resident hub changes the petal count downward at relative rate j/m, and flips to mutant at rate srj; a mutant hub changes the count upward at rate r(m-j)/m and flips at rate s(m-j). All share the corresponding total-fitness denominator, so the harmonic equations give the geometric ratio q for the gap between the two hub-conditioned fixation probabilities. The boundaries u_0=0 and v_m=1 give v_0=H. A hub-only sequence that visits every petal provides a positive-probability path to absorption from any homogeneous configuration. For peripheral initialization the first event reaching that petal either fixes its type as mutant, with probability r/(r+s-1+1/m), and takes the chain to v_1=H(1+sm/r), or causes extinction. Averaging over the sm+1 sites proves the uniform formula. The one-petal case simplifies to r/(r+s); at neutrality q=1 and uniform fixation equals 1/(sm+1). Differentiating the finite geometric sum gives the stated weak-selection slope and the Moran-minus-sunflower difference; the numerator polynomial in the proof is −(m−1)^3 at s=1, positive for s=2, and positive for s≥3 (the only negative coefficient to check there is −m at s=3). For fixed r>1, the exact geometric-sum simplification H=(r²−1)/(r²+smr−(1+smr)q^m) yields the limit and at s=2 the relative first-order correction −1/2−1/(r+1), yielding precisely the stated coefficient. Independent full labeled chains through N=7 matched the fixation formulas within 1.3e−15 and independent differentiated chains matched the slope within 1.9e−15 in four tested cases. Replay: python3 /workspace/branches/a765d51b-25cf-4de1-88e9-d6055527ea2c/independent_sunflower_chain.py. The supplied scripts were inspected rather than executed.
 
-The nearest source is Liu and Masuda's model-1 hypergraph-fixation study (arXiv:2301.05343, Sections 2, 3.1.3, and S1 Text G). It uses all leaf pairs in its 3-uniform star, not pairwise-disjoint petals. The present source's model-1 update is inherited, but neither its all-pairs star formulas nor its cyclic/complete hypergraphs imply the disjoint-petal formula without an additional reduction. The later multilayer-network paper studies coupled pairwise birth-death dynamics, and the earlier multiplayer-game paper separates interaction and pairwise replacement mechanisms. Searches for sunflower, petal, star, group-broadcast, central-vs-leaf, and exact fixation variants found no covering published classification. The special graph-star and one-petal cases are known benchmarks rather than novelty claims. Less accessible or unindexed evolutionary-population literature may contain an equivalent group-broadcast reduction, and the result has not been independently priority-checked.
+## originality
 
-## Value — PASS
+PASS
 
-The hyperedge-size threshold \(s=2\) gives a nontrivial comparison at fixed advantageous fitness: as petals proliferate, the exact limiting fixation of a uniform single mutant changes from amplification under pairwise star copying to a neutral well-mixed limit for three-person copying and persistent suppression for groups of four or more. The theorem quantifies the mechanism with exact finite-size location dependence, a central/peripheral advantage ratio valid for all positive fitnesses, and an exact weak-selection derivative; this is not merely a toy numerical counterexample or a parameter substitution. It provides a tractable reference family for higher-order evolutionary copying processes.
+The ordinary graph-star case and the update mechanism are prior; the exact arbitrary-petal-size fixation and size transition survive the comparison. The closest earlier primary paper uses the same Model 1 but a dense three-uniform star, not disjoint petals. Its weighted projection is also not equivalent. A later indexed loose-star result is an exact partial overlap at s=2, not full arbitrary-s coverage. This is a bounded originality assessment, not a priority certification.
 
-## Scientific limitations
+## value
 
-The conclusion is specific to disjoint equally sized petals, constant fitness, and whole-edge copying. It does not prove all-hypergraph suppression, finite-size all-fitness suppression, or a time-to-fixation law. The two numerical verification chains are finite calculations and are not cited as infinite proofs. Residual literature risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Disjoint petals isolate the effect of the broadcast group size from overlap between hyperedges. The exact formulas distinguish the location effect (which holds for every fitness) from the weak-selection and fixed-advantage comparisons; they identify a three-person threshold and a finite-size deficit at that threshold. The arbitrary-size result, including strict suppression relative to the asymptotic reference for groups of four or more, gives a useful model benchmark beyond the ordinary star and a single fixed petal size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

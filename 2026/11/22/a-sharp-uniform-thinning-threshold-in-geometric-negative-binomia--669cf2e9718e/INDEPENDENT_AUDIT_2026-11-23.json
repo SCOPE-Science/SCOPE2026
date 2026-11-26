@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:37:37.583841Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, compound-Poisson and thinning proof",
+        "Frozen VERIFICATION.md and checker.py, inspected but not executed",
+        "Tharshan and Wijekoon arXiv:2110.13004v1, model equations (5)–(6)"
+      ],
+      "rationale": "Factoring the pgf numerator gives a complex-conjugate pair w,w̄ with |w|<q, where w=q/(1+i√s ε), s=(1−p)/p and ε=1−q. Log expansion normalized by G(1)=1 gives b_n=3q^n−2 Re(w^n)>q^n and summable jump intensities b_n/n. For the thinning quotient the first-order coefficient at retention t→1 is (1−t)(b_n−b_(n+1)), proving necessity. Nonnegative consecutive differences give sufficiency by integrating (1−u)(log G)'(u) along u=1−v+vz from v=t to v=1, yielding nonnegative compound-Poisson jump intensities. After division by q^nε the difference is at least 3−2√(1+s)/(1+sε²)^((n+1)/2), positive even at s=5/4 for fixed q<1. For s>5/4, choose n=floor(arctan(√s)/(√s ε)). Then nε tends to arctan(√s)/√s, nε²→0, and the complex phase approaches the direction maximizing the real part of (1+i√s) times a unit complex number. The normalized difference tends to 3−2√(1+s)<0 as ε→0, so failure holds for every sufficiently large q, not only along a subsequence. The pure negative-binomial endpoints are separately self-decomposable, and s≤5/4 is p≥4/9, or α³≥4/5 in the convex model. Independently checked the finite witness with integer operations: write A_n+iB_n=(2500+50i)^n; the sign after normalization by q^n at p=1/5, q=99/100 is the sign of 3·2501^(n+1)−100(52A_n+99B_n). This is positive for n=1,…,12 and negative at n=13, with normalized difference approximately −0.00018947412013575. The infinite classification is analytic, not inferred from this witness.",
+      "residual_risks": [
+        "The sharp cutoff is uniform in rate and does not classify all fixed intermediate (p,q). p=1 is not reached at finite α in the named model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general canonical-sequence criterion credited to Steutel–van Harn is also derived directly in the frozen analytic family. The full source passage was not retrieved.",
+          "The adjacent-shape record covers (r,r+1), gives (r+1)(θ+p)²≥p(θ+1)² at fixed rate, and its uniform cutoff is p=0 or p≥1/(r+1). The checked hypotheses do not include (1,3)."
+        ],
+        "reasoning": "The general criterion supplies a test, not a threshold until the canonical sequence is analyzed. Shifting both shapes preserves their difference. The adjacent case has a linear numerator in the Laplace variable and a real zero; in the gap-two interior problem the numerator has two nonreal conjugate zeros. Its distinct oscillation cannot be captured by substituting r into an adjacent-shape conclusion.",
+        "searches": [
+          "Steutel–van Harn 1979, Theorem 2.2, doi:10.1214/aop/1176994950 (lawful retrieval attempts)",
+          "Resultary 2026/11/22/SCOPE-poissonization-restores-thinning-self-decomposability-in-adjacen--6076ca6aa947, Finding and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "Tharshan and Wijekoon arXiv:2110.13004v1",
+        "Resultary: adjacent-gamma threshold record",
+        "Steutel–van Harn 1979 attribution and lawful access attempts",
+        "Primary lookup for the equivalent continuous cutoff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Poissonization suffices for transfer from an already-self-decomposable mixing law, but the adjacent-shape examples show a fixed-rate converse is false. Only taking the rate to zero yields the converse needed for this uniform question.",
+          "The family-specific log-derivative has the oscillatory pair and requires maximizing its real part (or controlling a moving index in the count model). No checked broader result provides the value 4/9 for this mixture."
+        ],
+        "reasoning": "Changing model parameters in the known model, or applying generic Poisson thinning or infinite divisibility facts, does not resolve the distinction among p=0, 0<p<4/9, and p≥4/9. The continuous argument is a substantive alternative derivation of the same statement, not by itself evidence that it was already stated.",
+        "searches": [
+          "Tharshan and Wijekoon arXiv:2110.13004v1, p. 3, Eqs. (5)–(6)",
+          "Adjacent-gamma Resultary entry, Finding, (1)–(2) and assumptions",
+          "Targeted primary search for the exact continuous exponential/Erlang-three threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The shape-three count model is indeed mixed Poisson from an exponential/Erlang-three mixture, with p=α³/(1+α³) and q=1/(1+θ). The source calls θ a scale in prose but its exp(−θy) formula uses a rate.",
+          "For the unit-rate mixing law Y, −(log L)' has inverse Laplace kernel k(y)=e^(−y)(3−2cos(√s y)), by partial fractions. Its derivative is nonpositive everywhere exactly when 2√(1+s)≤3; the maximal oscillatory derivative term is attained at y=arctan(√s)/√s.",
+          "The targeted primary lookup produced generic characteristic-function material and a reciprocal-gamma OU article; the latter's inspected abstract is about estimation in a different model."
+        ],
+        "reasoning": "Continuous self-decomposability gives thinning innovations by Poissonizing the independent continuous remainder. Conversely, if the count is thinning-self-decomposable along any sequence of common rates θ→0, then θX converges to Y and the scaled innovation Laplace transforms converge to L(u)/L(tu) for each retention t. Continuity at zero makes this a valid Laplace transform, hence Y is continuously self-decomposable. This gives an equivalent formulation of the uniform boundary and also implies eventual failure when the kernel is not monotone, though it supplies no offending coefficient index. The sources checked do not already give the gap-two continuous threshold.",
+        "searches": [
+          "Resultary search for Poissonization and Bernoulli-thinning self-decomposability in gamma and negative-binomial mixtures",
+          "Primary lookup: self-decomposable mixture exponential Erlang shape three gamma same rate 4/9 infinite divisibility; exponential Erlang-3 mixture Levy spectral function 3 minus 2 cos",
+          "Tharshan and Wijekoon arXiv:2110.13004v1, Eqs. (5)–(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct exact indexed boundary is the adjacent-shape classification. The model article supplies the explicit distribution, not an exact classification of thinning. No separate table of the nonadjacent uniform region was identified."
+        ],
+        "reasoning": "This is an all-rate continuous-parameter classification, not an enumeration. A formal or finite numerical table of canonical coefficients cannot establish it, since the obstructing index diverges as q→1.",
+        "searches": [
+          "Resultary search on uniform thinning self-decomposability for geometric and negative-binomial count mixtures",
+          "Model article, arXiv:2110.13004v1, §2 model equations"
+        ]
+      },
+      "rationale": "The named mixed-Poisson model and the general thinning criterion are known. The strongest distinct indexed comparison gives an exact thinning and continuous self-decomposability classification for adjacent gamma shapes. It does not cover gap two, where conjugate zeros produce an oscillatory obstruction. The gap-two uniform discrete law is equivalent to a continuous mixture classification, so an exact prior threshold in that formulation would be equivalent coverage; no such classification was located in the actual comparisons. The direct proof also specifies the growing index that witnesses failure near q=1.",
+      "residual_risks": [
+        "The 1979 theorem passage was not accessible during this review; the local proof verifies the criterion as used. An unindexed exact continuous-mixture criterion covering gap two would bear directly on originality.",
+        "Unproductive or unrelated search hits do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and weights prior; model passage does not state the uniform thinning threshold",
+          "evidence": [
+            "At delta=3 the continuous density is the stated exponential/Gamma-three mixture and Poisson modification yields the geometric/NB-three mixture.",
+            "The formula has e^(−θy) and hence a common rate θ, even where the prose uses the word scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.13004",
+          "material_read": "v1 p. 3, Eqs. (5)–(6), PDF-text offsets 9800–15753",
+          "method": "Bounded OA PDF passage",
+          "title": "Poisson-modification of the Quasi Lindley distribution and its zero modification for over-dispersed count data",
+          "trigger": "Identical mixed-Poisson family at delta=3"
+        },
+        {
+          "assessment": "Distinct shape gap and different numerator; no equivalent coverage of the 1,3 mixture",
+          "evidence": [
+            "Shapes are r and r+1 for the same rate; the stated fixed-rate and uniform boundaries apply to those hypotheses.",
+            "It gives examples where a fixed-rate count is thinning self-decomposable although the continuous mixer is not."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-poissonization-restores-thinning-self-decomposability-in-adjacen--6076ca6aa947/RESULT.md",
+          "material_read": "Finding, assumptions and start of proof, offsets 0–3254 in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and confirmation in bounded local-mirror text",
+          "title": "Poissonization restores thinning self-decomposability in adjacent-gamma mixtures",
+          "trigger": "Closest exact indexed threshold using the same Poisson and thinning concepts"
+        },
+        {
+          "assessment": "Prior general criterion credited; no negative assertion about unread paper",
+          "evidence": [
+            "The frozen citation attributes the decreasing-canonical-measure characterization to Theorem 2.2, and its proof derives the characterization directly for this analytic pgf family."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176994950",
+          "material_read": "Theorem 2.2 identification in the frozen bibliography; theorem text not retrieved",
+          "method": "Bounded DOI and Project Euclid attempts; independently checked the specialized criterion in the frozen proof",
+          "title": "Discrete analogues of self-decomposability and stability",
+          "trigger": "Known general monotone-canonical-measure test"
+        },
+        {
+          "assessment": "Different claimed object and problem in the abstract, not a negative finding about all unread text",
+          "evidence": [
+            "Studies estimation for an OU process with a reciprocal gamma marginal, not a common-rate exponential/Erlang mixture threshold."
+          ],
+          "identifier_or_url": "https://probability.knu.ua/tims/issues-new/86/PDF/12.pdf",
+          "material_read": "Title and abstract, p. 121",
+          "method": "Direct bounded OA PDF reading",
+          "title": "Parameter Estimation for Reciprocal Gamma Ornstein–Uhlenbeck Type Processes",
+          "trigger": "Targeted primary lookup for a continuous gamma-mixture equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact threshold and finite/growing-index witnesses",
+        "Original count model arXiv:2110.13004v1",
+        "Adjacent-shape Resultary classification"
+      ],
+      "rationale": "This is a motivated count mixture and a sharp uniform closure question about its possible innovation representation. All laws are infinitely divisible, yet positive weights below the sharp thinning cut fail near one extreme of rate, even arbitrarily close to the admissible pure shape-three endpoint. The conjugate-root regime produces a genuine difference from neighboring-shape mixtures, and the explicit moving-index obstruction explains why fixed finite tests can miss the failure.",
+      "residual_risks": [
+        "No empirical inference or full fixed-rate phase diagram follows from the uniform classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

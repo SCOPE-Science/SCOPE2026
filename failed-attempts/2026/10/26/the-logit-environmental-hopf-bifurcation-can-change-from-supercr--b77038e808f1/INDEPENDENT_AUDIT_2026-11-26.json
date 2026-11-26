@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:02.364560Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:15–92; independent polar expansion, interior conditions and crossing reconstruction",
+        "VERIFICATION.md:19–23 and verify.py:6–91 inspected, not executed",
+        "Independent replay: python3 /tmp/opencode/frozen_audit_replay.py 4; symbolic polar mean from the unexpanded Taylor polynomials and rational sign-change enclosure.",
+        "Paarporn arXiv:2311.02745v1 §§II–IV and Fig. 3; the displayed LD omits ε, but the background model, logit Jacobian and figure use ε."
+      ],
+      "rationale": "At the interior equilibrium, environmental stationarity gives x*=1/(1+θ) and the logit equation gives the stated n_β. Once β exceeds β_int this is between 0 and 1 because D−(r−θh)=t+θv>0. The Jacobian trace is pM(β−β_h), the off-diagonal entries have opposite signs, and at the stipulated interior Hopf point their negative product is ω²=εβ_hDp n_h(1−n_h)>0. The eigenvalue crossing speed is pM/2>0. With u=x−x* and w=(β_hpD/((1+θ)ω))(n−n_h), the unchanged time variable gives linear part (−ωw,ωu). Using z=(u−ωw+Aωuw)/p with A=a(1+θ)/D, the quadratic and cubic terms of the logit expansion are obtained from σ′=p, σ″=pq and σ‴=p(q²−2p), q=(θ−1)/(1+θ). In polar coordinates the mean cubic term is the mean of R₃−R₂Θ₁/ω; the quadratic radial mean is zero, and its iterated contribution to the full angular return vanishes as the integral of a derivative of the squared primitive. The environmental terms proportional to uw and uw² cancel in the mean. This gives 16pℓ=(Q−2)−(Q+2)ω², Q=Aq. The assumptions force Q<2 by 2D−a(θ−1)=(1+θ)(r+t+v−h)>0. Thus the signs and threshold follow, and the positive crossing puts attracting cycles on the β>β_h side for ℓ<0 and repelling cycles on the β<β_h side for ℓ>0. For the stated example a rational log(5) interval yields β_h>β_int, 0<n_h<1 and 0.0921526508<κ<0.0921526594, which suffices for opposite signs at ε=1 and 100. No cycle type is claimed at ℓ=0.",
+      "residual_risks": [
+        "No higher Lyapunov coefficient, generalized-Hopf nondegeneracy or global periodic-orbit structure is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paarporn gives the equilibrium and Hopf context but explicitly leaves first-Lyapunov stability conditions for future work. Gong et al. compute a coefficient for replicator–mutator rather than logit response; Liu–Cao–Wu study general nonlinear imitation."
+        ],
+        "reasoning": "Neither a generic Hopf procedure nor a coefficient for a different update rule establishes the speed threshold. The indexed model-specific result does.",
+        "searches": [
+          "Paarporn arXiv:2311.02745v1, §§II–V; Gong et al. arXiv:2205.10734, §3.2; Liu–Cao–Wu arXiv:2210.10552, model (2)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 540310002a8d and ffc33c1d1e71",
+        "arXiv:2311.02745v1, 2205.10734, 2210.10552"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day condition χ>2 equals Q<−2, and the later entry's M>0 condition equals −D(Q+2)>0 in the frozen notation. Paarporn's example has Q=1/4; it witnesses a supercritical case, not the switch."
+        ],
+        "reasoning": "The indexed formula implies the submitted exact threshold and both nondegenerate criticality regions immediately. The printed omission of ε from LD does not create a different surrounding analytical or numerical model, nor does the original figure prove the full phase.",
+        "searches": [
+          "540310002a8d and ffc33c1d1e71, critical-speed and sign conditions; Paarporn v1 Fig. 3 and cycle stability discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "540310002a8d states ℓ₁=−[(2+χ)+(2−χ)ω²]/(16q) with χ=(1−θ)a/D and q the logistic slope. ffc33c1d1e71 gives the same coefficient affine in ε."
+        ],
+        "reasoning": "Set χ=−Q and its q=p; the linear frequency and time convention then match, and the formulas coincide for all admissible interior Hopf points.",
+        "searches": [
+          "Resultary: environmental response speed, logit learning Hopf criticality, supercritical and subcritical sign switch; 540310002a8d and ffc33c1d1e71"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both indexed entries give exact normalized analytical coefficients and sharp thresholds, not just simulated cycles or parameter samples. 540310002a8d also gives an admissible witness with a switch between ε=1 and 40."
+        ],
+        "reasoning": "The parameter values of the witness differ, but both demonstrate the same phenomenon already classified for the entire admissible regime.",
+        "searches": [
+          "540310002a8d and ffc33c1d1e71, Findings and assumptions"
+        ]
+      },
+      "rationale": "A distinct same-day indexed result gives the same speed-parameterized logit game, identical normalized cubic coefficient and threshold after a sign and notation change, together with an admissible example realizing the same criticality reversal. A later result presents the same phase in a different affine notation. Different numerical witnesses are not a separate structural result. This is equivalent coverage, not a priority determination.",
+      "residual_risks": [
+        "Publication priority and the relationship among indexed records are not established by their dates.",
+        "The related imitation paper was inspected at the model passages, not exhaustively; this does not affect exact indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent theorem; same calendar date does not resolve priority",
+          "evidence": "Equal cubic coefficient under χ=−Q and q=p, equal speed threshold, and an admissible two-speed witness.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-environmental-response-speed-switches-the-criticality-of-a-logit--540310002a8d",
+          "material_read": "Mirrored RESULT.md Finding and assumptions, from offset 0",
+          "method": "Local mirror and coefficient/condition comparison",
+          "title": "Environmental response speed switches the criticality of a logit Hopf bifurcation",
+          "trigger": "Same parameterized logit model and cubic threshold"
+        },
+        {
+          "assessment": "Same speed phase in affine notation",
+          "evidence": "Its sign-changing condition is M>0, where its M=−D(Q+2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-hopf-criticality-transition-in-a-logit-game-with-environme--ffc33c1d1e71",
+          "material_read": "Mirrored RESULT.md Finding, from offset 0",
+          "method": "Local mirror and algebraic comparison",
+          "title": "Exact Hopf criticality transition in a logit game with environmental feedback",
+          "trigger": "Another possible equivalent affine coefficient"
+        },
+        {
+          "assessment": "Model and crossing context; coefficient not supplied in decisive discussion",
+          "evidence": "LD as printed omits ε, unlike the Jacobian and the ε=0.5 simulation. Stability conditions are left for future work.",
+          "identifier_or_url": "https://arxiv.org/html/2311.02745v1",
+          "material_read": "Sections II–V: speed and LD displays, logit Jacobians, Fig. 3 and first-Lyapunov discussion; offsets near 10600, 14483, 20700, 27600, 31250 and 34950",
+          "method": "Primary OA text, bounded passage inspection",
+          "title": "The madness of people: rational learning in feedback-evolving games",
+          "trigger": "Original payoff-logit model and possible prior Hopf computation"
+        },
+        {
+          "assessment": "Different system",
+          "evidence": "Replicator–mutator strategy dynamics and a negative coefficient under its own assumptions are not the payoff-logit system.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.10734",
+          "material_read": "Model near offset 7600 and §3.2 Eq. (18) near offset 34000",
+          "method": "OA primary text",
+          "title": "Limit Cycles Analysis and Control of Evolutionary Game Dynamics with Environmental Feedback",
+          "trigger": "Nearby first-Lyapunov calculation in ecological feedback games"
+        },
+        {
+          "assessment": "Different strategy-update model in inspected passages",
+          "evidence": "The model uses nonlinear imitation, not the specific payoff-logit response.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.10552",
+          "material_read": "OA abstract and model (2), near offsets 0 and 12600",
+          "method": "Primary HTML, bounded passage inspection",
+          "title": "General non-linear imitation leads to limit cycles in eco-evolutionary dynamics",
+          "trigger": "Nonlinear learning and environmental speed in a related model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–13,70–108",
+        "Paarporn arXiv:2311.02745v1, local-cycle discussion",
+        "Resultary 540310002a8d"
+      ],
+      "rationale": "The modeled reversal between attracting and repelling small cycles is a meaningful qualitative distinction, and the sharp criterion addresses an explicit analytical gap in the original logit-model paper. That structural value is not a distinct contribution of the frozen finding in light of the equivalent indexed results.",
+      "residual_risks": [
+        "The conclusion is only local near an interior Hopf point away from the cubic zero."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

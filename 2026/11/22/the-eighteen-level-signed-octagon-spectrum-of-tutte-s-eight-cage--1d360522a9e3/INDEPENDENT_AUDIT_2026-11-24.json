@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:38:13.106750Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and normalization; VERIFICATION.md and verify_octagons.py inspected as evidence",
+        "Independent replay: python /workspace/reviews/recheck_3.py; transcript /workspace/reviews/recheck_3.txt"
+      ],
+      "rationale": "The unnormalized XOR convolution is diagonal on all 45-edge characters, with one summand per unoriented simple octagon. The independent enumeration projects onto four distinct synthemes with successive intersections equal to four distinct duads, and chooses one cyclic orientation and base per cycle. It finds 90 distinct octagons, 16 uses of each edge, and no smaller cycle. The incidence graph is connected: disjoint duads share a syntheme, and two intersecting duads have a third duad disjoint from both. Switching is addition of a cut and fixes all cycle evaluations, hence each switching class has 2^29 frequencies. An independent binary row reduction of the 45-by-90 incidence matrix finds rank 16, so the evaluation image is precisely one word per switching class. Enumerating the image in Gray order and binning by 90−2 times Hamming weight reproduces all eighteen levels and multiplicities. The even edge incidence makes every codeword even weight and every multiplier 2 mod 4. In the original BFS convention cotree mask 85 attains −2; the trivial character attains 90. Fourier diagonalization therefore gives full range, inverse norm 1/2 and condition number 45 for the stated normalization.",
+      "residual_risks": [
+        "The spectrum is of Boolean edge-space convolution, not the adjacency spectrum of the 30-vertex graph. The multiplicities in the table must be multiplied by 2^29 in the full space."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 and relevant passages concern generalized Tutte–Coxeter cycle structure and symmetry. Resultary 31a720b8c1f5 concerns period-48 adjacency of generalized octagons; 79bddf4f8e9f gives a six-level hexagon Walsh spectrum on the Heawood graph."
+        ],
+        "reasoning": "Neither a structural theorem about short cycles nor a separate exact spectrum on another graph provides a broader spectrum formula that specializes to this 90-octagon incidence code.",
+        "searches": [
+          "Farrokhi–Mohammadian arXiv:1611.03241v1 §§1–2; Resultary generalized octagon and signed shortest-cycle spectrum comparisons"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-case and analogous-spectrum searches",
+        "Baez (2015), puzzles 11–13; Farrokhi–Mohammadian arXiv:1611.03241v1; MathWorld Tutte 8-Cage"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edge-transitivity and 90 cycles of length 8 over 45 edges force 16 octagons through every edge; hence total parity is zero and the 2 mod 4 obstruction to a zero multiplier follows. The extrema follow once a weight 44 or 46 and the trivial character are established."
+        ],
+        "reasoning": "Credit the basic parity deduction from known data. Those data neither guarantee an attained modulus of exactly 2 nor determine any of the eighteen multiplicities; the complete histogram is the distinct claim.",
+        "searches": [
+          "Compare Baez's cycle count and Farrokhi–Mohammadian's graph symmetry with the frozen parity and spectral conclusions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the rank-16 code D of octagon incidence evaluations, a codeword of weight w corresponds to multiplier 90−2w, so its enumerator with weights 0,16,24,28,30,34,36,38,40,42,44,46,48,50,52,54,56,60 is exactly equivalent to the claimed histogram. The graph adjacency spectrum tabulated by MathWorld is a different operator."
+        ],
+        "reasoning": "An exact prior enumerator of this incidence evaluation code, not just a graph cycle-space enumerator or a signed adjacency spectrum, would cover the result. No inspected distinct source supplies one.",
+        "searches": [
+          "Resultary: Tutte–Coxeter signed octagon Walsh spectrum, switching classes and binary octagon-evaluation-code weight enumerator",
+          "Open literature comparison in the cycle-structure and graph-spectrum sources"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 1d360522a9e3 is the frozen finding itself. Baez gives 90 cycles and their quadrangle count; the standard graph spectrum is not the table of signs of these cycles."
+        ],
+        "reasoning": "Neither a count of the columns of the octagon incidence matrix nor an adjacency table for the graph gives the exact histogram of evaluating all linear functionals on those columns.",
+        "searches": [
+          "Resultary exact graph and signed spectrum; Baez puzzles 11–13; MathWorld Tutte 8-Cage"
+        ]
+      },
+      "rationale": "The 90 octagons, their quadrangle interpretation, and underlying graph symmetry are credited. The nonvanishing congruence follows easily from that known cycle count and edge-transitivity; it is not the differentiating contribution. The exact signed frequencies on switching classes, or equivalently the length-90 evaluation-code weight distribution, survive the comparisons. The closest Resultary entries for other graphs or operators are not stronger statements about this spectrum.",
+      "residual_risks": [
+        "A pre-existing coding-theoretic table under different names or an unindexed computation of the evaluation code is not ruled out. No priority inference is made from a search miss or same-day cataloguing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the octagon count, not the signed distribution.",
+          "evidence": "Counts 90 cycles of length 8 via quadrangles of the Cremona–Richmond configuration.",
+          "identifier_or_url": "https://math.ucr.edu/home/baez/six.html",
+          "material_read": "Answers to puzzles 11–13, offset 32184",
+          "method": "Open public page, bounded passage",
+          "title": "Some Thoughts on the Number 6",
+          "trigger": "Exact same-graph octagon count and geometry"
+        },
+        {
+          "assessment": "Covers graph structure and cycle profiles used for a symmetry characterization, not the claimed spectrum in the inspected passages.",
+          "evidence": "Characterizes the Tutte–Coxeter case using automorphisms and short cycle structure.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.03241v1",
+          "material_read": "PDF pp. 1–3, §§1–2, Theorem 2.1 at offsets 0 and 4650",
+          "method": "Open primary PDF, bounded passages",
+          "title": "A characterization of Tutte-Coxeter graph",
+          "trigger": "Generalized Tutte–Coxeter structural theorem and short cycles"
+        },
+        {
+          "assessment": "The graph is integral in its ordinary adjacency spectrum, not an edge-sign evaluation array.",
+          "evidence": "30 vertices and 45 edges, ordinary graph spectrum.",
+          "identifier_or_url": "https://mathworld.wolfram.com/Tutte8-Cage.html",
+          "material_read": "Graph description and spectrum reference, offset 0",
+          "method": "Open reference page",
+          "title": "Tutte 8-Cage",
+          "trigger": "Potential exact same-graph spectral table"
+        },
+        {
+          "assessment": "Different graph, cycle family, and signed levels; same-day date does not imply priority.",
+          "evidence": "Heawood graph, 28 hexagons and six levels rather than the 90 Tutte–Coxeter octagons.",
+          "identifier_or_url": "2026/11/22/SCOPE-six-level-hexagon-walsh-spectrum-and-sharp-recovery-projection-f--79bddf4f8e9f",
+          "material_read": "Indexed statement of the graph, cycles, and spectrum",
+          "method": "Resultary published-record comparison",
+          "title": "Six-level hexagon Walsh spectrum and sharp recovery projection",
+          "trigger": "Most closely analogous signed-cycle spectrum in Resultary"
+        },
+        {
+          "assessment": "Adjacency of generalized octagons, different operator.",
+          "evidence": "Period-48 adjacency result for finite generalized octagons of even order.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-octagonal-parity-shell-law-a-sharp-forty-eight-step-reversib--31a720b8c1f5",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "The octagonal parity shell law",
+          "trigger": "Generalized octagon spectral terminology may be misleadingly close"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and convolution proof; independent rank and signed enumeration; known octagon count and cycle geometry"
+      ],
+      "rationale": "The Tutte–Coxeter graph is the natural cubic girth-eight cage, and its shortest cycles define a canonical support for recovery by convolution. The spectrum determines the complete cancellation distribution and sharp stability on the full Boolean edge space, beyond the unsigned cycle count or the parity-based nonsingularity alone. It also provides the exact weight enumerator of the associated short-cycle evaluation code, which can be used independently for comparisons with parallel cage constructions.",
+      "residual_risks": [
+        "No family-wide spectral law or symbolic count of the eighteen multiplicities is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

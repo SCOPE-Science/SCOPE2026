@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:01:50.552535Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–66",
+        "Frozen VERIFICATION.md, checker.py and checker_output.txt, inspected without executing",
+        "/workspace/branches/review_checks.py (ordinal 1)"
+      ],
+      "rationale": "For each 1 let k be its number of preceding zeros and let A be the total number of zeros. With B=sum k and Q=sum k², the scattered count is AB-Q. Hence Q-B is even, imposing the stated residue condition modulo gcd(2,m). Conversely the pairs (1,1),(2,4) span all (B,Q) with this condition because (2,4)-2(1,1)=(0,2). Represent their coefficients by nonnegative multiplicities and choose the preceding-zero counts strictly increasing using multiples of m. This gives legal separated 1s and any specified A residue, ending in 0. To end in 1, reserve the last marker at A and subtract (A,A²) in residue coordinates, which preserves the parity condition; choose A large enough for the remaining markers and require a zero before the reserved 1. The exact letter actions are 0:(a,b,c)->(a+1,b,c+b) and 1:(a,b,c)->(a,b+a,c); their m-th powers are identities. Prepending 0^m and inserting 0^m before each 1 preserves the full counter action and makes the suffix legal from either boundary flag. Thus a safe inverse returns any chosen triple to (0,0,0) and sends another distinct triple to a nonzero triple. Read c immediately if nonzero, or append 0 if only b is needed, or append 0^m10 when c=b=0 to expose a; the base stays at output residue zero in each comparison. Equal triples with different flags are separated by 1 followed by a safe accepting continuation. Every legal state has an accepting continuation, unlike the sink; the empty prefix needs no extra boundary flag. This yields exactly the asserted Boolean quotient for odd and even m. An independent moment-coordinate DFA and positional enumeration agreed for all ten m=2..11. Replay: `python3 /workspace/branches/review_checks.py 1`.",
+      "residual_risks": [
+        "Finite checks supplement the uniform modular argument. Only the fixed target residue and the stated contiguous constraint are adjudicated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Černý §3 supplies formal-power-series encoding for occurrence counts.",
+          "Colbourn et al. count contiguous factors and study regularity of comparisons.",
+          "Kovačević–Vukobratović's abstract concerns RLL weights, runs and asymptotic capacity; Karandikar–Niewerth–Schnoebelen's opening concerns closures and interiors of regular languages under subword orders."
+        ],
+        "reasoning": "These frameworks cover building blocks or different operations. None of the inspected statements supplies the exact reachable-and-distinct quotient for the combination of a modular scattered count and contiguous avoidance.",
+        "searches": [
+          "Černý PDF DOI 10.1051/ita/2009021",
+          "arXiv:1804.11175",
+          "arXiv:2105.04617",
+          "arXiv:1406.0690v4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f8d46c1509db, b7d2cb9e9777 and 58224cc14c12",
+        "Černý DOI 10.1051/ita/2009021",
+        "arXiv:1804.11175, 2105.04617 and 1406.0690",
+        "Alazemi–Černý DOI 10.1142/S0129054111008817 (access-limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted predecessor provides the same parity-restricted counter orbit, expressly not the individual Boolean claim.",
+          "Alazemi–Černý is cited for a general trie automaton; primary full-text access was denied.",
+          "The frozen result builds witnesses with either boundary flag and implements inverse counter actions by zero-prefixed legal suffixes."
+        ],
+        "reasoning": "Adding a last-letter flag and a sink to the unrestricted counter machine gives the correct upper bound but not reachability or distinguishability. The unconstrained orbit formula does not mechanically imply reachability with both flags or a Boolean separating suffix legal after either flag. A general counting construction is not itself an exact minimality theorem.",
+        "searches": [
+          "Resultary f8d46c1509db, mirrored finding and proof",
+          "Alazemi–Černý DOI 10.1142/S0129054111008817",
+          "Frozen RESULT.md lines 52–66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f8d46c1509db proves the count m³/gcd(m,2) for unrestricted full-output Moore machines and explicitly excludes individual Boolean minima from its assertion.",
+          "b7d2cb9e9777 uses scattered 001 with contiguous 1^r avoidance; 58224cc14c12 uses scattered 01 with contiguous 0^r1 avoidance."
+        ],
+        "reasoning": "Letter complementation gives the equivalent scattered 101 with 00 forbidden, and reversal preserves the original patterns. Neither change turns 010 into the two-run triple 001 or a length-two pattern. Unrestricted Moore-state equivalence also does not imply restricted Boolean-state equivalence.",
+        "searches": [
+          "Resultary semantic search for constrained 010 scattered counts, unrestricted alternating triples and modular counters under factor avoidance",
+          "Resultary f8d46c1509db, b7d2cb9e9777 and 58224cc14c12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f8d46c1509db agrees on the unconstrained counter quantity only.",
+          "b7d2cb9e9777 reports rm²+1 or 2rm²+1, with a different counted pattern and family of constraints.",
+          "58224cc14c12 reports rm²+2, for a different counted pattern and forbidden factor."
+        ],
+        "reasoning": "The same-day records are distinct on content; no priority inference is made from their common date. No inspected distinct indexed entry gives the target quotient. A finite table would not settle the all-modulus statement.",
+        "searches": [
+          "Resultary f8d46c1509db, b7d2cb9e9777 and 58224cc14c12"
+        ]
+      },
+      "rationale": "The unrestricted modular output-state size and its parity-restricted orbit are already known. The distinct claim is the complete Boolean quotient under the additional Fibonacci constraint. Its proof shows that the full legal counter orbit is retained, that legal suffixes distinguish different counters even for Boolean acceptance, and that each counter has two distinguishable legal boundary states plus the global sink. The indexed and primary comparisons do not establish prior coverage of this result.",
+      "residual_risks": [
+        "The trie-automaton article could not be fully checked. Older unindexed equivalent constrained counting theorems are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap on the unconstrained Moore count, not on the restricted Boolean theorem",
+          "evidence": [
+            "Unrestricted output needs m³/gcd(m,2) states; the finding does not assert that count for any particular Boolean language."
+          ],
+          "identifier_or_url": "f8d46c1509db",
+          "material_read": "Mirror RESULT.md, opening finding and relevant counter proof",
+          "method": "Resultary search and local mirror",
+          "title": "Exact output-state complexity for modular alternating scattered triples",
+          "trigger": "Exact unconstrained orbit and output-state predecessor"
+        },
+        {
+          "assessment": "Different counted and forbidden patterns",
+          "evidence": [
+            "Counts 001 and forbids 1^r; the sizes are rm²+1 for odd m and 2rm²+1 for even m."
+          ],
+          "identifier_or_url": "b7d2cb9e9777",
+          "material_read": "Mirror RESULT.md finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Sharp state complexity for run-capped modular scattered-triple counters",
+          "trigger": "Closest constrained triple-counter DFA theorem"
+        },
+        {
+          "assessment": "Distinct same-day claim; not an equivalent problem",
+          "evidence": [
+            "The pair 01 is counted and 0^r1 forbidden."
+          ],
+          "identifier_or_url": "58224cc14c12",
+          "material_read": "Mirror RESULT.md finding, offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Exact minimal deterministic complexity for modular scattered pairs under a forbidden zero-run transition",
+          "trigger": "Adjacent constrained modular right-language theorem"
+        },
+        {
+          "assessment": "Occurrence-count framework rather than the asserted minimal-state quotient",
+          "evidence": [
+            "The formal-power-series representation encodes numbers of subword occurrences."
+          ],
+          "identifier_or_url": "https://www.numdam.org/article/ITA_2010__44_2_209_0.pdf",
+          "material_read": "Abstract and §3, printed p. 215, text offsets around 342 and 18000",
+          "method": "Open publisher PDF passages",
+          "title": "Generalizations of Parikh Mappings",
+          "trigger": "Potential general scattered-count machinery"
+        },
+        {
+          "assessment": "Different occurrence notion and invariant",
+          "evidence": [
+            "Occurrences use factorizations w=xyz; the results address regularity of comparisons of counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.11175",
+          "material_read": "Abstract and introduction, pp. 1–2, offsets 0 and 4905",
+          "method": "Open arXiv PDF passages",
+          "title": "Counting Subwords and Regular Languages",
+          "trigger": "Potential regular count-language antecedent"
+        },
+        {
+          "assessment": "Full-text comparison unresolved; no specific applicable statement retrieved",
+          "evidence": [
+            "Frozen RESULT.md lines 78 and 90; publisher access was denied."
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+          "material_read": "Frozen cited description and bibliographic entry; no full-paper passage obtained",
+          "method": "DOI and publisher OA access attempts",
+          "title": "Counting Subwords Using a Trie Automaton",
+          "trigger": "Potential general trie counting result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 39–66 and 72–82",
+        "Resultary f8d46c1509db"
+      ],
+      "rationale": "This gives a sharp deterministic memory bound for a natural binary run constraint and scattered statistic. It explains why the constraint preserves the counter transformations but still requires two legal copies of every counter state when recognizing the Boolean language. The parity-dependent cubic law and the sink term quantify effects neither an orbit count nor an avoidance automaton alone determines.",
+      "residual_risks": [
+        "The value is the exact constrained Boolean result, not a general claim for other run caps or patterns."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

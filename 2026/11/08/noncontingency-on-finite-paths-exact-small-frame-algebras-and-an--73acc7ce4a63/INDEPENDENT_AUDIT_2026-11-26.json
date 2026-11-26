@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:00:45.636964Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–36, VERIFICATION.md, refinement_checker.py, singleton_checker.py, semantic_checker.py, hierarchy_checker.py and types_P4.csv",
+        "Independent replay: python3 /workspace/branches/22b81295-0cfe-48d2-afb5-0a245a55f1d3/independent_path_profiles.py"
+      ],
+      "rationale": "At depth d every union of the finitely many depth types is Boolean-definable by characteristic formulas. A discordant pair of distinct neighbor types is distinguished from every other pair by the singleton tests; an endpoint or agreeing pair never falsifies a test. Retaining the old type therefore gives exactly depth-at-most equivalence, and an equal count at consecutive steps means the partition is fixed. Independent direct evaluation on all n2^n states reproduced 2,2; 2,4,4; 2,4,12,14,14; 2,4,14,36,40,40; and 2,4,14,52,110,122,122. Hence 14 full P4 types and 2^14 definable meanings, with the strict last split at depth 3. For P2 and P3 jointly, all endpoints and neutral centers have only their atomic type, while a discordant P3 center always sees the same two endpoint types at subsequent rounds, so depth 1 already suffices there. For the all-depth witness A1=0 gives Δ^d f=1+A^d f in F2; the path from root 1 to defect d+1 has distance d, exactly one length-d walk and only internal row indices before the terminal defect. Lower-depth truth agrees by locality. This proves the unbounded hierarchy independently of enumeration.",
+      "residual_risks": [
+        "Counts concern one atom and P2 through P6; neither a general count formula nor minimality of the d+2 world bound is claimed. Uploaded scripts were inspected, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "605708d2ff72 gives the affine identity on frames of outdegree at most two, together with periods on odd cycles",
+          "bbd831b7c106 treats transitive frames; these irreflexive symmetric paths are not transitive",
+          "9064d486ef99 is an aggregate complete-multipartite frame result, not containing P4–P6",
+          "The generalized-path conditions in the calculus paper govern abstract frame classes"
+        ],
+        "reasoning": "The broad affine identity and locality make the witness a short corollary once the pointed path is chosen, but do not give the exact partition of all Boolean formulas on the relevant paths.",
+        "searches": [
+          "Resultary 605708d2ff72, bbd831b7c106 and 9064d486ef99",
+          "arXiv:2609.38975, PDF pp. 2–3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 605708d2ff72, 9064d486ef99, f721419c88bd and bbd831b7c106",
+        "arXiv:1312.0144, arXiv:2609.38975",
+        "Humberstone (1995), accessible abstract only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous affine iterate identity plus a unique shortest path proves the Δ^d witness when combined with lower-depth locality",
+          "The same identity does not classify arbitrary Boolean combinations with nested Δ, which is needed for the exact path quotients"
+        ],
+        "reasoning": "The prior implication is confined to a proof ingredient and its straightforward witness application; the meaningful exact class counts, stable depths and minimal P4 threshold depend on a full partition computation not supplied by those statements.",
+        "searches": [
+          "Resultary 605708d2ff72, Finding and affine identity",
+          "Fan–Wang–van Ditmarsch arXiv:1312.0144 Propositions 6, 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knowing-whether semantics for one Boolean atom is the same operator; modal expressivity results compare frame classes and necessity",
+          "Pointed theory counts correspond to atoms of the finite Boolean truth algebra; 2^14 on P4 is an equivalent algebra count"
+        ],
+        "reasoning": "Neither language renaming nor algebra duality removes the fixed-path requirement and the first depth-three split does not follow from expressivity comparisons alone.",
+        "searches": [
+          "Resultary and literature: one-variable knowing-whether/noncontingency on finite paths, depth/type spectra",
+          "arXiv:1312.0144 §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical 73acc7ce4a63 hit is the frozen record, not independent evidence",
+          "f721419c88bd supplies a depth-one pointed-root spectrum of outward stars; this overlaps the P3 center",
+          "9064d486ef99 states the aggregate counts 2,4,10,10 on complete multipartite frames"
+        ],
+        "reasoning": "Neither the root-only star table nor the aggregate multipartite table lists the fixed-frame path profiles through P6; same-day dates do not decide priority.",
+        "searches": [
+          "Resultary: exact Boolean Δ type counts P2–P6, finite path depth stabilization",
+          "Resultary f721419c88bd and 9064d486ef99"
+        ]
+      },
+      "rationale": "The independently reproduced path-specific exact profile and first depth-three threshold are the supported distinct contributions. The affine iterate identity itself already appears for all binary-successor frames and is credited as a premise for a short path witness; no claim of originality for that identity, modal locality or generic refinement is needed. No inspected distinct record determines the fixed-frame P4–P6 profiles.",
+      "residual_risks": [
+        "Humberstone full-text access was unavailable, and older unindexed path-specific tables could change historical priority. The decision does not rely on absence of a keyword hit or on same-day catalogue chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers iterate lemma, not path census",
+          "evidence": [
+            "Δ^k(x)=1+B^kx for binary-successor frames, and unbounded periods on odd cycles"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-affine-threshold-and-unbounded-non-contingency-cycles-on-binary--605708d2ff72/RESULT.md",
+          "material_read": "Mirrored Finding",
+          "method": "Compared degree hypothesis, affine identity and cycle conclusion",
+          "title": "Affine threshold and unbounded non-contingency cycles on binary frames",
+          "trigger": "Same affine iterate formula on a genuinely broader class"
+        },
+        {
+          "assessment": "Partial shared frames; not the fixed-path result",
+          "evidence": [
+            "2,4,10,10 aggregated over complete multipartite frames; P4–P6 outside class"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-ten-knowing-whether-types-versus-twenty-two-necessity-types-on-c--9064d486ef99/RESULT.md",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Compared graph class, atom count and aggregation",
+          "title": "Ten knowing-whether types versus twenty-two necessity types on complete multipartite frames",
+          "trigger": "Exact same-language finite type spectrum"
+        },
+        {
+          "assessment": "Overlap with P3 center only, not the all-vertex path profiles",
+          "evidence": [
+            "Outward star root theories collapse at depth one; one-atom T1=4"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-pointed-theory-spectrum-and-optimal-tests-for-non-continge--f721419c88bd/RESULT.md",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Compare rooted frames and root quantifier",
+          "title": "Exact pointed theory spectrum and optimal tests for non-contingency on stars",
+          "trigger": "Depth collapse and exact counts on a nearby tree class"
+        },
+        {
+          "assessment": "Different graph class and iterate rather than full pointed theories",
+          "evidence": [
+            "Thresholds are for iterates on transitive frames"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-sharp-stabilization-index-for-iterated-non-contingency-on-finite--bbd831b7c106/RESULT.md",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Compare transitivity and quantity stabilized",
+          "title": "Sharp stabilization index for iterated non-contingency on finite frames",
+          "trigger": "Potential coverage by exact stabilization thresholds"
+        },
+        {
+          "assessment": "Background, not an exact path profile in inspected passages",
+          "evidence": [
+            "Proposition 8 concerns equivalence on reflexive frames; Proposition 6 is an expressivity comparison"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.0144",
+          "material_read": "Opening semantics and §3.1, PDF pp. 4–5, Propositions 6 and 8",
+          "method": "Read the frame hypotheses and expressivity statements",
+          "title": "Knowing Whether",
+          "trigger": "Primary source for equivalent language and frame expressivity"
+        },
+        {
+          "assessment": "Different theorem from the one-variable path census",
+          "evidence": [
+            "Parametric proof calculi and semantics, not fixed-frame finite depth counts in inspected passages"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.38975",
+          "material_read": "PDF pp. 2–3, offsets 6400 and 9600",
+          "method": "Compare frame conditions, semantics and calculus conclusions",
+          "title": "Proof Theory for Non-Contingency Logic",
+          "trigger": "Generalized path conditions and symmetric frame proof theory"
+        },
+        {
+          "assessment": "Body not adjudicated",
+          "evidence": [
+            "The abstract describes general logic and relative weakness to necessity; no full-body negative inference is drawn"
+          ],
+          "identifier_or_url": "https://doi.org/10.1305/ndjfl/1040248455",
+          "material_read": "Lawful Monash metadata and abstract, near offset 587; original Project Euclid routes inaccessible",
+          "method": "Compare abstract-level scope only",
+          "title": "The Logic of Non-contingency",
+          "trigger": "Older plausible ordinary modal-depth comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen fixed-frame profiles and hierarchy",
+        "Independent finite replay and locality argument",
+        "Resultary 605708d2ff72 and 9064d486ef99"
+      ],
+      "rationale": "Paths isolate the difference between endpoints, homogeneous successor pairs and discordant pairs without large branching. The exact threshold P4 and its 16384 formula meanings answer where a third Δ layer first buys anything; the adjacent profiles show the onset and stabilization rather than an arbitrary individual enumeration. The small explicit all-depth witness helps relate the observed low-size behavior to unbounded depth, even though the algebra used is known.",
+      "residual_risks": [
+        "Value is limited to the exact fixed-frame results and structural witnesses; no inference to an arbitrary-n stabilization law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

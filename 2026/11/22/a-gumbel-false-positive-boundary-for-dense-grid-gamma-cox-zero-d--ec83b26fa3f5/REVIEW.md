@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact independent Gamma-mixture Bernoulli success probability is derived from the Laplace transform. Finite total mass follows from Gaussian-summable expectations. A centered-energy mesh asymptotic, local law of small numbers, and uniform Gaussian tail estimate jointly establish two independent marked Poisson limits and the global maximum distribution. Boundary terms, the true-zero atom, and the distinction between vague and global convergence are explicit. The embedded checker passes 72 finite checks; it is not offered as proof of convergence.
+## correctness
 
-## Originality
-PASS against the inspected record, with historical-priority risk. Micheas's fixed-candidate consistency theorem does not bound the extreme detected radius when the number and density of candidates grow. The work derives an application-specific threshold and the logarithmic density correction. Standard triangular-array Poisson-limit results are acknowledged as broader tools; neither inspected abstract gives this model's centering or complete finite-to-dense resolution contrast. Targeted published-finding corpus searches returned no equivalent model-specific statement. The general limit mechanism is not presented as novel by itself.
+PASS
 
-## Value
-PASS. The source's probabilistic root detector is designed for screening many candidate locations. Its fixed-set consistency does not answer how detected false positives spread when a numerical mesh is refined. The exact Gumbel edge specifies a confidence radius and an unavoidable logarithmic multiplicity penalty, separating geometric localization from impossible exact gridwise classification. The two-sided marked process describes more than a single mean or a routine finite-set bound.
+Gaussian summability gives finite random total intensity almost surely for each K. Independent gamma mixing gives independent Bernoulli indicators with p=1−(1+u)^(-K), u=exp(−E). On either sign in a fixed centered energy window, Kh²=(4A² log K)^(-1), the mesh is A^(-1)(1+o(1)), and Ku=A^(-1)e^(−y). Taylor's formula bounded by K(K+1)u²/2 gives the rare-success estimate uniformly. The log Laplace functional for each compactly supported nonnegative test is then a Riemann sum plus an error bounded by a multiple of the sum of squared probabilities, which tends to zero. The independently marked limit has intensity e^(−y)dy per side. Vague convergence alone does not justify the farthest-site limit: summing the dominating Ku beyond T+t and bounding by a boundary cell plus Mills' inequality gives an upper bound e^(−t)/A+e^(−t)√(log K/(T+t)) per sign. Fixed intervals (t,M] and M→∞ give the complementary bound. The maximum individual tail probability vanishes, so the product of no-detection probabilities tends to exp(−2e^(−t)). Since T+t>0 eventually, the event equality holds even with no detections or only a detection at zero. Tightness gives the radius scale, while Kh²→0 at the nearest nonzero site makes p_{1,K}→1. The explicit mesh gives A=(log K)^(3/2)/2 and the stated additive −log 2 in T. Inspected verify_edge.py without running it: its nominal gamma-integral comparison is two algebraically equivalent marginal formulas, a floating-point consistency check, not independent integration or a limit proof.
 
-## Sources and residual limitations
-Primary: Micheas, arXiv:2611.16011v1, sections 2.3, 3.1, 3.2 and discussion; direct PDF material examined. Closest generic results: Hüsler–Schmidt (2016) and de Monte–Papastathopoulos (2026); their abstracts were available, not entire full texts. Those broad theorems could provide alternative shorter proofs but do not determine the specialized scaling without calculations. Scope is the exactly linear root on a refining lattice, with independent gamma masses. No claim about numerical zero certification, general continuous domains, or historical exhaustiveness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Cox zero detector, its gamma–Bernoulli marginal, fixed-candidate consistency and the general Poisson rare-event mechanism are prior. The supported contribution is explicit edge centering, including log A and its constant for a concrete dense grid, the two-sided marked intensity, and control of all sites beyond a moving threshold in the refining-grid regime. No novelty is assigned to gamma mixing or the generic Poisson limit machinery.
+
+## value
+
+PASS
+
+A fixed-set consistency guarantee is misleading on a refining mesh. The edge limit supplies an explicit spatial uncertainty scale and centered radius quantiles despite virtually certain classification error somewhere. The marked point process also describes the two separate sides. This is a useful theoretical calibration for the exactly linear, on-grid independent idealization, not a general or practical zero certification method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

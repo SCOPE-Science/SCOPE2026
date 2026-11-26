@@ -1,137 +1,65 @@
-# A discrete-stable catalysis burst and a sharp polymer-length barrier in Pareto autocatalysis
+# A Sibuya burst law for the first short incidences in Pareto autocatalysis
 
 ## Finding
 
-In a heavy-tailed, forward-ligation random polymer reaction network, the first catalysis events confined to short polymers have an exact **discrete-stable critical law**. The critical length has a logarithmic correction, not merely a linear fraction of the ambient maximum length. Moreover, in a parameter regime where at least one reflexively autocatalytic and food-generated (RAF) set exists with probability tending to one, every RAF nevertheless requires a polymer longer than the subcritical length cutoff.
+In a forward-ligation network on abstract words, the first short-word to short-reaction incidences appear in a logarithmically shifted length window. At that window, catalytic incidences arrive in Sibuya-distributed groups, and their number has a discrete-stable limit along subsequences tracking the integer cutoff. This is a sharp threshold for **incidences**, not for the shortest RAF. The RAF threshold from prior work, applied to the induced short subsystem, occurs at a strictly larger linear length scale.
 
-Write the alphabet size as \(\kappa\ge2\), the Pareto index as \(0<\alpha<1\), and the global catalytic intensity as \(\lambda_n=N_n^{-\beta}\), where \(0<\beta<(1-\alpha)/\alpha\). Define
+Fix alphabet size \(\kappa\ge2\), fixed food length \(t\ge1\), Pareto index \(0<\alpha<1\), and \(0<\beta<(1-\alpha)/\alpha\). Let \(X_m\) consist of the nonempty words of length at most \(m\), with \(N_m=|X_m|\). The \(R_m\) forward ligations in this subsystem are the ordered splits \((u,v;uv)\) with \(|uv|\le m\). At ambient length \(n\), let \(\lambda_n=N_n^{-\beta}\). The weights \(W_x\) are independent, with \(\Pr(W_x>w)=w^{-\alpha}\) for \(w\ge1\). Conditional on all weights, incidences \((x,r)\) are independent with probability \(1-\exp(-\lambda_n W_x/N_n)\).
+
+For an integer cutoff \(2\le\ell\le n\), let \(E_{n,\ell}\) count incidences with catalyst in \(X_\ell\) and product of length at most \(\ell\). Let \(K_{n,\ell}\) be the number of distinct catalysts with at least one such incidence. Define
 \[
 \theta=\frac{\alpha(1+\beta)}{1+\alpha},\qquad
-b_n=\theta n-\frac{\alpha}{1+\alpha}\log_\kappa n,
-\qquad
-C_{\kappa,\alpha,\beta}
-=\Gamma(1-\alpha)\theta^\alpha
-(\kappa-1)^{\alpha\beta-1}\kappa^{1-\alpha\beta}.
+b_n=\theta n-\frac{\alpha}{1+\alpha}\log_\kappa n,\qquad
+C=\Gamma(1-\alpha)\theta^\alpha(\kappa-1)^{\alpha\beta-1}\kappa^{1-\alpha\beta}.
 \]
-Then \(0<\theta<1\). For any sequence of integral cutoffs \(\ell_n\) with \(\ell_n-b_n\) bounded, the number of short-molecule-to-short-reaction catalytic incidences has probability-generating function
-\[
-\mathbb E[z^{E_{n,\ell_n}}]
-=\exp\{-C_{\kappa,\alpha,\beta}
-\kappa^{(1+\alpha)(\ell_n-b_n)}(1-z)^\alpha\}+o(1),\quad 0\le z\le1.
-\]
-The error is uniform for each fixed \(z\) and bounded cutoff offset. Because cutoffs are integers, the offset may oscillate; an unconditional fixed-law limit is **not** asserted. Along subsequences where the offset tends to \(c\), the limit is a compound Poisson variable with intensity \(C_{\kappa,\alpha,\beta}\kappa^{(1+\alpha)c}\) and Sibuya\((\alpha)\) positive integer marks. The number of active short catalysts converges to a Poisson variable with the same intensity. The mark distribution has probability-generating function \(1-(1-z)^\alpha\), hence finite-sample bursts can have infinite-mean *limiting* marks, despite all finite counts being bounded.
 
-For any \(h_n\to\infty\) with \(h_n=o(n)\), let \(\ell_n^-=\lfloor b_n-h_n\rfloor\), \(\ell_n^+=\lfloor b_n+h_n\rfloor\). The probability of even one short catalytic incidence tends to zero at \(\ell_n^-\) and to one at \(\ell_n^+\). Consequently, with probability tending to one, at least one RAF exists but **every** RAF uses a molecule of length greater than \(\ell_n^-\). This is a necessary length lower bound, not a sufficient condition for an RAF at \(\ell_n^+\).
+**Incidence-window theorem.** For each fixed \((z,w)\in[0,1]^2\) and uniformly over integer cutoffs with \(|\ell-b_n|\le M\) for every fixed \(M<\infty\),
+\[
+\mathbb E[z^{E_{n,\ell}}w^{K_{n,\ell}}]=
+\exp\!\left[-C\kappa^{(1+\alpha)(\ell-b_n)}\{1-w+w(1-z)^\alpha\}\right]+o(1).
+\]
+Here the generating function uses \(0^0=1\). Along a sequence with \(\ell-b_n\to c\), \(K_{n,\ell}\) tends to a Poisson variable of mean \(C\kappa^{(1+\alpha)c}\). Conditional on that limiting number of catalysts, the total incidence count is the sum of as many independent Sibuya\((\alpha)\) marks, whose generating function is \(1-(1-z)^\alpha\). The incidence marginal is thus discrete stable. There need not be a single fixed law without tracking the lattice offset.
 
-## Assumptions and scope
+For any \(h_n\to\infty\) with \(h_n=o(n)\), the probability of at least one short incidence tends to zero at \(\ell_n^-=\lfloor b_n-h_n\rfloor\) and to one at \(\ell_n^+=\lfloor b_n+h_n\rfloor\).
 
-For each positive integer \(n\), let \(X_n\) consist of all nonempty words over an alphabet of size \(\kappa\), with word length at most \(n\). Its cardinality and the number of ordered forward ligation reactions are
-\[
-N_n=\sum_{j=1}^n\kappa^j,
-\qquad
-R_n=\sum_{j=2}^n(j-1)\kappa^j.
-\]
-A forward reaction concatenates nonempty words \(u,v\) into \(uv\) of length at most \(n\). Set a fixed food length \(t\ge1\), so food consists of words of length at most \(t\). For each \(x\in X_n\), independently sample \(W_x\) with \(\Pr(W_x>w)=w^{-\alpha}\) for \(w\ge1\). Conditional on the weights, molecule–reaction catalytic indicators are mutually independent and
-\[
-\Pr\{x\text{ catalyzes }r\mid W_x\}
-=1-\exp(-\lambda_nW_x/N_n),
-\qquad \lambda_n=N_n^{-\beta}.
-\]
-This is the diffuse reaction-independent kernel of Kim and Sönmez (2026), specialized to the forward-reaction system. No cleavage reactions, spatial restrictions, chemical kinetics, or correlation of weights between molecule types are included.
+## Proof of the incidence theorem
 
-For an integer cutoff \(2\le\ell\le n\), let \(E_{n,\ell}\) count catalytic pairs \((x,r)\) with \(x\in X_\ell\) and \(r\) a forward ligation reaction of total product length at most \(\ell\). For each \(x\in X_\ell\), let \(J_x\) count its such reactions, and put \(K_{n,\ell}=\sum_{x\in X_\ell}\mathbf1_{\{J_x>0\}}\). This statistic counts *all potential* short reaction incidences, not only reactions belonging to an RAF.
+For a single catalyst \(x\in X_\ell\), let \(J_x\) be its number of short incidences. Write \(R=R_\ell\) and \(u=\lambda_n R/N_n\). Given \(W_x\), \(J_x\) is binomial with \(R\) trials and success probability \(1-e^{-uW_x/R}\). Its generating function is \(H(z)=\mathbb E[(z+(1-z)e^{-uW_x/R})^R]\). The Pareto density gives
+\[
+u^{-\alpha}(1-H(z))=\alpha\int_u^\infty
+\big[1-(z+(1-z)e^{-v/R})^R\big]v^{-\alpha-1}\,dv.
+\]
+Since \(R_\ell\le nN_n\), \(0<u\le n\lambda_n\to0\). For every \(\ell\to\infty\), \(R\to\infty\), and the bracket tends to \(1-e^{-(1-z)v}\) for every fixed positive \(v\). The bound \(1-(1-d)^R\le\min\{1,Rd\}\) for \(0\le d\le1\), with \(d=(1-z)(1-e^{-v/R})\), majorizes the bracket by \(\min\{1,(1-z)v\}\). As \(0<\alpha<1\), dominated convergence and integration by parts give \(1-H(z)=\Gamma(1-\alpha)(1-z)^\alpha u^\alpha+o(u^\alpha)\); at \(z=1\) the difference is zero exactly. This limit is valid along every sequence with \(R\to\infty\), \(u\to0\).
 
-For completeness, a nonempty forward-reaction subset is an RAF if each reaction is catalyzed by some molecule in its food closure and its reactants can be generated from the food using those reactions. All molecule lengths of an RAF mean the food closure of that reaction subset (equivalently, all reactants, products and food catalysts used in its RAF property); the lower bound addresses the maximum length among them.
+Different catalysts' counts are independent by the two independence assumptions. The joint generating function for \((J_x,\mathbf1_{\{J_x>0\}})\) is \(H(0)+w[H(z)-H(0)]\), whose deficit from one is
+\[
+\Gamma(1-\alpha)u^\alpha\{1-w+w(1-z)^\alpha\}+o(u^\alpha).
+\]
+Raise it to power \(N_\ell\). Whenever \(N_\ell u^\alpha=O(1)\), the quadratic error in taking the logarithm is \(O(N_\ell u^{2\alpha})=o(1)\). If \(N_\ell u^\alpha\) has a limit, the resulting generating function is that of a Poisson number of independent marks, each contributing one to \(K\) and a mark to \(E\). The Sibuya coefficients are \(\alpha\Gamma(j-\alpha)/(\Gamma(1-\alpha)\Gamma(j+1))\) for \(j\ge1\), positive and summing to one by the binomial expansion. The limiting marks have infinite mean, but each prelimit \(J_x\) is bounded by \(R_\ell\). The limiting generating function is continuous at \((1,1)\), giving the claimed distributional convergence.
 
-## Proof
-
-**1. A single-molecule rare-burst transform.** Let \(R=R_\ell\), \(N=N_n\), \(u=\lambda_nR/N\), and write \(h_{R,u}(z)=\mathbb E[z^{J_x}]\). Independence conditional on \(W_x\) yields
+To identify the scale, \(N_m=\sum_{j=1}^m\kappa^j\sim \kappa^{m+1}/(\kappa-1)\) and \(R_m=\sum_{j=2}^m(j-1)\kappa^j\sim mN_m\). The latter follows because the difference \(mN_m-R_m=\sum_{j=1}^m(m-j+1)\kappa^j\) is \(O(N_m)\). Thus, for \(\ell\sim\theta n\),
 \[
-J_x\mid W_x\sim\operatorname{Bin}\bigl(R,1-e^{-uW_x/R}\bigr),
-\quad
-h_{R,u}(z)=\mathbb E\bigl[z+(1-z)e^{-uW_x/R}\bigr]^R.
-\]
-Since the Pareto density is \(\alpha w^{-\alpha-1}\) on \([1,\infty)\), the exact substitution \(v=uw\) gives
-\[
-\frac{1-h_{R,u}(z)}{u^\alpha}
-=\alpha\int_u^\infty
-\bigl[1-(z+(1-z)e^{-v/R})^R\bigr]
-\,v^{-\alpha-1}\,dv.
-\]
-For \(R\to\infty\), the bracket tends pointwise to \(1-e^{-(1-z)v}\); it lies between zero and \(\min\{1,(1-z)v\}\). Since \(0<\alpha<1\), this bound is integrable against \(v^{-\alpha-1}\,dv\). Dominated convergence and integration by parts therefore give, for every \(0\le z\le1\),
-\[
-1-h_{R,u}(z)
-\sim \Gamma(1-\alpha)(1-z)^\alpha u^\alpha
-\quad\text{as }R\to\infty,\ u\to0,
-\]
-with the convention that at \(z=1\) both sides vanish exactly. The relevant triangular array satisfies \(u\to0\) automatically, since \(R_\ell\le R_n=O(nN_n)\) and \(\lambda_n n\to0\).
-
-**2. The marked compound Poisson limit.** Independence of the weights and conditional catalysis fields for different molecules gives \(E_{n,\ell}=\sum_{x\in X_\ell}J_x\), a sum of independent identically distributed nonnegative integers. If \(\ell\to\infty\) and \(a_n=N_\ell u^\alpha\to a\in[0,\infty)\), then
-\[
-\mathbb E[z^{E_{n,\ell}}]=h_{R,u}(z)^{N_\ell}
-\longrightarrow \exp\{-a\Gamma(1-\alpha)(1-z)^\alpha\}.
-\]
-The number of nonzero terms is exactly binomial with success probability \(q_{R,u}=1-h_{R,u}(0)\sim\Gamma(1-\alpha)u^\alpha\), and hence tends to Poisson\((a\Gamma(1-\alpha))\). Moreover, conditionally on a nonzero term,
-\[
-\mathbb E[z^{J_x}\mid J_x>0]
-=\frac{h_{R,u}(z)-h_{R,u}(0)}{1-h_{R,u}(0)}
-\longrightarrow 1-(1-z)^\alpha.
-\]
-The last generating function is that of a proper Sibuya distribution, with coefficients
-\[
-\Pr(Z=j)=\frac{\alpha\Gamma(j-\alpha)}{\Gamma(1-\alpha)\Gamma(j+1)},
-\qquad j=1,2,\ldots.
-\]
-A finite set of independently marked rare active molecules therefore converges to the stated compound Poisson law. Its mean is not claimed finite; the finite prelimit counts are each bounded by \(R\).
-
-**3. Exact logarithmic cutoff.** As \(m\to\infty\), elementary summation gives
-\[
-N_m\sim\frac{\kappa^{m+1}}{\kappa-1},\qquad
-R_m\sim mN_m.
-\]
-Thus for \(\ell\sim\theta n\),
-\[
-N_\ell(\lambda_nR_\ell/N_n)^\alpha
-\sim \ell^\alpha\,(\kappa-1)^{\alpha\beta-1}
-\kappa^{1-\alpha\beta}
+N_\ell u^\alpha\sim \ell^\alpha (\kappa-1)^{\alpha\beta-1}\kappa^{1-\alpha\beta}
 \kappa^{(1+\alpha)\ell-\alpha(1+\beta)n}.
 \]
-Substitute \(\ell=b_n+c_n\) with bounded \(c_n\). The power of \(n\) cancels precisely because the correction is \(-\alpha\log_\kappa(n)/(1+\alpha)\). This yields
+Using \(\ell=b_n+c_n\) with \(c_n=o(n)\) rewrites this as
+\(\theta^\alpha(\kappa-1)^{\alpha\beta-1}\kappa^{1-\alpha\beta}\kappa^{(1+\alpha)c_n}(1+o(1))\): the logarithmic shift cancels the factor \(n^\alpha\). When \(c_n\) stays bounded the error is uniform, since all the preceding sequential limits hold for every sequence of such cutoffs. At the lower and upper diverging offsets, \(N_\ell(1-H(0))\) tends to zero and infinity respectively. The exact zero-incidence probability is \(H(0)^{N_\ell}\); use \(1-H(0)\to0\) and \(x\le -\log(1-x)\le x/(1-x)\) for \(0\le x<1\). This proves both sides of the incidence window without extrapolating a bounded-offset approximation. \(\square\)
+
+## Comparison with the known RAF transition
+
+For a nonempty set of forward reactions to be a reflexively autocatalytic and food-generated set (RAF), each reaction's reactants must be in the food closure of the set and each reaction must have a catalyst in that closure. The food is \(X_t\) and closure means the words generated by repeatedly applying the ligations of the set, ignoring catalysis for this reachability test. For \(\ell\ge t\), there exists an ambient RAF whose closure lies in \(X_\ell\) if and only if the induced short subsystem contains an RAF. Indeed, such an ambient RAF uses only restricted reactions and restricted catalyst witnesses. Conversely any restricted RAF uses the same food and the same reactions and has the same closure when considered as an ambient RAF.
+
+Kim and Sönmez (Theorem 8 and Section 3.3.4) give the RAF zero-one criterion for the diffuse Pareto model with maximum length \(m\), parameter \(\rho_m\) and per-incidence exponent \(-\rho_m W_x/N_m\). Their criterion tends to zero or one for RAF existence as \(\rho_m^\alpha N_m^{1-\alpha}\) tends to zero or infinity. The induced short system has exactly that law with \(m=\ell\) and \(\rho=\lambda_n N_\ell/N_n\). Its RAF criterion is therefore
 \[
-N_\ell u^\alpha
-=\theta^\alpha(\kappa-1)^{\alpha\beta-1}
-\kappa^{1-\alpha\beta}\kappa^{(1+\alpha)c_n}(1+o(1)),
+\left(\lambda_n N_\ell/N_n\right)^\alpha N_\ell^{1-\alpha}
+=N_\ell N_n^{-\alpha(1+\beta)}\asymp\kappa^{\ell-\alpha(1+\beta)n}.
 \]
-proving the stated law, including its lattice dependence. If \(c_n\to-\infty\) or \(+\infty\) while \(c_n=o(n)\), the same calculation gives \(N_\ell u^\alpha\to0\) or \(\infty\). For the zero-event probability, the exact formula is \(\Pr(E_{n,\ell}=0)=(1-q_{R,u})^{N_\ell}\); using \(q_{R,u}\sim\Gamma(1-\alpha)u^\alpha\) proves the sharp zero-one transition.
+The theorem applies to any sequence \(\ell\to\infty\) with the criterion tending to zero or infinity; if cutoffs repeat, any subsequence violating the conclusion has a further subsequence of strictly increasing cutoffs, on which the theorem applies by reindexing (extend to intermediate sizes with the same limiting criterion).
 
-**4. A nonvacuous RAF length obstruction.** At the lower cutoff, with high probability there is no catalysis incidence between any molecule and forward reaction within \(X_{\ell_n^-}\). If an RAF had every molecule in its food closure of length at most \(\ell_n^-\), every reaction would be short and its required catalyst would also be short, a contradiction. Kim and Sönmez's Theorem 8, applied to this diffuse kernel, independently gives the existence of an RAF with probability approaching one because
-\[
-\lambda_n^\alpha N_n^{1-\alpha}
-=N_n^{1-\alpha-\alpha\beta}\longrightarrow\infty.
-\]
-The union bound between these two probability-one events proves that RAFs exist but every RAF contains at least one molecule longer than the lower cutoff, with probability tending to one. The argument does not assert an RAF built solely from molecules shorter than the upper cutoff.
+Thus, **as a direct corollary of the prior existence theorem**, the probability of a RAF contained in the induced short subsystem tends to zero at \(\lfloor\alpha(1+\beta)n-h_n\rfloor\) and one at \(\lfloor\alpha(1+\beta)n+h_n\rfloor\) for diverging sublinear \(h_n\). The RAF scale has coefficient \(\alpha(1+\beta)=(1+\alpha)\theta<1\), strictly larger than the incidence coefficient. In particular, at the upper incidence cutoff \(\ell_n^+\), short incidences are present with high probability but no RAF is contained at that length with high probability. Ambient RAF existence follows from the prior criterion at \(\ell=n\). The new assertion concerns the length-resolved incidence law and its exact critical scale, not a new nonformation or formation theorem for RAFs. No limiting RAF probability at bounded offset from its own transition is asserted.
 
-## Verification
+## Related work and limits
 
-An independent standalone standard-library script, `check.py`, reproduces the exact counts, evaluates the finite-network no-edge probabilities at the Pareto half-index by a separate one-dimensional integral, checks the logarithmic cutoff constants, and tests the Sibuya generating-function coefficients. These are **sanity checks**, not substitutes for the dominated-convergence and finite-RAF arguments above.
+Kim and Sönmez, *Can a self-sustaining chemical network emerge due to just a few catalysts?* ([arXiv:2611.06033v1](https://arxiv.org/html/2611.06033v1)), supply the reaction-independent kernel and the bulk RAF transition used above. Theorem 5 treats a single catalyst's degree tail at fixed intensity, with a threshold tending to infinity and a different normalization; it does not give a small-probability incidence-cluster limit at fixed generating-function arguments. Hordijk and Steel, *Autocatalytic sets in polymer networks with variable catalysis distributions* ([arXiv:1605.03919](https://arxiv.org/html/1605.03919)), give general formation criteria and study a model with a power-law draw for the number of reactions assigned to a molecule. Steel, Hordijk and Smith, *Minimal autocatalytic networks* ([arXiv:1212.4450](https://arxiv.org/html/1212.4450)), study RAF reaction-count size, not the short-incidence distribution. The Poisson and discrete-stable laws and the Sibuya distribution are established probability constructions; the contribution is their explicit length-resolved scaling in this random-word model. Historical priority is best-of-knowledge rather than exhaustive.
 
-For example, at \(\kappa=2\), \(\alpha=\beta=1/2\), the critical fraction is \(\theta=1/2\) and the Poisson intensity prefactor is \(C=2.1078147305108117\ldots\). For \(n=60\) and \(\ell=28\), direct evaluation of the finite formula gives \(\Pr(E_{60,28}>0)\approx0.8504251761\). At the same offset formula the limiting expression is an approximation, not an exact finite probability.
-
-## Relationship to prior work
-
-Kim and Sönmez (2026), Theorem 8 and Section 3.3.4, establish the full-network heavy-tail RAF formation transition; their Theorem 5 studies heavy-tailed reaction degrees at a different catalysis normalization and fixed intensity; their Proposition 10 permits a single molecule to catalyze a whole RAF. Those results are retained as prior work. They do not state the short-polymer catalytic incidence distribution, its logarithmically centered threshold, or the resulting universal lower bound on the longest molecule in every RAF.
-
-Hordijk and Steel (2016) examine variable and power-law *numbers* of reactions assigned to catalysts, with different, typically bidirectional reaction conventions; their existence and RAF-size results do not imply the present length-specific Pareto-weighted compound Poisson limit. Steel, Hordijk and Smith (2012) establish minimum RAF reaction-count lower bounds in another catalysis regime, not a sharp molecular-length cutoff for a vanishing-intensity diffuse Pareto kernel. Hordijk and Steel (2019) compare minimum ambient maximum polymer lengths needed for RAF formation in a constant-catalysis regime, a different question from fixed ambient length with power-law weighted catalyst activity.
-
-The compound Poisson and Sibuya probability-generating-function constructions are classical. The proposed contribution is their *specific joint occurrence* in the heavy-tailed polymer catalysis model, the sharp logarithmic length window and the RAF length obstruction, not a new general limit theorem for rare random sums.
-
-## Limitations
-
-The incidence event is a necessary condition for a short-molecule RAF, not sufficient; upper critical-incidence onset does not establish a short RAF. The theorem does not find the actual minimum possible RAF length. It treats only independent Pareto molecular weights, reaction-independent diffuse compatibility, fixed food length and forward ligations. The law is asymptotic as maximal polymer length tends to infinity, and a single fixed lattice-shifted limit may not exist. An equivalent formulation may appear in classical random-polymer or regularly varying cluster literature not covered by the inspected sources. No laboratory origin-of-life claim or chemical-kinetics inference follows.
-
-## References
-
-1. J. Kim and E. Sönmez, *Can a self-sustaining chemical network emerge due to just a few catalysts?*, arXiv:2611.06033v1 (first public 2026-11-04), https://arxiv.org/abs/2611.06033 .
-2. W. Hordijk and M. Steel, *Autocatalytic sets in polymer networks with variable catalysis distributions*, arXiv:1605.03919 (2016), https://arxiv.org/abs/1605.03919 .
-3. M. Steel, W. Hordijk and J. Smith, *Minimal autocatalytic networks*, arXiv:1212.4450 (2012), https://arxiv.org/abs/1212.4450 .
-4. W. Hordijk and M. Steel, *Molecular Diversity Required for the Formation of Autocatalytic Sets*, Life 9(1), 23 (2019), https://www.mdpi.com/2075-1729/9/1/23 .
+The model uses only abstract ordered ligations and independent random activity weights, with a fixed food bound, and has no chemical kinetics or empirical claims. The two-scale comparison does not identify the smallest RAF at any finite size. The finite examples in `check.py` are diagnostic and do not certify either asymptotic statement.

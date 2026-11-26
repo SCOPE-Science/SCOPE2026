@@ -22,7 +22,7 @@ def bounds(q):
 
 def formula(u):
     a,b,c = np.sort(np.abs(u))
-    if c > a+b:
+    if c >= a+b:
         q = (a+b)/c
         area = 2.0*c
         shape = 4
@@ -49,6 +49,13 @@ for _ in range(2500):
     assert abs(A-aa)<2e-12,(A,aa,u)
     assert abs(r-rr)<2e-12,(r,rr,u)
     assert n==nn,(n,nn,u)
+
+# This normalized vector lies exactly on the triangle equality. One projected
+# pair coincides with another, so there are only four extreme vertices.
+u = np.array([0,1,1],dtype=float)/math.sqrt(2)
+A,r,n = formula(u)
+aa,rr,nn = direct_geometry(u)
+assert n==nn==4 and abs(A-aa)<2e-12 and abs(r-rr)<2e-12
 
 for q in np.linspace(0.0001,0.9999,61):
     HL,HU,QL,QU=bounds(q)

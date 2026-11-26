@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a necessary-and-sufficient algebra-isomorphism theorem under explicit characteristic-zero, connectedness, and quotient-adjacency nonsingularity hypotheses. Its essential rigidity statement is proved via the discriminant of the intrinsic bilinear pencil \(B_\ell(x,y)=\ell(xy)\), whose nonproportional linear factors recover all twin blocks and their multiplicities. The homomorphism equations then yield graph automorphisms, weighted-degree constraints, and the cube equation. Explicit block scalings and isometries prove sufficiency and parameterize all isomorphisms. Exact computations for 412 finite blowup instances corroborate the stated implications but are not substituted for the symbolic proof. Risk: no assertion is made in positive characteristic or for singular quotient adjacency.
+PASS
 
-## Originality — PASS, qualified
+Invertible base adjacency makes the block-square vectors u_i linearly independent. On the intrinsic square space dual, the determinant of the multiplication pencil is a product of distinct linear factors ell(u_i) with exponents n_i, times a nonzero scalar in the normalized algebra. Unique factorization and the radicals at points on only one factor recover the block permutation and its dimensions. Independently, the rank of left multiplication by x equals the number of its nonzero block projections: each nonzero projection gives a surjective scalar functional on its block, independently of the others, with output along u_i. Thus the maximal subspaces of the rank-at-most-one locus are exactly the blocks, even over fields where nonzero vectors can have zero self-dot-product. Projecting the transported u_i across these blocks gives a graph automorphism and T(s_j)=c_i s_sigma(j) for each edge i~j. Evaluating the product identity on s_i twice gives k_i^2=d_i c_i because its norm n_i is nonzero. Even-walk connectedness forces a common scalar in the nonbipartite case, and one scalar per side in the bipartite case; solving the latter equations gives b^3=D_X^2 D_Y and a=b^2/D_X. Dividing T_i by k_i yields precisely a dot-product isometry preserving the block sum. Conversely these block maps satisfy the product identity; block coordinate maps supply an isometry for any allowed permutation. The specialization to complete multipartite graphs uses det Adj(K_t)=(-1)^(t-1)(t-1) and d_i=N-n_i. For K_{2,3}, 18 is indeed not a rational cube. Independent finite determinant enumeration and rational edge-equation checks gave 412 cases, 385 expanded-singular, eight degree-condition cases and six rational witnesses.
 
-Cadavid–Rodiño Montoya–Rodríguez prove the criterion for nonsingular **expanded** graphs (arXiv:1710.10516, Theorem 2.3) and give the complete-bipartite example; neither assertion covers the new infinite class of singular expanded graphs. Cadavid–Rodiño Montoya–Rodríguez–Vidal (arXiv:2405.12341) handle several singular families including some caterpillar blowups of a path, so the present theorem includes known special cases. Their work does not state the nonsingular-base twin-blowup theorem or classify all its isomorphisms. Kaygorodov–Martín González–Viruel (arXiv:2610.22248v1, Question 26) still describe the general singular-case criterion as open. The four comparison modes, search identifiers and source-inspection limits are recorded in AUDIT.json. Residual risk: other work may contain an equivalent pencil-theoretic result, and historical priority remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem addresses a clearly formulated current problem, extending the known adjacency/random-walk isomorphism criterion to a structural infinite family in which the expanded adjacency is commonly singular. The determinant-pencil mechanism resolves all possible non-monomial isomorphisms, and the rational cube obstruction shows that the real classification does not naively extend to every characteristic-zero field. It includes all complete multipartite graphs, all nonsingular-base false-twin blowups, and overlapping but strictly broader singular examples than several known special-family analyses. The theorem is not a claim about every singular graph.
+Credit the earlier nonsingular-expanded criterion, real complete-bipartite construction, and selected singular examples. The closest distinct indexed statement is a near-exact real-field match including block isometries, dated November 8 rather than November 2; it demonstrates substantial equivalent coverage over the reals, not earlier priority. The earlier inspected theorems do not state the combined necessity and sufficiency for arbitrary nonsingular-base blowups over characteristic-zero fields, the arithmetic criterion, or the full nonmonomial classification there. The pass is for this scoped package, not the known degree conditions, real bipartite scalings, or constituent examples alone.
 
-## Closest literature and limits
+## value
 
-Sources: arXiv:1710.10516 (Theorem 2.3 and Examples); arXiv:2405.12341 (Section 3); arXiv:2610.22248v1 (Question 26). The latter appeared 2026-10-15. The verifier tests only finite samples and selected rational witnesses, while the proof handles all specified characteristic-zero fields. The claim is open to further literature review and independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A nonsingular false-twin quotient is an intrinsic and useful graph condition that allows expanded adjacency of unbounded corank. The theorem answers the singular-graph isomorphism question uniformly on that family rather than checking selected examples. Recovering the blocks controls maps not assumed monomial, and the distinction between real and rational isomorphism shows why the ground field cannot be omitted from the structural criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

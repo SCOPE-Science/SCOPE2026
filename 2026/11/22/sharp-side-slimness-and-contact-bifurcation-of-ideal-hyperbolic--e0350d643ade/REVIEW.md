@@ -1,23 +1,21 @@
-# Scientific review: sharp ideal-quadrilateral side slimness
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is *all nondegenerate ideal geodesic quadrilaterals* of the curvature-\(-1\) hyperbolic plane; no finite vertices or arbitrary polygons are included. Three-transitivity normalizes the boundary vertices to \((0,1,\lambda,\infty)\). The signed Euclidean circle equation gives the hyperbolic point-to-geodesic distance exactly. The minimum of the three side-distance functions is maximized by separating \(0<x\le1\) from its reciprocal half. Its unique crossover lies inside that interval precisely when \(\lambda>3\). The four side types are reduced using a half-turn and a change to the reciprocal cross-ratio parameter. Their envelope has exactly one maximum, at the nonregular class \(\kappa=3\).
+PASS
 
-An independent point-to-point/geodesic minimization program (`verify.py`, standard library only) passed 5,335 analytic/direct numerical comparisons and five relabeling tests. Such finite computation does not establish the universal theorem; the exact algebraic and monotonicity arguments in `RESULT.md` do.
+Send a semicircle with endpoints u<v to the imaginary axis by (z−u)/(v−z), then take |Re|/Im to obtain the claimed hyperbolic sine of distance. On the designated side z=iy, set x=y/√λ. The distance envelope in these units is min{x,x⁻¹,(x+x⁻¹)/(λ−1)}. By reciprocity restrict to x≤1, where the first neighbor suffices and the opposite side becomes active only for x>(λ−2)^−1/2 when λ>3. The envelope increases to this switch and then strictly decreases to x=1, making its reciprocal pair the only maxima. For λ≤3 the maximum is only at x=1, where all three contacts tie exactly at λ=3. The half-turn exchanges opposite sides. Relabeling cyclically via λ(z−1)/((λ−1)z) gives the other side type with τ=λ/(λ−1). At κ=max(λ,τ), the larger-type value dominates the smaller-type value κ/(κ−1), strictly unless κ=2, where all four sides share it. Thus the two pieces of sinh²δ meet at κ=3 and respectively increase and decrease, giving the unique extremizing shape and the limiting value. Independent checks using the minimum of a direct cosh-distance function verified sampled side peaks and contact multiplicities; replay with python3 -I -B branches/frozen_review_checks.py from /workspace.
 
-## Originality — PASS, with stated priority risk
+## originality
 
-The closest full-text mathematical comparisons are the 2013 ideal-quadrilateral results of Vuorinen–Wang and their 2019 treatment by Wang–Vuorinen–Zhang. Their variables \(d_1,d_2\) are *infimum distances between opposite-side pairs*. Our invariant has the different quantifier order \(\max_S\sup_{p\in S}\min_{T\ne S}d(p,T)\), including the adjacent sides; the earlier sharp statements do not determine the farthest-point contact law or the nonregular shape achieving the global bound. The November 2026 slim-polygon paper supplies the motivating notion, not this exact profile. A known regular-square side-slimness calculation is one specialization; the work here treats a full one-dimensional shape-moduli space and identifies its sharp, nonregular extremum. No exact equivalent was found in focused title, alias, formula and parameter searches.
+PASS
 
-The absence of an indexed match is not a proof of novelty. The main residual risk is an unindexed classical ideal-quadrilateral thinness calculation using another convention, or a general theorem implying the result without naming this invariant.
+The supported distinct result is the all-shape side-slimness envelope, the sharp nonregular class and the change in side-point maximizers. The regular ideal-square case and the general notion of side slimness are credited overlaps. The strongest available comparisons concern either a restricted regular shape, interior clearance, a different contact condition, or infimal opposite-side distances; none yields this side-restricted envelope in the material inspected.
 
-## Mathematical value — PASS
+## value
 
-The output is a complete sharp classification of a natural geodesic-polygon invariant, not merely a routine numerical instance: all shapes are treated, the maximizing shape is uniquely nonregular, and the nearest-side contact geometry bifurcates at a single exact cross ratio. It gives a reproducible ideal-quadrilateral benchmark for polygon-slimness questions and distinguishes this observable from familiar opposite-side separation and inradius observables. Neither a new general hyperbolicity criterion nor a theorem for general finite-vertex quadrilaterals is claimed.
+PASS
 
-## Evidence and limitations
+The slimness of ideal geodesic polygons is natural, but a regular-square calculation does not predict even the extremizing quadrilateral shape. The full one-dimensional profile reveals a sharp nonregular maximum, contacts with all three other sides exactly there, and two maximizing points per active side beyond it. That is a useful exact benchmark for shape dependence and nearest-side geometry, beyond a coarse slimness bound or an opposite-side separation formula.
 
-Primary scientific sources: P. Tselekidis, arXiv:2611.05429v1 (2026); G. Wang, M. Vuorinen, X. Zhang, arXiv:1908.10389 (2019); M. Vuorinen and G. Wang, Ann. Acad. Sci. Fenn. Math. 38 (2013), 433–453, Corollary 1.4 and its proof. The proof and standalone numeric test are included in the deliverable. Historical-priority completeness and external correctness validation are not asserted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:25:35.072866Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 5–112",
+        "VERIFICATION.md, lines 19–25",
+        "barbell_verification.py, lines 9–89"
+      ],
+      "rationale": "Degrees a−1,a and b−1,b give the four-cell invariant quotient and leave the nonbridge zero-sum spaces supported on their own sides. In the interior/bridge ordering, two eigenvalues tend to one and two to zero. For λ near one, subtracting the Schur complement at λ=1 bounds the difference by O(k^−1)|λ−1|, where k=min(a,b). At λ=1 the diagonal 1/a terms cancel to first order against −1/(a−1), and similarly on the right. Thus the estimate |λ−1|≤O(k^−2)+O(k^−1)|λ−1| supplies the bootstrap implicit in line 77. The next-order 2×2 term has diagonal (−a^−2,−b^−2) and off-diagonal (ab)^−1, and its O(k^−3) error is smaller than the spectral split on comparable sizes. Its orthogonal interior directions are (a,b) and (b,−a); the exact Perron eigenvalue is one. Upper modes have O(k^−1/2) bridge components and lower-mode leakage from an interior input is O(k^−1/2) in norm, uniformly in time by unitarity. The two surviving cross coefficients are opposite and of magnitude ab/(a²+b²)+o(1), and their phase difference on t=τab is asymptotic to τ(ρ+ρ^−1) locally uniformly. The same two-term representation bounds the all-time supremum from above without expanding a phase for unbounded t, and t=π/(λ_+−λ_−) gives the matching lower bound; the explicit time in the Finding is asymptotically equivalent. Right-bridge probability is negligible uniformly, and at t=o(ab) the relative phase vanishes. A nonbridge vertex has exactly 1/(a−1) of its squared norm in the interior-uniform component, with the rest trapped on the left, proving the localized optimum. Finite numerical diagnostics were inspected, not executed or used as proof of the limits.",
+      "residual_risks": [
+        "No limit is established for a/b→0 or ∞; the explicit peak time need not be the first exact finite-size maximum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first two indexed neighbors treat a three-community weak-edge Grover walk or reduced cosine wave; the third treats infinite-time averages on weighted joins under ordinary adjacency. The general Lanczos method supplies reductions, not the size-dependent mode gaps and weights. Weighted barbell search uses a mark and different Hamiltonians."
+        ],
+        "reasoning": "These tools and settings are not a theorem dominating both observables and the prelimit supremum for the unmarked, single-edge, two-clique normalized adjacency.",
+        "searches": [
+          "Novo et al. arXiv:1412.7209, invariant-subspace method and transport examples",
+          "Resultary records 7397f51790e2, 541b577e0c5e and 21494e515130",
+          "Duda–Wong arXiv:2408.08244v2, §§II–V"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.05643v1",
+        "arXiv:2408.08244v2",
+        "arXiv:2209.04668",
+        "arXiv:1412.7209",
+        "Local Resultary ranked search and records 7397f51790e2, 541b577e0c5e, 21494e515130"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equal-size spectrum, reflection symmetry and decoupled modes supply the main ingredients of the balanced check. Time-averaged IPR for vertex input is not the same as maximizing clique occupation. The asymmetric proof needs the order-k^−2 joint splitting and size-dependent spectral weights with errors uniform in all time."
+        ],
+        "reasoning": "The balanced spectral specialization and generic invariant reduction are antecedents; neither yields the new asymmetric transfer law by relabeling or parameter substitution.",
+        "searches": [
+          "Dhamapurkar–Subrahmanyam arXiv:2603.05643v1, §§IV.1–IV.2 and Appendix A",
+          "Comparison with frozen Proof §§2–4 and the three indexed neighbors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized Laplacian equals I−H; its unitary differs from reversed-time H evolution by a global phase, and conjugation preserves these probabilities for the real states and projector in the Finding.",
+          "The inspected normalized-Laplacian results concern vertex periodicity or exact vertex perfect transfer, not collective states or an asymptotic supremum of right-side occupation."
+        ],
+        "reasoning": "Changing the sign convention or dropping a global phase does not make the present claim a different search object; changing preparations, measured subspaces, and the type of limit does.",
+        "searches": [
+          "Resultary meaning searches on degree-normalized barbell transfer, imbalance ceilings and collective-state transport",
+          "Coutinho–Baptista arXiv:2209.04668, Theorems 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact balanced spectral information is available and credited. No matching unequal-size theorem or table for the claimed profile and ceiling appeared in the inspected indexed records."
+        ],
+        "reasoning": "The exact equal-clique spectrum is significant overlap at ρ=1, where symmetry also helps determine the collective overlaps. A balanced spectral result does not determine the dependence on all ρ or the all-time occupation on asymmetric barbells.",
+        "searches": [
+          "Local Resultary meaning lookup for the exact sharp all-time fidelity ceiling and normalized clique bottleneck",
+          "Dhamapurkar–Subrahmanyam arXiv:2603.05643v1, Appendix A"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the comparable unequal-size asymptotic with both all-time observables and the quantitative nonbridge preparation contrast. Equal-size exact spectral information and dark modes already appear in Dhamapurkar–Subrahmanyam. The normalized-Laplacian formulation is an alias for these probabilities with real preparations, but the inspected vertex-transfer theorems do not cover the collective asymptotic. The strongest indexed neighbors address different dynamics, geometry or optimization.",
+      "residual_risks": [
+        "This bounded comparison does not establish priority against all spectral reduction or nearly disconnected graph results. The balanced specialization is not credited as a novel spectrum or dark-mode result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial balanced antecedent; does not cover the asymmetric claim",
+          "evidence": [
+            "Exact spectrum for two equal n-cliques with one bridge; time-averaged dynamical IPR for vertex-localized input."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.05643v1",
+          "material_read": "Model and §§IV.1–IV.2 (offsets around 8147 and 17800–24800), Appendix A (45800 onward)",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Localization Without Disorder: Quantum Walks on Structured Graphs",
+          "trigger": "Same normalized walk, single-edge barbell and dark modes"
+        },
+        {
+          "assessment": "Different evolution and observable",
+          "evidence": [
+            "Uses weighted equal-clique bridges, oracle-assisted search and ordinary adjacency or combinatorial Laplacian."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2408.08244v2",
+          "material_read": "Abstract and §§II–V, offsets 0 and 6900–14900",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Searching Weighted Barbell Graphs with Laplacian and Adjacency Quantum Walks",
+          "trigger": "Quantum walk on barbells with marked-vertex success probabilities"
+        },
+        {
+          "assessment": "Relevant exact vertex theorems, not the collective asymptotic",
+          "evidence": [
+            "Vertex spectral support and cospectrality enter periodicity and exact perfect transfer criteria."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2209.04668",
+          "material_read": "Theorems 4–5, offsets 11200–19063",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Quantum Walks in the Normalized Laplacian",
+          "trigger": "Equivalent operator convention and transfer theorems"
+        },
+        {
+          "assessment": "General method and different transport observables",
+          "evidence": [
+            "Treats invariant subspaces and ordinary-adjacency transport including an absorbing trap, not the asserted normalized barbell asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.7209",
+          "material_read": "Method passages around 9000–15500, transport examples around 45500–51900",
+          "method": "Lawful OA passage inspection",
+          "title": "Systematic Dimensionality Reduction for Quantum Walks: Optimal Spatial Search and Transport on Non-Regular Graphs",
+          "trigger": "General transport reduction and possible transfer bound"
+        },
+        {
+          "assessment": "Material conceptual overlap, different graph and dynamics",
+          "evidence": [
+            "Three-community weak-edge path, effective 3×3 dynamics and a frequency-ratio criterion, rather than normalized-adjacency evolution on two growing cliques."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-arithmetic-near-perfect-transport-through-three-weakly-connected--7397f51790e2/RESULT.md",
+          "material_read": "Finding and effective model, offsets 0–7392",
+          "method": "Local Resultary mirror",
+          "title": "Arithmetic near-perfect transport through three weakly connected communities (Resultary record)",
+          "trigger": "Sharp all-time coherent transport between graph communities"
+        },
+        {
+          "assessment": "Different reduced walk and asymptotic question",
+          "evidence": [
+            "Symmetric three-path cosine wave; scaled long-time liminf of the deficit with Pell-time witnesses."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-time-fidelity-law-for-three-community-quantum-wave-trans--541b577e0c5e/RESULT.md",
+          "material_read": "Finding and model, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp time–fidelity law for three-community quantum wave transfer (Resultary record)",
+          "trigger": "Sharp time/fidelity optimization"
+        },
+        {
+          "assessment": "Different joins, preparation and time observable",
+          "evidence": [
+            "Weighted joins with localized input under ordinary adjacency; studies infinite-time averages, not all-time maxima of collective transfer."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spectral-collision-spikes-and-finite-time-sinc-windows-in-weight--21494e515130/RESULT.md",
+          "material_read": "Finding and model, offsets 0–7925",
+          "method": "Local Resultary mirror",
+          "title": "Spectral collision spikes and finite-time sinc windows in weighted joins (Resultary record)",
+          "trigger": "Spectral transfer on weakly linked regular graph pieces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–4",
+        "Dhamapurkar–Subrahmanyam, §IV"
+      ],
+      "rationale": "The calculation identifies which finite size imbalances survive as a macroscopic transfer deficit. The uniform all-time bound rules out recovery of high fidelity at much later times, which the scaled-time limit alone would not exclude. The localized dark-mode identity quantifies why collective and vertex-localized preparations behave differently under the same Hamiltonian.",
+      "residual_risks": [
+        "The result is for a closed idealized walk and does not imply a noise-robust transfer protocol."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

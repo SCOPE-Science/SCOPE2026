@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The construction fixes every shuffle index and operator-product convention, proves the exact binary identities and logarithmic permutation count, and tracks the leading local commutator through a stable telescoping expansion with Abel summation. For the explicit three-by-three matrix witness the product identity is exact at every finite step count, and the leading \(Te^T/6\) constant follows without extrapolating numerical experiments. The standalone exact-arithmetic checker was executed against its packaged form.
+## correctness
 
-**Originality — PASS, with stated bibliographic risk.** The 2026 motivating manuscript (Sections 2–4, 5.2.2 and 6) explicitly proves its logarithmically enhanced second-order theorem for two flows, not this three-flow digit-aliasing law. Earlier product-formula work establishes that opposite orders can cancel a commutator, but does not thereby imply the precise consecutive binary radix digit correlation, the exact two-permutation support, the unequal frequencies, or the sharp example. Searches for aliases including quasi-Monte Carlo permutation correlations, Fisher–Yates and van der Corput aliasing, and commutator cancellation returned no directly covering record. An uninspected implementation or specialized discrepancy study might nonetheless contain an equivalent special case.
+PASS
 
-**Value — PASS.** Multi-flow extension is an explicit theoretical gap in the motivating work. The result gives a constructive obstruction to inferring high-order splitting accuracy from one-dimensional input discrepancy, and pinpoints a practical design constraint: control the induced **joint permutation distribution**, not just individual input points. It is a structural counterexample for fixed finite-dimensional dynamics, not a weak numerical observation.
+The leading binary digit forces the second swap and restricts the first swap; the completed orders are (3,1,2) below the 1/3 tail threshold and (2,1,3) otherwise. A dyadic cylinder corresponds to one residue class, so a truncated binary decomposition of [0,1/3) gives a uniform O(1+log N) prefix discrepancy. The local h² coefficients are K/2 and −K/2, averaging to −K/6. Telescoping changes the left propagator to the exact one with total error O(Nh³); summation by parts for the centered coefficients uses O(h) adjacent propagator variation. The constant term is the stated Riemann integral up to O(h²). For the witness K=−E13, E13 commutes with the sum, and its spectral norm is one, giving Te^T/6. Independent exact word and matrix calculations can be replayed with python /workspace/review_evidence/reproduce_1234.py 2; they corroborate but do not prove the all-N asymptotic. The conclusion concerns the specified indexing and descending shuffle with bounded generators.
 
-**Closest literature and limits.** Li–Liu–Wan (arXiv:2603.27654v1) uses the serial Fisher–Yates framework and proves the two-flow result; standard randomized product formulas and Strang splitting use different, balanced or symmetric ordering mechanisms. The mathematical theorem fixes one standard descending convention. It neither identifies the authors' experimental implementation nor rules out other multi-flow shuffles.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The serial shuffle recipe is prior. The supported distinct contribution is the binary-digit aliasing analysis for its fully specified descending three-flow instance and the resulting sharp first-order transported commutator, not the algorithm, generic discrepancy facts or local product expansion.
+
+## value
+
+PASS
+
+This isolates a concrete implementation failure of an actual proposed quasi-random splitting recipe: low discrepancy of individual inputs does not balance the pair of shuffle draws. The arbitrary-generator leading error and exact nonzero witness say what fails and by how much, rather than merely showing that a permutation histogram is unbalanced. It is not a claim against all quasi-random methods or against the motivating PDE experiments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

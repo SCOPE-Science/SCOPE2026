@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:37:51.208529Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions, Proof",
+        "VERIFICATION.md and both frozen checker sources (read only)",
+        "Replay: python3 /workspace/branches/independent_nauru.py; output: /workspace/branches/independent_nauru.out"
+      ],
+      "rationale": "In a cubic graph, the synchronous inactive-set dynamics remove induced degree 0 or 1, so a cycle survives forever and a forest is removed. A tree of diameter d has stripping time floor(d/2)+1, including a singleton, by peeling both ends of a longest path toward the center. The two counts of residual edges give 2k=12+e(S)+c and k>=7 for any proper seed. An independently written enumeration classifies each of the 346104 seven-subsets by connected-component vertex/edge counts and obtains times from two breadth-first sweeps per residual tree, without simulating infection. It recovers 12384 percolating sets. The one-tree/two-tree rows for rounds 4 to 8 are (0,120), (1872,1416), (4968,1488), (1224,360), (864,72). The extreme order/diameter profiles and multiplicities also match exactly. Existence at k=7 completes the lower-bound argument.",
+      "residual_risks": [
+        "Counts are for labeled vertex subsets of GP(12,5), with threshold two and simultaneous updates, not orbits or sequential activation orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generalized Petersen decycling is the exact scalar optimization setting. The cubic-graph dissemination and percolation-time sources inspected treat structural/probabilistic or algorithmic questions, not a joint enumeration of size-optimal seed sets."
+        ],
+        "reasoning": "A theorem determining the decycling number for a family does not determine the number of minimizers and their residual forest diameters. The scalar minimum is not credited as new.",
+        "searches": [
+          "Gao et al. DOI 10.1016/j.dam.2014.09.005; Wei and Li DOI 10.12386/A2013sxxb0022; Rapaport et al.; Marcilon and Sampaio"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Relationship to prior work, References",
+        "Rapaport et al.; Morris; Marcilon–Sampaio",
+        "Wei–Li and Gao et al. (bibliographic only)",
+        "Resultary assigned Nauru record, Tutte–Coxeter, Desargues and Nauru anti-forcing matches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At seed size 7 the edge identity restricts the number of remaining trees to one or two; the time/diameter identity computes the time from any given forest. Neither identity gives the multiplicities of the allowed configurations."
+        ],
+        "reasoning": "The joint histogram and extremal shapes are the additional scientific facts, beyond a general reduction, scalar optimum, or already tabulated different graph.",
+        "searches": [
+          "Rapaport et al. §1; Marcilon–Sampaio abstract/introduction; Desargues and Tutte–Coxeter findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The forest equivalence makes a minimum-decycling-set census on this same graph potentially exact prior coverage; the Nauru anti-forcing record instead counts edge deletion for perfect matchings.",
+          "Rapaport et al., §1, treat threshold-two spread on cubic graphs but their random-set conclusions do not give exact deterministic minimum-seed time layers."
+        ],
+        "reasoning": "Count comparisons must be made on the same graph and same sets; edge-based matching objects are not equivalent. Even the minimum feedback-set total would not determine the time refinements.",
+        "searches": [
+          "GP(12,5) / Nauru; feedback vertex sets, decycling, two-neighbor contagion and residual diameters",
+          "Resultary: Nauru minimum feedback/contagious sets and time census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Nauru title recovered was the assigned record itself. The distinct Desargues and Tutte–Coxeter tables tabulate different cubic graphs (20 and 30 vertices respectively). The closest decycling articles could not be inspected beyond bibliographic material."
+        ],
+        "reasoning": "Counts at another graph do not cover the Nauru table, even with the same reduction. The inaccessible articles are a specific residual table risk, not negative evidence.",
+        "searches": [
+          "Resultary retrieval for exact and analogous feedback-set and contagion tables; generalized Petersen decycling DOI recovery"
+        ]
+      },
+      "rationale": "The distinct claim credited is the full minimum-seed census by exact synchronous time and residual shape, not the scalar minimum, the decycling reduction, or the elementary peeling formula. The strongest inspected analogues do not give or mechanically imply this joint census for GP(12,5).",
+      "residual_risks": [
+        "A previously uninspected table in the 2013 or 2015 generalized-Petersen papers or another unindexed source could affect priority; absence of a retrieved match does not prove novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant broader setting; inspected results do not imply census",
+          "evidence": "Randomly selected initial active sets and high-probability thresholds, including non-spread for p<1/2 on cubic graphs.",
+          "identifier_or_url": "https://doi.org/10.1007/s00453-009-9309-0",
+          "material_read": "Abstract and §1, printed pp. 16–17",
+          "method": "lawful publisher PDF text",
+          "title": "On Dissemination Thresholds in Regular and Irregular Graph Classes",
+          "trigger": "same rule on cubic graphs"
+        },
+        {
+          "assessment": "Algorithmic/time analogue, not exact Nauru coverage in inspected material",
+          "evidence": "Complexity of maximum percolation time and parameterized algorithms, rather than distribution among minimum seeds.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.06847",
+          "material_read": "Abstract and introduction, pp. 1–2",
+          "method": "arXiv PDF text",
+          "title": "The maximum time of 2-neighbour bootstrap percolation in grid graphs and some parameterized results",
+          "trigger": "same time statistic"
+        },
+        {
+          "assessment": "Different underlying graph and minimality setting",
+          "evidence": "Minimal percolating sets on square grids.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0702370",
+          "material_read": "Abstract, p. 1",
+          "method": "arXiv PDF text",
+          "title": "Minimal Percolating Sets in Bootstrap Percolation",
+          "trigger": "size-minimal bootstrap seeds"
+        },
+        {
+          "assessment": "Full text unavailable; exact-census coverage unresolved",
+          "evidence": "Title concerns decycling number and upper-embeddibility; it provides no evidence about enumerative tables.",
+          "identifier_or_url": "https://doi.org/10.12386/A2013sxxb0022",
+          "material_read": "Bibliographic identification only",
+          "method": "DOI route and lawful copy discovery",
+          "title": "Decycling Number and Upper-Embeddibility of Generalized Petersen Graphs",
+          "trigger": "same graph family and equivalent optimum"
+        },
+        {
+          "assessment": "Full text unavailable; exact-census coverage unresolved",
+          "evidence": "Publisher PDF returned 403, with no lawful repository copy recovered.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2014.09.005",
+          "material_read": "Bibliographic identification only",
+          "method": "publisher access and repository-copy recovery",
+          "title": "The decycling number of generalized Petersen graphs",
+          "trigger": "same graph family and equivalent optimum"
+        },
+        {
+          "assessment": "Genuine analogue, different graph",
+          "evidence": "12780 optimal eight-seeds, rounds 4–9, on the 30-vertex Tutte–Coxeter graph; no priority inferred from same date.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-seventy-nine-clique-islands-in-optimal-contagion-on-tutte-s-eigh--c5758dc3a0c2",
+          "material_read": "Finding",
+          "method": "Resultary search and matched record passage",
+          "title": "Tutte–Coxeter optimal-contagion census",
+          "trigger": "close Resultary hit in same model"
+        },
+        {
+          "assessment": "Different underlying graph",
+          "evidence": "2860 minima with residual component split for GP(10,3), not GP(12,5).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-2-860-optimal-decycling-sets-of-the-desargues-graph--3f38acb4cf34",
+          "material_read": "Finding",
+          "method": "Resultary search and matched record passage",
+          "title": "The 2,860 optimal decycling sets of the Desargues graph",
+          "trigger": "equivalent counted objects in a neighboring generalized Petersen graph"
+        },
+        {
+          "assessment": "Different counted objects",
+          "evidence": "Perfect matchings and anti-forcing edge deletions, rather than percolating vertex sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-nauru-graph-anti-forcing-spectrum-and-the-hidden-split-of-two-fa--7dd6a167fbed",
+          "material_read": "Matched result description",
+          "method": "Resultary search",
+          "title": "Nauru graph anti-forcing spectrum",
+          "trigger": "same graph and exact table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independent joint census"
+      ],
+      "rationale": "The natural minimum-size stratum on a named symmetric cubic graph exposes a genuine timing/geometry relation: every fastest optimum leaves two trees, whereas the slowest stratum contains both connected and disconnected residual forests with precise extremal diameters. The joint table is usable as an exact benchmark for algorithms that optimize seed size and time concurrently. The value is in the complete natural classification, not simply finding the known optimum or applying a generic graph routine.",
+      "residual_risks": [
+        "Finite benchmark only; no infinite-family or orbit classification follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:27:17.212043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–119 and VERIFICATION.md lines 19–27",
+        "Frozen VERIFY.py lines 11–96, inspected only",
+        "Independent replay: python /tmp/opencode/frozen_math_replay.py 4"
+      ],
+      "rationale": "Only the (2,1,1) multiplicity pattern changes the accuracy under deletion averaging: for a doubled true label the gain is 1/3; for a doubled false label it is −1/6. The (2,2) case averages its fair tie correctly, and the two-label identity follows by omitting (2,1,1). The four stated probability vectors generate the modal simplex slice by the supplied nonnegative convex coefficients. Independence gives separate affineness. I independently computed the 35 multiset types by multiplying integer generating polynomials for their uniform supports and extracting the three (2,1,1) coefficients; every table value matches and 0012 is the only maximizing vertex type. In it A4=1, and the outcome which gives the gain 1/3 occurs with probability 1/4, giving A3=11/12. The general N argument is exact because each triple has N−3 four-element extensions and each extension deletes to that triple with probability 1/4.",
+      "residual_risks": [
+        "The cap is sharp across the stated class via N=4, not asserted sharp for each separately fixed N>4. Dependence, other choice or committee sizes, and nonuniform tie-breaking are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available comparison for List–Goodin gives limiting correct plurality under strict mode and independent identical votes; the survey distinguishes finite monotonicity from that asymptotic statement.",
+          "Goertz–Maniquet studies strategic choices and information aggregation with a common objective and large Poisson electorates. Saari's general profile setting is relevant but the original full text was not available for comparison."
+        ],
+        "reasoning": "The asymptotic conclusion does not imply even adjacent-size nonnegativity; even a monotonicity theorem for common iid laws would not give the heterogeneous sharp upper envelope.",
+        "searches": [
+          "List–Goodin (2001), DOI:10.1111/1467-9760.00128 and Stanford Encyclopedia of Philosophy, Jury Theorems §5.2",
+          "Goertz–Maniquet CESifo WP 3457, RePEc:ces:ceswps:_3457",
+          "Saari (2002), DOI:10.1287/moor.27.1.45.340"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5ddaae52241b, 0130077fb831 and 3bbe9281cb4f",
+        "Berend–Sapir DOI:10.1007/s00355-003-0293-z; Goertz–Maniquet WP 3457; Saari DOI:10.1287/moor.27.1.45.340",
+        "Stanford Encyclopedia of Philosophy, Jury Theorems §5.2 and List–Goodin DOI:10.1111/1467-9760.00128",
+        "Targeted literature lookups on finite heterogeneous plurality monotonicity and the original List–Goodin paper"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A binary model cannot realize the doubled-true three-label event (2,1,1).",
+          "Neither a homogeneous limit nor a strategic equilibrium efficiency result includes the sharp panel with two always-correct members and two differently oriented binary voters."
+        ],
+        "reasoning": "Subsuming the theorem would require comparable quantification over nonidentical weak modal row laws, fair plurality ties and uniform size-3 deletion plus a quantitative upper bound; no inspected statement does so.",
+        "searches": [
+          "Berend–Sapir Theorem 1 bibliographic lookup and frozen comparison at RESULT.md line 123",
+          "List–Goodin in Jury Theorems §5.2",
+          "Goertz–Maniquet WP 3457 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary analogue has zero gain profile by profile, including 2–2 under fair ties, whereas in three labels the signed (2,1,1) events remain.",
+          "Deegan–Packel local monotonicity is an index for weighted simple games, not a change of accuracy after uniform deletion."
+        ],
+        "reasoning": "The correct equivalent problem is an expected three-label pivotal effect of uniform deletion under product laws, not a binary election or a voter-power comparison.",
+        "searches": [
+          "Web: plurality Condorcet jury theorem monotonicity committee size finite nonidentical voters three alternatives List Goodin heterogeneous modal competence tie four three Berend Sapir",
+          "Berend–Sapir (2005), DOI:10.1007/s00355-003-0293-z",
+          "Resultary voting-power monotonicity 3bbe9281cb4f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 5ddaae52241b comparison concerns deterministic restriction of preference rankings with pairwise quotas; 0130077fb831 is a disagreement probability between voting rules under single-peaked rankings.",
+          "No located indexed result was a table of heterogeneous four-voter modal vertex gains or the random-deletion envelope."
+        ],
+        "reasoning": "Moving between alternative counts is not moving between committee sizes, and comparing different social choice rules is not comparing the same rule's accuracy on nested samples.",
+        "searches": [
+          "Resultary 5ddaae52241b (three-to-four alternatives, pairwise quotas)",
+          "Resultary 0130077fb831 (exact plurality–Borda disagreement)",
+          "Targeted literature lookup for the sharp 1/12 finite three-label plurality gain"
+        ]
+      },
+      "rationale": "Prior jury theorems address binary random-subcommittee monotonicity, asymptotic modal competence with common vote laws, or strategic voting in large elections. No compared source establishes both this finite heterogeneous nonnegativity result and the sharp 1/12 upper envelope. The claim is not that plurality, modal competence or the jury framework is new.",
+      "residual_risks": [
+        "Some plausible historical papers were not available in original full text. Unlocated finite plurality monotonicity or extremal tables are not ruled out. The pass is on the bounded claim and available comparisons, not on absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary theorem link is distinct; precise original hypotheses not independently confirmed",
+          "evidence": "For binary ballots, four-vote success equals the mean three-vote deletion success for each deterministic profile, so that analogy holds independently of the inaccessible statement.",
+          "identifier_or_url": "DOI:10.1007/s00355-003-0293-z",
+          "material_read": "Bibliographic identification and frozen theorem comparison; author-upload and publisher PDF did not yield original text",
+          "method": "Lawful full-text attempts and direct binary profile derivation",
+          "title": "Monotonicity in Condorcet Jury Theorem",
+          "trigger": "Closest exact random-subcommittee analogue"
+        },
+        {
+          "assessment": "Available model comparison differs, not a whole-paper exclusion",
+          "evidence": "Large elections, common preferences, private signals and strategic equilibrium, not a fixed finite deletion bound in independent specified row laws.",
+          "identifier_or_url": "https://ideas.repec.org/p/ces/ceswps/_3457.html",
+          "material_read": "WP 3457 abstract, offset 0; official ifo PDF route did not yield accessible full text",
+          "method": "OA abstract and direct full-text attempt",
+          "title": "On a Three-Alternative Condorcet Jury Theorem",
+          "trigger": "Same number of alternatives and jury context"
+        },
+        {
+          "assessment": "Available comparison supports prior iid asymptotic coverage only",
+          "evidence": "The survey specifies independent identical probabilities with a strictly more likely true label and an asymptotically infallible plurality outcome, then separately discusses increasingly reliable finite committees.",
+          "identifier_or_url": "DOI:10.1111/1467-9760.00128",
+          "material_read": "Stanford Encyclopedia of Philosophy, Jury Theorems §5.2, offset 65500; DOI retrieval resolved to a different paper and PhilPapers PDF was unavailable",
+          "method": "OA survey and lawful primary-source attempts",
+          "title": "Epistemic Democracy: Generalizing the Condorcet Jury Theorem",
+          "trigger": "Generalization to modal correctness with plurality"
+        },
+        {
+          "assessment": "No full-text exclusion",
+          "evidence": "Known comparison is the three-alternative profile framework; availability was insufficient to certify absence of an equivalent identity or theorem.",
+          "identifier_or_url": "DOI:10.1287/moor.27.1.45.340",
+          "material_read": "Bibliographic context and frozen comparison; publisher PDF unavailable",
+          "method": "OA attempt and statement-level contextual comparison",
+          "title": "Adopting a Plurality Vote Perspective",
+          "trigger": "Plausible source of finite three-label profile identities"
+        },
+        {
+          "assessment": "Different mathematical problem",
+          "evidence": "Deterministic pairwise quota preservation across numbers of alternatives, not random three- and four-vote plurality committees.",
+          "identifier_or_url": "Resultary 2026/11/2, 5ddaae52241b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Sharp three-to-four alternative boundary for input-only pairwise quotas",
+          "trigger": "Nearest indexed three-to-four comparison by terms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21, 25–35 and 99–107",
+        "Independent strict witness and binary deletion comparison"
+      ],
+      "rationale": "This adjacent odd-to-even comparison distinguishes ternary accuracy from an identically flat binary comparison. The deterministic gain has both signs, so monotonicity under independent weak modal competence is a genuine restriction, especially with different error directions. The exact 1/12 envelope and an explicit attaining panel give a finite, interpretable benchmark for multiclass judging from randomly staffed panels.",
+      "residual_risks": [
+        "No broader committee-size trend, strategic outcome, or asymptotic rate follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:08:33.297483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 71–258 and VERIFICATION.md",
+        "Kapranov, Proposition 1.2.4; Li, Theorem 1.1",
+        "Independent replay checks/frozen_replay.py, option 2"
+      ],
+      "rationale": "For all nonzero Plücker coordinates the monomial orbit configuration is the hypersimplex. Differences of its vertices generate the full sum-zero integer lattice: realize e_i−e_j by swapping i for j with a common (k−1)-subset disjoint from both. Thus the normalized lattice volume has no extra index factor. The toric degree formula and hypersimplex volume theorem give A(n−1,k−1). Additivity of compactly supported Euler characteristic on torus orbits gives one per vertex and zero for every positive-dimensional torus, and compactness gives ordinary Euler characteristic for the whole closure. The interior row minimum for m≥4 is A(m,1)=2^m−m−1: at an index 2≤j≤m−3 both earlier-row terms are interior and the recurrence has weights summing to m+1; (m+1)A(m−1,1)−A(m,1)=(m−1)(A(m−1,1)−1)>0 for m≥5. The parity class of the central binomial term has total 2^(n−1) and for n≥6 the other terms sum to more than n: when the center index is odd, index 1 and at least one more term suffice; when it is even (then n≥8), indices 0 and 2 suffice. At n=5 the bound is 11>10. The excluded interior case (n,k)=(4,2) gives 4<6, and simplex endpoints give 1<n. The dimension-four statement is read as the first dimension with non-simplex examples having the positive sign, not as a claim that a universal statement over an empty family is false in dimensions one and two. Independent replay `python3 /workspace/checks/frozen_replay.py 2` verified 7140 exact slice-volume comparisons and the numeric row bounds through n=120 via inclusion–exclusion. The supplied verification prose describes, but does not supply, its recurrence checker; neither finite check proves the infinite classification.",
+      "residual_risks": [
+        "The argument assumes the generic configuration; nongeneric matroid polytopes need not give either count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kapranov Proposition 1.2.4 applies to all representable matroid orbit closures and identifies faces and orbits, without ordering the resulting counts.",
+          "Resultary e57efdec9789 compares invariants of the whole ordinary Grassmannian; c8ae207d01b9 of the symplectic Grassmannian; ed8ef634c354 studies Euler characteristic of the projective dual."
+        ],
+        "reasoning": "The broader orbit-face result proves how to count, not a lower bound stronger than the vertex count. A whole Grassmannian, an isotropic Grassmannian, and a projective dual are not supersets of parameters in the needed inequality: they are different objects with different degrees.",
+        "searches": [
+          "Web: Kapranov Chow quotients Grassmannian generic torus orbit closures hypersimplex Eulerian number normalized volume; prior comparison A(n-1,k-1) binomial(n,k)",
+          "Resultary: generic Grassmannian maximal torus orbit closure degree Euler characteristic Eulerian number binomial hypersimplex crossover"
+        ]
+      },
+      "checked_sources": [
+        "Kapranov arXiv:alg-geom/9210002",
+        "Li arXiv:1104.5292",
+        "Resultary e57efdec9789, c8ae207d01b9 and ed8ef634c354",
+        "NIST DLMF §26.14(i)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kapranov and Li imply the closed formulas via standard toric theory; neither states the cross-array ordering. The closest whole-Grassmannian result has (D,E)=(5,10) at (n,k)=(5,2), versus (11,10) here.",
+          "MathOverflow question 488645 was surfaced as a potential comparison; only a search excerpt about triangular-array duality was available, and it was not relied on for noncoverage."
+        ],
+        "reasoning": "The frozen proof additionally compares an interior Eulerian minimum with a binomial row maximum and treats the remaining endpoints. Those comparisons are not supplied by the inspected volume and face formulas or by the whole-Grassmannian ordering.",
+        "searches": [
+          "Kapranov §1.2.3 and Proposition 1.2.4; Li Theorem 1.1",
+          "Resultary e57efdec9789, Finding",
+          "Web: Eulerian numbers lower bound compare binomial coefficients A(n,k) binomial n+1 k+1 inequality descents Eulerian numbers exceed binomial hypersimplex volume vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kapranov identifies the orbit polytope and its faces; Li gives its normalized volume as the Eulerian number with n−1 letters and k−1 descents.",
+          "DLMF §26.14(i) identifies the same numbers by descents, excedances, or k weak excedances for the shifted index."
+        ],
+        "reasoning": "Thus volume versus vertex count, degree versus Euler, and the shifted Eulerian/binomial inequality are the same comparison. Symmetry k↔n−k merely exchanges reflected indices. The inspected formulations supply the counts, not the uniform inequality.",
+        "searches": [
+          "Resultary: generic Grassmannian maximal torus orbit closure degree Euler characteristic Eulerian number binomial hypersimplex crossover",
+          "Resultary: Eulerian A(n-1,k-1) greater than binomial(n,k) for all k interior",
+          "Web: Eulerian numbers lower bound compare binomial coefficients A(n,k) binomial n+1 k+1 inequality descents Eulerian numbers exceed binomial hypersimplex volume vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF tabulates rows including 1,4,1 and 1,11,11,1, supporting comparisons with binomial rows at n=4 and n=5, but the table is finite and does not compare the two arrays.",
+          "The closely indexed whole-Grassmannian classification e57efdec9789 gives degree below Euler at n=5,k=2, where the Eulerian degree of the orbit closure is above."
+        ],
+        "reasoning": "The individual entries and their formulas are known. Tabulation of some entries and an exact classification for different degrees do not provide the frozen all-parameter result.",
+        "searches": [
+          "Resultary: Eulerian A(n-1,k-1) greater than binomial(n,k) for all k interior",
+          "NIST DLMF Table 26.14.1, surfaced by web search on Eulerian/binomial inequalities"
+        ]
+      },
+      "rationale": "The two geometric formulas are classical. The distinct claim is their strict comparison across the full hypersimplex family, including the exceptional dimension-three interior and the absence of equality. The closest inspected indexed ordering treats the whole Grassmannian and has a different degree and different signs at common parameters. Direct inspections support the underlying formulas but did not establish prior coverage of the crossover; the judgment is bounded by the search and access limitations below.",
+      "residual_risks": [
+        "A purely combinatorial treatment of shifted Eulerian and binomial coefficients, an unindexed exercise, or discussion in the inaccessible MathOverflow thread is not ruled out. No priority conclusion is drawn from search misses or indexing dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical polytope and orbit formula, not the ordering",
+          "evidence": "For generic L the matroid polytope is the hypersimplex; orbit closure is projective normal toric and torus orbits correspond to faces.",
+          "identifier_or_url": "https://arxiv.org/pdf/alg-geom/9210002",
+          "material_read": "§1.2.3 and Proposition 1.2.4, printed p. 18, offsets 46600–49129",
+          "method": "Open-access PDF passage inspection",
+          "title": "Chow quotients of Grassmannian I",
+          "trigger": "Foundational torus orbit closure theorem"
+        },
+        {
+          "assessment": "Exact degree input, not the binomial comparison",
+          "evidence": "Laplace's formula gives normalized volume by Eulerian numbers counting k−1 descents in S_(n−1).",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.5292",
+          "material_read": "p. 1, Theorem 1.1, offsets 2600–3993",
+          "method": "Open-access PDF passage inspection",
+          "title": "Ehrhart h*-vectors of hypersimplices",
+          "trigger": "Exact normalized lattice volume"
+        },
+        {
+          "assessment": "Different variety and non-equivalent sign classification",
+          "evidence": "Uses rectangular tableau degree for the full Grassmannian, with degree below Euler at (min(k,n−k),n)=(2,4),(2,5),(2,6).",
+          "identifier_or_url": "Resultary 2026/10/12 e57efdec9789",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Plücker degree overtakes Euler characteristic beyond three lines",
+          "trigger": "Closest invariant-comparison analogue"
+        },
+        {
+          "assessment": "Known entries and aliases, not an all-parameter inequality",
+          "evidence": "Counts descents, excedances and shifted weak excedances and tabulates the individual initial rows.",
+          "identifier_or_url": "https://dlmf.nist.gov/26.14",
+          "material_read": "§26.14(i), Table 26.14.1 and surrounding definitions, offset 2490–3773",
+          "method": "Open-access website passage inspection",
+          "title": "DLMF §26.14 Permutations: Order Notation",
+          "trigger": "Exact tables and possible equivalent interpretation"
+        },
+        {
+          "assessment": "Unresolved access, not exclusion of overlap",
+          "evidence": "The preview refers to triangular arrays and a multiplier, and does not establish a comparison or its absence.",
+          "identifier_or_url": "https://mathoverflow.net/questions/488645/duality-between-binomial-coefficients-and-eulerian-numbers",
+          "material_read": "Search excerpt only; direct and alternate configured retrieval both returned HTTP 403",
+          "method": "Search and attempted website retrieval",
+          "title": "Duality between binomial coefficients and Eulerian numbers",
+          "trigger": "Combinatorial-only title returned for the shifted comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and comparison proof",
+        "Kapranov Proposition 1.2.4",
+        "Resultary e57efdec9789"
+      ],
+      "rationale": "The classification gives the exact dimension threshold at which a generic orbit closure's general Plücker section length exceeds its fixed point count, two natural invariants not inherently ordered. The comparison is uniform, sharp, and has a concrete geometric use: the full Grassmannian and the orbit closure have the same ordinary Euler characteristic and fixed points, yet the signs of the degree comparison can differ even in the first non-simplex cases (for example 5<10<11 at k=2,n=5). This is more than recomputing either classical invariant or providing a finite table, although the proof of the comparison is elementary.",
+      "residual_risks": [
+        "No analogous classification for nongeneric orbit closures or other polarizations is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

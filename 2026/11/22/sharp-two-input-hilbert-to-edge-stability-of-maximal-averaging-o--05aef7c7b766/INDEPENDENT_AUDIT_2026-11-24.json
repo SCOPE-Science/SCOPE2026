@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:19:38.638103Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–24 and 27–83",
+        "Frozen verify_star_l2.py, static inspection only",
+        "Frozen VERIFICATION.md, lines 19–23"
+      ],
+      "rationale": "Subtracting the hub output gives a continuous piecewise linear map on the nonnegative cone. The input modulus map is Euclidean nonexpansive. With a global-mean hub, leaf edge rows are zero or restrictions of I−11ᵀ/(m+1), so the norm is at most one. With a singleton hub, let I_i=e_i−e_0 and H=ΣI_i/(m+1). The rows are I_i, I_i/2 or H; at least one row is not I_i by the strict mean inequality. Their nonnegative Gram matrix is dominated entrywise by replacing all half rows by H, then all but one H by the corresponding I_i. The symmetric block has trace m(m+2)/(m+1), determinant 1/(m+1), and top eigenvalue exceeding one, with remaining contrast eigenvalue one where present. Segment decomposition and continuity handle all pairs including ties. For m≥2 the witness hub 2, m−1 leaves of value 2+1/(4m), and last leaf 1 has 3/2<a<2 and realizes the maximizing rows strictly. With λ the top eigenvalue, the left eigenvector with first m−1 entries 1 and last λ−m yields an actual positive finite perturbation in its right singular direction. For m=1 the edge difference is (x_1−x_0)/2 on the modulus cone, so the squared Euclidean norm is 1/2. The trace and determinant also give λ/m→1.",
+      "residual_risks": [
+        "Uploaded floating-point checks were not executed; the finite-pair and all-degree assertions were checked analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen prior-work section characterizes these as sharp one-input star variation or finite-graph one-input norm results. Focused search returned no decisive passage; OA retrieval was unsuccessful."
+        ],
+        "reasoning": "Taking g=0 in the audited problem gives only one comparison and even then has a vertex norm denominator. A sharp one-input Var₂-to-Var₂ inequality has neither the arbitrary second baseline nor that denominator; it does not supply this two-input coefficient.",
+        "searches": [
+          "Primary query: centered maximal operator on star graphs, two-input edge ℓ² / variation and arXiv:2011.02630",
+          "arXiv:2011.02630v1",
+          "arXiv:2611.15377v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 63b0e3fb3ba2, 15c90fbbc9dc, 2be0b442e953 and 743976f5abad (catalogue statements)",
+        "Frozen RESULT.md, prior-work section and references; focused primary lookup did not return decisive text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Closest same-graph, same-norm catalogue summary gives √(m+m^{2α}) scale with crossover at α=1/2; it does not state a finite-size α=0 root. The frozen source describes the exponents in that comparison as strictly positive."
+        ],
+        "reasoning": "Neither that asymptotic scale, even if available at α=0, nor an edge-TV factor gives the exact spectral maximizer and quadratic root as a corollary. The assessment credits the known branch technique and does not claim novelty for order √m alone.",
+        "searches": [
+          "2026/11/22/SCOPE-a-sharp-square-root-crossover-for-fractional-maximal-perturbatio--15c90fbbc9dc",
+          "Resultary TV-to-TV star result 63b0e3fb3ba2",
+          "Frozen RESULT.md, lines 88–98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalogue: on nonnegative star data, the two-input TV-to-TV factor is 2m/(m+1) when m≥2 and 1/2 for m=1."
+        ],
+        "reasoning": "Both quotient norms and the domain comparison matter. Converting TV to quadratic edge variation and bounding input TV by √(m(m+1)) times vertex ℓ² gives only a loose bound for m≥2, not this root. The m=1 conversion recovers the elementary boundary case.",
+        "searches": [
+          "Resultary: centered maximal stars, two-input quadratic edge variation and Euclidean stability",
+          "2026/11/17/SCOPE-sharp-two-input-graph-variation-stability-of-the-centered-maxima--63b0e3fb3ba2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue: exact switch-cell spectra for a fractional operator on the three-vertex path; √(3/2) for a two-input quadratic bound on the four-vertex path."
+        ],
+        "reasoning": "The three-vertex path is the two-leaf star, so an ordinary endpoint there could overlap that one dimension, but the available fractional statement does not give the ordinary endpoint or the all-degree classification. The four-vertex path is not a star.",
+        "searches": [
+          "Resultary: star and path spectral coefficients",
+          "2026/11/22/SCOPE-a-discontinuous-sharp-perturbation-modulus-for-fractional-maxima--2be0b442e953",
+          "2026/11/22/SCOPE-sharp-two-input-quadratic-edge-variation-of-centered-maximal-ave--743976f5abad"
+        ]
+      },
+      "rationale": "The available statements do not give the exact all-degree vertex-Euclidean to quadratic-edge two-input modulus for ordinary centered star averaging. The same-star two-input result uses edge TV on both sides. The same-norm fractional catalogue result describes growth rates, not an exact degree-dependent endpoint coefficient. This is a bounded comparison, not an assertion of priority.",
+      "residual_risks": [
+        "Primary papers and strongest catalogue matches were not read in full. In particular exact ordinary endpoint treatment in the fractional-star comparison is unresolved; lack of access is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different domain and range norms",
+          "evidence": [
+            "TV-to-TV on nonnegative inputs, 2m/(m+1) for m≥2."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-two-input-graph-variation-stability-of-the-centered-maxima--63b0e3fb3ba2",
+          "material_read": "Resultary catalogue summary, not mirrored RESULT.md",
+          "method": "Local Resultary search; mirror retrieval unsuccessful",
+          "title": "Sharp two-input graph-variation stability of the centered maximal operator on stars",
+          "trigger": "Identical centered star operator and two-input structure"
+        },
+        {
+          "assessment": "Growth-rate comparison; exact endpoint coverage not established",
+          "evidence": [
+            "Scale √(m+m^{2α}); catalogue does not settle inclusion of α=0."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-square-root-crossover-for-fractional-maximal-perturbatio--15c90fbbc9dc",
+          "material_read": "Catalogue and frozen citation discussion",
+          "method": "Resultary search and bounded mirror retrieval attempt",
+          "title": "A sharp square-root crossover for fractional maximal perturbations on stars",
+          "trigger": "Same graph and two-input Euclidean-to-edge norm"
+        },
+        {
+          "assessment": "Potential special dimension, not the claimed degree family",
+          "evidence": [
+            "Exact fractional three-vertex branch calculation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-discontinuous-sharp-perturbation-modulus-for-fractional-maxima--2be0b442e953",
+          "material_read": "Resultary catalogue summary",
+          "method": "Local Resultary comparison",
+          "title": "A discontinuous sharp perturbation modulus for fractional maximal averaging",
+          "trigger": "A spectral two-input calculation, with the underlying path also a two-leaf star"
+        },
+        {
+          "assessment": "Frozen characterization is one-input quadratic variation, not independently checked in paper",
+          "evidence": [
+            "Reported denominator is input quadratic edge variation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2011.02630v1",
+          "material_read": "Frozen RESULT.md lines 89 and 96; primary paper not accessed",
+          "method": "Focused literature search and OA attempt",
+          "title": "Sharp inequalities for maximal operators on finite graphs, II",
+          "trigger": "Cited sharp quadratic star variation theorem"
+        },
+        {
+          "assessment": "Reported one-input inequalities, full-text coverage unresolved",
+          "evidence": [
+            "Frozen description gives Var_p(Mf)/Var_p(f) and vertex output/input Lp norms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15377v1",
+          "material_read": "Frozen RESULT.md lines 89 and 95; primary paper not accessed",
+          "method": "Citation comparison and OA attempt",
+          "title": "Sharp Lp and variation inequalities for maximal operators on finite connected graphs",
+          "trigger": "Same graph class and related maximal-function inequalities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 27–83",
+        "Resultary same-star TV and fractional growth catalogue statements"
+      ],
+      "rationale": "Exact finite-degree perturbation constants for a natural family separate one-input edge smoothing from potentially large two-input edge responses. The result identifies the strict feasible maximizer and the mechanism by which a single global-average row and many singleton rows produce the sharp value, rather than only a norm-conversion or growth estimate.",
+      "residual_risks": [
+        "No extension to weighted stars, strictly fractional exponents, or other norms is certified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

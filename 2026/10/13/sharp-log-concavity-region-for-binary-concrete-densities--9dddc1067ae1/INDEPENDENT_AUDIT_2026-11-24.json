@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:28:32.954892Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The CDF has endpoint limits 0 and 1 and differentiates to the stated density. With h=x(1−x), u=2x−1, and v=2F−1, differentiating (log f)'=(u−τv)/h gives 2h²(log f)''=(τv−u)²−(τ²−1). This gives strict log-convexity for τ<1 and singles out uniformity for log-concavity at τ=1. For τ>1, midpoint curvature forces |a|≤b, where a=(log α)/2 and b=arcosh τ. Sufficiency is not a midpoint extrapolation: monotonicity in a and reflection reduce it to H_b(s)=τ tanh(τs−b)−tanh s≥−r, r=√(τ²−1). For (tanh s−r)/τ≤−1 this is automatic; on the remaining interval the inverse-tanh comparison has derivative 2τr tanh(s)/[τ²−(tanh(s)−r)²], negative to the left of s=0 and positive to its right, with minimum value b at 0. This includes the bias endpoints. Solving cosh(a)≤τ gives both equivalent thresholds. Independent exact differentiation at (τ,α)=(2,100) gave 68808/10201. Inspected verify_concrete.py without running it; its rational sample signs are not needed for the universal implication. The scope is the original x-scale, scalar two-category density.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original Concrete proposition establishes log-convexity for temperature at most one and defines exactly this family; it does not give the bias-restricted high-temperature region.",
+          "The later binary statement claims high-temperature log-concavity without displaying a bias restriction; the exact positive midpoint curvature for (2,100) rules out that unqualified generalization."
+        ],
+        "reasoning": "Neither the proven low-temperature result nor the invalid unrestricted high-temperature criterion dominates the sharp global result. Equal bias is only one slice.",
+        "searches": [
+          "arXiv:1611.00712 Appendix B, Proposition 2",
+          "arXiv:2102.12756 Section II-B, Fig. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_concrete.py and source self-review",
+        "Maddison–Mnih–Teh Appendix B",
+        "Beck–Bockelmann–Dekorsy Fig. 1 caption",
+        "Resultary ranked comparisons cc74aabec259 and 63465052f50d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known family formula yields a midpoint obstruction but necessity alone gives no global result. The verified inverse-hyperbolic endpoint comparison supplies the missing global sufficiency.",
+          "At α=100 the exact minimum temperature is 101/20, not 1."
+        ],
+        "reasoning": "Changing names or differentiating at one point does not imply the all-x iff from the inspected prior statements. The surviving contribution is the global classification, not the equation for the density or its known low-temperature shape.",
+        "searches": [
+          "Maddison–Mnih–Teh Appendix B, Proposition 2; Beck–Bockelmann–Dekorsy Fig. 1 caption"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F(x)=logistic(τ logit(x)−log α). In median/shape notation α=(μ/(1−μ))^τ and β=τ; the original-variable statement becomes cosh((β/2)logit μ)≤β. The median μ is not p=α/(1+α).",
+          "The 1982 LB full text and the primary 2018 unit-logistic text were not available in the retrieved copies."
+        ],
+        "reasoning": "Parameter substitution identifies where equivalent prior coverage could occur, but neither logistic-coordinate concavity nor an ordinary density-shape or mode result establishes original-coordinate global log-concavity. The alias risk remains open.",
+        "searches": [
+          "Resultary: binary Concrete threshold; unit-logistic / LB log-concavity aliases",
+          "10.1590/0101-7438.2018.038.03.0555",
+          "10.1093/biomet/69.2.461"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The odds-gap result cc74aabec259 concerns log-concavity of discrete two-point binomial-mixture mass sequences. The same-day result 63465052f50d concerns discrete log-concave lower tails."
+        ],
+        "reasoning": "No retrieved exact region covers this continuous family. Odds parameters or the shared log-concavity terminology in the indexed alternatives do not identify the same shape test. The ranked comparison is bounded.",
+        "searches": [
+          "Resultary: binary Concrete threshold; unit-logistic/LB aliases"
+        ]
+      },
+      "rationale": "The distinct supported claim is the sharp global two-parameter log-concavity region on the original x-scale, including necessity and sufficiency. The low-temperature log-convexity and distribution family are prior art. The available competing Concrete assertion is either an unqualified false extension or, if read as referring to the symmetric plot, a restricted case. No inspected statement supplies the full threshold; priority under the older distribution names is not certified.",
+      "residual_risks": [
+        "Primary 1982 and 2018 alternate-family full texts not inspected; an equivalent log-concavity or strong-unimodality result under older terminology is possible.",
+        "Catalogue retrieval and primary comparisons are not an exhaustive historical search; general search availability was limited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the family and gives the low-temperature shape, not the target global threshold.",
+          "evidence": [
+            "Proposition 2(d): log-convex at λ≤1; odds-to-probability relation α/(α+1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.00712",
+          "material_read": "Appendix B, PDF pp. 13–14, offsets 58000 and 61638, Prop. 2",
+          "method": "OA PDF passage reading",
+          "title": "The Concrete Distribution: A Continuous Relaxation of Discrete Random Variables",
+          "trigger": "Original identical binary density"
+        },
+        {
+          "assessment": "Unqualified high-temperature claim as written fails for unequal weights; no sharp bias interval there.",
+          "evidence": [
+            "Caption separates the statement of log-concavity above τ=1 from the observation of symmetry at equal weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.12756",
+          "material_read": "Section II-B, PDF p. 4 Fig. 1 caption, offset 29685",
+          "method": "OA PDF passage reading",
+          "title": "CMDNet: Learning a Probabilistic Relaxation of Discrete Variables for Soft Detection with Low Complexity",
+          "trigger": "Express high-temperature binary claim"
+        },
+        {
+          "assessment": "Unresolved priority risk; no noncoverage inference from retrieval failure.",
+          "evidence": [
+            "Median mapping α=(μ/(1−μ))^τ follows by solving F(μ)=1/2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1590/0101-7438.2018.038.03.0555",
+          "material_read": "No primary full text retrieved; parameter equivalence checked directly from the frozen CDF",
+          "method": "OA DOI retrieval and repository lookup",
+          "title": "The Unit-Logistic Distribution: Different Methods of Estimation",
+          "trigger": "Equivalent median/shape family"
+        },
+        {
+          "assessment": "Plausible historical priority risk, not evidence of coverage or noncoverage.",
+          "evidence": [
+            "The access attempt did not supply a statement on log-concavity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1093/biomet/69.2.461",
+          "material_read": "Citation and DOI only; no primary full text retrieved",
+          "method": "OA DOI retrieval and repository lookup",
+          "title": "Systems of frequency curves generated by transformations of logistic variables",
+          "trigger": "1982 treatment of the equivalent bounded logistic family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a necessary-and-sufficient shape decision rule for a standard distribution on its original support. It identifies precisely how strong asymmetry forces the required temperature upward, resolves the symmetric versus biased distinction in an existing shape assertion, and does so globally rather than giving only a counterexample. No gain for multivariate Concrete or for any downstream algorithm is presumed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: unique fastest mixing on cones over crown graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex domain, support constraints, nonnegativity and stochastic normalization are explicit. Automorphism averaging reduces the global value comparison to two weights, while a complete five-block spectral decomposition yields the universal lower bound. The proposed rational weights meet every stochastic inequality. The all-optimizer argument does **not** assume symmetry: saturation of the two active eigenspaces forces every cross-edge and hub-edge probability. Independent finite rational, symbolic, and full-matrix tests corroborate the analytical calculations; the infinite-family proof does not depend on those tests.
+## correctness
 
-## Originality — PASS, with residual risk
-The starting primary source [2] supplies general automorphism and spectral optimization methods, including a solved wheel example; its six-rim wheel covers the \(m=3\) case, which is expressly excluded. The primary source's complete-multipartite, bridge-connected-clique and wheel graph calculations do not cover the crown-cone family for \(m\ge4\). The earlier general formulation [1] specifies an optimization problem, not this solution. No equivalent claim was found in the searched mathematical-record results or in the accessible preceding research claims. General SDP solvability does not entail the non-invariant uniqueness theorem. Residual risk: unindexed work or a stronger general uniqueness result may imply the present classification, despite the checked sources.
+PASS
 
-## Value — PASS
-The crown graph is a standard, unbounded bipartite family, and adjoining an apex turns it into a natural model with one shared communication hub and a missing matching of cross-community links. The result determines every optimal transition, proves every allowed edge is essential at optimality, and establishes global uniqueness rather than merely computing a symmetry-reduced optimum. The distinction matters for network designs when symmetric solutions exist but asymmetric optimal designs might also exist. The optimal SLEM approaches \(1/3\) as the graph grows, quantifying the exact mixing effect of the apex for this family.
+On the cone over K_{m,m} minus a perfect matching, average over simultaneous index permutations and side swaps. A hub edge weight a has 2ma<=1, and the periphery has diagonal 1-a-(m-1)b. The hub contrast has eigenvalue 1-(2m+1)a. On the side contrast and the two zero-sum standard spaces, use the cross block b(11^T-I) to get v=1-a-2(m-1)b, u=1-a-(m-2)b for antisymmetric vectors, and 1-a-mb for symmetric vectors. The identity 2(m-1)u-(m-2)v=m(1-a) bounds SLEM below by t=(2m-1)/(2(3m-4)). Equality forces a=1/(2m), u=t, v=-t. The resulting b=2t/m gives positive peripheral holding, zero hub holding, and remaining nontrivial eigenvalues -1/(2m) and (m-4)t/m of modulus at most t for m>=4. For any optimizer, the averaged kernel is this invariant matrix. The PSD constraints tI-P_g and tI+P_g on 1-perp force every conjugated kernel to agree on the active +t and -t eigenspaces: a PSD quadratic form that vanishes on a vector annihilates it. Time reversal here is matrix symmetry, not an invariance assumption on the optimizer. The +t antisymmetric zero-sum space forces each row and each column of the allowed cross weights to be constant, since the corresponding coefficient vector is orthogonal to the zero-sum space. Distinct rows have a common allowed column, making every cross weight equal; both sides then have a common hub weight. The -t side contrast gives the second equality a+2(m-1)b=1+t and fixes those weights, and row sums fix all diagonals. This certifies uniqueness without assuming graph invariance of P and gives the limit 1/3 directly.
 
-## Closest sources and limitations
-[1] S. Boyd, P. Diaconis, L. Xiao, *SIAM Review* 46 (2004), 667–689, doi:10.1137/S0036144503423264. [2] S. Boyd, P. Diaconis, P. A. Parrilo, L. Xiao, arXiv:0709.0955v1 (2007), and *SIAM Journal on Optimization* 20 (2009), 792–819, especially §§3.1, 4.3, and 5.4.2–5.4.4. Discrete-time symmetric uniform-stationary stochastic kernels only. No independent review or complete unpublished-literature search is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim is the exact crown-cone result, especially uniqueness over all supported symmetric kernels, not just invariant ones. Later exact catalogue results together recover the value and exhibit the same kernel; those parts are not independent of the broader theorem and base value when these results are available. Their catalogue dates are later, and their statements do not settle the unrestricted optimizer assertion. The literature search is bounded.
+
+## value
+
+PASS
+
+Crown cones naturally combine a hub and a sparsified bipartite core. Their exact optimum makes the two active eigenvalue constraints explicit. The rigidity proof answers a question symmetry reduction leaves open: whether a nonsymmetric assignment of edge weights under graph automorphisms can match the optimal SLEM. This is a structural result for an infinite family, rather than just evaluating a solver or repeating a transfer formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:59:41.267599Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p dividing b, unequal digit valuations make v_p(a+c) their minimum, already met by both terms. When the valuations are equal, the term in the lower position has strictly smaller valuation than the other; hence the valuation of n is exactly v_p(a)+i v_p(b). This proves the exact lower-position cutoff, including i=0. The coprime part of the sum divides n iff c(b^(j−i)−1) vanishes modulo it, so division by gcd(q,c) gives the order modulo h, with h=1 unobstructed. For positive gap t k, the admissible lower positions number max(L−I−tk,0), which gives the floor expression even for L≤I. At N=L−I≥0 the exact sum is N²/(2t)−N/2+r(t−r)/(2t), including N=0; expansion proves the stated coefficients and bounded nonnegative periodic remainder. Independently, python3 /workspace/branches/independent_replays.py, function niven, recovered the nine decimal frequency classes for all 81 ordered pairs directly from modular divisibility, not the frozen valuations/order implementation, and verified 1483/48, 623/6 and 1483/1944. Direct decimal counts gave Θ(20)−Θ(4)=−2/3 and Θ(29)−Θ(5)=−1, ruling out periods 16 and 24. Every proper divisor of the already proved period 48 divides one of these two, so the least period of the tail is 48. The normalization is 81 binomial(L,2) in base 10, not 10^L, and only the remainder is periodic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1985 Theorem 6 gives a fixed decimal digit-sum asymptotic with degree equal to that sum; the class-count product in Lemma 5 is stronger than the aggregate asymptotic. The 1988 coprime-sum case uses products of coefficients of (1+x+⋯+x⁹)^n to count residue classes and extract a leading constant.",
+          "Fredricksen et al. construct smallest or candidate-small Niven numbers at a prescribed sum and exploit multiplicative orders, not population counts. The unrestricted 2003 comparison is stated in the frozen record; a theorem passage was not retrieved here."
+        ],
+        "reasoning": "Aggregate fixed-sum leading coefficients cannot isolate the support-two slice. The exact class machinery can count it, but does not resolve the sharper pair parameters or certify minimal decimal period without additional arithmetic. Neither the minimum problem nor unrestricted population asymptotic provides that information.",
+        "searches": [
+          "Cooper–Kennedy 1985 §4, Lemma 5 and Theorem 6 (EMIS facsimile)",
+          "Cooper–Kennedy 1988 pp. 163–165, eqs. (3)–(5) (Fibonacci Quarterly facsimile)",
+          "arXiv:0803.0477v1 §§1–2",
+          "10.4064/aa106-3-5"
+        ]
+      },
+      "checked_sources": [
+        "Cooper–Kennedy 1985 §§4 and 1988 pp. 163–165 (primary facsimiles)",
+        "arXiv:0803.0477v1",
+        "OEIS A005349, A066008 and A144261 plus linked Radcliffe note",
+        "Resultary b36d723bd0ec, e9f54c184e45, 3be0fd61032a and a376371772be",
+        "10.4064/aa106-3-5 (no primary passage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Because support count is preserved under the 1985 equivalence, one can count the decimal support-two members of each fixed digit sum by summing the exact multinomial class sizes over admissible support-two classes. This genuinely gives an alternate implicit exact decimal calculation.",
+          "The reviewed law collapses that type of enumeration to a single sharp threshold and period for each pair for all bases, and proves the decimal remainder cannot have any period dividing 16 or 24."
+        ],
+        "reasoning": "Implicit computability and nonsharp periodic residue classes are prior. The covering argument stops short of the new exact divisibility classifier, the resulting arbitrary-base floor law, and the explicit least phase; the pass is for those substantive distinctions, not independent rediscovery of the decimal partition machinery.",
+        "searches": [
+          "Cooper–Kennedy 1985 definitions (4.2)–(4.4), Lemma 5, Theorem 6",
+          "Cooper–Kennedy 1988 nonnegative residue tuples and coefficient extraction near equations (3)–(5)",
+          "Resultary b36d723bd0ec Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cooper–Kennedy (1985) §4 sorts decimal positions into residue progressions after a fixed tail and rearranges each progression's digit multiset, preserving both divisibility and support cardinality.",
+          "Same-day Resultary b36d723bd0ec counts strings on {0,a} of arbitrary support size modulo a specified odd modulus. Later two-summand Zeckendorf entries use Fibonacci indices and division by number of summands."
+        ],
+        "reasoning": "The first is an exact alternative counting scheme on decimal fixed-sum classes, but a full residue table with a common tail is not the sharp ordered-pair threshold and minimal gap progression. The latter records do not implement both the support-two condition and divisibility by the arbitrary two digits' sum.",
+        "searches": [
+          "Resultary: exact two-nonzero-digit Niven/Harshad counts, sparse radix power sums and two-summand Niven laws",
+          "Web: Cooper Kennedy On an asymptotic formula for the Niven numbers 1985 pdf 537 543 Cooper Kennedy repository"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005349 lists all decimal Harshad integers; A066008 counts all n-digit Harshad integers. A144261 is a least multiplier sequence; Radcliffe's note linked there constructs one sparse multiple rather than providing an exact support-two count.",
+          "Resultary b36d723bd0ec is same-day and differs in model; later e9f54c184e45 counts fixed-coefficient power-sum images without divisibility."
+        ],
+        "reasoning": "Neither the generalized digit-string recurrence nor the inspected general Harshad tables stratifies by exactly two nonzero positions. Any individual terms that also have two occupied positions do not constitute an exact period/density profile.",
+        "searches": [
+          "OEIS: exact phrase two nonzero digits and Harshad",
+          "OEIS A005349, A066008 and A144261",
+          "Resultary: sparse digit and periodic Niven count/density"
+        ]
+      },
+      "rationale": "Credit is restricted to the exact all-base ordered-pair cutoff/order law, its closed all-length sum, and the sharp decimal phase and density. Fixed-sum studies already supply an implicit exact decimal counting procedure on this subpopulation by restricting to the union of classes with two occupied positions. They are prior coverage of the existence of residue-class counting, not evidence for novelty of quasi-polynomiality by itself. The inspected procedure does not identify each pair's sharp base-prime cutoff and exact gap progression in arbitrary base or extract the least collective decimal phase and constants.",
+      "residual_risks": [
+        "The old decimal multiset method already provides an implicit exact count, so any novelty claim for decimal counting or generic periodicity alone would be too strong. Further refinements or sparse-sequence publications may duplicate specific decimal data.",
+        "Imperfect facsimile extraction and the unretrieved 2003 theorem limit the reach of comparisons. The closest same-day Resultary record was distinguished by content, not chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Real implicit decimal support-two overlap, less explicit than sharp pair law",
+          "evidence": "Equivalence fixes the tail and allows rearrangement within residue progression blocks; class size is a product of multinomial counts. Restricting classes by support cardinality preserves those exact sizes. Facsimile text extraction is imperfect in displayed equations.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/IJMMS/Volume8_3/386824.pdf",
+          "material_read": "§4, definitions (4.2)–(4.4), Lemma 5 and Theorem 6, print pp. 540–542, OA offsets 7550–15536",
+          "method": "OA EMIS facsimile text after publisher access failed",
+          "title": "On an Asymptotic Formula for the Niven Numbers",
+          "trigger": "Potentially covering digit-multiset machinery"
+        },
+        {
+          "assessment": "Fixed-sum coefficient method; related residue enumeration, not sharp two-position law",
+          "evidence": "Partitions decimal positions by periodic powers and uses coefficient products for class sizes, extracting asymptotics by digit sum.",
+          "identifier_or_url": "https://www.fq.math.ca/Scanned/26-2/cooper.pdf",
+          "material_read": "Print pp. 163–165; OA offsets 0, 2552–6864, particularly equations (3)–(5)",
+          "method": "OA journal facsimile",
+          "title": "A Partial Asymptotic Formula for the Niven Numbers",
+          "trigger": "Fixed-sum constant calculation could include a refined support count"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Minimizes at prescribed sum and constructs with powers of the base when the sum and base are coprime.",
+          "identifier_or_url": "https://arxiv.org/html/0803.0477v1",
+          "material_read": "§§1–2, OA offsets 0 and 3600",
+          "method": "OA primary HTML",
+          "title": "Minimal Niven numbers",
+          "trigger": "Sparse Niven numbers and multiplicative orders"
+        },
+        {
+          "assessment": "No support-two stratification in inspected definitions",
+          "evidence": "Entries list all such integers or count all n-digit such integers.",
+          "identifier_or_url": "https://oeis.org/A005349 and https://oeis.org/A066008",
+          "material_read": "Definitions; website offsets 0 and 137–147 respectively",
+          "method": "OA website text",
+          "title": "Counting sequences for decimal Harshad numbers",
+          "trigger": "Possible exact population tables"
+        },
+        {
+          "assessment": "Different divisibility statistic and support family; no date-order assumption",
+          "evidence": "Length-L strings on {0,a} with arbitrary possible occupancy are counted modulo an odd q.",
+          "identifier_or_url": "Resultary 2026/10/18 b36d723bd0ec",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local Resultary and mirror text",
+          "title": "Cyclotomic cancellation and signed residue recurrences for two-digit radix sets",
+          "trigger": "Closest same-day sparse modular radix comparison"
+        },
+        {
+          "assessment": "Not used as decisive positive or negative coverage evidence",
+          "evidence": "Frozen RESULT.md attributes the unrestricted x/log x asymptotic to Theorem 1; no alternate text was relied on.",
+          "identifier_or_url": "https://doi.org/10.4064/aa106-3-5",
+          "material_read": "Only bibliographic/frozen description, no theorem passage retrieved",
+          "method": "OA DOI and lawful official-site attempts",
+          "title": "On the counting function for the Niven numbers",
+          "trigger": "Broader unrestricted base-b counting comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exactly two occupied positions is the first support size where digit interactions can change divisibility. Splitting the exact lower-position cutoff from the exact admissible gap reduces the full population law to a finite digit-pair census for every base. The exact decimal proportion and the least collective phase quantify a natural conditional population not resolved by unrestricted Niven asymptotics. The useful contribution is the classifier and sharp arithmetic data, not merely observing that finite residue classes yield polynomials.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

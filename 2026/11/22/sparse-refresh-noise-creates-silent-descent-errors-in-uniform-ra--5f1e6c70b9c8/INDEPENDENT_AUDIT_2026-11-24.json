@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:20:51.799383Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Apply the probability integral transform to the common atomless law. With q=1−p, the centered one-coordinate projection of D is (X_1−1/2)−(X_n−1/2), since the two projections cancel at every interior score. Its variance is 1/6, and the remaining two-coordinate component has variance (n−1)/12: the total variance is (n+1)/12 by the −1/12 covariance of adjacent comparisons and independence at greater distance. Refresh multiplies degree-one and degree-two components by q and q² respectively, giving cross covariance q/6+(n−1)q²/12, equivalent to the claim, and the stated variance of Δ. A comparison flips with probability 1/3 given one replacement and 1/2 given two, yielding E H. For a sole interior replacement, conditional on a=|old−new|, the two flips are independent Bernoulli(a) and contribute opposite signed changes if both occur. E a=1/3 and E a²=1/6 give probabilities 1/2,1/6,1/6,1/6 for the stated four marks. Excluding endpoint hits and replacement pairs within distance two costs at most 2p+2np². Conditional on the remaining mask, disjoint neighborhoods give independent marks, so the ideal iid marked trials can be coupled on the good event. Each site's nonzero mark count is Bernoulli(p/2); coupling to Poisson(p/2) and uniformly coloring points costs at most (p/2)² per site, which is even below the np²/2 term used in the record. Adjusting three independent Poisson means to λ/6 costs at most |np−λ|/2, and the map to (Δ,H) preserves the bound. H=0 iff all three limiting Poisson counts vanish; summing equal positive/negative mark counts gives the Bessel term, and the event of positive double flips alone proves strict positivity. H=0 implies Δ=0 but both H=0 and Δ≠0 have positive marginal probabilities, establishing dependence. Below the critical scale use E H; above it, centered bounded one-dependent comparison changes have kth joint cumulant sum O_k(np) from connected tuples only (each tuple's moments vanish unless one of its O_k(1) relevant refreshes occurs). Since variance is of order np, standardized cumulants of fixed order ≥3 vanish and moment determinacy gives the Gaussian limit. VERIFICATION.md and CHECK.py were inspected but not executed; the reported exact n=2–4 mask/score-order checks and single-site permutations test the local moments and mark law, not the TV bound or Gaussian limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison identifies one-ranking descents and asymptotic normality in Borodin–Diaconis–Fulman, and local descent/inverse-descent CLTs in Chatterjee–Diaconis. Targeted primary full-text retrieval timed out.",
+          "Generic Poisson coloring and TV couplings provide the approximation machinery given a known local mark distribution. The three nonzero marks here, including a double comparison flip with no count change, must be computed for this refresh model."
+        ],
+        "reasoning": "General local-dependence theorems are relevant to approximating a sum of marked rare events; they do not by themselves specify the rank-refresh law at the claimed rates or the intensities and support of the silent marks.",
+        "searches": [
+          "Resultary: joint Poisson TV approximation for refresh and rare adjacency marks",
+          "arXiv:0904.3740 sections 2 and 5",
+          "arXiv:1608.01666 Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Resultary 5f1e6c70b9c8 (self match) and distinct summaries 307cb7e06ed6, be76713add64, 3e671ccea832",
+        "arXiv:0904.3740 and arXiv:1608.01666 (frozen comparisons and unsuccessful targeted requests)",
+        "Focused external search for iid-score-refresh descent models"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed Gaussian-mark and signed adjacency-cluster laws refer to domination edges or rare common adjacency in independent orders, not changes after resampling a site. The rank-comparison dependence hit does not introduce a second refresh-coupled ranking.",
+          "The new calculation couples isolated refreshed neighborhoods and accounts for endpoints and nearby replacements, giving a joint bound; single-ranking CLTs and the independent-ranking special case p=1 do not supply that argument."
+        ],
+        "reasoning": "The main law cannot be obtained from the available comparison statements by substituting the refresh rate or reinterpreting the single-ranking descent count. Exact covariance is readily derived from product noise, and the Gaussian proof uses standard dependence/moment arguments; the originality judgment rests on the full joint marked law and application.",
+        "searches": [
+          "Resultary 307cb7e06ed6, be76713add64 and 3e671ccea832",
+          "Borodin–Diaconis–Fulman and Chatterjee–Diaconis, comparison of one-ranking and joint-statistic conclusions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The model is resampling underlying iid scores, not adjacent swaps, two independent rankings (except at p=1), or a distance on the two permutations. H measures Hamming distance of the descent-indicator arrays.",
+          "The exact covariance is a product-noise projection polynomial q/6+(n−1)q²/12, but this projection calculation does not identify the joint law with H. The distinct external query returned broadly related noisy-ranking material, not a decisive passage on coordinate refresh."
+        ],
+        "reasoning": "Recognition of the product-coordinate equivalent explains the elementary covariance, and comparison of couplings avoids treating generic noisy-ranking results as equivalent. The joint mark law and H have additional content beyond the covariance polynomial.",
+        "searches": [
+          "Resultary: exact refresh covariance; product-coordinate noise and silent descent changes",
+          "Literature: permutation descents independent refresh resampling iid scores noise sensitivity covariance descent indicators compound Poisson sparse total variation ranking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assignment's indexed identity 5f1e6c70b9c8 was the leading exact hit, not independent evidence. Other hits concern conditional comparison dependence or marked adjacency/coordinatewise Poisson laws with different underlying events.",
+          "No independent entry viewed specifies these three λ/6 intensities for descent refresh; Skellam zero probabilities and the Bessel identity themselves are classical."
+        ],
+        "reasoning": "An exact distribution for the Δ marginal alone, or a general Poisson table, would not establish the joint event with H>0. Search results are bounded evidence, not a certification of priority.",
+        "searches": [
+          "Resultary: exact sparse refresh covariance and marked-Poisson limit",
+          "Resultary: silent descent errors and quantitative joint TV law"
+        ]
+      },
+      "rationale": "The supported distinct result is the explicit joint refresh law for descent-count error and comparison Hamming error, its finite total-variation estimate, and the consequent positive probability of count agreement with local change. Classical one-dependent descents, compound-Poisson approximation, and the product-noise covariance mechanism are credited as ingredients, not separately novel general results.",
+      "residual_risks": [
+        "No full-text exclusion is made for the cited comparison papers or mirrored neighboring records where exact passages were unavailable. An equivalent marked limit under a differently named independent-score refresh model could predate the available statements.",
+        "Product-coordinate noise can mechanically yield the covariance once the projection levels are identified; the originality judgment does not rely on that formula alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single-ranking background credited, no whole-document conclusion",
+          "evidence": "The frozen comparison identifies the one-dependent descent process and its normal law, not a joint rank-refresh statement.",
+          "identifier_or_url": "https://arxiv.org/abs/0904.3740",
+          "material_read": "Frozen comparison and identified sections 2 and 5; primary passages not retrieved",
+          "method": "Targeted lawful OA request and comparison with stated scope",
+          "title": "On adding a list of numbers (and other one-dependent determinantal processes)",
+          "trigger": "Strong baseline for descents and local dependence"
+        },
+        {
+          "assessment": "Related permutation CLT background, broader scope unverified",
+          "evidence": "The frozen comparison cites descent/inverse-descent statements, a different coupling from refreshing iid scores and measuring H.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.01666",
+          "material_read": "Frozen comparison and locator Theorems 1.1–1.2; primary full text unavailable",
+          "method": "Targeted lawful OA retrieval and statistic/model comparison",
+          "title": "A central limit theorem for a new statistic on permutations",
+          "trigger": "Potential joint descent limit or stronger CLT"
+        },
+        {
+          "assessment": "Related method, not the same event or marked law",
+          "evidence": "The summary uses rare domination edges with Gaussian coordinate-sum/gap marks, not signed descent changes and Hamming changes.",
+          "identifier_or_url": "2026/11/22/SCOPE-independent-gaussian-center-and-gap-marks-of-rare-coordinatewise--307cb7e06ed6",
+          "material_read": "Indexed summary, mirror passages unavailable",
+          "method": "Resultary and target-scope comparison",
+          "title": "Independent Gaussian center and gap marks of rare coordinatewise events",
+          "trigger": "Closest same-date indexed marked-Poisson analogy"
+        },
+        {
+          "assessment": "Distinct coupled statistic in available statement",
+          "evidence": "The summary concerns common adjacencies in independent orders conditioned on a rare triplet, not iid-score replacement.",
+          "identifier_or_url": "2026/11/22/SCOPE-signed-poisson-adjacency-clusters-conditioned-on-a-rare-common-t--be76713add64",
+          "material_read": "Indexed summary, no exact mirror passage used",
+          "method": "Resultary and comparison of conditioning and coupling",
+          "title": "Signed Poisson adjacency clusters conditioned on a rare common event",
+          "trigger": "Signed marked adjacency events on rankings"
+        },
+        {
+          "assessment": "Local dependence overlap only",
+          "evidence": "The indexed result concerns consecutive comparisons; it does not specify a refresh-coupled sample or a marked joint law.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-conditional-dependence-path-for-consecutive-rank-comparisons--3e671ccea832",
+          "material_read": "Indexed summary",
+          "method": "Resultary and statement comparison",
+          "title": "A conditional dependence path for consecutive rank comparisons",
+          "trigger": "Same elementary adjacent comparison process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural descent count can agree before and after noise even when local comparisons have changed. The joint approximation detects both single-site double flips and cancellations across sites, phenomena the limiting marginal count difference cannot distinguish. It supplies a probability for these silent changes, a finite error bound in the sparse regime, and a coherent comparison with the many-refresh Gaussian regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:01:17.339225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md, verify_betweenness_eigenvector_boundary.py (inspected, not executed), and graph_atlas_connected_2to6.json",
+        "/workspace/replay_5.log"
+      ],
+      "rationale": "Independently generated graph orbits directly from all edge masks through order six; the connected counts match, and the submitted Atlas table has exactly one mask in each independent orbit at orders 2–6. For each unordered endpoint pair, enumerated simple paths of the known shortest length and accumulated the exact fractional internal-vertex counts. For Perron comparisons, with p the adjacency characteristic polynomial and lambda its simple top root, q(z)=p(z)/(z−lambda) gives q(A) times the all-ones vector as a positive multiple of the Perron vector: it annihilates other eigenspaces and acts by p'(lambda)>0 on the top eigenspace. Built this vector polynomial by synthetic division and matrix Horner evaluation, isolated lambda over the rationals and used reduction modulo its irreducible factor for ties, with interval sign refinement for nonzero differences. This avoids both the supplied principal-cofactor certificate and floating-point tie decisions. There are no conflicts through five; the seven six-vertex representatives match in both leaders, give disjoint orbits of sizes 720,720,720,720,180,360,360, and exhaust the 3780 conflicts among 26704 connected labeled graphs. The fifth betweenness vector is (7,0,0,6,0,0), and six of seven classes have tied maximum degree. Replay: python /workspace/replay_frozen_graphs.py 5 (SymPy 1.14.0), output /workspace/replay_5.log.",
+      "residual_risks": [
+        "The exact claim uses unweighted undirected connected simple graphs, endpoint-excluding Freeman betweenness, ordinary adjacency eigenvector centrality, and two singleton maximizing sets. It does not classify tie-level or larger-order conflicts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Campiteli et al. compare centralities in correlation plots on specific empirical networks. Grando et al. define and compare both notions and use many sampled model networks on the scale of roughly 100 vertices."
+        ],
+        "reasoning": "These establish context and differences between centralities, not a theorem for all connected graphs that specializes to the unique-maximizer boundary through six. Correlation of ranks or scores does not establish coincidence of two unique winners.",
+        "searches": [
+          "arXiv:1005.4803, pp. 1 and 3–4",
+          "arXiv:1811.01317, pp. 1–3 and Table I"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:2026/10/12/07b351ab145e",
+        "Resultary:2026/10/13/b452e5477117",
+        "Resultary:2026/10/12/0a32f57959a5",
+        "arXiv:1005.4803",
+        "arXiv:1811.01317",
+        "NetworkX graph_atlas_g documentation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree–betweenness witness {01,03,05,12,13,14,23,24} maps to target class 1 via 0,1,2,3,4,5 -> 0,1,3,4,2,5; it has unique degree leader 1 and betweenness leader 0. Degree versus eigenvector has no conflict through six when both maxima are unique. The PageRank graph exactly matches target class 5."
+        ],
+        "reasoning": "Combining the two degree comparisons proves agreement through five on the subdomain where degree also chooses a unique leader, and identifies the eigenvector winner of class 1 if its uniqueness is separately established. It cannot be used on tied-degree graphs, which account for six of the seven first-conflict types. The PageRank overlap adds another known eigenvector winner but not a betweenness theorem. Thus even the combined results do not imply the target lower bound over its full domain or the exact seven-class count. No priority is inferred from same-day dates.",
+        "searches": [
+          "Resultary:2026/10/13/b452e5477117, Finding",
+          "Resultary:2026/10/12/0a32f57959a5, Finding",
+          "Resultary:2026/10/12/07b351ab145e, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior PageRank result uses the identical graph {01,02,03,34,35,45} and proves the same eigenvector winner 3, but its other winner 0 is for uniform-teleportation PageRank at all nontrivial damping parameters."
+        ],
+        "reasoning": "Positive graphwise rescaling of unnormalized Freeman betweenness or of the Perron vector cannot alter the maximizing vertices. PageRank based on a stochastic matrix is not equivalent to geodesic betweenness, even if both favor vertex 0 in that example. The PageRank proof supplies the Perron half of target class 5, not the direct lower bound or census.",
+        "searches": [
+          "Resultary: betweenness versus eigenvector unique-leader small-graph boundary and close centrality pairs",
+          "Resultary:2026/10/12/07b351ab145e, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Graph Atlas documentation describes a complete list through seven vertices; the submitted appendix gives order and edge mask, not a prior table of the two leaders. Grando's Table I describes notions of importance rather than tabulating the small graphs. Ranked catalogue results surfaced adjacent boundaries but no direct seven-class table in the inspected hits."
+        ],
+        "reasoning": "An enumeration of undecorated graphs permits the computation but does not itself give the required exact joint leader classification. Neither of the two identifiable shared witnesses yields the remaining cases.",
+        "searches": [
+          "Resultary: direct centrality pair and exact seven-class/3780 layer",
+          "NetworkX graph_atlas_g documentation",
+          "Frozen graph_atlas_connected_2to6.json"
+        ]
+      },
+      "rationale": "The supported contribution is the direct betweenness versus adjacency eigenvector unique-leader boundary and complete seven-class first layer. Prior work compares the measures, and two exact catalogue results already give substantial witness-level information on particular graphs. Those overlaps do not cover the tied-degree domain or supply the complete direct classification. No novelty is attributed to the known PageRank witness graph or its known eigenvector leader.",
+      "residual_risks": [
+        "Catalogue queries and inspection of identified primary papers are bounded, not evidence against an unlocated table or annotated atlas. Witness-level reuse is explicit; the pass concerns the direct finite threshold and exhaustive joint census."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact witness-level overlap, not equivalence of the two comparisons.",
+          "evidence": "Edges {01,02,03,34,35,45}; proves unique Perron leader 3 and PageRank leader 0 for all damping values in (0,1).",
+          "identifier_or_url": "Resultary:2026/10/12/07b351ab145e",
+          "material_read": "RESULT.md Finding and witness Proof, offsets 0–3220, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Resultary search and local mirror passage, including direct read of the eigenvector proof.",
+          "title": "Six vertices are the sharp all-damping PageRank–eigenvector-centrality maximizer boundary",
+          "trigger": "Identical witness graph and Perron leader."
+        },
+        {
+          "assessment": "Its single conflict graph is isomorphic to target class 1; only the degree and betweenness leaders are asserted there.",
+          "evidence": "Orbit size 720; betweenness leader 0, degree leader 1, and edge set isomorphic by (0,1,3,4,2,5).",
+          "identifier_or_url": "Resultary:2026/10/13/b452e5477117",
+          "material_read": "RESULT.md Finding, offsets 0–1896, same snapshot.",
+          "method": "Resultary search, local mirror read and a direct relabeling test.",
+          "title": "Six vertices are the sharp unique-maximizer split for degree and betweenness centrality",
+          "trigger": "Close exact alternative pair with the same six-vertex cutoff."
+        },
+        {
+          "assessment": "Only gives a conditional comparison when degree and eigenvector winners are both unique.",
+          "evidence": "Coincidence through six with those two singleton assumptions, not a conclusion about tied-degree graphs.",
+          "identifier_or_url": "Resultary:2026/10/12/0a32f57959a5",
+          "material_read": "RESULT.md Finding, offsets 0–1880, same snapshot.",
+          "method": "Resultary search and local mirror read.",
+          "title": "Seven vertices are the sharp unique-leader split for degree and eigenvector centrality",
+          "trigger": "Possible transitive implication together with the degree–betweenness result."
+        },
+        {
+          "assessment": "Empirical comparisons, no finite boundary in the inspected statements.",
+          "evidence": "Reports h-index comparisons and correlations on the Yeast and Moby Thesaurus networks.",
+          "identifier_or_url": "https://arxiv.org/pdf/1005.4803",
+          "material_read": "Abstract p. 1, text offset 800; discussion pp. 3–4, offset 6100.",
+          "method": "Open primary PDF passages.",
+          "title": "Hirsch index as a network centrality measure",
+          "trigger": "Primary paper comparing the two measures with other notions."
+        },
+        {
+          "assessment": "Empirical and model-based comparison, not exhaustive small-graph coverage.",
+          "evidence": "Betweenness as control and eigenvector centrality as visibility; samples of six network models.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.01317",
+          "material_read": "Abstract p. 1, definitions and Table I p. 2, methods p. 3, text offsets 0, 8800, 11200, 19200.",
+          "method": "Open submitted-version primary PDF passages.",
+          "title": "An Analysis of Centrality Measures for Complex and Social Networks",
+          "trigger": "Direct comparative work defining both centralities."
+        },
+        {
+          "assessment": "Tabulates graph types rather than the relevant statistics.",
+          "evidence": "graph_atlas_g returns the Atlas graphs through seven vertices (1253 graphs overall).",
+          "identifier_or_url": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.atlas.graph_atlas_g.html",
+          "material_read": "Function description, page text offset 0.",
+          "method": "OA public page read.",
+          "title": "NetworkX Graph Atlas documentation",
+          "trigger": "Possible exact table coverage and independent description of the census domain."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, witnesses and centrality definitions",
+        "arXiv:1811.01317, Table I",
+        "/workspace/replay_5.log"
+      ],
+      "rationale": "A shortest-path broker and a recursively prestigious vertex are two natural but different uses of the phrase most central. The exact smallest-order guarantee under two unique choices and the seven onset types provide precise benchmarks for both concepts and for tie handling. In six of the seven types, a unique-degree-mediated heuristic cannot even be used, so the new complete layer is substantively more informative than reusing a known PageRank/eigenvector witness or one degree comparison.",
+      "residual_risks": [
+        "The fraction describes labeled graphs of order six, not typical networks or any empirical distribution. The census makes no statement about the remaining ranks or larger orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

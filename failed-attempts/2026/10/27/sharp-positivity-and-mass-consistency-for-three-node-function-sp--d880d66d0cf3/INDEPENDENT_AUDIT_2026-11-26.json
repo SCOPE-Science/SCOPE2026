@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:23:42.928635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "When s is nonzero the nodal matrix has determinant 2s(1−c) and forces D. Independently, exact quadrature of the derivatives of the cosine/cosh forces equal endpoint weights q, and the derivative of the sine/sinh gives 2cq+h_mid=2s/k. The derivative of their product gives h_mid+2(2c²−1)q=2sc/k by the double-frequency identity in both cases. Solving gives q=s/[k(1+2c)] and h_mid=2(1+c)q; direct multiplication of the forced D gives the SBP identity. At sin ω=0 a zero sample vector of sin(ωx) has nonzero center derivative; at 1+2cos ω=0 the zero endpoint diagonal entries of D violate the boundary identity. The sign chart therefore gives exactly the two open residue bands, and the condition number follows from the ordered positive exponential weights. Differentiating the excess-mass numerators gives 2sinh λ(sinh λ−λ) and 2sin ω(ω−sin ω), both strictly positive on the respective exponential and first trigonometric domains. On the second positive band the logarithmic derivative of the half-mass is strictly positive since cot(ω−π)>1/√3>1/ω; the endpoint limits are zero and infinity. Independently solving the stated equation numerically gives 4.028701322025359624. Replay: use the nodal matrices in RESULT.md lines 26–40 and scalar identities in lines 42–59; the packaged verify_fsbp.py was inspected, not executed. The mass statements for trigonometric fitting apply only in the fundamental period; positivity, not mass, repeats in all aliases. No fully discrete PDE property was validated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general positive-quadrature criterion for (FF)' gives the framework, not the explicit conditions; general movable-node quadrature results alone do not settle a prescribed grid.",
+          "The distinct exponential theorem excludes all closed three-node mass-exact grids for span{1,e^λx,e^−λx}, even with a movable interior node. Its nonnegative quartic-in-e^λx witness vanishes at each candidate node yet integrates strictly positively."
+        ],
+        "reasoning": "The exponential basis is equivalent by an invertible real change of basis. Strict excess mass follows from the continued norm's continuity on λ>0, its large-λ asymptotic e^λ/(2λ), and the stronger impossibility of equality. The two trigonometric entries are likewise broader on their respective intervals because they classify moving as well as centered interior nodes.",
+        "searches": [
+          "arXiv:2203.05479, Theorems 4.4–4.5 and Corollary 4.6",
+          "arXiv:2604.23306, Theorems 2.6 and 3.2–3.4",
+          "Resultary 187e0851884f, Finding and Proof §§1–2"
+        ]
+      },
+      "checked_sources": [
+        "Glaubitz–Nordström–Öffner arXiv:2203.05479 §§4,6.1–6.2 and arXiv:2405.08770 Eq. (3.9)",
+        "arXiv:2306.16314 §4.2 and arXiv:2604.23306 Theorems 2.6, 3.2–3.4",
+        "Resultary 530fd3576bbd (lower band), 00dc40bdb2f0 (upper band/mass), 187e0851884f (exponential obstruction)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Constant integration is already an explicit design constraint in the optimization paper, but it does not supply the sharp fixed-grid answer. The indexed lower/upper interval theorems cover the nonresonant frequencies in the fundamental period.",
+          "Replacing ω by ω+2πj leaves the samples unchanged and scales derivative samples by (ω+2πj)/ω. D scales by that positive factor and H by its reciprocal. At ω a multiple of π the vanishing sine samples obstruct exactness directly."
+        ],
+        "reasoning": "The broader classifications plus elementary alias scaling cover every claimed trigonometric positivity frequency and the full stated mass domain. The exponential exact norm is the direct continuation above and the impossibility of mass equality independently follows from the broader node obstruction. No priority is inferred from matching dates or record ordering.",
+        "searches": [
+          "Resultary 530fd3576bbd and 00dc40bdb2f0 (Findings); 187e0851884f (Proof §§1–2)",
+          "arXiv:2405.08770, Eq. (3.9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The midpoint trigonometric norm in both entries is diag(q,2(1+cos ω)q,q), with q=sin ω/[ω(1+2cos ω)]. The lower-band entry also gives D explicitly; its middle coefficient uses sin ω/(1−cos ω)=(1+cos ω)/sin ω.",
+          "Analytically continue the exact matrix identities from 0<ω<2π/3 to ω=iλ. The nodal value and derivative columns map to those of the exponential space with the sine column multiplied by i. The continued D and H are real, finite, and H positive for λ>0; their entries are exactly those in the frozen proof."
+        ],
+        "reasoning": "These are meromorphic matrix identities and the continuation has no singularity at iλ for λ>0. The exponential nodal matrix is invertible there, and the same diagonal and corner equations force the norm. The ratio of the middle to endpoint weight is immediately 2(1+cosh λ); the exact exponential mass is the sum of these same diagonal entries. Thus the exponential norm and condition number are not an independent remaining invariant.",
+        "searches": [
+          "Resultary: three fixed equidistant nodes exponential summation by parts cosh sinh norm weights condition number 2(1+cosh lambda) excess mass",
+          "Resultary 530fd3576bbd Finding and 00dc40bdb2f0 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published examples use four trigonometric nodes and five nodes for a different exponential space; the second-derivative paper's trigonometric example also uses four nodes. The indexed high-frequency branch table gives the exact midpoint range π<ω<4π/3 and the exact calibration equation and decimal 4.0287013220253596…; the low-frequency analysis gives the exact other branch and its strict mass inflation."
+        ],
+        "reasoning": "The earlier sample matrices are not the required fixed-grid table. The two indexed parametric tables/formulas, by contrast, agree exactly on each midpoint domain, including the normalization root, not merely to plotted accuracy.",
+        "searches": [
+          "arXiv:2203.05479, §§6.1–6.2, (6.4) and (6.8)",
+          "arXiv:2306.16314, §4.2 (4.4)–(4.7)",
+          "Resultary 530fd3576bbd and 00dc40bdb2f0, Finding branch table"
+        ]
+      },
+      "rationale": "Distinct catalogue theorems cover both trigonometric bands and the exact normalized midpoint frequency, and a direct continuation of the explicitly tabulated midpoint matrices gives the exponential norm, hence its condition number. A stronger indexed exponential obstruction independently excludes three closed mass-exact nodes. This establishes coverage, not priority or dependence between entries.",
+      "residual_risks": [
+        "Date metadata does not identify historical priority or dependence among these entries.",
+        "The review does not assert a classification of physical-mass calibration in higher trigonometric periods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the lower band and its norm/mass, with variable interior position",
+          "evidence": [
+            "It forces a=0, ω<2π/3, and the same D and diagonal norm; mass is strictly greater than two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-midpoint-rigidity-sharp-frequency-threshold-and-mass-inflation-f--530fd3576bbd/RESULT.md",
+          "material_read": "Finding, scope and beginning of proof (offsets 0–3635)",
+          "method": "Local catalogue mirror and exact formula comparison",
+          "title": "Midpoint rigidity, sharp frequency threshold, and mass inflation for three-node trigonometric SBP",
+          "trigger": "Exact matching first trigonometric band and matrices"
+        },
+        {
+          "assessment": "Covers the full upper fundamental half, more broadly allowing off-center branches",
+          "evidence": [
+            "The central branch is exactly π<ω<4π/3 and its normalization equation and solution are identical."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-reentrant-high-frequency-trigonometric-sbp-geometry-and-exactly--00dc40bdb2f0/RESULT.md",
+          "material_read": "Finding/branch table, scope, proof opening (offsets 0–4508)",
+          "method": "Local catalogue mirror and compare midpoint slice",
+          "title": "Reentrant high-frequency trigonometric SBP geometry and exactly three mass-calibrated grids",
+          "trigger": "Exact matching second band and isolated normalization root"
+        },
+        {
+          "assessment": "Stronger no-mass-exact theorem, not an explicit unnormalized three-node norm",
+          "evidence": [
+            "The product-derivative space plus constants is spanned by 1 and e^(±λx),e^(±2λx); the positive-integral vanishing witness excludes any three closed nodes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-four-node-mass-exact-exponential-sbp-quadrature-and-bounda--187e0851884f/RESULT.md",
+          "material_read": "Finding, scope and Proof §§1–3 (offsets 0–6181)",
+          "method": "Local catalogue mirror and proof comparison",
+          "title": "Sharp four-node mass-exact exponential SBP quadrature and boundary-layer scaling",
+          "trigger": "General exponential mass obstruction at the same small node count"
+        },
+        {
+          "assessment": "General criterion and other node choices, not explicit fixed-grid conclusions",
+          "evidence": [
+            "Exact quadrature on (FF)' is the criterion for unisolvent nodes; the Gaussian/Lobatto results allow node selection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.05479 ; https://arxiv.org/pdf/2604.23306",
+          "material_read": "2203.05479 pp. 7–10, Theorems 4.4–4.5, Corollary 4.6 and §§6.1–6.2; 2604.23306 pp. 4–5, Theorems 2.6 and 3.2–3.4",
+          "method": "OA primary PDF passages",
+          "title": "Summation-by-Parts Operators for General Function Spaces; Optimal Nodes",
+          "trigger": "General existence and possible grid/positivity classification"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Positive fixed-grid fitting and correct physical mass are worthwhile numerical design questions. However, the exact bands, normalized root and mass infeasibility are supplied by the matching stronger results. The remaining appearance of a new exponential condition number is the immediate diagonal weight ratio after continuing an already explicit matrix, not a distinct conditioning theorem that survives the comparison. No new numerical stability or higher-period mass result is proved.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

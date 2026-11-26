@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:07:40.907507Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–53",
+        "Frozen VERIFICATION.md and verification.py (code inspected, not executed; finite identities and numerical approximations are only supplementary)"
+      ],
+      "rationale": "Rotate the chosen deleted point to a fixed origin: the remaining uniform points generate a uniform simplex of gaps, with the two incident gaps at its two ends. In independent exponential coordinates, let T be their sum, R their maximum, Z the maximum elsewhere and S the full sum; the event is T>Z and the exponential-scale increase is (T-max(R,Z))_+. The Gamma(2,1) integral reduces to a beta derivative and gives H_(n-1)/(n-1). Alternatively, in the inverse coupling an independent new point must split the largest gap of the post-deletion sample to create a strict loss in the maximum; this gives E[M_(n-1)] directly. The standard uniform-simplex inclusion-exclusion integral gives E[M_k]=H_k/k (with M_1=1), so subtract the means at k=n-1 and n and divide by P(A) for the conditional mean. The tail inequality at t>=0 requires both incident exponentials to exceed t and T>Z+t. Shifting both by t via memorylessness yields the displayed signed binomial expansion via the Laplace transform of a Gamma(2,1) sum. At n=2 the event is certain and the exponential-scale tail is e^(-2t), consistent with a single full-circle post-deletion gap. For n>=3 the conditional joint density of (Z-log n,T-Z) converges pointwise to e^(-2x-e^(-x))*e^(-w) on w>0. This is a normalized product, so Scheffé gives total variation convergence for those auxiliary variables. The ordered incident-gap split is exactly uniform independent of (T,Z); P(R>Z|A)<=2/H_(n-1) follows by symmetry of each incident exponential with the unaffected ones. The sum concentration remains overwhelming relative to P(A) and makes the error from n/S even on the log n term tend to zero. This yields the stated physical joint weak limit with mutual independence.",
+      "residual_risks": [
+        "The finite tail is under the exponential coupling, not a tail in physical units. The exact split-mark independence is from occurrence and the auxiliary (T,Z), not a claim that it is independent of the finite physical increase."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The thinning theorem uses eps_n*log n->tau and gives joint limits of original and thinned maxima plus finite expected counts by retained block length",
+          "The inspected abstract of Aras–Jammalamadaka–Zhou concerns random-size symmetric spacings, not a conditional extreme of coupled before/after samples"
+        ],
+        "reasoning": "For eps_n of order 1/log n at positive tau, the expected number of deletions diverges; conditioning on a deletion count of one is not justified by the limiting two-maximum CDF. No uniform first-order error or coefficient identity transferring that CDF and the mark to the exact-one conditioned sequence was stated in the inspected passages.",
+        "searches": [
+          "Resultary critical deletion noise record, mirror offsets 0–5911 and 7600–10199",
+          "Web search above; Aras–Jammalamadaka–Zhou, Limit distribution of spacing statistics when the sample size is random"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic queries and critical deletion noise mirror passages",
+        "arXiv:1405.6114",
+        "arXiv:1508.00944",
+        "Aras–Jammalamadaka–Zhou abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For c=e^tau-1>0 the thinning limit can be written (X,max(X,B)), with X standard Gumbel and independent B of CDF exp(-c*e^(-y)). Given B>X its (X,B-X) density is (1+c)*exp(-2x-w-e^(-x)-c*e^(-x-w)) for w>0, tending to the same unmarked density as tau decreases to zero"
+        ],
+        "reasoning": "This is substantial process-level overlap, not evidence of date priority or a justified exchange of limits for the exact-one event of probability of order log n/n. The finite one-deletion tail and the conditional triple under that specific sampling law are not established by the thinning result as stated.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-critical-deletion-noise-for-the-longest-empty-arc-of-a-uniform-c--be203965d8ce, two-maximum limit and marked blocks",
+          "arXiv:1405.6114, Theorem 2 and Corollary 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest distinct Resultary hit is SCOPE-critical-deletion-noise-for-the-longest-empty-arc-of-a-uniform-c--be203965d8ce, Finding and finite block-count identity; it uses independent Bernoulli deletions",
+          "Schlemm, arXiv:1405.6114, Theorem 2 and Corollary 1; Mijatović–Vysotsky, arXiv:1508.00944, Theorem 1"
+        ],
+        "reasoning": "An equivalent inverse experiment adds a uniform point to an (n-1)-sample and conditions on splitting the largest old gap. This recovers the exact probability from the known marginal mean, but the marked claim also tracks the new sample's maximum and the loss when splitting. A maximum over all k-spacing windows is not conditioning on a single uniformly sampled window beating the remaining gaps. The self-hit in the index is not an independent result.",
+        "searches": [
+          "Resultary: uniformly selected one site removed from uniform circular sample; event that longest spacing increases; exact harmonic probability H_(n-1)/(n-1)",
+          "Resultary: conditional rare limit for deleted-point merged circular gap exceeding previous maximum; independent negative log Gamma overshoot exponential and uniform split mark",
+          "Web: Bernoulli thinning maximal spacing circular gaps uniform points largest spacing after random deletion rare conditional limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact harmonic probability is the classical (n-1)-sample expected maximum under the insertion reduction. The inspected thinning count is an expectation of block counts, not the exponential-scale increment tail e^(-2t) times the binomial sum"
+        ],
+        "reasoning": "A table of maximum-spacing marginal moments or expected retained counts cannot by itself give the joint increase tail; it would need to include the competition with both incident pieces and the unaffected maximum. No independent exact tail enumeration appeared in the checked sources.",
+        "searches": [
+          "Resultary exact harmonic-probability and marked-limit queries above",
+          "Schlemm circular maximum moments and Mijatović–Vysotsky maximal k-spacing theorem"
+        ]
+      },
+      "rationale": "The distinct claim is the exact single-deletion law including the exponential-scale tail and the joint marked conditional weak limit for exactly one uniformly selected deletion. The harmonic probability is a direct consequence of the classical maximum mean via inverse insertion; the conditional mean likewise follows from the known marginal means and this probability. These components and the standard gamma split are not themselves evidence of originality. The most relevant same-day thinning result reproduces the two unmarked densities in an iterated small-noise limit, but does not give the exact-one rare conditioning or its finite law.",
+      "residual_risks": [
+        "The simple inverse-insertion representation makes a scattered older equivalent in spacing theory plausible. The Cambridge hit lacked readable full text and the bounded search does not establish historical priority. The two same-day indexed dates establish no priority order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial small-noise asymptotic overlap, different conditioning and no exact one-deletion increment identity",
+          "evidence": "Independent Bernoulli deletion at eps_n*log n->tau gives CDF exp(-e^(-min(x,y))-(e^tau-1)*e^(-y)); the length-two block intensity is tau*e^(-x).",
+          "identifier_or_url": "2026/11/22/SCOPE-critical-deletion-noise-for-the-longest-empty-arc-of-a-uniform-c--be203965d8ce",
+          "material_read": "Finding and relevant proof passages, offsets 0–5911 and 7600–10199",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Critical deletion noise for the longest empty arc of a uniform circular sample",
+          "trigger": "Strongest indexed overlap in coupled deletions of circular samples"
+        },
+        {
+          "assessment": "Unconditioned marginal and moments, not the marked conditional event",
+          "evidence": "The ordinary centered maximum has a Gumbel law, as distinct from the conditional Gamma tilt.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.6114",
+          "material_read": "Theorem 2 and Corollary 1, p. 5, extracted offset 24191",
+          "method": "OA PDF, bounded passage",
+          "title": "Limiting distribution of the maximal distance between random points on a circle: a moments approach",
+          "trigger": "Same marginal circular maximum"
+        },
+        {
+          "assessment": "Maximizes candidate windows; does not sample one window and condition on its exceeding the old maximum",
+          "evidence": "Gumbel law for the maximum k-spacing.",
+          "identifier_or_url": "https://arxiv.org/abs/1508.00944",
+          "material_read": "Theorem 1, pp. 2–3, extracted offset 4169",
+          "method": "OA PDF, bounded passage",
+          "title": "On the weak limit law of the maximal uniform k-spacing",
+          "trigger": "A merged adjacent pair is a two-spacing"
+        },
+        {
+          "assessment": "Abstract scope is symmetric spacing limit theory, not the marked one-deletion law; no whole-paper assessment",
+          "evidence": "The abstract treats random sample size rather than conditioning on an increase induced by a chosen deletion.",
+          "identifier_or_url": "Statistics & Probability Letters 8 (1989), 451–456",
+          "material_read": "First page including abstract, PDF offset 0",
+          "method": "OA PDF, first page only",
+          "title": "Limit distribution of spacing statistics when the sample size is random",
+          "trigger": "Web hit for random sample size and spacings"
+        },
+        {
+          "assessment": "Unresolved; not counted as a non-covering source",
+          "evidence": "Bibliographic hit only.",
+          "identifier_or_url": "Cambridge title hit, Random coverage of the circle and asymptotic distributions",
+          "material_read": "No readable primary passage retrieved",
+          "method": "Bounded direct and alternate OA attempts",
+          "title": "Random coverage of the circle and asymptotic distributions",
+          "trigger": "Potential earlier circular coverage comparison from the focused web query"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–22 and 28–53",
+        "Schlemm ordinary marginal and Resultary critical deletion noise comparisons"
+      ],
+      "rationale": "This is sensitivity of a standard geometric extreme to random removal, rather than the already studied maximum over potential removals. The marked joint law quantifies not only how rarely a deletion is pivotal, but how its occurrence biases the old maximum and how the actual increase and deleted point location then behave. The exponential-scale finite tail gives exact finite calibration; the non-Gumbel tilt and asymptotic independence are the scientific gain beyond the elementary probability and mean.",
+      "residual_risks": [
+        "Restricted to one uniformly chosen deletion in the uniform circular model; does not address adversarial deletions or a multi-deletion regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

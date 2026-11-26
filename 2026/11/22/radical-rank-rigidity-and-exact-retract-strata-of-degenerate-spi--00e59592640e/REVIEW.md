@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The unit-image analysis is essential: any nonzero homomorphism must fix the identity because a primitive-idempotent image would force the defining symmetric form of rank at least two to factor as one linear character squared. Comparing pure-vector products then forces a block-orthogonal normal form. Explicit composition and idempotency equations establish the formula for retractions; Gaussian counts and smooth projection-orbit bundles establish the finite-field ranks and geometric dimensions. `verify.py` independently replays finite cases against the original multiplication and exact radical matrices. The arbitrary-dimensional theorem depends on the written proof, not the tests.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Fideles–Martino (DOI 10.1016/j.jalgebra.2023.09.032) studies polynomial identities for the same degenerate spin-factor family, and its decomposition is acknowledged as prior; the full author preprint was not accessible for final comparison. Martino (DOI 10.1016/j.laa.2013.10.013) studies group gradings and polynomial identities. Fidelis–Diniz–Koshlukov (DOI 10.1016/j.aim.2018.08.014) studies embeddings and nondegenerate trace identities, including the known orthogonal symmetry. The closest indexed retraction claims concern nonunital associative bilinear-product or evolution algebras with different multiplications. No inspected statement or demonstrated implication provides this complete degenerate Jordan endomorphism/retraction normal form and census. Priority is provisional, not an assertion of exhaustive uniqueness.
+PASS
 
-## Mathematical value — PASS
-The natural object is the endomorphism monoid of a unital Jordan algebra with a nonzero form radical, where the simple quotient remains rigid but the radical supports nontrivial retracts. The result determines every endomorphism rank, every retraction rank, automorphism-orbit and smooth geometric component, and shows that the exact retraction census is independent of the Witt type even though the full endomorphism census is not. A uniform discrete-Gaussian concentration bound identifies typical intermediate retraction ranks as the radical grows. It is a complete structural classification across arbitrary dimensions, not an arbitrary finite slice.
+Computing e=F(1), every idempotent is 0, 1, or has scalar part 1/2 and B(w,w)=1/4. In the third case its Peirce-one space is exactly its line, by the vector equations x=2bw and u=2bv for an element with scalar b. Multiplicativity would then express the rank-m pure-vector form as the square tensor of a scalar character, impossible for m≥2. For a unital map write its pure-vector image as phi(v)1+T(v). If phi(v) is nonzero, the vector equation with v=v gives Tv=0 and its equation with arbitrary x gives Tx=0. The scalar equation then gives the same rank contradiction. To justify the quotient argument without assuming that T preserves the radical, first project T restricted to W back to W: the scalar identity shows this map is an isometry and hence surjective. Pairing the W-projection of T(R) against that entire W then forces T(R)⊆R. This gives the stated normal form and its converse, rank, composition and automorphisms. Squaring gives G=I, U²=U, US=0; radical change of basis and conjugating by a shear with T=−S yield one orbit per allowed rank. For a retraction choose a j-plane, one of q^(j(r−j)) complements, and S into that complement. For arbitrary U choose image, kernel and quotient isomorphism independently. Over the algebraic closure the complementary pairs form an open subvariety of the product of Grassmannians; the allowable shears are a vector bundle. The rank-j locus among projections is closed by rank(U)≤j and rank(I−U)≤r−j, avoiding trace ambiguities in positive characteristic. The zero map and unital locus are disjoint closed sets distinguished by F(1). This confirms all component dimensions. Finally the Gaussian-binomial product bounds the rank weights by constant multiples of q^((r−j)(m+2j)); completing the square and using the nearest admissible integer to j_* proves the stated tail bound, including r=m/2.
 
-## Limits and residual literature risks
-Characteristic two and quadratic-form rank one are excluded. The geometric claim is for reduced varieties. Full conjugacy of non-idempotent endomorphisms is not claimed. The author preprint for the 2023 motivating publication, despite a listed open-access copy, could not be read in full; a general radical-extension theorem or unpublished source may subsume the classification. The same-model proof and finite tests are not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known form-algebra decomposition and orthogonal symmetry are not new. Credit the full normal form for possibly nonunital and singular maps together with the consequent labeled retraction stratification and concentration for this specific family. The compared catalogue results are on different algebra varieties. The strongest same-class author's full text was not accessible by reasonable lawful routes, so this is a bounded decision, not a whole-document claim or historical-priority attestation.
+
+## value
+
+PASS
+
+The result determines exactly where rank may be lost on a natural degenerate form algebra, quantifies its retractions and identifies their conjugacy and algebraic strata. In particular it explains why the retraction counts lose all Witt dependence even though the endomorphism counts retain it, and why typical retractions at large radical dimension do not have either extreme rank. Those structural and distributional facts go beyond recounting a single finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-branch deterministic-path proof covers every strongly connected graph with exactly one surplus directed edge, including loops, shared paths and equal-length cycles. The determinant cycle expansion gives a full formal zeta-function identity; the gcd-period rule treats periodic and primitive systems. The construction checks vertex/edge counts and absence of parallel arcs. The arithmetic count handles the equal-length exception separately and proves the exact totient identity and the asymptotic. The embedded finite checker passed 12,007 exact assertions; finite enumeration is not presented as a universal proof.
+## correctness
 
-**Originality — PASS, with a concrete adjacent-literature limitation.** The 2026 Klech butterfly classification subsumes the two-cycle structural description, and the 2013–2026 Matsumoto–Matui classification supplies the equivalence invariant. These are credited explicitly. The identified new statement is the full **period-stratified zeta census with exact totient closed form**, together with the fully specified sparse class inside one continuous-orbit-equivalence class; the inspected papers do not state that combined period-by-period arithmetic classification. The elementary character of the reduction is an acknowledged priority risk, and absence from searched records is not a uniqueness certification.
+PASS
 
-**Mathematical value — PASS, with a narrow scope.** Mixing is a canonical dynamical property, and primitive graph presentations at exactly one surplus edge are the natural positive-entropy boundary of finite-type shifts. The formula determines, for every allowed period, exactly how many different periodic-orbit spectra survive at that boundary. The explicit \(\varphi(N)/2\) incremental mixing spectrum and exact equal-cycle exception distinguish quantitative questions not answered by a mere low-entropy extremal. This is a complete classification of a naturally defined sparsest regime, not an arbitrary small finite subcase; the result does not claim a general flow-equivalence classification or a new proof of the butterfly structure.
+For the repaired result, the unique branching vertex generates two first-return cycles covering all vertices, with a common deterministic suffix. Their lengths realize the stated inequalities, and making the two disjoint forward branches and common return path produces every pair; precisely the double Hamiltonian equal case would require parallel edges. Their intersection leaves only the two single-cycle determinant terms. The gcd is the period, and at z=1 the determinant −1 gives trivial Bowen–Franks group and unit, matching the full two-shift under the irreducible non-permutation classification. Writing a=du,b=dv reduces the sum condition to u+v≥floor(N/d)+1 for coprime u<v; subtracting φ(s)/2 per excluded sum gives T, with the diagonal contributing only for d<N<2d. The mixing profiles genuinely arriving are the φ(N) pairs (a,N); the losses are the φ(N)/2 unordered coprime pairs of sum N. Net change is therefore precisely φ(N)/2. No endpoint exception occurs for N≥3; d≥N gives no admissible profiles. Inspected the frozen verification notes and VERIFY_SPARSE.py; not executed. The program's small graph tests are primitive comparisons and its larger arithmetic test uses the parameter set, not exhaustive graph generation or a turnover certificate. The repaired turnover follows symbolically.
 
-Closest literature: Klech (2026) for butterfly structure and entropy; Matsumoto–Matui (2026) for entropy flexibility and continuous orbit equivalence; Matsumoto–Matui (2014) for zeta functions under cocycle changes; Kiefer–Ryzhikov (2024) for the standard directed period invariant. Residual risk: the totient period spectrum could be implicit in another enumeration of primitive bicyclic digraphs. The current priority comparison does not certify historical uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded pass for the corrected period-stratified distinct-zeta census within the exact N+1 edge family, with its exact mixing turnover. The butterfly form, two-return polynomial, and continuous-orbit-equivalence criterion are prior; this is a modest arithmetic refinement, not a new graph or orbit-equivalence classification.
+
+## value
+
+PASS
+
+The parameter slice is the smallest edge budget beyond directed cycles, not a discretionary cutoff. Period-by-period counts quantify the number of zeta-distinguished shifts within a single COE class and recover the sharp mixing census. The turnover correction also distinguishes actual profile change from the growth of the count. This is a useful exact invariant of a natural family, not a claim about classification of equal-zeta shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

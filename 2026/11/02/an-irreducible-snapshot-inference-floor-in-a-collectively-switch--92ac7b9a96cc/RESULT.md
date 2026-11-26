@@ -13,7 +13,7 @@ Here \(A=\alpha/\gamma\), \(B=\beta/\gamma\), and the irreducible infinite-popul
 \boxed{R_\infty=\frac{B_{1/2}(A+1,B)+B(A,B+1)-B_{1/2}(A,B+1)}{B(A,B)}.}
 \tag{2}
 \]
-The beta-Dirichlet stationary mixing law and its state-conditioned version are **prior results**, not the novelty claim. The claim is the exact **population-snapshot optimal binary inference risk**, its strict positive infinite-population floor, and the evaluated sharp \(N^{-1}\) approach. In the symmetric switching family the risk has an additional elementary formula valid for every \(N\), stated in (5).
+The beta-Dirichlet stationary mixing law and its state-conditioned version are **prior results**, not the novelty claim. The claim is the exact **population-snapshot optimal binary inference risk**, its strict positive infinite-population floor, and the evaluated sharp \(N^{-1}\) approach. At the symmetric benchmark \(\alpha=\beta=\gamma\) (that is, \(A=B=1\)), the risk has an additional elementary formula valid for every \(N\), stated in (5). For general symmetric switching \(\alpha=\beta\), the gamma-function formula below gives the limiting floor, not the finite-\(N\) risk.
 
 ## Assumptions and scope
 Let \(\gamma,D,\ell,\alpha,\beta>0\). A stationary continuous-time Markov chain \(S_t\in\{0,1\}\) changes from \(0\) to \(1\) at rate \(\alpha\), and from \(1\) to \(0\) at rate \(\beta\). Given this **shared** environment, let \(B^i\) be independent two-sided standard Brownian motions, independent of \(S\), and define each particle by its unique stationary solution

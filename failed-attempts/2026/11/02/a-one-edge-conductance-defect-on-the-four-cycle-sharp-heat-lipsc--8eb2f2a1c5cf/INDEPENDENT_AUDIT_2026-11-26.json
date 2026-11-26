@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:36:31.524333Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–42 and 44–124; accompanying VERIFICATION.md and verify_cycle.py inspected, not executed."
+      ],
+      "rationale": "The signed edge-gradient map identifies the quotient by constants with the zero-sum hyperplane. Differentiating there gives the stated two-dimensional block on opposite gradients and decay e^(-2t) for the side-edge difference. The intersection of the unit cube and the hyperplane has only the six two-plus/two-minus vertices. On those vertices the opposite-edge row norms are X+(2-r)Y and X+rY and the side-edge norms are Z+|r-1|Y in the notation of the proof. The other vertex type gives strictly smaller magnitudes for all four edges at positive time. Comparing Z with X+Y using the power series gives the claimed strict edge-selection rule. The vertices maximizing each signed row give its whole exposed face, including the segment for a weak edge and the unweighted degeneracy. At t=0 all functions extremize. For r<1 the derivative is a difference of two exponentials with negative initial derivative and the negative term decaying slower. For r>1 the sign of the derivative is obtained from the bracket in RESULT.md lines 112–117: the bracket falls from 2D_r to a negative minimum, then approaches zero from below. This proves the strict threshold and uniqueness of the peak. Each finite r gives norm strictly below 3/2, whereas t=(log r)/r sends the two relevant exponentials to 1 and 0 respectively as r grows. On a triangle the gradient norm is the oscillation and cannot increase under Markov averaging.",
+      "replay_paths": [
+        "RESULT.md lines 44–119 give the analytic replay. For the numerical example, take the six potentials (0,g0,g0+g1,-g3) for g a permutation of (1,1,-1,-1); evaluate their vertex heat action by Taylor powers of -L_r and bracket the zero of the derivative on the maximizing side edge. This independently gave t=0.0528210068448 and norm 1.0468814600577 at r=5.",
+        "Frozen verify_cycle.py is the separate uniformization replay referenced in VERIFICATION.md."
+      ],
+      "residual_risks": [
+        "The independent numerical replay is floating point and only corroborates the r=5 example. Decimal uniformization is not interval arithmetic; the continuum results follow analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The birth–death intertwining has a path-type state space; the weighted graph curvature equivalence gives gradient semigroup estimates, not this exact time curve. The separate weighted-cycle Resultary record has H_(4,p)(a,b)=|a-b| and at p=2 gives max{-2r,|r-1|-2,-2} for this defect."
+        ],
+        "reasoning": "The broader cycle criterion implies the sharp amplification boundary even without the exact earlier profile; it does not by itself give the equality faces or the envelope.",
+        "searches": [
+          "Chafaï–Joulin arXiv:1011.2331",
+          "Münch–Wojciechowski arXiv:1712.00875",
+          "Resultary 9610d92f154a"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 56385799aa62 and 9610d92f154a",
+        "arXiv:math/0701886, 1011.2331, 1712.00875",
+        "Frozen RESULT.md Finding and prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof has |s|+|rho|<=1 and |z|<=1-|s|, and the side objective u(1-|s|)+|As+B rho| with A=(a+2b+c)/2 and B=(a-c)/2. For a winning side row with r>1, |A|<u+|B| and B is nonzero: equality requires s=0, |rho|=|z|=1 with matched signs. For r<1 the strictly winning exceptional row forces x=-y=±1/2 while |z|<=1. At r=1 the side row fixes |z|=1 but permits the other opposite gradient to vary; the opposite rows give the complementary faces."
+        ],
+        "reasoning": "The prior exact row comparison determines the winning edges and extremizing gradients by the equality conditions of its displayed optimization. The one-peak refinement is not cited as an explicit old theorem but is a routine consequence of the exact curve.",
+        "searches": [
+          "Resultary 56385799aa62, Proof §§2–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 56385799aa62 uses w=r; its (w-1)e^(-(w+2)t)sinh(Dt)/D equals (r-1)(e^(-alpha t)-e^(-beta t))/(2D), with identical first branch. Ollivier's contraction setting supplies the transport dual, not a competing profile."
+        ],
+        "reasoning": "The formula and operator match, not just the graph name or conductance parameters. Changing the coordinate convention does not change the norm.",
+        "searches": [
+          "Resultary: one-defect four-cycle heat Lipschitz profile and fast-edge threshold",
+          "Ollivier, arXiv:math/0701886"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed October 26 record 56385799aa62 explicitly states both norm branches, contractivity iff w<=3, and the sharp unattained supremum 3/2, as exact findings rather than a numerical table."
+        ],
+        "reasoning": "This is a direct database match for the main finding; the separate same-day record is additional substance-based coverage, not a priority inference from its date.",
+        "searches": [
+          "Resultary exact Lipschitz heat for C4 with weights (r,1,1,1)"
+        ]
+      },
+      "rationale": "An earlier distinct Resultary record gives the identical sharp all-time profile with the same counting measure, conductance defect, and fixed unit metric, as well as the threshold 3 and unattained envelope 3/2. Its explicit signed-edge optimization already supplies the coefficients and inequalities that specify the equality faces by saturation. The stated strict unimodality is a further explicit observation, but follows by differentiating the already known two-branch formula and comparing two exponentials; it does not make the submitted exact profile and transition original.",
+      "residual_risks": [
+        "The literature comparison was targeted, not a priority survey. The direct Resultary match is decisive regardless of whether another source says more about the equality subcases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of central theorem and sufficient row optimization for equality analysis",
+          "evidence": "Two branches, w=3 boundary, 3/2 envelope, explicit optimization over |s|+|rho|<=1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-lipschitz-heat-profile-and-a-sharp-fast-edge-threshold-on--56385799aa62/RESULT.md",
+          "material_read": "Finding and Proof §§1–6, especially offsets 2800–6967",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Lipschitz heat profile and a sharp fast-edge threshold on the four-cycle",
+          "trigger": "Exact model and profile match"
+        },
+        {
+          "assessment": "Specializes to the same initial derivative and threshold",
+          "evidence": "Four-cycle coefficient |a-b| in the gradient criterion.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-weighted-cycle-p-heat-gradient-criterion-and-six-edge-cond--9610d92f154a",
+          "material_read": "Finding and Relationship to prior work (offsets 0 and 8397)",
+          "method": "Local mirror",
+          "title": "Sharp weighted-cycle p-heat gradient criterion and six-edge conductance conditions",
+          "trigger": "Potential broader exact threshold"
+        },
+        {
+          "assessment": "Framework only in passage inspected",
+          "evidence": "Describes Wasserstein contraction coefficient for Markov kernels.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701886",
+          "material_read": "Abstract, p. 1",
+          "method": "Open primary PDF extraction; imperfect font extraction",
+          "title": "Ricci curvature of Markov chains on metric spaces",
+          "trigger": "Equivalent transport formulation"
+        },
+        {
+          "assessment": "Related method on a different state space",
+          "evidence": "Intertwining a discrete gradient with a new semigroup for birth–death processes.",
+          "identifier_or_url": "https://arxiv.org/abs/1011.2331",
+          "material_read": "Abstract, p. 1",
+          "method": "Open primary PDF",
+          "title": "Intertwining and commutation relations for birth–death processes",
+          "trigger": "Potential prior gradient reduction"
+        },
+        {
+          "assessment": "Mechanism for infinitesimal threshold and exponential control, not the time profile in compared passages",
+          "evidence": "Graph transport-cost formula and equivalence of curvature lower bound and semigroup contraction.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+          "material_read": "Theorems 2.6 and 3.8, pp. 10 and 19",
+          "method": "Open primary PDF",
+          "title": "Ollivier Ricci curvature for general graph Laplacians",
+          "trigger": "General heat-gradient criterion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–35 and 98–119; Resultary 56385799aa62 Proof §§2–6"
+      ],
+      "rationale": "The model and sharp profile would be worthwhile in isolation. In this record the profile, threshold and envelope recompute known exact results, and the remaining strict faces and peak shape use respectively saturation and differentiation of the prior proof and formula. No independently motivated unknown invariant survives as presented.",
+      "residual_risks": [
+        "This judgment is specific to the one-defect family and is not a claim about heat norms on more general weighted graphs."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

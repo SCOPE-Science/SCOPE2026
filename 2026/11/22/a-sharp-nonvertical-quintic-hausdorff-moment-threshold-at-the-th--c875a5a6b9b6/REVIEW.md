@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polynomial telescoping identity proves the strict sixth-isometry and gives the Cauchy-dual moments. The inverse Laplace transform is a finite signed measure on the unit interval and is unique by polynomial density. The explicit trigonometric factorization identifies all first-period extrema, the period recurrence controls every subsequent period, and the endpoint calculation produces the unique sharp threshold. `check.py` successfully reproduces finite algebraic and analytic identities. Risk: the analytic proof relies on the precise interpretation of the Hausdorff representing measure, made explicit in RESULT.md; numerical samples alone do not establish all-time signs.
+PASS
 
-## Originality — PASS (best-knowledge historical comparison)
+Positive increasing P gives bounded expansive weights; P(n+k)/P(k) has exact degree five in n, giving the strict sixth-difference identity, not the fifth. Cauchy-dual moments telescope to P(0)/P(n). Subtracting the two quadratic Laplace resolvents, then convolving with e^(−at), yields the signed density in RESULT.md; its logarithmic-coordinate absolute value is bounded by a constant times (1+t)e^(−min(a,b)t). The finite signed density is uniquely determined by its Hausdorff moments, so its continuous interior sign is decisive. With y=ct the integrand factors as (2/3)sin(y/2)(1−cos(y/2))(4cos(y/2)+1), with signs +,−,+,− over one period; hence minima only at 0, 2π, 4π. At 2π the sign is that of 5−(8λ²+13)e^(−2πλ), immediately excluding λ≤0. For positive λ the full-period integral is strictly positive, with each new period a positive accumulated offset plus a rescaled first period. The log-equation derivative is positive since 16λ/(8λ²+13)≤√(8/13). At equality the only interior vanishing point is y=2π (the derivative has a strict sign change and F''(2π)=2e^(−2πλ)); hence x=e^(−2π/c). The independent numerical replay /tmp/opencode/frozen_math_samples_a91d.py gives λ*=0.1543920340043247835587; check.py was inspected, not executed. Its printed period and recurrence counts overstate the loops (four positive-λ period evaluations and 84 recurrence comparisons); the diagnostics are not used as proof.
 
-Reza and Zhang (arXiv:1903.00116, 2019) study reciprocal-polynomial moments and select quintic classes, supplying general method rather than the stated exact nonvertical \(3:2\) threshold. Buchała (arXiv:2407.17233, 2024) provides the polynomial \(m\)-isometric shift framework. An accessible earlier related finding treats a repeated complex quadratic factor; it is not the present two-distinct-frequency polynomial, and neither implication gives the sharp constant here. published-finding corpus, existing claims, and targeted public literature searches uncovered no decisive matching theorem. Remaining risk: nonindexed or inaccessible literature may contain an equivalent case.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Rational Hausdorff-moment classification is known to be subtle already in degree five. This natural first small noninteger rational-frequency case exhibits a sharply quantified positive/negative transition under shifting the real pole; the density is just tangent to nonnegativity at the critical value. This supplies a concrete subnormality boundary for a substantial three-parameter strict \(6\)-isometric operator family, rather than a computed example or arbitrary finite-degree slice.
+Substantial same-family overlap is explicitly credited. The general signed-density criterion, existence of a displacement threshold ray, and the isometry construction are not a distinct contribution of this record. The supported unroutinized result is the exact evaluation of the threshold at the first noninteger rational ratio 3:2, with necessity across all a,b,c>0 and the location and uniqueness of the critical interior density zero. Neither the broad implicit threshold nor the near-integer expansion resolves the global positivity test at this ratio.
 
-## Scope and verification limits
+## value
 
-The result is specific to two conjugate pairs sharing a real part, with frequencies in ratio \(3:2\). No claim is made about arbitrary fifth-degree polynomials, or independent external verification. A finite computational checker supplements, rather than replaces, the full proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first noninteger ratio of two positive integral frequencies in lowest terms is a natural test outside the equal-real-part integer resonance classification. The result exactly resolves when finite positive damping restores an entire representing measure, and identifies the singular boundary location. It is a reusable nonvertical benchmark for positivity tests with competing frequencies, without a claim to classify other ratios.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

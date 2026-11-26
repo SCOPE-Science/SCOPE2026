@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Certificate verification
+# Independent mathematical audit
 
-Run `python verify_cycle.py` (Python 3, standard library only). The script explicitly lists all 15 graph edges, all 10 elementary jumps, and six distinct labeled agents. It verifies cubic regularity and the six repetitions of the block using exact rational arithmetic. It checks every jump lands at a vacancy, its source is occupied, utility strictly improves, and all individual agent labels return to their original vertices after 60 moves. Successful output:
+## correctness
 
-```text
-PASS: Petersen degree 3, 4 vacancies, 6 labeled agents,
-      60 exact strictly improving jumps, labeled state restored.
-```
+PASS
 
-No unproved extrapolation is made from this finite witness. The verifier is ordinary executable arithmetic code, not an independent audit or a formal-proof certification.
+The outer 5-cycle, five spokes and inner pentagram give the standard connected cubic Petersen graph. An independent exact rational replay of the frozen edge list, initial labeled state and jump block verified occupied sources, vacant destinations, recomputation after vacating the old vertex, and strict gains 0→1/2 and 2/3→1 on alternating moves in all six blocks. The ten-move block permutes the labels on vertices (1,2,3,4,5,6) by the single cyclic shift 1→2→3→4→5→6→1; it interchanges the two types in place after one block, preserves all vacancy locations at block boundaries, and restores every agent after six blocks. Repetition gives an infinite strict improvement path and rules out any strict ordinal potential on this finite state space.
+
+## originality
+
+PASS
+
+The inspected literature explicitly asks about degree-three regular graphs with the fractional utility and does not cover the exhibited four-vacancy two-type witness. The closest matching cycles use different hypotheses or payoffs.
+
+## value
+
+PASS
+
+This is a short, repeatable finite certificate answering the stated cubic-regular potential question negatively in a symmetric unweighted instance with only two types. The degree restriction and labeled closure are the substantive points; a merely type-level return or a cycle in a higher-degree model would not answer the question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

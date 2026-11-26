@@ -1,17 +1,21 @@
-# Scientific review: mass-concavity and irreversible fusion
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated equivalence is established with positive vertex fidelity masses and positive internal edge penalties, with the two exterior penalties fixed to zero. A finite signed-block decomposition yields affine solution pieces. For any active gap, its absolute-value derivative is bounded by the difference between the chord interpolant of the penalty profile and its value at the intervening mass coordinate; concavity makes that bound nonpositive. Necessity uses strictly increasing data to expose a locally expanding jump. A separate finite-parameter construction, with one initially negative gap and large positive neighboring gaps, proves actual positive-interval fusion and subsequent unfusion whenever concavity fails. The rational three-site example satisfies the KKT equations on all five pieces. The standalone finite checker passed 3,864 concave-profile comparisons and nine witness checks; no infinite statement rests on the numerical tests.
+## correctness
 
-## Originality — PASS, with historical priority uncertainty
-The 2004/2005 fused-lasso introduction provides the model but not this mass-aware edge-weight design theorem. The 2013 direct 1D TV algorithm treats equal edge/fidelity weights. Bento–Furmaniak–Ray (2018) describe possible unfusion, the worst-case number of fusion events and a sufficient dual-boundary criterion for possible events; their Section IV identifies conditions on weights and signals affecting path complexity as future research. That work does not state the necessary-and-sufficient arbitrary-mass concavity classification or universal monotonicity of each jump magnitude. The accessible summaries of a separate weighted-isotonic-regression result concern two-input projection stability, not the parameter-dependent path of TV regularization. Known primal-dual characterizations are used as methods, not misclaimed as new.
+PASS
 
-Residual risk: earlier or unindexed sources may contain the same universal classification; the 2004 founding paper was accessible through its abstract and bibliographic description but not verified in full. Priority is not independently certified.
+Strict convexity gives uniqueness. Summing the stated signed subgradient equations on a constant block gives its affine mean shift; cumulative flux at an internal edge must stay in [-lambda a_j,lambda a_j]. For each fixed signed partition those flux inequalities and the primal signs are linear in lambda, giving a finite piecewise-affine continuous path. At a nonzero middle gap the absolute-gap derivative is bounded by a_l/P+a_r/Q-a_i(1/P+1/Q) for the two block masses P,Q. Mass-coordinate concavity makes this nonpositive by the chord inequality; continuity covers simultaneous hits, ties and lambda=0. For a failed inequality, singleton blocks on strictly increasing data give the claimed strictly positive initial slope. For the split witness put c=(qA+pC)/(p+q)>B and K=pq delta/(p+q). Holding the failed pair fused requires internal subgradient c/B-K/(B lambda), which traverses [-1,1] from K/(B+c) to K/(c-B); beyond the latter the positive singleton gap slope is (p+q)(c-B)/(pq). Outside gaps can be chosen larger than the sum of adjacent uniform shift bounds lambda(a_j+a_{j-1})/m_j over any fixed interval ending after the split. This verifies the construction even at an end edge. The displayed three-site witness checks exactly: for example in its fourth piece the fluxes are lambda and 50+lambda/2, the latter admissible at and after 100/7, with first gap 49-3lambda/2. On the final block the fluxes 98/3 and 199/3 are admissible from 98/3. The four joins and all remaining signs and fluxes match.
 
-## Value — PASS
-A common algorithmic simplification is to merge fused sites permanently as regularization increases. Weighted penalties do not guarantee that behavior. The result gives a checkable, sharp, local and dimension-independent condition—concavity in cumulative fidelity mass—under which this simplification is valid for every datum, and identifies edgewise jump shrinkage as the stronger controlling invariant. When the condition fails it supplies a constructive, genuine unfusion interval, not just a numerical pathology. This is a natural complete weight-design classification, rather than a narrow unmotivated parameter slice.
+## originality
 
-## Scope and limits
-Finite paths with strictly positive diagonal quadratic masses, strictly positive interior TV penalty weights, and a shared nonnegative regularization parameter only. No assertion for cycles, arbitrary graphs, nonquadratic fidelity, or two-input Lipschitz stability. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distinct contribution is the sharp three-way, all-data classification, in particular the necessity for irreversible fusion demonstrated by a positive-length split at every violated inequality. The sufficient direction is covered by prior generalized-lasso results, not just by the classical unweighted path theorem: after normalization the condition is diagonal dominance, and the known dual Lipschitz estimate gives absolute-gap shrinkage by complementarity. Prior unit-mass weighted-path work gives individual instances and a necessary condition on an actual event, not a construction at every failed mass-coordinate inequality. The condition itself also appears for other evolution/comparison problems; no novelty is assigned to the inequality in isolation.
+
+## value
+
+PASS
+
+The converse gives a usable sharp criterion for deciding, from weights and fidelity masses alone, when all signals admit a merge-only path. Failure at any one edge is certified by actual positive-interval fusion and separation, not just by a dual boundary event. The gap-strengthening and cumulative-mass geometry connect the classical path algorithm to sharply separated stable and unstable parameter designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

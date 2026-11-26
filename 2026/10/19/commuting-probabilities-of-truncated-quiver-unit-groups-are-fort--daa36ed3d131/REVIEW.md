@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each arrow, the equation \((d_u-d_v)y_a-(e_u-e_v)x_a=0\) has exactly \(q^2\) solutions if both diagonal differences vanish and \(q\) otherwise. Each arrow coordinate is algebraically independent in the radical-square-zero quotient. Consequently the vertex-pair coloring expansion yields exactly the FK polynomial with \((q-1)^2\) possible colors. The group order is \(q^{|E|}(q-1)^{|V|}\), and Burnside's commuting-pair identity gives the class number and probability. Loops and parallel arrows were checked at the level of the coefficient equation. For the nonisomorphic triangle orientations, \(1+J\) is characteristic as the unique normal Sylow subgroup; torus-character relation subgroups cannot match under a permutation when \(p-1\ge4\). This proves the general statements; small-field exhaustive checks are supplementary.
+## correctness
 
-## Originality — PASS, with residual risk
-The nearest published quiver literature concerns the radical of endomorphism algebras, not the full unit group with nonzero diagonal coordinates. Published graphical-group class-counts concern a different class-two group construction. A related earlier radical-square-zero **ring-element** rank distribution uses the same edge equation over unrestricted diagonal labels; the unit restriction and the group-isomorphism obstruction are not stated consequences of its global rank enumeration. The distinguishing component is the all-graph class-number specialization together with infinitely many provably nonisomorphic groups having coincident invariants. The basic FK subset identity and the standard Burnside relation are not claimed as novel. A more general classification of torus-by-radical semidirect products or group-action orbit counts could subsume these formulas; this possibility is not ruled out, and no independence certificate is asserted.
+PASS
 
-## Value — PASS
-Conjugacy-class numbers and commuting probabilities are intrinsic invariants of finite groups, and a graph-polynomial formula simultaneously computes them for every finite quiver, all finite fields, loops and parallel arrows. The algebraic nonisomorphism witness demonstrates precisely which orientation data these invariants discard; this is stronger than just repeating the formal edgewise rank count for rings. A finite but explicit graph class (forests and unicyclic graphs) has simple closed formulas; the general result is a natural complete computation rather than a small arbitrary numerical slice.
+The frozen count itself is correct: for fixed diagonal pair, one arrow has q² solutions exactly when both labels agree at its endpoints and q otherwise, including q² for a loop. Expanding the product and dividing by the appropriate group orders proves all three formulas. The repair keeps and checks the separate orientation counterexample. The unique Sylow p-subgroup (C_p)^3 is characteristic and its conjugation action factors through the diagonal quotient. Any abstract isomorphism would induce an F_p-linear intertwiner after a quotient isomorphism, so it would preserve the relation kernel among the three distinct one-dimensional characters up to permutation. The cycle requires x=y=z, whereas the transitive triangle requires x=y=−z; these subgroups differ for p≥5. The repaired full-spectrum equality follows from the cited theorem and its direct specialization: radical conjugation contributes p^(3−|B|), and the torus orbit of a surviving support F has size (p−1)^(3−k(F)); the quotient of the number of support vectors by this orbit size is direction independent. For p=5 the three diagonal types contribute 44, 72 and 24 classes, giving 140 of group order 8000 and probability 7/400.
 
-## Closest literature and limits
-T. Rossmann, arXiv:2107.05564, covers class-two graphical groups but not these quiver unit groups. T. Browning, arXiv:2201.09402, covers global finite-group commuting probabilities but not graph specialization. L. Hennecart and N. Perry, arXiv:2208.07738, count commuting pairs of radical endomorphisms rather than units. The published database summary of a Kronecker algebra computes element commutator fibers, not arbitrary graph unit-group conjugacy classes. All these differences were compared at statement level. Source inspection and search cannot prove absolute priority. The checker tests finite instances; the infinite conclusions rest on the displayed proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original asserted contribution on commuting pairs/class counts/probability FAILS originality: an earlier indexed record gives the same Tutte count for loopless quivers, and another gives a class-size enumerator in the full scope, including loops. The corrected claim asserts only abstract group nonisomorphism of the directed and transitive triangles with identical full class-size multisets, explicitly crediting the already-known equality. The strongest inspected same-pair comparison established spectral equality and different algebra global dimensions, not abstract group nonisomorphism. The character-relation separation is the distinct surviving contribution, without a historical priority claim.
+
+## value
+
+PASS
+
+The surviving claim shows on a canonical three-vertex graph, uniformly over the stated prime fields, that even all conjugacy-class sizes with multiplicities cannot recover the abstract group. The quotient action identifies exactly what the class-size data miss in this example: the signed relation between the three weights. This distinction is stronger and more useful than reproducing an aggregate count or comparing the underlying algebras, neither of which is asserted as new in the repair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

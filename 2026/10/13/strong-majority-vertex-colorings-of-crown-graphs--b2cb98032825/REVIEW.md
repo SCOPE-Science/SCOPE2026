@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The deleted matching makes every neighborhood equal to the opposite bipartition side with one indexed vertex removed. A color appearing more than \\(\\lfloor(n-1)/2\\rfloor\\) times on one side is exposed in full by a vertex whose matched partner has a different color, unless that side is monochromatic, in which case every opposite vertex sees \\(n-1\\) copies. This proves the exact side-capacity criterion. Capacity then gives the minimum; multinomial factorization and inclusion-exclusion give the exact counts.
+PASS
 
-The direct checker agrees for all tested small crown graphs and palette sizes.
+For n≥3 the integer neighborhood bound is h=floor((n−1)/2) and the count of a color on B seen by a_i is its side count minus the indicator for b_i. If the count is between h+1 and n−1, a vertex omitting a different color sees all of it; if it is n, every count is n−1>h. A side count at most h is always sufficient, and the other side is symmetric. Properness is not required. The same palette of ceil(n/h) colors can fill both sides and fewer colors have insufficient capacity. To increase the used-color count, split off one vertex from a class of size at least two into a fresh color; such a class exists until all 2n colors are used. For named palettes sum multinomials on one side and square by independence, then use inclusion–exclusion on absent names. An independent direct check reproduces both kinds of counts and the structural predicate on 672,856 assignments, yielding optimal named counts 36, 576, 8100, 8100 at n=3,4,5,6.
 
-## Originality
+## originality
 
-PASS. The initiating 2026 paper gives the exact cycle and complete-graph values but contains no crown, matching, complete-bipartite, cube, or hypercube treatment in the inspected full text. Its cycle theorem already covers the scalar \\(\\operatorname{Cr}_3=C_6\\) endpoint, which is credited rather than claimed separately.
+PASS
 
-published-finding corpus and web searches using crown, \\(K_{n,n}-M\\), strong-majority vertex, and side-capacity formulations found no covering theorem. The closest strong-majority database result concerns edge coloring; the closest crown results concern other invariants.
+The inspected results cover the scalar C6 case but not the general crown capacity criterion, spectrum, or exact named and surjective counts. The closest indexed crown result uses a different majority rule; the closest static same-invariant result uses a different graph family. Pass is for the combined crown result, not the known C6 number.
 
-## Value
+## value
 
-PASS. The main contribution is a complete structural and enumerative classification on a standard graph family, not merely the three-versus-four color number. It explains the parameter through independent side capacities, gives the entire color-count spectrum, and counts all labeled colorings exactly.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Crowns are a natural near-complete regular bipartite test for a neighborhood coloring invariant. A full classification captures when missing edges affect the constraint; the spectrum and named and onto counts specify all valid colorings, and the order-four exception is not apparent from general bounds. The usable exact profile goes beyond recomputing a known cycle value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

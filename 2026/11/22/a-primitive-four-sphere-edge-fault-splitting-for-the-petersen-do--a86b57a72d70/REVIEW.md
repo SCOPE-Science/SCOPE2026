@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and both complexes are specified by explicit closed-neighborhood predicates. Two independent face-membership algorithms agree on every subset. Complete augmented acyclic face matchings leave eleven dimension-four cells for the intact complex and seven for the faulted complex; the relative matching leaves four dimension-four cells, and their union is acyclic. The induced relative CW structure and three-connectivity of the subcomplex make all four attaching maps null. The packaged standalone verifier reconstructs every required comparison, verifies full directed Hasse acyclicity and computes independent exact mod-two boundary ranks. This is a finite proof certificate, not a nonexhaustive experiment.
+## correctness
 
-## Originality — PASS against inspected evidence
-The earlier triangular-graph neighborhood result determines the intact complex's degree-four **mod-two** Betti rank by Alexander duality. It does not determine the faulted complex or the integral inclusion. The 2020 foundational dominance paper gives general connectivity bounds; the 2023 duality paper identifies the correct dual but treats no Petersen single-edge-fault map. Their accessible complete articles and the closest mathematical-record RESULT text were inspected and compared by definitions and implications. Other related published findings address different graph complexes or different graphs. Equivalent unindexed work remains a bibliographic risk.
+PASS
 
-## Value — PASS
-An edge-transitive classical graph is a canonical test for topology under a single graph-edge fault. The precise loss of four **primitive** top-dimensional classes and explicit natural map give more mathematical structure than Betti counts or a graph domination-number comparison. The pair's relative four-cell classification enables comparisons of graph-topological perturbations; it is not simply an arbitrary additional finite table entry. No multiple-fault or general-graph result is inferred.
+The closed-neighborhood predicate has the correct inclusion direction when the edge is removed. Fresh enumeration of all 1,024 masks and the complete oriented cover graphs reproduced nonempty face vectors (10,45,120,200,192,75,10) and (10,45,118,188,166,59,6), 321/293/28 matching pairs and 11/7/4 critical 4-cells for the intact/deleted/relative sets. The combined matching is acyclic; the 15-edge orbit under the action on two-subsets verifies the universal quantifier. Replay: python3 /workspace/branches/73c09141-2177-43bc-bb06-30c106edfef6/check_ordinal3.py (fresh enumeration; not a replay of the packaged verifier or its mod-two rank check). For each absolute matching, drop the pair with the empty simplex to leave one critical vertex in the usual nonempty face poset. Absolute discrete Morse gives the two sphere wedges. Independently of the relative CW presentation, acyclic cancellation of unit signed incidences on the relative chain complex gives free homology of rank four in degree four only. The integral exact sequence thus gives the primitive split injection. To check the 'under Y' statement directly, extend the actual inclusion Y → X to Y ∨ (four S^4) → X by based Hurewicz representatives of a complement to the image; this is an integral homology isomorphism between simply connected CW complexes, hence a homotopy equivalence by Whitehead. The simplicial inclusion is a cofibration, giving the four-sphere wedge cofiber. Neither the mod-two ranks nor merely comparing absolute wedge counts suffices for these conclusions.
 
-## Scientific limits
-The conclusion concerns exactly one deleted edge in the ten-vertex Petersen graph. The primitive split is integral and nonequivariant; no canonical symmetric basis is claimed. All literature comparisons are bounded by inspected available sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known duality and intact mod-two count are overlapping background. They do not classify the integral homotopy pair for the addition of a missing edge in the dual formulation. The assessment of the natural inclusion and its cofiber is relative to checked sources, not a priority certification.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical symmetric example and a single graph-edge deletion is a natural perturbation covering every edge by symmetry. The result determines which type of integral map survives the perturbation: a primitive rank-seven inclusion with four independent cofiber generators, not just the size of two homology groups. This is a usable exact reference for comparisons of the topology of dominance complexes under edge changes. No canonical basis or general fault theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

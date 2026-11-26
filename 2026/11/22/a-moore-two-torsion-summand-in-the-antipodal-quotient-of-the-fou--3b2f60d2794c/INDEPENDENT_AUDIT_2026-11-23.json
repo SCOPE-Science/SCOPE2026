@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T18:03:48.525151Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verifier source and supporting files including verification_output.txt. Frozen verifier inspected, not executed.",
+        "Independent combinatorial replay: 742 original faces, 30 invariant, 24530 refined faces and 12414 quotient cells. All 12116 boundary-square checks in dimensions at least two vanish. Exactly 6100 geometric free-facet removals leave (10,48,96,60) cells; 104 unit contractions give residual ranks (1,0,1,4) and residual row (2,−2,0,−2), which is integrally equivalent to the frozen (2,2,0,0) and has the same Smith factor two. Independent 73-generator, 208-triangle presentation reduction eliminates all generators. With the fixed points, Armstrong gives trivial quotient π₁. Replay implementation: /workspace/branches/b98c7810-f05c-4753-9fec-1527102781c6/independent_verify.py.",
+        "Independent geometric reconstruction: let E and O be the two parity simplices and take the height equal to total odd barycentric weight. At height 1/2 the middle level L is the polyhedral complex of products Δ(S)×Δ(T) for nonempty even S, odd T, with all cross distances three. Complementing the odd labels alone identifies that bipartite relation with the ordinary cube graph and commutes with the original involution. Normalizing the two weight sets separately identifies the whole realization with the double mapping cylinder L→|E|, L→|O|. The involution preserves height; the two endpoint simplex quotients are contractible (radial contraction to invariant barycenters). Thus the ordinary quotient is homotopy equivalent to the suspension of L/C₂.",
+        "In the cube graph two distinct vertices on one side have two common neighbors precisely at distance two, and no three vertices on one side have two common neighbors. Thus L is formed by one star simplex per vertex of the cube (one side of the product a singleton), intersecting only at edge-points, plus one square per cubical square. Each star simplex may be replaced by the tree joining its barycenter to its edge-points, relative to those points. The sides of each attaching square then become the two-spoke paths between edge-points, since those paths are homotopic relative to their endpoints inside the corresponding simplex. These replacements and attaching homotopies can be made in involution pairs; equivalently make them in the quotient. This identifies L/C₂ up to homotopy with the antipodal quotient of the subdivided cubical 2-skeleton. That skeleton is simply connected since adjoining the higher-dimensional cells yields the full cube; its antipodal action is free. The quotient has π₁=C₂ and Euler characteristic (16−32+24)/2=4, so rank H₂=3. Dyer–Sieradski gives M(Z/2,1)∨3S² for this auxiliary two-complex. Suspending gives M(Z/2,2)∨3S³ for the actual quotient."
+      ],
+      "rationale": "The fixed set is exactly two tetrahedra: an invariant support is a union of opposite pairs, and opposite pairs of different parity cannot coexist since the cross distances are 1 and 3. The frozen proof correctly distinguishes orbit cells after removing inversions, geometric free-facet removal, and purely algebraic integral chain contraction. In its quotient Δ-complex, a facet occurring once in the attaching boundary of its unique maximal coface permits a deformation of the characteristic simplex onto the other facets, relative to them; this descends even if other boundary faces have identifications. A unit matrix coefficient alone would not establish that. The final three-dimensional argument is sound: a simply connected 2-skeleton is a wedge of S² by Hurewicz and Whitehead, the 3-cell attachments are vectors in π₂, and unimodular basis changes are realized by self-equivalences of the domain and target sphere wedges of the attaching map. Thus the Smith factor two and three excess 3-cells give the claimed wedge. An independent proof of the homotopy conclusion is given in the evidence below; it does not rely on the transcript of the large collapse or integer computation.",
+      "residual_risks": [
+        "These are exact finite and geometric verifications, not formal proof-assistant certification or a result for other cubes or subgroups."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barmak's Theorem 3.4 supplies the suspension property upstairs. The box-complex survey gives a general biclique framework. Dyer–Sieradski classifies spaces of dimension two with finite cyclic π₁, not this simply connected orbit space of homotopy dimension three. The earlier cube records give the upstairs integral symmetry lattice and rational character."
+        ],
+        "reasoning": "Neither the upstairs suspension theorem nor the representation computes the geometric orbit space. The two-complex theorem can be applied to the auxiliary middle-level quotient only after the object-specific equivariant identification with a square-filled cube graph, not directly to the known π₁ and homology of the original complex.",
+        "searches": [
+          "Barmak arXiv:1007.0418, general suspension theorem; Daneshpajouh–Meunier arXiv:2307.00299, box complexes; Dyer–Sieradski 1973 finite cyclic CW classification",
+          "Resultary four-cube integral symmetry and rational-character lookup"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0701890v2",
+        "arXiv:0808.0739",
+        "arXiv:1007.0418",
+        "arXiv:2307.00299",
+        "Dyer–Sieradski (1973)",
+        "Armstrong Cambridge extract and indexed statement",
+        "Configured Resultary same-cube and Rips entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior character gives the rank-three rational invariant. Simple connectivity also follows with the known simply connected upstairs complex and the existence of fixed points by Armstrong. The earlier module does not give an integral orbit CW model; the indexed Rips quotient has a different fundamental group."
+        ],
+        "reasoning": "The substantive additional statement is the small-dimensional geometric quotient with the degree-two Moore summand, not the rational rank or simple connectivity. Even when low-degree torsion can be approached via the fixed locus, it does not establish a full splitting without control of dimension and attachments. The independent derivation above needs exactly such object-specific control.",
+        "searches": [
+          "Resultary eight minimum-support octahedral spheres (id 1740b146ec04), rational hyperoctahedral homology character (e9b1ec42599c), antipodal scale-two Rips result (498994e0cb0a)",
+          "Armstrong DOI 10.1017/S0305004100038974 and Dyer–Sieradski Theorem (1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gray cyclic order in each two-bit factor identifies Q₄ with C₄□C₄ and complement with (2,2) translation. The indexed same-involution Rips quotient is RP³∨4S³ but uses distance ≤2 (no antipodal pairs); the independence complex allows distances 2,3,4. Conant–Thistlethwaite define a distinct theta construction related by Alexander duality, not a geometric quotient equivalence."
+        ],
+        "reasoning": "One must quotient the realization with these actual simplex conditions. Neither taking independence sets on a graph quotient nor substituting a Rips cutoff gives an equivalent space. The Hom-type middle section is a meaningful reformulation, but it still requires identifying and reducing its quotient; generic box-complex equivalences do not give that specific identification.",
+        "searches": [
+          "Resultary: ordinary orbit space |Ind(Q4)| antipodal quotient bit complement translation (2,2) independence complex four cube Q_4 4 by 4 torus geometric quotient integral H2 Z/2 M(Z/2,2) three 3-spheres Vietoris–Rips different",
+          "Web: independence complex 4x4 toroidal grid antipodal quotient toric hard squares C4 Cartesian product C4 translation quotient homology Moore",
+          "Web: Hom(K2 hypercube) box complex neighborhood complex hypercube cubical 2 skeleton antipodal quotient Hom K2 Q4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned this frozen record, the different free Rips result, upstairs homotopy and homology-action records, and different complexes such as higher independence and affine-cube matroid quotients. The open/cylindrical grid results are not a table of geometric symmetry quotients."
+        ],
+        "reasoning": "None of those separate exact computations retrieves this integral quotient model. This is a statement about the inspected entries, not proof of absence from every table.",
+        "searches": [
+          "Configured Resultary exact and alias searches for Q₄ ordinary geometric quotient by bit complement, Z/2 Moore summand, and half-turn toric formulation"
+        ]
+      },
+      "rationale": "The exact nonfree quotient homotopy type adds to the known upstairs invariants, including the already implied rational third Betti number. The relevant literature provides useful general tools but not the essential identification of this geometric orbit space. No equivalent or covering result was identified in the checked statements; not a definitive priority judgment.",
+      "residual_risks": [
+        "Same-cube Resultary comparisons use indexed statements, not independently inspected full texts. Older uncatalogued arguments or results on the parity-preserving action on the Hom or neighborhood complex could give a prior equivalent. No whole-document exclusion is inferred from a partial reading."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The homotopy theorems there concern independence complexes of specified grids, not the half-period geometric quotient of this complex",
+          "evidence": [
+            "Introduction distinguishes toric grids and says those homotopy methods do not settle the toric case; Theorems 6 and 7 are open and cylindrical respectively."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0701890v2",
+          "material_read": "Abstract, introduction and open/cylindrical sections returned in the HTML text",
+          "method": "Direct open arXiv text inspection",
+          "title": "On the independence complex of square grids",
+          "trigger": "Equivalent fully periodic four-by-four grid formulation"
+        },
+        {
+          "assessment": "Theta and quotient hypergraph statements are not the geometric independence quotient",
+          "evidence": [
+            "Definitions 2–3 and Proposition 1 distinguish theta from independence by Alexander duality; the introduction describes comparison to Θ(H/G), not |Ind(H)|/G."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0808.0739",
+          "material_read": "Open PDF introduction and definitions in §2, including Proposition 1 and introduction to §6 results",
+          "method": "Direct open arXiv PDF text inspection",
+          "title": "Boolean formulae, hypergraphs and combinatorial topology",
+          "trigger": "Same cube graph and quotient terminology, possible Alexander dual implication"
+        },
+        {
+          "assessment": "Recognizes the suspension phenomenon upstairs, not the homotopy type of this half-turn quotient",
+          "evidence": [
+            "Theorem 3.4 concludes the independence complex has the type of a suspension for a graph with a triangle-free vertex."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1007.0418",
+          "material_read": "Introduction through §3 opening, including stated Theorem 3.4 and discussion of Jonsson",
+          "method": "Direct open arXiv PDF text inspection",
+          "title": "Star clusters in independence complexes of graphs",
+          "trigger": "Possibly covering suspension theorem for bipartite graphs"
+        },
+        {
+          "assessment": "Supports the biclique framework; its standard action exchanges parts, whereas bit complement preserves both parity parts",
+          "evidence": [
+            "§2.1 defines B(G) through complete bipartite subgraphs; the introduction specifies the action by exchange of the two parts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.00299",
+          "material_read": "Introduction and §2 box-complex definitions, examples and general framework",
+          "method": "Open arXiv PDF text inspection",
+          "title": "Box complexes: at the crossroad of graph theory and topology",
+          "trigger": "Potential covering biclique and Hom model"
+        },
+        {
+          "assessment": "Applies only after a separate auxiliary orbit-space reduction, not directly to the frozen space",
+          "evidence": [
+            "Theorem (1) assumes a connected finite two-dimensional CW complex with finite cyclic fundamental group."
+          ],
+          "identifier_or_url": "https://www.ams.org/journals/bull/1973-79-01/S0002-9904-1973-13098-8/S0002-9904-1973-13098-8.pdf",
+          "material_read": "Full three-page open text including theorem and proof sketch",
+          "method": "Open AMS PDF text inspection",
+          "title": "A homotopy classification of 2-complexes with finite cyclic fundamental group",
+          "trigger": "Potential general classification implication"
+        },
+        {
+          "assessment": "Different face rule and free action",
+          "evidence": [
+            "Inclusive distance-two criterion excludes complementary vertices from a common simplex; the frozen independence complex contains all antipodal edges."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-antipodal-scale-two-four-cube-rips-quotient-is-mathbb-rp-3-v--498994e0cb0a",
+          "material_read": "Configured Resultary indexed statement; no full-text claim",
+          "method": "Configured Resultary lookup",
+          "title": "The antipodal scale-two four-cube Rips quotient is RP³ wedged with four three-spheres",
+          "trigger": "Most similar published geometric quotient on these vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen quotient claim and cell calculation",
+        "Indexed same-cube integral, rational and free Rips comparisons",
+        "Independent geometric orbit model in correctness evidence"
+      ],
+      "rationale": "Bit complement is the canonical central involution on the four-cube, with real fixed points in its independence complex. Its ordinary geometric quotient is a natural object already motivated by the contrast with the free Rips action and with the upstairs rational character. Identifying the degree-two Moore summand and the entire three-dimensional splitting is substantive integral information unavailable from a rational rank calculation; the small-dimensional quotient model gives a precise comparison for other cubical actions without making a generalization claim.",
+      "residual_risks": [
+        "Value is for this exact nonfree quotient, not a prediction or theorem for larger cubes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

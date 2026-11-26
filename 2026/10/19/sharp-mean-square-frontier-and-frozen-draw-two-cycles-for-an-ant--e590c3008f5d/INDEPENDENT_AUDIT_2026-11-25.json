@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:28:14.439650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ratio of the two Gibbs weights is exp(−2cZx/a), giving the stated odd map. For x>0 set b=cx/a and H=tanh(b|Z|)/(b|Z|). Under the probability tilt dQ=Z²dP, H decreases strictly with Z² and lies strictly between zero and one except on a null set. The independent-copy covariance identity gives E_Q[Z²H]≤E_Q[Z²]E_Q[H]=3E_Q[H]; replacing H by H² makes the bound strict. Thus E[Z²tanh²(bZ)]<3b E[Z tanh(bZ)], proving strict descent even at c=2/3. Expansion of the map gives (1−cZ²)x+c³Z⁴x³/(3a²)+O(c⁵|Z|⁶|x|⁵/a⁴). Gaussian moments justify the squared expansion, yielding the linearized second moment 1−2c+3c² and quartic coefficient 2c³(1−5c)/a², equal to −112/(81a²) at the boundary. Hence above the boundary small nonzero starts fail one-step descent, not necessarily almost-sure convergence. Fresh independent draws give a nonnegative square supermartingale, and telescoping gives finite total expected drift. Continuity and strict positivity of that drift away from zero exclude a positive limit of the squares. For frozen z≠0 the scaled map is v−tanh(dv), d=cz²: strict magnitude decrease at all v≠0 for d≤2 yields global convergence by continuity. For d>2, the slope at zero is below −1; tanh(dv)/v decreases from d to 0 and crosses 2 exactly once at v*>0. Strict concavity of tanh on positive arguments gives 0<d sech²(dv*)<tanh(dv*)/v*=2, so the cycle multiplier is below one in magnitude. The Gaussian two-sided tail of d>2 is erfc(1/√c), not an assertion about all initial points in that regime. The supplied numerical checker does not replace these analytic checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 splitting analysis explicitly treats exact integrals. The 2026 expanded splitting paper's Theorem 3.3 gives a probabilistic Monte Carlo error bound for globally Lipschitz convex f, with sample-size condition. The 2026 zeroth-order iteration theorem instead assumes i.i.d. proposals and summable N_k^(−1/2)."
+        ],
+        "reasoning": "These hypotheses and conclusions do not dominate the globally non-Lipschitz quadratic, fixed dependent pair and one-step nonlinear drift or common-draw iteration. The full expanded paper is now available; its inspected theorem is not just an abstract-level comparison.",
+        "searches": [
+          "arXiv:2211.12997 Gaussian importance-sampling formula",
+          "arXiv:2509.07914 Limitations and Future Work",
+          "arXiv:2601.22370 Theorem 3.3 and sampling assumptions",
+          "arXiv:2605.11929 Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2211.12997, 2509.07914, 2601.22370, 2605.11929",
+        "Resultary SCOPE-20261025-2b6eab28d021 and SCOPE-20261027-eb8a64761b00"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The usual proximal mean gives x/(1+c) for a quadratic. The two reflected sampled weights instead give the random tanh map; its local derivative is 1−cZ². The derivative and Gaussian moments alone give necessity, not the sharp all-x descent at the neutral endpoint."
+        ],
+        "reasoning": "Neither population contraction nor a finite-sample error or variable-sample convergence bound evaluates the size-biased nonlinear drift inequality or the effect of permanently freezing the draw. The standard deterministic scalar argument is not claimed by itself as new.",
+        "searches": [
+          "Osher–Heaton–Wu Fung arXiv:2211.12997 pp. 1–2",
+          "Di–Chi–Wu Fung arXiv:2601.22370 §§3.2–3.3",
+          "Naldi et al. arXiv:2605.11929 Theorem 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed antithetic record is about two-dimensional stochastic extragradient with two coupled component calls; the closest indexed flip record is deterministic capped ProxSPS on a shifted quadratic."
+        ],
+        "reasoning": "Their terminology and sharp cutoffs are similar, but neither update is the Gaussian Gibbs ratio of two reflected proposals. In particular their randomness or clipping does not become the repeated draw z in v−tanh(cz²v).",
+        "searches": [
+          "Resultary semantic search for antithetic Hamilton–Jacobi proximal quadratic mean-square stability and exact title",
+          "Resultary SCOPE-20261025-2b6eab28d021 and SCOPE-20261027-eb8a64761b00"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest inspected indexed findings give exact constants for different estimators. The inspected proximal convergence theorems provide errors or summability conditions, not the 2/3 and 2 boundaries or quartic coefficient of this map."
+        ],
+        "reasoning": "There is no lookup table needed to evaluate a scalar Gaussian moment; the relevant equivalent exact coverage would be a formula or classification for the identical map. None was verified in these comparisons.",
+        "searches": [
+          "Resultary exact title and semantic coefficient/threshold search for the antithetic proximal estimator",
+          "arXiv:2601.22370 Theorem 3.3 and arXiv:2605.11929 Theorem 7"
+        ]
+      },
+      "rationale": "The underlying Gaussian proximal formula and scalar flip tools are established. The inspected nearby antithetic and period-two records concern different update maps, and the closest primary convergence results concern exact integrals, Monte Carlo estimation error, or independent proposals with variable sample size. None of the compared statements covers the fixed two-point antithetic quadratic estimator's global one-step boundary, neutral endpoint coefficient and contrasting reuse laws. This is a bounded comparison, not historical priority certification.",
+      "residual_risks": [
+        "An unindexed equivalent antithetic calculation or a result in a different scalar stochastic-iteration literature may exist. The compared statements and searchable material do not settle priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the base proximal formula, not the stated stability and reuse classification",
+          "evidence": "Importance sampling of the Gaussian representation is the common antecedent.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.12997",
+          "material_read": "pp. 1–2, abstract and Gaussian approximation discussion (offsets 0 and 2779)",
+          "method": "Primary OA PDF comparison of estimator and setting",
+          "title": "A Hamilton–Jacobi-based Proximal Operator",
+          "trigger": "Original Gaussian HJ-Prox estimator"
+        },
+        {
+          "assessment": "The inspected theory does not account for finite Monte Carlo errors",
+          "evidence": "The limitations explicitly distinguish exact integrals from finite samples.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.07914",
+          "material_read": "Limitations and Future Work, p. 6, offsets 28300 and 29359",
+          "method": "Primary OA PDF statement inspection",
+          "title": "A Monte Carlo Approach for Nonsmooth Convex Optimization via Proximal Splitting Algorithms",
+          "trigger": "Closely related sampled proximal splitting analysis"
+        },
+        {
+          "assessment": "Distinct independent-proposal, summably growing sample regime",
+          "evidence": "i.i.d. normal proposals and ∑N_k^(−1/2)<∞, with additional trajectory and normalization assumptions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.11929",
+          "material_read": "Theorem 7, p. 7, offset 28143",
+          "method": "Primary OA PDF hypothesis and conclusion comparison",
+          "title": "Convergence of zeroth-order proximal point algorithms in the high-temperature regime",
+          "trigger": "Prior convergence of sampled proximal iterations"
+        },
+        {
+          "assessment": "Finite-sample error bound for a different statement, not the antithetic kernel or frozen limit",
+          "evidence": "Theorem 3.3 uses global Lipschitzness and bounds the error relative to the Gaussian integral; the pathwise iteration argument needs summable error.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.22370",
+          "material_read": "Theorem 3.3 and adjacent convergence assumptions, pp. 2–3, offsets 14200–18882",
+          "method": "Primary OA PDF statement and surrounding argument",
+          "title": "Operator Splitting with Hamilton-Jacobi-based Proximals",
+          "trigger": "Earlier frozen access gap and strongest finite-sample convergence analogue"
+        },
+        {
+          "assessment": "Different maps and sampling policies",
+          "evidence": "Coupled component calls in stochastic extragradient and deterministic capped shifted-quadratic ProxSPS, respectively.",
+          "identifier_or_url": "SCOPE-20261025-2b6eab28d021; SCOPE-20261027-eb8a64761b00",
+          "material_read": "Respective Findings and update assumptions",
+          "method": "Local mirror exact statement comparison",
+          "title": "Indexed antithetic extragradient and scalar ProxSPS flip findings",
+          "trigger": "Closest Resultary matches for antithetic stability and frozen cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An antithetic pair is a natural low-cost Gaussian estimator, and reusing random samples changes the iteration rather than the population proximal map. The sharp all-input step restriction, strict quartic drift at the neutral endpoint and positive-probability frozen instability even where fresh draws converge give an actionable distinction between these policies. A local multiplier alone would miss that distinction and would not resolve the neutral endpoint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

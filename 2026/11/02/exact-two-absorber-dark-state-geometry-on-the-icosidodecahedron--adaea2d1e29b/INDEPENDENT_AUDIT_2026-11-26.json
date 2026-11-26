@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:31:32.373405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A separate exact verifier reconstructed the line graph of GP(10,2), verified the degree-seven integer annihilating polynomial, and row/column rank over Q agrees with complex rank for these integer matrices. Independent column elimination over the rationals gives all 435 pairs: (distance, number of length-three walks if distance three, rank, multiplicity) equal to (1,–,13,60), (2,–,13,120), (3,1,13,60), (3,2,12,60), (4,–,13,120), (5,–,8,15). All 30 one-site ranks are seven. Since the polynomial is monic, degrees 0 through 6 span the full Krylov space. At distance three length-three walks are exactly geodesics. The frozen verify.py was inspected but not run; independent replay is python3 /workspace/branches/a9f86d26-6ae3-4c8a-99f5-2c7afcf15e8a/independent_rank_check.py, with rank_check_output.txt in that directory. The analytic absorption limit also checks: the Krylov space reduces A by Hermiticity and contains both site vectors, so its complement is unaffected by the absorbers and evolves unitarily. The imaginary part of a bright eigenvalue is nonpositive; equality forces vanishing at both sites because the rates are strictly positive. The eigenvector would then be an A-eigenvector orthogonal to both full Krylov spans, a contradiction. Bright evolution therefore decays even with Jordan blocks. The trace limit is the initial dark weight, giving absorption tr(Πρ₀), and for I/30 the fractions are 8/30,12/30,13/30. The dark dimensions and rate independence follow within the stated homogeneous single-excitation model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader dark-state framework governs the inference from invariant spaces to capture, while the C60 record gives the same rate-independent projection law and orbit/rank certificate on 60 truncated-icosahedral vertices."
+        ],
+        "reasoning": "The latter is not a theorem for arbitrary polyhedral graphs or for rectification. Its domains, graph distances, spectra and Krylov ranks differ. Reusing the technique still requires new graph-specific rank information.",
+        "searches": [
+          "arXiv:1707.07482 degeneracy-based dark spaces",
+          "Resultary d60b9460e64c Finding and Proof §§1–3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0711.3231 pp.2,5",
+        "arXiv:1707.07482 pp.2–3",
+        "Resultary d60b9460e64c original RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day C60 theorem also separates pairs at equal distance by shortest-path multiplicities, but on oriented icosahedral edges (flags), with different exceptional geometry. It applies annihilator, exact rank and decay arguments much like the frozen result."
+        ],
+        "reasoning": "Rectifying the icosahedron does identify the two flags of each spoke: on normalized sums of opposite flags the compression of the C60 adjacency is I plus half the icosidodecahedral adjacency. This is not a reduction to an invariant summand, however. A same-vertex flag edge (u,v)–(u,w) is not sent to a flag edge by simultaneously reversing both flags, so reversal does not commute with adjacency. Powers of the compression do not follow by simply projecting the old powers. The C60 rank/capture classification therefore does not give the new one by substitution or projection; no same-day priority order is inferred.",
+        "searches": [
+          "Resultary d60b9460e64c original Finding, assumptions and exact classification proof",
+          "arXiv:0711.3231 pp.2,5 and arXiv:1707.07482 pp.2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent to summing rank of the two site projections in each A-eigenspace, or testing vanishing on both sites in each eigenspace. The icosidodecahedral spectral paper describes A-eigenvalues and symmetry sectors, not the joint dependence of the site projections in those passages. Le et al. supply the general dark-space principle."
+        ],
+        "reasoning": "Only the pair-dependent two-coordinate restrictions, not just eigenvalues and multiplicities, determine the distinct rank strata. The dark and uniformly mixed versions are restatements of the same local spectral data.",
+        "searches": [
+          "Local Resultary complete two-absorber and bright/dark rank census; d60b9460e64c",
+          "Rousochatzakis–Läuchli–Mila arXiv:0711.3231 pp.2,5",
+          "Le–Donati–Severini–Caruso arXiv:1707.07482 pp.2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual C60 proof gives 23 pair orbits weighted to all 1770 placements and its ranks 15,27,28,29. The inspected icosidodecahedral passages describe spectra/sectors, not a corresponding 435-pair census or exact site-resolved projector Gram matrices."
+        ],
+        "reasoning": "A published icosidodecahedral pair-orbital table of projector dependencies or equivalent walk moments could mechanically cover the rank census. The compared C60 table has different adjacency and sites; the spectrum without local overlaps does not replace that table.",
+        "searches": [
+          "Local Resultary two-site rank geometry comparison, strongest d60b9460e64c",
+          "arXiv:0711.3231 adjacency spectrum and symmetry-sector passages"
+        ]
+      },
+      "rationale": "Pass for the graph-specific two-site ranks, placement counts and geometry, not the standard spectral accessibility and dissipation principle. The strongest same-day comparison is an essentially parallel exact classification on the related truncated icosahedron. It uses the same proof template but does not supply the asserted 30-vertex ranks. The primary work on the icosidodecahedron supplies adjacency spectral context, not the pairwise rank data in the passages compared.",
+      "residual_risks": [
+        "A previously tabulated full orbital walk-moment or site-resolved spectral-projector scheme for the icosidodecahedron could give these ranks directly; none was identified in the bounded compared evidence.",
+        "The classification uses established general methods and has a demonstrably close same-day analogue. This comparison does not determine chronological priority or certify absence of other coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Topology and spectrum relevant; no pair-local classification in inspected passages",
+          "evidence": "Gives the 30-vertex, 60-edge topology and links the one-magnon energies to adjacency eigenvalues with I_h symmetry-sector decompositions.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.3231",
+          "material_read": "PDF p.2 (offset 16018), p.5 (offset 38279)",
+          "method": "Primary OA PDF passages",
+          "title": "Highly Frustrated Magnetic Clusters: The kagomé on a sphere",
+          "trigger": "Same graph and potentially dominating local spectral data"
+        },
+        {
+          "assessment": "Generic dark-space mechanism, not the specific graph census",
+          "evidence": "Defines dark states as eigenvectors orthogonal to a target and discusses degeneracy-induced dark subspaces.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.07482",
+          "material_read": "PDF pp.2–3, OA offsets 16203 and 16976",
+          "method": "Primary OA PDF passages",
+          "title": "How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures",
+          "trigger": "Prior general theory of network trapping and target-orthogonal eigenstates"
+        },
+        {
+          "assessment": "Substantial methodological and conceptual overlap, but not an equivalent or dominating graph-specific claim",
+          "evidence": "Counts 1770 pairs among oriented icosahedral edges in the truncated graph, ranks 15,27,28,29 with multiplicities 30,60,120,1560. The certificate uses a degree-15 cutoff and 23 symmetry orbits. Its distance-five multiplicity effect and complete redundancy for antipodal absorbers are specific to that graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-two-absorber-capture-classification-on-the-c-60-graph--d60b9460e64c/RESULT.md",
+          "material_read": "Original Finding and flag construction, offset 0; exact orbit/rank proof and capture law, offset 3150",
+          "method": "Resultary search and original source in local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete two-absorber capture classification on the C60 graph",
+          "trigger": "Same-day exact pair-capture theorem with closely related graph, identical dynamical framework and near-identical proof method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The icosidodecahedron is a standard finite kagomé network with an established spectral motivation, and the accessible dimension is exactly the observable determining long-time mixed-state capture. No distance-only placement rule could give the result: the two distance-three classes have different ranks, while antipodal placement adds only one bright direction over a single sink (unlike complete antipodal redundancy on C60). The sharp ceiling and exact exceptional placements give actionable geometry for the stated model. The scientific value lies in this classification, not in the size or runtime of the exact enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

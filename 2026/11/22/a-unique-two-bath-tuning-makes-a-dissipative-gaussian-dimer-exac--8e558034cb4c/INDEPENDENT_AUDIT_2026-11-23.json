@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:45:06.285595Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In normalized sum/difference coordinates the drift rates are a-k and a+k. The transformed noise matrix has diagonal entries (T1+T2)/2 and off-diagonal entry (T1-T2)/2; dividing twice these entries by the sums of their two drift rates gives the stationary covariance in that basis. Projecting back yields exactly the two stated residues, with b_- strictly positive. For positive lags s,t the stationary Gaussian Markov covariance defect factors as b_- b_+ (exp(-(a-k)s)-exp(-(a+k)s))(exp(-(a-k)t)-exp(-(a+k)t)). Thus the fast coefficient must vanish, uniquely at T2/T1=(2a+k)/k. At that positive calibration the scalar covariance, mean, and continuity give the complete stationary OU law, with no claim of equality for the full hidden filtration, preparation, or forced response. Independently, Stratonovich heat into bath one is (A S A)11-aT1, which gives k^2(T2-T1)/(2a); potential-energy stationarity gives J2=-J1. The entropy rate and its strictly positive derivative at fixed visible lambda,T1 follow as stated, with endpoint rates 0 and +infinity. The forced mean response has both modes, so is strictly smaller than the passive-law inferred response at every positive lag. Read the source and verification files including verify.py without executing it. Independent high-precision integration of 2 exp(-At)D exp(-At) at (a,k,T1,T2)=(2,1,1,5) gave S=(1,1;1,3); computing the Stratonovich expression and the lag-0.73 covariance reproduced J1=1, sigma=0.8 and exp(-0.73). These checks do not replace the all-parameter proof or establish experimental realizability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Godrèche–Luck equations (2.21)–(2.28) give the general stationary current and trace entropy-production machinery.",
+          "862d45a61789 fixes a full-vector invariant Gaussian marginal and the drift spectrum with varying noise anisotropy; 18ed800500fa fixes integrated-current eigenvalues and bath moments."
+        ],
+        "reasoning": "The EPR calculation is a specialization of known results. Invariant measures and drift spectra do not determine e^{-At}S in the observed direction because eigenprojections matter; fixing current eigenvalues or moments likewise does not fix it. Neither inspected inverse family establishes the fixed scalar trajectory-law range under the present symmetric drift and independent baths.",
+        "searches": [
+          "Godrèche–Luck arXiv:1807.00694v2, §§2.4–2.5",
+          "Resultary: fixed Gaussian observables and unbounded entropy production, 862d45a61789 and 18ed800500fa"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.00694v2",
+        "arXiv:2011.03124",
+        "Resultary:862d45a61789",
+        "Resultary:0b2306697c41",
+        "Resultary:18ed800500fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The current/entropy framework gives sigma once A,D and S are specified. It neither sets the projected fast residue to zero nor selects a fixed observed drift when varying k.",
+          "The inverse-spectrum result keeps static covariance and spectrum, while the current-spectrum result keeps circulation data; the switching result supplies covariance without Gaussianity."
+        ],
+        "reasoning": "General theory supplies the ingredients, and the hidden current alone is not a distinct claim. Verifying b_+ is the only cancellable residue, enforcing that cancellation and then holding lambda,T1 fixed across the resulting nontrivial dissipative family are the additional steps that give the specified identifiability failure. The same-day current result was compared on its mathematical content, not used to infer priority.",
+        "searches": [
+          "arXiv:1807.00694v2 equations (2.21)–(2.28)",
+          "Resultary:862d45a61789 finding; Resultary:18ed800500fa finding; Resultary:0b2306697c41 finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cerasoli et al. study the same class of Brownian gyrators, with the inspected analysis framed by time-dependent effective temperatures and the cold-bath limit.",
+          "The switching-trap record gives equilibrium-like two-time covariance in a non-Gaussian process."
+        ],
+        "reasoning": "An equivalent claim may be formulated as exact fast-mode cancellation or a first-coordinate stationary Gaussian Markov criterion. Covariance equality implies path equality here only because the projected process is Gaussian; the switching-trap claim is not equivalent. Effective temperatures in the cold-bath limit are not the positive-temperature cancellation test.",
+        "searches": [
+          "Focused literature search: Brownian gyrator, scalar Gaussian Markov projection, bath-temperature tuning and fixed visible dissipation",
+          "Resultary: scalar OU covariance camouflage and hidden dissipation",
+          "arXiv:2011.03124 and Resultary:0b2306697c41"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected distinct hits preserve covariance, static data, or integrated-current data, not the observed Gaussian Markov trajectory under this symmetric drift."
+        ],
+        "reasoning": "There is no natural finite table or sequence check for a continuous process-law identity. The analogous indexed exact-finding comparison was made; the published comparison claims concern different observables.",
+        "searches": [
+          "Resultary exact-claim neighborhood: Brownian dimer OU law, hidden dissipation and covariance camouflage"
+        ]
+      },
+      "rationale": "The standard Gaussian projection criterion and general OU covariance, response and entropy machinery are not original. The supported addition is the explicit unique positive calibration and fixed complete scalar-path-law dissipation range in this nondegenerately coupled, two-diagonal-bath model. Prior bounded comparisons did not supply that joint claim; general formulas substantially shorten its derivation.",
+      "residual_risks": [
+        "An earlier oscillator, gyrator or linear Langevin projection treatment could encode the same pole cancellation with other variables. The general OU formulas already make the algebra short.",
+        "The literature and index comparison is bounded. Noncoverage of entire articles or supplements is not inferred from the inspected excerpts alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_AND_DISSIPATION_PRIOR",
+          "evidence": "Stationary OU current and trace entropy formulas are prior. The inspected equations provide no scalar tuning or fixed-observation family statement.",
+          "identifier_or_url": "https://arxiv.org/html/1807.00694v2",
+          "material_read": "Abstract and §§2.4–2.5, equations (2.21)–(2.28), OA offset 15804–19178",
+          "method": "Open-access primary HTML passages",
+          "title": "Characterising the nonequilibrium stationary states of Ornstein-Uhlenbeck processes",
+          "trigger": "General OU framework and possible direct entropy or projection coverage"
+        },
+        {
+          "assessment": "SAME_MODEL_DISTINCT_INSPECTED_OBJECTIVE",
+          "evidence": "Inspected passages treat a Brownian gyrator with emphasis on cold-bath and time-dependent effective-temperature quantities, rather than the positive bath ratio giving an OU path law.",
+          "identifier_or_url": "https://arxiv.org/html/2011.03124",
+          "material_read": "Opening model and effective-temperature setup, OA offsets 709–5815",
+          "method": "Open-access primary HTML passages",
+          "title": "Time-dependence of the effective temperatures of a two-dimensional Brownian gyrator with cold and hot components",
+          "trigger": "Same two-bath harmonic model"
+        },
+        {
+          "assessment": "DISTINCT_FIXED_OBSERVABLES",
+          "evidence": "Fixes full-vector invariant Gaussian law and drift spectrum, not a scalar trajectory covariance or passive Markov law.",
+          "identifier_or_url": "Resultary:2026/11/8/862d45a61789",
+          "material_read": "Mirrored RESULT.md, finding offsets 0–2193",
+          "method": "Local mirror passage inspection",
+          "title": "Exact inverse-spectrum dissipation and anisotropy frontier",
+          "trigger": "Unbounded dissipation at fixed Gaussian information"
+        },
+        {
+          "assessment": "COVARIANCE_ONLY_NON_GAUSSIAN_MODEL",
+          "evidence": "Switching trap mimics the OU covariance but is non-Gaussian; path equality does not follow.",
+          "identifier_or_url": "Resultary:2026/10/25/0b2306697c41",
+          "material_read": "Mirrored RESULT.md, offsets 0–2500",
+          "method": "Local mirror passage inspection",
+          "title": "Exact equilibrium-like covariance with hidden dissipation in a two-state fluctuating harmonic trap",
+          "trigger": "OU covariance camouflage with hidden dissipation"
+        },
+        {
+          "assessment": "DISTINCT_FIXED_OBSERVABLES",
+          "evidence": "Fixes integrated-current eigenvalues and bath moments rather than the law of an observed coordinate.",
+          "identifier_or_url": "Resultary:2026/11/22/18ed800500fa",
+          "material_read": "Mirrored RESULT.md, finding offsets 0–2045",
+          "method": "Local mirror passage inspection",
+          "title": "One collective circulation plane with unbounded dissipation",
+          "trigger": "Distinct same-day exact unbounded-dissipation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The calibrated family shows a sharp identifiability failure without appending an independent hidden dissipater: the hidden coordinate genuinely drives the observed one, yet even complete passive path data give no finite upper bound on entropy production in the stated model. The unique temperature condition distinguishes the exact failure from a marginal or single-lag coincidence, and force response provides a precise way to distinguish the models in principle. This does not assert that arbitrarily large dissipation is physically attainable in an overdamped laboratory regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: spectral-hole dichotomy for one-ended comb trees
+# Independent mathematical audit
 
-## Correctness
-PASS. The root/edge-increment coordinate map is an exact isometric Banach-space identification. The parent composition transforms to a scalar plus a lower triangular operator with unilateral-shift spine and a bounded direct product of finite nilpotent teeth. Uniform tooth lengths make the tooth block uniformly nilpotent and invertible at every nonzero spectral parameter; the spine contributes a codimension-one range inside the disk. Unbounded tooth lengths yield explicit normalized approximate-null vectors of residual \(|\lambda|^m\) for every \(0<|\lambda|<1\) and \(1/m\) on the circle. Injectivity at those parameters proves nonclosed ranges. Infinitely many terminal teeth independently give an infinite-dimensional kernel at zero. Each assertion is proved for arbitrary positive integer tooth lengths, without an unjustified finite-to-infinite inference. The rational checker has 1,085 exact finite tests but is only supplementary.
+## correctness
 
-## Originality
-PASS with bibliographic qualification. Kong–Liu (arXiv:2611.11737v1, Theorem 4.3) classify Fredholm composition maps themselves, including the zero parameter; they do not provide this exact pencil classification. Rivera-Guasco–Martínez-Avendaño (arXiv:1906.02372, Theorem 3.6) determine the ordinary full disk spectrum and forward-shift isometry, not the essential-spectrum split. Semantic record searches identified comb-tree shifts on a different \(\ell^2\) setting and backward tree shifts with unrelated essential spectral geometry. No direct covering statement was found. Uniform nilpotent-block behavior is standard and explicitly not presented as independently new. The principal remaining risk is an older general triangular-operator theorem that already formulates the same comb-specific alternative.
+PASS
 
-## Value
-PASS. The classification isolates a natural geometric threshold—bounded versus unbounded finite terminal-tooth depths—that switches a Fredholm spectral hole into a filled disk while preserving the number of infinite ends, uniformly bounded vertex degrees, and ordinary spectrum. The isolated essential spectral point at zero and Fredholm index \(-1\) throughout the punctured disk provide a complete, mathematically discriminating calculation for a canonical operator family, rather than an arbitrary numerical slice.
+Summing prescribed increments along finite root paths gives the inverse of the isometric increment map on the full Lipschitz space. The scalar root summand always has Fredholm index zero, including at λ=1. Bounded tooth lengths make the tooth block uniformly nilpotent, so bounded block elimination reduces the nonzero pencil to the spine pencil. The latter is injective and bounded below for 0<|λ|<1, and its range is precisely the kernel of the nonzero absolutely summable telescoping functional; the bounded backwards-tail solution gives the converse, hence index −1. At |λ|=1 its phase-corrected ramps have defect 1/m and it is injective, so the range is not closed. For unbounded teeth the corresponding supported unit vectors have defect |λ|^m inside and 1/m on the circle; injectivity of the nonzero increment pencil follows successively on the spine and each finite tooth. At zero the infinitely many terminal coordinates give an infinite kernel. The exterior Neumann argument and the spine obstruction give the full ordinary disk. RESULT.md line 38 should say that the tooth block has norm at most one: it is zero if all lengths equal one. No step uses the asserted equality; the stated theorem and estimates hold in that case too. The packaged rational checker was inspected, not executed, and is not needed for the infinite-dimensional proof.
 
-## Limitations
-The claim is restricted to the full Lipschitz norm and one-spine combs with positive finite teeth. Neither a general-tree theorem nor another essential-spectrum convention is implied. No human or independent mathematical validation was performed. Originality remains bibliographically qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ordinary disk and the zero-parameter obstruction are not new. The strongest previous Fredholm-pencil theorem concerns leafless trees; the terminal-tooth length transition, isolated essential zero, and nonclosed-range regime here are distinct. The ordinary and essential spectral conventions have been separated.
+
+## value
+
+PASS
+
+Identical ordinary spectra, one end, and a uniform degree bound do not determine Fredholm essential geometry. The exact length criterion separates a disconnected essential set and finite-defect punctured disk from a filled essential disk due to nonclosed range. This is a useful structural witness on a canonical family, not a claim of new shift or nilpotent-block lemmas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

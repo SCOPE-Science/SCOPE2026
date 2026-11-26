@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:38:37.619722Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md §§Assumptions–Proof",
+        "Assigned VERIFICATION.md, verify_pade_star.py and verification.txt",
+        "Independent exact replay: python3 /workspace/review_checks/independent_algebra.py"
+      ],
+      "rationale": "Write L=BWB^T with one oriented incidence column per spoke and W=diag(x,y,z). The reduced pencil is D3=I+hA/2+h²A²/12, A=W(B^TB)=W(I+11^T). Then P=I-h B D3^(-1) W B^T and det D3=det D. Independent exact adjugate expansion of the two representative off-diagonal numerators agrees with both displayed polynomials; leaf relabeling gives all six. det A=4xyz verifies the leading denominator and the large-step coefficients follow. The scalar stability function is strictly positive on the nonnegative spectrum, and the zero mode gives row sums one. In the center quartic, the thresholds for coefficients h^4,h^3,h² are strictly ordered; in the leaf cubic only its leading coefficient can be negative. Descartes' rule then gives exactly the asserted crossing or strict sign, including a zero leading coefficient. The reciprocal inequalities force strict positivity of the leaf cubic's leading coefficient, and intersection gives the stated closed interval, with h=0 separately giving I.",
+      "residual_risks": [
+        "The packaged finite numerical loop checks center-to-leaf formulas, row sums and positive definiteness; it does not numerically compare all six off-diagonal formulas, which the symbolic portion does. No floating-point positivity guarantee is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October theorem concerns m≥2 arbitrary positive conductances and gives exactly [0,H] with full identification of the spokes vanishing at H. The 2010 theorem is a sufficient bound for Metzler–Hurwitz systems, not this exact conservative classification."
+        ],
+        "reasoning": "The broader October theorem dominates the domain and the frontiers, including strict negativity of maximal-spoke entries beyond H. The general Hurwitz paper is distinct.",
+        "searches": [
+          "All-star Resultary Finding and Proof Steps 4–5",
+          "Zappavigna et al., 2010, Eq. (9) and Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "October all-star classification",
+        "2010 and 2012 Zappavigna et al. manuscripts",
+        "Conservative eight-state and adjacent Resultary classifications"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a largest spoke x with other spokes y,z, multiply 1−h²y(x−y)/d(hy)−h²z(x−z)/d(hz) by d(hy)d(hz)>0; expansion equals the frozen Φ_i(h)."
+        ],
+        "reasoning": "The earlier scalar test gives the same horizon, including the original quartic at the controlling leaf. The entrywise coefficient expressions, while correct, do not rescue the original central claims.",
+        "searches": [
+          "All-star Resultary Finding: scalar Φ_* sign test, d(u)=u²+6u+12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October Finding uses T=(12I-6hL+h²L²)(12I+6hL+h²L²)^(-1) on a symmetric weighted Laplacian, and w_max sum_i(1/w_i)≤m+1."
+        ],
+        "reasoning": "The matrix factors commute and dividing each by 12 gives P. For m=3 the largest conductance gives the smallest 4/a_i, so the single maximal-spoke inequality is equivalent to all three original inequalities.",
+        "searches": [
+          "Resultary: weighted-star fourth-order Gauss end-step / [2/2] Padé positivity",
+          "2026/10/25/SCOPE-sharp-fourth-order-gauss-positivity-on-every-positively-weighted--2f77824b8f6c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier all-star catalog hit contains the exact relevant criterion. The directed eight-state result concerns a disconnected positivity set in a different generator class. The two-community and strongly regular records impose different hypotheses."
+        ],
+        "reasoning": "This is a symbolic classification rather than a values-table problem. The exact theorem hit, not a coincidence of thresholds or dates, establishes coverage.",
+        "searches": [
+          "Resultary weighted-star positivity catalog comparison; 2026/10/25/…--2f77824b8f6c; 2026/9/20/…--4aad2a3f58ab; 2026/11/2/…--5042549f9333; 2026/11/2/…--4defdf9c32e5"
+        ]
+      },
+      "rationale": "The exact all-step frontier and no-reentry classification are a specialization of the earlier all-weight, all-star Gauss positivity theorem. Its scalar test for a maximal spoke reduces, after clearing two denominators, to the same controlling quartic, not merely a sufficient bound or an asymptotic prediction.",
+      "residual_risks": [
+        "This is decisive overlap for the original main claims, not an exhaustive priority analysis for each subsidiary off-diagonal identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the claimed threshold and interval for a strictly broader family",
+          "evidence": "T(h) is entrywise nonnegative iff Φ_*(h)≥0; w_* sum_i 1/w_i≤m+1 iff all h work, otherwise there is exactly one positive horizon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-fourth-order-gauss-positivity-on-every-positively-weighted--2f77824b8f6c/RESULT.md",
+          "material_read": "Finding, offset 0; Proof Steps 4–5, offset 4800",
+          "method": "Statement-level comparison through local mirror; direct check of the Finding and scalar test",
+          "title": "Sharp fourth-order Gauss positivity on every positively weighted star",
+          "trigger": "Same end-step and arbitrary positively weighted stars"
+        },
+        {
+          "assessment": "Related sufficient condition, not the exact frontier",
+          "evidence": "The theorem assumes Metzler–Hurwitz matrices and supplies a sufficient step-size condition.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+          "material_read": "OA manuscript p. 3, Eq. (9) and Theorem 2, offset 12800",
+          "method": "Inspected primary passage",
+          "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+          "trigger": "General Padé positivity criterion cited by the assignment"
+        },
+        {
+          "assessment": "Different matrices and question",
+          "evidence": "The eight-state nilpotent shift and the stable Metzler shift are not symmetric conservative stars.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+          "material_read": "OA manuscript pp. 14–15, offsets 38000 and 42600",
+          "method": "Inspected primary examples",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Small-dimensional Padé counterexamples"
+        },
+        {
+          "assessment": "Different family and sign behavior",
+          "evidence": "A directed pure-birth generator has positivity set {0} union [h₀,2√3].",
+          "identifier_or_url": "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "RESULT.md offsets 1410 and 6200",
+          "method": "Local mirror passage inspection",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Conservative disconnected positivity windows"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned Finding and polynomial proof",
+        "October all-star classification and its maximal-spoke threshold"
+      ],
+      "rationale": "The positivity frontier and exclusion of re-entry are useful, but already established in a wider family with a simpler threshold test that determines the same quartic and which entries vanish at the horizon. Expanding the noncontrolling entries and verifying small examples does not supply a distinct motivated advance as framed.",
+      "residual_risks": [
+        "The explicit three-leaf formulas may be useful pedagogically; no separate scientific claim for those expressions was established or reassessed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(r\ge3\) and \(h\ge1\), the connected forcing-set classification determines the exact normalized polynomial \(Q_{r,h}\). The identity \((z-1)Q_{r,h}=z^h(z+r-1)-r\) excludes all imaginary-axis roots for the whole real parameter range \(r>1\). Root-continuity and a perturbation of nontrivial roots of unity count precisely \(2\lfloor h/4\rfloor\) open-right-half-plane roots, with the \(\pm i\) boundary case explicitly settled. A unimodal negative-axis auxiliary function establishes the complete real-root census and uniqueness of the double-root exception. The locally extracted standalone checker reproduces 32 exact small polynomial enumerations and 240 numerical root censuses. Finite computation is not used as proof of the infinite theorem.
+PASS
 
-## Originality — PASS, provisional historical priority
+For r≥3 a connected set missing the hub seeds at most one arm; even if it reaches the hub, at least two white arms cannot be entered. A connected set containing the hub must use arm prefixes and may omit at most one arm. Prefix forcing followed by the hub's one remaining force proves sufficiency. Counting the omitted long arm, the omitted short leaf with prefix length ℓ, and the full set of short leaves with prefix length ℓ gives z^r Q, including h=1. For real r>1, set F=(z−1)Q=z^h(z+r−1)−r. Its nonzero-it imaginary part is a nonzero multiple of t^(h+1) (h even), or of (r−1)t^h (h odd); and Q(0)=r. Monicity and coefficient continuity then give a locally constant right-half-plane count with multiplicity. Checked the frozen r→∞ expansion, including the +1/(hr) real correction for ±i. As a separate check, at r=1 the nontrivial (h+1)-st roots of unity are simple and implicit differentiation gives dz/dr=(ζ−1)/(h+1); any boundary roots ±i move left. The remaining positive-real-part roots occur in conjugate pairs indexed by integers 1≤k<(h+1)/4, giving exactly 2 floor(h/4) already near r=1. On z=−t the odd case has one increasing crossing beyond r−1. The even case has maximum h^h(r−1)^(h+1)/(h+1)^(h+1) on (0,r−1); its ratio to r is strictly increasing. Direct checks at h=2,4 and (r,t)=(3,3/2) for h≥6 recover the full table. The only possible nonzero multiple root of F is real at −h(r−1)/(h+1), which gives the double (r,h)=(4,2) case only. Q(1)>0 excludes the extra factor and positivity of coefficients excludes positive real roots. Reviewer-written `python /workspace/review_checks/5.py` corroborated coefficients for 20 small graphs and 120 exact negative-real counts including the double root. No numerical root computation is needed for the infinite result; frozen script inspected only.
 
-The principal source, Mukherjee–Ray (arXiv:2611.10985), already gives the entire connected zero-forcing polynomial on trees: its polynomial specialization here is known, not a novelty claim. The new asserted mathematical content is **not** an alternative expression for that polynomial but an exact complex-root classification with an invariant right-half-plane staircase and real-root multiplicity boundaries. The November 8, 2026 Newton–Brimkov paper concerns general unimodality counterexamples, not these roots. Actual semantic mathematical-record searches on the connected-forcing polynomial, broom graphs, Hurwitz stability, cyclotomic perturbation and equal-coefficient polynomial family found no direct equivalent or stronger covering result. Important residual risk: this elementary algebraic polynomial might already have a root-location classification under another name; search nonappearance does not certify priority.
+## originality
 
-## Value — PASS
+PASS
 
-The root census shows a structural instability transition that depends only on the long arm length and not the potentially unbounded hub degree: every four additional arm vertices introduce precisely one new right-half-plane conjugate pair. The exact negative-real root phase diagram complements the right-half-plane law and isolates the unique multiple-root event. This is a motivated global analytic classification of a natural generating polynomial, not merely a small coefficient improvement or finite test. It provides a sharp positive/negative family for questions about root geometry of graph polynomials.
+Best-of-knowledge pass for the half-plane and negative-axis censuses, not for the enumerating polynomial. The directly matching published formula is credited. The comparison concerns counted complex zeros and multiplicities rather than coefficient inequalities or visual root locations.
 
-## Scope, closest literature, and limitations
+## value
 
-The exact generating polynomial follows from earlier work. The claimed additional root-location theorem applies only to the one-long-arm spider family. See RESULT.md for the full proof and source references; AUDIT.json records the structured literature comparisons and residual priority risks. The finite verifier is corroborative, not independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a sharp instability family for an actual connected-forcing polynomial, with the number of unstable pairs depending on arm length even when the hub degree is unbounded. The unique double-root event and parity phases complete the nonzero real-root picture; these are structural results, not finite root plots or recomputation of known coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

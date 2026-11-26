@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:34:05.308755Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With d open neighbors and s agreeing ones, the closed-neighborhood rule flips iff 2s≥d, increasing the cut by 2s−d. With hub fixed, a blade's optimal partition has k_i∈{a_i−1,a_i} for even r_i=2a_i (a_i≥1), or k_i=a_i for odd r_i=2a_i+1, including r_i=1. Out-of-range k_i can be corrected by choosing an active private vertex on the oversized side; this realizes a finite positive-probability path to the cut maxima from every state. At those maxima the odd-blade contribution 2k_i−r_i=−1, or a lower even level's −2, prevents hub flipping, since the hub needs 1+∑(2k_i−r_i)>0. It may flip only when all blades are even at the upper level, and then complements each agreeing set but leaves the levels unchanged. Hence the maximum-cut set is closed and almost surely reached (finite state space). For a fixed hub, each even blade's two-layer inclusion graph is connected by insert/delete exchanges, while every odd blade is individually frozen; the even-layer Cartesian product yields the exact class sizes and the odd choices and hub spin index the classes. In the all-even case the upper-level hub flips join the two hub-spin halves. The transitions reverse at equal probability 1/N, giving uniform stationarity on each class; an inactive-vertex self-loop establishes aperiodicity. Pascal's identity counts w_i per fixed hub and preserves this count under the one-vertex parity switch; it does not identify trajectories across graphs. In the all-even class the independent upper-layer fractions under stationarity give the claimed p_h. Kac recurrence applied to stationary directed transitions marked by a hub flip gives the event-to-event mean 1/p_h (not the residual time from a uniform observation instant). Starting from the stationary law conditioned on spin 0 gives density at most two at every step, so the union bound for 0→1 crossings is at most t p_h. Testing the hub-spin event gives TV≥1/2−t p_h; by convexity some point start is at least as far, proving the ceiling bound. A fresh finite check using all bit configurations, closed-neighborhood updates, cut sizes and closed strongly connected components matched six examples: in particular (4,4) has one class of 200 and hub flux 1/25, (4,5) has 20 classes of 10, (2,2,2) one class of 54 and flux 8/189, and (2,3) six classes of three. These checks are not the all-size proof. Frozen check_scc.py, check_local.py and captured outputs were inspected without executing them.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generic stochastic-minority energy framework is a precursor. The frozen comparison attributes complete-graph dynamics to the cited source; decisive passages were not retrieved. Distinct record a4e416ccc69b concerns a partially matched clique pair, not cliques with one common vertex."
+        ],
+        "reasoning": "Cut monotonicity alone allows recurrent nonmaximum plateaus. A complete-graph theorem governs private moves with the hub fixed, but not the shared hub aggregating all blades; the parity criterion must be proved from that coupled update. Partially matched clique graphs use a different coupling and cannot specialize directly to the shared hub in the available statement.",
+        "searches": [
+          "Rouquier–Regnault–Thierry, arXiv:1011.5119, cited §§2, 3.1 and Theorem 4.1",
+          "Resultary: multiblade attractors, hub freezing and partially matched clique perturbations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and supplied checkers with their recorded outputs",
+        "Resultary 775e9880280b, 63f342240c6c and a4e416ccc69b",
+        "arXiv:1011.5119 available search material and attempted exact passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-triangle bottleneck is exact shared content; the partially matched result has a population-preserving perturbation analogy. Standard conductance reasoning gives a mixing bound once the crossing flux is known."
+        ],
+        "reasoning": "The clique-level recurrence and generic energy theorem do not say when a given spin change is permitted at the shared vertex. In the product of balanced blade configurations, each odd blade incurs a one-unit hub deficit and forbids all such changes; thus neither the one-clique dynamics nor the friendship-graph subcase supplies the mixed-parity theorem. The new flux is the varying-size product of upper-layer proportions, not the standard conversion to a mixing bound.",
+        "searches": [
+          "Compare complete-graph majority/minority energy arguments and Resultary 63f342240c6c and a4e416ccc69b against the hub transition criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact mixed-parity hit 775e9880280b is the assigned finding itself. Resultary 63f342240c6c studies the same update on the all-triangle friendship graph. Primary searches located Stochastic Minority on Graphs, arXiv:1011.5119; the available Glauber material concerned majority lattice dynamics."
+        ],
+        "reasoning": "The flip support can be viewed as single-site nondecreasing max-cut moves with every neutral move allowed; open-neighborhood tie retention would instead remove those neutral edges. A zero-temperature chain allowing neutral moves can have the same state-transition support but different per-step flux if ties are randomized. Equivalent terminology therefore requires checking both the graph and transition convention.",
+        "searches": [
+          "Resultary: shared-hub clique bouquets, friendship/windmill graphs, closed-neighborhood stochastic minority",
+          "Primary: asynchronous minority and zero-temperature Glauber dynamics on windmill and block graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 63f342240c6c gives one class of size 2·3^m, hub rate (2/3)^m/(2m+1) and a mixing obstruction, exactly the r_i=2 subfamily. The exact arbitrary-bouquet census hit is the frozen record itself."
+        ],
+        "reasoning": "Both the population and rate of the indexed friendship result are obtained by setting every a_i=1. They do not specify the observed arbitrary-r_i dependence or mixed-parity class count. No chronological inference is made from the shared publication date.",
+        "searches": [
+          "Resultary: 63f342240c6c, friendship graph rare hub flip, exact recurrent counts and mixing; 775e9880280b, parity classification and class census"
+        ]
+      },
+      "rationale": "The supported contribution is the coupled arbitrary-size shared-hub classification, particularly mixed-parity pinning and exact fragmentation and flux for this family. It is not the monotonicity of the generic minority dynamics, the one-blade classification, the friendship-graph case by itself, or the general conductance method. Distinct indexed records cover parts of the story, not the full result in the compared statements.",
+      "residual_risks": [
+        "Primary full text on stochastic minority was not recovered at decisive passages; absence of broader classification is not certified.",
+        "Same-day relative priority of distinct indexed findings is unknown. An implicit characterization in unindexed shared-hub or zero-temperature max-cut dynamics could subsume some of the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for r_i=2; no priority inference from shared date",
+          "evidence": "Single class of 2·3^m states and flip probability (2/3)^m/(2m+1), with mixing lower bound.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-rare-hub-flip-bottleneck-in-asynchronous-minority-dynamics-on--63f342240c6c",
+          "material_read": "Resultary indexed scientific statement",
+          "method": "Configured local search",
+          "title": "A rare hub-flip bottleneck in asynchronous minority dynamics on friendship graphs",
+          "trigger": "Same update and hub bottleneck on a subfamily"
+        },
+        {
+          "assessment": "Related effect, different graph and coupling",
+          "evidence": "The cliques have a partial matching; adding unmatched vertices preserves population while making states absorbing, not introducing an odd blade at a common hub.",
+          "identifier_or_url": "2026/11/8/SCOPE-parity-preserving-attractor-populations-on-partially-matched-cli--a4e416ccc69b",
+          "material_read": "Resultary indexed scientific statement",
+          "method": "Configured local search",
+          "title": "Parity-preserving attractor populations on partially matched clique pairs",
+          "trigger": "Similar parity perturbation and recurrent population preservation"
+        },
+        {
+          "assessment": "Credit the general framework and the documented complete-graph precursor; full-text broader coverage is unresolved",
+          "evidence": "General asynchronous stochastic minority and energy framework in the retrieved material; frozen references specify §§2, 3.1 and Theorem 4.1 for the precise rule and complete-graph case.",
+          "identifier_or_url": "https://arxiv.org/abs/1011.5119",
+          "material_read": "Search passages on the energy framework; exact update conventions and the complete-graph theorem were not independently read in full text",
+          "method": "Targeted OA and lawful HTML alternative at ar5iv, both timed out on decisive passages",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "Same formal dynamics and possible general graph coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact attractor classification for a natural shared-articulation graph family, where global maximum cuts are not implied by cut monotonicity alone. One added vertex can freeze the hub and split the recurrent set into many distinct classes while preserving its labelled-state count. When there is no odd blade, the explicit crossing flux explains slow mixing as more blades are added; its product form is meaningful for heterogeneous cliques.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

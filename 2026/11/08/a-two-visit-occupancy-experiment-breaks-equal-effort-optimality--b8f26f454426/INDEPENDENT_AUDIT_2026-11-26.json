@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:06:25.358905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 21–89 (inspected, not executed)",
+        "Independent score decomposition and exact rational witness arithmetic"
+      ],
+      "rationale": "An independent information derivation separates the Bernoulli event of any detection from the history conditional on a positive result. Write k=exp(-lambda T), alpha=1-k, q=1-psi alpha, and S=sum_j t_j^2/(exp(lambda t_j)-1). The any-detection contribution is the rank-one outer product of (alpha, psi T k), divided by psi alpha q. The positive-history conditional score involves only lambda and is orthogonal to the Bernoulli score. In the fully occupied subexperiment its information J satisfies S=T^2 k/alpha+alpha J; thus in the mixture the extra lambda-lambda entry is psi alpha J. This yields det I=(alpha S-T^2 k)/q exactly. Both positive-duration visits give J>0 because P(11)/P(10)=exp(lambda t_2)-1 has nonzero derivative; endpoints give determinant zero by continuity. At fixed budget only f(x)+f(theta-x) matters. Its small-budget strict concavity follows from f''(0)=-1 and continuity, with symmetry giving the unique equal split. At 10 log 2, exact operations on powers of 2 reduce the two scaled numerators to 715639/455168 and 775/512 (gain 3333/56896, about 3.8701%). The sign of f' is the sign of 2(1-exp(-u))-u, whose strictly decreasing derivative after its sole critical point gives the unique positive root a_*. For long budgets the competitor (a_*,theta-a_*) approaches f(a_*); unbounded shorter legs would make both f terms vanish, and every limit point of the bounded shorter legs must equal a_*. Finally f(a_*)=a_*(2-a_*), and direct simplification at equality gives (theta^2/2)(exp(-theta/2)-exp(-theta)), yielding both determinant limits for fixed interior psi and fixed lambda.",
+      "residual_risks": [
+        "Universal refers to normalized length lambda t_short; the physical limit is a_*/lambda. The theorem does not classify the number of finite-budget symmetry changes or assert uniqueness of asymmetric optima."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen literature comparison reports prior identical-visit count optimization under joint D-optimality; the primary 2010 article was not accessible for checking that hypothesis. The full-Wiley URL returned HTTP 403 on both configured routes and the recovery found no alternate.",
+          "Savery–Luca's accessible abstract describes integrated Bayesian designs for latent occupancy-status prediction error, a different target and criterion."
+        ],
+        "reasoning": "Optimizing the number of identical visits would not resolve length allocation across two visits. No general result covering exactly that optimization was verified, but possible broader content of the inaccessible paper is an explicit risk.",
+        "searches": [
+          "Resultary: occupancy model joint Fisher information D-optimal two visits variable survey duration unknown detectability",
+          "websearch: occupancy model optimal design unequal survey durations Fisher information Poisson detection two visits fixed total effort",
+          "DOI 10.1111/j.2041-210X.2010.00017.x; direct/VPN and lawful-copy recovery"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b8f26f454426 and d984389c6087",
+        "DOI 10.1111/j.2041-210X.2010.00017.x (attempted; inaccessible)",
+        "Savery–Luca primary abstract",
+        "ScienceDirect PII S2351989426000144 (attempted; inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Joint occupancy design or a standard Fisher-information formula for binary histories alone does not resolve the fixed-sum maximization or its long-budget limit. The normalized one-dimensional objective changes from locally concave near zero to rewarding a bounded optimizer plus a long probe.",
+          "The potentially related interval-length paper was inaccessible; its search description refers to Royle–Nichols occupancy but does not establish an equivalence or exclude one."
+        ],
+        "reasoning": "A verified general split or survey-duration theorem under these hypotheses could cover this finding. None was found in examined statements, and a source not read is not used to assert absence.",
+        "searches": [
+          "Frozen RESULT.md §Relationship to prior work and §Proof",
+          "Primary RESULT.md of Resultary d984389c6087, offsets 0–4182 and 7949",
+          "ScienceDirect PII S2351989426000144 via focused interval-length search and OA retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The experiment can also be expressed as a structural-zero mixture of two Poisson occurrence indicators with a common rate; it is not an experiment that keeps Poisson counts or times.",
+          "Distinct Resultary d984389c6087 analyzes a two-duration structural mixture with both a false-alarm rate and an added true-detection rate. Equal lengths are rank-deficient and its small-budget maximizing fractions tend to about 0.2113 and 0.7887."
+        ],
+        "reasoning": "Setting the false-positive rate to zero as a known constant removes a parameter, changing the determinant dimension and its rank. That later three-parameter finding does not specialize mechanically to the two-parameter optimum.",
+        "searches": [
+          "Resultary: occupancy D-optimal design two visit durations fixed effort Poisson detection intensity unequal split prevalence-independent",
+          "Resultary: binary Poisson detection experiment fixed time split D-optimal unknown mixture prevalence rate",
+          "Resultary: zero-inflated Poisson occupancy D-optimal design visit durations joint prevalence detection rate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact ranked record b8f26f454426 is the assigned finding itself.",
+          "The materially related d984389c6087 primary finding explicitly contrasts the no-false-positive, two-parameter result with the extra-parameter model. It does not supply a prior equivalent table of optimal splits in the two-parameter model."
+        ],
+        "reasoning": "Compared the model, criterion and limiting fractions rather than treating similar visit length terms or the same-record catalogue hit as distinct equivalent evidence.",
+        "searches": [
+          "Resultary: two-occasion occupancy model unknown detection probability D-optimal design effort allocation antecedents",
+          "Resultary: occupancy prevalence zero-inflated Poisson joint parameters D-optimal sampling effort"
+        ]
+      },
+      "rationale": "The supported distinct finding is the fixed-budget geometry for two positive binary visits, with unknown prevalence and one shared Poisson rate and no false positives: exact prevalence separation in the split criterion, strict small-budget symmetry, finite counterexample to equal allocation, and the universal normalized short leg. Joint design and occupancy likelihoods are antecedents rather than novelty claims. The strongest inaccessible comparisons remain explicit limitations, not inferred mismatches.",
+      "residual_risks": [
+        "Possible substantive overlap with the inaccessible 2010 joint-D paper or interval-length paper was not excluded. The bounded searches cannot settle historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different experiment and determinant",
+          "evidence": "Extra false-alarm parameter, equal-duration rank deficiency, unequal limiting fractions; explicitly contrasts the no-false-positive model.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-unequal-visits-identify-false-positive-occupancy-and-obey-a--d984389c6087",
+          "material_read": "Mirrored RESULT.md offsets 0–4182 and prior-work comparison at 7949",
+          "method": "Local Resultary search and mirrored primary result",
+          "title": "Two unequal visits identify false-positive occupancy",
+          "trigger": "Strongest distinct Resultary match for two-visit Poisson D-optimality"
+        },
+        {
+          "assessment": "Material unresolved access risk",
+          "evidence": "The assigned source describes constant per-visit detectability and optimization of identical visit counts, but this could not be independently confirmed from the primary text.",
+          "identifier_or_url": "https://doi.org/10.1111/j.2041-210X.2010.00017.x",
+          "material_read": "No primary full text read; comparison reported at frozen RESULT.md lines 79–83",
+          "method": "Focused print-title/DOI search and OA retrieval on direct and VPN routes; both 403, no lawful repository copy identified",
+          "title": "Design of occupancy studies with imperfect detection",
+          "trigger": "Closest cited prior joint D-optimal occupancy design"
+        },
+        {
+          "assessment": "Different stated objective and observation types; full-document exclusion not claimed",
+          "evidence": "The abstract targets latent occupancy-status estimation error under integrated data rather than the two-duration joint Fisher determinant.",
+          "identifier_or_url": "Savery–Luca (2026), exact title",
+          "material_read": "Primary p. 1 abstract, text offset 0",
+          "method": "OA PDF abstract inspection",
+          "title": "Bayesian Optimal Design for Occupancy Modelling Using Integrated Presence-Only and Presence-Absence Data",
+          "trigger": "Plausible broad occupancy optimal-design overlap"
+        },
+        {
+          "assessment": "Unresolved access risk",
+          "evidence": "Search description references Royle–Nichols occupancy and interval-length optimization; it does not specify the claimed shared-rate equal-time split experiment.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S2351989426000144",
+          "material_read": "Search description only; primary text not read",
+          "method": "Focused websearch and OA retrieval (403)",
+          "title": "Optimizing sampling interval length in species abundance…",
+          "trigger": "Plausibly related optimization of interval lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Assumptions and Limitations"
+      ],
+      "rationale": "Balancing two visits is a natural design default. This fixed-effort benchmark proves when that default works at small budgets, shows a concrete finite failure independent of prevalence, and gives a principled long-budget allocation with exponentially higher determinant than the balanced split. The mathematical motivation is the change in optimal design and its asymptotic efficiency, not the small size of the single finite witness gain.",
+      "residual_risks": [
+        "This is exact local Fisher design, not robustness to heterogeneous detection or false positives, finite-sample error control, or a calibrated field recommendation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

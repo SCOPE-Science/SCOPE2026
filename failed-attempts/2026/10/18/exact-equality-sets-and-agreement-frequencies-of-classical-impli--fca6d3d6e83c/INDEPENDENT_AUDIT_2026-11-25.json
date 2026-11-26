@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:21:43.370397Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The consequent of an implication propagates a forcing coordinate. Conversely, in the proposed guarded recursion, at p_i=0 the formulas implement the ordinary Boolean operations with p_i as false, and at p_i=1 all translated terms are true. If H_i denotes the halfcube a_i=0, the possible zero sets of the i-guarded terms are precisely all subsets of H_i. Disagreement is symmetric difference. For any D contained in H_i union H_j, choose the two disjoint zero sets D intersect H_i and D minus H_i, respectively; their symmetric difference is D. Taking complements gives exactly the claimed equality sets (when i=j and k>=2, any distinct j supplies a contained face). Every size from 2^(k-2) to 2^k occurs; the one-variable case and the implication/converse/dual transfers are correct. Read the frozen verifier and its recorded output without executing it. A separate exhaustive bit-mask truth-table closure reproduced 2, 6, 38 term functions and 2, 8, 112 equality sets at arities 1, 2, 3, with numerator ranges [1,2], [1,4], [2,8]. Those checks do not replace the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The recognized term functions are exactly x OR g for some coordinate x and Boolean function g of the other coordinates."
+        ],
+        "reasoning": "This gives every subset of every coordinate halfcube as a possible zero set, not merely a lower bound on the number of true assignments. It supplies both directions of the equation classification by an elementary set operation.",
+        "searches": [
+          "Fournier–Gardy–Genitrini–Gittenberger, author manuscript, p. 2 (offset approximately 3650)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and implication_spectrum_verify.py",
+        "Cardó arXiv:2604.08446",
+        "Fournier et al., DOI 10.1002/rsa.20379",
+        "Resultary record 49e75e275632, mirror commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For H_i={a:a_i=0}, P(H_i) symmetric-differenced with P(H_j) is exactly P(H_i union H_j), by partitioning D into D intersect H_i and D minus H_i."
+        ],
+        "reasoning": "Complements turn the union of halfcubes into the claimed positive codimension-two face condition. This is immediate from the known full clone and does not leave a nonroutine independent remainder.",
+        "searches": [
+          "Fournier et al., p. 2 (Post S_0)",
+          "Resultary mirrored Finding and proof of per-arity agreement counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Post S_0 equals the implication-only term class; on the dual/converse operations, complementing assignments or reversing every binary node is a bijection of equation probabilities."
+        ],
+        "reasoning": "Using equation probabilities instead of agreement counts, including only syntactically present variables, or passing to the dual or converse does not remove the overlap.",
+        "searches": [
+          "Resultary: implication-only agreement spectra and equality sets",
+          "Fournier et al., DOI 10.1002/rsa.20379, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cardó explicitly calls the material-implication PSpec unknown and points to Table 1, grouped up to isomorphism and anti-isomorphism.",
+          "The mirrored Resultary Finding explicitly gives Z[1/2] intersect [1/4,1], and at arity n>=2 every count from 2^(n-2) to 2^n under the same signature and sampling."
+        ],
+        "reasoning": "The table motivates the computation, but the distinct indexed record establishes exact numerical coverage, including the fixed-arity statement; it does not have to classify the individual equality sets to establish that overlap.",
+        "searches": [
+          "Cardó arXiv:2604.08446, Section 4 Table 1 and p. 21",
+          "Resultary: 2026/10/26/SCOPE-sharp-agreement-spectra-for-the-implication-only-fragment-of-cla--49e75e275632"
+        ]
+      },
+      "rationale": "The exact material-implication spectrum and per-arity counts occur in a distinct published Resultary record. Its catalogue date is not a finding about priority. The stronger equality-set statement is not stated there, but it is a mechanical consequence of the 2012 published complete characterization of implication-term functions: symmetric differences of arbitrary subsets of two halfcubes run over exactly all subsets of their union. Cardó's stated gap is real in his paper, but does not establish scientific distinctness from these sources.",
+      "residual_risks": [
+        "No independent chronology or priority finding is made from the catalogue dates.",
+        "A standalone prior equality-set statement was not located in the inspected sources; the decisive coverage is by direct implication from the published clone characterization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms the gap in this paper, not a solution or priority claim",
+          "evidence": [
+            "The table groups by isomorphism and anti-isomorphism; p. 21 explicitly names material implication and says its spectrum is unknown."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.08446",
+          "material_read": "Section 4, Table 1, p. 11; explicit material-implication problem on p. 21",
+          "method": "OA PDF targeted passages, offsets about 27900 and 61350",
+          "title": "Probabilistic equational spectrum, primality and approximation in finite algebras",
+          "trigger": "Named unknown entry of the order-two classification"
+        },
+        {
+          "assessment": "Strong prior characterization mechanically implies the equality-set classification",
+          "evidence": [
+            "A function is expressible with implication alone exactly when it has form x OR g; this is identified with Post class S_0."
+          ],
+          "identifier_or_url": "https://danielegardy.github.io/SourcesPubli/implication.pdf",
+          "material_read": "Opening characterization, p. 2",
+          "method": "OA author PDF, offset approximately 3650",
+          "title": "The fraction of large random trees representing a given Boolean function in implicational logic",
+          "trigger": "Exact clone characterization is potentially stronger than the claimed invariant"
+        },
+        {
+          "assessment": "Exact numerical overlap; the inspected passages do not classify every individual equality set",
+          "evidence": [
+            "Same material conditional, same lack of constants, same uniformly sampled fixed vocabulary; explicitly gives both the dyadic interval and every count at each arity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/10/26/SCOPE-sharp-agreement-spectra-for-the-implication-only-fragment-of-cla--49e75e275632/RESULT.md",
+          "material_read": "Finding, matching scope, and constructive counting proof passages",
+          "method": "Resultary search followed by local mirror, offsets 0 and approximately 4800",
+          "title": "Sharp agreement spectra for the implication-only fragment of classical propositional logic",
+          "trigger": "Material exact overlap from Resultary"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A clean explanation of the entry left open by Cardó is useful pedagogically. As an independent scientific finding, however, the numerical invariant is already covered and the only stronger part is the immediate power-set symmetric-difference identity applied to a known clone. The frozen claim does not deliver a nonroutine new invariant beyond that.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

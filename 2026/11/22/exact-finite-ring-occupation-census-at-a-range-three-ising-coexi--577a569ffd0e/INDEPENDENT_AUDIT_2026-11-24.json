@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:54:04.981034Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited the replacement for every labeled binary ring n≥7 at h=10J/3 and J>0. The local defect is 3∑1{b_s=b}−10b+3+p_a−p_j. All 16 entries are nonnegative and their cyclic sum is 3(E+nJ)/J. State 0 has no zero-defect predecessor; 2 has no zero-defect successor. The remaining graph forces all closed walks through triple 110 and allows only returns appending 1110 and 01110. Across a return boundary these are exactly runs of three ones with one or two zeros between; conversely after the first zero following each 111 run the next return is determined by the number of remaining zeros. This proves the unique cyclic run decomposition and both directions of the iff classification. Marking block starts gives n/(a+b) times the ordered multinomial count even for rotationally periodic words. The determinant follows from the two intersecting simple cycles; primitivity and the spectral gap verify the stated corollary CLT, with µ=3/L and v=9 Var(length)/L³=9p₄p₅/L³. Independent `python /workspace/independent_replay.py 3` exhausts 7≤n≤16 for energy/occupation counts and checks the symbolic characteristic polynomial; `python /workspace/independent_replay.py 3-language` separately checks 32,640 individual labeled words for the energy/run equivalence. No numerical or formal verification is used to infer the infinite quantifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 explicit degree-eight characteristic equation plus the cyclic trace is broad enough to give the occupation generating function by rescaling at zero temperature. It specifies the weight of each word through the original matrix, but a state-level equality-language extraction is not a displayed result.",
+          "The 2020 zero-field range-three work and the 2015 nearest-neighbor occupation-parity study change, respectively, the field and the interaction graph."
+        ],
+        "reasoning": "Evaluating the transfer representation on an individual word is an energy test, not a direct reduction to the repaired all-word iff constraint. Its derivation uses a nonnegative local defect certificate, removes transient arcs, and identifies the two possible first returns. The scalar characteristic coefficients alone lose this information.",
+        "searches": [
+          "arXiv:2206.06753, Sec. II Eqs. (2)–(4) and Sec. III phase domains",
+          "arXiv:2002.05430",
+          "arXiv:1502.02883"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.06753",
+        "arXiv:2002.05430",
+        "arXiv:1502.02883",
+        "SCOPE-20261122-577a569ffd0e (target itself)",
+        "SCOPE-exact-field-plateaux-and-ground-state-multiplicities-of-a-frustr--efb9ee14e686",
+        "SCOPE-nine-site-commensurate-locking-in-the-three-state-range-three-po--99676205ddc0 (index summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the prior Eq. (4), set K_i=−q, B=10q/3+(log y)/2, and divide each eigenvalue by e^(5q/3)y^(−1/2). At q→∞ the normalized a4 and a3 tend to −y³, all other lower coefficients vanish, and the polynomial is x³(x⁵−y³x−y³). In detail the two surviving exponents are 20q/3 from −2 cosh(2B) and 25q/3 from −8e^(−q)sinh(−4q)sinh(−2q)cosh B; a5,a2 vanish identically and a7,a6,a1,a0 are lower order under rescaling.",
+          "The normalized trace weights a word by y^K exp[−q(E_Z+5n/3)]; the limit projects onto equality. The determinant yields n[zⁿ](−log(1−y³(z⁴+z⁵))), including the missing lengths, and the primitive spectrum gives the same derivatives and CLT.",
+          "These deductions recover the original aggregate conclusions but do not identify which configurations realize them. The repaired proof shows exactly how the tight graph visits state 3 and admits only the two returns, a different statement than evaluating a trace."
+        ],
+        "reasoning": "The original principal claims are covered by a direct specialization and trace/cumulant extraction. The replacement's word-level characterization is not established by those stronger aggregate results; it is proved constructively and its counts and fluctuations are plainly marked as secondary derivations.",
+        "searches": [
+          "arXiv:2206.06753 Eq. (4), PDF p. 2, offset 16674",
+          "arXiv:2206.06753 Eq. (56), PDF p. 15, offset 109300",
+          "range three Ising chain CA41 CA5 field 10/3 multiphase boundary arbitrary mixtures 1110 11100 ground-state configurations blocks exact"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under s_i=2σ_i−1, E_n=(3J−h)n/2+(J/2)E_Z for E_Z=∑s_i s_{i+d}−(h/J)∑s_i. The CA41 and CA5 phases in Eqs. (25), (27) meet at precisely the chosen equal-coupling field. Eq. (56) gives the same unmarked quintic, entropy, and residual occupation density after converting M to (1+M)/2.",
+          "The repaired constraint is equivalently the zero-defect closed-walk language, or arbitrary cyclic mixing of the rooted words 1110 and 11100. Pure-phase periods and the existence of nonperiodic boundary mixtures do not by themselves describe which concatenations minimize."
+        ],
+        "reasoning": "The physically identical model and phase boundary are fully credited; the overlap distinction is aggregate spectral data versus an elementary rule on each spin word, not field convention or degree of spelling out a number.",
+        "searches": [
+          "Ising range three chain coexistence CA41 CA5 rings runs of exactly three ones separated by one or two zeros 1110 11100 enumerate all ground configurations",
+          "range three Ising chain CA41 CA5 field 10/3 multiphase boundary arbitrary mixtures 1110 11100 ground-state configurations blocks exact",
+          "arXiv:2206.06753 §§II–III, Eq. (56)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 577a569ffd0e index hit is this assigned record. The closest distinct same-genre result at efb9ee14e686 is an exact all-field census of a three-leg Ising tube with triangular rungs. The equal-range indexed Potts result 99676205ddc0 has three states and unique-period locking, not these two binary coexistence words.",
+          "The 2022 phase data give the pure periods and bulk boundary quantities, not a table of admissible mixed labeled words."
+        ],
+        "reasoning": "The other records and phase data are distinguished by graph or claim, not record date. The repaired language gives a per-configuration certificate, not a recomputation of an aggregate table.",
+        "searches": [
+          "Resultary: Ising range three chain coexistence CA41 CA5 rings runs of exactly three ones separated by one or two zeros 1110 11100 enumerate all ground configurations",
+          "SCOPE-exact-field-plateaux-and-ground-state-multiplicities-of-a-frustr--efb9ee14e686",
+          "arXiv:2206.06753 Eq. (56)"
+        ]
+      },
+      "rationale": "For the repaired theorem only: the same-model prior trace and characteristic equation cover the aggregate counts and cumulants, and the prior phase diagram identifies the two pure periods, but neither result characterizes individual labeled periodic words by a necessary and sufficient run constraint with arbitrary mixing. The repaired claim isolates this structural part and credits the trace corollaries.",
+      "residual_risks": [
+        "A prior treatment of mixed ground configurations at the same coexistence line may spell out the complete run condition in different terms. Absence of a returned hit is not historical-priority proof.",
+        "All aggregate trace-derived quantities are excluded from the repaired novelty claim, even where the earlier work did not spell out the final coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior implication for finite count and usual spectral fluctuation consequences, but the passages checked do not give the necessary and sufficient rule for individual mixed words",
+          "evidence": [
+            "Z=tr V^N and degree-eight polynomial with explicit hyperbolic coefficients",
+            "CA41 and CA5 pure orders and log-root entropy plus magnetization 0.3448685"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.06753",
+          "material_read": "§II Eqs. (2)–(4), PDF p. 2, offsets about 7250–19000; §III Eqs. (25), (27) and phases/domains discussion, pp. 4–5, about 36000–47900; Eq. (56), p. 15, read around offsets 108560–112083",
+          "method": "Open primary PDF, locate and read formula/phase passages, then independently rescale Eq. (4)",
+          "title": "Frustration and ordering in Ising chain in an external magnetic field with third-neighbor interactions",
+          "trigger": "Same model, same coexistence field and explicit characteristic coefficients may imply original finding"
+        },
+        {
+          "assessment": "Zero-field phase analysis, not this positive coexistence field",
+          "evidence": [
+            "Same interaction range but zero magnetic field in the compared ground-state passages"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2002.05430",
+          "material_read": "Abstract p. 1 and relevant ground-state passages p. 3",
+          "method": "Open primary PDF bounded passage comparison",
+          "title": "On the ground-state frustration of the Ising model with interactions up to the third neighbors",
+          "trigger": "Prior model with same range and possible exact ground-state classification"
+        },
+        {
+          "assessment": "Nearest-neighbor parity constraint, not the coexistence word language",
+          "evidence": [
+            "Finite even/odd positive-spin constraint with different interaction range"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.02883",
+          "material_read": "Opening model and abstract, p. 1",
+          "method": "Open primary PDF bounded passage comparison",
+          "title": "The Ising chain constrained to an even or odd number of positive spins",
+          "trigger": "Earlier periodic finite-volume occupation statistics"
+        },
+        {
+          "assessment": "Different interaction graph and coexistence patterns",
+          "evidence": [
+            "Triangular rungs, periodic legs and all-field table, rather than a range-three circular nearest-through-third-neighbor interaction"
+          ],
+          "identifier_or_url": "SCOPE-exact-field-plateaux-and-ground-state-multiplicities-of-a-frustr--efb9ee14e686",
+          "material_read": "RESULT.md Finding and table, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact field plateaux and ground-state multiplicities of a frustrated three-leg Ising tube",
+          "trigger": "Earlier all-length finite Ising coexistence counts and possible equivalent model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The constructive iff rule gives a minimal description of every labeled configuration attaining the coexistence energy: arbitrary mixtures are allowed but no other patterns are. This resolves what the phase and entropy data leave unspecified, gives direct membership and construction without transfer traces, and supplies an exact local defect certificate. It applies uniformly to every admissible ring length, not to an arbitrary small instance. The counts and asymptotics remain reproducible illustrations, not the basis for the value verdict.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

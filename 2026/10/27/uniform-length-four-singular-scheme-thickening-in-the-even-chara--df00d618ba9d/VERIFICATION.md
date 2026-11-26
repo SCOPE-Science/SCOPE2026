@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,6 @@
 }
 ---
 
-For every even prime power \(q=2^m\) and \(k\in\mathbb F_q\), define \(\kappa^2=k\). On the chart \(x=1\), the exact derivatives are \(f_t=(1+ts^{q/2})^2\) and \(f_s=(t^{(q+2)/2}+s+\kappa)^2\). Since the homogeneous degree \(q+3\) is odd, Euler's identity shows that the hypersurface equation is in the derivative ideal. On \(x=0\), the derivatives \(F_z=y^{q+2}\) and \(F_x(0,0,1)=1\) rule out singular points.
+The Jacobian ideal on the chart \(x=1\) is \((f,f_t,f_s)\) by Euler's identity. To check the removal of \(f\), multiply out \((t+t^q)f_t+(s+s^q)f_s\) using \(f_t=1+t^2s^q\) and \(f_s=t^{q+2}+s^2+k\). The two copies of \(t^{q+2}s^q\) cancel, and the remaining terms are exactly \(f\). The resulting ideal is \((A^2,B^2)\), with \(A,B\) as in the proof. There are no support points on \(x=0\), by the homogeneous derivatives \(F_z\) on that line and \(F_x\) at \([0:0:1]\).
 
-Set \(r=q(q+2)/4\). Eliminating \(t\) gives \(s^{r+1}+\kappa s^r+1=0\), whose derivative is \(s^r\). Its constant term is one, so all \(r+1\) roots are distinct and nonzero. The determinant \(\det\partial(A,B)/\partial(t,s)=s^{q/2}\) is nonzero at those roots, so the completed Jacobian local algebra at every point is \(K[[A,B]]/(A^2,B^2)\), of length four. This proves the total \(4(r+1)=q(q+2)+4\).
-
-As finite sanity checks only, exact polynomial differentiations modulo two were performed for \(q=2,4,8,16\) and matched the displayed formulas. Finite checks were not used as proof of the universally quantified statement. No assertion of independent audit, independent validation, or external certification is made.
+To replay the geometric count and algebra, set \(r=q(q+2)/4\), \(\kappa^2=k\), and \(H(s)=s^{r+1}+\kappa s^r+1\). The reduced equations give \(s\ne0\), \(t=s^{-q/2}\), and \(H(s)=0\); \(H(0)=1\) and \(H'=s^r\) give \(r+1\) distinct points. The determinant for the coordinate change to \((A,B)\) is \(s^{q/2}\), yielding the local basis \(1,A,B,AB\) after completion. Alternatively the full affine quotient is obtained from \(K[s,s^{-1}]/(H^2)\) by adjoining \(t\) with monic relation \(t^2-s^{-q}\), giving dimension \(4(r+1)\). These are exact symbolic checks; no finite enumeration is needed.

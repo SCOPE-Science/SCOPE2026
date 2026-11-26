@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:56:27.879594Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–40; VERIFICATION.md and verify.py were inspected, not executed",
+        "Independent dyadic-block enumeration for nine separated shifts of weights 1–4, up to a block of 2^21 inputs, agreed for all j<=h"
+      ],
+      "rationale": "Each outgoing binary carry lowers the digit-sum increment by one, so the increment is h-K_t. If K_t<=h, no carry can travel the h+1 or more positions to another 1-bit of the shift. Conversely, for a tuple of runs starting at the shift's 1-bits with total j<=h, the tested windows (ones followed by a terminating zero) are disjoint and no carry interacts. The joint weight of any such tuple is 2^(-h-j); stars and bars gives the claimed low-carry profile. For fixed t and j the event is determined by the bits through e_h+j: any carry surviving this position must have already used at least j+1 carries. Fair independent bits on that finite prefix give the natural density by uniform residues. The negative-binomial sum is the fair-coin probability of at least h successes among 2h tosses; symmetry and Stirling give the two stated bias formulas.",
+      "residual_risks": [
+        "Only the finite low tail was tested. Replay such a check by counting h + n.bit_count() - (n+t).bit_count() over a complete dyadic block including the bits through e_h+h. The supplied unexecuted verify.py provides the source's separate rational-automaton replay path."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For weight r and gaps >=r, the Resultary shielding law gives binom(r+k-1,k)/2^(r+k) for k<r and (binom(2r-1,r)-q)/2^(2r) for k=r, with q the number of gaps exactly r.",
+          "The inspected primary sources give a distribution recurrence, a general lower bound via a stopped-walk formulation, or extremal fixed-weight asymptotics. None of those inspected statements is needed for the decisive coverage."
+        ],
+        "reasoning": "The broader Resultary theorem includes first contact at exact gap r as well as the no-contact case. Its scope strictly extends the frozen quantified regime.",
+        "searches": [
+          "Resultary 2fd2f492b4f5, RESULT.md Finding",
+          "Spiegelhofer–Wallner, distribution recurrences (1.4)–(1.6)",
+          "Cheng arXiv:2606.23398 and arXiv:2608.25899"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2fd2f492b4f5 and 42dc8159362a",
+        "arXiv:2005.07167, 2606.23398, 2608.25899 at the cited passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Take r=h and k=j. If every gap is at least h+1, q=0. The k=r binomial is then binom(2h-1,h), exactly the frozen j=h numerator; all smaller j match term by term."
+        ],
+        "reasoning": "Summing this identical low tail gives the same density and Stirling gives the same asymptotic. No genuinely distinct residue of the frozen finding was identified.",
+        "searches": [
+          "Direct specialization of 2fd2f492b4f5, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The carry-index and digit-sum-increment formulations correspond by k=h-increment; the nondecrease density sums carry counts through h. Resultary 42dc8159362a states the same central-binomial density in the separated regime."
+        ],
+        "reasoning": "A density-only match would not settle the full low-carry law; the finite-gap shielding match uses the same carry statistic and includes that law.",
+        "searches": [
+          "Resultary on sparse shift low carries, gap shielding and exact Cusick bias",
+          "Spiegelhofer–Wallner arXiv:2005.07167, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The former gives a symbolic table of all low-carry probabilities up to and including r; the latter gives the summed density."
+        ],
+        "reasoning": "No numerical lookup is required: the existing symbolic profile already fixes every parameterized entry of the frozen law.",
+        "searches": [
+          "Inspected Resultary Findings 2fd2f492b4f5 and 42dc8159362a for exact values across the claimed family"
+        ]
+      },
+      "rationale": "Verified Resultary coverage: the finite-gap shielding theorem in 2fd2f492b4f5 proves the entire profile under a weaker gap condition and gives an explicit first-contact correction. Setting its gap-count correction to zero yields the frozen statement exactly, not merely a similar bias or general computability. This is a finding of mathematical coverage by a distinct record, not an inference of authorship or priority from path dates.",
+      "residual_risks": [
+        "Historical priority is not adjudicated. The demonstrated stronger catalogue coverage is sufficient irrespective of additional literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive stronger coverage",
+          "evidence": "Gaps >=r; negative-binomial probabilities for k<r and a correction -q/2^(2r) at k=r. In the frozen regime q=0.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-finite-gap-shielding-and-first-contact-correction-for-bina--2fd2f492b4f5",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary search and actual local mirror passage",
+          "title": "Exact finite-gap shielding and first-contact correction for binary carries",
+          "trigger": "Same objects and low-carry regime under a weaker gap hypothesis"
+        },
+        {
+          "assessment": "Density overlap, not by itself coverage of the profile",
+          "evidence": "States the position-independent central-binomial density.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-central-binomial-cusick-bias-for-uniformly-separated-one-b--42dc8159362a",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary search and actual local mirror passage",
+          "title": "Exact central-binomial Cusick bias for uniformly separated one-bits",
+          "trigger": "Identical scalar digit-sum bias in the separated regime"
+        },
+        {
+          "assessment": "General computation rather than the inspected gap-uniform closed form",
+          "evidence": "Recurrences track digit-sum differences for individual shifts.",
+          "identifier_or_url": "https://arxiv.org/html/2005.07167",
+          "material_read": "§1, (1.4)–(1.6), HTML offsets 8958–11157",
+          "method": "Locate and read the primary passages",
+          "title": "The binary digits of n+t",
+          "trigger": "General exact distribution recurrence"
+        },
+        {
+          "assessment": "General positive bias and related representation",
+          "evidence": "The stated bound c_t>=1/2+2^(-2s_2(t)-1) is not the exact separated law.",
+          "identifier_or_url": "https://arxiv.org/html/2606.23398",
+          "material_read": "Abstract and introduction, offsets 0–2543, and deconvolution near offset 6074",
+          "method": "Locate and read the primary passages",
+          "title": "A first-exit proof of Cusick's sum-of-digits conjecture",
+          "trigger": "Potential exact implication from a stopped-walk representation"
+        },
+        {
+          "assessment": "Different extremal question",
+          "evidence": "Concerns minimum bias at fixed weight, not the exact profile of wide gaps.",
+          "identifier_or_url": "https://arxiv.org/html/2608.25899",
+          "material_read": "Abstract, offset 0",
+          "method": "Primary article passage",
+          "title": "Sharp extremal asymptotics for Cusick's sum-of-digits bias at fixed Hamming weight",
+          "trigger": "Same Hamming weight and bias parameters"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof",
+        "2fd2f492b4f5, actual stronger statement"
+      ],
+      "rationale": "The low-carry tail is a motivated exact invariant and would be useful as an exact benchmark. This particular gap restriction and the asymptotic bias, however, add no new case or mechanism beyond finite-gap shielding: they discard the contact correction and sum an already determined table. The frozen result supplies no independent valuable remainder.",
+      "residual_risks": [
+        "No judgment is made against the scientific value of the broader shielding result or the carry problem itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

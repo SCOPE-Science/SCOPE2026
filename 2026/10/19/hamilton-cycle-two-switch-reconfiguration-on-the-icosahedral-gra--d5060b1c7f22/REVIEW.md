@@ -1,12 +1,21 @@
-# Scientific review of the icosahedral two-switch classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is unambiguously defined by 30 edges. Two separately written exhaustive algorithms construct its 1,280 undirected Hamiltonian cycles and agree **entry by entry** on all 1,800 two-switch adjacencies. One uses four-cycle symmetric differences, the other actual two-opt segment reversal on vertex-order tours; graph construction is separately checked from triangular faces. Complete breadth-first search gives the 30, 60, and 80 component multiplicities; all thirty 36-state components have 58 transitions and diameter 8. A backtracking automorphism enumeration returns 120 maps and checks the four component orbits. The key completeness lemma equates each legal two-edge switch to a four-cycle symmetric difference that remains Hamiltonian. The result is finite only.
+## correctness
 
-## Originality — PASS, with priority limitations
-Hopkins (2004) discusses topological classes of cycles; O'Rourke and Wynn (2010–2011) give established cycle counts and symmetry orbits; these are not claimed as new. Takaoka (2018) introduces the same Hamiltonian-cycle switch framework and proves complexity and connectivity results for specific graph classes, not the icosahedron's complete switch graph. The closest source full texts and targeted exact-count/equivalence searches did not identify a preexisting icosahedral component decomposition. A prior private computation or unindexed online enumeration cannot be excluded by such searches, and no independent literature audit has been performed.
+PASS
 
-## Value — PASS
-This is not merely a recount of Hamiltonian cycles: a highly symmetric planar triangulation has **170** distinct local-transition classes, including 80 immovable cycles and 60 isolated pairs. The 30 isomorphic nontrivial components and four automorphism orbits give the full accessibility structure for a standard Hamiltonian-tour local move. The exact finite obstruction distinguishes the graph from families where all Hamiltonian cycles are switch-connected. The certified adjacency data support further comparison of tour-neighborhood geometry across polyhedral graphs without claiming such extrapolations here.
+Read the complete enumeration proof and both supplied algorithms without executing uploaded scripts. A legal switch is equivalent to two distinct spanning cycles sharing exactly ten edges; since each cycle has degree two, the four symmetric-difference edges are an alternating four-cycle. An XOR candidate must still be one Hamiltonian cycle, not just a 2-factor. I independently regenerated the host graph from cyclic permutations of (0,±1,±(1+√5)/2), testing squared edge distance four in the exact quadratic ring. Relabeled a vertex as 0, its neighbor ring as a_i, and the second common neighbor of a_i,a_{i+1} as b_i. An independent degree-constrained edge-set recursion propagated the forced inclusions/exclusions for degree two and branched exhaustively on each unresolved vertex's remaining edge choices; a full assignment was retained iff connected. Bucketed each cycle by every ten-edge subset obtained by deleting two edges, and joined cycles in the same bucket. This exactly reproduced the frozen certificate's sorted 1,280 masks and entire 1,800-pair list. Traversals produced 80 singletons, 60 pairs and 30 components of order 36. Each large component had 58 edges, diameter 8 and degree counts 1:2, 2:11, 3:8, 4:8, 5:6, 6:1. Distances to the vertices of one ordered triangular face distinguish all 12 vertices. Every automorphism is thus uniquely determined by the image of this face; testing each ordered image face by distance fingerprints and adjacency produces 120 automorphisms. Their action gives component orbit (order,count) pairs (1,20),(1,60),(2,60),(36,30), proving large-component isomorphism. Replay paths for the frozen certificate are `python verify_flips.py certificate.json` and `python verify_direct.py certificate.json` in the record directory; the former checks the automorphism action and diameter and both verify the full tables. This is finite exact enumeration for the specified graph and move, not an all-graph assertion.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best of current knowledge: the switch and tour census are prior, but no inspected available statement or table gives the two-edge reachability graph, its component invariants, or its component action for the icosahedron. Access to two historical sources was partial; neither the count nor the move is credited as original.
+
+## value
+
+PASS
+
+This is a natural symmetric benchmark for Hamiltonian reconfiguration under the standard local move, not an arbitrary subcollection of tours. The exact decomposition shows very limited reach despite the host's high symmetry and sizeable tour set, and the distinct singleton orbits distinguish two symmetry classes of frozen tours. The full certified adjacency and orbit classification give comparable data for other graph classes or move sets. The value lies in this classification, not counting Hamiltonian tours again.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

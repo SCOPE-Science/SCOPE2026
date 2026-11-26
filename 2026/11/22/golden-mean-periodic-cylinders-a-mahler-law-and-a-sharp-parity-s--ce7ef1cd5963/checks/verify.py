@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent finite and high-precision checks of golden-mean unbordered counts.
+"""Finite and high-precision checks of golden-mean unbordered counts.
 
 This script checks finite instances only; the infinite statement follows from
 shortest-border decomposition and meromorphic continuation in RESULT.md.
@@ -53,14 +53,14 @@ k_even = p*q/(1-q**3)
 k_odd = p/(s*(1-q**3))
 assert 0 < a < 1 and 0 < p < 1 and 0 < k_even < k_odd
 assert tail_bound < Decimal('1e-40')
-# An independent high-n sanity test; not a substitute for the pole proof.
+# A high-n sanity test; not a substitute for the pole proof.
 for n in (160, 180, 181, 201, 219):
     pn = 2*Decimal(T[n])/Decimal(F[n+2])
     scaled = (pn-p)*phi**(Decimal(n)/2)
     target = k_even if n % 2 == 0 else k_odd
     assert abs(scaled-target) < Decimal('1e-6'), (n, scaled, target)
 print('PASS: complete admissible-word enumeration lengths 2..15')
-print('PASS: 220 exact shortest-border/Mahler coefficient identities')
+print(f'PASS: {LIMIT-1} exact shortest-border/Mahler coefficient identities')
 print('PASS: high-precision parity-correction asymptotic sanity tests')
 print('t[2:17]=', T[2:17])
 print('p_star =', p)

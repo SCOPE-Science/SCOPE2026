@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is symbolic. Its critical steps are: (1) the unique divisor parametrization by independent exponent coordinates; (2) the exact mean and variance of a uniform integer on \(\{0,\ldots,a\}\); (3) Cauchy--Schwarz with weights \(a_i(a_i+2)\) and \(a_i/(a_i+2)\); (4) the equality condition \((a_i+2)\log p_i=\text{constant}\); and (5) a classical prime-in-doubling-interval construction showing asymptotic sharpness at fixed exponent pattern.
+# Independent mathematical audit
 
-The bundled `verify.py` directly checks every integer \(2\le n\le20000\). It compares the direct divisor sum \(\sum_{d\mid n}(\log d)^2\) with the factorization formula, verifies the exponent-pattern lower bound, verifies equality for all prime powers in the range, verifies strictness for every tested integer having at least two distinct prime factors, and checks the closed squarefree coefficient for support sizes \(1\) through \(8\).
+## correctness
 
-The recorded output is in `verification_output.txt`. Floating-point enumeration is regression evidence only and does not certify the infinite theorem or the sharpness limit.
+PASS
+
+Uniform divisors correspond bijectively to the product of the integer intervals 0 through a_i. Their independent coordinates have means a_i/2 and variances a_i(a_i+2)/12; summing the second moment of log D gives the displayed factorization. Put b_i=a_i/(a_i+2), x_i=(a_i+2)log p_i and B=sum b_i. Then the excess of sum b_i x_i^2 over (sum b_i x_i)^2/B is sum_{i<j} b_i b_j (x_i-x_j)^2/B. Equality for two distinct primes would identify two positive prime powers, which is impossible. For fixed exponents choose disjoint intervals [exp((T+c_i)/(a_i+2)), 2 exp((T+c_i)/(a_i+2))] by separating equal-exponent offsets and using eventual separation for unequal exponents. Bertrand's postulate applied at the integer part of each large lower endpoint gives distinct primes with x_i=T+O(1). The normalized excess is O(T^-2); no equality is attained for r>=2. Substitution gives both specializations. Independent replay: python3 -I -B /workspace/audit_replays/frozen_math.py 2, with 2025 exact formal second-moment coefficient checks from trial divisors for 2<=n<=600.
+
+## originality
+
+PASS
+
+The supported distinction is the sharp exponent-pattern envelope, including the strict distinct-prime obstruction and limiting attainment, for the established P3 product. Neither the product, its interpretation as a second logarithmic divisor moment, nor the standard finite Dirichlet-polynomial moment machinery is credited as new in isolation. The strongest inspected same-product statement is Sándor's uniform inequality, not the fixed-exponent extremum.
+
+## value
+
+PASS
+
+This determines the best coefficient in an existing named inequality on each natural prime-exponent layer, and says which layers attain it. It separates the uniform 1/4 bound from substantially stronger exact coefficients, for example 3/8 as the unattained two-prime squarefree infimum. The explicit gap pinpoints the prime-scale configurations that nearly minimize it. This is useful refinement of the established divisor product, not value attributed to an elementary variance computation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

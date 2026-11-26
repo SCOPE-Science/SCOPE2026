@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:53:39.759536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every nonnegative unit flow on the DAG splits into 0-to-n paths, and each zero–one path incidence vector is extreme by its coordinates. The squared metric counts the arcs in exactly one path. For an independent generating-function derivation, split each ordered pair at the successive shared visited vertices. A primitive block is a shared edge of length 1 or 2, or a divergent/rejoining span k>=2: the initial short/long choice has two orders, intermediate single visits must alternate until rejoining, and the paths use k+1 differing edges. Thus the primitive series is t+t^2+2z^3t^2/(1-zt). Taking sequences of blocks and removing the empty one gives the stated rational series. In the record's transfer the state 11 reaches every state and has a loop, and all states return to it for positive z. The starting vector is nonnegative, not strictly positive as described, but its scalar product with a strictly positive Perron vector is positive, as is the terminal pairing. Primitivity and local analytic continuation justify the separated exponential term; implicit differentiation gives the specified log derivatives, and the Taylor limit and square-root delta method give both positive variances. The endpoint case n=1 contributes the single diagonal pair. Independently verified full distributions for n=1..12 using long-edge subsets and short-edge coverage, and the cubic log derivatives by symbolic arithmetic; replay record3() in /workspace/branches/frozen_metric_replay.py. No supplied script was executed. Finite enumeration only corroborates the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distance-graph result gives the Fibonacci count of paths and vertices. The zigzag triangulation work studies the same graph and an integral contraction, not an isometric change of the flow coordinates.",
+          "The distinct same-date path Hansen record gives two signed-independent-set distance classes and their Gaussian rates."
+        ],
+        "reasoning": "The larger signed vertex set is not the same Euclidean metric on path pairs, and triangulations/integral equivalences do not determine chord lengths. No order of precedence is inferred from the same date.",
+        "searches": [
+          "arXiv:2107.07326 §6.1 Proposition 6.1",
+          "arXiv:2406.20048v2 §§1.2–1.3",
+          "Resultary: e2ea88c96797"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.07326",
+        "arXiv:2406.20048v2",
+        "Klavžar–Mollard MATCH 68 (2012), 311–324",
+        "Resultary:e2ea88c96797",
+        "Resultary:99e76fca2995 (self-hit only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two path Hansen statistics are |I△J| and 4+|I△J|+4|I∩J|. For span 4, take singleton long starts 1 and 2 versus singleton starts 1 and 3. Both pairs have |I△J|=2 and |I∩J|=0, but squared edge distance is 4 in the adjacent case and 6 in the separated case.",
+          "For long-indicator differences d_i, the flow metric is 3 sum_i d_i^2+2 sum_i d_i d_(i+1). Neither of the prior polynomials marks that adjacent term."
+        ],
+        "reasoning": "This is not a substitution in the Hosoya or Hansen generating functions, nor a corresponding scalar rescaling of a known limit law. Standard transfer and Perron tools are reused, while the weighted law and constants are distinct.",
+        "searches": [
+          "Resultary: e2ea88c96797, full-text distance splitting and transfer weights",
+          "Klavžar–Mollard 2012 §§2, 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two step-1/step-2 path words correspond bijectively to two monomer–dimer tilings, and each common tile with its position fixed is one common directed arc.",
+          "The long-step indicator of a span-n path is a Fibonacci string of length n-1. At span 2, the two paths are graph-Hamming distance 1 in this string but squared edge-incidence distance 3."
+        ],
+        "reasoning": "The bijection alone does not transfer the metric. In the flow embedding both short and long edge positions contribute; vertex count and graph distance are insufficient.",
+        "searches": [
+          "Resultary: zigzag flow, paired monomer–dimer tilings, common bonds and edge-symmetric-difference law",
+          "Klavžar–Mollard 2012, §2 and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 4.1 tabulates the ordered Fibonacci-cube Hosoya generating function. Its first nonconstant polynomial is 2+2x, not 2+2z^3, and its graph-distance mean rate is 2/5.",
+          "The exact-rate indexed hit 99e76fca2995 is the assigned record itself, not an independent predecessor."
+        ],
+        "reasoning": "The inspected exact enumerator is a table of a different statistic. No separate exact flow-edge coefficient table was found in this bounded comparison.",
+        "searches": [
+          "Klavžar–Mollard 2012 Theorem 4.1 and Corollary 3.3",
+          "Resultary: exact zigzag edge-distance rates 2/sqrt(5) and (18sqrt(5)-20)/25"
+        ]
+      },
+      "rationale": "The uncontracted zigzag graph, path correspondence and Fibonacci counts are known. Exact Fibonacci-cube distances and the same-date path Hansen polynomials do not count short-edge disagreement or the ordering of adjacent long-edge disagreements and do not yield the claimed generating function and CLT constants. Bounded priority assessment only.",
+      "residual_risks": [
+        "A prior paired-tiling overlap calculation or an unindexed formula under other combinatorial terminology may not have surfaced. The inspected theorem statements, not an empty search or an access error, support the distinctions above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Previously establishes the count, not the inspected distance law",
+          "evidence": [
+            "Recurrence for distance-graph flow vertices specializes to F_(n+1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2107.07326",
+          "material_read": "§6.1 Proposition 6.1, text offset 72500",
+          "method": "Lawful OA article passage",
+          "title": "Column-Convex Matrices, G-Cyclic Orders, and Flow Polytopes",
+          "trigger": "Exact prior step-1/step-2 vertex count and path model"
+        },
+        {
+          "assessment": "Triangulation and integral equivalence, not Euclidean metric equivalence",
+          "evidence": [
+            "Identical short/long graph and discussion of the contracted graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2406.20048v2",
+          "material_read": "§§1.2–1.3, offsets 1800 and 6400 onward",
+          "method": "Lawful OA article passages",
+          "title": "A Triangulation of the Flow Polytope of the Zigzag Graph",
+          "trigger": "Same zigzag flow polytope and related realization"
+        },
+        {
+          "assessment": "Covers Fibonacci-cube shortest-path/Hamming distances, not flow-edge distances",
+          "evidence": [
+            "Ordered-pair generating function and mean rate 2/5 for graph distance."
+          ],
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/MATCH68%281%29_311-324.pdf",
+          "material_read": "pp. 313, 316–317: distance definition, Corollary 3.3 and Theorem 4.1",
+          "method": "Lawful author-hosted full-text source, decisive passages",
+          "title": "Wiener Index and Hosoya Polynomial of Fibonacci and Lucas Cubes",
+          "trigger": "Exact two-string distance law on a bijective encoding"
+        },
+        {
+          "assessment": "Distinct Euclidean metric even with the same underlying independent-set labels",
+          "evidence": [
+            "Same-sign Hamming weights and opposite-sign weights |I△J|+4|I∩J| with an additive 4."
+          ],
+          "identifier_or_url": "Resultary:e2ea88c96797",
+          "material_read": "RESULT.md offset 0, Finding and Proof distance splitting and transfer",
+          "method": "Published local-mirror passages",
+          "title": "Two-scale Euclidean chord distributions of path Hansen polytopes",
+          "trigger": "Same-date exact signed-path vertex-pair spectra and two CLTs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The elementary path labels hide a different intrinsic edge-coordinate metric. The renewal/transfer law gives the complete finite distribution in a canonical infinite family and quantifies nondegenerate fluctuations both in squared distance and in ordinary Euclidean distance. Neither the Fibonacci vertex census nor its binary graph metric supplies this information.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

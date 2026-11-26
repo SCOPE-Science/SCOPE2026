@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:20:18.667757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–72; VERIFICATION.md; verify.py, inspected not executed",
+        "Independent replay: python3 -B /workspace/review_reproduction.py tensor; exact parity traces and gap, 14 digit-tile and winding-orbit cases including d=1"
+      ],
+      "rationale": "On [0,L], the centered product character family has common periodic or antiperiodic endpoint phase, and orthonormality follows by testing differences in the frequency box. Its mean derivative energy is 4π²t(t+2)/12 by isotropic grid variance and unit speed. Bessel occupancies give the sum of the N=(t+1)^d smallest squared Fourier frequencies as a lower bound. Periodic even N costs strictly more; otherwise the strict gap outside the filled band forces finite Fourier support. A finite constant-modulus series has just one exponent by inspecting the largest coefficient lag in its squared modulus. Adjacent-grid ratios and continuity force an affine lift. With signs absorbed, winding digits tile [0,N−1] by distinct sums. A weight 1 must occur; its digits contribute consecutive blocks of t+1 integers that partition the target interval, hence the other weights are multiples of t+1. Divide and iterate. Conversely, reduction modulo t+1 rules out every nonzero box annihilator. The vector is primitive because it has a coordinate ±1, and the orbit count and d=1 endpoint are valid.",
+      "residual_risks": [
+        "The finite computations do not certify arbitrary dimensions or nonlinear curves; the analytic argument does. No other flat metrics or exactness notions were reviewed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The box-Fourier record explicitly assumes d≥2, so is not formally broader in dimension.",
+          "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d and 2026/11/22/SCOPE-the-sharp-parallel-geodesic-parseval-trajectory-frontier-on-the--1e546c6b5465, Findings"
+        ],
+        "reasoning": "The extra d=1 case is immediate, not an uncovered higher-dimensional regime; neither positive mixtures nor prescribed parallel loops address this class of arbitrary closed rectifiable curves.",
+        "searches": [
+          "Resultary: arclength torus design curve Korobov winding shortest minimizer",
+          "Resultary: Ehler optimal bounds for design curves on the torus equality cases Kunis quadrature"
+        ]
+      },
+      "checked_sources": [
+        "Frozen torus RESULT.md records ...--7b4e3de78ee6 and ...--9ae56ebdbb37",
+        "Four Resultary queries and indexed Finding passages cited above",
+        "Frozen comparisons to Ehler and Kunis"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In d≥2 the other record's winding class has a coordinate ±1, so it implies primitivity; dividing its orientation count by two gives the stated unoriented count.",
+          "For d=1, a closed real lift with length ≤1 and winding 0 has range of length at most 1/2 (it must traverse between extrema in both directions). The first character lies in a closed semicircle and has strictly positive integral after rotating to view its real part in the interior, since the curve visits the interior over positive arclength. A constant curve also fails exactness. Thus any unit-length minimizer has winding ±1, where equality in the displacement-length bound forces the lift to be straight. The unit winding is an exact design."
+        ],
+        "reasoning": "The shared theorem and the elementary one-dimensional case exhaust the claimed scope. Ehler's credited lower bound and example alone are not taken to prove rigidity in higher dimensions.",
+        "searches": [
+          "Ehler, arXiv:2611.03362; Kunis, arXiv:2608.11915; Resultary: Ehler optimal bounds for design curves on the torus equality cases Kunis quadrature",
+          "Box-Fourier record, RESULT.md Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/11/22/SCOPE-rigidity-of-every-shortest-box-fourier-design-curve-on-a-torus--9ae56ebdbb37, RESULT.md lines 5–23 and 27–59"
+        ],
+        "reasoning": "Tensor-product exactness here means precisely box Fourier exactness, not total degree or freely weighted quadrature. For d≥2 the two Findings give exactly the same minimizers, sharp length and equivalent signed-winding count.",
+        "searches": [
+          "Resultary: shortest tensor-product torus design curve equality rigidity",
+          "Resultary: shortest box-Fourier design curve torus rigidity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the ...--7b4e3de78ee6 self hit and the distinct ...--9ae56ebdbb37. Available indexed and frozen RESULT.md Findings match on d≥2."
+        ],
+        "reasoning": "The comparison is to an indexed theorem, not to a numerical table; neither the self hit nor a shared date is being used as evidence of priority.",
+        "searches": [
+          "Resultary: shortest box-Fourier design curve torus rigidity",
+          "Resultary: shortest tensor-product torus design curve equality rigidity"
+        ]
+      },
+      "rationale": "The distinct indexed box-Fourier record covers the substantive classification on d≥2 and uses the same analytic proof structure. The only extension in the Finding, d=1, follows immediately from the length bound and equality in the arclength displacement estimate for a nonzero winding, or directly from the one-coordinate spectral argument. It is not a distinct rigidity contribution. Same-date indexing does not determine priority.",
+      "residual_risks": [
+        "Exact ordering or priority between indexed records is not known. Primary full-text retrieval limits leave external antecedents unresolved, but do not change the observed substantive indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the substantive d≥2 theorem",
+          "evidence": [
+            "RESULT.md lines 5–23, 27–59: same sharp trace, monomial, affine-ratio and radix steps."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-rigidity-of-every-shortest-box-fourier-design-curve-on-a-torus--9ae56ebdbb37",
+          "material_read": "Finding, scope, proof Steps 1–4",
+          "method": "Frozen source and indexed local-mirror passages",
+          "title": "Rigidity of every shortest box-Fourier design curve on a torus",
+          "trigger": "Equivalent indexed classification"
+        },
+        {
+          "assessment": "Different admissible objects",
+          "evidence": [
+            "Finding assumes mixtures of complete primitive geodesic loops."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-rigidity-and-sharp-arclength-of-positive-multi-direction-geodesi--feb376e38a6d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Rigidity and sharp arclength of positive multi-direction geodesic designs",
+          "trigger": "Nearby rigidity search hit"
+        },
+        {
+          "assessment": "Different objective and restricted curves",
+          "evidence": [
+            "Finding concerns Parseval sampling by prescribed parallel loops."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-parallel-geodesic-parseval-trajectory-frontier-on-the--1e546c6b5465",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror",
+          "title": "Sharp parallel geodesic Parseval trajectory frontier",
+          "trigger": "Nearby length and trajectory theorem"
+        },
+        {
+          "assessment": "Known bound and construction credited, no independent whole-paper exclusion",
+          "evidence": [
+            "Frozen RESULT.md lines 80 and 88 cite Theorem 2.1 and Proposition 2.4."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03362",
+          "material_read": "Frozen account of Section 2, not original text in this review",
+          "method": "OA attempts for abstract and PDF timed out; read frozen prior-work comparison",
+          "title": "Optimal bounds for design curves on the torus",
+          "trigger": "Primary bound and construction; possible equality antecedent"
+        },
+        {
+          "assessment": "No independent whole-paper exclusion",
+          "evidence": [
+            "Frozen RESULT.md lines 80 and 90 attribute construction and quasioptimality and note that the full manuscript was not inspected there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.11915",
+          "material_read": "Frozen comparison and its access qualification, not original text in this review",
+          "method": "OA attempt timed out; read frozen prior-work comparison and citations",
+          "title": "Positive quadrature and mobile sampling of multivariate trigonometric polynomials",
+          "trigger": "Potential Korobov equality antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Steps 2–5; indexed box-Fourier Finding and proof"
+      ],
+      "rationale": "The shared higher-dimensional theorem is a natural complete equality classification and distinguishes rigid extremal geometry from known attainment. The d=1 addition has no comparable standalone value; it cannot serve as a distinct surviving finding.",
+      "residual_risks": [
+        "No stability or classification for more general design spaces follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-The constructive arithmetic proof uses the standard complete-intersection gluing theorem, the Apéry description of a gluing, the two-generator Sylvester formula, the AM–GM inequality, and elementary inclusion–exclusion. The key universal classification step is that any three-generated complete-intersection numerical semigroup glues a two-generated numerical semigroup to the one-generated nonnegative integers. This is a published theorem, not inferred from finite experiments.
+# Independent mathematical audit
 
-`verify_ci_asympt.py` uses a shortest-path algorithm on residue classes modulo the multiplicity for independent exact Frobenius-number calculations. It tests the constructed family across the stated finite range and the lower-bound inequality across a broad grid of normalized gluings. It does not enumerate every semigroup at arbitrary multiplicity. Computations neither establish asymptotic novelty nor substitute for the mathematical proof.
+## correctness
 
-Run `python3 verify_ci_asympt.py` from the directory containing this file. Python 3.9+ standard library is sufficient. Reproducible script output from current verification:
+PASS
 
-```
-VERIFY_OK: 297 constructed multiplicities; 127 exact Apéry checks; 18625 normalized gluing lower-bound checks
-sample 100 a 11 b 10 ratio 1.979000
-sample 1000 a 33 b 31 ratio 1.981388
-sample 10000 a 101 b 100 ratio 1.999799
-sample 100000 a 317 b 316 ratio 1.997101
-sample 1000000 a 1001 b 1000 ratio 1.999998
-```
+For the three-generated CI gluing, write U=<b,c> and S=aU+dN_0. Since d is in U and gcd(a,d)=1, the least element in each residue class modulo d is a times the corresponding least representative from U, with residue permuted by a. This gives F=a(bc-b-c)+(a-1)d. If m=d, use a>=m/b and bc-b-c>=b^2-b-1 to get m[b+(m-1)/b-2]>=2m sqrt(m-1)-2m. If m=ab, then d>=m and the bound is m(a+b-2)-a>=2m sqrt(m)-(5/2)m, since b>=2. For the upper bound take b=floor(sqrt(m)), c=b+1. For m>=4, m exceeds the two-generator Frobenius number and both minimal generators, so it is a nonminimal positive element of U. A coprime a>m/b yields a valid minimal gluing with multiplicity m. Inclusion–exclusion over squarefree divisors loses at most 2^omega(m), whereas (4^omega(m)+1) phi(m)/m exceeds that loss. The factorial lower bound on the product of distinct prime divisors gives 4^omega(m)=m^{o(1)}, hence the witness has a,b~sqrt(m) along all m and the Frobenius ratio tends to 2. The lower bound matches and symmetry gives g=(F+1)/2 pointwise and for the minima. At m=4 the claimed class is nonempty (for instance <4,6,9> is the gluing with a=3,b=2,c=3,d=4).
 
-The final limit uses the mathematical estimate \(\omega(m)=o(\log m)\), not an empirical estimate of the growth rate. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Classical gluing and individual Frobenius expressions are known, and an indexed result gives a stronger exact optimum on the square-multiplicity subfamily. The supported distinct claim is a limit through every integer multiplicity, with explicit two-sided estimates and a uniform coprimality-window construction, not an exact optimum or a claim of priority for the square slice.
+
+## value
+
+PASS
+
+The complete-intersection restriction changes the admissible class materially, and the fixed-multiplicity question is independently motivated. The theorem supplies the optimal leading constants through all multiplicities, including arbitrary prime factorizations not controlled by the square optima, plus explicit witnesses and a uniform lower bound. The value is the sharp extremal law over the whole class, not the known gluing formula or the affine genus conversion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

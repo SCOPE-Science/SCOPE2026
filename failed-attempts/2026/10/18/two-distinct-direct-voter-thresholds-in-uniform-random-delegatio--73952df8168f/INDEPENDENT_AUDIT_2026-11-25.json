@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:00:55.161457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48, VERIFICATION.md and verify.py (read only)",
+        "Independent replay: python3 -B /workspace/reviews/reproduce_2_4.py (20 exact enumerations by backward reachability, including m=N, and a mixed 2-cycle/3-cycle moment)"
+      ],
+      "rationale": "The path exploration gives disjoint successful stopping events after k fresh delegators, with success hazard m/(N−1). On the sqrt(N) mesh the survival product converges to exp(−ct−t²/2), dominated by a Gaussian tail. The small-m Gaussian bound and large-m repeat bound are sufficient for the two probability limits by Markov's inequality; the critical claim is only a mean limit. Complete representation is exactly the prescribed-root forest event; the minor N I−J has determinant m N^(N−m−1), with the m=N case handled separately. The joint factorial moment for any chosen counts a_ℓ of distinct cycles is (N−m)_(∑ℓa_ℓ)/(N−1)^(∑ℓa_ℓ) times the product of ℓ^(−a_ℓ), since simultaneously occurring distinct cycles are vertex-disjoint. It converges to the independent Poisson factorial moments, and the uniform geometric tail for the expected number of long cycles supplies the total-count limit. The mean starts at length two, consistently with forbidden self-delegation. The mass of zero cycles then matches the direct forest calculation.",
+      "residual_risks": [
+        "No concentration or distributional limit is asserted in the critical window. The frozen appraisal of Berinsky et al. is too narrow for their general competence-dependent model; this does not affect the mathematics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman states the exact prescribed-root count and a more general polynomial forest identity. Colley–Delemazure–Gilbert give the broader finite delegation-partition framework. Christoff–Grossi study the different event of having no direct voters. The other voting articles address truth tracking/weight concentration, biased backup delegation, or fractional delegation."
+        ],
+        "reasoning": "The mandatory-root event is an exact specialization of Cayley's count as stated by Pitman; reversing the edge convention is a bijection. Dividing by (N−1)^(N−m) and taking a logarithmic limit immediately yields the second scale. The partition recursion is genuine model overlap but does not, by itself, state the singular square-root asymptotic.",
+        "searches": [
+          "Pitman (1998), Berkeley Technical Report 498, Theorem 1 and Corollary 22/Theorem 23",
+          "arXiv:2301.02462 Section 5 and Proposition 3",
+          "arXiv:1612.08048 §3.2.1; arXiv:2107.11868; arXiv:2112.07509; arXiv:2307.01174"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 40fc4ee846bf and 1f3f0b6d9c13",
+        "Pitman 1998 Report 498",
+        "arXiv:2301.02462, 1612.08048, 2107.11868, 2112.07509, 2307.01174"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed mean theorem covers iid direct choices in both extreme regimes and in the critical window. Pitman's exact forest count specialized to m designated roots has numerator m N^(N−m−1)."
+        ],
+        "reasoning": "With independent preassigned outgoing choices, adding a caster turns a delegator into a sink and can only increase representation. Thus conditioning on the size of the direct set gives a nondecreasing expected fraction. For m/sqrt(N)→c>0, use two binomial counts of means (c−δ)sqrt(N) and (c+δ)sqrt(N), for 0<δ<c. Their standard deviations are O(N^(1/4)), so with probability tending to one they bracket m. This squeezes the fixed-m limit between the two indexed mean limits; continuity and δ→0 give Ψ(c). The same monotonicity with c↓0 and c↑∞ gives both extreme mean limits, and boundedness gives the probability limits. Separately the forest ratio gives universal coverage, with Q→0 for m=o(N) and Q→α exp(1−α) at fixed positive density. Neither the fixed-m conditioning nor comparing those two already implied scales creates a distinct theorem.",
+        "searches": [
+          "Resultary 40fc4ee846bf Finding, offset 0",
+          "Pitman (1998) Theorem 1, PDF pp. 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 40fc4ee846bf gives the same error-function mean and a positive limiting variance for the same no-self-arc uniform network with independent direct voting. Conditioning its direct set on size m and randomly relabeling gives exactly the frozen model for the represented fraction.",
+          "Colley–Delemazure–Gilbert use the complete digraph, each voter either acting directly or selecting another voter uniformly, and already compute probabilities for in-forest partitions including the unrepresented class."
+        ],
+        "reasoning": "For the exact law of the mean, let M∼Bin(N,q). The indexed q(1−q)^k term is the probability one specified voter is direct and k other specified voters are not. Conditional on M=m this is m(N−m)_k/(N)_(k+1), with falling factorials. Multiplying by the indexed path factor (N−1)_k/(N−1)^k gives (m/N)(N−m)_k/(N−1)^k. Summation recovers exactly m/N+(1−m/N)p_(N,m). Conversely the indexed mean is its binomial mixture. This is a proved equivalence, not a superficial similarity of limiting constants.",
+        "searches": [
+          "Resultary local searches for fixed-caster, uniform complete-network delegation and sqrt(N) representation thresholds; matched 40fc4ee846bf and 1f3f0b6d9c13",
+          "arXiv:2301.02462 Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "40fc4ee846bf contains both an exact finite expectation sum and the identical limiting mean at q_N sqrt(N)→c, with an extra variance result. 1f3f0b6d9c13 covers a bipartite graph, not the exact complete-network finite law."
+        ],
+        "reasoning": "There is no need for a table of numeric values: the first indexed record's finite symbolic sum already contains every fixed-size mean as its Bernstein coefficients. No matching indexed standalone table of the complete-coverage formula was seen; that formula is instead covered by the primary forest theorem.",
+        "searches": [
+          "Resultary 40fc4ee846bf, Finding and Relationship to prior work",
+          "Resultary 1f3f0b6d9c13, Finding"
+        ]
+      },
+      "rationale": "The two central scales are covered by exact mathematical reductions: the indexed Bernoulli-direct model gives the fixed-m first moment by coefficient extraction and its square-root crossover by monotone conditioning; the complete-coverage formula and linear-regime limit are direct consequences of the classical prescribed-root forest count. Pairing these two formulas does not add an uncovered mathematical assertion. The residual cycle statement is a routine application of disjoint labeled cycle enumeration and the factorial-moment criterion; an antecedent explicitly giving every fixed-m cycle statement was not verified. This is a decision about statement coverage, not a claim of historical priority for the indexed record.",
+      "residual_risks": [
+        "The overlapping indexed record is dated later than the frozen record; this audit establishes mathematical coverage in the presently available corpus and does not infer historical priority or dependence from chronology. An older exact statement of the fixed-m crossover or identical cycle limit was not located by these bounded comparisons. The conclusion does not rest on any search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact first moment and critical mean transfer to fixed m",
+          "evidence": "Explicit iid mean q∑(1−q)^k (N−1)_k/(N−1)^k, the same error-function limit, and a stronger separate variance conclusion. It does not give the fixed-m complete-coverage formula.",
+          "identifier_or_url": "Resultary 40fc4ee846bf",
+          "material_read": "Finding at offsets 0–2797 and relationship discussion at 8678–10142",
+          "method": "Local Resultary mirror",
+          "title": "Critical delegation produces non-self-averaging lost voting weight",
+          "trigger": "Same square-root law on the same complete network with iid caster indicators"
+        },
+        {
+          "assessment": "Related but different finite model",
+          "evidence": "Complete bipartite delegation network; path law uses partite target sets.",
+          "identifier_or_url": "Resultary 1f3f0b6d9c13",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact lost delegation law and square-root direct voter transition",
+          "trigger": "Similar indexed transition and exact law"
+        },
+        {
+          "assessment": "Exact coverage of the forest count; the conditional random mapping forest is not the unconditional crossover",
+          "evidence": "Setting all weights to 1 gives |R| |S|^(|S|−|R|−1). The conditional-on-cyclic-set forest law is a different conditioning event.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/498.pdf",
+          "material_read": "Theorem 1 and its specialization, pp. 2–3, offsets 3170–4535; Corollary 22/Theorem 23, pp. 21–22, offsets around 50384–52178",
+          "method": "OA original PDF passages",
+          "title": "Abel-Cayley-Hurwitz multinomial expansions associated with random mappings, forests, and subsets",
+          "trigger": "Forest numerator and possible stronger mapping/basin theorem"
+        },
+        {
+          "assessment": "Same finite framework; no explicit singular asymptotic in the passages read",
+          "evidence": "Uniform complete-network actions and in-forest recursion with an abstention set of voters whose delegation leads to cycles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02462",
+          "material_read": "Section 5, pp. 11–12, offsets 34000–37700 including Proposition 3",
+          "method": "OA original PDF passages",
+          "title": "Measuring a Priori Voting Power—Taking Delegations Seriously",
+          "trigger": "Earlier exact enumeration for the same uniform one-choice model"
+        },
+        {
+          "assessment": "Different event",
+          "evidence": "Probability of no gurus under impartial profiles tends to exp(−2); not the probability of universal coverage conditional on m direct voters.",
+          "identifier_or_url": "https://arxiv.org/pdf/1612.08048",
+          "material_read": "§3.2.1, p. 13, offset 36200",
+          "method": "OA original PDF passage",
+          "title": "Liquid Democracy: An Analysis in Binary Aggregation and Diffusion",
+          "trigger": "Possible same complete-network failure probability"
+        },
+        {
+          "assessment": "Different general model and main conclusions",
+          "evidence": "Competence-dependent delegation and target weights, with weight concentration and truth-tracking results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2107.11868",
+          "material_read": "pp. 4–5 and 9–10, offsets 13900 and 30800",
+          "method": "OA original PDF passages",
+          "title": "Tracking Truth with Liquid Democracy",
+          "trigger": "Related random transitive delegation and lost vote weight"
+        },
+        {
+          "assessment": "Different model and empirical target",
+          "evidence": "Synthetic complete-graph experiments use an indegree bias; backup delegation changes the process.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.07509",
+          "material_read": "Appendix D.3, p. 18, offset 134800",
+          "method": "OA original PDF passage",
+          "title": "Liquid Democracy with Ranked Delegations",
+          "trigger": "Possible direct-casting rate thresholds"
+        },
+        {
+          "assessment": "Fractional rather than uniform one-choice delegation",
+          "evidence": "Uses directed/Markov chain tree theorems to study fractional rules.",
+          "identifier_or_url": "https://arxiv.org/pdf/2307.01174",
+          "material_read": "pp. 1 and 4, offsets 2116 and 12482",
+          "method": "OA original PDF passages",
+          "title": "Anonymous and Copy-Robust Delegations for Liquid Democracy",
+          "trigger": "Graph tree methods for participation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–20 and 28–48",
+        "Resultary 40fc4ee846bf Finding",
+        "Pitman 1998 Theorem 1"
+      ],
+      "rationale": "The contrast between average and universal representation is a useful explanation of the model, but the frozen finding does not supply a distinct mathematical gap beyond the mean and forest laws. The two-scale contrast is an immediate comparison of their existing consequences, and the remaining cycle count is the routine disjoint-cycle Poisson computation rather than a new representation invariant. In particular, the result does not determine the critical represented fraction's fluctuations or distribution; the closest indexed finding already goes beyond the mean in that direction.",
+      "residual_risks": [
+        "The decision concerns independent mathematical value as a finding, not the usefulness of the threshold contrast as exposition for voting applications. No surviving distinct claim in the frozen record was identified for repair."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

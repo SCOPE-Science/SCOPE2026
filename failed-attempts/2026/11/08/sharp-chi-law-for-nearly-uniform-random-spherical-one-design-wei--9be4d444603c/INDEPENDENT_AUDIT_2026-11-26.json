@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:13:35.110426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing e_i=mw_i−1 gives Be=(0,−S_m) with columns (1,X_i); conditioning successively on the affine spans gives full row rank almost surely, simultaneously for all m≥d+1. The dual of the quotient of the sup norm maximizes |u·S_m|/||B^T(a,u)||_1. Minimizing over a for unit u gives the stated median-centered sum (positive by full rank). The compact parameter set |a|≤1, ||u||=1 contains sample minimizers and has a pointwise Lipschitz bound uniform over X, so countable finite nets plus the strong law give uniform convergence of the objectives, and hence of their minima. Symmetry and convexity put the population minimum at zero; the spherical first-coordinate mean absolute value is Γ(d/2)/(√π Γ((d+1)/2)). Thus √m T_m differs from ||S_m/√m||/c_d by o_P(1); the covariance is I_d/d. At d=2 the chi survival yields exp(−4t²/π²). The fixed-radius box forces positive weights once t/√m<1. Inspected RESULT.md lines 34–75 and the two supporting files. The 72 recorded LP cases use solver-returned multipliers and numerical tolerances, do not independently estimate the law, and were not replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neumayer–Schäfer–Ullrich prove sufficient sample sizes for positive exact random rules in a prescribed relative box, including spherical polynomial spaces.",
+          "Bělík–Narayan–Turnage construct concentrated least-squares weights; Zhou–Chen study near-equal positive spherical designs, including prescribed enclosures."
+        ],
+        "reasoning": "The broader positive-cubature existence setting is antecedent, but the inspected bounds and constructions do not specify the distribution of the minimum sup-relative radius. Nor does concentrating a particular least-squares rule identify that optimum.",
+        "searches": [
+          "arXiv:2610.32699v1, Theorem 1.1, Remark 2.6 and Corollary 2.13",
+          "arXiv:2609.09506",
+          "arXiv:1502.03562"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 55b29082741a, 4bb5fbaee245 and 31c1b1c50e42",
+        "arXiv:2610.32699v1, 2609.09506, 1502.03562",
+        "DOI 10.1214/aos/1030741072 (landing material only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior circle theorem covers the same iid uniform, affine-exact relative-box transition.",
+          "The submitted d-dimensional proof uses dimension-independent norm duality and a finite-net LLN; the only dimension-specific computations are the spherical absolute moment and isotropic multivariate CLT."
+        ],
+        "reasoning": "The old circle statement directly supplies the d=2 specialization including the δ-threshold by inversion. The general high-probability theorem does not imply a matching sharp limit. The d>2 formula is not logically implied by the prior circle statement alone, but the proof extension is standard and does not supply a distinct nonroutine result of sufficient value.",
+        "searches": [
+          "Resultary 55b29082741a, finding",
+          "arXiv:2610.32699v1, Theorem 1.1 and Corollary 2.13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Circle record 55b29082741a uses the same relative weight deviation and median absolute-deviation support function; it also gives a chord-normal test.",
+          "Substitution e_i=2g_i−1 identifies the centered empirical half-trimmed region C_(1/2)−Xbar with {m^(−1) Σ e_iX_i : |e_i|≤1, Σ e_i=0}; T_m is its gauge at Xbar and its support function is D_m/m."
+        ],
+        "reasoning": "The support-function and quadrature formulations express the same feasibility problem. The inspected circle statement is a direct match in d=2, not just a collision of rates or constants. Prior priority for the all-dimensional centered gauge was not resolved by the zonoid lookup.",
+        "searches": [
+          "Resultary: Rayleigh transition, finite chord test, nearly equal spherical design weights",
+          "Primary search: trimmed lift zonoid random zonotope support function empirical measure nearly equal weights positive random quadrature spherical design",
+          "DOI 10.1214/aos/1030741072"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "55b29082741a explicitly states 1−exp(−4t²/π²) and the normalization factor π/2 relative to ||S_m||/m for circle nodes.",
+          "4bb5fbaee245 concerns degree-two iid quadrature on an interval, with a different non-Gaussian law."
+        ],
+        "reasoning": "This is a law rather than a finite table; the exact equivalent closed formula in the catalogue is the relevant direct-lookup comparison. No all-fixed-d match was established.",
+        "searches": [
+          "Resultary: sharp spherical law and Rayleigh box calibration",
+          "Resultary 55b29082741a and 4bb5fbaee245"
+        ]
+      },
+      "rationale": "The advertised sharp circle calibration and its median-centered finite-box characterization are already in a distinct inspected Resultary record. The full d≥2 chi-law was not found stated in the inspected prior texts; the rejection does not assert that the all-d formula appeared there verbatim. The prior circle result needs attribution and is not a new finding of this submission. The routine fixed-d extension does not support a surviving value-qualified repair.",
+      "residual_risks": [
+        "Historical attribution of the general-d gauge law remains open, especially in empirical lift-zonoid/calibration literature.",
+        "An unavailable paper or unsuccessful search was not used to infer noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers circle radius, characterization and limit, not dimensions above two",
+          "evidence": "Same radial scale mT_m/||S_m||→π/2 and the same Rayleigh-derived success CDF.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-rayleigh-transition-and-finite-chord-test-for-almost-equ--55b29082741a/RESULT.md",
+          "material_read": "Finding, offset 0, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary source inspection",
+          "title": "A sharp Rayleigh transition and finite chord test for almost-equal spherical design weights (circle)",
+          "trigger": "Exact overlap in the random circle weight box"
+        },
+        {
+          "assessment": "Sufficient high-probability existence, not exact minimal-radius law",
+          "evidence": "Sample bound with τ^(−2) and log dependence gives positive exact weights in [(1−τ)/m,(1+τ)/m].",
+          "identifier_or_url": "https://arxiv.org/html/2610.32699v1",
+          "material_read": "Theorem 1.1, Remark 1.2, Remark 2.6, Corollary 2.13 (located around offset 5098)",
+          "method": "Open-access article passage inspection",
+          "title": "Random nodes with positive weights: Richter–Tchakaloff rules and optimal positive quadrature",
+          "trigger": "Same random near-uniform relative-weight box in wider function spaces"
+        },
+        {
+          "assessment": "Unresolved; not negative coverage evidence",
+          "evidence": "Relevant to zonoid trimming; no paper theorem about this particular gauge was verified.",
+          "identifier_or_url": "https://doi.org/10.1214/aos/1030741072",
+          "material_read": "Project Euclid landing page only; full and PDF attempts did not yield readable text",
+          "method": "Lawful primary-host full/PDF and OA locator attempts",
+          "title": "Zonoid trimming for multivariate distributions",
+          "trigger": "Exact reduction to a centered empirical half-trimmed region"
+        },
+        {
+          "assessment": "Different weight selection objective in the inspected statement",
+          "evidence": "Concentration for a constructed least-squares rule.",
+          "identifier_or_url": "arXiv:2609.09506",
+          "material_read": "Opening result description (offset 0)",
+          "method": "Open-access passage lookup",
+          "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+          "trigger": "Competing random positive-weight construction"
+        },
+        {
+          "assessment": "Not the same stochastic optimizer in the material inspected",
+          "evidence": "Near-equal positive spherical design weights and node enclosures.",
+          "identifier_or_url": "arXiv:1502.03562",
+          "material_read": "Opening scope and definitions around offset 0",
+          "method": "Open-access passage lookup",
+          "title": "Spherical t_ε-designs for approximations on the sphere",
+          "trigger": "Same near-equal spherical-design terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp critical success law for a minimum feasible box is a well-motivated statistic, but its highlighted circle calibration is covered. After removing it, the extension replaces the circle LLN/CLT inputs by their fixed-dimensional versions using the same compact Lipschitz family and explicit first absolute moment; it does not resolve a new high-dimensional, finite-sample, or higher-degree obstruction. No nonroutine independently valuable remainder was established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

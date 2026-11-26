@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:54:13.564940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–73; VERIFICATION.md; matching_biclique_checker.py (inspected, not executed)",
+        "/workspace/replay/biclique.py (independent exact matrix and derivative checks)"
+      ],
+      "rationale": "The weighted vertex Laplacian acts with eigenvalues 0, 2d, n and h on the constant, opposite-constant and two mean-zero symmetry sectors. Inverting those sectors on the incidence columns gives the stated transfer currents; multiplying by the two edge square-root weights gives Q. There are two source types. For a matching source the incident off-diagonal voltages are positive and the nonincident ones negative. For a nonmatching source, the two classes of n−2 incident nonmatching targets have opposite signs and their magnitudes add to 1/n per pair, and the reversed target contributes |W|. Its numerator decreases from n−2 at x²=0 to −∞. Summing each class gives C_D and C_O. Symmetry gives the same row and column maxima, and replacing just the diagonal by 1−Q_ee gives Z_D and Z_O since 0≤Q_ee≤1. The nonmatching columns and the own-weight part of the matching sum are uniformly bounded. The other term divided by √n converges uniformly to F(α) for α=x²/n: convergence is uniform on compacts, with uniform O(√α) and O(1/√α) tails. The derivative changes sign at the unique positive zero of the stated strictly increasing cubic. At that fixed α, F_n(α)−F(α)=O(1/n), giving the stated O(1) error in the unscaled norm; the cut and cycle norms differ by at most one. Direct substitution gives the x=1 formulas. Independent rational grounded-matrix inversion of 370 columns in 15 graphs confirmed both sets of sums and the signed W entry.",
+      "residual_risks": [
+        "The optimized limit varies one common matching weight with n; it does not optimize arbitrary graph weights or arbitrary projections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weighted-network result bounds the spectral norm of the entrywise absolute symmetrized transfer-current matrix by 2 log |V|.",
+          "The cycle-space projection and Lipschitz-free-space papers address minimality/invariance or other graph families."
+        ],
+        "reasoning": "The spectral norm on the absolute matrix is not its maximum column sum. A generic conversion introduces a dimension factor and neither determines these sums nor yields the optimizing coefficient. Optimality over arbitrary projections is also a different question.",
+        "searches": [
+          "arXiv:2605.24130 Theorem 1.3",
+          "arXiv:2305.12582 and arXiv:1807.03814 abstracts and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 100837ac2e20",
+        "arXiv:2605.24130, 2305.12582 and 1807.03814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-edge tuning already shows the qualitative common amplification law, with a different coefficient and distinct optimizing weights for cut and cycle at large fixed r.",
+          "For a perfect matching, the eigenvalue h=n−2+2x² comes from the simultaneous perturbation, and the reversed-edge sign changes within the allowed weights."
+        ],
+        "reasoning": "One-edge optima do not combine additively under simultaneous perturbations: the inverse Laplacian and the absolute column sums must be recomputed. Neither the one-edge formula nor the broader spectral bound implies this family-specific statement.",
+        "searches": [
+          "Resultary 100837ac2e20 finding; frozen RESULT.md matching/nonmatching transfer-current derivation",
+          "arXiv:2605.24130 Theorem 1.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 100837ac2e20 tunes one distinguished edge of K_{r,r}; for r≥29 the maxima equal (1+√(1+9(r−1)²/(2r−1)))/2.",
+          "ArXiv:2605.24130 treats the absolute symmetrized transfer-current matrix in the same square-root-weight coordinates."
+        ],
+        "reasoning": "Changing every edge in a perfect matching is not a relabeling of the one-edge problem. The degree corrections are different; in particular, the matching perturbation acts nontrivially on the whole opposite-block sector, not in a single direction. Absolute transfer-current column sums are the equivalent endpoint norm formulation.",
+        "searches": [
+          "Resultary electrical endpoint Hodge norms and matching-weighted bicliques",
+          "Primary search for symmetrized transfer-current absolute column sums on weighted perfect matchings in bicliques"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed explicit formula pertains to a single weighted edge and its leading coefficient is 3/(2√2).",
+          "The literature search provider was unavailable for the matching-weight query; the cited primary papers were retrieved directly instead."
+        ],
+        "reasoning": "The inspected exact one-edge data are not values of the claimed one-matching column sums at general x and cannot locate the W sign change. No matching table was identified in the sources inspected; the unavailable search provides no negative evidence.",
+        "searches": [
+          "Resultary 100837ac2e20 exact conductance-optimized formulas",
+          "Focused literature search for exact K_{n,n} matching-weighted endpoint amplification"
+        ]
+      },
+      "rationale": "The qualitative √n law for conductance tuning on balanced bicliques already occurs in the one-edge Resultary result, and the electrical projection machinery is standard. The supported distinct claim is the exact all-parameter classification for a full equal-weight matching, including the W sign transition and its own sharp optimized coefficient. The closest rank-one formula and the spectral-norm theorem do not give that classification.",
+      "residual_risks": [
+        "Focused comparison, not exhaustive. The primary search was unavailable and equivalent transfer-current computations could exist in the electrical-network literature.",
+        "No priority is asserted for the qualitative √n phenomenon already present in the one-edge result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material precedent for the phenomenon; does not cover the weighted perfect matching",
+          "evidence": [
+            "One distinguished edge, others unit; both optimized endpoint norms are (1+√(1+9(r−1)²/(2r−1)))/2 when r≥29, with distinct optimizing conductances."
+          ],
+          "identifier_or_url": "2026/10/25/100837ac2e20",
+          "material_read": "Indexed RESULT.md finding, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Sharp one-edge conductance amplification of the endpoint Hodge norms",
+          "trigger": "Exact √n amplification for the same endpoint projections and underlying balanced biclique"
+        },
+        {
+          "assessment": "Spectral bound, not induced endpoint bound",
+          "evidence": [
+            "Spectral operator norm of the entrywise absolute symmetrized transfer-current matrix at most 2 log |V|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.24130",
+          "material_read": "PDF pp. 1–2, weighted setup and Theorem 1.3",
+          "method": "OA primary PDF inspection",
+          "title": "A Tight Bound on Localization of Electrical Flows",
+          "trigger": "General weighted symmetrized transfer-current norm bound"
+        },
+        {
+          "assessment": "Studies a different optimality problem with primary examples in other graph families",
+          "evidence": [
+            "Invariant and minimal cycle-space projections, with discrete tori and Hamming graphs as main examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "Abstract and contents",
+          "method": "OA primary PDF inspection",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Same cycle-space projection setting"
+        },
+        {
+          "assessment": "Related motivation, not the specified transfer-current family",
+          "evidence": [
+            "Graph Lipschitz-free spaces, including diamond and Laakso families."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1807.03814",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA primary PDF inspection",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Potential graph projection comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 6–34 and 46–70",
+        "Resultary 100837ac2e20",
+        "arXiv:2605.24130 Theorem 1.3"
+      ],
+      "rationale": "Equal conductance on an entire perfect matching is a natural uniform symmetry class of a weighted biclique. The all-parameter column sums give a precise endpoint amplification diagnostic, show the sign switch that an unsigned or spectral estimate misses, and distinguish this collective perturbation's sharp coefficient from the known one-edge regime. The result quantifies a size-dependent effect not captured by the uniformly bounded norms at equal weights.",
+      "residual_risks": [
+        "Restricted to a canonical projection and symmetric conductance pattern; no claim about unrestricted electrical networks or projection minimization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

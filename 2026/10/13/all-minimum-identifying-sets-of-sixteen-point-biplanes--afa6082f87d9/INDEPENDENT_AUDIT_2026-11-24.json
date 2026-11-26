@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:55:14.406779Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–37; VERIFICATION.md and verify.py inspected, not run",
+        "Fresh replay: python3 /workspace/branches/7d4d9b1e-d423-4c31-a795-fa84a1845125/explicit_clebsch_check.py ; all 65536 subsets, 96 minima with split 16 + 80 and exact equality with the punctures"
+      ],
+      "rationale": "Sixteen distinct nonempty traces need at least five points. The symmetric design parameters imply each point has replication six and distinct blocks intersect in two points. For five points the trace-size counts obey sum a_j=16, sum j a_j=30 and sum binom(j,2) a_j=20. The displayed equation 2a_3+6a_4+12a_5=12 is correct, although the prose just before it misdescribes the linear combination: take twice the pair count minus twice the first moment plus twice the zeroth moment. If a_5=0, the three possibilities (a_3,a_4)=(6,0),(3,1),(0,2) require respectively 8,7,6 singleton traces, impossible on five points. Thus one block contains C. Conversely, every pair in that block occurs in exactly one other block, so puncturing gives the sixteen distinct traces of sizes 5 (one), 2 (ten) and 1 (five); uniqueness follows from block intersection size two. For the Clebsch graph, sums of distinct XOR generators are the ten distinct vectors of weights 2 and 3. This proves triangle-freeness and the two common neighbors for nonadjacent pairs. Adjacent pairs share just their endpoints in their closed neighborhoods. Symmetric adjacency then gives the stated design and the code split into independent open neighborhoods and four-leaf stars.",
+      "residual_risks": [
+        "The computation covers only the specified graph; the incidence proof handles all designs. The bundled verifier's Python 3.8+ comment is too broad because int.bit_count requires Python 3.10+, a documentation issue independent of the result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravier et al. Prop. 11 gives the smallest closed-neighborhood symmetric difference and the fractional optimum under transitivity; on srg(16,5,0,2) these are 8 and 16/6 respectively.",
+          "The related construction paper classifies Hadamard difference sets by factoring."
+        ],
+        "reasoning": "The fractional formula and construction of designs do not determine the integral size-five extremizers. The moment/equality argument is additional.",
+        "searches": [
+          "arXiv:1411.5275 Introduction and Proposition 11",
+          "DOI 10.37236/836 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Gravier et al. arXiv:1411.5275",
+        "Bhattacharya–Smith doi:10.37236/836",
+        "Bailey arXiv:1312.4973 Table 5",
+        "Resultary 5ecd94cdc2b8",
+        "Assmus–Salwach doi:10.1155/S0161171279000247 (citation and access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Constructing or classifying the designs supplies instances, not the nonempty/separating trace calculation.",
+          "The 1979 primary text was not obtained via DOI/Hindawi and no alternate repository copy was located; there is no claim of full-text exclusion."
+        ],
+        "reasoning": "No inspected prior implication forces exactly the profile (5,10,0,0,1) for every identifying five-set or the exact optimum census.",
+        "searches": [
+          "Assmus–Salwach DOI 10.1155/S0161171279000247",
+          "Gravier et al. Proposition 11, p.12",
+          "Bhattacharya–Smith Abstract p.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact mathematical test is hitting each block and each symmetric difference of distinct blocks.",
+          "The equivalent dual formulation selects blocks to give different nonempty point traces; dropping the hitting requirement is not automatically equivalent."
+        ],
+        "reasoning": "Duality preserves parameters and exchanges roles. Taking complements or passing to the ten-regular complementary graph changes the stated test or set size.",
+        "searches": [
+          "Local Resultary: identifying sets, distinguishing block traces, biplanes, Clebsch identifying codes, dual/complement terminology",
+          "Focused websearch on biplane trace separation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bailey's Clebsch row has metric dimension four, not identifying-code cardinality.",
+          "The Kummer biplane record counts 240 missing triples/nonzero mod-two cycles and identifies blocks through a zero-homology condition, not by separating traces."
+        ],
+        "reasoning": "Neither invariant tabulates five-point identifying sets, and the one-model homology characterization is not the universal trace theorem.",
+        "searches": [
+          "Bailey arXiv:1312.4973 Table 5",
+          "Local Resultary Kummer biplane id 5ecd94cdc2b8, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "No inspected theorem supplies the universal punctured-block characterization or the corresponding exact Clebsch census. The classification of the designs and the standard incidence identities are inputs, not new. The statement-level evidence supports a distinct exact identification result, without establishing absolute priority.",
+      "residual_risks": [
+        "The 1979 article's unavailable passages and an equivalent block-separation statement under alternative test terminology remain priority risks. A websearch with no results is not a novelty finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General differences and fractional bounds, not covering the full claim",
+          "evidence": [
+            "Prop. 11: min(2(k−λ−1),2(k−μ+1)) for neighborhood differences and a fractional formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.5275",
+          "material_read": "Abstract and Introduction; Proposition 11 p.12, PDF offset 37560 ff.",
+          "method": "OA HTML and bounded original PDF passage",
+          "title": "Identifying Codes in Vertex-Transitive Graphs and Strongly Regular Graphs",
+          "trigger": "Contains the graph invariant and a class including the five-regular Clebsch graph"
+        },
+        {
+          "assessment": "Construction/classification of difference sets rather than test sets; comparison limited to material read",
+          "evidence": [
+            "Constructs 27 Hadamard difference sets by factoring."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/836",
+          "material_read": "Abstract, p.1, offset 0",
+          "method": "OA original PDF passage",
+          "title": "Factoring (16,6,2) Hadamard Difference Sets",
+          "trigger": "Same design parameters"
+        },
+        {
+          "assessment": "Unverified coverage; residual access risk",
+          "evidence": [
+            "Frozen record cites the design classification, not an identifying-set result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/S0161171279000247",
+          "material_read": "Citation only; exact passages unavailable",
+          "method": "DOI and Hindawi attempts returned HTTP 403; OA alternate repository lookup",
+          "title": "The (16,6,2) designs",
+          "trigger": "Classical classification of these biplanes; could use alternative separation language"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "The 16-vertex, diameter-2 row gives metric dimension four."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.4973",
+          "material_read": "Table 5, HTML offset 21997",
+          "method": "OA original table passage",
+          "title": "The metric dimension of small distance-regular and strongly regular graphs",
+          "trigger": "Exact table entry for Clebsch"
+        },
+        {
+          "assessment": "Blocks appear but the studied characterization is via homology, not identification",
+          "evidence": [
+            "Maximal subsets with zero homology image are the six-point blocks."
+          ],
+          "identifier_or_url": "Resultary 5ecd94cdc2b8",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "The 240 shortest mod-two one-cycles of the Kummer biplane",
+          "trigger": "Closest local indexed result on these design parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–39 and independent finite replay"
+      ],
+      "rationale": "This is a parameter-only exact solution to a natural discrimination and coverage problem on the classical sixteen-point biplanes; it describes every optimizer without choosing an isomorphism class. The explicit Clebsch code sizes and two induced types give a small benchmark for distinguishing neighborhoods, not just another lower bound.",
+      "residual_risks": [
+        "No statement for other biplane parameters, or for the ten-regular complementary Clebsch graph."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

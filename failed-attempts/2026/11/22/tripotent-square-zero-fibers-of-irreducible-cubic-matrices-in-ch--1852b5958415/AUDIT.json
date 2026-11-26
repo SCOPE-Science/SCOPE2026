@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For irreducible cubic A, trace and rank exclude all nonzero traces: tripotent T must have trace 0 or 1, and in the trace-one cases either rankT=1 or T+I square-zero, contradicting invertibility of A or A+I. In the trace-zero case the sole possible tripotent characteristic polynomial is X^3+X. The rank-one determinant lemma together with the cyclic basis (u,Au,A^2u) uniquely constructs and exhausts all square-zero N=uv with that polynomial; Cayley-Hamilton proves tripotency. The finite Singer centralizer action follows from K[A]=F_(q^3). Exhaustive GF2 and GF4 code checks passed but are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.15286v1 proves every matrix over even fields of size at least 4 can be diagonalizable plus square-zero, with variable diagonal eigenvalues; it does not restrict the first summand to satisfy T^3=T.",
+        "arXiv:2403.15138v1 covers arbitrary nonderogatory sizes and target characteristic polynomials in an existence sense; no exact fiber formula or centralizer orbit classification.",
+        "arXiv:2611.24594v1 proves general obstructions and a binary 3-by-3 classification, which covers the binary existence distinction but not all decompositions, general q, or orbit counts."
+      ],
+      "reasoning": "The older existence statements are broader in matrix size or target polynomial but strictly weaker with regard to exact enumeration and geometry of the fixed fiber. The later binary statement subsumes only the yes/no special case, not the asserted fiber and symmetry structure.",
+      "searches": [
+        "arXiv:2604.15286v1 Proposition 2.3 Corollary 2.4",
+        "arXiv:2403.15138v1 Remark 2.1",
+        "A cubic obstruction to sums of tripotent and square-zero matrices arXiv:2611.24594v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.15286v1, abstract, intro, Proposition 2.3, Corollary 2.4, main theorem",
+      "arXiv:2403.15138v1, Remark 2.1 and Theorem 2.3 context",
+      "arXiv:2611.24594v1, Theorem 3.1, Remark 3.3, Corollary 3.4",
+      "Published finite-field 3x3 diagonalizable-plus-square-zero boundary, October 2026",
+      "Published nilpotent 3x3 square-zero perturbation-fiber summary, November 2026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 construction gives at least one perturbation for each equal-trace polynomial, but neither quantifies all possible perturbations nor proves a free/transitive projective action.",
+        "The April 2026 work proves stronger coverage for diagonalizable-plus-square-zero, but a tripotent matrix need not be diagonalizable in characteristic two.",
+        "The November 18, 2026 paper includes a binary trace-zero example and an exact binary existence obstruction, not the general even-field projective-plane fiber."
+      ],
+      "reasoning": "The theorem specializes existing prescribed-characteristic-polynomial machinery to a tripotent fiber, then adds a complete inverse classification and Singer torsor. Those latter conclusions require and are supplied by the unique-functional argument, rather than being asserted solely on existence or special-case counts.",
+      "searches": [
+        "arXiv:2403.15138v1 complete text rank-one square-zero proof",
+        "arXiv:2604.15286v1 complete text cubic matrices",
+        "arXiv:2611.24594v1 complete text irreducible cubic Remark 3.3 Corollary 3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2403.15138v1, Remark 2.1, constructs one square-zero perturbation achieving an arbitrary equal-trace polynomial for nonderogatory matrices; its statement is an existence theorem, not a fiber count.",
+        "arXiv:2611.24594v1, Remark 3.3 and Corollary 3.4, gives a concrete trace-zero irreducible cubic decomposition and an existence criterion only over the binary field."
+      ],
+      "reasoning": "The classification is equivalent to counting all rank-one nilpotent perturbations giving the tripotent characteristic polynomial, but knowing one such perturbation or only existence for q=2 does not state a complete projective-plane parametrization or centralizer torsor. The explicit functional equations identify all solutions.",
+      "searches": [
+        "\"tripotent\" \"square-zero\" \"q^2+q+1\" matrices",
+        "rank-one square-zero prescribed characteristic polynomial irreducible cubic projective plane",
+        "arXiv:2403.15138v1 Remark 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published matrix-fiber record counts square-zero perturbations of a regular nilpotent block to a split squarefree characteristic polynomial; it concerns a different base matrix and different target condition.",
+        "Direct exhaustive small-field tests gave seven trace-zero solutions over the binary field and twenty-one for each trace-zero irreducible quartic-field cubic, but do not establish priority."
+      ],
+      "reasoning": "No exact table or database claim matching the same irreducible-cubic tripotent fiber was found. The published small-field decomposition tables and the related affine-plane perturbation count concern distinct questions; this absence is not a proof of novelty.",
+      "searches": [
+        "irreducible cubic characteristic 2 tripotent plus square-zero decompositions number q^2+q+1 projective plane centralizer orbit",
+        "matrix irreducible cubic trace zero finite field rank one square-zero perturbation companion matrix tripotent",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-affine-plane-fibers-of-diagonalizable-square-zero-perturbations--d32bce017069"
+      ]
+    },
+    "rationale": "An exact projective-plane classification of every tripotent-plus-square-zero decomposition for an irreducible cubic over any characteristic-two field, with Singer-torsor symmetry over finite fields, goes beyond the known nonderogatory square-zero existence theorem (arXiv:2403.15138v1), diagonalizable-plus-square-zero constructions (arXiv:2604.15286v1), and the later binary existence/nonexistence criterion (arXiv:2611.24594v1). Actual searches of prior published mathematical records found related but different fiber counts. A historical implicit corollary remains possible.",
+    "residual_risks": [
+      "The 2024 prescribed-characteristic-polynomial construction may have been extended implicitly to enumerate the full rank-one fiber in other unindexed work.",
+      "The later 2026 binary existence criterion covers the yes/no assertion when q=2, though not the new exact count or symmetry.",
+      "No independent specialist or external formal audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related qualitative decomposition with diagonalizable summand, not tripotent fiber enumeration",
+        "evidence": "Proposition 2.3 gives explicit cubic diagonalization after square-zero correction; Theorem 3.1 permits arbitrary finite even-field matrices, without fixed tripotent condition.",
+        "identifier_or_url": "https://arxiv.org/html/2604.15286v1",
+        "material_read": "abstract, introduction, Proposition 2.3, its construction, Corollary 2.4, and stated main results",
+        "method": "read primary HTML full-text sections and theorem statements",
+        "title": "Matrices over finite fields of characteristic 2 as sums of diagonalizable and square-zero matrices",
+        "trigger": "Closest eligible recent paper on rank-one square-zero perturbations of cyclic cubic matrices"
+      },
+      {
+        "assessment": "Covers existence of a single square-zero target correction but not all fibers or group action",
+        "evidence": "Remark 2.1 explicitly constructs a rank-one square-zero matrix producing any equal-trace characteristic polynomial for a nonderogatory matrix.",
+        "identifier_or_url": "https://arxiv.org/html/2403.15138v1",
+        "material_read": "abstract, introduction, Remark 2.1 with explicit companion perturbation, and main theorem scope",
+        "method": "read primary HTML statements, constructions, proof context",
+        "title": "On prescribed characteristic polynomials",
+        "trigger": "Potential stronger nonderogatory polynomial-prescription theorem"
+      },
+      {
+        "assessment": "Proves nonexistence of a cubic class and binary existence boundary but no all-even-field decomposition-fiber or Singer action; first posted after chosen eligibility anchor",
+        "evidence": "Remark 3.3 gives one binary trace-zero example, Corollary 3.4 the binary 3-by-3 existence criterion; arXiv v1 dated November 18, 2026.",
+        "identifier_or_url": "https://arxiv.org/html/2611.24594v1",
+        "material_read": "abstract, introduction, full Theorem 3.1, Remark 3.3, Corollary 3.4 and nearby proof, comparisons",
+        "method": "read primary HTML full-text theorem and counterexample context",
+        "title": "A cubic obstruction to sums of tripotent and square-zero matrices",
+        "trigger": "Directly overlapping but later-posted paper about tripotent and square-zero summands"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1852b595-8415-4c75-bafe-40c7da7f39e6",
+  "value": {
+    "rationale": "The exact cardinality and canonical projective geometry of a natural decomposition fiber classify all solutions, not merely exhibit a decomposable example. The Singer-cycle action further identifies a sharply transitive symmetry that makes the count structural. The trace obstruction separates all irreducible cubic classes over every characteristic-two field, answering a motivated strengthening of recent restricted-potency matrix-sum problems.",
+    "status": "PASS"
+  }
+}

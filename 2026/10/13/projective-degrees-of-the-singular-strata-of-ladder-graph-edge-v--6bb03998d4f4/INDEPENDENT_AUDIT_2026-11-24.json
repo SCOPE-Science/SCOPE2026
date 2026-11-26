@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:38:14.208600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43",
+        "Frozen VERIFICATION.md, ladder_degree_checker.py and ladder_degree_checker_output.txt, inspected only",
+        "Independent replay: /workspace/branches/2cae7b69-e0b6-4198-a2dd-05301b168a68/independent_ladder_check.py and independent_ladder_check_output.txt",
+        "Gitler–Reyes–Villarreal, arXiv:math/0603718, Corollaries 3.4 and 3.7"
+      ],
+      "rationale": "The m square binomials give the ladder edge ideal. Independently, reduce monomials by u_i w_i=v_{i-1}v_i so that no monomial uses both rails of one square. Substituting w_i=v_{i-1}v_i/u_i sends distinct reduced monomials to distinct Laurent monomials: each u_i exponent recovers the rail pair and then the v exponents recover the remaining rung factors. The rung and top-rail edge monomials are algebraically independent by leaf elimination on their spanning tree. This verifies the prime complete intersection and projective dimension 2m. In a Jacobian dependence each participating nonzero row has both rails zero by its private rail columns; its equation and nonzero row force exactly one nonzero rung and a single supported column. Cancellation then requires an adjacent pair supported in the same rung column. The remaining case is a zero row, where each neighbor has one vanishing rail. Thus the maximal pieces are precisely the row-zero loci after the neighbor rail choices and the adjacent-row loci. Their residual square equations lie in disjoint smaller ladder blocks with independent free variables; each list member is irreducible and has its full complementary coordinate support (all ones there is a point). The ambient codimension is always m+3; there are four end-row pieces and m-1 adjacent-row pieces of degree 2^(m-2), and 4(m-2) interior-row pieces of degree 2^(m-3), by complete-intersection degrees. Independent analytic elimination solves the other equations using unit rails, or in the adjacent-row case first eliminates the shared rung using a unit rung. The only transverse equation is a rank-four quadric, up to a unit rescaling. A separate finite-field support and Jacobian replay for m=3,4,5 corroborated component counts 10,15,20 and degree totals 16,44,112; it is not used as the proof over C.",
+      "residual_risks": [
+        "The degree is of the reduced equidimensional union in the stated embedding; the proof does not give the degree or multiplicities of the Jacobian scheme. The node description holds on a dense open part of each component only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner tests contracted-poset fibers for being trees. Lakshmibai–Mukherjee give a union of Hibi orbit closures by a general singularity test. Brown–Lakshmibai give purity in codimension three and a generic quadric cone when the join-irreducible poset is a grid lattice."
+        ],
+        "reasoning": "The first two criteria apply in the Hibi model above. The third is close in conclusion, but the join-irreducible poset here is the ordinal sum of antichains, not a lattice: each same-layer incomparable pair has no join (two incomparable minimal upper bounds or none at the last layer). The grid-lattice theorem does not apply to this model.",
+        "searches": [
+          "Wagner, Theorem 2.3",
+          "arXiv:0706.2686, Theorem 6.9",
+          "Brown–Lakshmibai, arXiv:0707.2392, Definition 3.1 and Theorem 4.13"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and local mirrored finding",
+        "arXiv:math/0603718",
+        "DOI:10.1023/A:1022469218716",
+        "arXiv:0706.2686",
+        "arXiv:0707.2392",
+        "DOI:10.5802/aif.1590",
+        "J. Algebra 232 (2000), 360–395 (primary text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph theorem supplies the quadrics. The general Hibi criteria supply a test/description of singular faces, not this enumeration of maximal singular coordinate supports or their surviving chains. The degree computation distinguishes cuts from a zero row at an end or in the interior and from two dependent adjacent rows."
+        ],
+        "reasoning": "The qualitative problem is already within the prior theorems. Recovering the degree profile through them still requires classifying the maximal failed fibers and their graded orbit closures for this poset; the two degree levels and their multiplicities are not produced by a direct substitution. The independent Jacobian classification and grade-preserving decomposition carry out that work.",
+        "searches": [
+          "Wagner, Theorem 2.3",
+          "arXiv:0706.2686, Theorem 6.9",
+          "arXiv:math/0603718, Corollaries 3.4 and 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the ideal lattice of m successive two-element antichains, the only incomparable pairs are the two rails of each diamond. Their meet and join are the two successive rungs. This identifies the graded Hibi coordinate ring with the graph edge coordinate ring. One-sided ladder determinantal varieties have a related component theorem, but an identical instance was not established."
+        ],
+        "reasoning": "The Hibi equivalence is exact, including the polarization, whereas 'ladder' by itself does not identify the graph-edge quadrics with a matrix-ladder rank locus. Qualitative Hibi coverage is material and credited.",
+        "searches": [
+          "ordinal sum two-element antichains Hibi singular locus ladder graph degree components",
+          "Wagner, DOI:10.1023/A:1022469218716, Theorem 2.3",
+          "Gonciulea–Lakshmibai, DOI:10.5802/aif.1590, §12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearby same-day Resultary record SCOPE-disjoint-segre-singular-strata-of-complete-multipartite-edge-tor--99655ba7daaa gives disjoint Segre strata and transverse rank-one matrix cones for complete multipartite edge varieties, rather than the chain of graph squares."
+        ],
+        "reasoning": "The exact indexed result addresses a different graph family and component geometry; no degree table or exact formula for this family was identified. The date is not used to infer priority.",
+        "searches": [
+          "Resultary: ladder graph edge toric variety singular locus component projective degrees",
+          "Resultary: chain-of-squares edge variety singular strata reduced component degree"
+        ]
+      },
+      "rationale": "Credit the established ladder edge-ring complete intersection and the applicable general Hibi singularity theory. Indeed the same projective embedding is Hibi: use the lattice of ideals of the ordinal sum of m two-element antichains, with the rung coordinates the ends of successive diamonds and the two rails their incomparable elements. The Hibi straightening relations are exactly the square quadrics. Thus general Hibi criteria already cover qualitative singular support. The supported distinct contribution is the explicit degree profile for this family, requiring the exhaustive component calculation and the residual-chain degree count, not a first criterion for where toric singularities occur.",
+      "residual_risks": [
+        "An earlier worked specialization under Hibi, order-polytope or ladder determinantal terminology could include the degree formula. The 2000 ladder determinantal follow-up was not retrievable in bounded OA attempts. Neither this gap nor a related search hit establishes coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the coordinate-ring foundation",
+          "evidence": [
+            "For bipartite graphs the toric ideal is a complete intersection iff the graph is a ring graph; the foliation criterion applies to successive square attachments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603718",
+          "material_read": "§3 Corollaries 3.4 and 3.7, PDF pp. 11–12",
+          "method": "OA primary theorem passages",
+          "title": "Ring graphs and complete intersection toric ideals",
+          "trigger": "Exact complete-intersection source for the graph rings"
+        },
+        {
+          "assessment": "Applicable qualitative orbit criterion",
+          "evidence": [
+            "Nonsingularity along an orbit closure is characterized by contraction fibers being trees; the statement does not enumerate the failed maximal fibers of this chain or give their degrees."
+          ],
+          "identifier_or_url": "https://doi.org/10.1023/A:1022469218716",
+          "material_read": "§2 Theorem 2.3, printed pp. 157–158",
+          "method": "OA theorem inspection and independent lattice identification",
+          "title": "Singularities of Toric Varieties Associated with Finite Distributive Lattices",
+          "trigger": "General projectively embedded Hibi variety singular criterion for an exact equivalent model"
+        },
+        {
+          "assessment": "Broader support coverage, not an evaluated projective degree formula",
+          "evidence": [
+            "The singular locus is the union of X(D_tau) for faces with the stated cotangent dimension inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0706.2686",
+          "material_read": "Theorem 6.9 and immediately preceding criterion, PDF around pp. 24–25, offset 64144",
+          "method": "OA PDF theorem and preceding test",
+          "title": "Singular Loci of Hibi toric varieties",
+          "trigger": "General singular orbit closures of the affine cone"
+        },
+        {
+          "assessment": "Qualitative overlap; different hypotheses",
+          "evidence": [
+            "Theorem 4.13 assumes a grid lattice of join irreducibles, then gives codimension three and the quadric cone; the join irreducibles of the ladder model are not a lattice."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0707.2392",
+          "material_read": "Definition 3.1, p. 8; Theorem 4.13, p. 18, OA offsets 43380–45452",
+          "method": "OA decisive passages with hypothesis test on the join-irreducible poset",
+          "title": "Singular loci of Bruhat–Hibi toric varieties",
+          "trigger": "Same codimension and generic node in a restricted Hibi class"
+        },
+        {
+          "assessment": "Related support theorem; identical instance not verified",
+          "evidence": [
+            "The singular locus is described by loci V_i for a one-sided ladder determinantal model; the statement is not the projective degree distribution for the graph-edge chain."
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/aif.1590",
+          "material_read": "§12, pp. 1046–1049, Theorem 12.3",
+          "method": "Primary text and hypothesis comparison",
+          "title": "Schubert varieties, toric varieties and ladder determinantal varieties",
+          "trigger": "Nearby ladder determinantal singular component theorem"
+        },
+        {
+          "assessment": "Different graph family and component geometry",
+          "evidence": [
+            "Gives disjoint Segre strata with transverse rank-one 2-by-m cones and multiplicity m for complete multipartite edge varieties."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-disjoint-segre-singular-strata-of-complete-multipartite-edge-tor--99655ba7daaa",
+          "material_read": "Mirrored RESULT.md, main singular strata statement",
+          "method": "Resultary and local mirror comparison",
+          "title": "Disjoint Segre singular strata of complete multipartite edge toric varieties",
+          "trigger": "Closest exact indexed edge-toric singularity result"
+        },
+        {
+          "assessment": "Extent unresolved",
+          "evidence": [
+            "The summary indicates singular loci for certain ladder determinantal varieties. No full-text noncoverage inference is made from it."
+          ],
+          "identifier_or_url": "J. Algebra 232 (2000), 360–395",
+          "material_read": "Bibliographic result and search summary only; no primary theorem text retrieved",
+          "method": "Lawful OA direct and alternate route attempts",
+          "title": "Singular loci of ladder determinantal varieties and Schubert varieties",
+          "trigger": "Related follow-up on matrix ladders"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of irreducibility and degrees",
+        "Wagner, Theorem 2.3, for qualitative context"
+      ],
+      "rationale": "The graph-edge embedding is canonical, so projective degree of its reduced singular support and the degree of each orbit-closure component are natural embedding-sensitive invariants. The calculation exhibits two different degree levels despite equal codimension and generic transverse type, and provides an exact whole-family answer rather than a single instance or an evaluation of smoothness alone.",
+      "residual_risks": [
+        "No application to the nonreduced singular scheme, resolutions or other toric embeddings is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

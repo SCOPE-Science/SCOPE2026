@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:54:01.545395Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I built the 20 labelled vertices from five-label two-subset bitmasks and two layers, joining disjoint masks in opposite layers, and enumerated every 1-, 2-, and 3-element subset (20+190+1140). The empty set cannot mark any vertex. I started with the closed neighborhood and forced one available sole neighbor at a time. This computes the same least fixed point as simultaneous rounds: if more vertices are marked, a pending force either already has its target or that target is still the sole missing neighbor. There are no successes below size 3; exactly 240 triples succeed, and testing all triples shows success iff the original-graph distance signature is (2,3,5) or (3,3,4). The two signatures occur 120 times each. I applied all label permutations and both layer choices to one representative of each, recovering the two entire signature classes under S₅×C₂. I constructed edges by testing each unordered pair of optima: symmetric difference of size two for a jump, with original adjacency of the difference vertices additionally required for a slide. All-source breadth-first searches in both graphs reached all 240 states. Slide degrees are 4, hence 480 edges. Slide shells at distances 1 onward are (4,12,30,57,75,50,11,0) and (4,12,29,56,75,50,12,1), respectively. The sum over roots divided by two gives (480,1440,3540,6780,9000,6000,1380,60); the shell maxima give radius 7 and diameter 8. I checked every type-(3,3,4) configuration's unique distance-eight partner, agreement with the stated four-label perfect-matching/complement transformation, and disjointness from the given triple. In an undirected graph uniqueness in this orbit makes the partner rule a fixed-point-free involution with 60 unordered pairs. On unrestricted jumps the degrees are 17 and 13, the edge count is 1800 and the diameter is 4. Replay: case 4 of review_frozen_repro.py, or the exhaustive loops described here. The two frozen programs were inspected, not executed. This is an exhaustive finite certificate for the prescribed graph/rule, not a result for generalized Petersen graphs as a family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bjorkman et al. develop generic token-addition/removal and token-jump results, examine some graph families, and in Problem 6.3 pose power-domination token sliding as future work.",
+          "Related Kneser-graph work gives slide radius four and diameter five for KG(n,2) with n≥8. That statement does not include this bipartite double cover. The generalized-Petersen power-domination papers' full texts proved unavailable in the attempted paths."
+        ],
+        "reasoning": "Generic jump connectivity or a scalar minimum theorem would not supply the degree, distances and extremal partner of the adjacency-restricted move graph. The Kneser result's host hypothesis does not specialize to GP(10,3).",
+        "searches": [
+          "Bjorkman et al. arXiv:2201.01798, pp. 2, 13–14, 25",
+          "Zhao–Shan–Kang DOI 10.7151/DMGT.2137 and Xu–Kang DOI 10.1007/s10878-010-9293-y for generalized Petersen power domination",
+          "Resultary f27159e6fd24 Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.01798",
+        "doi:10.7151/DMGT.2137 (full-text access unsuccessful)",
+        "doi:10.1007/s10878-010-9293-y (full-text access unsuccessful)",
+        "Resultary 9829d0d5cf3e, 8eb5edc1f78b, f27159e6fd24, 6e981f3b14e6, cf69f6b23fb8, c9fe15cd9378, 3c1ce6b06fcb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The token-jump graph only tests one-vertex exchange and includes edges not permitted by sliding; in this case degrees 17 and 13 become four. The unrestricted metric and Kneser-graph result cannot decide the unique distance-eight partners of these triples."
+        ],
+        "reasoning": "The necessary extra analysis is on the actual slide adjacency and its geodesics on the two exact orbits. Other predicates on the same host or adjacent slides on other hosts do not imply it.",
+        "searches": [
+          "arXiv:2201.01798 discussion and Problem 6.3",
+          "Resultary f27159e6fd24 and 8eb5edc1f78b actual Finding passages",
+          "focused primary-literature search for Desargues/GP(10,3) power-domination optimum token slides (no additional result returned)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 20-vertex host is the bipartite double cover of KG(5,2), not KG(5,2) itself. Same-host catalog entries for independent domination, semitotal domination and zero forcing have different configuration-feasibility tests.",
+          "Power domination can be phrased as requiring the closed neighborhood of the sensor set to zero-force the graph. This does not identify minimum sensors with minimum zero-forcing sets, and their move graphs need not coincide."
+        ],
+        "reasoning": "The host aliases were included; a prior metric must also use the same feasibility and minimum-cardinality rule, and allow the same single-token slides.",
+        "searches": [
+          "Resultary/local mirror: Desargues graph, GP(10,3), H(5,2), bipartite double cover of Petersen, power domination / sensor placement, token-sliding or optimum reconfiguration",
+          "arXiv:2201.01798 introduction and Problem 6.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9829d0d5cf3e is the identical frozen finding; 8eb5edc1f78b gives 100 minimum semitotal-dominating six-sets on GP(10,3), orbit sizes 10/30/60, and a two-replacement graph. f27159e6fd24 computes slide extremals in the standard Kneser family. The 6e981f3b14e6 summary describes Kneser power-domination counts but its full mirror record was unavailable."
+        ],
+        "reasoning": "Neither complete nearby table applies to the present 240 minimum power-dominating triples. The unavailable full mirror entry is not taken as evidence against broader overlap.",
+        "searches": [
+          "Resultary/local mirror: Desargues optimal configuration counts and sphere/distance distributions; Resultary 9829d0d5cf3e, 8eb5edc1f78b, f27159e6fd24 and 6e981f3b14e6"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the optimum-slide metric classification on this host, especially the split eccentricities and explicit disjoint antipodal involution, together with the optimum census used to build it. Earlier power-domination work could cover the scalar minimum, which is not credited here as new by itself. Same-day material on the same graph or the same move rule was substantively compared and concerns different configuration spaces.",
+      "residual_risks": [
+        "The unavailable Zhao–Shan–Kang and Xu–Kang full texts might cover the scalar minimum or aspects of the optimum-set census. This bounded review credits no standalone novelty for the scalar minimum.",
+        "No global historical priority claim is warranted; the same-host and same-rule comparison records are same-day and mathematically distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive motivation and known jump theory; not an inspected exact slide classification for Desargues",
+          "evidence": "The paper initiates token-addition/removal and token-jump study for power domination, and p. 25 identifies the token-sliding problem.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.01798; doi:10.1007/s44007-025-00187-5",
+          "material_read": "PDF pp. 2, 13–14, 25 (text offsets 3755, 50874, 54313, 71442), including Problem 6.3",
+          "method": "Bounded primary-text inspection",
+          "title": "Power domination reconfiguration",
+          "trigger": "Framework, general reconfiguration theorems and potential prior exact examples"
+        },
+        {
+          "assessment": "Unresolved for the numerical minimum and precursor classifications",
+          "evidence": "The host family matches; the DOI access attempt failed and no accessible alternate full text was located. No claim about what the whole paper excludes.",
+          "identifier_or_url": "https://doi.org/10.7151/DMGT.2137",
+          "material_read": "Citation and scope only; no decisive full-text passage obtained",
+          "method": "OA DOI and repository access attempts",
+          "title": "Power domination in the generalized Petersen graphs",
+          "trigger": "Could already treat the scalar minimum or optimal sets at GP(10,3)"
+        },
+        {
+          "assessment": "Unresolved scalar-minimum overlap",
+          "evidence": "The subject is the numerical power-domination invariant on the host family; attempted routes did not yield the actual theorem text.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-010-9293-y",
+          "material_read": "Citation and scope only; no decisive full-text passage obtained",
+          "method": "OA publisher page/PDF and repository access attempts",
+          "title": "On the power domination number of the generalized Petersen graphs",
+          "trigger": "Could give a covering minimum-cardinality theorem for this host"
+        },
+        {
+          "assessment": "Different feasibility and move rule; same-day date does not establish priority",
+          "evidence": "100 minimum semitotal-dominating six-sets of GP(10,3), orbit sizes 10/30/60 and two-replacement connectivity.",
+          "identifier_or_url": "Resultary 8eb5edc1f78b",
+          "material_read": "Mirror Finding",
+          "method": "Exact statement comparison",
+          "title": "A sharp two-replacement threshold among the one hundred optimal configurations",
+          "trigger": "Same host and exact optimum reconfiguration"
+        },
+        {
+          "assessment": "Different host family, not this double cover",
+          "evidence": "Uses standard KG(n,2), n≥8, with radius four and diameter five.",
+          "identifier_or_url": "Resultary f27159e6fd24",
+          "material_read": "Mirror Finding and Kneser adjacency scope",
+          "method": "Exact statement comparison",
+          "title": "Five-slide extremals and a radius-four diameter-five split for Kneser graphs",
+          "trigger": "Same minimum power-domination token-slide metric"
+        },
+        {
+          "assessment": "Related Kneser result; exact scope not fully resolved",
+          "evidence": "Summary refers to triple criteria and a power-domination polynomial; not evidence of the present slide-distance classification.",
+          "identifier_or_url": "Resultary 6e981f3b14e6",
+          "material_read": "Resultary summary only; exact mirror RESULT.md unavailable",
+          "method": "Index and mirror availability check",
+          "title": "Power-domination polynomial and minimal-set dichotomy of two-subset Kneser graphs",
+          "trigger": "Older power-domination optimum-set criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The host is a standard small distance-regular graph, and power-domination token sliding is explicitly posed as a research problem by Bjorkman et al. Preserving genuine local moves is a scientific distinction from a jump graph, not a post hoc cutoff. Here it creates a nonconstant eccentricity on a regular connected graph and a unique, structurally described pairing on only one optimum orbit. An exact slide example with this property and a full comparison against jumps is useful for testing proposed uniform-distance or extremal patterns in optimum reconfiguration. The value does not rest on merely enumerating 1,350 candidate subsets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

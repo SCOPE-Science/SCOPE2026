@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:26:00.508914Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4 and verification/supporting files",
+        "Luo–Yau–Zhang–Zuo arXiv:1402.0060 Figure 1.4",
+        "Independent replay /workspace/replays/4.py"
+      ],
+      "rationale": "The complete lattice-point lists agree with Figure 1.4. Reducing the six exponent pairs modulo seven gives six distinct characters for each code. They are independent: a reduced polynomial of degree at most six in each variable vanishing on the 7×7 grid is zero by univariate interpolation in each variable. The coordinate map phi(x,y)=(x^(-1),x^(-3)y) squares to the identity, and the paired weights x^3 and (x^(-1))^3 multiply to one. The weighted pullback sends (a,b) to (3-a-3b,b): the four horizontal exponents reverse, (0,1) stays fixed, and (0,-1) becomes (6,-1)=(-1,-1) modulo seven. Thus it sends precisely one basis of the evaluation code onto the other. The edge-step gcd sums give four and three boundary lattice points, ruling out integral affine unimodular equivalence. Independent exact replay in /workspace/replays/4.py passed the lattice-point, area, boundary, reduced-exponent and 49-coordinate weight/permutation checks. The frozen checker and recorded output were inspected, not executed.",
+      "residual_risks": [
+        "The equivalence is on evaluation coordinates, not an equality of formal Laurent section spaces. The conclusion is for F_8 and completes the relevant dimension-six classification in the original theorem's field range, not every dimension or field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original dimension-six theorem for q≥7 excepts this unresolved F_8 pair and reports the different F_7 equivalence of P6^(5), P6^(6).",
+          "The 2020 theorem and its own F_8 conjecture are stated for dimension-seven polygons."
+        ],
+        "reasoning": "The open exception prevents deriving the result from the original classification as a special case; the later cited statements do not have the required dimension or polygons.",
+        "searches": [
+          "arXiv:1402.0060 Theorem 1.2",
+          "doi:10.4310/CAG.2020.v28.n2.a3 §1, Theorem 1.2 and Conjecture 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Luo–Yau–Zhang–Zuo arXiv:1402.0060 pp. 2, 4",
+        "Hussain et al. CAG 28 (2020) §1 bounded excerpts",
+        "Resultary exact record match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original theorem expressly leaves the pair open; equal enumerators only give a necessary invariant. The present coordinate map verifies the required weighted row identities directly.",
+          "The differing lattice-boundary counts block the ordinary unimodular lattice-equivalence route."
+        ],
+        "reasoning": "The missing implication is supplied by a field-specific exponent wraparound, not by quoting an earlier equality or specialization.",
+        "searches": [
+          "arXiv:1402.0060 Theorem 1.2 and Conjecture 1.1 compared with frozen RESULT.md §§2–4",
+          "2020 CAG dimension-seven Theorem 1.2 and Conjecture 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 1.1 explicitly names P6^(4), P6^(5) over F_8; the figure gives the exact two exponent sets.",
+          "On the exponent torus the certificate is the affine map (a,b)↦(3-a-3b,b) modulo seven, equivalent to a weighted permutation of evaluation coordinates."
+        ],
+        "reasoning": "An equality of enumerators, an affine equivalence modulo seven, and an integral affine equivalence are distinct claims; the new map supplies the second and proves the desired code equivalence, despite failure of the third. The discovery results did not furnish a further covering proof.",
+        "searches": [
+          "arXiv:1402.0060, Theorem 1.2, Conjecture 1.1 and Figure 1.4",
+          "Primary-literature discovery for P6^(4) and P6^(5) monomial equivalence over F_8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned 2026/11/8/SCOPE-an-explicit-monomial-involution-settles-the-exceptional-six-poin--594b09b33f67, with the same equation and record identifier.",
+          "The original paper uses the equal enumerator polynomials as evidence for a conjecture, not as a matrix certificate."
+        ],
+        "reasoning": "The index hit is the audited record itself. Neither it nor the enumerator data constitutes an independent prior equivalence.",
+        "searches": [
+          "Resultary: exceptional monomial equivalence of six-point toric surface codes P6^(4) and P6^(5) over F_8",
+          "arXiv:1402.0060, discussion of equal enumerator polynomials preceding Conjecture 1.1"
+        ]
+      },
+      "rationale": "The explicit monomial involution proves the precise F_8 equivalence left open in the original theorem. The prior enumerator equality supplies no equivalence certificate, the known F_7 equivalence is for a different pair, and the closest later theorem located concerns dimension seven. No distinct covering result was established in the inspected evidence.",
+      "residual_risks": [
+        "Bounded discovery did not supply a distinct proof; it does not rule out unindexed or differently phrased later resolutions.",
+        "The later paper comparison is at statement level, not an exhaustive full-text exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports exact identification, not an earlier proof",
+          "evidence": [
+            "Figure 1.4 panels (4) and (5) match the stated complete exponent sets.",
+            "The text states the F_8 equivalence remains open and names it in Conjecture 1.1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1402.0060",
+          "material_read": "PDF p. 2 Theorem 1.2 and Conjecture 1.1, p. 4 Figure 1.4",
+          "method": "Primary PDF passage lookup and figure comparison",
+          "title": "On classification of toric surface codes of low dimension",
+          "trigger": "Original conjecture, exact polygons and theorem exceptions"
+        },
+        {
+          "assessment": "Inspected theorem/conjecture excerpts concern seven-point cases; no whole-paper exclusion inferred",
+          "evidence": [
+            "Theorem 1.2 and Conjecture 1.1 use C_{P_7}; the latter concerns a different F_8 pair."
+          ],
+          "identifier_or_url": "https://doi.org/10.4310/CAG.2020.v28.n2.a3",
+          "material_read": "§1 p. 7 excerpts at text offsets 26452, 27406, 27673",
+          "method": "Primary PDF literal passage lookup; expanded page request timed out",
+          "title": "On classification of toric surface codes of dimension seven",
+          "trigger": "Later classification with overlapping authors and possible exception coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1402.0060 Theorem 1.2 and Conjecture 1.1",
+        "Frozen RESULT.md proof and scope"
+      ],
+      "rationale": "This is the exact outstanding equivalence in the dimension-six classification, not an arbitrary small code calculation. The explicit coordinate involution resolves the enumerator ambiguity and shows how finite-field exponent reduction can identify codes from lattice-inequivalent polygons.",
+      "residual_risks": [
+        "No conclusion about the later dimension-seven conjectures or other fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

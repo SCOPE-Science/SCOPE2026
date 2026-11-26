@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,8 +21,4 @@
 
 # Reproducibility and boundaries
 
-Run `python3 verify.py` with Python 3 (no third-party packages). The checker reconstructs numerator and denominator from the weighted Laplacian by exact rational matrix arithmetic and compares formula-derived entries with rational matrix inversion. The executed output was:
-
-`VERIFY_OK {'exact_matrix_instances': 114, 'pseudoinverse_identities': 17, 'c5_kernel_identities': 15, 'multipartite_checks': 21}`
-
-The checks cover selected integer graph sizes and rational timesteps, including large steps; they are not exhaustive over all integer orders or over real timesteps. Infinite-family correctness relies on the exact spectral argument, resistance-centering identities and the strictly positive five-cycle numerator polynomials in `RESULT.md`. The checker also verifies that row sums remain one and diagonal entries stay positive. The key large-step asymptotic is derived analytically and not inferred from numerical extrapolation. Independent mathematical assessment is not available.
+Run `python3 verify.py`. With exact rational arithmetic the script checks the homogeneous path pseudoinverse coefficient at orders 2 through 10. It compares selected two- and three-vertex end-step matrices with the small-order formulas, including time zero, and tests the negative entry for orders 4 through 10 at a large positive step. The run printed `PASS: 9 path coefficients, 10 small-path kernels, 7 large-step witnesses`. These spot checks corroborate but do not replace the analytic proof for all orders and real steps in `RESULT.md`.

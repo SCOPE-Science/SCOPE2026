@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the finite Euclidean Voronoi site set, the positive-length traversal convention, independent continuous heights, and the central vertex. Every positive-length nearest-site segment traversal in the finite diamond agrees with the integer-square grid because coordinatewise nearest integers remain inside the diamond. Exactly \(g\) coincident half-integer grid crossings occur when and only when the reduced endpoint coordinates are both odd. The universal two-largest-ranks event has probability \(2/[(M+1)(M+2)]\). Coprime ordered odd positive pairs of sum \(2k\) are counted exactly by \(\varphi(2k)\); all four sign choices are included. A derivative bound gives absolute convergence and an \(O((\log R)/R)\) truncation error. The independent standard-library checker verifies 675 exact geometric cases, rank probabilities through seven obstructions, and all finite-radius identities through radius 16. These tests corroborate, rather than replace, the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The direct parent source (Muñoz and Nuño, arXiv:2611.16336v1) specifies the cell-traversal model and the universal pairwise probability; its lattice Remark 2 suggests logarithmic growth but does not give the square-lattice crossing count, exact finite degree, sharp coefficient or arithmetic constant. The older Lacasa–Iacovacci lattice-image visibility theory (arXiv:1702.07813) uses finitely many ray directions and collinear sample points, not all Voronoi traversals. Exact object-and-implication comparisons found no covering formula in the inspected primary material or targeted published-result records. Source indexing is not exhaustive and earlier equivalent formulations could exist.
+PASS
 
-## Mathematical value — PASS
-The newly introduced Voronoi all-direction construction explicitly raises the question of square-lattice logarithmic growth. The theorem resolves that question with an exact leading constant, a complete finite-window formula, and an arithmetic additive constant determined by primitive odd directions. The corner correction distinguishes general-position site geometry from the exact square tessellation, and the computation provides an analytical benchmark for spatial visibility under an iid null model. This is a motivated exact lattice-geometry classification, not merely a numerical fit.
+After reflection, all coordinatewise nearest sites along the segment are in the endpoint rectangle contained in the diamond. The finite and infinite tessellations therefore give the same positive-length sequence, since the half-integer lines are met only at isolated parameters; no segment runs along one. Distinct crossing times count the traversals, which cannot repeat a cell by convexity. Simultaneity requires the coprime reduced coordinates both odd; in that case the g common times are (2h+1)/(2g), 0≤h<g. Removing endpoint cells yields the claimed count, including both axes. The two endpoint ranks must be highest; summing their probability needs no independence across visibility events. The uncorrected diamond shell has 4m sites, and the exceptional primitive ordered pairs of positive odd coordinates of sum 2k are indexed by reduced residues modulo 2k; the four signs and the factor two in the rank probability give the factor eight. The correction at R=2 is already nonzero. The derivative bound on h(x)=1/[x(x+1)] makes the kth group O(k^-2) after summing g. For 2kg>R the small-k tail adds O(R^-1 sum_(k≤R/2) 1/k), and the large-k tail is O(R^-1); the harmonic baseline has the asserted constant and O(R^-1) remainder. Independent summation with a tail bound certifies the displayed decimal rounding.
 
-## Independent validation and scope
-The included checker is reproducible with the standard library. No proof of an almost-sure or full-degree distribution law is claimed, and no different truncation boundary is silently covered. Historical priority remains provisional pending additional independent scholarly review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The square-lattice logarithmic-growth suggestion and the one-edge rank law are prior. The inspected sources do not give or imply the exact diamond-center expected degree, the coefficient 8 in log R or the convergent arithmetic offset. The half-integer crossing calculation is an ingredient, not an asserted independently novel digital-geometry theorem.
+
+## value
+
+PASS
+
+The result quantifies a stated all-direction lattice-visibility question with an exact expected degree, a sharp divergent coefficient and an offset measuring degeneracies of square Voronoi cells. This gives a benchmark for a fixed window and height-null model; it is not an all-vertex or almost-sure degree law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

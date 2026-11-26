@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:33:01.051282Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–67; VERIFICATION.md lines 19–23; verify.py inspected, not executed",
+        "Replay: python3 /workspace/reviews/evidence/replay.py 1"
+      ],
+      "rationale": "For the induced strict order the comparability graph of a proper subset is a union of paths. A singleton forgets parity; an even path has endpoints at different order levels and no reversal automorphism, while an odd nonsingleton path admits both the identity and endpoint reversal, and its endpoint level distinguishes its type. Matching components gives exactly the factorials and the powers of two. A positive run-gap pair changes the start parity by the total length mod 2; thus the two-state trace tracks rooted run lists. A fixed parity contributes n label choices; each nonempty subset with t runs has t roots, even when its lengths repeat periodically. At least 2t vertices are consumed, giving the cutoff at n and validating the formal log-determinant identity at degree 2n. The empty and full subsets contribute separately; for the full crown the order-level preserving dihedral subgroup has size 2n, including the four-vertex crown. For two deletions, distance 1 and distance 2 contribute 4n² each for n at least 3; thereafter a non-opposite odd distance contributes 4n² and an even distance 8n². These profiles do not mix across distances since the unordered remaining run lengths recover the distance. Opposite deletion gives 2n² for n odd and 4n² for n even; for n=2 the two isolated vertices can be swapped, giving 16+8=24. Single deletions give two odd path types of size n each, yielding 4n². An independent sparse transfer computation and direct induced-subset component census agreed through n=8 and matched all seven totals. Direct strict-relation matching of all partial permutations agreed at n=2,3,4.",
+      "residual_risks": [
+        "Finite replay is limited to the stated ranges; the cyclic rooting argument establishes the arbitrary-size result. The frozen script prints, rather than asserts, the seven total orders; the independent replay asserts them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed comparison covers all even N≥4 and adds growth and extendibility asymptotics. Dimitrova–Koppitz treat membership and minimum generating size, and the undirected path paper concerns ordinary graph isomorphisms and total cardinality."
+        ],
+        "reasoning": "The indexed record is stronger and covers every frozen parameter. The papers provide context but do not supply the equivalent result in the inspected statements. For example an uncolored rank-(N−1) induced path permits reversal regardless of parity type, giving 2N² rather than the crown N².",
+        "searches": [
+          "Resultary crown rank polynomial and half-factorial growth lookup",
+          "arXiv:2204.13961",
+          "arXiv:2101.12468",
+          "arXiv:1809.04422"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and the matching local-mirror record 5cf963fdeacf",
+        "arXiv:2204.13961",
+        "arXiv:2101.12468",
+        "arXiv:1809.04422"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The other formula uses the same component automorphism factors and squared subset counts, with N/2 as the parity-root label multiplier divided by the number of runs."
+        ],
+        "reasoning": "The only remaining presentation changes are summing even and odd gap series and writing the trace series as a log determinant; no distinct surviving exact invariant results. Membership and generating rank in the older crown paper alone would not establish the formula.",
+        "searches": [
+          "Resultary record 5cf963fdeacf, transfer matrix and coefficient formula",
+          "arXiv:2204.13961 Proposition 2.1 and Theorem 2.18"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-rank-polynomial-and-half-factorial-growth-of-finite-crown-partia--5cf963fdeacf uses the same induced height-two crown, not an uncolored cycle or one-way order embedding. Its s, e_(2j), o_(2j+1,p) correspond to u, a_j, b_(j,p)."
+        ],
+        "reasoning": "Put N=2n, use y for the other record's length variable and z for its rank variable, and substitute each type weight by x to the power of its size times its marker. Its transition parity condition gives M verbatim by splitting gaps into even and odd lengths. The empty term written separately there is the constant profile here.",
+        "searches": [
+          "Resultary: crown partial automorphism rank polynomial and induced crown domain-size enumerator",
+          "arXiv:2204.13961 Proposition 2.1; arXiv:1809.04422 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparison Finding lists the same seven orders and its near-full-rank coefficient N²(3N−8)/4 agrees after substitution. Its rank-two expression gives 24 at N=4."
+        ],
+        "reasoning": "This is a matching indexed theorem with matching numerical outputs, not an inference of identity from a numerical sequence alone.",
+        "searches": [
+          "Resultary: ranked crown partial-automorphism enumerators; local-mirror Finding of record 5cf963fdeacf"
+        ]
+      },
+      "rationale": "A distinct indexed record covers the exact complete enumerator. Identifying the two-state run weights after N=2n and separating the empty summand makes the two rank-polynomial expressions identical. The auxiliary x only records a degree already encoded by the type exponents; the formal log determinant is the standard trace identity applied to the same transfer matrix. This is demonstrable coverage, not a finding of historical precedence or a statement about which record was written first.",
+      "residual_risks": [
+        "The indexed record has a later directory date than the frozen record; directory labels do not determine derivation or publication precedence. This review does not establish first discovery or rule out earlier independent literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrably equivalent coverage, plus additional asymptotics; temporal precedence not established",
+          "evidence": [
+            "T_(pq) sums positive lengths with q congruent to p+length+gap mod 2; P_N uses (N/2)/r times the trace; the displayed rank polynomial and seven orders follow the same weighted profile sum."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-rank-polynomial-and-half-factorial-growth-of-finite-crown-partia--5cf963fdeacf",
+          "material_read": "RESULT.md Finding, Assumptions, opening component proof at offset 0, and proof comparison at offset 7254",
+          "method": "Bounded local-mirror reading, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; compare weights and counts",
+          "title": "Rank polynomial and half-factorial growth of finite crown partial-automorphism monoids",
+          "trigger": "Exact same object and rank statistic in Resultary search"
+        },
+        {
+          "assessment": "Membership and minimum generator counts, not the domain-size census in the inspected results",
+          "evidence": [
+            "Proposition 2.1 characterizes admissibility; the later results determine generating sets and their minimum size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2204.13961",
+          "material_read": "PDF pp. 1,3,14; Proposition 2.1, Theorem 2.18, Propositions 2.19 and 2.21",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "The rank of the inverse semigroup of all partial automorphisms on a finite crown",
+          "trigger": "Same poset and semigroup; ambiguous term rank"
+        },
+        {
+          "assessment": "Different object and enumerative statistic",
+          "evidence": [
+            "Theorem 2.1 gives total cardinalities for an undirected path."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.12468",
+          "material_read": "PDF pp. 1,7; Theorem 2.1 at offset 24763",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Partial Automorphisms and Injective Partial Endomorphisms of a Finite Undirected Path",
+          "trigger": "Analogous partial-map cardinality formula"
+        },
+        {
+          "assessment": "The uncolored graph definition does not impose preservation of order levels",
+          "evidence": [
+            "Partial graph automorphisms are isomorphisms between vertex-induced subgraphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04422",
+          "material_read": "PDF p. 1, abstract and definition at offset 0",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Inverse monoids of partial graph automorphisms",
+          "trigger": "Could uncolored induced graph isomorphism make the crown order condition redundant?"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and comparison record 5cf963fdeacf, Finding and Assumptions"
+      ],
+      "rationale": "The all-rank invariant is a natural and useful refinement of a mere generating rank or a total count. The frozen record, however, reproduces the same known indexed profile formula, near-full coefficients and totals. The auxiliary degree marker and equivalent log form add no substantive enumerative capability. There is no distinct valuable residual claim to repair.",
+      "residual_risks": [
+        "This is an assessment of the actual frozen contribution relative to demonstrated coverage, not a negative assessment of the invariant itself."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

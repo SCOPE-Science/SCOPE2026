@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:24:47.464576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The undominated set R and the side to move suffice: a move on v is legal iff R intersects N[v], and then removes that intersection; a vertex used earlier cannot be used legally again. Thus every move strictly decreases |R|, and the two exact continuation counts follow by induction from (0,0) at R empty. After forcing an opening and one reply, the turn is again the first player's and both forced moves must be added. I independently implemented paired min/max recursion on R, with Floyd–Warshall distances, and checked every ordered opening/reply in all four graphs. The Heawood construction uses the Fano binary-vector lines, with an explicit polynomial-field isomorphism to the given modular incidences; Desargues uses two copies of the two-subsets joined by disjointness (complement the three-subset). The GP(8,3) and Pappus adjacency were generated from their specified pair conditions. All are cubic, connected, and girth six. The independent tables match every distance/outcome bin in the supplied certificate and RESULT.md and are invariant under the choice of opening. Start values in graph order are (7,6),(7,6),(8,7),(9,9); the optimal-reply counts (S responding, D responding) are (3,13),(12,3),(3,2),(4,19). Replay: python3 /workspace/reproductions/1.py; output 1.txt. This is an exact finite computation for these graphs, not a test of a general bound. The supplied C++ counts replies only at a representative opening; the independent check and the supplied Python procedure cover all openings.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Theorem 6 gives gamma_g−1 <= gamma'_g <= gamma_g+2; the first three exact pairs attain the lower endpoint. The indexed Kutnar–Marušič abstract gives the exact structural exception set. General-bound text at 10.1137/120884742 was not retrieved."
+        ],
+        "reasoning": "The interval does not force a particular game length or endpoint on any named graph. A structural exception list specifies which graphs to study, not the two turn values or reply counts.",
+        "searches": [
+          "GameDomFinal.pdf Theorem 6",
+          "10.1137/120884742; 10.1137/140976935 general bounds",
+          "10.1016/j.jctb.2008.06.001 cubic symmetric girth six"
+        ]
+      },
+      "checked_sources": [
+        "10.1137/100786800 (author PDF)",
+        "10.1016/j.jctb.2008.06.001 (abstract)",
+        "10.1137/120884742 (limited access)",
+        "Resultary:df543f8ddc1f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day result only forces its own pair (9,8) and has a different optimizing S-first landscape. On Desargues every legal reply to an S opening gives 9; on Pappus the only optimal D replies are the two at distance four."
+        ],
+        "reasoning": "The broader start inequality and the distinct exact case leave the second-reply minimax problems for these graphs unresolved. This finite classification requires analyzing the legal continuations, not just resubstitution of graph order into a bound.",
+        "searches": [
+          "Brešar–Klavžar–Rall Theorem 6 and dodecahedral df543f8ddc1f §Finding versus RESULT.md D-first/S-first tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The author manuscript uses the same legal closed-neighborhood rule and the same minimizing/maximizing objectives; the D/S start distinction is the same. The exact catalogue match under names and aliases is the assigned record itself."
+        ],
+        "reasoning": "Turning a closed-neighborhood recursion into an undominated-set recursion does not change the game. Results for a total-domination or Maker–Breaker variant would not give these payoffs without a separate equivalence. No such equivalence is assumed.",
+        "searches": [
+          "Resultary: ordinary domination game Heawood Möbius–Kantor Pappus Desargues, GP(8,3), F014A/F016A/F018A/F020A",
+          "Brešar–Klavžar–Rall, GameDomFinal.pdf pp. 1,9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day dodecahedral result has exactly the Desargues D-first row, 3 at d=1 and 1 at d=5 giving 9, all other replies giving 8 with counts 6,6,3 at distances 2,3,4. Its S-first value is 8, not 9, and its S-first reply table is different. The original domination-game manuscript delivered no literal alias match; that alone does not exclude aliases not queried."
+        ],
+        "reasoning": "This is a real coincidence of one computed table but not a table for Desargues: the dodecahedron GP(10,2) has pentagons, whereas Desargues is bipartite. Neither a matching distance histogram nor the one coincident conditional-payoff row establishes equivalence of the games.",
+        "searches": [
+          "Resultary named graphs, Foster aliases, exact start pairs and optimal second replies",
+          "df543f8ddc1f §Finding",
+          "GameDomFinal.pdf literal checks for names, codes and GP(8,3)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact strategic census of the four specified graphs, in particular the full replies for both starts, not the definition, a general starting-player inequality, or the structural classification of the graphs. The identical-looking row for a different graph was checked instead of treated as priority or dismissed based on date.",
+      "residual_risks": [
+        "An unindexed game database or example calculation in inaccessible literature may already contain some values or replies.",
+        "The Desargues and dodecahedral D-first row identity could motivate a broader theorem; none establishing that correspondence was identified in the inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical rules and comparison interval, not the asserted tactical census",
+          "evidence": [
+            "gamma_g−1 <= gamma'_g <= gamma_g+2 in the inspected theorem."
+          ],
+          "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/GameDomFinal.pdf",
+          "material_read": "p. 1 (OA offset 900); Theorem 6, p. 9 (offset 25300), targeted name/alias checks",
+          "method": "Read the author-hosted primary PDF at game definition and theorem",
+          "title": "Domination Game and an Imagination Strategy",
+          "trigger": "Original same-rule game and start-order inequalities"
+        },
+        {
+          "assessment": "Structural antecedent; no game result inferred from the abstract",
+          "evidence": [
+            "Names the four graphs as exceptions to the normal-Cayley description."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jctb.2008.06.001",
+          "material_read": "Indexed abstract; full text returned HTTP 403",
+          "method": "Read available abstract and compare exception list",
+          "title": "A Complete Classification of Cubic Symmetric Graphs of Girth 6",
+          "trigger": "Identifies why the quartet is natural"
+        },
+        {
+          "assessment": "One matching D-first row on a nonisomorphic graph; S-first differs",
+          "evidence": [
+            "GP(10,2), pair (9,8); all D-first bins coincide with the Desargues row but not the S-first table."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-antipodal-reply-geometry-in-the-dodecahedral-domination-game--df543f8ddc1f/RESULT.md",
+          "material_read": "§Finding, local mirror offset 0",
+          "method": "Read the original statement and compare graphs, both turn values, and distance bins",
+          "title": "Antipodal reply geometry in the dodecahedral domination game",
+          "trigger": "Closest distinct exact table, including matching D-first row"
+        },
+        {
+          "assessment": "No full-document exclusion asserted",
+          "evidence": [
+            "Same game and extremal bounds; no specific theorem about the four graphs verified here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/120884742",
+          "material_read": "Citation and accessible bibliographic scope, no primary full text",
+          "method": "OA DOI retrieval returned HTTP 403",
+          "title": "Extremal Problems for Game Domination Number",
+          "trigger": "Potential general theorem or exact-game table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph set is a structurally motivated exceptional quartet. For each opening the output not only gives both optimal game lengths but tells a player how sharply the best response is constrained by distance, including the split within Möbius–Kantor distance three and the Pappus distance-four requirement. This is usable tactical information not determined by a game-length bound or even by knowing both game lengths; the scale is finite and the result does not claim a theorem about all cubic symmetric graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

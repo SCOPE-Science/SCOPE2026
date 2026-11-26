@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:53:10.492759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–75",
+        "Frozen VERIFICATION.md lines 19–21",
+        "Frozen check_hybrid.py lines 12–87"
+      ],
+      "rationale": "The finite-difference filter and independent common factor give the claimed spectral measure and diagonal covariance K=W_m/t+κ/d. Jensen gives EN=r²/t−r²I′(t), with I the circular mean of log(W_m+κt/d). The continuous log-derivative contribution is O(t^(1/(2m)−1)), negligible at t^(α−1). At θ=t^α x, dW_m/t tends to x^(2m+2) for x≠0; the logarithmic derivative factors t d_t/d and t W_{m,t}/W_m vanish there and are bounded globally. The lower bounds W_m≳t+|θ|^(2m), d≳t²+θ² yield an integrable majorant C/(1+|x|^(2m+2)). The rescaled mean therefore gives α κ^α csc(πα) with a minus sign in EN. For the intensity at x≠0, differentiate at fixed θ first: tH_t/H→κ/(κ+x^(2m+2)), t²H_tt/H→0, and ∂θθ log H=O(t^(−2α)), for H=tK. Combining with the exact baseline from −log t gives the stated squared term. At x=0, −log d is harmonic and log(1+dW_m/(κt)) has bounded Laplacian: along the ray W_m(t,0)/t is smooth through t=0, and angular derivatives at zero use d=O(t²), W_m=O(t), and vanishing first angular derivatives. Proof applies to fixed m≥1 and κ>0; the checker was inspected, not executed, and would only corroborate finite cases.",
+      "residual_risks": [
+        "Pointwise intensity and expected counts only; no conclusion on fluctuations, full process convergence, or joint limits in m and κ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shirai's Proposition 3.1 is a general one-point intensity representation for spectral measures; Theorem 2.1 assumes absolute continuity. The finitely dependent theorem of Noda–Shirai likewise does not encompass a common Gaussian factor."
+        ],
+        "reasoning": "The representation covers the covariance input, not the evaluated boundary-layer scaling, coefficient or limit. The boundary theorems do not include the mixed hypothesis.",
+        "searches": [
+          "arXiv:2501.02586 Proposition 3.1 and Theorem 2.1",
+          "arXiv:2106.02860 Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.02860 Theorem 1.3, Corollary 1.5, Example 2.6",
+        "arXiv:2501.02586 Theorem 2.1, Proposition 3.1",
+        "Resultary a2142a95ac70, RESULT.md",
+        "Frozen RESULT.md lines 3–16, 48–83"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mixed balance is dW_m/t→x^(2m+2), which yields a κ-dependent Jensen integral and an intensity deficit equal to the square of the limiting atomic share."
+        ],
+        "reasoning": "The pure cases cannot be added at the level of log covariance or zero intensity. The general identity needs uniform singular asymptotics, including a separate axis argument; this is not a direct specialization of an existing boundary formula.",
+        "searches": [
+          "arXiv:2501.02586 Proposition 3.1 versus frozen proof Steps 3–4",
+          "arXiv:2106.02860 Theorem 1.3 and Example 2.6 versus frozen Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Noda–Shirai continuous model has an order-2m zero but no atom; their atom example has positive flat background.",
+          "The distinct same-day Resultary record has uniform density on arcs, no atom, an endpoint logarithm, and angular scale 1−r."
+        ],
+        "reasoning": "The finite-difference coefficient model and mixed spectral-measure model are equivalent; neither rewriting nor a boundary-coordinate conversion identifies it with the inspected results. Even the coincident numerical exponent obtainable in some pure-continuous models would not identify the two measures or profile.",
+        "searches": [
+          "Resultary stationary Gaussian Taylor zeros / mixed spectrum comparison: a2142a95ac70",
+          "arXiv:2106.02860 Theorem 1.3, Corollary 1.5 and Example 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected Resultary entry concerns band endpoints; the checked primary explicit examples give the continuous-zero or flat-plus-atom laws, not the stated joint constants and profile."
+        ],
+        "reasoning": "This is a parametric asymptotic identity rather than a numerical table entry; the comparison is to existing exact examples and indexed findings, not to finite computed zero counts.",
+        "searches": [
+          "Local Resultary publication search under stationary Gaussian Taylor zeros, spectral zeros and angular boundary laws; matched record a2142a95ac70",
+          "arXiv:2106.02860 Example 2.6 and Corollary 1.5 as the closest explicit-case catalog"
+        ]
+      },
+      "rationale": "The explicit fractional angular layer and disk-count deficit for an atom located at a zero of the continuous density are distinct from the checked continuous-only, atom-plus-flat, and band-edge laws. A prior spectral representation applies, but does not evaluate this joint singular limit. No equivalent evaluated law was found in the checked sources.",
+      "residual_risks": [
+        "Indexed and primary searches are not exhaustive; a differently framed general hybrid singular-limit theorem could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Separate continuous-zero and flat-plus-atom cases, not the hybrid law.",
+          "evidence": [
+            "The pure-continuous deficit exponent for a zero of order 2m is (2m−1)/(2m). Example 2.6 gives a deficit of order t^(−1/2) with flat background."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.02860",
+          "material_read": "Theorem 1.3 and Corollary 1.5, p. 4, offset near 15456; Example 2.6, p. 7, offset near 24605",
+          "method": "Lawful OA full-text bounded passage inspection",
+          "title": "Expected number of zeros of random power series with finitely dependent Gaussian coefficients",
+          "trigger": "Both spectral ingredients occur separately in an exact asymptotic treatment."
+        },
+        {
+          "assessment": "General representation but no evaluated mixed limit; quantitative theorem requires absolute continuity.",
+          "evidence": [
+            "Proposition 3.1 applies to the mixed spectral measure; Theorem 2.1 does not."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.02586",
+          "material_read": "Theorem 2.1, p. 3, offset near 9113 and Proposition 3.1, p. 7, offset near 22287",
+          "method": "Lawful OA full-text bounded passage inspection",
+          "title": "The density of zeros of random power series with stationary complex Gaussian coefficients",
+          "trigger": "General intensity formula and a quantitative boundary theorem for stationary Gaussian coefficients."
+        },
+        {
+          "assessment": "Different measure, scale and correction; same date does not settle priority.",
+          "evidence": [
+            "Continuous spectrum uniform on arcs, angular scale 1−r, logarithmic count correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-universal-endpoint-logarithms-for-zeros-of-band-limited-stationa--a2142a95ac70",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local Resultary search and mirrored full-text passage inspection",
+          "title": "Universal endpoint logarithms for zeros of band-limited stationary Gaussian power series",
+          "trigger": "Closest distinct same-day Resultary entry on a boundary layer and count correction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 8–16, 48–83",
+        "arXiv:2106.02860 Theorem 1.3 and Example 2.6"
+      ],
+      "rationale": "Co-location of an atomic line and a continuous spectral zero is a natural boundary case not resolved by either component alone. The finding quantifies how the order of the continuous zero sets the angular width and how the two components change both the local intensity and the leading global deficit. The explicit coefficients and profile give useful benchmarks for more general stationary spectra even without a fluctuation theorem.",
+      "residual_risks": [
+        "The result is for a fixed explicit finite-difference family, not all continuous densities vanishing to the same order."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:21:17.526225Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–65; VERIFICATION.md; check.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/review_checks.py 2. The recursion weights each possible next winner by 1/(number feasible+s), and recursively obtains the marked Laplace transform without imposing the three-race mixture. For n=9 it matches both proposed branch transforms at s=1/3 and s=5/2 over 2,216 feasible states."
+      ],
+      "rationale": "Every vertex that is still feasible at a successful arrival is unarrived: feasibility only decreases, and it would have been accepted had it arrived earlier. Conditioning on the previous winners and their times therefore leaves fresh independent rate-one residuals on the feasible sites. The first three feasible-set sizes are binom(n,2), 2(n−2), and n−2. At the third race the winner is independent of the wait and exactly one winner closes a triangle. On the star branch n−4 compatible sites remain, and their maximum residual determines the last successful time. The symmetry action is transitive on the labels within either outcome. The moments follow from the Bernoulli size defect; scaling the three waits by n on the triangle branch and centering the maximum of n−4 exponentials on the star branch give the stated limits. The two sizes are distinct for n≥5.",
+      "residual_risks": [
+        "The finite calculation does not establish arbitrary-n or limiting laws. The frozen checker's exponential factor assertions themselves do not independently reconstruct the time mixture."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The biased record allows any positive w, including the present rate-one law, and calculates competing rates by eligibility. Its stated asymptotic focus is terminal size, not a finite-time observable. Dhara et al. treat sparse random hosts and jamming density. The greedy local-limit study gives a broad random-order formulation. The EKR threshold study thins adjacency edges, not arrival times."
+        ],
+        "reasoning": "The exact overlapping dynamics are the biased record's w=1 specialization. The unrelated static EKR optimum, sparse-host density, and general local-limit result do not themselves give this mark.",
+        "searches": [
+          "SCOPE-06af28a823bd",
+          "arXiv:1604.03918",
+          "arXiv:1907.07216",
+          "arXiv:2105.02985",
+          "doi:10.1137/0402034"
+        ]
+      },
+      "checked_sources": [
+        "The distinct mirrored SCOPE-06af28a823bd Finding and race proof",
+        "Balogh–Krueger–Luo, Dhara–van Leeuwaarden–Mukherjee, and Krivelevich–Mészáros–Michaeli–Shikhelman original passages; Pippenger metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At w=1 the indexed proof gives first total rate (N−1)+binom(N−1,2)=binom(N,2). After the first edge its eligibility rule leaves 2(N−2) alternatives. All indexed closure/extension pairs reduce to rates 1 and N−3. Its post-third-edge argument says precisely the entire common star must finish on the star branch."
+        ],
+        "reasoning": "The minimum of unit exponentials and its independent uniform winner give the three waiting times and branching probability. The same terminal geometry leaves N−4 unit residuals on the star branch; therefore the last accepted time adds their independent maximum. Their exact CDF and the scaled exponential rates immediately give the Gaussian-free fast limit and the Gumbel slow limit. The size variance and normalized concentration are direct two-point calculations. This comparison does not rely on an unavailable paper.",
+        "searches": [
+          "SCOPE-06af28a823bd, Proof Steps 1–2 and Limitations, local mirror offsets 2300 and 4000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed biased-adsorption theorem samples feasible two-subsets by independent exponential races with rate w through a marked point, otherwise 1. Its Finding explicitly gives p_N(1)=1/(N−2). Its proof gives precisely the same first-two intersecting edges, triangle closure, and eventual full-star alternative."
+        ],
+        "reasoning": "At w=1 the distinguished point has no effect. The graph process and the process on pairwise-intersecting edges of K_N are identical, not just analogous. Additional attempts at permanently rejected sites cannot alter the successful clock history.",
+        "searches": [
+          "Local Resultary/SCOPE: random greedy rank-two Kneser star/triangle and biased adsorption",
+          "SCOPE-06af28a823bd",
+          "arXiv:1907.07216"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed table reports second-type and closing probabilities, including the closure and competing star rates by first and second edge types. Its Finding explicitly reports the unbiased terminal-size value. No table inspected prints the marked Laplace transform itself."
+        ],
+        "reasoning": "The rate table in conjunction with the eligibility description suffices; absence of the last-arrival transform as a separate row does not supply a distinct claim. The assigned record itself returned by search was excluded as independent coverage.",
+        "searches": [
+          "Local Resultary/SCOPE: rank-two Kneser terminal law",
+          "SCOPE-06af28a823bd, Proof Step 2 race table"
+        ]
+      },
+      "rationale": "The distinct indexed biased-adsorption result on the same graph already gives the terminal-size specialization at w=1, the first-three-race geometry, and all competing rate inputs. Specializing that actual proof and applying the elementary exponential-race and maximum identities mechanically yields the entire marked law and both limits. This is demonstrable mathematical coverage, not a claim that the other record printed this formula, or that its same-day date establishes historical priority.",
+      "residual_risks": [
+        "This is an implication decision, not a historical priority judgment between same-day records. Earlier explicit marked-time work remains possible and Pippenger's full text was not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact size specialization and mechanical implication of the marked law; no priority inference from same-day dating",
+          "evidence": "p_N(1)=1/(N−2), eligible-site geometry, closure/extension race-rate table and permanent eligibility of remaining star edges.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-golden-ratio-kinetic-trapping-window-for-biased-adsorption-on--06af28a823bd",
+          "material_read": "Finding and scope; Proof Steps 1–2 and Limitations; offsets 0, 2300, 4000",
+          "method": "Resultary lookup and bounded local mirror passages",
+          "title": "A golden-ratio kinetic trapping window for biased adsorption on two-subset Kneser networks",
+          "trigger": "Same host graph and rate-one submodel"
+        },
+        {
+          "assessment": "Different randomness and statistic",
+          "evidence": "Independent edge-retention in a spanning Kneser subgraph; threshold for optimum independent-set cardinality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2105.02985",
+          "material_read": "Section 1, pp. 1–2, offsets 559 and 4852",
+          "method": "OA original PDF passages",
+          "title": "Sharp threshold for the Erdős–Ko–Rado theorem",
+          "trigger": "Kneser star maximum and random model"
+        },
+        {
+          "assessment": "Different host and observable",
+          "evidence": "Jamming fraction on sparse G(n,c/n), not the marked last-success time on fixed KG(n,2).",
+          "identifier_or_url": "https://arxiv.org/pdf/1604.03918",
+          "material_read": "Sections 1 and 2.1, pp. 1–4",
+          "method": "OA original PDF passages",
+          "title": "Generalized random sequential adsorption on Erdős–Rényi random graphs",
+          "trigger": "Graph RSA and jamming limit"
+        },
+        {
+          "assessment": "General framework, no Kneser timing law in passages read",
+          "evidence": "Random arrival labels and greedy terminal density for locally convergent graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.07216",
+          "material_read": "Section 1, pp. 1–2, including arrival-label formulation",
+          "method": "OA original PDF passages",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "General random greedy graph law"
+        },
+        {
+          "assessment": "Unresolved historical coverage, not used for the verdict",
+          "evidence": "No original full-text passage available in the attempted routes.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Bibliographic identification; original full text unavailable",
+          "method": "Lawful publisher and OA copy attempts",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Classical RSA and possible exact early examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–36 and 44–65",
+        "SCOPE-06af28a823bd Proof Steps 1–2"
+      ],
+      "rationale": "The fast/slow time contrast is a useful interpretation and the marked law a useful benchmark, but given the indexed eligibility and race table the formula and limits take only standard exponential spacings, scaling, and the elementary extreme-value limit. The frozen claim does not supply a surviving independent exact invariant or a new mechanism beyond that directly obtainable specialization.",
+      "residual_risks": [
+        "This assessment does not reject the utility of presenting the explicit formula as an exposition or benchmark."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

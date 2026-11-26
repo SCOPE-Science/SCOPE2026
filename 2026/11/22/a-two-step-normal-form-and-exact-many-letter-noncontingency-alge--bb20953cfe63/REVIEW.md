@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result makes a precise all-valuation claim for finite bicliques with \(k\geq2\) letters. Propositional minterms recover any non-singleton opposite support; depth-two tests \(\Delta(\chi_a\wedge\Delta\chi_b)\) recover the reverse support whenever the opposite support has at least two colors. The singleton-opposite case collapses exactly because its worlds share the same complete modal behavior. An induction on formula syntax proves that the stated finite descriptor is stable under arbitrary nesting; Boolean isolation of the finite descriptors proves the exact algebra size. The two-color and four-color symbolic refinements and independently constructed small labelled-model checks in `verify.py` agree with the formulas. The proof, not finite enumeration, covers unbounded numbers of letters and frame sizes.
+PASS
 
-## Originality — PASS within inspected evidence
+With q=2^k atomic colors and pointed support data (c,S,T), a depth-one minterm homogeneity test recovers exactly T if |T|>1, and otherwise all such tests are true. In the latter case all opposite-side worlds have the identical successor set and color, so in fact all modal tests are true at every depth. For |T|>1 fix a in T: on the opposite side Δχ_b is a constant h_b, and Δ(χ_a ∧ Δχ_b) at the point holds precisely when h_b is false. These tests recover [S], including the singleton class. When |T|>1 the set of successor depth-two descriptors is then uniquely determined, including when |S|=1, so a formula induction proves stability. For each c there is one monochromatic-opposite descriptor and (2^q−q−1)·2^(q−1) others. Finite Boolean separation gives the powerset algebra at each depth. Varying valuations on K_{q,q} realizes all descriptors by repetition of colors; (c,C,C) forces at least q vertices on each side. Replacing S={c} by S={c,d} with the same non-singleton T proves sharpness. This covers k≥2 and validates the included k=1 example, with no assertion for k=0.
 
-Full published results on noncontingency stars (arbitrary letters, one-way terminal successors), all complete multipartite frames (one letter), and irreflexive cliques (one letter) were compared by mathematical implication. None states or implies the all-\(k\geq2\) exact biclique spectrum or the two-sided normal form without a new analysis of feedback between the two independent sides. Recent Wang–Zenger arXiv:2609.38975 and Fan–Wang–van Ditmarsch general knowing-whether work provide the semantics and theory, rather than a located exact formula-algebra classification. The latest Wang–Zenger paper was available by abstract, not its complete full text; this is a residual priority risk. Searches, inspected material, and scope comparisons are recorded in `AUDIT.json`. Historical uniqueness is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-Complete all-parameter classification is motivated by the concrete expressivity question: how many properties can a noncontingency-only language detect on the simplest two-way nonreflexive neighborhood geometry? The exact sharp second modal layer, explicitly observable reverse-side information, exact exponential-size formula algebra, and least common witness biclique are significant structural invariants, not just finite sample counts or renamed one-sided calculations. The distinction from the rooted-star and one-letter multipartite cases is mathematically substantive.
+Pass is for the many-letter depth-two biclique classification, formulas counts and least universal biclique, not novelty of homogeneity tests, the first-layer count in other frame classes, or the one-letter boundary case. The checked literature and indexed results do not give an equivalent many-letter pointed classification or imply it as stated.
 
-## Remaining limits
+## value
 
-The normal form does not cover arbitrary graph frames, reflexive bicliques, higher modal signatures or constrained valuations. The comparison with one recent plausible paper could not include full-text inspection, and equivalent old terminology may remain unindexed. The computational verification is finite and does not independently audit the proof or historical priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classification answers how much of either side is observable with the weaker Δ modality and gives an exact depth cutoff even with arbitrarily many letters. The two masking regimes, the Boolean algebra size and a least common finite testing frame are useful consequences of identifying the exact observable data, not just a census of small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

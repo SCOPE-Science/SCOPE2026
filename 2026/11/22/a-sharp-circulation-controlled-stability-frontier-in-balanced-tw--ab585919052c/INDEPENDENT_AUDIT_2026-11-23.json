@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:20:51.985634Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a positive homogeneous equilibrium the interactions cancel by row balance. Adding the two stage equations gives total density 2, and subtraction then gives zero contrast, so this equilibrium is uniquely (1,1) for every species. Differentiation and the orthogonal sum/contrast basis give blocks -2I, -G, G, -2ΔI; a Schur determinant and polynomial extension give the stated quadratic for each eigenvalue of G with multiplicity, including defective G. For s=1+Δ and q=(Δ-1)^2-z^2, the real part of the square root with nonnegative real part is less than s exactly when Re(q)+(Im(q))^2/(4s^2)<s^2. This gives the rational frontier; substitution of iω yields ω=-ab/s at equality. A strict violation gives a positive root real part. A contact does not by itself imply nonlinear stability or a bifurcation and does not exclude instability caused by another mode. The matched spectra are 0,0,±2g and 0,0,±2ig; the mixed circulant has 0,-2g,g(1±i), yielding the stated numbers and nonzero-frequency contact. The trace-zero/row-zero argument proves the size minimum for that contact; solving the two- and three-species symmetric balance equations proves the comparison minimum. The explicitly specified G_mix is a four-vertex directed circulant with additional arcs, not a graph whose only arcs form a simple directed four-cycle; the witness and minimum are for the stated matrix class, not bare four-cycle support. Read the frozen verification note and checker as evidence without executing the checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The random-ensemble threshold uses large demography and community size; the finite-demography discussion reports numerical results.",
+          "The two-species Hopf record changes the stage block and does not meet species row balance. The three-species turnover-swap record changes rates and gives a limiting reduced Jacobian. The entropy record uses opposite same-stage interactions."
+        ],
+        "reasoning": "A framework allowing arbitrary structured Jacobians is not already a finite-Δ classification with these exact hypotheses. The two- and three-species results do not refute or cover the four-species minimum for this class.",
+        "searches": [
+          "arXiv:2610.23557, pp. 15–16 and 23",
+          "Resultary 2f73bdd1134a, 14bce1e25823, a08fd9b17c57",
+          "10.1111/ele.70272"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_stage_circulation.py",
+        "Garmire and O'Dwyer, arXiv:2610.23557",
+        "Resultary 2f73bdd1134a, 14bce1e25823 and a08fd9b17c57",
+        "Giménez-Romero et al., 10.1111/ele.70272 (access limitation above)",
+        "Pecora and Carroll, 10.1103/PhysRevLett.80.2109 and Anish et al., 10.1080/17513758.2024.2397404 (primary text inaccessible on attempted routes)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Schur step in Eq. (34) is a generic determinant identity; the adjacent random-ensemble derivation takes Δ to infinity.",
+          "For symmetric G the cross blocks are globally skew and the symmetric part of the Jacobian is strictly negative, so unconditional reciprocal stability by itself is elementary and is not an originality basis.",
+          "For G_mix there is a critical mode with both real and imaginary parts, which requires a fourth species under zero diagonal and row balance."
+        ],
+        "reasoning": "Known diagonal stability and block factorizations account for pieces of the proof, not a stronger theorem already specifying these same complementary balance hypotheses and their topology-sensitive witnesses. An ensemble or high-rate limit cannot decide instability at fixed Δ for an arbitrary G from its eigenvalues.",
+        "searches": [
+          "arXiv:2610.23557, Eqs. (33)–(38)",
+          "Resultary 14bce1e25823 (entropy identity), 2f73bdd1134a (two-species Hopf), a08fd9b17c57 (turnover reversal)",
+          "Pecora and Carroll, 10.1103/PhysRevLett.80.2109"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen modal law is the Hurwitz region for (λ+2)(λ+2Δ)+z²=0 and equivalently a fixed two-by-two master stability map.",
+          "Garmire–O'Dwyer's Eq. (33) has nonvanishing general stage-block combinations, and Eqs. (35)–(38) use the large-Δ limit to obtain two simplified spectral factors."
+        ],
+        "reasoning": "The generic modal method and the complex quadratic criterion are familiar; neither supplies the model with identical absolute interaction strengths at opposite stability verdicts or the restrictions determining the dimension minimum. No inspected exact finite-demography specialization was equivalent to the complete result.",
+        "searches": [
+          "Resultary zero-aggregate stage interactions and coexistence stability",
+          "arXiv:2610.23557, Eqs. (33)–(38)",
+          "complex quadratic stability / master stability for two-stage block Jacobians"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed explicit witnesses implement other stage patterns or unequal turnover. The inspected finite-Δ results of Garmire and O'Dwyer are numerical ensemble comparisons, not a catalogue of exact deterministic spectra for this interaction."
+        ],
+        "reasoning": "An exact enumeration of a few matrices would not establish the frontier for arbitrary real, possibly defective G. An exact catalogue containing the same matrices could preempt the witnesses alone; the inspected candidates are materially different.",
+        "searches": [
+          "Resultary records 2f73bdd1134a, 14bce1e25823, a08fd9b17c57",
+          "arXiv:2610.23557, finite-Δ discussion p. 23"
+        ]
+      },
+      "rationale": "Prior stage-structured Jacobians, aggregate cancellation, the Schur reduction, and the reciprocal stability mechanism are not new here. The surviving claim is a finite-demography all-spectrum criterion in this complementary, deterministic stage model, with size-sharp matched-network and nonzero-frequency tests. The closest accessible records do not cover that combination. This is a best-of-knowledge result, not a priority certification.",
+      "residual_risks": [
+        "A specialized block-matrix result or earlier stage-model specialization may state an equivalent region; the general lookup was not conclusive.",
+        "The inaccessible primary texts were not assessed for whole-document noncoverage. The exact minimum-size claim is only within the balanced zero-diagonal class, and no novelty is attributed to the determinant identity or elementary complex quadratic test alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General model and methods overlap; no equivalent arbitrary deterministic finite-rate region in these passages",
+          "evidence": [
+            "After Eq. (34) the text explicitly takes Δ→∞ for analytical results; finite Δ is discussed numerically."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.23557",
+          "material_read": "Original PDF pp. 15–16, Eqs. (33)–(38), and p. 23 on finite demography; Schur and limit passage at offsets 52900–56750",
+          "method": "Open primary preprint, passage and equation inspection",
+          "title": "Heterogeneity among and competition between life stages together extend the stability boundary of complex ecological communities",
+          "trigger": "Closest stage-structured model and spectral method"
+        },
+        {
+          "assessment": "Different demographic and interaction structure; not a balanced counterexample",
+          "evidence": [
+            "Two-species Hopf at w=2d+2 with a periodic orbit beyond it; the frozen class requires species row balance, not just zero total of a stage block."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-supercritical-oscillations-from-zero-mean-stage-interactions-in--2f73bdd1134a",
+          "material_read": "Mirrored RESULT.md, opening finding and model",
+          "method": "Local catalogue and mirrored source comparison",
+          "title": "Supercritical oscillations from zero-mean stage interactions in a two-species community",
+          "trigger": "Closest oscillatory witness and apparent smaller species count"
+        },
+        {
+          "assessment": "Different perturbation and parameter limit; no dating inference",
+          "evidence": [
+            "Limits to -2I+δC at high turnover and reverses the verdict by swapping rates rather than by matched reciprocity at fixed rates."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-three-species-are-sharp-for-reversing-community-stability-by-swa--a08fd9b17c57",
+          "material_read": "Mirrored RESULT.md opening finding",
+          "method": "Local catalogue and mirrored source comparison",
+          "title": "Three species are sharp for reversing community stability by swapping stage turnover rates",
+          "trigger": "Close stage cancellation and minimum-size stability comparison"
+        },
+        {
+          "assessment": "Different dissipative sign structure",
+          "evidence": [
+            "Coupling is within stages with opposite signs, unlike the off-diagonal stage K here."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-uniform-global-entropy-decay-under-arbitrarily-switching-stage-a--14bce1e25823",
+          "material_read": "Mirrored RESULT.md opening conditions and entropy result",
+          "method": "Local catalogue and mirrored source comparison",
+          "title": "Uniform global entropy decay under arbitrarily switching stage-antagonistic ecological interactions",
+          "trigger": "Balanced skew stage interactions with stronger stability conclusion"
+        },
+        {
+          "assessment": "Unresolved at primary-text level; not evidence of absence",
+          "evidence": [
+            "The inspected secondary account compares biases towards predator–prey and competition effects, not an exact balanced spectrum criterion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/ele.70272",
+          "material_read": "Secondary discussion in arXiv:2610.23557, p. 3 only; full text inaccessible on the attempted route",
+          "method": "Lawful original-text attempt plus separately identified secondary description",
+          "title": "Population Structure Plays a Key Role in Community Stability",
+          "trigger": "Plausible broader structured ecological Jacobian comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Zero on every species-pair aggregate can suggest no community-level effect, yet at the same edge magnitudes and demographic rates the construction changes the stability verdict. The exact threshold quantifies when maturation compensates circulation, distinguishes stationary from nonzero-frequency contacts, and shows the smallest balanced networks needed for each comparison. This is a local structural baseline, neither a nonlinear Hopf theorem nor an empirical stability prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

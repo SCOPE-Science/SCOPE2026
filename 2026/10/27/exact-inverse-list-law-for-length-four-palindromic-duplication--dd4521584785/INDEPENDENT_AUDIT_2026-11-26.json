@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:40:39.596641Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An inverse start is precisely an eight-letter palindrome, and deleting its final four letters is the inverse for the stated reversal channel. Two such starts separated by h=1 or 2 imply y_j=y_(j+2h) on the common reflection range by composition. For h=1 and h=2 the required remaining substrings after deleting four are equal since the period divides four (the compared positions are j=4,…,3+h and j+4 in local coordinates). One representative per distinct parent has spacing at least three in the n−3 start positions. For the period-three witness with a≠b, each start i divisible by three sees the palindrome aabaabaa; for i<j the deletion at i gives b at output index i+4 while the deletion at j leaves a there. The later legal start ensures that coordinate and y_(i+8) exist. This also covers n=4, when there is just one start, and uses only equality of letters, so q≥2 suffices. Frozen notes, code and stored output were inspected without executing the upload. Independent forward-image enumeration (deduplicate each parent's children) checked q=2,3,4 for n=4 through 11,8,6 respectively; replay with python3 /workspace/branches/independent_bounded_checks.py. Neither census replaces the all-length proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 6.1 gives n−k+1, hence n−3 here; Theorem 5.1 concerns two forward steps.",
+          "The November 2 record 47e8202dd4ba states 1+floor((m−2k)/s_k) for received length m, with s_k=min{s≥2:2s∤k}. For k=4, s_k=3 and m=n+4; this is the same exact maximum."
+        ],
+        "reasoning": "The general November theorem mathematically dominates the count (using its own periodic construction); it is a later documented overlap, not evidence of earlier priority. The earlier general bound is not sharp at length four.",
+        "searches": [
+          "Zabokritskiy §5 Theorem 5.1 and §6 Lemma 6.1; Resultary 47e8202dd4ba general PAL-k bound and attainment"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.00779",
+        "arXiv:1712.09345",
+        "Resultary 7eb6fe28da24",
+        "Resultary 47e8202dd4ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 26 proof explicitly composes the two reflections at starts 0 and 2, forcing period four and identical parents when 4 divides k. It also gives the adjacent-start collision.",
+          "Both arguments apply unchanged to the corresponding local spans inside long words; spacing one representative per parent by at least three then gives the upper bound.",
+          "The October 26 period-four extremizers address 4∤k. Their deletions of four symbols cannot give a growing list in the period-four construction."
+        ],
+        "reasoning": "The upper-bound mechanism is already implied. Exact attainment here requires a different witness with noncolliding deletions, supplied by the period-three construction, not by the prior boundary result.",
+        "searches": [
+          "7eb6fe28da24, RESULT.md Proof: Sharp boundary at multiples of four, near offset 3300; Lenz et al. Lemma 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zabokritskiy's inverse deletes v^R from vv^R, exactly the frozen operation.",
+          "Lenz et al. count deletion-sphere words after identifying repeats; Lemma 15 bounds these by runs of valid positions."
+        ],
+        "reasoning": "The parent/deletion reformulation is exact under the same block length and lengths. Counting candidate windows or runs alone still need not give the exact distinct-parent maximum.",
+        "searches": [
+          "one length-four PAL duplication; inverse ambiguity, distinct parents, palindrome deletion sphere",
+          "Zabokritskiy §6 Lemma 6.1; Lenz–Wachter-Zeh–Yaakobi Appendix A Lemmas 14–15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 26 record 7eb6fe28da24: exact all-length formula assumes 4∤k; for k=4 it states the boundary n=6 only.",
+          "November 2 record 47e8202dd4ba is an exact catalogue match for the count; all n and q under review, not only sampled lengths."
+        ],
+        "reasoning": "The prior boundary count agrees but is not an all-n formula; the later entry is distinct from the frozen record and exact. The frozen output table is a finite reproduction, not prior art.",
+        "searches": [
+          "Resultary semantic search: sharp inverse list for one palindromic duplication, period-four rigidity; compare 7eb6fe28da24 and 47e8202dd4ba"
+        ]
+      },
+      "rationale": "Qualified to the exact sharp result and period-three attainment for every n and q≥2. The adjacent-start collision is known, and the October 26 boundary proof already gives the distance-two collision locally, so the one-third upper bound follows immediately from prior arguments; those mechanisms are not original here. The decisive extra step is the all-length matching construction with distinct parents. A distinct November 2 general theorem covers this exact specialization, but its later catalogue date does not establish that this result was pre-empted. No earlier exact all-length sharpness or equivalent witness was established in the inspected sources.",
+      "residual_risks": [
+        "A differently named earlier exact k=4 palindrome-deletion extremum is possible; a bounded search is not global priority certification. The later exact broader result is explicitly acknowledged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier general upper bound; exact theorem there measures another invariant",
+          "evidence": "n−k+1 inverse candidate bound; §5 counts two-step forward descendants.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.00779",
+          "material_read": "§6 Lemma 6.1 (p. 17, offset 60113) and §5 Theorem 5.1 (p. 13, offset 45719)",
+          "method": "OA PDF passage inspection",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Same channel and inverse ambiguity"
+        },
+        {
+          "assessment": "Neighboring-start bound and exact short-block formula; no demonstrated all-n k=4 match",
+          "evidence": "Lemma 15 groups runs of all-zero columns; length-two exact calculation is not length four.",
+          "identifier_or_url": "https://arxiv.org/pdf/1712.09345",
+          "material_read": "Appendix A, Lemmas 14–15 and proofs, p. 22 (near offsets 66331 and 68661)",
+          "method": "OA PDF passage inspection",
+          "title": "Duplication-Correcting Codes",
+          "trigger": "Palindromic deletion sphere is the inverse problem"
+        },
+        {
+          "assessment": "Earlier local collision proof implies all-n upper bound, not exact attainment",
+          "evidence": "4∤k in the all-length statement; local period-four collision for starts 0 and 2 in the separate n=k+2 case.",
+          "identifier_or_url": "7eb6fe28da24",
+          "material_read": "Finding and Proof, especially Sharp boundary at multiples of four near offset 3300",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Sharp inverse ambiguity and period-four rigidity for palindromic duplications",
+          "trigger": "Earlier near-exact indexed theorem in same channel"
+        },
+        {
+          "assessment": "Later exact mathematical coverage of the count",
+          "evidence": "s_4=3 gives this maximum with a period-six construction in the later record.",
+          "identifier_or_url": "47e8202dd4ba",
+          "material_read": "Mirrored RESULT.md theorem and sharpness construction",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Sharp inverse-list maximum for a single palindromic duplication",
+          "trigger": "Exact broader indexed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact worst-case number of distinct parents is a natural local decoding ambiguity, not a count of syntactic edit positions. Length four is the first case outside the earlier uniform formula for blocks not divisible by four. Even though the sharp upper bound follows from known local collisions, proving that one receives that many distinct parents in every length gives a substantive exact invariant and identifies a simple witness. This is not a claim about codebook optimality or about multiple errors.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

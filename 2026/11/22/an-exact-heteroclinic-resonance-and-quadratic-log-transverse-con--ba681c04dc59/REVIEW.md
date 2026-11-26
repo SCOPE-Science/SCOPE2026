@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The resonant parameter is forced by the axial tangent eigenvector, and the exact Darboux cofactor identity is algebraically derivable with positive denominators. The published global-basin theorem is applied only in its proven strict parameter region. A local contraction estimate and two convergent positive infinite products give the positive axial amplitude and the exact nonzero transverse constant. The distance-to-segment conclusion requires, and proves, eventual interior orthogonal projections. Exact-rational and numerical tests in `CHECK.py` corroborate the identities without being treated as infinite proofs.
+## correctness
 
-**Originality: PASS, subject to stated publication-priority uncertainty.** The 2017 dissertation and its later journal article proves the broad qualitative global convergence and states that no whole-system explicit solution is known; those facts are attributed. Unlike its homogeneous model's invariant rays, this result identifies a sharp *nonhomogeneous* heteroclinic segment and universal quadratic-log transverse asymptotic for all positive starts. The 2011 Leslie–Gower-type system differs in both the numerator and denominator, and no reduction was identified. Semantic comparisons against related results on Ricker synchronization and modified Leslie–Gower extinction rates found different maps and conclusions. See `AUDIT.json` for exact comparisons and residual risks.
+PASS
 
-**Value: PASS.** The stationary-state endpoints are naturally given by competitive exclusion, so determining when the connecting saddle-to-sink path is *exactly* linear is a motivated geometric problem, not an arbitrary parameter slice. The resulting universal quadratic-log exponent is a substantial stability invariant missing from the qualitative basin classification and distinguishes an exceptionally fast transverse alignment from the ordinary species-extinction rate. The result does not depend on or claim broader unsolved convergence theory.
+At E_y the candidate tangent (1,−B/(p−a)) must be an eigenvector of the axial derivative, giving d(p−a)(a+cB)=Bp and the unique p=a+X. For U=a+x+cy, V=dx+y, clearing denominators gives UV H(T(x,y))=x[(p/X)V−dU]=ad x H. Its positive cofactor makes the nonnegative segment invariant and preserves the sign off the segment. There the reciprocal coordinate 1/x−1/X is multiplied by λ⁻¹; the two-sided explicit orbit therefore connects E_x to E_y. The known global-basin theorem is applied correctly: p/(a+cB)=λ<1 and B/(dX)=λ⁻¹>1, giving precisely the strict E_y branch. At E_y the spectral radius is λ, so an equivalent local contraction norm gives O(θⁿ) errors for any λ<θ<1. The positive normalized x recurrence has 1+O(θⁿ) multipliers, yielding A>0, and the defect cofactor divided by κAλⁿ also has a convergent positive product. Multiplying gives λ^{n(n−1)/2}, with signed finite nonzero C_H for H_0≠0. The defect is o(x_n), so the orthogonal projection has x-coordinate x_n+O(H_n) in (0,X) eventually, verifying the actual distance-to-segment limit. Exactly on the segment no log-distance is asserted.
 
-**Limits:** The straight-line resonance has codimension one; the closed-form trajectory applies only on its segment. The global proof invokes a theorem already public in the 2017 dissertation and later published in 2019. Numerical tests alone do not establish the universal limit. The finite index of inspected literature cannot exclude all unindexed equivalents.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The verified larger-region basin classification and axial eigenvalues are existing results and are expressly attributed. The distinct claim is the unique positive resonance with an invariant straight axial connection, exact open-segment iterates and the all-positive off-segment quadratic-log defect asymptotic. The same-system source does not supply these in the compared statements; its invariant ray and explicit formula belong to a different system. The strongest related catalogue statements give different maps, invariant objects, or rates.
+
+## value
+
+PASS
+
+The natural geometry is the two given competitive-exclusion equilibria and the question of when their connecting segment is exactly invariant. The cofactor reveals spatial approach to that segment at an n² logarithmic scale for every off-segment positive orbit even though its axial coordinate decays geometrically. That distinction is quantitative information missing from a known qualitative global limit or local zero eigenvalue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

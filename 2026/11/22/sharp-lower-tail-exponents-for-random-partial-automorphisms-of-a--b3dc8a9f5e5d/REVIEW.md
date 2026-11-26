@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Every induced subgraph of a path splits uniquely into maximal runs. A domain with \(c\) runs yields at most \(2^c c!\) isomorphisms to any fixed image, and \(c\le\lceil n/2\rceil\). One maximum independent set gives the matching factorial lower bound. The same comparison at a prescribed component/rank cutoff proves both sides of the finite tail sandwich; Stirling yields the exact \(n\log n\) rate. The induced-edge and high-rank bounds follow from \(2c+(r-c)\le n+1\) and \(c\le n-r+1\). Standalone direct enumeration was successful through six vertices. The proof does not infer infinite statements from these computations.
+## correctness
 
-## Originality — PASS, subject to publication-priority limitations
-Chih and Plessas (2015) already defined the graph partial-isomorphism inverse semigroup. Dimitrova and collaborators (2021) already count all elements of this exact path monoid, and the finite rank-refined count is not claimed as new. A published path-specific semigroup-algebra decomposition gives the component multiplicities and automorphism groups, again without stating a uniform probabilistic deficit law. An analogous half-factorial asymptotic exists for the *crown* partial-automorphism monoid but has neither the same objects nor these sharp path lower-tail rates. The new claim is specifically the simultaneous sharp component/rank rare-event law and the near-independent-support conclusion. An undiscovered earlier probabilistic analysis or an implicit application of the exact enumerator remains possible.
+PASS
 
-## Value — PASS
-The component deficit is a natural algebraic statistic of the inverse monoid's Green strata, and domain rank is its standard rank filtration. The theorem does not merely count finite objects: it identifies which local symmetries dominate uniformly random elements and determines exact large-deviation exponents for every fixed linear deficit. This explains why almost all partial path symmetries arise from large independent portions, in contrast to the much smaller ranks of related path-endomorphism idempotents. It supplies a structural probability law for an unbounded family without relying on an arbitrary finite cutoff.
+A path subset of rank r has c runs, with c-1 compulsory vacant gaps, so c<=min(r,n-r+1)<=h_n, also valid for the empty set. For a fixed ordered pair of subsets, an induced isomorphism permutes equal-length components and chooses their orientations, yielding at most 2^c c! maps. The total count is at most 4^n 2^h_n h_n!, and a fixed maximum independent set supplies h_n! permutations. The same argument at c<=k bounds the component event by 4^n 2^k k!, and hence bounds the rank event from above. Permutations of a fixed independent k-set give the numerator lower bound k! for both, also at k=0. The resulting 8^n bounds give both exponents by Stirling, and the size estimate by the same denominator bounds. Low rank forces low c; high rank does too via c<=n-r+1. Combining that inequality with E=r-c gives 2c+E<=n+1 and the epsilon/2 coefficient in the edge-count bound. Removing all nonsingleton runs deletes at most 2E vertices on either side and leaves matched singleton vertices. These arguments use uniform sampling over maps, not uniform sampling over supports, and prove the all-size probability bounds. The uploaded verifier was inspected without execution. The separate /workspace/branches/review-replay.py checks exact finite bounds using a gap-composition count, including initial counts 2,7,22,71,252,935; this is not used to prove the limit.
 
-## Closest prior work and limitations
-The complete 2021 cardinality theorem and the previously established path block decomposition are acknowledged as prior stronger **finite enumeration** results. No full finite cardinality formula, central limit, prefactor, or general graph theorem is claimed here. Both asymptotic tail exponents have direct self-contained proofs. The residual risk is an equivalent asymptotic theorem in material outside the sources inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact finite monoid order, run-type factors and rank-refined counts are prior and not credited. The supported distinct result is the sharp simultaneous n log n probability law for component and rank deficits under uniform maps on paths, including typical near-independence of supports. It interprets the factorial component symmetry asymptotically; the cited finite enumeration does not provide the requisite uniform tail estimates as stated. Crown asymptotics and the distinct same-day biclique rank/extension result concern different induced-isomorphism families and events; only their indexed content was available for the finer comparison.
+
+## value
+
+PASS
+
+Rank is the natural size filtration and run count measures the supply of permutable induced components. The sharp linear-deficit exponents for both show quantitatively which maps dominate the classical exact enumeration. The match of two deficits on the factorial scale and the resulting near-independent supports give meaningful typical structure, not just log order or another finite count. This neither asserts exact independence of the original random supports nor gives sublinear fluctuations or the exact upper-tail rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

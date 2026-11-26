@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof gives the exact lens inequality, verifies the containing and contained ellipsoid inclusions at all boundary points, uses John's isotropic contact criterion to certify the unique inscribed volume maximum, and proves the Banach–Mazur lower bound by centering and convex averaging of shape matrices. The one-variable quadratic sharpness computation gives a matching upper bound. The parameter range \(d\ge2\), \(0<c<1\) and both limiting endpoints are explicit. The independent standard-library checker covers 64 parameter sets but is not treated as proof of the infinite statement.
+PASS
 
-## Originality: PASS (best-knowledge assessment)
+For d≥2 and 0<c<1, the axial tips and transverse equator force the semiaxes of a rotational containing ellipsoid to be at least A=1−c and B=√(1−c²). The radial squared surplus of E(A,B) is 2cx(1−x/A) at 0≤x≤A. The proposed inner John ellipsoid satisfies the lens constraint with equality only at normalized axial latitudes ±1/√d; equal weights on signs and transverse signed coordinate directions give second moment I/d and zero first moment, a finite John certificate also in d=2. For the global distance, central symmetry removes translations and averaging squared shape matrices preserves both containments: the inner support constraint is linear and xᵀQ⁻¹x is a supremum of affine functions of Q. Any resulting rotational sandwich with ratio λ must contain λ⁻¹E(A,B) on its inner side. The maximum of the lens constraint on tE(A,B) for t≥1/2 is c²+t²(1−c²)+c(1−c)/2, giving t=τ=√[(2+c)/(2(1+c))] at the optimum and a matching sandwich. Its inner normalized latitude is 1/(2τ), incompatible with the John latitude because 4τ² lies strictly between 3 and 4. This checks the global optimum without assuming uniqueness of the distance ellipsoid. The supplied checker was inspected, not executed; the proof, not the finite samples, establishes the result.
 
-The closest general primary work is Grundbacher–Kobos, arXiv:2602.14847v1, which characterizes ellipsoid-optimal Banach–Mazur positions but does not give a two-ball lens's exact distance. Mike Todd (2007) states explicitly that the outer minimum-volume ellipsoid of an intersection of two balls is derivable from optimal-design conditions, so the outer formula by itself is credited as antecedent mathematics. Research records on symmetric-lens mean width, projections, or a distinct two-point ball hull do not imply the distance formula or these John parameters. Searches for the exact distance formula, distance-ellipsoid aliases and two-ball lens optimization found no direct match. A prior derivation in optimization, convex-body or normed-plane literature is an acknowledged residual priority risk; noncoverage of inaccessible full texts is not asserted.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The exact dimension-free Banach–Mazur distance classifies an infinite natural family of centrally symmetric lenses under affine sphericity, with a sharp deformation scale from nearly round shapes to the nontrivial limiting distance \(2/\sqrt3\). Computing the John ellipsoid in the same theorem exposes an exact distinction between volume-optimal and distortion-optimal affine models in every dimension, a distinction that is not determined by generic ellipsoid-optimality characterizations.
+The supported distinct contribution is the exact dimension-free Banach–Mazur distance and attaining sandwich, including its separation from the John optimizer. The same-day John result is substantive equivalent coverage of the John formula and contacts, not independent evidence of priority either way; no novelty credit is assigned to that component or to the classical Löwner calculation. The closest inspected general characterization does not yield the specific distortion without a lens calculation and a matching lower bound.
 
-## Scope and literature limitations
+## value
 
-Equal-radius two-ball intersections only; no all-ellipsoid uniqueness claim for the Banach–Mazur optimizer, no nonsymmetric case or higher-number ball intersection. Todd's dated presentation is inspected directly; the earlier general literature was compared at the mathematical-statement level. An indexed search cannot rule out equivalent unindexed work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The symmetric lens is a basic intersection-of-balls body, and its exact affine distortion supplies a dimension-free comparison with the ball and a concrete demonstration that the two volume optima do not solve the distance problem. The global optimization over all affine ellipsoids, rather than just the computation for a proposed rotational shape, is the useful mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

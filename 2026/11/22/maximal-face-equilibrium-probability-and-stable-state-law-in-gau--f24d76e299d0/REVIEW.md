@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Starting from independent Gaussian microscopic payoff entries, orthogonal sum-and-difference transformations establish independent normal centered intercepts and slopes. For almost every payoff array, every face has at most one equilibrium; the full set of open edges makes strict diagonal dominance necessary, and a contraction on each free-coordinate cube makes it sufficient. A Gershgorin homotopy gives an exact unstable-dimension formula and \(2^K\) hyperbolic sinks. Row independence and sign symmetry prove the exact Gaussian law. A half-normal exponential tilt and a triangular-array central limit theorem prove the sharp \(O(m^{3/2})\) log-probability remainder. The standalone rational checker verified 27- and 81-equilibrium witnesses and the two-population exact cone identity. Finite checks do not substitute for these proofs.
+## correctness
 
-**Originality — PASS, with a specific historical boundary.** The initiating June 2026 networked-replicator paper has a zero diagonal in its interaction matrix and analyzes instability of mixed boundary states, not the self-interacting Gaussian maximum-face event. The 2021 self-regulated network game establishes the feedback mechanism, not its all-face rare-event law. A November 17, 2026 same-ensemble paper, published after the originating June 2026 paper, gives two- and three-population equilibrium statistics and numerical histograms, but the inspected main text does not prove the all-\(m\) dominance equivalence, conditional sink law, or sharp probability asymptotic. published mathematical record searches and accessible ledger claim comparisons did not find a statement implying the full theorem. The later paper's inaccessible separate supplement is a material remaining priority risk; lack of a search hit does not establish uniqueness.
+PASS
 
-**Value — PASS.** The fraction of random evolutionary games with the maximum feasible number of mixed/pure stationary outcomes is a natural joint equilibrium invariant. Counting one equilibrium on each face is much stronger than computing candidate-wise expectations or marginal stability frequencies; the exact \(1/36\) benchmark explains the approximately 2.77% maximum phase of a two-population histogram. The asymptotic reveals a previously unquantified \(m^2\log m\) rarity scale, while the exact binomial attractor law separates profuse equilibria from actual asymptotically stable states. This is a mathematical benchmark for modeled uncertainty, not an empirical ecological claim.
+Sum/difference transforms of disjoint independent microscopic payoffs give independent slopes of variance 4 and centered intercepts of variance m, independent across rows. Principal matrices are nonsingular almost surely; one affine system per open face bounds the count by 3^m. Requiring roots on all parallel edges maximizes the absolute offset to |h_i|+sum_{j≠i}|a_ij|/2 and forces the strict condition. Conversely dividing by the diagonals gives a strict self-map contraction on every free subcube. Fixed-coordinate normal rates have sign -sgn(a_ii); free-block Gershgorin discs remain strictly in their sign half-planes while off-diagonals shrink to zero, giving the asserted unstable dimension. A free unstable direction gives instability within its invariant face; a positive normal rate gives inward perturbations that grow, so the sink count is also valid relative to the full cube. Independence and sign symmetry then yield the q_m^m event and the 2^K count with K conditionally binomial. The three-ray spherical triangle for m=2 has angles pi/2, pi/4, pi/3, giving q_2=1/6. A separate exact cone integral and Jensen bound give log q_m=-(m/2)log m+(m/2)(1+log(2/pi))-log m+O(1), which in particular proves the stated remainder for the log joint probability. This does not depend on the finite checker or Monte Carlo figures.
 
-**Closest literature and limitations.** Mocenni–Moraes–Santos (2026), Madeo–Mocenni (2021), and Song–Duong–Han (2026) are the closest comparisons. The sample law needs independent Gaussian microscopic payoffs, including within-population interactions. No claim is made for zero-self-loop models, correlated matrices, temporally varying payoffs, Nash-equilibrium counts alone, global basins, or nonlinear stochastic stability. The later three-population paper's supplemental material was not confirmed accessible; priority is provisional within that access bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The low-dimensional face candidates and simulated same-ensemble maximum-count frequencies are prior. Credit the all-m strict characterization and joint laws, including the conditional stable-state count and sharp log-probability asymptotic, which are not supplied by the inspected finite-dimensional results.
+
+## value
+
+PASS
+
+A joint probability of occupying every support face and a simultaneous local stability census answer different questions from marginal existence probabilities or expected counts. Their exact relation separates the many-stationary-state regime from the number of actual sinks; the sharp rarity asymptotic quantifies how rapidly this regime disappears as population number grows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

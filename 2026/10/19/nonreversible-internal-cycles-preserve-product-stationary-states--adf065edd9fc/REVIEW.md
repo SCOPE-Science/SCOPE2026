@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a finite exclusion ring, cyclic occupied-particle gaps form a zero-range representation. Direct incoming/outgoing flux calculations prove the proposed product stationary weight separately for transport and color changes. Transport fluxes cancel by cyclic reindexing. Color fluxes cancel by the weaker stationarity equation of the internal Markov generator, not by pairwise detailed balance. Irreducibility and finite-state uniqueness hold under the stated assumptions. A double count yields the labelled-lattice normalizer; coefficient extraction yields each color current and the irreversible three-color example. The executable checker verifies 32 rational generators and 5,004 individual exact finite-state balance equations, but does not substitute for the proof.
+PASS
 
-## Originality — PASS, with residual risk
+The proposed weight solves the labelled-state master equation. An incoming clockwise hop exists for each positive target gap of the particle immediately preceding that hop; the predecessor weight times the hop rate equals the target weight times the preceding particle's rate. Summing over gaps gives exactly the outgoing hop flux. At each blocked color I, incoming minus outgoing flip flux is the target weight times (wR)_I/w_I. This vanishes by stationarity of R, without pairwise reversibility. Conversely, within this positive weight family one can put all vacancies in one gap and color all M-1 blocked particles I; then the master equation forces (wR)_I=0. The proof's gap-connectivity step omits the lift for the absolute root position: cut the ring after a vacant site and move each original particle once, in reverse clockwise order. Every move is legal and the net effect is a translation by one site at fixed cyclic gap/color data. This supplies the lift needed for irreducibility with fixed site labels. Positive rates let vacancies be routed around the cyclic boxes to empty any chosen box; irreducibility of R then lets its color be set before routing to the target gaps. Counting pairs (physical state, marked particle) gives L/M times the ordered box partition function, without a periodicity exception. A given box contributes weight w_I Z_{M-1,V} when blocked at color I, which gives the claimed net rate. Independent exact labelled enumeration of all 27 states at L=3, M=2, alpha=(1,2,3), u=2, v=1 gave zero residuals, weight sum 33/2, and J_12=1/3.
 
-Basu and Mohanty (arXiv:1008.0316v1), Section V, equations (47)–(49), derives factorization only under pairwise color-flip balance and says unrestricted rates are incompatible with a product measure. The complete relevant primary text was examined, including its construction and its three-color example. The new conclusion establishes the **same product family** for every irreducible internal generator and gives a nonreversible explicit counterexample to the asserted necessity, plus all-size exact internal currents. The accompanying 2009 zero-range/exclusion mapping paper (arXiv:0912.2912) and Greenblatt–Lebowitz's generalized zero-range paper (arXiv:cond-mat/0506776) were inspected for stronger coverage; neither directly establishes this color-cycle assertion. Relevant published research-record searches did not recover a statement implying it. Because alternative derivations may occur elsewhere, exhaustive historical originality is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-A commonly imposed cycle-consistency restriction on an exactly solvable driven exclusion model is unnecessary. Removing it opens the full irreducible color-generator parameter space without losing its product stationary state. The precise internal current formula shows that irreversible state currents can vary while all stationary spatial observables are fixed; the three-color minimal transporting witness makes the distinction physically testable. This is a meaningful structural correction and extension rather than parameter substitution or finite enumeration.
+The model, zero-range mapping and form of the weights are prior. The supported distinction is removal of a claimed pairwise necessary condition for the same model, with arbitrary irreducible blocked-color dynamics and an exact current that can distinguish stationary processes with identical equal-time laws. The arXiv v1 citation locator in the record is wrong: the three key equations are (28)–(30), not (47)–(49). The primary text verifies the substantive comparison despite this bibliographic error.
 
-## Scope and unresolved comparisons
+## value
 
-The complete proof and exact checks concern finite periodic exclusion rings with strictly positive hopping, blocked-neighbor-only color flips, and an irreducible color Markov chain independent of neighbor color. Dynamic correlations and nonirreducible cases are outside scope. General literature on hidden currents could contain the same implication in different notation; this is a residual originality risk. Independent external scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a concrete counterexample to a published necessity claim and an exact characterization for the natural gap-weight family. The finite-size coefficient quantifies internal nonequilibrium circulation that is invisible to every equal-time lattice statistic for fixed hopping rates in the cyclic example. This matters for inference about rates from static observations and is not just another reversible example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

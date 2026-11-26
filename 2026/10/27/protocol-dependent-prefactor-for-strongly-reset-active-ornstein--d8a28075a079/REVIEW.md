@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact absorbing/reflecting constant-drift Laplace solution has the stated boundary conditions. Conditioning on the independent OU velocity history, upper Skorokhod monotonicity yields rigorous constant-drift bounds on a shrinking time interval. Their exponentially small truncation error, OU path continuity and Gaussian exponential moments give the normalized limit by dominated convergence. The familiar complete-reset renewal formula supplies the mean-time statement. The finite checker passes 134 assertions on the constant-drift solution, Gaussian mixing and reflection-order lemma, but the analytic argument—not the test—is the proof.
+## correctness
 
-**Originality — PASS under self-review, with stated residual risks.** Georgiou, Bressloff and Bertrand (arXiv:2609.21124) study the identical confined active-particle family, with analytic weak-activity FPT formulas and numerical velocity-protocol comparisons; they do not explicitly give this fixed-activity strong-reset coefficient. Linn and Lawley (arXiv:2302.05409) provide a broad frequent-restart theorem with short-time FPT coefficients as inputs. The new assertion computes that specific coefficient for an OU-driven reflected diffusion, rather than claiming novelty for renewal or general frequent-reset theorems. Shankari and Sahoo (arXiv:2509.18515) study stationary position statistics, not confined first passage. Potential implicit inclusion in general short-time heat-kernel theory is a significant remaining priority risk.
+PASS
 
-**Value — PASS.** Resetting the propulsion velocity to zero, to a fixed sign, or to its stationary Gaussian law affects the asymptotic completion-time prefactor even where all protocols have the same leading exponential growth. This addresses the source paper's physically motivated velocity-reinitialization comparison and gives an exact arbitrary-activity benchmark.
+The constant-drift ODE with absorbing value 1 at zero and Neumann data at L gives the stated two-exponential resolvent. On bounded drift sets, sqrt(a²+4Dr)−2sqrt(Dr) tends uniformly to zero and the reflected term after normalization has an extra factor at most exp[−2(L−x₀)sqrt(r/D)] times a bounded drift factor. The ratio of the ODE exponents is bounded by exp(|a|/sqrt(D)) for r≥1, yielding the needed whole-line exponential envelope. On [0,r^(-1/3)], sandwich the integrated drift between constant drifts V₀±sup|V−V₀| using the same independent spatial Brownian motion. The path differences are nonnegative AND nondecreasing, so their upper regulators differ by at most the final path difference; the absorbed hitting times are ordered when truncated to the horizon. The missing discounted tail is at most exp(−r^(2/3)), even after comparison. Continuity and the OU representation as a scaled time-changed Brownian motion on a bounded clock provide convergence of the drift bounds and finite exponential moments of the maximum for either allowed initial law. Dominated convergence then works for the unbounded Gaussian. The regenerative cycle mean is (1−pᵣ)/r and each cycle succeeds with probability pᵣ, so the mean is (1−pᵣ)/(rpᵣ). The Gaussian Laplace moment is exp[x₀² Var(V₀)/(8D²)]; the ratio of Gaussian-redraw to zero-redraw means is its reciprocal.
 
-**Limitations.** All physical coefficients are held fixed as the reset rate grows; the particle has positive independent translational Brownian diffusivity and both position and velocity are fully renewed. The coefficient is not valid for zero translational diffusion, position-only resetting with persistent velocity, or joint boundary/scaling limits. Independent priority or mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same model, renewal identity, and generic frequent-restart asymptotics are known. A distinct catalogue result gives the exact same factor for bounded velocity laws, including deterministic velocity. The scope supporting this assessment is the nonperturbative protocol-dependent prefactor including arbitrary fixed-variance centered Gaussian redraw, not an originality claim for deterministic redraw by itself or for renewal.
+
+## value
+
+PASS
+
+The exact factor discriminates reset protocols whose logarithmically leading cost is identical. The reciprocal Gaussian-to-zero limit quantifies a genuine relative improvement at a fixed activity and persistence, beyond merely transporting a known renewal formula. The Gaussian is the natural stationary velocity law and its unbounded tail makes the averaging step substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

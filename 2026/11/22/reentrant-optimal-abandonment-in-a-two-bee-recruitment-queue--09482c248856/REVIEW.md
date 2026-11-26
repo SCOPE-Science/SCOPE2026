@@ -1,15 +1,21 @@
-# Scientific review: reentrant optimal abandonment in a two-bee recruitment queue
+# Independent mathematical audit
 
-## Correctness — PASS
-The conditional four-state continuous-time Markov process is completely specified, including the zero-abandonment endpoint and service thinning. Two independent derivations—the first-step equations and the transient-generator inverse—match symbolically. The derivative has a strictly positive denominator; the quadratic sign and discriminant proof covers every allowed parameter and exact equality boundary. The included checker confirmed 60 rational cases and both nontrivial radical roots. This theorem is not inferred from finite simulation.
+## correctness
 
-## Originality — PASS (literature-bounded)
-The full text of Magrogan, Peleg and Kilpatrick (2026), arXiv:2611.13314v1, was inspected at the stochastic model, recruitment closure, whole-colony reduction, numerical behavior, and appendices. Their random-service and cue-on arrival mechanisms precede the new result; their asymptotic and simulation conclusions do not state or imply the exact conditioned two-bee reentrant optimizer classification. published-finding corpus searches on scenting, queue-service, optimal departure and equivalent hitting-time formulations and accessible prior records returned no equivalent or dominating finding. The 2025 Brownian resetting paper treats a distinct process. A 2025 seminar abstract announces a related search-queue model but supplies no accessible exact theorem. Classical finite-state Markov first-step algebra is not itself claimed as a discovery.
+PASS
 
-## Value — PASS
-A final recipient and a single already-fed scenter form the smallest meaningful recruitment-versus-service-interference system. The proof determines a sharp parameter interval where no departure is uniquely optimal, flanked by two parameter regimes where positive abandonment is uniquely best; the interval appears or disappears at one exact critical unaided-arrival-to-service ratio. This is an interpretable exact baseline against which large-population modeling approximations can be compared.
+With time multiplied by mu, the discovery hazards are u and v and the departure hazard is z; the successful waiting-service hazards are 1/2 and 1 by Poisson thinning, including when z=0. Inverting the transient generator independently gives T times mu equal to the stated mean. The cleared derivative numerator has leading coefficient 4(u-v)>0, linear coefficient 4L and constant -P. For P>0 the roots have opposite signs, so F decreases then increases across the unique positive root; its limiting value at infinity cannot be a better optimum. For P<=0, L=2vu^2-P>0, so F increases strictly at every positive z, even at P=0 where the endpoint derivative vanishes. The discriminant of P as a quadratic in u is 1-2v-7v^2; its unique positive zero is v_c, and for v<=v_c the vertex (1-v)/(4v) is above v since 1-v-4v^2>=v+3v^2>0. Together with P(v,v)=v^2(2v+1)>0 this places the two distinct roots, or the double root, in u>v. Substitution certifies the radical examples and the zero window at v=1/4. The result is confined to a time-homogeneous abandonment rate in the conditioned reduced chain.
 
-## Scope and residual risks
-The arrival rates are assumed constant exponential hazards while the cue state is fixed. The fully spatial search model does not reduce exactly to this chain at all abandonment rates. The result is conditioned on the post-first-feeding state, not the all-hungry colony's entire feeding time. An equivalent unindexed queueing theorem and inaccessible earlier seminar materials could affect priority; neither is asserted to have been fully checked. No biological field estimate or independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The productive service rule, cue amplification and the finite-population modeling mechanism are credited to the preprint. The distinct content is the exact conditioned four-state absorption-time optimum and its disconnected positive-rate regions separated by a sharp zero-rate window. The closest checked source supplies the mechanism and an approximation, not that global minimizer classification.
+
+## value
+
+PASS
+
+This is the smallest conditional setting in which one individual both helps discovery and takes service opportunities from the last hungry recipient. The strict finite–zero–finite optimum classification and exact collision threshold give a benchmark that an observation of a numerical intermediate optimum for a large colony does not supply. Optimizing the reduced chain is mathematically useful without claiming a biologically prescriptive residence time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

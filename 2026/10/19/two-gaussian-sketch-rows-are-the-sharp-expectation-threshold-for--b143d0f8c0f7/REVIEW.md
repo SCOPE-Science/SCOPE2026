@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Gaussian quadratic-form diagonalization, symmetric-beta mispivot probability, exact orthogonal projection losses, monotonic beta tails, singular-value determinant identity, and both sharp examples supply a complete analytic proof. Exact-rational and numerical verification replay the stated identities; finite experiments are not the universal proof.
+## correctness
 
-## Originality
-PASS to the best of the accessible comparisons, with explicit residual uncertainty. The primary RQRCP paper introduces the mechanism and analyzes high-probability pseudo-diagonal dominance, not a two-row sharp expectation guarantee; older randomized QRCP treats Gaussian sketch statistics. CQRRPT extends implementation of sketch-based pivot selection. Nearby projection-DPP/ARP results concern different sampling measures. The combined two-column sharp approximation theorem and one-row divergence were not found in the checked full texts or previously accessible claim records. Equivalent older formulations may still exist.
+PASS
 
-## Value
-PASS. A sharp minimal sketch dimension and factor for Gaussian column pivoting is a natural numerical reliability question. The exact law also separates poorly conditioned orthogonal and nearly collinear sharpness mechanisms and shows why two sketch rows change the expected-error behavior categorically.
+On the two-dimensional column span the sketch difference form aaᵀ−bbᵀ has trace δ and determinant −h. Its positive and negative eigendirections give independent χ²_s variables by Gaussian rotation, and the negative difference event is a symmetric beta lower tail at the stated x. Schur complements give the two projection losses h/α and h/β and the optimal loss h/Λ. At fixed unequal column norms, x increases strictly as the absolute correlation decreases, giving the sharp orthogonal maximum and collinear infimum. On [0,1/2] the beta tail decreases with s: folding about 1/2 gives a density ratio decreasing in distance from the center for larger s, hence a smaller folded upper tail. Thus p_s≤x≤β/(α+β) for s≥2, yielding E_s≤2h/(α+β)<2h/Λ on full-rank inputs. The equal-norm near-parallel family has ratio 1+cos θ irrespective of the pivot; the orthogonal family with small squared norm t has one-row error ratio 1+(t⁻¹−1)(2/π)arctan√t, which diverges. Integrating the endpoint beta density gives the additional fixed-s anisotropy law. Recorded code corroborates the finite cases and laws; no simulation is needed for the theorem.
 
-## Limitations
-Real full-rank two-column matrices; first pivot only; exact arithmetic and orthogonal rank-one projection; expected squared Frobenius loss. Not a multi-stage or full CQRRPT performance statement, and no high-probability or multidimensional-column theorem is implied. The first day-verified public primary preprint used for the cohort is April 13, 2018; a 2017 proceedings version exists but its exact first public day has not been independently established. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the sharp worst-case expectation theorem for arbitrary real rank-two two-column inputs, with the full correlated beta law at arbitrary sketch width. Exact catalogue overlaps cover the two-row correlated pivot probability and orthogonal subfamilies, not that full conclusion. Gaussian pivoting, chi-square laws and deterministic projection identities are not themselves new.
+
+## value
+
+PASS
+
+The minimal-width result gives an exact expectation boundary for a standard randomized pivot mechanism, not just a rephrasing of the beta distribution. The one-row failure arises from rare orthogonal mispivots; with more rows the persistent sharp factor of two instead comes from nearly collinear equal-norm columns. Distinguishing these mechanisms clarifies what oversampling can and cannot improve in this narrow setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

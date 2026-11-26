@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A spanning word of projection normals yields a strict block contraction; a pullback representation supplies the unique stationary distribution and all finite moments. Gaussian-mixture fourth-moment rigidity, symmetry of covariance eigenspaces, and a constructive orthogonal-component Gaussian establish the exact iff graph criterion. Conditional Gaussian variance-mixture arguments prove the fourth-cumulant identity and strict non-Gaussianity. `verify.py` confirms 140 exact rational assertions, including a three-row overdetermined covariance and fourth-moment calculation. Computational checks supplement the proof.
+## correctness
 
-**Originality — PASS, qualified.** Bergou et al. (arXiv:2308.16904) study Kaczmarz convergence with data perturbed once; Agaskar et al. (GlobalSIP 2014) give a noise-free exact MSE analysis. Yoon et al. (arXiv:1905.09427) study switching-noise covariance enclosures, not an exact graph criterion. Chen and Ip (2014, DOI 10.1080/00949655.2014.968159) already establish a two-coordinate incompatible-Gibbs random-scan mixture, which is not claimed as new. The asserted distinction is the arbitrary overcomplete oblique-row Gaussianity iff graph condition and non-Gaussian fourth-cumulant consequence. A specialized equivalent result may exist and remains a precedence risk.
+PASS
 
-**Value — PASS.** Invariant covariance alone does not establish Gaussian uncertainty in repeated noisy linear-system solution. The theorem gives a complete classification for all finite spanning row systems and an exact three-row witness, with a computable fourth-cumulant lower bound useful for detecting failed Gaussian error approximations.
+A positive-probability block of spanning row projectors is strictly contracting: norm equality would fix a vector orthogonal to the spanning rows. Independent blocks give exponential L^r decay for their products and almost sure contraction, so the Gaussian pullback converges in every finite L^r and shared-drive coupling gives uniqueness even without assuming moments of a rival invariant law. For an initial law of only finite fourth moment, use the moment-coupling statement only through r=4. Stationary mean is zero by positive definiteness of Σp_i u_i u_i^T. A centered Gaussian stationarity mixture can agree with a single Gaussian only when all component covariances agree, by variance of the directional variances. The equation S_i=S is equivalent to Su_i=s_i u_i; hence equal eigenvalues on each nonorthogonality edge are necessary and the orthogonal component covariance is sufficient. The conditional covariance Γ of the pullback gives 3 Var(v^TΓv), and conditioning on the last row proves the bound. Incompatibility makes at least one S_i−S nonzero, so some direction's bound is already strictly positive, not necessarily every direction's. Independent exact replay: python /workspace/audit_checks/kaczmarz_conditional_variances.py. It solves the conditional scalar variance process in dimension two and reproduced all three reported rationals (covariance, fourth cumulant and lower bound); it checks that example only. The uploaded program was inspected, not executed.
 
-**Limits.** Fresh iid Gaussian measurements, strictly positive sampling probabilities and normalized full projections are essential. The work does not cover fixed dataset noise, correlated row schedules or relaxed updates. Independent scientific validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact graph compatibility criterion with arbitrary positive iid sampling of fixed spanning rows, plus a computable directional fourth-cumulant witness, is distinct on the evidence compared. Neither Gaussian mixture rigidity nor orthogonality of eigenspaces is claimed as new.
+
+## value
+
+PASS
+
+A necessary and sufficient graph test for invariant Gaussianity works for arbitrary spanning row families, including overdetermined ones, irrespective of the positive sampling law. The fourth-cumulant bound provides a quantitative observable diagnostic without fitting a stationary density, unlike a criterion based only on covariance convergence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

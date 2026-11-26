@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:34:11.085826Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An idempotent fixes its interval image pointwise; outside the interval monotonicity forces the respective endpoints, giving exactly the clamps. For a clamp on [a,b], commutation forces g(a),g(b) into [a,b]; monotonicity then handles all interior points. On the left, g(a)=a allows all a−1 binary steps anchored at a, while g(a)>a forces a constant tail; on the right g(b)=b is the corresponding free case. These tests are also sufficient and the tail lengths guarantee the ambient range bounds. Given g(a)=a+i, g(b)=a+j, the binomial coefficient counts the internal rises. Rank is one plus the total number of rises, giving the polynomial including h=1, where both tails are free. The baseline sum is h s^(h−1)−(h−1)z s^(h−2) for h≥2, with the single- and double-tail corrections as stated. For the OGF put w=xu, s=1+z, X=1/(1−x), Y=1/(1−xs); after summing the baseline and corrections the numerator over (1−sw)²(1−zw) is zw[X(1−zw)+(Y−X)(1−sw)]². The bracket equals (1−x−zw)/[(1−x)(1−xs)], proving the claimed expression. At u=z=1 the cancellation gives x/[(1−x)^3(1−2x)^2] with the stated coefficients. Summing the n−k allowed starting values over all binary strings of n−1 steps with k rises gives (n+1)2^(n−2) maps for n≥2, and there are n(n+1)/2 clamps, yielding the stated 32/n² asymptotic. Independently enumerated maps and actual compositions for n=1,…,9 matched every per-clamp polynomial and the aggregated OGF coefficientwise with both rank variables symbolic; replay /workspace/branches/06d52e3e-455c-4b1d-9232-20fdbfd08766/independent_check.py (outputs check_n5.txt and check_n9.txt). The frozen checker was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Araújo–Konieczny give general transformation centralizer structure, not rank-refined counts after imposing adjacent steps. Mir–Alali study idempotent centralizers with restricted range, including automorphisms, in a different ambient monoid. The November 22 result supplies both exact formulas and recovers a nonconstant clamp up to reflection from its rank polynomial."
+        ],
+        "reasoning": "Generic centralizer structure does not by itself count the partner ranks in this submonoid. The indexed rank-refined theorem does, and contains additional inverse and limit statements rather than just being a differently normalized scalar census.",
+        "searches": [
+          "Araújo–Konieczny, Centralizers in the Full Transformation Semigroup, Theorem 4.2",
+          "Mir–Alali DOI 10.3390/sym16060769",
+          "Resultary November 22 rank-refined directed-path centralizer record"
+        ]
+      },
+      "checked_sources": [
+        "Resultary November 2 and November 22 directed-path centralizer records",
+        "OEIS A045889",
+        "Fernandes–Paulista arXiv:2112.13427",
+        "Zubairu–Umar–Aliyu arXiv:2205.00438",
+        "Fernandes arXiv:2407.05084",
+        "Araújo–Konieczny institutional manuscript",
+        "Mir–Alali DOI 10.3390/sym16060769"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed record gives C=t^(k−1)(k+1+z)+(t^A+t^B−2)t^k+(t^A−1)(t^B−1)z^k for t=1+z, including the constant clamp, and G as three rational terms. It also gives the same exact commutation test on the interior and two tails."
+        ],
+        "reasoning": "Putting k=h−1 and multiplying by z gives the frozen closed expression, using t^(k−1)(k+1+z)=(k+1)t^k−k z t^(k−1). Multiplying G(x,u,z) by xuz and combining the terms yields the frozen rational formula. Expanding the same binary-step commutation condition gives the binomial form. The unweighted count and probability follow by specialization and division by already known monoid sizes.",
+        "searches": [
+          "November 22 rank-refined centralizer record, Finding and Proof §1",
+          "arXiv:2112.13427, interval-clamp characterization",
+          "arXiv:2205.00438, contraction combinatorics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernandes identifies the order-preserving interval-range monoid with the weak directed-path monoid. The November 22 indexed result uses N=n−1, k=h−1, A=l, B=r, and marks the image-rank excess of the partner."
+        ],
+        "reasoning": "These are the same full maps, idempotents and pairs. The frozen individual polynomial is z C_{A,k,B}(z) and the aggregate series is xuz G(x,u,z). The unrefined and refined counts are not merely similar sequences.",
+        "searches": [
+          "Resultary: weak endomorphisms directed path idempotent centralizer commuting maps joint rank generating function",
+          "arXiv:2112.13427, weak directed-path endomorphisms",
+          "arXiv:2407.05084, interval-range order-preserving maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A045889 has OGF 1/[(1−2x)^2(1−x)^3], i.e. the scalar sequence at n−1. The November 2 result gives the exact unweighted per-clamp cardinalities and same ordered-pair total. The November 22 result states the exact individual and joint rank polynomials."
+        ],
+        "reasoning": "The OEIS entry establishes only a scalar sequence match. The two indexed centralizer records show substantive overlap, and the November 22 formula matches at every coefficient, not by a finite table coincidence.",
+        "searches": [
+          "OEIS A045889",
+          "Resultary 2026/11/2/SCOPE-idempotent-centralizers-and-commuting-semilattices-in-a-finite-d--628a5e7d08b8",
+          "Resultary 2026/11/22/SCOPE-rank-refined-centralizers-reconstruct-nonconstant-directed-path--750c79168a4a"
+        ]
+      },
+      "rationale": "A distinct indexed result provides the same individual rank polynomials and the same complete joint rank OGF after removing the trivial rank and length shifts. The unweighted totals also have matching indexed coverage and a known scalar sequence. Both Resultary matches have later catalogue path dates; this establishes mathematical coverage in the inspected corpus, not historical priority or attribution.",
+      "residual_risks": [
+        "The cited literature comparison is limited to the inspected statements and passages; lookup misses establish nothing about unindexed sources.",
+        "The indexed records establish formula coverage, not authorship or historical ordering of discoveries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers both weighted formulas for all positive n, also contains new-to-that-statement reconstruction and limit claims not made by the frozen record.",
+          "evidence": "C_{A,k,B} and G(x,y,z) become P_{l,h,r}/z and the frozen series divided by xuz after the rank and size shifts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-rank-refined-centralizers-reconstruct-nonconstant-directed-path--750c79168a4a/RESULT.md",
+          "material_read": "Finding, scope and Proof §1, offset 600",
+          "method": "Resultary mirror primary-text inspection, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rank-refined centralizers reconstruct nonconstant directed-path clamps up to reflection",
+          "trigger": "Indexed exact rank-polynomial match"
+        },
+        {
+          "assessment": "Unweighted coverage only for this comparison.",
+          "evidence": "The same total (4n−12)2^n+(n²+9n)/2+12 in the same monoid.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-idempotent-centralizers-and-commuting-semilattices-in-a-finite-d--628a5e7d08b8/RESULT.md",
+          "material_read": "Finding at offset 500",
+          "method": "Resultary mirror primary-text inspection, same snapshot",
+          "title": "Idempotent centralizers and commuting semilattices in a finite directed-path monoid",
+          "trigger": "Indexed unweighted centralizer match"
+        },
+        {
+          "assessment": "Known scalar OGF; no matching centralizer interpretation in the inspected entry.",
+          "evidence": "The offset gives H_n(1,1)=a(n−1).",
+          "identifier_or_url": "https://oeis.org/A045889",
+          "material_read": "Sequence, closed formula and OGF, HTML offsets 0 and 750",
+          "method": "OEIS entry inspection",
+          "title": "A045889: Partial sums of A045618",
+          "trigger": "Exact scalar sequence match"
+        },
+        {
+          "assessment": "Monoid size, idempotents and generating rank; not the partner image-rank census.",
+          "evidence": "The idempotent count and interval-clamp form are given.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13427",
+          "material_read": "v1 abstract and p. 6 (offset 22100)",
+          "method": "OA primary manuscript passage inspection",
+          "title": "On the Rank of Monoids of Endomorphisms of a Finite Directed Path",
+          "trigger": "Same path monoid"
+        },
+        {
+          "assessment": "Different counting question.",
+          "evidence": "Treats idempotents and rank properties of contraction subsemigroups.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.00438",
+          "material_read": "v1 p. 4, offsets 13000–15387",
+          "method": "OA primary manuscript passage inspection",
+          "title": "On the combinatorial and rank properties of certain subsemigroups of full contractions of a finite chain",
+          "trigger": "Equivalent full-contraction viewpoint"
+        },
+        {
+          "assessment": "Identification and presentations, not this centralizer count.",
+          "evidence": "Explicit equivalence to the weak directed-path monoid.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05084",
+          "material_read": "v1 p. 1, offset 2550",
+          "method": "OA primary manuscript passage inspection",
+          "title": "On the monoid of order-preserving transformations of a finite chain whose ranges are intervals",
+          "trigger": "Same monoid under interval-image alias"
+        },
+        {
+          "assessment": "General centralizer characterization, not enumeration by adjacent-step rank.",
+          "evidence": "Ambient maps are unrestricted full transformations.",
+          "identifier_or_url": "https://repositorioaberto.uab.pt/server/api/core/bitstreams/e1505ef6-df71-4791-a964-cd83058b4fc9/content",
+          "material_read": "Abstract and Theorem 4.2, p. 24, offset 65200",
+          "method": "OA institutional primary PDF passage inspection",
+          "title": "Centralizers in the Full Transformation Semigroup",
+          "trigger": "Plausible general structural result"
+        },
+        {
+          "assessment": "Different restricted monoid and purpose.",
+          "evidence": "The conclusions concern centralizer-semigroup structure and automorphisms rather than this rank enumeration.",
+          "identifier_or_url": "https://doi.org/10.3390/sym16060769",
+          "material_read": "Abstract and conclusions, pp. 1,12",
+          "method": "OA primary paper passage inspection",
+          "title": "On Centralizers of Idempotents with Restricted Range",
+          "trigger": "Potential exact restricted-centralizer match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The image-rank distribution of a natural restricted centralizer is a worthwhile invariant on its own. In the inspected corpus the frozen record does not add a distinct invariant or consequence: both full polynomials are already given up to a monomial shift, and the unweighted probability comes from known exact counts. A different rational arrangement of the same series does not supply an additional mathematical gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

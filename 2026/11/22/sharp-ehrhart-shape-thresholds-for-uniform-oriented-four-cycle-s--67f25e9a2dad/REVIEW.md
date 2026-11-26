@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete lattice-point classification follows from nonnegative barycentric coordinates and the explicit strict interior coordinates of every positive-composition extreme point. The normalized determinant and the three-dimensional Ehrhart identities give the exact polynomial. Explicit positive coefficient certificates for the shifts \(w-5\) and \(w-7\), together with four exact cubic discriminants, establish all thresholds for every integer \(w\ge2\). The standalone exact-arithmetic checker independently verifies 24 complete low-dilation lattice enumerations for weights two through nine, but the proof of infinite ranges is analytic.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The source by Biermann, Lin and O'Keefe provides the underlying non-IDP oriented-cycle setting and a characterization of nonvertex lattice points, which supplies a known starting ingredient. The new single formula and three sharp Ehrhart-shape thresholds are not stated in the directly examined source. Published oriented-cycle root polytope results use signed root differences rather than the positive weighted vectors, while weighted symmetric four-cycle polytopes address Minkowski decompositions. Those results do not imply the present thresholds as stated without changing the object and deriving new Ehrhart data. Search and full-text comparison remain nonexhaustive, so historical priority is provisional.
+PASS
 
-**Value — PASS.** Exact root-shape classification is a natural arithmetic/geometric invariant of a published non-IDP construction; the simultaneous sharp transitions at weights three, five and seven distinguish unimodality, log-concavity and real-rootedness. The last transition exhibits an infinite non-IDP family with strictly negative real zeros, a substantive qualitative boundary rather than a lone numeric example. The result does not assert new general root criteria.
+The vertex matrix I+wS has determinant 1−w^4. The primitive coordinate-sum quotient contributes w+1, so the remaining determinant gives the proposed normalized 3-volume. Stars and bars applied to the prior count gives h1; shifted reciprocity gives h3=h1; subtracting from the volume gives h2. In the original self-contained count I also checked the barycentric extremal vectors and that an integral point with a zero coordinate is a vertex. Independently expanded both shifted inequality certificates and computed all four exceptional cubic discriminants. The strict signs at 0, 2/a, 1 and infinity locate three distinct roots for w≥7; w=2 is a separate quadratic. b>a reduces each coefficient property to the stated one-inequality test and hence the stated cutoff. Non-IDP follows from the same-model theorem, not from finite computation.
 
-Closest relevant literature: Biermann–Lin–O'Keefe, arXiv:2611.17047 (2026); Kálmán–Tóthmérész, arXiv:2105.00960 (2021); *Exact Ehrhart polynomials of oriented cycle root polytopes* (2026); *Weighted four-cycle symmetric edge polytopes: exact Minkowski-decomposition strata* (2026). Independent validation and exhaustive priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The three finite cutoffs, not the numerator, non-IDP or eventual real-rootedness, are the contribution reassessed here. The closest earlier cycle work implies the input coefficients and calibrates a different cycle size; generic root criteria and eventual wide-polytope results do not supply these exact finite regimes.
+
+## value
+
+PASS
+
+This natural uniform even-cycle simplex is an established family of non-IDP examples. Three distinct explicit cutoffs separate weak coefficient shape, log-concavity and simple negative real roots. The cutoffs make concrete where the general eventual-width conclusions become true, rather than only duplicating a known coefficient formula or producing one favorable finite weight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

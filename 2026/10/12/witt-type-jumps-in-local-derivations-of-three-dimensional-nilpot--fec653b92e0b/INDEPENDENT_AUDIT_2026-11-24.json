@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:14:50.523930Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–62 and 74–136",
+        "Frozen VERIFICATION.md and artifacts/verify.py (read, not executed)",
+        "python3 /workspace/review_work/definition_replays.py 5"
+      ],
+      "rationale": "The derived line Kz is invariant under derivations. For B=diag(1,d), Leibniz on V×V is MᵀB+BM=cB. With char K≠2 and d≠0 this gives exactly M=aI+bJ_d and c=2a; the V→Kz functional is free. For a single nonzero projected input v, any chosen a,b matching Nv can be completed by a functional with the prescribed central value, and on tz one uses a=c/2. Thus locality is equivalent to Nv∈span(v,J_d v) plus preservation of Kz. The evaluation determinant is x²+dy². This gives no restriction on N in the anisotropic case and preservation of the two distinct J_d eigenlines in the split case, yielding the claimed dimensions 7 and 5. For linear 2-local maps the pair (e1,e2) fixes the projected block aI+bJ_d, and the pair (e1,e1+z) forces c=2a because evaluation at e1 is injective on that block. The homogeneous nonadditive central-valued example interpolates on every pair by one linear functional. The base-change witness N=diag(1,0) takes (±√(−d),1) off its isotropic line in the separable quadratic extension. A fresh exhaustive F3 test derives the 81 derivations from the Leibniz rule over all 3×3 linear maps and checks actual single- and pair-evaluation membership: 2187 or 243 local maps, and exactly the 81 derivations in both linear 2-local cases.",
+      "residual_risks": [
+        "The replay is over F3 only. The proof does not require field infinitude or characteristic zero, but it excludes char 2 and d=0 throughout. It neither classifies nor counts nonlinear 2-local maps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Witt-sensitive Nijenhuis result has quotient dimension at least three and classifies a different kind of operator. The bilinear-local-algebra subalgebra-lattice record concerns unital algebras and lattices.",
+          "The free two-step local/2-local result concerns a different, noncommutative multiplication; it does not state rigidity for this binary-form family or under quotients to it."
+        ],
+        "reasoning": "Same orthogonal vocabulary or a common identity for 2-local maps on a different product does not give an implication. One needs pointwise evaluation spaces for the actual derivation blocks, including anisotropic vectors and their behavior after extension.",
+        "searches": [
+          "Bounded searches for arbitrary-field bilinear-form local derivations and algebraic reflexive hulls of conformal-orthogonal operators",
+          "Resultary a9153fcd4558, fc812afc8d34 and 8ff9a74c99fa, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2305.15339v2",
+        "DOI 10.1142/S0219498825502421 (access limitation)",
+        "Resultary ranked searches and bounded matching claims 27bdcf5984cb, a9153fcd4558, fc812afc8d34, 8ff9a74c99fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 gives the complex split result; Theorem 4.3 supplies nonlinear 2-local examples in complex dimension three. The nearby free two-step rigidity result does not concern the same product.",
+          "Here the absence of K-rational isotropic lines is exactly what enlarges the evaluation space; splitting the binary form creates two line constraints."
+        ],
+        "reasoning": "The nonlinear precedent is acknowledged, not contradictory. Complex split classification cannot force the locality of a nonsplit map before extension or its failure afterwards. The two-pair linear rigidity argument depends on the actual conformal block and central coefficient, not the existence of general nonlinear counterexamples.",
+        "searches": [
+          "arXiv:2305.15339v2 Theorems 4.1 and 4.3",
+          "Resultary 8ff9a74c99fa, Finding on linear 2-local rigidity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complex algebra A2 with e1e2=e2e1=e3 has hyperbolic multiplication form, so it is genuinely the same split algebra after basis change.",
+          "Resultary 27bdcf5984cb has the same hyperbolic algebra under change of basis, but concerns conjugacy of Nijenhuis operators rather than pointwise derivation interpolation."
+        ],
+        "reasoning": "Match the multiplication tensor before comparing claimed invariants. The complex split case is covered where acknowledged; extension to C does not preserve locality of every K-local map, so the A2 theorem cannot recover the anisotropic branch by descent. The same-day Nijenhuis comparison is rejected on content, not inferred chronology.",
+        "searches": [
+          "arXiv:2305.15339v2 Theorem 2.8 and Theorem 4.1",
+          "Resultary equivalent three-dimensional nilpotent tables and hyperbolic binary form searches; 27bdcf5984cb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The A2 table entry gives dimensions 4 and 5. The A4^α entry with local dimension 7 does not give a commutative example: the defining list has e1e2 but not e2e1.",
+          "The bounded searches found no corresponding odd-field census for this anisotropic commutative multiplication."
+        ],
+        "reasoning": "An agreeing dimension for a nonsymmetric, nonisomorphic algebra is not exact coverage. The finite-field counts follow immediately from the vector-space dimensions and are not additional independent novelties once the classification is known.",
+        "searches": [
+          "arXiv:2305.15339v2 dimension table accompanying Theorem 4.1",
+          "Resultary anisotropic finite-field local maps and exact q^7/q^5 counts searches"
+        ]
+      },
+      "rationale": "Credit the complex split derivation/local-derivation dimensions and existence of nonlinear 2-local examples as prior. The supported distinct contribution is the split-versus-anisotropic arbitrary-field classification, particularly the seven-dimensional commutative anisotropic branch and explicit loss of locality under separable scalar extension, with the linear 2-local boundary for the family. No inspected result establishes these arithmetic conclusions for this algebra.",
+      "residual_risks": [
+        "The search was bounded, particularly for equivalent operator-space and arbitrary-field formulations.",
+        "The journal version was not inspected line by line; the OA precursor comparison does not exclude additions there."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers complex split dimensions and nonlinear examples, not an anisotropic arithmetic statement",
+          "evidence": "A2 has the symmetric hyperbolic product; A4^α is nonsymmetric despite its dimension-seven table entry. Theorem 4.3 addresses nonlinear 2-local maps.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.15339v2",
+          "material_read": "Theorem 2.8 (p. 3, text offset 10182), Theorem 4.1 and adjacent dimension table (pp. 15–17, offset 59655), Theorem 4.3 (p. 17, offset 65209)",
+          "method": "OA preprint, bounded primary passages",
+          "title": "Local and 2-local derivations on filiform associative algebras",
+          "trigger": "Exact complex split algebra, dimension table, and 2-local claims"
+        },
+        {
+          "assessment": "Unresolved revision risk",
+          "evidence": "No line-by-line comparison of the journal version is claimed.",
+          "identifier_or_url": "https://doi.org/10.1142/S0219498825502421",
+          "material_read": "DOI identification; journal theorem text not independently readable",
+          "method": "Lawful DOI retrieval returned 403; OA preprint inspected instead",
+          "title": "Local and 2-local derivations on filiform associative algebras (journal edition)",
+          "trigger": "Later edition of the main precursor"
+        },
+        {
+          "assessment": "Different operator predicate",
+          "evidence": "The product can be written uv=z as in A2, but the conclusion classifies Nijenhuis, not local derivation, maps.",
+          "identifier_or_url": "Resultary 27bdcf5984cb",
+          "material_read": "RESULT.md Finding and multiplication assumptions",
+          "method": "Local Resultary comparison",
+          "title": "Automorphism normal forms for Nijenhuis operators on the C3 associative algebra",
+          "trigger": "Same split algebra after basis change"
+        },
+        {
+          "assessment": "Different object, hypothesis or invariant",
+          "evidence": "Higher-rank symmetric-form Nijenhuis theory, unital bilinear algebra lattices, and free noncommutative two-step linear 2-local rigidity do not give this nondegenerate binary-form arithmetic classification.",
+          "identifier_or_url": "Resultary a9153fcd4558; fc812afc8d34; 8ff9a74c99fa",
+          "material_read": "RESULT.md Findings and applicable product/dimension assumptions",
+          "method": "Local Resultary comparison",
+          "title": "Related Witt, bilinear-form and linear 2-local results",
+          "trigger": "Plausible broader form or stronger operator coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 43–62, 91–130",
+        "Abdurasulov–Ayupov–Yusupov Theorems 4.1 and 4.3"
+      ],
+      "rationale": "A split/anisotropic distinction on a standard minimal nondegenerate multiplication form gives an explicit two-dimensional jump in the space of local maps, although the derivation space does not change. The separable base-change witness explains why an algebraically closed classification alone loses arithmetic information. The fact that linear 2-locality is rigid on both sides of the same jump makes this a useful boundary example rather than a bare finite-field count.",
+      "residual_risks": [
+        "The example does not establish higher-dimensional form classifications or a general base-change theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

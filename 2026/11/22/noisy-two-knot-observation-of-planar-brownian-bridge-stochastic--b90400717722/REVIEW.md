@@ -1,15 +1,21 @@
-# Review of the noisy two-knot stochastic-area design result
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is an exact conditional-mean/Bayes-risk theorem for a standard planar Brownian bridge with two deterministic two-coordinate observations and four independent errors of variance \(\eta\). The stochastic area normalization is explicit. Segmentwise bridge conditioning gives the conditional polygonal signed area. Gaussian regression then produces the determinant ratio in the estimator and the exact risk \(1/3-2D^2/(D+\eta T+\eta^2)\). Optimizing the outer-gap product proves global centering without restricting the design in advance. A positive-coefficient rational polynomial with exactly one sign change proves the uniqueness of the centered optimum; an exact discriminant factorization proves the unique finite-noise turning point. The included checker confirmed critical algebra identities and provided supplementary diagnostics; the analytic argument, not the diagnostics, establishes the infinite-domain statements. Singular noise-free boundary cases are treated separately.
+## correctness
 
-## Originality — PASS, subject to normal publication-priority uncertainty
-The closest inspected primary sources are Foster–Habermann, arXiv:2102.10095 (full accessible article, Sections 1 and 5 and tables/appendix, first public 2021-02-19), and Kastner–Rößler, DOI:10.1007/s11075-022-01401-z (accessible full article, especially Sections 2–5). Both study representations or algorithms for Lévy-area approximation and error, not globally optimal placement of two noisy path samples. Jelinčič et al., arXiv:2308.02452, study conditional generative simulation given increments; available abstract/opening material only was consulted. A broader historical possible overlap is Dickinson (2007), DOI:10.1080/07362990701540592: the abstract establishes unrestricted linear-information asymptotics, but the full text was not accessible; it is not treated as decisively excluded. Semantic searches of relevant published findings and both accessible own historical ledgers returned no equivalent claim or stronger stated implication. No failed search by itself certifies novelty.
+PASS
 
-## Mathematical value — PASS
-Estimating Lévy area from finitely many path observations is directly relevant to strong stochastic differential-equation approximation and rough-path reconstruction. This theorem supplies the complete finite-noise two-time design, an exact minimax-over-time Bayes-risk formula, and a structurally nonmonotone noise response with a uniquely algebraic maximum displacement. This is more than evaluating an arbitrary finite numerical constant: it identifies precisely when equal trisection is suboptimal and what replaces it. The gain is small (about 0.366% in captured information at the turning noise), and the theorem makes no general convergence-rate claim.
+For doubled area, conditioning on the true knots gives the oriented determinant of the two positions: the residual bridges have mean-zero mixed and antisymmetric area terms. The bridge drift cancels in the antisymmetric stochastic integral, so its variance is 2∫t(1−t)dt=1/3. Independent spatial coordinates let Gaussian regression act by the determinant of K(K+ηI)^−1, equal to D/(D+ηT+η²), on the observed determinant. The latter has variance 2det(K+ηI). This proves the estimator and risk by orthogonal projection; at singular zero-noise designs the true knot determinant is identically zero. All zero-gap designs capture zero variance and an interior design captures a positive amount. At fixed outer-gap sum u, the objective is proportional to v²/(Av+B) for v=ac and A=1−u+2η>0, B≥0, strictly increasing for v>0. Thus both outer gaps equal x. For positive noise the change y=x/(1−2x) gives y^4/Qη with all seven coefficients of Qη positive, and 4Qη−yQη' has exactly one sign change, hence exactly one positive root counted with multiplicity. The maximum is simple and differentiable in η. The stationary polynomial is negative at x=1/3 for η>0; at fixed x just below 1/3 it is positive for sufficiently small and sufficiently large positive η, proving both endpoint limits by uniqueness. A stationary x(η) requires a double root in η. In the only feasible interval ((3−√3)/4,1/3), the discriminant changes sign once, at the strictly increasing cubic's unique zero. Its positive double root supplies the lone turning noise. Thus the strictly outward then inward movement, including trisection at η=0, follows. Independent high-precision evaluation gave x_c=0.323899435630521192745… and η_c=0.135922253173019090393…, with relative captured-information gain 0.003657153… over trisection at that variance.
 
-## Residual limitations
-The 2007 Dickinson full text remains unavailable here and could contain a relevant specialized finite-dimensional corollary. The result is scoped to independent isotropic observation noise, known bridge covariance, two predetermined observation times, and doubled signed area, and does not settle adaptive or arbitrary linear-information designs. Publication priority needs an external independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the positive-noise two-vector-knot optimum and its nonmonotone law; neither the classical noiseless conditional-area identity nor generic Gaussian regression is claimed as new. The closest same-day Resultary theorem overlaps substantially in target and Bayes criterion, but concerns a different measurement operator and does not cover this design.
+
+## value
+
+PASS
+
+Lévy area is a standard nonlinear bridge functional. Even with only two full position measurements, noise changes the exact design in opposite directions at low and high noise. The scientific point is this strict reversal and unique algebraic turning variance, not the modest numerical gain: the exact Bayes risk exposes the trade-off between the area determinant and the observation covariance and provides a test case for noise-dependent area designs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

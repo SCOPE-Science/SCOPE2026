@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:27:11.129862Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificates.json, verify.py, alternate_verify.py",
+        "/workspace/branches/replay145.py and /workspace/branches/replay145.txt"
+      ],
+      "rationale": "An ordered full binary shape is determined by the binary addresses of its forks. Starting with no forks, adding a fork at every possible leaf and deduplicating enumerates every shape: every nontrivial finite full binary tree has a fork whose children are leaves. To model pruning independently, for each terminal address delete its parent fork and remove the next address bit from every fork in the surviving sibling subtree, leaving other fork addresses fixed. Recomputed all source and receiver sets and all shadow incidence rows through six internal vertices, agreeing exactly with certificates.json. Checked the disjoint codebooks and all nonnegative primal/dual inequalities with exact rationals. For each size both objectives match, hence weak duality certifies P. The floor of P at every size equals the supplied code size, so M=(1,1,2,3,7,15), P=(1,1,2,3,7,205/13). The first positive gap is 205/13−15=10/13, and integer rounding remains tight. Replay with python3 /workspace/branches/replay145.py (PRUNE lines), output /workspace/branches/replay145.txt.",
+      "residual_risks": [
+        "Certifies objective values, not integrality of the entire feasible region at earlier sizes. Only ordered rooted shapes, exactly one prune, and sizes 1 to 6 are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The tree-edit paper removes a leaf and performs forced contraction but measures distance in a labeled model. The compression paper defines ordered rooted full binary trees but concerns lossless coding. The deletion-code paper supplies the general fractional matching/transversal framework."
+        ],
+        "reasoning": "Those results give shared objects, an edit operation, or generally valid bounds, but none evaluates the fractional objectives for these six sets of pruning shadows.",
+        "searches": [
+          "Koperwas and Walczak DOI 10.1186/1471-2105-12-204 pp. 1–2",
+          "Kulkarni and Kiyavash arXiv:1211.3128 Lemma 2.4",
+          "Zhang, Yang and Kieffer arXiv:1304.7392 Example 2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary results identified above",
+        "Koperwas and Walczak; Kulkarni and Kiyavash; Zhang, Yang and Kieffer",
+        "Targeted published-literature lookup for plane-tree pruning codes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The labeled receiver knows the omitted leaf from its label set and uses unrooted nonplane topologies; the present model retains order and root and does not reveal a leaf index. The matched-pair result counts outputs of individual words, not intersections of the shadow family."
+        ],
+        "reasoning": "Neither a change of size index from internal vertices to leaves, nor a general LP upper-bound theorem or an individual-shadow cardinality formula, yields exact packing or the first gap. The equalities and fractional separation come from the specific incidence and its matching certificates.",
+        "searches": [
+          "737fa685802b RESULT.md Finding and Assumptions",
+          "83c34875495f RESULT.md Finding and Assumptions",
+          "Kulkarni and Kiyavash Lemma 2.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 6a6d1499205f Dyck code deletes one arbitrary symbol; 83c34875495f erases an arbitrary matched pair; 1f96402b4ab9 deletes a permutation entry and standardizes.",
+          "The targeted web query returned topology and enumeration leads but no identifiable matching channel/result."
+        ],
+        "reasoning": "A bijection of Catalan source shapes is not a channel isomorphism. In this model a prune is constrained to a fork incident to a terminal leaf and promotes its sibling; in particular its shadow differs from arbitrary symbol deletion and arbitrary matched-pair erasure.",
+        "searches": [
+          "Resultary: tree deletion-correcting codes pruning leaves Catalan shapes fractional packing",
+          "Resultary: single deletion correcting codes for Dyck words Catalan binary trees pruning one leaf",
+          "Websearch: (\"unlabelled rooted ordered full binary tree\" OR \"plane full binary tree\") (\"leaf pruning\" OR \"suppressing the parent\") (\"error-correcting code\" OR \"fractional packing\")"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact titled frozen item is not independent coverage. 737fa685802b gives P=105 and M≤104 at seven labeled leaves. 6a6d1499205f gives a fractional value 29/3 and integer 9 at its first Dyck gap, semilength five. 1f96402b4ab9 gives 2217/154 and integer 13 at permutation length six."
+        ],
+        "reasoning": "These nearby exact tables have different site, source, or output information and cannot be substituted for the claim's P_6=205/13.",
+        "searches": [
+          "Resultary: \"fractional pruning-packing gap\" plane binary tree codes",
+          "Resultary: unlabelled rooted ordered full binary tree shape one leaf pruning correcting code fractional packing",
+          "Resultary: leaf-pruning error correcting codes rooted ordered unlabeled binary trees Catalan shape deletion channel"
+        ]
+      },
+      "rationale": "The Catalan shapes, pruning operation in related models, and LP method are not new. The inspected results neither state nor specialize to the table for exactly this one-prune channel. The close analogy to labeled tree deletion has the same number of leaves at the threshold but a different receiver, feasible code and fractional objective.",
+      "residual_risks": [
+        "A different Catalan encoding with exactly the same edit could conceal a direct match in unindexed literature. The inspected same-day analogues do not establish chronology or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SOURCE_AND_RECEIVER",
+          "evidence": [
+            "Uses unrooted unordered label-preserving receiver trees and an observable missing label."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-fractional-packing-gap-for-single-leaf-deletion-codes--737fa685802b",
+          "material_read": "RESULT.md Finding and Assumptions, local mirror offsets 0–3897",
+          "method": "Local mirror",
+          "title": "The first fractional-packing gap for single-leaf deletion codes of unrooted phylogenetic trees",
+          "trigger": "Closest tree-deletion gap, also at seven leaves"
+        },
+        {
+          "assessment": "DIFFERENT_DELETION",
+          "evidence": [
+            "One-symbol deletion, not leaf and parent removal; first gap at semilength five."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-short-block-one-deletion-codes-on-dyck-words-and-the-first--6a6d1499205f",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–3549",
+          "method": "Local mirror",
+          "title": "Exact short-block one-deletion codes on Dyck words and the first fractional gap",
+          "trigger": "Equivalent-sized Catalan source and exact fractional gap table"
+        },
+        {
+          "assessment": "DIFFERENT_CHANNEL_AND_INVARIANT",
+          "evidence": [
+            "Erases any originally matched pair and counts distinct outputs, not code capacities."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-matched-pair-erasure-in-dyck-words-collision-paths-and-an-algebr--83c34875495f",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–3337",
+          "method": "Local mirror",
+          "title": "Matched-pair erasure in Dyck words",
+          "trigger": "Deletion of a matching parenthesis pair in an alternative Catalan model"
+        },
+        {
+          "assessment": "DIFFERENT_CHANNEL",
+          "evidence": [
+            "Deletes a position and standardizes the remaining permutation; M_6=13 and P_6=2217/154."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-fractional-single-deletion-packing-gap-for-132-avoidin--1f96402b4ab9",
+          "material_read": "RESULT.md Finding and Assumptions, offsets 0–2839",
+          "method": "Local mirror",
+          "title": "The first fractional single-deletion packing gap for 132-avoiding permutations",
+          "trigger": "Another Catalan-family deletion packing at size six"
+        },
+        {
+          "assessment": "RELATED_EDIT_OPERATION",
+          "evidence": [
+            "Pruning is a component of distances for labeled trees, not the measured coding problem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1471-2105-12-204",
+          "material_read": "Abstract and Basic Notions, PDF pp. 1–2, offsets 0 and 5200",
+          "method": "OA PDF",
+          "title": "Tree edit distance for leaf-labelled trees on free leafset",
+          "trigger": "Leaf pruning with forced contraction"
+        },
+        {
+          "assessment": "GENERAL_METHOD_NOT_EXACT_VALUES",
+          "evidence": [
+            "Fractional matching/transversal LP method for single-deletion string coding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+          "material_read": "PDF p. 2 and Lemma 2.4 on p. 6, offsets 10000 and 38800",
+          "method": "OA PDF",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "General fractional shadow bounds"
+        },
+        {
+          "assessment": "SAME_SHAPES_DIFFERENT_PROBLEM",
+          "evidence": [
+            "The ordered binary-tree model is used for lossless compression, not correction under pruning."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1304.7392",
+          "material_read": "Abstract and Example 2, offsets 850 and 7400",
+          "method": "OA PDF",
+          "title": "A Universal Grammar-Based Code For Lossless Compression of Binary Trees",
+          "trigger": "Same ordered rooted shapes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen channel and rational witness data",
+        "Independent shadow enumeration and primal-dual replay"
+      ],
+      "rationale": "The property is a motivated first threshold for the natural coding problem of undoing one unknown prune in ordered binary shapes. The result distinguishes two practical questions: the continuous LP stops attaining the exact code capacity at six forks, but its rounded bound remains exact. Exact input/output certificates and a matching integral witness make this a sharp finite benchmark rather than a numerical or arbitrarily chosen slice.",
+      "residual_risks": [
+        "The value is limited to this first gap; it gives neither later rounding behavior nor a general structural classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

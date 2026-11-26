@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full exceptional-class list follows from the seven-point blowup description, and the explicit intersection product gives the adjacency matrix. The Geiser involution, the matrix identity \(A=VJV^{\mathsf T}+I-2P\), and the eight-dimensional Gram calculation give the exact Laplacian spectrum \(0^{[1]},24^{[21]},28^{[27]},36^{[7]}\). The matrix-tree theorem yields \(2^{128}3^{35}7^{26}\) spanning trees; an independent fraction-free integer determinant reproduces it. Modular Smith elimination at precision \(2^{12}\), \(3^{10}\), and \(7^8\) records complete valuations, and three deleted-vertex choices agree. Its reconstructed 55 invariant factors multiply to the determinant, with the required divisibility chain. The finite calculation is exhaustive because all 56 curve classes and all 55 Smith steps are enumerated; no inference from sample finite fields is made. The standalone exact verifier is included.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The seven-point blowup classification gives the four complete curve families. I used an alternative signed-pair model: assign E_i to +{i,8}, H−E_i−E_j to −{i,j}, and each Geiser mate the opposite sign on its pair. For signed pairs (s,A),(t,B), checking the Picard pairing gives intersection (1−st(2|A∩B|−1))/2; the remaining two curve families are the Geiser complements. I constructed the 56-vertex graph using this formula and checked it equals the distance-two relation for intersection-zero adjacency. It has 756 edges and degree 27. The exact characteristic polynomial gives eigenvalues 0(1), 24(21), 28(27), 36(7) for the Laplacian, so it is connected and has 2^128·3^35·7^26 spanning trees, confirmed by integer cofactor determinant. Exact integer Smith form yields 1(8), 2(14), 4(7), 28(5), 336(14), 3024, 6048(6), with parenthesized multiplicities. In particular the exponent is 6048. The classification and pairing model apply to every surface in the stated smooth characteristic-zero scope.
 
-Lee (2009), Lemmas 6–7, identifies the 56-curve zero- and one-intersection relations: edges of his Gosset graph are the *zero*-intersection pairs. His and the other inspected geometric descriptions do not compute the integral Laplacian critical group for the complementary distance-two relation. Lee (2010), Knecht–Reyes (2015), and Lee–Shin (2016) address Weyl geometry, exceptional-curve classifications, and configurations, rather than this precise Smith form. Related integral computations on different del Pezzo and line-incidence graphs have different matrices and do not imply these invariant factors. Search misses are not proof of novelty: the name 'Gosset distance-two graph' and unindexed sandpile tables leave a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The adjacency condition is the natural intersection-one stratum of *all* 56 exceptional curves and is invariant across the entire smooth geometric family. Its integral critical group measures an intrinsic chip-firing lattice quotient and strictly refines the adjacency spectrum and spanning-tree count. Distinguishing this distance-two configuration from the usual zero-intersection Gosset graph prevents conflation of two otherwise closely related geometric invariants. The complete elementary-divisor decomposition, rather than a selected numerical example, is an independently useful exact invariant for comparisons of exceptional-curve combinatorics and arithmetic graph degenerations. This is a motivated integral classification, not an arbitrary induced subgraph.
+The geometric construction and distinction between distance relations are classical. The strongest independently inspected arithmetic match computes a different, intersection-weighted graph. No checked source establishes the full integral group for the specific intersection-one graph, and none is excluded on title or date alone.
 
-## Closest sources and scope
+## value
 
-J.-H. Lee, *Gosset Polytopes in Picard groups of del Pezzo Surfaces* (2009), https://arxiv.org/abs/0905.3025; J.-H. Lee, *Configuration of lines in del Pezzo surfaces with Gosset Polytopes* (2010), https://arxiv.org/abs/1001.4174; A. Knecht and K. Reyes, *Full Degree Two del Pezzo Surfaces over Small Finite Fields* (2015), https://arxiv.org/abs/1510.04621; J.-H. Lee and Y. Shin, *E-Polytopes in Picard Groups of Smooth Rational Surfaces* (2016), https://doi.org/10.3390/sym8040027. The result is about combinatorial graph Jacobians, not the geometric Picard group of a surface. Independent replication of the proof and literature search remains desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The intersection-one relation and its integral divisor quotient are canonical for all surfaces in scope. The 2-, 3- and 7-primary multiplicities refine the distance graph's spectrum and tree count and are a concrete comparison invariant for chip-firing on exceptional-curve graphs. This is neither the ordinary Gosset graph nor an arbitrary subset of exceptional curves, and the full Smith group is not supplied by the geometric distance counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

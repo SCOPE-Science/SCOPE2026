@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:08:46.834229Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated trim adjacent-only chain, a letter with loops at both ends of an adjacent bridge and the bridge itself gives arbitrarily many crossing times; trim provides the required prefix or suffix. A letter in X followed by one in Y gives an endpoint-loop block with a complete crossing, so repetitions again give unbounded ambiguity. Avoiding these obstructions is exactly containment in T_X or T_Y. A fresh replay with ordinary full integer matrices computed the two 48-element closures from their 23 generators, matched both CSVs, and found maximum entry (1,3) = 4 in each. Reaching a fixed point under every right multiplication certifies arbitrary word lengths. The replay checked 1,024 ordered binary pairs, with exactly 216/28/2 trim finite pairs of degrees 1/2/3 (246 total), and found the four finite trim unary types 10,11,14,26, each of degree 1. It recovered the witnesses aa, aabb and abbc with counts 1,3,4; duplicate letter types extend the last witness without adding products. These conclusions exclude skip edges, other initial/final states and weighted parallel edges.",
+      "replay": "python3 /workspace/branches/1421d9da-d485-43bb-881b-93f37eae3840/independent_replay.py (fresh integer-matrix replay; the frozen scripts were inspected but not run)",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The §3 recurrence gives A_3 ≤ 12. Kiefer et al. Theorem 14 treats a five-letter construction with skip edges. Weber–Seidl Table 1 includes alphabet-dependent lower bounds for chains."
+        ],
+        "reasoning": "The broader estimates do not imply a sharp upper bound of 4; a skip-edge lower bound does not establish an adjacent-only threshold.",
+        "searches": [
+          "Kiefer et al. arXiv:2610.08525, §§3 and 5",
+          "Weber–Seidl DOI 10.1016/0304-3975(91)90381-B, §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify.cpp and matrices_X.csv/matrices_Y.csv",
+        "Local Resultary catalogue",
+        "Weber–Seidl (1991) §5",
+        "Kiefer et al. arXiv:2610.08525 §§3 and 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weber–Seidl already give the ternary lower-bound scale 2^(n−1) and a general finite-ambiguity criterion. The closure replay determines extremal integer counts and the binary distribution, not just finiteness."
+        ],
+        "reasoning": "A generic finite-ambiguity criterion can test permitted alphabets but does not determine their exact accepting-path maxima; the new finite reduction and census address that separate problem.",
+        "searches": [
+          "Weber–Seidl Lemma 5.5 and Table 1 compared with frozen proof steps 1–3",
+          "Kiefer et al. §3 recurrence compared with closed sets and witness sizes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kiefer et al. §3 use the equivalent ordered adjacent-only singleton-SCC model and bound A_3 by 12; the exact Resultary match is this frozen record, not an independent result."
+        ],
+        "reasoning": "Changing from accepting paths to the integer (1,3) product entry is a representation, not a novelty claim; the new content is the sharper exact classification in that model.",
+        "searches": [
+          "Resultary: three-state singleton-component chain finite ambiguity; exact alphabet threshold and integer path-matrix families",
+          "Weber–Seidl §5; Kiefer et al. §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Weber–Seidl Table 1 compares size-dependent bounds, not all ordered pairs of five-bit types. No distinct result matching the binary census or both closures emerged in the targeted catalogue comparisons."
+        ],
+        "reasoning": "Counts of labeled transition tables with degree exactly 1, 2, or 3 are finer than an alphabet-dependent extremal bound; the exact catalogue self-match does not independently cover the claim.",
+        "searches": [
+          "Resultary: binary three-state ambiguity census 216/28/2, two 23-letter sets, 48 matrix products",
+          "Weber–Seidl §5 Table 1; Kiefer et al. §§3 and 5"
+        ]
+      },
+      "rationale": "The lower bound of four at three states and the obstruction approach have prior coverage. The matching adjacent-only upper bound, alphabet thresholds, exact binary census and explicit two-family closure classification remain distinct on the inspected evidence.",
+      "residual_risks": [
+        "The bounded primary and catalogue comparisons do not exclude an older exact small-state census or a tabulation under different terminology. A focused web lookup returning no results is not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ternary lower bound and general obstruction method, not exact upper or binary census",
+          "evidence": [
+            "The at-most-three-symbol lower bound 2^(n−1) gives four at n=3; Lemma 5.5 is a finiteness criterion."
+          ],
+          "identifier_or_url": "https://fmazowiecki.github.io/course/WS91.pdf",
+          "material_read": "§5, Table 1, print p. 343 (offset 43590); Lemma 5.5, print p. 345 (offset 51100)",
+          "method": "Open author-hosted primary PDF, focused passages",
+          "title": "On the degree of ambiguity of finite automata",
+          "trigger": "Closest earlier chain/alphabet result and possible exact table"
+        },
+        {
+          "assessment": "Same adjacent-only setting in §3, weaker bound; distinct skip-edge setting in Theorem 14",
+          "evidence": [
+            "The §3 model uses i→i or i→i+1; its stated recurrence yields 12 at n=3.",
+            "Theorem 14's larger alphabet and skip edges do not match the audited model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08525",
+          "material_read": "§3, print pp. 23:5–7 (offsets 17500–25800); §5 Theorem 14, p. 23:11 (near 49800)",
+          "method": "OA primary PDF, bounded sections",
+          "title": "Stronger bounds on the degree of ambiguity of finite automata",
+          "trigger": "Possible coverage by exact or stronger three-state bound"
+        },
+        {
+          "assessment": "Identical record; not independent prior coverage",
+          "evidence": [
+            "Same 1/3/4 profile and 23-generator, 48-matrix families."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-alphabet-thresholds-for-finite-ambiguity-in-three-state-si--666936069a90",
+          "material_read": "Finding and certificate claims compared with frozen RESULT.md §§1–3 of proof",
+          "method": "Local Resultary and frozen text comparison",
+          "title": "Sharp alphabet thresholds for finite ambiguity in three-state singleton-component automata",
+          "trigger": "Strongest exact Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first chain size with two compulsory crossings, where the small-alphabet restriction affects maximal ambiguity. The exact 1/3/4 gap and the two finite product families provide a sharp test case for general ambiguity estimates and a reusable way to certify upper bounds over all word lengths; the ordered census gives more than specimens achieving the maxima.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

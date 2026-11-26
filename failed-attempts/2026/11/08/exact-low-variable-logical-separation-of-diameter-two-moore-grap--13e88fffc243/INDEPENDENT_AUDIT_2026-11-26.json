@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:52:58.276286Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Findings and Proof, lines 4–50",
+        "VERIFICATION.md, verify.py and verification_output.txt; inspected, not replayed",
+        "Grohe–Otto, arXiv:1204.1990, §2, Theorem 2.1"
+      ],
+      "rationale": "In the ordinary two-pebble game, one stationary vertex needs only equality, a distinct neighbor, and a distinct nonneighbor, all available. With two distinct stationary vertices, subtracting the endpoints and taking the neighborhood intersection (0 for an edge and 1 for a nonedge) gives the four extension counts in the proof. Their supports are identical for all degrees at least three. A lifted third pebble leaves precisely those two anchors, so the response extends the partial isomorphism after every move, without a quantifier-rank bound. C5 has no independent triple; three neighbors of a vertex give one in every higher-degree graph. In the four-variable formula the common-neighbor and domination clauses reuse the fourth name in disjoint scopes. A centered independent triple has 3d−2 neighbors in its union, leaving d(d−3) vertices outside the triple with no neighbor in it. This is zero exactly at d=3 in the range d≥3. The upper and lower width bounds follow, with degree 57 strictly conditional.",
+      "residual_risks": [
+        "The proof is for pure counting-free adjacency, not counting or strengthened languages. The finite output does not extrapolate logical equivalence or construct a degree-57 graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier same-family record analyzes all triple types and gives the complete one-point extension cells over pairs. The Chang and q-Kneser records classify finite-rank behavior in different graph families. Reichard's conditions count induced configurations of different strongly regular graphs."
+        ],
+        "reasoning": "The unrelated families and higher-vertex conditions do not decide Moore variable width. The earlier same-family proof gives more local data than needed: forgetting concurrence among triples leaves exactly the two-anchor adjacency supports for unrestricted reuse of the third pebble.",
+        "searches": [
+          "Resultary 06adb273d86e, 293323715435 and 9d563960deab; strongly regular graph extension and rank-four classification",
+          "Reichard arXiv:1401.6816, Theorems 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 06adb273d86e, 293323715435, 9d563960deab and self-match 13e88fffc243",
+        "Grohe–Otto §2",
+        "Pikhurko–Verbitsky Theorem 3.3",
+        "Hoffman–Singleton p. 1",
+        "Reichard Theorems 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier original text explicitly permits both orientations of play, gives all pair supports for every d≥3 and equality/one-anchor moves, and writes the independent triple separator and the centered independent dominating triple separator. The latter already has the same d(d−3) obstruction."
+        ],
+        "reasoning": "Upon lifting any pebble the prior extension data apply again to the remaining vertices. Induction preserves the partial isomorphism at all rounds; this yields the asserted FO² and FO³ lower bounds directly. The two old sentences use three and four names respectively by reusing the inner name, so the sharp upper bounds are already explicit. This is implication from the earlier proof and ordinary game characterization, not an inference that rank four in general implies unrestricted-rank width three.",
+        "searches": [
+          "Resultary 06adb273d86e, RESULT.md offsets 1400–8102; Grohe–Otto §2 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grohe–Otto, arXiv:1204.1990, §2, Theorem 2.1, p. 4: ordinary k-pebble game characterizes L^k equivalence, separately from counting C^k.",
+          "Pikhurko–Verbitsky, Theorem 3.3, p. 12: variable width and depth correspond to pebble number and game length."
+        ],
+        "reasoning": "The equivalence claim means preserving equality and adjacency after each move, not matching multiplicities, bijections, or an unlimited supply of fresh vertices. A support invariant over two anchors is exactly what three reusable pebbles require.",
+        "searches": [
+          "Resultary: Moore variable width, FO³ common neighbors, and ordinary pebble-game extension supports",
+          "Primary query: \"Moore graphs\" \"finite-variable\" logic pebble game FO^3 adjacency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct width hit is the assigned record itself. The earlier rank record's section ‘Matching triples from any selected pair’ supplies (d−1)², d−1, d−1, 0 for edges and d(d−2), d−1, d−1, 1 for nonedges, plus repeat-equality and one-anchor cases."
+        ],
+        "reasoning": "An independent exact width table is not needed for coverage: these previously tabulated extension data already determine the unlimited-round two- and three-pebble strategies.",
+        "searches": [
+          "Resultary direct Moore width/degree classification; exact hit 13e88fffc243, earlier hit 06adb273d86e"
+        ]
+      },
+      "rationale": "The earlier Moore-graph rank-four record 06adb273d86e already gives both separating sentences, the same centered-triple count, and the complete one- and two-anchor adjacency/equality extension data. Its rank-four equivalence theorem alone is not the same as unrestricted-rank three-variable equivalence. But the exact pair-extension paragraphs in its proof already supply the repeatable invariant for the ordinary three-pebble game. The standard game theorem converts that invariant directly to the asserted unrestricted-depth lower bounds. Thus the full width classification is mechanically implied by the earlier proof data and existing finite-variable logic, rather than merely resembling a result with different quantifiers.",
+      "residual_risks": [
+        "No exhaustive priority claim is needed: the rejection rests on the accessible earlier Moore proof and the standard game correspondence. Do not identify fixed rank with fixed width outside this argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering by direct implication, and explicit overlap of both separators",
+          "evidence": "States every nonalgebraic pair extension count, repeated selections and one-anchor cases; writes the same centered independent dominating-triple test with d(d−3) missing vertices and the same independent-triple test for C5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-four-round-theories-of-diameter-two-moore-graphs--06adb273d86e/RESULT.md",
+          "material_read": "Proof, offsets 1400–8102: extension-cell table, Matching triples from any selected pair, Four-round strategy, Exact lower-degree separation",
+          "method": "Local publication mirror, bounded original passages",
+          "title": "Three- and four-round theories of diameter-two Moore graphs",
+          "trigger": "Earlier exact same-family rank classification and possible separator overlap"
+        },
+        {
+          "assessment": "Supplies the general theorem used in the implication",
+          "evidence": "Ordinary k-pebble game corresponds to k-variable counting-free logic, distinguished from the counting fragment.",
+          "identifier_or_url": "https://arxiv.org/abs/1204.1990",
+          "material_read": "§2, Theorem 2.1, p. 4, offset 12100",
+          "method": "OA original passage",
+          "title": "Pebble Games and Linear Equations",
+          "trigger": "Ordinary vs counting pebble logic"
+        },
+        {
+          "assessment": "General framework, no separate Moore classification credited",
+          "evidence": "Distinguishes game length from number of pebbles.",
+          "identifier_or_url": "Pikhurko–Verbitsky, Theorem 3.3",
+          "material_read": "Theorem 3.3, p. 12, offset 38300",
+          "method": "OA original passage",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "General correspondence between depth and width and pebble games"
+        },
+        {
+          "assessment": "Graph-theoretic background in the material read",
+          "evidence": "Lists degrees 2, 3, 7 and possibly 57; no existence at 57 inferred.",
+          "identifier_or_url": "doi:10.1147/RD.45.0497",
+          "material_read": "Cornell OA scan, p. 1 abstract, offset 229; retry did not retrieve additional text",
+          "method": "OA scan and DOI access attempt",
+          "title": "On Moore Graphs with Diameters 2 and 3",
+          "trigger": "Domain and feasible degrees"
+        },
+        {
+          "assessment": "Inspected statement not covering this Moore claim",
+          "evidence": "Rank three/four comparison for (28,12,6,4), not the Moore parameters.",
+          "identifier_or_url": "Resultary 293323715435",
+          "material_read": "Finding at offset 0",
+          "method": "Local publication mirror",
+          "title": "Four distinct rank-four theories of the Chang-parameter graphs",
+          "trigger": "Related strongly regular graph logic classification"
+        },
+        {
+          "assessment": "Method analogy only",
+          "evidence": "Subspace extension property for q-Kneser graphs, not adjacency widths of Moore graphs.",
+          "identifier_or_url": "Resultary 9d563960deab",
+          "material_read": "Finding at offset 435",
+          "method": "Local publication mirror",
+          "title": "Two-point extension universality and a rank-four obstruction for q-Kneser graphs",
+          "trigger": "Same-day two-anchor extension and rank-four comparison"
+        },
+        {
+          "assessment": "Inspected results not the claimed logic classification",
+          "evidence": "Induced-subgraph conditions on generalized-quadrangle point graphs, not arbitrary-round three-pebble equivalence of Moore graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/1401.6816",
+          "material_read": "Theorems 1–2, p. 2, offset 6467",
+          "method": "OA original passage",
+          "title": "Strongly Regular Graphs With The 7-Vertex Condition",
+          "trigger": "Potential broader strongly regular graph extension theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Findings and Limitations",
+        "Resultary 06adb273d86e, pair extension and lower-degree separation passages",
+        "Grohe–Otto Theorem 2.1"
+      ],
+      "rationale": "C5, Petersen and Hoffman–Singleton are natural logical benchmarks, but the asserted sharp widths add only a direct reusable-pebble reading of published extension data plus the same published separators. Neither the finite replay nor recasting the proof as an unbounded-round strategy yields a further independent invariant under this scope. In particular, the record does not analyze the four-variable comparison of degrees 7 and 57.",
+      "residual_risks": [
+        "Pedagogical value of the width formulation is distinct from an independently valuable new exact result. No substantive repaired finding was established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

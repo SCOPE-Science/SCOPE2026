@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies the exact twenty-vertex coordinate model, unordered four-element subsets, normalization, and degeneracies. The determinant formula reduces every volume to an exact element of \(\mathbb Z[\varphi]/6\). Complete enumeration of \(969\) triples through one vertex, together with vertex-transitivity and fourfold incidence, certifies the counts for all \(4845\) quadruples. A second full enumeration checks squared determinants via Gram matrices; Cauchy–Binet independently predicts \(\sum\Delta^2=160000\). The checker was executed successfully from its stated package path. The result does not assert a positive gap for unrestricted inscribed tetrahedra.
+PASS
 
-## Originality — PASS (available-evidence assessment)
+Independently generated the twenty stated radius-√3 vertices and computed |u·(v×w)| for each of the 4845 unordered distinct quadruples, using rational coefficients of 1 and √5 and exact signs. Converting to the 1,φ basis gives all eleven increasing determinant levels and precisely the printed multiplicities, including 495 zeros. I counted incidences at each of the twenty vertices; each table is the global histogram divided by five, consistent with transitivity and four incidences per quadruple. The ten maxima have all six squared edge lengths equal to 8 and volume 8/3, and the 120 next-largest cases have volume 4φ/3, giving the stated relative gap. Exact weighted sums gave both advertised moments; independently, XᵀX=20I₄ and Cauchy–Binet give sum Δ²=160000. The positive gap is only for vertex-supported tetrahedra. Replay: python3 -B /workspace/branches/independent-checks/record1.py.
 
-Horváth (arXiv:1411.5819, examined text) treats inequalities for general sphere-inscribed polyhedra, not the eleven-level dodecahedral vertex spectrum. Makai–Tarnai (arXiv:1812.08453, examined complete HTML paper) classify five-colourings into the ten *regular* dodecahedral tetrahedra, without evaluating all nonregular four-vertex volumes. MathWorld documents the ten-tetrahedron compound, which is classical and expressly excluded from the new contribution. An earlier recorded geometric result determines the maximal tetrahedral volume along a regular-dodecahedron truncation family and therefore covers only the classical top value at its zero-truncation endpoint; it does not specify any of the remaining ten volume levels or their multiplicities. An indexed research record gives a five-level spectrum for the distinct regular icosahedron. No inspected statement implies the full dodecahedral multiplicity table. Residual priority risk: older or unindexed numerical/geometric catalogues could already contain it; the related icosahedron record's full text was inaccessible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete tetrahedral-volume distribution is a natural exact finite invariant of the twenty-vertex regular dodecahedron. The eleven algebraic levels classify every one of its \(4845\) vertex quadruples, giving the exact random-vertex tetrahedron law, the count of coplanar quadruples, and the explicit gap separating the classical regular compounds from all other vertex tetrahedra. The golden-ratio arithmetic and rational second moment connect the finite classification to the dodecahedron's tight-frame geometry. The work does not claim a general theorem or a new description of the known regular compound.
+Best of current knowledge: the contribution of this frozen record is the complete eleven-level distribution, not the classical maximal regular tetrahedra. An exact duplicate table is demonstrably present in a distinct, later-dated catalogue entry; this is total overlap on the distribution and its moment consequences, not evidence that the frozen table was already known when recorded. No inspected source supplies antecedent coverage of the full table. The finding is not unique in the current catalogue and the comparison does not certify historical priority or independence of derivation.
 
-## Limitations and closest literature
+## value
 
-The finite classification is proved through exhaustive exact algebra rather than a short closed symbolic derivation of each frequency. Neither source inspection nor index searching proves global historical novelty. Independent mathematical audit and independent bibliographic audit remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the full volume distribution for the natural finite sampling of tetrahedra in a Platonic vertex set. The table answers how frequent degeneracy is, separates the maximizers from the next shell by a sharp gap, and permits exact averages; a compound or maximum theorem cannot provide those data. The finite scope is useful as a benchmark for discrete polyhedral volume questions. That judgment credits the frozen record’s full distribution, not a claim of priority, the later restatement, or the already classical top row.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

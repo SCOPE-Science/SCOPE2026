@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact smooth radial polynomial-growth theorem, with no small-force assumption. Stationary existence follows from the independent Gaussian transverse Ornstein–Uhlenbeck processes and the stable axial convolution; all moments exist. The steady diffusion has constant positive-definite diffusion matrix. The stationary Stratonovich heat identity yields the full path-space entropy-production rate. The radial generator has normalized Laguerre eigenfunctions with eigenvalues \(-2m\); this gives exact weights \(2m/[\eta(\eta+2m)]\). Their strict ordering proves the unique variance-constrained optimizer, equality conditions and sharp fourth-degree stability gap. A separate raw-generator-moment calculation agrees with the spectral formula in 189 exact-rational assertions. Infinite optimality comes from the analytic monotone-weight proof, not the finite tests.
+PASS
 
-## Originality — PASS, with residual risk
+With D=diag(1,1,η), stationarity makes the current J divergence-free; in the full even-coordinate entropy rate ∫J·D⁻¹J/p, the stationary log-density gradient and the equilibrium drift gradient drop out upon integration. This leaves η⁻¹∫fJ_z=V/η−E[fZ]; f is independent of z, so the axial density derivative integrates to zero. For the integration steps one can condition the stationary axial convolution on the current transverse state v: the backward OU history is e^(−u)v plus Gaussian noise, and Z is the resulting random smooth mean plus independent standard Gaussian noise. Polynomial bounds on the mean and its derivatives give finite score moments (conditional Jensen), as well as a polynomial bound on |log p| by Jensen on the Gaussian mixture. These justify integration with cutoffs. Stationary convolution gives E[fZ]=∫₀^∞e^(−ηu)E[f_u f_0]du. The squared transverse radius divided by two has Exp(1) law and generator 2s∂²+2(1−s)∂, so the centered Laguerre modes have eigenvalues −2m. The entropy weights are therefore 2m/[η(η+2m)], a bounded multiplier on L²; the calculation extends from finite sums. Strict increase gives the unique quadratic mode (4c²=V), and the difference of the second and first weights is 2/[(η+2)(η+4)], with equality exactly on modes 1 and 2 (transverse degrees 2 and 4). Each weight is strictly below 1/η and they converge to it; admissible normalized polynomial modes prove nonattainment and sharpness. The supplied checker’s generator recurrence follows by applying the joint generator to ZS^k; the reported finite checks were inspected as evidence, not rerun or relied on for the theorem.
 
-The exact quadratic optical-trap model is already established in arXiv:2110.04362 (2021), including its stationary law and current. arXiv:1812.09188 (2018) already develops its nonlinear-force correlations and irreversibility signal. Seifert (2005) supplies general path-ratio thermodynamics. These established results are not claimed as new. The final claim instead compares the entire smooth radial polynomial-growth force class at the **same stationary force variance**, proving a globally sharp entropy-production minimum, uniqueness, all equality cases for a quantitative stability gap, and an unattained exact upper supremum. The searched published records and inspected relevant primary passages did not state this functional optimization, but broad spectral or energetic treatments could implicitly contain it. In particular, the general heat identity and Laguerre basis are standard; the claim is not a general discovery of either.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Optical nonconservative scattering forces drive steady dissipation and are commonly represented to quadratic radial order. A natural design question is whether that basic profile is costly or efficient relative to other radial force shapes when the transverse rms forcing is controlled. The theorem completely answers this idealized optimization and supplies a sharp metric penalty for deviations from the quadratic profile. The answer is not just the entropy cost of one previously solved model: the optimizer is characterized among every smooth radial profile of polynomial growth. The mathematical family is idealized and does not impose global beam-shape constraints or experimental realizability. Independent validation and publication-priority review remain outstanding.
+The force profile, stochastic-thermodynamic identities and OU mode calculus are prior. The distinctive claim is the full stationary entropy shape optimization at fixed transverse Gaussian variance, including the sharp remainder and equality classes. No inspected source combines the same admissible force class and entropy functional so as to cover that optimization directly.
 
-## Closest literature and limitation
+## value
 
-The closest work is arXiv:2110.04362 and arXiv:1812.09188. Relevant sections inspected cover the actual optical model, stationary distribution, circulation, and cross-spectra; neither offers a radial-force variational theorem. A broad stochastic-thermodynamic formula and classic Laguerre theory are ingredients, so implicit coverage remains a risk. The result concerns overdamped isotropic transverse confinement and does not extend automatically to inertial or nonlinear-axial regimes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The budget compares physically different profile shapes on a common stationary force scale. The result explains why the earlier optical quadratic is extremal and quantitatively controls all deviations across an infinite smooth class, nonperturbatively. The sharp second-mode remainder and unattained upper endpoint distinguish it from merely computing the quadratic example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain consists of distinct-spectrum symmetric positive-definite \(2\times2\) matrices, independent unnormalized Gaussian probes, integer even budgets, and exact one-node or two-node Lanczos inverse-trace quadrature. One-node and two-node outputs and matvec costs were reconstructed from the orthogonal Lanczos definition. The two angular integrals follow from a tangent substitution and differentiation of the exact first integral. Gaussian radial moments give the complete one-node bias and variance. Gaussian fourth moments give the deep variance. Substituting the square-root eigenvalue ratio yields the explicit MSE difference, whose derivative has strictly negative sign. The special budget bound and unique crossing then follow for every spectrum and each admissible budget. Exact algebra was checked symbolically; numerical diagnostics were separately replayed from the embedded package. The use of exact arithmetic excludes roundoff and breakdown at repeated eigenvalues. Finite experiments are not treated as proofs.
+PASS
 
-## Originality — PASS, with residual priority risk
+Reconstructed RESULT.md lines 39–119. Rotational invariance gives Q=R²/(a cos²θ+b sin²θ); the tangent substitution and a common spectral shift give angular moments 1/√(ab) and (a+b)/(2(ab)^{3/2}). The χ²₂ radial moments 2 and 8 give E Q=2/√(ab), Var Q=4(a+b)/(ab)^{3/2}−4/(ab). The squared bias is (u−1)^4/(b²u^4). Two-step nonbreakdown occurs almost surely and gives gᵀA⁻¹g, with variance 2(a⁻²+b⁻²). At the stated fixed budget the difference deep minus shallow is (u−1)^4(B*−B)/(B b²u^4). Writing z=1/(u−1) gives B*=4(1+3z+4z²+2z³+z⁴), strictly decreasing from infinity to 4 as u increases. The B=2 half-deep gap is 2(u−1)²/(b²u³), strictly positive. A separate scalar bisection gives κ₈=26.08108750465537. VERIFICATION.md and verify.py were read; the script was not run. The proof covers exactly the two allocations with independent unnormalized real Gaussian probes, distinct eigenvalues and exact arithmetic, not repeated-eigenvalue breakdown or other oracle algorithms.
 
-Full-text comparisons examined the original SLQ inverse-trace algorithm and estimates (Ubaru–Chen–Saad 2017), Gaussian trace tails plus Lanczos (Cortinovis–Kressner 2020), uniform quadrature bounds (Chen–Trogdon–Ubaru 2022), and the optimized depth/sample error-budget theory for logdet (Li–Huang–Zhu 2023). The closest established resource-allocation work optimizes bounds for logdet rather than exact inverse-trace Gaussian MSE in a \(2\times2\) spectrum. Antithetic two-point logdet coupling and Hutch++ variance results do not imply the new depth/probe crossover. Meaningful overlap searches for equivalent formulations, stronger theorems, databases, and implication coverage did not reveal this exact statement; this is not a proof of absolute novelty. The main remaining risk is an unindexed exact-special-case formula or unpublished computation.
+## originality
 
-## Value — PASS
+PASS
 
-A central practical design choice in stochastic matrix-function estimation is whether a fixed matrix–vector-product budget should be used for additional probes or greater Krylov depth. These two choices have different sources of error: shallow quadrature retains systematic bias, while deeper quadrature reduces approximation bias but averages fewer random directions. This calculation gives the exact point where the tradeoff reverses, proves that the usual intuition that deeper is invariably superior is false at fixed cost, and gives a simple independent benchmark for allocation heuristics. It is not merely a numerical optimization of an arbitrary parameter: the two pure allocations are canonical SLQ choices. The \(2\times2\) scope prevents claims of large-dimensional optimality; deterministic two-query exact recovery is explicitly acknowledged.
+The inspected sources establish the ingredients and analyze adjacent tradeoffs, but do not cover the exact biased-versus-unbiased equal-product Gaussian inverse-trace crossover or its uniform two-product inequality. Pass is limited to that benchmark, not to inverse-trace SLQ or the generic probe-depth tradeoff.
 
-## Remaining scientific limitations
+## value
 
-This is a fully analytic two-dimensional benchmark, not an optimality theorem for general matrix-free algorithms. Probes must be independent standard Gaussians and \(B\) even. Eigenvalue multiplicity, finite precision, normalized-sphere conventions, different matrix functions, and non-pure allocations require separate analysis. A matching earlier specialized result may exist outside the searched sources; independent literature and mathematical audit remain to be performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-dimensional distinct-spectrum case is the first setting where increasing quadrature depth to two removes approximation bias exactly while halving the number of Gaussian probes. The exact curve distinguishes when that removes enough bias to justify the added sampling variance; exactness alone does not favor deep at B=4 even at arbitrarily large finite condition number. The result gives a useful analytic benchmark for depth/probe allocation and MSE analysis, not an optimal oracle-complexity claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

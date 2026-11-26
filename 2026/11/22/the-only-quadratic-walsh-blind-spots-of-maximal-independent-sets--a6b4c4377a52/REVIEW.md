@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is restricted to the full set of degree-at-most-two Walsh characters on the Boolean vertex group of a simple labelled cycle. The cyclic gap bijection gives the single-vertex count \(b_n\) and the two-vertex count \(b_d b_{n-d}\); the Perrin identity gives the exact two-point multiplier \(H(n,d)\). All small arc lengths are covered by recurrence-propagated integer signs, including the only two zeros at length nine. For both arc lengths at least ten, rigorous rational bounds on the plastic constant show \(H(n,d)>0\). The four singleton zeros at length four follow from \(b_{n-3}\). The embedded independent brute-force generator and integer Walsh transform passed 92,597 exact checks (degree at most two in lengths 3–17, with supplementary finite recurrence checks to length 600). Rational inequalities were checked by exact integer fractions, not floating approximations.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** Bisdorff and Marichal (2007/2008) supply the cyclic 2/3 gap correspondence and Perrin/Padovan enumeration, but their inspected paper proves orbit formulas rather than signed Walsh frequency cancellations. A published implication-base/Boolean-trace theorem addresses logical closure; a published greedy cycle theorem addresses nonuniform arrival-order probabilities; neither determines the zero set of the uniform maximal-independent-set indicator. An earlier all-independent-set cycle Fourier result does not imply the maximal-set counting measure, and the path maximal-independent-set invertibility theorem concerns a different graph. The nontrivial new step is the uniform all-size exclusion of additional degree-two zeros, not the preexisting unsigned counts.
+PASS
 
-**Value — PASS.** Low-order Walsh multipliers are the simplest Fourier modes of a graph-constrained counting convolution. This exact all-length classification shows a sharp, isolated obstruction at dimension nine for pair characters and guarantees two-body Fourier recovery from every larger cycle. It distinguishes harmonic recovery of the uniform maximal-set ensemble from its orbit enumeration and from independent-set or greedy-sampling laws. The motivation is a natural complete low-degree classification, not an arbitrary finite enumeration.
+In a nonempty maximal independent set, clockwise gaps are 2 or 3; fixing one vertex roots an ordered composition, and fixing a second independently roots both arcs. Thus the one- and two-site incidence counts are b_n and b_d b_(n−d), including d=1 where the latter is zero. Perrin recurrence and lengths 3,4,5 give P_n=2b_n+b_(n−3). Expanding the two Walsh signs yields H(n,d)=4b_d b_(n−d)−2b_(n−2)−b_(n−3). The constant mode is positive, the singleton multiplier b_(n−3) vanishes only at n=4, and adjacency gives a strictly negative pair multiplier. The exact seeds at distances 2 through 9 suffice: each later H is the sum of its two- and three-step predecessors, and all earlier feasible lengths in those rows are accounted for. For larger distances use d≤n/2 and the proven bounds 0.408<b_k/λ^k<0.421 for all k≥10; they propagate from 10,11,12 because λ^(−2)+λ^(−3)=1. The strict rational comparison 4·0.408²>0.421(2/L²+1/L³) at L=1.324717957 enforces H>0 when both arcs are at least 10. Thus the finite check is not used to infer infinite nonvanishing. At n=9 each of distances 3 and 4 has nine unordered pairs; ordinary unnormalized convolution multiplies each Walsh character by its own coefficient.
 
-**Closest literature and limitations.** The 2007 first arXiv version of Bisdorff–Marichal establishes the exact combinatorial class; the later full-text version was inspected for all major theorems and the summary. Published contemporary results on cycle maximal-set logical closure and greedy selection were materially compared. General signed 2/3-gap transfer-polynomial specializations could predate this work and remain a priority risk. No claim is made about all higher-degree multipliers, the full nullity, or independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The counting formula is already substantially covered, as are examples of low-degree zeros and full nonvanishing on nine residue classes. The surviving distinct claim is the exhaustive classification in degrees at most two at all lengths, including exclusion within residue classes where the full operator can be singular. None of the inspected strongest statements supplies that exclusion or implies it without further mathematics.
+
+## value
+
+PASS
+
+The restricted low-degree band has a natural role: it comprises all linear and pair statistics of the vertex bits. Exact identification of which such signals are erased by this unweighted averaging is a useful discrimination even when the full operator is singular. The result is a complete invariant for this band at every cycle length, not a repetition of the known count formula or a cutoff picked after an enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

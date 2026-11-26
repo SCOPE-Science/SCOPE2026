@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every tree of \(K_{2,q}\) contains exactly one degree-two peripheral vertex and \(q-1\) degree-one peripherals, which proves the exact Gaussian support formula. The marked law is a direct product-order-statistic density with the correct normalizing integral. Gaussian Mills-ratio analysis proves independent Gumbel and exponential limits for the bottleneck and upper-edge gap; a conditional truncation central limit argument proves independence from the bulk Gaussian. The exact expectation integral plus uniform integrability yields the sharp mean-width expansion. The included checker independently enumerates all trees through \(q=7\) and tests density normalization and scaling diagnostics. Remaining risk: standard triangular-array tail bounds and uniform-integrability estimates are stated with their governing bounds rather than exhaustive constants; peer review has not been performed.
+PASS
 
-## Originality — PASS, provisional historical priority
+A spanning tree must have one incidence at each peripheral and q+1 edges total, so exactly one double-incidence peripheral connects the hubs. Fixing it and optimizing the others proves the support identity for all weights, ties included. Any two edges lie on a common 4-cycle (q>=2), so tree exchanges span the sum-zero edge-coordinate directions and the dimension is 2q-1. The joint marked density follows by selecting the winning pair, ordering its two entries and requiring all other minima to lie below t; integrating the mark gives the derivative of (1-Q(t)^2)^q, with Q the normal survival. The mark tail given the bottleneck is Q(t+z)/Q(t). Mills ratios give a_q~1/(2b_q), a squared-survival exponent -x for t=b_q+a_q x and the mark exponent -u for z=u/b_q, uniformly on compact bottleneck windows. For any fixed such window L>t entails both weights exceed t; the truncated |U|^k moment removed is at most twice Q(t) times the corresponding truncated normal moment, O(b_q^k/q). Given the chosen pair and value, the q-1 nonwinners are independent conditioned on L<=t. Their aggregate normalized mean error is O(b_q/sqrt(q)), variance tends to one and their third moments are bounded uniformly; the winner contributes o_P(1). Uniform conditional characteristic-function convergence on compact mark windows and tightness give three-way independence. For uniform integrability of the normalized bottleneck, the right tail is at most exp(-2b_q a_q x) using the normal hazard >=t for t>=b_q; for 0<=t=b_q-a_q x<=b_q, the squared survival ratio is at least exp(b_q a_q x), yielding a double-exponential left bound. Below t=0, the remaining integrated left tail is bounded by (3/4)^(q-1) times the finite integral of F(t)=1-Q(t)^2 over t<=0, divided by a_q. These estimates justify E B_q=b_q+gamma a_q+o(a_q); solving Q(b_q)=q^(-1/2) gives the stated log log and log(2pi) factors. The width is Gaussian opposing support, not normalized spherical width.
 
-Search and full-text comparisons cover geometric spanning-tree polytopes, uniform spanning-tree covariance, overlap statistics, Gaussian supporting directions, and equivalent maximum spanning-tree language. The general Gaussian extreme-value theorem and maximum spanning-tree principle are known; neither is claimed. The compared publications do not imply the exact marked support law or triple independent scaling in this Euclidean realization. A general theorem on Gaussian bottleneck maxima for complete bipartite networks might imply the special law under an unstated reduction, and remains a residual priority risk. Failed searches are not treated as proof of priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This natural canonical matroid-base polytope has exponentially many tree vertices but its Gaussian geometry admits an exact one-dimensional rare bridge bottleneck and two distinct asymptotic fluctuation scales. The exact finite joint density, sharp second-order width constant, and independent three-component limit describe its intrinsic Gaussian support statistics and bridge geometry, rather than an unmotivated slice or a reparametrization of a pre-existing tabulation. The theorem could support comparisons between random exposed vertices and uniformly sampled tree vertices or extension to more hub classes; none of these downstream extensions is asserted as proved.
+The exact support can be viewed as a maximum-weight tree identity or a union of fixed-bridge cubes. Standard optimization and order-statistic theorems supply ingredients, not a previously evaluated two-hub marked law plus width expansion in the material inspected. This does not claim novelty for finding a maximum spanning tree, for the unmarked Gumbel theorem, or for the tree count in isolation.
 
-## Closest work and limitations
+## value
 
-Albin et al. (arXiv:1805.10112) analyze fair sampling and overlap; Aprile et al. (arXiv:2106.11945) study extended formulations; the published complete-bipartite spanning-tree covariance, inball, and overlap results concern different measures or observables. A classical extreme-value derivation is essential and fully acknowledged. Only the \(K_{2,q}\) Gaussian model is settled, and historical priority remains qualified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The simplest complete bipartite graphs beyond stars separate the extensive contribution of leaf choices from a mandatory inter-hub bridge. The explicit width correction measures the price of that bridge under Gaussian support, and the joint independent limit quantifies three distinct fluctuations for the same optimizing tree. This is more informative than the standard tree count or applying a scalar Gaussian-maxima approximation alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:42:32.206767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65; VERIFICATION.md and verify.py (inspected, not executed).",
+        "Independent Python 3 recursion replay at /workspace/branches/b6dd2672-3968-4abd-acf5-e9237e0d506a/rank_recursion_replay.py; observed output in replay_n7.txt in the same directory."
+      ],
+      "rationale": "Use iid continuous priorities; the first pivot in an interval compares the endpoints iff it is one of them. The success probability is 2/u and the variance is 2(u-2)/u². In disjoint intervals the priorities are independent. For strict containment, conditioning on a successful outer minimum removes an outside endpoint without biasing the inner relative order, giving joint probability 4/(uv). In shared-endpoint containment the two possible outer minimizing endpoints give (1+2/s)/ell. For touching intervals the minimizing label must be one of the three endpoints, giving (2/v+1+2/u)/(u+v-1). In a strict interleaving only the two outside endpoints are eligible, giving (2/v+2/u)/t. Subtraction of 4/(uv) yields the displayed exact kernel. For mutual independence, remove an inclusion-minimal interval J from a compatible family. Every remaining interval is disjoint from J or strictly contains it, so their indicator vector is measurable with respect to the numerical minimum inside J and the entire priority vector outside J. Exchangeability makes the minimizing label uniform and independent of that information. Thus I_J is independent of the entire remaining vector, not just each component, and induction gives the product generating function. Conversely, in lengths >=3 all incompatible endpoint cases have strict nonzero covariance. Adjacent ranks are deterministic ones and must not be used in the converse obstruction.",
+      "residual_risks": [
+        "The replay covered all 5,912 relative priority orders over sizes 2 through 7, with 435 exact marginal/covariance assertions and one eligible strict-laminar triple. The induction, not this finite replay, establishes the arbitrary-family statement. Results apply to direct pivot comparisons with distinct keys and uniformly randomized pivots."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iliopoulos–Penman derive the known total variance using the first-pivot total-cost recurrence and derivatives of a generating function. The checked derivation does not recover individually indexed covariance entries. Alonso et al. study output inversions with unreliable comparisons."
+        ],
+        "reasoning": "Total variance is the sum of the whole covariance matrix, not a stronger kernel. Models with unreliable comparisons change the observable. General iid exchangeability is applicable but must be used to prove insulation of the whole vector by the priority minimum, and does not furnish the converse without the endpoint cases.",
+        "searches": [
+          "Iliopoulos–Penman, arXiv:1006.4063v1, pp. 2–5 and references at p. 20",
+          "Alonso et al., arXiv:math/0312437v1, opening passage"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 67–81; the primary text, course slide and Resultary/SCOPE passages listed in source_inspections."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier indicator identification is directly usable and is not new. Knowing individual success probabilities and total variance does not determine the joint field. Even pairwise independence generally does not imply mutual independence; this theorem uses the strict nesting condition to isolate the minimum label from the vector needed to determine every remaining event."
+        ],
+        "reasoning": "Prior work as inspected implies the encoding and aggregate benchmarks, not the higher-order result. The priority proof and a strict nonzero obstruction for each incompatible arrangement supply the independent-family classification beyond known single or aggregated moments.",
+        "searches": [
+          "Resultary/SCOPE 469daa24830a, mirrored Finding and proof §1",
+          "Iliopoulos–Penman arXiv:1006.4063v1, first-pivot recurrence and variance proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the ordered min-Cartesian tree (equivalently a treap with iid continuous priorities or a random insertion BST), the event is exactly that one endpoint is an ancestor of the other. The distinct SCOPE record credits this first-arrival criterion and yields 2/(b-a+1); the inspected lecture slide explicitly identifies Quicksort recursion and comparison with random BST insertion."
+        ],
+        "reasoning": "An interval-resolved result on the corresponding ancestry indicators would directly cover the Quicksort theorem via the same priority space. The inspected equivalence statements establish the construction and one marginal, not the dependence law or all-order criterion.",
+        "searches": [
+          "Literature: \"covariance\" \"Quicksort\" comparison indicators intervals pairwise random binary search tree",
+          "Resultary: strict laminar interval Quicksort comparison events mutual independence",
+          "Resultary/SCOPE 469daa24830a proof §1; Efficient Sorting, PDF p. 18 (printed slide 11)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact kernel and classification match the identical frozen record ccbf39f040bd, not a separate source. Distinct hit 469daa24830a concerns quantitative asymptotic independence of total Quicksort cost and inversion count, with the same priority encoding but a different statement."
+        ],
+        "reasoning": "An exact total-cost variance formula is not a table of interval-pair covariances. Neither the distinct catalogue result nor the inspected earlier analysis gives the endpoint-order array or the eligible interval families.",
+        "searches": [
+          "Resultary: Quicksort comparison indicators interval covariance pairwise exact formula; strict laminar interval Quicksort comparison events mutual independence; Quicksort exact joint probabilities for pairs of key comparisons"
+        ]
+      },
+      "rationale": "The distinct assessed content is the interval-resolved dependence result culminating in a necessary and sufficient condition for mutual independence. The standard priority representation, marginal and variance of total cost are antecedents. In particular, novelty is not inferred merely from known total-variance analyses using different proofs.",
+      "residual_risks": [
+        "The bounded search did not retrieve the earlier Knuth or other variance derivations cited in Iliopoulos–Penman; the pairwise case formulas in particular could occur there. Equivalent higher-order statements under treap, random BST or Cartesian-tree terminology are not ruled out by the search. No absolute publication priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior exact total comparison variance; inspected derivation does not give this indexed kernel or independence classification",
+          "evidence": [
+            "Uses the recurrence C_n=C_(U_n-1)+C_(n-U_n)+n-1 and generating-function derivatives. Earlier sketches and other works are cited, not excluded by this inspection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1006.4063",
+          "material_read": "OA PDF pp. 2–5, offsets about 2403 and 2600–10799; references p. 20, offset 45500",
+          "method": "Bounded OA primary full text",
+          "title": "Variance of the number of Comparisons of Randomised Quicksort",
+          "trigger": "Potential prior interval covariance cases hidden in total-variance proofs"
+        },
+        {
+          "assessment": "Direct overlap in representation and marginal, not the field's classification",
+          "evidence": [
+            "The first-arriving key in the rank interval is an endpoint iff those ranks are compared; the theorem compares total cost and inversions."
+          ],
+          "identifier_or_url": "Resultary/SCOPE 469daa24830a",
+          "material_read": "Mirrored RESULT.md Finding, assumptions and proof §1, offsets 0–2971",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Quantitative asymptotic independence of Quicksort cost and inversions",
+          "trigger": "Prior record on dependence in the same randomized algorithm"
+        },
+        {
+          "assessment": "Self-match, not independent priority evidence",
+          "evidence": [
+            "Same four covariance cases, same strict nesting criterion and minimum-priority proof."
+          ],
+          "identifier_or_url": "Resultary/SCOPE ccbf39f040bd",
+          "material_read": "Mirrored RESULT.md offsets 0–4999 and 5200–9325, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror identity comparison",
+          "title": "The identical frozen Quicksort finding",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Output inversions under faulty comparisons, a different observable",
+          "evidence": [
+            "The article studies inversions of the output induced by wrong comparison outcomes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0312437",
+          "material_read": "OA p. 1, offset 0",
+          "method": "Bounded OA opening-passage inspection",
+          "title": "Quicksort with unreliable comparisons: a probabilistic analysis",
+          "trigger": "Adjacent Quicksort probability literature cited in the frozen record"
+        },
+        {
+          "assessment": "Evidence for BST correspondence only",
+          "evidence": [
+            "Recursion tree of Quicksort = binary search tree from successive insertion; comparisons in Quicksort are comparisons used to build that BST."
+          ],
+          "identifier_or_url": "Efficient Sorting, PDF p. 18 (printed slide 11)",
+          "material_read": "OA slide passage at text offset 8000",
+          "method": "Bounded PDF passage inspection",
+          "title": "Efficient Sorting",
+          "trigger": "Equivalent binary-search-tree formulation surfaced by literature search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and mutual-independence proof; Iliopoulos–Penman total-variance derivation."
+      ],
+      "rationale": "The intervals correspond to natural direct comparisons in a standard randomized algorithm, and the result supplies the exact signed kernel for arbitrary weighted comparison counts. More structurally, it identifies exactly which nonconstant comparison families have a factorized law and proves that no higher-order dependence survives in precisely those families. This is not a recomputation of the known unweighted total variance.",
+      "residual_risks": [
+        "The joint-law factorization does not extend to arbitrary families or unspecified partition implementations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

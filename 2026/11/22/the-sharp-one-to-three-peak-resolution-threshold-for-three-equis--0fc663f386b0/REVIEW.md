@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact hyperbolic reduction and its derivative have been reconstructed symbolically. The cubic discriminant has one positive-parameter transition \(c=8+6\sqrt3\); negative-root bracketing and the absence of roots at the admissible boundary \(u=2\) rigorously establish the complete stationary-point census. At equality the double admissible root gives two stationary shoulders but no extra extrema. The published proof explicitly restricts to equal weights, equal scales, and equally spaced centers. The packaged checker independently reproduces the critical identities and selected cases; these computations are corroboration, not the infinite proof.
+PASS
 
-## Originality (PASS, provisional and source-bounded)
+For normalized time y and c=2 cosh(d), u=2 cosh(y), adding the two translates gives (cu+4)/(u+c)^2 and the central density adds 1/(u+2). An independent way to check the full derivative sign classification is to set w=(u+2)/(u+c), in [4/(c+2),1). After multiplying by (u+2)^2 the derivative with respect to u is Q(w)=w^2(c+4-2(c+2)w)-1. It is negative at both ends (at the left end this follows from H_c(2)=-(c+2)((c-6)^2+32)); the only possible interior maximum is w=(c+4)/(3(c+2)), which is in the interval precisely when c>8. Its height has the sign of (c+4)^3-27(c+2)^2=(c+1)(c^2-16c-44). Thus above c=8+6 sqrt(3) exactly two simple stationary radii occur, with derivative signs minus, plus, minus; at equality the double zero does not change sign. The center stays a strict maximum because the derivative in u is strictly negative at u=2. The monotone half-line changes of variables give the exact t-mode counts and d threshold. The analogous two-density sum omits 1/(u+2); at symmetric half-separation d/2 its derivative changes regime at 2 cosh(d/2)=4, verifying the stated pairwise contrast. The frozen SymPy checker was inspected, not executed; its finite examples are supplementary, not an all-parameter argument.
 
-Došlá (2009), Proposition 3, is the most relevant full-text logistic-mixture result inspected; it classifies two components, not the equal-weight three-component sum or its one-to-three transition. Bertotti et al. (2016) is the nearest motivating multi-group adoption model; its network diffusion structure differs and no theorem in the inspected material gives the present threshold. Skarżyńska and Romaniuk (2024) display a three-logistic mixture for numerical mode identification with distinct parameters but not an analytical symmetric threshold. Semantic research-record searches over exact constants, logistic mixtures, symmetric three-wave peaks and aliases found analogies (three-Gaussian and three-Debye peak classifications), not an equivalent implication. The unexamined breadth of general finite-mixture modality theory is a real publication-priority risk; search absence is not a novelty proof.
+## originality
 
-## Value (PASS)
+PASS
 
-The exact scale-free threshold distinguishes a single apparent adoption surge from three resolvable local surges in a natural idealized three-cohort diffusion model. It is a complete structural classification with a nontrivial boundary phenomenon: two adjacent equal-weight logistic waves can already be bimodal below the strictly larger threshold for three waves. It provides an analytic benchmark for interpreting heterogeneous aggregate incidence, while acknowledging that real cohort interactions and noise can modify observed modes.
+Best-of-knowledge pass for the equal-weight, equal-scale, equispaced logistic triple and its exact stationary bifurcation only. The closest verified logistic result is pairwise. The closest catalogued direct triple transitions use different kernels and do not imply the logistic derivative classification.
 
-## Limits and closest literature
+## value
 
-Došlá (2009), https://dml.cz/dmlcz/140075 ; Bertotti et al. (2016), https://arxiv.org/abs/1605.06308 ; Skarżyńska and Romaniuk (2024), https://ipmu2024.inesc-id.pt/files/paper_1001.pdf . A theorem for arbitrary mixture weights and real-world identification accuracy are not claimed. Independent historical-priority verification is still warranted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Equal-rate, equally spaced cohorts give a natural calibration problem. The exact onset of outer peaks and the nonextremal shoulders identify a resolution boundary not captured by the nearest-neighbor pair test. In particular there is a nonempty interval where each adjacent pair resolves but the aggregate does not. This is a useful idealized benchmark, not an empirical detection claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:58:04.096249Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Set a=p/(1-p). The chain has resets to zero, can reach any state from zero, and has drift 2−a+O(p^x), proving positive recurrence for a>2. The leading cubic drift is 3(4−a)x², with O(x+1) remainder; integrating the drift of min(x³,R), not x³ itself, proves sufficiency without assuming stationarity has a third moment. For necessity, the conditional PGF summed over geometric emigration gives (1−ah)g(h)=(1−h)/(1+h)g(h/(1+h))+(1−a)Bh. Under the respective first- and second-moment hypotheses integrate g′ over [h/(1+h),h] before extracting coefficients; the resulting identities are (a−3)m=2 and (a−4)E[V(V−1)]=4+10m. Their positive right sides exclude equality as well as the subthreshold regimes. The raw second moment is 6a/((a−3)(a−4)), and subtracting the squared mean gives the stated variance; the mean remains bounded at the second-moment boundary, so both pole coefficients are 24/25. Read the frozen Python and output as evidence only. The separate exact conditional-PGF derivative/geometric-sum checks and pole calculation ran with `python3 /workspace/branches/review_reproduction.py 3`; these are finite checks, not the proof. No Lean or expert attestation was performed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carper describes the classical framework as bounded-emigration, which does not include the geometric K used here; the cited chapter itself was not read.",
+          "Carper Theorem 3.2 derives life-period tails. The inspected Kosygina–Peterson results at most give a route to such excursion observables, not the displayed moments."
+        ],
+        "reasoning": "Neither a theorem for bounded emigration nor a theorem about branching excursions alone gives the frozen conclusion. Huillet's full text could not be assessed, so it cannot support a negative coverage claim.",
+        "searches": [
+          "Carper §3 and references to Yanev & Yanev (1995)",
+          "Kosygina–Peterson Theorems 2.6–2.7",
+          "Huillet DOI 10.3390/math12203198"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Relationship to prior work; VERIFICATION.md; check_moments.py; check_output.txt",
+        "arXiv:2609.06311v1",
+        "arXiv:1504.06280",
+        "Resultary 80819943bcca",
+        "Yanev–Yanev 1995 as characterized by Carper",
+        "DOI 10.3390/math12203198 (landing page only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 4.11 supplies the stationary PGF equation. The inspected theorems supply recurrence, mean and excursion information, not the second-moment boundary and value."
+        ],
+        "reasoning": "The prior PGF yields the formula conditional on integrability, but formal differentiation does not give it. The unconditional sharp classification needs the cubic drift/truncation and compensated expansion argument. Neither the boundary nor finite-side formula is being credited as a new general branching theorem.",
+        "searches": [
+          "Carper §4.2, Corollary 4.11; Theorems 3.1–3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carper §2 has the same post-reproduction +1 and geometric reset law; in §3 his θ is 2−p/(1−p).",
+          "Kosygina–Peterson's tail results concern survival, extinction time and accumulated progeny for branching-like processes."
+        ],
+        "reasoning": "The process can be expressed in branching-like or excited-walk notation, but excursion or progeny laws are not the one-time stationary moment. Positive recurrence and the first-moment boundary in the exact equivalent formulation are prior.",
+        "searches": [
+          "Carper arXiv:2609.06311v1 §2 and §3",
+          "Kosygina–Peterson arXiv:1504.06280, Theorems 2.6–2.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed finding gives a gamma-square stationary tail law for Y′=Σ_{j=1}^{(Y+1−K)_+}X_j, with no designated post-reproduction individual. It has a>1 recurrence and a>2 first-moment transitions in the same a parametrization."
+        ],
+        "reasoning": "The missing +1 changes the transition at every non-reset step and changes the drift regime; this is not the same chain or an indexing change. The identical date of the two catalog paths is not evidence for ordering.",
+        "searches": [
+          "Local Resultary search for geometric-emigration stationary-moment/tail results",
+          "2026/11/2/SCOPE-a-gamma-square-stationary-tail-law-for-geometric-emigration-with--80819943bcca"
+        ]
+      },
+      "rationale": "Credit Carper for the exact model, recurrence and first-moment results, and exact stationary transform. The supported distinct claim is the stationary one-time second-moment boundary (including equality), its exact formula and pole. A finite-moment expansion of the previously available transform alone does not establish the regime where those coefficients exist. No inspected earlier result supplies the combined higher-moment claim; this is a bounded assessment, not historical-priority certification.",
+      "residual_risks": [
+        "A general migration-process theorem allowing unbounded geometric emigration could implicitly give the integrability threshold; the two incomplete primary comparisons do not settle that question.",
+        "The prior PGF makes the finite-side algebra close to Carper's calculations; the assessment does not credit the PGF or the derivative procedure itself as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap of model, transform, recurrence and first moment, not the fully justified higher-moment claim",
+          "evidence": [
+            "§2 has the same +1, reset indicator and geometric laws.",
+            "Theorems 3.1–3.3 distinguish recurrence, life-period tails and mean; Corollary 4.11 gives the PGF."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.06311",
+          "material_read": "§2, offsets about 7655–8500; §3, about 9768–17000; §4.2, Corollary 4.11 about offset 51600",
+          "method": "OA primary HTML, located and read model and theorem passages",
+          "title": "A Branching Process with Geometric Emigration and the ‘Have Your Cookie and Eat It’ Random Walk",
+          "trigger": "Exact originating process and strongest prior route to claimed moments"
+        },
+        {
+          "assessment": "Different tail observables, despite a partial reduction noted by Carper",
+          "evidence": [
+            "Survival, extinction time and total progeny are analyzed for the associated forward/backward processes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1504.06280",
+          "material_read": "Theorems 2.6–2.7, offsets 51000–55492",
+          "method": "OA primary HTML",
+          "title": "Excited Random Walks with Markovian Cookie Stacks",
+          "trigger": "Broader branching-like tail theory"
+        },
+        {
+          "assessment": "Different one-step rule; no exact claim overlap established",
+          "evidence": [
+            "Simple geometric offspring sum with no post-reproduction designated individual."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-gamma-square-stationary-tail-law-for-geometric-emigration-with--80819943bcca",
+          "material_read": "RESULT.md, finding and model, mirror offset 0",
+          "method": "Local Resultary search and mirror text",
+          "title": "A gamma-square stationary tail law for geometric emigration",
+          "trigger": "Closest distinct published index match"
+        },
+        {
+          "assessment": "Inaccessible primary comparison; scope reported with attribution only",
+          "evidence": [
+            "Carper notes bounded emigration in the classic framework."
+          ],
+          "identifier_or_url": "Yanev and Yanev (1995), Lecture Notes in Statistics 99, pp. 36–46",
+          "material_read": "No chapter full text; Carper §3 and bibliography only",
+          "method": "Scope traced through Carper; no lawful full text retrieved",
+          "title": "Critical branching processes with random migration",
+          "trigger": "Prior migration framework with potentially stronger moment results"
+        },
+        {
+          "assessment": "No theorem-level conclusion from available text",
+          "evidence": [
+            "The direct PDF attempt returned 404."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math12203198",
+          "material_read": "Landing-page/abstract level only",
+          "method": "OA landing page and direct PDF attempt; no full text inspected",
+          "title": "On the Balance between Emigration and Immigration as Random Walks on Non-Negative Integers",
+          "trigger": "Possible broader stationary-moment coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It separates finite-mean and finite-variance behavior of an existing model tied to an excited random walk. The exact pole quantifies variance growth near the second transition, information neither a first-moment solution nor an excursion bound provides. The drift/truncation and equality obstruction make this more than a numerical evaluation of an invariant; the claim remains about the invariant population only.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

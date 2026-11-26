@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:47:12.672075Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–47",
+        "Frozen VERIFICATION.md and checker.py, inspected and not executed",
+        "Independent small-field replay: /workspace/branches/eb76a17f-efae-4f2e-8fc5-6200c9c2ab6e/independent_reproduction.py"
+      ],
+      "rationale": "For T=(B,D;0,0), T=TUT in the restricted semigroup implies im T⊆T(W), and a right inverse of B on im B extended linearly to W gives the converse. Equivalently V=W+ker T, so one can choose a complement to W inside ker T. This gives a W-preserving normal form B⊕0, and any W-preserving conjugacy must preserve the similarity class of the restriction. Thus the orbits are exactly indexed by partitions λ of r, with ambient type λ∪(1^c), rank r−ℓ(λ), and index λ_1. The column choices give q^(c(r−ℓ(λ))) lifts per B. The Jordan-module endomorphism algebra has dimension Σ(λ'_j)^2; invertibility on the module is equivalent to invertibility of each size-diagonal block modulo t, giving the stated centralizer factors. For an independent derivation of the total, write a_k for the number of nilpotent k×k matrices. The unique Fitting decomposition of an arbitrary r×r endomorphism gives q^(r²)/|GL_r|=Σ_(k=0)^r a_k/|GL_k| by counting complementary subspaces and choices on the two summands. Taking the consecutive difference gives a_r=q^(r²−r). Arbitrary columns are allowed for all nilpotent lifts, while only λ=(r) gives exponent q^(−c) in the regular fraction; the others are O_(r,q)(q^(−2c)). The r=1 identity and c=0 case agree with the formulas. For c>0 a single maximal chain in W can be extended by one complementary vector iff its image is chosen outside im B; this proves the unrestricted maximum r+1 versus regular maximum r. Independent finite enumeration reproduced 13/64 and 211/512 and confirmed the inner-inverse test for all 64 maps at (q,r,c)=(2,2,1).",
+      "residual_risks": [
+        "The enumerations are checks in small prime fields only. It is the field-independent linear argument and finite-field cardinality calculation that cover arbitrary prime powers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grau's independence-algebra extension covers the regularity criterion and extended Green relations. Sommanee–Sangkhanan treat maximal regular subsemigroups and rank/idempotent rank.",
+          "The nilpotent-orbit-closure search hit was in complex simple Lie algebras, without the fixed-W image constraint and finite-field count."
+        ],
+        "reasoning": "Broader setting alone does not subsume the theorem: it would have to classify these conjugacy orbits and their sizes, or supply an equivalent lift count. No such statement was verified in the inspected sources.",
+        "searches": [
+          "Grau arXiv:2206.12526, introduction and §3",
+          "Sommanee–Sangkhanan DOI 10.1017/S144678871600080X, abstract and §4",
+          "Focused primary lookup on restricted-range/parabolic nilpotent orbit classification"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Grau",
+        "Sommanee–Sangkhanan",
+        "Sullivan",
+        "Nenthein–Kemprasit (secondary citation only)",
+        "Resultary nilpotent-centralizer record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known results identify which maps are regular and supply ordinary Jordan-orbit counts after restriction.",
+          "The proof additionally identifies the correct relative conjugacy, proves that a W-preserving shear removes all regular off-diagonal lifts, and counts which lifts in each stratum are regular versus merely nilpotent."
+        ],
+        "reasoning": "The orbit-to-fiber step transfers classical enumeration into the restricted-range space and gives the regular and unrestricted populations on the same denominator. The checked sources provide structural inputs but not a stronger counting theorem specializing to that relative classification.",
+        "searches": [
+          "Sullivan, Lemma 1",
+          "Grau, §3",
+          "Frozen RESULT.md, lines 25–42",
+          "Local centralizer result above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sullivan explicitly characterizes regular elements by Vα⊆Wα. Grau gives the corresponding criterion Aα⊆Bα in an independence algebra.",
+          "With the quotient V/W having zero action, regularity is equivalent to splitting off V/W as trivial modules: W+ker T=V. Conjugacy of a pair (T,W) in this split class is equivalent to ordinary similarity on W, but the conjugacy orbit cardinality in the space of restricted-range matrices is not the ordinary GL(W) orbit cardinality."
+        ],
+        "reasoning": "Compared the semigroup formulation with restricted endomorphisms and split nilpotent modules with a distinguished invariant subspace. Green's classes classify a different equivalence relation; the extra q-power counts distinct embeddings of a lift at fixed restriction, not a new Jordan centralizer.",
+        "searches": [
+          "Focused primary search on finite-field restricted-range regular nilpotent orbits",
+          "Sullivan DOI 10.1017/S0004972708000385, Lemma 1",
+          "Grau arXiv:2206.12526, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched centralizer record gives the exact single-block proportion ∏_(j=2)^r(1−q^(−j)) when its fixed nilpotent is zero.",
+          "It counts within a nilpotent centralizer, not inside a fixed-image-range semigroup; it does not supply q^(c(r−ℓ(λ))) lifts or the q^(−c) fraction decay."
+        ],
+        "reasoning": "This is an exact overlap with a classical component, not a duplicate of the closed enumerator or its codimension limit. The comparison does not rely on the catalogue record's date.",
+        "searches": [
+          "Local Resultary: restricted-range regular nilpotents, finite-field Jordan orbits, nilpotent fibers",
+          "2026/10/25/SCOPE-regular-nilpotent-fibers-of-finite-field-nilpotent-centralizers--0a136f3e3ee7, local mirror RESULT.md"
+        ]
+      },
+      "rationale": "The regularity criterion and ordinary finite-field Jordan counts are established. The supported distinct claim is the restricted-range nilpotent classification under the W-stabilizer together with the rank/index enumerator and codimension decay, not the classical single-block factor on its own. The inspected regular semigroup literature addresses the criterion, ideals, Green's relations or generation, not this conjugacy enumeration. The closest catalogue entry overlaps the coefficient but does not account for restricted-range lifts.",
+      "residual_risks": [
+        "The 2007 primary source could not be read. A previously stated parabolic-orbit or split-module enumeration under other terminology might cover the refinement; the comparison is bounded and no priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Regularity criterion and Green relations; not a relative nilpotent enumeration in the passages",
+          "evidence": "Uses Aα⊆Bα; identifies extended Green's relations as the paper's new results.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.12526",
+          "material_read": "Introduction PDF p. 2 (offsets 5430, 6745), §3 pp. 5–6 (offsets 19441, 20671), reference list p. 28",
+          "method": "Lawful OA primary PDF",
+          "title": "The semigroup of endomorphisms with restricted range of an independence algebra",
+          "trigger": "Broader author-cited regularity setting"
+        },
+        {
+          "assessment": "Different classification problem",
+          "evidence": "Addresses maximal regular subsemigroups and generating ranks, not W-preserving conjugacy or nilpotent lift counts.",
+          "identifier_or_url": "https://doi.org/10.1017/S144678871600080X",
+          "material_read": "Abstract p. 402 (offset 1062), §4 (PDF p. 7, offset 22647)",
+          "method": "Lawful accessible publisher PDF",
+          "title": "The regular part of a semigroup of linear transformations with restricted range",
+          "trigger": "Same regular restricted-range linear semigroup"
+        },
+        {
+          "assessment": "Direct prior coverage of regularity alone",
+          "evidence": "Q={α:Vα⊆Wα}; the structural questions posed concern Green's relations and ideals.",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972708000385",
+          "material_read": "Introduction p. 441 (offset 2078), Lemma 1 p. 442 (offset 5110)",
+          "method": "Lawful accessible publisher PDF",
+          "title": "Semigroups of linear transformations with restricted range",
+          "trigger": "Same range constraint and precursor to the criterion"
+        },
+        {
+          "assessment": "Exact primary coverage unresolved, not treated as evidence of noncoverage",
+          "evidence": "Grau cites the paper as prior work on regular elements. Repository lookup found no copy and the alternate PDF returned 404.",
+          "identifier_or_url": "https://doi.org/10.12988/imf.2007.07014",
+          "material_read": "Bibliographic identification and attribution in Grau, pp. 2 and 28; primary text not obtained",
+          "method": "Lawful DOI repository lookup and alternate identified public PDF attempt",
+          "title": "Regular elements of some semigroups of linear transformations and matrices",
+          "trigger": "Potential early same-semigroup treatment"
+        },
+        {
+          "assessment": "Overlap in the single-block factor, not the lifted classification",
+          "evidence": "The fixed-matrix-zero case is the proportion of regular nilpotents in the ordinary nilpotent cone.",
+          "identifier_or_url": "2026/10/25/SCOPE-regular-nilpotent-fibers-of-finite-field-nilpotent-centralizers--0a136f3e3ee7",
+          "material_read": "RESULT.md finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Regular-nilpotent fibers of finite-field nilpotent centralizers",
+          "trigger": "Closest exact Resultary coefficient hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and proof",
+        "Sullivan and Grau, structural setting",
+        "Closest Resultary nilpotent-centralizer record, finding"
+      ],
+      "rationale": "Within the natural regular stratum of a restricted-range linear semigroup, the relative conjugacy problem, exact partition counts and rank/index distribution answer a complete structural question. In particular the formulas quantify how adding directions outside W makes regularity exponentially rare among nilpotents even though the possible nonregular index increases by one. These are useful all-parameter statistics of the constrained model, not arbitrary examples, and the proof identifies why ordinary similarity suffices despite using the smaller stabilizer group.",
+      "residual_risks": [
+        "The finite-field result neither classifies nonregular parabolic orbits nor extends the enumeration to arbitrary independence algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

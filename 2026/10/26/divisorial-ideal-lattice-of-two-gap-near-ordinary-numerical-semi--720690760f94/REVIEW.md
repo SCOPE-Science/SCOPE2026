@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every normalized ideal contains the semigroup, and all its possible extra elements are its finitely many gaps. For a nontrivial ideal, its colon ideal is calculated explicitly from the missing middle positions; all elements at least twice the multiplicity occur in the colon ideal, which also excludes negative elements from its bidual. The small-gap bidual test is exactly coverage by edges or endpoint singletons of a path. A covered interior vertex exists precisely when it is not an isolated selected vertex; this gives the avoiding-\(010\) bijection. A standard forbidden-word recurrence supplies the counts. The displayed five-element pentagon establishes the nonmodularity cutoff. Direct enumerations for multiplicities 4 through 12 agree.
+PASS
 
-## Originality
+The positive elements of S sum to at least 2m. A normalized ideal is obtained by adjoining gaps; adding a small gap forces precisely the high gaps it hits by adding the middle block. For a proper enlargement I of S, the colon omits 0, contains the entire tail, and omits a middle-block position precisely if a selected small gap forbids it. If U is the union of these forbidden-position sets, the bidual has both high gaps and the small gaps with F_m(g) contained in U. No negative x survives since x+(2m−1−x) is a gap and the second summand is in the colon tail. Directly intersecting {2m−2−g,2m−1−g} with the middle block gives endpoint singletons and exactly the adjacent pairs of the length-(m−2) path. Thus the fixed support sets are unions of endpoint singletons and adjacent pairs, equivalently 010-free; the union reconstructs the support from the ideal and preserves inclusion both ways. S is fixed separately; translating commutes with bidual, so normalization counts classes. As an independent count, track the longest suffix that is a proper prefix of 010 (empty, 0, or 01). The generating equations for continuation counts E,B,C are E=1+z(E+B), B=1+z(B+C), C=1+zE. Eliminating B,C yields E=(1+z²)/(1−2z+z²−z³), proving all stated coefficients and growth (the transfer matrix is primitive with Perron root alpha). All-ideal count: the empty small-gap set allows four choices of high gaps, each of the two endpoint singletons allows two, and every other set forces both. The meet deletes isolated interior points from an intersection, and the join is union. At L=2 this is a Boolean diamond above a new bottom; at L≥3 the claimed five sets are a pentagon because the only potentially nonempty cross-intersection is {2}, which is inadmissible. This verifies the sharp nonmodularity boundary, including m=4.
 
-**PASS, with residual bibliographic risk.** The closest 2026 primary paper gives a universal Apéry/colon procedure and decomposition theorems, not a family-specific word-language enumeration or sharp lattice threshold. A 2024/2025 normalized-ideal poset paper restricts to multiplicity three, whereas this family has multiplicity at least four. A related published multiplicity-five result computes a Wilf invariant, not divisorial ideals. Searches for numerical semigroups with the two specified high gaps, their divisorial ideals, binary-word formulations, and the recurrence found no identical theorem. This does not exclude unindexed work, and general computational decidability is not confused with an explicit classification.
+## originality
 
-## Value
+PASS
 
-**PASS.** Divisorial closure is a central invariant of the fractional-ideal structure of numerical semigroups. A uniform exact classification across a family of arbitrarily large multiplicity, the cubic ideal-count law, exponentially vanishing divisorial fraction, and an exact nonmodularity boundary give substantial structural information unavailable from case-by-case use of the general Apéry formulas. The two-gap family is a controlled deformation of an ordinary numerical semigroup, rather than an arbitrary selected finite list.
+Best-of-knowledge pass for the two-gap ideal-lattice result, particularly the full lattice operations and nonmodularity threshold. The closest same-day catalogue finding uses the same window mechanism and would give the same support and counts if extended to block length two, but it explicitly excludes length two and calls it previously treated without identifying a source for that remark. No independently identified earlier r=2 statement was found in the compared sources. That relationship and priority uncertainty must be retained; neither the string-avoidance sequence alone nor the general bidual framework is a new claim.
 
-## Closest literature and limitations
+## value
 
-Campochiaro–D'Anna–García-Sánchez (arXiv:2610.06426v1, §§2–3 and 6–7) establish the general theory. Bonzio–García-Sánchez (arXiv:2407.21697) treat multiplicity three. The derivation is specific to the two high missing elements; no claim is made for all numerical semigroups. The verification program checks only multiplicities 4–12, while the proof treats all multiplicities at least four. Equivalent older unindexed literature remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This explicitly identifies a natural reflexive sublattice inside the relative ideals of a near-ordinary semigroup. The path description gives both the exponential difference between total and reflexive ideals and a minimal-size structural obstruction to modularity that persists uniformly. The exact transition at the first two multiplicities, and the order-sensitive witness, convey information not provided by a finite-instance bidual algorithm or a binary-word count alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:01:59.363128Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the usual independent per-contact transmission clocks conditional on contact paths, the shared-hub process is a binomial mixture over stopped active occupation, not over an independent recovery time for each leaf. For the Laplace transforms F_off,F_on starting from the two states, first-event conditioning gives (a+μ)F_off=μ+aF_on and (b+μ+s)F_on=μ+bF_off. Eliminating F_off gives F_on=r/(r+s); stationary mixing adds the mass d at zero. Substitution x=exp(−λu) in the continuous part gives the stated beta integral and gamma ratio. Link independence is conditional on the same hub recovery time: the one-link survival ν(t) comes from the two killed eigenvalues. The quadratic evaluated at λπ equals −λ²ab/(a+b)²; thus ρ<λπ<R, and initialization ν(0)=1, ν′(0)=−λπ gives strictly positive modal weights. In the full-infection integral, z=kc exp(−ρt) gives kν(t)→z at fixed z because R/ρ>1; the factor (1−ν)^k is bounded by exp(−z), giving the claimed gamma prefactor including c^(−μ/ρ). In the zero-infection integral, the near-zero scaling t=z/k is dominated by exp(−λπ z/2) on a sufficiently short fixed interval; the rest is exponentially small. Since λπ<λ(a+μ)/(a+b+μ)=λμ/r, the inequality of exponents is strict throughout the positive regime. At fixed recovery time the mean is unchanged; Bernstein's second-difference identity proves the convex-order comparison, and both endpoint functions are strictly convex for k≥2. Active occupation is nonconstant for t>0, making both inequalities strict. For replay the transform equations, beta substitution and the two rescalings suffice. At unit rates the one-link survival transform at s=1 gives 7/10, confirming the illustrated LI none/all relation 1−2(7/10)+47/88=59/440. The finite checker was inspected, not run: its finite-state solves are rational but its comparisons with formula evaluations and quadrature are numerical. Conclusions are for a single hub, stationary switching, common independent exponential recovery and fixed positive rates, not general contact graphs or population-level thresholds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The renewal-gate epidemic study covers broader timing models and reports SIR attack-rate variability and star SIS lifespan; the switched-process paper develops two-state Poisson distributions; the tree result gives generic convex-order inflation and unchanged mean."
+        ],
+        "reasoning": "These cover methods or finite qualitative comparisons. Convex order does not prescribe distinct asymptotic exponents or the atom; the standard one-link survival law alone does not compare the two conditional mixture laws.",
+        "searches": [
+          "Moraes–Ferreira, arXiv:2610.00429v1",
+          "Giordano–Martinucci–Paraggio, DOI 10.1007/s11009-026-10327-1",
+          "SCOPE-convex-order-inflation-and-a-sharp-branching-index-for-final-siz--1d4b8a70bdd4"
+        ]
+      },
+      "checked_sources": [
+        "Moraes–Ferreira primary preprint, methods and results",
+        "Giordano–Martinucci–Paraggio, abstract only",
+        "Resultary and original mirror findings on homogeneous full outbreaks, star overload, tree convex order, and wheel terminal infections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A standard gamma-ratio full-outbreak law follows in the homogeneous star, and a beta mixture can represent the continuous part of the shared-gate success distribution. The independent-link law conditional on common recovery is instead governed by the slow rate of a two-state killed process."
+        ],
+        "reasoning": "Applying the known moment formula to the shared-gate component cannot give the atom and the second exponent as a matched-law contrast. The spectral rate and effective stopped-occupation rate must both be computed and shown to obey the strict inequality for every positive parameter choice. No inspected broader theorem does that comparison.",
+        "searches": [
+          "Homogeneous full-outbreak result, RESULT.md Finding",
+          "Moraes–Ferreira original methods, SIR and star passages",
+          "Giordano–Martinucci–Paraggio abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A prior star model uses one shared beta-distributed success variable, giving conditional-binomial counts. The intermittency paper compares node and link gates, but the inspected exact star endpoint is an SIS lifespan, not SIR final size."
+        ],
+        "reasoning": "A single beta mixture yields a power law but has no distinct second mechanism with the same entire stationary path law. Changing SIS lifetime to hub-seeded one-generation final size changes the random variable and conditioning.",
+        "searches": [
+          "Resultary: intermittent node versus link switching, matched edge laws, and final-size endpoints on stars",
+          "SCOPE-a-sharp-correlation-threshold-for-submodular-outbreak-overload-p--26c046e62806",
+          "Moraes–Ferreira, arXiv:2610.00429v1, methods and star section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The homogeneous tree result includes a gamma-ratio comparison for a star without switching. The same-date wheel result concerns terminal counts and completion times in irreversible SI."
+        ],
+        "reasoning": "No examined exact entry supplies the contrasted pair under matched switching. The homogeneous star is a useful special case but has no stopped-occupation atom; the SI wheel has neither the topology nor a random recovery gate. The identical assigned record was not treated as independent evidence.",
+        "searches": [
+          "Resultary: complete infection on stars, final-size endpoints, zero-inflation, and degree exponents",
+          "SCOPE-full-outbreak-source-ranking-depends-only-on-degree-on-every-hom--2f9e3a0273aa",
+          "SCOPE-poisson-terminal-infections-and-a-weak-rim-crossover-on-exponent--4079efddab33"
+        ]
+      },
+      "rationale": "Limited to the paired stationary Markov switching comparison under matched full one-edge availability law and common recovery: the nonvanishing zero-offspring mass for the shared gate versus the vanishing independent-link probability, and the strict inequality of the two complete-transmission exponents with their constants. Generic convex order, beta-binomial endpoint powers and the use of a two-state survival matrix are already established.",
+      "residual_risks": [
+        "Hilton–Hall's precise coverage is unresolved because no original full text could be read; generic mixture and zero-inflation ideas are not claimed as new.",
+        "Only the stated passages and related catalogue findings were assessed. No within-day priority is inferred; unlocated exact Markov gating comparisons remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same broad contact distinction; different star outcome and no inspected equivalent endpoint theorem",
+          "evidence": "Renewal-based node/link intermittency, SIR attack-rate variability on scale-free networks, and SIS lifespan on a star.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00429v1",
+          "material_read": "Original methods around HTML offset 11000; SIR passage around 16800; star passage around 30500",
+          "method": "Lawful open original preprint",
+          "title": "Intermittent quarantine suppresses epidemic spreading beyond simple contact reduction",
+          "trigger": "Closest primary comparison of node and link intermittency"
+        },
+        {
+          "assessment": "Standard switched-process ingredient; only abstract assessed",
+          "evidence": "Two-state Poisson distributions and asymptotics, not a two-mechanism star endpoint statement in the abstract.",
+          "identifier_or_url": "https://doi.org/10.1007/s11009-026-10327-1",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Lawful open publisher PDF, bounded passage",
+          "title": "Explicit distributions and time-changed dynamics of the two-state Markov modulated Poisson process",
+          "trigger": "Potential abstract process equivalence"
+        },
+        {
+          "assessment": "Nearest exact full-outbreak overlap, but no switching",
+          "evidence": "For iid infectious lifetimes and independent Poisson contacts, P_s=C_G m_d/m_(d−1); an exponential-lifetime star gives a gamma-ratio tail with exponent μ/λ.",
+          "identifier_or_url": "2026/11/8/SCOPE-full-outbreak-source-ranking-depends-only-on-degree-on-every-hom--2f9e3a0273aa",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Full-outbreak source ranking depends only on degree on every homogeneous tree",
+          "trigger": "Exact all-leaves probability on a star as a special case"
+        },
+        {
+          "assessment": "Related mixture but not the matched switching problem",
+          "evidence": "One common beta success variable, conditional independence, and a vaccination-benefit submodularity claim.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-correlation-threshold-for-submodular-outbreak-overload-p--26c046e62806",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A sharp correlation threshold for submodular outbreak-overload protection on stars",
+          "trigger": "Beta-binomial representation of correlated endpoints"
+        },
+        {
+          "assessment": "Covers qualitative convex-order direction, not the narrow claimed contribution",
+          "evidence": "Unchanged mean with final-size convex-order inflation under infectiousness heterogeneity.",
+          "identifier_or_url": "2026/10/25/SCOPE-convex-order-inflation-and-a-sharp-branching-index-for-final-siz--1d4b8a70bdd4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Convex-order inflation and a sharp branching index for final-size risk in tree SIR epidemics",
+          "trigger": "Generic convex-order implication"
+        },
+        {
+          "assessment": "Different graph and endpoint event",
+          "evidence": "Irreversible SI wheel with terminal susceptible counts and completion-time limits, not recovery on a star.",
+          "identifier_or_url": "2026/11/22/SCOPE-poisson-terminal-infections-and-a-weak-rim-crossover-on-exponent--4079efddab33",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Poisson terminal infections and a weak-rim crossover on exponential first-passage wheels",
+          "trigger": "Same-day limiting endpoint probabilities on a hub graph"
+        },
+        {
+          "assessment": "Unresolved precise scope; failed retrieval is not noncoverage",
+          "evidence": "No decisive primary passage available in this review.",
+          "identifier_or_url": "https://doi.org/10.1101/2023.03.24.23287701",
+          "material_read": "No original full text obtained",
+          "method": "Lawful open HTML and PDF attempts, access denied",
+          "title": "A beta-Poisson model for infectious disease transmission",
+          "trigger": "Potential antecedent for mixed or zero-inflated offspring counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact mathematical counterexample to using marginal contact dynamics or mean offspring as a surrogate for final-size extremes when comparing two idealized public-health contact models. The exponent gap and zero-count atom distinguish them even as degree grows; the contribution is stronger than merely showing dependence matters. The comparison is a theoretical model diagnostic, not a prescription or an extrapolation to population risk.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The probability-normalized spherical addition theorem supplies the exact kernel \((2\ell+1)P_\ell\); antipodal parity halves the independent samples from 24 to 12. The rank table at degrees 0--8 is exact rational elimination. Every matrix at degrees 9--528 is nonsingular modulo each of two primes, using invertible recurrence denominators. The Laplace-integral bound proves diagonal dominance from degree 529 onward. An alternating invariant-theory argument independently forces the degree-eight weighted sign constraint for all positive orbit ratios, and the determinant-as-rational-function argument proves the transcendental-parameter extension. The executable checker succeeded. No finite test is used to assert the infinite tail.
+## correctness
 
-**Originality — PASS with explicit residual risk.** The inspected 2004 polynomial-interpolation preprint concerns bounded-degree interpolation on paired latitudes; the inspected 2013 harmonic-index design paper concerns ordinary vanishing sums, design bounds and examples. Neither supplies this exact-degree truncated-octahedral rank sequence or the alternating constraint. The available 2006 and 2002 abstracts describe different interpolation constructions; full-text noncoverage is not claimed for these inaccessible items. The closest existing mathematical records address other polytopes, other harmonic spaces, or different invariants on the truncated-octahedral graph. A classical signed-permutation representation treatment could imply the absence of the alternating degree-eight type; the exact parameter-family rank theorem was not located, but publication priority is not independently established.
+PASS
 
-**Value — PASS.** A canonical Archimedean solid has a nonmonotone exact-degree interpolation spectrum: full degree-seven recovery, a symmetry-protected one-dimensional degree-eight blind spot, and provably permanent recovery from degree nine. The obstruction survives arbitrary deformation within a natural one-parameter signed-permutation orbit, while the full-rank property holds for every transcendental deformation parameter. The sign relation gives the precise missing sampling functional and the kernel pseudoinverse gives reconstruction, beyond an isolated numerical rank table. Limitations: exceptional algebraic ratios are not completely classified and spectral conditioning is not optimized.
+The permutation-sign, coordinate-even component of a degree-eight polynomial is divisible by the degree-six squared-coordinate Vandermonde, with symmetric linear quotient in the squares. It must therefore be a multiple of |x|²Δ, whose Laplacian is 30Δ. Character averaging over the signed-permutation orbit (seed stabilizer flips only its zero coordinate) now gives the universal signed relation. The addition theorem identifies evaluation rank with the Legendre Gram rank; the probability-surface normalization is 2ℓ+1 and changing antipodal representatives only changes some signs. An independent Rodrigues-coefficient calculation gives the nine claimed exact ranks and nonsingularity of all 520 matrices from degree 9 to 528 modulo 65537, distinct from either packaged prime. Integer scaling by 10^ℓ preserves rational rank. Beyond that range the Laplace integral gives |Pℓ(z)| ≤ sqrt(π/[2ℓ(1−z²)]); the observed maximum absolute off-diagonal contact is 4/5, and 11 times the resulting bound is strictly below 1 at ℓ=529. Finally nonzero rational determinants or a rank-11 minor at t=2 yield only finitely many algebraic exceptions per degree, with the universal degree-eight relation providing the upper bound. The minimum-norm interpolant follows from the Gram pseudoinverse with the same kernel normalization.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The general tools and the orbit geometry are classical. No inspected earlier source implies the finite orbit-specific rank sequence and exact recovery threshold. The distinct October 26 and November 2 indexed findings do cover the t=2 classification, including the signed degree-eight obstruction; they are later indexed records, not evidence of earlier priority, and the compared statements do not cover the universal and generic orbit-parameter conclusions. The judgment credits the exact overlap without treating it as absent.
+
+## value
+
+PASS
+
+For single-degree reconstruction on the standard truncated-octahedral directions, dimension alone would not indicate loss of a sample after surjectivity has already occurred. The exact forbidden data combination, sharp permanent cutoff, and distinction between a symmetry-forced obstruction and a parameter-specific accident are useful interpolation information. The fixed target is a canonical geometric orbit rather than a hand-picked finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

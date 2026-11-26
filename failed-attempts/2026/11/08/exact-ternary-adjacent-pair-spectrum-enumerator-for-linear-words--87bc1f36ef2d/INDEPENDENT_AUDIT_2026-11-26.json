@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:57:04.289997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonzero adjacent-pair matrix admits a word if and only if it is the arc-multiplicity matrix of a directed Euler trail. The divergence distinguishes balance from each of six oriented endpoint pairs and, together with weak connectivity on active vertices, is sufficient by adding the terminal-to-initial arc when necessary. With off-diagonal signed differences, the balanced cost is 3|p| and the representative imbalanced cost is |p|+2|p−1|. For the latter, p<=0 gives costs 2+3k and p>=1 gives 1+3k, k>=0. Each of the three pair slacks contributes 1/(1−z²); loops are independent before enforcing connectivity. A disconnected support either has only loops (keep zero and single-site loop supports) or has exactly one joined pair and a loop-positive isolated third vertex; the latter gives precisely the 3z³ and 6z² forbidden numerators over (1−z)^3(1−z²). This yields the exact rational series. Its largest pole is at 1 with coefficient 7/12 on (1−z)^(−7), giving 7m^6/8640; the other poles are strictly lower order. A code chooses one representative of each observation class. Independently growing all reachable matrices by word extension with only the current terminal symbol retained for extension, then taking their union, agreed with the exact denominator convolution for m=0..20 (python3 /workspace/audit_evidence/spectra.py). The claim is for linear ternary words, overlapping ordered pairs, and no side information.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacquet–Knessl–Szpankowski's accessible 2010 paper notes the endpoint exception before restricting to cyclic strings; its displayed balanced coefficient formula and leading constant do not enumerate linear imbalances.",
+          "8ada8bf40720 counts connected cyclic profiles with support refinement; 5122acc1b9bd concerns binary maximal inverse-fiber size, not the ternary profile population."
+        ],
+        "reasoning": "Cyclic balance and fiber-size results do not provide the frozen count. The decisive overlap is the distinct exact ternary linear result, not the accessibility or breadth of the earlier Markov-type literature.",
+        "searches": [
+          "DOI:10.46298/dmtcs.2768, pp. 388–392",
+          "DOI:10.1109/TIT.2012.2191476",
+          "Resultary: exact ternary cyclic dinucleotide profiles support refined Markov type enumeration connected support"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:f0497779133f",
+        "Resultary:8ada8bf40720",
+        "Resultary:5122acc1b9bd",
+        "DOI:10.46298/dmtcs.2768",
+        "Jacquet–Knessl–Szpankowski author-hosted manuscript",
+        "arXiv:1605.03319",
+        "DOI:10.1109/TIT.2012.2191476 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator numerator for m>=1 is z(9−12z+5z²+19z³−4z⁴−10z⁵−14z⁶+14z⁷+6z⁸−9z⁹+3z¹⁰), with D=(1−z)^7(1+z)^2(1+z+z²). The frozen numerator equals this numerator plus D by polynomial expansion.",
+          "The code-size equality is stated in both and follows by selecting one word per spectrum."
+        ],
+        "reasoning": "Reinstating the comparator's own zero-edge convention produces exactly the frozen claim; no new length regime, asymptotic constant or observation model remains.",
+        "searches": [
+          "Resultary f0497779133f, rational series, boundary convention and Proof §§1–4",
+          "Frozen RESULT.md lines 9–25"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The comparator's overlapping ordered-bigram multiset vector is precisely the complete nine-entry matrix; both are for linear labelled ternary words and neither separately records endpoints.",
+          "Definition 2.1 of arXiv:1605.03319 matches all factor counts of lengths 1 through k, so at k=2 the observation is finer. With bigrams fixed, unigram counts determine terminal and initial symbols by subtracting out- and in-degrees."
+        ],
+        "reasoning": "The ordered multispectrum formulation is equivalent; 2-abelian classes in general are not the same observation classes.",
+        "searches": [
+          "Resultary: linear words adjacent pair transition matrices ternary endpoints Euler trails spectrum count",
+          "Resultary: 2-abelian equivalence classes cardinalities bigram counts endpoints",
+          "linear words adjacent pair multiplicities distinct matrices Euler trails endpoint imbalance Markov type 2-abelian equivalence classes enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The comparator gives the exact rational generating function, initial counts 9,24,65,156,... for m>=1, and the leading 7/8640. It specifically records the unique empty observation at length one."
+        ],
+        "reasoning": "This is exact all-length enumeration, not inference from a coincident short sequence or a shared growth order.",
+        "searches": [
+          "Resultary f0497779133f, Finding and Assumptions and scope, mirror offsets 0–3669"
+        ]
+      },
+      "rationale": "The distinct indexed result f0497779133f gives the exact same rational series for m>=1, the same leading constant, the same endpoint-free observation model and the same code-size interpretation. It also explicitly states that there is one empty multiset for source length one. Denote the common denominator by D; the frozen numerator minus the comparator's numerator is exactly D, so adding the already stated length-one term makes the rational functions identical. The decision rests on exact mathematical coverage, not index dates or access to the 2012 paper.",
+      "residual_risks": [
+        "The date paths do not establish chronological priority; the mathematical coverage is exact regardless.",
+        "Impact of the unreadable 2012 extension on historical priority remains unresolved, but does not affect the exact indexed comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact statement-level coverage for all lengths, including the separately stated length-one case",
+          "evidence": "The rational formula starts at m=1; reinstating its one stated length-one multiset adds 1 to the fraction and exactly identifies the numerators.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-ordered-bigram-multispectrum-counts-and-the-degree--f0497779133f/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, Euler, balance and imbalance counting passages; opening mirror offsets 0–3669",
+          "method": "Local mirror statement comparison and symbolic numerator subtraction",
+          "title": "Exact ternary ordered-bigram multispectrum counts and the degree-six law",
+          "trigger": "Identical linear ternary bigram observation and leading constant"
+        },
+        {
+          "assessment": "Balanced component overlap only",
+          "evidence": "Explicit restriction to cyclic strings after noting linear imbalance; ternary leading term n^6/8640 for the balanced count.",
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2768/download",
+          "material_read": "pp. 388–389, p. 391 Eq. (6), p. 392 Theorem 1 Eq. (11)",
+          "method": "Open published full-text passages",
+          "title": "Counting Markov Types",
+          "trigger": "Exact ternary Markov frequency-matrix enumeration"
+        },
+        {
+          "assessment": "Restricts analyzed setting to cyclic balance",
+          "evidence": "Notes the endpoint exception, then imposes balance via a cyclic convention.",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/markov-types.pdf",
+          "material_read": "p. 2, offset 4960, endpoint and cyclic assumption",
+          "method": "Lawful author-hosted full-text passage",
+          "title": "Markov Types Again Revisited",
+          "trigger": "Earlier exact balance enumeration"
+        },
+        {
+          "assessment": "Different equivalence relation and class-size question",
+          "evidence": "Equality of counts for factors of all lengths up to k, not just length two at k=2.",
+          "identifier_or_url": "https://arxiv.org/abs/1605.03319",
+          "material_read": "v1 abstract and Definition 2.1, PDF pp. 1–2",
+          "method": "Open primary full-text passages",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "Plausibly equivalent word observation"
+        },
+        {
+          "assessment": "Historical comparison unresolved; not evidence for or against exact overlap",
+          "evidence": "No full-text inference made.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2012.2191476",
+          "material_read": "Bibliographic identification; no readable full text recovered",
+          "method": "Lawful DOI and identified repository retrieval attempts",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Plausible extension toward the same enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The profile count is a natural information-theoretic invariant, but its exact series, leading term and interpretation are already available for the same alphabet and word model. Incorporating the previously stated empty observation as the constant monomial is a trivial boundary re-encoding, not a distinct worthwhile mathematical contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:21:08.722185Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof; VERIFICATION.md; verify.py (read, not run)",
+        "Replay: python3 /workspace/branches/independent_reproduction.py 3; independent quadrature for the curved decreasing mask (1−v/S)_+² with N=5.75, S=2.25, checked 41 ordered mode pairs and matched the trace formula to 10^−12 (defect 0.357887101154512)"
+      ],
+      "rationale": "Polar integration in the stated probability measures gives normalized scaled Beta(n+1,N+1) and Gamma(n+1,1) radial monomial densities, valid for real N>S. Their ratio at zero has limiting value ∏_{j=1}^{n+1}(1+j/N)>1, decreases by log derivative −v/(N−v) on (0,N), and is zero above N. Normalization forces a single crossing and hence strictly ordered cumulative distributions for every positive finite threshold. Layer cake for the nonincreasing mask makes the diagonal defect nonnegative on every monomial. In each space successive-degree density ratios are constant multiples of v, so the eigenvalues are already ordered by degree. Summing the densities by Tonelli gives the Bergman trace integrand (N+1)/[N(1−v/N)^2] and the Fock integrand 1. The support gap makes both traces finite; positivity converts their difference to the trace norm. Uniform expansion on [0,S] gives (1+2v)/N as the leading integrand, and the positive coefficient is nonzero for a nonzero mask modulo null sets. Integration for a disk gives t(t+1)/(N−t). At N=2 the n=0 ratio at v=3/2 is 3 exp(3/2)/32<1 and decreases, so the supplied annulus really reverses the constant-mode inequality.",
+      "residual_risks": [
+        "The finite quadrature is a bounded sanity check, not a proof of the infinite trace identity. The operator order is specific to the monomial identification and monotone masks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma et al. cover localization operators more generally, but prove convergence of matrix elements, not finite-scale order and a Schatten-1 norm formula.",
+          "Rozenblum–Vasilevski concern Bergman trace-class membership, and Suárez's Theorem 4.3 describes radial Toeplitz-algebra membership by conditions on the eigenvalue sequence in a Bergman space."
+        ],
+        "reasoning": "Broader windows or symbol classes in a different topology do not cover the claimed norm and positivity. A characterization of a single-space algebra does not determine this cross-space order.",
+        "searches": [
+          "arXiv:2603.04051v1, Theorem 4.3",
+          "arXiv:1912.05855v1, pp. 1–2",
+          "arXiv:0710.0797, Theorems 4.2–4.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and references",
+        "arXiv:2603.04051v1, 0710.0797, 1505.07906v1, 1912.05855v1",
+        "Resultary 65ac4e8d5a79, 1a134dd07c62, 36e9af76bb65"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With N=βr² and symbol w(β|ζ|²), the weak scaling limit overlaps the limiting operator, but not the finite-N order.",
+          "Separate traces provide the trace of the difference, not its norm without its sign. The derivative of the likelihood ratio and single crossing give exactly the missing sign."
+        ],
+        "reasoning": "This is a direct application of stochastic-order machinery, not a new stochastic-order principle. A useful independent check is that for X∼Beta(n+1,N+1), −log(1−X) has the law of a sum of independent exponentials of rates N+1,…,N+n+1, by factoring its Laplace transform. Coupling these as scaled unit exponentials bounds NX by N[−log(1−X)] and then by Gamma(n+1,1). Neither the weak limit nor separate traces alone gives this order. The precise operator conclusion is not a mechanical change of variables in the inspected prior claims.",
+        "searches": [
+          "arXiv:2603.04051v1, Theorem 4.3 and monomial limit",
+          "arXiv:1505.07906v1; arXiv:1912.05855v1",
+          "Frozen RESULT.md, steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Positive order for all decreasing radial masks under the monomial unitary amounts to the single-mode cumulative-distribution inequalities (test disk indicators, then use layer cake).",
+          "The primary lookup surfaced general stochastic-order material, not an inspected result giving these exact scaled Beta/Gamma comparisons; Ma et al. give limiting matrix-element comparisons."
+        ],
+        "reasoning": "The probability-law reformulation exposes the standard method, but the specific finite-scale comparison is not a statement about weak convergence or about a fixed space's radial spectra.",
+        "searches": [
+          "Targeted primary lookup for scaled Beta–Gamma stochastic order and radial Bergman/Fock transfer",
+          "arXiv:2603.04051v1, Theorem 4.3 and monomial limit",
+          "arXiv:1505.07906v1, radial Fock spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "65ac4e8d5a79 gives mixed trace/contact asymptotics for expanding Fock windows; 1a134dd07c62 gives a gamma crossover for a single Bergman annular mask; 36e9af76bb65 treats covariance defects on weighted Bergman balls."
+        ],
+        "reasoning": "These are the closest concrete matches, not equivalent cross-space comparisons. In particular an annular maximizing-mode limit is not an order for decreasing masks, and a mixed trace is not a trace norm of a difference. No inference of noncoverage is based on record dates or search rank.",
+        "searches": [
+          "Configured Resultary semantic lookup with exact comparison of same-date findings 65ac4e8d5a79, 1a134dd07c62 and 36e9af76bb65"
+        ]
+      },
+      "rationale": "The supported distinct result is the sign and exact finite-scale Schatten-1 difference of the two identified operators, for the whole stated cone. Radial diagonalization, stochastic-order machinery, separate-space traces and weak scale limits are established background. No inspected source supplied the specialized finite-N comparison or its exact trace-norm consequence. The argument is elementary; no novelty is assigned to the general ordering principle.",
+      "residual_risks": [
+        "The elementary stochastic-order step may have appeared elsewhere in probability or operator asymptotics, including equivalent exponential-spacing formulations. The comparison is bounded and does not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine overlap in the weak limit, not a finite-scale norm/order claim",
+          "evidence": "The localization comparison gives limits of matrix elements; constant windows and radial symbols select the Toeplitz case.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.04051v1",
+          "material_read": "Theorem 4.3, p. 16 (offset 55844); monomial-basis limit p. 24 (around offset 88000)",
+          "method": "Targeted lawful OA passages",
+          "title": "Localization operators on Bergman and Fock spaces",
+          "trigger": "Closest scaled Bergman-to-Fock theorem"
+        },
+        {
+          "assessment": "Different limit and setting",
+          "evidence": "The equivalence is membership in the Bergman Toeplitz algebra, approximation by Toeplitz operators of Berezin transforms, and closure of sequence classes.",
+          "identifier_or_url": "https://arxiv.org/pdf/0710.0797",
+          "material_read": "Abstract and introduction; §4 Theorems 4.2–4.3, p. 10, offsets 31360–33009",
+          "method": "Targeted lawful OA full-PDF passages",
+          "title": "The eigenvalues of limits of radial Toeplitz operators",
+          "trigger": "Title suggests possible equivalent radial operator limit"
+        },
+        {
+          "assessment": "Single-space spectral background",
+          "evidence": "The result concerns the sequence algebra arising from radial Fock Toeplitz operators.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.07906v1",
+          "material_read": "Opening statements, p. 1",
+          "method": "Targeted lawful OA passage",
+          "title": "Radial Toeplitz operators on the Fock space and square-root-slowly oscillating sequences",
+          "trigger": "Known radial spectral representation"
+        },
+        {
+          "assessment": "Bergman trace-class background",
+          "evidence": "The setting treats distributional symbols on Bergman spaces rather than a two-space positive difference.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.05855v1",
+          "material_read": "Opening pp. 1–2, around offsets 415 and 4000",
+          "method": "Targeted lawful OA passages",
+          "title": "Trace class Toeplitz operators with singular symbols",
+          "trigger": "Possible broader trace-class claim"
+        },
+        {
+          "assessment": "Mixed trace of two expanding windows within Fock space, not transfer",
+          "evidence": "The asymptotics depend on the contact order of convex windows and give a Ginibre covariance law.",
+          "identifier_or_url": "Resultary 65ac4e8d5a79",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Contact order universality for mixed Bargmann–Fock localization",
+          "trigger": "Closest indexed mixed-trace match"
+        },
+        {
+          "assessment": "Distinct annular spectral asymptotics",
+          "evidence": "The record concerns one annulus on a weighted Bergman space and its maximizing mode and limiting spectral profile.",
+          "identifier_or_url": "Resultary 1a134dd07c62",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Gamma spectral crossover for hyperbolic annulus localization",
+          "trigger": "Indexed radial localization match with gamma/Schatten limit"
+        },
+        {
+          "assessment": "Different operators and invariant",
+          "evidence": "The defects are covariances of boundary-distance powers on weighted Bergman balls.",
+          "identifier_or_url": "Resultary 36e9af76bb65",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Laguerre spectral branches of radial Bergman Toeplitz covariance",
+          "trigger": "Same-date radial Bergman spectral match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, norm identities and annular counterexample",
+        "arXiv:2603.04051v1, Theorem 4.3"
+      ],
+      "rationale": "Knowing the exact sign of this finite-parameter localization error upgrades weak convergence to a quantitative trace-class approximation. The coefficient and disk identity are exact, give a sharp benchmark for a natural class of cutoffs, and cannot be inferred from unpaired trace values without an operator-order argument. The annulus counterexample delimits that order even within nonnegative compact radial symbols. The useful content is the precise operator comparison and error, not the textbook stochastic-order rule by itself.",
+      "residual_risks": [
+        "The upgrading argument applies to this monomial pairing and to monotone radial masks, not to general localization windows or identifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

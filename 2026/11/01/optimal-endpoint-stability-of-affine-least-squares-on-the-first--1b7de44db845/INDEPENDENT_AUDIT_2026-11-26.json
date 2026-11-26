@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:22:43.974767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–6 and Finding; repairs/2/RESULT.md; VERIFICATION.md; verify.py, lines 13–56 and 60–84."
+      ],
+      "rationale": "Re-audited the replacement RESULT.md. The frozen Finding misleadingly says ordinary kernel-sign indicators attain the operator norm: for any row of signed mass one and absolute mass R, its largest absolute output on indicators is (R+1)/2, strictly smaller than the maximizing norm in this problem. The repaired statement explicitly distinguishes signed ±1 inputs for the norm from indicators for the one-sided extrema. Decomposing the affine range into the two layer indicators and centered coordinate contrasts gives contrast covariance H/[n(n−1)] and the two stated kernel rows. Only disjoint pair–pair entries can change sign within a layer; n=3 has none. The increasing/decreasing row functions cross uniquely at the uniform-atom weight. The conditional Bernoulli ratio and stationary, strictly log-concave determinant check also hold. No change to the supporting computation was needed.",
+      "residual_risks": [
+        "Exact Gram checks are finite and were inspected, not rerun; the analytic proof establishes the full parameter range. The excluded probability endpoints are not part of the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exchangeable-measure harmonic orthogonality provides the contrast decomposition; the invariance theorem is for a uniform slice."
+        ],
+        "reasoning": "Neither supplies the disjoint-pair sign change or the two competing absolute row sums across these weights.",
+        "searches": [
+          "arXiv:1507.02713, Theorem 3.10; arXiv:1504.01689, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1507.02713; arXiv:1504.01689",
+        "Resultary 3c04f47dc8c3, 4c7347e0c12e, 6319a2a73e78, a18a2c603916, 8c057bfa2e76"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ranks {1,2} give determinant proportional to θ(1−θ)H^(n−1), with exactly the same optimizing θ. At uniform weights BBᵀ=(n−1)I+J yields the fixed-point norm 3−4/n directly."
+        ],
+        "reasoning": "Neither one uniform norm nor optimality for another objective gives the two weighted row functions or proves strict endpoint-norm uniqueness in the layer family.",
+        "searches": [
+          "Resultary 3c04f47dc8c3, Finding (two-rank case) and Proof §2; uniform unsigned-incidence specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adding a vertex 0 maps singleton atoms to star edges and pairs to nonstar edges; affine evaluations become c_i+c_j. The two crown-graph records instead concern oriented cut projections, and the Johnson Hodge record concerns functions on edges of the Johnson graph."
+        ],
+        "reasoning": "The exact equivalent problem is a weighted signless-incidence projection with two edge weights. Similar names and an identical numerical endpoint constant for different spaces are not coverage.",
+        "searches": [
+          "Complete graph unsigned incidence and Johnson J(n+1,2) comparison; Resultary 6319a2a73e78, a18a2c603916, 8c057bfa2e76"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The corner-deletion record computes an exact norm on a different support; the ellipsoid record computes the two-rank determinant optimum. No matching two-weight endpoint table was identified."
+        ],
+        "reasoning": "The norm is not a table value at one mixture; both branches over an open interval and the optimizer are compared.",
+        "searches": [
+          "Resultary exact affine endpoint rows and optimal weights; matching records 4c7347e0c12e, 3c04f47dc8c3"
+        ]
+      },
+      "rationale": "The surviving claim is the full signed-row norm law and unique minimization over positive exchangeable singleton/pair weights. The determinant result is covered and retained only as comparison; the uniform unsigned-incidence formula is standard matrix algebra and not claimed separately. The inspected literature and comparable catalogue records do not yield the signed-row dependence or uniqueness for this objective.",
+      "residual_risks": [
+        "Bounded primary search was not productive beyond the inspected sources; equivalent older incidence-design or discrete least-squares formulations may exist. No priority claim for the determinant or the uniform incidence projection in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General orthogonality machinery, not endpoint rows",
+          "evidence": "Orthogonality is stated for any exchangeable measure.",
+          "identifier_or_url": "https://arxiv.org/abs/1507.02713",
+          "material_read": "Theorem 3.10, PDF p. 10",
+          "method": "OA primary text",
+          "title": "Harmonicity and Invariance on Slices of the Boolean Cube",
+          "trigger": "Exchangeable orthogonality on mixed layers"
+        },
+        {
+          "assessment": "Different objective and domain",
+          "evidence": "The theorem concerns invariance for a uniform slice.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.01689",
+          "material_read": "PDF pp. 1, 3, Theorem 1.1",
+          "method": "OA primary text",
+          "title": "Invariance principle on the slice",
+          "trigger": "Potential older harmonic projection result"
+        },
+        {
+          "assessment": "Covers the determinant corollary, not the endpoint theorem",
+          "evidence": "The two-rank determinant specialization gives θ* exactly.",
+          "identifier_or_url": "Resultary 3c04f47dc8c3",
+          "material_read": "Finding, two-rank case; Proof §2",
+          "method": "Local Resultary mirror",
+          "title": "Exact Löwner ellipsoids of arbitrary rank-selected Boolean polytopes",
+          "trigger": "Identical ranks and optimum parameter"
+        },
+        {
+          "assessment": "Different support",
+          "evidence": "The domain is a Boolean cube with one corner deleted.",
+          "identifier_or_url": "Resultary 4c7347e0c12e",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Corner-deletion instability and dual extremizers for affine least squares",
+          "trigger": "Same type of norm, possible exact match"
+        },
+        {
+          "assessment": "Non-equivalent projection ranges and domains",
+          "evidence": "The crown results use oriented cuts; the Johnson results use graph-edge Hodge spaces rather than vertex-indexed functions on J(n+1,2).",
+          "identifier_or_url": "Resultary 6319a2a73e78; a18a2c603916; 8c057bfa2e76",
+          "material_read": "Respective Findings",
+          "method": "Local Resultary mirror",
+          "title": "Crown-graph endpoint projections and higher-rank Johnson graph Hodge norms",
+          "trigger": "Matching endpoint constant or Johnson indexing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Replacement RESULT.md, Finding and Proof §§2–6; rank-selected determinant comparison 3c04f47dc8c3."
+      ],
+      "rationale": "This solves a natural one-parameter robustness-design problem on the first two nonzero Boolean layers. The full formulas locate both the disjoint-entry sign threshold and the actual worst-row transition, identify the unique minimax design, and quantify sharp nonpositivity for bounded inputs. The value is the weighted behavior and unique optimum, not the single uniform benchmark or the determinant comparison.",
+      "residual_risks": [
+        "No minimization over arbitrary nonexchangeable measures or arbitrary projections is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

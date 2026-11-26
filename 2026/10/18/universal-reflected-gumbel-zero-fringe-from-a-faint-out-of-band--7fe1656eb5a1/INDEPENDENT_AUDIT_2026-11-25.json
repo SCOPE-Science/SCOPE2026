@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:01:45.550665Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof 1–5",
+        "Frozen VERIFICATION.md and verify.py (inspection only; finite 640-point quadrature and derivative comparisons)"
+      ],
+      "rationale": "With z=t−iw the nonvanishing STFT prefactor leaves the entire function with spectral factor exp(−πξ²) and the stated tone. The radial Gaussian logarithmic potential gives U'=4πF, where F=e^(−q)m+(1−e^(−q))θ. Differentiating using m'=4πv and q'=4πq(θ−m) gives the stated nonnegative intensity F', including its normalization for complex multiplicities. Exponential tilting concentrates at the essential endpoints: for each ε>0 the complement of the ε-edge neighborhood is exponentially suppressed by a positive-mass ε/2-neighborhood. The Laplace slopes give F(−∞)=min(a,θ) and F(+∞)=max(b,θ); when θ equals an endpoint both terms of the convex combination tend to that endpoint regardless of q. Finite mean gives integrable unit-cell counts. Phase-compensated time translation is mixing in the ergodic-theory sense by covariance decay between finite proper Gaussian vectors, and thus Birkhoff applies to the counts; monotonicity extends it to real T, and the exact means give L¹ convergence. Outside the band the strict sign and endpoint limits of log q give a unique balance, and at θ>b the balance satisfies log(1/|c|²)=4π(θ−b)w_c+o(w_c). Integrating the log-q derivative over bounded offsets gives q→exp(4πδs) locally uniformly, v→0, and hence the reflected-Gumbel intensity. Its integral is δ by substitution; reflection gives the other edge with the outward sign.",
+      "residual_risks": [
+        "The bundled program was not executed; it is supplemental only. No point-process convergence or numerical rate for general PSDs is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feldheim's limiting stationary GAF zero measure is for centered GAFs, with deterministic limit for atomless spectral measure.",
+          "The general noncentral intensity formula includes a tone on the overlapping PSD class; the slowly varying PSD theorem uses a strictly positive lower bound."
+        ],
+        "reasoning": "A deterministic tone is not a centered Gaussian spectral atom; the centered theorem does not compare the c→0 frequency-centered noncentral intensity. A compact band with an exterior tone is outside the strictly positive lower-bound regime.",
+        "searches": [
+          "Resultary: almost sure ergodic zero counts Gaussian analytic functions exponential type spectral support noncentral shift",
+          "arXiv:1105.3929v3, Theorem 1",
+          "arXiv:2609.18689v1, Theorems 1.1, 1.2 and 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local searches and cited entries b023b14f32fd, f5cbd7b2c321, a2142a95ac70",
+        "Escudero–Koliander–Romero arXiv:2609.18689v1",
+        "Feldheim arXiv:1105.3929v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "After specialization the local formula is the derivative of the noncentral potential; its integral still requires a boundary evaluation. The Gumbel law here occurs after balancing the spectral-end exponential against the shrinking tone, not in a fixed-frequency limit.",
+          "The centered formula has mass b−a and no escaping mass δ."
+        ],
+        "reasoning": "The known formula is an ingredient, not an equivalent exact limit. Standard ergodicity yields convergence after integrability and the new endpoint value have been established; it supplies no fringe.",
+        "searches": [
+          "arXiv:2609.18689v1, Thm. 1.1, Thm. 3.2 and §3.2",
+          "arXiv:1105.3929v3, Thm. 1 and §5.2",
+          "Resultary b023b14f32fd original statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Escudero–Koliander–Romero, arXiv:2609.18689v1, Thm. 1.1 and §3.2: deterministic mean plus circular colored noise, expected zero measure.",
+          "The closest Resultary spectral-edge finding b023b14f32fd is centered and has no q=1 transition."
+        ],
+        "reasoning": "The apparent STFT/GAF difference is removed by the Gaussian transform and phase; the overlap at the level of local intensity is genuine. The noncentral shifted weak-amplitude limit is not an alternative wording of the centered tail law.",
+        "searches": [
+          "Resultary: noncentral Gaussian STFT spectrogram zero first intensity deterministic signal plus colored Gaussian noise",
+          "Resultary: faint out-of-band deterministic tone reflected Gumbel zero intensity fringe weak signal STFT",
+          "Primary literature: bandlimited stationary Gaussian analytic function deterministic exponential mean spectral endpoints total strip zero density faint tone Gumbel spectrogram zeros"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary b023b14f32fd states ρ=4πVar and mass b−a for pure noise; f5cbd7b2c321 studies pure-noise profile ambiguity; a2142a95ac70 treats zeros on circular arcs. These entries postdate the frozen finding."
+        ],
+        "reasoning": "The exact local-index comparison is relevant; a finite table lookup is inapplicable to a moving-center asymptotic over all measurable compactly supported L¹ PSDs. None of the inspected entries gives that asymptotic.",
+        "searches": [
+          "Resultary: compactly supported power spectral density Gaussian analytic zero count exponential tilting spectral support endpoints",
+          "Resultary: faint out-of-band deterministic tone reflected Gumbel zero intensity fringe weak signal STFT"
+        ]
+      },
+      "rationale": "The noncentral first-intensity formula is covered by the earlier general theorem on the overlapping PSD class and is not claimed as new. The supported distinct contribution is the compact-support noncentral endpoint and escape analysis, specifically the locally uniform weak-tone profile with its balance scale and excess mass. Neither the cited intensity theorem nor the centered ergodic law supplies that moving-frequency limit; obtaining it requires endpoint tilt concentration and a comparison at frequencies tending to infinity as the amplitude goes to zero. Birkhoff itself is standard.",
+      "residual_risks": [
+        "A prior endpoint or matched-limit theorem in differently formulated exponential-type zero theory may exist; the targeted search did not establish priority exhaustively.",
+        "The earlier intensity theorem assumes a polynomial-growth PSD; it directly covers bounded compactly supported PSDs, not necessarily every locally unbounded compact L¹ density."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite-frequency intensity on the shared PSD scope, not the asserted moving weak-tone limit",
+          "evidence": "Expected zero measure for general deterministic signal in M∞ plus stationary circular complex Gaussian noise; polynomial-growth PSD hypothesis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.18689v1",
+          "material_read": "PDF p. 4 Theorem 1.1, p. 8 Theorem 3.2 and §3.2 p. 12",
+          "method": "Read targeted passages in OA primary text",
+          "title": "Zeros of the Spectrogram of Colored Noise",
+          "trigger": "Same Gaussian STFT and noncentral zero law"
+        },
+        {
+          "assessment": "Centered comparison only",
+          "evidence": "Almost-sure horizontal limiting measure for stationary centered GAFs; deterministic for atomless spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1105.3929",
+          "material_read": "Theorem 1, PDF pp. 4–5, and §5.2, p. 13",
+          "method": "Read targeted passages in OA primary text",
+          "title": "Zeroes of Gaussian Analytic Functions with Translation-Invariant Distribution",
+          "trigger": "Potential broader stationary strip-count theorem"
+        },
+        {
+          "assessment": "Centered spectral-edge result without external tone; later date",
+          "evidence": "Intensity is 4π times tilted variance and integrates to b−a; no noncentral balance.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-zero-intensity-tails-at-infinitely-flat-spectral-edges--b023b14f32fd",
+          "material_read": "Original finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Sharp zero-intensity tails at infinitely flat spectral edges",
+          "trigger": "Strongest Resultary match on compact support, tilted variance and total mass"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof 3–5",
+        "Noncentral first-intensity and centered strip-law comparisons above"
+      ],
+      "rationale": "The precise excess δ in zeros per unit time persists for arbitrarily small nonzero amplitude but disappears on fixed frequency windows. The balance position and normalized limiting profile resolve where that excess lies without spectral-edge regularity assumptions. This is a quantitative phenomenon not supplied by fixed-frequency intensity convergence or the strip law alone.",
+      "residual_risks": [
+        "First-intensity statement only; does not give the fluctuations of strip counts or a limiting zero point process."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

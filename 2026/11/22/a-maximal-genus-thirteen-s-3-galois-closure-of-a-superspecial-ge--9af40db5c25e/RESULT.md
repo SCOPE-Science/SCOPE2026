@@ -1,59 +1,49 @@
-# A maximal genus-thirteen \(S_3\)-Galois closure of a superspecial genus-four trigonal curve
+# The marked trigonal descent of a cyclic Hermitian quotient in characteristic eleven
 
-## Finding
-Let \(k=\mathbb F_{11}\). Let \(G\) be the smooth projective curve whose function field is the splitting field over \(k(t)\) of
+Let \(C/\mathbb F_{11}\) be the smooth canonical curve
 \[
-F(U)=U^3-t^4U^2+1.
+y^2z=x^3+z^3,\qquad w^2=xy.
 \]
-Then \(G\to\mathbb P^1_k\) is a geometrically connected regular \(S_3\)-Galois cover of degree six, branched at precisely the twelve simple roots of \(4t^{12}-27\), with inertia of order two at each branch value and no ramification over infinity. The curve has genus thirteen and
-\[
-\#G(\mathbb F_{11})=12,\qquad \#G(\mathbb F_{121})=408=121+1+26\cdot11.
-\]
-In particular it is maximal over \(\mathbb F_{121}\), and its Hasse–Weil numerator over \(\mathbb F_{11}\) is
-\[
-L_G(T)=(1+11T^2)^{13},\qquad \#\operatorname{Jac}(G)(\mathbb F_{11})=12^{13}=106993205379072.
-\]
-The cubic quotient by a transposition is the canonical trigonal map of the distinguished superspecial genus-four double-elliptic curve \(C\) given by \(y^2z=x^3+z^3\), \(w^2=xy\); the quadratic sign quotient has genus five and equation \(v^2=4t^{12}-27\).
+Its canonical trigonal map is \(t=w/x\). Let \(G\) be its trigonal normal closure. The following identifies the **marked cover**, not merely the isomorphism class of its geometric curve.
 
-## Assumptions and scope
-All curves and point counts are over \(k=\mathbb F_{11}\) or its quadratic extension, with the smooth projective normalization understood wherever a function-field presentation is used. In characteristic eleven, the elliptic plane cubic \(E:y^2z=x^3+z^3\) is smooth. Its intersection with the conic \(xy=0\) comprises six distinct geometric points: the point at infinity, the two points with \(x=0\), and the three points with \(y=0\). Accordingly the double cover \(C\to E\), defined by \(w^2=xy\), is smooth, connected, and of genus four by Riemann–Hurwitz. Its model and its status as the characteristic-eleven superspecial curve with unique degree-two elliptic quotient appear in Ogasawara–Ohashi–Sakata–Harashita (2024). The earlier superspecial genus-four census is due to Kudo–Harashita (2017); neither attribution is claimed as new.
+* The cover \(G\to\mathbb P^1_t\) is regular \(S_3\)-Galois of degree six. Its only branch divisor is \(4t^{12}-27=0\), with transposition inertia and twelve simple geometric values. The fiber at infinity is unramified and split over \(\mathbb F_{11}\). The sign quotient is the genus-five curve \(v^2=4t^{12}-27\).
+* Over \(k_2=\mathbb F_{121}\), set \(H:A^{12}+B^{12}=1\) (the affine Fermat model of the Hermitian curve), take \(i\in k_2\) with \(i^2=-1\) and pick \(\zeta\in k_2\) primitive of order three. Then
+  \[
+  G_{k_2}=H/\langle (A,B)\longmapsto(iA,i^{-1}B)\rangle,\qquad t=4AB.
+  \]
+  The \(\mathbb F_{11}\)-descent on this quotient is the semilinear action conjugating constants and interchanging \(A,B\). In particular this is a specified trigonal descent of a known kind of maximal quotient, not a claim of a new unmarked genus-thirteen maximal curve.
+* The finite unramified Frobenius counts for the marked \(S_3\)-cover (identity, transposition, 3-cycle) are \((0,5,4)\) over \(\mathbb F_{11}\) and \((61,0,48)\) over \(\mathbb F_{121}\). There are respectively 2 and 12 finite rational branch parameters, with three rational points of \(G\) above each; infinity contributes six in either field.
 
-## Proof
-**Trigonal map and discriminant.** On the open set where \(xz\ne0\), put \(u=x/z\) and \(t=w/x\). The quadratic equation gives \(y/z=t^2u\), while the cubic becomes \(u^3-t^4u^2+1=0\). This is the degree-three function-field extension associated with the pencil of generators on the canonical quadric cone \(w^2=xy\). There are three simple poles of \(t\) on \(C\), namely \([0:1:0:0]\) and \([0:\pm1:1:0]\), all rational over \(k\), establishing degree three, geometric irreducibility, and no ramification over infinity. The cubic discriminant is exactly \(\Delta(t)=4t^{12}-27\). Its derivative is \(48t^{11}=4t^{11}\) in characteristic eleven, hence \(\Delta\) has twelve simple nonzero geometric zeros and is not a square in \(\overline{k}(t)\). An irreducible separable cubic with nonsquare discriminant has splitting-field Galois group \(S_3\). Thus its normal closure has no constant-field extension and defines a geometrically connected \(S_3\)-cover. At each discriminant zero inertia has order two; there are three ramification points, each of index two, over that branch value. There is no other ramification.
+Consequently \(g(G)=13\), \(\#G(\mathbb F_{11})=12\), \(\#G(\mathbb F_{121})=408\); the last count is also forced by the Hermitian quotient description. The Weil numerator over \(\mathbb F_{11}\) is \((1+11T^2)^{13}\); the rational Jacobian order is \(12^{13}=106993205379072\).
 
-**Genus.** Applying the tame Riemann–Hurwitz formula to the degree-six map yields
-\[
-2g(G)-2=6(-2)+12\cdot3=24,
-\]
-so \(g(G)=13\). The index-two subgroup \(A_3\) has sign-quotient function field \(k(t,\sqrt{\Delta(t)})\). Since the degree-twelve branch polynomial is squarefree, its smooth hyperelliptic model \(Y:v^2=4t^{12}-27\) has genus five.
+## Proof of the marked trigonal description
 
-**Exact Frobenius fibers.** Work in \(\mathbb F_{121}=\mathbb F_{11}[i]\), \(i^2=-1\). The norm of \(t\) is \(t^{12}\in\mathbb F_{11}\). Therefore for any \(t\in\mathbb F_{121}\), the discriminant \(4t^{12}-27\) lies in \(\mathbb F_{11}\) and is a square in \(\mathbb F_{121}\). Exactly twelve \(t\)-values have zero discriminant, since the norm map on nonzero elements has kernel of order twelve and \(27/4=4\) in \(\mathbb F_{11}\). For the other values, the separable cubic consequently has either zero roots (irreducible cubic) or three distinct roots over \(\mathbb F_{121}\): there cannot be exactly one simple root and an irreducible quadratic factor.
+The superspecial bielliptic starting model is the characteristic-eleven model in Ogasawara–Ohashi–Sakata–Harashita, §4.4. Its geometric connectedness also follows from the double cover of the smooth elliptic cubic: the section \(xy\) has six simple zeros, namely the point at infinity, the two affine points with \(x=0\), and the three with \(y=0\). On \(xz\ne0\), write \(u=x/z\); then \(y/z=t^2u\), and \(u^3-t^4u^2+1=0\). The variable \(t\) parametrizes the rulings of the canonical cone \(w^2=xy\). At the two affine points with \(x=0\), \(x\) has order two on the double cover while \(w\) has order one, giving simple poles of \(t\). At the elliptic point at infinity use the chart \(y=1\): \(x\) is a parameter and \(z\) has order three there; again upstairs \(x\) has order two and \(w\) order one. These are all poles and all three are rational. Thus the degree of \(t\) is three and infinity splits unramified in the cubic subcover. The same calculation over an algebraic closure gives geometric irreducibility of the cubic.
 
-Exhaustive exact field arithmetic (standalone `verify.py`) gives the following *complete* number of \(t\)-values sorted by the number of **distinct roots** of \(F(U)\) in the indicated field:
+The discriminant \(4t^{12}-27\) has twelve distinct roots (its derivative is \(4t^{11}\) in this characteristic) and is not a square over \(\overline{\mathbb F}_{11}(t)\). The geometric splitting group is thus \(S_3\); as the arithmetic group is also contained in \(S_3\), the cover is regular. A unit discriminant gives unramified roots. At a simple discriminant zero the cubic has a double root and a distinct simple root. The simple factor separates locally, and the remaining quadratic has discriminant of valuation one, so inertia is a transposition. The local splitting at infinity remains complete in the normal closure. Thus tame Riemann–Hurwitz gives \(2g-2=-12+12\cdot3\). The discriminant square-root field is the fixed field of \(A_3\), giving the stated sign quotient and its genus by the twelve simple branch points.
 
-| Field | 0 roots | 1 root | 2 roots | 3 roots |
-|---|---:|---:|---:|---:|
-| \(\mathbb F_{11}\) | 4 | 5 | 2 | 0 |
-| \(\mathbb F_{121}\) | 48 | 0 | 12 | 61 |
+## Hermitian identification and descent
 
-An unramified fully split cubic fiber contributes six rational points to the Galois closure, and an unramified nonsplit cubic fiber contributes none. At each of the twelve simple-discriminant points, the cubic has one rational double root and one distinct rational root; tame inertia is a transposition and the decomposition group equals inertia, so the normal-closure fiber consists of three rational points. At infinity all three poles of \(t\) on \(C\) are rational and unramified, giving six rational points on \(G\). Hence
-\[
-\#G(\mathbb F_{121})=6\cdot61+3\cdot12+6=408.
-\]
-Over \(\mathbb F_{11}\), the only split ramified parameters are \(t=\pm2\), and no finite unramified cubic splits completely. The same fiber argument gives \(\#G(\mathbb F_{11})=2\cdot3+6=12\).
+In the function field of \(H\), put \(X=-A^4\), \(Y=-B^4\) and \(t=4AB\). Then \(X^3+Y^3=-1\), and \(3XY=t^4\) since \(4^4=3\) in \(\mathbb F_{11}\). For \(j=0,1,2\) put \(r_j=\zeta^jX+\zeta^{-j}Y\). These are the three distinct generic roots of the reciprocal cubic \(r^3-t^4r+1\); this follows by cubing and subtracting \(3XYr_j\). Conversely \(X=\frac13\sum_j\zeta^{-j}r_j\) and \(Y=\frac13\sum_j\zeta^jr_j\). Thus \(k_2(t,X,Y)\) is the splitting field after extension of constants. It is also the invariant field for the displayed order-four diagonal group: the three generators are invariant, and adjoining \(A\) (satisfying a fourth-power equation) recovers \(B=t/(4A)\), so the invariant extension has degree exactly four.
 
-**Zeta numerator.** The genus-thirteen Hasse–Weil bound over \(\mathbb F_{121}\) is \(122+2\cdot13\cdot11=408\), so equality proves maximality and makes every quadratic-Frobenius eigenvalue equal to \(-11\). Every eigenvalue \(\alpha\) of arithmetic Frobenius over \(\mathbb F_{11}\) therefore obeys \(\alpha^2=-11\). The rational-point count \(12=11+1\) forces zero trace, so the two square roots of \(-11\) have multiplicity thirteen each, proving \(L_G(T)=(1+11T^2)^{13}\). Evaluating at \(T=1\) yields the stated Jacobian order.
+Conjugation on \(k_2\) sends \(\zeta\) and \(i\) to their inverses. Combine it with swapping \(A,B\); it normalizes the order-four group, fixes \(t\), and fixes each \(r_j\) individually. The fixed field on the quotient is therefore exactly \(\mathbb F_{11}(t,r_0,r_1,r_2)\), the original reciprocal splitting field, rather than an unspecified form of the quotient. The cubic subcover is fixed by the involution interchanging the other two roots. In particular the known Hermitian maximality passes to this quotient over \(k_2\), independently of the fiber computation.
 
-## Verification
-The standalone Python 3 script `verify.py` implements \(\mathbb F_{11}\) and \(\mathbb F_{121}\) using pairs \(a+bi\) with \(i^2=-1\), exhausts every field parameter and every cubic root, and separately enumerates the genus-four cubic quotient \(C\) and the genus-five sign quotient \(Y\). It verifies the respective point counts \((12,210)\) and \((12,232)\), both root-pattern tables, and the number \(408\) for the normal closure. The output ends in `GENUS13_S3_MAXIMAL_F121_VERIFIED`. The counts are exhaustive for the finite fields stated, not empirical samples. Riemann–Hurwitz, separable cubic Galois theory, and the Weil bound are used as mathematical deductions rather than inferred from code.
+## Finite splitting certificate
 
-## Relationship to prior work
-Kudo–Harashita (arXiv:1702.05313, first posted 2017-02-17) enumerate the characteristic-eleven superspecial genus-four curves and give maximal genus-four examples. Kudo–Harashita–Senda (arXiv:1709.03627, first posted 2017-09-11) determine their automorphism groups and finite-field forms. Ogasawara–Ohashi–Sakata–Harashita (arXiv:2403.08139, first posted 2024-03-12), Section 4.4, identify the displayed canonical bielliptic model and its unique elliptic quotient. These results supply the genus-four starting object, **not** the degree-six trigonal normal closure, its twelve-point ramification scheme, its genus-thirteen maximality, or the exact nonabelian covering-field Frobenius spectrum. Known maximality of a genus-four curve alone does not imply maximality of its non-Galois cubic map's normal closure: the discriminant genus-five quotient also matters. The result uses both components and an independent complete fiber count.
+The distinct-root histograms in increasing root count (0,1,2,3) are \((4,5,2,0)\) and \((48,0,12,61)\), respectively. To reproduce, build the histogram of the map \(u\mapsto u+u^{-2}\) on nonzero field elements, and for every \(t\) look up the count at \(t^4\). Use residues modulo 11 for the first field and pairs \(a+bi\), \(i^2=-1\), for the second. Exact pseudocode is:
 
-## Limitations
-This establishes a single specified \(S_3\)-cover and its arithmetic, not a classification of all maximal genus-thirteen curves, its full geometric automorphism group, or uniqueness of this covering type. The 2017 and 2024 sources are credited for the genus-four curve. Priority searches cannot rule out every older unindexed expression of this exact normal closure; no independent validation has been performed.
+```
+count = default_zero_dictionary()
+for u in field:
+    if u != 0: count[u + (u.inverse())**2] += 1
+hist = [0, 0, 0, 0]
+for t in field: hist[count[t**4]] += 1
+```
 
-## References
-1. M. Kudo and S. Harashita, *Enumerating superspecial curves of genus 4 over prime fields*, arXiv:1702.05313 (2017), https://arxiv.org/abs/1702.05313.
-2. M. Kudo, S. Harashita, and H. Senda, *Automorphism groups of superspecial curves of genus 4 over F11*, arXiv:1709.03627 (2017), https://arxiv.org/abs/1709.03627.
-3. T. Ogasawara, R. Ohashi, K. Sakata, and S. Harashita, *Superspecial genus-4 double covers of elliptic curves*, arXiv:2403.08139 (2024), https://arxiv.org/abs/2403.08139.
+The fiber sizes of \(t\mapsto t^4\) on the nonzero image are 2 and 4 respectively; the second field has 12 branch values since \(t^{12}\) is its norm and \(27/4=4\). In the first field \(t^{12}=t^2\), so the two branch values are \(\pm2\). The distinct simple and double roots at a rational branch parameter are rational (equivalently the linear gcd with the derivative has rational coefficients and the third root is then rational). The local quadratic is totally ramified, so the decomposition group equals inertia and the branch fiber has three rational points. Away from the branch points the permutation type is determined by the number of roots, giving the claimed counts. Fully split fibers give six rational points, and nonsplit unramified fibers none; hence \(6+3\cdot2=12\) and \(6+3\cdot12+6\cdot61=408\). Maximality over \(k_2\) implies the \(\mathbb F_{11}\) Weil eigenvalues square to \(-11\); trace zero forces equal multiplicities. This proves the numerator and the Jacobian order.
+
+## Prior coverage and scope
+
+Montanucci–Zini, *On the spectrum of genera of quotients of the Hermitian curve*, [arXiv:1703.10592](https://arxiv.org/abs/1703.10592), Table 11, already list the genus-thirteen \(C_4\) quotient of \(H_{11}\) for a generator of type (B1). The diagonal generator here is of that type (the three distinct eigenpoints lie off the curve and form a self-polar triangle). The genus, existence of such a maximal curve, and its \(\mathbb F_{121}\) point total are therefore not claimed as new. The comparison to general Hermitian quotient constructions, including *Explicit plane models for all Galois quotients of the Hermitian curve*, [arXiv:2611.14073](https://arxiv.org/abs/2611.14073), concerns the unmarked quotient. The present identification specifies the actual map \(t=4AB\) realizing the normal closure of the known genus-four trigonal map, its descent and marked splitting. It gives neither a classification of Hermitian descents nor historical-priority certification.
+
+The starting superspecial genus-four object is from T. Ogasawara, R. Ohashi, K. Sakata and S. Harashita, [arXiv:2403.08139](https://arxiv.org/abs/2403.08139), §4.4; the earlier genus-four census is M. Kudo and S. Harashita, [arXiv:1702.05313](https://arxiv.org/abs/1702.05313).

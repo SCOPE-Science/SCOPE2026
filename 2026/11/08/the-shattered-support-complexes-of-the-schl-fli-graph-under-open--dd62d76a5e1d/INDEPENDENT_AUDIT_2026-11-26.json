@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:27:24.670386Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–58, VERIFICATION.md, and verify_schlafli.py",
+        "/workspace/branches/62dfdedf-3130-47ef-babb-93029d7781d4/direct_check.py (independent replay)"
+      ],
+      "rationale": "The divisor intersection rule gives the four skew-adjacency rules: in particular E_i·Q_j is 1 for i≠j and 0 for i=j, and distinct pair-lines intersect in 1 minus the size of their index overlap. An independently written enumeration tested all 20,854 supports of sizes 0 through 4 against every center in both models. Triple successes by edge count are (0,1080,1080,720) open and (0,0,0,720) closed. At size 4 both predicates agree support-by-support with the clique predicate, giving 1080. At size at least 5, 27 concepts cannot realize 32 traces. This proves the precise support theorem and therefore both polynomials and the 2160-face difference. The supplementary S6 computation in the supplied source was inspected: each permutation acts on both six-sets and on unordered pair labels, and the checker removes each orbit in full. It was not required by the Finding or part of the independent replay.",
+      "residual_risks": [
+        "The replay covers this specific graph and these two concept classes, not a uniform result for strongly regular graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coudert et al. define the closed-neighborhood trace predicate and compute graph VC dimension algorithmically; Pham et al. give asymptotic lower bounds of 2 and 3 under pseudorandomness hypotheses.",
+          "08634914be96 concerns J(n,2), whose vertex count cannot equal 27."
+        ],
+        "reasoning": "A general test or lower bound is not an assertion of the exact supports on this graph. Nor is the Schläfli graph a member of the J(n,2) family.",
+        "searches": [
+          "arXiv:2405.07588v1, Section 2 and main algorithm statement",
+          "arXiv:2303.07878, Theorems 1.4–1.5",
+          "Resultary: triangular Johnson graph shattering"
+        ]
+      },
+      "checked_sources": [
+        "Resultary dd62d76a5e1d, 670b6697d463, 08634914be96",
+        "arXiv:2405.07588v1",
+        "arXiv:2303.07878",
+        "Brouwer's Schläfli graph table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior methods specify the trace test; related exact records give induced-support counts for the rook/Shrikhande pair and star-forest criteria for triangular graphs."
+        ],
+        "reasoning": "The cardinality bound forbids size 5 and the graph's parameters give some classical induced-subgraph totals, but neither decides which actual triples and quadruples realize all traces. The finite exact classification is the added result.",
+        "searches": [
+          "Frozen RESULT.md lines 60–70",
+          "arXiv:2405.07588v1, Section 2",
+          "Resultary 670b6697d463 and 08634914be96, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary dd62d76a5e1d is the assigned result itself; the exact related findings 670b6697d463 and 08634914be96 concern different graphs.",
+          "Brouwer identifies the skew graph as the complement of the meeting-line graph."
+        ],
+        "reasoning": "Complementing a trace swaps open with closed neighborhoods on the complementary graph, so a result on the meeting-line graph could cover this finding. The retrieved meeting-line description establishes adjacency and coplanar triples, not all traces. A common-neighbor complex only requires the full trace, not every trace.",
+        "searches": [
+          "Resultary: Schläfli open and closed neighborhood shattering, trace polynomials, four-clique supports, and related strongly regular graphs",
+          "Literature: Schläfli graph/neighborhood VC dimension and shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned record is the exact indexed match; the table supplies (27,16,10,8) and 45 coplanar triples, not a shattering table."
+        ],
+        "reasoning": "Credit the classical graph data. No distinct output table matching the two trace censuses was located.",
+        "searches": [
+          "Resultary: exact Schläfli paired polynomial coefficients and triple/quartet criteria",
+          "Brouwer's Schläfli graph table"
+        ]
+      },
+      "rationale": "The bounded comparison supports the paired exact shattering complexes, not the novelty of graph VC dimension, the Schläfli graph, or its classical subgraph counts. No distinct retrieved statement gives or implies this support classification.",
+      "residual_risks": [
+        "Specialist finite-graph enumerations may contain an equivalent census under complement or GQ(2,4) terminology. Bounded comparisons do not establish worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definition and general computation are prior; inspected statements do not give the Schläfli census.",
+          "evidence": "Section 2 defines shattering by a vertex v_Y for each trace Y⊆X.",
+          "identifier_or_url": "https://arxiv.org/html/2405.07588v1",
+          "material_read": "Abstract/algorithm description and Section 2, offsets 11900–13489",
+          "method": "OA literal locate then bounded offset read",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Same closed-neighborhood trace convention"
+        },
+        {
+          "assessment": "Related lower bounds, not an exact finite support characterization.",
+          "evidence": "d=o(n) with asymptotic size/eigenvalue hypotheses and a trace-witness hypothesis in Theorem 1.5.",
+          "identifier_or_url": "https://arxiv.org/html/2303.07878",
+          "material_read": "Offsets 5250–7589, including Theorems 1.4 and 1.5",
+          "method": "OA literal locate then bounded offset read",
+          "title": "VC-dimension and pseudo-random graphs",
+          "trigger": "Open adjacency concept classes and general results"
+        },
+        {
+          "assessment": "Classical parameters and configuration data are covered.",
+          "evidence": "The graph on intersecting lines is the complement; 45 coplanar triples are counted.",
+          "identifier_or_url": "https://jaanos.github.io/tables/graphs/Schlaefli.html",
+          "material_read": "Opening, 27-lines and constructions sections, offset 0 onward",
+          "method": "OA webpage read",
+          "title": "Schläfli graph",
+          "trigger": "Classical graph/subgraph tabulation and complement convention"
+        },
+        {
+          "assessment": "Distinct graphs and outputs; no priority inference from the date.",
+          "evidence": "Two 16-vertex graphs with (16,6,2,2), and different closed but equal open polynomials.",
+          "identifier_or_url": "Resultary 670b6697d463",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2600",
+          "method": "Local mirror",
+          "title": "A closed-neighborhood shattering-polynomial separation of the Shrikhande and rook graphs",
+          "trigger": "Exact open/closed strongly regular graph comparison"
+        },
+        {
+          "assessment": "Different graph family and criteria.",
+          "evidence": "On J(n,2), closed supports have the stated star-forest and isolated-vertex structure.",
+          "identifier_or_url": "Resultary 08634914be96",
+          "material_read": "RESULT.md Finding and scope, offsets 0–2326",
+          "method": "Local mirror",
+          "title": "Complete closed-neighborhood shattering polynomial of triangular Johnson graphs",
+          "trigger": "Exact structural support characterization of a graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding",
+        "Independently reproduced profile"
+      ],
+      "rationale": "The Schläfli graph is a canonical finite geometry, and the two natural neighborhood conventions have equal VC dimension and identical top-dimensional faces while disagreeing on 2160 triples. The complete support criteria capture that distinction, which is invisible to the dimension or the classical graph parameters alone; they provide an exact example for comparing neighborhood set systems.",
+      "residual_risks": [
+        "The contribution is a canonical finite example, not a theory for strongly regular graphs generally."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

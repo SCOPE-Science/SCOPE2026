@@ -1,0 +1,82 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:48:23.925529Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definitions and depth criterion are those of Đurđev–Mudrinski. Let C_0=G and C_{i+1}=G C_i ∪ C_i G. This descending sequence is exactly the set of values at depth i: a depth-(i+1) term has a child at depth i, and any value on the other side is available as a depth-zero parameter. Thus 3-nilpotence gives C_3={0}. Failure of 3-supernilpotence gives a nonzero product in (G²)²⊆C_2 by Proposition 5.3. If two consecutive stages before C_2 were equal the recursion would stabilize, so G⊋C_1⊋C_2⊋{0}; at least four elements are needed. In the displayed table the three successive sets are {0,a,b}, {0,a}, {0}, with b²=a≠0. An independent bounded check iterated all tables with absorbing 0 (base-m digits for the (m−1)² nonzero-input cells), applied the recurrence three times, and tested C_1·C_1: orders 1,2,3 give respectively 1,2,81 tables, of which 1,1,3 are 3-nilpotent and none separates. The frozen check_minimal.py was inspected, not executed; the proof does not rely on it. This is only the two commutator notions at level 3 with absorbing zero, not a classification of all optimal tables.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 5.4 uses separate labels for the vertices of a balanced binary tree, with products a_(2i)·a_(2i+1)=a_i and all other products zero. At n=3 it has 2³ elements."
+        ],
+        "reasoning": "A uniform example at all levels is broader in level but not sharp in order here. Identifying its distinct leaf labels to get the four-element diagonal table is not an algebra quotient: leaf squares originally zero would have to become the nonzero diagonal product.",
+        "searches": [
+          "arXiv:2610.03348v1, Theorem 4.7, Proposition 5.3 and Example 5.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03348v1 §§4–5",
+        "Local Resultary search, including 47b935115a7c as a different property",
+        "Targeted primary-literature lookup for a minimum-order absorbing-zero separator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source has the required vanishing and obstruction criteria, and §5 gives the descending-product recursion. These give the lower bound; the specified tree example supplies only the upper bound eight."
+        ],
+        "reasoning": "The exact minimum also needs an attaining table of order four. The repeated operands c²=b and b²=a realize the obstruction with fewer distinct elements; the criteria test this construction rather than supplying it.",
+        "searches": [
+          "arXiv:2610.03348v1, Theorem 4.7, Proposition 5.3, Example 5.4 and Definition 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 5.1 fixes two-sided absorption; Proposition 5.3 expresses the separating condition as 3-nilpotence and a nonzero value of (xy)(zt).",
+          "The superficially similar indexed 47b935115a7c is about finite-basis witnesses in commutative nilpotent power semirings, not this term-commutator separation."
+        ],
+        "reasoning": "The nonzero balanced product is the correct alternative formulation to compare; nilpotence in the title of a finite-basis witness supplies neither that obstruction nor the same algebra class.",
+        "searches": [
+          "Local Resultary: smallest absorbing-zero groupoid separating 3-nilpotence and 3-supernilpotence",
+          "Literature lookup on the corresponding minimum-order separation",
+          "arXiv:2610.03348v1, Definition 5.1 and Proposition 5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available primary example explicitly specifies the nonzero entries and yields an eight-element table at level 3; the four-element table was not located in the scoped search."
+        ],
+        "reasoning": "A table match depends on the multiplication or its isomorphism type and the absorbing-zero/term-commutator criterion, not merely on a catalog of small groupoids. No qualifying earlier table was identified; keyword misses alone are not treated as proof.",
+        "searches": [
+          "Local Resultary minimum-order lookup",
+          "arXiv:2610.03348v1, Example 5.4; in-paper lookups for minimum cardinality and four-element"
+        ]
+      },
+      "rationale": "The strongest inspected predecessor gives the criteria and a separation construction of order eight at level three, not the sharp minimum or the order-four construction. The lower bound alone follows promptly from the prior depth criterion; the distinct claim credited is sharpness at four, witnessed by a different multiplication table. The evidence is best-of-search, not a global priority assertion.",
+      "residual_risks": [
+        "An unindexed small-algebra example could already exhibit a four-element separator; the targeted search does not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: definitions, criteria, and a larger witness; no sharpness at four in these statements",
+          "evidence": [
+            "Theorem 4.7 is depth-at-least-n vanishing; Proposition 5.3 gives the additional (G²)² condition.",
+            "Example 5.4 uses 2^n elements; Definition 5.5 gives the product recursion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03348v1",
+          "material_read": "Theorem 4.7 (PDF p. 10); Definition 5.1 and Proposition 5.3 (p. 12); Example 5.4 and Definition 5.5 (pp. 13–14)",
+          "method": "Targeted searches and bounded original OA PDF passages",
+          "title": "(Super)nilpotency and solvability in algebras with zero",
+          "trigger": "Initiating source, exact definitions and earlier separators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source establishes a real distinction between the two commutator notions at the first separating level. The exact least order is a natural boundary, not an arbitrary table truncation; the four-element witness shows how repeated operands avoid the source example's eight distinct elements while retaining the nonzero balanced product. The result gives a minimal concrete test case for the difference.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Each three-agent block is IR exactly when its induced friendship graph has at least two edges, a condition independently tested by reachability. The unordered two-block partitions are enumerated without repetition by placing agent zero in the first block and choosing its other two members in ten ways. Lexicographic enumeration of all \(2^{15}\) friendship masks is mathematically exhaustive, yielding a finite exact coefficient table and probability \(6437/8192\) at \(p=1/2\). The eight-edge isolate-only boundary also has a complete noncomputational proof by maximum-degree cases. The seven-edge classes and all probability coefficients were checked from the standalone program and independently against the unlabeled six-vertex graph atlas with automorphism orbit weighting. Boundaries \(p=0,1\), all 16 edge-count strata, all 11 partition counts, and both obstruction orbits were checked. General graph results are not inferred from sampling.
+PASS
 
-## Originality — PASS, qualified
+A triple is IR exactly when none of its vertices has two hostile partners, equivalently its induced friendship graph is connected. The independent replay tested all 32,768 labeled simple graphs, testing all 20 triples and pairing each with its complement (each unordered partition is counted twice). It matched every one of the 176 CSV entries, all binomial row totals, 25,748 feasible graphs (6437/8192 at p=1/2), and the two seven-edge positive-minimum-degree obstruction classes (15 and 90). Independent-edge sampling supplies the p^j(1-p)^(15-j) weight per graph, with no further binomial factor. For the analytic dense cutoff, a universal vertex leaves a five-vertex graph with at least three edges, hence two adjacent edges; a degree-four vertex can pair its unique nonneighbor with two neighbors, or the nonneighbor and its sole neighbor with a common third vertex from the degree-four vertex's neighborhood, or use the connected remaining three neighbors if the latter is unavailable. With maximum degree three, eight edges yield degrees (1,3,3,3,3,3) or (2,2,3,3,3,3), and nine give a cubic graph. Deleting the leaf in the first case leaves K5 minus P3 and K2, with the stated spanning path through the leaf. In the second case the two deficient vertices can be joined if nonadjacent and Dirac's theorem applied to the augmented graph; if adjacent, start through them and follow a Hamiltonian path from a prescribed vertex in K4 minus one edge. A six-vertex spanning path splits into two connected triples. Isolation obviously obstructs. The two explicit seven-edge witnesses leave either a K2 component or five vertices covered only by a matching on removal of the universal vertex, so neither can work. The first moment follows by block independence and the all-ten law by counting matching hostility graphs. Scope: exactly six agents, two unordered size-three blocks, symmetric +/-1 preferences; only the probability model assumes independent equal-p edges. The finite census is exhaustive, not a proof for other sizes.
 
-The existence equivalence with spanning two connected triples / a \(P_3\)-factor is classical and is explicitly **not** claimed as new. The March 23, 2026 constrained-ASHG paper establishes complexity and algorithms, not an exact labeled six-agent random law in the portions inspected. The August 14, 2026 friend-oriented extension studies the same restriction when all pairs are friends or enemies, but its accessible summary focuses on complexity, not the exact distribution. The classical 2001 path-factor work addresses claw-free factor sufficiency rather than the present complete finite probability and obstruction classification in its accessible abstract. Searches for the exact count, probability, polynomial, path-factor equivalents, and six-vertex isolation-only boundary did not reveal a dominating formula. Search failure is not proof of novelty: the August 2026 manuscript and the full 2001 article were not materially accessible, and an unindexed equivalent finite classification remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Six agents are the first balanced three-person coalition market with a nontrivial choice between multiple full partitions. The complete joint statistic counts exact existence probability, all ten multiplicities, and the first sharp density cutoff that reduces infeasibility to isolated agents. It provides a reproducible risk and robustness baseline for constrained coalition assignment, a natural question not answered by asymptotic or computational-hardness statements. The edge threshold has a direct analytic explanation; it is not merely a selected parameter substitution or a recomputation of a supplied table.
+The supported distinct claim is the joint edge-layer and connected-triple-partition multiplicity census together with the sharp six-vertex obstruction layer. Neither the P3-factor existence equivalence nor the general constrained-IR model is new. The inspected statements do not supply the claimed law or its sharp obstruction classification.
 
-## Scientific boundaries
+## value
 
-Exact results are limited to symmetric pair values \(\pm1\), unlabeled groups of size three, and six agents for the finite distribution. The stated edge cutoff is not an arbitrary-size graph theorem. No strategic stability stronger than individual rationality is proved. Literature coverage remains qualified where primary full text was inaccessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two size-three blocks are the first balanced triadic instance with a choice among full partitions. The joint law answers both how frequently assignment is possible and how many alternatives remain, at every friendship density. The isolate-only threshold and exact preceding obstruction types give a structural explanation at the dense edge of the law, not merely a graph-atlas recount. This is a finite baseline for symmetric constrained allocation, not a conclusion about larger markets or strategic stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

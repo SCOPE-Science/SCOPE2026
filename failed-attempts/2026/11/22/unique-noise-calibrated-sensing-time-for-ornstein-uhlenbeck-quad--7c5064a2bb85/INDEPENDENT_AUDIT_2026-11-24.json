@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:54:16.854558Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–86 and 88–93; VERIFICATION.md; verify.py; requirements.txt (inspected, not executed)",
+        "Independent replay: python -B /workspace/review-evidence/recompute.py 5"
+      ],
+      "rationale": "The conditional energy estimator and risk follow from Gaussian regression and Var(Y^2)=2 Var(Y)^2; minimizing risk is maximizing the nonnegative H/(V+eta). For v=V+eta, H'=V'D gives (vD-H)'=vD'. Its derivative is positive on (0,1/2) and negative on (1/2,1), with vD-H equal to zero at 0 and strictly negative at 1 by sinh(2 lambda)>2 lambda. This gives the unique interior optimizer even when eta=0, since H<=V^2 and H/V tends to zero at the uninformative endpoint. At the optimizer D>0; increasing eta makes vD-H positive at the old optimizer, so the new optimizer strictly increases. Uniform convergence of (vD-H)/eta to D proves the high-noise location. Integrating the covariance square gives the variance normalization and uniform covariance convergence on the unit square gives the Brownian check. Independent integral and derivative checks at five rates and four noise levels gave x=0.707859237041563 and 0.746564036859439 at lambda=1, eta=0 and 0.2, respectively, with noiseless risk 0.0241537898654694. No finite grid is used for the global signs.",
+      "residual_risks": [
+        "The numerical replay uses bounded damping, since direct quadrature and subtraction need not resolve exponentially small derivatives at large damping. The theorem there is supported by the analytic sign proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The trajectory theorem covers every positive damping and positive noise and also gives the first-order high-noise displacement; the linear-functional result has a different gain and the large-deviations paper studies functional distributions."
+        ],
+        "reasoning": "The broader high-noise expansion already accompanies the same optimizer; only the zero-variance endpoint is outside its stated parameter range. The other works do not supply additional exact coverage of the central claim.",
+        "searches": [
+          "80ea10271416 §§Finding, Assumptions and Proof; OA offsets 0–5348",
+          "Local Resultary: linear integrated OU design, matching record cbf9c855a342; arXiv:2202.07348"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 80ea10271416 and cbf9c855a342",
+        "Folia–Rattray (2017); Sikolya–Baran (2018); Nickelsen–Touchette (2022); Palamarchuk (2020) access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The comparator's E_a(t) is negative on (0,1/2], strictly increasing to +infinity on (1/2,T_a), and the trajectory gain is decreasing for t>=T_a. That same proof applies to E_a(t)=0 when eta=0; continuity of H/V at zero gives the boundary comparison."
+        ],
+        "reasoning": "The optimizer, noise monotonicity including the endpoint, and high-noise root follow directly. The additional exact estimator and risk require only the second conditional Gaussian moment and the fourth-moment identity. The same-day indexing gives no historical ordering.",
+        "searches": [
+          "80ea10271416 §Proof, offsets 0–5348; original RESULT.md lines 35–86"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "80ea10271416, §Finding and §Proof: the trajectory risk equals an x-independent constant minus J=H/(V+eta); frozen §Proof gives energy risk Var(Q)-2J^2",
+          "The stationary complex OU and temporally aggregated linear inference papers have different observation or initialization models."
+        ],
+        "reasoning": "As J>=0, the two risk minimizations have identical optimizer sets. Distinct loss functions do not give a distinct optimal design in this one-observation model.",
+        "searches": [
+          "Local Resultary: same OU quadratic, integrated variance and one-site observation designs; matching record suffix 80ea10271416",
+          "Frozen citations: Sikolya and Baran, arXiv:1808.03444; Folia and Rattray, DOI 10.1007/s11222-017-9779-x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "80ea10271416 gives the exact defining equation e^(4aT)=1+4aT e^(2a), the same Brownian limiting root, and concrete numerical examples; it is not the frozen record itself."
+        ],
+        "reasoning": "These exact equations are already indexed in the equivalent formulation. The comparison rests on full parameter-dependent gains, not on matching one numeric entry.",
+        "searches": [
+          "Local Resultary matching theorem records 80ea10271416 and cbf9c855a342; read comparison theorem and verification at 80ea10271416, offsets 0 and 3788"
+        ]
+      },
+      "rationale": "A distinct same-day indexed result proves the same sensing-time law under the same zero-start scalar OU covariance and independent noise for eta>0. This is demonstrable mathematical coverage, not a claim of priority: quadratic-energy Bayes risk is a strictly monotone transform of the same nonnegative observation gain as integrated conditional trajectory variance. The comparator's proof also supplies all signs needed to set eta=0. The quadratic conditional estimator and risk expressions are not explicitly in that record, but are direct Gaussian conditioning and covariance integration rather than a separate optimization law.",
+      "residual_risks": [
+        "No historical priority order was established between same-day records.",
+        "No full text of Palamarchuk was recovered. The failure is based on positive equivalent-criterion coverage, not this unavailability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the optimizer for positive noise; proof extends directly to zero noise",
+          "evidence": "Same J=G_a/(q_a+eta); same high-noise root; strict right-half monotonicity of E_a across zero.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-noise-monotone-observation-time-for-a-zero-initialized--80ea10271416/RESULT.md",
+          "material_read": "Finding, assumptions, proof and verification at offsets 0–5348; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, bounded statement and proof passages",
+          "title": "A unique noise-monotone observation time for a zero-initialized Ornstein–Uhlenbeck trajectory",
+          "trigger": "Exact same-process integrated-prediction comparison"
+        },
+        {
+          "assessment": "Adjacent, not the decisive equivalent formulation",
+          "evidence": "Linear target integral X_s ds instead of integral X_s^2 ds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-noisy-one-site-design-for-a-zero-start-ornstein-uhlenbeck--cbf9c855a342/RESULT.md",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Unique noisy one-site design for a zero-start Ornstein–Uhlenbeck process",
+          "trigger": "Same model and qualitative optimum"
+        },
+        {
+          "assessment": "Different sampling model in the inspected passage",
+          "evidence": "Kalman inference with temporally aggregated observations, not one-site placement.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-017-9779-x",
+          "material_read": "Open Springer PDF page 1, offsets 0 and 2329",
+          "method": "OA PDF excerpt",
+          "title": "Trajectory inference and parameter estimation in stochastic models with temporally aggregated data",
+          "trigger": "Citation on OU trajectory inference"
+        },
+        {
+          "assessment": "Stationary complex process differs from the frozen process",
+          "evidence": "Integrated prediction error and entropy with stationary initial law.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.03444",
+          "material_read": "OA PDF page 1 at offset 1644 and adjoining initialization description",
+          "method": "OA PDF excerpt",
+          "title": "On the optimal designs for the prediction of complex Ornstein–Uhlenbeck processes",
+          "trigger": "Integrated prediction design could be equivalent"
+        },
+        {
+          "assessment": "Different objective in the inspected passage",
+          "evidence": "Distribution and large deviations of time-integrated moments.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.07348",
+          "material_read": "OA PDF page 1, offset 0",
+          "method": "OA PDF excerpt",
+          "title": "Noise correction of large deviations with anomalous scaling",
+          "trigger": "OU quadratic functional citation"
+        },
+        {
+          "assessment": "Not assessed for coverage; not used to fail",
+          "evidence": "No decisive passage available.",
+          "identifier_or_url": "https://doi.org/10.1137/S0040585X97T989799",
+          "material_read": "Bibliographic information only; publisher text unavailable and no repository copy located",
+          "method": "Lawful OA lookup and DOI recovery",
+          "title": "On Upper Functions for Integral Quadratic Functionals Based on Time-Varying Ornstein–Uhlenbeck Process",
+          "trigger": "Potentially close quadratic functional"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof; Resultary 80ea10271416 §§Finding and Proof"
+      ],
+      "rationale": "A one-measurement energy design is naturally motivated, but its exact design result is already mechanically supplied by the trajectory-variance optimizer. The remaining posterior formula, variance integration, and inclusion of eta=0 are routine consequences in the same model; no independent valuable design claim remains to repair.",
+      "residual_risks": [
+        "This conclusion does not assess different observation architectures or multiple observation times."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

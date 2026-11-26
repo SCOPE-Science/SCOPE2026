@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducing the mathematical certificate
+# Independent mathematical audit
 
-Execute `python3 verify.py` in the directory containing this file. The executable uses only the Python standard library. Expected summary: `VERIFY_OK checks=57769 edges=128 ones=16`.
+## correctness
 
-The independent mathematical ingredients are the explicit rule and involution factor, the complete finite 64-vertex pair graph with 128 edges, the given 64-entry potential, the reduced-cost check, and the exclusion of a path made exclusively of zero-cost edges from the head to the tail of each 1-cost edge. The last exclusion is a finite exact directed reachability calculation, not a sampled estimate. The program checks explicit witnesses on 200 lengths and the stability of their finite four-symbol window sets; the paper's repeating-word proof explains why that covers all positive lengths. It additionally enumerates all input fibers on cyclic rings of sizes 1 through 12 and checks the factorization against the original five-neighbor rule.
+PASS
 
-**Limits:** This is a self-reviewed proof with an exact reproducible finite graph computation, not an independent scientific audit. The short-ring enumeration alone would be insufficient for the universal statement. No search result is treated as a uniqueness certificate.
+The rule is D∘σ∘K by expansion. Any active marker conflicts with markers at offsets ±1 and ±2, so all guards of active markers survive the update. A new marker could only be within these offsets of an old active marker, which still excludes it. Thus K is an involution, also for N=3,4 by the same modular guard identities (for N=1,2 the guard vanishes). Cyclic D has kernel consisting of the two constants and even-parity image by rank and telescoping. In the pair de Bruijn graph, even for short rings, overlapping triplets reconstruct the entire periodic symbol word with multiplicity of sites, so closed walks encode exactly the complementary K-images and weight is Hamming distance. I independently enumerated the 256 candidate windows with a truth table and checked reflexive zero-cost reachability by Boolean transitive closure. Reduced costs 0,1,2 occur on 40,16,72 edges respectively, and no cost-one edge has a zero-cost return. Telescoping gives 3·distance−N ≥ 0 and excludes 1, the extra obstruction for N≡2. For the witness motifs, two period-three repetitions suffice to contain all periodic windows and stabilize the windows on both sides of the defect block: a length-four crossing uses at most three symbols from either side, cannot bridge a run of length six, and the pure run contains all three phases. Checking the two defects with zero, one and two repetitions, the pure period-three word and the singleton verifies all witnesses and their weights. An additional direct check of the unfactored rule exhausted N=1..10. Private replay: python3 /workspace/branches/check_twin_certificate.py. The supplied verifier was inspected, not executed; bounded direct checks alone are not the all-length proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge pass for the sharp minimum over cyclic preimage twins, including the full mod-three law. The local rule, marker involution and binary difference kernel are not new. The closest inspected statements identify the rule or give other collision invariants; they do not determine this optimized positional distance.
+
+## value
+
+PASS
+
+The rule is independently singled out in a classification of small-neighborhood automata. Fiber cardinality does not quantify the worst ambiguity: the formula establishes the exact least number of sites needed to distinguish colliding cyclic states, down to short rings and the stronger 3k+2 obstruction. The structural obstruction and constructive witnesses, rather than a finite table of small N, give this invariant independent use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

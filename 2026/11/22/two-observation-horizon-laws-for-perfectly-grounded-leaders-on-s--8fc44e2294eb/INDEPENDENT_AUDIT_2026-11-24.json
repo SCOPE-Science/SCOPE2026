@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:00:42.600975Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every exact-budget leader set is leaf-only or hub-containing, and permutations of leaves are transitive on each type. The original-degree follower block is I_(m−k+1) when the hub is pinned. When k<m leaves only are pinned, the leaf zero-sum space has dimension m−k−1 and eigenvalue 1. On the hub and normalized constant-leaf vector the block is [[m,−√(m−k)],[−√(m−k),1]], of trace m+1 and determinant k; its polynomial is negative at 1 and roots satisfy 0<λ_-<1<λ_+. If k=m the spectra instead are {m} versus {1}, giving strict leaf-only wins. Symmetry makes the squared propagator norm exactly tr exp(−2TL_FF), and integrating gives the covariance trace for unit Brownian forcing and zero initial state. Subtracting the common unit modes and multiplying by exp(2T) yields exp(2αT)+exp(−2βT)−2, with derivative at zero 2(1−m), strict convexity, and divergence to +infinity; thus one positive root with the asserted type switch. The integrated difference starts at zero, decreases to T_Q, then increases to (m+1−2k)/(2k) via the sum and product of λ_±. It crosses once after T_Q exactly when that limit is positive; in the equality case it stays strictly below zero at every finite horizon. At fixed k the two nonunit eigenvalues tend to 0 and +infinity. Uniform convergence of the sign comparisons on compact intervals away from zero lets one bracket the unique positive roots on both sides of log(2)/2 and of the positive root of T−1+exp(−2T)=0, giving τ_0/2. The final persistent discrepancy applies to the overlap 2k≥m+1 and k<m, with k=m handled separately as in the Finding. Section 4 of python /workspace/review_reproduction.py checks exact small grounded blocks, the equality boundary and the stated finite examples; this does not establish the full all-budget result on its own. The proof assumes unit spokes and isotropic forcing and does not transfer to general weighted stars.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact arbitrary-weight star inverse-trace result contains the original's stationary unit-weight comparison, while Lin et al. and Clark et al. formulate the wider stationary grounded inverse-trace objective.",
+          "The finite-time primary method gives topology-dependent convergence error bounds and algorithms; it does not contain an exact transient heat-trace star classification."
+        ],
+        "reasoning": "The stronger weighted graph family is broader only at stationarity. Neither its theorem nor a steady-state noise objective determines the finite root of a signed heat-trace difference.",
+        "searches": [
+          "Resultary 58eb0fc2195a, Finding and threshold section",
+          "arXiv:1302.0450, §III.A LS2",
+          "arXiv:1208.0946, §II.B",
+          "arXiv:1306.4949, contributions and §III.B"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 58eb0fc2195a, 0e0758755828, 20df106d32f1, 584b3e9234a1",
+        "Clark et al. arXiv:1306.4949 and arXiv:1208.0946",
+        "Lin et al. arXiv:1302.0450"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The weighted-star limit supplies the integrated difference at infinity but does not force any specific finite-time sign pattern, in particular strict negativity all the way to a zero limit.",
+          "The other heat-trace results use distinct graph spectra and do not imply the two-exponential star difference, its one-zero property and its integrated crossing behavior.",
+          "The integrated large-star limit requires both nonunit modes' finite-time limits, not just their sum of inverse eigenvalues."
+        ],
+        "reasoning": "The finite-time conclusions are not parameter substitutions. They use a signed two-mode cancellation, a one-crossing convexity argument, and an integrated sign/limit argument not available from the stationary ordering alone.",
+        "searches": [
+          "Resultary 58eb0fc2195a, threshold and complexity passage, offset 2641",
+          "Resultary 0e0758755828, finite-time and large-q phase statements",
+          "Resultary 20df106d32f1 and 584b3e9234a1, all-time ordering results",
+          "Frozen RESULT.md, Proof steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The K_(2,q) heat trace tr exp(−tL_FF) equals the same instantaneous criterion after t=2T; its domain is exactly two leaders on K_(2,q), not K_(1,m).",
+          "The cycle and cocktail-party records use the same heat trace and integrated covariance criteria. The primary finite-time convergence paper includes both instantaneous and integrated deterministic errors, but uses p-norm distance from a leader-state convex hull rather than a trace."
+        ],
+        "reasoning": "Trace time scaling is an exact reformulation, and covariance equals its positive primitive here. Neither equivalence changes the grounded graph, leaders, or noise observable. Integrating a deterministic distance bound does not give this covariance trace.",
+        "searches": [
+          "Resultary 0e0758755828, Finding and spectra",
+          "Resultary 20df106d32f1 and 584b3e9234a1, Findings",
+          "arXiv:1306.4949, §III.B, Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The weighted-star entry contains the exact stationary cutoff 2k=m+1 after specializing all spokes to one.",
+          "The K_(2,q) entry contains a log(2) large-size heat-trace boundary, but it separates leader placements on a two-hub complete bipartite graph under a fixed budget of two. The cycle and cocktail-party optimizers do not switch."
+        ],
+        "reasoning": "Exact symbolic rankings in the result catalogue are the relevant prior tables. The shared numerical log(2) time after scaling does not establish equivalence of phases, and the exact stationary match is explicitly credited.",
+        "searches": [
+          "Resultary 58eb0fc2195a, 0e0758755828, 20df106d32f1 and 584b3e9234a1, exact Findings"
+        ]
+      },
+      "rationale": "The steady-state star threshold is a specialization of the weighted-star result and is not original here. The supported distinct claim is the exact pair of finite-horizon placement laws for all unit-star budgets, their strict discrepancy including finite horizons at a stationary tie, and the two fixed-budget limiting times. Closely matching objective families elsewhere use different graph spectra or a different error functional.",
+      "residual_risks": [
+        "Bounded literature comparison does not rule out an unindexed equivalent finite-horizon star theorem.",
+        "The dates of related same-day objective-family records do not fix priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct stationary overlap, no finite-time implication",
+          "evidence": "For each budget compare the k weakest leaves with center plus k−1 weakest leaves, using inverse trace.",
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-noise-free-leaders-on-an-arbitrarily-weighted-star-two-c--58eb0fc2195a",
+          "material_read": "Finding and threshold/complexity passages, mirror offsets 0 and 2641",
+          "method": "Resultary and local-mirror inspection",
+          "title": "Optimal noise-free leaders on an arbitrarily weighted star: two candidate sets and a re-entrant hub",
+          "trigger": "Exact weighted-star stronger family"
+        },
+        {
+          "assessment": "Different graph, budget scope and no integrated law",
+          "evidence": "K_(2,q), q≥9, exactly two leaders, three placement types, with log(φ) and log(2) limiting phase boundaries.",
+          "identifier_or_url": "2026/11/22/SCOPE-three-finite-horizon-optimal-leader-types-on-complete-bipartite--0e0758755828",
+          "material_read": "Finding, spectra and asymptotic phase law, offsets 0 and 2831",
+          "method": "Resultary and local-mirror inspection",
+          "title": "Three finite-horizon optimal leader types on complete bipartite networks",
+          "trigger": "Same transient heat-trace objective and bipartite graph family"
+        },
+        {
+          "assessment": "All-time optimum on cycles instead of star switches",
+          "evidence": "Balanced gaps minimize every positive-time heat trace and positive-weight integral.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-time-schur-convexity-of-grounded-cycle-heat-traces-and-exact--20df106d32f1",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local-mirror inspection",
+          "title": "All-time Schur convexity of grounded cycle heat traces and exact optimal leaders",
+          "trigger": "Both exact objectives on symmetric graphs"
+        },
+        {
+          "assessment": "Different graph and all-time ranking",
+          "evidence": "Strict positive-time heat-trace ordering extends to finite-horizon noise on that graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-all-time-grounded-heat-trace-ordering-on-cocktail-party-networks--584b3e9234a1",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary and local-mirror inspection",
+          "title": "All-time grounded heat-trace ordering on cocktail-party networks",
+          "trigger": "Exact all-budget transient and covariance ordering"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Deterministic distance error f_t(S) and its integral, with random-walk bounds, rather than exact heat traces or finite-horizon forced covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.4949",
+          "material_read": "Contribution passage PDF p. 3 and §III.B Definition 1 and following discussion, pp. 7–8",
+          "method": "Targeted open-access full-text passage inspection",
+          "title": "Minimizing Convergence Error in Multi-Agent Systems via Leader Selection",
+          "trigger": "Primary antecedent on transient and integrated leader objectives"
+        },
+        {
+          "assessment": "Stationary baseline",
+          "evidence": "Noise-free-leader objective tr(L_f^−1).",
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+          "material_read": "§III.A LS2, PDF p. 6",
+          "method": "Targeted open-access full-text passage inspection",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Same stationary covariance objective"
+        },
+        {
+          "assessment": "Steady-state formulation",
+          "evidence": "Steady-state noise error is one half the grounded inverse trace.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.0946",
+          "material_read": "§II.B, Definition 1 and Theorem 1, PDF pp. 8–9",
+          "method": "Targeted open-access full-text passage inspection",
+          "title": "A Supermodular Optimization Framework for Leader Selection under Link Noise in Linear Multi-Agent Systems",
+          "trigger": "Grounded inverse-trace precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two exact criteria are the response to initial isotropic errors and to accumulating isotropic noise. Their optimization is different even on a canonical symmetric network. The law specifies both thresholds when both exist, and explains exactly when the leaf-only covariance choice persists despite eventual hub preference for the instantaneous criterion, including at a stationary tie. The fixed-budget limits make the distinction quantitative and robust. This is an exact unit-star classification, not a general prescription for stochastic networks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

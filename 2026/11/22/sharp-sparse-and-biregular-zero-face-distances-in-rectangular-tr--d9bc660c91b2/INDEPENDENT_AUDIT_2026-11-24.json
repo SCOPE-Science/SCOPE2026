@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:41:37.580099Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57 and 60; VERIFICATION.md line 19; verify_transport.py lines 11–103, inspected, not executed",
+        "Independent bounded feasibility check: enumerate relevant masks at 3x4 and 3x6, retaining masks with n|R|<=m|N(R)| for every row subset R in the allowed bipartite graph. Compare integer mnG with the two sharp degree caps. At 3x4 the sparse feasible masks comprise 72 matchings and 210 strict degree gaps; at 3x6 they comprise 228 matchings and 753 strict gaps, and the divisible cases include 180 biregular masks and 15480 strict degree gaps."
+      ],
+      "rationale": "For B the indicator of the forbidden cells, double-centering gives the orthogonal projection PB because the discarded row/column effects pair to zero with all zero-margin matrices. Each feasible X satisfies <X-U,PB>=-k/(mn). Thus feasibility implies PB is nonzero, and Cauchy–Schwarz gives the degree bound. Its denominator comes from <PB,B>=k-sum(r_i^2)/n-sum(c_j^2)/m+k^2/(mn). For k at most min(m,n), each degree square sum is at least k, with simultaneous equality precisely for a matching. In that case every (PB)_ij on the mask is D/(mn), where D=(m-1)(n-1)+k-1. The candidate U-PB/D has zero forbidden entries, correct margins, and off-mask entries with numerators mn, n(m-1), m(n-1), or mn-m-n over mnD, all nonnegative. It is an equality case of Cauchy–Schwarz, proving attainment; strictness for every other feasible mask follows from the degree bound. For the divisible case, alternatively use ||X-U||_F^2=||X||_F^2-1/(mn) and apply Cauchy–Schwarz to the mn-k allowed cells of total mass one. Equality forces constant mass there, which has the required margins exactly when the mask is biregular. Its existence follows by giving each row a consecutive block of k/m distinct residues from the sequence 0 through k-1 modulo n; whole residue cycles give k/n in each column. These arguments address uniqueness and all claimed endpoints. The frozen line 60 calls the 941 optional cases nonmatching, but the script counts all feasible iterations, including matching and singleton masks, and may sample duplicates. That changes neither theorem nor equality proof.",
+      "residual_risks": [
+        "The finite check certifies degree inequalities on enumerated feasible masks, not distances via numerical optimization or the unrestricted theorem. The theorem asserts no optimizer at arbitrary intermediate k or for nonuniform margins."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Achilles is documented as involving square doubly stochastic matrices with a fixed zero pattern and permanents. The available record gives no theorem-level distance comparison. Uniform allowed-cell mass gives the stated elementary bound and biregular equality directly."
+        ],
+        "reasoning": "A square zero-pattern theorem would require a mathematical transfer to cover even the unequal-rectangular sparse matching optimum. No such theorem or transfer was established from available passages. The divisible result's mass-bound argument is kept distinct from the novel mask comparison.",
+        "searches": [
+          "Resultary: biregular zero patterns and closest feasible matrix to uniform in unequal rectangular transportation polytopes",
+          "Bachem–Korte (1980), Calvillo–Romero (2016), and Achilles (1977) primary retrieval attempts"
+        ]
+      },
+      "checked_sources": [
+        "Primary abstracts of Torres 2306.11910v1 and Koehl 2404.16791v1; metadata and access attempts for Achilles, Bachem–Korte and Calvillo–Romero",
+        "Resultary exact entry d9bc660c91b2 and distinct indexed summaries dbb208ea5834 and 6522264cb481",
+        "One broad primary-search submission was unavailable; it provided no evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Torres gives normality and a fractional/integral matching-polytope correspondence, Koehl an extreme-point characterization with row and column bounds. Neither inspected statement evaluates Euclidean distance or the degree collision gap."
+        ],
+        "reasoning": "A matching-polytope description does not imply that matching masks give the nearest feasible zero face; this requires the doubly centered variance comparison and a nonnegative equality witness. Similarly, vertex enumeration is not a Euclidean projection or a fixed-k comparison.",
+        "searches": [
+          "Torres arXiv:2306.11910v1 Abstract; Koehl arXiv:2404.16791v1 Abstract; Bachem–Korte DOI 10.1016/0024-3795(80)90211-6; Calvillo–Romero DOI 10.1016/j.dam.2015.01.027"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On any fixed feasible mask, squared distance to U equals squared Frobenius norm minus 1/(mn), since every matrix has mass one. Calvillo–Romero (2016) and Bachem–Korte (1980) address the minimum-norm transportation formulation by title and available metadata."
+        ],
+        "reasoning": "A general fixed-mask nearest-point problem is an equivalent description of the inner minimization. An algorithm or formula for an individual mask alone does not classify the minimizing masks of given cardinality. The full prior scope on structural classifications is unresolved.",
+        "searches": [
+          "Resultary: minimum Euclidean or Frobenius norm point in transportation polytope and distance-to-uniform for prescribed zero constraints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d9bc660c91b2 is the identical record, not an independent comparison. dbb208ea5834 concerns intrinsic inradii and centers of transportation polytopes, while the distinct same-day 6522264cb481 concerns pair distances between random vertices of the doubly substochastic polytope."
+        ],
+        "reasoning": "Neither indexed distinct statement optimizes uniform-point distance over fixed-cardinality coordinate-zero faces. In particular it is the different pair/face objects, not the date of a listing, that distinguish the near match.",
+        "searches": [
+          "Resultary: fixed-cardinality forbidden-entry patterns minimizing Frobenius distance from the uniform point in rectangular transportation polytopes; partial matching masks",
+          "Resultary: sharp distance from uniform matrix to feasible coordinate-zero faces of transportation polytopes with fixed number of zeros; matching patterns"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the fixed-cardinality mask comparison, especially the exact sparse matching optimum and characterization, tied to a degree-sensitive certificate. The elementary allowed-cell mass bound and the general idea of projecting in a transportation polytope are not credited as independent new results. General fixed-mask minimum-norm work is directly relevant; its unresolved full-text scope is recorded rather than treated as evidence of noncoverage.",
+      "residual_risks": [
+        "Full text of the two minimum-norm transportation sources and the earlier square zero-pattern paper was unavailable, so their coverage of mask constraints or structural classification could not be excluded. The bounded literature and index checks do not establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible coverage of per-mask inner minimization; structural theorem scope not established",
+          "evidence": "Confirmed title, journal 31 (1980), pp. 103–118. Full text not retrieved.",
+          "identifier_or_url": "https://doi.org/10.1016/0024-3795(80)90211-6",
+          "material_read": "Crossref and Elsevier bibliographic metadata only; no theorem passage",
+          "method": "Publisher and bounded lawful OA attempts",
+          "title": "Minimum Norm Problems over Transportation Polytopes",
+          "trigger": "Potentially stronger minimum-Frobenius-norm method on masked faces"
+        },
+        {
+          "assessment": "Strong objective overlap, with outer fixed-k scope unresolved",
+          "evidence": "Confirmed title and pp. 88–102. The frozen record describes an algorithm, not independently verified against the full text.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2015.01.027",
+          "material_read": "DOI metadata and OA-location listing; no theorem passage",
+          "method": "Publisher PDF and bounded OA attempts",
+          "title": "On the Closest Point to the Origin in Transportation Polytopes",
+          "trigger": "Equivalent objective at fixed total mass"
+        },
+        {
+          "assessment": "Plausible square-related risk; no demonstrated coverage",
+          "evidence": "Title and Linear and Multilinear Algebra 5 (1977), pp. 63–70; no distance result inferred from title.",
+          "identifier_or_url": "https://doi.org/10.1080/03081087708817175",
+          "material_read": "Crossref bibliographic record, no abstract or theorem passage retrieved",
+          "method": "Publisher and bibliographic lookup",
+          "title": "Permanents of Doubly Stochastic Matrices with Fixed Zero Pattern",
+          "trigger": "Earlier fixed-zero patterns in square transportation matrices"
+        },
+        {
+          "assessment": "Inspected statement is about polytope structure",
+          "evidence": "Abstract defines the convex hull of cardinality-k matchings and treats normality and fractional matching polytopes.",
+          "identifier_or_url": "https://arxiv.org/html/2306.11910",
+          "material_read": "Abstract",
+          "method": "Bounded arXiv HTML inspection",
+          "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+          "trigger": "Same partial matching objects"
+        },
+        {
+          "assessment": "Inspected statement concerns vertices, not distances",
+          "evidence": "Abstract treats matrices with row and column bounds and their extreme points.",
+          "identifier_or_url": "https://arxiv.org/html/2404.16791",
+          "material_read": "Abstract",
+          "method": "Bounded arXiv HTML inspection",
+          "title": "Extreme Points of General Transportation Polytopes",
+          "trigger": "Same rectangular transportation setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–26 and 43–57"
+      ],
+      "rationale": "The center-to-face distance is a natural Euclidean invariant for a fixed number of imposed zeros. The exact classification resolves whether collisions of forbidden positions can ever make the nearest face closer in the sparse regime, and quantifies the trade-off through degree dispersion. The attained bound distinguishes separated sparse masks from balanced dense ones and is more informative than a per-mask optimization routine.",
+      "residual_risks": [
+        "No unproved extension to all cardinalities, nonuniform margins, or practical transport optimization is credited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:58:15.251318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a root in layer i, its downset contains all earlier layers and the root. The weights are zero there, one on its layer peers, and the sum of m_a for i≤a<j on layer j>i. Thus the initial cone is followed by the joins of the full first j layers; m_i≥2 separates the first two positive thresholds when both exist. The shifted tensor product of the augmented chains of the discrete layers has reduced homology free of rank M_j in degree j−1 only. The inclusion into the next join factors through the cone on any new vertex, killing reduced homology. In degree zero the class of the root splits off naturally, leaving the reduced transient part exactly as stated. For a bottom root the largest degree gives r, the first finite deaths give m_1, the subsequent finite lengths give the intervening sizes, and M_r/M_{r-1}+1 gives m_r, also for r=2. The top births strictly decrease with the layer of the root, down to 1 for the top root. In top degree the equal numbers of essential bars must match to each other, at exact cost D−1. The difference of the two pointwise weights on U_y is the difference of the counts of U_y in the two opposite downset differences, so its absolute value is bounded by the larger mutual furtherness, D for these roots. Fixing r gives (D−1)/D tending to 1 in the prescribed positive degree. This is an all-parameter proof, not a finite extrapolation. The source VERIFICATION.md describes a finite modular boundary-matrix check in verify.py; its uploaded code was not run, and no integral chain-level interval splitting or formal verification is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper treats general finite-space H_0 and gives a generic stability bound in every degree, not exact later-degree intervals or tightness for this family.",
+          "The local Boolean and incidence records have different order relations; their barcode formulas are for those particular families."
+        ],
+        "reasoning": "General stability supplies an upper bound, not extremal distances or reconstruction. These family-specific classifications do not include arbitrary ordinal sums with arbitrary ordered layer sizes.",
+        "searches": [
+          "arXiv:2610.16386v1 Proposition 2.4 and Theorems 4.1, 7.1",
+          "Resultary all-degree furtherness on Boolean, Boolean-sphere and Steiner incidence spaces"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 24–49",
+        "Frozen VERIFICATION.md",
+        "Badra–Singh arXiv:2610.16386v1",
+        "Resultary 3b673e0af61a, d2db8c5d42da, 06baeffcb578, f241a0823713 and 9d622f384d18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior join calculation gives the product rank of a static join, which applies to every full prefix, and the finite-space paper covers the degree-zero birth pattern."
+        ],
+        "reasoning": "The final top rank alone is symmetric in layer sizes and cannot recover their order. The application here needs the root-specific stage identification, the connecting maps, and the endpoint calculation. These are what yield the exact persistence and the inverse and sharpness statements, not the known static rank or the abstract bound alone.",
+        "searches": [
+          "Resultary 3b673e0af61a, Finding and Proof",
+          "arXiv:2610.16386v1, pp. 3–7 and Theorem 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Badra–Singh Definition 2.6 and Remark 2.7 use the same principal-downset difference; the p. 5 module is H_0.",
+          "The October 4 weak-order record is about the action of self-maps on top homology, not the root-threshold filtration."
+        ],
+        "reasoning": "The filtration is not new under a different name. A self-map rank criterion for the full order complex is not equivalent to the entire persistence module or its inverse reconstruction from a bottom-root barcode.",
+        "searches": [
+          "Resultary weak-order/top-homology and furtherness-barcode searches",
+          "arXiv:2610.16386v1",
+          "Resultary 2026/10/4, 3b673e0af61a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching 08ffcf2bf667 entry is the same finding, not a second source. The separate 9d622f384d18 entry from the same day treats upper-truncated Boolean posets and does not state a full positive-degree barcode."
+        ],
+        "reasoning": "Neither a self-match nor a family-different result provides an exact independent table or formula for the variable root layer and ordered size vector. No ordering is inferred from the dates of same-day records.",
+        "searches": [
+          "Resultary exact rooted furtherness, all-degree barcode, weak order"
+        ]
+      },
+      "rationale": "Credit the published filtration, degree-zero theory and general stability, and credit the same-family static join homology. The supported distinct contribution is the root-dependent all-degree persistence calculation on ordinal sums of antichains and its ordered reconstruction and higher-degree tightness consequences. No separate equivalent result was established in the inspected evidence.",
+      "residual_risks": [
+        "This is a bounded statement-level comparison, not a historical priority certificate. A formulation using joins of discrete spaces rather than the terminology of weak orders or furtherness might be less readily indexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers setup, H_0 births and the stability framework, not the inspected higher-degree specialization",
+          "evidence": "The finite-space module is explicitly V_x(a)=H_0(F_x(a),K); Theorem 7.1 bounds its diagram distance by maximum mutual furtherness.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16386v1",
+          "material_read": "pp. 4–5 Definition 2.6, Remark 2.7 and module definition; p. 7 Theorem 4.1; p. 3 Proposition 2.4; p. 17 Theorem 7.1",
+          "method": "Original OA PDF passage extraction",
+          "title": "Persistence diagrams of finite topological spaces",
+          "trigger": "Same filtration, bottleneck bound and degree-zero theory"
+        },
+        {
+          "assessment": "Direct coverage of the static top-homology ingredient, not the barcode",
+          "evidence": "Rank is the product of the (r_i−1); the main characterization concerns when a continuous self-map acts nontrivially on H_{h−1}.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-top-homology-detects-level-structure-in-finite-weak-orders--3b673e0af61a/RESULT.md",
+          "material_read": "Finding, Assumptions and tensor calculation in Proof (offset 0)",
+          "method": "Local mirror",
+          "title": "Top homology detects level structure in finite weak orders",
+          "trigger": "Same arbitrary ordinal sums and integral top rank"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Full barcodes on nonempty Boolean-subset posets, rather than variable ordinal sums.",
+          "identifier_or_url": "Resultary 2026/11/1 d2db8c5d42da",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Complete integral furtherness barcodes of Boolean subset posets",
+          "trigger": "Same filtration and all-degree invariant"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Atom/coatom-root barcodes concern proper Boolean-subset posets, not the weak-order layer-vector theorem.",
+          "identifier_or_url": "Resultary 2026/10/25 06baeffcb578",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Extremal-root furtherness barcodes on Boolean sphere posets",
+          "trigger": "Same extremal-root problem in higher degree"
+        },
+        {
+          "assessment": "Related but not equivalent",
+          "evidence": "Upper-truncated Boolean posets, with complete H_0 and early H_1 information, not the full higher-degree barcode here.",
+          "identifier_or_url": "Resultary 2026/11/22 9d622f384d18",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Early homotopy and complete degree-zero furtherness persistence",
+          "trigger": "Distinct same-date entry on furtherness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family has a natural exact invariant already motivated by the finite-space filtration. Recovering ordered sizes shows what time and degree add to static homology, which sees a symmetric product. The same explicit examples calibrate a general stability inequality in every prescribed positive degree, a use beyond a list of small barcodes. The standard join calculation and general stability bound are ingredients, not the value claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

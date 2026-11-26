@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:25:31.058210Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–104",
+        "Frozen VERIFICATION.md, verify.py and verify_output.txt (recorded, not rerun; 125472 candidates over n=2..9)"
+      ],
+      "rationale": "The diagonal matching gives a lower bound n on vertex-cover and dominant-generator sizes. A size-n cover chooses exactly one endpoint of each diagonal edge. Choosing b_i and a_j at i<j would leave a_i b_j uncovered, so the choices must be an A-prefix and B-suffix. Conversely each such cut covers all edges. Independently, any vertex cover of a bipartite graph with pairwise distinct open neighborhoods within each part edge-resolves: equal signatures would have equal, nonempty zero-coordinate sets, so distinct edges would share exactly one selected endpoint and have unselected other endpoints x,y on the same side. A vertex in the symmetric difference of N(x),N(y) lies in the cover (as x,y are unselected) on the opposite side, differs from the shared endpoint, and has distance 1 to one edge but at least 2 to the other. In H_n the within-side neighborhoods are strictly nested, hence distinct. This proves resolution for all the cuts including the whole-side endpoints, with n+1 distinct optima. It agrees with the separate threshold decoding in the frozen proof.",
+      "residual_risks": [
+        "The claimed classification concerns canonical half graphs, not arbitrary chain graphs with repeated neighborhoods. The finite output only corroborates the all-n proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tavakoli et al. define precisely the frozen optimization and give the cover/ordinary-edge lower bound; the compared families are not triangular half graphs.",
+          "The Ferrers passage describes a broad class containing the triangular Ferrers representation but studies other invariants."
+        ],
+        "reasoning": "Checked the natural containing classes and the stronger equivalent route through edge-resolving vertex covers. The decisive upgrade from a cover to a resolver uses distinct nested neighborhoods, not the general lower bound or a Ferrers enumeration inspected here. No broader known result giving that upgrade was identified in the inspected material.",
+        "searches": [
+          "Tavakoli et al., DOI 10.5614/ejgta.2023.11.1.16",
+          "Kelenc–Tratnik–Yero, arXiv:1602.00291v1",
+          "Ehrenborg–van Willigenburg, Enumerative Properties of Ferrers Graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 115–136",
+        "Mirrored Resultary records 13a0853af1d2 and beaa1109f65c",
+        "Tavakoli et al., DOI 10.5614/ejgta.2023.11.1.16",
+        "Kelenc–Tratnik–Yero, arXiv:1602.00291v1",
+        "Ehrenborg–van Willigenburg, Enumerative Properties of Ferrers Graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every interior cut C_t omits both a_(t+1) and b_t, one mandatory pair for the earlier ordinary bases. Thus none of the interior cuts contains an ordinary minimum basis."
+        ],
+        "reasoning": "The prior ordinary classification plus monotonicity does not resolve the interior cuts. Matching and chain structure determine the minimum covers; a separate edge-distance argument is needed to show that all of them work.",
+        "searches": [
+          "Mirrored RESULT.md of 13a0853af1d2, finding and prior-work passage; compare with frozen C_t and Tavakoli's bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 13a0853af1d2 uses j<=i; reverse both index lists to put it in the frozen i<=j convention. Its statement is edim=n-1 with bases selecting one of each {a_(k+1),b_k}.",
+          "Resultary beaa1109f65c concerns self- and solid-locating domination of vertices, not edge resolution and vertex covers."
+        ],
+        "reasoning": "The indexing conventions describe the same graph, but the optimizing predicates differ. The same-day location-domination result has also been compared on predicates, not excluded by date.",
+        "searches": [
+          "Local Resultary: half graph edge metric bases, dominant edge metric and half-graph domination",
+          "Tavakoli et al. and Kelenc–Tratnik–Yero PDFs: half, chain, Ferrers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ordinary catalogue yields n-1 and 2^(n-1), not n and n+1, and lists a different family; the other half-graph catalogue record concerns different invariants."
+        ],
+        "reasoning": "No matching exact family table was identified. Matching a number for an isolated small graph would not give the n+1 cut classification.",
+        "searches": [
+          "Local Resultary: half graph optimum sets and ordinary and dominant edge bases"
+        ]
+      },
+      "rationale": "The strongest same-object result classifies ordinary edge bases in the half graph; its statement is strictly different and does not imply the dominant basis classification by taking supersets. The general dominant lower bound yields n but no matching upper bound or all-optima statement for this family. Neither the other indexed half-graph record nor the inspected Ferrers work gives the same combined cover-and-resolution classification. The frozen reference to a published ordinary classification is best read as the public catalogue finding; an external journal identification for that exact classification was not verified.",
+      "residual_risks": [
+        "An equivalent triangle-free/bipartite vertex-cover result or a differently phrased chain-graph result may exist outside the passages and index inspected. Literal misses are not exclusion evidence.",
+        "The precise bibliographic status of the prior ordinary half-graph classification beyond its identified public entry remains unverified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact ordinary bases but not the dominant classification",
+          "evidence": [
+            "One from each {a_r,b_(r+1)} under j<=i; n-1 landmarks, 2^(n-1) bases"
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2",
+          "material_read": "Mirrored RESULT.md finding at offset 0 and prior work at offset 4500",
+          "method": "Local mirror, followed by reindexing and containment test",
+          "title": "Edge metric bases of half graphs",
+          "trigger": "Same graph and closely related edge bases"
+        },
+        {
+          "assessment": "Different vertex-domination invariants",
+          "evidence": [
+            "Optimum 2n-2 with different optimum-set families"
+          ],
+          "identifier_or_url": "Resultary 2026/10/13/SCOPE-self-and-solid-location-domination-of-half-graphs--beaa1109f65c",
+          "material_read": "Mirrored RESULT.md finding at offset 0",
+          "method": "Local mirror and comparison of predicates",
+          "title": "Self- and solid-location-domination of half graphs",
+          "trigger": "Same-day graph-family overlap"
+        },
+        {
+          "assessment": "Identical predicate and lower bound, not a verified classification of half graphs",
+          "evidence": [
+            "Cover plus edge resolution; lower bound by the maximum of the cover number and ordinary edge dimension"
+          ],
+          "identifier_or_url": "https://doi.org/10.5614/ejgta.2023.11.1.16",
+          "material_read": "OA PDF p. 1 at text offset 850, dominant-generator definition; targeted full-text terms and comparison of listed families",
+          "method": "Lawful primary PDF inspection and definition comparison",
+          "title": "The dominant edge metric dimension of graphs",
+          "trigger": "Introducing paper and possible broader exact theorem"
+        },
+        {
+          "assessment": "Ordinary dimension, not identified half-graph dominant coverage",
+          "evidence": [
+            "Edge-resolving definition without a vertex cover"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.00291v1",
+          "material_read": "PDF p. 1, text offset 2100; targeted graph-family terms",
+          "method": "OA PDF passage comparison",
+          "title": "Uniquely identifying the edges of a graph: The edge metric dimension",
+          "trigger": "Foundational ordinary edge metric classification"
+        },
+        {
+          "assessment": "The inspected broader description gives different invariants; not a whole-document exclusion",
+          "evidence": [
+            "Ferrers boxes define edges; enumerations include spanning trees, Hamiltonian paths and chromatic polynomials"
+          ],
+          "identifier_or_url": "Ehrenborg and van Willigenburg, Enumerative Properties of Ferrers Graphs",
+          "material_read": "Definition and invariant summary, PDF text offset 1650",
+          "method": "OA passage inspection",
+          "title": "Enumerative Properties of Ferrers Graphs",
+          "trigger": "Half graphs are triangular Ferrers graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 13a0853af1d2, ordinary optimum sets"
+      ],
+      "rationale": "For a canonical infinite family of nested-neighborhood graphs, the result determines the effect of the cover requirement on both the optimum and the entire family of optima. In particular the interior cut bases cannot be constructed by simply augmenting the earlier ordinary minimum bases. The all-minimum-covers resolution property and exact optimum family are useful beyond merely exhibiting an n-vertex set or evaluating a lower bound.",
+      "residual_risks": [
+        "The argument is elementary and the claimed result is confined to the canonical half graphs; no chain-graph classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:44:02.198850Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–19 and 21–51 (analytic replay and exact arithmetic at a=2/3)",
+        "Frozen VERIFICATION.md and checker.py (inspection only)"
+      ],
+      "rationale": "At fixed output radius s, radial alignment minimizes the spatial squared distance and leaves ordinary nonincreasing isotonic least squares for (z,||w||₂), with a zero floor. The floor preserves optimality: untruncated residuals have zero block sums and satisfy the prefix KKT signs, and the new negative-block residual contribution lies in the nonpositivity polar with zero dot product against the truncated fit. For r=||w||₂>0, a free final singleton leaves w unchanged and a zero-floor final block gives spatial output zero. In a positive terminal pool with k scalar inputs the last KKT multiplier is r−t≥0, so c=t/r lies in [0,1]. Differentiation gives scalar row bound (k+√q)/(k+1) and spatial block c(I−nnᵀ)+nnᵀ/(k+1), plus k scalar entries n_i/(k+1) in row i. For a=|n_i|, B=∑_{j≠i}|n_j|, only |c−1/(k+1)|aB is nonlinear in the absolute row sum; convexity bounds it by the endpoints. At c=0 the row sum is a(k+a+B)/(k+1)≤(k+√q)/(k+1); at c=1 it is 1+k a(1−a+B)/(k+1), maximized for k=p with B=√(q−1)√(1−a²). Piecewise-affine isotonic regions give these derivatives almost everywhere away from w=0; Lipschitz regularity from the Euclidean projection and convolution of its weak derivative globalize the bound. For sharpness, strict inequalities isolate a size-two terminal pool with equal direction magnitudes; alternatively z_j=1−δ and r=1 give strictly active internal pool multipliers and a positive all-coordinate average tending to r as δ→0. Signs of the norming row realize the local quotients. For q=1 the unit row has a=1,B=0 so both endpoints give factor one, attained on the cone interior. For q≥2 the second derivative is strictly negative and the endpoint derivative signs are opposite. At q=6 the unique critical point is a=2/3, where g₆=4/3; 17/9 is larger than (1+√6)/2.",
+      "residual_risks": [
+        "No claim for spatial or scalar weighting, other norms, or arbitrary images of the cone. Sharpness is by limiting input quotients, not necessarily a finite attaining pair.",
+        "The supplied PAVA checker was not run; its finite checks are not used as a universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 of Ferreira–Gao–Németh gives monotone projection followed by positive-part truncation; its p. 11 discussion identifies neighboring-dimensional PAVA reductions.",
+          "Gao–Németh–Sznajder, pp. 1–2, outline Lyapunov rank, reducibility and isotonic projection/complementarity, not an exact coordinate-norm modulus."
+        ],
+        "reasoning": "PAVA supplies the projector under the same ordering hypotheses, but an evaluation algorithm and isotonicity properties do not give the cross-coordinate row maxima or demonstrate their sharpness.",
+        "searches": [
+          "arXiv:2102.02040, Theorem 9 and final remarks",
+          "DOI:10.1007/s10957-021-01962-4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2102.02040",
+        "DOI:10.1007/s10957-021-01962-4",
+        "Resultary: 2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At spatial dimension q=6 the ordinary cone coefficient is (1+√6)/2. The all-pool spatial row at p=2 reaches 17/9 as a limit and is strictly larger. This branch requires optimizing the dependence on the terminal pool weight k/(k+1)."
+        ],
+        "reasoning": "Neither the Lorentz result by specialization nor the PAVA representation by mechanical substitution yields the full p≥2 maximum; the convex endpoint optimization across terminal pool sizes and its witnesses are additional.",
+        "searches": [
+          "Resultary: 2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e RESULT.md",
+          "arXiv:2102.02040, p. 8 and p. 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2102.02040, p. 8 Remark 3 identifies p=1 with the ordinary second-order cone.",
+          "The earlier Resultary Lorentz theorem gives exactly max{(1+√q)/2,1+G_q/2} in dimensions q≥2, written as a transition at q=5."
+        ],
+        "reasoning": "The ordinary Lorentz formula is an equivalent expression for p=1. Compressing a k-coordinate equal pool along its Euclidean axis for k>1 yields an aperture constraint t≥√k||w||₂ and a different coordinate-norm pullback, not ordinary Lorentz sensitivity by a coordinate renaming.",
+        "searches": [
+          "Resultary: sharp maximum norm (coordinatewise) Lipschitz constant sensitivity of Euclidean projection onto monotone extended second-order cone with terminal PAVA pool, p scalar coordinates and q-dimensional Lorentz block; compare p>=2 to p=1 Lorentz-cone projector",
+          "Primary search: monotone extended second-order cone PAVA projection Lipschitz sensitivity coordinatewise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical assigned record was returned; the distinct Lorentz hit's statement is exact for one scalar coordinate and states factor one for q=1. No distinct all-p exact match appeared in this search."
+        ],
+        "reasoning": "The exact theorem catalogue is relevant; there is no claimed exact table or finite classification to compare instead. The genuinely overlapping hit covers the p=1 coefficient, rather than proving a general statement by an apparent title match.",
+        "searches": [
+          "Resultary: sharp maximum norm (coordinatewise) Lipschitz constant sensitivity of Euclidean projection onto monotone extended second-order cone with terminal PAVA pool, p scalar coordinates and q-dimensional Lorentz block; compare p>=2 to p=1 Lorentz-cone projector",
+          "2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e"
+        ]
+      },
+      "rationale": "The p=1 formula and the PAVA structure are prior coverage, not novelty. The sharp comparison of shortest and longest terminal pools for p≥2, with its p-dependent spatial sensitivity, is a distinct extension on the available evidence.",
+      "residual_risks": [
+        "Bounded comparison; unindexed conic sensitivity results for a different aperture or under another norm representation could overlap. No historical priority certification.",
+        "The complementarity article comparison rests on the parts inspected, not whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers structural projection and floor, not a sharp sensitivity theorem.",
+          "evidence": [
+            "p=1 reduces to SOC; monotone floor projection is PAVA followed by positive part."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.02040",
+          "material_read": "OA PDF p. 8, Remark 3, Theorem 9, following PAVA paragraph (offsets 28600–31979); p. 11 final remarks",
+          "method": "Lawful OA exact-passage inspection",
+          "title": "Reducing the projection onto the monotone extended second-order cone to the pool-adjacent-violators algorithm of isotonic regression",
+          "trigger": "Identical cone and Euclidean projector"
+        },
+        {
+          "assessment": "Exact prior coverage for p=1 only, with q the dimension of the spatial block.",
+          "evidence": [
+            "For q=2–4 gives 1+G_q/2; for q≥5 gives (1+√q)/2; gives one for q=1."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e",
+          "material_read": "Mirrored RESULT.md, statement and proof from offset 0",
+          "method": "Resultary search and lawful local mirror inspection",
+          "title": "Sharp coordinatewise Lipschitz transition for Euclidean Lorentz-cone projection",
+          "trigger": "Exact max-norm projector result on closely related cone"
+        },
+        {
+          "assessment": "Related structural and complementarity theory, not evidence of an exact modulus.",
+          "evidence": [
+            "Lists Lyapunov rank, reducibility, isotonic projection sets and complementarity problems as contributions."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10957-021-01962-4",
+          "material_read": "OA abstract p. 1 and contribution summary p. 2",
+          "method": "Exact-title retrieval; the frozen reference's s10589 DOI yielded 404; the exact-title article was inspected under the identifier here",
+          "title": "The Monotone Extended Second-Order Cone and Mixed Complementarity Problems",
+          "trigger": "Same cone and potential order/sensitivity overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–19 and 24–51",
+        "arXiv:2102.02040, monotone projection and PAVA statements"
+      ],
+      "rationale": "Monotone conic constraints combine ordering and a norm bound; entrywise input accuracy makes the sharp ℓ∞ modulus of their Euclidean projector relevant beyond Euclidean nonexpansiveness. The formula identifies which terminal pools control the exact error amplification, with a concrete nontrivial branch change relative to p=1. The value is the full parameter formula for these constraints, not the already-known Lorentz case or the isolated rational example.",
+      "residual_risks": [
+        "No application-specific error or convergence guarantee is claimed beyond the exact projector modulus."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

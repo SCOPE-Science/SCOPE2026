@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:39:51.975172Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3, the bridge-to-backbone row Gram matrix has diagonal 4 and cycle off-diagonal 1+exp(−iφ) in the stated gauge. Its Fourier eigenvalues are bounded below by 4−4|cos(φ/2)|>0 in the open flux interval. The dissipative Hilbert–Schmidt identity with all rates positive forces every peripheral operator to commute with all backbone site projectors; it is then backbone-diagonal plus an unrestricted bridge block. The Hamiltonian commutator of such an operator is block off-diagonal, excluding a nonzero imaginary eigenvalue. In the fixed algebra the backbone diagonal must commute with the Gram matrix, hence is constant on the whole connected cycle for φ≠π and arbitrary for φ=π. The bridge action on im Q† is determined by T Q†=Q† A, and there is no mixing with ker Q. Contractivity excludes a Jordan block at zero; the adjoint generator has the same fixed algebra, so the limit is its orthogonal projection, preserving the full dark compression. This yields the stated dimensions, bright weights and exact limiting states. The bridge input has weights 1/4 in each of two distinct half-flux cages and dark weight 1/2, giving 1/4+2(1/4)^2/2=5/16. Away from half flux the weight formula follows from Q†(QQ†)⁻¹Q; continuity at π gives the one-sided-in-flux comparison, and recentering the Fourier integral at φ/2 makes its nonconstant part odd, giving the thermodynamic limit at fixed interior phase. These arguments respect the order t→∞ before n→∞ and exclude endpoint rank resonances. Inspected RESULT.md §§1–4 and verify.py lines 10–108 without executing it; the code's finite numerical tests are not a proof of the rate or size quantifiers. Replay is python verify.py in the source directory with its requirements.txt.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baumgartner–Narnhofer supply a general asymptotic block structure.",
+          "Kolovsky's abstract considers transport through a finite system coupled to leads at differing chemical potentials."
+        ],
+        "reasoning": "The general block structure does not classify the cycle's noise commutant or return weights without the row-Gram connectivity and peripheral-spectrum calculation. Open driven transport is not a generalization giving this closed single-particle return.",
+        "searches": [
+          "Baumgartner–Narnhofer arXiv:0806.3164 §3",
+          "Kolovsky DOI 10.1103/bznq-n86l abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:cond-mat/9806068",
+        "arXiv:0806.3164",
+        "arXiv:2203.04644",
+        "DOI 10.1103/bznq-n86l (abstract)",
+        "Resultary/SCOPE 73ddd6723d84, 244f6d5d017d, 0b79f725d099, d42504b3b00c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The return 5/16 requires both a 1/2 dark compression weight and two separate rank-two stationary bright sectors each with input weight 1/4. The generic bright contribution uses one sector of rank 2n; coherent caging or capture rank alone determines neither formula."
+        ],
+        "reasoning": "The exact stationary populations and flux discontinuity require information beyond the prior Hamiltonian cages and general structural results.",
+        "searches": [
+          "Vidal–Mosseri–Douçot p. 1 versus RESULT.md §§2–4",
+          "Baumgartner–Narnhofer §3 versus the selective-noise commutant",
+          "Resultary 73ddd6723d84 versus the finite periodic theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vidal–Mosseri–Douçot, arXiv:cond-mat/9806068, p. 1: coherent caging is bounded wavepacket support.",
+          "Perrin–Fuchs–Mosseri, arXiv:2203.04644, pp. 1 and 6: stepwise unitary coins and dynamical disorder obtained by selecting new coins at each step."
+        ],
+        "reasoning": "Neither coherent confinement nor a discrete-time coin-noise average is the positive-rate continuous-time site-projector semigroup with retained dark coherences. Their confinement results are not another formulation of the stationary-algebra/return result.",
+        "searches": [
+          "Resultary: half-flux rhombic/diamond chains, capture ranks, and selective dephasing",
+          "Primary literature: Aharonov–Bohm cages and robustness under noise"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue statements in 73ddd6723d84 and 244f6d5d017d give an open chain with an absorber; d42504b3b00c is an open path; 0b79f725d099 includes an absorber. No inspected returned statement tabulates or asserts these returns for the frozen generator."
+        ],
+        "reasoning": "These are related exact results but differ in graph, generator or observable; absorption/capture must not be identified with a site return in trace-preserving dynamics. No global claim about unindexed tables is made.",
+        "searches": [
+          "Local Resultary/SCOPE mirror: half-flux rhombic capture ranks, near-π absorption, sparse dephasing asymptotic states"
+        ]
+      },
+      "rationale": "Best of current evidence: coherent caging and the fixed-algebra technique are established, but the inspected comparisons do not give the specified periodic, selectively dephased model's bright stationary populations or its exact return jumps.",
+      "residual_risks": [
+        "Specialized literature on continuous-time selective noise in rhombic lattices may contain another equivalent computation.",
+        "Only the abstract of Kolovsky was inspected; full-text access failed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background; different dynamics",
+          "evidence": "Defines bounded wavepacket support and describes half-flux rhombic caging.",
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/9806068",
+          "material_read": "p. 1 near text offset 1180",
+          "method": "OA PDF passage",
+          "title": "Aharonov–Bohm cages in two-dimensional structures",
+          "trigger": "Closest coherent half-flux effect"
+        },
+        {
+          "assessment": "General method, no specified chain or return values",
+          "evidence": "Describes the general asymptotic blocks and stationary states.",
+          "identifier_or_url": "https://arxiv.org/pdf/0806.3164",
+          "material_read": "§3 p. 4 around offset 7997",
+          "method": "OA PDF passage",
+          "title": "Analysis of quantum semigroups with GKS–Lindblad generators II. General",
+          "trigger": "Potential general theorem implying the asymptotic-state claim"
+        },
+        {
+          "assessment": "Discrete-time model does not establish the claim",
+          "evidence": "Stepwise coins; dynamical disorder resamples them each step.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.04644",
+          "material_read": "pp. 1 and 6 around offsets 5667 and 43024",
+          "method": "OA PDF passages",
+          "title": "Robustness of Aharonov–Bohm cages in quantum walks",
+          "trigger": "Cages under noise"
+        },
+        {
+          "assessment": "Abstract establishes a different driven observable, not a full-text exclusion",
+          "evidence": "Fixed chemical potentials on leads and noninteracting-fermion current.",
+          "identifier_or_url": "https://doi.org/10.1103/bznq-n86l",
+          "material_read": "Publisher abstract via Crossref; full text not accessible",
+          "method": "Publisher full-text/PDF retrieval attempted; abstract compared",
+          "title": "Sensing decoherence by using edge states",
+          "trigger": "Related decoherence and finite lattice transport"
+        },
+        {
+          "assessment": "Different boundary conditions and absorbing dynamics",
+          "evidence": "One absorbing rim site on an open chain; exact detector-visible ranks, including reduction at half flux.",
+          "identifier_or_url": "2026/10/13/SCOPE-flux-and-position-sharp-capture-ranks-for-a-finite-rhombic-quant--73ddd6723d84",
+          "material_read": "Finding in local mirrored RESULT.md",
+          "method": "Resultary lookup plus mirror statement comparison",
+          "title": "Flux- and position-sharp capture ranks for a finite rhombic quantum walk",
+          "trigger": "Closest indexed geometry and flux effect"
+        },
+        {
+          "assessment": "Related but not equivalent",
+          "evidence": "Endpoint sink absorption times; localized dephasing with an absorber; and selective dephasing on open paths, respectively.",
+          "identifier_or_url": "244f6d5d017d; 0b79f725d099; d42504b3b00c",
+          "material_read": "Findings in local mirrored original records",
+          "method": "Resultary lookup and mirror statement comparison",
+          "title": "Related indexed absorption and dephasing results",
+          "trigger": "Possible exact catalogue overlap in asymptotic dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem separates coherent dark memory, which persists at every interior flux, from a sharp fragmentation of dissipative bright mixing only at π. The rank-two populations and the finite-size and thermodynamic return jumps give quantitative diagnostics even for unequal noise rates, not just an instance of coherent flat bands. The full stationary state also predicts returns from arbitrary inputs and makes the noncommuting limits operationally distinguishable without asserting a mixing rate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

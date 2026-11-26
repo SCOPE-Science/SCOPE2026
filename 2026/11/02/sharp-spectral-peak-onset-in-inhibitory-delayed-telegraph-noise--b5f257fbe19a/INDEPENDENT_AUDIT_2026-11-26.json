@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:17:52.503004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 19–69",
+        "VERIFICATION.md lines 19–23",
+        "checker.py (inspected, not executed)"
+      ],
+      "rationale": "Poisson updates at rate c yield the claimed flip intensity: refreshing causes a flip with probability 1/2, and an inhibitory copy causes a flip precisely for matching signs. Backward ancestry strictly retreats through update times and stops at a refresh almost surely, yielding a stationary sign-symmetric law and uniqueness by coupling from the remote past on any finite set of observation times. A flip changes σ by −2σ, so its compensator gives drift −cσ−hσ_delayed and expected bracket rate A=2(c+hC(T)). The inequality |C(T)|≤1 gives A≥2(c−h)>0; the strict version in the record follows because no updates in an interval of length T has positive probability, so C(T)>−1. Convolving the drift equation with the causal exponential kernel gives the stationary innovation equation. The delayed convolution has norm at most h/c<1; its Neumann series yields G∈L¹∩L² and, by the martingale isometry, the stationary σ representation. Then C is the autocorrelation of the kernel times A and its Fourier transform is A/F_T, with angle ωT and the stated sign of the sine term. On (0,T), the covariance equation and evenness give C''=(c²−h²)C; C(0)=1 and C'(0+)=-c-hC(T) yield the stated C(T). Subtracting F_T(0) and bounding 1−cos u≤u²/2 and sin u≤u for u>0 gives a strict positive difference for every nonzero ω at and below the positive root of b(T)=1−2hT−chT². Above the root b<0, and F_T is coercive uniformly in T for fixed c,h, so a global minimum exists off zero. At criticality a compact annulus away from zero has a positive gap, and uniform coercivity excludes the tail. Hence just above criticality every global minimizer is near zero. The derivative divided by 2ω is analytic in x=ω² and has x-derivative 2a₄(T*)>0 there; the simple positive root satisfies x=−b'(T*)(T−T*)/(2a₄(T*))+O((T−T*)²), with the exact constant in the Finding. Taking the square root gives the asserted pair and error.",
+      "residual_risks": [
+        "The positive-rate model assumes 0<h<c and T>0. Pair uniqueness is local in the delay above threshold, not asserted for arbitrarily large T. The trigonometric envelope and analytic argument, not finite numerical searches, support global statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Apostolov et al. derive the covariance equation and solve the delta-delay case with more general rates. The frozen record credits the 2025 work with an arbitrary-memory transfer formula, but that full text was not available through lawful bounded retrieval. The phosphorylation-oscillator result treats a gated finite-state cycle, and the telegraph peak-merger result varies a Markov switching rate in other response channels."
+        ],
+        "reasoning": "A more general covariance or transfer formula supplies the input rather than a global maximization theorem. The related peak-transition results do not dominate the delayed two-state model and its autocovariance PSD.",
+        "searches": [
+          "arXiv:2402.11038v1 §III.1",
+          "PRE 112, 014127 (2025), DOI 10.1103/xvck-7n24, attributed Eq. (22)",
+          "Resultary 1b3b5af1f080 and 05e5507224ba"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and two related records",
+        "Apostolov et al. arXiv:2402.11038v1 §III.1",
+        "Frozen attribution to Melnyk et al. PRE 112, 014127 (2025) and unsuccessful lawful full-text retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taylor expansion of the known transfer denominator alone locates the candidate curvature threshold and gives a local bifurcation coefficient. A strict trigonometric envelope over all ω establishes that no off-zero peak wins early; a critical gap plus uniform coercivity puts all nearby global minimizers on the local branches."
+        ],
+        "reasoning": "The candidate threshold and local expansion are direct consequences of the transfer function, but that does not make them a global peak threshold without an additional global inequality and localization argument. The inspected sources do not supply those conclusions for this model.",
+        "searches": [
+          "Apostolov et al. arXiv:2402.11038v1 §III.1",
+          "Melnyk et al. DOI 10.1103/xvck-7n24, attributed transform",
+          "Resultary 1b3b5af1f080 and 05e5507224ba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With x=(1+σ)/2, λ=μ, c=2λ and ζ=−h, the Apostolov et al. binary delta-delay model and its positive-time covariance equation reduce to the frozen ones. No matched exact global onset law came from the focused catalogue queries."
+        ],
+        "reasoning": "The map verifies overlap of the model and covariance with a binary-state, negative-memory formulation; it does not by parameter substitution give the peak maximizers.",
+        "searches": [
+          "arXiv:2402.11038v1 §III.1 Eqs. (17)–(20)",
+          "Resultary delayed/inhibitory telegraph noise and spectral peak onset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is a symbolic optimization law for a continuum of c,h,T, not an integer sequence or finite table; the applicable exact-formula sources were compared."
+        ],
+        "reasoning": "No specific enumerative database or tabulated invariant is implicated. A match in a known exact spectrum would be important, but does not by itself classify the global argmax.",
+        "searches": [
+          "Resultary delayed telegraph threshold and related spectral onset formulations",
+          "arXiv:2402.11038v1 Eqs. (17)–(20)"
+        ]
+      },
+      "rationale": "The delayed telegraph model and its covariance equation are established; the record credits a general Fourier transfer formula and does not claim either ingredient as new. The strongest same-model accessible source establishes the delayed covariance equation, not an exact zero-to-nonzero global peak threshold or the two-peak onset law. Inspected related catalogue records treat different models or observables. The supported distinct claim is the global optimization and local uniqueness and coefficient, not the spectrum formula itself.",
+      "residual_risks": [
+        "The 2025 paper's exact Eq. (22) and any further peak analyses could not be inspected. Focused catalogue searching is not exhaustive. No novelty is attributed to the delayed rate model, solved covariance or spectral transfer representation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct model and covariance coverage, no inspected global optimization statement",
+          "evidence": [
+            "Eq. (18) becomes h<c in the inhibitory symmetric case, and Eq. (19) becomes C'(t)=−cC(t)−hC(t−T)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2402.11038v1",
+          "material_read": "§III.1 Eqs. (17)–(20), around text offset 22280",
+          "method": "Lawful OA full-text passage reading",
+          "title": "Random telegraph processes with non-local memory",
+          "trigger": "Same delta-delay rate family after change of spin variables"
+        },
+        {
+          "assessment": "Access limitation: 403 and no lawful alternate copy identified. No conclusion on the paper's full contents",
+          "evidence": [
+            "RESULT.md line 77 attributes the Fourier denominator as a specialization of Eq. (22); that equation was not independently retrieved."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/xvck-7n24",
+          "material_read": "None from the article itself; only the frozen record's attribution was inspected",
+          "method": "Bounded lawful DOI, publisher abstract and PDF attempts plus repository recovery",
+          "title": "Non-Markov random telegraph processes with arbitrary nonlocal memory",
+          "trigger": "Frozen citation attributes general Fourier transfer formula to Eq. (22)"
+        },
+        {
+          "assessment": "Conceptually overlapping, mathematically different model",
+          "evidence": [
+            "Four-state phosphorylation cycle with independent two-state gate, with square-root, quarter-root and jump onset types; not a delay-dependent flip intensity."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-tricritical-spectral-onset-in-an-eight-state-phosphorylation-o--1b3b5af1f080",
+          "material_read": "RESULT.md model and finding",
+          "method": "Resultary local mirror primary text",
+          "title": "A tricritical spectral onset in an eight-state phosphorylation oscillator",
+          "trigger": "Same-day global spectral peak onset with a square-root regime"
+        },
+        {
+          "assessment": "Different process/observable and parameter transition",
+          "evidence": [
+            "Markov telegraph frequency perturbation in coherent-amplitude and absorptive response channels; no fixed inhibitory delay in the flip rate."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-two-channel-peak-merger-tomography-theorem-for-telegraph--05e5507224ba",
+          "material_read": "RESULT.md model and peak-coalescence finding",
+          "method": "Resultary local mirror primary text",
+          "title": "A sharp two-channel peak-merger tomography theorem for telegraph frequency noise",
+          "trigger": "Telegraph noise and changing spectral peak location"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and global optimization proof lines 51–69",
+        "Apostolov et al. arXiv:2402.11038v1 §III.1"
+      ],
+      "rationale": "The threshold gives an exact criterion for when delay changes the dominant stationary frequency. A curvature test alone cannot rule out a discontinuous relocation of the global peak before the curvature changes. The global envelope rules this out for this natural model and the near-critical uniqueness and coefficient quantify the transition without confusing it with instability of the process.",
+      "residual_risks": [
+        "No broader conclusion for distributed memory, asymmetric switching or peak multiplicity far above the onset."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:45:26.411040Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen rank-one reduction is incorrect: proof step 4 drops 2r(1-r)u, and verify_sine_b2.py line 14 omits the r term in z, so it encodes the same error. The complete repair is in /workspace/repairs/4; the finding is unchanged. In coordinates t and u=sqrt(t(1-t)) at largest eigenvalue one, the correct change from the rank-one row is 2u(1-2t-2u)r-[(1-t)(3-2t+2u)+2u]r^2. I independently re-expanded both derivative rows and verified this identity modulo u^2=t(1-t). For t>=3/20 the linear term is nonpositive. For t<=3/20 the increasing rank-one function C(t) is bounded above by 633/1000, the linear coefficient is at most 18/25, and the quadratic coefficient in magnitude exceeds 2. Completing the square bounds this full region below 7/10<C(1/4). The off-diagonal row at eigenvalues 1,r increases with |y| up to (1-r)/2, where its excess is -3r^2. Homogeneity handles smaller largest eigenvalues. For the quartic, the exact Sturm sign lists at 0 and 2/3 are (+,+,-,+,-) and (-,-,+,+,-), giving precisely one root in the interval; signs of the quartic at 0 and 1/2 and positivity of the unsquared numerator there ensure no spurious maximizing root. I recover t*=0.2835546102890608... and kappa=0.11878243509575646.... Convexity, density of interior points and the uniform power-series tail give equality of the global Lipschitz coefficient and supremum of derivative norms, with an O(b^4) remainder. Short interior segments recover the boundary orientation without asserting a maximizer at fixed b. An independent eigendecomposition finite-difference check at b=0.1, 0.05, 0.025 supported the leading term; the proof, not those checks, is uniform. The frozen uploaded script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Crouzeix and Kressner, abstract p. 1, bound the derivative in spectral norm by a multiple 1+sqrt(2) of the maximum of |f'| over the numerical range.",
+          "The identified matrix sine/cosine derivative algorithm source has adjacent subject matter; its original sections were not obtained."
+        ],
+        "reasoning": "The nonunitarily invariant norm sees orientation within the spectral band; transforming a spectral-norm bound by norm equivalence does not yield a sharp 1+kappa b^2 expansion.",
+        "searches": [
+          "arXiv:2007.09784v1",
+          "MIMS EPrint 2021.13"
+        ]
+      },
+      "checked_sources": [
+        "Resultary coefficient, polynomial and related-operator searches",
+        "arXiv:2007.09784v1 abstract",
+        "MIMS EPrint 2021.13 access attempts and frozen comparison",
+        "2026/11/22/…a935f32a987c indexed statement",
+        "Focused primary-literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square-root record states a different band constant with a pi/8 orientation. The spectral derivative estimate has no maximum-entry optimization. The frozen sine/cosine literature comparison identifies algorithm and forward-error analysis, not a sharp small-band optimum."
+        ],
+        "reasoning": "A general evaluation of a matrix derivative or a separate square-root optimum leaves an optimization over spectral endpoints and orientations. Neither supplies the sharp universal bound and matching witness here. The square-root indexed hit is distinguished by statement, not by same-day dating.",
+        "searches": [
+          "arXiv:2007.09784v1",
+          "MIMS EPrint 2021.13",
+          "2026/11/22/SCOPE-sharp-entrywise-stability-of-the-two-by-two-positive-definite-ma--a935f32a987c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The induced derivative norm on symmetric matrices in independent-entry coordinates is the maximum absolute row sum. The b^2 coefficient is thus equivalently a constrained row optimization of H -> B^2H+BHB+HB^2.",
+          "The exact-polynomial search returned the assigned finding; the focused public search yielded no pertinent paper."
+        ],
+        "reasoning": "A prior solution of the equivalent cubic row optimization would cover the coefficient, even without matrix sine terminology. No such solution was shown by the available statements.",
+        "searches": [
+          "Resultary: matrix sine, maximum-entry Fréchet derivative, sharp small-band coefficient",
+          "Resultary: 32t^4-16t^3-14t^2+t+1",
+          "Primary search: ‘maximum-entry norm’ matrix sine Fréchet derivative sharp Lipschitz constant 2x2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact coefficient and polynomial hits are the assigned record, 2026/11/22/...0e7b363c6209. The closest distinct listed extremum is for matrix square root, ...a935f32a987c."
+        ],
+        "reasoning": "The same finding is not independent coverage, and the square-root entry is a different invariant even on real 2-by-2 positive spectral intervals.",
+        "searches": [
+          "Resultary: 0.118782435095756 and matrix sine",
+          "Resultary: exact quartic 32t^4-16t^3-14t^2+t+1"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp positive quadratic excess and its optimal rank-one direction for sine in the specified real 2-by-2 maximum-entry norm. Derivative calculus is prior art; the proof repair changes neither the claim nor its comparison parameters. The checked sources do not give the extremum by theorem specialization or by a matching entry; historical priority is not certified.",
+      "residual_risks": [
+        "Original passages of the cited sine/cosine algorithm source were not independently obtained.",
+        "Specialty work on entrywise matrix-function conditioning or equivalent cubic optimizations could contain earlier coverage not surfaced by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified general spectral-norm prior art, not an implication of this sharp entrywise coefficient",
+          "evidence": "Bound in terms of max over W(A) of |f'| with K=1+sqrt(2).",
+          "identifier_or_url": "https://arxiv.org/abs/2007.09784",
+          "material_read": "Primary PDF abstract, p. 1",
+          "method": "Lawful primary PDF retrieval; targeted OA passage lookup timed out",
+          "title": "A bivariate extension of the Crouzeix-Palencia result with an application to Fréchet derivatives of matrix functions",
+          "trigger": "General matrix-function derivative bound"
+        },
+        {
+          "assessment": "Adjacent algorithmic work per frozen source; not an independent full-text noncoverage judgment",
+          "evidence": "Frozen RESULT.md line 96 describes analysis of algorithms and forward error.",
+          "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2832/",
+          "material_read": "Citation and frozen description of §§1 and 5.2; original passages not extracted",
+          "method": "Lawful OA and repository PDF access attempts",
+          "title": "Arbitrary Precision Algorithms for Computing the Matrix Cosine and its Fréchet Derivative",
+          "trigger": "Same trigonometric functions and derivatives"
+        },
+        {
+          "assessment": "Different matrix function, not equivalent coverage on the available statement",
+          "evidence": "Sharp square-root Lipschitz constant for [a,b] with pi/8 worst orientation.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-entrywise-stability-of-the-two-by-two-positive-definite-ma--a935f32a987c",
+          "material_read": "Indexed result statement",
+          "method": "Resultary",
+          "title": "Sharp entrywise stability of the two-by-two positive-definite matrix square root",
+          "trigger": "Same dimension, entry norm and a spectral band"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first nontrivial matrix dimension in which the scalar sine contraction might fail in the maximum absolute-entry norm. The proof gives not just a finite-pair failure but the exact optimized excess at leading order, and explains why a diagonal row and rank-one positive spectral endpoint are responsible. This is useful as a sharp low-dimensional benchmark; it makes no higher-dimensional or all-band claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

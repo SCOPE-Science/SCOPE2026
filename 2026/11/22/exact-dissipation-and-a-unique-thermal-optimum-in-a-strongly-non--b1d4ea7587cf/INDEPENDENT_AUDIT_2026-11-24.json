@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:34:34.917484Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–79, VERIFICATION.md, check.py (read only)",
+        "/workspace/review_evidence/correctness.md §4; python3 -B /workspace/review_evidence/independent_checks.py 4"
+      ],
+      "rationale": "For finite beta the aligned- and opposed-neighbor rates are positive. The even part has detailed balance against the periodic Gibbs law; the odd part contributes a telescoping difference of adjacent bond variables to total inflow minus outflow. Irreducibility yields the unique Gibbs stationary distribution. Aligned neighbors give zero log stationary flux ratio, and opposed neighbors give −4 beta K times the left bond. The latter bond is fair conditional on the opposed neighbors; the conditional weighted log is 2 beta K gamma_o, so the rate per spin is beta K gamma_o(1−C2). Under Gibbs the bond variables are tilted independent signs of mean z conditioned on product +1, giving C2=(z²+z^(N−2))/(1+z^N). In the lag difference the even terms cancel and the odd term is +gamma_o(1−C2) with the specified right-minus-left sign. Twelve fresh finite-ring bond-support checks confirm all three identities. In the infinite-chain objective x*tanh(p x)*sech²x the log derivative is strictly decreasing in x from +infinity to −2 and decreases strictly in p at every positive x. Its unique zero is the global maximum, decreasing in p for x*=beta*J. Its limit at infinity solves 2x tanh x=1 by uniform decay of the additional log-derivative term on x at or above that positive bound. Continuity in p gives the endpoint at p=2; independent high-precision roots match both constants.",
+      "residual_risks": [
+        "The optimum and its bounds are for thermodynamic-limit entropy and dimensionless x, not a universal finite-ring optimizer or an ordering in unscaled beta when J varies. The entropy is a path rate, not the derivative of stationary Shannon entropy."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior solvability-line dynamics contain the strong regime and give stationary two-time correlations, hence the initial slope by differentiation. The inspected passages do not identify the slope as a binary single-flip path-entropy rate.",
+          "The parallel-update kinetic SK example reports an entropy maximum around a critical beta but is a different generator and model. The asymmetric Gaussian chain is also not the binary flip process."
+        ],
+        "reasoning": "A complete correlation solution is broader in dynamics but covers only the lag component here, not the flux weighting or the optimizer of the exact entropy along the stated J,K path. Neither example provides a dominating entropy theorem for these rates.",
+        "searches": [
+          "Godrèche–Luck arXiv:1503.01661 §§2–3; Weiderpass–Sharma–Sethi Eqs. (3.1)–(3.5), (3.10), and Eqs. (3), (5), (7), (9), (11)",
+          "Aguilera–Moosavi–Shimazaki Nat. Commun. 12,1197 (2021); Godrèche–Luck arXiv:1807.00694"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and published mirror IDs above",
+        "arXiv:1102.0141, 1503.01661, 2410.23615, 2411.00059 and 1807.00694; DOI:10.1038/s41467-021-20890-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the old correlation machinery gamma_o(1−C2) is not independently new. A separate entropy calculation splits the path sum by whether the two neighbors agree, then averages the oriented log rate ratio; the finite-ring factor requires the parity-conditioned Ising correlation. The exact optimizer then needs the sign change and comparison of log derivatives over the temperature path."
+        ],
+        "reasoning": "These computations use existing rates and correlations as inputs, but the inspected statements do not already evaluate the path sum or supply the sharp global optimizer by substitution. Credit the correlation ingredient; the path-entropy calibration and monotone exact optimum are the useful remainder.",
+        "searches": [
+          "Godrèche arXiv:1102.0141 Eq. (4.5) and stationary values; Godrèche–Luck arXiv:1503.01661 Eqs. (3.16)–(3.19); same-day mean entropy benchmarks noted above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2011 rate matches formally at V=gamma_o/gamma_e>1, outside its stated |V|≤1 range. The 2015 globally balanced rate matches within its allowed domain with delta=0, gamma=gamma_e and eta=−gamma_o/2. This occupies the negative large-bias sector of the older general model.",
+          "The 2024 local field with separately tunable J,K matches exactly; underdamping |gamma_o|>|gamma_e| is the stated K>J regime.",
+          "Restating a correlation decay or a Gibbs entropy as a path entropy is not an equivalence: one measures lagged observables and stationary Shannon entropy is constant."
+        ],
+        "reasoning": "The model is not new under a changed parameterization. At fixed J,K the effective bias also varies with beta, so an optimum, if one existed at fixed V, would require a further comparison of temperature paths.",
+        "searches": [
+          "Godrèche arXiv:1102.0141 §§2.1,4; Godrèche–Luck arXiv:1503.01661 §§2–3; Weiderpass–Sharma–Sethi arXiv:2410.23615 and 2411.00059",
+          "Web: entropy production directed Ising chain asymmetric Glauber one-dimensional spin flip exact ring Godreche Luck temperature maximum stationary 1-C2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "66ffcc0ac40e gives the stationary mean and SCGF in the same rate family at N=3. 2367784e0b2d, a fluctuation result for N≥4, includes the same mean on the line J=0. 08342e92eda3 gives on-site stationary lag oscillation, not the neighboring initial-lag difference or its entropy calibration."
+        ],
+        "reasoning": "The first two exact results overlap on a size and a boundary parameter case, respectively, neither of which is in the frozen finding's domain. They provide no exact table or formula for all N≥4 at J>0 or for the positive-J thermal optimum. Same-date status not used as evidence of priority.",
+        "searches": [
+          "Resultary: nonreciprocal Ising path entropy, current fluctuations, lag-memory and thermal optimum; exact local mirror records 66ffcc0ac40e, 2367784e0b2d, 08342e92eda3"
+        ]
+      },
+      "rationale": "The generator, Gibbs-invariance mechanism and lag slope as a correlation observable are established or directly implicit in prior directed-Glauber work; in particular the large-bias rate already occurs in Godrèche–Luck (2015), not just in the cited 2024 papers. The distinct claim is the explicit stationary path-entropy evaluation at every stated ring size, its identification with the lag slope, and the sharp thermodynamic temperature optimum along this fixed-coupling path. Same-date entropy records cover a three-spin case and a zero-reciprocity boundary, not this combined theorem. This is not a priority claim for the model or strong regime.",
+      "residual_risks": [
+        "The finite entropy evaluation is short once the older generator and Gibbs law are known; another treatment could encode it in a domain-wall current or an entropy-flux calculation. The keyword misses and bounded web lookup are not proof of absence.",
+        "The frozen comparison should not be read as claiming exclusion of K>J from Godrèche–Luck (2015), or a new lag propagator."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bias restriction; Gibbs and lag mechanism already known",
+          "evidence": "p∈[0,1], V=2p−1; equal-time correlations insensitive to V.",
+          "identifier_or_url": "https://arxiv.org/abs/1102.0141",
+          "material_read": "OA text §2.1 Eqs. (2.1)–(2.2), offsets 12582–18154; §4 Eqs. (4.5),(4.11)–(4.12), offsets 43406–48470",
+          "method": "Bounded primary OA passages",
+          "title": "Dynamics of the directed Ising chain",
+          "trigger": "Original one-bias solvable process and time correlations"
+        },
+        {
+          "assessment": "Strong regime is prior; the lag slope is implicit, not its path entropy calibration",
+          "evidence": "Set delta=0, gamma=gamma_e, eta=−gamma_o/2; |eta|≤1/2 on this line. Stationary two-time correlations are explicitly solved.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.01661",
+          "material_read": "OA §§2–3 Eq. (2.7), positivity and solvability line, offsets 6963–12960, 14350–18821, and correlation Eqs. (3.16)–(3.19), offsets 24457–30431",
+          "method": "Bounded primary OA passages",
+          "title": "Single-spin-flip dynamics of the Ising chain",
+          "trigger": "Potential stronger exactly solvable spin-flip model including K>J"
+        },
+        {
+          "assessment": "Same model and dynamical input, not the evaluated entropy in inspected passages",
+          "evidence": "The local field and directional coefficients agree, including |gamma_o|>|gamma_e|.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.23615",
+          "material_read": "§3, Eqs. (3.1)–(3.5),(3.10), OA offsets 46970–52969",
+          "method": "Bounded primary OA passages",
+          "title": "Solving the Kinetic Ising Model with Non-Reciprocity",
+          "trigger": "Same independently tunable couplings and generator"
+        },
+        {
+          "assessment": "Exact strong-regime dynamics; not the path sum and optimizer in material read",
+          "evidence": "Same local field and underdamped criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2411.00059",
+          "material_read": "OA offsets 4507–9483, Eqs. (3),(5),(7),(9),(11)",
+          "method": "Bounded primary OA passages",
+          "title": "An Exact Solution for the Kinetic Ising Model with Non-Reciprocity",
+          "trigger": "Exact same-model propagator might contain lag or entropy result"
+        },
+        {
+          "assessment": "Different update rule and example model",
+          "evidence": "Discrete parallel updates; optimum around beta_c in an asymmetric SK example.",
+          "identifier_or_url": "https://doi.org/10.1038/s41467-021-20890-5",
+          "material_read": "OA PDF page 3 Eqs. (1)–(2), offsets 12187–17185, and page 8, offsets 65515–69915",
+          "method": "Bounded primary OA PDF passages",
+          "title": "A unifying framework for mean-field theories of asymmetric kinetic Ising systems",
+          "trigger": "Published entropy/temperature optimum in asymmetric kinetic Ising"
+        },
+        {
+          "assessment": "Gaussian process not the binary model",
+          "evidence": "Real spins with Gaussian stationary action and OU dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.00694",
+          "material_read": "Abstract and §3.1, extracted offsets 0 and 37179",
+          "method": "Bounded primary OA passages",
+          "title": "Characterising the nonequilibrium stationary states of Ornstein–Uhlenbeck processes",
+          "trigger": "Asymmetric ring with entropy and unchanged stationary measure"
+        },
+        {
+          "assessment": "N=3 mean/rate fluctuations, not the stated range",
+          "evidence": "Exact entropy SCGF and mean for three spins.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-entropy-production-fluctuations-in-a-three-spin-nonrecipro--66ffcc0ac40e",
+          "material_read": "RESULT.md Finding and parameter scope",
+          "method": "Published local mirror",
+          "title": "Exact entropy production fluctuations in a three-spin nonreciprocal Ising ring",
+          "trigger": "Same-rate mean entropy, close same-date neighbour"
+        },
+        {
+          "assessment": "Partial agreement on J=0; no positive reciprocal coupling",
+          "evidence": "Exact boundary mean and fluctuation law at gamma_e=0.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-four-spin-anomaly-in-entropy-current-fluctuations-of-a--2367784e0b2d",
+          "material_read": "RESULT.md Finding and parameter scope",
+          "method": "Published local mirror",
+          "title": "A unique four-spin anomaly in entropy-current fluctuations of a nonreciprocal ring",
+          "trigger": "Same observable for periodic rings at N≥4"
+        },
+        {
+          "assessment": "On-site eventual lag behavior, not short-time odd lag difference coupled to entropy",
+          "evidence": "Asymptotic sign and oscillation thresholds of infinite-chain on-site correlation.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-stationary-memory-oscillation-threshold-in-a-nonreciproc--08342e92eda3",
+          "material_read": "RESULT.md Finding and parameter scope",
+          "method": "Published local mirror",
+          "title": "A sharp stationary memory-oscillation threshold in a nonreciprocal ring",
+          "trigger": "Same regime and stationary lagged correlation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–27, 51–76; direct path-entropy and optimizer checks"
+      ],
+      "rationale": "The Gibbs law is insensitive to the odd rate, so a stationary observable cannot diagnose this particular arrow of time through configuration weights alone. A closed finite-ring dissipation density and its quantitative calibration by initial left/right lag distinguish dynamics on that common law. The unique sharp dimensionless temperature window and limiting endpoints tell when dissipation is largest along a fixed coupling ratio; those do not follow as a physical interpretation from stationarity alone. The combination is worthwhile without claiming a new Ising dynamics or a general thermodynamic bound.",
+      "residual_risks": [
+        "No claim about maximum dissipation at finite N, at fixed arbitrary V, in a different update process, or in a different model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

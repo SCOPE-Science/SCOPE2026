@@ -1,23 +1,21 @@
-# Scientific review: bipartite exclusion jump-count noise
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all integers \(a,b\ge1\), \(N=a+b\ge4\), and \(1\le k<N\), the stationary configuration law is uniform and the part-occupancy chain has hypergeometric weights and rates \(u_j=(a-j)(k-j)\), \(d_j=j(b-k+j)\). Its centered linear and quadratic modes have the exact relaxation rates \(N\) and \(2(N-1)\). The total successful-hop intensity is a quadratic polynomial in part occupancy, so the tilted-generator second derivative reduces to just these modes. Exact falling-factorial moment calculations give the displayed rational nonnegative decomposition; every denominator is positive on the scope. Equality cases and the \(N^{-1/4}\) scaling follow directly. The packaged program passed 59 independent full-state exact-rational Poisson-equation comparisons and one symbolic all-parameter fourth-moment identity; these are checks of, not replacements for, the analytical proof.
+PASS
 
-## Originality — PASS within inspected sources; residual risk
+Every counted exchange changes the lumped shore occupancy by one; there are no hidden within-shore jumps. An independent derivation uses the martingale for the count plus the martingale for h solving -Qh=λ-μ. Up to a bounded endpoint term their sum equals C_T-μT, with jump increments 1+Δh. The stationary cross term is 2πQh=0, giving variance rate μ+2⟨h,-Qh⟩. Reversibility and the triangular action on polynomials give the centered degree-one and orthogonal degree-two modes at N and 2(N-1). For an independent norm check, the upward-edge weights π_j u_j have total μ/2 and, normalized, are hypergeometric with parameters N-2, a-1, k-1. Orthogonality to the linear mode forces ΔH₂ to be twice j minus twice the edge mean; its Dirichlet energy is 2μ times the edge variance. Thus ||H₂||²=μ Var_edge(J)/(N-1), exactly the displayed fourth-moment formula, also when the edge variance is zero. Substitution gives both nonnegative corrections. Their simultaneous zeros give precisely the stated cases, where a constant exit rate gives a Poisson clock. Multiplying the two contributions by N in the joint window yields 16u²v² and 1/4. The supplied script was inspected, not run: it compares exact full-state Poisson solves and a symbolic norm identity; the window portion independently asserts only positivity and prints comparisons, not a convergence certificate.
 
-Mendonça (arXiv:1207.4106, Sections 2, 4, and 6) already solves the unperturbed complete-bipartite exclusion generator and its spectrum, but the inspected material does not derive the long-time *total successful-hop count* variance, the two positive components, the complete Poisson equality cases, or the joint balance law. Stinchcombe and de Queiroz (arXiv:1202.0774, Introduction and Section II opening) study snapshot activity, explicitly distinguishing it from integrated current, and their graph is a one-dimensional directed exclusion chain. Roche, Derrida and Douçot (arXiv:cond-mat/0312659) furnish a general full-counting-statistics context; only bibliographic/abstract material was inspected, so their work cannot be used to exclude every more general reduction. Targeted prior-database and published-literature searches found no exact matching claim, but non-retrieval is not proof of uniqueness. The possibility that a general Hahn-polynomial, Bernoulli–Laplace, or tilted-spin result already implies the formula is a genuine residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The total jump count is a physical kinetic observable distinct from the instantaneous number of active edges and from macroscopic particle drift. The formula resolves its long-time noise for *every* bipartition and conserved inventory, describes exceptional cases where the count is exactly Poisson, and exposes a two-channel balance mechanism with an unusual \(N^{-1/4}\) joint scaling and explicit crossover constant. This provides an all-size structural classification, not a recomputation of the generator spectrum or an arbitrary finite-parameter example. No higher cumulants, dynamical large-deviation function, or limit theorem for the whole event process is asserted.
+The supported distinction is the explicit all-inventory, all-actual-exchange cumulant ratio and its joint scaling law. The exact generator and spectral structure are prior, and the Poisson equality cases and a fixed-inventory slice overlap materially with separate catalogue findings. None of the inspected exact statements supplies the general evaluated ratio or the joint scaling. The decision is limited to the evidence checked, not universal priority.
 
-## Closest literature and limits
+## value
 
-- Mendonça, arXiv:1207.4106: same graph and process, ordinary spectrum; preexisting ingredient rather than same evaluated counted-activity claim.
-- Stinchcombe–de Queiroz, arXiv:1202.0774: same terminology, different *instantaneous* activity variable and different topology/directionality.
-- Roche–Derrida–Douçot, arXiv:cond-mat/0312659: broader full-counting-statistics methods, accessible abstract only; equivalence cannot be categorically excluded.
+PASS
 
-The mathematical conclusion is restricted to homogeneous complete bipartite exclusion at fixed particle number and stationary long-time cumulants. Independent historical verification remains important.
+The exact noise of the successful exchange clock is a natural dynamical observable not determined by the relaxation spectrum alone. The positive quadratic-mode contribution distinguishes exactly balanced dense chains from truly Poisson chains despite F→1, and gives the residual 1/(4N) noise floor and the joint N^(-1/4) crossover. This is useful beyond re-deriving the known eigenvalues or the k=2 slice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

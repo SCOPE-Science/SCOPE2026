@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:58:27.241410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–54",
+        "VERIFICATION.md; inspect-only verify.py; automata.csv",
+        "Independent replay: python -B /workspace/branches/independent_checks.py (rule54)"
+      ],
+      "rationale": "For the stated simultaneous rule and bilateral full shift, a word of length n is legal at time t iff a binary block of length n+2t maps to it: every such block extends to a full input. In particular the reachable subset construction recognizes exactly the language, and Y2 is contained in Y1 because F(X) is contained in X. In a separately written computation the explicit neighborhood set gave the one- and two-step local rules and exhaustive word sets through length 10. It reproduced exactly the four length-nine words, all equalities up to length eight, and both count rows. Independently built frozenset automata had 11 and 39 states; pair distinguishability and a rooted labeled map verified the entire frozen table including its 10 and 18 distinct minimized states. Exact positivity of (I+A)^(m−1) checked strong connectivity of the two productive cores of sizes 8 and 16; only the start and dead state are outside each. Exact characteristic polynomials computed independently agree with z^2(z^2+1)p1 and z p2. Integer matrix powers and exact component ratios place both Perron roots strictly inside the stated rational intervals. The deterministic presentation makes accepted word counts equal to labeled path counts, and irreducibility gives exponential growth at the Perron rate (a positive Perron vector bounds row sums above and below up to constants). This certifies the entropies and strict decrease, not just the finite onset. The numerical logarithms agree with the stated rounding.",
+      "residual_risks": [
+        "No evaluation beyond the first two image stages; the entropy is spatial, not temporal or a bounded-period count. Numerical illustrations do not supply the rational root separation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-rule cutoff classifies the onset for all 256 rules by exact product-subset transitions. The all-rule entropy spectrum covers h(Y1) for Rule 54 as a member of class 10.",
+          "The second-image result gives a complete ordinary generating function for the same bilateral F^2 block counts and the exact same p2, with a tighter isolating interval, so it is stronger than the frozen isolated second-image entropy evaluation."
+        ],
+        "reasoning": "The two all-rule results include, rather than merely resemble, the Rule 54 cases. The second-image comparator is later-dated, so the stronger mathematical coverage is not an earlier-priority assertion.",
+        "searches": [
+          "SCOPE-20261026-5742d176c6e4, Proof §§2–4",
+          "SCOPE-20261027-d4f1725c3486, all-rule first-image entropy classes",
+          "SCOPE-20261122-9f1cb27dee35, Finding and exact automaton"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261026-5742d176c6e4",
+        "SCOPE-20261027-d4f1725c3486",
+        "SCOPE-20261122-9f1cb27dee35",
+        "SCOPE-20261102-3615c2fb7c1d",
+        "arXiv:1410.3096",
+        "DOI 10.1007/978-3-031-78757-7_4 and DOI 10.1002/cplx.21686 (unavailable full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact earlier product recognizer identifies a separating word whenever its first terminal subset is nonempty and its second is empty. Running it on all binary inputs of the already identified length nine, or retaining all paths to separating pairs at depth nine instead of returning one, yields the four-word set without any new recognition theorem or cutoff argument.",
+          "With both matched entropy root enclosures, strict entropy decrease is a direct order comparison. No inspected work is credited with earlier priority for p2 merely because its later proof is stronger."
+        ],
+        "reasoning": "The earlier table itself does not list all four words, but the exact accept/reject test and fixed length make the surviving addition a small complete table extraction. The comparative entropy observation does not add an independent invariant once the matched exact entropies are credited.",
+        "searches": [
+          "SCOPE-20261026-5742d176c6e4, Proof §§2–4 and classification.csv",
+          "SCOPE-20261027-d4f1725c3486, class 10",
+          "SCOPE-20261122-9f1cb27dee35, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 26 classification uses F(X) and F^2(X) on the full bilateral shift, equivalent to the frozen claim's setting. Its minimum length nine is equivalent to all language equalities through eight followed by strict separation at nine.",
+          "The 2014 periodic constructions and the November 2 period-preserving lift on cyclic rings are not statements of the bilateral two-image difference; their forbidden words are not alternative forms of the four witnesses."
+        ],
+        "reasoning": "Distinguish the two temporal depths from a single-image Garden-of-Eden notion and the spatial language from counts of periodic outputs. The all-rule classification is an actual equivalent onset statement under the same conventions.",
+        "searches": [
+          "Rule 54 bilateral first/second image languages and second-update loss",
+          "arXiv:1410.3096, §§3.3–3.4",
+          "SCOPE-20261026-5742d176c6e4",
+          "SCOPE-20261102-3615c2fb7c1d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first table has 54,0,9,011001110,46. It records one, not four, witnesses.",
+          "The second table includes rule 54 and exactly z^4−2z^3+z−1, with implied bounds (1.866760397,1.866760402). The November finding prints all coefficients of p2 verbatim, with root in (1.827684,1.827685)."
+        ],
+        "reasoning": "The root choices agree in addition to the polynomial coefficients. The corpus contains exact entries of all the main numerical invariants; the October 27 date alone does not order the first-image reports.",
+        "searches": [
+          "SCOPE-20261026-5742d176c6e4/classification.csv, row 54",
+          "SCOPE-20261027-d4f1725c3486/entropy_spectrum.csv, class 10",
+          "SCOPE-20261122-9f1cb27dee35/RESULT.md, Finding"
+        ]
+      },
+      "rationale": "Distinctness of the full finding is not established. The onset length, equality through eight, and one shortest witness are already exact entries of a preceding all-rule classification. The first polynomial is an exact same-date indexed match, and the second is an exact separately indexed later match with the full word-count generating function and a tighter enclosure. These latter comparisons do not establish priority against the frozen record. The surviving explicit list of four rather than one is a mechanical depth-nine extraction from the already specified two-language finite-state classification, and combining the separated root bounds is immediate. This is a finding of material coverage and insufficient distinct remainder, not a mathematical counterexample or an inferred publication order.",
+      "residual_risks": [
+        "The same-day and later results establish exact coverage but by themselves establish neither priority nor dependence; the earlier all-rule result independently establishes prior onset coverage.",
+        "Two plausible external comparators were not readable; this did not determine the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact earlier onset match and one of the four words",
+          "evidence": [
+            "54,0,9,011001110,46; product-subset breadth-first test for separating words"
+          ],
+          "identifier_or_url": "SCOPE-20261026-5742d176c6e4",
+          "material_read": "Proof §§2–4 and classification.csv Rule 54 row, offset 839",
+          "method": "Local archive mirror",
+          "title": "A sharp twelve-symbol threshold for second-update image loss in elementary cellular automata",
+          "trigger": "All-rule exact classification of second-image first distinguishing blocks"
+        },
+        {
+          "assessment": "Exact p1 and first-image entropy match; same date, order not established",
+          "evidence": [
+            "Rule 54 belongs to class 10, which gives z^4−2z^3+z−1 and tight root enclosure"
+          ],
+          "identifier_or_url": "SCOPE-20261027-d4f1725c3486",
+          "material_read": "entropy_spectrum.csv, class 10, offset 1489",
+          "method": "Local archive mirror",
+          "title": "Exact nineteen-value spatial image entropy spectrum of elementary cellular automata",
+          "trigger": "Exact first-image entropies across elementary rules"
+        },
+        {
+          "assessment": "Exact p2 match and stronger word-growth theorem; later-dated",
+          "evidence": [
+            "Same polynomial of degree 15, root in (1.827684,1.827685), same 39 reachable subsets and 18-state recognizer"
+          ],
+          "identifier_or_url": "SCOPE-20261122-9f1cb27dee35",
+          "material_read": "Finding, Scope and finite all-word certificate, offsets 0–3099",
+          "method": "Local archive mirror",
+          "title": "Exact second-image word growth and entropy of synchronous Rule 54",
+          "trigger": "Same rule, time depth and entropy convention"
+        },
+        {
+          "assessment": "Method and periodic configurations, not the frozen bilateral two-image results",
+          "evidence": [
+            "Subset-state relation and periodic Garden-of-Eden examples 101010 and 01010"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.3096",
+          "material_read": "p. 261 local rule and boundary convention, §§3.3–3.4 pp. 266–277 including Table 4 and §3.4.1",
+          "method": "Open-access PDF passages",
+          "title": "Complete Characterization of Structure of Rule 54",
+          "trigger": "Historical one-step Rule 54 subset and preimage results"
+        },
+        {
+          "assessment": "Different invariant: cyclic one-step enumeration",
+          "evidence": [
+            "Same p1 for ring counts; cyclic forbidden blocks 10110, 10101, 01101, 10111101 are not second-image discrepancies"
+          ],
+          "identifier_or_url": "SCOPE-20261102-3615c2fb7c1d",
+          "material_read": "RESULT Finding, ring-preimage setting and growth formula",
+          "method": "Local archive mirror",
+          "title": "Periodic lifting and exact one-step image enumeration for Rule 54",
+          "trigger": "Potential alternate interpretation of forbidden list and same polynomial"
+        },
+        {
+          "assessment": "Unresolved access, not a negative coverage finding",
+          "evidence": [
+            "Redirects and an unextractable repository PDF"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-78757-7_4",
+          "material_read": "Public result/landing material only, no readable paper passages",
+          "method": "Attempted lawful open publisher and repository copies",
+          "title": "Extensions on the Analysis of Elementary Cellular Automata with Process Graphs",
+          "trigger": "Candidate elementary-rule entropy table"
+        },
+        {
+          "assessment": "Unresolved access, not used for the decision",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1002/cplx.21686",
+          "material_read": "Bibliographic hit only; no readable open full text obtained",
+          "method": "Attempted public open-access retrieval",
+          "title": "Complexity article on elementary-cellular-automaton analysis",
+          "trigger": "Candidate older rule/preimage or entropy coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–25 and 33–57",
+        "SCOPE-20261026-5742d176c6e4 Proof §§2–4",
+        "SCOPE-20261027-d4f1725c3486 class 10",
+        "SCOPE-20261122-9f1cb27dee35 Finding"
+      ],
+      "rationale": "Sharp language onset and exact spatial information growth are worthwhile Rule 54 questions, and those facts have been verified. However, the claimed contribution beyond the exact all-rule onset, matched entropy results and supplied recognizers is a four-word table extraction and comparison of disjoint exact intervals. The record gives no further structural characterization or mathematical reason why completing this table at the already known cutoff constitutes a distinct worthwhile finding. That residue does not support a genuine narrowed repair.",
+      "residual_risks": [
+        "This does not deny the intrinsic value of comparing image-stage entropy or the accuracy of the witness list; it concerns what remains beyond matched coverage in this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

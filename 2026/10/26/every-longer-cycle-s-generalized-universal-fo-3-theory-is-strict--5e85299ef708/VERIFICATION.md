@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof reduces the new step to a one-variable extension lemma for a strengthened relation on evaluations \(v:\{x,y,z\}\to C_4\) and \(w:\{x,y,z\}\to C_n\). Besides matching equality and adjacency, every opposite pair in \(C_4\) is required to map to a pair at cycle distance exactly \(2\) in \(C_n\).
+# Independent mathematical audit
 
-The bundled `verify.py` performs three checks.
+## correctness
 
-First, for every \(5\le n\le16\), it exhaustively enumerates all three-variable assignments into \(C_4\) and \(C_n\), retains every tight-alike pair, and verifies that every possible rebinding of every variable in \(C_4\) has a response in \(C_n\) preserving the invariant.
+PASS
 
-Second, it checks the three canonical configurations of the two fixed values—equal, adjacent, opposite—for every \(5\le n\le1000\). These are exactly the three cases used in the uniform symbolic proof.
+The fragment is the three-variable universal closure under conjunction and disjunction of literals, with equality. Negation pushed through the formula yields the dual existential fragment with the same variables. For an assignment from C4 paired with one from C_n, require all three pairwise distances (0, 1 or 2) to agree. After rebinding one variable, the two retained square positions are equal, adjacent or opposite. If equal, a position at any requested distance 0, 1 or 2 exists in C_n. If adjacent, either copy one endpoint or use the off-edge neighbor of the appropriate endpoint; for n≥5 it is exactly distance two from the other endpoint. If opposite, their images are distance two apart, so copy an endpoint or choose the common neighbor on a length-two path. This suffices for either of the square's common neighbors because the moved variable's old value is not retained. The strategy preserves all literals, so structural induction gives E3 truth transfer from square to longer cycle at all depths. Starting from constant assignments and dualizing gives U3 transfer from longer cycle to square. The separator η expresses that every third distinct vertex meets an edge at one of its ends; this holds in the square and fails at (0,1,3) for every n≥5, including n=5. The independently written finite replay checked all 9,960 distinct canonical extension signatures over 5≤n≤1000 and the strictness witness; it is not the proof for unbounded n or formula depth.
 
-Third, it checks that the strictness sentence
-\[
-\eta=\forall x\forall y\forall z(\neg Rxy\lor x=z\lor y=z\lor Rxz\lor Ryz)
-\]
-holds on \(C_4\) and fails on every tested longer cycle, with the explicit witness \((0,1,3)\).
+## originality
 
-Output retained in the original submission:
+PASS
 
-`VERIFY_OK 217057 exact assertions`
+The pentagon-to-square inclusion and the general assignment-extension proof template are credited to Andréka–van Benthem–Németi. The supported distinct contribution is the uniform inclusion for C_n with n>5, and the explicit separator witnessing the strict family relation. The original pentagon invariant is not sufficient uniformly; the added distance-two constraint is substantive. The inspected full-FO equivalence classification has a different conclusion and offers no such one-sided relation.
 
-The checker is not an independent audit and the finite range is not used to extrapolate the theorem. The all-\(n\) claim follows from the three-case symbolic extension argument in RESULT.md.
+## value
 
-A separately reconstructed finite check reproduced the same 217057 assertion count without executing the uploaded checker. This is finite corroboration, not an independent audit, and does not prove the all-n theorem.
+PASS
+
+The cycles come from a canonical counterexample in finite-variable preservation. Determining the relation of an entire natural family to the square resolves a genuine one-sided theory question, not just a finite formula test. The short distance invariant works uniformly at arbitrary formula depth and the explicit separator makes the inclusion sharp. This is a useful structural family lemma, not a new general preservation theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

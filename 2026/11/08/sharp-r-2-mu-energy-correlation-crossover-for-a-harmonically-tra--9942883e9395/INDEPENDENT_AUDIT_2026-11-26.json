@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:03:09.564241Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Only the Brownian driver is reset. In the given units, W has a Gaussian mixture over its exponential reset age, hence all finite moments, and the stable filter Z=β∫ e^{-(s-u)}W_u du is stationary with the same moment property. A joint coupling erases W at the first shared reset and exponentially contracts the remaining Z difference; this gives uniqueness. Independent symbolic replay /workspace/energy_replay.py averages conditional Gaussian moments over the last-reset age, using the Poisson pre-reset Z law and conditional means (e^{-T}Z_old,0). It independently recovers the three displayed A,B,C, and verifies the exact critical formula by a matrix exponential. The centered generator equations for z²,zw,w² have diagonal −2,−(β+1),−β and superdiagonal 2β,β; centering removes the diffusion constant in L(w²). Exponential convolution gives the claimed H. All initial coefficients are positive and Φ_β≥Φ_(β+1)≥0, including s=0, so H is strictly positive at finite lags. The slowest mode has a nonzero positive leading coefficient on either side of β=2, including at β=1 where only a subleading resonance is possible. Substituting β=2+z/s gives Φ_β=s exp(−2s)(1−exp(−z))/z exactly, and Φ_(β+1)=O(exp(−2s)) uniformly on compact z-sets. This proves all three leading regimes and uniform crossover. The physical covariance is of X² with factor (D/μ)²; the covariance of μ X²/2 adds μ²/4. The frozen nested script and its logged checks were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The four-time sign theorem concerns arbitrary nonnegative L¹ filters and explicitly includes harmonic probes. It gives the filtered cumulant as a fourfold integral of the ordered bath kernel with shifted arguments.",
+          "Guéneau–Majumdar–Schehr already show the same min(2μ,r) rate switch and repeated pole at r=2μ for one-time variance relaxation. Majumdar–Oshanin establish the unfiltered Brownian-reset correlation."
+        ],
+        "reasoning": "The earlier variance transient has different initial data and is a different observable. The general cumulant theorem gives an exact implicit representation of the relevant quartic statistic; extracting this explicit all-lag law and resolving the asymptotic collision requires evaluating ordered-domain integrals or fresh equivalent mixed-time analysis.",
+        "searches": [
+          "Resultary four-time sign fingerprints; inspected the Finding and Filtering proof",
+          "arXiv:2306.09453 Eqs. (91)–(95)",
+          "arXiv:1806.03435 Eqs. (4)–(5)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.09453",
+        "arXiv:1806.03435",
+        "arXiv:2409.06920",
+        "arXiv:2202.02715 (first-passage functionals, not the stationary confined lag statistic)",
+        "2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5",
+        "2026/11/2/SCOPE-universal-five-to-one-excess-of-time-integrated-quadratic-fluctu--4577f35c36ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordered bath kernel is (4D²/r²) exp(−r(u+v+w))(5+3ru−2 exp(−rv)); sorting four shifted filter times and integrating proves positivity.",
+          "The two same-model prior statements cover one-time rate collision and the integrated variance invariant respectively, not the explicit positive lag amplitudes/profile."
+        ],
+        "reasoning": "Strict positivity is a direct corollary of the same-day result and is not separately credited. Mere specialization of its sign theorem does not yield the exact time-dependent kernel; specializing the proof leaves a genuine calculation. The sharp profile concerns that distinct kernel, not the previously known repeated pole for variance relaxation.",
+        "searches": [
+          "2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5 RESULT.md, Finding and Filtering",
+          "arXiv:2306.09453 Eqs. (91)–(95) and Appendix G",
+          "November 2 SCOPE integrated quadratic variance rate"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-model linear two-time covariance and one-time fourth moment do not determine the quartic lag covariance in a non-Gaussian stationary law.",
+          "The same-day four-time SCOPE record implies strict positivity since Cov(X₀²,X_t²)=cum(X₀,X₀,X_t,X_t)+2 Cov(X₀,X_t)² for centered X."
+        ],
+        "reasoning": "A linear lag covariance, a fourth moment at zero lag, and a positivity assertion are materially different from the resolved quadratic lag law. No conclusion is drawn from an empty alias search.",
+        "searches": [
+          "Resultary matching connected quadratic/energy covariance, filtered four-time cumulants and integrated quadratic fluctuations",
+          "arXiv:2306.09453 Appendices E and G",
+          "Primary alias search for harmonic reset-Brownian squared-position covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-universal-five-to-one-excess-of-time-integrated-quadratic-fluctu--4577f35c36ab gives the same-model long-time variance rate of integrated centered X² through Green–Kubo, not the lag law.",
+          "The primary source tables/formulas inspected give stationary one-time moments or linear temporal dependence; the integrated result samples one functional of the law."
+        ],
+        "reasoning": "An integral, a zero-lag value, or finitely sampled values are not an exact table of a continuum of lag functions or of the critically scaled limit.",
+        "searches": [
+          "Resultary published matching statements for exact quadratic autocovariance and integrated squared-position fluctuations",
+          "arXiv:2306.09453 exact two-time formulas"
+        ]
+      },
+      "rationale": "Pass for the explicit stationary mixed-time quartic lag law with its sharp leading amplitudes and compact-uniform critical profile. Neither positivity alone nor the existence of a collision at r=2μ in this model is original in isolation. The closely related same-day four-time cumulant record directly gives positivity and an unevaluated harmonic-filter integral, but neither states nor immediately yields the evaluated kernel and its critical long-lag asymptotics. Its date does not resolve priority.",
+      "residual_risks": [
+        "Same-day priority is unresolved; evaluated harmonic filtering in other sources or earlier mixed-time formulas outside the inspected texts could affect priority. No novelty credit for the same-day direct positivity implication or for the known variance-relaxation collision in itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Significant partial overlap; not the stationary quartic lag law",
+          "evidence": [
+            "One-time variance relaxation already crosses at r=2μ. Appendix E gives stationary second and fourth moments; Appendix G gives a linear two-time moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.09453",
+          "material_read": "Eqs. (33)–(37), (91)–(95), Appendices E and G; OA offsets 48048, 94665, 162760, 166949",
+          "method": "Targeted OA text passages",
+          "title": "Active particle in a harmonic trap driven by a resetting noise: an approach via Kesten variables",
+          "trigger": "Same model and known relaxation crossover"
+        },
+        {
+          "assessment": "Exact implicit representation and directly covers strict positivity; no evaluated harmonic kernel or crossover is stated in the decisive passages",
+          "evidence": [
+            "Applies to coinciding output times and any positive harmonic probe kernels, and integrates the ordered bath cumulant against four filter weights."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5/RESULT.md",
+          "material_read": "Finding and Filtering proof, local mirror offset 0–5208",
+          "method": "Resultary match and targeted local-mirror original file",
+          "title": "Four-time sign fingerprints of covariance-matched resetting, Gaussian, and telegraph baths",
+          "trigger": "Exact four-time cumulants and positive filters"
+        },
+        {
+          "assessment": "Earlier integrated invariant, not the complete lag law",
+          "evidence": [
+            "Long-time variance rate depends on the integral of the target autocovariance."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-universal-five-to-one-excess-of-time-integrated-quadratic-fluctu--4577f35c36ab",
+          "material_read": "Finding on the integrated fluctuation and Green–Kubo calculation",
+          "method": "Resultary match and original statement comparison",
+          "title": "Universal five-to-one excess of time-integrated quadratic fluctuations",
+          "trigger": "Same-model integrated squared-position covariance"
+        },
+        {
+          "assessment": "Unfiltered two-time covariance, distinct from a filtered quartic observable",
+          "evidence": [
+            "The Brownian specialization has the lag factor exp(−r(t₂−t₁))."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1806.03435",
+          "material_read": "Eqs. (4)–(5), OA offset 7623",
+          "method": "Targeted OA text passage",
+          "title": "Spectral content of fractional Brownian motion with stochastic reset",
+          "trigger": "Driving bath's temporal memory"
+        },
+        {
+          "assessment": "Different reset mechanism and no matching formula in the inspected statements",
+          "evidence": [
+            "Position and orientation reset; Eq. (18) is a steady one-time fourth moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2409.06920",
+          "material_read": "Abstract and Eq. (18), offsets 0, 32250",
+          "method": "Targeted OA text passages",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "Fourth displacement moments under harmonic confinement and resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The connected quadratic statistic supplies a finite-lag benchmark for energy-memory measurements in a non-Gaussian harmonic model. Its complete lag dependence and quantified near-critical crossover contain information not supplied by the linear correlation, equal-time moments, or a time integral. This is useful even though the rate mechanism itself is known for another observable and the sign is covered by the four-time theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

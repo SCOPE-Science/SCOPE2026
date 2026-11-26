@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The stated domain is every fixed integer smaller part size \(p\ge3\), all sufficiently large integer larger-part sizes \(q\), and all positive screening strengths, with exactly two distinct noiseless landmarks. The Laplacian spectral projectors yield exact five-orbit covariance entries, which yield three exact gain formulas by two-by-two inversion. The checker confirms the two rational comparison identities in SymPy and against direct rational matrix inverses for every landmark pair in the tested graphs. The expanded quartics have one positive root each for sufficiently large \(q\) by their strict coefficient sign patterns; their normalized limits have distinct simple positive roots, yielding root order and complete strict optimum classification. Finite enumeration is supplementary rather than a proof of the asymptotic quantifier. The theorem does not provide the smallest possible integer cutoff in \(q\).
+PASS
 
-## Originality
+Independently use the Schur residual identity: the residual on unselected vertices is the inverse of the corresponding principal precision submatrix. For r remaining A-vertices and s remaining B-vertices set a=t+q, b=t+p. The two within-part contrasts contribute (r−1)/a+(s−1)/b and the constant-on-parts block has trace of inverse (a+b)/(ab−rs). Substituting (r,s)=(p−2,q),(p−1,q−1),(p,q−2) reproduces both positive denominators and all quartic coefficients. Their leading signs in q give exactly one positive crossing each by Descartes and the endpoint signs. Normalization by q³ gives the two simple limiting roots; the coefficients are polynomial in 1/q near zero, giving the asserted O_p(1/q) rates. The signs force AA, AB, BB in order with only the adjacent ties. The stated midpoint lies strictly between the limiting roots and the two negative tests suffice at finite sizes. Independent calculation also reproduces the p=3,q=30 numerical example. The frozen self-review has an incidental 'two ... orbits' typo; there are three as in the actual Finding and proof.
 
-PASS on the inspected evidence, with residual publication-priority risk. The closest earlier full-text sources are the general optimal kernel-landmark trace objective and Nyström Schur complement (Belabbas–Wolfe, 2009) and Gaussian-process sensor-placement methods (Guestrin–Krause–Singh, 2005; Krause–Singh–Guestrin, 2008). Their general formulations do not themselves state a three-phase pair-orbit classification for the all-\(p\) asymmetric complete-bipartite screened inverse. A related two-vertex smaller-part calculation does not imply the strictly positive first threshold for each \(p\ge3\). General post-2024 column selection methods could contain an undiscovered equivalence; the most plausible one was only partially accessible.
+## originality
 
-## Value
+PASS
 
-PASS. Screened Laplacian inverses are natural Gaussian precision kernels, and the two landmark-pair orbits are the complete set of symmetry-reduced designs for budget two. This theorem identifies two nontrivial, universal large-network critical scales and all optimal sensor pairs on every side of each critical scale, including ties. The finite-size quartics offer checkable certificates rather than a purely numerical heuristic. It is not a claim of computational superiority for two-column Nyström over exact algorithms on special graphs.
+The prior Nyström objective is identical; the supported distinct theorem is exact phase order, ties, and the two limiting thresholds for every fixed p≥3 and sufficiently large q. The same-objective p=2 boundary result and heat-trace analog do not cover it.
 
-## Scope and residual limitations
+## value
 
-Only unit-edge bicliques, fixed smaller-part size, noiseless two-sensor trace error, and sufficiently large larger-part sizes are treated. The eventual bound exists constructively but a closed smallest cutoff is not established. A relevant recent general column-selection article could not be inspected in full. External mathematical audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-landmark posterior-variance problem has three canonical competing configurations. The exact optimizer changes twice, and the mixed phase persists over a nonzero interval even at extreme asymmetry, unlike a lower boundary tending to zero. This fixes both asymptotic scales and provides a finite certificate for checking phase order, rather than just numerical examples or use of a standard trace identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

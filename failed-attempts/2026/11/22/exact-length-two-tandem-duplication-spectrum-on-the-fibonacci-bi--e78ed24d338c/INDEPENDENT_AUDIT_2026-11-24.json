@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:10:23.302581Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The displayed mathematical identities hold. The first two letters and the lag-two XOR derivative reconstruct the word; duplicating at site j inserts two zeros at derivative gap j. Two insertions give the same output precisely within the same zero run, for 1+wt(derivative) distinct outputs. Weighting the transitions of states 00,01,10 by u for a lag-two mismatch gives the three-state transfer matrix and the stated rational function. The initial polynomials give degrees 0,1,2 and top counts 3,2,1. In the recurrence the leading term comes only from u² A_{n-3} for n=0,1 mod 3 and also from A_{n-1} for n=2 mod 3, giving the stated extrema and counts, including n=2. A zero mismatch count gives exactly the three admissible two-periodic words. At u=1 the series counts Fibonacci words; differentiation gives the displayed derivative series. The prose 'summed descendant count' should read 'summed descendant count minus one per source': A'_n(1)=sum_w(B(w)-1). For the literal total add (3+2t)/(1-t-t²) to the displayed series. The frozen script was inspected, not executed; the all-length conclusion follows from the identities, not from finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jain et al. describe the invertible difference representation and the zero-signature increment for a fixed-length tandem duplication.",
+          "Lenz et al.'s radius-one ball includes the source and has size wt(v)+2, so its exact-one subset has size wt(v)+1.",
+          "SCOPE d6154f9c908e gives the binomial law of the lag mismatch statistic for an unrestricted uniform source."
+        ],
+        "reasoning": "The exact-one degree identity is a general existing result; the unrestricted binomial distribution does not give the distribution conditioned on no 11. The separate constrained deletion theorem closes that gap.",
+        "searches": [
+          "arXiv:1606.00397, Sections II–III",
+          "arXiv:1707.00052, Section 3.1 Lemma 1",
+          "Resultary SCOPE d6154f9c908e"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1606.00397",
+        "arXiv:1707.00052",
+        "SCOPE 699e806f10ce",
+        "SCOPE d6154f9c908e",
+        "SCOPE 8557c0dca75c",
+        "SCOPE 0aca79ccebc0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting the radius-zero word from the sphere theorem supplies the exact-one duplication degree; the deletion record supplies precisely the same degree on the same domain and all extremal and coefficient formulas."
+        ],
+        "reasoning": "The spectrum transfers in one step with no new constrained enumeration; the minimum and first moment also follow directly from that same spectrum. The presentation as a tandem-duplication theorem does not change the invariant established.",
+        "searches": [
+          "arXiv:1707.00052, Section 3.1 Lemma 1",
+          "SCOPE 699e806f10ce, Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same linear indexed no-11 words, SCOPE 699e806f10ce proves that the number of distinct results of deleting exactly one adjacent pair equals 1+sum_i[w_i != w_{i+2}]. The rational spectrum and sharp extremal multiplicities are identical."
+        ],
+        "reasoning": "Pointwise equality of the two degrees transfers every degree coefficient, moment, and extremal count without requiring the output words themselves to coincide.",
+        "searches": [
+          "Resultary: Fibonacci-constrained binary exact one-window duplication and adjacent two-burst deletion",
+          "SCOPE 699e806f10ce, Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE 8557c0dca75c counts unrestricted binary correcting code sizes for lengths 3–15, not forward degrees.",
+          "SCOPE 0aca79ccebc0 computes a spectrum for the different reverse-complement operation.",
+          "SCOPE 699e806f10ce supplies the matching all-length formula in the equivalent formulation, not merely matching numerical entries."
+        ],
+        "reasoning": "Neither comparison table for a different invariant or operation is evidence of coverage; the all-length deletion identity and enumerator are decisive.",
+        "searches": [
+          "Resultary SCOPE 8557c0dca75c",
+          "Resultary SCOPE 0aca79ccebc0",
+          "Resultary SCOPE 699e806f10ce"
+        ]
+      },
+      "rationale": "The full constrained degree spectrum is mathematically equivalent to the one in a distinct indexed two-burst-deletion record. This is stronger than proximity of topics or equality on a table: the deletion and duplication degrees are equal for every input by the same lag-two statistic, and exact-one duplication's degree formula was already known. Both records have the same displayed date; the evidence does not establish which was written or published first. Failure is for equivalent indexed coverage and no distinct surviving degree result, not a finding about historical priority or the equality of the output sets.",
+      "residual_risks": [
+        "The two matching constrained records have the same displayed date; temporal priority is undetermined.",
+        "The broad primary-literature search did not return a decisive additional match; this says nothing about unindexed sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent degree-spectrum coverage; priority not established",
+          "evidence": "The deletion statistic is 1 plus the lag-two mismatch count for the same words, and the rational series and extremal multiplicities agree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-two-burst-deletion-diversity-in-fibonacci-constrained-bina--699e806f10ce/RESULT.md",
+          "material_read": "Finding and proof, local-mirror beginning at offset 0",
+          "method": "Local-mirror source reading and comparison of pointwise statistics and generating functions",
+          "title": "Sharp two-burst deletion diversity in Fibonacci-constrained binary words",
+          "trigger": "Exact constrained alias with a possibly different output operation"
+        },
+        {
+          "assessment": "Covers derivative and zero insertion mechanism",
+          "evidence": "Increasing one zero-signature coordinate represents one fixed-length duplication.",
+          "identifier_or_url": "arXiv:1606.00397",
+          "material_read": "Sections II–III, PDF pp. 6–9",
+          "method": "OA PDF bounded passage reading",
+          "title": "Duplication-Correcting Codes for Data Storage in the DNA of Living Organisms",
+          "trigger": "General framework for fixed-length duplicate collisions"
+        },
+        {
+          "assessment": "Covers pointwise degree, not the constrained enumeration alone",
+          "evidence": "The at-most-radius-r count is binomial(r+wt_H(v)+1,r), including the source.",
+          "identifier_or_url": "arXiv:1707.00052",
+          "material_read": "Section 3.1 Lemma 1, PDF pp. 4–5",
+          "method": "OA PDF bounded passage reading",
+          "title": "Bounds on Codes Correcting Tandem and Palindromic Duplications",
+          "trigger": "Potential exact sphere theorem"
+        },
+        {
+          "assessment": "Different source law; general pointwise identity overlaps",
+          "evidence": "Unrestricted uniform q-ary sources give a binomial law for n-h+1-D_h(X).",
+          "identifier_or_url": "SCOPE d6154f9c908e",
+          "material_read": "Finding and proof §§1–2 (local-mirror offsets 0 and 2600)",
+          "method": "Local-mirror source reading",
+          "title": "Joint law and independence threshold for two tandem-duplication descendant counts",
+          "trigger": "Earlier tandem-duplication distribution"
+        },
+        {
+          "assessment": "Different invariant and source domain",
+          "evidence": "The table counts optimal correcting codebooks in the unrestricted binary channel, not individual constrained source degrees.",
+          "identifier_or_url": "SCOPE 8557c0dca75c",
+          "material_read": "Finding and proof §§1–4 (local-mirror offsets 0 and 2900)",
+          "method": "Local-mirror source reading",
+          "title": "Exact finite optima for binary codes correcting one length-two tandem duplication",
+          "trigger": "Possible exact table for same duplication length"
+        },
+        {
+          "assessment": "Different operation",
+          "evidence": "The duplicated factor is inserted as its reversed complement rather than unchanged.",
+          "identifier_or_url": "SCOPE 0aca79ccebc0",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "Local-mirror source reading",
+          "title": "Exact one-step descendant spectrum for length-two reverse-complement duplication",
+          "trigger": "Possible overlapping exact spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp all-length forward-degree distribution for a natural constrained language would be useful if independently unknown. Here the equal pointwise deletion and duplication degrees transport the entire result from an indexed theorem, and the known sphere identity already supplies the channel-specific degree step. There is no new result about output sets, correction, or some other invariant that survives this equivalence. Correcting the first-moment wording would not change that.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

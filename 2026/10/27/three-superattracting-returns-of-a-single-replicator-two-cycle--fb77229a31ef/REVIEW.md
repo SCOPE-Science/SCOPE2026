@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement requires only three distinct zero multipliers, not an exhaustive root census. The proof rigorously parametrizes all nontrivial two-cycles by their amplitude, establishes strict monotonicity of the intensity-amplitude relation, derives the derivative-product identity, and checks four signs in the required order. Two nontrivial interior sign witnesses use rational orbit coordinates and inequalities for logarithms proved from finite exponential series. The boundary signs are analytical limits. Continuity supplies three disjoint roots and a robust open equilibrium interval. Standard-library verifier arithmetic confirms the fractions and limiting examples but is not taken as an infinite proof.
+PASS
 
-## Originality — PASS under inspected sources
+The endpoints are fixed, and summing the log-odds increment over an interior two-cycle forces mean b. The exact centered solution with points b±d is obtained at A_b(d), strictly increasing in d by the positive artanh series, with range (2/[b(1−b)],∞) for b<1/2. The derivative factors in the cycle multiply to (1−A_b q(b−d))(1−A_b q(b+d)). At birth the factors tend to −1 each; at d→b the low-point factor tends to 1 while the other tends to −∞. At b=12/25, independent rational arithmetic confirms log(253/3)∈(4,5) at d=2/5, with factors of opposite sign, and log(2303/3)<7 at d=23/50, with both factors positive. Thus the signs alternate in the four ordered regions. The intermediate value theorem gives three disjoint interior zeros, whose distinct finite intensity values lie above 625/78; a zero derivative of the second iterate gives local superattraction. The strictly signed interior witnesses persist for b near 12/25, and both endpoint limits have the requisite sign throughout that neighborhood.
 
-Closest mathematical result: *Singular symmetry-breaking threshold for the period-two orbit of a replicator map* (2026) establishes a unique multiplier \(-1\) crossing near equilibrium symmetry, but says nothing about the count of crossings of zero; neither assertion implies the other. The original map literature in arXiv:2412.16379 and arXiv:2108.06739 treats existence, bifurcation, and stability, not a rigorous triple zero crossing at fixed equilibrium. Crucially, Chotibut et al.'s NeurIPS 2020 supplemental analysis **already investigates superstable parameter curves** (Sec. F, pp. 23–27): the novelty is only the exact three-intensity fixed-equilibrium theorem in an open parameter set, not the existence of superstable curves. The inspected figures and approximations do not state an implication proving the present theorem. Search cannot exclude an unindexed earlier exact classification or a covered implication hidden in other literature; this is the main priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The natural invariant being studied is the number and ordering of the critical passages of a distinguished unique periodic branch as intensity changes at fixed game equilibrium. Repeated superattraction might be obscured by the uniqueness of that branch and the previously derived unique stability exit. A rigorous open-family nonmonotonicity certificate is a motivated boundary/counterexample to the tempting single-passage picture, rather than an arbitrary fixed-value computation. The result is intentionally an existence lower bound, not a global classification.
+The branch, birth threshold, multiplier formula, and superstable period-two parameter curves are not new. The supported distinct finding is the exact analytic lower bound of three zero-multiplier intensities at one fixed nonsymmetric equilibrium and throughout an open neighborhood. The closest inspected earlier statements concern either a −1 crossing or numerical/large-coupling superstable curves, not a certified fixed-equilibrium triple return.
 
-## Scope and integrity
+## value
 
-The result is independent of the approximate root values displayed by the verifier; no extrapolation or independence claims are made. The theorem does not give an exact maximum number of superattracting intensities and admits residual historical-priority uncertainty. No third-party paper is republished. Independent external validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact witness disproves monotonicity of the signed multiplier on a unique, continuously followed period-two branch, without switching among coexisting cycles or relying on plots. Its robustness in equilibrium makes the triple critical return a feature of this family rather than an isolated numerical coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

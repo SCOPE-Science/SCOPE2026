@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:33:11.667872Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–73; VERIFICATION.md; verify.py inspected, not executed",
+        "Independent bounded replay: python /workspace/reproductions/independent_checks.py 3"
+      ],
+      "rationale": "With h=1/t the chord gain is n times the centered ramp variance divided by d+h, using the mean-zero inverse of the path Laplacian. Summing the ramp and its squares, with left and right constant tails, gives C_n(d)−d^2(l−r)^2/(4n). In wrong parity the best imbalance is one; for d>=3 the mean of the two neighboring centered numerators exceeds this by (n−d)^2/(4n), and the denominators average exactly. At wrong-parity d=2 the d=3 neighbor wins both in bare numerator and in numerator divided by length, so it wins for all h>0. For the centered samples, the adjacent difference after positive cross multiplication is h(d−1)(n+1−d)−d(d−2)(4d−3n−4)/6. The derivative of the continuous interpolant has positive numerator up to 3n/4, then a strictly decreasing numerator with derivative (n/2−x)(x+h). Any equality at an adjacent pair therefore places the unique peak strictly between those two lengths and makes that tie global. Positive crossing criteria form a contiguous block from the top; at each crossing the next lower pair is still ordered toward the higher length, so the times are strictly ordered. The first possible crossing is n=9 and has t=7/4. Independent exact-rational checks sum electrical series/parallel resistances, separating path-tail segments from the two cycle arcs; they reproduced the optimal values and all minimizing endpoints at the checked parameters.",
+      "residual_risks": [
+        "Finite replay uses n=4..18, three fixed positive conductances and all positive transition points within those orders. Infinite coverage follows from the strict parity and comparison arguments, not that replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unweighted unicyclic extremal problem ranges over all unicyclic graphs. The weighted-cycle paper starts on a cycle. The fixed-topology allocation paper varies conductances. The optional-price record likewise lets path-edge conductances vary."
+        ],
+        "reasoning": "The unweighted unicyclic minimum can identify endpoint cycles in small t=1 cases, but the class and objective constraints do not specialize to the full prescribed-t theorem. The other sources vary different parameters or use a different topology.",
+        "searches": [
+          "Yang–Jiang, MATCH 60(1), 107–120",
+          "Ghosh–Boyd–Saberi DOI:10.1137/050645452",
+          "arXiv:2605.24479",
+          "Resultary 2026/11/2/SCOPE-exact-chord-price-screening-and-a-zeta-boundary-layer-in-resista--72544ae32943"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and the catalogue and primary-text comparisons above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-one gain formula for adding a unit edge lifts by scaling its incidence vector by sqrt(t). The unit-edge repair supplies the identity of a single optimizer for each n, not the location of adjacent crossings in t."
+        ],
+        "reasoning": "The generic identity evaluates each candidate, but does not imply parity-mismatch exclusion or a strictly ordered phase diagram without proving the path-specific optimization. A t=1 optimizer cannot determine the ordered set of threshold values.",
+        "searches": [
+          "arXiv:2503.21409, Eq. (1)",
+          "arXiv:2605.24479, introductory results",
+          "Resultary 2026/11/8/SCOPE-optimal-one-link-resistance-repair-of-a-path-an-exact-eight-step--60416c4dd674"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-link resistance repair is the identical objective and topology at t=1. The earlier path-shortcut record instead maximizes algebraic connectivity. The edge-addition paper uses total effective resistance/Kirchhoff index as here."
+        ],
+        "reasoning": "Rewriting as unicyclic path augmentation or trace of the Laplacian inverse does not turn a maximum-eigenvalue-gap objective or a fixed unit edge into the all-t Kirchhoff-index minimizer classification.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-optimal-one-link-resistance-repair-of-a-path-an-exact-eight-step--60416c4dd674",
+          "Resultary 2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3",
+          "arXiv:2503.21409"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov. 8 result gives the unique t=1 optimum (k+1,n−k), k=floor((n−2)/8), and an exact minimum. The frozen threshold formula gives this same unit-conductance optimizer: for d=n−1−2k the adjacent switch lies below 1 just when n>=8k+10."
+        ],
+        "reasoning": "This is exact overlap for a full slice, not coincidence at finite n; it does not cover the other conductances or give the continuous staircase. Its catalogue date is later, which neither erases current overlap nor establishes priority or dependence.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-optimal-one-link-resistance-repair-of-a-path-an-exact-eight-step--60416c4dd674",
+          "Resultary path-chord, rank-one, unicyclic and weighted-cycle matches"
+        ]
+      },
+      "rationale": "The exact gain update and the unit-conductance optimizer are existing coverage, not distinct contributions. The supported distinct content is the ordered transition classification, including every tie and strict exclusion of asymmetric placements, for the freely prescribed positive conductance and all path orders. The sources compared do not supply this variable-conductance family.",
+      "residual_risks": [
+        "The cited primary works and materially close catalogue records were checked; no general primary-literature search was completed for this record, and historical priority is not established.",
+        "A weighted graph result under other terminology could cover additional regimes; no such coverage is established by the inspected statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rank-one gain machinery",
+          "evidence": "Generic unit-edge addition using the inverse rank update; sqrt(t) scaling gives the arbitrary-conductance identity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.21409",
+          "material_read": "PDF p. 3, Eq. (1), OA offset 24500",
+          "method": "OA PDF passage",
+          "title": "Efficient Algorithms for Minimizing the Kirchhoff Index via Adding Edges",
+          "trigger": "Same Kirchhoff-index edge gain"
+        },
+        {
+          "assessment": "Partial overlap with unit cycles, different class",
+          "evidence": "Ranges over all unweighted unicyclic graphs; cycles minimize for n<8; P_n^3 is the maximum, not a path-chord minimum.",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match60/n1/match60n1_107-120.pdf",
+          "material_read": "PDF p. 1 and definitions p. 3, offsets 890–1399 and 5064",
+          "method": "OA PDF passages",
+          "title": "Unicyclic graphs with extremal Kirchhoff index",
+          "trigger": "Unit-conductance subcase is unicyclic"
+        },
+        {
+          "assessment": "Different conductance design problem",
+          "evidence": "Fixed graph topology with conductances allocated under a total budget.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "PDF p. 2, offset 5250",
+          "method": "Author-hosted OA PDF passage",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Related effective-resistance optimization including paths"
+        },
+        {
+          "assessment": "Different base topology",
+          "evidence": "Updates for a weighted cycle use two complementary arcs; the theorem is not about a fixed path.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.24479",
+          "material_read": "PDF pp. 1–2, offsets 2575 and 8200–8436",
+          "method": "OA PDF passages",
+          "title": "Single-Chord Augmentation of Weighted Cycles for Algebraic Connectivity and Network Coherence",
+          "trigger": "Exact weighted single-chord objective comparison"
+        },
+        {
+          "assessment": "Direct t=1 overlap only",
+          "evidence": "Unit edge; k=floor((n−2)/8), endpoints (k+1,n−k), exact minimum.",
+          "identifier_or_url": "2026/11/8/SCOPE-optimal-one-link-resistance-repair-of-a-path-an-exact-eight-step--60416c4dd674",
+          "material_read": "RESULT.md Finding around offset 250",
+          "method": "Published catalogue search and mirror passage",
+          "title": "Optimal one-link resistance repair of a path: an exact eight-step law",
+          "trigger": "Exact objective and placements"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Algebraic-connectivity ceiling; below-ceiling optimal locations left unclassified.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-conductance-and-placement-thresholds-for-path-shortcuts--189d704825c3",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Mirror passage",
+          "title": "Sharp conductance and placement thresholds for path shortcuts",
+          "trigger": "Same path and prescribed shortcut"
+        },
+        {
+          "assessment": "Different optimization variables",
+          "evidence": "Budgets with optional chord; path weights not fixed at one.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-chord-price-screening-and-a-zeta-boundary-layer-in-resista--72544ae32943",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Mirror passage",
+          "title": "Exact chord-price screening and a zeta boundary layer in resistance-optimal networks",
+          "trigger": "Optional chord in resistance design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; exact t=1 catalogue comparison"
+      ],
+      "rationale": "For the canonical transport network P_n and a single fixed-strength repair, a complete classification of where to put the new edge is meaningful. The thresholds show exactly when preferring a long chord to a centered shorter chord ceases to be optimal, and when uniqueness fails. The all-conductance statement is not the catalogue's unit-edge computation or just a use of the inverse update.",
+      "residual_risks": [
+        "No inference to jointly adjustable original weights, other graphs or multiple added edges."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

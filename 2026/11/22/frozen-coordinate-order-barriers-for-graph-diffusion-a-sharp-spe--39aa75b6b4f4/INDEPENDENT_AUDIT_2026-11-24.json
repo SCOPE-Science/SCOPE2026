@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:42:38.539682Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At every coordinate nullcline the finite multiplier times zero is exactly zero, without requiring any uniform bound on multipliers. The row r=e_i^T Q is nonzero because its diagonal entry is d_i+κ and d_i>0. Writing s=e_i^T Q² gives the defect −h²su/2+O(h³||u||); on the compact positive nullcline ball the remainder is uniform. The maximum absolute value of a linear functional on that shifted ball is |su_0|+ε||proj_(r^⊥)s||, with the stated Gram-error formula for Δ². A positive Δ gives a fixed (not h-dependent) positive state with a nonzero leading coefficient. Every nullcline meets the positive cone, for instance with u_i=d_i/(d_i+κ) and all other entries 1. For κ>0, Qe_i has nonzero projection on the constant mode and nonconstant modes at distinct eigenvalues. As a separate direct witness, at the above u, (Qu)_j=κ+w_ji κ/(d_i+κ)>0 for j≠i (taking missing weights as zero), so (Q²u)_i=−sum_j w_ij(Qu)_j<0. For κ=0, simultaneous row proportionality L²=CL implies CL=LC, so neighboring diagonal factors agree and connectedness makes them constant. The simple zero mode and one other eigenvalue give precisely the uniform complete graph, for which the proposed scalar step is the exact positive semigroup. For the unweighted vertex criterion a universal vertex has Le_i=ne_i−1; at a nonuniversal vertex, a distance-two position has zero L entry and positive L² entry. For the two-vertex star K_2 both vertices are universal: the leaf illustration concerns noncentral leaves of stars with a unique center, while the iff covers K_2 without exception. In the killed clique the two squared spectral masses of Qe_i are κ²/n and (n−1)(c+κ)²/n; their weighted variance for eigenvalue gap c gives the stated constant and asymptotic. The positive three-vertex path witness also gives (Lu)_1=0, (L²u)_1=1 as claimed. The analytic argument covers all stated finite graphs. The supplied checker was inspected but not executed; its tiny-graph checks are not needed to justify the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoang uses a quotient by f_i in its condition at f_i≠0; it provides no branch computing correct second-order movement for f_i=0.",
+          "The multidimensional Alalhareth et al. theorem treats a vanishing old-state component derivative as retaining the exact coordinate. That general zero-component reasoning fails on the positive path witness. Anguelov–Lubuma use implicit paired-state evaluations (Eq. (6))."
+        ],
+        "reasoning": "General-purpose results of these types do not dominate the sharp obstruction. In particular a scheme evaluating more than the one old-state residual is not a special case of the bound abstract update.",
+        "searches": [
+          "arXiv:2608.09141 Theorem 2.3",
+          "10.3390/computation12090183 Theorem 1 and proof",
+          "arXiv:2207.11618 Eq. (6)–(7)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.09141",
+        "doi:10.3390/computation12090183",
+        "arXiv:2207.11618",
+        "Resultary 39aa75b6b4f4 (self-match), c740afdf92d6, 4d0e4c9eba68, 4f94a5560a16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the unit path at u=(1,1,2) the endpoint's old-state derivative vanishes but its second derivative is 1, directly checking the distinction omitted in the 2024 proof.",
+          "The 2026 condition for nonzero component residuals does not exclude this contrast; the matrix positivity records operate on a different question and use nonlocal maps."
+        ],
+        "reasoning": "No inspected pre-existing hypothesis and conclusion yields the nullcline norm plus shift term, all-vertex equivalence to a uniform clique, or its destruction under arbitrarily small positive killing. The audit does not claim that the nonzero-residual Taylor relation is invalid.",
+        "searches": [
+          "Hoang Theorem 2.3 nonzero-residual condition and Alalhareth Theorem 1 zero-component case compared to positive path and killed-edge nullcline witnesses",
+          "Resultary c740afdf92d6, 4d0e4c9eba68 and 4f94a5560a16 actual update and conclusions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hoang Eq. (1.4) rearranges to the same class of scalar multipliers φ_i/(1+τ_i φ_i) applied to the old-state residual. Alalhareth et al. use a modified explicit Euler residual with φ_i=h when f_i=0.",
+          "The Resultary finding with suffix 39aa75b6b4f4 is the same frozen record. The sharp spectral variance here is equivalently the projected length of Q²e_i orthogonal to Qe_i, and zero variance means Qe_i is an eigenvector."
+        ],
+        "reasoning": "Changing denominator parametrization does not change the freezing mechanism, but the prior scheme statements do not identify the exact nullcline supremum or the graph classification.",
+        "searches": [
+          "Resultary graph diffusion coordinate freezing; zero-residual Euler order barrier and spectral variance",
+          "Hoang arXiv:2608.09141 Eq. (1.4)/(2.3)",
+          "Alalhareth et al. DOI 10.3390/computation12090183 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c740afdf92d6 classifies entrywise positivity of a two-sided filtered Euler matrix on a weighted three-vertex path by its edge ratio. 4d0e4c9eba68 concerns graph-distance dependent entries of a Richardson-extrapolated backward-Euler scheme. 4f94a5560a16 gives a four-vertex positivity cutoff for symmetric filtering."
+        ],
+        "reasoning": "These are exact statements concerning signs or stability of filtered matrix maps; none is an exact table/classification of componentwise local-order defects or their killed-clique constants. No historical ordering is inferred from their same-day dates.",
+        "searches": [
+          "Resultary exact graph Euler positivity and local order on killed and conservative diffusion graphs",
+          "Resultary c740afdf92d6, 4d0e4c9eba68 and 4f94a5560a16 Findings"
+        ]
+      },
+      "rationale": "The supported new contribution is the sharp shifted-nullcline defect constant together with its vanishing classification for this graph class and the weak-killing clique asymptotic. The old-state scheme form and Taylor identities on nonzero residuals are prior work; this is not a claim to invent those or to disprove second-order schemes outside the stated class.",
+      "residual_risks": [
+        "Targeted review, not exhaustive historical priority. A graph-specialized treatment under different numerical terminology could be unindexed.",
+        "No assertion about global convergence order, directed systems, or stage-based/implicit methods follows from this finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same step class; condition only at nonzero component residual",
+          "evidence": [
+            "Eq. (1.4) has τ_i u_i^k−τ_i u_i^(k+1) added to f_i(u^k); the second-order denominator condition uses division by f_i(u)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.09141",
+          "material_read": "Eq. (1.4), p. 3, offset about 6500; Theorem 2.3, p. 7, about 20206",
+          "method": "OA full-text passage inspection",
+          "title": "A simple second-order nonstandard numerical method for a general class of dynamical systems and its applications",
+          "trigger": "Same one-evaluation denominator class"
+        },
+        {
+          "assessment": "Substantive method overlap; no bound or classification and zero-component proof step not generally valid",
+          "evidence": [
+            "Calls the unchanged coordinate when f_i=0 an exact scheme at t_k; the positive path explicitly violates the inference to an unchanged exact trajectory."
+          ],
+          "identifier_or_url": "https://par.nsf.gov/servlets/purl/10541396 (DOI 10.3390/computation12090183)",
+          "material_read": "Theorem 1 and proof, PDF pp. 3–4, offset about 11892",
+          "method": "Lawful NSF OA copy of the same paper",
+          "title": "Second-Order Modified Nonstandard Explicit Euler and Explicit Runge–Kutta Methods for n-Dimensional Autonomous Differential Equations",
+          "trigger": "Article gives a conclusion for the zero-component branch of a coordinatewise scheme"
+        },
+        {
+          "assessment": "Implicit two-endpoint scheme outside scope",
+          "evidence": [
+            "Eq. (6) averages two evaluations with reversed old/new state arguments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2207.11618",
+          "material_read": "Eq. (6)–(7), p. 2, around offset 4448",
+          "method": "OA full-text passage inspection",
+          "title": "Second-order nonstandard finite difference schemes for a class of models in bioscience",
+          "trigger": "A genuine second-order nonstandard method to test for scope overlap"
+        },
+        {
+          "assessment": "Nonlocal matrix updates with entry-positivity results, not coordinatewise nullcline order results",
+          "evidence": [
+            "Two-sided filtering, Richardson refinement of backward Euler, and symmetric filtering respectively; different hypotheses and conclusions."
+          ],
+          "identifier_or_url": "Resultary c740afdf92d6, 4d0e4c9eba68 and 4f94a5560a16",
+          "material_read": "Actual Findings, offset 0 in each local mirror item",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Resultary diffusion positivity comparisons",
+          "trigger": "Closest distinct same-day indexed claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Local-order conditions for denominator-modified positive integrators can silently exclude states with zero residual in one coordinate. This theorem specifies an unavoidable quantitative defect and exactly identifies an otherwise valid graph family where the defect disappears and the approach is exact. It is useful for determining whether a positivity-preserving design needs an additional residual evaluation or nonlocal correction; the killed hyperbolic examples make the issue substantive rather than a pathology of equilibrium degeneracy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

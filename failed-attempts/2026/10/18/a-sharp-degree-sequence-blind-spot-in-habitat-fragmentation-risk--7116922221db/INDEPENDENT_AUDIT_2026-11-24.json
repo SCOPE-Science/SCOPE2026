@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:16:54.498795Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each induced survivor graph is a forest, so C=|S|-X, where X counts fully retained edges. In fixed-size sampling, pairs of edge indicators have joint retention a3 or a4 according to whether they meet; exactly W unordered pairs meet. In Bernoulli sampling, each pair of incident edges contributes covariance p^3(1-p), and each edge has two vertex-edge covariances p^2(1-p). These identities yield the stated means and variances including the boundary cases. The nonnegative degree surpluses sum to n-2, and shared pairs of surplus units are minimized exactly by the path and maximized exactly by the star; the gap in W is (n-2)(n-3)/2. Its variance coefficients are strictly positive on the stated ranges. Independent exact Prüfer enumeration through n=6 and reduction by tree-center codes gave 1,1,1,2,3,6 types and only one repeated degree signature, at six vertices. For the specified trees a second direct check uses C(T without v,w)=deg(v)+deg(w)-1-1_{vw}: all unordered pairs have degree-sum counts (3,6,4,2) at sums 2 through 5, and the edge pairs at sums 3 through 5 have counts (1,3,1) in A and (2,1,2) in B. Hence the four-retention histograms are (4,8,2,1) and (5,5,5,0), with the claimed centered moments. For other k the twin laws match (k<=3 by edge and wedge counts, k=5 by the degree of the omitted vertex, k=6 by connectedness). The only contribution to the Bernoulli third-moment difference is then 6p^4(1-p)^2. The uploaded verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/10/26/SCOPE-degree-matched-habitat-trees-conceal-fragmentation-in-the-first--54bd12285874 states the same Bernoulli first two moments and the law of third-cumulant differences for arbitrary degree-matched trees, proportional to their difference in length-three paths. It gives the same six-vertex pair and the generating-function difference p^4(1-p)^2 z(z-1)^3.",
+          "Janson proves a tree-sequence Gaussian limiting process with second degree moment assumptions; Hackl–Panholzer–Wagner study uniform random labelled trees."
+        ],
+        "reasoning": "The 54bd12285874 statement dominates the two-tree Bernoulli claim and yields its precise gap. The journal statements instead establish antecedent process/moment connections but not the exact deterministic-tree finite claims.",
+        "searches": [
+          "Resultary: degree-matched habitat trees, Bernoulli retention, third cumulant and length-three paths",
+          "Janson DOI 10.1007/s00440-025-01401-9 Theorem 8.1",
+          "Hackl–Panholzer–Wagner DOI 10.1007/s44007-023-00060-3, abstract and overview"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0df4831a9563, 54bd12285874, and largest-component comparison 10f2436fe315",
+        "Tittmann–Averbouch–Makowsky arXiv:0812.4147v2",
+        "Janson DOI 10.1007/s00440-025-01401-9",
+        "Hackl–Panholzer–Wagner DOI 10.1007/s44007-023-00060-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Given fixed-size moments, conditioning on K~Bin(n,p) gives the Bernoulli mean and variance by total expectation and total variance. The conditional mean is tree-independent, so the Bernoulli path/star gap is the average of the fixed-size gap, with E[a3(K)-a4(K)]=p^3(1-p).",
+          "The fixed-size histograms split only at the four-retention size for this witness: edge/wedge counts control sizes up to three and the degree multiset controls single deletion. Equal first and second moments leave only the unnormalized cubic gap of 6 times p^4(1-p)^2."
+        ],
+        "reasoning": "Stochastic mixing does not create a further independent extremal mechanism or sharp threshold. Even apart from the exact later catalogue match, the frozen Bernoulli claims are routine consequences of the earlier fixed-size comparison and the elementary conditioning identities.",
+        "searches": [
+          "0df4831a9563 fixed-sample formulas and six-site comparison",
+          "54bd12285874 all-p generating-function and cumulant formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/12/SCOPE-sharp-six-site-limit-of-moment-based-rarefaction-in-tree-inciden--0df4831a9563 gives the W-based fixed-sample variance, path/star extrema and exact gap, and the six-site histogram and third central moments 0 and 2/5."
+        ],
+        "reasoning": "For a surviving set S of size k, take its complement as the rarefaction sample of n-k sites; an edge-species is observed exactly when it touches that complement. The observed count is R_(n-k)=n-1-X(S)=C+(n-1-k). A constant shift preserves all central moments. Its two-site six-vertex witness corresponds to four retained vertices, and the extremizer ranges map exactly.",
+        "searches": [
+          "Resultary: tree-incidence rarefaction, path/star variance, six-site degree twins and skewness"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact fixed-size histograms occur in the 0df4831a9563 rarefaction catalogue record, under the shift in the equivalent formulation check. The exact Bernoulli generating-function difference occurs in 54bd12285874.",
+          "ArXiv:0812.4147v2 defines Q by vertex-subset size and induced component count. Proposition 2 distinguishes nonisomorphic trees with Q through nine vertices. Resultary 10f2436fe315 concerns a different observable, largest-component size, not component count."
+        ],
+        "reasoning": "Q encodes the requested distributions but its definition and distinguishing property alone are not an explicit table of these moments. The two identified catalogue entries provide exact, relevant coverage; the largest-component result does not.",
+        "searches": [
+          "Resultary: exact degree-twin component counts on six vertices",
+          "arXiv:0812.4147v2 PDF pp. 2–5, Propositions 2–3"
+        ]
+      },
+      "rationale": "The fixed-size moment formula, sharp variance extrema, six-vertex cutoff and exact witness are covered by the earlier-labelled published tree-incidence rarefaction record 0df4831a9563 under exact complementation and a constant shift. The Bernoulli extension is the binomial mixture of those fixed-size laws; a distinct later catalogue result 54bd12285874 explicitly gives the same Bernoulli means and variances and a stronger third-moment formula with the same six-vertex witness. This identifies mathematical coverage, without attributing derivation or giving the later-labelled record historical precedence.",
+      "residual_risks": [
+        "One focused lookup surfaced k-independent percolation on trees, PII S0304414911002754; lawful retrieval did not produce full text and the snippet is insufficient to classify coverage. The verified catalogue coverage does not depend on it.",
+        "Displayed catalogue dates distinguish earlier- and later-labelled records, not historical derivation or authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact fixed-size coverage by complementation and constant shift",
+          "evidence": [
+            "Sampled sites touch edge-species. W-variance, path/star gap, six-site witness histograms and central third moments agree under the transformation."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-six-site-limit-of-moment-based-rarefaction-in-tree-inciden--0df4831a9563",
+          "material_read": "Local mirror RESULT.md Finding and relevant argument, offsets 0–1662, 850, 1470, 4950, snapshot 36a7204",
+          "method": "Resultary comparison and bounded mirror passage read",
+          "title": "Sharp six-site limit of moment-based rarefaction in tree incidence",
+          "trigger": "Equivalent variance and minimal third-moment witness, possibly under complementation"
+        },
+        {
+          "assessment": "Exact and broader Bernoulli overlap; later catalogue date is not prior-art precedence",
+          "evidence": [
+            "Arbitrary degree-matched pair cumulant difference, same six-vertex pair, and exact generating-function difference."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-degree-matched-habitat-trees-conceal-fragmentation-in-the-first--54bd12285874",
+          "material_read": "Local mirror RESULT.md offsets 0, 540, 2600, 4300, snapshot 36a7204",
+          "method": "Resultary comparison and bounded mirror passage read",
+          "title": "Degree-matched habitat trees conceal fragmentation in the first two moments",
+          "trigger": "Exact Bernoulli model, moment split and six-vertex witness"
+        },
+        {
+          "assessment": "Exact full-law encoding, not the substantive explicit extrema or low-moment theorem in the passages inspected",
+          "evidence": [
+            "Coefficient q_ij counts induced i-subsets with j components; Q distinguishes nonisomorphic trees through nine vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0812.4147",
+          "material_read": "v2 PDF pp. 2–3, definition of Q, offsets 7600 and 12400; p. 5, Propositions 2–3, offset 16350",
+          "method": "Primary OA passages read",
+          "title": "The Enumeration of Vertex Induced Subgraphs with Respect to the Number of Components",
+          "trigger": "Direct encoding of the full survivor component law"
+        },
+        {
+          "assessment": "A limiting Gaussian process, not exact finite variance extrema",
+          "evidence": [
+            "Assumptions include limiting second degree moment and maximum degree o(sqrt(n))."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00440-025-01401-9",
+          "material_read": "OA PDF p. 6 and p. 38, Theorem 8.1, offsets 15900 and 100950",
+          "method": "Primary OA passages read",
+          "title": "Uncovering a graph",
+          "trigger": "Tree component fluctuations under vertex uncovering"
+        },
+        {
+          "assessment": "Random-labelled-tree setup, not the deterministic extremal statement",
+          "evidence": [
+            "Studies uncovered-edge and cluster observables when the tree itself is a uniform random labelled tree."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s44007-023-00060-3",
+          "material_read": "OA PDF p. 1 and p. 3, offsets 0 and 5000",
+          "method": "Primary OA passages read",
+          "title": "The Uncover Process for Random Labeled Trees",
+          "trigger": "Related vertex-uncovering sampling process"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The ecological graph observable and quantitative variance/skewness comparison are meaningful, but as a distinct addition to the earlier fixed-size result this is an exact complement-and-shift translation, followed by conditioning on survivor size. The same sharp cutoff, witnesses and moment distinctions are already available with no new mathematical obstacle in the homogeneous independent-retention case. No separately useful nonmechanical remainder is established by the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

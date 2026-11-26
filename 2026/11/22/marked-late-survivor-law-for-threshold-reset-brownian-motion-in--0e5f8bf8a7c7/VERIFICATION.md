@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The mathematical statements are proved in `RESULT.md` by heat-kernel boundary-current asymptotics, a marked renewal identity, a two-region convolution-tail estimate, normalized tightness and an independent future-cycle decomposition. No finite computation certifies the continuum theorem.
+## correctness
 
-Run `python check.py` using Python 3 standard-library facilities only. The program performs 171 algebraic and deterministic marked-renewal tests. Its synthetic integer-Pareto example is a deliberately different discrete regenerative process whose exactly equal large-time marked tails offer a diagnostic check of the general renewal mechanism; it is not claimed to simulate the Brownian wedge or establish continuous-time convergence. The half-plane and quadrant prefactor checks independently compare the wedge heat-kernel amplitude with reflection and product formulas.
+PASS
 
-The pre-anchor literature provides the threshold-renewal setup and the free-wedge heat-kernel/currents. The new proof independently reconstructs the total target-survival tail from the geometric random sum before obtaining the conditioned four-variable path law. The November 2026 direct wedge threshold-reset study supplies an independently checked matching tail and unconditional reset-count comparison. Limiting count moments are computed from the limiting law; moment convergence before taking the limit is not established.
+With ν=π/α=2β, the radial kernel and the angular Dirichlet normalization give the prefactor 1/(αDt) in the free-wedge heat kernel. Substituting r=√(4Dt)v and expanding the principal Bessel term gives the stated A_0 from the angular integral 2/ν and the radial integral Γ(1+ν/2)/2. In the flux, the inward normal derivative uses 1/r; the principal angular derivative at each edge has the same magnitude ν. The remaining radial integral is Γ(ν/2)/2, giving βA_0/2 on each edge. Integrating the current gives H_j(t)∼(A_0/2)t^{−β} for both marks; higher modes have larger powers, with summable integrated gamma-ratio bounds from the Bessel series. The marked renewal identity is exact: after k reset-ended durations with sum s≤t, the chance of the specified active mark and no exit by t is H_j(t−s). On s≤t/2 dominated convergence applies; on s>t/2 the fixed-k convolution density has order t^{−β−1} by splitting each convolution in half, so its contribution is o(t^{−β}) even when β≤1. The signed-test wording after Eq. (93) should read 'when the integral is zero' for the zero limit; the signed scaled convergence already follows from (79)–(86). Unconditionally, N is geometric, and a fixed-N sum of independent mark-conditioned durations has tail asymptotic to the sum of the individual regularly varying tails: two durations exceeding t^γ for 1/2<γ<1 have negligible probability, and the remaining shift of the largest is o(t). The union bound at t/(n+1) provides a summable polynomial envelope times the geometric probabilities for all n, yielding the A_0/a normalization. The resulting limiting fixed-(k,j) masses sum to one, so there is no escaped mass; the epoch variable has the k-fold reset-duration law independently of the fair mark, given k. On a reset-marked active excursion its completion adds one reset and a fresh independent geometric count. The resulting PGF, mass and moments agree algebraically; finiteness of the epoch law, not finiteness of its mean, gives S_t/t→0.
+
+## originality
+
+PASS
+
+The same model, equal leading free-exit currents, absorption-survival tail and unconditional reset-count laws are explicitly prior. A geometric count under survivor conditioning and the single-large-excursion mechanism also have substantial prior analogues. The distinct claim retained is the joint conditional physical-time law: completed count, nontrivial unscaled last-reset epoch, retrospective active-edge mark and total future-inclusive count. The strongest verified wedge and general-source passages do not supply that joint law or a theorem whose hypotheses directly give it for the mark-dependent geometric stopping rule.
+
+## value
+
+PASS
+
+The joint law distinguishes past interventions from total interventions for the same selected late-surviving trajectory and places the last reset on its actual, unscaled time axis. It identifies a fair retrospective exit edge despite biased unconditional splitting, and explicitly links this mark to a different total-count law. These observables are not interchangeable with the unconditional count or one-dimensional survival tail and form a quantitative benchmark of the threshold-reset model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

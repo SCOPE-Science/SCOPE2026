@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:44:38.387591Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-positive labeling forces S to be a noncrossing forest. For a prescribed positive subset A, A plus all polygon sides is connected and noncrossing, and its forest A extends to a spanning tree in that graph with no other diagonals. This proves the full trace statement. A dissection has an all-diagonal face only if there is a cycle; conversely a cycle of selected diagonals encloses faces none of which can contain an original boundary side, by strict convexity. At the root side the incident face has an ordered list of at least two other sides. A side contributes x if on the original boundary and zG if a selected diagonal with an attached child. In a child at least one such side must be an original boundary side, explaining precisely the subtraction in G. The uniqueness explanation at RESULT.md:67 is imprecise: a mixed list can contain only one original boundary side. The actual recursion uses at least one factor x per surviving list, and after replacing U with V in its right-hand side the difference is divisible by x(U−V). It maps x²-series to x²-series and is an x-adic contraction, so uniqueness and recursive existence hold. Fans attain n−3. At equality a triangulation's weak dual has a degree-three vertex exactly when there is an all-diagonal triangle; otherwise the dual is a path. For n≥5, counting marked ears of the larger polygon by deleting a chosen label and reinserting in one of four terminal-ear sides of the smaller dual path gives 2Z_n=4n Z_{n−1}/(n−1), with cyclic symmetry distributing choices equally among the n−1 sides. The base Z_4=2 gives the claimed coefficient. Frozen verification_data.txt records finite forest and formal-series checks through n=12 and 549 direct trace-support instances through n=6; verify.py was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Noy give counts by component number for noncrossing forests with all edges available, and counts by region number for ordinary dissections. Their unrestricted forest numbers do not specify the sets of included original sides.",
+          "The two indexed shattering criteria treat noncrossing partitions with block-equality queries and noncrossing perfect matchings with endpoint and face constraints, respectively."
+        ],
+        "reasoning": "Inclusion–exclusion for avoiding all polygon sides requires counts of forests containing each prescribed subset of sides, not just their total by component number. The geometry and quantifiers of the two other concept classes differ.",
+        "searches": [
+          "Flajolet–Noy, Analytic Combinatorics of Non-crossing Configurations, §§1.2 and 3.1",
+          "Resultary shattering results f5f99d85cb8a and 1a75a2c4be87"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_data.txt",
+        "Flajolet–Noy (1999)",
+        "Moerman–Williams, Grass Trees and Forests",
+        "OEIS exact lookup and A001003/A001764",
+        "Resultary IDs f5f99d85cb8a, 1a75a2c4be87, e127590b865a, 71dd1d6f5725, 720207ff1c37 and e72f53947dae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Forest extension plus the available boundary cycle immediately supplies the support criterion; the all-size coefficient extraction needs the additional every-face condition and restricted child recurrence. The top count is credited by the record to the two-ear triangulation literature and is not claimed as new here.",
+          "In the broad forest/dissection formulas the respective missing constraints are no selected sides and no internally bounded region. The compared trace theorems address different concepts and queries."
+        ],
+        "reasoning": "Neither a substitution of edge variables in the unrefined totals nor the ordinary ear count recovers every coefficient. The all-order bivariate shattering profile remains distinct in the inspected evidence.",
+        "searches": [
+          "Flajolet–Noy, pp. 207, 209–210, 215–217",
+          "Hurtado–Noy, Ears of triangulations and Catalan numbers, CORE and ScienceDirect copies",
+          "Resultary IDs f5f99d85cb8a, 1a75a2c4be87, e127590b865a and 71dd1d6f5725"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objects can be formulated as dissections in which every face meets an original side, or as rooted ordered dissection trees whose nonroot face nodes have at least one leaf child. Ordinary dissections include the two central-triangle triangulations of a hexagon; the diagonal forests exclude them.",
+          "Moerman–Williams use series-reduced trees and weights on internal vertices by degree. Their inspected degree-product rule does not encode whether a given node has an original-boundary-side child."
+        ],
+        "reasoning": "The marked predicate is about incidence with the original boundary, not total edge count, region degree, or ordinary polygon dissection. A rooted dissection decomposition is standard; the two states enforce the new predicate.",
+        "searches": [
+          "noncrossing forests diagonals boundary edge polygon forests excluding sides OEIS 11 43 176 745 3235 polygon dissections every face meets boundary enumeration",
+          "Flajolet–Noy, Theorems 1(iii), 3(i), §§1.2 and 3.1",
+          "Moerman–Williams, Grass Trees and Forests, Corollary 2.13 and Definition 2.16"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact univariate total sequence query from n=3 onward returned no table match. A001003 counts little Schröder objects and gives 45 rather than 43 at the matching hexagon index; A001764 counts noncrossing trees, agreeing with counts of witness concepts rather than counts of shattered supports.",
+          "The same-day parity-selective and diagonal-Fourier records concern partition block-equality traces and triangulation distribution recovery, respectively; the earlier half-turn-fixed forest record includes boundary sides and concerns fixed spaces for a finite range."
+        ],
+        "reasoning": "The exact sequence lookup is a bounded negative check, not historical proof. Related numerical matches are for different enumerated objects, and the identical frozen record hit is not distinct evidence.",
+        "searches": [
+          "OEIS exact subsequence query 1,3,11,43,176,745,3235",
+          "OEIS A001003 and A001764",
+          "Resultary records e127590b865a, 71dd1d6f5725 and 720207ff1c37"
+        ]
+      },
+      "rationale": "The elementary forest-extension implication and the known two-ear triangulation count are not independent originality claims. The supported distinct content is the all-size diagonal-only trace-support profile and its fully edge-refined algebraic enumeration, based on excluding faces with no original side. The strongest compared forest, dissection and trace results do not give or directly imply this restricted profile.",
+      "residual_risks": [
+        "The exact Hurtado–Noy primary passage was not accessible; this leaves uncertainty about its precise scope, not about the proved ear formula or the limited originality credit given here.",
+        "An equivalent leaf-incidence enumeration may be indexed under a different polygon-dissection or ordered-tree vocabulary. The exact OEIS check and the literature comparison are bounded and do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Neither forest count nor dissection count retains the required restrictions",
+          "evidence": [
+            "Forests are counted by vertices and components, with boundary edges available. Ordinary dissection counts include 14 hexagon triangulations; the present top count is 12. The general noncrossing-graph construction adds an arbitrary subset of boundary edges to the internal diagonals of a dissection."
+          ],
+          "identifier_or_url": "https://igor-kortchemski.perso.math.cnrs.fr/lecon/Analytic%20combinatorics%20of%20non-crossing%20configurations.pdf",
+          "material_read": "Theorem 1(iii), p. 207; §1.2, pp. 209–210; Theorem 3(i) and §3.1, pp. 215–217",
+          "method": "Read the relevant primary OA theorem and decomposition passages",
+          "title": "Analytic Combinatorics of Non-crossing Configurations",
+          "trigger": "Published enumeration of the two nearest combinatorial classes"
+        },
+        {
+          "assessment": "Series reduction and degree products are not the boundary-incidence restriction",
+          "evidence": [
+            "Schröder internal nodes have at least two descendants; the forest generating-function weights in Corollary 2.13 are products of g(deg(v))."
+          ],
+          "identifier_or_url": "https://people.math.harvard.edu/~williams/papers/EnumMomAmpv8.pdf",
+          "material_read": "Definition 2.6, p. 5; Corollary 2.13 and start of the dissection correspondence, p. 7",
+          "method": "Located and read bounded OA PDF passages",
+          "title": "Grass Trees and Forests: Enumeration of Grassmannian Trees and Forests, with Applications to the Momentum Amplituhedron",
+          "trigger": "Schröder tree and polygon-dissection generating-function framework"
+        },
+        {
+          "assessment": "Exact primary formulation remains unverified; the top coefficient is credited, not treated as novel",
+          "evidence": [
+            "The frozen source gives an independent marked-ear proof of the value; unavailable full text is not evidence for or against the new restricted forest enumerator."
+          ],
+          "identifier_or_url": "https://core.ac.uk/download/pdf/82091698.pdf",
+          "material_read": "Identified article metadata; theorem text not recovered",
+          "method": "Tried the identified CORE copy and the publisher route; timeout or access denial",
+          "title": "Ears of triangulations and Catalan numbers",
+          "trigger": "Credited classical two-ear count"
+        },
+        {
+          "assessment": "Block-equality queries, not tree membership",
+          "evidence": [
+            "Geometric disconnection after deleting a query chord characterizes its supports; the maximum supports are noncrossing spanning trees in that different query problem."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-geometric-deletion-criterion-for-shattering-by-noncrossing-parti--f5f99d85cb8a",
+          "material_read": "Finding, criterion and maximum supports",
+          "method": "Resultary search followed by exact local mirror passage",
+          "title": "Geometric deletion criterion for shattering by noncrossing partitions",
+          "trigger": "Related chord shattering classification"
+        },
+        {
+          "assessment": "Different concept class and condition",
+          "evidence": [
+            "Supports require endpoint-disjoint chords and face parity and activity conditions."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-face-activity-characterization-of-shattered-chord-supports-in-no--1a75a2c4be87",
+          "material_read": "Finding",
+          "method": "Read the corresponding local mirror result",
+          "title": "Face-activity characterization of shattered chord supports in noncrossing perfect matchings",
+          "trigger": "Chord shattering and face-based constraints"
+        },
+        {
+          "assessment": "No exact hit for the submitted totals; suggested entries count different objects",
+          "evidence": [
+            "Search reports that the terms match nothing in the table; the two named entries enumerate little Schröder objects and noncrossing trees."
+          ],
+          "identifier_or_url": "https://oeis.org/search?q=1%2C3%2C11%2C43%2C176%2C745%2C3235",
+          "material_read": "Exact sequence search page and sequence descriptions/data for A001003 and A001764",
+          "method": "Read public table and entry pages",
+          "title": "OEIS sequence and matching entries",
+          "trigger": "Check exact total counts and possible ordinary dissection aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rather than merely recomputing the known two-ear count or reporting the VC dimension, the theorem gives the whole size-refined trace-support profile for a natural projection of a geometric tree class. The all-size dissection encoding makes the cycle obstruction local and provides a usable exact enumerator for arbitrary polygon size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** An exact quartic discriminant establishes simple roots and the two-real-plus-conjugate-pair decomposition on the entire parameter interval. Exact elimination reduces positive-root stationarity to a quadratic times a strictly positive degree-ten polynomial; positivity is certified by three positive-coefficient transforms. The unique radical stationary root is verified directly, and endpoint divergence proves global minimality. An independent exact resultant with the conjugate branch's logarithmic derivative proves that the other modulus is not stationary there. The standalone symbolic checker reproduces every algebraic certificate.
+PASS
 
-## Originality
+Reconstructed the cleared coefficients and independently checked the discriminants and stationary resultant by bounded modular Sylvester determinants with enough distinct evaluation points and total modulus for exact equality. Recomputed all 33 positive certificate coefficients and the critical radical evaluations; the 7-by-7 determinant for the cubic and J is exactly 847872+494592 sqrt(3), hence nonzero. The quartic discriminant is negative, and opposite signs of constant and leading coefficients fix the signs of the two real roots. For a tending to 0, the limit 24 puts no roots in any fixed disk; near 1 the limit 24z puts just one root in a fixed disk, identifiable as the negative real root by the signs at 0 and at any fixed small negative z. Thus both relevant moduli diverge at both ends and have interior minima. The stationary resultant and strict positivity isolate a=2-sqrt(3) uniquely for the positive root, where it is 2+sqrt(3). Logarithmic differentiation of Vieta and J nonvanishing rules out this parameter for any minimizer of the conjugate modulus. In degrees two and three, the discriminants and signs give respectively one remaining positive root or a conjugate pair of equal moduli after excluding the negative root. No precise minimizing parameter or uniqueness for the pair is claimed. Recipe and exact outputs: /workspace/branches/independent-math.md, section 5.
 
-**PASS, best-knowledge.** The primary 2020 source explicitly poses the simultaneous-minimum question without answering it. Searches for root-modulus synchronization, transformed binomial roots and parameterwise Bergman-kernel zeros, including relevant later radial-kernel results, did not identify an implication covering this sharp quartic counterexample. The different parameter and root-trajectory objectives in nearby Bergman-kernel phase-diagram work are not equivalent. A hidden earlier solution or later treatment under a different name is possible; historical priority is provisional.
+## originality
 
-## Value
+PASS
 
-**PASS.** This settles a precise open structural question about the motion of zeros of a naturally defined one-parameter Bergman numerator family. It identifies the first polynomial degree at which synchronization can fail, gives an exact minimizer for one branch, and supplies a nonvanishing algebraic certificate for separation from the conjugate pair. It does not rely on a finite numerical survey.
+The inspected primary text identifies exactly this open simultaneous-minimum question; the quartic gives a negative answer in the first nontrivial degree, not just a kernel-zero count or a new parameterization. No inspected distinct entry or primary-source passage settles the quartic question. The negative-real branch is excluded in the question; the opening description of the positive branch as distinguished should not be confused with that exclusion.
 
-## Scope and residual risk
+## value
 
-The complex-pair minimizing parameter is not uniquely classified. The result is about auxiliary polynomial zeros, not an assertion that these are all attainable zeros of a disk reproducing kernel. The original article's arXiv version was available and inspected around definitions, root-trajectory statements, and the open question; historical literature may contain related formulas under another parametrization. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It answers a precise open question on root motion with an explicit, exact counterexample at the smallest possible degree. The singled-out minimum and independent nonstationarity witness are more useful than a numerical plot or a general statement that zeros move with the parameter. Its value concerns auxiliary-polynomial trajectories in the plane, not a claimed classification of actual kernel zeros inside the disk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

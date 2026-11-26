@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:27:47.461250Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and certificate.json",
+        "python /workspace/replays/3_5_topology.py 3 (independent reconstruction and successful certificate replay)"
+      ],
+      "rationale": "Rank preservation in the face-poset subdivision makes each simplex closure inject into the quotient: orbit-equivalent points in a closure have identical supporting ranks, hence the same support, and the action fixes that support pointwise. Thus signed deletion of flag members gives the regular cell boundaries and unique active top cofaces really are free. Independently enumerated matching faces and strict flag orbits in replays/3_5_topology.py (run with argument 3), obtaining (125,586,768,300), and replayed all 300 stored collapse pairs, leaving (125,586,468). Independently contracted a spanning tree of the residual complex and used triangle relations with just one unknown edge to kill all 462 non-tree generators. This proves simple connectivity without relying on the packaged Tietze implementation or published connectivity bounds. The two-dimensional residual complex has Euler characteristic 7 and free H₂ of rank 6; Hurewicz and homological Whitehead give the integral wedge equivalence.",
+      "residual_risks": [
+        "The verification is for rank four and the ordinary geometric orbit space only, not the homotopy quotient or a general-size result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordinary chessboard-complex connectivity and Betti-number papers; Resultary fixed graph-board spaces 6329661ec23a and five-by-five quotient 62667cf31b8c."
+        ],
+        "reasoning": "Connectivity of the original complex can help prove quotient simple connectivity but does not specify integral homology. Fixed loci and a 3-local larger-board theorem do not classify this quotient. The exact same-rank companion does.",
+        "searches": [
+          "Primary search: chessboard complex transpose or bipartition-swap orbit spaces; Resultary: all ranks and graph boards"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 830d1ace075a, 6329661ec23a, 62667cf31b8c, 7c72df0517c5",
+        "Friedman–Hanlon pp. 1–2; Shareshian–Wachs arXiv:math/0409054 Theorem 5.4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both identify |Δ₄,₄|/⟨τ⟩ with ∨⁶ S² integrally, with π₁=1 and no homology torsion. The companion uses integral unit cancellations and Armstrong; the frozen proof has top-dimensional collapses and an explicit group calculation."
+        ],
+        "reasoning": "The companion states the entire frozen mathematical result, not merely a related Euler characteristic or a local-coefficient version. Different certificates supply corroboration rather than a distinct claim.",
+        "searches": [
+          "Compare the frozen Finding with companion 830d1ace075a, mirror Finding and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "830d1ace075a defines full-board nonattacking rook placements, τ(i,j)=(j,i), and the ordinary geometric orbit space; its Finding explicitly states a wedge of six 2-spheres."
+        ],
+        "reasoning": "The relabeling i↦i+1 on both coordinates conjugates the frozen action to the companion's action, so the spaces are identical up to canonical homeomorphism.",
+        "searches": [
+          "Resultary: four-by-four chessboard transpose quotient, rook placements, bipartition swap and partial-permutation inversion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "830d1ace075a gives the exact wedge and torsion-free rank-six H₂; 7c72df0517c5 concerns diagonal S₄ relabeling; 0d835e117881 is the target itself."
+        ],
+        "reasoning": "The exact indexed classification, not a numerical table or merely a similar invariant on the same board, supplies direct coverage.",
+        "searches": [
+          "Resultary: rank-four transpose quotient, six 2-spheres, Δ₄,₄ matching complex"
+        ]
+      },
+      "rationale": "A distinct indexed record, 830d1ace075a, gives exactly the same integral homotopy classification for the same geometric transpose quotient. The differing finite or group-theoretic checks do not distinguish the frozen mathematical claim. It is not the self-match 0d835e117881. The same catalogue date does not establish which version came first, or whether they were independent.",
+      "residual_risks": [
+        "No claim of relative publication order or of independence of the two exact records.",
+        "Full text of Björner–Lovász–Vrećica–Živaljević, doi:10.1112/jlms/49.1.25, was not available in the bounded lookup. Its connectivity consequence was not needed for the correctness proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage, not dated priority",
+          "evidence": "Plain geometric quotient; six S², simple connectivity and H₂=Z⁶. Proof uses Armstrong and an integral quotient chain model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-six-two-spheres-in-the-transpose-quotient-of-the-four-by-four-ch--830d1ace075a/RESULT.md",
+          "material_read": "Finding, scope and proof, mirror offsets 0–3861 and 4400–end",
+          "method": "Resultary and local mirror passages",
+          "title": "Six two-spheres in the transpose quotient of the four-by-four chessboard complex",
+          "trigger": "Exact board, involution and homotopy-type match"
+        },
+        {
+          "assessment": "Different topological construction",
+          "evidence": "Geometric fixed space, giving a three-circle wedge on the full four-by-four board, not the orbit space.",
+          "identifier_or_url": "Resultary 6329661ec23a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Perfect matchings classify transpose-fixed graph-board chessboard complexes",
+          "trigger": "Same involution, plausible graph-board generalization"
+        },
+        {
+          "assessment": "Different rank and coefficient scope",
+          "evidence": "Five-by-five with a three-local wedge of 28 three-spheres; integral and two-primary questions not claimed there.",
+          "identifier_or_url": "Resultary 62667cf31b8c",
+          "material_read": "RESULT.md Finding and limitations, offsets 0 and 8000",
+          "method": "Local mirror",
+          "title": "Three-local torsion cancellation in the transpose quotient of the five-by-five chessboard complex",
+          "trigger": "Same involution family and quotient"
+        },
+        {
+          "assessment": "Ordinary complex, not geometric quotient",
+          "evidence": "The stated homology and connectivity concern the underlying chessboard complex before any orbit identification.",
+          "identifier_or_url": "https://www.cs.ubc.ca/~jf/pubs/web_stuff/newchess.pdf",
+          "material_read": "PDF pp. 1–2",
+          "method": "Primary OA PDF",
+          "title": "On the Betti Numbers of Chessboard Complexes",
+          "trigger": "Nearby primary homology and connectivity results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and exact orbit collapse evidence",
+        "Resultary 830d1ace075a and fixed-space comparison"
+      ],
+      "rationale": "The row–column exchange is a canonical symmetry at the first simply connected balanced rank. An integral orbit homotopy classification, including simple connectivity and torsion, is stronger than numerical homology and is useful for distinguishing the orbit space from the original complex and its fixed space. There is no separate mathematical conclusion beyond the exact companion; the claim fails originality.",
+      "residual_risks": [
+        "No larger-rank or equivariant classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

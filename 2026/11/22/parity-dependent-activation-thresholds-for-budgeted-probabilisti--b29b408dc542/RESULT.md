@@ -1,99 +1,61 @@
-# Parity-dependent activation thresholds for budgeted probabilistic firebreaks on a path
+# Parity-dependent first activation thresholds for probabilistic firebreaks on a path
 
 ## Finding
 
-Consider a path with \(n\ge2\) equal-value fuel patches. Edge \(i\), joining patches \(i\) and \(i+1\), transmits an ignition independently with probability \(q_i=e^{-g_i}\), where the nonnegative protection investment \(g_i\) obeys \(\sum_{i=1}^{n-1}g_i=B>0\). One initial ignition occurs at a uniformly chosen patch; fire then propagates through every transmitting edge. The goal is to minimize the expected number of burned patches. There is a **unique optimal investment vector** for every \(n\) and \(B\), and its first diversification threshold depends sharply on path parity:
+There are \(n\ge2\) equal-value patches on a path. Edge \(i\), between patches \(i\) and \(i+1\), independently transmits fire with probability \(q_i=e^{-g_i}\). Choose the nonnegative investments \(g_i\) with sum \(B>0\) to minimize the expected number burned when one uniformly chosen patch ignites. There is a unique minimizer. Its first departure from protection concentrated at the center depends on parity:
 
-- For \(n=2m\), \(m\ge2\), the sole protected edge is the central edge \(m\), receiving the whole budget, **if and only if**
-  \[
-  0<B\le B_{2m}^{\mathrm{first}}=\log\!\left(\frac{m}{m-1}\right).
-  \]
-  Above this threshold, that central-only allocation is strictly suboptimal.
-- For \(n=2m+1\), \(m\ge2\), the sole protected edges are the two central edges \(m,m+1\), each receiving \(B/2\), **if and only if**
-  \[
-  0<B\le B_{2m+1}^{\mathrm{first}}=2\log\!\left(\frac{m}{m-1}\right).
-  \]
-  Above this threshold, their equal two-edge allocation is strictly suboptimal.
+- If \(n=2m\), \(m\ge2\), only edge \(m\) is protected, with investment \(B\), exactly for \(0<B\le \log(m/(m-1))\).
+- If \(n=2m+1\), \(m\ge2\), only edges \(m,m+1\) are protected, with investment \(B/2\) each, exactly for \(0<B\le 2\log(m/(m-1))\).
 
-The endpoint cases are \(n=2\), where the only edge receives the budget for all \(B>0\), and \(n=3\), where the two edges always receive \(B/2\). At either finite threshold the stated center allocation is still the **unique** global optimum. For a matched value of \(m\), the odd-path threshold is exactly twice the even-path threshold; the respective large-\(m\) scales are \(1/m\) and \(2/m\).
-
-The four-patch case admits a complete continuation: its unique optimum is \((0,B,0)\) through \(B=\log 2\); for \(B>\log 2\), it is \((x,B-2x,x)\), where the unique \(x\in(0,B/2)\) solves
-\[
- e^B=e^{3x}+e^{2x}.
-\]
+At the threshold the stated center allocation remains uniquely optimal; above it the allocation is strictly suboptimal. At \(n=2\) the sole edge takes the whole budget, and at \(n=3\) the two edges split it equally for all \(B\). At matched \(m\) the odd threshold is twice the even one, with leading scales \(2/m\) and \(1/m\), respectively. The claim is the first threshold for the entire path family, not a separate four-site continuation result.
 
 ## Assumptions and scope
 
-Patches are the vertices \(1,\ldots,n\) of the undirected path; the \(n-1\) edges are its only routes for fire spread. One patch is chosen uniformly as the ignition point, independently of all edge outcomes. Every edge is independently open to transmission with probability \(e^{-g_i}\), and every patch in the ignition's open-edge connected component burns. The protection variables are real, nonnegative, of equal unit cost, and have a fixed total budget \(B\). The exponential probability law is an **assumed dimensionless model**, not a calibrated law linking physical firebreak width to field failure probability. There is no direct protection of individual patches, wind-driven leapfrogging, or secondary ignition outside the connected component.
+Edge transmission outcomes are independent of the choice of the initial patch. Exactly the vertices in its open-edge component burn. The exponential law is a dimensionless assumption. The path is undirected, and no other ignition or route is allowed. Costs are linear and identical for all edges. All optimality statements are global, on the closed budget simplex.
 
-Index edges starting at \(1\). Put
-\[
- F(g)=\sum_{1\le i<j\le n}\exp\!\left(-\sum_{k=i}^{j-1}g_k\right).
-\]
-The optimality statements are about exact global minimizers on \(\{g_i\ge0:\sum g_i=B\}\), not stationary points of an unconstrained problem.
+Equivalently, defining \(x_i=\sum_{k<i}g_k\), the mathematical problem is to minimize the sum of the pair potentials \(e^{-|x_j-x_i|}\) at ordered positions \(0=x_1\le\cdots\le x_n=B\); coincident positions are allowed. An active edge is a strict gap between consecutive positions.
 
 ## Proof
 
-**Expected loss and strict convexity.** For distinct patches \(i<j\), connectivity requires every intervening edge to transmit. Independence gives
+**Loss and uniqueness.** An ordered vertex pair belongs to the same component precisely when all intervening edges are transmitting. If \(L\) is the number burned, then
 \[
- \Pr(i\leftrightarrow j)=\exp\!\left(-\sum_{k=i}^{j-1}g_k\right).
+\mathbb E L=1+\frac 2n F(g),\qquad
+ F(g)=\sum_{1\le i<j\le n}e^{-\sum_{a=i}^{j-1}g_a}.
 \]
-For the size \(L\) of the uniformly rooted component, counting ordered connected pairs gives
-\[
- \mathbb E L=\frac1n\sum_{i,j=1}^{n}\Pr(i\leftrightarrow j)=1+\frac2nF(g).
-\]
-Thus the loss minimizer minimizes \(F\). For every nonzero vector \(v\in\mathbb R^{n-1}\), its directional second derivative is
-\[
- D^2F(g)[v,v]=\sum_{i<j}e^{-\sum_{k=i}^{j-1}g_k}\left(\sum_{k=i}^{j-1}v_k\right)^2>0.
-\]
-Indeed, the length-one intervals already contribute \(\sum_k e^{-g_k}v_k^2>0\). Hence \(F\) is strictly convex; the nonempty compact budget simplex has one global optimum. Reflection of the path leaves \(F\) invariant and consequently fixes this unique optimum.
+The second directional derivative of \(F\) in direction \(v\) is the sum of the corresponding positive weights times \((\sum_{a=i}^{j-1}v_a)^2\). The terms \(j=i+1\) already sum to \(\sum_i e^{-g_i}v_i^2>0\) when \(v\ne0\). Compactness of the budget simplex and strict convexity give a unique minimizer, which is fixed by path reflection.
 
-**First-order certificate.** Write \(G_k=\partial F/\partial g_k\). Direct differentiation yields
-\[
- G_k=-\sum_{i\le k<j}\exp\!\left(-\sum_{a=i}^{j-1}g_a\right).
-\]
-For a proposed budget-simplex minimizer, the necessary and sufficient first-order convex optimality conditions are: all positively funded edges have the same \(G_k\), and all zero-funded edges have \(G_k\) at least this value. Sufficiency follows by the supporting-hyperplane inequality and strict convexity; necessity follows by transferring an infinitesimal budget from a positive edge to an arbitrary other edge.
+**Optimality certificate.** Write \(G_k=\partial F/\partial g_k\); it equals minus the sum of the weighted pairs crossing edge \(k\). At a candidate allocation the first-order certificate is that all active edges have the same \(G_k\) and every inactive edge has derivative at least that value. Necessity follows by moving infinitesimal investment from an active edge to a second edge. Sufficiency follows from the convex supporting-hyperplane inequality, since the inner product of the gradient with any feasible displacement is nonnegative. Strict convexity gives uniqueness, including at equality in an inactive-edge condition.
 
-**Even number of patches.** Let \(n=2m\), \(m\ge2\), place budget \(B\) on edge \(m\), and let \(q=e^{-B}\). The central derivative is \(G_m=-m^2q\). At edge \(k\), for \(1\le k<m\), count \(k(m-k)\) within-left pairs and \(km\) across-center pairs to get
+**Even path.** Put the budget on edge \(m\) and write \(q=e^{-B}\). The center derivative is \(-m^2q\). For \(1\le k<m\), there are \(k(m-k)\) pairs crossing \(k\) on the left and \(km\) crossing both \(k\) and the center. Thus
 \[
- G_k=-k(m-k)-kmq,\qquad G_k-G_m=(m-k)(mq-k).
+G_k-G_m=(m-k)(mq-k).
 \]
-All right-side derivatives are mirrors of left-side derivatives. Hence every inactive derivative is at least \(G_m\) exactly when \(mq\ge m-1\), since \(k\le m-1\) and the strongest condition is \(k=m-1\). This is equivalent to \(B\le\log(m/(m-1))\). Below or at the threshold strict convexity certifies the unique global optimum; above it, transferring some protection from the center to either neighboring edge strictly decreases loss, so center-only allocation is not optimal.
+Right-side conditions follow by reflection. All inequalities hold precisely when \(mq\ge m-1\). If this fails, the nearest inactive edge gives a strictly improving direction.
 
-**Odd number of patches.** Let \(n=2m+1\), \(m\ge2\), place \(B/2\) on each of edges \(m,m+1\) and set \(q=e^{-B/2}\). Their derivatives coincide by reflection and equal \(-m(q+mq^2)\). At left edge \(1\le k<m\), count \(k(m-k)\) left-internal pairs, \(k\) central-crossing pairs with one attenuated edge, and \(km\) fully crossing pairs with two attenuated edges. This gives
+**Odd path.** Put \(B/2\) on each central edge with \(q=e^{-B/2}\). For \(1\le k<m\), pairs crossing \(k\) have total weights \(k(m-k)\) within the left block, \(kq\) to the center vertex and \(kmq^2\) to the opposite block. The central derivatives, identical by reflection, are \(-m(q+mq^2)\). Consequently
 \[
- G_k=-k(m-k+q+mq^2),\quad G_k-G_m=(m-k)(q+mq^2-k).
+G_k-G_m=(m-k)(q+mq^2-k),\qquad
+q+mq^2-(m-1)=(q+1)(mq-(m-1)).
 \]
-Reflected edges yield identical comparisons. All inactive gradients meet the certificate precisely when \(q+mq^2\ge m-1\). The factorization
-\[
- q+mq^2-(m-1)=(q+1)(mq-(m-1))
-\]
-reduces it to \(q\ge(m-1)/m\), equivalently \(B\le2\log(m/(m-1))\). Strict convexity again establishes uniqueness even at equality and strict failure of the proposed support beyond the threshold. For \(n=3\), reflection and uniqueness force an equal split for every budget; \(n=2\) has only one decision variable.
-
-**Four-patch continuation.** Reflection and uniqueness imply the optimizer on \(n=4\) has form \((x,B-2x,x)\) for \(0\le x\le B/2\). Its pair sum is
-\[
- F(x)=2e^{-x}+e^{-B+2x}+2e^{-B+x}+e^{-B}.
-\]
-Its derivative at \(0\) has the sign of \(2-e^B\), and at \(B/2\) it is strictly positive: \(F'(B/2)=2>0\). Its second derivative is strictly positive. Consequently for \(B\le\log2\), \(x=0\) is uniquely minimizing; for \(B>\log2\), one unique interior critical point minimizes. Solving \(F'(x)=0\) yields the displayed strictly increasing equation, and necessarily \(B-2x>0\).
-
-**Large-size threshold comparison.** The identity \(\log(m/(m-1))=-\log(1-1/m)=1/m+O(m^{-2})\) gives both stated asymptotics. No post-threshold support classification is claimed for general \(n\ge5\).
+The sharp condition is again \(mq\ge m-1\); taking logarithms now yields the factor of two. Reflection excludes an unequal central-only split. If the condition fails the nearest inactive edge again gives improvement. For \(n=3\) symmetry and uniqueness already suffice, and \(n=2\) has a single decision variable. The expansion \(-\log(1-1/m)=1/m+O(m^{-2})\) gives the scales.
 
 ## Verification
 
-The standalone `check_firebreak.py` uses Python 3 standard library and reports `PASS 6952 finite/exact checks`. It independently enumerates bond-outcome probabilities with exact fractions for paths through eight vertices; checks exact rational derivative identities and active/inactive comparisons for the even and odd families through \(m=12\); checks the four-patch continuation on multiple budgets against dense one-variable grids; and evaluates positive directional Hessian forms on test vectors. These finite checks are supplementary; all-\(n\) proof is the exact pair-counting and convexity argument above. Run `python3 check_firebreak.py` in the package directory.
+The accompanying standard-library Python file `check_firebreak.py` checks the pair expectation against finite bond-outcome enumeration, the exact rational derivative identities and representative positive Hessian forms. Its four-site numerical checks illustrate the previously documented specialization below. None of these finite checks substitutes for the all-size convex certificate.
 
 ## Relationship to prior work
 
-Finney (2001) analyzes geometric placement of fuel-treatment patterns to change fire spread under prescribed fire shapes and directions, rather than a uniformly rooted independent-bond path with continuous protection investments. Wei, Rideout and Kirsch (2008) optimize discrete landscape fuel-treatment decisions in a spatial stochastic loss model. Demange and collaborators (2021) develop graph-theoretic firebreak location with combinatorial edge or vertex removal. These are important motivations and general optimization frameworks, but their inspected formulations do not directly state the parity-dependent continuous-allocation threshold proved here. The related published mathematical result “Exact staircase of optimal two-firebreak gaps on a uniformly ignited cycle” treats **two completely blocked edges on a cycle and independent ignitions at every vertex**, optimizing integer gap length, not continuously distributed transmission suppression along a rooted path. In a single-root uniform-transmission tree epidemic, comparable models optimize a single perfect cut or seed location, also without the present continuous budget. Full coverage of all historical sources is not certified; the precise comparison is model- and implication-specific.
+The four-site corridor result [1] gives a complete diagram at baseline permeability \(p\), including \(p=1\) here. At \(p=1\) its threshold is \(\log2\), and above it the optimizer is \((\log z,\log(z+1),\log z)\), where \(z>1\) solves \(z^3+z^2=e^B\). This is exactly the same four-site specialization (set \(z=e^x\) if the flanks are denoted by \(x\)). No separate originality is claimed for the four-site diagram; chronology is not inferred from the shared publication date.
+
+Demange et al. [2] optimize a budgeted set of discrete firebreaks on a graph; their edge-removal decisions differ from the continuous attenuation here. The discrete two-cut cycle [3] optimizes separation under independent vertex ignitions. A connectivity investment problem [4] instead maximizes reliability with transmission \(1-e^{-g_i}\). Neither cycle geometry nor the reliability objective gives the all-path suppression thresholds above.
 
 ## Limitations
 
-The model is a mathematical benchmark, not a field-calibrated wildfire intervention strategy. Its predicted cutoffs depend on a single uniform ignition, exact path topology, equal patch value, independent transmissions, the exponential response assumption, absence of fire jumping, and a linear homogeneous budget. Altering any of these can change the optimizing support. The theorem establishes only the *first* activation threshold for arbitrary path size and one full four-patch continuation, not all subsequent activation thresholds for larger paths. Computational checks are finite and do not establish infinite-range statements or historical priority. Independent scientific validation has not been performed.
+The result does not characterize later support changes for general \(n\). It is a mathematical model, not an empirical firebreak design rule. Heterogeneous patch values or ignition sources, fire jumping, and different attenuation laws may alter the thresholds. The prior-work comparison is bounded and does not certify priority.
 
 ## References
 
-1. M. A. Finney (2001). “Design of Regular Landscape Fuel Treatment Patterns for Modifying Fire Growth and Behavior.” *Forest Science* 47(2):219–228. DOI: 10.1093/forestscience/47.2.219. Lawful full text: https://www.fs.usda.gov/rm/pubs/rmrs_gtr292/2001_finney.pdf. Published May 1, 2001.
-2. Y. Wei, D. Rideout and A. Kirsch (2008). “An Optimization Model for Locating Fuel Treatments Across a Landscape to Reduce Expected Fire Losses.” *Canadian Journal of Forest Research* 38:868–877. DOI: 10.1139/X07-162.
-3. M. Demange and collaborators (2021). “A graph theoretical approach to the firebreak locating problem.” arXiv:2103.10115. https://arxiv.org/abs/2103.10115.
-4. M. A. Finney, J. D. Cohen, I. C. Grenfell and K. M. Yedinak (2010). “An examination of fire spread thresholds in discontinuous fuel beds.” DOI: 10.1071/WF07177. Lawful full text: https://research.fs.usda.gov/download/treesearch/35608.pdf.
-5. “Exact staircase of optimal two-firebreak gaps on a uniformly ignited cycle” (2026), openly available mathematical manuscript, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-staircase-of-optimal-two-firebreak-gaps-on-a-uniformly-ign--20549d04bba2.
+1. [*A sharp central-to-distributed fuel-break budget transition on a four-site forest corridor*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-central-to-distributed-fuel-break-budget-transition-on-a--ea6f3ea0be9f), Finding and model.
+2. M. Demange et al., *A graph theoretical approach to the firebreak locating problem*, [arXiv:2103.10115](https://arxiv.org/abs/2103.10115), §2.2.
+3. [*Exact staircase of optimal two-firebreak gaps on a uniformly ignited cycle*](https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-staircase-of-optimal-two-firebreak-gaps-on-a-uniformly-ign--20549d04bba2).
+4. [*Four habitats are the sharp onset of unequal reliability investment on a path*](https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-four-habitats-are-the-sharp-onset-of-unequal-reliability-investm--dc53d6309137).

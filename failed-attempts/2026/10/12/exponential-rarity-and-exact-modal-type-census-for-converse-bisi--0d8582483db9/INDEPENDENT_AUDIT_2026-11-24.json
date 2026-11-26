@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:38:58.221696Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equal outward types of siblings yield a two-way bisimulation by matching descendants whose chains of outward types from the sibling roots agree. The shared parent matches itself; equal child-type sets give forth and back. Conversely, following the unique parent distinguishes depths, and at each depth two bisimilar vertices have bisimilar parents. Inductively their parents agree, so distinct sibling types force the two vertices to agree. The root type of a rigid tree is its color and a q-element set of rigid child types; placing the types at fixed positions gives q! choices per internal vertex. This proves the two recurrences, the impossibility at positive height with a<q, and the fixed point at a=q. For the rate, the logarithmic correction Φ is bounded because R_h≥a≥q, so telescoping q^(−h) log R_h gives the absolutely convergent series. For a>q the ratio R_{h+1}/R_h is at least a/q>1; once log R_m>K/(q−1) for K a bound on |Φ|, the recurrence gives C≥q^(−m)(log R_m−K/(q−1))>0. The q^(h−1) disjoint bottom sibling families give probability at most p^{q^(h−1)}, p=(a)_q/a^q<1, so the limiting decay constant is positive. The frozen refinement script and output were inspected; a separate enumeration of binary two-color assignments refined by color and both child and parent class sets, reproducing 16/128 at height 2 and 256/32768 at height 3. These finite checks do not establish the rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a rooted tree with m_j copies of each child-subtree shape T_j, Cheng gives D(T,k)=k ∏_j binom(D(T_j,k),m_j), with single-node value k, and characterizes the least k by child-class multiplicities.",
+          "The inspected modal papers address bounded contractions or path bisimulation, not this census."
+        ],
+        "reasoning": "Complete q-ary trees have one child shape of multiplicity q. Substituting k=a gives the exact R recurrence, not just a similar binomial recurrence. The action on distinguishing labelings is free and the rooted automorphism group independently permutes q children at every internal vertex, so the known orbit count gives the positioned count.",
+        "searches": [
+          "Cheng, Section 3, Theorem 3.2 and Corollary 3.3",
+          "Bolander–Burigana Abstract and §1; Figueira–Goren-Roig §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Cheng (2006), EJC 13(1), R11, Theorem 3.2 and Corollary 3.3",
+        "Worrell p. 9",
+        "arXiv:2405.00480v1 Abstract and §1",
+        "arXiv:2307.09679 §2.1",
+        "Resultary 818ec1eeacfe, 811110ab9084, 6273bbc0e6f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cheng's product with one shape is the recurrence R_{h+1}=a binom(R_h,q). Free orbits give the same (q!)^I multiplier, I the number of internal vertices.",
+          "The frozen rate proof uses the bounded logarithm of the remaining factor after extracting R_h^q and independent bottom sibling families."
+        ],
+        "reasoning": "The threshold, fixed point and binary values are immediate from the known recurrence. Taking logarithms and summing the geometrically weighted bounded corrections gives the stated series and scaling; bottom stars force positive decay. This is a correct corollary analysis, not evidence of an independent new census or a substantial residual advance.",
+        "searches": [
+          "Cheng pp. 4–5, Theorem 3.2 and Corollary 3.3, compared with frozen RESULT.md lines 7–39 and 49–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cheng, Section 3, pp. 4–5: a rooted labeling is distinguishing iff the child labelings are distinguishing and no two child subtrees are isomorphic as labeled rooted trees; equivalence of labelings is defined by labeled isomorphism.",
+          "Worrell, p. 9, gives the antecedent structural viewpoint of strongly extensional trees."
+        ],
+        "reasoning": "The bridge is by bottom-up induction: within already rigid or distinguishing child subtrees, outward types classify labeled rooted isomorphism, since every child type is used once and equal types give a unique matching of the child types. Thus the local tests coincide at every vertex. In an arbitrary nonrigid coloring, equal outward types need not imply isomorphism, but that cannot defeat the equivalence of the two global rigidity tests.",
+        "searches": [
+          "Literature lookup for distinguishing colorings / inequivalent distinguishing labelings on complete rooted d-ary trees",
+          "Exact title lookup: On Computing the Distinguishing Numbers of Trees and Forests",
+          "Resultary exact-title and modal census searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 818ec1eeacfe compares ordinary and graded quotient sizes on the same regular-tree family, without enumerating rigid colorings. Resultary 811110ab9084 counts full modal generators for outward forests using leaf injections; 6273bbc0e6f8 computes exponential rarity for semigroup congruences.",
+          "Cheng gives an exact all-size enumerator, stronger for this comparison than a bounded table."
+        ],
+        "reasoning": "The catalogue matches do not enumerate the target. A one-parameter sequence of binary critical values would not establish coverage in all three parameters; coverage here comes instead from the exact all-rooted-tree formula under the equivalent labeling formulation.",
+        "searches": [
+          "Resultary: exact title and nearby complete-tree modal type and positioned census entries",
+          "Cheng's exact distinguishing-labeling enumerator, Theorem 3.2"
+        ]
+      },
+      "rationale": "The main census is covered by Cheng (2006), Theorem 3.2, under the equivalent formulation as distinguishing labelings of rooted trees. The equivalence applies to the whole rigidity condition, not to outward-type equality versus isomorphism on arbitrary colored subtrees. The positioned count, threshold and critical specialization follow directly from that theorem, and the rate follows by bounded-correction iteration of the known exact recurrence plus independent bottom sibling families. The exact rate was not located verbatim; that does not make the central enumeration distinct.",
+      "residual_risks": [
+        "Exact-rate priority was not established. The demonstrated earlier coverage is of the census and its modal reformulation via distinguishing labelings; the rate is assessed as an elementary consequence, not claimed to appear verbatim in Cheng."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stronger enumeration of inequivalent distinguishers; covers the recurrence and implies the positioned census",
+          "evidence": "The theorem counts k choices at the root and a subset of distinguishing classes for each child shape. The regular tree has one shape with multiplicity q.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v13i1r11/pdf/0",
+          "material_read": "Section 2 definitions; Section 3, pp. 4–5, defining equivalence and giving Theorem 3.2 and Corollary 3.3, especially PDF text offsets 11070–17111",
+          "method": "Open publisher PDF with literal locate and bounded passage read",
+          "title": "On Computing the Distinguishing Numbers of Trees and Forests",
+          "trigger": "Equivalent enumeration of distinguishing rooted labelings"
+        },
+        {
+          "assessment": "Structural precedent, not a finite coloring enumerator",
+          "evidence": "Defines strong extensionality by absence of distinct bisimilar nodes and discusses its quotient.",
+          "identifier_or_url": "https://www.cs.ox.ac.uk/james.worrell/gfp.pdf",
+          "material_read": "p. 9, Tree bisimulations",
+          "method": "Open PDF passage",
+          "title": "On the Greatest Fixed Point of a Finitary Set Functor",
+          "trigger": "Structural antecedent for sibling distinctness"
+        },
+        {
+          "assessment": "Distinct quotient-size comparison",
+          "evidence": "Compares ordinary and graded compression; the displayed multiset recurrence is for a different type count.",
+          "identifier_or_url": "818ec1eeacfe",
+          "material_read": "RESULT.md offsets 0–4277 and 4277–7799",
+          "method": "Local Resultary mirror",
+          "title": "A sharp arity threshold for graded versus ordinary bisimulation compression of regular trees",
+          "trigger": "Same regular colorings and ordinary set-based types"
+        },
+        {
+          "assessment": "Different modal signature and criterion",
+          "evidence": "Counts generating assignments with distinct leaf colors for outward forests, not converse-bisimulation rigidity.",
+          "identifier_or_url": "811110ab9084",
+          "material_read": "RESULT.md offsets 0–4621",
+          "method": "Local Resultary mirror",
+          "title": "Leaf injection rigidity and a shape-free generator census for finite modal forests",
+          "trigger": "Positioned modal census"
+        },
+        {
+          "assessment": "Analogous rate for a different sample space",
+          "evidence": "Counts Rees congruences among semigroup congruences, not position colorings.",
+          "identifier_or_url": "6273bbc0e6f8",
+          "material_read": "RESULT.md offsets 0–4157",
+          "method": "Local Resultary mirror",
+          "title": "Congruence entropy and exponential Rees scarcity in rooted-tree graph inverse semigroups",
+          "trigger": "Exponential rarity on complete trees"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The modal interpretation is useful and the formulas are correct, but the positioned enumeration is a free-orbit conversion of a known exact rooted-tree formula. The remaining exponential statement uses elementary log iteration and the independent obstruction already present at the bottom stars. The record neither supplies a new count not mechanically implied by the known one nor identifies a scientific need met by that limited asymptotic corollary beyond the rephrasing.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

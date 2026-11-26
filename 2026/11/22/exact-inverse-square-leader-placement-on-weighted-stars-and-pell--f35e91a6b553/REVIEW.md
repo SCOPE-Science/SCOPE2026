@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any positive conductances and any nonempty exact leader budget on a star, the grounded Laplacian is positive definite. Schur-complement block inversion gives an exact rank-one inverse formula for follower matrices when the hub is ungrounded. Tracing its square gives the candidate cost. The strict dominance lemma separately covers every out-of-order leaf-only candidate: replacing a selected heavier leaf by the hub wins if its selected total weight is at most the follower-count-scaled leaf conductance; otherwise exchanging with a lighter unselected leaf strictly reduces the objective by the explicit algebraic inequality (2). Hub-selected patterns are diagonal. Consequently the two candidate types exhaust all global optima; no assumption of symmetric edge conductance is made. Exact comparisons give the sign rule; the unit-conductance case reduces to a Pell equation, with the specified fundamental-unit parameterization. Direct exact-rational grounded inverse calculations and all-leader-set enumeration in verify.py passed 9,018 matrix checks, 315 optimum checks and 4,949 threshold checks. Finite computations are diagnostic, not a replacement for the proof.
+## correctness
 
-## Originality — PASS, subject to stated risks
-Lin, Fardad and Jovanović (2013, arXiv:1302.0450) optimize the inverse-first grounded Laplacian trace in general graphs; Fitch and Leonard (2014, arXiv:1407.1569) and Patterson, McGlohon and Dyagilev (2014, arXiv:1412.6595) also concern first-order trace and particular topologies. The closest directly relevant published weighted-star result establishes a two-candidate property for the *first inverse power*, with a different linear threshold. Inverse-square tracing introduces an additional squared rank-one term and different switching and Pell-tie laws; none follows simply from an inverse-first minimum. Published second-order weighted-star optimization concerns edge expenditures rather than which vertices are grounded; the second-order path and complete-bipartite placement results likewise do not cover arbitrary weighted stars. The actual searches and statement-level implication comparisons appear in AUDIT.json. Remaining risks include inaccessible complete texts and unindexed equivalent results; the literature review cannot establish absolute publication priority.
+PASS
 
-## Value — PASS
-This is a natural, interpretable exact-budget leader selection problem for damped second-order network-coherence objectives. The classification works for every positive weighted star and every leader budget, giving an exact O(m log m) algorithm in contrast to the exponentially many vertex subsets. The unit-weight leader threshold changes from approximately one-half for first-order coherence to a sharp inverse-square threshold near 1/sqrt(2); on six spokes with four leaders the preferred hub status reverses. An infinite Pell family of exact ties makes the boundary arithmetic concrete, not a purely routine algebraic substitution.
+With the hub grounded, the follower matrix is diagonal and the weakest k−1 leaves are exactly the remaining leaders up to weight ties. Without the hub the Schur complement is W, the total weight on grounded leaves. The inverse is diag(0,1/w_i for follower leaves)+11ᵀ/W. Its squared trace yields the two reciprocal-sum terms and (r+1)²/W². To rule out a misordered leader set, take the weakest unselected a and strongest selected b>a. If W≤(r+1)b, replacing b by the hub eliminates the rank-one cost, which exceeds the added b⁻² because the cross term is positive. Otherwise W=t+b with t>rb; swapping b for a changes the cross term, divided by b−a, by 2(A₀−t/(ab))/((t+a)(t+b))<0. The positive rank-one change divided by b−a is less than (a+3b)/(b²(a+b)²), which is smaller than (a+b)/(a²b²), the magnitude of the negative diagonal change. This gives strict improvement, ruling out additional tie types. The endpoint cases k=1 and k=m are covered, with k=m+1 the empty follower problem. In unit weights, cost comparison is governed by 2k²+2k−(m+1)²; equality gives u²−2v²=1 for (u,v)=(2k+1,m+1). Positive powers of 3+2√2 exhaust the positive solutions and give odd u; u≤2v−1 for v≥2 gives feasibility. The first solution v=2 is excluded, leaving (11,8),(69,49),(407,288) first. Sorting and prefix/suffix sums give optimal values and compact descriptions of optimal sets, not explicit enumeration of all tied subsets. The supplied rational checker was inspected, not executed; the proof does not depend on its finite cases.
 
-## Limitations and comparisons
-Weights must be positive and fixed; leaders must be noise-free and perfectly pinned. No general-graph, robust, finite-gain or arbitrary inverse-power assertion is made. The 2014 journal article on coherence in a family of tree networks was available only as abstract-level material, and the inspectable evidence does not settle unindexed equivalent work. Independent audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same two candidate shapes are known for the first inverse trace on exactly these weighted stars, but the objective cannot be switched using that theorem: the linear threshold differs and the optimizers can reverse. The closest read second-moment results optimize conductances instead of leaders, or treat different topologies at a fixed two-leader budget. The distinct claim is the exact arbitrary-positive-weight, all-budget inverse-square optimizer and its threshold, conditional on the bounded searches.
+
+## value
+
+PASS
+
+The arbitrary-weight exact-budget objective is natural, and the strict two-action comparison replaces an exponential subset search with a sort and a two-value comparison per budget. It identifies every minimizer, including tied conductances, rather than supplying only a candidate or bound. The unit-weight reversal relative to the first moment makes the distinction consequential. Pell arithmetic precisely describes when the two competing hub decisions tie rather than just approximating the switching fraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

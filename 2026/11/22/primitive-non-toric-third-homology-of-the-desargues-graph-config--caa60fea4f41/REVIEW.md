@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-vertex-reduced Świątkowski model applies because the graph has no isolated vertices and computes continuous unordered graph-configuration homology by the published comparison theorem. Each of the 9,120 signed degree-three columns is reconstructed from the vertex-edge incidence description. Modulo three the 9,099 columns complementary to the explicit set of twenty-one positions are independent. Twenty-one supplied integral kernel vectors have identity coordinates on those positions and exactly vanishing boundaries, proving that they form a complete integral kernel basis, not merely a collection of experimental cycles. Exhaustively enumerating simple cycles and their pairwise disjoint triples produces exactly twenty oriented triple-hexagon tori. Their coefficient matrix has an explicitly verified determinant-one minor, proving primitivity as well as rank. Mod-two rank 9,094 and the integral kernel rank twenty-one give the exact five-dimensional order-two subgroup of degree-two homology by universal coefficients. The attached program reruns these checks from the supplied data, rather than trusting a log.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The nearest Desargues-specific record concerns two-particle second homology, not three-particle third homology. The dodecahedral and Pappus three-particle computations concern genuinely different graphs; in particular, equality of vertex/edge counts with the dodecahedral graph does not imply equality of configuration homology. The general reduced-chain comparison theorem provides a computational method but does not evaluate this concrete graph or its integral torus lattice. The related article on graph configuration cycles studies other graph families and does not assert this result. Targeted mathematical-record and primary-literature searches for the Desargues graph under its other names did not identify a statement implying the displayed primitive lattice quotient. Residual risk: bibliographic coverage is incomplete, and unindexed or inaccessible equivalent work may exist.
+PASS
 
-## Value — PASS
-The Desargues graph is the canonical, highly symmetric bipartite incidence graph of two- and three-subsets of a five-element set. The natural geometric attempt to generate the highest available three-particle homology from three disjoint graph cycles nearly succeeds but fails by exactly one **free** integral class, without a finite-index obstruction: the twenty classes form a primitive direct summand. This is a structural distinction between geometric product-torus generation and the full graph-braid homology. A separately detected rank-five order-two phenomenon in the next homological degree reinforces that rational homology alone misses meaningful structure. The precise invariant is motivated by the canonical shortest cycles and high symmetry, not an arbitrary truncation or numerical increment.
+The published natural Świątkowski comparison (Theorem 4.5 and Proposition 4.9) applies to the continuous unordered space. The independent reconstruction gives C3 of rank 9120, C2 of rank 22800, 54720 nonzeros in the signed top boundary, and C4=0 by weight. Independence of the 9099 non-free columns modulo 3 gives rational independence; the 21 exact integral cycles with identity free coordinates then span the full integral kernel, by subtracting those coordinates. Reconstruction also checks all 1456 simple cycles and exactly 20 disjoint triples, all hexagons. The loop difference sums are primitive weight-one cycles; on the disjoint union of the three circles their signed tensor represents the three-torus fundamental class, and graph-embedding naturality gives its image in D. The exact torus-coordinate minor after deleting row 7 is +1, proving the split primitive rank-20 inclusion, not only rational independence. Mod 2 top nullity is 26; universal coefficients therefore give five factors of order two in H2[2], without fixing exponents of cyclic two-primary summands.
 
-## Closest literature and limitations
-Abrams (2000) established a graph configuration model. An, Drummond-Cole and Knudsen (2019) established the homology-computing reduced chain model. Maciążek and Sawicki (2019) studied product cycles and other graph examples. Published records on two-particle Desargues configurations and three-particle dodecahedral and Pappus configurations were read at statement and proof level. Those results do not give the exact new graph-and-particle-number invariant. The current result does not classify the full degree-two torsion exponents, the fundamental group, or other particle numbers. Independent scientific validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected distinct record or theorem supplies this Desargues three-particle integral result. The natural model is a prior computational method, not an evaluated kernel or a product-lattice theorem for this graph. Several related indexed examples have a rank-one nonproduct quotient but on different graphs; they do not cover this exact invariant or supply a uniform theorem that yields it.
+
+## value
+
+PASS
+
+For the canonical cubic Desargues graph the natural top-degree generators to test are independent particles on disjoint cycles. The primitive codimension-one deficit distinguishes all such products from the full integral lattice, rather than just adding one more graph Betti number; the exact order-two subgroup also constrains possible lower-degree integral calculations. Neither result is mechanically supplied by the chain model or adjacent graph cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

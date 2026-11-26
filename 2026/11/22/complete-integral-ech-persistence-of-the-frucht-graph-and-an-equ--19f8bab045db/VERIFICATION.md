@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with Python 3's standard library. All data are included in the file and the computation does not retrieve external dependencies. The companion `VERIFY_OUTPUT.json` records the deterministic output.
+## correctness
 
-The calculation exhausts all 4095 nonempty graph vertex subsets at integer thresholds zero through five. Graph distances are independently checked by breadth-first search and Floyd–Warshall. Every oriented Hasse edge is covered by a topological-sort acyclicity check. Integral Morse boundary coefficients are computed using oriented simplex incidence signs and unit pivots. Independent raw simplicial mod-two elimination confirms each Betti signature.
+PASS
 
-The only nonzero positive-degree interstage map is the split surjection of rank three from degree-one homology at scale one to scale two. A determinant-one minor explicitly ensures an integral splitting. Three signed tetrahedra provide a bounding chain for the scale-two degree-two generator at scale three. Two single signed four-simplices bound the scale-three degree-three generators at scale four. Each asserted bounding chain is directly checked to have exactly the lifted source boundary; projections also give zero. The scale-five nerve is the full simplex.
+For a witness in a unit edge, a distance to a center is the minimum of distances via the two endpoints. If 2k≤r<2k+1, go to the nearer endpoint: centers reached via the farther endpoint have endpoint-distance at most k−1, so all centers are at distance at most k from the nearer endpoint. If 2k+1≤r<2k+2, all centers reached via either endpoint have integer endpoint-distance at most k and the midpoint witnesses them. Together with vertex witnesses this proves precisely the even/odd face rule and no intermediate changes for closed balls. An independent full enumeration gave face counts 12,30,109,423,2084,4095. Signed boundary Smith forms at the nontrivial stages give torsion-free homology and Betti vectors (12), (1,7), (1,3,1), (1,0,2,2), (1,0,0,2,1) in unreduced degrees. In the scale-two 1-cycle lattice of rank 32, the boundaries and included scale-one cycles span with Smith factors all 1, proving a split surjection onto Z^3 with kernel rank four. Independently the surjectivity follows by replacing a newly added distance-two edge by the other two sides of its closed-neighborhood triangle. Adjoining the included source cycle spaces to the target boundary spaces leaves ranks 86 for H_2(2)→H_2(3) and 293 for H_3(3)→H_3(4). Since the target groups are torsion-free the integral maps are zero. In particular the equal-rank map genuinely vanishes, and no zero-rank calculation over a finite field is used to infer that. The other maps are forced by the groups. The split map and single-scale groups give the stated integral interval sum without invoking a general interval theorem over Z.
 
-Exactness is finite for the fixed Frucht graph. This does not validate unrelated graph classes or independently certify originality. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The two mixed-dimensional wedge stages and their integral groups are directly covered by the earlier Frucht record. The supported distinction is the inclusion-induced homomorphisms and the integral interval decomposition; notably the earlier work compares the stages but explicitly leaves the rank-two H_3 map undetermined. No comparable exact-map result was established in the bounded review.
+
+## value
+
+PASS
+
+This resolves an explicit gap left by consecutive wedge classifications for a canonical asymmetric cubic graph. The equal free ranks conceal complete turnover across an inclusion, a concrete reason to compute maps rather than infer persistence from stage homotopy. The complete integral barcode gives a reproducible benchmark distinguishing the closed geometric-graph Čech filtration from simpler graph constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:24:58.736448Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first-order ODE gives Q_j=C(X^j-Z^j) by integrating over [t0,t1], with X=e^(-k(T-t1)) and Z=e^(-k(T-t0)). The ratios fix s=X+Z and delta^2=4Q3/Q1-3s^2=(X-Z)^2. A feasible interior triple is exactly Q1>0, delta>0 and e^(-kT)<(s-delta)/2<(s+delta)/2<1. Ordered roots, C=Q1/delta and the logarithmic endpoints reconstruct the readings uniquely. For either pair i<j of the three channels, set rho=Z/X and keep Q_j/Q_i fixed. The equation X^(j-i)=(Q_j/Q_i)(1-rho^i)/(1-rho^j) gives a continuous family for rho near its physical value, with C=Q_i/[X^i(1-rho^i)] fixing the common scale. All strict physical inequalities persist. Holding Q1,Q2 fixed gives dC/dQ3=-2/delta^3; normalization produces 2(1+rho+rho^2)/(1-rho)^2. The exact 6 follows from rho=e^(-kh) and 1-rho~kh. Direct factorization gives the frozen signed Jacobian in (C,X,Z), -C^2 delta^4; changing to (C,t0,t1) multiplies by -k^2 XZ. At the rational witness X=1/2,Z=1/4,C=4, delta=1/4 and Q3=7/16 give the relative sensitivity 14 exactly. The uploaded test was inspected but not run; these analytic checks suffice. All assertions are for calibrated exact data and a positive single interior rectangular pulse; no finite-noise or minimax claim follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Twin-pulse Proof §1 covers the whole one-pulse parameter family, with the same physical map, within its broader one-versus-twin comparison. Becker et al. model time-variable aqueous concentrations but the inspected passages do not give the claimed terminal inversion. The hybrid environmental pulse record observes a freely decaying input using time-spaced active and passive measurements."
+        ],
+        "reasoning": "Four channels are needed in the twin-pulse theorem for a different task: deciding which family made the readings. Its one-pulse proof already contains the first-three-channel algebra for a known single pulse. Conversely, the hybrid time-spaced inverse is not a dominating theorem for rectangular inputs.",
+        "searches": [
+          "Resultary: four kinetic channels single versus twin pulse and exact minimal hybrid environmental pulse",
+          "10.1007/s11356-024-34460-x, time-variable aqueous passive sampling",
+          "10.1002/etc.69, varying ambient concentrations and contamination pulse characterization",
+          "10.1002/gamm.201410011, Prony methods for recovery of structured functions"
+        ]
+      },
+      "checked_sources": [
+        "b286682cbbd5, Proof §1",
+        "b4741f41fa53, Finding and Proof",
+        "10.1007/s11356-024-34460-x",
+        "10.1002/etc.69 (indexed excerpt)",
+        "10.1002/gamm.201410011 (citation only)",
+        "Resultary exact and related-claim searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the twin-pulse passage, P=S^2-Q3/Q1 so (u-v)^2=S^2-4P=4Q3/Q1-3S^2. Then C=Q1/(u-v). Differentiating at fixed Q1,Q2 gives -2/(u-v)^3, and the relative factor is 2(S^2-P)/(u-v)^2. Writing v/u=e^(-kh) gives exactly the displayed duration law and its limit 6.",
+          "When only Q1,Q2 are read, S and C(u-v) are fixed and u-v can vary continuously under the same strict inequalities. The ordered-root inequalities also give the feasibility test directly."
+        ],
+        "reasoning": "The coverage is by direct substitution and one differentiation in explicit published identities, not an inference from either a search miss or matching dates. No mathematically distinct sensitivity phenomenon, recovery regime, or proof ingredient remains after crediting that overlap.",
+        "searches": [
+          "SCOPE-four-kinetic-channels-distinguish-separated-twin-contaminant-pul--b286682cbbd5, RESULT.md offsets 3040–4040",
+          "SCOPE-exact-minimal-hybrid-observations-for-a-decaying-environmental-p--b4741f41fa53, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The twin-pulse proof writes Q_j=C(u^j-v^j), Q2/Q1=S=u+v and Q3/Q1=S^2-P with P=uv. This is exactly the same map on the interior under relabeling u=X, v=Z and lambda=k.",
+          "The record's relation to opposite-sign two-node Prony powers is algebraic, but the Plonka–Tasche primary text was not recovered."
+        ],
+        "reasoning": "The constraint is identical to the two ordered roots of t^2-St+P with positive amplitude obtained from Q1; it does not become a new inverse by exchanging symmetric coordinates or interpreting them as pulse duration and position.",
+        "searches": [
+          "Resultary: three-rate terminal rectangular pulse inverse, passive-sampler three-channel sensitivity",
+          "SCOPE-four-kinetic-channels-distinguish-separated-twin-contaminant-pul--b286682cbbd5, Proof §1",
+          "constrained two-node Prony inversion and collision conditioning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The literal Resultary match is the assigned record; a distinct same-date hit contains the exact normalized first-three-reading relations. No table of condition numbers is needed: the factor 6 is the elementary limit of their fixed-Q1,Q2 derivative, not an independently measured value."
+        ],
+        "reasoning": "Searching for the literal constant alone would miss proof-level coverage. The table check compares the exact map and its implied sensitivity, not merely matching numeric values.",
+        "searches": [
+          "Resultary: Three-rate passive-sampler pulse recovery and a universal short-pulse sensitivity law",
+          "exact 1:2:3 passive sampler terminal pulse recovery and short-pulse sensitivity",
+          "SCOPE-four-kinetic-channels-distinguish-separated-twin-contaminant-pul--b286682cbbd5"
+        ]
+      },
+      "rationale": "The decisive overlap is the established one-pulse equations in the distinct twin-pulse record, not the matching title, the date, or an inaccessible citation. Its Proof §1 gives the identical first three normalized observations in sum-product form. All of the exact single-pulse inverse, feasibility and conditioning calculations follow mechanically from those equations, including from their first three channels alone. The publications' within-day priority is not determined. The two documents are not identical (the other main finding is a four-channel discriminator), but the single-pulse mathematics considered here is covered by its explicit proof-level identities.",
+      "residual_risks": [
+        "The reviewed record and the strongest distinct overlap have the same publication date; no within-day priority or attribution of discovery is inferred.",
+        "Hawker and Plonka–Tasche full texts and two deferred search results did not establish any additional coverage; unavailability does not drive the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact proof-level coverage of the one-pulse relations; its four-channel discriminator is a different conclusion",
+          "evidence": [
+            "Q_j=C(u^j-v^j), Q2/Q1=S, Q3/Q1=S^2-P, Q4/Q1=S^3-2PS."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-four-kinetic-channels-distinguish-separated-twin-contaminant-pul--b286682cbbd5/RESULT.md",
+          "material_read": "Finding, Proof §1 (RESULT.md around offset 3040) and the three-channel class-comparison scope",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Four kinetic channels distinguish separated twin contaminant pulses from one pulse",
+          "trigger": "Strongest distinct same-date result on the same pulse and rate design"
+        },
+        {
+          "assessment": "Related inverse problem, not the rectangular-terminal map",
+          "evidence": [
+            "Freely decaying input and active/passive time-spaced observations; unordered exponential factors can collide."
+          ],
+          "identifier_or_url": "SCOPE-exact-minimal-hybrid-observations-for-a-decaying-environmental-p--b4741f41fa53",
+          "material_read": "Mirrored Finding and Proof, including passive-only observation comparison",
+          "method": "Resultary lookup and targeted mirror read",
+          "title": "Exact minimal hybrid observations for a decaying environmental pulse",
+          "trigger": "Distinct same-date sampler identifiability and conditioning match"
+        },
+        {
+          "assessment": "Modeling antecedent; inspected passages do not state the three-rate inverse",
+          "evidence": [
+            "Sampling-rate and diffusion models; Eq. (1) for constant aqueous concentration and discussion of time-varying concentrations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11356-024-34460-x",
+          "material_read": "OA PDF abstract (offset 950), Introduction Eq. (1) and discussion of peaks (offset 5200, pp. 51845–46)",
+          "method": "Targeted primary PDF read",
+          "title": "Modelling passive sampling of hydrophilic compounds under time-variable aqueous concentrations",
+          "trigger": "Physical sampler response to varying contaminant pulses"
+        },
+        {
+          "assessment": "Exact observation design and theorem unverified from the available excerpt",
+          "evidence": [
+            "Excerpt says sampler response may characterize a contamination pulse; it does not give the channel arrangement or conditioning formula."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/etc.69",
+          "material_read": "Indexed publisher excerpt; full primary text not recovered",
+          "method": "Publisher and alternate-copy lookup",
+          "title": "Modeling the response of passive samplers to varying ambient fluid concentrations of organic contaminants",
+          "trigger": "Potentially close pulse reconstruction antecedent"
+        },
+        {
+          "assessment": "Potentially relevant broader theory, not evidence of exact coverage or noncoverage",
+          "evidence": [
+            "The reviewed equation is an opposite-sign two-node power sum; exact scope of the cited article was not established."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/gamm.201410011",
+          "material_read": "Citation and bibliographic scope only; no primary theorem passage recovered",
+          "method": "Publisher/DOI access and lawful alternate-copy lookup",
+          "title": "Prony methods for recovery of structured functions",
+          "trigger": "Constrained two-node inversion and collision-conditioning risk"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The motivating question is useful: a physically feasible inverse can still be very ill-conditioned for short pulses. Here, however, the exact inverse and its duration-only derivative are mechanical readings of the already explicit quadratic in the same data, with the constant 6 from a first-order exponential expansion. No distinct useful unknown invariant, independent bound, or design consequence survives the overlap. The one-model local derivative cannot be promoted to a general practical noise bound to supply that missing contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

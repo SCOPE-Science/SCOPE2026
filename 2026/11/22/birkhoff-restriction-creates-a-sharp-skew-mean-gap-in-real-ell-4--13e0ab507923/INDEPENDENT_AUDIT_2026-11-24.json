@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:59:05.392537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t≠1 the generalized quadratic form for the scalar norm of M_t has a simple top eigenline with RQ≠0. Every nonzero real (R,Q) is attained by (a²−b²,2ab) by complex squaring; over the maximizing eigenline its preimages are two perpendicular input lines. Thus every nonzero coordinate row of an unrestricted maximizing pair is proportional to (a,b) or (b,−a), with ab(a²−b²)≠0. One line, including the case of only one nonzero row, is incompatible with both columns having norm one. Distinct lines and the two norm conditions give equal absolute scales, so the Birkhoff functional is a nonzero scalar multiple of ab(a²−b²). Compactness now gives strictness. The explicit balanced pair at t=1 attains 2^(3/4). For the local law, quartic expansion of the two norm arguments under x⊥_B y gives the displayed J and B. The uniform small-t expansion over both orientations confines all maximizing ratios to a neighborhood of u0 and the positive-linear orientation. At u0, q=3u0 and (1−u0)²=2u0, giving J=c and B=1/√3; differentiation gives f1″=−c(7+4√3)/4 and f2′=1+√3/2. The analytic implicit equation is ∂_u((F−1)/t)=0, which extends to t=0 and is nondegenerate there; concavity near u0 and exclusion outside the neighborhood yield one ratio and one ordered-pair orbit. The drift is −f2′/f1″ and substituting it changes the cubic coefficient by −(f2′)²/(2 f1″), giving (7√3−9)c/18. The unrestricted linear coefficient is √2/4 and c²=2/(3√3)<1/2. Neither uniqueness nor the cubic series is claimed at large t. The supplied checker was inspected and not executed; several coefficient checks use numerical tolerances, so the analytic calculation is decisive.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qi et al. define the same restricted invariant and give general bounds, including the identification with A2(X,B) at t=1.",
+          "7a18ef79086d evaluates the unrestricted two-weight norm for real ℓ4(I) with |I|≥2. The broader support-functional formula in 5f371e82ef77 specializes at p=4 to the same c."
+        ],
+        "reasoning": "The unconditional optimum is a valid bound and the asymmetry formula gives the initial slope through the first variation. Neither establishes that every unrestricted maximizer is excluded by the directional orthogonality test at unequal weights, or determines the higher coefficients of the restricted sum.",
+        "searches": [
+          "arXiv:2602.13974v1 §2 general estimates and special t=1",
+          "Resultary 7a18ef79086d broader unrestricted ℓ4(I)",
+          "Resultary 5f371e82ef77 approximate Birkhoff symmetry of L_p"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.13974v1",
+        "doi:10.7153/mia-2025-28-22",
+        "Resultary 7a18ef79086d",
+        "Resultary 336b8cef1f26",
+        "Resultary 5f371e82ef77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted proof constructs one extremizing pair; the present strictness requires controlling all extremizing ordered pairs, and examines the two norming lines and the Birkhoff functional.",
+          "The difference proof shares the leading u0 and an orbit-uniqueness method but its linear ratio displacement vanishes. The positive sum of fourth roots instead gives f2′(u0)≠0 and a nonzero linear drift, with the corresponding third-order optimizer correction."
+        ],
+        "reasoning": "The exact unrestricted bound and the reverse functional are acknowledged ingredients. The difference of individual norms at its own maximizer does not determine the sum at a different optimizer, and neither previous statement is equivalent to the joint strict-gap and optimized cubic law.",
+        "searches": [
+          "Compare 7a18ef79086d Finding and proof of generalized eigenvalue and two-row attainment with frozen proof §1",
+          "Compare 336b8cef1f26 Finding and proof with frozen restricted sum §2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The definition of A_t^B in Qi et al. is exactly the frozen mean. In Ni et al., positive weights (α,β) reduce by homogeneity to (1,t) with t=β/α; their additional constraint is isosceles, not Birkhoff.",
+          "At the objective level F_t(x,y)=t F_(1/t)(x,−y). This sign reversal preserves Birkhoff orthogonality, so both constants are reciprocal-homogeneous. Swapping the ordered pair instead would in general violate the directed condition."
+        ],
+        "reasoning": "Weight conventions and the reciprocal parameter give no distinct claim; the strict gap on one side of t=1 is equivalent to that on the other. The isosceles condition and the difference quotient remain different objectives/feasibility predicates after these normalizations.",
+        "searches": [
+          "Qi et al. arXiv:2602.13974v1, §§2–3, A_t^B and D_t^B",
+          "Ni, Liu and Zhou DOI 10.7153/mia-2025-28-22, §§3–4, A_(α−β)",
+          "Resultary: quartic skew arithmetic mean, Birkhoff restricted sum versus difference, small-skew optimizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ℓ4 formula in 7a18ef79086d is the full U_t comparator, including the value 2^(3/4) at t=1.",
+          "336b8cef1f26 tabulates the first terms for D_t^B, including c and a ratio displacement of quadratic rather than linear order."
+        ],
+        "reasoning": "There is exact coverage for the unrestricted formula and for the neighboring difference series, not a located exact restricted-sum cubic or an unequal-weight equality test. No finite database completeness is asserted for this continuous variational problem.",
+        "searches": [
+          "Resultary exact skew geometric mean of ℓ4, 7a18ef79086d",
+          "Resultary sharp second-order small-skew law for Birkhoff geometry in real ℓ4², 336b8cef1f26",
+          "Qi et al. restricted constants definition, estimates and examples"
+        ]
+      },
+      "rationale": "The two-weight unrestricted expression and its operator-norm derivation, and the leading reverse Birkhoff residual, are prior. The supported contribution is ruling out unrestricted equality under the Birkhoff constraint away from equal weights and establishing the optimized mean's local coefficients and moving orbit. The strongest matching Resultary proofs give either the unrestricted objective or the restricted difference quotient; neither gives the restricted sum maximum. The equality exclusion uses known generalized-eigenvalue data but additionally analyzes all norming rows under both unit constraints. The perturbation proof additionally optimizes a different Taylor series and is not a normalization of the earlier difference law.",
+      "residual_risks": [
+        "The focused literature search was unavailable, not negative evidence. An unlocated treatment of the same quartic restricted optimum or a broader equality/asymptotic theorem could affect historical priority.",
+        "The unrestricted formula, its matrix calculation, and the reverse orthogonality residual are explicitly not independent novelties."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical invariant and generic estimates, not the quartic-plane equality exclusion or optimized local law in the passages inspected",
+          "evidence": [
+            "A_t^B equals the frozen objective, A_1^B=A2(X,B), and the difference quotient in §3 is not an arithmetic mean."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.13974v1",
+          "material_read": "OA §2 definition and start of general bounds, offsets 11200–13395, and §3 difference definition at offset 30200",
+          "method": "Bounded original PDF passages",
+          "title": "Skew geometric constants related to Birkhoff orthogonality in Banach spaces",
+          "trigger": "Introduces the identical Birkhoff-restricted mean and a nearby difference quotient"
+        },
+        {
+          "assessment": "Unrestricted definition reduces by scaling; restricted case is isosceles, not Birkhoff",
+          "evidence": [
+            "Weights α,β in §3 match after (1,t) specialization; §4 imposes isosceles orthogonality."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-28-22.pdf",
+          "material_read": "Sections 3 and 4, pp. 330 and 338, OA offsets 7200 and 28775",
+          "method": "Bounded original PDF passages",
+          "title": "Some aspects of new skew geometric constants in Banach spaces",
+          "trigger": "Two-weight unrestricted mean and possible orthogonality variant"
+        },
+        {
+          "assessment": "Covers entire unrestricted value and attainment; does not settle the restricted optimized claim",
+          "evidence": [
+            "Real ℓ4(I) two-weight equation, rowwise power mean bound, attainment by two coordinate rows, and generalized eigenvalue reduction."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-skew-geometric-mean-constant-of-ell-4--7a18ef79086d",
+          "material_read": "Original mirror Finding and proof at offsets 0–2390",
+          "method": "Resultary lookup and bounded original RESULT.md",
+          "title": "Exact skew geometric mean constant of ℓ4",
+          "trigger": "Claimed prior exact comparator and matching matrix method"
+        },
+        {
+          "assessment": "Substantial nearby overlap in leading residual, leading ratio and technique, but for a distinct functional and drift",
+          "evidence": [
+            "D_t^B difference quotient starts at c; its unique maximizing ratio starts at 2−√3 and changes by (3√3−6)t²+O(t³)."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-second-order-small-skew-law-for-birkhoff-geometry-in-real--336b8cef1f26",
+          "material_read": "Original mirror Finding and proof material, offsets 0 and 5681",
+          "method": "Resultary lookup and bounded original RESULT.md",
+          "title": "Sharp second-order small-skew law for Birkhoff geometry in real ℓ4²",
+          "trigger": "Same real quartic plane, restriction, small parameter, and symmetry classes"
+        },
+        {
+          "assessment": "Covers shared leading residual rather than the finite-skew mean",
+          "evidence": [
+            "Specializing the L_p residual at p=4 yields (4/27)^(1/4)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-dimension-free-c-approximate-birkhoff-symmetry-of-real-l-p-space--5f371e82ef77",
+          "material_read": "Original mirror support-functional formula and p=4 specialization",
+          "method": "Resultary lookup and original passage comparison",
+          "title": "Dimension-free C-approximate Birkhoff symmetry of real L_p spaces",
+          "trigger": "Prior exact reverse Birkhoff asymmetry residual"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The real quartic plane is a natural smooth non-Hilbert test case for directional orthogonality constants. The theorem resolves exactly when the restriction changes the sharp arithmetic mean and quantifies both the optimized loss and how a maximizing pair moves. The leading common residual alone cannot reveal the linear versus quadratic optimizer motion of the sum and difference problems. This is a substantive comparison beyond evaluating a known formula at one weight, with no claimed closed form for the restricted mean at arbitrary weights.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,14 +1,21 @@
-# Self-review
-## Correctness
-**PASS.** The claim is reduced exactly to a partition-product problem. Every local replacement used in the proof preserves the exponent sum and has the stated strict or equal product comparison. After the reductions, congruence modulo \(3\) leaves the listed candidates, and the only nontrivial final competition has ratio \(25/24>1\). The exceptional totals \(m=1,2,5\) are explicit. An exact-rational exhaustive check through \(m=40\) independently matches all maxima and all equality patterns.
+# Independent mathematical audit
 
-## Originality
-**PASS.** The closest direct sources study the same ratio through mean values or maximum order as the size of \(n\) grows. The focal Karras paper supplies the local factor formula but not a fixed-\(\Omega\) optimizer. The 2023 Bouakkaz--Derbal paper explicitly summarizes the known size-based maximum order before turning to arithmetic-progression means. Searches across the equivalent ratio and exponent-partition formulations found no checked result implying the all-layer equality classification. The main residual risk is terminology mismatch in older literature; the 2012 extremal paper itself could only be compared through its indexed theorem statement and its quotation in the inspected 2023 paper.
+## correctness
 
-## Value
-**PASS.** The result answers a natural structural question for a function already studied through average and maximum orders: what is its exact envelope at fixed total prime-factor multiplicity? It gives every layer, every maximizing exponent pattern, and an exact period-three law. This is a classification of a standard arithmetic-complexity slice, not a one-off computation.
+PASS
 
-## Closest literature and limitations
-Karras, arXiv:2209.14573v1 / DOI 10.46298/cm.10104, defines \(D_{k,\omega}\) and studies its mean value. Derbal, INTEGERS 12 (2012), A44, treats maximum order in the size variable. Bouakkaz--Derbal, DOI 10.7546/nntdm.2023.29.3.445-453, treats means in arithmetic progressions and quotes that maximum-order result. The present theorem is restricted to \(k=2\); no claim is made for the general \(k\)-family.
+Every exponent partition of m is realizable using distinct primes, and both divisor counts give the product of f(a)=(a+1)/2. In a maximizer for m>=2, merging 1 with any other part increases the product; splitting a>=6 into 3 and a-3 multiplies the product by 2(a-2)/(a+1)>1. Replacing each 5 by 3+2 preserves the product. Among the remaining parts, 2+2 is worse than 4, 2+4 is worse than 3+3, and 4+4+4 is worse than four 3s. Thus the only candidates by residue are all 3s, one 4 with 3s, or either one 2 or two 4s with 3s. The two-4 pattern wins the last comparison by 25/24 if m>=8. A maximizer with any unreduced 5 would produce a 2 on reduction, hence is possible only at m=5 (a 5 cannot occur at m=2). This recovers every equality case and proves the formulas without a cutoff. Inspected the frozen exact-rational partition verifier and its recorded check through m=40 (215307 partitions); that is supporting evidence only and was not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same multiplicative function and the classical analogous partition problem are known. The complete fixed-total-multiplicity envelope and maximizing exponent multisets are distinct on the checked evidence. The prior size-growth and mean results do not supply the needed exact comparisons at equal sum.
+
+## value
+
+PASS
+
+Fixed total prime multiplicity is a natural arithmetic slice independent of prime size. An exact envelope with all equality cases provides information neither the mean nor the asymptotic maximum order supplies, including the genuine tie at m=5 and the change in the residue-two optimizing pattern.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

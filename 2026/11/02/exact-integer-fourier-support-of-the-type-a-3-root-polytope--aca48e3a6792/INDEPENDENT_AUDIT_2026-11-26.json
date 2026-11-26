@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:37:53.810882Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–5",
+        "Frozen VERIFICATION.md and verify.py, inspected without execution; reports 471 rational periodization probes, 13 simplex quadrature comparisons and formula-based cube counts for N=0,…,6"
+      ],
+      "rationale": "The coordinate Gram matrix is I+11ᵀ with determinant 4, so ambient H³ equals twice coordinate volume. On the zero-sum hyperplane the root hull is the positive-mass unit ball: each positive coordinate can be supplied from the negative ones, giving root weights of total mass at most one, with any remainder at the origin. For a point y in the open cube only shifts 0 and −1 can occur in each coordinate. For t=sum(y)<1 only the empty set and singleton shift sets qualify, and reflection gives the t>2 slab. In the middle slab, each singleton {j} qualifies for y_j≥t−1 and its complement qualifies for y_j≤t−1, so there are three shifts off the equality planes. The two extra corner simplices each have volume 1/6, giving C(0)=10/3. For integral k the Fourier coefficient of the periodization is the original coefficient, and reflection makes the corner integrals conjugate. The size-parameter Laplace integral over the simplex yields the four linear factors including the slack factor z. At simple poles the evaluated exponent is one and the coefficient is proportional to (2πi)⁻³, hence purely imaginary. At a double node r the real term is (2πi)⁻²/[(s−r)(t−r)]; two double nodes give two such terms with the same squared denominator; at a triple node the real term is −(2πi)⁻²/(s−r)². Doubling the real parts gives all stated nonzero coefficients, with the correct sign and no further cancellation. Subtracting the ordered triples of distinct nonzero values from (2N+1)³ gives 24N²+2N+1, including N=0.",
+      "residual_risks": [
+        "The periodization identity ignores cube boundaries and equality planes, which do not affect the integrals. Tests are bounded; the cube-count check uses the implemented coefficient formula, not an independent Fourier computation at every frequency."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polyhedral Stokes/vertex formulas can compute general polytope transforms, and give vanishing off the candidate hyperplanes at nonresonant lattice frequencies. The root-polytope sources give the geometry, boundary triangulations or lattice setting, not the cuboctahedral periodization or nonvanishing on every resonant stratum."
+        ],
+        "reasoning": "A general coefficient-evaluation recipe does not give an exact support equality. Its generic-regime vanishing is covered, but the poles and cancellations on resonant strata and the short almost-everywhere multiplicity law require this geometry.",
+        "searches": [
+          "arXiv:1602.08593v2 Theorem 1 and discussion of non-generic directions",
+          "arXiv:2104.06407v5 §7",
+          "arXiv:0809.5123v1 pp. 1–2 and arXiv:math/0609809v1 §5.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.08593v2, 2104.06407v5, 0809.5123v1 and math/0609809v1",
+        "Resultary a7565c44edcb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a nonresonant direction the vertex expansion along τk is τ⁻³ times a sum of vertex phases with fixed rational weights. Boundedness at τ→0 forces the sum of these weights to vanish, while τ=1 makes every phase one at integral vertices. The root-hull edge directions are roots, so distinct coordinate phases are nonresonant. This credits the four-distinct vanishing implication to prior general machinery.",
+          "The resonant hyperplanes do not come with an automatic nonzero coefficient. The new reduction identifies the surplus over multiplicity three as a pair of opposite simplices and computes their real-part contributions exactly by pole multiplicity."
+        ],
+        "reasoning": "Once the cuboctahedral multiplicity law is known, ordinary simplex transforms and counting give the table and count; those standard tools neither identify the surplus by themselves nor supply the absence of additional support zeros.",
+        "searches": [
+          "Diaz–Le–Robins arXiv:1602.08593v2, Theorem 1",
+          "Robins arXiv:2104.06407v5 Eqs. (4.39), (7.3) and (7.7)",
+          "Resultary a7565c44edcb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In these lattice coordinates the root hull is the difference body of the coordinate simplex. Folding/unfolding identifies torus coefficients of its translate multiplicity with the integer-frequency transform. The established lattice multiple-tiling criterion for constant multiplicity would require every nonzero lattice coefficient to vanish; here the multiplicity is nonconstant.",
+          "The octahedral analog uses the standard ℓ₁ ball with six vertices, not the twelve-vertex root hull. In the two stated coordinates k=(0,1,2) has an A3 phase collision but has distinct absolute frequencies."
+        ],
+        "reasoning": "The periodization description is an equivalent lattice-function formulation, not a constant multi-tiling. The arrangement and common box count in the octahedral result do not give an equivalent coefficient formula or polytope.",
+        "searches": [
+          "Fourier coefficients integer frequencies cuboctahedron A3 root polytope lattice periodization difference body simplex covering multiplicity",
+          "Resultary a7565c44edcb",
+          "arXiv:2104.06407v5 §4, Theorem 4.34 and Eq. (4.39)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day octahedron record has 24N²+2N+1 as well, on |k_i|=|k_j| rather than on collisions among 0,k_1,k_2,k_3, and has three covering levels rather than two. No equivalent specialized table was located among the inspected sources."
+        ],
+        "reasoning": "An equality in frequency-box counts does not imply equality of support or of Fourier coefficients, nor does a shared publication date establish priority.",
+        "searches": [
+          "Resultary exact octahedral lattice Fourier support a7565c44edcb",
+          "Primary-literature search for the integer A3/cuboctahedron coefficient and covering table"
+        ]
+      },
+      "rationale": "Pass for the specific cuboctahedral two-level periodization and the consequent exact repeated-value coefficients and support, not for general polyhedral transforms, generic integer-frequency vanishing, the volume by itself, or the final counting algebra. The closest exact Resultary analog has the same cardinality polynomial but different support, geometry, and covering law.",
+      "residual_risks": [
+        "An equivalent specialized result could be indexed under simplex difference bodies or variable-multiplicity lattice coverings. The comparison establishes neither exhaustiveness nor historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS GENERAL TRANSFORM MACHINERY AND GENERIC VANISHING IMPLICATION",
+          "evidence": "The combinatorial Stokes formula expands the transform by face chains with frequency-dependent homogeneous factors. It is not a two-level A3 periodization or a resonant nonvanishing statement.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.08593v2",
+          "material_read": "PDF pp. 2, 5–6, discussion of directions and Theorem 1",
+          "method": "OA full-text passage inspection",
+          "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+          "trigger": "General support and possible stronger non-generic frequency formula"
+        },
+        {
+          "assessment": "COVERS FOLDING AND CONE INGREDIENTS",
+          "evidence": "Periodizing and unfolding gives coefficient f-hat(k). The cone expressions use vertex phases and edge denominators. These passages do not compute this difference body's shift multiplicity or all its resonant coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.06407v5",
+          "material_read": "Theorem 4.34 folding argument and Eq. (4.39) near text offset 169180; vertex cones Eq. (7.3) near 365430; Lemma 7.2 Eq. (7.7) near 373000",
+          "method": "OA PDF passage inspection by offset",
+          "title": "A friendly invitation to Fourier analysis on polytopes",
+          "trigger": "Primary-literature search hit on periodization, Brion formulas and tilings"
+        },
+        {
+          "assessment": "SAME FAMILY, DIFFERENT INVARIANT",
+          "evidence": "Defines classical root polytopes and treats triangulations and lattice growth series, not this Fourier support calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.5123v1",
+          "material_read": "PDF pp. 1–2, scope and classical type-A definitions",
+          "method": "OA full-text passage inspection",
+          "title": "Root polytopes and growth series of root lattices",
+          "trigger": "Matching classical root-polytope family"
+        },
+        {
+          "assessment": "GEOMETRIC AND LATTICE CONTEXT",
+          "evidence": "Studies regular lattice polytopes associated with type A; the inspected passage does not state this transform or multiplicity law.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0609809v1",
+          "material_read": "§5.3, PDF pp. 11–12",
+          "method": "OA full-text passage inspection",
+          "title": "Regular Lattice Polytopes and Root Systems",
+          "trigger": "Root-lattice realization and geometry"
+        },
+        {
+          "assessment": "DIFFERENT POLYTOPE, SUPPORT AND PERIODIZATION",
+          "evidence": "The standard 3D ℓ₁ ball gives support on equal absolute frequencies and three translate multiplicities for integer radii. The shared box cardinality does not give the A3 coefficients or corner-simplex periodization.",
+          "identifier_or_url": "Resultary a7565c44edcb",
+          "material_read": "RESULT.md, opening Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Octahedral lattice Fourier support and exact three-level covering",
+          "trigger": "Closest exact support table and the identical cube-count polynomial in a distinct same-day record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Diaz–Le–Robins arXiv:1602.08593v2 for the general transform baseline",
+        "Resultary a7565c44edcb for the natural but distinct comparison"
+      ],
+      "rationale": "For the natural A3 root lattice and its root polytope, the exact support equality determines which dual-lattice frequencies survive rather than only where they might survive. The two-corner periodization is independently useful as a complete lattice covering multiplicity calculation and explains the sharp reduction from cubic to quadratic frequency-box growth. The contribution is the exact geometric and arithmetic classification, not just evaluating a few transforms via a general algorithm.",
+      "residual_risks": [
+        "The classification is for this lattice realization without dilation, not arbitrary lattices, affine coordinate changes that change the lattice, or other ranks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

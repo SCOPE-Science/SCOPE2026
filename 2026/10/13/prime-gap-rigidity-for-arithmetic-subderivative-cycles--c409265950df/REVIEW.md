@@ -1,15 +1,21 @@
-# Scientific review: prime-gap rigidity for arithmetic subderivative cycles
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved for every two distinct primes \(p<q\le p^p\), every positive integer, and every possible period. The proof reconstructs the exact derivative formula and outside-prime valuation monotonicity. A maximal orbit element has \(a/p+b/q\le1\). If both supported valuations are nonzero, the derivative coefficient has a forbidden outside prime. On the two axes, smoothness leaves only fixed cases and one larger-prime branch \(q^{p^k}\). The branch's second derivative coefficient is coprime to both primes when \(k<p\); the gap bound enforces precisely this inequality. Positive periodicity excludes a zero successor. The verifier checks local steps and finite test cases, not the infinite theorem.
+## correctness
 
-## Originality — PASS relative to inspected literature
-The 2019 introduction treats subderivative identities; Emmons–Xiao 2022 treats one supported prime. Talukdar–Saikia 2026 gives fixed points for arbitrary supports and expressly lists other periodic points as future work. The closest public classification proves no nontrivial cycles for \(\{2,3\}\), a special case of this result, but not uniformly for primes \(p<q\le p^p\). Other arithmetic-derivative cycle results concern a different map or finitely specified periods. Mathematical-implication and alias searches found no result covering the present uniform prime-gap theorem. An unindexed equivalent argument remains possible.
+PASS
 
-## Value — PASS
-This is a parameter-uniform, nontrivial periodic-point exclusion for all prime pairs throughout the explicit superexponential range \(q\le p^p\). The threshold arises intrinsically from a second-iterate smoothness obstruction, not from a numerical cutoff or arbitrary search box. It extends a previously known isolated support pair and converts the unconstrained two-prime cycle question into the sharply constrained necessary regime \(q>p^p\). No theorem on three-prime supports or existence beyond the threshold is asserted.
+For n=m p^a q^b with (m,pq)=1 and positive derivative, D(n)=n(aq+bp)/(pq) is integral by the original two terms. Outside-prime valuations increase by those of aq+bp; on a finite positive orbit they must stay constant, so each positive coefficient aq+bp is supported on p,q and m remains unchanged. At a largest orbit integer, a/p+b/q≤1. Positive a,b imply a<p and b<q, making the coefficient >1 and coprime to pq, impossible. On the smaller-prime axis, smoothness leaves a=1 or p; on the larger-prime axis it leaves b=1, q, or p^k<q. Exponent 1 leads to m then zero; exponents p and q on their respective axes give fixed points. For b=p^k the next exponents are (k,p^k−1); the next coefficient kq+p(p^k−1) is >1 and prime to both p and q because 1≤k<p and 0<p^k−1<q. Here k<p follows from p^k<q≤p^p. This proves the whole positive-periodic set, including the converse by direct substitution and with arbitrary coprime m. The contrapositive does not assert existence above the bound. RESULT.md lines 18–58 carry the proof. The inspected verify.py and recorded verification_output.txt report a finite regression (236 pairs, 16,567 direct comparisons, 297 two-step candidates), not an exhaustion or a necessary certificate; no bundled code was run.
 
-## Closest literature and limitations
-The prior fixed-point classification is included to state the complete periodic set, not as an originality claim. A published special case on support \(\{2,3\}\) also remains prior-covered. Numerical checks cannot replace the symbolic proof; the bibliography may omit unindexed results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed families and the instance {2,3} are not new. The distinct contribution of this frozen record is the uniform exclusion of nonfixed positive periods for p<q≤p^p. Two later catalogued all-pairs theorems subsume that exclusion, but their records postdate this result; no earlier disclosure of those stronger results was identified. The inspected earlier sources do not imply the uniform exclusion.
+
+## value
+
+PASS
+
+The dynamics of positive integer iterates for a two-prime support are not determined by the known fixed-point theorem. This gives a uniform cycle exclusion and an explicit necessary bound tied to the prime-power exponent of a possible orbit maximum, not an arbitrary tested parameter box. The monotonicity/maximality argument shows why the bound arises and handles arbitrary outside-prime factors. The cutoff is not claimed optimal and the stronger later classification should be preferred for the unrestricted conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

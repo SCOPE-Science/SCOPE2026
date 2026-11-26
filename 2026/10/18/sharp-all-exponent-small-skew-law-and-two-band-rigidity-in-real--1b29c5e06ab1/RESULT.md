@@ -21,7 +21,7 @@ Writing \(J_p(x)=\operatorname{sgn}(x)|x|^{p-1}\), the normalized first-order sk
 \[
 D_p(x,y)=\int_\Omega(J_p(x)y-J_p(y)x)\,d\mu
 \]
-satisfies the sharp bound \(|D_p(x,y)|\le2c_p\). Its negative extremizers, and only those extremizers, are the two-band pairs specified below. The deficit admits the **exact pointwise-nonnegative decomposition**
+satisfies the sharp bound \(|D_p(x,y)|\le2c_p\). For \(p\ne2\), equality at \(D_p=-2c_p\) holds exactly for the two-band pairs specified below. For \(p=2\), \(D_2=0\) for every pair and there is no such rigidity. The deficit admits the **exact pointwise-nonnegative decomposition**
 \[
 E_p(x,y)=2c_p+D_p(x,y)
 =\int_\Omega \big[c_p(|x|^p+|y|^p)+J_p(x)y-J_p(y)x\big]d\mu\ge0.
@@ -33,6 +33,8 @@ The near-Hilbert cusp and two exact samples are
 \lim_{p\to2}\frac{c_p}{|p-2|}=\frac{z_*}{2\cosh z_*},\quad z_*\tanh z_*=1,\qquad
 c_4=\frac1{2\sqrt2},\quad c_6=\frac12.
 \]
+
+The distinct claim is the general non-Hilbert equality and deficit profile beyond the already indexed quartic case, with a unique scalar optimizer at every non-Hilbert exponent. The coefficient as a scalar supremum and the transfer of the first-order law from the matched to other outer means are included as consequences of known numerical-radius and matched-mean formulas, not as independent discoveries.
 
 ## Assumptions and scope
 The scalar field is real. The measure space admits two disjoint nonzero \(L_p\) functions (in particular, every real \(\ell_p^n\) with \(n\ge2\) qualifies). All norms are genuine \(L_p\) norms. The asymptotic is at \(\tau\downarrow0\), not a finite-\(\tau\) formula, and the coefficient is zero at the Hilbert exponent. The outer parameter ranges over the full closed interval including its maximum endpoint.
@@ -46,7 +48,7 @@ is at most \(c_p(|a|^p+|b|^p)\), where the **optimal** scalar constant is
 \[
 c_p=\max_{0<u<1}\frac{u|1-u^{p-2}|}{1+u^p}.
 \]
-This follows by dividing by \(|a|^p+|b|^p\) and using symmetry under \(u\mapsto1/u\); if either scalar is zero the left side vanishes. Differentiating the displayed quotient, every interior stationary point obeys
+This is the standard scalar constant \(M_p\) of the numerical-radius literature (see References 4–5). The inequality follows by dividing by \(|a|^p+|b|^p\) and using symmetry under \(u\mapsto1/u\); if either scalar is zero the left side vanishes. Differentiating the displayed quotient, every interior stationary point obeys
 \[
 1+u^{2p-2}=(p-1)(u^{p-2}+u^p).
 \]
@@ -77,7 +79,7 @@ M_t(\|x+\tau y\|_p,\|\tau x-y\|_p)
 \ge1+\frac\tau2 D_p(x,y)-C_p\tau^r
 \ge1-c_p\tau-C_p\tau^r.
 \]
-For the two-band pair above the output norms coincide and their common value equals \(1-c_p\tau+O_p(\tau^r)\), proving the matching upper bound **for every \(t\) at once**. If a competing pair is within \(\varepsilon\tau\) of the infimum, comparison of these bounds gives \(E_p=2c_p+D_p\le2\varepsilon+O_p(\tau^{r-1})\). The deficit is exactly an integral of pointwise scalar slack, so this gives a stability assertion for the unique two-ratio minimizing geometry.
+For \(p\ne2\) the two-band pair above has equal output norms with common value \(1-c_p\tau+O_p(\tau^r)\), proving the matching upper bound **for every \(t\) at once**. For \(p=2\), the lower bound uses \(D_2=0\) and two disjoint unit functions are an orthogonal input pair with outputs \(\sqrt{1+\tau^2}\), proving the corresponding upper bound. If a competing pair is within \(\varepsilon\tau\) of the infimum, comparison of these bounds gives \(E_p=2c_p+D_p\le2\varepsilon+O_p(\tau^{r-1})\). For \(p\ne2\) the deficit is exactly an integral of pointwise scalar slack for the unique two-ratio minimizing geometry.
 
 **4. The Hilbert cusp.** Let \(p=2+\delta\). Divide the unique-critical-point equation by \(\delta\) and pass to \(\delta=0\). The limiting equation is \(s\tanh s=1\), with unique positive root \(z_*\) and strictly positive derivative of \(s\sinh s-\cosh s\) there. The implicit function theorem after removal of the factor \(\delta\) yields \(s_p\to z_*\), and expanding the hyperbolic expression gives \(c_p/|p-2|\to z_*/(2\cosh z_*)\). Elementary triple- and quintuple-angle identities give \(c_4=1/(2\sqrt2)\) and \(c_6=1/2\).
 
@@ -85,7 +87,11 @@ For the two-band pair above the output norms coincide and their common value equ
 The source paper's definitions and its matched-mean exact identity were checked against the October 2, 2026 first version. The mathematical proof does not require empirical extrapolation. The standalone `verify.py` evaluates the scalar stationary equation, two-band equality, and a finite collection of scalar inequalities at eleven exponents; all 2,222 diagnostics passed. Its finite checks are not offered as proofs of universal quantifiers. The integrability and uniform remainder estimates are established analytically above.
 
 ## Relationship to prior work
-Xu and Liu establish the skew Schäffer definition, general bounds, the exact matched-exponent relation \(\mathcal S_{L_p,p}(\tau)=(1+\tau^2)/\|A_\tau\|_{\ell_p^2\to\ell_p^2}\), and the two-coordinate attainment construction. Those results are assumed and are **not** presented here as new. They allow recovery of the derivative at the matched exponent, but do not state the full exponent-uniform first-order formula, the unique hyperbolic ratio across all \(p\), the all-mean two-band equality structure, or its quantitative pointwise deficit. An earlier independent exact small-skew formula at \(p=4\) for finite outer means is also treated as known; the distinct contribution here is the all-\(p\), all-outer-mean structure. Results on \(C\)-approximate Birkhoff symmetry impose an orthogonality constraint and optimize a different normalized residual, so do not imply this unconstrained skew difference. A result on the supremal skew geometric-mean constant optimizes the opposite direction and likewise does not determine the present all-mean infimal rigidity statement.
+Martín, Merí and Popov use the same scalar supremum \(M_p\) and identify it as a real \(\ell_p^2\) operator numerical radius, citing Martín and Merí [4–5]. For the quarter-turn \((a,b)\mapsto(b,-a)\) the norming duality pairing is exactly the scalar skew numerator divided by \(|a|^p+|b|^p\). In particular, the variational value of the coefficient and its pointwise bound are already implicit in that formula.
+
+Xu and Liu [1, Theorem 3.2 and Remark 3.3] establish the exact matched-exponent relation \(\mathcal S_{L_p,p}(\tau)=(1+\tau^2)/\|A_\tau\|_{\ell_p^2\to\ell_p^2}\) and attain it with equal outputs. The balanced pair and monotonicity in \(t\) imply equality of the infima for \(t\ge p\). For \(1\le t\le p\), the two input norms to the power mean are in \([1-\tau,1+\tau]\); expansion at their arithmetic mean bounds the difference between the two power means of orders \(t\) and \(p\) by \(O_p(\tau^2)\) uniformly. Thus the common first-order law transfers from the matched exponent. The proof here derives it directly from pointwise slack to make the relationship with the equality classification explicit.
+
+The quartic specialization of the two-band class and deficit overlaps the exact square identities in [6–7]; [6] also gives a stronger, second-order expansion uniform over all outer means. No exclusive priority is claimed for the quartic case. The distinct scope here is the unique-ratio, signed-band classification and deficit estimate for general real \(L_p\), beyond that quartic special case. An orthogonality-constrained Birkhoff residual [3], or a supremal rather than infimal skew geometric-mean constant [2], does not optimize the same unconstrained two-function functional.
 
 ## Limitations
 The result is an exact first-order and stability theorem; it does not determine the full finite-\(\tau\) profile of every mean. The scalar equality classification is for real \(L_p\); complex phases are not included. Near-minimizers have small *integrated scalar slack*, not an asserted strong norm distance to any particular fixed pair. A comprehensive priority guarantee is impossible; equivalent first-variation results under semi-inner-product asymmetry terminology could exist.
@@ -94,3 +100,7 @@ The result is an exact first-order and stability theorem; it does not determine 
 1. Ying Xu and Qi Liu, *Skew Schäffer Type Constants*, arXiv:2610.03050v1, first posted October 2, 2026, especially Theorem 3.2 and Remark 3.3.
 2. Q. Ni, Q. Liu and Y. Zhou, *Some aspects of new skew geometric constants in Banach spaces*, Mathematical Inequalities & Applications 28 (2025), 327–342, DOI 10.7153/mia-2025-28-22.
 3. *Dimension-free C-approximate Birkhoff symmetry of real \(L_p\) spaces*, published October 11, 2026 (related constrained optimization, not an equality of invariants).
+4. M. Martín, J. Merí and M. Popov, *On the numerical index of real \(L_p(\mu)\)-spaces*, arXiv:0903.2704, Theorem 1 and the paragraph after Corollary 4.
+5. M. Martín and J. Merí, *A note on the numerical index of the \(L_p\) space of dimension two*, Linear and Multilinear Algebra 57 (2009), 201–204, Lemma 2 (as cited in [4]).
+6. *Uniform quadratic small-skew law and extremizer rigidity in real \(L_4\) spaces*, https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-quadratic-small-skew-law-and-extremizer-rigidity-in-real--2846c5f281be/RESULT.md.
+7. *Perfect-square first-variation rigidity for skew Schäffer means*, https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-perfect-square-first-variation-rigidity-for-skew-sch-ffer-means--0608f06c0ab6/RESULT.md.

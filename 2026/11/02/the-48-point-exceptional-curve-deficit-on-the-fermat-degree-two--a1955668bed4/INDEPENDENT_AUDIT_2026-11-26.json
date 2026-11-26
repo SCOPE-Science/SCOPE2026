@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:35:45.846147Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–3, VERIFICATION.md, verify.py",
+        "Revised /workspace/repairs/5/RESULT.md",
+        "Knecht–Reyes §2 formula; Resultary 315db4bfe71c and 1461ee4380ba",
+        "/workspace/reproductions/delpezzo.py and delpezzo.txt (Python 3)"
+      ],
+      "rationale": "The repaired proof uses the known 28-bitangent list and its square restrictions (2 is a square in F25) to identify the exceptional union with the full inverse image of the bitangent arrangement. The branch quartic has 12 rational points with a zero coordinate and 32 with all coordinates nonzero: the fourth-power pair runs over μ6, with a+b+1=0 only for the two orders of the nonidentity cube roots. The boundary formula uses plane counts h=15 and e=16, yielding 778 and hence a deficit of 48. On an axis with the other coordinates nonzero, ordinary bitangents give fourth-power ratio 1, and the ratio bitangents give -1. At either nonidentity cube root the branch value is the negative of the other cube root, a nonzero square. Thus 3·2·4 base points, with two lifts each, account for the entire deficit. Root scalings, coordinate swaps and the deck involution establish transitivity. An independent Python calculation tested all 651 line restrictions against the binary-quartic squares rather than assuming the bitangent list, found 28 split lines, and verified the fibre counts and exact equality of the projected hole sets over all 651 plane points.",
+      "residual_risks": [
+        "The result uses the classical fact that the 28 geometric bitangents account for all 56 exceptional curves; it treats the specified split model only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Knecht–Reyes give the general boundary formula in terms of plane incidences and branch count; their Question 4.8 leaves the existence of some full example at q=25 open. 1461ee4380ba treats every odd characteristic for the plane incidence data."
+        ],
+        "reasoning": "These general results imply the numerical deficit in the present case, so that has been moved out of the novelty claim. They count intersection strata, not the set of rational fibres uniquely missed by the entire union.",
+        "searches": [
+          "Knecht–Reyes arXiv:1510.04621, §2 and Question 4.8",
+          "Resultary exceptional primes and Frobenius spectra for the Fermat quartic bitangent arrangement"
+        ]
+      },
+      "checked_sources": [
+        "Knecht–Reyes, Kresch–Tschinkel",
+        "Resultary IDs listed in source inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact numerical deduction is 6·15+2·16+28·25−44=778; 826−778=48. The proof of the repaired conclusion instead singles out axis ratios with fourth power of order three, checks both lack of bitangent incidence and nonzero square branch value, then exhausts the deficit and proves an orbit statement."
+        ],
+        "reasoning": "The earlier numerical inputs cannot by themselves imply which base points or which symmetry orbit is missed. The axis construction and exhaustion supply the distinct result, rather than counting the same table again under a new name.",
+        "searches": [
+          "Knecht–Reyes §2 boundary formula combined with 315db4bfe71c and 1461ee4380ba",
+          "Kresch–Tschinkel §2 bitangent lifts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exceptional union lies over the complete geometric bitangent arrangement and the split lifts give full fibres on those lines."
+        ],
+        "reasoning": "The repaired statement is equivalent to characterizing the projective points outside all bitangents which have a nonempty rational fibre. Known formulas for the curves give the necessary equations, not the asserted orbit of uncovered fibres.",
+        "searches": [
+          "Fermat quartic double plane, split del Pezzo F25, rational points off bitangents, fullness, axis ratio cube roots",
+          "Kresch–Tschinkel §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 315db4bfe71c and 6ce7d4a2898a and same-day 1461ee4380ba give overlapping char-5 incidence data. Later 1a1f181b3c6b gives the 44 branch contacts in the case q≡1 mod 24. e13642113b50 concerns the Fermat double plane in characteristic 3; c4f1a8b96552 gives the F5 bitangent case."
+        ],
+        "reasoning": "The strongest exact table at the same field is 1461ee4380ba with (240,16,15) rational plane intersection counts. This does not identify the off-arrangement points with square branch value on the three axes. Searches found no exact orbit criterion in a covering record.",
+        "searches": [
+          "Resultary Fermat del Pezzo 826 778 48 F25; Fermat bitangent profile (240,16,15); axis fourth-power ratio orbit"
+        ]
+      },
+      "rationale": "The frozen numerical novelty claim is covered by earlier incidence data and the known boundary formula, with the elementary branch count. The repaired claim is only the coordinate criterion for identifying precisely which fibres are missed, including one orbit under the specified subgroup. The inspected aggregate incidence results do not locate the uncovered fibres or identify that orbit. Splitness, bitangents, all numerical totals and numerical non-fullness are not claimed as new.",
+      "residual_risks": [
+        "An unindexed earlier calculation of the same missed orbit remains possible; capped search rankings do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General count covers numerical result when combined with Fermat incidence data",
+          "evidence": "Boundary formula with h/e plane incidence counts; existence over F25 posed as open in the paper.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04621",
+          "material_read": "PDF §2 pp. 5–7, p. 4 and Question 4.8 p. 13",
+          "method": "Lawful open arXiv full text",
+          "title": "Full Degree Two del Pezzo Surfaces over Small Finite Fields",
+          "trigger": "Exact boundary count formula and field-size-25 question"
+        },
+        {
+          "assessment": "Known bitangent/exceptional-curve descriptions, not uncovered-orbit classification",
+          "evidence": "Explicit 56 curves obtained as components of double cover over the 28 bitangents of the Fermat quartic.",
+          "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/757/1/WRAP_Kresch_arithmetic_del_pezzo.pdf",
+          "material_read": "§2 pp. 547–548",
+          "method": "Lawful open institutional repository full text",
+          "title": "On the arithmetic of del Pezzo surfaces of degree 2",
+          "trigger": "Same geometric del Pezzo and bitangent lifts"
+        },
+        {
+          "assessment": "Numerical incidence input already covered",
+          "evidence": "The geometric p=5 plane incidence vector is (240,16,15), and the 28 displayed lines split over F25.",
+          "identifier_or_url": "Resultary 315db4bfe71c",
+          "material_read": "RESULT.md Finding and beginning of Proof, offsets 0–3409",
+          "method": "Local catalogue and mirrored full-text passage",
+          "title": "Exactly two exceptional characteristics for triple concurrence of Fermat-quartic bitangents",
+          "trigger": "Earlier exact same-characteristic overlap"
+        },
+        {
+          "assessment": "Exact incidence coverage, independent of order of same-day posting, not the off-arrangement orbit",
+          "evidence": "At p=5 and q≡1 mod 8 all 240+16+15 incidence points are rational; gives the same line restrictions.",
+          "identifier_or_url": "Resultary 1461ee4380ba",
+          "material_read": "RESULT.md Finding, scope and beginning of Proof, offsets 0–3603",
+          "method": "Local catalogue and mirrored full-text passage",
+          "title": "Exceptional primes and Frobenius spectra for the Fermat quartic bitangent arrangement",
+          "trigger": "Same-day exact table with correct field condition"
+        },
+        {
+          "assessment": "Coverage of geometric/count inputs, not the repaired claim; contact record is later",
+          "evidence": "First includes characteristic-five incidence; second gives 44 rational branch contacts for q≡1 mod 24.",
+          "identifier_or_url": "Resultary 6ce7d4a2898a and 1a1f181b3c6b",
+          "material_read": "Relevant RESULT.md findings",
+          "method": "Local catalogue and mirrored passages",
+          "title": "Arithmetic degeneration and Frobenius spectra of the Fermat quartic; The 44-point Fermat quartic theta-contact scheme",
+          "trigger": "Possible exact prior coverage of incidence and branch counts"
+        },
+        {
+          "assessment": "Different characteristic or different field scope",
+          "evidence": "First covers the equation over F3; second concerns the 16 rational bitangents of the quartic over F5, not the F25 exceptional complement.",
+          "identifier_or_url": "Resultary e13642113b50 and c4f1a8b96552",
+          "material_read": "Relevant RESULT.md findings",
+          "method": "Local catalogue and mirrored passages",
+          "title": "Arithmetic boundary and compactly supported cohomology of the ternary Fermat degree-two del Pezzo surface; Six rational-bitangent strata of pointless plane quartics over F5",
+          "trigger": "Same double-plane equation or Fermat bitangents over small fields"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Revised RESULT.md, proof identifying the complement",
+        "Knecht–Reyes Question 4.8",
+        "Independent exact orbit-locus reproduction"
+      ],
+      "rationale": "Fullness of the exceptional configuration for natural split del Pezzo surfaces is a pre-existing small-field question. Beyond the already inferable negative answer for this surface, the repaired theorem identifies which rational points are geometrically exceptional with respect to that configuration: all failures lie on the axes and in a single natural orbit with an intrinsic ratio test. That set-level classification is a reproducible baseline for comparing the split Fermat model with twists or other candidates, not a claim about existence of a full surface over F25.",
+      "residual_risks": [
+        "This is one model at one field size; no comparison to any twist is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

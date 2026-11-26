@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The chromatic–Tutte identity, finite-difference inversion, and Bencs–Csikvári large-girth evaluation theorem give the exact exponential coefficient-curvature limit. The monotone growth of the Tutte exponential base makes the leading finite-difference term dominate at each fixed index. An explicit derivative identity at the sole piecewise transition and strict concavity past it establish the sharp signs, including both boundary cases. The supplemented verifier checks exact rational squares over 7,301 index–degree pairs; finite computations are corroboration, not an infinite proof.
+PASS
 
-## Originality (PASS, with historical-priority risk)
+At a positive integer k, the chromatic expansion changes rising factorials into falling ones with no remaining signs; Q_G(k)=kT_G(k+1,0) follows from connectedness and chromatic–Tutte duality. Bencs–Csikvári's published range x≥1, 0≤y≤1 and explicit two branches on the first page match exactly the required x=k+1, y=0; 1+1/(x−1)=x/(x−1). Since N must tend to infinity with girth and the bases are strictly increasing for x≥2, every lower positive-k term of the jth difference divided by Q_G(j) is exponentially small, Q_G(0)=0, and c_j is eventually positive with the asserted exponential rate. Multiplying coefficients by factorials multiplies the curvature ratio by j/(j+1), invisible at the Nth-root scale. For f=log t_d, the left derivative increases up to h=1/[2(d−1)]; the right derivative differs from h by (x−d+1)(d−x)/(2(d−1)x(x−1)), hence exceeds h on (d−1,d) and is below h for x>d. It is strictly decreasing for x≥d. Comparing the consecutive unit-interval integrals of f′ proves both strict signs including j=d−2 and j=d−1, with d=3 handled by the latter seam. A sequence of counterexamples of increasing girth would contradict the strict limit, giving the stated uniform existential threshold for fixed (d,j). Both rational boundary examples were spot-checked.
 
-Zhang–Dong [2] prove the \(j=2\), \(d\ge4\) failure. Their result does not assert a full fixed-index phase transition or the reversal to positive curvature at \(j=d-1\), nor a cubic conclusion. The older Bencs–Csikvári theorem [1] provides the necessary asymptotic evaluations, not the curvature classification. Searches of published mathematical records and other related polynomial work revealed no exact equivalent; unindexed earlier discoveries remain possible. This is a specific new implication of the cited results, not an independent strengthening of their underlying Tutte-growth theorem.
+## originality
 
-## Value (PASS)
+PASS
 
-The theorem identifies where the low-index obstruction ends and strict local log-concavity returns across every high-girth regular degree, a structural distinction that is not visible from a single failure at degree two. It also settles every fixed-index asymptotic curvature for cubic regular graphs. The exact frontier is a natural next question for the same chromatic expansion, and gives useful boundaries for investigations of global shape without falsely claiming global unimodality.
+The j=2 non-log-concavity for d≥4 is prior coverage and the Tutte-evaluation bases are established input. The supported distinct contribution is the exact exponential curvature formula across fixed indices together with the all-fixed-index sign frontier, including the return to strict log-concavity and the cubic conclusion. These require coefficient extraction with domination and a separate comparison across the piecewise seam, not a relabeling of the prior negative case.
 
-## Limits and verification
+## value
 
-The proof is asymptotic with fixed indices, provides no numerical girth thresholds, and uses [1] as an external theorem. Positive curvature at all fixed indices is weaker than global log-concavity. See the standalone verifier and `VERIFICATION.md`. Historical priority is provisional and no external mathematical review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The frontier determines where the known low-index failure stops and strict local log-concavity returns, with an exact exponential rate. In particular it clarifies what can and cannot follow from the cubic case, rather than just supplying another isolated negative index. Both ordinary and factorial-augmented coefficients exhibit the same boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

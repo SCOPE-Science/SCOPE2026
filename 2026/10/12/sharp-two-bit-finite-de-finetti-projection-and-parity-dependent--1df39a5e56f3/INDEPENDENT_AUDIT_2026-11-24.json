@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:12:03.564760Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–88; VERIFICATION.md and verification.py (read only)",
+        "Independent projection boundary, urn monotonicity and small-parity checks"
+      ],
+      "rationale": "On exchangeable pairs with endpoint masses (a,c), TV to (A,C) is one half the sum of |A−a|, |C−c|, and |A+C−a−c|. Negative covariance is equivalent to √a+√c<1: both endpoint deviations from the product at the original mean equal the covariance. A de Finetti competitor satisfies √A+√C≥1 by the L² triangle inequality. If A<a, the product at √a strictly improves on the competitor's error on cell 00; the reverse case is symmetric. In the remaining quadrant the endpoint sum is the objective. A point with √A+√C>1 dominates a product law at any parameter in [√a,1−√c]∩[1−√C,√A], which is nonempty and lowers at least one endpoint strictly. This reduces the problem to a strictly convex quadratic, giving the clamped half and uniqueness. Equality in the L² bound forces a constant directing variable (including degenerate endpoints). For nonnegative covariance, mixing the deterministic parameter at the original mean with the {0,1} distribution of the same mean realizes the needed variance; means 0 and 1 are immediate. Finite exchangeability is the convex hull of the fixed-count urn laws, so convexity of distance reduces the maximum to them. With z=(N−m)/N≥1/2, the endpoint branch 2z−2√[z(Nz−1)/(N−1)] decreases in z, since (2Nz−1)²−4(N−1)z(Nz−1)=4z(Nz−1)+1>0; the central branch grows with m through N/2 and joins continuously. Thus the balanced integers are extremal. Substitution yields the claimed parity formulas; N=2,3,4 give 1/2, 4/3−√(4/3), and 1/6 respectively, in half-L¹ TV.",
+      "residual_risks": [
+        "No assertion of uniqueness of every finite-extension extremizer is made. The parameter of the approximating law need not preserve the original marginal. No formal verification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first gives fixed-population convex geometry, the other two give general sampling-with/without-replacement comparisons, including sharpness for unrestricted color spaces. One uses TV twice the convention here."
+        ],
+        "reasoning": "The broader theorem on vertices is an input. Bounds valid for larger alphabets or proved for a prescribed approximation are not the exact infimum for the binary two-coordinate geometry.",
+        "searches": [
+          "Carlier–Friesecke–Vögler arXiv:2106.09101 Thms. 4.1–4.2",
+          "Gavalakis–Johnson–Kontoyiannis arXiv:2407.12921 §§3–4",
+          "Volfovsky–Airoldi arXiv:1407.6092 Thm. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.09101v1",
+        "arXiv:2407.12921v1",
+        "arXiv:1407.6092",
+        "Resultary e14efc7332bf and 5c28676f124f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For urn fraction p=m/N the empirical product gives TV 2p(1−p)/(N−1), which can be tight at p=1/2; for the one-success three-ball urn its parameter 1/3 is not optimal (the optimum is 1−1/√3).",
+          "The reduction to urn vertices does not by itself locate the closest product nor maximize its optimized error over the urns."
+        ],
+        "reasoning": "Credit the elementary even case accordingly. The inspected bounds using empirical frequencies do not mechanically imply the new projection and parity-sensitive optimization.",
+        "searches": [
+          "Compare known fixed-count representation and product at empirical mean with optimized binary TV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary infinite exchangeability gives endpoint moments EΘ² and E(1−Θ)², with zero-variance product boundary; all mixtures, not just empirical products, are candidate minimizers.",
+          "The nearby pair-moment catalogue record fixes those moments but optimizes a different four-coordinate prediction, and the nearby urn result uses relative entropy for near-census counts."
+        ],
+        "reasoning": "This is also a distance-to-convex-moment-region problem; a fixed-mean or fixed-product approximation changes the optimization and can give a different radius.",
+        "searches": [
+          "Resultary finite de Finetti binary pair closest exchangeable TV law, balanced urn/parity, and pair moment bounds",
+          "Fixed-count hypergeometric pairs versus all Bernoulli product mixtures"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day record e14efc7332bf optimizes a four-bit event given the first two moments; record 5c28676f124f concerns relative entropy and n−1 draws. Neither gives the explicit two-bit TV projection or odd radius."
+        ],
+        "reasoning": "The comparisons turn on objective, coordinate count and feasible set, not on a priority inference from the date.",
+        "searches": [
+          "Resultary exact pair-moment/finite exchangeable binary pair TV projection; odd finite-population urn radius"
+        ]
+      },
+      "rationale": "Credit the exact TV projection onto all infinitely extendible binary pairs, including uniqueness and the nontrivial odd-N extremal value. The fixed-count urn reduction and finite de Finetti type bounds are known; the symmetric even value alone is readily obtained from standard urn computations plus a diagonal-event lower bound. The inspected general results do not give the unique clamped parameter, or the odd-N optimum when the mean may change.",
+      "residual_risks": [
+        "The inaccessible original 1980 full text may contain unexamined special discussions. The pass is not a global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers urn premise; not the claimed TV minimization",
+          "evidence": "Identifies fixed-population symmetrized Dirac extremals and their marginal representation.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.09101",
+          "material_read": "v1 pp. 11–12, Theorems 4.1–4.2 and (4.7)",
+          "method": "OA primary-text passage inspection",
+          "title": "Convex geometry of finite exchangeable laws and de Finetti style representation with universal correlated corrections",
+          "trigger": "Finite representability and exact extreme points"
+        },
+        {
+          "assessment": "Different optimization or metric; constants require TV normalization comparison",
+          "evidence": "Treats empirical product mixtures and general color-space couplings, including all-distinct-color sharpness; uses TV as twice the supremum over events.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.12921",
+          "material_read": "v1 pp. 5–7, Theorems 3.1–3.2 and 4.1–4.2",
+          "method": "OA primary-text passage inspection",
+          "title": "Finite de Finetti bounds in relative entropy",
+          "trigger": "General bounds and sharpness in sampling comparison"
+        },
+        {
+          "assessment": "General bound is not exact binary-pair projection",
+          "evidence": "Reproduces the measurable-space Diaconis–Freedman bound in the array framework.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.6092",
+          "material_read": "Theorem 1, pp. 6–7",
+          "method": "OA primary-text passage inspection",
+          "title": "Sharp Total Variation Bounds for Finitely Exchangeable Arrays",
+          "trigger": "Sharp TV finite-exchangeability coverage"
+        },
+        {
+          "assessment": "Incomplete direct comparison; not used as negative evidence",
+          "evidence": "Later reproductions give general sampling bounds, not an optimized odd binary formula; they do not exhaust the original article.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176994663",
+          "material_read": "No original body text retrieved; later papers' reproductions of general bounds were read",
+          "method": "Project Euclid PDF and full-HTML OA routes attempted; HTML returns an access interstitial",
+          "title": "Finite Exchangeable Sequences",
+          "trigger": "Original finite de Finetti theorem, possibly binary-specific examples"
+        },
+        {
+          "assessment": "Different exact invariant",
+          "evidence": "Bounds a predictive four-coordinate event given the pair moments, with no finite-N TV distance optimization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-exact-pair-moment-bounds-for-three-of-four-predictive-success-un--e14efc7332bf",
+          "material_read": "RESULT.md Finding from local mirror",
+          "method": "Resultary statement comparison",
+          "title": "Exact pair moment bounds for three-of-four predictive success",
+          "trigger": "Adjacent exact binary exchangeability with pair moments"
+        },
+        {
+          "assessment": "Different metric, draw size, and competitor",
+          "evidence": "Studies n−1 draws and relative entropy against a binomial count, not the infimum over all infinite-exchangeable binary pair laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-square-root-imbalance-maximizes-near-census-binary-urn-relativ--5c28676f124f",
+          "material_read": "RESULT.md Finding from local mirror",
+          "method": "Resultary statement comparison",
+          "title": "A square-root imbalance maximizes near-census binary urn relative entropy",
+          "trigger": "Maximization over two-color population counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen exact projection and finite-extension statements",
+        "General finite de Finetti and fixed-population comparisons"
+      ],
+      "rationale": "The projection answers how much any negatively dependent binary pair must change to become infinitely extendible, not merely how well a prescribed sampler approximates it. It shows exactly when moving the one-bit marginal improves the fit and identifies a unique product even among all product mixtures. The first nontrivial odd urn already distinguishes the optimized and empirical parameters; the parity formulas give the sharp finite-extension benchmark. The value is the projection geometry and sharp optimization, not the size of the small asymptotic improvement alone.",
+      "residual_risks": [
+        "No extension to larger alphabets, higher marginals, or other discrepancy metrics is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

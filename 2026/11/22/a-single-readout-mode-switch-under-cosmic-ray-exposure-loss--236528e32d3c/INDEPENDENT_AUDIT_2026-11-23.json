@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:14:52.869962Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The known-variance Gaussian and a parameter-independent hit flag give clean information t²/(bt+σ²), weighted by exp(−λt); dividing by t+h gives the stipulated wall-time rate. The stationarity function strictly decreases from infinity to zero. Pointwise ordering of t²+st+p proves dominance/equivalence; evaluating stationarity at 1/λ gives the exact λ²p test, and λt<2. I independently checked the switch by setting T=(p1−p2)/(s2−s1) in the crossed case. Mode 1 is pointwise better exactly when t>T. At a tie the two optimizing times must bracket T, strictly: equality would imply a common optimizer by uniqueness, but the two log-time derivatives differ at T. Thus the envelope derivative of log(F1/F2) is t2−t1<0 at every zero. The low-hazard optimizer of mode 2 tends to infinity, and the high-hazard optimizer of mode 1 tends to zero, so the rate ratio lies above and below one at the respective ends. This gives existence, uniqueness and the downward jump without relying on the endpoint expansions. Independent Newton evaluation gave λ*=1.098884851672255, t1=1.358587148822112, t2=0.954820016525674. The adaptive extension uses conditional score orthogonality and bounds information divided by expected total completed cycle time, not a fixed-window stopping objective. The attached check.py and VERIFICATION.md were inspected, not executed. Overheads are fixed per mode, not necessarily equal; with equal overhead only dominance or identity is possible.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fixsen et al. compare actual ramp sampling schemes and report that changing cosmic-ray rate shifts a peak in integration time.",
+          "Anderson–Gordon compare estimators for hit detection within nondestructive reads."
+        ],
+        "reasoning": "Physically richer models are not automatically stronger mathematical theorems. These comparisons do not establish global crossing bounds for the two functions of a common hazard, especially for whole-exposure loss and different overheads.",
+        "searches": [
+          "Regan–Stockman technical memorandum §3.1 and §4.1",
+          "Fixsen et al. arXiv:astro-ph/0005486, pp. 4–5",
+          "Anderson–Gordon arXiv:1109.2626, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py",
+        "Resultary records 236528e32d3c and 396fbb4aeaba",
+        "Regan–Stockman STSCI-NGST-TM-2001-0005",
+        "Fixsen et al. astro-ph/0005486",
+        "Anderson–Gordon 1109.2626",
+        "STIS Cycle 20 handbook (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The memorandum's optimization at fixed detector and cosmic-ray settings does not compare separately optimized envelopes over all hazards.",
+          "The adjacent Resultary switch concerns a different control parameter and objective; it is not a general switching theorem containing e^(−λt)t²/(t²+st+p)."
+        ],
+        "reasoning": "A per-mode maximization method or a single computed tie cannot imply the number and direction of crossings. Pointwise sum/product order and strict optimized-duration separation at a tie supply the missing implication. Standard likelihood and envelope identities are credited as methods, not as original results.",
+        "searches": [
+          "Regan–Stockman p. 1 and §§3.1, 4.1",
+          "Fixsen et al. pp. 4–5",
+          "2026/11/22/SCOPE-a-unique-global-dwell-time-switch-in-a-two-brightness-poisson-so--396fbb4aeaba, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Regan–Stockman p. 1 optimizes for a given read mode; §3.1 distinguishes Fowler and multi-accum protocols that retain different parts of a hit integration.",
+          "The adjacent Resultary dwell-time theorem varies a bright-source population fraction for a two-photon survey, not Poisson loss in the denominator-normalized readout problem."
+        ],
+        "reasoning": "Using mean squared S/N in place of Fisher information can be equivalent under a fixed Gaussian signal model, but that label alone does not equate the objectives: whole-exposure rejection, mode-specific fixed overhead and the common varying hazard are decisive. Swapping a and h leaves the frozen objective invariant; none of the inspected comparisons gives that equivalent two-parameter classification.",
+        "searches": [
+          "Resultary: cosmic-ray exposure loss, readout-mode switch, integration-time optimization and dwell-time switch",
+          "Regan–Stockman STSCI-NGST-TM-2001-0005, §§3.1, 4.1",
+          "Fixsen et al., arXiv:astro-ph/0005486, pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the identical record and a distinct two-brightness Poisson-survey dwell switch.",
+          "Regan–Stockman p. 6 reports 3000-s and 4000-s optima for different detector protocols under specified conditions. Fixsen et al. p. 5 compare efficiency curves at an assumed 25×10⁻⁶ s⁻¹ per pixel."
+        ],
+        "reasoning": "The identical posting is not an independent result. Fixed-condition numerical optima and peak curves do not tabulate the mode transition as a function of hazard, nor the classification for arbitrary positive a and h. The frozen example is an illustration, not the originality claim.",
+        "searches": [
+          "Resultary semantic comparison of the exact readout-switch problem",
+          "Regan–Stockman §4.1, p. 6",
+          "Fixsen et al. p. 5, fixed cosmic-ray rate comparison"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact all-hazard classification for two separately optimized, whole-exposure-rejection modes: when there is a switch, it is unique and the preferred duration jumps downward. The inspected sources cover detector-specific readout optimization, partially salvageable ramps, hit detection, or switches of a different objective. No inspected statement supplies the same classification or a sufficient stronger result. This is a best-of-knowledge comparison, not priority certification.",
+      "residual_risks": [
+        "An unindexed derivation of the exact idealized two-mode classification remains possible.",
+        "The cited handbook copy was unavailable; no claim about its complete contents is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": [
+            "Abstract says ‘for a given read mode’; §3.1 distinguishes short Fowler, long Fowler and multi-accum, the last retaining data on both sides of hits; §4.1 gives conditional numerical optima."
+          ],
+          "identifier_or_url": "https://ridl.cfd.rit.edu/docs/radiation/TM-2001-0005-A_TM-2001-0005A.pdf",
+          "material_read": "Abstract p. 1; §3.1 p. 2 and §4.1 p. 6",
+          "method": "Lawful technical-memorandum PDF passage inspection",
+          "title": "Optimum Integration Times for Different Read Modes",
+          "trigger": "Closest older comparison of optimized readout modes under cosmic-ray loss"
+        },
+        {
+          "assessment": "Related but no matching all-hazard classification in the relevant comparison",
+          "evidence": [
+            "Rejection by slope fitting within an exposure; Fowler versus uniform sampling at a given assumed hit rate; peak positions depend on rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/astro-ph/0005486",
+          "material_read": "pp. 4–5, text offsets 7300 and 13250",
+          "method": "OA PDF passage inspection",
+          "title": "Cosmic Ray Rejection and Readout Efficiency for Large-Area Arrays",
+          "trigger": "Potential broader sampling-efficiency model"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": [
+            "Compares nondestructive ramp hit-detection methods, not efficiency-envelope crossings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.2626",
+          "material_read": "p. 1, text offsets 1400–3163",
+          "method": "OA PDF passage inspection",
+          "title": "Optimal Cosmic-Ray Detection for Nondestructive Read Ramps",
+          "trigger": "Nearby optimal cosmic-ray readout result"
+        },
+        {
+          "assessment": "Distinct claim, regardless of same-day ordering",
+          "evidence": [
+            "Switching parameter is the fraction of bright sources in a two-photon detection survey."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-global-dwell-time-switch-in-a-two-brightness-poisson-so--396fbb4aeaba",
+          "material_read": "RESULT.md, finding and model assumptions",
+          "method": "Resultary search and local mirror statement comparison",
+          "title": "A unique global dwell-time switch in a two-brightness Poisson survey",
+          "trigger": "Same-day nearest substantive switch result"
+        },
+        {
+          "assessment": "Identical record, not independent coverage",
+          "evidence": [
+            "Same two-mode model and exact switch theorem."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-single-readout-mode-switch-under-cosmic-ray-exposure-loss--236528e32d3c",
+          "material_read": "RESULT.md, finding",
+          "method": "Resultary search and local mirror comparison",
+          "title": "A single readout-mode switch under cosmic-ray exposure loss",
+          "trigger": "Exact semantic hit"
+        },
+        {
+          "assessment": "Access limited; no noncoverage inference",
+          "evidence": [
+            "Cited copy returned HTTP 403."
+          ],
+          "identifier_or_url": "https://studylib.net/doc/11603992",
+          "material_read": "No handbook passage retrieved from cited copy",
+          "method": "Lawful public copy request",
+          "title": "Space Telescope Imaging Spectrograph Instrument Handbook for Cycle 20",
+          "trigger": "Cited operational background on splitting CCD exposures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It answers a concrete design comparison not settled by finding a single-mode optimum: sums determine the low-hazard winner, products the high-hazard winner, and crossed rankings force exactly one abrupt downward change in duration despite smooth within-mode optima. The all-rate classification and the no-switch cases give a usable benchmark and do not depend on chosen example numbers. Value is for the stated background-dominated, whole-exposure-loss model, not empirical operating guidance or a claim about partially salvaged read ramps.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

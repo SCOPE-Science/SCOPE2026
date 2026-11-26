@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:40:02.217896Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed finite graph and γ>0, energy pinching is the large-time channel; the limits of the uninserted and inserted site distributions are Fe_v and F²e_v, respectively, when both time intervals tend to infinity. Channel convergence is uniform away from the two endpoints for any fixed accuracy, and excluded endpoint intervals have vanishing relative length. This verifies the half-L1 residual and order of limits. The distinct eigenspaces at 0 and m+n are rank one; the zero-sum sectors inside each part have eigenvalues n and m and are omitted if empty. For m=n the correct projector merges the two zero-sum blocks; their disjoint supports make the entrywise-square formula unchanged. With N=m+n, F has eigenvalues 1 on constants, 1−2/N on the part-contrast vector, and 1−2/m or 1−2/n on the corresponding within-part zero-sum sectors. In (F−F²)e_v, the within-initial-part coefficient A=2(m−2)/m² vanishes at m=2 and the mode is absent at m=1. The contrast coefficient is B=2(N−2)/N², including zero at N=2. For m≥3 the check Bn/N<2n/N²≤1/(2m)<A shows that only v has positive mass; since the vector has zero sum the residual is exactly that mass. For m≤2 its positive mass is Bn/N, zero in the trivial K₁,₁ case. This gives both formulas. The positive correction for m≥3 is bounded by 2/(mN). The limiting expression increases until 3+√3 and decreases thereafter, so only integers 4 and 5 can maximize it; g(4)=3/16<24/125=g(5), completing the discrete comparison omitted in the proof's last sentence. Independent numerical eigenspace grouping evaluated 12 graphs, including balanced, unequal, singleton, and m≥3 cases, agreeing within 2×10⁻¹². Replay: /workspace/branches/dad7f9af-618f-46cd-947b-ad1e61410056/check_residual.py. Uploaded verification was inspected, not run. The finite test supplements the algebra and does not test a uniform relaxation time.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "B8 holds on general graphs, providing the starting function of the mixing matrix.",
+          "Mohan et al. pp. 9–10 gives the star trace q−2+2/[q(q−1)] for graph order q and pp. 11–12 develops a field-trace formula; the located statements do not evaluate the full K_{m,n} mixing matrix.",
+          "Baptista et al. §3.1 concerns adjacency-Hamiltonian average mixing."
+        ],
+        "reasoning": "A trace does not provide the column or its sign pattern. The general reduction plus already-known spectral structure still requires evaluating the part-contrast and within-part modes and resolving competing signs.",
+        "searches": [
+          "arXiv:2512.18873 Appendix B B7–B8 and B27",
+          "arXiv:2608.20739 Laplacian average mixing and stars",
+          "arXiv:2308.16378 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2512.18873",
+        "arXiv:2308.16378",
+        "arXiv:2608.20739",
+        "Resultary 2875705551e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 2875705551e4 Step 4 gives the spectrum and squared norms of projected localized vectors: 1/N, n/(mN), (m−1)/m, with no contribution from the opposite zero-sum sector. These are diagonal projector entries, not the squared off-diagonal entries used in F.",
+          "The frozen proof reconstructs the full projected site distributions, then computes the two contributing nonconstant modes and proves which coordinates can be positive. Once the residual formula holds, the limiting maximum is an elementary consequence and is not a separate priority claim."
+        ],
+        "reasoning": "The prior results substantially shorten the evaluation but do not give its signed masses. An already-evaluated arbitrary-rectangular Laplacian F, if located, would make much of the calculation a direct application of B8; no such explicit formula was identified in the inspected material. The exact residual is not credited for the general method or overlapping graph spectra.",
+        "searches": [
+          "arXiv:2512.18873 B7–B8",
+          "Resultary 2875705551e4 Steps 3–4",
+          "arXiv:2608.20739 Laplacian mixing passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Luppi et al. B7–B8 is exactly the general column total-variation formula, not merely a similar observable.",
+          "Baptista et al. §3.1 Proposition 9 uses the adjacency matrix with eigenvalues ±√(mn),0, rather than the combinatorial Laplacian.",
+          "Resultary 2875705551e4 uses the same combinatorial Laplacian and intrinsic dephasing, but computes a terminal squared-fidelity distance to a classical walk rather than the effect of an inserted measurement."
+        ],
+        "reasoning": "The equivalent observable is the column difference of F and its ordinary square. Neither a uniformity statement for an adjacency average-mixing matrix nor a fidelity between terminal states equals that nonlinear column statistic.",
+        "searches": [
+          "Laplacian average mixing matrix on complete bipartite graphs",
+          "Luppi–Benedetti–Smirne Appendix B",
+          "Resultary intrinsic-dephasing terminal observables on K_{m,n}"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Luppi et al. B27 explicitly gives 2/27 at an endpoint of P₃ and 4/27 at the center, i.e. the cases (2,1) and (1,2).",
+          "No identified source table for the full bipartite two-time residual was found. The retrieved exact star trace and fidelity-based terminal expressions are tables or formulas for different quantities."
+        ],
+        "reasoning": "The P₃ values are exact covered special cases, but they do not determine the two-parameter formula or the size-five optimum. The search compared evaluated formulas and not just titles or graph orders.",
+        "searches": [
+          "Resultary exact terminal formulas on complete bipartite graphs under intrinsic dephasing",
+          "Luppi et al. Appendix B exact graph examples",
+          "Mohan et al. star and Laplacian mixing examples"
+        ]
+      },
+      "rationale": "The general two-time reduction and the P₃ example are covered by prior work and credited by the frozen record. The supported distinct claim is the exact arbitrary-rectangular Laplacian residual, including its sign split and fixed-shore threshold and maximum. The strongest inspected mixing and intrinsic-dephasing results do not establish that evaluated residual or its consequences. This is a bounded best-of-knowledge conclusion.",
+      "residual_risks": [
+        "An unlocated full tabulation of the complete bipartite Laplacian average-mixing matrix or a direct prior evaluation of this residual could narrow the distinct calculation. Statements outside the inspected passages are not certified absent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general reduction and P₃, not the evaluated two-parameter law in the inspected passages",
+          "evidence": "B8 applies the two-time defect to the difference F−F²; B27 gives the two P₃ values.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.18873",
+          "material_read": "Appendix B, B7–B8 (PDF p. 16, OA offset 102500) and B27 (PDF p. 18, offset 117800)",
+          "method": "OA paper text",
+          "title": "Temporal nonclassicality in continuous-time quantum walks",
+          "trigger": "Identical observable and general residual formula"
+        },
+        {
+          "assessment": "Different Hamiltonian and objective",
+          "evidence": "The complete-bipartite calculation uses the adjacency spectrum and tests uniform average mixing.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16378",
+          "material_read": "§3.1, Proposition 9, PDF pp. 7–8, OA offset 22458",
+          "method": "OA paper text",
+          "title": "Unexpected Averages of Mixing Matrices",
+          "trigger": "Explicit average mixing results for complete bipartite graphs"
+        },
+        {
+          "assessment": "Related invariant, no matching nonlinear residual in inspected statements",
+          "evidence": "Laziness is the trace of the mixing matrix, with a star extremum and explicit value. A trace is not the required vertex-conditioned statistic.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20739",
+          "material_read": "Definition p. 2 (offset 4000), star result pp. 9–10 (offset 17000), and field-trace formula pp. 11–12",
+          "method": "OA full-text passages",
+          "title": "Laziness of Quantum Walks on Graphs",
+          "trigger": "Same Laplacian average mixing and exact star formulas"
+        },
+        {
+          "assessment": "Substantial shared inputs but distinct observable",
+          "evidence": "The terminal state is energy pinched; their formula uses projection norms for fidelity to a uniform classical state. The ordering result concerns that distance, not F−F² or the opposite-part expansion limit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-degree-to-part-size-reversal-under-intrinsic-dephasing-on-comple--2875705551e4/RESULT.md",
+          "material_read": "RESULT.md Steps 3–5 at offsets 5500–10000, especially Step 4",
+          "method": "Local Resultary mirror",
+          "title": "Degree-to-part-size reversal under intrinsic dephasing on complete bipartite graphs",
+          "trigger": "Same graph, dynamics and localized initial states"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard quantum-walk temporal consistency test, a natural graph expansion can leave a strictly positive long-time signal. The exact threshold separates initial shores with no surviving signal from those whose within-part zero-sum mode contributes at order one; the finite correction and unique optimizer quantify the effect. This is not mere recomputation of a trace or a small-table entry, and it requires only the stated ordered limits, not uniform-in-size dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

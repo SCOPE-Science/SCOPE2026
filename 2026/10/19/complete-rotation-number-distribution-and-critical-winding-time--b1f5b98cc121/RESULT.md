@@ -1,123 +1,86 @@
-# Complete rotation-number distribution and critical winding-time tails in a polygonally foliated square map
+# Exact rotation-number distribution and critical winding-time tails in a polygonally foliated square map
 
 ## Finding
-For the resonant piecewise-affine square maps of Ostrovski, the invariant outer annulus has a **closed, piecewise-quadratic cumulative distribution for every rotation number**, followed by a sharp reciprocal-rotation tail. Fix an integer \(K\ge3\). With the quantities defined below, set \(d_K=1-2s_K>0\), \(q_N=(1+Nd_K)^{-1}\),
-\[
-H_K=\sum_{j=0}^{K-1}\det(v_j,v_{j+1})+v_K\mathbin{\cdot}v_0,\qquad W_K=4t_K-2H_K>0.
-\]
-Under normalized planar Lebesgue area on the invariant outer annulus, the reciprocal rotation number \(\mathcal T_K=1/\rho_K\) obeys, for every integer \(N\ge0\),
-\[
-\Pr\{\mathcal T_K\ge4(K+N)\}
-=\frac{4t_Kq_N-2H_Kq_N^2}{W_K}.
-\]
-Consequently, with \(D_K=16t_K/(d_KW_K)>0\),
-\[
-\Pr\{\mathcal T_K>u\}=\frac{D_K}{u}+O_K(u^{-2})\quad(u\to\infty),
-\]
-\[
-\mathbb E[\mathcal T_K^p]<\infty\ \Longleftrightarrow\ 0\le p<1,
-\qquad \mathbb E[\min(\mathcal T_K,L)]=D_K\log L+O_K(1).
-\]
-More precisely, the full continuous rotation-number law is explicit. Put \(r_N=1/[4(K+N)]\). For \(r\in[r_{N+1},r_N]\), define
-\[
-q(r)=q_{N+1}+\frac{r-r_{N+1}}{r_N-r_{N+1}}(q_N-q_{N+1}).
-\]
-Then the probability distribution function of the rotation number is **exactly**
-\[
-\nu_K\{X:\rho_K(X)\le r\}
-=\frac{4t_K q(r)-2H_Kq(r)^2}{W_K},
-\quad 0<r\le\frac1{4K}.
-\]
-It extends continuously by zero at \(r=0\) and by one above \(1/(4K)\). In the interior of each interval \((r_{N+1},r_N)\), its density is
-\[
-\frac{4t_K-4H_Kq(r)}{W_K}\,\frac{4d_K(K+N)(K+N+1)}{(1+Nd_K)(1+(N+1)d_K)}.
-\]
-It is therefore absolutely continuous on the open rotation-number range, with finite, nonzero limiting density \(D_K\) at zero.
 
-The unnormalized leading coefficient \(C_K=D_KW_K=16t_K/d_K\) has a second, resonant-parameter asymptotic as \(K\to\infty\):
+Fix a resonant index \(K\ge3\) for Ostrovski's area-preserving piecewise-affine square map. Use the map parameters \(t=t_K\), \(s=s_K\) defined below and put \(d=1-2s>0\), \(h=1-Kd\). The outer invariant annulus has area \(W=2t(2-h)\). Under its normalized area measure, the cumulative law of the rotation number \(\rho\) is exactly
 \[
-C_K=4K^2-\frac{32}{3}K+\frac{128}{45}+O(K^{-1}).
+ \Pr\{\rho\le r\}=\frac{x(2+hx)}{(2-h)(1+hx)^2},\qquad x=4r/d,\qquad 0\le r\le 1/(4K).
 \]
-These are distributions of **inverse rotation numbers**, not distributions of first-return times or of a noninteger physical period.
+The CDF is zero below this range and one above it. In its open range it has density
+\[
+ \frac{8}{d(2-h)}\left(1+\frac{4hr}{d}\right)^{-3}.
+\]
+In particular, the law is generally rational, not piecewise quadratic: the level-curve coordinate \(q\) is related to rotation number by \(q=4r/(d+4hr)\).
+
+For the reciprocal rotation number \(\mathcal T=1/\rho\), with \(q_N=(1+Nd)^{-1}\) and \(H=th\), the distinguished thresholds obey
+\[
+ \Pr\{\mathcal T\ge4(K+N)\}=\frac{4tq_N-2Hq_N^2}{W}\quad(N=0,1,\ldots).
+\]
+For real \(u\ge4K\) the survival probability is given by the CDF above at \(r=1/u\). Thus
+\[
+ \Pr\{\mathcal T>u\}=D_K/u+O_K(u^{-2}),\qquad D_K=\frac{16t}{dW}>0,
+\]
+\[
+ \mathbb E[\mathcal T^p]<\infty\quad\Longleftrightarrow\quad p<1\quad(p\in\mathbb R),\qquad
+ \mathbb E[\min(\mathcal T,L)]=D_K\log L+O_K(1).
+\]
+The unnormalized leading coefficient along the resonant sequence satisfies
+\[
+ C_K=D_K W=\frac{16t_K}{d_K}=4K^2-\frac{32}{3}K+\frac{128}{45}+O(K^{-1}).
+\]
 
 ## Assumptions and scope
-Let \(\mathcal S=[0,1]^2\), \(Z=(1/2,1/2)\), and \(R(x,y)=(1-y,x)\). The map \(F_\theta:\mathcal S\to\mathcal S\) is the nine-piece, continuous, area-preserving map defined by the corresponding affine partitions in Ostrovski [1, Section 2]. For each integer \(K\ge3\), select the resonant \(\theta_K\in(0,\pi/4)\) characterized in [1, Lemma 5.2] by \(B_K^K P_4=P_1\), where
+
+Let \(\mathcal S=[0,1]^2\), \(R(x,y)=(1-y,x)\), and \(F_\theta\) be the nine-piece continuous area-preserving map defined in Ostrovski [1, §2]. For \(K\ge3\) select the resonant \(\theta_K\in(0,\pi/4)\) of [1, Lemma 5.2]. Define \(t=\sin^2\theta_K\), \(s=\sin\theta_K\cos\theta_K\), \(P_4=(t,1-s)\), \(P_1=(s,t)\), and
 \[
-t_K=\sin^2\theta_K,\quad s_K=\sin\theta_K\cos\theta_K,\quad
-P_4=(t_K,1-s_K),\quad P_1=(s_K,t_K),
+ B=\frac{1}{t-s}\begin{pmatrix}t^2-(1-s)^2&(1-2s)t\\ (2s-1)t&(2t-1)t\end{pmatrix},\qquad v_j=B^jP_4\quad (0\le j\le K).
 \]
-and where the corner matrix is
-\[
-B_K=\frac1{t_K-s_K}\begin{pmatrix}
-t_K^2-(1-s_K)^2&(1-2s_K)t_K\\
-(2s_K-1)t_K&(2t_K-1)t_K
-\end{pmatrix}.
-\]
-Set \(v_j=B_K^jP_4\) for integers \(0\le j\le K\); in particular \(v_K=P_1\). The established invariant polygon \(\Gamma_K^N\) has \(4(K+N)\) vertices, rotation number \(1/[4(K+N)]\), and quarter-polygon trajectory from \(q_Nv_0\) along \(q_Nv_1,\ldots,q_Nv_K\), then along a straight shear line to \(R(q_Nv_0)\). The shear-line intermediate vertices are collinear and do not affect area. These invariant polygons are nested and bound a fully foliated annulus \(\Omega_K=\operatorname{int}(\mathcal S)\setminus\operatorname{int}(\Gamma_K^0)\) [1, Theorem 5.1 and Corollary 5.4]. Its normalized area probability is \(\nu_K(A)=\operatorname{area}(A\cap\Omega_K)/\operatorname{area}(\Omega_K)\). The function \(\rho_K(X)\) is the rotation number of the unique invariant polygonal circle through \(X\) in this foliation; boundary circles and measure-zero ambiguities may be defined arbitrarily. All asymptotics in \(u\) fix \(K\), and all asymptotics in \(K\) concern only this resonant sequence.
+Here \(v_K=P_1\). The polygon construction and interpolation in [1, §5] supply the outer invariant annulus, the distinguished levels \(q_N\), and the parallel-sided polygonal leaves between them. A leaf is labeled by the intercept \(qP_1\) on the break line, \(0<q\le1\). Its oriented quarter-chain runs through \(qv_0,\ldots,qv_K,R(qv_0)\); its other three chains are obtained by \(R\). Indeed the corner itinerary is the homogeneous iteration by \(B\), so that its departure point \(qP_1\) determines the corner chain; the side of the interpolating polygon is horizontal, joining \(qP_1\) to \(R(qP_4)\). Collinear subdivisions do not change the geometric leaf. Only the geometry and continuity of the circle rotation numbers are used from this interpolation, not an affine interpolation formula for the rotation numbers. The probability excludes the central region inside the \(q=1\) leaf. The square boundary and individual polygonal leaves have planar measure zero.
 
 ## Proof
-**1. Exact vertices.** The shear on the first side is \(A(x,y)=(x+(1-2s_K)y/t_K,y)\). Lemma 5.3 of [1] identifies the intersection of \(\Gamma_K^N\) with \(\overline{E_1P_1}\) as \(Y_N=q_NP_1\). The corner map is linear and \(B_K^KP_4=P_1\), hence its preimage is \(X_N=q_NP_4\). The first \(K\) polygon edges have endpoints \(q_Nv_j\); the next \(N\) shear steps are collinear and end at \(R(q_Nv_0)\). Rotating these edges through the four powers of \(R\) gives the entire Jordan polygon. The orbit itinerary and absence of self-intersections are provided by the invariant-circle construction in [1], not inferred from mere finite iteration.
 
-**2. Shoelace calculation.** For \(q\in(0,1]\), form the closed polygon with quarter vertices \(qv_0,\ldots,qv_K,R(qv_0)\) and their three rotated copies. Write \(\det(a,b)=a_1b_2-a_2b_1\). Summing all oriented edge determinants over the four quarter-turns, using the center \(Z\), yields the area
-\[
-2q^2\sum_{j=0}^{K-1}\det(v_j,v_{j+1})
-+2(qv_K-Z)\mathbin{\cdot}(qv_0-Z)
-+2q\det(Z,v_0-v_K).
-\]
-Here \(\det(a,Jb)=a\cdot b\) for the counterclockwise quarter-turn linear part \(J\). Since \(v_0=(t_K,1-s_K)\), \(v_K=(s_K,t_K)\), we have
-\[
-2\det(Z,v_0-v_K)-2Z\mathbin{\cdot}(v_0+v_K)=-4t_K,
-\]
-while \(2Z\cdot Z=1\). Thus
-\[
-\operatorname{area}(\operatorname{int}\Gamma_K^N)
-=1-4t_Kq_N+2H_Kq_N^2.
-\]
-All noncorner shear vertices lie on already counted straight edges. It follows that the square area *outside* \(\Gamma_K^N\) is exactly \(P_N=4t_Kq_N-2H_Kq_N^2\). At \(N=0\) this is \(W_K\), the positive area of the nonempty outer annulus.
+**1. Area in leaf coordinates.** Write \(\det(u,v)=u_1v_2-u_2v_1\). Since \(\det B=1\) and \(Bv_0=(t,s)\), each \(\det(v_j,v_{j+1})=-td\). Also \(v_K\cdot v_0=t\); hence the corner-plus-side coefficient \(\sum_{j=0}^{K-1}\det(v_j,v_{j+1})+v_K\cdot v_0\) is \(H=t(1-Kd)\).
 
-**3. Complete rotation-number law and tail.** The interpolation statement following Theorem 5.1 in [1] proves that between \(\Gamma_K^N\) and \(\Gamma_K^{N+1}\) every invariant circle has the same parallel-edge polygonal pattern, and its rotation number varies linearly with the intersection point \(qP_1\) on the break line. Because this point varies linearly in \(q\), the law \(q=q(r)\) on each interval \([r_{N+1},r_N]\) is exactly the displayed affine formula. The corner vertices for a continuously interpolating invariant circle are \(qv_0,\ldots,qv_K\); its remaining shear segment still lies on the line joining \(qv_K\) and \(R(qv_0)\). Thus the same area polynomial \(4t_Kq-2H_Kq^2\) applies to **every** such level curve, not only the distinguished integer levels. The area lying farther outward corresponds to \(\rho_K\le r\), proving the claimed complete distribution function. Differentiation gives the stated density and \(dq/dr=(q_N-q_{N+1})/(r_N-r_{N+1})\). Since \(dq/dr\to4/d_K\) as \(N\to\infty\), its density tends to \(D_K=16t_K/(d_KW_K)\) at zero.
+Use area coordinates \((q,z)\) on the strip traversed by one corner edge, with position \(q((1-z)v_j+zv_{j+1})\), \(0<z<1\). The absolute Jacobian is \(qtd\), giving a mass of \(qtd\) on that edge per unit \(dq\). On the side segment use \((q,x_1)\mapsto(x_1,qt)\), with horizontal length \(1-q\), giving mass \(t(1-q)\) per unit \(dq\). Quarter turns preserve these masses. Strips meet only on boundaries of area zero. Thus area disintegrates as \(dq\,d\mu_q\), with total leaf mass
+\[
+ M(q)=4\big(Kqtd+t(1-q)\big)=4t(1-hq).
+\]
+The area between the square boundary and the leaf \(q\) is \(\int_0^q M(a)\,da=4tq-2Hq^2\). At \(q=1\) this is \(W>0\).
 
-By [1, Corollary 5.4], rotation numbers decrease monotonically and continuously as invariant circles move from \(\Gamma_K^0\) to the square boundary. Therefore the event \(\mathcal T_K\ge4(K+N)\), modulo zero-area level curves, is precisely the part of \(\Omega_K\) outside \(\Gamma_K^N\). Its probability is \(P_N/W_K\), proving the exact discrete-threshold identity. As \(N\to\infty\),
+**2. Rotation number off the distinguished levels.** The map fixes \(q\) and preserves planar area, so it preserves \(\mu_q\) on almost every leaf (test invariance against continuous functions of position and arbitrary functions of \(q\)). This measure is atomless and gives positive mass to each open arc. The oriented cumulative mass divided by \(M(q)\) is a circle coordinate in which the map is a rotation: orientation and preservation of arc masses give a constant displacement modulo one. From \(qv_0\) to its image \(qv_1\) the positively oriented arc is exactly the first corner edge. Its normalized mass gives
 \[
-q_N=\frac1{Nd_K}+O_K(N^{-2}),\quad
-P_N=\frac{4t_K}{d_KN}+O_K(N^{-2}),\quad u_N=4(K+N).
+ \rho(q)=\frac{qtd}{M(q)}=\frac{dq}{4(1-hq)}.
 \]
-Thus \(P_N/W_K=D_K/u_N+O_K(u_N^{-2})\). For real \(u\) between consecutive \(u_N\) values, monotonicity sandwiches the tail between its two exact levels, which differ by \(O_K(u^{-2})\). This proves the continuous-\(u\) expansion. For \(p>0\), the tail formula \(\mathbb E[\mathcal T_K^p]=p\int_0^\infty u^{p-1}\Pr(\mathcal T_K>u)\,du\) establishes the claimed cutoff; \(p=0\) is immediate. The integrated survival identity gives \(\mathbb E[\min(\mathcal T_K,L)]=\int_0^L\Pr(\mathcal T_K>u)du=D_K\log L+O_K(1)\).
+This identity extends to every interior leaf by continuity. It gives \(\rho(q_N)=1/[4(K+N)]\), including the upper endpoint at \(q_0=1\). It is strictly increasing in \(q\), since \(1-hq>0\) and its derivative is \(d/[4(1-hq)^2]\). Inversion gives \(q=x/(1+hx)\) for \(x=4r/d\). Dividing the area outside this leaf by \(W\) gives \((2q-hq^2)/(2-h)\), the displayed CDF. Differentiation gives the density, with no atoms at either endpoint.
 
-**4. Resonant scaling.** Write \(t=t_K=1/2-\delta\), \(s=\sqrt{t(1-t)}\), and \(f=\sqrt{1-4t^2}\). The expanding eigenvalue and the ratio of expanding eigen-coordinates of \(P_1,P_4\) from [1, Appendix, equations (6.2)--(6.4)] are
-\[
-\lambda(t)=\frac{4t^2-2t+(2s-1)(1+f)}{2(t-s)},\qquad
-\Xi(t)=\frac{2ts+t(f-1)}{2t^2+(1-s)(f-1)},\qquad
-K=\frac{\log\Xi(t)}{\log\lambda(t)}.
-\]
-Expanding the displayed algebraic functions for \(\delta\downarrow0\) (both logarithms are positive and the denominators have removable leading-order cancellations) gives
-\[
-\log\lambda=2\delta^{3/2}+\delta^{5/2}+\frac{11}{4}\delta^{7/2}+O(\delta^{9/2}),
-\quad \log\Xi=2\delta^{1/2}+\frac53\delta^{3/2}+\frac{43}{20}\delta^{5/2}+O(\delta^{7/2}).
-\]
-Long division and inversion therefore give
-\[
-K=\delta^{-1}+\frac13-\frac7{15}\delta+O(\delta^2),\quad
-\delta=K^{-1}+\frac1{3K^2}-\frac{16}{45K^3}+O(K^{-4}).
-\]
-Finally \(1-2s=1-\sqrt{1-4\delta^2}=2\delta^2+2\delta^4+O(\delta^6)\). Substitute this and \(t=1/2-\delta\) into \(C_K=16t/(1-2s)\) to obtain \(C_K=4K^2-(32/3)K+128/45+O(K^{-1})\), as asserted. Algebraic Taylor series and inversion are valid near the positive real branch \(\delta=0\), with \(K\to\infty\) supplied by [1, Lemma 5.2].
+**3. Reciprocal rotation and moments.** In the exact CDF, put \(r=1/u\); the linear coefficient at zero is \(D_K\). The tail-integral formula for nonnegative moments shows finiteness for \(0<p<1\) and divergence for \(p\ge1\). For \(p\le0\), finiteness follows from \(\mathcal T\ge4K>0\). Integrating the tail up to \(L\) proves the truncated first-moment formula.
 
-**5. Explicit smallest resonance.** At \(K=3\), \(\theta_3=\pi/8\), \(t_3=(2-\sqrt2)/4\), \(s_3=\sqrt2/4\), and direct multiplication of \(B_3\) yields \(H_3=(5\sqrt2-7)/4\), \(W_3=(11-7\sqrt2)/2\), and \(C_3=8\). Hence the leading conditional tail coefficient is \(D_3=16/(11-7\sqrt2)\), agreeing with the general formulas.
+**4. Resonant asymptotics.** Put \(\delta=1/2-t\), \(f=\sqrt{1-4t^2}\), \(s=\sqrt{t(1-t)}\). From the expanding eigenvalue and eigen-coordinate ratio in [1, Appendix, (6.2)–(6.4)],
+\[
+ \lambda=\frac{4t^2-2t+(2s-1)(1+f)}{2(t-s)},\qquad
+ \Xi=\frac{2ts+t(f-1)}{2t^2+(1-s)(f-1)},\qquad K=\frac{\log\Xi}{\log\lambda}.
+\]
+As \(K\to\infty\), \(\delta\downarrow 0\). Expanding using \(f=2\sqrt{\delta}\sqrt{1-\delta}\) gives
+\[
+ \log\lambda=2\delta^{3/2}+\delta^{5/2}+\tfrac{11}{4}\delta^{7/2}+O(\delta^{9/2}),\qquad
+ \log\Xi=2\delta^{1/2}+\tfrac53\delta^{3/2}+\tfrac{43}{20}\delta^{5/2}+O(\delta^{7/2}).
+\]
+Division yields \(K=\delta^{-1}+1/3-(7/15)\delta+O(\delta^2)\), so \(\delta^{-1}=K-1/3+7/(15K)+O(K^{-2})\). Substitution in \(16t/d=4\delta^{-2}-8\delta^{-1}-4+O(\delta)\) proves the stated asymptotic. At \(K=3\), \(\theta_3=\pi/8\), so \(C_3=8\), \(W=(11-7\sqrt2)/2\), and \(D_3=16/(11-7\sqrt2)\).
 
 ## Verification
-Run `python verify.py` from the same directory. It uses standard-library bisection of the resonant equation, direct polygon vertices and a separate shoelace sum, and checks against the formula for \(K\in\{3,4,5,7,10,20\}\) and \(N\in\{0,1,2,7,30,100\}\); it also checks the exact \(K=3\) identities and a finite large-\(K\) asymptotic comparison. The recorded result is `VERIFY_OK 36`. These tests are floating-point consistency checks only. The proof of all \(K,N\), the power-law tail, and the resonant asymptotic is analytical and does not rely on enumerating examples.
 
-## Relationship to prior work
-Ostrovski [1, Theorem 5.1, Corollary 5.4, Appendix] supplies the map, polygonal invariant circles, their rotation numbers, the shear-vertex formula, and the implicit resonant parameter equation. Those are credited input, not newly claimed results. The contribution here is their **Lebesgue-area pushforward**: the complete piecewise-quadratic rotation-number law (not just a single polygon area), the reciprocal-winding-time Pareto tail and sharp moment threshold, and its two-scale resonant coefficient. A separate earlier exact area calculation for the innermost polygon supplies only the endpoint normalization and not the full distribution of rotation levels; this overlap is acknowledged rather than counted as novelty. Ostrovski's thesis [2, Chapter 5] treats the same map and geometry without giving this distribution. Lagarias and Rains [3] study a different homogeneous planar piecewise-linear family with invariant rays and a distinct rotation-number problem. Bullett [4] treats a different piecewise-linear twist-map family; complete priority exclusion from that source was not obtained.
+The symbolic area disintegration and invariant arc-mass calculation are the off-node verification. For example, at \(K=3\), \(d=1-1/\sqrt2\) and \(r=1/14\) gives \(q=(1+d/2)^{-1}\) rather than the straight-line interpolation \((1+3d/7)/(1+d)\). These differ by \((30\sqrt2-41)/833\). Since area is strictly increasing in \(q\), the interpolated CDF would be wrong at this value. The accompanying optional finite numerical checks concern distinguished polygon areas and resonant parameter values, not the rotation coordinate between those polygons.
 
-## Limitations
-The distribution law concerns the distinguished resonant angles and the outer invariant annulus only. The observable is reciprocal circle rotation number, not an individual orbit's first-return time, primitive period, or an ergodic average over a specified section. The tail constant is conditional on normalized annulus area; \(C_K\) denotes the unnormalized leading coefficient. No result is claimed for nonresonant parameters or for points inside \(\Gamma_K^0\). A novelty search does not establish absolute priority; particularly, a corresponding calculation hidden in earlier piecewise-affine dynamics literature remains a risk.
+## Relationship to prior work and limitations
+
+Ostrovski [1, §5 and Appendix] supplies the resonant polygonal foliation, distinguished rotation levels and implicit parameter relation. The parenthetical “in fact, linearly” after the proof of Theorem 5.1 is not valid in the break-line intercept: the leaf mass and the mass advanced in one step both depend on that intercept, and their ratio is generally nonlinear. The formula here leaves the distinguished levels and the continuity and monotonicity of Corollary 5.4 intact.
+
+An exact area calculation for the innermost polygon [2] gives the normalization but not the area distribution of rotation numbers. A related calculation [3] also gives the distinguished threshold areas and the leading slow-winding tail. The formula above additionally gives the law between the distinguished levels and the higher-order resonant asymptotic for its leading coefficient. The scope is the resonant sequence and the exterior of the innermost polygon only. The reciprocal rotation number is not a first-return time or an orbit's primitive period. Bibliographic distinction is a best-knowledge assessment, not an absolute priority claim.
 
 ## References
-[1] G. Ostrovski, *Dynamics of a Continuous Piecewise Affine Map of the Square*, arXiv:1305.4282v1, first submitted 2013-05-18, Sections 2, 5 and Appendix. https://arxiv.org/html/1305.4282v1
 
-[2] G. Ostrovski, doctoral thesis, 2013, Chapter 5, https://ostrovski.co.uk/data/thesis.pdf
+[1] G. Ostrovski, *Dynamics of a Continuous Piecewise Affine Map of the Square*, arXiv:1305.4282v1, §§2, 5 and Appendix, https://arxiv.org/abs/1305.4282v1.
 
-[3] J. C. Lagarias and E. Rains, *Dynamics of a family of piecewise-linear area-preserving plane maps I. Rational rotation numbers*, arXiv:math/0301294, 2003. https://arxiv.org/abs/math/0301294
+[2] *Quadratic vanishing of the unfoliated core in an integrable piecewise-affine square map*, Resultary record 22de24ee92be.
 
-[4] S. R. Bullett, *Invariant circles for the piecewise linear standard map*, Commun. Math. Phys. 107 (1986), 241--262. Bibliographic comparison only, not a full-text clearance.
+[3] *Exact slow-winding area law for the integrable Ostrovski square map*, Resultary record 9d9a41caf0a3.

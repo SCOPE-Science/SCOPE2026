@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:34:01.409651Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pencil has positive definite Gram factor M=(SV)^*(SV), so an eigenvector Vz gives lambda=(Vz)^*S^*SA(Vz)/[(Vz)^*S^*S(Vz)]. The Gram perturbation bound extends to the complexification of the real embedded space, which contains both Vz and AVz, also after exact breakdown. A^2 <= (mu+L)A-mu*L I gives the sharp turning-angle constant c=2*sqrt(mu*L)/(mu+L) by minimizing t/sqrt((mu+L)t-mu*L) over [mu,L]. Thus the real numerator is at least (1-eps/c)*(Vz)^*A(Vz), and the denominator is at most (1+eps)*||Vz||^2, yielding the asserted positive lower bound. The two-row sketch has exact distortion eps on span(b,Ab); the computed scalar denominator is positive and the numerator changes sign at eps=c. The zero and negative examples are existential, not a claim of failure for all sketches. When mu=L direct substitution gives mu*I for any admissible sketch, including the one-dimensional case. The independent rational replay `python3 /workspace/review_replay.py 3` returns 15/323, 0 and -15/13 for the stated three epsilon values. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior harmonic proof uses the inverse of its coefficient operator and explicitly bounds Re(z*Gz) below by x*C_h^{-1}x-eps*||x||||C_h^{-1}x||, with x=C_h U z; under C_h=A^{-1} this is the frozen ordinary-FOM form bound.",
+          "The classical SPD turning-angle inequality and the Hermitian part of a product explain why the guarantee needs only x and Ax in the embedded space. Simoncini–Wang provide a different spectral-radius localization, not an exact frontier; no general Jordan-product source is required for the failure finding."
+        ],
+        "reasoning": "The older harmonic result's full-trial-space theorem and proof supply the broader coverage. Combining its exact form bound with the positive Gram upper estimate immediately gives the frozen displayed lower bound; changing to this estimate does not create a surviving quantitative novelty.",
+        "searches": [
+          "Resultary: Jordan product of positive definite matrices positive definite condition number criterion",
+          "Resultary: antieigenvalue operator angle oblique compression SPD positivity threshold",
+          "SCOPE-f6a519d77ab4 Proof Step 2",
+          "doi:10.1002/nla.70022 Prop. 7.2"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-f6a519d77ab4",
+        "SCOPE-64c030573be9",
+        "SCOPE-82e6f28b1c80",
+        "arXiv:2208.11447",
+        "arXiv:2212.12758",
+        "arXiv:2302.07466",
+        "arXiv:2607.10354",
+        "doi:10.1002/nla.70022"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Güttel–Schweitzer define ordinary sketched FOM and warn of qualitative real-part loss; Cortinovis–Kressner–Nakatsukasa relate an equivalent compression; Timsit–Grigori–Balabanov control solve error. These do not alone imply the frozen sharp threshold.",
+          "The earlier exact harmonic result implies the strict ordinary-FOM guarantee, singularity at equality and a negative above-cutoff scalar, by the explicit inverse-pencil map. Its padded witness has the same dimension reduction. The scalar unrestricted case mu=L is direct and does not survive as a separate contribution."
+        ],
+        "reasoning": "Unlike the qualitative or unrelated bounds, the indexed harmonic theorem provides every essential hypothesis, threshold and sharpness obstruction. No distinct valuable remainder is established by the frozen text.",
+        "searches": [
+          "arXiv:2208.11447 Sec. 2, Eqs. (2.3) and (2.7) in inspected PDF",
+          "arXiv:2212.12758 Sec. 3.3 Eq. (3.6)",
+          "arXiv:2302.07466 Prop. 3.1",
+          "arXiv:2607.10354 Sec. 5.3",
+          "SCOPE-f6a519d77ab4 Finding, Proof Steps 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let A,V,S be the frozen ordinary-FOM data, M=(SV)^*(SV), N=(SV)^*SAV. Apply the harmonic theorem to C=A^{-1} and trial basis U=AV. Then CU=V, and its embedding is on range[V,AV]=K_{m+1}(A,b), including after breakdown. The harmonic Gram matrices are exactly F=M and G=N.",
+          "The harmonic H=N^{-1}M, whenever nonsingular, is the inverse of the frozen B=M^{-1}N; Re(1/z)=Re(z)/|z|^2. Singularity of the harmonic denominator N is exactly singularity of B. Even if a Krylov constraint were imposed on harmonic trials, U spans K_m(A^{-1},A^m b). The condition number and distortion parameters are identical."
+        ],
+        "reasoning": "This is an exact implication under the frozen hypotheses, not merely a shared constant. The prior theorem allows real/complex data and arbitrary trial subspaces; the ordinary SPD Krylov setting is covered by its real specialization under inversion.",
+        "searches": [
+          "Resultary: sketched FOM SPD positivity threshold embedding distortion Ritz values",
+          "SCOPE-f6a519d77ab4 RESULT.md offsets 0 and 4698",
+          "Resultary: ordinary sketched FOM positive real Ritz values SPD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older harmonic exact record has c=2q/(1+q^2), x=(q,1)/sqrt(q^2+1), coefficient diag(1,q^-2), F=1-eps*c and G=q(c-eps). G/F under inversion is precisely (2q^2-eps*q*(1+q^2))/(1+q^2-2eps*q). Its three-dimensional padding with two sketch rows has the same Gram matrix as the frozen sketch.",
+          "The 2026-10-26 one-vector ordinary-sketch record separately gives the sharp scalar envelope, but is later by indexed date and does not characterize higher trial dimensions."
+        ],
+        "reasoning": "The decisive indexed evidence is symbolic equality of the cutoff, sensitivity formula and padded witness under inversion, not a numerical table of coincident values.",
+        "searches": [
+          "Resultary: sketched FOM SPD positivity threshold embedding distortion Ritz values",
+          "SCOPE-f6a519d77ab4 RESULT.md Proof Step 3, Eq. (4), continuation beginning at offset 4698",
+          "SCOPE-64c030573be9 RESULT.md offsets 0 and 4536"
+        ]
+      },
+      "rationale": "Demonstrably covered by the distinct indexed 2026-10-12 harmonic frontier SCOPE-f6a519d77ab4 via exact inversion of both operator and pencil. The change of name from harmonic to ordinary FOM does not produce a distinct positivity theorem here: the embedding space and distortion are unchanged, and the prior exact witness becomes the frozen scalar witness with the same compressive Gram matrix. The result is correct but not original; this rests on statement-level coverage, not search misses or intent about priority.",
+      "residual_risks": [
+        "A separately published exact Jordan-product theorem was not located in the bounded search; this is immaterial to the demonstrated coverage.",
+        "The coverage finding is mathematical and does not infer sequence of creation from any same-day indexing or speculate about authorship."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader coverage, decisive",
+          "evidence": [
+            "F=M and G=N under the map.",
+            "The earlier compressive example gives the exact frozen B=G/F on application of that map."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-embedding-distortion-frontier-for-sketched-harmonic-ritz-p--f6a519d77ab4/RESULT.md",
+          "material_read": "Local mirror offsets 0 and 4698: Finding, Assumptions, Eqs. (1)–(4), compressive extension",
+          "method": "Replace coefficient with A^{-1} and trial basis with AV; compute both Gram matrices, compare signs, then invert the actual scalar witness",
+          "title": "Sharp embedding-distortion frontier for sketched harmonic Ritz positivity",
+          "trigger": "Exact same cutoff, all trial dimensions, and endpoint obstruction in a potentially inverse pencil"
+        },
+        {
+          "assessment": "Foundational projection and related qualitative warning, not the decisive exact frontier",
+          "evidence": [
+            "Right-half-plane numerical range of the original operator does not alone guarantee all sketched Ritz values stay there."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.11447",
+          "material_read": "Sec. 2, Eqs. (2.3) p. 3 and (2.7) p. 7 (display numbering in inspected PDF)",
+          "method": "Compare pencil and qualitative numerical-range warning",
+          "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+          "trigger": "Original ordinary sketched FOM definition and spectral warning"
+        },
+        {
+          "assessment": "Prior equivalent projection method, not the exact threshold in the inspected passage",
+          "evidence": [
+            "Sec. 3.3 relates the sketched compression and sketched FOM."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.12758",
+          "material_read": "Sec. 3.3 Eq. (3.6), p. 7",
+          "method": "Match whitened compression, compare scientific conclusions",
+          "title": "Speeding up Krylov subspace methods for computing f(A)b via randomization",
+          "trigger": "Equivalent randomized compression"
+        },
+        {
+          "assessment": "Different and nonsharp spectral radius enclosure",
+          "evidence": [
+            "Width eps*sqrt((1+eps)/(1-eps))*||A|| would only suffice when smaller than mu."
+          ],
+          "identifier_or_url": "doi:10.1002/nla.70022; https://hal.science/hal-04661499/document",
+          "material_read": "OA submitted version Prop. 7.2, p. 16",
+          "method": "Compare localization width and hypotheses to the threshold",
+          "title": "Stabilized Krylov Subspace Recurrences via Randomized Sketching",
+          "trigger": "Spectral localization of sketched projection"
+        },
+        {
+          "assessment": "Prior formulation and sufficient condition; distinct from the exact frontier which supplies coverage",
+          "evidence": [
+            "Uses the sketched harmonic pencil and a right-half-plane condition in a convergence theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10354",
+          "material_read": "Sec. 5.3, around p. 17",
+          "method": "Compare its harmonic positivity condition with the exact indexed harmonic frontier",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Foundational harmonic pencil"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying threshold is useful for selecting an embedding quality that keeps sketched Ritz values in the domain of reciprocal functions. As a purported new contribution, however, the positivity classification and compression witness are exact re-expressions of the existing harmonic theorem and example. The nonoptimal quantitative bound is an immediate numerator/denominator estimate from the old proof. No additional natural invariant, stronger guarantee, or independent motivated gap is established in the frozen finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

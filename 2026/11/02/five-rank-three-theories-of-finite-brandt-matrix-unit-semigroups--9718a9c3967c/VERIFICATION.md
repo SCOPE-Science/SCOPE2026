@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-All scripts use only Python 3 standard-library modules. They are standalone and can be run independently in the same directory.
+## correctness
 
-`python3 verify_direct.py` constructs the full \(1+n^2\)-element multiplication table for each \(1\le n\le7\), computes equality and every ternary multiplication atom involving the named zero and up to three selected elements, then recursively computes exact one-element-extension type *sets*. The output type identifiers use a common global interning dictionary across all sizes; matching identifiers therefore mean equal full recursively defined types, not coincidentally equal local ranks.
+PASS
 
-`python3 verify_orbits.py` computes an independently organized orbit-compressed recursion on canonical equality patterns of ordered row and column indices, for each \(1\le n\le14\) and ranks one through four. At rank three it finds distinct root types for \(1,2,3,4,5\) and the same root type for each \(5\le n\le14\). Type identifiers are globally interned.
+The four boundary sentences have ranks 1, 2, 3, 3. Nonzero idempotents are exactly e_ii, and a nonzero unit has one or two endpoint idempotents detectable by the stated atoms. Thus the covers in the last three sentences exist exactly for n <= 2, 3, 4, respectively; e_12 squares to zero when n >= 2, giving the first cutoff. For the tail, copy all coordinate equalities of the first two moves. Copy exactly on the last move whenever the total is at most five indices (including when the move introduces two fresh indices to a prefix with at most three). Otherwise the three edges have six distinct endpoints, and the last edge can reuse a previous row as its row while keeping a fresh column: row and column sets remain disjoint. The new edge is distinct, and every product of the three units, including squares, is zero. This preserves all multiplication and equality atoms including those with named zero, in either play direction. It proves the infinite tail, independently of any enumeration. Representation sizes are n^2+1. Independent replay: `python3 /workspace/branches/independent_checks.py 5` computes rank-three types directly from finite multiplication tables for n=1..6, returning five distinct initial types and equality at 5 and 6. The frozen three checkers and recorded outputs were inspected, not executed.
 
-`python3 verify_boundary.py` independently evaluates four explicit first-order boundary formulas on \(1\le n\le9\) and checks equality of the *complete* atomic diagrams for \((e_{12},e_{34},e_{56})\) and \((e_{12},e_{34},e_{15})\), with zero named. The Boolean formula vectors match the truth conditions \(n\le j\) for \(j=1,2,3,4\).
+## originality
 
-The included `direct_output.txt`, `orbits_output.txt`, and `boundary_output.txt` are recorded outputs of these checks. No program's finite range is used as a proof of stabilization for all sizes; the text's explicit three-round strategy proves the infinite assertion. No independent audit is claimed.
+PASS
+
+The distinct supported claim is the exact finite unrestricted-variable rank-three partition in the zero-named ternary relational language. A later Resultary extension directly repeats that partition and explicitly treats cutoff five as previously established; its new cutoff six is for three reusable variables at arbitrary depth. This is real overlap, not evidence of an earlier independent covering result. The same-day strictly upper-triangular result uses a different family with no nonzero idempotents. The closest inspected primary results concern automorphisms/categoricity and algebraic identities/varieties, not the claimed finite rank threshold.
+
+## value
+
+PASS
+
+A sharp logical cutoff for the whole matrix-unit family is useful for comparing finite semigroup presentations at bounded relational depth. It improves on the naive six-index copying bound and explains exactly which coordinate coincidence a rank-three observer cannot see. The four distinct lower boundaries and infinite tail make this more than a finite type tally.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

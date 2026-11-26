@@ -1,15 +1,21 @@
-# Review: three-piece diameter of a rectangle
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claimed value is attained by a T-shaped three-rectangle cut for \(1\le\lambda\le3/2\) and equal full-height strips above the threshold. For the lower bound, pigeonhole on four corners forces a convex cell to contain an entire side. A two-case boundary-interval argument shows that, whenever the maximum diameter is below the candidate, the other parts contradict one of two sharp diameter inequalities. The horizontal-side possibility is ruled out independently, including the narrow aspect-ratio interval up to \(\sqrt{(5+2\sqrt{13})/12}\). Exact identities and cutoff calculations are checked in `verify.py`. The continuous proof is the geometric lemma, not finite experimentation.
+## correctness
 
-## Originality
-**PASS at available-source priority resolution.** The \(\lambda=1\) square result is credited to Wenceslas and Lipman (1958), as documented by Chaidee and Wichiramala (2016); it is not presented as new. Cañete, Fernández and Márquez (2023, Section 3.1) show general min–max diameter bounds and existence but do not determine the three-piece rectangular profile. Fekete et al. (2023) and Heppes–Melissen (1997) study three congruent disks covering a rectangle. Sharp disk-covering radii cannot on their own give this lower bound for arbitrary convex pieces, because their circumradius can exceed half their diameter. Comparisons with related published assertions did not disclose a theorem covering this claim. The full 1997 primary paper was not read, so an earlier duplicate statement remains a priority risk; an unavailable related paper is not asserted to be noncovering by full-text inspection.
+PASS
 
-## Mathematical value
-**PASS.** The theorem gives the complete aspect-ratio dependence for a natural minimum-maximum-diameter functional, and exactly identifies a global change of optimal construction at \(\lambda=3/2\) for all convex three-piece partitions. Its bound is not a renaming of the square endpoint or a mere optimization over rectangular tilings: the lower bound rules out oblique, polygonal, and curved convex parts alike. It does not classify all equality partitions or more general covering models.
+Final assessment of /workspace/repairs/2/RESULT.md. The frozen normalized theorem is correct; the scope sentence saying to multiply the displayed value by b incorrectly scales the displayed squared value if read literally. The replacement specifies bD3(lambda) for diameter and b^2D3(lambda)^2 for its square, and proves the same normalized theorem. I reconstructed the corner argument: the set holding the left corners cannot reach the right side and its top and bottom traces end at a,b<=eta. If another set holds both right corners, its traces start in x>=t-eta; the remaining set must cover both horizontal gaps up to their endpoints, giving d^2>=s^2+(t-2eta)^2. Otherwise the two closed right traces meet at (t,z). The top handoff point (a,s) is excluded from the part with the bottom right corner by a strict diameter violation, persisting in a neighborhood, so goes to the part with the top right corner by closedness. Likewise for (b,0). The larger distance from those points to (t,z) gives d^2>=(t-eta)^2+s^2/4. The cases allow shared boundaries and require no cut hypothesis. Pigeonhole and the diagonal bound force a pair of adjacent corners. With s=1,t=lambda, d^2<H<=G_v gives eta<lambda/2 and d^2<lambda^2+1/4; both alternatives yield d^2>=H. With s=lambda,t=1, d>=lambda first forces lambda<=lambda0 by the sign of F_v-lambda^2. On that interval eta^2<1/64, F_v<1+lambda^2/4, and 1-3lambda^2/4>0, so both rotated bounds can be squared and exceed or equal F_v. The factorizations verify the signs, including the square endpoint and equality of the two branches at 3/2. Attaining rectangles are nonempty and have the stated diagonals; Euclidean similarity proves the corrected scaling. VERIFICATION.md and verify.py were inspected without execution; finite sign samples are not relied on. Replay the exact inequalities and the attaining side lengths in the corrected file. There is no uniqueness or higher-piece-count claim.
 
-## Verification and limits
-Twelve exact SymPy identities plus additional strict-region checks and construction identities have passed. They supplement, and do not replace, the complete analytic lower-bound proof. Earlier disk-cover literature is not interchangeable with convex-diameter partitions; unindexed duplicate priority remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the corrected all-rectangle theorem, the square endpoint, three-strip upper bound, and T construction and its exact expression have real prior coverage. The distinct claim is their sharp optimality profile over arbitrary convex partitions including the transition at 3/2. The closest equal-disk proof has substantially overlapping geometry but works with disk centers and circular intersections and does not prove the partition lower bound. The corrected record explicitly credits the strongest verified overlap.
+
+## value
+
+PASS
+
+The design question is natural: it asks for the smallest worst intra-piece distance with exactly three pieces and no assumed cut order. The exact lower profile establishes when the two known styles of construction actually optimize, even against arbitrarily shaped convex competitors. The corner lemma explains why the optimal value changes regimes and is not just optimization within the two proposed families. No value is attributed merely to rescaling or reproducing the historical square value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

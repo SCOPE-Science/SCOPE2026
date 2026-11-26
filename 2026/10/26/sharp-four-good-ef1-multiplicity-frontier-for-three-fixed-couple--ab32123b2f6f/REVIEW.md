@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a \((2,1,1)\) bundle-size pattern, EF1 for nonnegative additive values reduces exactly to requiring each member of a singleton group to rank her singleton no lower than at least one good of the paired group. This establishes an ordinal reduction. Simultaneous good relabeling fixes the first agent's strict ranking, leaving exactly \(24^5\) normalized profiles, and every profile has exactly \(36\) labeled balanced candidate allocations. The included exact-integer C++ certificate covers all these cases, with no sampling; it reports minimum two and the complete histogram. A second, independently written direct-value Python checker confirms that the sharpness witness has exactly two balanced EF1 allocations and that the previously published five-good instance has none. Arbitrary ties preserve the existence guarantee via refinement of weak orders. The analytic expected-count identity \(64/9\) independently checks the histogram's first moment. This is a proof of the finite theorem through an exhaustive, mathematically complete ordinal reduction, not an extrapolation from experimental data.
+PASS
 
-## Originality — PASS (subject to publication priority)
+For a (2,1,1) allocation every comparison to another singleton is automatic after removal. A singleton agent facing the pair must value her own good at least as much as the lesser of the two paired goods. Thus actual EF1 depends only on strict orders when no ties occur, and any allocation surviving a strict tie refinement also satisfies the original weak inequalities. Relabeling the goods to fix the first order is unique and preserves the labeled allocation count; the other five orders run independently over all 24 possibilities. An independent exact program built the 36 candidate allocations by surjective assignments, used literal cardinal EF1 on utilities 4,3,2,1 in the respective orders, and accumulated the histogram by profile chunks. All 7,962,624 profiles and every reported cell matched, with minimum two, maximum eighteen, minimum proportion 1/1152, and first moment 64/9. The latter also follows by counting the four independent singleton-agent tests of probability 2/3 for each allocation. Direct cardinal checks gave exactly the two displayed balanced allocations for the sharpness witness, and zero among the 243 complete allocations of the prior five-good example. With at most three goods each occupied group can have a singleton. This proves four-good universal multiplicity and the smallest complete EF1 nonexistence size of five.
 
-The closest primary manuscript is Gölz and Yaghoubizade, arXiv:2508.13432v1 (2025), whose Theorem 3.3 gives a five-good nonexistence instance. Its relevant Section 3 and appendix were inspected; they do not give the exact four-good existence threshold, the sharp universal multiplicity two, or the full strict-profile distribution. The 2020 Kyropoulou–Suksompong–Voudouris fixed-group results concern two groups, while their arbitrary-group extension allows variable membership. The Bu–Li–Liu–Song–Tao double-fairness model does not imply this three-fixed-couple result. The October 2026 Deligkas–Eiben–Ganian–Goldsmith–Gründel–Wietheger complexity paper treats arbitrarily many goods and does not provide the four-good census. Targeted literature and mathematical-results-index queries identified no equivalent or stronger theorem for the same fixed-group setting. Search failure alone is not proof of novelty; the checked source implications and the remaining priority risk are recorded in AUDIT.json.
+## originality
 
-## Value — PASS
+PASS
 
-A five-good construction already disproves universal EF1 existence for three couples. Determining the adjacent four-good boundary answers the natural minimal-obstruction question rather than an arbitrary isolated numerical curiosity. The sharp two-allocation guarantee strengthens mere existence, and the full ordinal frequency law quantifies how rarely exactly two feasible outcomes remain, with limiting multiplicities impossible to infer from the five-good obstruction or group-size results. The self-contained certificate makes this exact finite classification reproducible. It makes no unsupported claim about larger item counts or new strategyproofness or efficiency axioms.
+The three-couple obstruction with five goods is prior work, not credited as new. The inspected same-model theorem supplies that obstruction but not sharp four-good positive multiplicity or the exact profile law. Known two-group, double-fairness, online single-agent and variable-size complexity results differ in the model or quantifiers. The best-of-knowledge pass concerns the sharp balanced four-good universal minimum and strict census, including the new positive side needed for the cutoff.
 
-## Closest literature and residual limitations
+## value
 
-The five-good negative example is correctly attributed to Gölz and Yaghoubizade. The classification depends on four goods and the \((2,1,1)\) pattern, and ordinal frequencies require strict independent uniform orders. External work not located by the recorded searches could establish the same claim; no independent scholarly review has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Four goods is the last open size immediately before the known five-good failure and the first size for which singleton-only allocation cannot solve EF1. The sharp positive multiplicity shows unavoidable choice among balanced labels even in the tight case, and the full strict census quantifies how often that case and all other multiplicities occur. This is a natural small-instance frontier, useful as an exact benchmark, not an arbitrarily sized enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

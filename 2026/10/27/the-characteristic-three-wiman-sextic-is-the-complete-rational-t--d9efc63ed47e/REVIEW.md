@@ -1,15 +1,21 @@
-# Scientific review: characteristic-three Wiman sextic
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The integral equation reduces modulo three to a smooth quadratic factor times four distinct rational linear factors. The proof checks all geometric intersection points, the local two-branch contact multiplicities and singularity types, their delta and Tjurina contributions, the normalization, the projective group, and the finite-field point-count identity. The bundled standard-library-only checker independently verifies the polynomial identity, all component incidences, the stabilizer over the base field, and point counts in three extensions. General statements follow from the exact factorization and incidence, not finite extrapolation.
+## correctness
 
-## Originality
-**PASS, with limited residual risk.** Giulietti--Kawakita--Lia--Montanucci (arXiv:1805.06317, Equation (1) and Remark 3.1) explicitly note reducibility in characteristic three, but do not determine the complete conic-and-tangent-line configuration or its singularity basket, full geometric projective stabilizer, or uniform Hasse--Weil zeta function. Dolgachev--Farb--Looijenga (DOI 10.1007/s40879-018-0231-3) describe the Wiman--Edge pencil and reducible members in characteristic zero; those results are not the same fiber or an implication of the present classification. Related finite-field sextic tables of Kawakita (DOI 10.3934/amc.2017020) concern other characteristics, with full text not accessible in the inspected route. A known elementary factorization or earlier unindexed treatment remains a residual possibility; no database search certifies global uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** The same 2018 paper identifies the prime three as a necessary excluded boundary without determining what replaces its irreducible genus-six curve. The result gives a complete scheme-theoretic and arithmetic picture of this specific distinguished boundary: a canonical finite-conic tangent arrangement, exactly two geometric types of singular points with all local delta invariants, the geometric projective stabilizer, and closed rational-point and zeta formulas over every ternary extension. These are motivated intrinsic invariants of the actual excluded fiber, not a parameter-picked recomputation; the result is not a stable-reduction theorem or a general claim about all integral models.
+In characteristic three, with C=X^2+Y^2+Z^2, the sextic is C(C^2+X^4+Y^4+Z^4). Multiplying the four sign lines gives -sum X^4+2 sum X^2Y^2, which is the residual quartic. The smooth conic has exactly the four points whose coordinates are all nonzero over F_3; the indicated sign lines are their polar tangents. Their six distinct pair intersections have two nonzero coordinates, lie off the conic, and are transverse. At a tangent contact there are two smooth branches with intersection multiplicity two; completing the square in a transverse coordinate and changing a unit gives the formal form y^2-x^4. Its Tjurina quotient has basis 1,x,x^2 since 2 and 4 are units, and its delta is the branch intersection multiplicity two. This gives the full singular basket, sums 14 and 18, and genus 0+14-5+1=10. The conic and each line are rational over the base field. There are exactly ten double-counted rational points and no triple intersections over any extension, hence 5(q+1)-10 and the asserted zeta function. Any geometric projective automorphism permutes the four lines, with trivial kernel since they form a dual frame. Conversely the plane representation of PGL_2(F_3) on the split smooth conic gives 24 such automorphisms. No computation over F_3 alone is used to bound the stabilizer over the algebraic closure.
 
-## Limits
-The plane model is not a stable arithmetic model. The abstract automorphism group of the disconnected normalization is not identified with its embedded projective stabilizer. Related historical work may contain the same calculation, and the 2017 finite-field sextic paper could not be inspected in full. None of the work has been independently audited or independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scoped increment is the full description of the literal characteristic-three fiber, especially recognition as the complete rational tangent arrangement and the resulting geometric incidence and full projective group. The 2018 paper publishes the equation and explicitly notes reducibility in characteristic three, but its characteristic-three statement is not this classification. A distinct later Resultary entry gives equivalent coverage of all the salient claims, and some consequences there are verbatim mathematical matches; its documented record date is later than the frozen record, not evidence of earlier publication or priority. No independent novelty is credited to the genus, local-invariant sums, or zeta conversion once the arrangement is known.
+
+## value
+
+PASS
+
+A complete structural description of an explicitly excluded bad-characteristic fiber of the standard Wiman plane model is a natural boundary problem, not an arbitrary point count. Identifying the entire reduced fiber as the four rational tangents to the conic explains exactly how it degenerates and gives its embedded projective symmetries and arithmetic. Those are useful for comparing this model with good-characteristic models; the numerical corollaries are bookkeeping, not independent contributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

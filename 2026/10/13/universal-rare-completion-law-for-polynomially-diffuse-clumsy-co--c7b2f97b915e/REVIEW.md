@@ -1,22 +1,21 @@
-# Scientific review: Universal rare-completion law for polynomially diffuse clumsy coupon frequencies
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact invariant Bernoulli product law and entrance rate follow from selected-coordinate refresh. Conditioning on the visited-index set yields the entrance-return identity; bounding repeated indices controls all return entries over polynomial blocks despite the absence of a Markovian missing-count process. The proof then checks rare-entry block mass, mixing from all states, empty-start burn-in, and a geometric tail argument for fixed moments. The separate rare-coordinate upper bound is elementary and sharp enough to contradict the universal scale in its exhibited regime. The standalone checker passes 540 exact-rational finite assertions in both presence-state and visited-set representations. This finite calculation does not certify the infinite theorem; the analytic bounds do.
+## correctness
 
-## Originality — PASS, with residual risk
-Attrill–Garoni [1] and Long [2, Section 4] cover **uniform** selection. Long [2, Theorem 2.3] already proves the generic stationary-entry block criterion and is credited. Its published model-specific proof uses a birth–death count chain relying on the uniform type probability; it does not supply the present unequal-rate visited-set clump argument. Long [2, Section 3.6] addresses **nonuniform global resets**, a different transition. A related public record on balanced nonuniform reset coupons is likewise a different model, and its complete text was inaccessible. The remaining priority risk is an equivalent general random-scan rare-hitting theorem not located in the inspected literature; absence from searches is not proof of uniqueness.
+PASS
 
-## Value — PASS
-Whether selected-type heterogeneity changes the exponential rare-completion scale is a direct mathematical question arising from the uniform clumsy model. The theorem settles it simultaneously for polynomially diffuse frequency families, including fixed Zipf laws, and proves convergence of all fixed moments. Its visited-set method supplies structure unavailable to the missing-count reduction, while the exponentially rare-coordinate counterexample exhibits a meaningful limit to universality. This is not a finite census or a restatement of the existing uniform statement.
+Under product stationarity, choosing the unique absent coordinate and refreshing it to 1 contributes w_i p q^n to the entrance flux. From all present, given the touched set U after r draws, its last refresh bits are independent; the same calculation on U gives p q^|U| sum_{i in U} w_i. Counting designated repeats for r≤d=floor(1/(64 w_+)) bounds the probability of fewer than r/2 distinct indices by 4^(−r); after d the touched set can only grow. These bounds give a sum of return-entrance probabilities over b=ceil(n^(B+4)) steps bounded by O(w_+) plus a polynomial times exp(−Ω(n^γ)), uniformly. By the Markov property after an entrance, this makes the factorial second moment in a stationary block o(bμ), proving the one-block probability bμ(1+o(1)). The shared-refresh coupling after h=ceil(H n^(B+1)) steps has TV error at most n exp(−cHn)=o(bμ); this applies to the whole next-block event even conditional on preceding failed blocks. Gaps and the incomplete terminal block have negligible expected stationary entrance count, and from empty a burn-in visit has probability at most h q^n. The product of conditional block survival probabilities therefore tends to exp(−t). In blocks of h+b steps every starting state has hit probability at least bμ/2, yielding a uniform scaled exponential tail and uniform integrability for each fixed moment. Uniformity is over the row vectors satisfying the specified inequalities at n. The Zipf profile has minimum of order n^(−1) and maximum of order n^(s−1) for fixed s<1; the exceptional coordinate's union bound is (x/p)exp(−(θ+log q)n) at time x/μ. The frozen checker was inspected and an independent small rational check agreed with the flux and exact touched-set identity; neither checks the asymptotic bounds.
 
-## Scope and limitations
-The loss probability is fixed; the stated frequency bounds are sufficient, not claimed optimal. The counterexample addresses one rapidly vanishing coordinate, not every possible exceptional profile. Full priority across unindexed random-scan Markov-chain literature remains uncertain; an independent scientific audit has not been performed.
+## originality
 
-## Primary sources
-[1] Attrill and Garoni, *The clumsy coupon collector's problem*, arXiv:2605.14206v1 (2026).
+PASS
 
-[2] Long, *Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors*, arXiv:2605.14511v1 (2026).
+The exponential scale and fixed-moment law for uniform draws are prior. The supported distinction is the uniform nonuniform-weight theorem: a scalar missing-count chain cannot provide its block probability, and the new touched-set return estimate does. The general block theorem assumes this input. The strongest distinct indexed match gives an exact finite transform for the same process but not a uniform asymptotic estimate; extracting one requires a new weighted small-denominator and tail argument. No equivalent existing asymptotic claim was established in the inspected evidence.
 
-[3] Cruciani and Dudeja, *The Careless Coupon Collector's Problem*, arXiv:2602.20705v1 (2026).
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The extension preserves an exact time scale and all fixed moments for a wide range of uneven frequencies, including fixed Zipf profiles, despite loss of the uniform model's count-chain reduction. The touched-set estimate resolves the consequential short-return issue, and the exponentially rare coordinate delineates a real obstruction rather than an arbitrary numerical cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

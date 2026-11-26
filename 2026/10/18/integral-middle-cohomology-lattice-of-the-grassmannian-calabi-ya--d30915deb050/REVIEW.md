@@ -1,15 +1,21 @@
-# Scientific review: integral middle-cohomology lattice
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is a smooth transverse eight-hyperplane section of \(\operatorname{Gr}(2,8)\) over \(\mathbb C\). Successive integral hyperplane Lefschetz maps prove the necessary low-degree vanishing and primitive Schubert restriction; universal coefficients and Poincaré duality then yield a torsion-free unimodular middle lattice. The Chern-root computation, checked separately by `checker.py`, yields Euler number \(636\), second-Chern square \(692\), Gram matrix \(\left(\begin{smallmatrix}62&28\\28&14\end{smallmatrix}\right)\) and signature \(244\). The odd indefinite unimodular classification gives the full middle lattice; the Wu characteristic vector \(c_2=\sigma_2+5\sigma_{1,1}\) forces evenness of the orthogonal complement. Unimodular discriminant gluing yields the specified quadratic form; the uniqueness theorem applies to its indefinite rank \(630\). All finite arithmetic identities and finite-form consistency checks passed. The script does not purport to prove the cited general topology or lattice-classification theorems.
+## correctness
 
-## Originality — PASS, with residual risk
-The exact object and current geometric context occur in Bolognesi–Ciliberto–Verra (arXiv:2610.11925v1); the inspected complete preprint studies Pfaffian rationality and incidence, not the integral middle lattice. Gerhardus–Jockers (arXiv:1604.05325, Appendix A.6) explicitly publish the Euler/Chern data and the rank-two Schubert Gram matrix, and **no novelty is claimed for those inputs**. Their listed cohomology generators are the diagonal Hodge sector, not an identification of all \(632\) integral middle classes. Braun–Watari (arXiv:1408.6167v3) provide a general vertical/horizontal framework, but not this Grassmannian's primitive rank-\(630\) discriminant form. Nikulin's classification theorem supplies the general lattice implication; the exact primitive embedding and characteristic gluing calculation are the additional specialization. Relevant mathematical literature and existing published mathematical records were searched using the precise group, parameters, signature, and discriminant aliases. No identified source directly contains, or explicitly gives as its theorem, this integral result. Some final focused record queries failed internally; unindexed equivalences remain possible.
+PASS
 
-## Value — PASS
-A middle-dimensional integral pairing on a fourfold is a natural invariant not fixed by its ordinary Hodge numbers alone. The result gives the whole \(632\)-dimensional unimodular form **and** a distinguished primitive even complement with exact finite quadratic discriminant data, hence its abstract isometry class. The evenness is subtle because the containing unimodular lattice is odd, and the primitive characteristic class yields a nontrivial half-Chern shift. The orthogonal discriminant form is needed for integral gluing/flux and algebraic-cycle lattice questions; these are intrinsically motivated by the existing rank-two vertical quantum-period computation. This is an exact structural classification for a natural Calabi–Yau fourfold, not a small arbitrary finite calculation. It neither determines every algebraic \((2,2)\) cycle nor constructs explicit geometric representatives of the full complement.
+A general flag in the eight-dimensional system of defining hyperplanes gives smooth intermediate sections (Bertini off the base locus, independence of differentials on it). Integral Lefschetz gives H_3(X)=0 and a surjection H_4(X)→H_4(Gr(2,8)); the target is free, so dualizing gives the primitive Schubert embedding. Universal coefficients and Poincaré duality give the torsion-free unimodular middle form. Independent total-Chern-class expansion and binomial coefficient extraction give Gram entries 62, 28, 14; Euler number 636 and c2 squared 692; the signature formula then gives 244 and the rank is 632. Signature 244 is not a multiple of eight, so the indefinite form is odd and has inertia (438,194). The degree-four Wu congruence with c1=0 makes c2=a+5b characteristic, and it is primitive by the primitive embedding. Consequently K is even. Primitive unimodular gluing identifies the discriminant groups by bilinear anti-isometry; if the A projection of an integral lift has dual coordinates (u,v), the square of its K projection is congruent to u+5v minus the A-square modulo 2. Inverting the Gram matrix gives exactly the displayed numerator and denominator. The Smith factors are (2,42), and the indefinite even lattice of signature (436,194) is in the uniqueness range rank 630 ≥ length 2 plus 2.
 
-## Relationship and limitations
-The closest source is the complete 2016 table of the identical Grassmannian fourfold (Appendix A.6), supplying several **known** coefficients. The manuscript's new work is the integral primitive-lattice statement and parity/discriminant refinement, using standard integral Lefschetz, Wu and Nikulin results. Independent expert review has not been performed, and the novelty search is not exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Schubert pairings and Chern data themselves are published and are not credited as new. Those data, even together with the geometry of the family, do not specify how the Schubert lattice sits in integral cohomology or specify the quadratic form of the even complement inside an odd unimodular lattice. The primitive integral embedding, the characteristic refinement and the resulting complete integral form specifications are supported as distinct on the evidence inspected.
+
+## value
+
+PASS
+
+The integral complement of the natural ambient classes is a motivated invariant for the primitive middle cohomology of this family. The result distinguishes the even primitive complement from the odd total form and fixes its discriminant refinement, data not supplied by a Hodge diamond or by rational pairings. The characteristic class also settles whether c2/2 is integral. Neither table recomputation nor the abstract unimodular lattice on its own is the main contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditional second moments yield the exactly normalized Euler–Maruyama covariance multiplier. The product-of-steps reduction is a strictly convex quadratic on a compact interval. Its projection formula establishes the unique global invariant optimizer; explicit root inequalities distinguish the four regimes, including open-simplex nonattainment. The finite rational checker provides supplementary validation of the identity and optimum, not a proof by experiments. The exact continuous covariance and asymptotic constants are independently derived.
+## correctness
 
-**Originality — PASS, within the inspected sources.** The closest directly relevant 2026 full text optimizes interval-wise physical time dilation in multiplicative-noise covariance steering, but uses a different update and does not establish a two-step Euler covariance optimizer or reentrant equal-grid phase. A 2014 full-text treatment of adaptive Euler–Maruyama derives *strong solution-error* mesh rules and a uniform-grid result for a geometric-Brownian example, not a minimum of the *computed terminal covariance*. published-finding corpus mathematical-record queries surfaced variable-step BDF2 Floquet optimization and random-step implicit-midpoint damping; neither statement implies a fixed-horizon two-step Euler–Maruyama variance optimizer. The absence of a matching search result is not a historical novelty proof; unindexed equivalences remain a risk.
+PASS
 
-**Value — PASS.** The classification answers a natural, fully specified mesh-allocation question for numerical uncertainty prediction in the smallest nontrivial variable-step setting. The noise threshold separates one-stage collapse from an interior equal split, and for low noise the equal-step optimum disappears, reappears, and disappears as the horizon changes. The open-mesh nonattainment makes explicit the danger of optimizing a discretized uncertainty surrogate without regularizing the grid. The sharp formulas give a reproducible benchmark for validating mesh-constrained covariance optimizers; no claim about global control performance is made.
+The centered Euler second moment multiplies by E[(1-h+(sigma/sqrt(lambda))*sqrt(h)*Z)^2]=f_d(h), so independent increments give the stated product. Expanding in z=h1*h2 at fixed sum T gives f_d(T)+z^2-2z0*z with z0=(2-d^2+dT)/2. The interval of attainable products is exactly [0,T^2/4]; clipping z0 is the unique minimizer in z. The zero and equal-step thresholds follow from z0=0 and (T-d)^2<=4-d^2 respectively; for d>sqrt(2), T_- - T_c=2/d-sqrt(4-d^2)>0 by squaring. The boundary equalities yield one unordered split, including the collapsed endpoints, which are only approached in the open mesh. For large T, the smaller step is 2z*/(T+sqrt(T^2-4z*))=d/2+O(1/T), so the optimal product is (1-d^2/4)T^2+O(T), while the equal product is T^4/16+O(T^3). Taylor expansion gives the stated bias; at d=sqrt(2) the quadratic term vanishes and the cubic term is positive. For independent bounded corroboration, `python /workspace/independent_checks.py 3` checked the reduction and optimum inequality on 32,300 rational grid points; the continuous classification is algebraic.
 
-**Closest literature and scientific limits.** Pilipovsky (2026), arXiv:2603.14868; Hoel–Häppölä–Tempone (2014), arXiv:1411.5515; Fang–Giles (2020), doi:10.1214/19-AAP1507. Mathematical-record searches supplied summaries but not full papers of several potentially related algorithms; no equivalent result was detected among those summaries. This theorem is scalar, Euler–Maruyama-specific, and about computed covariance rather than discretization accuracy. The model's own predictable covariance should not be used as an unqualified accuracy target.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded prior comparison supports the exact finite-horizon covariance phase diagram for standard two-step Euler–Maruyama. Neither a uniform-mesh result for strong solution error, free-final-time covariance steering, nor a fixed-budget observation-mesh theorem covers this objective and these thresholds.
+
+## value
+
+PASS
+
+Although the key minimization is elementary, the full phase diagram fixes a meaningful failure mode of numerical covariance as an objective: with low noise, the closed optimum starts collapsed, moves to unequal interior steps, becomes uniform, then leaves the uniform grid. The open-mesh nonattainment and unbounded long-time penalty for equal steps are exact test cases for mesh optimization, not claims about the best mesh for solution accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

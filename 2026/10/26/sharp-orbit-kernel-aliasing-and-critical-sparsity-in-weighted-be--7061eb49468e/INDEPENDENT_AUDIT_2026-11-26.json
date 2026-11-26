@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:43:35.852264Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–68",
+        "Frozen VERIFICATION.md, check.py, and check_output.txt, inspected without executing the uploaded code"
+      ],
+      "rationale": "For alpha>-1 the normalized radial beta integral gives norm squared 1/c_j for z^j. The polygon DFT isolates one orthogonal vector per residue modulo m; the squared e_N-coordinate of the matching normalized vector is exactly the stated probability. At s=e^(-t/N) its log derivative is the tilted mean of j/N minus one, with derivative minus the strictly positive variance. As t decreases to zero, the partition sum diverges and the tilted mass leaves each fixed initial index block, so the mean tends to infinity. At large t the smallest index dominates. These facts prove the two radius claims, including nonattainment for m>N. For varying m/N tending to zero, the scaled coefficients c_j/N^(beta-1) are bounded by a constant times ((j+1)/N)^(beta-1); truncation near zero and at infinity together with the shifted mesh m/N proves the gamma Riemann-sum limit, locally uniformly in t also for the first tilted moment. The log derivative brackets the global optimizer on either side of beta. At a positive limit c<1, index j=N+km gives the claimed lattice series by dominated convergence, also for its first moment: if 1+kc=0, admissible j=o(N) contributes zero in the limit by the same coefficient bound. For the limiting lattice, mass escapes to infinity as t decreases to zero and at large t concentrates on a point below one; the negative-variance derivative gives uniqueness and the same sign bracket controls the finite optimizers. Near m/N=1 from below or at equality only j=N-m is below N. Writing a=c_(N-m)/c_N and b=c_(N+m)/c_N, the two nearest relative contributions have sum at least 2 sqrt(ab), with equality at exp(-tm/N)=sqrt(a/b); the remaining geometric-polynomial tail at this test point is O(a). Inverting the minimized denominator gives the deficit equivalence, valid even for bounded N-m, since a tends to zero and b tends to 2^(beta-1).",
+      "residual_risks": [
+        "The supplied 630-count marker is diagnostic: some critical test cases increment a counter even if the accuracy assertion is skipped, and the script does not certify the lattice limit. The proof, not the finite tests, establishes all regimes. No unconstrained optimality is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 14 establishes existence for arbitrary finite node sets in weighted Bergman spaces with multiplicities; arXiv:2006.03290 gives a general reproducing-kernel existence criterion and Hardy/Bergman applications.",
+          "The exact cyclic catalog theorem includes a broader beta range for its fixed-m result but keeps m fixed in that limit."
+        ],
+        "reasoning": "Existence over all tuples, even with multiplicities, does not furnish the constrained values; the wider beta range with fixed m does not dominate the varying-m limits.",
+        "searches": [
+          "Qu–Qian–Li–Zhu, DOI:10.1016/j.amc.2021.126749, §5 Theorem 14",
+          "Qu–Qian–Deng, arXiv:2006.03290, Theorem 1.4 and applications"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 973f6bafeca1, 7830782d9413, and a40460d8956c",
+        "DOI:10.1016/j.amc.2021.126749",
+        "arXiv:2006.03290"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed mesh in the cyclic indexing does not provide uniform error or argmax bounds for m tending to infinity. In the critical regime the lower and upper alias terms compete on a moving t scale; the exact finite formula alone does not estimate their optimization error."
+        ],
+        "reasoning": "The known finite reduction is an input. A simultaneous mesh/gamma estimate, lattice optimization and balancing argument with a uniform tail are needed for the retained varying-m conclusions.",
+        "searches": [
+          "Cyclic Resultary 973f6bafeca1, Finding and scope at mirror offset 0",
+          "Best kernel approximation in Bergman spaces, Theorem 14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cyclic Resultary entry uses N=mq+j and gives the same Fourier-residue capture formula and unique positive radius when N>=m, together with the fixed-m Gamma law as q increases.",
+          "The primary best-kernel problem minimizes distance to a kernel span; replacing squared distance by one minus squared captured mass is equivalent for a unit target."
+        ],
+        "reasoning": "Do not count different indexing or projection versus squared error as novelty. The primary unrestricted problem and the frozen radius-only polygon problem are different feasible-set optimizations.",
+        "searches": [
+          "Resultary cyclic Bergman kernel approximation, regular polygon, monomial, gamma capture; record 973f6bafeca1",
+          "Weighted Bergman best kernel approximation, DOI:10.1016/j.amc.2021.126749"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact cyclic entry matches the finite projection/radius claims and fixed-m Gamma limit. The two-node Hardy optimum is for unrestricted nodes and has angular separation pi/2, not a regular two-gon. The D-optimal design entry concerns a weighted annular Szegő Gram determinant, not capture of a monomial."
+        ],
+        "reasoning": "The overlap on finite formulas is real; neither a small unconstrained Hardy example nor a determinant extremum solves the varying-m weighted Bergman capture problem.",
+        "searches": [
+          "Resultary 973f6bafeca1: exact cyclic Bergman kernel approximation and Gamma capture",
+          "Resultary 7830782d9413: two-node Szegő approximation",
+          "Resultary a40460d8956c: regular-polygon D-optimality"
+        ]
+      },
+      "rationale": "Credit only the varying-m asymptotic phase diagram. The strongest exact Resultary match gives the same projection identity, uniqueness, and fixed-m Gamma asymptotic in equivalent indexing. The varying sublinear regime requires uniform control as the index spacing changes, and neither the proportional lattice law nor the critical deficit is present in that inspected statement. Its catalog date is not used to remove the overlap or decide priority.",
+      "residual_risks": [
+        "The relationship in priority between the exact cyclic catalog record and the frozen record was not established. Other aliasing or quadrature literature may use different terminology. The finite law and fixed-m limit are not asserted distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent finite coverage and fixed-m asymptotics, but no inspected varying-m conclusion",
+          "evidence": [
+            "N=mq+j; residue-class projection, unique optimizing radius, and Gamma capture for fixed m,j,beta as q grows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-cyclic-bergman-kernel-approximation-and-its-gamma-capture--973f6bafeca1/RESULT.md",
+          "material_read": "Finding and scope, mirror offset 0",
+          "method": "Published record via local mirror",
+          "title": "Exact cyclic Bergman kernel approximation and its Gamma capture",
+          "trigger": "Exact same dictionary and monomial projection"
+        },
+        {
+          "assessment": "Existence theorem, not this polygon projection asymptotic",
+          "evidence": [
+            "An optimal n-kernel approximation exists in the standard weighted Bergman setting with multiplicities allowed."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.amc.2021.126749",
+          "material_read": "§5, Theorem 14, p. 10, OA offset 41144",
+          "method": "Institution-hosted primary OA PDF text",
+          "title": "Best kernel approximation in Bergman spaces",
+          "trigger": "Primary unrestricted weighted Bergman problem"
+        },
+        {
+          "assessment": "General existence criterion",
+          "evidence": [
+            "The criterion is subsequently applied to Hardy and weighted Bergman spaces; it does not evaluate radius-only regular polygon optimizers."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.03290",
+          "material_read": "Theorem 1.4, p. 6, OA offset 22695; p. 7, offset 23674",
+          "method": "OA primary PDF text",
+          "title": "A sufficient condition for n-Best Kernel Approximation in Reproducing Kernel Hilbert Spaces",
+          "trigger": "Potential broader general RKHS theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, sparsity laws and Proof §§3–5",
+        "Resultary 973f6bafeca1"
+      ],
+      "rationale": "Regular equally spaced kernels are a canonical symmetric dictionary. For growing target degree, knowing separately that sublinear sampling captures a vanishing fraction, linear sampling captures a strictly intermediate lattice-controlled fraction, and nearly degree-many nodes capture almost everything with a sharp square-root deficit is useful for choosing both sample count and radius. The critical formula distinguishes bounded from growing N-m and quantifies saturation before the exact m>N transition. These simultaneous limits answer a real optimization question beyond the already covered finite identity and fixed-m Gamma law.",
+      "residual_risks": [
+        "The utility is within the symmetric dictionary; the result does not decide whether an arbitrary node set needs this many kernels."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

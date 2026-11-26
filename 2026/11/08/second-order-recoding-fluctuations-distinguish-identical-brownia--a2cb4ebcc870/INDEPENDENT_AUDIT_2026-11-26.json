@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:50:11.009187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 28–96",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 17–23, 62–79 (inspected only)",
+        "Independent analytic replay via weighted-sum and conditional characteristic function identities stated above"
+      ],
+      "rationale": "Given the whole sign path, rows are independent, and each row's mean is the parity mean (1−2p_n)^binom(S_n,d), with empty product 1. The strong law for S_n/n and conditional Hoeffding give H_N/N→ρ almost surely; Fubini disintegrates this over environments. The bracket of the fixed-environment martingale is H_{N−1}+1, with deterministic diagonal brackets, so the bounded-jump functional CLT applies (uniform bracket convergence on compact rescaled time intervals follows from the partial-sum strong law). For all S_n, replacing the falling factorial and log by their leading terms incurs O(n^−1) for fixed d, including d=1. Taylor expansion gives slope −f′(1/2)/2=a since S_n/n−1/2=−X_n/(2n), and the fourth-moment bound gives a total L² error O(log N). The harmonic weights sum to N, their squares sum to 2N−h_N by summing min(r,s)/(rs), and their maximum h_N is o(sqrt(N)); Lindeberg gives the stated history Gaussian. Conditional characteristic functions of the bounded centered row noise converge almost surely to the deterministic characteristic function with variance 1−ρ²; bounded convergence permits multiplication by the varying unit-modulus characteristic factors of the history statistics. Conditional orthogonality and L² error control also establish the moment limits, not merely convergence in distribution. The bounded bracket shift and finitely many clipped probabilities do not change these limits.",
+      "residual_risks": [
+        "The second-order CLT and moments are annealed only. Finite parity and weight checks do not test the infinite CLTs. No proof-assistant certification or expert attestation is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hamza–Tournier give Brownian convergence and a row-independence implication for first-order bracket conditions; Collevecchio et al. give a bracket-based first-order Brownian criterion for general recodings."
+        ],
+        "reasoning": "A first-order bracket law, even in L² after division by N, does not control the scaled, centered bracket at sqrt(N), nor its joint limit with the walk.",
+        "searches": [
+          "arXiv:2610.01658v1, Theorem 1 and §4.2 Proposition 10",
+          "arXiv:2010.16000, Theorem 6"
+        ]
+      },
+      "checked_sources": [
+        "Hamza–Tournier arXiv:2610.01658v1",
+        "Collevecchio et al. arXiv:2010.16000",
+        "Resultary mirrors 962714ecbc50 and 7435461eecaa",
+        "Frozen record a2cb4ebcc870 (self-hit)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 10 gives (A) implies (B); Theorem 6 uses limits for bracket mean and second moment at first-order normalization. The reviewed law needs the first derivative of the binomial parity mean and the nonzero limiting covariance of the weighted increment history."
+        ],
+        "reasoning": "The second-order coefficient −dρ logρ and history contribution 2a² do not follow from the first-order criteria. The uniformly elliptic result does not apply to the thinned rows.",
+        "searches": [
+          "Hamza–Tournier §4.2 and Collevecchio et al. §3.1 compared to frozen RESULT.md lines 50–96"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored 962714ecbc50 and 7435461eecaa records have a variance-three annealed bracket fluctuation law for fair coefficients indexed by cardinality and reused across times."
+        ],
+        "reasoning": "The common observable is the signed bracket sum, but reusing fair cardinality coefficients changes the law of the whole time sequence; independent rows with sparse degree-d subset coefficients and positive ρ are not an equivalent parametrization. The same-day date decides no priority question.",
+        "searches": [
+          "Resultary: predictable cross-covariation fluctuations in random bootstrap walks",
+          "Focused literature lookup: sparse random recoding and bracket/covariance fluctuations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned the frozen finding itself and the distinct static-cardinality entries; the latter give constants 3 or 1 under different centering, not a table in (d,ρ)."
+        ],
+        "reasoning": "No located exact entry for these constants under this row law supplies the finding; the identical indexed entry is not an independent precedent.",
+        "searches": [
+          "Local Resultary search on sparse degree recoding and bracket fluctuation constants",
+          "Comparison with the closest mirrored variance-three entries"
+        ]
+      },
+      "rationale": "The two-walk Brownian limit and the use of the bracket are within existing theory. The supported distinct claim is the joint second-order annealed law and the explicit degree-dependent variance at fixed positive Brownian correlation; neither the inspected general criteria nor the closest static-coefficient results supply it.",
+      "residual_risks": [
+        "The focused external search was sparse; the comparison is based on the actual passages and model assumptions inspected, not an assertion of historical priority.",
+        "Other recoding or random-coefficient fluctuation work outside the retrieved corpus may overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers first-order framework, not the supported second-order finding",
+          "evidence": "Theorem 1 is a joint Brownian criterion, and Proposition 10 proves (A) implies (B) under the stated row-independence and upper probability bound.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01658v1",
+          "material_read": "Theorem 1 (HTML offset 3596) and §4.2 Proposition 10 (offsets 52465–57965)",
+          "method": "Lawful primary OA HTML passages",
+          "title": "Are random random walks normal?",
+          "trigger": "Same inclusion-induced representation and row-independent coefficients"
+        },
+        {
+          "assessment": "First-order criterion for general recodings",
+          "evidence": "The proof identifies the scaled cross-bracket as n^−1 times the sign sum and tests convergence to ρt, not fluctuations of the bracket.",
+          "identifier_or_url": "https://arxiv.org/pdf/2010.16000",
+          "material_read": "§3.1 Theorem 6 and its proof through the L² convergence setup, PDF pp. 6–7 (offsets 21550–25531)",
+          "method": "Lawful primary OA PDF, located then read by offset",
+          "title": "Limit theorems and ergodicity for general bootstrap random walks",
+          "trigger": "General recoding limit theorem for the two walks"
+        },
+        {
+          "assessment": "Second-order overlap in observable but different models and laws",
+          "evidence": "Fair static-cardinality environments give variance rate 3 under annealing, and the same-day result has rate 1 after environment centering; neither has independent degree-thinned rows or a positive fixed-ρ degree contrast.",
+          "identifier_or_url": "Resultary records 2026/11/8/SCOPE-quenched-covariance-fluctuations-in-a-fair-random-bootstrap-walk--962714ecbc50 and 2026/10/18/SCOPE-hidden-independent-scenery-quenched-normality-and-variance-three--7435461eecaa",
+          "material_read": "Mirrored Findings and model assumptions, first record offsets 0–4547 and second from offset 0",
+          "method": "Local search and mirrored RESULT.md passages",
+          "title": "Quenched covariance fluctuations in a fair random bootstrap walk; Hidden independent scenery, quenched normality and variance three",
+          "trigger": "Closest indexed second-order fluctuation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–26, 65–96",
+        "First-order criteria and static-cardinality comparisons in originality assessment"
+      ],
+      "rationale": "The formula identifies a concrete mechanism hidden by the first-order Brownian covariance: different interaction degrees tuned to the same ρ yield strictly different bracket variance rates. It gives a usable second-order invariant and separates conditional coefficient noise from the history contribution, rather than just exhibiting two models with the same correlation.",
+      "residual_risks": [
+        "The invariant is shown for this fixed-degree, row-independent thinning scheme, not for arbitrary sparse recodings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

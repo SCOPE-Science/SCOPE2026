@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:40:57.660053Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At any live state, the probability of reaching the facing endpoint within the next L/v without reversal is at least exp(−K); the Markov property at blocks of length L/v gives a geometric lifetime bound. The outgoing conditions are h_−(0)=0, h_+(L)=1 and m_−(0)=m_+(L)=0 for exit side and time, respectively. Independently solving gives h_+−h_−=p constant and m_+−m_−=τ−2x/v. Integrating h_−'=pλ/v and m_−'=(1+λ(τ−2x/v))/v gives the stated p and τ; at λ=0 the only pair is (1,L/v). For K>0 the centroid B/K is strictly between the endpoints. In the smooth exponential tilt with fixed mass, its derivative with respect to the tilt is L times a strictly positive variance of x/L, and concentration at the two endpoints yields the full open range and sharp unattained edges. A cosine has zero first moment by symmetry about L/2 and zero integral over a period, so small signed perturbations preserve both moments and stay positive on the compact interval; this works for every interior pair, not the deterministic p=1 pair. The supplied simulation uses integrated hazards and bisection, and the archived simulation is only a consistency check; no uploaded code was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2014 arbitrary inhomogeneous MFPT formula assumes a reflecting source endpoint, not a pair of absorbing endpoints. The 2015 and 2023 models allow more general wall behavior but use homogeneous bulk reorientation. Malakar et al. §4.2 cover both observables but restrict the bulk rate to a constant."
+        ],
+        "reasoning": "Broadness in the wall classes or noise models does not dominate the freely heterogeneous bulk in the frozen statement; the general inhomogeneous MFPT supplies a different observable, with a usable indirect implication by renewal.",
+        "searches": [
+          "Resultary: run-and-tumble particle heterogeneous reversal rate joint exit probability mean first passage time",
+          "arXiv:1506.08046 Eqs. (5)–(10)",
+          "arXiv:1601.04845 §3 Eqs. (32)–(36)",
+          "DOI 10.1088/1751-8121/ad009e §§2, 4 and 5.1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1506.08046",
+        "arXiv:2004.11041",
+        "arXiv:1601.04845",
+        "arXiv:1711.08474",
+        "DOI 10.1088/1751-8121/ad009e",
+        "DOI 10.1103/PhysRevE.100.052147 (limited)",
+        "Resultary 5ff3d150b267, 6539a8f35656, 1e2912e30fb8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the 2014 formula set both speeds to v and both reorientation rates to 2λ, so the integrating factor is one and the integrand in Eq. (5) is v⁻¹[1+2∫_x^L λ(y)/v dy]. Thus T_ref=(L+2B)/v; renewal gives τ=pT_ref. The 2020 backward formulas supply p on the symmetric rate specialization as above. The homogeneous two-observable comparison yields a fixed centroid L/2, not a two-dimensional region."
+        ],
+        "reasoning": "Both forward identities can be assembled from earlier techniques with the stated boundary conversion. The joint range requires varying mass and centroid independently over the nonnegative continuous rate class, proving strictness and sharpness, and showing exact smooth realization and nonidentifiability. Do not credit the forward identities as isolated new principles.",
+        "searches": [
+          "arXiv:1506.08046 pp. 1–2, Eqs. (1), (2), (5), (8)–(10)",
+          "arXiv:2004.11041 §4 Eq. (76) and boundary conditions",
+          "arXiv:1711.08474 §4.2 Eqs. (51)–(52)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Singh–Sabhapandit–Kundu use complementary left-exit probabilities with equivalent outgoing conditions. In their Eq. (76), setting the two rates equal and integrating directly gives the total-rate splitting formula. The one-reflecting-end lifetime T_ref of Angelani–Di Leonardo–Paoluzzi is related by renewal at the left wall: T_ref=τ+(1−p)T_ref."
+        ],
+        "reasoning": "Changing which exit is counted complements the probability; a reflecting source wall changes the stopping time. The renewal relation, rather than a substitution identifying the two times, explains the overlap. The joint attainable set and exact inverse fibers are the assessed remainder.",
+        "searches": [
+          "Resultary: inhomogeneous run-and-tumble particle spatially dependent reversal rate MFPT exit probability",
+          "arXiv:2004.11041 §4 Eqs. (75)–(78)",
+          "arXiv:1506.08046 p. 2 Eqs. (5)–(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5ff3d150b267 gives a mean-time optimizer under homogeneous reversal and an unbiased interior launch with partial endpoint absorption; 6539a8f35656 gives splitting with homogeneous reversal and heterogeneous capture, not heterogeneous reversal; 1e2912e30fb8 treats homogeneous wall-release escape cumulants."
+        ],
+        "reasoning": "The closest entries change the launch, stopping, design parameter or observable. None states the open two-observable region or identifies interior moment fibers, independent of catalogue date. This is a bounded statement comparison, not an inference from a negative index search.",
+        "searches": [
+          "Resultary: joint exit probability mean absorption time variable spatial reversal rate zeroth first moment",
+          "Resultary: run-and-tumble open attainable region joint splitting probability MFPT reversal rate centroid"
+        ]
+      },
+      "rationale": "Credit the previously available splitting equations and their direct integrated-rate specialization, as well as the reflecting/absorbing first-passage moment and its renewal relation to τ. The distinct claim assessed is the complete joint feasible region and inverse fibers for the two-absorbing-end injected protocol over arbitrary continuous nonnegative reversal profiles. The checked statements concern pieces, different rate families, or different boundary/start ensembles; no inspected theorem already classifies this joint design problem.",
+      "residual_risks": [
+        "The 2019 space-dependent-speed paper was not available in full for comparison. Related two-stream or inverse-transport literature could encode this joint classification under different terminology; the bounded search does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the reflecting MFPT; indirect mean-time overlap, not the joint design classification",
+          "evidence": [
+            "Left current zero, right inward density zero, injected initially to the right; displayed integral gives T_ref=(L+2B)/v in the symmetric constant-speed case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.08046",
+          "material_read": "p. 2, boundary/launch text and Eqs. (1)–(2), (5)–(10), including offsets 8750 and 11900",
+          "method": "Open primary manuscript, exact PDF passages and rate/renewal conversion",
+          "title": "First-passage time of run-and-tumble particles",
+          "trigger": "Closest arbitrary-inhomogeneity MFPT theorem"
+        },
+        {
+          "assessment": "Splitting identity follows from the symmetric specialization of the equations; no joint mean-time range follows from those formulas alone",
+          "evidence": [
+            "E_+(M)=0, E_−(0)=1 for left exit; coupled equations with rates R1 and R2, solved explicitly for the paper's power-law family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2004.11041",
+          "material_read": "§4 printed pp. 27–28, Eqs. (75)–(78) and outgoing conditions, including offset 295451",
+          "method": "Open primary PDF, exact equations and boundary text",
+          "title": "Run-and-tumble particle in inhomogeneous media in one dimension",
+          "trigger": "Explicit inhomogeneous finite-interval exit probabilities"
+        },
+        {
+          "assessment": "Homogeneous bulk absorption time, not heterogeneous joint range",
+          "evidence": [
+            "Initial direction mixture and homogeneous reorientation; reversal rate is half the event rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.04845",
+          "material_read": "§2.1 Eqs. (11)–(14) and §3 Eqs. (32)–(36)",
+          "method": "Primary paper passages; compared initial law and bulk/endpoint conventions",
+          "title": "Run-and-tumble particles, telegrapher’s equation and absorption problems with partially reflecting boundaries",
+          "trigger": "Broader wall absorption model"
+        },
+        {
+          "assessment": "Homogeneous reversal, with diffusion in the displayed boundary problem",
+          "evidence": [
+            "Equations for exit probability and mean time use fixed bulk reversal, not free spatial profiles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.08474",
+          "material_read": "§4.2 pp. 18–20, Eqs. (51)–(52)",
+          "method": "Primary paper passages compared by generator and stopping rule",
+          "title": "Steady state, relaxation and first-passage properties of a run-and-tumble particle in one-dimension",
+          "trigger": "Both observables in a finite interval"
+        },
+        {
+          "assessment": "General boundary kinetics, fixed bulk rate",
+          "evidence": [
+            "Initial equal direction mixture; absorbing specialization concerns the mean exit time."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ad009e",
+          "material_read": "§2 Eqs. (6)–(8); §4 Eq. (47); §5.1.1 Eq. (52)",
+          "method": "Primary paper passages comparing boundary kinetics and bulk assumptions",
+          "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+          "trigger": "May cover source and absorption through a more general boundary model"
+        },
+        {
+          "assessment": "Details unresolved; no negative inference drawn from access",
+          "evidence": [
+            "Described heterogeneity is in speed; potential formula-level overlap not assessed without the full text."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.100.052147",
+          "material_read": "Identified title/abstract only; full text not obtained",
+          "method": "DOI OA attempt timed out and publisher PDF was inaccessible",
+          "title": "Run-and-tumble motion in one dimension with space-dependent speed",
+          "trigger": "Relevant heterogeneous telegrapher boundary problem"
+        },
+        {
+          "assessment": "Related mean optimization, not the same theorem",
+          "evidence": [
+            "One homogeneous reversal parameter, interior equally likely launch directions, and partial endpoint capture."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-non-sticky-tumbling-assisted-capture-in-an-asymmetric-fini--5ff3d150b267",
+          "material_read": "RESULT.md Finding and Assumptions, beginning of file",
+          "method": "Resultary mirror; compared domain of free rates and initial law",
+          "title": "Sharp non-sticky tumbling-assisted capture in an asymmetric finite interval",
+          "trigger": "Same-day finite interval mean-time optimization"
+        },
+        {
+          "assessment": "Different splitting problem",
+          "evidence": [
+            "Two finite interior reaction zones and unbiased center launch; spatial capture, not variable flip rate."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-unique-speed-induced-trapping-side-reversal-for-two-finite-rea--6539a8f35656",
+          "material_read": "RESULT.md Finding, beginning of file",
+          "method": "Resultary mirror; compared hazard and reversal parameters",
+          "title": "A unique speed-induced trapping-side reversal for two finite reactive zones",
+          "trigger": "Same-day heterogeneous splitting-probability theorem"
+        },
+        {
+          "assessment": "Does not cover the joint map",
+          "evidence": [
+            "Homogeneous reversal and wall release; mean and variance cumulants instead of joint exit-side probability and mean."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-two-turning-point-transition-in-run-and-tumble-escape-ti--1e2912e30fb8",
+          "material_read": "RESULT.md Finding, beginning of file",
+          "method": "Resultary mirror; compared observables and stopping rules",
+          "title": "A sharp two-turning-point transition in run-and-tumble escape time",
+          "trigger": "Exact escape time and variance classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The boundary-injection measurement protocol motivates the simultaneous calibration problem. The sharp feasible region says exactly which pairs of measurements can be matched by a smooth positive rate, and the moment fibers identify what this protocol can and cannot distinguish. These joint feasibility and inverse facts are useful separately from the rather short forward equations; no significance for full exit-time distributions or multi-start measurements is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

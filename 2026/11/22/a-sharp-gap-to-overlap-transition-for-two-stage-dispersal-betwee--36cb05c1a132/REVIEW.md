@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The mathematical object is the probability that a uniformly timed emigrant released during an active source interval reaches an equally long destination active interval after exactly two independent exponential transit stages. The domain explicitly covers every positive rate and active duration and every real opening date. Equations (1)–(4) classify the derivative throughout the real line; the unique positive zero of \(e^x=1+2x\) determines the single touch transition. Implicit differentiation and the exact tail expression prove the strict monotonicity and sharp mode-to-median limits. The CDF antiderivative checks the small-window success asymptotic, and the one-stage comparison is derived separately. A standard-library checker independently exercises the resulting formulas at 39,007 finite comparisons. This is a mathematical self-review, not independent certification or proof by sampling.
+## correctness
 
-## Originality — PASS on the inspected record
-The closest motivating article, Moisset de Espanés and Ramos-Jiliberto (2024), makes dispersal events conditional on simultaneous habitat availability and reports numerical metacommunity sensitivity. It does not optimize a delayed arrival-window success probability. Karnatak and Wollrab (2020) study probabilistic network dispersal, not the finite uniform-emission/Erlang arrival calendar; Hockaday and colleagues (2024) measure hydroperiod-dependent responses experimentally. Related mathematical research on exponential presence-episode monitoring, exponential spatial dispersal between bands, and Gamma-conditioned travel currents was also compared at the level of object, constraints, and logical implication. The inspected results do not imply the sharp gap-to-overlap threshold or the short-window synchronization penalty. Classical gamma calculus is acknowledged rather than presented as novel. **Risk:** an older, differently named queueing or coverage-interval result not indexed by the searches may establish an equivalent statement; historical priority is provisional.
+PASS
 
-## Value — PASS
-Temporary habitat availability and arrival delay are biologically motivated by the cited studies. The result distinguishes a delayed-reception design that has **no simultaneous active period** from one requiring overlap, with one exact nondimensional cutoff rather than a numerical or heuristic boundary. It also proves that synchronous short windows can lose an arbitrarily large multiplicative factor relative to optimal scheduling. The first-versus-second transport-stage contrast isolates when this phenomenon becomes possible and supplies an exact benchmark for mechanistic model refinement.
+Under independent uniform departure and two independent same-rate exponential stages, normalize x=λL and z=λd. The arrival density is [F(t)−F(t−x)]/x and the objective derivative is the difference of its values at z+x and z. There is zero probability for z≤−x and strict increase for −x<z≤0. On 0≤z≤x the derivative has sign H=F(z+x)−2F(z); g(z+x)/g(z)=e^(−x)(1+x/z) is strictly decreasing, so H begins positive and can cross zero only once, on its descending part. The sign at x is that of (1+2x)e^(−x)−1. In the tail the derivative has the sign of x(e^x+1)−(e^x−1)(1+z). These signs prove the unique global optimum, including the touching case at the unique positive root of e^x=1+2x. The tail derivative of the optimal phase is positive by sinh(x)>x, and the interior phase increases because H_z<0 and H_x>0 at the root. Continuity at the transition follows by taking limits in the interior-root equation, which has only z=x at the transition. The short-duration phase tends to 1; in the interior F(z_*)=F(z_*+x)/2<1/2 and tends to 1/2 at long duration. At synchrony the short-duration mean integrates the leading F(t)=t²/2+O(t³) to x²/6; at optimum the local density tends to g(1)=1/e and its mass is x/e+o(x). The one-stage phase is log(2−e^(−x))∈(0,x); the proof's incidental claim of positive derivative for all negative phases should read −x<z<0, since the objective is zero for z≤−x. This does not affect the result. VERIFICATION.md and checker.py were inspected, not executed; the reported 39007 finite assertions are supplementary.
 
-## Closest literature and scientific limitations
-- Moisset de Espanés and Ramos-Jiliberto (2024), https://doi.org/10.1038/s41598-024-56632-y: stochastic dispersal with asynchronous sites, no delayed in-transit population in the model used.
-- Hockaday et al. (2024), https://doi.org/10.1371/journal.pone.0306578: controlled wetland hydroperiods and community responses; no arrival-window optimizer.
-- Karnatak and Wollrab (2020), https://doi.org/10.1038/s41598-020-79162-9: probabilistic network coupling, not a two-stage travel-time receiving window.
+## originality
 
-Limitations include prescribed independent equal-rate transport stages, uniform source departures, equal fixed habitat durations, unconstrained destination opening, immediate establishment, and omission of environmental feedback, mortality and ecological interactions. The probability optimized is a single-propagule event; it must not be read as a population persistence prediction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise two-stage equal-window optimizer, sharp change from gap to overlap and short-duration synchrony penalty were not supplied by the inspected antecedents. Standard Erlang calculus, interval endpoint balancing, and the ecological relevance of timing are not the distinct claims.
+
+## value
+
+PASS
+
+The idealized model distinguishes synchrony, overlap, touching and a strictly advantageous positive gap, with an exact crossover and unbounded relative cost of synchrony despite vanishing absolute success. The one-stage contrast identifies sequential transport as the mechanism within this family, rather than treating the threshold as an arbitrary calendar setting. This is an exact timing benchmark, not a field management or population-persistence prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:03:30.681185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly from the neighbor counts, a set of occupancy (a,b) is fair iff (a=s or b=2) and (b=t or a=2). For s,t>2 every proper fair union is (2,2), and no fair set of size 2 exists. Thus a partition with at least three blocks must use complementary occupancies (0,1)-(2,1), (1,0)-(1,2), (0,2)-(2,0), or two distinct (1,1)-blocks. For s>=4 the excess E=sum(|B|-1) is at least 4: no singletons gives E>=ceil((s+t)/2), both singleton types force two distinct triples, and a single singleton type forces a triple taking two vertices from the opposite shore. With E<=3 the only way to supply the two remaining opposite-shore vertices would be a doubleton on that shore; its required opposite doubleton costs another unit. The two complementary triples with singleton tails attain E=4. For s=3, a block taking two X vertices makes the block containing the remaining X vertex unpartnerable. All blocks then take one X vertex, so there are three, and a self-complementary (1,1) pair cannot occur alongside a mixed family requiring two further X vertices. All (1,1) gives t=3; the (1,0)/(1,2) mix gives t=4, since its only other possibility gives t=2<s. For s=2<t, every proper fair set contains all of X: splitting X between blocks strands all other blocks, while keeping X together makes its block fair and hence unusable as a partner. For K_2,2 the four singletons work. For s=1 the only proper fair set that can occur is Y when t=2, and then the X-vertex's block cannot participate in any proper fair union or be a fair block. Two-block constructions for the residual cases are X,Y when neither has size two, {x1}, {x2} union Y when s=2<t, and X union {y1}, {y2} when (s,t)=(1,2). Each uses two nonfair blocks whose union is all vertices. Read RESULT.md, VERIFICATION.md and verify.py without executing the supplied script. Independent occupancy-multiset enumeration matched all 36 profiles with s+t<=12 (`python3 /tmp/opencode/frozen_math_replay_1_2_4.py 2`); the proof, not the finite check, covers all sizes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.3 has exact small/degenerate cases and otherwise upper bounds; the hypothesis of its second range is read from the preceding Theorem 3.2 because of a printed omission.",
+          "The multipartite two-fair record assumes at least three parts, and the fair-coalition paper uses one neighbor, not two."
+        ],
+        "reasoning": "A broader theorem would need both the exact-two parameter and two shores. The same-parameter multipartite result excludes two shores, and the same-graph fair-coalition results use another parameter.",
+        "searches": [
+          "arXiv:2509.11358v1 Theorems 3.2–3.3",
+          "Resultary:2026/10/12/SCOPE-sharp-two-fair-coalition-dichotomy-on-dense-complete-multipartit--0ec617c3601d",
+          "arXiv:2507.15080v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.11358v1",
+        "arXiv:2507.18306v1",
+        "arXiv:2507.15080v2",
+        "Local Resultary searches and the three identified catalogue records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fair theorem gives t+1 at s=3,4; the reviewed values are 3,3,2,2,... at s=3 and t at s=4.",
+          "In the large-shore range the known s+t-4 bound alone supplies no attaining fair partition."
+        ],
+        "reasoning": "Specialization gives the boundary cases and reusable upper bounds but not tightness, the improved bounds, or the step changes in t. The fair block-occupancy argument supplies those genuinely distinct parts.",
+        "searches": [
+          "arXiv:2509.11358v1 Theorem 3.3",
+          "arXiv:2507.18306v1 Theorem 5.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fair primary source requires exactly k neighbors for outside vertices; the ordinary k-coalition source requires at least k.",
+          "At s=3,4 in its nondegenerate range the ordinary k=2 formula gives t+1, which disagrees with the exact-neighbor formula."
+        ],
+        "reasoning": "Identical graph family and k do not identify these coalition parameters. The occupancy constraints here are equalities and rule out partitions admissible in the ordinary setting.",
+        "searches": [
+          "Resultary: exact 2-fair coalition numbers of complete bipartite graphs",
+          "arXiv:2509.11358v1 definition and Theorem 3.3",
+          "arXiv:2507.18306v1 definition and Theorem 5.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The narrow-profile record gives ordinary 2-coalitions with t+1 in its s=3,4,5 range t>=s+1.",
+          "The distinct multipartite exact record includes a bipartite result, but is 1-fair."
+        ],
+        "reasoning": "These are related exact data, but neither tabulates the requested invariant. The ranked Resultary search found no identical exact formula.",
+        "searches": [
+          "Resultary: C_2f(K_s,t), K_3,t, K_4,t and t versus t+1",
+          "Resultary:2026/11/2/SCOPE-exact-optimal-2-coalition-partition-profiles-of-narrow-complete--d287aaa2f1e0",
+          "Resultary:2026/10/13/SCOPE-fair-coalition-partitions-of-complete-multipartite-graphs--a51699f37bef"
+        ]
+      },
+      "rationale": "The initiating fair paper already covers the degenerate ranges and provides upper bounds in the main regime. The distinct exact results are the small-shore transitions at s=3,4 and the matching constructions for s>=5. Neither the ordinary at-least-two coalition theorem nor the 1-fair theorem determines this parameter. No exact equivalent was established in the checked sources.",
+      "residual_risks": [
+        "Ranked catalogue and external literature searches cannot exclude a poorly indexed equivalent complete-bipartite formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definitions, degenerate cases and bounds, not the exact nontrivial formula",
+          "evidence": [
+            "Exact-k domination; specialization of Theorem 3.3(i) gives t+1 for s=3,4; the large-shore upper-bound range follows from Theorem 3.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.11358v1",
+          "material_read": "Definition p. 1; Theorems 3.2–3.3 pp. 5–6 (offset around 15551)",
+          "method": "Targeted OA PDF passages",
+          "title": "k-Fair Coalitions in Graphs",
+          "trigger": "Initiating definition and theorem on the same family"
+        },
+        {
+          "assessment": "Different domination condition and different values",
+          "evidence": [
+            "At least k, not exactly k; the ordinary formula specializes to t+1 rather than the smaller 2-fair counts in the narrow cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.18306v1",
+          "material_read": "Definition p. 1; Theorem 5.2 p. 13 (offset around 49782)",
+          "method": "Targeted OA PDF passages",
+          "title": "On k-coalition in graphs: bounds and exact values",
+          "trigger": "Exact complete bipartite result in the ordinary parameter"
+        },
+        {
+          "assessment": "Does not cover the 2-fair parameter",
+          "evidence": [
+            "Its K_3,3 example gives C_f=6, in contrast to C_2f=3 here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.15080v2",
+          "material_read": "1-fair convention and K_3,3 example, PDF p. 4",
+          "method": "Targeted OA PDF passage",
+          "title": "Fair coalition in graphs",
+          "trigger": "Adjacent fair-coalition graph literature"
+        },
+        {
+          "assessment": "Ordinary 2-coalition, not 2-fair",
+          "evidence": [
+            "At least two neighbors; t+1 blocks for s=3,4,5 and t>=s+1."
+          ],
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-exact-optimal-2-coalition-partition-profiles-of-narrow-complete--d287aaa2f1e0",
+          "material_read": "RESULT.md Finding and definition",
+          "method": "Local mirror",
+          "title": "Exact optimal 2-coalition partition profiles of narrow complete bipartite graphs",
+          "trigger": "Closest exact numerical and family match"
+        },
+        {
+          "assessment": "Excludes bicliques",
+          "evidence": [
+            "It requires at least three parts."
+          ],
+          "identifier_or_url": "Resultary:2026/10/12/SCOPE-sharp-two-fair-coalition-dichotomy-on-dense-complete-multipartit--0ec617c3601d",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror",
+          "title": "Sharp two-fair coalition dichotomy on dense complete multipartite graphs",
+          "trigger": "Same parameter on a larger graph family"
+        },
+        {
+          "assessment": "Bipartite overlap in graph family only",
+          "evidence": [
+            "It concerns 1-fair coalition partitions."
+          ],
+          "identifier_or_url": "Resultary:2026/10/13/SCOPE-fair-coalition-partitions-of-complete-multipartite-graphs--a51699f37bef",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror",
+          "title": "Fair coalition partitions of complete multipartite graphs",
+          "trigger": "Exact bipartite comparison within a multipartite result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines an entire natural graph family where the initiating theorem gives only bounds. In particular, a strict one-block deficit at s=4 and a drop from three to two blocks at t=5 on the s=3 line show where the known bounds fail. The occupancy/complementarity obstruction and matching construction also explain the exact transition to the sharp large-shore formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

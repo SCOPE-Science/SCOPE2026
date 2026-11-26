@@ -2,32 +2,24 @@
 
 ## Finding
 
-For finite **nonempty** structures \((X,E,F)\) in the signature of two *named* equivalence relations, the least cardinality at which two nonisomorphic structures can satisfy exactly the same sentences of two-variable first-order logic with counting, \(C^2\), is **eight**. Every structure on at most seven elements is distinguished from every nonisomorphic such structure, regardless of the cardinality of the comparator.
-
-At cardinality eight, there are exactly **3,017** isomorphism types and **3,016** distinct \(C^2\)-equivalence classes: one class of size two and 3,015 singleton classes. The unique exceptional pair corresponds to the incidence multigraphs \(C_8\) and \(C_4\sqcup C_4\), with named sides. Each incidence edge is one element of \(X\); sharing the first or second endpoint defines \(E\) or \(F\), respectively.
+Among finite nonempty structures with two named equivalences, all isomorphism types on at most seven elements are distinguished by two-variable first-order logic with counting, \(C^2\). At eight elements, the full family has 3,017 isomorphism types but 3,016 \(C^2\)-classes. Just one class contains more than one isomorphism type. Its members have bipartite incidence graphs \(C_8\) and \(C_4\sqcup C_4\), with named sides. In particular the least cardinality of a collision in the full family is eight. The contribution is the unrestricted census and exclusion of all other collisions through eight, not the isolated construction of the two-matching witness.
 
 ## Assumptions and scope
 
-Here \(E\) and \(F\) are separately interpreted reflexive, symmetric, transitive binary relations. They may coincide or have nontrivial intersection. Their names cannot be exchanged by an isomorphism. \(C^2\) permits equality, Boolean operations, arbitrary counting quantifiers, and only two reusable variables. Logical comparison is **within the class of finite structures in which both relations are equivalences**; no claim is made about arbitrary relational structures. Empty structures are excluded, but allowing one would not change the first failure because cardinality is \(C^2\)-definable.
+The signature consists of two separately named equivalence relations \(E,F\) and no other predicates. The relations may coincide or overlap; isomorphisms may not exchange their names. \(C^2\) uses equality and arbitrary counting quantifiers with two reusable variables. Comparison is within the finite class in which both relations are equivalences. A different cardinality is distinguished by a counting sentence, so the exclusion below eight also applies when the comparator is not assumed to have the same order. Allowing an empty structure would not affect the first collision.
 
-Let the \(E\)-classes be \(R_1,\ldots,R_r\) and the \(F\)-classes \(S_1,\ldots,S_s\). Associate the nonnegative integral matrix \(M=(m_{ij})\), where \(m_{ij}=|R_i\cap S_j|\). Every row and column is nonzero and \(\sum_{i,j}m_{ij}=|X|\). The isomorphism type is exactly the orbit of \(M\) under *independent* row and column permutations. Parallel edges in the associated bipartite multigraph encode intersections of size greater than one.
+Use a matrix \(M=(|R_i\cap S_j|)_{ij}\), where \(R_i\) runs through the \(E\)-classes and \(S_j\) through the \(F\)-classes. Its entries are nonnegative integers, its rows and columns are nonzero, and its total weight is the cardinality. Isomorphism is exactly independent row and column permutation. Equivalently an element is an incidence edge joining its two classes; an intersection of size greater than one gives parallel edges.
 
 ## Proof
 
-**Step 1 — a complete enumeration space.** Starting with the one-cell matrix \((1)\), obtain every matrix of weight \(n+1\) from a matrix of weight \(n\) by one of four operations: increment an existing cell; add a new row with one unit in an existing column; add a new column with one unit in an existing row; or append a new row and a new column meeting in one unit. Conversely, deleting any one element of a two-equivalence structure yields exactly such an operation in reverse. Therefore this recursion generates representatives of *all* isomorphism types at each weight.
+**Exhaustive generation.** Start at \((1)\). Adjoining a point increments any existing cell, adds a unit in a new row and existing column, adds a unit in an existing row and new column, or creates a new row and column intersecting in a single unit. Removing a point and discarding any resulting zero row or column reverses one of these operations. Thus the recursion reaches all isomorphism types. For canonicalization, first impose ascending column-sum order, then consider the permutations within each equal-sum group, and for each such column order sort the rows lexicographically. The least outcome in that family is invariant and can only agree for matrices in the same orbit.
 
-For canonicalization, put columns in ascending column-sum order (this order is invariant under isomorphism), freely permute columns inside equal-sum groups, sort rows lexicographically, and take the lexicographically minimum outcome **subject to this fixed column-sum order**. This is a unique orbit representative under arbitrary independent row and column permutations, though not necessarily the unrestricted lexicographic minimum. Thus deduplicating these canonical matrices neither identifies nonisomorphic structures nor misses any structure.
+**Logical equivalence test.** Start with one color and refine a point by its old color and the number of points of each old color in each of the four \((E(x,y),F(x,y))\) channels. To recover the separate equality channel, remove one point of the current color from the \((1,1)\) channel and assign it to \(y=x\). All names for refined colors are synchronized across the compared structures. Each refined color is definable by a unary counting formula: conjoin its previous color formula with the exact counts for all previous color and relation channels. Conversely, an induction on formulas bounds the necessary refinement depth. At a given depth a formula evaluated on a pair depends only on its atomic pair type (with equality) and the colors of its two endpoints; binding either endpoint is evaluated by counting those types and endpoint colors while retaining the other endpoint. Thus at stabilization the multiset determines all counting sentences, and a difference of multisets is detected by counting one definable color. Refinement only splits color classes, so the synchronized procedure terminates for a finite census.
 
-**Step 2 — a complete logical signature.** Initialize every element with one color. Given a color \(c_t\), assign to an element \(x\) the new color determined by its old color together with all counts
-\[
-N_t(x;a,b,d)=\bigl|\{y\in X: [E(x,y)]=a,\ [F(x,y)]=b,\ c_t(y)=d\}\bigr|,
-\]
-where \(a,b\in\{0,1\}\), and \([P]\) denotes the indicator of \(P\). Colors are defined *jointly* across all compared structures, not renamed independently inside each structure. The diagonal \(y=x\) is recognizable as one designated element of the \((a,b)=(1,1)\) class having color \(c_t(x)\), so explicit equality adds no missing coordinate. By the standard two-variable counting-logic/color-refinement correspondence (and directly by induction over formulas and refinement rounds), two finite structures have the same \(C^2\) sentences if and only if their stable color multisets agree. The possible counts are finite and distinguishable using counting quantifiers. Termination follows because color classes only split and the disjoint union is finite.
+**Full census.** The exact counts are:
 
-**Step 3 — certified finite classification.** The accompanying standalone `verify.py` implements Steps 1 and 2 using exact integer matrices, global synchronized refinement, and no third-party dependencies. It computes the following complete table; the final column counts non-singleton logical classes:
-
-| \(|X|\) | Isomorphism types | \(C^2\)-classes | Non-singleton classes |
-|---:|---:|---:|---:|
+| Cardinality | Isomorphism types | \(C^2\)-classes | Non-singleton \(C^2\)-classes |
+| ---: | ---: | ---: | ---: |
 | 1 | 1 | 1 | 0 |
 | 2 | 4 | 4 | 0 |
 | 3 | 10 | 10 | 0 |
@@ -37,36 +29,32 @@ where \(a,b\in\{0,1\}\), and \([P]\) denotes the indicator of \(P\). Colors are 
 | 7 | 910 | 910 | 0 |
 | 8 | 3017 | 3016 | 1 |
 
-It also verifies that the lone non-singleton class consists of exactly the following two canonical intersection matrices, written with named row and column sides:
+The two members of the last non-singleton class are the intersection matrices
 \[
-A=\begin{pmatrix}
-0&0&1&1\\0&0&1&1\\1&1&0&0\\1&1&0&0
-\end{pmatrix},\qquad
-B=\begin{pmatrix}
-0&0&1&1\\0&1&0&1\\1&0&1&0\\1&1&0&0
-\end{pmatrix}.
+\begin{pmatrix}0&0&1&1\\0&0&1&1\\1&1&0&0\\1&1&0&0\end{pmatrix},\qquad
+\begin{pmatrix}0&0&1&1\\0&1&0&1\\1&0&1&0\\1&1&0&0\end{pmatrix}.
 \]
-
-In \(A\) the associated bipartite graph has two four-cycle components; in \(B\) it is one eight-cycle. Hence they are not isomorphic, even without respecting the named sides. In both structures each element has exactly one other \(E\)-equivalent element, exactly one other \(F\)-equivalent element, and no *other* element equivalent for both relations. Every element therefore has the same initial relation-count profile \((1,1,1,5)\) for the four pairs \((E,F)=(1,1),(1,0),(0,1),(0,0)\). All later colors remain uniform, proving their \(C^2\)-indistinguishability without relying on the exhaustive computation.
-
-The computed absence of collisions through order seven and uniqueness at order eight completes the proof. In addition to the main recursion, the verifier separately enumerates *pairs of labeled set partitions* through order five and checks agreement with canonical matrix counts. The entire isomorphism-count column also matches the independently established sequence OEIS A007716 (this known column is **not** claimed as new).
+They are not isomorphic: their incidence graphs have respectively two components and one. Both have the uniform channel profile \((1,1,1,5)\) in the channel order \((1,1),(1,0),(0,1),(0,0)\). Hence the indistinguishability of the explicit pair also follows directly, without the census. The census proves that this pair is the only collision at eight and that there are none at smaller orders; these conclusions range over all the matrices, not just the matrices with row and column sums two and entries at most one.
 
 ## Verification
 
-Run `python3 verify.py` with an ordinary Python 3 interpreter. The program regenerates each canonical matrix family, computes joint color-refinement histograms, and asserts all table entries and the two exact witness matrices. Its output ends with `VERIFIED: full sharp C2 threshold and unique first pair`. A full local execution succeeded. All computations use exact integers; no probabilistic assumptions, timeouts treated as proofs, or external enumerator data are required. The rigorous guarantee is relative to the elementary exhaustiveness and canonicalization arguments above, not merely the agreement of printed counts.
+Run `python3 verify.py` with the Python standard library. It generates the matrix families, refines all isomorphism types at each cardinality with synchronized colors, asserts the exact cardinalities and witness matrices, and ends with `VERIFIED: full sharp C2 threshold and unique first pair`. It also cross-checks the first five isomorphism counts by explicitly generating pairs of set partitions. The independent mathematical grounds for exhaustiveness, the orbit selector and the logical test are given above; equality of printed totals alone would not certify the classification.
 
 ## Relationship to prior work
 
-Kiefer, Schweitzer and Selman (arXiv:1503.08792v1, March 2015) give a general characterization of finite relational structures identified by \(C^2\), including a structural classification and algorithm (their Theorem 27 and Corollary 29). This provides the appropriate global background for logical identification but does not enumerate the restricted two-equivalence class through eight elements or state this threshold and unique pair in the inspected text. This finding is therefore a **small-order specialization with an exact new layer**, not a new general criterion for \(C^2\).
+OEIS A007716 records the isomorphism-count column; it counts matrix orbits modulo independent row and column permutations after padding with zero rows and columns. That column and the intersection-matrix interpretation are background, not a claim of a new enumeration formula.
 
-Pratt-Hartmann (2015, DOI 10.1002/malq.201400102, especially Section 7) studies the much broader satisfiability problem with two equivalence relations and establishes undecidability in an enriched signature; that result does not determine these exact isomorphism/refinement numbers. OEIS A007716, with contributions predating 2016, records the already-known total number of matrix-orbit types (3,017 at weight eight) without the \(C^2\)-partition of them. The split between 3,017 isomorphism types and 3,016 \(C^2\)-types, and its unique witness, is the specific classification addressed here.
+The related Resultary record [4] treats structures in which both equivalences partition into pairs and their intersection is equality. It shows that the subfamily at a given size is a whole \(C^2\)-class even in the full family, and describes its isomorphism types by the lengths of alternating cycles. Its eight-point case supplies exactly the two members of the class used here. It does not exclude collisions wholly among structures outside that fibre at eight or among nonmatching structures at lower orders. No relative publication priority is inferred from the two records' shared catalog date.
+
+Kiefer, Schweitzer and Selman [1, Theorem 27 and Corollary 29] give a structural characterization and an identification algorithm in a broader finite relational setting; this is background, not a new general characterization here. Pratt-Hartmann [2] addresses satisfiability in a much broader setting. Neither the orbit-count data nor the general algorithm provides the unrestricted order-eight logical census as table data.
 
 ## Limitations
 
-The sharp bound concerns two **named equivalences and no additional predicates**. Adding unary predicates, fixing individual elements, imposing connectedness of the incidence graph, or using a stronger logic can change the result. The \(C^2\)-collision is witnessed among finite equivalence structures; this is not a classification of arbitrary two-relation structures. The finite census is supported by a fully reproducible exact program, not by a short independent hand enumeration of all 3,017 types. Novelty remains subject to obscure or unindexed prior small-order tabulations and to human literature review; independent audit has not been performed.
+The result is finite and restricted to two named equivalences without additional predicates. The computation is not a classification at higher orders or in stronger logics. Requiring the incidence graph to be connected would exclude one witness. Historical priority beyond the related record and consulted literature is not certified.
 
 ## References
 
-1. S. Kiefer, P. Schweitzer, E. Selman, *Graphs Identified by Logics with Counting*, first public arXiv version March 30, 2015, arXiv:1503.08792v1, https://arxiv.org/abs/1503.08792.
-2. I. Pratt-Hartmann, *The two-variable fragment with counting and equivalence*, *Mathematical Logic Quarterly* **61** (2015), 474–515, DOI:10.1002/malq.201400102, https://onlinelibrary.wiley.com/doi/10.1002/malq.201400102.
-3. OEIS A007716, matrix orbits under separate row and column permutations, https://oeis.org/A007716 (the total-count sequence, not the logical-refinement classification).
+1. S. Kiefer, P. Schweitzer, E. Selman, *Graphs Identified by Logics with Counting*, arXiv:1503.08792v1, https://arxiv.org/abs/1503.08792.
+2. I. Pratt-Hartmann, *The two-variable fragment with counting and equivalence*, *Mathematical Logic Quarterly* **61** (2015), 474–515, DOI:10.1002/malq.201400102.
+3. OEIS A007716, https://oeis.org/A007716.
+4. *The complete two-matching counting-logic fibre and its sharp first orbit split*, Resultary record f8a1b71171f2, https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-complete-two-matching-counting-logic-fibre-and-its-sharp-fir--f8a1b71171f2.

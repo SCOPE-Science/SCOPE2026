@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:36:16.461572Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–5",
+        "VERIFICATION.md and verify_f4_tangent.py (inspected)",
+        "Independent replay: python /workspace/branches/tangent4_replay.py"
+      ],
+      "rationale": "Independently enumerated every nonzero coefficient vector modulo scalar by normalizing the last nonzero coefficient, with 21 normalized projective points and exact F4 arithmetic in a multiplicative exponent encoding. The complete tangent-filling census by (rational zeros, nonsingular rational zeros) is (9,8):5040, (9,9):280, (10,10):6048. Hasse excludes the 10-point class for geometrically smooth plane cubics and the 8-of-9 class is rationally singular. The remaining 280 are scalar Hermitian; their coefficient matrices have no nonzero F4 kernel by the independent gradient check on all projective points, hence are invertible over the closure. This proves geometric smoothness, not just nonsingularity over finite test extensions. Conversely all nonsingular Hermitian forms are congruent to the diagonal form. Its rational isotropic vectors have exactly two nonzero coordinates, giving nine points. The unitary group has order 2^3(2+1)(2^2−1)(2^3+1)=648, and its projective image has order 216. There is no extra F4 projective similitude factor: a nonzero scalar carrying a Hermitian form to another must be fixed under conjugation, and F2 has only one nonzero element. The independent census checks the indicated non-Hermitian cubic gives (9,9,18); its gradient forces all three coordinates to vanish if it vanishes, proving geometric smoothness. The frozen verifier's shortcut for fewer than five rational zeros is legitimate: four lines cover at most 1+4·4=17 points.",
+      "residual_risks": [
+        "Finite classification uses exact arithmetic enumeration for this field, not an all-field converse."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli–Ghioca supply Hermitian examples for every square field. The subunital theorems concern embeddings in a generalized Hermitian unital."
+        ],
+        "reasoning": "An all-square-fields sufficient condition is not an all-cubic converse over F4. The arbitrary tangent-filling cubic does not start with lines or points already embedded as a subunital of such an ambient Hermitian unital.",
+        "searches": [
+          "arXiv:2302.13420v1 §3 and introduction",
+          "DOI:10.1007/s00022-022-00636-4 Thms. 2.2 and 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2302.13420v1",
+        "DOI:10.1007/s00022-022-00636-4",
+        "local Resultary and its two matched mirrored findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 280-element orbit and stabilizer follow mechanically once any smooth tangent-filling cubic must be Hermitian. Nine points is the Hasse maximum but occurs in the explicit non-filling embedding."
+        ],
+        "reasoning": "Neither the known Hermitian invariants nor the trace bound distinguish the plane embeddings; no established bridge to the hypotheses of the existing unital classification was found. The substantive distinction is the converse in the specified embedded class.",
+        "searches": [
+          "arXiv:2302.13420v1 Ex. 3.1 and duality proof",
+          "Grundhöfer–Stroppel–Van Maldeghem Thms. 2.2, 3.1",
+          "RESULT.md non-filling maximal example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hermitian self-duality argument yields a blocking dual for the known example. Later Results 93b3816f77da and c3969d595d7d give equivalent smooth Hermitian rigidity."
+        ],
+        "reasoning": "Filling can be read as a blocking condition on the rational tangent points in the dual plane. Covering that condition for the Hermitian example does not show that all smooth cubics with a blocking tangent image are Hermitian.",
+        "searches": [
+          "local Resultary: Hermitian rigidity, tangent-filling cubics, dual blocking classification over F4",
+          "arXiv:2302.13420v1 §3 Example 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/26 result 93b3816f77da gives 280 tangent-filling cubics without a rational line factor, all Hermitian. 2026/11/8 result c3969d595d7d explicitly gives the same smooth classification and also classifies additional reducible cases. Both recorded dates follow October 18. The latter says smooth-Hermitian and full counts had been computed previously but provides no source for that assertion in the passage.",
+          "Bounded search did not produce an older exact embedding table."
+        ],
+        "reasoning": "A smooth cubic has no rational line factor, so the first later result really is strong enough; the second directly contains the claim. Neither later date proves earlier coverage, and no older table was recovered to test directly.",
+        "searches": [
+          "local Resultary for Hermitian classification, exact 280 and F4 plane-cubic embeddings",
+          "\"F_4\" \"tangent-filling\" cubic Hermitian classification 280 Asgarli Ghioca table plane cubic embeddings"
+        ]
+      },
+      "rationale": "Credit the converse for geometrically smooth embedded cubics and the nine-point non-filling distinction, not the Hermitian construction, standard orbit/stabilizer or Hermitian point count. Checked later catalogue records substantially overlap, including one which explicitly gives the same smooth classification, but do not establish earlier priority. An unsourced attribution of earlier computation remains unresolved.",
+      "residual_risks": [
+        "Unresolved unnamed earlier computation in the November 8 item. A classical embedding or dual blocking classification not found in the bounded search could imply the converse. The later overlaps do not establish independence or priority between records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "prior construction and nine points; no converse in the compared results",
+          "evidence": "The cited example proves tangent-filling by Hermitian unital incidence and duality for square q.",
+          "identifier_or_url": "arXiv:2302.13420v1",
+          "material_read": "Introduction p. 3 offset 8700; §3 Example 3.1 p. 6 offset 21814",
+          "method": "primary open paper passages",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "same property and Hermitian curve family"
+        },
+        {
+          "assessment": "conditional embedding theorem, not demonstrated to imply converse",
+          "evidence": "The finite unital must be embedded in a generalized Hermitian unital.",
+          "identifier_or_url": "DOI:10.1007/s00022-022-00636-4; https://cage.ugent.be/~hvm/artikels/249.pdf",
+          "material_read": "Theorem 2.2 p. 4 offset 8188, Theorem 3.1 p. 5 offset 12931",
+          "method": "open primary paper passages",
+          "title": "Finite subunitals of the Hermitian unitals",
+          "trigger": "order-two unital embedding classification"
+        },
+        {
+          "assessment": "stronger result on a later catalogue date",
+          "evidence": "280 equations tangent-filling with no rational linear factor; all projectively Hermitian; 11088 additional tangent-filling equations with a rational linear factor.",
+          "identifier_or_url": "2026/10/26/SCOPE-hermitian-rigidity-of-tangent-filling-plane-cubics-over-mathbf-f--93b3816f77da",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "local Resultary and mirrored statement",
+          "title": "Hermitian rigidity of tangent-filling plane cubics over F4",
+          "trigger": "equivalent cubic census and stronger hypothesis comparison"
+        },
+        {
+          "assessment": "exact smooth-subcase overlap at later catalogue date; unnamed earlier computation not attributable",
+          "evidence": "Classifies 280 Hermitian and 6048 external line–conic cases with all rational zeros nonsingular; it explicitly identifies the Hermitian ones as geometrically smooth.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-exact-tangent-filling-and-blocking-classification-of-plane-c--c3969d595d7d",
+          "material_read": "Mirrored RESULT.md Finding offset 0, Limitations offset 7200",
+          "method": "local Resultary and mirrored statement",
+          "title": "The exact tangent-filling and blocking classification of plane cubics",
+          "trigger": "same smooth class and possible prior computation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and contrast",
+        "arXiv:2302.13420v1 Ex. 3.1"
+      ],
+      "rationale": "The property is motivated by the Hermitian tangent-filling construction and smallest nontrivial Hermitian plane cubic. This is a complete intrinsic incidence criterion in the specified plane embedding, not a count for an arbitrarily selected coefficient slice. The maximal non-filling example is useful because it rules out just testing the abstract elliptic point count.",
+      "residual_risks": [
+        "Value attaches to the embedded converse and contrast, not to recomputing known unitary invariants. No general-field conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

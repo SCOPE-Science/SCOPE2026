@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:33:53.199308Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–71",
+        "Frozen VERIFICATION.md and VERIFY.py inspected, not executed. The script computes multiplicity and prints it for selected k, but does not assert the claimed multiplicity across the 33-size loop.",
+        "Separate bounded reproduction check_record3.py: k=1,2,5,20,100, unit budget and edge lengths, strictly positive allocation, eigenvector residual <=4e-16, gap and multiplicity; analytic certificate establishes all k."
+      ],
+      "rationale": "With t=sqrt(1-u^2) and s=sqrt((k+2)/k)/2 the scalar equation is (ks-2t)/(k+4)=t/(2sqrt(1-t^2)); the difference is strictly decreasing from positive to minus infinity, so there is exactly one admissible root. All edges of the displayed embedding have squared length one, including when k=1 and the peripheral simplex is a single point. Applied to its centered coordinates the Rayleigh bound gives lambda_2 V<=B for every feasible allocation. Substitution into the rates gives LQ=lambda Q_c in the odd, even and simplex directions using mu/s=-k/H and mu=-t/(2u). There are 1+1+(k-1) such independent modes; the two block traces are 2w_AB+k w_AC+2w_AX and (k+2)w_AC+2w_AX, both strictly greater than 2lambda, so the two other nonzero eigenvalues strictly exceed lambda. Summing weights gives lambda V_k, and tracing the embedding identity also gives lambda V, proving equality and the optimal B/V_k. The root gives u->1/sqrt(2); division in the stated budget expression yields k/2+7/2+2u+1/u+O(1/k), giving the claimed asymptotic.",
+      "residual_risks": [
+        "Unnormalized Laplacian, unit masses and fixed topology/total conductance. The displayed optimizer's multiplicity is proved; uniqueness and multiplicity of all optimizers are not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. prove the general dual for graphs with edge-length bounds; Li et al. minimize the unweighted gap over graph topologies and identify a kite. The full Kirkland–Pati text was not available from the bounded lawful DOI retrieval."
+        ],
+        "reasoning": "The general dual guarantees a characterization but does not solve its instance here. Fixing clique number and minimizing an unweighted Laplacian over graphs does not instead maximize a conductance-weighted gap on the given graph.",
+        "searches": [
+          "Maximum variance unfolding, Sun et al. eq. (8), pp. 689–690",
+          "Li–Guo–Shiu, minimum algebraic connectivity at fixed clique number",
+          "Kirkland–Pati, On Vertex Connectivity and Absolute Algebraic Connectivity for Graphs"
+        ]
+      },
+      "checked_sources": [
+        "Sun et al. doi:10.1137/S0036144504443821",
+        "Jafarizadeh arXiv:2501.02421v1",
+        "Li–Guo–Shiu p1170-final.pdf",
+        "Resultary 768ae5e7925c, 1c77a3a7bc2b and 901311831846"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An embedding certificate and a feasible matching allocation are needed to resolve the general dual. The older graph results checked either change the topology or optimize other objectives."
+        ],
+        "reasoning": "Neither generic SDP duality, exact shortest-path metric invariants, nor substituting the clique size into a lollipop formula produces the root and exact complementary spectrum for the graph with leaves on different hubs.",
+        "searches": [
+          "Sun et al. §§1.1–1.2 and 4.1, primal and dual",
+          "Resultary lollipop and bipartite-gateway exact allocations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The continuous-time rate-budget problem at unit prices is the same optimization as the frozen problem; by homogeneity its dual variance is the conductance budget needed to attain unit gap. The clique-lift paper minimizes discrete-time SLEM under stochasticity constraints."
+        ],
+        "reasoning": "Minimum total conductance at gap one and the unit-edge maximum-variance embedding are equivalent comparisons. The discrete-time stochasticity constraint and worst modulus on both spectral ends do not give the same maximization.",
+        "searches": [
+          "Sun–Boyd–Xiao–Diaconis doi:10.1137/S0036144504443821, §§1.1–1.2, 4.1",
+          "Jafarizadeh arXiv:2501.02421v1 §§3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "768ae5e7925c treats this exact graph but shortest-path negative type, not a weighted Laplacian. 1c77a3a7bc2b evaluates the same budgeted objective on a clique with a two-vertex path attached at one hub. 901311831846 treats two cliques joined by a bipartite gateway, not the two-leaf graph."
+        ],
+        "reasoning": "The closest findings match the topology or the objective separately, not both together. The same-date record was compared by its assumptions without inferring order from its catalogue date.",
+        "searches": [
+          "Resultary clique with pendant leaves and fixed-budget algebraic connectivity: 768ae5e7925c, 1c77a3a7bc2b, 901311831846"
+        ]
+      },
+      "rationale": "Maximum-variance unfolding is an established exact dual framework for this optimization. Neither the inspected general theorem nor the strongest matching graph or optimization records evaluate this family with two leaves at distinct core vertices. The explicit root, rates, multiplicity and asymptotic are the supported distinct contribution.",
+      "residual_risks": [
+        "Bounded review, not absolute priority. Kirkland–Pati (2002) remains an inaccessible plausible related source; it does not establish coverage by title alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact general framework, no evaluated formula for this topology in inspected coverage",
+          "evidence": "Maximize lambda_2 under a conductance budget and dualize to centered Euclidean variance subject to edge lengths.",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "§§1.1–1.2 pp. 682–683 and §4.1 pp. 689–690, eq. (8)",
+          "method": "Primary author-hosted OA PDF",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Same rate-budget optimization in full generality"
+        },
+        {
+          "assessment": "Different objective and clique-lift hypotheses",
+          "evidence": "Reduction of discrete-time reversible-chain SLEM for clique lifts, not an unnormalized budgeted rate problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.02421",
+          "material_read": "Abstract and introduction pp. 1–2, §§3.1–3.2 p. 5",
+          "method": "Primary OA text",
+          "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+          "trigger": "Closest literature by clique and mixing terminology"
+        },
+        {
+          "assessment": "No implication for the frozen optimization",
+          "evidence": "Minimizes unweighted connectivity over graphs of fixed clique number and order; identifies a kite graph.",
+          "identifier_or_url": "https://shiu1958.github.io/PDF/p1170-final.pdf",
+          "material_read": "pp. 1–2",
+          "method": "Primary OA PDF",
+          "title": "The minimum algebraic connectivity of graphs with a given clique number",
+          "trigger": "Adjacent clique connectivity extremal result"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence",
+          "evidence": "No lawful full-text copy was located in the bounded attempt.",
+          "identifier_or_url": "Kirkland–Pati (2002)",
+          "material_read": "Bibliographic information only",
+          "method": "Bounded lawful DOI/OA retrieval attempt",
+          "title": "On Vertex Connectivity and Absolute Algebraic Connectivity for Graphs",
+          "trigger": "Potential coverage under the absolute algebraic connectivity formulation"
+        },
+        {
+          "assessment": "Exact topology but different invariant",
+          "evidence": "Determines shortest-path negative type and associated Euclidean dimension, not a conductance allocation.",
+          "identifier_or_url": "Resultary 768ae5e7925c",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact generalized roundness of cliques with two distinct pendant leaves",
+          "trigger": "Identical graph family"
+        },
+        {
+          "assessment": "Different graph for the same objective",
+          "evidence": "Two-vertex path at one core hub and a support transition; that is not two singly attached leaves at different hubs.",
+          "identifier_or_url": "Resultary 1c77a3a7bc2b",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "A sharp clique-edge activation transition in budgeted lollipop mixing",
+          "trigger": "Closest same-objective clique-tail result"
+        },
+        {
+          "assessment": "Different topology",
+          "evidence": "Two cliques joined by a complete bipartite gateway have different feasible edge classes and three support regimes.",
+          "identifier_or_url": "Resultary 901311831846",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp three-regime spectral-gap allocation for two cliques with a gateway",
+          "trigger": "Same-date exact budgeted spectral-gap result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–31 and 46–71; Sun et al. maximum-variance framework and nearest lollipop comparison"
+      ],
+      "rationale": "The family isolates the competition between a dense core and two bottlenecks on distinct hubs. The exact evaluation specifies how to allocate a finite budget across all existing edge classes, shows that none need be dropped, and gives a sharp spectral benchmark with the Fiedler multiplicity and asymptotic scale. This is substantive graph-specific information not obtained merely by restating the SDP.",
+      "residual_risks": [
+        "No extension is established to other leaf configurations, masses or discrete-time dynamics, and no full optimizer classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

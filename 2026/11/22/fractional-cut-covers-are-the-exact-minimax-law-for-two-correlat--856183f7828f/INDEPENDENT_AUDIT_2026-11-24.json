@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:05:04.704845Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quantifiers are graph-informed but matrix-blind: G has at least one edge, the edge coefficients have unit unordered squared energy, and each probe has the uniform full-cube marginal. For an arbitrary coupling put D_i=Z_iW_i and H_{ij}=(Z_iZ_j+W_iW_j)/2. Then E H_{ij}=0 and H_{ij}²=1_{D_i=D_j}. Concentrating the adversarial coefficient on any single edge gives a variance lower bound of 4 times the largest uncut probability for the induced cut law, irrespective of dependence between D and Z. Conversely, sample any cut independently of Z and multiply Z by its signing D to obtain W: both marginals are uniform, and for distinct unordered edges the sign monomials are orthogonal even if the edges meet at a vertex. The covariance is diagonal with exactly those uncut probabilities on the diagonal, so the edgewise lower bound is attained after optimizing over cut laws. Normalizing and de-normalizing a fractional cover gives the reciprocal max-min crossing probability; it is positive because independent uniform vertex signs cross each edge with probability 1/2. The graph is bipartite exactly when one cut can cross all edges, and fixed signings on a nonbipartite graph leave an edge with variance 4. Automorphism averaging gives the MaxCut ratio for edge-transitive graphs. The odd-cycle and complete-graph counts agree with the formulas; for the pendant triangle, uniform choice of the uncut triangle edge with the pendant always crossed gives exactly 4/3, not the uniform-edge average 1. A diagonal shift preserves the variance and permits positive definiteness. For the cited unscaled K₄ example, the single-probe error takes −4,0,12 with multiplicities 6,8,2 over 16 cube points; opposite quantile pairing attains 6, whereas the robust optimal cut law gives 8. These checks do not assert a lower bound for different marginals, weights, or adaptive schemes. The frozen finite verifier was inspected but not run; the variational identity has an analytical proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The stochastic-probing results use class-supported signs and estimate partial traces under a partition, not two full-cube uniform marginals with arbitrary interprobe dependence.",
+          "The shared random sign multiplier and dyadic Hadamard rule give useful constructions and an exact variance factor for that rule, not the graph-indexed optimum over every coupling."
+        ],
+        "reasoning": "Higher sample counts in the structured Hadamard result and broader stochastic-probing frameworks do not dominate the feasible set and minimax quantifier of the present theorem.",
+        "searches": [
+          "Frommer–Rinelli–Schweitzer arXiv:2308.07722v1 §§3.1–3.2; Stathopoulos–Laeuchli–Orginos arXiv:1302.4018 p. 19; Resultary a170715967ec, 82aa4e3655f0 and 1dbb23f30782"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspection only)",
+        "Resultary a170715967ec, e737dedee370, 627202544eed, 82aa4e3655f0 and 1dbb23f30782",
+        "Neto–Ben-Ameur 2019; arXiv:2311.15346v2, 2308.07722v1, 1302.4018 and 2505.10548 (fcc SDP paper, Eq. (3) p. 2)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any coupling the coordinate product creates a cut, and concentration on one edge forces the minimax lower bound. The matching independent shared-sign construction diagonalizes the edge covariance for any chosen cut law.",
+          "The earlier LP gives no constraint on edge variances for an arbitrary joint probe law by itself; the fixed-matrix transport optimizer may vary with the unknown coefficients."
+        ],
+        "reasoning": "It is the sharp additional all-couplings reduction in the actual statistical problem, not the known LP or construction by itself, that warrants the originality pass. No inspected implication substitutes for that reduction.",
+        "searches": [
+          "Compare primary LP/covariance results and earlier shared-sign and fixed-matrix Results to frozen RESULT.md lines 46–90"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Neto–Ben-Ameur already identify the fractional cover LP with its normalized cut-mixture problem; Proença et al. relate weighted fcc and MaxCut by duality.",
+          "Resultary e737dedee370 and 627202544eed have fixed-matrix transport quantifiers, not a coupling chosen before the matrix coefficients are revealed."
+        ],
+        "reasoning": "The LP reformulation is equivalent at the graph-invariant level, not at the probe-minimax level. Known graph versus known entries is a material distinction: for K₄ the two optimizations give different variances even on the same matrix.",
+        "searches": [
+          "Configured Resultary search for fractional cut covers, correlated two-probe robust variance, sign-probe coupling and stochastic trace probing",
+          "Primary literature lookup for two uniform correlated trace probes and cut-cover minimax; Neto–Ben-Ameur p. 3 and Proença et al. Eq. (1)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact prior overlap: a170715967ec gives shared-sign variance factor (n−k)/(n−1) relative to independent probing in its dyadic setting; k=2 recovers the same dyadic complete-graph result.",
+          "Neto–Ben-Ameur already give the edge-transitive MaxCut ratio at the fcc level. The fixed-matrix K₄ and five-cycle values are indexed under different quantifiers."
+        ],
+        "reasoning": "Credit the available exact special values and cut-cover identities. They do not supply the general equality of the probe minimax with fcc. There is no unsupported claim that each example coefficient is new in isolation.",
+        "searches": [
+          "Configured Resultary lookup for exact variance factors, K₄ and weighted cycles; original a170715967ec, e737dedee370 and 627202544eed passages; exact graph-invariant formulas in Neto–Ben-Ameur"
+        ]
+      },
+      "rationale": "The supported distinct theorem identifies the graph-informed, matrix-blind minimax variance over all two-probe couplings with the known fractional cut-cover invariant. The cut LP and duality, shared-sign construction, and some dyadic complete-graph coefficients are already known. The inspected fixed-matrix, class-supported, and Hadamard results do not provide the all-couplings robust lower bound and matching unrestricted optimum for arbitrary known graphs.",
+      "residual_risks": [
+        "An older probe symmetrization or robust-sampling theorem may contain the reduction in other terminology; bounded search does not certify priority.",
+        "No priority order is inferred for distinct same-day Resultary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of graph-theoretic LP ingredients, not trace-estimator variance",
+          "evidence": "Weighted cut cover and normalized cut-mixture LP; edge-transitive relation to MaxCut.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2019.03.020",
+          "material_read": "Lawful HAL PDF, p. 3 around OA offset 5109 and edge-transitive comparison",
+          "method": "OA original-paper passages",
+          "title": "On fractional cut covers",
+          "trigger": "Potential exact reciprocal cut-mixture identity and special graph values"
+        },
+        {
+          "assessment": "Known fcc/MaxCut convex duality, not a result about joint trace probe laws",
+          "evidence": "Weighted fcc and MaxCut related via antiblocker/gauge formulations.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.15346v2",
+          "material_read": "Eq. (1), p. 1 around OA offset 3448",
+          "method": "OA original-paper passage",
+          "title": "A primal-dual extension of the Goemans–Williamson algorithm for the weighted fractional cut-covering problem",
+          "trigger": "Broader weighted graph problem and dual formulations"
+        },
+        {
+          "assessment": "Different feasible probes and quantifiers",
+          "evidence": "Independent Rademacher signs within partition classes, probes supported on each class, and partial trace estimates.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.07722v1",
+          "material_read": "§§3.1–3.2 pp. 6–8 at OA offsets 22293 and 25079",
+          "method": "OA original-paper passages",
+          "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+          "trigger": "Nearest cited probing variance method"
+        },
+        {
+          "assessment": "Attaining construction ingredient is known",
+          "evidence": "Hadamard multiplication of the entire probe sequence by one random sign vector removes bias.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.4018",
+          "material_read": "p. 19 around OA offset 81111",
+          "method": "OA original-paper passage",
+          "title": "Hierarchical probing for estimating the trace of the matrix inverse on toroidal lattices",
+          "trigger": "Primary source for common sign randomization"
+        },
+        {
+          "assessment": "Exact dyadic complete-graph subfamily overlap",
+          "evidence": "Shared-sign variance factor (n−k)/(n−1) in the dyadic Sylvester–Walsh setting; k=2 matches the even-complete-graph coefficient at these sizes.",
+          "identifier_or_url": "Resultary a170715967ec",
+          "material_read": "Original mirrored sharp shared-sign variance statement",
+          "method": "Configured Resultary search and local original mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp worst-case variance inflation of unmodified Hadamard trace probes",
+          "trigger": "Earlier graph-robust sharp variance comparison for a structured sampler"
+        },
+        {
+          "assessment": "Matrix-specific transport optima, not a uniform optimum over unknown coefficients",
+          "evidence": "K₄ fixed-matrix optimum 6 vs robust law variance 8 unscaled; five-cycle optimum depends on fixed weight parameter.",
+          "identifier_or_url": "Resultary e737dedee370 and 627202544eed",
+          "material_read": "Original mirrored statements for K₄ adjacency and for the fixed weighted five-cycle",
+          "method": "Local original mirror",
+          "title": "The four-vertex threshold for nonlinear two-probe trace coupling; A sharp nonlinear-coupling window for two-probe trace estimation on a weighted five-cycle",
+          "trigger": "Closest exact two-probe optimization results"
+        },
+        {
+          "assessment": "Class-supported probes on fixed resolvents; different claims regardless of same-day order",
+          "evidence": "Screened-cycle resolvents and complete-multipartite resolvents, respectively, rather than arbitrary full-cube coupling and unknown edge coefficients.",
+          "identifier_or_url": "Resultary 82aa4e3655f0 and 1dbb23f30782",
+          "material_read": "Original mirrored Findings",
+          "method": "Local original mirror",
+          "title": "Odd-cycle stochastic trace probing; Parity-rigid optimal two-color probing",
+          "trigger": "Distinct same-day graph-sensitive probing records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves a natural robust numerical-linear-algebra design problem exactly and gives a universally attaining sampler, even though arbitrary nonlinear probe couplings are allowed. It explains a sharp bipartiteness obstruction, a sizable improvement over fixed sign flips, and why ordinary MaxCut is insufficient in general. This is an optimization equivalence and structural lower bound, not merely an evaluation of the known LP or a computational-speedup claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:24:50.429589Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–5 (lines 28–83), assumptions and limitations",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent exact rational reproduction: /workspace/branches/e92eb773-3cf6-43e7-8213-b82989b03752/independent_multijump_check.py"
+      ],
+      "rationale": "The nodal flux balance and telescoping endpoint increments give reciprocal flux equal to the average sampled resistivity. With at most one jump per open cell this differs from the physical resistance by S_n/n, a sum of centered independent Bernoulli terms, with aligned jumps deterministic. The resistivities are uniformly bounded above and away from zero; strict Jensen gives exactly the variance-zero equality case, and the uniform reciprocal expansion gives the displayed bias and risk. Exact stiffness integration instead reciprocates each arithmetic cell average of conductivity, so the resistance defect is nonnegative and yields the reported deterministic error. Under the stated joint rational independence, the phase orbit has the full torus as its limit set and is Weyl equidistributed. The centered Bernoulli laws vary continuously, with matching laws at phases 0 and 1; bounded reciprocal linearization then gives precisely the listed subsequential laws and the Cesàro mixture. Integrating each phase produces density 1-|z| on [-1,1], variance 1/6 and the squared sinc characteristic function. An independent exact two-jump example at n=4 gives T=7/12, q=12/7, V=5/72, positive randomized bias 664/31185 and exact-integration flux 160/89. The uploaded verifier was inspected, not executed.",
+      "residual_risks": [
+        "Rationally dependent interfaces are outside the asserted full-torus and triangular Cesàro limits. In the spot example the three-phase orbit averages the variance coefficient to 5/108, not the independent-phase 5/96.",
+        "Second-order bias is a uniform bound with a phase-dependent coefficient, not a nonzero uniform lower bound. No mean-square dominance over exact assembly is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kruse–Polydorides–Wu p. 3 and Eq. (21) p. 10 specify uniform-one-point-per-triangle randomized assembly and error estimates.",
+          "Yang–Zhai p. 1 concerns immersed DG and approximation estimates for elliptic interfaces."
+        ],
+        "reasoning": "Credit the randomized assembly method. These results address assembly or approximation, not a scalar-resistance identity and its normalized weak laws.",
+        "searches": [
+          "Kruse–Polydorides–Wu arXiv:1908.08901, randomized bilinear form and stratified sampling",
+          "Yang–Zhai arXiv:2606.01814, elliptic interface FEM"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and the distinct catalog entries listed above",
+        "Kruse–Polydorides–Wu p. 3 and Eq. (21)",
+        "Yang–Zhai p. 1",
+        "Frozen Finding, assumptions and proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unbiased element stiffness is prior methodology and does not imply unbiased physical flux. The nonlinear series law accounts for positive second-order bias and differs from exactly integrated P1 stiffness at first order.",
+          "Kronecker–Weyl supplies the mesh-phase orbit and its average only after identifying the phase-indexed flux laws. The convolution and sharp bias/risk coefficients require integrating those laws, not substituting into a general FE norm bound."
+        ],
+        "reasoning": "No inspected source implies the completed law and comparison merely by choosing a parameter or reducing dimension in its stated result.",
+        "searches": [
+          "Kruse–Polydorides–Wu Eq. (21) and error estimates",
+          "Local arithmetic quadrature and Bernoulli jump records",
+          "Frozen exact flux, deterministic comparison and averaging derivations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The scalar FE system is a series-resistance problem. The resistance estimator is one-point-per-stratum quadrature of reciprocal conductivity, but the reported observable is its reciprocal, not the quadrature integral itself.",
+          "The exact triangular-indicator jittered-integration record --6a541ea861e3 evaluates a different two-dimensional quadrature observable and its variance."
+        ],
+        "reasoning": "The equivalent scalar representation makes the source of the Bernoulli terms clear. It does not turn the earlier indicator variance result into an exact law for the reciprocal flux or provide the joint interface-phase averages.",
+        "searches": [
+          "Local Resultary: random-point P1 interface flux, stratified resistivity and arithmetic jump phase",
+          "Primary literature: randomized quadrature FEM, interface resistance and mesh-dependent flux laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical indexed flux record --cf3e69e4d4c3 is not independent evidence. The triangular-indicator record has exact variance and phase classifications in another integral; the Euler jump record has Bernoulli marks in nested time discretizations; the Robin-boundary record concerns deterministic boundary quadrature and invisible modes.",
+          "The oblique half-plane jittered-quadrature index describes phase-dependent variance, but the matching local full-text mirror did not resolve. No independent exact match for the flux law was established."
+        ],
+        "reasoning": "The meaningful adjacent entries were compared by object and observable, not rejected by date. The inaccessible entry remains a bounded access risk, not negative evidence.",
+        "searches": [
+          "Local Resultary: Bernoulli jump phase, jittered integrals and randomized FEM layer flux",
+          "Indexed records --6a541ea861e3, --7bfcb974cca4, --4069f35ab289 and --7bc94e9d2909"
+        ]
+      },
+      "rationale": "The supported distinction is the exact physical-flux law and its mesh-phase and averaged distributional consequences in this one-dimensional layered model, not randomized quadrature assembly, torus equidistribution, or the general Bernoulli representation of a one-cell indicator. The nearest inspected results share ingredients but do not establish that combination.",
+      "residual_risks": [
+        "The oblique half-plane indexed item could not be fully inspected. Bounded searches do not certify historical priority, especially for older one-dimensional interface quadrature work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definite method prior art; distinct output",
+          "evidence": "Stratified one-point-per-triangle sampling and randomized stiffness bilinear form; the inspected statements are error estimates/assembly rather than a reciprocal-flux law.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.08901",
+          "material_read": "PDF p. 3 and p. 10, Eq. (21), text offsets about 8000 and 34000",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Application of Randomized Quadrature Formulas to the Finite Element Method for Elliptic Equations",
+          "trigger": "Same randomized stiffness assembly idea"
+        },
+        {
+          "assessment": "Adjacent, not equivalent",
+          "evidence": "Exact variance for single-point stratified integration of a 2D triangle indicator and its rational/irrational slope phases, with no elliptic flux transformation.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-arithmetic-jump-law-for-triangular-indicator-jittered-integra--6a541ea861e3",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local published-result mirror",
+          "title": "An arithmetic jump law for triangular indicator jittered integration",
+          "trigger": "Closest exact arithmetic quadrature law"
+        },
+        {
+          "assessment": "Full statement unassessed; index indicates a different observable",
+          "evidence": "The indexed result concerns phase-dependent variance of half-plane quadrature, not identified as a physical-flux law.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-quartic-grid-phase-law-for-oblique-half-plane-jittered--7bfcb974cca4",
+          "material_read": "Index summary only; matching mirrored result unavailable",
+          "method": "Local Resultary search and attempted mirror inspection",
+          "title": "Exact quartic grid-phase law for oblique half-plane jittered quadrature",
+          "trigger": "Exact phase-dependent quadrature variance"
+        },
+        {
+          "assessment": "Different method and theorem",
+          "evidence": "Geometry-aware immersed discretization and cut-independent estimates, not sampled ordinary P1 flux.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.01814",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "The Immersed Discontinuous Galerkin Method for Elliptic Interface Problems",
+          "trigger": "Same application area"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof §§2–5 and limitations",
+        "Independent two-jump rational check"
+      ],
+      "rationale": "A natural interface discretization admits a sharp comparison that norm bounds do not capture: the random physical flux has second-order mean bias but generically first-order fluctuations, whereas exact ordinary P1 assembly has a first-order flux defect. The same model shows how one can have no marginal weak limit yet have a fully explicit averaged law and mean-square constant. These are useful quantitative diagnostics for this discretization.",
+      "residual_risks": [
+        "Established only for one-dimensional positive piecewise-constant coefficients, zero source and the stated sampling scheme; no claim of practical or multidimensional superiority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

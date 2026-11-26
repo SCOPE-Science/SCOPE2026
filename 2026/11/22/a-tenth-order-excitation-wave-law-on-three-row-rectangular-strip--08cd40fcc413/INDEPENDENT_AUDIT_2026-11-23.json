@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:59:04.739036Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A vertex in an F^3-fixed state is either always resting or advances cyclically at every step. The former cannot be adjacent to the latter, since the latter is excited in one phase; connectivity leaves all rest or all advancing. The all-advancing states are exactly successor-neighbor ternary colorings, and have least period three. A transfer on consecutive columns checks the middle column at each step and both open boundaries exactly once. The frozen normalization by the current top color quotients the free global-shift action, so the factor three restores all labelled colorings and does not count orbits instead. I independently rebuilt an unnormalized pair-column transfer using next-color bit masks (python3 /workspace/checks/strip.py). It has 729 states and 7395 arcs, reproduces all ten initial counts, and gives 729 consecutive exact zeros of the recurrence residual. Cayley–Hamilton on that matrix gives the scalar recurrence for every n>=2, independently of the frozen 243-state certificate. The independently evaluated rational numerator and mod-seven gcd check agree; the denominator's top coefficient is a unit mod seven, so there is no rational cancellation. On |x|=8 the remainder bound 355185204 is below 3*8^9=402653184, leaving only one exterior root by Rouche; signs at 8 and 9 isolate the positive simple root. The residue coefficient for lambda^n is -rho*P(rho)/D'(rho) with rho=1/lambda (the offset is n-2), giving 0.144327187163185... and lambda=8.641216502027382.... The same unnormalized check on two rows verifies the cubic denominator with largest growth (3+sqrt(17))/2. Thus lambda^2>64>lambda_2^3 and the entropy comparison is strict without rounding. The frozen scripts and packaged outputs were inspected, not executed. This does not count non-immediate waves, attraction basins, or strips with periodic boundary conditions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Durrett–Steif's Theorem 4 concerns existence of an initial clock and the period-three event in periodic boxes, not exact initial wave counts on open strips.",
+          "The general graph result characterizes synchronization and limiting activity via induced one-forms/cycle integrals."
+        ],
+        "reasoning": "The qualitative dynamics and existence of a transfer construction do not yield a reduced width-three denominator or its dominant root. The early 1980 paper could not be read and contributes no negative evidence.",
+        "searches": [
+          "Durrett–Steif 1991 clocks and box period-three theorem",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320 Theorem 3",
+          "Greenberg–Greene–Hastings DOI 10.1137/0601006"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both verifier sources and both stored outputs",
+        "Resultary c343292238f3, 416b8c64f47c, 7cb5f70962d4 (summary only)",
+        "Durrett–Steif author PDF; arXiv:1610.07320; DOI:10.1137/0601006 (attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previously known width-two exponent is the benchmark, not an input determining the three-row recurrence.",
+          "A clock can force eventual period three without identifying which time-zero states are already three-periodic."
+        ],
+        "reasoning": "The width-three graph adds two vertical interfaces and an interior degree-four row, making the boundary and transition signatures different. The independent exact scalar recurrence check and minimality test supply information not obtained by specializing the inspected theorems or extending their enumeration variable n.",
+        "searches": [
+          "c343292238f3 mirrored RESULT.md finding",
+          "Durrett–Steif journal pp. 671–673",
+          "Gravner–Lyu–Sivakoff section 2 Theorem 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The open-ladder record has exactly the same phase-count statistic but uses P_2 square P_n.",
+          "Range-two chains use distance-one and distance-two edges on one path, with a different generating function.",
+          "The same-day rook search hit describes K_3 square K_n, not P_3 square P_n."
+        ],
+        "reasoning": "Immediate wave counts equal successor-contact colorings on the same graph (or an orbit count multiplied by three). Switching to extra distance-two edges or complete rook rows/columns changes the color constraints; reversing successor under color negation does not identify these graphs.",
+        "searches": [
+          "Resultary primitive-three Greenberg–Hastings wave census open ladders, range-two chains, three-row strips and rook graphs",
+          "Primary search on exact GH/three-periodic ternary successor-contact colorings on a strip"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ladder starts at n=3 with numerator 6 and denominator 1-4z+z^2+2z^3; the range-two chain has denominator 1-3z+2z^2-2z^3.",
+          "The rook search summary describes a twelve-term count on a graph with complete row and column connections; full local copy unavailable."
+        ],
+        "reasoning": "No retrieved exact table covers the same labelled phase counts under the width-three open nearest-neighbor rule. Same-day ordering cannot be inferred, and the same-day summary is used only for its stated graph and statistic.",
+        "searches": [
+          "Resultary exact primitive-three wave census on open ladders c343292238f3",
+          "Resultary three-periodic excitation on range-two chains 416b8c64f47c and three-row rook graphs 7cb5f70962d4"
+        ]
+      },
+      "rationale": "The successor-neighbor criterion, general GH phase dynamics and exact two-row census have precedents; the new claim is the reduced all-length width-three open-strip generating function and the per-vertex comparison for the same wave sector. The strongest inspected exact width-two computation and broader GH dynamical results do not imply that width-three law. Similar three-row rook-graph search material concerns a different adjacency and was not used to infer priority or to characterize its unread full theorem. The unresolved early paper is retained as a historical access risk.",
+      "residual_risks": [
+        "The 1980 paper could not be read and could contain a historically earlier related enumeration. No conclusion about its uninspected text is drawn.",
+        "The same-day rook full text was not available at the returned mirror path. No within-day priority is inferred.",
+        "Unindexed or differently presented equivalent sequences/recurrences may exist; the evidence supports only a best-of-knowledge originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct width-two benchmark, outside width-three domain",
+          "evidence": "6/(1-4z+z^2+2z^3), starting at n=3, with growth (3+sqrt(17))/2 on P_2 square P_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-primitive-three-wave-census-on-open-ladders--c343292238f3",
+          "material_read": "Mirrored RESULT.md near offset 0, finding and graph/count assumptions",
+          "method": "Resultary search and local mirror passage reader",
+          "title": "Exact primitive-three wave census on open ladders",
+          "trigger": "Identical rule, boundary type and statistic at neighboring strip width"
+        },
+        {
+          "assessment": "Different graph and law",
+          "evidence": "Distance-one/two edges on P_n^2 with generating function 6/(1-3z+2z^2-2z^3).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-cubic-recurrence-for-three-periodic-excitation-on-range-two-ch--416b8c64f47c",
+          "material_read": "Mirrored RESULT.md near offset 0, object and exact formula",
+          "method": "Resultary search and local mirror passage reader",
+          "title": "A cubic recurrence for three-periodic excitation on range-two chains",
+          "trigger": "Exact same sector on a different thin graph"
+        },
+        {
+          "assessment": "Summary describes a different graph; full assumptions and priority not independently established",
+          "evidence": "K_3 square K_n gives all-to-all rook adjacency within rows and columns, not open nearest-neighbor grid adjacency.",
+          "identifier_or_url": "Resultary record 7cb5f70962d4 (2026/11/22)",
+          "material_read": "Search summary only; indexed full text was absent from the local mirror at the retrieved path",
+          "method": "Resultary search and attempted local mirror retrieval",
+          "title": "Twelve-term exact three-cycle census for refractory excitation on three-row rook graphs",
+          "trigger": "Same-day candidate with the same width and excitation sector"
+        },
+        {
+          "assessment": "General clock and period-event result on periodic boxes, not immediate open-strip counts",
+          "evidence": "An initial clock yields period-three behavior regardless of other initial values; the theorem does not give immediate labelled width-three wave populations.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+          "material_read": "Journal pp. 671–673 (OA offsets 7000–11995), clock definition and Theorem 4",
+          "method": "Lawful OA author PDF passages",
+          "title": "Some rigorous results for the Greenberg–Hastings model",
+          "trigger": "Early periodic GH results and potential clock equivalence"
+        },
+        {
+          "assessment": "Qualitative characterization, not the exact count",
+          "evidence": "Irrotationality and cycle integrals characterize synchronization/activity, not this strip transfer or generating function.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Section 2, Theorem 3, PDF p. 4, OA offset near 11600",
+          "method": "OA PDF relevant passage",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Arbitrary-graph structural theorem for the same rule"
+        },
+        {
+          "assessment": "Historically relevant; coverage unresolved, not a negative finding",
+          "evidence": "The frozen record associates it with planar periodic structures, but unavailable text prevents a decisive direct comparison.",
+          "identifier_or_url": "https://doi.org/10.1137/0601006",
+          "material_read": "Bibliographic identification; publisher page and PDF access failed with HTTP 403. No abstract or primary full-text statement independently verified.",
+          "method": "Attempted lawful publisher retrieval",
+          "title": "A combinatorial problem arising in the study of reaction-diffusion equations",
+          "trigger": "Early planar excitable-media combinatorics, plausible historical overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-row open strip is the first width with interior degree four, a natural extension of an exact two-row benchmark. The reduced denominator and isolated growth root give an all-length census, not merely a set of small computations. The strict increase of wave entropy per site shows that an extra interacting row does more than multiply the number of sites, even though the immediate-wave fraction is exponentially small. These exact data are useful for comparisons within primitive-three excitation dynamics; they are not claims about the dynamical entropy of all trajectories.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

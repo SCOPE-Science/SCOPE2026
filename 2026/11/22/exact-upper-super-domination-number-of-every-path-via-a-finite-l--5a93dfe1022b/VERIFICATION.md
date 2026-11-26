@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and no external packages. The checker constructs the nine-symbol local predicate from external private-neighbor definitions; directly enumerates all possible selected subsets on paths of orders 2 through 13; verifies that the complement is an inclusion-minimal super dominating set exactly when the selected set is maximal open-irredundant; and tests the sharp integer formula in those cases. It checks the periodic construction and local factor stabilization, then BFS-enumerates all reachable automaton states, transitions and allowed finalizations and computes exact integer shortest-distance potentials.
+## correctness
 
-Actual result:
+PASS
 
-```
-INDEPENDENT_DIRECT_GRAPH_CHECK_PASS n=2..13 cases= 16380
-SEVEN_RESIDUE_CONSTRUCTION_PASS block=0010100 tails=1,01,001,0110,00110,001010
-BELLMAN_FORD_CERTIFICATE_PASS states=233 edges=403 termination_edges=58 minimum_cost=0
-VERIFY_OK
-```
+Complementation exchanges inclusion-minimal super domination with maximal open irredundance, which is hereditary and hence maximal iff all one-vertex additions fail. A flip affects only witness statuses within distance two, all decided in the radius-four window, with nonexistent neighbors excluded. The padded suffix transitions accept exactly those words; the restriction to n>=2 is necessary. I independently built the window truth table from induced graph neighbor intersections and verified exact shortest-distance inequalities for 233 states including the sink, 403 edges including 58 finalizations, and sink distance zero. Along any accepted word those inequalities give 7|T|-2n>=0. The seven explicit tails give the rounded bound exactly. For three or more blocks, an interior nine-window is one of seven phases, and any window touching a boundary or tail is determined by at most eight nearby periodic symbols and that fixed end. Thus the verified finite factor list exhausts the infinite construction. P1 has only the full super dominating set. Replay: `python /workspace/audit-replay.py 4`; the supplementary literal graph check covers n=2..11, not the infinite quantifier.
 
-The unrestricted inequality depends on finite enumeration and exact potentials for one finite directed graph, not on a bounded list of path lengths. The unrestricted constructive half uses the nine-window finite-factor argument. These checks are self-review only; no independent audit has been performed.
+## originality
+
+PASS
+
+The supported contribution is the exact path extremal value for every order, not the invariant, complement duality, or the nine-symbol recognizer. The same-day unweighted path census already contains essentially that recognizer; the cardinality optimization, its weighted all-order bound and the explicit sharp boundary words are distinct. No ordering is inferred from the shared date.
+
+## value
+
+PASS
+
+Resolves the remaining exact-value ambiguity for a natural graph invariant on all paths. The all-order weighted certificate and endpoint-corrected sharp words give a usable result beyond finite tables or the unweighted census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

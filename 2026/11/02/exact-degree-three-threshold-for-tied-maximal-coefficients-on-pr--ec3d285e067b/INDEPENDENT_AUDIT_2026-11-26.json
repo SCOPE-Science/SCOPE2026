@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:47:17.681515Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–71",
+        "VERIFICATION.md and checker.py, inspected, not executed"
+      ],
+      "rationale": "By the polydisk maximum principle, torus factorization and surjectivity of z^beta, the norm is the circle norm of a/w+b+cw. Make the endpoints nonnegative by rotating the circle and the output, so their sum follows an ellipse with semiaxes s=|a|+|c| and d=||a|-|c||. To maximize the squared translated norm, complete squares with multiplier lambda>s^2: the upper bound apart from |b|^2 is lambda+s^2 t1^2/(lambda-s^2)+d^2 t2^2/(lambda-d^2). At an interior minimizing lambda the square-completion point is a unit vector. At the lower limit the major-axis linear term must vanish and the minor-axis maximizing coordinate fits in the disk, so the first coordinate can complete the boundary; the circle case is rotationally invariant. Thus the bound after infimizing is exact. At each lambda the major-axis weight is no smaller than the minor-axis weight, so the smallest possible peak places the translation on the minor axis, also covering a flat ellipse or vanishing center coefficient. After normalization the coefficient moduli are (1,1,t) in some order. The squared minimal peak is 4+t^2 for the outer tie. For a mixed tie the maximand is (2+2t+t^2)+2(1-t)x-4tx^2 on [-1,1]; the vertex enters at t=1/5. The resulting pieces give excess over 13/5+t+t^2 of 7/5-5t and (25t^2-22t+5)/(20t), both positive on their ranges. Meanwhile (2+t^(3/2))^(4/3)<13/5+2t^(3/2)<=13/5+t+t^2. This proves strictness at p=3/2 including two-term ties, and increasing p preserves it; a monomial attains equality. For the degree-two witness the circle expression is 1+w-w^(-1), attaining squared norm 5; comparing fourth powers gives 27>25. This verifies failure at the immediately smaller degree.",
+      "residual_risks": [
+        "The equality claim excludes the zero polynomial. The result assumes a torus/polydisk supremum and tied largest positive moduli, not arbitrary coefficients or Euclidean-ball norms.",
+        "Some checker inequalities use floating point; the proof of the strict numerical comparisons uses exact cubing and the discriminant, not those checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pellegrino–Teixeira Thm. B gives unit constant for comparable top coefficients on arbitrary supports of size at most N, but only at m>=M_N, with M_3 far above 3. Its progression obstructions involve a unique largest coefficient and do not refute the tied claim. Caro-Montoya et al. give asymptotic contractivity for bounded numbers of variables per monomial, not exact degree-three contractivity."
+        ],
+        "reasoning": "The frozen tie satisfies the general comparability hypothesis, but the high-degree theorem leaves the sharp threshold and strictness at the critical degree undetermined.",
+        "searches": [
+          "\"Rigidity of Exact Contractivity\" Bohnenblust Hille quadratic trinomial tied largest coefficients degree 3",
+          "arXiv:2610.36887v1, Theorems A–B, section 3",
+          "arXiv:2607.20847, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0703236v1",
+        "arXiv:2610.36887v1",
+        "arXiv:2607.20847",
+        "Resultary exact degree-four and all-even norm records above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known phase minimization reduces the cubic question to signed real coefficients. It already explains the norm-minimizing phase of the equal-modulus degree-two example. The remaining comparison is between the piecewise mixed-tie peak and (2+t^(3/2))^(4/3) on the full interval, together with the outer-tie case."
+        ],
+        "reasoning": "An exact sharp norm in phase or an upper moment bound is not an inequality in the needed coefficient exponent. The new work is a uniform strict comparison in the free magnitude t at the cut-off degree, not merely substitution into a formula at t=1 or the old phase extremum. The quadratic witness requires only a simple comparison and is not independent novelty evidence by itself.",
+        "searches": [
+          "arXiv:math/0703236v1, Thms. 1.4, 1.5, 7.1",
+          "arXiv:2610.36887v1, Theorem B and equations (3.1)–(3.3)",
+          "Resultary degree-four progression-free and all-even sharp norm records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Neuwirth arXiv:math/0703236v1, Thm. 1.4, gives worst phases for fixed coefficient moduli, in particular for the frequency set {-1,0,1}; Thm. 1.9 and Cor. 1.11 give a sharp l1 Sidon constant sqrt(2) on that set."
+        ],
+        "reasoning": "The progression torus reduction produces exactly Neuwirth's trinomial support, so the phase lemma's conclusion is covered. But a sharp l1 estimate with constant sqrt(2) does not imply unit l_(3/2) contractivity on the tied class, including the range of the third modulus.",
+        "searches": [
+          "Resultary: tied largest coefficient magnitudes three-term arithmetic progression Bohnenblust Hille exact degree threshold unit constant",
+          "Resultary: general complex quadratic trinomial supremum norm exact phases ellipse three frequencies 0 1 2",
+          "\"The maximum modulus of a trigonometric trinomial\" Neuwirth phase minimum exact norm coefficient moduli"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-degree-four-suffices-for-exact-bohnenblust-hille-contractivity-o--b2eebd51745d studies unrestricted coefficients and supports; its degree-four contractive class is progression-free. Resultary 2026/11/8/SCOPE-all-even-sharp-norms-for-three-consecutive-characters-and-the-ex--26fe96de7ece gives sharp upper L^(2h) moments with l2 coefficient normalization. The search also found a finite root-of-unity phase-minimum record 2026/10/4/SCOPE-exact-finite-grid-phase-minimum-for-the-consecutive-unimodular-t--49933ee8abec, a discrete objective at fixed equal magnitudes."
+        ],
+        "reasoning": "None of these inspected exact results evaluates the l_(3/2)-to-supremum ratio uniformly for tied maxima and all third magnitudes on progression supports. The bounded quadratic search did not identify a decisive exact table.",
+        "searches": [
+          "Resultary: degree-three tied maximal coefficients unit Bohnenblust Hille threshold progression trinomials",
+          "Resultary: Rigidity of Exact Contractivity in the Complex Polynomial Bohnenblust Hille Inequality Pellegrino Teixeira three-term progression exact contractivity",
+          "complex homogeneous quadratic trinomial sharp coefficient l4/3 supremum norm exact constant three monomials Bohnenblust Hille"
+        ]
+      },
+      "rationale": "Pass is for the sharp finite degree threshold and strict coefficient inequality on the stated tied class. The phase-minimization conclusion is a special case of Neuwirth's theorem, and the high-degree part overlaps general comparable-coefficient contractivity. Neither alone gives the uniform coefficient comparison at exponent 3/2. The frozen record presents phase analysis as a proof ingredient, not a separate historical novelty claim.",
+      "residual_risks": [
+        "A bounded literature and catalogue check does not prove priority or exclude an unindexed equivalent coefficient-norm comparison.",
+        "The phase-minimization lemma should be credited to the extent already covered by Neuwirth; pass does not certify that tool as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers phase minimization and a distinct sharp l1 norm bound, not the coefficient threshold at exponent 3/2",
+          "evidence": "The opposition-sign phase minimizes the maximum with fixed moduli; the Sidon constant for consecutive frequencies is sqrt(2).",
+          "identifier_or_url": "arXiv:math/0703236v1",
+          "material_read": "PDF pp. 3–4, offset around 6000, Thms. 1.4, 1.5, 1.9 and Cor. 1.11; p. 14, offset around 33121, Thm. 7.1",
+          "method": "Lawful OA primary PDF passages",
+          "title": "The maximum modulus of a trigonometric trinomial",
+          "trigger": "Same circle trinomial and fixed-modulus phase minimization"
+        },
+        {
+          "assessment": "Covers arbitrary supports but at a much larger degree threshold",
+          "evidence": "The comparable-coefficient bound uses 4(N-1)^(3/2); for N=3 the displayed threshold denominator is log(1+(1/19350)^2).",
+          "identifier_or_url": "https://arxiv.org/html/2610.36887v1",
+          "material_read": "Thms. A–B, Eqs. (1.12)–(1.13), offset 7975; section 3 equations (3.1)–(3.3), offset 31721",
+          "method": "Lawful OA arXiv HTML",
+          "title": "Rigidity of Exact Contractivity in the Complex Polynomial Bohnenblust–Hille Inequality",
+          "trigger": "Same contractivity and comparable largest coefficients"
+        },
+        {
+          "assessment": "Asymptotic with a different support restriction",
+          "evidence": "A fixed bound on the number of variables per monomial yields a degree-dependent upper bound tending to one.",
+          "identifier_or_url": "arXiv:2607.20847; doi:10.1007/s00574-026-00527-1",
+          "material_read": "Abstract and introduction, OA HTML offset 0",
+          "method": "Lawful OA article passage",
+          "title": "Asymptotic Contractivity of Bohnenblust–Hille Constants with Bounded Monomial Support",
+          "trigger": "Cited contractivity under a restriction on monomial support"
+        },
+        {
+          "assessment": "Different contractive support class and no tie condition",
+          "evidence": "The exact degree-four contractivity criterion under arbitrary coefficients is absence of a progression; APs admit a counterexample with a unique largest coefficient.",
+          "identifier_or_url": "2026/11/8/SCOPE-degree-four-suffices-for-exact-bohnenblust-hille-contractivity-o--b2eebd51745d",
+          "material_read": "RESULT.md offsets 0–2400, Finding, assumptions and beginning of proof; progression obstruction comparison",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Degree four suffices for exact Bohnenblust–Hille contractivity on progression-free three-monomial supports",
+          "trigger": "Strongest distinct indexed exact coefficient contractivity match"
+        },
+        {
+          "assessment": "Different norms and extremization direction",
+          "evidence": "The bound is an upper Haar L^(2h) moment with l2 normalization, with equal endpoints and aligned phases at the extremum.",
+          "identifier_or_url": "2026/11/8/SCOPE-all-even-sharp-norms-for-three-consecutive-characters-and-the-ex--26fe96de7ece",
+          "material_read": "RESULT.md offsets 0–2565, Finding and assumptions",
+          "method": "Published-record local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "All-even sharp norms for three consecutive characters and the exact finite-order aliasing barrier",
+          "trigger": "Exact norm results on the same reduced character support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and scalar coefficient certificate",
+        "arXiv:2610.36887v1, Theorems A–B and equation (3.2)"
+      ],
+      "rationale": "A three-term progression is the simplest sparse support on which phases can obstruct exact contractivity. Separating phase obstruction from magnitude imbalance by a tied-maxima hypothesis gives a natural, dimension-independent test case. The exact transition between degrees two and three replaces a very large general sufficient degree for this class and identifies when equality can occur.",
+      "residual_risks": [
+        "The comparison does not give the sharp constant for arbitrary AP coefficient choices, nor an improved general three-monomial threshold without the tie hypothesis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

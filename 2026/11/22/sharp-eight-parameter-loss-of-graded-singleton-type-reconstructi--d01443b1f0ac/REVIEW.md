@@ -1,23 +1,21 @@
-# Scientific review: sharp graded-type reconstruction boundary in finite two-graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-point extension classification follows from the four-set parity axiom: the \(n-1\) triple values with the distinguished old point uniquely determine all other newly incident triples. Graph lifting proves existence for every binary assignment, and homogeneity identifies diagrams with complete singleton types. The polynomial formula therefore counts exactly \(2^{n-1}\) types at every parameter size. The finite census uses all \(2^{\binom{n-1}{2}}\) rooted graph encodings and a complete isomorphism action, not samples. A separate all-encodings polynomial count and the direct 21-fiber certificates independently corroborate the decisive calculations. Replay commands and exact outputs are in VERIFICATION.md. The assertion is explicitly confined to parameter order at most eight.
+PASS
 
-## Originality — PASS, provisional historical priority
+Four-set parity with the designated anchor forces every old triple from the descendant graph. For a fresh point, the n−1 binary triple values involving the anchor freely determine the other new triples by the same parity rule. Realize each pattern by odd graph-edge parity after adding a vertex not adjacent to the anchor; ultrahomogeneity and the extension property identify these patterns exactly with complete nonalgebraic types over the named base. The grade counts the anchor incidents plus the switched edges off the anchor, giving the claimed polynomial and 2^(n−1) types. Every labelling of an isomorphic two-graph is obtained by choosing an anchor and permuting its complement, so orbit marking is exact. The independent replay uses actual triple relations to mark all anchored labels and applies four-set parity directly to all extension profiles. It obtains class counts 1,1,2,3,7,16,54,243, with as many grades through seven and 219 at eight, split 198/18/3 by fibre sizes 1/2/3. All 21 catalogue fibres (45 members) match in masks, coefficients and incidences; distinct incidence sequences within every nontrivial fibre establish refined reconstruction. The three specified masks have the displayed polynomial, degrees and pairwise distinct Seidel characteristic polynomials.
 
-The switching correspondence and the numbers of two-graph isomorphism classes are prior results. Bussemaker–Mathon–Seidel's full 1979 report classifies the original objects and their Seidel spectra, not the new one-point-type grade polynomials or the latter's collision fibers. The 2009 Andrén–Markström bivariate Ising polynomial records magnetization and cut sizes for ordinary graphs; it is not the one-variable cut-coset grade of a two-graph. The three displayed collision witnesses have different ordinary-graph edge counts and different Seidel characteristic polynomials, confirming a nontrivial distinction between the invariants. Greaves et al. provide subsequent Seidel-theoretic classifications without the claimed extension-type reconstruction result. Actual source and equivalence checks are recorded in AUDIT.json. Historical priority remains qualified by possible unindexed signed-cut weight enumerators.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The statistic is the complete grade distribution of all atomic singleton extensions in a natural homogeneous ternary structure, not an arbitrary graph encoding. The finding establishes the smallest parameter size at which that distribution loses the underlying configuration, enumerates the complete failure fiber structure, and identifies a natural local incidence refinement that restores reconstruction at the boundary. The three-member collision has pairwise different Seidel spectra, so even standard spectral comparison does not explain it. The result is finite and self-contained; no higher-order or asymptotic extension is claimed.
+The supported distinction is the full small-order reconstruction and exact eight-point fibre classification of the coefficient enumerator, and the incidence refinement that separates all ambiguous classes. The two-graph list and switching formalism are classical. Ordinary Ising equivalence of seven-vertex graphs does transfer to examples of collisions after adjoining an isolated anchor; this is genuine partial coverage, not a novel source of all eight-point counterexamples. The independent comparison of all ordinary seven-vertex cut-distribution fibres gives at most 21 of the 27 unordered colliding two-graph pairs by this transfer and does not give the sharp lower-order injectivity or the incidence refinement. No inspected source gives the full distinct result.
 
-## Closest literature and limits
+## value
 
-- Bussemaker, Mathon, Seidel (1979), *Tables of two-graphs* — complete small two-graph and Seidel-spectral tables, not this grade invariant.
-- Andrén, Markström (2009), *The bivariate Ising polynomial of a graph* — ordinary-graph cut and magnetization enumerators with different isomorphism equivalence.
-- Greaves et al. (2014), *Equiangular lines in Euclidean spaces*, arXiv:1403.2155 — Seidel matrices and equiangular systems, not the present type-grade fibers.
+PASS
 
-There has been no independent audit. The exact reconstruction result is proved only through eight parameters; source coverage cannot exclude every unindexed equivalent formulation.
+The grade naturally measures the number of triples created by a fresh point in a two-graph. The exact finite boundary and full fibres quantify the information loss from replacing named triple profiles by their sizes; neither cospectrality nor ordinary Ising equality alone describes the collisions. The incidence refinement recovers precisely the reconstruction lost at the first threshold. This is a complete small-order reconstruction result, not a recomputation of the known ambient count or an arbitrary coefficient slice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

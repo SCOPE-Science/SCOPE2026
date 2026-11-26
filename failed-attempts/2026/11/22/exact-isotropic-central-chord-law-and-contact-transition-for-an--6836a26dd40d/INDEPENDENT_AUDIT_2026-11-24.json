@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:20:04.459653Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a unit direction the length is min(2a/√(1−U_z²),2b/√(1−U_x²)). Let R=√(a²+b²). The absolute coordinate marginals are uniform; the signed pair projects to the unit disk with density 1/(2π√(1−z²−x²)). Hence the central-band overlap is (2/π)∫₀ˢ arcsin(t/√(1−z²)) dz when s²+t²<1. Integration by parts followed by z=√(1−t²)sin φ gives the stated elementary expression. Below 2b only the a-constraint has positive probability of limiting the chord at the threshold; at 2R the strict absolute-coordinate survival inequalities cannot both hold, and equality is attained at |U_x|=a/R, |U_z|=b/R. Every interior length is attained by continuity. There are no atoms. On the interior two-constraint branch, conditioning on |U_z|=s or on |U_x|=t and differentiating its marginal threshold gives the two joint length/contact densities, since ties have spherical measure zero. The factors in brackets can be written as (2/π)arctan(√Δ/t) and (2/π)arctan(√Δ/s), respectively, with Δ=4R²/l²−1. Thus as l=2R−ε, the densities are asymptotic to a√Δ/(πRb) and b√Δ/(πRa), giving the limiting proportions and, on integrating their sum, 2√R ε^(3/2)/(3πab). At 2b the first marginal changes by O(ε); the second opens with t∼√(ε/b), multiplied by 1−(2/π)arcsin(√(1−a²/b²))=(2/π)arcsin(a/b). The lower endpoint follows directly from s∼√(ε/a). This independently fills in the abbreviated upper-tail calculation. The supplied numerical checker was inspected, not executed; no Monte Carlo evidence is needed for these identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mazonka computes Ω for two arbitrary cap apertures and a variable axis angle, including the orthogonal case and the one-hemisphere boundary.",
+          "The same-day cd402d63a3ed Finding treats equal radii only, where there is no separate interior onset at 2b. The tricylinder result is on central planes and conic arcs."
+        ],
+        "reasoning": "Setting axis angle π/2 and aperture cosines s,t gives normalized lens probability Ω/π after summing the four sign choices. Below 2b the second constraint is automatic; beyond 2R the lenses are empty. The equal-radius or planar section records alone would not cover unequal-radius chords, but the general cap formula does.",
+        "searches": [
+          "arXiv:1205.1396 §4, §4.3 Eq. (45), §4.4.7 Eq. (57)",
+          "Resultary: bicylinder and central-section comparison; cd402d63a3ed and 3c351c7fe62f"
+        ]
+      },
+      "checked_sources": [
+        "Mazonka arXiv:1205.1396 §§4.3 and 4.4.7",
+        "Resultary 04bd972e6d48",
+        "Resultary cd402d63a3ed",
+        "Resultary 3c351c7fe62f",
+        "Resultary 6836a26dd40d (identical record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known joint survival S(s,t)=Ω/π has −S_s=(2/π)arctan(√(1−s²−t²)/t) and −S_t with s and t interchanged.",
+          "With distinct length thresholds for the two cylinders the joint survival is S(s(l_a),t(l_b)); the contact rates are the two negative partial derivatives on l_a=l_b=l. As l nears 2R the two derivative factors are linear in √Δ; near 2b the newly active t is of square-root order."
+        ],
+        "reasoning": "The prior two-parameter probability contains the marked information, which would not be determined by an arbitrary univariate CDF alone. Differentiating in each threshold and taking one-sided elementary limits requires no new geometric lemma. This establishes coverage even though the prior papers do not use cylinder-contact terminology.",
+        "searches": [
+          "arXiv:1205.1396 Eq. (45), orthogonal specialization",
+          "Resultary: 04bd972e6d48 overlap formula, Finding offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For 2b<l<2R, L>l is exactly {|U_z|>s, |U_x|>t}, four equal spherical-cap lenses about signed orthogonal axes.",
+          "The box record's J(s,t) is the exceedance overlap, not this record's central-band J. Its displayed expression equals 1−s−t+J of the frozen record by complementary-angle identities."
+        ],
+        "reasoning": "The change of names and use of failure events instead of exceedance events do not give a new distribution. The map from chord thresholds to cap thresholds is explicit and invertible on each active marginal.",
+        "searches": [
+          "Resultary: exact isotropic Haar central chord law perpendicular unequal radius cylinders bicylinder Steinmetz contact label probabilities 3/2 upper endpoint cap intersection",
+          "arXiv:1205.1396 §4.3 Eq. (45)",
+          "Resultary 04bd972e6d48, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title/summary hit 6836a26dd40d is the assigned record itself.",
+          "The distinct box record gives an exact arbitrary-(s,t) overlap with support s²+t²<1 and an explicit 3/2 opening under its own threshold parameterization."
+        ],
+        "reasoning": "An exact parameterized overlap formula is stronger than a chord-length lookup table; substituting the two square-root thresholds evaluates the bicylinder law at every l. The finding does not depend on identifying another exact-title record.",
+        "searches": [
+          "Resultary: exact isotropic Haar central chord law perpendicular unequal radius cylinders bicylinder Steinmetz contact label probabilities 3/2 upper endpoint cap intersection",
+          "Resultary: 04bd972e6d48 exact overlap formula",
+          "arXiv:1205.1396 Eq. (45)"
+        ]
+      },
+      "rationale": "The unequal-cylinder interpretation is not stated in the strongest read sources, but the exact law is covered by their spherical two-cap overlap. Mazonka Eq. (45) at axis angle π/2 directly gives the upper survival probability, and the earlier Resultary box record explicitly gives the same two-coordinate exceedance function at arbitrary thresholds. The cylinder labels select the two ordinary partial derivatives of this known function; the threshold and endpoint constants are the immediate small-argument expansions of those derivatives and the single-coordinate marginal. Thus the exact mathematics, not merely a method or analogous exponent, is covered as a specialization.",
+      "residual_risks": [
+        "No claim is made about the earliest statement of this result in bicylinder terminology or priority between same-day records.",
+        "The overlap conclusion is specific to the exact central directional law and its stated elementary contact limits, not translated Crofton lines or more general marked localization results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the joint survival formula by direct orthogonal specialization; not a literal chord or contact-label statement",
+          "evidence": "Ω is the intersection solid angle for two cap half-angles and their axis angle. The specialization α=π/2, θ₁=arccos s, θ₂=arccos t yields the whole overlap used in the length and contact calculations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.1396",
+          "material_read": "OA §4 introduction offset 18523; §4.3 Eq. (45), offset 26664; §4.4.7 Eq. (57), the one-hemisphere limit",
+          "method": "OA arXiv PDF, targeted section reading",
+          "title": "Solid Angle of Conical Surfaces, Polyhedral Cones, and Intersecting Spherical Caps",
+          "trigger": "General two-cap overlap can dominate the chord law"
+        },
+        {
+          "assessment": "Different body but identical two-threshold survival kernel",
+          "evidence": "For z=√(1−s²−t²), the overlap is (2/π)[arctan(z/(st))−s arctan(z/t)−t arctan(z/s)] inside the disk and zero after loss of overlap. This equals the frozen survival function after substituting s(l),t(l).",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-haar-central-chord-law-of-rectangular-boxes-and-its-singul--04bd972e6d48",
+          "material_read": "Mirrored RESULT.md Finding, offset 0 through 1493",
+          "method": "Local Resultary mirror",
+          "title": "Exact Haar central-chord law of rectangular boxes and its singularity thresholds",
+          "trigger": "Cited box law may supply an exact common spherical probability"
+        },
+        {
+          "assessment": "Exact equal-radius comparison, not the unequal-radius coverage basis",
+          "evidence": "The constraints have unit radii; Eqs. (1)–(4) give its central chord law, density and endpoint exponents, and the Finding also introduces parabolic localization.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-central-ray-chord-law-and-parabolic-extreme-direction-loca--cd402d63a3ed",
+          "material_read": "Mirrored RESULT.md Finding, offset 0 through 1755",
+          "method": "Resultary and local mirror",
+          "title": "Exact central-ray chord law and parabolic extreme-direction localization for the Steinmetz bicylinder",
+          "trigger": "Closest distinct Resultary hit on the same chord sampling and body family"
+        },
+        {
+          "assessment": "Different functional and body",
+          "evidence": "Three equal radii; Haar central planes; exact conic arc count and section area, not central line lengths.",
+          "identifier_or_url": "2026/11/1/SCOPE-exact-central-section-area-and-six-eight-arc-law-of-the-orthogon--3c351c7fe62f",
+          "material_read": "Mirrored RESULT.md Finding and Assumptions, offset 0 through 1721",
+          "method": "Local Resultary mirror",
+          "title": "Exact central-section area and six/eight-arc law of the orthogonal tricylinder",
+          "trigger": "Cited neighboring orthogonal-cylinder geometry"
+        },
+        {
+          "assessment": "The assigned record, not a distinct comparison",
+          "evidence": "Same radii, directional law, contact split and formulas.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-isotropic-central-chord-law-and-contact-transition-for-an--6836a26dd40d",
+          "material_read": "Frozen RESULT.md Finding and Assumptions",
+          "method": "Identity check against the assigned source",
+          "title": "Exact isotropic central-chord law and contact transition for an unequal orthogonal bicylinder",
+          "trigger": "Exact-title Resultary hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The central sampling model is natural, and the contact notation is useful. Nevertheless, the known exact joint cap survival already evaluates the nontrivial branch, and the marks and singular coefficients are obtained by taking its two partial derivatives, applying the threshold derivatives and expanding the elementary factors. Those interpretations do not leave a distinct exact invariant or nonroutine mathematical gap in the delivered claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

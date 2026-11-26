@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed-partition definition, refinement partial order and rank bounds agree with the type-B Coxeter intersection lattice described by Björner–Wachs, §7. Folkman/geometric-lattice shellability gives a simply connected covering space. Every generating transposition of the unsigned coordinate subgroup fixes a proper rank-two partition with a zero block containing its coordinates, so Armstrong's fundamental-group formula gives a simply connected orbit space. A full exact chain enumerator reconstructs 648 lattice elements and the 37/242/471/274 quotient cells, checks both boundary compositions over the integers, and reduces the chain complex by 36+206+265 unit pivots to one zero-cell and nine three-cells with zero boundary. Hurewicz plus homological Whitehead completes the asserted homotopy equivalence. The embedded verifier is reproducible and was actually run.
+## correctness
 
-## Originality — PASS relative to inspected material
-The closest full sources are Björner–Wachs (2004), which supplies type-B bases and definitions rather than unsigned-permutation quotient homotopy; Henderson (2006), which supplies character formulas for wreath-product homology; and Arone (2015), whose partition complexes and Young-subgroup quotients are type A, not this signed quotient. Targeted mathematical-record searches returned no same-object homotopy classification. Some related rational invariant multiplicities may be derivable from established character formulas, but cannot imply the new simply connected, torsion-free full quotient homotopy statement. Unindexed or inaccessible equivalent work, notably historical wreath-product literature, remains a priority risk.
+PASS
 
-## Value — PASS
-The unsigned permutation quotient is a canonical index-\(32\) subgroup quotient in the type-B rank-five geometry, where retaining signs distinguishes it from the classical type-A partition quotient. Exact integral three-dimensional homotopy is meaningful: the covering complex has 945 three-spheres, whereas the orbit space has exactly nine and no hidden low-degree torsion or fundamental group. This finite example provides a fully reproducible benchmark for signed-poset quotient topology, without claiming a general classification.
+The signed partitions are the intersection lattice of the type-B arrangement, so the geometric-lattice proper-part theorem makes its realization simply connected. A coordinate transposition fixes the proper rank-two partition with its two coordinates in the zero block. Armstrong's quotient formula applies to this simply connected finite complex with finite group action and kills every generating transposition. The rank-preserving action identifies no distinct points within any closed simplex: barycentric coefficients at each rank must agree. Thus orbit cells have the oriented face-deletion boundary stated in the record; this is not a claim that the quotient is an abstract simplicial complex. I rebuilt the lattice from joins of its 25 arrangement atoms, merging inconsistent signed components into the zero block; rebuilt all flags and their unsigned permutation orbits; and checked the chain compositions. Ordinary flag counts are 646,7910,20720,14400, and orbit cell counts are 37,242,471,274. Integral diagonalization of each boundary separately produced only unit nonzero factors, with ranks 36,206,265. Hence each image is saturated in the whole chain group and in the next kernel, and integral homology ranks are 1,0,0,9. Simple connectivity and Hurewicz give representatives for a basis of H3; the wedge map is a homology equivalence between simply connected CW complexes, hence a homotopy equivalence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The strongest inspected sources give homology of the unquotiented signed complex, rational character results for Dowling lattices, quotient homotopy results on ordinary partitions, or different Dowling posets. None of the compared statements gives the actual unsigned-permutation quotient's fundamental group, integral homology and homotopy type together. The exact indexed hit is this same record, not separate evidence of coverage.
+
+## value
+
+PASS
+
+The pure-coordinate subgroup is canonical and retains sign information; its nonfree action makes the actual quotient a different object from the labeled complex. The answer rules out lower integral torsion and nontrivial fundamental group as well as giving the exact sphere number. This is a useful concrete test case for extending partition-complex quotient results to signed posets; it is not just a rational invariant or a group-order calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

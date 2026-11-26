@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:05:45.751443Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Single-letter deletions characterize minimality by subsequence transitivity. A candidate with at least six runs contains the proper absent subsequence 10101. For two runs the embeddings of 0^p1^q have capacity corners (a,b+d) and (a+c,d); reversal handles 1^p0^q and gives the four missing corners after the single-letter cases. For 0^p1^q0^r, if p<=a or r<=e an embedding of the appropriate proper suffix or prefix extends to the whole word; hence both bounds must be exceeded. Decreasing either outside run and requiring an embedding forces p=a+1,r=e+1, and q>1 would preserve both obstructions after an interior deletion. With q=1 the merged-zero deletion needs c>=2. The pattern 1^p0^q1^r instead has box capacities b,c,d, so only one coordinate can exceed by one with the others equal to one. The zero deletion for the two excess-one-run cases requires d>=2 or b>=2; the excess-zero-run case always passes. For four runs beginning in zero the suffix forces capacities b,c,d, leaving only an excess first run a+1 with all other runs singleton; the internal deletions give c,d>=2. Reversal gives the other four-run case. The proper prefix and suffix of a five-run candidate starting in zero force all five capacities. Starting in one leaves only 10101, whose internal deletions require b,c,d>=2. These templates are distinct, and exactly their stated threshold conditions apply. For a fixed set of k satisfied thresholds there are 2+k free increments after a minimum length 5+k; its count is binom(n-4,k+1). The eight indicator patterns produce multiplicities 1,3,1,2,1 at K=7,8,9,10,13 respectively, giving the stated series, probabilities and leading deficit 40/n. Independent greedy-prefix and deletion-state enumeration in /workspace/branches/audit_word_obstructions.py matched complete antichains for all 1024 tuples in [1,4]^5. This supports, but is not the proof of, the symbolic result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior general characterizations and graph-enumeration methods apply to individual words. The shortest-absence arch result is about a different subset of antichain elements, and the prescribed-length absent-subsequence optimization asks for a different count.",
+          "56438eb0ba34 gives an adjacent four-run classification and length distribution with different cardinalities, not coverage of the five-run words."
+        ],
+        "reasoning": "General ability to enumerate outputs or to bound a different statistic is not an existing symbolic case classification. Here the decisive coverage is from the direct same-family indexed theorem, not from these broader algorithms or adjacent families.",
+        "searches": [
+          "Kosche–Koß–Manea–Siemer arXiv:2108.13968 Theorems 3.1, 3.4 and 4.1",
+          "Manea et al. arXiv:2504.21471 abstract and Theorem 13",
+          "Adamson et al. arXiv:2407.18599 pp. 2–3",
+          "Resultary 56438eb0ba34 four-run basis"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c5410870c77b, 56438eb0ba34 and 3131fc449d40",
+        "arXiv:2108.13968, arXiv:2407.18599, arXiv:2504.21471 and arXiv:2202.13591; the latter defines contiguous MAWs and enumerates them on run-length encodings",
+        "Frozen RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing same-object law already partitions the compositions into eight interior indicator patterns. For a prescribed k-element set of long interior runs the ordinary length series is z^(5+k)/(1-z)^(2+k): two outer runs and precisely k interior runs can grow freely.",
+          "The pattern weights in the existing polynomial are 7, 8 three times, 9 for the separated pair, 10 for the two adjacent pairs, and 13 for the all-long pattern."
+        ],
+        "reasoning": "Grouping these eight elementary terms gives the entire frozen bivariate generating function by immediate substitution. Stars and bars and the leading binomial ratio give its probability vector and 40/n mean deficit without additional subsequence analysis. The aggregate expressions do not rescue a distinct nonroutine claim.",
+        "searches": [
+          "Resultary c5410870c77b, exact threshold law in Finding",
+          "Resultary 56438eb0ba34, adjacent four-run length distribution",
+          "Frozen RESULT.md lines 34–45 and 79–83"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mirrored finding c5410870c77b treats exactly 0^a1^b0^c1^d0^e with positive run lengths. Its basis lists the same seven unconditional and six conditional words with identical conditions.",
+          "Its symbols x,y,z are the indicators b,c,d>=2 and give 7+x+y+z+xy+yz+xyz. The closest same-host contiguous-factor record 3131fc449d40 is not equivalent."
+        ],
+        "reasoning": "The indexed basis and frozen antichain are the very same minimal elements under scattered containment; renaming the indicators does not change any cardinality. The conclusion does not depend on the relative dates of distinct records.",
+        "searches": [
+          "Resultary: five-run binary minimal absent scattered-subsequence antichain, basis and threshold cardinality",
+          "Resultary c5410870c77b, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "c5410870c77b supplies a complete symbolic antichain for every positive tuple, with the same cardinality function, not merely a finite window.",
+          "The inspected exact same-family source does not state the length-conditioned generating function, probability vector, or asymptotic mean."
+        ],
+        "reasoning": "The indexed symbolic output covers every potential antichain listing and every per-word cardinality. The aggregate claims need a separate implication check, not an assertion that they appear verbatim.",
+        "searches": [
+          "Resultary: exact five-run minimal absent subsequence list and cardinalities; c5410870c77b mirrored RESULT.md offsets 0–5600 and 7400–8700",
+          "Resultary bounded-run factor and subsequence comparisons"
+        ]
+      },
+      "rationale": "A distinct indexed finding supplies precisely the full antichain, the seven unconditional and six conditional forms with the same necessary and sufficient conditions, and the identical cardinality law. The exact length distribution and mean are not quoted from that record, but are routine composition counts from its complete threshold formula. This establishes scientific coverage, not priority or provenance; the catalogue dates do not decide either.",
+      "residual_risks": [
+        "Relative priority and provenance not established by this comparison of two distinct records.",
+        "A comparator mentions an unidentified 2023 conference paper without enough bibliographic detail to assess; the decision relies on the actual exact indexed coverage, not that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact basis and cardinality coverage; aggregate laws follow from it",
+          "evidence": "Same positive five-run hypotheses, thirteen stated templates with identical conditions, and 7+x+y+z+xy+yz+xyz.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-minimal-absent-subsequence-basis-for-five-run-binary-wo--c5410870c77b",
+          "material_read": "Mirrored RESULT.md offsets 0–5600 and 7400–8700, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary and mirrored primary-text comparison",
+          "title": "Complete minimal absent subsequence basis for five-run binary words",
+          "trigger": "Exact same-family basis and cardinality hit"
+        },
+        {
+          "assessment": "Different run family",
+          "evidence": "Cardinalities are 5,6,8 and the host has four positive runs.",
+          "identifier_or_url": "2026/10/26/SCOPE-the-complete-minimal-absent-subsequence-basis-of-a-four-run-bina--56438eb0ba34",
+          "material_read": "Mirrored RESULT.md offsets 0–3428",
+          "method": "Resultary and mirrored primary text",
+          "title": "The complete minimal absent subsequence basis of a four-run binary word",
+          "trigger": "Adjacent bounded-run antichain and exact distribution"
+        },
+        {
+          "assessment": "Different containment order",
+          "evidence": "Concerns contiguous minimal absent factors and a linear-scale mean (8/15)n+O(1), not a scattered basis.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-five-run-limit-law-for-minimal-absent-factors-of-binary-words--3131fc449d40",
+          "material_read": "Mirrored RESULT.md offsets 0–2482",
+          "method": "Resultary and mirrored primary text",
+          "title": "A five-run limit law for minimal absent factors of binary words",
+          "trigger": "Same host and superficially similar length distribution"
+        },
+        {
+          "assessment": "General position criterion and related shortest-absence/arch results",
+          "evidence": "Theorem 3.1 gives a position-based MAS criterion, not the five-run symbolic template list.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+          "material_read": "PDF pp. 5–6 and 14, Theorems 3.1, 3.4 and 4.1",
+          "method": "OA PDF original passages",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General characterization potentially yielding this basis immediately"
+        },
+        {
+          "assessment": "Computability, not symbolic five-run formulas",
+          "evidence": "General graph representation and enumeration of absent subsequences under the two minimality notions.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.21471",
+          "material_read": "PDF abstract p. 1 and Theorem 13 p. 14",
+          "method": "OA PDF original passages",
+          "title": "Efficiently Finding All Minimal and Shortest Absent Subsequences in a String",
+          "trigger": "General practical complete enumeration"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Optimizes counts of absent subsequences of a given length by arch count, not cardinality of the full minimal basis.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.18599",
+          "material_read": "PDF pp. 2–3 near offset 6500",
+          "method": "OA PDF original passages",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Potential existing count or distribution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The five-run symbolic antichain itself is a natural and useful low-run case, but it is already supplied in full by the indexed basis theorem. The proposed aggregate remainder concerns a reasonable statistic, yet follows mechanically from the already explicit three binary thresholds and stars and bars; it needs no new structural or computational result. No independently valuable uncovered claim warrants a repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

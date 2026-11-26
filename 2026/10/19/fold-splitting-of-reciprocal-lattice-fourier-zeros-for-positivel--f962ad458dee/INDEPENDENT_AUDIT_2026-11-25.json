@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:33:15.052565Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–86",
+        "Frozen VERIFICATION.md and verify_triangle.py (inspected, not executed)",
+        "Independent bounded replay: /workspace/branches/audit-checks.js, lattice block"
+      ],
+      "rationale": "Independently expanding the simplex vertex-exponential expression, F0 = −(exp(−iξ)−1)/(ξ(ξ−η)) + (exp(−iη)−1)/(η(ξ−η)), gives at (k,l) the imaginary gradient (i/(k(k−l)),−i/(l(k−l))) and the radial quadratic t²/2 with the stated unnormalized convention. The imaginary equation therefore yields a unique transverse graph s=O(t²+|ε|), and the real equation on it has Rtt(0,0)=1 and Rε(0,0)=u. Strict convexity on a fixed small interval and the critical-value expansion εu+O(ε²) give precisely the two or zero simple roots, with the claimed radial displacements and O(|ε|) error. For affine g, i(a∂ξ+b∂η)F0 is real at the node and gives the stated coefficient; when it vanishes the full complex perturbation vanishes there exactly. For g=x the excluded sign sectors have total angle π/2; the disk boundary and removed lines contribute O(R). Independent bounded enumeration yielded (1148,868), (30876,23192), (194968,146314) at R=20,100,250. This corroborates, not proves, the asymptotic.",
+      "residual_risks": [
+        "No global zero census or uniform unbounded-index perturbation threshold; the generic count excludes u=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolountzakis gives a wider non-spectrality theorem for nonsymmetric convex domains; it does not give local weighted zero bifurcations.",
+          "A scalar fold with a transversal unfolding gives the qualitative double/no-root behavior."
+        ],
+        "reasoning": "Neither broader result supplies the rank-one Jacobian, radial curvature and actual unfolding projection for the weighted transform. Those verified data are necessary for the numerical scale and sign classification.",
+        "searches": [
+          "arXiv:math/9904064 §§0–1",
+          "Primary-literature search for perturbation and real zeros of triangle Fourier transforms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2509.05782",
+        "arXiv:math/9904064",
+        "Fuglede DOI landing and later reconstruction",
+        "Resultary matched Findings listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit unweighted formula enables the calculation, but a zero-set description says nothing about the transverse response to an arbitrary g. The affine protected node requires vanishing of the complex coefficient, not only its real part."
+        ],
+        "reasoning": "A standard implicit-function fold reduction is invoked, rather than claimed as new. The combination with the exact curvature, affine real coefficient and sign census is not a covered result in the passages inspected.",
+        "searches": [
+          "arXiv:2509.05782 §4 unweighted vertex formula",
+          "Fuglede 1974 DOI 10.1016/0022-1236(74)90072-X",
+          "Resultary power tent, atom and carpet Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kolountzakis reconstructs exactly the same unweighted triangle zero set using cycles rather than angular frequency; multiplication of frequency by 2π reconciles the conventions.",
+          "SCOPE-logarithmic-crossover-and-square-root-unfolding-of-fractional-te--5e95c2d93c0a gives splitting for a one-dimensional power tent."
+        ],
+        "reasoning": "The zero-set equivalence ends at ε=0. The power tent has a different dimension, measure and variation; it does not specialize to the weighted planar simplex.",
+        "searches": [
+          "Resultary comparison of reciprocal-lattice Fourier zero unfolding and affine-weight triangle nodes",
+          "arXiv:2509.05782 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-sharp-diameter-thresholds-and-zero-lattices-for-positive-three-a--2b758d15736c lists two reciprocal-lattice cosets for a positive three-atom measure, not this continuous triangle.",
+          "SCOPE-isolated-fourier-zeros-and-ternary-multiplicity-strata-of-the-un--2d3222d8e549 gives zero lattices and counts for a planar Sierpiński-carpet measure, but not affine-weight split sectors."
+        ],
+        "reasoning": "No checked exact indexed table identifies these triangle coefficients or the 3/4 sector. Other reciprocal lattices cannot substitute for the same measure and perturbation.",
+        "searches": [
+          "Resultary checks for triangle Fourier folds, affine protected nodes and split sector density"
+        ]
+      },
+      "rationale": "The unweighted zero lattice and qualitative fold normal form are known. The checked evidence does not supply the weighted triangle's exact nodewise unfolding for bounded weights or its affine sign and split-density classification. Credit is restricted to those quantitative results, not the unweighted geometry or the square-root mechanism in isolation.",
+      "residual_risks": [
+        "Fuglede 1974 full text was not directly accessible; no conclusion about unexamined sections.",
+        "The checked evidence is not an exhaustive priority search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for unweighted zeros only",
+          "evidence": "The unit triangle has zeros (m,n) with mn(m−n)≠0 under exp(−2πiξ·x).",
+          "identifier_or_url": "https://arxiv.org/abs/2509.05782",
+          "material_read": "§4, pp. 3–4, PDF text offsets 8165–13128",
+          "method": "OA primary-text passage inspection",
+          "title": "Fuglede's conjecture on orthogonal bases of exponentials",
+          "trigger": "Same unweighted continuum triangle and reciprocal lattice"
+        },
+        {
+          "assessment": "Broader spectrality scope, different invariant",
+          "evidence": "Non-symmetry precludes the stated exponential basis; no local weighted split result in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9904064",
+          "material_read": "§0, pp. 1–2, PDF text offsets 1113 and 6997",
+          "method": "OA primary-text passage inspection",
+          "title": "Non-symmetric convex domains have no basis of exponentials",
+          "trigger": "Broader domain theorem"
+        },
+        {
+          "assessment": "Full-text overlap unresolved beyond the known unweighted calculation",
+          "evidence": "Kolountzakis §4 explicitly attributes the unweighted triangle computation to Fuglede.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-1236(74)90072-X",
+          "material_read": "Publisher landing page and abstract only; triangle calculation read through later reconstruction",
+          "method": "Lawful OA lookup and reconstruction comparison",
+          "title": "Commuting self-adjoint partial differential operators and a group theoretic problem",
+          "trigger": "Original triangle calculation"
+        },
+        {
+          "assessment": "Analogue, not equivalent",
+          "evidence": "Zeros of (1−|x|)_+^α near α=1 split in one dimension according to a power-tent coefficient.",
+          "identifier_or_url": "2026/10/26/SCOPE-logarithmic-crossover-and-square-root-unfolding-of-fractional-te--5e95c2d93c0a",
+          "material_read": "RESULT.md Finding, offsets 0 and 854",
+          "method": "Local Resultary search and matched record inspection",
+          "title": "Logarithmic crossover and square-root unfolding of fractional tent zeros",
+          "trigger": "Indexed quantitative Fourier splitting analogue"
+        },
+        {
+          "assessment": "Different measure and claim",
+          "evidence": "Two affine reciprocal cosets arise for three noncollinear atoms.",
+          "identifier_or_url": "2026/11/16/SCOPE-sharp-diameter-thresholds-and-zero-lattices-for-positive-three-a--2b758d15736c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and matched record inspection",
+          "title": "Sharp diameter thresholds and zero lattices for positive three-atom measures",
+          "trigger": "Indexed exact reciprocal-lattice zeros"
+        },
+        {
+          "assessment": "Different measure and no weighted fold",
+          "evidence": "Sierpiński-carpet zero locations, vanishing orders and lattice counts.",
+          "identifier_or_url": "2026/10/18/SCOPE-isolated-fourier-zeros-and-ternary-multiplicity-strata-of-the-un--2d3222d8e549",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and matched record inspection",
+          "title": "Isolated Fourier zeros and ternary multiplicity strata",
+          "trigger": "Related planar zero lattice and count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 12–36 and 58–86"
+      ],
+      "rationale": "The exact response of an isolated, rank-deficient real Fourier zero matters when positive densities perturb the orthogonality geometry of a domain. The result distinguishes robust annihilation from pairs of simple real zeros, gives their direction and scale, and computes the sign prevalence across the natural nodal lattice rather than at an arbitrary sample point. The 3/4 statement is an index-cutoff limit, not a fixed-ε global statistic.",
+      "residual_risks": [
+        "No consequence for weighted spectral bases or global sampling follows here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:31:17.563416Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Decompose into the scalar root and k regular components, with top row equal to the sum of the local-root evaluations. For lambda!=0 the scalar coordinate can always be chosen after solving the lower equations; for lambda=0 a component root basis vector in ker B_j corrects the remaining scalar target. Since B_j B_j*=b_j I, B_j*/b_j gives a convergent geometric right inverse for |lambda|<sqrt(b_j); the ordinary resolvent Neumann series works outside. On the boundary write lambda=c z with c=sqrt(b_j), |z|=1. An independent explicit omitted target in the reducing radial block cB is y_n=c*z^(n+1)/(n+1), which is square-summable. If (cB-lambda)x=y, then z^(-n-1)x_(n+1)-z^(-n)x_n=1/(n+1), so the dephased coefficients are x_0+H_n and cannot be square-summable. Orthogonal projection to the radial block would turn any full solution into a radial solution. Thus the lower block obstruction survives the join exactly at each critical circle. The adjoint equation forces every coefficient to vanish by depth induction for lambda!=0, and leaflessness gives the same at zero, proving dense range. The largest regular component has degree b_k>=2. Its pairwise disjoint antichain subtrees supply orthogonal plus/minus child differences with bottom-level cancellation, so the wavelet span really reduces the joined operator. Normalized propagation gives sqrt(b_k) times an infinite-multiplicity backward shift. Inside the outer disk its translations are onto on this span and have infinitely many independent eigenvectors, so Caradus applies there and universality passes to the full operator. At and above the boundary, an assumed nonzero component coefficient forces squared mass on successive disjoint descendant levels at least (|lambda|^2/b_j)^n times its initial squared mass; contradiction. The scalar root equation then gives injectivity, ruling out restriction to a model with kernel. Spectrum follows from the open eigenvalue disk and closure together with the norm bound. S^n(S*)^n is diagonal with the depth-n descendant counts; the largest component attains b_k^n, and the root has sum b_j^(n-1)<=b_k^n. The minimum lies between min(1,k/b_1)*b_1^n and b_1^n and hence gives R_-=sqrt(b_1). Bounded finite replay: python replay/5_tree.py builds addresses explicitly, checks 20 truncations of five degree profiles (root depth at most five), and uses exact integer wavelet coefficients before normalization; 120 depth-count or difference-vector tests plus root-coupling checks passed. The frozen checker was inspected, not run; neither finite test proves infinite-dimensional range or universality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buckley–Seco prove universality by Caradus below R_- and spectral radius R_+, and ask in remark (iv) for the spectrum in the intermediate annulus; the regular binary example has R_-=R_+.",
+          "Budzynski et al. Theorem 16 gives a general Wold-type decomposition; orthogonality requires the balance hypotheses. For the joined star, the root children have different norms under the forward shift, so the whole star is not locally power-balanced.",
+          "Resultary 88fe5c6a9016 realizes radii on binary/unary trees and discusses non-surjectivity across an annulus, rather than isolated losses of surjectivity with its recovery on intervening regions."
+        ],
+        "reasoning": "The general lower radius bound does not see individual intermediate branch degrees and does not compare surjectivity and universality beyond its common sufficient region. A decomposition theorem on its own neither resolves the joined root nor supplies a universal invariant restriction at and between the critical circles.",
+        "searches": [
+          "Buckley–Seco arXiv:2610.40089v1 Theorem 1 and remarks; Budzynski et al. arXiv:1702.00765v1 §6",
+          "Public query: Rota universality backward shift connected rooted directed tree finite sum homogeneous branch degrees universal non surjective critical circles Buckley Seco direct sum Wold",
+          "Resultary rooted homogeneous branches critical-circle query"
+        ]
+      },
+      "checked_sources": [
+        "Buckley–Seco arXiv:2610.40089v1 Theorem 1, §§2–4",
+        "Budzynski et al. arXiv:1702.00765v1 §6",
+        "Resultary finite-stars / critical circles query, including 2e6dcefe1ee1 and 88fe5c6a9016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The homogeneous co-shift and known Caradus argument are ingredients and the upper spectral radius is covered. Individual branch boundary obstructions are standard after identifying the radial shift. The explicit joint statement combines survival of all intermediate obstructions under joining with survival of a full-radius universal restriction despite those obstructions."
+        ],
+        "reasoning": "Plugging R_-,R_+ into the general theorem does not recover the intermediate exceptional circles or guarantee universality there. The homogeneous restriction alone cannot simply be extended by zero at the global root: its local root contributes to the upper equation. The difference-wavelet cancellation and simultaneous lower-block solvability distinguish the two loci.",
+        "searches": [
+          "Buckley–Seco Theorem 1(b), §2.1 and §§4.1–4.2; Budzynski et al. Theorem 16, Lemma 15 and Example 20; Resultary exact rooted finite-star search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Buckley–Seco use the same backward parent shift and sibling cancellation on disjoint branches.",
+          "Budzynski et al. Example 20 has two weighted unary rays with different constant weights; its adjoint is analogous to the radial part of a two-branch homogeneous star. The example studies failure of a Wold-series representation, not universal translates."
+        ],
+        "reasoning": "Factoring into a root-coupled radial block and a direct sum of co-shift pieces explains why several standard descriptions are related. A finite union of weighted unary rays lacks the infinite-multiplicity difference subspaces of the genuinely branching star, so it is not equivalent for universality. The connected star is not the disjoint union as an operator: it has a top-row root coupling that must be accounted for.",
+        "searches": [
+          "Resultary: Rota universality tree shift finite star rooted homogeneous regular branches exact surjectivity critical circles Buckley Seco annulus",
+          "arXiv:2610.40089v1 §§2.1,4",
+          "arXiv:1702.00765v1 Theorem 16 and Example 20"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closely ranked Floquet record reports an exact finite cyclic calculation for periodic branching by generation; the finite star has different branching degrees at the same generation. The regular binary-tree example gives one boundary circle with no interior annulus."
+        ],
+        "reasoning": "Neither an exact periodic-by-depth formula nor a homogeneous example evaluates this heterogeneous joined-root family. This is an operator locus, not a question about a finite graph table.",
+        "searches": [
+          "Resultary exact star surjectivity / universality query; periodic tree-shift record 2e6dcefe1ee1; Buckley–Seco v1 §2.1"
+        ]
+      },
+      "rationale": "Best of knowledge: the useful new claim is the precise coexistence of the full outer open universal disk with arbitrarily many isolated inner non-surjectivity circles on a connected unweighted tree. Standard homogeneous-shift facts, sibling cancellation, the spectral-radius bound and the Caradus criterion are not original. The located sources do not establish the joint sharp loci on this root-coupled family. Public query failure is not negative evidence.",
+      "residual_risks": [
+        "Older direct-sum or finite-root extension results may subsume pieces of the classification. No global priority asserted.",
+        "Targeted public query unavailable; no negative inference made. The cited Partington–Pozzi comparison was not independently relied upon for exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest same-operator result gives a lower-radius sufficient region and standard methods; not the joint connected-star classification",
+          "evidence": "Theorem 1(a) covers |lambda|<R_-; (b) identifies spectral radius R_+; remark (iv) asks about the annulus; §4 constructs disjoint sibling-supported eigenvectors and right inverses at the sufficient radius.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.40089v1",
+          "material_read": "PDF v1 Theorem 1 and remarks, binary case §2.1, spectral-radius argument §3, and §4.1–4.2 kernel and surjectivity proof",
+          "method": "Read primary PDF text, checking the quantifiers in Theorem 1, comparison annulus and sibling cancellation construction",
+          "title": "Rota universality of shifts on trees",
+          "trigger": "Same parent shift and motivating annulus question"
+        },
+        {
+          "assessment": "Relevant decomposition machinery and weighted two-ray geometry, but that example lacks the branching multiplicity for universality",
+          "evidence": "Theorem 16 gives orthogonal factors under the appropriate power-balance condition; Example 20 uses two constant unequal-weight rays and proves a Wold-series representation obstruction, not a universal-locus theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1702.00765v1",
+          "material_read": "PDF v1 introduction and §6, Lemma 15, Theorem 16 and Example 20",
+          "method": "Compared forward-shift hypotheses and root/ray weights, then took the backward adjoint for the two-ray comparison",
+          "title": "Weighted shifts on directed trees. Their multiplier algebras, reflexivity and decompositions",
+          "trigger": "Potentially broader Wold decomposition and a close two-ray formulation"
+        },
+        {
+          "assessment": "Related but does not establish the critical-circle classification of connected homogeneous finite stars",
+          "evidence": "Index states three realizable threshold radii and non-surjectivity in a whole annulus; no finite isolated exceptional-circle characterization is stated.",
+          "identifier_or_url": "Resultary 88fe5c6a9016",
+          "material_read": "Published mathematical index statement only",
+          "method": "Compared the explicitly stated locus and geometry, without claiming full-document exclusion",
+          "title": "Sharp realizability of three spectral thresholds by binary-or-unary trees",
+          "trigger": "Indexed non-surjective spectral annulus with eigenvalues of infinite multiplicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The location and geometry of the exceptional radii answer the motivating spectral-annulus problem for a natural connected family, and distinguish the full Rota-universal region from the set where the Caradus sufficient criterion applies. In particular surjectivity recovers between consecutive exceptional radii while universality never disappears anywhere in the inner disk. The exact finite but unbounded count of inner exceptions is not a consequence of knowing just the two branching-growth endpoints. No general annulus classification for arbitrary trees is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

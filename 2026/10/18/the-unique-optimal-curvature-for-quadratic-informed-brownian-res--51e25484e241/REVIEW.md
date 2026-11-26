@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact renewal reduction, Dirichlet harmonic-oscillator Green function and Bessel solution reproduce the mean absorption time for every strictly positive model parameter. The nonstandard lemma proving strict convexity of \(h=I/u^2\) is independently unpacked through the Riccati variable \(a=-u'/u\), positive-integral variance bounds \(0<a'<1\), the zero-derivative barrier for \(H\), and the two exact endpoint signs. These establish existence and uniqueness of the optimizer, not just a numerical stationary point. A separate finite-difference killed-generator calculation converges quadratically toward the analytic expression. Computations are supporting evidence, not substitutes for continuum proof.
+## correctness
 
-**Originality (PASS, self-review).** The motivating informed-search paper explicitly reports a numerical parabolic optimal curvature and says no analytic formula is known. Its renewal framework and the older exact harmonic-oscillator propagator for quadratic reset intensity are prior work, not asserted discoveries. The specific analytic root criterion with a *global uniqueness proof* for absorbing first passage was not present in the relevant inspected primary-source sections or searched mathematical records. This is an implication-level comparison: a generic propagator permits derivation of a first-passage resolvent, but neither the absorber Green boundary problem nor unique optimizer follows as a stated conclusion without the new analysis. Broader spectral literature might contain an equivalent specialized theorem, so independent priority checking is still required.
+PASS
 
-**Value (PASS).** The source poses the absence of an analytical optimal curvature as a concrete limitation. The result resolves that exact parabolic idealization, removes numerical ambiguity about global vs local optimum, and gives the dimensionless curvature \(\kappa_*L^4/D\) and optimal mean-time constant relevant to informed search. The problem is physically natural and the uniqueness proof is structural rather than an arbitrary parameter computation.
+In coordinates z=x(κ/D)^(1/4), the physical time unit is (Dκ)^(-1/2), the generator is ∂zz, and the reset hazard is z². Absorption before a reset has probability u(z), the normalized decaying solution of u''=z²u; the mean duration of a trial solves (−∂zz+z²)q=1, with the zero boundary and bounded solution. The positive Dirichlet Green kernel v(min)u(max), v=u∫₀ᶻu⁻², gives bounded q (in particular q=O(z⁻²) at infinity by the decaying and growing solution asymptotics) and so the killed-diffusion expectation by stopping. Renewal from λ gives M=q(λ)/u(λ), and the unit Wronskian gives (q/u)'=I/u². The time conversion then gives M_phys=(L²/D)m(λ)/λ². For a=−u'/u, b=I/u, one has a'=a²−z² and b'=ab−1. Integration of (u'²−z²u²)'=−2zu² gives a'>0; the positive tilted-integral representation gives a'=1−2 Var(t)<1. With H=(3a²−z²)b−3a/2, h''=2H/u. The gamma values at zero indeed give H(0)>0; at large z, a∼z and b∼1/z give H∼z/2>0. At any positive zero, substitution of b=3a/[2(3a²−z²)] into H' yields z[3a'z−6a−2z³]/[2(3a²−z²)]<0 since a>z and a'<1. A crossing back up is then impossible, proving H>0. Thus F=zh−2m has F''=zh''>0, F(0)=0 and F'(0)=−h(0)<0. Since h'/h=2a−1/b∼z, l'Hôpital gives m∼h/z and F→+∞. It has exactly one positive zero, giving the unique global minimizer via Φ'=F/z³ and the strictly increasing correspondence κ↔λ. Independent 45-digit working precision quadrature of the IVP series u''=z²u with the analytic initial values gives λ≈1.548485175665752, λ⁴≈5.749475240579111 and Φ≈0.939290010529102, agreeing at the stated precision.
 
-**Closest literature and limitations.** Keidar et al., arXiv:2409.14419 (2024, v2 2025), Nature Communications (2025), models finite-sensing-range informed resetting and approximates its large-range regime by quadratic reset intensity, using simulations for optimization. Roldán and Gupta, arXiv:1703.10615 (2017), develops the parabolic reset propagator and its stationary law, but not the identified first-passage optimizer. The theorem is for exact quadratic intensity, not finite sensing range or nonzero drift, and its displayed decimals are non-certified floating-point evaluations. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The literature checked contains the model motivation, a nearby simulation estimate and oscillator/renewal methods, but not the analytic characterization with proof of a unique global optimum for the exact whole-half-line quadratic hazard. The surviving contribution is the explicit MFPT reduction and global optimization, not introduction of adaptive resetting, harmonic-oscillator methods or a finite-range theorem.
+
+## value
+
+PASS
+
+This addresses a physically motivated optimization previously estimated numerically in the parabolic regime. It provides a universal dimensionless minimizer with proven uniqueness, an exact evaluation recipe for all positive curvatures, and the scaling to physical parameters. The useful advance is the analytic global result rather than extra digits or a claim about the saturating model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

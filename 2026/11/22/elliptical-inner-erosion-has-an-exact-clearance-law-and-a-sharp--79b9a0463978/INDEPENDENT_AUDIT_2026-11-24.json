@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:57:30.558966Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–92",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen checker.py, lines 9–72 (inspected, not executed)",
+        "Independent support-envelope, first-variation and local-series reconstruction"
+      ],
+      "rationale": "The containment inequalities are z·n≤h−t. Below b²/a, h−t has nonnegative curvature measure. Above it, differentiating (h−t)/cos θ gives the sign of b²/h−t and the stated unique contact angle. Axial cones are bounded by nonnegative combinations of the two contact normals; the cosine support on each cone joins the remaining support C¹ and has zero curvature measure, whereas ρ−t is nonnegative on the retained arcs. This proves the true eroded support, not just a formal offset. The support-area formula gives the integral and the initial polynomial. Differentiating the support-area functional gives A′=−P_t: the t-derivative of support is −1 on active arcs and the curvature measure is zero on the cones. With u=θ_t, δ=t−b²/a=αu²+βu⁴+…, the u³ term of ∫₀ᵘ(ρ−t) cancels, and the u⁵ coefficient is 2α/15. Integration gives exactly +16α^(−3/2)/105 times δ^(7/2). Analyticity in u² gives the differentiated fractional expansion, C³ but not a fourth derivative. At t=b the vertical strip collapses and the horizontal intercept tends to zero; below b an open disk survives. The endpoint and the onset boundary recover b and a, and the disk case is immediate by radial erosion.",
+      "residual_risks": [
+        "The published package's numerical diagnostics cover finite cases only; no numerical rerun, Lean verification or expert attestation was performed for this assessment.",
+        "The expansion is for fixed unequal semiaxes and is not claimed uniform at circularity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Larson supplies a general perimeter bound in terms of the inradius and discusses the alternating Steiner inequality proposed by Matheron, not valid in general."
+        ],
+        "reasoning": "An inequality and an initial polynomial do not determine which support normals become redundant or the size of the positive correction.",
+        "searches": [
+          "Larson arXiv:1508.06414v3 §1 and references",
+          "Matheron, La formule de Steiner pour les érosions"
+        ]
+      },
+      "checked_sources": [
+        "Banchoff–Giblin (1994), p. 405",
+        "MathWorld Ellipse Parallel Curves",
+        "Larson arXiv:1508.06414v3 §1 and bibliography",
+        "Matheron (1978), secondary evidence only",
+        "Local Resultary clearance and evolutoid records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General erosion support inequalities apply; the inspected prior does not identify their active cones for the ellipse or compute the u³ cancellation of the perimeter defect.",
+          "The loop result is for a different family and area functional; same-day indexing establishes no order."
+        ],
+        "reasoning": "The support envelope and perimeter cancellation are additional calculations, not a specialization of the inspected assertions; they are needed to extract the coefficient and therefore locate the inverse landmark.",
+        "searches": [
+          "Banchoff–Giblin DOI 10.1080/00029890.1994.11996965 p. 405",
+          "Larson inner parallel bodies §1",
+          "Resultary SCOPE-sharp-euclidean-loop-area-onset-at-an-evolutoid-swallowtail--76cb4afaf9c4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banchoff–Giblin p. 405 describes four formal inward-offset cusps; MathWorld distinguishes problematic inward offsets after self-intersection.",
+          "The distinct same-day Resultary evolutoid record gives a 7/2 loop-area law, with coefficient H⁵/[210(ab)^(5/2)(a²−b²)^(3/2)] for H²=4a²b²+9(a²−b²)²."
+        ],
+        "reasoning": "Neither the self-intersecting offset nor the loop born in an evolutoid is the boundary or area of the convex intersection of eroded support half-planes. Matching onset exponents do not identify those observables.",
+        "searches": [
+          "Ellipse parallel/offset curves and true inner disk erosion",
+          "Resultary semantic search for ellipse erosion, clearance and fractional area onset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact clearance-law hit is this assigned record; the distinct loop record concerns a different area. The accessible MathWorld prose tabulates the formal parallel-curve problem, not an erosion clearance law."
+        ],
+        "reasoning": "The self-match is excluded; no inspected catalog entry supplies the exact post-threshold erosion area or coefficient. A separate numerical point table would not establish the functional identity.",
+        "searches": [
+          "Resultary ellipse clearance-law and evolutoid area searches",
+          "MathWorld Ellipse Parallel Curves"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact area distribution for the actual disk erosion of an unequal ellipse, with its explicit positive onset coefficient and inverse characterization. Formal offset cusps, general inner-parallel-body bounds, and the equal exponent for a different ellipse evolutoid loop do not cover that statement. Neither the Steiner polynomial below the threshold nor the general idea of using the medial axis is claimed as new.",
+      "residual_risks": [
+        "An exact true-erosion formula or local coefficient may exist in specialized offset, medial-axis, or morphology literature; Matheron's original text was not verified. The assessment is based only on available inspected evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Formal inward offset geometry, not exact convex erosion area",
+          "evidence": "The inner parallel curve of an ellipse develops four cusps.",
+          "identifier_or_url": "10.1080/00029890.1994.11996965",
+          "material_read": "p. 405, extracted offset 7131",
+          "method": "Accessible primary PDF, bounded passage",
+          "title": "On the Geometry of Piecewise Circular Curves",
+          "trigger": "Ellipse-specific inward cusp"
+        },
+        {
+          "assessment": "Offset topic, no clearance identity in material read",
+          "evidence": "The prose says inward offsets need separate treatment past cusps or self-intersections.",
+          "identifier_or_url": "https://mathworld.wolfram.com/EllipseParallelCurves.html",
+          "material_read": "HTML text offsets 8–844; equations not exposed in extraction",
+          "method": "Accessible webpage text",
+          "title": "Ellipse Parallel Curves",
+          "trigger": "Possible exact formula compilation"
+        },
+        {
+          "assessment": "Related exact definitions and general bounds, not coverage",
+          "evidence": "Perimeter lower bound (1−t/r)_+^(n−1)|∂Ω|; discussion of generally false alternating Steiner bound.",
+          "identifier_or_url": "arXiv:1508.06414v3",
+          "material_read": "§1, HTML offsets 0 and 4000; bibliography offset 26200",
+          "method": "Accessible primary HTML passages",
+          "title": "A bound for the perimeter of inner parallel bodies",
+          "trigger": "General disk erosion and Steiner alternatives"
+        },
+        {
+          "assessment": "Exact ellipse coverage not inferable",
+          "evidence": "Larson attributes the proposed alternating erosion inequality to this work.",
+          "identifier_or_url": "J. Appl. Probab. 15(1) (1978), 126–135",
+          "material_read": "Citation and description of the conjecture in Larson; original text not read",
+          "method": "Secondary cross-reference",
+          "title": "La formule de Steiner pour les érosions",
+          "trigger": "Historical erosion literature potentially containing examples"
+        },
+        {
+          "assessment": "Positive 7/2 exponent for another geometric observable, not equivalent coverage",
+          "evidence": "Newborn loop area in an evolutoid family, not the surviving area of disk erosion.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-euclidean-loop-area-onset-at-an-evolutoid-swallowtail--76cb4afaf9c4",
+          "material_read": "RESULT.md offset 654, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and mirror text",
+          "title": "Sharp Euclidean loop-area onset at an evolutoid swallowtail",
+          "trigger": "Strongest distinct Resultary overlap: ellipse 7/2 area onset"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 14–35 and 43–92",
+        "Larson arXiv:1508.06414v3 §1"
+      ],
+      "rationale": "The clearances are an intrinsic geometric probability observable. The exact formula identifies the valid post-focal boundary rather than integrating a self-intersecting formal offset; the cancellation leading to order 7/2 is a precise regularity boundary. One can also identify the two semiaxes from this one-dimensional law. These are useful exact facts about a standard convex body, not only its already-known initial Steiner regime.",
+      "residual_risks": [
+        "No finite-sample stability estimate, analogous classification for general ovals, or uniform circular-limit estimate is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

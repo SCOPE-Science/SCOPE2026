@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:42:56.821412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–36; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/branches/2b6f56d9-97ee-4130-83e6-ad426efa0426/independent_check.py; full finite gap sets and a 3a+5 tail for 3≤a≤100, with direct coefficient-triple checks for 3≤a≤12; passed"
+      ],
+      "rationale": "The gap predicate is d_a(n)≤p, not nonrepresentability. At fixed total coin count k, writing u=y+2z gives the exact allowed range max(0,u-k)≤z≤floor(u/2), on 0≤u≤2k. For n=aq+r with 0≤r<a and q≤a+1, only k=q and k=q-1 can contribute. For q≤a a lone first term is at most ceil(a/2); when both terms contribute their sum is q-h for odd a=2h+1 and q-h+1-(r mod 2) for even a=2h. This includes the whole initial interval. At q=a+1 both terms contribute, and the counts are h+2 for odd a, or h+2 at even residues and h+1 at odd residues for even a. In the even q=a+2 block the only extra term is at r=0, and the counts are all above threshold. Appending an a-coin preserves each residue's above-threshold property, so no gaps follow. This also proves the cardinality and connected-component assertions including a=3,4.",
+      "residual_risks": [
+        "The independent numerical result is bounded; the residue argument, rather than the tested tail, excludes all later gaps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two companion records cover multiple thresholds in their own parity regimes. Komatsu–Ying covers the consecutive case but its explicit formula range ends at p=floor(a/2). Subwattanachai's relevant theorem assumes divisibility not satisfied by the triple. Record d6ba501caf95 requires step d≥3.",
+          "The Oct. 18 record proves the general layer count for all quotients and residues and gives the largest gap through p=2a."
+        ],
+        "reasoning": "Do not infer coverage from the Apéry title or the out-of-range step. The exact t=1 statements and the earlier layer-count route require no such out-of-range specialization.",
+        "searches": [
+          "Resultary records 6dc430dbb315, a40c79c05b6e, bef81ab99756 and d6ba501caf95; arXiv:2206.13052 Theorem 1 and arXiv:2309.09149 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6dc430dbb315, a40c79c05b6e, bef81ab99756, d6ba501caf95",
+        "Komatsu–Ying arXiv:2206.13052; Subwattanachai arXiv:2309.09149"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Oct. 18 F(q,r;t) formula counts the same three-coin representations, and its injection gives monotonicity in q. Substituting q=a kills every term beyond t=1 and gives d_a(a²+r)=h+1 if a is odd and h+1-(r mod 2) if a is even. This settles all q≤a by monotonicity. At q=a+1 direct substitution yields h+2 in the odd case and h+2-(r mod 2) in the even case. The Oct. 18 second-regime maximum precludes later gaps."
+        ],
+        "reasoning": "Two substitutions in an existing exact formula plus a published cutoff already give every gap and the component counts at this threshold, for every a≥3. This is more than an argument that an exhaustive general algorithm could eventually compute the result.",
+        "searches": [
+          "Oct. 18 record 6dc430dbb315, exact proof passage, mirror offset 1439; matched t=1 in the two Nov. 22 companion findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The odd post-range record a40c79c05b6e at t=1 has J_1=0 and L_1=a(a+1). The even post-range record bef81ab99756 at t=1 gives the initial full interval and exactly the odd offsets 1,3,…,a-1.",
+          "A full p-Apéry table gives the least above-threshold integer in each residue; residue monotonicity then gives the complete complement."
+        ],
+        "reasoning": "At t=1 the two companion formulas give precisely the frozen gap descriptions on their respective ranges, not just the same maxima. Their ranges cover all a≥5. The p-Apéry reformulation is equivalent, while d6ba501caf95 formally specializes to the right data but does not prove the excluded d=1 case.",
+        "searches": [
+          "Resultary complete p-gap set, parity bands and post-Apéry threshold comparisons: a40c79c05b6e, bef81ab99756 and d6ba501caf95; Komatsu–Ying arXiv:2206.13052"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Komatsu–Ying's explicit data stop one threshold before the target. The Oct. 18 maximum at p=h+1 is a(a+1)-1 when odd and a(a+2)-1 when even. Those maxima alone do not specify the set. The two same-day exact parity-band formulas do give all residues on their ranges."
+        ],
+        "reasoning": "A known extremal entry is not a lookup of the full invariant; the complete band data and earlier count formula, rather than the maximum alone, establish coverage.",
+        "searches": [
+          "Komatsu–Ying arXiv:2206.13052 p-Apéry data; Resultary exact Frobenius table 6dc430dbb315 and exact parity-band data a40c79c05b6e, bef81ab99756"
+        ]
+      },
+      "rationale": "The complete-set result is a direct specialization of previously published layer counts, residue monotonicity, and the known maximum, and is explicitly covered for every a≥5 by two distinct broader parity-specific records. The relative ordering of the same-day records is not established and is not needed for the mechanical implication from the earlier result. Neither small endpoint a=3,4 escapes that implication.",
+      "residual_risks": [
+        "The focused external index lookup was unavailable; this is not negative evidence. Same-day relative priority is unresolved. Neither limitation affects the earlier formula-based implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the principal claim with two quotient substitutions",
+          "evidence": "Exact F(q,r;t), residue monotonicity, and second-regime g_p=a(h+p+1)-1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-three-exact-phases-of-generalized-frobenius-numbers-for-three-co--6dc430dbb315/RESULT.md",
+          "material_read": "Finding at offset 0; Proof, elementary counting formula and second regime, offset 1439",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three exact phases of generalized Frobenius numbers for three consecutive denominations",
+          "trigger": "Known maximum and possible exact derivation of all residues"
+        },
+        {
+          "assessment": "Exact odd-case coverage for a≥5; same-day priority unresolved",
+          "evidence": "At t=1, J_1=0 and L_1=a(a+1).",
+          "identifier_or_url": "Resultary a40c79c05b6e",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Universal quadratic genus defect and exact interior gaps in odd consecutive coin systems",
+          "trigger": "Exact odd-case band description"
+        },
+        {
+          "assessment": "Exact even-case coverage for a≥6; same-day priority unresolved",
+          "evidence": "First band gives the identical odd offsets following the full initial interval.",
+          "identifier_or_url": "Resultary bef81ab99756",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror",
+          "title": "First parity-band breakdown in three consecutive coin p-gap sets",
+          "trigger": "Exact even-case band description"
+        },
+        {
+          "assessment": "Formal specialization agrees, but outside hypotheses",
+          "evidence": "The proof and statement impose d≥3, not d=1.",
+          "identifier_or_url": "Resultary d6ba501caf95",
+          "material_read": "Finding and Proof, offset 0",
+          "method": "Local mirror",
+          "title": "First post-range representation thresholds for three-term arithmetic progressions",
+          "trigger": "Related complete Apéry data"
+        },
+        {
+          "assessment": "Background and adjacent threshold range",
+          "evidence": "Explicit results apply for 0≤p≤floor(a/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.13052",
+          "material_read": "p. 4 definition, offset 7204; p. 5 Theorem 1, offset 12593",
+          "method": "Open-access PDF",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Primary lower-level p-Apéry results"
+        },
+        {
+          "assessment": "Inapplicable divisibility hypothesis",
+          "evidence": "Its stated theorem does not cover three successive generators in the required regime or classify the full gap set.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.09149",
+          "material_read": "p. 3 Theorem 1, offset 7940",
+          "method": "Open-access PDF",
+          "title": "Generalized Frobenius Number of Three Variables",
+          "trigger": "Possible generalized Frobenius coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md gap topology and census",
+        "Earlier exact layer count and maximum in 6dc430dbb315; exact parity-band findings a40c79c05b6e and bef81ab99756"
+      ],
+      "rationale": "Complete topology of a gap set can be useful, but here the only distinction from the earlier maximum collapses to two immediate evaluations of the published layer count, with the entire range already governed by published monotonicity and the cutoff. The companion band results also give that topology for all non-minimal sizes. The two smallest instances and the parity census supply no independent surviving invariant beyond those implications.",
+      "residual_risks": [
+        "This rejects the scientific addition of this particular fixed-threshold claim, not the value of the broader multi-threshold classification problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

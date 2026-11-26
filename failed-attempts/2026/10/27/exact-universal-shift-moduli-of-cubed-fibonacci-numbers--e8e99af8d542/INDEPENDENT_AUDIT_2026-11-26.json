@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:24:08.463988Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cubing Binet's formula gives the four characteristic roots α³, β³, −α, −β, yielding the monic integer recurrence and the reduction to n=0,1,2,3. Evaluation of the coefficient vector of (aX+bY)^3−X³, a=F_{k−1}, b=F_k, has determinant of absolute value 2 at the four consecutive Fibonacci pairs, so its content c divides D and D divides 2c. For odd k, Cassini gives a²≡−1 mod b; modulo an odd prime dividing b, a³≡1 would force a=−1 and contradict Cassini. If 3∤k the n=0 value is odd; if k≡3 mod 6, b≡2 and F_{k+1}≡3 mod 4, giving exactly one factor of 2 in D from the n=1 witness. For k=2m, gcd(b,a³−1)=gcd(b,a−1), which the doubling identities and consecutive-term coprimality reduce to L_m for odd m or F_m for even m. Only 3 can change the odd-prime valuation thanks to the middle coefficients' factor 3. Modulo 3, 3|b precisely when 4|k, and a≡1 rather than −1 precisely in the 8|k branch. In that branch both b and a−1 have 3-valuation e=v₃(F_m) and a³−1 has valuation e+1, so the content acquires exactly one extra factor 3. For even k divisible by 3, the even-shift factorizations and parity give v₂(b)>v₂(a−1)=v₂(c); the n=1 difference (a+b)^3−1 therefore excludes the sole possible additional factor of 2. This covers k=1 and k=2, and proves the universal gcd, not just necessary conditions. A separate bounded Python check took the gcd of 65 actual differences for each k=1..256, all matching; full modular orbit checks mod 9 gave least periods 8 and 24 for the cubes and first powers, respectively. No uploaded script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "40f068a5afb4 obtains the universal difference-gcd formula as an all-shift lemma before calculating G_3(k)=gcd(S_k(0),D_k).",
+          "Mbirika–Spilker §6.1 concerns conjectural cubic window sums; the linear-recurrence transformations in arXiv:1105.2143 do not state the requisite local valuations."
+        ],
+        "reasoning": "A window sum gcd need not itself equal a difference gcd, but the cited window paper explicitly proves the necessary separate lemma, including the exceptional factor 3.",
+        "searches": [
+          "Resultary 40f068a5afb4, Proof Steps 1–3, cubic Fibonacci window gcds",
+          "Mbirika–Spilker arXiv:2204.12626 §6.1",
+          "Barbero–Cerruti–Murru arXiv:1105.2143"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 40f068a5afb4 and adjacent odd-exponent/cubic window records",
+        "arXiv:2204.12626",
+        "arXiv:1105.2143",
+        "OEIS A001175",
+        "Wall (1960), bibliographic material only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Putting k=2m converts 8|k into m≡0 mod 4; the record's D_k consequently reproduces all the frozen branches. The modulus-9 example is a specialization (and the underlying first-power period 24 is directly checkable).",
+          "The older ordinary sequence comparisons do not by themselves imply the cubic period shortening, and earlier odd/window Fibonacci records use a different window-sum invariant."
+        ],
+        "reasoning": "The distinction from ordinary Pisano periods or cubic sums remains mathematically valid; it does not avoid the exact overlap in the later proof's difference lemma.",
+        "searches": [
+          "40f068a5afb4 Eq. (2) with H(k) from Finding",
+          "arXiv:2204.12626 pp. 13–14 and Wall's Fibonacci series modulo m bibliographic routes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "40f068a5afb4 Proof Step 1 defines Δ_n=F_{n+k}³−F_n³ and D_k=gcd_{n≥0} Δ_n. Thus signs and the shift convention agree exactly.",
+          "A001175 records least periods at fixed modulus of first-power Fibonacci numbers, rather than the largest modulus at fixed shift of the cubes."
+        ],
+        "reasoning": "A least-period result for the cubes would be equivalent via the divisor condition period(M)|k. The available first-power table is not such a result; the indexed proof-body invariant is literally the frozen definition.",
+        "searches": [
+          "Resultary: universal shift moduli, shifted cube differences, exact cubic Fibonacci window gcds",
+          "modular periods of cubed Fibonacci numbers; Pisano period OEIS A001175"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "40f068a5afb4 Step 3 Eq. (2) gives D_k=3^{1_{8|k}} H(k). The four branches of H(k) in its Finding are 2, 1, L_{k/2}, F_{k/2} on exactly the frozen ranges before the factor 3.",
+          "The inspected Pisano-period table is first-power only; no independent cube sequence table was required to decide exact coverage."
+        ],
+        "reasoning": "The exact indexed formula covers all k including the exceptional divisibility regime. This is not inference from a finite numerical match.",
+        "searches": [
+          "Resultary: exact GCDs of consecutive cubic Fibonacci windows and odd-exponent/window-gcd aliases",
+          "OEIS A001175 for ordinary Fibonacci period modulus"
+        ]
+      },
+      "rationale": "The exact same greatest modulus for every positive shift is proved by a distinct indexed record, not merely suggested by a title or by theorems about window sums. The covering record is dated November 2 UTC, later than the frozen October 27 UTC record. This is verified existing mathematical coverage for the audit, not a finding of earlier priority.",
+      "residual_risks": [
+        "The strongest exact overlap is later dated; earlier priority is not adjudicated. Wall's full text was not reached, and the search does not exclude other cubed-period formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING; later dated, no earlier priority inferred",
+          "evidence": "Step 1 defines identical D_k; Step 3 Eq. (2) proves the exact formula using the four-case H(k) in the Finding.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gcds-of-consecutive-cubic-fibonacci-windows--40f068a5afb4/RESULT.md",
+          "material_read": "Finding and Proof Steps 1–4, offsets 0–7338",
+          "method": "Local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; exact comparison of the difference-gcd lemma",
+          "title": "Exact GCDs of consecutive cubic Fibonacci windows",
+          "trigger": "Strongest indexed overlap, hub for cubic-window aliases"
+        },
+        {
+          "assessment": "Related different quantity",
+          "evidence": "Conjectures there involve gcds of sums of consecutive cubes; the frozen invariant instead takes differences across a shift.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "§6.1, pp. 13–14, offsets 50396–53844",
+          "method": "OA paper passages",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Published nearby cubic window conjectures"
+        },
+        {
+          "assessment": "First powers, not cubic shift moduli",
+          "evidence": "Table specifies period of the Fibonacci sequence modulo n.",
+          "identifier_or_url": "https://oeis.org/A001175",
+          "material_read": "Description at offset 436",
+          "method": "Public entry text",
+          "title": "Pisano periods",
+          "trigger": "Exact external period table under standard terminology"
+        },
+        {
+          "assessment": "Full-text contents not assessed",
+          "evidence": "Accessible bibliographic description concerns periods of ordinary Fibonacci numbers.",
+          "identifier_or_url": "https://www.jstor.org/stable/2309169",
+          "material_read": "Bibliographic/landing material only; not the paper text",
+          "method": "DOI and landing-page access attempts",
+          "title": "Fibonacci series modulo m",
+          "trigger": "Classical modular-period paper"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The invariant is natural and its exceptional 3-adic branch would be useful as a new exact fact. The whole invariant, including that branch, is already established in the checked record; the modulus-9 illustration is an immediate specialization, not an independently useful unknown result. No distinct surviving claim to repair was found.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

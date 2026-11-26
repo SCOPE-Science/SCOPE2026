@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical limits
+# Independent mathematical audit
 
-Run `python3 verify_ordinal.py` in a directory containing the supplied checker; no nonstandard packages or external data are required. The script uses rational interval endpoints and exact fractions to reconstruct each cell and transition probability, enumerates actual coordinate preimages for entrance delays 1–10, and compares all 60 probabilities to the Taylor coefficients of the proposed rational generating functions. It also recomputes the three first and second moments by differentiation and verifies the stationary entrance intensities.
+## correctness
 
-The complete infinite-time generating functions are proved by the Markov-partition and first-entrance resolvent identities in `RESULT.md`, not by the ten-step finite check. Entrances in the stationary process have the correct conditional uniform current-cell distribution; consecutive in-cell visits are not counted as distinct entrances. The proof applies only to the fair dyadic map with identity observable and the three-observation, unit-lag ordinal code.
+PASS
 
-There is no independent audit or independent validation. No universal noisy-system claims, computer-assisted infinite certification, or exhaustive bibliographic priority claim is made.
+Solving affine pairwise equalities on the four quarter-intervals gives exactly the stated six ordered cells (ignoring null ties). Each cell maps linearly to entire cells, so each admissible cylinder maps bijectively onto its last cell with constant Jacobian. Thus even conditional on the previous symbol differing, the current point is uniform in the cell; the resulting Markov chain uses overlap length divided by twice the starting cell length. A first entrance back requires an initial string of self-loops, an exit, an excursion avoiding the target, and a final step back. The frozen five-state formula counts precisely these paths. Independently, if Aᵢ(z)=[(I−zP)⁻¹]ᵢᵢ, the positive-time unrestricted entrance series from state i is Uᵢ=(1−zPᵢᵢ)Aᵢ−1, subtracting the self transitions from all arrivals. By renewal at each actual entrance, Gᵢ=Uᵢ/(1+Uᵢ). A fresh exact symbolic cofactor calculation reconstructs P from interval intersections and matches all six rational functions and the derivative pairs (8,24), (12,188), (6,22). Finite irreducibility and nontrivial exit probability from each cell give exponential tails and justify the boundary |z|=1 and the finite moments. Entrance flux reciprocals give the same means; positive-integer geometric variances are 56, 132 and 30.
+
+## originality
+
+PASS
+
+Best of checked evidence: the distinct output is the complete model-specific table of entrance-conditioned laws and the resulting dispersion split. Prior sections and return-time machinery formulate similar questions but neither supply the six laws nor yield them by a parameter substitution into an evaluated theorem.
+
+## value
+
+PASS
+
+The fair doubling map and shortest ordinal window giving six order types are natural calibration choices for exact return statistics. The three rational functions resolve all delays, not just means, and their variance comparison shows markedly different departure from a matched geometric law in different cells. This gives an analytic benchmark for ordinal entry statistics with a verifiable distinction from plain visits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

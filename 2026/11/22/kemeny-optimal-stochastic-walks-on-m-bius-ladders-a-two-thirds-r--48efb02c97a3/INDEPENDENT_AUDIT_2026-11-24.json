@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:57:42.693611Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4; VERIFICATION.md; verify.py (inspected)",
+        "Independent replay: python /workspace/audit_evidence/laplacians.py (10 exact matrix values and five exact b=0 derivatives)"
+      ],
+      "rationale": "The regularized Laplacian inverse trace is strictly convex in all independent edge weights, because its second directional derivative for nonzero symmetric H is twice the squared Frobenius norm of A^{-1}HA^{-1/2}. Rotational averaging preserves feasibility and connectivity; homogeneity of inverse Laplacian eigenvalues then forces a full row budget in the invariant family. The even Fourier gaps reduce to the cosecant-square sum; on the odd grid, the individual gaps are 1+b−(1−b)cos θ, and the surviving Poisson terms are signed by (−1)^ℓ at frequencies ℓm. This gives the claimed F_m. Differentiating the cosecant-square grid sum twice, with (csc² x)''=6csc⁴ x−4csc² x, yields the fourth-power sum (m⁴+2m²)/3. The source has a form-feed in the displayed fraction at line 77, but the recovered identity and its use in F_m'(0)=−(m²−1)²/6 are correct. Strict convexity and divergence at b=1 prove uniqueness and interiority. M_4 and M_6 are K_4 and K_{3,3}, giving equal weights; for m≥4 the displayed lower bound at b=1/3 is positive. For b=c m^{-2/3}, m√b grows as m^{2/3}, making q^m exponentially small; scaling F_m' by m² gives 1/6−1/(4c^{3/2}). Root bracketing and expansion of the two terms then give the claimed correction, while b=1/3 yields m²/4+O(m). This proves the penalty 3/2. The exact inverse-trace reproduction uses full rational matrices, not Fourier eigenvalues.",
+      "residual_risks": [
+        "Line 77 has a display typo only. The verifier is finite; unrestricted optimality and the limit depend on the analytic arguments. The prior SLEM comparison is not a claim about total variation or Kemeny optimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Patel et al. and Durastante et al. present general reversible Kemeny optimization. Boyd et al. present reductions for SLEM. The extracted passages do not give a solved ladder Kemeny program or its rung law."
+        ],
+        "reasoning": "A global convex formulation and symmetry principle make the ladder reduction possible, but do not supply the scalar optimum, the balance of reciprocal gaps, or asymptotic constants.",
+        "searches": [
+          "Patel–Agharkar–Bullo author manuscript",
+          "Durastante–Gnazzo–Meini DOI 10.1007/s10543-026-01152-6",
+          "Boyd et al. arXiv:0709.0955 §1.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact, SLEM and determinant records; squared-cycle summary",
+        "Baigonakova–Mednykh Theorem 1 and Table 1",
+        "Patel–Agharkar–Bullo p. 1; Durastante et al. abstract; Boyd et al. §1.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact SLEM record has positive holding and b_m∼3π²/(4m²); the parity SLEM comparison treats the same distinct objective. The determinant result has priced conductances and a spanning-tree objective. The squared-cycle catalogue summary describes C_n² with one-step weight n^{-2/3}."
+        ],
+        "reasoning": "Neither the SLEM nor determinant result controls the reciprocal sum optimization, and opposite edges on the ladder create an exact even/odd spectral split not given by the squared-cycle analogue. Its matching exponent alone does not imply this solution.",
+        "searches": [
+          "Resultary 8814c6f5058b, ad268224b267, 00e372929d94, 54eb5c939aca"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact match ends 48efb02c97a3, the assigned finding.",
+          "Theorem 1 of Baigonakova–Mednykh gives the Kirchhoff index for M_n=C_{2n}(1,n). For the equal-edge chain Kemeny is 3K_f/(2m)."
+        ],
+        "reasoning": "Weighted Laplacian effective resistance and the spectral trace are equivalent within a fixed edge-weight assignment. The existing unweighted exact index identifies one design, not the minimizer over weights.",
+        "searches": [
+          "Resultary: Möbius ladder, antipodal-rung Kemeny optimal stochastic weights, two-thirds law",
+          "\"Möbius ladder\" optimize Kemeny constant weighted random walk edge weights"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives unweighted values at m=3,…,8, including 9 and 134/7 at m=3,4. Theorem 1 gives their all-size unweighted formula."
+        ],
+        "reasoning": "The table and theorem are genuine antecedents for F_m(1/3), not exact tables of b_m or K_m^*. The catalogue exact entry is the bound finding.",
+        "searches": [
+          "Exact Resultary finding 48efb02c97a3",
+          "Baigonakova–Mednykh Table 1 and Theorem 1"
+        ]
+      },
+      "rationale": "There is exact prior coverage of the unweighted Kirchhoff index, hence the fixed equal-edge benchmark, and distinct prior optimization of this graph for SLEM and for a weighted spanning-tree determinant. Those results do not imply the stochastic inverse-trace optimizer. A distinct, same-date squared-cycle entry shares the two-thirds scale and objective, but concerns a different set of edges and cannot give the exact Möbius allocations by relabeling. The exact Möbius Kemeny entry is the assigned record itself, not independent coverage. Best-of-knowledge judgment, limited to the inspected evidence.",
+      "residual_risks": [
+        "The most closely related squared-cycle full record could not be read; no priority inferred from the same date. The bounded published search is not a proof of absence of a weighted Möbius precursor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned finding",
+          "evidence": "No holding, global optimization, rung scale m^{-2/3}.",
+          "identifier_or_url": "2026/11/22/SCOPE-kemeny-optimal-stochastic-walks-on-m-bius-ladders-a-two-thirds-r--48efb02c97a3",
+          "material_read": "Catalogue summary and assigned Finding",
+          "method": "Resultary and frozen full text",
+          "title": "Kemeny-optimal stochastic walks on Möbius ladders",
+          "trigger": "Exact catalogue match"
+        },
+        {
+          "assessment": "Genuinely covers the unweighted benchmark only",
+          "evidence": "Formula has a cubic polynomial part and n² tanh(n arccosh(2)/2)/√3 term for the unit-conductance M_n.",
+          "identifier_or_url": "https://doi.org/10.33048/semi.2019.16.117",
+          "material_read": "Theorem 1, PDF p. 2 (offset 4925); Table 1, PDF p. 6 (offset 14809)",
+          "method": "Alternate MathNet open PDF passages",
+          "title": "Elementary formulas for Kirchhoff index of Möbius ladder and Prism graphs",
+          "trigger": "Same graph and equivalent resistance invariant"
+        },
+        {
+          "assessment": "Different spectral objective and optimizer",
+          "evidence": "SLEM optimum with positive holding and rung weight ∼3π²/(4m²).",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fastest-mixing-probabilities-on-m-bius-ladders--8814c6f5058b",
+          "material_read": "Finding, offset 0",
+          "method": "Matched full-text passage",
+          "title": "Exact fastest-mixing probabilities on Möbius ladders",
+          "trigger": "Same chain family, optimal design"
+        },
+        {
+          "assessment": "Different spectral objective",
+          "evidence": "Positive holding and an m^{-2} SLEM-gap scale.",
+          "identifier_or_url": "2026/10/26/SCOPE-parity-sharp-fastest-mixing-on-m-bius-ladders--ad268224b267",
+          "material_read": "Finding, offset 0",
+          "method": "Matched full-text passage",
+          "title": "Parity-sharp fastest mixing on Möbius ladders",
+          "trigger": "Same chain family, optimal mixing"
+        },
+        {
+          "assessment": "Different feasible set and objective",
+          "evidence": "Priced conductance budget and spanning-tree determinant rather than stochastic Kemeny sum.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-rung-deletion-prices-and-critical-scale-d-optimality-on-m--00e372929d94",
+          "material_read": "Finding, offset 0",
+          "method": "Matched full-text passage",
+          "title": "Sharp rung-deletion prices and critical-scale D-optimality on Möbius ladders",
+          "trigger": "Same rung-allocation problem with potentially equivalent objective"
+        },
+        {
+          "assessment": "Material thematic overlap, distinct graph in available statement",
+          "evidence": "C_n² has nearest and next-nearest edges and the one-step weight is of order n^{-2/3}. Finer implications and priority are not decided from this summary.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-two-thirds-boundary-layer-for-kemeny-optimal-walks-on-squared--54eb5c939aca",
+          "material_read": "Indexed summary only; matching full-text passage unavailable",
+          "method": "Resultary",
+          "title": "A two-thirds boundary layer for Kemeny-optimal walks on squared cycles",
+          "trigger": "Same objective and unusual exponent"
+        },
+        {
+          "assessment": "General formulation",
+          "evidence": "Reversible Kemeny minimization admits convex and semidefinite formulations.",
+          "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+          "material_read": "Author manuscript p. 1",
+          "method": "Open primary PDF passage",
+          "title": "Robotic Surveillance and Markov Chains with Minimal Weighted Kemeny Constant",
+          "trigger": "General Kemeny optimization theorem"
+        },
+        {
+          "assessment": "General optimization methods",
+          "evidence": "Structure-preserving sparse reversible perturbations; no solved Möbius optimum in the passage.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-026-01152-6",
+          "material_read": "p. 1 abstract",
+          "method": "Primary article passage",
+          "title": "Kemeny’s constant minimization for reversible Markov chains via structure-preserving perturbations",
+          "trigger": "Same objective over sparse reversible chains"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof §§3–4",
+        "Prior unweighted Kirchhoff and same-graph SLEM results"
+      ],
+      "rationale": "On a natural cubic graph family this distinguishes two objectives by a qualitatively different conductance scale and by whether holding is beneficial. The exact unrestricted optimizer, correction term, and asymptotic penalty explain a genuine optimization feature not visible from the unweighted Kirchhoff formula.",
+      "residual_risks": [
+        "The conclusions are specific to symmetric stochastic normalization and the stated graph family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

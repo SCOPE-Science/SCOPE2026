@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:20:00.418054Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed. Bundled replay: python3 verify.py from the record directory; finite checks only.",
+        "Farr arXiv:2609.17108v1 equation (3) and Proposition 8"
+      ],
+      "rationale": "For the intact graph the first force requires two colors on one shore, say A, so every proper colored neighbor on B has the third color, and no initially blank vertex on A can ever be forced. Thus one whole shore and exactly two colors there are necessary and sufficient at the minimum n; this gives 2·3·(2^n−2). With matching deletions, a first force still needs two distinct-colored seeds on one shore. With only two seeds any resulting colored vertices across the bipartition are monochromatic, and blanks on the seeded shore cannot move. With three seeds on one shore the same obstruction holds for at most two colors, while three distinct colors forbid any proper extension at the opposite vertex of an index outside the seed indices (n≥4). In the remaining 2+1 case with two distinctly colored seeds on A, a third seed of the unused color on B would leave B monochromatic and A stuck. Reusing one of the A colors requires a missing edge by properness; the only possibilities are the deleted matching pairs. Conversely, from a_i,b_i colored c and a_j colored d≠c, the n−2 vertices b_k outside {i,j} see c and d and force to e. Every blank a_l sees b_i and at least one of these e vertices because it misses at most one; it forces to d. Then b_j sees c and a d from an index other than j and forces to e. This is a proper extension, and any legal force must agree with that extension, so the construction does not rely on a conflicting update order. The unique shared seeded pair makes the product t·3·2·2·(n−1) exact. At each vertex the states are categorical (three color probabilities p, blank 1−3p), independently across vertices; the minimal-size term in the resulting sum of p^k(1−3p)^(2n−k) gives each announced probability expansion.",
+      "residual_risks": [
+        "Depends on n≥4 and missing edges forming a matching. Counts here are for named colors and labeled vertices. No full polynomial or nonmatching deletion classification is implied."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farr establishes the general generating-polynomial relation and order-of-vanishing criterion. The indexed exact complete bipartite polynomial covers t=0. The maximum-degree-two exact work gives path and cycle formulas, including G_(3,3), not the graphs in the target for n≥4."
+        ],
+        "reasoning": "Farr supplies the translation from seed counts to leading probability terms but not the seed characterization. An intact-graph formula does not persist when neighbor-color sets change under missing edges. Here even the minimum degree is at least n−1≥3, excluding the low-degree formulas.",
+        "searches": [
+          "Farr arXiv:2609.17108v1, pp. 2,5,7,12",
+          "Resultary 3fb93c858f69 and 2226d8f07ffd, exact forced three-color polynomials"
+        ]
+      },
+      "checked_sources": [
+        "Farr arXiv:2609.17108v1",
+        "Resultary 3fb93c858f69, 5c2e597efa59, fe94e840e8ec, dbea30a31d6d and 2226d8f07ffd",
+        "Frozen RESULT.md lines 48–60"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The probability expansion is mechanically implied by the minimum seed counts and is not credited separately. The intact count is already covered.",
+          "Crown conflict-free and parity colorings are full colorings with two shared pairs subject to uniqueness or parity of neighborhood colors, not closure of a three-color seeding. Same graph family and shared numerical counts do not imply the target's necessity and sufficiency; same date is not priority."
+        ],
+        "reasoning": "The decisive new inference is that every minimum seed assignment and only such assignments reuses exactly one color across a deleted matching edge, with a third vertex of a distinct color, and is guaranteed to complete by the prescribed rule. None of the above source statements settles that inference across 1≤t≤n.",
+        "searches": [
+          "Farr equation (3), Proposition 8",
+          "Resultary 5c2e597efa59, four-color classification",
+          "Resultary dbea30a31d6d, same-date matching-deletion zero forcing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farr's rule uses distinct colors in a blank vertex's neighborhood and is the same framework. Classical zero forcing instead updates from a blue vertex with exactly one white neighbor; the matching-deletion study has different minima 2n−3 and 2n−4 for t=1 and t≥2.",
+          "The targeted literature query produced no material extra comparison; it is not evidence that one does not exist."
+        ],
+        "reasoning": "For three colors the target forces a singleton remaining color in a blank vertex's list, not a unique blank neighbor from a colored vertex. Minimum-domain forcing, extension uniqueness without a specified propagation proof, and zero-forcing benchmarks cannot be interchanged absent a reduction.",
+        "searches": [
+          "Farr arXiv:2609.17108v1, color forcing, domain size and its minimum",
+          "Resultary dbea30a31d6d, zero forcing on complete bipartite graphs minus a matching",
+          "Primary-literature search: crown/complete bipartite matching deletions with sequential defining number, weak sequential defining, forced colouring function or forcing partial coloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5c2e597efa59 gives P_n(4)=24 binom(n,2)=12n(n−1) for n≥5, and the 144-member class with exactly two shared colors for n=4. This equals the target's t=n count, as does the fe94e840e8ec minimum-coloring count for odd n≥5.",
+          "In the crown conflict-free class there are two unordered distinct matched indices and a permutation of four colors among the two pairs and two shore-exclusive classes. In minimum forcing there is an ordered pair of indices, a choice of seed shore, and an ordered choice of two colors from three."
+        ],
+        "reasoning": "The endpoint equality is explained by the parameter sets: after sorting the two indices in the seed description, their order and the shore encode four choices (e.g. slots to insert a fourth color into an ordering of the three colors). This pairs the counts once both classifications are independently established. It does not send arbitrary partially colored graphs to full conflict-free colorings while preserving the forcing criterion. In particular, with t=1 the forcing construction is still possible but a construction needing two shared matched pairs is not. The earlier crown tables are genuine numerical overlaps, not seed tables.",
+        "searches": [
+          "Local Resultary 5c2e597efa59 (proper conflict-free crown count), fe94e840e8ec (open-neighborhood parity crown count), 3fb93c858f69 (intact baseline)"
+        ]
+      },
+      "rationale": "Credit Farr's probability-polynomial relation and the prior exact complete-bipartite polynomial for the intact baseline. The distinct supported result is the full seed classification and count across all nonempty matching deletions under the three-color propagation rule. Earlier crown-graph coloring classifications share an exact count at the perfect-matching endpoint and even similar matched-pair structure, but count different objects; their classification does not prove the seed forcing criterion or its extension to partial matchings. The closest same-family propagation comparison uses a different forcing rule.",
+      "residual_risks": [
+        "An equivalent directed propagation or defining-set result under alternate terminology was not ruled out exhaustively. The perfect-matching numerical coincidence and the same-date different zero-forcing theorem are documented, not grounds for inferring priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General framework and implication to probability, not the matching-deletion seed classification",
+          "evidence": "Each assignment with k specified colors contributes p^k(1−lambda p)^(|V|−k); minimal forcing-domain size is the order of vanishing.",
+          "identifier_or_url": "arXiv:2609.17108v1",
+          "material_read": "PDF p. 2 random model, p. 5 forcing rule, p. 7 equation (3), p. 12 Proposition 8",
+          "method": "Primary arXiv passage inspection",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Same rule, probability, and polynomial invariants"
+        },
+        {
+          "assessment": "Direct coverage of the t=0 baseline, correctly credited",
+          "evidence": "Classifies forced assignments and gives the polynomial on K_(m,n).",
+          "identifier_or_url": "Resultary 3fb93c858f69",
+          "material_read": "RESULT.md offsets 186–1331",
+          "method": "Local published-record mirror",
+          "title": "Forced three-colouring polynomial of complete bipartite graphs",
+          "trigger": "Exact same invariant for intact graphs"
+        },
+        {
+          "assessment": "Coincident endpoint count, not earlier coverage of the three-color seed result",
+          "evidence": "Full proper four-colorings require a uniquely occurring open-neighborhood color. The counted rigid class uses two shared matched pairs and two exclusive shore colors; n=4 has additional classes.",
+          "identifier_or_url": "Resultary 5c2e597efa59",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2384",
+          "method": "Local published-record mirror",
+          "title": "Proper conflict-free coloring polynomial of crown graphs",
+          "trigger": "Earlier exact equal count at full matching deletion, same matched-pair geometry"
+        },
+        {
+          "assessment": "Different complete-coloring criterion and palette",
+          "evidence": "The open-neighborhood odd-multiplicity condition gives 12n(n−1) named minimum colorings for odd n≥5, with two shared matched pairs.",
+          "identifier_or_url": "Resultary fe94e840e8ec",
+          "material_read": "RESULT.md offsets 0–2113",
+          "method": "Local published-record mirror",
+          "title": "Neighborhood-parity odd colorings of crown graphs",
+          "trigger": "Same full-deletion graph and minimum-count coincidence at odd n"
+        },
+        {
+          "assessment": "Different propagation rule and minimum invariant; no priority inference from date",
+          "evidence": "Classical blue/white rule with sole uncolored neighbor; symmetric-case minimum is 2n−3 or 2n−4 depending on deletion size.",
+          "identifier_or_url": "Resultary dbea30a31d6d",
+          "material_read": "RESULT.md Finding, offsets 0–2247",
+          "method": "Local published-record mirror",
+          "title": "Zero-forcing polynomial and matching-deletion thresholds in dense bipartite graphs (indexed comparison)",
+          "trigger": "Same graph family, same date, and a forcing polynomial"
+        },
+        {
+          "assessment": "Prior formula covers paths and cycles, not the n≥4 target",
+          "evidence": "The full-deletion graph at n=3 is a cycle; the target expressly assumes n≥4.",
+          "identifier_or_url": "Resultary 2226d8f07ffd",
+          "material_read": "RESULT.md offsets 0–1689",
+          "method": "Local published-record mirror",
+          "title": "Exact forced 3-colouring polynomials at maximum degree two",
+          "trigger": "Same forcing model and included single crown cycle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Farr Proposition 8",
+        "Resultary 3fb93c858f69 and 5c2e597efa59"
+      ],
+      "rationale": "The setup asks a natural perturbation question for a graph forcing invariant: can the sparsest possible missing-edge perturbation change the order of vanishing, and what are the extremizing seeds? One deleted edge lowers the minimum from n to 3 for every n≥4, and the complete classification exposes the causal combinatorial feature (one shared color can now be seeded across the shores). Extending this to every matching size and counting all such triples gives the exact dependence of the first coefficient, not just upper and lower examples on a crown graph.",
+      "residual_risks": [
+        "No assertion about large palettes, a general edge-deletion monotonicity principle, or the entire perturbed polynomial."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

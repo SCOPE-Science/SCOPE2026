@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:04:00.815579Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a triangle, its three cyclic gaps must each be at most 2 or at least n−2. When n≥7 they cannot all be at most 2, so one is n−2 and the other two are 1. This identifies the complex with tight triple-cycle independence. Kim–Kim explicitly use mod two in §1; their Theorem 3.1 with k=3 gives the stated unique degree, and universal coefficients bound rational Betti numbers in that degree and kill the others. For augmentation, each chosen vertex orbit contributes a sign −1; the trace is (−1)^(d_n+1) times the weighted orbit assignments. Rotations repeat a bit word of length gcd(n,j); even for lengths 1 and 2 the periodic no-111 condition is encoded by closed walks of the stated two-bit transfer, whose spectrum is 0,1,i,−i. The identity trace gives rank, not an inference of torsion-freeness from mod two. A reflected word reduces to a path with two endpoint pairs forbidden from being 11: a fixed vertex is flanked by two copies of its neighbor bit, and an exchanged pair is flanked by its next inward bit. The remaining restrictions are exactly internal no-111. The weighted path count with the given start/end vectors has F(2)=F(3)=−1 and satisfies F(l+2)=−F(l) by the stated annihilation and Cayley–Hamilton. The three lengths and the prefactor give the traces in all four residue classes, including n=7 and the two even reflection axes. Averaging is not needed to identify the stated modules: the traces match the rational line and quarter-turn plane on every group element. Independent replay: python3 /workspace/review-evidence/reproduce.py 4, log /workspace/review-evidence/4.txt; graph triangles and 230 direct signed characters for 7≤n≤16, and independently built augmented mod-two boundary ranks through n=13. Finite checks corroborate the proof but do not establish general concentration. The supplied verifier and stored output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kim–Kim take homology over Z_2 and give the Betti numbers of tight k-uniform cycles and the nonequivariant homotopy type of their noncover complexes. The k=3 input is exact for the frozen family but gives no action.",
+          "The bounded-independence indexed family forbids subsets with a sufficiently large induced independent set in a cycle, not cyclic consecutive triples; its top homology line cannot produce the 4-divisible plane."
+        ],
+        "reasoning": "The general clique-free framework and ranks are not character classifications. The exact broader character scope comes instead from n≥6 in 2c98e1a11ba7 after duality.",
+        "searches": [
+          "Kim–Kim arXiv:2101.01850v1 §§1,3 Theorems 3.1 and 3.4",
+          "Ghosh–Selvaraja arXiv:2602.09623v1 abstract",
+          "Resultary bounded-independence orientations 8a099ca44501"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2c98e1a11ba7 exact Finding and equivariant duality",
+        "Kim–Kim arXiv:2101.01850v1",
+        "Ghosh–Selvaraja arXiv:2602.09623v1 abstract",
+        "Resultary 8a099ca44501 and 4d53e6f40dc5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The overlapping source explicitly uses the ambient orientation line and computes the same orbit partition sum with the same no-111 transition matrix.",
+          "Unlike the ordinary dual homotopy classification, the equivariant dual table retains the quarter-turn plane and line traces. The sign twist only changes generator signs as accounted for above."
+        ],
+        "reasoning": "This is not a comparison based on equal ranks or shared terminology. The full frozen character follows by a mechanical duality conversion of the verified indexed theorem, and conversely the frozen statement recovers that table in the common length range.",
+        "searches": [
+          "2c98e1a11ba7 RESULT.md Proof (2) Equivariant Alexander duality and rotation transfer",
+          "arXiv:2101.01850v1 Theorems 3.1 and 3.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the same hyperedges {i,i+1,i+2}, the indexed complex is NC(H_n)=Ind(H_n)*. The exact theorem explicitly relates its character to the primal by equivariant combinatorial Alexander duality, with the ambient vertex permutation sign and complementary degree n−d−3.",
+          "Equivalently the indexed complex is the ordinary three-cut complex of the complement of the ordinary cycle; this is not the three-cut complex of the squared cycle."
+        ],
+        "reasoning": "Equivariant duality is reversible. Dual characters agree with primal characters here (a rational finite-group character is invariant under inversion); multiply by the sign of the ambient vertex permutation in either direction. The complementary degrees of the frozen table are precisely 2q−2 for n=4q and 2q−1 otherwise.",
+        "searches": [
+          "Resultary search for cyclic tight triple hypergraph no-three-consecutive dihedral character, including noncover and cut aliases",
+          "2c98e1a11ba7 RESULT.md Finding and Proof (2), mirror offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For n=4q the noncover table gives rotations 3 on j≡0 mod 4 and −1 otherwise, and reflections (−1)^(q+1+j). In the other rows it gives rotation 1 and reflection (−1)^q.",
+          "The squared-cycle three-cut hit 4d53e6f40dc5 uses disconnected induced triples, not the primal's forbidden cliques. It was not used to infer equivalence."
+        ],
+        "reasoning": "For r the ambient sign is (−1)^(n−1). For t it is respectively −,+,+,− in residues 0,1,2,3 mod 4. Multiplying the indexed traces by these generator signs gives exactly the frozen rotations and reflections in every row; sr^j and r^jt have the same parity in the reflection formulas.",
+        "searches": [
+          "2c98e1a11ba7 full character table, exact Finding, mirror offset 0",
+          "Resultary comparisons 8a099ca44501 and 4d53e6f40dc5"
+        ]
+      },
+      "rationale": "Exact source comparison with the distinct indexed tight triple-cycle noncover result, 2c98e1a11ba7, shows full coverage via reversible equivariant Alexander duality with ambient permutation sign. It treats n≥6, hence covers every frozen n≥7 as a character assertion about the equivalent dual object. This does not establish priority or dependence; its path date is later. The ordinary independence/homotopy literature alone would not determine the action.",
+      "residual_risks": [
+        "Catalogue path dates do not resolve priority, independence or provenance; the exact matching dual record has a later path date.",
+        "The distinct three-cut comparison is at indexed-statement level. Unindexed earlier work could cover the result as well; it is not needed for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full covered character after reversible duality in the entire frozen range.",
+          "evidence": [
+            "Same tight 3-uniform cyclic hypergraph, n≥6; table for all rotations/reflections and explicit ambient orientation twist."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-dihedral-homology-characters-of-tight-triple-cycle-nonc--2c98e1a11ba7/RESULT.md",
+          "material_read": "Finding, Assumptions, and Proof (1)–(3) through transfer matrix, mirror offset 0",
+          "method": "Local mirror; direct check of the degree and ambient-sign conversion, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Complete dihedral homology characters of tight triple-cycle noncover complexes",
+          "trigger": "Potential exact coverage via the noncover dual"
+        },
+        {
+          "assessment": "Covers Betti numbers and nonequivariant dual homotopy, not the group action in these statements.",
+          "evidence": [
+            "‘the coefficients of homology groups are taken in Z₂’; Theorem 3.1 gives a single nonzero Betti number (rank k at multiples of k+1, one otherwise)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2101.01850v1",
+          "material_read": "§1 coefficient convention near offset 2778, Theorem 3.1 near offset 30200, Theorem 3.4 §3.2 near offset 38079",
+          "method": "Open-access HTML theorem/definition passages, substitution k=3",
+          "title": "Domination numbers and noncover complexes of hypergraphs",
+          "trigger": "Same tight-cycle complexes and required concentration input"
+        },
+        {
+          "assessment": "Defines the framework and announces shellability results; no character coverage inferred from the abstract.",
+          "evidence": [
+            "Clique-free complexes are defined via forbidden t-cliques; the announced objectives are shellability and decomposability."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.09623v1",
+          "material_read": "Abstract near offset 377",
+          "method": "Open-access HTML passage comparison",
+          "title": "Shellability in Clique-Free Complexes of Graphs",
+          "trigger": "Source of the clique-free framework"
+        },
+        {
+          "assessment": "Different forbidden sets and rank-one orientation character.",
+          "evidence": [
+            "Face condition α(C_n[S])<d; rotations act trivially on its homology line."
+          ],
+          "identifier_or_url": "8a099ca44501",
+          "material_read": "Indexed statement and face and representation description",
+          "method": "Resultary statement-level comparison",
+          "title": "Dihedral orientation characters of bounded-independence spheres on cycles",
+          "trigger": "Possible alias for cyclic forbidden sets and exact orientation character"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The quarter-turn plane and alternating line are meaningful distinctions from ordinary Betti numbers. But the frozen scope adds no mathematical information to the exact indexed equivariant dual character: multiplication by one explicit sign and relabeling the homological degree recovers every case. No further genuinely distinct invariant is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

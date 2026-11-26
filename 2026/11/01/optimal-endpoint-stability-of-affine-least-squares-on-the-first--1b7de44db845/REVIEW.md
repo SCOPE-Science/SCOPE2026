@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact first and second moments of the two-layer exchangeable law give an invertible covariance with one scalar and one standard-representation eigenvalue. This yields a reproducing kernel whose constant part vanishes across layers. Counting the singleton/pair overlaps gives the two claimed row norms, with the only extra negative within-layer mass coming from disjoint pair-pair comparisons. Algebraic differentiation proves one row strictly increases and the other strictly decreases, meeting uniquely at \(\theta=(n-1)/(n+1)\). The boundary case \(n=3\) has no disjoint pair-pair entries and is handled explicitly. Signed kernel inputs prove attainment. Exact-rational full-matrix checks cover 46 profiles and 1,061 rows; symbolic identities support but do not replace the proof.
+PASS
 
-## Originality
+Re-audited the replacement RESULT.md. The frozen Finding misleadingly says ordinary kernel-sign indicators attain the operator norm: for any row of signed mass one and absolute mass R, its largest absolute output on indicators is (R+1)/2, strictly smaller than the maximizing norm in this problem. The repaired statement explicitly distinguishes signed ±1 inputs for the norm from indicators for the one-sided extrema. Decomposing the affine range into the two layer indicators and centered coordinate contrasts gives contrast covariance H/[n(n−1)] and the two stated kernel rows. Only disjoint pair–pair entries can change sign within a layer; n=3 has none. The increasing/decreasing row functions cross uniquely at the uniform-atom weight. The conditional Bernoulli ratio and stationary, strictly log-concave determinant check also hold. No change to the supporting computation was needed.
 
-**PASS, subject to publication-priority risk.** The 2015 slice-invariance papers provide single-slice harmonic decompositions and distribution comparisons, not the sharp \(\ell^\infty\) norm or its two-layer weight optimization. A published rank-selected Boolean-polytope result studies determinant-optimal covariance; although its two-rank optimum coincides with the weight here, its minimum-volume ellipsoid theorem does not imply the absolute kernel row masses or the row-switch transition. Previously available single-layer Johnson projection results concern different supports and do not cover the cross-layer kernel. Search terms included two-layer affine projection, first two Boolean ranks, exchangeable Bernoulli least squares, Johnson spectral projectors, and equivalence to incidence designs. Residual risk: equivalent endpoint calculations under incidence/optimal-design terminology may exist. The covariance determinant identity itself is acknowledged as prior-adjacent, not separately claimed as original.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The first two nonempty Boolean ranks form a canonical truncated subset lattice, not an arbitrary parameter slice. The theorem completely solves the minimax design problem for all dimensions and all positive exchangeable layer mixtures: exact endpoint sensitivity, unique optimal measure, sign-changing kernel mechanism, row-type transition and sharp positivity defect. The conclusion that uniform atom weights simultaneously optimize an endpoint norm and covariance determinant is a motivated bridge between stable approximation and optimal experimental design. Neither the proof nor the mathematical value depends on any finite enumeration.
+The surviving claim is the full signed-row norm law and unique minimization over positive exchangeable singleton/pair weights. The determinant result is covered and retained only as comparison; the uniform unsigned-incidence formula is standard matrix algebra and not claimed separately. The inspected literature and comparable catalogue records do not yield the signed-row dependence or uniqueness for this objective.
 
-## Boundaries and related literature
+## value
 
-The claimed optimality is within the positive exchangeable two-layer family, not arbitrary atomic measures or all projections. Filmus–Kindler–Mossel–Wimmer, arXiv:1504.01689, and Filmus–Mossel, arXiv:1507.02713, were read in relevant full-text sections. Related rank-selected polytope ellipsoid results were compared in full statement and proof. Publication priority cannot be certified by a search.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This solves a natural one-parameter robustness-design problem on the first two nonzero Boolean layers. The full formulas locate both the disjoint-entry sign threshold and the actual worst-row transition, identify the unique minimax design, and quantify sharp nonpositivity for bounded inputs. The value is the weighted behavior and unique optimum, not the single uniform benchmark or the determinant comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

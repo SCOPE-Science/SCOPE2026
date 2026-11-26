@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:03:56.473625Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–107; VERIFICATION.md and VERIFY.py (inspected, not executed)",
+        "Independent replay: python -B /workspace/review-evidence/recompute.py 2"
+      ],
+      "rationale": "The two supplied antisymmetric test vectors have the same Dirichlet energy for each independent edge weight, and squared mass norms 4s(s+1) and 4s(s-1) for s=sqrt(1+t)>1. Rayleigh–Ritz then bounds the positive extreme eigenvalue ratio from below. At the stated ray the two generalized eigenpairs and the even nonconstant eigenpair give strict ordering for every s>1. Equality in the ratio requires equality in both Rayleigh bounds; the endpoint eigenvector equations force w1=w3 and the next equation gives 2w2=s^2w1. A separate edge-Gram calculation reproduced the optimal ray, eigenvalues and a full-support extremal eigenvector exactly. No symmetry restriction, stochastic step or finite grid is needed.",
+      "residual_risks": [
+        "The claim concerns strictly positive conductances for the paired endpoint/interior mass pattern, not arbitrary constrained iterations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The property-A theorem does not restrict matrix size or require equal original vertex masses. The other graph papers use general ordinary-Laplacian weighting or discuss node and edge weights separately in the checked passages."
+        ],
+        "reasoning": "The classical matrix theorem genuinely contains this edge-Gram case; no new weighted-path optimization theorem is needed for its optimum. The graph-specific numerical or algorithmic papers are weaker comparisons.",
+        "searches": [
+          "Forsythe and Straus, On best conditioned matrices (1955); exact theorem quoted by van der Sluis (1969), p. 20",
+          "Xu–Jabbari DOI 10.1002/rnc.70479, arXiv:2507.06440 §§2.3 and 4.1; Kempton et al. arXiv:1505.07279"
+        ]
+      },
+      "checked_sources": [
+        "Van der Sluis (1969) and the Forsythe–Straus (1955) primary access attempt; Balan et al.; Xu–Jabbari; Kempton et al.",
+        "Resultary 802bd287ae6b, 23cc3948d013 and a2818e5de4a3; access attempts for cited Jafarizadeh et al. 2020 and 2021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the equal-diagonal normalized Gram A the extremal eigenvectors are u=(1,sqrt(2),1) and Su, where S=diag(1,-1,1). For any positive diagonal F, the trial vectors F^(-1)u and F^(-1)Su have identical norms and their energies in F A F are proportional to 1-1/s and 1+1/s. Equality in the ratio forces F^(-1)u to be an eigenvector; as u has no zeros, F^2 must be scalar."
+        ],
+        "reasoning": "The prior theorem gives the minimum and one optimal ray, and the standard extremal-vector proof on this irreducible three-coordinate orbit also gives the if-and-only-if in one equality step. We do not claim that uniqueness was separately stated in the unread 1955 primary paper.",
+        "searches": [
+          "Van der Sluis p. 20 quoted property-A theorem; frozen RESULT.md lines 37–101; symbolic edge-Gram reduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For an oriented path incidence B and diagonal W, the rectangular factor M^(-1/2) B W^(1/2) has the same squared positive singular values in the vertex Laplacian and in W^(1/2) G W^(1/2), with G=B^T M^(-1) B. G has diagonal ((1+t)/t,2/t,(1+t)/t) and off-diagonal -1/t on a three-vertex path.",
+          "Van der Sluis reports exact congruence-scaling optimality for an SPD equal-diagonal P with Young's property A and attributes it to Forsythe–Straus."
+        ],
+        "reasoning": "Positive conductance design is exactly arbitrary positive diagonal congruence scaling of an SPD matrix whose off-diagonal pattern is bipartite. Unit-diagonal normalization lies in that orbit and has the same property A. The heterogeneous vertex masses do not break this equivalence.",
+        "searches": [
+          "Forsythe–Straus optimal property-A diagonal scaling; van der Sluis, Condition Numbers and Equilibration of Matrices, pp. 19–20",
+          "Balan et al., arXiv:1609.02233, §3 incidence-frame optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 802bd287ae6b is the assigned finding itself. The wheel edge reweighting and four-site diagonal loading entries are distinct based on their catalogue summaries.",
+          "No earlier exact four-site ratio table was obtained. The normalized Gram has the explicit eigenvalues 1 and 1+-1/sqrt(1+t); its diagonal normalizer squares are proportional to (1,(1+t)/2,1)."
+        ],
+        "reasoning": "The classical statement suffices to produce the claimed table of parameters by elementary three-by-three algebra; absence of a separately indexed numerical formula does not make it distinct.",
+        "searches": [
+          "Local Resultary: exact mass-adapted four-site conductance optimum; 802bd287ae6b, 23cc3948d013 and a2818e5de4a3",
+          "Van der Sluis pp. 19–20; exact symbolic normalization and characteristic polynomial of the three-edge Gram"
+        ]
+      },
+      "rationale": "The optimizer ray and exact minimum follow mechanically from classical optimal congruence-scaling of an SPD matrix with Young's property A, after passing to the three-dimensional weighted edge Gram. The accessible classical quotation establishes optimality rather than explicitly asserting uniqueness; nevertheless uniqueness here is an immediate Rayleigh equality test in the same classical scaling orbit, using an everywhere-nonzero extremal eigenvector. This is positive prior-coverage evidence, not an inference from inaccessible papers.",
+      "residual_risks": [
+        "The full Forsythe–Straus text and the two cited Jafarizadeh full texts were not obtained. It is unresolved whether they explicitly state additional rigidity. This does not change the verified optimality implication.",
+        "Two distinct Resultary comparisons used catalogue summaries only; neither is needed for the failure decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified exact property-A optimality via direct quotation; not the general sqrt(n) bound in Theorem 4.1",
+          "evidence": "Equal diagonal and Young's property A imply that the condition number already equals the minimum over diagonal congruence scalings.",
+          "identifier_or_url": "https://user.it.uu.se/~maney676/Courses/NLA/Projects/2014/VanderSluis1963.pdf",
+          "material_read": "1969 published text, pp. 19–20, OA offsets 11500 and 14800; attribution on p. 23",
+          "method": "Bounded OA PDF, including independent reread of exact quotation",
+          "title": "Condition Numbers and Equilibration of Matrices",
+          "trigger": "Exact classical coverage after reduction"
+        },
+        {
+          "assessment": "Do not infer what the unread primary text additionally proves",
+          "evidence": "Exact optimality as quoted in van der Sluis, no explicit uniqueness in that quoted passage.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9939-1955-0070943-7",
+          "material_read": "AMS full-text request denied; lawful alternative returned only landing page/abstract; exact result read in the 1969 quotation",
+          "method": "Lawful OA access attempts and bounded secondary statement",
+          "title": "On best conditioned matrices",
+          "trigger": "Classical result's 1955 primary publication"
+        },
+        {
+          "assessment": "Relevant framework, not the decisive exact solution",
+          "evidence": "Incidence/frame formulation of ordinary graph-Laplacian spectral reweighting.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.02233",
+          "material_read": "§3, PDF pp. 11–13, OA offset 38100",
+          "method": "Bounded OA PDF",
+          "title": "Optimization methods for frame conditioning and application to graph Laplacian scaling",
+          "trigger": "Edge-space graph Laplacian condition-number formulation"
+        },
+        {
+          "assessment": "Adjacent formulations, no exact fixed-mass four-path formula in the inspected sections",
+          "evidence": "Node-weighted Laplacian and separate edge-weight optimization.",
+          "identifier_or_url": "https://doi.org/10.1002/rnc.70479",
+          "material_read": "OA submitted version arXiv:2507.06440 §§2.3 and 4.1, offsets 20500, 63100 and 67600",
+          "method": "DOI recovery and bounded OA PDF",
+          "title": "Distributed Optimization of Finite Condition Number for Laplacian Matrix in Multi-Agent Systems",
+          "trigger": "Heterogeneous node data and possible edge optimization"
+        },
+        {
+          "assessment": "Different constraints and ordinary Laplacian",
+          "evidence": "Synchronizability eigenratio optimization with maximum weighted-degree constraints.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.07279",
+          "material_read": "OA PDF p. 1",
+          "method": "Bounded OA PDF",
+          "title": "Self-organization of weighted networks for optimal synchronizability",
+          "trigger": "Prior eigenratio edge design"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Limitations; van der Sluis property-A statement and exact edge-Gram calculation"
+      ],
+      "rationale": "The conductance choice is well-motivated as a model, but in this unconstrained four-site setting the claimed exact invariant is a routine normalization and spectrum of a property-A Gram. The observed weak/equal/strong central link is the comparison of its normalized diagonal entries, and the rigidity is immediate from standard equality. There is no separate surviving nonroutine claim under stochastic-step, capacity or other design constraints.",
+      "residual_risks": [
+        "The decision does not apply to weighted paths with additional nonnegative-step or conductance constraints."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

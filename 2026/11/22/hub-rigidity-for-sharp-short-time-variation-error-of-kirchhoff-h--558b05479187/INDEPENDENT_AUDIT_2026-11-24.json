@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:45:16.937292Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With a hub median subtracted, each arm is the signed superposition of its tail indicators with measure Df_j plus its adjusted trace as an atom at zero. The sum of total variations is exactly V_star. Each nontrivial tail has cost one, so the operator norm reduces exactly to the largest tail residual. Projection of an arm vector onto the common-arm line and the sum-zero space gives squared weights 1/m and 1−1/m; these spaces impose NN and DN respectively. The normalized coefficients of the hub cut in the DN sine basis yield the stated series, while its NN residual vanishes. For the model half-line NN cut, one may use its square-integrable complementary indicator [0,s] to differentiate the quadratic form. The integral P_t 1_[0,s](s)=erf(s/√t)/2 yields L′(z)=2 erfc(z)−erfc(z/√2). For the NN and DN residuals, reflection contributes opposite tails; summing the two squared norms cancels the cross terms and recovers twice the whole-line squared norm because the missing negative half of that line error is exactly the squared reflected tail. The whole-line constant is the integral of erfc(u)^2 over u≥0, equal to (2−√2)/√π by integration by parts. This gives J_m=2(1−1/m)L_∞−(1−2/m)L. The Gaussian tail hazard is strictly increasing (erfc(z)<exp(−z²)/(√π z) for z>0), so the erfc ratio in L′ increases from one to infinity, giving a unique peak. Independently reproduced rational enclosures using the Taylor series with alternating remainders, Machin’s π bounds and rational square-root bounds give L′(.99)>0, L′(1)<0, L(1)<.396617 and L_∞>.3304946. With |L′|≤2 these imply sup L<.42<4L_∞/3. For the compact transfer, use even reflections at Neumann ends and odd reflection at the Dirichlet end in the whole-line heat convolution. In the hub zone these extensions agree with the half-line extensions within a fixed radius for x≤1/2; for x>1/2 they are constant locally. The discarded tails are exponentially small in L², with the unbounded half-line tail integrated using Gaussian decay. In the interior zone and the leaf zone the same local comparisons give the free-line and NN profiles, respectively. The quadratic form derivative at the moving cut uses only P_t g_s(s) and P_2t g_s(s), so its hub comparison also has exponentially small error uniformly. Since L′(0)=1, the derivative is strictly negative for s≤ε√t when m≥3 and t is small. Outside this strip the positive lower bound of L(z) on z≥ε and the strict leaf and bulk gaps separate every other tail from s=0. A Hilbert-space norm equality for the superposition requires all signed maximizing residuals to lie on the same positive ray. Injectivity modulo constants, and the presence of a third arm, exclude this for distinct whole-arm cuts. This gives the exact extremizers and the displayed coefficient. The checker was inspected, not executed; the profile sign checks and the analytic localization support the eventual-time claim, not any explicit threshold or all-time rigidity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2505.10177 Theorem 4.8 and arXiv:1405.0186 Theorems 3.1 and 4.1 concern pair-energy or leakage characterizations. arXiv:2112.13035 gives graph BV with Kirchhoff fields for nonlinear variation flow. Resultary b2e6b62be786 gives discrete K_(m,m) and K_(m,m+1) ℓ¹ residual cut rigidity."
+        ],
+        "reasoning": "Broader BV and heat characterizations do not determine equality in this residual norm. The discrete exact cut argument uses a different operator, different variation, and ℓ¹ output.",
+        "searches": [
+          "Resultary: metric graph heat semigroup bounded variation to L2 norm residual sharp inequality Kirchhoff",
+          "Web: metric graph heat kernel total variation bounded variation heat semigroup Kirchhoff sharp estimate",
+          "Web: heat kernel characterization of BV or perimeter on metric graphs graph total variation flow sharp bound"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 7bee99d6a8aa, 79e9f8095717, b2e6b62be786, cc5178e29e50 and e221b9a937ef",
+        "arXiv:2204.06619, math-ph/0701009, 2505.10177, 1405.0186 and 2112.13035",
+        "Kernel-estimate background abstracts arXiv:1108.6145 and 1101.3010"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known star decompositions provide the separated heat formulas. The periodic extremal calculation and the infinite-ray derivative norm involve different competing cuts or different objective operators."
+        ],
+        "reasoning": "The new implication uses both scalar channels with degree-dependent weights, a strict quantitative hub-versus-leaf gap, and derivative control at distances o(√t). A fixed-function heat formula or a leading boundary coefficient does not imply eventual exact localization and uniqueness.",
+        "searches": [
+          "arXiv:2204.06619 Example 1.1, equation (1.2)",
+          "arXiv:math-ph/0701009 Example 2.6, equation (2.24)",
+          "Resultary 7bee99d6a8aa and e221b9a937ef exact norm statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day periodic heat record 7bee99d6a8aa treats the same residual and norm exponents on a circle with two-jump arc indicators. The reflecting interval record 79e9f8095717 has an exact centered-jump result for output L¹, not L²."
+        ],
+        "reasoning": "The circle's variation and symmetry are not the median-penalized branching variation. The L¹ interval optimizer neither determines the L² leaf profile nor establishes that a hub cut beats it.",
+        "searches": [
+          "Resultary: sharp short-time BV to L2 heat residual norm Kirchhoff metric star hub extremizers",
+          "Web: metric graph Kirchhoff heat semigroup sharp BV-to-L2 approximation error residual norm extremizers",
+          "Resultary: sharp BV-to-L2 error norm (I - heat semigroup) on interval with Neumann or Dirichlet boundary, exact extremizers",
+          "Web: Neumann heat semigroup sharp BV to L2 norm of identity minus heat semigroup on interval exact extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The equal-edge star modes and the Kirchhoff scattering coefficient are explicitly available. The exact star norm records cc5178e29e50 and e221b9a937ef concern time derivatives, for a combinatorial star and an infinite metric star respectively."
+        ],
+        "reasoning": "The spectral listings give the series for a fixed whole-arm cut after substitution, not the maximizing cut or the optimum for all BV inputs. Derivative constants cannot be used as exact residual constants by integration without equality and compatibility results.",
+        "searches": [
+          "Resultary: exact sharp heat residual estimate for BV functions on metric graphs stars with branching degree-dependent constant",
+          "arXiv:2204.06619 Example 1.1",
+          "arXiv:math-ph/0701009 Example 2.6"
+        ]
+      },
+      "rationale": "Pass for the eventual exact norm and whole-arm classification for the specified star variation and heat boundary conditions. The heat kernel, separated star modes, and jump/cut reduction have precedents; the decisive comparison of the branching hub, bulk, and leaf cases and its compact-time equality conclusion are not supplied by the inspected precedents.",
+      "residual_risks": [
+        "A DOI-access attempt for the Angiuli–Miranda–Pallara–Paronetto source cited by the interval analogue did not yield full text, so no full-text comparison to that paper is claimed.",
+        "Same-day related records are not ordered by date alone; unindexed exact analogues or equivalents remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related same-day theorem on another domain",
+          "evidence": "Circle extremizers reduce to arc indicators with short-time length asymptotic 2z_*√t, not a whole-arm indicator.",
+          "identifier_or_url": "Resultary 7bee99d6a8aa",
+          "material_read": "RESULT.md offsets 0–4925 and 4925–8816",
+          "method": "Published-record mirror",
+          "title": "Microscopic two-jump extremizers for sharp periodic heat approximation of bounded-variation functions",
+          "trigger": "Same sharp BV→L² residual objective and temporal extremizer problem"
+        },
+        {
+          "assessment": "Exact but different output exponent",
+          "evidence": "Signed-jump reduction for reflecting heat leads to a centered jump in L¹.",
+          "identifier_or_url": "Resultary 79e9f8095717",
+          "material_read": "RESULT.md offsets 0–4998 and 4998–9342",
+          "method": "Published-record mirror",
+          "title": "Sharp BV-to-L¹ approximation norm of reflecting interval heat flow",
+          "trigger": "Exact regular interval analogue"
+        },
+        {
+          "assessment": "Different graph model and endpoint norm",
+          "evidence": "Discrete variation to counting ℓ¹ on finite complete bipartite graphs.",
+          "identifier_or_url": "Resultary b2e6b62be786",
+          "material_read": "RESULT.md offsets 0–2473",
+          "method": "Published-record mirror",
+          "title": "Sharp heat approximation and finite-time cut rigidity on K_(m,m) and K_(m,m+1)",
+          "trigger": "Graph residual and cut rigidity"
+        },
+        {
+          "assessment": "Combinatorial derivative rather than compact Kirchhoff residual",
+          "evidence": "Time derivative acting on discrete edge variation, with a single-leaf step.",
+          "identifier_or_url": "Resultary cc5178e29e50",
+          "material_read": "RESULT.md Finding and proof, offsets 0–4498",
+          "method": "Published-record mirror",
+          "title": "Two sharp temporal transitions in the bounded-variation sensitivity of star-graph heat flow",
+          "trigger": "Star heat and exact extremizers"
+        },
+        {
+          "assessment": "Different operator, geometry, and norms",
+          "evidence": "Infinite-ray star L¹/L∞ norm of t∂_tT_m(t), reduced to a scalar variational expression.",
+          "identifier_or_url": "Resultary e221b9a937ef",
+          "material_read": "RESULT.md offsets 0–4376",
+          "method": "Published-record mirror",
+          "title": "Branching-sensitive endpoint analyticity on Kirchhoff metric stars",
+          "trigger": "Sharp Kirchhoff branching norm"
+        },
+        {
+          "assessment": "Known modes but not an operator equality case",
+          "evidence": "Equation (1.2) uses symmetric cosine and hub-vanishing sine modes for the diagonal kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.06619",
+          "material_read": "Abstract and Example 1.1, pp. 1–2, PDF offsets 0 and 3976",
+          "method": "Bounded OA PDF passages",
+          "title": "The heat kernel on the diagonal for a compact metric graph",
+          "trigger": "Same equal-edge star and explicit spectral splitting"
+        },
+        {
+          "assessment": "Kernel machinery, not the BV norm theorem",
+          "evidence": "Walk-sum heat kernel and scattering rule 2/deg(v)−δ_(e,e′) in (2.24).",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0701009",
+          "material_read": "Abstract and Example 2.6, p. 8, offset 23951",
+          "method": "Bounded OA PDF passages",
+          "title": "Heat kernels on metric graphs and a trace formula",
+          "trigger": "Exact Kirchhoff image kernel machinery"
+        },
+        {
+          "assessment": "Different heat functional",
+          "evidence": "The local-tree BV characterization uses an integrated heat-kernel pair-energy with absolute differences.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.10177",
+          "material_read": "Theorem 4.8, p. 25, offset 79744",
+          "method": "Bounded OA PDF passage",
+          "title": "Korevaar–Schoen and heat kernel characterizations of Sobolev and BV spaces on local trees",
+          "trigger": "Potential generalized sharp tree BV heat statement"
+        },
+        {
+          "assessment": "Characterization and short-time perimeter criteria, not exact operator extrema",
+          "evidence": "Near-diagonal energies and heat leakage under metric-measure assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.0186",
+          "material_read": "Theorem 3.1 p. 10, offset 32667, and Theorem 4.1 p. 14, offset 44125",
+          "method": "Bounded OA PDF passages",
+          "title": "Characterizations of sets of finite perimeter using heat kernels in metric spaces",
+          "trigger": "Broader BV heat characterization"
+        },
+        {
+          "assessment": "Related definition, different flow",
+          "evidence": "Bounded Kirchhoff fields define graph total variation; the evolution studied is nonlinear total-variation flow.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13035",
+          "material_read": "Abstract and Definition 2.11 p. 14, offset 33994",
+          "method": "Bounded OA PDF passages",
+          "title": "The Total Variation Flow in Metric Graphs",
+          "trigger": "Exact graph variation convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The compact metric star is the basic local model for a branching Kirchhoff vertex. The sharp norm detects branching at the level of the leading coefficient and of equality, rather than only giving an O(t^(1/4)) L² approximation bound. In particular the result distinguishes true hub concentration from cuts within a shrinking boundary layer and proves the exact optimizer for a nonempty range of times. This resolves a natural comparison between three possible local geometries; it does not require an all-graph extension to be useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

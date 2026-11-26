@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:37:32.820271Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions, Proof and Verification, lines 5–80",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt (inspected, not executed)",
+        "/workspace/reviews/check_mathematics.py, check 4"
+      ],
+      "rationale": "Repeated indices recover the source, distinct disjoint active swaps contribute C(r,2)−a uniquely by their four changed positions, all-distinct triples contribute 2(a−p) three-position changes, and a triple with exactly one equal boundary contributes a single endpoint-only change (h in total). The remaining outputs differ in one adjacent pair. If the original has an equal pair, an initial identity exchange pads every single swap. Otherwise only swapping an edge of an aba creates an equal pair for padding; both orders on an aba also yield one-effective-swap outputs. These exhaust the possibilities and give 1+C(r,2)+a+h−2p+s. For m=n−1 and all edges active, the deficit from C(n,2) is 2p−s, which counts starts of consecutive aba triples, i.e. abab. With any inactive edge, a+h=m−1−c_00, giving deficit (m(m−1)−r(r+1))/2+c_00+2p. It is positive with at least two inactive edges and zero with exactly one iff p=0. At n=2 all words tie, and a period-three word witnesses the bound for every n at q≥3. For type A, appending a nonreturning letter has q−2 choices; the one possible return is allowed only after a nonreturning triple, giving (q−2)(A_(n−1)+A_(n−2)) and the stated bases at n=2,3,4. For type B, split at the unique equal pair and fix the common letter. No aba can cross an equal boundary, so the two independent sides give the stated f_j f_(n−j) convolution. At q=3, A_3=12 and A_4=18 start 6F_n, while the two endpoint splits and n−3 interior splits give B_n=12(n−2) for n≥3. Independent replay: python3 /workspace/reviews/check_mathematics.py 4 directly generates all outputs on 22,978 symbol equality patterns of lengths 2–9 using at most five symbols, and recovers labelled counts by falling factorial weights for q=3,4,5. The structural proof covers all lengths and alphabet sizes in the claim.",
+      "residual_risks": [
+        "The exact-two convention counts exchanges of equal letters and allows repetitions and overlaps. No claim about exact graph distance two, two mandatory nontrivial swaps or the binary optimizer census."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovačević–Kiah–Goyal and Langberg–Schwartz–Yaakobi allow disjoint swaps, unlike the overlapping operations here. Ataba–Zabokritskiy study successive-swap code locality, allowing overlaps. Buzaglo et al. §IV-B bounds at-most-two Kendall ball sizes in a fixed-multiplicity family."
+        ],
+        "reasoning": "Disjoint swaps cannot account for the overlapping cyclic or endpoint-only changes; results about code locality or ball bounds for fixed symbol multiplicities do not give either exact-two optimizer class or the combined enumeration for unrestricted source compositions.",
+        "searches": [
+          "arXiv:2509.06692v3, pairwise disjoint adjacent transpositions",
+          "arXiv:2611.02192, pp. 1–2",
+          "Web: Error-Correcting Codes for Multipermutations Buzaglo Yaakobi Etzion Bruck pdf Kendall radius two Proposition",
+          "Langberg–Schwartz–Yaakobi, Coding for the ℓ_infinity-Limited Permutation Channel"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4c63e213834d, b82e0e844a5c and b743472fbcd0",
+        "arXiv:2509.06692v3 and 2611.02192",
+        "Buzaglo et al., IEEE 6620321, author PDF §IV-B",
+        "Langberg–Schwartz–Yaakobi, IEEE Trans. Inf. Theory 63(12), 2017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing K for equal-edge count and C for adjacent equal-edge pairs, prior ball size is C(m−K,2)+2m−K−C−2p, maximized at C(n,2)+m by words with distinct consecutive triples. Its two-state transfer marks (K,C,p). The local proof counts new distance-two outputs and disregards aba outputs which are already in distance one."
+        ],
+        "reasoning": "One always has |T_2|=|B_2|−(r−s). For K>0 this is equality and the type-B condition lies in the prior transfer coefficient for (K,C,p)=(1,0,0). For K=0 the missing information is which distinct one-swap outputs are reached by overlapping moves or padding: p counts return triples but not overlap of their edge-pairs. For example ababc and abaca, with a,b,c distinct, both have (K,C,p)=(0,0,2), but exact sizes nine and ten because only the former has adjacent return triples. Thus the exact-two law admits a short derivation from the earlier support analysis plus a correction, not a direct substitution into the earlier law or transfer. The full new equality classification and labelled count require retaining overlap/pattern information absent from the earlier statistics.",
+        "searches": [
+          "Resultary 4c63e213834d, RESULT.md Finding, Two-swap classification, Distribution by transfer and Maxima"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4c63e213834d uses graph distance at most two (only unequal-letter swaps in the graph). b82e0e844a5c studies collisions under up to two successive swaps on binary block concatenations. The frozen exact-operation convention keeps identity swaps as operations."
+        ],
+        "reasoning": "All graph-distance-two outputs and the source belong to the exact-two set, but some graph-distance-one outputs may not. Therefore neither the graph sphere at distance exactly two nor, in general, the radius-two ball is the output set here. The coding locality result does not enumerate per-source exact-two outputs.",
+        "searches": [
+          "Resultary 4c63e213834d: exact radius-two Kendall ball spectra for multiset words",
+          "Resultary b82e0e844a5c: sharp two-block locality for correcting two successive adjacent swaps",
+          "arXiv:2611.02192, successive vs disjoint models"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day exact ball record gives a pointwise formula, a joint statistic distribution and its own tie classes. The binary bounded-run record describes median/shortest-path properties at fixed weight; the same-day locality record describes code collisions."
+        ],
+        "reasoning": "No checked record gives the same exact-two census. In the strongest exact table, a larger-ball optimum requires all triples distinct. The smaller exact-two set can also achieve its own maximum at single repeats and at isolated aba triples, which that ball optimizer list omits.",
+        "searches": [
+          "Resultary 4c63e213834d, exact radius-two Kendall ball spectra for multiset words",
+          "Resultary b743472fbcd0, median swap graphs for binary words with bounded monochromatic runs",
+          "Resultary b82e0e844a5c, sharp two-block locality for correcting two successive adjacent swaps"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete exact-operation optimizer classification and labelled census. The at-most-two ball and most of its local support calculation substantially overlap with a distinct same-day result. The exact sphere formula agrees with that ball whenever the source has an equal edge; the separate content in the structural lemma is accounting for attainable single-swap outputs when every source edge is active. Day-level dates do not establish chronology.",
+      "residual_risks": [
+        "Strong overlap in local structure and the inactive-edge case is explicit; no claim of independent priority for the ball formula. The title-level permutation-space hit could not be assessed. A bounded search cannot rule out another equivalent result or resolve same-day chronology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial ball formula overlap, different channel and equality census",
+          "evidence": [
+            "The transfer uses (K,C,p), not consecutive returns; aba gives no new distance-two outputs; every consecutive triple is distinct in the nonbinary ball optimizer class."
+          ],
+          "identifier_or_url": "Resultary 4c63e213834d",
+          "material_read": "RESULT.md Finding/Assumptions and Proof, offsets 0–5379; full transfer and maxima and surrounding scope, offsets 5100–9192",
+          "method": "Local mirror",
+          "title": "Exact radius-two Kendall ball spectra for multiset words",
+          "trigger": "Strongest exact formula, transfer and maximizing-word overlap"
+        },
+        {
+          "assessment": "At-most-two binary code collisions rather than exact-word census",
+          "evidence": [
+            "Block concatenation locality criterion."
+          ],
+          "identifier_or_url": "Resultary b82e0e844a5c",
+          "material_read": "RESULT.md Finding/Assumptions at offsets 0–4340",
+          "method": "Local mirror",
+          "title": "Sharp two-block locality for correcting two successive adjacent swaps",
+          "trigger": "Same-day sequential-swap channel"
+        },
+        {
+          "assessment": "Distinct constrained graph problem",
+          "evidence": [
+            "Fixed weight and bounded monochromatic runs, median and distance properties."
+          ],
+          "identifier_or_url": "Resultary b743472fbcd0",
+          "material_read": "RESULT.md Finding/Assumptions/Proof, offsets 0–4216",
+          "method": "Local mirror",
+          "title": "Median swap graphs for binary words with bounded monochromatic runs",
+          "trigger": "Run-constrained swap graph results"
+        },
+        {
+          "assessment": "Disjoint model",
+          "evidence": [
+            "Pairwise disjoint adjacent transpositions and radius-one ℓ_infinity connection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.06692 (v3)",
+          "material_read": "p. 1 abstract, offsets 690–3576",
+          "method": "Open-access paper text",
+          "title": "Bounds on Codes Correcting Adjacent Transpositions",
+          "trigger": "Similar adjacent transposition terminology"
+        },
+        {
+          "assessment": "Covers successive overlaps, with different objective and at-most-t budget",
+          "evidence": [
+            "Studies error-correcting code locality under successive swaps, distinguishing them from disjoint pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.02192",
+          "material_read": "pp. 1–2, offsets 4234–8891",
+          "method": "Open-access paper text",
+          "title": "Concatenation Locality under Successive Adjacent Transpositions",
+          "trigger": "Same successive operation but possible broader theorem"
+        },
+        {
+          "assessment": "Disjoint permutation operation",
+          "evidence": [
+            "Radius-one ℓ_infinity errors are products of nonoverlapping adjacent transpositions."
+          ],
+          "identifier_or_url": "Langberg–Schwartz–Yaakobi, IEEE Trans. Inf. Theory 63(12), 2017",
+          "material_read": "p. 1 and pp. 3–4, offsets 0–2392, 18105–20569 and 24975–27400",
+          "method": "Open-access paper text",
+          "title": "Coding for the ℓ_infinity-Limited Permutation Channel",
+          "trigger": "Potential permutation-channel equivalence"
+        },
+        {
+          "assessment": "At-most-two ball bounds on the family with each rank appearing twice, not unrestricted exact-two ties",
+          "evidence": [
+            "Radius-t metric ball definition and upper/lower bounds for t=2 on P_(m,2)."
+          ],
+          "identifier_or_url": "https://cmrr-star.ucsd.edu/static/saritsite/conferencePapers/eccMultiPermutationsISIT13.pdf (IEEE 6620321)",
+          "material_read": "PDF p. 4 §IV-B, offsets 28140–30290, especially the t=2 bounds",
+          "method": "Lawful author-hosted PDF as alternate to inaccessible Caltech record",
+          "title": "Error-Correcting Codes for Multipermutations",
+          "trigger": "Primary work on radius-two Kendall ball sizes for repeated symbols"
+        },
+        {
+          "assessment": "No statement-level assessment possible from the available material",
+          "evidence": [
+            "No negative inference from the title or access failure."
+          ],
+          "identifier_or_url": "Title-level web hit, Academia page",
+          "material_read": "Title only; target page returned HTTP 403",
+          "method": "Web discovery and unsuccessful open-access retrieval",
+          "title": "Cardinality of Balls in Permutation Spaces",
+          "trigger": "Potential permutation ball enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md equations (1)–(3) and support proof",
+        "Resultary 4c63e213834d ball law and transfer",
+        "Independent check 4"
+      ],
+      "rationale": "Exact-operation ambiguity is a natural fixed error-budget observable, and the ball distribution alone loses precisely the overlap statistic that changes tie cases. The all-length classification and census show two genuinely different ways to attain the same sharp ambiguity, including repeated-symbol sources missed by distinct-triple ball maximizers. The Fibonacci-plus-linear count and its nonbinary generalization quantify the maximizing population, beyond merely subtracting an identity output or transferring the larger-ball bound.",
+      "residual_risks": [
+        "Not a claim about code capacity or higher operation budgets. Its value is the exact two-operation equality/census contrast, not a new at-most-two formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

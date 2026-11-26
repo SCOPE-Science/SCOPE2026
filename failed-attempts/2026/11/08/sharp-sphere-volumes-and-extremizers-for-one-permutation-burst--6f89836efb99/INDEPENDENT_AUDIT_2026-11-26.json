@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:38:51.012317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each nonidentity output determines its first and last changed positions; mass balance on the chosen block leaves an anagram on that smaller interval. Any interval of length at most k extends to a legal length-k block for n≥k. Inclusion–exclusion for the two fixed ends in a uniform multiset ordering gives T(v), including identical endpoint letters. Counting labeled realizations bounds T(v) by f_m, strictly for repeats since each allowed ordering has at least two realizations and f_m>0. Hence all length-k windows must be injective for global equality, and after the first k positions each next symbol has q−k+1 choices. For binary k=3, different outputs correspond to unequal pairs separated by one or two sites; their count is the sum of consecutive difference bits and adjacent XORs of those bits. Grouping differences into pairs bounds each pair contribution by two and each bridge by one. At odd n, equality permits all (1,0), all (0,1), or a single (1,1) between a (1,0) prefix and (0,1) suffix; at even n the terminal contribution forces all pairs (1,0) and a final one. Doubling for the initial bit gives the asserted counts. Appending b after a contributes z^(b+(a XOR b)), giving the displayed generating polynomial. The 2n−3 distinct nonzero linear forms in independent uniform differences are fair and pairwise independent, giving the mean and variance exactly. I used the proof, not the frozen script; its longer binary ranges compare against the local formula rather than directly enumerated descendants.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6cf2de277e3a states the same upper bound, equality condition and population for q≥k≥4, and proves the local endpoint formula and strict local inequality without that restriction. 3371874f7756 gives the complete length-three population polynomial and moments for all q≥2, plus a limit law."
+        ],
+        "reasoning": "Summing the unrestricted local formula recovers (1) for all q and k. The termwise strict loss makes the universal bound unattainable at q<k, including outside the earlier sharpness theorem's scope. The broader length-three polynomial gives (5)–(6) at q=2.",
+        "searches": [
+          "Resultary 6cf2de277e3a, Finding and proof §§1–4",
+          "Resultary 3371874f7756, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.15701v1",
+        "arXiv:2606.26905",
+        "Resultary 6cf2de277e3a",
+        "Resultary 3371874f7756",
+        "Resultary 31d5888bce8c",
+        "Resultary ba87e3492861",
+        "Resultary 0c129a5d8a13"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The support sum and local rigidity argument in 6cf2de277e3a require only n≥k≥2 to give the upper bound and characterize when it is attained. For k=2 the short case reduces to 1 plus the number of unequal adjacent pairs. The k=3 maxima and counts are already explicit in 3371874f7756.",
+          "The limited-permutation paper allows a set of disjoint adjacent swaps, and 31d5888bce8c allows only cyclic rotations of a triple; neither is relied on for coverage."
+        ],
+        "reasoning": "The hypotheses q≥k≥4 in the older high-alphabet theorem delimit a sharp achievable maximum, not the validity of the local lemma. Its unrestricted inequalities and the separate length-three theorem already yield the frozen classification; the frozen submission offers no new optimum for q<k and k≥4.",
+        "searches": [
+          "Resultary 6cf2de277e3a, exact local sum and strict local inequality",
+          "Resultary 3371874f7756, length-three classification",
+          "Ben Shimon–Zabokritskiy arXiv:2606.26905, channel definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Milenkovic count the same binary output set by first changed position plus a final remainder including x. The prior length-three Resultary polynomial counts the same labeled-center population under all six permutations."
+        ],
+        "reasoning": "Using a first-change sum rather than both changed endpoints does not give a different volume invariant. At q=2 the prior length-three matrix is [[1,z],[z²,z]]; conjugating by D=diag(1,z) as D⁻¹MD gives the frozen matrix. The transformed row and column are 2(1,z) and (1,1)^T, respectively, so the polynomials agree as polynomials, including at z=0.",
+        "searches": [
+          "Resultary: one non-wrapping permutation burst exact output-sphere volume and maximizing centers",
+          "Chen–Milenkovic arXiv:2610.15701v1 §II, φ_k(x)",
+          "Resultary 3371874f7756, Finding and distinct-output decomposition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact polynomial determines every binary volume multiplicity. It explicitly lists floor((3n−2)/2) as the binary maximum, with 2 or n+3 achievers, and lists 4n−6 and q(q−1)(q−2)^(n−2) when q≥3."
+        ],
+        "reasoning": "The two floor expressions agree identically and the same moments follow, so the pre-existing exact catalogue entry supplies the claimed data, not just small-n checks.",
+        "searches": [
+          "Resultary: exact binary three-window permutation-burst sphere spectrum and extremizer counts",
+          "Resultary 3371874f7756, Finding"
+        ]
+      },
+      "rationale": "Independent retrieval of the primary Chen–Milenkovic paper shows an exact binary per-center volume formula in the same channel, not just redundancy bounds. Separately, two earlier Resultary findings cover the endpoint-count decomposition and sharp universal bound on its attainable range, and the full length-three distribution, maxima, counts and moments. The apparently larger scope off the attainable bound is a direct use of the existing unrestricted local lemma and strict local bound, not an additional sharp answer for q<k.",
+      "residual_risks": [
+        "The literature search is bounded, and the order of the same-day k=4 records is not established. Neither caveat changes the independently verified coverage by the earlier primary and catalogue statements. No global priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap with exact binary per-center cardinality, but not the asserted arbitrary-alphabet formula in the inspected section.",
+          "evidence": "The pointwise φ_k(x)=Σ_i z_{k;i}(x)+z_{k;rest}(x) counts first altered bit outcomes and adds the remainder including x. This audit obtained the primary passage unavailable to the frozen self-review.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.15701",
+          "material_read": "Section II, Definition 1 and binary sphere count, PDF p. 3, text offsets 14500–20764 with decisive passage near 18498",
+          "method": "OA primary PDF retrieval and comparison of definitions and counting formula",
+          "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+          "trigger": "Primary paper with the identical binary substring-permutation channel"
+        },
+        {
+          "assessment": "Direct overlap with (2)–(3) for q≥k≥4; the unrestricted proof tools also give (1) and the bound off that range.",
+          "evidence": "Uses the identical first/last change anagram count, the same f_m and strictness for repeated symbols (including m=2,3), and the same count of injective-window words.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-output-sphere-bound-and-rigidity-for-nonbinary-permutation--6cf2de277e3a",
+          "material_read": "RESULT.md Finding, assumptions and proof §§1–4, offsets 0–5799, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded local mirror inspection",
+          "title": "Sharp output-sphere bound and rigidity for nonbinary permutation bursts of arbitrary length",
+          "trigger": "Identical exact bound and rigidity criterion"
+        },
+        {
+          "assessment": "The wider-alphabet polynomial and statistics cover all length-three conclusions here.",
+          "evidence": "Includes all six permutations and the unchanged word; its polynomial at q=2 is conjugate to the frozen formula, and it states identical maxima and attaining-center counts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-two-state-sphere-spectrum-for-three-symbol-permutation-bursts--3371874f7756",
+          "material_read": "RESULT.md Finding, assumptions and opening proof, offsets 0–3104, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror statement comparison",
+          "title": "Two-state sphere spectrum for three-symbol permutation bursts",
+          "trigger": "Same exact length-three population, including both binary parity classes"
+        },
+        {
+          "assessment": "Different admissible move and not the reason for the originality failure.",
+          "evidence": "Permits arbitrary sets of pairwise disjoint adjacent transpositions rather than one multiset reordering of a prescribed length.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.26905",
+          "material_read": "PDF pp. 1 and 5, channel definitions",
+          "method": "OA primary PDF comparison",
+          "title": "A q-ary Local Criterion for the Radius-One Limited Permutation Channel and Almost-Optimal Binary Block-Concatenation Codes",
+          "trigger": "Another local channel under permutation terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exact channel sphere sizes and sharp optimizing centers are motivated coding-theoretic invariants. As offered, however, the result combines already available exact length-three data with an unrestricted summation of the earlier local endpoint-count lemma. The small-k cases not in the older high-alphabet theorem are elementary or explicitly covered, and the frozen finding leaves the independently interesting smaller-alphabet k≥4 sharp maxima open. There is no surviving distinct scientific contribution of comparable substance in the stated finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

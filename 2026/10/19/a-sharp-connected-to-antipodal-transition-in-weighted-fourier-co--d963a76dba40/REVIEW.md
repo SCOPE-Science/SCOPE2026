@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The variational reduction from all soft masks to a superlevel set is justified by convex first variation. The cosine-of-separation and cosine-of-half-width-difference expressions are strictly convex and exhaust at most two arcs. Endpoint formulas prove the sharp threshold and all equality types; complement covers measures greater than one half. Entrywise calculation proves the weighted trace identity. The deterministic checker passed 21,000 supporting numerical cases, which are not substituted for the proof.
+PASS
 
-## Originality
+Pass on /workspace/repairs/5/RESULT.md, not on the frozen proof as printed. Frozen line 54 doubles the first-mode term at opposite centers; the factor must be p(1+c)(1−y). Indeed, (sin a−sin b)²=(1+cos(a+b))(1−cos(a−b)). The erroneous expression already gives the wrong one-arc limit at y=c, whereas the corrected expression gives the printed arc value. The repair also limits the first strict convexity comparison to interior separations, not the antipodal endpoint. Weak-* compactness gives attainment; at any maximizer the nonzero first variation must be maximized as a linear functional, so thresholding its nonconstant degree-two polynomial forces a binary upper-level set of at most two arcs modulo null sets. Complementation reduces to α≤1/2. For fixed positive widths the energy is strictly convex in cos d, so only touching and antipodal centers need be considered. At the latter it is strictly convex in y on [c,1], leaving only the single-arc limit and the equal antipodal pair, including exactly both geometries at a tie. The Toeplitz trace-square calculation counts both directions for each pair and gives the printed weights. The supporting script was inspected, not executed; it checks direct integrations but does not check the erroneous simplified polynomial. Independent exact identities and endpoints were replayed in /workspace/branches/dc685221-6e30-4cd7-9b46-7640afa92cb9/record5_exact_replay.py. The replay is algebraic, not a substitute for the compactness and equality arguments.
 
-PASS to the best of the available indexed literature, with stated source-access risk. The unweighted arc conclusion is a corollary of Abreu–Speckbacher's largest-eigenvalue interval theorem plus complementation in dimension three; it is not claimed new. The new result is the arbitrary-positive-gain trace-square transition, with disconnected optimizers for small middle gain. Mayeli's 2026 general trace defect, the published fractional-sharpness record, and Marceca–Romero–Speckbacher's eigenvalue bounds do not imply this weighted transition. Direct weighted semantic searches encountered temporary internal errors, and full text of Abreu–Speckbacher remained inaccessible, so complete historical novelty cannot be guaranteed. Exact source inspections and searches are recorded in AUDIT.json.
+## originality
 
-## Value
+PASS
 
-PASS. A natural finite concentration operator with unequal site gains changes optimal mask topology at the precise boundary \(q\sin^2(\pi\alpha)=p\). The result supplies the complete equality classification and explicit sharp trace defect for all positive gain triples. Weighted phase transitions are a mathematical feature absent from the known unweighted concentration theorem.
+The corrected two-frequency weighted maximum and complete equality transition are distinct from the strongest inspected first-mode rigidity and unweighted spectral results. The unweighted three-site arc conclusion is already implied by Abreu–Speckbacher and complements, and is not counted as original. Weighted two-arc superiority is the verified distinction. The comparison supports this scope to the best of current knowledge, not a universal priority claim.
 
-## Limits
+## value
 
-Strictly positive weights, three spatial sites, and fixed spectral mass. Independent verification and exhaustive historical priority are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired theorem solves a natural three-site spectral-mask design problem, predicts a genuine connectivity transition caused by diagonal gain imbalance, and classifies all extremizers, including the tie and arbitrary soft masks. Correcting the coefficient preserves this substantive global result; finite tests alone would not justify it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

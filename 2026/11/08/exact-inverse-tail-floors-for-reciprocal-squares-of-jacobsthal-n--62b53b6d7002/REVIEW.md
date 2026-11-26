@@ -1,15 +1,21 @@
-# Scientific review: Jacobsthal reciprocal-square tail floors
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated formula follows from a direct absolutely convergent double series. Its first four coefficients and a uniform geometric tail estimate yield \(0<A_n-S_n^{-1}<1/9\) for every \(n\ge3\). The exact congruence \(3\cdot4^{n+3}-4(-2)^{n+3}\equiv3\cdot4^n-4(-2)^n\pmod{36}\) gives fractional parts at least \(2/9\), so the integer floors coincide. The two small cases are covered separately. The limit \(7/135\) is obtained from leading analytic coefficients. The standalone exact-rational checker validates the constants and gives finite tail-enclosure cross-checks through index 64. Computations do not substitute for the infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest primary paper is Gaber (2022), on exactly these reciprocal-square tails, but its Theorem 2.2 prints a one-sided inequality restricted to odd indices rather than a correct all-index floor: the displayed inequality is incompatible with the direct instance \(n=3\). Koshy and Gao (2024, Class and Family) use different sparse weighted squared-polynomial sums and do not state this floor identity. Targeted published-finding corpus searches for aliases and error-correction formulations identified unrelated Fibonacci fifth-power, Fibonacci cubic, and balancing fourth-power tail results. Other prior mathematical claim statements were compared for implication overlap, and none concerned the present inverse Jacobsthal-square tail. Residual risk: unindexed or differently formulated literature might contain this exact identity; search absence alone is not a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-Integer parts of inverse reciprocal tails are a natural invariant of classical recurrence sequences and are the direct object of the 2022 motivating paper. The complete formula handles every starting index and both parities and replaces a defective printed one-sided estimate with an exact infinite classification, together with a uniform rigorous enclosure and sharp residual limit. This is not an arbitrary finite slice or a new symbol for a known table.
+Binet's formula gives J_k>0 for k>=1 and permits the absolutely convergent geometric expansion with x=2^(-n) and epsilon=(-1)^n: S_n is the sum over j>=0 of a_j epsilon^j x^(j+2), with a_j=9(j+1)/(1-(-1)^j 2^(-j-2)). The first coefficients are 12, 16, 144/5 and 384/11. For x<=1/8 the later terms have absolute sum <=(3456/49)x^6<71x^6, using a_j<=12(j+1). Multiplication by A_n=(1-4 epsilon x/3)/(12x^2) cancels the term linear in x; the next coefficients are 28/45 and -16 epsilon/55. The stated rational brackets, bounded at 1/8 by monotonicity, give 0<A_n S_n-1<(256/243)x^2, while S_n>=12x^2/(1+x)^2>=(256/27)x^2. Division yields the strict gap less than 1/9, and the ratio of leading coefficients gives 7/135. The residues of the numerator mod 36 are 20,32,8 with period three because its three-step increment is 189*4^n+36*(-2)^n. Thus the gap cannot cross an integer. For n=1,2 the tail exceeds one, so its inverse and A_n both have floor zero. Independent exact rational enclosures with recurrence-generated denominators and a Binet-envelope remainder corroborate the floors through n=64 and the strict gap for n=3,...,64.
 
-## Closest literature and limitations
-Ahmed Gaber, *On the reciprocal sum of Jacobsthal numbers*, arXiv:2207.12857v1 (19 July 2022), particularly Theorem 2.2. Thomas Koshy and Zhenguang Gao, Fibonacci Quarterly 62 (2024), papers on a *Class* (pp. 40–44) and a *Family* (pp. 130–135) of Jacobsthal polynomial square sums. The result does not cover alternating sums, higher inverse powers, or generalized recurrence parameters. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest same-object square-tail result found is Gaber's printed odd-index inequality, which is false at n=3 and does not supply exact floors or the residual limit. An earlier exact Jacobsthal inverse-tail result deals with first powers, while the general-family square-tail formulas inspected impose different recurrences. None of the checked catalogue matches, exact count formulas or stronger statements covers the all-index square-tail result. This is a bounded, best-of-knowledge assessment.
+
+## value
+
+PASS
+
+This answers the same exact-classification question motivated by earlier first-power floor laws and the failed odd-index square-tail bound. It identifies the integer part for every index, including both parities and all small cases, with a uniform rational enclosure and an explicit nonzero error limit. An investigator using inverse reciprocal-tail formulas gets a complete rigorous benchmark for a classical recurrence not covered by the inspected square-tail families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -2,112 +2,91 @@
 
 ## Finding
 
-Let \(R\) be any finite commutative chain ring with maximal ideal \((\pi)\), nilpotency length \(\ell\ge1\), and residue field of cardinality \(q\). Thus \(|R|=q^\ell\). Let \(T_3(R)\) be the six-dimensional free \(R\)-module of all upper triangular \(3\times3\) matrices, including singular matrices. For \(u,v,w\in R\), let \(F_R(u,v,w)\) be the number of **ordered** pairs \((X,Y)\in T_3(R)^2\) with additive Lie commutator
+Let \(R\) be a finite commutative chain ring with maximal ideal \((\pi)\), length \(\ell\ge1\), and residue field of cardinality \(q\). Thus \(|R|=q^\ell\). Let \(T_3(R)\) be the free \(R\)-module of all upper triangular \(3\times3\) matrices, including singular matrices. For \(u,v,w\in R\), let \(F_R(u,v,w)\) count **ordered** pairs \((X,Y)\in T_3(R)^2\) with
 \[
 XY-YX=\begin{pmatrix}0&u&w\\0&0&v\\0&0&0\end{pmatrix}.
 \]
-Set \(\nu(0)=\ell\), and for \(x\ne0\) set \(\nu(x)=i\) when \(x\in\pi^iR\setminus\pi^{i+1}R\). For \((i,j,k)\in\{0,\dots,\ell\}^3\), define
+Set \(\nu(0)=\ell\), and for \(x\ne0\) set \(\nu(x)=i\) when \(x\in\pi^iR\setminus\pi^{i+1}R\). For \((i,j,k)\in\{0,\ldots,\ell\}^3\), define
 \[
-a(i,j,k)=\min\{i,j,k\},\qquad
-b(i,j,k)=\min\{\ell,\min(i+j,i+k,j+k,2k)-a(i,j,k)\},
+a(i,j,k)=\min\{i,j,k\},\qquad b(i,j,k)=\min\{\ell,\min(i+j,i+k,j+k,2k)-a(i,j,k)\},
+\qquad E_\ell(i,j,k)=q^{8\ell+2a(i,j,k)+2b(i,j,k)}.
 \]
+Define the valuation-shell sum, including the zero shell, by
 \[
-E_\ell(i,j,k)=q^{8\ell+2a(i,j,k)+2b(i,j,k)}.
-\]
-Define the integer valuation-shell sum (including the zero shell)
-\[
-H_{\ell}(i;z)=\begin{cases}
+H_\ell(i;z)=\begin{cases}
 1,&i=\ell,\\
-q^{\ell-i}\mathbf 1_{z\in\pi^{\ell-i}R}-q^{\ell-i-1}\mathbf 1_{z\in\pi^{\ell-i-1}R},&0\le i<\ell.
+q^{\ell-i}\mathbf1_{z\in\pi^{\ell-i}R}-q^{\ell-i-1}\mathbf1_{z\in\pi^{\ell-i-1}R},&0\le i<\ell.
 \end{cases}
 \]
-Then **every fixed-target commutator fiber** has the explicit universal formula
+Then every fixed-target fiber is given by
 \[
-\boxed{F_R(u,v,w)=q^{-3\ell}\sum_{i,j,k=0}^{\ell}
-E_\ell(i,j,k)H_\ell(i;u)H_\ell(j;v)H_\ell(k;w).}\tag{1}
+\boxed{F_R(u,v,w)=q^{-3\ell}\sum_{i,j,k=0}^{\ell} E_\ell(i,j,k)H_\ell(i;u)H_\ell(j;v)H_\ell(k;w).}\tag{1}
 \]
-In particular, the entire fixed-target distribution is determined by \(q,\ell\) and the three target valuations, independently of the characteristic or of the presentation of \(R\).
-
-More strongly, for any generating additive character \(\psi:R\to\mathbb C^\times\), the Fourier transform of the commutator fiber function satisfies
+It depends only on \(q,\ell\) and the three target valuations, independently of the characteristic or presentation of \(R\). For any generating additive character \(\psi:R\to\mathbb C^\times\), the unnormalized Fourier transform is
 \[
-\boxed{\widehat F_R(s,t,h)=\sum_{u,v,w\in R}F_R(u,v,w)\psi(su+tv+hw)
-=E_\ell(\nu(s),\nu(t),\nu(h)).}\tag{2}
+\boxed{\widehat F_R(s,t,h)=\sum_{u,v,w\in R}F_R(u,v,w)\psi(su+tv+hw)=E_\ell(\nu(s),\nu(t),\nu(h)).}\tag{2}
 \]
-Its \(2\ell+1\) distinct positive values are precisely \(q^{8\ell+2j}\) for \(0\le j\le2\ell\). If an independent random ordered matrix pair supplies an increment on the additive group \(R^3\), the corresponding convolution walk has exact nontrivial spectral radius \(q^{-2}\): the trivial character has eigenvalue \(1\), while the largest nontrivial character eigenvalue equals \(q^{-2}\). Both the full Fourier and fixed-target formulas apply to every length, although the **new non-field regime** is \(\ell\ge2\).
+Its \(2\ell+1\) distinct positive values are precisely \(q^{8\ell+2j}\) for \(0\le j\le2\ell\). The convolution walk on the additive group \(R^3\) that uses the commutator of a uniform ordered pair as its increment has exact nontrivial spectral radius \(q^{-2}\). The trivial character has eigenvalue \(1\).
 
-For example, at \(q=2,\ell=2\), formula (1) yields exactly ten distinct nonempty fiber sizes; the zero-target fiber has cardinality \(630784\). The Fourier spectrum is \(2^8,2^{10},2^{12},2^{14},2^{16}\), with multiplicities \(40,12,9,2,1\), respectively. The full sample space contains \(4^{12}=16777216\) ordered matrix pairs. The same formulas hold for both \(\mathbb Z/4\mathbb Z\) and \(\mathbb F_2[\epsilon]/(\epsilon^2)\), despite their different characteristics.
+For \(q=2,\ell=2\), (1) gives ten distinct nonempty fiber sizes and a zero-target fiber of size \(630784\). The unnormalized Fourier values are \(2^{16},2^{18},2^{20},2^{22},2^{24}\), with multiplicities \(40,12,9,2,1\), respectively. In particular the zero frequency has value \(2^{24}=4^{12}=16777216\), the total number of ordered pairs. The example applies to both \(\mathbb Z/4\mathbb Z\) and \(\mathbb F_2[\epsilon]/(\epsilon^2)\).
 
 ## Assumptions and scope
 
-A finite commutative chain ring has ideals \(R\supset\pi R\supset\cdots\supset\pi^\ell R=0\), with each successive quotient of size \(q\); the zero ring is excluded. A *generating additive character* has kernel containing no nonzero ideal. Every finite chain ring has such a character, since it is a finite Frobenius ring; the proof only uses this nondegeneracy. The Fourier transform is unnormalized, while the random-walk eigenvalues divide by \(|T_3(R)|^2=q^{12\ell}\). All matrices, not just invertible ones, are counted. The additive commutator is \(XY-YX\), **not** the group commutator. Every target has zero diagonal automatically, and all elements in the target set are attained: fix \(X=E_{11}+E_{23}\), then \([X,Y]_{12}=Y_{12}\), \([X,Y]_{23}=Y_{33}-Y_{22}\), and \([X,Y]_{13}=Y_{13}-Y_{12}\), so each prescribed target has a witness.
+The ring is nonzero; its ideals are \(R\supset\pi R\supset\cdots\supset\pi^\ell R=0\), with each successive quotient of size \(q\). A generating additive character is one whose kernel contains no nonzero ideal. Such a character exists: take an additive character nontrivial on the smallest nonzero ideal \(\pi^{\ell-1}R\), which exists by separation in the character group of a finite abelian group. Every nonzero ideal contains that ideal. We count the **additive** commutator, not a group commutator. Every target is attained: for \(X=E_{11}+E_{23}\), the three output entries are \(Y_{12}\), \(Y_{33}-Y_{22}\), and \(Y_{13}-Y_{12}\), respectively. The theorem applies also to fields (\(\ell=1\)); the distinct regime is \(\ell\ge2\).
 
 ## Proof
 
-**1. Explicit bilinear pairing.** In coordinates \(X=(a,b,c,x,y,z)\) and \(Y=(d,e,f,s,h,t)\), corresponding to diagonal entries followed by \((12),(23),(13)\) entries, direct multiplication gives
+**1. Bilinear pairing.** Write \(X=(A,B,C,x,y,z)\) and \(Y=(D,E,F,x',y',z')\) in diagonal and \((12),(23),(13)\) coordinates. Multiplication gives
 \[
-[ X,Y]_{12}=(a-b)s-(d-e)x,\quad
-[ X,Y]_{23}=(b-c)h-(e-f)y,
+\begin{aligned}
+[X,Y]_{12}&=(A-B)x'-(D-E)x,\\
+[X,Y]_{23}&=(B-C)y'-(E-F)y,\\
+[X,Y]_{13}&=(A-C)z'-(D-F)z+xy'-x'y.
+\end{aligned}
 \]
+Thus the frequency-weighted output is \(X^{\mathsf T}B(s,t,h)Y\) for the alternating pairing whose nonzero upper-triangular entries in the coordinates \((d_1,d_2,x,y,z,C)=(A-B,B-C,x,y,z,C)\) are
 \[
-[ X,Y]_{13}=(a-c)t-(d-f)z+xh-sy.
+B_{d_1,x}=s,\quad B_{d_2,y}=t,\quad B_{d_1,z}=B_{d_2,z}=h,\quad B_{x,y}=h.\tag{3}
 \]
-For a Fourier frequency \((s_0,t_0,h_0)\in R^3\), abbreviated \((s,t,h)\) below, the linear combination of these three coordinates is \(X^\mathsf T B(s,t,h)Y\), where the alternating \(6\times6\) matrix is
-\[
-B(s,t,h)=\begin{pmatrix}
-0&0&0&s&0&h\\
-0&0&0&-s&t&0\\
-0&0&0&0&-t&-h\\
--s&s&0&0&h&0\\
-0&-t&t&-h&0&0\\
--h&0&h&0&0&0
-\end{pmatrix}.\tag{3}
-\]
-This identity remains valid in characteristic two.
+The last coordinate is free and (3) makes sense also in characteristic two.
 
-**2. Exact alternating Smith profile.** Over any finite principal chain ring, simultaneous row-column congruences reduce an alternating matrix to a direct sum of two-by-two blocks \(\pi^a\begin{psmallmatrix}0&1\\-1&0\end{psmallmatrix}\) and zero blocks. The proof is constructive: choose an entry generating the ideal of all entries; move it to the first off-diagonal position by identical basis permutations, and eliminate its row and column by congruences because it divides every other entry. Repeat on the orthogonal complement. This does not divide by two and therefore works in characteristic two.
+**2. Kernel profile, with no lifted valuation assumptions.** Put \((i,j,k)=(\nu(s),\nu(t),\nu(h))\) and \(a=\min(i,j,k)\). If \(a=\ell\), the entire form is zero and \(b=\ell\). Otherwise let \(L=\ell-a\) and \(R'=R/\pi^L R\). Multiplication by \(\pi^a\) identifies the additive module \(R'\) with \(\pi^aR\). The coefficients therefore factor uniquely as \(\pi^a\) times frequencies \((s',t',h')\) in \(R'\), with valuations \((i',j',k')=(i-a,j-a,k-a)\), where zero now has valuation \(L\). The kernel of the original pairing is the inverse image in \(R^6\) of the kernel of the normalized pairing in \((R')^6\), with \(q^{6a}\) lifts per vector.
 
-For matrix (3), the ideal of entries is generated by \(s,t,h\), so the first block exponent is
-\(a=\min\{\nu(s),\nu(t),\nu(h)\}\).
-Its nonzero order-four Pfaffians, up to sign and repetition, are precisely
+At least one normalized frequency is a unit, so we can split off a unit alternating block, on the corresponding coordinate pair. Explicitly, for pivot vectors \(e,f\) with pairing \(p\) a unit, subtract suitable multiples of \(e,f\) from each other vector to make it pair to zero with both. This is an invertible change of basis, with no division by two. The matrix on the three remaining nonfree coordinates has the following entries up to sign:
+
+- If \(h'\) is a unit, use the pivot \((d_1,z)\). The remaining \((x,y)\) entry is unchanged and equals \(h'\): neither \(x\) nor \(y\) pairs with \(z\). Thus the second block is a unit block.
+- If \(s'\) is a unit and \(h'\) is not, pivot on \((d_1,x)\). The remaining pairs on \((d_2,y,z)\) have entries \(t',h',\pm(h')^2/s'\). Their ideal is \((t',h')\).
+- Otherwise \(t'\) is a unit. Pivoting on \((d_2,y)\) leaves entries \(s',h',\pm(h')^2/t'\) on \((d_1,x,z)\), generating \((s',h')\).
+
+The three-coordinate complement has at most one nonzero alternating block. Indeed, select an entry of minimal valuation generating the ideal of entries; that entry divides every other one. Subtracting pivot-vector multiples then clears both pivot pairings, leaving a single coordinate with zero alternating self-pairing. If all entries were zero, use the zero block. After scaling the unit part of the pivot, this gives a block \(\pi^c\begin{psmallmatrix}0&1\\-1&0\end{psmallmatrix}\) with
 \[
-st,\quad sh,\quad th,\quad h^2.\tag{4}
+c=\min\{L,i'+j',i'+k',j'+k',2k'\},
 \]
-Every order-six Pfaffian vanishes because \((1,1,1,0,0,0)\) is in the kernel of (3). Applying the same elimination to order-four Pfaffian ideals shows the second block exponent is
+as seen by setting the relevant unit valuation to zero in each case. This calculation uses only the chain ring \(R'\), including when some of the original products are zero due to truncation. Since \(a+c=b(i,j,k)\), and a block with exponent \(c\) over \(R'\) has kernel of size \(q^{2c}\), the normalized kernel has size \(q^{2c+2L}\): there is one unit block, one exponent-\(c\) block, and two free coordinates. Restoring lifts yields
 \[
-b=\min\{\ell,\min(\nu(s)+\nu(t),\nu(s)+\nu(h),\nu(t)+\nu(h),2\nu(h))-a\}.
+|\ker B(s,t,h)|=q^{6a+2c+2L}=q^{2(\ell+a+b)}.\tag{4}
 \]
-To interpret valuation sums exceeding \(\ell\), perform the elimination in a discrete valuation ring presenting the finite chain ring, then truncate exponents at \(\ell\); equivalently, use successive reductions modulo powers of \(\pi\). Since the displayed Pfaffians are monomials, no cancellation affects the minimum. Thus the complete profile is \((a,b,\ell)\), with two \(2\times2\) blocks and two zero coordinates.
+The same formula holds for the all-zero frequency.
 
-A \(2\times2\) block \(\pi^j J\) acting on \(R^2\) has kernel of size \(q^{2j}\), with \(j=\ell\) for the zero block. Consequently
-\[
-|\ker B(s,t,h)|=q^{2(a+b+\ell)}.\tag{5}
-\]
+**3. Fourier transform and inversion.** By the generating property, \(\sum_X\psi(X^{\mathsf T}BY)\) equals \(q^{6\ell}\) if \(BY=0\), and zero otherwise: a nonzero coordinate of \(BY\) would give a nontrivial character as its corresponding \(X\) coordinate varies. Summing over \(Y\) gives (2) by (4). All additive characters are \(z\mapsto\psi(xz)\), since the map from \(x\in R\) is injective and both sets have the same cardinality. For frequency ideal \(\pi^iR\), summing the inverse character against \(z\) gives \(q^{\ell-i}\) when \(z\in\pi^{\ell-i}R\) and zero otherwise. Subtraction of the sum over the next ideal gives \(H_\ell(i;z)\), independent of the sign in the character. The singleton frequency zero gives \(H_\ell(\ell;z)=1\). Grouping Fourier inversion over these shells in all three coordinates proves (1).
 
-**3. Fourier evaluation.** Orthogonality of a generating character gives \(\sum_{X\in R^6}\psi(X^\mathsf TB Y)=q^{6\ell}\) if \(BY=0\) and zero otherwise. Summing over \(Y\in R^6\), then using (5), proves
-\[
-\widehat F_R(s,t,h)=q^{6\ell}|\ker B(s,t,h)|=q^{8\ell+2(a+b)},
-\]
-which is (2). In particular every coefficient is a positive integer power of \(q\), even for nonsplit and mixed-characteristic chain rings.
-
-**4. Fourier inversion by exact valuation shells.** The additive character group of \(R\) is parametrized bijectively by \(R\) via \(x\mapsto(z\mapsto\psi(xz))\). Fourier inversion on \(R^3\) expresses \(F_R\) as \(q^{-3\ell}\) times a sum of the frequencies. Summing the characters over \(x\in\pi^iR\) yields \(q^{\ell-i}\) if \(z\in\pi^{\ell-i}R\), otherwise zero. Subtract the sum over \(x\in\pi^{i+1}R\) to obtain exactly \(H_\ell(i;z)\). The singleton \(x=0\) gives \(H_\ell(\ell;z)=1\). Formula (2) depends only on the three frequency valuations, so grouping the inverse transform by these shells yields (1), with no unproved cancellation or unspecified multiplicity.
-
-**5. Positivity, distinct spectral levels, and sharp gap.** For any nonzero frequency, \(a+b\le2\ell-1\). Every \(j\in\{0,\ldots,2\ell\}\) occurs: take \(h=0\) and choose \(s,t\) of respective valuations \(i,j-i\) in \(\{0,\ldots,\ell\}\) with their sum equal to \(j\). Then \(a=\min\{i,j-i\}\), \(b=\max\{i,j-i\}\) (using \(\nu(0)=\ell\)), so \(a+b=j\). In particular the unique zero frequency gives \(j=2\ell\), and taking \(s\in\pi^{\ell-1}R\setminus\{0\}\), \(t=h=0\) gives \(j=2\ell-1\). Dividing the spectrum by \(q^{12\ell}\) establishes the claimed sharp positive spectral radius \(q^{-2}\) on the orthogonal complement of constants.
+**4. Spectral levels and sharp radius.** At zero frequency \(a+b=2\ell\); at a nonzero frequency \(a\le\ell-1\) and \(b\le\ell\). If \(h=0\), then \(k=\ell\), so \(a+b=i+j\): \(i+j\) is the minimum of the four sums in the definition of \(b\) and \(i+j-a=\max(i,j)\le\ell\). All levels \(0,\ldots,2\ell\) are attained this way, in particular \(2\ell-1\) at \(i=\ell-1,j=\ell\). Dividing by \(q^{12\ell}\) gives the walk eigenvalues and the exact nontrivial radius.
 
 ## Verification
 
-The self-contained standard-library program `verify.py` runs exact ring arithmetic and directly counts kernels of the six-by-six bilinear matrix, *without* implementing its Smith reduction or Pfaffian proof. It exhausts every frequency for \((q,\ell)=(2,1),(3,1),(2,2)\) over integer residue rings, plus strategically chosen frequencies for \((2,3),(3,2)\); a separate implementation tests all 64 frequencies of the nonisomorphic characteristic-two ring \(\mathbb F_2[\epsilon]/(\epsilon^2)\). Independent direct multiplication enumerates all ordered matrix pairs over \(\mathbb F_2\), and inversion separately checks the eight fiber counts. The expected final marker is `DUAL_NUMBER_RING_OK 64`, along with `DIRECT_BRACKET_FIBERS_OK` and `TRIANGULAR_FOURIER_SPECTRUM_OK`. These finite tests corroborate but do not replace the general proof.
+The standard-library `verify.py` directly counts kernels of the six-coordinate frequency matrix, including all 64 frequencies of each of the two order-four rings, and compares the resulting counts against the formula. It separately enumerates ordered matrix pairs and checks the inverted fibers over \(\mathbb F_2\). The tests are finite and do not replace the chain-ring argument. In the order-four example, the multiplicities can also be checked by counting the three frequency valuations: the shells of valuations \(0,1,2\) have sizes \(2,1,1\), and summing their product sizes by the value of \(a+b\) gives \(40,12,9,2,1\). Substituting the same shell sums in (1) gives distinct fiber counts \(147456,221184,270336,294912,344064,368640,393216,466944,565248,630784\).
 
 ## Relationship to prior work
 
-Fosner, Liang, Wei, and Xiao [1] study Lie products, commuting traces and triangular matrix algebras over general commutative rings, providing an archival source for this algebraic setting. They classify particular maps; they do not compute distributions of a fixed commutator target. Choosuwan, Jitman, and Udomkavanich [2] solve *determinant* fibers over chain rings for all matrix sizes; this covers the two-by-two determinant boundary but not the three-coordinate bracket (3) or its six-variable alternating-form Fourier spectrum. The public finite-field result [3] computes four exact fiber levels for \(T_3(\mathbb F_q)\), which agrees with the \(\ell=1\) specialization of (1), and that boundary case is **not** claimed as new. The published two-by-two triangular-chain-ring tuple count [4] addresses a different algebra and only the zero-commutator constraint. The present claim is the complete fixed-target distribution and Fourier spectrum for every length-\(\ell\ge2\) commutative chain ring, independent of its presentation. It remains possible that a broader preexisting general bilinear-word-map formula implies this specialization; historical priority is not independently certified.
+Fosner, Liang, Wei and Xiao [1] study Lie products, centralizing traces and triangular algebras, rather than fixed-target counts. Choosuwan, Jitman and Udomkavanich [2] count determinant fibers, which are a related but different counting problem. The previously reported exact field fibers [3] are the \(\ell=1\) specialization and are not claimed as new. The triangular two-by-two chain-ring count [4] concerns commuting tuples, not the three-coordinate fixed-target map. The contribution is the explicit kernel/Fourier profile, full fixed-target distribution and sharp spectral radius in the non-field regime, using standard alternating pairings and character orthogonality. A broader prior bilinear counting result may imply this specialization; historical priority is not certified.
 
 ## Limitations
 
-The result does not cover non-chain local rings, noncommutative coefficient rings, larger triangular matrix sizes, group commutators, similarity classes, or scheme-theoretic fiber geometry. The Fourier inversion gives a finite explicit sum rather than a minimal simplified case-by-case table. The \(\ell=1\) field specialization is prior literature, not a novel separate result. Verification is finite; proof uses the standard alternating Smith decomposition over principal chain rings and the explicitly listed Pfaffian minors. No claim of exhaustive literature coverage, mathematical independence or external certification is made.
+The result does not address non-chain local rings, noncommutative coefficient rings, larger triangular algebras, group commutators, or scheme-theoretic fiber geometry. The shell formula is explicit but is not a minimal list of distinct fiber counts for every \((q,\ell)\). The finite diagnostics are not formal verification or expert attestation.
 
 ## References
 
-1. A. Fosner, X. Liang, F. Wei, Z. Xiao, *Centralizing traces and Lie triple isomorphisms on generalized matrix algebras*, arXiv:1411.6122v1 (first publicly posted 2014-11-22), https://arxiv.org/abs/1411.6122.
-2. P. Choosuwan, S. Jitman, P. Udomkavanich, *Determinants of Matrices over Commutative Finite Principal Ideal Rings*, arXiv:1605.06826v1 (first publicly posted 2016-05-22), https://arxiv.org/abs/1605.06826.
-3. *Exact fibers of the Lie commutator on three-by-three triangular matrices*, public mathematical research record (2026-11-02), https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-exact-fibers-of-the-lie-commutator-on-three-by-three-triangular--ab8c2df75df2.
-4. *Two-pole commuting-tuple and clique enumerators for triangular algebras over finite chain rings*, public mathematical research record (2026-11-02), https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-two-pole-commuting-tuple-and-clique-enumerators-for-triangular-a--8fae3394a05c.
+1. A. Fosner, X. Liang, F. Wei, Z. Xiao, *Centralizing traces and Lie triple isomorphisms on generalized matrix algebras*, [arXiv:1411.6122](https://arxiv.org/abs/1411.6122).
+2. P. Choosuwan, S. Jitman, P. Udomkavanich, *Determinants of Matrices over Commutative Finite Principal Ideal Rings*, [arXiv:1605.06826](https://arxiv.org/abs/1605.06826).
+3. *Exact fibers of the Lie commutator on three-by-three triangular matrices*, [public research record](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-fibers-of-the-lie-commutator-on-three-by-three-triangular--ab8c2df75df2/RESULT.md).
+4. *Two-pole commuting-tuple and clique enumerators for triangular algebras over finite chain rings*, [public research record](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-pole-commuting-tuple-and-clique-enumerators-for-triangular-a--8fae3394a05c/RESULT.md).

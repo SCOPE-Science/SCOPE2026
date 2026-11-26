@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(r\ge2\), \(h\ge1\), the edge-projection identity reduces each row norm to the total variation of a unit-current potential. Explicit exact rational potentials solve the Laplacian equation separately for the four edge orbits. Their pairwise absolute-row-sum differences establish the three norm branches and all maximizing edge classes without a finite-search assumption. The ten-vertex threshold follows from \(rh>2(r+h)\) and the maximum-product inequality. The difference formula at fixed order establishes the optimizing attachment degree and the asymptotic. A separate all-rational recomputation over 56 graphs passed 2,884 comparisons; it is auxiliary to the proof.
+## correctness
 
-## Originality — PASS within examined evidence
-Jiang et al. (arXiv:0811.1067, Theorem 5.1 and the least-squares discussion) give the gradient/Hodge projection framework. Kassel–Wu (arXiv:1312.2946, transfer-current introduction) give the Green-function kernel. Neither inspected material determines the present star-deletion edgewise norm profile, exceptional two-attachment regime, or the ten-vertex amplification threshold. Comparison also considered the stronger-looking adjacent settings of complete multipartite networks, matching-deleted complete bipartite networks, and weighted wheels: no implication from their symmetry-specific formulas to this non-multipartite star-deletion network was established. Historical priority remains provisional because equivalent electrical-network terminology might conceal a prior computation.
+PASS
 
-## Value — PASS
-A clique whose added vertex observes only a subset of its vertices is a natural, explicitly parameterized incomplete pairwise-ranking network. The complete norm classification exposes which edge measurements are maximally amplified, the first graph order supporting amplification beyond two, and the square-root optimal attachment scale, despite the edge projector being orthogonal and therefore nonexpansive in Euclidean norm. These are structural differences, not numerical approximations or routine parameter substitutions.
+The four edge orbits are exhaustive (within F, F to H, c to H, within H; the last is absent for h=1). For a unit dipole, the row is the gradient of its Laplacian potential. With c grounded for F-to-H injection, the sums of potentials on F and H are 1/h and 0 respectively; for c-to-H injection they are both zero with potential 1/h at c. Substituting verifies the displayed solutions. Summing edge differences by type gives, with n=r+h+1, R_A=2(n-2)/(n-1), R_D=2(n-1)/n, R_B=1+(r-1)/(n-1)+(h-1)/n+2(h-1)/(hn), and R_C=1+(h-1)/n+2r(h-1)/(hn). Their differences give exactly the three stated norm branches and maximizing edge types. A row-sign vector attains the value. The first two branches are below two; the third exceeds it exactly when rh>2(r+h). For n<=9 the product is at most (r+h)^2/4<=2(r+h); for n=10 the (5,4) case gives 41/20, and h=4 gives amplification above two at every larger n as well. The difference of successive third-branch values is [2(n-1)/(h(h+1))-1]/n, giving the weak inequalities for the optimizing integer, including ties. All such integers are in the admissible h range for n>=10. This implies h=sqrt(2(n-1))+O(1), the sharp first-order deficit, and a supremum of three not attained.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+General graph Hodge/transfer-current theory is credited. No matching prior norm, orbit classification, ten-vertex cutoff or fixed-order optimizer was found on the available evidence. A later exact result on the identical deleted-star family has a different invariant. Same-date general projection bounds were checked against the exact claims rather than excluded on date alone.
+
+## value
+
+PASS
+
+A clique plus one partially connected vertex is a natural defect in a dense network. This result finds when the defect alone causes more than twofold amplification of bounded edge errors, proves a sharp smallest order, and shows that the worst attachment at fixed order is sublinear of scale sqrt(2n), not a constant degree or a fixed fraction of the clique. The change of the norming output from clique edges to the attached edges identifies where errors amplify most.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Leibniz rule reduces every bracket to \(h=\{x,y\}\), and the relations \(x^2=y^2=0\) impose \(2xh=2yh=0\). The Jacobiator is an alternating triderivation, so it vanishes on the two-generated algebra. The explicit full automorphism calculation and transformed coefficients prove the characteristic-two invariant \(z\), all three orbit fibers, and the odd-characteristic sign orbits. A standalone direct quotient-ring verification exhausts the relevant changes of generators over \(\mathbb F_2\), \(\mathbb F_4\), and the prime fields of orders \(3,5,7\). The infinite family result follows from the symbolic argument rather than finite sampling.
+## correctness
 
-**Originality — PASS on currently inspected evidence; residual coverage risk.** Launois–Richard (arXiv:0805.4694, inspected full six-page article) fix \(\{X,Y\}=XY\) over \(\mathbb C\) and study (co)homology, without classifying characteristic-two brackets. Abdelwahab–Barreiro–Sánchez (arXiv:2410.07957, inspected online primary text) classify four-dimensional *complex* Poisson algebras, which does not imply positive-characteristic unit-bracket and linear-bracket strata. The published finite-field Dedekind enumeration has a different hypothesis, failing for this nontrivial unital algebra because \(k1\) is a proper Poisson subalgebra and not an ideal. Targeted record searches and accessible earlier claims did not supply the exact \(3q\) theorem or its nontrivial invariant. An unindexed positive-characteristic classification might exist; this is not certified priority.
+PASS
 
-**Value — PASS.** The result classifies every Poisson structure on the minimal four-dimensional tensor product of dual numbers, equivalently a binary modular group algebra, and isolates an absolute socle parameter whose survival is not obvious for unit-valued brackets. It explains the sharp arithmetic transition between \(q^4\) labeled brackets with \(3q\) classes in characteristic two and \(q\) labeled brackets with \((q+1)/2\) classes otherwise. These are natural moduli invariants, not arbitrarily chosen slices.
+Alternating biderivations are determined by h={x,y}; descent imposes 2xh=2yh=0. The Jacobiator is an alternating triderivation and vanishes on triples of algebra generators (only x,y), including in characteristic two. Every unital automorphism preserves the local maximal ideal and has an invertible linear part G; the square-zero constraints impose nothing further in characteristic two and require diagonal or anti-diagonal G in odd characteristic. In characteristic two, with Delta=det G, the Jacobian is J=Delta+alpha x+beta y, where alpha=af+cd and beta=bf+ce for the stated generator coordinates. Since (alpha x+beta y)^2=0, transport by J^(-1) times phi(h) gives cancellation of the extra xy terms: (va+wd)beta+(vb+we)alpha=Delta(vc+wf). Thus z is invariant even for unit h. At u=0, G↦G/det G is an involution of GL_2, so the nonzero linear parts form one orbit per z. At u≠0 the determinant freely changes the constant and the two quadratic shears prescribe the linear part. For odd characteristic h=zxy and the diagonal and anti-diagonal cases act by +1 and -1. Independent quotient-ring enumerations, not the uploaded script, found 16 brackets/24 automorphisms/6 orbits over F_2 and 256/2880/12 over F_4, with the three predicted sizes per z. Odd F_3 and F_5 runs gave sizes 1,2 and 1,2,2.
 
-The conclusion is restricted to ordinary alternating \(k\)-Poisson brackets, fixed associative multiplication, and \(k\)-linear unital isomorphism. No geometric moduli scheme, semilinear classification, or independent priority determination is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported advance is the characteristic-two orbit classification including both degenerate strata and orbits with a nonzero constant, not the elementary odd-characteristic sign calculation in isolation. The closest equivalent catalogue result is identified explicitly, and the original studies of homology and broader Poisson classification have different assumptions or outputs. The supplied later catalogue entry is not evidence of earlier coverage of this frozen record.
+
+## value
+
+PASS
+
+This fixed algebra is a natural small modular group algebra. Characteristic two removes the descent obstruction and makes the constant and linear strata real possibilities. The invariant that survives every coordinate change and the uniform finite-field orbit sizes distinguish degenerate and symplectic brackets without enumeration, useful for selecting actual representatives for subsequent Poisson-invariant calculations. The odd comparison identifies the scope of the modular change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

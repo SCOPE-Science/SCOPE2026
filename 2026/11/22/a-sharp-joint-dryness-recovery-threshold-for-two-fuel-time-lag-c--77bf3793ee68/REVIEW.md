@@ -1,19 +1,21 @@
-# Review of the joint-dryness frequency threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact periodic response follows by substituting a harmonic ansatz in each stable scalar relaxation equation. Two circular dry arcs give the stated minimum-of-two-branches fraction, with the arc-nesting boundary at \(c=1/(\alpha\beta)\). The derivative calculation separates the nested and partial branches and yields a strictly increasing scalar function of the dry-threshold ratio. Its unique zero at each frequency above \(\sqrt\rho\), continuity and vanishing at both ends give an attained, positive, sharp global threshold. The fixed-fuel-threshold equality case is included. The near-equal-rate asymptotic follows by compact-uniform convergence and an explicit uniform tail bound. The rational witness is a strict symbolic inequality. The standalone checker passed 17,475 deterministic tests, which are not substituted for the proof.
+PASS
 
-Risk: This is a mathematically idealized harmonic first-order moisture law, not a proof for adsorption/desorption models, wetting impulses, non-sinusoidal equilibrium or measured fire risk. The decimal illustration is not interval-certified and does not support the theorem.
+For the attracting harmonic responses, the dry sets are arcs of half-widths arccos(c alpha) and arccos(c beta) separated by d. Their overlap is min(2h1,h1+h2−d) up to the slow-class cutoff; for x>0 the branches meet at c=1/(alpha beta), where h1=arctan(x/rho), h2=arctan(x). On the partial-overlap branch, 2π J_x=B−S, with B>0 exactly for x>sqrt(rho), strict increase of S in c and B−S<0 at the branch junction. The resulting analytic root tends to zero at both ends of the frequency interval, so its positive maximum is interior and strictly below sqrt(rho)/(rho+1). At equality the derivative cannot vanish on an interval (analytic nonconstant root), and the nested branch decreases strictly. Below the maximum a positive derivative interval lies between the initial and terminal decreases. For epsilon=rho−1, c_rho/epsilon is bounded above by (x²−rho)/(x sqrt(1+x²)(rho²+x²)), which controls both x→1 and x→∞ uniformly. On the remaining compact frequencies S/c tends uniformly to 2x/sqrt(1+x²) and B/epsilon to (x²−1)/(1+x²)², giving uniform convergence to the stated profile and convergence of every maximizing frequency by its unique interior maximum. The witness has B=1/20 and S<1/33 at (rho,x,c)=(2,2,1/50), strictly on the partial branch. A bounded independent root bisection and local peak search gave about 0.04338458 at rho=2; that computation is only diagnostic. The x=0 value is the right-hand limit of the periodic phase statistic, not a physical static-forcing cycle. Replay: RESULT.md lines 53–105; VERIFICATION.md and verify.py were inspected, not executed.
 
-## Originality — PASS relative to inspected sources, with priority risk
+## originality
 
-Viney and Catchpole (1991), as described in its publisher preview and Nelson's chapter, derive a single-class diurnal time lag and its relation to response time. Catchpole et al. (2001) calibrate moisture-response dynamics. Kochanski et al. (2012) use multiple time-lag classes but aggregate their moisture rather than classify the simultaneous subthreshold phase measure. Matthews's review (2013) surveys moisture-response models without the joint-excursion frequency transition in the relevant full-text sections. Comparable indexed mathematical records concern either frequency-domain Debye loss maxima, two different forcing frequencies, or another coupled-climate inverse phase problem; none of their stated conclusions implies the joint same-frequency threshold classification. The claim is not novelty of harmonic response, phase-lag formulas, or of scalar root finding, only of the sharp conjunction boundary and its contrast law.
+PASS
 
-Risk: The 1991 and 2001 original full papers were unavailable in full through the checked open channels and institutional access was disconnected. The residual possibility of an older equivalent joint-threshold calculation is explicit; absence from an index is not a priority proof.
+Best-of-knowledge pass for the conjunction's full recovery-versus-no-recovery boundary and its sharp small-contrast law, not for sinusoidal one-pole responses, simple arc geometry, or time-lag fuel classes. No inspected source already establishes the joint frequency classification.
 
-## Value — PASS
+## value
 
-Fuel time-lag classes are an operationally motivated way to separate fast and slow responses to atmospheric moisture. Unlike a weighted average moisture condition, simultaneous classwise dryness can temporarily recover as diurnal forcing frequency increases, despite shrinking dry windows for both classes. The exact sharp threshold shows when such a reversal is mathematically possible and gives a distribution-free-within-model contrast law as relaxation rates become equal. This is a structural warning against inferring a multicomponent excursion risk merely from marginal dryness. It is not a calibrated wildfire-risk forecast.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Each class's exposure shrinks, yet their joint exposure can recover as the relative lag shrinks after its maximum at x=sqrt(rho). The exact boundary distinguishes when this counterintuitive behavior is possible for every rate ratio and locates its scale for nearly equal rates, rather than just displaying one numerical curve. This is a useful diagnostic for coupled threshold observations in the specified harmonic model, not empirical fuel validation or an ignition/spread prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

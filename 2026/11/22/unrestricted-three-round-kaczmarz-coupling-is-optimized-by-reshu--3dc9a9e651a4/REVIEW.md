@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The covariance trace reduction is exact. An exhaustive orbit table of 27 possible row sequences gives a pointwise dual bound, with strictly positive slack for every repeated-row sequence throughout the open parameter range. Uniform time marginals yield the lower bound, and a rank-five linear system determines all equality distributions. The standalone exact symbolic verifier checks projector products and graph-example fractions. Boundaries and out-of-scope cases are stated.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Full-text comparisons with 2024 reshuffling convergence, 2023 sparse-constraint reshuffling and the 2024 survey, plus two highly relevant published results on planar three-row frame rates and two-row relaxed coupling, do not assert or imply the unrestricted three-round three-dimensional marginal optimal-transport certificate. General Kaczmarz reshuffling is of course established. A specialist optimal coupling characterization could remain undiscovered.
+PASS
 
-**Value — PASS.** This identifies a globally optimal schedule over all joint laws satisfying a realistic per-round fairness constraint, rather than merely comparing a few commonly used samplers. The explicit optimizer polytope and four-vertex path gossip instance with a 49/94 reduction in expected error against IID sampling provide nontrivial interpretable structure; the scope is intentionally a short-horizon benchmark.
+Independence and E[e₀e₀ᵀ]=I give the squared Frobenius cost for each triple, with no centering assumption. With s_ab=⟨u_a,u_b⟩, trace cyclicity and P_j²=P_j give C_ijk=s_ij²+s_jk²+(s_ik−s_ij s_jk)². Row signs can be chosen so the two adjacent inner products are √q. Reflection and reversal reduce the 27 triples to the stated ten classes. Subtracting the dual bound gives zero on permutations, and the distinct repeat slacks are 2−3q/2, 1−q, 1−3q/2, 1−2q, (q+2)(1−2q)/2, (2−q)(1−2q)/2 and 2−3q−q², all strictly positive for 0<q<1/2. Thus arbitrary dependent schedules are covered, not just a non-exhaustive list of samplers. The uniform marginals give expectation 2q+q²/3 of the certificate, and equality forces zero mass on all repeat triples. The permutation marginal system has rank five; the kernel direction is (−1,1,1,−1,−1,1), so positivity yields precisely the indicated closed segment (endpoints have only three positive masses). For the unit path the normalized adjacent overlaps have squared value 1/4 on the contrast space. The IID average is 8/9+20q/27+2q²/9, yielding 235/216 versus 25/48 and relative improvement 49/94. Independent replay: python /workspace/replay/checks.py 5 computes every cost in nonorthogonal row coordinates, independently verifies all repeat slacks on the open interval by positive polynomial coefficients after q=t/[2(1+t)], and checks the nullspace and fractions. No guarantee is asserted for deterministic or anisotropic errors, relaxed rows, arbitrary frames, or other horizons.
 
-Limits: fixed frame and horizon, covariance-isotropic initial error, no adaptive policies, no independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest indexed exact overlaps cover one-sweep permutation costs, notably the four-site path, and thereby cover the restricted marginal optimum at q=1/4. The supported distinct claim is the exact repeat-allowing three-marginal optimum for all q in the independent symmetric path frame, together with proof that repeats are strictly excluded from every optimum. Neither permutation costs nor bounds comparing selected samplers imply this assertion.
+
+## value
+
+PASS
+
+A short-horizon schedule obeying fairness at each time could exploit temporal correlation or repeats. The theorem decides the full comparison by an exact dual bound, proves every optimal law avoids repeats, and quantifies the freedom among optimal schedulers. That is useful beyond evaluating known permutations or comparing reshuffling to IID; the contrast-space path example gives a natural and sharply delimited benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

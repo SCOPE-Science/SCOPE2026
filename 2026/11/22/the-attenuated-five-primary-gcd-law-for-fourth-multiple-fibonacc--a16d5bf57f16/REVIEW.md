@@ -1,15 +1,21 @@
-# Review of the five-primary Fibonacci power-window law
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is exact for every positive multiple-of-four exponent and every positive window length. The critical steps are an integral homogeneous-monomial representation of the Fibonacci shift, its scalar five-step reduction, a binomial operator lifting congruence, the five-term base residue pattern, and a sharp valuation argument using consecutive windows. The resulting uniform congruence proves the infinite statements; 600 modular block checks and 1,120 independent integer-GCD cases corroborate the computations. The unbounded conclusion is not inferred from experiments.
+## correctness
 
-## Originality — PASS on inspected evidence
-Mbirika–Spilker (arXiv:2204.12626) classify square-power GCDs and pose higher-power problems. Adegoke (arXiv:1706.00407) gives fourth-power summation identities but not five-primary gcd values for all translations or fourth-multiple powers. The published *All prime factors at least seven in fourth-power Fibonacci window gcds* expressly excludes the prime five; *Prime-order factorization of odd quartic Fibonacci and Lucas window GCDs* assumes lengths coprime to five. These are statement-and-implication comparisons, not title comparisons. Search aliases included five-adic congruence, quartic sliding-window gcd, prime-five ramification, and arbitrary exponent multiples of four. Unindexed stronger results remain a priority risk.
+PASS
 
-## Value — PASS
-A prime-by-prime quartic Fibonacci gcd classification has an explicit missing discriminant-prime component. This theorem supplies its exact five-primary valuation, first nontrivial length \(25\), and an unexpected one-level attenuation that contrasts with ordinary prime-order factors. The proof gives an all-exponent (multiple-of-four) congruence law that explains the exception structurally; this is not a small numerical improvement or a restatement of a finite table.
+The ordered state (Fₙ,Fₙ₊₁) evolves by A with rows (0,1),(1,1); direct multiplication gives A⁵ with rows (3,5),(5,8). The integral substitution on all d+1 monomials has B_d⁵≡3ᵈI=I mod 5 for 4|d, and Cayley–Hamilton gives a monic integral order-at-most-(d+1) recurrence shared by all translates and by their window sums. Hence the stated finite gcd reduction is valid. If Q≡I mod 5ᵗ, the binomial expansion of Q⁵ shows Q⁵≡I mod 5ᵗ⁺¹; no diagonalization or denominators are needed. For r≥2, write B_d^(5^(r−1))=I+5^(r−1)D. Its powers indexed by j=0,…,4 sum to 5I modulo 5ʳ: the linear coefficient is 10·5^(r−1) and terms of degree ≥2 are divisible by 5^(2r−2). Apply this to each of the 5^(r−1) initial offsets, proving S_r(n)≡5 S_(r−1)(n) mod 5ʳ for every start. Modulo five, Fₙ₊₅≡3Fₙ and the only zero residue among the first five occurs at index 0; the fourth-multiple power is therefore the five-periodic unit indicator with sum 4. Induction gives the stronger block congruence with the negative sign, and grouping u such blocks gives exact valuation r−1 in every window for k=5ʳu with u a unit. For a 5-coprime k the first two windows differ by the unit F_kᵈ modulo five, giving gcd valuation zero, even when an initial window is zero. The bundled evidence script was inspected, not executed. The independent bounded replay passed 175 modular block checks and 75 exact finite gcds, including d=60,100 and starts beyond the first block. Finite checks are corroborative only.
 
-## Limits and available reproduction
-The statement excludes primes other than five from its conclusion, does not treat exponent classes other than multiples of four, and does not claim arbitrary initial values. Reproduction uses `python3 artifacts/verify.py` and the full proof in `RESULT.md`. The published literature comparison is substantial but not exhaustive; unpublished equivalents cannot be ruled out. The work has not undergone independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported statement is the simultaneous fourth-multiple-exponent, all-start block congruence and resulting exact five-primary window-gcd law at the ramified prime. The special cases of other primes, odd/coprime lengths and different powers or recurrences are credited without generalizing their conclusions beyond their domains.
+
+## value
+
+PASS
+
+This determines a missing exceptional prime in the natural higher-power window-gcd problem. The exact one-level loss and nonzero leading residue hold uniformly in start, block order and a full exponent class, supplying a stronger arithmetic benchmark than a gcd table. In particular it handles the ramified prime where the quartic order criterion has no stated coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

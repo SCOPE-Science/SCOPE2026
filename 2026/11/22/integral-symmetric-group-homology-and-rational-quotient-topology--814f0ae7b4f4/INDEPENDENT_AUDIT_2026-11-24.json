@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:33:07.886681Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–79; frozen verify.py, verification_output.txt and VERIFICATION.md (inspected, not executed; replay: python3 verify.py)",
+        "/workspace/repairs/2/RESULT.md (complete corrected file, re-audited)",
+        "Gottstein arXiv:2311.11190v2 Theorems 5.2, 5.3 and 7.1"
+      ],
+      "rationale": "Re-audited the complete corrected RESULT.md under repairs/2/. The main theorem survives unchanged, but the frozen example's identification with the standard integral S4-lattice did not: at n=4 the signed partition lattice has coinvariants Z/2, because there is one orbit with a block-swapping stabilizer. The standard integral root lattice has zero coinvariants, since all e_i−e_j are conjugate and the relation (e_1−e_2)+(e_2−e_3)=e_1−e_3 kills their common class. The repair makes the standard-representation identification only after rationalization, and does not infer integral quotient homology from coinvariants. For the theorem, a full no-singleton partition is a maximal simplex so its oriented coefficient kills boundaries. The signed cross-polytope cycle obtained by replacing each block alternatively with a singleton has unit coefficient on its designated facet and none on the others. With Gottstein's exact integral rank and freeness, the coefficient map is an isomorphism. Independently, filter the augmented chains by the number of nonsingleton blocks: for fixed such blocks the associated graded is the augmented simplex on the unused labels up to shift and signs, hence acyclic unless all labels are used. On the latter summands the facet coefficient map induces the identity, proving that it is a quasi-isomorphism. Stabilizers permute repeated-size blocks with sign and act trivially within blocks. Subdivided orbit chains over Q are coinvariants; averaging is exact, and signed stabilizer lines contribute one invariant exactly for pairwise distinct sizes. Their least possible sum is j(j+3)/2; increasing just the largest realizes every greater sum. This verifies the stated series and first degree-two class at n=9.",
+      "residual_risks": [
+        "The finite program uses augmented-chain Lefschetz traces and unit cycle coordinates through n=7; it does not independently classify the integral lattice or prove an infinite theorem. The repaired proof and integral example do not determine torsion or the integral homology of the geometric quotient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gottstein covers all nonequivariant degrees, cross-polytope generators and the full automorphism group for this complex. Piterman–Welker explicitly distinguish refinement and containment orders; Arone–Brantner's strict Young quotients are for the proper nontrivial partition poset."
+        ],
+        "reasoning": "The cited general decomposition-poset or Young-quotient results are for other spaces. Gottstein gives the needed ranks and the action on labels, but not a stronger equivariant homology or quotient theorem covering these formulas.",
+        "searches": [
+          "Gottstein Theorems 5.2, 5.3 and 7.1; Piterman–Welker arXiv:2401.09280 Remarks 2.3 and 6.25; Arone–Brantner arXiv:1801.01491v3 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.11190v2, 2401.09280, 1801.01491v3",
+        "Resultary cedead413a18, 4ab223aea973 and identical record 814f0ae7b4f4",
+        "Corrected RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gottstein's basis is nonequivariant, with selected singleton representatives; their choices need not be preserved under relabeling. The equivariant facet coefficients give canonical integral coordinates and identify which stabilizers reverse orientations. The unsigned orbit count would give a wrong answer for repeated sizes, already at n=4."
+        ],
+        "reasoning": "This is a close and elementary refinement of the known basis, not an independent ordinary homology result. Recovering the integral action requires analyzing what relabelings do to the oriented facet coefficients even when they do not preserve the chosen cycles. The quotient count is then a consequence of that refinement, not a special case of one of the inspected prior statements.",
+        "searches": [
+          "Compare Gottstein arXiv:2311.11190v2 Theorems 5.2, 5.3 and 7.1 with the repaired exposed-facet and quotient arguments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same underlying complex is all disjoint families ordered by inclusion, not just the full partitions indexing its homology. cedead413a18 treats subgroup fixed-point subspaces, not orbit spaces. Arone–Brantner uses the proper-part refinement-order partition poset."
+        ],
+        "reasoning": "Neither passing to geometric fixed points nor changing the poset order is a rephrasing of this S_n geometric quotient or this signed integral action.",
+        "searches": [
+          "Gottstein arXiv:2311.11190v2 containment-order partial partitions; geometric S_n orbit spaces and integral oriented partition modules; Resultary cedead413a18; Arone–Brantner arXiv:1801.01491"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit 814f0ae7b4f4 is the assigned record. Resultary cedead413a18 gives fixed spaces and 4ab223aea973 treats a rank-five type-B signed-partition proper-part complex. The primary search points to Gottstein’s paper and abstract; the inspected theorems give ordinary rank counts."
+        ],
+        "reasoning": "These are not independent exact tables or statements of the uniform strict-partition orbit-space Betti series or the oriented integral stabilizer module.",
+        "searches": [
+          "Resultary searches for inclusion-complex homology, integral S_n module, rational geometric quotient and fixed-point/refinement analogues; focused primary websearch for the same complex and orbit-space homology"
+        ]
+      },
+      "rationale": "For the repaired claim, Gottstein's same-complex nonequivariant homology and automorphism theorems are substantial known inputs, fully credited. They allow the refinement to be derived but do not themselves identify the homology action or the orbit-space ranks. The supported distinct contribution is the canonical oriented-facet description over Z, which avoids choosing an equivariant set of block representatives, and the full strict-partition rational orbit-space formula. The repaired example distinguishes rational representation from integral lattice rather than claiming a new rational character computation independently of the theorem.",
+      "residual_risks": [
+        "An unindexed equivariant extension of the same chain model could give equivalent coverage. The inspected passages and catalogue do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent; nonequivariant theorem and label action, not oriented module or quotient statement",
+          "evidence": [
+            "Free homology indexed by full-support no-singleton partitions and explicit cross-polytope basis; simplicial automorphism group identified as S_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.11190v2",
+          "material_read": "Abstract p. 1; Theorems 5.2 p. 9, 5.3 p. 11, and 7.1 p. 13; OA offsets 0, 25696, 30013 and 37519",
+          "method": "OA PDF passage inspection",
+          "title": "The Partial Partition Complex",
+          "trigger": "Same space, homology basis and group"
+        },
+        {
+          "assessment": "Different order; explicit reference to inclusion complex",
+          "evidence": [
+            "Refinement-order results are distinguished from Gottstein's inclusion order."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.09280",
+          "material_read": "Remark 2.3 p. 6 and Remark 6.25 p. 50; OA offsets 22300 and 162292",
+          "method": "OA PDF passage inspection",
+          "title": "Posets arising from decompositions of objects in a monoidal category",
+          "trigger": "Possible more general decomposition-poset result"
+        },
+        {
+          "assessment": "Different refinement-order complex",
+          "evidence": [
+            "Concerned with the proper nontrivial partition poset and associated strict Young quotients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.01491v3",
+          "material_read": "pp. 1–2, OA offsets 0 and 4970",
+          "method": "OA PDF passage inspection",
+          "title": "The action of Young subgroups on the partition complex",
+          "trigger": "Young fixed points and quotients of partition complexes"
+        },
+        {
+          "assessment": "Same space but fixed loci, not quotient or integral module",
+          "evidence": [
+            "Transitive fixed points are indexed by intermediate subgroups; Young fixed spaces are singleton-doubled complexes."
+          ],
+          "identifier_or_url": "Resultary cedead413a18",
+          "material_read": "Finding and prior-work discussion, offsets 0 and 8908",
+          "method": "Local mirror statement comparison",
+          "title": "Fixed spaces of partial-partition complexes under transitive and Young symmetries",
+          "trigger": "Same underlying space and related group operation"
+        },
+        {
+          "assessment": "Different complex and parameters",
+          "evidence": [
+            "The result concerns a rank-five type-B signed-partition proper-part order complex."
+          ],
+          "identifier_or_url": "Resultary 4ab223aea973",
+          "material_read": "Finding",
+          "method": "Local mirror statement comparison",
+          "title": "Nine three-spheres in the coordinate-symmetry quotient of the signed partition complex",
+          "trigger": "Nearby indexed signed-partition quotient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding, Proof and n=4 example",
+        "Gottstein arXiv:2311.11190v2 Theorems 5.2, 5.3 and 7.1",
+        "Resultary cedead413a18"
+      ],
+      "rationale": "The full label action on a natural partial-partition complex is a meaningful invariant not specified by ordinary Betti numbers. The result gives integral stabilizer signs and thus identifies actual surviving rational orbit classes and the exact sharp dimension threshold, rather than just counting permutations of homology generators. The repaired example illustrates why rational character data cannot be used to identify an integral lattice.",
+      "residual_risks": [
+        "This is a bounded equivariant refinement and rational quotient calculation, not a homotopy, cup-product, or integral quotient classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

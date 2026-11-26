@@ -1,15 +1,21 @@
-# Scientific review: dispersal-dependent corridor reinforcement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a single reliable-edge upgrade on a tree, split the tree at that edge and sum over unordered pairs separated by the split. This proves the exact gain identity \(2(1-p)F_e(p)/n\) for mean reachable-component size. Equal patch-area probability-of-connectivity and its equivalent-connected-area transform induce exactly the same edge ranking. The Prüfer enumeration is complete for \(n\le8\); center-rooted canonical encodings avoid repeated isomorphism types. Coefficientwise domination is a rigorous all-parameter comparison for \(0<p<1\). For every nontrivial maximal-vector pair, the exact polynomial difference is one of five checked forms, yielding two changes and no other crossings. The two labeled examples have verified polynomials, and direct enumeration of edge-operating states tests the probabilistic identity independently. Risk: the finite exhaustive classification depends on inspection and reproducible execution of the supplied ordinary verifier; it is not a general theorem about larger trees.
+PASS
 
-## Originality — PASS (self-review)
+A separated unordered pair at distance d gains (1-p)p^(d-1) after its path edge is upgraded. Doubling and dividing by n gives the stated increment for uniform starting patch, with no gain for diagonal pairs. PC and ECA are monotone transforms here. I generated all shapes by leaf extension from the singleton, not by replaying the packaged Prüfer verifier: deleting a leaf shows inductive exhaustiveness, and minimizing sorted rooted codes over all roots identifies exactly the unrooted isomorphism classes. I rebuilt the polynomials from unique endpoint paths. The counts for n=2..8 are 1,1,2,3,6,11,23. After deleting strictly coefficientwise dominated vectors there is one two-vector frontier at n=7, with difference p(1-p), and four at n=8, with differences up to sign p(2-p), p(1-p²), p(2p-1), and p(p²+p-1). The first two never change sign in the open interval; the other two are the stated witnesses and each crosses once. All noncandidate edges in the witnesses have a coefficientwise dominating candidate with at least one strict coefficient; the equal vectors identify the stated tied edges. This is a continuum certificate, not a probability grid.
 
-Saura–Rubio's established probability-of-connectivity and link-importance machinery already covers the exact objective and, on homogeneous trees, produces equivalent rankings for edge removal and reinforcement. Hamonic–Albert–Couëtoux–Vaxès already formulate general budgeted link upgrades and can solve instances at fixed parameters. Williams–Snyder already motivate corridor restoration, using a different landscape-spanning-path objective. The additional mathematical assertion assessed here is that all trees through seven patches have one edge optimal throughout the full probability interval, while precisely two of 23 eight-patch trees do not, with explicitly determined crossings. The cited full texts inspected do not state or imply that sharp census without a further exact finite classification. Risk: a specialized graph-polynomial classification, including an older edge-reliability table, might already contain it; literature search cannot prove universal absence.
+## originality
 
-## Value — PASS
+PASS
 
-The size cutoff and exact exceptional topologies are interpretable benchmarks for sensitivity of a one-link restoration decision to species dispersal probability, using a standard habitat-connectivity objective rather than an invented invariant. At small passage probability, short connections affect local pair reachability; near certainty, the same upgrade favors a more balanced cut. The concrete minimal examples show when that tradeoff can actually change the optimal edge. This is a complete natural finite classification, not a claim that eight patches are biologically typical. Limitations are equal patch qualities, homogeneous independent link probabilities, one upgrade and trees; no population-persistence or field-performance claim is made.
+The contribution supported here is the sharp and complete all-p bond-upgrade classification through eight tree vertices, not the objective, a fixed-p optimization algorithm, or the established ranking equivalence to edge removal. The closest inspected claims do not supply the classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first obstruction to parameter-independent edge intervention is a natural extremal invariant. The complete frontier classification rules out smaller obstructions and explains both eight-vertex switch mechanisms and ties, rather than reporting selected evaluations or arbitrary small counts. Its use is as a tree reliability benchmark, not ecological field guidance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

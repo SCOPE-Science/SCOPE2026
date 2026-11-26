@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:21:38.302364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a scalar extension bounded in Lipschitz seminorm, constant reproduction forces the coefficients at a midpoint to sum to one, without requiring positivity; testing each vertex-distance function and summing gives S/(sum d_j) for the lower bound. Restricting to data on a fixed target line and applying a norm-one functional transfers this bound to any nonzero real Banach target. The cyclic sine recurrence has defect 4 sin(a) exactly at the zero chord, proving the inverse-distance identity, normalization and Dw=Lambda_n d. For positivity and monotonicity, u(theta)=sqrt(1+r^2-2r cos(theta)) satisfies u''+u/4=(1-r^2)^2/(4u^3)=F by differentiation; solving the forced oscillator over ±2a gives the stated convolution by the positive, even, nonincreasing circular kernel K, supported within distance 2a of zero. This proves positivity. To check the strict shell claim, for 0<=x<y<=pi pair the integration variables s with R(s)=x+y-s, modulo 2pi. On the open semicircle closer to x than y, cos(s)>cos(R(s)) since sin((x+y)/2)>0, so F(s)>F(R(s)); also K(s-x)>=K(s-y), strictly on a neighborhood of s=x. The paired convolution difference is strictly positive. The reverse shell recurrence for rho preserves 0<=rho_k<=2a_k by induction, using rho_q=a_q in the odd case (the opposite vertex's two adjacent masses are equal) and rho_q=0 in the even case. It yields w_j=(rho_j+rho_(j-1))/2 and unit total mass. For distinct midpoints, crossing the two endpoints makes the average chord cost exactly cos(a) times the corresponding vertex chord, including adjacent or antipodal centers; a common random rotation preserves this bound for the mixed laws. For vertex–midpoint pairs, Dw=Lambda_n d gives the required cost. The Banach triangle inequality transfers every coupling bound to the data. Strict convexity of the chord comparison at any other vertex gives Lambda_n>1; both normalized sums tend to 4/pi by uniform distance convergence and Riemann sums. An independent numerical check on n=3–120 corroborated weight and coupling identities; it is not an infinite certificate. The supplied script was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bruè–Di Marino–Stra obtain a Banach-valued linear extension under doubling with a bound proportional to log of the doubling parameter, not the exact midpoint constant.",
+          "Basso's general metric and target hypotheses give extension bounds, not sharp real-linear polygon norms.",
+          "The Resultary cyclic-triple and one-point results have equilateral source metrics; for n>=4 distinct polygon chords have different lengths."
+        ],
+        "reasoning": "Definitions about Euclidean spaces or arbitrary metric spaces are broader only for existence/general bounds. The equilateral results are sharp but their hypotheses exclude all higher-order polygons.",
+        "searches": [
+          "arXiv:1801.07533, Section 4, Theorem 4.1",
+          "arXiv:2310.13554, Theorem 1.1",
+          "Resultary 6e15c63e9614 and 1f12e8fcb2f1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_polygon.py",
+        "Resultary 6e15c63e9614, 062ae3b7e374, 2deb3cd36f34, e491b9ad8b61 and 1f12e8fcb2f1",
+        "arXiv:1801.07533",
+        "arXiv:2104.14238",
+        "arXiv:2310.13554"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The equilateral cyclic-triples result includes all three midpoints of an equilateral triangle and gives exactly the single-point lower bound there. The equilateral one-point law does not address other pairs of newly added points. The general finite LP solves a prescribed finite optimization problem, not its whole parameter-dependent symbolic solution."
+        ],
+        "reasoning": "One-point sharpness alone bounds the simultaneous norm from below; pairwise Lipschitz constraints between the new points are additional. For arbitrary polygons the frozen proof resolves them by a positive mixing factorization and exact endpoint cross-coupling. None of the inspected predecessor statements supplies that implication for all n.",
+        "searches": [
+          "Resultary 1f12e8fcb2f1, universal one-point Lipschitz extension",
+          "Resultary 6e15c63e9614, no simultaneous extension penalty for cyclic triples",
+          "arXiv:2104.14238, Lemma 5.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The positive interpolation record 2deb3cd36f34 nevertheless gives an unrestricted scalar optimum for n=5, equal to Lambda_5.",
+          "Basso's free-space/projection formulation and finite linear programming characterize the same type of linear extension optimization without evaluating this family."
+        ],
+        "reasoning": "Changing from transport measures to extension/projection norms leaves the exact extremal quantity unchanged in the appropriate scalar formulation. A variational characterization is not the evaluated norm or a simultaneous positive optimizer with the extra contraction property.",
+        "searches": [
+          "Resultary: sharp linear Lipschitz extension to regular polygon edge midpoints; cyclic and positive interpolation formulations",
+          "arXiv:2104.14238, Section 5.2 and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact low-order constants include 8-4 sqrt(3) for n=3, (2+sqrt(2))/(1+sqrt(5)) for n=4 and 2(phi+1)/(1+2u+w) in the pentagon record's notation for n=5. They agree with the frozen formula, not just its numerical scale.",
+          "The matching square record has the same catalogue date; no priority order was inferred. The frozen source credits a separate hexagon computation, whose exact source was not resolved in the bounded search."
+        ],
+        "reasoning": "These records are exact parameter matches and excluded from the novelty assessment as separate findings. The inspected low-order computations give no table or theorem resolving the unbounded family.",
+        "searches": [
+          "Resultary: exact scalar or Banach-valued constants for triangle, square, pentagon and hexagon edge midpoints",
+          "Resultary 6e15c63e9614, 062ae3b7e374, e491b9ad8b61 and 2deb3cd36f34, Findings"
+        ]
+      },
+      "rationale": "Pass is for the exact unrestricted simultaneous norm for the entire unbounded regular-polygon family and the positive construction with a contractive new layer, not for separate low-order polygons, scalarization techniques, generic extension machinery, or asymptotic convergence alone. Exact triangle, square and pentagon overlaps were identified and credited; the inspected statements neither cover arbitrary n nor make simultaneous attainment an immediate consequence of the one-point problem. The frozen record already disclaims separate novelty for the low orders, including the hexagon.",
+      "residual_risks": [
+        "The acknowledged earlier hexagon-specific result was not independently located; no separate hexagon novelty is credited.",
+        "The bounded source comparison cannot establish historical uniqueness of the unbounded formula or resolve same-day priority for the square case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact triangle overlap for arbitrary real Banach targets, not an all-order polygon theorem",
+          "evidence": "Equilateral triangle side length L gives cross-distance sum L(1+sqrt(3)/2) and norm 2/(1+sqrt(3)/2).",
+          "identifier_or_url": "2026/10/26/SCOPE-no-simultaneous-extension-penalty-for-cyclic-triples-over-an-equ--6e15c63e9614",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "No simultaneous extension penalty for cyclic triples over an equilateral source",
+          "trigger": "Positive simultaneous result covering all triangle midpoints"
+        },
+        {
+          "assessment": "Includes the scalar triangle case; higher simplices are not Euclidean planar regular polygons",
+          "evidence": "Regular simplex theorem gives triangle constant 8-4 sqrt(3).",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-linear-lipschitz-extension-to-the-edge-midpoints-of-a-regu--062ae3b7e374",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "Sharp linear Lipschitz extension to the edge midpoints of a regular simplex",
+          "trigger": "Broader regular-simplex formula with geometric overlap at n=3"
+        },
+        {
+          "assessment": "Exact scalar simultaneous n=5 overlap",
+          "evidence": "The unrestricted scalar optimum is 2(phi+1)/(1+2u+w) in that paper's notation, equal to Lambda_5.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-positive-linear-lipschitz-interpolation-at-every-regular-p--2deb3cd36f34",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "Sharp positive linear Lipschitz interpolation at every regular-pentagon edge midpoint",
+          "trigger": "Same norm in a low-order polygon"
+        },
+        {
+          "assessment": "Exact n=4 overlap, same-day ordering unresolved",
+          "evidence": "Its constant is (2+sqrt(2))/(1+sqrt(5)).",
+          "identifier_or_url": "2026/10/27/SCOPE-sharp-real-linear-lipschitz-extension-to-all-edge-midpoints-of-t--e491b9ad8b61",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "Sharp real-linear Lipschitz extension to all edge midpoints of the square",
+          "trigger": "Exact square comparison"
+        },
+        {
+          "assessment": "One-point result for equilateral source metrics",
+          "evidence": "Allows arbitrary one-point attachment radii, but no non-equilateral polygon sources or simultaneous new-layer constraints.",
+          "identifier_or_url": "2026/10/25/SCOPE-order-statistic-law-for-universal-one-point-lipschitz-extensions--1f12e8fcb2f1",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local Resultary mirror, bounded original passage",
+          "title": "Order-statistic law for universal one-point Lipschitz extensions",
+          "trigger": "Potential general formula for one-point sharpness"
+        },
+        {
+          "assessment": "General nonsharp bound, not exact polygon evaluation",
+          "evidence": "Linear Banach-valued operator under doubling with a logarithmic bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.07533",
+          "material_read": "Theorem 4.1, Section 4, p. 12, near offset 35916",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Linear Lipschitz and C^1 extension operators through random projection",
+          "trigger": "Prior random-measure linear extension machinery"
+        },
+        {
+          "assessment": "General optimization framework, no evaluation for the frozen family in the inspected passages",
+          "evidence": "Finite-dimensional polyhedral projection constants formulated through LP; relative free-space projections relate to extension.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.14238",
+          "material_read": "Introduction; Lemma 5.1, Section 5.2, p. 19, near offset 57567",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Absolute Lipschitz extendability and linear projection constants",
+          "trigger": "Equivalent optimization language, potential finite LP solution"
+        },
+        {
+          "assessment": "Different type of general extension theorem",
+          "evidence": "Uses metric dimension and target-connectivity hypotheses, not the sharp real-linear simultaneous norm.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.13554",
+          "material_read": "Theorem 1.1, Section 1.4, p. 4, near offset 13900",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Lipschitz extension theorems with explicit constants",
+          "trigger": "General explicit constants with potentially overlapping metric hypotheses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The problem measures the sharp loss of a simultaneous linear interpolation on a natural refinement of a chord-metric polygon, uniformly over Banach targets. The exact constant distinguishes forced vertex–midpoint amplification from the absence of any extra cost on the new layer. The positive attaining kernel and transport factorization give an explicit usable optimizer rather than an LP value or a catalogue of low-order constants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

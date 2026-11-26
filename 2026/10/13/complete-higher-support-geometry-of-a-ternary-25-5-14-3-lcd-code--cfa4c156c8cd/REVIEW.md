@@ -1,15 +1,21 @@
-# Review of higher-support geometry for a ternary LCD code
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generator is transcribed directly from An–Hong–Kim–Lim, arXiv:2601.20600v1, Proposition 4.1, including the five appended positions. Exact row rank and Gram rank are both five. The exhaustive \(3^5\)-word census reproduces distance \(14\), and unique RREF representatives exhaust respectively \(121,1210,1210,121,1\) subspaces. Every support size is computed by testing vanishing at all \(25\) coordinates, not inferred from samples. A second census of projective planes using finite-field ranks reproduces the full two-space distribution and the six specific maximizing plane sections. The identity \(3\,|\operatorname{Supp}U|=\sum_{[u]\in\operatorname{PG}(U)}\operatorname{wt}(u)\) supplies an independent structural lower bound \(d_2\ge19\), matched by six witnesses. Limitation: this is an exhaustive finite computation tied to the displayed code, not a theorem about arbitrary LCD codes.
+PASS
 
-## Originality — PASS (with residual search risk)
+The five rows match Proposition 4.1. Independent hyperplane/coset augmentation (not the frozen RREF enumeration) generated 121, 1210, 1210, 121, 1 nonzero-dimensional ternary message spaces. Summing all word weights on each and dividing by 2·3^(r−1) exactly reproduced every histogram bin and hierarchy (14,19,22,24,25). The Gram map is nonsingular, and the 25 projective columns are distinct. Independent incidence counting on every 3-space reproduced all six labeled common-zero sets, the plane histogram, five incidences at coordinate 2 and the pair counts 7, 2, 6. The four projective word weights in each optimum are 14,14,14,15; each occupied coordinate contributes to three weights, proving the general lower bound 19.
 
-The source's full publicly accessible preprint states the new code parameters and prints its generator but no higher-support table or exact minimum-support plane family. Anderssen–Johnsen, arXiv:2609.29796, gives a general matroid computation framework and a different worked code family, not the numerical spectrum of this code. Web searches for the code parameter/alias plus generalized weights, higher spectra and support planes found no statement of the same result. Related publicly indexed records on ternary Gashkov–Sidelnikov deep holes, generalized packing-covering and nonbinary weight gaps concern different objects and do not imply these exact numbers. Other examples in the An–Hong–Kim–Lim construction have different matrices; the inspected source does not transfer a higher-support distribution from them to \(\mathcal C_{3,4}\). A generic finite enumerator is not by itself a preexisting exact classification. Search incompleteness, especially abstract-only access to some related works, remains.
+## originality
 
-## Value — PASS
+PASS
 
-Higher generalized weights and their complete support distributions are natural invariants beyond the ordinary distance of a new LCD construction. The sharp \(d_2=19\) boundary, exactly six extremal two-subspaces, their explicit projective-plane intersections and the concentration of five of six on one coordinate describe concrete nonuniform minimal support geometry of this code. This is a complete finite classification for a motivated published construction, not a minor alternative normalization, bare weight-enumerator transcription, or an arbitrary selection of a parameter. No downstream universal theorem or application guarantee is claimed.
+The supported distinct contribution is the complete labeled incidence pattern of the six extremal planes in this exact code. The construction and d1 are published. The November catalogued record is a real overlap for the whole histogram, hierarchy and six-plane count, not independent evidence of earlier priority and not coverage of the six labeled sets or their intersection pattern. Do not credit the census alone as distinct from that indexed record.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The six labeled sets classify all extremal two-dimensional support configurations of a published LCD example. They let a user identify the erasure-position patterns and see the concentrated incidence and pair overlaps, distinctions a distance table or histogram loses. This is value of the exact geometry, not of recomputing the overlapping aggregate table alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:04:58.675699Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–44; VERIFICATION.md, verify.py and verify.log inspected, uploaded code not executed",
+        "/workspace/branches/376b0045-b422-449a-b384-6e629687a8df/bounded_check.py and bounded_check.log (independently generated token slides, exact optimum/count and matching)"
+      ],
+      "rationale": "The eight token types give two branch blocks that are incidence graphs of K_a and K_b, and a mixed block with left shore L consisting of opposite-center/leaf pairs and right shore consisting of mixed-leaf pairs and the double-center pair XY. Within a branch of size t, the minimum cover and maximum matching are min(t, binom(t,2)); for t≥3 the cyclic successor edges match the t leaf-vertices. Omitting p leaf-vertices forces p(2t−p−1)/2 edge-vertices, so t≥4 makes every p>0 strictly worse; t=3 ties only at p=3, and t=1,2 give the unique empty or sole edge-vertex cover. For a,b≥2 one can match L into mixed-leaf pairs alone: these are incidence edges of K_(a,b), which has a spanning unicyclic subgraph, so assign vertices one outgoing edge by orienting the cycle and directing off-cycle paths toward it. When a=1, match the b opposite-center pairs on the b side to their distinct mixed-leaf neighbors and the remaining vertex to XY, or symmetrically. Combining block matchings and the covers with L proves the exact scalar formulas. In every global minimum cover the restriction to each block is minimum. Omitting any L-vertices when a,b≥2 forces at least that many distinct mixed-leaf vertices plus the extra XY. For a singleton branch, its empty incidence cover forces the corresponding L-vertex via the interblock edge; omitting any other L-vertex then likewise forces its distinct mixed-leaf match and XY. The mixed block by itself need not have a unique cover at this boundary, which is why the interblock edge is essential. All remaining choices are independent because interblock edges meet L. Taking complements yields the claimed mandatory configurations, branch-size-three choices and exact number of maxima. Fresh exact optimizer and matching checks corroborated all nine pairs 1≤a,b≤3, and (4,1) with 21 vertices, alpha 12, matching/cover 9 and one maximum independent set.",
+      "residual_risks": [
+        "Fresh and frozen finite checks are corroboration; universality and boundary uniqueness follow from the block proof",
+        "Unweighted independent sets, exactly two tokens and both leaf groups nonempty"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general matching bound requires host ν(G)=floor(n/2), whereas host ν=2 and n=a+b+2, excluding a+b≥4",
+          "The join theorem applies to E_n+H; a double star with two nonempty branches is a tree without a universal vertex, and a join with both parts at least two vertices contains a four-cycle",
+          "The related pure/mixed-pair classifications are for complete bipartite hosts, not for a double star of diameter three"
+        ],
+        "reasoning": "The apparent stronger statements do not contain the double-star family in their applicable host classes. The incidence block of K_(a,b) appearing in this proof is not F₂(K_(a,b)).",
+        "searches": [
+          "Published de Alba et al. Thm. 1.1 and 1.2; arXiv:2505.17419 §2; Resultary 1748ee050eeb and 31b42f397fa2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary and published SCOPE mirror",
+        "arXiv:2611.15124v1",
+        "AJC 76 (2020) 387–403 / arXiv:1606.06370",
+        "arXiv:2505.17419",
+        "OEIS A002620 identification in the primary source"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "De Alba et al. Thm. 1.1 gives lower bounds 2 and 4 for k=2 at host orders 4 and 5 with ν(G)=2. Matching cannot exceed these values by the smaller token shore in S_(1,1) and S_(1,2) or its transpose, so these scalar cases follow",
+          "For larger a+b, generic host bounds and complete-bipartite results do not prove the needed vertex-cover lower bound and strict exclusion of omitted mixed-shore vertices"
+        ],
+        "reasoning": "Some special scalars are old implications; the general formulas and exhaustive size-three branch mechanism require the additional decomposition and cover-uniqueness argument.",
+        "searches": [
+          "de Alba et al. Thm. 1.1 (published p. 390) and path/complete bipartite formulas",
+          "arXiv:2611.15124v1 Thm. 1.2",
+          "arXiv:2505.17419 abstract and §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The token graph is bipartite by parity in one host shore, so maximum matching/minimum cover agree and independence is complementary to cover",
+          "The exact double-star formula 2a+b−1 for a≤b in arXiv:2611.15124v1 is for domination, distinct from each assigned invariant"
+        ],
+        "reasoning": "Cover complements are an equivalent optimizer classification. Matching equality supplies neither the all-parameter matching size nor all complements, and maximum independent sets are not determined by a minimum dominating-set result.",
+        "searches": [
+          "Local Resultary double-star two-token independence, matching and optimizer census",
+          "de Alba et al. arXiv:1606.06370 / AJC 76 (2020) 387–403",
+          "Benítez-Bobadilla et al. arXiv:2611.15124v1 Theorems 1.2–1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact double-star hit b9ecc22e7eb2 is the assigned record itself, not independent prior evidence",
+          "The path formula floor(m²/4) and its OEIS A002620 sequence cover the scalar at S_(1,1)=P₄, not the general double-star family",
+          "The other matched polynomial records tabulate different hosts"
+        ],
+        "reasoning": "Credit the exact scalar boundary coverage; no independent catalogue of the stated double-star optimizer family was identified in the sources inspected.",
+        "searches": [
+          "Local Resultary exact scalar/optimizer records: b9ecc22e7eb2, 1748ee050eeb, 31b42f397fa2",
+          "de Alba et al., AJC 76, path formula preceding §4"
+        ]
+      },
+      "rationale": "Pass the distinct general double-star matching/cover result and complete optimizer classification, including the independent size-three tie. Scalar boundary cases are covered by prior bounds and parity, and same-host domination and different complete-bipartite-host classifications are substantial but not equivalent. The matching/cover/independence identities themselves are standard and not claimed as separate advances.",
+      "residual_risks": [
+        "Bounded prior comparison only; an empty general literature lookup is not negative evidence",
+        "Known scalar special cases are excluded from novelty credit"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object but different invariant",
+          "evidence": "For 1≤a≤b, γ(F₂(S_(a,b)))=2a+b−1; the neighboring more general theorem also bounds γ",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15124",
+          "material_read": "v1, Theorems 1.2–1.3; TeX/PDF theorem passage, OA offset about 9461",
+          "method": "Primary OA theorem passage",
+          "title": "Domination in token graphs of graphs with domination number two",
+          "trigger": "Exactly the same two-token double-star family"
+        },
+        {
+          "assessment": "General matching lower bound and exact boundary coverage; no applicable general double-star statement in those passages",
+          "evidence": "Matching hypothesis ν(G)=floor(n/2); even k treated by the lower bound, tight when G is itself a perfect or near-perfect matching; exact path scalar and complete-bipartite scalar also stated",
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/76/ajc_v76_p387.pdf",
+          "material_read": "Published p. 390, Thm. 1.1(2) and Thm. 1.2, OA offset 8350; path and OEIS passage before §4, offset 23200",
+          "method": "Primary OA full-text passages",
+          "title": "Independence and matching numbers of some token graphs",
+          "trigger": "General matching and bipartite host formulas, smallest double stars"
+        },
+        {
+          "assessment": "Applicable to join families or the path boundary, not these general trees",
+          "evidence": "Construction E_n+H yields join bounds and applications to fans, wheels and joins with cliques",
+          "identifier_or_url": "https://arxiv.org/abs/2505.17419",
+          "material_read": "PDF abstract p. 1 and §2 pp. 2–3, offsets 0 and about 4700",
+          "method": "Primary OA passage",
+          "title": "Independence numbers of the 2-token graphs of some join graphs",
+          "trigger": "Possible broader independence theorem for the host construction"
+        },
+        {
+          "assessment": "Different host",
+          "evidence": "Parametrizes maximal independent sets of F₂(K_(m,n)), with maximum sets among pure-pair and mixed-pair families",
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-independent-dominating-set-polynomial-and-minimum-maximal-indepe--1748ee050eeb/RESULT.md",
+          "material_read": "Finding and its known-alpha qualification in local mirror",
+          "method": "Local Resultary and mirror passage",
+          "title": "Independent dominating set polynomial and minimum maximal independent sets in a two-token complete-bipartite graph",
+          "trigger": "Close optimizer-structure hit in token graphs"
+        },
+        {
+          "assessment": "Different host",
+          "evidence": "Maximal-independent-set polynomial and independent-domination results on F₂(K_(m,n))",
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-maximal-independent-set-polynomial-and-sharp-independent-dominat--31b42f397fa2/RESULT.md",
+          "material_read": "Finding in local mirror",
+          "method": "Local Resultary and mirror passage",
+          "title": "Maximal independent set polynomial and sharp independent domination",
+          "trigger": "Possible implication from complete maximal-set counting"
+        },
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Same matching, cover, independence and optimizer claims; not evidence of independent priority",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-exact-maximum-independent-configurations-of-two-token-double-sta--b9ecc22e7eb2/RESULT.md",
+          "material_read": "Finding in local mirror",
+          "method": "Local Resultary and mirror passage",
+          "title": "Exact maximum independent configurations of two-token double stars",
+          "trigger": "Identical host and formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–23 and 28–41",
+        "de Alba et al. Thm. 1.1 for prior scope; arXiv:2611.15124v1 Thm. 1.2 for same-host context"
+      ],
+      "rationale": "Double stars are a natural sparse tree family just beyond stars and paths; their large instances fall outside the principal perfect/near-perfect-host matching guarantee. The exact matching/cover value and the full set of maximum configurations reveal when either branch contributes a genuine degeneracy. The size-three threshold and independent choices supply optimizer information unavailable from a numerical scalar or from domination.",
+      "residual_risks": [
+        "No claim for general trees, weighted independent sets, or more than two tokens"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

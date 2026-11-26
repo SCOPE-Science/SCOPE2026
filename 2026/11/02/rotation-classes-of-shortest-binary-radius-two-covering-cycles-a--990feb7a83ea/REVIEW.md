@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cyclic-window Hamming-radius-two predicate is exactly a finite union-of-balls condition. Every binary indexed sequence is included in the explicit integer loop, at every length from one to the known minimum. Two separate realizations use independent logical tests (precomputed ball unions versus direct target-wise comparison), reproduce all 44 length/count rows and match the complete list of 14 rotation orbits. All classes have full period. The conclusion is finite, with no appeal to unverified infinite extrapolation.
+## correctness
 
-## Originality
-**PASS, subject to historical priority risk.** The 2003 foundational work records the three minimum lengths and derives a generic lower bound on indexed shortest-cycle count. Its full accessible article does not list the three orbit counts or the unique optimum modulo rotation at order nine. A 2025 full-text construction article prints the 20-bit word but not its asserted uniqueness. Targeted research searches and existing indexed finding comparisons found no equal or stronger complete orbit enumeration; this is negative evidence rather than proof of priority. An inaccessible or unindexed historical enumeration may still overlap.
+PASS
 
-## Value
-**PASS.** Uniqueness and precise orbit multiplicity quantify optimal-design rigidity, a distinct natural invariant not implied by a minimum-length table. The order-nine result makes the general minimal \(L\)-rotation lower bound sharp and shows there is no alternative optimal labeled design except rotation. The adjacent orders exhibit a sharp change from eleven to two to one classes, a meaningful finite classification for baseline cyclic Hamming-covering sequences.
+Coverage is the complete union of the n-bit Hamming balls of radius two about the cyclic windows, including wraparound at L<n. Both frozen C++ listings test this predicate and traverse the stated finite domains; they were inspected, not executed. Independently, from /workspace/branches run python3 audit4.py /workspace/source/2026/11/02/rotation-classes-of-shortest-binary-radius-two-covering-cycles-a--990feb7a83ea (NumPy; replay output audit4.out). The independent search compares every L-bit integer with every cyclic rotation before testing one representative per orbit. It constructs repeated-word windows, checks coverage by removing targets differing at zero, one or two positions, and sums the first-return rotation periods to recover the indexed counts. It matches all 44 length rows and every field of all 14 orbit rows, with zeros for every shorter length. The minima, indexed counts and orbit totals are (10,110,11), (14,28,2), (20,20,1). Full periods also follow from minimality: otherwise the shorter period supplies the same circular windows. The sole order-nine representative is the given 20-bit string; its complement and reverse were tested directly among its rotations. This is exhaustive only for the specified orders, radius and bounded lengths.
 
-## Limitations
-These results concern only binary radius-two cyclic covering sequences at orders seven, eight and nine, with rotation as the only equivalence. They say nothing about larger orders, different radii, noisy decoding, or independent historical priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the complete shortest-cycle census modulo rotation (not the minima or a new order-nine example). The closest available primary table and appendix give the minima and witnesses, and a generic lower bound; they do not give the number of orbits. No exact or dominating census was found in the checked sources. This is a bounded assessment rather than a guarantee of priority.
+
+## value
+
+PASS
+
+For optimal cyclic covering sequences, counting all designs up to rotation is a natural classification beyond minimum length and construction. These are three consecutive benchmark orders from the foundational table, not arbitrary isolated examples. The exact census tells a researcher when another shortest design can be sought, establishes optimal-design rigidity at order nine, and supplies all canonical inputs at the two nearby orders. Its finite scope does not diminish those uses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:44:40.521594Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every start belongs to one residue modulo L. Outside the possible multiple of L the letters are fixed by the valuations of distances to that multiple. At the multiple, the conditional valuation has geometric law modulo q, so the possible integer masses on denominator L(2^q−1) are 1,2,…,2^(q−1) in powers of two; a missing center has mass D=2^q−1. This also proves density existence, since each center-letter condition is a disjoint union of valuation classes with a uniformly vanishing tail. For two phases whose centers differ with valuation t≤log₂L−3, the congruence witness modulo 2^(t+2) in the window has valuations t and t+1 and cannot be either center. Phases can merge only within the four centers sharing a residue modulo M=L/4. In each quartet the distinguished letters A=(log₂L−2) mod q and B=(log₂L−1) mod q have masses 2 and 1. With two visible centers the AA overlap has mass 4, and BA and AB each have 1+D=2^q. With three visible centers the first and third templates merge at BAB with mass 2 while the second merges with the missing fourth at ABA with mass 2^q. With four visible centers, only the opposite template pairs merge, producing two overlaps of mass 2. Counting the untouched masses gives exactly the tables; for q=2 some numerical mass levels coincide, not the symbols A and B themselves (the explanatory sentence in RESULT.md line 61 is misleading on that point). Counting how many quartets have two, three or four visible centers gives a, b and c. For n=1 the geometric valuation law gives the one-letter frequencies; the n=2 templates intersect only at 00 with mass 2. The binary equifrequency criterion follows because the second level vanishes exactly at n=L for n≥3 and n=2 is equifrequent. The recorded formulas are true.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frid's theorem, as stated in Balková, gives groups of Delta length-(n+1) words for each length-(k+1) seed word and groups of 2^p−Delta for each length-k seed, each group carrying the seed frequency divided by 2^p when the uniform length is 2. Balková §4 explicitly checks markedness, primitivity, uniformity and synchronization delay L_sync=4 at base 2, giving K=3."
+        ],
+        "reasoning": "Unlike the general bound on the number of frequency levels, Frid's statement determines the multiplicities themselves. The generalized Thue–Morse substitution is exactly an eligible marked uniform morphism for every alphabet size q≥2. Dividing the groups by q through the quotient preserves the two interpolation weights.",
+        "searches": [
+          "Balková arXiv:1107.5033, Theorem 2.4 (citing Frid 1998, Theorem 5), Proposition 2.3 and Section 4",
+          "Bell–Burnett–Schulz arXiv:2607.28273, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1902.08387",
+        "arXiv:1107.5033, including reproduced Frid theorem",
+        "arXiv:2607.28273",
+        "arXiv:2511.20881",
+        "Resultary c8d7b40c0705, b359a69047d4, 945680083ced, 5bdf50238572"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For each n≥3 put M=2^p=L/4, so 2M<n≤4M. In the earlier theorem take k=3 for n≤3M, k=4 otherwise, and Delta=n−(k−1)M. Substitution in the lift identity gives F_(q,n)(lambda)=(M−Delta)F_(q,k−1)(M lambda)+Delta F_(q,k)(M lambda). The pair (M−Delta,Delta) is (a,b) for k=3 and (b,c) for k=4. For denominator 4D the seed tables at lengths 2, 3, 4 are exactly the three columns of the frozen table, with the n=2 frequencies written on denominator 4D. The quotient identity transfers all seed levels and their exact multiplicities."
+        ],
+        "reasoning": "This recovers the transition at 3M, the complete formulas including q=2, and the dyadic-only equifrequency corollary. The only additional arithmetic is the binary carry identity and the three bounded seed comparisons. Coverage holds for all the parameters at once; excising just the binary case or the powers of two does not leave a new claim.",
+        "searches": [
+          "Balková arXiv:1107.5033, pp. 3 and 5: Proposition 2.3, Theorem 2.4, definition of t and K=3",
+          "Frozen RESULT.md lines 9–32 and 48–65 (seed comparisons)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let t_i=s₂(i) mod q denote generalized Thue–Morse at base 2. Binary carrying gives s₂(i+1)−s₂(i)=1−ν₂(i+1), hence u_i=1+t_i−t_(i+1) mod q. Balková §4 records the invariance of the t language under all q constant letter translations; Observation 3.2 gives their frequency invariance."
+        ],
+        "reasoning": "A length-n factor of u lifts to exactly q length-(n+1) factors of t. Choosing the first symbol determines the lift by successive differences, and all choices occur by translation. Each lift has the same frequency, so if T_(q,N)(v) counts t factors of length N with frequency v, then F_(q,n)(lambda)=T_(q,n+1)(lambda/q)/q. This reduces multiplicities and frequencies simultaneously and holds for the binary case as well as all q≥3.",
+        "searches": [
+          "Balková arXiv:1107.5033, Theorem 2.4 and Section 4 properties (2)–(5)",
+          "Resultary c8d7b40c0705, b359a69047d4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The dyadic catalogue result counts unweighted factors, the same-day complete complexity result counts all lengths in aggregate, and the dyadic higher-Abelian result counts profile classes, not individual factors. The antisquare catalogue record gives frequencies of particular binary factors.",
+          "Poláková directly gives the full q=2 spectrum: at n=2^k+r, the multiplicity of 2/(3·2^k) is 3·2^(k−1)−2r if 0≤r<2^(k−1) and 2^k−r otherwise, for k≥1. All other factors have frequency 1/(3·2^k), and Theorem 1.1 gives the total count.",
+          "Balková's Theorem 4.5 is a table of frequency values on t, while the earlier Frid theorem reproduced in Theorem 2.4 is the group-size determination sufficient for multiplicities."
+        ],
+        "reasoning": "For r>0 in the binary case, L=2^(k+1), so the two levels coincide with the frozen levels and the higher multiplicity agrees with 3a+b on both sides of n=3L/4. At dyadic n the high level alone remains, yielding the frozen equifrequency criterion. Poláková is not a q≥3 result, but the earlier multiplicity rule, equal-size q-to-one quotient and finite seed table together cover all q.",
+        "searches": [
+          "Resultary: generalized period-doubling exact factor frequencies, dyadic counts and all-length complexity",
+          "Resultary c8d7b40c0705, b359a69047d4, 945680083ced, 5bdf50238572",
+          "Balková arXiv:1107.5033, Theorem 4.5 and Theorem 2.4",
+          "Poláková arXiv:1902.08387, Theorems 1.1–1.2 and Corollary 1.3"
+        ]
+      },
+      "rationale": "The entire spectrum, including its multiplicities for every q, is a direct consequence of the known factor-multiplicity scaling theorem of Frid for marked uniform substitutions, applied to generalized Thue–Morse, and the equal-mass finite difference quotient. Only the length-2, -3 and -4 seed census is needed; those lengths do not constitute a distinct all-length result. The frozen claim that generalized Thue–Morse is an unrelated family misses this exact relation.",
+      "residual_risks": [
+        "Poláková directly covers q=2. The earliest explicit printing of the q≥3 table is not determined; this does not affect the demonstrated implication from the published multiplicity theorem and documented generalized Thue–Morse properties."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "explicit full binary overlap; no claim of q≥3 coverage from this paper",
+          "evidence": [
+            "The substitution is 0→01, 1→00; strict ergodicity identifies the cylinder measures with limiting frequencies.",
+            "Theorem 1.2 gives the two possible frequencies and Corollary 1.3 gives the piecewise multiplicity of the higher level. Together with the total complexity this determines the entire histogram."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.08387",
+          "material_read": "Introduction, PDF p. 1; Theorems 1.1–1.2 and Corollary 1.3, p. 2, around offset 3900",
+          "method": "targeted OA PDF reads",
+          "title": "Complexity and invariant measure of the period-doubling subshift",
+          "trigger": "same binary sequence and exact factor frequencies at every length"
+        },
+        {
+          "assessment": "decisive stronger theorem in Theorem 2.4, together with explicit applicability and symmetry of generalized Thue–Morse",
+          "evidence": [
+            "The lengths and weights in Theorem 2.4 are group multiplicities with frequencies 2^(-p) times individual seed frequencies.",
+            "Section 4 states uniform marked primitivity, delay 2b, K=3 for base b=2, and invariance under k→x+k.",
+            "Theorem 4.5 is a set-of-values table; the multiplicities follow from the earlier group theorem rather than from that table alone."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.5033",
+          "material_read": "PDF p. 3, Proposition 2.3 and Theorem 2.4 (offsets 7550–10665); pp. 4–5, Observation 3.2 and Section 4 properties (offsets 14761–18599); pp. 9–10, Theorem 4.5 value table and discussion (offsets 37900–40821)",
+          "method": "targeted OA PDF reads",
+          "title": "Factor frequencies in generalized Thue–Morse words",
+          "trigger": "cited as a different family, but a first-difference quotient transfers its factor multiplicities"
+        },
+        {
+          "assessment": "covers the frozen all-length formulas via the equal-frequency quotient",
+          "evidence": [
+            "Every seed word of each of two consecutive lengths supplies a group of the prescribed size and scaled frequency."
+          ],
+          "identifier_or_url": "A. Frid, Journal of Automata, Languages and Combinatorics 3 (1998), 29–41",
+          "material_read": "Proposition 4 and Theorem 5 as explicitly restated in Balková, Proposition 2.3 and Theorem 2.4; original typesetting not separately inspected",
+          "method": "exact reproduced theorem in OA primary generalized Thue–Morse paper",
+          "title": "On the frequency of factors in a D0L word",
+          "trigger": "original source of the stronger frequency scaling and multiplicity theorem"
+        },
+        {
+          "assessment": "a distinct bound, not decisive for overlap",
+          "evidence": [
+            "Bounds the number of distinct upper or lower frequencies using the first difference of complexity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.28273",
+          "material_read": "Theorem 1.1, PDF p. 2, around offset 6200",
+          "method": "targeted OA text",
+          "title": "Frequencies of subwords in words of linear subword complexity",
+          "trigger": "general frequency-result comparison"
+        },
+        {
+          "assessment": "different factorization invariant in the passages read",
+          "evidence": [
+            "The paper studies kernel words and gap sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.20881",
+          "material_read": "abstract and introduction p. 1, substitution in §3 p. 3",
+          "method": "targeted OA text",
+          "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+          "trigger": "same generalized period-doubling family"
+        },
+        {
+          "assessment": "partial overlap, dyadic unweighted counts",
+          "evidence": [
+            "ρ_q(2^k)=(2q−1)2^(k−1), not a multiplicity table by frequency."
+          ],
+          "identifier_or_url": "c8d7b40c0705",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "local mirror",
+          "title": "Exact dyadic factor and reflection complexity of cyclic period-doubling words",
+          "trigger": "same word and phase-template collisions"
+        },
+        {
+          "assessment": "overlap in all-length aggregate counts only; same-day order not inferred",
+          "evidence": [
+            "P_q(n)=qn−max(2^(floor(log₂n)−1), n−2^(floor(log₂n))) at n≥2."
+          ],
+          "identifier_or_url": "b359a69047d4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "local mirror",
+          "title": "Complete factor and aligned-window complexity of generalized period-doubling words",
+          "trigger": "same-day all-length comparison for the same word"
+        },
+        {
+          "assessment": "profile-class frequency or individual antisquare subfamily only",
+          "evidence": [
+            "These are not the complete spectrum of individual factors at all lengths."
+          ],
+          "identifier_or_url": "945680083ced; 5bdf50238572",
+          "material_read": "both RESULT.md Findings, offset 0",
+          "method": "local mirror",
+          "title": "Dyadic higher-Abelian profiles and an exact collision law for period-doubling factors; Exact antisquare factors, occurrence sets and densities in generalized period-doubling words",
+          "trigger": "catalogued binary frequency overlaps"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The spectrum is a natural invariant and the quartet proof is coherent, but the stated advance is entirely mechanically implied by the earlier group theorem for the difference quotient. Its small seed comparisons and the boundary restatement at n=3L/4 do not leave a separate valuable exact result. No genuinely distinct surviving claim is made by the frozen statement, so no repair is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

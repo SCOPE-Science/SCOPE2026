@@ -1,19 +1,21 @@
-# Scientific review: universal Moran–Geary network ranking
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-way strict-order lemma for two quadratic Rayleigh quotients is proved by constancy on Rayleigh level sets, diagonalization, sign-flip tests for off-diagonal entries, and interpolation across eigenspaces. On the centered space, the lemma forces \(PDP\) into the span of \(P\) and \(PAP\), except when the graph is complete. The resulting edge and nonedge degree-sum equalities classify connected graphs as regular or stars. Both families satisfy explicitly derived negative-slope affine relationships between the statistics. The four-vertex witness is directly checked by rational arithmetic, and equal means/variances follow from the displayed sums. The general result is a proof, not an extrapolation from the finite census.
+PASS
 
-## Originality — PASS, subject to stated residual risk
+Centering and positive common rescaling allow comparison on the unit sphere of 1⊥; adding a sufficiently large common constant realizes any pair as positive profiles with equal means and variances. For nonscalar centered adjacency, a putative Geary disparity at equal Moran level can be perturbed to strict discordance: increase the Moran quotient on the higher-Geary vector unless the level is maximal (then lower it on the other vector). Gradient perturbation works off stationary points; at an eigenvector mix with a strictly higher or lower eigenspace as needed. Thus Geary is constant on each Moran level. Testing normalized e_i−e_j then makes degree sums constant separately on edges and on nonedges (adjacency and Laplacian quadratic numerators are −2A_ij and d_i+d_j+2A_ij). Constant edge degree sum makes a connected graph regular or bipartite biregular; in an irregular biregular graph, the nonedge condition forbids both parts having at least two vertices, so it is a star. Scalar centered adjacency makes all off-diagonal A_ij equal, hence the graph is complete. The submitted stronger affine-form lemma also follows as stated by diagonalizing and comparing equal-level mixtures of the extremal eigenvectors. For regular graphs use L=dI−A; for stars, if p is the center then zᵀAz=−2z_p² and zᵀLz=||z||²+n z_p², giving the two frozen affine laws including K₂. The P₄ profiles center to (−1,−1,2,0) and (−1,0,−1,2); squared norms 6, adjacency numerators −2 and −4, and edge energies 13 and 11 reproduce the stated strict reversal. At orders 2 and 3 only regular graphs and stars are connected.
 
-The 1984 full-length source supplies separate Rayleigh/spectral bounds, not an implication characterization across all pairs of profiles. The 2017 full text already contains the general degree-weighted Moran–Geary identity; this identity is explicitly credited and is not the contribution. The full 2024 paper treats weight-compatible spatial weights, which differ from uniform-weight raw adjacency on irregular graphs. The classification that **every** real-profile ranking is antitone exactly for the regular and star classes, with a first four-vertex witness, is not derived in those works. Binary-only profile results do not imply this universal real-valued characterization. Risk remains of broader earlier quadratic-form or spatial-statistics coverage not exposed by the inspected sources; no publication-priority or independent novelty certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The graph classification answers a natural and consequential interpretation question: when can two classical, commonly compared measures give logically conflicting rankings of real attributes on the **same** contact or social network? A nonregular, highly heterogeneous exception (stars), an exact if-and-only-if graph characterization at all orders, and an equal-moment four-node witness distinguish the result from a routine formula re-expression. The conclusion is structural, not a significance test or policy recommendation.
+The degree-weighted identity and the regular case are established. The distinct result is the all-real-profile topology classification (including the irregular star exception), witnesses at fixed mean and variance, and the exact order-four boundary. The strongest inspected same-day finding is a genuinely overlapping binary-profile result with a different quantifier and boundary, not a statement of the real-profile classification. The conclusion is search-bounded.
 
-## Limitations and comparison
+## value
 
-The weights must be raw undirected binary adjacency and the data may be any nonconstant real profiles; the finding does not assert a binary-profile reversal at four vertices. The closest inspected primary sources are de Jong–Sprenger–van Veen (1984), Luo–Griffith–Wu (2017), and Bavaud (2024). General matrix-theoretic antecedents remain a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem identifies exactly when two widely used global summaries give universally compatible rankings, and exposes a nonregular exception that a degree-regularity argument would miss. Matched-mean and matched-variance profiles isolate the difference to how the graph interacts with the centered pattern, and the exact four-vertex witness is directly usable. This is a structural classification and a sharp boundary with a clear comparison target.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:34.931456Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–64",
+        "VERIFICATION.md, lines 19–24; checker.cpp, lines 11–86"
+      ],
+      "rationale": "Translate one point to zero and restrict to the affine span, since each local character repeats equally often in the ambient Fourier sum. Six distinct points have affine rank 3, 4, or 5. At rank 3 they are the complement of two points in an eight-point flat. At rank 5 they are an affine basis. At rank 4 the dependence space on the six augmented columns (1,a) is one-dimensional, and its nonzero support has size four or six. Equivalently one can average the absolute sum of six signs over the uniform affine-character sign vectors: the rank-4 types impose a product +1 constraint on four or all six signs, respectively, and rank 5 imposes no constraint. This gives the stated Walsh histograms and norms; rank 3 follows by complementing a pair. For at most five points, the affinely independent cases give norms 1,1,3/2,3/2,15/8 in order of size, and the dependent cases are an affine plane at size four or a complement of a three-set in an affine three-flat at size five, with norms 1 and 7/4. The empty set has norm zero. The count of six-circuits per four-flat is the count of unordered five-point affine bases divided by six: the additional point needed to make the full six-set an affine circuit is the sum of those five points. The phrase 'unique affine-dependent sixth point' in the census proof means unique completing point making a six-circuit, not unique point making the union dependent. Counts for the other types follow from the number of r-flats, complementing pairs in 3-flats, subtracting the rank-3 and six-circuit cells inside each four-flat, and counting independent six-tuples. The formulas have the requisite zeros in dimensions three and four. Independent exact Walsh butterfly enumeration of all weight ≤6 functions in dimension four gave the count triples (840,6720,448) in norm order (3/2,7/4,9/4) at weight six and confirmed the lower-weight maxima. The original `checker.cpp` was inspected but not executed; its documented replay is `g++ -O2 -std=c++17 checker.cpp -o checker` followed by `./checker` in the package or a copy of it.",
+      "residual_risks": [
+        "The support-six minimum is attained in dimensions at least four; it is not an existence claim for dimension three or an assertion about other abelian groups. The independent numerical census is bounded; the dimension-general argument is symbolic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Langevin table lists full truth functions as ANFs with affine stabilizer sizes, for every domain-affine orbit in five variables. The extracted 382 rows' reported orbit sizes sum to 2^32.",
+          "Green–Sanders give a norm gap at 3/2; Xie–Xu–Xu impose an amplitude restriction not met by the weight-six bent indicator. Jauberty–Méaux's author slides define and study Fourier-support cardinality for sign-valued Boolean functions."
+        ],
+        "reasoning": "Unlike general norm-gap or spectral cardinality results, the full orbit table dominates the support-size question: affine-span restriction preserves the normalized indicator Fourier norm and all small supports embed in dimension five.",
+        "searches": [
+          "Langevin's author-hosted AGL classification and five-variable table",
+          "Green–Sanders arXiv:math/0605524, Proposition 1.2",
+          "Xie–Xu–Xu arXiv:2103.16811, §§1.1–1.2",
+          "Jauberty–Méaux, On the Cardinality of the Walsh Support, author slides"
+        ]
+      },
+      "checked_sources": [
+        "Langevin author-hosted AGL classification page and class-0-4.txt / class-0-5.txt",
+        "Resultary 5c39c1154219",
+        "OEIS A004491",
+        "arXiv:math/0605524, Proposition 1.2; arXiv:2103.16811, §§1.1–1.2",
+        "Jauberty–Méaux author slides BFA 2025"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For weights 1 through 5 the largest norm obtained from the five-variable rows is respectively 1,1,3/2,3/2,15/8; weight zero gives zero.",
+          "For the two rank-four weight-six rows, the total XOR vanishes only for acd+abe. With a one-dimensional affine dependence space, zero XOR is equivalent to the full six points forming the circuit. The other row has four-element dependent support.",
+          "An orbit count for the type in dimension five, divided by the number of affine r-flats there, is the count of that spanning type inside a fixed r-flat. Each subset has a unique affine span, and multiplication by the number of affine r-flats in dimension d yields the corresponding frozen polynomial. The binomial and Gaussian factors give zero for unavailable ranks."
+        ],
+        "reasoning": "The extraction gives the exact threshold, the exceptional geometry and all four exact counts with only invariant evaluation, orbit–stabilizer and ordinary affine-flat counting. No new combinatorial input is needed to go from the prior table to the published statements.",
+        "searches": [
+          "Langevin class-0-5.txt, evaluated representatives of weights 0–6",
+          "Langevin class-0-4.txt, four-dimensional cross-check"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each support is exactly the truth support of a Boolean function; domain-affine equivalence is the same action in the table and the frozen result.",
+          "The later dated Resultary record 5c39c1154219 gives all four exact Walsh magnitude histograms, but not the lower-weight threshold or the all-dimension census.",
+          "In four variables, the six-circuit is the weight-six bent-function orbit: for f=1_A, the sign-valued transform has value 4 at frequency zero and equals −2 times the indicator Walsh transform at nonzero frequencies. The row bc+ad has 448 members, consistent with half of the 896 bent functions in OEIS A004491, the other half being their weight-ten complements."
+        ],
+        "reasoning": "The orbit data are an equivalent coding of the small-support classification, not merely a result about the cardinality of the transform support. The bent-function equivalence separately accounts for the exceptional four-dimensional row.",
+        "searches": [
+          "Resultary 5c39c1154219, complete Walsh magnitudes and affine rigidity",
+          "Philippe Langevin, Classification of Boolean functions under the affine group, class-0-4.txt and class-0-5.txt",
+          "OEIS A004491, bent Boolean functions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Weight-six five-variable entries, with (affine rank, XOR, stabilizer, orbit size, norm): ab+abcd (3, nonzero, 18432, 17360, 3/2); abcd+ae+abe (4, nonzero, 768, 416640, 7/4); acd+abe (4, zero, 11520, 27776, 9/4); bc+abcd+bce+ade (5, nonzero, 720, 444416, 15/8). These are all weight-six entries. The group order is 319979520.",
+          "The four-variable table lists weight-six abutting types a+abc, abc+d+ad and bc+ad with respective fixators 384, 48 and 720, giving 840, 6720 and 448. The 32 reported orbit sizes sum to 2^16.",
+          "The Berlekamp–Welch article is identified as a possible earlier covering table of first-order Reed–Muller cosets, but its exact table was not independently retrieved; this rejection does not rely on its contents."
+        ],
+        "reasoning": "The ANF determines the support and Walsh values by evaluation on just 32 inputs, and orbit–stabilizer determines the exact multiplicity. The affirmative coverage rests on the author-hosted data actually read, not on an abstract, a database search miss, or inaccessible papers.",
+        "searches": [
+          "https://langevin.univ-tln.fr/project/agl/class-0-5.txt",
+          "https://langevin.univ-tln.fr/project/agl/class-0-4.txt",
+          "https://oeis.org/A004491",
+          "Berlekamp–Welch doi:10.1109/TIT.1972.1054732"
+        ]
+      },
+      "rationale": "The primary public affine-orbit tables of Philippe Langevin (page dated 2009) cover the entire finding by a direct extraction, not just the number of bent functions. Every support of at most six points lies in an affine space of dimension at most five. I evaluated the published five-variable affine representatives of weights zero through six and used their tabulated stabilizer orders. At weight six the four rows already encode every stated affine type, Walsh norm and orbit count. The all-dimension census follows by multiplying per-flat counts by the number of flats of the relevant rank. The lower-weight rows likewise give the exact bound and hence the sharp support threshold. The frozen proof is correct, but its claimed profile and census are mechanically recoverable from a pre-existing broader classification.",
+      "residual_risks": [
+        "The Jauberty–Méaux and Berlekamp–Welch full articles were not retrieved, so this review does not assert their complete scope or establish historical first priority. The positive coverage in the inspected affine tables is sufficient for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct covering classification",
+          "evidence": [
+            "The page describes affine orbits, explicit function representatives and stabilizer orders, and reports computations from 2009. Filtering the linked data by truth weight and evaluating those representatives gives the frozen profile, extremizers and census by affine-flat multiplication."
+          ],
+          "identifier_or_url": "https://langevin.univ-tln.fr/project/agl/agl.html",
+          "material_read": "Definitions, methodology, Files of representatives; linked class-0-4.txt and class-0-5.txt with h and fix entries",
+          "method": "Author-hosted public project page; evaluated linked plain-text table data",
+          "title": "Classification of Boolean functions under the affine group",
+          "trigger": "Potential dominating orbit catalogue of Boolean functions in at most five variables"
+        },
+        {
+          "assessment": "Exact overlap on all six-point Walsh histograms; later dated record",
+          "evidence": [
+            "All four histograms agree. The inspected result does not state the lower-weight threshold or the general closed census formulas, and its later date is not evidence of earlier priority."
+          ],
+          "identifier_or_url": "Resultary:5c39c1154219",
+          "material_read": "RESULT.md Finding and proof starting at text offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete Walsh magnitude spectra and affine rigidity of six-point sets",
+          "trigger": "Same support type and exact Walsh histograms"
+        },
+        {
+          "assessment": "Independent earlier numerical coverage of the exceptional local count by the bent-function equivalence",
+          "evidence": [
+            "896 four-variable bent functions, with weight six and weight ten paired by complements, giving 448 of each."
+          ],
+          "identifier_or_url": "https://oeis.org/A004491",
+          "material_read": "Sequence values and references, including MacWilliams–Sloane p. 418",
+          "method": "Public exact sequence entry",
+          "title": "Number of bent functions of 2n variables",
+          "trigger": "Six-circuit as a weight-six bent function on four variables"
+        },
+        {
+          "assessment": "General norm gap; not the source of exact coverage",
+          "evidence": [
+            "Norm one for a coset indicator, otherwise at least 3/2 for a nonzero Boolean indicator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0605524",
+          "material_read": "PDF p. 2, Proposition 1.2",
+          "method": "OA full-text passage",
+          "title": "Boolean functions with small spectral norm",
+          "trigger": "Possible small-norm classification"
+        },
+        {
+          "assessment": "Its inspected amplitude restrictions do not contain the exceptional row",
+          "evidence": [
+            "The weight-six circuit has normalized coefficient 3/8 at zero in its minimal flat, outside the stated powers-of-two amplitudes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.16811",
+          "material_read": "PDF pp. 1–2, abstract and §§1.1–1.2",
+          "method": "OA full-text passage",
+          "title": "A generalization of a theorem of Rothschild and van Lint",
+          "trigger": "Possible spectrum classification under normalized coefficient restrictions"
+        },
+        {
+          "assessment": "The checked claims concern cardinalities of the Walsh support of sign-valued Boolean functions, not indicator support and norm; no whole-paper verdict",
+          "evidence": [
+            "Defines C_n by the number of nonzero Walsh coefficients; uses lower-dimensional affine-equivalence data. This motivated inspecting the cited type of affine table, which gives the decisive coverage above."
+          ],
+          "identifier_or_url": "https://eprint.iacr.org/2025/1651",
+          "material_read": "Author slides dated 2025, slides 3–5 and 24; paper full text not retrieved",
+          "method": "Author-hosted public slides; lawful main paper and alternate retrieval attempted",
+          "title": "On the Cardinality of the Walsh Support of a Boolean Function",
+          "trigger": "Potential lower-dimensional Walsh classification cited by the overlapping Resultary record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof at lines 4–64",
+        "Langevin class-0-4.txt and class-0-5.txt, exact weight-filtered affine orbits and stabilizers"
+      ],
+      "rationale": "The support threshold and its affine geometry are natural, and the proof is an informative compact derivation. But the scientific finding as claimed is a mechanically extractable slice of an existing exact five-variable affine classification, with the dimension-general counts given by routine affine-flat multiplication. The exact invariant and all cases are already determined by that evidence; the record does not establish a separate structural contribution beyond the extraction and elementary reproof.",
+      "residual_risks": [
+        "This is a judgment on the proposed new mathematical finding, not a denial of the exposition's instructional use. No distinct surviving theorem requiring a repair was identified."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

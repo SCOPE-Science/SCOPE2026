@@ -1,15 +1,21 @@
-# Review: cyclic orientation and graded singleton types
+# Independent mathematical audit
 
-## Correctness
-PASS. The finite extension criterion follows from the free-amalgamation class of transitive-triangle-free oriented graphs. The state-pair analysis on each old arc leaves exactly one permitted two-nonzero combination. Decomposing nonzero supports into cyclic components establishes a complete exact polynomial, including the full-support case. Cyclic sign parity restricts the defect count, while constraint-set containment gives coefficientwise monotonicity. The cubic count distinguishes all extremizers. Weighted transfer matrices provide exact extrema and their asymptotic rates. Independent direct, defect and transfer computations agree in all documented finite tests. Remaining risk is limited to undetected mathematical error in these derivations, not to treating finite tests as proof.
+## correctness
 
-## Originality
-PASS on present comparison evidence, with provisional historical priority. The complete path-shaped strict switch theorem does not imply the graded cyclic result because the extra closing constraint and odd-cycle parity have no path counterpart. Cherlin supplies the homogeneous-model construction, and Kühn–Osthus–Townsend–Zhao supply global asymptotic enumeration, neither the local graded polynomial nor the cyclic extremizer classification. Searches of research records and open literature did not identify a covering theorem. An equivalent older cyclic-word or transfer-matrix identity could remain unindexed.
+PASS
 
-## Mathematical value
-PASS. The exact support identity makes the first orientation-sensitive coefficient a count of local directed two-edge paths, and determines all coefficientwise extremizers uniformly at every cycle length. Closing a path introduces a sharp parity frustration: odd cycles must retain one defect, while even cycles may avoid all. The trace formulas additionally show an exponential asymptotic separation between maximum and minimum type populations. These are structural statements about logical extension freedom, not merely a finite enumeration or a restatement of the unrestricted class.
+Free amalgamation across the named base cannot create a tournament spanning the two sides. Homogeneity and the finite extension property therefore give one nonalgebraic type per admissible arc pattern. On an occupied old edge both new arcs are forced to close a directed triangle, so each selected nonsingleton path has one compatible labeling unless it contains a through-centered triple. The fully selected cycle has exactly one labeling only in the defect-free case. A defect set is realizable exactly in the stated parity, with two sign assignments each. Containment of defect sets orders the polynomials; odd-cycle singleton defect sets are rotations. The n consecutive triples are distinct even at n=4, and the single-edge and independent triple counts are n(n-4) and n(n-4)(n-5)/6. This proves strictness against the corresponding extremum at degree three. The transfer trace counts each indexed word with the correct power of z; at z=1 its primitive minimum and positive two-edge maximum transfers have the stated characteristic polynomials. The odd trace has a positive Perron amplitude because the remaining one-edge factor has positive pairing with the Perron vectors. A fresh finite check constructs each candidate ternary pattern's tournament outdegrees directly: all 240 orientations of orders 4–7 agree with the support formula and extremal counts. This is corroboration, not an all-order proof.
 
-## Source boundaries and limitations
-The analysis is for induced cycle bases of length at least four, singleton types, and the transitive-triangle-free (not directed-cycle-free) oriented age. Reference comparison is targeted, not exhaustive worldwide historical priority research. A separate independent mathematical audit remains necessary for external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the cyclic graded polynomial and coefficientwise parity classification for named induced cycle bases, not the existence of the Fraïssé limit, path switching, or the use of a transfer matrix. No inspected distinct result establishes or subsumes that cyclic classification.
+
+## value
+
+PASS
+
+An induced cycle is the first natural closed extension base beyond a path. The result quantifies how the directions of named old arcs limit extension freedom, locates the first orientation-sensitive coefficient, and proves a common extremum for every degree, not merely for the total. The unavoidable odd defect and exponential separation of the two total counts give structural content beyond an isolated finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:28:06.306224Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unqualified arbitrary sampled anchor in the frozen text cannot include geometry-dependent choices. For example, if the shortest gap goes clockwise from positions 1 to 2, then L_1=L_2 almost surely, whereas (1) gives Var(L_1-L_2)=2(pi^2/6-C)>0. The complete corrected RESULT.md and SLOGAN.txt in /workspace/repairs/1 impose a preassigned sampling label for the covariance and spectrum and distinguish the invariant sample average. Under the corrected scope, conditioning on the anchor makes the sorted relative offsets uniform order statistics; the gap law is Dirichlet(1,...,1). Independent rate-one exponentials divided by their gamma total realize this law; the normalized gaps are independent of that total. Each adjacent-gap minimum before normalization is rate two. Nonneighboring minima have disjoint inputs, and neighboring minima have joint survival exp(-u-v-max(u,v)); clipped indicator-log integrals pass to the limit in L^2 and give the stated positive shared covariance. Substituting v=xu on the half-plane v<=u and integrating in u gives 2 times the integral of [log(1+x)-log(1+x/2)]/x on [0,1], hence C. Normalizing subtracts precisely trigamma(n) from every matrix entry. Fourier diagonalization gives the spectrum including the triangle; the alternating-series bounds on Li_2(-1/2) and n trigamma(n)<=n/(n-1) verify strict positivity and the stated signs. The mean is -H_(n-1) and the average variance is the constant-mode eigenvalue divided by n. For the CLT, linearize log of the total at n, use H_(n-1)-gamma-log(n)=O(1/n), and remove one cyclic term from the stationary one-dependent sum. The covariance of log of the exponential minimum with the sum of its two inputs is one, since the sum equals twice the minimum plus an independent exponential excess. The resulting long-run variance is pi^2/6+2C-1. For n=2 both positions have 2 rho uniform on [0,1] and yield variance one. The frozen verification and script were inspected, not executed; neither Monte Carlo nor numerical quadrature is used as a universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delattre–Fournier and Berrett–Samworth–Yuan give asymptotic nearest-neighbor variance results and the prior numerical d=1 constant. Jiao–Gao–Han give a worst-case fixed-k risk bound over Hölder balls on a torus."
+        ],
+        "reasoning": "General asymptotic theory can overlap the limiting variance and normality, and nonasymptotic risk bounds include related domains. Neither type of conclusion fixes each covariance entry or the exact null sampling variance for every finite n.",
+        "searches": [
+          "arXiv:1602.07440, Theorem 1 and Remark 2",
+          "arXiv:1606.00304, Section 3.4 and Table 1",
+          "arXiv:1711.08824, Section 1.1 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary (including assigned self-hit and distinct indexed spacing and reciprocal-NN records)",
+        "Misra–Singh–Hnizdo (2010)",
+        "arXiv:1602.07440",
+        "arXiv:1606.00304",
+        "arXiv:1711.08824",
+        "Cadirci et al. DOI (retrieval attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circular entropy paper explicitly notes the absence of meaningful bias and variance expressions for its proposed estimators. Knowing the Euclidean limiting variance or one scalar asymptotic circular variance cannot determine the universal finite correction -trigamma(n), the finite adjacency term, or the Fourier modes. The reciprocal-count results omit the positional log-distance moments required here."
+        ],
+        "reasoning": "The finite covariance demands joint log-minimum information and independence of the normalized gap vector from the gamma sum. The prior rate, asymptotic, and mixed-moment statements inspected do not imply that full finite calculation.",
+        "searches": [
+          "Misra–Singh–Hnizdo, Theorem 2.2 and Section 3 closing paragraph",
+          "Delattre–Fournier, Theorem 1 and Remark 2",
+          "same-spacing and reciprocal-NN Results in the local mirror"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A cyclic log-distance entry is a log minimum of consecutive Dirichlet spacings plus log 2. The older circular entropy paper uses circular distances and proves asymptotic consistency, not these finite pairwise log-minimum moments.",
+          "The two indexed circular NN graph records bound the mixed covariance of the reciprocal-pair count with either total directed length or the sum of powers of reciprocal edge lengths; neither is the covariance of cyclicly positioned log minima."
+        ],
+        "reasoning": "Using arc length or normalized gaps is equivalent here only after matching the statistic and allowing a sample-label anchor. A count–length mixed moment, even for every reciprocal-edge power, does not give the covariance of the full rooted log-distance vector.",
+        "searches": [
+          "Resultary: exact covariance of cyclic log nearest-neighbor distances; shared-exponential minimum dilogarithm; finite-null circular KL entropy",
+          "Misra–Singh–Hnizdo (2010), abstract, Theorem 2.2 and end of Section 3",
+          "d272683b84c8 and 7855f4579f98, Findings in local mirror"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit ending 1f8ab0fd9718 is the assigned record itself. Distinct indexed exact spacing results include an Anderson–Darling log-score expectation and Greenwood–Shannon spacing covariance, with different inputs. The asymptotic value 2.14 is already tabulated in the literature."
+        ],
+        "reasoning": "The known scalar limiting entry does not tabulate the finite log-distance covariance kernel. No distinct exact matrix table was established in the bounded checks.",
+        "searches": [
+          "Resultary semantic searches for exact finite circular covariance, finite-null NN entropy, shared-minimum covariance and asymptotic NN entropy variance",
+          "Berrett–Samworth–Yuan, Table 1"
+        ]
+      },
+      "rationale": "The corrected contribution is the finite-circle matrix for a fixed sampling-label anchor and its exact variance specialization. The nearest-neighbor entropy estimator, arclength convention, generic CLT and numerical asymptotic variance near 2.14 are credited as prior. No inspected claim gives the finite log-distance matrix or finite trigamma correction, and changing the anchor convention does not hide an established result.",
+      "residual_risks": [
+        "Earlier exact finite moments in spacing literature under alternative notation are not exhaustively excluded.",
+        "Cadirci et al. full text was not independently retrieved; no conclusion about that source's contents is drawn.",
+        "The numerical asymptotic constant is demonstrably prior and is not counted as novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CIRCULAR_ESTIMATORS_AND_ASYMPTOTIC_CONSISTENCY_NOT_FINITE_MATRIX",
+          "evidence": [
+            "Theorem 2.2 gives vanishing variance. At the close of Section 3 the authors report not deriving meaningful bias or variance expressions."
+          ],
+          "identifier_or_url": "https://stacks.cdc.gov/view/cdc/188158/cdc_188158_DS1.pdf",
+          "material_read": "Abstract, Theorem 2.2 and end of Section 3 (OA offsets around 1450, 26650 and 37800)",
+          "method": "Lawful CDC copy of primary paper, bounded passages",
+          "title": "Nearest Neighbor Estimates of Entropy for Multivariate Circular Distributions",
+          "trigger": "Closest circular arclength entropy estimator and possible finite variance coverage"
+        },
+        {
+          "assessment": "ASYMPTOTIC_COVERAGE_ONLY",
+          "evidence": [
+            "Euclidean asymptotic variance and Monte Carlo value chi_1=2.14."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.07440",
+          "material_read": "Theorem 1 and Remark 2, PDF pp. 3–4 around OA offset 10400",
+          "method": "Bounded OA primary text",
+          "title": "On the Kozachenko–Leonenko entropy estimator",
+          "trigger": "Possible broader CLT or prior d=1 variance"
+        },
+        {
+          "assessment": "ASYMPTOTIC_CONSTANT_TABULATED",
+          "evidence": [
+            "Fixed-k asymptotic variance inflation is listed as 2.14 at d=1, k=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.00304",
+          "material_read": "Section 3.4 and Table 1, PDF p. 15 near OA offset 42600",
+          "method": "Bounded OA primary text",
+          "title": "Efficient multivariate entropy estimation via k-nearest neighbour distances",
+          "trigger": "Prior numerical table for the k=1, d=1 constant"
+        },
+        {
+          "assessment": "RISK_BOUND_NOT_POINTWISE_FINITE_NULL_VARIANCE",
+          "evidence": [
+            "The theorem controls worst-case risk over Hölder classes on a torus."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1711.08824",
+          "material_read": "Section 1.1 Theorem 1, PDF p. 3 around OA offset 9500",
+          "method": "Bounded OA primary text",
+          "title": "The Nearest Neighbor Information Estimator is Adaptively Near Minimax Rate-Optimal",
+          "trigger": "Broader finite-sample torus entropy analysis"
+        },
+        {
+          "assessment": "DISTINCT_COUNT_LENGTH_COVARIANCE",
+          "evidence": [
+            "One variable counts mutual nearest-neighbor pairs and the other sums directed lengths. It does not give individual log-length covariances."
+          ],
+          "identifier_or_url": "2026/10/27/SCOPE-exact-negative-motif-length-covariance-in-the-circular-nearest-n--d272683b84c8/RESULT.md",
+          "material_read": "Finding and scope, mirror offsets 0–2223",
+          "method": "Original Resultary mirror file",
+          "title": "Exact negative motif–length covariance in the circular nearest-neighbor graph",
+          "trigger": "Same model, exact nearest-neighbor covariance"
+        },
+        {
+          "assessment": "DISTINCT_RECIPROCAL_PAIR_STATISTIC",
+          "evidence": [
+            "Even taking a derivative at zero power would produce a log-length sum over reciprocal pairs correlated with their total count, not the covariance kernel of all nearest-neighbor log lengths."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-positive-count-power-length-covariance-for-circular-recipr--7855f4579f98/RESULT.md",
+          "material_read": "Finding and scope, mirror offsets 0–1998",
+          "method": "Original Resultary mirror file",
+          "title": "Exact positive count–power-length covariance for circular reciprocal nearest neighbors",
+          "trigger": "Same-day all-power exact covariance, potential logarithmic limit"
+        },
+        {
+          "assessment": "DISTINCT_STATISTIC_AND_MOMENT",
+          "evidence": [
+            "Gives an exact expectation and its sample-size peak for a modified Anderson–Darling log-score."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-null-centering-and-a-unique-finite-sample-peak-for-circula--d3e356c40ee3/RESULT.md",
+          "material_read": "Finding in local mirror",
+          "method": "Bounded Resultary mirror passage",
+          "title": "Exact null centering and a unique finite-sample peak for circularized modified Anderson–Darling log-score",
+          "trigger": "Same-day indexed finite circular spacing log statistic"
+        },
+        {
+          "assessment": "DISTINCT_SPACING_FUNCTIONALS",
+          "evidence": [
+            "Pairs Greenwood dispersion with Shannon spacing entropy, neither of which is a vector of log adjacent-gap minima."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-greenwood-dispersion-and-spacing-entropy-remain-strongly-anticor--061e4bb9211c/RESULT.md",
+          "material_read": "Finding in local mirror",
+          "method": "Bounded Resultary mirror passage",
+          "title": "Greenwood dispersion and spacing entropy remain strongly anticorrelated",
+          "trigger": "Exact covariance involving log functions of the same Dirichlet spacings"
+        },
+        {
+          "assessment": "LIMITED_ACCESS",
+          "evidence": [
+            "The retrieval timeout does not exclude overlap."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.csda.2022.107502",
+          "material_read": "No decisive independent source passage obtained",
+          "method": "Bounded DOI retrieval attempt",
+          "title": "Entropy-based test for generalized Gaussian distributions",
+          "trigger": "Cited nearest-neighbor entropy test and potential finite variance calibration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected matrix diagnoses positive adjacent and negative nonadjacent dependence while providing an exact finite-null standard error for the circular entropy statistic. The fixed-label convention is natural and leaves the practically relevant sample average unchanged. This is a usable exact benchmark beyond an asymptotic constant; it supplies neither finite quantiles nor a nonuniform or higher-neighbor inference theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

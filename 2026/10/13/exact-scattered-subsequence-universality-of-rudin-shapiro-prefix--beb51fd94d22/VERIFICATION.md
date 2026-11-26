@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory as `RESULT.md`. Only Python 3.9+ standard-library facilities are used.
+## correctness
 
-The checker reconstructs the four substituted-block profiles in a three-state binary arch automaton, confirms the level-four base case, then compares the two parity-switching recurrences as exact integer-coefficient affine identities in the variable \(q\). Consequently this part certifies the algebraic induction *scheme for all levels*, not a finite sample of substitution depths. The proof that the scheme models the correct word and that arch count equals universality index is spelled out in `RESULT.md`.
+PASS
 
-The checker separately verifies all low-level block-count errors, the morphism coding against a direct overlapping-binary-digit-pair parity calculation through \(2^{12}\), the all-prefix estimate over the first \(262144\) positions, the dyadic formula at nineteen tested scales, and brute-force subsequence universality at every prefix length up to twenty-two. These finite checks detect implementation or indexing mistakes but cannot, by themselves, establish an infinite theorem.
+The four morphism letters encode (parity of overlapping 11 pairs, last bit); their two children are exactly the append-0 and append-1 transitions in numerical order, including the leading-zero convention. Each full greedy arch embeds one prescribed letter, and requesting the successive arch-ending letters forces any embedding to reach at least the corresponding arch ends. Appending a letter missing from the tail proves the reverse bound. Recomputing from the one-letter scanner, at level 3 the exits for a,b,c,d are 1,2,1,2, with count triples (2,2,3),(2,2,3),(2,3,2),(2,3,2). Composition gives level-4 exits 2,1,2,1 and triples (4,4,5),(5,5,6),(5,6,5),(4,5,4). In a composition one adds the right count evaluated at the left exit; applying this to all four rows in both directions gives the stated parity tables with q replaced by 2q. The small-level maximum errors for all starting states are 11/16,10/16,12/16,8/16, so every aligned block costs at most one unit of error. Each block in the descending binary decomposition begins at a multiple of its own length; telescoping the counts through the actual scanner states proves the popcount bound, and its logarithmic upper bound gives the limit. The empty prefix and the four small dyadic values are consistent with the fixed two-symbol alphabet. The recorded scans and brute-force checks are consistent supporting evidence; the complete transfer induction is the all-level proof and the uploaded checker was not run.
 
-Observed successful output:
+## originality
 
-```
-VERIFY_OK symbolic_induction=even_to_odd_and_odd_to_even small_block_bounds=yes morphism_prefix=2^12 direct_prefixes=262144 exact_dyadic_levels=19 brute_subsequences_lengths=0..22
-```
+PASS
 
-No additional data files, precomputed certificates, network access, or nonstandard packages are required. No independent validation has been performed.
+Greedy arch factorization and compositional signatures are prior methods, not distinct contributions of this record. The supported contribution is their explicit evaluation for the standard Rudin–Shapiro fixed point, including the parity correction and the prefix-specific popcount bound. Two later dated records explicitly repeat results: their equivalent content is credited below, but they do not demonstrate earlier priority and neither gives the stated popcount bound. No earlier exact coverage was established by the checked sources.
+
+## value
+
+PASS
+
+The exact density and parity effect measure a natural, nonadditive subsequence invariant of a standard automatic word. The explicit four-block profiles and popcount bound let a researcher predict universality thresholds with a certified error for all prefixes, not just compute a few dyadic examples or substitute parameters into a general formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -2,110 +2,54 @@
 
 ## Finding
 
-Consider the nuclear-norm-scaled polar gradient update on the isotropic two-row matrix quadratic. At **every fixed normalized step \(0<\alpha<2\), \(\alpha\ne1\)**, its full-rank dynamics admit an exact, exceptional-set classification.
+Let \(0<\alpha<2\), \(\alpha\ne1\), and put \(d=1-\alpha\) and \(c=|d|\). In the nuclear-norm-scaled polar iteration defined below, let \(s_1\ge s_2>0\) be the singular values of a full-row-rank initial error \(E_0\), and write \(r_0=(s_1-s_2)/(s_1+s_2)\).
 
-Let \(c=|1-\alpha|\in(0,1)\), and for the two positive singular values \(s_1\ge s_2>0\) of a nonzero full-row-rank initial error, put
-\[
-r_0=\frac{s_1-s_2}{s_1+s_2}\in[0,1).
-\]
-If \(r_0=0\), the entire trajectory is \(E_t=(1-\alpha)^tE_0\). If \(r_0=c^k\) for an integer \(k\ge1\), the rank drops from two to one **exactly at iteration \(k\)**, and then
-\[
-E_{k+j}=(1-\alpha/2)^jE_k,\qquad j\ge0.
-\]
-For every other full-row-rank initial error, set
-\[
-x=\frac{\log r_0}{\log c}>0,\qquad m=\lfloor x\rfloor.
-\]
-After precisely \(m\) initial updates, the singular-value contrast enters \(r_m\in(c,1)\), where it obeys an exact two-cycle:
-\[
-r_{m+1}=\frac{c}{r_m},\qquad r_{m+2}=r_m,\qquad
-E_{m+2}=(1-\alpha)E_m,
-\]
-and these relations repeat thereafter. Thus **generic errors become exact scalar two-step orbits in finitely many iterations**, while the countable set of contrast values \(c,c^2,c^3,\ldots\) gives finite-time rank loss and a different subsequent linear rate. This holds for every column count \(n\ge2\), arbitrary singular vectors, and every real matrix \(E_0\) of row rank two.
+* If \(r_0=0\), then \(E_t=d^t E_0\).
+* If \(r_0=c^k\) for an integer \(k\ge1\), the first rank drop is at update \(k\), and \(E_{k+j}=(1-\alpha/2)^jE_k\) for \(j\ge0\).
+* Otherwise put \(x=\log(r_0)/\log(c)\) and \(m=\lfloor x\rfloor\). The contrast first enters \((c,1)\) at update \(m\). For every \(t\ge m\), the error remains of rank two and
+  \[
+  r_{t+1}=c/r_t,\qquad r_{t+2}=r_t,\qquad E_{t+2}=d E_t.
+  \]
+  The eventual contrast has least period two unless \(x-m=1/2\), when it is fixed at \(\sqrt c\). The matrix two-step law holds in both cases.
+
+The per-update asymptotic norm factor, defined as \(\lim_{t\to\infty}\|E_t\|_{\mathrm F}^{1/t}\), is \(\sqrt c\) in the third case and \(1-\alpha/2\) after rank loss. These factors coincide at the single allowed step \(\alpha=4-2\sqrt2\); rank loss and the distinct rank-one update law still occur at that step. The equal-singular start in the first case has factor \(c\).
 
 ## Assumptions and scope
 
-Let \(n\ge2\), \(X_\star\in\mathbb R^{2\times n}\), and \(f(X)=\frac12\|X-X_\star\|_{\mathrm F}^2\). Write \(E_t=X_t-X_\star\). For \(E=U\operatorname{diag}(s_1,\dots,s_r)V^\top\) its thin singular value decomposition, set
+Let \(n\ge2\), \(X_\star\in\mathbb R^{2\times n}\), and \(f(X)=\tfrac12\|X-X_\star\|_{\mathrm F}^2\). Write \(E_t=X_t-X_\star\). For a thin singular value decomposition \(E=U\operatorname{diag}(s_1,\ldots,s_r)V^\top\) with positive singular values, define
 \[
-\Phi(E)=\|E\|_*\operatorname{polar}(E)
-=\left(\sum_{j=1}^{r}s_j\right)UV^\top,\qquad
-\Phi(0)=0.
+\Phi(E)=\|E\|_*\operatorname{polar}(E)=\left(\sum_{i=1}^r s_i\right) UV^\top,
+\qquad \Phi(0)=0.
 \]
-The exact iteration is
-\[
-E_{t+1}=E_t-\frac{\alpha}{2}\Phi(E_t),
-\quad 0<\alpha<2,\quad\alpha\ne1.
-\]
-The factor \(1/2\) normalizes the Hessian trace \(\operatorname{tr}(I_2)=2\). For any rank-one error, \(\Phi(E)=E\), so the rank-one formula above applies immediately with \(k=0\). Rank-zero errors remain zero.
-
-The classification assumes exact arithmetic, in which rank is unambiguous. When \(r_0\) is a power of \(c\), the rank collapse is an exact equality, not a numerical-small-singular-value event.
+The exact iteration is \(E_{t+1}=E_t-(\alpha/2)\Phi(E_t)\). The factor \(1/2\) is the inverse left-Hessian trace (the Hessian acts on the error by left multiplication by \(I_2\)). The result is in exact arithmetic, for arbitrary singular vectors and real matrices of the stated shape. Rank-one initial errors follow the same rank-one law with \(k=0\); zero remains zero.
 
 ## Proof
 
-**Step 1: reduce to singular values without restricting singular vectors.**
-Let the full-row-rank error have SVD \(E=U\operatorname{diag}(s_1,s_2)V^\top\) with \(s_1\ge s_2>0\); the two columns of \(U\) and \(V\) are orthonormal. Its update has the *same* singular vector factors before the signs of its two diagonal coefficients are absorbed:
-\[
-E^+
-=U\operatorname{diag}(s_1-\alpha\bar s,\ s_2-\alpha\bar s)V^\top,\qquad
-\bar s=\frac{s_1+s_2}{2}.
-\]
-Write \(s_1=\bar s(1+r)\), \(s_2=\bar s(1-r)\), \(0\le r<1\). The two signed coefficients become
-\[
-\bar s(1-\alpha+r),\qquad
-\bar s(1-\alpha-r).
-\]
-Their *absolute values* are the new singular values.
+**One update.** At full row rank put \(a=(s_1+s_2)/2>0\) and \(r=(s_1-s_2)/(s_1+s_2)\). In the current singular-vector frames the update has signed entries \(a(d+r)\), \(a(d-r)\). Their magnitudes are the new singular values, up to ordering. For \(r=0\), \(\Phi(E)=2E\), which gives \(E_t=d^tE_0\). For \(0<r<c\), the magnitudes have mean \(ac\) and half-difference \(ar\), hence the new contrast is \(r/c\). For \(c<r<1\), the larger and smaller magnitudes have mean \(ar\) and half-difference \(ac\), hence the contrast is \(c/r\). At \(r=c\) exactly one signed entry vanishes. On any rank-one error, \(\Phi(E)=E\); the next iterate is \((1-\alpha/2)E\), still of rank one since the multiplier is positive.
 
-**Step 2: the exact contrast map.**
-Set \(c=|1-\alpha|\). If \(0<r<c\), the two coefficients have the same sign, the new singular-value mean is \(c\bar s\), and their contrast is \(r/c\). If \(c<r<1\), they have opposite signs, the new mean is \(r\bar s\), and their contrast is \(c/r\). If \(r=c\), one coefficient vanishes and the updated error has rank one. Therefore, while full row rank persists,
-\[
-T_c(r)=
-\begin{cases}
-r/c,&0<r<c,\\
-c/r,&c<r<1,
-\end{cases}
-\]
-and the *only* rank-loss threshold is \(r=c\). At \(r=0\), both singular values are equal, \(\Phi(E)=2E\), and \(E^+=(1-\alpha)E\), preserving equality.
+**Solving the contrast iteration.** Write \(r_0=c^x\) for \(0<r_0<1\). Whenever the exponent is greater than one it decreases by one on the next update. If \(x=k\) is an integer, after \(k-1\) steps the contrast is \(c\) and the next update has rank one. If \(x\) is not an integer, the first contrast in \((c,1)\) is \(r_m=c^{x-m}\). The map \(r\mapsto c/r\) preserves that interval and squares to the identity; its only fixed point there is \(\sqrt c\), attained exactly at \(x-m=1/2\). This gives the stated times and minimal contrast periods.
 
-**Step 3: finite entry or exact rank loss.**
-For \(0<r_0<1\), write \(r_0=c^x\) with \(x=\log r_0/\log c>0\). Whenever \(x>1\) the first branch applies and replaces \(x\) by \(x-1\). If \(x=k\) is an integer, after \(k-1\) such steps \(r=c\), and the next step has rank one: the first rank drop occurs at iteration \(k\). Since a rank-one matrix has \(\Phi(E)=E\), every later step is \(E^+=(1-\alpha/2)E\), preserving rank one because \(0<1-\alpha/2<1\).
-
-If \(x\notin\mathbb Z\), after \(m=\lfloor x\rfloor\) subtractions the new exponent is \(u=x-m\in(0,1)\), hence \(r_m=c^u\in(c,1)\). On this interval \(T_c(r)=c/r\), which maps \((c,1)\) into itself and is an involution. This gives an exact two-cycle of contrasts, with no rank loss.
-
-**Step 4: exact matrix, not just singular-value, two-step scaling.**
-For \(c<r<1\), the two signed coefficients from Step 1 have opposite signs. After the first update their absolute values have mean \(r\bar s\). The second step subtracts \(\alpha r\bar s\) times the polar factor of \(E^+\), respecting those two opposite signs. Substituting the signed entries separately gives
+**Signed two-step law and rates.** When \(r>c\), the first signed coefficients in the current frames have signs \((+,-)\), irrespective of the sign of \(d\). Their mean magnitude is \(ar\). Thus the next signed entries in those same frames are
 \[
-E^{++}=
-\begin{cases}
-c\,E,&0<\alpha<1,\\
--c\,E,&1<\alpha<2.
-\end{cases}
-=(1-\alpha)E.
+ a(d+r)-\alpha ar=ad(1+r),\qquad
+ a(d-r)+\alpha ar=ad(1-r).
 \]
-This identity is independent of the original left and right singular vectors; it holds in the original matrix coordinates because the two steps preserve their singular directions up to signs. Repeating the argument yields \(E_{t+2}=(1-\alpha)E_t\) for all \(t\ge m\). Consequently
-\[
-f(X_{t+2})=c^2 f(X_t)\qquad(t\ge m).
-\]
-The rank-one, rank-zero, equal-singular and resonant cases complete the classification.
+They give \(E_{t+2}=d E_t\) in the original matrix coordinates, including in the fixed-contrast case. Both parity subsequences have norm multiplier \(c\) per two steps, giving the root factor \(\sqrt c\). On the rank-one branch the factor is the positive multiplier itself. If \(\alpha<1\) then \((1-\alpha/2)^2=1-\alpha+\alpha^2/4>c\). If \(1<\alpha<2\), equality of the two factors is equivalent to \(\alpha^2-8\alpha+8=0\); only \(4-2\sqrt2\) lies in the interval.
 
 ## Verification
 
-For \(\alpha=7/10\) (so \(c=3/10\)), a full-rank diagonal start with singular values \(3/2,1/2\) has contrast \(1/2\in(c,1)\) and obeys \(E_2=(3/10)E_0\). For \(\alpha=13/10\), the same start instead obeys \(E_2=-(3/10)E_0\). These are identities in exact rational arithmetic.
-
-For the resonant start \(E_0=\operatorname{diag}(109/100,91/100)\) and \(\alpha=7/10\), the contrast equals \(9/100=c^2\), so the first update preserves full rank and the second has rank exactly one. The standalone `checker.py` reproduces these and other rational examples, compares the exact contrast recursion with direct polar-SVD updates over deterministic numerical cases, and checks the post-entry two-step identity. Finite checks support implementation correctness but do not prove the arbitrary-dimension or infinite-iteration statements.
+The unchanged `checker.py` gives rational diagonal checks for the two-step and rank-loss formulas and seeded numerical checks across different singular-vector frames. Its finite tests are supplementary, not the proof. As a fixed-contrast example, at \(\alpha=3/4\) and \(E_0=\operatorname{diag}(3,1)\), the first two iterates are \(\operatorname{diag}(3/2,-1/2)\) and \(\operatorname{diag}(3/4,1/4)\): the contrast is constantly \(1/2=\sqrt c\), while \(E_2=(1/4)E_0\). The rate-coincidence assertion is an exact algebraic equality, not a numerical tolerance.
 
 ## Relationship to prior work
 
-Shulgin, Laing, Orvieto and Richtárik, *A Quadratic Lens on Muon's Polar Update* (2026), derive the full-row-rank covariance-root recursion (Appendix I), its fixed dual-adapted-step counterpart, and exact **line-search** two-row spectral flattening and post-collapse behavior (Proposition 18 and Corollary 6). They also give a commuting-case singular-value formula for general normalized steps. The **line-search/normalized-step \(\alpha=1\)** collapse is their prior theorem and is **excluded** here. The present classification treats every distinct fixed parameter \(0<\alpha<2,\alpha\ne1\) in the isotropic two-row case: finite entry into a two-step scalar orbit, exact exceptional powers causing rank loss, and explicit different rates after rank loss. Their general root recurrence is a starting point, but their paper does not state this complete off-line-search dynamical phase classification.
-
-Jawanpuria, Garai and Mishra (2026) establish uniform convergence for nuclear-scaled polar descent over \(0<\alpha<2\) and exhibit invariant rank-one directions; their results do not determine this singular-ratio return map, finite transient, or resonant rank-loss set. Lau, Long and Su (2025) introduce PolarGrad and its nuclear-norm scaling.
+Shulgin, Laing, Orvieto and Richtárik give a general full-row-rank covariance-root recursion (Appendix I, Proposition 17) and explicitly state the commuting fixed-step singular-value law \(s_i^+=|s_i-\alpha\bar s_H|\) after Corollary 4. For \(H=I_2\) it gives this problem's magnitude update. They also analyze two-cluster dynamics and two-row collapse at exact line search, corresponding here to \(\alpha=1\), which is excluded. The distinction here is solving the off-line-search map over arbitrarily many updates, including the complete set of hitting times for rank loss and the signed matrix return law; neither the one-step recurrence nor the optimizer is claimed as new. Related work by Jawanpuria, Garai and Mishra establishes uniform convergence bounds under nuclear scaling, not these orbit or rank-loss classifications. Lau, Long and Su introduce the nuclear-scaled polar update. These comparisons do not establish historical priority.
 
 ## Limitations
 
-The setting is an exact-polar, deterministic, isotropic matrix quadratic with exactly two rows and \(n\ge2\), at normalized fixed steps strictly between zero and two and different from one. It does not assert the same classification for anisotropic Hessians, larger row counts, approximate polar maps, momentum, stochastic updates, or floating-point rank detection. The exceptional rank-loss condition is exact and can be numerically unstable under perturbations. The full-rank two-step scaling and subsequent rank-one rate are analytic; independent mathematical validation remains unperformed, and unindexed priority cannot be ruled out.
+The proof concerns deterministic exact thin-polar dynamics on an isotropic two-row quadratic. It does not extend the classification to anisotropic curvature, other row counts, approximate polar maps, momentum, stochastic updates, or finite-precision rank decisions. In particular the rank-loss conditions are exact equalities.
 
 ## References
 
-1. E. Shulgin, S. Laing, A. Orvieto, and P. Richtárik, *A Quadratic Lens on Muon's Polar Update: Benefits, Pitfalls, and the Role of Newton–Schulz*, arXiv:2610.30280v1 (first public 2026-10-21). https://arxiv.org/html/2610.30280v1
-2. P. Jawanpuria, B. Garai, and B. Mishra, *Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics*, arXiv:2610.27747v1 (first public 2026-10-20). https://arxiv.org/html/2610.27747v1
-3. T. T.-K. Lau, Q. Long, and W. Su, *PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective*, arXiv:2505.21799 (first public 2025-05-27). https://arxiv.org/abs/2505.21799
+1. E. Shulgin, S. Laing, A. Orvieto, and P. Richtárik, *A Quadratic Lens on Muon's Polar Update: Benefits, Pitfalls, and the Role of Newton–Schulz*, https://arxiv.org/html/2610.30280v1.
+2. P. Jawanpuria, B. Garai, and B. Mishra, *Constant Step Sizes for Muon-Type Spectral Optimizers on Strongly Convex Quadratics*, https://arxiv.org/html/2610.27747v1.
+3. T. T.-K. Lau, Q. Long, and W. Su, *PolarGrad: A Class of Matrix-Gradient Optimizers from a Unifying Preconditioning Perspective*, https://arxiv.org/abs/2505.21799.

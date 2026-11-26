@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conjugacy orbit of any nonidentity quotient element meets the complement, while pure kernel elements can be chosen independently and retain their module span. Thus invariable generation reduces **exactly** to module spanning by identity-quotient entries and cyclic quotient generation. Semisimple block-matrix ranks and divisor Möbius inversion give the all-tuple formula. For fixed scalar action, the pure-rank waiting time is an independent sum of geometric variables with uniformly bounded moments; the quotient-generation delay has an explicitly summable exponential tail. These steps establish both the CLT and the exact mean error inequality. Nine exhaustive group computations check the finite formula; no finite computation is relied upon to prove the limits.
+PASS
 
-## Originality — PASS, subject to historical priority uncertainty
+Fixed-point-freeness implies p does not divide m: an element of order p would have (h-I)^p=0, hence a nonzero fixed vector. Each nontrivial quotient coset can be conjugated elementwise into H, whereas conjugating kernel entries preserves their module span. Conversely a generated subgroup surjecting onto H has H-stable intersection with the abelian kernel, so it contains the whole kernel if those entries span it. Maschke and the distinct simple factors of the cyclic group algebra reduce the span test to independent full-row-rank matrices over fields of orders p^d_i. Counting their rows, choosing the kernel positions, and using divisor Möbius inversion on nonidentity quotient entries gives the displayed formula, including k=0. In the fixed p,m scalar family the rank increments have independent positive geometric durations, by fresh samples and success probabilities depending only on rank. With a_j=(1-p^(-j))/m, summing 1/a_j gives the exact kernel mean, and (1-a_j)/a_j² differs from m(m-1) by O(p^(-j)); uniformly bounded third moments give Lyapunov. The quotient delay is bounded pathwise by (η-n)_+, whose expectation is bounded by the sum of the geometric tails for the maximal quotient subgroups. No independence of quotient and kernel stopping times is needed. The comparison gives both the finite-n error and the Gaussian transition, with flooring harmless at the continuous limiting CDF. Independent bounded replay on the order-100 scalar group with rank two found 0 pairs and 72000 triples out of 1000000, agreeing with the formula; this is not a test of the asymptotics or general non-scalar modules. The uploaded scalar checker was inspected, not executed.
 
-Detomi–Lucchini Proposition 8 already covers the underlying invariant-generator rank criterion; that criterion is excluded from the originality claim. Kowalski–Zywina Proposition 4.1 already studies the affine case with the complement growing with its kernel field. The 2026 published elementary-abelian Frobenius two-class-graph result is an adjacent but weaker numerical object. The present **all-tuple enumeration across reducible and repeated semisimple constituents**, together with the **fixed-complement growing-multiplicity Gaussian window and second-order expectation constant**, is not implied by the statements located in these sources. Actual published-finding corpus queries, source inspections, and equivalent/broader comparisons are recorded in AUDIT.json. Priority risk remains from possible unindexed specialized probability formulas and from the closeness of the count to the known rank criterion.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves a natural probability-distribution problem for the Chebotarev/invariable-generation invariant in an infinite family whose minimal invariable-generator size grows with the module multiplicity. The precise central-limit transition and additive expectation constant, rather than only a rough bound or a trivial restriction, quantify the stopping-time behavior, and the general finite formula separates kernel representation multiplicities from complement arithmetic. This could serve as a benchmark for more general solvable groups and for comparing element-uniform and class-uniform sampling. No publication-scale significance is asserted.
+The explicit all-length module-multiplicity law and fixed-complement, increasing-multiplicity Gaussian and mean results are distinct from the inspected sources. The rank criterion, general Möbius framework, pairwise specialization and an important affine mean family are credited as pre-existing. This is a bounded best-of-knowledge comparison, not priority certification.
 
-## Limits and closest literature
+## value
 
-The complement must be cyclic and fixed-point-free; the Gaussian assertion requires fixed \(p,m\). General module-rank criteria are pre-existing, as are affine-field Chebotarev mean formulas and the two-class graph theorem. The limiting results have an analytic proof; numerical checks cover only small groups. The review is not an independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact law converts an existence and pair-generation picture into arbitrary-length success probabilities even with large isotypic multiplicities. In the scalar regime it identifies both the transition width and a nonvanishing explicit constant beyond the linear waiting time, quantifying the near-full-rank delay separately from an exponentially small quotient effect. These answer natural questions about element-uniform invariable sampling rather than an unmotivated finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

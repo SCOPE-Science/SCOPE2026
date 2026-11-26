@@ -1,11 +1,21 @@
-# Scientific review: Poisson clocks for consecutive missing part sizes in random partitions
+# Independent mathematical audit
 
-**Correctness — PASS.** The model distinguishes missing **consecutive sizes** from sizes having multiplicity less than a threshold. DeSalvo--Menz Theorems 4.13--4.14 yield total-variation convergence for all multiplicities with indices \(j\le m_N=o(\sqrt N)\); the proposed scale satisfies that hypothesis for every fixed \(r\ge2\). An independent geometric model then has zero-multiplicity probabilities \(1-e^{-cj/\sqrt N}\). For a run of length \(r\), the expected marked-start measure converges to \(c^r x^r dx\). Overlapping clusters of size \(t\ge2\) contribute at most order \(\varepsilon_N^{t-1}\) to each fixed factorial moment, whereas disjoint clusters factorize, proving Poisson point-process convergence. The first and higher run laws follow from exact order-statistic events. The included checker passed 754 exact finite coefficient/enumeration comparisons and the specified independent-model diagnostics; finite computations are not invoked for the limiting proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** Bhoria--Eyyunni--Maji (2022, Definition 1, Theorem 2.6, Problem 6) introduce exactly this statistic and its summed generating function, but do not provide the full run-location limit. Bhoria--Eyyunni--Li (2023 preprint, later 2024 publication) supplies combinatorial identities for the same object without an inhomogeneous Poisson process or scaling limit. DeSalvo--Menz (2016, Theorems 4.13--4.14, Example 4.6) supply a general independence approximation and the classical single-gap limit, but do not themselves perform the overlapping-run analysis for fixed \(r\ge2\). Further inspected manuscripts concern overpartitions, the number of missing sizes, or multiplicity-based least \(r\)-gaps: none states the asserted equivalent limit. Targeted mathematical searches and comparisons against accessible earlier results revealed no direct or stronger covering statement. Residual risks include a general rare-pattern theorem implicitly implying this specialization and unindexed literature. Novelty is stated only relative to inspected evidence; no independence or external certification is claimed.
+PASS
 
-**Value — PASS.** This is a complete infinite-dimensional rare-event description of a natural partition statistic already singled out for asymptotic investigation. The scaling exponent \(r/(2(r+1))\), polynomial intensity, and hierarchy of all successive run locations are not mere substitutions into the classical single-gap Rayleigh formula: overlapping rare events require a cluster analysis. The result supplies a probabilistic structural answer to a part of the asymptotic landscape motivated by the original generating-function work. It **does not** prove the mean asymptotic requested in Problem 6; that limitation is essential.
+For a compact interval [0,K], the required multiplicities lie at indices at most floor(K a_N)+r=o(sqrt(N)), so DeSalvo–Menz gives joint total-variation transfer, with c=pi/sqrt(6). In the geometric model the zero probabilities are 1-exp(-cj/sqrt(N)). Writing epsilon=a_N/sqrt(N) gives a_N epsilon^r=1, and Taylor expansion uniformly on this window gives the stated Riemann-sum intensity. For a fixed tuple of distinct starts, a connected cluster of t overlapping windows has at least r+t-1 distinct absent sizes and O(a_N) placements, hence contributes O(epsilon^(t-1)); different clusters are independent. Removing nearby tuples from the independent product of intensity sums costs O(1/a_N). Mixed factorial moments therefore give independent Poisson interval counts; first moments give tightness on compacts, and the diffuse intensity gives vague convergence and count convergence on [0,x]. At x=0 the count is zero. The k-th start tail is exactly the event of at most k-1 starts through floor(x a_N); overlapping starts are counted as stipulated. The source's finite coefficient/enumeration tests were inspected as bounded corroboration, not rerun or used as a limit proof.
 
-**Scientific limitations.** The parameter \(r\) stays fixed; expectations need separate uniform-integrability estimates. Older general limit or Poisson-approximation results may imply the theorem without naming this partition statistic, and unindexed papers may overlap.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the fixed-r point-process limit and its successive-start laws relative to the inspected predecessors. There is a distinct, mathematically equivalent Resultary record carrying a later publication date, which is disclosed, not treated as a different theorem or evidence of reverse priority. No inspected source established the same limiting law before the frozen result. This is not a priority certification.
+
+## value
+
+PASS
+
+The statistic is the established chain mex and its canonically ordered successors. Its intensity, scaling exponent and fixed-rank laws characterize a natural emergence process and require controlling overlapping runs, rather than replacing r in a one-gap limit. The result is useful as a distributional description; it does not by itself give an asymptotic of the summed mex or any unbounded moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

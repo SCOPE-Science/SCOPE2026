@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:36:45.761880Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on the common seed gives a deterministic image of size at most M. Exact support on each of finitely many input rows forces this image to meet every allowed output row for almost every seed simultaneously. Two outputs y,z cannot suffice: choose x=(y_1,z_2), which excludes them both; the written Hamming-distance intersection count additionally gives the sharp maximum two-output cover q^2-2. Three distinct diagonal symbols give a support cover when q>=3, and independent coordinate permutations followed by the equivariant tie-break give invariant probabilities over the whole allowed row, because the stabilizer of that input acts transitively there. For q=2 the target is a deterministic bijection, so almost every seed (not literally every seed on an arbitrary null set) needs all four outputs; four messages work. An independently written exact check, /workspace/review_evidence/5_exact_counts.py, verifies the maximum two-output cover for q=2..6, the binary bijection, and integer-weight uniformity of the proposed simulator for all input rows at q=3,4 and two representative rows at q=5,6. The group argument, not those finite checks, establishes exactness for all q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cubitt et al. state the exact convex hull of deterministic channels with image size at most k and use support covering plus permutation covariance for uniform-on-subset channels U_(n,m), including the one-use W_q as U_(q,q-1) after relabelling inputs. Kazemi's inspected Proposition 7 is for the upper invariant on K_n × K_2, not the minimum on every square."
+        ],
+        "reasoning": "Prop. 19 is not a direct closed formula for tensor squares, whose input supports are a restricted family of subsets. Its proof technique and characterization apply directly once the support cover is specified. The 2012 minimum k-tuple source was not used as evidence for its inaccessible exact hypotheses.",
+        "searches": [
+          "arXiv:1003.3195 Theorem 15 and Proposition 19",
+          "DOI 10.1007/s10878-011-9389-z",
+          "arXiv:1603.02428 §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1003.3195",
+        "Resultary 9a326ff00272",
+        "Resultary 5e74ec4276a1",
+        "Resultary 5c134e3bde95",
+        "DOI 10.1007/s10878-011-9389-z",
+        "arXiv:1603.02428",
+        "arXiv:2212.11666",
+        "arXiv:2610.15877",
+        "arXiv:2401.16707"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choose a deterministic function supported by a minimum cover, then conjugate it by a uniform independent permutation of each coordinate. The law remains supported, has the same cost, and is uniform on the allowed row because the row stabilizer is transitive. The exact indexed minima are 3 and 4. Even without quoting those minima, two points always lie in one mixed row-column cross and three points in distinct rows and columns never do."
+        ],
+        "reasoning": "The prior exact simulation method and supported-map average, followed by the already-covered graph invariant, yields the full claimed result. The published ternary example is second-order channel interconversion and is not the proof of this exact cost. The construction does not introduce a new convex-hull facet, obstruction, or regime requiring different simulation reasoning.",
+        "searches": [
+          "arXiv:1003.3195 p. 10 Theorem 15, p. 11 covariance argument and p. 12 Proposition 19",
+          "Resultary 9a326ff00272 Finding and proof Steps 1–2",
+          "arXiv:2212.11666 p. 7 Eq. (27)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allowed pairs are exactly edges of K_q × K_q (categorical product). Meeting each input's allowed row is equivalent to open-neighborhood total domination. Exact support plus the S_q × S_q covariance determines the uniform probability row."
+        ],
+        "reasoning": "A graph optimum without the symmetry reduction would not alone prove simulation. Given Theorem 15 and the covariant construction of Proposition 19, averaging a deterministic supported map with image in a minimum graph cover gives exactly the desired distribution and preserves its message bound. This proves equality of the two optima, not just a numerical resemblance.",
+        "searches": [
+          "Resultary: exact off-diagonal NOT channel simulation; tensor square and total domination of direct products of complete graphs",
+          "arXiv:1003.3195 §IV B and D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem of distinct record 9a326ff00272 explicitly gives gamma_t(K_p × K_q)=4 when p=2 and 3 for p,q>=3, with p=q=2 included. Record 5e74ec4276a1 gives the same minima as the first nonzero terms of a full labelled count. The similarly titled proper-colouring noise hit concerns adversarial coding, not simulation."
+        ],
+        "reasoning": "The inspected exact match is to the equivalent open-neighborhood minimum. The theorem is stronger than its square specialization. The first record is same-day and the second later; these dates do not independently establish historical priority.",
+        "searches": [
+          "Resultary: minimum total domination of K_q tensor K_q under row–column cross criterion",
+          "Resultary: off-diagonal exact two-use codebook, finite-block zero-error, q-ary channel"
+        ]
+      },
+      "rationale": "The exact numbers are a mechanical specialization of the known shared-randomness simulation support/covariance method to a graph minimum already covered by distinct indexed work. No claim about publication order between same-day records is made; earlier primary work identifies the exact off-diagonal NOT channel and uses the same support and twirling argument for it, and the graph computation adds only the elementary row-column obstruction and three-cell matching.",
+      "residual_risks": [
+        "Lawful primary full text for the 2012 graph paper was unavailable and the same-day catalogue records cannot establish chronology. Neither limit is used as negative originality evidence; mathematical coverage is established by the actual support and symmetry implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct method coverage and exact same one-use family, not a separately stated two-use optima table",
+          "evidence": "Names the channel N_NOT; exact SR cost is the least image-size convex hull. Uniform-on-subset channels are exactly simulated by hitting each support and randomizing equivariantly under permutations.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.3195",
+          "material_read": "PDF §IV B Theorem 15, p. 10, offsets 58150–61447; §IV D covariance and Proposition 19, pp. 11–12, offsets 69400–75546",
+          "method": "OA primary PDF",
+          "title": "Zero-error channel capacity and simulation assisted by non-local correlations",
+          "trigger": "Exact shared-randomness model, same off-diagonal NOT channel and support-covariant method"
+        },
+        {
+          "assessment": "Covers graph minima including q=2 and all q>=3, same-day order unknown",
+          "evidence": "Explicit gamma_t formula for rectangular products; row-column-star obstruction; three-cell matchings are the minimum sets when both factors have at least three points.",
+          "identifier_or_url": "2026/10/26/SCOPE-inclusion-minimal-total-domination-of-direct-products-of-complet--9a326ff00272",
+          "material_read": "RESULT.md Finding, assumptions and proof Steps 1–2, offsets 0–4165",
+          "method": "Resultary local mirror",
+          "title": "Inclusion-minimal total domination of direct products of complete graphs",
+          "trigger": "Exact equivalent support-cover optimum"
+        },
+        {
+          "assessment": "Agreement in a broader later result",
+          "evidence": "Lowest nonzero degree is three or four with the stated split; the case of two factors of size two is included explicitly.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-total-domination-polynomial-of-the-categorical-product-of--5e74ec4276a1",
+          "material_read": "RESULT.md Finding, assumptions and cross criterion, offsets 0–2773",
+          "method": "Resultary local mirror",
+          "title": "Exact total-domination polynomial of the categorical product of two complete graphs",
+          "trigger": "Broader graph enumeration of the exact support covers"
+        },
+        {
+          "assessment": "Potential older graph coverage; exact statement not attributed",
+          "evidence": "The related indexed record cites this for minimum k-tuple total domination; the review verdict does not depend on this inaccessible text.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-011-9389-z",
+          "material_read": "No full text retrieved",
+          "method": "Lawful DOI and Springer routes, no alternate repository located",
+          "title": "k-Tuple Total Domination in Cross Products of Graphs",
+          "trigger": "Likely older minimum total-domination theorem on the exact products"
+        },
+        {
+          "assessment": "Upper invariant, not the general lower/minimum invariant",
+          "evidence": "Proposition 7 gives upper k-tuple total domination 2k+2 for K_n × K_2.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.02428",
+          "material_read": "PDF §5, pp. 7–9, including Proposition 7 and Question 1",
+          "method": "OA primary PDF",
+          "title": "Upper k-tuple total domination in graphs",
+          "trigger": "Related primary graph theorem and endpoint"
+        },
+        {
+          "assessment": "Same q=3 channel, different conclusion",
+          "evidence": "Eq. (27) illustrates reversibility up to second order; it does not give the two-use exact SR optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.11666",
+          "material_read": "PDF p. 7 Eq. (27), offset 42790 onward and Theorem 4 locator",
+          "method": "OA primary PDF",
+          "title": "Channel Simulation: Finite Blocklengths and Broadcast Channels",
+          "trigger": "Ternary off-diagonal example"
+        },
+        {
+          "assessment": "Defines fixed tolerance strictly between zero and one; not an exact result for this channel",
+          "evidence": "Finite encoder and decoder share U, but the definition and nonsingular asymptotic regime differ from the claim at zero TV error.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15877",
+          "material_read": "PDF §2.2 Definitions 2.7–2.8, offsets 17040–22235, and start of §3",
+          "method": "OA primary PDF",
+          "title": "Fine asymptotics for approximate simulation of symmetric channels",
+          "trigger": "Fixed message alphabet and same worst-case TV objective"
+        },
+        {
+          "assessment": "Different communication objective",
+          "evidence": "Binary prefix-free encoder with i.i.d. input source and expected length cost.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.16707",
+          "material_read": "PDF §II Definitions 1–3, offsets 11110–13900",
+          "method": "OA primary PDF",
+          "title": "Optimal Redundancy in Exact Channel Synthesis",
+          "trigger": "Alternative exact-simulation formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact finite-block simulation quantity is natural, but this instance adds only a symmetrization already used for the same one-use channel and an elementary, independently covered support minimum. No additional meaningful threshold or novel simulation phenomenon survives that reduction. No substantive repair of this finding is supported.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

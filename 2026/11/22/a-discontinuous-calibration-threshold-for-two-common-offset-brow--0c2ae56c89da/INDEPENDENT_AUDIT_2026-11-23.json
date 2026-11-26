@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:46:23.248577Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed Gaussian projection from J=∫(1-u)dB_u, Var(J)=1/3 and c(v)=v-v²/2. The transformed reading B_s+Z and increment B_t−B_s are independent with variances s+η and t−s. If a variance is zero the corresponding constant datum contributes zero; this covers coincident times and (s,η)=(0,0). For fixed s<1 the increment gain d(1-s-d/2)² has its unique maximum at d=2(1-s)/3; s=t=1 gives gain at most 1/4<8/27. The reduced derivative has the product factors in RESULT.md; for η>0 each quadratic has one positive root below one, and at the first factor’s root r the second is 3r(r−2)<0. The signs −,+,− leave only s=0 and the second root s_+(η) as winners. For η=0 cancel the common factors and the only winner is s=2/5. For s>0 the gain relative to calibration has the sign of H(s)−η, where H=s(12−12s−5s²)/(32(s²−3s+3)). The differentiated envelope has exactly one maximum at (15−√105)/10 and its value is (7√105−69)/64=0.04263524002683107316…; the unique interior tie there must be the local maximum already identified. Risk is 1/75 noiseless, 1/27 at and above the threshold, and otherwise obtained by subtracting the winning gain from 1/3. The low-noise branch is continuous up to its positive tied first time; the high-noise branch starts at zero. Read all frozen supporting material, including the symbolic/matrix verifier and dependency list; the script was inspected, not executed. The foregoing projection, factorization and root ordering are the replay, not the sampled design checks. This conclusion is for two deterministic samples and perfectly common Gaussian error, not independent readings, drift, many samples or adaptivity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Attia–Constantinescu’s abstract supplies general correlated Bayesian design and a weighted-likelihood framework, numerically illustrated for advection–diffusion.",
+          "The earlier Wiener quadrature benchmark without error is the η=0 endpoint of this record, not the stated novel part."
+        ],
+        "reasoning": "A goal-oriented covariance formulation can express the captured variance, but no inspected statement classifies maximizers of that design function for this rank-one error covariance. The existence of an exactly noiseless difference and the finite positive tie require the specific extra optimization.",
+        "searches": [
+          "arXiv:2007.14476, correlated-observation Bayesian OED",
+          "Web: Wiener process noisy information optimal quadrature correlated common errors optimal nodes mean squared Gaussian integration Brownian motion probabilistic numerics Sacks Ylvisaker"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1902.06126",
+        "https://arxiv.org/abs/2007.14476",
+        "Resultary 0c2ae56c89da, f9e14ae9ff03, 15716724ea95 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aksenov’s criterion integrates v(t) based on observations preceding t, while the two-reading integral estimator can use both measurements globally.",
+          "Even a noiseless calibration-adjusted one-point bridge design maximizes gain at 1/2: Cov(J,B_t)=t(1−t)/2 and Var(B_t)=t(1−t). For the motion it maximizes t(1−t/2)² at 2/3."
+        ],
+        "reasoning": "The shared boundary-calibration mechanism is real, but the exact tie is not a corollary of the bridge solution or of filtering design. The candidate gains differ even on the calibration branch, before comparing them to the other branch.",
+        "searches": [
+          "arXiv:1902.06126v1, Section II.C equation (12) and Section IV two-measure problem",
+          "Resultary f9e14ae9ff03, correlated-error Brownian-bridge quadrature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1902.06126v1 §§I.B, II.A and II.C explicitly require independent sensor noise and optimize the time integral of causal filtering state variance.",
+          "Resultary f9e14ae9ff03 estimates a Brownian-bridge integral and compares a symmetric interior pair to a zero-signal endpoint plus midpoint."
+        ],
+        "reasoning": "A trace of (causal) state variance is not posterior variance of the integral, which integrates all entries of a conditional covariance kernel. In the common-offset experiment a change of coordinates makes an exactly noiseless increment; independent noise does not have this property. Terminal pinning changes the prior and cannot be undone by simply setting error correlation to one.",
+        "searches": [
+          "Web: Brownian motion optimal two sampling times path integral quadrature common additive random offset correlated errors calibration Wiener optimal sampling Aksenov",
+          "Resultary: Brownian motion path integral quadrature two deterministic samples common shared calibration offset noise phase transition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact algebraic cutoff and calibration design appeared in the audited Resultary self-hit 0c2ae56c89da; f9e14ae9ff03 uses a different bridge threshold, and 15716724ea95 gives two independent noisy bridge readings.",
+          "The web ranking returned the 2017 and 2019 Aksenov works; the latter’s primary statistical model and loss do not give this table."
+        ],
+        "reasoning": "No independent exact table was identified in these searches. A self-hit or a coincident number for a different criterion is not priority evidence.",
+        "searches": [
+          "Resultary: Brownian motion path integral quadrature two deterministic samples common shared calibration offset noise phase transition",
+          "Web: Brownian motion optimal two sampling times path integral quadrature common additive random offset correlated errors calibration Wiener optimal sampling Aksenov"
+        ]
+      },
+      "rationale": "The closest older two-measure Brownian primary text was accessible in this review and turns out to have both a different objective and independent sensor noise. The closest indexed shared-noise calibration record instead uses a Brownian bridge. Neither supplies the exact positive-noise common-offset transition for unpinned Brownian integral estimation. The noiseless calculation and Gaussian projection are not originality claims.",
+      "residual_risks": [
+        "The correlated-design PDF body was not read on this pass; the abstract does not exclude unstated special cases.",
+        "A specialized earlier singular-error or numerical-integration result could still give equivalent coverage. This is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different noise structure and filtering loss; the motivating overlap does not imply the claimed phase diagram",
+          "evidence": [
+            "§I.B says all sensor noises are independent; §II.A says the estimate uses measurements preceding t; (12) integrates the time-dependent state-estimator variance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1902.06126",
+          "material_read": "Primary PDF abstract, §I.B and §II including equations (1), (2), (10), (12) and the stated scope of the two-measure theorem",
+          "method": "Read the accessible primary PDF text, not just the bibliographic abstract",
+          "title": "Optimal Measurement Times for a Small Number of Measures of a Brownian Motion over a Finite Period",
+          "trigger": "Closest older Brownian one- and two-measure exact-design paper"
+        },
+        {
+          "assessment": "Visible general methodology and PDE example; no whole-paper exclusion claimed from abstract",
+          "evidence": [
+            "The abstract describes the Hadamard-weighted likelihood and numerical advection–diffusion sensor placement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.14476",
+          "material_read": "Primary arXiv abstract; PDF text request did not return the body",
+          "method": "Primary abstract and attempted lawful PDF retrieval",
+          "title": "Optimal Experimental Design for Inverse Problems in the Presence of Observation Correlations",
+          "trigger": "Potentially encompassing correlated-noise design framework"
+        },
+        {
+          "assessment": "Closely analogous mechanism, but the advertised theorem is for a different prior and correlation parameter",
+          "evidence": [
+            "The prior is endpoint pinned, the calibration branch pairs an endpoint with the midpoint and the advertised transition varies correlation."
+          ],
+          "identifier_or_url": "Resultary f9e14ae9ff03",
+          "material_read": "Indexed published claim",
+          "method": "Resultary search and explicit branch comparison",
+          "title": "A sharp finite-noise symmetry-breaking frontier in two-query Brownian-bridge quadrature",
+          "trigger": "Closest indexed correlated two-sample calibration transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A common zero-offset is a natural nuisance parameter. The result tells when to spend one of exactly two measurements entirely on calibration and gives the full risk and exact coexistence point, rather than just demonstrating that an offset can cancel. The jump and risk plateau are useful benchmark behavior for this rank-one error model; robustness to even small independent noise is not asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

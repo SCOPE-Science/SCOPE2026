@@ -1,15 +1,21 @@
-# Scientific review: exact graph-ball GMRES residuals
+# Independent mathematical audit
 
-## Correctness — PASS
-The weighted grounded Laplacian is SPD because positive leaf killing removes its constant nullspace. Each rooted shell enters the root Krylov sequence for the first time with a nonzero product of positive interlevel weights, so the first \(k\) Krylov vectors span the first \(k\) shell indicators. The graph-ball indicator is harmonic on every earlier level and hence orthogonal to the image of that Krylov subspace. Dimension counting fixes the unique residual projection and its normalizing scalar. The radial subspace is invariant and invertible, proving exact termination one iteration after the final shell enters. The condition-number lower bound follows from two independent Rayleigh quotients. The included exact-rational script passed 10,602 independent vector and norm assertions on 879 examples; finite tests are not used in place of the all-parameter argument.
+## correctness
 
-## Originality — PASS with residual priority risk
-The 1986 GMRES paper establishes residual minimization but does not solve this graph family. The 2013 paper on right-hand-side-sensitive GMRES bounds studies weighted spectral bounds, not exact rooted-ball profiles. The 2007 Li–Zhang tridiagonal Toeplitz report provides explicit endpoint-vector analyses, which are acknowledged and excluded as an independent contribution. The full published *Exact GMRES boundary-layer profiles for discrete-affine Poisson data* result was inspected: its right-hand side is a discrete-affine harmonic interpolant on an unweighted one-dimensional Dirichlet path, whereas this work treats a point source on arbitrary radially weighted branching trees and proves universal conductance independence. The full published rooted-tree Green-operator result treats centered inverse-norm asymptotics rather than finite-step Krylov residuals. Searches for MINRES, radial trees, balls and exact root-source residuals did not reveal an implication covering the complete claim. A general Krylov or Jacobi-operator theorem might still encode the statement implicitly; no comprehensive archival absence assertion is made.
+PASS
 
-## Value — PASS
-The exact residual vector, its reciprocal-ball-volume norm, the conductance-invariance phenomenon and exact termination step form a natural structural benchmark for symmetric tree Poisson problems with localized forcing. It connects graph volume growth directly with solver convergence, distinguishing algebraic and exponential early residual decay; the same residual history survives an arbitrarily divergent spectral condition number. This is stronger than a small parameter improvement or an isolated numerical instance. It does not claim improved practical floating-point solver performance.
+Positive conductances and leaf killing make A SPD. Let m_j=|S_j|. Radial invariance and the nonzero coefficient -w_j on the next shell make K_k exactly the span of shell indicators through level k-1. Independently, for 1<=k<=H, set the trial solution x equal to zero from level k onward and prescribe its difference from level j to j+1, j<k, to be (1-B_j/B_k)/(m_{j+1} w_j). The total outward flux at level j is then 1-B_j/B_k. Subtracting the incoming flux gives (Ax)_root=1-1/B_k, (Ax)_v=-1/B_k on levels 1 through k, and zero outside. Killing contributes nothing to this trial vector. Thus the uniform-ball residual is attainable, and its ball indicator is annihilated by A on levels below k, making the residual perpendicular to A K_k by symmetry. Its squared norm is 1/B_k. k=0 is the root point mass; at H+1 invertibility on the full invariant radial subspace gives exact termination, with none earlier. The d>=3 count sums a geometric progression and d=2 has two vertices per nonroot shell. Constant and root coordinate Rayleigh quotients give the stated conditioning bound as killing vanishes. The frozen verify.py is a finite exact-rational check (the package reports 10,602 assertions on 879 trees), inspected but not executed for this review; the independent flux and orthogonality argument handles the universal quantifiers.
 
-## Remaining limitations
-The statement assumes radial branching and edge conductances, uniform positive leaf killing, a root point source, Euclidean exact unrestarted GMRES and no preconditioner. Independent audit and comprehensive historical priority review are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit standard minimum-residual Krylov theory and prior endpoint formulas. The support, uniform amplitudes and weight independence for the full class were not established by the compared prior statements. This is a bounded priority assessment of the structured graph law, not of the underlying Krylov machinery.
+
+## value
+
+PASS
+
+The point-source grounded-tree problem gives an exact structured Krylov benchmark for an infinite family: the residual is an entire vector fixed by volume growth, not just an estimate. It identifies precisely when branching changes preterminal norm rates and gives an explicit family with diverging condition number and unchanged exact residuals. It is not a finite-precision or solution-error claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

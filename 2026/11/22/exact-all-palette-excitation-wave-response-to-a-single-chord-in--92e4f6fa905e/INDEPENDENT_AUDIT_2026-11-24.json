@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:07:37.422485Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–37 and 39–58",
+        "Frozen VERIFICATION.md, verify_bruteforce.py/.out and verify_transfer.py/.out (inspected, not executed)",
+        "/workspace/branches/13f95dd2-2d2a-406b-907f-f44cd0702799/independent_chorded_cycle_check.py and independent_chorded_cycle_check.out; replay with python3 on the independent script: 178185 configurations in 31 graph/palette cases, 30 path cases, and the k=4, a=3 substitution for n=5..100"
+      ],
+      "rationale": "A vertex that fires in an F^k-fixed configuration cannot wait at zero: firing again after exactly k steps leaves just enough time for the forced refractory sequence and the next immediate excitation. A vertex that never fires is zero throughout the period; connectedness excludes this beside a rotating vertex. Thus all nonzero F^k-fixed states rotate, have least period k, and are exactly the colorings where each vertex has a successor-colored neighbor. For k>=3 a successor edge has at most one direction, so a directed cycle is one of the three stated simple cycles. With the selected cycle fixed, path increments have an initial run of -1, then the first increment c not -1 if present, then only +1. The increment sum gives exactly one c at each first-exception index, excluded by the stated congruence; the all-minus case gives the indicator. Reversal identifies the two endpoint signs, and coloring each internal site one less than its left neighbor proves positive path multiplicity. The long-cycle waves satisfy a resonant chord cycle in either phase direction; the two chord cycles in their intersection must agree on the chord direction and then both long arcs are forced. Thus every resonant pair intersects in exactly 2k states. Triple resonance would require k to divide 2, excluded. Inclusion-exclusion and division by k establish the orbit count. For k=4 the number excluded is zero for even L, and for L=4t+1 or 4t+3 it is 2t or 2t+2 respectively; the correction is +1 only in the latter odd case. This gives the stated distance-three law, including n=5 and the two-resonance cases. Independent direct checks of proper divisors, path words and the four-color substitution all passed.",
+      "residual_risks": [
+        "The frozen brute checker excludes fixed states without separately checking each proper divisor. That is adequate only by the proved rotating-state criterion; independent simulation used explicit divisor tests. Finite evidence does not cover all parameters or certify any other period or basin."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The K_(a,b) exact all-palette result 54f879326e9f uses onto-map/Stirling counts for full rotations and alternating waves; its graph class does not include general single-chord cycles. The arbitrary-graph literature compares limiting behavior in the three-color model; the multi-state one-dimensional paper analyzes stable periodic objects on the line."
+        ],
+        "reasoning": "An arbitrary-graph limiting/period criterion does not count distinct fixed-period orbits; an all-k theorem on complete bipartite graphs does not resolve chord-path multiplicities or intersections along a single chord.",
+        "searches": [
+          "Resultary: multi-palette Greenberg-Hastings finite graph primitive periodic orbit census",
+          "Resultary: Greenberg-Hastings k color palette arbitrary k primitive periodic waves exact finite graph all k",
+          "Gravner–Lyu–Sivakoff arXiv:1610.07320; Fisch–Gravner 1995"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work comparison",
+        "Local Resultary search and comparison Findings indexed above, including 947b2a9e90ed and 71a56cc4f07f",
+        "Primary literature searches and OA passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three-state theta, subdivision and bouquet results have related divisible-by-three resonance and phase propagation. The theta statement is closest in method, using path increments and marking support at the two terminals on three arms of length at least two."
+        ],
+        "reasoning": "Neither the full subdivision nor bouquet yields a single unsubdivided edge shared by two cycles. General directed-cycle existence is much weaker than the census. The earlier theta formula does not specialize by inserting k or an arm of length one within its hypotheses; the endpoint-difference congruence and intersection counts with a shared unoriented chord are the additional calculations.",
+        "searches": [
+          "Resultary: theta network three-color excitable exact two-terminal source census path increment",
+          "Three-period full-subdivision and cycle-bouquet scientific statements in 3e82f66ce40c and 18b6aacb40f2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct chorded-cycle matches led to the assigned record itself. The singly chorded propagation-time record 71a56cc4f07f is zero forcing on the same topology, not GH. The closest three-color theta record f7be757a3807 gives an exact terminal-source polynomial on a related graph."
+        ],
+        "reasoning": "Phase-rotation states and temporal orbit counts are equivalent after division by k here, but the GH and zero-forcing update maps are not equivalent. The prior theta setting fixes the palette at three and excludes a length-one arm.",
+        "searches": [
+          "Resultary: exact all-palette Greenberg-Hastings chorded cycle primitive temporal orbit count",
+          "Resultary: chorded cycle Greenberg-Hastings excitation wave exact formula",
+          "Primary search: \"Greenberg-Hastings\" chorded cycle primitive periodic orbit count all palettes theta network exact census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day wheel 63930d989f46 and circular-ladder 87d35d7cb1cd Findings supply exact four-color GH counts on different graph families. The unchorded four-color ring census 947b2a9e90ed concerns CCA and not GH."
+        ],
+        "reasoning": "None is a table of k-state GH orbits for the labelled single-chord cycle; an isolated matching small graph or count would not yield the length- and chord-position-parameter law. No priority inference is drawn from shared dates.",
+        "searches": [
+          "Resultary: November 22 2026 four-color single chord distance three Greenberg-Hastings wave count",
+          "Resultary: exact all-palette Greenberg-Hastings chorded cycle primitive temporal orbit count"
+        ]
+      },
+      "rationale": "Pass is for the exact all-palette single-chord orbit census and its explicit defect/amplification law. The rotating criterion and directed resonance mechanism are elementary precursors, and the prior three-color theta method is substantial overlap; novelty is not assigned to these ingredients. No inspected stronger statement gives the census including both arbitrary palettes and the length-one arm.",
+      "residual_risks": [
+        "The exact modular count is conceptually close to previous three-color theta work. Older inaccessible material or an unindexed all-palette finite-graph census could still provide equivalent coverage; the inspection is not a historical-priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong method overlap; no coverage of the arbitrary-palette chord case",
+          "evidence": [
+            "Three colors, every arm length at least two, terminal-source marking; this excludes the chord as an arm and the all-k law."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-two-terminal-source-census-for-three-color-excitable-theta--f7be757a3807",
+          "material_read": "Mirrored RESULT.md offset 0, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Exact two-terminal source census for three-color excitable theta networks",
+          "trigger": "Closest mathematical precursor: theta topology, orbit counts and path increment method"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": [
+            "The exact full-rotation and alternating-activity counts use onto-map/Stirling factors for complete bipartite graphs."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-parity-selective-periodic-excitation-on-complete-bipartite-graph--54f879326e9f",
+          "material_read": "Mirrored RESULT.md offset 0, Finding",
+          "method": "Local mirror statement inspection",
+          "title": "Parity-selective periodic excitation on complete bipartite graphs",
+          "trigger": "All-palette exact GH periodic count"
+        },
+        {
+          "assessment": "Restricted settings and palette",
+          "evidence": [
+            "One treats full subdivisions, the other cycle bouquets; neither gives the single-chord census."
+          ],
+          "identifier_or_url": "2026/11/8 3e82f66ce40c and 18b6aacb40f2",
+          "material_read": "Mirrored RESULT.md Findings, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "Exact three-periodic excitation census on full graph subdivisions; Resonance source polynomial for three-color excitable cycle bouquets",
+          "trigger": "Potential broader cycle-resonance theorem"
+        },
+        {
+          "assessment": "Different graph families regardless of dates",
+          "evidence": [
+            "Count labelled waves on wheels and circular ladders, not distance-three chorded cycles."
+          ],
+          "identifier_or_url": "2026/11/22 63930d989f46 and 87d35d7cb1cd",
+          "material_read": "Mirrored RESULT.md Findings, offset 0",
+          "method": "Local mirror statement inspection",
+          "title": "A quintic four-wave census [wheels]; Two cubic spectra and the exact four-wave census [circular ladders]",
+          "trigger": "Exact same-day four-state GH formula candidates"
+        },
+        {
+          "assessment": "Inspected statement concerns a different observable and fixed palette",
+          "evidence": [
+            "Arbitrary-graph limiting behavior for three-color dynamics is not the labelled primitive-orbit count at all k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Abstract and opening, offset 0",
+          "method": "OA primary text",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Broader graph class for excitable dynamics"
+        },
+        {
+          "assessment": "Inspected passage concerns periodic objects on a one-dimensional array, not a finite chord defect",
+          "evidence": [
+            "Stable periodic objects on the line do not themselves evaluate labelled orbit counts on a finite single-chord cycle."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2018/02/09-5-1.pdf",
+          "material_read": "Opening abstract/introduction passage, offset 0",
+          "method": "OA primary PDF",
+          "title": "One-dimensional Deterministic Greenberg-Hastings Models",
+          "trigger": "Multi-state excitation and periodic objects"
+        },
+        {
+          "assessment": "Historical scope unresolved; not negative evidence",
+          "evidence": [
+            "The source was identified by the frozen bibliography but no decisive primary text was inspected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+          "material_read": "No primary passage retrievable in this review",
+          "method": "OA PDF and abstract routes attempted; HTTP 404",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Early literature on excitable automata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 15–34 and 54–58",
+        "Inspected theta and four-wave comparisons"
+      ],
+      "rationale": "The effect of a single added edge on existence and abundance of coherent periodic waves is a natural finite-network perturbation question. The result evaluates that exact response across each palette and both arc lengths, rather than supplying only existence or an instance-by-instance transfer calculation. The distance-three chord separates the effect from the divisibility condition of a bare ring: all n>=5 support four-waves, with an exact size-growing count rather than zero or two.",
+      "residual_risks": [
+        "This is a count of immediate primitive waves, not of attainable waves after a transient or robust excitation under perturbation of the update rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:13:47.556459Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–48, VERIFICATION.md, census_n_le_6.csv and verify_jaccard.py (inspected only)",
+        "/workspace/reviews/evidence/replay.py 3; /workspace/reviews/evidence/3.txt"
+      ],
+      "rationale": "The expectation is of the Jaccard ratio on detected species, not individual overlap or a ratio of expectations. Inclusion–exclusion counts exactly those size-m subsets whose support is S, and independence multiplies two support counts. A separate replay generated every composition via cuts among N−1 gaps, sorted to exhaust the abundance partitions, and averaged the rational similarity over every ordered pair of labeled size-m samples. It agrees with the frozen CSV on all 135 cells of all 29 profiles through N=6. Its only strict drop is (1,5) from 7/9 to 3/4, at m=2 to 3. For general (1,N−1), both m≥2 samples always include the dominant species, so a similarity loss of 1/2 occurs precisely on singleton detection disagreement. Under independence the disagreement probability is 2(m/N)(1−m/N); under disjoint sampling the singleton cannot appear twice, giving 2m/N. At m=1 the ratio is exactly the species-match indicator. The initial increase is 2/N² and the forward difference thereafter is (2m+1−N)/N², which also gives the asserted integer minimizers on the stated domain (including the odd-N tie when both nearest integers are in it). Analytic arguments, not extrapolation, support the arbitrary-N results.",
+      "residual_risks": [
+        "Finite classification is through N=6 only; the analytical larger-census law is for the singleton/dominant family. Disjoint designs require 2m≤N."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wolda pp. 296–297 studies general same-fauna sample-size effects in four large simulated finite faunas; Chao p. 154 resamples ants with replacement and demonstrates sensitivity of classic Jaccard.",
+          "Cao is plausibly directly relevant to Jaccard autosimilarity; its primary body was not retrievable."
+        ],
+        "reasoning": "Prior empirical designs and abundance-bias discussions do not supply a universal finite-census monotonicity threshold or an exact dependent-design comparison. No stronger theorem implying either was established in the passages read.",
+        "searches": [
+          "Wolda 1981 DOI 10.1007/BF00344966",
+          "Chao et al. 2005 DOI 10.1111/j.1461-0248.2004.00707.x",
+          "Cao et al. 2002 DOI 10.1890/0012-9615(2002)072[0041:COECTP]2.0.CO;2 (DOI/publisher/PDF and alternate-copy attempts)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5f54779a3bfc",
+        "Wolda 1981",
+        "Chao et al. 2005",
+        "Cao, Williams and Larsen 2002 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The iid result exhibits the same qualitative reversal but in a different joint sampling law, and does not treat disjoint pairs.",
+          "The historical papers inspected establish sample-size effects or bias; the read passages do not give a six-census boundary or the exact design gap."
+        ],
+        "reasoning": "The accessible statements do not imply the exact finite cutoff and uniqueness or the disjoint-versus-independent law. No noncoverage assertion is made about unread Cao text.",
+        "searches": [
+          "Resultary 5f54779a3bfc RESULT.md",
+          "Wolda 1981 pp. 296–297",
+          "Chao et al. 2005 pp. 148–149,154",
+          "Cao et al. DOI and lawful OA attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 5f54779a3bfc is an independent iid within-replicate with-replacement theorem. Even at species probabilities (1/6,5/6), its m=2 expectation is 493/648, not 7/9.",
+          "Wolda's without-replacement simulation selected four binary coefficients other than Jaccard."
+        ],
+        "reasoning": "The hypergeometric detected-species sets of uniform finite subsets do not have the iid law; at m≥2 the finite singleton/dominant census forces dominant-species detection, whereas it is not forced in the iid model. Renaming autosimilarity, representativeness, or rarefaction does not make these equivalent statements.",
+        "searches": [
+          "Resultary: exact two-species Jaccard autosimilarity and finite-census reversal",
+          "Wolda 1981 p. 297",
+          "Chao et al. 2005 p. 154"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest exact index entry 5f54779a3bfc classifies iid two-species probability profiles, not integer census partitions.",
+          "The inspected empirical data use large simulated logseries faunas or real ant sampling pools, not all integer profiles through six."
+        ],
+        "reasoning": "Neither an iid phase law nor those resampling results contain an exact all-profile finite table with this model and witness. The replay establishes correctness, not library priority.",
+        "searches": [
+          "Resultary: exact six-individual cutoff and singleton finite-census reversal",
+          "Wolda 1981 pp. 296–297 methods and indices",
+          "Chao et al. 2005 p. 154 ant resampling"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact finite-census minimality and uniqueness together with the sampling-design gap. Sample-size dependence and Jaccard undersampling bias are established prior phenomena. The closest exact indexed analogue has different sampling assumptions; the Cao body could not be checked.",
+      "residual_risks": [
+        "The Cao article may contain a more direct analogue; no primary body was read.",
+        "Equivalent hypergeometric results may exist under other terminology. The search does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative overlap, different sampling law",
+          "evidence": [
+            "Independent iid draws within replicates; exact phase law for species probabilities, not finite labeled subsets."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-two-species-phase-transition-for-jaccard-autosimilarity-un--5f54779a3bfc",
+          "material_read": "RESULT.md Finding offset 0 and Assumptions/Proof offset 1580, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror",
+          "title": "Exact two-species phase transition for Jaccard autosimilarity",
+          "trigger": "Closest indexed exact two-species reversal"
+        },
+        {
+          "assessment": "Relevant prior sample-size study, not the exact Jaccard theorem",
+          "evidence": [
+            "Simulated logseries faunas of 100,000 individuals; binary list includes Sørensen and Dice but not Jaccard."
+          ],
+          "identifier_or_url": "https://ecoevol.ufg.br/adrimelo/div/Wolda1981.pdf",
+          "material_read": "pp. 296–297, OA offsets 0 and 4900–8325",
+          "method": "Primary OA PDF",
+          "title": "Similarity indices, sample size and diversity",
+          "trigger": "Same-fauna similarity and sampling without replacement"
+        },
+        {
+          "assessment": "Prior bias evidence with with-replacement paired resampling",
+          "evidence": [
+            "Ant-data test uses smaller draws with replacement; classic Jaccard is sensitive to undersampling."
+          ],
+          "identifier_or_url": "https://www.robertkcolwell.org/publications/7597.pdf",
+          "material_read": "pp. 148–149,154, OA offsets 400,7100,42100,44900",
+          "method": "Primary OA PDF",
+          "title": "A new statistical approach for assessing similarity of species composition with incidence and abundance data",
+          "trigger": "Classic-Jaccard sample-size bias in paired samples"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Search material suggests replicate resampling and multiple similarity indices, but is not a basis for determining exact coverage."
+          ],
+          "identifier_or_url": "doi:10.1890/0012-9615(2002)072[0041:COECTP]2.0.CO;2",
+          "material_read": "Bibliographic/search material only, no primary passage",
+          "method": "Lawful DOI, publisher HTML/PDF and alternate/repository-copy attempts",
+          "title": "Comparison of ecological communities: The problem of sample representativeness",
+          "trigger": "Plausibly direct autosimilarity antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–20, 36–44, 50–56",
+        "Wolda 1981 and Chao et al. 2005 for the scientific motivation"
+      ],
+      "rationale": "The sharp obstruction answers whether expected within-community Jaccard can serve as a monotone diagnostic of greater sampling effort under a standard finite sampling design. Smallest-census uniqueness is a natural endpoint, not an selected profile after the fact. The two protocols preserve equal marginal effort but differ in how singleton detections pair, reaching a 1/4 expectation gap at half the census; this gives the phenomenon quantitative and design relevance.",
+      "residual_risks": [
+        "Idealized perfect detection of uniform finite subsets; no direct guarantee about field sampling or observed individual realizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

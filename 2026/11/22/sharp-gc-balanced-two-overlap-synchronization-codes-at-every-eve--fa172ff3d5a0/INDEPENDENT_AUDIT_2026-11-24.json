@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:00:37.815593Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md steps 1–4 and VERIFICATION.md",
+        "Frozen verify.py (read, not run)",
+        "/workspace/checks/1-boundaries.py and 1-boundaries.txt; replay python3 /workspace/checks/1-boundaries.py"
+      ],
+      "rationale": "For any active prefix set P, the largest compatible suffix set comprises all pairs not in P whose final symbol is not a first symbol of P. Saturating with balanced completions preserves both forbidden overlaps. An independent exact enumeration over all nonempty subsets of the 16 prefix pairs, taking this maximal suffix set, gave maxima (20,36,36) for f₂, f₁+f₂+f₃ and sum f_j. Exactly twelve choices attain f₂=20, all of profile (0,8,20,8,0); their four-symbol codebooks are distinct and all their boundary pairs occur at length four. This directly addresses n=4, where only the f₂ bound constrains equality. For L=n−4, a boundary with j class symbols has 2^L binom(L,n/2−j) completions. Dividing by 2^L binom(L,L/2) yields a nonnegative weighted sum of the three bounded statistics with weights 1−r₁, r₁−r₂ and r₂, r₁=L/(L+2), r₂=L(L−2)/((L+2)(L+4)), with out-of-range binomials zero. Since 1−r₁>0, every maximizer is among the twelve enumerated sets. Every allowed boundary of these sets is completable for n≥6, so distinctness persists. This establishes the formula and census at all lengths, not by extrapolation. The central-binomial ratio tends to 1/16, and including 2^(n−4)/2^n gives density 36/256=9/64.",
+      "residual_risks": [
+        "Exactly balanced class count; no theorem about longer overlaps for n>4 or other weight proportions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen work credits unrestricted maximum 36·4^(n−4) to Cai et al. and describes Wang et al. as addressing balanced restrictions",
+          "The targeted literature lookup located the exact Wang et al. publisher citation, not a substantive theorem passage; both DOI and publisher OA requests timed out"
+        ],
+        "reasoning": "A broader exact-composition theorem with the same n and overlap range could imply this result and remains an access risk. An unrestricted cardinality optimum, or constructions without matching sharp bounds under balance, cannot determine the optimal coefficient profile and equality count after exact conditioning.",
+        "searches": [
+          "Wang–Fang–Feng DOI 10.1016/j.disc.2024.114236; publisher PII S0012365X24003674",
+          "Cai–Wang–Feng DOI 10.1109/TIT.2023.3319010",
+          "Yang–Ding DOI 10.1587/transfun.2025EAL2050"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and alias searches",
+        "Frozen RESULT.md prior-work comparison",
+        "One broad and one exact-title literature lookup; cited primary retrieval attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted case uses only sum f_j. Length four uses only f₂. For longer balance the middle-three sum f₁+f₂+f₃ also enters with a positive weight."
+        ],
+        "reasoning": "The two known endpoint statistics do not by themselves give that missing middle-three bound or ensure common attainment at longer lengths. The missing comparison is nontrivial exact-composition evidence, not a substitution into the unrestricted result; the closest balance article is not ruled out from available material.",
+        "searches": [
+          "Stanovnik arXiv:2411.02899",
+          "Cai–Wang–Feng DOI 10.1109/TIT.2023.3319010",
+          "Resultary 54463ddb1a46",
+          "Wang–Fang–Feng DOI 10.1016/j.disc.2024.114236"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Target fa172ff3d5a0 is the same record, not independent",
+          "Resultary 54463ddb1a46 concerns four symbols of exact half composition at length four with full non-overlap",
+          "The balanced length-four maximizers here have their first palette in one class and last palette in the other"
+        ],
+        "reasoning": "At n=4 the same two leading constraints apply, and any length-three overlap between two equally balanced words would force the omitted first and last symbols to have identical class. The extremal palettes prevent that. Hence the twelve maxima here also satisfy full non-overlap, matching the earlier n=4 coverage, not extending it to n>4.",
+        "searches": [
+          "Resultary all-even balanced two-overlap with aliases half GC, length-four, 20 words, twelve extremizers, given restrictions",
+          "Cai–Wang–Feng DOI 10.1109/TIT.2023.3319010",
+          "Stanovnik arXiv:2411.02899"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier 54463ddb1a46 catalogue statement gives 20, twelve labeled maxima and symmetry classes of sizes 4 and 8 at length four",
+          "No exact longer-length theorem/table was surfaced by the focused searches; closest restricted-overlap full text was not retrieved"
+        ],
+        "reasoning": "The n=4 values and even the extremizers are prior. That exact census does not give 224 at n=6, the all-length formula or the fact that the optimizer count stays twelve.",
+        "searches": [
+          "Resultary length-four 20-word twelve-extremizer aliases; Resultary all-even balanced overlap query",
+          "Wang–Fang–Feng exact-title/114236 lookup"
+        ]
+      },
+      "rationale": "Pass applies to the all-even exact-composition formula and optimizer census extending beyond length four. The n=4 value and equality cases are materially covered by the earlier length-four full-non-overlap census, and the unbalanced optimum and restricted-boundary reduction are prior ingredients. The closest exact-composition article could not be read in full; the available evidence does not establish that it covers the all-length theorem.",
+      "residual_risks": [
+        "Independent full-text comparison to the Wang–Fang–Feng restricted-overlap article was unavailable. The originality verdict is for the extension beyond length four and is not a priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The n=4 subset of the frozen theorem is covered by the earlier length-four result",
+          "evidence": [
+            "Indexed statement gives exactly 12 labeled equality cases at maximum 20 under full non-overlap. All 12 maxima for the shorter overlap rule satisfy that additional length-three condition."
+          ],
+          "identifier_or_url": "Resultary 2026/10/13/54463ddb1a46",
+          "material_read": "Indexed catalogue claim and frozen prior comparison; primary mirror passage not retrieved",
+          "method": "Local Resultary search, mirror OA request, mathematical comparison of the length-three condition",
+          "title": "All extremizers of four-symbol GC-balanced non-overlapping DNA codes",
+          "trigger": "Exact 20 and twelve at the shortest length"
+        },
+        {
+          "assessment": "Strongest unresolved literature risk; no basis for excluding whole-paper coverage",
+          "evidence": [
+            "Frozen RESULT.md lines 64–68 report balanced restrictions and accessible bounds/constructions; OA passage requests timed out."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114236",
+          "material_read": "Catalogue/publisher citation and frozen prior-work summary; no primary theorem passage",
+          "method": "Literal OA request to the DOI and the identified ScienceDirect publisher abstract locator, following an exact-title literature lookup",
+          "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+          "trigger": "Same balance and restricted overlaps may have broader coverage"
+        },
+        {
+          "assessment": "Unrestricted optimum credited; not the exact-composition theorem as described",
+          "evidence": [
+            "Frozen RESULT.md line 64: S_1^2(4,n)=36·4^(n−4) without a balance restriction; OA request timed out."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3319010",
+          "material_read": "Frozen scientific comparison; primary passage not retrieved",
+          "method": "OA request and comparison to frozen attribution",
+          "title": "Constructions and bounds for q-ary (1,k)-overlap-free codes",
+          "trigger": "Same short-overlap constraints and alphabet size"
+        },
+        {
+          "assessment": "Boundary reduction is prior as described, but no longer-length balanced census established from available statements",
+          "evidence": [
+            "Frozen RESULT.md line 64 credits unrestricted boundary theory; OA request timed out."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.02899",
+          "material_read": "Frozen prior-work summary; primary passage not retrieved",
+          "method": "OA request and comparison to frozen attribution",
+          "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+          "trigger": "Possible four-boundary reduction and sharp-set census"
+        },
+        {
+          "assessment": "Construction sizes in a broader unbalanced model as described; not direct evidence of this balanced optimum",
+          "evidence": [
+            "Frozen RESULT.md lines 64, 75; OA request timed out."
+          ],
+          "identifier_or_url": "https://doi.org/10.1587/transfun.2025EAL2050",
+          "material_read": "Frozen description and citation, not primary text",
+          "method": "OA request and parameter comparison",
+          "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+          "trigger": "Broader overlap parameterization might contain the same optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and boundary argument",
+        "Independent exact boundary census and comparison with prior length-four coverage"
+      ],
+      "rationale": "Exact composition and two forbidden overlaps are natural simultaneous constraints of finite-word extremal combinatorics. The result identifies a sharp capacity at every length in this setting and shows that conditioning on composition selects the same twelve boundary patterns rather than changing the optimizers with length. That all-length dependence and equality information go beyond the known short instance and an unrestricted bound.",
+      "residual_risks": [
+        "Scope does not include arbitrary alphabets, proportions or overlap lengths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

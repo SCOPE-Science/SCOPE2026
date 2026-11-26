@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:53:02.606766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the explicit free model and full automorphism action verified in Zhuchok–Zhuchok, any map from the generators to the length-k layer extends uniquely to a homogeneous endomorphism. That layer is X^k times the set of binary words of length k−1, with automorphisms relabeling X and fixing the binary words. Equivariance on a source d-cycle determines its images from one choice fixed by the d-th power of the permutation. There are 2^(k−1) F_d^k choices, where F_d is the count of generators on cycles of length dividing d. Choices across source cycles multiply. Burnside averaging and the type-class size r!/z_λ give the exact formula. At k=1 the binary label has one value and a generator image is one generator, giving ordinary endofunctions under relabeling. With A=2^(k−1)r^k, the identity fixes A^r assignments and each nonidentity fixes at most A^(r−1), since it has at most r−1 source cycles. This proves the stated fixed-r error bound, with the identity alone at r=1. It also bounds the fraction of labelled assignments with a nontrivial stabilizer by (r!−1)/A. No claim about nonhomogeneous endomorphisms is made. The frozen checker and log were inspected but not executed. Independent `python3 -I /workspace/checks/2.py` reproduced both rows through r=6 by permutation-level averaging and checked literal canonical orbit counts through r=4 at k=1 and r=3 at k=2; see /workspace/checks/2.log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "De Bruijn §2 Eqs. (1)–(3) count the patterns by averaging N(χ(g),ξ(g)); the product immediately after (3) is ∏_d(∑_{e|d} e c_e)^{b_d}, with b_d and c_e the source and target cycle counts.",
+          "For the target representation here, ∑_{e|d} e c_e counts elements fixed by the d-th power, namely 2^(k−1)F_d^k."
+        ],
+        "reasoning": "Use b_d=m_d and group by symmetric-group cycle type. This recovers the whole formula for all r,k, not just the uncolored k=1 special case. No tailored counting theorem or additional g-dimonoid structure beyond the previously established equivariant normal form is needed.",
+        "searches": [
+          "\"Enumeration of mapping patterns\" \"de Bruijn\" 1972 pdf",
+          "https://pure.tue.nl/ws/files/1990914/597550.pdf §2 Theorem 1 and proof, p. 16"
+        ]
+      },
+      "checked_sources": [
+        "de Bruijn, Enumeration of Mapping Patterns, J. Combin. Theory Ser. A 12 (1972), 14–20, §§1–2",
+        "DOI 10.1007/s00013-026-02280-9 pp. 235–236",
+        "OEIS A001372",
+        "arXiv:2302.13832v3",
+        "arXiv:2611.08674v1 §6.2",
+        "Resultary 73220c5c0d94",
+        "2016 commutative g-dimonoid paper abstract and full-text access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 proof of Zhuchok–Zhuchok identifies X×{θ} as the least generating set and the automorphism group as S(X); relabeling in the explicit normal form leaves the binary word fixed.",
+          "Every de Bruijn term under these representations factors as ∏_d[2^(k−1)F_d^k]^{m_d}; grouping gives the asserted denominator z_λ.",
+          "Since F_d≤r and every nonidentity has one fewer source cycle or more, its term is bounded by A^(r−1)."
+        ],
+        "reasoning": "Classical enumeration plus the cited algebraic structure mechanically implies the theorem and the stated asymptotic. The nearby idempotent census is not the reason for the failure. The finding does not supply a distinct surviving mathematical claim that would justify a repair.",
+        "searches": [
+          "Zhuchok–Zhuchok DOI 10.1007/s00013-026-02280-9 pp. 235–236",
+          "de Bruijn 1972 §1–2 pp. 14–16, especially proof of Theorem 1",
+          "Resultary 73220c5c0d94 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Zhuchok–Zhuchok normal form gives an equivariant bijection from homogeneous endomorphisms to maps X→X^k×{a,b}^{k−1}.",
+          "De Bruijn §1 pp. 14–15 defines two possibly different permutation representations χ on D and ξ on R of the same group, identifying maps by ξ(g)f_1=f_2χ(g)."
+        ],
+        "reasoning": "The target is a trivial 2^(k−1)-color factor and k ordered unary self-maps with the diagonal relabeling action. The mapping-pattern equivalence is exactly conjugation on these generator assignments; it does not require independent source and target group elements, unordered coordinates, or equal sets D and R.",
+        "searches": [
+          "unlabeled finite algebras, ordered unary maps, simultaneous relabeling of maps",
+          "de Bruijn, Enumeration of Mapping Patterns, §1",
+          "Defrain–Porreca–Timofeeva arXiv:2302.13832v3, functional digraphs and endofunctions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001372 defines unlabeled endofunctions and gives the same k=1 entries for r=1,…,6, with older table references including Harary–Palmer, Graphical Enumeration, p. 70.",
+          "Alekseyev's later preprint gives the same k=1 cycle-type commuting-map count and values; it is a comparison, not evidence of earlier priority.",
+          "Resultary 73220c5c0d94 counts idempotent endomorphisms with bounded image length and rank, rather than simultaneous relabeling orbits of all exact-length assignments."
+        ],
+        "reasoning": "The k=1 row is exactly the established sequence, not just a numerical coincidence. No separate matching k=2 table is needed to settle coverage because all its entries are mechanical substitutions into the older mapping-pattern formula. The same-object catalogue hit concerns a different counting problem.",
+        "searches": [
+          "OEIS A001372",
+          "Alekseyev arXiv:2611.08674v1 §6.2 Eqs. (35)–(36) and Proposition 6.3",
+          "Resultary: free generalized-dimonoid homogeneous endomorphism conjugacy, length-bounded endomorphism counts"
+        ]
+      },
+      "rationale": "Verified broader coverage: de Bruijn's 1972 enumeration of mapping patterns counts maps between two finite sets with simultaneous representations of the same group. With the known free model, take D=X, R=X^k×{a,b}^{k−1}, and G=S_X acting on these sets exactly as in the algebra. The required partition formula is a direct substitution into de Bruijn's fixed-map product and group average, not just an instance of a generic counting principle that leaves a new structural step to solve. The fixed-r estimate is elementary identity-term domination of that product. This is a prior-implication finding, not a claim that de Bruijn wrote the g-dimonoid notation or the specific k=2 table.",
+      "residual_risks": [
+        "There may be other occurrences of the exact specialization, including the unresolved full text of the 2016 paper. They are not needed for the verified de Bruijn implication; no claim is made about the earliest appearance of the specialized wording or k=2 table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the claimed count by direct substitution",
+          "evidence": "Two representations of one group on D and R induce equivalence ξ(g)f_1=f_2χ(g); the orbit count averages the fixed-map product over that one group. The factor for source length d is the number of target points fixed by ξ(g)^d.",
+          "identifier_or_url": "https://pure.tue.nl/ws/files/1990914/597550.pdf",
+          "material_read": "§1 and §2 Theorem 1 proof, printed pp. 14–16, text offsets 2750–8037",
+          "method": "Lawful OA copy at the Eindhoven University of Technology repository; read statement, definitions and product after Eq. (3)",
+          "title": "Enumeration of Mapping Patterns",
+          "trigger": "Potential older simultaneous power-group coverage"
+        },
+        {
+          "assessment": "Supplies all the algebraic input to the prior enumeration",
+          "evidence": "The normal form is (w,u) with |w|−|u|=1 and the automorphism action comes from permutation of the least generating set X×{θ}.",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-026-02280-9",
+          "material_read": "OA PDF pp. 235–236, free-object model and Theorem 1 proof",
+          "method": "Lawful OA full-text passage comparison",
+          "title": "Free g-dimonoids are determined by their endomorphism semigroups",
+          "trigger": "Exact algebra model and full action"
+        },
+        {
+          "assessment": "Exact k=1 match with prior references",
+          "evidence": "Offset 0 includes the empty map, followed by 1,3,7,19,47,130; the entry cites the 1973 Harary–Palmer table.",
+          "identifier_or_url": "https://oeis.org/A001372",
+          "material_read": "Definition, terms, references and formula, webpage offset 0 onward",
+          "method": "Lawful public webpage inspection",
+          "title": "A001372: Number of unlabeled mappings from n points to themselves",
+          "trigger": "Exact k=1 database comparison"
+        },
+        {
+          "assessment": "Exact k=1 formula, later displayed date",
+          "evidence": "The commuting-map fixed count is ∏_d F_d^{m_d} and averaging counts ordinary unlabeled endofunctions.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.08674",
+          "material_read": "§6.2 p. 17, Eqs. (35)–(36) and Proposition 6.3",
+          "method": "Lawful OA PDF passage comparison",
+          "title": "Counting Finite Maps through Functional Digraphs and Fibers",
+          "trigger": "Exact k=1 formula comparison"
+        },
+        {
+          "assessment": "Distinct idempotent enumeration, does not state the orbit formula",
+          "evidence": "The count uses bounded lengths and image rank for idempotents rather than orbits under relabeling of all homogeneous maps.",
+          "identifier_or_url": "Resultary 73220c5c0d94",
+          "material_read": "Mirrored RESULT.md Finding at offset 0 onward",
+          "method": "Local catalogue and mirror",
+          "title": "Retractions and length entropy transitions in free generalized dimonoids",
+          "trigger": "Closest same-object catalogue comparison"
+        },
+        {
+          "assessment": "Different object and action on the accessible evidence; further overlap unresolved",
+          "evidence": "The stated subject is automorphisms of the endomorphism semigroup of the commutative free object.",
+          "identifier_or_url": "Algebra and Discrete Mathematics 21(2) (2016)",
+          "material_read": "Publisher abstract; no result passage retrieved",
+          "method": "Lawful abstract comparison; full-text requests timed out",
+          "title": "Automorphisms of the endomorphism semigroup of a free commutative g-dimonoid",
+          "trigger": "Related free-algebra enumeration terminology"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The grading and action are natural, and the correct formula is useful expository information. But the orbit computation is entirely a previously available mapping-pattern specialization, and the two numerical rows and elementary trivial-stabilizer bound do not add independent structural or asymptotic content. The record therefore does not establish a separate valuable finding under the scientific standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

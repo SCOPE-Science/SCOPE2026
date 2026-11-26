@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:32:31.478172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–63",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen check.py, lines 28–87 (read only)"
+      ],
+      "rationale": "Integrating out the center from the explicit ordered GUE density gives the gap weight a^2 b^2 (a+b)^2 exp(-(a^2+ab+b^2)/3). For independent evaluation of the decisive moments, put (a+b)/2=rho cos(theta), (a-b)/2=sqrt(3) rho sin(theta), with |theta|<pi/6. The gap weight with Jacobian becomes 8sqrt(3) rho^7 exp(-rho^2) cos^2(3theta). In the angular integral an extra a contributes rho cos(theta), its odd part vanishing; an extra ab contributes rho^2(2cos(2theta)-1). The three angular integrals are pi/6, 18/35, and 9sqrt(3)/16-pi/6. Gamma integration gives I00=4pi sqrt(3), I10=(27/2)sqrt(3pi), I11=162-16pi sqrt(3), yielding the stated m and h. Conditional on the independent equilibrium age, the gaps scale by sqrt(A); the containing interval has length-biased law and the observation is uniform within it, including for deterministic or lattice durations. Thus EA=EW^2/(2EW), E sqrt(A)=2EW^(3/2)/(3EW), where the powers inside E are powers of W. The covariance identity follows by integrating the conditional moments. Cauchy–Schwarz gives the sharp 8/9 bound on (E sqrt(A))^2/EA, with equality exactly for constant W since W>0. The frozen rational sign bounds verify h-m^2<0<h-(8/9)m^2. For exponential intervals the age is exponential, hence the ratio is pi/4 and 4+729/256=1753/256 in the Poisson coefficient.",
+      "residual_risks": [
+        "Sign reversal is for a stationary age mixture under full simultaneous renewal resetting, not for a fixed-age or nonequilibrium observation. The finite checker was not executed; exact angular/Gamma evaluation and the moment inequality suffice for these statements."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two matrix sources give the joint Poisson-reset law, covering the mixture used for the Poisson specialization. De Mauro et al. use an arbitrary-renewal survival mixture in the independent gas and study individual gaps. The age/residual power-correlation record includes the sharp clock parameter Q_(1/2)."
+        ],
+        "reasoning": "The finite-N matrix law is broader in N and Dyson index but not in clock laws; the general-renewal gas law is broader in clock laws but changes the underlying process. The age/residual result covers (E sqrt(A))^2/EA=(8/9)Q_(1/2) and its deterministic maximum, not GUE moment values or the resulting covariance sign.",
+        "searches": [
+          "arXiv:2503.14733v1, Eqs. (19)–(22), finite-N reset Dyson Brownian motion",
+          "arXiv:2605.26945, §6.1 Eqs. (89)–(92)",
+          "arXiv:2509.06658, Eqs. (36)–(39) and (124)–(132), non-Poissonian resets",
+          "Resultary 23381feacbe8"
+        ]
+      },
+      "checked_sources": [
+        "Atas et al. arXiv:1305.7156",
+        "Nishigaki arXiv:2407.15704v2",
+        "Shir et al. arXiv:2504.20134v2",
+        "Biroli–Majumdar–Schehr arXiv:2503.14733v1",
+        "Akemann–Majumdar–Päßler arXiv:2605.26945",
+        "De Mauro et al. arXiv:2509.06658",
+        "Resultary 23381feacbe8 and 34ec84bb2b61"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier clock record proves Q_r<=1 sharply, determinism for equality. Matrix and particle sources establish the respective mixtures. The finite-three law is established."
+        ],
+        "reasoning": "The result needs the model-specific joint moment and sign check h>(8/9)m^2 despite h<m^2; neither the clock identity nor any generic age mixture implies that. An already-known sharp positive envelope for independent-gas correlation cannot supply those inequalities for correlated GUE gaps. The Poisson moment is a dedicated specialization of the known finite-N law, not a new law for Poisson resetting.",
+        "searches": [
+          "Resultary 23381feacbe8, Statement and proof of size bias",
+          "Biroli–Majumdar–Schehr Eqs. (19)–(22) and individual spacing section",
+          "De Mauro et al. general-renewal mixture",
+          "Atas et al. finite-three eigenvalue law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Atas et al. start from the three-eigenvalue density and obtain spacing-ratio laws. Nishigaki obtains a joint density of adjacent gaps in the sine-kernel bulk limit. The indexed edge-gap theorem gives a common-renewal correlation envelope [1/10,1/2) in the large independent Brownian-particle gas."
+        ],
+        "reasoning": "Using the two gaps rather than their ratio allows joint moment evaluation but does not change the starting finite-N eigenvalue law. The bulk GUE law is a different limit; independent-particle edge gaps have different joint moments even after normalization and do not furnish the finite-GUE covariance divided by EA.",
+        "searches": [
+          "Resultary: 3-by-3 GUE neighboring/adjacent gap covariance under simultaneous stationary renewal resetting, also cross-gap common-clock correlations",
+          "arXiv:1305.7156, §II Eqs. (6)–(8); arXiv:2407.15704v2, §2 and Eq. (17)",
+          "Resultary 34ec84bb2b61, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed comparisons match the sharp clock law and the independent-gas correlation, not the frozen finite-GUE constants. Finite-three spacing ratios, single-spacing distributions, and an infinite-matrix joint-spacing formula are available in the inspected literature passages."
+        ],
+        "reasoning": "Ratio and single-gap formulas do not directly tabulate E[G1 G2] in this normalization. The starting ordered eigenvalue law does determine it by explicit integration, so the lack of a matching table cannot establish originality of that component. The main result is also not a numerical table lookup because it quantifies over all renewal interval laws.",
+        "searches": [
+          "Resultary: exact finite-three GUE adjacent-spacing mixed moment, covariance constants and renewal sign reversal",
+          "arXiv:1305.7156 §II; arXiv:2504.20134v2 opening spacing discussion; arXiv:2407.15704v2 Eq. (17)"
+        ]
+      },
+      "rationale": "Support is for the specific finite 3-by-3 GUE sign reversal for all stationary renewal clocks in scope, including its sharp lower coefficient and equality case, not for the finite-N GUE density, age mixture, or Cauchy–Schwarz optimization in isolation. The Poisson and fixed-age moments are derivable from known laws and do not independently carry the originality verdict. The closest verified material overlaps supply these ingredients or a sharp normalized gap correlation for a different ensemble and limit; none supplies the stated GUE renewal sign and sharp coefficient.",
+      "residual_risks": [
+        "This was a bounded literature and catalogue comparison, not historical priority certification. Prior evaluations of the finite-three joint moments may exist, and the Poisson covariance is implicit in a known density. A general formula elsewhere for GUE joint gaps under independently randomized scale could reduce the remaining distinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established finite-three density and ratio law; no evaluated raw covariance in the inspected passage",
+          "evidence": "Ordered eigenvalue density is integrated for the ratio; the original density gives a direct route to the raw gap moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.7156",
+          "material_read": "§II PDF p. 4, Eqs. (6)–(8), text offsets about 12500–15484",
+          "method": "OA primary PDF",
+          "title": "Joint probability densities of level spacing ratios in random matrices",
+          "trigger": "Finite-three joint gap setup with beta=2"
+        },
+        {
+          "assessment": "Consecutive joint gaps in another regime",
+          "evidence": "The Janossy-density derivative is for the unfolded sine-kernel bulk limit, not finite N=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.15704",
+          "material_read": "v2 §2 PDF p. 2 and Eq. (17) p. 6, text offset about 21800",
+          "method": "OA primary PDF",
+          "title": "Distributions of Consecutive Level Spacings of Gaussian Unitary Ensemble and Their Ratio: ab initio Derivation",
+          "trigger": "Joint consecutive GUE gap density"
+        },
+        {
+          "assessment": "Adjacent topic, different observable",
+          "evidence": "The inspected formulas concern single k-nearest-neighbor spacing distributions and surmises.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.20134",
+          "material_read": "v2 pp. 2–3, text offset about 13000",
+          "method": "OA primary PDF",
+          "title": "Surmise for random matrices’ level spacing distributions beyond nearest-neighbors",
+          "trigger": "Possible coverage of individual gaps or moments"
+        },
+        {
+          "assessment": "Supplies Poisson-reset premise; no all-renewal sign in inspected passages",
+          "evidence": "Exponential age mixture and reset-free beta Dyson density; with matching normalization and no trap this specializes to N=3 beta=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2503.14733",
+          "material_read": "v1 Eqs. (19)–(22) pp. 7–8 and individual spacing discussion pp. 10, 14, including Eq. (65)",
+          "method": "OA primary PDF",
+          "title": "Resetting Dyson Brownian motion",
+          "trigger": "Prior exact finite-N simultaneous Poisson reset law"
+        },
+        {
+          "assessment": "Confirms Poisson premise, not universal clock result",
+          "evidence": "The finite-N simultaneous-Poisson-reset eigenvalue density coincides with the Dyson-Brownian resetting JPDF.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.26945",
+          "material_read": "§6.1 pp. 18, Eqs. (89)–(92), text offset about 87000",
+          "method": "OA primary PDF",
+          "title": "A tridiagonal matrix-valued process with stochastic resetting for arbitrary Dyson index",
+          "trigger": "Alternative resetting matrix model with exact joint law"
+        },
+        {
+          "assessment": "Stationary clock framework in the independent-particle gas, not this matrix result",
+          "evidence": "The mixing density is proportional to survival of reset durations, and the spacing analysis is for individual gaps in the gas.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.06658",
+          "material_read": "Eqs. (36)–(39) pp. 8–9 and §V Eqs. (124)–(132) pp. 24–25",
+          "method": "OA primary PDF",
+          "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+          "trigger": "General renewal reset spacing laws and correlation in closely related models"
+        },
+        {
+          "assessment": "Covers the sharp renewal moment ingredient, not the GUE observable",
+          "evidence": "Q_r<=1 with equality only for deterministic periods; at r=1/2 the relevant age ratio is (8/9)Q_r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8/RESULT.md",
+          "material_read": "Statement Eqs. (1)–(7) and beginning of size-bias proof, offsets 0–2362",
+          "method": "Resultary search and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp power-correlation range for stationary renewal age and residual life",
+          "trigger": "Exact overlap in clock ratio and deterministic extremizer"
+        },
+        {
+          "assessment": "Different underlying ensemble, observable normalization and size regime",
+          "evidence": "Distinct fixed right-edge gaps in the independent gas as N tends to infinity have sharp correlation range [1/10,1/2), with deterministic resets minimizing.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-stationary-edge-gap-correlation-envelope-under-common-rene--34ec84bb2b61",
+          "material_read": "RESULT.md Finding, edge-gap model and correlation envelope",
+          "method": "Resultary search and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp stationary edge-gap correlation envelope under common renewal resetting",
+          "trigger": "Strong related catalogue match on joint gaps and clock extremizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–25 and 44–63",
+        "Resultary 23381feacbe8 and 34ec84bb2b61 for scope comparison"
+      ],
+      "rationale": "This resolves a natural competition: a common random age induces positive co-movement but at fixed age the two GUE gaps are anticorrelated. The proof shows that under every stationary renewal clock of finite second moment, age variability outweighs the negative term, and identifies the extremal clock and exact positive minimum per unit mean age. The conclusion involves an entire class of protocols and is more informative than a finite moment table or a single Poisson example.",
+      "residual_risks": [
+        "The conclusion stays with complete zero resets and the three-dimensional matrix size in this normalization. It does not establish sign reversal for other matrix sizes, Dyson indices, nonzero reset targets or nonstationary observations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

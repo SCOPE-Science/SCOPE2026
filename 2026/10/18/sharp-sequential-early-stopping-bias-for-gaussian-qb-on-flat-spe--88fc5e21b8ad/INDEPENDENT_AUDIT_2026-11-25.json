@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:35:12.092444Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the process on an uninterrupted exact Gram–Schmidt run. At inspection i, conditional on the full past, the squared residual U_i and the squared in-span projection V_i have a fixed product chi-square law, with n-i+1 and i-1 degrees of freedom. Consequently the pairs are independent across i. The running total S_i is their cumulative sum; S_i-U_i is independent of U_i with (i-1)(n+1) degrees of freedom. This proves the beta marginal, not a conditional hazard. At i=1 the test never passes for epsilon<1. For the timing let i0=(1-epsilon^2)n, h_n=sqrt(n log n), and fix 0<eta<1-epsilon^2. The chi-square law S_i~chi-square(in) gives max over i>=eta n of |S_i/i-n| <= A sqrt(log n) with probability tending to one for a sufficiently large constant A. For i<=eta n the residual means exceed epsilon^2 n by a fixed fraction of n, and union bounds using chi-square deviations of order n for U_i and S_i/i exclude stops there with probability tending to one, including the smallest i. For i<=i0-c h_n with i>=eta n, an upper threshold u=epsilon^2(n+A sqrt(log n)) suffices. The chi-square lower-tail Chernoff bound is exp(-I(k,u)), where I=(k log(k/u)-k+u)/2 at k>u. Its derivative in k is log(k/u)/2, increasing and of order sqrt(log n/n) at the smallest k=epsilon^2 n+c h_n+O(1). Thus the early tail sum is bounded by a geometric series, O(sqrt(n/log n)) exp(-I(k,u)), and I(k,u)=(c^2/(4epsilon^2)+o(1))log n. This tends to zero when c>sqrt(2)epsilon. For 0<c<sqrt(2)epsilon the sqrt(n)-long window just before i0-c h_n has one-look probabilities at threshold epsilon^2(n-A sqrt(log n)) at least n^(-c^2/(4epsilon^2)+o(1)), uniformly. This lower bound follows by integrating the chi-square density over a left interval of length sqrt(n/log n) using Stirling's formula; the interval contributes only a logarithmic prefactor. The independent U_i give a vanishing product of no-hit probabilities. Add the denominator-sandwich failure probability without conditioning the independent innovations on that event. These two inequalities prove the normalized first hit, and the convention T=n+1 causes no exception because a hit occurs with probability tending to one. Pruning changes the preappend rank by at most one. Exact projection gives e_n^2=1-K_n/n, and dividing the scaled difference of squares by e_n+epsilon yields 1/sqrt(2). Read RESULT.md lines 29–61, VERIFICATION.md and CHECK.py. The checker was inspected, not executed: it is only finite corroboration and its simulation assertion of a final hit in its chosen trials is not an all-trajectory guarantee. The motivating paper independently specifies the cumulative estimator and supports the unit-block pruning rule; the exact companion files could not be independently re-read. No part of the result is extrapolated to finite precision, arbitrary block sizes or spectra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Do–Chen analyzes fresh Gaussian residual and denominator estimates, notes averaging in implementation, and supplies a nearby independence analysis rather than this first-hit law.",
+          "Gorman et al. uses Gaussian sketch bounds for adaptive HSS; those inspected statements address sampling and error estimates, not this first-crossing model."
+        ],
+        "reasoning": "No checked general theorem supplies this accumulated normalization, its rank-dependent beta marginal, and its early-inspection count at the correct scale. The concentration and moderate-deviation tools themselves are standard.",
+        "searches": [
+          "arXiv:2610.16913v1 §4.3, Eqs. (4.7)–(4.11)",
+          "arXiv:1810.04125 Gaussian sketch bounds and adaptive HSS sampling",
+          "Resultary: sequential Gaussian Frobenius and QB rank stopping"
+        ]
+      },
+      "checked_sources": [
+        "Smith–Do–Chen arXiv:2607.06758 Algorithms 3.1/3.2 and Eq. (3.4)",
+        "Do–Chen arXiv:2610.16913v1 §4.3",
+        "Gorman et al. arXiv:1810.04125 adaptive HSS passages",
+        "Resultary 8c50fd5eebb7 original",
+        "Companion MATLAB files attempted but not independently retrieved"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The motivating paper prescribes the cumulative RMS threshold and previous-block pruning. This specifies the algorithm, but the inspected passages do not give its flat-spectrum first-hit or rank-error constants.",
+          "The fresh-batch beta denominator fluctuates on the single-look scale, unlike the uniformly concentrated running estimate. Its different beta parameters and sharp coefficient rule out mere rewriting of that theorem."
+        ],
+        "reasoning": "The running-denominator process needs a uniform denominator approximation, and the sharp upper bound counts the effective number of early looks rather than multiplying a near-threshold tail by n. These estimates and the model-dependent constant do not follow from the closest formulation by setting its batch width to one.",
+        "searches": [
+          "arXiv:2607.06758 pp. 7–11, Algorithms 3.1 and 3.2, Eq. (3.4)",
+          "Resultary 8c50fd5eebb7 original Finding and proof offsets 0–4964, 8500–12242"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The actual process is the first crossing in a triangular array of independent residual innovations coupled through cumulative column energies.",
+          "The fresh-batch catalogue first-passage law instead uses a ratio within each look and explicitly excludes running averaging and pruning."
+        ],
+        "reasoning": "A one-look Gaussian projection law cannot be used as a conditional stopping probability. The complete timing theorem must control how the shared running denominator couples the tests.",
+        "searches": [
+          "Resultary: flat-spectrum Gaussian QB rank underselection, beta first passage and running vs same-look Frobenius normalization",
+          "arXiv:2607.06758 Algorithm 3.1 and Eq. (3.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The materially matching November 8 original RESULT.md has an exact beta first-passage formula for a fresh-batch denominator. At batch width one its coefficient is sqrt(2) epsilon sqrt(1-epsilon^2), not sqrt(2) epsilon."
+        ],
+        "reasoning": "This is an analytic law, not a sample table. The close catalogue formula was checked in its original and does not reproduce the running-denominator constants. Its later date is not evidence of earlier priority.",
+        "searches": [
+          "Resultary: flat spectra Gaussian Frobenius stopping, premature rank law, beta first passage; exact record 8c50fd5eebb7"
+        ]
+      },
+      "rationale": "The supported contribution is the sharp first-hit and accuracy law for the actual cumulative-denominator, unit-block stop on identity inputs, together with its exact unconditional beta inspection law. Neither fresh Gaussian residual estimation, a chi-square ratio calculation by itself, nor generic repeated-testing effects are the claimed originality. The motivating primary algorithm was inspected and the closest distinct catalogue theorem has a different denominator, marginal law and leading constant.",
+      "residual_risks": [
+        "The companion MATLAB file bodies were not independently accessible; the paper algorithms support the scope used here.",
+        "The checked literature and catalogue do not exhaust related triangular-array first-passage results. An earlier equivalent model-specific calculation could exist; no claim of exhaustive priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Matches the stopping and pruning model; the inspected passages do not supply the claimed asymptotics",
+          "evidence": [
+            "Fresh Gaussian blocks and a residual-sketch threshold using the cumulative RMS of input sketches; sorted previous-block rows may be pruned, so at unit width at most one preceding column is deleted."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.06758",
+          "material_read": "Algorithm 3.1 p. 7, Eq. (3.4) p. 8, §3.2 and Algorithm 3.2 pp. 9–11",
+          "method": "OA primary PDF passages at offsets 24844, 28000, 30437 and 35882",
+          "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+          "trigger": "Exact motivating stopping and pruning algorithm"
+        },
+        {
+          "assessment": "Repository-level exact behavior not independently attested",
+          "evidence": [
+            "The paper algorithm supports the stated specialization; neither a landing page nor a transport error constitutes code inspection."
+          ],
+          "identifier_or_url": "https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/randQB_MF_Fro.m ; https://github.com/SMART-Algebra/Adaptive-Matfree-Lowrank/blob/main/Prune_Rank_Fro.m",
+          "material_read": "No independent file body retrieved",
+          "method": "Lawful OA and raw public-file retrieval attempts; algorithm separately verified in the primary paper",
+          "title": "Companion MATLAB Frobenius QB and pruning routines",
+          "trigger": "Exact repository-level implementation comparison"
+        },
+        {
+          "assessment": "Test design and independence, not the target beta marginal and first-hit law",
+          "evidence": [
+            "The implementation averages denominator estimates across batches to reduce variance; the inspected equations do not analyze the stated first crossing."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.16913v1",
+          "material_read": "§4.3 Eqs. (4.7)–(4.11), offset 88200",
+          "method": "OA HTML primary passage",
+          "title": "Do and Chen Gaussian residual-test comparison",
+          "trigger": "Closest Gaussian test and averaging comparison in primary literature"
+        },
+        {
+          "assessment": "Different error-estimation setting; no inspected result yielding the frozen constants",
+          "evidence": [
+            "Gaussian sketch bounds for adaptive HSS sampling do not identify the identity QB first-hit lead."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1810.04125",
+          "material_read": "Gaussian sketch and adaptive HSS passages at offsets 31065–35924",
+          "method": "OA HTML primary passage",
+          "title": "Gorman et al. adaptive HSS Gaussian sketching",
+          "trigger": "Earlier related adaptive Gaussian sampling and stopping bounds"
+        },
+        {
+          "assessment": "Material overlap, different test and coefficient; dated later",
+          "evidence": [
+            "Normalizes each residual by the same fresh batch's total sketch norm, with no running average or pruning. The unit-width constant retains an extra sqrt(1-epsilon^2) factor."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sequential-gaussian-frobenius-stopping-has-a-sharp-premature-ran--8c50fd5eebb7",
+          "material_read": "Original RESULT.md offsets 0–4964 and 8500–12242",
+          "method": "Local catalogue mirror at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sequential Gaussian Frobenius stopping has a sharp premature rank law",
+          "trigger": "Strongest catalogue overlap in exact first passage and sharp rank loss on flat spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The identity is the natural flat-spectrum calibration case for this adaptive stopping rule. The theorem identifies a diverging rank deficit with an explicit constant and a tolerance violation with probability tending to one, despite each fresh inspection using an unbiased residual-energy estimate before normalization. That is a useful sequential failure mode; a finite marginal, finite simulation or generic multiple-testing warning cannot supply the rank and error scales. The actual excess relative error tends to zero; the finding does not imply comparable miscalibration for arbitrary QB implementations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

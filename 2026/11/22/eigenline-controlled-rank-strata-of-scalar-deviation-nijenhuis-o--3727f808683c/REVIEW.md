@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete proof first shows that every Nijenhuis map preserves the derived ideal, then proves the exact two-equation characterization by evaluation on all ordered basis pairs. A rank-one factorization gives two exhaustive, disjoint normal forms. Projective functional-line counts and a transparent block rank analysis yield the polynomial and index-three subcount. The standalone verifier checks the defining torsion identity and counts in finite cases including both eigenline and noneigenline types; these cases are consistency checks, not the universal proof.
+## correctness
 
-**Originality — PASS, with disclosed priority risk.** Full publicly accessible motivating papers arXiv:2306.06428 and arXiv:2310.14267 develop the Leibniz Nijenhuis formalism and bialgebra constructions but do not state a finite-field rank census for scalar-deviation operators on this hemi-semidirect family. Published indexed claims about almost-abelian Lie algebras concern a different skew-symmetric bracket and distinct restricted operator classes. The relevant indexed Leibniz result on a two-dimensional pencil does not imply this all-dimensional spectral census. The broader literature is not exhaustively accessible and some indexed full texts remain uninspected; complete publication priority is therefore not asserted.
+PASS
 
-**Value — PASS.** This is a complete classification and rank polynomial of a naturally invariant first determinantal stratum in an unbounded non-Lie Leibniz family. Its exact corank-one spectral detector distinguishes rational-eigenvalue actions from irreducible actions, and the shifted-index-three refinement detects noneigenline incidence. These phenomena require both the Nijenhuis torsion and the module action, rather than a routine arbitrary slice or a mere finite enumeration.
+With t-coordinate beta on N(V), the (v,w) torsion has t-coordinate up to sign beta(v)beta(Tw), so invertibility of T gives beta=0. The (t,t) and (t,v) equations then reduce to ETc=0 and E[T,E]=0, with all other basis pairs automatic. Substituting E=u tensor phi gives phi(Tu)phi=phi(u)(phi composed with T), separating the two stated branches. For each projective functional line a fixed representative gives unique u: in the square-zero branch the two covector constraints allow q^(d-2)-1 nonzero vectors off the eigenlines and q^(d-1)-1 on them, yielding K_T. In the other branch each of H_T/(q-1) lines gives (q-1)q^(d-1) vectors u, and all nonzero E permit q^(d-1) c values. At a=0 count c in ku (q choices in the square-zero branch and one in the eigenline branch) versus off ku to split ranks one and two. At a nonzero, the rank is 1+rank(aI+E); the only singular possibility is the unique a=-phi(u) in the eigenline branch, producing rank d. This yields exactly the displayed polynomial, with coincident degrees combined at d=2, and the corank-one claim is only made for d>=3. The shift M=N-aI has M^2(t)=Ec and M^2(V)=0 in the square-zero branch; index three means phi(c) is nonzero while phi(Tc)=0. This gives q^(d-1)-q^(d-2) c values exactly off the eigenlines, and neither the zero nor eigenline branch contributes. These deductions do not use semisimplicity or a characteristic restriction.
 
-**Limitations.** The restriction \(\operatorname{rank}(D-aI)\le1\) is essential; no statement about arbitrary Nijenhuis maps is claimed. The full geometric scheme and automorphism orbits remain unclassified. Exhaustive tests cover selected small finite fields, while all-dimensional correctness is proved algebraically. The comparison to inaccessible indexed full texts is qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest distinct work classifies rank-one square-zero operators for an almost-abelian Lie algebra, not rank-one deviations for this non-skew bracket. No inspected original statement gives or implies the full two-branch finite-field rank and shifted-index census. The exact entry under 3727f808683c is this record itself.
+
+## value
+
+PASS
+
+The quotient scalar a makes rank(D-aI) an intrinsic stratum of a basic one-generator extension, not an arbitrary subset of matrices. The full rank distribution detects rational eigenlines at corank one for d>=3 and connects them to a different phenomenon, shifted nilpotency of index three, which can occur even when corank one is absent. The formulas hold for nonsemisimple as well as semisimple actions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

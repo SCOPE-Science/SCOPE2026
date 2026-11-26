@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:49:09.182289Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In K[D₂ₙ]=R⊕Rs, right multiplication by 1+r+s sends (u,v) to ((1+r)u+v,u+(1+r⁻¹)v), so v is fixed by u in the kernel and the remaining condition is (1+r+r²)u=0. For a check that does not assume semisimplicity, cyclic coefficients satisfy a three-term recurrence in characteristic two: each next value is the sum of the prior two. Hence the sequence is 3-periodic and is determined by any first two values. If 3 divides n all two-parameter sequences are allowed, even if n is even; otherwise n-periodicity forces a constant sequence and the recurrence forces zero. This verifies the corank over any extension K. In the invertible case the squares are a basis. Multiplying an ideal element by a basis vector first extracts a nonzero multiple of a square, and propagating by the support arcs gets all squares, since r and s generate the group as a monoid. In the singular case the span of the squares is a nonzero proper ideal. Independent squares force any automorphism to have disjoint column supports; invertibility makes it monomial, and comparison at each diagonal coefficient 1 makes every multiplier 1. The unique reciprocal nonloop arc is the s-arc and the other is the r-arc for n≥3. A digraph automorphism therefore commutes with right multiplication by both generators and is exactly a left translation. This proves the full ordinary group, independent of K, in the nonsingular cases only. Reviewed RESULT.md, VERIFICATION.md and verify.py as text; no attached code executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cayley evolution realization requires |K×|≥2|G| in Theorem A; this fails for F₂. The permutation representation theorem supplies idempotent evolution algebras over any field but not this simple constant-coefficient family. Sriwongsa–Zou Theorem 3.1 assumes characteristic zero."
+        ],
+        "reasoning": "Even a perfect realization of an abstract group does not determine simplicity, the chosen basis representation in exactly 2n dimensions, or lack of new automorphisms after extension for the displayed multiplication.",
+        "searches": [
+          "arXiv:2207.01335 Theorem A",
+          "arXiv:2401.05924 Theorem C",
+          "arXiv:2202.01333 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2bbf4bdce108 and e363cae5955a",
+        "arXiv:2207.01335",
+        "arXiv:2401.05924",
+        "arXiv:2202.01333"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The determinant expression in the complex decomposition detects primitive cube roots; in characteristic two a cyclic recurrence or polynomial gcd instead handles all n, including repeated roots of xⁿ−1. Monomial reduction is general, but getting this automorphism group further uses the reciprocal/nonreciprocal distinction of the selected arcs."
+        ],
+        "reasoning": "Neither specializing the characteristic-zero census nor substituting this group into the broad realization theorems yields the binary claim. The modular rank and intrinsic edge distinction are both needed for the specific conclusion.",
+        "searches": [
+          "Mixed triple complex determinant in Resultary 2bbf4bdce108",
+          "Cayley and permutation realization theorems, arXiv:2207.01335 and arXiv:2401.05924"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier mixed triple census yields exactly the same 0/2 pattern over ℂ for {1,r,s}, with g=gcd(n,1)=1, using unitary Fourier blocks. The simple binary maxima record supplies the graph reduction, not the kernel or the specific dihedral realization."
+        ],
+        "reasoning": "Adjacency, regular convolution, and structure matrix describe the same linear map up to transpose, but a formula for the rank over ℂ does not specify whether there is 2-primary torsion and cannot be used by base change to F₂. The complex Fourier decomposition also does not handle arbitrary even n in characteristic two.",
+        "searches": [
+          "Resultary: ternary convolution nullity on finite dihedral groups, mixed rotations and reflections",
+          "Resultary: simple binary evolution algebras and graph automorphism reduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact census concerns complex nullities, and the binary graph record gives maximal automorphism orders rather than the exact group and corank of this support. The matching frozen entry is the same record, not separate coverage."
+        ],
+        "reasoning": "The numerical pattern is an exact prior complex match; neither catalogue supplies the needed binary-field data or the combined all-extension conclusion.",
+        "searches": [
+          "Resultary: complete ternary-convolution nullity laws on finite dihedral groups",
+          "Resultary: sharp parity-dependent automorphism maxima for simple evolution algebras over F₂"
+        ]
+      },
+      "rationale": "The complex corank pattern for this support and the general graph and monomial mechanisms are prior overlap. The inspected results do not give the explicit characteristic-two corank calculation together with absolute simplicity and full extension-stable automorphisms for this particular group-sized algebra. The judgment is for that combined binary result, not the characteristic-zero convolution pattern or a general group realization theorem.",
+      "residual_risks": [
+        "An uninspected integral convolution rank or Smith form result might already imply the binary rank portion.",
+        "The inspected sources do not rule out other constructions of absolutely simple binary algebras for the same groups, including 3|n; failure in that case is specific to this support."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-support 0/2 rule is known over ℂ; proof and scope do not establish modular rank",
+          "evidence": "The mixed-block determinant is |ζ^{ka}+ζ^{kc}|²−1, and the proof uses primitive cube roots and complex block multiplicities.",
+          "identifier_or_url": "2026/10/18/SCOPE-complete-ternary-convolution-nullity-laws-on-finite-dihedral-gro--2bbf4bdce108",
+          "material_read": "Finding and mixed-type Fourier proof; local mirror offset 4280–5184",
+          "method": "Resultary lookup and matching mirror passages",
+          "title": "Complete ternary-convolution nullity laws on finite dihedral groups",
+          "trigger": "Exact pattern on the identical support over another field"
+        },
+        {
+          "assessment": "General result with field-size hypothesis excluding F₂",
+          "evidence": "Absolute simplicity and realization are given assuming |K×|≥2|G|.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.01335",
+          "material_read": "Theorem A, PDF p. 1, offset 0",
+          "method": "Primary OA passage",
+          "title": "Automorphism groups of Cayley evolution algebras",
+          "trigger": "Closest general Cayley construction"
+        },
+        {
+          "assessment": "Overlapping realization objective, not this simple extension-stable algebra",
+          "evidence": "The theorem supplies idempotent evolution algebras realizing finite-group permutation representations over any field.",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.05924",
+          "material_read": "Theorem C, PDF p. 3, near offset 7700",
+          "method": "Primary OA passage",
+          "title": "Permutation Representations and Automorphisms of Evolution Algebras",
+          "trigger": "Any-field group representation realization"
+        },
+        {
+          "assessment": "General binary reduction overlaps, exact family does not",
+          "evidence": "Monomiality and graph symmetry underlie the maximum-order argument, without this dihedral support calculation.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-parity-dependent-automorphism-maxima-for-simple-evolution--e363cae5955a",
+          "material_read": "RESULT.md proof §1, matching local mirror from offset 0",
+          "method": "Resultary lookup and mirror inspection",
+          "title": "Sharp parity-dependent automorphism maxima for simple evolution algebras over F₂",
+          "trigger": "Earlier monomial and graph automorphism mechanism"
+        },
+        {
+          "assessment": "Excluded field for the finite-group theorem",
+          "evidence": "Theorem 3.1 is stated in characteristic zero; its proof uses infinitely many integer diagonal choices to avoid determinant roots.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.01333",
+          "material_read": "Theorem 3.1 and characteristic-zero nonsingular diagonal choice in its proof, PDF p. 6, offsets 13790–15027",
+          "method": "Primary OA passage",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+          "trigger": "Potential broader group realization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an explicit group-sized absolutely simple Cayley evolution algebra with only three coefficient-one summands over the smallest field, a case outside the main sufficient size hypothesis for general Cayley realizations. The exact modular rank both explains when this realization works and certifies its sharp mod-three failure for the same sparse construction. Full extension-stable automorphisms are stronger information than a subgroup action or an order bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:20:41.444558Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The union of two perfect matchings would have an alternating cycle in their symmetric difference, so conditioning on existence is equivalent, for the leaf law, to fixing a matching by label symmetry. Each quotient tree on m pairs has 4^(m-1) lifts; opposite endpoints of a quotient edge are independent bits. Conditional on the quotient, pair i gives one leaf with probability 2^(1-d_i), independently across pairs. The quotient Pruefer occurrences are iid, d_i=1+K_i, and occurrence-wise independent fair thinning consequently reproduces the joint pair flags. For k boxes the joint vacancy probability is (1-k/(2m))^(m-2), giving the pgf, extreme probabilities and moments. Expanding log b_m and log a_m^2 gives a difference -1/(4m)+O(1/m^2), hence m(b_m-a_m^2)->-e^(-1)/4. The limit variance and normalized L2 concentration are consistent. The two-vertex case has both partners as leaves and is correctly excluded. An independent finite reproduction agreed for all labeled trees at orders 2,4,6,8 (the first by its separate trivial law). At order 10 with a fixed matching it gave counts (1920,11520,14560,4000) for leaves (2,3,4,5), over 32000 trees. Neither finite experiment establishes the unrestricted result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moon's monograph lists §6.2 'The Number of Trees Spanned by a Given Forest'; independently of access to that section's pages, the classical completion formula N^(c-2) times the product of the c component sizes follows at once from the displayed Pruefer theorem and degree-occurrence relation in §2.1: each quotient-tree edge has size-product endpoint choices, so summing weights factors as (product of sizes)(sum of sizes)^(c-2).",
+          "Remmel–Williamson's abstract describes leaf-count and marked-leaf classes without the perfect-matching condition; this is not the source of the implication."
+        ],
+        "reasoning": "The classical forest completion tool works at all c>=2 with arbitrary component sizes, including the singleton sizes introduced by prescribed leaves. It is not restricted to the equal-size forest used to count the denominator.",
+        "searches": [
+          "https://www.math.ucla.edu/~pak/hidden/papers/Moon-counting_labelled_trees.pdf",
+          "https://arxiv.org/abs/1009.2060"
+        ]
+      },
+      "checked_sources": [
+        "Moon §2.1 and contents; A375105; A358732; arXiv:1009.2060 abstract",
+        "Resultary indexed related findings and frozen supporting files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fix k distinct pairs and a designated endpoint on each. That endpoint is a leaf iff removing it and its prescribed incident matching edge leaves a tree containing the other m-k matching edges; grafting those leaves back is inverse. The reduced forest has m components, of sizes 1 on the k pairs and 2 on the rest, on N=2m-k surviving vertices. Its classical count is 2^(m-k)(2m-k)^(m-2).",
+          "For m>=2, the 2^k possible designated-endpoint assignments are disjoint since a tree with more than two vertices cannot have adjacent leaves. Divide their aggregate by 2^m (2m)^(m-2), the same forest formula for k=0. This gives exactly (1-k/(2m))^(m-2) for simultaneous leaf flags on every subset of k pairs."
+        ],
+        "reasoning": "These subset probabilities determine the entire flag law by inclusion-exclusion and reproduce the asserted pgf directly by expanding the generating function. They are exactly the vacancy probabilities when each of m-2 iid trials is inactive with probability 1/2 and otherwise picks one of m boxes. Thus the distributional occupancy formulation does not supply a separately new invariant; all remaining constants are ordinary moment extraction and Taylor expansion. This is mathematical implication, not a claim that the earlier source uses the same wording.",
+        "searches": [
+          "Moon, Counting Labelled Trees, standard fixed-forest counting via §2.1",
+          "Frozen RESULT.md, Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The leaf-count law for perfect-matchable trees is equivalent to the law for a fixed prescribed matching, since a tree has at most one perfect matching and labels are exchangeable.",
+          "The corpus returned the assigned record and, among the close neighboring indexed findings, conditioning a permutation-inversion tree on perfect matchability (different tree distribution) and conditioning a Cayley tree on one vertex degree (different event)."
+        ],
+        "reasoning": "Dropping matching terminology gives trees completing a fixed matching forest with specified leaves incident to specified forest edges. Deleting those leaves gives an ordinary prescribed-forest completion, a more consequential equivalence than the related indexed titles.",
+        "searches": [
+          "Resultary: perfectly matchable Cayley trees conditional number of leaves empty boxes Pruefer binomial thinning spanning forest degree enumeration",
+          "uniform labeled trees spanning forest containing fixed forest multivariate degree polynomial product Cayley Moon weighted degree perfect matching leaves enumeration (unavailable)",
+          "Moon, Counting Labelled Trees, §2.1 and §6.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A375105 gives the unmarked matched labeled-tree count (2m)^(m-2)(2m)!/m!, and explicitly identifies the complete-graph perfect-matching hypothesis.",
+          "A358732 gives unconditional counts at the half-vertices-are-leaves slice, with 109200 at order eight compared with 107520 total matched trees at order eight; this is not a distribution restricted to matched trees."
+        ],
+        "reasoning": "The total count is covered and is credited in the frozen record; neither inspected entry provides the whole marked law. An unconditional leaf table is not the joint counting table even when small orders coincide.",
+        "searches": [
+          "https://oeis.org/A375105",
+          "https://oeis.org/A358732"
+        ]
+      },
+      "rationale": "The full conditional distribution, not just the unmarked matched-tree count, follows routinely from the classical fixed-forest extension formula: delete any prescribed leaf endpoints and apply the same formula to a forest of singleton and two-vertex components. This gives the entire joint marked leaf law in one specialization, and the claimed occupancy law is precisely the same joint vacancy law under iid draws into boxes with a null outcome. The inspected tables and other adjacent papers do not themselves contain the occupancy statement; the reason for failure is the exact implication from the stronger classical counting tool, not those tables or a negative search.",
+      "residual_risks": [
+        "The primary keyword lookup did not complete; no negative inference is drawn. Prior explicit publication of the occupancy wording was not established and is unnecessary for the demonstrated mathematical implication.",
+        "The frozen report's related complete-bipartite model has different endpoint laws; it was not used as a limiting or originality argument here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The classical arbitrary-forest count obtained from these ingredients implies the entire marked law by leaf deletion",
+          "evidence": [
+            "Theorem 2.1 and its following degree-occurrence statement",
+            "§6.2 contents entry"
+          ],
+          "identifier_or_url": "https://www.math.ucla.edu/~pak/hidden/papers/Moon-counting_labelled_trees.pdf",
+          "material_read": "Title, contents identifying §6.2, and §2.1's Pruefer theorem and degree-occurrence relation in the accessible PDF extraction; the pages of §6.2 were not directly read",
+          "method": "Read accessible monograph excerpt and reconstruct the forest extension formula from the inspected weighted Pruefer ingredients",
+          "title": "Counting Labelled Trees",
+          "trigger": "Classical completion of prescribed forests and known degree encoding"
+        },
+        {
+          "assessment": "The total is prior; the half-leaves count lacks matching conditioning",
+          "evidence": [
+            "A375105 formula and comments",
+            "A358732 title, formula and example"
+          ],
+          "identifier_or_url": "https://oeis.org/A375105; https://oeis.org/A358732",
+          "material_read": "Sequence definitions, formulas, sample values and comments",
+          "method": "Read both live sequence entries",
+          "title": "OEIS A375105 and A358732",
+          "trigger": "Exact matched-tree count and the adjacent half-leaves table"
+        },
+        {
+          "assessment": "The abstract describes unconditioned leaf classes, not proof of noncoverage of the full paper; not decisive for the finding",
+          "evidence": [
+            "Abstract statement of the degree-restricted classes"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.2060",
+          "material_read": "Abstract and bibliographic entry only",
+          "method": "Read the arXiv abstract",
+          "title": "Ranking and unranking trees with a given number or a given set of leaves",
+          "trigger": "Same host and statistic with a different type of restriction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conditioning and leaf statistic are both natural, and the example is a useful illustration of forest completion. But the exact invariant as submitted is mechanically recovered by deleting designated pendant vertices and substituting component sizes 1 and 2 into the standard completion formula. The vacancy interpretation is an equality of the resulting joint probabilities, without an extra distributional or structural theorem beyond that calculation. Its useful explanatory presentation does not supply a scientifically distinct narrow result under the standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

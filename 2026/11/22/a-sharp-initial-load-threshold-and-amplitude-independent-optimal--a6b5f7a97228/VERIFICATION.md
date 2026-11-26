@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The theorem follows from elementary closed-form interval dynamics, an explicit derivative identity and a global strict sign argument. The script `check.py` requires only the Python standard library, uses a fixed random seed, and evaluates 1,000 parameter sets through 71,003 assertions. Those tests check a discretized global comparison, numerical derivative agreement, exact regret formulas, and the claimed dependence on enhanced removal. The all-positive-parameter theorem is **not** inferred from finite tests; the proof supplies its quantifiers and all boundary cases.
+## correctness
 
-Canonical case: \(q=b=1\), \(a=3\), \(T=4\), \(h=1\), \(C_0=0\). Optimal start \(\tau_*=1.5\), with \(J(0)\approx2.578509392222\) and \(J(\tau_*)\approx2.196190111820\). Approximate improvement relative to immediate start is \(14.827143\%\).
+PASS
 
-Independent audit has not been performed; this numerical replay does not constitute an external verification or an empirical validation of the physical model.
+Independently checked the moving-switch derivative. Write A_r(t)=∫_0^t exp(-rv)dv, U=T-h, z=C_0 exp(-bτ)+qA_b(τ) and w=exp(-ah)z+qA_a(h) for the start and end concentrations. Translation of both switches gives J'=(a-b){z[A_a(h)+exp(-ah)A_b(U-τ)]-wA_b(U-τ)}=(a-b)A_a(h)[z-qA_b(U-τ)]. The leading factor is exactly the strictly positive G in the result, even when b=0. For b>0 and E=q/b, C_0≥E makes J' strictly positive, and C_0<E makes it strictly increasing and positive at U. Its sign at zero is the sign of C_0-E(1-exp(-bU)), with equality giving the unique boundary minimum. The interior zero gives the stated logarithm. For b=0 the derivative is affine with slope 2Gq>0, giving the clipped formula. At an interior optimum with b>0 the derivative is 2Gk sinh[b(τ-τ_*)]; integrating it, and integrating the appropriate derivative on the boundary and for b=0, verifies all four regret cases. An independent segment calculation gave 2.578509392222384 and 2.196190111820411 for the canonical immediate and optimal exposures. VERIFICATION.md and check.py were inspected; the optional replay path is python3 check.py from the frozen package directory. The finite checks are not the proof.
+
+## originality
+
+PASS
+
+The constant-source impulse counterpart is exactly, not merely qualitatively, related to the fixed window. The joint comparison narrows the incremental content to the nontrivial reduction of a finite translated rate interval to that impulse timing objective, its consequences for the entire admissible window (including exact regret and the zero baseline), and the positive rate factor. No inspected work was found to establish that finite-window reduction or an equally strong solution. This is not a priority claim for the positive-baseline impulse timing law alone.
+
+## value
+
+PASS
+
+Under a genuine operating constraint (one contiguous fixed-runtime episode), the exact cancellation of the enhanced rate from all timing comparisons is a useful model benchmark. The result quantifies how much, not just which way, mistiming hurts; the finite interval has exactly the time-ordering and regret of the calibrated instantaneous proxy despite its continuing emissions and two switches. This does not assert optimality for split schedules, physical safety, or HVAC performance outside the well-mixed constant-source model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

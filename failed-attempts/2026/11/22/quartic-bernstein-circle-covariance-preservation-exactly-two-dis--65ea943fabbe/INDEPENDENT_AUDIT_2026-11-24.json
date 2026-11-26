@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:07:27.971905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:17–74, rederived the almost-periodic, cyclotomic and coefficient steps",
+        "Frozen CHECK.py:14–64 and VERIFICATION.md:19–35, inspected without execution"
+      ],
+      "rationale": "The classification itself checks out. On odd input frequencies the zeroth coefficient is a nonnegative finite exponential sum with zero Cesàro mean; boundedness forces zero mean square and exponential orthogonality forces pointwise vanishing. Its first and third cosine modes give the sum and product conditions on the three interior cosines, hence reflection symmetry. On input frequencies 4r+2 the mean demands Re(z^(2r+1)) ≥ −1/2 for z=exp(2ia), a=θ1. The all-order argument uses density for infinite order, all residues for odd order, and precisely the odd residues in the cyclic group for even order. For an order L divisible by four with L≥8, choose the odd residue L/2−1 relative to exp(2πi/L); multiplication by the primitive exponent of z permutes odd residues. This corrects the wording in RESULT.md:59, where the indicated exponent applied directly to an arbitrary primitive z need not produce the indicated real part. Orders 3 and 4 then yield the claimed grids. Integration by parts gives the endpoint-derivative formulas; for odd k=1 the minimum bracket is 2π²−18, for odd k≥3 it is 6, and the even k≥2 minimum is 18(1−d). Parity and the means handle the remaining coefficients, and uniform summable mixtures of generators give the full cone. Strict node order is used; no claim for repeated nodes or strict definiteness follows.",
+      "residual_risks": [
+        "CHECK.py:33–43 assumes the admissible order set for its finite arithmetic check; it does not independently test exclusion of any other order. The analytic argument, with the odd-residue clarification above, establishes the exclusion."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Otten–Nguyen–Watts prove all-degree preservation of the classical operator whose sites are fixed at jπ/n.",
+          "The variable-node quadratic/cubic theorem only classifies degrees two and three."
+        ],
+        "reasoning": "All degrees at uniform nodes is broader in degree but narrower in grids; it supplies the uniform survivor, not the quartic iff theorem. The exact quartic Resultary match settles the question.",
+        "searches": [
+          "arXiv:2608.04836v1 §1 Definition 1.1 and Theorem 1.2",
+          "Resultary SCOPE-quadratic-rigidity-and-cubic-node-freedom-for-positive-definite--b87f6c90a4aa"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f6e744bea94d",
+        "Resultary b87f6c90a4aa",
+        "arXiv:2608.04836v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem states both directions under the same hypotheses; the proofs differ in how they establish symmetry."
+        ],
+        "reasoning": "It directly gives the entire frozen finding without deriving a new corollary or making a priority assumption.",
+        "searches": [
+          "Full prior Finding and proof in f6e744bea94d; frozen RESULT.md:3–15,36–74"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior RESULT.md Finding, offset 0: strictly increasing endpoint-fixed degree-four Bernstein sites preserve every continuous isotropic PSD circle kernel iff the two exact grids in the frozen record are used."
+        ],
+        "reasoning": "Degree four and five nodes refer to the same operator; the PSD condition on the full cosine cone and the endpoints coincide.",
+        "searches": [
+          "Resultary search for strict quartic Bernstein sampling on the circle and PSD cone preservation; SCOPE-exactly-two-five-node-bernstein-grids-preserve-circle-positive-d--f6e744bea94d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalog entry has its own full theorem and proof listing (0,π/4,π/2,3π/4,π) and (0,π/3,π/2,2π/3,π), with no other strictly increasing grids."
+        ],
+        "reasoning": "This is an exact indexed classification, not a match on one tabulated value or a set of finite test modes.",
+        "searches": [
+          "Local Resultary catalog and mirror, f6e744bea94d, RESULT.md"
+        ]
+      },
+      "rationale": "An independently indexed Resultary record gives the identical iff classification. The different argument for symmetry does not distinguish the frozen finding, which is a classification, not a claim about a new general method. The decision is based on statement identity, not the ordering of date labels.",
+      "residual_risks": [
+        "No claim about earliest proof or publication priority. The exact theorem-level match is decisive regardless of broader bibliography."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage",
+          "evidence": "Same two grids, necessary and sufficient; prior proof forces symmetry by high-output-frequency conditions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exactly-two-five-node-bernstein-grids-preserve-circle-positive-d--f6e744bea94d",
+          "material_read": "RESULT.md Finding and proof, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror",
+          "title": "Exactly two five-node Bernstein grids preserve circle positive definiteness",
+          "trigger": "Same degree, grid hypotheses, and cone-preserving classification"
+        },
+        {
+          "assessment": "Uniform-grid case",
+          "evidence": "B_n is defined using the classical sites jπ/n; the all-degree theorem does not quantify over site locations.",
+          "identifier_or_url": "arXiv:2608.04836v1",
+          "material_read": "§1, Definition 1.1, equation (1), Theorem 1.2, OA HTML offset 1295",
+          "method": "Original OA HTML",
+          "title": "Preservation of Positive-Definiteness by Bernstein Operators on the Circle",
+          "trigger": "Possible all-degree stronger theorem"
+        },
+        {
+          "assessment": "Lower-degree comparison only",
+          "evidence": "The variable-grid classifications concern degrees two and three, not four.",
+          "identifier_or_url": "SCOPE-quadratic-rigidity-and-cubic-node-freedom-for-positive-definite--b87f6c90a4aa",
+          "material_read": "RESULT.md Finding and scope, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Quadratic rigidity and cubic node freedom for positive-definite Bernstein interpolation on the circle",
+          "trigger": "Closest lower-degree variable-node result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:36–74,79–83",
+        "Resultary b87f6c90a4aa (lower-degree comparison)"
+      ],
+      "rationale": "As a mathematical classification, the result answers a natural covariance-preserving interpolation question: it detects a nonuniform grid and a finite arithmetic restriction not visible in single-mode or fixed uniform-grid results. This is intrinsic value of the classification, not independent value assigned to repeating the covered finding.",
+      "residual_risks": [
+        "No extrapolation to degree five or higher, repeated nodes, other bases, or higher-dimensional spheres."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

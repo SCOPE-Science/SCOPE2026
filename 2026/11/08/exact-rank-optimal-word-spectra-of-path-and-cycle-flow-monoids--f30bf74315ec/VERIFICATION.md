@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The associated `verify.py` uses only the Python 3 standard library and is standalone. It builds the directed collapse alphabet of a labeled path or cycle, independently simulates all actual functions for paths of orders 1–6 and cycles of orders 3–6, and retains exactly those length-\(m\) words with rank \(n-m\). It separately evaluates a different dynamic program on image subsets for path orders 1–12 and cycle orders 3–12. The first algorithm does not use the forest bijection or the subset recurrence; the second does not compose entire transformations. It additionally checks the exact rank-by-rank cycle/path factor for 65 combinations of orders and ranks.
+## correctness
 
-The file `verification_output.txt` is the output of running `python3 verify.py`. It reports `VERIFY_OK direct_cases=10 subset_cases=22 ratio_checks=65`. All numerical comparisons use exact integers. The complete proof of the arbitrary-size results appears in `RESULT.md`; no finite enumerations are presented as exhaustive evidence for arbitrary sizes.
+PASS
 
-Scope limits: the result concerns words that attain the maximum possible rank drop at each step. Nothing is claimed about the multiplicities of longer words of the same final rank, about distinct semigroup transformations represented by such words, or about arbitrary graphs. No independent audit has been performed.
+A strict drop takes the image S to S minus the letter's source, and occurs exactly when both endpoints lie in S. Sources cannot recur, and each arrow points to a surviving or later-removed vertex. There are no repeated undirected edges or undirected cycles: an undirected cycle would require that every vertex of that cycle use its sole outgoing arrow on the cycle, giving a directed cycle. Thus the words are rooted spanning forests with descendant-before-ancestor edge orders, and any such order realizes all its drops. In a path component with a edges, pruning either endpoint until one vertex remains yields 2^a internal words; fixing the survivor at position j instead gives binom(a,j-1). For a path, the k=n-m components have ordered nonnegative edge counts of sum m. Shuffling their orders gives the multinomial sum 2^m k^m. For a cycle, marking one omitted edge gives n cuts and counts each forest-word pair k times, yielding the ratio n/k. At m=n-1 the path binomial row and the uniform cycle reset counts follow by choosing the survivor, with each possible path position appearing once per fixed cycle vertex across the omitted edges. The empty word, P1, and C3 are included in these arguments. A separate bounded transformation-based DFS also matched the spectra and per-vertex reset counts through n=6 for both families; no replay artifact from that check was retained. The unrestricted proof does not depend on the finite check.
+
+## originality
+
+PASS
+
+The supported distinct claim is the all-rank multiplicity of literal minimum-length words in the alphabet of both orientations of every edge, including the ratio and reset-image specialization. The inspected statements on reset thresholds, individual element lengths and nearby collapse-schedule counts do not cover it.
+
+## value
+
+PASS
+
+Rank and word length are natural observables for this generating alphabet. The formulas give the exact number of fastest compression sequences at each attained rank and quantify the contribution of closing the path into a cycle. For instance, normalizing by alphabet size to the m-th power gives the probability that m independent uniform letters achieve the largest possible rank loss. Neither reset threshold nor enumeration of monoid elements supplies that statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

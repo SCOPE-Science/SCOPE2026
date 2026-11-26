@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:19:48.186390Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–49",
+        "Frozen VERIFICATION.md, lines 19–23; verify.py, lines 10–46 (read only)",
+        "Independent replay: python3 /tmp/opencode/independent_frozen_checks.py (pentagon_input section)",
+        "Fan–Chen–Ma–Wang arXiv:1406.7591, pp. 2–3 (Hochster and polygonal background)"
+      ],
+      "rationale": "The diagonal circle acts freely since some coordinate lies on S¹ at every point; its finite subgroup preserves orientation. The standard 2-connectivity of X and the homotopy exact sequence imply π₁(B)=0, π₂(B)=Z and a primitive Euler class e for B=X/S¹. I independently checked the 32 induced subgraphs, giving Hochster groups of ranks 1,5,5,1 in degrees 0,3,4,7 with no torsion. By duality H²(B) and H⁴(B) are both Z. If e² were nonzero, the map H²(B)→H⁴(B) would be injective and Gysin would force H³(B) to be Z⁵, impossible for a unimodular alternating pairing in middle degree six. Hence e²=0, H³(B)=Z⁴, and Gysin in degrees five and six gives e:H⁴(B)→H⁶(B) an isomorphism. The finite quotient is the circle bundle with Euler class me: the transition functions are raised to the mth power. Its Gysin sequence now has the two nonzero integral maps given by multiplication by m. It gives degree 2 and 6 torsion Z/m, primitive pullback sublattices in degrees 3 and 4 with free rank-one cokernels, and the other stated groups. The universal cover gives the claimed π₁. Pulling back the base symplectic basis, the primitive degree-four generator and e gives all the claimed products by naturality, with the top class pulling back to a generator of H⁶. No division mod m is used, so composite m works as stated.",
+      "residual_risks": [
+        "Finite reproduction checks the covering space's combinatorial ranks, not cup products. The proof identifies the block on four degree-three classes, not products with an arbitrary fifth generator or a full ring presentation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Franz Theorem 1.3 gives a deformed-product ring formula over a PID for closed-subgroup quotients, and includes free finite μ_m",
+          "Fan–Chen–Ma–Wang covers polygonal moment-angle topology and Hochster cohomology for the covering space"
+        ],
+        "reasoning": "The general ring model is a substantive alternate route and covers the ambient family. Its statement does not give an evaluated free-to-torsion pairing or the result that the products of primitive classes hit a generator for every m. The covering-space result alone cannot settle such products since their targets pull back to zero.",
+        "searches": [
+          "Franz arXiv:1907.04791, arbitrary freely acting closed subgroups and integral products",
+          "Fan–Chen–Ma–Wang arXiv:1406.7591, moment-angle cohomology and connected sums"
+        ]
+      },
+      "checked_sources": [
+        "Panov arXiv:1506.06875 Theorem 1; Franz arXiv:1907.04791 Theorem 1.3; Fan–Chen–Ma–Wang arXiv:1406.7591 pp. 2–3",
+        "Resultary cc45cd7db4d4 (self-match), 32e978328021 and 29fac7c1f6af"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general ring formula leaves the specialized ring and product classes to be computed",
+          "The frozen proof resolves the vanishing e² in the base using an odd Betti-number obstruction and shows the top class reduces to a primitive torsion generator via the Euler class me"
+        ],
+        "reasoning": "Knowing H*(X) or a general model is not yet an exact product calculation for Y_m. In particular, both e² and the normalized base pairing must be resolved before one obtains integral products that are generators and not just nonzero modulo a prime.",
+        "searches": [
+          "Franz Theorem 1.3 and Panov Theorem 1, evaluation for the diagonal subgroup; polygonal Hochster computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Panov's Theorem 1 gives a ring framework for the connected subtorus quotient B",
+          "The finite-quotient problem is the different bundle over B with Euler class me, and the evaluated base pairing matters"
+        ],
+        "reasoning": "Viewing Y_m as a principal circle bundle over B is equivalent, with Euler class multiplied by m. The inspected subtorus theorem applies to the base, not directly to Y_m, and does not state this base's symplectic block or its pullback into finite torsion.",
+        "searches": [
+          "Resultary: pentagonal moment-angle manifold, finite diagonal or scalar subgroups, cyclic quotient torsion cups",
+          "Panov arXiv:1506.06875, free subtorus quotients; diagonal intermediate circle quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same-family hit cc45cd7db4d4 was the identical frozen record",
+          "29fac7c1f6af concerns a column-rotation quotient of a hard-square independence complex with a mod-five Bockstein product",
+          "32e978328021 concerns dihedral vertex permutations and rational quotient Betti numbers"
+        ],
+        "reasoning": "The identical result is not independent evidence of prior coverage. The two distinct matched findings give different spaces, group actions and products; neither is equivalent or dominating on these integral invariants.",
+        "searches": [
+          "Resultary: torsion cup products in pentagonal and polygonal moment-angle quotients; finite diagonal cyclic action",
+          "Same-day distinct match 29fac7c1f6af; polygonal record 32e978328021"
+        ]
+      },
+      "rationale": "The strongest inspected prior coverage is Franz's general integral cohomology-ring construction, which applies to the finite subgroup. That supplies a method for the computation, not the evaluated groups or primitive hyperbolic product block. Getting these statements requires actual specialization and product analysis; the parity obstruction and integral Gysin argument provide that analysis. The inspected exact polygon comparisons have materially different actions or compute different invariants.",
+      "residual_risks": [
+        "The general Franz ring model is the main overlap and may give other derivations. A previously evaluated special case or another geometric description implying the products could exist outside the inspected passages; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the connected subtorus framework, not the finite quotient calculation",
+          "evidence": "Ring formula over arbitrary coefficient rings for freely acting subtori.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.06875",
+          "material_read": "PDF p. 1, Theorem 1, offset 300",
+          "method": "Primary OA PDF",
+          "title": "On the cohomology of quotients of moment-angle complexes",
+          "trigger": "Intermediate diagonal circle quotient"
+        },
+        {
+          "assessment": "Substantial general framework including this object; product statement not explicitly evaluated in inspected passages",
+          "evidence": "Freely acting closed subgroups with a deformed-product formula over an integral PID.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.04791",
+          "material_read": "PDF p. 1 and p. 3, Theorem 1.3, offsets 0 and 9600",
+          "method": "Primary OA PDF",
+          "title": "The cohomology rings of smooth toric varieties and quotients of moment-angle complexes",
+          "trigger": "Integral multiplicative coverage for finite diagonal quotient"
+        },
+        {
+          "assessment": "Covering-space input only",
+          "evidence": "Polygonal moment-angle and Hochster results, not the free-to-torsion quotient products.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.7591",
+          "material_read": "PDF p. 2 (offset 4800), p. 3 (Theorem 2.2)",
+          "method": "Primary OA PDF",
+          "title": "Moment-angle manifolds and connected sums of sphere products",
+          "trigger": "Pentagon covering space and cohomology"
+        },
+        {
+          "assessment": "Different action and coefficients",
+          "evidence": "Vertex-permutation dihedral action and rational quotient Betti numbers.",
+          "identifier_or_url": "2026/11/8/SCOPE-dihedral-low-degree-cohomology-of-polygonal-moment-angle-manifol--32e978328021",
+          "material_read": "Indexed scientific summary",
+          "method": "Resultary search",
+          "title": "Dihedral low-degree cohomology of polygonal moment-angle manifolds",
+          "trigger": "Same polygonal family and finite quotient"
+        },
+        {
+          "assessment": "Different object, action and product",
+          "evidence": "Hard-square independence complex, column rotation, and a mod-five Bockstein product in degree three.",
+          "identifier_or_url": "2026/11/22/SCOPE-integral-homology-and-a-nonzero-mod-five-cup-product-in-a-toroid--29fac7c1f6af",
+          "material_read": "Indexed scientific summary",
+          "method": "Resultary search",
+          "title": "Integral homology and a nonzero mod-five cup product in a toroidal quotient",
+          "trigger": "Distinct same-day cyclic quotient with a torsion-related product"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–25 and 38–49",
+        "Franz arXiv:1907.04791 Theorem 1.3, general ring model compared above"
+      ],
+      "rationale": "The diagonal action is a canonical free scalar action on this seven-manifold. This case gives a rank-four primitive block, exhibiting a product of free classes that generates the full order-m torsion for arbitrary m, a feature invisible to the rational ring or additive integral groups. The useful structural calculation is that middle-degree parity forces the square of the Euler class to vanish, enabling the explicit pairing and mixed product.",
+      "residual_risks": [
+        "No ring classification for all polygons, finite subgroups or the full rank-five middle pairing is established by this record."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

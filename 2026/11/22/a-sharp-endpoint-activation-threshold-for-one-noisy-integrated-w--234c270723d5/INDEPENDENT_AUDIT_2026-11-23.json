@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:20:39.877852Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Itô-kernel representation gives K(s,t)=s²(3t−s)/6 for s≤t and by symmetry on the other side. Splitting the square-kernel integral at s=t gives C=t⁴(105−105t+35t²−2t³)/1260. Gaussian conditioning gives risk 1/12−C/(η+D), D=t³/3; t=0 has zero reduction, so cannot optimize. For t>0 the sign of the derivative of the reduction is the sign of η−E with E=CD′/C′−D. The proposed factorizations check: C′=−t³H/180, H<0 by H′>0 and H(1)=−13; E has the sign of the strictly increasing U with unique zero t₀ in (2/3,1). Independently, E′=(C/C′)(D″−D′C″/C′)=−(C/C′)t(H+tH′)/H, and H+tH′=2G with G=4t³+15(1−t)(3t−2)>0 on [t₀,1]. Thus E is strictly increasing there; E(1)=8/273 and E′(1)=264/1183. For η below the threshold the derivative changes sign exactly once; for η at or above it the reduction strictly increases on (0,1), including at equality where only the endpoint has a zero derivative. Inverting E proves the stated slope and the strict increase of interior locations. The supplied check.py was inspected, not executed; the global result follows from signs, not numerical roots.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Müller treat arbitrary covariance, but provide a general optimization criterion rather than exact endpoint activation for this covariance.",
+          "Mukherjee’s abstract describes path recovery by a BLUE and design; full-text coverage is unresolved. Abundo’s checked abstract concerns process representation and first-passage problems."
+        ],
+        "reasoning": "A general argmax reduces the problem, but does not yield the strict stationary-noise monotonicity or phase boundary without the model-specific proof. The inaccessible dissertation was neither assumed irrelevant nor treated as covering.",
+        "searches": [
+          "Ji–Müller §2 Eqs. (1), (2), (6), (10)",
+          "Mukherjee Purdue AAI3043760",
+          "Abundo arXiv:1307.5970"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1604.05375",
+        "arXiv:1307.5970",
+        "Purdue dissertation AAI3043760 (catalog only)",
+        "Resultary 2026/11/22/...--2fe7f897a316",
+        "Resultary 2026/11/22/...--616cece7259d",
+        "Resultary 2026/11/22/...--3e4b47324f39"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Value sensing uses ∫K(s,t)² ds with denominator η+t³/3; observing W(t) changes the cross-covariance and denominator. Integral-only estimation instead squares ∫K(s,t) ds, not the integral of K².",
+          "Ji–Müller already imply the form of the objective, but do not settle the exact cubic root, endpoint constant or slope."
+        ],
+        "reasoning": "The same process family and similar optimization formalism do not identify the exact loss, and therefore do not logically transfer either neighbor's phase law to this theorem.",
+        "searches": [
+          "Ji–Müller arXiv:1604.05375 §2; Resultary ...--2fe7f897a316, ...--616cece7259d, ...--3e4b47324f39"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ji–Müller trajectory MISE equals the frozen integrated posterior variance for a jointly Gaussian path and observation. Their generic rule specializes exactly to maximizing C(t)/(η+t³/3).",
+          "The alias search identified the older Mukherjee catalog. The full dissertation was not obtained, so its appendix or integrated-kernel special cases could not be excluded."
+        ],
+        "reasoning": "The scalar design objective has a known equivalent formulation; literature checked for that formulation does not resolve its optimizer and slope in this model.",
+        "searches": [
+          "Resultary: integrated posterior variance, spline, kriging and I-optimality aliases",
+          "External bibliographic lookup for integrated Wiener trajectory design under spline/kriging/I-optimality terminology",
+          "Ji–Müller arXiv:1604.05375 §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record was returned as a self-match. Distinct same-day record ...--2fe7f897a316 has a full-path loss but observes W(t), and its optimum stays interior at all finite noise levels. The related ...--616cece7259d has a threshold 1/24 at α=1 for the scalar path integral; ...--3e4b47324f39 also concerns scalar integral estimation."
+        ],
+        "reasoning": "The checked entries change modality or loss and do not tabulate the same optimizer. Date alone does not establish order or equivalence.",
+        "searches": [
+          "Resultary: integrated Wiener one-sensor path loss, endpoint 8/273 and related noisy sampling or quadrature"
+        ]
+      },
+      "rationale": "The general noisy integrated-MISE design and the integrated-Wiener kernel are prior. The surviving result is the globally unique location for every η>0, the exact positive noise threshold and the boundary slope under point measurements of the integrated path itself. Primary framework and directly related same-day results were checked; unresolved older literature leaves a specific priority risk, not evidence of coverage.",
+      "residual_risks": [
+        "Mukherjee’s full dissertation and possible unindexed spline or optimal-design papers may contain an equivalent calculation; the catalog abstract alone does not resolve that possibility.",
+        "No priority ordering among distinct same-day records was inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion covered; global explicit placement not shown",
+          "evidence": [
+            "The model has independent noisy observations of process values; its trajectory MISE design objective gives the same scalar covariance ratio on this kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.05375",
+          "material_read": "§2 pp. 5–6, Eqs. (1), (2), (6), (10)",
+          "method": "Read relevant OA original text and specialized the criterion to one node",
+          "title": "Optimal Designs for Longitudinal and Functional Data",
+          "trigger": "Same Gaussian noisy trajectory-recovery criterion in general form"
+        },
+        {
+          "assessment": "Unresolved possible historical coverage",
+          "evidence": [
+            "The abstract describes finite designs for second-order-process path recovery by a BLUE. This does not settle whether the dissertation has a corresponding noisy integrated-Wiener specialization."
+          ],
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Institutional catalog title and abstract only",
+          "method": "Read official catalog; no lawful OA full text obtained",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Plausible older exact stochastic-process path design"
+        },
+        {
+          "assessment": "Representation and first-passage scope, not evidence of placement theorem",
+          "evidence": [
+            "The stated subject is Brownian representation and first-passage connections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1307.5970",
+          "material_read": "Abstract",
+          "method": "Read OA opening statement",
+          "title": "On the representation of an integrated Gauss-Markov process",
+          "trigger": "Integrated process covariance background"
+        },
+        {
+          "assessment": "Different observation and threshold behavior",
+          "evidence": [
+            "The observation is of W(t), not the integrated path, and the optimizer remains interior for each finite positive noise."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/...--2fe7f897a316",
+          "material_read": "Local mirror RESULT.md finding and observation modality",
+          "method": "Read source claim and compare covariance of the observation",
+          "title": "A universal observation-noise boundary layer for integrated Wiener trajectories",
+          "trigger": "Same integrated posterior path loss and trajectory model"
+        },
+        {
+          "assessment": "Different loss and transition",
+          "evidence": [
+            "At α=1 the threshold is 1/24 for estimating a scalar integral; the full path is not the prediction target."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/...--616cece7259d",
+          "material_read": "Local mirrored finding and target loss",
+          "method": "Compare objective and α=1 specialization",
+          "title": "A sharp regularity-dependent endpoint transition in one-sample Gaussian Volterra quadrature",
+          "trigger": "Same-day point-design threshold for related Gaussian process"
+        },
+        {
+          "assessment": "Different loss and modality decision",
+          "evidence": [
+            "Estimates a scalar path integral and compares sensor classes."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22/...--3e4b47324f39",
+          "material_read": "Local mirrored result scope",
+          "method": "Compare prediction target and allowed sensor classes",
+          "title": "Sharp noise-driven choice between value and derivative sensing in integrated-Wiener quadrature",
+          "trigger": "Same-day integrated-Wiener point sensing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural single-site Gaussian path-recovery benchmark has a nonzero finite noise threshold, a unique optimizer on both sides and an exact boundary slope. This is useful for validating numerical placement algorithms and for distinguishing path-reconstruction results from integral-only or derivative-sensing results. It is not a claim about multiple sensors, adaptive designs, unknown covariance, or the noiseless case as an included parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

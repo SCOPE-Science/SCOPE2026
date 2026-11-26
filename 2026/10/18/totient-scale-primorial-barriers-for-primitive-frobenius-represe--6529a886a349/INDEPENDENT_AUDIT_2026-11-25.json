@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:39.052150Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every factor of Q_T is prime to a, and the chosen b_T is also prime to a. In Q_T=ax+b_T y the congruence forces y≡−1 mod a and the size constraint gives 2≤y≤T. For composite y use its least prime divisor at most √T; for prime y use the −1 residue-class factor. In either case p divides Q_T and y but not a, so divides x, including when x=0. Consequently Q_T is not primitively representable. The fixed-modulus prime number theorem gives log Q_T=T/φ(a)+o(T); the additional small-prime weight is O(√T log T). The offset of b_T from Q_T/T is less than a, yielding b_T→∞ and Q_T/(b_T log b_T)→φ(a). Every cover must include every prime in the forced class because that prime itself is an eligible y. The matching log-weight upper bound from Q_T gives asymptotic optimality only in the stated cover class. An independent exact check gives Q_20=1870, b_20=95 and y=2,5,8,11,14,17 with respective gcds 2,5,2,11,2,17 for a=3; it does not compute the exact Frobenius number or reproduce all 615 cases. The supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.7 gives a positive fixed-a limsup coefficient c₁(a) without stating φ(a).",
+          "The same-day 0eee43f23b58 bound requires primorial size below min(a,b).",
+          "The later d4c334da51d4 record gives liminf at least 1 for fixed a."
+        ],
+        "reasoning": "Fixing a keeps the same-day bound's primorial parameter bounded. The later liminf controls all b but its normalized coefficient is strictly smaller than φ(a) for a≥3, so it does not dominate this explicit result.",
+        "searches": [
+          "arXiv:2509.08599v1, Theorem 1.7",
+          "Resultary: primitive Frobenius problem fixed a limsup totient explicit sieve primorial",
+          "Resultary: 0eee43f23b58 and d4c334da51d4"
+        ]
+      },
+      "checked_sources": [
+        "Ding–Wang–Zhang arXiv:2509.08599v1, Theorem 1.7 and §4",
+        "Resultary 0eee43f23b58 and d4c334da51d4, RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In §4 the chosen primes need only divide the relevant aℓ−1 and differ from q; on such primes 1+(q−ℓ)a≡aq, so reusing a prime imposes compatible CRT constraints.",
+          "For q large with q not congruent to −1 modulo a, q is absent from Q_aq: it exceeds √(aq) and is not in the selected large-prime class. Substituting the optimized progression cover into §4 therefore recovers the φ(a) coefficient."
+        ],
+        "reasoning": "The coefficient is latent in that proof once the residue-class cover is optimized; it is not inferred just from the published statement or its crude all-prime modulus bound. The separately established matching lower bound on every possible cover makes the optimization sharp in its model. The later all-b CRT witness combined with this optimized cover can also give a stronger liminf bound, but that is a deduction outside the frozen claim, not a conclusion stated in the compared record.",
+        "searches": [
+          "arXiv:2509.08599v1, §4 (offsets 35780–42271)",
+          "Resultary: d4c334da51d4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ding–Wang–Zhang use y_ℓ=aℓ−1 for 1≤ℓ≤q, precisely the same forced progression through T=aq, and arrange a common divisor for each solution parameter.",
+          "Resultary d4c334da51d4 uses primorial divisibility and CRT for arbitrary coprime b, but uses all eligible small primes."
+        ],
+        "reasoning": "The underlying obstruction is equivalent at the level of how solution pairs are forced to be nonprimitive. The prior main lower bound and later all-prime bound do not give the optimized log weight of this progression.",
+        "searches": [
+          "arXiv:2509.08599v1, Theorem 1.7 and §4",
+          "Resultary: fixed coefficient primitive Frobenius limsup phi(a) residue class -1 modulo a divisor cover prime sieve b log b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ding–Wang–Zhang bound CRT modulus size by the full primorial through aq, not the asymptotically minimal weight of a cover of one residue class.",
+          "The indexed primorial bounds inspected do not report a table or formula for that cover minimum."
+        ],
+        "reasoning": "Finite obstructions or ordinary Frobenius tables do not settle either asymptotic invariant. No exact indexed match for the optimized cover and coefficient was identified.",
+        "searches": [
+          "Resultary: fixed coefficient primitive Frobenius limsup phi(a) residue class -1 modulo a divisor cover prime sieve b log b",
+          "arXiv:2509.08599v1, §4"
+        ]
+      },
+      "rationale": "The obstruction architecture and the fixed-a logarithmic lower-growth order are already in Ding–Wang–Zhang. The explicit φ(a) bound is an optimization of their actual CRT proof, not a new mechanism or a consequence of the printed coefficient. The supported distinction is the residue-class sieve that accomplishes this optimization, and the matching asymptotic minimum over all divisor covers of that class. The inspected same-day indexed theorem has a different growth regime; the later fixed-a indexed theorem uses a related mechanism with coefficient 1.",
+      "residual_risks": [
+        "The bounded comparisons do not rule out earlier explicit optimizations of these CRT prime choices.",
+        "The reported Shimizu factor-four comparison was not verified from its primary text (Zenodo HTTP 403); no inference about its full scope was made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same growth order and obstruction architecture; no printed sharp progression-cover weight or φ(a) coefficient",
+          "evidence": "Positive c₁(a), solution parameters aℓ−1, CRT and full-primorial bound through aq. The explicit cover improves the proof's crude estimate.",
+          "identifier_or_url": "https://arxiv.org/html/2509.08599v1",
+          "material_read": "Theorem 1.7 in §1 (offset 10100); §4 proof (offsets 35780–42271)",
+          "method": "Primary arXiv HTML passages",
+          "title": "The Diophantine Frobenius Problem revisited",
+          "trigger": "Closest primary fixed-a lower bound and the actual proof's adjustable parameters"
+        },
+        {
+          "assessment": "Mechanism overlap; different growth regime, with no date-based priority inference",
+          "evidence": "Requires a primorial below min(a,b) while both generators grow.",
+          "identifier_or_url": "2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58",
+          "material_read": "RESULT.md statement and parameter regime, offsets 258–1774",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Uniform primorial obstructions for primitive two-generator Frobenius representations",
+          "trigger": "Strongest distinct same-day primorial record in the same problem"
+        },
+        {
+          "assessment": "Later-dated, broader in b but smaller coefficient and no optimized cover",
+          "evidence": "Uniform lower limit at least 1 by an all-small-primes modulus and CRT witness.",
+          "identifier_or_url": "2026/11/8/SCOPE-primorial-obstructions-force-b-log-b-growth-for-primitive-froben--d4c334da51d4",
+          "material_read": "RESULT.md Finding and proof, offsets 214–5883",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Primorial obstructions force b log b growth for primitive Frobenius representations",
+          "trigger": "Direct fixed-a asymptotic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-generator logarithmic growth was known but its lower coefficient was not quantified by the closest prior statement. The coefficient here explains the leverage of the progression's prime density and the sharp cover-weight comparison proves that this economy is not arbitrary prime selection. This value does not depend on claiming a new obstruction architecture or an unrestricted optimal coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

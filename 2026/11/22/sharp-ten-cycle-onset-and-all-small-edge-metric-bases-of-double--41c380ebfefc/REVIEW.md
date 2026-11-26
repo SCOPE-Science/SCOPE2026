@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The graph has precisely four index layers, six prescribed edge types and no degenerate edge duplications for \(n\ge3\). Both exhaustive implementations independently reconstruct all graph edges and graph distances using different algorithms; they directly test injectivity of *all* edge-distance signatures for every subset of sizes two through four and every \(n=3,\ldots,12\). The resulting counts agree coefficient-for-coefficient. Positive four-set counts guarantee upper bounds; zero two-/three-set counts guarantee the lower bounds, and every one-set extends to a pair. The orbit checker tests each natural symmetry image and partitions all \(160\) minimum triples of \(DGP(10,1)\). The remaining infinite tail is attributed to the published Theorem 1, whose scope is exactly \(n\ge13\). The finite certificate relies on code inspection and reproduction and is not a claim of a paper-independent formal verification.
+PASS
 
-## Originality (PASS, provisional)
+In the defined four-layer graph every vertex has one same-index neighbour and neighbours at the two adjacent indices, staying in its outer layer or swapping the two inner layers. For n≥3 this gives 4n vertices, distinct unordered edges, degree three and 6n edges. The graphs in the finite claim are connected. In an independent reproduction I formed shortest-distance layers, built a bitset for each landmark of the unordered edge pairs it fails to distinguish, and intersected the sets for every unordered pair, triple and four-set of landmarks. Empty intersections give exactly zero resolving pairs, triples only at n=10 (160), and four-set counts 141, 224, 590, 1644, 2380, 7536, 5202, 21600, 11308 and 42768. All stated witnesses resolve. Monotonicity excludes sizes below two and makes these minima 3 at ten and 4 at each other tested index. Checking all 40 shift/reflection/layer-swap permutations against the actual edge set and applying them to the six displayed triples gives disjoint sets of sizes 20,20,40,20,40,20 in representative order, exactly exhausting the resolving triples. The all-index corollary is the disjoint union with Iqbal et al., Theorem 1 on n≥13 as cited; the independent finite replay does not prove that tail. That primary theorem's full passage and exact graph definition were not independently recovered, so tail scope is taken from the specific citation and excerpts in the frozen evidence, not represented as an independently verified proof.
 
-The closest same-graph original work [1], read through the relevant graph definition, lemmata, tables and Theorem 1, states the residue formula only for \(n\ge13\). Even the \(2\bmod4\) constructive lemma starts at \(n=14\). It neither enumerates initial-order three- or four-vertex bases nor supplies their symmetry orbits. The related later paper [2] computes Wiener-family indices, which do not imply these edge-signature injections. Searches for alternate graph nomenclature, small-order tables, basis counts and parameter-specific implications did not locate a covering result. Residual risks include unindexed theses, code databases and unpublished computational tables. Failed discovery alone is not a priority proof.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The missing initial cases of a published infinite-graph theorem form a natural finite cutoff, not an arbitrary slice. The smallest index congruent to two modulo four, \(n=6\), does **not** satisfy the extrapolated three-sensor law, whereas \(n=10\) does. The sharp onset matters for applying the theorem without its published size restriction. Exact four-set census and six symmetry families of the \(160\) exceptional optimal sensor arrangements supply reproducible boundary structure beyond simply checking a few examples.
+Credit the published parity-tail law rather than calling it new. The supported distinct work is the resolved initial range, in particular the tested failure at six and the first onset at ten, plus the exact small-set counts and six specified-subgroup orbits. The corresponding primary paper is highly relevant and excerpts in the frozen evidence identify its restricted theorem; lawful attempts did not recover its full text independently. The scope evidence and actual finite counts do not warrant treating the unqualified abstract parity pattern as a theorem for all orders. No accessible independent exact initial census was found; this is not a blanket priority claim.
 
-## Closest sources and limitations
+## value
 
-[1] Iqbal et al., *On the Edge Resolvability of Double Generalized Petersen Graphs*, 2022, DOI 10.1155/2022/6490698, Theorem 1 restricted to \(n\ge13\).
+PASS
 
-[2] Iqbal et al., *Wiener polarity and Wiener index of double generalized Petersen graph*, 2023, DOI 10.1016/j.jksus.2023.102680, different invariant.
+The finite range is forced by the break in the published tail, not chosen arbitrarily. The missing cases decide the true first occurrence of three landmarks and invalidate parity extrapolation at six. Counting all small resolving configurations and separating the exceptional optimal triples into complete subgroup orbits adds usable information about sensor choices unavailable from the dimension alone.
 
-The claims for \(n\ge13\) rely on [1]. The exhaustive enumeration is finite, priority clearance is provisional, and no external validation has been conducted.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

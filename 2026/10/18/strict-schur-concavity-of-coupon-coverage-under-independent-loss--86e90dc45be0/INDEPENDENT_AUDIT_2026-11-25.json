@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:06:26.128446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given the complete draw word, presence of a drawn type depends precisely on its independent survival from the last draw through the post-draw loss at the observation time. For two target labels, condition on the locations of their combined draws and all other labels. This conditioning leaves the pair allocation free. The last run K has tail a^k+(1-a)^k. For K<M the pair's survival product uses the newest combined draw and the draw immediately preceding the terminal run; it is nonincreasing in K, and is zero at K=M. Writing its expectation using adjacent differences gives nonnegative coefficients multiplying the subtracted power sums. The total coefficient is positive when M>=2, and every power sum with k>=2 strictly decreases on balancing. All other target labels contribute a nonnegative weight independent of the pair split; a word-pattern of positive probability has M>=2 and all other targets drawn when t>=|A|. This covers common deterministic time-dependent retention including the no-loss case. For homogeneous 0<q<1, iid draws and independent loss masks over an infinite past give a stationary law via finite last-draw times. The same pair expansion is valid by bounded convergence and has positive coefficients, while the other-target weight is positive almost surely. The chain can reach the empty set in one step and every state from empty by consecutive draws and retentions, so stationarity is unique. Directly, the singleton moment is q w_i/(1-q+q w_i), and the full two-type moment is q^2(a s_2+(1-a)s_1), giving the stated rational expression. This optimizes simultaneous coverage, not first-passage times; at q=1 stationary coverage is constant across positive laws. The submitted finite exact checker was inspected but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cruciani–Dudeja study draw-then-loss with uniform draws and identify nonuniform sampling as future work.",
+          "Anceaume et al. consider generalized permanent collection, with a stochastic uniformity optimum for time to collect a number of coupons."
+        ],
+        "reasoning": "The first establishes the motivating same-loss setting but not comparison of sampling laws. The second provides relevant no-loss optimization, not a dominating theorem allowing loss of already drawn types.",
+        "searches": [
+          "Cruciani–Dudeja arXiv:2602.20705, pp. 2–3",
+          "Anceaume et al. arXiv:1504.03878, p. 5",
+          "Literature lookup for random coupon expiration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result and verification support",
+        "Resultary semantic index and the October 18, October 13, and September 17 records compared above",
+        "arXiv:2602.20705",
+        "arXiv:1504.03878"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In permanent collection the complete-coverage event at time t is the event of hitting completion by t, because presence is monotone. After loss that equality fails. The known uniform stationary law evaluates a candidate optimum but does not compare it to other draws."
+        ],
+        "reasoning": "The permanent special case and evaluations at uniformity are credited. The last-run argument proves a strict change under every balancing transfer in the independent-loss model, rather than calculating a known optimum value.",
+        "searches": [
+          "Cruciani–Dudeja arXiv:2602.20705",
+          "Anceaume et al. arXiv:1504.03878",
+          "October 13 uniform stationary law",
+          "September 17 nonuniform reset coupon result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-day nonuniform first-passage record proves strict Schur-convexity of a mean hitting time with a single selected label refreshed each step.",
+          "The earlier reset-button record has strict Schur-concavity for success in a reset-free excursion, but resets erase the whole collection together."
+        ],
+        "reasoning": "The loss laws differ, and fixed-time or stationary joint presence cannot be obtained by changing the sign of a hitting-time majorization inequality. Neither overlap is equivalent; no priority from a shared date was assumed.",
+        "searches": [
+          "Resultary lookup for strict balancing, nonuniform coupon coverage and independent losses",
+          "Literature lookup for coupon coverage with random expiration and balancing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 13 record gives explicit stationary subset moments at equal weights; the reviewed recurrence reduces to these at uniform sampling."
+        ],
+        "reasoning": "Exact uniform-law values are prior and do not quantify changes with unequal weights. No database enumeration could by itself supply the asserted continuous strict transfer inequality over all target allocations and time schedules.",
+        "searches": [
+          "Resultary search for exact stationary law with independent coupon loss",
+          "October 13 Resultary uniform stationary synchronization law"
+        ]
+      },
+      "rationale": "The distinct claim is strict allocation majorization at fixed time and at equilibrium under independent losses applied to all currently present types. The strongest comparisons use uniform sampling, different loss mechanisms, or first-passage objectives; the special case of permanent collection is prior.",
+      "residual_risks": [
+        "General stochastic majorization with random deadlines, caching or per-item refresh could yield an unlocated broader result. The Fragile Coupon Collector full text was not obtained, and the search-result description is provisional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior same-loss model with uniform draws, not the allocation comparison",
+          "evidence": "Uniform sampling in the model; metastability and hitting-time analysis; expressly lists nonuniform draws as future work.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.20705",
+          "material_read": "PDF pp. 2–3, extracted offsets near 5400 and 12331",
+          "method": "Primary PDF passages",
+          "title": "The Careless Coupon Collector’s Problem",
+          "trigger": "Same draw-then-independent-loss model"
+        },
+        {
+          "assessment": "Overlapping no-loss optimum, not independent post-draw loss",
+          "evidence": "Stochastic minimization of permanent collection time under uniform allocation.",
+          "identifier_or_url": "https://arxiv.org/abs/1504.03878",
+          "material_read": "PDF p. 5, near offset 24600",
+          "method": "Primary PDF passage",
+          "title": "Optimization results for a generalized coupon collector problem",
+          "trigger": "Prior coupon majorization/optimization"
+        },
+        {
+          "assessment": "Different update rule and statistic",
+          "evidence": "Refreshes only the selected label and proves a result for mean first all-present time.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-first-passage-transform-and-strict-balancing-law-for-nonun--d79ee5d7e4b4/RESULT.md",
+          "material_read": "Finding and update proof, mirror offsets 0–1500 and 700–4000",
+          "method": "Local prepared mirror passages",
+          "title": "Exact first-passage transform and strict balancing law for nonuniform coupons",
+          "trigger": "Same-day nonuniform strict balancing hit"
+        },
+        {
+          "assessment": "Exact stationary subset moments at uniform draws are prior",
+          "evidence": "The sampling law is uniform; there is no strict balancing over unequal target probabilities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-stationary-law-and-critical-synchronization-exponent-for-t--870ace5234fa/RESULT.md",
+          "material_read": "Finding and law, mirror offsets 0–3089",
+          "method": "Local prepared mirror passage",
+          "title": "Exact stationary law and critical synchronization exponent for the coupon process",
+          "trigger": "Exact equilibrium comparison"
+        },
+        {
+          "assessment": "Whole-collection reset is not per-type loss",
+          "evidence": "Strict Schur-concavity applies to reset-free excursion success.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed/RESULT.md",
+          "material_read": "Finding and argument, mirror offsets 0–1499 and 4050–7336",
+          "method": "Local prepared mirror passages",
+          "title": "Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties",
+          "trigger": "Strict majorization in a loss-like coupon process"
+        },
+        {
+          "assessment": "Unresolved lead, not evidence of coverage or noncoverage",
+          "evidence": "The search description referred to deadlines before first observation followed by permanent safety; this was not confirmed from the paper.",
+          "identifier_or_url": "Title as returned by literature lookup",
+          "material_read": "Search-result description only; no verified full-text passage",
+          "method": "OA full-text attempt returned landing page/access failure",
+          "title": "The Fragile Coupon Collector",
+          "trigger": "Possible independent-expiration overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result resolves an allocation question for a natural nonmonotone process: it identifies the unique optimum at every feasible observation time, and not just for a constant loss schedule or asymptotically. Equilibrium strictness is distinct from a completion-time optimum and remains informative when stopped-collection methods no longer identify observation-time coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

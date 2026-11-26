@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is explicitly defined by its twelve-vertex LCF representation. The proof reduces each redundancy level to all \(4096\) subsets tested against the \(66\) exact distance-distinguishing masks, with all optimum-preserving jumps and slides subsequently enumerated and every connected component explored from every starting state. Two standalone independent Python and C++ implementations calculate the same six-component census, edge totals, radii and diameters. The maximum feasible redundancy of six is confirmed directly. The result has finite exact, not asymptotic, scope.
+PASS
 
-## Originality — PASS (best knowledge)
+A fresh exact enumeration built the graph from the frozen LCF offsets (12 cubic vertices, 18 edges), computed all shortest distances by Floyd–Warshall, and for each of the 4096 subsets took its minimum separation count over all 66 unordered pairs. The full vertex set has minimum separation 6, so k=1 through 6 are the only feasible positive levels. Filtering by score and then by smallest cardinality yielded (2,4,5,7,9,11) with counts (2,73,7,35,39,6). Every one-out/one-in move between retained masks was tested and filtered by the Frucht edge condition for slides. Edge counts, component orders and all component radii/diameters matched the six certificate rows, with jump disconnection exactly at levels 3 and 4 and K6 at level 6. At level 6 the slide graph has components of order five and one. Replay: python3 /workspace/branches/f00aeb20-96bc-46a0-9e07-8cadfd3d5fa5/frucht_reproduction.py (fresh code; optional --smoke checks only 256 masks). The submitted Python and C++ code and certificate were inspected, not executed. This is exhaustive on the named finite graph under the stated move rules, not a claim about cubic graphs in general.
 
-The full 2013 foundational article arXiv:1312.6840 states the definition and general largest-feasible-redundancy theorem, but it neither enumerates all bases of the Frucht graph nor computes optimum-basis mobility. Relevant archived computational and graph-product studies do not contain the same-object classification. Indexed related results concern either \(k\)-metric bases of crown graphs, a different graph family, or zero forcing on the Frucht graph, a different optimization predicate; their statements do not imply these six counts or the nonmonotone connectivity pattern. Targeted exact-phrase, alias and source searches disclosed no direct Frucht k-metric table. Residual risk: an unindexed historical computation or a stronger classification containing this particular graph could already imply the answer.
+## originality
 
-## Value — PASS
+PASS
 
-The original mathematical motivation for \(k\)-metric dimension is fault-tolerant localization using distance landmarks. The Frucht graph is a canonical smallest-order asymmetric cubic network, avoiding symmetry-driven duplicate basis counts. Determining every feasible redundancy level and the natural minimum-optimum jump/slide transport spaces gives a complete calibration of minimum-cost localization under increasing failure tolerance. Most notably, connectedness disappears and returns as redundancy grows, so ordinary monotonicity of feasible generator families does not extend to connectivity of their minimum-cost reconfiguration spaces. This qualitative obstruction is the motivating structural fact, not a routine isolated integer count.
+The general distinguishing-mask criterion and related graph-hierarchy and reconfiguration examples are known. The supported distinct result is the complete Frucht minimum-basis mobility profile, in particular the loss and subsequent recovery of jump connectivity. No matching prior table or general theorem determining that profile was identified in the bounded comparisons.
 
-## Closest literature and limitations
+## value
 
-Full-text inspection: Estrada-Moreno et al., arXiv:1312.6840 (definition and maximum-k condition); arXiv:1401.0342 (algorithms and complexity); arXiv:1410.7287 (lexicographic product cases). Publicly indexed recent examples of a crown-graph k-metric hierarchy and Frucht zero-forcing exchanges concern mathematically distinct properties. The proof is complete finite enumeration for this fixed graph, not a general graph-family theorem. An unindexed historical exact census remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Frucht graph is a standard asymmetric cubic benchmark. Minimum landmark count and fault tolerance do not reveal whether a deployed optimum can move to another optimum. The six-level example establishes concretely that feasible redundancy can increase while optimum jump connectivity disappears and then returns, and that even complete jump mobility can leave a slide-isolated state. Level-specific exact counts and distances are useful benchmark data for reconfiguration, not merely six isolated dimension values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

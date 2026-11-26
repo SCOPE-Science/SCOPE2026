@@ -1,107 +1,38 @@
-# Pascal translation stabilizers and exact finite-field orbit counts for the canonical extremal Rota–Baxter operator
+# Exact characteristic-free stabilizer rigidity and finite orbits for the canonical Bézout Rota–Baxter operator
 
 ## Finding
 
-For every field \(K\) and integer \(n\ge2\), let \(E_{ij}\) be matrix units of \(M_n(K)\). Define \(B_0\) on matrix units by
+Let \(K\) be any field and \(n\ge2\). On the matrix units of \(M_n(K)\) define the canonical weight-zero operator
 \[
 B_0(E_{ij})=\begin{cases}
-\sum_{r\ge0} E_{i+r,j+r+1},& i\le j,\\
--\sum_{r\ge1} E_{i-r,j-r+1},& i>j,
+\sum_{r\ge0}E_{i+r,j+r+1},&i\le j,\\
+-\sum_{r\ge1}E_{i-r,j-r+1},&i>j,
 \end{cases}
 \]
-with out-of-range matrix units interpreted as zero. This is the canonical extremal weight-zero Rota–Baxter operator appearing in Gubarev [1].
-
-For \(t\in K\), set \(P_t\in\operatorname{GL}_n(K)\) by
+omitting out-of-range units. For \(t\in K\), let \(P_t\) be substitution \(f(x)\mapsto f(x+t)\) on polynomials of degree less than \(n\), in the increasing monomial basis. Its \((i,j)\) entry is \(\binom{j-1}{i-1}t^{j-i}\) for \(i\le j\) and zero otherwise. The Bézout translation symmetry is known; the assertion here is that there are **no additional finite-dimensional inner symmetries in any characteristic**, including when \(n\) exceeds the characteristic. Writing \(\operatorname{Ad}_U(X)=UXU^{-1}\), the entire stabilizer for conjugation on operators is
 \[
-(P_t)_{ij}=\begin{cases}\binom{j-1}{i-1}t^{j-i},&1\le i\le j\le n,\\0,&i>j.\end{cases}
+\operatorname{Stab}_{\operatorname{PGL}_n(K)}(B_0)=\{\operatorname{Ad}_{P_t}:t\in K\}\cong(K,+).
 \]
-The full stabilizer of \(B_0\) under conjugation by **inner algebra automorphisms** equals
-\[
-\operatorname{Stab}_{\operatorname{PGL}_n(K)}(B_0)
-=\{\operatorname{Ad}_{P_t}:t\in K\}\cong(K,+).
-\]
-In particular, the Pascal matrices satisfy \(P_tP_u=P_{t+u}\) and \(P_t=I\) exactly when \(t=0\). Every nonzero scalar multiple of \(B_0\) is already inner-conjugate to \(B_0\).
-
-Define the transpose-dual \(B_0^\top(X)=(B_0(X^\top))^\top\). Its inner-conjugacy orbit is disjoint from that of \(B_0\). When \(K=\mathbb F_q\), the respective orbit cardinalities and their disjoint union are exactly
-\[
-\left|\operatorname{PGL}_n(q)\cdot B_0\right|=
-\left|\operatorname{PGL}_n(q)\cdot B_0^\top\right|=
-\frac{|\operatorname{GL}_n(q)|}{q(q-1)},
-\quad
-\left|\mathcal O_0\sqcup\mathcal O_0^\top\right|
-=\frac{2|\operatorname{GL}_n(q)|}{q(q-1)},
-\]
-where \(|\operatorname{GL}_n(q)|=\prod_{j=0}^{n-1}(q^n-q^j)\).
-
-Finally, \(B_0\) is a weight-zero Rota–Baxter operator with \(B_0^{2n-1}=0\) and \(B_0^{2n-2}\ne0\) over *every* field, including all positive characteristics.
-
-## Assumptions and scope
-
-The action is \(\operatorname{Ad}_U(X)=UXU^{-1}\) for \(U\in\operatorname{GL}_n(K)\), viewed as an algebra automorphism of \(M_n(K)\). Two conjugating matrices differing by a nonzero scalar define the same inner automorphism. The transpose-dual is obtained by conjugating the linear operator by matrix transpose, which is an antiautomorphism of the associative algebra. No restriction on characteristic or field cardinality is imposed for the stabilizer. The finite orbit formula assumes \(K\) is a finite field. The result counts two **explicit canonical orbits**, not all weight-zero Rota–Baxter operators in positive characteristic.
+Nonzero scalar multiples of \(B_0\) lie in its inner orbit; the inner orbit of \(B_0^\top(X)=(B_0(X^{\mathsf T}))^{\mathsf T}\) is disjoint. Over \(K=\mathbb F_q\) each has cardinality \(\lvert\operatorname{GL}_n(q)\rvert/[q(q-1)]\), so their union has twice this cardinality, with \(\lvert\operatorname{GL}_n(q)\rvert=\prod_{j=0}^{n-1}(q^n-q^j)\). This is a count of the two explicit canonical orbits, not a classification of extremal operators in positive characteristic.
 
 ## Proof
 
-**1. A characteristic-free inverse-derivation description.** Let \(W=\langle e_1,\ldots,e_{n-1}\rangle\), \(\mathcal B=\{X\in M_n(K):\operatorname{im}X\subset W\}\), \(\mathcal K=\{v e_n^\top:v\in K^n\}\), and \(S=\sum_{i=1}^{n-1}E_{i+1,i}\). Directly from the defining formula, \(B_0(\mathcal K)=0\) and \(B_0(M_n(K))\subset\mathcal B\). For every matrix unit \(E_{ij}\in\mathcal B\), the telescoping identity gives
-\[
-B_0(E_{ij}S-SE_{ij})=E_{ij}.
-\]
-Indeed for \(j=1\) the argument is \(-E_{i+1,1}\), and for \(j>1\) it is \(E_{i,j-1}-E_{i+1,j}\); the two displayed sums cancel except for \(E_{ij}\). Thus \(\operatorname{im}B_0=\mathcal B\) and, by dimension, \(\ker B_0=\mathcal K\). The map
-\[
-\delta:\mathcal B\longrightarrow M_n(K)/\mathcal K,
-\qquad \delta(b)=bS-Sb+\mathcal K
-\]
-is the inverse of the induced bijection \(\overline{B_0}:M_n(K)/\mathcal K\to\mathcal B\). As \(\mathcal B\mathcal K\subset\mathcal K\) and \(\mathcal K\mathcal B=0\), the quotient is a \(\mathcal B\)-bimodule; \(\delta(bc)=b\delta(c)+\delta(b)c\). For arbitrary \(x,y\), put \(b=B_0(x),c=B_0(y)\). Reduction modulo \(\mathcal K\) gives
-\[
-B_0(x)\,y+x\,B_0(y)\equiv b\delta(c)+\delta(b)c=\delta(bc).
-\]
-Applying \(B_0\) proves \(B_0(x)B_0(y)=B_0(B_0(x)y+xB_0(y))\). The proof uses only integer coefficients and therefore works in every characteristic.
+**Inverse description and the weight-zero identity.** Put \(W=\operatorname{span}(e_1,\ldots,e_{n-1})\), \(\mathcal B=\{b:\operatorname{im}b\subseteq W\}\), \(\mathcal K=\{b:bW=0\}\), and \(S=\sum_{i=1}^{n-1} E_{i+1,i}\). The unit formula vanishes on \(\mathcal K\) and lands in \(\mathcal B\). For a unit \(E_{ij}\) with \(i<n\), \(E_{ij}S-SE_{ij}=E_{i,j-1}-E_{i+1,j}\) with the first term absent if \(j=1\); applying \(B_0\) telescopes to \(E_{ij}\). Thus \(\operatorname{im}B_0=\mathcal B\) and by rank-nullity \(\ker B_0=\mathcal K\). The inverse of the induced map from \(M_n(K)/\mathcal K\) to \(\mathcal B\) is \(\delta(b)=bS-Sb+\mathcal K\). Since \(\mathcal B\mathcal K\subseteq\mathcal K\) and \(\mathcal K\mathcal B=0\), \(\delta\) is a derivation into the quotient bimodule. For \(b=B_0(x),c=B_0(y)\) it gives \(by+xc+\mathcal K=b\delta(c)+\delta(b)c=\delta(bc)\). Applying \(B_0\) proves the weight-zero identity \(B_0(x)B_0(y)=B_0(B_0(x)y+xB_0(y))\).
 
-**2. Stabilizer reduction.** If \(\operatorname{Ad}_U\) commutes with \(B_0\), then \(\operatorname{Ad}_U\) preserves \(\mathcal B\), hence \(UW=W\). It then preserves \(\mathcal K=\{X:XW=0\}\) as well. Since \(B_0\) and \(\delta\) are mutually inverse on the quotient, commutation is equivalent to
-\[
-[b,USU^{-1}-S]\in\mathcal K\quad\text{for every }b\in\mathcal B.
-\]
-The elementary matrix-unit centralizer lemma is
-\[
-\{D\in M_n(K):[b,D]\in\mathcal K\ \forall b\in\mathcal B\}
-=KI+\mathcal K.
-\]
-To prove it, insert \(b=E_{ij}\) for \(i<n\), first with \(j<n\). Vanishing of commutator columns \(1,\ldots,n-1\) forces the upper-left \((n-1)\)-square block of \(D\) to be a scalar matrix and the bottom-left row to vanish; its final column is arbitrary. The converse follows because \(\mathcal B\mathcal K\subset\mathcal K\) and \(\mathcal K\mathcal B=0\). Therefore stabilizing \(U\) must satisfy
-\[
-UW=W,\qquad USU^{-1}-S=aI+v e_n^\top
-\]
-for some \(a\in K\), \(v\in K^n\), and conversely these conditions imply stabilization.
+**Upper bound on inner symmetries.** If \(\operatorname{Ad}_U\) stabilizes \(B_0\), it preserves \(\mathcal B\), so \(UW=W\), and it preserves \(\mathcal K\). Commutation with the induced map is equivalent to commutation with its inverse \(\delta\). Thus for such \(U\) stabilization is equivalent to \([b,D]\in\mathcal K\) for all \(b\in\mathcal B\), where \(D=USU^{-1}-S\). Take for \(b\) a projection onto \(W\). The commutator condition shows that \(DW\subseteq W\). Taking all endomorphisms of \(W\) extended by zero shows that \(D|_W\) commutes with their full matrix algebra, so \(D|_W=tI|_W\) for some \(t\in K\). Conversely this restriction implies \([b,D]W=0\) for every \(b\in\mathcal B\). In particular, on \(Ue_j\in W\) for \(1\le j<n\) we have \(Ue_{j+1}=(S+tI)Ue_j\).
 
-**3. Exact Pascal rigidity.** Set \(w=Ue_1\). Applying the preceding identity to \(Ue_j\in W\) for \(j<n\) yields
-\[
-Ue_{j+1}=(S+aI)Ue_j,
-\quad Ue_j=(S+aI)^{j-1}w.
-\]
-For \(0\le k\le n-2\), the vector \((S+aI)^k w\) belongs to \(W\). Reading their last coordinates successively at \(k=0,1,\ldots,n-2\) gives \(w_n=w_{n-1}=\cdots=w_2=0\). Thus \(w=c e_1\) with \(c\ne0\) because \(U\) is invertible. It follows that
-\[
-U=cP_a,\qquad (P_a)_{ij}=\binom{j-1}{i-1}a^{j-i}\quad(i\le j).
-\]
-Conversely \(P_aW=W\) and \((P_aSP_a^{-1}-S)|_W=aI|_W\), hence \(P_aSP_a^{-1}-S\in aI+\mathcal K\); every \(P_a\) stabilizes \(B_0\). The binomial identity gives \(P_aP_b=P_{a+b}\); their distinct \(\operatorname{PGL}\)-classes are detected by the \((1,2)\)-entry. This proves exactness over any field, including characteristics dividing binomial coefficients.
+Write \(w=Ue_1\). The last coordinate of \((S+tI)^j w\) is zero for \(0\le j\le n-2\). For each \(j\) this last coordinate is \(w_{n-j}\) plus a combination of \(w_{n-j+1},\ldots,w_n\); using the equations successively gives \(w_2=\cdots=w_n=0\). Hence \(w=ce_1\) for \(c\ne0\) and the column recurrence gives \(U=cP_t\). Conversely \(P_t W=W\) and its columns obey that recurrence, so \((P_tSP_t^{-1}-S)|_W=tI|_W\) and \(P_t\) stabilizes \(B_0\). Substitution gives \(P_tP_u=P_{t+u}\); the diagonal ones and the \((1,2)\) entry distinguish projective classes. No factorials or binomial coefficients are divided out in the upper bound.
 
-**4. Scalar absorption, disjointness, and counts.** For \(c\in K^\times\), set \(D_c=\operatorname{diag}(1,c,c^2,\ldots,c^{n-1})\). Each nonzero summand of \(B_0(E_{ij})\) raises diagonal degree \(j-i\) by one; hence \(\operatorname{Ad}_{D_c}\circ B_0\circ\operatorname{Ad}_{D_c}^{-1}=c^{-1}B_0\). Thus scalar multiplication contributes no further orbit.
+**Orbits.** Each nonzero summand of \(B_0(E_{ij})\) raises the degree \(j-i\) by one. Conjugating the operator by \(\operatorname{Ad}_{\operatorname{diag}(1,c,\ldots,c^{n-1})}\) therefore scales it by \(c^{-1}\). The common kernel of the image algebra \(\mathcal B\) is zero, while that of the transpose image \(\{b:be_n=0\}\) is the line \(Ke_n\). Common-kernel dimension is invariant under inner conjugation, so the two orbits are disjoint. Transposition intertwines the actions via \(U\mapsto U^{-\mathsf T}\). Each stabilizer in \(\operatorname{GL}_n(q)\) consequently has order \(q(q-1)\), giving the counts.
 
-The image algebra \(\mathcal B\) of \(B_0\) has zero common kernel \(\bigcap_{b\in\mathcal B}\ker b=0\), whereas \(\operatorname{im}B_0^\top=\{X:X e_n=0\}\) has the one-dimensional common kernel \(K e_n\). The common-kernel dimension is invariant under inner conjugation, so the two orbits cannot meet. In \(\mathbb F_q\), the stabilizing subgroup inside \(\operatorname{GL}_n(q)\) consists exactly of \(\{cP_t:c\in\mathbb F_q^\times,t\in\mathbb F_q\}\), of order \(q(q-1)\); orbit-stabilizer gives both displayed counts.
-
-**5. Nilpotency index in all characteristics.** Since \(B_0(E_{ij})\) raises \(j-i\) by one, \(B_0^{2n-1}=0\). For \(1\le k\le n-1\), one has \(B_0^k(E_{n1})=(-1)^kE_{n-k,1}\). Furthermore, for \(0\le k\le n-1\), the coefficient of \(E_{1,k+1}\) in \(B_0^k(E_{11})\) is exactly one: in this progression the only way to retain row index one is to choose the zero-shift summand at each step. Therefore \(B_0^{2n-2}(E_{n1})=(-1)^{n-1}E_{1n}\ne0\), with no characteristic restriction.
-
-## Verification
-
-Run `python3 verify.py` with a standard Python 3 interpreter. The standalone checker tests the weight-zero Rota–Baxter identity on every pair of matrix units for dimensions two through five over the prime fields of orders two, three and five; checks the Pascal stabilizing operators and scalar conjugacies; exhaustively enumerates all invertible matrices and stabilizers in \(\operatorname{GL}_2(2)\), \(\operatorname{GL}_3(2)\), \(\operatorname{GL}_2(3)\), and \(\operatorname{GL}_3(3)\); and verifies the nonzero top nilpotent power. The respective exhaustive stabilizer orders are \(2,2,6,6\), exactly \(q(q-1)\). Finite checks are not used as a substitute for the universal proof.
+**Extremal nilpotency as context.** The degree shift gives \(B_0^{2n-1}=0\). Iterating on \(E_{n1}\) for \(n-1\) steps gives \((-1)^{n-1}E_{11}\), and the next \(n-1\) steps give \((-1)^{n-1}E_{1n}\): to achieve the only available last degree one must use the row-one, zero-shift summand at each step from \(E_{11}\). Thus the index is \(2n-1\) in all characteristics.
 
 ## Relationship to prior work
 
-Gubarev [1, equation (2), §4] introduced the explicit canonical form and characterized extremal weight-zero Rota–Baxter operators over characteristic-zero fields **up to inner conjugation, transpose, and nonzero scalar multiplication**. The image/kernel and inverse-derivation ideas also appear in [1]; they are credited and reused here. The independent contribution is the precise, characteristic-free inner stabilizer group \((K,+)\) realized by Pascal translations, its explicit orbit count over every finite field, and the disjointness of the two canonical inner orbits. Gubarev's characteristic-zero theorem together with scalar absorption implies that those two orbits exhaust characteristic-zero extremal operators; this text does **not** extend that exhaustion assertion to positive characteristic. Earlier work by Ogievetsky and Popov [2] gave Bézout-operator constructions related to \(B_0\). Its detailed symmetry content was not fully verified here; any equivalent pre-existing stabilizer statement would affect novelty.
+Ogievetsky and Popov, *R-matrices in rime*, [arXiv:0704.1947v3](https://arxiv.org/abs/0704.1947), §5, equation (121), use the divided difference \(D_0 f(x,y)=(f(x,y)-f(y,x))/(x-y)\) on the subspace of degree less than \(n\) in each variable. They explicitly describe translation invariance in the paragraph after (126); their §5.4 gives the partial-trace map (160) and corresponding Rota–Baxter formula (169). In the increasing basis \(e_i=x^{i-1}\), the contraction on a matrix unit acts at \(e_k\) by \((I\otimes e_j^*)D_0(e_k\otimes e_i)\), where \(e_j^*\) is the coefficient of \(x^{j-1}\) on the second copy. For \(k>i\) this gives \(e_{k-j+i-1}\) when \(i\le j\le k-1\); for \(k<i\) it gives \(-e_{k-j+i-1}\) when \(k\le j\le i-1\); otherwise it is zero. This is exactly the displayed \(B_0\). Simultaneously translating the two variables leaves the denominator \(x-y\) and the swap equivariant, immediately explaining the prior translation subgroup on this same operator. The finite-dimensional upper bound above does not assume that an arbitrary linear symmetry of the truncated space is a substitution, or that an infinitesimal generator determines it in positive characteristic.
 
-## Limitations
+Gubarev, *Extremal Rota–Baxter operators on matrix algebras*, [arXiv:2609.05647v1](https://arxiv.org/abs/2609.05647), equation (2), Theorem 1.1 and §4, gives the same canonical form and, in characteristic zero, the extremal weight-zero classification up to inner automorphism, transpose and nonzero scalar. No priority is asserted here for that classification, the Bézout realization, or the observation of translation invariance. The result isolates the exact stabilizer rigidity over arbitrary fields and its counted disjoint finite-field orbits.
 
-The finite-field formula counts only the two displayed canonical orbits, not every extremal Rota–Baxter operator over positive-characteristic fields. A complete positive-characteristic classification is not proved. Independent mathematical auditing has not been performed. Earlier Bézout or associative Yang–Baxter literature could contain an equivalent stabilizer description not indexed by these search terms.
+## Verification scope
 
-## References
-
-[1] V. Gubarev, *Extremal Rota–Baxter operators on matrix algebras*, arXiv:2609.05647v1, first submitted 4 September 2026, especially equation (2), Theorem 1.1 and §4. https://arxiv.org/html/2609.05647v1
-
-[2] O. Ogievetsky and T. Popov, *R-matrices in rime*, Advances in Theoretical and Mathematical Physics 14 (2010), §5 (Bézout operators), DOI:10.4310/ATMP.2010.v14.n2.a3. (The relevant full text could not be inspected completely.)
+The companion `verify.py` contains finite checks of the identity, translation and scalar conjugations, and top nilpotent power over prime fields of orders two, three and five in dimensions two through five. Its exhaustive stabilizer tests are confined to \(\operatorname{GL}_2(2),\operatorname{GL}_3(2),\operatorname{GL}_2(3),\operatorname{GL}_3(3)\). The proof of the upper bound and orbit formulas is algebraic and is not an extrapolation from these cases.

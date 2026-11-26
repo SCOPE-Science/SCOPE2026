@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any finite interval representation, sorting by right endpoint ensures that the earlier nonneighbors of each new interval form one prefix. Separating independent sets according to whether they contain the new vertex gives an exact two-term signed recurrence. A deterministic choice of each sign keeps every partial sum in \(\{-1,0,1\}\). Since all Walsh sums have the same parity as the total number of independent sets, the construction proves the exact zero-or-unit minimum for every graph in the class. Walsh diagonalization establishes invertibility and the stated sharp \(\ell^2\) norm. A separately derived octahedral formula and 996 executable examples corroborate the result; the infinite theorem does not rely on enumeration.
+## correctness
 
-**Originality — PASS, bounded comparison.** The 2012/2014 Codara–D'Antona papers count independent sets of path/cycle powers and their Hasse-diagram edges, but their relevant sections do not evaluate vertex-signed Walsh transforms. The 1982 Gupta–Lee–Leung article concerns interval optimization. Published Fourier statements for squared paths and clique windmills are special-case statements and do not logically imply the present theorem for arbitrary interval families. Related public-index records concerning Fourier interpolation matrices use a different operator. The leading residual risk is an equivalent unindexed signed-independence-polynomial theorem; some related records were available only through their indexed summaries.
+PASS
 
-**Value — PASS.** The theorem classifies exact recoverability of a natural Boolean convolution for every interval graph, in terms of a single computable parity invariant, and supplies an explicitly constructible singular character or sharp inverse norm. It simultaneously covers all powers of paths and interval-scheduling conflict graphs without a bounded-power assumption. The familiar octahedral graph gives a sharp conceptual boundary: even independent-set count does not force Fourier singularity for arbitrary graphs. No stronger Banach-space inverse bounds are asserted.
+For closed intervals in nondecreasing right endpoint order, an earlier interval is disjoint from interval i exactly if its right endpoint is strictly less than the left endpoint of i. The earlier intervals eligible to accompany i thus form exactly the first k_i vertices (also with tied endpoints). Splitting independent sets by inclusion of i gives Z_i=Z_{i-1}+s_i Z_{k_i}. Choose each new sign to cancel the two terms if both are nonzero; induction from Z_0=1 keeps every prefix in {-1,0,1}. Every signed summand is odd, so this construction attains the least permitted magnitude, including for the empty graph. Walsh characters diagonalize the unnormalized convolution; the maximum magnitude is the unsigned count and the unit minimum in the invertible case gives the claimed norm and condition number. The sign scan is linear with predecessors given; sorting and strict predecessor searches take O(n log n). For the path power, [i,i+h] realizes the required edges and gives the stated predecessor index. For K_{2,2,2}, a nonempty independent set stays in one part, so the multiplier is 4t-2 where t counts parts having both signs positive; each other part has three sign patterns. This yields the claimed spectrum, and two parts induce a 4-cycle, outside interval graphs.
 
-**Limitations and closest literature.** The proof requires a representation with a prefix nonneighbor ordering; it does not cover general chordal, circular-arc, or arbitrary graphs. Historical priority has been checked only against accessible primary scientific materials and indexed mathematical descriptions, not every possible unpublished or unindexed account.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit prior Walsh zero/unit criteria on path squares and clique windmills, and unsigned path-power recurrences. Pass the distinct all-interval prefix cancellation and sharp lower multiplier result, not the prior special cases, Walsh diagonalization, or ordinary independent-set counting by themselves. No inspected statement covers that general signed extension.
+
+## value
+
+PASS
+
+The minimum multiplier decides whether exact recovery is possible and, when it is, gives its sharp spectral conditioning. The predecessor-based construction supplies a uniform, efficiently findable witness across arbitrary interval graphs, replacing special-purpose periodic signings. The even-count invertible octahedron isolates why the easy general parity argument cannot give the converse without structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

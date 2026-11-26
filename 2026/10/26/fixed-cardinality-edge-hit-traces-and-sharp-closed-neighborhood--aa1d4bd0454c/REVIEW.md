@@ -1,15 +1,21 @@
-# Scientific review: fixed-size vertex-cover trace shattering
+# Independent mathematical audit
 
-## Correctness — PASS
-The structural necessity follows from singleton traces: each selected edge needs a degree-one endpoint in its edge-support graph. For star components, exact realization costs of arbitrary traces are derived separately for empty, full, and proper nonempty edge subsets. The necessity of \(r\) isolated padding vertices follows from the empty trace, and sufficiency follows from selecting minimum-cost witnesses and padding with unused vertices. The VC-dimension optimization is over an explicit number of components; for \(k\) edges and \(m\) components its minimum possible cost is \(\max\{m,k-m\}\). The cardinality formula and triangular-graph counting then follow. Full exhaustive checks for the stated small ranges are computational corroboration only.
+## correctness
 
-## Originality — PASS, qualified
-Adler, Benediktsson, and Macpherson (arXiv:2007.16042, Sections 1 and 3, especially Theorems 3.6--3.7 and Figure 4) characterize **open** Johnson-graph VC dimension; their four-point example in \(J(7,2)\) is not a closed-neighborhood witness. Coudert, Csikós, Ducoffe, and Viennot (arXiv:2405.07588, Sections 1--6) provide closed-neighborhood algorithms and general bounds, not a uniform-star-budget criterion or the exact triangular-graph shattering polynomial. Byrne, Byrne, and Cioabă (arXiv:2609.10330, Section 4) explicitly restrict their triangular-graph discussion to open neighborhoods and so do not cover the present closed family. An unrestricted vertex-induced-edge trace characterization identifies star forests but does not impose a fixed witness size and therefore does not imply the new budget, order thresholds, or size enumerator. The full-text comparisons were conducted against actual PDF content, not title similarity. Remaining publication-priority risks include alternative vocabulary from incidence hypergraphs and partial vertex covers.
+PASS
 
-## Mathematical value — PASS
-The theorem identifies a precise resource parameter controlling which edge configurations are shattered when the covering set must have *exactly* \(r\) vertices. Its consequences include an exact formula over all integer parameters and the entire labeled shattering profile of the triangular graph family. The shift from the published open-neighborhood threshold \(n=7\) to the closed-neighborhood threshold \(n=8\) is a meaningful sharp distinction. Neither numerical sampling alone nor the unrestricted star-forest obstruction gives these statements.
+For any singleton trace, the endpoint used to hit its only edge must have degree one, so each edge has a leaf endpoint. In a connected edge component two nonleaves would force an edge with both endpoints nonleaves along their shortest path; hence every component is a star. On a star of s edges, the empty trace costs zero, the full trace one, and a nonempty proper trace of t edges requires and is realized by t leaves because the hub is forbidden. Disjointness makes costs additive, and maximizing independently yields sum max(1,s-1). The empty trace requires r outside vertices, which also suffice to pad any minimal-cost trace. For k>0 edges and m star components the support is k+m; with a singleton stars the cost is k-m+a. The minimum a is max(0,2m-k), attained by using twos and distributing surplus or using a mixture of ones and twos. Thus m>=max(1,k-r), m<=min(k,r), and k+m<=n-r; the minimum feasible m gives exactly k<=2r and n>=max(r+k+1,2k). This also handles r=n and the empty edge set. At r=2 the budget gives precisely the six nonempty types and their support sizes plus two outside vertices. On prescribed supports the count factors are 1,3,3,4,30,90, with automorphism orders 4 for the star-plus-edge and 8 for the pair of two-edge stars. The independent complementary-trace replay /workspace/branches/replay_4.py checked every F for n=2..6 and all r, every F of size at most four at n=7,8 for all r, and that size range at n=9 for r=2. It returned e.g. [1,21,210,770,0] at n=7 and [1,28,378,1960,2520] at n=8. General exhaustion follows from the analytic criterion, not truncation.
 
-## Limitations
-The family is the fixed-size vertex-hit range system on the complete graph. The triangular-graph statement applies only to \(J(n,2)\); no general \(J(n,k)\) claim for higher \(k\) is made. The result is not independently validated, and absolute novelty against all terminologies is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim supported by the comparison is the exact constant-cardinality structural budget, and the resulting dimension over all r. The closed triangular specialization also overlaps exactly with a later indexed statement, and its dimension is equivalent to rank-two open Kneser VC dimension. The earlier open Johnson theorem does not give these closed traces. No checked broader prior supplies both the unused-vertex and maximal trace costs across fixed r.
+
+## value
+
+PASS
+
+This is a complete local-to-global characterization of a natural exact-size incidence range system, distinguishing empty-trace space from the worst requested trace cost. It yields genuine finite-order thresholds and all support types, including the informative open/closed difference at order seven, rather than only numerical dimension checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

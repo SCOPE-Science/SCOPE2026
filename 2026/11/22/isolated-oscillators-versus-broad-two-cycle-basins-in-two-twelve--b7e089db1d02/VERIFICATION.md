@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproducing the finite proof
+# Independent mathematical audit
 
-Place `archimedean_majority.py`, `archimedean_independent.cpp`, `reference_census.json`, and `verify.py` in the same directory. Run `python3 verify.py` with Python 3.9+ and a C++17-capable `g++` installed.
+## correctness
 
-The Python implementation constructs two twelve-vertex graphs, enumerates all 4096 binary configurations for each, computes successor arrays and traverses the functional graphs to their exact first repetitions. It also enumerates the full 24- and 48-member spatial automorphism groups, checks their adjacency preservation, computes fixed-state and temporal two-cycle classes, and independently checks Burnside's count. The computed machine-readable census must match the frozen `reference_census.json` bytewise as decoded JSON structures.
+PASS
 
-The C++ program independently builds the graphs and uses indegree peeling, rather than path following, to obtain the precise period/first-entry table. Its recorded final marker is `INDEPENDENT_CERTIFICATE_OK`. The top-level replay prints `VERIFY_OK` only after the expected totals agree. In the actual replay, the truncated graph produced entry populations `(494,1502,996,816,216,72)`, with period-two basin 2366 and consensus basin 1360; the cuboctahedron produced `(186,1606,1200,1008,96)`, with period-two basin 40 (all 40 at entry zero) and consensus basin 2064.
+Independently built the two graphs and indexed all 4096 states of each by bit masks. The update threshold on neighbor ones is floor(d/2)+1 at an incumbent zero and ceil(d/2) at an incumbent one, including degree-four ties. Computing every successor and flagging F²(s)=s identifies exactly the states with period dividing two, and following every initial state to its first flagged state proves the claimed cutoff and absence of other periods. On T, the fixed destination row is (16,238,468,720,216,72), the two-cycle destination row is (478,1264,528,96,0,0). Thus 239 primitive orbits attract 2366 states (1888 transient), sharp time three within that basin and five globally. The unanimous basins each contain 680 states. On benchmark C the rows are (146,1606,1200,1008,96,0) and (40,0,0,0,0,0); the unanimous basins each have 1032 states, and no oscillator has a transient predecessor. Witnesses 310 on T and 348 on C attain the global times. Independent adjacency-preserving bijection backtracking found groups of orders 24 and 48 and applying them gave respectively (5,26) and (14,3) fixed/two-cycle spatial counts. The structural symmetry arguments in the corrected result agree. Global sharpness of the iterate identity follows because F^(r+2)(x)=F^r(x) exactly when F^r(x) is already of period dividing two. All figures and claims in the corrected files were checked against this exhaustive replay or against the explicitly credited benchmark statement.
 
-The proof is a complete finite 8192-input enumeration, not a statistical experiment or an assertion about infinite graph classes. Success is a reproducible program-level check, not independent formal certification or peer review. The unrelated classical finite-threshold eventual-period theorem is not independently reproved.
+## originality
+
+PASS
+
+For the repaired claim only: the established cuboctahedron census is a reference point, including the no-transient-predecessor result itself. The distinct contribution is the exact truncated-tetrahedral binary-majority attraction and entry census, not eventual period-two theory, a recomputation of the cuboctahedron, or a general isolation claim. No inspected statement gives or implies the new truncated-tetrahedral census.
+
+## value
+
+PASS
+
+The repaired contribution determines the exact distribution of recurrent destinations and times for a canonical twelve-vertex Archimedean majority network, motivated by comparison with the already established cuboctahedral isolation standard. The substantive contrast is that a uniformly random start usually oscillates on T, with 1888 nonperiodic starts converging to two-cycles, not simply that the graphs have different recurrent-state totals. The independent sharp times for reaching any attractor and for reaching an oscillator, plus symmetry-resolved counts, make the model a precise finite benchmark. This is not presented as the first existence of transients entering oscillations in general.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

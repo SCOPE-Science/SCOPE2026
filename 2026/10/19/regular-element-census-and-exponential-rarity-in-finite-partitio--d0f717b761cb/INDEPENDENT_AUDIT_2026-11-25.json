@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:29:35.127507Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a partition-preserving inner inverse g, all points of an occupied target block must be sent to a single source block by g, so that source block's f-image must cover the entire occupied image union. Conversely choosing preimages in one such source block per occupied target defines g on the image and allows a partition-preserving extension everywhere. With the union fixed at size s, subtract the product of the numbers of non-surjections into it from all tuples of block maps into it. An onto component guarantees that this chosen set really is the union; distinct targets are independent. The multinomial allocation of m labelled source blocks to m labelled targets gives m![z^m] A_n(z)^m and exponentiating the resulting coefficients gives (3). For fixed n>=2 the normalized local weights p_k=c_n(k)/n^(nk) are positive, p_0=p_1=1, and p_2<1 (two distinct constant images). The mean of the tilted lattice law is strictly increasing because its derivative with respect to log t is the variance; its limits are zero and infinity, the latter by the unique leading e^t term. At the tilt of mean one the law has span one and positive finite variance, so the lattice local CLT and Stirling cancel the sqrt(2 pi m) factor and yield precisely 1/sqrt(v_n) times rho_n^m. The minimizing ratio B_n(t)/t is no greater than B_n(1)<e, ensuring rho_n<1. For n=1 all maps are regular, as in the full transformation monoid. The independent replay /workspace/branches/18e98930-9a7c-4913-bcb1-84179dc4aec6/independent_check_record3.py found 341 of 405 for (1,2,2) by exhaustive inner-inverse search as well as the formula, checked the first uniform weights (1,4,14,58) for n=2 and 60 for m=n=2, and reproduced rho_2=0.969592013730826. This replay is finite; the source verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "859bee082aaf counts by rank for two equal blocks and gives a proportion approaching 1/2 exponentially as the block size grows.",
+          "The assigned record allows arbitrary sizes for the census and sends the number of blocks to infinity at fixed size for its exponential rarity."
+        ],
+        "reasoning": "A rank refinement really overlaps (and is finer in) the two-block specialization, but two fixed blocks do not give arbitrary block profiles or control the distinct limiting regime. No dominance in the asymptotic follows by exchanging the roles of the two parameters.",
+        "searches": [
+          "Resultary 859bee082aaf, RESULT.md Finding and asymptotic",
+          "arXiv:2310.19414v1 Proposition 3.4; arXiv:2010.14033v1 §6.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Sarkar–Singh arXiv:2310.19414v1 and arXiv:2010.14033v1",
+        "Resultary 859bee082aaf from the local mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known criterion gives an existence test, used to derive local disjoint-union counts, not the stated coefficient weights or saddle-point limit.",
+          "The compared exact census is confined to two equal blocks; asymptotic parameters and limits differ."
+        ],
+        "reasoning": "The claim is a quantified enumeration and asymptotic built using a known regularity test and standard local CLT, not a relabelling of that test or an automatic specialization of the inspected counts. Credit both ingredients without treating them as newly established here.",
+        "searches": [
+          "arXiv:2310.19414v1 Proposition 3.4",
+          "arXiv:2010.14033v1 Remark 5.3 and §6.3",
+          "Resultary 859bee082aaf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2023 criterion that the target's intersection with the full image be contained in a source image is equivalent to equality with one source image, because that source image belongs to the same target.",
+          "Gamma instead requires every source map to be onto its whole target block; for two size-two blocks it has 16 regular maps versus 60 in the full monoid."
+        ],
+        "reasoning": "The known criterion is precisely the criterion used and is not novel. The tempting alternative count for the whole-block-surjective submonoid has a genuinely different domain and is not another expression for formula (1).",
+        "searches": [
+          "Sarkar–Singh arXiv:2310.19414v1, Proposition 3.4",
+          "Sarkar–Singh arXiv:2010.14033v1, definition of Gamma and §6.3",
+          "Resultary 859bee082aaf, exact two-block rank enumerators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rank enumerators provide the exact regular totals in the two-equal-block family by summation; their aggregate was not separately reduced symbolically to (1).",
+          "The prior count in Section 6.3 belongs to the whole-block-surjective setting."
+        ],
+        "reasoning": "Credit the exact equal-two-block family and do not treat a reproduced entry such as (2,2) as original. Neither exact source is a census for arbitrary labelled nonuniform blocks or specifies this fixed-size saddle-point decay.",
+        "searches": [
+          "Resultary 859bee082aaf, rank enumerators",
+          "arXiv:2010.14033v1, Section 6.3"
+        ]
+      },
+      "rationale": "Credit the published regularity criterion and the exact two-equal-block enumerative overlap. The supported distinction is the arbitrary-block full-monoid census, its uniform EGF, and the fixed-block-size asymptotic with explicit saddle-point prefactor for increasing number of blocks. Neither the whole-block-surjective count nor the inspected rank enumerators at two equal blocks cover this joint statement.",
+      "residual_risks": [
+        "An equivalent arbitrary-block enumeration or the same fixed-size saddle-point estimate could have appeared under wreath-product or occupancy terminology; the comparison is bounded.",
+        "No priority ordering between the catalogue records is inferred from their dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the criterion, not of the enumerative result in the inspected proposition",
+          "evidence": [
+            "Regular iff each target block's intersection with the global image lies in a source-block image"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.19414v1",
+          "material_read": "Proposition 3.4 at HTML offset about 17110",
+          "method": "OA passage and context",
+          "title": "Semigroups of transformations whose characters belong to a given semigroup",
+          "trigger": "Closest primary result about full-monoid regularity"
+        },
+        {
+          "assessment": "Counts a distinct, whole-target-block-surjective submonoid",
+          "evidence": [
+            "Each source block must surject onto its target block in Gamma, not merely cover the actually occupied target image when required"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.14033v1",
+          "material_read": "Definition near offset 700; Remark 5.3, §6.3 and Remark 6.8 around 49633",
+          "method": "OA passage and bounded original text",
+          "title": "Regular, Unit-regular, and Idempotent elements of semigroups of transformations that preserve a partition",
+          "trigger": "Primary regular-element enumeration for a partition-preserving semigroup"
+        },
+        {
+          "assessment": "Material specialization overlap, with a different asymptotic; dates do not determine priority",
+          "evidence": [
+            "Two equal source blocks; exponential approach to 1/2 with block size increasing"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rank-enumerators-and-exponential-size-asymmetry-of-the-two-maxim--859bee082aaf",
+          "material_read": "RESULT.md Finding at local offset 300, exact uniform two-block rank counts and limit regime",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rank enumerators and exponential size asymmetry of the two maximal regular strata",
+          "trigger": "Closest catalogue census and exponential proportion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact census quantifies a natural algebraic property on the full monoid, where regularity differs materially from that in the block-surjective submonoid. The many-block asymptotic answers how strongly regularity is lost in a large random member and supplies both a strict exponential rate and its asymptotic constant, not merely a few reported counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,26 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` beside `certificate.json`.
+# Independent mathematical audit
 
-The verifier first enumerates all binary and ternary words at small lengths to independently check the unbordered-word recurrence. It then checks the exact shortest-border identity
-\[
-q^m-u_m(q)
-=
-\sum_{1\le j\le m/2}u_j(q)q^{m-2j}
-\]
-for several alphabet sizes and all tested lengths through \(40\).
+## correctness
 
-For binary and ternary words through length \(8\), it exhaustively computes the greedy largest block-palindrome factorization and verifies the exact finite formula for every tested tail event \(\Pr(M_n\ge r)\).
+PASS
 
-The verifier separately computes the defining A274190 array and exhaustively enumerates constrained compositions through index \(16\), confirming stabilization to
-\[
-1,1,2,3,5,8,12,19,29,44,67,101,152,228,342,511,763.
-\]
-It also constructs the formal power series from the triangular shortest-border recursion and confirms the same coefficients independently.
+The shortest border is unbordered, since a border of it would be a shorter border of the original; it cannot overlap its copy, since a nonempty overlap would border it. Conversely an unbordered v in v z v is the shortest border, so each r-layer event counts uniquely by the r lengths and blocks and arbitrary center. Its probability is the r-fold product sum restricted by total peeled length at most n. Monotone passage to the unrestricted sum gives s_q^r. The first two exact terms plus the geometric tail give a strict bound below one (at q=2, at most 7/8; the bound decreases thereafter). Empty-center probabilities are summable over positive even half-lengths, since each complete peel has a unique positive length composition and the sum over layers is s_q/(1-s_q). The limiting width and its mean then follow, the mean by summable domination of the tail probabilities. For the series, the first-part recurrence for constrained compositions gives H_m=F_m/(1+B) with the same triangular recurrence and initial term as a_m; therefore B=S/(1-S) formally. To justify evaluation, for any 0<rho<1 the sum of absolute coefficient norms at radius rho of the a_m is at most product_{j>=1}(1+rho^j)-1, by the triangular recurrence. Thus S is continuous there. The coefficient series B converges for 0<=x<1/2 by the unrestricted composition bound; the identity (1−S)B=S there, together with nonnegative coefficients and S(1/2)=s_2<1, permits passage to the endpoint by monotone convergence. Finally splitting constrained compositions by last part K+1 gives the A274190 recurrence after setting d=N−K; take counts to be zero for negative d, with the empty composition counted for d=0. The reverse row then stabilizes at d once K+1>=d. The b_0 offset accounts for the separate constant 1 in the mean.
 
-Finally, it evaluates the exact rational truncations of \(s_q\) and reproduces the published expected-width values for every \(q\) from \(2\) through \(10\).
+## originality
 
-Finite computations are checks on the proof and implementation. The theorem for all alphabet sizes, all limiting widths, and all coefficients follows from the symbolic renewal and composition arguments in `RESULT.md`, not from finite extrapolation.
+PASS
+
+Credit the known greedy factorization, finite-width recurrence, existence of the limiting mean, the conjectured coefficient sequence, and the already recorded composition model. The distinct contribution supported by the comparison is the proof linking the unbordered-word renewal series to A274199 and hence resolving Conjecture 5. The explicit geometric law and mean formula are useful consequences of the recurrence mechanism, not an independently new mechanism; the distribution is not itself part of Conjecture 5.
+
+## value
+
+PASS
+
+The proof settles a published all-alphabet expansion conjecture and explains the coefficients by an exact transformation of the shortest-border law. It gives actual limiting probabilities, not just approximate means or fitted coefficients. The value assessment rests on the normalization/composition argument, not on reproducing the existing table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

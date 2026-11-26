@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:55:07.211964Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFY.py inspected; corrected replacement: /workspace/repairs/2/RESULT.md",
+        "Replay: python /workspace/independent_checks/semigroups.py"
+      ],
+      "rationale": "This PASS is for repairs/2/RESULT.md, not the frozen table as written. The frozen use of F=4h-r swaps the residue-1 and residue-3 fibers: for example the frozen r=1 row at h=1 would give N4(3)=0, against the ordinary semigroup. The repair uses F=4(h-1)+r, excludes F=1,2, and corrects the even r=2 lower bound (N-3L=(k-1)^2+2, not always >=3). It also supplies the missing boundary reasoning for the leaf classification: among maximal w2=2w1 triples, c=2a-1 leaves an effective w3, and among maximal w2=2w3 triples, a=2c+1 leaves an effective w1. The four surviving families give all leaves, since every generator other than 4 is in the Apéry set. The coordinate shifts keep the maximum and break its only decomposition, preserve all closure inequalities, and have disjoint image branches by F modulo 4 (and b parity in residue 2). Counting the resulting intervals by maximal Apéry residue gives the repaired table. For r=1 and h>=8 the displayed square plus the outside point bounds N below by floor(h/2)^2+1 and the strict surplus follows separately at h=9 and in the other cases by the quadratic inequalities. The analogous square plus point for r=3 and h>=6 gives (floor(h/2)+1)^2+1>2h+1>=3L+1. The r=2 quadratic and the small tables give exactly F=3,5,7,9,10,11. An independent enumeration from Apéry residue closure and direct minimality, including deletion of 4 when effective, checked all 5093 leaves in the bounded range through F=299 and both counts, the injection, and exact equalities there. It is the interval argument, not the enumeration, that proves all F.",
+      "residual_risks": [
+        "Only multiplicity four and the full numerical-semigroup tree. The repaired convention agrees with the frozen checker, whose own final inequality assertion checks only the weaker injection surplus."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conjecture 41 posits a weaker inequality for all multiplicities. Proposition 42 requires ceil(F/2+1)<=m<F and thus gives only bounded F when m=4. The earlier low-multiplicity Kunz framework describes admissible triples, not their leaf-to-internal correspondence."
+        ],
+        "reasoning": "The general open question and restricted proven range do not dominate the entire repaired fixed-four theorem.",
+        "searches": [
+          "multiplicity four numerical semigroups leaves internal fixed Frobenius number Casas Madrid Rosales 2608.19984 Frobenius distribution leaf",
+          "arXiv:2608.19984v1 Conjecture 41 and Proposition 42"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.19984v1",
+        "Resultary 786d5662b2ca and 0a6ecda60e6d",
+        "Repaired RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The four leaf families and Kunz closure make the interval counts accessible by elementary arithmetic. However the fixed-genus theorem does not furnish disjoint pointwise targets in fixed-F fibers, nor the surplus. The sharp ratio and equality set require comparison of the leaf and total counts across the fibers."
+        ],
+        "reasoning": "The counting setup and some checked values were available; the constructive fixed-F theorem plus strong uniform surplus are the surviving claims.",
+        "searches": [
+          "arXiv:2608.19984v1 §§2,6",
+          "Resultary 786d5662b2ca and 0a6ecda60e6d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full-tree internality is equivalent to presence of an effective generator by Proposition 2. The earlier multiplicity-four genus-preserving result has fibers indexed by a+b+c, not by max(4a-3,4b-2,4c-1). Genus does not determine F (e.g. (1,1,2) and (2,1,1) both have genus 4 but F=7 and F=5)."
+        ],
+        "reasoning": "A correspondence on fibers of genus does not establish a correspondence on fibers of F.",
+        "searches": [
+          "Resultary: numerical semigroup tree multiplicity four fixed Frobenius number leaf internal conjecture preserving injection 2 to 1 Kunz coordinates",
+          "Resultary: fixed Frobenius multiplicity four numerical semigroups leaf exact F census Kunz",
+          "arXiv:2608.19984v1 Proposition 2 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior source enumerates fixed-(m,F) fibers by algorithm and includes finite multiplicity-four examples, in particular (4,10). The genus-indexed two/three-child record has other fibers and does not produce this equality locus over unbounded F."
+        ],
+        "reasoning": "Do not claim novelty for already tabulated points: finite tables cannot certify the sharp uniform inequality or exclude unlisted equalities.",
+        "searches": [
+          "arXiv:2608.19984v1 Algorithm 38, F=10 example and §6 fixed-m,F tables",
+          "Resultary: fixed Frobenius multiplicity four numerical semigroups leaf exact F census Kunz"
+        ]
+      },
+      "rationale": "The repaired theorem claims the fixed-F injection and sharp uniform surplus/equality classification, not the Apéry inequalities, the four known leaf families, the fixed-genus injection, or priority over overlapping finite data. No prior all-F fixed-multiplicity-four theorem establishing these claims was identified in the inspected sources.",
+      "residual_risks": [
+        "Earlier published multiplicity-four results compared from their indexed claims. Equivalent unindexed all-F arguments are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact prior framework and finite overlap; not all-F multiplicity four",
+          "evidence": [
+            "Conjecture 41 fixes both m and F; Proposition 42 covers large m; the worked example uses m=4,F=10."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.19984v1",
+          "material_read": "Proposition 2; §6 Algorithm 38, worked example, fixed-m,F table context, Conjecture 41 and Proposition 42",
+          "method": "public arXiv HTML",
+          "title": "Internal numerical semigroups",
+          "trigger": "exact conjecture and prior multiplicity-four counts"
+        },
+        {
+          "assessment": "known leaf decomposition and genus preservation; different fixed invariant",
+          "evidence": [
+            "Indexed statement quantifies over genus g; the present shifts increase genus by one while fixing F."
+          ],
+          "identifier_or_url": "Resultary 786d5662b2ca",
+          "material_read": "indexed result statement and leaf source comparison in frozen RESULT.md",
+          "method": "Resultary search and frozen evidence",
+          "title": "A genus-preserving leaf-to-internal injection for multiplicity-four numerical semigroups",
+          "trigger": "same tree, multiplicity, and prior map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Casas–Madrid–Rosales Conjecture 41; repaired fiber comparison"
+      ],
+      "rationale": "A fixed-F correspondence solves a natural unbounded slice of the two-invariant conjecture without changing multiplicity, and the sharp quantitative surplus and exact small exceptions add structural information beyond existence of an injection or a finite table. The repaired index convention leaves those contributions intact.",
+      "residual_risks": [
+        "Does not directly resolve higher multiplicities or impose genus preservation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

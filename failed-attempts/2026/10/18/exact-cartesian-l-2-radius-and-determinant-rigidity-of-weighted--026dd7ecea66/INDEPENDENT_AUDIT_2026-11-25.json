@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:20:17.006489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The factor 1/2 in H_theta gives tr(H_theta^2)=S/2 and det(H_theta)=Re(e^(3i theta)abc)/4, by the two oriented three-cycles in the determinant. Thus the characteristic cubic is lambda^3−S lambda/4−Re(e^(3i theta)abc)/4. Reflecting all roots changes the sign of the product term but not the norm. For positive product the trace-zero real roots consist of one positive and two negative roots, and the positive one has largest modulus by the zero sum; at zero product the roots are 0 and ±sqrt(S)/2. The largest-root branch becomes sqrt(S/3) cos(arccos(eta |cos(3 theta+arg abc)|)/3). Averaging folds the absolute cosine to [0,pi/2] with density 2/pi; the phase and triple frequency do not affect that distribution. The integrand increases strictly in eta except at the measure-zero endpoint pi/2. The endpoint integrals are S/4 and S(1/6+sqrt(3)/(4 pi)). AM–GM gives their stated equality cases; continuity along a normalized path from (sqrt(S),0,0) to equal positive magnitudes realizes the entire interval. S=0 is separate and eta is not defined there. This analytical check covers all allowed phases and degeneracies. CHECK.py was inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 includes complex weights and does not require nonzero weights. For n=3 the sum in that theorem has only r=1, the sum of squared moduli, and its other term is the product of the weights with the angular phase.",
+          "The 4 October 2026 UTC arXiv v1 provides the Cartesian L2 definition. The broader Lp formulation appeared in v2 dated 23 October 2026 UTC, later than the assigned finding's directory date. Ordinary numerical-radius inequalities are not the decisive prior coverage."
+        ],
+        "reasoning": "The stronger prior polynomial formula covers this entire family, including zeros, and enough data to compute the angular average. The later extension in p is not needed for this conclusion.",
+        "searches": [
+          "Gau–Tsai–Wang arXiv:1206.1975, Theorem 4.2 on n>=3 weighted shifts",
+          "Audeh–Moradi–Sahoo arXiv:2610.04844v1 and v2",
+          "Mondal–Mohapatra–Dewage arXiv:2602.04134v2, opening scope"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py (inspected)",
+        "Gau–Tsai–Wang arXiv:1206.1975",
+        "Audeh–Moradi–Sahoo arXiv:2610.04844v1 and v2",
+        "arXiv:2602.04134v2",
+        "Resultary 1c53bc7f0f29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published polynomial at n=3 is z^3−S(x^2+y^2)z/4+Re((x−iy)^3abc)/4. On the specified unit-circle pencil its two coefficients are exactly those used in the frozen proof, after translating z to −lambda.",
+          "The standard trace-zero cubic cosine substitution, choosing the largest-magnitude root via the sign of the determinant, gives the integrand of the prior L2 definition. Its pointwise monotonicity in |abc| at fixed S, AM–GM and direct integration at eta=0 and eta=1 give rigidity and the complete sharp interval."
+        ],
+        "reasoning": "The only additional operations are solving the published cubic, averaging over periods, and elementary scalar endpoint and monotonicity checks. In particular determinant recovery is not a separate new spectral result once this exact pencil is specialized and averaged.",
+        "searches": [
+          "arXiv:1206.1975, PDF p. 18, Theorem 4.2, OA offsets 45650–47382",
+          "arXiv:2610.04844v1, definition pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Kippenhahn polynomial is det(x Re W+y Im W+z I). The Cartesian pencil in this review is obtained at (x,y)=(cos theta,−sin theta), and the characteristic polynomial at z=−lambda with the leading sign reversed in odd dimension. Standard reindexing of the three vertices puts the shift in the prior convention without changing S or abc.",
+          "The v1 L2 definition is the same integral up to the direction of the angular parametrization."
+        ],
+        "reasoning": "The published pencil determines the full angular operator norm via its roots. Comparing the spectrum of W alone, or only the ordinary numerical radius, would miss this equivalence.",
+        "searches": [
+          "Weighted shift matrices: unitary equivalence, reducibility and numerical ranges; cyclic weighted-shift Kippenhahn polynomial",
+          "Gau–Tsai–Wang arXiv:1206.1975, section 4, Theorem 4.2",
+          "Audeh–Moradi–Sahoo arXiv:2610.04844v1, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded search found no direct same-family Cartesian L2 entry among the inspected results. The nearby indexed entry 1c53bc7f0f29 optimizes phases for diagonal normal three-point spectra with two equal smaller moduli, rather than this family of generally nonnormal weighted shifts.",
+          "The governing existing exact expression is the symbolic polynomial in arXiv:1206.1975, Theorem 4.2, not a table of computed radius values."
+        ],
+        "reasoning": "A different same-invariant indexed result is not exact overlap; the absence of a tabulated scalar average does not defeat coverage by the stronger symbolic formula.",
+        "searches": [
+          "Resultary: Cartesian L2 numerical radius weighted cyclic three-shifts, determinant modulus and fixed Frobenius sharp range",
+          "Resultary 1c53bc7f0f29, Finding"
+        ]
+      },
+      "rationale": "The exact angular formula and its scalar consequences are a mechanical specialization of the previously published weighted-shift Kippenhahn polynomial combined with the pre-existing Cartesian L2 definition. The decisive prior theorem describes the characteristic polynomial of every angular Hermitian part, not merely eigenvalues of W or a bound on the classical numerical radius. No earlier printed identical L2 formula or chronology between nearby catalogue items is asserted.",
+      "residual_risks": [
+        "This is bounded statement-level coverage by implication; it does not identify the earliest source to print the scalar integral or certify comprehensive literature priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger exact prior formula from which the specialized pencil follows",
+          "evidence": "Determinant of x Re W+y Im W+z I for any complex weighted n-cycle with n>=3; the r=1 coefficient and the oriented weight product are the only contributions besides z^3 at n=3.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.1975",
+          "material_read": "PDF p. 18, section 4 and Theorem 4.2, offsets 45650–47382",
+          "method": "Open primary PDF; locate theorem, then inspect the bounded statement by offset",
+          "title": "Weighted Shift Matrices: Unitary Equivalence, Reducibility and Numerical Ranges",
+          "trigger": "Earlier exact angular characteristic polynomial for the same cyclic shifts"
+        },
+        {
+          "assessment": "Prior averaging definition; used with the already known weighted-shift polynomial",
+          "evidence": "Angular L2 average of operator norms of the Cartesian part; the angle-sign change is immaterial.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.04844v1",
+          "material_read": "pp. 1–2, offsets 0 and 2448, definition and overview",
+          "method": "Bounded open-PDF passage inspection",
+          "title": "The L2-Cartesian Numerical Radius of Hilbert Space Operators",
+          "trigger": "Original definition of the averaged invariant"
+        },
+        {
+          "assessment": "Later version; not used as earlier coverage",
+          "evidence": "23 October 2026 UTC date and general Lp comparison to the ordinary numerical radius.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.04844v2",
+          "material_read": "pp. 1 and 3, offsets 0 and 6932, date, definition and general comparison",
+          "method": "Bounded open-PDF passage inspection",
+          "title": "Cartesian numerical radius source, revised Lp version",
+          "trigger": "Check whether the general p definition and comparison were already prior"
+        },
+        {
+          "assessment": "Inspected material concerns the classical radius, not the decisive Cartesian implication",
+          "evidence": "Bounds via weighted operator means and spectral-radius estimates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.04134v2",
+          "material_read": "Opening scope, offset 0",
+          "method": "Bounded open-PDF passage inspection",
+          "title": "Refined upper bounds for the numerical radius via weighted operator means",
+          "trigger": "Frozen citation on classical numerical radius bounds"
+        },
+        {
+          "assessment": "Different object and optimization; no evidence of identical catalogue coverage",
+          "evidence": "Diagonal normal triple phase packing at two equal weaker moduli, not determinant recovery for weighted three-cycles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-projective-phase-packing-for-three-point-normal-spectra-wi--1c53bc7f0f29/RESULT.md",
+          "material_read": "Finding and scope on normal triples",
+          "method": "Local-mirror full-text passage inspection",
+          "title": "Sharp projective phase packing for three-point normal spectra with two equal weaker moduli",
+          "trigger": "Nearest inspected Resultary same-invariant comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp range and determinant interpretation are useful ways to present this L2 invariant, but no distinct mathematical obstacle remains after the old general pencil is substituted into the defining average. The further scalar monotonicity and endpoint computations are routine and do not provide an independently valuable unknown exact fact at the stated scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

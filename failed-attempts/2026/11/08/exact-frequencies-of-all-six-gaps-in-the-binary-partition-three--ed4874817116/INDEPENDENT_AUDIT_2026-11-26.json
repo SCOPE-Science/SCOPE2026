@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:52:54.769248Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, criterion (1) and proof (2)–(6)",
+        "Frozen VERIFICATION.md and verify_gap_law.py (inspected)",
+        "/workspace/branches/audit_spotchecks.py binary; /workspace/branches/audit_spotchecks.log"
+      ],
+      "rationale": "The cited exceptional-index criterion counts n in the argument b(2n), not n in b(n). Its dyadic strata have densities 2^(-2k-4) and bounded counting error per stratum. For u_n=(-1)^tau(n), pairing the even and odd starting positions gives C(2M)=-M-C(M) and C(2M+1)=C(2M)-1, so C(N)+N/3=O(log(N+2)); the bounded one-point sums then give the four ordered pair rates. The only possibly nonempty positions in block 16n+[0,15] are 0,2,8,10, with indicators chi(n),tau(n),1_{n even}tau(n),1-tau(n). An exceptional block index has even parity of digit sum, is even, and has a nonexceptional predecessor of even digit-sum parity. These facts give the eight transitions in (5), with no missing transitions. Internal and boundary gaps then give rates per 16-block 1/3,1/3,1/12,1/4,1/4,1/12 in the stated order. A cutoff through a partial block costs O(1), and substituting the cutoff at f_J uses f_J=12J+O(log(J+2)) and counts exactly the first J starting points. An independent coin-change calculation using the three-square obstruction corroborated all six counts at four irregular cutoffs; it is not the proof of the error bound.",
+      "residual_risks": [
+        "Uses the cited exact exceptional-index characterization; does not settle automaticity of the ordered gap sequence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier record contains all six components and also gives mean 12 and variance 32. The paper proves the indicator is 2-automatic and gives 2-regular formulas on restricted classes, not a theorem for the full ordered gap sequence."
+        ],
+        "reasoning": "The earlier record covers the entire assigned theorem directly. Automaticity of the position indicator should not be confused with automaticity of the ordered gap sequence, which is not established there.",
+        "searches": [
+          "SCOPE-20261102-0ec6be0c1aaf, RESULT.md Finding and Proof",
+          "arXiv:2211.16622, Proposition 3.4, Remark 3.5, Theorem 3.6 and §7"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261102-0ec6be0c1aaf",
+        "arXiv:2211.16622",
+        "OEIS A363769 (identified, not retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier indexed proof likewise uses Thue–Morse adjacent correlations and block transitions; its claim already gives every gap rate and the logarithmic error. The older paper's spectrum and total density alone do not fix six componentwise counts."
+        ],
+        "reasoning": "No new derivation is needed to obtain the assigned conclusion from the indexed statement, whereas the older paper alone would require additional transition counting.",
+        "searches": [
+          "SCOPE-20261102-0ec6be0c1aaf, RESULT.md Finding and Proof",
+          "arXiv:2211.16622, Proposition 3.4 and Theorem 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier record uses the same ordered exceptional indices for b(2n); its G_g(N) counts the first N consecutive gaps. Corollary 3.3 fixes the same n=2^(2k+1)(4s+1) digit-parity criterion."
+        ],
+        "reasoning": "Changing f or g notation, or writing O(1+log N) rather than O(log(N+2)), does not change the theorem. Both versions also state the spatial formulation.",
+        "searches": [
+          "Local Resultary: binary-partition three-square gap frequencies, SCOPE-20261102-0ec6be0c1aaf",
+          "arXiv:2211.16622, Corollary 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary gives exactly (1/4,1/4,1/16,3/16,3/16,1/16) for (6,8,10,16,18,24), with the quantitative prefix law. Sobolewski–Ulas Table 1 gives witness subfamilies, explicitly not necessarily all realizing indices; Theorem 6.1 treats the total count."
+        ],
+        "reasoning": "The exact matching vector and error term are in an indexed finding, not inferred from a sample or from the witness table. The unavailable OEIS page is not used as negative evidence.",
+        "searches": [
+          "Local Resultary, SCOPE-20261102-0ec6be0c1aaf",
+          "arXiv:2211.16622, Table 1 and Theorem 6.1",
+          "OEIS A363769 (position-sequence alias; direct retrieval unavailable)"
+        ]
+      },
+      "rationale": "A distinct, earlier indexed Resultary record explicitly states the same full frequency vector with the same logarithmic discrepancy and the equivalent spatial counts on exactly this exceptional set. This is verified statement-level overlap, not an inference from a near title or from the original gap spectrum. It does not require a judgment about authorship.",
+      "residual_risks": [
+        "No attribution or historical-priority determination beyond documented record comparison is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the assigned claim",
+          "evidence": "Both prefix and spatial laws match, including all six rational rates and O(log N) error. The proof uses the same adjacent-pair and block-transition mechanism.",
+          "identifier_or_url": "SCOPE-20261102-0ec6be0c1aaf; https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-frequencies-of-the-six-gaps-between-binary-partition-three--0ec6be0c1aaf",
+          "material_read": "RESULT.md Finding and Proof; METADATA.json",
+          "method": "Local index and original record comparison",
+          "title": "Exact frequencies of the six gaps between binary-partition three-square exceptions",
+          "trigger": "Strong local Resultary match to the object, rate vector and discrepancy"
+        },
+        {
+          "assessment": "Establishes the indicator, spectrum and total count, but those results are not the componentwise frequency theorem",
+          "evidence": "Table 1 exhibits subfamilies with each gap, without claiming to count all cases. Theorem 6.1 counts the whole set with density 1/12, and Remark 3.5 leaves ordered-gap automaticity open.",
+          "identifier_or_url": "arXiv:2211.16622; DOI:10.1007/s00025-023-01966-8",
+          "material_read": "PDF pp. 5–9, 14 and 20: set definition, Corollary 3.3, Proposition 3.4 and Table 1, Remark 3.5, Theorem 3.6, Theorem 6.1 and §7",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Values of Binary Partition Function Represented by a Sum of Three Squares",
+          "trigger": "Primary source for the identical exceptional set and gap spectrum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding",
+        "SCOPE-20261102-0ec6be0c1aaf, Finding and Proof"
+      ],
+      "rationale": "A full vector with logarithmic discrepancy is a worthwhile invariant beyond mere infinite occurrence, but the earlier indexed result already supplies that exact invariant in both forms. This frozen record adds no distinct theorem, sharpened bound or independent new mathematical method to support acceptance as a finding.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

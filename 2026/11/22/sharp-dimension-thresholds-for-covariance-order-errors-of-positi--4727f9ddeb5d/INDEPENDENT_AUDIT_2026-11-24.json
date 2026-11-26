@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:07:43.434535Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the lag variable the vector is (1,t,t²/2!,…), so with zero-based indices the error is E_ij=δ_(i+j)/(i!j!), where δ_d is numerical minus exact moment. For n≤m all entries vanish; at n=m+1 only (m,m) can be nonzero. The principal block at (m−1,m+1) has zero first diagonal and nonzero off-diagonal δ_(2m)/[(m−1)!(m+1)!], which certifies both signs independently of higher moments. Exact covariance is a positive definite polynomial Gram matrix; strict weights and distinct nodes give numerical rank min(n,r) by Vandermonde evaluation. The published stages reduce under the integrating factor to trapezoid and Simpson, respectively. Expanding the first omitted monomial on a panel gives h³/6 and h⁵/120, respectively, independent of panel origin by exactness on lower degrees. Hence the global omitted moments are Th²/6 and Th⁴/120, the rank-one coefficients Th²/6 and Th⁴/480, and the minors −T²h⁴/144 and −T²h⁸/518400. Continuity of each strictly negative minor at fixed T,N justifies the stated Hurwitz perturbation, with no uniform radius asserted. Inspected the supplied moment/rank checker and verification notes; the 56 reported cases are bounded support, not a rerun or a proof of the general claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 8 record gives the arbitrary-drift universal upper-bound criterion A²=aI+bA with 4a≥b² and a Peano-kernel/small-step cyclic-degree obstruction. It covers trapezoidal upper ordering in the n≤2 nilpotent case, and explains the small-step obstruction in higher dimensions.",
+          "The November 2 record treats stationary two-mode covariance error, not finite-time polynomial moments. Zhang–Lan–Jing give positivity and the published stages, not this signed-error classification."
+        ],
+        "reasoning": "Universal failure of an upper bound is not the same as indefiniteness for the particular forcing at every horizon and step count. The wider trapezoid criterion also supplies no Simpson or arbitrary-first-omitted-moment phase.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-loewner-order-frontier-for-covariance-trapezoids-in-lyapun--5caaf0068955",
+          "Resultary 2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1",
+          "arXiv:2606.15703v1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–60",
+        "Frozen VERIFICATION.md and verify.py",
+        "arXiv:2606.15703v1",
+        "arXiv:1405.7267",
+        "doi:10.1137/20M1389522 (access attempted)",
+        "Resultary findings ending 9093643638c9, 5caaf0068955, 3f16ed31cfd1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stage equations directly imply the composite rules for state-independent forcing; the same-day broader rank theorem applies since the chain is real-spectrum and e₁ is cyclic.",
+          "The older trapezoid proof already uses failure of the zero-quadratic-form/kernel property when v,Av,A²v are independent. The frozen signed-moment proof instead uses the first omitted moment to identify an exact nonzero coupling with a zero diagonal, surviving arbitrary higher errors."
+        ],
+        "reasoning": "Credit the stage reductions, rank staircases, and the related trapezoid obstruction as established overlap. The all-rules exact/rank-one/indefinite transition, including exact minors at all panel counts, is the distinct claim supported by the comparison.",
+        "searches": [
+          "Zhang–Lan–Jing arXiv:2606.15703v1 §2 Eqs. (3)–(6)",
+          "November 8 Resultary Loewner frontier proof Steps 1–3",
+          "November 22 Resultary covariance rank/volume Finding and proof §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The error is a factorial-diagonal congruence of a difference of two Hankel moment matrices, or equivalently the quadratic-form defect (quadrature minus integral) on squares of degree ≤n−1.",
+          "Berg–Szwarc p. 1 characterizes finite-mass-point moment sequences via Hankel determinants; it does not give the signature of this signed difference."
+        ],
+        "reasoning": "Classical moment theory supplies the representation and evaluation rank. The claim classifies the signed defect, not realizability or ranks of the individual unsigned matrices.",
+        "searches": [
+          "arXiv:1405.7267",
+          "doi:10.1137/20M1389522",
+          "Resultary covariance-order / positive IF-SSPRK quadrature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day RESULT.md Finding tabulates exact ranks min(d,N+1) and min(d,2N+1) on the broader real-spectrum cyclic class and a one-step Simpson determinant ratio of 5/2 on the identical d=3 chain."
+        ],
+        "reasoning": "Those rank formulas directly cover the two rank columns and the determinant benchmark is close evidence at one boundary. Neither is a table of signatures of E at all dimensions; an individual covariance determinant or rank is not a signature of its difference with another matrix. No priority order is inferred from the shared date.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-exact-finite-step-covariance-rank-and-a-sharp-volume-bias-for-in--9093643638c9",
+          "Berg–Szwarc arXiv:1405.7267"
+        ]
+      },
+      "rationale": "Pass for the finite-horizon signed-error classification by the first omitted moment and its exact dimension thresholds, not for the SSP stage reductions or application rank staircases in isolation. The same-day rank record has stronger coverage of those staircases; the older trapezoid order result already supplies the basic one-sided obstruction in a related form. Neither establishes the complete general phase including Simpson and indefinite errors at every positive panel count, and no equivalent was located in the bounded comparisons.",
+      "residual_risks": [
+        "A classical signed quadrature-error or moment-difference formulation may contain the same general threshold; focused literature search and source access were limited.",
+        "Relative ordering of the same-day rank finding is unresolved and not assumed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stage-level coverage, not the signed-error phase",
+          "evidence": "After transformation W'=F(t), the terminal weights are (1/2,1/2) and (1/6,4/6,1/6) on the endpoint/midpoint nodes as applicable.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+          "material_read": "v1 PDF §2, pp. 2–3, Eqs. (3)–(6)",
+          "method": "OA PDF equation inspection and explicit stage expansion",
+          "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+          "trigger": "Identical numerical schemes"
+        },
+        {
+          "assessment": "Broader application rank coverage; partial overlap, not the moment-sign theorem",
+          "evidence": "Real-spectrum cyclic hypotheses include the shift chain; formula gives both rank staircases. The three-state one-step Simpson Gram determinant does not classify E at other dimensions.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-step-covariance-rank-and-a-sharp-volume-bias-for-in--9093643638c9",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2400; determinant construction in proof §4 near offset 6341",
+          "method": "Local Resultary lookup and mirrored RESULT.md",
+          "title": "Exact finite-step covariance rank and a sharp volume bias for integrating-factor Lyapunov Runge–Kutta schemes",
+          "trigger": "Same-day record with identical methods and a shared nilpotent example"
+        },
+        {
+          "assessment": "Material older trapezoid overlap, not the general finite-horizon phase",
+          "evidence": "Peano defect and necessity from a zero quadratic form outside the kernel give a small-step obstruction; the universal upper-bound criterion applies for A²=0.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-loewner-order-frontier-for-covariance-trapezoids-in-lyapun--5caaf0068955",
+          "material_read": "RESULT.md Finding and proof offsets 0–6036, especially Steps 1–3",
+          "method": "Local Resultary lookup and mirrored RESULT.md",
+          "title": "Exact Loewner-order frontier for covariance trapezoids in Lyapunov flows",
+          "trigger": "Same signed covariance error for the two-stage method"
+        },
+        {
+          "assessment": "Different limiting model",
+          "evidence": "Stationary real decay modes do not resolve finite-horizon nilpotent thresholds.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1",
+          "material_read": "Mirrored finding on stationary two-mode covariance error",
+          "method": "Local Resultary lookup and mirror inspection",
+          "title": "A sharp covariance-order frontier for positivity-preserving IF schemes",
+          "trigger": "Signed-error frontier for related schemes"
+        },
+        {
+          "assessment": "Background moment-rank coverage, no signed defect statement in inspected material",
+          "evidence": "The characterization applies to a single moment sequence represented by a positive measure.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.7267",
+          "material_read": "p. 1, statement of finite-mass-point determinant characterization",
+          "method": "OA PDF inspection",
+          "title": "A determinant characterization of moment sequences with finitely many mass-points",
+          "trigger": "Hankel moment and support-rank formulation"
+        },
+        {
+          "assessment": "Unresolved source access, not negative evidence",
+          "evidence": "No claim of non-coverage based on the retrieval failure.",
+          "identifier_or_url": "https://doi.org/10.1137/20M1389522",
+          "material_read": "No primary passage retrieved",
+          "method": "Lawful direct and alternate VPN OA attempts both returned HTTP 403",
+          "title": "Exactness of Quadrature Formulas",
+          "trigger": "Cited quadrature exactness background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dimension threshold is a concrete diagnostic for a motivated question: positivity of an integrating-factor covariance update does not ensure either Loewner bound on the true covariance. The witness uses only the first omitted moment and survives later moments and arbitrarily many panels, even when the numerical covariance has full rank. It is an exact finite-horizon obstruction, not merely the familiar quadrature order or a rank-deficiency example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

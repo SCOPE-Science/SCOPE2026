@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:36:14.166734Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–83, VERIFICATION.md and CHECK.py (read, not executed)",
+        "Bisi et al. arXiv:2611.14132v1 Eqs. (41)–(43), Remark 6 and Eq. (45)",
+        "Independent exact witness check: at q=(9±sqrt(37))/22, q/(1+q)=(11±sqrt(37))/42. At the stated parameters det J=-qF'(q)/(2(1+q)) and tr J=-1-(7/20)q/(1+q), confirming the recorded signs and values; the boundary eigenvalues are -1 and -1/21."
+      ],
+      "rationale": "At a positive equilibrium the predator equation gives (h-mu*delta)X=mu(1+q), q=beta*Y. Thus h<=mu*delta precludes positive equilibria; otherwise X=T(1+q) and the prey equation on this nullcline reduces to alpha F(q)/(1+q), with F=1-rho+(1-eta)q-rho*q^2. The constant term, vertex and discriminant yield the stated counts for rho<1, rho=1 and rho>1, including exclusion of zero roots and the positive fold only at positive eta. At a positive root, the Jacobian determinant has the sign of -F'(q): H_X>0 for the predator per-capita term and H_q=-T H_X. For the trace, set phi=rho(1+q^2)/(1+q). At a positive equilibrium, 1-phi>0 and the prey diagonal term is alpha[-phi+(1-phi)delta*X/(1+delta*X+q)]. In the wedge and on its positive fold phi>=rho*2(sqrt(2)-1)>1/2, so this diagonal is strictly negative uniformly over delta*X/(1+delta*X+q) in (0,1); the predator diagonal is also negative. The lower root is a saddle, the upper a sink. The predator-free invasion eigenvalue is negative iff rho>1 when T exists, and its other eigenvalue is -alpha. At the positive repeated root the nullcline elimination is regular because H_X>0; restricted to its tangent, the quadratic and a-parameter derivatives are nonzero (F''=-2rho and dF/da=-q*deta/da), and the other eigenvalue is strictly negative. This gives a nondegenerate saddle-node, on the wedge boundary rather than inside it. The origin is an additional boundary equilibrium, not one of the three specified states; the census classifies positive equilibria.",
+      "residual_risks": [
+        "The theorem is local and homogeneous. It neither controls cross-diffusion stability nor classifies global basins or the threshold for a predator introduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bisi et al. derive the model, point out the nonmonotone carrying capacity, and explicitly leave equilibria and stability for investigation. The exact distinct catalogue theorem is restricted to its normalized model. The Liu et al. full text was not recovered."
+        ],
+        "reasoning": "No inspected broader statement covers the unrestricted-saturation stability conclusion. The normalized theorem does cover the equilibrium geometry since the same quadratic is obtained at matched rho and eta, but does not quantify over the additional dimensionless saturation parameter for the linearization.",
+        "searches": [
+          "Bisi et al. arXiv:2611.14132v1, §3 and conclusion",
+          "Focused literature lookup and OA comparison for state-dependent carrying capacity, Liu et al. DOI 10.3934/dcdsb.2019028",
+          "Distinct normalized Resultary theorem under reversal of parameter scaling"
+        ]
+      },
+      "checked_sources": [
+        "Bisi et al. v1 underlying model",
+        "Resultary and original mirror of the strongest normalized overlap",
+        "Frozen proof and model normalization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed rho and eta, put Delta=delta*K and M=mu/alpha. At a coexistence root the time-scaled trace equals [Delta*rho(1-2phi)-phi-M*q/(1+q)]/(1+Delta*rho). A negative trace at Delta=1 alone does not ensure negativity for varying Delta. In the present model the uniform bound phi>1/2 proves the required sign for all Delta>0. The determinant sign and regular nonzero fold derivatives persist as well."
+        ],
+        "reasoning": "The geometric inequality delimiting the wedge is shared. The original unrestricted local-type theorem requires a stability argument uniform in the dimensionless saturation group, not just evaluating the known formula with renamed parameters.",
+        "searches": [
+          "Distinct normalized record: original Finding/assumptions; frozen general-model Jacobian, RESULT.md lines 55–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct record fixes alpha=K=beta=delta=1 and writes h=b. Its lambda=b/mu-1 equals 1/rho, and eta=a*lambda/(1+lambda); these substitutions give the same strict wedge and positive fold on that subfamily.",
+          "With x=X/K, q=beta*Y and time scaled by alpha, the interaction denominator is 1+(delta*K)x+q. Choosing K and beta equal to one in scaled units does not also set delta*K=1."
+        ],
+        "reasoning": "This is equivalent coverage on the normalized slice by parameter substitution. It is not equivalence of the arbitrary-saturation local dynamics under the population and time scaling.",
+        "searches": [
+          "Resultary: exact coexistence wedge, refuge-induced carrying capacity and predator invasion failure",
+          "Comparison with 2026/11/22/SCOPE-a-sharp-coexistence-wedge-from-predator-induced-refuge-carrying--44f68572e8a3 and Bisi et al. Eqs. (41)–(43)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct record's original Finding gives exact overlapping wedge/census/local types after translating lambda and eta. Its stated model has fixed alpha,K,beta,delta equal to one."
+        ],
+        "reasoning": "This is actual exact overlap on the fixed group, not a keyword match. The indistinguishable publication date does not negate the overlap and does not establish priority. The conclusion reviewed here also covers every positive value of delta*K.",
+        "searches": [
+          "Resultary: predator-induced refuge carrying capacity, sharp coexistence and saddle-node wedge"
+        ]
+      },
+      "rationale": "There is substantial demonstrable same-model coverage: a distinct same-day record proves the identical census and local types on the normalized subfamily delta*K=1. No historical order is inferred. Credit is limited to the full positive-parameter result, notably that the sharp stability wedge and positive saddle-node classification persist for arbitrarily varying the independent saturation group delta*K. Pure rescaling to unit prey capacity and unit refuge scale leaves this group in the off-nullcline vector field and trace. The positive-root geometry alone is shared and is not credited as a new mechanism.",
+      "residual_risks": [
+        "The related 2019 study's exact equations were not compared from full text, and bounded searches do not establish historical priority. The recognized normalized overlap is material and is not excluded because of its date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the model and capacity mechanism, not the local stability classification in the checked passages.",
+          "evidence": [
+            "Equal growth and capacities give the displayed homogeneous prey term; Eq. (43) gives h=c_HE^HS*delta. The conclusion identifies equilibrium/stability analysis as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14132v1",
+          "material_read": "v1 §3 Eqs. (41)–(43), Remark 6, Eq. (45), and conclusion",
+          "method": "Primary HTML equation and conclusion comparison",
+          "title": "Mesoscopic derivation of predator–prey dynamics via diffusive fast-reaction asymptotics: cross-diffusion and fear effects",
+          "trigger": "Originating model and possible equilibrium theorem"
+        },
+        {
+          "assessment": "Exact overlap of census, boundary sink, saddle, upper sink and positive fold on delta*K=1; no priority assertion. The compared source statement does not quantify over the full saturation group.",
+          "evidence": [
+            "alpha=K=beta=delta=1 and h=b in the comparison. The record's lambda=b/mu-1 is 1/rho, and a*lambda/(1+lambda)=eta there."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-coexistence-wedge-from-predator-induced-refuge-carrying--44f68572e8a3",
+          "material_read": "Original mirror RESULT.md: finding and normalized model/parameter assumptions",
+          "method": "Resultary lookup and original local mirror statement comparison; matched dimensionless parameters and distinguished the remaining saturation group",
+          "title": "A sharp coexistence wedge from predator-induced refuge carrying capacity",
+          "trigger": "Strongest distinct indexed result; exact same-model normalized comparison"
+        },
+        {
+          "assessment": "Exact model/boundary coverage not established or ruled out from this material.",
+          "evidence": [
+            "Identified in the frozen references as a related 2019 bistability study."
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/dcdsb.2019028",
+          "material_read": "Bibliographic identification, not full model equations",
+          "method": "Targeted OA DOI and publisher lookup plus focused primary search",
+          "title": "Dynamics of a predator-prey model with state-dependent carrying capacity",
+          "trigger": "Older state-dependent-capacity bistability mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Originating model and conclusion; normalized comparison; general trace and fold proof"
+      ],
+      "rationale": "The homogeneous classification for the originating model is useful beyond a fixed normalization: it determines that changing saturation relative to physical prey capacity cannot switch the positive attractor to an unstable branch anywhere in the sharp wedge at fixed rho and eta. This stability robustness across an independent model group, together with the fold and the negative invasion rate, is the useful extension, not another instance of the already known normalized bistability phenomenon.",
+      "residual_risks": [
+        "Does not resolve PDE stability, basins, or practical control; much of the equilibrium geometry is already present in the normalized comparison."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

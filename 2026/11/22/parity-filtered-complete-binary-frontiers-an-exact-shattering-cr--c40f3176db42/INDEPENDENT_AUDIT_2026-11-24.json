@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:56:15.647498Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Comparable queries cannot both be selected, and sibling leaves must be selected together. For a permissible support, positive queries plus parents of negative queried leaves are an antichain; completing with original leaves realizes the trace. A free bottom parent can be split or not without changing this trace. With no free parent the all-positive frontier is forced: internal queries remain and a queried leaf requires its sibling. Changing only a bottom-level query forces the opposite split decision in that slot and reverses parity. If all queries are higher, they form a complete frontier; replacing each negative query by a three-vertex descendant frontier preserves parity, while all positives force the parity of the support. Counting all permissible supports and those touching every bottom parent by the root-or-two-branches decomposition yields A_h and B_h; upper frontiers supply the disjoint parity projection of K_{h-2}. Disjoint occupied bottom-parent blocks force the size and count of largest supports with one free block, while upper supports have size at most half the number of those blocks. Height two is checked separately and for every h>=3 the odd root singleton and even pair of root children are inclusion-maximal and strictly smaller than maximum size. In Step 3 parity refers to the constructed realizations, not to all realizations of a negative trace. Independently enumerated frontiers via prefix-closed split sets and checked traces at h=2,3,4 (python3 /workspace/checks/finite_review.py 2; /workspace/checks/2.txt), matching all recorded counts, including 73901/73902 faces at h=4. Enumeration is bounded; the all-height claim uses the structural proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior unrestricted flag-complex theorem treats general rooted trees, and for complete b-ary trees gives the b-ary recurrence that specializes to A_h.",
+          "The unrestricted static/online theorem gives both dimensions m for perfect binary trees and excludes fixed-cardinality subfamilies."
+        ],
+        "reasoning": "The union can realize traces in different parity parts; knowing all its faces or both of its dimensions does not decide which individual parts shatter a support.",
+        "searches": [
+          "Resultary c25578c2d178, Finding and pair-obstruction proof",
+          "Resultary bf95851f8ef7, Finding and Limitations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c25578c2d178, bf95851f8ef7, 5128d782fbe4, b5974bcd1e69",
+        "arXiv:1803.09623",
+        "arXiv:1901.11343"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pair-obstruction theorem directly implies unrestricted nonpurity: the root singleton is maximal whereas supports have size m. It also supplies A_h exactly.",
+          "The unrestricted extension theorem has no parity invariant controlling a trace fiber; the free-block toggle and forced split change address precisely that issue."
+        ],
+        "reasoning": "Credit the unrestricted results, but neither the new B_h subtraction, upper-frontier projection, nor parity-specific nonpurity follows by applying the old classification to different parameters.",
+        "searches": [
+          "Resultary c25578c2d178, Finding offsets 607–2479 and proof offsets 2193–4213",
+          "Resultary bf95851f8ef7, limitations offset 9720"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A frontier is a complete prefix code. The inspected tree-polynomial and Huffman-code results enumerate frontier objects or their equivalence classes, not supports shattered by those objects of prescribed parity.",
+          "Resultary c25578c2d178 gives unrestricted shattering by maximal antichains, not shattering by a single parity."
+        ],
+        "reasoning": "Rewriting frontiers as complete prefix codes or leaf sets of full pruned trees does not turn hypothesis counts into counts of membership supports with all possible traces in one parity.",
+        "searches": [
+          "Resultary: parity-filtered binary frontier shattering; maximal rooted-tree antichains",
+          "arXiv:1803.09623 Theorem 2.8",
+          "arXiv:1901.11343 p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact assigned catalogue hit is the identical record. The independent adjacent hits treat parity-filtered ideals on disjoint chains and parity-filtered graph independent sets, not complete frontiers.",
+          "The prior unrestricted binary degree and top coefficient are m and 3^m, rather than m-1 and m*3^(m-1)."
+        ],
+        "reasoning": "Neither the self-hit nor the differently scoped exact recurrences provide independent coverage of this parity polynomial.",
+        "searches": [
+          "Resultary: parity shattering polynomials for maximal antichains and complete binary frontiers",
+          "Resultary 5128d782fbe4 and b5974bcd1e69, Findings"
+        ]
+      },
+      "rationale": "The unrestricted pair obstructions, A_h and unrestricted nonpurity are already covered. The distinct result is the exact effect of parity: deleting supports with all bottom blocks touched, restoring exactly the parity-matched upper frontiers, and obtaining the resulting extremal counts and nonpurity for each parity. No inspected stronger statement entails that parity restriction. The conclusion is limited to checked evidence.",
+      "residual_risks": [
+        "Unindexed parity or fixed-cardinality results under complete prefix-code terminology may exist. A focused web lookup found no directly relevant passage, which is not evidence of historical uniqueness.",
+        "The same-day analogue records do not establish priority by date alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the unrestricted baseline",
+          "evidence": "An independence complex of pair obstructions; complete-b-ary recurrence specializes to A_h at b=2.",
+          "identifier_or_url": "Resultary c25578c2d178",
+          "material_read": "RESULT.md Finding offsets 607–2479; pair-obstruction proof 2193–4213",
+          "method": "Local catalogue and source mirror",
+          "title": "Flag shattering complexes of maximal rooted-tree antichains and an unbounded online gap",
+          "trigger": "Strongest prior support and recurrence overlap"
+        },
+        {
+          "assessment": "Unrestricted rank only",
+          "evidence": "VC and Littlestone equal the product of the specified branching factors; fixed-frontier-cardinality subfamilies excluded.",
+          "identifier_or_url": "Resultary bf95851f8ef7",
+          "material_read": "RESULT.md Finding offset 433; Limitations offset 9720",
+          "method": "Local source mirror",
+          "title": "Exact static and online shattering of complete hierarchical frontiers",
+          "trigger": "Exact dimension for same unrestricted tree"
+        },
+        {
+          "assessment": "Counts hypotheses, not shattered supports",
+          "evidence": "Sums over maximal antichains with size, leaf and descendant weights.",
+          "identifier_or_url": "arXiv:1803.09623",
+          "material_read": "Theorem 2.8, p. 5, offset 17186",
+          "method": "Open-access full text",
+          "title": "A polynomial associated with rooted trees and specific posets",
+          "trigger": "Maximal-antichain polynomial"
+        },
+        {
+          "assessment": "Different enumerated objects",
+          "evidence": "Counts equivalence classes of compact Huffman codes and complete rooted t-ary trees with a given number of leaves.",
+          "identifier_or_url": "arXiv:1901.11343",
+          "material_read": "p. 1, offset 314",
+          "method": "Open-access full text",
+          "title": "Algorithmic counting of nonequivalent compact Huffman codes",
+          "trigger": "Equivalent prefix-code and pruned-tree formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Parity of the number of leaves is a natural global constraint on complete prefix codes. The local free-block criterion and exact exceptional upper fronts determine every face, explaining features that the one-unit VC loss alone misses, including parity-dependent small facets and the maximum-support census. This is structural information at every height, not just an enumeration of small trees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

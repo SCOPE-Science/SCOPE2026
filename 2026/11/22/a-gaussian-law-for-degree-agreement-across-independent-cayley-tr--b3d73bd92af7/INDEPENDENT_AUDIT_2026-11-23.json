@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:59:24.240476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A uniform Cayley tree gives a uniform length-(n-2) Prüfer word and degree is occupancy plus one. Each column generating factor sums prod 1/k_j! at row occupancies k_j with an extra z exactly when the occupancies are all equal. After multiplying over labels, extraction at all row totals and normalization by (m!)^r/n^(rm) is exact. The single and paired indicators take probabilities sum a_n^r and sum b_n^r respectively, with m=0 understood as the empty-word case. Expanding (m)_s/n^s and (1-d/n)^(m-s) with d=1,2 gives the stated one- and two-cell corrections. The difference in their first-order coefficients is -(a-1)(b-1). Uniform polynomial-weighted O(n^-2) remainders for a+b<=n^(1/8) can be integrated against the factorial weights; outside, factorial-moment bounds for the single occupancy or total in two cells (the latter bounded in tail by 2^s/s!) are superpolynomial. This yields the strictly negative order-1/n coefficient -r(eta_r-rho_r)^2 and exactly the proposed variance coefficient by exchangeability. For the conditional CLT, integrate over the independent Poisson totals' frequency torus. Aperiodicity follows from support of each total variable, and away from a fixed ball the Poisson characteristic function has a uniform gap stable under the O(1/sqrt(n)) perturbation. In the shrinking window the rescaled joint exponent is the quadratic form Var(J)t^2+2(eta-rho)t sum_j theta_j+||theta||^2; completing the square gives the claimed Schur complement. Domination follows from the local quadratic modulus bound using Young's inequality to absorb the mixed O(|theta|/sqrt(n)) term. The conditioned displacement -2 per coordinate contributes a vanishing phase. The Schur complement is positive because the bounded nonconstant indicator is not affine on the full independent Poisson support. Strict eta<rho follows by comparing the positive k>=2 tail with sum (k-1)/k!=0 and retaining the same k=0 negative term. These are fixed-r statements; covariance negativity is eventually, not universally, true at finite n.",
+      "replay_path": "/workspace/reviews/cayley_replay.py",
+      "status": "PASS",
+      "verification": "Run python3 /workspace/reviews/cayley_replay.py. A new exhaustive connected-tree enumeration from subsets of K_n edges, without generating Prüfer words, was compared against all-marked factorial moments and binomial inversion for eight cases through (6,2) and (5,3); the entire rational law and the two marked probabilities coincided. For (6,2) the integer coefficients at X=0,1,2,3,4,6 were 70560,292320,635400,343920,319110,18306 with denominator 1679616. The uploaded verifier was read but not executed. Static counting gives 249 assertions for its loop bounds; the 231 in frozen REVIEW.md omits the 18 complete-pgf checks. This provenance discrepancy does not affect the theorem, and finite checks do not prove the CLT."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson (2001) gives general conditional normal and moment convergence; inspected abstract. Holst (1981) treats sum-type statistics in p-dimensional exponential families conditional on a sufficient statistic; inspected indexed abstract with full text unavailable through journal and Stanford preprint paths.",
+          "Bogachev–Gnedin–Yakubovich analyze a single sample thrown into infinitely many boxes with fixed frequencies."
+        ],
+        "reasoning": "Independent Poisson rows are an exponential family with the vector of rate totals as sufficient statistic. A general multivariate lattice local limit statement yields this conditional Gaussian part upon taking the score J and completing the covariance square. Full lattice span for (J,Y) follows from support points (1,0), (0,e_j), (0,2e_j). Thus broad coverage of the Gaussian mechanism is substantial, not dismissed because the papers use different terminology; the specific full finite pgf and distinct-label signed rate are not supplied by those statements. A single-sample infinite urn theorem has a different statistic, regime and conditioning.",
+        "searches": [
+          "Janson moment convergence conditional limit theorems occupancy sums lattice multivariate Holst conditional distribution several constraints Fourier multinomial asymmetric Gaussian",
+          "Holst Some Conditional Limit Theorems in Exponential Families vector integral theorem pdf discrete multivariate",
+          "arXiv:math/0609498, §1 and Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.12691/ajams-4-6-4",
+        "arXiv:math/0609498",
+        "doi:10.1239/jap/996986753 (abstract)",
+        "doi:10.1214/aop/1176994310 (indexed abstract and report metadata)",
+        "Resultary 53dd0b106fe8 and ffe30f6eed8d (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General conditional CLT and moment-convergence tools can give variance and hence the signed two-site rate after vertex exchangeability, the O(1/n) single-cell approximation and explicit calculation of the projected variance. The known Bessel coincidence probability alone cannot do so. The index result on disjoint absolute contrasts has one multinomial row and contrasts in disjoint category pairs, not equality across r independently constrained rows."
+        ],
+        "reasoning": "The Gaussian conclusion in isolation is a classical specialization, so it is not credited as a novel limit mechanism. No inspected source supplies the evaluated finite occupancy equality pgf together with the coefficient and strict sign of the covariance correction for this score. The finding is credited for that explicit null-law package, not a relabeling of the abstract normal-limit theorem.",
+        "searches": [
+          "doi:10.1239/jap/996986753 abstract; doi:10.1214/aop/1176994310 indexed abstract; doi:10.12691/ajams-4-6-4, §§1–3 and Appendix A",
+          "Resultary 53dd0b106fe8 and ffe30f6eed8d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Labelwise degree agreement equals columnwise equality across independent fixed-total multinomials, or n minus the number of disagreeing columns. For r=2 it counts zeros of the vector of differences of two such multinomials.",
+          "Nijimbere (2016), §§1–3 and Appendix A, concerns probabilities and moments at one unconditioned independent-Poisson coincidence, including the Bessel representation for r=2."
+        ],
+        "reasoning": "The one-site probability rho_r (and the corresponding unnormalized first moment eta_r) are directly covered by setting the Poisson rate to one. Summing unconditioned equality indicators would give an independent Bernoulli sum and the wrong variance; the different constraints on all r row totals cannot be discarded when comparing laws.",
+        "searches": [
+          "Web: multinomial equality count number cells matching frequencies independent multinomial samples occupancy coincidence statistic normal Holst Steck conditional limit urn allocation matching counts",
+          "Resultary: independent fixed-total multinomial count equality coincidences Hamming distance Poisson conditioned exact Gaussian joint covariance Cayley Prüfer",
+          "Web: coincidences occupancy multinomial two sample matching cells Hamming same counts conditional Poisson count number categories exact law distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the frozen record. Nearby indexed results give shared-edge marked processes, matched-position multiset counts, or covariance for disjoint multinomial absolute contrasts."
+        ],
+        "reasoning": "A table of Cayley tree counts or a Poisson/Bessel one-label constant does not contain the fixed-total coefficient law for arbitrary n and r. The indexed exact comparison records use distinct invariants and sampling models.",
+        "searches": [
+          "Resultary: degree agreement independent Cayley trees at matching labels equal occupancies conditioned Poisson Bessel",
+          "Resultary: independent fixed-total multinomial count equality coincidences Hamming distance Poisson conditioned exact Gaussian joint covariance Cayley Prüfer"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass on the evaluated fixed-total degree agreement law: the full pgf and the explicit order-1/n signed covariance correction with the matching Gaussian calibration. Ordinary Poisson collision moments are prior, and the normal-limit mechanism is a classical conditional or lattice local limit application, not a new general CLT.",
+      "residual_risks": [
+        "Full text of the most broadly relevant conditional-limit sources was not available; they may include a closer application than the abstracts expose.",
+        "An earlier explicit conditioned occupancy-equality pgf or evaluated covariance theorem under a different label could establish further coverage; the index and primary-source comparisons do not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct one-site coverage, not the fixed-total multisite law",
+          "evidence": [
+            "The event means all independent Poisson counts are equal at one observation; Theorem 1 and Lemma 1 handle its probability and moments, and Appendix A treats two Poisson variables in terms of Bessel functions. The large parameter there is a Poisson intensity, not the number of conditioned labels."
+          ],
+          "identifier_or_url": "https://pubs.sciepub.com/ajams/4/6/4/",
+          "material_read": "Public HTML abstract, coincidence definition in §1, Theorem 1 in §2, Lemma 1 and Theorem 3 in §3, asymptotic regime and Appendix A",
+          "method": "Open publisher HTML; equation labels and textual descriptions, with equations as images",
+          "title": "Coincidences, Goodness of Fit Test and Confidence Interval for Poisson Distribution Parameter via Coincidence",
+          "trigger": "Same Poisson equality score, Bessel coefficients, and use of Gaussian limits"
+        },
+        {
+          "assessment": "Different occupancy model and asymptotic, not a parameter substitution",
+          "evidence": [
+            "The boxes are countably infinite with fixed frequencies; the statistic is the number of occupied boxes in one sample and the theorem characterizes limiting variance behavior."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0609498",
+          "material_read": "Open PDF abstract, introduction and Theorem 1.1 setting",
+          "method": "Open arXiv PDF text",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Potentially broader occupancy variance and CLT"
+        },
+        {
+          "assessment": "Established conditional-normal and moment-convergence framework, not an independently checked exact finite-law comparison",
+          "evidence": [
+            "The abstract states a triangular-array conditional normal theorem for sums of iid pairs with discrete conditioning variables, with moment convergence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/996986753",
+          "material_read": "Publisher abstract and methodological framing; author PDF did not open",
+          "method": "Cambridge abstract and attempt at open author copy",
+          "title": "Moment convergence in conditional limit theorems",
+          "trigger": "Potential general implication of conditional Gaussian limit and moments"
+        },
+        {
+          "assessment": "Treats the precise kind of conditioning at a general level. Not using the access failure to infer lack of overlap; the new part assessed is the evaluated pgf and covariance in the specified model.",
+          "evidence": [
+            "The abstract covers sum-type functions of a sample from a p-dimensional exponential family conditioned on a sufficient statistic. The Poisson rate totals form exactly such a statistic here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176994310",
+          "material_read": "Indexed original abstract and Stanford report metadata; publisher and repository full-text attempts unsuccessful",
+          "method": "Primary abstract via indexed publisher, Stanford public repository and PDF attempts; no authorized institutional reader available",
+          "title": "Some Conditional Limit Theorems in Exponential Families",
+          "trigger": "Strong candidate for direct general conditional CLT coverage with r constraints"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Agreement at the same site is a natural finite null statistic for comparing independent degree profiles. Its complete finite calibration is accompanied by a nonvanishing correction to naive independent-site error bars: for r=2 the variance coefficient is about 0.195944 rather than 0.213331. The strictly signed pair effect and the all-fixed-r exact law give concrete information beyond applying a CLT to a familiar marginal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

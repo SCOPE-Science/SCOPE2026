@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:17:50.385078Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With unit norm, the 16 Hermitian Pauli expectations have squared magnitudes w with w(0)=1, w<=1 and sum 4. Expanding the rank-one density matrix in this basis proves H w=4 w via tr(rho P_u rho P_u)=tr(rho P_u)^2. I independently restricted H-4I to every support containing zero, using exact integer elimination and rational back-substitution. The numbers of strictly positive supports at sizes 4, 5, 6 are 15, 0, 45; at size six each successful kernel is exactly the span of two intersecting isotropic-plane indicators. Normalization gives w(u)=1 at their shared nonzero point and hence a Pauli eigenstate. A Clifford sends the eigenoperator and eigenvalue to the Z⊗I,+1 sector; the remaining pure qubit has exactly two nonzero Bloch coordinates. Signed permutations of these coordinates give the stated real normal form, excluding axis endpoints. For the converse all intersecting pairs are equivalent: quotient the perpendicular of their common line by that line and map the two distinct directions in the resulting symplectic plane to a fixed pair, extending to a symplectic basis. Clifford realization and the product expectations give every support. The 15 planes each meet six others in a line and each union is counted once as an unordered pair. Independent replay: python /workspace/branches/independent-discrete.py (STFT block). The Walsh condition alone was used for necessity, not as a general purity test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The LCA theorem classifies equality at minimum support. The later Resultary finding excludes N+1 for arbitrary nonzero signal/window pairs on finite abelian groups with N>=3 and explicitly does not classify N+2."
+        ],
+        "reasoning": "The latter theorem implies no support five at N=4, an actual overlap, but is indexed later and does not imply the six-support structure.",
+        "searches": [
+          "arXiv:2305.02738, Theorem 4.5",
+          "Resultary 2026/10/25, 301d9bf3df13"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md, script and recorded output",
+        "Resultary 301d9bf3df13",
+        "arXiv:2305.02738",
+        "arXiv:2204.14176",
+        "arXiv:math/0611493",
+        "arXiv:2608.21437v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cyclic equality excludes the noncyclic Klein group as a direct application; the finite abelian support bound supplies 4; LCA equality supplies the stabilizer baseline. The later gap implies no five but not a shared Pauli eigenoperator at size six."
+        ],
+        "reasoning": "Neither a minimum-support equality characterization nor the later generic one-step gap yields all first nonminimal signals. The comparison separates mathematical implication from publication chronology.",
+        "searches": [
+          "arXiv:2204.14176, Theorem 1.2",
+          "arXiv:math/0611493, Proposition 4.1",
+          "arXiv:2305.02738, Theorem 4.5",
+          "Resultary 301d9bf3df13"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hermitian Pauli probability support is exactly the self-STFT support rephased; arXiv:2608.21437v3 pp. 1 and 3 studies the probability spectrum and metric, not the size-six support or orbit classification in the consulted passages."
+        ],
+        "reasoning": "Quantum-information vocabulary is genuinely equivalent for this question, but use of the same Pauli probabilities is not a classification.",
+        "searches": [
+          "Resultary searches for two-qubit Pauli support and finite-group self-STFT gaps",
+          "Focused literature search for two-qubit Pauli-support classification and Clifford normal forms",
+          "arXiv:2608.21437v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed finding's limitations (RESULT.md offset 4800) leave the N+2 case open there; no matching list or count of six-point supports was located."
+        ],
+        "reasoning": "The target for a table search is the 45 labeled admissible supports or an equivalent count; counts of minimum states or planes are insufficient.",
+        "searches": [
+          "Resultary finite-group STFT support-gap and two-qubit Pauli-support comparisons, including 301d9bf3df13"
+        ]
+      },
+      "rationale": "The prior minimum-support results are correctly excluded. A later indexed theorem contains the support-five exclusion but expressly leaves size six unclassified. No earlier implication-equivalent source for this small gap plus the complete first nonminimal support geometry and Clifford normal form was established in the inspected literature and records.",
+      "residual_risks": [
+        "An earlier equivalent two-qubit classification under Pauli rank, stabilizer, or quantum coding terminology may exist outside the located sources. The later general gap establishes mathematical overlap, not earlier priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct but later partial overlap",
+          "evidence": [
+            "No N+1 support for N>=3, arbitrary nonzero windows and signals; no N+2 classification claimed."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-one-step-support-gap-for-finite-group-short-time-fourier-tra--301d9bf3df13/RESULT.md",
+          "material_read": "Finding and limitations, offsets 0 and 4800",
+          "method": "Local mirror text",
+          "title": "The one-step support gap for finite-group short-time Fourier transforms",
+          "trigger": "Closest matching indexed finding, stronger hypotheses for the exclusion"
+        },
+        {
+          "assessment": "Prior minimum-four characterization, not first nonminimal layer",
+          "evidence": [
+            "Maximal isotropic subgroups and second-degree subcharacters describe minimum equality."
+          ],
+          "identifier_or_url": "arXiv:2305.02738",
+          "material_read": "p. 13, Theorem 4.5 (offset 36900)",
+          "method": "OA primary PDF text",
+          "title": "Maximally localized Gabor orthonormal bases on locally compact Abelian groups",
+          "trigger": "Cited full minimum equality for the same self-ambiguity object"
+        },
+        {
+          "assessment": "Different group scope and minimum layer",
+          "evidence": [
+            "Equality statement is for cyclic groups."
+          ],
+          "identifier_or_url": "arXiv:2204.14176",
+          "material_read": "p. 3, Theorem 1.2 (offset 8100)",
+          "method": "OA primary PDF text",
+          "title": "The uncertainty principle for the short-time Fourier transform on finite cyclic groups: cases of equality",
+          "trigger": "Closest cyclic equality result"
+        },
+        {
+          "assessment": "Lower bound, not next-support classification",
+          "evidence": [
+            "STFT support is bounded below by group order."
+          ],
+          "identifier_or_url": "arXiv:math/0611493",
+          "material_read": "p. 13, Proposition 4.1 (offset 46825)",
+          "method": "OA primary PDF text",
+          "title": "Uncertainty in time-frequency representations on finite Abelian groups and applications",
+          "trigger": "General finite-Abelian uncertainty comparison"
+        },
+        {
+          "assessment": "Studied the same coefficients for a different question; no match in inspected material",
+          "evidence": [
+            "The inspected passages relate the probability distribution to the local metric."
+          ],
+          "identifier_or_url": "arXiv:2608.21437v3",
+          "material_read": "pp. 1 and 3, offsets 0 and 21817",
+          "method": "OA primary PDF text",
+          "title": "The Pauli Probability Spectrum Carries the Pure-State Quantum Fisher Metric",
+          "trigger": "Equivalent Pauli probability representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest noncyclic phase space is a natural first test of what lies immediately above the known uncertainty minimum. Finding the first gap is useful, but the substantive gain is determining every next-minimal support and proving the presence of one exact Pauli eigenconstraint on every such signal. The result supplies an exact small reference class for Fourier sparsity and two-qubit Pauli geometry, not a claim about larger groups or noisy support.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

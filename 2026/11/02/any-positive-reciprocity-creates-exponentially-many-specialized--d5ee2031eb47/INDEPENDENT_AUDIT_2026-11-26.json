@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:45:36.544352Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 11–88",
+        "Frozen VERIFICATION.md, lines 19–25",
+        "Frozen verify.py, lines 8–74 (inspected only)"
+      ],
+      "rationale": "A noncoherent strict orientation is acyclic, so all sinks are forced and recursively deleting them and their in-neighbors gives its unique kernel. A reciprocal edge permits a noncoherent strict suborientation, and restoring those arcs neither introduces adjacency in a kernel nor destroys outgoing absorption. The remaining coherent one-way cycles enforce alternating membership, giving the parity exception and exact probability. For each candidate maximal independent set the selected-vertex gaps are 2 or 3, including the one-gap triangle. Gap constraints involve disjoint sets of edges, with success probabilities u=1-(1-a)² and v=a². Counting marked cyclic selections and dividing by the number of marks gives the weighted sum; its generating series is the logarithmic derivative of (1-uz²-vz³)⁻¹, which gives the root powers with multiplicities. The companion matrix is irreducible and has periods 2 and 3 among its closed walks; the Perron root is simple and dominant. At r=0 the roots are 1,-1/2,-1/2 and implicit differentiation gives 4/9, with the two smaller root powers uniformly negligible when nr stays bounded. For the eight-edge gadget the two sinks are forced, vertices 1 and 5 excluded, and the path 2,3,4 has the two independently switchable internal configurations {3} and {2,4}. Its boundary is unchanged by the switch. The tested blocks use disjoint edges and one success guarantees existence. The binomial lower tail with m≥n/18 proves both stated constants; r=1 follows separately from the Perrin endpoint.",
+      "residual_risks": [
+        "The exact finite enumeration is supplemental; the binomial gadget and spectral arguments give the unbounded-n assertions. The 1/n crossover is an expectation result, not a law of K_n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang et al., p. 9, Proposition 2 concerns high-probability existence in an independent-directed-arc G(n,p) model and cites De La Vega, Discrete Mathematics 82 (1990), 213–217.",
+          "Richardson's no-odd-directed-cycle existence condition is reported in Huang et al., p. 8."
+        ],
+        "reasoning": "A sparse fixed undirected ring with at least one arc per edge and correlated opposite arcs is not the independent-arc model, and an existence statement is not an exponential count. Richardson's condition also does not control multiplicity. No stronger covering result was established in the inspected text.",
+        "searches": [
+          "Resultary: exponentially many kernels random graph cycle reciprocity high probability",
+          "Primary-literature search: random kernels directed cycles reciprocal edges three-state random orientation expected number Perrin cycle kernels",
+          "Huang et al., arXiv:2512.23193, Proposition 2 and reference to De La Vega"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2512.23193",
+        "Journal of Integer Sequences 11 (2008), Article 08.5.7",
+        "5d5ef8b9a7d1",
+        "84ad81841c78",
+        "ecfb9abc4a49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Perrin counts evaluate the unweighted case u=v=1. Adding arcs preserves an existing kernel but supplies no lower bound on the number of genuinely new kernels.",
+          "The independent arc constraints within the 2/3-gap types produce the new weights u,v; the r→0 root expansion and local doubling argument depend on these edge probabilities and on the three-state distribution."
+        ],
+        "reasoning": "The cyclic enumeration apparatus and nonexistence reduction are standard; the earlier unweighted count or a general existence/monotonicity statement does not directly give the model-specific crossover or the exponentially many independent local choices with high probability.",
+        "searches": [
+          "Bisdorff–Marichal, Article 08.5.7, cyclic gaps and Perrin count",
+          "Huang et al., arXiv:2512.23193, Theorem 1, Propositions 2 and 4",
+          "Frozen RESULT.md, lines 56–88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang et al., pp. 7 and 10: specialized equilibria are kernels and adding reciprocal arcs to existing edges preserves kernels.",
+          "Bisdorff–Marichal, pp. 2 and 6: the maximal independent sets of an undirected cycle have Perrin count and 2/3 cyclic gaps."
+        ],
+        "reasoning": "The kernel language is precisely equivalent to the specialized-equilibrium problem here. The maximal-independent-set reformulation alone is only necessary for partial reciprocity: each unselected vertex must have an outgoing arc into the set. At full reciprocity it is equivalent and the count is covered.",
+        "searches": [
+          "Resultary: directed cycle random kernel reciprocity expected number kernels three-state edges",
+          "Resultary: random orientation of a cycle digraph kernel enumeration maximal independent sets expected kernels",
+          "Huang et al., arXiv:2512.23193, Theorem 1 and Proposition 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5d5ef8b9a7d1, mirrored RESULT.md opening: random vertex-order greedy probabilities on cycles, not random directed edges.",
+          "84ad81841c78, mirrored RESULT.md opening: Perrin counts and Fourier covariance for uniform maximal independent sets; overlaps the already known r=1 case.",
+          "ecfb9abc4a49, mirrored RESULT.md opening: quasi-kernels on a different directed cycle with terminal vertices."
+        ],
+        "reasoning": "The 2/3 gap structure recurs, but none of these sampled laws or counts is the partial-reciprocity weighted expectation or its typical multiplicity result. No exact match appeared in this bounded search.",
+        "searches": [
+          "Resultary: random directed ring kernels weighted Perrin expectation reciprocal edges",
+          "Resultary: Perrin numbers maximal independent sets cycle cycle graph kernels transfer matrix",
+          "Resultary: random directed cycles kernels three-state model bidirectional edges probability exact count"
+        ]
+      },
+      "rationale": "The supported distinction is the edge-weighted partial-reciprocity expectation with its small-r crossover and the typical exponential multiplicity mechanism in the same random-ring model. The equilibrium correspondence, sink recursion, preservation of kernels by reciprocation and endpoint Perrin enumeration are prior mathematics. The exact nonexistence formula is a short consequence of those structural principles on a ring, not sufficient novelty on its own.",
+      "residual_risks": [
+        "No full-text examination of De La Vega or Richardson was possible in this review; unindexed weighted-Perrin or random-kernel results could contain closer precedents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the correspondence and preservation, not the partial-reciprocity count",
+          "evidence": "Proposition 2 uses independently present directed edges and addresses existence; Proposition 4 adds reciprocal arcs to existing edges.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.23193",
+          "material_read": "Theorem 1 p. 7, Richardson discussion p. 8, Proposition 2 p. 9, Proposition 4 p. 10 and De La Vega reference p. 20",
+          "method": "OA paper, located and read PDF passages",
+          "title": "Public Goods Provision in Directed Networks: A Kernel Approach",
+          "trigger": "Same game; random kernels and reciprocity"
+        },
+        {
+          "assessment": "Direct coverage of r=1 only",
+          "evidence": "The MIS count is Perrin p(n)=p(n-2)+p(n-3); the gaps have lengths 2 and 3.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.html",
+          "material_read": "PDF pp. 2 and 6, Perrin and cyclic composition passages",
+          "method": "OA paper PDF",
+          "title": "Counting Non-Isomorphic Maximal Independent Sets of the n-Cycle Graph",
+          "trigger": "Exact cycle counts using the same cyclic gaps"
+        },
+        {
+          "assessment": "Residual coverage risk",
+          "evidence": "Huang et al. cite it for the independent-arc existence statement; this does not delimit the original paper's whole scope.",
+          "identifier_or_url": "De La Vega, Discrete Mathematics 82(2) (1990), 213–217",
+          "material_read": "Citation and attribution in Huang et al. only",
+          "method": "Secondary reference in OA primary paper; no original full text retrieved",
+          "title": "Kernels in random graphs",
+          "trigger": "Potential general random-kernel theorem"
+        },
+        {
+          "assessment": "Known existence input, not multiplicity evidence",
+          "evidence": "The reported theorem gives existence in the absence of odd directed cycles.",
+          "identifier_or_url": "Richardson, Bulletin of the AMS 52 (1946), 113–116",
+          "material_read": "Huang et al. p. 8 account; no original full text",
+          "method": "OA direct PDF attempt returned HTTP 403; secondary account inspected",
+          "title": "On weakly ordered systems",
+          "trigger": "Classical sufficient condition for kernel existence"
+        },
+        {
+          "assessment": "Only the fully reciprocal endpoint is directly covered",
+          "evidence": "The other laws are random-greedy outputs, uniform undirected maximal independent sets, or quasi-kernels in a different graph.",
+          "identifier_or_url": "5d5ef8b9a7d1; 84ad81841c78; ecfb9abc4a49",
+          "material_read": "Mirrored RESULT.md opening findings for all three",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Closest published cycle counting and sampling records",
+          "trigger": "Matching 2/3 gaps, Perrin counts, or directed kernels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 29–48 and 72–88"
+      ],
+      "rationale": "The ring isolates a substantive effect of reciprocal public-good links. Almost all strictly one-way rings have exactly one specialized equilibrium, whereas any fixed positive edge reciprocity gives exponentially many with high probability, not just an expectation inflated by rare instances. The exact mean identifies a separate, motivated rare-reciprocity scale and allows finite-size comparison; the forced-sink gadget explains how local choices accumulate in the typical case.",
+      "residual_risks": [
+        "Neither an exact typical growth rate nor a distributional law in the 1/n window is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

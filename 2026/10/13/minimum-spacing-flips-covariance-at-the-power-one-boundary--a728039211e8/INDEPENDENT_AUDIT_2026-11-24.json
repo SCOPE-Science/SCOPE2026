@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:07:22.141786Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–254",
+        "Frozen VERIFICATION.md, checker.py and CHECKER_OUTPUT.txt (inspected, not run)",
+        "Independent replay: python3 /workspace/branches/independent_replay.py spacing; 204 exact mixed-moment checks via conditioning on the attained minimum and residual dimension m−1"
+      ],
+      "rationale": "Translating and scaling the threshold simplex gives P(M>t)=(1−mt)^(m−1) and D|M>t=(1−u)e+uX with u=1−mt and e the barycenter. On every nonconstant ray the sum of powers decreases strictly toward e for a>1 and increases strictly for 0<a<1, by strict convexity or concavity. Integrating the conditional-mean difference against survival proves the three signs, including the trivial constant at a=1. For integer q, the k-th term uses E[X₁^k]=k!(m−1)!/(m+k−1)! and a beta integral; it contributes q!(m−1)!m^(−(q−k))/(m+q)! to E[MP]. Subtracting E[M]E[P] gives the stated bracket. The q=2 covariance, normalized correlation, and conditional Greenwood mean follow with E[G]=2/(m+1) and the indicated variance formulas. In the fixed-q limit, expansion of the factorial ratios gives variance coefficient (2q)!−(q!)²(q²+1), strictly positive as the variance of Y^q−q q!Y for Y exponential of mean one and q≥2. Its combination with the leading covariance and Var(M) yields the stated normalized limit.",
+      "residual_risks": [
+        "The independent arithmetic covers 2≤m≤18 and 1≤q≤12 only; strictness for noninteger powers is proved analytically.",
+        "The stated normalization is the unscaled Greenwood sum, and the affine proof requires the uniform simplex law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shtembari–Caldwell explicitly recover the reduced uniform ordered spacings after subtracting the attained minimum. Their worked joint law is for the minimum and the sum of the two smallest spacings.",
+          "Saran–Maiti's inspected results concern ordered spacing laws and include the minimum survival formula; Lao–Mayer treat the extreme alone."
+        ],
+        "reasoning": "The prior residual law is a strong proof ingredient, but the laws evaluated in these sources do not identify the sign or value of the covariance with the nonlinear sum over all spacings.",
+        "searches": [
+          "Web: uniform spacings mixed moments ordered spacings minimum power sum covariance Greenwood smallest spacing joint moments exact distribution ordered Dirichlet Rao Pyke Holst",
+          "Shtembari–Caldwell, arXiv:2008.02048, §§3.1–3.2",
+          "Saran–Maiti, Uniform spacings — a Bird’s-Eye View, Result 8 and Theorem 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror records 061e4bb9211c, ce8f3c1a316a, 254686d5bc83 and 2c4e4bd2ab5b",
+        "arXiv:2008.02048",
+        "arXiv:1008.4059",
+        "arXiv:0704.1379",
+        "Saran–Maiti, Result 8 and Theorem 4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact-minimum residual construction gives a route to evaluate mixed expectations, but the earlier worked application concerns s₂, not ∑Dᵢ^a. Its shrinking residual can be used for a new ray-majorization argument. The frozen proof additionally uses a threshold tail integral and beta cancellations to obtain the compact finite covariance and large-m correlation."
+        ],
+        "reasoning": "The distinct result is a nontrivial functional comparison and simplification using the known geometry, not a restatement of residual uniformity or a direct specialization of the earlier s₂ density. The survival law itself is already covered.",
+        "searches": [
+          "Shtembari–Caldwell, arXiv:2008.02048, equations (13)–(19), PDF pp. 3–4 at offset 8480",
+          "Frozen proof, lines 115–254"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 061e4bb9211c pairs Greenwood with entropy, ce8f3c1a316a pairs the maximum with a threshold count, and 254686d5bc83 pairs the minimum with a threshold count. Record 2c4e4bd2ab5b pairs threshold indicators/counts, not the minimum, with power sums.",
+          "Uniform spacings with both endpoints included are the symmetric Dirichlet-one law; fixed positive rescaling of Greenwood would not change the sign or correlation, but changes the covariance normalization."
+        ],
+        "reasoning": "Threshold count at a single fixed threshold does not determine the power-sum dependence; longest spacing and entropy are not interchangeable with the minimum and a fixed power sum. Marginal Greenwood calculations are not the mixed statistic under another normalization.",
+        "searches": [
+          "Resultary minimum spacing and Dirichlet power sum covariance; Greenwood spacing dependence; longest/minimum spacing threshold counts",
+          "Web: minimum uniform spacing Greenwood negative covariance Schur convex majorization conditional minimum spacing dependence power sum correlation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Royen's stated tables are quantiles of Greenwood's statistic, not mixed moments with the minimum. The survey's minimum survival formula is prior. The related Resultary entries did not give this paired moment."
+        ],
+        "reasoning": "A table of either marginal cannot give the mixed coefficient or its sign. No exact same-statistic entry was identified in these bounded checks.",
+        "searches": [
+          "Resultary mixed Greenwood, minimum and power-spacing queries",
+          "Royen, arXiv:1008.4059; Shtembari–Caldwell, §§3.1–3.2"
+        ]
+      },
+      "rationale": "Credit the classical minimum survival law, the known subtraction/residual construction and the Greenwood marginal moments. The checked prior work on the same simplex gives ordered-spacing or square-sum marginals and an exact-minimum residual construction, not the real-power covariance transition and explicit mixed-moment and correlation formulas. Nearby Resultary records change at least one of the two statistics. The pass concerns the particular dependence statements and their evaluations, not priority for the conditional simplex law.",
+      "residual_risks": [
+        "An earlier result for joint moments of ordered and power-transformed spacings could remain unindexed or differently named.",
+        "The cited Mirakhmedov full text was not independently reviewed; the overlap assessment is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong proof-ingredient overlap; evaluates a different mixed law",
+          "evidence": [
+            "Subtract G_(1) and discard zero to obtain the reduced spacings of total length 1−(N+1)G_(1); derives the joint law of G_(1) and s₂."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.02048",
+          "material_read": "§§3.1–3.2, PDF pp. 3–4, offsets 8480–11591, equations (12)–(19)",
+          "method": "OA PDF; located joint and smallest spacing, read decisive passage",
+          "title": "On the sum of ordered spacings",
+          "trigger": "Exact same uniform spacings and conditioning on the smallest spacing"
+        },
+        {
+          "assessment": "Confirms prior marginal results",
+          "evidence": [
+            "The minimum survival is (1−(n+1)x)^n for the n+1 spacing convention."
+          ],
+          "identifier_or_url": "https://ssca.org.in/media/16_19_2_2021_SA_Saran_Ishika_Maiti_Final.pdf",
+          "material_read": "Result 8, Theorem 4 and Corollary 1, PDF pp. 8–9 at offset 24400",
+          "method": "OA PDF, bounded exact passage",
+          "title": "Uniform spacings — a Bird’s-Eye View",
+          "trigger": "Ordered-spacing survey and old exact results"
+        },
+        {
+          "assessment": "Extreme-spacing asymptotics, not mixed finite moments",
+          "evidence": [
+            "Smallest spherical distance agrees with minimum circular spacing in dimension two."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0704.1379",
+          "material_read": "§5, p. 11, offset 28363",
+          "method": "Open primary passage",
+          "title": "U-max-Statistics",
+          "trigger": "Cited minimum spacing source"
+        },
+        {
+          "assessment": "Square-sum marginal and quantiles",
+          "evidence": [
+            "The reported table concerns quantiles of Greenwood alone."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.4059",
+          "material_read": "p. 1 at offset 0, statement of distributional and table results",
+          "method": "Open primary passage",
+          "title": "The Distribution of the Square Sum of Dirichlet Random Variables and a Table with Quantiles of Greenwood’s Statistic",
+          "trigger": "Candidate exact Greenwood table"
+        },
+        {
+          "assessment": "Full-text overlap not determined",
+          "evidence": [
+            "No full passage was lawfully retrieved; this source is not used as negative evidence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.04.002",
+          "material_read": "Publisher landing/abstract only",
+          "method": "Lawful OA lookup and repository attempt",
+          "title": "On Greenwood goodness-of-fit test",
+          "trigger": "Cited exact-statistic source"
+        },
+        {
+          "assessment": "Related but not the same pair of functionals",
+          "evidence": [
+            "Greenwood–entropy, maximum–threshold count, minimum–threshold count, and threshold count–power sums, respectively."
+          ],
+          "identifier_or_url": "061e4bb9211c; ce8f3c1a316a; 254686d5bc83; 2c4e4bd2ab5b",
+          "material_read": "Mirrored Findings and scope of the four distinct matches",
+          "method": "Local Resultary search and exact record comparisons",
+          "title": "Related Resultary spacing-dependence records",
+          "trigger": "Closest indexed changes of functional and same-day sign comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 2–101 and 263–275",
+        "Shtembari–Caldwell residual construction",
+        "Royen Greenwood marginal"
+      ],
+      "rationale": "The canonical minimum-gap and spacing-dispersion summaries measure different departures from evenness. The result quantifies their dependence uniformly in sample size, distinguishes concave from convex powers, and supplies directly usable null covariance and correlation instead of requiring a new simplex integral for each size. The q=2 magnitude and the threshold response provide more information than the sign alone.",
+      "residual_risks": [
+        "The null calculation does not establish power of any combined test, independence, or an extension to arbitrary Dirichlet shapes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

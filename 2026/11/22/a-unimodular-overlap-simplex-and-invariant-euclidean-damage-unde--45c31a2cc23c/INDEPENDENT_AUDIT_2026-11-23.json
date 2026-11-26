@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:51:58.951244Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first cut removes only its named vertex and meets its incident exchange edges at their other endpoints. Any new edge lies in the product-of-simplices cut facet. At an adjacent second deleted vertex its product neighbors are also single exchanges, so the second cut again creates no fractional vertices; at a nonadjacent second vertex there are no new incident edges. This proves the exact retained hull. The cap's base volume and perpendicular height give normalized volume binom(n-2,k-1) with the stated covolume sqrt(n). Nonadjacent open caps are disjoint by x(H)+x(J)<=k+|H intersection J|. In the adjacent case writing y_a=1-x_a, d=sum y, u=x_i-d, v=x_j-d and z_b=x_b yields nonnegative coordinates of sum 1, and the inverse is integer-affine and satisfies the cube constraints. The relative interior with u,v>0 is nonempty and dense up to the boundary, so the closure of the open overlap is the whole unimodular simplex. Inclusion–exclusion gives the +1 correction. The deleted-vertex foot, equal to 1-1/k on its support and 1/(n-k) off, satisfies both cuts since 1/k+1/(n-k)<=1. Its orthogonal residual has squared norm n/[k(n-k)]. Distance convexity excludes combinations using any retained vertex from the maximizer set; strict Euclidean convexity for the distinct residuals excludes the open segment between the two deleted vertices. The lower-dimensional n=4,k=2 opposite-vertex case correctly gives normalized volume zero and distance one. The supplied hull and determinant scripts were inspected, not executed. One nonblocking bibliographic locator correction: the claimed Ferroni–Schröter formula is Cor. 7.6, §7.1, in the currently retrieved arXiv PDF, not Cor. 6.7, §6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordering the adjacent coordinates i,A,j,B makes both cuts interval-sum constraints, so the standard alcoved triangulation/volume enumeration applies to the adjacent retained hull.",
+          "Yi's theorem identifies a rank-two Johnson configuration in an extremal isosceles-set problem, not its deletion geometry."
+        ],
+        "reasoning": "An existing general algorithm for hull volume is real coverage of computability, not a closed structural identification of the overlapping cut-off region or the Euclidean farthest points. The result's main novelty is not the ability to compute a volume.",
+        "searches": [
+          "Lam–Postnikov arXiv:math/0501246 §3.1, Theorems 3.1–3.2",
+          "H. Yi arXiv:2611.05421 Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Ferroni–Schröter arXiv:2208.04893",
+        "Lam–Postnikov arXiv:math/0501246",
+        "Yi arXiv:2611.05421",
+        "Resultary 45c31a2cc23c, 8d39b121255f, 6a44089f2869"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sparse-paving volume corollary with lambda=2 is precisely the nonadjacent volume; the sparse-paving projection theorem gives the same nonadjacent distance and maximizers. The facial-distance result also correctly applies to the adjacent edge but solves a different extremum."
+        ],
+        "reasoning": "The nonadjacent case is covered. For adjacent erasures, the second cut's integrality, the lattice equivalence of the common cap to a simplex and feasibility of both orthogonal feet supply substantive missing steps; the adjacent metric and structural +1 are not immediate parameter substitutions in the compared theorems.",
+        "searches": [
+          "Ferroni–Schröter Corollary 7.6",
+          "Resultary 8d39b121255f and 6a44089f2869, Findings",
+          "Lam–Postnikov §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two nonadjacent deletions are a sparse-paving instance: distinct excluded supports meet in at most k-2. Adjacent exclusions violate that hypothesis.",
+          "At adjacent deletions the erased endpoints form an edge face; 6a44089f2869 applies to their surviving hull but gives squared minimum edge-to-hull distance n/[4k(n-k)-2n], not squared maximum n/[k(n-k)]."
+        ],
+        "reasoning": "The matroid reduction gives exactly the known nonadjacent case. Minimum separation from an erased edge is a different extremum from the Hausdorff loss of deleting its endpoints; the one-vertex distance alone does not show that the second cut retains the first vertex's projection.",
+        "searches": [
+          "Resultary search on hypersimplex two-vertex erasure, overlap and Hausdorff distance",
+          "Ferroni–Schröter arXiv:2208.04893 §7.1",
+          "Resultary facial-distance record 6a44089f2869"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 45c31a2cc23c is the identical frozen record, as confirmed against its formula and simplex statement. The distinct projection and facial-distance records concern sparse paving and a minimum separation respectively."
+        ],
+        "reasoning": "Do not treat indexing of the identical record as independent prior coverage. Neither distinct record tabulates a closed volume/projection classification for the adjacent pair in the audited sense.",
+        "searches": [
+          "Resultary search for the two-erasure normalized volume and Euclidean damage; records 45c31a2cc23c, 8d39b121255f, 6a44089f2869"
+        ]
+      },
+      "rationale": "Nonadjacent normalized volume, Euclidean projection and farthest points are previously covered by sparse-paving formulas. General alcoved enumeration applies even to adjacent deletions and is not claimed anew. The supported distinct result is the adjacent cap overlap as one explicit unimodular simplex, its one-unit volume correction relative to nonadjacent erasure, and the persistence of the same worst distance and equality cases outside the sparse-paving regime.",
+      "residual_risks": [
+        "An uncited hypersimplex split or adjacent-truncation treatment may implicitly or explicitly identify the same local simplex. This bounded audit does not certify universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical full volume and exact additive nonadjacent case",
+          "evidence": [
+            "Normalized volume is the Eulerian number minus lambda times binom(n-2,k-1) for lambda circuit-hyperplanes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04893",
+          "material_read": "§7.1, Corollary 7.6 p. 35 (OA offset 141134) and Example 7.2 p. 34 (offset 137200)",
+          "method": "OA PDF passage inspection",
+          "title": "Valuative invariants for large classes of matroids",
+          "trigger": "Exact sparse-paving volume formula"
+        },
+        {
+          "assessment": "General triangulation and volume counting, not the claimed local overlap or Hausdorff classification",
+          "evidence": [
+            "Gives the alcoved triangulation and permutation-type normalized volume enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0501246",
+          "material_read": "§3.1 Theorems 3.1–3.2, p. 9, OA offsets 29002 and 32347",
+          "method": "OA PDF passage inspection",
+          "title": "Alcoved Polytopes I",
+          "trigger": "General method applies to adjacent cuts"
+        },
+        {
+          "assessment": "Motivating configuration, no deletion result in the inspected theorem",
+          "evidence": [
+            "Identifies J(d+1,2) with its centroid in an extremal isosceles set classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.05421",
+          "material_read": "Theorem 1.1 p. 2, OA offset 7007",
+          "method": "OA PDF passage inspection",
+          "title": "Isosceles sets and two-distance sets in Euclidean space",
+          "trigger": "Rank-two Johnson motivation"
+        },
+        {
+          "assessment": "Same frozen record, not independent prior work",
+          "evidence": [
+            "States the identical volume, unimodular cap and pair-independent metric."
+          ],
+          "identifier_or_url": "Resultary 45c31a2cc23c",
+          "material_read": "Finding, mirror offset 912",
+          "method": "Resultary local mirror passage",
+          "title": "A unimodular overlap simplex and invariant Euclidean damage under two hypersimplex vertex erasures",
+          "trigger": "Exact search hit"
+        },
+        {
+          "assessment": "Exact nonadjacent metric and maximizers, not adjacent",
+          "evidence": [
+            "Missing bases must meet in at most k-2 elements."
+          ],
+          "identifier_or_url": "Resultary 8d39b121255f",
+          "material_read": "Finding and assumptions, mirror offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "Exact Euclidean projection and a universal beta distance law for sparse-paving matroid polytopes",
+          "trigger": "Closest distinct metric result"
+        },
+        {
+          "assessment": "Applies to this edge but gives the minimum edge-to-hull separation",
+          "evidence": [
+            "In the facial formula (a,b)=(k-1,n-k-1) gives squared separation n/[4k(n-k)-2n], not Hausdorff damage."
+          ],
+          "identifier_or_url": "Resultary 6a44089f2869",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "Exact facial-distance spectrum and a quarter-density transition for hypersimplices",
+          "trigger": "Adjacent erasures form a face"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two deletions are the first test of interaction between natural vertex caps of the hypersimplex. The overlap is not just a small measured difference: it is a single unimodular cell, and it occurs exactly on the Johnson edges. In contrast the exact worst Euclidean distance and where it occurs do not change, including the dimension-drop regime. This separates two concrete robustness invariants of a canonical polytope and supplies a useful local geometric description beyond generic hull-volume computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

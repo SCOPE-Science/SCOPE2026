@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-The general inconsistency is analytic.
 
-For the source-family witness
-\[
-\alpha\equiv1,\qquad
-g(t)=t,\qquad
-\tau=1,\qquad
-a=1,\qquad
-b=2,\qquad
-t=3,
-\]
-the shifted-gamma kernel is
-\[
-\beta(s)
-=
-\begin{cases}
-0,&s<1,\\
-(s-1)e^{-(s-1)},&s\ge1.
-\end{cases}
-\]
+# Independent mathematical audit
 
-The bundled checker evaluates the continuum limit of the printed sum as
-\[
-\frac{\widetilde f(3)}{\kappa}
-=
-3-9e^{-2}
-\]
-and the intended convolution as
-\[
-\frac{f(3)}{\kappa}
-=
-4e^{-2}.
-\]
-Their exact gap is
-\[
-3-13e^{-2}>0.
-\]
+## correctness
 
-The checker also verifies directly that the gap equals
-\[
-\int_0^3s\beta(s)\,ds.
-\]
+PASS
 
-No finite-grid experiment is used to infer inconsistency. The nonzero continuum-limit gap proves it.
+The publisher's Eq. (2.27), as used in (2.28), evaluates the signal at the current time outside the history sum. For a fixed time and input history, Riemann integrability of the summand's weight makes the result converge to a scalar times the current signal. Eq. (2.18) instead defines a weighted functional of past signal values. On an interval with nonnegative weight of positive mass strictly before the endpoint, a continuous nonnegative history that vanishes at the endpoint and is positive earlier makes the time-local limit zero and the history functional strictly positive. This proves operator inequivalence under the stated nondegeneracy and does not require a grid experiment. They can agree on special inputs, and no discrepancy is asserted when the weight vanishes. The frozen witness uses the same distinction and its strict sign follows from positive weight on a set of positive measure away from the endpoint. RESULT.md, VERIFICATION.md and the witness script were inspected, not executed. The scope is pointwise operator consistency on prescribed histories, not stability, convergence of coupled trajectories, implementation behavior, or a pathogen simulation.
+
+## originality
+
+PASS
+
+The distinct result is the diagnosis of a specific published quadrature's different continuum operator. The general Riemann-sum calculation is standard and an earlier paper already printed the same kind of time-index replacement, but the inspected earlier passage does not identify it as a defect.
+
+## value
+
+PASS
+
+The time discretization changes the type of input dependence rather than merely producing a finite-step error. Showing that mesh refinement cannot remove this mismatch at the operator level gives a concrete, consequential reproducibility check on the published scheme, independently of any empirical prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

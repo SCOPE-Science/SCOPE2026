@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:15:15.627618Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A cyclic-image map kills G′ and is specified by its quotient functional and a generator of its image; idempotence means that the map fixes this generator. Normalizing the nonzero quotient line yields λ(u)=1 and a unique generator h above u for that map. Every element of the coset above u has order p and gives a legitimate lift, with exactly p^c choices; no centrality is used. The word ‘central-fiber’ in the proof is inessential and should be understood as an ordinary coset fiber. Equal nontrivial composites would force the same image and hence PQ=Q and QP=P, impossible for distinct maps. Thus adjacency is exactly the two cross-annihilations, giving an independent blow-up. Vertex and degree counts follow by fixing one or two independent functional values. In a clique the image vectors and functionals are biorthogonal, and independent image lines can be chosen in order and the dual coordinates extended freely in p^{k(d−k)} ways. Lifts and division by k! give the stated count. Extending by a basis of the common kernel gives maximal cliques of size d. In d=2 each base vertex has exactly one complement. In d≥3 choose r in ker λ outside span(u,v) (the kernel has dimension ≥2 and excludes u), and choose ρ with ρ(r)=1 and ρ(u)=ρ(v)=0. The intersection ker ρ∩ker μ is nonzero and meets span(r,v) only at zero, furnishing the second intermediary and distance at most three. In d≥4 ker λ∩ker μ contains a line outside span(u,v), producing a common neighbor; same-image distinct projections give nonadjacent pairs even without fibers. In d=3 the explicit pair has common kernel line ⟨e₁+e₂⟩ inside its image span, precluding a common neighbor for every p, including p=2. The component diameters for d=2 are 1 or 2 according to fiber size. Independent replay: python /workspace/replay/checks.py 4 composes the actual maps of an exponent-three Heisenberg group and enumerates complete clique counts by actual composition in F₂⁴ [1,120,1680,3360,840,0]; neither calculation substitutes for the group theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact matrix-graph comparisons allow all finite fields, not just prime fields. 366b43eada10 gives all d≥3 vertex, degree and triangle counts; f34390e59c88 gives the complete adjacency spectrum for d≥4.",
+          "Cohen–Postma define the geometry over arbitrary fields and discuss its local structure and covering graphs.",
+          "The indexed rank-one nilpotent graph 00e8b0fff4f8 has the same dimension pattern but its vertices have image contained in kernel, the opposite of the idempotent condition."
+        ],
+        "reasoning": "Field-general and spectrum-general statements cover the base graph only. A related square-zero graph, a full commuting graph, or a graph cover is not in general the independent blow-up obtained here from actual group retractions.",
+        "searches": [
+          "Resultary 366b43eada10 Finding/Proof, f34390e59c88 Finding/Proof §1; distinguish rank-one induced graph from full commuting graph",
+          "Cohen–Postma H_n(F) definitions and locally H_{n−1}(F) property"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0310322",
+        "Pankov–Pasini EJC 33(3), #P3.38",
+        "Cohen–Cuypers–Gramlich, Local Recognition of Non-Incident Point-Hyperplane Graphs, p. 1",
+        "Resultary 366b43eada10, f34390e59c88, 00e8b0fff4f8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior H_{n+1} locally H_n relation recursively counts ordered cliques in H_{d−1}(F_p): multiply the vertex counts in dimensions d,d−1,…,d−k+1. Division by k! gives the same c=0 formula. The d=2 base matching directly follows on the projective line by reversing the ordered pair of distinct points.",
+          "Once the new group identification is proved, clique counts are multiplied by p^{ck}; distances between different fibers equal base distances, and distinct vertices in one fiber have distance two whenever the base degree is positive.",
+          "Neither base geometry nor its clique recurrence demonstrates that every lift in each coset is an idempotent retraction vertex with complete or empty cross-fiber adjacency. The proof uses cyclic-image factorization, exponent p on each nontrivial quotient coset, and equality of nontrivial composites forcing equal maps."
+        ],
+        "reasoning": "The projective part substantially overlaps existing results and their consequences. The distinct general group statement is not a field or dimension substitution into those results; its fibers would not be implied by a count of retracts in a single family.",
+        "searches": [
+          "Cohen–Postma local structure, arXiv:math/0310322 p. 1; 366b43eada10 proof; comparison of extraspecial and generalized dihedral group classes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cohen–Postma define H_n(F) on nonincident point–hyperplane pairs with precisely the two cross-incidences as adjacency. Taking n=d−1 gives the actual c=0 graph.",
+          "Pankov–Pasini call this adjacency relation ~4. Their diameter-three statement for Γ₁ is for the different same-point or same-hyperplane graph; it does not prove diameter three of Γ₄."
+        ],
+        "reasoning": "The rank-one idempotent with data (u,λ) maps bijectively to (⟨u⟩,ker λ), and mutual zero products are mutual incidence. The base alias is exact, but nonabelian maps have extra independent coset fibers not present in either of these objects.",
+        "searches": [
+          "Resultary: commuting primitive/rank-one idempotents, nonincident point–hyperplane graph and cyclic retraction fibers",
+          "Cohen–Postma, arXiv:math/0310322, p. 1",
+          "Pankov–Pasini, EJC 33(3), #P3.38, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "366b43eada10 explicitly supplies c=0 vertex, degree, edge and triangle counts, and f34390e59c88 supplies exact base spectrum. The latter is same-date, not evidence of ordering.",
+          "Cohen–Postma quote Gramlich Lemma 1.3.5 that H₃(F) has diameter two, the d=4 base case."
+        ],
+        "reasoning": "There is real exact indexed base-graph coverage; do not treat identical counts as new. No inspected table or scheme for the base graph provides the order-p retract adjacency for arbitrary nonabelian prime-exponent groups.",
+        "searches": [
+          "Resultary: exact rank-one idempotent graph clique, dimension-dependent diameter, extraspecial and cyclic retraction invariants",
+          "Cohen–Postma arXiv:math/0310322 p. 8, proof of Corollary 3.11"
+        ]
+      },
+      "rationale": "The underlying abelian graph is the established nonincident point–hyperplane graph, not a new linear commuting graph. Several of its invariants are known or follow from prior local structure. The verified distinct claim is the exact uniform independent-fiber transfer for all finite prime-exponent groups, with the resulting counts and distance behavior for the actual retractions, irrespective of whether G′ is central. The inspected linear results do not provide that group transfer; the cited group comparisons concern particular families, not that full domain.",
+      "residual_risks": [
+        "The cited Faradzev 1994 projective-plane antiflag association-scheme work was not accessible as original full text in this review; it could cover more base-graph invariants, especially d=3.",
+        "The cited Britnell–Wildon DOI was inaccessible for original comparison; no exclusion was drawn from that.",
+        "The bounded literature query supplies no negative novelty evidence. Earlier group-semigroup results under other nomenclature may exist, and shared catalogue dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same base graph and relevant exact base invariants, not a theorem about cyclic images in nonabelian groups.",
+          "evidence": [
+            "Vertices are nonincident pairs, adjacency is mutual incidence, H_{n+1} is locally H_n.",
+            "The proof explicitly quotes diameter two of H₃ from Gramlich."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0310322",
+          "material_read": "p. 1, definition and local property (offset 780); pp. 8–9, proof of Corollary 3.11 (offset 30930)",
+          "method": "OA PDF original and direct adjacency and clique-recurrence comparison",
+          "title": "Covers of Point-Hyperplane Graphs",
+          "trigger": "Exact projective graph alias and distance/local structure"
+        },
+        {
+          "assessment": "Relation ~4 is exact. The observed diameter-three statement is not for the audited graph.",
+          "evidence": [
+            "~4 requires p₁∈H₂ and p₂∈H₁; it is the distance-three relation of a different graph Γ₁."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i3p38/pdf/",
+          "material_read": "p. 1, relation definitions and diameter sentence",
+          "method": "OA original passage, compare the graph subscript and adjacency",
+          "title": "Four Relations on the Set of Point-Hyperplane Antiflags",
+          "trigger": "Potential exact diameter claim and relation alias"
+        },
+        {
+          "assessment": "Identical abelian graph and first clique counts for n≥3, with any prime-power field.",
+          "evidence": [
+            "Vertices q^{n−1}[n]_q, degree q^{n−2}[n−1]_q, adjacent common-neighbor count q^{n−3}[n−2]_q.",
+            "The proof takes rank-one image and kernel as an antiflag; cross-incidence is orthogonality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-edge-regular-primitive-idempotent-graphs-of-finite-full-matrix-r--366b43eada10/RESULT.md",
+          "material_read": "Finding, assumptions and Proof, mirror offset 0–4358",
+          "method": "Local source mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; identify primitive idempotents in full matrix rings",
+          "title": "Edge-regular primitive-idempotent graphs of finite full matrix rings",
+          "trigger": "Exact earlier base counts and potentially broader theorem"
+        },
+        {
+          "assessment": "Exact match for the c=0 base graph in the covered dimensions; does not address group fibers.",
+          "evidence": [
+            "All rank-one idempotents with distinct commuting adjacency, identified with antiflags; spectrum for matrix dimension n≥4."
+          ],
+          "identifier_or_url": "Resultary f34390e59c88",
+          "material_read": "Finding and Proof §1, mirror offsets 0–4353",
+          "method": "Local mirror, rank and field comparison",
+          "title": "The complete nonzero adjacency spectrum of commuting primitive idempotents",
+          "trigger": "Exact same-day rank-one commuting graph hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This solves a natural group-endomorphism graph problem on the entire finite prime-exponent class: the actual commutation relation, not only an endomorphism census, loses all multiplication-law information beyond the two quotient sizes. Exact clique and distance invariants make the transfer usable, including for noncentral derived subgroups; no new claim is needed for known projective counts in the abelian base case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

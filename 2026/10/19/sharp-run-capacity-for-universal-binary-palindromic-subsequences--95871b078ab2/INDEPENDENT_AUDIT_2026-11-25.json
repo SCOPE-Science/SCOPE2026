@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:41:00.640819Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–63 (proof reconstructed)",
+        "VERIFICATION.md lines 1–31",
+        "verify.py lines 6–75 (inspected, not executed)"
+      ],
+      "rationale": "In any subsequence embedding, the host-run indices of the first positions of successive pattern runs strictly increase. Equality of total run counts forces the first letters to agree. For odd k the two alternating palindromes have k runs and opposite first letters; for even k, reflecting an alternating half gives k−1 runs (only the middle pair merges), again with both first letters possible. The resulting lower bound is 2 ceil(k/2), including k=1,2. For (0011)^m, deleting the initial 0 gives 01(10 01)^(m−1) and a residual 1, and deleting the final 1 gives 001(10 01)^(m−1); these each have 2m−1 complete binary blocks. Appending 01 for the odd witness adds one complete block to the corresponding truncated decompositions, leaving only the same possible residual 1. The k=1 endpoint check requires zero blocks. Such blocks embed the remaining k−1 symbols individually, because a palindrome can use the initial 0 or the final 1 according to its common endpoint letter. The witnesses have the stated runs and length 2k, which is necessary by the two constant palindromes. Inverting the run bound gives capacity at most 2 floor(r/2); for odd r>1, appending 0 to the preceding even-run witness adds exactly one run. Constant words give capacity zero at r=1. For unrestricted universality the two alternating patterns need k+1 runs; k+1 alternating host runs of length k realize any pattern by assigning its first run to host run 1 or 2 and successive runs in order.",
+      "residual_risks": [
+        "Reported exhaustive tests are only for finite ranges and are not used as proof. The construction does not classify all shortest or run-minimizing words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The sources on ordinary universality admit all patterns in Σ^k and give alphabet-covering arches; they do not minimize runs for a restricted target language. The shortest-host census has finite census range and a different refined statistic."
+        ],
+        "reasoning": "Universal hosts for all binary patterns are feasible here but need k+1 runs, so this stronger hypothesis cannot furnish the sharp even-order upper bound. The run minimum is not a parameter specialization of the inspected general arch statement.",
+        "searches": [
+          "arXiv:2003.04629v1 Definition 4 and Remark 3",
+          "arXiv:2311.10658v1 abstract and ordinary k-universality formulation",
+          "Resultary 3e8681b41f88 RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary mirror: 3e8681b41f88, 8ec65607618f, 771617892c96, 4d85b3092272",
+        "arXiv:2003.04629v1 and arXiv:2311.10658v1",
+        "OEIS A330022, A390882"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arch lemma embeds any word using one letter per complete block; it applies in the proof only after the endpoint letter of the palindrome is used. Ordinary length and run constraints do not enforce the restricted even-order extremum.",
+          "A census indexed by shortest length and ordinary universality does not give a lower bound on runs for longer hosts."
+        ],
+        "reasoning": "The complementary-palindrome obstruction and two endpoint-sensitive embeddings are needed to establish the sharp run result and joint optimum. The cited results do not already imply them.",
+        "searches": [
+          "Barker et al. Definition 4 and Remark 3",
+          "Adamson et al. arXiv:2311.10658v1",
+          "Resultary 3e8681b41f88 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3e8681b41f88 agrees on binary scattered targets and length 2k, but counts shortest hosts by ordinary arch index, not the fewest runs over all hosts.",
+          "A330022 and A390882 concern contiguous substrings, as does Resultary 8ec65607618f; 771617892c96 puts the palindrome condition on the host; 4d85b3092272 uses cyclic contiguous reverse-complement targets."
+        ],
+        "reasoning": "Neither changing host versus target nor changing scattered subsequences to contiguous windows preserves the feasible set or the sharp optimum. The common shortest-supersequence formulation is relevant only when it retains the run objective.",
+        "searches": [
+          "Local Resultary semantic lookup: shortest binary palindrome-universal subsequences, sharp host runs, ordinary arch index",
+          "Shortest binary palindrome supersequence/superstring lookup; OEIS A330022, A390882"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The shortest-host census enumerates up to k=15 and refines by the ordinary scattered universality index. The OEIS parameters count/minimize short substring covers, with A330022 giving 8 rather than 6 at k=3."
+        ],
+        "reasoning": "These are not a table of the arbitrary-host run optimum or its all-k formula; separate length information is acknowledged as overlap, not novelty.",
+        "searches": [
+          "Resultary 3e8681b41f88, 8ec65607618f",
+          "OEIS A330022 and A390882"
+        ]
+      },
+      "rationale": "Credit the sharp arbitrary-host run minimum and its simultaneous attainment with the shortest length, not the arch lemma or the separate 2k minimum. The strongest inspected overlap is an exact census of shortest hosts in the identical palindrome-subsequence class, refined by ordinary arch index, not by runs; the supported distinct result is the uniform run extremum and fixed-run capacity.",
+      "residual_risks": [
+        "Bounded searches do not exclude a differently indexed shortest common supersequence/run-resource treatment.",
+        "The date of a comparable record is not used to infer priority or dismiss genuine overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proof machinery for ordinary universality, not the run extremum",
+          "evidence": "Universality uses every word of fixed length; arches are alphabet-covering blocks.",
+          "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+          "material_read": "Abstract, OA offset 1547; Definition 4 and Remark 3, offset 19000",
+          "method": "OA passages",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Arch lemma and palindrome terminology"
+        },
+        {
+          "assessment": "Ordinary universality over host languages",
+          "evidence": "The tests are all words of length k over the alphabet.",
+          "identifier_or_url": "https://arxiv.org/html/2311.10658v1",
+          "material_read": "Abstract/definition, OA offset 1253",
+          "method": "OA passages",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Potential broader language formulation"
+        },
+        {
+          "assessment": "Material overlap on minimum length; no sharp run result",
+          "evidence": "Minimum length 2k, and exact shortest-host census through k=15 refined by ordinary universality index.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-arch-refined-census-of-shortest-binary-palindrome-universa--3e8681b41f88",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Published local mirror",
+          "title": "Exact arch-refined census of shortest binary palindrome-universal words",
+          "trigger": "Identical class of target subsequences"
+        },
+        {
+          "assessment": "Contiguous problem, not the scattered one",
+          "evidence": "At k=3 the contiguous minimum is 8.",
+          "identifier_or_url": "https://oeis.org/A330022 and https://oeis.org/A390882",
+          "material_read": "Definitions/examples, offset 400 in each",
+          "method": "OA website passages",
+          "title": "Shortest strings covering all binary palindromes as substrings; count of shortest strings",
+          "trigger": "Nearby exact tables"
+        },
+        {
+          "assessment": "Different pattern or embedding constraints",
+          "evidence": "Length-nine contiguous cover; palindromic host covering all sixteen four-mers; cyclic contiguous reverse-complement covers.",
+          "identifier_or_url": "8ec65607618f; 771617892c96; 4d85b3092272",
+          "material_read": "RESULT.md Findings, offset 0 for each",
+          "method": "Published local mirror",
+          "title": "Palindrome covers in contiguous, host-palindromic, and cyclic reverse-complement settings",
+          "trigger": "Potential alternate encodings or exact small-order overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Findings and proof",
+        "Barker et al. arXiv:2003.04629v1, ordinary universality baseline",
+        "Resultary 3e8681b41f88 shortest-host census"
+      ],
+      "rationale": "Runs measure the number of alternating blocks needed to realize a universal host independently of its length. The exact even-order saving despite retaining all constant and maximal-run palindromes, along with simultaneous shortest length, quantifies what restricting the test language buys. This is a structural extremum for all orders, not a new proof of the standard arch lemma or merely a shortest-length tally.",
+      "residual_risks": [
+        "The value is for the binary scattered-subsequence model; no general larger-alphabet or contiguous-pattern result is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

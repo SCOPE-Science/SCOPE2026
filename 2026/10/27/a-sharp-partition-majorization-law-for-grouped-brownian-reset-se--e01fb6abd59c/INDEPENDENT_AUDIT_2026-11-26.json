@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:36:50.212135Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final assessment of repairs/2/RESULT.md. The original strictness extension in RESULT.md line 39 is false as written: nonconstant Z can be supported on {0,z}, z>0, in which case m_j=Pr(Z=z)z^j for j>0 and all size vectors at fixed n,k have the same survival. This can occur even with Poisson resets when an individual hits deterministically one time unit after each renewal and t=3/2: no reset gives Z=0 and one reset in (1/2,1) gives Z=1. For example (3,1) then ties (2,2). The replacement preserves the frozen counterevidence, makes conditional independence explicit, and states positivity plus nonconstancy as a sufficient condition for general strict fixed-k order. It retains the weak order without positivity (trivial if Z=0 almost surely) and the valid covariance strictness for merger with any nonconstant Z. For the unchanged Brownian finding, the reflection principle and conditioning give the product of moments, Z>0 comes from finitely many finite excursions, and zero versus one early reset gives nonconstancy since q'(0+)=0>q'(t). Cauchy–Schwarz gives strictly increasing moment ratios and hence a strict decrease on balancing unit transfers. Every genuine merger has strictly positive increasing-powers covariance. Equality at t=0 or under permutations is unchanged. The replacement clarifies the finite-mean argument: after the last reset in the first half of a block with none in its second half, at least s reset-free time remains, not necessarily a start at x₀ at the midpoint. This gives the uniform stated geometric tail bound and finite strict mean comparisons. The frozen exact toy-law tests and Brownian schedule illustration are diagnostic; the analytic scope correction and tail argument have been checked directly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The abstract majorization theorem orders products of block averages and derived convex orders, not arbitrary moments of first-hit survival in shared environments.",
+          "The stationary Brownian gas is conditional-iid in position under a global age; the avoidance and simultaneous-encounter papers change the reset rule, target event or host.",
+          "The remedied general moment statement explicitly requires independent individual randomness as well as iid schedules; it does not claim universal strictness or finite means."
+        ],
+        "reasoning": "A related conditional-iid representation with only a global age or different random variable does not yield the fixed-k deadline comparison on this model.",
+        "searches": [
+          "arXiv:2608.00813, pp. 1–2",
+          "arXiv:2509.06658, p. 9 conditional-iid discussion",
+          "arXiv:2412.02524 and 2604.20770, model and objective"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and check_output.txt",
+        "Corrected repairs/2/RESULT.md",
+        "Resultary 04868fbce99a, 937ec83908b0 and f481512ee1e6",
+        "arXiv:2303.18012, 2608.00813, 2509.06658, 2211.00563, 2412.02524 and 2604.20770"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published independent and all-synchronized endpoint formulas already give S=m_1^n and S=m_n; Jensen gives the direction at the endpoints. The catalogue two-searcher comparison is exactly m_2>m_1².",
+          "Neither result compares, for example, (4,2,1) with (3,2,2) at fixed total and clock count. The target uses identical independent group laws and strict positivity/nonconstancy of the schedule survival to turn moment convexity into every majorization comparison."
+        ],
+        "reasoning": "Credit the endpoint and the exact singleton special case. Products of sample averages do not specialize to this comparison in the inspected general theorem. The retained result is the general Brownian allocation rule, not a new moment inequality.",
+        "searches": [
+          "arXiv:2303.18012 Eqs. (2)–(5) and (20)–(24)",
+          "Resultary 04868fbce99a Finding",
+          "arXiv:2608.00813 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target event is that all walkers survive a deadline, not first simultaneous encounter. Shared clocks make this the product of moments of one schedule-conditional survival variable, with independent environments across groups.",
+          "Gonçalves–Madrid–Ramos compare products of sample block averages by majorization; that statistic is not the group-conditional survival moment product here."
+        ],
+        "reasoning": "The right reduction is a moment product versus a partition, not a sample-average convex order or a first-encounter comparison. Classical moment log-convexity is a proof tool rather than an originality claim.",
+        "searches": [
+          "Local Resultary: Brownian first arrival with block/group-shared clock schedules, survival correlations and conditional moments",
+          "arXiv:2608.00813, Thm. 1 and Corollaries 2–3",
+          "arXiv:2303.18012, §§ II and IV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "04868fbce99a has the exact strict singleton merger at n=2 and equal starting distances; 937ec83908b0 compares endpoint protocols at n=3; f481512ee1e6 treats equal-sized blocks with shared frozen diffusivity and no resetting.",
+          "The toy-law partitions in the frozen check_output.txt are diagnostic examples, not an external or exact Brownian allocation table."
+        ],
+        "reasoning": "Closest exact entries cover small endpoints or another shared environment; none of these inspected catalogue matches gives a fixed-k all-partition classification of Brownian clock sharing.",
+        "searches": [
+          "Local Resultary grouped reset and first-arrival search, one query capped at 50 hits",
+          "Resultary 04868fbce99a, 937ec83908b0 and f481512ee1e6, Findings"
+        ]
+      },
+      "rationale": "The surviving main claim is the classification of all comparable equal-rate Brownian reset-clock group allocations and all genuine mergers. The repaired positivity qualifier and block-tail reasoning do not expand that claim. The original endpoint formulas, singleton merger overlap and classical moment inequalities are credited. No inspected result gives the whole arbitrary-partition strict deadline order on this model. This is a bounded statement-level screen, not a priority certification.",
+      "residual_risks": [
+        "The bounded local and primary checks do not rule out an earlier application of moment-order inequalities to the same arbitrary reset-clock allocation model.",
+        "No novelty claim is made for the analytic inequalities, the two endpoint protocols, or their n=2 special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the n=2 singleton merger and its conditional survival representation",
+          "evidence": "Strict positive covariance of the two equal-distance nonarrival indicators for all r,t>0 gives m₂>m₁², not arbitrary partitions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-opposite-sign-survival-correlations-from-a-common-reset-clock--04868fbce99a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Opposite sign survival correlations from a common reset clock",
+          "trigger": "Strongest same-model, same-event overlap"
+        },
+        {
+          "assessment": "Three-searcher endpoint comparison only",
+          "evidence": "Independent versus shared clock at n=3; first-arrival strict order and a different behavior for the middle rank.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-early-late-reversal-of-the-middle-arrival-under-simultaneous-sto--937ec83908b0",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Early–late reversal of the middle arrival under simultaneous stochastic resetting",
+          "trigger": "Same Brownian searchers and first-arrival comparison"
+        },
+        {
+          "assessment": "Different survival mechanism and allocation class",
+          "evidence": "Frozen diffusivities, no resets, equal-sized groups among divisors of n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-block-shared-diffusivity-creates-a-sharp-first-arrival-moment-ph--f481512ee1e6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Block-shared diffusivity creates a sharp first-arrival moment phase",
+          "trigger": "Independent shared environments within first-arrival groups"
+        },
+        {
+          "assessment": "Same first-hit event, endpoint formulas and rate optimization",
+          "evidence": "Independent and one simultaneous clock are treated, not an intermediate partition order in these passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.18012",
+          "material_read": "§ II Eqs. (2)–(5), § IV Eqs. (20)–(24), pp. 3–4 and 6–7, offsets 11356 and 28349",
+          "method": "OA primary PDF text",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Primary same-model antecedent for endpoint resetting protocols"
+        },
+        {
+          "assessment": "Close general analogue, different statistic",
+          "evidence": "Products of sample block averages compared by majorization; no direct specialized moment product for the shared-clock survival event identified.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.00813",
+          "material_read": "Introduction and Thm. 1, offsets 500 and 4271; Corollaries 2–3, offset 7459, pp. 1–2",
+          "method": "OA primary PDF text",
+          "title": "Convex Order, Log-Convexity and Moments of Averages of Random Variables",
+          "trigger": "Plausible majorization theorem for general iid block environments"
+        },
+        {
+          "assessment": "Stationary position law, not allocation of target-search clocks",
+          "evidence": "Single shared reset age as the conditional variable for Brownian gas positions.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06658",
+          "material_read": "Abstract and p. 9 stationary CIID discussion, offsets 0 and 46440",
+          "method": "OA primary PDF text",
+          "title": "Dynamically Emergent Correlations in Brownian Particles Subject to Simultaneous Non-Poissonian Resetting Protocols",
+          "trigger": "Conditional iid Brownian resets"
+        },
+        {
+          "assessment": "Scope comparator; no whole-text noncoverage inference",
+          "evidence": "Stationary position, spacing and extreme statistics are the stated objective, not group allocation for detection.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "p. 1 abstract, offset 0",
+          "method": "OA primary PDF text",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Synchronized Brownian resets"
+        },
+        {
+          "assessment": "Different reset rule and objective",
+          "evidence": "Searchers reset to a state-dependent extreme location in a drift potential, not fixed home with iid group schedules.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.02524",
+          "material_read": "Avoidance and model description pp. 1–2, offsets 2480 and 5960",
+          "method": "OA primary PDF text",
+          "title": "General Resetting Theory for Group Avoidance",
+          "trigger": "Potential older grouped resetting formulation"
+        },
+        {
+          "assessment": "Different first-passage event and host",
+          "evidence": "Walkers must coincide at the target node; one walker's first hit alone does not count.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.20770",
+          "material_read": "Abstract and encounter objective pp. 1–2, offsets 2450 and 10366",
+          "method": "OA primary PDF text",
+          "title": "Encounter times of random walkers with simultaneous resetting on networks",
+          "trigger": "Comparison of simultaneous and independent reset protocols"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the repaired theorem, clock sharing is a real design choice that leaves each searcher's marginal dynamics fixed. The exact optimal and worst partitions at a fixed clock budget and the direction of any merger follow for every deadline and rate, rather than just for a fitted example, an endpoint or an optimized mean. This is useful even though the proof uses elementary inequalities. The general strictness qualification prevents misapplying the same budget rule to search processes with identically tied positive moments; the main value remains the strict Brownian ordering.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is the sharp maximum of the squared determinant for the three scalar Fourier characters \(0,1,4\) at arbitrary unit-circle nodes. The proof reconstructs the determinant using a Vandermonde–Schur factor and a unit-circle cubic discriminant, then bounds the two-variable polynomial through three explicit branches. The derivative of the surviving branch has exactly one positive root in \((3/4,4/5)\), and direct node construction establishes global attainability and all equality cases. The other two branches are strictly below 22, whereas the constructed candidate is above 22. The general tightness criterion uses Hadamard and the cubic-root triple. A standalone checker passed 62,453 supplementary assertions; random samples and finite grids are explicitly not infinite proofs.
+PASS
 
-## Originality — PASS (bounded evidence)
+Dividing the alternant by the Vandermonde gives the symmetric quadratic S²−P. Rotation to Q=1 gives P=conj(S); complex conjugation gives minus the Vandermonde for this normalization, hence its modulus squared is minus the cubic discriminant. Writing r=|S| and u=Re(S³)/r³ gives the two stated factors. Their product is strictly concave in u for r>0. The discriminant factor plus four times the Schur-modulus factor is H=3r⁴−14r²+27, so the unclipped product is bounded by H²/16 with equality at the stated quadratic vertex. The two clipping polynomials increase for positive r and their rational brackets place the cubic root ρ strictly on the u=−1 branch. The derivative on that branch has only one positive critical root; the middle branch is <22 by the two endpoint bounds for H, and the upper branch peaks between 2 and 2.1 with value <17. The rational witness at r=3/4 exceeds 22. Thus the relaxed rectangle has only the optimizer (ρ,−1), and it is realized: after a cubic-root rotation S=−ρ, the node polynomial factors as (X−1)(X²+(1+ρ)X+1). This gives exactly the rotation/permutation orbit. The omitted r=0 case and coincident nodes have zero volume. Hadamard equality forces the first power sum to vanish, giving an equilateral triple; the other two inner products vanish precisely when neither m nor m−1 is divisible by three. Compactness gives a strict gap otherwise.
 
-Searches included sparse Fourier Fekete three-node optimization, generalized Vandermonde \(\{1,z,z^4\}\), alternate Fourier determinant terminology and arithmetic tightness aliases, as well as semantic comparison to published database entries. The complete RESULT.md for the 2026 three-interval determinant design and for the 2026 integer-separated three-coset design were read. Both address a one-parameter restricted phase family, and neither dominates this unrestricted two-angle \(\{0,1,4\}\) exact value. Hadamard, Schur decomposition and ordinary unit-circle Fekete results are prior art. The motivating 2026 publisher page yielded abstract and bibliography but not full scientific body. Older alternative formulations remain a bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies the exactly optimal information-volume sampling nodes for a minimal three-mode sparse Fourier space in its first degree-two Schur case. Unlike a routine orthogonal-root exercise, the optimum is nonorthogonal and requires an explicit phase competition across three analytic branches. The cubic-root constant, strict gap to 27, and unique isosceles orbit give natural test data for sparse Fourier sampling designs. No general statement on condition numbers or higher mode counts is made.
+The distinct narrow claim is the exact unrestricted maximum for sparse columns 1,z,z⁴ and its non-equilateral equality orbit. No inspected distinct result covers it. The classical generalized alternant/Fekete formulation and elementary modulo-three tightness context are not included in this originality pass.
 
-## Closest literature and limits
+## value
 
-Bawaneh (2026) addresses fractional Fourier spectral sampling; the full paper body was unavailable. The two public 2026 exact three-coset determinant results constrain sample-node phases. Bos–De Marchi and Dubickas–Pritsker establish related but different Fekete frameworks. The exhaustive claim is only for the fixed spectrum \(\{0,1,4\}\), three unweighted nodes and squared determinant. Independent review is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three minimal evaluations of a sparse trigonometric polynomial give a natural square design with determinant as its information-volume criterion. In the first degree-two Schur case in this family the equilateral rule actually gives zero determinant and the orthogonal ceiling is unattainable. The exact best volume and forced non-equilateral orbit resolve both how large the gap is and which designs achieve it without postulating symmetry or spacing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

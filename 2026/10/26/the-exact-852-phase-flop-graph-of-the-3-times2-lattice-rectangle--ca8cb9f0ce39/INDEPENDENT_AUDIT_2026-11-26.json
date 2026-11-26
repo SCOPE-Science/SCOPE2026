@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:20:46.675668Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the cone over the rectangle, crepant rays are at height one; every height-one lattice point must occur in a smooth subdivision, since in a unimodular cone its nonnegative integral coordinates sum to one. Thus the labeled smooth crepant fans are exactly the unimodular triangulations using all 12 points, and relative projectivity corresponds to a coherent lifting. A coherent coarsening with one quadrilateral admits the two small projective refinements: no ray changes, and the single affine dependence gives one wall and a crepant flop. Conversely any adjacency of the stipulated kind must exchange the diagonals of one such quadrilateral. The independent exact replay, /workspace/branches/b9fa7f38-e9cf-4697-b538-a765f43ce391/independent_replay.py and full_replay.log, reads the frozen JSON strictly as data. It reconstructed 852 distinct triangulations, each with 12 normalized-area-one triangles, exhausting the independently known count f(2,3). It rebuilt every legal exchange, found 2626, and checked each integral height vector: all 852 triangulations have strict lower triangles, while all 2626 walls have ten strict common triangles and exactly their four quadrilateral vertices coplanar on the remaining lower face. Full-graph BFS from every vertex gave radius 10, diameter 20 and the unique pair 0x8c3c04117, 0x71885e0820. The log confirms the stated histogram, including 180 vertices of degree 6. No frozen script was executed. This verifies the relative toric graph only, not arbitrary nontoric resolutions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.4(ii) establishes width-two regularity and §2 gives flip connectivity. Gasparim et al. give a general primitive-triangulation approach to crepant resolutions."
+        ],
+        "reasoning": "These provide the vertex correspondence, its completeness or an enumeration method, and connectivity, not a rectangle-specific edge, degree or shortest-path classification.",
+        "searches": [
+          "Kaibel–Ziegler Proposition 3.4(ii) and §2",
+          "Gasparim et al., arXiv:2609.00021v1, primitive triangulations and crepant resolutions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CERTIFICATES.json and packaged verifier description",
+        "Independent replay and full_replay.log for the exact data",
+        "arXiv:math/0211268",
+        "Eppstein's 3x3 grid page",
+        "arXiv:2609.00021v1",
+        "Resultary 2026/10/26/SCOPE-the-ten-projective-crepant-toric-resolutions-of-the-nonsmoothabl--6efd536d06d8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regularity and the 852 count provided an independent total but not wall certificates or degree/distance information. The latter required reconstructing actual exchanges, checking their coarsenings and computing full-graph shortest paths."
+        ],
+        "reasoning": "Connectivity, the number of triangulations and an algorithm for listing them do not mechanically specify the claimed radius, diameter, unique pair or degree vector. The complete finite graph calculation supplies genuinely separate information.",
+        "searches": [
+          "Kaibel–Ziegler §2 and Proposition 3.4(ii), compared with the independent graph and coherent-wall replay"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Interchanging the sides identifies the 3 by 2 rectangle with P_{2,3} in Kaibel–Ziegler's lattice-triangulation notation; their flip graph uses the diagonal exchanges relevant here. Eppstein's 3x3 grid is a grid of nine points, a 2 by 2 rectangle with 64 triangulations."
+        ],
+        "reasoning": "The equivalent combinatorial graph at 12 points must be checked for metric data, not just triangulation counts. The smaller grid's flip geometry concerns a genuinely different graph.",
+        "searches": [
+          "Resultary: 3 by 2 lattice rectangle regular triangulations toric flop graph degree radius and diameter",
+          "Kaibel–Ziegler arXiv:math/0211268, §2; Eppstein, Triangulations of a 3x3 grid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kaibel–Ziegler explicitly give f(2,3)=852 on p. 2 and in the p. 27 table. The closest analogous indexed graph, 2026/10/26/SCOPE-the-ten-projective-crepant-toric-resolutions-of-the-nonsmoothabl--6efd536d06d8, concerns a seven-point pentagon (10 resolutions, 13 flops, radius 3, diameter 5)."
+        ],
+        "reasoning": "The table directly covers the vertex count. The analogous Resultary record has different lattice data and metrics and does not cover the rectangle. No matching edge or metric table surfaced in the bounded comparisons.",
+        "searches": [
+          "Kaibel–Ziegler, f(m,n) table",
+          "Resultary: exact rectangle triangulation/crepant-resolution graph metrics"
+        ]
+      },
+      "rationale": "The 852 count, width-two regularity and general flip connectivity are prior and are not credited as novel. The distinct supported finding is the exact relative-projective flop adjacency and distance profile of this labeled rectangle, including the sharp flop bound and its unique extremal pair; the exact wall data identify all combinatorial exchanges as relative flops.",
+      "residual_risks": [
+        "Bounded catalogue and OA source comparisons do not rule out earlier equivalent graph tabulations in software datasets or other work. The deferred broader literature lookup was not treated as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers size and regularity, not the exact graph profile in the inspected passages",
+          "evidence": [
+            "P_{m,n}=[0,m]×[0,n], f(2,3)=852, and f^{reg}(2,n)=f(2,n).",
+            "The flip-graph result establishes connectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0211268",
+          "material_read": "PDF pp. 1–2, definition and f(2,3); §2 p. 4; Proposition 3.4(ii) p. 15; table p. 27",
+          "method": "OA original PDF passages",
+          "title": "Counting Lattice Triangulations",
+          "trigger": "Identical 12-point rectangle, exact lattice-triangulation counts and regularity"
+        },
+        {
+          "assessment": "Different, smaller grid",
+          "evidence": [
+            "3x3 here counts nine points, not a rectangle of area six with 12 points."
+          ],
+          "identifier_or_url": "https://11011110.github.io/blog/2006/09/22/triangulations-of-3x3.html",
+          "material_read": "Opening description of the point set, 64 count and partial-cube comparison",
+          "method": "Original OA web page",
+          "title": "Triangulations of a 3x3 grid",
+          "trigger": "Grid flip geometry and potentially confusing 3x3 notation"
+        },
+        {
+          "assessment": "General interpretation and method, no matching profile in examined material",
+          "evidence": [
+            "Primitive-triangulation enumeration concerns the general toric construction, not the stated exact flop distances."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.00021v1",
+          "material_read": "HTML passages near offsets 755 and 2392",
+          "method": "Original OA arXiv HTML",
+          "title": "Calabi–Yau Threefold Singularities and their Universal Quilts",
+          "trigger": "Toric crepant resolutions via primitive triangulations"
+        },
+        {
+          "assessment": "Same type of invariant of a different toric object; date is not used to infer priority",
+          "evidence": [
+            "The seven-point pentagon has 10 resolutions and 13 flops, with radius 3 and diameter 5."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-the-ten-projective-crepant-toric-resolutions-of-the-nonsmoothabl--6efd536d06d8",
+          "material_read": "Local mirror RESULT.md, finding and polygon description",
+          "method": "Local mirrored Resultary record",
+          "title": "The ten projective crepant toric resolutions of the nonsmoothable toric singularity",
+          "trigger": "Strongest related indexed exact flop-graph result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first rectangle beyond the 2 by 2 width-two square is a natural tractable relative toric phase graph, with a known census but no metric profile in the earlier inspected results. The exact diameter gives the optimal bound on elementary flops over the original affine base, the unique pair identifies the sole extremal obstruction, and the lifts verify that the counted paths do not use abstract but nonprojective flips. These precise data are usable in comparisons and benchmark calculations independently of a broader theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

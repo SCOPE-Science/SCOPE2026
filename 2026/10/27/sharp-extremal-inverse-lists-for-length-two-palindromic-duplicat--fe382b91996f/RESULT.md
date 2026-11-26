@@ -1,54 +1,46 @@
 # Sharp extremal inverse lists for length-two palindromic duplication
 
 ## Finding
-Let \(\Sigma\) be any alphabet of cardinality \(q\ge2\). For a received word \(y\in\Sigma^N\), \(N\ge4\), let \(\mathcal P(y)\) be the set of distinct length-\(N-2\) parents obtainable by contracting exactly one factor \(abba\) into \(ab\). Write \(M_q(N)\) for the largest such inverse-list size. Then
-\[
-M_q(N)=\left\lfloor\frac{N-2}{2}\right\rfloor.
-\]
-The **exact number \(E_q(N)\) of received words attaining \(M_q(N)\)** is
+
+Fix a finite alphabet of size \(q\ge2\). Contracting a factor \(abba\) of a word \(y\in\Sigma^N\) to \(ab\) gives a parent, and distinct sites yielding the same parent are counted once. Among words of length \(N\ge4\), the maximum number of parents is \(\lfloor(N-2)/2\rfloor\). The number of words attaining this maximum is
 \[
 E_q(N)=\begin{cases}
 q^2,&N=4,\\
 2q^3-q,&N=5,\\
 q(q-1),&N\ge6\text{ even},\\
-q(q-1)\bigl((t+1)(q-1)+4\bigr),&N=2t+3,\ t\ge2.
+q(q-1)((t+1)(q-1)+4),&N=2t+3,\ t\ge2.
 \end{cases}
 \]
-For even \(N\ge6\), the extremizers are **exactly** the \(q(q-1)\) length-\(N\) prefixes of the periodic words \(abbaabba\cdots\) with \(a\ne b\). More generally, the sum of inverse-list sizes is
+The even-length maximizers for \(N\ge6\) are exactly the period-four prefixes \(abbaabba\cdots\) with distinct \(a,b\). The maximizing odd-length words are described by the junction parametrization below. The contribution is the extremizer census, particularly its odd-length case, not a new maximum bound or a new general collision test.
+
+## Reduction to legal-site runs
+
+Use zero-based positions. A site \(i\in\{0,\ldots,N-4\}\) is legal if \(y_i=y_{i+3}\) and \(y_{i+1}=y_{i+2}\); the contraction deletes \(i+2,i+3\). Consecutive legal sites \(i,i+1\) require all five letters \(y_i,\ldots,y_{i+4}\) equal, so give the same parent. Conversely, if legal sites \(i<j\) give the same parent, comparison of the two outputs gives \(y_s=y_{s+2}\) for \(i+2\le s\le j+1\). The inner pair of the palindrome at \(j\) has \(y_{j+1}=y_{j+2}\), so the two parity classes merge and \(y_{i+2},\ldots,y_{j+3}\) are all equal. The equalities at \(i\) extend this to \(y_i,y_{i+1}\). Every site between \(i\) and \(j\) is legal. Thus the number of parents is the number of consecutive runs of legal sites. This calculation specializes the prior collision conditions [1, Appendix B].
+
+There are \(m=N-3\) candidate sites. A set with \(c\) runs needs at least \(2c-1\) sites in total, including separators, which gives the maximum bound directly from the zero-column-run bound [1, Lemma 15]. The period-four prefixes with distinct period letters attain it (exactly the even sites are legal). For \(N\ge6\) even, \(m=2c-1\) at equality, so the legal sites must be exactly the even ones, all isolated. The palindrome constraints at successive even sites uniquely extend the initial \(abba\) to its period-four prefix. Equal period letters would make every site legal and give only one parent, so they are excluded.
+
+## Odd lengths
+
+Let \(N=2t+3\), \(t\ge2\). A maximizing set has \(t\) runs in \(2t\) positions. If there is an adjacent pair at \(i,i+1\), all slack above the minimum \(2t-1\) positions is used by that doubleton: every other run is a singleton and all separators have length one. As \(t\ge2\), at least one of \(i-2\) and \(i+3\) must be legal. From the adjacent pair, \(y_i,\ldots,y_{i+4}\) are equal. A palindrome at \(i-2\) would then extend this constant segment to the left and make \(i-1\) legal. A palindrome at \(i+3\) would extend it to the right and make \(i+2\) legal. Either merges two runs, a contradiction. Thus all runs are singletons. The possible legal-site sets are
 \[
-\sum_{y\in\Sigma^N}|\mathcal P(y)|=(N-3)q^{N-2}-(N-4)q^{N-4}.
+S_j=\{0,2,\ldots,2j-2\}\cup\{2j+1,2j+3,\ldots,2t-1\},\qquad 0\le j\le t,
 \]
+with empty components permitted. These alternatives use the single position of slack for an extra initial or terminal position or for a double separator.
 
-## Assumptions and scope
-The palindrome duplication operation acts on two consecutive source symbols \(ab\) by inserting the reversal \(ba\), producing \(abba\). Distinct contraction sites producing the same parent count once. Positions are zero-based, and the same alphabet symbol may occupy multiple positions; no field structure is assumed. The claim concerns **one** length-two palindromic duplication (not arbitrary-length duplication, noisy duplication, or two successive duplications).
+At \(j=0,t\) the palindromes force a period-four block with two different letters (there are at least two sites), and leave one free end letter. The untested site at the end cannot be legal since its middle pair lies at the unequal transition of the block. Each case contributes \(q^2(q-1)\) words. At an interior \(j\), the last palindrome of the first block and the first palindrome of the second start three positions apart. They meet in a single letter \(x\) and read \(xuuxvvx\) together. Each side extends from its initial (or terminal) palindrome at spacing two. The two omitted junction sites are legal precisely when \(x=u=v\), as seen by testing their four-letter windows. If a side has at least two palindromes, its second letter must differ from \(x\), or the intermediate site between the first two on that side would also be legal. These restrictions suffice, since the only omitted sites are those inside the two periodic blocks and those at the junction.
 
-## Proof
-Define \(I(y)=\{i:0\le i\le N-4,\ y_i=y_{i+3},\ y_{i+1}=y_{i+2}\}\). A legal contraction at \(i\) deletes positions \(i+2,i+3\). Regard \(I(y)\) as a subset of the integer path \(0,\ldots,N-4\), and denote by \(c(I)\) its number of nonempty consecutive runs.
+For \(t=2\) the unique interior alternative has two single-palindrome sides and contributes \(q^3-q\), giving total \(2q^2(q-1)+q^3-q\). For \(t\ge3\) the two interior alternatives \(j=1,t-1\) each contribute \(q^2(q-1)\), and the remaining \(t-3\) alternatives each contribute \(q(q-1)^2\). The sum is \(q(q-1)((t+1)(q-1)+4)\) in both cases. For \(N=4\) the maximizers are just the \(q^2\) palindromes. For \(N=5\) each of the two windows contributes \(q^3\) words and their intersection consists of the \(q\) constant words, so the count is \(2q^3-q\).
 
-**Collision lemma.** Two legal contractions have the same output if and only if their starts lie in the same consecutive run of \(I(y)\). Consecutive legal starts \(i,i+1\) imply that \(y_i,\ldots,y_{i+4}\) are equal, so both contractions agree; transitivity gives one parent per run. Conversely, if contractions at \(i<j\) agree, comparison of the two output words at positions from \(i+2\) to \(j+1\) forces \(y_s=y_{s+2}\) for every \(i+2\le s\le j+1\). In addition, the palindrome at \(j\) forces \(y_{j+1}=y_{j+2}\). Back-propagation through the period-two identities gives equality of all letters in \(y_{i+2},\ldots,y_{j+3}\); the palindrome at \(i\) extends this equality to \(y_i,y_{i+1}\). Thus every intermediate start is legal. Hence \(|\mathcal P(y)|=c(I(y))\).
+## Prior coverage and ancillary incidence identity
 
-There are \(m=N-3\) candidate starts. A set of \(c\) separated runs requires at least \(2c-1\) positions. Hence \(c\le\lceil m/2\rceil=\lfloor(N-2)/2\rfloor\). Every period-four word \(abbaabba\cdots\) with \(a\ne b\) has exactly the legal starts \(0,2,4,\ldots\), attaining this bound. For even \(N\ge6\), \(m\) is odd, and equality forces exactly these even starts (all singleton runs). Overlapping four-letter palindromes at separation two force the entire word to be the stated period-four prefix. The letters must be unequal; otherwise there is one continuous run. Thus there are precisely \(q(q-1)\) such extremizers.
+The exact collision criteria in [1] and the earlier binary deletion-sphere formula in [2] precede the run reduction used here. The sharp maximum follows from the run bound and the periodic witness; [3, §6] gives a looser general upper bound. For comparison, the exact maximum and the aggregate incidence count both appear in the separate catalogue record [4], and the maximum also specializes from the all-length result [5] at duplication length two. These two catalogue comparisons are later-dated and do not settle historical priority. The incidence count itself follows at once from the per-word run formula: each of \(N-3\) legal-site indicators occurs for \(q^{N-2}\) words and each of \(N-4\) adjacent pairs for \(q^{N-4}\) words. Subtracting gives \((N-3)q^{N-2}-(N-4)q^{N-4}\). This aggregate is separate from the extremizer census. The latter needs equality patterns and local letter constraints, not just the per-word count or its sum.
 
-For odd \(N=2t+3\) with \(t\ge2\), we have \(m=2t\) and need exactly \(t\) runs. No maximizing legal-start set can contain two consecutive positions: otherwise the unique possible minimum-length run arrangement has another legal start two positions before or three positions after the consecutive pair. The corresponding three palindromes force all intervening letters equal, creating an additional legal start and merging two runs. Consequently all runs are singleton. The possible sets of \(t\) nonadjacent positions in \(\{0,\ldots,2t-1\}\) are exactly
-\[
-S_j=\{0,2,\ldots,2j-2\}\cup\{2j+1,2j+3,\ldots,2t-1\},\qquad0\le j\le t,
-\]
-with empty components permitted. These sets are disjoint alternatives because they are the complete legal-start sets of maximizing words.
-
-For a fixed \(S_j\), the palindrome constraints identify all but three independent letter values. At \(j=0\) and \(j=t\), a free end letter and two periodic-block letters give exactly \(q^2(q-1)\) maximizing words, because the two block letters must differ. At an interior \(j\), the two blocks of overlapping palindromes meet in one letter \(x\); each is determined by \(x\) and an additional letter \(u\) or \(v\). The local bridge is, up to relabeling, \(xuuxvvx\). The two omitted starts at the junction become legal precisely when \(x=u=v\). If a block contains two or more legal starts, its periodic letters must differ, or it would also acquire unwanted adjacent legal starts. Thus for \(j=1\) or \(j=t-1\) with \(t\ge3\) there are \(q^2(q-1)\) choices, while for \(2\le j\le t-2\) there are \(q(q-1)^2\). For \(t=2\), the sole interior case \(j=1\) allows all triples except \(x=u=v\), giving \(q^3-q\). Summing gives \(q(q-1)((t+1)(q-1)+4)\) for all \(t\ge2\).
-
-For \(N=4\), exactly the \(q^2\) palindromes \(abba\) have a parent. For \(N=5\), exactly one parent exists if either length-four window is palindromic; inclusion-exclusion gives \(2q^3-q\) received words. Finally, each candidate start contributes \(q^{N-2}\) received words with a palindrome, while each adjacent pair contributes \(q^{N-4}\) all-equal words. Since the number of runs equals the number of legal starts minus adjacent legal-start pairs, summation proves the incidence formula.
-
-## Verification
-The included `CHECK.py` independently generates every word for \((q,N)\) in the finite ranges \(q=2,\ 4\le N\le15\); \(q=3,\ 4\le N\le11\); \(q=4,\ 4\le N\le9\); and \(q=5,\ 4\le N\le7\). It explicitly constructs and deduplicates all parent words, recomputes legal-start runs, checks each bound, verifies even-length extremizer rigidity, counts all maximizers, and totals all parents. The recorded run examined **778,140** received words and passed. Finite checks corroborate but do not replace the complete symbolic proof.
-
-## Relationship to prior work
-The motivating 2026 work establishes a general upper bound of \(N-3\) for the number of single-step length-two palindromic-duplication parents of a received word of length \(N\), without the sharp extremizer census above. Lenz, Wachter-Zeh, and Yaakobi (2017) already derive exact **binary** palindromic-deletion sphere sizes and a general-alphabet upper bound using run indicators; those results, and their appendix's conditions for coincident contractions, cover important ingredients. The present claim is the exact **all-alphabet** maximizing inverse-list value together with its complete parity-dependent enumeration and even-length rigidity, not priority for the binary collision technique.
-
-## Limitations
-The exact classification concerns one fixed duplication block length two and one deletion. No conclusion is claimed for longer palindrome blocks, multiple edits, or optimal correcting-code cardinalities. The overlap test cannot exclude unindexed equivalent earlier work; the general collision conditions in prior literature make implicit specializations a particular historical-priority risk.
+The scope is one contraction of duplication length two, with no assertion about multiple edits, other block lengths or code cardinalities. The supplied finite checker corroborates the formulas over its specified finite ranges; the proof above establishes the unbounded census.
 
 ## References
-- A. L. Zabokritskiy, *Coding for Multiple Reverse-Complement and Palindromic Duplications*, arXiv:2609.00779 (first public version 2026-09-01), Section 6.
-- A. Lenz, A. Wachter-Zeh, E. Yaakobi, *Bounds on Codes Correcting Tandem and Palindromic Duplications*, arXiv:1707.00052 (2017), Lemmas 5–6.
-- A. Lenz, A. Wachter-Zeh, E. Yaakobi, *Duplication-Correcting Codes*, arXiv:1712.09345 (2017), Lemmas 14–15 and Appendix B.
+
+1. A. Lenz, A. Wachter-Zeh, E. Yaakobi, *Duplication-Correcting Codes*, [arXiv:1712.09345](https://arxiv.org/abs/1712.09345), Lemmas 14–15 and Appendix B.
+2. A. Lenz, A. Wachter-Zeh, E. Yaakobi, *Bounds on Codes Correcting Tandem and Palindromic Duplications*, [arXiv:1707.00052](https://arxiv.org/abs/1707.00052), Lemmas 5–6.
+3. A. L. Zabokritskiy, *Coding for Multiple Reverse-Complement and Palindromic Duplications*, [arXiv:2609.00779](https://arxiv.org/abs/2609.00779), Section 6.
+4. *Exact inverse lists for a single length-two palindromic duplication*, [Resultary, 2026-11-02](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-inverse-lists-for-a-single-length-two-palindromic-duplicat--890e7708ebeb/RESULT.md).
+5. *Sharp inverse-list maximum for a single palindromic duplication*, [Resultary, 2026-11-02](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-inverse-list-maximum-for-a-single-palindromic-duplication--47e8202dd4ba/RESULT.md).

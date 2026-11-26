@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is explicitly finite: all \(46{,}656\) distinct strict three-pair profiles, all six candidate perfect matchings in each, and every blocking pair are checked with exact integers. The independent orbit implementation partitions those profiles into \(669\) label-and-side-swap classes and reproduces the complete rational-ratio histogram. The witness's two stable matchings and their scores are checked directly. The two-pair observation is also proved from the endpoints of the stable-matching lattice. No conclusion beyond three pairs is inferred from enumeration.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risk).** The 2026 Nash-optimal-stability paper states the welfare objective and compares sex equality but does not establish the five-atom exact price distribution or sharp \(9/4\) maximum; its closing remarks explicitly leave cross-objective theory open. The 2010 sex-equality algorithm paper addresses minimum disparity and egalitarian cost rather than Nash-product loss. The published three-pair egalitarian/sex-equal census reports set disagreement, not Nash-product price; a prior three-pair Nash/egalitarian implication does not determine this ratio. Full descriptions and uncertainty are recorded in the accompanying audit. Unindexed equivalent computations remain possible.
+PASS
 
-**Value — PASS.** Measuring the welfare price of enforcing one fairness objective while optimizing another is a natural question raised by the rank-utility stable-matching model, not an arbitrary slice. Three pairs are the smallest domain with a positive penalty, and the exact worst-case loss \(9/4\), its five-point distribution and its two maximizing symmetry classes distinguish worst-case fairness cost from mere disagreement of optimum sets. This is a complete, reusable finite benchmark for theoretical and computational studies.
+I independently enumerated all (n!)^(2n) labeled rank arrays for n=1,2,3. For each bijection, the replay forms the mask of pairs preferred by the men and the mask of pairs preferred by the women; their intersection is empty exactly for a stable matching. It collects exact integer side sums and utilities and maximizes the product at the minimum absolute gap without breaking ties arbitrarily. It returns unit ratio at n=1 and 2, and the five frequencies (44136,504,1728,144,144) at ratios (1,9/8,3/2,2,9/4). Independently applying Burnside to the rank arrays (two label permutations and an optional side swap) gives orbit frequencies (634,7,24,2,2); all 144 extremizers have trivial stabilizer. The replay is branches/independent-replays/matching.py. Inspection of the frozen checkers confirmed full profile coverage and the strict blocking criterion; the orbit companion prints rather than individually asserts the orbit histogram, which the independent calculation checks. For the displayed witness, the only stable matchings ABC and ACB have side sums (2,4) and (4,0) and products 36 and 81, respectively. For n=2 with both matchings stable, the four blocking tests force one side to unanimously prefer each matching and the other to prefer the opposite; both products are 4 and both disparities 2. The factor is a product ratio, not a geometric-mean factor. No larger market is covered.
 
-**Scientific limitations.** The bound is for the Nash *product*, not the geometric mean, and for complete strict stable marriage with at most three pairs. Its originality assessment is not a proof of global priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The audited distinct result is the exact Nash-product price and its three-pair frequency and symmetry distribution, not the utility model, the finite profile enumeration problem, or the existence of competing stable-matchings objectives. Prior Resultary statements force 2,520 penalties, a material contribution to the count; they do not give their magnitudes.
+
+## value
+
+PASS
+
+Sex-equality and Nash welfare are both motivated objectives on the same stable set. The smallest market where the requirement causes loss is a natural cutoff rather than an arbitrary slice. The exact sharp factor and the magnitudes and orbit counts distinguish severe penalties from simple criterion disagreement and give a complete reproducible benchmark for this low-order obstruction, without extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

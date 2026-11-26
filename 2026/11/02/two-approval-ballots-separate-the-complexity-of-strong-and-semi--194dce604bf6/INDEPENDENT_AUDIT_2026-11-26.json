@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:46:07.110869Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–42",
+        "VERIFICATION.md:19–29",
+        "verify.py:10–194",
+        "Aziz et al., Definition 3",
+        "arXiv:2609.29332v1 Definitions 6 and 8"
+      ],
+      "rationale": "A one-cohesive group sharing c is contained in the cohesive full supporter set N_c, and testing that full group suffices for either axiom (intersection containment for SJR, voterwise representation for SSJR). With at most two approvals, a candidate generating a pair requirement has only voters approving exactly that pair. An incident edge to a different neighbor would produce a forbidden ballot; the generator has degree one. Every edge thus has a leaf endpoint, so components are stars. A center of a multi-edge star hits all its edge requirements and is the only vertex there that could have a singleton requirement. A single edge has at most one endpoint with a singleton requirement, which one can choose if present. Isolated positive-weight vertices are forced representatives. Distinct components have disjoint requirements; covering the k heaviest touched components is an upper bound, and one representative per component attains it with padding if necessary. This counts cohesive candidates, including two with identical intersections, and covers the no-cohesive-candidate case. At arity one, cohesive full supporter sets are pairwise disjoint, so at most k must be chosen. For SSJR, cubic edge ballots give n=3|V|/2 and each candidate has 3 supporters; k≥|V|/2 makes all cohesive, so the requirement is exactly a vertex cover. Below |V|/2 the graph is a NO by edge counting; at or above |V| it is a YES. The fixed K4 images with k=2 or 3 maintain all promises. Membership in NP follows by scanning full groups. The standard cubic hardness hypothesis can also be obtained from degree-at-most-three Vertex Cover: attach a K4 with one subdivided edge at each missing incident edge using the subdivision vertex as port. The gadget needs at least three vertices in a cover whether or not its port is chosen, and admits a size-three cover containing that port. The bridge adds no further cover cost, so adding three to the bound per gadget preserves the decision and makes the graph simple cubic. The supplied exact enumerator was inspected, not executed; it samples the coalition equivalence and does not enumerate empty ballots, which the proof covers.",
+      "residual_risks": [
+        "The exact cubic restriction in the originally cited 1976 paper was not confirmed from full text. The degree-completion argument above avoids relying on the stronger wording of that citation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general score-threshold hardness construction uses dummy voters with unrestricted approvals. The polynomial algorithms assume candidate or voter intervals.",
+          "The three pair ballots of a triangle are not candidate intervals or voter intervals for any ordering. Brill et al.'s individual representation is a different, stronger quota requirement."
+        ],
+        "reasoning": "The general hardness result does not survive the exact-two promise by restriction alone, and the interval algorithms do not apply to every pair-ballot domain. Hardness of the stronger representation condition does not transfer merely by implication.",
+        "searches": [
+          "arXiv:2609.29332v1 Thms. 15 and 20, proof appendices",
+          "Brill et al. AAAI 2022 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.29332v1",
+        "Aziz et al. Definition 3 and Example 7",
+        "Brill et al. AAAI 2022",
+        "Resultary:ad36ee933b71",
+        "DOI:10.1016/0304-3975(76)90059-1",
+        "DOI:10.1016/S0304-3975(98)00158-3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the restricted profiles the full-supporter intersection yields a forced leaf at an edge generator, a structural fact not supplied by the inspected interval algorithms.",
+          "An edge-profile translation reduces fixed-budget SSJR to Vertex Cover only after every edge has a cohesive endpoint. The cubic regularity and bound K≥|V|/2 enforce this threshold; the outside range needs promised fixed instances."
+        ],
+        "reasoning": "The graph hardness and existing election definitions are ingredients. Neither a new graph-hardness theorem nor a new unrestricted election axiom is claimed; the known restricted graph problem does not itself supply the star objective formula or settle the sparse election promise without the translation and cohesiveness check.",
+        "searches": [
+          "arXiv:2609.29332v1 Thm. 15 proof and Thm. 20",
+          "DOI:10.1016/0304-3975(76)90059-1 and DOI:10.1016/S0304-3975(98)00158-3 for graph-hardness background"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chingoma et al.'s score uses the same cohesive-candidate satisfaction count, divided by their number when positive.",
+          "Aziz et al.'s infeasibility example uses only singleton and pair ballots and forces all four candidates into a three-seat committee.",
+          "Resultary ad36ee933b71 concerns equal SJR and SSJR committee families with high probability for independent Bernoulli approvals."
+        ],
+        "reasoning": "The objective after rescaling and the sparse infeasibility witness are existing coverage. The random model does not give a deterministic two-approval optimizer or a worst-case SSJR existence reduction.",
+        "searches": [
+          "Resultary: two-approval ballots, SJR and SSJR",
+          "arXiv:2609.29332v1 Definitions 6 and 8",
+          "Aziz et al., Definition 3 and Example 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ad36ee933b71 studies a fixed candidate/committee Bernoulli model. The checked Aziz example gives an exact arity-two NO example, but no optimum formula or complexity classification."
+        ],
+        "reasoning": "Neither inspected entry tabulates or classifies the complete bounded-arity domain. The prior sparse counterexample is credited regardless of its not being a table.",
+        "searches": [
+          "Resultary: deterministic bounded approval arity and strong or semi-strong feasibility; inspected ad36ee933b71",
+          "Aziz et al. Example 7"
+        ]
+      },
+      "rationale": "The axioms and normalized objective are prior; the normalization changes no optimizer. Aziz et al.'s Example 7 already has ballots of size at most two, all candidates cohesive, and no SSJR (hence no SJR) committee. Arity-two infeasibility itself is not new. The supported distinction is the deterministic weighted-star optimum over all two-approval profiles and the separation from NP-complete SSJR feasibility, even on the exact-two, cubic, all-cohesive promise. The inspected general score-hardness reduction and interval-domain algorithms do not cover those claims.",
+      "residual_risks": [
+        "The bounded comparison does not certify first discovery. A primary literature query was unavailable; this is not a negative search finding. Full-text graph-hardness citation limits do not establish or negate originality of the election theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent normalized scores; distinct hardness and tractability regimes",
+          "evidence": "Hardness uses unrestricted dummy ballots; interval-domain algorithms require an ordering not shared by all length-two profiles.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.29332v1",
+          "material_read": "v1 p. 3 Definitions 6 and 8; pp. 4–5 and 14–16 Thms. 15 and 20 and proofs",
+          "method": "OA versioned PDF passage inspection",
+          "title": "Diverse Representation in Approval-Based Committee Voting",
+          "trigger": "Identical election scores and general complexity results"
+        },
+        {
+          "assessment": "Prior arity-two infeasibility, not the complexity separation",
+          "evidence": "Nine voters with singleton or pair ballots, four candidates and k=3; all four candidates are forced by SSJR.",
+          "identifier_or_url": "https://www.rupertfreeman.com/justifiedSCW.pdf",
+          "material_read": "PDF pp. 21–22 (printed pp. 123–124), Definition 3 and Example 7; text offset 72800 and following",
+          "method": "OA PDF passage inspection",
+          "title": "Justified Representation in Approval-Based Committee Voting",
+          "trigger": "Axiom definitions and possible arity-two counterexample"
+        },
+        {
+          "assessment": "Different axiom",
+          "evidence": "Individual representation may require more than one approved winner per voter; SSJR here requires one for voters in one-cohesive groups.",
+          "identifier_or_url": "https://cdn.aaai.org/ojs/20418/20418-13-24431-1-2-20220628.pdf",
+          "material_read": "pp. 1–2, definitions and discussion of SSJR",
+          "method": "OA PDF passage inspection",
+          "title": "Individual Representation in Approval-Based Committee Voting",
+          "trigger": "Possible stronger representation hardness"
+        },
+        {
+          "assessment": "Distinct probabilistic setting",
+          "evidence": "High-probability coincidence of solution families under independent Bernoulli approvals, not deterministic sparse-ballot optimization.",
+          "identifier_or_url": "Resultary:ad36ee933b71",
+          "material_read": "RESULT.md offset 0 onward, Finding and Bernoulli model",
+          "method": "Resultary search and local mirror",
+          "title": "A sharp Bernoulli transition and counting law for strong committee representation",
+          "trigger": "Joint SJR/SSJR existence and counting result"
+        },
+        {
+          "assessment": "Exact wording about cubic graphs not confirmed from this copy",
+          "evidence": "The review can use degree-at-most-three hardness with the explicit degree-completion gadget in correctness.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(76)90059-1",
+          "material_read": "Bibliographic landing page only; full text not obtained",
+          "method": "Bounded lawful publisher/OA attempt",
+          "title": "Some Simplified NP-Complete Graph Problems",
+          "trigger": "Classical bounded-degree Vertex Cover hardness used as background"
+        },
+        {
+          "assessment": "Not used as a full-text comparison",
+          "evidence": "No lawful full-text copy identified in this lookup; no originality inference from that access limit.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-3975(98)00158-3",
+          "material_read": "Bibliographic/abstract identification only; full text not obtained",
+          "method": "Bounded OA DOI and repository recovery",
+          "title": "Some APX-completeness results for cubic graphs",
+          "trigger": "Alternative bounded-degree Vertex Cover background citation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:5–36",
+        "Aziz et al. Example 7",
+        "arXiv:2609.29332v1 Thms. 15 and 20"
+      ],
+      "rationale": "Arity is a natural data restriction, not a special population sample. The star theorem gives an exact optimal score even for infeasible SJR profiles, and the contrast with SSJR clarifies that a weaker voterwise requirement can be harder to decide. The hardness promise rules out large ballots and highly supported candidates as the sources of difficulty. Value is in the optimization/complexity boundary, not in reproducing an already-known infeasible instance.",
+      "residual_risks": [
+        "No approximation or arity-three classification is established; there is no claim for higher-order cohesive groups."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

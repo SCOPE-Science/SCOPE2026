@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact leaf link follows from geodesic distances on the two nonantipodal rim arms. The cofiber is the suspension of that link. The cycle lattice of a complete bipartite graph is the row-and-column augmentation tensor, with reflection acting by negative transpose. The geometric quotient treats reversed diagonal edges as intervals, and the integral eigensublattice index is a blockwise determinant computation. All boundary and small-order exceptional cases, including \(n=3,4\), were checked. The finite checker is supplementary, not an infinite proof.
+## correctness
 
-**Originality — PASS (best-knowledge, with residual priority risk).** The two closely relevant original works calculate general-position counting polynomials, whereas the present statement concerns an exact relative cofiber, geometric reflection quotient, and nonsplit integral symmetry lattice. A comparison with closely relevant public results on general-position complexes of coronas, caterpillars, and ladders did not reveal an implication covering this claim. The standard cone/link and bipartite cycle-lattice ingredients are not claimed as new. A separately formulated general leaf-link theorem or unindexed equivariant calculation remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** This is a complete all-order local topological response to adding a pendant vertex to a cycle, including a parity jump and quadratic production of relative two-sphere classes. The exact integral reflection module has a growing power-of-two obstruction to splitting into its rational eigenspaces, which cannot be inferred from ranks or a face-counting polynomial. The reflected geometric cofiber has a different exact sphere count because diagonal edges are reversed, making the result relevant to symmetry-sensitive vertex-attachment and relative-topology calculations.
+The rim is isometric in the tadpole. A pair on the same arm has a vertex between the leaf and the farther vertex; a pair containing 0 or the even antipode likewise makes a forbidden triple with the leaf. Both antipodal shortest paths must be counted. Opposite nonantipodal arms give allowed pairs, and no three rim vertices can all pair with the leaf because the bipartite link has no triangle. Thus the link is exactly K_{h,h} plus p isolated vertices, with shore swap and each isolate fixed. The cofiber of the simplicial inclusion is the unreduced suspension of the link. Contracting a tree in the connected component gives p circles and (h-1)^2 two-spheres; this includes h=1 for n=3,4. Orient edges left to right: the cycle group is the kernel of row and column sums, exactly U_h tensor U_h by the split augmentation sequence over Z. Reflection reverses each edge and interchanges the indices, so acts by negative transpose; components give trivial relative H1. Each off-diagonal tensor pair gives two integral eigenlines of index 2 in its rank-two block; each diagonal is a negative eigenline. This yields the ranks and index, nontrivial first for n=7. The reflection preserves suspension coordinates; on the link quotient, off-diagonal edges give K_h and reversed diagonals become pendant intervals ending at fixed midpoints, not loops. Its connected component has cycle rank binom(h-1,2), giving the claimed geometric quotient by suspension without using an integral coinvariant argument. Replay `python /workspace/independent_checks.py 5` corroborates metric triples and genuine edge orbits through n=40; the frozen script's bounded incidence-rank test is modulo a prime and is not the proof of the integral lattice.
 
-**Closest literature and limitations.** Iršič–Klavžar–Rus–Tuite (2024) give cycle general-position polynomials; Rather (2026) investigates general-position polynomials and corona operations. These are counting rather than relative equivariant homotopy classifications. The theorem does not determine the absolute homotopy type of the leafed cycle or the inclusion-induced map on absolute homology. Unindexed prior work and possible broader theorems remain risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The bounded comparison supports the explicit one-leaf link, relative cofiber and reflection structure as distinct. Prior cycle and corona counting, absolute GP homology, and analogous tree or permutation lattices do not compute the same inclusion with its involution. Same-day indexed comparisons are substantive comparisons, not a priority ranking.
+
+## value
+
+PASS
+
+Adding a single leaf is a natural local graph change, and the cofiber measures precisely its relative topology without pretending to give the absolute homotopy type. The result yields both a parity-sensitive circle count and a growing integral obstruction that is invisible in rational eigenspace ranks. Correct identification of folded intervals in the geometric quotient makes the result directly useful as an example of why orbit geometry matters in a leaf-attachment computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

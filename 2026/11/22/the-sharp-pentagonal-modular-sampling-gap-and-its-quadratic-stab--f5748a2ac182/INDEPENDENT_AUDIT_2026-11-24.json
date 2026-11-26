@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:42:28.541359Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof, lines 3–65",
+        "Frozen check.py, lines 13–73; frozen VERIFICATION.md, lines 19–23"
+      ],
+      "rationale": "The five-point DFT gives squared norms (2/5)|S_1|^2 and S_0^2/5+(2/5)|S_2|^2 for the two projections, with S_r=sum_j n_j zeta^(rj). For S_0=0, the coefficient polynomial is divisible over Z by 1-z, and its value at zeta is nonzero for nonzero n because the only degree-at-most-four polynomial relation is a multiple of Phi_5 with nonzero augmentation. The two complex embeddings and their conjugates give |S_1|^2|S_2|^2=5|N(beta_n)|, proving the stated product and unit equality condition, and excluding a nonzero integer point of E. For a nearest vector n to f with distance delta, nonzero augmentation gives delta>=1/sqrt(5); n=0 gives delta=||f||. Otherwise orthogonal projection gives (||f||+delta)delta>=2/sqrt(5). Along any unbounded sequence with bounded ||f|| delta, delta tends to zero, proving the lower liminf bound. The two absolute embeddings of 1+zeta+zeta^(-1) are phi and 1/phi. The augmentation-zero coefficient vectors of (1-zeta) times its k-th power give increasing projected lengths r_k and complementary lengths exactly 2/(sqrt(5)r_k). Taking f_k to be the projected vector gives the matching upper liminf. The three nearest-vector cases give amplification at most sqrt(5)B, 1, or (sqrt(5)/2)B(B+sqrt(5)/2), all at most 2B^2 for B>=2. Since r_0<2 and r_(k+1)=phi r_k, the largest r_k<=B strictly exceeds B/phi, proving the stated strict lower bound. The scripts were inspected, not run; exact determinant tests and floating comparisons are supplementary.",
+      "residual_risks": [
+        "The radius B in L(B) bounds the input difference from zero as defined, not independently the radii of two endpoints; two endpoints of norm at most B can have difference norm up to 2B.",
+        "The finitary bounds show the sharp exponent, not an exact leading constant for L(B) or a noisy estimator guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The DFT sensing criterion of Zhang et al. gives H(5)=2 for the odd-sample formula, sufficient for one positive harmonic up to constant ambiguity. The fixed zero mean removes that ambiguity.",
+          "Romero–Shafkulovska identify instability without an energy prior and stability with one for equispaced folded Paley–Wiener sampling; the projection in their lattice-distance argument is in a different infinite-dimensional sequence space.",
+          "Mulleti–Eldar address identifiability and sampling counts of finite-rate-of-innovation signals."
+        ],
+        "reasoning": "The first source covers qualitative injectivity directly; the latter sources give related frameworks, not an exact high-energy rate or sharp constant in the five-point Fourier plane.",
+        "searches": [
+          "arXiv:2401.00194v2, Theorems 3–4",
+          "arXiv:2603.24425, Theorem 2.1 and Sections 5–6",
+          "arXiv:2207.08774v1, Section VII"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact and equivalent formulation checks",
+        "Zhang et al. v2, Theorems 3–4",
+        "Romero–Shafkulovska, Proposition 5.1 and Section 6",
+        "Mulleti–Eldar v1, Section VII, PDF p. 12",
+        "Cramer–Ducas–Wesolowski OA manuscript, embedding background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Removing the DC ambiguity from the DFT result implies injectivity, but gives no B-dependent lower bound on the distance to Z^5.",
+          "The norm product only addresses zero-sum coefficient vectors; sharpness for the actual folded distance needs exclusion of the nonzero-augmentation regime at high energy, control of displacement within E for arbitrary f, and a sequence balancing growth and decay. The energy-ball estimate also uses the bounded multiplicative spacing of that sequence."
+        ],
+        "reasoning": "The checked general statements and readily specialized product do not give the complete quantitative folding result as a parameter substitution; the distinct transfer to the toral distance is what passes.",
+        "searches": [
+          "arXiv:2401.00194v2, Theorems 3–4",
+          "arXiv:2603.24425, Proposition 5.1, Section 6",
+          "DOI 10.1145/3431725, cyclotomic trace embedding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The zero-sum lattice is A4, identified by division by 1-zeta with the cyclotomic integer ring; the first two frequency planes are the two complex embeddings with the explicit DFT scale.",
+          "Thus the lattice product specializes the ideal norm. The actual folded distance minimizes over the full Z^5 and allows f not equal to a lattice projection; the arithmetic product alone is not that distance."
+        ],
+        "reasoning": "The algebraic lattice formulation identifies the standard part and exposes the extra nearest-vector and unit-sequence arguments needed for the sampling constant. A geometric cut-and-project match alone would not establish the toral distance assertion.",
+        "searches": [
+          "Resultary: pentagonal modulo sampling, closest integer vector, two-embedding product and golden unit",
+          "A4 cyclotomic lattice normalized minimum product distance 5th roots unity two complex embeddings",
+          "Penrose pentagonal projection root lattice A4 Diophantine conjugate embedding approximation golden ratio product lower bound cut and project"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue match is the frozen result itself. The targeted searches did not produce a distinct verified statement of the liminf 2/sqrt(5) for the five real samples.",
+          "The cyclotomic lattice material describes trace-norm embeddings and ideals. There is no census necessary to establish the theorem; the constant comes from combining a norm specialization with matching distance bounds."
+        ],
+        "reasoning": "The numerical exact-object check concerns the sampling constant, not whether the field unit norm is already tabulated. The self-match and unrelated search hits give no independent priority evidence.",
+        "searches": [
+          "2026/11/22/SCOPE-the-sharp-pentagonal-modular-sampling-gap-and-its-quadratic-stab--f5748a2ac182",
+          "Resultary: sharp pentagonal folded-distance constant and quadratic inverse amplification",
+          "DOI 10.1145/3431725"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp folded-distance liminf and explicit radius-dependent inverse growth for this signal plane in its specified Euclidean normalization. Qualitative injectivity is already covered. The product identity and its unit equality mechanism are a direct cyclotomic embedding-norm specialization, not a new ideal-lattice theorem. The distinct claim transfers this product to the actual nearest point of the full integer lattice for arbitrary real signals and pairs that lower bound with a unit sequence and a finite radius cutoff.",
+      "residual_risks": [
+        "An equivalent quantitative statement could appear in cut-and-project or Diophantine approximation literature; the bounded search and standard embedding comparison do not prove absence.",
+        "One related coding-paper PDF surfaced in the lattice search but was not read because of a certificate error; no conclusion is drawn from that PDF."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers injectivity after fixing DC, not sharp stability",
+          "evidence": [
+            "For odd N the index condition reduces to H(N)>=P+1; evaluating at N=5,P=1 satisfies it."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.00194",
+          "material_read": "v2 Theorems 3–4 and surrounding formulas, PDF pp. 21–22, OA offsets 74800 and 78000",
+          "method": "Lawful OA primary PDF text",
+          "title": "On the Identifiability from Modulo Measurements under DFT Sensing Matrix",
+          "trigger": "Direct identifiability overlap for the five-point Fourier object"
+        },
+        {
+          "assessment": "Qualitative stability/instability for folded Paley–Wiener sampling, not the exact finite energy rate here",
+          "evidence": [
+            "Uses an infinite-dimensional distance criterion for a sequence-space projection and finite prolate matrix truncations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.24425",
+          "material_read": "Abstract; Proposition 5.1 and Section 6, passage near OA offset 40100",
+          "method": "Lawful OA primary PDF text",
+          "title": "Stability in unlimited sampling",
+          "trigger": "Lattice-distance stability framework may imply a finite-dimensional criterion"
+        },
+        {
+          "assessment": "Standard ideal-lattice trace geometry; not the claimed folded-distance comparison",
+          "evidence": [
+            "Cyclotomic ideals are Euclidean lattices under the trace embedding."
+          ],
+          "identifier_or_url": "10.1145/3431725",
+          "material_read": "OA manuscript pp. 1–2, offset 2200",
+          "method": "Lawful OA manuscript after DOI route was inaccessible",
+          "title": "Mildly Short Vectors in Cyclotomic Ideal Lattices in Quantum Polynomial Time",
+          "trigger": "Closest cited embedding and unit mechanism"
+        },
+        {
+          "assessment": "Identical record, not distinct coverage",
+          "evidence": [
+            "Same lattice scale, sampling plane, product, liminf and energy growth."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-pentagonal-modular-sampling-gap-and-its-quadratic-stab--f5748a2ac182",
+          "material_read": "RESULT.md finding and scope",
+          "method": "Configured Resultary search and comparison to the bound original",
+          "title": "The sharp pentagonal modular sampling gap and its quadratic stability",
+          "trigger": "Closest exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, distance and inverse-amplification statements and Proof steps 3–5",
+        "Zhang et al., qualitative identifiability comparison"
+      ],
+      "rationale": "Global injectivity of this natural smallest prime-length nontrivial real first-harmonic model does not reveal the severity of near collisions. The sharp liminf and uniform quadratic growth bounds quantify how conditioning deteriorates with energy, distinguishing the inverse problem from a simple uniqueness check. The exact product makes the near collisions explicit without claiming that standard norm theory is new or that arbitrary sampling has this rate.",
+      "residual_risks": [
+        "No empirical noise assessment or finite-radius exact constant is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

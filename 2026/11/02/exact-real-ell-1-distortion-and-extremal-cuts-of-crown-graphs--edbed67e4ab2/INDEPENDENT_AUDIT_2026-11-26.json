@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:03:08.235285Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md lines 13–85: independently reconstructed the symbolic lower bound, equality cases and upper bound for all n≥3; n=3,4 give D=1.",
+        "Frozen VERIFICATION.md and VERIFY.py inspected, not executed. Their finite BFS, cut and embedding computations corroborate but are not required for the all-order proof."
+      ],
+      "rationale": "Distances on the full unweighted crown are 2 within a side, 1 across a present edge and 3 on a deleted matched pair; n≥3 permits the requisite paths. Counting cut separations and substituting v=k+ℓ, z=k−ℓ gives h n(n−1)(U−(h−1)S/h)=(n−h)v−v²/2+(h−1/2)z²+2ht. Complementation allows v≤n. The even expression is visibly nonnegative; in the odd case v=n is the only potentially negative size and z is then odd. The zero cases give exactly the stated balanced selections of one vertex per matched index, and in odd order also the balanced selections omitting one index. After the distortion normalization d≤m≤Dd, the finite cut decomposition extends the inequality to m. The balanced-subset construction gives separation probability h/(2h−1), so total weight 2(2h−1)/h yields the required within-class, edge and matched-pair distances; the last lies between 3 and 3D. The equality chain at the optimum forces each within-class distance and each edge distance individually and forces equality for every nonconstant cut in any positive cut decomposition. The claim does not require classifying all matched-pair distances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph metric and shortest-path-decomposition references supply general embeddings/cut frameworks and bounds; the inspected statements do not specialize to the asserted parity staircase. Matoušek's full paper remained unavailable from the checked lawful sources."
+        ],
+        "reasoning": "General embedding bounds or dimension dependence do not identify this optimum or equality support absent a matching bound in the fixed unit-edge metric and unrestricted dimension.",
+        "searches": [
+          "Gupta–Newman–Rabinovich–Sinclair, Cuts, Trees and ℓ₁-Embeddings of Graphs §1",
+          "arXiv:1708.04073v4 §1",
+          "doi:10.1007/BF02761110 and lawful alternate-copy lookup"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE004",
+        "SCOPE-20261102-f2c44ed3f8c5",
+        "SCOPE-20261102-0760a7379299",
+        "SCOPE-20261117-98ece744293b",
+        "doi:10.1007/s00493-004-0015-x",
+        "arXiv:1708.04073v4",
+        "arXiv:2209.11319v2",
+        "doi:10.1007/BF02761110 (limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Crown negative type rules out isometry for n≥5 but does not quantify optimal distortion. The sharp Poincaré inequality controls ((n−1)S+M+(n−1)U)/(2nU), where M is mean matched distance. For n=5 its bound γ=5/4, combined with S≥2 and M≥3, yields only U≥22/17<4/3. Its odd equality cuts also omit the v=n−1 family present here."
+        ],
+        "reasoning": "The Poincaré result overlaps in the balanced full cuts, but not in its objective, the sharp lower bound for this bilipschitz problem, or its equality classification.",
+        "searches": [
+          "SCOPE-20261102-0760a7379299 Finding",
+          "SCOPE-20261117-98ece744293b Finding and Proof (local mirror offsets 2650–6273)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE004 gives a cut-cone LP and six cubic-symmetric graph cases; none is a crown. SCOPE-20261117-98ece744293b uses the same three orbit classes but weights both kinds of nonedges in a mean-pair/mean-edge quotient. Johnston–Kayll–Palmer use the same matching-deleted graph for deranged matching counts."
+        ],
+        "reasoning": "Cut-cone LP is an alternative formulation of the distortion problem, but these instances and the mean-pair quotient are not equivalent to the sharp within-class-versus-edge inequality asserted here.",
+        "searches": [
+          "Resultary: exact ℓ₁ distortion and cut rigidity of unit-edge graph metrics",
+          "Resultary: symmetric crown-graph metric real ℓ₁ Poincaré constants",
+          "arXiv:2209.11319v2, crown via K(n,n) minus a perfect matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact-distortion hit gives a mod-three staircase for K₃,ₙ. The same crown metric appears in exact negative-type and Poincaré results, but no retrieved crown entry gives the asserted distortion formula or equivalent quantitative cut metric."
+        ],
+        "reasoning": "Neither an exact value on another graph nor another exact invariant on this graph supplies the crown distortion table; shared catalog dates establish no priority.",
+        "searches": [
+          "Resultary: exact real ℓ₁ distortion of crown graph K(n,n)−M with balanced cut equality",
+          "SCOPE-20261102-f2c44ed3f8c5; SCOPE-20261102-0760a7379299; SCOPE-20261117-98ece744293b"
+        ]
+      },
+      "rationale": "The closest same-graph results determine negative type or a Poincaré quotient, not the distortion, and the nearest indexed exact distortion result concerns K₃,ₙ, not a crown. In particular, even the sharp same-object Poincaré inequality optimizes a different linear combination and has different odd-order equality cuts. The inspected record and primary-literature comparisons do not cover the exact distortion and cut equality theorem. This is a qualified conclusion, not priority certification.",
+      "residual_risks": [
+        "Matoušek full-text comparison remains unresolved despite a bounded lawful attempt.",
+        "An unindexed sharp implication in other cut-cone or symmetric metric terminology remains possible. The retrieved nearest theorems are distinct as stated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_INVARIANT",
+          "evidence": [
+            "The Poincaré objective includes matched distances; its odd equality cuts always have v=n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-sharp-metric-and-real-l-1-poincar-constants-of-crown-graphs--98ece744293b/RESULT.md",
+          "material_read": "Finding; proof Steps 1–3, including pair/edge formula and characterization of optimal indicator cuts",
+          "method": "Local mirror, paged decisive passages",
+          "title": "Sharp metric and real ℓ₁ Poincaré constants of crown graphs",
+          "trigger": "Same metric, three pair orbits and balanced-cut extremizers"
+        },
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_INVARIANT",
+          "evidence": [
+            "Determines the snowflake negative-type exponent and Hilbert dimensions, not the distance to the cut cone."
+          ],
+          "identifier_or_url": "SCOPE-20261102-0760a7379299",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact negative-type thresholds and Hilbert dimensions for crown graphs",
+          "trigger": "Same unit-edge crown metric and isometric range"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": [
+            "Full complete bipartite K₃,ₙ graph, not a full matching deletion."
+          ],
+          "identifier_or_url": "SCOPE-20261102-f2c44ed3f8c5",
+          "material_read": "Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact ℓ₁ distortion and cut rigidity of unit-edge K₃,ₙ metrics",
+          "trigger": "Exact distortion staircase and forced pairwise distances"
+        },
+        {
+          "assessment": "FOUNDATIONAL",
+          "evidence": [
+            "Defines the shortest-path graph metric and target-space distortion."
+          ],
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~sinclair/cuts.pdf",
+          "material_read": "§1, p. 1, offset 2787 and surrounding text",
+          "method": "OA PDF passage inspection",
+          "title": "Cuts, Trees and ℓ₁-Embeddings of Graphs",
+          "trigger": "Graph-metric distortion framework"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS",
+          "evidence": [
+            "Connects ℓ₁ embedding to cut combinations and supplies graph-family bounds, not the inspected crown-specific sharp statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.04073v4",
+          "material_read": "§1, p. 1, offset 2797 and surrounding text",
+          "method": "OA PDF passage inspection",
+          "title": "Metric Embedding via Shortest Path Decompositions",
+          "trigger": "Potential general graph-metric embedding bounds"
+        },
+        {
+          "assessment": "ENUMERATION_NOT_METRIC",
+          "evidence": [
+            "Matching deletion describes the graph over which deranged perfect matchings are counted."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.11319v2",
+          "material_read": "Abstract",
+          "method": "OA PDF passage inspection",
+          "title": "Deranged matchings: proofs and conjectures",
+          "trigger": "Same graph under matching-deletion terminology"
+        },
+        {
+          "assessment": "FULL_TEXT_UNAVAILABLE",
+          "evidence": [
+            "No lawful full text was obtained; absence of coverage from the whole paper is not inferred."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02761110",
+          "material_read": "Bibliographic and abstract-level material only",
+          "method": "Bounded lawful DOI/Springer and alternate-copy lookup",
+          "title": "On the Distortion Required for Embedding Finite Metric Spaces into Normed Spaces",
+          "trigger": "Plausible alternative notation or dimension-sensitive coverage flagged in frozen source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A crown is a natural highly symmetric nontrivial graph metric. The result quantitatively separates the two isometric cases from the rest, yields a sharp parity staircase and an explicit optimal embedding, and proves which distances and cut-support restrictions every optimal embedding satisfies. A qualitative nonisometry result or a general graph embedding bound cannot be used in place of those data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

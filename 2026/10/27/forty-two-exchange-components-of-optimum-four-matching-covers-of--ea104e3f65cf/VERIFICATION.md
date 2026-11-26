@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction of the finite certificate
+# Independent mathematical audit
 
-Use Python 3 with only its standard library. From this directory, run:
+## correctness
 
-```
-python3 verify_recursive.py
-python3 verify_local_csp.py
-python3 verify_recursive.py --certificate
-```
+PASS
 
-`verify_recursive.py` reconstructs all \(30\) edges and independently enumerates \(32\) perfect matchings by removing pairs of unmatched vertices. It checks the absence of a three-cover, tests every one of the \(35{,}960\) four-element subsets for complete edge coverage, and calculates all exchanges, component types, and doubled-matching extension counts. It has an exact backtracking isomorphism test and stores no precomputed matching list. Its normal output is recorded verbatim in `recursive_output.json`; its `--certificate` output is `certificate.json`.
+Reconstructed the specified J5 using the short and long rims and the spokes. In any perfect matching the selected rim edges must be disjoint on each rim, and the remaining rim vertices must include exactly one at each of the five spoke centres. The latter condition determines all the spokes, so the independent enumeration in /workspace/branches/replay/r5_rim.py is exhaustive. It found 32 matchings, no three-cover, 200 four-covers, and tested all pairs of four-covers directly for three common matchings. It recovered 220 exchange edges and 42 components and matched every edge, matching, cover, exchange and component list in the supplied JSON certificate. Exhaustive degree-preserving relabelling gave one isomorphism type each at orders 1, 5, 7, 10, with multiplicities 10, 20, 10, 2 and edge counts 0, 5, 9, 15; global degrees were 0^10, 1^50, 2^50, 3^70, 4^20. The local covering multiplicities at each vertex must be 2,1,1, so the double edges are a matching; the recomputation found extension frequencies 5^10, 6^10, 7^10, 10^2. This is a finite result for the specified J5 only. No uploaded code was executed.
 
-`verify_local_csp.py` instead assigns nonempty subsets of four colors to each edge, requiring a \((2,1,1)\) partition of colors at every cubic vertex. At the chosen root the global color names are normalized; \(400\) valid rooted assignments represent \(200\) unordered four-covers because the two colors on the doubled root edge remain interchangeable. This second enumeration independently rebuilds the exchange graph and its component profiles. Its output is recorded in `local_csp_output.json`.
+## originality
 
-The checks completed: \(200\) minimum covers, \(220\) exchange edges, \(42\) components, and class multiplicities \(10,20,10,2\) for component orders \(1,5,7,10\). The first program additionally verifies graph isomorphisms within each class and extension multiplicities \(5^{10},6^{10},7^{10},10^2\) over doubled-edge matchings. Both output files are included as byte-exact reference logs; outputs alone are not mathematical certificates without the documented exhaustive programs.
+PASS
 
-Scope is the specified \(20\)-vertex graph only. No proof concerning all flower snarks or all cubic graphs is claimed. The computations and proof have received no independent external audit.
+The exact single-matching exchange classification and doubled-matching extension frequencies are distinct from the inspected work. The optimum size, number of perfect matchings, and local doubling lemma are not original and are not used to justify this pass.
+
+## value
+
+PASS
+
+At the canonical five-petal flower snark, the known optimum four does not say whether all optima can be reached by feasible single-matching replacements. Ten isolated optima and the complete set of 42 components answer that natural reachability question exactly; the extension frequencies additionally describe how optima are distributed over the known doubling invariant. This is a usable finite benchmark and obstruction, without claiming an implication for every snark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

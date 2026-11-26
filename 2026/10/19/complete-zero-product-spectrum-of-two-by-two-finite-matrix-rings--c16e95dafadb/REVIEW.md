@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has been reconstructed from the exact zero-product criterion for rank-one matrices. The formula \((Bf)_{ij}=s(r_j+c_i-f_{ji})-\mathbf 1_{i=j}f_{ii}\) is verified by inclusion-exclusion, and the complete \(n^2\)-dimensional symmetric/skew invariant decomposition is accounted for by exact dimensions. The characteristic polynomial is the product of two explicitly computed two-by-two block polynomials and the one-dimensional scalar branches, with exact within-type eigenspaces. The signs and discriminants give inertia/energy and nonzero reduced determinant gives sharp nullity. The standalone standard-library checker exhaustively agrees for \(q=2,3,4,5\), but the infinite result is proved algebraically.
+PASS
 
-## Originality — PASS (literature-limited)
+The proof yields the full real characteristic polynomial for the exact graph in the Finding. Put n=q+1 and s=q−1. Each ordered kernel/image type contains s vertices; the incidence of types (i,j),(k,l) is j=k or l=i. Removing the self-loops gives H⊗J_s−D⊗I_s. The fiber sum-zero spaces give the displayed zero and −1 factors, while the type-constant operator is Bf_ij=s(r_j+c_i−f_ji)−1_{i=j}f_ii. Its skew differences a_i−a_j have eigenvalue −s(n−1); its skew row-null arrays have eigenvalue s. Its symmetric zero-diagonal row-null arrays have eigenvalue −s: the row-map transpose a↦(a_i+a_j)_{i<j} is injective for n≥3. The two remaining symmetric blocks use the constant diagonal/off-diagonal pair and the zero-sum diagonal/off-diagonal pair; substitution gives P_q and Q_q. The dimensions exhaust n². Both quadratics have negative constant term and neither vanishes at −1 (P_q(−1)=−(q−1)(2q²−q−2), Q_q(−1)=−q²(q−2)−1). The −s eigenspace vanishes at q=2, so rank, inertia and −1 multiplicity follow without exceptions; the energy follows from the positive square roots of the two discriminants and the remaining linear factors. The source script was inspected, not executed: its exact finite checks over F_2,F_3,F_4,F_5 corroborate the type criterion and quotient characteristic polynomial, and check the full polynomial at q=2,3. The proof, not the script, establishes the unbounded prime-power claim.
 
-Rather (arXiv:2603.20947v1) computes the type block and a spectral-radius quotient for odd primes, but only bounds nullity and leaves a \((p+1)^2\)-order spectrum unresolved (Theorem 4.1, Corollary 4.2, Table 1). Masalkar–Khairnar–Lande–Kadam (arXiv:2312.09934v1) reduce the same graph and give Weyl bounds; they explicitly describe the corrected quotient as difficult to diagonalize. Masalkar–Khairnar–Lande–Patil (arXiv:2106.15977v1) gives a broad quotient-matrix method for finite semisimple rings, including these matrix rings, but not the uniform complete symbolic factorization and sharp invariants. An indexed same-graph domination result deals with a different invariant. published-finding corpus semantic searches and targeted external searches found no equivalent polynomial or stronger closed form. The 2021 work makes instancewise computation possible; this is acknowledged, not mischaracterized as an unknown algorithm. Residual risk: equivalent formulas could occur in unindexed literature, or be implicit in an independently diagonalized form of the earlier general quotient.
+## originality
 
-## Value — PASS
+PASS
 
-The kernel/image ordered-pair model has a large unresolved quotient in a recent study. The finding collapses it to two explicit quadratic factors for **every** finite field, sharpens an established rank/nullity bound to equality, and yields the exact adjacency inertia and energy. Those are natural invariants for the same well-motivated family, not isolated small-field cases or a mere numerical refinement.
+The supported distinct result is the uniform explicit diagonalization of the entire quotient and the sharp spectral consequences. The ordered type structure, within-type eigenvalues and largest eigenvalue in the odd-prime case have prior coverage and are not credited as new here.
 
-## Scope and limitations
+## value
 
-The graph is undirected, loopless and includes precisely nonzero singular matrices. The underlying coefficient field may have characteristic two, but this does not assert anything about even-modulus quaternion rings. Independent external mathematical validation is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural minimal noncommutative finite matrix family, not a single selected field or a tabulated graph. The full quotient splitting resolves an explicit gap in earlier spectral reductions: uniform exact multiplicities, rank, inertia and energy are usable without diagonalizing a separate growing matrix for each field order. In particular it shows the known lower bounds are sharp and treats even and extension fields with the same proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

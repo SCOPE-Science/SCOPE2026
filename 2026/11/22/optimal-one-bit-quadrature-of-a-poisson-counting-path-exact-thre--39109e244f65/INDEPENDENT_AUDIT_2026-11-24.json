@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:08:05.103202Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioned on K=N_x, uniform past arrival times and independent future increments give E[J|K]=(1-x/2)K+lambda(1-x)^2/2; the Poisson area variance is lambda/3. For any two count reconstruction levels, replacing the bit by pointwise nearer-level assignment and then re-centering cannot increase squared error. Nondegenerate cells can therefore be represented by an integer cutoff; the h=1 score is positive for x>0, so a constant bit cannot maximize there. The Poisson shift gives Cov(K,1_{K>=h})=m p_{h-1}(m) and division by the Bernoulli variance gives the exact score. Cauchy–Schwarz and monotone coupling with Pois(L) give uniform vanishing tails over m in [0,L]; each score extends continuously at zero by the explained-variance bound m. This proves attainment by compactness. For standardized counts, CLT and matching second moments give W2 convergence, and Minkowski's inequality for distances to two reconstruction points passes optimal distortion to the limit. The normal score is uniquely maximized at zero by the strict cosh-integral comparison. Uniformly integrable standardized squares (bounded fourth moments for m>=1) exclude diverging optimal cutoffs; every bounded converging subsequence has by weak convergence and uniform integrability the threshold score at its limit, forcing limit zero. The per-lambda objective converges uniformly away from zero, and is at most delta on x<=delta after division by lambda. Hence every maximizing time converges to the unique maximum of x(1-x/2)^2 at 2/3, and the limiting explained fraction is 3*(2/pi)*(8/27)=16/(9*pi). The boundaries, fixed h=1 contrast, and full-count benchmark follow from the same formulas. The historical 1,182 finite checks are reported evidence only; verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Newton's abstract describes sampled signal-plus-white-noise continuous-time observations, information loss and optimized quantization thresholds. Wang–Chen–Ephremides optimize real-time counting-path 1-norm distortion; Arafa et al. study timely estimation of Gauss–Markov signals with quantization and coding delay."
+        ],
+        "reasoning": "No inspected statement applies to one deterministic count bit for the scalar Poisson area under squared error. The unavailable full Newton text limits that comparison, not the mathematical decision.",
+        "searches": [
+          "Newton DOI 10.1016/S0304-4149(99)00117-9, publisher/CORE and RePEc abstract",
+          "arXiv:1901.08197 and arXiv:2007.10200"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspection only)",
+        "Resultary self match 39109e244f65 and saturation record d3842c2a4a49",
+        "Newton RePEc abstract",
+        "arXiv:1901.08197 and arXiv:2007.10200"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical normal value contributes the factor 2/pi, but the Poisson-area posterior, small-time uniform control and convergence of every optimal cutoff/time are additional parts of the statement. The fixed-presence design instead has vanishing relative explained variance."
+        ],
+        "reasoning": "Generic two-level stability provides a route to transfer the scalar benchmark but is not itself the path-specific optimization or finite score. No exact prior implication covering the joint result was verified; a Pollard-specific stability attribution was not resolved.",
+        "searches": [
+          "Gaussian two-level scalar quantization and Pollard stability comparison",
+          "Resultary d3842c2a4a49, Finding",
+          "arXiv:1901.08197, abstract and packet-scope passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Affine posterior regression reduces the bit to scalar two-level quantization of a Poisson count, with m=lambda x and an external factor (1-x/2)^2.",
+          "The distinct catalogue record d3842c2a4a49 gives the very same h=1 score and optimizes that restricted encoder, with lambda x tending to about 1.5936 and explained fraction tending to zero."
+        ],
+        "reasoning": "The fixed-presence partition is a genuine exact overlap within the threshold family, but does not optimize over cutoffs or imply their standardized centering.",
+        "searches": [
+          "Resultary: Poisson counting path, area integral, one-bit threshold and saturation",
+          "Poisson scalar quantizer representation via the frozen conditional mean, §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 39109e244f65 is the assigned item. The exact h=1 expression is in d3842c2a4a49. The normal benchmark 2/pi is classical, and the frozen Poisson result uses the different compound constant 16/(9*pi)."
+        ],
+        "reasoning": "A scalar-table value at a fixed Poisson mean would not establish the joint optimization over time and cutoff or its high-intensity optimizer limit. Only the exact fixed-presence special case and classical normal scalar value were identified.",
+        "searches": [
+          "Resultary: optimal one-bit Poisson quadrature exact thresholds and high-intensity limit",
+          "Gaussian two-level benchmark compared with the frozen Poisson score and fixed-presence catalogue formula"
+        ]
+      },
+      "rationale": "The supported distinct claim is the deterministic all-encoder reduction and sharp joint high-rate optimizer law for the Poisson area. Neither the classical normal constant nor general nearest-level encoding/quantizer stability is credited as new.",
+      "residual_risks": [
+        "Newton and Chan full text were not secured; neither access failure counts as evidence of no overlap.",
+        "A primary-source comparison for Pollard-specific quantizer stability was unresolved. The standard scalar methods are credited independently of attribution.",
+        "The compared same-day saturation record overlaps at h=1; date alone does not resolve priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact h=1 partial overlap; not unrestricted binary encoding",
+          "evidence": "Fixed h=1 yields the same finite score, a time of order 1/lambda, and a vanishing captured fraction. Same-day dates do not resolve priority.",
+          "identifier_or_url": "Resultary 2026/11/22/d3842c2a4a49",
+          "material_read": "Finding, saturated presence-bit theorem and high-intensity comparison",
+          "method": "Catalogue and local mirror passage",
+          "title": "Saturation shifts optimal one-bit quadrature to the first arrival",
+          "trigger": "Same process, loss, and integral with a one-bit encoder"
+        },
+        {
+          "assessment": "Abstract describes a different observation model; full-text comparison unresolved",
+          "evidence": "Vector-valued continuous-time signal-plus-white-noise observations and a CLT characterization of information loss.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-4149(99)00117-9",
+          "material_read": "RePEc abstract; publisher and identified CORE full texts unavailable",
+          "method": "Lawful OA source attempts and public abstract",
+          "title": "Observation sampling and quantisation for continuous-time estimators",
+          "trigger": "Broader continuous-time observation and quantization theorem"
+        },
+        {
+          "assessment": "Different distortion and design in inspected passages",
+          "evidence": "Real-time path under average 1-norm distortion, with sampling/transmission policies.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.08197",
+          "material_read": "p. 1 abstract and p. 6 finite-packet discussion",
+          "method": "OA PDF passages",
+          "title": "Real-Time Reconstruction of Counting Process through Queues",
+          "trigger": "Poisson path reconstruction with sampled packets"
+        },
+        {
+          "assessment": "Different model in abstract",
+          "evidence": "Gauss–Markov estimation, communication delay and coding, not count-to-area Bayes risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.10200",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF passage",
+          "title": "Sample, Quantize and Encode: Timely Estimation Over Noisy Channels",
+          "trigger": "Joint sampling and quantization design"
+        },
+        {
+          "assessment": "No independent coverage inference from retrieval failure",
+          "evidence": "The cited image-sensing comparison could not be confirmed by passage inspection.",
+          "identifier_or_url": "https://doi.org/10.3390/s16111961",
+          "material_read": "No decisive text retrieved",
+          "method": "Lawful MDPI page/PDF/XML retrieval attempts",
+          "title": "Images from Bits: Non-Iterative Image Reconstruction for Quanta Image Sensors",
+          "trigger": "Threshold encoding of Poisson counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact objective removes the need to search arbitrary count encoders, and the sharp asymptotic benchmark distinguishes a cutoff that tracks the count mean from a saturated presence bit. It determines both where to observe and what to transmit, with a nonzero sharp risk improvement under the stated one-bit constraint.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

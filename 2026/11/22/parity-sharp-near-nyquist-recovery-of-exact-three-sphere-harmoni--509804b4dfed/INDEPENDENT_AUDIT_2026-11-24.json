@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:27:36.382363Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each claimed torus weight the homogeneous complexified Laplacian cancels adjacent radial coefficients; Q(0)=1 ensures that its rational polynomial is nonzero. The character weights correspond bijectively to the side-(ℓ+1) square in (m+n,m−n) coordinates and span by dimension. At nonnodal s the evaluation columns are nonzero multiples of Fourier columns, proving the rank and inversion statements; e^(−1) avoids every rational-polynomial zero. Put L=ℓ+1. For even ℓ the stated primitive winding gives consecutive nonoverlapping frequency blocks Li−j, hence all L² residues. For odd ℓ at critical size L², inversion on the nonzero weights has no fixed points, so cannot be in equivariant bijection with the residues 0 and L²/2 fixed by inversion there. At L²+1 the given (1,L) winding gives a collision equation (L+1)A−(L−1)B=r(L²+1) with r=0,±1. For r=0 coprimality forces A=B=0; for r=1 and L≥4 the only possible A are 1 and 2−L and yield B=−L and −2L−1, outside the allowed square. Negating proves r=−1 impossible; for L=2 the four residues are ±1,±2 modulo five. The unique unused residue of any optimal injective odd rule is zero by inversion symmetry. Independently built harmonic-projector evaluation matrices over finite fields have full rank for ℓ=1–7, and all critical-count residue windings were exhausted for odd ℓ=1,3,5. Replay: python3 /workspace/reproductions/frozen_math_checks.py 1; output /workspace/reproductions/record-1.txt. Those exact finite tests do not prove the all-degree result, and nothing here establishes stable conditioning or recovery at nodal radii.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nasdala–Potts allow general finite frequency sets and give the reconstructing difference-set criterion, without the sharp modulus for this parity-restricted family.",
+          "The rectangular predecessor gives periods odd and at least ℓ+1 or even and greater than 2ℓ, with minimum product (ℓ+1)² for even ℓ and (ℓ+2)² for odd ℓ."
+        ],
+        "reasoning": "More general criteria do not determine the exact modulus and do not provide the central-inversion obstruction and matching generator. In odd degree the best product-grid count differs, and its periods cannot stand in for a single cyclic modulus.",
+        "searches": [
+          "Nasdala–Potts, reconstructing rank-one lattice and Fourier recovery criterion, §2.2",
+          "Resultary: rectangular versus cyclic Hopf-grid interpolation on S³; local mirror rectangular Finding"
+        ]
+      },
+      "checked_sources": [
+        "Nasdala–Potts arXiv:1912.03090v3, §2.2",
+        "Resultary 78e042407020",
+        "Resultary de4a312a107d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both close Resultary records constrain the architecture (two rectangular periods, or one fixed equal-radius winding).",
+          "The rank-one theorem explains how distinct residues give reconstruction, but not why saturation at even L² is impossible for all generators of this set or why L²+1 is achievable by the asserted windings."
+        ],
+        "reasoning": "The new proof evaluates a concrete sharp lattice optimization, rather than substituting parameters into an existing optimal-size theorem. The missing-zero consequence at an injection with one spare odd residue follows from inversion and is a consequence of the sharp design, not an independently new DFT mechanism.",
+        "searches": [
+          "Compare the original rank-one difference-set criterion and equation (2.7) against the frozen odd obstruction and colliding-index analysis",
+          "Compare 78e042407020 and de4a312a107d original Findings and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A winding sampled at equispaced parameter values is exactly a rank-one lattice on the angular torus, and residue collision equals a nonzero frequency difference orthogonal to its generator modulo the sample count.",
+          "The rectangular predecessor uses the same separated harmonic frequency diamond and nonnodal radial factors."
+        ],
+        "reasoning": "The Fourier interpolation and rank criteria are the same under this identification, but the exact minimum over primitive single cyclic generators is a different assertion from reconstructibility of a specified lattice or a minimum over product grids.",
+        "searches": [
+          "Resultary: exact-degree S³ harmonics on a closed torus winding, cyclic lattice interpolation and parity",
+          "Nasdala–Potts arXiv:1912.03090v3, §2.2 p. 7 and equation (2.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed (1,2), equal-radius record already gives rank four at five sites for degree one, but in degree two at equal radius its rank is eight.",
+          "The rectangular record tabulates a different architecture and its odd-degree count is (ℓ+2)², not (ℓ+1)²+1."
+        ],
+        "reasoning": "The exact degree-one construction is not new in isolation. At degree two the smaller rank of the fixed equal-radius circle is consistent with exceptional radial zeros and cannot refute or imply the generic-radius result. No inspected exact record gives the stated all-degree single-trajectory optimization.",
+        "searches": [
+          "Resultary: exact spherical harmonics on a doubly wound Clifford circle; exact parity-sharp rectangular Hopf-grid interpolation",
+          "Fixed-circle RESULT.md, Finding and frequency ranks via local mirror"
+        ]
+      },
+      "rationale": "Credit the harmonic basis and exceptional-radius treatment to the rectangular Hopf-grid predecessor, and the reconstruction criterion and DFT formula to general rank-one lattice theory. The supported distinction is the exact all-winding sample minimum in the one-trajectory architecture, including the parity obstruction and explicit attaining primitive windings. Neither a product-grid minimum, a fixed-winding rank theorem, nor a criterion testing a supplied rank-one lattice gives that exact optimum. The degree-one five-site (1,2) example is prior coverage of that instance. This is a bounded judgment about the all-degree theorem, not a priority claim for all of its ingredients.",
+      "residual_risks": [
+        "An unindexed exact lattice design theorem for equivalent parity-restricted frequency sets could cover the optimum; the inspected reconstructibility criterion does not do so.",
+        "No exhaustive historical search or priority determination is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers Fourier separation and reconstruction ingredients, not the sharp winding count",
+          "evidence": [
+            "Nonzero frequency differences must have nonzero inner product with the generator modulo M; coefficients are recovered by a sample average."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.03090",
+          "material_read": "ArXiv §2.2 p. 7, difference set, reconstructing condition and equation (2.7), extracted near offset 25861",
+          "method": "Original lawful public arXiv PDF; publisher DOI endpoint unavailable on attempted route",
+          "title": "Efficient multivariate approximation on the cube",
+          "trigger": "General reconstructing rank-one lattices and exact Fourier recovery"
+        },
+        {
+          "assessment": "Same basis and radius normalization, different product-grid optimum",
+          "evidence": [
+            "Minimum (ℓ+2)² in odd degree for rectangular grids; product periods are each subject to their own parity constraint."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-parity-sharp-rectangular-hopf-grid-interpolation-of-exact-spheri--78e042407020",
+          "material_read": "Original RESULT.md Finding, assumptions and basis/rank comparison from offset zero",
+          "method": "Resultary lookup and local mirror of original file",
+          "title": "Parity-sharp rectangular Hopf-grid interpolation of exact spherical harmonics",
+          "trigger": "Same harmonic space, same nonnodal Hopf torus, sharp parity counts"
+        },
+        {
+          "assessment": "Low-degree overlap but not an all-winding result",
+          "evidence": [
+            "Fixed (1,2) and equal radii; rank four at degree one and five sites, rank eight in degree two at this radius."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-degree-spherical-sampling-on-a-doubly-wound-clifford-circl--de4a312a107d",
+          "material_read": "Original RESULT.md Finding, fixed-radius assumptions and rank discussion from offset zero",
+          "method": "Resultary lookup and local mirror of original file",
+          "title": "Exact-degree spherical sampling on a doubly wound Clifford circle",
+          "trigger": "Specific primitive winding overlapping low degrees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar sample budget for exact harmonics along a single path is a natural acquisition invariant. The result determines when the dimension bound is attainable and resolves the odd case with a sharp obstruction and a matching construction, substantially improving on a rectangular design when that is used as a benchmark. The explicit inversion and characterization of the sole missing Fourier coordinate make the exact optimum usable without asserting numerical robustness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

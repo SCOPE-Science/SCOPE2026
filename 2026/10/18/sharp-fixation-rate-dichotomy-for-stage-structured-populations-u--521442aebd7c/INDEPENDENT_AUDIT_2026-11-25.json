@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:59:15.399547Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated positivity and mixed-allele hypotheses, the transport matrix makes both allele masses strictly positive after one pulse. The Hardy–Weinberg marginal survivals give a row-stochastic mixing of susceptible/resistant ratios followed by a nonnegative selection defect. Normalized resistant masses have a uniform positive bound after one step; hence every mixing weight is bounded below, and the strict loss at a selected stage forces the maximum ratio to zero in a two-step argument. The two mass recursions are then bracketed componentwise by (1 ± epsilon) times their respective positive limiting matrices; comparison with Perron powers and strict Perron monotonicity give the log root-ratio exponent. When s_i h_i vanishes identically, resistant mass is exactly linear and the susceptible defect is exactly quadratic to leading order. The minimum ratio has an inverse-pulse lower bound; the weighted quadratic drift and uniform mixing give an inverse-pulse upper bound and O(k^-2) stage spread. Thus the reciprocal of the Perron-weighted ratio has increment tending to sum_i s_i w_i v_i with w^T v=1. This also justifies converting ratios back to frequencies and does not require growth of the total population. A separate two-stage diagnostic with rho(P)<1 agrees with the two scalings; it is not used as proof. Replay the analytic checks in RESULT.md lines 42–112; the archived verify.py is supplemental, not formal verification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 of the source model gives y(t)→1 under positive selection and presence of resistance; it makes no statement on per-pulse rate.",
+          "The inspected pulse-matrix theorem gives convexity of tau↦rho(D exp(tau A)) under its matrix hypotheses, not a nonlinear genotype convergence law.",
+          "The relevant helminth abstract identifies a stage/genetic-resistance model, but not an exact asymptotic theorem; the full text could not be compared. Taylor's full text was not obtained."
+        ],
+        "reasoning": "A wider body of stage-structured ecological or class-weighted allele dynamics is not itself coverage: one needs either a rate theorem for this pulse map or a derivation of that rate from an existing theorem. The relevant accessible results inspected do not supply it.",
+        "searches": [
+          "arXiv:2609.10581v1 Theorem 5",
+          "arXiv:2310.07616v1 Theorem 1",
+          "Taylor 1990 DOI 10.1086/285033",
+          "Patel et al. 2025 DOI 10.1016/j.tpb.2025.03.006 and identified bioRxiv copy"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and bound verifier",
+        "Resultary 46a2c19db0e7",
+        "arXiv:2609.10581v1",
+        "arXiv:2310.07616v1",
+        "DOI 10.1086/285033 (limited)",
+        "DOI 10.1016/j.tpb.2025.03.006 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The limiting mass matrices have positive Perron roots, but qualitative fixation plus a radius computation alone does not establish the two-stagewise asymptotic laws. The case Q=P requires tracking the second-order weighted defect and proving that stage disagreement is negligible at that order.",
+          "Within common dominance, the later catalogue theorem directly covers both pulse laws. Its between-pulse result is stronger in time on that domain, but cannot be specialized to differing h_i at independently fixed s_i."
+        ],
+        "reasoning": "Neither the qualitative/model antecedent nor spectral or scalar dominance background mechanically implies the full frozen claim. Changing to an effective product s_i h_i can duplicate the numerical exponent, but a result for that changed survival model would not prove the exponent for the original trajectories.",
+        "searches": [
+          "arXiv:2609.10581v1 pp. 4–5, 13",
+          "arXiv:2310.07616v1 p. 6",
+          "46a2c19db0e7 statement and scope vs frozen RESULT.md lines 15–38 and 42–112"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Putting M=P, M_h=Q, q_i=1-y_i and ell=w in the catalogue result gives exactly the two frozen limit expressions when the parameters are common to both domains.",
+          "The catalogue model imposes h common, s_i<1, and both alleles initially present in each stage; it also asserts a continuous-time extension. The frozen theorem imposes only 1-s_i h_i>0 and permits different h_i and initially pure stages in a mixed population."
+        ],
+        "reasoning": "The overlap is not just a notation match, but the two theorem domains are not equivalent. Replacing all h_i by a common h while holding Q fixed generally changes susceptible-homozygote survival and the actual nonlinear pulse map.",
+        "searches": [
+          "Resultary: stage-structured pulse resistance, exact dominance transition and Perron fixation rates",
+          "Mirrored SCOPE 2026/11/22 record 46a2c19db0e7, RESULT.md offsets 458–2529",
+          "arXiv:2609.10581v1, model pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed 46a2c19db0e7 entry is the material exact formula hit on the overlapping domain; it is not an independent table of constants.",
+          "The frozen empirical-parameter and three-stage numerical outputs are diagnostics. The source model's comparison of stage-specific trajectories is not an exact limiting rate table."
+        ],
+        "reasoning": "The claim is a symbolic limit for arbitrary matrices and stages, not a particular numeric value recoverable from a finite table. The indexed exact match is credited where its hypotheses apply.",
+        "searches": [
+          "Resultary semantic search for the fixation dichotomy and coefficient",
+          "arXiv:2609.10581v1 Theorem 5; source model's Section 4 simulations as identified in the frozen relationship discussion"
+        ]
+      },
+      "rationale": "The inspected academic model proves qualitative fixation, not either sharp asymptotic formula. A distinct catalogue result states both exact formulas on a materially overlapping common-dominance, s_i<1 domain, including the same dominant coefficient and an additional between-pulse extension. Credit that overlap in full: the common model and the coefficient there are not distinct findings relative to that record. The frozen theorem covers pulse laws for a wider nonlinear system, including stage-specific dominance at fixed independent homozygote and heterozygote survivals and allowed s_i=1. The closest statement does not give that scope; no earlier equivalent coverage of the full claim was established. Catalogue path dates are not a determination of priority or dependence.",
+      "residual_risks": [
+        "Provenance and historical priority relative to the substantially overlapping catalogue record were not established.",
+        "Taylor and the helminth paper could not be compared in full. Other exact coverage may exist outside the sources inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent coverage on common domain; not full coverage",
+          "evidence": "The same Perron-root ratio and sum of stage selection coefficients weighted by products of left and right eigenvector entries; common h and s_i<1; also gives t q_i(t)→tau/S.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-dominance-transition-in-stage-structured-pulsed-resista--46a2c19db0e7/RESULT.md",
+          "material_read": "Finding, hypotheses and proof excerpts; decisive statement and domain at offsets 458–2529, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror text, literal locator and bounded offset read",
+          "title": "An exact dominance transition in stage-structured pulsed resistance",
+          "trigger": "Distinct indexed record with nearly identical asymptotic laws"
+        },
+        {
+          "assessment": "Model and qualitative convergence covered, sharp rate not stated there",
+          "evidence": "Hardy–Weinberg pulse assumptions, and Theorem 5's conclusion of convergence to resistant fixation.",
+          "identifier_or_url": "arXiv:2609.10581v1",
+          "material_read": "Model and survival rules pp. 4–5 (offsets 10060 and 13509); Theorem 5 p. 13 (offset 39260)",
+          "method": "Primary OA PDF text excerpts",
+          "title": "On the formulation and analysis of a stage-structured eco-evolutionary model with pulsed disturbances",
+          "trigger": "Closest primary pulse model"
+        },
+        {
+          "assessment": "Different quantity and conclusion",
+          "evidence": "Convexity of the ecological one-matrix Perron radius over pulse period; no allele ratio dynamics in that theorem.",
+          "identifier_or_url": "arXiv:2310.07616v1",
+          "material_read": "Theorem 1 p. 6, offset 19050",
+          "method": "Primary OA PDF text excerpt",
+          "title": "On spectral radius properties of a key matrix in periodic impulse control",
+          "trigger": "Possible stronger pulse-matrix theorem"
+        },
+        {
+          "assessment": "Background identified; exact comparison limited",
+          "evidence": "The available bibliographic evidence does not establish whether a comparable coefficient occurs.",
+          "identifier_or_url": "https://doi.org/10.1086/285033",
+          "material_read": "Bibliographic identification; full text not reached",
+          "method": "DOI and repository checks, access denied on publisher route",
+          "title": "Allele-Frequency Change in a Class-Structured Population",
+          "trigger": "Reproductive-value weighting precedent"
+        },
+        {
+          "assessment": "Unresolved comparison, not negative evidence",
+          "evidence": "Abstract describes life-cycle/genetic resistance dynamics; no derivation accessible for a statement-level comparison of fixation rates.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tpb.2025.03.006",
+          "material_read": "Accessible abstract description only",
+          "method": "Publisher and identified bioRxiv OA routes attempted (403/429)",
+          "title": "Eco-evolutionary dynamics of anthelmintic resistance in soil-transmitted helminths",
+          "trigger": "Stage-structured resistance antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Qualitative fixation alone cannot distinguish an exponential tail from an inverse-pulse tail. The theorem distinguishes them using measurable model parameters and shows how stage transport and survival jointly determine the actual coefficient, not merely its order. It applies when selection acts on heterozygotes in some stages but not others and also when the population itself shrinks, separating allele-frequency predictions from demographic persistence. Its value is a deterministic asymptotic prediction for the stated model, not an empirical control recommendation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

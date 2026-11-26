@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Unique path-pair normal forms and prefix cancellation yield a complete case split for nonzero squares. The coefficient identities follow by ordinary generating-function multiplication, and the inverse-length law follows from the simple Perron pole versus double total-growth pole. A separately written finite path enumerator agrees with adjacency-matrix coefficients for eight directed graphs, including edge cases and multiple edges. The finite checks corroborate rather than replace the proof.
+## correctness
 
-**Originality — PASS, with a bounded historical uncertainty.** Actual searches for graph-inverse-semigroup squares, nilpotents, square-zero density, and Perron growth found no direct published coverage. The closest inspected graph-inverse-semigroup papers establish path normal forms, congruences, and coarse growth estimates. The closest prior local record treats a commuting-pair census for finite acyclic graphs, whereas this theorem studies every finite graph, the square-zero predicate, its rational series, and a primitive-graph asymptotic constant. An older treatment or an implicit consequence of a different path-counting theorem remains possible; search absence is not proof of priority.
+PASS
 
-**Value — PASS.** The square-zero predicate is intrinsic to a semigroup. Its full graded count over arbitrary finite directed multigraphs is a natural invariant, and the sharp primitive-graph \(n^{-1}\) persistence law distinguishes typical long elements from non-nilpotent exceptions. The result unifies finite acyclic and infinite cyclic cases and identifies precisely which Perron data govern their quantitative distinction.
+A nonzero normal form is a path pair with common terminal vertex (including length-zero paths and distinct parallel edges), so grade convolution gives T(t)=sum_v P_v(t)^2. Prefix cancellation makes its square nonzero precisely for comparable paths. Equal paths are counted once by P_v(t^2); each strict orientation gives a base path and a nonempty closed suffix, counted by P_v(t^2)(C_v(t)-1). Repetition of the closed suffix or its inverse leaves every power nonzero, whereas an incomparable pair squares to zero. Thus T-Q counts nonzero square-zero elements, not the semigroup zero. The adjacency resolvent gives rationality for all finite graphs. For primitive A, the rank-one spectral projection r l^T gives residues in the (1-rho*t) denominator equal to (sum r)l_v for P_v and r_v l_v for C_v. The total has double-pole coefficient (sum r)^2 sum l_v^2. Since rho>1, P_v(t^2) is analytic in a disk past the dominant point and its value there is P_v(rho^(-2)); the simple-pole coefficient of Q is 2 sum_v P_v(rho^(-2)) r_v l_v. Primitivity excludes other dominant poles. Dividing the leading coefficients of O(rho^n) and (n+1)rho^n, with exponentially smaller remainder for Q and O(rho^n) remainder for T, gives the stated constant and O(n^(-2)) error. Reciprocal rescaling of the two eigenvectors leaves the constant unchanged. The exact formulas do not require primitivity; the probability statement does, and is at exact normal-form length, not arbitrary word length. A separate direct two-letter word-pair check gives Q_0 through Q_6 = 1,4,10,24,52,112,232, T_n=(n+1)2^n and c_E=4. The frozen finite checker was inspected, not rerun; finite cases are corroboration, not a proof of the asymptotics.
 
-**Scope and risks.** Normal-form length is used throughout, not arbitrary generating-set word length. The probability law requires a primitive adjacency matrix with spectral radius strictly exceeding one; the rational formula needs no such hypothesis. The literature comparison is bounded, so historical equivalence remains an unresolved risk. Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported contribution is the square-predicate refinement of normal-form growth and its explicit Perron survival constant, not the normal form, cancellation criterion, coarse growth or the elementary power dichotomy taken alone. Search and retrieval limits are recorded below.
+
+## value
+
+PASS
+
+Square-zero is intrinsic to the semigroup, while a normal-form generating series is natural for comparing large-degree elements across graphs. The exact rational refinement applies to both finite and infinite cases, and the simple-pole versus double-pole contrast yields a quantitative rare-survival phenomenon with an explicit graph-dependent constant. This is more informative than detecting zero products by the classical prefix test or reporting total growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:53:06.169401Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Away from the null set of planes through a vertex, section vertices are in bijection with crossed prism edges. The angle between endpoint vectors divided by pi is the crossing probability, by the uniform azimuth in their span. Summing one vertical edge per vertex and two horizontal edges per base edge gives the claimed normalization. Thin prisms have vanishing vertical angles and horizontal gaps summing to 2pi on each base. At large h the vertical angle is pi-2r_i/h+O(h^-3); for a horizontal edge the cross product of the scaled endpoints (v_i/h,1),(v_{i+1}/h,1) has norm e_i/h+O(h^-3) and their dot product is 1+O(h^-2), giving its angle e_i/h+O(h^-3). For a centered cyclic base put t=h/R, s_i=sin(delta_i/2) and c_i=cos(delta_i/2). The derivative has the sign of m-2 sum_i s_i t/sqrt(t^2+c_i^2); each summand is strictly increasing, so the sign function strictly decreases from m to m-per(K)/R. This covers the equality threshold too: the derivative stays positive at finite height. The strict bound sin(delta_i/2)>delta_i/pi gives per(K)>4R, and Jensen gives per(K)<=2mR sin(pi/m), proving the 3,4 and >=6 cases. The stated pentagon gaps tend to a perimeter of 4R, and interpolation with regular gaps stays strictly between 0 and pi, realizing the threshold. The regular-pentagon critical equation yields t=(3+sqrt(5))/4; independent evaluation gives mean 5.2462748197293845 in floating point, replayable with node /workspace/checks/geometry-and-word-reproduction.js. The universal conclusions follow analytically, not from sampling. The optimization is for centered cyclic bases, and h is half-height.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 describes chambers of affine slicing planes determined by crossed edges and yields rational integration formulas within a chamber.",
+          "Search identified Shchur–Konstantinova records, but the retrieval attempts did not obtain the mathematical text.",
+          "f029f94dd5b4 gives a central-Haar count law and mean for the fixed regular truncated octahedron."
+        ],
+        "reasoning": "The chamber result supplies a general description of edge-crossing patterns, not the angular average and derivative inequality for a variable-height prism with a nonregular cyclic base. A complete section law of one fixed polyhedron does not specialize to this prism family.",
+        "searches": [
+          "arXiv:2304.14239v1, Theorem 1.1",
+          "Resultary: centered cyclic polygon right prism random central plane expected vertices perimeter exceeds number of vertices times circumradius unique maximum",
+          "Primary search: Algorithm for Density of Angle Distribution in Random Sections of Polyhedron"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.14239v1",
+        "f7463d4c242b",
+        "d6887160b043",
+        "45d2a55425d4",
+        "e8345353da18",
+        "804f9ecfda5f",
+        "f029f94dd5b4",
+        "SSRN 4485810 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rectangular-box law implies its mean, 4+2 Pr(N=6), hence correlates exactly with the rectangular specialization of the angular mean.",
+          "The regular-prism proof uses the same endpoint-angle argument but sets all angular gaps equal."
+        ],
+        "reasoning": "A regular gap cannot parameter-substitute for unequal gaps in the derivative: even at fixed m the limiting derivative sign changes with perimeter, and both signs occur for m=5. The edge count identity alone is not a monotonicity or uniqueness result. The unequal-gap sign function and attainable threshold are the distinct part.",
+        "searches": [
+          "arXiv:2304.14239v1, Theorem 1.1",
+          "Resultary: centered cyclic polygon right prism random central plane expected vertices perimeter exceeds number of vertices times circumradius unique maximum; hits e8345353da18 and 45d2a55425d4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f7463d4c242b uses affine measures d sigma(u) dt conditioned to hit, giving a 3/4/5-vertex law for all triangular bases.",
+          "d6887160b043 uses the same affine model for an equilateral triangular prism; conditional normals are width-weighted, and the optimized observable is pentagon probability."
+        ],
+        "reasoning": "Choosing an affine plane conditioned to meet a prism does not induce uniform central planes: neither the random offset nor the normal weighting agrees. Moreover a maximizer of pentagon probability is not a maximizer of mean count in a general polygon-type law.",
+        "searches": [
+          "Resultary: perimeter controlled height transitions random central sections cyclic prisms",
+          "Resultary: expected number vertices central section polyhedron Haar random plane Crofton edge angle crossing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e8345353da18 gives exactly the regular n>=5 angular mean, the regular-pentagon golden-ratio optimum and maximum, and increasing means for n>=6.",
+          "804f9ecfda5f gives an exact mean through a full law for the regular triangular prism.",
+          "45d2a55425d4 gives exact Haar hexagon probabilities for rectangular boxes, whose generic counts are 4 or 6."
+        ],
+        "reasoning": "These are exact overlapping special cases, not merely title similarities. Neither the regular-family table nor the rectangular and triangular cases settle how the height regimes split within centered nonregular pentagons.",
+        "searches": [
+          "Resultary: right prism random central section expected vertices half-height regular polygon pentagon threshold"
+        ]
+      },
+      "rationale": "Pass for the distinct general centered-cyclic perimeter transition, in particular the exact classification for nonregular pentagons. The angular expectation is an application of the standard spherical sign-crossing identity. Exact rectangular coverage is credited; the indexed later regular-prism record also matches the regular n>=5 formulas, including the golden-ratio optimum. The decision does not depend on treating either specialization or the general probabilistic identity as exclusively new.",
+      "residual_risks": [
+        "The Shchur–Konstantinova paper was not available in full; its actual coverage is unresolved.",
+        "A general central spherical Crofton edge-sum statement or an older prism identity may already cover the expectation formula. The decision concerns the specific unequal-gap perimeter classification, not priority for the crossing identity or its regular and rectangular special cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader section-combinatorics framework, not the claimed height transition",
+          "evidence": "Chambers determine intersected edges and allow rational formulas for section integrals; the inspected theorem does not give a central-Haar mean or perimeter threshold.",
+          "identifier_or_url": "https://arxiv.org/html/2304.14239v1",
+          "material_read": "Theorem 1.1 and surrounding chamber statement, offset 3703",
+          "method": "OA HTML passage inspection",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "Potential general central- and affine-section theorem"
+        },
+        {
+          "assessment": "Unresolved coverage risk, not a negative finding",
+          "evidence": "SSRN accesses timed out and ScienceDirect returned 403; no statement about the paper's full results is inferred.",
+          "identifier_or_url": "SSRN 4485810",
+          "material_read": "Search and bibliographic records only; no full mathematical passage obtained",
+          "method": "Primary search and attempted lawful access via SSRN and ScienceDirect",
+          "title": "Algorithm for Density of Angle Distribution in Random Sections of Polyhedron",
+          "trigger": "Random-section results for particular polyhedra, including a prism, might overlap"
+        },
+        {
+          "assessment": "Different sampling law",
+          "evidence": "Affine Crofton planes have random offsets and are conditioned to hit; the 3/4/5-vertex law does not give the central Haar mean.",
+          "identifier_or_url": "f7463d4c242b",
+          "material_read": "Finding and model assumptions, RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Crofton pentagon law and thin-tall asymptotics for triangular prisms",
+          "trigger": "Same-day triangular prism count laws"
+        },
+        {
+          "assessment": "Different law and objective",
+          "evidence": "Conditional affine-plane normals are width-weighted, and the optimum is for pentagon probability rather than central-Haar expected vertex count.",
+          "identifier_or_url": "d6887160b043",
+          "material_read": "Finding and proof part 1, RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Crofton polygon-type law and unique pentagon optimum for a regular triangular prism",
+          "trigger": "Same-day optimum with similar terminology"
+        },
+        {
+          "assessment": "Exact rectangular special-case coverage",
+          "evidence": "Only 4- and 6-sided sections occur generically, so its P(N=6) determines the mean throughout the rectangular subfamily.",
+          "identifier_or_url": "45d2a55425d4",
+          "material_read": "Finding and proof parts 1–3, RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Earlier exact central-Haar section law implies a mean"
+        },
+        {
+          "assessment": "Material overlap for regular n>=5; record dated later, not a priority determination",
+          "evidence": "The regular pentagon has the same golden-ratio half-height and maximal mean; n>=6 is monotone. Nonregular cycles are not the domain of this result.",
+          "identifier_or_url": "e8345353da18",
+          "material_read": "Finding and proof parts 1–3, RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A pentagonal optimum and a hexagonal threshold for mean central-prism section complexity",
+          "trigger": "Exact regular-prism optimizer and table match"
+        },
+        {
+          "assessment": "Exact regular triangular special-case mean",
+          "evidence": "The complete central-Haar law implies the regular triangular mean, but does not classify cyclic bases.",
+          "identifier_or_url": "804f9ecfda5f",
+          "material_read": "Finding and proof part 1, RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact Haar section law and unique pentagon-optimal aspect ratio for a regular triangular prism",
+          "trigger": "Possible special-case duplication in central Haar model"
+        },
+        {
+          "assessment": "Same sampling law; different polyhedron and no height parameter",
+          "evidence": "Gives probabilities of 6-, 8- and 10-sided sections and their mean for a fixed truncated octahedron.",
+          "identifier_or_url": "f029f94dd5b4",
+          "material_read": "Finding and proof part 1, RESULT.md offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete Haar polygon-type law for central sections of the regular truncated octahedron",
+          "trigger": "Same-day central-Haar expected count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem answers a natural optimization question with one measurable base invariant rather than a numerical height search. In particular the number of sides alone does not decide the existence of an optimum at five sides: genuine centered cyclic pentagons fill both regimes and the boundary. This structural classification and its strictness are useful beyond the known regular or rectangular examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

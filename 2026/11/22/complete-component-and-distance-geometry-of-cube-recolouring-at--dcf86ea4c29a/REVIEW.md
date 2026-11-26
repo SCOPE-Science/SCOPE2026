@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is an exact finite classification, not an asymptotic extrapolation. The embedded standalone checker enumerates all \(k^8\) possible palettes, filters exactly by the twelve cube edges and constructs every legal move. Its orbit-key reduction has an explicit equivalence proof, and unrestricted BFS finds every component and every shortest-path distance. Orbit-weighted integer sums yield the complete pair-distance histograms, with direct unquotiented BFS checks for the entire mobile four-colour component and all three-colour states. The actual program was executed successfully. Remaining risk: implementation mistakes not independently audited.
+## correctness
 
-## Originality: PASS, provisional historical priority
-The closest 2026 recolouring manuscript reports the *diameter* equality for subcubic graphs at the extra-two-colours threshold (Proposition 2(iv), credited to earlier sources). Therefore the global five-colour diameter \(12\) is explicitly **not** claimed as new. Earlier cube-colouring literature discusses frozen configurations, so frozen-state existence is also not claimed as new. The specific all-state eccentricity assertion across palettes \(3\), \(4\), and \(5\), the full critical-palette component classification and exact all-distance distributions are not entailed by those results. Accessible paper and mathematical-record comparisons did not reveal equivalent full coverage; unpublished/unindexed enumerations remain a residual risk.
+PASS
 
-## Value: PASS
-The critical passage from \(k=3\) connected, to \(k=4\) frozen plus one giant mobile sector, to \(k=5\) connected is a natural connectivity and dynamical threshold in the smallest cubic Boolean cube. The unexpected equality of every mobile eccentricity at exactly \(12\), even as the state graph grows from \(114\) to \(29660\) states, makes this a complete finite metric benchmark rather than a routine recalculation of an already-known diameter. Full exact distance distributions can benchmark and distinguish methods estimating recolouring times, state connectivity and path geometry.
+All stated labelled state counts, edge counts, component orders, component radii/diameters, eccentricities and all 36 positive-distance histogram coefficients were reproduced independently, without executing the deposited checker. All assignments in the named palette are candidates, including those that leave a colour unused. The cube symmetries and palette permutations preserve shortest paths; taking one full-graph BFS per genuine symmetry orbit and weighting by its cardinality counts each ordered pair once, and dividing by two then counts unordered pairs at positive distance. In particular the three concluding bins were 279, 15198 and 85870, and every nonisolated state had eccentricity 12. The four-colour isolation assertion also follows without computation: a proper colouring is frozen iff each vertex has three differently coloured neighbours, i.e. all vertices at distances one and two have distinct colours. This is equivalent to rainbow squares. The colour classes must then be the four antipodal pairs, giving 4! = 24 colourings in one colour-renaming orbit. At k=2 the connected bipartite cube gives two isolated assignments. This is exhaustive only for the stated finite domain and is not formal verification.
 
-## Sources and limits
-The source arXiv:2611.17022v1 (public 2026-11-12) motivates palette-diameter refinement; arXiv:2412.19695 is prior exact-diameter work on different graph families; arXiv:1206.3202 treats cube colouring dynamics and known frozen phenomena. The result makes no claim about dimensions beyond three or palettes beyond five. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete pointwise and pair-distance census, not for basic connectivity or frozen-colouring facts in isolation. In addition to the credited five-colour diameter and frozen example, the four-colour split into isolates plus a unique mobile component is already a consequence of a general recolouring theorem. No inspected statement gives or mechanically determines the simultaneous self-centredness or the full three histograms without a new metric analysis of the finite state graphs.
+
+## value
+
+PASS
+
+The smallest cubic hypercube is a natural test case at the sharp frozen-colouring threshold. The same eccentricity at every mobile state across the three different palette regimes is a precise, nontrivial observation beyond the known global diameter. The exhaustive distributions supply a baseline for comparing typical, extremal and pointwise recolouring distances; neither the trivial k=2 row nor rediscovering the k=5 diameter by itself would justify acceptance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

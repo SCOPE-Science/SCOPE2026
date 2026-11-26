@@ -1,110 +1,76 @@
 # First-alias universality and one-sided frequency selection for fractionally damped resolvents
 
 ## Finding
-Let \(0<\alpha<1\), \(\lambda>0\), and let \(a:\mathbb R\to[0,\infty)\) be continuous. Assume that for some \(c_+,c_->0\),
+
+Let \(0<\alpha<1\), \(\lambda>0\), and let \(a:\mathbb R\to[0,\infty)\) be continuous, with \(a(y)/|y|^\alpha\to c_\pm>0\) as \(y\to\pm\infty\). On \(L^2(\mathbb R,dy)\), let \(B\) be multiplication by \(-a(y)+iy\) on its maximal domain, and write \(S_t=e^{tB}\). Let \(e_T\) denote the multiplier of the trapezoid-corrected resolvent error
 \[
-\lim_{y\to+\infty}\frac{a(y)}{y^\alpha}=c_+,
-\qquad
-\lim_{y\to-\infty}\frac{a(y)}{|y|^\alpha}=c_-.
+E_T=T(I-e^{-\lambda T}S_T)^{-1}-\tfrac{T}{2}I-(\lambda-B)^{-1}.
 \]
-On \(H=L^2(\mathbb R,dy)\), define the normal multiplication generator \((Bf)(y)=(-a(y)+iy)f(y)\) on its maximal multiplication domain, and the contraction semigroup \(S_t=e^{tB}\). For every sampling step \(T>0\), put
+Set \(\varepsilon_T=T^{1-\alpha}\), \(c_*=\min(c_+,c_-)\), and \(A_* = \{2\pi s:s\in\{-1,1\},\ c_s=c_*\}\).
+
+**Complex profile at every fixed nonzero alias.** For each integer \(n\ne0\), locally uniformly in \(v\in\mathbb R\),
 \[
-Q_T=T(I-e^{-\lambda T}S_T)^{-1},\qquad
-E_T=Q_T-\tfrac T2 I-(\lambda-B)^{-1}.
+T^{-\alpha} e_T\!\left(\frac{2\pi n+\varepsilon_T v}{T}\right)
+\longrightarrow \frac{1}{c_{\operatorname{sgn}n}(2\pi |n|)^\alpha-iv}.
 \]
-Write \(c_*:=\min(c_+,c_-)\). Then the *exact leading operator-norm constant* is
+If \(Ty\) tends to \(2\pi n\) with \(|Ty-2\pi n|/\varepsilon_T\to\infty\), the same scaled error tends to zero.
+
+**Localization of all relative near-maximizers.** For any real frequencies \(y_T\),
 \[
-\boxed{\lim_{T\downarrow0}\frac{\|E_T\|}{T^\alpha}
-=\frac{1}{c_*(2\pi)^\alpha}.}
+\frac{|e_T(y_T)|}{\|E_T\|}\longrightarrow1
+\quad\Longleftrightarrow\quad
+\operatorname{dist}(Ty_T,A_*)=o(\varepsilon_T).
 \]
-Furthermore, write \(e_T(y)\) for the scalar multiplier of \(E_T\) and \(\varepsilon_T=T^{1-\alpha}\). For every integer \(n\ne0\), with \(c_{\operatorname{sgn}n}=c_+\) for positive \(n\) and \(c_-\) for negative \(n\), one has the locally uniform *complex alias profile*
-\[
-\boxed{\lim_{T\downarrow0}T^{-\alpha}
- e_T\!\left(\frac{2\pi n+\varepsilon_T v}{T}\right)
-=\frac{1}{c_{\operatorname{sgn}n}(2\pi|n|)^\alpha-iv}}
-\qquad(v\in\mathbb R).
-\]
-In particular, if \(y_T\) is any choice of frequency satisfying \(|e_T(y_T)|/\|E_T\|\to1\), then
-\[
-\operatorname{dist}\!\left(Ty_T,
-\{2\pi s:s\in\{-1,1\},\ c_s=c_*\}\right)=o(\varepsilon_T).
-\]
-When the two high-frequency damping coefficients differ, only the less-damped sign can asymptotically maximize the error. The scalar supremum is achieved at a finite frequency for all sufficiently small \(T\).
+In particular, unequal damping coefficients select only the less-damped sign. The scalar supremum is achieved at a finite frequency for sufficiently small \(T\).
+
+The normalization for these claims is \(T^{-\alpha}\|E_T\|\to[c_*(2\pi)^\alpha]^{-1}\). In the radial nondecreasing case this is an instance of the prior regular-variation first-alias law [1]. For the present two-sided assumptions, the norm limit follows by the same prior strip bound with a two-sided power lower envelope, as detailed below. The contribution here is the complex frequency profile and the classification of near-maximizers, not a new first-alias norm law.
 
 ## Assumptions and scope
-All limits are as \(T\downarrow0\) through *arbitrary positive real sampling steps*, not only dyadic steps. The Hilbert-space measure is Lebesgue measure. The limits imposed on \(a\) are ordinary one-sided limits; no monotonicity, differentiability, parity or rate of convergence is required. Thus, for example, continuous lower-order damping perturbations are included. The generator has domain \(D(B)=\{f\in L^2:\,(-a(y)+iy)f(y)\in L^2\}\). Since \(a\ge0\), dominated convergence proves strong continuity and \(\|S_t\|\le1\). The growth assumption gives \(a(y)=O(1+|y|^\alpha)\) and \(a(y)\ge\kappa|y|^\alpha\) for large \(|y|\) and some \(\kappa>0\). Consequently \(\|BS_t\|\asymp t^{-1/\alpha}\) as \(t\downarrow0\): maximize \(|y|e^{-\kappa t|y|^\alpha}\) for the upper bound, and use \(|y|\asymp t^{-1/\alpha}\) for the lower bound. This is exactly the intermediate Crandall--Pazy regime, with neither endpoint \(\alpha=0\) nor \(\alpha=1\) covered by this theorem.
+
+All limits use arbitrary positive real sampling steps. Neither monotonicity nor a convergence-rate hypothesis is imposed on \(a\). The semigroup is strongly continuous by dominated convergence and contractive since \(a\ge0\). Its generator domain is \(\{f\in L^2:(-a(y)+iy) f(y)\in L^2\}\). In particular, since \(a(y)\) is bounded above and below by positive multiples of \(|y|^\alpha\) for large \(|y|\), maximizing \(|y|e^{-t a(y)}\) up to constants gives \(\|BS_t\|\asymp t^{-1/\alpha}\) as \(t\downarrow0\). No nonnormal, discrete-spectrum or endpoint claim is made. A scalar maximizer need not give an \(L^2\) norm-attaining vector.
 
 ## Proof
-**1. Scalar reduction and normalization.** Put \(p(y)=\lambda+a(y)-iy\), whose real part is at least \(\lambda\). Both the sampled and exact resolvents are bounded multipliers; their difference has multiplier
-\[
- e_T(y)=T h(Tp(y)),\qquad
- h(z)=\frac{1}{1-e^{-z}}-\frac12-\frac1z
-=\frac12\coth(z/2)-\frac1z.
-\]
-The function \(h\) has a removable singularity at zero, with \(h(z)=z/12+O(z^3)\), and simple poles of residue one at the nonzero multiples of \(2\pi i\). Set \(\varepsilon=T^{1-\alpha}\), \(\xi=Ty\), and \(u_T(\xi)=\lambda T+T a(\xi/T)\). The norm is the supremum over \(\xi\in\mathbb R\) of
-\[
- F_T(\xi):=T^{-\alpha}e_T(\xi/T)
-=\varepsilon h(u_T(\xi)-i\xi).
-\]
-By continuity of \(a\), this supremum equals the essential supremum. Uniformly on compact subsets of either half-line away from zero,
-\[
-\frac{u_T(\xi)}{\varepsilon}\longrightarrow
-c_{\operatorname{sgn}\xi}|\xi|^\alpha.
-\]
-Moreover \(u_T(\xi)\to0\) uniformly on every bounded \(\xi\)-interval.
 
-**2. The finite-alias windows.** For a fixed nonzero integer \(n\), substitute \(\xi=2\pi n+\varepsilon v\). Uniformly for \(v\) in compact sets,
+**Multiplier and normalization.** Write \(\xi=Ty\), \(u_T(\xi)=T(\lambda+a(\xi/T))\), and
 \[
- u_T(\xi)=\varepsilon c_{\operatorname{sgn}n}(2\pi|n|)^\alpha+o(\varepsilon),
-\quad
- u_T(\xi)-i\xi=-2\pi i n+\varepsilon\bigl(c_{\operatorname{sgn}n}(2\pi|n|)^\alpha-iv\bigr)+o(\varepsilon).
+F_T(\xi)=T^{-\alpha}e_T(\xi/T)=\varepsilon_T h(u_T(\xi)-i\xi),\qquad
+h(z)=\frac{1}{1-e^{-z}}-\frac12-\frac1z.
 \]
-The pole residue of \(h\) gives the claimed complex profile. Thus the peak height in the \(n\)-th window is asymptotically \(1/[c_{\operatorname{sgn}n}(2\pi|n|)^\alpha]\). To justify that no intermediate scales are missed, choose a fixed small neighborhood \(|\xi-2\pi n|\le\delta\). For sufficiently small \(T\), \(u_T(\xi)\le1\); the exact identity
-\[
- |1-e^{-u+i\xi}|^2=(1-e^{-u})^2+2e^{-u}(1-\cos\xi)
-\]
-shows that \(|1-e^{-u+i\xi}|\ge C^{-1}\sqrt{u^2+(\xi-2\pi n)^2}\) on that neighborhood. Because \(|u_T(\xi)-i\xi|\) stays uniformly away from zero,
-\[
- |F_T(\xi)|\le
-C\frac{\varepsilon}{\sqrt{u_T(\xi)^2+(\xi-2\pi n)^2}}+C\varepsilon.
-\]
-It follows that when \(|\xi-2\pi n|/\varepsilon\to\infty\) in such a neighborhood, \(F_T(\xi)\to0\). When this quotient stays bounded, the locally uniform profile applies. This exhausts all subsequences near each nonzero alias. On compact sets away from the nonzero aliases, the holomorphic function \(h\) is uniformly bounded (including near its removable zero singularity), and \(F_T\to0\) uniformly.
+This identity follows by evaluating the resolvents pointwise; both are bounded because \(\lambda>0\). Continuity makes the supremum of \(|F_T|\) equal to its essential supremum. The singularity of \(h\) at zero is removable; at each other integer multiple of \(2\pi i\) it has a simple pole of residue one. Also \(u_T\to0\) uniformly on bounded \(\xi\)-intervals, by \(a(y)=O(1+|y|^\alpha)\). On each compact subset of either open half-line the ratio \(u_T(\xi)/\varepsilon_T\) converges uniformly to \(c_{\operatorname{sgn}\xi}|\xi|^\alpha\), since \(|\xi|/T\) tends uniformly to infinity there.
 
-**3. Uniform exclusion of high aliases.** For \(u>0\) and real \(\xi\), \(|1-e^{-u+i\xi}|\ge1-e^{-u}\) and \((1-e^{-u})^{-1}\le1+u^{-1}\). For \(|\xi|\ge R\ge\pi\), therefore,
+For completeness, the strip and first-center argument of [1] gives the norm normalization here. For fixed \(0<\delta<\pi\), the strip \(|\xi|\le2\pi-\delta\) is away from the nonremovable poles, so \(\sup|F_T|=O_\delta(\varepsilon_T)\) in that strip. Outside it, use \(|1-e^{-u+i\xi}|\ge1-e^{-u}\), \((1-e^{-u})^{-1}\le1+u^{-1}\), and \(|u-i\xi|\ge|\xi|\). For any \(0<\eta<c_*\), the lower bound \(u_T(\xi)\ge(c_* -\eta)\varepsilon_T|\xi|^\alpha\) holds uniformly there for small \(T\). Thus
 \[
- |F_T(\xi)|\le\varepsilon\left(\frac{1}{u_T(\xi)}+\frac32+\frac1R\right).
+|F_T(\xi)|\le \frac{1}{(c_* -\eta)|\xi|^\alpha}+\varepsilon_T\left(\frac32+\frac{1}{|\xi|}\right)
+\qquad (|\xi|\ge2\pi-\delta).
 \]
-Given any \(\eta\in(0,c_*)\), the one-sided damping assumptions imply that, when \(R\) is fixed and \(T\) is sufficiently small,
-\[
- u_T(\xi)\ge(c_*-\eta)\varepsilon|\xi|^\alpha
-\qquad(|\xi|\ge R).
-\]
-Hence
-\[
- \limsup_{T\downarrow0}\sup_{|\xi|\ge R}|F_T(\xi)|
-\le\frac{1}{(c_*-\eta)R^\alpha}.
-\]
-Letting \(R\to\infty\) excludes all escaping alias numbers. The finite-window analysis now shows
-\[
-\limsup_{T\downarrow0}\sup_{\xi\in\mathbb R}|F_T(\xi)|
-\le\max_{n\in\mathbb Z\setminus\{0\}}
-\frac{1}{c_{\operatorname{sgn}n}(2\pi|n|)^\alpha}
-=\frac{1}{c_*(2\pi)^\alpha}.
-\]
-Evaluating the profile at \(v=0\) for the \(n=+1\) or \(n=-1\) whose coefficient equals \(c_*\) yields the matching lower bound, hence the exact norm limit.
+Letting \(\eta,\delta\downarrow0\) in the resulting upper limit gives \([c_*(2\pi)^\alpha]^{-1}\). At an alias \(\xi=2\pi s\) with \(c_s=c_*\), the first term of \(\varepsilon_T h(u_T-i\xi)\) tends to this number and the two corrections tend to zero. This proves the matching lower bound.
 
-**4. Localization and existence of finite-frequency maxima.** Let \(\xi_T=Ty_T\) for relative near-maximizers. The uniform tail bound makes \(\xi_T\) bounded; all its accumulation points must be nonzero aliases, by the compact-set bound. Their limiting heights exclude every \(|n|\ge2\) and any sign with \(c_{\operatorname{sgn}n}>c_*\). The off-profile estimate then forces \((\xi_T-2\pi n)/\varepsilon\) to stay bounded near each remaining alias; the strict maximum of \(|c_*(2\pi)^\alpha-iv|^{-1}\) at \(v=0\) forces this ratio to tend to zero. Finally, at any fixed \(T>0\), the scalar error multiplier tends to \(T/2\) in modulus as \(|y|\to\infty\). The just-proved norm asymptotic is larger than \(T/2\) for all sufficiently small \(T\), since \(\alpha<1\). Continuity therefore places the maximum at some finite \(y\). This completes the proof.
+**Complex alias profiles.** For \(\xi=2\pi n+\varepsilon_T v\), uniformly on bounded sets of \(v\),
+\[
+u_T(\xi)-i\xi=-2\pi i n+\varepsilon_T\bigl(c_{\operatorname{sgn}n}(2\pi|n|)^\alpha-iv+o(1)\bigr).
+\]
+The coefficient of \(\varepsilon_T\) stays separated from zero since its limiting real part is positive. The Laurent expansion at \(-2\pi i n\) gives the stated complex limit. In a fixed small neighborhood of \(2\pi n\), \(n\ne0\), \(u_T\) tends uniformly to zero. The bounded regular part of the same Laurent expansion shows
+\[
+|F_T(\xi)|\le\frac{\varepsilon_T}{\sqrt{u_T(\xi)^2+(\xi-2\pi n)^2}}+O(\varepsilon_T)
+\]
+there (choose the neighborhood small enough for the expansion). This tends to zero when the scaled displacement tends to infinity. On compact sets away from the nonzero aliases the boundedness of \(h\) gives uniform convergence of \(F_T\) to zero.
+
+**Near-maximizers.** The strip estimate outside \(|\xi|\le R\) bounds the limiting supremum there by \(1/((c_* -\eta)R^\alpha)\), so the \(Ty_T\) of any relative near-maximizing family are bounded. Every convergent subsequence of these scaled frequencies must limit to a nonzero alias. On such a subsequence, the off-profile bound rules out unbounded scaled displacement, and every further subsequential displacement limit \(v\) gives a limiting magnitude
+\[
+\frac{1}{\sqrt{c_{\operatorname{sgn}n}^{\,2}(2\pi|n|)^{2\alpha}+v^2}}.
+\]
+It equals the norm constant only for \(|n|=1\), \(c_{\operatorname{sgn}n}=c_*\), and \(v=0\). Applying this to subsequences proves the stated distance requirement; the locally uniform profiles at the finitely many aliases in \(A_*\) give the converse even if the family alternates signs. Finally, for each fixed \(T\), \(a(y)\to\infty\) and \(e_T(y)\to T/2\) as \(|y|\to\infty\). The small-\(T\) supremum exceeds \(T/2\) by the norm asymptotic, so continuity gives a finite maximizer.
 
 ## Verification
-The independent scalar identity \(h(z)=\tfrac12\coth(z/2)-z^{-1}\) and its Laurent residues establish all normalization factors, including the \(2\pi\) in the alias center. The included \(\texttt{verify_first_alias.py}\) uses only the Python standard library and checks 168 finite numerical instances for symmetric and asymmetric damping with lower-order perturbations, multiple alias indices, the complex profiles, and selection of the less-damped sign. Execute \(\texttt{python3 verify_first_alias.py}\) to reproduce the diagnostics. The uniform compact/tail argument above, **not** finite sampling, establishes the full infinite-dimensional result.
+
+The Laurent expansion fixes the phase and all normalization factors; the tail and local estimates are needed to classify every near-maximizer. The accompanying standard-library `verify_first_alias.py` tests specified power laws with lower-order perturbations and finite samples of the complex profiles and selected sign. Such finite diagnostics do not prove the theorem, nor do they exhaust the frequency domain.
 
 ## Relationship to prior work
-Castillo, *Sampled resolvents of \(C_0\)-semigroups: aliasing and sharp rates on the Crandall--Pazy scale* (arXiv:2611.15563v1, 11 November 2026), Theorem 5.9 establishes the optimal order \(O(T^\alpha)\) and Proposition 5.10 obtains dyadic-sequence lower bounds for a different **discrete-spectrum** normal generator; its numerical section discusses individual first-alias contributions. Those results motivate but do not directly imply the sharp all-step limit for continuous asymptotically two-sided damping, the complete lobe profiles or the sign-selection theorem. Trefethen and Weideman (2014) develop trapezoidal-quadrature and contour-operator-function theory, including Section 18; their contour quadrature is distinct from directly sampling a semigroup's Laplace integral. Wakaiki (2024) studies Crandall--Pazy regularity and Crank--Nicolson iteration rather than this sampled-resolvent constant.
 
-## Limitations
-The statement concerns normal multiplication semigroups whose spectral damping has positive two-sided fractional-power asymptotes. It does **not** claim the same constant for arbitrary (possibly nonnormal) Crandall--Pazy semigroups, for discrete spectra, or for the endpoint values \(\alpha=0,1\). Frequencies that maximize the scalar multiplier need not yield an \(L^2\) norm-attaining vector. An unindexed prior equivalent of the asymptotic norm statement cannot be ruled out absolutely.
+The previous continuous-spectrum first-alias law [1, Finding and Proof Steps 2–5] already gives the exact all-step norm asymptotic \([\lambda+a(2\pi/T)]^{-1}\) for continuous nondecreasing radial damping regularly varying with index less than one. Its power-law example gives the exact symmetric constant. Its norm proof also supplies the bounds used above with a two-sided lower envelope; no novelty is claimed for that norm-only deduction. Castillo [3, Theorem 5.9 and Proposition 5.10] gives the general order estimate and a discrete-spectrum dyadic sharpness construction, with first-alias contributions discussed in Section 7. The discrete boundary-layer result [2] obtains Lorentzian limits for operator norms with geometrically spaced frequencies and with the mesh ratio as the rescaled variable. The result here instead resolves the **complex multiplier as a function of frequency displacement** at every fixed nonzero alias on a continuous spectrum, and identifies all relative near-maximizers, including unequal signs, to a scale smaller than the profile width. This is a bounded priority comparison.
 
 ## References
-1. N. Castillo, *Sampled resolvents of \(C_0\)-semigroups: aliasing and sharp rates on the Crandall--Pazy scale*, arXiv:2611.15563v1 (first posted 2026-11-11), https://arxiv.org/html/2611.15563v1, especially Theorem 5.9, Proposition 5.10 and Section 7.
-2. L. N. Trefethen and J. A. C. Weideman, *The Exponentially Convergent Trapezoidal Rule*, SIAM Review 56 (2014), 385--458, https://doi.org/10.1137/130932132, especially Sections 15--18.
-3. M. Wakaiki, *Characterizations of the Crandall--Pazy Class of \(C_0\)-semigroups on Hilbert Spaces and Their Application to Decay Estimates*, arXiv:2410.19387, https://arxiv.org/abs/2410.19387.
+
+1. *A first-alias law for sampled resolvents with slowly varying spectral damping*, Resultary, 17 November 2026, [record 5fe679bc2f74](https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-a-first-alias-law-for-sampled-resolvents-with-slowly-varying-spe--5fe679bc2f74).
+2. *Radix-arithmetic sampling spikes and Lorentzian boundary layers for a diagonal semigroup*, Resultary, 17 November 2026, [record 6ef73b584999](https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-radix-arithmetic-sampling-spikes-and-lorentzian-boundary-layers--6ef73b584999).
+3. N. Castillo, *Sampled resolvents of \(C_0\)-semigroups: aliasing and sharp rates on the Crandall–Pazy scale*, [arXiv:2611.15563v1](https://arxiv.org/html/2611.15563v1), 11 November 2026.

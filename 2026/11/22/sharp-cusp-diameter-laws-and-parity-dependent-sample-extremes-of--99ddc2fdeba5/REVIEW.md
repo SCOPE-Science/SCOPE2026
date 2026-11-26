@@ -1,19 +1,21 @@
-# Scientific review of cusp-diameter laws for hypocycloids
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The curve's Euclidean arclength density is exactly \(2r(n-1)|\sin(nt/2)|\); integration gives \(8r(n-1)\). Strict containment of each open hypocycloid arc inside the triangle between its neighboring cusps and the origin identifies the convex hull as the regular cusp polygon. Diameter pairs therefore occur exactly at the farthest cusp pairs, which form a matching for even cusp counts and a cycle for odd counts. The cusp Taylor expansion and the integrated speed give first-order inward position \(v_j-s e^{it_j}+O(s^{3/2})\). Its projection along a diametral direction gives the strictly positive coefficient \(a_n\), with uniform control on all four one-sided approach combinations. Integration over a two-coordinate simplex yields the sharp probability constants and, by normalized \(L^1\) convergence, the marked Dirichlet law. The finite vector of nearest sample-to-cusp arclength distances has an exact multinomial survival expression and independent exponential limit. Joint continuous mapping gives the maximum-sample limit with its necessary shared-vertex dependencies. The complete proof is in RESULT.md; the bundled standalone checker independently reproduces geometric identities, convex-hull support and six asymptotic coefficients.
+PASS
 
-Risk: the theorem is fixed-parameter and finite-dimensional. No uniformity as the number of cusps increases is claimed. Numerical midpoint quadrature confirms coefficients at finite deficits but is not an infinite proof.
+For fixed n≥3 and r>0, the speed is 2r(n−1)|sin(nt/2)| and integrates to 8r(n−1). On the first open arc the polar angle increases strictly within the cusp wedge (the factor (n−1)+exp(−int) has a single-valued argument), and the support projection onto the cusp-side normal decreases then increases without reaching the side in the interior. Thus the cusp polygon is the convex hull and only its farthest cusp pairs maximize distance on the curve. Both branches at each cusp satisfy P_j(s)=v_j−s exp(it_j)+O(s^{3/2}) in inward arclength s. The chord projections give the loss a_n(s_1+s_2)+O((s_1+s_2)^{3/2}); compactness excludes every other chart. Each of four branch pairs contributes ε²/(2a_n²L_n²) for each of n or 2n ordered cusp pairs, giving the stated coefficients, including 1/16 and 1/72. After rescaling, the error in the normalized loss is O(√ε); convergence of the event indicators in L¹ gives total variation, including the uniform independent labels and Dirichlet(1,1,1) mark. Disjoint arclength neighborhoods give the joint nearest-gap survival (1−Σx_j/N)^N. A pair of nearest samples gives an O_p(N^{-1}) loss; the lower linear loss then puts every maximizing pair in charts at arclength O_p(N^{-1}), where the remainder is o_p(N^{-1}). This proves the exact scaling 2N/(a_n L_n) and the minimum of exponential sums. Even edges are disjoint and the odd step (n−1)/2 generates one cycle. For n=3 the two smallest exponentials sum to twice the first spacing plus the second, yielding 4 exp(−3t/2)−3 exp(−2t).
 
-## Originality — PASS (subject to historical priority)
+## originality
 
-Actual semantic comparisons searched hypocycloid/deltoid/astroid arclength random chord extremes, curvature cusp reductions, and general parity-dependent diameter laws. The closest checked mathematical records cover (i) independent area-uniform points in an odd regular polygon with a two-dimensional Poisson corner-cone limit, and (ii) independent boundary-arclength points on **regular polygon edges**, refined as their side count diverges. Their full RESULT.md texts were inspected. Neither implies the cusp-arclength law of a fixed, nonpolygonal hypocycloid or the coupled exponential-cycle sample-extreme limit. The full accessible 2015 hypocycloid-division text concerns compass-and-straightedge constructibility; the 2013 AMS geometric exposition concerns rolling and group traces. The 2009 cycloidal-area article's accessible abstract concerns geometric areas, not probabilistic chord extremes. The source inspections and statement-level implication checks appear in AUDIT.json.
+PASS
 
-Risk: a classical source on hypocycloid random chords not indexed by the checked searches could overlap. The full 2009 cycloidal-area text was inaccessible; only its complete public abstract and metadata were examined. No independent historical-priority certification is asserted.
+Credit classical hypocycloid geometry and Lao's boundary-sample diameter method. The supported distinct claim is the fixed-cusp arclength chord coefficient and conditional marks together with the specific sample diameter law: folding the two branches into one independent exponential per cusp gives a graph of sums with dependent consecutive edges in the odd case. No coverage of this claim was established in the examined strongest comparisons; this is not a historical-priority certificate.
 
-## Mathematical value — PASS
+## value
 
-The ordinary hypocycloid family is a standard geometric object, and its cusp singularities make arclength loss fundamentally different from the smooth-curvature or polygon-interior models. The result completely resolves the upper chord tail at every fixed integer cusp count, locates exceptional endpoint shapes, and identifies an exact parity-dependent, correlated rare-sample diameter distribution. The shared-vertex dependence for odd cusp counts and the even matching reduction are not arbitrary parameter specializations: they describe structurally different extremal contact graphs for a natural family. The explicit coefficients, \(n=3\) distribution and reproducibility implementation can support subsequent geometric sampling and singular-boundary extremes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical singular arclength measure has a full sharp pair law and a dependent sample extreme not obtained by treating the O(N²) chords as independent. The exact branch-mark law and matching-versus-cycle dependence distinguish local and global extremes, and give reusable benchmark full distributions rather than just an order of growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

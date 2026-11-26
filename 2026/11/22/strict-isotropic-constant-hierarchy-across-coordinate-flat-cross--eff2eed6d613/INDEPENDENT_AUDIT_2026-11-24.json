@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:10:42.853091Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a sector with j positive coordinates, integration against √m δ(sum y_i) gives mass density √m s^(m−2)/[(j−1)!(m−j−1)!] on 0≤s≤1/2. With multiplicity binom(m,j), the sum of the weights without √m equals binom(2m−2,m−1)/(m−2)! by Vandermonde. The weighted mean of 1/(j+1) equals (2m−1)/[m(m+1)], since dividing binom(m,j) by j+1 gives binom(m+1,j+1)/(m+1) and the second Vandermonde sum is binom(2m−1,m). The two independent simplex blocks and E(s²)=(m−1)/[4(m+1)] therefore give the claimed trace of B_m. Permutations make the covariance scalar on the zero-sum space. For k=n−m>0 the free block has norm radius Beta(k,m), by the shell density R^(k−1) times (1−R)^(m−1); the norm fractions of its k signed coordinates have Dirichlet(1,…,1) magnitudes. Its Beta second moments scale the two blocks exactly as claimed and independent sign symmetry kills the cross terms. The volume integral and the covariance reduce directly to the asserted ratio, also at k=0 by using B_m itself. Writing f_{m+1}/f_m=1+δ_m, the coefficient bound binom(m,j)≤m(m−1)^(j−1) gives a geometric majorant; 1−(m−1)δ_m=(2m²+1)/[(2m−1)(m+2)]>0. The positive margin displayed in RESULT.md exceeds that majorant and 1−r_m²=(3m−1)/(4m³)>0. These are proofs for every admissible m, not finite extrapolation. Replayed both margins and the denominator identity in `python3 /workspace/checks/independent_01_05.py` (check 2). The 1,058 checks in frozen VERIFICATION.md are recorded, not independently rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen source comparisons describe the strong B-inequality, moment optimization algorithms, and regular-polytope/extremal results, respectively. 77988d83412a and 5ceaa989e77b are catalogue leads on local stability and volume near sparse normals."
+        ],
+        "reasoning": "Fixed-subspace log-concavity under dilation, section moment algorithms, and local or endpoint extremality do not order intermediate affine classes by L. Even a general theorem on section volumes alone would not control the determinant.",
+        "searches": [
+          "arXiv:1810.02038",
+          "arXiv:2304.14239",
+          "arXiv:2407.01353",
+          "Resultary: cross-polytope section extremizers / sparse normal"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md and AUDIT.json of record 2",
+        "cfc3c48a6fc4",
+        "77988d83412a",
+        "5ceaa989e77b",
+        "arXiv:1810.02038",
+        "arXiv:2304.14239",
+        "arXiv:2407.01353 (recorded local/regular comparisons)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior root formula, joined via a standard Beta integral, readily reconstructs the block moments. Strict order still needs f_m(1+δ_m)^m<r_m²."
+        ],
+        "reasoning": "An endpoint comparison with the cross-polytope in each dimension is only a comparison against one endpoint, not between neighboring nonregular intermediates. Volume alone even admits a distinct standard reduction: the centered Laplace product projects to a normal scale mixture whose zero density is proportional to E[(Σ a_i² E_i)^(-1/2)], E_i iid exponential, a convex symmetric function of the squared unit-normal weights. This gives the volume ordering by averaging weights, not the determinant ordering.",
+        "searches": [
+          "Compare cfc3c48a6fc4 endpoint inequality to RESULT.md §§Join integration and Strict rank ordering",
+          "Compare section-volume results in arXiv:1810.02038 to isotropic quotient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical indexed record eff2eed6d613 is excluded as self-match. cfc3c48a6fc4 gives a scalar covariance for the full type-A root polytope and its endpoint isotropic deficit."
+        ],
+        "reasoning": "The target is equivalently strict decrease of det(Cov)/Vol² or of the corresponding exact dimension-separated ratio. Scaling the root polytope by one half gives a factor 1/4 in covariance but leaves L unchanged; this confirms the static endpoint overlap, not adjacent ranks.",
+        "searches": [
+          "cross-polytope central section isotropic constant, equal-coordinate normals, support-rank hierarchy",
+          "Resultary: equal-coordinate normal rank / section covariance and isotropic constant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "cfc3c48a6fc4 covers the static root covariance and endpoint comparison. The frozen article comparison cites low-dimensional sliced cross-polytope examples; no exact all-rank isotropic table was found in the accessed material."
+        ],
+        "reasoning": "A static formula for B_m, or a table of examples, does not state the covariance and normalized quotient for the orthogonal ℓ₁ join with n−m free coordinates and their strict adjacent rank comparison.",
+        "searches": [
+          "Resultary: exact complete-graph root polytope inertia and coordinate-flat section spectra",
+          "arXiv:2304.14239 section examples"
+        ]
+      },
+      "rationale": "The supported distinction is the strict intermediate-rank covariance-determinant/volume ordering with exact adjacent certificate, not the type-A base moments, the endpoint comparison or the general methodology of polytope integration. The volume-only companion has independent elementary mechanisms and does not carry the originality verdict by itself.",
+      "residual_risks": [
+        "Fresh primary-text retrieval did not succeed for the strongest adjacent sources; some comparisons depend on available theorem summaries and labelled frozen inspection evidence.",
+        "An earlier general section theorem or unidentified exact monotonicity result could cover more than was established in this review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirmed endpoint overlap at statement level; no intermediate hierarchy established",
+          "evidence": [
+            "Unscaled covariance is 4(2m−1)/[m(m+1)²] times the intrinsic identity; the summary compares to a regular cross-polytope."
+          ],
+          "identifier_or_url": "cfc3c48a6fc4",
+          "material_read": "Catalogue theorem summary with covariance coefficient and frozen recorded full-text comparison; original mirror retrieval timed out",
+          "method": "Local catalogue and labelled frozen evidence",
+          "title": "Exact inertia of complete-graph root polytopes and a sharp isotropic deficit",
+          "trigger": "Same full-support endpoint and invariant"
+        },
+        {
+          "assessment": "Different parameter and functional as far as available theorem evidence goes",
+          "evidence": [
+            "The recorded theorem concerns volumes of dilations on fixed subspaces, not a covariance ordering over normal supports."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.02038",
+          "material_read": "Listing and frozen recorded comparison of strong B-inequality; fresh original-text retrieval timed out",
+          "method": "Bibliographic and recorded statement checks",
+          "title": "On a convexity property of sections of the cross-polytope",
+          "trigger": "Same ambient body and section volumes"
+        },
+        {
+          "assessment": "Relevant computational framework, no universal all-rank theorem established in the available material",
+          "evidence": [
+            "The recorded cross-polytope examples include equal-coordinate normals in special dimensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.14239",
+          "material_read": "Frozen recorded comparison of section examples and general algorithms; no fresh full text obtained",
+          "method": "Labelled recorded source evidence",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "General sliced cross-polytope section moment algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Support rank is a canonical indexing of the flat-normal sections. The exact inequality completes their order by an affine invariant, beyond static endpoint classes or Euclidean volume comparisons. The dimension-separated adjacent ratio and short strict certificate provide a reusable comparison across ambient dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

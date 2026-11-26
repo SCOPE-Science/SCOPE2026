@@ -1,9 +1,0 @@
-# Self-review
-
-**Correctness — PASS.** The explicit run-constraint proof establishes that each stated obstruction is absent and minimal, and that any factor avoiding them can be extended through boundary runs to a concatenation of allowed generators. A standalone finite consistency checker independently compares the derived avoidance language against generator-block enumeration for four values of the ratio and every word length through twelve. Finite testing is not used as a substitute for the infinite proof.
-
-**Originality — PASS within inspected evidence.** Reyes's frequency-shift treatment gives the generator family, nonsoficity, maximal-entropy measure, and the nondivisible bounded-one-run obstruction. It does not state or count the two additional sharp left/right run-length obstruction families as a complete minimal antidictionary. Wu and Zhang give the general motivation of minimal forbidden-word growth without treating these proportional-run shifts. Relevant mathematical-record and literature searches identified related but different antidictionaries; no theorem establishing this exact classification was found. General antidictionary definitions and known intrinsic ergodicity are not claimed new. Residual risk: an unindexed general renewal-language characterization may imply this exact special case.
-
-**Mathematical value — PASS.** A complete natural antidictionary is an intrinsic structural invariant of this nonsofic coded shift. Its exact bounded-per-length spectrum, rational series, and nonregularity distinguish fine forbidden-word complexity from positive entropy of allowed dynamics and provide a direct test case for current minimal-forbidden-growth theory. The theorem is neither an arbitrary finite slice nor a new proof of the already known maximal-entropy uniqueness.
-
-Self-review: passed. Independent audit: not yet performed.

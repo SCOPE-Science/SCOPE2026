@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:28:44.744014Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md equations (1)–(5) and proof §§1–5",
+        "VERIFICATION.md; check_wheel.py",
+        "Independent review_checks.py, case 1"
+      ],
+      "rationale": "For an exact nonempty spoke set, each inter-spoke arc must omit a rim edge; this condition also makes every rim component a path with at most one hub edge. Summing gives a_d=x((1+x)^d-x^d), also for one spoke with its single length-n arc. Independent positive compositions between forced spokes give U=A/(1-A) and u_d=x(λ_+^d-λ_-^d)/Δ. Marked compositions supply n/k for k spokes in the partition function; the isolated-hub sector contributes (1+x)^n-x^n. Factoring 1-A then gives exactly the subtraction 2x^n, and forest enumeration ensures the denominator is positive. As the wrap gap diverges, eliminating the preceding row from successive rows of the exponential kernel reduces the determinant to the product of 1-q^d factors. Its Fourier symbol is positive with maximum x/(1+3x-2sqrt(x(1+x)))<1; inclusion-exclusion yields finite-dimensional convergence. A(1/λ_+)=1 gives the normalized gap law; differentiating there gives mean Δ/x, and its renewal mass u_d/λ_+^d gives the very same joint inclusions and hence the same Palm law. For the finite covariance inequality, putting u=q^r,v=q^{n-r}, the difference (1-uv)^2-(1+uv)(1-u)(1-v) is at least 2sqrt(uv)(1-sqrt(uv))^2>0. The finite denominator is even smaller than 1+uv. Distance ordering follows from the strict decrease of q^r+q^{n-r} up to the shorter-distance midpoint; the local limit yields -ρ²q^r. Independent replay: python3 /workspace/branches/review_checks.py 1, all spoke inclusions and pair claims on n=3–7 at x=1/3,1,3/2 by exact rim-first enumeration. The frozen script was inspected, not run.",
+      "residual_risks": [
+        "Finite checks only corroborate the tested (n,x); the formal generating functions and local limit establish the general theorem. No claim about finite-volume determinantal structure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauerschmidt et al. define weights β^{|F|}, including uniform β=1. Çiçeksiz–Ravichandran's abstract reports edge-correlation results for sufficiently large fugacity.",
+          "Resultary 8e470d89a094 proves strict pair anticorrelation on the four-rim wheel and finite subdivisions at independent positive fugacities."
+        ],
+        "reasoning": "These cover the model or a stronger pair statement on a fixed family, not all-order asymptotics for the increasing wheels at every common x>0.",
+        "searches": [
+          "arXiv:1912.04854v2 §1.1",
+          "arXiv:2610.00549v1 abstract",
+          "Resultary strict weighted arboreal-gas edge anticorrelation on K_1*C_4"
+        ]
+      },
+      "checked_sources": [
+        "Bado public abstract and DOI availability check",
+        "Resultary and local mirror Findings c4b024089d31, 8e470d89a094",
+        "Targeted arXiv text for 1912.04854v2 and 2610.00549v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A full multivariate forest polynomial determines all finite cylinder inclusion numerators via mixed derivatives evaluated at the common fugacity with the corresponding powers of x. Only the description, not the full transfer formula, was accessible.",
+          "A pair-correlation theorem alone specifies only second-order information; the asserted kernel and Palm-gap law use the limiting all-order product."
+        ],
+        "reasoning": "No originality credit is assigned to the mere ability to extract weights from a multivariate polynomial. No inspected source identifies the all-fugacity limit or makes it a demonstrated immediate specialization; finite formula overlap remains material.",
+        "searches": [
+          "Bado's DOI page and RePEc abstract S016771522600324X",
+          "Resultary c4b024089d31 and 8e470d89a094 actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bado's publisher-supplied RePEc abstract explicitly counts uniform wheel forests, proves strict correlations in all three edge-pair types, and reports a multivariate 2×2 transfer-matrix formula.",
+          "Resultary c4b024089d31 Finding conditions conductance-weighted spanning trees on hub degree and takes a critical spatial scaling."
+        ],
+        "reasoning": "Uniform counts and anticorrelation overlap exactly at x=1. The same-day spanning-tree law has different base measure, conditioning and scale; it is not a renewal/DPP limit of the unrooted all-forest law with x fixed.",
+        "searches": [
+          "Wheel forest transfer matrix, negative edge correlation, spoke renewal and determinantal law; Bado DOI 10.1016/j.spl.2026.110960",
+          "Resultary weighted wheel spoke-cut compositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct matching Findings c4b024089d31 and 8e470d89a094 are respectively tree compositions and four-rim wheel pair results."
+        ],
+        "reasoning": "Neither actual published Finding gives the stated all-forest scaling regime and process law; a semantic search is not evidence of universal absence.",
+        "searches": [
+          "Resultary local semantic comparison: all-order wheel-forest spoke inclusion, DPP and renewal; weighted wheel spoke-cut compositions; strict weighted arboreal-gas edge anticorrelation"
+        ]
+      },
+      "rationale": "Credit the known unit-fugacity partition function and strict correlation; weighted enumeration is potentially encoded in Bado's stronger multivariate generating polynomial. The pass is for the supported distinct process-level result: the explicit local determinantal and stationary renewal identifications for every fixed common fugacity, with the gap product providing its derivation. Priority for the finite inclusion identity in isolation is not certified.",
+      "residual_risks": [
+        "Bado full transfer-matrix text not accessible and may encode the finite all-order identity or related limiting arguments. No historical priority certificate, including for same-day catalog works."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proved prior uniform correlation overlap; full finite-order/process comparison unresolved",
+          "evidence": "Abstract states strict anticorrelation of every distinct edge pair, exact enumeration, and a multivariate 2×2 forest-polynomial transfer matrix. Extracted enumeration formatting is lossy; do not infer whole-document scope.",
+          "identifier_or_url": "https://ideas.repec.org/a/eee/stapro/v241y2027ics016771522600324x.html; https://doi.org/10.1016/j.spl.2026.110960",
+          "material_read": "Publisher-supplied Abstract, offset 0; original DOI landing attempt returned HTTP 403; RePEc flags full text restricted",
+          "method": "Targeted primary-source retrieval and alternate lawful public abstract",
+          "title": "Negative edge correlation for uniform random forests on wheel graphs",
+          "trigger": "Exact same graph and model at x=1; multivariate transfer matrix"
+        },
+        {
+          "assessment": "Background",
+          "evidence": "Defines the positive edge-fugacity law and uniform specialization.",
+          "identifier_or_url": "https://arxiv.org/html/1912.04854v2",
+          "material_read": "§1.1, offset 1800",
+          "method": "Targeted OA text inspection",
+          "title": "Random spanning forests and hyperbolic symmetry",
+          "trigger": "General arboreal-gas framework"
+        },
+        {
+          "assessment": "Distinct edge-correlation result",
+          "evidence": "Large fugacity hypothesis for the cited arboreal-gas correlation results does not give this all-x process law.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00549v1",
+          "material_read": "Abstract, offset 0",
+          "method": "Targeted OA text inspection",
+          "title": "Negative Correlation for Forests and the q<1 Random-Cluster Model",
+          "trigger": "Potential stronger weighted result"
+        },
+        {
+          "assessment": "Related but different measure and limit",
+          "evidence": "Conductance-weighted spanning trees, prescribed hub degree and t_n=s/n² rather than fixed common forest fugacity.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-spoke-cut-compositions-in-weighted-wheel-spanning-trees-an--c4b024089d31",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Exact spoke cut compositions in weighted wheel spanning trees",
+          "trigger": "Same-day wheel gap law"
+        },
+        {
+          "assessment": "Partial finite overlap",
+          "evidence": "Arbitrary independent fugacities for pairs on W_4 and its subdivisions, not local n→∞ laws on W_n.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-weighted-arboreal-gas-edge-anticorrelation-on-k-1-c-4-and--8e470d89a094",
+          "material_read": "Theorem and assumptions, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Strict weighted arboreal-gas edge anticorrelation on K_1*C_4 and subdivisions",
+          "trigger": "Broader edge-specific fugacities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and proof §§1–5",
+        "Bado accessible abstract and nearby Resultary Findings"
+      ],
+      "rationale": "Identifying a complete local law of an unrooted spanning-forest model, simultaneously through an explicit determinantal operator and an explicit Palm renewal law, specifies all spoke correlations and gap statistics, unlike the known pair sign. The finite exact gap and wrap correction enable the fixed-fugacity limit on a natural graph family.",
+      "residual_risks": [
+        "Spokes only, common fugacity and fixed-position local limits; no conclusion about all edges, arbitrary weights, or complete negative association."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:07:14.948326Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–68 and frozen VERIFICATION.md with recorded output",
+        "Complete repaired file /workspace/repairs/1/RESULT.md, Steps 1–5; symbolic proof rechecked on the repaired rectangular case and all endpoints"
+      ],
+      "rationale": "Final claim re-audited in repairs/1/RESULT.md, with the theorem unchanged. The frozen proof said every support triple with two deleted indices supplies two relative 4-simplices; for example, at (p,q,t)=(2,3,2) only the vertex b_3 is available for index 3 and there is only one. The repair accounts for either one or two columns and proves a unit minor in both cases. Outside the complete-bipartite forest complex Q only shapes (2,2), (2,3) and (3,2) can occur by the six-vertex edge bounds. For the two larger shapes at least two matching edges must be missing by the forest edge bound, and then deleting those two edges leaves a tree. Inclusion–exclusion yields c_3=t(p−1)(q−1)−binom(t,2) and c_4=binom(t,2)(p+q−4). For two matched labels plus one unmatched label each projected column has two unit entries, in disjoint rows if both unmatched vertices exist. For three matched labels a projected row is indexed by omitting a_i,b_j for i≠j; the incidence graph of the six columns is a six-cycle. Orienting by the formal 5-simplex boundary gives a unit rank-five tree minor and the single six-term kernel generator, which vanishes under the full differential as well. Thus the projected image is primitive, the projection is injective on the full image, and the full image is the graph of an integral map on a primitive summand. The relative connecting homomorphism takes the tetrahedra containing a fixed missing pair to the tensor basis of H_2(Q) from the bipartite four-cycles, giving the stated free homology. At t=0, Q is two contractible complexes joined along the simplicial graph K_{p,q} and hence has the asserted suspension type. At t≥1 the complete two-skeleton and vanishing H_2 give two-connectivity. A map from a wedge of 3-spheres induces an isomorphism on H_3 and π_3; its mapping cylinder pair is 3-connected. Relative Hurewicz and the pair exact sequences then show that H_4 is spherical, giving the claimed wedge by homological Whitehead. This includes t=1 (contractible), and the t=3, p=q=3 case, with no 3-sphere. The repair also credits the known isolated two-deletion example and clarifies the verification limits.",
+      "residual_risks": [
+        "No frozen verifier was executed. The recorded finite mod-two results do not certify integral homotopy; the proof is all-parameter and uses the integer block and Hurewicz arguments.",
+        "Maps between successive stages and equivariant splittings are not classified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 33 covers t=0; Proposition 41 covers t=p=q; e5b294bc3a20 covers t=1, plus K_{3,3} minus two independent edges; 254ef80c8528 addresses the balanced crown symmetry modules and credits the endpoint wedge."
+        ],
+        "reasoning": "These endpoints and the sharpness example do not specialize to uniform intermediate or rectangular defects. The general consecutive-degree wedge recognition requires integral homology as an input, which is not obtained merely from the endpoint statements.",
+        "searches": [
+          "Primary forest-filtration literature and Carnero Bravo arXiv:2307.13271, Theorem 33 and Proposition 41",
+          "Resultary e5b294bc3a20 and 254ef80c8528"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired Finding and prior-work comparisons",
+        "Resultary family and exact-match searches and inspected theorem passages above",
+        "Primary literature query and OA reading of Carnero Bravo's definitions and theorems"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The enumerator identifies P4/P5 configurations and counts face sizes/components; the repaired result needs the primitive signed relative differential and a split-surjective integral connecting map. Known endpoint types agree with the formula."
+        ],
+        "reasoning": "The topological classification is not a face-count corollary: it depends on support-wise integral incidence and homotopy recognition. The known endpoint conclusions are credited rather than reclaimed.",
+        "searches": [
+          "Compared the Finding of the all-parameter induced-forest enumerator 373532fcf326 and endpoint results with the repaired proof, Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carnero Bravo uses precisely the complex on vertex sets inducing forests. Same-day c03b085e3d8d uses Ind_2, requiring maximum induced degree at most one. ab19f54685e2 classifies a three-cut Alexander dual."
+        ],
+        "reasoning": "Crown graph is the full balanced endpoint of the same problem, while the dissociation and three-cut conditions are not equivalent to acyclicity, even on these bicliques. For example an induced three-vertex star is allowed for forests but not dissociation.",
+        "searches": [
+          "Resultary induced forests of matching-deleted bicliques, crown graphs, partial matching defects",
+          "Carnero Bravo arXiv:2307.13271 definition of F_infty"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "373532fcf326 gives a full-domain bivariate enumerator by cardinality and components, not a table of integral types. The exact hit for the frozen theorem was the record itself; related dissociation and three-cut results are not exact matches."
+        ],
+        "reasoning": "An f-vector allows Euler characteristic but cannot supply the integral homotopy classification or distinguish all the degree-three and degree-four ranks. The checked catalogue evidence supports partial overlap, not exact coverage of the general range.",
+        "searches": [
+          "Resultary exact formula and family: partial matching deletion K_{p,q}, vertex-induced forest homotopy, sphere counts; inspected 373532fcf326 and adjacent hits"
+        ]
+      },
+      "rationale": "For the repaired statement the distinct content is the uniform integral types for general partial matching defects and rectangular shores, not the cited intact, one-edge, or full balanced endpoints or the isolated known K_{3,3} two-deletion example. The strongest inspected same-object sources give exact face counts for the whole family but no matching uniform homotopy theorem. The nearby dissociation and cut claims are about different complexes.",
+      "residual_risks": [
+        "Only a bounded literature search; does not establish absolute priority or exclude an unindexed stronger theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers intact bicliques and balanced full crowns",
+          "evidence": "F_infty denotes induced forests; Thm. 33 gives the (n−1)(m−1) two-sphere wedge of K_{n,m}; Prop. 41 computes K_2×K_n.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.13271",
+          "material_read": "PDF p. 8 definition, p. 23 Thm. 33, pp. 28–29 Prop. 41, text offsets 19571, 56929 and 70400",
+          "method": "OA primary PDF",
+          "title": "The Forest Filtration of a Graph",
+          "trigger": "Same vertex-induced forest complex and endpoint theorems"
+        },
+        {
+          "assessment": "Exact overlap at t=1 and one t=2 instance",
+          "evidence": "One missing edge gives contractibility; K_{3,3} minus two independent edges gives S³.",
+          "identifier_or_url": "e5b294bc3a20",
+          "material_read": "RESULT.md Finding offset 200",
+          "method": "Resultary local mirror",
+          "title": "A one-edge homotopy transition for induced-forest complexes of bipartite graphs",
+          "trigger": "Exact first deletion plus possible further deletion coverage"
+        },
+        {
+          "assessment": "Crown endpoint overlap only",
+          "evidence": "Credits Carnero Bravo's Prop. 41 for the nonequivariant sphere counts; studies the symmetry modules instead.",
+          "identifier_or_url": "254ef80c8528",
+          "material_read": "RESULT.md Finding and prior-work passage near offset 8853",
+          "method": "Resultary local mirror",
+          "title": "Integral symmetry modules of crown-graph induced-forest complexes",
+          "trigger": "Perfect matching deletion from balanced bicliques"
+        },
+        {
+          "assessment": "Strong combinatorial overlap, not topological coverage in the inspected statement",
+          "evidence": "Counts selected sets by cardinality and induced component count, including P4 and P5 cases.",
+          "identifier_or_url": "373532fcf326",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Bivariate induced-forest enumerator of matching-deleted bicliques",
+          "trigger": "Identical graph family and forest faces for all p,q,t"
+        },
+        {
+          "assessment": "Different complex, irrespective of same-day date",
+          "evidence": "Ind_2 requires induced maximum degree at most one; concerns its integral homology maps.",
+          "identifier_or_url": "c03b085e3d8d",
+          "material_read": "RESULT.md Finding offset 0",
+          "method": "Resultary local mirror",
+          "title": "Split integral persistence under successive matching deletions in bipartite dissociation complexes",
+          "trigger": "Identical matching deletion, possible broader integral result"
+        },
+        {
+          "assessment": "Different simplicial complex",
+          "evidence": "Computes an Alexander dual of a three-cut complex, not the unrestricted induced-forest complex.",
+          "identifier_or_url": "ab19f54685e2",
+          "material_read": "RESULT.md offsets 377 and 1691, statement and definition",
+          "method": "Resultary local mirror",
+          "title": "Partial-matching deletion in bipartite three-cut complexes",
+          "trigger": "Identical edit operation, potential dual formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired /workspace/repairs/1/RESULT.md Finding and Steps 2–5",
+        "Carnero Bravo endpoint theorems and all-parameter face enumerator 373532fcf326"
+      ],
+      "rationale": "The partial deletions give a natural missing range between the complete-bipartite and crown calculations and include all rectangular shores, not a hand-picked slice. The exact phase change from degree two to contractibility to degree-three and degree-four wedges, and the uniform multiplicity and torsion exclusion, go beyond the enumerator and give a usable classification of these forest complexes. The rectangular block repair preserves that contribution and does not rely on any claimed equivariant or persistence theorem.",
+      "residual_risks": [
+        "Only matching defects, not arbitrary missing edges; no classification of transition maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

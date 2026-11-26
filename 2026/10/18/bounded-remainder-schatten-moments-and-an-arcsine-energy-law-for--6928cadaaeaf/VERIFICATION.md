@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,4 @@
 }
 ---
 
-# Verification details
-
-The theorem is proved analytically in `RESULT.md`. The accompanying standalone `CHECK.py` uses Python's standard library, constructs \(B_n\) exactly over rational numbers, and computes \(\operatorname{tr}(B_n^k)\) for every \(1\le n\le10\) and \(1\le k\le6\). Its 60 rational traces satisfy the claimed lower bound and a safe rational relaxation of the upper bound using \(\zeta(2)<2\). It also verifies the exact \(k=2\) trace identity and eight binomial moment-coefficient identities. Execute `python CHECK.py`. No external download, secret, service, or optional dependency is required. The finite calculations do not establish the all-dimensional theorem or global bibliographic novelty. Independent mathematical and bibliographic audit have not been performed.
+The analytic proof includes a fixed-coordinate integral comparison for the strict sign and a finite cube comparison for the explicit upper bound on the defect. Run `python3 CHECK.py` to check the strict sign and the bound by \(kc_k\) over exactly 49 small parameter pairs \(1\le n\le7\), \(2\le k\le8\), along with the Gram and first two trace identities. The rational replay does not check the logarithmic refinement or replace the all-parameter proof.

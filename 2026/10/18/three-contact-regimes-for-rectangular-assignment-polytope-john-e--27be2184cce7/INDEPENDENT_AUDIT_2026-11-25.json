@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:13:49.344696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–74; VERIFICATION.md, lines 19–23; verify.py, lines 9–117; Torres arXiv:2306.11910v1, Theorem 3.1."
+      ],
+      "rationale": "The fixed-value k bipartite flow formulation gives the stated halfspaces by integrality (unit capacities on source-to-row and column-to-sink arcs, and integral total flow). The uniform center is strict, so the intrinsic dimension is mn−1. For k>1 each prescribed facet can be saturated leaving all the others strict: for an entry omit that entry and distribute k uniformly over the rest; for a row fill it uniformly to sum 1 and distribute the remaining k−1 uniformly over the other rows, and similarly for a column. Uniqueness and independent row/column permutations fix the center and make the shape scalar on the three inequivalent real irreducible summands (standard⊗trivial, trivial⊗standard and standard⊗standard). Projecting the entry normal gives squared norms A,B,D; projecting a row normal gives n(m−1)/m entirely in the row summand, and its slack is (m−k)/m. The column calculation is the transpose. The resulting budget and separate caps are necessary and sufficient. The trial shape (min(q,U),min(q,V),q) uses the full budget for the unique positive root q. Its objective gradient, with weights equal to mn times the budget coefficients, equals mn/q times the budget gradient plus nonnegative corrections on capped coordinates only. The supporting inequality for the concave log objective thus proves global optimality, with uniqueness by strict concavity. Since (x−k)²/(x−1) increases for x>k≥1, U<V. Solving the budget consecutively gives the stated q0, q1 and two-cap expression and the boundary equalities activate the corresponding faces. At k=1 the coordinate-only radius is strictly below both cap levels. Independently substituting the three examples gives q=1/140<U=1/108 at (4,9,3), U=1/60<q=1/40<V=1/20 at (4,5,3), and V=1/98<q=31/2352 at (7,8,6). The eigenvalue product gives the intrinsic volume. The same support computation gives the displayed contact points.",
+      "residual_risks": [
+        "The supplied finite rational checker was inspected but not executed. The proof uses the stated intrinsic Frobenius metric; no conclusion about arbitrary sections, sparse graphs or saturated k=m follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "68d7422dbffd concerns the all-cardinality rectangular partial matching polytope and establishes the product-of-row-simplices John ellipsoid when b+1≥a+√a and column contact below that threshold. f0ed64b5d30b also gives a row-product screening threshold, without fixed-k eigenvalues. Torres gives the fractional fixed-cardinality representation for any bipartite graph."
+        ],
+        "reasoning": "A maximum-volume ellipsoid of an ambient polytope does not in general restrict to the John ellipsoid of a fixed affine slice. In particular that all-cardinality result has no k parameter and its threshold cannot supply the fixed-k root or contact ranges. The same date of one record is immaterial to this mathematical distinction.",
+        "searches": [
+          "Resultary 68d7422dbffd and f0ed64b5d30b, Findings and Assumptions and scope; Torres arXiv:2306.11910v1, §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen AUDIT.json and RESULT.md; arXiv:2306.11910v1; Resultary d070eb07f633, 68d7422dbffd, f0ed64b5d30b, 673b85ad8b8f, 835af4d56516; Gill–Linusson bibliography only."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The square cap coincidence gives no strict row-only regime; the rectangular all-cardinality threshold is a different feasibility test; the bipartite fixed-cardinality theorem gives equality of the integral and fractional polytopes."
+        ],
+        "reasoning": "These checked results provide premises and analogues, not the distinct cap ordering or the determinant-maximizing tradeoff as k varies. The rectangular phase is witnessed at (4,5,3); it requires retaining two distinct affine modes and slack bounds in the inscribed optimization.",
+        "searches": [
+          "Resultary d070eb07f633, Finding and scope; 68d7422dbffd, Finding; Torres arXiv:2306.11910v1, Theorem 3.1; Gill–Linusson doi:10.1016/j.disopt.2008.10.003"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed-cardinality k-rook problem is the complete bipartite specialization of Torres's matching formulation. The enclosing ellipsoid records treat the same type of body, but minimize volume among containing ellipsoids; 673b85ad8b8f explicitly excludes the inscribed problem."
+        ],
+        "reasoning": "Changing matching to assignment terminology preserves the body, but John and Löwner optimizations on this body are not equivalent. Polarity interchanges inscribing and enclosing for appropriately centered polar bodies, not for this very same fixed-cardinality body.",
+        "searches": [
+          "Web: \"k-assignment polytope\" ellipsoid OR \"maximum volume inscribed ellipsoid\" assignment polytope transportation matching",
+          "Resultary 673b85ad8b8f and 835af4d56516, Findings and scope; Torres arXiv:2306.11910v1, §3, Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The square exact record gives the two squared-semiaxis classes with row and column contacts activated together. The exact rectangular fixed-k enclosing spectrum listed in 673b85ad8b8f belongs to the opposite volume problem."
+        ],
+        "reasoning": "None of these explicit spectra is a table of the rectangular fixed-k inscribed eigenvalue triple or contact sets. The square exact record expressly excludes m<n.",
+        "searches": [
+          "Resultary d070eb07f633, exact square fixed-cardinality John ellipsoid; 673b85ad8b8f, exact rectangular fixed-cardinality Löwner ellipsoid; 835af4d56516, exact Löwner ellipsoids and saturation anisotropy"
+        ]
+      },
+      "rationale": "The square fixed-k result uses the same symmetry idea but has coincident row and column caps. The rectangular all-cardinality results differ in domain and give a row-product criterion in full ambient dimension. The fixed-cardinality enclosing formulas reverse the optimization. The published matching result supplies the polytope description, not the inscribed ellipsoid. The unequal two-cap threshold and exact intermediate row-only contact phase are supported as distinct in the bounded comparisons.",
+      "residual_risks": [
+        "Gill–Linusson's full text was not independently recovered; no negative inference from this limitation or from unrelated web search returns. Equivalent work using transportation or optimal-design terminology could remain unlocated; no priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact polytope representation, not the metric optimization in the inspected statements",
+          "evidence": [
+            "M_k(G)=FM_k(G) for bipartite G and integer k; text identifies K_{m,n} as the known k-assignment specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.11910v1",
+          "material_read": "Abstract and §3 Theorem 3.1 (offset 11496 onward); distinguished from §2 Theorem 2.4 which concerns all cardinalities",
+          "method": "Lawful arXiv HTML, bounded original passages",
+          "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+          "trigger": "General fixed-cardinality matching theorem on the same feasible bodies"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not counted as evidence of noncoverage",
+          "evidence": [
+            "The frozen package attributes the k-assignment halfspaces and facet analysis to this work; Torres identifies the earlier complete-bipartite fractional representation."
+          ],
+          "identifier_or_url": "doi:10.1016/j.disopt.2008.10.003; https://www.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+          "material_read": "Bibliographic information; matching representation credited by Torres; no independent reading of the author manuscript",
+          "method": "DOI landing page and lawful author-manuscript retrieval attempts, including VPN",
+          "title": "The k-assignment polytope",
+          "trigger": "Same rectangular fixed-k body and classical facets"
+        },
+        {
+          "assessment": "Square-only; supplies the symmetric case but not asymmetric contacts",
+          "evidence": [
+            "Two squared-semiaxis classes and simultaneous row and column cap contacts; scope excludes rectangular assignments."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-john-ellipsoid-of-square-fixed-cardinality-assignment-poly--d070eb07f633/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Original record through the lawful local mirror",
+          "title": "Exact John ellipsoid of square fixed-cardinality assignment polytopes",
+          "trigger": "Closest exact fixed-k inscribed result"
+        },
+        {
+          "assessment": "Different body containing all cardinalities, not fixed total k",
+          "evidence": [
+            "Products of row simplices apply above b+1≥a+√a; below that, column contact is shown without an exact ellipsoid formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-john-ellipsoid-threshold-for-rectangular-partial-matching--68d7422dbffd/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Original record through the lawful local mirror",
+          "title": "Sharp John ellipsoid threshold for rectangular partial matching polytopes",
+          "trigger": "Same-day exact rectangular inscribed-ellipsoid contact threshold"
+        },
+        {
+          "assessment": "All-cardinality row-product screening, not fixed-cardinality classification",
+          "evidence": [
+            "The threshold screens column caps for the row-product ellipsoid."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-column-screening-threshold-for-john-ellipsoids-of-rectan--f0ed64b5d30b/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Original record through the lawful local mirror",
+          "title": "A sharp column screening threshold for John ellipsoids of rectangular partial matching polytopes",
+          "trigger": "Potentially stronger rectangular John classification"
+        },
+        {
+          "assessment": "Opposite optimization; does not imply the John spectrum or contact thresholds",
+          "evidence": [
+            "The scope explicitly specifies a minimum-volume enclosing ellipsoid and distinguishes the maximum-volume inscribed problem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-l-wner-ellipsoids-of-rectangular-fixed-cardinality-assignment-po--673b85ad8b8f/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Original record through the lawful local mirror",
+          "title": "Löwner ellipsoids of rectangular fixed-cardinality assignment polytopes",
+          "trigger": "Identical fixed-cardinality geometry and explicit spectral ellipsoid"
+        },
+        {
+          "assessment": "Enclosing ellipsoid, not inscribed",
+          "evidence": [
+            "Volume is minimized subject to containing the fixed-cardinality polytope."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-l-wner-ellipsoids-and-saturation-anisotropy-of-fixed-cardi--835af4d56516/RESULT.md",
+          "material_read": "Finding and scope from offset 0",
+          "method": "Original record through the lawful local mirror",
+          "title": "Exact Löwner ellipsoids and saturation anisotropy of fixed-cardinality assignment polytopes",
+          "trigger": "Same-day fixed-cardinality spectral ellipsoid formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and projected-support proof; square and all-cardinality comparisons above."
+      ],
+      "rationale": "The maximum inscribed Euclidean volume and spectrum are natural geometric data for a canonical matching relaxation. A single scalar formula gives them over the full unsaturated rectangular domain and reveals that the first active row cap need not make the column cap active. The three strict examples show a real geometric distinction rather than redundant constraints or a cosmetic extension from square notation. It supplies exact radii and contact types without vertex enumeration.",
+      "residual_risks": [
+        "No algorithmic speedup for general matching optimization or arbitrary transportation polytopes is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

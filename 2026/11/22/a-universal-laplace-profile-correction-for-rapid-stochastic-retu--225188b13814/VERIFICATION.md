@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The mathematical verification is a discounted-cycle renewal calculation coupled to one-dimensional diffusion boundary-value equations, short-time killed OU semigroup estimates, a one-sided derivative jump at the home position, and dominated convergence under \(\mathbb EW^2<\infty\). The proof establishes the pointwise Laplace-transform asymptotic for every fixed \(s>0\) and every admitted independent clock; it does not rely on numerical extrapolation.
+## correctness
 
-For a finite-rate check, run `python CHECKER.py` with SciPy and NumPy. The script uses the exact killed Brownian Green kernel for exponential alarm intervals and the killed Brownian heat kernel for deterministic alarms, plus a parabolic-cylinder-function solution of the return OU equations. It evaluates the completion transform by **two independent finite-rate expressions** (discounted-potential difference and direct renewal success numerator), checks the return ODE and boundaries, and compares scaled transform differences at multiple rates and Laplace parameters. The packaged implementation passed 217 numerical and analytic-consistency assertions. A separate direct high-rate calculation gave, at return stiffness \(2\), search stiffness \(0\), and \(s=0.75\), limiting coefficients approximately \(1.6342130248766844\) (Poisson) and \(0.7241417922856578\) (periodic), with ratio \(4/\sqrt\pi\approx2.256758334191025\). Finite tests do not prove uniformity, error bounds beyond the stated \(o(r^{-3/2})\), or generalization beyond the listed assumptions.
+PASS
 
-The prior published \(r^{-3/2}\) **mean** result is credited; the checked new statement is the nonconstant \(s>0\) transform coefficient. No independent validation has been performed.
+Reconstructed the discounted-cycle identity: subtracting the pure-return transform from the renewal quotient and applying stopped Dynkin to the return potential yields (k2-k1) times the killed search integral of exp(-st) x phi_s'(x), divided by the discounted home-return deficit. The integrating-factor identity (exp(-k2*x^2/2) phi_s')'=s exp(-k2*x^2/2) phi_s and the bounded negative-tail solution give |x phi_s'| bounded by the Gaussian Mills bound. The time-changed Brownian representation of search makes the short-time killing error exponentially small. The centered OU variance is 2t+O(t^2) and phi_s''(0)=s phi_s(0), giving expected integrand 2s phi_s(0)t+o(t). The one-sided home slopes give deficit C_s sqrt(t/pi)+O(t); the left slope is positive from the positive hitting transform and its integrating factor, and the right slope must be negative since q_s<=1 and a zero slope would give q_s''(0+)=s>0. Global bounds by constants times t and sqrt(t), respectively, justify both dominated-convergence steps for the assigned independent W, giving exactly the stated coefficient. The ratio 4/sqrt(pi) compares clock factors (or actual leading amplitudes at unequal stiffness); equal stiffness gives exact equality in law. No uniform-in-s, inversion or moment-interchange claim is accepted. Inspected VERIFICATION.md and CHECKER.py: their Brownian-search, harmonic-return finite-rate integrals corroborate but do not prove the arbitrary-clock result; the packaged script was not executed.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the sharp fixed-positive-s transform coefficient across all stated clocks and search stiffnesses. The known mean correction, renewal machinery, and leading transform limit are credited and are not accepted as new. The closest exact renewal formula still needs a higher-order cancellation/short-time calculation, and its displayed asymptotics do not give that calculation or the clock law.
+
+## value
+
+PASS
+
+The result separates the effect of the clock law from a genuinely distribution-level diffusion response, with sharp sign and order and a comparison between equally paced periodic and Poisson alarms. The mean law alone leaves that response undetermined, and neither a bound on the mean nor the leading convergence in law could calibrate these fixed-s corrections. The value is the sharp pointwise profile, not a claim about uniform error, density inversion, or engineering performance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

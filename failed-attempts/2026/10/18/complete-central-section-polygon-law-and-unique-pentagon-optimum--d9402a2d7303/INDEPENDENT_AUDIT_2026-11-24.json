@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:37:31.690052Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent azimuth integration gives the whole law. Fold azimuth by prism symmetry into φ in [0,π/6]; the vertical component of an upper-hemisphere uniform normal is uniform on [0,1]. Set g(c)=c/sqrt(c²+t²). Conditionally, the triangular case has probability 1−g(cos φ). A pentagon occurs precisely when the unscaled threshold lies between cos(π/3+φ) and cos(π/3−φ), so its conditional probability is g(cos(π/3−φ))−g(cos(π/3+φ)). Integrating using sin φ as the variable gives the stated p3 and p5, with p4 the remainder; the generic sign patterns give no other types. The stationary factor decreases strictly from 1 to 3/2−sqrt(3), proving the unique maximum. A bounded independent bisection reproduced t=0.53146955106361, 2t/sqrt(3)=0.61368817674533 and p5=0.38515580567418. Replay: python3 /workspace/review-evidence/5/check_prism.py. The analytic proof, not any grid or Monte Carlo check, covers all t>0. Frozen checker and verification notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "42f762a979c3 gives the complete law and optimum plus strict positivity and inverse recovery of t from p3.",
+          "Cube volume criticality and Poisson planar tessellation typical-cell counts do not specialize to fixed-prism sections."
+        ],
+        "reasoning": "The aspect-ratio recovery result contains the frozen claim and more; the other random-section contexts cannot be identified merely by subject or polygon count.",
+        "searches": [
+          "42f762a979c3, Finding and Assumptions",
+          "Ambrus arXiv:2107.14778, Theorems 1–3",
+          "Heerten–Hübner–Thäle arXiv:2309.12771, abstract",
+          "Shchur–Konstantinova DOI:10.1016/j.eswa.2023.121195 / SSRN 4485810"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 804f9ecfda5f, 42f762a979c3, d6887160b043, f7463d4c242b",
+        "arXiv:2107.14778; arXiv:2309.12771; DOI:10.1016/j.eswa.2023.121195 / SSRN:4485810"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting O=π−γ, S=β, V=2 arctan(t) into the first record gives the frozen p3, p4, p5 and mean. The second gives monotonicity and the endpoint limits of p3 explicitly; its optimum equation is the same. The ratio to base side is then 2t/sqrt(3)."
+        ],
+        "reasoning": "No additional mathematical claim in the frozen main finding remains after the substitutions. The path dates are not used as a priority inference.",
+        "searches": [
+          "804f9ecfda5f, Finding and Assumptions",
+          "42f762a979c3, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "804f9ecfda5f gives the full distribution in endpoint angles S, O, V and the identical stationary equation. Scaling R to one gives h=t, S=β, O=π−γ and V=2 arctan(t).",
+          "42f762a979c3 gives p3=1−(6/π) arcsin[1/(2 sqrt(1+t²))], the identical edge-angle mean, and the same stationary equation."
+        ],
+        "reasoning": "The change of variables concerns only notation and scale; all three probabilities, the maximum, and the orientation law agree.",
+        "searches": [
+          "Resultary meaning search: Haar centroid-fixed regular triangular prism, exact polygon-type law and pentagon-optimal aspect ratio",
+          "804f9ecfda5f, Finding, mirror offset 0",
+          "42f762a979c3, Finding, mirror offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both exact matches provide formulas and the same maximizing value, not just a nearby numerical sample. The two Crofton records sample affine planes conditioned on hitting the prism and give different laws."
+        ],
+        "reasoning": "The match is to two distinct catalogue findings, not to the frozen record itself or merely a shared aspect ratio.",
+        "searches": [
+          "Resultary indexed exact Haar law and aspect-ratio matches 804f9ecfda5f, 42f762a979c3",
+          "Related indexed records d6887160b043, f7463d4c242b"
+        ]
+      },
+      "rationale": "Two distinct indexed results state the same full Haar centroid-fixed law and exactly the same unique positive optimizer. This is established catalogue coverage, not a finding that either November-labelled entry predates the frozen result or establishes historical priority. The different affine Crofton model is not grounds for rejection.",
+      "residual_risks": [
+        "Provenance and historical priority among equivalent indexed records were not established.",
+        "The full 2024 section-angle paper was unavailable via the inspected lawful routes and could contain relevant prism results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent; verified statement-level coverage",
+          "evidence": [
+            "Circumradius one, centroid plane, Haar normal, three formulas in S,O,V, and unique root."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-haar-section-law-and-unique-pentagon-optimal-aspect-ratio--804f9ecfda5f/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0–2011",
+          "method": "Local mirror passage inspection",
+          "title": "Exact Haar section law and unique pentagon-optimal aspect ratio for regular triangular prisms",
+          "trigger": "Exact law and optimum match"
+        },
+        {
+          "assessment": "Contains entire frozen law and optimum, plus inverse recovery",
+          "evidence": [
+            "Same t=h/R and Haar-unoriented centroid plane; arcsine version of p3 and equivalent optimizer equation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-central-section-type-law-and-aspect-ratio-recovery-for-equ--42f762a979c3/RESULT.md",
+          "material_read": "Finding and Assumptions, offset 0–1932",
+          "method": "Local mirror passage inspection",
+          "title": "Exact central-section type law and aspect-ratio recovery for equilateral triangular prisms",
+          "trigger": "Exact aspect-ratio law and broader inverse result"
+        },
+        {
+          "assessment": "Different plane distribution",
+          "evidence": [
+            "Motion-invariant affine sections conditioned on intersection, not centroid-fixed planes."
+          ],
+          "identifier_or_url": "Resultary d6887160b043; f7463d4c242b",
+          "material_read": "Findings and sampling model",
+          "method": "Local mirror passage inspection",
+          "title": "Exact Crofton polygon-type law and unique pentagon optimum for regular triangular prisms; Exact Crofton pentagon law and thin/tall asymptotics for triangular prisms",
+          "trigger": "Same prism and polygon observables"
+        },
+        {
+          "assessment": "Different solid and observable",
+          "evidence": [
+            "Critical directions for cube section volume."
+          ],
+          "identifier_or_url": "arXiv:2107.14778",
+          "material_read": "PDF pp. 2–3, Theorems 1–3",
+          "method": "OA full-text passage inspection",
+          "title": "Critical central sections of the cube",
+          "trigger": "Central sections and optimization"
+        },
+        {
+          "assessment": "Studied model differs",
+          "evidence": [
+            "Planar Poisson line tessellation's typical cell, not sections of a fixed solid."
+          ],
+          "identifier_or_url": "arXiv:2309.12771",
+          "material_read": "PDF p. 1 abstract, offset 297",
+          "method": "OA PDF passage inspection",
+          "title": "Vertex number of the typical cell in a tri-directional Poisson line tessellation",
+          "trigger": "Polygon side-count probability law"
+        },
+        {
+          "assessment": "Unresolved as external coverage; not used to exclude overlap or to fail",
+          "evidence": [
+            "No retrieved theorem or appendix establishing the sampling regime or giving the frozen law."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.eswa.2023.121195; SSRN:4485810",
+          "material_read": "DOI bibliographic material; no full text recovered",
+          "method": "DOI access and identified lawful SSRN page/PDF attempts",
+          "title": "Algorithm for Density of Angle Distribution in Random Sections of Polyhedron",
+          "trigger": "Plausibly relevant triangular-prism examples"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The mathematical question is worthwhile: the exact family law resolves which generic polygon types occur for every aspect ratio and the derivative establishes a unique design optimum under a precisely specified natural measure. Such a law can also distinguish orientation-Haar from affine stereological sampling. This assessment of the mathematical content does not confer distinct credit for equivalent catalogue coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

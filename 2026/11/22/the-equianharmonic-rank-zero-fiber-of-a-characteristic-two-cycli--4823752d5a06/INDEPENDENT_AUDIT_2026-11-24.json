@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:10:50.008335Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For t not 0 or 1, Riemann–Hurwitz for four full tame ramification points gives genus 6. The six listed differential forms are regular; at a finite branch the bound 6-j suffices (at x=0 the actual order for x^i dx/y^j is 6-j+7i); the infinity orders follow from x,y,dx having orders -7,-3,-8. Kummer characters distinguish the groups, and 1,x are independent in each double group. Write c=sqrt(t), d=sqrt(1+t). Extracting odd coefficients of x^i f for odd j, and of x^i for even j, checks the action, including C(e5)=e0 and C(e1)=C(e4)=0. Put v=c e2+e3 and w=c sqrt(c) e4+(sqrt(c)+d)e5. Image C has basis v,e4,e5,e0 because c,d are nonzero, so image C^2 has basis w,v,e0. On this latter space, e0 maps to v, v to w, and w to sqrt(sqrt(c)+d)e0, with inverse-Frobenius semilinearity. The last coefficient is zero exactly when t=(1+t)^2. In that case subsequent images are span(v,w), span(w), and zero; otherwise the three-line image is stable. Stable rank is the 2-rank and the Cartier kernel dimension is the a-number. The two roots are exchanged equivariantly by x=tX, rescaling y by a seventh root of t^3. The recorded finite-field replay starts at C^1 and matches both profiles; the code and record were inspected, not rerun, and the symbolic proof handles all t.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moonen p. 20 discusses attainment of a monodromy p-rank bound via Bouw; Moonen's special-family classification at Theorem 3.6 does not contain this datum.",
+          "Li–Mantovan–Pries–Tang Theorem 1.1 is about Newton polygons of Moonen's listed special families. Bouw–Wewers' inspected abstract concerns semistable reduction, local factors and conductor exponents."
+        ],
+        "reasoning": "An attainable bound or a generic stable rank would not prove the exact exceptional locus or distinguish successive unstable ranks. These general results do not provide the claimed family specialization in the inspected passages.",
+        "searches": [
+          "Moonen arXiv:1006.3400, literal p-rank and Table 1",
+          "Li–Mantovan–Pries–Tang arXiv:1805.06914, literal p-rank",
+          "Bouw–Wewers arXiv:1211.4459, literal Cartier and p-rank plus abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_septic_char2.py",
+        "Pries–Ulmer arXiv:2101.07946 and related arXiv:2010.15160",
+        "Moonen arXiv:1006.3400",
+        "Li–Mantovan–Pries–Tang arXiv:1805.06914",
+        "Bouw–Wewers arXiv:1211.4459",
+        "Resultary 2db1a29cebba, cd9bc2f15ac0, 4e8b5568d9a0, 4823752d5a06 (self)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the tame Fermat quotient keep regular character pairs (a,b) with 7|a, 3|b and a+b<21. Dividing both coordinates by 2 modulo 21 under V gives the chain (7,6) to (14,3) to (7,12) to (14,6) to (7,3) to zero; (7,9) is killed. This gives the full exceptional sequence, not merely 2-rank zero.",
+          "The generic character bound is 3 from minimum dimensions 1 and 0 on the two cycles of length 3. The actual calculation of the return scalar for every parameter, and the ranks of the two transient steps, require additional family information."
+        ],
+        "reasoning": "The existing stronger Fermat theorem supplies the exceptional profile exactly; the frozen compound claim still distinguishes that member from every other smooth fiber and treats all powers on one family.",
+        "searches": [
+          "Pries–Ulmer, arXiv:2101.07946, §5.8 and Theorem 5.9",
+          "Moonen, arXiv:1006.3400, p. 20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At t^2+t+1=0, translation by 1+t gives y^7=x^3+1, a quotient of X^21+Y^21=1 by X to X^7 and Y to Y^3.",
+          "Pries–Ulmer §5.8 and Theorem 5.9 give one-dimensional Fermat character spaces and the Verschiebung permutation rule; the tame invariant part gives the profile of this quotient."
+        ],
+        "reasoning": "The exceptional curve is explicitly equivalent to a covered quotient; this does not describe which members of the one-parameter family have zero stable rank.",
+        "searches": [
+          "Web: \"y^7=x(x-1)(x-t)\" Cartier characteristic 2 cyclic cover p-rank",
+          "arXiv:2010.15160, literals Fermat curve F and [PU]; arXiv:2101.07946, literal 5.9."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 4823752d5a06 catalogue hit is the frozen record itself. 2db1a29cebba has the same exceptional profile throughout a wild order-twelve Witt family, not this tame family. cd9bc2f15ac0 treats a tame quintic with different ranks. 4e8b5568d9a0 is septic but in characteristic 5 with inertia (1,1,6,6).",
+          "Moonen's order-seven entries have 9 or 12 branch points, not four."
+        ],
+        "reasoning": "A matching rank sequence for a different curve or an equal genus/deck degree does not imply a rank stratification of the given family.",
+        "searches": [
+          "Resultary: characteristic two y^7=x(x-1)(x-t) Cartier ranks",
+          "Resultary: cyclic septic genus six characteristic 2 p-rank Cartier operator",
+          "Moonen Table 1, arXiv:1006.3400"
+        ]
+      },
+      "rationale": "The family-wide classification of ranks, the exact locus of the jump, and its interpretation as one exceptional cover class were not covered in the inspected comparisons. The exceptional member's Cartier profile itself is already a consequence of the Fermat-curve result of Pries–Ulmer and should not be credited as a stand-alone novelty. The generic stable rank is also the natural character-orbit upper bound; the substantive comparison is exact everywhere outside the exceptional locus and for all powers, not just a bound or an example of attainment.",
+      "residual_risks": [
+        "Bouw's cyclic-cover p-rank work was seen through Moonen rather than read directly. A coefficientwise stratum calculation in a different normalization might overlap; the exact-phrase web lookup was uninformative.",
+        "No claim of independent historical priority for the exceptional profile, which is demonstrably covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger result covers the exact exceptional profile",
+          "evidence": "The BT1 module is determined by one-dimensional characters with Frobenius multiplication by p and reverse Verschiebung into regular characters. Taking the prime-to-2 quotient leaves the invariant chain exhibited above.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.07946",
+          "material_read": "§5.8 and Theorem 5.9, PDF p. 7, bounded text from offset 20850; companion reference at arXiv:2010.15160 p. 26",
+          "method": "OA queries and bounded PDF passages",
+          "title": "Every BT1 group scheme appears in a Jacobian",
+          "trigger": "Fermat form of the equianharmonic fiber"
+        },
+        {
+          "assessment": "Different classified data; broader bound context",
+          "evidence": "Its order-seven table entries have branch counts 9 and 12; the cited Bouw theorem concerns attainment of a bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.3400",
+          "material_read": "Table 1 and Theorem 3.6, pp. 10–11, offset 24700; p. 20 near offset 48031",
+          "method": "OA literal queries and bounded PDF passages",
+          "title": "Special subvarieties arising from families of cyclic covers of the projective line",
+          "trigger": "Cyclic-cover classification and Bouw p-rank bound"
+        },
+        {
+          "assessment": "The theorem's listed families do not cover the target",
+          "evidence": "Scope is Moonen's twenty special families, not all prime-to-p cyclic covers.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.06914",
+          "material_read": "Scope and Theorem 1.1, pp. 2–3, offset 5700",
+          "method": "OA query and offset passage",
+          "title": "Newton polygons arising from special families of cyclic covers of the projective line",
+          "trigger": "Possible coverage by stronger Newton polygon results"
+        },
+        {
+          "assessment": "Inspected scope is not a Cartier-power theorem; keyword misses do not establish whole-paper absence",
+          "evidence": "Computes local factors and conductor exponents from semistable reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/1211.4459",
+          "material_read": "Abstract, p. 1; literal Cartier and p-rank searches yielded no match",
+          "method": "OA abstract passage and locator queries",
+          "title": "Computing L-functions and semistable reduction of superelliptic curves",
+          "trigger": "Superelliptic bibliography and possible arithmetic overlap"
+        },
+        {
+          "assessment": "Identical exceptional sequence on different objects",
+          "evidence": "Characteristic two and genus six, but a wild order-twelve tower with that profile at every parameter.",
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-cartier-nilpotency-in-the-genus-six-cyclic-twelve-witt-f--2db1a29cebba",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Resultary search and local mirror",
+          "title": "Uniform Cartier nilpotency in the genus-six cyclic twelve Witt family",
+          "trigger": "Exact nilpotent profile match in the catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural tame family rather than an isolated table entry, the explicit return scalar detects a dramatic smooth-fiber drop of stable rank even though the first two ranks never jump. The full power profiles identify when the degeneration becomes visible and what nilpotence it produces. This exact coefficientwise invariant is useful for distinguishing these fibers; the covered Fermat case alone would not satisfy the value bar.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

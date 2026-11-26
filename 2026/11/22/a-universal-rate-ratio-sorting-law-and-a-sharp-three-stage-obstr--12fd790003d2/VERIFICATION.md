@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,4 @@
 
 # Reproducibility and exact-proof scope
 
-Run `python verify.py` from the extracted directory (Python standard library only). The deterministic test reports 46,171 passing assertions, including exact rational two- and three-transition results, stochastic numerical examples, and arbitrary-prefix/suffix interchange tests. No random data are required to reconstruct the closed forms; a fixed seed makes the auxiliary tests reproducible.
-
-The infinite/all-parameter assertion is supported by the algebraic interchange identity and strict positivity of its factors, not by exhaustive finite tests. The three-transition result is a constructive nonexistence claim about a context-independent local pair-ordering preference; the exact fraction calculation is a complete proof of that example. No general biological performance claim or independent verification is asserted.
+Run `python3 verify.py` (standard library only). The checker uses rational partial fractions to recover the transient matrices by a different calculation from the spectral projector polynomial in `RESULT.md`. It checks all two- and three-block schedules in the two stated instances, including strict swap signs and both unique optima. This is an exhaustive comparison only for those instances. The proof that one or two transitions cannot show the obstruction uses the analytical affine normalization and comparison.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Computational and analytical verification
+# Independent mathematical audit
 
-The proof is analytical and uses an eight-state inverse-branch matrix. For the specified map, exact substitution gives the core arrow list and expansion factors in RESULT.md. The determinant and the similarity-pressure polynomial are explicit identities. A graph-directed open-set condition follows from the disjoint relative interiors of inverse image segments. Perron–Frobenius convergence applies because the graph is strongly connected with coprime return loops.
+## correctness
 
-The standalone script `check_survivor.py` tests exact endpoint images and ordered image decompositions at nine rational parameters, including both endpoints and the graph change, and uses SymPy for the exact determinant. Its expected status line is:
+PASS
 
-`POLYGONAL_CORE_EXACT_BRANCH_AND_CHARPOLY_OK parameter_samples=9 states=8`
+For the repaired claim, endpoint signs and affine segment images justify the core arrow matrix for all real b in [2,4]. The only extra core hits are a finite set per branch; inverse images inside the core thus stay arclength-null and countable over all levels. The inverse branches give the exact survival recursion. Three simple cycles share C and have lengths 3, 4, 7 and arclength weights 1/4, 1/4, 1/16; the characteristic polynomial and primitive Perron asymptotic follow. For the disjoint-interior graph-directed system the same cycle weights raised to power d give the spectral-radius-one equation 1-2*4^(-d)-16^(-d)=0. Each point outside the survivor eventually hits a transient segment, all of which map to a plateau in finitely many steps. The repaired endpoint distinction follows from the explicit two itineraries and the distinct periodic itinerary; it does not add a numerical hypothesis.
 
-Its numeric dimension and positive real decay root agree with the analytical expressions. This finite test cannot establish arbitrary-real-parameter correctness or general novelty; those depend on the proof and inspected literature.
+## originality
 
-No full-plane area distribution, independence certificate, or priority guarantee is claimed.
+PASS
+
+The final metric claims are distinct on the inspected evidence. The exact symbolic graph and its entropy are existing; the broader qualitative capture theorem is also existing and is cited as such. The escape and dimension formulas require the specific nonuniform Euclidean expansion weights, not just the unweighted adjacency or almost-everywhere absorption.
+
+## value
+
+PASS
+
+The interval and core are motivated by the preexisting invariant graph and its symbolic model. Exact finite retained mass, its leading asymptotic, and the positive dimension of the null survivor are useful metric refinements: they distinguish transient persistence from the symbolic entropy and from a bare full-measure capture statement. The repair keeps these four-independent-parameter-geometry calculations and removes only a wrong interpretation of capture at the boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

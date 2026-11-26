@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact binomial expression fixes normalization, and the magnetization entropy has the required quadratic, quartic and sixth-order coefficients. In the critical triangular array, \(m=N^{-1/4}x\) cancels the quadratic entropy and yields the stated cubic-tilted quartic with a uniform negative quartic envelope. The reflection identity is algebraic. For small \(K\), the coexistence equations have an invertible analytic Jacobian at the two-well limit. Their next-order terms independently give \(16/15\) and \(-32/5\). The assumption \(NK^4\to\infty\) makes Gaussian widths negligible against the well separation and controls third- and fourth-order Taylor remainders. The limiting two-point variance gives \(\operatorname{sech}^2t\). The accompanying finite computations are cross-checks rather than proof.
+PASS
 
-## Originality
+The binomial entropy subtracts m²/2 and supplies −m⁴/12. At m=N^(−1/4)x all three tilts have the stated coefficients. On a fixed interior m-interval the Stirling prefactor is bounded after removing its common N^(−1/2) factor, and the quartic entropy inequality dominates polynomially weighted Riemann sums; outside the interval the crude binomial entropy bound is exponentially small in N. At eta=0 and j=−2 kappa²/3 the square factor is invariant under x↦2 kappa−x, yielding the stated mean, masses and barrier; at kappa=0 there is only one peak. Independently, at zero field F(m)=(m²/2)(J−g_K(m)), where g_K(m)=2I(m)/m²−2Km/3 extends at zero. The positive even-power entropy coefficients starting with m²/6 make g_K strictly convex, so its unique small positive minimum gives the exact coexistence value and excludes a competing third peak. Expanding g'_K=−2K/3+m/3+4m³/15+O(m⁵) and g_K at its minimizer yields both stated coefficients. For the second regime the exponent on y=m/K is (NK⁴)f_K(y)+ty²/2, with f_K tending to −y²(y−2)²/12 on compacts in derivatives and bounded above by a quartic with negative leading coefficient globally. The well widths on y are (NK⁴)^(−1/2); their ratio to the lattice spacing tends to infinity. The two scaled curvatures tend to −2/3, and the log weight difference is 2t+o(1), because the scaled center displacement costs O(1/(NK⁴)). Compact gaps and quartic tails control all fixed moments, with |m| outside the fixed interior interval again exponentially small in N. The limiting variance is 4p_t(1−p_t)=sech²(t), and the finite identity chi_N=N Var(m_N) gives exactly the stated normalization. An independent midpoint quadrature at kappa=1.5 corroborated mean 1.500000000000018 and left mass 0.500000000000007.
 
-**PASS with residual risk.** Primary full-text examination of Contucci–Mingione–Osabutey (arXiv:2303.14578) found the isolated quartic critical limit and fixed-parameter coexistence laws, not the size-dependent three-parameter cusp window, shrinking-well logistic crossover or normalized susceptibility profile. Contucci–Osabutey–Vernia (arXiv:2210.03260) concerns parameter inference. Gandolfo–Ruiz–Wouts (arXiv:0811.2735) provides an important near-relative with fixed positive-curvature Potts coexistence and a critical endpoint, but does not directly cover the degenerating-curvature cubic-model triangular array. Bibliographic/semantic searches of critical scaling, finite-size cubic Ising, spin-three-body finite-size transitions and accessible recorded claims did not disclose an equivalent claim. Broader uniform Laplace and catastrophe-scaling theory might cover aspects implicitly, so independent literature verification remains appropriate.
+## originality
 
-## Value
+PASS
 
-**PASS.** The narrow scaling is dictated by the cubic model's genuine critical/first-order merger: the quartic entropy selects \(N^{-1/4}\), the cubic perturbation selects the same order and the distinct outer window is selected by the well barrier \(NK^4\). The exact equal-phase reflection identity, higher-order coexistence location and \(\operatorname{sech}^2\) susceptibility scaling permit physically meaningful finite-size extrapolation and critical-to-first-order comparison. These are nontrivial objects not supplied by the fixed-parameter laws alone; no claim of a paper-sized breakthrough is needed.
+The centered quartic law at the unperturbed critical point, the thermodynamic coexistence branch, fixed-parameter curvature-weighted coexistence, and the susceptibility identity have direct precedents. The critical family is the natural polynomial tilt of the known critical law, with equal masses following algebraically at the indicated parameters. The supported distinction is the explicit two-scale result, especially uniform localization along the shrinking-well triangular array and its normalized equilibrium switching profile tied to the exact coexistence curve. The inspected fixed-parameter theorems do not imply this exchange of scales.
 
-## Closest sources and limitations
+## value
 
-The fixed-coupling cubic-model results are the nearest primary source; the Potts coexistence method is conceptually adjacent. The result assumes a mean-field Gibbs law, sufficiently small positive cubic coupling in the second regime, and gives no uniform error estimate over arbitrary arrays or dynamics. Finite numerical checks do not establish asymptotic claims.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The small-coupling endpoint is a natural place where the two standard fixed-parameter asymptotics cease to address the same scales. The calculations identify the exact tuning that produces equal mass in the overlapping quartic law and quantify equilibrium response as wells separate while their curvatures vanish. The scale, exact phase centering, and susceptibility normalization are useful for comparing finite-size magnetization and response; value does not rest on the elementary logistic-to-sech² identity by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

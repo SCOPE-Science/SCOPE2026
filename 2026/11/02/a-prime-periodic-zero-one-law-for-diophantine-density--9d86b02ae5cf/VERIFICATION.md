@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and the standard library. The script checks all residue subsets for primes 2, 3, 5, and 7; checks the full-density bound for reduced fractions with moderately sized denominators; verifies the obstruction family for zero-density sets; and tests a natural-density 99/101 example. It prints `VERIFY_OK`, followed by the number of cases. No network downloads, random choices, or external proof engines are used.
+## correctness
 
-These exact finite checks supplement, but do not prove, the theorem for all primes and arbitrarily large rational denominators. The universally quantified result is supported by the proof in RESULT.md, including the modular inversion and coprimality identities.
+PASS
 
-Independent audit and expert validation have not been performed.
+For reduced p/q and 1<=v<q, nonzero modular residues give the universal floor 1/q. If 0 is present, among 0, lp/q, ..., floor((q-1)/l) lp/q modulo one, two have circular distance at most the reciprocal of their count, at most l/q; their difference is an eligible positive multiple of l. If all nonzero classes are present, either the inverse u of p modulo q is not divisible by l or q-u is not, since l dividing both would contradict gcd(u,q)=1. For necessity choose a missing nonzero t and arbitrarily large q congruent to t modulo l, so gcd(q,l)=1. Take p inverse to l modulo q. If the residue of vp modulo q is a nonzero signed j of magnitude less than q/l, then the representative v is l*j for j>0, or q-l*abs(j) for j<0. These have residues 0 and t respectively, neither allowed. Thus the defining minimum is at least 1/l along infinitely many reduced pairs, ruling out every positive exponent; exponent zero is trivial for nonempty periodic sets once the minimum is defined. The empty-set convention, l=2, periodic counting, and the effect of restoring either class all agree. No unbounded claim is inferred from the finite verifier, which was inspected, not executed.
+
+## originality
+
+PASS
+
+Credit Sanford's expanded definition and its multiples-of-any-modulus result, and the existing translated-progression and covering-set phenomena. The initial Sanford note uses a different endpoint convention; the expanded paper is the direct reference for the frozen definition and the explicit multiples proposition. The supported distinct contribution is the necessary-and-sufficient test simultaneously for every whole prime-periodic residue union, with the missing-unit obstruction. The bounded checks do not establish historical priority against every unpublished or unindexed progression result.
+
+## value
+
+PASS
+
+This is a complete structural classification on a natural test class for a non-subadditive approximation invariant. It explains why sets of arbitrarily high natural density can have Diophantine density zero even with very regular membership, and why a single restored residue class can change the invariant maximally. Neither a single-class table nor qualitative covering examples supply that boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

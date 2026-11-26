@@ -1,11 +1,21 @@
-# Scientific review: rank-one divisor-window covariance
+# Independent mathematical audit
 
-**Correctness — PASS.** Over a complete divisibility period, \(\mathbb E(\mathbf1_{d\mid n}\mathbf1_{e\mid n})=1/\operatorname{lcm}(d,e)\) exactly. Expanding \(\gcd(d,e)\) by \(\varphi\) produces the exact nonnegative harmonic-floor quadratic form. The standard summatory totient law gives logarithmic mass \(6/\pi^2\) on each multiplicative interval. Cancellation of total logarithmic width makes the harmonic-floor function \(O(t)\) at zero, yielding convergence of the finite-energy integral; without cancellation its nonzero limit yields logarithmic variance growth. Positive dyadic limiting variance follows from the integrand being one on \((2,4)\). The standalone finite verifier independently confirms the identity for three complete periods and numerical consistency in larger examples; it is not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Ford–Gabdullin–Pratt (arXiv:2611.15534v1) gives single-window divisor-multiplicity tail frequencies and Ford (Annals 2008) gives presence and exact-count frequencies, while the present claim classifies all fixed linear contrasts by variance growth and evaluates their balanced limits. Search comparisons found no stated equivalent in inspected indexed results. The classical gcd-totient second-moment identity is acknowledged as prior mathematics, rather than claimed new. A conference synopsis by Kovaleva reports unpublished ongoing research on dyadic divisor counts, without available conclusions: substantial residual implicit-coverage risk remains. Unindexed or unpublished prior results might contain the classification.
+PASS
 
-**Value — PASS.** The cancellation hyperplane \(\sum c_j\log(b_j/a_j)=0\) sharply separates divergent from bounded second moments for every fixed family of proportional windows. The disjoint adjacent dyadic case displays asymptotically perfect correlation despite a positive variance of the difference. This identifies a structural limitation of using marginal moments to infer local divisor clustering, relevant to current work on dyadic divisor statistics. It does not by itself give tail probabilities or higher moments.
+Reconstructed the finite-period normalization: the joint divisibility mean is 1/lcm(d,e), so expanding gcd(d,e) as a sum of totients gives the exact second moment Σ_{r≤By} φ(r)G(r/y)²/r². The first moment is v+O(1/y) by harmonic sums, with no rational-endpoint requirement. Summatory φ and partial summation give κ log x+O(1) for total weight and log(v/u) times κ as the limiting weight of each interval (u,v] away from zero. Finitely many floor jumps on any truncated interval allow integration against the limit. G(t)=v+O(t); for nonzero v the replacement by v² in the second moment costs O(1), since φ(r)/r²≤1/r. For zero v the contribution r≤εy is O(ε²) uniformly, giving exactly the stated finite integral after subtracting the vanishing squared mean. Polarization supplies the rank-one covariance matrix. Direct finite-X pair discrepancies sum to O(y²/X), and the corresponding means cost O(y/X). For the balanced dyadic difference G=−1 on (2,4), proving strict positivity. An independent step-sum calculation with x=4/t and cut at x=400000 gives 0.50821852788883831499…; the omitted positive tail is bounded by 5×10^(−9) using |G(t)|≤10t near zero. Replay: python3 /workspace/branches/f2242719-5199-4216-880c-d47ecbdc3d65/dyadic_constant_decimal_check.py (also dyadic_constant_independent.py). Ford's presence estimate transfers to period sampling by taking X an arbitrarily large multiple of L_y for each fixed y, so each dyadic presence probability tends to zero. The union bound gives convergence in probability to zero for the difference, while its squared mean tends to zero and its second moment does not. Frozen verify.py inspected, not executed; numerical computation supports only the displayed decimal.
 
-**Closest primary literature and limits.** The new 2026 dyadic-interval work was inspected through its complete available HTML with attention to theorem, hypotheses, proofs, and references. The 2008 article was inspected using its arXiv full-text HTML, with its introduction, theorem statements and the searchable text checked for second-moment or covariance assertions; it was not reviewed line-by-line in every technical proof section. The 2007 two-divisor article was compared via its official abstract. Kovaleva's work-in-progress synopsis is not a completed written proof accessible for comparison. These limitations do not certify uniqueness and leave a real residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the classical gcd–totient identity, summatory totient asymptotic, and prior divisor-presence and frequency theory. On bounded evidence the joint proportional-window covariance law and the necessary-and-sufficient contrast criterion with its exact limiting energy are distinct. No priority is claimed for the vanishing presence probability.
+
+## value
+
+PASS
+
+The natural fixed-window vector has a single logarithmically diverging direction and a complete finite-energy criterion for contrasts orthogonal to it. The positive contrast for disjoint adjacent dyadic windows shows what leading correlation and convergence in probability both miss. The exact integral, not just the numerical constant, makes the classification reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

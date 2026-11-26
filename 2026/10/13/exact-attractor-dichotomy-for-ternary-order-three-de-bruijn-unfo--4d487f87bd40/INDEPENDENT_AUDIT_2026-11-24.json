@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:44:20.796476Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every trigram occurs at exactly one of the 27 linear starts. A nine-element hitting set must cover exactly three starts per mark without overlap, forcing marks 2,5,…,26. Hitting all such windows hits every occurrence of every longer factor, so the only further tests are the three letters and nine digrams. I independently enumerated all 2·6^8 local exit orders of the Euler graph with 000 fixed first. Every complete tour uniquely determines and is reproduced by its orders. All ten-subsets were filtered by explicit bit-mask coverage of the 27 starts, yielding 275, and each of the 27 linear cuts per tour was tested directly, without the source's residue shortcut. The seven disjoint chunks in /workspace/audit-evidence/2/census.py and totals.txt give 373248 cycles, 8274096 cuts of size nine, 1803600 of size ten and none unresolved; the cycle histogram is 0:1632, 9:19968, 18:155568, 27:196080. Direct all-factor checking confirms the displayed witness's ten marks; all its cuts fail nine. A second independent symbol-recursion run agreed. The source C++ was inspected but not executed, and no claim for other orders follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mantaci et al. supply general bounds and an example; Kempa et al. study general attractor verification.",
+          "Whittington's prime-order favorable unfolding theorem is for a particular Lyndon construction, not every cycle."
+        ],
+        "reasoning": "Bounds and finite optimization techniques do not decide the exact frequencies; existence for one construction does not remove the all-cycle quantifier.",
+        "searches": [
+          "arXiv:1907.04660, §7 de Bruijn words",
+          "arXiv:1803.01695v2, definitions and optimization",
+          "arXiv:2407.15599v1, Theorem 29"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.15599v1",
+        "arXiv:1907.04660",
+        "arXiv:1803.01695v2",
+        "SCOPE b89f933847cc",
+        "SCOPE 2b87c9462895"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest prior example is rescued by changing the cut, whereas the new no-favorable-cut cycles are obstructed at every cut."
+        ],
+        "reasoning": "The universal claim was not already refuted by the earlier bad cut, and the exact counts require testing the letter and digram constraints on all Euler tours and cuts (or an equivalent enumeration), not applying a generic bound.",
+        "searches": [
+          "Whittington, arXiv:2407.15599v1 §5, question following the order-three example and Theorem 29",
+          "Mantaci et al. §7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whittington gives a ternary unfolding whose forced spacing misses a digram, but also gives a favorable recut.",
+          "SCOPE b89f933847cc and 2b87c9462895 give full-attractor results for binary order four and five, respectively."
+        ],
+        "reasoning": "A failed cut is not a cycle with no favorable cut; a sharp-three attractor only hits triples rather than requiring letters and digrams. Neither binary comparison reparametrizes the ternary labeled cycle problem.",
+        "searches": [
+          "Resultary: full attractor rank of ternary order-three de Bruijn unfoldings over rotations",
+          "arXiv:2407.15599v1, §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The order-four binary census lists 192 size-four and 64 size-five cuts, with favorable-cut counts 16, 12 or 8; the order-five binary result is constant rank seven. No matching ternary all-cut table surfaced."
+        ],
+        "reasoning": "These are exact classifications but for different alphabets, orders and lower bounds. Their tables cannot yield this histogram or no-optimal-cut witness.",
+        "searches": [
+          "Resultary: ternary order-three exact attractor census and optimal-cut histogram; matched SCOPE b89f933847cc and 2b87c9462895"
+        ]
+      },
+      "rationale": "An unfavorable cut and examples of favorable recuts were known. The inspected sources do not settle which labeled ternary order-three cycles lack a favorable cut at every rotation, or give the 9/10 counts and distribution. The result answers the universal-cycle question negatively, not the separate existence question.",
+      "residual_risks": [
+        "An unindexed equivalent census or an earlier independent all-cuts counterexample is not ruled out by the bounded comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest prior, partial coverage only",
+          "evidence": "The missed digram ba concerns a particular unfolding. The favorable Lyndon result is constructive, not a census and not universal over cycles.",
+          "identifier_or_url": "https://arxiv.org/html/2407.15599v1",
+          "material_read": "Optimal String Attractors for de Bruijn Sequences; example, favorable recut and Theorem 29, OA offsets 60200–66642",
+          "method": "Primary OA targeted article passage",
+          "title": "Online String Attractors",
+          "trigger": "Same ternary order-three case and all-cycles question"
+        },
+        {
+          "assessment": "Bounds and example, not the census",
+          "evidence": "Treats de Bruijn words and their unfoldings but no ternary order-three rotation profile in the relevant passage.",
+          "identifier_or_url": "arXiv:1907.04660",
+          "material_read": "§7, p. 11, OA offset 31900",
+          "method": "Primary OA PDF targeted passage",
+          "title": "String Attractors and Combinatorics on Words",
+          "trigger": "General de Bruijn attractor bounds and unfoldings"
+        },
+        {
+          "assessment": "Definitions and methodology",
+          "evidence": "Gives general attractor optimization context and sharp-k distinction.",
+          "identifier_or_url": "arXiv:1803.01695v2",
+          "material_read": "p. 1, OA offset 800",
+          "method": "Primary OA targeted passage",
+          "title": "String Attractors: Verification and Optimization",
+          "trigger": "Full versus bounded and sharp attractors"
+        },
+        {
+          "assessment": "Adjacent, different parameters",
+          "evidence": "Classifies 256 cuts of binary order four, not ternary order three. Shared catalogue date does not order the records.",
+          "identifier_or_url": "SCOPE b89f933847cc",
+          "material_read": "Finding through proof, mirrored RESULT.md offsets 80–6020",
+          "method": "Local Resultary mirror",
+          "title": "Complete attractor-rank profile of binary order-four de Bruijn unfoldings",
+          "trigger": "Similar full all-cut census"
+        },
+        {
+          "assessment": "Different parameters",
+          "evidence": "Asserts rank seven on all binary order-five cuts, not the ternary dichotomy.",
+          "identifier_or_url": "SCOPE 2b87c9462895",
+          "material_read": "Finding, mirrored RESULT.md near offset 80",
+          "method": "Local Resultary mirror",
+          "title": "Every binary order-five de Bruijn unfolding has an optimal seven-position attractor",
+          "trigger": "All-cut assertion of optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite domain is the natural small nonbinary case of a published universal unfolding question. The verified all-rotation obstruction gives a clean counterexample, and the complete labeled distribution quantifies how often cut selection can or cannot recover the lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

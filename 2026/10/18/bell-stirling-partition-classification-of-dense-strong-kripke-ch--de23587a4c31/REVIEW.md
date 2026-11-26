@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact objects are binary relations on a fixed finite chain, with strength, predecessor-prefix closure and literal relational density. Necessity of the density test uses the edge from the last predecessor to the given target, forcing any factorization point to coincide with that last predecessor. Sufficiency factors each edge through the self-loop at its last predecessor. This gives a two-sided bijection with partitions with one distinguished extra point, including empty columns, all boundary cases and nonserial relations. Rank and serial counts follow by selecting blocks; modal collapse follows from upward closure and the root-factorization property; fibre sizes follow from independent per-column choices. The packaged checker independently tests the primitive relational conditions and every upset through seven worlds, so the finite evidence agrees with, but does not replace, the arbitrary-size proof.
+PASS
 
-## Originality — PASS with residual risks
+Each incoming column is an initial segment ending at d_j<=j, or empty. If r=d_j>=0, a factorization of the last edge rRj must use an intermediate k with r<=k<=d_j=r; hence r has a loop. Conversely such a loop and prefix closure factor every incoming edge through r, proving the exact criterion. Transitivity independently follows from prefix closure and strongness. Grouping by column endpoint produces the nonstar blocks with their minima as roots, and the empty columns form the block containing the star. The inverse from partitions has the required endpoint bounds and loops. Seriality is exactly a loop at n-1 and hence a singleton top block; deleting the singleton gives the stated rank shift, also for n=1. For an upset U, factoring each edge through a root and using upward closure proves the modal formula; testing U={i+1,...,n-1} distinguishes whether i is a root. In threshold coordinates U_a={i:i>=a}, with a=n allowed, the nucleus sends a to one plus the largest root below a, or 0 if none exists. Its fixed thresholds are 0 and r+1 for r in S. Conversely, any specified fixed thresholds containing 0 yield such a closure on the chain; monotonicity gives binary meet preservation. For a prescribed S the nonroot columns choose independently among earlier roots or the empty value, yielding the stated product. The literal finite enumeration used by verify_dense_chains.py was inspected, not executed; the all-n proof is independent of the n<=7 checks. This does not classify branching frames or count distinct modal logics.
 
-The 2022 published treatment of strong dense frames supplies the contextual semantics, not the partition or fibre theorem. The separately inspected 2026 ambient doxastic-chain result already gives column cutoffs and \((n+1)!\) relations: that general normal form is credited, not republished as new. The separately inspected Heyting–Lewis flat-chain result gives a Bell-number *difference* for a different class of relations; although its total equals this theorem's nonserial count, it states no implication yielding the conditional density test, Stirling profile or nucleus-fibre formula. Searches covered equivalent semantic names, Bell/Stirling terms, fixed-point and fibre terms, and relevant prior records. The original Goldblatt 1981 paper's full text was inaccessible; an equivalent earlier specialization may exist. Absence from search is not a uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Strong dense frames are an established semantic class for propositional lax logic. The complete finite-chain classification is a motivated exact invariant of that class, including a refined census by reflexive-world rank and seriality. Beyond raw enumeration, the theorem identifies the exact surplus of relational presentations over induced nuclei: \(B_{n+1}\) accessibility relations collapse to \(2^n\) algebraic operators, with a formula for each fibre. This makes an explicit, reusable semantic quotient rather than an arbitrary numerical slice.
+The supported distinct claim is the combined density-conditioned partition/rank classification and the exact restriction of modal fibres to these dense representatives. The ambient factorial cutoff, general modal quotient and general finite-chain nucleus count are not new. The ambient fibre result materially simplifies the semantic part: the exact product follows by filtering that fibre once the density-specific root condition is derived. The inspected prior records do not supply that condition or its partition/rank consequences. The nonisotone regressive-idempotent recoding is exact and constitutes a meaningful remaining priority risk, not a basis for declaring the claim already covered without finding a matching result.
 
-## Boundaries and sources
+## value
 
-The proof does not generalize the partition enumeration to nonchains, characterize entire modal logics, or claim a new general completeness result. Goldblatt's original full text remains an originality-access risk. The mathematical argument has not received independent external validation.
+PASS
 
-Key references: van der Giessen, *Annals of Pure and Applied Logic* 174 (2023), 103233, DOI:10.1016/j.apal.2022.103233; Goldblatt, *Mathematical Logic Quarterly* 27 (1981), 495–529, DOI:10.1002/malq.19810273104; the published ambient-chain and Heyting–Lewis finite-chain censuses identified in RESULT.md.
+The fixed-chain census separates many presentations of the same closure map, and the rank and fibre formulas make that redundancy explicit rather than merely recognizing standard Bell numbers. The combined classification gives a way to enumerate or sample only dense presentations at prescribed semantic operator or reflexive rank. Value is in that density-conditioned structure; the ambient factorial census and bare number of nuclei carry no independent value credit here.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

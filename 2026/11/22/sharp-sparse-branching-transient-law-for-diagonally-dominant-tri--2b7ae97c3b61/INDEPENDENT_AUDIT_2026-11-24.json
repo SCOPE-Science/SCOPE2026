@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:32:09.159430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–41 and 45–69",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py lines 11–105, inspected, not executed"
+      ],
+      "rationale": "The residual is exactly G^k b. Absolute-value domination reduces the maximum to nonnegative H. Independently, choose each parent row at random: choose tau at column j with probability H_ij/tau, and the zero row with the remaining probability. Rows are independent. Each strictly triangular length-k path uses different rows, so the expected kth power of the resulting parent matrix is H^k. By convexity of the spectral norm some realization does at least as well as H; its support is a subset of the original support, so no column-cap violation is possible. In a parent forest, each kth-power row has at most one entry tau^k, making the squared power norm tau^(2k) times the largest number of exact-depth-k descendants. The ancestors of these m descendants at distance j must number at least ceil(m/d^j), on disjoint generations. Conversely, grouping consecutive children into groups of at most d realizes the successive ceilings; ceil(ceil(m/d^j)/d)=ceil(m/d^(j+1)). Layer ordering and isolated padding give the claimed n-dimensional extremizer. The strict amplification threshold is floor(tau^(-2k))+1; complete trees attain the d^k envelope, and a chain covers d=1 and the minimum feasible n=k+1. The 7-vertex example has four residual coordinates of size 9/16, yielding 9/8.",
+      "residual_risks": [
+        "The finite checker enumerates parent forests only; the independent path expectation provides the continuous-matrix reduction. This is exact arithmetic and an inner residual, not an error, a floating-point bound or an outer-iteration result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Dargaville–Pain snippet announces comparison of Jacobi, ISAI, GMRES polynomials and AIRG. The frozen paper separately attributes the Neumann identity and row-dominance criterion to §§4 and 6.2; those passages could not be reread. The elementary row/column induced-norm bound yields (tau sqrt(d))^k."
+        ],
+        "reasoning": "Even accounting for the standard dimension-free bound and Jacobi setup, the discrete S_{d,k} dimension correction is not implied by them. The snippet does not establish the scope of the full paper.",
+        "searches": [
+          "Primary literature: \"A comparison of parallel iterative methods for ILU triangular solves\" Dargaville Pain Jacobi Neumann transient norms column sparsity",
+          "Resultary: sharp finite-size transient amplification law for triangular Jacobi residual with per-column nonzero cap and absolute row sums"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary entries 2b7ae97c3b61 and ebfd6524a2b3",
+        "Dargaville–Pain arXiv:2611.00552 search snippet and frozen RESULT.md's comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inverse-law summary permits chain-to-leaves extremizers without giving the fixed-depth and per-column constraints. The finite Neumann relation reduces the question to a power norm, rather than evaluating the sharp extremum."
+        ],
+        "reasoning": "The statement-level gap is control of paths in arbitrary multi-parent triangular matrices and the finite layered budget after reducing to forests; the compared statements do not supply this implication.",
+        "searches": [
+          "Dargaville–Pain, arXiv:2611.00552v1, §§4 and 6.2 (primary access attempted)",
+          "Resultary: 2026/11/22/SCOPE-sharp-mixed-norm-amplification-for-row-dominant-triangular-inver--ebfd6524a2b3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match is the assigned record itself. The distinct mixed-norm record ebfd6524a2b3 concerns inverse amplification, with a chain-to-leaves extremizer."
+        ],
+        "reasoning": "The equivalent fixed-power norm over supported acyclic row-substochastic matrices is the object compared. Inverse amplification instead concerns the sum of all powers and does not identify the sharp individual power with its column cap.",
+        "searches": [
+          "Resultary: sparse triangular matrix forest power norm induced 2-norm d-ary branching descendants at exact depth k row diagonal dominance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2b7ae97c3b61 is the identical catalogue entry. Distinct entry ebfd6524a2b3 reports an inverse-defect Frobenius bound and asymptotic inverse Euclidean norm; its indexed statement is not the fixed-k law."
+        ],
+        "reasoning": "The exact hit cannot provide independent priority evidence. The distinct same-day result is compared on its mathematical statement, not its listing date.",
+        "searches": [
+          "Resultary: exact finite-dimensional worst-case Euclidean norm of k-th power of strictly lower triangular matrix with row sum bound tau and column degree cap d; depth budget ceil(m/d^j)",
+          "Resultary: Jacobi residual after k sweeps column sparsity branching tree tau^k sqrt(M) maximum descendants at depth k"
+        ]
+      },
+      "rationale": "The supported distinct result is the sharp finite dimension/column-cap/sweep law with attaining forests and the exact dimension threshold. Neither truncated Neumann iteration, the dimension-free bound, nor orthogonality of forest-power columns is claimed independently novel. The indexed alternatives do not establish coverage; the closest primary and indexed full texts were not retrievable, which limits the priority comparison.",
+      "residual_risks": [
+        "Dargaville–Pain's plausible §§4 and 6.2 and the distinct mixed-norm record's full text were not available for inspection. A stronger matrix-power result under a different formulation could exist; no global priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary-text scope unresolved, not a negative coverage finding",
+          "evidence": "Snippet names Jacobi, ISAI, GMRES polynomials and AIRG but gives no power-norm theorem. Frozen RESULT.md lines 77–82 report the Neumann and dominance background; not independently treated as primary text.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.00552",
+          "material_read": "Search snippet only; relevant §§4 and 6.2 not retrieved",
+          "method": "Primary literature lookup and bounded OA attempts on arXiv formats and the identified copy at https://arxiv.cnoctave.top/pdf/2611.00552",
+          "title": "A comparison of parallel iterative methods for ILU triangular solves",
+          "trigger": "Closest application and plausible directly encompassing prior theorem"
+        },
+        {
+          "assessment": "Related triangular inverse problem, not demonstrated equivalent coverage",
+          "evidence": "Indexed summary describes inverse-defect Frobenius control, asymptotic inverse norm tau sqrt(n/(1-tau^2)), and a chain feeding leaves, not the exact finite fixed-k capped law.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-mixed-norm-amplification-for-row-dominant-triangular-inver--ebfd6524a2b3",
+          "material_read": "Indexed scientific summary; full result not retrieved",
+          "method": "Local Resultary search; bounded mirror attempt",
+          "title": "Sharp mixed-norm amplification for row-dominant triangular inverses",
+          "trigger": "Strongest distinct semantic index hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–41, 65–85"
+      ],
+      "rationale": "Few-sweep Jacobi triangular solves can amplify a Euclidean residual despite nilpotency and infinity-norm contraction. The exact dependence on n, d and k decides whether a finite-size factor can amplify and when that first becomes possible. That answers a structural question the dimension-free bound cannot decide.",
+      "residual_risks": [
+        "Worst-case feasible triangular factors need not occur in practical ILU or describe average or outer-solver behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

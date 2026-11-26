@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:09:22.329633Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, formulas (1)–(5) and Proof §§1–5",
+        "Frozen VERIFICATION.md and verification_output.txt, reported finite check scopes"
+      ],
+      "rationale": "Commuting with the permutation unit is equivalent to invariance under its simultaneous relabeling of both rows. A two-vertex block gives an equivariant partner involution, so each vertex cycle is either isolated, matched internally by the unique antipodal pairing when even, or matched bijectively to a second cycle of the same length with ℓ shifts. A cross-row match contributes ℓ to rank. For each length and each k, choose k top and k bottom cycles, then match them in k!ℓ^k ways; the remaining two sets of m−k cycles have independent same-row matching counts. This yields the factor in (1) and positivity for all and only the indicated k choices. Taking all cycles transversal gives z_sigma. For rank deficit exactly ℓ in a single length factor there are m²(m−1)!ℓ^(m−1)s_ell² choices: choose the two unused cycles and their internal states and match the rest transversally. After reversal and normalization this gives first coefficient m s_ell²/ℓ. The degree and leading coefficient of C give n and z_sigma; formally dividing out every previously recovered shorter-length factor isolates this first coefficient in degree ℓ, since longer-length factors start later. This proves recovery including absent lengths. Rank-wise Burnside with class sizes n!/z_lambda proves (4); a hand check at n=3 gives 5+8u+4u²+3u³. Finite reported tests were not rerun and do not justify the general theorem by themselves.",
+      "residual_risks": [
+        "The exponential extraction is interpreted in formal power series in x,y over rational polynomials in u, not as a finite polynomial before extraction.",
+        "This argument needs a permutation unit; it is not a centralizer formula for arbitrary diagrams."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Araújo et al. §5 treat several conjugacies, including equality of the unit-conjugacy relations in the partial Brauer and partition monoids on the partial Brauer diagrams; the cited normal-form classification concerns natural conjugacy.",
+          "2522159117e6 uses rank counts in the nilpotent partial-bijection centralizer and recovers exactly repeated lengths, not singly occurring ones."
+        ],
+        "reasoning": "A conjugacy criterion does not give fixed-point multiplicities for each unit by rank. Restriction to nilpotent partial bijections is a different fixed set with different rank information, so the indexed same-day reconstruction result does not give the full cycle type here.",
+        "searches": [
+          "Araújo et al. arXiv:2301.04252 §5, diagram semigroup conjugacies",
+          "Resultary: nilpotent permutation centralizers recover repeated cycle lengths, 2522159117e6"
+        ]
+      },
+      "checked_sources": [
+        "Dolinka–East–Gray arXiv:1512.02279",
+        "Halverson–Jacobson arXiv:1808.08118",
+        "Araújo et al. arXiv:2301.04252",
+        "Resultary 2522159117e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The character formula precedes the local orbit analysis on one mirrored row in substance, including the parity term. The present cross-row term links two independently labeled sets of cycles and records an entire ℓ-edge transversal block in the exponent.",
+          "2522159117e6 explicitly loses every singly occurring length. The full partial-Brauer factor's normalized leading rank deficit for length ℓ is nonzero already at m_ell=1."
+        ],
+        "reasoning": "Even where matching mechanisms agree, switching from the mirrored subset to all diagrams changes rank counts. The leading-deficit division argument then proves a distinct complete invariant, not just a reformulation of a repeated-length result. No relative priority is inferred from the same-day date.",
+        "searches": [
+          "arXiv:1808.08118 §§5.1–5.3, Theorem 5.22 and definition of symmetric m-diagrams",
+          "2522159117e6, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Halverson–Jacobson Theorem 5.22 uses propagating cycle blocks, same-length pairing and the parity factor 2 for even lengths and 1 for odd lengths. The counted symmetric m-diagrams have bottom row determined by top-row data.",
+          "Dolinka–East–Gray use the same partial Brauer object and rank convention in their structural results."
+        ],
+        "reasoning": "Rook-Brauer and partial Brauer terminology can refer to the same diagram family; the distinction here is the subset counted, not the name. Independent top and bottom matchings and arbitrary cross-row shifts are not encoded by the mirrored character fixed set. At u=1 one may forget row types and count invariant partial matchings for the doubled permutation, but that does not preserve transversal rank.",
+        "searches": [
+          "Resultary: unit centralizers, partial Brauer and rook-Brauer rank polynomials",
+          "arXiv:1808.08118 §§5.1–5.3, fixed rook-Brauer diagrams",
+          "arXiv:1512.02279 §5, partial Brauer monoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Halverson–Jacobson §5.4 gives exact character-table factorizations and examples based on the symmetric-diagram coefficients. The indexed nilpotent partial-bijection record is an exact rank formula for a different set."
+        ],
+        "reasoning": "The inspected character tables tabulate character values rather than [u^r]C_sigma for arbitrary two-row partial matchings. Neither those examples nor an unrefined fixed-matching count settles rank-polynomial injectivity on cycle types.",
+        "searches": [
+          "Halverson–Jacobson arXiv:1808.08118 §5.4, rook-Brauer character table factorization",
+          "Resultary: rank spectra and cycle reconstruction for permutation centralizers"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full two-row transversal-rank fixed-diagram polynomial together with complete reconstruction of cycle type. The most relevant character formulas already use matching of equal-length cycles and the same even/odd factor, but for a different fixed set. The diagram definition, standard matching enumeration and Burnside averaging are not themselves novelty claims.",
+      "residual_risks": [
+        "An unlocated colored involution cycle index or all-diagram fixed-matching theorem could encode (1); no historical priority is certified. Any such formula would also have to be checked for the complete reconstruction consequence.",
+        "Chronology is unresolved for the distinct same-day nilpotent analogue."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structural and rank background, no fixed-unit rank census in the inspected passages",
+          "evidence": "The statements concern partial Brauer structure, rank ideals and associated diagram algebras.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.02279",
+          "material_read": "Abstract p. 1 and §5 pp. 28–29",
+          "method": "OA primary text",
+          "title": "Motzkin monoids and partial Brauer monoids",
+          "trigger": "Primary source on the same monoid and its rank"
+        },
+        {
+          "assessment": "Substantial prior overlap in the cycle matching and parity mechanism, but the fixed set and character statistic differ",
+          "evidence": "The bottom row of a symmetric m-diagram is mirrored from its top row. Theorem 5.22 uses these fixed-diagram counts to weight symmetric-group characters, not to enumerate all two-row diagrams at each transversal rank.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.08118",
+          "material_read": "§§5.1–5.4, pp. 20–26, especially Theorem 5.22 and the character examples",
+          "method": "OA primary text",
+          "title": "Set-partition tableaux and representations of diagram algebras",
+          "trigger": "Exact combinatorial fixed rook-Brauer diagram counts and tables"
+        },
+        {
+          "assessment": "Conjugacy criteria, not audited full centralizer rank polynomials",
+          "evidence": "p. 37 compares unit conjugacy for the partial Brauer and partition monoids; the semigroup normal forms discussed in the comparison are for natural conjugacy.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.04252",
+          "material_read": "§5 pp. 30–37",
+          "method": "OA primary text",
+          "title": "Conjugacy in Abstract Semigroups, Transformation and Diagram Monoids, and Conjugacy Growth",
+          "trigger": "General diagram monoid conjugacy and possible orbit formulas"
+        },
+        {
+          "assessment": "Related inverse problem with different objects and a strictly weaker type of recovered data; chronology unresolved",
+          "evidence": "Its nilpotent partial bijections are counted by domain rank, with only repeated lengths recoverable.",
+          "identifier_or_url": "2522159117e6",
+          "material_read": "RESULT.md Finding, including the blindness to singleton multiplicities",
+          "method": "Resultary and local mirror",
+          "title": "Nilpotent permutation centralizers recover exactly the repeated cycle lengths",
+          "trigger": "Same-day rank polynomial used for reconstructing unit cycle data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(5) and the reconstruction proof",
+        "Halverson–Jacobson Theorem 5.22 and Resultary 2522159117e6 for the nearest comparisons"
+      ],
+      "rationale": "For a natural diagram monoid, recording transversal rank instead of a single centralizer order gives a computable invariant that separates all permutation cycle types. The reversible deficit calculation explains exactly where the missing cycle data appear, including lengths occurring once, and the same polynomial yields exact rank-wise orbit counts. That is more than a table recomputation or an application of Burnside alone.",
+      "residual_risks": [
+        "Value is limited to permutation-unit centralizers and transversal rank; the finding gives no general semigroup-conjugacy classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

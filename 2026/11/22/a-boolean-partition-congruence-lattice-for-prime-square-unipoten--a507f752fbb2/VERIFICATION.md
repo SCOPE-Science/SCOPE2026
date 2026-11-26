@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Execute `python verify.py` using an unmodified Python 3 interpreter. The verifier exhausts all set partitions of the four-element and nine-element quandles, testing preservation of both operations in both argument positions. It also checks all fiber-collapse subset relations for \(p=5\), without enumerating every partition of 25 elements. The expected terminal line is `PRIME_SQUARE_QUANDLE_CONGRUENCES_VERIFIED`.
+## correctness
 
-The computation cannot prove the theorem for arbitrary primes; the proof in `RESULT.md` is the mathematical certificate. The lattice identification rests on the prime-order translation-invariant equivalence lemma and the cross-fiber-collapse implication. The checker uses the original cyclic-residue operation rather than the coordinate-normal-form code. No external mathematical certification or independent audit has occurred.
+PASS
+
+In coordinates x=r+ps both operations preserve r and add ±(r−c) to s; all translations of each individual fiber occur. An equivalence invariant under these translations is the coset relation of the zero class, an additive subgroup, hence equality or collapse. Any cross-fiber pair with residues r≠c, substituted into the operand slot against an arbitrary element of any fiber, forces identification under the nonzero step r−c; iterating it collapses every fiber, including for p=2. Conversely independent selections of collapsed fibers below the kernel are compatible, and every partition above it is a pullback from the projection quandle. Inclusion gives exactly the glued lattice; the shared relation is counted once. The three additive subgroups give precisely equality, fiber collapse and universality. The numerical counts agree with the corresponding Bell numbers.
+
+## originality
+
+PASS
+
+Best of current knowledge: the lower interval and orbit-quotient mechanism are covered by prior general theory and are not new. The contribution is the special cross-orbit forcing statement that excludes all incomparable congruences and gives the full lattice and count. No accessible comparison checked here supplies that classification or its decisive cross-orbit implication.
+
+## value
+
+PASS
+
+The cyclic prime-square shear is a minimal and natural nonconnected test of the module description of Alexander congruences. A complete classification, including exactly when the orbit kernel is forced, describes all permissible quotient kernels; the Bell count quantifies the failure of subgroup-only intuition. This is more useful than a list of small-order examples or re-enumeration of the known lower interval.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

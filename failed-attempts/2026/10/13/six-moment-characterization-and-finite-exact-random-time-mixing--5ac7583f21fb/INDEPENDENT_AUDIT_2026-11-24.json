@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:02:06.042273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof, lines 3–71",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /tmp/opencode/frozen_mixing.py (sine basis and direct six-gap expansion; all 15 exact residuals zero and rank six)"
+      ],
+      "rationale": "I reconstructed the amplitude independently with the orthonormal sine eigenvectors sin(πkj/6)/√3 for k,j=1,…,5. Expanding its squared modulus directly by the ten unordered spectral pairs gives a constant term and six columns indexed by distinct positive gaps. Exact algebra in Q(√3) gives column rank six across the 15 upper-triangular entries, and all residuals at the stated six cosine moments are zero. This proves necessity and sufficiency for every law, without a symmetry hypothesis. On the auxiliary torus, the two stated densities have positive lower bounds, unit integrals and the required Fourier coefficients; independence and evenness give the zero cross terms. Positive full support puts the barycenter in the relative interior: a supporting affine functional nonconstant on the image cannot have zero integral of its nonnegative slack. For any fixed second angle φ, times φ+2πn with n arbitrarily large give that angle exactly and give dense first angles by irrational rotation. Thus every tail has the same compact convex closure, and its convex hull contains the relative interior (approximate the vertices of a simplex enclosing the target strictly). Carathéodory in dimension six, removal of zero weights and merging equal times establish the stated finite real-time law.",
+      "residual_risks": [
+        "The exact replay covers the linear mixing system, not the infinite convexity/density argument, which was checked analytically.",
+        "No minimal support size or explicitly evaluated real schedule is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem (i) covers q a power of two, prime or twice a prime, with finite laws and densities. For P5, q=6=2·3.",
+          "The earlier papers show P3/P4 and describe larger paths as open in their time; that no longer applies to this instance after Kang."
+        ],
+        "reasoning": "The broader theorem directly settles the claimed existence and supersedes the frozen record's historical motivation as a claim to a first solution.",
+        "searches": [
+          "Kang main theorem and forced-coherence lemma, pp. 1–2, exact passage OA offset 6900",
+          "Coutinho–Guo arXiv:2404.02236 §4.2; Baptista–Coutinho–Marques §§4.3,7"
+        ]
+      },
+      "checked_sources": [
+        "Kang arXiv:2609.14463v1, main theorem and proof",
+        "Baptista–Coutinho–Marques; Coutinho–Guo; Carlson et al.; Sorci (targeted passages)",
+        "Resultary 606431707242 and 70e889c1bd07"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior finite-law argument proves the target lies in the relative interior of the compact torus coherence hull and applies Carathéodory to the dense physical convex hull. It prints the generic bound floor(q/2)^2+1, which is 10 here.",
+          "In that same argument for q=6, deleting repeated coherence coordinates leaves just six gap functions, giving the direct Carathéodory bound 7. At fixed second phase, times φ+2πn with n→+∞ are dense in the first phase, so substituting t>L for the full orbit leaves the same closure and interior claim."
+        ],
+        "reasoning": "The exact numerical form and tighter support/late-time phrasing require only elementary specialization of the earlier equations and method, not a new structural or optimal-support theorem. The alternate density is a valid proof ingredient, not a separate contribution claimed as a density characterization.",
+        "searches": [
+          "Kang Eq. (2), Eq. (4) and proof of finite support, OA offsets 19450–22027 and 31850–34772"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kang identifies the uniform XY chain single-excitation Hamiltonian with the unweighted path adjacency. The readout matrix is the squared amplitude averaged over a single probability law, with uniformity required from every initial site.",
+          "Changing the sign convention in unitary evolution does not change the squared amplitudes or the cosine coherence equations."
+        ],
+        "reasoning": "The spin language is the same matrix problem, not edge-weight variation or a discrete-time walk. If uniform couplings are rescaled, observation time is rescaled correspondingly.",
+        "searches": [
+          "Kang arXiv:2609.14463, model mapping and notation, p. 1, offsets 600–4164",
+          "Baptista–Coutinho–Marques arXiv:2308.16378, arbitrary-time average"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected P8 record gives at most 17 times for q=9, while the same-day C8 record gives at most five times after any cutoff on a cycle. These are different graphs, not exact P5 indexed matches.",
+          "For the P5 mode indices r=1,…,5 and spectrum (√3,1,0,−1,−√3), the even-index-difference gaps are √3,2√3,2; odd-index-difference gaps are 1,√3−1,√3+1. Repeated gaps agree in parity."
+        ],
+        "reasoning": "A separate P5 table is unnecessary for coverage: Kang's equation gives exactly −1/5 on the first group and zero on the second, with sufficiency checked just below the lemma. The bounded catalogue search does not imply absence of other records.",
+        "searches": [
+          "Resultary local index for exact random-time path and late finite support; P8 606431707242 and C8 70e889c1bd07",
+          "Kang Eq. (4), forced-coherence rule"
+        ]
+      },
+      "rationale": "Kang, arXiv:2609.14463v1 (13 September 2026 UTC), already proves finite uniform readout for the same adjacency path at q=N+1 equal to twice a prime, hence q=6. Kang's forced-coherence lemma and its converse specialize exactly to the six numbers in the Finding. His proof uses torus-density, relative interior and Carathéodory. Restricting to any tail preserves its closure by irrational rotation, and counting the six distinct cosine gaps in the same expansion reduces the generic bound 10 to 7. The sharper printed bound and tail quantifier are not quoted as printed in Kang; they are routine specializations of the prior proof, not an independent solution of the P5 existence question.",
+      "residual_risks": [
+        "The seven-atom and arbitrary-late statements are deductions from the prior method, not asserted verbatim in the inspected Kang passages.",
+        "The negative disposition follows from actual broader coverage, not an inference from search results or from dates of unrelated records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT COVERAGE of existence and mechanical implication of the specialized moment and finite-support claims",
+          "evidence": "N=5 satisfies q twice a prime. Even mode differences give −1/N and odd give zero; proof checks sufficiency. The time convex hull and torus hull share relative interiors; applying the same proof with the six gap coordinates and every time tail gives the submitted variant.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.14463v1",
+          "material_read": "pp. 1–2 model, main theorem, Eq. (4) and sufficiency, OA offsets 600–4164 and 6900–11084; finite-support proof pp. 3 and 5, offsets 19450–22027 and 31850–34772",
+          "method": "Targeted lawful OA PDF inspection, with exact decisive passages reread",
+          "title": "Arithmetic of Bohr Frequencies Governs Uniform Mixing in Randomly Timed Quantum Spin Chains",
+          "trigger": "Same problem in single-excitation spin-chain coordinates; prior P5-inclusive theorem"
+        },
+        {
+          "assessment": "HISTORICAL BACKGROUND, not P5 coverage in inspected passages",
+          "evidence": "Explicit P4 result and discussion/question for larger paths.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.16378",
+          "material_read": "§4.3 and open problem, pp. 12 and 14, offsets 34500 and 41000",
+          "method": "Targeted OA PDF read",
+          "title": "Unexpected Averages of Mixing Matrices",
+          "trigger": "Same observation-time model and original larger-path question"
+        },
+        {
+          "assessment": "HISTORICAL OPEN PROBLEM, predates Kang",
+          "evidence": "Notes n≥5 question in 2024, without anticipating the later covered cases.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.02236",
+          "material_read": "§4.2, p. 13, offset 64400",
+          "method": "Targeted OA PDF read",
+          "title": "Selected Open Problems in Continuous-Time Quantum Walks",
+          "trigger": "Claimed open P5 case in historical review"
+        },
+        {
+          "assessment": "DISTINCT MODELS in inspected passages",
+          "evidence": "Carlson varies graph edge weights. Sorci concerns discrete-time Szegedy walks rather than a randomized continuous readout on this fixed adjacency path.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0608044 ; https://arxiv.org/abs/2211.02037",
+          "material_read": "Carlson et al. pp. 2–3 offsets 5958–6332; Sorci pp. 1–2 offsets 1725–2038 and 4170 onward",
+          "method": "Targeted OA PDF reads",
+          "title": "Universal Mixing of Quantum Walk on Graphs; Average Mixing in Quantum Walks of Reversible Markov Chains",
+          "trigger": "Check two related uses of universal or average mixing"
+        },
+        {
+          "assessment": "DISTINCT GRAPHS",
+          "evidence": "P8 and C8 statements, not P5. C8 shares a late-time quantifier, not the adjacency Hamiltonian or moment system.",
+          "identifier_or_url": "2026/10/4/SCOPE-uniform-average-mixing-on-the-eight-vertex-path-p-8--606431707242 ; 2026/10/13/SCOPE-at-most-five-observation-times-suffice-for-exact-randomized-unif--70e889c1bd07",
+          "material_read": "Mirrored findings and scope statements",
+          "method": "Local Resultary lookup and bounded mirror inspection",
+          "title": "Uniform average mixing on the eight-vertex path; At most five observation times suffice for exact randomized uniform mixing on the eight-cycle",
+          "trigger": "Closest indexed path and analogous time-tail conclusion"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "Kang theorem, forced-coherence lemma and finite-support proof"
+      ],
+      "rationale": "Exact mixing on an ordinary path from all initial vertices is a meaningful problem, but the prior general theorem already settles this instance. The surviving display is a table of repeated gaps evaluated at a five-point spectrum and a routine dimension tightening of a general Carathéodory bound. It neither gives an optimal support result nor a new construction of exact observation times, and tail density already holds in the prior proof. There is no independently valuable new result here to salvage by changing the introduction or adding verification.",
+      "residual_risks": [
+        "This does not evaluate the value of an explicitly constructed law, a sharp minimal support theorem, or any other previously unresolved graph instance."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

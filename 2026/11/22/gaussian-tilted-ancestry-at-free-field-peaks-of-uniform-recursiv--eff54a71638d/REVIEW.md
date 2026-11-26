@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed convergence is conditional only on a cited, genuinely proved input: the first-order Gaussian free-field maximum for the same uniform recursive tree (Angel–Goldschmidt–Michaeli, 2026, Corollary 13). The additional steps are independently reconstructed. Recursion on newly attached vertices yields the exact annealed depth-profile product. Gaussian exponential tilting gives an exact marked many-to-one identity whose size-biased depth is a sum of independent Bernoulli variables, while each tilted ancestral edge has law \(N(1,1)\). Chernoff, Hoeffding and Gaussian martingale inequalities yield exponential concentration for depth, empirical bounded tests, energy and the whole partial-sum profile. Counting a near-maximal bad path with weight \(e^{\eta}\) costs only \(n^\varepsilon\); choosing the level deficit smaller than the large-deviation exponent rules out all such paths. The cited maximum lower bound then transfers all properties to the actual maximizer. Finite checker: 105 exact identities passed. There is no claim that finite checks establish asymptotic assertions.
+PASS
 
-## Originality — PASS against examined evidence
+Corollary 13 of Angel–Goldschmidt–Michaeli supplies the required lower maximum-speed bound at a=0, for the same pinned Gaussian increments and all vertices. At each birth the conditional mean depth profile multiplies by 1+z/(j−1), giving the expected product. Tilting by exp(η) completes the square independently at each edge and multiplies its weight by c=√e, making the normalized annealed depth PGF a product of Bernoulli PGFs with probabilities c/(t+c). Its normalization is Θ(n^c), and a fixed relative depth error has probability n^{−a} for some a>0. For k between c log(n)/2 and 2c log(n), bounded mark averages, Gaussian centered partial-sum maxima and squared marks (using their finite exponential moment near 0) all have exponentially small error probabilities on the log(n) scale. Thus the expected number of bad paths ending above (c−ε)log(n) is O(n^{ε−a}) for ε chosen after the error tolerance. The maximum lies above that level with probability tending to one. A countable convergence-determining class gives weak convergence in probability; Gaussian continuity at zero gives the sign fraction; the uniform profile follows by the depth limit and a rounding error of order 1/log(n). The zero-depth event vanishes; distinct vertex differences are nondegenerate conditionally on the tree. The frozen finite checker was inspected, not run, and is not needed for the analytic identities or the limit.
 
-The paper motivating this result proves the peak height and heuristically indicates its depth; it does not state or prove the empirical ancestral-increment law and simultaneous full path-shape limit. The exponential-spine change of measure and normal tilt are classical and are credited, not claimed as independently new. The accessible full text of Mallein's 2016 fixed-generation branching-random-walk work was inspected for possible genealogical implication; its close-relative and Brownian-excursion results do not directly cover the random-depth, fixed-population uniform recursive tree. Jagannath's binary-tree Gibbs-overlap findings address a different statistic. Searches found no matching indexed claim. These facts are not a proof of global novelty: an as-yet-unidentified general spine-localization theorem might imply this special case.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating maximum theorem alone gives no macroscopic distribution of the increments that build the maximizing path. The new theorem identifies this distribution, determines a nonzero fraction of locally negative steps along an extremal path, establishes the natural quadratic-energy limit and resolves the suggested localization at depth \(\sqrt e\log n\) with a whole-path shape. These are natural structural observables for rare Gaussian peaks in random geometries, not a selected unmotivated finite computation or a restatement of maximum height.
+The maximum speed and the change-of-measure framework are prior work, and the depth scale had already been predicted. The supported distinct result is the joint annealed first-order ancestral limit for the actual fixed-population maximizer, including an unbounded moment and uniform path assertion, not the speed or the Gaussian tilt in isolation.
 
-## Closest literature and limitations
+## value
 
-Angel–Goldschmidt–Michaeli (2026, arXiv:2611.18353) supplies the exact extremal-height input. Mallein (2016, arXiv:1605.08292) supplies a closely related but fixed-generation genealogy viewpoint, and Jagannath (2015, arXiv:1509.07527) the binary-tree Gibbs-overlap viewpoint. Classical spine changes of measure precede this argument. The present result is annealed, lacks a second-order limit or quenched statement, and carries residual historical-priority risk from broader branching-random-walk theory.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a same-model extremal-depth heuristic and quantifies how the actual maximizing ancestry differs from an ordinary root path. The nonzero negative-increment proportion and uniform profile give information an endpoint speed cannot provide, and the separate second-moment control rules out a conclusion based solely on a weak empirical law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

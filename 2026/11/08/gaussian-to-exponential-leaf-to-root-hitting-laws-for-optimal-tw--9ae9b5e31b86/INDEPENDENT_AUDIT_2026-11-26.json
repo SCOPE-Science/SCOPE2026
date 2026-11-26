@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:09:44.095356Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every path from depth i+1 to the root must reach depth i. Conditional on the first visit and observed history, future independent offers admit at most the optimal depth-i success probability with the remaining time, bounded by the full-horizon value. Thus value is nonincreasing in depth for every horizon. Bellman maximization always admits parent-first as an optimizer, with no restriction to stationary or deterministic competitors; the forced leaf step and zero-horizon boundary are covered. Under that rule p=1−(b/(b+1))², the leaf transition is inward with certainty, and first-step decomposition of downward passage gives J_i=zp+zqJ_{i+1}J_i with J_h=z, hence denominators positive on [0,1]. Strong Markov gives the product of successive independent crossing PGFs; multiplying by 1/(1−z) converts masses to optimal cumulative deadline probabilities. For h=1 the product is z as required. The uploaded finite verifier was inspected, not executed; no asymptotic or all-policy conclusion is based on its checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The two-choice paper bounds the adjacent target mean in maximum degree three, gives the outward bias in the infinite four-regular tree, and derives general expected-time optimizers.",
+          "The ITCS paper abstract (p. 1, offset 1479 hit) describes optimization of expected hitting-time type and cover-time complexity; the later focused full-text request timed out.",
+          "Zhang publisher and alternate retrieval did not recover usable full text."
+        ],
+        "reasoning": "The inspected choice framework addresses a different optimization objective. General first-passage recurrences for a specified birth–death policy can yield exact PGFs but cannot, without a policy comparison, certify all-deadline optimality. Unread portions and general MDP results remain risks.",
+        "searches": [
+          "arXiv:1911.05170 Proposition 3.4, §5 and §7.1",
+          "DOI:10.1007/s11464-019-0784-6",
+          "DOI:10.4230/LIPIcs.ITCS.2020.76"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/2/…5d9f1265df29",
+        "arXiv:1911.05170",
+        "DOI:10.4230/LIPIcs.ITCS.2020.76 (abstract and follow-up attempted)",
+        "DOI:10.1007/s11464-019-0784-6 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The theorems compare expectations; the known Gaussian/exponential laws concern parent-first, not dominance for the entire competing policy class."
+        ],
+        "reasoning": "First-step PGF recursion is standard after knowing the radial policy. What survives is the simultaneous comparison: a mandatory hit of each intermediate depth orders the horizon values, letting the same strategy attain the entire finite deadline distribution. This is not implied by substituting k=2 into an expectation bound or its asymptotics.",
+        "searches": [
+          "November 2 regular-tree theorem and proof",
+          "arXiv:1911.05170 Lemma 7.1 and Theorem 1.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The November 2 regular-tree theorem gives parent-first optimal expected time with arbitrary fixed k. Its formulas at k=2 are exactly the same p=(2b+1)/(b+1)^2, binary variance constant 720, and outward exponential prefactor and scale.",
+          "Lemma 7.1 in the two-choice paper orders candidates by expected hitting-time values, not probability by a horizon."
+        ],
+        "reasoning": "Neither mean optimality nor knowledge of the distribution of the selected mean minimizer entails stochastic domination of arbitrary adaptive competitors. The original mean and asymptotic claims were equivalent to a specialization and have been removed as contributions.",
+        "searches": [
+          "Resultary: parent-first tree strategy and all-deadline stochastic domination",
+          "2026/11/2/…5d9f1265df29",
+          "arXiv:1911.05170 §7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "November 2 theorem and proof offsets 0–8982 give the exact mean and limit laws, directly matching at k=2; the inspected text gives no finite-height PGF for optimal success probabilities by each deadline."
+        ],
+        "reasoning": "Exact prior mean and asymptotics are credited. A finite-height probability law supplies deadlines not recoverable from those data. Exact-rational finite diagnostic instances in the assigned package do not support originality in their own right.",
+        "searches": [
+          "Resultary: exact regular-tree leaf-root mean, Gaussian/exponential limits, and finite generating function",
+          "2026/11/2/…5d9f1265df29"
+        ]
+      },
+      "rationale": "The narrowed simultaneous stochastic-optimality statement and exact evaluation of optimal finite-deadline probabilities survive the prior-law overlap on the inspected evidence. No claim is made that the radial continued-fraction method or the large-height regimes themselves are new.",
+      "residual_risks": [
+        "A general stochastic policy comparison theorem or an earlier two-choice paper may contain an equivalent all-deadline result; the ITCS follow-up and Zhang full-text comparisons were limited by retrieval.",
+        "The overlap finding uses exact content; catalogue date is not independent certification of publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of mean and both limit laws; inspected optimizer is for the mean",
+          "evidence": "Arbitrary fixed k with inward probability 1−(b/(b+1))^k; k=2 reproduces the frozen constants and limiting distributions. The stated optimality objective is expected root-hitting time.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-choice-threshold-and-contrasting-root-hitting-laws-on-re--5d9f1265df29",
+          "material_read": "Mirrored RESULT.md Finding and Proof, offsets 0–8982",
+          "method": "Local catalogue and mirror read",
+          "title": "A sharp choice threshold and contrasting root-hitting laws on regular trees",
+          "trigger": "Exact regular rooted-tree threshold, mean and fluctuation match"
+        },
+        {
+          "assessment": "Qualitative drift and expected-time comparison, not the asserted finite deadline law in inspected statements",
+          "evidence": "Adjacent-target expectation bound of 9 for maximum degree three, outward bias in degree four, and a general expected-hitting-time strategy characterized by ordering neighbors by value.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05170",
+          "material_read": "Proposition 3.4 p. 8 offset ≈28200, §5 p. 12 offset ≈44100, Lemma 7.1 pp. 21–22 offset ≈82000, Theorem 1.6 p. 24 offset ≈91300",
+          "method": "OA PDF passages",
+          "title": "The Power of Two Choices for Random Walks",
+          "trigger": "Original model and optimal hitting strategies"
+        },
+        {
+          "assessment": "Related expected-time strategy program; full-text deadline coverage not resolved by the abstract",
+          "evidence": "Abstract highlights efficient optimal hitting strategy and hard cover-time optimization.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2020.76",
+          "material_read": "OA conference abstract p. 1, around offset 1479; focused follow-up requests timed out",
+          "method": "OA publisher PDF via entity page",
+          "title": "Choice and Bias in Random Walks",
+          "trigger": "Targeted live search for a two-choice hitting-time dominance theorem"
+        },
+        {
+          "assessment": "Access risk, not a finding of absence",
+          "evidence": "Retrieval failed; cited setting is continuous-time birth–death processes on trees.",
+          "identifier_or_url": "https://doi.org/10.1007/s11464-019-0784-6",
+          "material_read": "No primary theorem text recovered; frozen record cites Theorem 1.1 and moment recurrences",
+          "method": "DOI and publisher PDF/article attempts, alternate copy not recovered",
+          "title": "Moments of first hitting times for birth-death processes on trees",
+          "trigger": "Potential broader first-passage theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A strategy that optimizes a mean may fail at a hard deadline. This result identifies a single policy attaining every finite deadline bound even against history-dependent randomized strategies, and gives those attainable probabilities without building a state space exponential in tree height. That decision guarantee, not the textbook first-step recursion or the covered fluctuation transition, motivates the repaired claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

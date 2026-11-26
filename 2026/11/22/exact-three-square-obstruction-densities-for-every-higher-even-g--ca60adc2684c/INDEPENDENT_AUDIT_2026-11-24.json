@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:09:04.788120Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Starting from the stated recurrence and initial data, the exponential generating function solves (1−z)G'=(v+z)G and G(0)=1, hence is e^(−z)(1−z)^(−v−1). Its coefficients give exactly the signed falling-factorial interpolation, independently of the cited counting convention. Each falling factorial on Z_2 has floor(j/2) even factors; in a telescoping divided difference on odd arguments at most one such factor is dropped, since x−i and y−i have the same parity. This proves uniform convergence of both series. Modulo 2 the divided difference is P'_j(1), equal to 1 for j=1,2,3 and zero otherwise; the corresponding binomials have parities (1,1,1) or (1,0,0) as v is 0 or 2 mod 4, so the quotient is odd. Recurrence parity gives D_n even exactly at odd indices, and the isometry gives an injection and hence a bijection between odd and even residue sets of equal size at each 2-power precision. The compatible inverse limit gives the unique odd zero, exact valuations, digit lifts and the unique preimage of each prescribed shell residue. For even indices an independent finite-sum replay /workspace/record1_replay.py computed the four modulo-eight rows and verified (D_8,D_9)=(D_0,D_1) mod 8 for all parameter residues; recurrence periodicity proves the identity D_(2t)≡1−vt mod 8 at every t. The same replay checked the v=4 and 6 examples and the odd-fiber bijections at 128. Legendre's criterion yields the disjoint progressions, including exactly the stated even-index class when v≡2 mod 4. The odd progression densities sum to 1/24; beyond the first O(log X) shells all indices occupy a single root class of modulus greater than X and contribute at most one, while the omitted geometric main term is bounded. Adding the possible 1/8 gives the claimed densities and discrepancy. The proof is all n for fixed even v≥4; the frozen checker was inspected but not run. Its printed pair-test description is loose: it uses odd n<32 and n<m<42, not literally every odd pair below 42; this does not affect the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ulas explicitly asks for the classification, valuations and density for even v, and derives restricted congruences, not the answer.",
+          "b27baf1a454b proves all-index isometry and density 1/6 only for v=2; its proof normalizes two branches of that sequence and its limitations explicitly exclude higher parameters.",
+          "O’Desky–Richman provides interpolation for related objects, not a theorem bounding the higher-even divided differences below by equality."
+        ],
+        "reasoning": "Greater strength with respect to index parity at v=2 does not dominate a family of different input sequences; the actual hypotheses of the related general interpolation do not imply this theorem.",
+        "searches": [
+          "Ulas §4 Problems 4.1–4.2 and Question 4.3",
+          "O’Desky–Richman Theorem 1.1, Corollary 4.4 and Definition 2.1",
+          "Resultary v=2 b27baf1a454b Finding, proof and limitations"
+        ]
+      },
+      "checked_sources": [
+        "Ulas, Fibonacci Quarterly 61 (2023), §4",
+        "arXiv:2012.04615v4",
+        "Resultary b27baf1a454b",
+        "Resultary ac06186a59d1",
+        "Resultary 2db8513e1620",
+        "Resultary ca60adc2684c (identity only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical case has its odd branch bijection and separate even-branch behavior. The parameter-two record instead has a global all-index isometry. Their valuation/period conclusions are only asserted for those recurrences.",
+          "Transferring them to v≥4 requires a new coefficient-unit calculation uniform in v and the even-index residue formula. A lower bound from a few forbidden progressions does not determine the one-per-shell law or the counting error."
+        ],
+        "reasoning": "The proof technique is related to earlier work, but its uniform fixed-parameter theorem and effective higher-even classification are not mechanically deducible from the inspected results. The v=0,2 cases are excluded from the claim.",
+        "searches": [
+          "Ulas §4 exact congruences and questions; Resultary b27baf1a454b original proof and scope; classical ac06186a59d1 and 2db8513e1620 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ulas recurrence (1.2) with D_0=1, D_1=v matches exactly. A unit divided difference is equivalent to exact odd-domain distance preservation; it gives one input residue per even target at each level.",
+          "The cyclic derangements in O’Desky–Richman are wreath-product counts or signed variants, rather than this recurrence; their metric-map definition is distance nonincrease."
+        ],
+        "reasoning": "Related p-adic continuity, Lipschitz interpolation and classical dyadic fibers cannot be equated to the exact generalized-family unit quotient, even when names and proof tools overlap.",
+        "searches": [
+          "Resultary generalized derangements dyadic valuation, residue fibers, odd-input isometry and three-square obstruction",
+          "Ulas PDF p. 2 recurrence and §4",
+          "O’Desky–Richman arXiv:2012.04615v4 §§1.1–2 and Corollary 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ca60adc2684c result is the audited record itself, excluded as a comparator. b27baf1a454b is the distinct v=2 result; ac06186a59d1 and 2db8513e1620 give exact fibers for v=0 only.",
+          "The results of the bounded external query were not relevant to the exact claim; this is not evidence of absence."
+        ],
+        "reasoning": "The closest exact indexed congruence and density results do not contain higher-even tables or their uniform valuation formula.",
+        "searches": [
+          "Local Resultary queries for exact dyadic fibers and generalized higher-even obstruction densities 1/24 and 1/6",
+          "One bounded primary-literature web query on the generalized-derangement problem"
+        ]
+      },
+      "rationale": "Ulas states the same-sequence even-parameter questions and only restricted congruence obstructions/lower bounds. The closest exact indexed results solve v=0 and v=2 only; the latter supplies a stronger global isometry at its single parameter but explicitly does not treat v≥4. The broader p-adic interpolation article addresses different sequences and uses a Lipschitz condition rather than this exact odd-input equality. None of these statements furnishes the parameter-uniform theorem for the claimed regime. No priority order between the distinct same-date v=2 record and the audited record is inferred.",
+      "residual_risks": [
+        "The literature and catalogue check is bounded; it is not a proof of absence of unindexed or differently formulated coverage.",
+        "The same-date v=2 result corroborates non-claimed coverage of that case, not the temporal interpretation of the frozen wording 'previously settled'."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_PROBLEM_NOT_SOLVED_IN_EVEN_FAMILY",
+          "evidence": [
+            "Recurrence (1.2); Problems 4.1–4.2 and Question 4.3; lower bounds from congruence subclasses."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Papers/61-3/ulas11202022.pdf",
+          "material_read": "PDF p. 2 near offset 5334 and §4 PDF p. 6 (journal p. 236) near offset 18536",
+          "method": "Bounded original OA PDF passages",
+          "title": "Representing Generalized Derangements as Sums of Three Squares",
+          "trigger": "Same normalization and named higher-even questions"
+        },
+        {
+          "assessment": "RELATED_FRAMEWORK_NOT_THE_TARGET_SEQUENCE_CLASSIFICATION",
+          "evidence": [
+            "The cyclic counts concern C_r wreath S_n; Corollary 4.4 supplies a locally analytic metric map, where metric map means 1-Lipschitz."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2012.04615v4",
+          "material_read": "Theorem 1.1 near offset 1984, §1.2.1 near 6955, Definition 2.1 near 13665, Corollary 4.4 near 49000",
+          "method": "OA HTML statement, definition and object comparison",
+          "title": "Derangements and the p-adic incomplete gamma function",
+          "trigger": "Potential broader p-adic isometry theorem"
+        },
+        {
+          "assessment": "STRONGER_METRIC_IN_EXCLUDED_PARAMETER_ONLY",
+          "evidence": [
+            "For G_n=D_n^(2), exact all-index 2-adic isometry and all obstruction shells give density 1/6. The limitation explicitly excludes v≥4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-exact-dyadic-isometry-and-three-square-obstruction-density-for-g--b27baf1a454b/RESULT.md",
+          "material_read": "Finding and Assumptions at offset 0; proof and scope offsets 3100–7107",
+          "method": "Configured local mirror, exact theorem and argument comparison",
+          "title": "Exact dyadic isometry and three-square obstruction density for generalized derangements at parameter two",
+          "trigger": "Exact same-family distinct same-date theorem"
+        },
+        {
+          "assessment": "CLASSICAL_PARAMETER_ONLY",
+          "evidence": [
+            "Classical derangements: each even residue once per period, four times for residues congruent to 1 mod 8, zero otherwise; the odd indices give an exact isometry."
+          ],
+          "identifier_or_url": "Resultary ac06186a59d1",
+          "material_read": "Finding and Assumptions near offset 0 and relevant odd-branch discussion",
+          "method": "Configured local mirror and exact parameter comparison",
+          "title": "Exact residue fibres of derangement numbers modulo powers of two",
+          "trigger": "Classical exact branch isometry and full fiber law"
+        },
+        {
+          "assessment": "CLASSICAL_PARAMETER_ONLY",
+          "evidence": [
+            "The exact dyadic multiplicity formula is stated for classical derangements, not for higher even v."
+          ],
+          "identifier_or_url": "Resultary 2db8513e1620",
+          "material_read": "Finding at offset 0",
+          "method": "Configured local mirror and exact parameter comparison",
+          "title": "Exact dyadic residue multiplicities of derangement numbers",
+          "trigger": "Independent indexed exact fiber overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A named arithmetic classification problem for an infinite even-parameter family gets an effective valuation root, full index criteria and a quantitative density. The sharp change between 1/24 and 1/6 comes from an even-index progression absent in one parameter class; it is not visible from a v=2 calculation. Root lifting and the disjoint shell description can be used to decide individual indices as well as predict counts. The method does not claim an elementary closed root or more general representation statistics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

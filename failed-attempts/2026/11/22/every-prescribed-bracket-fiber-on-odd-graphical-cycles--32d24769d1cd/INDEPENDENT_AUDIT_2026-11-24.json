@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:01:06.858186Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed zero-vector set, a nonzero vector has q+1 possible projective directions and q−1 lifts of its chosen direction. Zero determinants identify directions on surviving endpoints, and nonzero determinants separate them; this proves the contraction count, including the zero contribution of loops. Vertex scalings attain arbitrary edge ratios on a proper support (a forest). On full odd support the sole closure condition for scalings is a square class, removed by a simultaneous GL(2,k) map with chosen determinant; in characteristic two squaring is already bijective. Therefore the division by (q−1)^|S| is exact. With at least two active edges the no-deletion quotient is an edge or cycle and is 3-colorable; with one active edge delete a vertex outside its endpoints; empty support admits the zero assignment. Full support gives the cycle coloring count q^n−q, with q^(2n) free central choices. The group assertion follows for the edge cocycle f(a,b)_i=a_i b_(i+1): its commutator is f(a,b)−f(b,a), even in characteristic two, with no use of a half-bracket. Inspected the frozen checker and seven recorded outputs without executing the uploaded code. An independent transfer count (`python3 /workspace/independent_checks.py 5`) compared every target with the support formula on the seven frozen sizes and on (3,4) and (5,4) over F4, including all 1,024 targets at (5,4). Computation is bounded corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem in ad8a3a2d7106 gives exact matching-sum fibers for all no-even-cycle graphs over all q, and distinguishes support rigidity from surjectivity by a bowtie example.",
+          "The earlier 938aea29d44f pointwise clause applies to every supported alternating matrix on an odd unicyclic graph over every finite field. The forest record excludes cycles and the friendship record covers C3 but not C5 and higher."
+        ],
+        "reasoning": "Odd cycles lie wholly inside both broad graph scopes, independently of the size or characteristic of the field.",
+        "searches": [
+          "Resultary: odd cycles, forests, friendship graphs, graphs with no even cycles",
+          "ad8a3a2d7106 Finding; 938aea29d44f Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: 938aea29d44f, ad8a3a2d7106, c92e90370f3f, 152f534a63f7",
+        "arXiv:1010.4005v1",
+        "DOI:10.1112/blms.12665 (access limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute rank A_lambda=2ν(supp lambda) from November 2 into the orthogonality formula; the character sum over nonzero edge weights is q−1 for a zero coefficient and −1 otherwise. This recovers a complete support-only exact fiber count without assuming the frozen theorem.",
+          "On full support put x=q^(−2). The sum over edge subsets is Σ_S(−1)^|S| x^ν(S)=1−x^((n−1)/2): a proper subset decomposes into runs of length l between missing edges, with series R(t)=Σ_l(−t)^l x^ceil(l/2)=(1−xt)/(1−xt²). Marking a missing edge makes the proper-subset contribution −n[t^n]log(1−tR(t))=1 for odd n; the full subset contributes −x^((n−1)/2). Multiplication by q^(3n) gives q^(2n)(q^n−q)."
+        ],
+        "reasoning": "This implication uses the frequency-by-frequency rank statement, not just the aggregate half-rank polynomial. The closed full-support value can also be extracted, so the difference in formulas does not restore originality of the advertised count.",
+        "searches": [
+          "November 2 Resultary record 938aea29d44f, pointwise rank clause",
+          "November 22 Resultary record ad8a3a2d7106, Finding, Proof §1 and related-work passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each alternating edge-frequency matrix A_lambda is the character dual of the determinant map: summing over the second vertex vector gives q^n on ker A_lambda and zero otherwise. Fourier inversion yields q^(2n) times the sum of q^(−rank A_lambda) times the target character on C_n.",
+          "The same-day broader Finding explicitly evaluates this sum by edge support, with factor q−1 at a zero target coordinate and −1 at a nonzero target coordinate."
+        ],
+        "reasoning": "The frequency-domain and projective-coloring expressions enumerate identical ordered pairs, not merely parameter-matched rank or class totals.",
+        "searches": [
+          "Resultary semantic search for prescribed bracket fibers, graphical cycles, support-rigidity and exact commutator counts",
+          "Even-cycle obstruction to support-rigid bracket fibers, ad8a3a2d7106, Finding and Proof §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The friendship formula overlaps at the triangle. The broader same-day matching formula evaluates every prescribed target, not only a finite table or an aggregate by class or rank. The frozen seven-row log is bounded reproducibility evidence, not an older census."
+        ],
+        "reasoning": "Exact corpus coverage is present even without a database row or literal matching chromatic expression for each (n,q).",
+        "searches": [
+          "Resultary exact prescribed fiber classifications: c92e90370f3f, 152f534a63f7, ad8a3a2d7106; identity excluded: 32d24769d1cd"
+        ]
+      },
+      "rationale": "The all-target support-only fiber census is already a direct consequence of the earlier pointwise alternating-rank theorem for odd unicyclic graphs and additive-character orthogonality. A distinct same-day broader record also explicitly gives the exact fibers in matching-sum form on all graphs without even cycles, including all odd cycles and every characteristic. Its related-work passage calls the single-cycle result earlier, but neither the same date nor that unlinked phrase establishes priority; the independent November 2 implication is sufficient. The positive chromatic expression is a different derivation/presentation and the elementary surjectivity argument is useful, but they do not establish novelty of the advertised complete support-only classification and its full-support count.",
+      "residual_risks": [
+        "The relative publication order of the distinct same-day records was not established.",
+        "Full-text inspection of Rossmann was unavailable; other earlier word-map formulations could exist; neither limitation is the basis of the FAIL.",
+        "No separate novelty determination is made for a narrower algorithmic theorem or for the positive chromatic representation considered in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the pointwise rank ingredient; with finite character orthogonality implies the all-target support-only count.",
+          "evidence": "The pointwise paragraph states that if the unique cycle is odd, the alternating matrix has rank exactly twice the support matching number; the scope includes all prime powers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-factorized-pfaffian-correction-for-graphical-groups-of-every-u--938aea29d44f/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–3164",
+          "method": "Resultary local mirror, exact record text",
+          "title": "A factorized Pfaffian correction for graphical groups of every unicyclic graph",
+          "trigger": "Earlier frequency rank law on the same graph family"
+        },
+        {
+          "assessment": "Broader alternative exact formula; same-day priority not inferred.",
+          "evidence": "The no-even-cycle formula is q^(2n+m) Σ_S q^(−2ν(S))∏_e t_e(z) over q≥2. The notes mention ‘another earlier result’ on single odd cycles without establishing intra-day publication order.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-even-cycle-obstruction-to-support-rigid-bracket-fibers-in-graphi--ad8a3a2d7106/RESULT.md",
+          "material_read": "Finding and Proof §1, offsets 0–3732; related work and limitations, offsets 9750–12607",
+          "method": "Resultary search and exact local mirror passages",
+          "title": "Even-cycle obstruction to support-rigid bracket fibers in graphical Lie algebras",
+          "trigger": "Same-day distinct high-overlap theorem"
+        },
+        {
+          "assessment": "Does not include cycles.",
+          "evidence": "The theorem and assumptions restrict to forests.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-prescribed-bracket-fibers-of-finite-field-graphical-lie-algebras--c92e90370f3f",
+          "material_read": "Finding and Assumptions (through offset 2796)",
+          "method": "Resultary search and local mirror",
+          "title": "Prescribed bracket fibers of finite-field graphical Lie algebras on forests",
+          "trigger": "Exact prescribed fibers on a neighboring graph family"
+        },
+        {
+          "assessment": "Covers the triangle but not longer simple odd cycles.",
+          "evidence": "The graph is a bouquet of triangles, with one triangle allowed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-commutator-fibers-and-commutator-width-for-friendship-grap--152f534a63f7",
+          "material_read": "Finding and Assumptions (through offset 3390)",
+          "method": "Resultary search and local mirror",
+          "title": "Exact commutator fibers and commutator width for friendship graphical groups",
+          "trigger": "Likely overlap at C3"
+        },
+        {
+          "assessment": "Establishes the objects and an isomorphism question, not the fiber claim in inspected passages.",
+          "evidence": "§1 studies when the Lie algebras associated with two graphs are isomorphic.",
+          "identifier_or_url": "https://arxiv.org/pdf/1010.4005v1",
+          "material_read": "Abstract and §1, PDF p. 1",
+          "method": "Lawfully accessible arXiv paper",
+          "title": "A short note on 2-step nilpotent Lie algebras associated with graphs",
+          "trigger": "Primary source for the graphical Lie construction"
+        },
+        {
+          "assessment": "Unresolved scope in this review; no negative inference.",
+          "evidence": "The reachable routes did not supply independent full text; the positive overlap decision rests on other inspected sources.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.12665",
+          "material_read": "No independent body passage verified; title and reference identity only",
+          "method": "DOI and publisher full-text URL attempted via lawful direct and alternate routes",
+          "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+          "trigger": "Plausible source for graphical word-map counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Prescribed commutator counts and surjectivity on a natural nonacyclic family give more information than a commuting probability or a count of conjugacy classes. The nonnegative chromatic expression gives a direct combinatorial account and witnesses positivity on this family, unlike an alternating matching sum in which positivity is not manifest. This scientific usefulness does not remove the exact coverage of the advertised census.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

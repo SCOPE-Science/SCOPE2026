@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivative formula, parity obstructions, semiprime factorization, and four-prime rational reduction are proved explicitly. The inequality bound first reduces all admissible prime pairs to \((3,7)\) and \((3,11)\), then an exact list of seven rational final-prime candidates is checked. The separate executable uses exact `Fraction` calculations. The higher-support case is not proved or asserted.
+## correctness
 
-## Originality — PASS with residual risk
-The 2003 primary article derives the arithmetic-derivative formula and studies different differential equations; it does not state this comparison with Euler's totient. Searches concerning equality \(D(n)=\varphi(n)\), squarefree numbers, three and four prime factors, and database coverage did not locate a stronger published statement. Existing results on \(D(n)=n\), on the derivative of \(\varphi(n)\), or on \(D(n)=n-\varphi(n)\) are not equivalent. A prior unindexed derivation remains possible; an unsuccessful search alone is not proof of novelty.
+PASS
 
-## Value — PASS
-The parity law shows that after the exceptional prime \(2\), even support sizes are the natural search strata. The theorem exhausts the first two of these, proving a genuine six-prime necessary condition for any further squarefree coincidence. The bound is structural and infinite rather than an arbitrary input-size census. No claim is made about existence at six factors or beyond.
+For squarefree n the two normalized functions are the sum of reciprocals and the product of one-minus-reciprocals. For even n>2 the term n/2 alone is odd, while φ(n) is even; for odd n>1 with odd support every n/p is odd and φ(n) is even. The empty support fails and the one-prime equation gives 2; for two odd primes (p−2)(q−2)=3 gives exactly 15. At four odd primes F>0 is necessary and solving the one remaining reciprocal gives exactly the displayed s; 0<1/s<1/r yields the strict bounds in the proof. Independently, the normalized product-minus-sum gap strictly increases with each prime variable, and even the lower benchmarks (5,11,13,15), (5,7,11,13), (3,17,19,21) and (3,13,17,19) have positive gap, excluding their entire ordered ranges. The pair (3,5) already has zero gap before adding more primes, so it cannot give equality after adding two. For the remaining pairs (3,7) and (3,11), repeating r in the fourth position gives the strict bound r<2(1+T)/F; positivity of the three-variable gap gives the lower bound. Exact rational replay gives s=549,123,747/13,189/5,1011/29,669/25,881/49. The integers are divisible by 3 and the others are nonintegral. The unbounded exclusions and the odd-support parity, not a finite interval in n, establish the barrier.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Both examples and the squarefree support-at-most-two conclusion are already covered. The distinct result is the unrestricted four-prime exclusion and resulting six-prime necessary barrier. The frozen relationship-to-prior-work section omits the exact-match OEIS A166374 and should credit it and the already covered two-prime case; neither omission invalidates the distinct exclusion.
+
+## value
+
+PASS
+
+After parity and the known two-prime layer, four is the first unresolved possible squarefree support for a nontrivial equality. Complete elimination at this support is a meaningful structural barrier that applies no matter how large the primes are, not a bound on the tested integer range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

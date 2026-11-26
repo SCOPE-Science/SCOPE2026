@@ -1,23 +1,21 @@
-# Scientific review: sharp frequency-dependent resetting design
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary two-sided Brownian–Poisson convolution converges in mean square because the squared multiplier contracts at exponent \(r(1-a^2)\). This gives stationary variance \(2D/[r(1-a^2)]\). Conditional expectation across future jumps yields exponential covariance with relaxation rate \(r(1-a)\), and the Fourier transform yields the stated Lorentzian spectrum. Global optimization is proved by differentiating the cubic denominator and comparing its negative stationary root to both excluded endpoints. At \(|\omega|=r\) there is one interior optimum, whereas above this frequency the value at the excluded no-reset boundary is strictly better than every stationary admissible factor. The time-average CLT follows from the compensated-jump martingale, its ergodic predictable quadratic variation and the martingale Lindeberg condition. These arguments supply the infinite-dimensional and boundary portions that finite tests cannot prove.
+PASS
 
-The standalone standard-library checker returned PASS with 53,019 assertions, including exact rational computations, parameter and Fourier quadratures, independent covariance integration, and seeded stochastic simulation. Numerical checks support, rather than replace, the proof. The optimizer is unique for all frequencies below or at threshold; above it only an infimum exists.
+Condition on the independent Poisson history in the backward Brownian integral. It gives stationary variance 2D/[r(1−a²)], and common noise contracts any two initial states by a raised to the jump count, proving uniqueness even without assuming a second moment for competing invariant laws. The stationary construction is an ergodic function of the driving increments. The conditional mean has decay rate λ=r(1−a), so the two-sided transform of the stationary covariance gives exactly the stated PSD. Maximizing its denominator F, the identity F(a)−F(1)=(1−a)[r²(1−a²)−ω²] rules out competing interior maxima for z>1 and singles out a=0 as the only admissible equality for z=1; compactness gives convergence to 1 for every high-frequency infimizing sequence. For z<1, the smaller derivative root is the only interior local maximum (at z=0 the larger root is the endpoint); at the smaller root the excess over F(1) is −2r²a(1−a)²>0. Substitution recovers the optimal value, and differentiation on the two branches gives the two stated one-sided slopes. The covariance integral gives the long-run variance rate. The compensated martingale has bracket per unit time tending to 2D+r(1−a)²E[X₀²]=4D/(1+a); a finite fourth moment follows from the geometrically weighted backward exponential intervals and bounds the normalized large-jump contribution by O(T⁻¹) in expectation. The endpoint difference divided by √T vanishes in L², giving the stated CLT and zero-frequency comparison. The supplied checker was inspected, not executed; these are analytic verifications.
 
-## Originality — PASS, qualified
+## originality
 
-Biroli, Feld, Hartmann, Majumdar and Schehr, *Resetting by rescaling: exact results for a diffusing particle in one-dimension* (arXiv:2406.08387v1, 2024), introduce the signed-factor model and characterize one-time stationary statistics and first passage. Olsen and Löwen, *Partial stochastic resetting with refractory periods* (arXiv:2406.10039v1, 2024), derive Fourier–Laplace propagators and moments and investigate positive contraction factors with refractory periods. Their propagator could be used to derive particular correlations, so elementary covariance and spectral calculations are not asserted as novel by themselves. The compared works do not appear to establish the global frequency-by-frequency optimum over negative and positive reset factors, the sharp transition at the reset rate, nonattainment above it, or the connection to the optimal long-time averaging variance. Related broad stochastic-control and correlation results could nevertheless contain an equivalent classification, so publication priority remains qualified.
+PASS
 
-The compared claims differ by more than terminology: the new result optimizes the two-time spectral observable across a signed multiplier, not the one-time stationary law, kurtosis, mean-first-passage time, or a positive-factor refractory parameter. A negative multiplier is mathematically important, since the low-frequency optimizer equals \(-1/3\), strictly outside the positive-parameter family.
+The frozen finding's full signed frequency-design classification has distinct content: the branch competition with a forbidden stationary endpoint, exact nonzero-frequency transition and cusp are not supplied by the inspected model, covariance or finite-window papers. The covariance and the temporal-mean asymptotic optimizer/value are already covered in part of the inspected evidence and are not credited as standalone new results. This does not establish historical priority.
 
-## Mathematical value — PASS
+## value
 
-A stationary noise spectrum is a natural observable for fluctuation measurements. The result solves the model's complete fixed-rate, single-frequency parameter-design problem, and its attained-to-unattained threshold is a substantive boundary distinguishing strategies: at low frequencies the optimum deliberately reverses the particle's position, at the reset-rate frequency it becomes a full reset, and at high frequencies the best limiting design ceases to have a stationary position distribution. The cusp in the optimized spectrum and the exact \(5/32\) improvement in the long-time variance of time-averaged position are testable consequences. The quantitative problem is motivated by a natural physical spectral observable, not an arbitrary numerical slice.
+PASS
 
-## Scope and limits
+For a natural noise-design objective this gives a complete attained/nonattained transition rather than only an improved local candidate. It shows that a physical reversal helps at low monitored frequencies, whereas arbitrarily weak resetting is limiting-optimal at high frequencies but cannot realize the bound as a stationary process. The cusp and exact crossover separate qualitatively different design regimes; no claim of broad-band or rate-and-multiplier optimality is needed.
 
-The theorem holds only for one-dimensional Brownian diffusion, stationary statistics, an independent constant-rate Poisson reset clock, and a deterministic signed factor strictly between -1 and 1. Finite-horizon spectra, joint reset-rate optimization, random factors and refractory dynamics are not covered. An inaccessible or unindexed mathematically equivalent treatment could change the novelty assessment. There is no independent external audit.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

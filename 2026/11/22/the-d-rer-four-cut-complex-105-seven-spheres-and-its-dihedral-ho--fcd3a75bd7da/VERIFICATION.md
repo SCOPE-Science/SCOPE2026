@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite certificate and exact replay
+# Independent mathematical audit
 
-`verify_durer.py` and `collapse_pairs.json` reconstruct the graph from the edge families, enumerate every subset, identify the disconnected quadruples, verify the closure and face-vector of the Alexander dual, and confirm that each listed pair is a genuine elementary collapse **at the instant it is removed**. There are 66 pairs and no remaining face above dimension two. No external Python packages are needed.
+## correctness
 
-The verifier also enumerates signed, fixed simplices for twelve graph automorphisms. It verifies the six rotation traces and six reflection traces, each permutation's evenness, the resulting invariant rank eight, and the absence of six-vertex Alexander-dual faces. Its successful actual output is embedded as `verification_output.txt`.
+PASS
 
-The homotopy deductions are not delegated to software: the two-skeleton of the dual is simply connected, and the verified collapses preserve that property; the final two-complex has reduced Euler characteristic 105. Integral Hurewicz and Whitehead supply the dual sphere wedge, while integral combinatorial Alexander duality, the original complex's complete five-skeleton, and its seven-dimensional bound supply the original sphere wedge. Standard equivariant Alexander duality and the ambient even permutations transport the character.
+The dual contains exactly the subsets with no disconnected induced four-set. A separate verifier rebuilt it, found 429 disconnected quadruples and dual face counts (12,66,220,66,6), and verified all 66 supplied collapse pairs against the live complex. The remaining two-complex has counts (12,66,160) and is simply connected since the original dual has the complete two-skeleton. Its H_2 is free of rank 105 by Euler characteristic and freeness of the top cycle subgroup. Integral Hurewicz and homology Whitehead give the two-sphere wedge. Integral combinatorial Alexander duality on twelve vertices shifts to degree 9-j. The absence of six-element dual faces gives the full five-skeleton of K and hence four-connectivity; H_5=H_6=0 allows two more Hurewicz steps. K has dimension seven, so representatives of an H_7 basis give the other wedge by Whitehead. The two inner triangles determine the inner layer and the outer hexagon and spokes determine the full D_6. Oriented fixed-simplex traces in degree two of the dual reproduced both character rows. For transfer to K the inverse-action convention leaves the traces unchanged and the ambient sign is +1 because the layer actions are copies of the same permutation. Averaging gives 8. This establishes ordinary homotopy types and a homology representation, not an equivariant wedge.
 
-The finite test covers the entire specified graph, but it does not validate similar formulas for other generalized Petersen graphs. Independent scientific validation has not been performed.
+## originality
+
+PASS
+
+The supported distinct contribution is the concrete integral homotopy calculation of the ordinary four-cut complex and dual, together with the exact dihedral homology character. The definitions, general tools and the graph's dihedral action are not originality claims. The closest comparisons on available evidence do not give these invariants; unavailable original passages remain a risk, not evidence of absence.
+
+## value
+
+PASS
+
+The Dürer graph is a natural cubic benchmark with triangles, outside the cited pentagonal-girth and full-skeleton cases. The collapse gives an integral homotopy result stronger than finite-field ranks, and the character and invariant rank provide data for a symmetry action that the abstract wedge cannot recover.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

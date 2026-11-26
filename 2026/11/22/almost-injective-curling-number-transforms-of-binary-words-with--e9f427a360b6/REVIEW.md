@@ -1,19 +1,21 @@
-# Review of the sparse curling-transform fiber theorem
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The central suffix-power lemma reduces every possible mixed-letter suffix repetition to a square with period equal to the distance between the two ones. Its two boundary inequalities recover the displayed three-gap transform exactly. The subsequent explicit inversion proof separates all possible first-gap categories, then the only plausible middle-gap collision, and handles all short-length exceptions. These are statements for all nonnegative gap lengths, not extrapolations from computation. Independent direct enumeration checked all \(10{,}660\) weight-two binary sources of lengths \(2\) through \(40\), and an independent inverse-image computation checked every length through \(100\). The attached programs and captured results are reproducible using Python 3 without dependencies. Finite tests are corroborative, not the infinite argument.
+PASS
 
-## Originality (O): PASS, within bounded source access
+A repeated suffix with any one can only be a square, of period d=b+1, with exactly one marker per copy. In zero-based indexing the earliest marker p=a must lie in [t-2d+1,t-d] in a square ending at t, with p+d the other marker. This gives a>=b at the second marker and b>=1,a>=b-1 one step later. Otherwise the terminal zero run supplies the maximum; for runs of length >=2 the possible square cannot increase it. Thus the three-gap factorization is valid. Initial starts 123,121,11 distinguish the stated leading-gap cases; 121 can hide only (2,0,0) versus (0,0,2), and comparison through positions 3–6 in the 11 case gives the other two length-four and the one length-five cross-leading-gap collisions. For fixed a, b=0 is separate, and a staircase of length >=3 gives b uniquely. The local entry index in line 58 is off: for b=1 versus 2 the second entries after R_a(1) agree iff a>=1; the third entries then agree iff a>=2, with the third entries 2 and 1 when a=1. Length equality matches c with c-1. At a>=2 the resulting sequences coincide for c=1,2 and differ at position five after R_a(1) for c>=3. This verifies the claimed pairs despite that indexing slip. Direct n=2,3 cases are injective. The count and uniform conditional entropy and success formulas follow from exactly two doubletons at n>=7. Inspected VERIFICATION.md and both Python 3 replay scripts without executing the uploads: direct suffix comparisons through n=40 and formula grouping through n=100 supplement, but do not prove, the reconstruction.
 
-The motivating Caveney–Dong–Shallit 2026 paper studies avoidance thresholds and morphic sources paired with their curling transforms; this result instead classifies the entire inverse map on the weight-two source stratum. Chaffin–Linderman–Sloane–Wilks 2012/2013 enumerate words by a single final curling number, which cannot imply a complete **ordered** prefix-transform fiber description. OEIS A216955 likewise tabulates final-curling counts. The closest indexed related result concerns two transform outputs for ternary extremal repetition-avoidance sources rather than a universal all-length fixed-weight binary inversion theorem. Exact and alias searches found no dominating claim. The motivating paper's later full-text sections were unavailable on re-open, and unindexed equivalents remain a residual priority risk; lack of matches is not a proof of global novelty.
+## originality
 
-## Value (V): PASS
+PASS
 
-A full prefix curling-number trace is a natural observation map in suffix-repetition analysis; determining whether it reconstructs the source is an inverse problem distinct from computing its final statistic. Weight two is the first nontrivial fixed-weight binary family in which suffix squares can contain both symbols. The theorem gives all inverse fibers, not just an upper bound or one example. Unexpectedly only two ambiguities survive for every sufficiently long length, yielding exact decoder success and conditional entropy. This is a complete motivated classification, not an arbitrary finite table.
+The full prefix statistic itself is prior art. The best-supported distinct claim is the complete inverse classification on fixed binary weight two for every n, including exact ambiguity. The closest full texts and result statements use the same transform with a different constraint, or measure a single curling number instead.
 
-## Limitations
+## value
 
-The theorem concerns only exact Hamming weight two, the fully ordered prefix trace, and labeled binary sources. It makes no prediction for higher weights or for a truncated observation. Verification is computational only over the reported finite ranges. Priority is not certified against unindexed or inaccessible literature. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weight two is the first binary sparsity level at which a repeated suffix can use both symbols. The exact all-length inverse fibers identify precisely the failed reconstructions and give the exact ambiguity and decoder accuracy, a complete answer to a natural inverse observation problem rather than a finite table or arbitrary cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

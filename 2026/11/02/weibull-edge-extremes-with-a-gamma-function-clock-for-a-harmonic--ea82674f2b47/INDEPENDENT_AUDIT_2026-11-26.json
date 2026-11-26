@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:31:07.765212Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Time s=bt gives dY/ds=−Y+S and rates alpha,beta. The stationary generator equation in state 0 yields (n+beta)m_n^0=alpha(m_n^++m_n^-), and the state + equation yields the stated even recurrence. Constant 0-to-plus hazard makes this conditional rest-position law the stationary entrance law. Its even moments identify the independent beta product by compact support. Expanding the symmetric part of (1−Y)^(-alpha) and using the duplication identities gives the displayed hypergeometric series with Gauss excess 1; this proves integrability and the Gamma quotient. Each plus mark has probability min(1,(delta/(1−Y))^alpha), so the stationary mark rate per entrance p_delta is asymptotic to the quotient times delta^alpha. The independent first rest after each plus run bounds all conditional later mark probabilities by kappa_delta tending to zero with log(1/delta) kappa_delta tending to zero. The Doeblin argument works uniformly: a long rest places every coordinate near zero, then a minus run of duration in a fixed positive interval, with a sufficiently short final rest, sweeps a common interval with bounded Jacobian and density bounded below. Thus separated stationary mark blocks mix uniformly. For block length L of order p_delta^(-1/2), short-lag joint contributions are O(L p_delta log(1/delta) kappa_delta), and long-lag contributions O(L^2 p_delta^2), both o(L p_delta). Logarithmic gaps have vanishing omitted hit probability and can make interblock total-variation error o(p_delta^2). This proves the exponential index law; the lower bound (delta/2)^alpha on conditional success gives uniform integrability. Full cycles have independent finite-mean lengths 2/alpha+2/beta; the first marked index is a stopping time for completed cycles with survival to a given cycle depending only on earlier cycles. The strong law and Wald's identity therefore apply, with finite expected post-hit remainder by memorylessness. For a stationary-time start, the first future plus entry has a finite-mean wait and any earlier hit is an event of probability tending to zero (the path stays strictly inside the support on the finite initial segment). The same order-delta^(-alpha) bound on conditional remaining mean makes dropping such events negligible for the scaled expectation as well. An initial entrance law not already stationary can be coupled after logarithmic burn-in; the first-mark probability vanishes at fixed interior positions and later burn-in hazards are bounded by kappa_delta. Restoring physical time multiplies the normalized clock by b, reproducing b/pi at (1,1) and b/2 at (2,1). Hitting and maximum events with strict versus weak inequalities give the same continuous limit by a threshold sandwich, with z=0 following from interior support. The supplied verification files were read as evidence, not executed; their simulations do not prove the temporal law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guéneau et al. Eq. (24) gives a harmonic MFPT for the standard two-state RTP; Eq. (28) treats entry from outside its support.",
+          "Grange–Yuan retain exponentially timed rest but use constant drift and absorbing interval endpoints, not linear harmonic drift.",
+          "Resultary b1c93e6399f0 treats the first entry into support of a two-state process launched outside and obtains a centered log-Beta law."
+        ],
+        "reasoning": "Neither removing the rest state nor dropping harmonic drift covers finite positive run and rest rates inside the support. The exterior problem approaches the edge from the other side with a different scaling and state preparation.",
+        "searches": [
+          "Guéneau–Majumdar–Schehr arXiv:2409.16951, harmonic MFPT and trapping passages",
+          "Grange–Yuan arXiv:2509.11308, process and boundary formulation",
+          "Local Resultary/SCOPE harmonic first-passage comparisons, record b1c93e6399f0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 432388eb4847 and b1c93e6399f0",
+        "arXiv:2610.24961v1, 2409.00578v1, 1910.10083v1, 2409.16951v1 and 2509.11308v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stationary plus-state tail or flux may be derived from exact stationary laws. The rescaled waiting law requires absence of persistent mark clusters, established using the intervening independent rest and a uniform minorization.",
+          "General mixing-based rare-event principles are relevant; no identified inspected theorem establishes this model's conditions and exact dynamic conclusion without those checks."
+        ],
+        "reasoning": "A single-time stationary tail does not fix a temporal maximum. Even a candidate flux intensity needs a short-return/extremal-index calculation before becoming the first-hit clock. The novel implication is that the model's positive rests suppress clustering at the claimed scale, with the explicit amplitude and expectation limit.",
+        "searches": [
+          "Sun–Ye–Chen arXiv:2610.24961v1, stationary run-state edge equations (59)–(60); Sun–Ye–Podgornik arXiv:2409.00578v1, edge-power passage",
+          "Closest indexed same-model law 432388eb4847 and the first-passage scopes of arXiv:2409.16951 and arXiv:2509.11308"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 432388eb4847 specifies the identical three-state trap after identifying its (a,c) with frozen (alpha,beta). Its beta product is for the unconditional stationary coordinate, not the Palm rest-position distribution of the frozen record, and its scope expressly excludes finite-time assertions.",
+          "At a stationary time the upcrossing intensity per normalized time at y=1−delta is delta times the stationary plus-state density there. This is an alternative expression for the fresh-crossing rate, not for the waiting-time law."
+        ],
+        "reasoning": "Rescaling coordinates and time does not change the rare-event comparison. Stationary one-point probabilities, conditional entrance laws, crossing intensities and the distribution of first occurrence are different quantities; a shared stationary model cannot by itself identify the last one.",
+        "searches": [
+          "Local Resultary/SCOPE search for harmonic run/rest/run traps, stationary beta-product laws and upper-edge first passage",
+          "Sun–Ye–Chen arXiv:2610.24961v1; Sun–Ye–Podgornik arXiv:2409.00578v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact comparisons concern a stationary beta-product/moment fold and the distinct exterior trapping law. No matching exact temporal-limit table or symbolic record was identified in the bounded lookup.",
+          "Exact stationary state densities and special-rate edge powers, including the single-rate three-state precedent of Basu et al., are available and materially overlap the stationary calculation."
+        ],
+        "reasoning": "The relevant exact invariant is a two-rate symbolic time clock (with a mean and limiting law), not a numerically tabulated steady state. Stationary formulas may supply its candidate coefficient but do not certify use of that coefficient as an extremal rate.",
+        "searches": [
+          "Local Resultary/SCOPE search for exact near-edge harmonic RTP arrival clocks and trajectory maxima",
+          "Basu et al. arXiv:1910.10083v1, pp. 4–5; Sun–Ye–Chen arXiv:2610.24961v1, Eqs. (59)–(60)"
+        ]
+      },
+      "rationale": "The stationary bulk law and edge powers have prior exact treatments; even the leading mean upcrossing intensity can be read from the stationary plus-state edge flux if that density is known. The distinct part supported here is identification of that intensity with the actual temporal rare-hit rate (no leading clustering), the mean and exponential law for the stated starts, and the resulting exact Weibull time-extreme scaling. The closest indexed stationary record and the accessible harmonic/finite-tumble first-passage comparisons do not establish that dynamic conclusion.",
+      "residual_risks": [
+        "A general rare-event theorem with model-specific verification, or a separate near-edge first-passage treatment outside the bounded search, could provide further coverage.",
+        "The same-day indexed model match establishes stationary overlap, not within-day chronology. Priority for the stationary law is not claimed by this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and substantial stationary-law overlap, not an exponential hit law or maximum",
+          "evidence": [
+            "Same run-to-rest and symmetric rest-to-run rates in a harmonic trap; assertions expressly limited to the stationary law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-an-exact-two-moment-inverse-fold-in-a-trapped-run-and-tumble-par--432388eb4847",
+          "material_read": "RESULT.md offsets 0–3873, Findings, scope and stationary beta-product proof; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured Resultary lookup and exact local mirror passages",
+          "title": "An exact two-moment inverse fold in a trapped run-and-tumble particle",
+          "trigger": "Closest indexed exact stationary result for the identical dynamics"
+        },
+        {
+          "assessment": "Two-state exterior-to-support passage; does not cover this stationary interior edge problem",
+          "evidence": [
+            "Exterior launch and first entry into support; centered log-Beta limit, not a rare-hit Weibull time-extreme law."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-quantitative-log-beta-law-for-harmonic-run-and-tumble-trapping--b1c93e6399f0",
+          "material_read": "RESULT.md offsets 0–3283, Finding and assumptions",
+          "method": "Configured Resultary lookup and local mirror full-text passages",
+          "title": "A quantitative log-beta law for harmonic run-and-tumble trapping",
+          "trigger": "Closest indexed passage-time match in a harmonic trap"
+        },
+        {
+          "assessment": "Credit exact stationary state/edge analysis; compared passages do not supply the rare-hit and mean asymptotics",
+          "evidence": [
+            "Steady-state laws conditional on run direction or rest, with a run-state boundary singularity; power behavior is stationary."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.24961v1 ; https://arxiv.org/abs/2409.00578",
+          "material_read": "Sun–Ye–Chen abstract and Eqs. (59)–(60), offsets near 69000–69800; Sun–Ye–Podgornik abstract and edge-power passage, offsets 38635–41350",
+          "method": "OA full-text HTML/PDF passages",
+          "title": "Run-and-tumble particles in a harmonic external field: constructing the solution of the Fokker-Planck equation from the equations of motion; Exact moments for a run and tumble particle in a harmonic trap with a finite tumble time",
+          "trigger": "Closest primary steady-state and stationary hard-edge coverage"
+        },
+        {
+          "assessment": "Stationary precedent for a special case; not the temporal limit in the reviewed finding",
+          "evidence": [
+            "Stationary Fokker–Planck equations in a three-state harmonic model."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10083",
+          "material_read": "PDF pp. 4–5, offsets 11324–17869, stationary equations and special-case model",
+          "method": "OA PDF original passage",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Exact single-rate three-state precedent"
+        },
+        {
+          "assessment": "Different dynamics or geometry and event; no established dominating coverage",
+          "evidence": [
+            "Two-state harmonic MFPT and edge-from-outside relaxation versus finite rest with constant drift.",
+            "Retrieved Grange–Yuan v2 title differs from the wording in the frozen bibliography; the identifier points to the pertinent paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.16951 ; https://arxiv.org/pdf/2509.11308",
+          "material_read": "Guéneau et al. pp. 7 and 9, Eqs. (24) and (28), offsets 33269 and 44238; Grange–Yuan v2 p. 1, model and endpoint formulation",
+          "method": "OA PDF full-text passages",
+          "title": "Run-and-tumble particles in one-dimensional potentials: mean first-passage time and applications; First passage of a run-and-tumble particle with exponentially-distributed tumble duration in the presence of a drift",
+          "trigger": "Closest primary harmonic-first-passage and finite-tumble-first-passage studies"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold is the natural deterministic support edge. The result turns a model with dependent repeated visits into an explicit time-extreme prediction: the run rate sets the shape and the rest rate changes the exact physical clock. Computing an equilibrium singularity or applying an independent-sample Weibull formula would not answer this trajectory question. The time law, exact coefficient and mean give reusable targets for first-passage work with finite-duration tumbles.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

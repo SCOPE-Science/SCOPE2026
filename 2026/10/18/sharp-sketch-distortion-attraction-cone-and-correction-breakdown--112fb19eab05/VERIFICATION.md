@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility of exact algebraic checks
+# Independent mathematical audit
 
-The accompanying `VERIFY.py` is standalone Python using only standard-library modules. From the directory containing this file, execute:
+## correctness
 
-```text
-python3 VERIFY.py
-```
+PASS
 
-Expected final message: `ALL 24779 EXACT CHECKS PASS`.
+/workspace/replay.py (sketch, Python 3 + SymPy) reconstructs the full projected vector equation, both bilinear identities and the homogeneous next vector. The shift makes the right side H-orthogonal to u; v spans that complement, so the correction is unique iff a−bt²≠0, and is inconsistent otherwise since t≠0 and the residual pairing is nonzero. For H in the distortion band, Hu lies in the disk of radius ε∥u∥ about u, hence its angle differs by at most arcsin ε. In the claimed cone a−bt²>0 by the diagonal bounds, and the maximal polar deviation leaves a positive first coordinate. The two-by-two tangent perturbation in the basis along and perpendicular to u has eigenvalues ±ε and attains the upper slope ratio; for t<0 conjugate by diag(1,−1) to reverse the slope. The resulting F(r)/r increases and is less than one exactly inside ρ, giving a geometric contraction from each starting slope even under arbitrary admissible stepwise changes. At t=0 the correction vanishes; the admissible diagonal metric makes ±ρ inconsistent and iterates finite exterior slopes by −t³/ρ², diverging in magnitude to the other direction. A fixed metric has leading coefficient −c/a, of sharp magnitude τ by the same angular argument, and ε=0 gives the exact cubic. No assumption of invertibility at either spectral shift is used; the conclusion is for this real two-dimensional exact restarted model, not a general eigensolver. Packaged rational tests were inspected, not executed.
 
-The checker performs exact rational calculations of the Gram-orthogonal correction and the sketched Rayleigh shift for varied real diagonal eigenvalues and symmetric positive Gram matrices. It verifies the projective recurrence and the two critical bilinear identities, checks an exactly singular example at distortion \(\epsilon=3/5\), verifies exterior escape in the explicit diagonal family, and tests the proposed sharp one-step envelope against a deterministic collection of rational metrics. An explicit rational matrix shows the sharp possible quadratic Taylor coefficient at this distortion.
+## originality
 
-The non-rational general extremizing metric, sharp angular disk bound, unique projected solvability, universal convergence for every admissible sequence of sketches, and general sharp boundary are established analytically in `RESULT.md`. No finite test collection is asserted to establish an infinite universal statement. The program tests scientific mathematics only and makes no external network requests.
+PASS
+
+The exact correction and the qualitative normal-matrix local quadratic versus cubic phenomenon are prior coverage, as is the ordinary unsketched two-mode cubic map on the cone interior. The distinct content is the exact attained envelope over the entire admissible Gram band, its maximal sketch-uniform basin including arbitrary changes of metric, and the explicit projected singularity. No inspected statement implies this joint quantitative classification, with residual uncertainty about historical weighted RQI literature.
+
+## value
+
+PASS
+
+The smallest restarted spectral plane isolates metric distortion from multi-vector expansion. The exact worst-case one-step map and the sharp failure witness locate the boundary at which even a consistent exact projected solve can no longer be guaranteed. The extremizing metrics distinguish the sharp per-step and basin mechanisms, and the cone remains valid under every admissible sequence. This is useful quantitative sensitivity information without a claim about full unrestarted algorithms or sketch probabilities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

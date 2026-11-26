@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:31:41.249475Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–84",
+        "VERIFICATION.md",
+        "johnson_threshold_verify.py (inspection only)",
+        "/workspace/branches/42bfbc2a-24d1-4a71-8b68-1efb92728a4f/record5_replay.txt",
+        "Independent exact polynomial expansion of RESULT.md Steps 2–3"
+      ],
+      "rationale": "Johnson distance is k-|W∩X|, so a nonresolving family lies in a bisector and a largest one must be a full bisector. Splitting the ground set into the two r-element differences and their complement gives b_r=sum_j C(r,j)^2 C(n-2r,k-2j). I independently expanded the four short-separation polynomials and checked the long-separation quotient by exact symbolic algebra, including the positive denominator-minus-numerator polynomial and the three r=6 seeds. The r=2 base polynomial is 2z+2z^4: degree 3 ties at n=6, and at n=7 the interior coefficients are all positive, which propagates. For r=3,4,5 the bases at 2r+1 are strictly positive in interior degrees; the permitted n=2r cases are evaluated directly. For long separations the base at n=2r vanishes on the bisector side at odd degrees; at even degrees use the checked monotone ratio with fixed j and complement symmetry. The central three Vandermonde terms give the stated strict seed for j>=4; convolution with (1+z) preserves the needed strictness. For r=1 the exchanged pair is the unique pair of indicators always equal: any other pair can be split by choosing a k-set omitting both exchanged elements. For J(6,3) the distance-two families are transversals of three pairs, recovered as the non-co-occurring pairs; none has an always-equal coordinate pair. For J(8,4) the pair incidence counts 6 versus 9 recover the bipartition. Fresh exhaustive witness-pair enumeration reproduced the exceptional bisector-size vectors (8,8,0) and (30,26,18,36), and the distinct optimum counts 30 and 35.",
+      "residual_risks": [
+        "The exhaustive replay concerns the two exceptions only; the proof handles the unbounded domain. The resolving number is not the minimum metric dimension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem covers all Johnson graphs and its two antipodal exceptions include J(4,2), excluded by the frozen hypotheses. The equidistant-dimension works impose a different outside-pair equalizer condition. The Wiley threshold paper was not available in full."
+        ],
+        "reasoning": "The indexed maximum-value result strictly dominates the frozen domain; an earlier general bisector identity by itself would not suffice. Access failure for the threshold article does not support the decision.",
+        "searches": [
+          "2026/10/25/SCOPE-resolving-number-of-every-johnson-graph-a-two-exception-binomial--1b30d1fbb061, Finding and proof Steps 2–4",
+          "Korivand–Khashyarmanesh–Tavakoli DOI 10.1155/2022/1838719",
+          "González–Hernando–Mora arXiv:2107.10805 and Kratica et al. arXiv:2406.17870v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84",
+        "Indexed all-Johnson theorem, proof and verifier",
+        "Indexed triangular/two-subset comparison",
+        "Garijo et al. Proposition 2.1",
+        "Equidistant-dimension and distinguishing-threshold primary passages",
+        "Metric Dimension Threshold of Graphs access attempt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the indexed proof for the non-antipodal base n=2r+1, r>=3, at an even degree 2j>=2 below the center its unused positive C(2r-1,2j-2) makes the bound strict. At odd degree 2j+1>=3 up to r its first Vandermonde sum has the additional positive term C(r,j)C(r-1,j+1); degree one is strict directly. The even central bound for r>=4 is also strict after retaining the second positive binomial. Symmetry and multiplication by 1+z preserve interior strictness. For r=2 the prior polynomial is directly 2z+2z^4, isolating the J(6,3) tie; for the prior antipodal even bound, its displayed factor is already strict for h>3 and the Vandermonde tail has further positive terms at h=3. Odd antipodal counts are zero.",
+          "The prior equal-intersection predicate reduces the surviving witness sets to membership parity on an exchanged pair, transversals of three pairs, or two-from-each of complementary four-blocks. There are C(n,2), 15 extra transversals, or C(8,4)/2 block partitions respectively. Distinctness is recovered from coordinate equality, non-co-occurrence, or same-block versus cross-block co-occurrence, respectively."
+        ],
+        "reasoning": "The older maximum-value statement alone does not logically determine all ties. The proof's existing inequalities determine them by retaining positive terms in the same sums and evaluating its r=2 base, and the census is then direct counting of recoverable ground-set partitions. The frozen alternate long-range coefficient proof is correct but not necessary to obtain a genuinely new claim over the indexed coverage.",
+        "searches": [
+          "Indexed earlier Johnson theorem, RESULT.md offsets 2454–7076, especially the coefficientwise proof and antipodal inequality",
+          "Frozen RESULT.md lines 26–32 and 80–84"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier indexed result computes the same universal threshold, not a minimum distinguishing landmark size. Its baseline C(n,k)-2C(n-2,k-1)+1 equals the frozen baseline by splitting by membership of a fixed ground pair. The separate indexed triangular/two-subset families cover k=2, not the frozen k>=3."
+        ],
+        "reasoning": "The threshold formulas are equivalent on the frozen domain. Minimum metric and equidistant dimensions and automorphism-breaking coloring thresholds are different optimizations, not equivalents.",
+        "searches": [
+          "2026/10/25/SCOPE-resolving-number-of-every-johnson-graph-a-two-exception-binomial--1b30d1fbb061",
+          "2026/11/2/SCOPE-maximum-nonresolving-landmark-families-of-triangular-and-two-sub--290a05e93094",
+          "Garijo–González–Márquez 2013 Proposition 2.1",
+          "equidistant dimension of Johnson graphs and distinguishing threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed statement gives the exact adjacent/opposite sizes 30/36 for J(8,4) and threshold 37. Its verifier computes exact counts by separation on the small instances, but does not tabulate distinct landmark families; the inspected source does not directly list the 30/35 distinct-family figures."
+        ],
+        "reasoning": "This is exact threshold and bisector-size coverage, not a claim that the earlier attachment printed the two optimizer counts. The claim of coverage of the latter relies on the mathematical implication check.",
+        "searches": [
+          "2026/10/25/SCOPE-resolving-number-of-every-johnson-graph-a-two-exception-binomial--1b30d1fbb061, RESULTS and verify.py",
+          "Frozen exceptional census and independent bitmask replay"
+        ]
+      },
+      "rationale": "A distinct indexed theorem already gives the exact resolving threshold on a strictly larger Johnson-graph domain. It does not explicitly claim the full optimizer census, so that part was separately tested against the proof. Retaining a positive summand in its existing coefficientwise argument gives the strict comparisons, apart from the one directly visible distance-two tie and the already covered antipodal exception. Its existing bisector membership criterion then yields the families and counts by direct pair or block recovery. The stated remainder is thus a routine extraction from that proof, not an independently established new extremal phenomenon.",
+      "residual_risks": [
+        "This is coverage by a published indexed record and its proof, not a claim about peer-reviewed historical priority.",
+        "The earlier theorem does not explicitly state the optimizer census. The negative judgment for that part depends on the shown routine strictness and recovery argument, not an exact text match or the inaccessible Wiley article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact threshold coverage; optimizer equality and counts are mechanical from the existing argument and membership formula",
+          "evidence": "The coefficientwise Vandermonde comparisons admit strictness checks directly; the verifier enumerates sizes by separation, not distinct bisector sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-resolving-number-of-every-johnson-graph-a-two-exception-binomial--1b30d1fbb061/RESULT.md",
+          "material_read": "Finding offsets 0–1400, proof and scope offsets 2454–7076, and associated verify.py offsets 0–2485; mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror, statement and decisive proof comparison; code inspection only",
+          "title": "Resolving number of every Johnson graph: a two-exception binomial formula",
+          "trigger": "Same invariant and exact exceptional value on broader domain"
+        },
+        {
+          "assessment": "Outside frozen k>=3 scope",
+          "evidence": "Concerns J(n,2) and two-subset Kneser graphs.",
+          "identifier_or_url": "2026/11/2/SCOPE-maximum-nonresolving-landmark-families-of-triangular-and-two-sub--290a05e93094",
+          "material_read": "Indexed finding and domain",
+          "method": "Published finding comparison",
+          "title": "Maximum nonresolving landmark families of triangular and two-subset graphs",
+          "trigger": "Same optimizer-family question in related graphs"
+        },
+        {
+          "assessment": "Starting identity, not the Johnson optimization",
+          "evidence": "Universal threshold is one more than the largest equal-distance set of a fixed pair.",
+          "identifier_or_url": "https://dmtcs.episciences.org/615/pdf",
+          "material_read": "PDF Proposition 2.1, p. 3 near OA offset 7700",
+          "method": "OA primary passage",
+          "title": "The resolving number of a graph",
+          "trigger": "Known general exact bisector reduction"
+        },
+        {
+          "assessment": "Different optimization",
+          "evidence": "Minimum set for which each outside pair has an equidistant landmark, with a Johnson upper bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.10805",
+          "material_read": "PDF definition p. 1 near offset 280 and Johnson section p. 10 near offset 34000",
+          "method": "OA primary passages",
+          "title": "The Equidistant Dimension of Graphs",
+          "trigger": "Potential alternative name for bisector invariant"
+        },
+        {
+          "assessment": "Different objective despite shared distance predicate",
+          "evidence": "Minimum equidistant dimension, including J(n,2), J(n,3), and odd-k J(2k,k) results.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.17870v2",
+          "material_read": "PDF abstract p. 1 near offset 850 and definition p. 3 near offset 7770",
+          "method": "OA primary passages",
+          "title": "Equidistant dimension of Johnson and Kneser graphs",
+          "trigger": "Direct graph match, different potential invariant"
+        },
+        {
+          "assessment": "Automorphism-coloring threshold, not resolving number",
+          "evidence": "The threshold concerns breaking graph automorphisms by colorings.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.14767v4",
+          "material_read": "PDF abstract p. 1 near offsets 0 and 2600",
+          "method": "OA primary passages",
+          "title": "Distinguishing threshold of graphs",
+          "trigger": "Potential threshold alias on Johnson graphs"
+        },
+        {
+          "assessment": "Scope of full primary comparison unresolved",
+          "evidence": "Access attempts did not yield full text; not used as noncoverage evidence.",
+          "identifier_or_url": "https://doi.org/10.1155/2022/1838719",
+          "material_read": "No decisive full-text passage",
+          "method": "DOI/Wiley and lawful copy lookup",
+          "title": "Metric Dimension Threshold of Graphs",
+          "trigger": "Same universal graph invariant under an alias"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–18 and 80–84",
+        "Indexed Johnson theorem, coefficientwise proof, and antipodal case"
+      ],
+      "rationale": "An optimizer classification for a natural graph invariant would ordinarily be useful, and knowing the special tie prevents treating every adjacent bisector as the only possible witness type. Here the exact threshold is already known, and the remaining classifications are obtained by the immediate strictness and coordinate-recovery checks on the existing proof and membership rule. This adds an explicit account but no distinct nonmechanical exact invariant or extension of scope.",
+      "residual_risks": [
+        "The judgment concerns incremental research value, not the usefulness of an explicit expository listing or the correctness of the exceptional counts."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

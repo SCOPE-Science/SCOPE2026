@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The sample-level update identity is obtained by disjoint enumeration of majority and three-way-tie cases; the two-root fixed-point equation proves exhaustive stationary classification; the symmetric Jacobian gives all simplex tangent eigenvalues and exact stability thresholds, including nonhyperbolic endpoints. The convex potential yields a strict Lyapunov-increase inequality and, together with finite fixed-point count, establishes convergence of every deterministic orbit. Exact-rational and symbolic checks in `verify.py` corroborate the central algebra and the rational witness. The analytical argument, not the finite checks, supplies the all-parameter proof.
+## correctness
 
-## Originality
-PASS under checked literature, subject to residual risk. The closest exact same-noise source is d'Amore--Ziccardi (arXiv:2112.03543), which treats the binary finite-population process and explicitly asks about many opinions. Becchetti et al. (arXiv:1310.2858) analyze the same three-sample choice rule at zero communication noise. Nowak--Stoń--Sznajd-Weron (Scientific Reports 11:6098, 2021) already characterize two-level states and hysteresis for a different q-voter update; the present message-corruption/three-sample-plurality map is not that q-voter's sequential unanimity/independence process, and its exact transition formulas and convex discrete-time potential are not supplied there. A broader theorem for an equivalent map could remain unlocated; no definitive uniqueness assertion is made.
+PASS
 
-## Value
-PASS. The motivating binary study singles out the many-opinion threshold as a question. The result shows the answer is not simply the binary \(1/3\) threshold: a size-dependent linear-instability boundary and a distinct fold boundary create a complete deterministic multistability interval, with a rational three-opinion example and a global convergence mechanism. This differentiates local mean-field hysteresis from claims about stochastic metastability and gives a reusable exact benchmark for noisy multi-option consensus.
+Enumerating repeated-label and all-distinct outcomes yields z_i(1+z_i−S). At a fixed point the received coordinates satisfy one quadratic. For its two roots a>b, ab=p/[k(1−p)] and a+b=S+kab give the asserted converse as well: p/k=(1−p)ab<b, so the recovered x belongs to the simplex. The ratio equation gives a finite fixed-point set at each p. The weighted Cauchy–Schwarz bound makes the tangent Jacobian positive definite; its high/low splitting and group-contrast eigenvalues give instability for r≥2 and attraction exactly on the upper one-high branch, aside from the unit-eigenvalue cases. The one-high scalar increment at the uniform threshold is positive for small positive perturbations and at the fold is −Cu(u−u*)², repelling points immediately below u*. The monotone increments on these one-sided intervals and absence of intervening fixed points justify the nonlinear endpoint conclusions. Differentiating p(t) gives its sole maximum at k−1 for r=1. The map is the gradient of the stated convex potential on the simplex; the supporting-plane inequality gives a bounded Lyapunov function with increments at least half the step squared. Steps therefore vanish, every accumulation point is fixed, and an orbit with vanishing steps and a finite fixed-point accumulation set converges. Exact substitution of t=3 and t=4/3 gives the rational witness and stated spectra; the r=2 branch stays below p_lin in this example. The frozen verifier was read, not run; its finite tests do not establish convergence or endpoint stability.
 
-## Limitations
-No finite-size metastable lifetime, sampling-without-self theorem, sparse-network threshold, global basin measure, or independent scientific validation is claimed. Related multi-state majority-vote literature may contain parallel formulas requiring further comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same communication-noise mechanism is known for binary 3-majority and the sampling rule is known without noise. The actual compared statements do not give the two positive-noise deterministic multistate thresholds, the exhaustive stability classification or convergence of every simplex orbit for this particular map.
+
+## value
+
+PASS
+
+The exact split between the loss of linear attraction at the disordered state and the disappearance of ordered attractors gives a genuine deterministic coexistence regime, with endpoint and rational checks. Global convergence adds information not implied by the equilibrium list: no orbit has a nonfixed accumulation point. The result is useful without claiming finite-population escape times or stationary laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

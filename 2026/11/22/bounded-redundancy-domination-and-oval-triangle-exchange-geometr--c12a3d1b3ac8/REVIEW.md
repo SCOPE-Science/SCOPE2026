@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every nonselected vertex the proof tests the literal one-to-two selected-neighbour criterion. Incidence coverage excludes \(a\le2\) or \(b\le2\) at budget seven, and the only remaining partitions are disposed of or classified by noncollinear triangles and dual ovals. The external-line covers and absence of triple concurrence verify the upper as well as lower bound. Independent projective and affine finite models exhaust the universe and recover all 468 minimum sets, all 936 one-vertex moves and all 468 identical shortest-path profiles with maximum distance nine. Sources `verify_python.py`, `verify_cpp.cpp`; the actual package extraction and compiler runs are recorded in VERIFICATION.md.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The general \([1,2]\)-set source (Chellali et al., 2013) does not classify minimum sets in the ternary plane; the generalized 2014 arXiv study concerns algorithms and generic graph families. The closely comparable published oval-exchange theorem already determines the 234 ovals and their 12-regular one-point-exchange geometry; those are not new claims. The 26-vertex error-detecting open-locating theorem covers detector sets with a distinct two-neighbour-at-every-vertex condition and minimum cardinality twenty. Neither existing result logically supplies the classification of minimum one-to-two domination or the inter-type triangle–oval exchange graph and its odd layers. Literature searching cannot exclude undiscovered equivalent finite enumerations; this is a self-review only.
+PASS
 
-## Value — PASS
-The exact characterization shows that bounded redundancy selects two dual geometric structures, rather than arbitrary dominating subsets. Its new sharp minimum-size structural classification and complete 468-state reconfiguration geometry provide a natural small finite-design benchmark for optimal coverage with an upper bound on redundant coverage. The entire distance distribution supplies information about how optimal layouts can be relocated without violating the one-to-two constraint, including a meaningful distinction from the familiar oval-only exchange graph.
+For at most seven selected vertices, one or two points meet at most four or seven lines, forcing at least nine or six selected lines, and zero points forces all lines. Duality then leaves only (3,3), (3,4), (4,3). Three noncollinear points force four external lines; three collinear points force their common line and three external lines, all through the unselected fourth point, which violates the upper bound. For a triangle the external line forms (1,±1,±1) have no triple concurrence, cover exactly ten points, and meet outside points at most twice. Duality yields exactly the oval configurations, with external lines forced. The four extensions of the coordinate triangle to an oval and the four triangles per oval give 234 of each. For equal-type jumps, the external lines determine the point set as the complement of their union, and the point set in turn determines the lines; no same-side replacement is possible. A cross-type jump must be triangle inclusion, and its line exchange is with the unique oval tangent at the removed point. An independently written exact checker constructs Singer translates in PG(2,3), exhausts both classes of selected vertices through total size seven using mandatory line choices, compares literal one-token adjacency with inclusion, and computes every BFS profile. It finds precisely the two asserted families, 936 edges and the common profile (1,4,12,30,60,96,114,96,47,8); thus connectivity, radius and diameter all follow.
 
-## Limits
-A fixed finite incidence graph, not a theorem for every finite projective plane. The graph metric is certified by an exhaustive finite algorithm with two independent coordinatizations. Priority risk remains from unindexed older tables or terminology. The scientific checks and their residual risks are in AUDIT.json. No external independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The credited oval enumeration and oval-only metric are covered. The distinct claim is the [1,2] minimum-set classification and identification of its two-type reconfiguration graph, with evaluated mixed distances. The old oval graph is a halved graph, not itself the optimizer problem, and its scalar distance profile should not be counted again as new.
+
+## value
+
+PASS
+
+The exact optimizer geometry explains how an outside-only lower and upper neighbor count constrains seven-set exchanges in a natural symmetric incidence graph. The dual geometric classes and their single incidence move are not obtained just by recomputing the old oval metric. The mixed paths and exact diametral layer give useful reconfiguration data; the main value is the connection to the domination optimizers, not a bare table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The interval lifts and degree-one lift shift are derived directly from the source's Example 8. Each generator is strictly increasing with only the prescribed endpoint zeros. The bounded (sub/super)martingale argument forces endpoint limits. A reciprocal-distance asymptotic excludes the wrong biased endpoint and yields an exact inverse-linear clock; the \(O(\log n)\) accumulated correction permits the Bernoulli CLT. Rational-order squeezing makes the biased conclusions simultaneous and yields a uniform random basin cut at fair bias. Projection to the circle proves annealed stationary-law uniqueness. The finite diagnostics are supplementary, not proof of the infinite-time assertions.
+PASS
 
-## Originality
+The maps fix the endpoints and are strictly increasing. For each fixed initial state the bounded (sub/super)martingale converges, and the absolute size of each jump is h(X_n), which excludes an interior limit. Near either endpoint h=c d²+O(d⁴), c=π²/5. At the endpoint opposed to the bias the reciprocal increment has mean leading sign -c|μ| with pathwise error O(d_n); Cesàro and the SLLN would give a negative limit for d_n^{-1}/n, impossible. At the selected endpoint the mean leading sign is positive, giving the 1/n clock and improving the summed error to O(log n) almost surely. After division by c√n this error vanishes, so the sign-sum CLT gives the displayed variance. A countable dense set and monotone squeezing give the simultaneous a.s. claims. For the fair coin the same countable set constructs the separator and the bounded martingale's endpoint probabilities give its CDF by rational bracketing. Nothing about the orbit started at the separator is needed for annealed uniqueness: for each deterministic start the projected orbit tends to the same circle point, so dominated convergence with an independent stationary initial law forces that law to be the point mass. The integer shift in the minus lift changes the lift rotation number, not the circle dynamics.
 
-PASS under accessible comparison, with residual bibliographic risk. Li–Lloyd (arXiv:2603.18617v1) already construct the generators, their common fixed point and the standard-lift random rotation number. Those are acknowledged. The new statement is the full sample-wise phase change, exactly uniform fair-bias separator, polynomial asymptotic constant and reciprocal-distance CLT, not the original rotation calculation. Gelfert–Stenflo (2017) assumes a minimality property excluded by this common-fixed-point pair; Gelfert–Salcedo (2023) studies local exponential contraction and additive-functional limit laws, not this neutral parabolic recurrence. Literature and indexed scientific-results comparisons revealed no stated equivalent. A hidden special-case result in wider random interval dynamics cannot be ruled out without independent priority verification.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The source's surprising rotation-number/common-fixed-point configuration now has a quantitative stochastic dynamical classification: bias selects an approach direction with a sharp \(n^{-1}\) rate and Gaussian reciprocal fluctuations, fair bias creates an exactly uniform sample-dependent basin boundary, and the projected circle law collapses to a unique fixed-point atom. The uniform cut and normalization are natural invariants rather than arbitrary finite slices.
+The bounded search supports the joint model-specific classification, not originality of the Arnold pair, its rotation number, or the general martingale mechanism. The strongest indexed comparison gives uniform separators for a different cubic system, but does not give the neutral biased endpoint clocks or reciprocal CLT for this pair.
 
-## Limits
+## value
 
-This is an exact result for a named two-map iid Bernoulli model. The random threshold orbit itself, joint near-critical parameter/time scaling, correlated driving and generic Arnold maps are not classified. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The published rotation number alone says little about forward lifts at their shared neutral point. The almost-sure simultaneous side selection and exact rate, its reciprocal Gaussian fluctuation, and the fair threshold law distinguish two qualitatively different regimes of a motivated example. This is an exact orbit classification, not a claim that bounded martingale convergence is new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

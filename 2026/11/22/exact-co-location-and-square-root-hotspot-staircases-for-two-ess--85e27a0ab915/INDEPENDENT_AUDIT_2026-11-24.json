@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:23:27.368902Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The feasible simplices are compact and the objective continuous. For each site 2 phi(c)phi(q)=phi(c)^2+phi(q)^2-(phi(c)-phi(q))^2; with identical normalized budgets each square sum is bounded by the same scalar maximum. Taking equal vectors attains it, and zero loss requires c_i=q_i at every site by strict monotonicity. For g(x)=x^2/(1+x)^2, g'(x)-g'(y) has sign (x-y)[1-xy(3+x+y)]. On the smaller-dose half of a two-site transfer with sum u, the bracket 1-x(u-x)(3+u) is strictly decreasing, so any stationary point there is a strict minimum, not a maximum. Thus every positive-dose subset is uniform at a global optimum, including optima on the boundary. For k positive sites the score is T^2 k/(T+k)^2; the sign of its adjacent increment is exactly the sign of T^2-k(k+1). The increasing thresholds give the stated unique support size or adjacent two-way tie, with every subset of each winning size attainable. The single-resource contrast follows by strict concavity of phi. The frozen finite checker and notes were inspected, not executed; the proof covers arbitrary real doses and finite n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The scalar g is S-shaped, as g''(x)=2(1-2x)/(1+x)^4. Vicentini's accessible abstract describes the general one-budget S-shaped problem. Udell–Boyd treat sums of sigmoids under convex constraints and a general approximation method."
+        ],
+        "reasoning": "Formulating or approximating the scalar problem is broader prior context but does not by itself supply the all-optima theorem or the exact square-root switches. The inaccessible Vicentini full report could contain a special-case or stronger exact rule.",
+        "searches": [
+          "Vicentini, Case Western Reserve Commons item 370, abstract",
+          "Udell–Boyd, Maximizing a Sum of Sigmoids, definition and Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary catalogue (including assigned self-hit)",
+        "Hill staircase a81be9bbd6bd",
+        "Poisson quorum staircase 6c42718054c6",
+        "Vicentini (1970), abstract",
+        "Udell–Boyd (2015), selected primary text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Hill proof rules out asymmetric positive doses using the derivatives of log(1+x^h); the Poisson argument starts with Q_r'(x)=e^(-x)x^(r-1)/(r-1)!. Their equal-support conclusions have hypotheses on different explicit functions. The required nontrivial scalar step here is the sign of 1-xy(3+x+y), followed by an exact rational score comparison."
+        ],
+        "reasoning": "The inspected exact staircases do not entail the squared-Monod optimizer even though proof strategies are comparable. A general sigmoidal solver supplies neither the scalar classification nor the equality condition for two independently allocated budgets. No covering reduction was established from the passages read.",
+        "searches": [
+          "Hill record a81be9bbd6bd, Proof steps 1–3",
+          "Poisson record 6c42718054c6, exact theorem and pairwise elimination",
+          "Udell–Boyd Theorem 1; Vicentini abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Square symmetrization reduces the exact claim to one budget with g(x)=x^2/(1+x)^2 and enforces simultaneous equal allocations.",
+          "The earlier Hill record uses sum log(1+x_i^h) from a product of survival fractions, not a sum of squared saturations. At h=2 its first normalized threshold is 2 sqrt(2), not sqrt(2). The same-day Poisson record uses Q_r(x)=1-exp(-x) sum_{j<r} x^j/j! with a single intensity budget."
+        ],
+        "reasoning": "A staircase of support counts is not an equivalent optimization statement. The Hill result maximizes an unbounded local utility, the Poisson result approaches its saturation exponentially, and squared Monod approaches saturation with an inverse-dose tail; none is the same utility under a rescaling of the dose and objective preserving the budget. Neither source states the two-budget equality case.",
+        "searches": [
+          "Resultary: balanced essential Monod product co-location and squared Michaelis–Menten allocation",
+          "SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd, Finding and Proof steps 1–3",
+          "SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit is the assigned record ending 85e27a0ab915. The distinct Hill and founder-quorum records give switch laws or examples for other objectives; the retrieved passages do not tabulate this squared-Monod law."
+        ],
+        "reasoning": "The target is an analytic expression for all support sizes, not one numerical transition. The ranked search, which also found related policies, does not establish exhaustive priority.",
+        "searches": [
+          "Resultary: exact Monod active-support staircase; product saturation with independent normalized budgets; squared Michaelis–Menten equal-dose supports"
+        ]
+      },
+      "rationale": "The contribution is the exact two-budget all-optimizer identification together with the squared-Monod support law, not generic S-shaped allocation, or the already familiar phenomenon of support-size staircases. The closest exact staircases use different objectives, and the accessible general solver does not give this exact solution. The older general allocation report remains a specific access risk.",
+      "residual_risks": [
+        "Full Vicentini report was not lawfully retrieved; exact stronger scalar coverage there is unresolved.",
+        "Searches do not exclude older equivalents under other response or allocation terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BUT_DISTINCT_SCALAR_OBJECTIVE",
+          "evidence": [
+            "The score is k log(1+(B/(kK))^h); its first switch is 2(2^h-2)^(1/h). It classifies a single-budget survival-product model."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd/RESULT.md",
+          "material_read": "Finding, scope and Proof through step 3 (local mirror offset 0–4506)",
+          "method": "Original statement via local Resultary mirror",
+          "title": "A complete active-target staircase for independent Hill inhibition under a shared dose budget",
+          "trigger": "Earlier all-optimizer staircase for identical saturating mechanisms"
+        },
+        {
+          "assessment": "RELATED_BUT_DISTINCT_RESPONSE_AND_CONSTRAINT",
+          "evidence": [
+            "The exact threshold equation compares k Q_r(B/k); the result assumes one Poisson intensity budget. No equivalence inferred from the date."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-consecutive-habitat-activation-thresholds-for-poisson-founder-qu--6c42718054c6/RESULT.md",
+          "material_read": "Finding, scope, start of Proof step 1 (local mirror offset 0–3313)",
+          "method": "Original statement via local Resultary mirror",
+          "title": "Consecutive habitat-activation thresholds for Poisson founder quorums",
+          "trigger": "Distinct indexed habitat staircase associated with the same date"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_CONFIRMED_SPECIAL_CASE_UNRESOLVED",
+          "evidence": [
+            "Abstract formulates maximizing a sum of S-shaped utility functions under one resource budget; no verdict on full text."
+          ],
+          "identifier_or_url": "https://commons.case.edu/wsom-ops-reports/370/",
+          "material_read": "Repository abstract around offset 250; full report not obtained",
+          "method": "OA abstract and attempt to obtain report PDF",
+          "title": "On the Resource Allocation Problem with S-Shaped Utility Functions",
+          "trigger": "Strongest plausible older exact scalar allocation coverage"
+        },
+        {
+          "assessment": "GENERAL_SOLVER_NOT_EXACT_CLASSIFICATION",
+          "evidence": [
+            "General approximation framework, not an exact formula for this response or an all-optimizer co-location statement."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~udell/doc/max_sum_sigmoids.pdf",
+          "material_read": "Abstract p. 1, problem definition p. 3, general Theorem 1 p. 12",
+          "method": "Bounded OA passages from author PDF",
+          "title": "Maximizing a Sum of Sigmoids",
+          "trigger": "A general optimization result potentially subsuming the scalar reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Under the stipulated balanced complementarity model, the complete equality cases distinguish when adding a hotspot beats more concentrated supply and force both independently allocable inputs to use the same sites. Closed transition budgets and ties across all n are meaningful for a static benchmark and contrast with strict spreading for one resource. No optimization of growth over time, field recommendation, or unequal-budget extrapolation is justified.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

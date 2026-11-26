@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The new theorem concerns two rate-\(\lambda_i\) irreversible competing infections from distinct peripheral seeds on \(K_{2,n}\). Conditional on the first infected hub, the opposite-color seed clock races one winner-color seed clock and \(n-2\) independent two-stage exponential sums. This gives the exact integral and finite rational series for core coexistence. A uniform Laplace expansion gives \(\sqrt{\pi/(2n)}\) and the second-order rate-dependent correction. Conditioning on a rare core split yields a half-normal bridge time, \(o(n)\) early peripheral infections, and independent binomial late infection types, proving the conditional fractions and minority moment growth. An independently implemented four-count Markov-chain recurrence matched the closed-law calculation in all supplied exact finite tests. Numerical asymptotic diagnostics are not substituted for the all-order proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+Condition on the first core infection. Memorylessness leaves one independent seed clock of each type for the second core, and n−2 independent two-edge paths that must both transmit at the first type's rate before they can beat the opposing seed. Their joint survival gives the displayed integral, including n=2 (the empty product), its finite sum, and strict monotonicity. One type has only its seed precisely when the core does not split. For u=alpha t, h(u)=log(1+u)−u is at most −u²/4 on [0,1] and at most −(1−log 2)u on [1,infinity). These bounds justify discarding the tail after s=√n u exceeds n^(1/12). On the remaining interval the scaled density exponent is −s²/2+n^(-1/2)(s³/3−(1+beta/alpha)s), with an integrable order-n^(-1) error after expansion. Writing rho=beta/alpha, the weighted leading factors exchange q and 1−q and sum to one; the weighted quadratic factors sum to rho+rho^(-1)−1, yielding the stated second coefficient. The conditional lag is on the n^(-1/2) scale, and conditioning each two-edge path to survive gives first-edge completion probability alpha t/(1+alpha t). Thus only o(n) peripheral vertices are claimed before the split; fresh independent hub races then yield the claimed conditional fractions. Bounded normalized minority size gives moment convergence; the unsplit contribution 1 is negligible for r≥1. This is an analytic proof, not an inference from the frozen checker, which was inspected but not executed.
 
-Deijfen, van der Hofstad and Sfragara (arXiv:2204.04125, 2022) prove winner-takes-all-but-one for a heavy-tailed random configuration model, whereas this theorem provides a fixed deterministic two-hub graph's *exact finite-size probability*, sharp second-order expansion, and anomalous minority moments. Ahlberg, Deijfen and Janson (arXiv:1711.02902, 2017) assume a sparse finite-variance-degree configuration model; Deijfen and van der Hofstad (arXiv:1306.6467, 2013) study a distinct infinite-variance random-graph regime. Their actual statements and hypotheses do not imply the present formula. Directed searches for two-type biclique competition, equivalent loser-size/core-split events, and related tables found no dominating result. This is a best-knowledge scientific comparison, not a proof of historical priority; a not-indexed exact calculation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The statement resolves a naturally measurable probability of two-type core coexistence on a simple heterogeneous network, explaining exactly how a rare successful minority bridge occurs. It shows the surprising rate-universality of the leading square-root probability and its failure one order lower. It also establishes that a minority outbreak which almost surely reduces to one seed can nevertheless have expected size diverging as \(\sqrt n\) and variance growing as \(n^{3/2}\). This distinguishes typical and rare-event epidemic risk in a way not captured by a limit asserting only winner-takes-all.
+The inspected work does not cover the fixed two-hub, two-peripheral-seed split probability, its two asymptotic terms, or its resulting minority moments. The infection paradigm and winner-takes-all-but-one phenomenon themselves are not new.
 
-## Sources and limitations
+## value
 
-Primary literature: Deijfen, van der Hofstad and Sfragara, *The winner takes it all but one*, https://arxiv.org/abs/2204.04125 (first public version 8 April 2022). Supporting comparisons: https://arxiv.org/abs/1711.02902 and https://arxiv.org/abs/1306.6467. The theorem does not cover changing rates, recovery, more than two hubs, other source placements, or random graph models. The computation is independently structured but does not constitute an independent human mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The deterministic two-hub graph isolates a mechanism for nearly certain singleton loss that nevertheless gives a diverging mean minority size. The universal leading coefficient and the rate-sensitive correction quantify that mechanism, and the conditional limit distinguishes rare macroscopic coexistence from a merely non-singleton loser. This is a useful exact benchmark for competing-growth models, not a new claim of qualitative winner-takes-all behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

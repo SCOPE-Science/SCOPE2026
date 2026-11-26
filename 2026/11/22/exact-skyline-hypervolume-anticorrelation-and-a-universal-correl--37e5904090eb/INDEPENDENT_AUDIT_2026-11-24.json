@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:09:23.399896Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, Assumptions, Proof 1–4",
+        "VERIFICATION.md",
+        "checker.py"
+      ],
+      "rationale": "For W_n=1-A_n, insertion of an independent uniform query point gives E[K_n W_n]=(E[K_m(K_m-1)]+E[U_m])/m, m=n+1, where U_m counts sample points with exactly one dominator. Indeed sum the skyline size after deleting each maximal point: K_m-1 original maxima remain, plus precisely the points uniquely dominated by the deleted point. A sole dominator is maximal by transitivity. Integrating the binomial probability over the product of two independent uniforms gives E[U_m]=H_m-1, and E[K_m(K_m-1)]=H_m^2-H_m^(2) by independent record indicators. With E[W_n]=H_m/m this yields the frozen mixed covariance with minus sign for A_n. Its strictness also follows from the frozen positive sum for Cov(K_n,W_n), with each s=1,...,n-1 contributing positively. For the variance, conditioning on the running minimum V_s gives E[V_t|V_s=z]=integral_0^z (1-u)^(t-s) du; integrating with V_s's beta law gives the stated covariance kernel, including zero for s=0. With m=n+1, summing the kernel over both indices reduces to the sum over j=1,...,m of (2j-1+1/j-2H_j)/(j(j+1)); telescoping gives Var(sum V_t)=2(m+2)H_m/(m+1)-H_m^(2)-4m/(m+1). The Dirichlet second moment then gives the frozen area variance. Independently I expanded the void probability for two uniform query points, separating the comparable and incomparable rectangle pairs. This gives E[W_n^2]=2 sum_{k=0}^n (-1)^k binom(n,k)(1+H_(k+1)/(k+1))/(k+2)^2; exact rational substitution confirmed Var(A_n) at n=1,...,10 (first values 7/144, 65/1296, 2567/57600). Finally Var(K_n)~log n, Var(A_n)~2 log(n)/n^2 and Cov(K_n,A_n)~-log(n)/n prove the stated Pearson limit. The frozen script was inspected, not executed.",
+      "residual_risks": [
+        "The variance applies also at n=1; Pearson correlation is not defined there. The limit is specific to the stated fixed-size uniform model and anchor, not a distributional or conditional ordering result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hwang–Tsai pp. 1–2 states marginal count means, variances, CLTs, and a dominance-record expectation relation. Attempts at the other listed articles did not produce decisive primary passages."
+        ],
+        "reasoning": "The stated marginal record results give the skyline variance but cannot determine a mixed moment with dominated volume. Specialized inaccessible work remains a limitation rather than evidence of novelty or of coverage.",
+        "searches": [
+          "Hwang–Tsai arXiv:1003.6119",
+          "Bai–Hwang–Liang–Tsai DOI:10.1214/EJP.v6-76",
+          "Barbour–Xia DOI:10.1239/aap/1011994025",
+          "Shukla–Doll–Schmeck DOI:10.1145/2576768.2598348"
+        ]
+      },
+      "checked_sources": [
+        "Resultary corner-count record",
+        "Hwang–Tsai arXiv:1003.6119v1",
+        "Bai–Hwang–Liang–Tsai, Barbour–Xia and Shukla–Doll–Schmeck (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For query threshold (x,y), let C be the northeast sample count. Area integrates 1{C>0}, not C. The insertion calculation for the area uses the expected number of sample points with exactly one dominator as well as the factorial moment of the skyline size."
+        ],
+        "reasoning": "One cannot integrate the prior linear count covariance to obtain the covariance for the nonlinear occupancy indicator. Nor does marginal permutation-record theory itself give the needed area coupling or the two-query void probability.",
+        "searches": [
+          "Resultary corner-count covariance, exact Finding and Proof",
+          "Hwang–Tsai arXiv:1003.6119v1, pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complementing A_n replaces the area by the planar uncovered staircase and reverses the covariance sign. Hwang–Tsai, arXiv:1003.6119v1, p. 2 discusses sorting and Pareto record counts."
+        ],
+        "reasoning": "The equivalent count–uncovered-area question includes the continuous contribution of the gaps and record heights; a count–count result is not the equivalent formulation.",
+        "searches": [
+          "Resultary: planar maxima versus dominated hypervolume covariance and uncovered area",
+          "Resultary: record/running-maximum area representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct exact hit SCOPE-an-exact-negative-corner-count-covariance-for-planar-pareto-maxi--db827d47108a is a fixed-threshold northeast count. The bound result itself also appeared and is not independent evidence."
+        ],
+        "reasoning": "The distinct record provides an anticorrelation with another observable, not a table or formula for the joint area statistic or its Pearson limit.",
+        "searches": [
+          "Resultary: exact finite-n skyline hypervolume variance and covariance",
+          "Resultary: -1/sqrt(2) skyline cardinality and dominated-area correlation"
+        ]
+      },
+      "rationale": "The exact finite-n mixed covariance and the nonzero limiting correlation concern the whole dominated area. The closest verified exact result uses a fixed-threshold corner count, and the primary record results examined give marginal count information, not this mixed invariant. The verdict credits the supported joint result, not the use of record indicators or a claim of universal priority for hypervolume moments.",
+      "residual_risks": [
+        "An equivalent count/area result may exist in record-process, orthogonal-staircase or hypervolume literature not retrieved in the bounded comparison. No claim of absolute priority is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coverage of fixed-threshold point count, not binary occupancy or dominated area",
+          "evidence": [
+            "The second observable counts sample points in the northeast corner for a fixed coordinate threshold."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-an-exact-negative-corner-count-covariance-for-planar-pareto-maxi--db827d47108a",
+          "material_read": "RESULT.md Finding and Proof, local-mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "An exact negative corner-count covariance for planar Pareto maxima",
+          "trigger": "Exact anticorrelation with the same skyline cardinality"
+        },
+        {
+          "assessment": "Relevant count/record framework, not the area covariance in the passages read",
+          "evidence": [
+            "p. 1 describes moments and CLTs for counts of three record types.",
+            "p. 2 discusses the sorting connection and the expectation identity E[X_n]=sum_{k=1}^n E[M_k]/k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.6119v1",
+          "material_read": "OA PDF p. 1 and p. 2, offsets 0 and 4899",
+          "method": "OA PDF",
+          "title": "Multivariate Records Based on Dominance",
+          "trigger": "Uniform-sample maxima represented by records"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": [
+            "Maxima full texts were not retrieved by the attempted routes; the volume-paper DOI route returned HTTP 403."
+          ],
+          "identifier_or_url": "DOIs 10.1239/aap/1011994025, 10.1214/EJP.v6-76, 10.1145/2576768.2598348",
+          "material_read": "No usable full-text passage retrieved in this review",
+          "method": "Lawful OA attempts",
+          "title": "The Number of Two-Dimensional Maxima; Limit Theorems for the Number of Maxima in Random Samples from Planar Regions; A Theoretical Analysis of Volume Based Pareto Front Approximations",
+          "trigger": "Classic maxima literature and possible volume-moment antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof 2–4",
+        "Exact corner-count comparison"
+      ],
+      "rationale": "Cardinality and dominated area are natural distinct summaries of the same skyline. The exact covariance provides both a finite-sample sign and its scale, while the area variance shows why standardized anticorrelation persists even though unstandardized covariance vanishes. This exact joint benchmark is useful for the square model without extrapolating it to other Pareto fronts.",
+      "residual_risks": [
+        "Value is for this specified joint invariant, not a universal law across dimensions, distributions or anchors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

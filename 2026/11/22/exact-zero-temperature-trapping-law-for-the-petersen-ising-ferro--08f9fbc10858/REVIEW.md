@@ -1,15 +1,21 @@
-# Scientific review: Petersen zero-temperature trapping law
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The zero-temperature majority rule on a cubic graph has no ties; every actual flip decreases the number of discordant bonds by one or three. This creates a finite acyclic jump graph and proves almost-sure absorption. Stable nonconstant configurations must split the girth-five Petersen graph into two complementary induced five-cycles. Exact exploration gives twelve such configurations and two consensuses. Both the 1024-state recursion and a separate 18-orbit symmetry quotient calculate the rational Bernstein coefficients \(0,0,0,88/9,8242/189,12788/189,8242/189,88/9,0,0,0\), from which the claimed polynomial follows. Both standalone programs enforce the polynomial identity at eleven rational arguments, enough for the degree-at-most-ten identity. The orbit action proves equal probability of the twelve nonconstant outcomes. The evidence is exact finite enumeration and algebra, not a limiting simulation.
+## correctness
 
-## Originality
-**PASS on the examined published record, subject to historical-priority uncertainty.** Spirin, Krapivsky and Redner (arXiv:cond-mat/0008019 and cond-mat/0105037) explain freezing and metastable domains on conventional Ising lattices; Baek, Ha and Jeong (arXiv:1112.5927) examine absorbing-state densities on random networks; Damron and Sen (arXiv:1904.11625) analyze the infinite 3-regular tree. These do not report the finite Petersen graph's exact polynomial. A published all-size \(GP(n,2)\) fixed-state census already gives 14 Petersen equilibria, and a synchronous Petersen-majority result also counts 14 fixed states; both receive credit. Stable-state counts and simultaneous-update attraction basins do not determine independent-clock stochastic absorption probabilities. The 2026 generalized-Petersen random-field study concerns a distinct driven model; only its abstract was accessible for comparison. Indexed searches can miss an earlier unpublished or obscure computation.
+PASS
 
-## Mathematical value
-**PASS.** The Petersen graph is the unique cubic girth-five cage and a compact, highly symmetric test network for cooperative kinetic freezing. The result determines the entire Bernoulli-density dependence of failure to reach Ising ground-state consensus, rather than merely enumerating stationary configurations. It identifies the exactly twelve frozen alternatives, their equiprobable terminal distribution, and the unique density that maximizes trapping. The 18-orbit exact certificate makes this a reproducible finite-size reference for asynchronous majority and kinetic-Ising research. The claim does not rely on a proposed larger-graph extension.
+A flip with two or three discordant incident edges reduces the cut by one or three. While the spin configuration is unchanged, the waiting time for a genuine flip is an exponential race among the enabled vertices, uniform over them because their rates are identical. The cut descent and finite waiting times prove almost-sure absorption and the proposed recurrence. Every mixed absorber has monochromatic minimum degree at least two in both colors. Girth five forces two complementary induced five-cycles; exact enumeration verifies twelve such assignments, one S5 orbit. Independently I built KG(5,2) and performed forward probability transport, not the supplied backward recursion: starting with one unit of mass at each state of size k, visit the states in descending cut and distribute mass equally to enabled successors. This verifies all eleven unnormalized Bernoulli coefficients (nonzero at k=3,4,5,6,7 with values 88/9,8242/189,12788/189,8242/189,88/9), equal mass at the twelve mixed sinks at each k, and Q(1/2)=4121/24192. Both proposed polynomials in p have degree at most ten and agree at eleven distinct exact rational points. I also verified the frozen CSV entries for all 18 symmetry classes and their exact absorption values from the representative states. The endpoints are consensual and the formula is strictly increasing in p(1−p), giving the unique maximizer at one half. This does not model a parallel update or random fields.
 
-## Scope and limitations
-The result assumes uniform site clocks, zero temperature, ferromagnetic nearest-neighbor interactions, and independent initial spins on the ten-site Petersen graph. No conclusion is claimed for random fields, changed clock rates, synchronous updating, noisy dynamics, or larger graphs. All exact coefficients are checked by two different graph representations and rational recurrences; the full nonconstant final-state probabilities follow from symmetry. The available-source search does not constitute an exhaustive mathematical-priority guarantee. No independent scientific audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the exact fixed-state count and the overlap with the same-graph three-state Potts certificate. The latter's statewise computational method can reproduce binary coefficients on restriction, but its stated exact probabilities and published results table are for other initial laws; its own prior-work section already acknowledges an exact two-spin Petersen freezing law. The explicit Bernoulli trapping polynomial and its quantitative seed and bias dependence are the supported contribution, not the fourteen fixed points or the generic cut-descent recursion. No independent earlier exact statement or exact table of this law was verified.
+
+## value
+
+PASS
+
+The Bernoulli trapping law measures kinetic accessibility rather than the mere number of locally stable patterns. It gives an exact bias-dependent benchmark, including suppression to third order at small seed probability and the exact extremum at an unbiased quench, for a canonical non-bipartite cubic graph. The finite coefficient profile is useful independently of a larger-family solution and is not supplied by the standard fixed-point census or the reported three-color aggregates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

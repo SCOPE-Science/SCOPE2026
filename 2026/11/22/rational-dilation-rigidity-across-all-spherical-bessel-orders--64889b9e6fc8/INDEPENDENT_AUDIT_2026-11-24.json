@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:01:31.404465Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76 and 80–82",
+        "Frozen VERIFICATION.md and check.py; code inspected, not executed",
+        "DLMF §10.49, terminating spherical Hankel identities (also specified explicitly in the proof)"
+      ],
+      "rationale": "The terminating Hankel formulas give the rational phase R_l=(-1)^l B_l/A_l at each nonzero zero, with denominators nonzero: at a common A_l,B_l root away from zero both Hankel solutions would vanish, contrary to their Wronskian -2i/z^2; at zero both polynomial constants are nonzero. Hermite–Lindemann then makes every such zero transcendental. A common zero at positive rational scale a/b forces R_l(z)^a=R_m(az/b)^b identically, since otherwise the zero is a root of a nonzero algebraic-coefficient polynomial. Reduced pole multiplicities give a*l=b*m, and the normalized Laurent coefficient at infinity gives a^2*l(l+1)=b^2*m(m+1). Cancellation gives a^2*l=b^2*m, hence a=b and l=m if both orders are positive. Exactly one zero order fails pole equality. The two exceptional cases have witnesses (b*pi for order zero; positive zeros for identical positive order, also seen from the oscillatory Hankel asymptotic). The proof does not rely on finite numerical searches.",
+      "residual_risks": [
+        "This is a mathematical review, not formal verification. No conclusion about irrational dilations is drawn."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Binyamini–Kiro–Kozma–Pila bound fixed-order special tuples, analyze positive-dimensional families for a fixed nongeneric order, and obtain fixed-order algebraic independence conditional on Schanuel",
+          "DLMF's cited Bourget statement in §10.21(i) is unscaled and for integer cylindrical orders"
+        ],
+        "reasoning": "Sparsity or a description of families does not exclude a single rationally related pair of isolated zeros across orders. Even unscaled noncoincidence for spherical orders would not preclude collisions at arbitrary rational scales.",
+        "searches": [
+          "arXiv:2610.28477v1, Theorem 1.2, Non-Generic Lemma and Proposition 8.2",
+          "DLMF §10.21(i), Zeros"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic results and local mirror passage",
+        "arXiv:2610.28477v1",
+        "DLMF §10.21(i)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The degree and pole argument at a fixed positive order alone gives equality of the powers. At different orders the pole condition a*l=b*m can hold, e.g. l=1, m=2, a=2, b=1"
+        ],
+        "reasoning": "The known phase reduction transfers as a method, but its fixed-order pole argument does not imply the cross-order exclusion. Comparing the normalized subleading term is the needed extra rigidity step.",
+        "searches": [
+          "Resultary 2026/10/26/SCOPE-rationally-separated-frequency-spheres-detect-every-nonconstant--acdde5641585, Proof §2",
+          "arXiv:2610.28477v1, pp. 18–21 and 26–27"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/10/26/SCOPE-rationally-separated-frequency-spheres-detect-every-nonconstant--acdde5641585, Finding and Proof §2",
+          "arXiv:2610.28477v1, §§5.2 and 8.2; the bounded web query returned no hits"
+        ],
+        "reasoning": "Rational ratios of zeros of J_{l+1/2} and J_{m+1/2} are exactly the spherical dilation formulation on positive arguments. The indexed frequency-sphere result concerns two zeros of a single order; its statement supplies no constraint between distinct orders. The identical frozen search hit is not independent evidence.",
+        "searches": [
+          "Resultary: spherical Bessel zeros rational dilation different orders cross-order common zeros rationally commensurable",
+          "Literature: \"spherical Bessel\" zeros rational ratio different orders cross-order commensurable rational dilation integer difference fixed-order Binyamini Kiro Kozma Pila \"Counting Bessel zeros and applications\" Proposition 8.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed finding is fixed-order; the inspected zero reference gives zero/interlacing statements, not a classification across rational dilations"
+        ],
+        "reasoning": "The relevant exact catalog entry would have to certify exclusions over all pairs of orders and ratios. An approximate or finite table of zeros cannot give that quantification; no such exact table surfaced in the inspected index/reference.",
+        "searches": [
+          "Resultary search above",
+          "DLMF §10.21(i)"
+        ]
+      },
+      "rationale": "The supported distinct assertion is the exclusion of rational ratios between positive zeros of different spherical orders. The fixed-order rigidity, the order-zero exception, and the rational phase method receive prior credit, not a second claim of originality. The strongest inspected results do not establish the general different-order comparison.",
+      "residual_risks": [
+        "Bounded search; unindexed equivalent or older specialist treatment remains possible. Watson's original cited text was not retrieved; no whole-document assessment is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct fixed-order coverage, including the zero-order exception, but not cross-order coverage",
+          "evidence": "Its phase comparison uses the same positive spherical order at the two arguments.",
+          "identifier_or_url": "2026/10/26/SCOPE-rationally-separated-frequency-spheres-detect-every-nonconstant--acdde5641585",
+          "material_read": "Finding and Proof §2",
+          "method": "Local mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Rationally separated frequency spheres detect every nonconstant spherical harmonic",
+          "trigger": "Closest indexed result for rational ratios"
+        },
+        {
+          "assessment": "Prior phase method and related results, not unconditional isolated cross-order exclusion",
+          "evidence": "Proposition 8.2 concerns a fixed order and assumes Schanuel; the Non-Generic Lemma concerns curves at fixed order.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28477",
+          "material_read": "Abstract and Theorem 1.2; §5.2 pp. 18–21; §8.2 Proposition 8.2 pp. 26–27",
+          "method": "OA PDF, bounded relevant passages",
+          "title": "Counting Bessel zeros and applications",
+          "trigger": "Half-integer phase method and arithmetic of Bessel zeros"
+        },
+        {
+          "assessment": "No cross-order rational-scale implication from the inspected statement",
+          "evidence": "The cited no-common-zero statement in this passage concerns integer J orders at the same nonzero argument.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.21",
+          "material_read": "§10.21(i), including the reference to Watson §15.28",
+          "method": "OA public reference page",
+          "title": "DLMF §10.21, Zeros",
+          "trigger": "Classical noncoincidence and interlacing as possible broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–14, 55–76, 80",
+        "Fixed-order Resultary comparator, Finding and Proof §2"
+      ],
+      "rationale": "Gives a complete obstruction to exact rational resonance between radial modes of different angular orders, not just a check of small orders or a reformulation of fixed-order rigidity. The pole-count tie witnesses why a separate invariant is needed; the normalized Laurent coefficient provides a uniform discriminator across all orders and rational scales.",
+      "residual_risks": [
+        "No quantitative separation for near coincidences is established or needed for this exact classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

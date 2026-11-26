@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:40:02.838972Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–54",
+        "VERIFICATION.md lines 19–21",
+        "verify_peirce_pairs.py lines 9–72",
+        "verification_output.txt lines 1–8"
+      ],
+      "rationale": "On the group basis, a⋆b=Tα(a)Tβ(b) with both factors ordinary ring endomorphisms, including singular β. If an idempotent has augmentation zero then u∈J and u=Tα(u)Tβ(u) repeatedly doubles the ideal power containing it. The presentation K[s₁,…,s_d]/(s₁ᵖ,…,s_dᵖ) with s_i=[e_i]−1 shows nilpotence of J; hence u=0. Otherwise augmentation is one and u is an ordinary unit. Multiplying the idempotency equation out shows L_u M_u=M_u Tβ and R_u M_u=M_u Tα on the entire space, so these are simultaneous similarities and the operators commute. The images of Tβʲ have bases indexed by βʲV, and the stabilized span at step d supports the invertible permutation part. This proves the rank and zero-block formulas by second differences. The fixed-point counts p^dim ker(γˢ−I) give the periodic cycle counts by Möbius inversion. A permutation cycle is cyclic as a K[z]-module with annihilator z^ℓ−1; splitting it for ℓ=pʰe gives precisely the claimed Jordan blocks, also in the wild case. Independently checked the example count: writing u=Σ f_j(S)Tʲ in the F₃ group algebra for the transvection, augmentation one ensures some f_i(1)≠0. The idempotency equation at that i forces Σ f_j(1)S^(−j)=S^(−i), so only f_i has augmentation one. It has 9 choices, and for j≠i the condition (1−S^(j−i))f_j=0 gives 3 choices per f_j in the line spanned by (S−1)². Hence 3·9·3²=243. The rank sequence and cycle lengths in that example also agree.",
+      "residual_risks": [
+        "The supplied small-field script and recorded output were inspected, not executed. Its rank checkpoint computes image counts and uses the rank-difference expression, not an independent Jordan decomposition. The arbitrary-field conclusion rests on the symbolic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang gives augmentation-power results; Sangare–Ta give an idempotent restriction for ordered commutative quandles in characteristic other than two.",
+          "The indexed Frobenius-orbit census is nonmodular; the indexed modular rank census assumes cyclic displacement Sylow and counts ranks over all elements."
+        ],
+        "reasoning": "Broader rank enumeration over all elements is not stronger than a similarity theorem for multiplicative idempotents; rank alone does not record modular Jordan blocks or joint conjugacy. The inspected idempotent restrictions do not give the needed scope for the pair of operators.",
+        "searches": [
+          "arXiv:2610.08204 Theorem 2.2 and 5.5",
+          "arXiv:2608.01550 Theorem 3.8",
+          "Resultary modular Alexander quandle multiplication-rank distributions and Frobenius-orbit rank spectra"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 5–28, 56–68",
+        "arXiv:2610.08204",
+        "arXiv:2207.09257",
+        "arXiv:2608.01550",
+        "Resultary b444981bf71f, 972d2f02c5a2, ed116a5096e4, 9b7bd8f34375; ranked summary of 56b1b9d1e9e0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang supplies the exact factorization but the inspected spectral theorem is complex and right-sided. The indexed modular results specialize the parameters or supply rank statistics, not all-idempotent modular units and a similarity principle for both sides."
+        ],
+        "reasoning": "The conjugacy is a short consequence of factorization once modular invertibility of every nonzero idempotent is established; that premise is proved here using augmentation-ideal nilpotence even with singular β. The further deduction of both Jordan forms uses the resulting concrete operators, not any known stronger Peirce-similarity theorem found in the comparison.",
+        "searches": [
+          "arXiv:2610.08204 Proposition 2.1 and Theorems 2.2 and 5.5",
+          "Resultary b444981bf71f and 9b7bd8f34375 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang Proposition 2.1 states the ordinary group-ring factorization of the twisted product. Theorem 5.5 gives the complex right eigenvalue set for odd-order abelian core quandles, using a nonunit average idempotent.",
+          "Elhamdadi–Nunez–Singh Theorem 7.4 computes complex spectra for order-three quandles, not simultaneous similarities at each modular idempotent."
+        ],
+        "reasoning": "The transport identity is literally the same starting identity. Neither a complex eigenvalue set nor separate right multiplicities are equivalent to a common conjugator, and the complex nonunit example prevents transferring this unit argument across characteristics.",
+        "searches": [
+          "arXiv:2610.08204 Proposition 2.1 and Theorem 5.5; Alexander group-ring transport and Peirce spectrum",
+          "arXiv:2207.09257 Section 7; right Peirce spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The scalar modular idempotent record is a finite-field scalar Latin census for p≥5. The odd-core Peirce census gives diagonalizable right-multiplication multiplicities over ℂ. The other inspected indexed records give rank distributions, not casewise Jordan forms or a simultaneous conjugacy theorem.",
+          "A joint-rank hit 56b1b9d1e9e0 was available only as a ranked summary; exact assumptions were not recovered from its mirror path."
+        ],
+        "reasoning": "The catalogue results are distinct, sometimes close or same-day, but what is counted differs from the frozen theorem. No date ordering is inferred. Rank statistics, even joint, do not by themselves encode the shared-conjugator assertion.",
+        "searches": [
+          "Resultary b444981bf71f, 972d2f02c5a2, ed116a5096e4, 9b7bd8f34375 and 56b1b9d1e9e0; Alexander idempotents, right Peirce multiplicities, and joint multiplication-rank spectra"
+        ]
+      },
+      "rationale": "The supported distinct claim is the shared operator conjugator uniformly at all nonzero idempotents in the modular elementary-abelian setting, with its two-sided Jordan analysis. The group-ring transport identity is established prior work; the cycle and second-difference formulas are standard once the common reduction is established. Related complex eigenvalue results or modular rank and idempotent censuses do not cover the claimed pair of operators up to joint similarity.",
+      "residual_risks": [
+        "The exact joint-rank record 56b1b9d1e9e0 was not opened; its full assumptions and any idempotent refinement remain unconfirmed.",
+        "Potential earlier algebra-isotope identities beyond the inspected material remain a priority risk; no claim is made for the transport identity or standard cycle formulas in isolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior transport identity and partial nonmodular spectral overlap",
+          "evidence": "Twisted product factorization; augmentation powers; complex right eigenvalue set {0,1,−1} for odd-order abelian cores.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08204",
+          "material_read": "Proposition 2.1 and Theorems 2.2 and 5.5 (OA HTML offsets 7150, 8230, 30780)",
+          "method": "Targeted primary full-text passages",
+          "title": "Group-ring methods for Alexander quandle rings",
+          "trigger": "Exact group-ring identity and prior Alexander/core Peirce analysis"
+        },
+        {
+          "assessment": "Small nonmodular cases, eigenvalue sets only",
+          "evidence": "Complex spectra for Latin and non-Latin order-three examples.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.09257",
+          "material_read": "Section 7, Theorem 7.4 (OA HTML offset 73050)",
+          "method": "Targeted primary full-text passage",
+          "title": "Enhancements of link colorings via idempotents of quandle rings",
+          "trigger": "Earlier Peirce-spectrum computation"
+        },
+        {
+          "assessment": "Different hypotheses and target",
+          "evidence": "No nontrivial idempotents for ordered commutative quandles over integral domains of characteristic other than two.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.01550",
+          "material_read": "Theorem 3.8 (OA HTML offset 21450)",
+          "method": "Targeted primary full-text passage",
+          "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+          "trigger": "Potential broader idempotent theorem"
+        },
+        {
+          "assessment": "Restricted idempotent classification rather than Peirce conjugacy",
+          "evidence": "Counts/describes idempotents for scalar Latin Alexander quandles over finite fields of characteristic p≥5.",
+          "identifier_or_url": "2026/11/2/SCOPE-modular-idempotents-in-scalar-alexander-quandle-algebras--b444981bf71f",
+          "material_read": "Mirrored Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Modular idempotents in scalar Alexander quandle algebras",
+          "trigger": "Strong same-day modular idempotent match"
+        },
+        {
+          "assessment": "Complex right-sided overlap only",
+          "evidence": "Right eigenvalue multiplicities and diagonalizability over ℂ; acknowledges Zhang's right eigenvalue set.",
+          "identifier_or_url": "2026/11/2/SCOPE-an-exact-idempotent-and-peirce-multiplicity-census-for-odd-order--972d2f02c5a2",
+          "material_read": "Mirrored Finding and prior-work passage (offset 6000)",
+          "method": "Local Resultary mirror",
+          "title": "An exact idempotent and Peirce-multiplicity census for odd-order core quandle algebras",
+          "trigger": "Strong same-day Peirce census match"
+        },
+        {
+          "assessment": "Different coefficient regime and invariant",
+          "evidence": "Ranks over all elements when coefficient characteristic does not divide quandle order.",
+          "identifier_or_url": "2026/10/27/SCOPE-frobenius-orbit-rank-spectra-of-finite-Alexander-quandle-algebra--ed116a5096e4",
+          "material_read": "Mirrored Finding",
+          "method": "Local Resultary mirror",
+          "title": "Frobenius-orbit rank spectra of finite Alexander quandle algebras",
+          "trigger": "Left and right operator rank statistics"
+        },
+        {
+          "assessment": "Restricted census; no idempotent pair normal forms",
+          "evidence": "Left/right rank distributions and zero-product counts, with nontrivial cyclic displacement p-Sylow.",
+          "identifier_or_url": "2026/10/26/SCOPE-modular-multiplication-rank-distributions-in-finite-alexander-qu--9b7bd8f34375",
+          "material_read": "Mirrored Finding",
+          "method": "Local Resultary mirror",
+          "title": "Modular multiplication-rank distributions in finite Alexander quandle algebras with cyclic displacement Sylow subgroup",
+          "trigger": "Closest inspected modular rank comparison"
+        },
+        {
+          "assessment": "Access limitation, not a full-text exclusion",
+          "evidence": "Summary describes joint rank distributions over splitting finite fields, not the full pair normal forms.",
+          "identifier_or_url": "2026/11/8/SCOPE-joint-multiplication-rank-spectra-of-finite-alexander-quandle-al--56b1b9d1e9e0",
+          "material_read": "Ranked summary only; exact mirror path inaccessible",
+          "method": "Local Resultary search and bounded mirror lookup",
+          "title": "Joint multiplication-rank spectra of finite Alexander-quandle algebras",
+          "trigger": "Potential joint-operator comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–28, 38–54",
+        "arXiv:2610.08204 Proposition 2.1 and Theorem 5.5"
+      ],
+      "rationale": "The common change of basis removes all dependence on the idempotent at once and gives a computable normal form for the pair. This is useful precisely in modular parameters where a Peirce eigenvalue list loses information or one side is singular: both the nonsemisimple cyclic blocks and the nilpotent blocks are accounted for without enumerating idempotents. The result links an established Peirce problem to explicit data for a natural broad class of quandles, not an isolated small example.",
+      "residual_risks": [
+        "The statement does not classify the idempotents themselves or settle analogous Peirce behavior outside the stated modular Alexander setting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

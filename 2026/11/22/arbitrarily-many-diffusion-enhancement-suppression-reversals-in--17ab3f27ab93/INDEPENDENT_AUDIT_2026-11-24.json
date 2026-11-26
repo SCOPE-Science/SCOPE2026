@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:55:33.141246Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–77",
+        "Frozen VERIFICATION.md and verification/certify.py and galvanic Fourier solver verification/galerkin.py, inspected without execution"
+      ],
+      "rationale": "Reflection x→−x combined with switching s→−s gives zero stationary drift for the even force. The corrector solves −Lχ=b; applying invariance to L(χ²) verifies that the Brownian derivative square and the jump square contribute together E[bχ] to diffusivity, leaving 1+2E[χ′]+E[bχ]. At zeroth order each density is 1/(4π); at first order the antisymmetric density perturbation h=−g′/(4π), with g_n=F_n/(n²+2ν). For the derivative term the uniform-density integral of every periodic derivative vanishes, giving the coefficient −2 sum n²|F_n|²/(n²+2ν)², while the drift-corrector term gives +sum |F_n|²/(n²+2ν). Pairing ±k gives weight w_k and the stated H. The stationary and corrector equations on the compact periodized state space are locally analytic after removing the constant kernel, for positive rates; pointwise weak-amplitude expansion is enough at the finite witnesses. A new odd k with weight k^(3/2) preserves strict previous signs, gives −k^(−1/2)(1+o(1)) against O(k^(−1)) at t=k and gives all positive terms at t=2k². This induction supplies 2m ordered strict alternating witnesses, and a common small nonzero amplitude retains them. Continuity forces crossings in the disjoint witness intervals; nontrivial local analyticity in rate also excludes zero plateaus. Independent rational replay gave −472678/1565001, 4177/131043, −6/169, 379003/39125025 at t=1/2,2,25,1250.",
+      "residual_risks": [
+        "The Galerkin numbers have no rigorous truncation enclosure and are not needed for the existence claim. No uniform weak-amplitude margin over rates or m, and no claim of simple or exactly 2m−1 zeros for the actual diffusivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frydel derives a general exact representation and works out triangular forcing",
+          "Spagnolo–Dubkov obtain first-passage formulas and discuss sawtooth enhancement and rectangular-potential suppression"
+        ],
+        "reasoning": "A general diffusivity formula covers the observable and can be expanded at weak force. It does not supply the hierarchy of weights and frequencies that generates alternating signs, and a one-cell first-passage estimate is not generally the exact diffusivity.",
+        "searches": [
+          "Frydel arXiv:2611.13526v1 §X Eq. (48) and §X.1; Spagnolo–Dubkov arXiv:cond-mat/0510170 §III Eqs. (9)–(12)"
+        ]
+      },
+      "checked_sources": [
+        "Frydel arXiv:2611.13526v1",
+        "Spagnolo–Dubkov arXiv:cond-mat/0510170",
+        "Resultary 4bb533cc6c92, 6c976d620f6d, 13e6ecfe4092"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The on/off coefficient contains −q+(1−q)(z−1)/(z+1)² and proves a single bounded enhancement interval for q<1/9",
+          "The additive run-and-tumble and exogenous-driver records have different drift feedback"
+        ],
+        "reasoning": "Even granting the signed single-frequency kernel as prior, arbitrary many flips require preserving all earlier signs while forcing a later negative gap and positive recovery with each added scale. No compared statement or routine specialization gives that result; the scale-separation argument supplies it.",
+        "searches": [
+          "Frydel §X.1 Eq. (53); Spagnolo–Dubkov §III and conclusion; Resultary 4bb533cc6c92 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frydel §II and §X Eqs. (48)–(49) use sign redraw with mean interval τ, equivalent to actual flip rate 1/(2τ)",
+          "Spagnolo–Dubkov §III studies supersymmetric opposite-sign switching",
+          "Resultary 4bb533cc6c92 gives the same dimensionless rate kernel within a distinct on/off coefficient"
+        ],
+        "reasoning": "The clock conventions are equivalent in the symmetric sign model, so labels do not distinguish it from the earlier exact model. The on/off force has a nonzero mean at every q>0 and an additional rate-independent suppression term, so its q=1/2 case is not the centered sign-flip model.",
+        "searches": [
+          "diffusion enhancement suppression arbitrarily many crossings multiscale Fourier weak amplitude periodically sign switching potential telegraph diffusivity switching rate Dubkov Frydel",
+          "randomly switching potential diffusion weak potential diffusivity dichotomous perturbation Fourier low amplitude Dubkov Spagnolo",
+          "Resultary: symmetric sign flips, weak flashing thresholds, force-power spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct compared records 4bb533cc6c92, 6c976d620f6d, 13e6ecfe4092; no verified independently matching crossing table or arbitrary-m theorem there"
+        ],
+        "reasoning": "The two-mode rational table is only a witness. Exact independently matching table coverage would affect that example, not establish the infinite construction by itself.",
+        "searches": [
+          "Resultary local index and mirror: weak flashing, switching-rate reversals and Fourier response"
+        ]
+      },
+      "rationale": "The switching model and general exact diffusivity representation are prior work; the single-mode weak-response kernel also appears in a close same-date on/off comparison. Credit here is for arranging positive weights at widely separated odd wavenumbers to force unboundedly many true enhancement–suppression reversals. The inspected close results do not furnish that construction. Priority is not asserted from a same-date comparison.",
+      "residual_risks": [
+        "No exhaustive priority claim; the exact PRE 72, 041104 full text was not read, and unindexed weak-forcing reductions may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct general representation and model coverage, not the multiscale witness conclusion in compared parts",
+          "evidence": "Mean time between actual sign changes is 2τ; compared applications use triangular potentials, and §X contrasts exact diffusion with one-cell first passage.",
+          "identifier_or_url": "https://arxiv.org/html/2611.13526v1",
+          "material_read": "§II offsets 11682–13982; §X offsets 47530–51606 and 55400–59356, Eqs. (48), (49), (53); §XI offsets 63959–68258",
+          "method": "OA primary HTML passages",
+          "title": "A new representation of effective diffusion in fluctuating periodic potentials through stochastic duality",
+          "trigger": "Same symmetric Poisson-switching model and exact diffusivity"
+        },
+        {
+          "assessment": "Relevant switching model and first-passage results, different examples and conclusion",
+          "evidence": "Eqs. (9)–(11) give general coupled MFPT formulae and Eq. (12) a sawtooth example; conclusion contrasts enhancement and suppression for particular profiles.",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0510170",
+          "material_read": "§III offsets 8408–13604 and conclusion offsets 19485–21983",
+          "method": "OA primary full-text passages",
+          "title": "Diffusion in Flashing Periodic Potentials",
+          "trigger": "Opposite-sign switching and enhancements"
+        },
+        {
+          "assessment": "Unresolved full-text priority risk, not negative evidence",
+          "evidence": "The accessible Spagnolo–Dubkov preprint explicitly lists this article separately.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.72.041104",
+          "material_read": "No verified primary full text; related arXiv paper's bibliography offset 21653 identifies this as a distinct paper",
+          "method": "DOI and identified APS abstract/PDF OA routes returned HTTP 403",
+          "title": "Acceleration of diffusion in randomly switching potential with supersymmetry",
+          "trigger": "Especially close early study of switching with supersymmetry"
+        },
+        {
+          "assessment": "Material kernel and method overlap, distinct centered switching and arbitrary-scale theorem",
+          "evidence": "For a sinusoid, on/off duty fraction q contributes the additional static negative term and bounds a single enhancement band; no arbitrary-scale alternating construction.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-one-ninth-duty-cycle-threshold-for-weak-flashing-potenti--4bb533cc6c92",
+          "material_read": "RESULT.md offsets 0–9419",
+          "method": "Resultary index and local mirror",
+          "title": "A sharp one-ninth duty-cycle threshold for weak flashing potentials",
+          "trigger": "Same-date weak-potential rate kernel and sign-threshold result"
+        },
+        {
+          "assessment": "Different models and no demonstrated implication",
+          "evidence": "The first adds propulsion to a fixed potential; the second has an exogenous driver with no feedback.",
+          "identifier_or_url": "Resultary 6c976d620f6d; 13e6ecfe4092",
+          "material_read": "Mirrored model statements and weak-response conclusions",
+          "method": "Resultary index and local mirror",
+          "title": "Universal weak-potential diffusion suppression for thermally diffusing run-and-tumble motion; Exact finite-rate spectroscopy of Fourier force power in a telegraph-driven tracer",
+          "trigger": "Comparable Fourier response with telegraph motion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§2–4 and limitations",
+        "Frydel §X and Spagnolo–Dubkov §III for prior model context"
+      ],
+      "rationale": "The constructive alternating signs show that even a single two-state clock controlling one smooth potential does not impose a universal finite cap on thermal-baseline reversals as its rate varies. The exact two-mode witness already gives three crossings, and the positive-weight multiscale induction explains why this is not a numerical artifact or a single resonant exception.",
+      "residual_risks": [
+        "The number grows with available spatial scales; fixed cutoff, fixed common force norm, and finite-amplitude robustness are not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

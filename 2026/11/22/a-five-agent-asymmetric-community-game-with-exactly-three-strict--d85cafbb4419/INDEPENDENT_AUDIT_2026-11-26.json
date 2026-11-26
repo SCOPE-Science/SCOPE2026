@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:36:00.146431Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–58 and 62–93; VERIFICATION.md, lines 19–25; verify.py, lines 8–89 (inspected, not executed)",
+        "Independent bounded replay: python3 /workspace/branches/frozen_claim_checks.py (game)"
+      ],
+      "rationale": "Because self-weight is zero, each fixed-action opinion optimization is a strictly concave quadratic with solution y_i=qz_i+(1-q)x_i in [0,1]. Completing the square gives the optimized action incentive beta*lambda/(beta+lambda) times z_i-theta, so joint deviations are accounted for. Within each community two distinct players differ only in which focal opinion is excluded. Thus z_i-z_j is the negative within-edge weight times y_i-y_j, while the equilibrium opinion difference has the same sign as x_i-x_j. Opposite actions would require the cooperator's z at least theta and the defector's z at most theta, a contradiction. For the two uniform block actions, the row-stochastic block matrix gives a unique opinion vector since q<1. Subtraction gives the opinion difference (1-q)/Delta in the A-only profile; then z_B=(1-p_B)/Delta and z_A=[q(1-p_B)+(1-q)p_A]/Delta. The B-only profile swaps roles. The consensus means are 0 and 1, and the excluded equalities guarantee strictness of every pure equilibrium. Width and translation follow by subtraction. A singleton forces p_A+p_B<1, and the only non-singleton case below five agents is balanced 2+2, so one-sided polarization is impossible there. For the 3+2 example the incentives put 5/8 strictly within the A interval and above the B interval. An exact fixed-point iteration with sup-norm error at most 2^(-18) independently resolves every player's action condition in all 32 profiles; the three surviving action vectors agree with the claim.",
+      "residual_risks": [
+        "The census is for pure equilibria at generic thresholds and homogeneous two-community parameters. No mixed-strategy census or dynamic stability follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The abstract of Davidson et al. advertises consensus equilibrium conditions and convergence to all-defection. Related records 173bd96ccffc, 5b961b8c0ad8 and 12d5eb0c5823 describe discrete update cycles, including a balanced two-community two-cycle."
+        ],
+        "reasoning": "Consensus conditions cover the 'both zero/both one' pieces, not the one-cooperating-community intervals. Neither a dynamic cycle nor a convergence condition for one state gives a complete static polarized census. A broader exact equilibrium theorem on arbitrary W could cover the claim; none was established in the inspected material.",
+        "searches": [
+          "Resultary: Davidson Zino Cao Ye coevolution public goods opinion network Nash equilibria all-defection all-cooperation theorem mixed actions general W",
+          "Primary source: arXiv:2604.08840v1 PDF opening and later OA text attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8b7435f0ea06 (exact passage), d85cafbb4419 (same record), 173bd96ccffc, 5b961b8c0ad8, 12d5eb0c5823 (catalog)",
+        "Davidson et al., arXiv:2604.08840v1, PDF abstract and opening only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The balanced result assumes equal community sizes and has a single polarization condition eta<1/2 and a>a_c in its notation; both polar directions occur together. The reviewed model gives interval width (1-q)(p_A+p_B-1)/Delta and relative displacement (p_A-p_B)/Delta."
+        ],
+        "reasoning": "The prior homogeneity argument motivates the extension and the block equations make it tractable. However applying a balanced formula to each group separately would not compute the thresholds: each endpoint depends on both influence fractions and the polarized orientation. The displacement and minimum n=5 require the unequal-size calculation and the exclusion of singleton and balanced small cases.",
+        "searches": [
+          "Matched 8b7435f0ea06 mirror RESULT.md, Finding, Assumptions, Proof §§1–3",
+          "Resultary: Davidson Zino Cao Ye 2604.08840 opinion public goods model equilibria consensus mixed action"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8b7435f0ea06, Finding and Proof §§1–3, proves a balanced census of 1, 2 or 4 using the same within-block homogeneity reduction. The exact unequal-size hit d85cafbb4419 is this claim."
+        ],
+        "reasoning": "One-sided polarization means exactly one of two oriented block-consensus profiles survives; relabeling blocks or restating the Nash constraints as inequalities of neighbor opinions does not turn two coincident intervals into distinct intervals. The old balanced theorem is the restriction p_A=p_B, not an unequal-size result.",
+        "searches": [
+          "Resultary: Sharp segregation threshold in a two-community opinion–public-goods game",
+          "Resultary: two-community homogeneous strict Nash unequal sizes exactly three equilibria polarized threshold intervals"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The predecessor's balanced census admits only 1, 2 or 4 strict pure equilibria. The 3+2 parameters yield (10/19,43/57) vs (14/57,9/19) and theta=5/8; the independent 32-profile check finds exactly three."
+        ],
+        "reasoning": "No applicable external exact table was identified; a table indexed by counts alone cannot check the witness because the continuous feedback and raw edge weights fix the neighbor opinions and Nash incentives. Even a matching witness table would leave the general interval formula and minimality to compare.",
+        "searches": [
+          "Resultary: two-community homogeneous strict Nash unequal sizes exactly three equilibria polarized threshold intervals",
+          "Exact 3+2 witness check against the closest balanced census in 8b7435f0ea06"
+        ]
+      },
+      "rationale": "The existing balanced census and its within-community homogeneity reduction are material prior coverage and are not credited as new. The distinct contribution is the exact unequal-size interval split, the resulting one-sided pure polarization, and its sharp 3+2 minimum within the common-weight family. The inspected balanced theorem gives paired polarization only. The inspected opening of Davidson et al. concerns consensus and does not state an unequal-community census; the remaining primary text was not assessed.",
+      "residual_risks": [
+        "The later primary text of Davidson et al. was unavailable in the attempted retrieval. The frozen description of mixed-action equilibria as an open direction was not independently checked.",
+        "Other formulations of general polarized-equilibrium results could be missed by these queries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the homogeneity result and balanced census, but not the interval displacement or one-sided witness",
+          "evidence": [
+            "Assumes equal community sizes; polarized equilibria appear in a pair, with strict counts 1, 2 or 4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-segregation-threshold-in-a-two-community-opinion-public-go--8b7435f0ea06/RESULT.md",
+          "material_read": "Local-mirror RESULT.md at commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offset 0–7658, Finding, Assumptions and Proof §§1–3",
+          "method": "Targeted Resultary lookup and exact local mirror reading",
+          "title": "Sharp segregation threshold in a two-community opinion–public-goods game",
+          "trigger": "Closest indexed predecessor, same payoff and static Nash classification"
+        },
+        {
+          "assessment": "Model and consensus overlap credited. The inspected text does not substantiate a blanket claim about what is absent later in the paper.",
+          "evidence": [
+            "Abstract identifies all-defection and all-cooperation consensus conditions and global convergence to all-defection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2604.08840",
+          "material_read": "PDF p. 1 and opening extraction, offset 0–7920; later passage requests timed out",
+          "method": "Targeted Resultary reference search and OA full-text extraction attempt",
+          "title": "Modelling the coevolution of opinion dynamics and decision making in social dilemmas",
+          "trigger": "Original payoff model and possible general mixed-action Nash theorem"
+        },
+        {
+          "assessment": "Different observable, only catalog statement inspected",
+          "evidence": [
+            "Attracting two-cycle in two equal communities, not a static equilibrium count."
+          ],
+          "identifier_or_url": "12d5eb0c5823",
+          "material_read": "Resultary catalog statement",
+          "method": "Topical Resultary lookup",
+          "title": "Sharp cross-community switching threshold for an attracting public-goods/opinion cycle",
+          "trigger": "Related two-community same-model phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 12–48, 74–89 and 95–105; balanced predecessor 8b7435f0ea06, Finding"
+      ],
+      "rationale": "The interval split identifies what changes when the sizes, but not the edge parameters or behavior, are made asymmetric. It explains an odd three-equilibrium census that balanced polarization cannot realize. The exact minimum and strict witness make this more than an isolated finite enumeration; the witness is stable to sufficiently small parameter shifts within the family.",
+      "residual_risks": [
+        "This is an idealized static strategic result, not a prediction of which equilibria are realized or approached in data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

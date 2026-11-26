@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is restricted to the explicit \(q+1\) quadratic finite-field MUBs and ordered triples of vectors from distinct bases. Quadratic finite-field Gauss sums give formulas (4)–(5); the linear parameters have exactly \(q^2\) preimages. Nonsquare rescaling of slopes pairs the two quadratic classes over the entire ordered basis index set. Character orthogonality gives the sign- and trace-resolved counts and checks the total \(B_qq^3\). The Gram determinant is exact; \(q=3\) and the positive Gershgorin range \(q\ge5\) are treated separately. Independent finite-field implementations exhaustively checked \(648+15{,}000+115{,}248\) ordered triples for prime fields and \(524{,}880\) for \(\mathbb F_9\), including all phase counts, but finite checks are not substituted for the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The earliest accessible literature anchor [1] explicitly gives the quadratic MUB construction, but its projective \(2\)-design statements do not determine the phase-sensitive third-order histogram. The more recent full open-access [3] explicitly defines these triple-product arrays as Hadamard cubes; its general axioms and dimension-six classification do not assert the odd-prime-power trace-sign multiplicities or the prime-field-to-extension-field support transition. An existing result on fourth-overlap energy for unions of quadratic-chirp bases controls phase-free pair magnitudes; it cannot imply the full Bargmann phases. The original Wootters–Fields article [2] and possibly other older finite geometric-phase literature may contain equivalent reductions. Its metadata and abstract were checked, but full text was unavailable; this is a real residual priority risk, not a claim of certified uniqueness.
+PASS
 
-## Mathematical value — PASS
-A Bargmann phase is a scalar- and basis-vector-phase invariant of three rays; unlike unbiased pair magnitudes it resolves their joint relative geometry. The uniform formula provides the full phase histogram for an infinite canonical family, detects a strict prime-versus-proper-extension transition, and exactly determines every three-column Gram characteristic polynomial and the exceptional dependence census in dimension three. This is a natural complete classification of a third-order invariant, not an arbitrary isolated numerical slice. No claim is made concerning different inequivalent maximal MUB families or characteristic two.
+With the first slot conjugate-linear, completing the square in the finite-basis inner product gives the factor γ_q χ_q(c−a)ψ(−(j−i)²/[4(c−a)]). In the product for three finite slopes, the third difference is −(A+B); the character product is χ_q(−K), so the prefactor reduces to γ_q χ_q(K) and the exponent to −[B(j−i)−A(k−j)]²/(4K). In the computational case one cyclically moves that basis first, giving the stated square −A[h+(k−j)/(2A)]² and prefactor γ_q χ_q(A). Both square parameters are surjective linear functions of three labels, with q² preimages each. Nonzero square parameters give γ_q³ χ_q(z)ψ(z), and multiplying slopes by a nonsquare flips the square class for both types of triples. Thus the two zero-parameter signs each have B_q q²/2 preimages and each fixed nonzero z has B_q q² preimages globally. Fourier expansion of the trace condition gives S(t)=(γ_q√q/p) Σ_{u≠0 in F_p} χ_q(u)ζ_p^(−ut). Restriction to F_p is trivial at even r and χ_p at odd r; the latter Gauss sum supplies χ_p(−t)γ_p√p at nonzero t. This gives the stated signs and multiplicities and their total. The signs label distinct phases because −1 is not a p-th root for odd p. The prime trace is the identity; in extension degree at least two the nonzero-t character imbalance is smaller than fiber size, and the zero-parameter contribution ensures both t=0 signs. Gram minors give the cubic; at q=3 the phases ±i alone are singular, yielding 216 ordered cases and roots 0,1,2. At q≥5 the Gershgorin lower bound 1−2/√q is positive.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinction is the global sign/trace multiplicity law for odd extension fields, including full phase support in degree at least two. The prime-field census is exactly reproduced by a separate, later-dated indexed record, and the q=3 numerical counts have a published small-dimensional counterpart. Those special cases, the phase invariant itself and the general Gram expansion do not independently carry the originality assessment.
+
+## value
+
+PASS
+
+Pairwise unbiasedness fixes magnitudes only. The exact distribution of the natural third-order, phase-gauge-invariant statistic supplies a dimension-wide comparison for these canonical bases. The distinction between a prime field and its extensions is substantive: traces combine different field elements with different quadratic signs, changing both multiplicities and support, and the distribution also determines the corresponding three-vector Gram spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

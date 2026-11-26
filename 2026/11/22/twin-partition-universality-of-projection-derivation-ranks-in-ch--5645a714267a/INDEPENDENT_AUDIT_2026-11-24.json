@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:33:38.461405Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md; check_projection_derivations.py and CHECKS.txt (inspected, not executed)",
+        "python3 /workspace/audit_evidence/finite_checks.py 5"
+      ],
+      "rationale": "On distinct basis vectors the Leibniz identity equates scalar multiples of two nonzero 0–1 neighborhood vectors. For different supports the two scalars vanish, whereas identical supports give symmetric off-diagonal entries in characteristic two. Thus D is block-diagonal on open twin classes. The square identities give D(e_i^2)=0; each neighborhood is a union of whole twin classes, their block supports are disjoint, and every class occurs in some neighborhood. Hence each block kills its all-ones vector. These basis identities are also sufficient by bilinearity. The self-adjoint idempotents for the nondegenerate dot product on a block are in bijection with their nondegenerate images via projection along the orthogonal complement. Killing the ones vector places the image in H=1^perp, where the dot product is alternating because B(x,x)=(sum x_i)^2. In odd block size H is symplectic; in even size its radical is the line of ones and the quotient is symplectic, each with symplectic dimension 2h in the relevant space. Nondegenerate subspaces of H have zero intersection with the radical; each rank-2r quotient subspace has exactly q^(2r) distinct complements to the radical in its inverse image, counted by differences of linear sections. The symplectic group is transitive on the nondegenerate rank-2r subspaces with stabilizer Sp(2r) times Sp(2h−2r); dividing group orders gives q^(2r(h−r)) times the Gaussian binomial with base q^2. This yields the parity-dependent coefficient and a product over independently selected blocks. Symplectic bases and linear sections also give all even ranks over arbitrary characteristic-two fields, including the cases a=1,2 with h=0; the sums of the block rank intervals have no omitted even rank. Fresh row-span enumeration in F2 through size six corroborates the small coefficients independently of the supplied matrix enumeration; it is not the arbitrary-dimensional proof.",
+      "residual_risks": [
+        "Connected simple graphs with at least two vertices and characteristic two only; the enumerator requires a finite field. A compositional idempotent linear derivation need not be an algebra retraction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reis–Cadavid's general Leibniz equations and positive-characteristic twin block theorem give the linear classification used here; in characteristic two the off-diagonal condition is symmetry and the column sums reduce to zero.",
+          "The symplectic group orbit size counts nondegenerate subspaces of a nondegenerate alternating space; it does not on its own distinguish the quotient from its lifts in an even-sized class."
+        ],
+        "reasoning": "The prior twin equations constrain all derivations but do not count those satisfying D squared equals D by rank; the standard symplectic enumeration is used only after identifying the allowed image spaces.",
+        "searches": [
+          "arXiv:2006.11934 Proposition 2.2, Corollary 2.5, Theorem 3.1",
+          "Focused literature search for evolution algebra graph idempotent derivations in characteristic two",
+          "arXiv:1807.02493v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2006.11934",
+        "5645a714267a (identical record)",
+        "775229a25c43",
+        "4de14f37c73d",
+        "Frozen symplectic orbit-stabilizer derivation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Reis–Cadavid supplies the symmetric zero-sum blocks in characteristic two, and imposing block idempotence is immediate; that part is not credited separately as original.",
+          "To obtain the numerical claim one still needs the nondegenerate-image bijection, the odd/even distinction for the restricted form, and the q^(2r) complement count in the even case. Neither comparison with either other product transfers this parity-dependent count."
+        ],
+        "reasoning": "The known derivation equations and standard orbit-stabilizer step are ingredients, not an already stated or mechanically specialized rank formula for this alternating, sometimes degenerate, image problem.",
+        "searches": [
+          "arXiv:2006.11934 Proposition 2.2 and Theorem 3.1, compared to frozen Proof §§2–3",
+          "775229a25c43 and 4de14f37c73d, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Compositional projectors in the derivation space become self-adjoint projections with nondegenerate image in the alternating hyperplane of each twin block.",
+          "Graph Lie algebra idempotent derivations and rectangular-band semigroup algebra idempotent derivations use different products; unital algebra retractions and square-zero derivations are not the same constraint."
+        ],
+        "reasoning": "The image parametrization is an equivalent count; similar terminology or Gaussian coefficients in other algebras do not identify this class of operators.",
+        "searches": [
+          "Resultary: projection derivations of graph evolution algebras in characteristic two, complete labeled finite-field enumeration by rank, twin blocks with symplectic images and even-class lifts",
+          "Reis–Cadavid arXiv:2006.11934 Proposition 2.2 and Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed hit 5645a714267a is the assigned result. Strong nearby hits include 775229a25c43 (rectangular-band product) and 4de14f37c73d (two-step graph Lie algebra), both confirmed to concern other algebras, and a square-zero-variable retraction result.",
+          "The directly inspected Reis–Cadavid statements give linear block constraints, not a rank table for compositional projectors."
+        ],
+        "reasoning": "No independent exact projection-rank result emerged from the bounded comparisons; the self-match is not earlier coverage.",
+        "searches": [
+          "Resultary: complete labeled finite-field projection-derivation rank census by twin sizes, radical lifts",
+          "Web: evolution algebras, graphs, idempotent derivations, characteristic two, Reis Cadavid, symmetric idempotent finite-field enumeration"
+        ]
+      },
+      "rationale": "The general derivation-space normal form and its dependence on the twin partition are already essentially supplied by Reis–Cadavid. Symplectic subspace counts are standard. The distinct conclusion is the exact rank census for the nonlinear idempotence constraint in this specific derivation space, including the even-class radical-lift factor and the complete product for arbitrary open twin sizes; not the derivation-space block classification or a new counting theorem about symplectic spaces alone.",
+      "residual_risks": [
+        "The finite literature and index comparisons do not establish world priority; an unindexed formula for this precise class could overlap. The standard symplectic count is reconstructed rather than claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the linear structure used here, not the counted idempotence constraint",
+          "evidence": [
+            "The theorem describes twin-indexed blocks in positive characteristic with skew relation and column-sum condition; Proposition 2.2 states the off-diagonal relation on distinct indices, which becomes symmetry here."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.11934",
+          "material_read": "Proposition 2.2 PDF pp. 4–5 (offset 12645), Corollary 2.5 PDF pp. 6–7 (offset 19583), Theorem 3.1 and opening proof PDF pp. 8–9 (offset 25845)",
+          "method": "OA primary full-text passages",
+          "title": "Derivations of Evolution Algebras Associated to Graphs over a Field of Any Characteristic",
+          "trigger": "Strongest overlap, same evolution algebra and twin partition"
+        },
+        {
+          "assessment": "Different algebra, not equivalent coverage or a specialization",
+          "evidence": [
+            "The defining semigroup product is (i,j)(h,l)=(i,l); the projection constraints refer to two one-sided ideals, not twin blocks."
+          ],
+          "identifier_or_url": "775229a25c43",
+          "material_read": "Finding, offset 0",
+          "method": "Local full-text mirror passage",
+          "title": "Characteristic-two component explosion in projection derivations of rectangular-band algebras",
+          "trigger": "Same-day characteristic-two projection normal form and enumerator"
+        },
+        {
+          "assessment": "Two-step Lie product; even complete bipartite hosts do not identify it with the evolution algebra",
+          "evidence": [
+            "The count involves separately labeled edge generators and two projection ranks in a two-step nilpotent Lie algebra."
+          ],
+          "identifier_or_url": "4de14f37c73d",
+          "material_read": "Finding and enumerator, offset 0",
+          "method": "Local full-text mirror passage",
+          "title": "Rank-polynomial and characteristic collapse for idempotent derivations of complete-bipartite graph Lie algebras",
+          "trigger": "Same graph-derived language and rank counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen rank theorem and examples",
+        "Reis–Cadavid Theorem 3.1",
+        "Independent binary subspace checks"
+      ],
+      "rationale": "Composition-idempotent derivations measure the possible two-summand splittings of the underlying vector space selected by a Leibniz operator, which the linear derivation space alone does not quantify. The result gives every rank and its exact labeled multiplicity over every finite even field for a natural family, and detects a genuine odd/even twin-size difference in counts via a radical line. This is a complete nonlinear invariant not supplied by the known linear classification.",
+      "residual_risks": [
+        "It is not a new classification of all derivations, nor does it count projections modulo conjugacy or in odd characteristic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

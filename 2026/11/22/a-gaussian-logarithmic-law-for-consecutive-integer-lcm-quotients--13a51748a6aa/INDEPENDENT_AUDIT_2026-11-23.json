@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:40:13.635141Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At each power p^j the product-to-LCM exponent counts the multiples in the window minus one if any occur. Above k the count is at most one, whereas at p^j<=k the count is at least one and at most floor(k/p^j)+1. This gives divisibility by k!, periodicity, and (by CRT) exact independence across primes, not across powers of one prime. For p>sqrt(k), counting the start residues with no extra multiple gives deficit probability (p-1-(k mod p))/p, including zero for p|(k+1). The log contribution of the lower primes is bounded by pi(sqrt(k)) log k=O(sqrt(k)), hence its variance is O(k). The large-prime PNT calculation is justified first on p/k in [1/M,1], where log p/log k tends to 1 uniformly and the integrands have finitely many jumps, then by bounding the omitted theta(k/M) mass. Replacing Bernoulli parameters by 1-{k/p} has error at most 1/p also for the variance function. Integration on each unit interval telescopes the mean to Euler's constant and gives the variance partial sum (2M+1)log(M+1)-2log(M!)-2M, whose limit by Stirling is 2-log(2pi)>0. The centered high-prime summands are bounded by log k, so Lindeberg applies; the centered small-prime sum vanishes at the exact standardization scale. The proof does not replace exact centering by its leading equivalent.",
+      "replay_path": "/workspace/reviews/lcm_replay.py",
+      "status": "PASS",
+      "verification": "Run python3 /workspace/reviews/lcm_replay.py. A fresh exact program matched direct product/LCM quotients against prime residue blocks pointwise and checked the full CRT-convolved deficit histogram for every full period for k=2 through 13 (422240 windows), including rational local moments and the upper-prime Bernoulli counts. No uploaded script was run. These data do not verify the PNT or the infinite law."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Yang gives the same count-of-multiples ingredient even for multiplicative quotients on arithmetic progressions.",
+          "The indexed October 26 finite-frequency theorem gives a complete finite prime-by-prime law with carry matrices on progressions."
+        ],
+        "reasoning": "Finite arithmetic is covered much more broadly. Neither the evaluated weighted prime asymptotics nor Gaussian convergence is a stated parameter substitution in these results. A general Lindeberg theorem applies once independence, scale and negligible summands have been established; it does not evaluate the constants.",
+        "searches": [
+          "arXiv:2611.15379v1, Introduction, Lemma 2.2, Theorem 1.1 and its proof",
+          "Resultary: consecutive integer lcm quotients gaussian logarithmic law Erdős Kac Farhi prime valuations"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0808.1507",
+        "arXiv:2611.15379v1",
+        "arXiv:0903.0530v2 (abstract and quoted theorem)",
+        "Resultary 8e35eb7b4fbc (finite frequencies)",
+        "Resultary 3cea4032cc5d (distinct-prime-factor law)",
+        "Resultary 1434dbd13002 (maximum-value rarity)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The period papers imply admissible sampling modulo L_k and give the local count foundation. The exact frequency law implies fixed-k moments, but not the evaluated prime-weighted asymptotics without additional reasoning."
+        ],
+        "reasoning": "The nontrivial step beyond finite coverage is the extraction and integration of the sawtooth first and second moment functions and the negligible-prime comparison at the Gaussian scale; an exact valuation law alone has no normal-limit implication.",
+        "searches": [
+          "Farhi–Kane arXiv:0808.1507 and Huang–Yang arXiv:2611.15379v1; Resultary exact value-frequency and distinct-prime-factor hits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farhi–Kane, arXiv:0808.1507, uses the identical g_k(n).",
+          "Indexed distinct-prime-factor result measures omega(g_k), not log(k!/g_k)."
+        ],
+        "reasoning": "The asserted log law is equivalent at exact centering to a Gaussian limit for -log(g_k), but not to counting primes present: p<=k/2 can be present in every window while its exponent varies. The presence statistic does not yield the weighted valuation fluctuation. The exact search self-hit is the frozen finding, not prior art.",
+        "searches": [
+          "Web: Farhi consecutive integers product lcm g_k distribution mean variance logarithm central limit Gaussian k factorial quotient Hong Qian",
+          "Resultary: consecutive integer lcm quotients gaussian logarithmic law Erdős Kac Farhi prime valuations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact period and finite value-frequency records exist; the Resultary exact Gaussian-law match is the assignment itself."
+        ],
+        "reasoning": "Exact finite frequencies answer any fixed-k query but do not tabulate or establish the two growing-window constants or the limit law.",
+        "searches": [
+          "Resultary: consecutive integer lcm quotients gaussian logarithmic law Erdős Kac Farhi prime valuations",
+          "arXiv:0808.1507, Proposition 2.1 and Theorem 3.2; arXiv:2611.15379v1, Theorem A"
+        ]
+      },
+      "rationale": "Best of knowledge: the new claim is the evaluated mean/variance and growing-window Gaussian law for the weighted factorial deficit, not the local valuation or period identities and not a claim to priority for the finite distribution.",
+      "residual_risks": [
+        "Unindexed prior work on the weighted log quotient could give the same growing-window law.",
+        "Finite-frequency Resultary comparison relies on its indexed statement and the frozen record's description, not independently read complete text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers quotient, factorial maximum and exact periods; inspected results do not give the asymptotic fluctuation theorem",
+          "evidence": [
+            "Equation (1) is a gcd with k!; Proposition 2.1 gives g_k(0)=k! in the periodic extension; Theorem 3.2 gives p-adic least-period exponents."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0808.1507",
+          "material_read": "Introduction and definition/recursion, Proposition 2.1, Theorem 2.2 and surrounding least-period argument; Theorem 3.2 also compared via Huang–Yang's Theorem A",
+          "method": "Open arXiv PDF text and later primary-source theorem quotation",
+          "title": "New results on the least common multiple of consecutive integers",
+          "trigger": "Identical Farhi quotient and possible historical coverage"
+        },
+        {
+          "assessment": "Covers the local reduction and period, not stochastic log-deficit asymptotics",
+          "evidence": [
+            "Lemma 2.2 gives the floor/ceiling count, and (3.3) builds local factors from powers with exponents N_j-1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15379v1",
+          "material_read": "Introduction, Theorems A/B and 1.1, Lemma 2.2, proof of Theorem 1.1 and specializations",
+          "method": "Open arXiv HTML",
+          "title": "On least periods of a class of arithmetic functions",
+          "trigger": "Broader framework on exactly the same quotient family"
+        },
+        {
+          "assessment": "Explicit finite-law precursor; no increasing-window asymptotic claim in the inspected statement",
+          "evidence": [
+            "The index states exact finite prime-by-prime frequencies using base-p carry matrices."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26, record suffix 8e35eb7b4fbc",
+          "material_read": "Indexed result statement; compared with the frozen record's description of the carry-matrix law",
+          "method": "Configured Resultary index; no independent full-text claim",
+          "title": "Exact value-frequency law for consecutive arithmetic-progression LCM quotients",
+          "trigger": "Same observable at fixed k and stronger progression parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a fluctuation scale with an explicit strictly positive constant for a natural classical periodic quotient, and distinguishes the typical logarithmic deficit from both its extremal value and mere presence of prime factors. The prime weighting is essential and yields a useful evaluated asymptotic not supplied by a fixed-window table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

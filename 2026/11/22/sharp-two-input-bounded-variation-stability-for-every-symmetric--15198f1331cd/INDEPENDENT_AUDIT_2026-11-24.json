@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:15:34.947777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof lines 17–64",
+        "Frozen CHECKER.py, lines 11–105, static inspection only",
+        "Frozen VERIFICATION.md, lines 19–22"
+      ],
+      "rationale": "For w=2r+1, k=w−2q, compare adjacent windows as labeled multisets, counting clamped copies separately. The shared observations with shared ranks q+1 through w−q−1 necessarily survive either insertion. Thus a step direction changes the retained binary-tag count by at most one across an edge. For a cut just before j, only edge indices j−r−1 through j+r−1 can contribute, intersected with the path. Step decomposition and segment integration over ordering chambers, with continuity at ties, give min(w,n−1)/k. For n=w+1, use the even values followed by odd values and perturb the right half positively by ε<1. At left center i the rank of 2j−1 is r+2j−i. The admissible j are the intersection of [1,i] with the integer interval [ceil((i+2−t)/2),floor((i+t)/2)], t=r−q+1. This gives the reported counts and unit successive changes. Reflected counts are k minus the original counts and the two central counts differ by one since the middle k consecutive integers have odd count (k±1)/2. Appending the last value and its step tag preserves the original outputs and denominator. This proves attainment and strict inequality on shorter paths including the mean and median endpoints.",
+      "residual_risks": [
+        "The shorter-length bound need not be sharp; no exact short-path classification is certified.",
+        "The analytical check, not execution of the uploaded checker, supports the unbounded claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bednar–Watt abstract describes trimmed/median relationships and algorithms and convergence of repeated median filtering; no matching two-input coefficient was established from the abstract.",
+          "The frozen bibliography identifies the survey's trimmed-filter section; that primary section was not retrieved."
+        ],
+        "reasoning": "Iteration convergence or one-input variation control does not settle the norm of a difference of two outputs. A general two-input theorem in an inaccessible text remains possible.",
+        "searches": [
+          "Primary search: symmetric trimmed means order statistics two-input path total variation",
+          "Bednar–Watt DOI 10.1109/TASSP.1984.1164279",
+          "Pitas–Venetsanopoulos, Order Statistics in Digital Image Processing, §III-C"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 4ad37e5b5ca9, 4ef2a38a9807 and 902f14da94aa (summaries)",
+        "Bednar–Watt (abstract)",
+        "Frozen RESULT.md, prior-work and references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Single-rank bounds, the median endpoint and the five-point circular case are the closest distinct available statements."
+        ],
+        "reasoning": "None of those statements yields persistence on longer clamped paths, the joint bound, and the sharp minimal length for intermediate trims. No separate novelty is credited to a covered specialization.",
+        "searches": [
+          "Resultary records 4ad37e5b5ca9, 4ef2a38a9807 and 902f14da94aa",
+          "Frozen RESULT.md, lines 69–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Catalogue: a single selected rank p has coefficient 2 min(p−1,w−p)+1 on sufficiently long clamped paths."
+        ],
+        "reasoning": "The trimmed mean is an average of rank filters, but for k>1 the triangle bound averages their coefficients and strictly exceeds w/k: the median coefficient alone is w, and the other terms are positive. The shared-rank cancellation cannot be inferred by summing the isolated sharp norms.",
+        "searches": [
+          "Resultary: endpoint-clamped sliding rank filters and two-input variation",
+          "2026/11/22/SCOPE-exact-rank-dependent-variation-sensitivity-of-sliding-order-stat--4ad37e5b5ca9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue: all-radius clamped running median has attained factor 2r+1 starting at length 2r+2.",
+          "Catalogue: circular five-point one-trim factor is first 4/3 at eight sites and reaches 5/3 from ten onward."
+        ],
+        "reasoning": "Credit the exact median specialization. The circular coefficient 5/3 coincides with one long-path value, but not the clamped-path onset at six sites in that specialization, and does not supply arbitrary windows or trims.",
+        "searches": [
+          "Resultary: clamped running median and cyclic five-point trimmed means",
+          "2026/11/17/SCOPE-sharp-two-input-variation-instability-of-all-radius-running-medi--4ef2a38a9807",
+          "2026/11/17/SCOPE-sharp-cyclic-variation-stability-and-the-eight-site-onset-for-fi--902f14da94aa"
+        ]
+      },
+      "rationale": "Pass for the exact symmetric-trim family and sharp clamped-path onset, not for the classical filter, the already separately covered median endpoint, or the elementary linear mean case. The strongest available comparisons address a single rank or a cyclic special case, not joint selection of the middle k ranks and the shared sharp clamped extremizer. This is a bounded statement-level assessment, not a priority finding.",
+      "residual_risks": [
+        "Full-text coverage remains unresolved for foundational filtering papers and the strongest distinct same-day single-rank record; no priority order inferred from catalogue dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly overlapping framework, distinct operator for intermediate trims",
+          "evidence": [
+            "Single selected rank rather than mean of retained ranks; attained rank-dependent factor."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-rank-dependent-variation-sensitivity-of-sliding-order-stat--4ad37e5b5ca9",
+          "material_read": "Resultary catalogue summary; RESULT.md not retrieved",
+          "method": "Local search and bounded mirror passage attempts",
+          "title": "Exact rank-dependent variation sensitivity of sliding order statistic filters",
+          "trigger": "Same clamped geometry, onset and two-input norm"
+        },
+        {
+          "assessment": "Covers the median endpoint",
+          "evidence": [
+            "2r+1 from n=2r+2 with that onset sharp."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-two-input-variation-instability-of-all-radius-running-medi--4ef2a38a9807",
+          "material_read": "Resultary catalogue summary; mirror did not return full text",
+          "method": "Local search and mirror attempt",
+          "title": "Sharp two-input variation instability of all-radius running medians on finite paths",
+          "trigger": "Exact q=r match"
+        },
+        {
+          "assessment": "Different boundary condition and onset",
+          "evidence": [
+            "Five-point periodic filter: 4/3 at eight and 5/3 from ten."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-cyclic-variation-stability-and-the-eight-site-onset-for-fi--902f14da94aa",
+          "material_read": "Resultary catalogue summary; mirror did not return full text",
+          "method": "Local search and mirror attempt",
+          "title": "Sharp cyclic variation stability and the eight-site onset for five-point trimmed means",
+          "trigger": "Exact intermediate trim in another geometry"
+        },
+        {
+          "assessment": "No implication established from material read; full-text coverage unresolved",
+          "evidence": [
+            "Abstract topics include the relationship to median filtering and repeated median convergence."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TASSP.1984.1164279",
+          "material_read": "Search-result abstract; paper body unavailable",
+          "method": "Primary literature search and lawful DOI/IEEE retrieval attempts",
+          "title": "Alpha-trimmed means and their relationship to median filters",
+          "trigger": "Foundational work for the same operators"
+        },
+        {
+          "assessment": "Passage unavailable, no negative inference",
+          "evidence": [],
+          "identifier_or_url": "https://web.eecs.utk.edu/~hqi/ece472-572/reference/order-statistics.pdf",
+          "material_read": "Citation and section locator only",
+          "method": "Frozen bibliography and attempted OA retrieval of cited university copy",
+          "title": "Order Statistics in Digital Image Processing",
+          "trigger": "Section III-C concerns the exact filter family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–64",
+        "Distinct Resultary rank-filter and circular five-point statements"
+      ],
+      "rationale": "Gives the exact perturbation amplification uniformly across the standard robustness continuum from moving mean to median. The overlap lemma explains why averaging adjacent ranks is much better than adding rank-filter norms, while the parity construction and first attainable length identify when the worst amplification is physically possible on a finite path.",
+      "residual_risks": [
+        "The result is for unweighted clamped paths, not a bound on arbitrary boundary conventions or a claim of historical priority."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

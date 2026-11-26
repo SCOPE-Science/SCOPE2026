@@ -1,19 +1,21 @@
-# Scientific review: weighted orthogonal discotopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim explicitly fixes the full coordinate-hyperplane Euclidean balls and positive real weights. Additivity of support functions yields the exact formula. Strict concavity identifies every inball contact normal, and the maximizing squared normal has one uniquely determined KKT active set, including the equality boundary. Equality in Cauchy–Schwarz identifies all outer contact points. The fixed-mean-width extremal inequalities and equality cases follow directly from these exact formulas. A standalone 390-profile checker with 136,500 additional random-direction evaluations corroborates the derivation. Finite numerical evidence is not used to establish universal quantifiers.
+PASS
 
-## Originality — PASS, qualified
+Support additivity yields h(u)=Σ a_i√(1−u_i²). Central symmetry permits a largest inball centered at zero by the support constraints in opposite directions. If an enclosing ball is centered at c, averaging the squared distances from c to a farthest pair ±x gives ||x||²+||c||², so the minimum enclosing center is uniquely zero. Write s_i=u_i². Since √(1−s_i)≥1−s_i with equality only for s_i=0 or 1, the minimum support is W−max a_i with exactly the stated axis normals. A common support at a point of the centered inball must be its unique tangent support there; this gives exactly the stated inner contact points. For the maximum one can independently set y_i=√(1−s_i), so 0≤y_i≤1 and ||y||²=d−1. Choose y_i*=min{a_i/τ,1}, with τ chosen by Σ[1−(a_i/τ)²]_+=1. That sum is continuous and strictly increasing after min a_i and tends to d; at least two entries are positive at its root because no individual term reaches 1. The decomposition a=τ y*+(a−τ)_+ bounds a·y by τ(d−1)+Σ(a_i−τ)_+ using Cauchy–Schwarz and y_i≤1. Equality is attained uniquely at y*. This proves the threshold rule and its uniqueness, the radius formula, and the strict active inequality even when a weight equals τ. All maximizing normals are independent sign choices on the nonzero coordinates; a support point at maximum support must be Ru by equality in Cauchy–Schwarz, and every outer contact conversely has such a normal. The proposed all-phase examples follow by taking the smallest k weights equal and the remaining weights strictly above the threshold. The d=3 threshold compares the largest weight with the Euclidean norm of the two smaller weights. At fixed sum the inradius bound follows from max a_i≥W/d. Testing equal squared coordinates gives the circumradius lower bound and is globally optimal only for equal weights by the unique y* formula. This also fixes equality for the ratio. Finally u_i² is Beta(1/2,(d−1)/2), whose moment of (1−u_i²)^(1/2) gives the stated gamma quotient for twice the mean support.
 
-The closest primary texts are Mathis–Meroni, *Fiber Convex Bodies* (2021 initial version; Section 5.2), and Gesmundo–Meroni, *The Geometry of Discotopes* (2021 initial version; particularly Section 7). Both define and study the relevant disc sums; neither inspected relevant section gives the full all-dimensional weighted Euclidean radius/contact classification or the unique fixed-mean-width roundness extremizer. Indexed results about orthogonal-disk **convex hulls**, vertex-transitive **zonotopes**, and weighted simplices concern different operations or bodies, and their displayed mathematical statements do not cover the theorem. An older equivalent result in geometric optimization or zonoid theory remains a material bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete, sharp, parameter-dependent Euclidean geometry classification for a natural semialgebraic zonoid family, including all equality boundaries and exponentially varying contact counts. Fixing mean width leaves all weights geometrically inequivalent, yet equal weights uniquely maximize inscribed radius and minimize enclosing radius; the three-dimensional Pythagorean bifurcation is a concrete structural phenomenon rather than an arbitrary slice. The exact contact configuration and fixed-mean-width extremizer are the motivation, not numerical novelty alone or a generic KKT example.
+The distinct contribution is the full weighted, all-dimensional Euclidean phase and contact classification including equality surfaces, with simultaneous sharp fixed-mean-width extremality. The discotope object, support function and standard optimization methods are established ingredients. Individual radius and fixed-sum inequalities have direct short derivations once the simplex problem is formulated; novelty is not credited to those ingredients or asserted to be historical priority. Checked mentions of the unit dice and later exact subfamily matches do not contain a prior covering phase theorem.
 
-## Scientific limits
+## value
 
-The geometry concerns orthogonal coordinate-hyperplane spherical summands only; it does not treat general discotopes, all inscribed-ball centers, or canonical volume-optimal ellipsoids. Prior-source comparison is not a completeness proof, and independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The motivating question is how the nearest and farthest boundary points of an established family of convex bodies change as radii vary. The main payoff is not just an exact number for the unit dice: one scalar threshold resolves every outer contact set and gives all attainable counts and the correct counts on the transition surfaces, where a numerical optimizer or a radius formula alone would not distinguish zero coordinates. It also shows precisely how mean width can stay fixed while Euclidean roundness changes. This is a natural complete phase classification using elementary tools, with a sharp fixed-width comparison, not a new general KKT method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

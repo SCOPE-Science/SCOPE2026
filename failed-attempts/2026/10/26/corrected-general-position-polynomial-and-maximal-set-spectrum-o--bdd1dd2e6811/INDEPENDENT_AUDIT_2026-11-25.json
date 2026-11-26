@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:50:17.512364Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen Finding's crown theorem is correct. Same-class distinct vertices are at distance 2; unmatched cross pairs are adjacent and matched cross pairs are at distance 3, using two distinct extra indices when measuring that distance. For a mixed triple {a_i,a_j,b_k}, if k differs from i,j it is on a length-2 path through b_k; otherwise a length-3 geodesic from the matched a_k to b_k through the other selected a and an extra b witnesses failure. A pure triple cannot fit on a geodesic between its extreme same-class vertices. Thus all pairs count, and all larger valid sets are pure. The pure subset sum double-counts the empty set and omits precisely n^2 cross pairs, giving the stated polynomial. The extension criterion gives exactly both full classes and all cross pairs as inclusion-maximal. Connectedness and regularity follow directly. Replay: RESULT.md lines 13–24; independent BFS/subset tests reproduced the formula and maximal masks for n=3,4; frozen verify_output.txt documents the author's wider finite enumeration only. The n=3 illustration is not itself a nonunimodality witness, but the frozen text's scope disclaimer should not be read as asserting unimodality: at n=8 the correct coefficients in degrees 2,3,4 are 120,112,140, so Proposition 4.3's unimodality assertion fails for the crown family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anand et al. give a structural criterion for connected graphs and a bipartite diameter-three maximum-cardinality theorem. The lower general-position paper states that bipartiteness suffices for lower general-position number 2. The earlier indexed crown theorem gives the complete ordinary family and additional general-2-position results."
+        ],
+        "reasoning": "The general upper/lower cardinality results alone do not census all maximal sets. The earlier indexed crown characterization does, by immediate extension, and additionally explains the printed formula by identifying a distinct set family.",
+        "searches": [
+          "arXiv:1812.08460, Theorems 3.1 and 5.2",
+          "arXiv:2306.09965, p. 5",
+          "Resultary 2026/10/12/SCOPE-correcting-the-general-position-polynomial-of-crown-graphs--ec78f5ad9140"
+        ]
+      },
+      "checked_sources": [
+        "October 12 Resultary crown polynomial correction",
+        "October 4 Resultary crown sequence b-spectrum",
+        "arXiv:2401.05696v1",
+        "arXiv:1812.08460",
+        "arXiv:2306.09965",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact earlier classification consists of all pure subsets and the additional mixed pairs, with no valid mixed larger sets."
+        ],
+        "reasoning": "Every mixed pair has no valid one-vertex extension, and every proper pure subset extends in its class. Both full classes are maximal since n>=3. The claimed maximal list, spectrum and n-3 missing sizes are thus immediate consequences. The nonunimodality observation is outside the frozen Finding and is itself an immediate coefficient calculation from the already indexed polynomial; it is not a supported distinct repair.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-correcting-the-general-position-polynomial-of-crown-graphs--ec78f5ad9140, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 12 Finding explicitly states psi(Cr_n;z)=2(1+z)^n-1+n^2 z^2 for n>=3 and confines ordinary general-position sets of size at least three to a single class; its proof counts the cross pairs. The paper identifies T*(r,2) with K_(r,r) minus a perfect matching."
+        ],
+        "reasoning": "The graph family and the ordinary, vertex-distinguished counts agree under r=n. The earlier record already identifies the printed excess as the general-2-position/dissociation terms rather than ordinary general position.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-correcting-the-general-position-polynomial-of-crown-graphs--ec78f5ad9140",
+          "arXiv:2401.05696v1, definition of T*(r,a) and Proposition 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original Table 2 gives 14 cubic and 3 quartic terms at r=3; the earlier exact crown correction gives 2 cubic and zero quartic terms, matching the assigned polynomial. The October 4 record's spectrum {2,n} is for sequence b-colorings."
+        ],
+        "reasoning": "The semantic match based merely on the same spectrum concerns a different invariant, but the October 12 exact symbolic entry is a direct match for every n. The older publication's incorrect table is not used as correct coverage.",
+        "searches": [
+          "arXiv:2401.05696v1, Table 2",
+          "Resultary 2026/10/12/SCOPE-correcting-the-general-position-polynomial-of-crown-graphs--ec78f5ad9140",
+          "Resultary 2026/10/4/SCOPE-two-point-sequence-b-spectrum-of-crown-graphs--30764919deff"
+        ]
+      },
+      "rationale": "Demonstrated prior coverage: the October 12 Resultary record proves the same polynomial, the correction to the same published formula, and exactly the same general-position-set characterization. Its characterization mechanically gives the entire maximal-set list and hence the cardinality spectrum and unbounded gap; this is not a case of missing evidence or priority inferred from a same-day date.",
+      "residual_risks": [
+        "The focused literature search is not exhaustive; further prior proofs cannot undo the already verified direct coverage.",
+        "The stated scientific failure is duplicate coverage of the exact result, not a defect in the crown geodesic proof. The unimodality remark is limited as explained under correctness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact and broader coverage of the ordinary crown classification and polynomial",
+          "evidence": [
+            "Same deleted perfect matching and n>=3; same polynomial; every larger set lies in one class, and all mixed pairs are counted; the published expression is the general-2-position enumerator."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-correcting-the-general-position-polynomial-of-crown-graphs--ec78f5ad9140/RESULT.md",
+          "material_read": "RESULT.md Finding, Proof and relationship to the 2024 formula",
+          "method": "Local published-record mirror, statement and proof comparison",
+          "title": "Correcting the general position polynomial of crown graphs",
+          "trigger": "Directly matching enumerative and correction claim"
+        },
+        {
+          "assessment": "The printed crown formula disagrees with ordinary general position",
+          "evidence": [
+            "Its proof treats mixed 3- and 4-vertex configurations as feasible. The extra terms are 4 binom(r,2) z^3 and binom(r,2) z^4 in the crown specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.05696v1",
+          "material_read": "Proposition 4.3, T*(r,a) discussion and Table 2, pp. 11–12 (text offsets around 36175–41121)",
+          "method": "OA PDF relevant passages",
+          "title": "General Position Polynomials",
+          "trigger": "Target printed proposition and exact table"
+        },
+        {
+          "assessment": "General structural criterion and crown maximum via the bipartite diameter-three theorem",
+          "evidence": [
+            "The characterization uses clique components and an in-transitive distance-constant partition. The later theorem is for maximum cardinality, not the whole polynomial."
+          ],
+          "identifier_or_url": "arXiv:1812.08460",
+          "material_read": "Theorems 3.1 and 5.2, pp. 4 and 8",
+          "method": "OA PDF passages",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "Potential broader characterization"
+        },
+        {
+          "assessment": "Gives existence of size-2 maximal sets for connected bipartite graphs, not the exact list",
+          "evidence": [
+            "Bipartiteness suffices for gp^-(G)=2."
+          ],
+          "identifier_or_url": "arXiv:2306.09965",
+          "material_read": "p. 5, text offsets 14264–15744",
+          "method": "OA PDF passage",
+          "title": "Lower general position sets in graphs",
+          "trigger": "Potential coverage of minimum maximal size"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A correct polynomial and full inclusion-maximal census are worthwhile aims, but this submission repeats the already catalogued exact feasible family and its correction of the published count. Reading off the maximal sets and missing sizes from that family adds no mathematically substantive claim requiring independent dissemination.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:57:20.940289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof 1–3",
+        "VERIFICATION.md and checker.py (inspected only)",
+        "Independent SymPy recomputation of denominator clearing, leading/constant coefficients, conjugate-root obstruction and specializations"
+      ],
+      "rationale": "Periodizing g_beta(t)e^(−2πitξ) gives Fourier coefficients ĝ_beta(k+ξ); both the original series and the coefficient series converge absolutely. Splitting the latter into k≥0 and k≤−1 gives F including ξ=0, where the zero-frequency summand is zero. The denominators are nonzero on the circle for 0<q<1. The cubic identities were independently replayed in exact symbolic algebra. For interior frequencies the leading coefficient is nonzero. A nonreal circular root forces the quadratic divisor z²−2cz+1, hence the displayed coefficient obstruction, whose only allowed vanishing is x²=q. N(−1) never vanishes in that interval, and N(1) vanishes precisely when x²=q. There, dividing the quadratic factor by z leaves a constant strictly larger than the maximum magnitude of the z+z⁻¹ term. At ξ=0 the only circular roots of z(z−1)(z+1) are ±1. This exhausts the half-open square at each finite β>0.",
+      "residual_risks": [
+        "The exact algebra check is supplementary and not a machine-checked proof of the theorem. No Gabor-frame classification is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4b04938a33b6, Proof 2: at a nonreal circular zero the eliminated relation is (q−1)(qr²−1)(q²r⁴+q²r²+2qr²+r²+1)=0; the only interior frequency permitted is 1/2. At 1/2 the strict bracket bound uses (1−√q)(1−q^(3/2))>0. The boundary uses D₂−qD₁=(1−q)(1−q³)>0.",
+          "Ghosh's cubic reciprocity and rank criterion, and the local Hessian record, do not alone exhaust the scalar zeros."
+        ],
+        "reasoning": "The indexed zero-set proof is stronger in applicability than its fixed-scale statement: no step exploits the particular size of e^(−2π). Both real endpoint checks also hold on the entire q,r domain. The later local Hessian or coupled-matrix conditions are not the decisive coverage.",
+        "searches": [
+          "4b04938a33b6, complete zero-set proof",
+          "d1d5c707922d, all-scale local Hessian record",
+          "arXiv:2608.10568, Sections 2–3"
+        ]
+      },
+      "checked_sources": [
+        "4b04938a33b6",
+        "arXiv:2608.10568",
+        "d1d5c707922d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior z=1 formula is a product with factors r−1, qr−1, and qr²−1. The z=−1 interior comparison uses a=qr and b=r⁻¹ in (0,1), with positive cross-product difference (a−1)(b−1)(a²b+ab²+2ab+a+b). Together with the nonreal and boundary arguments this covers every phase."
+        ],
+        "reasoning": "Substitute q=e^(−2πβ) in the already proven identities and inequalities for B. There is no new parameter regime in q to prove, no need for the new cubic coefficient obstruction, and no logical step from frame existence to scalar zeros is assumed. Ghosh's cubic representation corresponds to N up to a nonzero scalar but its reciprocity alone is not this argument.",
+        "searches": [
+          "4b04938a33b6, Proof 1–2",
+          "arXiv:2608.10568, §2 Proposition 2.1 and §3 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4b04938a33b6, Proof 1–2, mirror offsets 1400–5334: geometric-series expression B(z,r), q=e^(−2π), r=q^(−ξ)",
+          "arXiv:2608.10568, Eqs. (1.2), (1.4)–(1.5), §2 and Proposition 2.1, §3: same window, cubic and its scaled representation"
+        ],
+        "reasoning": "On |z|=1 take r=1/x and qr=y. Then F(z)=−conj(B(z,r)), with the same zero set. Scaling the Fourier transform gives a nonzero β factor and changes q to e^(−2πβ), so the phases and domain 1<r<q⁻¹ are unchanged in these variables.",
+        "searches": [
+          "Resultary lookup for the exact symmetric-pole window and scalar Zak zeros",
+          "Focused literature lookup for all-dilation Zak zeros of the same window"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4b04938a33b6, Finding and Proof 2: identical exact three-point entry for β=1, modulo integer shifts in both variables."
+        ],
+        "reasoning": "A fixed-scale numerical or exact entry would not settle a universal positive real parameter. Here a proof, not a lookup value, transports that exact census to every β.",
+        "searches": [
+          "Resultary exact-window search, 4b04938a33b6 and d1d5c707922d"
+        ]
+      },
+      "rationale": "The earlier indexed two-coset result states the unscaled zero set, but decisive coverage of the entire dilation parameter comes from its proof, not just the matching β=1 values. Its derivation applies unchanged to q=e^(−2πβ), r=q^(−ξ): the only Fourier change is multiplication by β and rescaling the exponential rate. Every exclusion in its existing proof is already an identity or strict inequality on 0<q<1. Thus the all-scale zero set is mechanically implied even though it is not separately stated there. The frozen cubic proof is a different route to that census.",
+      "residual_risks": [
+        "Not an exhaustive historical survey; the fail decision rests on positive mathematical implication, not an empty web search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies all positive dilations",
+          "evidence": "Its rationalization, half-frequency bound, real-root checks and strict boundary inequality require only 0<q<1 and the corresponding phase interval.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-two-coset-gabor-frame-classification-and-sharp-half-shift-instab--4b04938a33b6/RESULT.md",
+          "material_read": "Finding and Proof 1–2, mirror offsets 1400–5334 for the formula and all exclusion steps",
+          "method": "Resultary lookup; local mirror; termwise conjugation and hypothesis comparison",
+          "title": "Two-coset Gabor frame classification and sharp half-shift instability",
+          "trigger": "Exact unscaled zero set with potential parameter-independent proof"
+        },
+        {
+          "assessment": "Provides the polynomial representation; inspected frame and reciprocity statements alone do not establish exhaustive scalar roots",
+          "evidence": "With D=(1−qz)(1−q²z)(z−q)(z−q²), the normalizations give N=6q³x²P_beta.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.10568",
+          "material_read": "Eqs. (1.2), (1.4)–(1.5), pp. 2–3; §2 Eqs. (2.6)–(2.9), Remark 2.1, Prop. 2.1, pp. 5–6; §3 scaled representation and Theorem 3.1, p. 7",
+          "method": "OA full-text excerpts with equation-level comparison",
+          "title": "Gabor Frames for Rational Windows with Symmetric Poles",
+          "trigger": "Exact window and scaled cubic"
+        },
+        {
+          "assessment": "Different local invariant",
+          "evidence": "It does not assert absence of other scalar zeros.",
+          "identifier_or_url": "Resultary d1d5c707922d",
+          "material_read": "Finding and limitation on the scope of zero classification",
+          "method": "Resultary lookup and local mirror",
+          "title": "All-scale local Hessian of the two-channel Zak energy",
+          "trigger": "Same rational window and dilation range"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Limitations",
+        "4b04938a33b6, Proof 1–2"
+      ],
+      "rationale": "The scalar zero census is a motivated object and the cubic proof is sound. However the only claimed added invariant, all-scale exhaustiveness, already follows by a parameter substitution in the indexed exact proof. No extension to more pole pairs or other coefficient ratios, or independent consequence of the new proof technique, is established. In this narrow setting the alternate algebra does not supply a distinct exact fact of scientific value.",
+      "residual_risks": [
+        "No judgment about the value of a generalized coefficient obstruction outside the claimed window family."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

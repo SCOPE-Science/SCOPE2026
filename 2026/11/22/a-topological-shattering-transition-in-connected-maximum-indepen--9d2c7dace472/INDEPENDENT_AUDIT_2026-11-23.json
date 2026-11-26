@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:38:23.565156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–6",
+        "Frozen VERIFICATION.md, check.py and check_output.txt (static inspection)",
+        "Mohr–Rautenbach, arXiv:1806.10424, pp. 2–3"
+      ],
+      "rationale": "The extremizer identification is a premise from Mohr–Rautenbach's Theorem 2 in the stated range. In the graph itself a transversal avoiding x exists, so every maximum independent set selects exactly one vertex per clique. The only cross-clique constraint is that x excludes each yᵢ. Thus two queries in one clique fail the two-positive trace; if x is queried positive, a connector cannot be positive and the sole nonconnector of a two-vertex block cannot be negative. Conversely those are all obstructions: for x absent or negative, the central block has at least two non-x choices, and all other blocks have at least two choices each; when x is positive, queried blocks have at least two safe vertices. This realizes every trace and gives the two disjoint polynomial products. A full transversal avoiding x gives a depth-a nonadaptive query tree, while any all-positive path must query distinct vertices contained in one maximizing concept and so has length at most a. For topology the subcomplex without x is A=D_(r₀−1)*D_(r₁)*⋯, and the x-star attaches a cone along K, the join of the nonconnector sets in eligible other blocks. A non-x central vertex cones off K inside A, so the attaching inclusion is null; the homotopy cofiber is A∨ΣK when K is nonempty. Joins of nonempty discrete sets with at least two points give sphere wedges with multiplicity the product of their cardinalities minus one in each factor. For t=n−2a in 1,…,a−1 this gives 2^(t−1) spheres in dimension a−1 and one sphere in dimension t−1; t=1 instead has K with no vertices and x isolated, exactly the pointed S⁰ case. When all blocks are eligible the two ranks add in dimension a−1, as stated. Maximal faces containing x take one safe query in every eligible block, whereas maximal faces not containing x take one query per block and already have a central vertex. This gives the exact facet-size and purity assertions, independently of the finite mod-2 checks.",
+      "residual_risks": [
+        "The result is for maximum-cardinality independent sets and a≥3,n>2a. It does not extend the extrema classification to a different graph regime or establish equivariant topology."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 characterizes maximizers of the number of maximum independent sets in connected graphs, a broader enumeration theorem, not a classification of their traces.",
+          "The whiskered theorem uses the maximal-independent-set family of W_t(G) with private leaves and gives a uniform blow-up of an independence complex. For t=1 this operates on equal pairs, not on the constrained transversal families of larger cliques here.",
+          "The public search surfaced a paper about hitting every maximum independent set; only its search description was available."
+        ],
+        "reasoning": "A graph-optimizer theorem identifies the concept family but does not assert which supports realize all patterns, and a transversal hitting every optimizer does not classify traces. No verified broad shattering result yielded the stated facet and sphere formulas.",
+        "searches": [
+          "Mohr–Rautenbach arXiv:1806.10424, definitions and Theorem 2",
+          "Resultary 0e9b40ed52ce, full whiskered shattering theorem",
+          "Literature query on maximum independent sets, shattering and clique blocks"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9d2c7dace472, 0e9b40ed52ce and 569915df7b90",
+        "Mohr–Rautenbach arXiv:1806.10424",
+        "Public-literature query and arXiv:2608.18963 search description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source extremal problem counts complete transversals with connector exclusions, while the new query obligation asks for independent completion under every assignment, including negative labels.",
+          "In larger blocks the number of safe alternatives changes whether a query is permitted with x. Neither the enumerative bound nor the whiskered specialization classifies these supports."
+        ],
+        "reasoning": "Once the trace condition is proved, the polynomial and join/cofiber calculations use standard tools. The distinguishing implication is the exact support identification across the eligible-block threshold, with the exceptional isolated-point case and change in facet dimensions. It does not follow by parameter substitution into either verified shattering theorem.",
+        "searches": [
+          "arXiv:1806.10424 Theorem 2 and graph construction; Resultary 0e9b40ed52ce and 569915df7b90"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit 9d2c7dace472 is the record under review.",
+          "The fully whiskered result gives W₁(K₁,ₐ₋₁)=F(2a,a), with polynomial (1+2z)^(a−1)+2z and the same maximal and maximum concept families at that boundary.",
+          "The other distinct same-day classification is for size-k independent sets of paths, not these clique-block graphs."
+        ],
+        "reasoning": "The boundary equivalence is mathematical, not superficial, and is excluded. Within n>2a at least one clique has three or more vertices, and the source's private-leaf modules cannot give the safe-alternative condition on that block. For the path result the same maximum-set specialization has VC dimension at most one, unlike the present domain.",
+        "searches": [
+          "Resultary: shattering maximum-independent-set membership in balanced-clique connected extremizers, VC/Littlestone and sphere wedge",
+          "Web literature query: shattering maximum independent sets graph vertex membership clique blocks extremal connected graphs",
+          "0e9b40ed52ce and 569915df7b90 mirror Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Self-hit 9d2c7dace472; earlier 0e9b40ed52ce covers the boundary graph; distinct same-day 569915df7b90 gives an exact profile for paths.",
+          "The supplied check_output.txt is for selected small block sizes, including the prior boundary, rather than a separate antecedent."
+        ],
+        "reasoning": "Neither exact neighboring catalogue statement is in the claimed clique-size domain with these graph structures. Agreement on some sample profiles could not settle the family-wide topology or the first purity point.",
+        "searches": [
+          "Configured Resultary retrieval for exact family and same-day shattering results; opened nearest boundary and path mirror Findings"
+        ]
+      },
+      "rationale": "The extremal graph and its optimizing sets are prior ingredients. The independently checked exact overlap with fully whiskered shattering is the explicitly excluded n=2a case. The eligible-safe-vertex condition and resulting topological and purity transition for the larger blocks were not covered by the strongest verified comparisons.",
+      "residual_risks": [
+        "The most relevant exact boundary and same-day hits were read; coverage by an unlocated broad trace theorem remains possible.",
+        "The hitting-set search hit could not be read in full. No priority conclusion is based on a search miss or that access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies extremizer premise, including the specific domain audited",
+          "evidence": [
+            "The connected extremizers are characterized as the F(n,α) family; the balanced-clique construction with distinguished connectors gives the graph used at a≥3,n>2a."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1806.10424",
+          "material_read": "§1 p. 2, offsets 4200 and 4451; Theorem 2 p. 3, offsets 7000–7713",
+          "method": "Bounded OA primary PDF",
+          "title": "On the maximum number of maximum independent sets in connected graphs",
+          "trigger": "Extremizer theorem and potentially dominating classification for the same graphs"
+        },
+        {
+          "assessment": "Genuine coverage of excluded boundary; assumptions do not cover n>2a",
+          "evidence": [
+            "Maximal-independent-set shattering of W_t(G) gives I_G((t+1)z) and VC=L=α(G). At t=1 the graph is well-covered, and the star base gives F(2a,a)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-flag-complex-realization-theorem-for-maximal-independent-set-s--0e9b40ed52ce",
+          "material_read": "Local-mirror RESULT.md Finding, offsets 0–3842, in particular the t=1 passage at 1607",
+          "method": "Configured Resultary retrieval and bounded mirror read",
+          "title": "A flag-complex realization theorem for maximal-independent-set shattering on whiskered graphs",
+          "trigger": "Strongest exact setup at n=2a and possible generalization"
+        },
+        {
+          "assessment": "Different domain and bounds; no coverage of F(n,a)",
+          "evidence": [
+            "Works on paths P_n with size-k independent sets; requires independence of support and size at most min(k,n−2k+1)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-complete-shattering-profiles-and-sphere-wedge-topology-for-unifo--569915df7b90",
+          "material_read": "Local-mirror RESULT.md Finding, offsets 0–3512",
+          "method": "Configured Resultary retrieval and bounded mirror read",
+          "title": "Complete shattering profiles and sphere-wedge topology for uniform independent sets of paths",
+          "trigger": "Distinct same-day nearby exact graph shattering and topology result"
+        },
+        {
+          "assessment": "Accessible description concerns a different question; full-text coverage not assessed",
+          "evidence": [
+            "Snippet describes h(G), the minimum number of vertices that hit every maximum independent set, and a conjecture on that quantity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.18963",
+          "material_read": "Search snippet only; OA PDF attempt returned HTTP 404",
+          "method": "Public literature search and bounded OA retrieval",
+          "title": "Hitting Maximum Independent Sets in Dense and … (retrieved title fragment)",
+          "trigger": "Search hit on the maximum-independent-set family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, trace criterion and homotopy classification",
+        "Mohr–Rautenbach optimizer theorem",
+        "Resultary 0e9b40ed52ce as excluded-boundary comparison"
+      ],
+      "rationale": "For a canonical connected extremal concept family, all shattered supports are classified, not just the dimensions. The answer identifies the exact threshold for purity, with a tunable lower homology degree below it and a simultaneous constant VC/Littlestone dimension despite a topological change. Those features explain a structural effect of two-vertex blocks that the optimizer count alone does not describe. The known boundary is not needed for this value.",
+      "residual_risks": [
+        "No additional claim about learning algorithms, general graphs, or representation of homology under symmetries is supported."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

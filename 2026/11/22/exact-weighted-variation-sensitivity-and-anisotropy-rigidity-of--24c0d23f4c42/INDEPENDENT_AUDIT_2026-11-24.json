@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:45:08.929425Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–54",
+        "VERIFICATION.md and verify.py inspected; frozen checker not executed"
+      ],
+      "rationale": "For a fixed contact chain, chord interpolation Q replaces the increments on [a,b] by the total increment on the block distributed proportionately to the knot gaps. Its weighted nodal variation on that block is the length-weighted average edge weight times |h_b-h_a|, bounded by the displayed block ratio times the input block variation. The region where the chain gives the hull can be described by closed linear inequalities: increasing chord slopes in the non-strict sense and data on or above the chords. Such a chordal interpolation is the GCM since it is feasible and any convex minorant lies below the chords between its endpoint contact bounds. These finitely many regions cover all inputs and intersect a segment in closed intervals. Subdividing at their endpoints lets the bound be summed over the segment, including a segment inside tie loci. Each prescribed face is strictly realizable by keeping x_i^2 at its endpoints and outside it, lifting interior data above its chord. Outside consecutive chord slopes are strictly increasing and those immediately adjacent to the chosen face bound its slope strictly wherever present. A tiny upward unit step immediately after a cheapest edge preserves the chain, contributes only that edge to input variation, and changes the GCM values by a chord ramp on the desired face and constants elsewhere. This attains the corresponding exact quotient even for arbitrarily close pairs. Equal weights give one on all intervals; unequal weights give a quotient strictly above one on the full interval. In the four-knot example the first two edges give (1+14)/3=5; the last two also give 5, the full interval gives 4, and single edges give 1. The two-knot and constant-difference cases are consistent with the stated seminorm and translation property.",
+      "residual_risks": [
+        "Attainment of each interval term means attainment of that ratio; only maximizing intervals need attain the global constant.",
+        "The scope is nodal variation on strict finite knots with positive weights. Derivative variation and higher-dimensional convexification are different problems."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Barber characterize contractivity in a norm of the ordinary Euclidean isotonic projector by neighboring averaging. Their proof uses compositions of elementary adjacent averaging operations, each nonexpansive under the NUNA hypothesis; it does not give the nonunit optimal global ratio.",
+          "Gorokhovik addresses abstract finite piecewise-affine descriptions, and Anevski–Hössjer address asymptotic GCM and derivative laws."
+        ],
+        "reasoning": "For equal knot gaps the Yang–Barber criterion applies directly to the equivalent coordinate norm on slopes and recovers all-equal weights for contraction. When the weights are equal, contraction for rational gap ratios can also be reduced to ordinary l1 isotonic contraction by repeating each slope in proportion to its fitting mass, followed by continuity for real gap ratios. These antecedents do not give the sharp anisotropic gain above one. Generic piecewise affinity alone does not compute a hull-specific induced norm or ensure strict realizability of all intervals.",
+        "searches": [
+          "arXiv:1706.01852v3, Theorem 1 and §6 proof",
+          "arXiv:1111.1389v1, abstract",
+          "arXiv:math/0611270v1, p. 1"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 18–54 and 60–73",
+        "Primary and indexed passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact projection conjugacy transfers the classical pooling construction and, when applicable, l1 contraction. The record's half-open slope blocks instead give a weighted matrix column norm, governed by the smallest target-to-fitting weight ratio in the pooled interval.",
+          "The catalogue TV bounds use weighted neighboring jumps and a concave envelope at cumulative masses rather than this block column norm."
+        ],
+        "reasoning": "An if-and-only-if contraction test does not determine gains greater than one, and edge-TV estimates on a different seminorm do not recover this quotient by the slope transformation. The sharp explicit formula and all interval witnesses are supported as the distinct increment beyond these mathematical antecedents, although the proof uses standard pooling and local linearity.",
+        "searches": [
+          "DOI:10.6028/jres.111.011, §1.1 and §2",
+          "arXiv:1706.01852v3, Theorem 1 and proof",
+          "Resultary c4a7412f8310, 77de1978bb36, fcea9cd47ab7, 05fdf4fa409d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Let ell_i=x_(i+1)-x_i and d_i(y)=(y_(i+1)-y_i)/ell_i. The weighted cumulative-sum diagram of the slopes with fitting masses ell_i is precisely the original polygon up to translations, so its GCM slopes are P_ell d(y) for weighted isotonic projection P_ell.",
+          "The nodal-variation norm becomes the coordinate l1 norm with weights v_i=w_i ell_i. The induced norm of a pooled block I in these coordinates is (sum_I v_i)/(sum_I ell_i) times max_I(ell_i/v_i)."
+        ],
+        "reasoning": "This is an exact equivalent slope-space formulation rather than evidence of non-equivalence to all least-squares isotonic regression. The cumulative-sum theorem identifies the map but does not state a sharp global Lipschitz modulus in the independent target norm. The present bound computes the block norm, proves the global bound including ties, and realizes every local maximum term.",
+        "searches": [
+          "DOI:10.6028/jres.111.011, §1.1 and §2",
+          "arXiv:1706.01852v3, Theorem 1",
+          "Resultary: finite convex minorant sharp weighted nodal total variation and isotonic block norms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary hit 24c0d23f4c42 is the frozen finding itself.",
+          "The inspected distinct records c4a7412f8310, 77de1978bb36 and fcea9cd47ab7 give least-concave-majorant weighted edge-TV laws for isotonic fits, including fitting masses; 05fdf4fa409d gives gradient-lp sensitivity for an isotonic fit."
+        ],
+        "reasoning": "The nearby laws act on the discrete differences of input and projected slope vectors, whereas the conjugate norm in this finding is on the slope coordinates themselves. The edge-TV seminorm vanishes on nonzero slope-constant vectors, while the target coordinate norm does not, so the exact formulas do not transfer by relabeling weights. Their dates were not used to decide overlap.",
+        "searches": [
+          "2026/11/22/SCOPE-exact-weighted-variation-sensitivity-and-anisotropy-rigidity-of--24c0d23f4c42",
+          "c4a7412f8310",
+          "77de1978bb36",
+          "fcea9cd47ab7",
+          "05fdf4fa409d"
+        ]
+      },
+      "rationale": "The arbitrary-knot sharp nonunit coefficient and every-interval sharpness in the nodal variation seminorm pass on the inspected evidence. The standard cumulative-sum representation is more closely related than the frozen literature discussion suggests: it gives an exact weighted slope-projector conjugacy, not a least-squares projection of the original nodal vector. Uniform-mesh contraction rigidity is already a consequence of Yang–Barber after that conjugacy. What distinguishes the full finding is the exact operator norm over all pooled blocks with independent fitting masses and target coordinate weights, not the mere use of isotonic regression or the unweighted contraction.",
+      "residual_risks": [
+        "The equivalent weighted isotonic coordinate-l1 problem could occur in unindexed projection-norm literature; unsuccessful search does not exclude it.",
+        "Do not claim that nodal variation is unrelated to weighted least-squares isotonic regression after the slope change of variables, or that the full novelty rests on the equal-weight contraction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the equivalent weighted projection map, not the exact induced weighted coordinate norm.",
+          "evidence": [
+            "The isotonic fit is the GCM's left derivative on the cumulative-sum diagram; masses and weighted sums give the cumulative coordinates."
+          ],
+          "identifier_or_url": "https://doi.org/10.6028/jres.111.011",
+          "material_read": "NIST PDF §§1.1–2, printed pp. 121–122, offsets about 6000 and 10400",
+          "method": "Lawful NIST original PDF passage inspection",
+          "title": "Projections Onto Order Simplexes and Isotonic Regression",
+          "trigger": "Exact cumulative-sum slope equivalence"
+        },
+        {
+          "assessment": "Recovers uniform-mesh contraction rigidity in the slope formulation, not the general sharp coefficient.",
+          "evidence": [
+            "Euclidean isotonic projection is contractive exactly for norms nonincreasing under neighboring averaging. The sufficiency proof composes adjacent violation corrections; it does not state an exact supremum for norms failing NUNA."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1706.01852v3",
+          "material_read": "PDF pp. 1, 3–4, Theorem 1 and Lemma 1, offsets around 11900–14500; §6 Lemma 5 and Theorem 1 proof, pp. 13–14, offsets 166200–170033",
+          "method": "Lawful original PDF passage inspection",
+          "title": "Contraction and uniform convergence of isotonic regression",
+          "trigger": "Strong comparison for exact contraction and possible sharp Lipschitz implication"
+        },
+        {
+          "assessment": "Stochastic asymptotics, not the deterministic exact modulus.",
+          "evidence": [
+            "The abstract treats asymptotic laws of greatest convex minorants and their derivatives for stochastic processes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0611270v1",
+          "material_read": "PDF p. 1, offset about 500",
+          "method": "Lawful original PDF passage inspection",
+          "title": "A general asymptotic scheme for inference under order restrictions",
+          "trigger": "Prior use of GCMs in isotonic regression"
+        },
+        {
+          "assessment": "Abstract structure, not a hull-specific sharp norm.",
+          "evidence": [
+            "The abstract concerns characterizations of finite-dimensional piecewise-affine maps using polyhedral pieces and lattice representations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1111.1389v1",
+          "material_read": "PDF p. 1 abstract, offset 0",
+          "method": "Lawful original PDF passage inspection",
+          "title": "Geometrical and analytical characteristic properties of piecewise affine mappings",
+          "trigger": "General piecewise-affine framework"
+        },
+        {
+          "assessment": "Same pooled operator class but different seminorm and sharp invariant.",
+          "evidence": [
+            "The exact weighted TV moduli concern jumps of the fitted vector; their least-concave-majorant law involves cumulative fitting masses."
+          ],
+          "identifier_or_url": "c4a7412f8310; 77de1978bb36; fcea9cd47ab7",
+          "material_read": "Local-mirror RESULT.md findings of all three records",
+          "method": "Configured Resultary lookup followed by local mirror statement inspection",
+          "title": "Sharp mass-aware concavity law for variation stability of weighted isotonic regression and two related finite-chain isotonic records",
+          "trigger": "Closest exact indexed isotonic sensitivity theorems, including distinct same-day hits"
+        },
+        {
+          "assessment": "Different normalization and perturbation norm.",
+          "evidence": [
+            "The theorem measures the Euclidean isotonic projector in gradient-lp, including a gradient-l1 constant of one."
+          ],
+          "identifier_or_url": "05fdf4fa409d",
+          "material_read": "Local-mirror RESULT.md finding",
+          "method": "Configured Resultary lookup followed by local mirror statement inspection",
+          "title": "Sharp Sobolev exponent growth of isotonic regression sensitivity",
+          "trigger": "Same-day sharp isotonic sensitivity catalog neighbor"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 9–14 and 22–54",
+        "Kearsley weighted slope representation and Yang–Barber contraction criterion"
+      ],
+      "rationale": "Nodal variation is a natural error measure for lower hull convexification on irregular meshes. The exact amplification for independently chosen edge weights identifies the responsible interval and cheapest perturbation edge, with witnesses at arbitrarily small scale. This is sharper than just knowing strict anisotropy breaks contraction or bounding by the global weight ratio, and it quantifies an operator and a perturbation regime a later stability analysis could use. The main value is this sharp arbitrary-mesh, arbitrary-weight coefficient and where it is attained, not transferring a binary isotonic-contraction criterion.",
+      "residual_risks": [
+        "No continuous-domain, derivative-variation, or higher-dimensional stability claim is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

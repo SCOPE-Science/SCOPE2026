@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:48:11.057544Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–54, VERIFICATION.md and VERIFY.py (inspected, not run)",
+        "/workspace/branches/cycles_replay.py and cycles_replay.txt"
+      ],
+      "rationale": "The full overlap graph is balanced and reaches the all-zero root by repeated zero appends. Its outgoing choices are forced at weight two. Suppressing those choices sends a one-one position j to j+1 (or the root) by appending zero, and to s−1−j by appending one, for s=k−1. A reflected choice at j≥floor(s/2) traps [s−1−j,j], including the possible central self-loop. Otherwise all selected paths strictly advance and reach the root. The root's unique outgoing edge fixes rotation, and the BEST factorial product is 1 because every degree is at most two. The last-exit construction is a bijection here: at a nonroot degree-two vertex the chosen last edge fixes the full order. The factor set has k+C(k,2) distinct labels, giving the stated length. A fresh unused-window search at k=3–10 matches the quoted counts, confirms every low-position last-exit vector occurs once and verifies the k=5 example up to rotation. Exhaustion in these cases corroborates the unbounded argument rather than replacing it.",
+      "residual_risks": [
+        "The classification pertains to rotation classes, not reversal or complement; the low positions are counted from the right."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The weight-range theorems give Eulericity/existence in this range; the random algorithm uses arborescences for sampling, not this explicit count. Fredricksen's conjectural or methodological breadth is not needed: §II supplies the explicit t=2 calculation."
+        ],
+        "reasoning": "Existence, construction, or generic sampling alone would not imply the exact number; the decisive overlap is the specific binary t=2 enumeration and paired choices.",
+        "searches": [
+          "Sawada–Williams–Wong DOI:10.1007/978-3-642-45278-9_33, Theorem 1",
+          "Mitchell–Wild arXiv:2607.22350v1 Abstract and Theorem 3.4(ii)",
+          "Sawada–Gabrić arXiv:2510.16545v3 §4.4 and Algorithm R"
+        ]
+      },
+      "checked_sources": [
+        "Fredricksen §II and its stated restriction",
+        "Primary passages and local Resultary findings detailed above",
+        "Frozen records 4 and 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fredricksen says there is a twofold attachment choice for each weight-two rotation coset, except the even-length antipodal coset with one attachment, giving 2^floor((k−1)/2). For the bridge, on the ≤2 overlap graph use rotation as the default successor. Any Euler tour is a successor permutation obtained by switches of the two outgoing images at the zero vertex or a weight-one vertex. The zero loop has to attach. Each weight-two necklace must attach to the weight-one necklace at least once. The two possible attachment slots at one-one indices j and k−2−j are paired by complementary separation, with a single slot at the antipodal center. Do one switch for every necklace first, obtaining a single cycle with each weight-two necklace inserted at the chosen slot of the main weight-one cycle. If a necklace were switched twice, its remaining switch joins two endpoints in this cyclic order located at its two paired slots, one endpoint in the inserted segment. All such endpoint pairs are nested or disjoint in the main cycle's order. Switches at distinct vertices commute, and noncrossing pairs split current cycles without rejoining: after a split all remaining endpoint pairs lie within one component or the other. Thus a single cycle admits no doubled switch, so every tour is in exactly the counted subclass. In the canonical traversal starting from the zero root, a low-index vertex appends 1 on its last exit exactly when its necklace attaches at the paired high index (if attached at low index it appends 1 on the first pass and 0 on returning)."
+        ],
+        "reasoning": "This establishes actual equivalence to the earlier explicit paired-register construction, accounting for the older article's limited claim rather than assuming it counts all feedback types. An alternative arborescence proof of these same choices is sound but not a new claimed invariant.",
+        "searches": [
+          "Fredricksen journal p. 1989 §II, repository PDF offsets 11450–17441, especially the exclusion of split/rejoin and the odd/even t=2 count",
+          "Compare the paired switches with last exits in frozen RESULT.md lines 23–46"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary exact shells 1,2 and at-most-two cycles are bijective: insert or remove the single 0^k loop at the unique visit to the all-zero (k−1)-vertex in the exact-shell tour. Weight-two shorthand consists of factors of span one less, with weights 1 or 2."
+        ],
+        "reasoning": "The extra loop changes displayed length but not the rotation-class count or binary switch choices. The shorthand count agrees under n=k+1 in the length-n weight-two convention.",
+        "searches": [
+          "Fredricksen 1993, The Number of Nonlinear Shift Registers That Produce All Vectors of Weight ≤ t; OA search recovered an IEEE journal page in a TU Delft repository PDF",
+          "Local shorthand-subset cycle records; Sawada–Gabrić arXiv:2510.16545v3 §4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/2/SCOPE-exactly-2-lfloor-n-1-2-rfloor-weight-one-two-universal-cycles--e2d581ba51c3 gives the identical k≥3 theorem and tree-choice form, also including k=2. 2026/10/26/SCOPE-exact-count-of-binary-weight-two-shorthand-universal-cycles--57fa38b6b48d states the same count at factor length n−1. 2026/11/2/SCOPE-a-boolean-cube-enumeration-of-binary-weight-at-most-two-universa--a6349247ec63 includes the zero word and gives the same count and a choice parametrization. Frozen record 4 identifies the binary formula as known."
+        ],
+        "reasoning": "The indexed overlaps are material, but their dates do not establish earlier priority over the frozen record; the deciding older evidence is the inspected journal passage and the bridge from its subclass. The other frozen assignment's date is not used as an ordering argument.",
+        "searches": [
+          "Local Resultary: exact binary weight-one/two count, weight-two shorthand, weight-at-most-two Boolean cube",
+          "Fredricksen 1993 IEEE TIT 39(6), §II, p. 1989"
+        ]
+      },
+      "rationale": "Fredricksen (1993) explicitly gives the same numerical formula and the same independent paired-position join choices for binary weight at most two in its minimum-density subclass. The scope qualifier matters: the paper excludes split-and-rejoin constructions in general. For this t=2 specialization all candidate choices reduce to switches at pairs with nested positions, so the apparently wider possible class contributes no extra cycles, as witnessed below. The frozen last-exit representation recodes the same paired choices; its alternative proof does not establish a distinct claimed count or structural degree of freedom.",
+      "residual_risks": [
+        "The 2012 full text was not available in the bounded check. The comparison does not assert that any older source literally used the same directed last-exit notation or any coverage outside t=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit t=2 count and join choices under minimum-density restriction; applies to all target cycles by the nested-switch argument for t=2",
+          "evidence": "It excludes cycles generated by splitting and rejoining in the general setup, and gives two attachments per weight-two coset and a unique one for the even antipodal coset.",
+          "identifier_or_url": "https://repository.tudelft.nl/file/File_f913e2cb-254d-40a6-b90e-1486aa2646b5?preview=1",
+          "material_read": "Fredricksen, IEEE Trans. Inf. Theory 39(6) (1993), p. 1989, Abstract and §§I–II, extracted offsets 11450–17441",
+          "method": "Original journal page in lawful institutional repository PDF, located by author then read by offset",
+          "title": "The Number of Nonlinear Shift Registers That Produce All Vectors of Weight ≤ t",
+          "trigger": "Direct earlier binary t=2 enumeration flagged by the nonbinary frozen comparison"
+        },
+        {
+          "assessment": "Existence/construction, not the decisive count",
+          "evidence": "G(B_c^d(n)) Eulerian for 0≤c<d≤n.",
+          "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+          "material_read": "Abstract p. 1 and Theorem 1 p. 3",
+          "method": "OA author PDF by offset",
+          "title": "Universal cycles for weight-range binary strings",
+          "trigger": "Same cycle language for bounds c=1,d=2"
+        },
+        {
+          "assessment": "Same language with general sampling, not specialized closed count in inspected passages",
+          "evidence": "Adjacent-weight range corresponds to shorthand subsets; generic arborescence sampling.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+          "material_read": "v3 §4.4 p. 12 and Algorithm R p. 4",
+          "method": "OA primary PDF by section offsets",
+          "title": "Las Vegas Algorithms to Generate Universal Cycles and de Bruijn Sequences Uniformly at Random",
+          "trigger": "Related arborescence-based representation for the same language"
+        },
+        {
+          "assessment": "No conclusion about all statements of the inaccessible paper",
+          "evidence": "Cited 2012 source treats fixed-weight binary shorthand; access limits are not the reason for the originality verdict.",
+          "identifier_or_url": "https://doi.org/10.1137/100808782",
+          "material_read": "Bibliographic match and its cited relationship in the 2013 weight-range paper; primary full text not retrieved",
+          "method": "DOI and lawful repository attempts",
+          "title": "De Bruijn Sequences for Fixed-Weight Binary Strings",
+          "trigger": "Original fixed-weight shorthand cycle construction"
+        },
+        {
+          "assessment": "Exact catalogue overlap for k≥3, no earlier priority inference",
+          "evidence": "Same formula, rotation convention and independent low-index tree choices.",
+          "identifier_or_url": "2026/11/2/SCOPE-exactly-2-lfloor-n-1-2-rfloor-weight-one-two-universal-cycles--e2d581ba51c3",
+          "material_read": "RESULT.md Finding and offsets 4400–4902",
+          "method": "Local Resultary mirror",
+          "title": "Exactly 2^floor((n−1)/2) weight-one/two universal cycles",
+          "trigger": "Same exact theorem and tree structure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof",
+        "Fredricksen §II, p. 1989",
+        "Equivalence of the two choice representations checked above"
+      ],
+      "rationale": "The language and count are natural. However, the earlier explicit enumeration and the established choice correspondence leave the frozen result as an alternative proof of the same binary count and a recoding of its known independent choices. The record does not establish a separately valuable new invariant, structural conclusion or extension after removal of that covered content.",
+      "residual_risks": [
+        "No judgment is made against a new claim for larger weight shells or genuinely different equivalence classes."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

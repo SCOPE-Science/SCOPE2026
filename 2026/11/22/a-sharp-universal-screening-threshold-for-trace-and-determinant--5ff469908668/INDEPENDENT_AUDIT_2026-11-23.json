@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:49:18.095496Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–101",
+        "VERIFICATION.md and verify_path_design.py",
+        "Independent exact cofactor calculation on the 15 four-vertex complementary submatrices"
+      ],
+      "rationale": "For U the unselected sites, block inversion gives Nyström residual 0 on the selected rows and columns and (A_UU)^−1 on U; Jacobi gives det K_SS=det A_UU/det A. Removing landmarks splits the precision into interior continuants F_j (all diagonals μ+2) and free-end tail continuants H_j=F_j−F_(j−1) for j≥1 (one diagonal μ+1); empty blocks contribute determinant one and trace zero. The sinh and cosh solutions follow from their initial conditions and recurrences. For t=exp(θ), each tail determinant ratio is <t, while each interior increment ratio is >t. With k≥2 an outward move transfers one tail site to the adjacent interior gap, strictly improving determinant. For trace the interior increments are strictly below c=1/sqrt(μ(μ+4)), tend to c, and are strictly increasing because x coth(θx) has positive second derivative. At μ≥1/2, t≥2 and each tail increment is ≥c: its excess has the sign of t^(2a−1)[(a−1/2)(t²−1)−1]−1, nonnegative for all integer a≥1 with equality only at a=1,t=2. Strict interior inequality ensures an outward move strictly lowers trace even at the threshold. Once tails vanish, strict discrete convexity of trace and strict log-concavity of determinant give exactly the balanced gap profiles and their binomial multiplicity. Below threshold, g(1)=1/(μ+1)<c. The k=2 endpoint pair loses in trace to {2,n} for every sufficiently large n, since the interior marginal tends to c. This is sharpness of uniform agreement, not a claim of disagreement for every individual n and k. For n=6, μ=1/4 I independently compared all 15 pairs by exact cofactors: form B=4A_UU with diagonal 5 at free ends, 9 elsewhere and off-diagonal −4 on unselected neighbouring sites, and compute 4Σ_i det B_(−i,−i)/det B. The unique minimum is {2,5} at 176/65; the next value is 5984/2205, while {1,6} gives 8208/2929. This verifies the strict witness and its asserted uniqueness. Supplied scripts were inspected, not executed.",
+      "residual_risks": [
+        "The singleton budget does not allow transfer from a tail into an adjacent interior gap and is excluded. The empty complement at k=n is consistent with both criteria and the count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Belabbas–Wolfe gives the general PSD Nyström Schur-complement trace/nuclear residual identity.",
+          "Mukherjee's Purdue dissertation abstract states necessary-and-sufficient exact-design conditions for integrated MSE for covariances u(s)v(t) for s<t, with Brownian and OU examples. Neither that gated dissertation nor the Baldi Antognini–Zagoraiou primary paper was available for a full theorem implication check."
+        ],
+        "reasoning": "A general residual characterization is not an optimizer classification. A product-covariance design theorem is a material possible implication because tridiagonal Green kernels factor in the ordered indices, but the available abstract does not specify allowable discrete sites, the necessary boundary dependence, or a determinant comparison.",
+        "searches": [
+          "arXiv:0906.4582v1 §4.1 Proposition 4.2, general Nyström trace residual",
+          "Mukherjee dissertation exact path designs for product covariance processes",
+          "Baldi Antognini–Zagoraiou exact optimal kriging designs and exponential covariance"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0906.4582v1 §4.1; Mukherjee dissertation abstract; Baldi Antognini–Zagoraiou landing material",
+        "Local Resultary: e656321093de, 7a046323f6e9, 73b7675a23c6, 9e500fe4ae37, 5ff469908668"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The half-line formula supplies the tail marginal sign; the cycle gives the interior balancing formulas. The frozen comparison additionally uses strict interior increments below their limiting slope, the strict separation of tail versus interior determinant ratios, and finite feasible outward moves that transfer an unselected site from a terminal tail into an adjacent interior block.",
+          "The half-line tie at 1/2 is not a tie for finite k≥2 in the frozen problem, since the receiving interior gap has strict marginal inequality. The stationary two-site analogue does not assert a fixed-μ transition for free ends."
+        ],
+        "reasoning": "Much of the trace computation is a close synthesis of the two exact antecedents. Neither the existing half-line optimizers nor the cycle optimizers imply that free-end finite paths use their endpoints for both objectives, nor do they give the determinant tail transfer at every μ. The additional comparison yields the complete joint classification and its sharp finite-path quantifier.",
+        "searches": [
+          "Compare e656321093de §§2–3 and 7a046323f6e9 §§2–4 directly with frozen Steps 2–4; compare two-pivot stationary and continuous boundary designs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e656321093de, §§2–3, uses the same free-end screened operator at a half-line boundary: writing p_j=(2j+1)/(1+exp((2j+1)θ)), the frozen tail increment minus c equals c(p_(a−1)−p_a). The half-line capture crossing therefore covers exactly the same tail-marginal sign and its first threshold 1/2.",
+          "The matched interior precision of stationary exponential covariance has endpoint diagonal exp(θ), while the frozen free-end path has 2cosh(θ)−1, even after normalizing off-diagonals to −1."
+        ],
+        "reasoning": "The half-line sign is an exact overlapping component, not a chance match of constants. Finite rank-one capture and multilandmark trace residual are different comparisons. A stationary boundary covariance cannot be substituted for the free-end precision by matching only the interior and correlation length.",
+        "searches": [
+          "Local Resultary: screened path Neumann Nyström trace and determinant, endpoint boundary layer, free-boundary exponential kriging",
+          "Product covariance path prediction, one-dimensional exponential/OU design and entropy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e656321093de explicitly gives first half-line threshold 1/2 and nearby finite singleton shifts; 7a046323f6e9 gives the same interior continuants, strict smoothing and joint trace/determinant gap balancing on cycles for all μ>0.",
+          "9e500fe4ae37 gives the stationary exponential Toeplitz determinant endpoint pair and a different weak-screening/strong-correlation two-pivot trace phenomenon; 73b7675a23c6 gives equal interior gaps and short positive terminal margins in a continuous stationary design.",
+          "5ff469908668 is the identical frozen record, not independent coverage."
+        ],
+        "reasoning": "The numeric threshold and the balanced-gap mechanism are already present under related precise comparisons, but none of these entries is the all-budget finite free-end D/trace classification. The finite-path witness corroborates the universal claim rather than being its novelty basis.",
+        "searches": [
+          "Local Resultary: screened path μ=1/2 threshold, cyclic balanced gaps, stationary Toeplitz two-pivot design, exact free-boundary monitoring"
+        ]
+      },
+      "rationale": "The same 1/2 boundary marginal, the gap-balancing calculus, and stationary models showing determinant–trace disagreement all have explicit indexed overlaps. Credit those, rather than calling the number or the smoothing argument new. The supported distinct contribution is the free-end finite path theorem for both objective optimizer sets over all budgets at least two, with all-screening determinant classification and an exact uniform trace agreement transition. That requires the finite-path tail-to-interior comparisons; the same-day records establish overlap, not order of priority.",
+      "residual_risks": [
+        "Full specialized kriging article and product-covariance dissertation were not inspected. A theorem for discrete product covariance with boundary dependence could imply more of the trace result.",
+        "Same-day records establish real matching components but no ordering. The originality assessment does not extend to the tail-marginal formula, its 1/2 crossing by itself, or the interior smoothing method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general matrix identity, not the path-specific optimization in the passage inspected",
+          "evidence": [
+            "For PSD kernels the trace norm residual is expressed via the remaining Schur complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/0906.4582v1",
+          "material_read": "§4.1 Proposition 4.2 around offset 26415",
+          "method": "Lawful OA primary text passage",
+          "title": "On Landmark Selection and Sampling in High-Dimensional Data Analysis",
+          "trigger": "General Nyström trace-norm characterization"
+        },
+        {
+          "assessment": "Substantial plausible trace coverage; exact implication unresolved",
+          "evidence": [
+            "Abstract reports product-type covariance and integrated MSE conditions, with Brownian, bridge and OU computations."
+          ],
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Dissertation abstract around offset 577; full text gated",
+          "method": "Lawful repository abstract and retrieval check",
+          "title": "Optimal Designs for Estimating the Path of a Stochastic Process",
+          "trigger": "General necessary-and-sufficient path design conditions for product covariance"
+        },
+        {
+          "assessment": "Exact theorem comparison limited; stationary boundary precision differs",
+          "evidence": [
+            "With stationary exponential correlation ρ, rescaling the precision to unit off-diagonal magnitude gives endpoint 1/ρ rather than ρ+1/ρ−1 in the frozen model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jspi.2010.03.027",
+          "material_read": "Abstract/landing material only; no usable full text retrieved",
+          "method": "Lawful OA/publisher lookup",
+          "title": "Exact Optimal Designs for Computer Experiments via Kriging Metamodelling",
+          "trigger": "Closest classical kriging design with an exponential model"
+        },
+        {
+          "assessment": "Exact half-line tail marginal and rank-one finite design overlap; no multilandmark finite trace–determinant agreement claim",
+          "evidence": [
+            "The sign of adjacent odd-index capture difference is determined by the same threshold polynomial after q=exp(−θ); for first odd index a=1 it factors as (1−2q)(1+q)^2."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, e656321093de",
+          "material_read": "Mirrored RESULT.md Finding and §§2–3, offsets 0–6630",
+          "method": "Local Resultary and primary mirrored passage",
+          "title": "A boundary-layer staircase and exponential finite-size shifts for screened-path Nyström landmarks",
+          "trigger": "Identical screened-path operator and threshold value"
+        },
+        {
+          "assessment": "Interior block and smoothing are covered; no free-end blocks in a cycle",
+          "evidence": [
+            "Identical interior trace and determinant formulas with strict discrete convexity/concavity yield balanced cyclic gaps."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 7a046323f6e9",
+          "material_read": "Mirrored RESULT.md §§2–4, offsets 4260–6080",
+          "method": "Local Resultary and primary mirrored passage",
+          "title": "Simultaneous entropy and Nyström trace optimal landmarks on screened cycles",
+          "trigger": "Same two objectives, balance of screened gaps"
+        },
+        {
+          "assessment": "Meaningful analogues with distinct domains or boundary conditions",
+          "evidence": [
+            "Continuous stationary prediction has positive terminal margins; stationary Toeplitz two-pivot selection has determinant-optimal endpoints but inward trace positions in the stated limit."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 73b7675a23c6 and 9e500fe4ae37",
+          "material_read": "Mirrored RESULT.md Findings around offsets 308 and 0 respectively",
+          "method": "Local Resultary and primary mirrored passages",
+          "title": "Exact free-boundary monitoring design; sharp two-pivot greedy trace penalties",
+          "trigger": "Closest continuous boundary and discrete stationary Toeplitz design analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, joint optimizer and threshold, Steps 2–4",
+        "Local Resultary e656321093de and 7a046323f6e9"
+      ],
+      "rationale": "This supplies a complete finite design rule for when trace and determinant select the same landmarks, including all ties, no subset search, and an exact threshold valid across path lengths and budgets. The below-threshold witness construction shows why the regime cannot be relaxed uniformly. The boundary mechanism distinguishes the problem from both cycle balancing and rank-one path optimization, and can matter when these two selection criteria are used interchangeably.",
+      "residual_risks": [
+        "No full classification below the threshold, no weighted or noisy designs, and no claim of numerical advantage over direct tridiagonal linear algebra."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

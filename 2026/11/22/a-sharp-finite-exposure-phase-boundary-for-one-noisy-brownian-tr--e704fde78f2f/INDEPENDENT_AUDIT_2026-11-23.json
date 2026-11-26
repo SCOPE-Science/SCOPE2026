@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:28:01.815923Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§1–4, lines 28–130",
+        "VERIFICATION.md lines 19–23",
+        "VERIFY.py lines 6–48, inspected only"
+      ],
+      "rationale": "For standard Brownian motion, one fixed normalized boxcar exposure of width 0<h<1, start t in [0,1-h], and independent Gaussian variance η>0, conditioning subtracts C(s)^2/D from the prior variance, with D=t+h/3+η. Integrating the squared covariance on the three regions gives t^3/3 + ht^2 + (2/3)h^2t + (2/15)h^3 + (1-t-h)(t+h/2)^2, which simplifies to the stated N_h. The derivative numerator P=N_h'D−N_h starts strictly positive, increases until (1-h)/2 and then decreases strictly since P'=2(1-h-2t)D. In particular the sign of 180P(1-h)=F(h)+15h(12-7h)η decides the unique optimum; equality still gives strictly increasing gain before the endpoint. F'(h) changes sign once from positive to negative in (0,1), and F(0)<0<F(1), so the single critical width is valid. The interior derivative in η is positive because N_h'>0 and P'<0 there; expanding at the simple terminal root at threshold gives the stated first-order arrival coefficient. Expansion of the threshold gives 1/(3h)−29/36+O(h). For fixed η the gains converge uniformly using the polynomial expressions on [0,1], and the unique interior maximizer of the limit is eventually feasible; its derivative gives the stated quadratic and root.",
+      "residual_risks": [
+        "The result is for a fixed positive readout variance independent of exposure width and of the process; it does not classify other noise scalings, multiple observations or causal loss. The attested script output was not needed for the analytic review, and the supplied script was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen–Peraire pp. 7–9 Eqs. (19), (21)–(25) give functional-data GP conditioning",
+          "Longi et al. §2.1 Eqs. (2)–(3) give spatial linear-operator observations and line integrals",
+          "Ji–Müller p. 4 describes independent noisy evaluations at discrete time locations"
+        ],
+        "reasoning": "General frameworks admit relevant covariance calculations; the inspected statements do not optimize one fixed positive-width temporal boxcar for integrated Brownian path loss over all starts and widths. The point design has a different admissible observation family.",
+        "searches": [
+          "arXiv:1405.7569v1 functional Gaussian processes",
+          "PMLR 124 longi20a: integral Gaussian observations",
+          "arXiv:1604.05375v1 trajectory recovery design"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records e704fde78f2f and f8539d0767e8",
+        "Nguyen–Peraire arXiv:1405.7569v1",
+        "Ji–Müller arXiv:1604.05375v1",
+        "Longi et al. PMLR 124 (2020), 1009–1018"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General rank-one gain is a standard specialization of Gaussian posterior covariance",
+          "The bridge result balances a single squared covariance and a bridge-specific observation variance; it neither bounds nor optimizes this integrated gain"
+        ],
+        "reasoning": "The general conditional covariance yields the objective, not its critical-point geometry: the Brownian covariance integration, sign of P' and the terminal polynomial calculation are needed to get an exact global transition. The bridge and point-sampling optima do not imply the positive-width phase boundary.",
+        "searches": [
+          "Nguyen–Peraire Eqs. (21)–(25)",
+          "Longi et al. Eqs. (2)–(3)",
+          "f8539d0767e8 original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f8539d0767e8, Finding, offset 0: bridge B, target ∫(2s−1)B_s ds, center symmetry and two optimal windows",
+          "Ji–Müller p. 4 Eqs. (1)–(2): noisy point observations"
+        ],
+        "reasoning": "Changing boxcar start to center or integral to normalized average (rescaling noise variance) preserves this problem, but conditioning Brownian motion to a bridge changes the covariance, and replacing full-path integrated risk by the error of one signed moment changes the numerator of the design gain. The bridge theorem has reflected pairs, not a unique terminal or interior window. Point observations are the zero-width limit, not equivalent to positive-width constraints.",
+        "searches": [
+          "Resultary finite-width one-observation Brownian transition comparison",
+          "Resultary f8539d0767e8; Brownian-bridge signed-moment placement",
+          "arXiv:1604.05375v1; noisy trajectory design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e704fde78f2f is the identical frozen record, not independent coverage",
+          "The original Finding of distinct record f8539d0767e8 gives S(h,η)=12η(1−2h)+h(3h²−5h+1) for a bridge moment, including two boundary centers"
+        ],
+        "reasoning": "A similar transition in the same catalogue is not the exact table or theorem for Brownian full-path recovery. No chronology or priority is inferred from the two records' common catalogue date.",
+        "searches": [
+          "Local Resultary finite-exposure Brownian observation phase-boundary search",
+          "Resultary e704fde78f2f",
+          "Resultary f8539d0767e8"
+        ]
+      },
+      "rationale": "The decisive overlap is in Gaussian linear-observation conditioning, not in the optimizer under the same kernel, sensor constraint and loss. The closest distinct indexed transition was read at its theorem: it has a different prior and scalar target with reflection symmetry, and is not a covering design theorem. This assessment concerns the finite-width phase diagram, not Gaussian conditioning or the general observation framework.",
+      "residual_risks": [
+        "Best-knowledge result on searched catalogue and inspected primary passages; not an exhaustive literature or priority certification. An equivalent exact design could be indexed under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not equivalent or covering",
+          "evidence": "Brownian bridge and signed first polynomial moment, with two reflected optima and different phase polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-an-exact-noise-driven-footprint-transition-for-brownian-bridge-m--f8539d0767e8/RESULT.md",
+          "material_read": "Finding, offset 0 through the complete optimal-placement law and noise regimes",
+          "method": "Read original mirrored document by offset",
+          "title": "An exact noise-driven footprint transition for Brownian-bridge moment sensing",
+          "trigger": "Closest distinct same-width noisy-window placement transition"
+        },
+        {
+          "assessment": "Conditions on linear observations; supplies framework but not the stated optimizer",
+          "evidence": "Functional-data likelihood and posterior-covariance formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.7569",
+          "material_read": "PDF pp. 7–9, Eqs. (19), (21)–(25), offsets 23700 and 26350",
+          "method": "Read the OA original passages",
+          "title": "Functional Gaussian processes for regression with linear PDE models",
+          "trigger": "Potential broad linear-functional Gaussian conditioning coverage"
+        },
+        {
+          "assessment": "Different observation constraint",
+          "evidence": "Observations are noisy point evaluations with independent errors, not finite-duration boxcars.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.05375",
+          "material_read": "PDF p. 4, Eqs. (1)–(2), offset 9140",
+          "method": "Read the OA original model and equations",
+          "title": "Optimal Designs for Longitudinal and Functional Data",
+          "trigger": "Overlap in integrated trajectory reconstruction design"
+        },
+        {
+          "assessment": "General linear observation formalism and a different placement problem",
+          "evidence": "Spatial line integrals and linear GP operators; no Brownian boxcar phase law in these passages.",
+          "identifier_or_url": "https://proceedings.mlr.press/v124/longi20a/longi20a.pdf",
+          "material_read": "§2.1, Eqs. (2)–(3), offsets 7750 and 10400",
+          "method": "Read the OA original model and equations",
+          "title": "Sensor Placement for Spatial Gaussian Processes with Integral Observations",
+          "trigger": "Integral GP observation placement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and §§1–4",
+        "Longi et al. §2.1 on sensing under integral observations",
+        "Ji–Müller p. 4 on noisy point design"
+      ],
+      "rationale": "Fixed-duration exposure is a natural scalar observation constraint. The theorem gives the entire width/noise boundary, including uniqueness at equality, and distinguishes finite exposures from point observations: for each fixed finite noise there is no terminal phase in the zero-width limit, but at positive width a terminal optimum can be forced by noise. The explicit rule resolves where to place a constrained sensor, not merely how to calculate its posterior risk.",
+      "residual_risks": [
+        "Value is model-specific; no implication is asserted for optimizing the width or applying this fixed-variance boundary to instruments with exposure-dependent noise."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

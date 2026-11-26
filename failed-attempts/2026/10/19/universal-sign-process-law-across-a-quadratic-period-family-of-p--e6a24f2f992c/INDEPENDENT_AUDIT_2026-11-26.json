@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:15:01.030225Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The boundary in RESULT.md:9 is a union of punctured rays (t>0); none contains the origin. The Dirac measure at (0,0) is invariant and obeys the stated zero-mass condition, yet B_t=0 for all t instead of P(B_t=1)=1/n. The sector-weight step at lines 73–79 is where the missing mass enters. If the origin has mass eta, each of the q open sectors has mass (1-eta)/q and the process is a mixture of the stated cyclic process (weight 1-eta) and the all-zero sequence (weight eta). The ray-orbit and cyclic-overlap calculations themselves check out; excluding the origin would fix the scope, but does not resolve the contribution issues below. The finite support checks do not test the universal invariant-measure hypothesis.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary map T_(mu,nu) specializes to this map at nu=0, mu=2cos(pi/n); Example 3.2 gives rotation theta/(pi+n theta) and explicitly period n^2 in this case.",
+          "Part I attributes the general periodicity criterion and examples/rotation formulas to Beardon–Bullett–Rippon."
+        ],
+        "reasoning": "Periodicity, the rotation number, and the branch-return mechanism all belong to prior theory of this same family, not merely to a neighboring model.",
+        "searches": [
+          "arXiv:math/0301294, equations (1.5)–(1.6), Theorem 2.3 and Example 3.2",
+          "DOI 10.1017/S0308210500030286, as cited in Part I"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md:9, 41–89, VERIFICATION.md and check.py (read-only)",
+        "Resultary semantic comparisons",
+        "arXiv:math/0301294",
+        "arXiv:math/0303007",
+        "DOI 10.1017/S0308210500030286 (metadata and indirect citations only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 3.2 conjugates one branch to ordinary rotation and says the other case occurs exactly n times in a row and its nth matrix power is -I.",
+          "At theta=(n-1)pi/n this gives a single short return gap of 1 and n-1 gaps of n+1 between negatives. The proposed cyclic interval has exactly these gaps: adding p=n-1 maps residue 0 to n-1 in one step, while adding p(n+1)=-1 mod q walks the interval backwards."
+        ],
+        "reasoning": "The one-short-gap necklace is unique and fixing its uniform phase gives every cylinder probability. The lag tests are the elementary overlaps of the same interval. No new dynamics or nontrivial invariant-measure argument remains after the direct specialization.",
+        "searches": [
+          "arXiv:math/0301294, p. 13, Example 3.2 proof and opposite-coefficient specialization; p. 14 sign/sector construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Part I defines symbolic dynamics as signs of successive x coordinates and treats this very parameter family; the cyclic sign necklace is equivalent to the invariant law off the boundary once the phase is uniform.",
+          "Closest thematic Resultary hit: 2026/10/26/SCOPE-exact-fourth-order-dependence-phases-of-a-binary-skew-rotation-c--6d6bad371067, about half-circle coding of a two-torus skew rotation, not this finite plane map."
+        ],
+        "reasoning": "The relevant equivalent formulation is the full cyclic sign word up to shift, not a statement titled as a probability law. Part II's irrational itinerary families do not match.",
+        "searches": [
+          "Resultary semantic search: absolute-value plane map, finite-order angular coding and invariant sign process",
+          "arXiv:math/0301294, Example 3.2 and section 4",
+          "arXiv:math/0303007, introduction and Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching catalogue hit was identified; the primary example supplies exact symbolic branch lengths."
+        ],
+        "reasoning": "No separate finite-table lookup applies to the all-n, all-invariant-measures assertion. The equivalent symbolic necklace is specified by a prior formula and branch rule, without enumerating a database.",
+        "searches": [
+          "Resultary finite-order sign process and independence-lag comparisons",
+          "arXiv:math/0301294, Example 3.2"
+        ]
+      },
+      "rationale": "No source is credited with the false quantifier. The only natural corrected claim, the nonzero off-boundary law, is mechanically recoverable from the explicit induced dynamics in Lagarias–Rains Part I, Example 3.2: the negative branch is conjugate to rotation by theta=(n-1)pi/n in its half-plane; every exit into the other half-plane gives n positive steps with action -I. At negative return times, reducing the angle modulo pi therefore gives theta mod pi=-pi/n. Exactly one of the n negative returns does not exit the half-plane (the stay interval has width pi-theta=pi/n); the gaps in the sign word are one gap of 1 and n-1 gaps of n+1. This determines the entire cyclic sign word up to shift, not just its frequency. Stationarity takes the uniform cyclic shifts of that word, and interval overlaps give the displayed two-time classification. The statistics were not found stated verbatim, but their absence from the sources inspected is not evidence of new dynamical content.",
+      "residual_risks": [
+        "Earlier exact wording in Beardon–Bullett–Rippon was not verifiable from the primary text; the mathematical implication used in the decision is already present in the accessible Lagarias–Rains example.",
+        "Catalogue comparison was bounded and cannot establish absence. Broader symbolic literature search was not required to establish the direct implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior induced dynamics; the corrected invariant sign law is a direct corollary",
+          "evidence": [
+            "Example 3.2's rotation-branch conjugation, exact n-run with nth power -I, and period n^2 specialization.",
+            "Section 4 gives sign words and a cyclic sector-permutation construction."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0301294",
+          "material_read": "Equations (1.5)–(1.6), Theorem 2.3, Example 3.2 proof and specialization (p. 13, text offset 42977), and section 4 sign coding",
+          "method": "Open primary PDF, bounded passages",
+          "title": "Dynamics of a family of piecewise-linear area-preserving plane maps I. Rational rotation numbers",
+          "trigger": "Identical map and parameters in the cited periodic family"
+        },
+        {
+          "assessment": "Different rotation regime, not needed for prior implication",
+          "evidence": [
+            "The inspected statements treat irrational rotation with fixed symbolic itinerary and invariant circles."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0303007",
+          "material_read": "Introduction p. 2 and Theorem 2.2 p. 4",
+          "method": "Open primary text, bounded passages",
+          "title": "Dynamics of a family of piecewise-linear area-preserving plane maps II. Invariant circles",
+          "trigger": "Same family and symbolic itinerary framework"
+        },
+        {
+          "assessment": "Material earlier-priority lead; not used as proof of exact coverage",
+          "evidence": [
+            "Part I identifies Beardon–Bullett–Rippon Theorem 3.1(i) as the finite-order criterion antecedent."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0308210500030286",
+          "material_read": "Bibliographic record and citations in Part I; original full text inaccessible",
+          "method": "Lawful direct/alternate OA attempts; cross-reference in primary Part I text",
+          "title": "Periodic orbits of difference equations",
+          "trigger": "Earlier source credited for the examples and rotation formulas"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sign correlations are a natural observable and exact lag laws can be useful, but here the entire corrected law reduces to the already explicit negative return rotation and its two possible gap lengths, followed by uniform phase and elementary counting. The predictable origin exception fixes a quantifier rather than leaving an independently useful new invariant. No repaired finding is submitted.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:18:23.168394Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–67; VERIFICATION.md and VERIFY.py inspected without executing supplied code",
+        "Independent reproduction: `python3 branches/independent_replay.py 4` from the workspace root; exact rational inequalities and Sturm variation at L=9, plus numerical bracketing at L=9,9.01,10,33.3. At 9 the rates are 0.102194995297, 0.405091413247, 0.641802814092 and the objectives are 0.327430499700, 0.247557823171, 0.252396847601."
+      ],
+      "rationale": "The objective integrates the one-sided exponential density over the habitat union, with endpoints immaterial. At equal widths, rescaling gives F(t)=(1−e^(−t))e^(−αt)(1+e^(−δt)), with α>0 and δ≥1. Its log-curvature is −1/(4 sinh²(t/2))+δ²/(4 cosh²(δt/2)), strictly negative since cosh(δx)>sinh(δx)≥δ sinh(x) for x>0. The log derivative tends to +∞ and −α at the respective ends, proving unique maximization, also at contact. At scaled widths and L>2 the derivative has four distinct exponential terms. Dividing by the slowest exponential and applying Rolle inductively gives at most three distinct real zeros. For L≥9 the derivative signs at 0,1/L,1/2,log 2 are +,−,+,−. In particular g''<−2 on [0,1/9], and (e−2)/e²>3/32 gives the negative sign at 1/L; the upper bound 1−2/L−3L/32 is −19/288 at 9 and decreases thereafter. At 1/2 use 2/e−e^(−1/2)>129/1100 and Le^(−L/2)≤9e^(−9/2)<11/100. The latter comparisons follow from 27/10<e<11/4 (the exponential series suffices) and exact rational squared inequalities. The three critical points are therefore strict extrema in alternating order. For the right maximum t₃, the test point t₃/L increases the objective by g(t₃/L)−g(Lt₃)>0: the first term is greater than 1/(4L) using 1/2<t₃<log 2, and the second is smaller than e^(−L/2)<1/(4L). Since the positive objective vanishes at both ends, this leaves the first maximum uniquely global. At L=2 the two intervals form one and the derivative has its sole zero at log(4)/3.",
+      "residual_risks": [
+        "Finite checks do not establish the real-parameter theorem; that follows from the analytic signs and zero bound. There is no classification of the onset in 2<L<9 or theorem for more general habitat geometries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Treep et al. study candidate dispersal strategies and tradeoffs in dynamic landscapes. Finand et al. study dispersal evolution and evolutionary rescue in fragmented metapopulations. The frozen record credits de Jager–Soons for analogous numerical fitness valleys and evolutionary hysteresis."
+        ],
+        "reasoning": "The accessible inspected ecological sources address different objectives or kernels; their broader questions do not give the exact fixed-band one-seed exponential theorem. The closest hysteresis source could not be checked in full, so its exact contents are not claimed here.",
+        "searches": [
+          "DOI:10.1186/s40462-020-00239-1, abstract and Background",
+          "DOI:10.1111/oik.10490, open HAL version abstract",
+          "DOI:10.1002/ece3.10147 and DOI:10.1101/2022.10.10.510956, lawful full-text attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 81d6f89effb6",
+        "DOI:10.1186/s40462-020-00239-1 (abstract and Background)",
+        "HAL-03697571v1 (abstract)",
+        "DOI:10.1002/ece3.10147 and DOI:10.1101/2022.10.10.510956 (attempted only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gaussian kernel yields a different function of the scale even after rescaling or squaring distances. The four-exponential root-counting step of the present proof is classical; the uniform sign construction and F_L(t₃/L)>F_L(t₃) are separate model-specific steps."
+        ],
+        "reasoning": "The inspected Gaussian assertion and general zero-counting lemma give neither equal-width curvature nor the sharp count plus strict global ranking in the specified exponential regime. The record is not credited with discovering landscape-induced local optima in general or with showing evolutionary hysteresis.",
+        "searches": [
+          "Resultary 81d6f89effb6, opening Finding and limitations",
+          "Treep et al. DOI:10.1186/s40462-020-00239-1",
+          "Web literature: \"exponential\" seed dispersal kernel fragmented habitat optimal dispersal rate multiple maxima habitat bands landing probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P_H(λ)/λ is the Laplace transform of the indicator of the habitat union; the rate objective multiplies this transform by λ.",
+          "The scaled-band derivative is an alternating four-term exponential sum; a standard zero bound controls the number of zeros but not the signs at the three interior comparison rates or the peak heights."
+        ],
+        "reasoning": "Laplace-transform log-convexity of P_H/λ does not establish strict log-concavity of P_H. General finite-exponential-sum bounds do not guarantee attainment of three zeros or compare the maxima. No stronger positive result establishing these claims was identified by the bounded lookup.",
+        "searches": [
+          "Resultary: Laplace transform positive exponential mixture log-concavity exponential polynomial multiple critical points separated bands dispersal parameter",
+          "Web literature: \"exponential\" seed dispersal kernel fragmented habitat optimal dispersal rate multiple maxima habitat bands landing probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct indexed entry, 81d6f89effb6, gives a sharp at-most-m mode bound for centered Gaussian dispersal over symmetric distance bands and a two-band construction with tied global maxima."
+        ],
+        "reasoning": "This is a substantial adjacent result, not an exact table or classification for the exponential kernel. Its hypotheses differ and tied Gaussian peaks do not give the strict ordering or the whole L≥9 regime here. The shared date establishes neither priority nor independence.",
+        "searches": [
+          "Resultary: two disjoint habitat bands exponential dispersal kernel equal width strictly log-concave scaled bands two maxima",
+          "Resultary: seed landing probability exponential kernel two habitat intervals multiple optima local maxima global maximum"
+        ]
+      },
+      "rationale": "The supported distinction is an exact two-band theorem for the one-sided exponential rate objective: all-separation strict log-concavity at equal widths versus a uniform L≥9 two-peak guarantee and a strict global ordering at scaled widths. Neither general exponential-polynomial root bounds, related Gaussian scale optimization nor evolutionary landscape studies supply this exact conjunction. No priority is claimed for the zero-counting method or the qualitative possibility of fitness valleys.",
+      "residual_risks": [
+        "Closest cited hysteresis article and preprint could not be independently read in full through the lawful copies attempted.",
+        "Equivalent exact results under exponential-polynomial, Laplace-transform or scale-space terminology may be unindexed. Search nonretrieval is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shares the band-optimization question and zero-count method; its symmetric Gaussian objective differs from this one-sided exponential objective",
+          "evidence": [
+            "At-most-m sharp Gaussian mode bound; exact two-band tie construction rather than the asserted strict exponential ranking."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-dispersal-scale-modes-and-a-two-scale-global-tie-in-fragme--81d6f89effb6",
+          "material_read": "RESULT.md Finding near offset 83 and originality/limitations near 8597",
+          "method": "Bounded local mirror passages",
+          "title": "Sharp dispersal-scale modes and a two-scale global tie in fragmented habitat",
+          "trigger": "Exact neighboring scale-optimization theorem for habitat bands"
+        },
+        {
+          "assessment": "Relevant ecological context, not the fixed-band one-event rate theorem in the inspected passages",
+          "evidence": [
+            "Dynamic landscapes, tradeoffs and multi-scale strategies including Lévy-like movement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/s40462-020-00239-1",
+          "material_read": "OA PDF abstract p. 1 at offset 468, Background p. 2 at offset 5461",
+          "method": "Bounded open PDF passages",
+          "title": "Seed dispersal as a search strategy: dynamic and fragmented landscapes select for multi-scale movement strategies in plants",
+          "trigger": "Multi-scale dispersal in fragmented landscapes"
+        },
+        {
+          "assessment": "Different metapopulation question; no judgment about uninspected full-text claims",
+          "evidence": [
+            "Dispersal evolution and rescue under fixed or changing fragmentation."
+          ],
+          "identifier_or_url": "https://cnrs.hal.science/hal-03697571v1/document (DOI:10.1111/oik.10490)",
+          "material_read": "Submitted-version PDF abstract p. 1, offset 1827",
+          "method": "Bounded open HAL passage",
+          "title": "Evolution of dispersal and the maintenance of fragmented metapopulations",
+          "trigger": "Fragmentation and dispersal optimization"
+        },
+        {
+          "assessment": "Access gap; the frozen record distinguishes it as nonlinear evolutionary work, but that comparison was not independently verified from the paper",
+          "evidence": [
+            "No primary passage obtained; no inference of noncoverage from failed retrieval."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ece3.10147 and https://doi.org/10.1101/2022.10.10.510956",
+          "material_read": "Bibliographic identification and the frozen record's attribution; original full text not read in this review",
+          "method": "Attempted lawful journal, preprint and open resolver retrieval",
+          "title": "Critical transitions and evolutionary hysteresis in movement: Habitat fragmentation can cause abrupt shifts in dispersal that are difficult to revert",
+          "trigger": "Closest cited ecological precedent for numerical fitness valleys"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, scope and limitations; proof lines 24–67",
+        "Distinct Gaussian comparison 81d6f89effb6"
+      ],
+      "rationale": "For a fixed minimal habitat geometry the theorem separates two effects: increasing gaps alone between two equal-width windows cannot make local optima compete, while scaled unequal windows can produce a persistent suboptimal peak separated by a valley. The contrast is uniform on all admissible equal separations and on a continuous sufficient regime of scaled separations, and the result says which peak wins rather than just exhibiting a plot or bounding the number of possible extrema. This gives a useful analytic benchmark for richer models.",
+      "residual_risks": [
+        "This compares width/spacing configurations without holding area fixed in the scaled family; it does not disentangle all causal geometry. The objective is a single-event landing probability, not population fitness, persistence, field validation or evolutionary hysteresis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

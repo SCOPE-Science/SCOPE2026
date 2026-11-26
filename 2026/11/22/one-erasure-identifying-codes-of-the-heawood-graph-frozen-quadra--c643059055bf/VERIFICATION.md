@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-- The Python program performs a complete enumeration of all \(2^{14}=16384\) subsets of the fourteen labelled graph vertices and tests all fourteen neighborhood conditions and ninety-one pairwise symmetric-difference conditions for each.
-- The C++ program independently constructs the fourteen-cycle-plus-chords presentation and tests resilience by removing every selected detector in turn, recomputing all fourteen ordinary identifying signatures.
-- Both programs establish the full code polynomial \(98z^{10}+224z^{11}+91z^{12}+14z^{13}+z^{14}\), verify the two geometric optimum types, construct all optimal exchange adjacencies and reproduce component and distance results.
-- The Python program additionally scans all \(2002\) five-vertex omissions to certify the sharp bound, and checks equality of every optimum mask against the two complete geometric catalogues.
-- The exact BFS calculation covers all 98 starting code configurations and all 98 possible target configurations, not a sample of representatives.
-- Code paths are `code/check_fano.py` and `code/check_hamiltonian.cpp`; corresponding reference outputs are in `certificates/`.
-- These are finite computational certificates for one labelled graph. A formal proof assistant and independent scholarly audit were not used; no conclusion about other graph orders is asserted.
+## correctness
+
+PASS
+
+The repair proves only the exchange theorem and uses the separately established optimum catalogue. Index negation matches the two cyclic Fano conventions. The catalogue is exactly the union of shore complements of lines or dual pencils and pairs of points plus pairs of lines inducing a 2-edge matching. For equal-size omissions, adjacency for exact r corresponds to intersection size 4−r, independently of host edges. Quadrangles cannot share three vertices with any other optimum omission. In a matching the only one-vertex substitutions keep the shore and choose the unique alternative line through the retained matched point but not the other point, or the dual alternative point. The repair independently constructs all 98 four-sets, tests all unordered pairs for each exact exchange size, and computes BFS from every vertex including isolates. The shell sums force a single 84-vertex matching component for r=1 and a single 98-vertex component for r=2; the last nonzero shell indices give the eccentricities and the first positive shell indices yield the stated degrees and edge counts. I executed the new check_exchange.py and recovered each complete shell multiplicity and 168 and 1134 edges. A separate exact replay on all 16,384 detector masks verified the original feasibility criterion against explicit single-detector removal and agreed on the geometric catalogue, polynomial and all exchange data. Neither script replaces a symbolic statement about any other graph.
+
+## originality
+
+PASS
+
+This verdict concerns the repaired mobility-only statement, not the original omnibus Finding. The same-object deletion classification is explicitly cited as an input and no claim to its catalogue, minimum or polynomial remains. The checked closest exchange results use either ordinary identifying codes and token slides, or maximum induced three-edge matchings and whole-edge exchanges. Neither covers this optimum family with these exact one- and two-detector moves.
+
+## value
+
+PASS
+
+For a canonical small cubic incidence graph, this measures an operational property of a natural optimum family: how many selected detectors must be exchanged per move to reconfigure without losing minimum one-erasure robustness at the endpoints. Exact one-at-a-time moves fail by isolating a geometric class, while exact two-at-a-time moves give diameter two. The complete shell vectors quantify mobility beyond a yes/no path question and expose the two code types in the exchange geometry. The separate deletion census alone does not give these distances; the finite proof and precise boundary are useful without a broader family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

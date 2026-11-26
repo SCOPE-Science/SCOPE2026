@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:30:11.864878Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently checked RESULT.md lines 5–66, the two frozen verification programs, and ran the independently written standard-library script /workspace/branches/reproduce_square_ice.py. It selects two outgoing neighbors per vertex and enforces complementary choices on each shared edge when its second endpoint is visited. Thus every accepted assignment is an ice orientation, and each such orientation appears once. The coordinate construction checks all directed incidences belong to exactly one square; the enumeration returned 1 empty set with coefficient 144, six singletons each 24, all 15 pairs each 8, eight triples each 16 (all opposite-pair transversals), and the full set with coefficient 64. Reversal on a directed square preserves vertex balances and alters no edge of another square. Each component is therefore a free orbit of the commuting flips, exactly Q_d, with per-set multiplicity obtained by division by 2^d. Replay returned 600 states, 576 edges, the histogram {0:144,1:72,2:30,3:16,6:1}, and the exact isotropic spectrum including 224 zero eigenvalues. For any positive couplings tensor flip eigenvectors give the stated signed sums on each cube and RK eigenvalues given by twice subset sums. Only one six-cube realizes the kinetic minimum; every smaller cube omits at least three faces, so it cannot supply the first excitation. The full cube supplies the kinetic and RK gaps 2 min_i t_i; the RK zero count is one per cube, including isolated vertices.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen lines 74 and 82–85 distinguish a planar checkerboard square-flip Hamiltonian from the primary cuboctahedral study including both triangle and square moves. The indexed torus census concerns 2,970 orientations, 60 frozen states and nine sectors on a different graph."
+        ],
+        "reasoning": "The inclusion of triangular flips can change components and the square-only gap. Even a more general Hamiltonian that permits zero triangle amplitudes would cover this claim only if it determines the specialized joint activity or spectra; that implication is not demonstrated by the accessible statements. The checkerboard and torus do not specialize to this graph.",
+        "searches": [
+          "arXiv:2406.19453 / DOI 10.1103/PhysRevB.110.144202, cuboctahedral ice and face-flip dynamics",
+          "arXiv:1307.7032 / DOI 10.1103/PhysRevLett.113.027204, square-only kinetic framework",
+          "2026/11/8/SCOPE-exact-face-reversal-sectors-and-metric-centers-of-the-four-by-fo--1fbb4aea909d"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–85, VERIFICATION.md and both standalone enumeration programs",
+        "Resultary same-ensemble Walsh, square-ice torus and rhombicuboctahedron dimer comparisons named above",
+        "Primary literature descriptions and exact-access limitations listed in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orientation and ring-exchange frameworks motivate the finite model; the joint count needs the face-level orientation choices subject to simultaneously imposed degree balance."
+        ],
+        "reasoning": "Once the joint coefficients are known, disjoint square edge sets force cube components, and standard tensor spectra give the weighted block spectra and RK nullity. Neither the known marginals nor stated full-move connectivity mechanically yields the requisite joint data.",
+        "searches": [
+          "arXiv:2406.19453 and arXiv:1307.7032, available statements on face-reversal Hamiltonians",
+          "Felsner DOI 10.37236/1768 (prescribed-outdegree orientations, as cited in frozen RESULT.md)",
+          "Resultary: same-ensemble Walsh and square-only face-reversal sectors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-ensemble Walsh work is indexed for nullity and quartic cancellation of transforms; a same-day square-face RK fragmentation finding concerns quantum dimers on the rhombicuboctahedron."
+        ],
+        "reasoning": "Walsh nullity is not an ice-state connected-component count; the dimer state space is not the directed two-in/two-out cuboctahedral ensemble. No equivalence of their computed invariants with the labelled activity coefficients is demonstrated.",
+        "searches": [
+          "Resultary: cuboctahedral ice or Eulerian orientations, joint square-face activity, quadrilateral-only reversals, kinetic fragmentation and weighted spectrum",
+          "2026/11/22/SCOPE-cuboctahedral-ice-exact-walsh-nullity-and-quartic-cancellation-o--3515a82ece57",
+          "2026/11/22/SCOPE-square-face-quantum-dimer-fragmentation-and-parity-charge-double--985b3df0c75e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen Finding line 20 credits 600 states and 192 per square. Neither the available primary-source summaries nor the indexed same-ensemble summary presents the joint labelled six-square coefficients or the 263-sector decomposition."
+        ],
+        "reasoning": "The total and singles are evaluations and first partial derivatives of the polynomial at all ones; they do not determine its triple transversals or other joint coefficients, and hence cannot determine the multiplicities of the cubes by themselves. This is not a claim about all tables in the inaccessible primary text.",
+        "searches": [
+          "Resultary: cuboctahedral 600-state six-square joint flippability and 263-sector square-only census",
+          "Sivaramakrishnan–Ganesh DOI 10.1103/PhysRevB.110.144202; targeted full-text/author-copy lookup for square and triangle flips"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the joint labelled six-square activity and complete square-only sector census. The 600 and 192 marginal counts and the general square-plaquette Hamiltonian framework are antecedents, not part of this originality verdict. The indexed same-ensemble result gives a different Fourier invariant; the weighted cube and RK conclusions follow from the exact square-only census rather than an independent claim to tensor-product spectral machinery.",
+      "residual_risks": [
+        "Sivaramakrishnan–Ganesh full text was not available for checking a joint square-activity table, supplementary enumeration or an explicit triangle-amplitude-zero limit; abstract and marginal evidence is not a whole-document exclusion.",
+        "Full text for the same-ensemble Walsh comparison was likewise unavailable. The pass does not certify global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established reported marginal overlap; full-text coverage of a zero-triangle specialization remains unresolved",
+          "evidence": "Frozen comparison credits 600 states and per-square marginal 192, and describes dynamics including triangle and square flips.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.19453; DOI 10.1103/PhysRevB.110.144202",
+          "material_read": "Search metadata/abstract material and frozen RESULT.md lines 20,74,85; exact primary passages not accessible",
+          "method": "Targeted arXiv and APS OA passage retrieval and identified-copy search",
+          "title": "Ice on curved surfaces: defect rings and differential local dynamics",
+          "trigger": "Same geometry, ensemble and face flips; strongest candidate for exact table or square-only limit"
+        },
+        {
+          "assessment": "Contextual framework; not established as prior cuboctahedral coverage",
+          "evidence": "The cited square-only construction is described for the planar checkerboard lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.7032; DOI 10.1103/PhysRevLett.113.027204",
+          "material_read": "Frozen RESULT.md lines 74 and 84; primary passage not retrieved",
+          "method": "Targeted OA request and geometric scope comparison",
+          "title": "Order-by-disorder and quantum Coulomb phase in quantum square ice",
+          "trigger": "Square-only kinetic framework precedent"
+        },
+        {
+          "assessment": "Same ensemble, different invariant on available evidence; no priority inferred from date",
+          "evidence": "The indexed claim concerns Walsh spectrum nullities and quartic cancellation rather than the graph of legal square reversals.",
+          "identifier_or_url": "2026/11/22/SCOPE-cuboctahedral-ice-exact-walsh-nullity-and-quartic-cancellation-o--3515a82ece57",
+          "material_read": "Indexed scientific statement; exact mirror passage unavailable",
+          "method": "Resultary statement comparison",
+          "title": "Cuboctahedral ice exact Walsh nullity and quartic cancellation",
+          "trigger": "Same finite configuration space and same-day indexed output"
+        },
+        {
+          "assessment": "Distinct geometry and census",
+          "evidence": "Reported counts are 2,970 orientations, 60 frozen states and nine components on the periodic square lattice.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-face-reversal-sectors-and-metric-centers-of-the-four-by-fo--1fbb4aea909d",
+          "material_read": "Indexed scientific summary",
+          "method": "Resultary comparison of lattice, move graph and counts",
+          "title": "Exact face-reversal sectors and metric centers of the four-by-four square-ice torus",
+          "trigger": "Exact face-reversal census analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separating quadrilateral resonance from the allowed triangular dynamics is a meaningful restricted model for the same curved-ice configuration space. The joint activity invariant identifies the entire fragmented Hilbert-space decomposition, including the rare six-cube and exact frozen fraction, and gives the full weighted excitation and RK degeneracy data, not just another computation of the known state total or marginal.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

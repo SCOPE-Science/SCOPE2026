@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-This result comes with three standalone checking programs, their exact captured outputs and no third-party Python dependencies. Commands below are run from the directory containing these supplied files.
+## correctness
 
-1. `g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_direct.cpp -o verify_direct && ./verify_direct` checks every subset of the original two-rail graph for rung orders 2–10, independently constructs slide edges from the original graph, checks size multiplicities and edges for all k, exactly two component sizes, and the claimed diameter. Its output must equal `verify_direct.output.txt` and end with `DIRECT_EXHAUSTIVE_PASS`.
-2. `python3 verify_word.py` enumerates every feasible rung word and proposed gap pattern through rung order 18, tests independence and domination locally, and checks that every legal word slide corresponds to one adjacent-bit swap. Its output must equal `verify_word.output.txt` and end with `WORD_BIJECTION_AND_MOVES_PASS`.
-3. `python3 verify_median.py` constructs exclusion-token path graphs for all path orders up to eight and all token counts; all-pairs BFS checks their exact distance/diameter and edge counts, and for manageable orders it checks uniqueness of the coordinatewise median among every triple. Its output must equal `verify_median.output.txt` and end with `MEDIAN_AND_DISTANCE_PASS`.
+PASS
 
-These independent finite checks are reproducible confirmations of the stated definitions, counting formulas, boundary cases, reachability and median metric. They are not themselves exhaustive over all ladder sizes. The universal proof in RESULT.md supplies the all-orders reasoning; no external certificate or independent audit is asserted.
+Independence gives at most one selection per rung. An empty endpoint or a pair of consecutive empty rungs leaves a vertex undominated. Between successive occupied rungs with no empty rung, independence forces opposite selected rails; across a single empty rung, domination of both vertices on that rung forces the same alternation condition. These three conditions are also sufficient. A first-rail choice and the z=n−k one-vacancy gaps among p=k−1 gaps therefore encode the states exactly. Since n≥2 requires k≥2, a vertical flip breaks alternation with at least one neighboring occupied rung, by independence or by domination according as the gap has size zero or one. A horizontal slide preserves feasibility exactly when it transfers a vacancy across an internal selected rung into an empty gap, hence swaps adjacent 01 and 10 and preserves the first-rail choice. This proves the two path-token components, including z=0,p. For their metric, sorted tokens cannot pass. Moving all left-going tokens in increasing order and then all right-going tokens in decreasing order attains the sum of absolute displacements; target positions are strictly increasing, so no intervening token blocks those moves. Opposite packed configurations attain z(p−z). Coordinatewise medians are strictly increasing and are the unique tuple in all three pairwise metric intervals. Each consecutive gap pair contributes binom(p−2,z−1) edges per copy in the nonsaturated range. Summing the binomial counts gives the two stated series (subtracting the n=1 term for vertices). At minimum size, z=p for odd n and z=p−1 for even n, yielding the stated singleton and path cases.
+
+## originality
+
+PASS
+
+Bounded pass for the all-cardinality structure theorem for the open ladder as a seed, especially the exact two-copy isomorphism and preservation of a first-rail phase under every legal slide. The unweighted maximal-independent-set count, known path-factor examples and standard grid/lattice metric consequences are not independent originality claims. The closest circular-ladder result uses a related gap construction but does not cover this open-boundary state space or all feasible open-ladder cardinalities.
+
+## value
+
+PASS
+
+The result identifies every fixed-size state graph of a natural and widely used seed, not just its independent domination number or total static count. The explicit coordinate map decides reachability, constructs shortest legal sequences and identifies the exact obstructions to crossing components. This is a useful structural classification; the older Fibonacci total and standard consequences for path-token factors are not by themselves the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

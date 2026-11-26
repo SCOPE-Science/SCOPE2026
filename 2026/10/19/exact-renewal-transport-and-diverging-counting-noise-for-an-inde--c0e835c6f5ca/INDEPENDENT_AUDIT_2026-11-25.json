@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:19:58.458994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The joint post-crossing state is always vacancy at n−1 and gate ON. The strong Markov property gives iid complete intervals, not an ordinary forward waiting time from a stationary observation epoch. The next m ungated jumps form an independent rate-one Erlang traversal S. Put a=(1−p)κ, b=pκ; the two-state killed service generator yields φ_ON=r(s+b)/Q and φ_OFF=rb/Q for Q=s²+(r+κ)s+rb. Weighting by p+(1−p)e^(−κS) and integrating gives exactly Φ. From ΦQ=N, −Φ′(0)=(Q′−N′)/(rb) and Φ″(0)=(N″−2+2μQ′)/(rb), recovering both displayed moments. The extra term in μ is (1−p)/p times the strictly decreasing integral m∫₀¹(1+κv)^(−m−1)dv. Renewal reward and particle conservation give equal current on all bonds; the counting variance rate is Var(τ)/μ³, including the stationary delayed process since the finite phase-type times have exponential moments. At small κ the numerator of the second moment tends to 2r(m+1/r)(1−p)/p and μ→(m+1/r)/p. At large κ the same moment formulas give μ→m+1/(rp) and Var(τ)→m+(rp)^(−2), not merely convergence in distribution. The fast Fano factor is strictly below one, so continuity with the divergent slow end proves existence (not uniqueness) of a finite crossing. Independent exact replay: python3 /workspace/branches/independent_checks.py 1 solves stationary and tilted-generator Poisson equations; it matches the current and Fano factor at three rational instances, from F≈13.114 at κ=1/30 to F≈0.149 at κ=51. The frozen checker was read, not run. Its printed 96 tally counts four categories per parameter point, although the Laplace category has two frequency equality assertions; this bookkeeping does not affect the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gated-network reaction theory reduces the first gated reaction transform to ungated passage/return transforms and switching kinetics, and reacts instantly at an overlapping reactive target. The physical vacancy at the prepared bond still has a finite hop rate when ON.",
+          "Dynamic-defect rings with occupancy-coupled closure and roadblocks across sites are not the single autonomous gated edge. The reviewed exact or approximate current-density passages do not give its speed dependence or noise."
+        ],
+        "reasoning": "The broader toolkit covers portions of the method. Even if one uses the attempt recurrence as an immediate application of prior first-passage machinery, the stationary crossing-count statistic and its κ-wide comparison require a repeated regenerative event and a moment analysis for the specified model.",
+        "searches": [
+          "arXiv:2101.05124 pp. 2–3",
+          "arXiv:2109.05593 p. 2",
+          "arXiv:1207.1804 pp. 2–3",
+          "arXiv:2006.14474 abstract/model",
+          "Waclaw–Cholewa-Waclaw–Greulich accepted manuscript pp. 3–4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and record 905b0ac177e0",
+        "arXiv:2101.05124",
+        "arXiv:2109.05593",
+        "arXiv:1207.1804",
+        "arXiv:1809.05441 (accepted manuscript)",
+        "arXiv:2006.14474"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resetting the clock after an ON contact and using gamma first traversal followed by bond attempts gives the same conditional service transform. At a blocked contact the memoryless attempt process supplies a new Exp(r) return; successful contacts regenerate only because there is a single vacancy and a two-state autonomous gate."
+        ],
+        "reasoning": "Credit the first-reaction transform as closely reducible to prior gated-renewal machinery. Neither those first-reaction results nor the other Fano crossover establishes the full fixed-p speed comparison, coefficient 2(1−p)/(m+1/r), and positive slow-current/sub-Poisson fast-current noise boundary for this model. They follow here by the analytic moment comparison.",
+        "searches": [
+          "Scher–Reuveni arXiv:2101.05124 p. 2 Eq. (1)–(4)",
+          "Turci et al. arXiv:1207.1804 model",
+          "Resultary 905b0ac177e0 Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An independent Poisson attempt clock of rate r at the prepared bond, ignoring attempts when OFF, has the same successful-hop law as a rate-r ON clock. For this encoding the first contact time is S+Exp(r) and after a failed contact the return time is Exp(r).",
+          "Resultary 905b0ac177e0 instead has a two-site open process with pausing particles and a Fano peak/threshold in its pausing parameters."
+        ],
+        "reasoning": "On the vacancy path itself the blocked hop is gate-dependent, but on the encoded attempt path contacts are independent until the first ON success. This is a point-contact (zero target holding) version of the earlier gated reaction construction and recovers the interval transform by a two-state renewal sum. The pausing model is not related by changing gate rates or ring size.",
+        "searches": [
+          "Resultary local index: single-vacancy independently gated bond, renewal crossings, telegraph Fano crossover",
+          "Scher–Reuveni arXiv:2101.05124 Eq. (1)–(4); compare exact attempt-contact encoding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Turci et al. report simulated passage-time distributions for a defect that cannot close when occupied. The Resultary Fano entry gives a different exact rate threshold for pausing in a two-site open chain."
+        ],
+        "reasoning": "These are empirical and exact comparison sources, respectively, but neither tabulates the one-vacancy independent-bond transform or slow Fano coefficient; no such exact match was established in the bounded search.",
+        "searches": [
+          "Resultary local Fano-crossover and gated-bond lookup; inspect 905b0ac177e0 Finding/Assumptions",
+          "Turci et al. arXiv:1207.1804 pp. 2–3",
+          "arXiv:2006.14474 model and current-density relation"
+        ]
+      },
+      "rationale": "Pass for the combined one-vacancy current and counting-noise law, including fixed-open-fraction speed monotonicity and the slow Fano prefactor. Gated reaction renewal is prior and even admits a close reduction of the interval law via independent bond attempt times as instantaneous contacts. The closest inspected exclusion formulas and catalogued Fano crossover do not cover this generator and statistic together. Neither a new general renewal method nor priority over all gated-service models is claimed.",
+      "residual_risks": [
+        "Historical Markov-modulated queues, gated-service or traffic-light calculations may have an equivalent speed/variance law. No such result was established by the bounded searches.",
+        "A difference in physical path generators does not by itself establish transform originality: the point-contact encoding recovers the gated interval calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong renewal precedent and point-contact reduction for interval law; not the complete speed/noise finding",
+          "evidence": [
+            "Position is decoupled from internal state; reaction is immediate at the reactive target; Eq. (4) restarts after a failed return. Encoding independent hop attempts as contacts makes this substantially closer than a direct comparison of vacancy paths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.05124",
+          "material_read": "PDF p. 2 Eqs. (1)–(4), offset 9600–17524",
+          "method": "OA primary PDF passages",
+          "title": "A Unified Approach to Gated Reactions on Networks",
+          "trigger": "Can gated-network first passage subsume the interval law?"
+        },
+        {
+          "assessment": "Methodological precedent; not continuous-time ring current and Fano comparison",
+          "evidence": [
+            "Reaction times are formulated using ungated first-passage/return times, including a symmetric-walk example."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2109.05593",
+          "material_read": "PDF p. 2, offset about 10000",
+          "method": "OA primary PDF passage",
+          "title": "Gated reactions in discrete time and space",
+          "trigger": "Discrete renewal analogue of gated repeated contacts"
+        },
+        {
+          "assessment": "Different occupancy-coupled generator and simulations",
+          "evidence": [
+            "The defect cannot close while occupied; multiple particles can pass in one opening, in a different density setup."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1207.1804",
+          "material_read": "PDF pp. 2–3, offsets about 10172–15300",
+          "method": "OA primary PDF passages",
+          "title": "Transport on a Lattice with Dynamical Defects",
+          "trigger": "Intermittent closed-ring bottleneck with passage-time statistics"
+        },
+        {
+          "assessment": "Site-wise obstacle field and different scope",
+          "evidence": [
+            "An independent version and a mutually exclusive obstacle variant are studied, with emphasis on current-density analysis."
+          ],
+          "identifier_or_url": "https://www.pure.ed.ac.uk/ws/portalfiles/portal/82236921/TASEP_annealed_disorder_accepted.pdf",
+          "material_read": "Accepted-manuscript pp. 3–4, offset about 8500",
+          "method": "OA primary manuscript",
+          "title": "Totally asymmetric exclusion process with site-wise dynamic disorder",
+          "trigger": "Autonomous obstacles in a comparable exclusion model"
+        },
+        {
+          "assessment": "Obstacles across sites, different model and statistic",
+          "evidence": [
+            "The generator has dynamical obstacles on the lattice and the focus is a current-density relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2006.14474",
+          "material_read": "Abstract and model, offsets about 1763 and 6500–8400",
+          "method": "Lawful arXiv primary manuscript after publisher 403",
+          "title": "Current-density relation in the exclusion process with dynamic obstacles",
+          "trigger": "Related dynamic-obstacle exact current formulas"
+        },
+        {
+          "assessment": "Different two-site pausing mechanism",
+          "evidence": [
+            "The chain is open and particles pause independently; its Fano peak and crossing do not use a post-bond Erlang renewal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-unique-pausing-noise-resonance-and-a-sharp-super-poisson-trans--905b0ac177e0/RESULT.md",
+          "material_read": "Finding and Assumptions",
+          "method": "Local Resultary index and primary record mirror",
+          "title": "A unique pausing-noise resonance and a sharp super-Poisson transition",
+          "trigger": "Exact Fano crossover in an exclusion model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Transmission current alone would suggest throughput remains regular as the gate slows, whereas its asymptotic count variance becomes very large. The positive limiting current, sharp noise coefficient, and forced approach to sub-Poisson noise supply an exact benchmark where effective-rate averaging loses important information. This is useful in the single-vacancy sector and does not claim a general-density law or a unique crossover.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

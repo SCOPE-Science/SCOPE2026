@@ -1,7 +1,7 @@
 """Reproduce the exact polynomial and interval certificates for two sensor modalities.
 
 Run: python verification.py
-Requires sympy; optionally scipy for independent quadrature checks.
+Requires SymPy, SciPy and NumPy.
 """
 from __future__ import annotations
 from math import comb
@@ -76,15 +76,28 @@ coeff=[f.coeff(z,k) for k in range(7)]
 bern=[sp.factor(sum(coeff[k]*Q(comb(i,k),comb(6,k)) for k in range(i+1))) for i in range(7)]
 assert all(Q(-53)<q<Q(-52) for q in bern)
 
-pstar=sp.Poly(P,t).intervals(eps=Q(1,10**18))
-root_interval=[(lo,hi) for ((lo,hi),mult) in pstar if Q(41,100)<lo<Q(42,100) or Q(41,100)<hi<Q(42,100)][0]
-xstar=float((root_interval[0]+root_interval[1])/2)
-etastar=float(eta_equal.subs(t,xstar))
+# The prior derivative sign certificate makes this a complete root enclosure.
+lo=Q('0.41546852003567848322183923811836')
+hi=Q('0.41546852003567848322183923811838')
+assert Q(41,100)<lo<hi<Q(42,100)
+assert P.subs(t,lo)>0>P.subs(t,hi)
+# Jv and Vv are increasing throughout the interval. Use positive numerator
+# and denominator bounds for (A0*Vv−V0*Jv)/(Jv−A0).
+jlo,jhi=Jv.subs(t,lo),Jv.subs(t,hi)
+vlo,vhi=Vv.subs(t,lo),Vv.subs(t,hi)
+assert jlo>A0 and A0*vlo>V0*jhi
+elo=(A0*vlo-V0*jhi)/(jhi-A0)
+ehi=(A0*vhi-V0*jlo)/(jlo-A0)
+e_print_lo=Q('0.03486395077318212468')
+e_print_hi=Q('0.03486395077318212469')
+assert e_print_lo<elo<ehi<e_print_hi
+etastar=float((elo+ehi)/2)
 assert float(eta_p)< etastar < float(eta_hi)
 assert 0.03486 < etastar < 0.03487
 print('Exact formulas, monotonicity boundaries, endpoint comparison: PASS')
 print('Bernstein bound of P derivative on [0.41,0.42]:',float(min(bern)),float(max(bern)))
-print('Crossing time:', xstar, 'noise:', etastar)
+print('Crossing time:', sp.N((lo+hi)/2,28))
+print('Crossing noise lies between', sp.N(e_print_lo,19), 'and', sp.N(e_print_hi,19))
 
 # Independent numerical quadrature of the original kernels and selected optima.
 from scipy.integrate import quad

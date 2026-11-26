@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:35:54.183262Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 39–85: exact absolute-value convention, hypotheses, facet bounds and extremizer",
+        "VERIFICATION.md, lines 1–25",
+        "check.py, lines 15–47 and 50–78, inspected statically"
+      ],
+      "rationale": "For a>=1, z=-x attains the reverse triangle bound for every pair. For 0<=a<=1 write delta=||x-y||_infty and h(u)=max(1-a,|u|). The increment h(u+delta/2)-h(u-delta/2) is odd and nondecreasing by evenness and convexity, and at u=a it is min(delta,max(0,2a+delta/2-1)). On a shared facet z_1=-a and the sign of z_2=±a chosen according to the pair midpoint give at least this increment in absolute value. On adjacent facets the two pertinent square corners yield min(2a,alpha) and min(2a,beta), where alpha and beta are the coordinate gaps; their maximum dominates the desired bound. On opposite facets delta=2 and a shift toward one facet and toward the other point's transverse coordinate gives 2a. These cover boundary corners as well. The lower bound is nondecreasing in delta. For the centered pair (1,±d/2), fixing z_2 makes the norm difference nonincreasing in the common floor |1+z_1|, so the maximum is at z_1=-a and then |z_2|=a. This proves equality including a=0, d=2 and the regime endpoints. The displayed real map is a surjective isometry since (|u+v|+|u-v|)/2=max(|u|,|v|).",
+      "residual_risks": [
+        "The exact-rational grid checks were not rerun and are supplementary to the continuum proof. Nothing is inferred for complex perturbations or higher-dimensional cubes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kania–Kochanek Proposition 6 and Remark 5 give qualitative atom-count and strict-convexity criteria, and 61990e8279cd gives the qualitative ell_1-sum criterion.",
+          "Theorem B in Johnson–Kania is an exact formula on atomless real L^1. Resultary 072a2f172b7d concerns finite p>=2 at small a, and 102221e3c81d concerns R plus an ell_1-summed Hilbert space of dimension at least three."
+        ],
+        "reasoning": "The qualitative general results include failure of (S) for this plane but not the finite-a law. The quantitative results use different hypotheses, asymptotic regimes, or both; they do not contain this real two-atom case.",
+        "searches": [
+          "arXiv:1302.6443, OA query atomless",
+          "arXiv:2602.09106, OA query Theorem B",
+          "Resultary: Steinhaus criterion for ell_1-sums of strictly convex spaces two real scalar blocks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.09106 and arXiv:1302.6443",
+        "Published record mirror: 61990e8279cd, c83f634f9c2d, aa4958e78249, 072a2f172b7d, 102221e3c81d (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior real two-atom obstruction gives qualitative failure. Johnson–Kania give d min(4a/(2+d),1) under atomlessness and the signed convention. The permanence record aa4958e78249 does not assert a universal quantitative modulus."
+        ],
+        "reasoning": "Existence of a qualitative obstruction does not determine the sharp threshold as a function of separation or the ramp and saturation. The proof needs sharp arbitrary-pair/facet bounds and a simultaneous extremizer.",
+        "searches": [
+          "Kania–Kochanek Proposition 6 and Remark 5",
+          "Johnson–Kania Definition 1.1/1.2 and Theorem B",
+          "Resultary 61990e8279cd and aa4958e78249, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue hit 0b3a73691750 is this record itself. The real square and real two-atom ell_1 plane are exactly isometric.",
+          "Resultary c83f634f9c2d has complex perturbations and a fixed-d quadratic a-down-to-zero asymptotic. Johnson–Kania use the signed pairwise difference."
+        ],
+        "reasoning": "The two real norm aliases describe the same result; neither complexifying the space nor removing the absolute value preserves the modulus.",
+        "searches": [
+          "Resultary: exact Steinhaus visibility profile real square Banach plane real l_infty^2 closed ball norm-difference formula min(d,max(0,2a+d/2-1))",
+          "Resultary: real two atom ell_1^2 Steinhaus modulus perturbation closed ball visibility",
+          "arXiv:2602.09106, Definition 1.1/1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index match is the assigned record, not another result. The close quantitative outputs in the inspected statements are small-radius laws on other spaces or the atomless L^1 formula."
+        ],
+        "reasoning": "The claimed output is a continuous two-parameter profile, not a finite numerical table entry. No independently indexed exact formula for that profile was evidenced.",
+        "searches": [
+          "Resultary exact-profile and real two-atom queries above",
+          "Primary exact formula in arXiv:2602.09106, Theorem B"
+        ]
+      },
+      "rationale": "The distinct claim is the entire absolute-value modulus in the real square, not the qualitative failure of property (S). The frozen comparison with Johnson–Kania should not call their definition the exact same modulus: their Definition 1.1 uses a signed norm difference. This attribution imprecision does not change the mathematically explicit Finding. For example, at d=1 and a=2/5, the signed modulus of the square would be zero (take ordered x=(1,0), y=(1,1), so ||x+z||=|1+z_1|<=||y+z|| throughout the ball); the absolute-value modulus here is 3/10.",
+      "residual_risks": [
+        "The bounded general web search returned no usable comparison and is not evidence of absence. An unindexed exact absolute-value profile is possible; priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong quantitative comparator, not the same convention or measure space",
+          "evidence": "Definition 1.1 omits the absolute value; Theorem B uses atomless real L^1.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.09106",
+          "material_read": "PDF p. 2 Definitions 1.1/1.2, offsets about 6550–7113; p. 6 Theorem B, offset about 16400",
+          "method": "Open-access paper text, located by definition and theorem",
+          "title": "Uniform Property (S)",
+          "trigger": "Original quantitative Steinhaus modulus and L^1 formula"
+        },
+        {
+          "assessment": "Qualitative part covered",
+          "evidence": "Real L^1 has (S) iff there is at most one atom; real dimension at most two also admits a strict-convexity characterization.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.6443",
+          "material_read": "PDF p. 7, Proposition 6 and Remark 5, text offset about 19000",
+          "method": "Open-access paper text, located by atomless",
+          "title": "Steinhaus’ lattice-point problem for Banach spaces",
+          "trigger": "Prior qualitative obstruction for the precise real atomic plane"
+        },
+        {
+          "assessment": "Direct qualitative coverage only",
+          "evidence": "At most one real one-dimensional summand is allowed for (S).",
+          "identifier_or_url": "61990e8279cd",
+          "material_read": "Finding, offset 0; Relationship to prior work, offset about 6000",
+          "method": "Published record via local mirror",
+          "title": "Sharp Steinhaus criterion for ell_1-sums of strictly convex spaces",
+          "trigger": "Contains two real scalar summands"
+        },
+        {
+          "assessment": "Different scalar field and asymptotic regime",
+          "evidence": "The small-a coefficient d/(1-d^2/4) concerns unrestricted complex perturbations, not the real square.",
+          "identifier_or_url": "c83f634f9c2d",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Sharp quadratic Steinhaus modulus of the complex two-atom ell_1 plane",
+          "trigger": "Closest two-atom quantitative record"
+        },
+        {
+          "assessment": "Qualitative endpoint example only",
+          "evidence": "The positive permanence assertion has 1<p<infinity and does not assert a universal quantitative inequality.",
+          "identifier_or_url": "aa4958e78249",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Steinhaus permanence and its sharp exponent boundary for Banach spaces",
+          "trigger": "Permanence may cover a quantitative endpoint by an ell_p argument"
+        },
+        {
+          "assessment": "Does not cover the p=infinity finite-radius profile",
+          "evidence": "The displayed slope and error bound are small-radius, with p finite.",
+          "identifier_or_url": "072a2f172b7d",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Sharp small-radius Steinhaus modulus of real ell_p for p>=2",
+          "trigger": "Possible finite-p approximation to the square"
+        },
+        {
+          "assessment": "Different summand geometry",
+          "evidence": "The Hilbert summand has dimension at least three and the law is only an asymptotic.",
+          "identifier_or_url": "102221e3c81d",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Sharp quadratic Steinhaus modulus of a scalar–Hilbert one-sum",
+          "trigger": "Possible real ell_1 sum quantitative generalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–27, 63–85 and 93–101",
+        "Kania–Kochanek Proposition 6; related quantitative comparisons listed above"
+      ],
+      "rationale": "A qualitative counterexample to property (S) leaves open how much perturbation is needed to distinguish two norm profiles or to recover their full separation. This natural atomic model gives both sharp thresholds, the intervening slope, and a uniform extremizing pair. The result provides a quantitative benchmark not supplied by qualitative atomic obstructions or small-radius estimates in other geometries.",
+      "residual_risks": [
+        "This is value as a precise two-dimensional benchmark, not a claim about general polyhedral norms or atomic measure spaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

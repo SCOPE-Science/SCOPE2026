@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nine normalized line equations give exactly six double, four triple, and three quadruple points, accounting for all thirty-six line pairs. Resolution of seven higher singularities produces a stable graph curve with sixteen components and thirty nodes, hence genus fifteen. The character lattice is the integral cycle lattice, not merely its rationalization. The standalone exact-integer checker constructs all five signed Frobenius actions on that fifteen-dimensional lattice and verifies explicit unimodular bases for the asserted regular and sign blocks. The component, node, and branch orbit counts establish the complete zeta table over every extension. The general Picard and descent arguments are provided as mathematics, not inferred from finite experiments.
+## correctness
 
-## Originality — PASS, provisional
-The closest same-arrangement primary source is Bauer–Malara–Szemberg–Szpond, *Quartic unexpected curves and surfaces* (arXiv:1804.03610), which concerns the unexpected quartic attached to the dual point set rather than the resolved nine-line boundary or Frobenius tori. Geisser (arXiv:0704.0479) and Casalaina-Martin–Kass–Viviani (arXiv:1107.4166) supply the abstract nodal Jacobian formalism but no evaluated classification. Published Heawood-graph and Igusa fifteen-line arithmetic calculations use different graphs and symmetry groups and cannot imply the five B3 integral blocks. Actual searches of related B3 arithmetic, torus isomorphism and invariant tables identified no dominating result. Specialist historical priority remains uncertain; this is not a global uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-The projectivized B3 arrangement is a canonical reflection arrangement, and resolving its multiple points yields an intrinsic stable genus-fifteen boundary. The complete set of five integral Frobenius Picard-torus types and the order-four quadratic norm-one factor distinguish arithmetic structures invisible to rational Picard-lattice decompositions. Five full zeta functions evaluate the related node and branch arithmetic. This exact natural classification is a motivated contribution, not a single routine instance of a universal identity.
+The thirteen projective sign-pattern points account for all 36 line pairs (6 double, 4 triple, 3 quadruple), with no change in the declared characteristic. The seven blowups give a connected 16-vertex, 30-edge dual graph of minimum degree three, so the rational components give a stable genus-15 curve. The normalization units sequence identifies the character lattice as the kernel of the integral incidence map, not just the rational cycle representation. Independent reconstruction in /workspace/branches/check5.py used the sign-pattern points, directed graph edges, leaf-to-root cycle lifting and exact rational elimination to check all five integral basis certificates with the supplied seeds; determinants are 1, 1, -1, 1, -1. The five representatives act on the long diagonals with the asserted cycle types and sizes. No edge orientation is reversed, so each node orbit contributes two branch orbits of the same length. A fixed component of the normalization contributes q^r+1 points over F_(q^r) (a finite-field form of P^1 is split); subtracting fixed branches and adding fixed nodes yields the stated zeta products for every extension degree. The integral regular and sign blocks give the displayed restriction and norm-one tori and their cyclic groups of points. The two involutions have different fixed lattice ranks, and the other three actions have different orders. This does not classify twists by any additional abstract automorphisms.
 
-## Scope and residual risks
-Characteristic greater than three only; only twists from the specified projective signed-coordinate permutation group, and only the connected Picard torus of the indicated nodal divisor. Additional forms and Néron groups of arbitrary smoothings are not classified. Exact matrix certificates are reproducible but not independent external validation. Unindexed preexisting representation-theoretic or arrangement studies might affect priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The arrangement, Picard-lattice formalism and close arithmetic analogues are established. The inspected evidence does not cover the integral cycle actions and zeta functions for this resolved plane B3 divisor. The same-day Cayley nine-line calculation was compared on its merits, not excluded by date. This is an evidence-bounded decision, not a claim of historical priority.
+
+## value
+
+PASS
+
+The canonical reflection arrangement and its full prescribed geometric symmetry group motivate a complete arithmetic classification, rather than a class selected after computation. For this genus-15 curve the integral table differentiates restriction and norm-one factors that an eigenvalue table does not determine individually. It supplies explicit torus isomorphism types, their finite rational-point groups, and extension-degree counts for every specified twist, useful as exact data for comparison with other arithmetic graph curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

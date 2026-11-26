@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:58:25.433358Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent check by stationary time correlations rather than the supplied raw-moment recurrence: set a_n=r/(r+n²), a=a_1, f=cos(theta)−a, g=cos(2 theta)−a_2, V=(1+a_2)/2−a² and C=(a+a_3)/2−a a_2. The reset semigroup acts on f and g with rates gamma=r+1 and delta=r+4. Since f²=V+g/2−2af, for ordered times 0,x,x+y the triple correlation is exp(−gamma y)[exp(−delta x) C/2−2a exp(−gamma x)V]. Three time integrals for the stationary exponential filter, split into six time orderings, give 2 v³/[beta(2 beta+gamma)] times [C/(2(beta+delta))−2aV/(beta+gamma)]. Exact symbolic factoring of this expression reproduced every factor in the Finding, giving −11776/197505 at beta=v=1, r=1/2. Bounded angular forcing, stable filtering and the independent Gaussian OU thermal part justify the integrals and the D-independent third cumulant, including at D=0. Strictness extends over the whole positive parameter range by positivity of every denominator factor and of the polynomial in the numerator. For the contextual free statement, stationarity of the angular preparation matters: the longitudinal-minus-transverse velocity-covariance prefactor is a_2−a²=r(1−2r)/[(r+4)(r+1)²] and both decay at rate gamma, so the free-displacement covariance is isotropic at r=1/2 for all lags under this preparation, with zero cross term by reflection. This is not a claim of finite-time equality for arbitrary initial headings. The uploaded check was read but not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shee resets both position and orientation to their reset values and lists orientation-only resetting in a harmonic trap as future work. Kumar et al. describe orientation-only resetting without confinement and no positional stationary state.",
+          "Record 554b8e1b368c resets both variables and studies the mixed Cov(X,Y²), not the longitudinal third central moment."
+        ],
+        "reasoning": "These are not general families including the frozen finding. In particular, resetting x as well as theta changes the moment equations, not just an angular reset parameter.",
+        "searches": [
+          "Shee, arXiv:2409.06920v1, §2 and conclusion",
+          "Kumar–Sadekar–Basu, arXiv:2008.03294, protocol definitions",
+          "Resultary record 554b8e1b368c"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index and records feb740e47874, 554b8e1b368c",
+        "arXiv:2405.06769v1",
+        "arXiv:2409.06920v1",
+        "arXiv:2008.03294",
+        "Primary-literature lookup on orientation-only harmonic trapping"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stationary cumulant here is a double Laplace transform of the centered angular triple correlation with specific trap-dependent arguments after integrating out the common past time. The free long-time cumulant rate has no trap parameter; the free second-order formulas do not determine the angular triple correlation.",
+          "In the joint-reset protocol the position is discontinuous at resets, changing the generator on x and all mixed x moments."
+        ],
+        "reasoning": "Established generator and semigroup methods apply, but the checked formulas neither yield this invariant by substitution nor establish its globally strict sign. The closed stationary mixed-moment calculation (or the ordered three-time transform) and its factorization are needed.",
+        "searches": [
+          "Baouche et al., free-space low-order moments",
+          "Shee, harmonic model with joint resetting",
+          "Resultary records feb740e47874 and 554b8e1b368c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A centered third cumulant is the third central moment, not the standardized skewness reported for free displacements in Eq. 22. An unstandardized trapped third cumulant is unchanged by an independent Gaussian summand, whereas the standardized statistic can change with diffusivity.",
+          "Catalog record feb740e47874 is about directional cumulant rate per unit time in free space, not a stationary filtered position."
+        ],
+        "reasoning": "The time-integrated finite-frequency filter in the trap is not equivalent to the long-time cumulant rate of unconfined motion. The check includes the reduced reset rate r=lambda/D_rot and the stationary orientation preparation for the known isotropy fact.",
+        "searches": [
+          "Resultary: orientation-only reset ABP stationary harmonic-trap third moment / longitudinal skewness",
+          "Baouche et al., arXiv:2405.06769v1, Eqs. 18–22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The detailed closest catalog hits feb740e47874 and 554b8e1b368c concern free-space or joint-reset cumulants. Baouche et al. give the two exact free centered variances and the effective diffusivities, including the r=1/2 equality in their stationary angular preparation.",
+          "No exact table of the frozen stationary trapped third moment was identified among these sources. The general web lookup returned no results and is not negative evidence."
+        ],
+        "reasoning": "There is exact published coverage of the contextual covariance result but the equations and catalog claims actually inspected do not give the boxed three-parameter invariant.",
+        "searches": [
+          "Focused Resultary searches on orientation-only resetting, harmonic trapping and third cumulants, including a 300-result query",
+          "Baouche et al., arXiv:2405.06769v1, Eqs. 18–22",
+          "Primary literature lookup on stationary orientation-only-reset motion in a harmonic trap"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact all-positive-parameter stationary longitudinal third central moment for harmonic confinement with orientation-only resetting. The known free-space covariance comparison is context, not a novel assertion. The strongest checked trap, free-space and related catalog results constrain different protocols or different cumulants.",
+      "residual_risks": [
+        "Bounded comparison to accessible passages and preprint versions, not a priority determination or exhaustive search of later versions and unindexed work.",
+        "General moment methods are established; a publication using the same generator could cover this exact filtered moment even without using the term skewness. No such implication from the specific checked claims was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of stationary-preparation free covariance context, not trapped third cumulant",
+          "evidence": "Eq. 17 explains the stationary preparation. Eqs. 18a,b share the same time factor and their active prefactors coincide at Λ=1/2; Eq. 22 concerns standardized free-displacement skewness.",
+          "identifier_or_url": "https://arxiv.org/html/2405.06769v1",
+          "material_read": "Free model Eqs. 1a–1c; §III.1 Eqs. 17–22; HTML offsets 5500 and 22200–26263, 29612–30416",
+          "method": "OA HTML bounded passages",
+          "title": "Active Brownian particle under stochastic orientational resetting",
+          "trigger": "Same angular reset process, exact covariance and longitudinal third-order statistics"
+        },
+        {
+          "assessment": "Distinct joint-reset protocol",
+          "evidence": "Both coordinates and heading reset; conclusion identifies orientation-only harmonic resetting as a further protocol.",
+          "identifier_or_url": "https://arxiv.org/html/2409.06920v1",
+          "material_read": "Abstract, §2 Eqs. 1–3 and conclusion, HTML offsets 0, 6100 and 43915",
+          "method": "OA HTML bounded passages",
+          "title": "Active Brownian particle under stochastic position and orientation resetting in a harmonic trap",
+          "trigger": "Same harmonic confinement and orientation resetting, possible inclusivity of reset protocol"
+        },
+        {
+          "assessment": "Unconfined motion",
+          "evidence": "Orientation-only resetting in free space does not produce a stationary positional law.",
+          "identifier_or_url": "arXiv:2008.03294",
+          "material_read": "Abstract and protocol passages, HTML offsets 0 and 6825",
+          "method": "OA HTML and PDF date check",
+          "title": "Active Brownian Motion in two-dimensions under Stochastic Resetting",
+          "trigger": "Early orientation-only reset protocol"
+        },
+        {
+          "assessment": "Different observable and limit",
+          "evidence": "Directional third cumulant rate per time for free displacement, including optimization over direction.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-sharp-off-axis-third-cumulant-transition-for-orientationally-r--feb740e47874",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp off-axis third cumulant transition for orientationally resetting active motion",
+          "trigger": "Closest catalog match in reset protocol and cumulant order"
+        },
+        {
+          "assessment": "Different protocol and invariant",
+          "evidence": "Joint reset with mixed stationary cumulant Cov(X,Y²).",
+          "identifier_or_url": "2026/11/8/SCOPE-a-unique-transverse-third-cumulant-reversal-under-complete-reset--554b8e1b368c",
+          "material_read": "Finding passage",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A unique transverse third cumulant reversal under complete resetting",
+          "trigger": "Closest catalog match in stationary resetting cumulants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Orientation-only resetting in the trap is a motivated protocol not reducible to complete resets. The first odd centered position moment is a natural quantitative test of stationary asymmetry: the strict sign has no rate or trap-strength reversal and cannot be removed by thermal diffusion or by tuning the rate to eliminate the free covariance anisotropy. The exact formula is useful without claiming a density classification or priority for the free-space comparison.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:40:14.101270Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent Brownian walkers the dimensionless no-reset survival is erf(t^(−1/2))^N, so the k-th raw moment is 2k times the stated u-integral, which is finite exactly for N>2k. Under the common independent exponential clock it is a reset before completion that renews the whole ensemble. Laplace-transforming this renewal equation gives F(q+s)/(1−qF(q+s)); the denominator at s=0 is strictly positive since there is positive probability of completing before reset. Differentiation in s gives the mean and second moment and their variance quotient in RESULT.md. Dominated differentiation at q=0 uses only three baseline moments, including for N=7. In particular C=−2F′/F²−1, so the cancellation leaves C′(0)=G_N/m₁³. A strict right derivative fixes the difference from the zero-rate value for sufficiently small q>0, not global monotonicity. Independently ran `python /workspace/reproductions/check_reset_intervals.py`: Machin's π identity and alternating series bound 2/√π; integer-directed Horner evaluation brackets erf using truncations at indices 109 and 110; exact rational cell weights with directed sums use monotonicity. The first cell uses erf(u)≤(2/√π)u, and the upper tail uses erfc(4)≤exp(−16)/(4√π)<2e−8, proved with a lower Taylor bound on exp(16). Rational arithmetic confirms every strict sign for N=7,…,12. For the tight G_11 case an outward bracket is [−0.001981,−0.001197]. The frozen script's 75-digit Decimal arithmetic does not literally direct every final rounding outward; the independent certificate closes that gap for the signs and supports the displayed rounded brackets. No signs are inferred for other N or finite rates outside a local neighborhood.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reuveni gives general first and second moments for Poisson restart, including unit relative standard deviation at an active mean optimum; Linn–Lawley give the rescaled exponential law and moment asymptotics as r→∞."
+        ],
+        "reasoning": "General formulas and a condition at an active optimum do not certify the competing zero-rate third-moment inequalities for this survival law; the high-rate limit gives no weak-rate sign.",
+        "searches": [
+          "arXiv:1512.01600 Eq. 7 and adjacent derivation",
+          "arXiv:2302.05409 frequent-reset moment limit"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, check.py, enclosure artifact and verification notes",
+        "Resultary assigned record and independent-reset rank threshold entry",
+        "arXiv:2303.18012, 1512.01600, 2302.05409"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean-only result compares m₂ with 2m₁²; the variance and relative-dispersion slopes additionally compare m₃ with distinct functions of m₁,m₂. In particular the N=10,11 changes of variance and CV² have opposite signs."
+        ],
+        "reasoning": "The available prior statements do not imply the sign partition without model-specific moment estimates. The bare derivative identities are algebraic specializations and are not a distinct contribution.",
+        "searches": [
+          "arXiv:2303.18012 pp. 6–8",
+          "arXiv:1512.01600 pp. 3–4",
+          "arXiv:2302.05409 p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit is the assigned finding. The distinct rank/population-threshold record 805d28b64016 uses a separate independent clock per walker and studies the mean slope of k-th arrivals.",
+          "Biroli–Majumdar–Schehr explicitly call the common-clock protocol B and obtain the mean threshold."
+        ],
+        "reasoning": "Scaling resetting rate by t₀ and replacing positive CV by its square do not change signs; changing from independent clocks to one common clock changes the renewal law of the ensemble.",
+        "searches": [
+          "Resultary common-clock Brownian weak-reset mean variance CV squared and first-passage moment response",
+          "arXiv:2303.18012 protocol B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching six-population table returned by the catalog is the same record. The inspected model paper gives N_c≈6.3555864 for mean response, not a joint variance/CV² table."
+        ],
+        "reasoning": "The known cutoff supplies all six mean signs only; it cannot stand in for actual upper and lower bounds for B_N and G_N.",
+        "searches": [
+          "Resultary exact joint weak mean variance CV² signs, protocol B, N=7 through 12",
+          "Biroli–Majumdar–Schehr arXiv:2303.18012, pp. 6–8"
+        ]
+      },
+      "rationale": "The distinct claim is the joint local comparison of the absolute variance and squared relative dispersion with the known positive mean slope, not the resetting model, general renewal formulas, or mean transition.",
+      "residual_risks": [
+        "An unindexed exact specialization of general restart moment inequalities could cover the remaining signs. A web lookup returning unrelated results has no negative evidentiary weight."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the shared process and all claimed mean increases",
+          "evidence": [
+            "Protocol B resets all walkers simultaneously; above N_c=6.3555864… weak reset delays completion on average."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.18012",
+          "material_read": "p. 2 protocol definition; pp. 6–7 renewal and MFPT; p. 8 transition (offsets 7443, 28367, 37960)",
+          "method": "Primary OA PDF passages",
+          "title": "Critical number of walkers for diffusive search processes with resetting",
+          "trigger": "Same model, protocol B and weak mean transition"
+        },
+        {
+          "assessment": "Underlying moment relations known; not the population-dependent sign classification",
+          "evidence": [
+            "Generic first and second moments and unit CV at a positive mean optimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.01600",
+          "material_read": "pp. 3–4, Eq. 7 and following text, offset 22373",
+          "method": "Primary OA PDF passage",
+          "title": "Optimal stochastic restart renders fluctuations in first passage times universal",
+          "trigger": "Broad Poisson restart fluctuation theory"
+        },
+        {
+          "assessment": "Different rate regime",
+          "evidence": [
+            "Rescaled completion time converges to Exp(1), with moments asymptotic to m!/(rp₀)^m for frequent resets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05409",
+          "material_read": "p. 2, offset 6039",
+          "method": "Primary OA PDF passage",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "Potential moment asymptotics covering weak reset"
+        },
+        {
+          "assessment": "Independent clocks and mean sensitivity only; no same-day priority inference",
+          "evidence": [
+            "k-th arrivals with each walker reset independently."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-rank-population-threshold-ordering-and-finite-size-shift-f--805d28b64016",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary search and local-mirror passage",
+          "title": "Exact rank-population threshold ordering and finite-size shift",
+          "trigger": "Adjacent zero-rate sensitivity catalog hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At and immediately above the known mean threshold the six natural population sizes exhibit three strict risk tradeoffs: variance may fall as the mean grows, or absolute variance may rise while relative dispersion falls, or all may rise. This is useful for choosing a risk measure under common-clock restart. The certified comparisons add information not available from the mean optimum or a curve fit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

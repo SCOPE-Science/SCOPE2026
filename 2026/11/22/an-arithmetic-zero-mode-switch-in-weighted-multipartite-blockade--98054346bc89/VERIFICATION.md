@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-`verify_kernel.py` enumerates the complete physically allowed excitation configurations independently of the local-cube proof and constructs the weighted constrained spin-flip Hamiltonian. It compares the exact rational nullity and the vacuum orthogonal spectral projector against the signed-sum formulas for 17 independent three- and four-part cases, including the specified odd-part tuned and detuned examples. All 17 cases passed.
+## correctness
 
-`verify_resolvent.py` constructs the allowed-state adjacency Hamiltonian with a separate enumeration and compares its exact rational scalar vacuum resolvent at three energies with the sum of the local weighted-cube resolvents. All 24 comparisons across eight physical configurations passed.
+PASS
 
-`CHECKS.txt` contains the full actual success output. Run with `python verify_kernel.py` and `python verify_resolvent.py`, with Python 3 and SymPy available. The two methods differ (kernel/projector versus rational resolvent) and have distinct constrained-configuration constructors. They check finite instances only. The infinite all-size and arbitrary-real-drive result rests on the explicit Walsh and gluing proof in `RESULT.md`. No independent external scientific audit has been performed. All source-priority claims are restricted to examined evidence.
+Perfect blockade leaves the union of weighted cubes with only the vacuum identified. The tensor X eigenbasis gives local signed sums and root mass a_i=d_i/2^{m_i}. A 0-mode restricts to H_i v_i=alpha_i e_i with common root amplitude and sum alpha_i=0. If d_i>0, local kernel overlap with the root forces alpha_i=0; if d_i=0, chirality gives (H_i^{-1})_{e_i,e_i}=0 and the restriction has zero root amplitude. Hence all-resonant nullity is 1+sum(d_i-1); otherwise add q-1 root sources to sum over resonant parts of (d_i-1). In the all-resonant case the minimum squared norm at prescribed root amplitude 1 is sum 1/a_i-(r-1), subtracting the duplicate root contributions. This proves the atom by reciprocal norm; the other case has zero atom. Independently, the root Schur complement is [sum 1/g_i-(r-1)z]^{-1}; paired opposite energies give g_i=a_i/z+O(z) when resonant and g_i=-B_i z+O(z^3), B_i>0, otherwise, so no divergent inverse terms cancel. The spectral theorem averages the complex amplitude, not its modulus squared. The Stirling law and tuned (8,3/20) versus detuned (6,0) example follow from the exact counts. Inspected both supplied rational-check programs, their stated replay paths and CHECKS.txt (17 and 24 comparisons); no uploaded program was executed and no finite test is needed for the real-weight theorem.
+
+## originality
+
+PASS
+
+Pass on the explicit signed-partition criterion, exact physical vacuum atom and full nullity for arbitrary positive site weights and r>=3. Neither the local cube spectrum, generic coalescence identity, nor a parity-switch mechanism in isolation is original. No equivalent covering statement was established in examined sources.
+
+## value
+
+PASS
+
+The completely unexcited state's zero-frequency atom is a natural exact dynamical observable; total kernel size alone cannot distinguish whether it is visible from that state. The all-parts signed-partition condition and reciprocal mass quantify that distinction on an infinite graph family with arbitrary positive drive ratios. The three-part example shows why a parity-only rule fails. The result does not predict finite-time discontinuity, softened-blockade behavior, or lifetimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

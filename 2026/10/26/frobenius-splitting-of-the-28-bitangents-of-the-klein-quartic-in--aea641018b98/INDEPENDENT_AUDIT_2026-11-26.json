@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:17:22.322504Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the literal model the partials have no common zero with a zero coordinate, and multiplying the three gradient equations in the torus would give 1=(-3)^3=3 in F5. In the dual chart Z=uX+vY the quartic coefficients are (u^3,1+3u^2v,3uv^2,u+v^3,v). For u=0, the X^3Y coefficient is 1 despite a zero X^4 coefficient, excluding a square. For u!=0, the monic quadratic factor has coefficients beta=B/(2A), gamma=(4AC-B^2)/(8A^2); matching the last two quartic coefficients gives the asserted P,Q. The independent exact resultant reproduction /workspace/reproductions/1.py (Python 3/SymPy) factors the nonzero-u eliminant and checks Frobenius irreducibility and both square equations at v=-u^26 in each residue field. There are 28 distinct candidates from degrees 1,3,6,6,6,6 with multiplicities one. The classical odd-characteristic bitangent count exhausts them, including any omitted chart; directly, X=0 restricts to Y^3 Z, and Y=kX in that chart has an XZ^3 term but no Z^4 term. The sole linear factor u+1 gives v=-1 and X+Y+Z=0. The reproduction evaluates beta^2-4gamma and its field Euler power as -1 on the linear factor and +1 on every other factor: all discriminants are nonzero, with the rational line's two contacts exchanged over F5 and each other pair split over its line field. Each split point individually needs its line field, since its tangent line descends with the point on a smooth curve. The orbit lengths give the stated extension counts and the common splitting extension F_(5^6), which contains F25 and is required by the degree-six line orbits. The reproduction certifies only this model and characteristic, not twists or other primes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later 332d2be7d5dd theorem uses Q(zeta_7) on the exact model and gives 1^1 3^1 6^4 in the p=3,5 mod 7 row, covering the full frozen line claim for p=5. Its field of definition is for lines, allowing hyperflexes, not the arithmetic splitting of the contact divisors.",
+          "Janasz–Pokora–Zieliński §3 Prop. 3.1 treats complex incidences; Elkies gives the transitive geometric contact orbit and the contact quadratic on the named line. An alternate-copy search for Jeurissen–van Os–Steenbrink yielded no inspected primary text."
+        ],
+        "reasoning": "The broader line theorem really does cover the characteristic-five special case, not just an analogous congruence. Date and scope are separate: the compared result is later-dated and does not prove contact splitting. Cyclotomic generators and geometric orbit descriptions are important computational inputs but do not give the exact Frobenius action without evaluating descent for this finite-field reduction.",
+        "searches": [
+          "Resultary 332d2be7d5dd Cyclotomic Frobenius classification, Finding and Steps 2–4",
+          "Klein quartic bitangent incidence/theta actions and possible cyclotomic fields",
+          "Jeurissen van Os Steenbrink The configuration of bitangents of the Klein curve 1994 pdf full text Radboud repository DOI characteristic five"
+        ]
+      },
+      "checked_sources": [
+        "Elkies, The Klein Quartic in Number Theory",
+        "arXiv:2410.09242v1",
+        "Janasz–Pokora–Zieliński, On arrangements of smooth plane quartics and their bitangents",
+        "Jeurissen–van Os–Steenbrink (bibliographic only)",
+        "Resultary 79484edb8cd9, 332d2be7d5dd, 8f153f4c7a23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Elkies's restriction -(X^2+XY+Y^2)^2 directly implies the rational line is bitangent and its contacts require F25 (the discriminant is 2 mod 5). It does not give uniqueness of that line over F5 or the Euler signs for the remaining orbits. The published geometric configuration gives no verified exact arithmetic orbit table in the passages inspected."
+        ],
+        "reasoning": "The crucial remainder is the arithmetic line permutation and the uniform descent of the nonrational contact pairs, not the special line or the geometric count 28. A geometric group orbit over a larger field lacks the rational-equivariance needed to propagate the rational-line contact calculation to every other line.",
+        "searches": [
+          "Elkies pp. 64–66, the bitangent/contact orbit and square restriction; discussion of characteristic three",
+          "Bethea–Brazelton arXiv:2410.09242v1 geometric Klein action",
+          "Janasz–Pokora–Zieliński §3 Prop. 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later catalogue record 79484edb8cd9 describes the same model and the same affine dual equations in aX+bY+Z=0, with b=a^26 and P(a)=0. Under u=-a and v=-b this gives the frozen parameter relation and polynomial H. Its exact line-orbit counts and unique rational line overlap completely.",
+          "In odd characteristic Frobenius on odd theta characteristics gives the line permutation. An arithmetic line cycle type does not, by itself, distinguish splitting versus exchange on a pair of distinct contacts; the latter amounts to the quadratic-character test on the contact divisor. Bethea–Brazelton's action on the complex configuration is instead geometric automorphism action."
+        ],
+        "reasoning": "A dual chart or using odd theta characteristics is not a new invariant if it gives the same arithmetic action. An automorphism-group orbit over the algebraic closure, or a permutation of the lines alone, does not establish the contact descent.",
+        "searches": [
+          "Resultary: Klein quartic F5, bitangent fields, Frobenius on theta characteristics and contact points",
+          "Resultary 79484edb8cd9 RESULT.md Finding and elimination",
+          "Elkies, The Klein Quartic in Number Theory, model and bitangent orbit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two 2026/11/2 entries have the exact characteristic-five line counts, on the same displayed equation. The distinct 2026/10/26 entry 8f153f4c7a23 has the same numerical cycle type over F3, on that equation in a different characteristic, where bitangents are hyperflex tangents. It cannot supply the present two-distinct-contact analysis.",
+          "No exact table of characteristic-five contact fields was verified in these passages. Elkies's explicit formula gives the exceptional line's contact quadratic without any new line computation."
+        ],
+        "reasoning": "The later catalogue line matches and the classical named line are real overlaps. The same-day F3 match is kept distinct by characteristic and contact type, not dismissed by date. Catalogue dates alone do not establish priority.",
+        "searches": [
+          "Resultary: number of rational bitangents, F5 Klein quartic, reduced line scheme, contact extension",
+          "Resultary 79484edb8cd9, 332d2be7d5dd, 8f153f4c7a23 Findings"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact arithmetic spectrum for this characteristic-five model together with the complete contact-field behavior. The model, named line, its contact quadratic and geometric symmetry are classical. Two distinct later-dated catalogue records cover the line calculation, one by an equivalent elimination and one as a row of a broader classification; neither is credited as a distinct line invariant of this record relative to that later content, and neither gives the contact-field classification. No earlier statement or direct implication of the complete arithmetic split was verified in the inspected sources.",
+      "residual_risks": [
+        "The Jeurissen–van Os–Steenbrink full text was not inspected and might include equivalent data. Other historical computations of theta or contact configurations could imply the exact answer. The available comparisons are bounded, and later catalogue dates do not settle all provenance or historical priority questions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The model, line and contact quadratic are prior; no inspected characteristic-five arithmetic census.",
+          "evidence": [
+            "The 56 characteristic-zero contact points form a geometric orbit, with the bitangents obtained by pairing. The named line restricts to -(X^2+XY+Y^2)^2."
+          ],
+          "identifier_or_url": "https://library.slmath.org/books/Book35/files/elkies.pdf",
+          "material_read": "Equation (1.9); pp. 64–66 contact/bitangent orbit and square identity; characteristic-three comparison at PDF p. 32",
+          "method": "Direct OA PDF passages",
+          "title": "The Klein Quartic in Number Theory",
+          "trigger": "Classical literal model, bitangents and possible contact-field coverage"
+        },
+        {
+          "assessment": "Geometric symmetry action, not the arithmetic F5 action of the frozen model.",
+          "evidence": [
+            "The order-168 Klein symmetry acts transitively on bitangents in the characteristic-zero comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.09242v1",
+          "material_read": "OA PDF p. 3 on the Klein quartic and its orbit",
+          "method": "Primary OA PDF passage",
+          "title": "Bitangents to symmetric quartics",
+          "trigger": "Potential equivalent theta or orbit action"
+        },
+        {
+          "assessment": "Incidences rather than arithmetic line or contact fields.",
+          "evidence": [
+            "The checked proposition describes the line arrangement on the Klein configuration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.16514",
+          "material_read": "Section 3, Proposition 3.1, HTML offset around 11601",
+          "method": "Primary OA HTML passage",
+          "title": "On arrangements of smooth plane quartics and their bitangents",
+          "trigger": "Possible exact Klein bitangent configuration data"
+        },
+        {
+          "assessment": "Unresolved possibility of equivalent arithmetic data; not evidence of noncoverage.",
+          "evidence": [
+            "The identified article's object is exactly the Klein bitangent configuration."
+          ],
+          "identifier_or_url": "Jeurissen–van Os–Steenbrink, Discrete Mathematics 132 (1994), 83–96",
+          "material_read": "Bibliographic identification only; no primary full text located in bounded lawful lookup",
+          "method": "Focused literature and alternate repository search",
+          "title": "The configuration of bitangents of the Klein curve",
+          "trigger": "Historical exact Klein configuration and possible arithmetic implications"
+        },
+        {
+          "assessment": "Line-spectrum coverage established for both separate later records. No same contact-field result in those passages.",
+          "evidence": [
+            "First: 1,3,6,6,6,6 and X+Y+Z=0. Second: 1^1 3^1 6^4 for p=3 or 5 mod 7 with exact p-reduction of the cyclotomic configuration."
+          ],
+          "identifier_or_url": "Resultary 79484edb8cd9 and 332d2be7d5dd",
+          "material_read": "First RESULT.md Finding, elimination, rational-line passage (around offset 3493), scope; second Finding and Steps 2–4 (offsets 0–6080)",
+          "method": "Local mirror",
+          "title": "Arithmetic bitangents of the Klein quartic in characteristic five; Cyclotomic Frobenius classification of the Klein quartic bitangents",
+          "trigger": "Exact and broader matches for the line spectrum"
+        },
+        {
+          "assessment": "Different characteristic and contact geometry.",
+          "evidence": [
+            "Over F3 the bitangent lines are hyperflex tangents."
+          ],
+          "identifier_or_url": "Resultary 8f153f4c7a23",
+          "material_read": "RESULT.md Finding and model (offset 0)",
+          "method": "Local mirror",
+          "title": "Frobenius-twisted tangent residuals and bitangent fields of the Klein quartic",
+          "trigger": "Same-day distinct result with identical cycle lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For this canonical smooth quartic, the arithmetic fields of theta/bitangent data and of their tangent points are natural separate invariants. The complete arithmetic census gives both the minimal field for the configuration and a specific descent distinction: the unique rational bitangent has no rational contact, but every nonrational line already splits its two contacts over its own field. The degree-three orbit is particularly not decided by knowing that everything is defined over F_(5^6) or by the geometry of the classical named line. This is more than confirming the classical line or recomputing a geometric orbit size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

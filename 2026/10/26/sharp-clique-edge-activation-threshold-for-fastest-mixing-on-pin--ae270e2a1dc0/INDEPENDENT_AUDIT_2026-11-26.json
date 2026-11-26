@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:38:13.756593Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–71; VERIFICATION.md; verify.py inspected, not executed",
+        "Independent bounded replay: python /workspace/reproductions/independent_checks.py 4 (SymPy 1.14.0)",
+        "Analytic embedding certificate and equality case as reconstructed above"
+      ],
+      "rationale": "An independent spectral upper bound uses an embedding with hub at zero. The other n−1 clique vertices have a regular simplex of side one in an orthogonal plane or subspace, of squared circumradius (n−2)/(2(n−1)), translated along an axis to height S_n/(n−1) so every hub edge has length one. Their resultant is S_n along the axis. If m<S_n, put all pendant vertices at the opposite axial unit vector. Otherwise use unit vectors with common axial coordinate −S_n/m and transverse components summing to zero; m>=2 permits this, and the equality case has zero transverse component. All graph edge lengths are at most one, and the centered sum of squared norms is D_{n,m}. Applying the Rayleigh inequality to each centered coordinate gives lambda_2*D_{n,m}<=sum_e w_e times its squared length<=B for every feasible weight vector. For attainability, the two difference spaces have eigenvalues c and a+(n−1)b; the nonzero quotient roots have sum na+(m+1)c and product (n+m)ac. Substitution of the stated active weights gives one quotient root equal to 1, the other greater than 1, and the difference-space constraints, with exact cost D_{n,m}. At and above equality the stated uniform star has unit target gap. If m>=S_n, equality in the embedding bound forces its nonzero centered axial coordinate vector to be a lambda_2 eigenvector. At each non-hub clique vertex, interior clique terms cancel (same axial value); at each leaf there is one term. Because all these axial entries are nonzero and the centered hub entry is zero, every hub edge has weight lambda_2, consuming the budget and forcing the claimed zero weights, including at m=S_n. If m<S_n, omitting all interior clique edges reduces to a star, whose best gap is B/(n+m−1) by averaging, strictly below the optimum. The exhibited active design has every edge positive.",
+      "residual_risks": [
+        "Replay independently checks the symbolic active cost and quotient polynomial at 1 only; it does not constitute an all-allocations certificate. That bound and the support statement follow analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The separator-shadow paper derives ray placement for nonheavy pieces of an articulation splitting and hub centering when the articulation is central in the graph-distance sum criterion. On the pineapple the piece distances sum to n−1 for the clique and 1 for each leaf, so its sufficient hub-centering criterion covers m>=n−1. Its examples treat a simplex for a standalone clique and a graph with independent vertices adjacent to every clique vertex, not the pineapple threshold.",
+          "The general FMMP duality is exact; its §5.1 example is a finite unequal-cost instance with different attachments. Topcu–Sorgun–Haemers study adjacency spectra of the very same pineapple topology."
+        ],
+        "reasoning": "The sufficient articulation criterion uses distances within components, not the lower feasible resultant S_n imposed by unit clique edge lengths. It does not decide the transition in the range m<n−1 or compute the active conductance budget. Adjacency cospectrality does not address variable-weight Laplacians.",
+        "searches": [
+          "Embedded in the Shadow of the Separator Göring Helmberg Wappler pdf absolute connectivity",
+          "Göring–Helmberg–Wappler §5, especially Def. 25 and Cors. 28–30",
+          "DOI:10.1137/S0036144504443821 §4",
+          "arXiv:1511.08674"
+        ]
+      },
+      "checked_sources": [
+        "Primary and catalogue passages enumerated above; also the catalogue findings for pineapple curvature distortion (2026/10/4), a single-leaf pendant complete bipartite graph (2026/10/26), and transitive one-leaf corona mixing (2026/11/2), all distinct in objective or attachment"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior dual plus balanced unit vectors readily gives the star-dominated large-leaf slice m>=n−1, compatible with the earlier central-articulation criterion. The unit clique simplex (in the prior examples) is useful input, but a full solution here requires controlling its shifted resultant against the m pendant edges and certifying attaining primal weights and an all-optimizers statement."
+        ],
+        "reasoning": "General variational formulations and ray-placement theorems leave a graph-specific optimization and a nontrivial equality analysis. They do not mechanically give the (S_n−m)_+^2 term, the sharp threshold below n−1 or the support dichotomy across it. The discrete-time SLEM phases cannot substitute for that implication.",
+        "searches": [
+          "DOI:10.1137/S0036144504443821 §4",
+          "DOI:10.1137/050639430, preprint Cors. 28–29 and Example 21",
+          "Resultary 2026/11/8/SCOPE-sharp-fastest-mixing-transition-on-pineapple-graphs--2240321d233d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Sun–Boyd–Xiao–Diaconis geometric dual is the centered Euclidean variance with per-edge distances at most one for equal conductance costs; its optimum is the minimal budget for a unit spectral gap. Göring–Helmberg–Wappler treat the corresponding absolute algebraic connectivity framework.",
+          "The discrete-time pineapple article optimizes SLEM and permits holding probabilities; its threshold is r=a in its notation."
+        ],
+        "reasoning": "The unit-gap budget, absolute algebraic connectivity and equal-length variance dual are equivalent after normalization, so coverage could appear in those forms. The stochastic-matrix SLEM optimum depends also on the top Laplacian eigenvalue and row probability constraints, so the same graph is not enough for equivalence.",
+        "searches": [
+          "absolute algebraic connectivity pineapple graph complete graph pendant leaves Fiedler block graphs fastest mixing maximum variance unfolding clique cut vertex exact",
+          "DOI:10.1137/S0036144504443821",
+          "DOI:10.1137/050639430",
+          "Resultary 2026/11/8/SCOPE-sharp-fastest-mixing-transition-on-pineapple-graphs--2240321d233d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-topology price cutoff is for minimizing total effective resistance with a separate interior-edge price. The same-topology mixing cutoff is for discrete time. The lollipop and two-clique gateway have budgeted Laplacian support cutoffs but different vertices and attachments."
+        ],
+        "reasoning": "These exact formulas do not match the equal-price continuous-time pineapple invariant. In particular the same-day gateway theorem was compared on mathematical scope, not excluded by date. There is no applicable finite numerical table that could encode the state of this exact all-parameter classification by a few examples.",
+        "searches": [
+          "Resultary 2026/10/18/SCOPE-a-universal-chord-price-cutoff-for-resistance-optimal-pineapple--623da493ba70",
+          "Resultary 2026/11/8/SCOPE-sharp-fastest-mixing-transition-on-pineapple-graphs--2240321d233d",
+          "Resultary 2026/10/25/SCOPE-a-sharp-clique-edge-activation-transition-in-budgeted-lollipop-m--1c77a3a7bc2b",
+          "Resultary 2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846"
+        ]
+      },
+      "rationale": "The distinct contribution is the exact two-parameter optimum and transition at m=sqrt(n(n−1)/2), together with the every-optimizer aggregate support assertion on both sides, not the general fastest-mixing SDP, separator embedding theory or graph definition. The closest general work gives usable prior machinery and structural information on a more restricted large-leaf regime. The closest catalogue records differ in topology, objective or constraints and do not supply this sharp threshold or the explicit active optimum.",
+      "residual_risks": [
+        "No historical-priority certification. Full text of the Ghosh–Boyd comparison was not obtained. The frozen reference to distinct-host leaf and wheel variants lacks exact primary identifiers.",
+        "A structural theorem on absolute algebraic connectivity under alternate terminology could cover further cases; bounded retrieval and the close separator-shadow comparison do not establish such coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers equivalent formulation and duality, not the pineapple classification in the inspected passages",
+          "evidence": "MVU maximizes centered sum of squared norms under distance caps; §5.1 uses a different finite graph with unequal costs; citation [12] identifies the separator-shadow comparison.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "§4.1–4.2, offsets 25800–31692; §5.1 opening offsets 44034–46209; references around 57312",
+          "method": "Lawful author-hosted OA copy of the paper",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Exact framework and possible specialized examples"
+        },
+        {
+          "assessment": "Relevant broad structural result with partial large-leaf overlap; does not determine the sharp threshold",
+          "evidence": "Clique simplex in standalone K_n; central-articulation condition by sums of graph distances yields v_hub=0 if m>=n−1; ray constraints separate nonheavy pieces.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+          "material_read": "§5 Example 21 and Example 22 passages on p. 23; Definition 25 and Corollaries 28–30 at offsets 76300–84576",
+          "method": "OA full-text preprint passages",
+          "title": "Embedded in the Shadow of the Separator",
+          "trigger": "Potential stronger cut-vertex result in the exact dual setting"
+        },
+        {
+          "assessment": "Adjacency-spectrum problem, not weighted design",
+          "evidence": "Defines a clique with leaves at one vertex; considers identification and cospectrality under adjacency spectra.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08674",
+          "material_read": "PDF p. 1 through offset 3937",
+          "method": "OA PDF passage",
+          "title": "On the spectral characterization of pineapple graphs",
+          "trigger": "Same graph family"
+        },
+        {
+          "assessment": "General context; no conclusion about uninspected examples",
+          "evidence": "Available material describes upper bounds via convex optimization; exact examples in full text were not inspected.",
+          "identifier_or_url": "DOI:10.1016/j.laa.2006.03.006",
+          "material_read": "Landing page and abstract only",
+          "method": "Lawful publisher access; full text not obtained",
+          "title": "Upper bounds on algebraic connectivity via convex optimization",
+          "trigger": "Related general spectral convex optimization"
+        },
+        {
+          "assessment": "Different discrete-time objective",
+          "evidence": "Optimizes SLEM over stochastic matrices with holding probabilities and gives r=a cutoff.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-fastest-mixing-transition-on-pineapple-graphs--2240321d233d",
+          "material_read": "RESULT.md Finding and assumptions at offset 0",
+          "method": "Published catalogue search and mirror passage",
+          "title": "Sharp fastest-mixing transition on pineapple graphs",
+          "trigger": "Same topology and seemingly same optimization"
+        },
+        {
+          "assessment": "Different objective and varying parameter",
+          "evidence": "Kirchhoff index minimized under a separate interior-edge price; price cutoff t>=2N/(N−1).",
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-chord-price-cutoff-for-resistance-optimal-pineapple--623da493ba70",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Mirror passage",
+          "title": "A universal chord-price cutoff for resistance-optimal pineapple networks",
+          "trigger": "Same topology and zero interior edges"
+        },
+        {
+          "assessment": "Different topology",
+          "evidence": "Clique with a two-vertex path attached, not two or more leaves all attached directly to the hub.",
+          "identifier_or_url": "2026/10/25/SCOPE-a-sharp-clique-edge-activation-transition-in-budgeted-lollipop-m--1c77a3a7bc2b",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Mirror passage",
+          "title": "A sharp clique-edge activation transition in budgeted lollipop mixing",
+          "trigger": "Same objective and every-optimizer support behavior"
+        },
+        {
+          "assessment": "Related methodology, distinct feasibility topology",
+          "evidence": "Two cliques joined through a biclique gateway, not a clique with multiple independent degree-one leaves at a common vertex.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Mirror passage",
+          "title": "Sharp three-regime spectral-gap allocation for two cliques with a biclique gateway",
+          "trigger": "Strong same-day budget and support comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and support proof; equivalent continuous-time design and compared graph families"
+      ],
+      "rationale": "A budgeted diffusion on the canonical clique-with-leaves graph can optimally use less of the available topology. The result tells exactly when interior edges go from necessary in any optimum to forbidden in every optimum, and the explicit penalty relative to a star shows the size of the spectral gain in the active regime. The equality and nonsymmetric cases make the cutoff informative beyond finding a symmetric example.",
+      "residual_risks": [
+        "The theorem neither asserts that every interior edge is positive in every active optimizer nor covers costs other than an equal-price budget, one leaf, or discrete-time mixing."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

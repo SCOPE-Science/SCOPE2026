@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:35:27.480688Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a fixed first order there are n−ℓ windows; contracting each specified directed block gives probability 1/(n)_ℓ of its occurrence in the other order. For displacement d≤ℓ the union is one block of ℓ+d edges (including d=ℓ, where they touch at one label); otherwise two disjoint contractions consume 2ℓ edges, and there are binom(n−2ℓ,2) such window pairs. This gives the exact mean μ and factorial second moment β=O_ℓ(n^(−ℓ)+n^(2−2ℓ)). Independent enumeration of the 720 second orders at n=6 gives (μ,β)=(2/15,1/30) for ℓ=2 and (5/6,1/3) for ℓ=1. The frozen checker was inspected but not executed; these checks do not prove the limit. The pair-incidence event has probability p with 0≤μ−p≤β. Dependence neighborhoods consist of pairs sharing an order, but any two distinct such incidences are exactly independent: conditioning on their common order gives two independent events with constant conditional probability p by relabelling. Both dependency-neighborhood sums are O(r³p²), with external term zero. Coupling counts and matching Poisson means cost at most 2 binom(r,2)β. At r≤C n^((ℓ−1)/2) the error has the stated order and the intensity tends to c²/2. Subsampling proves supercritical existence, while Markov excludes longer runs at criticality. Shorter runs exist by supercriticality at ℓ−1, or for ℓ=2 because a disjoint pair has a single-edge event of probability at least 1/2−o(1). The order-sharing expectation is O(r³p²); run multiplicities have expectation bounded by binom(r,2)β. Equivariantly chosen witnesses in disjoint order pairs have independent uniform label tuples conditional on existence, so the remaining label-intersection expectation is O_ℓ(r⁴p²/n). The successor formula expresses the run event since a directed path in a linear order cannot repeat vertices. The boundary caveat concerns failure of the same c²/2 law at fixed r, not non-Poisson behavior per se: for r=2, the common-edge count has factorial moments (n−1)_k/(n)_k→1 (any k prescribed edges of the fixed order contract into paths), giving Poisson(1). This is outside the stated ℓ≥2 theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4c6f84cc27e6 has Poisson orientation profiles for j≥3 orders sharing one unordered pair, at r of order n^(1−2/j).",
+          "be76713add64 gives a conditioned adjacency cluster with an unordered consecutive triplet and a signed adjacency background.",
+          "The general Chen–Stein dependency-neighborhood theorem bounds approximation error, while the logic paper proves finite satisfiability and model-size bounds in FO²."
+        ],
+        "reasoning": "Neither the orientation classes for one edge across j orders nor a one-triplet conditioning law is a stronger theorem containing the path witness across two orders. The approximation framework needs the particular one-pair moment and overlap estimates and does not imply the maximum or label isolation without further work. The logic results do not imply probabilities for this growing vocabulary and ℓ+1-variable sentence.",
+        "searches": [
+          "Resultary growing-successor collision profiles and common-triplet clusters: 4c6f84cc27e6, be76713add64",
+          "Arratia–Goldstein–Gordon DOI:10.1214/ss/1177012015",
+          "Jeż–Michaliszyn–Witkowski arXiv:2610.19943"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, successor_run_checker.py",
+        "arXiv:2610.19943, 1402.0137, 2310.14071v4",
+        "DOIs 10.1093/bioinformatics/btn295 and 10.1214/ss/1177012015, access limitations noted",
+        "Resultary a1d5fcd736fe, 4c6f84cc27e6, be76713add64 and e65722ae53e6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The oriented edge-profile threshold controls order multiplicity at a single edge; here the critical intensity comes from binomial(r,2)(n−ℓ)/(n)_ℓ and multiplicities are mostly absent.",
+          "Under the path count scaling the difference between the ℓ−1 and ℓ+1 means gives the two-point maximum; label-set disjointness also needs equivariant run selection."
+        ],
+        "reasoning": "There is no specialization converting order multiplicity at fixed endpoints into path length with distinct labels, nor a conditional-to-global identity eliminating the stated overlap and isolation arguments. The verified novelty is the specialized asymptotic package, not use of a generic estimate or the FO syntax.",
+        "searches": [
+          "arXiv:2610.19943 PDF p. 1",
+          "Resultary 4c6f84cc27e6 Finding/Proof, mirror offsets 0–6908",
+          "Frozen RESULT.md Steps 1–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earnest–Godbole–Rudoy compare order-isomorphic subsequences, expressly not necessarily consecutive, not identical labels.",
+          "Godbole–Swickheimer treat order-isomorphic consecutive patterns within one permutation.",
+          "a1d5fcd736fe treats fixed-r shared arcs and yields a Poisson(binomial(r,2)) same-direction length-one count."
+        ],
+        "reasoning": "An order-isomorphic block can occur without sharing a single label. A common length-ℓ block requires ℓ specific arcs on a single path, not ℓ arbitrary coincident edges. Fixed-r one-edge asymptotics neither give the rate for paths nor describe growing r.",
+        "searches": [
+          "Longest common consecutive directed labelled blocks or common adjacencies of independent random permutations",
+          "arXiv:1402.0137 definition and Theorem 1",
+          "arXiv:2310.14071v4 / DMTCS 13353",
+          "Resultary literal successor runs, order-pair collisions, and exact rank-two successor limit types"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day e65722ae53e6 catalogue Finding concerns ordinary value-successions and cycle counts in a single permutation; the indexed growing-family orientation profile counts unordered edges, not labelled path blocks.",
+          "The published genome comparison adjacency lead concerns distributions of common marker adjacencies at abstract level; exact orientation/linear conventions not verified."
+        ],
+        "reasoning": "No table of finite one-edge coincidences verifies the growing-r path limit. The exact finite entries in the frozen reproduction corroborate block contractions, but are not the originality target. Mathematical coverage of the strongest indexed results was compared without relying on catalogue dates.",
+        "searches": [
+          "Configured Resultary semantic search for exact successor collision and run-count limits; a1d5fcd736fe, 4c6f84cc27e6, be76713add64, e65722ae53e6",
+          "DOI:10.1093/bioinformatics/btn295 publisher and OA recovery"
+        ]
+      },
+      "rationale": "The supported distinction is the growing-family law for fixed-length literal directed labelled blocks in order pairs, including its TV bound, adjacent two-point maximum and critical order/label isolation. It is not a new Poisson approximation method, a one-edge limit, or a logic satisfiability theorem. The strongest inspected neighboring results change the coincidence object or the number of orders per witness and do not establish these claims.",
+      "residual_risks": [
+        "The published adjacency lead was not available in full text; exact comparability at the excluded boundary is unresolved.",
+        "An unlocated theorem on matching paths or words with varying alphabet may imply some of the specialized statements. The search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivation, no collision-law coverage",
+          "evidence": "Satisfiability and model-size results with input-dependent successor vocabulary in FO².",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19943",
+          "material_read": "PDF p. 1, offsets near 400–2290",
+          "method": "Read bounded primary OA text",
+          "title": "Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors",
+          "trigger": "Same successor signature class"
+        },
+        {
+          "assessment": "Different coincidence object",
+          "evidence": "Subsequences need not be consecutive and coincide only in relative order.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.0137",
+          "material_read": "PDF pp. 1 and 3, offsets near 0 and 5715 (definition and Theorem 1)",
+          "method": "Read bounded primary OA text",
+          "title": "On the Longest Common Pattern Contained in Two or More Random Permutations",
+          "trigger": "Longest common structure in multiple permutations"
+        },
+        {
+          "assessment": "Different coincidence object and number of sampled orders",
+          "evidence": "One permutation and relative-order patterns.",
+          "identifier_or_url": "https://manager.episciences.org/dmtcs/13353/pdf",
+          "material_read": "PDF p. 1, offsets 1239–1662",
+          "method": "Read bounded primary OA text",
+          "title": "An Alternative Proof for the Expected Number of Distinct Consecutive Patterns in a Random Permutation",
+          "trigger": "Consecutive patterns with Stein–Chen methods"
+        },
+        {
+          "assessment": "Relevant lead at excluded boundary, exact model unresolved",
+          "evidence": "Abstract concerns common genetic-marker adjacency distributions; linear directed conventions not verified.",
+          "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btn295",
+          "material_read": "Available publisher/search abstract scope only",
+          "method": "Publisher and repository/alternate-copy attempts did not retrieve lawful full text",
+          "title": "Poisson adjacency distributions in genome comparison: Multichromosomal, circular, signed and unsigned cases",
+          "trigger": "Potential published one-edge boundary result"
+        },
+        {
+          "assessment": "Generic method antecedent, not credited as new",
+          "evidence": "The application has only the b1/b2 neighborhood sums since each pair indicator is independent of the outside family.",
+          "identifier_or_url": "https://doi.org/10.1214/ss/1177012015",
+          "material_read": "Bibliographic and method comparison, frozen Proof Step 2; publisher text not retrieved",
+          "method": "Publisher full-text attempt; checked the standard dependency-graph bound in the frozen application",
+          "title": "Poisson Approximation and the Chen–Stein Method",
+          "trigger": "General local-dependence theorem used by the proof"
+        },
+        {
+          "assessment": "Direct excluded boundary coverage, not ℓ≥2",
+          "evidence": "Independent Poisson(1) counts for shared arcs of each orientation in each pair at fixed r.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-rank-two-logical-limit-types-for-independent-random-succes--a1d5fcd736fe",
+          "material_read": "Mirrored RESULT.md offsets 0–4061",
+          "method": "Configured Resultary search and bounded local mirror",
+          "title": "Exact rank-two logical limit types for independent random successors",
+          "trigger": "Same arc model at ℓ=1"
+        },
+        {
+          "assessment": "Distinct growing collision object",
+          "evidence": "One unordered pair, j≥3 orders, orientation marks, and TV Poisson law at r∼constant times n^(1−2/j).",
+          "identifier_or_url": "2026/11/2/SCOPE-poisson-orientation-profiles-at-the-growing-successor-collision--4c6f84cc27e6",
+          "material_read": "Mirrored RESULT.md offsets 0–6908",
+          "method": "Configured Resultary search and bounded local mirror",
+          "title": "Poisson orientation profiles at the growing successor collision scale",
+          "trigger": "Strongest indexed growing-successor law"
+        },
+        {
+          "assessment": "Conditioned one-triplet background law, not growing-family directed path counts",
+          "evidence": "Unordered triplet conditioning, Poisson background plus adjacency marks.",
+          "identifier_or_url": "2026/11/22/SCOPE-signed-poisson-adjacency-clusters-conditioned-on-a-rare-common-t--be76713add64",
+          "material_read": "Mirrored RESULT.md offsets 0–4010",
+          "method": "Configured Resultary search and bounded local mirror",
+          "title": "Signed Poisson adjacency clusters conditioned on a rare common triplet",
+          "trigger": "Potential match to a length-two run and its internal arc cluster"
+        },
+        {
+          "assessment": "Different statistics and model",
+          "evidence": "One-line value-successions and cycle lengths in one permutation.",
+          "identifier_or_url": "2026/10/27/SCOPE-cycle-length-orthogonality-of-ordinary-successions-in-a-uniform--e65722ae53e6",
+          "material_read": "Mirrored RESULT.md offsets 0–3279",
+          "method": "Configured Resultary search and bounded local mirror",
+          "title": "Cycle length orthogonality of ordinary successions in a uniform permutation",
+          "trigger": "Distinct same-day Resultary succession count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For independently sampled orders on a common label set, the result identifies when the longest exactly shared directed run jumps by one edge, provides an explicit probability and approximation error at the transition, and shows that the rare witnesses can be separated in both the sampled orders and the labels. Those statements distinguish the multi-order structure from a mere first moment or an isolated fixed parameter. The logic interpretation is useful within its stated growing-signature scope, not a claim about FO².",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

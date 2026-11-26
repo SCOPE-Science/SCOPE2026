@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:30:47.424021Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)-(7); VERIFICATION.md; check.py (read only)",
+        "python3 -B /workspace/reviews/evidence-4-race.py: FINITE_EXACT_PASS 498 and TAIL_RATIONAL_PASS"
+      ],
+      "rationale": "Capping the discrete counts and then ignoring marks for completed players leaves the finishing order unchanged. Poisson thinning and a common rescaling give independent Gamma(i, rate i) times for goals i=1,2,n, with no ties. Independently, for s>0, integrating 4x exp(-sx) above the third completion time and taking expectation gives 4 r_s(1/s^2+n/[s(n+s)]), where r_s=(n/(n+s))^n. Subtract the s=3 integral from s=2 to recover (2); expanding the product of the first two CDFs gives (1). The differences in (3) follow. An independent exact dynamic program in reviews/evidence-4-race.py used only the original discrete race: at residual state d, condition on the next active mark, choosing i with probability goal_i divided by the sum of active goals. It reproduced all three formulas at all 498 integers 2 through 499 and checked both required strict margins and the exact n=2 fractions and tie. For n>=500, the logarithmic inequalities bound r_c between exp(-c) and exp(-c)/(1-c^2/(2n)); both signs and coefficient extrema in (6)-(7) give the stated lower bounds. Independent rational Taylor bounds and fraction comparisons reproduce 20931734927/2484922590000 > 1/200 and 114949/10353000 > 1/100. This analytic tail, not finite extrapolation, completes the quantifier.",
+      "residual_risks": [
+        "No optimal-gap, arbitrary-triple, or noninteger-shape claim is validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 33 reports the opposite order for (4,5,6), so arbitrary-triple ordering cannot prove this claim. Theorem 34(3) sends all goals to infinity proportionally, unlike the fixed first two goals here.",
+          "Resultary 2026/10/18/SCOPE-spatial-poisson-errors-and-the-sharp-exact-ordering-transition-f--97c75e627dc5 treats independent exponentials with small rate ratios, not this fixed-mean Erlang race."
+        ],
+        "reasoning": "The closest broader exact framework and asymptotic results do not bound the two differences throughout the frozen regime.",
+        "searches": [
+          "arXiv:2605.21424v1, Example 33 and Theorem 34(3)",
+          "Resultary: independent-clock ordering and equal-mean Gamma ranks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.21424v1, Section 6 and Proposition 30",
+        "Local Resultary: fixed-mean Gamma responses and spatial Poisson ordering records cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior integral evaluates individual probabilities in principle; Example 33 gives mixed orderings across triples. The exact signs with fixed positive margins require a finite certificate and explicit uniform tail bounds."
+        ],
+        "reasoning": "The frozen theorem adds a comparison across an infinite family rather than merely integrating the known density or reporting more table entries.",
+        "searches": [
+          "arXiv:2605.21424v1 Proposition 30, equation (13), Example 33, Theorem 34(3)",
+          "Frozen RESULT.md equations (3)-(7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 30 identifies the equivalent maximum-of-independent-normalized-gammas event for arbitrary goals.",
+          "Resultary 2026/11/22/SCOPE-a-three-shape-response-staircase-for-fixed-mean-reactive-transit--f409147a2e80 treats expectations of two-rate response functions, not probabilities of being maximal."
+        ],
+        "reasoning": "The equivalent probabilistic representation is covered; the order and fixed uniform margins for this event over all n are not given by the representation.",
+        "searches": [
+          "Resultary: last-place race with goal tuple (1,2,n), equal-mean Erlang maximum",
+          "arXiv:2605.21424v1, Proposition 30 and eq. (13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 33 numerically covers the rank ordering at n=3. No table establishing the full integer-family inequalities was identified."
+        ],
+        "reasoning": "Individual entries are relevant overlap but no finite list of evaluations alone implies uniform margins for unbounded n.",
+        "searches": [
+          "arXiv:2605.21424v1 Section 6 (numeric examples, including Example 33), literal (1,2,2)",
+          "Resultary searches for fixed-(1,2,n) last-place comparisons"
+        ]
+      },
+      "rationale": "The new claim is the uniform two-gap theorem for the entire fixed-(1,2,n) integer family, not the Poisson embedding, Gamma representation, or isolated (1,2,3) ordering. Strongest inspected sources do not supply the uniform inequalities or a stronger result implying them.",
+      "residual_risks": [
+        "The broader literature lookup was unproductive; alternative formulations in unindexed literature are not excluded.",
+        "No priority is claimed for the race model, gamma representation, or the ordering at n=3 alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model, general representation and n=3 ordering, not the asserted uniform gaps",
+          "evidence": [
+            "Prop. 30: independent Gamma variables divided by goals; Ex. 33: (1,2,3) ordered and (4,5,6) reversed; Thm. 34(3): proportional joint growth."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.21424v1",
+          "material_read": "pp. 25-27: Proposition 30, equation (13), Example 33 and Theorem 34(3)",
+          "method": "OA full-text PDF, located and read decisive passages",
+          "title": "A Dice Game, a Multinomial Walk, and the Inverted Dirichlet Distribution",
+          "trigger": "Identical goal-proportional race model and last-place probabilities"
+        },
+        {
+          "assessment": "Different ordered object",
+          "evidence": [
+            "Orders configurable response expectations for shapes 1,2,3, not max-event probabilities with varying third shape."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-three-shape-response-staircase-for-fixed-mean-reactive-transit--f409147a2e80",
+          "material_read": "Finding and scope",
+          "method": "Local Resultary search and mirrored RESULT.md",
+          "title": "A three-shape response staircase for fixed-mean reactive transit",
+          "trigger": "Closest indexed equal-mean Gamma ordering by shape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and proof; Example 33 of arXiv:2605.21424v1"
+      ],
+      "rationale": "The first fixed pair of distinct positive integer goals defines a natural one-parameter test of a proposed rank pattern that fails for general triples. The theorem excludes both rank reversals and collapsing margins across this whole test family. It is an exact quantitative statement rather than an arbitrary finite check.",
+      "residual_risks": [
+        "The margins are sufficient rather than sharp and the result is not an arbitrary-goal classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

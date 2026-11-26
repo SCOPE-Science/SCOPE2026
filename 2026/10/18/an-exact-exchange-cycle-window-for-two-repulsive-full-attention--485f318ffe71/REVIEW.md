@@ -1,19 +1,21 @@
-# Review: An exact exchange-cycle window for two repulsive full-attention tokens
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orthonormal sum/difference basis gives an exact conjugacy to the positive scalar ratio map and the exact sign rule. The derivative is positive throughout the claimed sharpness and step range, excluding hidden scalar period doubling; the critical asymptotics follow from controlled expansions at infinity and zero. Endpoint configurations are treated separately and the normalization is never zero except at the expressly excluded consensus point at unit step. The analytic all-parameter proof is supplemented, not replaced, by the standalone checker.
+PASS
 
-## Originality — PASS with residual risk
+The sum and difference modes are orthogonal and have the same token normalization. At relative variable t=(1-c)/(1+c), the unnormalized sum multiplier is 1-η and the difference multiplier is 1-ητ(t)>0, with τ(t)=tanh(κt/(1+t)). Thus t'=t[(1-ητ)/|1-η|]² and the ordered vector result retains both orientation signs. At η=1 a noncollinear pair becomes antipodal exactly. For 1<η≤2, 2ηtτ'≤κ<1-ητ, so the scalar map is strictly increasing; the ratio t'/t is strictly decreasing. Comparing it with one proves monotone escape to infinity below or at η_a, trapping and convergence to the unique interior fixed t* above η_a and below 2, and monotone decrease to zero at 2. For η<1 the ratio is greater than one throughout. The interior derivative is strictly between zero and one, and the actual orbit is the signed swap (x1,x2)→(-x2,-x1), not an ordinary swap. The monotonic alternatives exclude additional cycles. Consensus is fixed, undefined, or sign-flipping as stated across η=1; the antipodal multiplier stays positive. At η_a, t'/t=1+4κ(1+tanh κ)/t+O(t^-2); at 2, 1/t'-1/t=4κ+O(t). Averaging these increments and using 1+c=2/(1+t) and 1-c=2t/(1+t) yields both constants for every noncollinear initial pair. Numerical diagnostics are supplementary, not the proof.
 
-Altafini's full-attention discrete model, arXiv:2610.13518v1, is compared at its governing equation and positive top-eigenvalue hypothesis; that hypothesis excludes negative identity value feedback. Gao, Yang and Chen's repulsive model, arXiv:2609.28448v1, excludes self-attention diagonals, which for two tokens eliminates sharpness-dependent behavior. The prior attractive identity-value two-token analysis and indexed analogues therefore do not imply the unmasked negative-value result. Unknown equivalent generic scalar-map or projective formulations remain a genuine bibliographic risk; no search can certify universal absence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result settles the global regime structure of the simplest nontrivial repulsive full-attention system, including a finite interval of stable exchange two-cycles and two exact critical relaxation amplitudes. It isolates an interpretable self-loop effect that disappears when diagonals are masked. It is not claimed to generalize to all attention kernels, sharpness values or token counts.
+The closest indexed statements concern local cycles with a mixed-sign or anisotropic value matrix. A formal threshold match outside their hypotheses is not a theorem for the isotropic negative map. The publicly inspected self-inclusive family has a positive-simple-top-eigenvalue assumption for its principal analysis; the matching repulsive sign in the other paper uses diagonal masking. No checked source supplies the inclusive, isotropic global classification and both critical time constants under valid hypotheses.
 
-## Closest references and limits
+## value
 
-C. Altafini, *Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers*, arXiv:2610.13518v1 (2026); Q. Gao, Z. Yang and X. Chen, *Nonequilibrium Phases of Repulsive Self-Attention*, arXiv:2609.28448v1 (2026); C. Altafini, *Multistability of Self-Attention Dynamics in Transformers*, arXiv:2511.11553v1 (2025; only abstract-level material inspected). The proof assumes exactly two unit tokens, softmax sharpness at most one third, negative identity value feedback, full self-inclusion and step at most two. The sharpness restriction is sufficient, not asserted necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest genuinely interacting self-inclusive repulsive model yields a complete global classification in an explicit parameter rectangle. Input-independent parabolic constants and an exact signed-swap window distinguish global dynamics from endpoint linearization and from diagonal-masked repulsion; they give a concrete benchmark for analytic attention dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Independent restaurant assignments give Bernoulli collision indicators; unaffiliated collisions give an independent binomial variable. The integration identity for reciprocal occupancy leads to exact finite payoff-difference formulas. The fixed-club-number Poisson limit yields strictly positive kernels with a uniform lower bound. Conservation and pairwise log-ratios imply a full global basin partition with quantitative exponential bounds, including boundary faces and exact ties. Direct linearization in active contrasts and missing-type directions yields the stated equilibrium spectrum. The standalone exact-rational and integration checks were executed successfully. The proof—not finite experiments—covers all quantified populations and fixed finite club numbers.
+PASS
 
-## Originality
+Conditioning on the tagged restaurant, each independent club sends one other diner with probability g_j/N (none from the tagged club), and each other free diner arrives independently with probability 1/N. The reciprocal occupancy integral factors. In a club comparison only the two differing club factors remain after common factors are removed, producing g_i−g_j; in the free comparison the differing factors are the one club factor versus an extra free Bernoulli, producing g_i−1. The remaining integrals are strictly positive. With fixed K the binomial factor converges uniformly to exp(−f(1−t)) and unoccupied types have the stated smooth extension. Each limiting gap kernel is at least exp(−1) times the integral of (1−t)t^(K−1), namely exp(−1)/(K(K+1)). Summing the club equations shows total club mass B is nondecreasing, so a maximal initially occupied club remains at least B(0)/K. Its log ratio against a positive free fraction grows uniformly, and its log ratio against a smaller club grows uniformly because the smaller-to-larger ratio never exceeds its strict initial value below one. These give the claimed exponential loss and exact tied limits by conservation; zero coordinates remain zero. Equilibrium requires equal payoffs on support, hence no coexistence with the free type and only uniform positive club supports. At such a state the active contrast subspace has the positive eigenvalue in RESULT.md:95 by differentiating the log ratios; absent-type rows are diagonal with the negative invasion gap in line 101. This block structure counts every eigenvalue on the simplex, including the K=1 sink; at the free vertex the linear part is zero. Independent exact check `python3 -B /workspace/review_checks.py 1` enumerated restaurant allocations in N=2–4 with one to three club labels (including empty labels) and checked 126 rankings. The global claims are analytic, not consequences of the packaged trajectory tests.
 
-PASS, with a substantive residual bibliographic risk. The 2023 founding model establishes the one-club advantage and numerically studies two clubs. The 2025 follow-up establishes two-club payoffs and studies tolerance-switching rather than the ordinary replicator, and explicitly points to more clubs as future work. Its article mentions supplementary Mathematica notebooks with a multi-club replicator analysis that could not be inspected, so equivalent quantitative results therein cannot be excluded. Searches of relevant mathematical research records and the accessible prior ledger claims did not identify a result with the entire all-club payoff-order and all-face basin/eigenvalue theorem. Absence of search hits is not treated as a proof of uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Multi-club behavior is a directly motivated theoretical gap from the founding paper, not an arbitrary numerical slice. The result replaces simulations and two-club reasoning with an exact finite-size strategic ordering, a global selection rule for any number of clubs, a classification of all \(2^K\) equilibria and their stable/unstable types, and uniform exponential estimates. The treatment of exact initial ties and free-agent extinction resolves natural boundary questions that simulations alone cannot certify.
+The evidence supports a distinct all-finite-K payoff order and complete ordinary-replicator classification, not novelty for the one-club result, the two-club payoff model, or qualitative monoculture. A named 2025 supplement is a substantive unresolved comparison, especially for the replicator part; the accessible evidence does not demonstrate equivalent coverage of the theorem with the stated quantifiers.
 
-## Scientific boundaries
+## value
 
-The findings assume independent restaurant coordination, no redistribution/taxation/cheating, a fixed finite club count in the infinite-population replicator limit, and no spontaneous emergence of unoccupied clubs. Results do not assert finite stochastic convergence or outcomes under tolerance-based switching. Inaccessible supplementary work remains the principal independent-verification priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem addresses the natural multi-club extension raised by the model's founders. It separates the exact finite payoff order from the ordinary mean-field selection rule, and gives a complete assignment of limits, tie faces and local stability indices rather than repeating a one-club advantage or simulation. This value is within independent coordination and fixed finite K; it is not a claim about finite stochastic absorption or tolerance switching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

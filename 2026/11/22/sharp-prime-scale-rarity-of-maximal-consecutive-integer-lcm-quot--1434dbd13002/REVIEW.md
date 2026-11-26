@@ -1,11 +1,21 @@
-# Review of the sharp maximal-attainer density law
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete base-\(p\) carry characterization proves the local maximum and its exact congruence-class count. The small-prime contribution is negligible on the \(k/\log k\) scale. For large primes, the logarithmic singularities of \(\{(k+1)/p\}\) are controlled by Brun–Titchmarsh bounds and a short-tail integer count, and uniform prime-number-theorem summation evaluates the resulting integral. Finite integer checks independently reproduce the local and full-period counts; they are not presented as infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Earlier literature determines least periods, and a published exact value-frequency theorem already determines every finite-window maximal-attainer frequency. Those finite formulas and all their special cases are not claimed as new. The proposed precise large-window exponential rate, with constant \(\mathcal C=\sum_{j\ge1}\log(1+1/j)/j\), is not stated or implied as an evaluated limit in the inspected sources. A separately published lcm-binomial equality density concerns a different quantity. Targeted overlapping searches were conducted; an unindexed earlier asymptotic remains possible.
+PASS
 
-**Mathematical value — PASS.** Maximizers of a classical arithmetic function form a natural extremal set, and their exact first-order rarity over growing windows is a structural invariant not captured by a list of fixed-window values. The sharp constant quantifies nonuniform prime-local constraints across the full range of prime scales, beyond a routine period or coefficient calculation.
+Fix k before taking the density in n. For p^j<=k the local quotient valuation counts the multiples in the window minus one, and for p^j>k the contribution is zero. Subtracting from the Legendre sum for k! leaves nonnegative deficits: none when p^j divides m=k+1, and otherwise one minus the carry from adding m to n-1. Local equality forces all carries at and after the first nonzero digit of m in the retained positions; the respective digit counts are free, a_t, then a_i+1. Thus positive local densities multiply by the Chinese remainder theorem, and k! is attained. With J=floor((log m)^3), the primes up to m/J contribute O((m/J) log m)=o(m/log m); all others have exponent one and give log fractional parts of m/p, with prime divisors of m treated separately. On m/(j+1)<p<m/j, dyadic shells of size u in the fractional part have lengths O(um/j^2) and logarithmic loss growing only linearly in shell index. Brun–Titchmarsh at length at least m^(2/3) bounds total truncation loss by O(eta m/log m); shorter shells are nested toward the endpoint in a union of length O(m^(2/3)) per j and cost O(J m^(2/3) log m). Here eta=(log m)^(-2). For bounded truncated log values at the jumps, the variation is O(J log(1/eta)); partial summation with the stated PNT error replaces the prime sum by m/log m times its integral up to o(m/log m). The integral tail and clipping costs are O(1/J) and O(eta) by summing (j+u)^(-2). Integration by parts of log(u)/(j+u)^2 gives -log(1+1/j)/j, with the zero boundary term made finite using 1/j-1/(j+u). Replacing m by k does not change the limit.
 
-**Limitations and priority risks.** The theorem establishes no effective error or uniform bound for a jointly growing index and sampling cutoff. The original 2009 valuation paper's full PDF was not independently inspected in this review, although its statements and the full directly relevant published exact-distribution record were compared. Independent audit and definitive publication-priority adjudication have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the explicit sharp growing-window asymptotic, not the already covered finite frequencies or least periods. The same-observable Gaussian result is particularly close but does not estimate the rare endpoint atom; neither related statistic or the checked exact finite law supplies the derived rate without further asymptotic analysis.
+
+## value
+
+PASS
+
+This determines how often a classical sharp extremum of a natural consecutive arithmetic function is actually realized. It identifies a prime-scale exponent and a definite constant beyond the finite distribution, addressing a far-tail event not accessible by a typical-window CLT. The analytic control of prime intervals near singularities is substantive for obtaining that sharp rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

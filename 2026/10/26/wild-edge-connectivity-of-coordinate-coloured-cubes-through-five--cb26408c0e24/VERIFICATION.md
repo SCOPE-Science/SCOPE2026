@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` beside `certificate.json`. This verifies the existence side of the exact four-cube value and the stated five-cube upper bound, by checking graph connectivity after perfect-matching contractions in all four input dimensions. The proof supplies the separate unrestricted counting lower bound. The recorded execution is embedded as `verification_output.txt`. The lower bound in dimension five is nineteen, and twenty is **only an upper bound**. No exhaustive search for smaller fifth-dimensional wild sets is claimed. The certificate lists are actual edge pairs, not a solver-status assertion. Independent review has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Each coordinate matching contracts to 2^(d−1) vertices. The other w−w_i selected edges must span them, so summing gives (d−1)w≥d(2^(d−1)−1); this gives 10 and 19. An independently written depth-first traversal on the original cube, not the frozen union-find script, validated all certificate edges and reached all 16 or 32 vertices respectively for each matching union. It also checked the four seven-edge quotient spanning-tree lists. Both printed repaired edge lists and each printed index row were checked against those traversed lists. The lower bound is independent of the certificates; no test ruled out 19 in dimension five.
+
+## originality
+
+PASS
+
+For the repaired claim, the known lower bound at 10 does not entail attainment, and the known lower bound at 19 does not entail a twenty-edge witness. The prior exact square and three-cube specializations were removed from the contribution; no inspected statement supplies the retained constructive bounds.
+
+## value
+
+PASS
+
+The four-cube is a canonical product instance with four independent matching requirements. Proving simultaneous saturation of the general lower bound, not merely evaluating it, determines the number of upgrades for that case. The five-cube witness gives a one-edge interval in the next standard coordinate cube. These are specific constructive benchmarks for the product question, not isolated arbitrary sample parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

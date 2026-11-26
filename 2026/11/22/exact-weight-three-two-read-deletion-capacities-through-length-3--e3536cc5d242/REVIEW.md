@@ -1,19 +1,21 @@
-# Review of finite weight-three two-read reconstruction capacities
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is all thirty integers \(3\le n\le32\), with all \(\binom n3\) weight-three indexed binary words. For every one, the package provides a collision-free independent set of size \(M_3(n)\) and a partition of the entire candidate set into the same number of deletion-confusability cliques. The lower and upper bounds match, certifying finite optimality without relying on a numerical solver. `verify_direct.py` reads and verifies every certificate and all induced pairs needed for both inequalities. `verify_structural.py` independently checks the overlap definition at smaller lengths and selected larger witness sets. These tests establish **finite exactness**, not infinite behavior.
+PASS
 
-## Originality — PASS, qualified
+A pair of distinct reads identifies at most one source precisely when no two codewords share an unordered pair of distinct deletion outputs. I independently reconstructed every length-n word in lexicographic triple order, formed deduplicated decks by literal string slicing at all positions, and checked the frozen JSON data without running either supplied program. All 30 lengths passed: 40,920 candidate words, 18,686 code entries, 310,340 unordered read-pair entries with no duplicate within a code, and 25,972 vertex pairs checked within nonempty, disjoint cliques exhaustively covering each vertex set. Each clique pair shared at least two reads. Thus each code gives the lower bound and its equal-size clique partition the matching upper bound. The table and both polynomials were checked at every stated integer using exact rational arithmetic, including the singleton n=3; nothing is proved for n>32.
 
-Related prior art includes the source-general multiple-trace framework of Sala et al. (2016), the unrestricted two-read deletion theory of Chrisnata–Kiah–Yaakobi (2020), and published indexed results on weight-two two-read codes and weight-three one-read codes. The former does not determine induced-subgraph independence numbers by fixed weight; the latter two address different weights or a stronger one-read error criterion. Related graph degree, edge, and triangle counts also do not imply \(M_3(n)\). Database records were checked by scientific statement/implication. Directly inspected public main-text sections of the foundational papers did not furnish the finite table. Some relevant indexed records were available only by summaries, not full-text review; unindexed exact computations remain a priority risk. Discovery by failed keyword search is not asserted as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-Constant-weight sources are a natural sparse-marker coding model. This is a complete exact capacity census through the standard 32-symbol finite-blocklength cutoff, not a single arbitrary length: every feasible weight-three word at each length is covered by rigorous matching optimality certificates, yielding an implementable sharp design limit. The all-range numerical pattern is reported only on its proved interval. No general theorem or downstream asymptotic code is claimed.
+The closest indexed result concerns the identical fixed-composition graph, but computes different invariants. Exact results on adjacent word layers or for one read do not imply the stated optima. No equivalent sequence or covering theorem was established by the statement-level comparisons below; this is not a proof of priority.
 
-## Closest literature and restrictions
+## value
 
-See the references in `RESULT.md` and comparison details in `AUDIT.json`. Priority beyond the inspected records, especially unindexed finite tables, is unresolved. The mathematical validity is internal to the finite certificates; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles the natural next fixed-weight layer after the weight-two classification, where a read conflict can arise from moving an alternating block with up to three ones. Certified equal optima and clique-partition bounds over a consecutive range, reaching 4,960 candidates at n=32, provide exact benchmarks for constructions and upper bounds. The finite polynomial agreement is useful as a target for an all-length theorem, not itself such a theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

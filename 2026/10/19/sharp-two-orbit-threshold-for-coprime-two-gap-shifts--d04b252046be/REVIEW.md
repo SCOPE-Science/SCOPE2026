@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A periodic orbit in a finite two-gap shift corresponds bijectively to a primitive cyclic word of return blocks; shifting the origin to a different occurrence of one only rotates that word. The proof verifies that two- and four-transition words are primitive except at the specified balanced square, constructs either two different positive gap-content solutions or two different primitive necklaces for every length beyond the cutoff, and counts exactly one orbit at the endpoint. The key inequalities are strict, and the exceptional pair \((2,3)\) is handled explicitly. Independent exact finite diagnostics agree with the analytical steps and with the previously established zeta identity.
+PASS
 
-## Originality
+Choosing a marked one identifies gap words up to rotation; any shorter physical period preserves the ones and makes the word a proper power. Pure words contribute only at a and b. Möbius inversion of ordered words with fixed content and division by the free rotation-orbit size gives the necklace formula. For r,s>0 the two-run word A^rB^s is primitive; for r,s≥2 the four-run word A^(r−1)BAB^(s−1) is inequivalent and could only be imprimitive by squaring, which requires r=s=2. For an independent check of coverage beyond M, choose s∈[1,a] in the residue class bs≡n mod a. Since n>(a+1)b, the resulting r=(n−bs)/a is at least two. If s≥2, the four-run lemma applies since n>2(a+b) excludes (2,2). If s=1, then r>b and a second mixed content is (r−b,1+a), making two primitive two-run words of different content. At M=(a+1)b, the only nonnegative contents are (b,1) and (0,a+1); only the first is primitive, uniquely up to rotation. The alternative bound is strictly larger iff (a−1)(b−2)<2, possible only for (2,3). At 10 there the pure (5,0) word is a power; of the two cyclic patterns with content (2,2) only the two-run one is primitive. Four endpoint/next-period examples were independently spot-checked via content counts. The universal conclusion follows from the residue argument, not these examples or the author's reported finite runs.
 
-**PASS under accessible evidence, with residual priority risk.** De Jong's Theorem 3.19 concerns the set of lengths with *at least one* primitive orbit, while the assessed theorem concerns the *last length with fewer than two* orbits. Dastjerdi and Jangjoo's zeta identity already implies exact orbit counts by Möbius inversion; that identity and the necklace formula are not claimed as novel. The sharp universal cutoff with the \((2,3)\) exception is not stated in the inspected primary results, nor found in targeted published-record comparisons. This is not proof that no equivalent older computation exists. The highest residual priority risk lies in other treatments of two-loop renewal systems and run-length-limited coding.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** De Jong's recent period-spectrum classification and Krieger's embedding criterion distinguish existence from multiplicity. The first nontrivial multiplicity threshold (one orbit versus at least two) is a natural precise invariant. Here its exact last obstruction has a simple but non-obvious two-term formula, a genuine exceptional pair, and an all-parameter proof. It is not asserted to imply an embedding without the remaining orbit counts and entropy conditions; no more-than-two-gap generalization is proved.
+The supported distinct statement is the closed last-two-orbit obstruction for every coprime ordered pair of return lengths, including the exceptional pair and the sharp singleton count at the endpoint. The inspected prior literature supplies the least-period support and coefficientwise orbit counts, not this uniform cutoff. The proof uses primitive-content multiplicity and a sharp endpoint distinction beyond those known tools. This is a bounded, best-of-knowledge comparison, not a historical priority determination.
 
-## Closest literature and limitations
+## value
 
-Relevant primary comparisons: de Jong, arXiv:2510.10848, Sections 1 and 3.3; Dastjerdi–Jangjoo, arXiv:1108.3414, Corollary 2.3; Doering–Pavlov, *Involve* 12 (2019), classification of period sets. The given proof covers exactly two distinct coprime return lengths at least two and computes their sharp multiplicity-two conductor, not their entire small-period spectrum. Historical priority beyond the inspected sources is uncertain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two coprime return lengths are a natural elementary mixing gap system. Two distinct primitive orbits is the first multiplicity question beyond least-period existence. The closed worst exception, including why (2,3) behaves differently, replaces arbitrary testing and gives an exact periodic-count benchmark for comparing this family with other shifts. The finding does not claim a general embedding or characterize smaller-period counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

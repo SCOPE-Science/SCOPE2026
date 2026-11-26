@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:34:47.975905Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A distance-two selected pair obstructs the other diagonal of the square. Conversely, at each geodesic step with at least two remaining flips, the distance-decreasing neighbors are pairwise at distance two and cannot all be selected. Maximality is therefore independent domination in each parity. Closed neighborhoods have size 22, with intersection size 6 or 0 at center distances 4 or 6. Distance-six pairs form a matching, and an all-distance-four triple has the unique common midpoint given by the intersection of the two weight-four supports after translation. Inclusion–exclusion rules out size at most three and gives coverage 64 for a four-set exactly when its six-edges form a perfect matching. Translating one six-edge to 0,b yields the third and fourth vertices c,b+c. Counting gives 224×10/2=1120 per parity and 1,254,400 labeled unions. Independent exhaustive checks for both parities found the same histogram and zero affine identity failures; replay: python3 /workspace/branches/0eff1380-a90f-4137-a7be-b2d0e5aa6000/independent_replay.py 7. The claim is specifically the seven-cube, not general dimension.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar–Yero pose the lower total invariant for hypercubes. Bujtás–Klavžar–Tian give the distance-two criterion for all Hamming graphs. The maximum invariant in Visibility in Hypercubes is different."
+        ],
+        "reasoning": "These works explain the reduction and motivation; the equivalence alone and the maximum invariant do not give the seven-cube census.",
+        "searches": [
+          "arXiv:2307.02951, Problem 1",
+          "arXiv:2307.05168, Theorem 6",
+          "Visibility in Hypercubes, DOI 10.1007/s00373-026-03025-9, §4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c26905427b79",
+        "arXiv:2307.02951 and arXiv:2307.05168",
+        "DOI 10.1007/s00373-026-03025-9",
+        "MathWorld and OEIS A355226",
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof explicitly partitions the four centers by two distance-six edges, counts the ten complementary pairs for each anchored edge, and counts parity classes independently."
+        ],
+        "reasoning": "The affine XOR condition and weight-direction wording follow directly from the earlier complementary support construction. Neither the census nor that form adds an unknown fact.",
+        "searches": [
+          "Resultary c26905427b79, proof Steps 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distance-two avoidance reduces to independent domination in each halved cube. The earlier Resultary proof gives complementary six-coordinate supports once one six-edge is translated to 0,b."
+        ],
+        "reasoning": "The two remaining points then sum to b, giving {0,b,c,b+c}; the three directions have weights 6,4,4. Conversely, those direction weights force a distance-six perfect matching. This is an exact equivalent formulation, not stronger rigidity.",
+        "searches": [
+          "Resultary: minimum maximal total visibility Q7",
+          "Bujtás–Klavžar–Tian, Theorem 6",
+          "Binary codes in the halved cube, independent domination and radius-two covering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 entry gives 1120 per parity and 1,254,400 named unions. MathWorld has the scalar domination number 4; A355226 counts 36,400 independent four-sets, including ones that do not dominate."
+        ],
+        "reasoning": "Only the October 18 entry supplies the exact required independent-dominating subfamily.",
+        "searches": [
+          "Resultary c26905427b79",
+          "MathWorld Domination Number, halved-cube table",
+          "OEIS A355226"
+        ]
+      },
+      "rationale": "An earlier Resultary entry gives the exact named census and the equivalent perfect-matching characterization; its complementary support argument already yields the affine-plane formulation. No distinct remainder survives.",
+      "residual_risks": [
+        "Earlier coding-theory formulations were not exhaustively indexed. The exact catalogue coverage is decisive independent of that risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive equivalent earlier coverage",
+          "evidence": "μ_t^−=8, 1120², perfect matching of distance-six pairs; the complementary supports imply affine planes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-minimum-maximal-total-visibility-sets-of-q-7--c26905427b79/RESULT.md",
+          "material_read": "Finding and proof Steps 3–4, offsets 0 and 4840–7974",
+          "method": "Local mirror statement and proof inspection",
+          "title": "Minimum maximal total-visibility sets of Q7",
+          "trigger": "Exact cube, extremal invariant, and labeled census"
+        },
+        {
+          "assessment": "Motivation, not a seven-cube census",
+          "evidence": "Requests determination for hypercubes.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "Problem 1, PDF p. 18",
+          "method": "OA passage inspection",
+          "title": "Lower (total) mutual visibility in graphs",
+          "trigger": "Origin of the lower invariant"
+        },
+        {
+          "assessment": "Supplies the known reduction",
+          "evidence": "Total mutual visibility is equivalent to having no selected distance-two pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05168",
+          "material_read": "Theorem 6, PDF p. 5",
+          "method": "OA passage inspection",
+          "title": "Total mutual-visibility in Hamming graphs",
+          "trigger": "Broader visibility characterization"
+        },
+        {
+          "assessment": "Different extremum",
+          "evidence": "Concerns maximum cardinality, not smallest inclusion-maximal sets.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-026-03025-9",
+          "material_read": "Section 4.1, PDF pp. 9–10",
+          "method": "OA passage inspection",
+          "title": "Visibility in Hypercubes",
+          "trigger": "Same graph and terminology"
+        },
+        {
+          "assessment": "Scalar or different ensemble",
+          "evidence": "The scalar is 4; n=7,k=4 has 36,400 independent sets with no covering constraint.",
+          "identifier_or_url": "https://mathworld.wolfram.com/DominationNumber.html ; https://oeis.org/A355226",
+          "material_read": "Halved-cube table and independent-set triangle entry",
+          "method": "Public table inspection",
+          "title": "Domination Number; OEIS A355226",
+          "trigger": "Known scalar and exact code tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A labeled extremal census for the lower visibility problem would be useful if unknown, but the exact family and its size are already available with a proof. Rephrasing its perfect matching in affine language adds no independently useful unknown exact fact.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

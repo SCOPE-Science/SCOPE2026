@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:46:23.223807Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–93",
+        "VERIFICATION.md, verify.py, VERIFY_OUTPUT.txt"
+      ],
+      "rationale": "Expanding L=D−W noncommutatively, bipartite parity eliminates unit- and three-edge terms for distinct same-class vertices. Exactly the shared-neighbor pairs contribute h²m_ij/2−h³c_ij/6, giving their one permanent crossing. Across classes, a distance-three entry is h³(W³)_ij/6; for an edge, division by hw_ij gives an upward quadratic with discriminant at most −(5d_i²+2d_i d_j+5d_j²)/12. More distant entries vanish. The stated diagonal follows since (W³)_ii=0. Every diagonal is a nonnegative spectral mixture of the cubic scalar Taylor multiplier; its derivative is strictly negative since λ>0 contributes −λ[(hλ−1)²+1]/2 and L_ii>0 ensures positive spectral weight there. It tends to minus infinity. Thus the minimum root is exact, included, and cannot be followed by a later positive interval. For F=I−hL, (I/3+F/2+F³/6) proves the lower bound and C4 has a distance-two cutoff 1/Δ. At a maximum-degree vertex, the diagonal at z=hΔ=α is the sum of (σ_i/Δ²)α²(3−2α)/6 and −(τ_i/Δ³)α³/6, strictly negative since α>3/2. For the m-leaf star at fixed z<α, the hub diagonal tends to the positive scalar cubic there, the common leaf diagonal tends to 1, and normalized distance-two thresholds tend to 3. Hence eventually the step z/m is allowed, proving liminf m h_*≥α; the strict upper bound gives the limit. Row sums equal one since L1=0. Source matrix-check code and reported finite tallies were inspected; they were not executed or used as uniform proof.",
+      "residual_risks": [
+        "The all-entry classification uses bipartite parity and symmetric nonnegative conductances. This is endpoint positivity, not an internal-stage or error guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth–Song–Terlaky Theorem 3.3 and Corollary 1 supply a valid Taylor step via first positive coefficient roots; Theorem 3.12 supplies a valid absolute-monotonicity step.",
+          "Nüßlein–Ranocha–Ketcheson §1 covers the forward-Euler-scaled sufficient range. Blanes–Iserles–Macnamara discuss different positivity-preserving graph-Laplacian methods.",
+          "The 2005 Horváth publisher landing page/abstract and an unavailable institutional route did not provide its full theorem text."
+        ],
+        "reasoning": "A sufficient invariance range or exact-semigroup uniformization is not an upper envelope for a fixed cubic Taylor polynomial. Exact first-loss computation via generic tests also does not show all potentially negative entries remain negative beyond their first sign crossing.",
+        "searches": [
+          "Polyhedral invariance Taylor thresholds and absolute monotonicity, strict RK3 upper envelope",
+          "Horváth 2005 On the positivity step size threshold of Runge–Kutta methods",
+          "SSP and graph-Laplacian positivity, arXiv:2005.06268 and 2102.08242"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1406.6755, 2005.06268, 2102.08242; Horváth 2005 abstract and citation",
+        "Local Resultary: 014168bc0394, 2c9867ce7a18, 0aa3ec090e79, 01bb6b2f127c, e12e6d27404e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the star proof the non-hub restrictions are shown inactive, unlike the arbitrary graph criterion, where a distance-two restriction can be binding. The regular-family theorem does not cover unequal degrees, and the unweighted multipartite formula assumes different structure.",
+          "Neither endpoint trial-polynomial roots nor the known star limit proves that larger normalized steps are impossible on all other weighted bipartite graphs."
+        ],
+        "reasoning": "Together the existing regular and star cases provide both extremal witnesses, not the global theorem enclosing every arbitrary weighted bipartite graph between them. The maximum-degree diagonal obstruction and parity/discriminant classification are the distinct implications.",
+        "searches": [
+          "Compare the exact star cubics and regular bipartite cutoff with frozen RESULT lines 38–89; compare Horváth–Song–Terlaky §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1406.6755 §3.1 provides Taylor polynomial threshold tests in a polyhedral formulation.",
+          "Catalogue 014168bc0394, FINDING and proof opening, gives the same RK3 polynomial with Q=−L on a star and the same upper root, there denoted β."
+        ],
+        "reasoning": "Row sums one make endpoint Markov stochasticity equivalent to entrywise nonnegativity. The star theorem is exact in that equivalent notation but restricts the network class; no generic root test identifies the controlling graph distances or yields no reentry without further work.",
+        "searches": [
+          "Taylor heat/RK3 endpoint entrywise positivity, invariant nonnegative orthant, symmetric Markov generator",
+          "Local Resultary: weighted RK3 bipartite, hub-diagonal law, Taylor graph parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "014168bc0394 gives exact hub-limited stars, the same strict upper root and the same unit-star limit. 2c9867ce7a18 gives the exact order-three forward-Euler cutoff for weighted regular bipartite graphs of diameter at least two, covering C4.",
+          "0aa3ec090e79 and 01bb6b2f127c give exact Taylor results on unweighted complete multipartite graphs. e12e6d27404e concerns homogeneous bidirected Markov stars."
+        ],
+        "reasoning": "The exact number and several graph restrictions are indeed present and must be credited; none of those formulas specifies the threshold or strict upper bound for a general positively weighted symmetric bipartite network.",
+        "searches": [
+          "Local Resultary: same-polynomial RK3 graph radii; regular bipartite, complete multipartite, and weighted star exact thresholds"
+        ]
+      },
+      "rationale": "Credit the standard forward-Euler/SSP lower bound, general polynomial tests, and all identified exact family overlaps. The supported distinct content is the all-step graph-distance/diagonal formula and strict sharp upper bound on the whole arbitrary weighted bipartite class. The star value and limit are not independent new results; the same-day star theorem gives them explicitly, and its date does not resolve priority.",
+      "residual_risks": [
+        "The 2005 Horváth primary full text was not accessible via the checked lawful routes and could contain stronger graph or generator coverage.",
+        "Same-day catalogue matches establish mathematical overlap but not publication order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers a generic valid step procedure and lower guarantees, not the inspected exact arbitrary-graph claims",
+          "evidence": [
+            "First positive roots of coefficient polynomials give a valid step; absolute monotonicity gives a γρ sufficient threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.6755",
+          "material_read": "Abstract p. 1; §3.1 Theorem 3.3 and Corollary 1 p. 7, around offset 23100; Theorem 3.12 p. 10, around 35150; references p. 16, around 58900",
+          "method": "Lawful OA primary PDF passages",
+          "title": "Steplength Thresholds for Invariance Preserving of Discretization Methods of Dynamical Systems on a Polyhedron",
+          "trigger": "Potential general polynomial threshold theorem"
+        },
+        {
+          "assessment": "Exact implication unresolved",
+          "evidence": [
+            "Landing text only; institutional route was unavailable."
+          ],
+          "identifier_or_url": "Z. Horváth (2005), Applied Numerical Mathematics, pp. 341–356",
+          "material_read": "Publisher landing page/abstract and citation in arXiv:1406.6755; not full paper",
+          "method": "Lawful publisher/OA and institutional retrieval attempts",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Directly relevant specialist positivity theorem"
+        },
+        {
+          "assessment": "Known SSP range and related schemes, not exact endpoint classification in inspected passages",
+          "evidence": [
+            "SSP method bounds positivity by a scaled forward-Euler limit. The graph-Laplacian work develops other preserving methods."
+          ],
+          "identifier_or_url": "arXiv:2005.06268 and arXiv:2102.08242",
+          "material_read": "First paper §1 p. 2 around offset 4722; second abstract p. 1 and §1.1 p. 2 around offsets 1680 and 7100",
+          "method": "Lawful OA PDF passages",
+          "title": "Positivity-Preserving Adaptive Runge–Kutta Methods; Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Relevant SSP guarantees and graph-Laplacian schemes"
+        },
+        {
+          "assessment": "Exact overlap for the star case including upper sharpness witness, with stronger star-only lower bound; not the arbitrary graph result",
+          "evidence": [
+            "Any weighted star with at least two leaves is hub-limited; its normalized cutoff is strictly below the same scalar root, reached asymptotically on unit stars."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 014168bc0394",
+          "material_read": "Mirrored RESULT.md Finding and proof opening, offsets 0–2705",
+          "method": "Local Resultary and primary mirrored record",
+          "title": "A universal hub-diagonal positivity law for third-order Runge–Kutta on weighted stars",
+          "trigger": "Same cubic and exact upper root on a subclass"
+        },
+        {
+          "assessment": "Restricted families, with partial overlap",
+          "evidence": [
+            "Weighted regular bipartite cutoff equals 1/d. The complete multipartite statements are unweighted. Homogeneous bidirected stars have separate rate-balance hypotheses."
+          ],
+          "identifier_or_url": "Resultary 2c9867ce7a18, 0aa3ec090e79, 01bb6b2f127c, e12e6d27404e",
+          "material_read": "Mirrored RESULT.md passages stating the respective order-three claims",
+          "method": "Local Resultary and primary mirrored records",
+          "title": "Path parity certificate; exact positivity radii and order-three reversal; complete multipartite parity law; bidirected star rate-balance switch",
+          "trigger": "Exact cubic formulas could include sharp weighted cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Steps 1–5",
+        "arXiv:1406.6755 §3.1",
+        "Local Resultary 014168bc0394 and 2c9867ce7a18"
+      ],
+      "rationale": "A local lift of a generic root test to incident degrees and shared-neighbor moments makes the largest stochastic completed step identifiable without a global matrix search, including whether a distance-two pair or a diagonal controls it. The result proves that searching beyond the first failure cannot help and gives a sharp worst-case range relative to standard forward Euler. Both effects matter for interpretation of positivity limits and are not just recalculations of known stars or regular graphs.",
+      "residual_risks": [
+        "Does not claim a larger time step is beneficial for accuracy or that all internal stages or nonlinear dynamics preserve positivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

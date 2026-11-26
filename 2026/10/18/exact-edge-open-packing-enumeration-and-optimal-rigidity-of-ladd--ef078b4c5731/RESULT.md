@@ -1,86 +1,84 @@
-# Exact edge-open-packing enumeration and optimal rigidity of ladder graphs
+# The edge-open-packing size enumerator of the two-row ladder
 
 ## Finding
 
-Let \(L_n=P_2\square P_n\) be the ladder with \(n\ge1\) rungs. An **edge-open-packing** is a set of edges containing no pair for which a third, different graph edge joins an endpoint of one to an endpoint of the other. Let \(E_n(z)=\sum_B z^{|B|}\), summed over all such sets (including the empty set). Then the complete size-enumerator has the following rational ordinary generating function:
-
+For the ladder \(L_n=P_2\square P_n\) with \(n\ge1\) rungs, let \(E_n(z)=\sum_B z^{|B|}\), where \(B\) ranges over all edge-open packings, including the empty packing. Then
 \[
-\sum_{n\ge1} E_n(z)t^n=\frac{tN(t,z)}{D(t,z)},
+\sum_{n\ge1}E_n(z)t^n=\frac{tN(t,z)}{D(t,z)},
 \]
+where
 \[
 \begin{aligned}
-N(t,z)={}&1+z+t(3z+4z^2)+t^2(z+5z^2+2z^3)\\
-&+t^3z^4+t^4(z^4-z^3),\\
-D(t,z)={}&1-t-2t^2z-t^3(z+5z^2+z^3)\\
-&-t^4z^3-t^5(z^4-z^3).
+N(t,z)&=1+z+t(3z+4z^2)+t^2(z+5z^2+2z^3)+t^3z^4+t^4(z^4-z^3),\\
+D(t,z)&=1-t-2t^2z-t^3(z+5z^2+z^3)-t^4z^3-t^5(z^4-z^3).
 \end{aligned}
 \]
-
-In particular, every ladder with \(n\ge1\) has edge-open-packing number \(\rho_e^o(L_n)=n\). The number \(M_n=[z^n]E_n(z)\) of maximum packings is
-
-\[
-M_n=\begin{cases}1,&n=1,\\4,&n\ge2\text{ and }n\equiv2\pmod3,\\2,&n\ge2\text{ and }n\not\equiv2\pmod3.\end{cases}
-\]
-
-The proof below also classifies the maximum sets by alternating local star patterns. On specializing to \(z=1\), the total number \(a_n=E_n(1)\) satisfies \(a_n=a_{n-1}+2a_{n-2}+7a_{n-3}+a_{n-4}\) for every \(n\ge5\), with initial values \(a_1,a_2,a_3,a_4=(2,9,21,54)\).
+In particular, \(a_n=E_n(1)\), the number of all packings, satisfies \(a_n=a_{n-1}+2a_{n-2}+7a_{n-3}+a_{n-4}\) for \(n\ge5\), with \((a_1,a_2,a_3,a_4)=(2,9,21,54)\). The formula counts packings at every size, and gives a fixed-order recurrence in the number of rungs for the activity-weighted count \(E_n(z)\). The maximum size, number of maxima and classification of the optimal packings were already determined in [1]; none is claimed as a new finding here.
 
 ## Assumptions and scope
 
-All graphs are finite, simple, and undirected. Name the vertices of the two rows \(u_i,v_i\), for \(1\le i\le n\). Write \(r_i=u_iv_i\) for a rung and \(p_i=u_iu_{i+1}\), \(q_i=v_iv_{i+1}\) for the upper and lower horizontal edges, respectively, for \(1\le i<n\). The local state in column \(i\) is a mask \(s_i\) with bit \(1\) representing \(r_i\), bit \(2\) representing \(p_i\), and bit \(4\) representing \(q_i\). In the last column, only \(r_n\) exists, so \(s_n\in\{0,1\}\). Define \(w(s)\) to be the number of set bits of \(s\). Here \(P_1\) has one vertex and \(L_1=K_2\).
+Graphs are finite, simple and undirected. An edge-open packing is a subset of edges with no pair of distinct members for which a third, different graph edge joins an endpoint of one to an endpoint of the other. Two selected edges are not excluded merely for sharing a vertex. The ladder is open at both ends; the edges and their positions are distinguished, with no quotient by automorphisms. The case \(n=1\) is a single edge. The variables \(t,z\) track rungs and chosen edges, respectively, with the identity taken in \(\mathbb Z[z][[t]]\).
 
 ## Proof
 
-**Local exclusion criterion.** The only allowed masks in any nonfinal column are \(S=\{0,1,2,3,4,5\}\): upper and lower horizontal edges in the same column conflict. All remaining conflicting pairs of edges lie in columns of offset one or two, with the following exhaustive lists, where the first item in each ordered pair occurs in the earlier column:
-
+Write \(r_i=u_iv_i\), \(p_i=u_iu_{i+1}\), \(q_i=v_iv_{i+1}\) for the rung, upper rail and lower rail edge anchored at column \(i\), omitting the rail edges at \(i=n\). Encode selections by masks with respective bits \(1,2,4\) and let \(w(c)\) count the bits of \(c\). The only same-column exclusion is the pair of rail edges, so the masks are \(S=\{0,1,2,3,4,5\}\) in an interior column and \(\{0,1\}\) in the last. At positive offsets the forbidden edge-type pairs, earlier anchor first, are
 \[
 \begin{array}{c|l}
-\text{offset }1&(r,r),\ (r,p),\ (r,q),\ (p,q),\ (q,p)\\
-\text{offset }2&(p,r),\ (p,p),\ (q,r),\ (q,q).
+1&(r,r),(r,p),(r,q),(p,q),(q,p)\\
+2&(p,r),(p,p),(q,r),(q,q).
 \end{array}
 \]
+Indeed a witness edge either joins different rows in the same column or joins consecutive columns in the same row. Checking the endpoints in these two cases and discarding either selected edge as witness gives exactly the listed pairs and the same-column exclusion. Anchors at distance at least three leave all endpoints at least two columns apart, so they cannot conflict. Define \(C_d(a,b)\) to mean that masks \(a,b\) contain no forbidden pair at offset \(d\).
 
-There are no conflicts at greater offsets. Indeed, such a conflict requires a third edge joining endpoints of two chosen edges; examining the three kinds of ladder edge and their endpoints gives exactly the listed pairs. Conversely each listed pair has the requisite third ladder edge. Thus a sequence \(s_1,\ldots,s_n\) encodes an edge-open-packing if and only if every consecutive pair passes the offset-one test and every pair two positions apart passes the offset-two test. This is a bijection, not an approximation.
-
-**Exact generating function.** A transfer state is an allowed ordered pair \((a,b)\) of consecutive column masks, including the initial state \((0,0)\); there are exactly 17 such states. For \(a,b\in S\), let \(C_d(a,b)\) mean that no forbidden offset-\(d\) pair has both of its bits selected. Let \(F_{a,b}\) be the formal generating series for all nonempty possible continuations after two previous masks \(a,b\). Then
-
+The transfer states are the 17 ordered pairs \((a,b)\) in \(S^2\) with \(C_1(a,b)\). Let \(F_{a,b}\) be the series for nonempty continuations after these masks, starting with two zero masks before the first column. A continuation either uses just the last column or first appends an interior column and continues:
 \[
 F_{a,b}=t\sum_{c\in\{0,1\}}[C_1(b,c)C_2(a,c)]z^{w(c)}
 +t\sum_{c\in S}[C_1(b,c)C_2(a,c)]z^{w(c)}F_{b,c}.
+\tag{1}
 \]
+This is a bijective encoding of each packing by its masks. The factor \(t\) on each term gives a unique formal-series solution by coefficient recursion. The desired series is \(F_{0,0}\).
 
-In these indicator brackets, \([P]=1\) when the proposition \(P\) holds, otherwise zero. The first term stops with the final rung column, and the second term appends an interior column, so the recurrence counts each ladder packing exactly once. Its unique formal-power-series solution exists because every right-hand occurrence of \(F\) is multiplied by \(t\). The full exact 17-state rational-function certificate in `rational_certificate.json` supplies a common denominator \(D\) and one polynomial numerator for each state. Direct polynomial multiplication verifies all 17 identities after clearing \(D\). The initial numerator is \(tN(t,z)\), proving the displayed rational function. The independent verification program checks these *symbolic polynomial identities*, not merely a finite series prefix.
-
-**Maximum size.** Put \(h(a,b)=w(b)-1\) when \(b\ne0\). For \(b=0\), put \(h(a,0)=0\) if \(a\in\{0,3,5\}\), and \(h(a,0)=-1\) otherwise. Every permitted transition \((a,b)\to(b,c)\) satisfies
-
+For an explicit calculation of the resolvent, group the states into the following five classes, in each of which the right sides of (1) coincide after the grouping:
 \[
-w(c)-1\le h(b,c)-h(a,b).
+\begin{array}{c|l}
+U&(0,0),(1,0)\\
+V&(0,1),(2,1),(4,1)\\
+W&(0,2),(0,4)\\
+X&(0,3),(0,5),(2,2),(2,3),(4,4),(4,5)\\
+Y&(2,0),(3,0),(4,0),(5,0).
+\end{array}
 \]
-
-To check this without relying on a search: when \(c\ne0\), the new potential equals \(w(c)-1\). If \(b\in\{3,5\}\), the rung bit of \(b\) forces \(c=0\), so otherwise \(h(a,b)\le0\). If \(c=0\), verify separately \(b=0\), \(b\in\{1,2,4\}\), and \(b\in\{3,5\}\); the claimed inequality is immediate from the definition. Telescoping from \((0,0)\), whose potential is zero, through the final state, whose last mask belongs to \(\{0,1\}\) and potential is at most zero, gives \(\sum_i w(s_i)\le n\).
-
-**Sharpness, rigidity and multiplicity.** Equality requires every potential inequality to be tight and the final potential to be zero. The tight-transition conditions follow from the previous case check: a nonzero next mask is tight only from potential zero, while a zero next mask is tight only after a nonzero previous mask. Remove tight transitions from which no valid final state of potential zero is reachable. The remaining strings are precisely the following alternating patterns. Let \(T=(2,3,0)\) and \(B=(4,5,0)\), representing three-edge stars centered in the top and bottom rows. Consecutive complete triples must alternate \(T,B,T,B,\ldots\) or \(B,T,B,T,\ldots\). The permitted boundary pieces are \((2,1)\), \((4,1)\) at the right, or \((3,0)\), \((5,0)\) at the left, with the row alternating at each junction:
-
-* For \(n=3k\), \(k\ge1\): exactly \(k\) alternating complete triples, in either initial row; two choices.
-* For \(n=3k+1\), \(k\ge1\): one left boundary piece, \(k-1\) alternating complete triples, and the forced opposite-row right boundary piece; two choices. For \(n=1\), the unique maximum is the rung.
-* For \(n=3k+2\), \(k\ge0\): either \(k\) alternating complete triples followed by a right boundary piece, or a left boundary piece followed by \(k\) alternating complete triples; each family has two row choices and the families are disjoint.
-
-This can also be read directly from the 17-state transition rule; all other equality branches lead to a terminal potential of \(-1\) or a dead end. Every displayed string passes the full offset-one and offset-two tests, so all are genuine packings with \(n\) edges. This proves both the sharp bound and the exact \(1,2,4\) maximum-set counts. Specializing the rational generating function at \(z=1\) yields denominator \(1-t-2t^2-7t^3-t^4\), proving the total-count recurrence.
+Substituting the allowed masks gives
+\[
+\begin{aligned}
+U&=t(1+z)+t(U+zV+2zW+2z^2X),& V&=t(1+U),\\
+W&=t(1+z)+t(Y+zV+(z+z^2)X),&X&=t(1+Y),\\
+Y&=t(1+U+zW+z^2X).
+\end{aligned}
+\]
+To check the rational solution, the numerators for \(U,V,W,X,Y\), over the stated denominator \(D\), are respectively
+\[
+\begin{aligned}
+U_D&=tN,\\
+V_D&=t+t^2z+t^3(z+4z^2)+t^4z^3+t^5(z^4-z^3),\\
+W_D&=t(1+z)+t^2(z+z^2),\\
+X_D&=t+t^3z^2,\\
+Y_D&=t+2t^2z+t^2z^2+t^3(z+5z^2+z^3)+t^4z^3+t^5(z^4-z^3).
+\end{aligned}
+\]
+Direct substitution into the five equations after multiplying by \(D\) verifies these polynomial identities. Since \(D(0,z)=1\), uniqueness of (1) proves the stated series. Setting \(z=1\) gives denominator \(1-t-2t^2-7t^3-t^4\) and numerator \(2t+7t^2+8t^3+t^4\); comparing coefficients proves the recurrence and its initial values.
 
 ## Verification
 
-Run `python3 verify.py` in the directory containing `rational_certificate.json`. The verifier uses Python's standard library only. It checks all 17 exact polynomial identities with integer coefficients, all 17 potential-state transitions, exhaustive edge-subset feasibility for ladder orders \(1\) through \(6\) (74,898 subsets), coefficients and maximum counts through order 200, and the total-count recurrence through order 39. Recorded output is in `verification_output.txt`; the printed totals for the first six orders are \((2,9,21,54,161,425)\). Finite checks support but do not replace the formal generating-function certificate and the potential argument.
+The retained `rational_certificate.json` provides the common denominator and numerators of all 17 states, and `verify.py` checks all cleared polynomial identities using exact integer arithmetic. From the directory with the certificate and script, the replay command is `python3 verify.py`. The additional degree and leading-coefficient identities in the script regress against the already known extremal results [1]; they are not a claim of novelty. Direct edge-subset enumeration through \(n=6\) is a further small-order check, not the basis of the generating-function identity. The retained output reports totals \((2,9,21,54,161,425)\) at the first six orders.
 
-## Relationship to prior work
+## Relationship to prior work and limitations
 
-Chelladurai, Kalimuthu and Soundararajan (2022) introduced edge-open-packing sets and computed scalar maxima for paths, cycles, complete multipartite graphs, wheels and the Petersen graph. Cardoso and collaborators' injective-edge-coloring framework is equivalent to partitioning all edges into open packings; the 2023 product-graph study records the known injective edge chromatic index \(\chi_i'(L_n)=3\) for \(n\ge3\). This implies that at least one color class has at least \(n\) edges but does **not** imply that no larger packing exists, much less count the optimal packings or their entire polynomial. Brešar and Samadi (2024) give complexity results and a tree algorithm, not the ladder enumeration. Recent broader-class maximum-packing algorithms do not state the exact ladder polynomial or the optimal-set multiplicity. The present contribution is the rational all-cardinality enumerator and the rigid, residue-dependent classification of all maxima.
-
-## Limitations
-
-The classification is for ordinary two-row *open* ladders with free path ends, not cylindrical ladders, Möbius ladders, wider rectangular grids, induced matchings or other packing conventions. Exact integer-arithmetic complexity does not imply a bit-complexity bound independent of coefficient size. Complete worldwide priority cannot be proved from literature searches; in particular an unindexed equivalent enumeration could exist. The review presented with this finding is same-model; independent scientific audit has not been performed.
+The exact rational series gives the full size distribution, including the nonoptimal packings not covered by the extremal theorem [1]. The recursion [2] for the same polynomial on forests does not apply to ladders with \(n\ge2\), which contain 4-cycles. The all-cardinality result for rook graphs [3] uses a different product family, intersecting the open ladder family at \(P_2\square P_2=K_2\square K_2\). Maximum-packing algorithms and bounds, such as [4], do not themselves enumerate all cardinalities. No priority is claimed for local transfer matrices as a method. The formula does not cover wider grids, cyclic ladders or a different convention for edge packings. The literature comparison is limited to the accessible sources; it does not establish exhaustive historical priority.
 
 ## References
 
-1. G. Chelladurai, K. Kalimuthu and S. Soundararajan, “Edge open packing sets in graphs,” *RAIRO Operations Research* 56 (2022), 3765–3776, DOI: 10.1051/ro/2022171. Full publicly accessible article text: https://www.researchgate.net/publication/364182825_Edge_open_packing_sets_in_graphs.
-2. B. Brešar and B. Samadi, “Edge open packing: complexity, algorithmic aspects, and bounds,” arXiv:2403.00750, first posted 2024-03-01, https://arxiv.org/abs/2403.00750.
-3. C. K. Bhanupriya, C. Dominic and M. S. Sunitha, “Injective edge coloring of product graphs and some complexity results,” *Filomat* 37 (2023), 3959–3979, DOI: 10.2298/FIL2312959C, https://www.researchgate.net/publication/369452495_Injective_edge_coloring_of_product_graphs_and_some_complexity_results.
-4. G. K. Das and K. Santra, “Maximum Edge Open Packing on AT-Free, Chordal, and Convex Bipartite Graphs,” arXiv:2610.02275, https://arxiv.org/abs/2610.02275.
+1. *Three-periodic rigidity of maximum edge open packings in ladder graphs*, [Resultary d9bdf15b2f02](https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-three-periodic-rigidity-of-maximum-edge-open-packings-in-ladder--d9bdf15b2f02/RESULT.md).
+2. *An exact five-state edge-open-packing polynomial recursion for forests*, [Resultary 8c3bbc4f388f](https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-exact-five-state-edge-open-packing-polynomial-recursion-for-f--8c3bbc4f388f/RESULT.md).
+3. *Complete edge-open-packing polynomial and odd-square rigidity of rook graphs*, [Resultary 43a6aee37b6e](https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-complete-edge-open-packing-polynomial-and-odd-square-rigidity-of--43a6aee37b6e/RESULT.md).
+4. B. Brešar and B. Samadi, *Edge open packing: complexity, algorithmic aspects, and bounds*, [arXiv:2403.00750](https://arxiv.org/abs/2403.00750).

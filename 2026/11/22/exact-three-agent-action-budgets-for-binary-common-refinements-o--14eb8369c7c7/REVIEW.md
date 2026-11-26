@@ -1,19 +1,21 @@
-# Review of exact three-agent action budgets for binary common refinements
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A doubleton cell requires two distinct outcomes while each fixed action must witness both; if at most one type has multiple copies, fixing that type leaves just one complete profile within the cell. With two duplicated types, binary parity of their copy indices supplies both outcomes on every coordinate slice, independently for every cell. Every fixed action therefore realizes its entire partition block. Doubled block types meet each edge of the triangle graph precisely when the cellwise condition holds; minimum vertex cover exactly minimizes the number of extra copies. All-finite quantifiers, cell boundaries and both directions were reconstructed. The bundled verifier checked all 256 binary patterns for two blocks per agent, every two-level budget in the one-cell setting, and 565 heterogeneous constructions. These are corroborating finite computations, not the infinite proof.
+PASS
 
-## Originality — PASS within examined evidence
+Every profile's value must lie in the unique joint cell for its action blocks. For a doubleton, a fixed copy must see both symbols in its slice of that cell; partitions ensure that profiles outside that cell cannot supply either symbol. If fewer than two axes have length at least two, fixing the only potentially varying axis leaves a one-entry slice. If two axes vary, parity of their copy indices supplies both outcomes in every fixed-action slice, even for budgets greater than two. Singleton cells use their only outcome and impose no constraint. The cell constructions glue because joint cells partition the outcome set and all type triples are allowed. Each triangle needs two doubled vertices exactly when every one of its edges is covered. Extra copies beyond two are removable without violating feasibility, and isolated vertices need only one. Thus all optimum vectors correspond exactly to minimum covers and the displayed example has total 8. Independently tested 38 small cell shapes with bitmask slice-surjectivity enumeration, not the parity construction (`python3 /workspace/frozen_review_replay.py 4`); this is bounded corroboration. The frozen script was read, not run.
 
-Ciardelli's 2026 representation theorem gives qualitative realizability. The closest exact published theorem optimizes two agents' partition-valued copies, whereas this construction has three independently fixed-agent constraints. Published universal heterogeneous-budget and instance-sensitive chromatic theorems furnish sufficient all-neighborhood bounds, but neither gives an exact per-partition-block feasibility classification or a sharp graph-cover minimum. Their full accessible RESULT texts were inspected and actual semantic finding searches compared aliases and implications. Older game-form/array formulations remain possible; this is not independent historical certification.
+## originality
 
-## Value — PASS
+PASS
 
-A binary common-refinement cell is the first natural case with two observationally indistinguishable outcomes, not an arbitrary numeric restriction. The theorem determines every feasible local action vector, explains why two of three agent types must be doubled, and converts the global smallest-game question into a sharp graph-cover invariant. Every minimum cover constructs an optimum. A 2-by-2-by-2 refinement with one doubleton requires only eight actions, avoiding unnecessary blanket duplication. No theorem about coalitional effectivity or larger cells is claimed.
+The supported claim is the exact per-block heterogeneous three-agent budget region and its instance-specific minimum for transverse binary refinements. General representability, modular addition as a construction, the two-agent rectangular region, and elementary graph-cover duality are not claimed original. The strongest accessible comparisons do not give this quantitative three-way classification or its graph reduction.
 
-## Sources and limitations
+## value
 
-See RESULT.md references and AUDIT.json's individually described source comparisons. All three axes concern one fixed theorem. The proof holds only for transverse partition-valued local actual-effectivity structures with three agents and one- or two-element joint cells. Independent mathematical and historical-priority audits remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves the cost of exact simultaneous-action representation for a natural class where a qualitative theorem leaves the cost open. It identifies all per-block feasible budgets and reduces the exact instance-dependent minimum to a graph computable from the refinement; this permits nonuniform optima that the uniform-copy existence constructions do not explain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

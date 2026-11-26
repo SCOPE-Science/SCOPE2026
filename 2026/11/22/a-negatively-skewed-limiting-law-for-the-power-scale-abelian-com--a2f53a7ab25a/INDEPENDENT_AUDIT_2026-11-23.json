@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:00:51.047733Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact word is the zero coding of the substitution a -> aaa(a+1 mod 3), since adjoining a base-four digit 3 advances the state and the other digits preserve it. Allouche et al. Proposition 8 gives A_0=2 and the difference 3g_m; Lemma 11 computes the block counts, hence the difference is exactly 2 rho^m Phi(m theta). Shifting the uniformly convergent geometric series gives rho H(t+theta)-H(t)=2Phi(t), with A_m-rho^m H(m theta)=2-H(0). Irrationality follows also because 2cos(2theta)=11/7 cannot be a rational algebraic integer, as it would be if exp(2i theta) were a root of unity. Irrational rotation equidistributes modulo pi/3, and the vanishing error gives the empirical law for uniform sampling of exponents. The support is the full connected image of H, since every neighborhood of an attained value has preimage of positive phase measure; the functional equation precludes a constant H. On [0,pi/3] the cosine range is sqrt(3)cos(t-pi/6); its Fourier coefficient is 3sqrt(3)/(pi(1-36l^2)). Summing the geometric shift gives the stated H coefficients, whose absolute summability follows from rho>1; taking the constant and applying Parseval gives the mean and variance with the stated normalization. The third moment is independently certified without using the frozen Decimal checker. For c_l equal to the nonzero Fourier coefficients of H, it is 6 Re sum_{a,b>=1} c_a c_b conjugate(c_{a+b}). An independent rational-interval computation uses exp(6i theta)=(-143+180i sqrt(3))/343 and a+b<=32, with omitted tail bounded by 1/1372000; the final outward interval [-0.000047314972706,-0.000045857246758] is strictly inside the frozen interval. Replay: /workspace/branches/dfaa9be7-5bda-4eca-ad65-b29dd69ba2ac/power_scale_third_moment.py (exact rational interval computation; its .out file records the enclosure). The replay verifies the integral from the analytic Fourier identity, not the recurrence or equidistribution on its own. The frozen checker and captured output were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The r>=4 interval family develops the same cyclic spectral construction and phase kernel, so even for r=3 this part is a straightforward adaptation with the original recurrence. The later nonregular family explicitly credits r=3 as known.",
+          "The primary Pisot-type result concerns bounded complexity under a different spectral hypothesis. The present substitution has two non-Perron eigenvalues of modulus sqrt(7)>1, and its complexity is unbounded."
+        ],
+        "reasoning": "Neither the comparable larger-r family nor the stronger effective Pisot technology proves a signed cubic moment for this unbounded word. The shared phase and support analysis is credited rather than claimed as a novel special case.",
+        "searches": [
+          "Resultary 7b09e62adf22 interval-valued power-scale limits and f292807a24e1 nonregular binary family",
+          "arXiv:2504.13584v2 effective computation of generalized Abelian complexity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03837v1",
+        "Resultary 7b09e62adf22 and f292807a24e1",
+        "arXiv:2504.13584v2 abstract",
+        "Targeted primary-literature and local-index searches recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact phase identity follows by summing the old differences, and weak convergence follows by standard equidistribution. The prior nonperiodicity proof uses density of the rotation, without evaluating continuous phase averages.",
+          "The support description does not imply symmetry or asymmetry. The centered cubic sign requires correlations among nonzero Fourier coefficients and does not follow merely from their magnitudes or Parseval."
+        ],
+        "reasoning": "Explicitly exclude the immediate consequences of the recurrence from the originality judgment. The new sign is a substantive calculation about the shape of the normalized law, with an independent exact-arithmetic confirmation rather than a literature-gap inference from a title or search miss.",
+        "searches": [
+          "arXiv:2610.03837v1 Proposition 8, Lemmas 11–12 and proof of Theorem 7",
+          "Resultary 7b09e62adf22 Steps 3–4; f292807a24e1 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The automatic digit process, binary coding of the cyclic substitution and maximal-minus-minimal one-count on factors describe the same example as Allouche et al.",
+          "The normalized rotating wave and uniform-phase pushforward are equivalent formulations of the empirical law; the normalized fluctuation's asymmetry is quantified by a centered cubic integral rather than by its range."
+        ],
+        "reasoning": "Matched both the exact word and the log-length sampling regime, then separated the standard representation from the nontrivial sign and explicit statistical values.",
+        "searches": [
+          "Resultary: digit three base four count modulo three binary automatic Abelian complexity normalized power scale limit distribution Fourier skewness",
+          "Literature: 2610.03837 abelian complexity power scale empirical distribution limiting law Fourier moments digit three counter Allouche Rampersad Rigo Stipulanti",
+          "arXiv:2610.03837v1, Proposition 8 and Lemmas 11–12"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Proposition 8 lists the first ten values at lengths 4^m and gives a complete recurrence for all m. It is already a stronger source for the finite sequence than the frozen enumeration.",
+          "Those exact sequences and the related exact phase records supply a way to set up the infinite statistic, not a tabulated mean, variance or signed skewness certificate. The sign proof used here is analytic integration with controlled remainder, not a fit to published table values."
+        ],
+        "reasoning": "The requested comparison is with exact infinite recurrence and Fourier/spectral data as well as finite tables. The defensible new invariant is a limiting-law shape diagnostic, not a recomputation of the listed counts.",
+        "searches": [
+          "Allouche et al. Proposition 8 numerical values and exact recurrence",
+          "Local Resultary explicit power-scale, interval and moment-law searches for 7b09e62adf22 and f292807a24e1"
+        ]
+      },
+      "rationale": "The exact binary example, nonregularity, recurrence, phase irrationality and block-count formula are prior. Further, the phase waveform and interval already follow from the known recurrence, and equidistribution is a standard consequence once the waveform is available; neither the phase change of variables nor the existence of a pushforward alone is credited as an independent advance. The surviving refinement is the explicit moment law and, especially, the exact nonzero signed third centered moment for this natural non-Pisot example. The earlier recurrence and range statements do not determine skewness by a direct parameter substitution or general symmetry principle: one must analyze the periodic correlations, for example by a bounded, error-controlled Fourier triple calculation. The closest primary and indexed results inspected do not give the sign or signed interval; this is bounded originality evidence, not a priority certification.",
+      "residual_risks": [
+        "The phase representation and pushforward are direct consequences of known inputs; scientific novelty is narrow and rests mainly on the explicit fluctuation quantities and the independently verified signed asymmetry.",
+        "An unindexed moment calculation or general symmetry analysis for this exact waveform might overlap. This review does not assert absolute priority or rule out conclusions beyond the passages inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers word, block counts, recurrence and phase irrationality; not the checked signed statistic",
+          "evidence": "A_{m+1}-A_m=3g(m) with range g and A_0=2; cos(2theta)=11/14; density used to show nonperiodic parity.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.03837v1",
+          "material_read": "§3 (3.1)–(3.2) and Proposition 8, p. 5; §4 Lemmas 11–12, p. 8, and nonparity/regularity passage, pp. 9–10; offsets 11200, 19800 and 25100",
+          "method": "OA primary PDF passages",
+          "title": "An example of an automatic sequence with non-regular abelian complexity",
+          "trigger": "Same word and decisively imported exact recurrence"
+        },
+        {
+          "assessment": "Strong overlap of waveform and support method, with r>=4 stated",
+          "evidence": "Its H_r solves the corresponding shifted functional equation, and dense phases give the exact limit interval. These are prior ingredients rather than evidence for the centered cubic sign.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-an-infinite-nonregular-abelian-complexity-family-with-interval-v--7b09e62adf22/RESULT.md",
+          "material_read": "Proof recurrences, spectral formula and irrational phase/full limit interval, Steps 2–4, offset 5300",
+          "method": "Local mirror full-text passage",
+          "title": "An infinite nonregular abelian-complexity family with interval-valued power-scale limits",
+          "trigger": "Same phase construction on related substitutions"
+        },
+        {
+          "assessment": "Nonregularity and recurrence, no comparable moment conclusion in inspected passage",
+          "evidence": "r>=4 result; expressly notes the known r=3 case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-infinite-ternary-morphism-family-with-nonregular-binary-abeli--f292807a24e1/RESULT.md",
+          "material_read": "Finding, recurrence and scope, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "An infinite ternary-morphism family with nonregular binary abelian complexity",
+          "trigger": "Same substitution family and exact scales"
+        },
+        {
+          "assessment": "Stated Pisot scope is not this spectral instance",
+          "evidence": "Bounded k-Abelian complexity and effective computation for fixed points of Pisot-type substitutions; no applicability shown with non-Perron modulus sqrt(7).",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.13584",
+          "material_read": "Primary abstract, p. 1, offset 840",
+          "method": "OA primary PDF abstract passage",
+          "title": "Effective computation of generalized abelian complexity for Pisot type substitutive sequences",
+          "trigger": "Potential more general Abelian-complexity algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Power lengths are the natural substitution scales of the original nonregularity example, not a numerical slice chosen after observing skewness. The earlier interval describes which values accumulate but not their relative frequency. Exact dispersion and a proved strictly negative third centered moment distinguish the natural phase-averaged law from a symmetric fluctuation model even on the same support. The shape fact is an independently useful small invariant; no claim is made about sampling all integer lengths, a closed-form support endpoint, absolute continuity, or a general skewness law for other words.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

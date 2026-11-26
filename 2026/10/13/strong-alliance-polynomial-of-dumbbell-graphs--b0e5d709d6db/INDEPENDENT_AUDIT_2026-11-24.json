@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:01:17.618229Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A selected nonendpoint on an m-clique side with a selected vertices requires a−1≥m−a, i.e. a≥h_m. A selected endpoint requires a−1+β≥m−a+1−β, i.e. a+β≥g_m, with β indicating whether the other endpoint is selected. These inequalities give E_m and J_m for one-sided sets; for a connected two-sided set both endpoints must occur. With β=1 a side containing only its endpoint cannot qualify (g_m≥3), and once a≥h_m the endpoint inequality holds. Thus the two-sided count is I_r I_s. A one-sided nonendpoint selection of size h_m exists since h_m≤m−1. For r≥4, put K=h_r+h_s. Degrees K−2 and K−1 are past any one-sided boundary defect (K−2≥h_s+1) and before the product begins. At those degrees the one-sided counts are ordinary binomial coefficients; they decrease strictly in the sum because K−2≤2h_s−2≤s and K−2>s/2. At K the product begins with A_r A_s, A_m=binom(m−1,h_m−1), a central maximum. This exceeds 2A_r+2A_s for r≥5 (both ≥6); for r=4 the left term at K−1 is absent and the right is at most 2A_s<3A_s. For r=3, odd s≥9 leaves an internal gap at degree 4, whereas even s≥4 has a strict drop from h_s to h_s+1 on the decreasing binomial tail (the left can only add at the earlier degree) and a rise at K=h_s+2: binom(s,h_s+1)<2A_s because its two Pascal summands are not both central maxima. Direct substitution confirms the three stated weakly unimodal sequences. Fresh brute-force comparison of all nonempty subsets for 3≤r≤5, r≤s≤8 agreed coefficient by coefficient, with precisely the stated exceptions in that range. This is finite corroboration, not the proof; replay paths are RESULT.md lines 37–98 and the inspected verify.py and verify_output.txt for the package's separate finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Founding computations include complete graphs, complete bipartite graphs and double stars. Theorem 3.6 joins two stars center-to-center, not arbitrary clique blocks. Example 3.8 already exhibits an isolated non-unimodal example.",
+          "The inspected bivariate family coverage includes friendship and book graphs. A bridge joining two cliques of orders at least three does not produce a complete multipartite graph (cross-side nonadjacency is not transitive)."
+        ],
+        "reasoning": "These are different families or examples, not broad composition theorems specializing to the target. They do foreclose novelty credit for discovering non-unimodality itself.",
+        "searches": [
+          "arXiv:1507.08654v1 Proposition 3.1, Theorems 3.3 and 3.6 and Example 3.8",
+          "arXiv:1811.10089v1 family scope; dumbbell/barbell/bridge comparisons",
+          "Resultary complete-multipartite strong-alliance polynomial cf4980ea579a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "arXiv:1507.08654v1",
+        "arXiv:1811.10089v1",
+        "Local Resultary 5431b532d7f2, 68b89b545fff, cf4980ea579a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An isolated clique gives an ordinary truncated binomial count; a bridge endpoint changes the local inequality depending on whether the opposite endpoint is selected. The known double-star calculation is a specific case on different blocks.",
+          "The prior non-unimodality example gives one valley, not a classification of these two-parameter clique dumbbells."
+        ],
+        "reasoning": "A simple sum or product of known clique polynomials misses the endpoint conditioning. Beyond that conditioning, classifying the coefficient valleys and all small exceptions needs a separate inequality argument.",
+        "searches": [
+          "arXiv:1507.08654v1 complete graph and double-star formulas; Example 3.8",
+          "arXiv:1811.10089v1 truncation and family scopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The founding invariant restricts to connected induced defensive 0-alliances. Ibrahim’s bivariate defensive alliance polynomial gives this invariant by threshold truncation.",
+          "The local bridge-barbell record 5431b532d7f2 is the same host graph, but its counted subsets are zero-forcing sets."
+        ],
+        "reasoning": "An exact bivariate defensive-alliance polynomial for the same graph could imply the formula by truncation, but the inspected bivariate examples do not include these dumbbells; zero forcing is not the threshold truncation or an equivalent predicate.",
+        "searches": [
+          "arXiv:1507.08654v1 §§1–2, equation (2.2)",
+          "arXiv:1811.10089v1 §§2.1–2.2",
+          "Local Resultary bridge-barbell and dumbbell comparisons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bridge-barbell entry has the right graph but wrong invariant. The same-day crown-graph entry has the right invariant but uses K_{n,n} minus a perfect matching. The complete multipartite entry also concerns a different family."
+        ],
+        "reasoning": "No exact table or family identity among these comparisons yields the dumbbell coefficients. The distinct same-day record was compared on its predicate and graph, not excluded by date.",
+        "searches": [
+          "Local Resultary strong alliance and bridge-barbell searches",
+          "Resultary 5431b532d7f2, 68b89b545fff and cf4980ea579a",
+          "arXiv:1507.08654v1 exact family examples"
+        ]
+      },
+      "rationale": "Pass for the bridge-joined clique formula and exact unimodality classification. Neither the invariant nor the phenomenon of a non-unimodal strong alliance polynomial is new. No relevant inspected source gives the formula or the if-and-only-if classification for this graph family.",
+      "residual_risks": [
+        "An unindexed or differently named clique-block or general bridge-composition treatment may exist. The comparison is not an exhaustive priority census; the complete-multipartite catalogue record was not verified as a primary journal publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same invariant, not same family or exact classification",
+          "evidence": "Double-star computation is for two stars; Example 3.8 has coefficients 1,3,1,4,5,1 from degree 2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.08654v1",
+          "material_read": "Definition and equation (2.2), PDF p. 2; Proposition 3.1, Theorems 3.3 and 3.6, Example 3.8, pp. 4–7",
+          "method": "OA primary PDF passage inspection",
+          "title": "Computing the strong alliance polynomial of a graph",
+          "trigger": "Founding paper for same invariant, known bridge-family formulas and non-unimodality"
+        },
+        {
+          "assessment": "Gives threshold relation but no dumbbell formula in the inspected family results",
+          "evidence": "Bivariate count weights connected subsets by size and defensive balance; named families include friendship and book graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1811.10089v1",
+          "material_read": "Family coverage, PDF p. 1; §§2.1–2.2, pp. 2–3, offsets 5058, 5518 and 5753",
+          "method": "OA primary PDF passage inspection",
+          "title": "Defensive alliance polynomial",
+          "trigger": "Bivariate invariant might imply exact strong alliance polynomial"
+        },
+        {
+          "assessment": "Different counted objects",
+          "evidence": "Enumerates zero-forcing sets for the two cliques joined by an edge.",
+          "identifier_or_url": "Resultary 5431b532d7f2",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Zero-forcing polynomial of bridge barbells",
+          "trigger": "Exact same bridge-clique host graph"
+        },
+        {
+          "assessment": "Different host class, not evidence of priority either way",
+          "evidence": "The graph is K_{n,n} minus a perfect matching.",
+          "identifier_or_url": "Resultary 68b89b545fff",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Strong alliance polynomial of crown graphs",
+          "trigger": "Distinct same-day result on the same invariant"
+        },
+        {
+          "assessment": "Catalogue comparison for a different family, not evidence of journal publication",
+          "evidence": "Assumes a connected complete multipartite host, which excludes these dumbbells.",
+          "identifier_or_url": "Resultary cf4980ea579a",
+          "material_read": "Mirrored RESULT.md, opening finding",
+          "method": "Local Resultary mirror",
+          "title": "Strong alliance polynomial of complete multipartite graphs",
+          "trigger": "Potentially broader exact strong alliance enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The bridge is the simplest connected coupling of two complete graphs but changes both the vertex-balance requirement and the connectivity of contributing sets. The exact formula exposes the separation between small one-sided sets and bigger two-sided sets and explains the coefficient valley. The complete classification, including the three genuine exceptions, turns isolated known non-unimodality into a structural infinite family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

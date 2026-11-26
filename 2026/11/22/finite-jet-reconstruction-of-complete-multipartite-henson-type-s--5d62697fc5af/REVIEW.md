@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The type/forbidden-subset bijection follows from universality and homogeneity; its polynomial is expressly prior. The uniform inverse uses exact formal logarithms and even Bernoulli coefficients, then Newton identities with the known product. The explicit tripartite formulas recover all three elementary symmetric functions. Exhaustive integer enumeration through order thirteen establishes the unique first collision and the padded family gives an all-rank obstruction. The bundled checker independently verifies finite diagram counts and the rational inverse. The unbounded theorem rests on a proof, not extrapolation.
+## correctness
 
-## Originality
-PASS on currently checked evidence, provisionally. Existing Henson one-type enumeration covers the original product polynomial, which is excluded from the novelty claim. The earlier two-type maximal-multipartite theorem provides a different, ungraded statistic; the accessible multipartite defect and tuple-asymptotic results do not establish a bounded grade cutoff. Specific indexed searches for product/exponential inverse, Bernoulli moment recovery and the size-thirteen witness did not reveal an equivalent theorem. Unindexed historical inverse-polynomial work remains an identified priority risk.
+PASS
 
-## Mathematical value
-PASS. The rank-dependent finite-jet result reconstructs shore sizes from a constant number of grades independently of base size. The first exact tripartite obstruction, unique at thirteen named points, and the matching sharp grade-five inversion identify precisely when a natural logical invariant ceases to reconstruct its parameter structure. This is a motivated structural inference problem, not a known count or an arbitrary sample computation.
+For the named complete r-partite base in the homogeneous K_{r+1}-free graph, one-point extension and quantifier elimination identify nonalgebraic complete singleton types with neighbor sets missing at least one shore. Thus c_1=n and Q=(1+z)^n-P_A is the product of shore factors, q_r=product(a_i). The coefficient of t^(2j) in log[Q(exp(t)-1)/(q_r t^r)] is B_(2j)/(2j(2j)!) times the 2j-th shore power sum (differentiate log(sinh(t/2)/(t/2)) to check the factor). The even Bernoulli numbers are nonzero and the coefficient needs no grade above r+2j, with absent coefficients understood as zero. The first r-1 moments of the squared sizes and their product q_r^2 determine the squared-size polynomial by Newton identities and hence the positive sizes. For three shores, direct product expansion gives q_4=q_3(n-3)/2 and 12 q_5/q_3=2n^2-12n+21-(ab+ac+bc); grades 1,3,5 therefore suffice. Independent equal-sum/product enumeration via combinations with replacement covered all 67 sorted positive triples of total size 3–13, proving no smaller collision and the unique one at 13. Direct counts give common prefix (1,13,78,250,535) and c_5=822,798. Appending r-3 unit shores shifts the difference by exactly r-3 grades. Replay: /workspace/branches/9f8147b8-6516-4916-ba9e-6287c935afa2/tripartite-collision-replay.md. The frozen script was inspected, not executed; the finite enumeration is not the general reconstruction proof.
 
-## Closest literature and limitations
-The generic one-type polynomial correspondence and all graph-class existence/homogeneity are established prior knowledge. The result is limited to maximal complete multipartite bases; the uniform upper bound is not asserted sharp for all ranks. Only the tripartite five-grade threshold and the first collision order are sharp. Equivalent unindexed literature remains a risk, and the finite threshold is supported by a supplied exact exhaustive enumerator.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge pass for the bounded grade inverse and sharp tripartite grade threshold. The type/subset correspondence and resulting product are prior and not credited. Nearby indexed reconstructions use different graded polynomials or arity counts that do not imply this inverse. Historical priority of the size-13 numerical collision in isolation remains unresolved.
+
+## value
+
+PASS
+
+The graded singleton counts are a natural structural measurement of a named Henson base. Recovering all shore sizes with a bounded number of grades despite unbounded total size is a meaningful inverse theorem, and in the first nontrivial tripartite case the sharp cutoff and explicit indistinguishable pair explain exactly why the preceding grade fails. The known unary count alone would not supply that conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

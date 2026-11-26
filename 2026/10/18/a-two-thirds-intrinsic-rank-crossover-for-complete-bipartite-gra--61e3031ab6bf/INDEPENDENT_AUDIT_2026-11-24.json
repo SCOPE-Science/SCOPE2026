@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:38:55.160613Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The connected graph's incidence vectors span the (q+1)-dimensional zero-sum hyperplane with its actual Euclidean metric. Under the cited Steiner normalization the zonotope wedge-sum formula gives the sum of Gram volumes of k-generator subsets. Cycles have dependent columns; forests have independent columns by leaf deletion. For each nontrivial tree on s vertices, deleting any one row from its oriented incidence matrix gives a determinant of absolute value one, by leaf elimination rooted at the omitted vertex. Cauchy–Binet gives Gram determinant s, and disjoint components multiply, with isolated vertices contributing one. If the hubs join, exactly one selected right vertex has both edges, since two such vertices form a cycle and none separates the hubs. The active right vertices number k-1; choosing them, the connector and the other attachments gives binom(q,k-1)(k-1)2^(k-2), each with Gram volume sqrt(k+1). If the hubs separate, k right vertices each select one edge; with j on the first hub, the two star sizes j+1 and k-j+1 give the D summand. This proves both formulas and k=0,1,q+1, and removing the weights gives uniform odds k(k-1)/(4(q-k+1)). For the weighted odds the separating average is H_k=E[sqrt((X+1)(k-X+1))] for X binomial(k,1/2). The weak law plus the bounded arithmetic-mean upper bound after division by k give H_k/k tending to 1/2. Thus weighted odds are asymptotic to k^(3/2)/(2(q-k+1)) along growing interior ranks. At k/q^(2/3) tending to finite positive t this is t^(3/2)/2, and odds conversion gives the claimed limit; below scale it tends to zero (including bounded-rank subsequences), and above scale it diverges since q-k+1<=q. The top rank has probability one. The exact unweighted ratio similarly gives its sqrt(q) scale and both outer limits. Independent replay `python3 /workspace/audit_recompute.py 3` reproduced the exact component-size radicand partition of 10383 forests through q=7 and compared 258 incidence Gram determinants by integer permutation expansion through q=4. These finite computations corroborate the formula but do not establish the infinite limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stones gives exact arbitrary complete-bipartite h-edge forest counts via bipartition component profiles; specializing the profiles to two left vertices distinguishes one shared left component from two separate ones.",
+          "The zonotope Corollary supplies the general intrinsic-volume sum; Dong–Ge counts spanning-tree extensions of a fixed prescribed forest."
+        ],
+        "reasoning": "The uniform enumeration is a classical specialization and the weighted sum uses known universal geometry. Such enumeration provides inputs to the exact split, but to obtain the stated crossover one still needs the joined versus separated square-root weight comparison, including a binomial expectation asymptotic. The inspected broader results do not contain an asymptotic for those odds.",
+        "searches": [
+          "Stones DOI:10.46298/dmtcs.1248 Theorems 1 and 2",
+          "arXiv:2206.03204 Corollary 1",
+          "arXiv:2103.05294 spanning-tree extensions",
+          "Resultary 2026/11/22/ca4df070764c"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.03204",
+        "arXiv:2111.12422",
+        "DOI:10.46298/dmtcs.1248",
+        "arXiv:2103.05294",
+        "Resultary 2026/10/18/8a0ea3a52932",
+        "Resultary 2026/11/8/80f9480897b5",
+        "Resultary 2026/11/22/ca4df070764c",
+        "Jin and Liu (2004), bibliographic identification and attempted access only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day Gaussian result concerns directions exposing the same vertex and has a normal-cone collision statistic, not the generator-forest distribution.",
+          "The Cayley-core result uses a uniform all-ranks ensemble at fixed left size; its related-work reference gives no source for a conditioned Gram-weight counterpart.",
+          "The graphical-zonotope framework relates vertices to acyclic orientations and top (lattice-normalized) volume to spanning trees."
+        ],
+        "reasoning": "The same graph or same date does not equate a vertex-exposure law, an all-rank uniform law, and a fixed-degree Steiner coefficient. The surviving weighted rank law depends on the ratio sqrt(k+1)/H_k, asymptotic to 2/sqrt(k), multiplying the classical odds. None of the compared statements implies the resulting change of scale merely by specialization.",
+        "searches": [
+          "2026/10/18/8a0ea3a52932 Gaussian normal-cone moment condensation finding",
+          "2026/11/22/ca4df070764c finding and prior-work passage offsets 9480–11118",
+          "arXiv:2111.12422 graphical zonotope context"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The universal wedge sum is the Gram-volume sum in the stated Euclidean metric.",
+          "The Cayley-core comparison samples uniformly over all spanning forests, not over one rank and not using square roots of component orders."
+        ],
+        "reasoning": "Rewriting generator wedges as Gram determinants and then component products changes no measure. Replacing that weight by one or mixing ranks does change the law. In particular, over all ranks and with equal weights the two counts are q*3^(q-1) joined and 3^q separated, so 3/(q+3) is the separation probability in that ensemble, not the fixed-rank joined crossover.",
+        "searches": [
+          "Resultary: K2q graphical zonotope Euclidean intrinsic volumes Gram forest connectivity and q^(2/3) crossover",
+          "Joós–Lángi arXiv:2206.03204 Corollary 1",
+          "2026/11/22/ca4df070764c unrooted thin biclique forests"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top volume q*2^(q-1)*sqrt(q+2) also appears in the matched K_{2,q} intrinsic covariance finding.",
+          "Stones' total-count formulas cover unweighted fixed-edge counts. The finite forest replay is a correctness check rather than a novelty source."
+        ],
+        "reasoning": "Top rank is an existing exact overlap and contains no disconnected weight. Known unweighted counts or a top-rank value do not encode the ratio of Gram-volume weights in growing intermediate ranks. No inspected entry yields the stated weighted crossover; this is limited to the sources compared.",
+        "searches": [
+          "Resultary: exact rank coefficients of K_{2,q} graphical zonotopes; top volume and hub connectivity",
+          "2026/11/8/80f9480897b5 intrinsic covariance finding",
+          "Stones exact fixed-edge forest counts"
+        ]
+      },
+      "rationale": "The distinct finding is the sharp rank-conditioned connectivity profile with Euclidean Gram-volume weights and the shift relative to the uniform fixed-rank benchmark. The universal wedge sum, spanning-tree top volume, and known component enumeration are not separately credited. The exact split exposes how the two classes are reweighted and supports the asymptotic result; the closest inspected statements do not supply that rank-dependent geometric comparison.",
+      "residual_risks": [
+        "The identified Jin–Liu PDF yielded no usable text; it might contain hub-specific unweighted counts.",
+        "An unlocated determinant-weight or random-forest formulation of the same crossover remains possible. The checked same-day result is distinguished by its statistic, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the wedge formula, not this rank-conditioned graph asymptotic",
+          "evidence": [
+            "Every intrinsic volume is the sum of corresponding generator wedge norms; the text attributes an earlier generalization to Brazitikos–McIntyre."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.03204",
+          "material_read": "PDF p. 5 Corollary 1 (OA offset 16616) and p. 2 attribution (offset 5618)",
+          "method": "OA PDF passage inspection",
+          "title": "Isoperimetric Problems for Zonotopes",
+          "trigger": "Exact universal intrinsic-volume identity"
+        },
+        {
+          "assessment": "Foundational conventions and spanning-tree relation",
+          "evidence": [
+            "States the acyclic-orientation and spanning-tree interpretations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "PDF p. 1 offset 1450",
+          "method": "OA PDF passage inspection",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Standard graphical-zonotope structure and known top-volume comparison"
+        },
+        {
+          "assessment": "General exact unweighted counts; component profiles support the elementary uniform benchmark",
+          "evidence": [
+            "The formula sums by component profiles of the two sides and uses the bipartite tree factor; no Gram-volume weights or q^(2/3) law are in the inspected theorems."
+          ],
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.1248",
+          "material_read": "PDF p. 1 definitions, Theorem 1 p. 6 and Theorem 2 p. 9 (offsets 446, 1287, 17057, 26289)",
+          "method": "OA PDF passage inspection",
+          "title": "Computing the number of h-edge spanning forests in complete bipartite graphs",
+          "trigger": "Strongest unweighted fixed-rank enumeration coverage"
+        },
+        {
+          "assessment": "Different extension count",
+          "evidence": [
+            "A spanning forest is prescribed and the objects counted are spanning trees containing it."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+          "material_read": "PDF p. 1 offset 1000, problem and stated scope",
+          "method": "OA PDF passage inspection",
+          "title": "Counting spanning trees of a complete bipartite graph which contain a given spanning forest",
+          "trigger": "Potential complete-bipartite forest formula"
+        },
+        {
+          "assessment": "Same family but different statistic and measure",
+          "evidence": [
+            "Independent directions are compared by their exposed vertices, not by hub connectivity of fixed-size generator forests."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-gaussian-normal-cone-moment-condensation-for-complete-bipartite--8a0ea3a52932",
+          "material_read": "Mirrored RESULT.md finding at offset 0",
+          "method": "Local mirrored record inspection",
+          "title": "Gaussian normal-cone moment condensation for complete bipartite graphical zonotopes",
+          "trigger": "Closest same-day indexed geometry-asymptotic hit"
+        },
+        {
+          "assessment": "Top-rank overlap and different main observable",
+          "evidence": [
+            "Same q*2^(q-1)*sqrt(q+2) top volume, with conclusions about uniform-interior covariance."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-intrinsic-covariance-and-a-five-leaf-inertia-transition-fo--80f9480897b5",
+          "material_read": "Mirrored RESULT.md finding at offset 0",
+          "method": "Local mirrored record inspection",
+          "title": "Exact intrinsic covariance and a five-leaf inertia transition",
+          "trigger": "Exact same-family volume overlap"
+        },
+        {
+          "assessment": "Unconditioned unweighted ensemble, no weighted crossover",
+          "evidence": [
+            "Samples uniformly over all unrooted spanning forests and mentions a two-hub comparison without a fixed rank or source identifier."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-cayley-core-approximation-for-unrooted-forests-of-thin-c--ca4df070764c",
+          "material_read": "Mirrored RESULT.md finding at offset 0 and relationship/limits offsets 9480–11118",
+          "method": "Local mirrored record inspection",
+          "title": "A sharp Cayley-core approximation for unrooted forests of thin complete bipartite graphs",
+          "trigger": "Closest indexed two-hub uniform forest comparison"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": [
+            "The title indicates a relevant forest census but no mathematical claim about geometric weights was inspectable."
+          ],
+          "identifier_or_url": "Jin and Liu (2004)",
+          "material_read": "Bibliographic identification; no usable primary text was extracted",
+          "method": "Attempted lawful OA PDF passage retrieval",
+          "title": "Enumeration for spanning forests of complete bipartite graphs",
+          "trigger": "Potential older complete-bipartite component enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The geometric effect is more than an exact decomposition of a known intrinsic volume: the square-root Gram weights shift the exponent of a natural connectivity event from 1/2 to 2/3 for the same graph family and fixed-rank conditioning. The limiting profiles quantify that shift and the exact split explains it by a single large component versus two roughly balanced stars. The conclusion is specific to the stated Euclidean weighting and K_{2,q}, not a proposed universal zonotope threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

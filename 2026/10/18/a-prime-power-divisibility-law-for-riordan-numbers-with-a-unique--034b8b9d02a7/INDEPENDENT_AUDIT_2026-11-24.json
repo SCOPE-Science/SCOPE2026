@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:47:50.628315Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md eqs. (1)–(6); supporting VERIFICATION.md and verify.py inspected, not executed",
+        "Independent replay: python /workspace/branches/independent_replay.py 3"
+      ],
+      "rationale": "The Catalan constant term is the central binomial coefficient minus its neighbor; binomial transformation gives CT((1−z)(z⁻¹+1+z)^n). As a check on the recurrence normalization, its ordinary generating function from that transform is F=(1−sqrt((1−3x)/(1+x)))/(2x), which satisfies x(1−2x−3x²)F′+(1−3x²)F=1 and F(0)=1. For N=p^r, coefficientwise Frobenius yields R_N≡1 and R_(N−1)≡k_N mod p, where k_0=0 and k_m=−2 for m≡2 mod 3 and 1 otherwise for m>0. The recurrence denominator N+2 is a unit at every odd p. The bracket is 5 or −4 mod p, so only p=5 and even r require further work. Raising congruent Laurent polynomials mod 5 to the fifth power proves the mod-25 reduction to T(z^(5^(r−1)))^5. The coefficients 51,45,30,15,5,1 give bracket 15 mod 25 for even r, exactly one extra factor of five. This works for all even r≥2; p=3 and r=1 require no exceptional assumption. Independent modular counts of Motzkin paths with level-zero horizontals forbidden reproduced 21 valuations over seven odd primes, including 5²+1 and 5⁴+1. The all-exponent proof is not inferred from these counts.",
+      "residual_risks": [
+        "The proof gives no claim for p=2 or general indices; the unit denominator is needed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deutsch–Sagan's ternary digit criterion implies 3 divides R_(3^r+1). Krattenthaler–Müller §9 computes Riordan generating-function congruences at powers of 3, with concrete mod-9 and mod-27 formulas. The later work inspected concerns powers of 2.",
+          "A005043 points to the thesis The Automatic Study of Constant Term Sequences Modulo Prime Powers, pp. 116–117; a redirect prevented access to those pages."
+        ],
+        "reasoning": "Fixed-prime methods may encode slices, including some 3-adic cases. The inspected results do not supply a uniform odd-prime noncancellation test or the exceptional 5-adic parity calculation.",
+        "searches": [
+          "arXiv:math/0407326 Cor. 4.10",
+          "arXiv:1308.2856 §9",
+          "arXiv:1608.05657 Thm. 15",
+          "Kohen 2025 thesis via A005043"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.00149, math/0407326, 1308.2856, 1608.05657, math/0602298",
+        "OEIS A005043",
+        "Resultary 203325000692 (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest same-day Resultary hit has reported claim v_3(M_(3^r−3))=r−1 (index summary only, exact RESULT.md unavailable). It uses Motzkin numbers and a different index family.",
+          "Known Frobenius and the known Riordan constant term reduce the generic case. The five-adic tower requires lifting to mod 25 and evaluating a remaining coefficient combination, not applying a residue criterion mod p."
+        ],
+        "reasoning": "The sum in the bracket can vanish mod p and yet have different possible higher valuations; the elementary modulo-prime comparison cannot settle the exceptional exact value. Neither the related Motzkin summary nor the read ternary and binary theorems provide it.",
+        "searches": [
+          "Kohen arXiv:2403.00149 p. 8; Deutsch–Sagan Cor. 4.10; Krattenthaler–Müller §9",
+          "Resultary 2026/10/18 SCOPE-sharp-three-adic-valuations-of-motzkin-numbers-at-ternary-predecessor-indices--203325000692"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kohen p. 8 identifies R_n=CT((1−x)(x⁻¹+1+x)^n), the same sequence and constant term as the frozen record.",
+          "The Riordan recurrence reduces the claim to exact valuations of 2R_(p^r)+3R_(p^r−1); this is a normalized residue question, not merely R_n mod p."
+        ],
+        "reasoning": "These are genuine equivalent encodings, not separate findings. Kohen's result for this representation concerns recurrence mod p and does not evaluate the mod-25 bracket for the exceptional tower.",
+        "searches": [
+          "Resultary: Riordan valuation at prime-power plus one; Riordan constant-term variants",
+          "Kohen arXiv:2403.00149, PDF p. 8",
+          "OEIS A005043"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A005043 gives the same recurrence and exact sample values R_4=3, R_6=15, R_10=603, R_26=6684761125. They already encode individual cases (including v_5(R_26)=3).",
+          "No evaluated Riordan tower table or formula was found in the inspected entry or returned SCOPE summaries."
+        ],
+        "reasoning": "Finite evaluations are credited and do not imply a formula quantified over both p and r.",
+        "searches": [
+          "OEIS A005043",
+          "Chen–Deng–Yang arXiv:math/0602298 p. 1",
+          "Resultary Riordan exact valuations near prime powers"
+        ]
+      },
+      "rationale": "The supported distinct finding is the evaluated uniform exact valuation, especially the sharp even-exponent exception at five. The recurrence and Laurent representation are known, and low-prime slices have closely related known methods. None of the inspected results evaluates the all-odd-prime family with the five-adic exception.",
+      "residual_risks": [
+        "The thesis and exact text of the same-day Motzkin result were not accessible; equivalent prior work, especially an evaluated higher-prime constant-term congruence, remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact representation, different result",
+          "evidence": "Identifies the same constant term and treats uniform recurrence modulo a fixed prime, rather than evaluated valuations at growing tower indices.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00149",
+          "material_read": "PDF p. 8, offset 26400",
+          "method": "OA PDF",
+          "title": "Uniform Recurrence in the Motzkin Numbers and Related Sequences mod p",
+          "trigger": "Same Riordan Laurent sequence and arbitrary prime"
+        },
+        {
+          "assessment": "Partial coverage mod 3",
+          "evidence": "Base-3 digit condition gives divisibility for 3^r+1 but not exact growing valuation.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0407326",
+          "material_read": "Corollary 4.10, PDF p. 14, offset 32579",
+          "method": "OA PDF",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "Original Riordan congruences"
+        },
+        {
+          "assessment": "Relevant ternary coverage; no five-adic implication",
+          "evidence": "Explicit Riordan generating-function congruences mod 9 and 27; this method is for powers of three.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.2856",
+          "material_read": "§9, PDF p. 33, offset 130202",
+          "method": "OA PDF",
+          "title": "A method for determining the modulo powers of three behaviour of recursive sequences",
+          "trigger": "Higher prime-power congruences for the same sequence"
+        },
+        {
+          "assessment": "Same sequence; finite valuation witnesses already encoded",
+          "evidence": "R_26=6684761125 is divisible by 125 but not 625. The read entry did not state the all-exponent law.",
+          "identifier_or_url": "https://oeis.org/A005043",
+          "material_read": "Entry and recurrence, initial terms and references, offset 0",
+          "method": "OA web page",
+          "title": "Riordan numbers",
+          "trigger": "Exact table/strongest sequence database"
+        },
+        {
+          "assessment": "Unresolved at full-text level",
+          "evidence": "The reference identifies pp. 116–117; the ProQuest redirect did not furnish the pages.",
+          "identifier_or_url": "Kohen, 2025 thesis, cited by A005043 pp. 116–117",
+          "material_read": "Bibliographic pointer; no thesis full text accessed",
+          "method": "OEIS reference and lawful thesis link attempt",
+          "title": "The Automatic Study of Constant Term Sequences Modulo Prime Powers",
+          "trigger": "Potential covering Riordan prime-power results"
+        },
+        {
+          "assessment": "Different statement on available material; no full-text exclusion",
+          "evidence": "The reported exact valuation is for M_(3^r−3), not for R_(p^r+1).",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-three-adic-valuations-of-motzkin-numbers-at-ternary-predecessor-indices--203325000692",
+          "material_read": "Returned claim summary; exact RESULT.md unavailable",
+          "method": "Resultary search and local-mirror retrieval attempt",
+          "title": "Sharp three-adic valuations of Motzkin numbers at ternary predecessor indices",
+          "trigger": "Closest same-day Resultary hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md (2)–(6); comparison with A005043 and prior ternary methods"
+      ],
+      "rationale": "These indices arise at the prime-power recurrence numerator, not from an arbitrary modulus sweep. Distinguishing a unit bracket from exact first-order cancellation at five provides a sharp classification, including an infinite exceptional branch invisible to mod-p testing alone.",
+      "residual_risks": [
+        "Value is for this complete index family, not for a general new congruence algorithm or broader claims about Riordan valuations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

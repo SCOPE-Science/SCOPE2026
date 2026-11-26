@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The structural interval-growth argument converts a first legal force into a complete forcing chronology. Interior first-force witnesses require exactly \(2k\) prescribed initially blue vertices, and their support families have exactly \((2k-1)(n-2k)+1\) elements. Disjoint support families give the Poisson factorial moments; overlapping families have at least one additional occupied site and vanish at the prescribed scaling. A boundary union bound and an omitted-site union bound connect those motifs to actual zero forcing. Exhaustive finite forcing simulations and a separate weighted finite-state probability computation agree with the claimed ingredients.
+## correctness
 
-**Originality — PASS, qualified.** The graph-power paper establishes the numerical minimum, not random-set limits. The random-set paper establishes a general model and threshold comparisons, not the particular path-power constant. The outerplanar paper is about optimal sizes and chronologies. A prior exact minimum-set classification concerns seed sets of the smallest cardinality; these are negligible in the new critical window, where translated \(2k\)-site interior triggers govern the probability. No covering equivalent was located in the stated searches. Standard Poisson convergence of rare local patterns is acknowledged; the graph-specific classification and trigger sufficiency are essential additional ingredients. Historical indexing gaps and possibly different terminology remain residual risks.
+PASS
 
-**Mathematical value — PASS.** Random-seed success is a natural quantitative question for zero forcing, and graph powers are a current focus. The result supplies a sharp critical exponent, an explicit nontrivial all-\(k\) limiting curve, and a precise half-success threshold constant rather than an optimal deterministic seed size or a generic one-sided bound. Counting distinct supports instead of the number of nominal first-force descriptions is mathematically necessary to obtain the correct constant.
+A legal force fills the closed neighborhood of the center, a blue interval. If interior, the vertex k-1 positions inward from its left edge has exactly one possible outside neighbor, so the interval extends to the left endpoint; a prefix of length at least k+1 can then extend one site at a time. An already blue candidate is absorbed without a force. Reflection handles a suffix. The interior supports consist of n-2k+1 consecutive blocks and 2k-2 distinct internal-hole types with n-2k translates each, including n=2k+1. For a fixed factorial moment, a cluster of distinct overlapping supports has at least 2k+1 distinct sites, versus 2k for an isolated support; m clusters have O(n^m) placements and any overlap supplies an extra factor p. The disjoint tuples give the stated Poisson moments. Boundary first forces and fully blue interior windows introduce errors O_k(p^k+np^{2k+1}); the all-blue event is negligible. The c=0 case is immediate and the nonconstant increasing finite Bernoulli success event has strictly increasing probability (couple nested seeds and choose a pivotal set). Bracketing proves the median asymptotic. The finite verifier was inspected, not used as the proof.
 
-**Limitations.** Fixed \(k\), independent uniform Bernoulli seeds and path powers only; finite experiments do not certify limiting laws; historical priority and independent assessment remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The surviving distinct contribution is the exact iid critical-window law on path powers, with its deduplicated support coefficient and hence exact median constant. The first-force characterization is separately covered by a distinct overlapping indexed theorem and is not credited independently; the same-day cycle calculation also shares the local pattern types. Neither implies the full claimed probability law as stated without the path enumeration and rare-pattern argument.
+
+## value
+
+PASS
+
+For the natural Bernoulli experiment, deterministic minimum seeds and threshold exponents do not give the limiting success curve or the half-success constant. Counting overlapping descriptions only once changes the limiting intensity, and the first-force mechanism explains the gap between optimal small endpoint seeds and rare interior events at the random threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

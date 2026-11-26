@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:25:03.517407Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–80; VERIFICATION.md line 19; verify.py (frozen evidence inspected)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py 5"
+      ],
+      "rationale": "Kummer's theorem gives the parity criterion: binary addition of n and its one-bit shift has no carry exactly when there are no adjacent ones. The r-bit convention includes 0 and leading zeros. If d=2^t e with e odd, the quotients of four successive terms by 2^t give all residues mod 4, so one term has bits t and t+1 both one. (1,5,9) is a valid triple, preserved by powers of four. The disclosed double-addition matrix processes all ordered inputs a,d with d>=0, checks adjacent output bits, and accepts exactly when both high carries vanish. Subtracting the Fibonacci count of d=0 gives increasing triples. In a separate certificate, I chose output bits (x,y,w) directly, tracked adjacency, and enforced x+w=2y by a single signed carry: c'=(c+x_bit+w_bit−2y_bit)/2 on even columns, with initial and terminal c=0. Its six reachable states count ordered triples of either orientation plus constants, so the total is 2A_r+f_r. Multiplication of that count series by the claimed denominator gives 1−2z²−3z³+2z⁴+2z⁵: the initial coefficients and a block of six zero residual coefficients were checked exactly, and the residual thereafter is a fixed row times powers of the six-state matrix times an accept vector. Cayley–Hamilton supplies every further zero, independently certifying the rational claim. The displayed coefficients match through r=14; direct binomial-parity endpoint-pair counting agrees for r=0..9.",
+      "residual_risks": [
+        "The exact certificate covers full dyadic cutoffs and counts each positive step once; it does not give a distribution at arbitrary cutoffs or by fixed step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mollard's Fibonacci-cube vertices have the same digit constraint; the counted structures are maximal induced hypercubes",
+          "The Pascal-row census treats all fixed rows and progressions in each row's odd-coefficient index set"
+        ],
+        "reasoning": "The graph theorem does not count arithmetic progressions of the represented integers. Fixing the top binomial parameter in the Pascal-row theorem gives a binary submask support; here both binomial parameters vary with the progression term. These broader enumerations do not include this census under the inspected hypotheses.",
+        "searches": [
+          "Mollard arXiv:1201.1494 p. 1; Resultary 50ffd95589d7 Finding/Proof; Lindroos–Sills–Wang 2014 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 73019b666042, 499526ba814d, 50ffd95589d7",
+        "Lindroos–Sills–Wang (2014); Mollard arXiv:1201.1494; limited A003714 lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Baum–Sweet proof establishes its own transfer for the zero-run-even language; no inspected step establishes T_r=A_(r−1)+A_(r−2) as a combinatorial reduction from the distinct fibbinary sequence",
+          "The exact valuation histogram determines one-point counts, not additive triples; Pascal-row submasks differ from the no-adjacent-one constraint"
+        ],
+        "reasoning": "Writing the relation between the two rational functions uses the claimed fibbinary evaluation as one of its inputs. To infer the fibbinary counting theorem from the other census would require proving the relation for the counted objects independently, not just factoring the other numerator. The inspected results do not supply that implication.",
+        "searches": [
+          "Resultary mirror 73019b666042 (offsets 250, 4800, 6700), 499526ba814d (0, 6100), 50ffd95589d7 (0, 5600)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lindroos–Sills–Wang pp. 1–2 define the fibbinary language",
+          "Resultary 73019b666042 counts one-position support of Baum–Sweet, with even-length zero runs, at the same dyadic cutoffs"
+        ],
+        "reasoning": "Fibbinary is equivalent to the odd-binomial support but not to Baum–Sweet support: 5=101 is fibbinary only; 7=111 is Baum–Sweet only. The exact algebraic relation of their two rational series is real and does not identify the underlying counting problems.",
+        "searches": [
+          "Resultary fibbinary, odd binom(3n,n), Baum–Sweet and exact dyadic progression censuses",
+          "Primary keywords: fibbinary/no consecutive or adjacent ones/Fibonacci cube, arithmetic progression count, Baum–Sweet"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "499526ba814d gives the exact dyadic valuation law and the one-point support size F_(r+2)",
+          "73019b666042 gives exact dyadic Baum–Sweet triple counts with the same denominator and numerator z³(1+z)",
+          "A003714 landing-page access did not establish the content of the cited 2002 post"
+        ],
+        "reasoning": "The support population is not the triple correlation. Baum–Sweet is an exact nearby table, shifted and summed relative to the claimed table, but not the same indexed counts; at depth two there is one fibbinary triple and no Baum–Sweet triple. Limited OEIS access does not show absence of a relevant entry.",
+        "searches": [
+          "Resultary exact valuation and progression catalogs; OEIS A003714 lawful OA lookup"
+        ]
+      },
+      "rationale": "Pass only for the exact dyadic census of positive-step triples on the fibbinary support. The parity identification, one-point counting and elementary length bound are not the distinct contribution. A separate same-day Baum–Sweet result is particularly close: T(z)=z(1+z)A(z) algebraically for the two displayed formulae, not merely the same denominator. Its theorem counts triples in a different support, however, and its inspected statement and proof do not identify the two counting sequences by a combinatorial or other independent reduction. Dividing its rational expression alone does not prove that the quotient counts fibbinary triples. No date-based ordering is assumed.",
+      "residual_risks": [
+        "A direct structural explanation for the same-day Baum–Sweet series relation might exist and would matter for a future coverage assessment; none was established in the inspected sources.",
+        "The original 2002 post was not inspected; the bounded search is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material exact series relation; different counted objects and no inspected counting reduction",
+          "evidence": "Same cutoff and positive-step convention, but even-length zero runs; T(z)=z(1+z)A(z) for the displayed series.",
+          "identifier_or_url": "73019b666042",
+          "material_read": "RESULT.md offsets 250, 4800, 6700, Finding and relevant proof passages",
+          "method": "Resultary mirror",
+          "title": "Three-term progression census and sharp four-term exclusion in the Baum–Sweet support",
+          "trigger": "Same-day exact rational census and strongest potential reduction"
+        },
+        {
+          "assessment": "Exact one-point histogram, not progression count",
+          "evidence": "Valuation zero multiplicity F_(r+2).",
+          "identifier_or_url": "499526ba814d",
+          "material_read": "RESULT.md at offsets 0 and 6100",
+          "method": "Resultary mirror",
+          "title": "Exact dyadic valuation law for binom(3n,n)",
+          "trigger": "Same sequence and cutoffs"
+        },
+        {
+          "assessment": "Different binomial index quantifiers",
+          "evidence": "Fixes a row and counts APs on its odd entries via its one-runs.",
+          "identifier_or_url": "50ffd95589d7",
+          "material_read": "RESULT.md at offsets 0 and 5600",
+          "method": "Resultary mirror",
+          "title": "Exact arithmetic-progression census in odd-binomial Pascal rows",
+          "trigger": "Odd binomial coefficients and exact AP census"
+        },
+        {
+          "assessment": "Known language and indexing, not a triple census in inspected passages",
+          "evidence": "Fibbinary numbers have no consecutive ones; discusses the indexing of their odd subsequence and Zeckendorf representations.",
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/52-1/LindroosSillsWang.pdf",
+          "material_read": "pp. 1–2 (offsets 0 and 2400)",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Odd Fibbinary Numbers and the Golden Ratio",
+          "trigger": "Same numeric support"
+        },
+        {
+          "assessment": "Graph-theoretic invariant rather than additive progressions",
+          "evidence": "Defines the vertices as no-adjacent-one strings and concerns induced hypercubes.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.1494",
+          "material_read": "p. 1 (offset 900)",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Maximal hypercubes in Fibonacci and Lucas cubes",
+          "trigger": "Same forbidden-adjacency language and maximal structures"
+        },
+        {
+          "assessment": "Access limitation, not evidence of noncoverage",
+          "evidence": "The frozen result credits the parity characterization and identifies its sci.math reference; content of the original post was not established.",
+          "identifier_or_url": "https://oeis.org/A003714",
+          "material_read": "Only landing/access response; original post not read",
+          "method": "OA lookup; frozen reference inspected",
+          "title": "Fibbinary numbers (A003714) and cited July 2002 post",
+          "trigger": "Historical parity identification or possible early additive enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Proof; Lindroos–Sills–Wang pp. 1–2; Resultary 499526ba814d and 73019b666042"
+      ],
+      "rationale": "The fibbinary support is a classical binary language naturally singled out by binomial parity, and length three is its sharp nonconstant progression length. The exact all-step count and resulting recurrence quantify the additive structure at the language's natural dyadic scales, beyond Fibonacci support cardinalities. The comparable Baum–Sweet count illustrates why the actual numerator matters even when two digit sets have the same cardinalities and the same denominator for the progression series.",
+      "residual_risks": [
+        "No general equivalence of the two support languages or a census for arbitrary interval endpoints is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem is established algebraically from the exact policy-update rule. The critical identities are the closed form for downstream odds, telescoping downstream value products, the upstream odds ratio, and the adjacent-difference sign formula. The exact turning index follows from an integer logarithmic inequality with equality handled separately; no numerical root finding is used to prove it.
+# Independent mathematical audit
 
-The independent rational checker `checker.py` uses the standard-library `fractions.Fraction` type, assembles both state-value functions afresh at each iteration, and compares direct updates against the closed form. It checked 26,460 parameter/iteration combinations and 744 iterates of the integer-indexed family. Exact equality assertions, including the two-index minimum, require no floating-point tolerance. Run `python3 checker.py` in the directory containing this file and compare to `checker_output.txt`.
+## correctness
 
-Finite recurrence tests do not establish uniqueness of an infinite-time behavior; the written proof covers all \(k\ge0\), all allowed parameters, and the asymptotic regime. The formula for the minimum has a bounded integer-rounding factor and no claim of a universal normalized limit. No sampled-policy behavior, arbitrary-MDP generalization, or independent audit is certified.
+PASS
+
+The B odds multiply by 1/epsilon. With D_k=p+(1-p)epsilon^k and D_0=1, its current-policy value is D_(k+1)/D_k, so the A odds are R_0(gamma/r)^k D_k. The sign of their difference is that of p(gamma-r)+(1-p)epsilon^k(gamma epsilon-r). At r<=gamma epsilon it is strictly positive and at r>=gamma strictly negative, including the endpoints. In between its sign is that of tau-epsilon^k, so the ceiling formula is correctly indexed and equality produces exactly one flat update (also at the start if tau=1). For small p, epsilon^K/tau is confined between epsilon and 1, while tau is of order p; substituting into the odds gives the claimed positive exponent 1-log(gamma/r)/log(1/epsilon). The specified family yields tau=4^(-N), q_N=q_(N+1) with the stated rational expression, and optimal-continuation gap 3/8 throughout, even though the current-policy gap is negative during suppression. At fixed old B value the A update increases value by the two-action variance of the Q values divided by the old value, possibly zero at equality. Replacing the old B value by the strictly larger new value then increases A value strictly since the delayed action retains positive mass.
+
+## originality
+
+PASS
+
+The general Q/V update, product-of-Q formula, and value monotonicity are prior. The supported distinction is the worked two-stage fixed-gap construction with arbitrary suppression depth and duration, together with its exact one-turn law and small-support exponent. The closest analogous suppression theorem inspected uses softmax gradient steps, not this update; the cited general reweighting identities alone do not assert the construction or scaling. This is a best-of-knowledge decision, not a priority certificate.
+
+## value
+
+PASS
+
+This separates value improvement from retention of optimal-action support in a minimal sequential example for an exact update. Arbitrarily many decreasing steps and an arbitrarily deep trough at a fixed positive optimal Bellman gap make this more than a one-step reversal or a vanishing-gap example. The exact turning and trough laws identify the support parameter that controls the effect and give a benchmark for analysis of iterative reweighting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

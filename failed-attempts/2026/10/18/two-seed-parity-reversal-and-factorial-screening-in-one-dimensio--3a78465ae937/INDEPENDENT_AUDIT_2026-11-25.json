@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:32:11.462909Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each feasible rank of the modified bond, the exchangeability of the other labels makes their relative permutation uniform conditional on rank. In the homogeneous experiment the rank-r edge is uniform, its conditional count law is independent of its identity by rotation, and the mixture is the unconditioned law. This proves the full-law invariance, not only its mean. Conditional on the first bond, or on the two disjoint forced first bonds, delete their occupied vertices: the remaining path lengths are n-2, or d-2 and n-d-2, with zero lengths allowed. First-edge splitting of a path yields (m-1)F_m=(m-1)+2 sum_{j=0}^{m-2}F_j. For H(z)=G(z)/z this gives H'-2zH/(1-z)=1/(1-z)^2, H(0)=0, verifying the generating function and coefficient normalization. Subtracting the two path formulas, the affine terms cancel exactly by 1-2a=e^(-2). The truncated exponential series remainder is the stated integral, with absolute beta integral 1/[m(m+1)] before the e^(-2x) weight. The sign is strictly (-1)^m; the normalized factor is E[e^(-2X)] for X~Beta(2,m), with 0 <= 1-E[e^(-2X)] <= 4/(m+2). This gives the leading equivalent and both strict displayed bounds. The word 'sharp' should refer to the leading asymptotic, not optimality of the lower constant: Jensen already gives E[e^(-2X)] >= exp(-4/3) for all m>=1. Parity applies after the fixed-d infinite-cycle limit, not at arbitrary finite n. Read verification_pair_impurities.py and the recorded bounded checks in VERIFICATION.md; did not run the frozen script. Its floating quadrature is only a sanity check; the exact series proof establishes the tail.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The overlapping spacing record gives the complete profile, proves unique maximizing and minimizing separations, and discusses a fixed-n high-rate realization. Lee pp. 2, 5–7 treats sequential or random impurity initial ensembles. The single-anomalous-edge record studies spatial edge-occupation probabilities on the line. Bartelt's primary text could not be read."
+        ],
+        "reasoning": "A general impurity framework or decay with respect to a single kinetic defect is not itself an implication about this count. The exact complete profile in the spacing record is sufficient, even though it does not print the leading equivalent.",
+        "searches": [
+          "arXiv:cond-mat/9701167",
+          "DOI:10.1103/PhysRevA.43.3149",
+          "2026/10/26/SCOPE-alternating-factorial-screening-of-one-anomalous-dimer-adsorptio--62931be7f8b0",
+          "2026/11/2/SCOPE-parity-optimal-spacing-for-two-preseeded-dimers-in-one-dimension--3d12aef97d3a"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–60 and support package",
+        "Spacing record in mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2211.12815v1",
+        "arXiv:cond-mat/9701167",
+        "DOI:10.1103/PhysRevA.43.3149 (identification and access attempts)",
+        "Two other Resultary records itemized in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spacing record gives B_n, P_(n,d), f_m and an exact positive integral for I_d, with two summands for m=d-2>=1. Its relationship section distinguishes unconditioned final correlations from a controlled initial condition. Bartelt is identified as classical finite-line background, but no particular statement from the blocked text is necessary for the decision."
+        ],
+        "reasoning": "Put x=1-t in the spacing record's kernel. After factoring 2^m/(m-1)!, the bracket of integrals is integral of e^(-2x) times [x(1-x)^m+(2/m)x(1-x)^(m+1)]. Integrating the derivative of x^2(1-x)^m e^(-2x) shows the bracket equals integral of x(1-x)^(m-1)e^(-2x), exactly the frozen kernel. Its beta normalization gives the same sharp equivalent mechanically. Only the single-bond count law is not stated there; invariance follows immediately for any edge-transitive graph by mixing uniform permutations at fixed rank.",
+        "searches": [
+          "2026/11/2/SCOPE-parity-optimal-spacing-for-two-preseeded-dimers-in-one-dimension--3d12aef97d3a",
+          "DOI:10.1103/PhysRevA.43.3149"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spacing record's Finding uses the same cycle, disjoint fixed bonds first, uniformly permuted remaining priorities, final dimer count, and order of limits. It states the same seeded/unseeded means and strict parity, in addition to exact optimal spacings. Krapivsky–Luck §2.3.2, Eq. (47), instead analyzes connected final-state correlations, and Lee studies random initial impurity ensembles."
+        ],
+        "reasoning": "Pre-accepting the two disjoint edges and processing them as the first two proposals produce identical available-edge histories afterward. Its f_m is F_m and its I_d=1+F_(d-2)-d*a equals delta_(d-2) since 1-2a=e^(-2). The correlation and random-ensemble variants do not imply this interventional observable by identification.",
+        "searches": [
+          "2026/11/2/SCOPE-parity-optimal-spacing-for-two-preseeded-dimers-in-one-dimension--3d12aef97d3a",
+          "arXiv:2211.12815v1",
+          "arXiv:cond-mat/9701167"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed spacing theorem gives all n,d through the two exact path-length formulas and all fixed-d limits through its positive kernel. The indexed endpoint-vacancy result instead concerns covariance on a finite line."
+        ],
+        "reasoning": "The relevant exact index match is an analytic all-size formula, not an isolated numerical table. The vacancy covariance table/profile is not interchangeable with an excess total dimer count.",
+        "searches": [
+          "2026/11/2/SCOPE-parity-optimal-spacing-for-two-preseeded-dimers-in-one-dimension--3d12aef97d3a",
+          "2026/10/26/SCOPE-parity-alternating-endpoint-vacancies-in-finite-page-r-nyi-parki--7c8260765cf2"
+        ]
+      },
+      "rationale": "The principal contribution, the controlled two-seed signed profile and its factorial equivalent, is mathematically covered by a distinct indexed record on parity-optimal spacing with exactly the same intervention and scope. The displayed date of that comparison record is later than the frozen record; this is a finding of current equivalent coverage, not a finding that it was discovered first or that it is the same record. The unmatched single-bond statement is an elementary rank-exchangeability lemma for any edge-transitive graph and does not supply a substantive independent remainder for this claim.",
+      "residual_risks": [
+        "Historical priority and independence of discovery are not established by the index dates.",
+        "Bartelt's exact finite-line formulas and the full range of older inhomogeneous RSA results were not established from accessible primary passages. That does not determine the verdict, which rests on actual equivalent coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent coverage of pair response, stronger on global spacing; no discovery chronology inferred",
+          "evidence": [
+            "Identical B_n and P_(n,d) and f_m generating function, exact I_d and positive kernel, unique extremes at d=4 and d=3."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-parity-optimal-spacing-for-two-preseeded-dimers-in-one-dimension--3d12aef97d3a",
+          "material_read": "Finding, scope and proof opening at offsets 0–3643; relationship and limitations at offsets 7403–9536",
+          "method": "Configured Resultary lookup and statement-level local-mirror inspection",
+          "title": "Parity-optimal spacing for two preseeded dimers in one-dimensional random sequential adsorption",
+          "trigger": "Same two fixed first arrivals and same parity profile"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": [
+            "The inverse-factorial formula is for a connected energy/two-point correlation; not a controlled pair effect on a total count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.12815v1",
+          "material_read": "PDF §2.3.2 near page 7, Eq. (47), text offsets 33320–37105",
+          "method": "OA PDF passage inspection",
+          "title": "Jamming and metastability in one dimension: from the kinetically constrained Ising chain to the Riviera model",
+          "trigger": "Oscillating inverse-factorial decay in one-dimensional RSA"
+        },
+        {
+          "assessment": "Ensemble coverage, not fixed-position two-bond count response",
+          "evidence": [
+            "Random-sequential and random initial impurity placements, with jamming/coverage versus ensemble parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/9701167",
+          "material_read": "Abstract; model p. 2; pp. 5–6 near offsets 19000–25495; conclusion p. 7 near offset 25917",
+          "method": "OA PDF passage inspection",
+          "title": "Effects of Impurities in Random Sequential Adsorption on a One-Dimensional Substrate",
+          "trigger": "Quenched/predeposited impurities on a line"
+        },
+        {
+          "assessment": "Historical access risk only",
+          "evidence": [
+            "HTTP 403; no repository copy located by DOI recovery."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.43.3149",
+          "material_read": "Bibliographic identification only; no scientific text reliably accessible",
+          "method": "Lawful OA DOI and APS PDF attempts; DOI recovery",
+          "title": "Random sequential filling of a finite line",
+          "trigger": "Classical exact open-path mean and possible boundary tail"
+        },
+        {
+          "assessment": "Different stochastic observable",
+          "evidence": [
+            "Endpoint vacancies on a finite path, rather than total count after forced initial dimers on a cycle."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-parity-alternating-endpoint-vacancies-in-finite-page-r-nyi-parki--7c8260765cf2",
+          "material_read": "Local-mirror finding on endpoint covariance",
+          "method": "Resultary lookup and mirror inspection",
+          "title": "Parity-alternating endpoint vacancies in finite Page–Rényi parking",
+          "trigger": "Finite-path RSA alternating profile"
+        },
+        {
+          "assessment": "Different observable and intervention",
+          "evidence": [
+            "Spatial occupation of edges on an infinite line, not the distribution of the terminal count or two forced dimers."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-alternating-factorial-screening-of-one-anomalous-dimer-adsorptio--62931be7f8b0",
+          "material_read": "Local-mirror finding on a finite-rate defect",
+          "method": "Resultary lookup and mirror inspection",
+          "title": "Alternating factorial screening of one anomalous dimer adsorption bond",
+          "trigger": "Same screening vocabulary and one-bond variation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The principal two-seed response addresses a natural intervention, gives an exact finite-size formula, and explains the strict sign reversal and a quantified spatial decay that an unconditioned occupancy correlation cannot supply. This is meaningful mathematically but is not a surviving new claim after the comparison. The elementary one-bond symmetry observation alone does not warrant a repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

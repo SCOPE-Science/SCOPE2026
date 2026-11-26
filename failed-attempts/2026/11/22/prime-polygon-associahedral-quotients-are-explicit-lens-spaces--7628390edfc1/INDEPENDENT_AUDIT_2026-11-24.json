@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:42:51.992293Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The secondary-polytope theorem for convex polygons gives a simple polytope of dimension n−3 with facets indexed by diagonals; collections of facets meet exactly for pairwise noncrossing sets because these extend to a triangulation. The sum and first moment of GKZ coordinates are independent of triangulation by area and triangle centroids. Their three linearly independent constraints cut out an affine translate of W_n, so the dimension theorem gives equality. Rotation permutes coordinates and fixes the vertex average in the relative interior. Translating to that origin, taking the Euclidean polar in W_n, and projecting radially gives actual equivariant homeomorphisms from the diagonal complex to the representation sphere. The discarded real Fourier modes are the constant and the two first modes. The frequency representatives are 2 through floor(n/2), with a real sign line at n/2 when n is even. At a prime all surviving weights give no eigenvalue one for any nonidentity rotation; for composite n, a divisor weight d with 2≤d≤n/2 is fixed by r^(n/d). At p≥7 the sphere is simply connected and its complex rotations preserve orientation. The lens-space cellular homology gives exactly the stated odd-degree torsion and top integral class. The classifying map to BC_p is an isomorphism in integral cohomology below sphere dimension p−4 (the first nonzero positive fibre row has degree p−4). Pulling back the cyclic degree-two class gives nonzero powers through 2k≤p−5; any generator is a unit multiple. The p=5 circle exception and the generator change (2,3)→(1,5) mod 7 are correct. The independent check `python3 /workspace/review_calculations/small_cases.py polygon` checks every orbit of a diagonal under each nonidentity rotation for the specified small n. An invariant nonempty face must contain at least one noncrossing orbit, so this checks all geometric stabilizer types there, not merely fixed maximal triangulations. It does not prove the homeomorphism or the topology by enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "GKZ dimension, face correspondence and the available regular-polygon isometries are prior inputs. The all-face-size cyclic sieving theorem covers fixed nonempty faces for arbitrary n; no homeomorphism type follows from counts alone. The distinct nine-gon record uses the composite W_9 frequencies; the dihedral seven-gon record uses different acting group and cites the rotation-only weights."
+        ],
+        "reasoning": "Only the exact weighted prime theorem is supplied by 43771cca48e4. Broader published cyclic sieving already determines geometric freeness using invariant support faces, while a neighboring composite example alone would not cover the all-prime homeomorphism.",
+        "searches": [
+          "Ceballos–Santos–Ziegler §3.1 Theorem 3.2 and Corollary 3.4",
+          "Fossas Tenas–McCammond Proposition 1.5",
+          "Reiner–Stanton–White §7 Theorem 7.1 and equation (7.2)",
+          "Resultary 43771cca48e4, 0868b67422a4 and ca982a361a20"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 43771cca48e4, ca982a361a20 and 0868b67422a4",
+        "Ceballos–Santos–Ziegler arXiv:1109.5544",
+        "Reiner–Stanton–White Theorem 7.1 and (7.2)",
+        "Fomin–Zelevinsky arXiv:hep-th/0111053",
+        "Fossas Tenas–McCammond arXiv:1411.3647"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing lens homeomorphism implies the stated finite range of powers by the sphere fibration over BC_p. Cyclic sieving shows no fixed face for d=p and 1≤k≤p−3. For even composite n a diameter is fixed by the half-turn (k=1,d=2); for odd composite n a proper prime divisor d≥3 gives a fixed d-diagonal dissection (the central regular d-gon), included in the nonzero k=d case of (7.2)."
+        ],
+        "reasoning": "A fixed face fixes its barycenter and every fixed geometric point has invariant support. Thus even the extra composite direction follows from published all-face-size coverage. The powers are automatic from the exact known quotient; neither addition is a new theorem of the frozen scope.",
+        "searches": [
+          "43771cca48e4 Finding and proof of precise Fourier representation, offsets 0–5240",
+          "Reiner–Stanton–White Theorem 7.1 and root-of-unity evaluation, OA offset 39567 onward"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "43771cca48e4 uses the same regular polygon, the same noncrossing-diagonal complex and the same positive one-step generator, and has exactly the same weights. Fomin–Zelevinsky identify the Type A compatibility complex with polygon dissection faces, not with a quotient."
+        ],
+        "reasoning": "The orbit spaces already identified in the earlier catalogue record are identical, not just homologically equivalent. A cluster-complex relabeling does not change the comparison.",
+        "searches": [
+          "Resultary: prime polygon associahedral sphere rotation quotient lens space with weights 2 through (p−1)/2",
+          "Type A cluster Stasheff diagonal complex: Fomin–Zelevinsky Proposition 3.14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "43771cca48e4 gives exact weights at every odd prime p≥5, the homology ranges at p≥7, the p=5 circle and the identical L(7;2,3)=L(7;1,5) example. Equation (7.2) counts fixed dissections by size k and rotation order d; it is not a lens-space table."
+        ],
+        "reasoning": "The exact indexed result is a materially overlapping earlier theorem, not a matching parameter in an unrelated database.",
+        "searches": [
+          "Resultary exact weighted lens-space orbit-space match; inspect 43771cca48e4 Finding and Proof",
+          "Reiner–Stanton–White equation (7.2), fixed-face counts"
+        ]
+      },
+      "rationale": "Distinct Resultary record 43771cca48e4 already states the same prime weighted lens-space homeomorphism, freeness at primes, π_1, integral homology and seven-gon example, with the same GKZ–Fourier proof. The added composite nonfreeness follows from published fixed-dissection counts, and the stated cup powers are a standard consequence of the already-known lens homeomorphism. No distinct substantive finding remains; this is a statement-level comparison, not a provenance judgment.",
+      "residual_risks": [
+        "The provenance relationship between the distinct records and broader scholarly priority are not settled. The exact overlap and the published freeness implication suffice for the verdict independently of that uncertainty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior catalogue coverage of the central prime conclusion",
+          "evidence": [
+            "Same homeomorphism and integral invariants, same three affine moment constraints and same nontrivial Fourier summands."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-prime-rotational-quotients-of-associahedral-spheres-are-weighted--43771cca48e4/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof steps 1–4, offsets 0–5240",
+          "method": "Resultary search and local-mirror source passage reading",
+          "title": "Prime rotational quotients of associahedral spheres are weighted lens spaces",
+          "trigger": "Exact weight list for the same equivariant prime associahedral model"
+        },
+        {
+          "assessment": "Verifies the polytope premise; not itself the weighted quotient theorem",
+          "evidence": [
+            "Simple secondary associahedron of the required dimension, face lattice given by polygon subdivisions, and facets indexed by diagonals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1109.5544",
+          "material_read": "Introduction p. 2, §3.1 Theorem 3.2 and Corollary 3.4 pp. 7–8 including triangulation/diagonal incidence",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Many non-equivalent realizations of the associahedron",
+          "trigger": "Critical GKZ realization and fiber dimension input"
+        },
+        {
+          "assessment": "Supplies fixed-face counts and hence the exact freeness criterion, not lens weights",
+          "evidence": [
+            "For order d≥3 the fixed count vanishes unless d divides the number of diagonals k; the eligible composite d=k case is nonzero. The order-two case includes invariant diameters."
+          ],
+          "identifier_or_url": "https://sites.math.washington.edu/~billey/classes/561.fall.2021/past.articles/reiner.stanton.white.pdf",
+          "material_read": "Theorem 7.1 and equation (7.2) with root-of-unity argument, OA offset 39567 onward",
+          "method": "Targeted primary OA PDF reading",
+          "title": "The cyclic sieving phenomenon",
+          "trigger": "Same polygon rotation action on dissections of every size"
+        },
+        {
+          "assessment": "Equivalent face model, not a comparable quotient theorem in the checked passage",
+          "evidence": [
+            "Type A compatible diagonals are noncrossing and clusters triangulate the polygon."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/hep-th/0111053",
+          "material_read": "Proposition 3.14 p. 28 (OA offset 90371)",
+          "method": "Targeted primary OA PDF reading",
+          "title": "Y-systems and generalized associahedra",
+          "trigger": "Equivalent variant via the type A cluster complex"
+        },
+        {
+          "assessment": "Prior isometric action, not a computation of lens weights in this passage",
+          "evidence": [
+            "Regular polygon isometries extend to isometries of the standard associahedron."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.3647",
+          "material_read": "Proposition 1.5 p. 4 (OA offset 8140)",
+          "method": "Targeted primary OA PDF reading",
+          "title": "The infinite cyclohedron and its automorphism group",
+          "trigger": "Regular associahedral action by polygon symmetries"
+        },
+        {
+          "assessment": "Distinct composite case and method overlap",
+          "evidence": [
+            "Uses the n=9 rotation representation with weights 2,3,4, rather than the all-prime theorem."
+          ],
+          "identifier_or_url": "Resultary ca982a361a20",
+          "material_read": "Finding and opening proof passages",
+          "method": "Resultary search and targeted local-mirror source reading",
+          "title": "Order-nine torsion and an exceptional fundamental group in the nine-gon quotient",
+          "trigger": "Neighboring composite Fourier model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Determining precise lens weights for this natural action is mathematically meaningful but already done on exactly the frozen prime domain, even including p=5 in the covering theorem. The composite freeness check and the standard cohomology of a known lens space do not give a useful new invariant beyond the reviewed source material. No surviving original valuable claim in scope warrants repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

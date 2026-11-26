@@ -1,19 +1,21 @@
-# Review of rank-one positivity defect
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the exact rank-two compression of the Moore–Penrose inverse, diagonalizes the Hermitian rank-two Jordan expression, checks the orthogonal and coincident endpoints separately, and optimizes the entire overlap interval by a single strictly increasing cubic. A direct exact real symmetric witness and the sharp translation-covariant positivity threshold are included. The standalone SymPy/NumPy checker passed exact symbolic identities and 900 deterministic random tests; the theorem itself follows from analytic algebra, not those finite samples.
+PASS
 
-## Originality — PASS
+The exact formula agrees with the convention in Jiao–Luo–Wu (3.2). At A=0 the two products inside the real part are adjoints. On the span of u,v, put H=B−C, h=a−b and k=2ab(1−r²)/q. For 0<r<1 the signed eigenvalues (h±q)/2 give |H|=(h/q)H+kI. Expanding det(kI+(1+h/q)B+(1−h/q)C) gives k(a+b+q); in coordinates u=e1, v=(r,s) the adjugate numerator in u*D⁻¹v is rk. The result with complex phases follows by undoing the rephasing. The phase-normalized u±v diagonalize the symmetrized product, giving r(r±1) before scaling. Orthogonal ranges give zero and coincident ranges give min(a,b)P by direct pseudoinversion. In dimension one the formula gives the scalar median (sort by permutation invariance). The half-angle substitution gives derivative with sign (t−1)(t³+t²+3t−1), with the cubic strictly increasing; common scalar translation leaves D fixed and shifts the spectrum. Thus the algebraic threshold and the strict-positive witness are correct for the stated families. The last displayed decimal digits of κ are slightly off: κ≈0.06744224886812295177; the exact formula and the threshold are unaffected.
 
-Jiao–Luo–Wu, arXiv:2610.21445v1, Section 3, introduces the identical operation and proves permutation symmetry and trace-class norm bounds, not its complete rank-one eigenvalues or sharp cone regularization. Nakagawa's arXiv:2602.14007v2 defines a different Riemannian metric median. Bounded published research comparisons on rank-one positivity, mixing maps and an exact threshold returned Schur truncations, crossed-Heinz maps and other distinct constructions; their statements do not entail this formula. Possible earlier Jordan-product simplifications and incompletely indexed matrix-mean literature remain priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A recent trace-class mixing construction is evaluated against the essential positive-matrix cone. The result establishes not only an explicit positive-definite failure but the exact universal boundary where scalar regularization restores cone preservation for all rank-one projection triples, independently of dimension. It is a natural complete spectral classification for an important input family, not a purported classification for unrestricted matrices.
+The defining operation, symmetry and trace-norm estimate are prior. Neither that estimate, the different optimization-defined median, nor the checked Resultary positivity results supply the sharp signed spectrum and common shift for this map. The distinct claim passes on the inspected evidence, not as a priority guarantee.
 
-## Limitations
+## value
 
-The optimal threshold applies to equal-amplitude rank-one projections, not general positive matrices. Independent historical priority and scientific audit remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a symmetric scalar-median extension defined algebraically on Hermitian matrices, positivity is a natural structural question. Dimension two already disproves it even in the interior of the positive cone. The whole rank-one overlap classification identifies exactly where the negative direction occurs and supplies a dimension-free optimal remedy on the equal-amplitude projection family, not just a numerical negative witness. It neither weakens the published trace-norm theorem nor claims a remedy for arbitrary matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

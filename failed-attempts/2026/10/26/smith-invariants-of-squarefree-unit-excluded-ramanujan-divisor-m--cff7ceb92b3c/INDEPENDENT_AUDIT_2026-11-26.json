@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:02:48.270844Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–33 and 35–97",
+        "Frozen VERIFICATION.md, lines 19–23; verify.py, lines 8–46",
+        "Independent exact Smith checks using the prime-factor product formula"
+      ],
+      "rationale": "The nonunit divisor zeta and Möbius factors are integral and unimodular. The omitted unit term gives a rank-one update, and Möbius inversion on the nonunit index set transforms the matrix to B=D+1u^T with D=diag(d) and u_d=mu(d). Each prime of squarefree n occurs in h=2^(r-1) of those d, so the determinant lemma gives det B=n^(h-1) phi(n). For primes not dividing n, the invertible diagonal plus one rank-one update has nullity at most one. For p dividing n, let T be the h indices divisible by p. The right and left mod-p kernels both vanish off T and are respectively u_T-orthogonal and 1_T-orthogonal hyperplanes. The divided pairing y^T B x/p mod p is well-defined on these kernels; Smith reduction shows its rank counts exactly the p-exponents equal to one. Choose integer lifts supported on T; the rank-one term is divisible by p^2 and the remaining diagonal pairing has units d/p. Its restriction to the two hyperplanes has rank at least h-2. Thus h-2 positive exponents are one and the last is 1+v_p(phi(n)) by the determinant, with h-1 positive exponents total. Combining primes in divisibility order yields the stated Smith diagonal and both corollaries. For a prime modulus n=p the entry is p-1. Independent bounded SymPy Smith spot checks using products of the prime values p-1 or -1, rather than the uploaded incidence code, agreed for n=5187,3298,57,10374. These checks are supplemental; the frozen script was inspected, not executed.",
+      "residual_risks": [
+        "The original theorem's proof is squarefree only; the independently checked instances do not establish the universal formula on their own."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed broader theorem uses no squarefree hypothesis. For a prime p|n, it takes T=tau(n/p^a) copies of each 1,...,a, removes one 1, and increases one copy of a by v_p(phi(n/p^a)) when positive.",
+          "Schlage-Puchta proves the determinant of the full divisor table, not the integral invariant factors of the minor."
+        ],
+        "reasoning": "At a=1 and r>=2, T=2^(r-1)=h, so the broader theorem leaves h-1 positive p-exponents, of which h-2 are one and the last is 1+v_p(phi(n)), since phi(p)=p-1 is a p-unit. For primes outside n the rule assigns at most a single totient exponent. Left-padding and multiplying these ordered lists gives the exact frozen chain.",
+        "searches": [
+          "Resultary 3189e6142132, Finding, scope and integral rank-one diagonalization",
+          "Schlage-Puchta 2021, full divisor-table determinant; Fowler–Garcia–Karaali 2012, full table orthogonality"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary 3189e6142132 and 0bffd4ff77aa",
+        "arXiv:1201.1060, Section 2.2",
+        "Schlage-Puchta (2021), determinant theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed theorem gives s_j ordered by divisibility and the cokernel directly. Reduction of unimodular changes of basis is invertible mod m; multiplication by s_j on Z/mZ has gcd(s_j,m) kernel elements."
+        ],
+        "reasoning": "The omitted displayed kernel count is the product over s_j and therefore a direct corollary, not a distinct remaining claim. At n=p the broader rule removes the only p-exponent and retains exactly the prime factors of p-1. The indexed result also uses the same integral rank-one reduction, although the frozen local pairing is a concise squarefree proof.",
+        "searches": [
+          "Resultary 3189e6142132 full integral Smith recipe and cokernel; compare frozen modulus-m kernel count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3189e6142132 defines B_n with precisely all divisors greater than one on both axes, including n, using ordinary c_d(e).",
+          "Fowler–Garcia–Karaali's full supercharacter table becomes the full divisor table after relabeling columns n/d_j; the deleted column is labeled n in their original convention. Appendix-free full-table orthogonality and nonunimodular scalings do not preserve deleted integral Smith factors.",
+          "Resultary 0bffd4ff77aa uses c_n(i-j) on residues, not the divisor-indexed minor."
+        ],
+        "reasoning": "The exact overlap is unchanged by index order or simultaneous transpose, but it requires deleting the unit on both divisor axes, not taking an arbitrary residue minor or the full table. The distinct all-moduli record matches the deleted matrix itself.",
+        "searches": [
+          "Resultary: unit-deleted/reduced divisor-indexed Ramanujan matrix Smith form; Ramanujan sum convolution circulant",
+          "Fowler–Garcia–Karaali arXiv:1201.1060, Eqs. (2.15)–(2.20)",
+          "Schlage-Puchta DOI:10.1007/s00013-021-01643-8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "3189e6142132 Finding, offset 0, contains the exact same matrix and primewise Smith classification; 0bffd4ff77aa Finding is a genuinely different residue-indexed object."
+        ],
+        "reasoning": "This is exact theorem coverage, not a coincidental match in a finite numerical table. The all-moduli formula provides all the claimed invariant factors and the resulting cokernel, including all squarefree instances.",
+        "searches": [
+          "Resultary local index: complete Smith form and unit-excluded Ramanujan divisors; local RESULT.md for 3189e6142132 and 0bffd4ff77aa"
+        ]
+      },
+      "rationale": "A distinct indexed Resultary result, 3189e6142132, gives the complete integral Smith form for the same matrix at every integer n>=2. Its rule specializes to exactly the frozen diagonal, including the prime boundary, the cokernel and the congruence-kernel corollary. This is demonstrated coverage, not an inference that the catalogue entry has historical priority over the frozen source. The older inspected full-table papers by themselves would not imply this verdict.",
+      "residual_risks": [
+        "The broader matching catalogue entry has a later path date than the frozen record and alludes to a previous squarefree identification without a source. The review decides exact coverage, not the order of discovery or priority.",
+        "A decisive passage of Sander–Sander (2015) was not retrieved; that limitation does not affect the exact matching theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage by specialization; no historical priority inferred",
+          "evidence": "The rule at a=1 yields the full frozen local exponent lists; both axes explicitly index all nonunit divisors. The text says the squarefree specialization was identified previously but does not identify its source.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-smith-normal-form-of-the-reduced-divisor-indexed-ramanujan-matri--3189e6142132/RESULT.md",
+          "material_read": "Finding, scope and rank-one reduction at offsets 0–3708; comparison at offsets 8700–9703",
+          "method": "Resultary local mirror passage inspection",
+          "title": "Smith normal form of the reduced divisor-indexed Ramanujan matrix for every modulus",
+          "trigger": "Exact same reduced divisor-indexed matrix and invariant"
+        },
+        {
+          "assessment": "Different matrix",
+          "evidence": "Uses n residue indices and entries c_n(i-j), not the nonunit divisors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-complete-smith-form-of-ramanujan-sum-convolution-circulants--0bffd4ff77aa",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror passage inspection",
+          "title": "Complete Smith form of Ramanujan-sum convolution circulants",
+          "trigger": "Closest title using a different Ramanujan matrix"
+        },
+        {
+          "assessment": "Same full table up to column reindexing; full-table identities do not supply the minor Smith form",
+          "evidence": "S(n)_ij=c_{d_i}(n/d_j) and the diagonal scalings and orthogonality statements are for S(n) before deletion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1201.1060",
+          "material_read": "Section 2.2, PDF pp. 6–7, offsets 19200 and 22200, Eqs. (2.15)–(2.20)",
+          "method": "OA PDF passage inspection",
+          "title": "Ramanujan sums as supercharacters",
+          "trigger": "Potential reindexing equivalence with the full character table"
+        },
+        {
+          "assessment": "Full determinant, not the invariant factors of the deleted matrix",
+          "evidence": "Uses the transpose convention and gives full-table determinant of absolute value n^(tau(n)/2).",
+          "identifier_or_url": "https://doi.org/10.1007/s00013-021-01643-8",
+          "material_read": "Journal p. 379/PDF p. 1, offset 1250",
+          "method": "OA primary passage inspection",
+          "title": "A determinant involving Ramanujan sums and So's conjecture",
+          "trigger": "Closest classical full divisor-matrix theorem"
+        },
+        {
+          "assessment": "Specific source coverage unresolved, independently of the exact catalogue theorem",
+          "evidence": "HTML/PDF access attempts timed out; no substantive negative comparison inferred.",
+          "identifier_or_url": "https://doi.org/10.2298/AADM150226009S",
+          "material_read": "Bibliographic identification only; full text not reached",
+          "method": "Bounded direct and alternate OA retrieval attempts",
+          "title": "On So's conjecture for integral circulant graphs",
+          "trigger": "Frozen prior-work citation on divisor-indexed spectra"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Resultary 3189e6142132, Finding and integral reduction"
+      ],
+      "rationale": "The integral invariant is natural and useful in isolation. As submitted, however, it delivers precisely a restriction of an available complete classification and standard corollaries; no genuinely different application, scope or needed exact fact survives that comparison. The squarefree pairing proof is concise but the frozen finding is the same invariant, not a separate valuable proof-method result.",
+      "residual_risks": [
+        "This verdict does not deny the mathematical interest of the broader classification or attribute historical priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

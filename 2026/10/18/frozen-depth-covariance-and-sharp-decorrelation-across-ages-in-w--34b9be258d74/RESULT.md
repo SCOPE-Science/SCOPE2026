@@ -1,6 +1,8 @@
-# Frozen depth covariance and sharp decorrelation across ages in weighted recursive trees
+# Sharp fixed-label total-variation decorrelation in weighted recursive trees
 
 ## Finding
+
+The contribution is a fixed-label bivariate depth convolution and its sharp total-variation consequences, including a power-weight phase boundary. The frozen covariance used to identify the surviving dependence signal is an immediate corollary of the existing martingale identities of Gałązka and Wdowicka [1], not a separate originality claim.
 
 Fix arbitrary deterministic positive vertex weights \(w_1,w_2,\ldots\) and a label \(i\geq 3\). In the corresponding rooted weighted recursive tree, write \(D_m\) for the depth of vertex \(m\), \(W_k=\sum_{r=1}^{k}w_r\), and \(p_k=w_k/W_k\). Let \(X=D_i\), \(Y=D_{i+1}\). For **every** \(j\geq i+1\), there is a sum \(S_{i,j}=\sum_{k=i+1}^{j-1}B_k\) of mutually independent Bernoulli variables with \(\Pr(B_k=1)=p_k\), independent of \((X,Y)\), such that
 
@@ -150,15 +152,15 @@ To reproduce from the package directory, run `python3 verify_depth_dependence.py
 
 ## Relationship to prior work
 
-Gałązka and Wdowicka (2026, arXiv:2610.00614v1) study the *same deterministic-weight recursive tree*. Their Proposition 2.1 (attributed to Mailler and Uribe Bravo, Curien and Haas, and others) gives the known **one-vertex** Bernoulli convolution, and their Section 5 gives the martingale innovations used here. Their Theorem 6 and subsequent sections treat **global total-path-length** fluctuations, not a tagged-pair bivariate factorization, frozen covariance or the sharp \(\Theta(V^{-1/2})\) two-label total-variation dependence rate.
+Gałązka and Wdowicka (2026, arXiv:2610.00614v1) study the *same deterministic-weight recursive tree*. Their Proposition 2.1 (attributed to Mailler and Uribe Bravo, Curien and Haas, and others) gives the known **one-vertex** Bernoulli convolution, and their Section 5 gives the martingale innovations used here. Their Theorem 6 and subsequent sections treat **global total-path-length** fluctuations, rather than the exact bivariate factorization or sharp two-label total-variation rate.
 
 Lodewijks (2023, arXiv:2204.09032) treats joint label/depth properties in the **uniform** recursive tree, notably regimes with all marked labels diverging. The present fixed-old-label, moving-young-label theorem also covers arbitrary positive deterministic attachment weights and includes the summable-weight nondecoupling boundary. Generic smoothing of a bounded signal by a divergent Poisson-binomial sum is a known probabilistic mechanism, but the exact joint-depth factorization and its strict nonzero frozen covariance identify the process-specific signal and give both matching bounds.
 
-The title, exact quantities and implications were compared against relevant accessible full-text studies, older joint-depth results and semantically related mathematical research records. That comparison is not a proof of absolute novelty: earlier work on ancestral indicators or abstract translated Poisson-binomial kernels might implicitly imply parts of the result. The established one-vertex depth law, martingale decomposition, local CLT and general smoothing inequality are **not** claimed independently new.
+In particular, [1, equations (23)–(25) and Proposition 5.1] already give the centered weighted average as a sum of orthogonal innovations. Adding the new parent innovation gives the centered depth, and multiplying the two depth expansions shows that the younger label drops out of the covariance. This recovers (2) directly; the sign follows because the older label has two possible parent depths. The new comparison is the exact bivariate convolution and sharp distance to independence, not the covariance identity, the one-vertex convolution, the marginal variance boundary, or the general smoothing and local limit tools. Earlier work on ancestral indicators or translated Poisson-binomial kernels may contain related formulations; no absolute priority is claimed.
 
 ## Limitations
 
-The result is for two *labeled vertex depths*, with \(i\ge3\) fixed, and does not claim a uniform estimate as \(i\) grows with \(j\). The asymptotic upper and lower constants need not coincide; an exact asymptotic prefactor for total variation is not proved. For arbitrary deterministic weights with bounded \(V_{i,j}\), the theorem does not classify every possible limit; only the specified power-weight family is classified. It does not concern conditional independence given the evolving tree, ancestor relations, the whole tree profile, directed distances, or joint laws of many labels. The findings have undergone an internal mathematical review but no independent audit.
+The result is for two *labeled vertex depths*, with \(i\ge3\) fixed, and does not claim a uniform estimate as \(i\) grows with \(j\). The asymptotic upper and lower constants need not coincide; an exact asymptotic prefactor for total variation is not proved. For arbitrary deterministic weights with bounded \(V_{i,j}\), the theorem does not classify every possible limit; only the specified power-weight family is classified. It does not concern conditional independence given the evolving tree, ancestor relations, the whole tree profile, directed distances, or joint laws of many labels.
 
 ## References
 

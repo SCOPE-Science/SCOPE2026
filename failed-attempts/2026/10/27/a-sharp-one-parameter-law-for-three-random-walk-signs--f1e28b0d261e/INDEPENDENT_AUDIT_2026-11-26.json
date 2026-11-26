@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:04:17.163591Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independence and symmetry separate fair signs and iid positive magnitudes, and conditioning on all but one magnitude removes ties even for singular atomless laws. Persistence +++ sums the four eligible increment-pattern conditionals 1,1−t,1/2,t with weight 1/8. Also P(T1>0,T2>0)=3/8. The alternating output +-+ requires exactly the +-+ increment signs and the magnitude event A1<A2<A1+A3, with probability 1/2−t; reflection and normalization then determine the other words. Disjoint dominance events give 3t≤1; iid samples have positive probability of landing in one positive interval with ratio less than 2, ruling out equality. Log-uniform magnitudes give t=0 for small spread, continuously approach 1/3 by the gap between the largest and second-largest log samples, and realize every intermediate value by continuity. The triangular torus map preserves the independent uniforms and telescoping integer carries give the odd-time sign correspondence. An independent simplex-monomial calculation and enumeration over all 5040 seven-symbol permutations and 32 five-step paths give 19/90 and TV 7/720, with the two stated tables; run `python /workspace/replay_frozen_reviews.py 3`. This finite replay does not prove the continuum result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "08eb2b24f71c treats arbitrary sign-stay q and determines the range of v by the disjoint dominance events and a log-uniform magnitude family. Sparre–Andersen covers the universal all-positive probability; occupation results alone do not tell ordered words."
+        ],
+        "reasoning": "The exact feasibility component is already covered for the same magnitude laws; taking q=1/2 costs nothing. The ordered law needs the additional conditional information identified below.",
+        "searches": [
+          "Resultary 08eb2b24f71c, Proof Steps 1–4",
+          "Berger–Béthencourt arXiv:2304.09031 Theorem A (Sparre–Andersen)",
+          "Fang et al. arXiv:2001.08857 Theorem 2.5 and Conjecture 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_three_signs.py (read only)",
+        "Resultary 08eb2b24f71c and a412ed2dcdb6",
+        "arXiv:2609.25102, 2001.08857 and 2304.09031",
+        "Sparre Andersen (1953), abstract-level only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For input +-+, Step 1 gives all three partial sums positive with conditional probability 1/2. With that fixed input, the only other output words are +-+ and +--; the latter occurs exactly when the second magnitude dominates, with conditional probability v. No other input can give output +-+. Separately, the earlier K2 and K3 formulas give P(++ at the first two times)=(1+q)/4 and P(+++)=(1+q²)/4."
+        ],
+        "reasoning": "At q=1/2 the alternating output therefore has mass (1/2−v)/8, and ++− is the difference of the two known all-positive probabilities. First-sign normalization and reversal finish all eight entries, with the same proven range of v. This is an elementary consequence of the earlier conditional and aggregate statements, not an inference that aggregates in isolation give the ordered law. The numerical specialization then just evaluates the elementary triangular integral and finite path probabilities.",
+        "searches": [
+          "08eb2b24f71c, extraction near 2296 (three-step conditionals) and 2795–6091 (four-step conditional cases and feasibility)",
+          "Tang triangular model versus finite sign law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign-persistent model takes independent atomless positive magnitudes η_i and symmetric Markov signs, which are iid fair at stay probability q=1/2. Its v=Pr(η_1>η_2+η_3) is exactly t. Tang has Y_k=1−V_{2k−1}−V_{2k}, where the V_i are independent uniforms."
+        ],
+        "reasoning": "At q=1/2 all hypotheses and the auxiliary dominance event coincide. Marginal occupation and ordered signs are different observables; the implication uses additional proof statements, not just matching marginals.",
+        "searches": [
+          "Resultary 08eb2b24f71c, three/four-step occupation law for sign-persistent increments",
+          "Tang arXiv:2609.25102, odd-time permutation sign transformation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-step table of 08eb2b24f71c contains conditional probabilities by input sign word, and Step 1 gives the exact first-three all-positive conditional probabilities. Its K3 aggregate specializes to (5,3,3,5)/16. The other four-step entry a412ed2dcdb6 has 3-wise independent signs and a fourth-order interaction, not this law. No inspected statement gives the exact ordered permutation table or TV number in print."
+        ],
+        "reasoning": "No exact printed match of all eight displayed entries is claimed. The closest tabulated ingredients nonetheless determine them by the explicit conversion below.",
+        "searches": [
+          "Resultary three partial-sum signs, triangle dominance, and four-step persistence",
+          "Resultary 08eb2b24f71c; a412ed2dcdb6",
+          "Tang arXiv:2609.25102 Theorem 0.1"
+        ]
+      },
+      "rationale": "The closest earlier sign-persistent result does not print the ordered table, but its exact early-time laws and conditional probabilities, including the same sharp dominance parameter, mechanically give that table at independent signs. Its proof also establishes the entire feasible range by the same log-uniform family. The permutation representation and count were established by Tang, and the exact numerical specialization is explicitly not the distinct contribution asserted by the frozen result.",
+      "residual_risks": [
+        "Older sign-combinatorial coverage remains incompletely inspected; it is not the reason for FAIL.",
+        "No priority assertion about an exact printed permutation TV value is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of dominance range; mechanically implies full ordered table",
+          "evidence": "K2 and K3 formulas plus conditional all-positive probabilities 1,1−v,1/2,v given the four positive-start increment words; disjointness and log-uniform construction for the range.",
+          "identifier_or_url": "08eb2b24f71c",
+          "material_read": "Finding and Steps 1–4; Steps 1 and 4 around offsets 2296 and 2795–6091",
+          "method": "Resultary local-mirror passages",
+          "title": "Sharp four-step loss of occupation-time universality in a sign-persistent walk",
+          "trigger": "Same dominance parameter and iid signs as one value of q"
+        },
+        {
+          "assessment": "Known embedding, not printed ordered probabilities",
+          "evidence": "Uniform torus coordinates and the triangular iid increments yield the occupation marginal.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.25102",
+          "material_read": "Theorem 0.1 and proof pp. 1–3, extraction near 611, 4007, 8100",
+          "method": "Primary OA text",
+          "title": "Tang permutation occupation law",
+          "trigger": "Same permutation walk and triangular representation"
+        },
+        {
+          "assessment": "Occupation marginals and conjecture, different from joint signs",
+          "evidence": "Simple-walk occupation marginal and proposed permutation analogue.",
+          "identifier_or_url": "https://arxiv.org/abs/2001.08857",
+          "material_read": "pp. 6–7 Theorem 2.5 and Conjecture 2.6, extraction near 22071",
+          "method": "Primary OA text",
+          "title": "Arcsine laws for random walks generated from random permutations with applications to genomics",
+          "trigger": "Known permutation and simple-walk occupation comparisons"
+        },
+        {
+          "assessment": "All-positive strings only in inspected theorem",
+          "evidence": "g(n)=(2n−1)!!/(2n)!! for the iid atomless symmetric setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.09031",
+          "material_read": "pp. 1–2 Theorem A, extraction near 2500",
+          "method": "Primary OA text",
+          "title": "Berger–Béthencourt, Sparre–Andersen persistence exposition",
+          "trigger": "Classical universal sign probabilities"
+        },
+        {
+          "assessment": "Different model, not a source of this ordered law",
+          "evidence": "Fair 3-wise independent signs under restricted amplitudes; a fourth-order sign interaction enters.",
+          "identifier_or_url": "a412ed2dcdb6",
+          "material_read": "Four-step persistence finding and hypotheses",
+          "method": "Resultary local mirror",
+          "title": "Four-way interaction Sparre–Andersen persistence",
+          "trigger": "Uncited limited-independence comparison in the finding's prior-work section"
+        },
+        {
+          "assessment": "No full-text priority conclusion",
+          "evidence": "No full theorem passage on ordered words authenticated from this paper.",
+          "identifier_or_url": "Sparre Andersen, Scandinavian Actuarial Journal (1953), pp. 123–138",
+          "material_read": "Bibliographic and abstract-level material; primary full text not accessible",
+          "method": "Lawful OA/DOI retrieval attempt and recorded abstract comparison",
+          "title": "On sums of symmetrically dependent random variables",
+          "trigger": "Possible classical sign-combinatorial coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Distinguishing occupation marginals from joint signs is a sound motivation, but the claimed classification adds no independent mathematics beyond the previously given conditional law and sharp dominance range. The particular numerical contrast is not presented by the frozen finding as independently novel, and here is a straightforward evaluation of the known triangular embedding using that law and five fair coin flips. It does not provide a separate valuable repair of the covered main claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact-domain theorem has a constructive sufficiency proof and two minimal necessary obstructions: a mixed in/out vertex and an alternating four-vertex path. The proof explains why these force every component to be a uniformly directed star, and separately proves the permutation reduction, concept count, both dimensions, coefficient recurrence and maximum supports. Independent implementations of the mathematical predicates exhaust all one-descent rankings through six labels and all directed graphs on four vertices. The finite checks supplement rather than replace the proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Direct comparison with Alon et al. on the maximum size of a directed cut, Kozma–Moran on orientation-system shattering, Peters–Procaccia on average-case preference elicitation, and Raz on a different permutation VC definition found none of the full star-forest trace classification, ranking polynomial, or its implication for one-descent comparison supports. Searches considered directed cuts, edge traces, conjunctions of vertex bits, rank-two Boolean incidence, one-descent rankings, equivalent forests, and learning dimensions. A broader general Boolean-function result could contain this claim under other terminology; an exhaustive priority review has not occurred.
+PASS
 
-**Value — PASS.** The exact classification identifies all legal Boolean-query supports of a natural, highly compressed ranking domain. The labeled exponential generating function computes every shattering coefficient for every order, not just one finite table; the maximum supports have a rigid two-center classification. In particular the one-descent domain retains the full \(n-1\) adaptive/static dimension of unrestricted rankings while shrinking the concept count from \(n!\) to \(2^n-n\), giving a useful structural boundary for learning with restricted comparisons. The underlying oriented-graph theorem applies beyond permutations.
+The all-ones trace forces every nonisolated support vertex to be either a source or a sink. In this bipartite support a three-edge simple path cannot have trace (1,0,1) on its consecutive edges, because its two outer edges fix the middle edge's labels to give 1. A connected bipartite graph with no such path is a star: if a vertex has two neighbors, any second incident edge at either neighbor produces a three-edge path, so every neighbor is a leaf, and connectedness exhausts the component. Conversely the fixed center label and independent leaf labels realize every star trace. Listing B increasingly and then its complement increasingly gives a one-descent word at most, and splitting at the descent represents every eligible word. For i<j, the inversion on the value pair is exactly i outside B and j in B. Thus centers must be extremal on their own component. All nonidentity words have unique B, and exactly n+1 choices of B give the identity. The n−1-edge minimum-label star gives the lower bound, and 2^n−n distinct concepts cannot realize the 2^n distinct leaves of a depth-n tree. At n=1 both dimensions are zero. For the EGF, labeled components of size r have edge weight z^(r−1) and multiplicity 1 for r=1,2 or 2 for r≥3. This also proves the maximum-support counts, with n=2 having one edge and n=1 the empty support.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct contribution is the complete value-label trace classification and size profile on one-descent permutations, with the learning dimensions as consequences. The graph characterization is closely equivalent to the rectangle star-forest theorem after a simple consistency test, so it should not be treated as an unrelated contribution or as having established historical priority. The compared records with the same permutation family or broader orientation methods do not give this value-label classification and profile.
+
+## value
+
+PASS
+
+The complete support classification resolves which sets of comparisons can vary independently, not just how many. It yields the edge-count distribution for all orders and describes its maximizers, while distinguishing the natural value-label problem from positional Grassmannian comparisons. The equality of static and adaptive dimensions is meaningful for this restricted ranking model, although the entropy bound itself is routine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

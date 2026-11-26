@@ -1,12 +1,21 @@
-# Scientific review: comparative Grundy sequence spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies both graphs, both neighborhood conventions, full completion, and ordered legal vertex sequences. The recurrence \(P_A(z)=z\sum_{B_v\not\subseteq A}P_{A\cup B_v}(z)\) with \(P_V(z)=1\) is bijective, exhaustive and acyclic. All reachable masks and recurrence values were checked from the complete embedded certificate, including exact integer coefficients and minimum/maximum supported degrees. An independent selected-vertex-state dynamic program agrees on every coefficient. Direct graph checks establish the graph parameters and their nonisomorphism using four-clique counts. Limits: no extrapolation beyond the stated two graphs; no external independent audit.
+## correctness
 
-## Originality — PASS under examined literature, with residual risk
-The 2016 *Total Dominating Sequences in Graphs* full text develops the open-neighborhood invariant and general regular-graph bounds, but not the paired sixteen-vertex complete polynomials. The 2016 *Dominating sequences in grid-like and toroidal graphs* full text supplies a six-vertex-length rook construction via Cartesian products, but not the exhaustive rook polynomial, Shrikhande polynomial or open-spectrum equality. Lin's *Zero forcing number, Grundy domination number, and their variants* distinguishes different zero-forcing dualities; ordinary zero forcing counts cannot be substituted for closed Grundy domination sequence counts. Targeted semantic mathematical-record and published-literature searches did not identify exact coverage. The result can still have an unindexed or supplementary-data precursor, so originality is assessed rather than certified.
+PASS
 
-## Value — PASS
-The rook and Shrikhande graphs are the unique nonisomorphic examples sharing strongly regular parameters \((16,6,2,2)\). Comparing two standard greedy domination processes on them is natural. The **entire** open-neighborhood enumerator is equal, although the closed-neighborhood enumerators have differing degree supports, longest lengths, and coefficients. This gives a concrete boundary on what graph structural similarity forces for sequential domination, not merely an arbitrary numeric slice or a new label for an old invariant. Exact coefficients help subsequent comparison and algorithms. No wider theorem is asserted.
+The covered-set recurrence counts exactly the completed sequences: the neighborhoods contributing terms are precisely legal next vertices, each term increases coverage strictly, and the full set terminates with one empty continuation. A previously used vertex has zero gain, so this counts ordered distinct vertices without a separate exclusion condition. I rebuilt both graphs from their coordinates and directly traversed the sequence tree without merging states. The checks confirmed degree six, pairwise two common neighbors, and respectively eight and zero 4-cliques. In ascending length order, the rook-closed coefficients were (11712,114048,266112) at lengths 4–6, the Shrikhande-closed coefficients (192,10176,127296,492480,48384) at lengths 3–7, and both open cases (1920,103680,1658880) at lengths 4–6, with no others. These also give the four Grundy maxima. I additionally verified an explicit open-neighborhood incidence isomorphism in the replay. It acts by one bijection on selecting vertices and another on covered vertices; hence each open sequence has the same successive gains and termination under transport. It does not preserve closed neighborhoods.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Credit the exact coefficient lists and quantitative closed/open comparison. Do not credit equality of the open spectra as an independent new fact: it follows immediately from the prior isomorphism of bipartite double covers, even though the older source does not state sequence polynomials. Likewise the closed rook lower bound six and the general sequence frameworks are prior; the full coefficient comparisons, not the bare equal-open assertion or endpoints, are the distinct contribution supported here.
+
+## value
+
+PASS
+
+This canonical minimal strongly regular parameter collision permits a comparison that holds size, degree and pairwise intersection parameters fixed. The complete ordered sequence counts quantify what closes differently: the closed rook case has no completed triples or length-seven sequences, while Shrikhande has 192 and 48384 respectively, with different coefficients also on their shared support. The independently useful exact invariant consists of the three distinct polynomials; value is not assigned to recomputing the known consequence that the open spectra coincide or to recovering the rook lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

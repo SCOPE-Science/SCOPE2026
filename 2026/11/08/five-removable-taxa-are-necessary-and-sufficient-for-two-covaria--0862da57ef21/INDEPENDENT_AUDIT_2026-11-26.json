@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:48:23.188295Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Root reachability is increasing in the survivor set. The endpoint slices are deterministic, so n≤3 cannot have three nonzero signs. At n=4 only k=1,2,3 matter. An independent enumeration (/workspace/checks/3.py) fixes the true singletons and true triples; it requires all pairs containing a true singleton, forbids any pair contained in a false triple, and ranges freely over the remaining pairs. These are all the interior monotonicity constraints, and the extreme levels can be extended monotonically. This gives 166 distinct interior profiles (the constants duplicate two profiles) and 27,556 profile pairs, with no alternating triple of exact covariance numerators. Independently traversing the witness DAG on every survivor subset yields marginal counts (0,1,5,9,5,1) for each focal taxon and joint counts (0,0,3,8,5,1). Dividing each N_k j_k−a_k b_k by N_k² gives (0,−1/25,1/20,−1/100,0,0). Thus the witness attains the threshold, counting five removable taxa, not the external root or the two focal taxa. The finite proof covers the stated cutoff, not all possible sign patterns at larger n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected spectral-correlation paper starts from product-measure positive covariance for increasing functions. Full text of the negative-association paper could not be confirmed; the indexed pollinator record discusses negative association for functions of disjoint coordinates."
+        ],
+        "reasoning": "Product-measure positivity controls an unconditional covariance, which includes between-slice variation of the conditional means, not the signs of the within-slice covariances. A disjoint-coordinate statement would not cover the arbitrary functions in the lower bound or the shared intermediate taxa in the witness.",
+        "searches": [
+          "arXiv:2606.08958v1 §1, monotone Boolean correlation",
+          "Joag-Dev–Proschan, DOI:10.1214/aos/1176346079"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 587050c8c440",
+        "Resultary c18963d3b093",
+        "arXiv:2606.08958v1",
+        "DOI:10.1016/j.jtbi.2004.05.009",
+        "DOI:10.1371/journal.pcbi.1000494",
+        "DOI:10.1214/aos/1176346079 (attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both focal functions in the witness have a minimal surviving set {1,3,4}. The prior direct-partner functions have singleton minimal surviving sets. Allesina–Pascual analyze ranked removals and coextinction importance."
+        ],
+        "reasoning": "The direct-partner one-switch law cannot exclude two switches for all monotone Boolean functions, and it cannot produce a witness that violates the law in its own class. A ranked deletion order likewise is not a uniform average over a layer, much less the product-and-joint counts needed for covariance.",
+        "searches": [
+          "Resultary 587050c8c440 and c18963d3b093 theorem passages",
+          "Allesina–Pascual 2009, DOI:10.1371/journal.pcbi.1000494"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed partner-persistence results analyze uniform fixed-size sampling; the food-web paper uses root paths and dominators for loss propagation."
+        ],
+        "reasoning": "Reversing survivor count to removal count reverses the sign sequence order, and complementing both focal indicators preserves covariance. Those equivalences do not turn direct-partner ORs into multi-step path functions, or single-species dominator effects into joint covariance across all counts.",
+        "searches": [
+          "Resultary: fixed-count or fixed-quota pairwise persistence, covariance sign alternation, monotone Boolean slice",
+          "Allesina–Bodini 2004, DOI:10.1016/j.jtbi.2004.05.009"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "587050c8c440 has a sharp five-partner threshold for one reversal in direct-partner persistence. c18963d3b093 gives Cov=q_u−q_a q_b and a one-switch law for two plants with direct pollinator partners."
+        ],
+        "reasoning": "A coincident threshold of five for a different permissible number of reversals is not an exact match. The distinct same-day pollinator result was assessed on assumptions, not set aside by its date. No covering indexed slice-sign table was found in this bounded comparison.",
+        "searches": [
+          "Resultary: one-switch dependence under fixed-size removal; fixed-cardinality sign reversals in food webs",
+          "Resultary 587050c8c440 and c18963d3b093 Findings"
+        ]
+      },
+      "rationale": "The strongest indexed comparisons have the same conditional covariance but restrict each focal persistence function to the OR of its direct partners and establish a one-switch law. The multi-step witness and the sharp obstruction for pairs of arbitrary increasing functions on the small slices are not covered by those results or by the inspected primary literature.",
+      "residual_risks": [
+        "The primary negative-association full text was not inspected. Related exact small-cube results in the reliability or fixed-slice Boolean literature could still exist; the assessment is bounded to the evidence and makes no historical priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One reversal in a restricted direct-partner model",
+          "evidence": "Focal persistence means at least one partner survives; the formula gives at most one switch and minimum five partners for one strict reversal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-one-switch-dependence-of-paired-species-persistence-under-fixed--587050c8c440",
+          "material_read": "Mirrored RESULT.md Finding, offset 100",
+          "method": "OA local mirror passage",
+          "title": "One-switch dependence of paired species persistence under fixed-size sampling",
+          "trigger": "Same statistic, sampling and a sharp threshold of five"
+        },
+        {
+          "assessment": "Same fixed-count covariance but different admissible functions and result",
+          "evidence": "Two plants are modeled via partner-set survival and a hypergeometric expression q_u−q_a q_b; its signs have at most one switch.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-one-switch-sign-law-for-paired-coextinction-during-fixed-count--c18963d3b093",
+          "material_read": "Mirrored RESULT.md excerpts offsets 87–2196 and 1800–4124",
+          "method": "OA local mirror passages",
+          "title": "A one-switch sign law for paired coextinction during fixed-count removal",
+          "trigger": "Distinct closely matching coextinction record"
+        },
+        {
+          "assessment": "Uniform product measure, not fixed-cardinality slices",
+          "evidence": "The paper formulates the Harris–Kleitman nonnegative covariance baseline for increasing functions on the uniform product cube.",
+          "identifier_or_url": "https://arxiv.org/html/2606.08958v1",
+          "material_read": "Section 1, near offset 873",
+          "method": "OA HTML passage",
+          "title": "A Spectral Correlation Inequality for Increasing Boolean Functions",
+          "trigger": "Possible general increasing-function covariance implication"
+        },
+        {
+          "assessment": "Structural basis for reachability, not a paired slice sign result",
+          "evidence": "The inspected passage describes dominator trees and impact of removing one species across 13 webs.",
+          "identifier_or_url": "https://www.sccs.swarthmore.edu/users/08/bblonder/phys120/docs/allesina.pdf",
+          "material_read": "p. 1, around text offset 746",
+          "method": "OA author-accessible PDF passage",
+          "title": "Who dominates whom in the ecosystem? Energy flow bottlenecks and cascading extinctions",
+          "trigger": "Same root-path coextinction model"
+        },
+        {
+          "assessment": "Ranking and network collapse, different target statistic",
+          "evidence": "Species are ranked to find a sequence producing fast collapse, rather than sampling all sets of each size for two-focal covariance.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pcbi.1000494",
+          "material_read": "p. 1 abstract",
+          "method": "OA PLOS article/PDF passage",
+          "title": "Googling Food Webs: Can an Eigenvector Measure Species’ Importance for Coextinctions?",
+          "trigger": "Coextinction across deletion sequences"
+        },
+        {
+          "assessment": "Unresolved access, not a finding of noncoverage",
+          "evidence": "The disjoint-coordinate characterization used in this comparison is from the discussion in c18963d3b093, not an independent reading of this paper.",
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176346079",
+          "material_read": "No primary full-text passage confirmed",
+          "method": "DOI and Project Euclid retrieval attempts",
+          "title": "Negative Association of Random Variables, with Applications",
+          "trigger": "Possible fixed-sample negative association comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It marks the first size at which a second reversal is possible and exhibits the failure of the direct-partner one-switch intuition in a small reachability model. The proof rules out two reversals below that size even without the graph restriction. This is a useful exact boundary for fixed-size conditioning, not evidence for ecological frequencies or population dynamics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

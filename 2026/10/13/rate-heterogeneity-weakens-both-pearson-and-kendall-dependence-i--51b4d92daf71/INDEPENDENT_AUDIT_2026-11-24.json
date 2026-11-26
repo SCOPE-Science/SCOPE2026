@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:30:11.305714Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "/workspace/audit_evidence/replay_3.py (run with python3; exact symbolic algebra)",
+        "/workspace/audit_evidence/replay_3.txt",
+        "Li and Li, Section 5.1, model (A.14)"
+      ],
+      "rationale": "Write L=λ1+λ2, a=cL, p=λ1/L and q=λ2/L. In the specified exponential model, the first-failure time S has rate a and is independent of the first-failure label; conditional on the label, the survivor has an independent residual at its full-load rate. The two residual add-ons are mutually exclusive, so their covariance is −(q/λ1)(p/λ2)=−1/L²; the first marginal variance is 1/a²+2q/λ1²−q²/λ1², and the other follows by exchange. This verifies the covariance and Pearson formula. Independently for Kendall, compare two copies: their first-failure time difference is symmetric Laplace of rate a. When both first failures have the same label and the survivor rate is λj, discordance has probability a/[2(a+λj)] by the Laplace difference of the two independent survivor residuals. For opposite labels, discordance occurs when the first-failure difference lies between the negative of one residual and the positive of the other, giving 1−λ1/[2(a+λ1)]−λ2/[2(a+λ2)]. Weight by p², q² and 2pq and use τ=1−2 P(discordance) (ties have probability zero). Simplification reproduces the published coefficient. The squared Pearson denominator is 1+c²(s²+2s−2)+c⁴(5+2s), s=r+1/r≥2; Kendall's denominator after normalization is c(c+1)s+2c²+2c+1. Both increase strictly, with positive numerators in the stated regime, and diverge under extreme rate imbalance. The equal-rate values and uniqueness follow at s=2. An exact SymPy replay verified the rational identities and obtained Kendall values 1/4 versus 8/35 at c=1/2 and respective rates (1,1), (1,2).",
+      "residual_risks": [
+        "The argument is for the stated two-component exponential competing-hazards model, not general marginal hazard specifications, different sharing factors, or nonexponential lifetimes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li and Li's Section 5.1 identifies the Ross example as a TP2 predecessor and explains the equal-rate specialization λ1=λ2=μ, c=λ/μ.",
+          "The broader heterogeneous joint law is prior. In the passages on this law Li and Li compute Kendall dependence rather than the heterogeneous Pearson moment ratio."
+        ],
+        "reasoning": "The model and joint law are not contributions of this record. TP2 does not give the claimed Pearson expression or an ordering of Pearson values across rate ratios. The exact heterogeneous Pearson comparison requires the moment calculation.",
+        "searches": [
+          "Li and Li, DOI 10.1017/S0269964825100168, heterogeneous exponential model (A.14)",
+          "Bassan and Spizzichino, DOI 10.1239/aap/1029955261, Example 4.5"
+        ]
+      },
+      "checked_sources": [
+        "Li and Li, 10.1017/S0269964825100168",
+        "Bassan and Spizzichino, 10.1239/aap/1029955261 (indirect comparison only)",
+        "Resultary af5996928349 and 77e4e9dc0b1c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The printed Kendall denominator divided by λ1λ2 is c(c+1)(r+1/r)+2c²+2c+1, although the accompanying remark (iii) calls equal rates a minimum of dependence.",
+          "The published Pearson formula addresses only r=1."
+        ],
+        "reasoning": "The Kendall correction is immediate from the reciprocal of the denominator, and all those Kendall conclusions are credited to the prior formula. The r-dependent Pearson denominator is not implied by the equal-rate evaluation or by Kendall monotonicity; it uses a distinct moment calculation on the known model.",
+        "searches": [
+          "10.1017/S0269964825100168, Section 5.1 displayed heterogeneous coefficient and remark (iii)",
+          "10.1017/S0269964825100168, Proposition 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 4.2 has the common rate from Proposition 4.1 and gives (1−c²)/(1+3c²). The proposed formula reduces to this when r=1.",
+          "The proximal Resultary matches treat independent order statistics and not the paired ultimate lifetimes subject to load sharing."
+        ],
+        "reasoning": "Changing overall rate leaves a free ratio r. Rescaling or exchanging labels cannot turn unequal rates into equal rates. Order-statistic dependence also changes the random variables being compared.",
+        "searches": [
+          "10.1017/S0269964825100168, Proposition 4.1–4.2 and Section 5.1",
+          "Resultary: two-component load-sharing dependence, rate heterogeneity, Pearson and Kendall"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary af5996928349, Finding: Kendall's τ for min/max of independent proportional-hazards lifetimes; 77e4e9dc0b1c, Finding and assumptions: first/second failures among three independent proportional-hazards lifetimes.",
+          "No exact same-model heterogeneous Pearson expression was localized by those searches. The DOI search itself yielded no additional relevant paper."
+        ],
+        "reasoning": "The two same-date records have different estimands, not simply alternative wording. This is bounded negative search evidence, not proof of absence.",
+        "searches": [
+          "Resultary semantic search on heterogeneous rates and Pearson/Kendall load-sharing correlation",
+          "Primary-literature search for DOI 10.1017/S0269964825100168"
+        ]
+      },
+      "rationale": "Pass for the heterogeneous Pearson expression and its strict rate-imbalance comparison. The Kendall formula is already published; the equal-rate maximum and the reversal of the source prose follow directly from that formula and receive no credit as a new Kendall theorem. The frozen result explicitly makes that attribution. No statement covering the distinct heterogeneous Pearson result was established in the inspected material.",
+      "residual_risks": [
+        "Example 4.5 of the 1999 paper was not independently read in full text; the scope comparison uses Li and Li's citation of it.",
+        "Older applied-reliability or load-sharing literature could contain equivalent heterogeneous moments or a Pearson formula. Bounded searches cannot establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the equal-rate Pearson case and the entire heterogeneous Kendall formula; the prose reverses the latter's extremum.",
+          "evidence": [
+            "Proposition 4.2 gives (1−c²)/(1+3c²) under common λ.",
+            "Section 5.1, PDF p. 8: displayed denominator of Kendall's τ, and remark (iii) describing a minimum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0269964825100168",
+          "material_read": "Propositions 4.1–4.2, OA PDF p. 7, and Section 5.1 for model (A.14), OA PDF p. 8, including remark (iii)",
+          "method": "Bounded exact-passage reading of Cambridge OA full text",
+          "title": "Quantifying stochastic dependence of marginal lifetimes of two-component load-sharing parallel systems",
+          "trigger": "Same model; exact formula, extremum attribution and scope"
+        },
+        {
+          "assessment": "The inspected comparison establishes equal-rate Ross model and TP2 overlap; no whole-document negative claim for the original.",
+          "evidence": [
+            "Li and Li, Section 5.1, specialization λ1=λ2=μ and c=λ/μ, with TP2 for μ>2λ."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/aap/1029955261",
+          "material_read": "Li and Li's description of Example 4.5 and (5.1); original Example 4.5 not retrievable in the bounded lawful OA attempt",
+          "method": "DOI OA retrieval attempt and inspection of the citing paper's explicit comparison",
+          "title": "Stochastic comparisons for residual lifetimes and Bayesian notions of multivariate ageing",
+          "trigger": "Principal predecessor for Ross load sharing"
+        },
+        {
+          "assessment": "Different variables and no load sharing.",
+          "evidence": [
+            "Kendall concordance for minimum and maximum among independent lifetime inputs."
+          ],
+          "identifier_or_url": "Resultary:af5996928349",
+          "material_read": "Local mirror RESULT.md, Finding",
+          "method": "Resultary search and bounded mirrored text inspection",
+          "title": "Exact extreme-order Kendall concordance for heterogeneous proportional hazards",
+          "trigger": "Same heterogeneity maximizer for two component inputs in a database hit"
+        },
+        {
+          "assessment": "Different estimand and number of components; no Pearson formula for the frozen model.",
+          "evidence": [
+            "First and second failure among three independent lifetime inputs."
+          ],
+          "identifier_or_url": "Resultary:77e4e9dc0b1c",
+          "material_read": "Local mirror RESULT.md, Finding and Assumptions",
+          "method": "Resultary search and bounded mirrored text inspection",
+          "title": "Sharp quadratic Kendall concordance stability for three proportional-hazards lifetimes",
+          "trigger": "Same theme of rate imbalance and concordance stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Li and Li, Propositions 4.1–4.2 and Section 5.1"
+      ],
+      "rationale": "Pearson dependence for the same heterogeneous model used in the prior Kendall study is a natural missing exact quantity: it separates the effects of relative load rates from the common load factor and proves that equal-rate modelling overstates both correlations relative to rate-imbalanced alternatives at the same c. The exact covariance and variance ratios give usable calibration and boundary checks. The value judgment rests on the heterogeneous Pearson result, not on reprinting the published Kendall expression or the routine final derivative.",
+      "residual_risks": [
+        "This is a specific model comparison, not evidence for a universal heterogeneity principle or a prediction of absolute system reliability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

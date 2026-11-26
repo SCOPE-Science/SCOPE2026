@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:14:57.180895Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cut trace over the seven opposite prime-field labels gives an indicator of the kernel of the transposed cross matrix; the normalized reduced state has one eigenvalue p^{-r} per coset, yielding r log_2(p) for the positive-order Rényi and von Neumann entropies. A cut with k point vertices X has k line vertices Y on its opposite side; its cross matrix has the two complementary incidence blocks N[X,Y] and N[X^c,Y^c]^T. Exactly one seven-set of each complementary pair contains the distinguished point. An independent exact computation of determinantal divisors reproduced all eleven Smith classes across these 1,716 cuts, and modular elimination verified the geometry and reported field-rank counts. The Smith census contains only 2 and 3 as nonunit prime divisors; 28 cuts with factors (1,1,1,1,1,1,6) and one with (1,1,1,1,2,2,6) lose one unit mod 3. Hence the counts ranked 4 through 7 are (21,273,729,693) at 3 and (21,273,700,722) for every prime at least 5. Independently, using a noncollinear triple as a basis of F_2^3, its side lines yield a J-I block of order three; the complementary block can be ordered as I_3 bordered by ones and bottom-right zero, of determinant -3. The characteristic-three rank of this latter block is three. For the canonical point–line cut NN^T=2I+J gives determinant magnitude 24 and rank six mod 3, using the all-ones kernel and rank six of the product. Each of the 28 triangle sides has four points, uniquely identifying the triangle and the representative with four points. The independent exhaustive comparison excludes further defects. The p>=3 restriction pertains to the stated classification; it is not necessary for the character-orthogonality rank identity itself, which also holds at p=2. No extension to different graphs, weights, or composite dimensions is asserted.",
+      "replay": "Independent exact census: python3 /workspace/branches/90d6fe81-7fe9-4fae-9b64-b2723e2bab4c/audit_smith.py. Independent direct modular and geometry check: python3 /workspace/branches/90d6fe81-7fe9-4fae-9b64-b2723e2bab4c/audit_rank.py. The two frozen scripts and VERIFICATION.md were inspected, not executed. The exact census, rather than the finite set of tested primes, proves the all-prime assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Helwig §2.2 and Theorem 7 use the prime-dimensional graph-state formalism and an entanglement test",
+          "Cautrès et al. §4 studies projective-plane incidence graphs for vertex-minor universality",
+          "The matching-fault theorem varies deleted gates across a fixed point–line qubit cut"
+        ],
+        "reasoning": "The general state criterion reduces the problem to cross ranks without supplying those ranks. Vertex-minor universality concerns extraction of graph resources, not Smith distributions. The fault threshold includes the same underlying incidence construction in order two but fixes the point–line cut and qubit dimension, so does not subsume this intact all-cut theorem.",
+        "searches": [
+          "Helwig, arXiv:1306.2879, graph-state entanglement criterion",
+          "Cautrès et al. arXiv:2402.06260, §4",
+          "Resultary projective-plane incidence matching fault threshold 0f1e8bff6768"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and both programs",
+        "Local Resultary and mirror entries e40545104784, a91c712d7f09 and 0f1e8bff6768",
+        "Helwig arXiv:1306.2879",
+        "Cautrès et al. arXiv:2402.06260"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact known binary counts",
+          "Known prime-dimensional cut test",
+          "The standard design identity NN^T=2I+J handles the canonical cut but not the paired blocks of noncanonical cuts"
+        ],
+        "reasoning": "Do not claim the canonical determinant or binary census as original. Prior general criteria and known graph-specific binary ranks do not imply the noncanonical Smith census or determine that exactly the 28 triangles supply the other characteristic-three losses. Those conclusions require the complementary-block geometry and exact finite classification.",
+        "searches": [
+          "Resultary e40545104784, 0f1e8bff6768 and a91c712d7f09",
+          "Helwig arXiv:1306.2879, Theorem 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paired complementary-minor problem is exactly the arithmetic content of the balanced-cut claim",
+          "e40545104784 gives the exact mod-two histogram up to the factor of two from labelling both sides",
+          "The focused public search was unavailable, not a negative result"
+        ],
+        "reasoning": "Counts for unpaired subminors or the full incidence matrix alone would not automatically recover the joint distribution of each pair of complementary blocks. A complementary Smith census would be equivalent; the same-graph binary histogram is equivalent only to the mod-two control, not the Smith factors or odd-prime rank losses.",
+        "searches": [
+          "Local Resultary: Heawood balanced cut rank census, Fano incidence Smith forms and characteristic three",
+          "Fano plane incidence matrix square submatrix Smith normal forms characteristic three complementary minors Heawood balanced cut rank census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e40545104784 is the same-graph labelled qubit census with counts (100,980,1680,672)",
+          "a91c712d7f09 gives 15 Smith classes for 6,435 cuts of a different 16-vertex Möbius–Kantor graph"
+        ],
+        "reasoning": "Dividing the exact binary census by two recovers the unordered binary comparison. Its same-date listing gives no independent chronological inference. Möbius–Kantor demonstrates the same methodology on different matrices and records a different canonical rank loss. Neither supplies this odd-prime Heawood table.",
+        "searches": [
+          "Local Resultary: complete Heawood balanced-cut entanglement census; complete arithmetic entanglement census of incidence graphs"
+        ]
+      },
+      "rationale": "Pass for the complementary-cut integer census and its odd-prime consequence, including the 28 triangle cuts in addition to the canonical incidence cut. The exact qubit overlap is credited, as are the general cut-spectrum principle and the classical incidence-matrix calculation for the canonical cut. The strongest distinct inspected records do not cover all intact balanced cuts in odd prime characteristic.",
+      "residual_risks": [
+        "The focused public search for exact Fano complementary incidence subminor tables was unavailable. This does not establish absence of broader or earlier coverage.",
+        "A specialized paired-minor table or an equivalent result under incidence-code terminology could contain the arithmetic classification. No historical-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap for the qubit component only",
+          "evidence": "3,432 labelled balanced subsets, counts (100,980,1680,672), exactly twice the unordered qubit control. Odd-prime ranks and the 29-cut set are not the claim there.",
+          "identifier_or_url": "e40545104784",
+          "material_read": "Mirrored RESULT.md statement and labelled counting convention",
+          "method": "Local Resultary and local mirror passage",
+          "title": "Complete balanced-cut entanglement census of the Heawood graph state",
+          "trigger": "Same graph and balanced-cut count"
+        },
+        {
+          "assessment": "Method analogue, not a covering result",
+          "evidence": "15 Smith classes on 6,435 balanced cuts of 16 vertices with a three-unit canonical characteristic-three loss, in contrast to the one-unit Fano geometry.",
+          "identifier_or_url": "a91c712d7f09",
+          "material_read": "Mirrored RESULT.md finding and characteristic-three exception",
+          "method": "Local Resultary and local mirror passage",
+          "title": "Complete arithmetic entanglement census for the Möbius–Kantor graph",
+          "trigger": "Close integer-census method in another incidence graph"
+        },
+        {
+          "assessment": "Fixed-cut qubit result, not the intact odd-prime census",
+          "evidence": "The choice of a matching of deleted gates changes the graph across the canonical fixed cut; it does not vary vertex bipartitions of the intact graph.",
+          "identifier_or_url": "0f1e8bff6768",
+          "material_read": "Mirrored RESULT.md finding and fixed-cut/omitted-gate hypotheses",
+          "method": "Local Resultary and local mirror passage",
+          "title": "Sharp incidence-matching fault threshold for graph-state entanglement on even-order projective planes",
+          "trigger": "Includes the projective-plane incidence construction"
+        },
+        {
+          "assessment": "Framework and entanglement test",
+          "evidence": "The prime-dimensional rank test reduces a cut question to adjacency rows but does not compute the Fano paired-minor distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.2879",
+          "material_read": "§2.2 p. 4 and Theorem 7 §3.2 p. 8, OA offsets 10481 and 22903",
+          "method": "Original OA full-text passages",
+          "title": "Absolutely Maximally Entangled Qudit Graph States",
+          "trigger": "Prime-dimensional cut criterion"
+        },
+        {
+          "assessment": "Shared object, different invariant",
+          "evidence": "The incidence graph is used for vertex-minor universality, not an odd-prime or integral balanced-cut arithmetic census.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.06260",
+          "material_read": "§4 p. 11, OA offset 51364",
+          "method": "Original OA full-text passage",
+          "title": "Vertex-minor universal graphs for generating entangled quantum subsystems",
+          "trigger": "Projective-plane incidence graph states"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Balanced cuts of the canonical Fano incidence graph are a natural setting for checking how entanglement depends on the prime field. The census determines the exact law for all odd primes and reveals that the visible point–line rank defect is not isolated: the other losses are exactly the noncollinear-triple cuts. The explicit witnesses and exact frequencies can be used as finite benchmarks and go beyond the standard computation for the full incidence matrix, without implying a general theorem for all planes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:44:45.611102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At move t<q, a bijection of the two used ground-set unions sends all previous sets to their counterparts. The reply consists of the mapped old points and at most k new points, which exist because at least (q−t)k are unused. This works in either direction, including repeated moves, and preserves equality and all intersection sizes. For disjointness a q-clique exists exactly when n≥qk; the q nested existential quantifiers distinguish qk−1 from qk. Keeping smaller graphs and replacing larger ones by the graph at qk gives the vertex bound. The proof establishes sharpness for representatives within this family, not among arbitrary finite graphs. RESULT.md lines 14–24 and VERIFICATION.md provide a complete analytic check; no computational premise is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former sets out the general quantifier-depth/EF correspondence; this applies to the pure equality game and the invariant for coordinate tuples. The latter studies separation-based graph definability, not the set-family cutoff."
+        ],
+        "reasoning": "The same rank-transfer argument applies to any fixed quantifier-free coordinate interpretation of equality sets into a relational signature, not just the specified adjacency predicates. The ordinary equality tail then supplies the bound directly.",
+        "searches": [
+          "arXiv:1003.4865 §3, Theorem 3.3",
+          "arXiv:math/0401361 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1003.4865",
+        "arXiv:math/0208072",
+        "arXiv:math/0401361",
+        "Resultary 61c0c6f31c38, 1c874041f529, 73a571449450"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kneser edges are disjointness of k-sets; q such sets use qk ground points, and consecutive blocks realize the bound. Graph rank q in the tuple interpretation pulls back to ground rank at most qk."
+        ],
+        "reasoning": "The standard game/rank machinery yields the entire upper statement and the ordinary disjointness witness proves exactly the claimed sharpness; the representative count adds no further mathematical restriction.",
+        "searches": [
+          "Matoušek–Ziegler arXiv:math/0208072 p. 2",
+          "Pikhurko–Verbitsky arXiv:1003.4865 §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the ordered injective k-tuple model of a k-set, both equality modulo permutations and adjacency are finite Boolean combinations of coordinate equalities."
+        ],
+        "reasoning": "The alternate representation exposes the bound as rank transfer from finite sets in the equality signature. The quotient introduces no extra quantifiers.",
+        "searches": [
+          "Local Resultary searches for qk cutoff and intersection-defined k-set Ehrenfeucht–Fraïssé stabilization",
+          "Pikhurko–Verbitsky arXiv:1003.4865 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "61c0c6f31c38 and 1c874041f529 give the stable rank-three Kneser tail n≥3k for k≥2; 73a571449450 identifies the rank-four tail n≥12 for triples."
+        ],
+        "reasoning": "These are exact overlapping slices, not results for arbitrary rank and intersection rule. No full-family exact indexed claim was located in the bounded search. The two November 2 records are distinct comparisons; their order within the date was not established.",
+        "searches": [
+          "Local Resultary search for fixed-rank and all-rank Kneser cutoffs; inspected mirrored Findings 61c0c6f31c38, 1c874041f529, 73a571449450"
+        ]
+      },
+      "rationale": "The uniform stabilization is a mechanical instance of the ordinary equality EF game and quantifier-rank transfer for a quantifier-free k-coordinate interpretation. Equality modulo permutation, injectivity, and every intersection rule are quantifier-free in the coordinates, so each graph quantifier costs exactly a block of at most k ground quantifiers. Pure sets of size at least qk agree to rank qk by matching previously seen points and answering a new point with a fresh point. The only remaining sharpness claim is the standard Kneser disjoint-block clique witness, and the vertex bound is immediate from these two facts. This is an implication finding, not a claim that a source printed the full arbitrary-S result verbatim.",
+      "residual_risks": [
+        "No claim that the exact general theorem appeared verbatim in inspected literature; the deduction, not historical first publication, is decisive.",
+        "Same-day chronology was not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies standard EF machinery, not a verbatim all-S cutoff",
+          "evidence": [
+            "Theorem 3.3 connects quantifier depth to the ordinary EF game."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+          "material_read": "§3, pp. 12–14, especially Theorem 3.3 on p. 13",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Logical complexity of graphs: A survey",
+          "trigger": "General theorem on game rounds versus quantifier rank"
+        },
+        {
+          "assessment": "Standard disjointness representation; no FO stabilization in the inspected passage",
+          "evidence": [
+            "Vertices are k-sets and edges signify disjointness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0208072",
+          "material_read": "p. 2 Kneser definition and clique/chromatic discussion",
+          "method": "Bounded OA primary-text inspection",
+          "title": "Topological lower bounds for the chromatic number: A hierarchy",
+          "trigger": "Same Kneser graphs used for the sharp lower bound"
+        },
+        {
+          "assessment": "Exact restricted slices, not all-q all-S coverage",
+          "evidence": [
+            "Rank three stabilizes at 3k; rank four for triples stabilizes at 12."
+          ],
+          "identifier_or_url": "Resultary 61c0c6f31c38; 1c874041f529; 73a571449450",
+          "material_read": "Finding of each distinct record",
+          "method": "Local mirror inspection",
+          "title": "Two rank-three Kneser classifications and the rank-four classification for triples",
+          "trigger": "Exact graph-family and rank overlaps"
+        },
+        {
+          "assessment": "Different scope in inspected passage",
+          "evidence": [
+            "The introduction concerns separator-based definability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0401361",
+          "material_read": "Introduction, p. 1",
+          "method": "Bounded OA primary-text inspection",
+          "title": "On the logical complexity of graphs with separators",
+          "trigger": "Potential broader graph EF bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A uniform sharp rank cutoff is a meaningful invariant in principle. Here its numerical value is just the standard quantifier-block cost of a quantifier-free interpretation, met by counting ground elements in a clique of disjoint blocks. The representative bound is a direct restatement within the family; the result does not classify below-cutoff theories or give sharper information for an individual non-disjointness rule. It is a useful elementary example, but a routine deduction rather than a separate mathematical contribution under the review standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

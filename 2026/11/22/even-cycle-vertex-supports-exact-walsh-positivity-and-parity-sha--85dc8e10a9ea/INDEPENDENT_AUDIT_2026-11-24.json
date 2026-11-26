@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:58:21.077489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unnormalized XOR operator on labelled supports of all permutations, the two restricted-cycle EGFs give the bivariate signed EGF (1+s+t)/sqrt((1-(s+t)^2)(1-(s-t)^2)), where s marks ordinary labels and t marks labels in the Walsh character. In its even part put u=s^2,v=t^2; expansion of ((1-u-v)^2-4uv)^(-1/2) gives the binomial-square coefficient by Vandermonde. The odd part gives the stated two-term recursion with exactly one nonzero term. Restoring labelled factorials proves the multiplier, signs, and parity of the nullspace. On odd orders the even-weight sequence is strictly decreasing, and complement symmetry gives the (n-1)! minimum; n=1 has both multipliers one. On even orders the sign of the successive positive-eigenvalue ratio minus one is the sign of 2r+1-m. Stirling at r=m/2+O(1) yields sqrt(pi*m)/2 for the nonzero-spectrum condition number, not a full inverse. Moore–Penrose and projection conclusions follow by orthonormal Walsh diagonalization. The supplied verifier was inspected, not executed. A separately written direct character-sum replay passed 1,234 exact checks (permutations through n=8, formula/extrema through n=200) at /workspace/branches/70be3bda-ef13-496d-974e-9dd364114f51/independent_replay.py; the finite replay does not establish the all-order result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lugo's general labelled-cycle exponential formula and even/odd restricted EGFs give A_j and B_j; Section 3 specifies permutations with all cycle lengths of the same parity."
+        ],
+        "reasoning": "The general cycle formula gives the factors of f_n(S), but does not supply the signed Walsh evaluation, extrema or conditioning. No retrieved broader theorem evaluates all these pieces directly.",
+        "searches": [
+          "Lugo arXiv:0907.5351, Sections 1 and 3",
+          "Resultary semantic query above"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–100, VERIFICATION.md, and source verify.py",
+        "Lugo arXiv:0907.5351",
+        "Local Resultary exact-two-cycle comparison b79c390c7b12"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The restricted counts give f_n(S)=A_|S|B_(n-|S|), leaving the mixed signed transform to evaluate. The exact-two-cycle finding instead has different multiplier and condition behavior."
+        ],
+        "reasoning": "The prior formula for the factors is the starting input; the mixed signed evaluation, parity-dependent extrema and exact contrast in conditioning are not supplied by it or by the exact-two-cycle theorem. Same-day indexing does not determine priority.",
+        "searches": [
+          "Lugo arXiv:0907.5351",
+          "Resultary record 2026/11/22/SCOPE-sharp-walsh-conditioning-and-central-frequency-minima-for-permut--b79c390c7b12/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radial reduction gives a binary Krawtchouk transform of the restricted-count product A_s B_(n-s). The binomial-square coefficient row is a shifted Legendre polynomial. Neither reformulation changes the kernel or identifies an earlier evaluation for that particular transform.",
+          "The indexed exact-two-cycle spectral record b79c390c7b12 has a different subset statistic and different coefficients."
+        ],
+        "reasoning": "Once 4-cycles are present, exact-two-cycle and even-cycle supports are different functions, not equivalent refinements by Fourier reindexing. Legendre/Krawtchouk identities explain pieces of the calculation, not an independently located result for these labelled supports.",
+        "searches": [
+          "Resultary: exact Walsh spectrum XOR convolution labelled subset of vertices lying in even cycles of unrestricted permutations eigenvalues parity condition number",
+          "Web: \"even cycles\" permutation \"Walsh\" spectrum subset vertices exact eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed spectrum located is the complete spectrum for exact-two-cycle supports, b79c390c7b12; unrelated web hits supplied no applicable table."
+        ],
+        "reasoning": "A generic Krawtchouk matrix or table of binomial squares is not a table of this kernel's spectrum. No exact spectrum table for this mixed parity support kernel was located in the checked sources; there is no basis to infer comprehensive database absence.",
+        "searches": [
+          "Resultary semantic query above",
+          "Exact-object and spectrum terms in the web query above"
+        ]
+      },
+      "rationale": "The best matched statements cover the restricted-count inputs and a different cycle statistic, not the full labelled-support transform and parity-sharp inversion. The binomial and Fourier tools themselves are classical; this judgment is on the exact all-order spectral and conditioning results for the specified kernel.",
+      "residual_risks": [
+        "Bounded literature and corpus checks do not exclude an equivalent unindexed Krawtchouk or cycle-index calculation; the web query yielded no relevant hit, not proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical enumeration inputs, not the frozen spectral result",
+          "evidence": "Section 3 is about permutations with all cycles of the same parity; even-restricted EGF is (1-z^2)^(-1/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/0907.5351",
+          "material_read": "p. 3 offset 8841; Section 3 pp. 11–12 offsets 30963 and 32936",
+          "method": "Open-access PDF passage extraction",
+          "title": "Profiles of Permutations",
+          "trigger": "Cited source of even/odd restricted-cycle formulas"
+        },
+        {
+          "assessment": "Related method and object class, different kernel and conclusions",
+          "evidence": "The stated set comprises labels on cycles of exactly length two, not all even lengths.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-walsh-conditioning-and-central-frequency-minima-for-permut--b79c390c7b12/RESULT.md",
+          "material_read": "Original Finding at offset 0; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "Sharp Walsh conditioning and central-frequency minima for permutation cycle supports",
+          "trigger": "Strongest distinct indexed spectral analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The statistic is naturally induced by cycle parity and the exact law answers a useful inversion question: even sizes lose precisely the odd Walsh modes, whereas invertible odd sizes have a condition number growing faster than the restricted even-size inverse. Exact smallest eigenvalues locate the most poorly recovered modes; the singular-versus-invertible parity transition and the distinct stability scales are not just a computation of total cycle counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

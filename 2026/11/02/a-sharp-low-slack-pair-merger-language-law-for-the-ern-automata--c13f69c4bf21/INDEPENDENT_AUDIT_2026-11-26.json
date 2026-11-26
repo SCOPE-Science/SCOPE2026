@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:22:27.648666Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each shorter circular separation r<n/2, the two branches of D_n give the disjoint consecutive ranges (r-1)n+1 through (r-1)n+r and (r-1)n+r+1 through rn. The even antipodes fill the final n/2 ranks. Substitution of the two images of {i,n-1}, with the singleton assigned rank zero, verifies the transition table, including the odd i=(n-1)/2 and even i=n/2-1 junctions where the unique minimum rise occurs. Away from n-1, a decreases rank by one and b is a loop. Thus the descending letter is forced for shortest words and the path visits precisely the ranks down to one. Telescoping rank up to the first merge shows that slack equals the number of idling letters plus the sum of 1+rise over upward jumps, plus the arbitrary suffix length. This proves the window, the loop generating factor and the factor 1/(1-2z) for the two suffix letters. At first excluded slack from the highest rank, only the unique smallest upward jump can occur and it exhausts slack, so it adds exactly one word; n=2 separately merges on the first b. The frozen verification files were inspected and not executed. Replay the separate exact checker with python3 /workspace/branches/d3d3be15-a159-46e6-a087-318aee507dd5/independent_pair_dp.py; the saved independent_pair_dp_sweep.txt records agreement for every pair and allowed slack at 3<=n<=10, including the first sharp correction. The proof, not this finite sweep, covers all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gusev describes the pair graph and gives expected synchronization time under random input.",
+          "The inspected Kisielewicz et al. abstract specifies shortest-reset algorithms for the whole automaton, not counting words for a fixed pair.",
+          "The record identifies Montoya–Nolasco Sec. 2.1, pp. 2155–2156 as a pair-path/extremal-time comparator; its full text was not obtained."
+        ],
+        "reasoning": "Dynamic programming on a finite automaton permits generic count computation, but it supplies neither the closed coefficient nor the size and sharpness of this window without analysis of all nongeodesic transition rank changes. A mean absorption time or shortest reset length does not determine the short absorption-time mass function.",
+        "searches": [
+          "Gusev, Synchronizing automata with random inputs, abstract and Sec. 3",
+          "Kisielewicz–Kowalski–Szykuła, Computing the shortest reset words of synchronizing automata",
+          "Montoya–Nolasco, On the Synchronization of Small Sets of States, DOI 10.12988/ams.2017.77232"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–75, VERIFICATION.md and verify_pairs.py",
+        "Resultary fe81919abba1, 6c832e7845c7, 261334d3d0c0 and 61d8f6568fe8",
+        "Gusev arXiv:1404.6731 and Kisielewicz et al. DOI 10.1007/s10878-013-9682-0; Montoya–Nolasco citation with unsuccessful full-text retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected Hamiltonian result gives the unique descending letter and a path through all ranks, but its located theorem does not count the interleavings of loops or state the unique sharp minimal rank rise and consequent extra word.",
+          "A unique minimizer even for all positive letter costs does not give the multiplicity at a fixed extra unit length."
+        ],
+        "reasoning": "The coefficient needs the allowable loop positions along the geodesic, arbitrary post-merge letters, and the exact cost of the cheapest nonloop excursion. That last comparison over both parities and uniqueness at minimal cost supply the sharp defect beyond the entire growing window, not a mere shift of the geodesic result.",
+        "searches": [
+          "Compare fe81919abba1 RESULT.md Finding and proof with frozen transition table and slack argument, RESULT.md lines 54–75",
+          "Compare positive letter-cost optima in 6c832e7845c7 and 261334d3d0c0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/2/SCOPE-a-single-geodesic-orders-every-pair-of-the-ern-automaton--fe81919abba1 states the same rank spectrum and shortest-word uniqueness via its master word and Hamiltonian pair path.",
+          "Gusev Sec. 3, Lemma 1 and Fig. 3 identify an isomorphic graph for odd Černý instances."
+        ],
+        "reasoning": "Cyclic relabeling or a graph isomorphism preserves fixed-pair word counts when the two letter actions are matched, so these are serious comparators, not different problems on account of state names. The master-word theorem enumerates only geodesics; the random-input result analyzes expectation, not the per-pair near-geodesic law.",
+        "searches": [
+          "Resultary: Černý pair shortest/geodesic, pair synchronization by costs, near-shortest and one-letter slack language",
+          "Gusev arXiv:1404.6731 pair automaton, Sec. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed fe81919abba1 has an exact match for the geodesic component; both 6c832e7845c7 and 261334d3d0c0 locate unique optimal words and the distance spectrum as well.",
+          "Indexed 2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8 concerns full-state synchronization, a different counting condition."
+        ],
+        "reasoning": "The exact indexed geodesic overlap is credited, with no inferred priority from a shared date. The whole-state reset count cannot be treated as the fixed-pair count; it requires simultaneous synchronization beyond a specified pair. No exact indexed table or theorem for the claimed additional coefficients was identified.",
+        "searches": [
+          "Local Resultary searches for low-slack Černý pair merger counts, geodesic pair automaton and short Černý reset language"
+        ]
+      },
+      "rationale": "The distinct contribution is the state-dependent count of all near-shortest words merging a fixed pair, with the growing sharp slack window and its first exact defect. The shortest-word uniqueness and distance spectrum are materially covered by existing indexed findings and do not earn originality credit. No inspected result gives the count or makes it a direct specialization of an existing enumeration.",
+      "residual_risks": [
+        "Montoya–Nolasco's cited primary passage was not retrieved; bounded inspection cannot rule out a near-geodesic count in uninspected material.",
+        "The geodesic subclaims are covered in indexed work. Priority ordering within one date and exhaustive historical priority are not inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the rank/uniqueness component, not the asserted slack language in the inspected findings",
+          "evidence": "The ranks run through 1 to n(n-1)/2 and shortest words are suffixes of one master word along a directed Hamiltonian path.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-single-geodesic-orders-every-pair-of-the-ern-automaton--fe81919abba1",
+          "material_read": "RESULT.md Finding and proof, mirror offsets 0–3287, 3287–6233 and 6233–7053",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "A single geodesic orders every pair of the Černý automaton",
+          "trigger": "Strongest indexed overlap in fixed-pair geometry and optimal words"
+        },
+        {
+          "assessment": "Overlapping optimal-word and spectrum assertions, distinct from counting nonoptimal words",
+          "evidence": "One and the same unique pair word is optimal over all positive letter costs.",
+          "identifier_or_url": "Resultary 6c832e7845c7; 261334d3d0c0",
+          "material_read": "Located indexed Findings",
+          "method": "Local Resultary statement comparison",
+          "title": "Coordinatewise-optimal pair synchronization in the Černý automata; Cost-invariant unique optimal merging words for every pair of Černý states",
+          "trigger": "Possible weighted generalization of the shortest merging word"
+        },
+        {
+          "assessment": "Different initial subset and definition of success",
+          "evidence": "Counts words that reset the whole n-state automaton, not a specified pair.",
+          "identifier_or_url": "2026/11/2/SCOPE-one-letter-slack-rigidity-in-the-ern-reset-language--61d8f6568fe8",
+          "material_read": "Located indexed Finding",
+          "method": "Local Resultary statement comparison",
+          "title": "One-letter slack rigidity in the Černý reset language",
+          "trigger": "Same near-optimal counting language in title"
+        },
+        {
+          "assessment": "Covers odd pair graph structure and expectation; no corresponding coefficient in inspected statements",
+          "evidence": "Lemma 1 explicitly identifies P_n with the pair automaton of C_n for odd n; Fig. 3 shows the n=11 example.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.6731",
+          "material_read": "Abstract; Sec. 3, Lemma 1 and Fig. 3, pp. 6 onward, near extracted offset 16855",
+          "method": "OA PDF passage inspection",
+          "title": "Synchronizing automata with random inputs",
+          "trigger": "Fixed Černý pair automaton and random-word absorption"
+        },
+        {
+          "assessment": "Abstract establishes relevance to shortest full-reset words; not evidence of whole-document noncoverage",
+          "evidence": "It describes an algorithm for minimal reset words, not a slack coefficient for short fixed-pair words.",
+          "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+          "material_read": "Abstract, starting at extracted PDF offset 0",
+          "method": "OA publisher PDF passage inspection",
+          "title": "Computing the shortest reset words of synchronizing automata",
+          "trigger": "General shortest-reset algorithm cited by frozen record"
+        },
+        {
+          "assessment": "Full text not obtained, not evidence of absence",
+          "evidence": "The frozen record credits pair-path/extremal-time coverage; independently inspected indexed material also covers that structure.",
+          "identifier_or_url": "https://doi.org/10.12988/ams.2017.77232",
+          "material_read": "Frozen citation and attribution of Sec. 2.1, pp. 2155–2156 only; no primary passage retrieved",
+          "method": "Attempted DOI and publisher PDF retrieval",
+          "title": "On the Synchronization of Small Sets of States",
+          "trigger": "Especially relevant cited pair-path comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coefficient describes the entire low-slack fixed-pair language of a canonical synchronizing automaton rather than one word or a tiny case. It quantifies when idling and post-merge extensions exhaust all near-optimal words, and locates exactly when and by how much a real detour first changes the count. The growing cutoff and its sharpness are structural information beyond the Hamiltonian shortest path.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

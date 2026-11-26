@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:23:20.569586Z",
+  "axes": {
+    "correctness": {
+      "rationale": "T is the last generation of new infections, with generation zero for the source. Each edge is tested at most once while joining an infectious to a susceptible vertex; independent preassigned edge indicators thus have the correct law. Induction over generations gives rooted shortest-path distances in the open subgraph. The endpoint path tail is p^t. On the cycle for t<=floor(n/2), the two t-edge arm events are independent, and neither successful arm can be shortened below t; their union has probability 2p^t-p^(2t). For larger t, an open arm gives distance t unless the complementary arc is all open, and both such long arms cannot be open without opening the whole cycle, giving 2(p^t-p^n). Subtracting and summing gives the stated duration polynomial, including n=3 and the endpoint differences 0 at p=0 and floor(n/2)-(n-1) at p=1. Normalizing by p^n leaves a sum of strictly decreasing negative powers minus n-1, from +infinity to a negative value. With p=exp(-z/n) and the defining equation divided by n, the Riemann-sum residual has the sign of exp(z)-1-2z at any fixed z>0 away from its unique positive root; signs on either side bracket -n log p_n. The cycle reachability probability for vertex j has two disjoint candidate routes of lengths j and n-j, giving p^j+p^(n-j)-p^n and strictly positive mean-size gain in the interior. Independent finite replay: python3 /workspace/check_frozen_mathematics.py 3; direct rational recursion on the susceptible set and current generation, without a bond-percolation simulation, matched both differences in 28 size/probability pairs (56 comparisons). The analytic argument, not that finite sample, verifies the universal and asymptotic claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharkey et al. give exact expected infectious time series for Poisson SIR on trees; Lashari et al. give duration/log n limits on random configuration-model graphs. Alarcón González–Pérez was not independently accessible in full text."
+        ],
+        "reasoning": "Exact marginal time series on trees do not give the last-new-case time for a synchronous process on a cycle. The asymptotic time results for the random graph model are not a threshold law for the deterministic path-to-cycle comparison. No negative conclusion is drawn about inaccessible passages.",
+        "searches": [
+          "arXiv:1212.2172 pp. 1, 3",
+          "arXiv:1805.05117 pp. 1, 3",
+          "arXiv:2103.06427 pp. 1, 5",
+          "DOI 10.1101/2023.04.24.23289026 full-text/PDF attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d4b7f36925e1 and c8cf3c4fa06e",
+        "arXiv:1212.2172",
+        "arXiv:1805.05117",
+        "arXiv:2103.06427",
+        "DOI 10.1101/2023.04.24.23289026 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The distinctive path/cycle formula requires the two regime-specific rooted distance tails and the all-open-cycle correction. Neither the related exact catalogue comparisons nor the inspected duration-scaling results give those probabilities or the normalized finite residual."
+        ],
+        "reasoning": "The qualitative effect of adding an edge neither entails a threshold at all n nor its exact limiting constant. The cited standard percolation representation reduces the question but does not supply those results without the cycle-tail and root analyses.",
+        "searches": [
+          "Resultary d4b7f36925e1 and c8cf3c4fa06e, Findings",
+          "arXiv:2103.06427 finite network examples and scaling passage",
+          "arXiv:1805.05117 main duration theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent graph random variable is the eccentricity of a fixed root in its open-edge component, not component size, connectivity, or infectious-state extinction time. The inspected Reed–Frost source considers tracing/asymptomatic variants and duration scaling rather than this finite comparison."
+        ],
+        "reasoning": "The search and comparison covered the graph-distance formulation as well as epidemic terminology. Component sizes do not determine the maximum of rooted distances when an additional route shortens paths.",
+        "searches": [
+          "Resultary: fixed-endpoint path-to-cycle duration formula",
+          "Resultary: rooted percolation component height, eccentricity or largest shortest-path distance",
+          "arXiv:2103.06427 pp. 1 and 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "d4b7f36925e1 gives a sharp four-vertex witness for shorter continuous-time extinction with greater mean size after adding a diagonal to a four-cycle. c8cf3c4fa06e gives a seven-vertex curvature threshold on rooted trees in the same synchronous generation model."
+        ],
+        "reasoning": "The former verifies a similar qualitative contrast for a different graph edit and a different time variable. The latter does not compare a path to a cycle, and a curvature theorem on trees cannot supply the threshold for their expected duration difference.",
+        "searches": [
+          "Resultary: duration and final-size effects of adding a contact",
+          "Resultary: path-to-cycle root-eccentricity and n(1-p_n) with exp(gamma)=1+2gamma"
+        ]
+      },
+      "rationale": "The supported distinct content is the exact all-n crossover and its scaling, in contrast with the strict size increase. The bond coupling, elementary mean-size comparison and qualitative possibility of opposed size/duration effects are not treated as novel on their own. No compared statement gives or entails the exact duration law, unique threshold and scaling in this model.",
+      "residual_risks": [
+        "No full text independently recovered for Alarcón González–Pérez or for the search hit Duration of a minor epidemic (PMC6326226). Bounded searches do not rule out an earlier exact percolation eccentricity or chain-binomial derivation. Shared catalogue dates are not priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analogue, different dynamics, graph edit and duration",
+          "evidence": [
+            "Continuous-time Markovian extinction, diagonal of a four-cycle and a sharp minimum order."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-four-vertices-are-sharp-for-shortening-sir-epidemic-duration-by--d4b7f36925e1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Four vertices are sharp for shortening SIR epidemic duration by adding an edge",
+          "trigger": "Exact qualitative overlap in edge addition and opposing size/duration effects"
+        },
+        {
+          "assessment": "Different statistic and graph family",
+          "evidence": [
+            "Curvature of a mean duration polynomial, with two inflections at the seven-vertex rooted spider."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-the-seven-vertex-threshold-for-two-epidemic-duration-curvature-r--c8cf3c4fa06e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "The seven-vertex threshold for two epidemic-duration curvature reversals",
+          "trigger": "Same day, same synchronous rooted duration model"
+        },
+        {
+          "assessment": "Not the same stochastic time law or graph comparison",
+          "evidence": [
+            "Poisson transmission/removal and exact infectious expectations on acyclic networks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1212.2172",
+          "material_read": "Abstract and main-result material pp. 1, 3, offsets 0 and 7300",
+          "method": "Open-access PDF passages",
+          "title": "Exact equations for SIR epidemics on tree graphs",
+          "trigger": "Exact epidemic time laws on networks"
+        },
+        {
+          "assessment": "Different asymptotic regime and graph class",
+          "evidence": [
+            "Duration/log n convergence in probability for large configuration-model graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.05117",
+          "material_read": "pp. 1, 3, offsets 1500 and 9000",
+          "method": "Open-access PDF passages",
+          "title": "The duration of a supercritical SIR epidemic on a configuration model",
+          "trigger": "Potentially broader epidemic duration limit theorem"
+        },
+        {
+          "assessment": "Network model framework and scaling, not the path/cycle threshold comparison",
+          "evidence": [
+            "Recursive tracing and asymptomatic cases; duration scaling including order log N in studied models."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.06427",
+          "material_read": "pp. 1, 5, offsets 900 and 30500",
+          "method": "Open-access PDF passages",
+          "title": "Recursive contact tracing in Reed-Frost epidemic models",
+          "trigger": "Related discrete network epidemic and duration scaling"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not used as evidence of noncoverage",
+          "evidence": [
+            "The frozen bibliography describes the model as not using fixed graph topology; the independent full-text check could not confirm scope."
+          ],
+          "identifier_or_url": "https://doi.org/10.1101/2023.04.24.23289026",
+          "material_read": "No independent full-text passage retrieved",
+          "method": "Lawful direct and alternate PDF/HTML retrieval attempts returned access errors",
+          "title": "Computation of Expected Epidemic Duration",
+          "trigger": "Exact computation of expected duration in finite epidemic models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This minimal edge edit separates two natural statistics of the same random graph process: reachability improves throughout the interior, while the mean of the maximum rooted distance changes direction exactly once. The all-size uniqueness and nontrivial limiting scale go beyond a witness or finite calculation and quantify how added reachability competes with shorter routes. The theorem does not give a stochastic duration order, estimate actual epidemics, or cover other graph edits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

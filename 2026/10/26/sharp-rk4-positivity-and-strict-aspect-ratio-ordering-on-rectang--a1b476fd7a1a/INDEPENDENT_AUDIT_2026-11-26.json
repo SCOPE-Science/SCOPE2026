@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:59:09.750959Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tensor projectors for the two complete-graph Laplacians have joint eigenvalues 0,p,q,p+q and give the four entry classes. Exact symbolic replay with python3 /workspace/checks/rk4_algebra.py verified A=h f, A−B, C, both quadratic discriminants, 3ac−b², and the fixed-sum derivative and its discriminant. For h>0, B>A and C>0; the scalar RK4 polynomial is positive on the nonpositive real axis by the exponential Taylor remainder, giving positive diagonals. The positive certificate 3ac−b² forces f′<0, giving a single crossing, A=0 at H and A<0 thereafter, with stochastic row sums where all entries are nonnegative. At fixed N=p+q, the derivative quadratic has positive leading term and negative discriminant bounded away from zero by the endpoint p=N/2 estimates, hence f grows with p at every h>0 and its zero moves strictly right. In the scaled limit N→∞ and p/N→r, dividing the derivative certificate by N⁴ leaves at least the strictly positive term 36(1−r)⁴ in 144(3ac−b²)/N⁴, so the limiting cubic is strictly decreasing and compact-interval convergence brackets the limiting root. The Euler-endpoint polynomial in I−hL verifies the strict improvement. 'Fixed-vertex-count' in the proof heading is a wording slip: the theorem and calculation fix p+q (degree plus two), not pq. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November strongly regular theorem includes square rook graphs; the later Hamming theorem assumes dimension at least three. The general RK positivity threshold paper was abstract-level only after a 403."
+        ],
+        "reasoning": "The number of common neighbors of adjacent vertices is p−2 along one coordinate and q−2 along the other, so the unequal graph is not strongly regular. Neither a square nor a higher-dimensional equal-factor theorem implies comparison between unequal factor pairs at fixed sum. General SSP forward-Euler preservation supplies a sufficient scale, not the monotonicity or sharp witness shown here.",
+        "searches": [
+          "Resultary sharply positive RK4 strongly regular, Hamming, rook or graph product",
+          "ffa09f555e63",
+          "4d16a209d9cc",
+          "ACM 10.5555/1642737.1642893",
+          "Horváth Appl. Numer. Math. 28 (1998), 309–326"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 37dd2f54631e, 621e2ef18776, 69d675dac0d5, ffa09f555e63 and 4d16a209d9cc",
+        "Gottlieb–Shu–Tadmor 10.1137/S003614450036757X, pp. 89–90",
+        "ACM 10.5555/1642737.1642893 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The biharmonic result gives a cutoff and asymptotics for exponential spectral factors; Radau IIA gives a reentrant positivity window on squares; SSP forward-Euler context gives a sufficient bound."
+        ],
+        "reasoning": "The projector decomposition remains available for other maps, but comparing the RK4 A,B,C signs and proving fixed-sum ordering requires the polynomial inequalities specific to this map. None of the reviewed results yields those signs and that ordering by parameter substitution.",
+        "searches": [
+          "621e2ef18776 Finding",
+          "69d675dac0d5 Finding",
+          "37dd2f54631e Finding",
+          "Gottlieb–Shu–Tadmor 10.1137/S003614450036757X"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "37dd2f54631e gives a sharp RK4 cutoff for complete multipartite networks. 621e2ef18776 treats e^(−tL²) on the same product. 69d675dac0d5 concerns two-stage Radau IIA on the square rook graph."
+        ],
+        "reasoning": "Rectangular rook graphs are not complete multipartite: (1,1) is nonadjacent to (2,2) and (2,3), which are adjacent to one another. Biharmonic heat and Radau IIA apply distinct scalar functions to the spectrum and do not give this RK4 transition polynomial. The date shared by the two same-day records is not used to infer publication order.",
+        "searches": [
+          "Resultary RK4 endpoint positivity rectangular rook graph K_p square K_q, aspect-ratio ordering",
+          "37dd2f54631e",
+          "621e2ef18776",
+          "69d675dac0d5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact archive cutoff ρ divided by graph order in 37dd2f54631e pertains to complete multipartite graphs; the RK4 strongly regular archive gives a formula on the balanced-alias domain only."
+        ],
+        "reasoning": "No checked exact archive formula gives the unequal rook cubic. The frozen sample matrices are verification data, not an existing table determining the entire graph family.",
+        "searches": [
+          "Resultary exact unequal rook RK4 positivity horizon, spectral stability and square-rook alternatives",
+          "37dd2f54631e",
+          "ffa09f555e63"
+        ]
+      },
+      "rationale": "The strongest checked earlier RK4 archive result has complete multipartite, not Cartesian-product, graphs; the checked same-day rook-graph results study different operators. The later balanced strongly regular graph result does not cover unequal rectangles. The exact controlling entry, the strict comparison at fixed sum, and the resulting nontrivial scaled root are not established by these comparisons. This assessment is bounded by the general-theory access risks below.",
+      "residual_risks": [
+        "Full theorems in the general positivity threshold article and Horváth (1998) were not inspected; possible general-theory implications remain unexcluded.",
+        "Archive date-coded paths were not used to adjudicate ordering within the same date. No global novelty certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method but non-covering graph class",
+          "evidence": [
+            "Exact ρ divided by vertex count cutoff on unweighted complete multipartite graphs."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+          "material_read": "Finding and Assumptions, offsets approximately 500–2500",
+          "method": "Resultary index and original local mirror passages",
+          "title": "Sharp RK4 positivity equals spectral stability on complete multipartite diffusion networks",
+          "trigger": "Earlier exact RK4 theorem on an associated unequal-factor family"
+        },
+        {
+          "assessment": "Same graph but a different matrix function and cutoff",
+          "evidence": [
+            "The evolution is e^(−tL²)."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-positivity-horizon-and-peak-amplification-of-biharmonic-he--621e2ef18776",
+          "material_read": "Finding, offsets 0–2278",
+          "method": "Resultary index and original local mirror",
+          "title": "Exact positivity horizon and peak amplification of biharmonic heat on rook graphs",
+          "trigger": "Same-day exact rook horizon and asymptotics"
+        },
+        {
+          "assessment": "Different method and size regime",
+          "evidence": [
+            "Two-stage Radau IIA on the square graph, not classical explicit RK4."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-a-reentrant-positivity-window-for-two-stage-radau-iia-diffusion--69d675dac0d5",
+          "material_read": "Finding, offsets 0–2191",
+          "method": "Resultary index and original local mirror",
+          "title": "A reentrant positivity window for two-stage Radau IIA diffusion on square rook graphs",
+          "trigger": "Same-day square-rook endpoint positivity result"
+        },
+        {
+          "assessment": "Later-dated, covers square but not unequal rooks",
+          "evidence": [
+            "The graph hypothesis is connected strong regularity."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-sharp-rk4-positivity-horizon-on-connected-strongly-r--ffa09f555e63",
+          "material_read": "Finding, offsets 0–2155",
+          "method": "Resultary index and original local mirror",
+          "title": "A universal sharp RK4 positivity horizon on connected strongly regular graphs",
+          "trigger": "Potential broader RK4 classification including square rooks"
+        },
+        {
+          "assessment": "Unresolved full theorem; no inference of noncoverage from access failure",
+          "evidence": [
+            "The available abstract concerns componentwise positivity thresholds for positivity-preserving IVPs."
+          ],
+          "identifier_or_url": "https://dl.acm.org/doi/10.5555/1642737.1642893",
+          "material_read": "Search abstract only; full text not retrieved",
+          "method": "Targeted literature search and lawful OA retrieval attempt (403)",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Potential general positivity theorem that could imply special cutoffs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixing p+q fixes the graph degree and thus the forward-Euler threshold. Along that natural comparison the exact classical RK4 endpoint detects anisotropy that the Euler criterion cannot distinguish. The all-step comparison of transition classes identifies the first failure and rules out reentry; the scaled root gives a quantitative asymptotic version beyond finite examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

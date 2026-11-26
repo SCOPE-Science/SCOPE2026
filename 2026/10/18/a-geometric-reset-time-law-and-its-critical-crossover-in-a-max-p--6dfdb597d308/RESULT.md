@@ -1,4 +1,4 @@
-# A geometric reset-time law and its critical crossover in a max-plus four-cycle
+# Complete-reset statistics and quantitative small-coupling stability in a max-plus four-cycle
 
 ## Finding
 
@@ -41,7 +41,8 @@ R_0\ \overset{\mathrm d}=\ \mathcal R(H_1,H_2),\qquad
 \]
 Moreover, at each fixed \(D>1\) and \(B>0\),
 \[
-\lim_{T\downarrow0}\big\|\mathcal L(R_T)-\mathcal L(R_0)\big\|_{\mathrm{TV}}=0,
+\big\|\mathcal L(R_T)-\mathcal L(R_0)\big\|_{\mathrm{TV}}
+=O_D\big(T\log(1/T)\big)\qquad(T\downarrow0),
 \]
 where the possible value \(\infty\) is included in the underlying countable state space. In the separate critical limit \(D\downarrow1\) at \(T=0\),
 \[
@@ -87,12 +88,26 @@ The two coordinate variables are independent by the product sampling rule.
 \]
 As \(D\downarrow1\), geometric survival yields \((D-1)H_i\Rightarrow E_i\), where \(E_i\) is exponential of mean one. The deterministic bound \(|R_0-2M|\le1\), the continuous mapping theorem, and Slutsky's lemma yield the stated critical limiting law. The mean asymptotic follows directly from the exact rational formula.
 
-**5. Total-variation stability at the decoupling boundary.** Fix \(B>0,D>1\). Each finite scalar iterate \(x_j(T;X,Y)\) depends continuously on \(T\ge0\) (finite compositions of \(\max\) and arithmetic). Outside a countable union of affine switch-preimage lines, every scalar value through the finite first reset at \(T=0\) is nonzero, while \(R_0<\infty\). Hence, for almost every sampled initial pair, there exists a pair-dependent \(\epsilon>0\) such that the signs through the first reset agree for all \(0\le T<\epsilon\). In particular \(R_T=R_0\) for these sufficiently small parameters. Dominated convergence for \(\mathbf 1_{\{R_T\ne R_0\}}\), followed by the coupling inequality
+**5. Quantitative total-variation stability.** Dividing all state coordinates by \(B\) leaves reset times unchanged, so set \(B=1\). Couple the two orbits at the same random initial point. Set \(M_0=\max(1,D-1)\), \(d=\min(1,D-1)>0\), \(a=\sqrt D>1\), and \(e_j=|x_j(T)-x_j(0)|\). The boundary orbit has absolute values at most \(M_0\), so \(e_0=0\), \(e_1\le T\), and
+\[
+e_{j+2}\le D e_j+T e_{j+1}+TM_0.
+\]
+With \(c=M_0/(D-1)\), the comparison sequence \(f_j=e_j+cT\) satisfies \(f_{j+2}\le D f_j+T f_{j+1}\). Since \((a+T)^2\ge D+T(a+T)\), it follows by induction that \(e_j\le (1+c)T(a+T)^j\).
+
+At \(T=0\), the marginal of \(x_j(0)\) is a uniform measure on \(I_D\) of weight \(D^{-\lfloor j/2\rfloor}\), plus atoms supported on \(\{1,1-D\}\). This follows by iterating the scalar map: one application transfers a fraction \(1/D\) of its uniform component back to a uniform distribution on the same interval, with the remainder sent to \(1\); the two atoms map to each other. Hence for \(0\le u<d\),
+\[
+\Pr(|x_j(0)|\le u)\le (2u/D)D^{-\lfloor j/2\rfloor}.
+\]
+Choose an integer \(K\) depending only on \(D\), large enough that \(2(1+c)a^{-K}<d\), and let \(N=\lfloor\log(1/T)/\log a\rfloor-K\). For small enough \(T>0\), \((1+T/a)^N\le2\) and \(N\ge2\). For every \(j\le N\), the deterministic error bound lies below \(d\), and the probability that the Boolean switch \(x_j\le0\) differs between the two orbits is at most
+\[
+\frac{2(1+c)}D T(a+T)^j D^{-\lfloor j/2\rfloor}\le \frac{4a(1+c)}D T.
+\]
+If \(R_0\le N\) and all these switches agree, the reset times are equal. The geometric law and \(R_0\le2\max(H_1,H_2)+1\) give \(\Pr(R_0>N)\le 2D^{-\lfloor(N-1)/2\rfloor}=O_D(T)\). Adding the switch-error bound over \(0\le j\le N\) and using the coupling inequality
 \[
 \|\mathcal L(R_T)-\mathcal L(R_0)\|_{\mathrm{TV}}
 \le\Pr(R_T\ne R_0),
 \]
-proves the claimed limit, including the possible symbol \(\infty\).
+proves the claimed rate, including the possible symbol \(\infty\).
 
 ## Verification
 
@@ -100,7 +115,7 @@ The bundled standard-library script `check_capture.py` checks the four exact cyc
 
 ## Relationship to prior work
 
-Ohmori–Yamazaki [1], Sections 2–5, supply the generalized max-plus map, the reset mechanism, the four-cycle region \(D>1+T+T^2\), and the exact four phases. Those contributions are **prior**, not claimed here. Their Sections 4–5 count cycle phases and analyze cycle stability from distinguished initial states; the present result instead gives the exact **distribution over a two-dimensional initial ensemble** of the first two-coordinate complete-reset event, including its parity corrections, critical distribution, and small-\(T\) total-variation limit. Their earlier negative-feedback study [2], Section 3, already identifies the two cycles and a Poincaré map at \(T=0\); it does not give the present first-reset distribution or the singular perturbative law. A homogeneous \(B=0\) finite-time extinction classification concerns a different map without the positive four-cycle, and does not imply the present result.
+Ohmori–Yamazaki [1], Sections 2–5, supply the map, reset mechanism, regime \(D>1+T+T^2\), and four phases. Their prior [2], Section 3, gives the cycles and Poincaré map at \(T=0\). A separate [November 8, 2026 capture-time analysis](https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-original-time-capture-statistics-and-critical-scaling-in-a--4b0c6f578196/RESULT.md) treats the same scalar decoupling, independent geometric times, and maximum-of-exponentials limit. It samples \((0,B)^2\), which two planar iterations send uniformly onto \(I_D^2\), and stops at the first arrival to any attracting phase. For samples started in \((0,B)^2\), this arrival and arrival to \((B,B)\) differ by a delay of zero to three iterations, almost surely. Thus the common critical limit is not a distinct result here. The exact finite-\(D\) parity corrections and mean given here specify the complete-reset clock; the quantitative perturbative estimate concerns that clock with \(T>0\), not capture onto the unperturbed cycle.
 
 ## Limitations
 

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:36:33.988382Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–109",
+        "Frozen VERIFICATION.md, lines 3–21 and verify.py, lines 80–135"
+      ],
+      "rationale": "Cutting at the target gives the two-endpoint killed interval and the cosh hitting transform psi_q. If B is its average over the reset law at q=r+s, a cycle from a sampled position has discounted absorption contribution B and discounted reset contribution r(1-B)/(r+s). Solving the scalar restart equation and accounting for the fixed initial point gives (s psi_(r+s)(d_0)+r B)/(s+r B). Its derivative in B is strictly positive since d_0>0; the first-step mean is (1-psi_r(d_0))/(r B_r), strictly decreasing in B_r. In the cost coordinate u, expand cosh(sqrt(q/D) sqrt(L²/4-u)) in powers of L²/4-u. Every term of order at least two has nonnegative second derivative on the interval, and the quadratic term gives a positive lower bound on f_q'' even at the antipode. Distinct convex-ordered laws on a compact interval have different continuous stop-loss functions and thus strictly ordered expectations of this kernel. Jensen and the chord inequality give the two unique cost laws with the prescribed mean; the cost-distance map is strictly increasing up to L/2. Dividing the cosh series gives psi_q=1-q u/(2D)+q²u(L²+u)/(24D²)+O(q³), uniformly in distance. The common mean cancels the linear terms of the two averaged transforms, and the initial-point factor yields u_0 Var(U)/(48 D³) in the mean gap. The variance bound follows by averaging (U-u_a)(u_b-U)≥0. At high rate the lower distance contributes exp(-a sqrt(r/D)) with weight lambda, dominating the endpoint b even if b is antipodal, while d_m lies strictly below b. The common initial-point factor cancels in the mean ratio; both means diverge. The verification note and script were inspected, not executed: sampled inequalities, small-rate and high-rate checks and two approximate backward-equation comparisons support finite cases only.",
+      "residual_risks": [
+        "Uniqueness is for the reset-distance law. The ordering is Laplace and mean, not stochastic order or a quantile comparison; independent Poisson cycles and the fixed initial point are essential to the reviewed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest indexed half-line/exterior-sphere result compares endpoint and point laws at fixed mean reset radius under general renewal clocks and orders the full hitting-time law.",
+          "The cited ring and line papers supply general renewal formulas in their own regimes, but the inspected passages do not give strict curvature in mean free exit cost for the ring."
+        ],
+        "reasoning": "A broader class of clocks in a different geometry does not dominate this theorem: the ring has a second absorbing boundary after cutting and the radius mean is not the constraint here. Renewal alone is not an optimizer result.",
+        "searches": [
+          "Resultary 02cf88abbb30, Finding",
+          "arXiv:2605.08414, abstract and two-resetting-site model",
+          "arXiv:2401.01125, renewal equations and equivalent point"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.08414",
+        "arXiv:2401.01125",
+        "Resultary 02cf88abbb30, acf0d7ce781d and 7b0f19736f42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-position renewal step reduces dependence on a reset law to an average of a free hitting kernel, but its order hinges here on strict convexity after the nonlinear transform to U.",
+          "Fixing the completed mean at a given r constrains an average of psi_r; fixing E[U] constrains the first derivative of that free transform at zero instead. The next coefficient, which differs by Var(U), produces the r² gap."
+        ],
+        "reasoning": "The known ring formula is a premise rather than a result already optimizing a family of budgets. The theorem couples that formula to a different, rate-independent constraint and establishes strict comparison at every positive argument, equality laws and rate limits. Neither the line envelopes nor the half-line radius result imply those statements by relabeling.",
+        "searches": [
+          "arXiv:2605.08414, Eqs. (29)–(30)",
+          "arXiv:2401.01125, §III.A and Eq. (47)",
+          "Resultary 02cf88abbb30 and acf0d7ce781d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ring problem is exactly two-boundary killing when cut at the target. The budget is equivalent to fixed mean free exit time via U/(2D), not fixed mean geodesic distance.",
+          "Julián-Salgado et al. cover the two-site ring renewal mean and optimize the rate at specified sites and weights. Méndez et al. use the line kernel exp(-d sqrt(q/D)) and discuss a deterministic equivalent reset point."
+        ],
+        "reasoning": "A mean or single-kernel equivalence at fixed rate does not compare all admissible laws under the unreset-cost budget at all rates and Laplace arguments. The line kernel and the killed-interval cosh ratio are not the same under a fixed distance reparametrization: their small-q behavior already differs.",
+        "searches": [
+          "Resultary: fixed-mean reset distance Brownian first-passage endpoint versus deterministic reset distributions",
+          "arXiv:2605.08414, abstract and pp. 6 equations (29)–(30)",
+          "arXiv:2401.01125, §III.A and §VI"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed half-line finding has exactly the endpoint-versus-point extremizer pattern but for a different budget. The line Laplace-and-variance envelope acf0d7ce781d compares laws with fixed completed mean at a fixed rate. The same-date 7b0f19736f42 finding orders stationary squared displacement under partial resets, not first passage."
+        ],
+        "reasoning": "None provides the ring's exact mean-U weights, strict Laplace and mean comparisons, or small-r variance coefficient; same-day indexing of a different observable is not treated as either priority or duplication.",
+        "searches": [
+          "Resultary 02cf88abbb30, acf0d7ce781d and 7b0f19736f42"
+        ]
+      },
+      "rationale": "The prior ring and random-position resetting formulas are credited. The supported distinct contribution is the strict simultaneous optimizer and convex-order comparison for Poisson ring resetting at fixed mean unreset exit cost, together with its weak- and high-rate laws. The inspected closest indexed results optimize related objectives but have different kernels or budget functionals. The assessment is not a priority claim for two-point extremizers in resetting generally.",
+      "residual_risks": [
+        "The key matching ring and line texts and indexed findings were accessible, but the search cannot exclude a broader first-passage comparison under an equivalent mean-exit-time budget."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same ring renewal ingredients, different optimization",
+          "evidence": "The covered transition concerns reset rate for supplied sites and weights, not law extrema at fixed mean free exit cost.",
+          "identifier_or_url": "arXiv:2605.08414",
+          "material_read": "Abstract, PDF p. 1; equations (29)–(30), p. 6",
+          "method": "Direct OA full-text passages",
+          "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+          "trigger": "Same ring model and two-site optimization"
+        },
+        {
+          "assessment": "Relevant renewal antecedent, different geometry and constraint",
+          "evidence": "The line formula uses the average of exp(-d sqrt((r+s)/D)); its mean expression uses the value at s=0, and the equivalent-point discussion is not a fixed unreset budget comparison for a ring.",
+          "identifier_or_url": "arXiv:2401.01125",
+          "material_read": "PDF abstract; §III.A p. 3; §VI p. 7 including Eq. (47)",
+          "method": "Direct OA full-text passages",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "General random reset law and equivalent point"
+        },
+        {
+          "assessment": "Close method and extremizer pattern, not equivalent or dominating",
+          "evidence": "Half-line and exterior sphere, fixed mean radius, and distributional order for general independent renewal clocks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-distributional-optimization-of-renewal-reset-brownian-sear--02cf88abbb30/RESULT.md",
+          "material_read": "Published finding and model scope",
+          "method": "Local Resultary mirror",
+          "title": "Sharp distributional optimization of renewal-reset Brownian search",
+          "trigger": "Strongest matching endpoint-versus-point theorem"
+        },
+        {
+          "assessment": "Later comparison with different fixed mean and geometry",
+          "evidence": "Brownian line at a fixed rate and a fixed mean of the completed process; not fixed mean free exit cost.",
+          "identifier_or_url": "Resultary acf0d7ce781d",
+          "material_read": "Published finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fixed-mean first-passage Laplace and variance envelopes",
+          "trigger": "Close simultaneous Laplace-envelope statement"
+        },
+        {
+          "assessment": "Different state statistic and reset mechanism",
+          "evidence": "Concerns stationary squared displacement under partial multiplicative resets, not absorption at a target.",
+          "identifier_or_url": "Resultary 7b0f19736f42",
+          "material_read": "Published finding",
+          "method": "Local Resultary mirror",
+          "title": "Sharp convex-order bounds for Brownian motion with randomized partial resets",
+          "trigger": "Same-date Brownian resetting and convex-order finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem and proof steps 3–5",
+        "arXiv:2605.08414 pp. 1 and 6",
+        "Resultary 02cf88abbb30"
+      ],
+      "rationale": "The budget has a direct physical meaning independent of the reset rate: the average free search cost from a reset. The result compares arbitrary admissible distributions, not a chosen finite family, and the same sharp pair governs every positive reset rate and Laplace argument. In particular it distinguishes a second-order weak-rate effect, whose coefficient has a sharp variance interpretation, from exponential separation at large rates. Those quantitative consequences make the specialization scientifically useful without asserting a general stochastic ordering.",
+      "residual_risks": [
+        "No optimization over timing laws, rates, reset travel costs, multiple targets or general domains is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

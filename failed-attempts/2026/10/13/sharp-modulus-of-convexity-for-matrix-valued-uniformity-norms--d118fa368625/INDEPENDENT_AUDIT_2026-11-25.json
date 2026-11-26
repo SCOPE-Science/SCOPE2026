@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:13:43.045413Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and scope",
+        "VERIFICATION.md and artifacts/verify.py (read only)",
+        "arXiv:2606.16862v2, pp. 3, 5, 12, 20–21"
+      ],
+      "rationale": "The formula is true. Iterating the derivative of a constant A gives (AA*)^(2^(k-1)); the normalized trace makes the first two diagonal matrix units, scaled by N^(1/q), a copy of l_q^2. With b=epsilon/2 and a=(1-b^q)^(1/q), the pair (a,b),(a,-b) has unit norms, separation epsilon, and midpoint norm a, also at epsilon=2. The cited Corollary 4.2 gives the opposite bound, but the paper's global setup takes prime-power sizes. To justify the frozen all-N quantifier, choose a power of two M>=N and use the isometric corner map F -> (M/N)^(1/q)(F direct_sum 0). Each k-fold derivative scales by (M/N) and stays in the corner, which cancels the normalized-trace change. The lower bound thus descends to every N. This also supplies the missing explicit scope justification in the frozen citation. No numerical or formal proof certification was used.",
+      "residual_risks": [
+        "The proof concerns the full function space; it does not transfer the extremizers to the quantum Weyl-orbit subspace."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 is a full all-vector Hanner inequality for the ambient norm. The setup fixes prime-power matrix size, but normalized corners restrict the result to arbitrary size. Hatami discusses the Banach-space modulus and uses distance threshold 2 epsilon, not epsilon."
+        ],
+        "reasoning": "The earlier scalar/hypergraph setting is not the same space. Published ambient Hanner supplies the difficult inequality for the exact space under review.",
+        "searches": [
+          "Jamneshan–Ünal, arXiv:2606.16862v2, Theorem 4.1 and Corollary 4.2",
+          "Hatami, arXiv:0903.3237, Section 3, eq. (25) and surrounding geometry"
+        ]
+      },
+      "checked_sources": [
+        "Jamneshan–Ünal arXiv:2606.16862v2",
+        "Hatami arXiv:0903.3237, Section 3",
+        "Resultary results for matrix uniformity convexity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 4.2 gives the exact proposed expression as a lower bound. Two diagonal units with constant group argument have l_q norm directly from the definition; the elementary sign pair makes the upper bound exactly that same expression."
+        ],
+        "reasoning": "Although a Hanner bound alone need not be sharp in an arbitrary space, here the very definition supplies its textbook equality test for every epsilon, so the frozen result is mechanically implied.",
+        "searches": [
+          "arXiv:2606.16862v2, pp. 5, 12 (derivative and trace), p. 20 (Theorem 4.1 and Corollary 4.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The derivative of a constant diagonal function acts coordinatewise, so its norm is the normalized l_q norm of the diagonal. Corollaries 4.2 and 4.3 state lower bounds, not equality; the latter has a different domain."
+        ],
+        "reasoning": "For the full space the reverse inequality is already the two-coordinate l_q test; no group-dependent or quantum-space construction is required.",
+        "searches": [
+          "Resultary searches for matrix-valued U^k/Hanner sharpness, exact modulus of convexity, and normalized Schatten constant functions",
+          "arXiv:2606.16862v2, definition and modulus passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A related indexed exact modulus, 2026/10/11/SCOPE-sharp-quadratic-convexity-and-the-exact-initial-day-modulus-of-a--189305660fe5, concerns a hybrid l_1–Hilbert norm, not matrix-valued U^k. No matching exact statement was surfaced."
+        ],
+        "reasoning": "This is a continuous exact formula, not a finite-optimum table. Ranked results establish no absence theorem; rejection rests on implication, not these search results.",
+        "searches": [
+          "Resultary semantic searches for the exact ambient matrix-valued uniformity modulus and Hanner equality"
+        ]
+      },
+      "rationale": "There is no finding of a prior literal equality statement. The issue is direct mathematical implication: the published lower bound and norm definition already determine the exact answer by restriction to two constant diagonal coordinates and the standard sign pair in l_q^2. Neither a new inequality nor a nontrivial identification of the subspace is needed. The arbitrary-size extension is likewise an immediate normalized corner restriction of the published bound.",
+      "residual_risks": [
+        "No claim that the earlier papers expressly state the equality or date it as a separate theorem; the verdict is on direct implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The statement is an estimate, but the definition and estimate directly imply the equality; quantum restriction is a separate result.",
+          "evidence": [
+            "Corollary 4.2 displays delta(epsilon) >= 1-(1-(epsilon/2)^q)^(1/q).",
+            "The product F(hx)F(x)* and trace normalized by matrix size give the diagonal calculation and corner restriction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.16862v2",
+          "material_read": "Global dimension convention p. 3; derivative/U^k definition p. 5; normalized trace p. 12; Theorem 4.1 and Corollaries 4.2–4.3 pp. 20–21",
+          "method": "Lawful open arXiv PDF, targeted passage reading",
+          "title": "Quantum uniformity norms are pullbacks of matrix-valued uniformity norms",
+          "trigger": "Same ambient spaces and identical proposed lower bound"
+        },
+        {
+          "assessment": "Background for the geometric invariant and threshold convention, not an assertion about the newer matrix uniformity space.",
+          "evidence": [
+            "Equation (25) uses separation at least 2 epsilon and remarks on the alternative convention."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.3237",
+          "material_read": "Section 3 modulus definition and surrounding pp. 16–17",
+          "method": "Lawful open arXiv PDF, targeted passage reading",
+          "title": "On generalizations of Gowers norms and their geometry",
+          "trigger": "Plausible standard Banach-space antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, constant diagonal witness and limitations",
+        "arXiv:2606.16862v2, Corollaries 4.2–4.3"
+      ],
+      "rationale": "The modulus is a natural invariant, but the precise number here is already mechanically forced by the published lower bound and the standard two-coordinate test on constants. Nothing about the geometry away from constants or the quantum subspace is resolved by that test. There is no separate surviving unknown exact invariant in the frozen claim.",
+      "residual_risks": [
+        "No conclusion about whether a future sharpness analysis of the constrained quantum norm would be valuable or true."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

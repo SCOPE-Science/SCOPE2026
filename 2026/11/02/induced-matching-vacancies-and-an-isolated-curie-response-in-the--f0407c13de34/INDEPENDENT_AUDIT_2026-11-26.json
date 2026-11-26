@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:18:31.582663Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exact enumeration built the regular icosahedron from cyclic shifts of (0,±1,±φ) with squared edge length 4, using arithmetic in Z[φ]. Recursing over all 531441 spin assignments and adding only bonds to previously assigned sites reproduced all thirteen minima and their multiplicities. It also checked both inclusions of the vacancy geometry by comparing exact vacancy keys with all four-sets whose induced degrees are (1,1,1,1); there were 75 keys with two signings each. At occupancy 10 the 30 vacancy keys are precisely edges, with eight signings each. At r=1/2 the equality states all have M=0 and counts 72, 240, 150 at occupancies 12, 10, 8. At r=1 the equality table is (m,M;count)=(0,0;1),(6,0;80),(7,−1;60),(7,1;60),(8,0;150). The sharp bounds 2b+m≥−8 and b+m≥0 give the piecewise lower envelope by interpolation between the boundaries; m≤12 and m≥0 give the two outer rays, and the asserted states attain each bound. Spin reversal equates the two signs for each two-signing vacancy set and forces zero thermal mean. Differentiating at zero field first gives χ/β=E[M²]; the finite uniform ground-state limit is 120/351=40/117 only at D=J. This is total magnetization susceptibility, with no per-site scaling. Replay: python3 /workspace/branches/independent_finite_checks.py 2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 8 Resultary study varies field and anisotropy with the same 12-site Hamiltonian and contains the zero-field specialization.",
+          "The same spin alphabet occurs in periodic triangular-lattice work; exact anisotropy enumeration on a triangle and on two corner-sharing tetrahedra occurs in arXiv:2010.16287. The targeted literature search surfaced a square-lattice Monte Carlo study (arXiv:2610.07567v1)."
+        ],
+        "reasoning": "The later field study covers the energy and aggregate counts in a strictly larger parameter domain, but the clusters or lattice studies are different graphs and do not imply this graph-specific vacancy geometry.",
+        "searches": [
+          "Resultary: exact zero-temperature ground-state phase diagram classical spin-one antiferromagnet icosahedron vacancy degeneracy",
+          "arXiv:2010.16287 §§2.1–2.2",
+          "arXiv:1309.3593 p. 1",
+          "Blume–Capel spin-one icosahedron exact cluster, anisotropy and phases"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Finding and proof, verification notes and checker read",
+        "November 8 indexed same-model report",
+        "arXiv:1502.04449 full-text decisive Hamiltonian, Table 4 and Eq. (9)",
+        "Adjacent classical and quantum cluster/lattice articles cited above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Ising proof cannot reach vacancy crossing thresholds; the quantum Heisenberg study has noncommuting vector-spin operators rather than the scalar vacancy penalty. In the later field table the only M²=1 critical states are the two 60-state sectors, so the implied limit is 120/351."
+        ],
+        "reasoning": "The comparison credits both the exact known nonvacant branch and the later implication of the aggregate response. None of these passages gives all 75 admissible vacancy supports and exactly two signings for each, nor do aggregate degeneracies logically determine supports.",
+        "searches": [
+          "arXiv:1502.04449 pp. 2,5,7",
+          "November 8 indexed Finding, offsets 0 and 6000",
+          "arXiv:cond-mat/0503658 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Four vacant vertices induce 2K2 exactly when all four induced degrees are one. The Ising partition function supplies the complete nonvacant contribution e^(−12βD) Z_Ising, not the terms of lower occupancy in the spin-one partition function."
+        ],
+        "reasoning": "Neither graph relabeling nor a constant occupancy-energy shift can turn two-valued spins into the variable-occupancy model. The edge-pair characterization describes individual supports and their sign multiplicities, not just a partition-function coefficient.",
+        "searches": [
+          "Resultary: icosahedral spin-one Blume-Capel induced 2K2 vacancies 75 patterns ground state",
+          "Resultary: icosahedral Ising polyhedra magnetization plateaux spin one vacancy exact partition function matching cluster",
+          "arXiv:1502.04449 Eq. (9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2015 two-valued icosahedron table has two M=0 families of energy −10J and degeneracies 60 and 12.",
+          "The November 8 table has (m,M,b,g)=(8,0,−8,150),(12,0,−10,72),(7,1,−7,60), with inversion, and explicitly gives the coexistence counts 462 and 351."
+        ],
+        "reasoning": "The former already implies the full-occupancy branch's magnetization and degeneracy. The latter gives exactly the ground-state sector data for the scalar Curie calculation; it does not report the set-by-set induced-matching characterization. Numerical agreement is not used to infer time priority.",
+        "searches": [
+          "Resultary: 40/117 Curie coefficient susceptibility isolated degeneracy Blume-Capel icosahedral cluster",
+          "2026/11/8/SCOPE-exact-vacancy-driven-plateaux-and-nineteen-field-chambers-on-the--315b7f04cdc9, Finding and sector table",
+          "arXiv:1502.04449 Table 4 and Eq. (9)"
+        ]
+      },
+      "rationale": "Verified prior coverage includes the fully occupied 72-state Ising limit. A later indexed full-field study supplies the matching zero-field phases and degeneracies and implies the Curie fraction from its magnetization-resolved table, but is not earlier evidence and does not supply the exact induced-2K2 vacancy rule. The complete geometry is a distinct supported claim on the bounded comparison.",
+      "residual_risks": [
+        "The exact zero-field aggregate results are mathematically covered by the later larger-parameter calculation; its provenance relative to this finding is not established by dates.",
+        "An unindexed earlier occupancy-resolved calculation or vacancy geometry for this exact graph may exist. Neither broad search nor observed aggregate overlap settles worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact later aggregate overlap; induced-2K2 rule and two signings per support are not in the inspected account.",
+          "evidence": [
+            "Same occupancies 12,8,0 and thresholds 1/2 and 1; degeneracies 462,351 and 60 states of each ±1 critical sector."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-vacancy-driven-plateaux-and-nineteen-field-chambers-on-the--315b7f04cdc9",
+          "material_read": "Finding and magnetization-sector table, RESULT.md at offsets 0 and 6000",
+          "method": "Local mirror, exact table comparison",
+          "title": "Exact vacancy-driven plateaux and nineteen field chambers on the spin-one icosahedron",
+          "trigger": "Same model, more parameters and matching zero-field counts"
+        },
+        {
+          "assessment": "Exact already-known full-occupancy limit; the partition function sums only ±1 spins.",
+          "evidence": [
+            "Table 4 gives M=0, −10J, and 60+12 configurations; Eq. (9) yields leading term 72 exp(10βJ)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.04449",
+          "material_read": "p. 2 Hamiltonian; p. 5 Table 4; p. 7 Eq. (9)",
+          "method": "Open PDF, model, table and leading-term comparison",
+          "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+          "trigger": "Exact icosahedral graph and potentially covering partition function"
+        },
+        {
+          "assessment": "Exact method on different finite clusters.",
+          "evidence": [
+            "The clusters are a triangle and two corner-sharing tetrahedra; Eq. (4) uses the corresponding densities of states."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.16287",
+          "material_read": "pp. 2–3, §§2.1–2.2 and Eq. (4)",
+          "method": "Open PDF, graph and partition-function comparison",
+          "title": "Effect of Single-Ion Anisotropy on Magnetocaloric Properties of Frustrated Spin-s Ising Nanoclusters",
+          "trigger": "Exact finite spin-one enumeration with occupancy anisotropy"
+        },
+        {
+          "assessment": "Periodic triangular lattice, not the finite icosahedral graph.",
+          "evidence": [
+            "Periodic lattice of linear size 24 and Monte Carlo."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.3593",
+          "material_read": "p. 1 abstract and model",
+          "method": "Open PDF, graph and method comparison",
+          "title": "Magnetocaloric properties of a frustrated Blume-Capel antiferromagnet",
+          "trigger": "Same three-valued alphabet and frustrated Blume–Capel interaction"
+        },
+        {
+          "assessment": "Quantum Heisenberg rather than classical scalar Blume–Capel; no graph-specific vacancy implication from that model.",
+          "evidence": [
+            "Quantum antiferromagnetic spectrum with spin-half and spin-one cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0503658",
+          "material_read": "p. 1 abstract",
+          "method": "Open PDF, model-class comparison",
+          "title": "The Antiferromagnetic Heisenberg Model on Clusters with Icosahedral Symmetry",
+          "trigger": "Same geometry and quantum spin-one example"
+        },
+        {
+          "assessment": "Square-lattice scope unrelated to exact icosahedron sector counts.",
+          "evidence": [
+            "Monte Carlo J_x–J_y model on a square lattice."
+          ],
+          "identifier_or_url": "arXiv:2610.07567v1",
+          "material_read": "p. 1 abstract",
+          "method": "Targeted literature result followed by open text model comparison",
+          "title": "Phase diagram and transition properties of the Blume-Capel model: A Monte Carlo study",
+          "trigger": "Phase diagram and transitions under anisotropy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural frustrated finite cluster, the result does more than recompute its Ising ground energy or report the number of ternary states. It exactly identifies the vacancy supports that open the intermediate phase and determines how the two coexistence degeneracies differ in their zero-field response. The induced-matching support criterion is usable without repeating a spin enumeration, and remains a distinctive contribution even in light of the later aggregate table. No bulk phase transition or quantum interpretation is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

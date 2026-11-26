@@ -1,0 +1,84 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:07:01.043939Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Equivariance requires a union of full source orbits, maps them injectively to complete target orbits, and permits exactly one of ell shifts on each paired orbit. Dividing by full rank gives the stated falling-factorial weights. The summable majorant for bounded m/ell proves pointwise and total-variation convergence after normalization. At R=sqrt(m/ell) with R/m tending to zero, the successive ratio is uniformly separated from 1 on the two indicated buffered sides; comparing each exterior boundary to an interior weight by Theta(R) such ratios and summing the exterior geometric series gives the claimed concentration. Independently enumerating partial endofunction arrays with an undefined sentinel, deleting arrays with repeated defined images, and checking commutation gave rank counts (1,8,8) at ranks (0,2,4) for (m,ell)=(2,2), (1,12,18) at (0,3,6) for (2,3), and (1,18,72,48) at (0,2,4,6) for (3,2); omitted ranks had count zero. This finite check supports the coefficient identity only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DLMF 18.11.6, citing Szegő, Theorem 8.22.4, states that L_m(x/m) converges to J_0(2 sqrt(x)) for alpha=0, uniformly on bounded complex x-sets."
+        ],
+        "reasoning": "Taking x=-(m/ell)z gives the numerator uniformly on compact z-sets when m/ell tends to lambda in [0,infinity); at z=1 the limit is positive. The resulting generating-function limit is the whole claimed critical law, and at lambda=0 it gives the mass-one-at-zero case. This theorem does not claim uniformity at diverging x.",
+        "searches": [
+          "DLMF 18.11(ii), https://dlmf.nist.gov/18.11.E6"
+        ]
+      },
+      "checked_sources": [
+        "https://dlmf.nist.gov/18.11.E2",
+        "https://dlmf.nist.gov/18.11.E6",
+        "Frozen result and supporting mathematical and verification files"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform convergence of the normalized generating functions on a complex disk implies convergence of each coefficient by Cauchy's formula. The limit coefficients sum to one, hence pointwise convergence yields total variation.",
+          "For m/ell diverging, the exact adjacent ratio from the same elementary coefficient formula is ((m-j)/ell)/(j+1)^2; the crossing j is asymptotic to sqrt(m/ell) and buffered ratios bound the tails geometrically."
+        ],
+        "reasoning": "The change of parameter and coefficient extraction transfer the classical limit directly to the centerpiece; appending its zero-parameter case and a routine ratio bound in the unbounded range does not establish a distinct original transition.",
+        "searches": [
+          "https://dlmf.nist.gov/18.11.E6",
+          "Frozen RESULT.md, Proof and Relationship to prior work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite model is the matching model on the complete bipartite graph with an edge activity ell: pairs of source/target cycles are occupied edges and each occupied edge has ell labels.",
+          "The defect generating polynomial relative to the full-rank coefficient is L_m(-z/ell), since L_m(-x)=sum_j binom(m,j)x^j/j!, also obtained from the Kummer representation in DLMF 18.11.2."
+        ],
+        "reasoning": "The weighted rook/matching and Laguerre representations are exact for every pair of dimensions; neither is just an analogy. The probability generating function is L_m(-z/ell)/L_m(-1/ell).",
+        "searches": [
+          "Resultary: equal length cycle permutation centralizer rook monoid random rank defect discrete Bessel limit Laguerre (unavailable)",
+          "Literature search: rank distribution partial permutations random rook placements Laguerre polynomials Bessel distribution weighted complete bipartite matchings asymptotics monomer dimer complete bipartite defect (unavailable)",
+          "https://dlmf.nist.gov/18.11.E2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite coefficient table is the weighted complete-board rook table, and the normalization is the standard Laguerre evaluation, not a new tabulated invariant."
+        ],
+        "reasoning": "No isolated numerical value is part of the novelty claim. The standard polynomial/limit formulas, not matching rows of a finite data table, are the relevant exact lookup.",
+        "searches": [
+          "DLMF 18.11.2 and 18.11.6 (canonical special-function reference)"
+        ]
+      },
+      "rationale": "The central novelty claim is the critical Bessel crossover rather than the credited finite count. The entire critical probability generating function is a ratio of ordinary Laguerre polynomials to which the classical complex-uniform Mehler–Heine theorem applies immediately. This covers the critical law including total variation, not just the appearance of the Bessel normalization. The subcritical limit comes from the very same theorem at parameter zero; the remaining relative concentration is the elementary single-mode ratio estimate for the known weights. There is no claim here that a prior centralizer paper literally states all three regimes.",
+      "residual_risks": [
+        "The Resultary and primary keyword lookups did not complete and give no negative evidence; positive coverage is supplied by the directly inspected DLMF theorem.",
+        "The 2020 finite-centralizer article and Lipscomb monograph are not relied upon for a coverage conclusion; explicit centralizer-specific historical priority outside the verified implication was not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the subcritical and critical normalized laws, not the unbounded scaling",
+          "evidence": [
+            "18.11.2 (Kummer representation)",
+            "18.11.6 and the immediately following bounded-complex-set uniformity statement"
+          ],
+          "identifier_or_url": "https://dlmf.nist.gov/18.11",
+          "material_read": "Laguerre entry in §18.11(i), Mehler–Heine entry and uniformity statement in §18.11(ii)",
+          "method": "Read the online reference equations and their notes",
+          "title": "NIST Digital Library of Mathematical Functions, §18.11 Relations to Other Functions",
+          "trigger": "Exact Laguerre representation of the defect polynomial and established Bessel scaling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The centralizer statistic is natural, and the translation is a useful illustration, but the headline nondegenerate law is a direct reparameterization of the standard Laguerre limit once the known count is written as a polynomial. The remaining ratio estimate is routine localization of that same known coefficient sequence, with no further fluctuation scale or structural consequence proved. No independently useful nonroutine remainder is established in the frozen claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

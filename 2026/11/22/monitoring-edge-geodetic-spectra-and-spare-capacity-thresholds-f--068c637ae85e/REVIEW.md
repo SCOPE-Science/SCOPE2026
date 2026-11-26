@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The edge-deletion-distance criterion and shortest-path-multiplicity criterion agree through two complete, algorithmically different subset enumerations. All six polynomials, optimum structures, independence numbers and one-bit reconfiguration components are asserted and reproduced by the embedded checkers. The recurrence covers every subset exactly once; all three graphs have at most twenty vertices. The result claims no unverified infinite-family extension.
+## correctness
 
-## Originality
-**PASS (provisional publication priority).** The source introducing MEG-sets does not treat these named graphs; the strongest covering published sufficient-condition theorem states that vertex covers monitor, but does not supply a converse or counting formulas. The dodecahedral result is strictly stronger and differs from vertex-cover monitoring by four sensors. Existing work on Petersen double-cover induced-matching homotopy, maximum independent octets, is credited and does not imply this shortest-path failure-monitoring classification. Targeted published scientific-index comparisons did not find a covering result. Unindexed earlier computations remain possible.
+PASS
 
-## Value
-**PASS.** The canonical three-graph covering comparison isolates how double-cover geometry changes minimum edge-failure probe cost and exact reconfiguration spare capacity, including a strict gap from the natural vertex-cover construction in the dodecahedron. Complete inclusion-minimal and all-set spectra explain why different temporary capacities are needed. The finite census is a meaningful benchmark, not a claimed all-family theorem.
+I independently reconstructed the three generalized Petersen graphs and enumerated all labelled subsets. For each root s, I intersected the masks of all incoming shortest-path extensions at each BFS vertex v: forced(s,v) = intersection over predecessors u of (forced(s,u) union {uv}). Every shortest path to v has exactly one such final edge, so this gives the precise pair mask without edge deletion or path multiplicity. The union over selected pairs and the single-deletion test are exact by monotonicity. All six coefficient vectors, the three independence numbers (4,8,10), and the optimum structures agree. The Desargues shores are distinguished by outer index parity reversed on the inner ring. Both covers project via index reduction mod 5, since inner steps 2 and 3 project to 2 and -2. Incremental union-find on all monitoring states counted the complete component multisets at every cap from the minimum to the first connected cap (8,11,15), not merely the immediately preceding caps. In particular, caps 7,10,14 give 15,2007,101 components, respectively. Replay: /workspace/reviews/replay_meg.py and replay_meg.txt. I inspected the frozen checkers and recorded outputs; the new enumeration is independent of executing them.
 
-## Closest literature and limits
-Dev et al. (2022), Haslegrave (2022), and Foucaud et al. (2024) supply MEG definitions, hardness/product results, and general vertex-cover upper bounds. A published published-finding corpus homotopy classification identifies the two covers as a canonical pair, and an independent-complex classification previously determined the five dodecahedral independent octets. No full priority guarantee is asserted; external scholarly review has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the complete all-set and inclusion-minimal spectra and the all-state add/delete capacity comparison, not as a priority claim for each constituent. A distinct same-day record already contains the exact dodecahedral minimum census and its two induced shapes. Neither the date nor the absence of matching literature numbers establishes priority for those facts. The previously known independent octets are also excluded from the originality credit.
+
+## value
+
+PASS
+
+The dodecahedral and Desargues graphs are natural covers of the same small benchmark, but their monitoring statistics and their valid-intermediate spare costs differ markedly. The census distinguishes minimum from inclusion-minimal placements and quantifies a genuine obstacle to relocation: at the cap immediately below connectivity, configurations can be isolated exclusively because deletions fail and additions exceed capacity. These exact all-state data and the strict dodecahedral separation from the vertex-cover construction are useful finite benchmarks, not an assertion of cover monotonicity or of a result for arbitrary GP parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

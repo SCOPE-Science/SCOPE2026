@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:56:38.340710Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–60 and frozen VERIFICATION.md, verify.py and verification_output.txt inspected as evidence only.",
+        "Independent literal-map replay: /workspace/branches/6356ba96-d53c-4bd2-856d-91149dbea475/independent_replay.py and independent_replay_n6.txt in that directory. All 15 square-zero types for 1≤n≤6 and all 28 isolated-matching tests for 0≤s≤m≤6 passed coefficientwise."
+      ],
+      "rationale": "For f(a_i)=b_i, equality of the two composition domains at a_i means g(a_i) is in A if and only if g(b_i) is defined, in which case the images must be paired as a_j,b_j. The one-way list in Proof §1 needs this reverse direction for its stated sufficiency; the very next paragraph uses it, and it follows directly from domain equality. Off A, g must avoid A. The residual partial matching has r−k+s free source and target labels with intersection precisely the s isolated vertices. No cycle can pass between the three parts in both directions. Acyclic chain-index arrows are unordered directed paths, counted by binomial(r,k) binomial(r−1,k) k!, including the separate r=0 convention. In the isolated part, marking compatible cycles on j common vertices gives the signed permutation cycle polynomial at −1, which vanishes for j≥2. The resulting P_m−s t P_{m−1} also covers s=0. Comparing degrees gives the advertised top coefficients; at r=0 a rank-(s−1) acyclic map is one directed path on the entire set, counted by s!, also for s=1.",
+      "residual_risks": [
+        "The replay is finite corroboration; general correctness rests on the composition and cancellation arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior handles all finite nilpotent chain lengths; allowing only lengths 1 and 2 produces the complete square-zero domain. Its signed sieve deletes at most one chain at each length after cancellation."
+        ],
+        "reasoning": "The broader theorem includes r=0 and s=0 by omitting any missing chain length. The frozen isolated-point cancellation is precisely the chain-length-one term.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-a-cycle-cancellation-sieve-for-nilpotent-centralizers-in-symmetr--1d8c7c099b3b, RESULT.md, Finding equations (1)–(2)"
+        ]
+      },
+      "checked_sources": [
+        "Earlier Resultary ...--1d8c7c099b3b (primary catalogue comparison); distinct ...--6fca557893ec; Konieczny 2013; Gomes–Howie 1987; access attempts for Laradji–Umar 2004 and Konieczny 2020."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Choosing k whole 2-chain matches gives b(r,k)=binomial(r,k)^2 k! and leaves P_{r−k+s}. For positive r,s the prior sieve is C(r,s)−rt²C(r−1,s)−st C(r,s−1)+rst³C(r−1,s−1). The coefficient b(r,k)−r b(r−1,k−1) equals binomial(r,k) binomial(r−1,k) k!, with out-of-range counts zero; the singleton deletion changes P_m to P_m−stP_{m−1}.",
+          "The primary unconditional nilpotent chain count does not add the prescribed commuting constraint."
+        ],
+        "reasoning": "This reduction recovers each frozen rank coefficient and consequently r!s! at the claimed ranks, without an independent new invariant.",
+        "searches": [
+          "Prior cycle-cancellation equations (1)–(2), inspected against RESULT.md lines 13–29 and 49–60",
+          "Gomes–Howie DOI 10.1017/S0013091500026778, Theorem 2.8 and Corollary 2.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For chain type (2^r,1^s), matching entire 2-chains gives the square-zero chain-index injection and all remaining compatible arrows form the frozen partial matching.",
+          "Konieczny's Theorem 3.4 describes initial-to-terminal segment maps between components, which is the membership formulation underlying this enumeration."
+        ],
+        "reasoning": "The centralizer decomposition is a special case of known structure, and the weighted formulation in the exact catalogue prior evaluates its rank enumerator, not merely membership.",
+        "searches": [
+          "Resultary: square-zero symmetric inverse centralizer nilpotent rank and cycle cancellation",
+          "DOI 10.1017/S0004972712000779, Theorem 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact family appears in stronger formula form rather than requiring stored values for (r,s); the matching coefficients determine every entry including (2,2). The distinct Resultary cycle-graph partial-isometry census ...--6fca557893ec has no prescribed commuting element."
+        ],
+        "reasoning": "A formula giving the entire count is stronger than agreement with any finite table. The different cycle-graph census is not equivalent.",
+        "searches": [
+          "Resultary indexed centralizer rank-polynomial search; exact prior at 2026/10/25/...--1d8c7c099b3b"
+        ]
+      },
+      "rationale": "The earlier Resultary record on the cycle-cancellation sieve gives both rank polynomials for arbitrary nilpotent chain type. Its weighted matching and signed cancellation formulas directly specialize to both advertised expressions, including the top coefficients by extracting the maximal-degree terms. The coverage is an exact mathematical implication, not a title match or a claim about classical journal priority.",
+      "residual_risks": [
+        "Unresolved additional journal coverage in the 2004 and 2020 papers does not alter the demonstrated catalogue implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers both frozen families",
+          "evidence": [
+            "Weighted matching enumerates the centralizer; signed deletion sieve gives its nilpotent polynomial."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-cycle-cancellation-sieve-for-nilpotent-centralizers-in-symmetr--1d8c7c099b3b",
+          "material_read": "RESULT.md Finding equations (1)–(2), associated proof at start, and prior-work passage near offset 8500",
+          "method": "Local Resultary mirror statement inspection and specialization",
+          "title": "A cycle-cancellation sieve for nilpotent centralizers in symmetric inverse monoids",
+          "trigger": "Same centralizer, arbitrary nilpotent type instead of only square-zero"
+        },
+        {
+          "assessment": "Structural membership precedent, not the evaluated formulas in the inspected passages",
+          "evidence": [
+            "Source-to-target components map by compatible initial/terminal segments."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0004972712000779",
+          "material_read": "Theorem 3.4, pp. 466–467, extracted offsets about 18000–22417",
+          "method": "Lawful primary text passage comparison",
+          "title": "Centralisers in the Infinite Symmetric Inverse Semigroup",
+          "trigger": "General centralizer description"
+        },
+        {
+          "assessment": "No prescribed centralizer in these results",
+          "evidence": [
+            "Nilpotents decompose into paths; maximal-rank counts concern the ambient monoid."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0013091500026778",
+          "material_read": "Theorem 2.8 and Corollary 2.9, pp. 387–388",
+          "method": "Lawful primary text passage comparison",
+          "title": "Nilpotents in Finite Symmetric Inverse Semigroups",
+          "trigger": "Unconditional nilpotent counting and maximal rank"
+        },
+        {
+          "assessment": "Exact rank coverage unresolved",
+          "evidence": [
+            "Unconditional enumeration is the comparison reported by the catalogue source."
+          ],
+          "identifier_or_url": "https://doi.org/10.1081/AGB-120038637",
+          "material_read": "Citation and scope reference in the prior record; full text unavailable",
+          "method": "Publisher retrieval (403) and lawful OA lookup",
+          "title": "On the Number of Nilpotents in the Partial Symmetric Semigroup",
+          "trigger": "Possible older rank-enumeration antecedent"
+        },
+        {
+          "assessment": "Exact enumerative coverage unresolved",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2020.1782926",
+          "material_read": "Bibliographic identification only in this inspection; full text unavailable",
+          "method": "Publisher retrieval (403) and lawful OA lookup",
+          "title": "The Structure of Centralizers in the Finite Symmetric Inverse Semigroup",
+          "trigger": "General centralizers in the same finite monoid"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §5; earlier general rank and sieve equations (1)–(2)."
+      ],
+      "rationale": "Rank distributions of nilpotent commutants are naturally motivated, but this record's entire advertised invariant is obtained by retaining only chain lengths one and two and regrouping known matching terms. The top-rank observation is then a one-term coefficient extraction. No separate unknown invariant or substantial surviving claim was established that would warrant a repair.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

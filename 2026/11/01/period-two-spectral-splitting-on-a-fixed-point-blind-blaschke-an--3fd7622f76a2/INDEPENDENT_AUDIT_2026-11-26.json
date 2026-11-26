@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:10:33.110976Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixedness gives y=0 and x+f_mu(x)=0 modulo one; the latter lift has derivative (1-mu²)/(1-2mu cos(2πx-alpha)+mu²)>0 and degree one. At x=arcsin(mu)/π the arctangent equals -arcsin(mu) and f'_mu=0. The two-step equations follow from y'=x'-x; the seed Jacobian has determinant 5, giving analytic continuation with primitive, disjoint cycles. Writing c=cos(2πa_0), the first displacement of both first coordinates is c mu/π. Substitution directly into the rational derivative gives d_a=2mu sin(2πa_0)+2(1-c)mu²+O(mu³) and d_b with the opposite linear term. The exact trace 7+3(d_a+d_b)+d_a d_b therefore has coefficient 8-12c+4c², which gives (25-7√5)/2 and (25+7√5)/2 in the stated order. This verifies the Finding analytically, without relying on the supplied Newton examples. For the last step differentiate the conjugacy equation for the second iterate once (rather than twice as worded in the proof); a C¹ diffeomorphic conjugacy preserves the two-step traces. The asymptotics and obstruction are local in mu.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rational Anosov paper identifies a dynamical determinant via trace-class composition operators and complex fixed-point multipliers under its hypotheses.",
+          "Shchetka uses the similarity of derivatives at corresponding points for C¹ rigidity, in different deformation families."
+        ],
+        "reasoning": "Aggregate determinant theory and the general periodic-data obstruction are relevant but do not give the individual real two-cycle expansions on this curve.",
+        "searches": [
+          "arXiv:2211.05925, Theorem 1.2 and Remark 1.4",
+          "arXiv:2610.19019, §4.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_periodic_data.py (read only)",
+        "arXiv:2402.14770",
+        "arXiv:2211.05925",
+        "arXiv:2610.19019",
+        "Resultary 344582591001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published trace formula singles out cos(alpha)=-mu; combined with the scalar shear form of the published map, trace 3 forces the full cat derivative. The nonconjugacy implication from unequal traces is the standard periodic-data argument."
+        ],
+        "reasoning": "Neither credited implication evaluates the first-order orbital displacement and the surviving second-order return traces; these are the distinct quantitative result.",
+        "searches": [
+          "arXiv:2402.14770 pp. 2–3, especially eqs. (2)–(5)",
+          "arXiv:2610.19019 §4.3",
+          "arXiv:2211.05925 Theorem 1.2 and Remark 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same determinant-one two-cycle trace and unstable eigenvalue or exponent encode each other via lambda+lambda^(-1). The matched spectra entry fixes alpha=0 and has exponent gap mu+O(mu²).",
+          "The fixed-point trace in the published family is 1+2(1+mu cos(alpha))/(1-mu²)."
+        ],
+        "reasoning": "Treating spectra as trace data does not identify the slices: alpha=0 has fixed trace greater than 3 for every positive parameter, while the moving phase has fixed trace 3. No C¹ conjugate reparameterization can transport the phase-zero data.",
+        "searches": [
+          "Resultary: Blaschke Anosov cat map fixed-point blind primitive two-cycle trace and Lyapunov spectra",
+          "arXiv:2402.14770, eqs. (2)–(5)",
+          "Resultary SCOPE-two-distinct-exact-prime-two-lyapunov-spectra-in-a-blaschke-anos--344582591001"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct mirrored exact calculation states the spectra for all 0<mu<1, but only at alpha=0; it uses the same undeformed cycle seeds.",
+          "The targeted constants search produced no usable mathematical passage; not negative evidence."
+        ],
+        "reasoning": "The actual closest statement has greater parameter range in one direction but does not cover the moving phase, and neither checked source gives the target orbit-resolved pair there.",
+        "searches": [
+          "Resultary search for period-two spectral splitting in the Blaschke cat-map family",
+          "Local mirror: 2026/11/1/SCOPE-two-distinct-exact-prime-two-lyapunov-spectra-in-a-blaschke-anos--344582591001/RESULT.md",
+          "Literature search using the quadratic constants and Blaschke two-cycle terms"
+        ]
+      },
+      "rationale": "The supported distinct result is the orbit-resolved unequal quadratic trace pair on the moving fixed-point-blind slice. The fixed-point condition and the conjugacy argument do not separately earn originality credit. The strongest related same-day exact spectra result concerns a different phase slice, with a different fixed-point trace for all positive parameters and a linear rather than quadratic splitting; this is a mathematical distinction, not a priority inference.",
+      "residual_risks": [
+        "Unindexed calculations or unchecked formulas for general phase could contain an equivalent expansion. Inspected passages do not establish exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the map and fixed data; blind fixed derivative follows from the trace and Jacobian form",
+          "evidence": "The fixed-point trace is 1+2(1+mu cos(alpha))/(1-mu²).",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.14770",
+          "material_read": "p. 3, eqs. (2)–(5), offsets 10043 and 10700",
+          "method": "OA primary text",
+          "title": "A numerical study of rigidity of hyperbolic splittings in simple two-dimensional maps",
+          "trigger": "Original torus map and potential direct coverage of blind curve"
+        },
+        {
+          "assessment": "Strong overlap but different phase and splitting order",
+          "evidence": "Alpha=0 for the full interval, with exponent gap mu+O(mu²).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-two-distinct-exact-prime-two-lyapunov-spectra-in-a-blaschke-anos--344582591001",
+          "material_read": "RESULT.md Finding and comparison section (offsets 0 and 6650)",
+          "method": "Local Resultary mirror",
+          "title": "Two distinct exact prime-two Lyapunov spectra in a Blaschke Anosov torus map",
+          "trigger": "Same family and exact orbit-level calculation"
+        },
+        {
+          "assessment": "Aggregate spectral formula, not the orbit-level coefficients",
+          "evidence": "Relates det(I-zC_T) to a dynamical determinant under the stated holomorphic hypotheses.",
+          "identifier_or_url": "https://arxiv.org/pdf/2211.05925",
+          "material_read": "pp. 3–4, Theorem 1.2 and Remark 1.4, offsets 11280 and 16600",
+          "method": "OA primary text",
+          "title": "Resonances for rational Anosov maps on the torus",
+          "trigger": "Possible broader periodic-data identity"
+        },
+        {
+          "assessment": "Covers the obstruction principle, not these cycles",
+          "evidence": "Corresponding derivative matrices are similar when the conjugacy derivative is invertible.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19019",
+          "material_read": "§4.3 pp. 13–15, offsets 38800 and 39827",
+          "method": "OA primary text",
+          "title": "Mixing Rates for Analytic Observables: Toral Endomorphisms and Anosov Blaschke Deformations",
+          "trigger": "Related Blaschke rigidity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the locus selected by the failure of the entire fixed-point derivative to detect deformation, not an arbitrary parameter restriction. Having both first available primitive periodic spectra split at quadratic order, with unequal explicit coefficients and a differentiable-rigidity obstruction, is useful quantitative periodic data beyond the generic fixed-point test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

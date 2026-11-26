@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,6 @@
 }
 ---
 
-# Verification of the finite Hom-complex census
+# Verification of the hexagon components
 
-Run `python3 verify.py` and compare exact stdout to `expected.txt`. The checker is standalone, requires Python 3.10 or later, and enumerates all walks, all one-coordinate transitions, and every Hom polyhedral cell as a tuple of finite sets. It checks all assertions and prints `ALL CHECKS PASSED` only after the complete census.
-
-The geometric circle classification of a 48-vertex component follows from its 24 triangular faces having disjoint boundary-edge sets; each can be removed along a free edge, leaving a connected graph of cycle rank one. The one large component has Euler characteristic \(-10\); the theorem of Fujii–Kimura–Nozaki (2024), with its verified hypotheses, establishes that this component has the homotopy type of the connected Petersen bipartite double cover. Its exact integral first Betti number is therefore eleven. The computation does not itself certify the published theorem or independent audit.
-
-The included finite computation proves the exact stated cases, not any larger-source or arbitrary-target family. It does not determine a full equivariant representation or construct a direct collapse of the large component.
+Run `python3 verify_hexagon_triangles.py` (standard library only) and compare with `expected.txt`. It enumerates the Kneser graph's rooted hexagons and constructs the triangles and their incidences by the insertion formula. It checks the intersection paths close to 24-cycles, that every recoloring from the constructed maps stays within the corresponding component, and that multiple mutable sites are always adjacent. The proof in `RESULT.md` uses square-freeness to exclude cells varying at multiple adjacent sites. The verification concerns ordinary graph-Hom cells for the specified graphs, not an all-length homotopy classification.

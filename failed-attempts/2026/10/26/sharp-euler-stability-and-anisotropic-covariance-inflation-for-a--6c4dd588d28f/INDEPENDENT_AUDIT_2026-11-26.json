@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:26:56.814179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–110; VERIFICATION.md and recorded verification-output.txt; verify.py inspected, not executed",
+        "Independent replay: python3 /workspace/audit-evidence/reproduce.py 2 (exact unnormalized elimination at eight rational parameter pairs and four isotropic two-step checks, including h=1/2 and h=1)"
+      ],
+      "rationale": "For the explicit Itô Euler update, normalize the second diagonal moment to t=λs. Put q=1+λ, u=1−2h, v=1−qh. Independence gives the diagonal transfer K=[[u²,2h],[2h,v²]] and forcing 2h(1,λ); the cross moment is multiplied by uv−2h. Its modulus is at most (u²+v²)/2+2h, a Rayleigh quotient of K, so the positive Perron eigenvalue controls all modes. A positive diagonal Perron vector is realizable as an initial second moment. For 0<h<1, the first minor of I−K is 4h(1−h) and the determinant is 4h²Fλ(h); F decreases to −1 and has the stated smaller quadratic root. For h≥1 the u² diagonal and nonzero off-diagonal force the Perron root >1. Fλ(1/2)=−(q−2)²/4, and ∂qFλ=2(1−h)(1−qh)>0 at the root for q<2, verifying the monotonicity and endpoint claims. In the stable range the stationary backward series is L²-convergent by geometric decay and orthogonality of distinct additive innovations conditional on the multipliers; synchronous coupling gives uniqueness in L². The stationary mean is zero since the mean map is stable. Solving the two forced moment equations verifies the stated variances and their difference h(1−λ)²/(2Fλ); each excess numerator stays strictly positive up to h*. At or beyond the boundary, projection on the positive Perron eigenvector contradicts the forced finite stationary equation and from zero gives respectively linear/geometric growth. This remains valid at λ=1,h=1/2, where K has a second eigenvalue −1; the forcing lies on the +1 eigenvector. The mean map is stable throughout 0<h<1.",
+      "residual_risks": [
+        "The result only classifies finite-second-moment stationarity and mean-square stability, not existence of heavier-tailed invariant laws. Rational checks are finite; the proof uses the exact operator."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The distinct Resultary entry gives the all-strength radical, exact covariances, strict inflation, W₂ convergence and failure at and beyond the boundary. Lang et al. give a general spectral-radius criterion but do not simplify it for this model. Louis et al. give a continuous-time spectral bound and covariance ODE."
+        ],
+        "reasoning": "The broad model-specific theorem is direct coverage; the abstract criterion and continuous-time estimates alone should not be mistaken for the explicit Euler answers.",
+        "searches": [
+          "494cc24da1b8, general λ,δ Finding",
+          "Lang–Petersson–Thalhammer (2017), Theorem 2.1 and Corollary 2.1",
+          "Louis–Pavliotis–Vilmart 2610.03191, §3.1 and §4.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 494cc24da1b8; Louis–Pavliotis–Vilmart 2610.03191; Abdulle–Pavliotis–Vilmart 1903.03024; Lang–Petersson–Thalhammer, DOI 10.1007/s10543-017-0684-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At A=2,D=q,a=1 the matched covariances give v_h−u_h= h(q²/2−2λ)/Fλ, equal to h(1−λ)²/(2Fλ). The mean–moment distinction follows immediately from the same diagonal mean map and exact moment boundary. Louis et al. use step 10⁻⁴ numerically and leave rigorous discretized analysis open; the foundational 2019 work uses Itô Euler simulations without the sharp formulas."
+        ],
+        "reasoning": "The main frozen conclusions and the directional bias follow mechanically from the exact indexed formulas, even though the directional difference is not displayed there.",
+        "searches": [
+          "494cc24da1b8, Finding (Δ,u_h,v_h) and normalized moment transfer",
+          "2610.03191, §6.1 and §7",
+          "Abdulle–Pavliotis–Vilmart 1903.03024, Theorem 1.2 and numerical section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The matched entry uses a=λδ², A=1+a, D=λ+a, and Y=S^(1/2)X. At a=1 its recursion is the frozen recursion in whitened coordinates, its u_h and v_h are p and λs, and Δ=4Fλ."
+        ],
+        "reasoning": "The whitened process is an invertible linear change for each λ>0; it preserves the class of finite-second-moment invariant laws and stability. The common critical-scaling radical is (λ+3−√(λ²−2λ+5))/(2(1+λ)).",
+        "searches": [
+          "Resultary: explicit Euler mean-square stability frontier two dimensional linear SDE anisotropic invariant covariance",
+          "Resultary: Euler-Maruyama critically scaled reversible Stratonovich Langevin covariance inflation",
+          "494cc24da1b8/RESULT.md, Finding and normalized update in Proof Step 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed radical is given explicitly even at critical scaling; exact covariance numerators and denominator are symbolic, not observed sample values. The primary lookup led to the cited continuous-time papers."
+        ],
+        "reasoning": "No extrapolation from a numerical table or abstract is necessary to establish the indexed match.",
+        "searches": [
+          "Resultary: two dimensional critical scaling delta equals lambda minus one half Euler invariant covariance exact stability frontier",
+          "Local mirror 494cc24da1b8, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "Literature lookup for Euler–Maruyama mean-square stability and invariant covariance of reversible Stratonovich Gaussian Langevin perturbations"
+        ]
+      },
+      "rationale": "Distinct indexed Resultary entry 494cc24da1b8 proves the larger two-parameter Itô Euler theorem for all λ>0 and perturbation strengths δ≥0. The frozen stability boundary, finite-moment law and stationary covariance are the critical scaling δ=λ⁻¹ᐟ²; the claimed normalized anisotropy is one subtraction of that entry's exact formulas, not a new independent invariant. The matched entry's path is dated November 8, later than the frozen October 26 path. This establishes present mathematical coverage, not earlier publication, derivation or priority.",
+      "residual_risks": [
+        "Chronology and provenance of the separately dated entries are not established by the paths; no priority assignment.",
+        "The related Buckwar–Kelly full text was inaccessible through attempted lawful routes, so earlier general structural results are not excluded. That access limitation is not the basis for FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact critical-scale claim as a special case",
+          "evidence": "A=1+a,D=λ+a; exact radical, Δ and u_h,v_h formulas; stationarity dichotomy and zero-start divergence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-euler-mean-square-stability-and-covariance-bias-for-revers--494cc24da1b8/RESULT.md",
+          "material_read": "Finding, assumptions and first normalized moment passage (offsets 0–4599)",
+          "method": "Local mirror reading",
+          "title": "Sharp Euler mean-square stability and covariance bias for reversible-noise Gaussian Langevin sampling",
+          "trigger": "Strongest matching Resultary entry"
+        },
+        {
+          "assessment": "Same continuous-time model; inspected statements do not supply the exact Euler result",
+          "evidence": "Itô drift Bδ=S+δ²λI and continuous covariance S⁻¹; Euler experiments and stated open discrete analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03191",
+          "material_read": "Eq. (17), Theorem 2, §4.2, §6.1 and §7 (PDF pp. 8, 11, 32, 38)",
+          "method": "OA PDF passage reading",
+          "title": "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics",
+          "trigger": "Same stochastic model and critical perturbation"
+        },
+        {
+          "assessment": "Continuous preservation and numerical examples, not matching sharp Euler formulas",
+          "evidence": "Continuous invariant measure and numerical Euler step 10⁻⁵ for the Itô formulation.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.03024",
+          "material_read": "Theorem 1.2 and Euler simulation passage, PDF pp. 3 and 5",
+          "method": "OA PDF passage reading",
+          "title": "Accelerated convergence to equilibrium and reduced asymptotic variance for Langevin dynamics using Stratonovich perturbations",
+          "trigger": "Foundational sampler paper"
+        },
+        {
+          "assessment": "Operator framework, not an explicitly evaluated threshold for this sampler",
+          "evidence": "Mean-square criterion via tensor-product transfer spectral radius.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-017-0684-7",
+          "material_read": "Theorem 2.1 and Corollary 2.1, journal pp. 968–970",
+          "method": "OA passage reading",
+          "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+          "trigger": "Potential general criterion covering the second-moment calculation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope; Resultary 494cc24da1b8, Finding and moment recursion"
+      ],
+      "rationale": "The step-size frontier and anisotropic stationary distortion are useful for tuning explicit simulation of this sampler, but are not substantively new relative to the exact all-strength indexed solution. The scalar variance subtraction and elementary mean-stability comparison do not create a new regime or independently valuable unknown invariant. The review does not deny the intrinsic practical value of the formulas.",
+      "residual_risks": [
+        "Incremental-value comparison does not establish independent rediscovery or historical priority."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

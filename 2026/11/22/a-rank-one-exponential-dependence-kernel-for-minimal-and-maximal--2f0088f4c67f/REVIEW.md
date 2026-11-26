@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event that a vertex is minimal (respectively maximal) is exactly the absence of all original incoming (outgoing) edges; transitive closure cannot alter this. Independent Bernoulli edge columns and rows give the marginal products. Exact shared-edge covariance sums to the displayed finite formula. For the entire joint law, the explicit two-copy Bernoulli interpolation identity and conditional boundary localization produce a uniform closed-bidisk remainder \(O_p((1+\log n)(1-p)^{n-1})\). Cauchy coefficient extraction is justified by this uniformity. The finite checker tests exact small cases and is not an infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The source/sink indicators are original-edge absence events, since any nontrivial directed path into a vertex has a last original incoming edge, and the outgoing statement is dual. The two marginal products follow from disjoint incoming and disjoint outgoing edge families. A minimal indicator at i and maximal indicator at j share one edge if j<i and none otherwise; their positive covariance is p q^(n+i−j−2) in the shared case. The resulting weighted geometric sum gives (4), including n=2. For the joint generating function, differentiating the two-copy edge-pair interpolation gives the product of finite differences multiplied by pq. For edge j→i the difference factors are (1−z)(1−w) with the selected indicators removed, and the two remaining absence events fix disjoint edge-pair coordinates with probability q^(n+i−j−3). For a central pair, the first L minimal and last L maximal indicators use disjoint coordinates, none fixed by conditioning, so their conditional joint PGF is exactly F_L(z)F_L(w). Each other minimal/maximal indicator has at most one incident coordinate made non-marginal by conditioning; after a union bound its additional contribution on the closed unit bidisk is O_p(q^(L−1)). The noncentral pairs up to gap L have at most 2L positions per gap, and the larger gaps have a geometric tail O_p(n q^(n−2+L)). With L of order log n and q^L≤n^−3, this bounds the integrated error uniformly by O_p((1+log n)q^(n−1)). The full weight sum multiplied by pq is n q^(n−1)+O_p(q^(n−1)); replacing F_L by F adds only a geometric error. This gives the normalization in (1), vanishing correction on either marginal axis, and Cauchy extraction gives (2) and the strictly positive leading (1,1) cell in (3).
 
-Albert and Frieze (1989), Section 3, give the separate minimal/maximal distribution, including the known product law and one-minimum probability. This does not imply the sharp bivariate rank-one correction. Bombelli, Seggev and Watson (2008) compute a post-count expectation and Euler-product bounds, not the bivariate boundary law. Brightwell (1995) and Bollobás–Brightwell (1997) examine logical and large-scale structural properties; only abstracts of these two were accessible, so potential hidden overlap remains. Relevant indexed sparse ordered-DAG and fixed-edge ordered-DAG results address \(p=c/n\) and asymptotically Gaussian linear-sized boundary counts, not fixed \(p\) with an exponential rank-one generating-function correction. Searches for equivalent source–sink joint generating functions and first asymptotic corrections did not reveal the theorem; absence from searches is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural joint statistic of the original random-poset model: minimal and maximal counts determine the lower and upper boundaries of the order. Exact marginal laws alone cannot quantify their finite dependence. The theorem gives the **entire** first nonzero joint-probability correction, not just a covariance or a one-event estimate; its rank-one factorization is a structural description of coupling between the two distant boundaries. It isolates an explicit scale for simultaneous unique-boundary events. No optimality or generalization to sparse density is claimed.
+The one-variable law is known, and the exact finite covariance (4) already appears in the proof of an earlier public Resultary record, even though that record's main asymptotic regime is sparse. Do not count (4) as novel. The substantive frozen result is (1), the full first dense joint-to-product correction with rank-one factorization, with (2)–(3) as consequences. The compared results do not give that correction. This is a qualified assessment against inspected evidence, not global priority certification.
 
-## Residual risk
+## value
 
-The full primary text of the 1995 and 1997 comparisons was unavailable, so historical novelty remains qualified. Independent audit and independent validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The uniform bivariate result quantifies the dependence left after two natural boundary counts have become asymptotically independent. It determines the leading signed joint law, including the simultaneous unique-minimum/maximum excess, far beyond one covariance or two marginal distributions. Its scale and factorization follow from explicit edge sharing and localization, not from an arbitrary parameter slice or numerical estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

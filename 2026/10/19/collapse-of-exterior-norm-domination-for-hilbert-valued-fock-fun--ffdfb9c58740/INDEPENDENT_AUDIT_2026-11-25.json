@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:45:22.386758Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–80",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing source code",
+        "Independent rational factor and factorial-pairing checks for (s,A)=(1,3),(2,3),(4,8),(9,8): −2, −7, −162, −412"
+      ],
+      "rationale": "Polar integration with t=|z|² gives Gaussian moments k!. For the C²-valued pair, the pointwise squared gap g−f is (t−1)(t−3)² and the squared Fock norms are 21 and 23, respectively; the same pair works on every smaller exterior with R≥1. For arbitrary s=R²>0, if u is perpendicular to all polynomials in L²((1+t)e^(−t)dt), its weighted Laplace transform is analytic for Re w<1/2 by Cauchy–Schwarz (also after differentiation on compact subsets); all derivatives at zero vanish. Its restriction to the imaginary axis is the Fourier transform of an L¹ density, so u=0. A nonzero real function compactly supported in (0,s) has negative signed quadratic integral against (t−s)e^(−t)dt. Polynomial approximation preserves this strict inequality by Cauchy–Schwarz and |t−s|≤max(1,s)(1+t). Splitting the real coefficients of (t−s)p² between orthogonal vector monomials gives exactly the nonnegative exterior gap and negative full Fock gap. The result also holds on the closed boundary, and uses only finitely many coordinates for each radius.",
+      "residual_risks": [
+        "The proof does not rule out a uniform finite dimension bound; it proves per-radius finite-coordinate existence, not a sharp radius below one for any fixed dimension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 44f533b061f9 states the sharp scalar radius sqrt(m1/m0) for arbitrary qualifying radial weights.",
+          "Resultary 4bcc547017ec states a scalar extremal/equality classification at the sharp radius for monotone radial weights."
+        ],
+        "reasoning": "These generalize the weights or sharpen scalar equality conditions, not the class of target spaces. The Gaussian moment separation on a half-line is classical in spirit; the substantive additional step is realizing it in the vector setting, with a separate low-degree C² witness.",
+        "searches": [
+          "Resultary radial-weight entire L² Korenblum radii and equality rigidity",
+          "arXiv:2609.39622v1 Theorem 1.2, moment-support reduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.39622v1",
+        "Resultary 44f533b061f9, 4bcc547017ec and 72a4c96da895"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar radial-weight criterion uses a measure supported on [R²,∞); the displayed Gaussian measure there is the law of 1+E.",
+          "The relevant signed quadratic form here is integrated against the original Gaussian radial law on [0,∞), not against that scalar comparison measure."
+        ],
+        "reasoning": "No contradiction to scalar domination follows from the negative Gaussian moment because the vector hypothesis cannot be used in the scalar quotient argument. Conversely the scalar theorem does not give the finite-vector realization or the two-coordinate obstruction.",
+        "searches": [
+          "Compare arXiv:2609.39622v1 Theorems 1.1–1.2 with the radial polynomial reduction at frozen RESULT.md lines 34–79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wikström, Theorems 1.1–1.2, pp. 2–3: sharp Gaussian radius 1 for scalar entire functions, with a scalar moment criterion.",
+          "Frozen RESULT.md lines 61–79: positive/negative coefficient splitting in orthogonal target coordinates."
+        ],
+        "reasoning": "Squared Hilbert norm comparison does not imply a scalar holomorphic modulus ratio. The construction realizes an arbitrary real radial gap polynomial by orthogonal vectors, while unrestricted sums of monomial squares generally do not arise as the modulus square of one scalar function.",
+        "searches": [
+          "Hilbert-/vector-valued Fock Korenblum maximum principle and exterior norm domination",
+          "arXiv:2609.39622v1, scalar theorem and radial moment criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected openings of Resultary 44f533b061f9 and 4bcc547017ec; their exact constants and equality data are scalar. The related 72a4c96da895 concerns a later scalar quantitative deficit."
+        ],
+        "reasoning": "The closest indexed exact values concern sharp scalar thresholds or equality. They do not give either the norm-23 versus norm-21 witness or the all-positive-radius vector failure. A bounded lookup does not establish absence.",
+        "searches": [
+          "Resultary exact counterexamples to Fock exterior domination, Korenblum witnesses, vector-polynomial witnesses"
+        ]
+      },
+      "rationale": "The supported contribution is the vector-valued failure, including the two-coordinate polynomial obstruction at the scalar sharp radius, and the realization of an arbitrary-radius moment obstruction by finite-coordinate polynomial pairs. The scalar principle and general moment-localization techniques are not claimed as new.",
+      "residual_risks": [
+        "Vector-valued Korenblum priority or a positive-radial-polynomial reformulation in uninspected literature remains possible. No claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scalar theorem; not a vector comparison or counterexample",
+          "evidence": [
+            "Scalar modulus domination at |z|>1, scalar equality, and support criterion for a scalar radial-weight comparison measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.39622",
+          "material_read": "v1, PDF pp. 2–3, Theorems 1.1 and 1.2, extracted offsets 6237–10718",
+          "method": "Primary open-access PDF",
+          "title": "The sharp radius in Korenblum’s maximum principle for the Fock space",
+          "trigger": "Sharp Gaussian radius and potentially stronger scalar moment criterion"
+        },
+        {
+          "assessment": "Broader weights, same scalar target",
+          "evidence": [
+            "Sharp radius expressed as sqrt(m1/m0) for scalar entire functions."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11, 44f533b061f9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published source in local mirror",
+          "title": "Sharp Korenblum radius for every radial entire function L² norm",
+          "trigger": "Earlier broader-looking radius result"
+        },
+        {
+          "assessment": "Scalar equality result",
+          "evidence": [
+            "Equality at the sharp radius for non-increasing radial weights; no vector hypothesis in the inspected statement."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11, 4bcc547017ec",
+          "material_read": "RESULT.md opening, offset 0",
+          "method": "Published source in local mirror",
+          "title": "Universal extremal rigidity for monotone weighted Fock Korenblum domination",
+          "trigger": "Potential earlier exact Fock extremizers or witnesses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–25 and 34–80"
+      ],
+      "rationale": "The sharp scalar conclusion fails in the first larger Hilbert dimension at radius one, even for cubic polynomials, and the infinite-dimensional version loses every positive radius despite admitting finite-coordinate tests. These are structural limitations on scalar-to-vector transfer, not just altered constants in a scalar statement.",
+      "residual_risks": [
+        "No fixed-dimensional transition below radius one is classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

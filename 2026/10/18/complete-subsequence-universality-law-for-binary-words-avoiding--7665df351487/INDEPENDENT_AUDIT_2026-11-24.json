@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:33:06.934068Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, especially lines 35–96",
+        "Frozen VERIFICATION.md and CHECK.py",
+        "Replay: python /workspace/audit_replay.py 1; /workspace/review-evidence/1.txt"
+      ],
+      "rationale": "The last letters of the complete greedy arches, followed by a letter absent from the remaining suffix, give a missing subsequence of length one beyond the arch count: each successive earliest match is the corresponding arch endpoint. For counting, the first complete arch has two choices at length two and two at length three. After any arch the terminal run has length one; there are two possible next arches of length two and one of length three, and the optional incomplete suffix has series 1+2t+t^2. With no complete arch the series is 1+2t+2t^2. Summing gives the displayed rational series. Each arch uses two or three bits and the suffix at most two; alternation and (001)^m followed by at most two zeros attain the endpoints, including the empty word case. At u=1 the simple positive dominant pole is separated from the other roots and its numerator is nonzero; analytic continuation gives a uniform exponential remainder locally. Differentiating its inverse-root equation in log u yields the stated first and positive second cumulant slopes, and the centered characteristic functions yield the normal law and rounded threshold. An independent direct count via run compositions and sets of position-subsequences agrees at n=0 through 14.",
+      "residual_risks": [
+        "The replay covers finite histograms, not the analytic limit; the latter is established by the pole argument.",
+        "The distribution and limit apply to uniform linear admissible words, not arbitrary regular-language weights or cyclic words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamson et al. count k-universal paths and words in finite automata with finite length constraints.",
+          "The later 2026-10-25 UTC general-cap record specializes at cap 2 to the exact-index law and the full support condition. The distinct 2026-11-02 UTC general-cap record 19bfcecdc328 includes that support and a CLT whose cap-2 slopes agree exactly."
+        ],
+        "reasoning": "The automata theorem applies to this language, but returns counts at prescribed finite lengths, not closed generating and asymptotic laws. The later general-cap formulas are genuinely dominating statements over cap 2, not different-object near matches.",
+        "searches": [
+          "arXiv:2311.10658v1 Section 4, Theorem 26 and Corollary 28",
+          "Resultary 3a8f24d1254e and 19bfcecdc328"
+        ]
+      },
+      "checked_sources": [
+        "Barker et al. arXiv:2003.04629v1",
+        "Adamson et al. arXiv:2311.10658v1",
+        "Resultary 3a8f24d1254e, 90991c40cee8 and 19bfcecdc328"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General finite-length word counters can evaluate each coefficient, not the arch-boundary renewal law or its dominant root. The all-cap support constraint gives 2k≤n≤3k+2 at cap two, and the later cap-two specialization of the normalized renewal variance is 1−11/(5√5), equal to the frozen coefficient."
+        ],
+        "reasoning": "The specific renewal law and nondegenerate fluctuation scale require analyzing this language's cross-boundary continuations and pole; they are not direct instantiations of the earlier counting-algorithm theorem. The later indexed stronger results do imply the corresponding components exactly.",
+        "searches": [
+          "Barker et al. arXiv:2003.04629v1 Section 2",
+          "Adamson et al. arXiv:2311.10658v1 Section 4",
+          "Resultary 3a8f24d1254e and 19bfcecdc328 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al. identify universality through greedy arch factorisation but do not specify the run-two law in the inspected characterization.",
+          "Resultary 90991c40cee8, indexed 2026-11-02 UTC, gives the same run-two bivariate law, equivalent binomial coefficients and the same normal constants."
+        ],
+        "reasoning": "Replacing subsequence universality by greedy complete arches leaves the statistic exactly the same; only its distribution under this run restriction is in scope. The exact duplicate comparison is material, but it establishes no antecedent to the October 18 frozen record.",
+        "searches": [
+          "Resultary: binary run-two words, arch count, scattered-factor universality, exact generating function and Gaussian law",
+          "arXiv:2003.04629v1 Section 2, Definition 4 and Remark 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 2 exact-cap Finding contains the same rational series and equivalent binomial counts for positive index with separate index-zero cases. The two November 2 records are distinct. No earlier exact tabulation was established by the checked sources."
+        ],
+        "reasoning": "These are exact overlaps in indexed material, not merely neighboring run constraints. They are indexed after the frozen date; their timestamps alone establish neither first discovery nor precedence over the frozen claim.",
+        "searches": [
+          "Local Resultary comparisons of 90991c40cee8, 3a8f24d1254e and 19bfcecdc328"
+        ]
+      },
+      "rationale": "The arch characterization and general finite-length counting algorithms are prior work. The distinct claim supported for the frozen record is the joint all-length law with exact extremal and fluctuation behavior for uniform run-two words. No stronger earlier result was established that supplies that law. There are materially equivalent and broader indexed later statements; this judgment is not a claim that the formulas remain unique in the corpus or a conclusive priority ruling.",
+      "residual_risks": [
+        "The inspected index dates and statements do not establish provenance between overlapping records.",
+        "Broader web searching was unavailable or did not produce a relevant usable match; this is not evidence of absence. Earlier unindexed or differently formulated work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior arch characterization, not the specialized law in the inspected passage",
+          "evidence": [
+            "A factorisation with k arches yields k-universality."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+          "material_read": "Section 2, Definition 4 and Remark 3, HTML offset 19795",
+          "method": "Lawful OA HTML and definition comparison",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Equivalent arch statistic"
+        },
+        {
+          "assessment": "Prior general finite-length counting algorithms, not the asserted analytic law",
+          "evidence": [
+            "Counting accepting paths or words at specified lengths or up to a length bound is the algorithmic task."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2311.10658v1",
+          "material_read": "Section 4, Theorem 26 at offset 80548 and Corollary 28 at offset 83508",
+          "method": "Lawful OA HTML; compared output and hypotheses",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "General theorem on counting words of regular languages"
+        },
+        {
+          "assessment": "Later indexed generalization of counting and exact support",
+          "evidence": [
+            "Per-index generating function is 2z^(2k)A_R(z)T_R(z)^(k−1)(1+zT_R(z)); support 2k≤n≤(R+1)k+R."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror, cap specialization",
+          "title": "Run-limited binary words: exact subsequence-universality spectrum and sharp forcing thresholds",
+          "trigger": "General cap may dominate run-two law"
+        },
+        {
+          "assessment": "Equivalent available statement, later index date",
+          "evidence": [
+            "Same bivariate series and Gaussian mean and variance slopes; equivalent coefficient formula."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-subsequence-universality-law-for-binary-words-with-runs-of--90991c40cee8",
+          "material_read": "RESULT.md Finding at offset 292",
+          "method": "Local Resultary mirror, compared series, coefficients and limit",
+          "title": "Exact subsequence-universality law for binary words with runs of length at most two",
+          "trigger": "Apparent exact duplicate"
+        },
+        {
+          "assessment": "Later broader claim; distinct from 90991c40cee8",
+          "evidence": [
+            "Cap-two specialization gives mean slope 1/√5 and variance slope 1−11/(5√5)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local Resultary mirror, compared support and Gaussian formula at cap two",
+          "title": "Run-capped binary words have an exact subsequence-universality spectrum",
+          "trigger": "Another apparent dominating cap theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–33 and 70–96",
+        "Adamson et al. Theorem 26 and Corollary 28"
+      ],
+      "rationale": "For a natural regular constraint and a standard measure of scattered-subsequence coverage, the answer gives the exact law at every length, sharp attainable lengths, and a quantitative threshold for randomly sampled constrained words. In particular the small strictly positive variance constant is useful for distinguishing worst-case and typical coverage; it is not given by the generic finite-length algorithm.",
+      "residual_risks": [
+        "This is an explicit tractable model, not an advance for arbitrary alphabets, run caps or sampling laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

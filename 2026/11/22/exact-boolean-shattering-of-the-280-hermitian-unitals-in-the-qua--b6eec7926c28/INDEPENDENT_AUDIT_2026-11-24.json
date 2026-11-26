@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:52:04.133799Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated all 293,930 nine-point subsets using lines defined by normalized projective covectors over F4. Exactly 280 have line intersections in {1,3}, matching the XORs of nonconcurrent line triples. Such a triple is projectively equivalent to the coordinate triangle, whose XOR is the zero set of the identity Hermitian form. Conversely nonsingular Hermitian forms are congruent and their zero loci are unitals. Instead of the supplied trace loops, tallied global containing-unital multiplicities and performed Boolean Möbius inversion on each contained six-set: all 64 counts are positive on each of 23,520 sets, with minimum count 1. Every contained five-set occurs twice, every contained six-set once. The all-positive pattern forces containment; any contained support of size at most six extends to a shattered six-set, whereas a six-positive/seventh-negative request fails by six-set uniqueness. This gives the exact polynomial 1+21z+210z^2+1330z^3+5880z^4+17640z^5+23520z^6 and purity. The independent run also gives the collinear/noncollinear three-point complement split 3,360/20,160. It is exhaustive in PG(2,4), not an extrapolation. Replay: python3 /workspace/branches/independent_unitals.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The ghost classification counts 4096 codewords and distinguishes the 280 Hermitian unitals.",
+          "The nearby Baer-subplane theorem (dfffb74a4ac5) studies 360 concepts and VC dimension four."
+        ],
+        "reasoning": "Counting a larger linear class, or optimizing traces for a different projective concept family, does not certify traces for the unital subfamily.",
+        "searches": [
+          "DOI 10.1007/s00022-022-00662-2, unital and ghost classification",
+          "Resultary: unital shattering and nearby projective-plane concept classes"
+        ]
+      },
+      "checked_sources": [
+        "10.1007/s10623-019-00690-1",
+        "10.1007/s00022-022-00662-2",
+        "Resultary dfffb74a4ac5 and the self-match for the assigned finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Each unital is the symmetric difference of three nonconcurrent lines. This supplies the concept family, not the positive multiplicities of all traces on each admissible six-set."
+        ],
+        "reasoning": "Reconstructing the family from prior work supplies inputs for a fresh containment and trace calculation. Neither the aggregate counts nor the stated parity constraints perform that calculation or provide the six-set containment and full Boolean trace lemma as a corollary.",
+        "searches": [
+          "De Bruyn–Gao §3: unitals as line triangles and intersection results",
+          "Della Vedova–Pagani–Pianta: zero-locus and line-sum classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Bruyn–Gao §3 gives 280 unitals and their geometry and studies parity and code properties."
+        ],
+        "reasoning": "Projecting the 280 incidence words to a chosen support gives exactly its trace set, whereas projecting their linear span may add traces with no unital realization. The latter does not prove universality for the former.",
+        "searches": [
+          "Hermitian unitals PG(2,4), point-membership traces, 64 patterns, incidence-code puncturing",
+          "De Bruyn–Gao DOI 10.1007/s10623-019-00690-1, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest exact Resultary hit was the frozen finding itself, not another source.",
+          "The inspected ghost census tabulates types and counts, not restricted six-coordinate patterns."
+        ],
+        "reasoning": "A full containment-multiplicity or trace table on the relevant supports could settle this check. No such earlier table was identified in the consulted material.",
+        "searches": [
+          "Resultary: Hermitian-unitals six-point shattering and complete support census",
+          "Della Vedova–Pagani–Pianta, classification pp. 11–12"
+        ]
+      },
+      "rationale": "The family and its geometric construction are classical. The additional assertion is local universality on every contained six-set of the restricted 280-member family, with the sharp obstruction and full face counts. No checked source establishes that assertion or a theorem giving it by specialization.",
+      "residual_risks": [
+        "A prior unindexed exact projection table, orbit-level trace analysis, or containment-multiplicity theorem could give equivalent coverage. Bounded searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the family, not the trace result in the inspected statements",
+          "evidence": [
+            "280 unitals; nonconcurrent-line XOR representation; parity relations with Baer subplanes and hyperovals."
+          ],
+          "identifier_or_url": "https://biblio.ugent.be/publication/8669545/file/8669546.pdf",
+          "material_read": "Accepted manuscript §3, especially p. 6",
+          "method": "Lawful open PDF passage",
+          "title": "On four codes with automorphism group PΣL(3,4) and pseudo-embeddings of the large Witt designs",
+          "trigger": "Same unitals and binary incidence setting"
+        },
+        {
+          "assessment": "Family and codeword census; distinct endpoint",
+          "evidence": [
+            "280 Hermitian unitals as sums of three non-pencil lines among 4096 ghosts."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00022-022-00662-2",
+          "material_read": "Classification passage pp. 11–12",
+          "method": "Open article passage",
+          "title": "Power sum polynomials and the ghosts behind them",
+          "trigger": "Potential complete incidence census"
+        },
+        {
+          "assessment": "Different concept class, irrespective of same-day ordering",
+          "evidence": [
+            "360 Baer subplanes and VC dimension four, not the unital family."
+          ],
+          "identifier_or_url": "dfffb74a4ac5",
+          "material_read": "Indexed claim summary",
+          "method": "Resultary comparison",
+          "title": "Baer-subplane shattering in PG(2,4)",
+          "trigger": "Nearby result with the same ambient plane and invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical finite incidence family the answer tells exactly which six membership queries admit every labeling, not just the maximum number of queries. Uniqueness at six pinpoints the first obstruction, and the exact support counts and complement types distinguish incidence cases that a generic VC upper bound cannot resolve. This is useful for point-query and finite-design comparisons without assuming generalization to higher field orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

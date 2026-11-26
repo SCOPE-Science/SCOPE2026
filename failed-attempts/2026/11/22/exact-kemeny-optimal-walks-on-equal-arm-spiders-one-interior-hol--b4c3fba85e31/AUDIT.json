@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For any positive tree edge probabilities the Kemeny spectral sum is exactly (1/N) times the sum of component-size products divided by edge weights; strict convexity yields unrestricted uniqueness and arm symmetry. A direct KKT multiplier certificate verifies all active/slack vertex caps for \\(k\\ge3\\), \\(L\\ge3\\), using monotone \\(c_j\\) and strictly increasing ratios \\(c_{2i}/c_{2i+1}\\). Explicit coefficient sums prove the sharp asymptotic objective and \\(k/2\\) comparator. Extracted verify.py independently checks 5684 exact-inequality pairs and 60 spectral matrix cases; finite checks support but do not replace the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patel, Agharkar and Bullo, 2015, https://motion.me.ucsb.edu/pdf/2014b-pab.pdf, provides a broad convex formulation but not an explicit spider-family solution.",
+        "Published SLEM spider comparison: https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-exact-nonnegative-fastest-mixing-on-depth-three-spider-trees--4d7800ee60ec — minimizes the second-largest eigenvalue modulus, a different functional.",
+        "Prior Kemeny broom and path closed forms concern one long arm with leaves or two arms, not k>=3 equal long arms."
+      ],
+      "reasoning": "A general convex program contains this case implicitly as an optimization input but supplies neither its solution, exact support pattern nor asymptotic comparator. A known SLEM solution need not minimize sum of reciprocal Laplacian eigenvalues. The prior natural tree subfamilies do not cover the domain \\(k\\ge3\\), \\(L\\ge3\\).",
+      "searches": [
+        "Unique Kemeny optimal symmetric stochastic walks on broom trees versus symmetric spiders and starlike trees",
+        "Trace pseudoinverse Laplacian optimal edge weights vertex degree capped on multiarm spiders",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1208.4716",
+      "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf",
+      "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+      "https://doi.org/10.13001/1081-3810.3222",
+      "https://arxiv.org/abs/2109.09249"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agharkar, Patel and Bullo (2014): https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf — general convex design.",
+        "Patel, Agharkar and Bullo (2015): https://motion.me.ucsb.edu/pdf/2014b-pab.pdf — general SDP and examples, not this all-size KKT formula.",
+        "Kirkland and Zeng (2016): https://doi.org/10.13001/1081-3810.3222 — Kemeny values for ordinary tree random walks/edge-addition effects, different feasible set.",
+        "Zeng (2021): https://arxiv.org/abs/2109.09249 — degree-normalized random walks with fixed edge-weight multiset and tree arrangements, not unconstrained symmetric stochastic probabilities."
+      ],
+      "reasoning": "None of the inspected published statements implies the precise unique optimizer \\(w_1=1/k\\), all subsequent alternating weights, unique interior slack junction or asymptotic \\(k/2\\) penalty without solving an additional nontrivial constrained optimization. Existing optimization setup is a method, not an already stated stronger theorem. An inaccessible or unindexed equivalent would affect priority.",
+      "searches": [
+        "Kemeny constant minimization on uniform stationary k-leg paths spider trees equal legs optimal edge transitions",
+        "Unique Kemeny optimal symmetric stochastic walks on broom trees versus symmetric spiders and starlike trees",
+        "https://doi.org/10.13001/1081-3810.3222",
+        "https://arxiv.org/abs/2109.09249"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The resistance identity equates the zero-target Kemeny spectral sum with the all-pairs effective-resistance sum divided by the number of vertices on a symmetric uniform-stationary chain.",
+        "Agharkar–Patel–Bullo (2014) and Patel–Agharkar–Bullo (2015) develop the general reversible Kemeny optimization, without the equal-arm-spider closed-form allocation: https://motion.me.ucsb.edu/pdf/2014b-pab.pdf"
+      ],
+      "reasoning": "An unweighted-spider Kemeny formula, a degree-normalized-walk Kemeny formula and a spectral-radius fastest-mixing result are not equivalent to optimization over all independent symmetric stochastic edge probabilities. The exact KKT classification, not mere objective re-expression, is new relative to these inspected sources.",
+      "searches": [
+        "Exact Kemeny optimal reversible doubly stochastic transition probabilities on equal-arm spider trees with all arm lengths and degrees; alternating edge weights one interior holding state",
+        "Kemeny constant minimization on uniform stationary k-leg paths spider trees equal legs optimal edge transitions",
+        "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic matches concerned fastest mixing, extremal tree structure or different stationary laws; no retrieved entry contained the exact all-size Kemeny edge-probability table.",
+        "No exact spider Kemeny optimizer table identified in the consulted primary literature, including the full 2014/2015 optimization papers."
+      ],
+      "reasoning": "The result is an infinite-family symbolic formula and an exact active-set certificate, not an observed finite numerical table. Failure of indexed searches cannot exclude a table hidden in unindexed materials.",
+      "searches": [
+        "Exact Kemeny optimal reversible doubly stochastic transition probabilities on equal-arm spider trees with all arm lengths and degrees; alternating edge weights one interior holding state",
+        "Trace pseudoinverse Laplacian optimal edge weights vertex degree capped on multiarm spiders",
+        "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf"
+      ]
+    },
+    "rationale": "Related general Kemeny convex optimization frameworks and tree-specific fixed-weight or SLEM results do not state or imply this exact equal-arm-spider solution, its single interior holding junction, or its \\(k/2\\) asymptotic uniform-edge penalty. The closest retrieved primary sources were compared at claim level; an unindexed identical result is a residual publication-priority risk.",
+    "residual_risks": [
+      "The 2016 Kirkland–Zeng primary PDF could not be retrieved; comparison is based on accessible original article opening and abstract, not a claim to have read its full text.",
+      "Potential unindexed or inaccessible exact symmetric-stochastic spider special case may predate this work.",
+      "The general convex design method encompasses this graph as an input but was not asserted to pre-establish its explicit optimizer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General chain-design framework; no all-size equal-arm-spider closed-form support classification",
+        "evidence": [
+          "Defines first passage-based Markov-chain design under stochastic constraints, not an explicit spider family theorem."
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf",
+        "material_read": "PDF first pages, formulation and related optimization results",
+        "method": "Open-access PDF text, page screenshots and targeted text inspection",
+        "title": "Robotic surveillance and Markov chains with minimal first passage time",
+        "trigger": "Direct convex-optimization predecessor for Kemeny-optimal reversible stochastic chains"
+      },
+      {
+        "assessment": "Provides a general convex or semidefinite program; does not give \\(k\\ge3\\), \\(L\\ge3\\) alternating Kemeny-optimal spider closed form",
+        "evidence": [
+          "Constrained Kemeny design formulations cover the optimization class abstractly, but the specific active-set solution and asymptotic ratio are not supplied."
+        ],
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-pab.pdf",
+        "material_read": "Primary full-text PDF including model, optimization derivations and appendices relevant to special cases",
+        "method": "Open-access PDF extraction, screenshots and full-text searches for spider/tree and specialized formulas",
+        "title": "Robotic Surveillance and Markov Chains With Minimal Weighted Kemeny Constant",
+        "trigger": "Closest broad mathematical framework; could dominate proposed claim"
+      },
+      {
+        "assessment": "Ordinary tree random walk and link addition, distinct stochastic-design degrees of freedom; full-text coverage remains a residual priority risk",
+        "evidence": [
+          "Published 2016, Electronic Journal of Linear Algebra 31:444–464; studies changing graph connectivity rather than independently optimizing all symmetric transition probabilities."
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/1081-3810.3222",
+        "material_read": "Article abstract and substantial HTML-accessible opening text; primary PDF fetch unsuccessful, not a full-paper exclusion",
+        "method": "Accessible bibliographic/article text, attempted primary PDF",
+        "title": "Kemeny’s Constant and an Analogue of Braess’ Paradox for Trees",
+        "trigger": "Primary tree Kemeny result with possible structural overlap"
+      },
+      {
+        "assessment": "Varies topology/weight placement for degree-normalized random walks; not uniform-stationary symmetric stochastic walks with vertex cap",
+        "evidence": [
+          "The stationary distribution varies with weighted degrees, unlike the uniform distribution held fixed by symmetric stochasticity."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.09249",
+        "material_read": "PDF introduction, definitions and theorems on fixed-weight-multiset tree transformations",
+        "method": "Open-access primary PDF text and page screenshots",
+        "title": "On average hitting time and Kemeny’s constant for weighted trees",
+        "trigger": "Weighted-tree Kemeny formula may dominate stationary-design variants"
+      },
+      {
+        "assessment": "General Kemeny-constant theory; serves as foundational focal source (2012-08-23), not a complete spider optimization result",
+        "evidence": [
+          "ArXiv submission 2012-08-23."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.4716",
+        "material_read": "Date-stamped arXiv title page/abstract and background description, not a full-text novelty exclusion",
+        "method": "ArXiv landing record",
+        "title": "The Role of Kemeny’s Constant in Properties of Markov Chains",
+        "trigger": "Earliest date-verified focal reference and spectral Kemeny convention"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4c3fba8-5e31-4bc9-9e80-fb20a5e6dc4e",
+  "value": {
+    "rationale": "Equal-length spider trees are natural multi-route transport networks. Exact active-set determination for every number of arms and each path length is a nonroutine structural optimizer result. Unlike numerical SDP outputs, the theorem identifies a unique depth-one holding junction and all other active constraints with an explicit formula; its \\(k/2\\) asymptotic ratio shows that maximum-degree equal-edge conductances can be arbitrarily suboptimal as hub degree grows. The precise all-size network design and its degree-dependent penalty motivate this invariant.",
+    "status": "PASS"
+  }
+}

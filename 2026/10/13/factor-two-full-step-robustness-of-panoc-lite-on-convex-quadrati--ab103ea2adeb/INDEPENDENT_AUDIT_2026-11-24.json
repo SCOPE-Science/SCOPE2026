@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:53:33.715141Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–115 and 117–311",
+        "Frozen artifacts/verify_panoc_lite_quadratic.py lines 3–84 and VERIFICATION.md",
+        "Bodard et al. arXiv:2604.14503v1, Eq. (2)–(3), Lemma 2 and Algorithm 1",
+        "Independent exact rational replay using A=diag(2,1), B with diagonal 1 and off-diagonal 1/2, gamma=3/4, sigma=1/8 and theta=0,1/2,1,3/2,2, and scalar rejection for theta=−1/2,5/2 using gamma=1/2 and sigma=37/100"
+      ],
+      "rationale": "With P=(I+gamma B)^(-1) and u=P(z−gamma b), the prox equation gives (z−u)/gamma=Bu+b, so the source normal residual is Hu+a+b with invertible Jacobian HP, in that order even for noncommuting A,B. Its Newton direction is exactly z_*−z, for z_*=(I+gamma B)x_*+gamma b. At the full trial, affine prox yields x_*+(1−theta)(y−x_*); quadratic energy above the minimum is therefore (1−theta)^2 times that at y. To check the decrease independently, put d=y−hat x. Quadratic Taylor identities and proximal optimality give phi(y)−phi(hat x)=−||d||^2/gamma+d^T(A−B)d/2, at most −gamma(2−gamma L_f)||R_nat(hat x)||^2/2. Thus every theta in [0,2] passes, strictly at nonstationarity because sigma is below that coefficient; theta=1 lands at x_*. No invertibility of the forward map is needed. For any fixed theta outside the interval, choose the scalar L=1, g=0, gamma=1/2, hat x nonzero. Acceptance requires (1−theta)^2/4<=1−2sigma. The admissible upper limit sigma=3/8 is excluded, but the right side tends down to 1/4 there, proving existence of a rejecting admissible sigma for each such theta. This is universal sharpness over the legal parameters, not a claim about every fixed sigma.",
+      "residual_risks": [
+        "The legal interval is strictly 0<gamma<2/L_f, with no claim at its excluded upper endpoint. The finite replay does not establish the universal claim; no formal verification is credited.",
+        "The direction must be exact normal Newton up to scalar; a generic quasi-Newton direction is not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "PANOC-lite's permitted algorithmic stepsize is (0,2/L_f), while its Dennis–Moré specialization in Thm. 13 assumes (0,1/L_f). Its general full-step statement is eventual under superlinear directions, not uniform over all quadratic iterates and relaxation scales.",
+          "Zeng et al. Thm. 3.14 treats eventual unit backtracking step near a solution under regularity and direction-accuracy hypotheses; the Bregman linesearch work concerns a Bregman forward-backward envelope and local superlinear convergence."
+        ],
+        "reasoning": "A convergence theorem for a larger class does not dominate a from-any-iterate statement with a precise sharp relaxation range; the needed conclusion and parameters are not included.",
+        "searches": [
+          "Bodard et al. arXiv:2604.14503v1, Lemma 2, Algorithm 1, Remarks 5–6 and Thm. 13",
+          "Zeng–Ouyang–Milzarek arXiv:2602.13000v1, Algorithm 1 and Thm. 3.14",
+          "Ahookhosh–Themelis–Patrinos arXiv:1905.11904v2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.14503v1 and 2602.13000v1",
+        "arXiv:1905.11904v2 (opening scope)",
+        "Resultary d7f69b5d9c40 and 78fb0fd40ae7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining method implies sufficient decrease at the proximal-gradient fallback. For a scaled exact direction one still needs the proximal energy identity and a worst-case calculation; fallback sufficiency alone gives neither equality at theta=2 nor rejection for arbitrary theta outside [0,2].",
+          "Eventually accepting exact or inexact superlinear directions does not classify fixed relaxations, which need not be superlinear."
+        ],
+        "reasoning": "Credit the sharp global algorithm-specific scaling result, not the familiar one-step Newton root identity in isolation. No inspected prior entails the full interval and its optimality.",
+        "searches": [
+          "Bodard et al., Algorithm 1, Lemma 2 and the superlinear-acceptance results",
+          "Zeng et al. Thm. 3.14 and merit test (8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The merit in PANOC-lite uses the actual objective at the proximal point and sufficient decrease in the natural residual; its Newton directions use the normal residual. A normal-map zero at the trial only proves the exact-Newton target after acceptance.",
+          "Zeng et al. Eq. (8) and Algorithm 1 use the proximal objective plus a normal-residual square and a proximal-displacement penalty. Their alpha is a backtracking trial, not a user-supplied fixed relaxation theta of exact normal Newton."
+        ],
+        "reasoning": "These methods share the normal-map object but do not test equivalent merit inequalities or state equivalent quantifiers. Sharpness is about direction scaling with the PANOC-lite backtracking parameter fixed to one.",
+        "searches": [
+          "Resultary semantic lookup for PANOC-lite, exact/relaxed normal Newton, full step and sharp quadratic threshold",
+          "Bodard et al. arXiv:2604.14503v1, Algorithm 1 and normal residual definitions",
+          "Exact-title lookup for the related normal-map linesearch of Zeng–Ouyang–Milzarek"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first record is a scalar-quadratic zeroth-order proximal Newton stopping-rule counterexample; the second treats termination probability for a rank-one Gaussian sketched Newton method, not this composite line search."
+        ],
+        "reasoning": "This is a symbolic interval maximal over problem instances and legal parameters, not a finite table. The nearby exact catalogue results concern different procedures and quantifiers.",
+        "searches": [
+          "Resultary records 2026/10/12/SCOPE-a-raw-step-stopping-mismatch-in-zeroth-order-proximal-newton--d7f69b5d9c40 and 2026/10/13/SCOPE-sharp-two-step-termination-frontier-for-coupled-gaussian-subspac--78fb0fd40ae7"
+        ]
+      },
+      "rationale": "The defining paper supplies a decrease test and eventual superlinear-step result, not this global characterization of relaxed exact normal Newton on quadratics. Newton solving an affine residual by itself is standard. The supported distinction is universal acceptance for every admissible decrease parameter, including the part of the stepsize range at and above 1/L_f, together with the matching failure outside the relaxation interval. The closest inspected independent normal-map Newton algorithm uses a different merit and only an eventual unit-step guarantee.",
+      "residual_risks": [
+        "Bounded comparisons cannot exclude another explicit quadratic specialization. The Zeng et al. published server did not yield a readable PDF; the identified lawful preprint was read, so any published-version differences are unassessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the decrease bound and tests; different conclusion and quantifiers from the frozen result",
+          "evidence": "gamma is strictly in (0,2/L_f) and sigma is strictly below gamma(2−gamma L_f)/2. The Dennis–Moré result instead assumes gamma<1/L_f.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.14503v1",
+          "material_read": "PDF pp. 2–3, Eqs. (2)–(5), Lemma 2, Algorithm 1 and Remarks 5–6; p. 5, Thm. 13",
+          "method": "OA PDF passages at offsets 10300–15795, 22600–27768 and near 39877",
+          "title": "PANOC-lite: A simpler and more efficient algorithm for composite minimization",
+          "trigger": "Defining algorithm, exact stepsize ranges and most plausible same-algorithm theorem"
+        },
+        {
+          "assessment": "Eventual local unit-step theorem with a different merit; no same global guarantee in the inspected statements",
+          "evidence": "Merit is proximal objective plus tau*lambda times half the squared normal residual; the Armijo condition adds a displacement penalty. Thm. 3.14 uses local semismoothness, nonsingularity and direction/solve conditions to give alpha_k=1 eventually.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.13000v1; DOI 10.1007/s10589-025-00754-0",
+          "material_read": "PDF pp. 5, 8, 10, merit, test (8), Algorithm 1 and §2.3; pp. 20–21, Thm. 3.14",
+          "method": "Lawful arXiv v1 full-text passages at offsets 12900–36863 and 66800–73740",
+          "title": "A linesearch-type normal map-based semismooth Newton method for nonsmooth nonconvex composite optimization",
+          "trigger": "Closely related normal-map full-step result, PANOC-lite ref. [22]"
+        },
+        {
+          "assessment": "Different merit and convergence question; comparison limited to inspected material",
+          "evidence": "Relative-smoothness framework with a Bregman forward-backward envelope and local superlinear convergence under suitable directions.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.11904v2",
+          "material_read": "PDF p. 1, summary of merit and convergence scope",
+          "method": "OA PDF passage",
+          "title": "A Bregman forward-backward linesearch algorithm for nonconvex composite optimization: superlinear convergence to nonisolated local minima",
+          "trigger": "Related proximal linesearch framework"
+        },
+        {
+          "assessment": "Not a full-step acceptance result",
+          "evidence": "Counterexample concerns a stopping rule rather than objective sufficient decrease along scaled normal Newton.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-raw-step-stopping-mismatch-in-zeroth-order-proximal-newton--d7f69b5d9c40",
+          "material_read": "Resultary scientific statement on stopping and stationarity",
+          "method": "Resultary semantic lookup and statement comparison",
+          "title": "A raw-step stopping mismatch in zeroth-order proximal Newton",
+          "trigger": "Nearby scalar composite-Newton counterexample"
+        },
+        {
+          "assessment": "Different method and invariant",
+          "evidence": "Ranks and coupling of Gaussian sketches govern termination probability, not a PANOC-lite decrease test.",
+          "identifier_or_url": "2026/10/13/SCOPE-sharp-two-step-termination-frontier-for-coupled-gaussian-subspac--78fb0fd40ae7",
+          "material_read": "Resultary scientific statement on planar sketched Newton",
+          "method": "Resultary semantic lookup and statement comparison",
+          "title": "Sharp two-step termination frontier for coupled Gaussian subspace Newton",
+          "trigger": "Nearby exact quadratic Newton termination finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen candidate identity and sharpness, RESULT.md lines 49–93 and 270–311",
+        "PANOC-lite Algorithm 1, Remarks 5–6 and Thm. 13"
+      ],
+      "rationale": "The result determines a sharp safeguard boundary for a named algorithm. In particular it gives full acceptance even in the doubled stepsize range outside the faster local theorem's hypotheses, and includes the reflection that leaves proximal-gradient energy unchanged. The simple scalar obstructions distinguish an exact universal interval from just another sufficient estimate.",
+      "residual_risks": [
+        "Does not bound the cost of forming the exact direction, predict arbitrary approximate Newton acceptance or extend the general local convergence theorem beyond its stated range."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:21:47.179438Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The all-minor scheme calculation is valid: after pivoting on a nonzero a_pq and dehomogenizing, invertible block elimination turns each Schur entry into a unit multiple of the corresponding pivot minor, and every three-minor vanishes modulo those entries. Eliminating off-pivot entries leaves disjoint relations s_i t_i=0 since 2 is invertible. This squarefree regular sequence proves reducedness, pure dimension n-2 and lci locally. A branch chooses one orientation of each remaining vertex relative to the pivot; the corresponding rank-one cross block is the indicated Segre, with distinct complete-bipartite support at its generic point. Zero rows are exactly pairs with both coordinates zero. At a geometric point each other pair contributes one smooth coordinate, so the displayed completed ring has z nodal factors. The displayed smooth-factor dimension is for geometric points, as in the residue-field base-change interpretation, not the local dimension at an arbitrary nonclosed scheme point before base change. Reduced row-w locus is the same section on n-1 vertices; its components have generically just one zero row, so no duplicates occur across choices of w. This works also at n=3, where fixed zero row leaves a projective point. Vandermonde gives each degree after summing Segre degrees, and normalization is the disjoint union of the normal components. Inspected verify.py, without executing it: the pivot determinant, support and finite GF(3) checks corroborate but do not prove the ideal equality or the general local statement. No affine-vertex or characteristic-two result is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier Schur complement gives diagonal equations -2u_i v_i/a_pq and an ideal equality after pivot inversion, followed by a squarefree monomial quotient. Every calculation operates over fields with 2 invertible.",
+          "Conca–Welker impose off-diagonal zero patterns; Cai–Lee–Yu tropicalize the unrestricted rank-two symmetric variety. Neither is needed for the covering argument."
+        ],
+        "reasoning": "The earlier theorem statement is over C, not literally in positive characteristic; nevertheless the primary proof applies verbatim after replacing C by the asserted field. Thus broader formal field scope does not supply a mathematically new mechanism or invariant here.",
+        "searches": [
+          "SCOPE-20261013-a58bda70a733 RESULT.md proof steps 2–5",
+          "arXiv:1801.07916 p. 1 and p. 21, Conjecture 9.6",
+          "arXiv:2404.08121 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261013-a58bda70a733",
+        "SCOPE-20261018-8072f618df0b",
+        "arXiv:1801.07916",
+        "arXiv:2404.08121",
+        "arXiv:0705.1942 p. 1 (standard Segre and Segre–Veronese ideals)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older text explicitly says zero-row strata are smaller rank-two hollow schemes X_(n-1) and that the Segres are normal and form the disjoint normalization.",
+          "The dense all-crossing-entries-nonzero open of each smaller Segre has precisely one zero row in the ambient matrix. Hence distinct row choices cannot contribute the same component. There are n row choices, and multiplying the earlier count and degree evaluated at n-1 gives n(2^(n-2)-1) and (n/2)·binom(2n-4,n-2). For n=3 each row choice is one point. At a generic point of a single zero-row component the earlier chart has one node."
+        ],
+        "reasoning": "No nontrivial inference is needed for the additional singular-support count, degree or transverse generic germ. Combined with the field-independent algebra this covers the actual mathematical result, not just a weaker shared example.",
+        "searches": [
+          "SCOPE-20261013-a58bda70a733 RESULT.md offsets 3100–5400 (pivot proof), 5400–7616 (germs, support, normalization and degree)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier scheme is Proj of the hollow symmetric all-three-minor quotient and its chart on a_pq≠0 is the same product of n-2 equations u_i v_i=0. It identifies the bipartition Segres and gives the same completed local model by zero-row count.",
+          "SCOPE-20261018-8072f618df0b describes a hollow determinant hypersurface, not the same scheme."
+        ],
+        "reasoning": "Changing pivot notation or writing the local complete intersection as a product of nodes does not alter the earlier claim. The distinct hypersurface entry is not the reason for rejection.",
+        "searches": [
+          "Resultary semantic search: hollow symmetric rank two, all minors, zero diagonal, Segre and nodal product charts",
+          "SCOPE-20261013-a58bda70a733 RESULT.md, finding and proof offsets 3100–7616"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier record supplies the exact same half-central-binomial degree, 2^(n-1)-1 ambient components, and each component's individual Segre degree.",
+          "Earlier record identifies each zero-row subvariety as a copy of the smaller section; the singular-support totals follow by applying its component and degree counts at n-1."
+        ],
+        "reasoning": "The claimed ambient exact invariants match. The additional totals are implicit exact formulas, not new unknown entries obtained by substantive enumeration.",
+        "searches": [
+          "Resultary semantic search: bipartition Segre counts, degrees and singular support for hollow rank two",
+          "SCOPE-20261013-a58bda70a733 RESULT.md proof steps 4–5"
+        ]
+      },
+      "rationale": "The earlier directly inspected 2026-10-13 result a58bda70a733 already proves the same scheme-level local and global claims over C, including normalization, singular support as the union of smaller hollow rank-two sections, and the degree of every Segre. Its actual proof of the ideal equality and squarefree charts uses only that the pivot and 2 are units. The generalization to characteristic not two requires no new argument. Enumerating and adding the degrees of the earlier described zero-row copies gives exactly the new advertised singular-support numbers. This is demonstrated coverage of the mathematical contribution, not a finding based on similar titles or missing sources.",
+      "residual_risks": [
+        "Historical priority beyond these comparisons is not resolved, but cannot negate the demonstrated prior coverage.",
+        "The result does not address characteristic two or the affine cone vertex, which should not be credited as surviving extensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage over C and explicit proof without characteristic-zero algebra; immediate implication for singular totals",
+          "evidence": [
+            "The localized quotient is the polynomial algebra with relations u_i v_i=0, after inverting the pivot and dividing by 2.",
+            "Proof sections on germs and degree give the smaller sections, normalization, individual Segre degrees and their sum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-nodal-product-charts-for-the-hollow-symmetric-rank-two-determina--a58bda70a733/RESULT.md",
+          "material_read": "Finding and proof steps 2–5, especially offsets 3100–7616",
+          "method": "Read-only local mirror",
+          "title": "Nodal product charts for the hollow symmetric rank-two determinantal variety",
+          "trigger": "Exact same rank bound, zero diagonal and chart structure"
+        },
+        {
+          "assessment": "Distinct same-day hypersurface, not the covering record",
+          "evidence": [
+            "It uses the full determinant for n≥5, and rank ≤n-2 and zero-row linear subspaces enter its singular locus."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-two-transverse-quadric-types-on-the-hollow-symmetric-determinant--8072f618df0b",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Read-only local mirror",
+          "title": "Two transverse quadric types on the hollow symmetric determinant",
+          "trigger": "Same hollow matrices and local singularity language"
+        },
+        {
+          "assessment": "A related but different graph-pattern specialization",
+          "evidence": [
+            "Selected off-diagonal entries vanish while the diagonal is free; Conjecture 9.6 is about radicality of a parametrized off-diagonal Gram ideal."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1801.07916",
+          "material_read": "p. 1 setup and p. 21 Conjecture 9.6",
+          "method": "Lawful open-access text",
+          "title": "Lovász–Saks–Schrijver ideals and coordinate sections of determinantal varieties",
+          "trigger": "General symmetric coordinate sections"
+        },
+        {
+          "assessment": "Studies a different, unrestricted tropicalization",
+          "evidence": [
+            "It studies symmetric rank-two matrices without the all-zero diagonal scheme constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.08121",
+          "material_read": "p. 1 scope at OA offset 0",
+          "method": "Lawful open-access text",
+          "title": "The tropical variety of symmetric rank 2 matrices",
+          "trigger": "Same symmetric rank bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The geometric classification itself is useful, but it is already available for this object with a field-independent proof. The remaining differences are recording the immediate ring-theoretic base-field generality and mechanically multiplying known degrees and counts by n. They do not constitute a distinct valuable remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

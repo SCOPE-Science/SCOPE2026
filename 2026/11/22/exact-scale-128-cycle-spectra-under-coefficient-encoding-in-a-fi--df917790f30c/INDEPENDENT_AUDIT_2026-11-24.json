@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:58:40.233133Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rebuilt both graphs on all signed states −3200,…,3200 directly from the rational map formulas, with exact nearest-even rounding. Moving the even integer shift ±512 outside the outer rounding preserves ties, including the negative-state ties. The inner formulas agree and the outputs, including those at −640, 0 and 640, stay in the domain. Floyd cycle detection followed by backward breadth-first traversal from each cycle found exactly the stated period/basin pairs: A (34,238), (40,6163); B (8,68), (20,2830), (24,253), (24,442), (28,1404), (28,1404). The basin sizes exhaust the state count for each map and the maximum depths are 107 and 80. In integer coordinates the unrounded outer values differ by |i|/320≥2, so even after rounding every outer state changes successor and no inner state does; this gives exactly 5122 changes independently of the census. This does not test or identify an FPGA arithmetic pipeline.",
+      "replay_paths": [
+        "/workspace/reproductions/5.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The open paper confirms the same real parameters and seven fractional bits in its 16-bit design; it describes trajectory discrepancies and a 64-bit FPGA implementation."
+        ],
+        "reasoning": "Neither a real-map theorem nor selected-trajectory fixed-point comparisons give a graph decomposition. The implementation passages read do not establish identity with either specified rounding semantics.",
+        "searches": [
+          "García-Grimaldo et al. DOI:10.3390/electronics12020444, equations (1)–(3), Theorem 2, Table 1 and numerical comparison; DOI:10.1142/S021812742150200X"
+        ]
+      },
+      "checked_sources": [
+        "Electronics 12 (2023), 444",
+        "DOI:10.1142/S021812742150200X (access-limited)",
+        "Resultary df917790f30c (identical record), 3ad9a95c328f and af278b76d784 (real-map findings)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The hardware paper studies the same real branch map and reports numerical discrepancies; the distinct catalogue claims concern specified real resonances or a single least period."
+        ],
+        "reasoning": "These observations and orbit results do not imply that the two specified finite systems have two versus six cycles, or determine their global basins. The analytic changed-edge count follows easily once the maps are specified; it is not the main contribution.",
+        "searches": [
+          "Electronics 12, 444, Theorem 2 and fixed-point discussion; Resultary 3ad9a95c328f and af278b76d784, Findings and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "df917790f30c is the assigned record itself. The two distinct normalized four-branch results concern resonance windows and period-three behavior under exact-real iteration."
+        ],
+        "reasoning": "Normalizing real coordinates does not conjugate real dynamics to either of the quantized finite-state graphs, and the distinct results do not conduct a global finite-state census.",
+        "searches": [
+          "Resultary: scale-128 nearest-even cycle and basin census, 4/5 versus 51/64; df917790f30c, 3ad9a95c328f and af278b76d784"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue's exact numerical hit is the same finding. Table 1 describes fixed-point bit allocation, not cycle lengths, state basins or maximum preperiods."
+        ],
+        "reasoning": "The tabulated arithmetic width is relevant to the grid choice but does not encode either graph's census.",
+        "searches": [
+          "Resultary df917790f30c, 3ad9a95c328f and af278b76d784; Electronics 12, 444, Table 1; literature search for García-Grimaldo, Chaotic Features of a Class of Discrete Maps, cycles, finite precision, basin and FPGA"
+        ]
+      },
+      "rationale": "The inspected prior work supplies the real map and the seven-fractional-bit motivation, not the census for the two exact arithmetic semantics. The conclusion is limited to the checked sources, including a full-text access limitation for the originating article.",
+      "residual_risks": [
+        "Original 2021 full text not verified; alternate finite-precision work using different notation could have escaped this bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the map and width motivation, not the census in the inspected passages",
+          "evidence": "Theorem 2 uses outer slope 0.8, inner slope 5, shifts 4 and 25; Table 1 lists seven fractional bits for the 16-bit representation.",
+          "identifier_or_url": "https://doi.org/10.3390/electronics12020444",
+          "material_read": "pp. 3–4, equations (1)–(3) and Theorem 2; pp. 9–10, Table 1 and implementation discussion",
+          "method": "Primary PDF passages compared with the exact map definitions and requested census",
+          "title": "FPGA Implementation of a Chaotic Map with No Fixed Point",
+          "trigger": "Same map, parameters and arithmetic width"
+        },
+        {
+          "assessment": "Original full-text comparison unavailable",
+          "evidence": "The later open article identifies the antecedent and corroborates the exact-real map; that is not direct evidence about the 2021 article's full contents.",
+          "identifier_or_url": "https://doi.org/10.1142/S021812742150200X",
+          "material_read": "Bibliographic identification and scope as cited in the open follow-up, not the original full text",
+          "method": "OA retrieval attempted via DOI and publisher page; no lawful accessible full-text copy was identified",
+          "title": "Chaotic Features of a Class of Discrete Maps without Fixed Points",
+          "trigger": "Originating paper on the same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Seven fractional bits is a source-motivated resolution, and the controlled comparison changes only the coefficient encoding. The whole-grid census provides a concrete check on claims about robustness of long-run behavior that trajectory examples cannot supply: the cycles, basin weights and longest transient change, not just individual iterates. It is an exact comparison of two numerical models, not empirical hardware validation or a claim at other resolutions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

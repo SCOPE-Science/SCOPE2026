@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:54:47.083482Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For odd inputs, t=s/(uv), so the zero slice has q/2 ordered pairs and nonzero s,t must have the same positive valuation h. Divide by 2^h and translate by the integral half of s. The resulting square roots modulo 2^(k-h) must be even for h=1 and odd otherwise; each lifts 2^h times. The odd-unit squaring kernel has size four from modulus 8 onward (x²=1 forces x=±1 modulo half the modulus), giving all unit targets 1 mod 8, with the two smaller moduli checked separately. Nonzero even square counts follow by extracting the root valuation; zero roots are multiples of 2^ceil((k-h)/2). As t varies, these targets cover all of the specified parity, so the h>=2 support contributes q²/192+5/3 and the h=1 support contributes (q/4) times q/48+5/3 for even k or q/48+4/3 for odd k, plus the origin. For energy the equal-sum quadruple parametrization reduces to a product zero modulo 2^K, K=k-3, with odd variable sum and precisely one odd factor. The two even factors have K*2^(K-1) admissible pairs (directly for K=1, otherwise truncate the valuation after dividing both by 2). Including the 128 lifts gives 3(k-3)q²/2. Orthogonality gives the stated q^(-2) normalization. The verification note and uploaded checker were read, not executed. A separate bounded direct convolution replay /workspace/branches/replay_frozen.py matched all fibers, image size and energy for k=4–9, including zero fibers by equality of support dictionaries.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The chain-ring inverse-graph theorem requires odd residue-field cardinality. The cubic theorem permits all dyadic exponents and all inputs, with the even-s slices explicitly parameterized. Bower et al. use scalar coordinate sumsets; Shparlinski covers distribution and Kloosterman bounds; Gong–Veys–Wan treat classical one-parameter moments including dyadic cases; Nica's inspected local-ring fourth-moment result assumes odd characteristic."
+        ],
+        "reasoning": "The odd-residue theorem cannot be specialized to the dyadic ring. Scalar coordinate sums and aggregated Fourier moments are not the pointwise convolution. The unrestricted dyadic cubic theorem is the relevant dominating theorem once its targets are filtered by odd product, which is determined by the target, not by an extra condition unknown within a fiber.",
+        "searches": [
+          "Resultary 2026/11/1 modular hyperbola over finite chain rings, 3a54fa4977e0",
+          "Resultary 2026/11/8 dyadic cubic graph, 6f0699e1421a",
+          "arXiv:1103.2879",
+          "arXiv:1212.2930",
+          "arXiv:1306.4104",
+          "arXiv:1910.00165"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_dyadic_inverse.py",
+        "Resultary inverse-graph self-hit and three distinct records identified above",
+        "The four cited OA PDFs at the listed passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the cubic formula choose H=s/2; the square target is (t3-2H³)/(3s) after canceling 2^h. Substituting t3=s³-3sP and using s=2H gives exactly H²-P modulo 2^(k-h), the frozen target. All roots of a square target have its parity, so the cubic root count is already the parity-restricted count on the specified targets. The cubic square-support and second-moment proof already separates odd and even squares."
+        ],
+        "reasoning": "This mechanically transfers the pointwise law, not just a moment. Summing its positive fibers gives the image formula by the existing odd/even square counts and geometric sums. For energy, the h=1 stratum contributes (k-3)q²/2 by the cubic even-square second moment 4 B_(k-3). The h>=2 strata contribute q²/4 at m=1, q²/2 at m=2, and q² for each m>=3; the origin adds q²/4. Hence their sum is (k-3)q², giving the frozen energy and its Fourier corollary.",
+        "searches": [
+          "Resultary 6f0699e1421a, Assumptions and scope and Proof Steps 1–5, mirrored offset 0 onward",
+          "Frozen RESULT.md lines 45–71"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cubic graph's Step 1 gives x³+y³=s³-3sxy, for all x+y=s, and its third pointwise case gives the complete even-s law. The three-moment curve Finding determines xy modulo q/2 in every even-s slice. The inverse-graph exact title hit itself is the frozen record, not independent evidence."
+        ],
+        "reasoning": "For h=v2(s)=v2(t)>0 with s,t nonzero, set m=k-h, S=s/2^h and T=t/2^h. The inverse target fixes xy=P=ST^(-1) modulo 2^m. The cubic target t3=s³-3sP fixes precisely the same product modulo 2^m. Because P is odd and m>=1, every solution of this unrestricted cubic fiber has odd inputs. Varying T gives a bijection from the candidate inverse targets to the corresponding odd-product cubic targets. At the origin the inverse slice is the direct half-size odd-input subset of the cubic slice.",
+        "searches": [
+          "Resultary 2026/11/8 dyadic cubic curve, 6f0699e1421a",
+          "Resultary 2026/11/8 three moments, 9c10273590a0",
+          "Resultary 2026/11/8 dyadic inverse graph, 41fad24c7e81"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cubic result has closed root counts rho_m(z), square-support counts Q_m, and square-fiber second moments B_m. The three-moment result likewise lists the full square-fiber histogram at modulus q/2 in the even-s slices."
+        ],
+        "reasoning": "These are exact parametric tables, not finite test outputs. Use odd-product targets within each even-s cubic stratum: the shift identifies precisely even roots for h=1 and odd roots for h>=2. Reading the corresponding entries gives the entire inverse table. Alternatively group the three-moment rows of fixed s and odd product modulo q/2 by reduction of the product modulo 2^(k-h).",
+        "searches": [
+          "Resultary 6f0699e1421a, cubic pointwise law and Steps 2–5",
+          "Resultary 9c10273590a0, three-moment explicit fiber histogram"
+        ]
+      },
+      "rationale": "A distinct indexed result on the dyadic cubic graph implies the complete inverse-graph law via a target bijection and the parity filter on the product. Thus the different second coordinate does not produce new fiber data. Its indexed date is not used to infer order or priority. The odd-residue-field hyperbola result and classical moment literature alone would not establish this coverage.",
+      "residual_risks": [
+        "Historical order among the same-date indexed records and external publication priority are not established. The exact extent of prior dyadic fourth-moment coverage was not resolved by the bounded literature inspection; neither issue alters the explicit fiber implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage by an explicit target change; decisive",
+          "evidence": [
+            "For even nonzero s, the cubic count is 2^h times the square-fiber count modulo 2^(k-h). The target fixes xy modulo that modulus, which decides oddness of both inputs. The exact square counts and their parity splitting are proved in Steps 2–5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-dyadic-cubic-curve-exact-fourth-fourier-moments-and-two-sum-supp--6f0699e1421a/RESULT.md",
+          "material_read": "Finding, pointwise law and proof Steps 1–5, offset 0 onward",
+          "method": "Resultary search and bounded local mirror inspection",
+          "title": "Dyadic cubic curve: exact fourth Fourier moments and two-sum support",
+          "trigger": "Dyadic pointwise law with the same product variable after fixing the first sum"
+        },
+        {
+          "assessment": "Independent corroboration of coverage via finer fibers",
+          "evidence": [
+            "For even s, t2 fixes the product modulo q/2. The inverse-law product modulus divides q/2, and testing oddness and coarsening the product therefore recover all required inverse fibers."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/8/SCOPE-three-moments-suffice-for-dyadic-two-point-fourier-geometry--9c10273590a0/RESULT.md",
+          "material_read": "Finding, assumptions, and Newton identities and square-fiber analysis in the proof, offset 0 onward",
+          "method": "Resultary search and bounded local mirror inspection",
+          "title": "Three moments suffice for dyadic two-point Fourier geometry",
+          "trigger": "Finer recoverable product information on all even-s fibers"
+        },
+        {
+          "assessment": "Close structural precedent; excludes residue characteristic two",
+          "evidence": [
+            "Odd residue-field cardinality is explicit. Its root-counting regime does not imply the dyadic formulas by simple parameter substitution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-complete-additive-two-sum-multiplicities-of-modular-hyperbolas-o--3a54fa4977e0/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–3477",
+          "method": "Resultary search and local mirror inspection",
+          "title": "Complete additive two-sum multiplicities of modular hyperbolas over finite chain rings",
+          "trigger": "Identical inverse graph with complete pointwise theorem in a related ring regime"
+        },
+        {
+          "assessment": "Relevant aggregate information, not itself pointwise support coverage",
+          "evidence": [
+            "The inspected formulas concern classical power moments, not the full set of individual (s,t) convolution coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.4104",
+          "material_read": "Classical one-parameter moment definition and nearby dyadic results, p. 5 offset 11200",
+          "method": "Primary OA PDF bounded passage",
+          "title": "Power Moments of Kloosterman Sums",
+          "trigger": "Earlier dyadic moments may account for the energy corollary"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": [
+            "The coordinate sums are scalar outputs such as u+u^(-1), not sums of two inverse graph points into an ordered two-dimensional target."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1212.2930",
+          "material_read": "Definitions, pp. 2–3, offsets 7400 and 8500",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Coordinate sum and difference sets of d-dimensional modular hyperbolas",
+          "trigger": "Confusable use of modular-hyperbola sumset terminology"
+        },
+        {
+          "assessment": "Inspected local-ring formula requires odd characteristic",
+          "evidence": [
+            "The cited passage neither treats the dyadic pointwise fibers nor asserts a dyadic analogue of that local-ring fourth moment."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.00165",
+          "material_read": "Fourth-moment theorem and previous work discussion, p. 3, offsets 9400 and 11700",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Kloosterman sums over finite Frobenius rings",
+          "trigger": "Possible broader local-ring fourth-moment coverage"
+        },
+        {
+          "assessment": "Background, not decisive for the exact two-sum law",
+          "evidence": [
+            "The passage treats distribution and exponential-sum bounds, not two-dimensional convolution coefficients."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1103.2879",
+          "material_read": "Point distribution and Kloosterman bounds, p. 2 offset 3800",
+          "method": "Primary OA PDF bounded passage",
+          "title": "Modular Hyperbolas",
+          "trigger": "Survey of the inverse graph and distribution results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The density and fiber law are natural invariants, but they are obtained by a target substitution and parity restriction of the complete indexed cubic fiber table; the support and energy then use already given square averages. The frozen claim does not leave an additional nonmechanical invariant or structural result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

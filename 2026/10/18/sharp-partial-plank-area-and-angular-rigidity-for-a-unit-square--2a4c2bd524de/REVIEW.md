@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns every finite family of Euclidean planks of total width at most \(W<1\). The volume-preserving Bang map is reconstructed from its maximizing-sign-vector formula: after sign-flip comparison, its translated image of the square's eroded core lies outside every open plank, with disjoint measurable translation cells. This yields the universal uncovered-area lower bound \((1-a)(1-b)\). The exact unit-vector dispersion identity and a two-regime scalar inequality give the stated global upper bounds and stability. A centered square-strip convolution calculation constructs equality in both regimes. Equality of the upper bound for a single plank determines the angle, and strict shift monotonicity of the convolution density fixes its center. The analytic proof covers arbitrary finite families, not only tested cases.
+PASS
 
-The standalone checker is executed from `checks/verify.py` and reports `VERIFY_OK symbolic_identities=5 attaining_directions=49 families=340 random_single_planks=340`. Its geometry checks independently construct strip–square intersection polygons. The test suite is finite; the result is not inferred from enumeration.
+The frozen proof's equation (3) gives uncovered diagonal-strip area (1-W/sqrt(2))^2, not the expression in frozen line 108 (which even gives zero at the transition). The stated M(W) was correct; the exact corner triangle calculation confirms 1/4 uncovered at the transition (/workspace/branches/audit_witnesses.py). The replacement /workspace/repairs/2/RESULT.md fixes the substitution and the offset argument. For the global bound, flipping one maximizing sign in the Bang map gives a margin w_i/2 to its offset hyperplane; distinct signs separate images and each measurable cell translates. On the eroded rectangle this yields C <= a+b-ab, irrespective of offset. Writing s=a+b and a^2+b^2=W^2-Delta separates the deficit into the claimed angular and dispersion terms. The formulas agree at W=1/sqrt(2) and increase strictly, so lesser budgets cannot attain equality. The diagonal and wide contact normals both satisfy the two-tail regime (strictly inside it); the wide normal has a+b=1 and realizes the upper bound. For one strip the deficit identities determine the normal even at noncentral offsets, and the projection density proves unique centering: sliding is nonincreasing away from zero and strictly decreasing immediately next to zero. This classifies single-strip maximizers only. The inverse width formula follows by inversion. The family inequality is for exact total width.
 
-## Originality — PASS (historical-priority risk remains)
+## originality
 
-The closest source is Bakaev–Polyanskii, *Optimal partial plank coverings*, arXiv:2607.27483 (first public July 29, 2026), whose Section 2 supplies the Bang map and whose Theorem 12 proves that a single plank suffices for every planar convex body. That existence theorem is acknowledged and is not claimed as new. Its inspected theorem, proof, and surrounding sections do not give the square's closed sharp two-branch value, changing unique single-plank direction, inverse target-coverage width, or quantitative all-family dispersion inequality. Bakaev–Yehudayoff, *Volume stability of plank covers*, arXiv:2609.30409, studies a different stability regime: covering punctured convex bodies and overlap. Searches of mathematical-research records for square-specific partial-plank area, angle transition, inverse widths, and corresponding erosion bounds returned no covering mathematical statement. The closest records concern a square separation body and a circular annulus fractional plank cover, distinct functionals. Earlier unindexed literature might contain an equivalent optimization; search is not historical-priority certification. The second source was compared at title/abstract level; its full text was not read, an explicit residual limitation.
+PASS
 
-## Mathematical value — PASS
+Pass for the repaired framing, which identifies the direction-sensitive arbitrary-family deficit as the distinct quantitative finding. The exact square envelope is an explicit prior planar-theorem specialization, and the angle and offset are covered by a distinct indexed calculation after scaling. Neither is credited as a separate original contribution here. The quantitative bound is a square-specific extraction from the stronger erosion machinery; this is not a new Bang lemma or a priority certificate.
 
-The new result determines a natural, all-budget extremal invariant of the square against unrestricted finite strip families, with a genuine interior optimal-angle phase transition at \(W=1/\sqrt2\) and covered fraction \(3/4\). Its inverse answers the operational geometric optimization question of the least total strip width needed to cover a prescribed area. The quantitative angular-dispersion bound applies to all finite families and is stronger than the prior existential single-plank theorem; it controls near-extremizers in the symmetry-reduced direction space. This is a complete sharp classification and structural stability estimate, not an arbitrary numeric slice. It does not generalize automatically to rectangles or multi-plank equality classifications.
+## value
 
-## Scientific limits and closest literature
+PASS
 
-Bakaev–Polyanskii (2026), arXiv:2607.27483, is foundational for the area-preserving Bang map and general planar single-plank theorem. Bakaev–Yehudayoff (2026), arXiv:2609.30409, addresses a different covering-stability objective. The theorem is limited to finite families in a Euclidean unit square. Unindexed exact-square calculations remain a historical-priority possibility. There has been no external replication or independent mathematical audit.
+The arbitrary-family quantitative comparison controls near-extremizers: for a budget and area gap it bounds width-weighted spread of their absolute normal vectors, and separately penalizes mismatch to the optimal contact condition. This information is not furnished by knowing the optimum or that a single strip realizes it. The exact square profile gives a natural sharp reference for the estimate, not a separate novelty claim. Reflected directions can share the same absolute normal, so it does not certify actual parallelism or classify general equality families.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

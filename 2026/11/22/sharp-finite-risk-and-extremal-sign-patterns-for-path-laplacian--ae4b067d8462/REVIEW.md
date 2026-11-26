@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The oriented-edge flow identity reconstructs the exact Moore–Penrose quadratic form, without treating a singular Laplacian as ordinarily invertible. Finite covariance sums and the fourth-moment identity prove the moments for all integers \(n\ge2\). The strict-convexity argument works on every fixed-plus-count ordered polytope, identifies every maximizing vertex, and the exact strict deficit excludes split end blocks; the balanced block count is the unique maximum modulo odd parity and overall sign. Donsker plus the continuous mapping theorem establishes only weak convergence, not a finite-size normal approximation. Rational arithmetic reproduces 4092 signs over \(n=2,\ldots,11\).
+## correctness
 
-## Originality: PASS, subject to literature priority risk
-The standard sign-probe mean and off-diagonal variance identity in Hallman–Troester and the matrix-function estimators of Chen–Hallman are prior-known. Lu–Xu–Zhang's pseudoinverse diagonal formulas and van Mieghem–Devriendt–Cetinay's path spectral/Green formulas cover essential premises. Inspected substantive sections and theorem statements do not imply the complete finite-path variance, plus-count strict-convexity maximum and equality classification as an explicitly reported result. The classical Brownian-bridge integral law is not new. Historical discrete rearrangement and finite inverse-Laplacian operator-norm inequalities may be equivalent; their complete priority landscape has not been exhausted. This qualifies the claim of publication novelty, not its algebraic proof.
+PASS
 
-## Value: PASS
-The result solves a natural whole-family stochastic-trace risk and sharp-tail support problem on the canonical sparse network \(P_n\), rather than selecting an arbitrary finite size. Its exact constant-order relative variance quantifies the number of probes required for mean-square accuracy as graph size grows, while the extremal sign classification shows a sharply different worst-case amplification. It gives a reproducible test case for inverse-Laplacian probing without claiming computational superiority to deterministic evaluation on paths.
+Cumulative flow after subtracting the sample mean gives B=H^T H and the discrete bridge covariance K(j,l)=min(j,l)-jl/n. In the trace-square sum, grouping by the larger index l gives (n-l)^2 l(2l^2+1)/(3n^2); summing and subtracting the squared diagonals in the off-diagonal Rademacher variance identity recovers the stated variance and factor 4/5. For k plus signs, double-centered distances give a strictly convex function of the ordered locations, so only the endpoint-block vertices of the location polytope can maximize. Relative to the all-prefix vertex, shifting q plus signs past the r=n-k minus signs increases the row-mean contribution to a^T B a by k p q r/n and increases the subtracted pair-distance sum by p q r. Thus the deficit in Z is 4pqr^2/n. The one-switch energy is 2k(n-k)(2k(n-k)+1)/(3n); maximizing its product yields both parity formulas and exactly the listed patterns. Zero means each centered flow is zero. For the interpolated bridge, the integral of its square differs from the discrete normalized energy by at most 2/(3n), since successive scaled increments have magnitude at most 2/sqrt(n). Donsker and the continuous mapping theorem give the limit; the stated KL eigenvalues are those of the Dirichlet Green operator. Independent exact integer enumeration counted 2044 vectors for n=2 through 10 and also verified the pseudoinverse equation. Independent averaging divides the variance by m.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct supported contribution is the exact finite sign-probe risk coupled with the parity-dependent worst-case energy and complete equality cases on the unpinned path. Mean from Kirchhoff index, generic Hutchinson variance, Green identities and bridge convergence are standard ingredients rather than independent novelty claims.
+
+## value
+
+PASS
+
+The unweighted path is a natural benchmark for stochastic Laplacian inverse traces: its exact relative noise remains order one for a single probe. The rigid sharp range identifies the atypical sign geometry that saturates worst-case bounds, while the normalized non-Gaussian limit distinguishes typical fluctuation from that worst case. Neither a generic concentration bound nor an average alone supplies both benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

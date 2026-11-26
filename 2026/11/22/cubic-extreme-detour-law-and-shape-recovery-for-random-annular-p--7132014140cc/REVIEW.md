@@ -1,19 +1,21 @@
-# Scientific review — annular extreme stretch
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The global bound follows by replacing the intercepted chord through the hole by a shorter circular boundary arc. Equality requires the intercepted chord to be an inner diameter and the original endpoints to equal its endpoints. The exact tangent-plus-inner-arc shortest path, independently supported by established circular-obstacle geometry, gives the local expansion \(\pi/2-Z=(\pi/4)(u+v)+\eta/2+O((u+v)^{3/2}+\eta^2+\eta(u+v))\). Compactness localizes extreme pairs to the inner-antipodal set, the three-dimensional positive linear deficit gives a simplex of volume \(1/6\), and the exact polar density produces the displayed coefficient. The remainder is \(O(\varepsilon^{7/2})\) after the square-root-size rescaled boundary perturbation. The conditional law and aspect-ratio inverse use the same normalization. The direct numerical checker is supporting evidence, not an infinite proof.
+PASS
 
-## Originality
+Replacing just the intercepted subchord of length c by its minor inner-circle arc gives d_K≤d_E−c+(π/2)c. Equality at π/2 requires c=d_E and an inner diameter, and antipodal inner endpoints do attain it. For small d_E the arc excess is O_r(c³), so the ratio extends continuously to the diagonal by 1; the global comparison and triangle inequality also give continuity of d_K in the endpoints. Compactness then confines sufficiently extreme pairs to a neighborhood of inner antipodes. The tangent-plus-arc formula in that neighborhood can be checked by a lower bound on every path: if its minimum radius is q, polar arclength is at least √(1−q²/ρ_path²)|dρ_path|+q|dθ|. Integrating gives at least qφ plus the sum, over endpoint radii b, of √(b²−q²)−q arccos(q/b). This bound is increasing in q≥r when φ exceeds the sum of the two tangent angles at r, and the path with q=r, two tangents and the intervening arc attains it. Thus with u=(ρ−r)/r, v=(σ−r)/r and η=π−φ, the numerator in units of r is π−η+F(u)+F(v), F(z)=(2√2/3)z^{3/2}+O(z^{5/2}); the chord is 2+u+v+O((u+v)²+η²). Dividing gives deficit (π/4)(u+v)+η/2 with a uniformly smaller remainder. Once localized, this confines u,v,η to O(ε). After rescaling as in the marks, the event is sandwiched between positive-octant simplexes of sizes 1±O(√ε). The independent polar density is 4r⁴(1+u)(1+v)/(πH²), and the rescaling Jacobian is 32ε³/π². The volume 1/6 yields 64r⁴/(3π³H²); the boundary layer contributes O_{r,R}(ε^{7/2}). Normalizing the same integrals gives density six on the limiting simplex. Finally s=√(3π³C/64)=r²/(R²−r²), proving the scale-free inversion.
 
-**PASS (bounded comparison).** The closest published annulus-geodesic result addresses the marginal upper tail of intrinsic distance, maximized at the *outer* rim. The present ratio observable is maximized at the *inner* rim; neither the previous marginal tail nor the established tangent-arc formula implies its new probability, shape-recovery coefficient or marked three-defect simplex. Chang and collaborators' obstacle-path work establishes the path geometry but addresses exact computation. General metric-measure distance matrices do not yield the annulus ratio coefficient. Searches for alternate names (dilation, detour, geodesic-to-chord stretch) did not reveal a stronger identical result. An unindexed specialist treatment remains a historical-priority risk, and a 2015 curved-obstacle article was checked at abstract level only.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem resolves a natural stochastic measure of obstacle-induced metric distortion, combining a sharp global endpoint with a complete leading rare-event coefficient, a geometric conditional configuration law and a one-statistic aspect-ratio inversion. The interior sampling model makes the cubic rarity and shape encoding nontrivial; this is neither a renaming of the classical circular-arc/chord inequality nor a routine numerical constant. It reveals a contrasting inner-rim extremal locus to intrinsic-distance extrema at the outer rim.
+The distinct result is the upper tail of the ratio for area samples, with a sharp coefficient and error and its marked law and aspect-ratio recovery. The circular-obstacle path geometry and elementary dilation bound are background. The strongest prior annulus result uses essentially related simplex-tail analysis, but for the intrinsic distance marginal, with outer rather than inner extremizers and a different coefficient. A same-day group of geometrically different stretch theorems was also compared, without using the common date as evidence of priority.
 
-## Scope and limitations
+## value
 
-All asymptotics are for fixed \(0<r<R\); no all-radius distribution, endpoint-uniform error or disk-limit crossover is asserted. The result is self-reviewed only; no independent mathematical audit has been performed. Closest historical literature remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ratio measures how much a hole can lengthen a trip relative to the chord, rather than which pair has the longest trip. Quantifying the chance of near-worst distortion, the geometry of the pairs producing it, and the dimensionless shape information encoded by that chance is worthwhile beyond the deterministic upper bound. The inner-rim extremal locus contrasts with the outer-rim distance maximum. The exact coefficient, rather than the cubic exponent alone, makes recovery possible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

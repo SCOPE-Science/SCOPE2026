@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:54.858152Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For pointwise Jordan BV, decompose into two monotone functions whose variations sum to the total; layer sets are open or closed tails, so both one-sided CDF discrepancies are needed and their maximum is the exact dual norm. Reflection and the ordered offsets give max(1/2-b,b-v,v-a,a). Formal intermediate jumps at coincident nodes lie between the actual one-sided limits since the weights are nonnegative; endpoint jumps and zero weights are covered. Each actual atom weighs at most 2d, so d>=1/8. Cubic exactness reduces to the centered second moment 1/12. If d<=d*, the discrepancy bounds give a<=d, b<=3d, b>=1/2-d>d, and v>=b-d. Substitution bounds the moment by b^2-2(b-d)(b^2-d^2), strictly increasing in b up to 3d since d<1/7. The resulting 9d^2-32d^3 is strictly increasing from 1/8 to 1/7 in the argument d. Equality forces (a,b,v)=(d*,3d*,2d*), which is admissible and has discrepancy d*. Both strict-tail steps have error -d*. Reviewed the frozen checker as text, including its optional Gauss comparison. The independent replay `python /workspace/branches/review_recomputation.py` uses exact rational signs at the bracket endpoints and computes d*=0.132165520748966582568063 and Gauss discrepancy 0.169990521792428132401333. Those computations support the displayed numbers, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komisarski–Wąsowicz §§1–2 define a class of at-most-three-point symmetric cubic-exact formulas and optimize comparisons on 3-convex functions. Aistleitner–Dick establishes a broader discrepancy bound, with no such design in the passages read. Förster–Petras could not be inspected beyond identifying publication material."
+        ],
+        "reasoning": "A broad bound for a given rule does not imply minimization subject to a moment constraint. The three-point inequalities impose a different objective and node count. Gaussian rules fixing higher-degree moments do not exhaust the present class.",
+        "searches": [
+          "Primary literature comparison: arXiv:1406.0230; DOI 10.1007/s00010-022-00868-4; DOI 10.1137/0728047"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c47cace4ff37",
+        "Resultary 5de2c30b174f",
+        "Resultary 7de5de0f574f",
+        "arXiv:1406.0230",
+        "DOI 10.1007/s00010-022-00868-4",
+        "DOI 10.1137/0728047 (limited access)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Four-node interpolation record 7de5de0f574f minimizes variation amplification of a cubic interpolant at (-1,-a,a,1), not integration discrepancy. Neither it nor the inspected three-node theorem supplies the moment envelope M<=9d^2-32d^3 for four atoms and its unique equality conditions."
+        ],
+        "reasoning": "Using known discrepancy machinery yields the starting objective; the moment envelope and sharp attained obstruction are additional, not consequences of the inspected design results.",
+        "searches": [
+          "Resultary three-node and four-node interpolation Findings and scope; Aistleitner–Dick Eq. (2); Komisarski–Wąsowicz §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aistleitner–Dick gives the variation-times-discrepancy framework. The same-day Resultary three-node minimax record 5de2c30b174f optimizes the same norm but states 12d^2(1-d)=1 and error d/2 in its own parametrization."
+        ],
+        "reasoning": "The equivalent probability problem matches a uniform second moment with minimal CDF distance. The general norm bound does not solve that constrained problem; the three-node formula does not cover the additional four-node configurations.",
+        "searches": [
+          "Resultary semantic comparison of Jordan-BV minimax quadrature, Kolmogorov discrepancy, and symmetric cubic-exact designs",
+          "arXiv:1406.0230, pp. 1–2, Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed match c47cace4ff37 is the frozen record itself. Distinct hits 5de2c30b174f (three-node integration) and 7de5de0f574f (four-node interpolation) were compared in the local mirror."
+        ],
+        "reasoning": "No distinct checked hit tabulates the four-node rule, d* and the equality case. The conventional Gauss rule is a different design; the same-day catalog dates alone establish no priority.",
+        "searches": [
+          "Resultary search by symmetric cubic-exact quadrature, four nodes, Jordan BV discrepancy and the root characterization"
+        ]
+      },
+      "rationale": "Best of the inspected evidence, the moment-constrained four-node extremizer is distinct. The classical BV-discrepancy equivalence and neighboring three-node and Gaussian comparisons are not credited as new. The closest inaccessible literature leaves a bounded historical priority risk, not evidence of coverage.",
+      "residual_risks": [
+        "Förster–Petras 1991 full text unavailable on lawful routes tried; constrained-design overlap not ruled out.",
+        "Comparison is bounded to inspected material, not a comprehensive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": "The same root, rule and error; this is a self-match.",
+          "identifier_or_url": "Resultary: c47cace4ff37",
+          "material_read": "Finding and scope",
+          "method": "Local mirror",
+          "title": "Unique positive symmetric cubic-exact four-node quadrature minimizing Jordan-variation error",
+          "trigger": "Exact result hit"
+        },
+        {
+          "assessment": "Distinct node class",
+          "evidence": "At most three nodes, 12d^2(1-d)=1 and error d/2.",
+          "identifier_or_url": "Resultary: 5de2c30b174f",
+          "material_read": "Finding and scope",
+          "method": "Local mirror",
+          "title": "Unique bounded variation minimax rule among positive symmetric cubic-exact rules",
+          "trigger": "Closest matching objective and moment constraints"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Variation amplification of interpolation, not quadrature error.",
+          "identifier_or_url": "Resultary: 7de5de0f574f",
+          "material_read": "Finding and scope",
+          "method": "Local mirror",
+          "title": "Variation-minimax placement of four symmetric cubic interpolation nodes",
+          "trigger": "Four nodes, cubic and variation minimax"
+        },
+        {
+          "assessment": "Framework is prior",
+          "evidence": "Classical one-dimensional variation-discrepancy bound and a generalization; no four-atom moment-constrained design stated there.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.0230",
+          "material_read": "Abstract and pp. 1–2, Eq. (2)",
+          "method": "OA paper passages",
+          "title": "Functions of bounded variation, signed measures, and a general Koksma–Hlawka inequality",
+          "trigger": "Equivalent norm via discrepancy"
+        },
+        {
+          "assessment": "Different objective and node count",
+          "evidence": "At most three nodes; ordering for 3-convex functions.",
+          "identifier_or_url": "https://doi.org/10.1007/s00010-022-00868-4",
+          "material_read": "Abstract and §§1–2, pp. 621–623",
+          "method": "OA full-text passages",
+          "title": "On optimal inequalities between three-point quadratures",
+          "trigger": "Positive symmetric cubic-exact quadrature with few nodes"
+        },
+        {
+          "assessment": "Overlap unresolved",
+          "evidence": "Gaussian BV error topic confirmed, but no inspected theorem on the constrained minimizer.",
+          "identifier_or_url": "https://doi.org/10.1137/0728047",
+          "material_read": "Bibliographic and publisher/abstract information only",
+          "method": "Publisher and lawful OA retrieval attempts; no readable full text found",
+          "title": "Error Estimates in Gaussian Quadrature for Functions of Bounded Variation",
+          "trigger": "Potential overlap in sharp BV quadrature errors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines the exact BV robustness cost of retaining the first nontrivial even moment under a natural symmetric four-evaluation budget. The unconstrained midpoint design attains 1/8 but has centered second moment 5/64 rather than 1/12; the sharp moment envelope quantifies the obstruction and identifies its only saturating admissible design. This is useful without suggesting a general improvement over Gauss rules when higher-degree exactness matters.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:08:45.846348Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Quotient by constants: the open first-difference map is an isometry to ℓ¹, and the unit coordinate directions lift to the single cuts. A scalar soft-threshold secant has slope in [0,1], so the effective detail multiplier lies in the convex hull of all 0/1 masks. Every vertex is realized exactly on sufficiently short segments in the corresponding strict chamber for every λ>0, including the maximizing cut. All nonstraddling details vanish, and dotting the remaining normalized detail with the cut yields −m/√s, so the response is ∓m/s as stated, including m=0 at boundaries. At most two end jumps and one interior jump give total variation at most 4m/s≤2. For even d the selected cuts at j=(2^d−1)/3 on scales k=2 mod 4, k≤d−2, have m=(2^k−1)/3, true interior block boundaries, and distinct jump positions: each finer selected block lies strictly between the left endpoint and midpoint of its next larger selected ancestor and away from both. This also separates it from all other larger ancestors. Each contributes at least one. Duplicating coordinates embeds depth d−1 without changing the coarser masked variation, and floor(d/4) is unchanged at odd d. Independent exact reproduction from dyadic conditional averages (python3 /workspace/reviews/evidence_4_5.py) obtained all eight stated numbers; it did not run the uploaded verifier. The chamber/cut arguments, not those eight values, prove the all-depth claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "8271a7c110ab gives a stronger lower bound (4/3) floor(d/3)+4/7 as well as an exact nine-state computation.",
+          "bbe3a4ac1322 characterizes contractive fixed masks and gives a sharp 3/2 gap for the noncontractive ones; this alone does not give the global modulus or its growth."
+        ],
+        "reasoning": "A stronger computation and lower bound for the same object suffice for coverage; fixed-mask contractivity is a different and less direct overlap.",
+        "searches": [
+          "Local Resultary 8271a7c110ab and bbe3a4ac1322",
+          "Wojtaszczyk DOI 10.1112/S0024611503014084"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8271a7c110ab and bbe3a4ac1322",
+        "Mrázek–Weickert–Steidl (2005) §5.3",
+        "Donoho–Johnstone (1994), Steidl et al. (2004), Wojtaszczyk (2003) (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof already maximizes over masks and single cuts; each surviving coefficient is the inner product of the cut and its single ancestor detail."
+        ],
+        "reasoning": "Writing that inner product as −m/√s and multiplying the same detail gives the frozen q-vector expression by elementary counting. Together with the stronger prior lower bound and exact recurrence, there is no substantive surviving novelty to repair.",
+        "searches": [
+          "Local Resultary 8271a7c110ab proof at offset 4751"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "8271a7c110ab gives the sharp threshold-independent two-input open-path constant and reduces to arbitrary Haar masks and the at-most-d wavelets straddling each cut.",
+          "Mrázek–Weickert–Steidl (2005), §5.3 and Prop. 3: variation diminution there concerns the number of sign changes, in single-level shift-invariant shrinkage."
+        ],
+        "reasoning": "The choice of norm and both inputs match the earlier nine-state result exactly. Neither one-input sign stability nor continuous BV theory is being substituted for this exact match.",
+        "searches": [
+          "Resultary: dyadic Haar soft thresholding two-input path variation exact Lipschitz constant",
+          "Local Resultary 8271a7c110ab RESULT.md Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first eight exact rational values in that record are the same as frozen RESULT.md lines 16–20."
+        ],
+        "reasoning": "The earlier table covers the finite values without relying on an inferred identity from titles.",
+        "searches": [
+          "Local Resultary 8271a7c110ab Finding at offset 0"
+        ]
+      },
+      "rationale": "A distinct earlier Resultary record, 8271a7c110ab, treats the identical two-input real soft-threshold open-path modulus on the identical dyadic domain, reduces it to masks and one straddling detail per scale, gives a stronger exact all-depth computation via a nine-state recurrence, reproduces the same first eight exact values, and proves logarithmic growth with a stronger lower bound. It covers the material claims. The current q-vector form is a direct rewriting of the retained Haar responses, not a separate new invariant.",
+      "residual_risks": [
+        "The broader historical precedence of several classical BV articles remains unassessed; the direct indexed mathematical coverage is independent of that access limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage",
+          "evidence": "Identical norm and masks, nine-state all-depth recurrence, identical first eight values and stronger lower bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-exact-nine-state-computation-and-logarithmic-path-variation-inst--8271a7c110ab/RESULT.md",
+          "material_read": "Finding and proof at offsets 0 and 4751",
+          "method": "Local mirror",
+          "title": "Exact nine-state computation and logarithmic path variation instability",
+          "trigger": "Exact same modulus and finite values"
+        },
+        {
+          "assessment": "Related but not the global result",
+          "evidence": "Ancestor-closed masks contract; others have norm ≥3/2.",
+          "identifier_or_url": "bbe3a4ac1322",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Rooted-subtree rigidity and a sharp 3/2 gap for finite Haar variation",
+          "trigger": "Same fixed-mask variation projectors"
+        },
+        {
+          "assessment": "Different variation and shrinkage regime",
+          "evidence": "Schoenberg sign-change criterion, shift-invariant single-level Haar.",
+          "identifier_or_url": "https://www.mia.uni-saarland.de/Publications/mrazek-ijcv05.pdf",
+          "material_read": "PDF pp. 1 and 11, §5.3, Prop. 3",
+          "method": "Public full text",
+          "title": "Diffusion-Inspired Shrinkage Functions and Stability Results for Wavelet Denoising",
+          "trigger": "Variation diminution in Haar shrinkage"
+        },
+        {
+          "assessment": "Not used to exclude coverage",
+          "evidence": "No decisive passage retrieved.",
+          "identifier_or_url": "doi:10.1093/biomet/81.3.425",
+          "material_read": "No primary full text",
+          "method": "DOI and identified publisher PDF, HTTP 403",
+          "title": "Ideal spatial adaptation by wavelet shrinkage",
+          "trigger": "Original wavelet shrinkage method"
+        },
+        {
+          "assessment": "Not used to exclude coverage",
+          "evidence": "Repository connection refused; publisher routes 403.",
+          "identifier_or_url": "https://lmbweb.informatik.uni-freiburg.de/Publications/2004/Bro04/steidl_siam04.pdf",
+          "material_read": "No primary full text",
+          "method": "Author-hosted PDF and SIAM routes attempted",
+          "title": "On the Equivalence of Soft Wavelet Shrinkage, Total Variation Diffusion, Total Variation Regularization, and SIDEs",
+          "trigger": "Potential overlap connecting shrinkage with TV"
+        },
+        {
+          "assessment": "Not used to exclude coverage",
+          "evidence": "No decisive passage retrieved.",
+          "identifier_or_url": "doi:10.1112/S0024611503014084",
+          "material_read": "No primary full text",
+          "method": "DOI and OUP attempts",
+          "title": "Projections and Non-Linear Approximation in the Space BV",
+          "trigger": "Endpoint BV Haar projector literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp modulus would be useful for distinguishing ℓ² nonexpansiveness from open-path variation instability, but that scientific gain is supplied already by an earlier stronger exact result. The elementary rewriting into q-vectors, weaker bound, and repeated finite table do not provide a distinct useful consequence.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

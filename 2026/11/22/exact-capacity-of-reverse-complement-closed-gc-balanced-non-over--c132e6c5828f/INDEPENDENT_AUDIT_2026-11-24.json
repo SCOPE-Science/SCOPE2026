@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:05:55.546338Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The word count is choose(6,3)*2^6=1280. Reverse-complementation preserves the two symbol classes; a fixed word contributes an even count from each class via the three paired positions, so none of the weight-three words is fixed. A closed code thus consists of entire two-word orbits. Vertex admissibility checks self-overlaps and overlaps within the orbit; edges check both directions between all words in the two distinct orbits. These conditions are equivalent to the stipulated all-ordered-pair condition, so an exact maximum clique of size 22 proves the maximum 44. The source's greedy coloring bound is valid on every prefix (a clique uses at most one vertex of each independent color class). Branching in reverse order on the greatest remaining vertex partitions improving cliques, retaining all earlier neighbors and pruning only via that bound. An independently written verifier reproduced 640 total orbits, 248 admissible orbits, 9048 edges and clique number 22, and checked the actual supplied 44 distinct words for exact weight, involution closure and every overlap direction and length. Replay `python3 /workspace/branches/f70bcbe1-e5e9-481a-9c21-ed89968bbfb7/independent_check.py`; see `independent_check.log` there. The verification had a different recursion order, so its node count is not the original's. The supplied source code was inspected, not executed. This is an exact finite combinatorial certificate, not a proof about longer words or properties of physical strands.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stanovnik–Moškon–Mraz select the largest balanced subset inside a maximal unrestricted non-overlapping code (Construction 4) and give small-case optimal sizes via Construction 1 and its larger-alphabet generalization. Yazdi et al. have a GC balance condition but their primer-dimer restrictions suppress complement matches rather than requiring all involution mates in the set."
+        ],
+        "reasoning": "A balanced subset of an unrestricted code need not be closed. A general candidate representation for non-overlapping codes does not supply a sharp upper bound on the number of complete admissible pairs; the new finite calculation handles that additional combinatorial constraint.",
+        "searches": [
+          "arXiv:2410.18458v1, Construction 4 and discussion after Proposition 9",
+          "arXiv:1709.05214, §2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2410.18458v1",
+        "arXiv:1709.05214",
+        "Resultary b39eb37f2435, fa172ff3d5a0, 8ad1fa1a18b8 and self-match c132e6c5828f",
+        "PMC8016470 (attempted, not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted length-six balanced comparison allows the generalization of a three-word binary code with 2^6 lifted words per pattern, yielding 192, not a bound sharp under closure. The known length-five strand-invariant value does not constrain compatibility of the length-six orbits; changing length changes all the overlap relations (and exact balance is defined differently at odd length)."
+        ],
+        "reasoning": "Neither a smaller-length exact result, a higher unconstrained maximum nor a general code-construction algorithm forces clique number 22. Establishing the length-six upper bound needs the new instance calculation.",
+        "searches": [
+          "Resultary b39eb37f2435, actual Finding",
+          "arXiv:2410.18458v1, small exact maxima paragraph and Construction 4",
+          "focused primary lookup of strand-invariant cross-bifix-free exact capacities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b39eb37f2435 uses the same reverse-complement closure and all proper overlap lengths for five-mers of GC count 2 or 3. Yazdi et al. define mutually uncorrelated address sequences and impose balanced composition and, separately, complementarity avoidance constraints."
+        ],
+        "reasoning": "Strand invariance is the same setwise closure used here, while avoiding complement matches or requiring reverse-complement distance is not closure. The five-mer claim concerns a different length and weight regime; there is no relabeling or quotient argument that identifies the two optima.",
+        "searches": [
+          "Resultary: strand-invariant GC-balanced non-overlapping codes and exact six-mer capacities",
+          "Primary query: reverse-complement closed or invariant non-overlapping/cross-bifix-free/mutually uncorrelated balanced six-letter codewords"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit c132e6c5828f is the assigned record, not prior corroboration. Closest indexed analogue b39eb37f2435 gives 24 for five-mers with weight 2 or 3. Distinct same-day fa172ff3d5a0 gives M_6=224 with only overlap lengths 1 and 2 forbidden and no closure. Distinct 8ad1fa1a18b8 gives M_6=27 under homopolymer and Hamming/reverse-complement distance constraints, explicitly not closure. The binary balanced length-six optimum 3 and its alphabet lift concern the no-closure regime."
+        ],
+        "reasoning": "The comparable numbers pertain to different lengths or feasible sets. Two-overlap freedom weakens the condition and gives only a loose upper bound; the additional distance constraints neither define the same codes nor imply this optimum.",
+        "searches": [
+          "Resultary b39eb37f2435, fa172ff3d5a0, 8ad1fa1a18b8 and exact six-mer index hits",
+          "arXiv:2410.18458v1, paragraph and Table 1 following Proposition 9"
+        ]
+      },
+      "rationale": "The exact value for the joint length-six, weight-three, all-overlap and reverse-complement-closure constraints was not supplied or directly implied by the strongest actually inspected results. Neither the general clique reduction nor the earlier balanced-code methods are novel here; the supported claim is the exact optimum under this combination of constraints.",
+      "residual_risks": [
+        "The focused external lookup produced no additional usable source; that is not historical-priority evidence. An unlocated exact table for strand-invariant cross-bifix-free balanced codes could change the determination.",
+        "The cited Frith–Noé–Kucherov unrestricted comparison was not independently read from full text; it is not relied on."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": [
+            "Construction 4 selects a balanced subset of a maximal non-overlapping code. The small-optima paragraph explicitly discusses alphabet sizes 4,6 and lengths 4,6,8; these assertions do not require reverse-complement closure."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.18458v1",
+          "material_read": "Construction 4 (OA near offset 28492), paragraph preceding Table 1 and Table 1 (OA offset 30230 onward)",
+          "method": "Lawful OA HTML bounded mathematical passages",
+          "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+          "trigger": "Exact small balanced non-overlapping optima, including the target alphabet and length without closure"
+        },
+        {
+          "assessment": "DIFFERENT_CONSTRAINT",
+          "evidence": [
+            "Definition 1 prohibits complementary substring matches in either direction; such avoidance does not say the set includes every word's reverse complement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1709.05214",
+          "material_read": "§2 p. 2, exact GC balance and Definition 1 of APD constraint, OA offset 12800 onward",
+          "method": "Lawful OA PDF bounded text",
+          "title": "Mutually Uncorrelated Primers for DNA-Based Data Storage",
+          "trigger": "Balance and complementarity in a non-overlap coding setting"
+        },
+        {
+          "assessment": "DIFFERENT_LENGTH_AND_WEIGHT",
+          "evidence": [
+            "Maximum 24 over length five with two or three symbols from the GC class."
+          ],
+          "identifier_or_url": "Resultary b39eb37f2435",
+          "material_read": "Actual Finding, local-mirror RESULT.md offset 0",
+          "method": "Local Resultary search and local mirror",
+          "title": "Exact capacity of strand-invariant GC-balanced non-overlapping DNA codes at length five",
+          "trigger": "Same involution and all overlap lengths, exact calculation for nearby length"
+        },
+        {
+          "assessment": "DIFFERENT_FEASIBLE_SETS",
+          "evidence": [
+            "Two-overlap-only, no closure in the first; homopolymer and distance constraints with avoidance in the second."
+          ],
+          "identifier_or_url": "Resultary fa172ff3d5a0 and 8ad1fa1a18b8",
+          "material_read": "Findings in local-mirror RESULT.md, offset 0 for each",
+          "method": "Local Resultary search and local mirror",
+          "title": "Sharp GC-balanced two-overlap synchronization codes; Sharp short-block DNA code capacities under GC balance and homopolymer constraints",
+          "trigger": "Same length and balance in exact neighboring finite problems"
+        },
+        {
+          "assessment": "UNREAD_COMPARISON",
+          "evidence": [
+            "The reported unrestricted benchmark is not used as proof of any originality or correctness conclusion."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8016470/",
+          "material_read": "No body passage independently retrieved; PMC route yielded only a landing page and the attempted publisher route was blocked",
+          "method": "Lawful OA attempts only",
+          "title": "Minimally overlapping words for sequence similarity search",
+          "trigger": "Frozen citation for unrestricted six-letter-block benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Balance, setwise involution closure, and synchronization via all proper overlaps are independent natural constraints on codes. Length six gives a short nontrivial even balanced case with only two-element orbits, unlike regimes that allow fixed words; it exposes the exact cost of imposing strand closure on the balanced optimum rather than merely ruling out a few examples. The sharp value and its attainment give a concrete benchmark for future constructions and bounds. No biochemical performance is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

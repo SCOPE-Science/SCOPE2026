@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:43:45.772498Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof of flow equivalence, dynamic program and complexity",
+        "Frozen VERIFICATION.md and verify.py, including the two independent references in the checker"
+      ],
+      "rationale": "A choice of split counts t_s yields N_s=a_s+b_s−t_s+t_{s−1}, which is automatically nonnegative for 0≤t_s≤b_s. Divisibility by s is sufficient as well as necessary because within-size labels can be grouped arbitrarily. The predecessor y must have residue t−a_s−b_s modulo s; on that residue the additive transition cost is the sum of a function of t and y/s. Thus each extremum needs only one optimally scored predecessor on that residue, equivalently optimizing m(y)+floor(y/s) or M(y)+floor(y/s). Since the sum of all state-array lengths is n+∑b_s, scanning even the full arrays at each next stage is linear, as are the timestamp operations and retained parent storage. At s=1 the residue is unique, and at s=n the only allowed output state is zero. Parent traversal and batching distinct labels into groups realizes both bounds, including n=1. Explicit output is linear in the size of its label list. The frozen checker was inspected, not executed; its finite brute-force comparisons are corroboration, not the general proof.",
+      "residual_risks": [
+        "Word-RAM statement assumes constant-time standard integer arithmetic including quotient/remainder on O(log n)-bit words, not the bit cost model.",
+        "The version-specific locators of Constantinescu et al. are inaccurate: arXiv v1 has Theorems 3 and 7 at pp. 8 and 14. The cited mathematical facts hold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv v1 Theorem 3 constructs one wonderful partition or decides nonexistence for arbitrary interval approvals in O(n^5). Its Theorem 7 and Darmann et al. Theorem 4 establish hardness for nonadjacent pairs allowed."
+        ],
+        "reasoning": "The broader interval theorem covers one feasible witness but neither the complexity nor the extrema. The unrestricted hardness does not constrain the path case.",
+        "searches": [
+          "Woeginger Hiking Problem O(n^5) interval approvals Constantinescu theorem",
+          "exact two group sizes NP-complete wonderful partition orientation modular indegree",
+          "10.1007/s00182-017-0596-4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 676f75d25d45 and 1a4e7294bf4b",
+        "arXiv:2311.02067v1",
+        "10.1007/s00182-017-0596-4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a prescribed output state, the present optimization needs only each predecessor residue's extremizer of state value plus floor(y/s). The earlier constructions for interval feasibility and two-size orientation do not assert such a compression."
+        ],
+        "reasoning": "Linear-time optimization with two reconstructed extrema does not result from directly invoking the stated general feasibility or hardness theorems.",
+        "searches": [
+          "arXiv:2311.02067v1, Theorems 3 and 7 and orientation reduction",
+          "10.1007/s00182-017-0596-4, Theorem 4 and perfect-assignment proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Constantinescu et al. p. 14 represents approved pairs by parallel edges on size labels and requires the chosen-direction degree at label s to be divisible by s.",
+          "For this record the graph is a path with parallel edges, singleton counts give fixed offsets a_s, and the objective is ∑(a_s+indegree(s))/s."
+        ],
+        "reasoning": "The reduction is already known for feasibility with pairs. It does not supply the path linear-time algorithm for optimizing the divisibility quotient sum.",
+        "searches": [
+          "modular orientation path graph consecutive size approvals wonderful partition",
+          "path multigraph modular indegree consecutive approved sizes min max groups witnesses",
+          "arXiv:2311.02067v1, ORIENTATION"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed records 676f75d25d45 and 1a4e7294bf4b concern welfare or strict-core questions on degree-two graphs on agents, not a path on approval-size labels.",
+          "No separate tabulation of finite values is at issue: the claim is an all-input algorithm with complexity and witness guarantees."
+        ],
+        "reasoning": "The other indexed graph/path formulations use a different ground set and objective; they do not give this exact invariant or algorithm. Ranked misses establish no priority.",
+        "searches": [
+          "wonderful partition two consecutive group sizes linear time minimum maximum groups witness",
+          "\"Linear-time coalition-count optimization with two consecutive approved sizes\""
+        ]
+      },
+      "rationale": "The general pair-approval orientation equivalence and the interval feasibility algorithm are antecedents, but the inspected statements do not give an algorithm for both extrema and labeled witnesses in time linear in the explicit input, even on the size-label path. The surviving claim is the adjacency-specific, residue-compressed optimization bound, not the orientation model, unrestricted hardness, or the existence of some polynomial-time interval algorithm.",
+      "residual_risks": [
+        "Equivalent optimization may exist under modular multigraph orientation or consecutive assignment terminology. The inspected results do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior feasibility and orientation, not the complexity and extremal objective under audit.",
+          "evidence": [
+            "O(n^5) for existence and one partition; degree divisible by its size label; hardness with arbitrary approved pairs."
+          ],
+          "identifier_or_url": "arXiv:2311.02067v1",
+          "material_read": "p. 8 Theorem 3, offset 23300; p. 14 orientation and Theorem 7 at offsets 37900–40540; p. 3 context",
+          "method": "OA arXiv full-text passages",
+          "title": "Solving Woeginger's Hiking Problem: Wonderful Partitions in Anonymous Hedonic Games",
+          "trigger": "Same feasibility model, interval theorem and modular orientation reduction"
+        },
+        {
+          "assessment": "Verifies hardness comparison, does not give adjacent-pair extrema.",
+          "evidence": [
+            "Perfect assignments with one equivalent activity correspond to wonderful partitions; hardness with at most two approved alternatives unrestricted by adjacency."
+          ],
+          "identifier_or_url": "10.1007/s00182-017-0596-4",
+          "material_read": "Theorem 4 at offset 47400 and proof at offset 95800, printed p. 795",
+          "method": "Lawful publisher PDF passages",
+          "title": "Group activity selection problem with approval preferences",
+          "trigger": "Unrestricted pair hardness"
+        },
+        {
+          "assessment": "Different model.",
+          "evidence": [
+            "Signed-edge fractional-hedonic welfare on degree-two agent networks."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 676f75d25d45",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local indexed mirror",
+          "title": "Linear-time optimal fractional hedonic coalitions with signed weights",
+          "trigger": "Nearby linear-time degree-two coalition result"
+        },
+        {
+          "assessment": "Different invariant and ground set.",
+          "evidence": [
+            "Capacity-limited strict-core partitions on degree-two agent networks."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 1a4e7294bf4b",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local indexed mirror",
+          "title": "A divisibility and weighted Bell census of strict-core partitions",
+          "trigger": "Indexed path/coalition divisibility match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and proof; interval feasibility baseline in arXiv:2311.02067v1"
+      ],
+      "rationale": "Two witnesses may differ materially even when feasibility is easy: they bracket the range of feasible coalition fragmentation and certify the endpoints. Obtaining both extrema at input/output scale exploits a natural adjacency restriction and is materially stronger than constructing one feasible partition in polynomial time.",
+      "residual_risks": [
+        "No claim about intermediate attainable counts or more general approval sets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

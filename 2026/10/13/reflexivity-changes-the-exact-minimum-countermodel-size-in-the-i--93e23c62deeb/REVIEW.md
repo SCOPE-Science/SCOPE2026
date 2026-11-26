@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two-world \(\mathsf{IS4}\) model is a valid birelational frame: \(\le\) is the two-element chain, \(R\) is universal, and the valuation of \(a\) is upward closed. Direct forcing evaluation gives the inner conjunction at both worlds and therefore the outer boxed antecedent at the root, so the displayed implication fails. Every one-world \(\mathsf{IS4}\) frame has a reflexive modal edge; the two possible truth values of \(a\) respectively kill the first or second conjunct, so no one-world countermodel exists. For \(\mathsf{IK4}\), the one-world empty modal relation is admissible and makes the outer box vacuously true, giving a countermodel. Thus the exact minima are \(2\) and \(1\).
+PASS
 
-## Originality
+Write the inner conjunction as B=¬□a∧¬¬a. On the two-world chain with universal R, a false at the bottom and true at the top, every box test for a sees the bottom and every order test for ¬a sees the top; therefore □a and ¬a both fail everywhere, B holds everywhere, and □B witnesses the failure of ¬□B at the root. Universal R satisfies both confluences and is reflexive and transitive; the valuation is upward closed. On a one-world IS4 frame, box is identity and intuitionistic negation is Boolean, so B is false for both valuations and F is true. On a singleton IK4 frame empty R is transitive and confluent vacuously, makes □B true independently of a, and refutes F. A refutation needs at least one world. These cases prove the exact minima under the cited semantics.
 
-PASS. The primary 2026 paper was inspected at its birelational semantics, Example 2.6, and finite-model discussion. It presents the formula as an example where naive countermodel construction keeps adding worlds, but it does not state the exact minimum countermodel size or the reflexivity-based \(2\)-versus-\(1\) contrast. Published-finding searches using the exact-size, semantic, formula-structure, and logic-comparison aliases returned no covering result. The current and prior private ledgers were checked for recoverable claims and source identifiers; one current finding cites the same paper only as independent support for a different IK4 finiteness issue and does not imply the present theorem.
+## originality
 
-## Value
+PASS
 
-PASS. The formula is not an arbitrary slice: the source explicitly uses it to motivate the loop-control machinery needed for its decision procedure. Showing that the apparent infinite growth hides a smallest two-world \(\mathsf{IS4}\) countermodel cleanly separates proof-search behavior from semantic model size. The exact one-world \(\mathsf{IK4}\) comparison further identifies modal reflexivity as the entire source of the minimum-size gap.
+Example 2.6 already gives this formula and its IS4 nonprovability. The distinct claim is exact cardinality in both semantics, including the optimal two-world construction and exclusion of all IS4 singleton models. No checked prior statement gives that conjunction of results or implies it by the general finite model property alone.
 
-## Closest literature and limitations
+## value
 
-The closest source is Girlando--Kuznets--Marin--Straßburger (2026), which supplies the semantics and the motivating Example 2.6 but not the exact minima. General finite-model-property results for intuitionistic modal logics guarantee finite countermodels without determining this formula's optimum.
+PASS
 
-The result is local to the displayed formula and does not yield a global countermodel-size bound. The originality search is necessarily bounded, so an older equivalent observation under different notation remains a residual risk.
+The example was independently motivated by a real looping failure mode in proof search. The exact IS4 size is a useful minimal benchmark: the loop occurs even when just two worlds suffice and a one-world closure would be invalid. The IK4 singleton provides a clean semantic control in which removing reflexivity removes even that one-world obstruction. The combination separates intrinsic countermodel size from the size behavior of the naive construction without claiming a general bound.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

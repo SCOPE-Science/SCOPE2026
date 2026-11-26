@@ -1,15 +1,21 @@
-# Scientific review: Stewart-word factor symmetries
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over arbitrary infinite Stewart directives, including an optional exceptional-hole filling. The proof reconstructs the base-three Toeplitz skeleton, proves the involutive reflection \(i\mapsto2H_r-i\pmod{3^r}\) exchanges every assigned bit, and proves that every finite factor can be relocated to wholly assigned positions. The independent local decomposition at length eight is exhaustive: the only possible hole subsequences have lengths two or three, whose complete languages are proved directly. Those three residue classes yield exactly sixteen factors in either orientation, with no complementary pair, and exact counts at shorter lengths. The finite checker independently passes all listed local/skeleton checks. No infinite result is inferred from enumeration alone.
+## correctness
 
-## Originality — PASS, with identified residual risks
-Fici–Shallit, arXiv:2112.12125v1, §§6 and 10, classify ordinary palindromes and complexity but do not state this reversal-versus-complement overlap spectrum or prove language-wide reverse-complement invariance. Currie et al., arXiv:2209.09598, §§2–3, investigate complementary-factor avoidance across binary word classes, without a theorem specializing to every Stewart directive or relating this property to the reverse-complement antimorphism. The closest retrieved public comparison was a different cyclic Sturmian lifting result; none implies the current statement. Search is not a uniqueness certificate. Earlier generalized choral-sequence literature could conceal equivalent observations and remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-This supplies a complete qualitative and quantitative symmetry classification for an uncountable, established Toeplitz family: all lengths admit the *combined* antimorphism, whereas neither constituent involution survives as a co-occurrence beyond the sharp length-seven boundary. The short-factor spectrum gives the exact transition, and the base-three reflection explains it structurally for every directive. This is not a length-specific isolated count or a rephrasing of the already-known palindrome list: it distinguishes pairs of different factors and an infinite-language involution.
+For each starting residue the first-level triple has the two fixed bits and a hole filled by either bit in the tail, giving exactly the six nonconstant triples and all four pairs. In a length-eight window the consecutive tail symbols therefore range over exactly the required pairs or triples. Independent enumeration via all two-level nine-period skeletons with both fills reproduced the complement intersections, including exactly the two given length-seven words and an empty length-eight intersection; taking prefixes rules out every larger length. Every finite factor can be shifted to a fully resolved window and thus repeats periodically. At each finite depth reflection about the remaining hole class interchanges the two non-hole digits at the first differing ternary digit, so the reflected window realizes its reverse-complement. Applying this symmetry sends complement membership to reversal membership. The proof handles cyclic variants of all six patterns, nonperiodic directives, and either exceptional-hole fill.
 
-## Relationship to sources and limits
-The factor-complexity identity \(2n\) and finite ordinary-palindrome list are credited to Fici–Shallit. The complementary-factor avoidance setting is credited to Currie et al. The proof does not classify all long factors or determine the fixed-point count of reverse-complement, and unlocated equivalent Toeplitz-symmetry literature remains possible. Independent assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired novelty claim is the exact same-language overlap spectrum for the two constituent involutions and its sharp cutoff. The known witness words, total factor complexity, and reverse-complement closure are not claimed as new.
+
+## value
+
+PASS
+
+The exact spectrum measures a natural pair of symmetries of a classical word family for which total complexity, palindromes and unbounded common factors were known. It identifies where co-occurrence ceases and counts the exceptions, distinguishing closure under a composition from the exact failure of both constituent symmetries. The length-eight grammar makes this an all-directive sharp boundary rather than a finite sample or the restatement of the two palindromes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

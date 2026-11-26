@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:13:32.820837Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the two-row scalar objective φ(x)=(x²+1)/2, the one-row correction, after the sampled line scale, gives signed unit displacement b. With independent fair with-replacement validation signs B_i and Y=b mean(B_i), a trial of magnitude α gives sampled change α²/2−αY and directional term −αY. Both tests hold exactly when Y≥α/[2(1−c)]>0, including equality at the Armijo threshold. Reuse of the validation batch makes these events nested across the grid: acceptance is precisely the tail at α=2^−J, which is zero if the threshold exceeds one. Every nonzero step increases φ by α²/2. An independent integer Pascal-row calculation at s=64 yielded the exact numerator 8307059966383480541 over 18446744073709551616, with binomial cutoff 33. Di supplies c=10^−4 and J=5; the 64-row choice is an evaluated example, not established as his implementation's batch size. The CLT and Hoeffding bound give the finite and infinite scaling limits, and solving the Gaussian tail gives the budget ratio. The largest eligible dyadic α satisfies q/2<α≤q for q=2(1−c)Y on acceptance (also under saturation, as q<2). Symmetry gives s times the positive-side second moment exactly 1/2, and discarding values between zero and the minimum acceptance threshold loses at most s t_J²→0 in the deep regime. This proves the two normalized damage bounds without asserting an exact constant. Frozen checker.py and VERIFICATION.md were inspected, not executed; the checker covers finite exact-rational scenarios and CLT spot checks, not all s or a multistep convergence claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paquette–Scheinberg p. 3 explicitly warns that Armijo may falsely pass and increase the true objective, with p. 5 imposing conditional oracle accuracy",
+          "Jin et al., Algorithm 2.1, Eq. (2.1), p. 5, offsets 17130–19030: one trial per iteration, Armijo uses the direction norm and an oracle-error tolerance, and the step-size parameter adapts to acceptance"
+        ],
+        "reasoning": "The qualitative failure mechanism is known. Those adaptive-oracle guarantees and decision rules do not specialize to the nested finite-grid decision based on a directional derivative measured from the same independent validation sample. They do not determine its exact false-acceptance probability.",
+        "searches": [
+          "Paquette–Scheinberg arXiv:1807.07994v1, §2.1 and Algorithm 1",
+          "Jin–Scheinberg–Xie High Probability Complexity Bounds for Adaptive Step Search Based on Stochastic Oracles; identified OA arXiv:2106.06454v5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary a16d48da5cb2 (same finding) and ea601f3469f2 (distinct)",
+        "arXiv:2611.12667v1",
+        "arXiv:1807.07994v1",
+        "arXiv:2106.06454v5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Di's proposition uses simultaneous error bounds and the margin inequality (4.21) to ensure true decrease; the experimental uncorrected rule (4.22) is distinct",
+          "Di Algorithm 3.1 states the step decisions, not a distribution of errors at the full-data optimum"
+        ],
+        "reasoning": "The margin theorem cannot be invoked for an ordinary sampled Armijo check with no error margins. The exact law comes from the scalar reduction plus monotonicity of the shared-batch comparisons; the frontier and damage envelope require analyzing the limiting threshold and the first accepted displacement, which are not supplied by the compared results.",
+        "searches": [
+          "Di arXiv:2611.12667v1 Proposition 4.8 and Eqs. (4.20)–(4.22), PDF p. 10, offsets 34000–37439",
+          "Paquette–Scheinberg §2.1 and Jin et al. Algorithm 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Di Eq. (3.3) uses with-replacement draws; Eqs. (3.8)–(3.9) and Algorithm 3.1 lines 13–19 use one fresh line-search batch for the fixed grid",
+          "Di Eq. (4.22) gives the uncorrected projected test and c=10^−4; with inactive projection it is usual sampled Armijo"
+        ],
+        "reasoning": "Equal row norms give a fair sign, and removing an irrelevant common objective scale and using physical displacement instead of the algorithm's scaled step shows the same test in the frozen scalar model. The trials themselves are not independent; only correction and validation are independent. The exact probability is for the shared-batch model, not a resample-at-each-trial rule.",
+        "searches": [
+          "Local Resultary: independent-batch Armijo at stationarity, two-point least squares, backtracking-depth versus validation size",
+          "Di arXiv:2611.12667v1 §§3.1, 3.3 and 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The highest indexed hit a16d48da5cb2 is the assigned record itself",
+          "Distinct Nov. 8 record ea601f3469f2, RESULT.md Finding offset 25: minimum-current-loss observation selection from fresh batches, with logarithmic screening and pathwise outcomes"
+        ],
+        "reasoning": "The distinct catalogue hit has a related scalar sampling model but not the acceptance statistic or depth parameter. An exact binomial tail is classical and tabulatable once its event and cutoff have been proved; the tabulation does not supply the grid-to-cutoff reduction or the validation–backtracking frontier.",
+        "searches": [
+          "Local Resultary: sampled Armijo validation grid, exact binomial false acceptance and two-valued quadratic sampling"
+        ]
+      },
+      "rationale": "The assessed distinct claim is the exact finite-grid false-acceptance and sample-to-depth frontier for a specific independently validated Armijo rule at its true minimizer, plus the damage order. The algorithm, the qualitative possibility of uphill false acceptance, and the binomial and Gaussian tools are prior. The compared stronger-looking oracle-complexity results do not give this validation statistic, finite-grid decision or coupling.",
+      "residual_risks": [
+        "The Jin et al. publisher PDF was unavailable; the relevant publicly available arXiv text was inspected instead.",
+        "The comparison is bounded, not a guarantee of priority; earlier stationary-point analyses of independent validation not located here could affect novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms shared independent validation, c and J settings, not the error law; s_C=64 not established as a source setting",
+          "evidence": [
+            "The batch draw precedes the trial loop",
+            "(4.21) is margin-certified while (4.22) has no margin"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.12667v1",
+          "material_read": "Eq. (3.3), §3.3, Algorithm 3.1 pp. 5–6 and §4.3 Proposition 4.8, Eqs. (4.20)–(4.22), p. 10",
+          "method": "Bounded OA primary PDF passages; direct comparison of algorithm and two tests",
+          "title": "Stochastic Multilevel Sampling for Inverse Problems via Coarse-Space Identifiability",
+          "trigger": "Motivating experimental algorithm and plausible direct overlap"
+        },
+        {
+          "assessment": "Prior qualitative warning, not the frozen quantified frontier",
+          "evidence": [
+            "Warns about actual objective increases under false acceptance"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.07994",
+          "material_read": "Algorithm 1 and §2.1, p. 3, offsets 8722 and 10000; conditional oracle accuracy p. 5, offset 15442",
+          "method": "Bounded OA primary PDF passages",
+          "title": "A Stochastic Line Search Method with Convergence Rate Analysis",
+          "trigger": "Prior warning and possible stochastic Armijo overlap"
+        },
+        {
+          "assessment": "Different trial, acceptance and analysis objects",
+          "evidence": [
+            "One candidate per iteration; modified Armijo compares to a term involving the direction norm and oracle-error tolerance"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.06454v5",
+          "material_read": "Algorithm 2.1 and Assumption 2, p. 5, offsets 17130–19030",
+          "method": "Bounded OA arXiv alternate after publisher retrieval denied",
+          "title": "High Probability Complexity Bounds for Adaptive Step Search Based on Stochastic Oracles",
+          "trigger": "Broader adaptive-search guarantee with stochastic oracles"
+        },
+        {
+          "assessment": "Different selection rule and asymptotic quantity",
+          "evidence": [
+            "Minimum-loss observation selection, not a shared-batch acceptance grid"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-logarithmic-screening-window-for-streaming-minimum-loss--ea601f3469f2/RESULT.md",
+          "material_read": "Finding at offset 25",
+          "method": "Local Resultary and bounded local-mirror text",
+          "title": "A sharp logarithmic screening window for streaming minimum-loss selection",
+          "trigger": "Closest distinct indexed scalar sampling result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal least-squares example isolates a flaw that independence alone does not fix in an actual uncorrected validation rule. The exact frontier quantifies how c, the finite grid depth and batch size interact, and separates the probability of a wrong decision from the O(1/s) expected size of its damage. This is a motivated calibration benchmark, not a general stochastic convergence or error-control result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

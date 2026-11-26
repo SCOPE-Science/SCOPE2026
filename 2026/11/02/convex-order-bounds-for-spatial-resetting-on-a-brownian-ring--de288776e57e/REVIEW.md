@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The formula for the killed Brownian motion follows from the two-endpoint Dirichlet boundary-value problem. The search-time renewal identity is solved exactly, and its derivative with respect to the reset-location transform has a strictly positive sign for positive Laplace argument. The second derivative of the killed transform with respect to unreset search cost is strictly positive, including the antipodal endpoint by continuity. Strict Jensen/chord inequalities identify unique extremizers in the cost distribution. Uniform small-rate Taylor expansion and exponential large-rate estimates recover both quantitative limits. The finite checker passes 921 tests; the theorem does not rely on finite enumeration.
+PASS
 
-## Originality — PASS (qualified best-knowledge)
+Cutting at the target gives the two-endpoint killed interval and the cosh hitting transform psi_q. If B is its average over the reset law at q=r+s, a cycle from a sampled position has discounted absorption contribution B and discounted reset contribution r(1-B)/(r+s). Solving the scalar restart equation and accounting for the fixed initial point gives (s psi_(r+s)(d_0)+r B)/(s+r B). Its derivative in B is strictly positive since d_0>0; the first-step mean is (1-psi_r(d_0))/(r B_r), strictly decreasing in B_r. In the cost coordinate u, expand cosh(sqrt(q/D) sqrt(L²/4-u)) in powers of L²/4-u. Every term of order at least two has nonnegative second derivative on the interval, and the quadratic term gives a positive lower bound on f_q'' even at the antipode. Distinct convex-ordered laws on a compact interval have different continuous stop-loss functions and thus strictly ordered expectations of this kernel. Jensen and the chord inequality give the two unique cost laws with the prescribed mean; the cost-distance map is strictly increasing up to L/2. Dividing the cosh series gives psi_q=1-q u/(2D)+q²u(L²+u)/(24D²)+O(q³), uniformly in distance. The common mean cancels the linear terms of the two averaged transforms, and the initial-point factor yields u_0 Var(U)/(48 D³) in the mean gap. The variance bound follows by averaging (U-u_a)(u_b-U)≥0. At high rate the lower distance contributes exp(-a sqrt(r/D)) with weight lambda, dominating the endpoint b even if b is antipodal, while d_m lies strictly below b. The common initial-point factor cancels in the mean ratio; both means diverge. The verification note and script were inspected, not executed: sampled inequalities, small-rate and high-rate checks and two approximate backward-equation comparisons support finite cases only.
 
-The closest primary source, Julián-Salgado et al., arXiv:2605.08414, treats rate optimization, fixed reset sites and associated transitions on the same Brownian ring. The accessible source text does not state sharp extrema over arbitrary reset-position distributions with fixed unreset search cost, nor the all-parameter convex-order theorem. The full source arXiv:2401.01125 studies equivalent resetting positions at one prescribed rate but does not assert the simultaneous strict fixed-cost endpoint extremal law. The inspected full PDF arXiv:2507.14483 studies half-line distributed resets, mainly selected density families and optimal rates. Evans and Majumdar (2011) supply older resetting principles; only summary material was available here. Published research-record searches did not identify the precise theorem. The absence of a found match is not proof of priority; the principal risk is that a stronger preexisting stochastic-ordering or renewal-optimization result may imply the theorem. Independent priority audit remains unperformed.
+## originality
 
-## Value — PASS
+PASS
 
-The constraint fixes the free-search mean of reset locations, making the comparison substantive rather than favoring a trivially nearest site. It establishes a strict monotonic hierarchy that simultaneously controls all positive time-discounted completion probabilities and the mean, and identifies the unique extremal distributional designs across every reset rate. Equal-budget designs differ only at quadratic order for weak resetting but exhibit exponential relative separation in the strong-reset regime. This resolves a natural spatial-reset-design question beyond optimization over a scalar resetting frequency.
+The prior ring and random-position resetting formulas are credited. The supported distinct contribution is the strict simultaneous optimizer and convex-order comparison for Poisson ring resetting at fixed mean unreset exit cost, together with its weak- and high-rate laws. The inspected closest indexed results optimize related objectives but have different kernels or budget functionals. The assessment is not a priority claim for two-point extremizers in resetting generally.
 
-## Limits
+## value
 
-The theorem is limited to a one-target homogeneous circle, Poisson resetting, complete independent position draws in a compact interval bounded away from the target, and a fixed mean free first-passage cost. It does not give ordinary stochastic dominance, optimality under arbitrary cost criteria, or uniqueness of the physical angular distribution. The numerical checks do not constitute a proof. Literature overlap risk persists.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The budget has a direct physical meaning independent of the reset rate: the average free search cost from a reset. The result compares arbitrary admissible distributions, not a chosen finite family, and the same sharp pair governs every positive reset rate and Laplace argument. In particular it distinguishes a second-order weak-rate effect, whose coefficient has a sharp variance interpretation, from exponential separation at large rates. Those quantitative consequences make the specialization scientifically useful without asserting a general stochastic ordering.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

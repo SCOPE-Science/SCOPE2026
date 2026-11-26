@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:57:01.954178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Findings and Proof Steps 1–3",
+        "Frozen REVIEW.md, Value",
+        "Frozen VERIFICATION.md; checker.py inspected, not executed: the finite census and exact arithmetic do not prove the asymptotics."
+      ],
+      "rationale": "The RESULT.md theorem is correct. Marking one a-cycle and one b-cycle in the fixed-point-free exponential generating function shifts n by a+b and multiplies by θ²/(ab); subtracting the separately marked means yields the stated determinant. For α=θ−1, coefficient transfer at z=1 gives log H_n = const + α log n + A/n + B'/n² + O(n⁻³). The fixed-shift mixed difference log H_(n−a−b)+log H_n−log H_(n−a)−log H_(n−b) is −αab/n²+O(n⁻³): the analytic-factor terms do not contribute at order n⁻². Exponentiating and using H_(n−a)H_(n−b)/H_n²=1+O(n⁻¹) proves the coefficient. At θ=1, write q_m=e⁻¹+(−1)^m r_m with the positive Taylor integral remainder. With N=n−a−b≥2, r_(N+k)≤3^(−k)r_N; the sign-correct linear determinant term has magnitude at least e⁻¹(62/81)r_N, exceeding the quadratic bound (2/81)r_N². At N=0 use 1/3≤q_m≤1/2 for m≥2; at N=1 use q_1=0. For fixed lengths the shifted remainders are o(r_N), and r_N∼1/(N+1)!, giving the signed prefactor. The separate frozen REVIEW.md under Value incorrectly calls the unconditioned uniform counts independent. They are only uncorrelated under the stated length bound: at n=5 the positive-probability events C₂=2 and C₃=1 cannot coincide. This error in the commentary is not part of RESULT.md's theorem.",
+      "residual_risks": [
+        "The noncritical estimates hold for fixed θ,a,b; no conclusion about a parameter-uniform transition follows. The frozen commentary should say uncorrelated, not independent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2020 primary text gives the same fixed-point conditioning, and factorial moments for mixed cycle counts rather than only this covariance. The DOI attempts yielded 403 and give no implication evidence."
+        ],
+        "reasoning": "Taking the two first moments and the mixed moment with both powers one yields the exact covariance immediately. Extracting the second mixed difference of the logarithm of the normalizer gives the off-critical coefficient; the passages examined do not independently state that expansion.",
+        "searches": [
+          "Da Silva, Jamshidpey and Tavaré, arXiv:2006.04840, §1.1 Eq. (4), §2.1 Eq. (6)",
+          "Tavaré doi:10.1112/blms.12537; Cavenagh–Greenhill–Wanless doi:10.1002/rsa.20216, OA access attempts"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f219fce56fec and 38e40b444e08 Findings",
+        "arXiv:2006.04840, equations (4) and (6)",
+        "DOI access attempts listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Finding explicitly states both θ=1 conclusions and even addresses r+s>n, outside the frozen critical domain.",
+          "Away from θ=1 the leading coefficient is determined by the exponent θ−1 of the normalizer; removing fixed points changes the analytic multiplier from 1 to e^(−θz), whose terms cancel out at order n⁻² in the determinant."
+        ],
+        "reasoning": "Two substantial results are directly covered. The exact general covariance is immediate from the earlier factorial-moment formula; the routine off-critical asymptotic neither asserts the first conditioning-sensitive term nor quantifies a crossover as θ varies with n.",
+        "searches": [
+          "Resultary f219fce56fec Finding; arXiv:2006.04840 equations (4) and (6); frozen RESULT.md Steps 2–3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct earlier record has fixed distinct r,s≥2, n≥r+s, m=n−r−s and a uniform fixed-point-free law. It states sign (−1)^m and expressly states that covariance never vanishes.",
+          "Its normalized signed limit is (−1)^m rs(m+1)! Cov(C_r,C_s) → e."
+        ],
+        "reasoning": "θ=1 in the frozen conditional Ewens law is exactly the uniform derangement measure, and m=n−a−b after relabeling. The limit is identical to the signed asymptotic, not merely an unsigned magnitude.",
+        "searches": [
+          "Configured Resultary semantic claim search: fixed-point-free Ewens covariance, strict alternating signs and signed factorial asymptotic",
+          "Resultary 2026/10/18 f219fce56fec Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 entry contains the exact critical determinant and formulas; it also gives sample covariances 30/121 and −432/2809 at n=5,6 for lengths 2,3. The November 2 entry has the noncritical coefficient and critical transition but is later."
+        ],
+        "reasoning": "This concerns an infinite parameterized theorem, so actual exact formulas in the theorem index are more probative than coincident finite table values. Distinct dates separate the decisive earlier overlap from the later match.",
+        "searches": [
+          "Configured Resultary semantic search; checked records f219fce56fec and 38e40b444e08"
+        ]
+      },
+      "rationale": "The earlier, distinct 2026/10/18 Resultary record explicitly gives the same conditioned law, strict parity for exactly the stated domain, and the same signed factorial limit. These cover both purported additions at θ=1, not just the underlying covariance identity. Da Silva–Jamshidpey–Tavaré already give the conditional factorial moments. The off-critical coefficient is the standard fixed-shift second difference of their coefficient ratio and matches the unconditioned leading term; it was not found stated in the passages of that paper. No separate substantive original advance survives in the claim as written. The later catalog match is not used as evidence of earlier priority.",
+      "residual_risks": [
+        "The search does not establish historical priority for all uses of the noncritical asymptotic. Inaccessible adjacent items do not affect the direct earlier coverage of the critical laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of both critical conclusions and the critical exact covariance",
+          "evidence": "Strict sign (−1)^m, formula with truncated e⁻¹ sums, and normalized signed limit e, all on the same law and domain.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-alternating-covariance-of-cycle-classes-in-uniform-derangements--f219fce56fec/RESULT.md",
+          "material_read": "Finding and beginning of Assumptions, offsets 0–1700",
+          "method": "Configured Resultary index and local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Alternating covariance of cycle classes in uniform derangements",
+          "trigger": "Earlier exact overlap at θ=1"
+        },
+        {
+          "assessment": "Direct implication of exact covariance; noncritical coefficient not stated in passages read",
+          "evidence": "Conditioning on no singletons and the joint factorial-moment formula for conditioned cycle counts.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.04840",
+          "material_read": "§1.1 Eq. (4), §2.1 Eq. (6), approximately offsets 4800 and 7246 in extracted text",
+          "method": "OA PDF passage inspection",
+          "title": "Random derangements and the Ewens Sampling Formula",
+          "trigger": "Same conditional distribution and mixed moments"
+        },
+        {
+          "assessment": "Later match, not evidence of prior priority",
+          "evidence": "Same noncritical universal coefficient and critical scale.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-singular-covariance-transition-for-cycle-counts-in-ewens-deran--38e40b444e08",
+          "material_read": "RESULT.md Finding",
+          "method": "Configured Resultary index and matching local source",
+          "title": "A singular covariance transition for cycle counts in Ewens derangements",
+          "trigger": "Exact broad catalog match"
+        },
+        {
+          "assessment": "Full text not accessed; no noncoverage inference",
+          "evidence": "HTTP 403.",
+          "identifier_or_url": "https://doi.org/10.1112/blms.12537",
+          "material_read": "DOI OA retrieval response only",
+          "method": "Lawful OA retrieval attempt",
+          "title": "The magical Ewens sampling formula",
+          "trigger": "Related review of Ewens models"
+        },
+        {
+          "assessment": "Full text not accessed; no noncoverage inference",
+          "evidence": "HTTP 403.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20216",
+          "material_read": "DOI OA retrieval response only",
+          "method": "Lawful OA retrieval attempt",
+          "title": "The cycle structure of two rows in a random Latin square",
+          "trigger": "Cited related cycle-count literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–3 and Limitations",
+        "Earlier Resultary f219fce56fec, Finding",
+        "Da Silva–Jamshidpey–Tavaré, Eq. (6)"
+      ],
+      "rationale": "The strict parity and factorial scale have structural interest but are already available together in the earlier exact result. With those removed, the extra computation is a routine curvature calculation from known factorial moments and ordinary coefficient asymptotics. It gives the same leading coefficient before and after conditioning. The record does not determine the first noncritical correction attributable to conditioning or any parameter-uniform transition; no genuinely valuable distinct remainder is established for repair.",
+      "residual_risks": [
+        "This assessment is about the stated contribution, not the mathematical usefulness of the known critical laws or of a genuinely finer future analysis."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

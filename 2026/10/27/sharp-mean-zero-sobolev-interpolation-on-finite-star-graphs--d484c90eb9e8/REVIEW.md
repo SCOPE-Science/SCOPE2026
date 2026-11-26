@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes unweighted counting mass, star edge energy, and the mean-zero subspace. Averaging all but one leaf minimizes **both** quadratic forms at each fixed center; removing the imaginary part is strict unless zero. A symbolic derivative and its strictly negative cubic discriminant show that the stated scalar optimizer is unique; endpoint signs put it in the claimed interval. The center has a smaller sharp pointwise constant. Exact equality conditions identify the complete class of nonzero extremizers. An analytic implicit-function expansion proves the asymptotic law. The finite verification script is supportive rather than a substitute for these deductions.
+## correctness
 
-## Originality — PASS, subject to residual bibliographic risk
-In the inspected 2014 discrete lattice paper the calculated pointwise norms concern infinite lattices and their difference operators. The 2013 resolvent paper develops related general machinery for manifolds; neither inspected source states the finite-star cubic equation, classification of equality cases, or the high-valence expansion. Current public-index searches found sharp pointwise lattice/Dirichlet boundary results with different function spaces and domains, and no claim implying this family as an already evaluated constant. An unindexed finite-graph computation and an implicit equivalent formula elsewhere remain real risks; no universal novelty guarantee is made.
+PASS
 
-## Mathematical value — PASS
-The unweighted star is the canonical graph with unbounded vertex-degree contrast. The exact vertexwise product-interpolation constant determines how sharply a single amplitude can be controlled by global energy and mass, identifies the precise extremizer shape and the leaf-versus-hub asymmetry, and supplies a high-degree benchmark with an unexpectedly absent inverse-square term. It is a complete natural one-parameter family rather than a numerical slice or an isolated decimal value. No downstream general theorem is claimed.
+Normalize a nonzero leaf value to 1 by complex scaling. Given the center c, the other leaves have prescribed mean; replacing them by it strictly decreases both quadratics unless already equal. The imaginary part of c adds a positive multiple of its square to both quadratics, so the optimal c is real. The reduced quadratics are exactly M_n and E_n. Independent symbolic differentiation and discriminant factorization reproduce p_n and its strictly negative discriminant (the remaining polynomial has positive coefficients at n=2+m), including p_n(-1/n)=-(n^2-1)^2/n^2 and p_n(0)=2n. Coercivity then makes the unique root the global minimum. At the center, fixed-value averaging gives n/(n+1)^(3/2), strictly below the coefficient of the trial leaf witness (n/(n+1))^(3/2). The optimizer's other magnitudes are less than 1 even at n=2; the strict averaging conditions and symmetry therefore give precisely all equality cases. Both reduced quadratic minima exceed 1. With h=1/n, h^3 p_(1/h)(c) is analytic with c-derivative 1 at the origin; c=-2h^2+4h^3-10h^4+O(h^5). Independent substitution gives M_n E_n=1+2h+3h^2+O(h^4), whose inverse square root is 1-h+2h^3+O(h^4). The independent n=2 value is 0.584928489376185786… .
 
-## Scope and independent review
-No statement about weighted stars, arbitrary graphs or different interpolation exponents is established. Literature coverage cannot exclude inaccessible or unindexed equivalents. All cited published sources are prior to 2016-10-18; the proof is complete for the stated finite-star family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the general sharp Green-function envelope and earlier exact path and cycle evaluations. The distinct supported result is the exact discrete-star specialization including unique optimizer, global dominance of leaves, the equality profile and the cubic high-valence correction. The strongest continuum star hit concerns a different functional and notion of mean.
+
+## value
+
+PASS
+
+Stars give a canonical family with arbitrarily large degree contrast. The exact sharp point-evaluation product constant and all extremizers settle which orbit controls the bound and give a usable benchmark for localized graph inequalities. The first nontrivial correction beyond 1−1/n and vanishing quadratic term distinguish a precise invariant across the whole family, rather than an isolated sample or a restated resolvent bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

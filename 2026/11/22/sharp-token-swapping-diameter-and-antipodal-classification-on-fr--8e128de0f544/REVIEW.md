@@ -1,15 +1,21 @@
-# Mathematical research review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(t\ge2\), decompose an arbitrary token permutation into the cycle containing the hub and disjoint cycles on leaves. The known star-only construction gives a legal path of at most \(h+s+q\le3t\) swaps; equality is possible only for hub-fixed perfect matchings. Within-petal pairs are resolved in one edge swap instead of three, ruling those out. For all remaining cross-petal perfect matchings, used swap edges are necessarily connected through the hub. The connected-factorization lemma (proved directly in RESULT.md by tracking cycles and newly connected components) gives \(m\ge N+c-2=3t\), proving exactly the stated antipodal class. Inclusion--exclusion over the \(t\) forbidden local pairs then yields its count. The checker exhaustively enumerates all \(6,120,5040,362880\) states for \(t=1,2,3,4\), including the exact farthest-state class for each eligible case. No assumption about large instances depends on enumeration.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-Aichholzer et al.'s tree-swap analysis (arXiv:2103.06707, earliest version March 11 2021) concerns trees, including the star baseline; Bonnet et al. (doi:10.1007/s00453-017-0387-0) analyze complexity and swapping on stars. Neither cited work states the sharp friendship-graph diameter together with its if-and-only-if antipodal classification. Ganesan (arXiv:1111.3114) studies transposition-tree-generated Cayley graphs. Gijswijt--de Meijer (doi:10.37236/12771) treats symmetry rather than shortest-swap antipodes; its full article text was not available to verify any possible incidental metric claim. Kiya et al. (arXiv:2210.02835) study a different consecutive-edge-walk swapping rule. Comparisons against indexed exact swapping results on Petersen and other base graphs concern different metrics. No relevant indexed statement implied the theorem, but no finite bibliography can exclude an unindexed equivalent.
+PASS
 
-## Value — PASS
-The friendship graph is a canonical infinite family of one-articulation block graphs and is the first non-tree extension of a star by the most local possible edges (disjoint peripheral pairs). The exact all-order worst-case cost, unique structural characterization of all extremal token placements and closed antipode count quantify precisely why a fifty-percent increase in legal moves fails to reduce worst-case routing complexity. These conclusions are stronger than another one-instance graph census and provide a natural graph-swap benchmark.
+Use a common labelling relative to the identity. If the cycle through the hub contains h leaves, and the q nontrivial leaf-only cycles use s leaves, hub transpositions realize those cycles using h+s+q swaps: a hub cycle takes h, and a leaf cycle of length l takes l+1 by bringing the hub in and out. Since q<=s/2 and s<=2t-h, the upper bound is 3t. Equality requires a fixed hub and t disjoint leaf transpositions. A within-petal pair makes the constructive upper bound at most 1+3(t-1). Conversely, for a matching across petals, every component of the used-edge support is invariant under the permutation. Every matched pair joins distinct components of the graph after hub deletion, so its endpoints' support component must contain the hub. These pairs cover all leaves, giving connected support. Each newly joining support edge merges two current permutation cycles, so any factorization of a permutation with c cycles on n vertices has at least n-1 merges; the cycle-count change gives length at least n+c-2. Here n=2t+1 and c=t+1, hence 3t. Cyclically pairing a_i with b_(i+1) realizes the bound for every t>=2. The count is inclusion–exclusion over the t forbidden petal pairs (with empty matching counted as one); dividing state–antipode incidences by two counts unordered pairs. The generators are distinct odd transpositions and contain the generating star: this verifies degree, bipartiteness, connectivity and the equal radius/diameter by token relabelling. At t=1 all transpositions are edges, and a 3-cycle takes two swaps. Separate byte-permutation BFS and recursive matching generation (`python -B /workspace/independent_replay.py 5`) reproduced diameters 2,6,9,12, and full farthest-state set equality at t=2,3,4 (counts 2,8,60). It is finite corroboration only. Frozen checker.py and its recorded output were read, not executed.
 
-## Scientific limitations
-No exact metric is claimed for all pairs of permutations, nor an all-block-graph extension. The included computational tests check only \(t\le4\). Independent checking and historical-priority review remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The credited finding is the exact friendship-windmill diameter and complete extremal permutation characterization after adding the peripheral matching, not the star upper bound, a connected transposition-factorization lemma, or the abstract matching count. The strongest retrieved comparisons address trees or different two-graph hypotheses, and do not give that characterization. Some cited full texts and the catalogue search were unavailable; that does not establish the absence of prior coverage.
+
+## value
+
+PASS
+
+The windmill is a natural non-tree extension of the star with 50% more swap edges. Knowing that the worst-case number of swaps does not improve, and precisely which token assignments resist any improvement, is information not supplied by monotonicity or an upper-bound comparison. The result identifies articulation and cross-petal structure as the extremal obstruction and provides the exact census, rather than a slight quantitative improvement or a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

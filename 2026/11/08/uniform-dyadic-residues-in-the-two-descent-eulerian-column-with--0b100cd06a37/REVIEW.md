@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim distinguishes the exact two-descent Eulerian expression from its eventual residue surrogate. The error term is explicitly divisible by \(2^k\) for all \(n\ge N_k\), with an obstruction at the immediately preceding permissible index when \(k\ge5\). Within each parity, subtracting two values reduces to an odd multiple of the parameter difference plus a correction divisible by eight times that difference. The LTE identity therefore gives an exact valuation, proving both finite bijectivity and least period. Uniformity of the two parity classes proves exactly two representations of every target. The sharp preceding-block failure follows by replacing unequal values; \(k\le4\) is handled by the natural domain boundary. The independently generated Eulerian triangle and modular verifier executed successfully for finite levels. These computations are supporting checks, not the infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+For n≥3 the classical inclusion–exclusion count is E_n=3^n−(n+1)2^n+n(n+1)/2. On n=2t+ε, differences of the surviving triangular term are (t−s)[2(t+s+ε)+1], while differences of the exponential term have 2-adic valuation 3+ν₂(t−s). Thus the surviving expression is an isometry separately on each parity parameter t and permutes every quotient modulo 2^k. A block of 2^(k+1) consecutive indices contributes a complete quotient on each branch. The correction vanishes from N_k=max(3,2⌈k/2⌉−1): for odd k use n≥k; for even k the only possible exception in the range is n=k−1, with even n+1. For k≥5 the preceding index is even and below k, so its correction does not vanish; its translate by the period equals the uncorrected residue and is different. Sliding the preceding block to the first good block replaces just those two unequal residues, proving sharpness even for the unrefined histogram. The increment 2^k has valuation k−1 in the output differences on the tail, so the least tail period, which divides 2^(k+1), cannot be any smaller divisor. For k≤4 the natural domain boundary is sharp. An independent bounded modular check on k=1,…,10 corroborated parity fibers in the onset block, agreement with the reduced expression across two periods, and the preceding-index obstruction. The uploaded checker was inspected, not executed; its finite coverage is not the proof.
 
-The classical explicit formula is in OEIS A000460 and is not new. Cao and Pan's 2006 Theorem 1.1 concerns row-wise sums over descent indices, not the target-residue fibers of a fixed descent column as the permutation size varies. Nakamura (2015) studies the distribution of the number of descents *within a fixed size*, not the modular values of the counts across sizes. The OEIS entry has the terms and closed formula but does not list the universal 2-adic two-fiber law or the sharp preperiod. A closely related 2015 valuation study by Castro, González and Medina was not available in full; the public abstract only specifies p-divisibility/valuations, which does not logically imply the exact preimage multiplicity of every nonzero target. It is named as an unresolved historical-equivalence risk. The accessible mathematical-result index and own prior claim list contain related local isometry and Stirling-column results, but no Eulerian two-descent column claim. No exhaustive historical novelty certificate is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is a classical permutation statistic (OEIS A000460), already motivating arithmetic congruence and valuation work. The exact distribution of all targets as permutation size varies is an intrinsic modular statistic, strictly stronger than a parity test, single valuation, or period upper bound. The universal one-per-parity preimage law, least period and sharp preperiod give a complete classification for every modulus \(2^k\), with an inverse-limit Haar interpretation; these are not known-table recomputations. This establishes a natural infinite family of precise modular facts that can be used in questions on residue-constrained permutation counts. No broader column generalization is asserted.
+Credit the explicit Eulerian formula and general 2-adic methods to prior work. The supported distinct claim is the fixed two-descent column's simultaneous one-per-parity output fibers and sharp onset and period at every binary precision. No inspected distinct source states or is shown to imply that combination. This is a best-of-current-evidence assessment, not a historical priority certificate.
 
-## Sources and limitations
+## value
 
-Cao–Pan, arxiv:math/0608564 (2006), Theorem 1.1 and proof section; OEIS A000460 (dated formula); Nakamura (2015), Introduction and Sections 2–3; Castro–González–Medina (2015), abstract and metadata only. The proof applies only to two descents and \(2\)-power moduli. Historical priority remains open to an independent expert search, especially the unavailable Castro–González–Medina text.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem gives exact residue frequencies on any sufficiently late moving window for a natural Eulerian column, determines the parity of both preimages, and gives the shortest possible period and earliest uniform-window threshold. The parity isometry structurally explains the distribution; the exact moving-window threshold detects the initial correction and is stronger than asymptotic equidistribution or calculating a few moduli.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

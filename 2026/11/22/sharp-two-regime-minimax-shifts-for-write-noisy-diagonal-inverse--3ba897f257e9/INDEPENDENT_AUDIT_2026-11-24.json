@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:38:19.591345Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For deterministic input Av the independent centered entry noise has isotropic quadratic expectation nσ_w²μ_β²‖Av‖²/D; the mean cross term vanishes. Each modal coefficient is strictly convex in λ, giving the maximum over attained endpoints. Subtraction gives the strictly increasing H crossing; H(c)<(κ+1)c (the reported positive quadratic), hence the active f₁ branch is strictly increasing after the crossing. The derivative on the left has sign Qκ(t)−κc and Qκ is strictly increasing, giving the unique min{m,x}. At crossing the difference's sign is Pκ(x); the thresholds (1+√10)/3<√3 order the quadratic and linear coefficient sign changes, so Descartes counts one positive root, with opposite endpoint signs verifying existence. When x<m there are unequal one-sided derivatives of opposite signs. At κ=2,c=7/12, exact crossing t=2 has both errors 55/108 and risk at t=0 equal to 7/3; shifted-target ratio squared is 28/27 and is already feasible at t=3 (175/192). Independent replay: python3 /workspace/branches/independent_checks.py 2 verifies eight exact cases using nonsymmetric centered two-point errors, two independent copies, an interior eigenvalue and mixed directions, plus the rational example. This is diagnostic; all-phase coverage is analytic. Frozen verify.py inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shah et al.'s abstract identifies the centered additive write model, a regularization threshold, and a separate approximation error. The frozen recorded comparison locates shifted-target feasibility at Theorem 4/(60), distinct from the bias in (61).",
+          "Etter–Ying instead starts from a noisy coefficient matrix in the recorded estimator comparison; the same-day 22d282abd926 indexed claim is a rank-one correction and randomized Richardson stability."
+        ],
+        "reasoning": "The broader hardware and stochastic-iteration settings do not supply this optimum as a stated specialization; the shift-dependent noise and the unshifted-target bias must be optimized jointly here.",
+        "searches": [
+          "Resultary: Noise-Adaptive Analog Digital Preconditioning analog digital noise shifted target signal to noise theorem 4",
+          "arXiv:2611.17251v1 §3.3",
+          "DOI:10.1137/21M1416849; prior frozen comparison to estimator (1.3)–(1.4)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17251v1 abstract",
+        "Resultary b966da101cb3 and 22d282abd926 indexed statements",
+        "Frozen prior-work comparison: arXiv:2606.17227 §3.4 and DOI:10.1137/21M1416849 (1.3)–(1.4), Theorem 6.1 (not independently read in full)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The repaired-bias objective is not an SNR optimization: the exact example gives shifted-target ratio above 1 at the unconstrained minimax optimum and below 1 at another finite shift."
+        ],
+        "reasoning": "A feasibility threshold does not establish minimax accuracy. The model and variance identity are precursors; the new work is the spectral endpoint optimization and strict single transition. The example separates the objectives without relying on the absence of a keyword match.",
+        "searches": [
+          "primary search: arXiv:2611.17251 §3.3 Theorem 4 equations (60)–(62)",
+          "Resultary: signal-to-noise feasibility shifted inverse analog digital preconditioning regularization correction error minimax"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact hit is record 3ba897f257e9 itself; b966da101cb3 uses mode-aligned bounded errors and optimizes the first-step GMRES residual over an identity safeguard."
+        ],
+        "reasoning": "The squared singular risk of a noisy programmed inverse about the unshifted correction is not that GMRES optimization under reparameterization: norm, comparator, error law and decision variable differ.",
+        "searches": [
+          "Resultary: diagonal inverse preconditioning additive independent entrywise write noise minimax shift two regimes spectral endpoint crossing",
+          "Resultary: analog inverse preconditioner diagonal additive programming error minimax correction shift"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Beyond the identical record, the close dated records present different exact objectives (b966da101cb3, 22d282abd926), not this universal positive-root boundary or example."
+        ],
+        "reasoning": "The same indexed numerical or symbolic claim would count even with different notation; no such distinct table or theorem statement was found in the returned material.",
+        "searches": [
+          "Resultary: signal-to-noise feasibility shifted inverse analog digital preconditioning regularization correction error minimax",
+          "Resultary: analog inverse preconditioner diagonal additive programming error minimax correction shift"
+        ]
+      },
+      "rationale": "The supported distinction is the stationary/crossing minimax law for true unshifted correction, not the write model, the shifted-target feasibility bound, or diagonal damping in general.",
+      "residual_risks": [
+        "The closest primary theorem was not independently available beyond the abstract and frozen locators; unseen passages may contain closer optimization results. Full text of nearby indexed records was not inspected. No exhaustive priority conclusion is warranted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available statement distinguishes programming regularization threshold and shift approximation error, not the particular joint minimax optimizer.",
+          "evidence": [
+            "Abstract at PDF p.1, sentences on centered additive write noise, computable regularization threshold and shift-induced approximation error."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.17251v1",
+          "material_read": "PDF abstract; §3.3 Theorem 4 and (60)–(62) locators obtained from frozen comparison, not independently read in full.",
+          "method": "Open PDF text preview; primary search, direct HTML and targeted OA passage attempts did not return usable theorem text.",
+          "title": "Noise-Adaptive Analog–Digital Preconditioning",
+          "trigger": "Identical motivating programming noise model and regularization"
+        },
+        {
+          "assessment": "Mode-aligned bounded errors with GMRES first-step residual criterion, not expected solution correction under iid write variance.",
+          "evidence": [
+            "Indexed dimension-dependent identity safeguard and its different optimization criterion."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-robust-identity-safeguard-phase-diagram-for-noisy-inverse--b966da101cb3",
+          "material_read": "Indexed statement only.",
+          "method": "Local Resultary search; full mirror lookup timed out.",
+          "title": "Exact robust identity safeguard phase diagram for noisy inverse preconditioning",
+          "trigger": "Closest distinct preconditioning safeguard result"
+        },
+        {
+          "assessment": "Rank-one digital correction/randomized Richardson stability, not the diagonal shift law; date does not establish priority.",
+          "evidence": [
+            "Indexed result concerns rank-one corrections and iterative mean-square behavior."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-mean-square-reversal-for-noisy-rank-one-residual-correct--22d282abd926",
+          "material_read": "Indexed statement only.",
+          "method": "Local Resultary search; no full mirror passage retrieved.",
+          "title": "A sharp mean-square reversal for noisy rank-one residual correction",
+          "trigger": "Same-day nearby correction and risk result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The shift is a natural design variable in a known programming model. A sharp condition for choosing one of two optimizer mechanisms and a nontrivial example separating implementability from actual accuracy are useful even for a diagonal single-application benchmark. The result does not imply iterative convergence, hardware advantage or an orientation-independent SPD law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

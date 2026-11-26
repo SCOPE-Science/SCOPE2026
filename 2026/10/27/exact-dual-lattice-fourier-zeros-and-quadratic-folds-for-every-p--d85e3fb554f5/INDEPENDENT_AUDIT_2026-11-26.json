@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:24:13.159492Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–37 and 41–89",
+        "Frozen VERIFICATION.md, lines 19–23; checker.py, lines 13–100; checker_output.txt, lines 1–8; requirements.txt"
+      ],
+      "rationale": "Direct integration on the standard triangle gives the stated numerator and denominator off the three exceptional lines. If it vanishes, w=(1−λ)+λz for λ=η/ξ and the two unit phases z,w. Expanding |w|² gives 2λ(1−λ)(1−Re z)=0; λ can have either sign but is neither 0 nor 1, forcing both phases to one. On an axis or the diagonal the integrated limiting expression would force the modulus of 1±iξ (or 1−iη) to be one at nonzero real frequency, which is impossible; the origin gives 1/2. A change of variables multiplies by a nonvanishing area/phase factor and replaces frequency by Aᵀω, so the lattice is not shifted by translation and the excluded directions are exactly the edge normals. Its covolume is 4π²/|det A|. Boundary cells are in an annulus of fixed width, containing O_A(R) cells, and the three removed lines each lose O_A(R) points. This gives the disk coefficient area(P)/(2π); it is not the density per unit frequency area. The shortest-vector formula follows from local finiteness and for T the permitted pair (1,−1) realizes the minimum squared norm 2. For the fold, at (X,Y) the linear numerator is −i(Xk−Yh) and the quadratic part is (Yh²−Xk²)/2. Along (h,k)=t(X,Y) the quadratic quotient is t²/2, transverse to the purely imaginary derivative image. This establishes the fold condition, not just a nonzero Hessian. For the affine transform the extra derivatives of the phase on this kernel multiply F or DF applied to the kernel direction, both zero; hence the transverse second derivative survives.",
+      "residual_risks": [
+        "Step 5 says 'fixed number of unit cells'; the intended and sufficient estimate is a fixed-width annulus containing O_A(R) fixed-size cells, as justified above.",
+        "Numerical quadrature, finite lattice counts, and radial evaluations were inspected as recorded corroboration, not rerun. They cannot rule out other zeros or establish a fold."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General face-chain transform formulas apply to triangles. The inspected null-set result excludes certain circles in planes not orthogonal to edges and discusses the excluded directional regime; it does not enumerate isolated real zeros."
+        ],
+        "reasoning": "An explicit transform enables analysis but does not itself classify its real zeros. The lack of a particular kind of circle in a general null set does not exclude extra isolated zeros or show local fold rank and transversality.",
+        "searches": [
+          "arXiv:1602.08593v2, Theorem 1, eqs. 9 and 13",
+          "arXiv:2104.01957v1, Theorem 1.2, Remark 1.4 and Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0809.2083v3, 1006.1996v1, 1602.08593v2, 2104.01957v1",
+        "Resultary 4ea17425c01f, e3e3910e6894, 6a067c689394, 2b758d15736c, db8d34ed1235"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic transform and lattice theorem give sufficiency of the permitted lattice sites, not real necessity. The unit-circle rigidity argument uses the real barycentric coefficient including extrapolation outside [0,1]; removable lines need their own limiting tests. The perpendicular quadratic coefficient needs the directional expansion, not simply the zero set."
+        ],
+        "reasoning": "The prior statement mechanically gives the discrete slice but not the new exclusions or fold. The area law and radius are useful routine consequences of the real census, not additional claims of novelty.",
+        "searches": [
+          "4ea17425c01f, Finding and repeated-node proof at offset 2900",
+          "arXiv:1006.1996v1, Theorem 4.3",
+          "arXiv:2104.01957v1, Theorems 1.2 and 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The simplex vertex formula and its divided-difference form yield the same rational transform off coincident nodes. The indexed earlier result 4ea17425c01f gives distinct-node vanishing and excludes the repeated-node sites in the dimension-two lattice specialization."
+        ],
+        "reasoning": "Angular frequency translates the older integer convention by 2π; affine coordinate changes add no further difficulty once the real normalized case is known. The exact overlap on lattice inputs must be credited, but it does not answer whether real frequencies off that lattice can vanish.",
+        "searches": [
+          "Normalized triangle and simplex exponential/divided-difference formulas: arXiv:0809.2083v3, Corollary 12; arXiv:1006.1996v1, Theorem 4.3 and Eq. 4.12",
+          "Resultary searches for simplex/triangle Fourier zeros, repeated nodes and zero lattices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "4ea17425c01f covers the normalized lattice slice already. The dimension-four and dimension-five results concern integer data; the atomic examples concern different Fourier transforms, with the complex-zero transition in one dimension for db8d34ed1235."
+        ],
+        "reasoning": "Even an exhaustive list on the integer lattice cannot certify exhaustiveness in the real plane. Neither the checked tables/classifications on other objects nor the lattice slice supplies the local fold statement.",
+        "searches": [
+          "Resultary indexed Fourier zero classifications and related discrete measures: 4ea17425c01f, e3e3910e6894, 6a067c689394, 2b758d15736c, db8d34ed1235"
+        ]
+      },
+      "rationale": "The vertex-exponential integral and the standard-triangle integer-frequency slice are covered. The distinct result is the complete census of real frequencies, including exclusion of all nonlattice and exceptional-line zeros, together with the real fold classification. The affine transport, first-radius expression and disk count follow from that census and are not independent novelty claims.",
+      "residual_risks": [
+        "A specialized earlier proof of the complete real census or fold may be indexed under nonstandard terminology. The comparison is bounded, not a priority certification. The lattice slice is already covered and not credited as distinct."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact transform calculation",
+          "evidence": "Substituting the linear functional −i(ξu+ηv) gives the regular triangle formula, not the real zero census.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.2083v3",
+          "material_read": "Corollary 12, Eq. 10, pp. 12–13 (offset 35000)",
+          "method": "Primary open text, localized passage",
+          "title": "How to Integrate a Polynomial over a Simplex",
+          "trigger": "Direct prior formula for exponential integration on a simplex"
+        },
+        {
+          "assessment": "Equivalent integral machinery",
+          "evidence": "Integrating exponentials on simplices yields divided differences; the inspected result is an identity, not a real zero theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1006.1996v1",
+          "material_read": "Theorem 4.3, Eq. 4.8, p. 9 and Eq. 4.12, p. 10 (offsets 32453 and 35561)",
+          "method": "Primary open text, localized passages",
+          "title": "Baxter and Brummelhuis, arXiv:1006.1996v1",
+          "trigger": "Equivalent divided-difference expression"
+        },
+        {
+          "assessment": "General transform calculation but not the asserted classification",
+          "evidence": "Iterated Stokes formula and generic-direction restrictions do not decide nonvanishing on the three edge-normal lines.",
+          "identifier_or_url": "https://arxiv.org/abs/1602.08593v2",
+          "material_read": "p. 2, and Theorem 1 Eq. 9 and face-chain Eq. 13, pp. 5–6 (offsets 14000 and 15350)",
+          "method": "Primary open text, localized passages",
+          "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+          "trigger": "General polytope Fourier transform formulas"
+        },
+        {
+          "assessment": "Different geometric invariant despite broader class",
+          "evidence": "Excludes certain circles, notes edge-orthogonal restriction and recalls the transform formula. No exact discrete real-triangle census or fold in the inspected results.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01957v1",
+          "material_read": "Theorem 1.2 and Remark 1.4, p. 3; Theorem 2.1, p. 4 (offsets 8500 and 12400)",
+          "method": "Primary open text, localized passages",
+          "title": "The null set of a polytope, and the Pompeiu property for polytopes",
+          "trigger": "Most direct primary null-set geometry comparison"
+        },
+        {
+          "assessment": "Covers standard-triangle lattice slice, not full real claim",
+          "evidence": "Distinct-node integer frequencies vanish; no repeated-node lattice zeros below dimension four. Taking dimension two matches precisely the three integer exclusions.",
+          "identifier_or_url": "4ea17425c01f",
+          "material_read": "RESULT.md, Finding and proof through the low-dimensional boundary (offset 2900)",
+          "method": "Resultary search and local mirror passages",
+          "title": "A first repeated-node resonance in the lattice Fourier zeros of a simplex",
+          "trigger": "Earlier indexed theorem with formula-level overlap"
+        },
+        {
+          "assessment": "Later related integer-only result",
+          "evidence": "Gives a repeated-node resonance in dimension four and the same low-dimensional lattice boundary, not the real plane.",
+          "identifier_or_url": "e3e3910e6894",
+          "material_read": "Finding and proof, offsets 0 and 2900",
+          "method": "Resultary search and local mirror passages",
+          "title": "Integer Fourier zeros of the standard four-simplex and the first repeated-node resonance",
+          "trigger": "Related dimension and resonance theorem"
+        },
+        {
+          "assessment": "Other dimension, integer inputs",
+          "evidence": "Distinguishes distinct-node and repeated-node families in dimension five only.",
+          "identifier_or_url": "6a067c689394",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local mirror passage",
+          "title": "Exact lattice zero classification for the standard five-simplex",
+          "trigger": "Indexed lattice classification using a similar transform"
+        },
+        {
+          "assessment": "Different transform and measure",
+          "evidence": "Affine zero cosets are for a sum from three atoms, not the two-dimensional triangle integral.",
+          "identifier_or_url": "2b758d15736c",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp diameter thresholds and zero lattices for positive three-atomic measures",
+          "trigger": "Possible affine zero-coset formula"
+        },
+        {
+          "assessment": "Different claim by content, independent of date",
+          "evidence": "Treats a one-dimensional four-atom measure and complex zero transitions, not real zeros of triangle area measure.",
+          "identifier_or_url": "db8d34ed1235",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp parity-dependent complex zero transition for symmetric Fourier data",
+          "trigger": "Same-date Fourier zero geometry comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–33 and 49–89",
+        "Resultary 4ea17425c01f; arXiv:2104.01957v1, Theorem 1.2"
+      ],
+      "rationale": "An exact census of real Fourier zeros for a natural nonsymmetric polygon is useful in its own right: for instance it determines which plane waves have zero average and the first possible cancellation radius for the given triangle. It excludes any additional real curves or points and gives a uniform local description of the singular cancellations, distinguishing them from transverse zeros. Neither a general transform formula nor the earlier integer slice suffices for these uses.",
+      "residual_risks": [
+        "This exact classification is restricted to triangles and real frequencies; neither general polygon null sets nor complex varieties or sharper lattice remainder estimates are solved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

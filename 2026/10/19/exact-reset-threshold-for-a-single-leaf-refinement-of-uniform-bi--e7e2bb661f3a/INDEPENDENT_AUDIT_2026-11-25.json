@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:24:09.773576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The literal states are all prefixes of lengths 0 through m−1 and the extra prefix 1^m, totaling 2^m. With F=01^m, processing a prefix of length h≤m−2 completes a short word containing the zero and leaves h+1 ones. At h=m−1 or state 1^m the zero finishes a word immediately, leaving m ones; thus F raises/saturates the all-one heights and F^(m−1)0 resets at length m². For the lower bound let f be the length of the common output (not assumed zero), and let E_h count long words parsed from 0^h followed by input w. Then the residues E_h≡L+h−f mod m cover all m residues. The thread of residue m−1 must complete at least m−1 long words. If h>0, the initial codeword necessarily is short and consumes m−h≥1 input letters; this already forces m². If h=0 and L<m², the only candidate has L=m²−1, f=0, and is a concatenation of m−1 blocks 1^m c_j. Starting at state 0 uses m−1 input letters in the first short word, after which the congruence forces zero long completions (m such words would exceed the remainder). The successive length-m blocks occupy jm,…,(j+1)m−1 and contain the unique optional letter c_j at j(m+1), so all c_j must be zero. From state 1, the first block 1^m0 ends at 0; subsequent blocks send 1^r0 to 1^(r+1)0 in the needed range 0≤r≤m−3. This leaves the distinct nonroot output 1^(m−2)0 versus the root, including m=2. In the unrefined decoder the state length changes by +1 modulo m on every letter, preserving distinct phases. Independent exact replay: python3 /workspace/branches/independent_checks.py 3 builds codewords and their strict prefixes explicitly and runs frozenset subset BFS; thresholds at m=2,…,6 are 4,9,16,25,36 and the displayed word resets to the root in each. This replay is finite, not the general proof. The frozen checker and recorded output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chadha gives a constructive bound and a sharp equality characterization for all two-depth codes; X_m is not in its equality case. Ryzhikov–Szykuła address approximation; Berlinkov et al. give a general O(n log³n)-type bound in the number n of literal states."
+        ],
+        "reasoning": "These results preclude novelty of the qualitative synchronization or general bound here, but do not give the sharp lower bound or the exact witness for X_m. State count and code height are not interchangeable in the asymptotic bounds.",
+        "searches": [
+          "arXiv:2611.05675 Theorem 1.2 and its equality proof",
+          "arXiv:1806.06299 §7 Theorems 14–15/Conjecture 16",
+          "arXiv:2101.05057 §§1.4, 3.8 and Corollary 3.19"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and a66838b3abe4",
+        "doi:10.1016/j.tcs.2009.06.005 (abstract/access only)",
+        "arXiv:1806.06299",
+        "arXiv:2101.05057",
+        "arXiv:2611.05675"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For m≥2, |A|=2^m−1 excludes A=T^m for T a proper nonempty binary subalphabet, hence the strict 2m²−2 bound applies. It is above m² at every stated m. The exact 2m²−1 case is the different one-short-leaf tree."
+        ],
+        "reasoning": "Membership in the stronger universe yields synchronization and an upper bound, not the actual minimum. The modular parsing lower bound and elimination of the sole length-m²−1 candidate use this tree's unique long prefix. Proofs of general approximation or larger exact extremal bounds do not imply those steps.",
+        "searches": [
+          "arXiv:2611.05675 Theorem 1.2, proof of equality, and Thm. 1.3",
+          "arXiv:1806.06299 §7",
+          "2009 TCS abstract on long shortest strings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing A=Σ^m∖{1^m} in the consecutive-depth family C(A)=A∪(Σ^(m+1)∖AΣ) gives exactly X_m. The other exact extremal family has one short codeword, not 2^m−1 short words. For the binary alphabet, exchange of the letters preserves the short-word count."
+        ],
+        "reasoning": "The main family belongs literally to C(A), not merely by a matching numerical parameter. Its exact threshold is not the exact extremal threshold from the same paper, nor transferable by relabeling. The 2009 abstract does not identify its two constructions.",
+        "searches": [
+          "Resultary local index for literal prefix decoder, one-leaf refinement and exact reset threshold",
+          "Chadha arXiv:2611.05675 §1 Theorems 1.2–1.3",
+          "Biskup–Plandowski DOI 10.1016/j.tcs.2009.06.005"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The height-four catalogue census includes the height of X_3 and gives maximum 17 among 651 labeled codes; its maximizing pair are a code with one short constant word and its alphabet exchange, not X_3."
+        ],
+        "reasoning": "Credit the genuinely overlapping finite domain, potentially including the m=3 instance, without treating a finite census or its extremizers as the all-m table. No matching all-depth exact profile was established by the bounded comparison.",
+        "searches": [
+          "Resultary local index for exact threshold spectrum of maximal binary prefix codes and literal decoder",
+          "Resultary record a66838b3abe4, height-four exact census and extremizers"
+        ]
+      },
+      "rationale": "The exact threshold and shortest word for this one-refined-leaf literal decoder stand apart from inspected general bounds and from exact extremizers with one short leaf. Chadha's two-consecutive-depth theorem includes exactly X_m as an instance, so synchronizability and a quadratic bound are covered; its strict bound for this instance is 2m²−2, not a proof of equality at m². The general exact family claim is supported by the explicit witness and lower bound. The closest older Huffman synchronizing-family constructions remain a real priority risk because their formulas could not be lawfully inspected.",
+      "residual_risks": [
+        "The exact forms of the two Biskup–Plandowski (2009) families were not obtained in the bounded lawful retrieval. An earlier equivalence is not ruled out.",
+        "No priority inference is made from catalogue path or preprint dates; the distinction rests on the mathematical content reviewed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material unresolved overlap risk, no negative inference from lack of access",
+          "evidence": [
+            "The abstract announces two classes of codes with a long shortest synchronizing string but does not give their trees or words."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2009.06.005",
+          "material_read": "Publisher abstract and citation only; no construction text",
+          "method": "Lawful publisher and identified CORE PDF attempts (PDF returned 403)",
+          "title": "Shortest synchronizing strings for Huffman codes",
+          "trigger": "Older exact-style constructions with long shortest decoder synchronization strings"
+        },
+        {
+          "assessment": "General algorithms and conjecture, not X_m equality",
+          "evidence": [
+            "The model uses proper-prefix states and root transitions on codeword completion; the cited results concern approximation and the conjecture asks for an exact polynomial-time algorithm."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1806.06299",
+          "material_read": "PDF pp. 10–11 §7 (Theorems 14–15 and Conjecture 16)",
+          "method": "OA primary PDF passages",
+          "title": "Finding Short Synchronizing Words for Prefix Codes",
+          "trigger": "Same literal decoder and shortest reset problem"
+        },
+        {
+          "assessment": "Broader setup and bound, not exact profile for the given trees",
+          "evidence": [
+            "The literal-prefix automata inherit an O(n log³ n)-type bound, not equality at depth squared."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.05057",
+          "material_read": "PDF pp. 3–4 and 16–19 §§1.4, 3.8, Corollary 3.19",
+          "method": "OA primary PDF passages",
+          "title": "Synchronization of strongly connected partial DFAs and prefix codes",
+          "trigger": "General bounds for the same class of prefix codes"
+        },
+        {
+          "assessment": "Strong partial coverage, not m² equality",
+          "evidence": [
+            "Theorem 1.2 gives 2r²−1, equality iff A is a subalphabet power; the proof gives 2r²−2 otherwise. Theorem 1.3 uses only one short constant word."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.05675",
+          "material_read": "PDF pp. 2 and 12, definition (1.2), Theorems 1.2–1.3, proof of strict inequality (offsets 4670–6794, 37650–39408)",
+          "method": "OA primary PDF passages",
+          "title": "Chadha, height bounds for maximal prefix-code synchronization",
+          "trigger": "Broader two-consecutive-depth theorem covering X_m exactly as a class member"
+        },
+        {
+          "assessment": "Relevant finite-domain overlap, not the depth-parametric theorem",
+          "evidence": [
+            "651 labeled codes at height four, 632 synchronizing, maximum 17; the two extremizers are the one-short-word construction and its complement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-height-four-reset-threshold-and-exact-spectrum-of-binary-m--a66838b3abe4",
+          "material_read": "Finding in local-mirror RESULT.md",
+          "method": "Local Resultary index and primary mirror",
+          "title": "Sharp height-four reset threshold and exact spectrum of binary maximal prefix codes",
+          "trigger": "Exact catalogue census for the height of the m=3 member"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An equally spaced decoder cannot lose its length phase. The smallest tree refinement of the constant branch changes that obstruction while preserving all but one short codeword. An exact uniform minimum for this canonical perturbation determines synchronization cost in both code depth and literal state count, and why the last one-letter saving from the modular bound is impossible. The answer is useful independently of a general algorithm for exact reset thresholds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

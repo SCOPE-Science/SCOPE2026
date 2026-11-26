@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:07:32.628757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–61",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing the uploaded checker",
+        "Independent literal-word, gap and coefficient checks"
+      ],
+      "rationale": "Cyclic ordered zero gaps (a,b,c), total N=n-3, parametrize the rotation-only source classes. One-deletions give the unordered gap pair {g,N-g}, so two different gap values coincide only when they sum to N and the other gap is zero. Zero-deletions are positive-coordinate decrements and have a different weight from the one-deletions. To compare two decrements, cycle the positions to the first two: (a-1,b,c) cannot equal (a,b-1,c) directly, and the two nontrivial rotations force either a=b=c or a=b=c+1, respectively. Thus all-equal positive gaps lose two outputs, type (t,t,t-1) loses one (including t=1), and otherwise the positive-gap deletions are distinct. The resulting buckets count N=0, the one-positive/all-equal cases, the single (1,1,0) case, N-1 ordered positive pairs with a uniquely placed zero less that case plus the t>=2 exceptions, positive two-equal triples less those exceptions, and all-positive distinct triples modulo three-cycle rotation. Counting each by total gap sum and multiplying by z^3 gives all six GFs. The last begins with (1,2,3) in two orientations at n=9 and has coefficient n^2/6+O(n); the remaining classes together are O(n). Fresh literal bit-deletion histograms matched for n=3 through 30, with direct checks on 981 small gap orbits and a gap enumeration versus rational coefficients through n=57. Replay procedure and results: /workspace/branches/b6b33260-f8dc-4adb-adf1-05380715e304/independent-check.md.",
+      "residual_risks": [
+        "Computation is bounded; the rotation comparison and orbit counts, not the finite table, justify all lengths. Reflection, complementation, other contents and multiple deletions are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharp one-deletion outdegree 2341722fce11 maximizes over all weights, while fractional packing b2d604e329da studies optimal codes and an output-capacity LP. Sloane and Liron–Langberg work with linear words. Chee–Ge–Ling studies perfect code sizes and Narayanan–Ren stochastic circular traces."
+        ],
+        "reasoning": "The broader-channel maximum does not supply the weight-three source histogram, nor does a code packing optimum. The linear run identity fails to account for collisions between different runs after output rotation.",
+        "searches": [
+          "Resultary: one-deletion outdegree binary necklaces maximum shadow size",
+          "Resultary: fractional-shadow packing deletion codes binary necklaces gap tuples lower shadows",
+          "arXiv:math/0207197v1, 1202.1644v1, 1008.1343 and 2009.01346v2"
+        ]
+      },
+      "checked_sources": [
+        "Four Resultary queries and original mirrored passages described above",
+        "Four cited OA primary sources",
+        "One targeted primary literature query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting one from each positive distinct gap is a bijection with the previously counted nonnegative distinct triples. But, e.g., (2,2,1) and (2,2,3) both have exactly two equal positive gaps while their deletion shadows have sizes four and five. This distinction comes from a collision between coordinate decrements modulo rotation."
+        ],
+        "reasoning": "Once the deletion lemma is known, many of the bucket counts are routine and some are exact prior counts. The deletion lemma and full partition are not a specialization of the previously inspected gap-equality, max-outdegree or packing statements.",
+        "searches": [
+          "Resultary 8c6645349a80 finding and orbit distributions",
+          "Resultary 2341722fce11 maximum statement",
+          "Resultary b2d604e329da, scope and exact finite results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-marker border correlation 8c6645349a80 studies unbordered conjugates in the same gap coordinates, not distinct deletion outputs. The BWT run spectrum 17765181f4c4 has three six-run necklaces at n=9 versus two six-output necklaces here. In the primary search no directly matching source was recovered."
+        ],
+        "reasoning": "A cyclic word or gap parametrization is not an equivalence of statistics. Linear run counts nor counts of special cyclic shifts identify whether two different bit deletions produce the same rotated output.",
+        "searches": [
+          "Resultary: exact one-deletion shadow distribution binary oriented necklaces weight three cyclic gap triples",
+          "Resultary: three-marker border correlation unbordered conjugates gap equality types all distinct",
+          "Primary search: mathematics paper formula number of distinct cyclic deletion descendants necklaces one deletion binary circular words deletion shadow size run structure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In 8c6645349a80 the all-distinct nonnegative cyclic gap count gives the F_6 coefficients after a shift by z^6; the two-equal column, with that shift and the (t,t,t-1) contribution removed, gives F_5. The available finite packing table through n=9 tabulates global packing objective values, not per-source shadow sizes."
+        ],
+        "reasoning": "The F_6 counting sequence thus has genuine exact overlap. The full six-bucket deletion histogram is not recovered merely by reindexing the known gap table; positive gaps of the same equality type can have different shadows.",
+        "searches": [
+          "Resultary: three-marker border correlation unbordered conjugates gap equality types all distinct",
+          "Resultary: fractional-shadow packing deletion codes binary necklaces gap tuples lower shadows"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the deletion-collision classification for three-one oriented necklaces and the resulting complete histogram, especially the collision type (t,t,t-1) and its zero-gap boundary. The prior three-marker gap-class enumeration covers the six-output column numerically after subtracting one from every positive gap, and covers the pre-exception enumeration for five outputs. Credit that overlap: the corresponding rational counting identities are not new by themselves. The earlier counted observable does not determine the collision law.",
+      "residual_risks": [
+        "A stronger unindexed cyclic descendant formula might specialize to this classification. The bounded search and inspected passages do not prove historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact gap-count overlap, but different observable",
+          "evidence": "All-distinct and exactly-two-equal columns yield the indicated F_6 and pre-exception F_5 coefficients; the decrement-collision condition is not a gap equality type.",
+          "identifier_or_url": "2026/10/26/SCOPE-three-marker-border-correlation-a-local-gap-law-and-its-exact-di--8c6645349a80",
+          "material_read": "RESULT.md at offset 0, finding and gap-class law",
+          "method": "Local Resultary mirror",
+          "title": "Three-marker border correlation: a local gap law and its exact distribution",
+          "trigger": "Same weight, group action and exact gap classes"
+        },
+        {
+          "assessment": "Known maximum, different aggregate",
+          "evidence": "The maximum over all weights is n-2 for even n>=4 and n=5,7 and n-3 for odd n>=9, not a histogram at fixed weight.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-one-deletion-outdegree-of-binary-necklaces--2341722fce11",
+          "material_read": "RESULT.md offset 367, maximum statement",
+          "method": "Local Resultary mirror",
+          "title": "Sharp one-deletion outdegree of binary necklaces",
+          "trigger": "Same oriented circular deletion operation"
+        },
+        {
+          "assessment": "Different optimization statistic",
+          "evidence": "The given objectives A_9=9 and F_9=41/4 concern global integer and fractional packing, not fixed-weight outdegree counts.",
+          "identifier_or_url": "2026/11/2/SCOPE-first-fractional-shadow-packing-gap-for-binary-necklace-deletion--b2d604e329da",
+          "material_read": "RESULT.md offsets 0 and 5687",
+          "method": "Local Resultary mirror",
+          "title": "First fractional-shadow packing gap for binary necklace deletion codes",
+          "trigger": "Same deletion shadows and exact finite table"
+        },
+        {
+          "assessment": "Different statistics",
+          "evidence": "Counts of unbordered shifts of rooted words or BWT runs; the six-run slice at n=9 differs from c_6(9).",
+          "identifier_or_url": "Resultary 15954dd9e6c4 and 17765181f4c4",
+          "material_read": "RESULT.md offset 0 for each finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact unbordered-conjugate spectrum of binary words containing three ones; Exact Burrows–Wheeler run spectrum of cyclic binary words with three ones",
+          "trigger": "Other exact spectra of three-marker words"
+        },
+        {
+          "assessment": "Known linear identity, not circular",
+          "evidence": "The number of first descendants equals the linear run count.",
+          "identifier_or_url": "arXiv:math/0207197v1",
+          "material_read": "HTML offsets 13300 and 30480, linear identity and Section 5",
+          "method": "Lawful OA HTML passage reader",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Classical descendant counts"
+        },
+        {
+          "assessment": "Linear model",
+          "evidence": "Linear words, run-dependent bounds on subsequences.",
+          "identifier_or_url": "arXiv:1202.1644v1",
+          "material_read": "HTML offsets 0 and 1176",
+          "method": "Lawful OA HTML passage reader",
+          "title": "A characterization of the number of subsequences obtained via the deletion channel",
+          "trigger": "Broader subsequence enumeration"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Sizes of perfect q-ary codes, not individual necklace outdegrees.",
+          "identifier_or_url": "arXiv:1008.1343",
+          "material_read": "HTML offsets 0 and 1598",
+          "method": "Lawful OA HTML passage reader",
+          "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+          "trigger": "Deletion spectrum literature"
+        },
+        {
+          "assessment": "Different observation model and objective",
+          "evidence": "Stochastic deletion traces with cyclic shifts, for sample complexity of reconstruction.",
+          "identifier_or_url": "arXiv:2009.01346v2",
+          "material_read": "HTML offset 416",
+          "method": "Lawful OA HTML passage reader",
+          "title": "Circular Trace Reconstruction",
+          "trigger": "Same circular order in a deletion channel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof of decrement collisions and complete gap partition",
+        "Three-marker border, sharp outdegree and fractional packing comparisons"
+      ],
+      "rationale": "Three ones give a natural small-content class in which clockwise order matters and distinct positive-gap decrements can coalesce modulo rotation. The full distribution explains the exact scarcity and mechanism of these collisions, including the isolated three-output case, and distinguishes generic six-output behavior from the lower-degree sources. This is useful for analyzing the cyclic one-deletion graph independently of its maximum degree or its packing optimum, rather than merely renaming a previously counted column.",
+      "residual_risks": [
+        "This classification does not settle optimal codes or the higher-weight deletion-shadow laws."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review: exact six-player mixed-order fixation thresholds
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies all quantifiers, payoff normalizations, selection updating and the uniformly random initial mutant. The neutral chain is a symmetric voter model with fixation probability equal to the starting cooperator fraction. Differentiation gives the exact rational transient system \(A h'=B\). The delivered `verify.py` reconstructs the systems independently from the stated update rule; exact fraction elimination and residual checks reproduce each coefficient and all ten triple partitions. The cost-only coefficient \(-5/4\) is also derived by a separate exact birth-death argument. The example signs are strict, so they imply the weak-selection sign for sufficiently small positive intensity. Finite arithmetic is used to prove a finite theorem, not to extrapolate an infinite claim.
+PASS
 
-## Originality — PASS
+The ten unordered triple partitions split into disjoint dihedral orbits of sizes 3, 6 and 1, distinguished by the 4, 2 and 0 internal cycle edges. The specified incident-group sampling gives symmetric model weights: 1/3 for cycle adjacency plus 1/6 for triple co-membership. The connected cycle allows consensus from every state with positive probability at any finite intensity. The neutral cooperator fraction is a bounded martingale, hence gives the neutral fixation probability. Differentiating the backward equation contributes the product of the payoff difference and the one-update neutral fixation change, with the logistic derivative 1/4 and an additional focal probability 1/6. Independently assembled and solved all 62 transient-state equations in the primal form for all five payoff monomials, without lumping; exact residuals, all coefficient fractions, all thresholds, and the signed slopes in the finding match. As a separate check, pure cost produces a constant up/down ratio exp(-3cw) and singleton derivative -5c/4. Analytic invertibility near neutrality gives the asserted strict signs for sufficiently small positive selection; no sign is known from this calculation on the threshold itself.
 
-The closest direct primary source, Llabrés et al. (arXiv:2604.07228v1), defines this Fermi model and studies mean-field stationary transitions and large-population hypergraph simulations, not exact single-mutant fixation on the six-cycle. Sheng et al. (arXiv:2605.23444v1) supply a large-population uniform-order hyperedge approximation with a different updating rule. The general weak-selection machinery of McAvoy and Allen (arXiv:1908.03827) is acknowledged but does not itself state the three rational values or opposite sign. Published-result index searches, aliases and recoverable previous claims revealed no equivalent or dominating evaluated theorem. An abstract-only inspection of older mixed-order literature and ordinary search incompleteness remain documented residual risks; the searches do not prove universal uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Six players are the first nontrivial cycle size with two disjoint triple games and multiple choices of their relative placement. All ten placements are classified, and moving the same-sized groups while keeping every individual’s pair and triple degrees fixed reverses whether natural selection favors cooperation. This exact finite threshold classification isolates structural alignment as a distinct evolutionary mechanism; its purpose is not merely to reproduce a known numerical table. The parameter-uniform polynomial laws avoid an arbitrary fixed-number experiment.
+The nonlinear mixed-game payoff, Fermi update, and general first-order linear-system method have prior coverage. Pass only the exact six-site alignment census and its opposite-sign fixation comparison. The closest inspected mixed-order fixation result explicitly uses a different closure and supplies no identity with the finite hypergraph chain.
 
-## Limits
+## value
 
-The conclusion is exact only for the prescribed binary-strategy six-cycle, two disjoint triples and Fermi rule. The favored/suppressed assertion concerns the linear-in-selection fixation derivative and sufficiently small intensity; it is not a universal result for arbitrary hypergraphs or finite intensities. The claim has undergone self-review only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nontrivial placement comparison for two disjoint triples on a cycle gives a controlled stochastic example: the pair graph, pair and triple participation counts, seeding and game parameters are fixed, yet alignment changes the sign relative to neutrality. That strict comparison is usable even without the large fractions, and the exact thresholds make the finite example reproducible, not a simulation artifact or an arbitrary isolated coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

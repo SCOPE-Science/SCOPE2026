@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:41:55.483408Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Proof and Limitations; VERIFICATION.md, verify.py and verify.stdout (inspection)",
+        "/workspace/reproductions/quartic.py and quartic.log (fresh exact computation with SymPy 1.14.0)"
+      ],
+      "rationale": "Independently expanded the literal six monomials on lines and enumerated zero binary quartics in canonical echelon coordinates over F_5[u]/(u^2+u+1), with nonsquare discriminant 2. The six echelon cells have 25, 9, 4, 0, 1, 1 distinct points. To establish geometric exhaustion independently of the frozen cell bounds, the replay computed the full affine Pluecker chart algebras over F_5 in grevlex, of lengths 26, 26, 28, 28, 26, 26 in pivot order 01,02,03,12,13,23. These opens overlap and their lengths must not be added. In the full charts the Jacobian has a nonzero maximal minor except at the four stated coordinate lines. The local jet quotients at those lines have dimension 2 modulo both the square and the cube of the maximal ideal; hence Nakayama makes its square zero and gives local length two. The known points, weighted by these local lengths and counted in each full chart using the corresponding nonzero Pluecker coordinate, exhaust every chart length. Thus there are no additional geometric points. The global length is 36+4*2=44. Exactly four canonical forms have coefficients in F_5; the remaining 36 lie in F_25 and have Frobenius orbit size two. This gives the claimed point counts and zeta function; nilpotents add no field-valued points.",
+      "residual_risks": [
+        "This verifies the printed equation only, not a differently transcribed or intended model. The Gröbner computations are exact computational evidence, not formal proof-assistant verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected published examples concern line counts on K3 quartic models; the indexed analogues concern arithmetic and infinitesimal support in other characteristics."
+        ],
+        "reasoning": "Bounds and examples of configurations do not determine the Frobenius orbits or the local Artin lengths for the literal mod-five equation. The closest same-equation example gives a contrary count rather than a dominating theorem.",
+        "searches": [
+          "arXiv:1502.04510v2, §7 around Example 7.6",
+          "Veniani's Lines on K3 quartic surfaces in characteristic 3, Example 5.5",
+          "Resultary: finite-field line schemes and nonreduced lines on quartics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and its prior-work comparison",
+        "arXiv:1502.04510v2 Example 7.6",
+        "Veniani 2022 Example 5.5",
+        "Resultary 966d19de81de and 7c23914652a9 catalogue summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original example reports 36 lines in characteristic zero and 48 after reduction; the later example reports 52 and 56 for its other polynomial. Neither passage classifies the local structure at the four coordinate lines of the frozen equation."
+        ],
+        "reasoning": "The Frobenius census follows mechanically from the new complete F_25 support and F_5 count, but neither datum nor the local lengths follows from the earlier statements inspected. The review does not infer why the printed example differs.",
+        "searches": [
+          "arXiv:1502.04510v2, Example 7.6; doi:10.1007/s00229-021-01284-9, Example 5.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact monomials in Example 7.6 agree after relabelling coordinate names. Example 5.5 in the other paper prints a different polynomial with a stated 56-line reduction; the closest indexed infinitesimal examples are in characteristic three."
+        ],
+        "reasoning": "The matching Example 7.6 is not just a numerical analogue: it assigns 48 to this printed model. The 56-line example is not the literal input, and no more general coordinate-equivalence claim about that example is required. The characteristic-three analogues cannot be equivalent as characteristic-five schemes.",
+        "searches": [
+          "Resultary: literal six-term quartic, characteristic five, Fano support 40 and length 44",
+          "arXiv:1502.04510v2, Example 7.6",
+          "doi:10.1007/s00229-021-01284-9, Example 5.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Example 7.6 p. 30 gives the exact printed six-term equation and states that its reduction modulo five contains exactly 48 lines. The surrounding table reference concerns valencies, not the claimed length or Frobenius orbit data. Closest catalogue entries 966d19de81de and 7c23914652a9 describe 48-line characteristic-three schemes."
+        ],
+        "reasoning": "A matching equation with a contrary support count is prior evidence requiring correction, not verified coverage. Counts for other quartics supply no entry for 40/44 here.",
+        "searches": [
+          "Resultary: 40 lines, four doubled Fano points, characteristic-five quartic",
+          "arXiv:1502.04510v2, Example 7.6 and surrounding reference to Table 3"
+        ]
+      },
+      "rationale": "The strongest match is the original publication's identical equation, where the geometric line count 48 disagrees with the independently exhausted support of 40. The correction and the arithmetic and infinitesimal structure of the literal line scheme are distinct from that passage and from the other models inspected. No historical priority guarantee is made.",
+      "residual_risks": [
+        "A focused external literature query did not return useful hits and is not evidence of absence. An unindexed correction or computation may exist.",
+        "One related index entry's full text was unavailable; the summary directly identifies its different characteristic. The cause of the published 48 discrepancy remains unknown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model match; count conflicts, no local scheme census in the passage",
+          "evidence": "Same six monomials, 36 complex lines and a statement that reduction modulo five contains exactly 48 lines.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.04510v2",
+          "material_read": "§7, Example 7.6, p. 30, OA offset 75932 and surrounding table reference",
+          "method": "OA bounded original PDF passage",
+          "title": "The maximum number of lines lying on a K3 quartic surface",
+          "trigger": "Same literal polynomial and the published 48-line statement"
+        },
+        {
+          "assessment": "Different displayed model; not an identification of the printed equation",
+          "evidence": "Different, longer polynomial, with 52 complex lines and an asserted reduction with 56 lines in characteristic five.",
+          "identifier_or_url": "https://doi.org/10.1007/s00229-021-01284-9",
+          "material_read": "Example 5.5, p. 700, OA offset 62200",
+          "method": "OA bounded original passage",
+          "title": "Lines on K3 quartic surfaces in characteristic 3",
+          "trigger": "Related mod-five quartic example by the same author"
+        },
+        {
+          "assessment": "Summary describes a different characteristic and model; no whole-record exclusion asserted",
+          "evidence": "Characteristic-three Shimada–Shioda quartic with 48 lines and seven nonreduced line-scheme points.",
+          "identifier_or_url": "Resultary 966d19de81de",
+          "material_read": "Returned catalogue summary only; full record unavailable in the mirror",
+          "method": "Configured Resultary search",
+          "title": "Arithmetic splitting and seven infinitesimally nonrigid lines on a characteristic-three quartic",
+          "trigger": "Closest indexed arithmetic and infinitesimal analogue"
+        },
+        {
+          "assessment": "Different characteristic in the available summary",
+          "evidence": "Characteristic-three eight-nodal quartic with 48 lines and tangent-space data.",
+          "identifier_or_url": "Resultary 7c23914652a9",
+          "material_read": "Returned catalogue summary",
+          "method": "Configured Resultary search",
+          "title": "Incidence and infinitesimal support on the eight-nodal characteristic-three quartic",
+          "trigger": "Indexed example coupling line census and tangent data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Veniani arXiv:1502.04510v2, Example 7.6",
+        "Frozen Finding and independently reproduced chart census and local lengths"
+      ],
+      "rationale": "This is a motivated exact correction to a published example, not an arbitrary quartic computation. It distinguishes the actual geometric support (40), scheme length (44), and arithmetic splitting (4 rational and 18 conjugate pairs), so it supplies precise usable data for anyone reusing the printed model in classification or finite-field computations.",
+      "residual_risks": [
+        "No value claim is made as a correction of any unprinted intended model or as a general quartic line bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

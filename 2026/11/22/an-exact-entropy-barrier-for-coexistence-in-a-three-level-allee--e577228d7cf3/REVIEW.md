@@ -1,19 +1,21 @@
-# Scientific review: exact entropy barrier in an Allee food chain
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is quantified for all strictly positive model parameters where the prey nullcline meets \(F(u)=a_4/a_3\) twice at distinct \(a_2<u_-<u_+\). The exact cancellation of the two trophic transfers gives the scalar entropy derivative. Equality of the two nullcline levels forces the root factorization; no unverified limiting, numerical, or infinite-enumeration step is required. Properness of the three entropy terms, forward invariance of the strict sublevel and LaSalle's principle prove convergence. The same identity, with periodic integration and strict concavity, proves the conditional orbit-crossing and mean bounds. The included standalone program checks the exact algebra, a positive rational calibration and a trajectory; computation supplements, rather than replaces, proof.
+## correctness
 
-**Originality — PASS, within inspected literature.** The source paper [1] proves local coexistence stability by Routh–Hurwitz and illustrates two basins numerically, but does not derive a quantitative nonlocal attraction basin or the exact entropy-hyperplane threshold. General Volterra entropy and LaSalle methods are well established; the claim does not assert their invention. The related three-level Allee system [2] has Holling-II and Crowley–Martin responses and nonlinear apex reproduction, so its results cannot be substituted into the bilinear-transfer cancellation here. General structural-matrix Lotka–Volterra results [3] lack the rational Allee prey-growth term. The exact result depends on the **two-root factorization** for this specific source model. Search and database comparisons identified related results on an Allee carrying-capacity coincidence, other systems' Jensen mean restrictions and entropy decay, none implying this strictly positive two-root basin result.
+PASS
 
-**Value — PASS.** The source system has both an extinction attractor and an attracting interior coexistence state, so local stability alone cannot determine which initial populations recover. This theorem supplies a computable, genuinely three-dimensional nonlocal set of initial conditions that **guarantee** all three species persist and converge. The threshold is optimal for containment of complete sublevels of the specified entropy in the prey region above the lower coexistence root. The conditional orbit-crossing restriction additionally constrains potential nonstationary coexistence dynamics without claiming they exist. These are motivated basin-selection and recurrence properties, not merely a parameter renaming or finite computational example.
+The entropy gradient produces the three population deviations with the apex weight 1/a₃, cancelling both cross terms. The numerator of F(u)−v_* is a quadratic of leading coefficient −a₁ and roots u_−,u_+, so its factorization gives the claimed signed derivative. The entropy is proper on the positive octant and its strict threshold B is the minimum on u≤u_−; any initial closed sublevel below B is compact and positively invariant. On it the zero set forces u≡u_+, then v≡v_* and w≡w_* on an invariant trajectory, so LaSalle applies. Every larger complete sublevel reaches u<u_−. The strict open certificate is a proper subset of the basin: at (u_−,v_*,w_*) on its boundary, u'=0 and u''=u_−v_*(u_+−u_−)>0, giving immediate entry into u>u_− and then H<B. On a periodic orbit, integrating the signed derivative excludes staying on either side unless u and hence the state are constant. Integrating the three log derivatives yields the stated means, and strict F''<0 yields the strict Jensen conclusion since nonconstant state entails nonconstant prey. The periodic assertions are conditional. Read RESULT.md, VERIFICATION.md and VERIFY.py; the script was inspected, not run, and its single integration is not used as a global certificate.
 
-**Closest results and limits.** [1] supplies the exact ecological model, equilibrium quadratic, and local upper-branch Hurwitz criterion. [2] covers a different trophic response structure. [3] supplies classical general stability background. Related indexed results concerning the critical equality of the Allee and carrying thresholds have no two positive interior coexistence roots, while studies of Jensen gaps in other predator–prey systems cannot prove the stated entropy barrier. The full attraction basin, global exclusion of cycles, stochastic resilience and empirical applicability remain unproved. Independent verification and historical-priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## References
+The same rational three-level model, its two coexistence equilibria, local stability and numerical basin behavior are already studied; the classical entropy method is also prior. The inspected same-model and same-method comparisons do not provide the sharp complete sublevel certificate or the paired crossing and strict mean constraints for this chain.
 
-[1] H. A. Satar, R. K. Naji and M. Haque, *A food chain model with Allee effect: Analysis on the behaviors of equilibria*, AIMS Mathematics 10 (2025), 12598–12618. https://doi.org/10.3934/math.2025568.
+## value
 
-[2] S. Debnath, U. Ghosh and S. Sarkar, *Global dynamics of a tritrophic food chain model subject to the Allee effects in the prey population with sexually reproductive generalized-type top predator*, Computational and Mathematical Methods 2 (2020), e1079. https://doi.org/10.1002/cmm4.1079.
+PASS
 
-[3] P. Almaraz, P. Kalita, J. A. Langa and F. Soler–Toscano, *Structural stability of invasion graphs for Lotka–Volterra systems*, Journal of Mathematical Biology 88 (2024), 64. https://doi.org/10.1007/s00285-024-02087-8.
+The explicit initial-state inequality addresses a natural gap left by local stability and numerical basin plots in a bistable model. It provides a rigorous nonlocal guarantee with a precisely delimited sharpness claim. The same identity, combined with concavity, gives testable restrictions on candidate positive cycles without pretending to classify the full basin or prove cycle existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

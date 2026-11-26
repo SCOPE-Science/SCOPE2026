@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:00:59.269114Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof, lines 17–61",
+        "Frozen VERIFICATION.md, line 19, and check.py, lines 19–77: inspected finite Gram-recursion, rational-coefficient and tail diagnostics; not executed"
+      ],
+      "rationale": "The linear-first Gram recursion gives the coefficient convolution M_1 F_f=M_f with the conjugated atom coordinates. Clearing denominators gives Q=(1-a)+a(z-1)^2, a=(1+2 cos ε)/3. Both simple poles are outside the closed unit disk throughout the claimed interval. Evaluating the residues using h=z−1=±iε/√3+O(ε³) gives leading numerator coefficients (2/3, −1/3∓1/√3, −1/3±1/√3) times ε²/3. The two rows are orthogonal with Euclidean squared norm 4/3. In the stated weighted domain norm the leading residue map has norm ε/√3, with an operator-norm error O(ε²). The reciprocal poles have modulus r=1−ε²/6+O(ε⁴) and phases ±θ with θ=ε/√3+O(ε³). In the squared geometric-weight mean the relative cross term is bounded by (1−r)/|1−r exp(2iθ)|=O(ε). Cauchy–Schwarz then gives the uniform upper bound; a unit input parallel to either leading residue row kills the other row at leading order and attains the bound by the reverse triangle inequality. Multiplication by r/(1−r) gives 2√3 after scaling by ε; the zeroth coefficient is bounded independently of ε. For fixed separation the absolutely convergent series evaluates to f at each atom, since the common simple singularity of M_f and M_1 has ratio f at that atom. This verifies both the optimum constant and absolute reconstruction.",
+      "residual_risks": [
+        "The proof is for the specified three equal masses, order, norm and coefficient functional; it gives no exact finite-separation optimizer or observations-to-reconstruction noise bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.1 proves absolute reconstruction for every finitely supported probability measure in the stated Fourier setting.",
+          "The spectral-rate record gives worst-case exponential decay of reconstruction error."
+        ],
+        "reasoning": "Finite-dimensionality upgrades pointwise absolute summability to boundedness at each fixed measure, so this portion is covered. Error contraction and absolute convergence at fixed geometry do not give the sharp norm coefficient in the collision limit.",
+        "searches": [
+          "arXiv:2611.03358v2, §4.1, Theorem 4.1",
+          "Resultary: Regular-polygon finite-step rigidity and an explicit spectral rate for Fourier Kaczmarz recovery"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cb6b32cc5e9e (self-match), 03f0340e1b7f, 9be270cea601, dc7eecc4fd2f, 34d52f2ee2dd",
+        "Berner–Herr–Jorgensen, arXiv:2611.03358v2, equation (2.2) and Theorem 4.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed separation the two-pole rational representation follows from the known transform, but the available spectral rate does not identify leading residue geometry or estimate the mixed term in the coefficient norm.",
+          "The cyclic vanishing-bias analysis varies atom count and concerns one sweep, not an infinite sum for a fixed three-atom collision."
+        ],
+        "reasoning": "Identifying the sharp constant requires a uniform two-mode estimate and a single-mode asymptotic extremizer, not merely substituting this measure into a previously stated stability bound.",
+        "searches": [
+          "arXiv:2611.03358v2, equation (2.2) and Theorem 4.1",
+          "Resultary records 03f0340e1b7f, 9be270cea601, dc7eecc4fd2f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equation (2.2) identifies the same auxiliary-coefficient generating series with the normalized Cauchy transform.",
+          "The planar exact amplification uses a one-dimensional auxiliary span after the first step, unlike the two leading orthogonal residue modes here."
+        ],
+        "reasoning": "The quantity is also the norm from the three-atom L² space to the analytic Wiener coefficient norm via the normalized transform. A transform identity is not a norm asymptotic. The exact planar norm formula has a dimension hypothesis not met by this space.",
+        "searches": [
+          "Fourier Kaczmarz normalized Cauchy transform coefficient l1 stability constant finite atomic measures collision three atoms coefficient amplification",
+          "arXiv:2611.03358v2, equation (2.2)",
+          "Resultary: Exact unconditionality criterion and critical scales for planar Kaczmarz reconstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match cb6b32cc5e9e is the assigned finding itself, not independent coverage.",
+          "Distinct same-day 34d52f2ee2dd studies a colliding three-site quadrature with quadratic sample-noise amplification."
+        ],
+        "reasoning": "The near match has a different inverse problem, output norm, and divergence rate. It is not a second statement of this constant, regardless of same-day ordering.",
+        "searches": [
+          "Resultary: three equal atoms 1,e^{±iε}, Kaczmarz coefficient amplification and 2√3 collision law",
+          "Resultary record 34d52f2ee2dd: three-site Fourier quadrature positivity and noise blowup"
+        ]
+      },
+      "rationale": "Fixed-separation finiteness is covered by the finite-atomic absolute-convergence theorem and finite dimensionality. The distinct supported claim is the sharp uniform collision law for the infinite coefficient ℓ¹ norm; neither the strongest adjacent quantitative statements nor the general transform and convergence results inspected supply that sharp limit. This is a bounded comparison, not a claim of absolute priority.",
+      "residual_risks": [
+        "Targeted rather than exhaustive literature coverage; a general Wiener-norm asymptotic for coalescing finite Clark masses or rational transforms could subsume the estimate if found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers fixed-measure convergence, not the collision norm constant in these passages.",
+          "evidence": [
+            "Coefficient generating function equals the normalized Cauchy transform.",
+            "Finite support gives absolute reconstruction for each f."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.03358v2",
+          "material_read": "Definition 2.6 and equation (2.2), PDF p. 8; §4.1, Theorem 4.1, PDF p. 12",
+          "method": "OA primary text, passage inspection",
+          "title": "Frame Properties of Effective Stationary Sequences",
+          "trigger": "Same Fourier coefficient transform and finite-atomic convergence"
+        },
+        {
+          "assessment": "Related but different objective.",
+          "evidence": [
+            "The result is an exponential reconstruction-error spectral radius."
+          ],
+          "identifier_or_url": "Resultary 03f0340e1b7f",
+          "material_read": "RESULT.md Finding and Proof",
+          "method": "Local mirror, original statement and proof passages",
+          "title": "Regular-polygon finite-step rigidity and an explicit spectral rate for Fourier Kaczmarz recovery",
+          "trigger": "Same finite-atomic reconstruction and quantitative rate"
+        },
+        {
+          "assessment": "Dimension-two formula does not apply.",
+          "evidence": [
+            "All postinitial auxiliary vectors lie in the one-dimensional e_0-perpendicular line in that setting."
+          ],
+          "identifier_or_url": "Resultary 9be270cea601",
+          "material_read": "RESULT.md Finding and Proof, Auxiliary norms and exact amplification",
+          "method": "Local mirror, original statement and proof passages",
+          "title": "Exact unconditionality criterion and critical scales for planar Kaczmarz reconstruction",
+          "trigger": "Exact coefficient amplification"
+        },
+        {
+          "assessment": "Growing polygon and finite cycle do not cover the fixed-three infinite coefficient sequence.",
+          "evidence": [
+            "The parameter is the atom count under one-atom bias."
+          ],
+          "identifier_or_url": "Resultary dc7eecc4fd2f",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror, original passages",
+          "title": "A continuum spectral law for cyclic Fourier Kaczmarz under vanishing one-atom bias",
+          "trigger": "Quantitative limit for a related Fourier Kaczmarz family"
+        },
+        {
+          "assessment": "Different amplification problem.",
+          "evidence": [
+            "Finite quadrature has ℓ∞-to-scalar sample-noise amplification of quadratic order, not the ℓ¹ sum of sequential coefficients."
+          ],
+          "identifier_or_url": "Resultary 34d52f2ee2dd",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local mirror, original passages",
+          "title": "A sharp three-site positivity transition and quadratic noise blowup in Fourier quadrature",
+          "trigger": "Strongest distinct three-site collision analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and residue/optimality proof",
+        "arXiv:2611.03358v2, Theorem 4.1",
+        "Resultary 9be270cea601, planar exact amplification"
+      ],
+      "rationale": "Finite-support absolute convergence is qualitative and does not distinguish well-separated from nearly coincident samples. This minimal symmetric example beyond the planar case quantifies precisely the loss of uniformity and separates the effects of pole damping, oscillatory cancellation and residue geometry. The constant is a benchmark for coefficient estimates, not just another demonstration of convergence.",
+      "residual_risks": [
+        "The benchmark is narrow and does not establish sample-noise amplification or a general collision classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

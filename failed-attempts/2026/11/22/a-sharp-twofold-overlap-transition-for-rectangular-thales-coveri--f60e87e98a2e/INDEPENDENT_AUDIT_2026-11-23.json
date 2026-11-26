@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:33:41.291374Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact incidence, clipping and analytic inequalities",
+        "Frozen VERIFICATION.md and verify.py, inspected but not executed"
+      ],
+      "rationale": "For a nonzero point the diameter condition is |z|²≤z·v, so at most one disk from each opposite pair contains z. In each quadrant the matching vertex dominates |z|² term by term, giving coverage; the origin is exceptional and immaterial to area. In the first quadrant the extra disk is equivalent to u²+v²≤|au−bv|. One lobe is a segment of the circle centered at (a/2,−b/2) of radius √(a²+b²)/2, with the segment above y=0 cut additionally at y=b. The two segment offsets are b/2 and 3b/2; the second segment exists exactly at a²>8b². The transposed lobe gives the other contribution. This reproduces the area formula. With T=√(λ²−8), the subtraction has numerator (2/9)T³+O(T⁵), giving 2^(5/4)/9 in the correction and the claimed C¹ but not C² behavior. The above-threshold derivative has numerator (T²+7) arctan(3/T)−3T; averaging (T²+s²)^−1 over s∈[0,3] gives a strict lower bound from Jensen using the mean of s² equal to 3. Below threshold the derivative is positive for λ>1. Expanding the complementary arctangent expression at infinity yields 1−3/(2λ²)+O(λ⁻⁴). Independent polar midpoint quadrature of min{a/cos φ,b/sin φ,|a cos φ−b sin φ|}² on [0,π/2], divided by 2ab, agreed with the formula to within 1.1×10⁻⁷ at aspect ratios 1, 2, √8, 2.9, 4, 15 and 60; the analytic checks, not these samples, establish the theorem.",
+      "residual_risks": [
+        "The proof is for centered rectangles and planar area inside the rectangle, not the union or overlap area of the untruncated disks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pavlík's theorem covers every convex polytope by the prescribed vertex-to-point diameter balls but does not give this overlap distribution.",
+          "The regular-polygon spectrum, specialized to n=4, gives q(1)=π/4−1/2; unequal rectangles are not regular polygons.",
+          "Fekete et al. optimize over collection of disks to cover a rectangle, unlike the fixed geometry here."
+        ],
+        "reasoning": "General coverage and regular-square depth are credited but do not decide the unequal case. The exact same rectangle family is covered by the complementary-profile record, not by these more general or adjacent sources.",
+        "searches": [
+          "Pavlík, arXiv:2611.14277v1 Theorem 5.1",
+          "Resultary regular-polygon multiplicity spectrum 2026/11/17/SCOPE-exact-multiplicity-spectrum-of-vertex-to-center-diameter-disks-o--1b3f060ecc28",
+          "Fekete et al., doi:10.1007/s00454-023-00582-1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary: distinct one-coverage profile and regular-polygon spectrum",
+        "Pavlík arXiv:2611.14277v1",
+        "Fekete et al., doi:10.1007/s00454-023-00582-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complementary-area record gives exactly the integral of the positive part R_t²−(t cos φ−sin φ)² on the quadrant; subtracting from the quadrant area gives the minimum-of-radii-squared integral for q. Its proof also gives the same sharp onset and loss of C² regularity. The primary literature query did not give an additional match; that is not evidence against equivalence or for priority."
+        ],
+        "reasoning": "No new analysis is needed to transfer the already-determined area and the leading cusp by complement; mean multiplicity is then immediate. A sharper remainder, a different antiderivative and a tail expansion are refinements of the same profile. Strict monotonicity requires a sign argument and was not explicitly located in the equivalent record.",
+        "searches": [
+          "Distinct complementary-area Resultary record, Finding and Proof §§ 1–4",
+          "Primary literature query: Pavlík ‘Thales's theorem in higher dimensions’ arXiv 2611.14277 Theorem 5.1 vertex-to-point diameter balls polytope coverage, and prior exact overlap area of four center-to-vertex diameter disks of a rectangle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct Resultary record 2026/11/22/SCOPE-sharp-four-to-eight-transition-in-the-singly-covered-locus-of-re--b36dd9da9452 gives F(t) for exactly the same rectangle, disks and Lebesgue measure, and covers all t≥1. It states the threshold 2√2 and a 3/2-power correction with coefficient 2·2^(1/4)/9.",
+          "The assigned result also occurred in the search; that self-hit was discarded as independent comparison evidence."
+        ],
+        "reasoning": "Scale and swap axes so t=λ. Coverage and the opposite-pair incidence argument give q(t)=1−F(t). The full piecewise area and cusp therefore agree, including the sign reversal and identical magnitude of the coefficient; the pair of records' shared date does not establish order.",
+        "searches": [
+          "Resultary: rectangular Thales disks twofold overlap area clipping aspect ratio monotonicity",
+          "Resultary: exact area distribution multiplicity points in regular polygons covered by disks having vertex-center diameter endpoints square, overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed non-square profile is continuous in t and exact; it is not a numerical table. The regular-polygon formula supplies the exact square endpoint. No separate exact table for unequal rectangles entered the decision."
+        ],
+        "reasoning": "Although a lookup table is unnecessary, there is exact indexed analytic coverage on the full parameter range in complementary coordinates.",
+        "searches": [
+          "Local Resultary searches for rectangular Thales area, clipping and overlap, and regular-polygon multiplicity"
+        ]
+      },
+      "rationale": "The principal unequal-rectangle area profile, clipping threshold and leading nonanalytic transition are already covered by a distinct indexed exact one-coverage profile on the identical geometry. Outside the origin and a set of zero area, exactly one or two disks cover each point, so q=1−F. The change from a polar correction to a circular-segment correction does not create a new invariant. This is demonstrated equivalent coverage, not a finding that either same-day record came first. The checked equivalent source does not explicitly state strict monotonicity; that genuine distinction does not make the central claim in the frozen package distinct.",
+      "residual_risks": [
+        "The relative priority of the two same-day records is unresolved; the decision rests on equivalent coverage, not ordering.",
+        "The search does not establish historical priority for the monotonicity refinement or exclude other formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage of the principal area law and transition; no same-day priority inferred",
+          "evidence": [
+            "For P_t=[−t,t]×[−1,1], F is exactly the area fraction in one disk, with the same four origin-to-vertex disks. The incidence proof explicitly identifies |tx−y| as the second-largest projection and establishes coverage.",
+            "Finding and Proof §§ 3–4 give the exact profile and the same C¹/non-C² 3/2-power onset."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-four-to-eight-transition-in-the-singly-covered-locus-of-re--b36dd9da9452/RESULT.md",
+          "material_read": "RESULT.md Finding, assumptions, Proof §§ 1–4, prior-work and limitations passages, offsets 0–8180 in snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Direct bounded passages from the local mirror after semantic search",
+          "title": "Sharp four-to-eight transition in the singly covered locus of rectangular Thales disks",
+          "trigger": "Exact same object and aspect-ratio transition, with complementary event"
+        },
+        {
+          "assessment": "Exact endpoint overlap, no unequal-side extension in the checked result",
+          "evidence": [
+            "n=4 gives q(1)=π/4−1/2; the theorem requires a regular polygon."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-exact-multiplicity-spectrum-of-vertex-to-center-diameter-disks-o--1b3f060ecc28",
+          "material_read": "Local-mirror RESULT.md Finding and Proof, regular-polygon exact formula T_(n,2)",
+          "method": "Resultary search and bounded local-mirror passage",
+          "title": "Exact multiplicity spectrum of vertex-to-center diameter disks of regular polygons",
+          "trigger": "Known square endpoint"
+        },
+        {
+          "assessment": "Known coverage, not quantitative overlap",
+          "evidence": [
+            "The vertex-to-point diameter balls cover P=conv S; the cited theorem does not calculate multiplicity-area fractions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.14277",
+          "material_read": "v1 Theorem 5.1, PDF p. 13, and Corollary 5.3, p. 14",
+          "method": "OA PDF literal theorem lookup and bounded passage",
+          "title": "Thales’s theorem in higher dimensions",
+          "trigger": "General theorem on prescribed diameter-ball coverage"
+        },
+        {
+          "assessment": "Different problem in the inspected abstract; not a whole-paper negative finding",
+          "evidence": [
+            "The paper asks for worst-case total area of a collection of disks that can be placed to cover a λ×1 rectangle, not the overlap of disks with prescribed diameters."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00454-023-00582-1",
+          "material_read": "OA Springer article abstract, p. 1232",
+          "method": "Targeted OA PDF passage",
+          "title": "Worst-Case Optimal Covering of Rectangles by Disks",
+          "trigger": "Possible related rectangle disk-area theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, derivative and Jensen inequality",
+        "Distinct singly covered profile, Finding and Proof"
+      ],
+      "rationale": "The monotonicity refinement answers a natural comparative question: in this fixed covering, an observed double-coverage fraction in the interior of the range determines eccentricity uniquely and orders rectangles by depth. Proving that sign across the clipping transition requires a nontrivial inequality, not mere evaluation of the known profile. The duplicate area law and onset are not counted as new value, and this assessment does not validate the frozen finding overall.",
+      "residual_risks": [
+        "Monotonicity is a narrow refinement and not separately submitted or validated as a repaired finding."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

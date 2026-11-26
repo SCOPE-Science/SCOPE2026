@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:15:37.730929Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and requirements.txt",
+        "/workspace/branches/audit_kernel_checks.py"
+      ],
+      "rationale": "The absorbing problem has generator D d²/dx² and both endpoint data 1 for the discounted exit transform. Averaging the two exponentials over the symmetric beta law gives the stated F, and renewal with a fresh independent start gives (1-F)/(rF). In the normalized mean, reciprocal Laplace asymptotics give A_alpha k^{alpha-1}[1+alpha(alpha+1)/k+O(k^{-2})]-k^{-2}; the leading term dominates for alpha>-1. At alpha=1, integration gives F=12(k-2 tanh(k/2))/k³. The strict bound reduces to (3+z²)sinh(z)-3z cosh(z)>0, whose derivative is z(z cosh(z)-sinh(z))>0 for z>0. The r=0 mean is larger too. The exit moment boundary equations give T'(0+)=m_1²-m_2/2, with numerator proportional to p(2p²-p-7), p=alpha+1; this supplies a strict improvement at a small positive rate when 1<alpha<alpha_c, and divergence at infinity supplies attainment away from both endpoints. As epsilon=alpha-1 tends to zero, the trial point k=1/epsilon has limiting mean 1/12 in units L²/D; any bounded sequence of minimizing k would violate the strict critical inequality by joint continuity. The expansion and its derivative are uniform near alpha=1: split the beta integral at y=1/2 and Taylor-expand (1-y)^alpha at zero, with a uniform remainder, also after multiplication by y for the derivative. Stationarity then gives epsilon k plus alpha(alpha+1)(alpha-2) tending to zero for every minimizing k, so epsilon k→2. The linear expansion of A is governed by psi(2)-2psi(4)=gamma_E-8/3; alpha(alpha+1)/k=epsilon+o(epsilon) and k^epsilon=1+epsilon(log(1/epsilon)+log 2)+o(epsilon), giving the displayed constant. Independent quadrature of the Laplace transform and its derivative reproduced the local stationary branch and normalized asymptotic corrections; it was not used to prove global optimality. Replay: python3 /workspace/branches/audit_kernel_checks.py.",
+      "residual_risks": [
+        "Neither uniqueness nor a global phase diagram for alpha>=alpha_c is proved or needed. Numerical stationary points are not exhaustive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Linn–Lawley Proposition 1 transfers a short-time CDF asymptotic into a high-rate mean via its Laplace transform; their § 3.2 includes uniform starts.",
+          "The DOI search result on target distributions described a different varied quantity, and no full-text inference is made for it."
+        ],
+        "reasoning": "A fixed-law high-rate expansion does not locate a global minimizer along a varying family; uniform derivative control and the strict beta critical inequality are additional ingredients. The paper about target distributions is a residual access risk, not negative evidence.",
+        "searches": [
+          "arXiv:2302.05409v2 frequent stochastic resetting",
+          "arXiv:2605.08414v1 §§ II, IV, V",
+          "10.1103/9m8d-yjhw"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.08414v1",
+        "arXiv:2401.01125v1",
+        "arXiv:2302.05409v2",
+        "Resultary e7620720c5bc",
+        "DOI 10.1103/9m8d-yjhw (indexed summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first-passage Laplace/Kummer formula here is a substitution into the general ring mean; frequent-reset asymptotics give the basic leading-power framework.",
+          "The actual rate-phase illustrations in the ring paper are in site angle and weight, while the beta proof needs strict nonattainment at alpha=1 and first subleading terms uniform as alpha decreases to 1."
+        ],
+        "reasoning": "No novelty credit for the general mean or its leading asymptotic mechanism. The nonattainment inequality, compactness exclusion and uniform minimizer asymptotic are not implications of the compared optimization statements.",
+        "searches": [
+          "arXiv:2605.08414v1 Eq. (26) and § V-D",
+          "arXiv:2302.05409v2 Proposition 1",
+          "arXiv:2401.01125v1 Eqs. (13)–(14)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ring paper's Eq. (26) applies directly to the beta density on the unwrapped ring, so inserting its beta Laplace transform recovers the displayed F and renewal mean.",
+          "Ring § V Eqs. (29)–(30) studies two weighted point masses at fixed sites, not a continuous endpoint exponent."
+        ],
+        "reasoning": "Drawing a new position in each excursion is the same general ring renewal model, not a new model. Changing the site/weight of two atoms is not a reparameterization of a beta density vanishing linearly at both endpoints.",
+        "searches": [
+          "arXiv:2605.08414v1 arbitrary reset-density ring and rate transitions",
+          "arXiv:2401.01125v1 random reset-position mean",
+          "Resultary circular resetting / continuous beta law / singular global optimum searches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact ring result is a zero-rate tricritical coordinate and local square-root onset for a two-atom law."
+        ],
+        "reasoning": "There is no external finite table at issue; the comparison is against indexed exact transition statements. The matched tricritical formula is about onset near rate zero in a different law, not the divergent rate or optimized mean here.",
+        "searches": [
+          "Resultary searches on endpoint depletion, beta resets, and optimal ring resetting",
+          "2026/11/8/SCOPE-exact-algebraic-tricritical-point-in-two-site-brownian-resetting--e7620720c5bc"
+        ]
+      },
+      "rationale": "The general arbitrary-density ring formula and frequent-reset framework already cover the exact mean and the mechanism behind the leading large-frequency scaling. The supported distinct result is the beta endpoint-depletion optimization transition, in particular escape of every global optimizer with the 4/epsilon² law and the two corrections to the optimum value. The strongest inspected ring paper optimizes a two-site law, not this continuous family; this assessment does not claim historical priority.",
+      "residual_risks": [
+        "Searches are bounded; target-distribution source could not be compared in full. A relationship between equivalent models under other terminology is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General mean directly covers exact beta substitution; inspected optimization is for two sites",
+          "evidence": [
+            "Arbitrary ring reset density for the mean, but rho=(delta at phi_1 + m delta at phi_2)/(1+m) for the optimization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08414",
+          "material_read": "Abstract; § II Eqs. (1)–(6), p. 3; § IV Eq. (26), p. 6; § V Eqs. (29)–(30), pp. 6–7; § V-D, pp. 9–10",
+          "method": "OA full primary PDF, bounded passages",
+          "title": "Mirror transitions in diffusion with stochastic resetting confined on a ring",
+          "trigger": "Same ring and arbitrary reset density; possible rate-optimality overlap"
+        },
+        {
+          "assessment": "Prior renewal framework, not the beta optimizer",
+          "evidence": [
+            "Averaged Brownian mean with random reset locations; examples use uniform and exponential laws."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.01125",
+          "material_read": "Abstract and Eqs. (13)–(14), pp. 1–2",
+          "method": "OA primary PDF passages",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Distributional resetting and rate-optimality results"
+        },
+        {
+          "assessment": "Covers general leading-power method",
+          "evidence": [
+            "A t^b short-time CDF gives success probability ~A Gamma(b+1)r^{-b}; this has no beta critical optimizer comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05409",
+          "material_read": "§ 2.2.3 Proposition 1, p. 8; § 3.2, p. 10 (v2)",
+          "method": "OA primary PDF passages",
+          "title": "First-passage times under frequent stochastic resetting",
+          "trigger": "General asymptotic principle"
+        },
+        {
+          "assessment": "Different law and transition",
+          "evidence": [
+            "Two atoms and local onset at zero, rather than a continuous beta law with optimum escaping to infinity."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-algebraic-tricritical-point-in-two-site-brownian-resetting--e7620720c5bc",
+          "material_read": "Finding and prior comparison, offsets 0 and about 6800",
+          "method": "Resultary index and local mirror",
+          "title": "Exact algebraic tricritical point in two-site Brownian resetting",
+          "trigger": "Indexed exact rate transition on the ring"
+        },
+        {
+          "assessment": "Full comparison not established",
+          "evidence": [
+            "The available summary varies a target distribution, rather than explicitly describing the reviewed beta reset law."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/9m8d-yjhw",
+          "material_read": "Indexed abstract-level summary; OA retrieval attempt timed out",
+          "method": "Literature search and attempted OA retrieval",
+          "title": "How target distributions shape optimal stochastic resetting",
+          "trigger": "Distribution-driven reset optimum transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen critical inequality, finite-rate existence and uniform optimum analysis",
+        "Ring optimization §§ IV–V",
+        "Linn–Lawley Proposition 1"
+      ],
+      "rationale": "This gives a controlled transition from an unattained positive infimum to finite-rate optimization with an escaping scale. Distinguishing a true global optimizer from a local stationary branch and quantifying the optimized value near the threshold are useful in comparing ways of depleting reset mass at a target. The standard renewal mean alone would not merit this assessment.",
+      "residual_risks": [
+        "The continuous reset model has no rate-dependent cost and the constants are beta-family specific."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

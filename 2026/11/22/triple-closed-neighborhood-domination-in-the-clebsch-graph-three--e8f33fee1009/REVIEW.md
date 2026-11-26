@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a finite exact census of an explicitly defined 16-vertex graph. Two independently written implementations using different graph constructions and complementary enumeration verify all minimum states, three induced-six-vertex types, the optimum exchange adjacency and exact diameter. A full 65,536-subset sweep proves the full enumerator; an independent 11,440 seven-hole sweep excludes smaller solutions. The group action used for orbit classification is explicitly generated and verified. No unproved infinity claim is made.
+## correctness
 
-**Originality — PASS, qualified.** Targeted searches for Clebsch triple closed-neighborhood domination, three-fold covers, the \(312\) optima, and the complement shapes returned no identical prior result. Cockayne–Thomason (2008) develops general k-tuple bounds; the complete relevant four-page primary text has no Clebsch census. Related closed-neighborhood identifying-code, resolving-set and graph-topology records concern different predicates, and the open-neighborhood total-domination literature does not imply this exact count. An inaccessible article or unindexed table could still predate this computation; prior-art certainty is not asserted.
+PASS
 
-**Value — PASS.** Triple domination models simultaneous tolerance of two missing coverage observations at every location, a natural stronger reliability condition than single domination. An exact optimum classification into three recognizable induced graph types and a sharp one-to-two replacement phase change explain why maintaining minimum redundancy and rearranging an optimal placement are different tasks. Both numerical census and structural relocation have substantive content independent of merely implementing a search.
+Independently enumerated all 65,536 labelled masks against the 16 closed neighborhoods, giving counts 312,1872,1580,560,120,16,1 at sizes 10–16 and none smaller. The even-word model is equivalent because its four chosen weight-four generators are a basis and their sum is the fifth; distance four is exactly one of these five XOR differences. A separate loop in that model tested all 8,008 six-hole sets, including every subset having a claimed degree sequence, confirming the if-and-only-if type classification with counts 40,192,80; triangle-freeness converts those sequences to 3K2, C5 plus an isolate, and C6. The action by translations and permutations gives three respective orbits of those exact sizes. Indexing pairs of distinct optimum hole sets by overlap at least 6−t gives zero edges at t=1 and, at t=2, 5,220 edges, degrees 39 on 120 and 30 on 192 vertices, one component and eccentricity 3 at every vertex. There is also an independent short check of the lower bound: two distinct closed neighborhoods intersect in two vertices. For a feasible seven-hole set, the first two incidence moments of its intersection sizes with closed neighborhoods are ∑i=42 and ∑binom(i,2)=42. As i≤3, equality forces 14 neighborhoods meeting in three holes and two meeting in none. The union of the latter two contains ten vertices, leaving only six possible holes, a contradiction. Larger feasible holes would contain feasible seven-hole sets. The frozen scripts and outputs were inspected but not executed; the separate reproduction also verifies the converse shape test not expressly asserted by the submitted scripts.
 
-**Risk.** This is a sixteen-vertex exact finite classification, not a general graph-family bound. Novelty remains provisional without an independent literature review. The checkers establish finite statements but not general behavior for all biplanes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The object and the selection constraint are standard, but no compared source establishes the joint classification of minimum closed triple covers, their counts and reconfiguration graph. A narrower exact claim about ordinary covering-code minima, if found, would not by itself give this incidence and exchange structure. This is a bounded statement-level decision and does not rely on the zero-result literature query.
+
+## value
+
+PASS
+
+The five-regular Clebsch graph is a standard highly symmetric test object for neighborhood covering. The exact type/orbit structure and sharp jump from a wholly isolated optimum space to a connected space at radius and diameter three are the main value, beyond just computing a minimum on 16 vertices. They give a precise benchmark for minimum closed-neighborhood cover enumeration and for how simultaneous replacements change reachability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

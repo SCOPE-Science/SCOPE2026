@@ -1,11 +1,21 @@
-# Scientific review: sharp two-component reshuffling reversal
+# Independent mathematical audit
 
-**Correctness: PASS.** The sample update is exactly \(I-kP_i\) because \(P_i^2=P_i\), and each such update is a nonexpansion for the exact stated range. Expanding four ordered two-step words proves the diagonal RR and WR mean-square operators. Three factored polynomial identities establish a necessary-and-sufficient comparison, including the maximum-over-starting-vector subtlety. Positivity of \(P(k,t)\) outside the interior angular window, strict step monotonicity inside it, and the unique stationary point give the global threshold. The resultant and rational Sturm signs identify a unique sextic root; the exact rational witness independently establishes strict failure. The packaged standalone checker reproduced the factorization, enumeration matrices, threshold localization, and rational fractions. The infinite-domain assertion is proved algebraically, not inferred from experiments.
+## correctness
 
-**Originality: PASS, with residual risk.** The motivating same-sample SEG/reshuffling work, published PSD-product comparison literature, recent shuffled-SGD comparison theorems, relevant mathematical-record searches and recoverable prior findings were checked by exact implication rather than superficial title comparison. The inspected SEG source gives an algorithm and sufficient small-step convergence bounds, not a necessary-and-sufficient **two-step worst-initial-vector Euclidean mean-square** phase. The nearby matrix-product PSD comparison is inapplicable to the indefinite contraction factors used on the reversal side of this theorem. Existing RR/SGD dominance results involve different stepsize bounds or performance measures. The algebraic equivalence here to overrelaxed component SGD is explicitly acknowledged. An equivalent exact phase diagram in older stochastic projection theory is a residual novelty risk, not ruled out by search.
+PASS
 
-**Value: PASS.** RR is routinely associated with improved error guarantees, but the exact limiting role of the algorithmic step size under equal computational cost is mathematically meaningful. A sharp single-step parameter frontier, a necessary-and-sufficient angular phase, and a rational counterexample on a condition-two strongly convex objective distinguish a failure of uniform sampling-order dominance from divergence or ill-conditioning. They give a reproducible finite-horizon benchmark, while not asserting any universal RR disadvantage.
+Projector idempotence makes each same-sample update I−kP_i, with eigenvalues 1 and 1−k. The two cross products are transposes whose off-diagonal terms cancel upon averaging their Gram matrices; the two repeat words contribute (I−kP_i)^4. Thus RR and WR are diagonal in the two bisectors, and the maxima are taken after averaging. The factorizations give W_+<W_− and R_−<W_−; the remaining difference R_+−W_− is −k(2−k)P/4. Positivity follows from the nonzero cross-product off-diagonal magnitude kab·kt in the strict domain. Equality of norms through both RR steps would require a nonzero vector in both kernels; the repeat words give the same obstruction for WR in expectation. Hence both factors are strictly below one. To locate the first reversal, P>0 for k≤1 and for t≥1/√3 when k<2 by the displayed factorizations. On 0≤t≤1/√3, ∂_kP<0 for 3/2≤k≤2: at t=0 it is −2(k−1); elsewhere use E(t)−3t(1−t²)=6t³+t²−2t−1≤t²−1<0. Also P(3/2,t)−1/3=(t−1/3)²(27t+15)/4, and P(2,1/3)=−8/9. The compact angular minimum is strictly decreasing on that step interval. It crosses zero at a unique interior angle since P at both angular endpoints is positive for k<2 and ∂_tP has exactly one positive root for 3/2≤k<2. An independently written exact check reproduced the resultant 48k⁴Q(k), Sturm endpoint variations 4 and 3, and witness R−W=5/729. The witness Hessian has eigenvalues 2/3 and 1/3. No uploaded script was executed.
 
-The findings do not establish multi-epoch dominance, uniform optimal tuning, or a general bound for arbitrary nonlinear operators. The sextic root is exact; decimal values and random tests are supporting checks only. A possible equivalent formulation under overrelaxed projections remains the main scientific uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the exact comparison of the two worst-start factors and the global effective-step frontier. The same operators, two-step moment matrices, and existence of a directional reversal are covered by the indexed overrelaxed Kaczmarz comparison; none of those is credited separately as original. Its pointwise threshold differs mathematically from the worst-start frontier.
+
+## value
+
+PASS
+
+This isolates the difference between directional reversal and deterioration of a sharp worst-start guarantee. The exact first step where the latter happens, and a rational condition-number-two witness where both methods contract, make the counterexample useful for interpreting finite-horizon sampling comparisons. It is not merely the sign reversal of a single direction or a change of algorithm name.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

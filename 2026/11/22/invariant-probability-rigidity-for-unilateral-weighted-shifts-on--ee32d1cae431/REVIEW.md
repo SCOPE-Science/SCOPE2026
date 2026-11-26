@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any invariant law, the first coordinate of the \(n\)-th iterate has the exact distribution \(P_nX_n\overset{d}=X_0\). When \((|P_n|)\) fails to diverge, a bounded subsequence multiplied by the almost-surely vanishing coordinates of a \(c_0\)-valued random vector forces \(X_0=0\), and then every coordinate vanishes. This addresses arbitrary invariant Borel measures with no hidden integrability or independence hypothesis. The fixed-point recursion is exact, and the continuous compact Bernoulli embedding intertwines the shift with an independent one-sided coordinate shift; the standard cylinder and monotone-class proof supplies strong mixing. Critical quantifiers, real/complex cases, and nonzero weights have been checked. The packaged finite examples are supplementary, not substitutes for infinite proofs.
+## correctness
 
-**Originality — PASS with residual priority risk.** Grivaux–Matheron–Menet, arXiv:2312.13920v1, explicitly state the precise \(c_0\) existence equivalence as Question 7.7; their Proposition 6.6(c) proves only a product-law restriction. The author-hosted manuscript still states the question on p. 35. The later Menet–Papathanasiou work treats hypercyclicity, mixing, chaos, and frequent hypercyclicity rather than arbitrary invariant-measure existence. Semantic comparison against related publicly indexed findings yielded no claim with the unrestricted measure-theoretic necessity. No exhaustive theorem-priority guarantee is possible: unindexed or more recent solutions remain a residual risk. The simple sufficiency and classical mixing criterion are acknowledged as prior knowledge, not presented as independent novelty.
+PASS
 
-**Mathematical value — PASS.** The exact classification answers an explicitly articulated question about \(c_0\), a space whose canonical basis is not boundedly complete; it contrasts with the summability threshold for \(\ell_p\). The result distinguishes mere hypercyclicity (unbounded product limsup) from nontrivial invariant probability and simultaneously constructs nonatomic compact mixing measures at the sharp threshold. A short proof is appropriate to this specific natural classification rather than evidence of a routine unmotivated exercise.
+On the probability space (c0, μ), invariance gives P_n X_n = (B_w^n X)_0 with law X_0. Bounded products on an infinite subsequence and sample-wise coordinate decay make that common law a point mass at zero, by convergence in distribution. Nonvanishing products and a countable intersection then make the entire vector zero. The fixed-vector recursion forces x_n=x_0/P_n, giving exactly the claimed divergence condition. When products diverge, the product-disk coding is uniformly approximated by its coordinate truncations, hence continuous into the supremum norm and injective with compact image; the exact intertwining carries iid shift invariance and mixing to that image. Finite-coordinate event approximation in probability extends block independence to all Borel events. Nonatomicity follows from the zeroth marginal. The topological mixing criterion also follows by hitting finite-support targets from finite-support inputs with a tail correction y_j P_j/P_{n+j}; conversely hitting an open neighborhood with zeroth coordinate bounded away from zero from arbitrarily small norm balls forces |P_n|→∞. These arguments apply to real and complex scalars without a lower bound on individual weights. The nested frozen checks/verify_examples.py was inspected, not executed; it tests prefix algebra, not invariant-law necessity.
 
-**Scientific limits:** unilateral scalar bounded nonvanishing weights only; constructed mixing probabilities need not have full support; historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The genuinely distinct direction is necessity for arbitrary invariant Borel probabilities, answering the stated c0 equivalence question. Fixed-point sufficiency and the topological mixing criterion are not themselves new; the explicit compact Bernoulli model gives stronger sufficiency at the sharp threshold.
+
+## value
+
+PASS
+
+The result resolves a precise stated c0 existence question. It separates hypercyclicity from stationary-law existence (e.g. the bounded weights with product spikes and returns to one), classifies when δ0 is the only invariant probability, and exhibits compact nonatomic mixing laws wherever the sharp condition holds. It makes no full-support claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

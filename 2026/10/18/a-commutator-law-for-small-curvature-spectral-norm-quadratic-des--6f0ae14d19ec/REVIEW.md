@@ -1,21 +1,21 @@
-# Scientific review: A commutator law for small-curvature spectral-norm quadratic descent
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The linear matrix-sign point is uniquely optimal at zero curvature for an invertible square gradient. At scaled orthogonal candidates the spectral-ball normal cone gives a necessary and sufficient positive-semidefinite certificate. The skew-part equation has an invertible derivative on the tangent space, allowing an analytic optimal orthogonal branch and its explicit Sylvester derivative. The positivity of the normal-cone certificate persists, so the branch is a global convex optimum, not merely a stationary restricted rotation. A controlled Taylor expansion gives the stated squared-parameter coefficient and its strictness condition; the same exact normal certificate yields the commuting persistence threshold. Matrix computations and the reproducible checker corroborate the proof but do not replace it.
+PASS
 
-## Originality — PASS with residual literature risk
+For D=−ρURVᵀ, substitute the feasible matrices −ρURZVᵀ with ||Z||₂≤1 into the first-order variational inequality. It says I maximizes the pairing with S=Rᵀ(Σ−ερMRN). Orthogonal perturbations of I force S symmetric; reflections I−2vvᵀ force S positive semidefinite; a positive semidefinite S suffices by spectral/nuclear duality. Thus the condition certifies global optimality. At ε=0, a contraction maximizing the pairing with strictly positive diagonal Σ has every diagonal entry one and hence equals I. At ε>0, strict convexity gives uniqueness. On K skew the derivative of skew(S) at zero is −(KΣ+ΣK)/2, invertible even with repeated singular values. The analytic implicit branch has S positive definite by continuity, so all optimizer singular values are exactly ρ there. Differentiating gives K′Σ+ΣK′=−ρC. The linear objective's rotation increment is ρ Σ_{i<j}(σᵢ+σⱼ)Kᵢⱼ²/2 to second order, and the curvature increment is ερ² Σ_{i<j}Cᵢⱼ Kᵢⱼ at first order in K. Substituting the derivative gives the stated positive improvement coefficient and O(ε³) remainder. Setting R=I is exact for all ε; for ε>0 symmetry is commutation, and congruence by Σ⁻¹ᐟ² gives the threshold including its endpoint. The example checks symbolically: with R=[cos k,sin k;−sin k,cos k] the planar increment is 4(1−cos k)+ε(sin²k+sin k cos k)/2, producing the reported candidate expansion at k=−ε/8.
 
-The source that introduces quadratic spectral descent (arXiv:2609.07597) already provides the matrix objective, general curvature-sensitive changes and a certificate for optimality; none of those background facts is claimed as new. The claim here instead concerns the explicit analytic commutator response, sharp squared-parameter value coefficient, and the exact persistence condition for the first-order baseline. Published-results searches under equivalent polar-derivative, trust-region, Kronecker and matrix-sign descriptions found no result with the combined mathematical assertion. The complete open primary text of Higham (1986), particularly Sections 2.2 and 2.4, was examined and does not give the quadratic-model value coefficient. Bhatia–Mukherjea (1994) concerns polar derivatives of prescribed matrices rather than the present self-consistent objective.
+## originality
 
-The most important residual risk is that the full manuscript or appendices of arXiv:2609.07597 were unavailable despite bounded lawful access attempts. The available primary abstract and independent summaries were examined, but they cannot establish whole-document noncoverage. The 1994 related primary full text was also inaccessible. These are specified coverage risks, not a claim that a failed search proves novelty.
+PASS
 
-## Value — PASS
+The prior work supplies the same optimization model, qualitative rotation examples and general optimality tools. The baseline persistence condition is a direct specialization of that convex optimality framework, not an independent novelty basis. The distinct result is the quantitative full-rank small-curvature law: exact flatness on a neighborhood, the signed commutator response, and the explicit second-order optimal-value coefficient for general two-sided Kronecker curvature. No inspected result covers this combination or supplies those coefficients.
 
-The exact commutator coefficient is a natural quantitative diagnostic for whether two-sided curvature makes solving the constrained quadratic worthwhile, not a cosmetic perturbation or arbitrary finite enumeration. It distinguishes a continuous-rotation regime from a finite exact-persistence region and determines the actual optimal surrogate gain to leading order in every finite dimension. It does not assert an improvement in nonquadratic training loss or empirical runtime.
+## value
 
-## Limits and independent status
+PASS
 
-All dimensions are finite, gradients are real square and invertible, curvature factors are strictly positive-definite, and the expansion concerns small nonnegative curvature. The exact baseline persistence test applies at every positive parameter but does not characterize the fully curved optimizer beyond the perturbative regime. Numerical experiments are finite checks, not independent mathematical certification.
+For the motivated QSD surrogate, the formulas distinguish curvature-induced rotation from amplitude shrinkage at the first perturbative scale and quantify the value of changing the matrix-sign step. The coefficient is interpretable entry by entry and the exact baseline condition clarifies when rotation cannot improve it. This is more informative than the already known statement that quadratic minimization cannot worsen the baseline surrogate.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:00:42.991732Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, scope and proof, lines 17–90",
+        "Frozen VERIFICATION.md and CHECK.py (inspected only)",
+        "Jensen–Lóczi–Ketcheson, arXiv:2610.22685, Corollary 4.2, Eqs. (25a–b)",
+        "Independent replay: python3 -B /workspace/branches/independent_replay.py, check1"
+      ],
+      "rationale": "Reading Eq. (25) with f(y)=-lambda*y and multiplying by D=(3-kappa)(1+kappa) gives exactly the stated B and C. For q=1/(1+z), expansion gives p(q)>0 and 2q>B, so q is strictly above the largest real root whenever real roots exist. For kappa<=1/2 the discriminant is nonnegative through z_c=(1+kappa)/(2(1-kappa)) and B>=0 there. When C<=0 the nonnegative recurrence coefficients suffice; otherwise the two nonnegative roots and the start above the larger one give nonnegative iterates (including the repeated-root solution). Beyond z_c the complex-root sinusoid must have a negative iterate: it either samples a negative arc densely or sums to zero on a nontrivial finite rotation orbit with positive initial value. For kappa>1/2, z_a=(1-kappa^2)/kappa is the B=0 point with C<0 there and below. Beyond z_a, C>=0 gives y_2<0, whereas C<0 gives a larger-modulus negative root with strictly negative coefficient because q exceeds the positive root, forcing eventual negativity on even indices. This verifies inclusivity and the degenerate B=C=0 endpoint, and the strict branch monotonicities give the unique optimum. An independent rational replay gives first negative n=97 at kappa=0, z=R+1/500, and n=824 and 2266 at kappa=2/3 and 9/10 at the same offset, respectively; no finite cap is used for the theorem.",
+      "residual_risks": [
+        "Only the exact scalar constant-step recurrence with its specified start is proved. Rational sample checks do not bound the first negative iterate uniformly and do not certify floating-point positivity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The positive-start phase diagram quantifies over all strictly positive y_0,y_1 using the same constant-step coefficients, with the same nonnegative-iterate criterion. Eq. (25) identifies the family; general SSP/boundedness work uses different claims and scopes."
+        ],
+        "reasoning": "The confirmed broader coverage is in the exact ratio theorem; A-stability or SSP alone would not suffice.",
+        "searches": [
+          "2026/11/2/SCOPE-complete-positive-start-phase-diagram-for-optimized-two-step-sti--89235ce0d52d",
+          "arXiv:2610.22685, Eq. (25)",
+          "SIAM 10.1137/S0036142902406326"
+        ]
+      },
+      "checked_sources": [
+        "November 2 all-positive-start phase diagram, mirrored RESULT.md",
+        "Local Resultary BDF2 and first-update findings (secondary matches)",
+        "Frozen RESULT.md references [1]–[4] checked as described"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The permitted ratios are all, none, a lower half-line, or a singleton positive eigenvalue according to (kappa,z). The elementary BE polynomial evaluation excludes the singleton and satisfies the lower bound."
+        ],
+        "reasoning": "This direct substitution establishes the exact frozen optimum and endpoint, with no genuinely new mathematical remainder. It is independent of priority between distinct records.",
+        "searches": [
+          "November 2 phase diagram, proof step 1 and cases 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Its Finding, cases 1–4, uses exactly the scalar recurrence after relabeling A->B and B->C, with a selectable ratio w."
+        ],
+        "reasoning": "The fixed-history theorem is exactly the restriction to w=(1+z)^(-1), not equivalent to the stronger theorem itself.",
+        "searches": [
+          "Local Resultary fixed/positive start, optimized two-step positivity",
+          "2026/11/2/SCOPE-complete-positive-start-phase-diagram-for-optimized-two-step-sti--89235ce0d52d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The BDF2 records give the 1/2 baseline only. The first-update record changes both the observation horizon and the starter. The November 2 Resultary table of cases is the exact coverage."
+        ],
+        "reasoning": "Only the ratio phase diagram determines the full frozen parameter range and sharp infinite-horizon boundary.",
+        "searches": [
+          "Local Resultary BDF2 boundary and optimized two-step scalar positivity",
+          "2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+          "2026/11/22/SCOPE-a-sharp-first-update-positivity-optimum-for-error-optimal-two-st--1a386c9e3e30",
+          "arXiv:1609.07858, sec. 3.5.2"
+        ]
+      },
+      "rationale": "The distinct indexed November 2 positive-start phase diagram completely covers the fixed-start claim. Its A,B are the frozen B,C and its positive ratio w can be set to q=1/(1+z). Where the admissible set is w>=lambda_- this q qualifies by p(q)>0 and 2q>A; where only w=lambda_+ works it does not qualify, by the very same identities. The all-ratio and no-ratio branches are immediate. The resulting boundary is z_c for kappa<=1/2 and z_a above it, with the same degenerate endpoint and unique maximum. It is the full ratio classification, not the all-start radius alone, that gives this coverage. This is a coverage verdict against the current catalogue, not a claim about historical priority. The stronger record is dated later and explicitly refers to an earlier backward-Euler special result.",
+      "residual_risks": [
+        "The November 2 record is later by calendar date and acknowledges an earlier BE analysis; this assessment does not deny or assign first priority. Full relevant text of Hundsdorfer–Ruuth–Spiteri was not readable, which does not affect demonstrated exact catalogue coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete coverage by restriction",
+          "evidence": "All admissible positive starting ratios are classified; the discussion mentions the earlier BE case.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-positive-start-phase-diagram-for-optimized-two-step-sti--89235ce0d52d",
+          "material_read": "Finding, scope, proof step 1 (offset 0 onward); prior work near offset 7110",
+          "method": "Resultary and OA local mirror",
+          "title": "Complete positive-start phase diagram for optimized two-step stiff integrators",
+          "trigger": "Strongest exact catalogue overlap"
+        },
+        {
+          "assessment": "Matches the family, not the positivity criterion in the inspected passages",
+          "evidence": "The coefficients and BDF2 limit agree; startup discussion concerns test choices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.22685",
+          "material_read": "Corollary 4.2 and Eq. (25a–b), p. 18; startup discussion p. 25",
+          "method": "OA PDF",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Underlying family and startup"
+        },
+        {
+          "assessment": "Full implications not determined",
+          "evidence": "Abstract describes boundedness and monotonicity for LMMs; exact fixed-starter specialization not established there.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036142902406326",
+          "material_read": "Official abstract; attempted lawful CWI full-text extraction, inadequate for theorem comparison",
+          "method": "Publisher and CWI OA attempts",
+          "title": "Monotonicity-Preserving Linear Multistep Methods",
+          "trigger": "General starter-dependent monotonicity"
+        },
+        {
+          "assessment": "Related but different family",
+          "evidence": "A theta-BDF2 family on linear systems with restrictions on the starter.",
+          "identifier_or_url": "https://ir.cwi.nl/pub/4596/04596D.pdf",
+          "material_read": "Sec. 3.1, pp. 8–9",
+          "method": "OA CWI report",
+          "title": "Partially implicit BDF2 blends for convection dominated flows",
+          "trigger": "Starter-dependent positivity of BDF2 blends"
+        },
+        {
+          "assessment": "Related boundedness, BDF2 value only",
+          "evidence": "SCB characterization and the BDF2 value 1/2, not the Eq. (25) family with the BE ratio.",
+          "identifier_or_url": "https://arxiv.org/abs/1609.07858",
+          "material_read": "Abstract, Theorem 1.6 p. 6, sec. 3.5.2 p. 14",
+          "method": "OA PDF",
+          "title": "Exact optimal values of step-size coefficients for boundedness of linear multistep methods",
+          "trigger": "BDF2 baseline and general algebraic checks"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding",
+        "November 2 positive-start phase diagram and its explicit starter comparisons"
+      ],
+      "rationale": "The sharp switch and damping optimum are meaningful for the chosen starter, but as a standalone additional contribution this is now a fixed-ratio evaluation of the existing complete phase diagram. The frozen claim contains no independently unknown threshold, stronger scope, or separate result beyond the covered slice.",
+      "residual_risks": [
+        "This concerns added scientific value against the current catalogue; a pedagogical specialized exposition or historical priority would be a different assessment."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

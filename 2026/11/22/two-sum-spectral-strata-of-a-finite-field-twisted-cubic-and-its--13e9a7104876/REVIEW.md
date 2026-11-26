@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all odd prime powers, the indicator identity \(\mathbf1_{C\cup L}=\mathbf1_C+\mathbf1_L-\delta_0\) gives a complete convolution expansion. The two-variable Newton identity yields the quadratic discriminant for the curve–curve term. The mixed term is a cylinder because \(t\mapsto(t^2,t^3)\) is injective, and the equation \((x-t)^2(x+2t)=0\) identifies the exact exceptional fiber. Characteristic three is handled separately because the two candidate roots merge. Counting the four nonzero multiplicity levels proves both sumset and fourth moment. A packaged Python checker directly verifies all target multiplicities over 14 fields including quadratic extensions; finite checks are corroboration rather than an all-fields proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+For every odd q, let T be the union of the x-lines through (0,t²,t³), and V the surface 2z=3xy−x³. For two curve summands, their sum x and second power sum y give product (x²−y)/2 and discriminant Δ=2y−x²; the third power sum is forced by V. The ordered fiber is therefore 1+χ(Δ) on V, including characteristic 3. A curve-plus-line decomposition has one choice of curve parameter on T since t is recovered by t³/t² away from zero. Subtract the common origin before squaring the convolution: on L the only curve-curve point is zero, and the net count is q everywhere. On T away from L the two oriented mixed representations remain. The curve-curve candidate equation is (x−t)²(x+2t)=0. At x=t the two curve-curve pairs both involve the origin and are already among the mixed pairs. At x=−2t they are genuinely new exactly when this is a distinct root and Δ=−2t² is a square. Thus char 3 eliminates the separate root, not its square character. In tallying, subtract the supported intersections from the curve-curve histogram: its q discriminant-zero points lose only the origin; its q(q−1)/2 two-pair points lose (q−1)(1+ε_q). Add the counts on T and L to obtain the displayed histogram; summing counts and their squares gives the claimed sumset and energy. Additive-character orthogonality with the unnormalized transform yields exactly the factor q⁻³ in the fourth moment. The proof's line 79 literally says V∩T contains the distinct −2t point only in the square phase; that is true for T intersected with the supported curve-curve convolution, not for V∩T as a bare algebraic set (e.g. (3,1,1) over F₅). Steps (2)–(3) and the actual subtraction correctly use support, so this wording slip does not change the proof's count or frozen finding. Independently enumerated all ordered pairs for q=3,5,11,27, recovering the histograms including zeros; q=11 gives ten four-pair targets, q=27 none. Replay: python3 -I /tmp/opencode/review_frozen_repro.py 2; the calculation forms S as a set and tallies every coordinatewise sum, using F₃[X]/(X³−X−1) for q=27. The frozen checker was read, not executed; finite corroboration does not prove the general case. No claim about weighted extension norms or arbitrary lines is verified.
 
-The 2026 paper on the sharp finite-field moment-curve endpoint handles an unaugmented moment curve and an \(L^6\) norm, not the fourth moment of a cubic-plus-tangent indicator. The 2021 twisted-cubic coding-geometry paper studies projective secant-line incidence and not ordered affine two-sum counts of the union. Prior curve-only Newton identities explain the elementary component, not the origin-corrected mixed convolution or the precise \(-2\) residue and characteristic-three transition. Searches of the published mathematical database and the accessible prior-topic records did not find an equivalent result. This is a best-knowledge originality assessment, not a universal priority certificate; an implicit consequence of older geometry remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The support \(C\cup L\) is a canonical curved–flat Fourier aperture: the tangent is geometrically distinguished, not an arbitrary slice. Exact additive-energy and support invariants measure its unweighted fourth Fourier moment and four-step return probability. The full classification identifies a genuine arithmetic bifurcation in which \(q-1\) targets become fourfold collisions and the sumset loses exactly \(q-1\) points, while characteristic three suppresses the resonance despite square \(-2\). The exact histogram is a stronger structural result than a mere computed small-field value.
+The strongest distinct indexed match is a same-day planar cubic-with-tangent result. It computes a genuinely analogous invariant, but projection dropping the second moment merges target fibers and does not determine the three-coordinate convolution, in particular the −2t discriminant phase. The two records' dates do not establish priority. The older twisted-cubic incidence work and the pure-curve extension results give related geometric and algebraic ingredients, not a known implication of the corrected mixed-support histogram and its arithmetic split. The pass is specific to that mixed three-dimensional statement, not to Newton identities, curve-only energy, the Fourier identity, or the broader cubic-plus-tangent problem.
 
-## Closest literature and limitations
+## value
 
-- Biswas et al., arXiv:2609.29882 and arXiv:2508.08377: sharp weighted high-order finite-field moment-curve extension for a single curve; no tangent union.
-- Blokhuis, Pellikaan and Szőnyi, arXiv:2103.16904: projective twisted-cubic line/chord classification; potentially relevant but not equivalent to ordered affine sum convolution.
-- Cuenin, Denson and Hickman, arXiv:2610.27968: real smooth space-curve Fourier restriction, rather than finite-field mixed supports.
-- Accessible previous related research: a planar cubic-graph-plus-tangent convolution in two ambient coordinates, not the affine twisted cubic in three coordinates; its formula cannot recover this histogram.
+PASS
 
-The result does not determine the weighted extension norm; originality remains subject to independent specialist and historical review. Finite enumerations cannot establish the statement for all fields.
+The line is the intrinsic tangent at the distinguished origin, not a parameter chosen to simplify a table. Its union with the curve is a natural mixed curved/flat test for additive-energy and indicator Fourier calculations. A researcher can use the exact collision law, including the multiplicities themselves rather than just a bound, to distinguish when sums coalesce into four-representation targets; this regime changes both the support size and exact fourth moment by order q and disappears in characteristic three despite −2 being a square. This is a useful complete invariant of the canonical object and not a claim of a new general extension theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

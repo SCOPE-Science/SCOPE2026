@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:08:20.412127Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected only"
+      ],
+      "rationale": "Independence closes the three covariance coordinates with a=1+β−α, α=ημ, ν=tα² and t=v/μ². Expanding the characteristic determinant yields (s+β)(s²−β²)−s(s−β)a²−s(s+β)ν. To see sharpness of the spectral radius for deterministic initial states, rank-one initial covariances span the symmetric matrices, and positivity bounds the images of bounded symmetric matrices by a multiple of the image of the identity in cone order. The trace of that image is the sum of the second moments for the two deterministic coordinate states, so it has the same exponential factor as the operator norm. At zero momentum the radius is (1−α)²+tα² with the claimed unique minimizing α. At β>0 the polynomial is negative at β, so its real root to the right suffices if β≥r=t/(1+t). For 0<β<r, divide P(r) by r(r+β), minimize the two subtracted weighted squares in α, and combine the fractions: their optimal remainder is −β²(r−β)(1−r)²/[r(r−β+2rβ)], strictly negative. Hence there is a real root above r. For stability the mean matrix must first be Schur; in its Schur region the deterministic Lyapunov sum S for E=e1 e1^T has S_11=(1+β)/[(1−β)((1+β)²−a²)]. If νS_11≥1, the full covariance map sends S to a matrix at least S. If νS_11<1, solving the perturbed Lyapunov equation with positive definite forcing I gives a positive definite witness P satisfying T(P)=P−I, so the cone map contracts strictly. This gives the exact open interval including nondecay at equality. The Bernoulli formulas follow by setting μ=p and v=p(1−p)/m.",
+      "residual_risks": [
+        "Uniform mean-square rate, not a pathwise or per-initialization equality, and only for constant nonnegative momentum and IID scalar multiplicative noise."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The coefficient-of-variation result states the exact open all-initial stability interval with the same expression for v/μ² and additionally optimizes the stability ceiling. The published momentum papers inspected concern acceleration upper bounds, a two-coordinate obstruction, or a sufficient rate bound, rather than the exact scalar optimum."
+        ],
+        "reasoning": "Stability-ceiling optimization is not rate optimization, but the stability boundary itself is covered. For strictly positive moment matching, take points x=μ/2 and y=μ+2v/μ with weights chosen for mean μ. Their variance is (μ−x)(y−μ)=v, so the earlier strictly positive stability theorem also determines the stability for laws with H=0.",
+        "searches": [
+          "Resultary 2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98, Finding and scope",
+          "Garg–Dereziński arXiv:2605.18609 Theorem 1",
+          "Kidambi et al. arXiv:1803.05591 Proposition 3",
+          "Loizou–Richtárik arXiv:1710.10737 Remark 4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f56895e7253c, c6952e5e6e98 and e2fbb7bd2830",
+        "Primary literature comparisons recorded above",
+        "Frozen covariance formula and claimed rate/stability scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The §4 discriminant of det(rI−M) is a positive prefactor times ω²((p+2)ω−2)((p+2)ω+2). For 0<ω<r=2/(p+2) its sign is strictly negative for every real p>0; the leading quadratic coefficient is negative since pω<2. At ω=r the same exact determinant is strictly negative for every α>0. For ω>r, the matrix determinant ω³ implies spectral radius at least ω. The §4 zero-momentum square completion is also an identity for real p>0."
+        ],
+        "reasoning": "This derives the actual strict rate penalty and optimizer with arbitrary variance ratio directly from the prior proof, not by interpolation between discrete parameter cases or by invoking an equal-state convergence rate for a different distribution. The uniform spectral quantity is the same matrix radius that prior §4 bounds before discussing specific initial states.",
+        "searches": [
+          "2026/10/12/SCOPE-sharp-scalar-mean-square-frontier-for-block-gaussian-kaczmarz-mo--f56895e7253c, RESULT.md Proof §1 and §4, offsets 2553 and 5360–7962",
+          "2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98, RESULT.md Finding and scope offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Gaussian source uses the same ordered-triple second moments with the last two coordinates interchanged, with mean normalized to one and variance 2/p. Its formula for the recurrence uses independence and the first two moments only."
+        ],
+        "reasoning": "The formal positive real p=2/t in this matrix comparison need not be a block dimension or a realizable chi-square block size; it parametrizes precisely the same spectral-radius polynomial for any law in the frozen scope.",
+        "searches": [
+          "Resultary: sharp scalar stochastic heavy-ball mean-square rate, exact stability region and no-momentum optimum; scalar Gaussian Kaczmarz",
+          "Gaussian Kaczmarz RESULT.md §1, offset 2553"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 10/12 scalar Gaussian record gives exact optimum 2/(p+2), unique zero momentum, and the exact frontier. The 10/13 record gives the same all-initial normalized frontier. The additional 11/2 rank-one Gaussian record contains the one-dimensional special case. The exact comparisons are to closed-form expressions, not a numerical table."
+        ],
+        "reasoning": "These exact records supersede a mere count of text matches. The scientific finding of overlap follows from their assumptions and proof, not from a date alone, and does not rely on the later record.",
+        "searches": [
+          "Resultary catalogue: scalar mean-square frontier, Gaussian Kaczmarz, stochastic heavy-ball stability margin",
+          "Resultary Findings f56895e7253c, c6952e5e6e98 and e2fbb7bd2830"
+        ]
+      },
+      "rationale": "The scope of the headline is broader than the literal earlier Gaussian Kaczmarz theorem, but the earlier proof already proves the same spectral inequality by a formal substitution. The 2026/10/12 scalar Gaussian Resultary record's §1 matrix is identical up to coordinate order under p=2μ²/v, α=ημ and ω=β. Its §4 determinant, sign and discriminant proof works verbatim for every real p>0; no Gaussian or integrality assumption enters it. The exact all-initial stability interval is also directly stated for strictly positive IID curvatures in the 2026/10/13 Resultary record. Allowing H=0 does not change the covariance operator at matched first and second moments, and every admissible moment pair has a strictly positive two-point realization. The Bernoulli minibatch conclusions are substitutions in these already covered results. Neither the use of an all-initial uniform metric nor the presence of zero curvatures leaves a materially distinct theorem.",
+      "residual_risks": [
+        "No claim that the broader theorem was printed verbatim in the earlier Gaussian work; the affirmative coverage conclusion is by explicit determinant-level implication.",
+        "The failure does not assert that related literature proves a no-momentum result for general multidimensional or additive-noise models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct broad implication from proof even though the stated Gaussian theorem assumes a positive integer block size",
+          "evidence": "The exact matrix has variance 2/p; the sign proof uses no integer-only identity, and applies to p=2μ²/v for all v>0.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-scalar-mean-square-frontier-for-block-gaussian-kaczmarz-mo--f56895e7253c",
+          "material_read": "Finding and scope; determinant proof §4, mirror offsets 5360–7962; exact matrix §1 at offset 2553",
+          "method": "Local catalogue and full source passages, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp scalar mean-square frontier for block Gaussian Kaczmarz momentum",
+          "trigger": "Exact zero-momentum optimizer in the same normalized scalar recurrence"
+        },
+        {
+          "assessment": "Exact all-initial frontier already stated for strictly positive laws, extends by exact moment matching",
+          "evidence": "The interval is open at both ends and depends on the squared coefficient of variation; optimizing its endpoint is explicitly distinguished from optimizing rates.",
+          "identifier_or_url": "2026/10/13/SCOPE-the-coefficient-of-variation-phase-transition-for-stability-marg--c6952e5e6e98",
+          "material_read": "Finding and Assumptions and scope, mirror offsets 0–2762",
+          "method": "Local catalogue and full source passages, same mirror snapshot",
+          "title": "The coefficient-of-variation phase transition for stability-margin-optimal stochastic heavy ball",
+          "trigger": "Identical sharp scalar stochastic stability frontier"
+        },
+        {
+          "assessment": "Different quantitative obstruction, not the decisive overlap",
+          "evidence": "The example uses two coordinates and bounds improvement by a constant rather than giving the exact scalar optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.05591",
+          "material_read": "PDF pp. 3–4, model and Proposition 3",
+          "method": "Lawful open-access primary PDF",
+          "title": "On the Insufficiency of Existing Momentum Schemes for Stochastic Optimization",
+          "trigger": "Published sharp no-acceleration obstruction"
+        },
+        {
+          "assessment": "Upper bounds and acceleration in its own regime, not a matching exact optimum",
+          "evidence": "Does not give this scalar law's exact all-steps lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.18609",
+          "material_read": "PDF p. 1 abstract and p. 8 Theorem 1",
+          "method": "Lawful open-access primary PDF",
+          "title": "Perfect Parallelization in Mini-Batch SGD with Classical Momentum Acceleration",
+          "trigger": "Related interpolating mini-batch momentum guarantees"
+        },
+        {
+          "assessment": "The certified bound worsening is not a strict comparison of optimized true factors",
+          "evidence": "Remark 4 comments on the sufficient rate bound, not a lower bound for the exact covariance spectral radius.",
+          "identifier_or_url": "https://arxiv.org/abs/1710.10737",
+          "material_read": "PDF p. 2 Theorem 1, p. 3 Remark 4",
+          "method": "Lawful open-access primary PDF",
+          "title": "Linearly Convergent Stochastic Heavy Ball Method for Minimizing Generalization Error",
+          "trigger": "Reported deterioration with positive momentum"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§2–4",
+        "Earlier scalar Gaussian proof §4 and earlier coefficient-of-variation frontier"
+      ],
+      "rationale": "The contrast between optimized rate and optimized stability allowance is useful, but the proposed mathematical extension does not require a new argument or establish a new boundary: the rate proof is unchanged under a positive-real variance reparametrization and the stability proof transfers exactly by matching two moments. The Bernoulli rule and high-momentum minibatch threshold reduce to substitution and rearrangement. No valuable distinct remainder beyond these prior implications was established.",
+      "residual_risks": [
+        "This does not diminish the value of the prior sharp scalar obstruction or rule out distinct results for varying momentum, non-IID updates or non-scalar curvature."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

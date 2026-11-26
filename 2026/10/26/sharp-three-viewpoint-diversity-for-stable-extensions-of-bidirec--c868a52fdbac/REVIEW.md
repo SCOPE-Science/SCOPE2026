@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The bound \(\lfloor2n/3\rfloor\) follows from an exact three-pair disagreement count at each vertex. Stable extension equals independent dominating set on a bidirected path. All finite base column words meet the independence and domination criterion, and the three insertion cases preserve it while adding exactly two to each of the three distances. The five independent dominating sets on six vertices give a complete triangle-free threshold-distance graph, proving that exceptional optimum exactly. The standalone checker independently enumerates all stable extension triples at sizes \(4\) through \(20\) and verifies extended constructions through \(600\), without using that finite scope to claim an infinite proof.
+PASS
 
-## Originality
+Bidirectionality identifies stable extensions with maximal independent sets. Such nonempty path sets have first and last selections within one vertex of the ends and successive gaps 2 or 3. Each membership column contributes at most two to the sum of three pair distances, giving the stated upper bound. The six bases satisfy independence and domination; inserting the three singleton columns adds two to every distance. In the order-nine family the first A,BC replacement leaves A,C at the anchor; subsequent steps use the A,C rule with the same inserted block and the unchanged fourth column B. The complete order-six gap list gives the five-cycle at distance at least four; a triple attains three. Orders one to three have counts 1,2,2. Independent gap enumeration and forward-bitset triangle detection reproduce the exact optima for orders 4–20 (python /workspace/independent_checks.py 1); this finite check is separate from the insertion proof.
 
-PASS within examined evidence. The full arXiv:2605.13332v1 source defines and investigates two-extension symmetric-difference diversity, not selection of three stable extensions maximizing their minimum pairwise distance on paths. The independent-domination source arXiv:1909.05121v1 concerns directed existence and pairwise-disjoint idomatic families, not the present Hamming packing parameter. Related calculations on bidirected cycles address pairwise distances, and hence neither imply nor enumerate this three-set path parameter. Targeted semantic searches were performed across maximin diversity, independent dominating sets, path codes, alternative formulation and triple stable extension packings. Residual risk remains that an older coding-theoretic source gives this exact theorem under unfamiliar terminology.
+## originality
 
-## Value
+PASS
 
-PASS. Three simultaneous viewpoints is the first packing-style extension of the pairwise diversity problem; its optimum cannot be inferred from maximizing one pair. The theorem supplies the exact sharp value at every admissible path size and identifies a single exceptional finite obstruction. The distinction between the universal binary bound and realizability by independent dominating sets is mathematically motivated by the stable-extension semantics, and the insertion construction works at every scale.
+The supported distinction is the exact bidirected-path invariant and order-six exception, not invention of maximin Hamming diversity. Closest same-day three-extension record concerns a disjoint domain; the closest exact path enumeration only gives a pair statistic.
 
-## Limits
+## value
 
-No priority proof follows from a negative search. The parameter is limited to three extensions and bidirected paths. Counts of maximizers and extension families on more general graph classes are not determined.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Three viewpoints are the first case where a maximally distant pair does not solve the packing problem. Knowing exactly when stability imposes a loss relative to the unrestricted binary bound gives a complete natural benchmark, and the unique exception is analytically explained rather than tabulated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

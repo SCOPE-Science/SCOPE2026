@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:43:22.232555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Separations of one or two along the cyclic list of selected vertices are isolated, since two consecutive such separations create induced degree two. They are exactly the pairs; cuts at separations at least three yield the unique singleton/short-pair/long-pair blocks. Thus m=2|D|+s+l+e, with s of parity |D|, giving the optimum and exactly the listed defect types, each realizable from m=7 onward in its residue. Marked-component counting weights each ordered block list by m divided by its component count, including periodic words. To verify the nontrivial exchange table, fix the empty insertion site. It has at least one selected neighbor by maximality. With one, that neighbor must be paired, and removing it or its mate gives two moves. With two, remove one and require that the survivor be unpaired after removal; with three or more there is no move. The middle of a long pair contributes two. Between paired components, a gap of 3 between selected endpoints gives zero; a gap of 4 gives two moves at each end and none in the middle; a gap of 5 gives two at each of its four sites. When singletons occur, all gaps between components are of length 3 and all pairs are short: an S–P gap contributes one, an S–S gap four, a P–P gap zero. These rules give degrees 8,6,4 for paired configurations with zero, one, two long pairs at residue two, and degree 6 or 4 for consecutive or nonconsecutive singletons. At residue one, the E roots move by 4 and an L rooted at x attaches to E roots x and x−4; the computed degrees exhaust all neighbors. At residue three, the S root moves by ±4, exhausting its two neighbors. In residue two the frozen legal moves reduce to short-pair configurations; surplus transfers connect all surplus vectors with one pair anchored and carrying one surplus around all the gaps moves each pair one step, so all labeled phases connect. Combining the counts with handshaking gives every listed edge total. Independent direct subset and one-token enumeration for 7<=m<=14 agreed, e.g. m=10 gives 50 vertices, 160 edges, degrees {4:5,6:30,8:15}; m=14 gives 105, 322, {4:21,6:56,8:28}. The frozen script was inspected, not executed: it exhausts subsets through 16 and checks generated words through 32; longer tests stated in the notes are separate from that script's default loop. The local gap proof, not finite enumeration, validates the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 1f4d3c505b47 gives full exchange graphs of maximum independent sets of cycle powers",
+          "451e8c51ee7e gives maximum induced-matching counts and incident-edge-pivot connectivity in squared cycles",
+          "Bonsma–Kamiński–Wrochna Proposition 1 identifies token-sliding and token-jumping reachability for maximum independent sets"
+        ],
+        "reasoning": "The first result does not address higher induced degree. Induced matching endpoints cover all maxima in residues 0 and 1, only paired states in residue 2, and cannot give the odd-sized residue-three maxima. The pivot rule and the scope of graph invariants also differ. A broader theorem on maximum dissociation exchange is not established by these sources.",
+        "searches": [
+          "Resultary cycle-power two-slack reconfiguration and squared-cycle induced matching edge pivots",
+          "Primary work on dissociation, independence and matchings; on reconfiguration of maximum independent sets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 1f4d3c505b47, 8bc25be82e1a, 862aa31d85c9 and 451e8c51ee7e",
+        "arXiv:1403.0359v1 §2",
+        "arXiv:2407.11768 title and abstract",
+        "PII S0166218X22002724 and Boliac–Cameron–Lozin OA attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "451e8c51ee7e: max induced matchings and connectivity except at multiples of four; later and no odd-cardinality endpoints",
+          "Frozen theorem includes two-singleton states with additional degree types and a sun and a cycle with exact edge counts"
+        ],
+        "reasoning": "Even matching counts and connectivity on a paired subspace would not imply adjacency counts in the full graph, or distinguish the singleton-adjacency degrees that drive the residue-two histogram. No earlier result inspected supplies the missing state types and move classification.",
+        "searches": [
+          "Compare the square-cycle induced-matching endpoint state space and pivot rule with all maximum dissociation token jumps",
+          "Compare the mod-three independent-set theorem and mod-four general-three-position census with the frozen defect types"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 862aa31d85c9 §Finding counts dissociation sets/minimum three-vertex-path-cover complements in the prism C_n □ K_2",
+          "Bonsma–Kamiński–Wrochna arXiv:1403.0359v1 §2 Proposition 1 treats maximum independent sets"
+        ],
+        "reasoning": "Complementing a selected set genuinely gives a minimum 3-path vertex cover, and swaps are preserved, but the prism is not the ordinary distance-two cycle power. Independent sets impose induced degree zero rather than degree at most one, and their mobility criterion does not transfer.",
+        "searches": [
+          "dissociation sets squared cycles 1-dependent sets token-jump reconfiguration maximum dissociation set exchange graph",
+          "Resultary equivalent terminology: induced degree at most one and minimum three-vertex-path covers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 8bc25be82e1a §Finding gives a mod-four census for general three-position sets of ordinary cycles",
+          "1f4d3c505b47 §Finding gives mod-three regimes on squared cycles for maximum independent sets",
+          "451e8c51ee7e §Finding gives no exchange edge-count or degree table"
+        ],
+        "reasoning": "Residue and graph-family matches alone do not identify a state space. The mod-four census uses a geodesic-window condition on the ordinary cycle and has no token-jump edge enumeration; the other exact tables do not contain this degree histogram.",
+        "searches": [
+          "Resultary exact cyclic optimum-set counts, mod-four graph, and exchange-degree distributions"
+        ]
+      },
+      "rationale": "The labeled maximum-dissociation exchange invariant, especially the full degree census and edge counts, is distinct within the inspected sources. Several close prior classification frameworks concern independent sets, a nonsquare graph or a different selected-set condition; a later induced-matching record gives a significant structural overlap on a proper subproblem, not earlier full coverage.",
+      "residual_risks": [
+        "An unindexed exact result under 1-dependence, 3-path vertex cover, or cyclic-word reconfiguration is possible; unavailable full text is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest earlier exchange analogue; different feasibility",
+          "evidence": [
+            "Maximum independent sets, with regimes by length modulo three on squared cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-two-slack-reconfiguration-transition-in-powers-of-cycles--1f4d3c505b47",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A two-slack reconfiguration transition in powers of cycles",
+          "trigger": "Full optimum exchange graphs for the same graph family"
+        },
+        {
+          "assessment": "Different feasibility; not discarded based on date",
+          "evidence": [
+            "Uses a geodesic-window condition on C_n and counts states, not token-jump transitions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-mod-four-census-of-optimal-general-three-position-sets-on-cycl--8bc25be82e1a",
+          "material_read": "RESULT.md Finding and proof, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A mod-four census of optimal general three-position sets on cycles",
+          "trigger": "Same mod-four census pattern"
+        },
+        {
+          "assessment": "Same feasibility, different host graph",
+          "evidence": [
+            "State counts on C_n square-product K_2, not C_n^2; no exchange graph in the inspected finding."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-complete-dissociation-polynomial-and-lucas-maximum-set-law-for-c--862aa31d85c9",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete dissociation polynomial and Lucas maximum-set law for circular prisms",
+          "trigger": "Exact dissociation classification via equivalent 3-path covers"
+        },
+        {
+          "assessment": "Later and significant partial comparison on paired states; no full dissociation exchange census",
+          "evidence": [
+            "Maximum induced matching endpoints, incident-edge pivots, state counts and connectedness; no degree distribution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-induced-matching-edge-pivot-mobility-in-squared-cycles--451e8c51ee7e",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Induced-matching edge-pivot mobility in squared cycles",
+          "trigger": "Same host graph, related pair-only states and mod-four mobility"
+        },
+        {
+          "assessment": "Independent-set reachability, not dissociation exchange census",
+          "evidence": [
+            "Token sliding and token jumping coincide in reachability for maximum independent sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1403.0359v1",
+          "material_read": "Section 2, Proposition 1, HTML offsets 12600–15385",
+          "method": "OA full-text passage inspection",
+          "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+          "trigger": "Optimum token jumps on a graph class related to cycle powers"
+        },
+        {
+          "assessment": "Unresolved whole-text coverage; no exclusion inferred",
+          "evidence": [
+            "Snippet concerns equality cases and algorithmic recognition, not enough to assess the exact cycle-square classification."
+          ],
+          "identifier_or_url": "ScienceDirect PII S0166218X22002724",
+          "material_read": "Accessible search snippet only; full-text attempt failed with HTTP 403",
+          "method": "Primary search and lawful OA retrieval attempt",
+          "title": "Relating dissociation, independence, and matchings",
+          "trigger": "Potential general structural theorem about dissociation sets"
+        },
+        {
+          "assessment": "Unresolved whole-paper comparison",
+          "evidence": [
+            "Bibliographic bipartite-graph setting is not itself evidence about a squared-cycle exchange formula."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20072/volume-72-paper-26.pdf",
+          "material_read": "No extractable full-text passage in bounded retrieval",
+          "method": "Lawful OA attempt",
+          "title": "On computing the dissociation number and the induced matching number of bipartite graphs",
+          "trigger": "Frozen reference on dissociation and induced matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The square cycle is a natural first nontrivial power for induced-degree-one selection. Maximum size alone misses a sharp periodic mobility transition and the exchange-degree heterogeneity at residue two; these exact invariants describe how the whole labeled optimum state space can be traversed without relaxing optimality. The local defect argument is reusable beyond individual finite checks.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

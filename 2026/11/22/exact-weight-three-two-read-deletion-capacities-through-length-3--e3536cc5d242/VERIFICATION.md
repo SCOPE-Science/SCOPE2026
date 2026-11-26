@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of finite two-read weight-three capacities
 
-The accompanying `certificates.json` specifies every code and every clique class over lexicographically ordered triples of one-positions for each integer length \(3\le n\le32\). A full partition into cliques is an unconditional upper bound on the independence number; the corresponding independent code is a lower bound. The proof requires no trusted optimization solver.
+# Independent mathematical audit
 
-Run `python3 verify_direct.py` and `python3 verify_structural.py` from the directory containing all three included artifacts. The first verifier passed all thirty lengths, covering 4960 vertices in its largest instance. The second passed direct-set versus alternating-interval graph comparison at all lengths 3–12 and selected larger independent-code checks at 13, 16, 20, 24, 28, 32. The direct verifier alone checks all pairs necessary for the entire certificate.
+## correctness
 
-The matching piecewise cubic evaluations are proven only for length at most 32, since all those integers appear separately in the checked finite certificates. There is no proof for longer lengths. Independent external mathematical audit: not performed.
+PASS
+
+A pair of distinct reads identifies at most one source precisely when no two codewords share an unordered pair of distinct deletion outputs. I independently reconstructed every length-n word in lexicographic triple order, formed deduplicated decks by literal string slicing at all positions, and checked the frozen JSON data without running either supplied program. All 30 lengths passed: 40,920 candidate words, 18,686 code entries, 310,340 unordered read-pair entries with no duplicate within a code, and 25,972 vertex pairs checked within nonempty, disjoint cliques exhaustively covering each vertex set. Each clique pair shared at least two reads. Thus each code gives the lower bound and its equal-size clique partition the matching upper bound. The table and both polynomials were checked at every stated integer using exact rational arithmetic, including the singleton n=3; nothing is proved for n>32.
+
+## originality
+
+PASS
+
+The closest indexed result concerns the identical fixed-composition graph, but computes different invariants. Exact results on adjacent word layers or for one read do not imply the stated optima. No equivalent sequence or covering theorem was established by the statement-level comparisons below; this is not a proof of priority.
+
+## value
+
+PASS
+
+This settles the natural next fixed-weight layer after the weight-two classification, where a read conflict can arise from moving an alternating block with up to three ones. Certified equal optima and clique-partition bounds over a consecutive range, reaching 4,960 candidates at n=32, provide exact benchmarks for constructions and upper bounds. The finite polynomial agreement is useful as a target for an all-length theorem, not itself such a theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

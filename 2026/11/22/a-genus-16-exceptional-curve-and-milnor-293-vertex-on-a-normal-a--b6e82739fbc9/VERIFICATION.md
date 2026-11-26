@@ -5,19 +5,20 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "schema_version": 1,
+  "record_status": "passed"
 }
 ---
+# Reproduction and limits
 
-# Reproducibility
-Run `python verify.py` with ordinary Python 3. The checker tests the nine-line incidence structure over \(\mathbb F_{13}\), the explicit transverse conic, the eighteen totally ramified points, genus and self-intersection arithmetic, both Euler calculations, and the Milnor number subtraction. Its output should consist of five lines beginning with `PASS:`.
-
-# What is and is not checked by code
-The geometric assertions rely on a proof using the normal cyclic triple cover, explicit blowup centers and contraction morphism, Riemann--Hurwitz, intersection theory, and topology of isolated hypersurface smoothings. Computation over one finite field witnesses the nonempty generality open; it does not prove all complex-parameter assertions or replace the geometric arguments. The genus-\(16\) exceptional curve is not deduced from finite enumeration. No independent audit has been performed.
+Run `python3 verify.py`. The check uses standard-library arithmetic in the basis \(1,\zeta\) of \(\mathbb Q(\zeta)\), \(\zeta^2+\zeta+1=0\). It verifies the arrangement incidence and transverse conic example, and reproduces the numerical consequences of the cover and Euler stratification. It does not certify normality, the finite birational chart construction or minimality; those follow from the proof. The Euler–Milnor computation is a consistency check against the separate Milnor-jump classification, not a separate novelty claim.

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:03:41.445939Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–3 and sample witness",
+        "Frozen VERIFICATION.md and three Python checkers (inspected, not executed)",
+        "/workspace/audit-replay.py, ordinal 1"
+      ],
+      "rationale": "The two overlap vertex types and the three arrows follow from the actual windows. The graph is balanced; rotations, reversal via a two-edge path, and substitution of one letter connect the distinct triples and attach every repeated-endpoint triple. For the outgoing Laplacian the rotation block has determinant (s^3-1)^(n/3). Eliminating it gives the stated pair-space operator: the first term of the inverse sums along a row, the second along a column, and the third transposes the ordered pair. The off-diagonal symmetric row-sum map has rank q (its dual kernel would require y_i+y_j=0 on every pair), and the skew row-sum map has rank q-1 (its dual kernel consists of constants). The constant and centered additive spaces supply the remaining dimensions. On the constant space the eigenvalue simplifies to t(t+q-1)(s^2+s+1); on centered additive arrays the two-by-two block gives determinant 14q(q-2) at t=0. Balanced strong connectivity makes the derivative at zero the number of vertices times the common rooted cofactor. BEST with a fixed initial arc multiplies by the factorials of outdegree minus one, and this uniquely fixes rotation since that arc occurs once. Initial letters of edge labels give the claimed frequencies. An independent exact direct-cofactor computation matched q=3,4,5,6, including both printed integers, and directly checked the q=4 witness windows: `python /workspace/audit-replay.py 1`.",
+      "residual_risks": [
+        "The finite computations corroborate the all-q determinant proof but do not replace it. No claim is made about reversal or relabeling classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 gives existence for words of length at least four with at least one repeat. The equitable-word passages give existence/nonexistence for a different family."
+        ],
+        "reasoning": "Existence of an Euler tour for a graph with extra edges neither proves its heredity to this edge set nor gives the count of tours of the restricted graph.",
+        "searches": [
+          "arXiv:1303.3323 Theorem 5",
+          "arXiv:0808.1309 §4",
+          "Resultary: broader four-letter restricted window enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:790ba79860bf",
+        "Resultary:6d6a1bc4c054",
+        "Resultary:000c778d28d0",
+        "arXiv:1303.3323",
+        "arXiv:0808.1309",
+        "doi:10.1137/S0895480104445678 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At q>=4 the locally square-free graph additionally includes edges abcd with four distinct symbols. The adjacent-repeat and nonadjacent-repeat graphs are disjoint in arc labels. The published existence theorem only covers the broader repeated-letter family."
+        ],
+        "reasoning": "Deleting all-distinct edges changes the distinct-triple Laplacian block and its tree factor; the broader product does not specialize by changing q while keeping the same alphabet or by subtracting other cycle counts. The explicit restricted-graph factorization establishes the additional enumeration.",
+        "searches": [
+          "Resultary 790ba79860bf and 6d6a1bc4c054, RESULT.md Findings",
+          "arXiv:1303.3323 Theorem 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 790ba79860bf counts the locally square-free language, including all-distinct targets; 6d6a1bc4c054 counts aabc, abbc, abcc. The Leitner–Godbole equitable-word condition concerns near-equal letter frequencies."
+        ],
+        "reasoning": "A repeated letter at nonadjacent positions in the linear window gives one of the three specified equality patterns, with no all-distinct windows. Neither local square-freeness, adjacent repetition, nor equitability is the same edge condition for q>=4.",
+        "searches": [
+          "Resultary: locally square-free four-letter universal cycles and adjacent-double universal cycles",
+          "arXiv:0808.1309 §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first catalogue result gives 12 at q=3, where the two languages coincide. The second treats adjacent repeats. The third gives 4,800 rotation classes for all 36 ternary three-symbol windows, including both repeat types."
+        ],
+        "reasoning": "Only the ternary boundary is already covered by the first result; the overlapping same-day enumeration has a different target set and is not a priority inference. No inspected table supplies the q>=4 count for this exact graph.",
+        "searches": [
+          "Resultary 790ba79860bf",
+          "Resultary 6d6a1bc4c054",
+          "Resultary 000c778d28d0"
+        ]
+      },
+      "rationale": "The supported distinct content is the exact product for the labeled nonadjacent-repeat edge set at all q>=4. Neither the known ternary boundary nor the use of BEST and the cofactor theorem is credited as new.",
+      "residual_risks": [
+        "An earlier unindexed labeled-window specialization has not been ruled out; the Burstein–Kitaev paper was not verified in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers q=3 only for the target language",
+          "evidence": "All-distinct windows are included when q>=4; at q=3 the count is 12.",
+          "identifier_or_url": "Resultary:790ba79860bf",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Local-mirror statement inspection",
+          "title": "Exact enumeration of universal cycles for locally square-free four-letter words",
+          "trigger": "Potential direct formula for a larger window class"
+        },
+        {
+          "assessment": "Different, disjoint target set",
+          "evidence": "The three patterns are aabc, abbc and abcc.",
+          "identifier_or_url": "Resultary:6d6a1bc4c054",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Local-mirror statement inspection",
+          "title": "Exact universal-cycle count for adjacent-double four-letter words",
+          "trigger": "Same number of distinct symbols and a repeated motif"
+        },
+        {
+          "assessment": "Different target set, ternary only",
+          "evidence": "The formula counts rotation classes for all 36 ternary windows of length four with three distinct symbols.",
+          "identifier_or_url": "Resultary:000c778d28d0",
+          "material_read": "RESULT.md Finding, from offset 0",
+          "method": "Local-mirror statement inspection",
+          "title": "Exactly 4,800 ternary universal cycles of four-letter words with three distinct symbols",
+          "trigger": "Same-day exact count with ternary overlap"
+        },
+        {
+          "assessment": "Existence for a broader family; no count for this restriction",
+          "evidence": "All length-n words having at least one repeat admit a universal cycle for n>=4.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.3323",
+          "material_read": "Theorem 5, PDF p. 3",
+          "method": "OA primary-text passage inspection",
+          "title": "Universal Cycles of Complementary Classes",
+          "trigger": "Likely broader theorem on repeated words"
+        },
+        {
+          "assessment": "Different admissibility condition and conclusion",
+          "evidence": "Equitable words have near-equal letter counts, with existence conclusions depending on length modulo alphabet size.",
+          "identifier_or_url": "https://arxiv.org/abs/0808.1309",
+          "material_read": "§4, PDF pp. 5–6",
+          "method": "OA primary-text passage inspection",
+          "title": "Universal Cycles of Classes of Restricted Words",
+          "trigger": "Related restricted and equitable languages"
+        },
+        {
+          "assessment": "Coverage unresolved for this paper",
+          "evidence": "No substantive negative inference from the failed retrieval.",
+          "identifier_or_url": "doi:10.1137/S0895480104445678",
+          "material_read": "Bibliographic identification only; full text not obtained",
+          "method": "Bounded lawful OA retrieval attempt",
+          "title": "On Unavoidable Sets of Word Patterns",
+          "trigger": "Possible equivalent equality-pattern formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary:790ba79860bf",
+        "Resultary:6d6a1bc4c054"
+      ],
+      "rationale": "The nonadjacent one-repeat patterns form a natural complement to the adjacent-repeat motif class and a strict restriction of local square-freeness. The exact all-alphabet enumerator distinguishes these combinatorially close problems and supplies a formula beyond an Euler-existence argument or a small table.",
+      "residual_risks": [
+        "Scope is deliberately limited to four-letter windows with this exact repeated-symbol structure."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

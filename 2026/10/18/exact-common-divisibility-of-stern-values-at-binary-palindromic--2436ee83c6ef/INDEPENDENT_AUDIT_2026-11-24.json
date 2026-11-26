@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:14:22.685617Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Applying the binary recurrence to each fixed prefix, the middle zero block of length t=ell-8 and the reversed suffix gives ell, 4ell-12, 9ell-42 and 16ell-104. All four are canonical palindromes, including t=0. Subtracting multiples of ell gives a common divisor of ell and gcd(12,42,104)=2. The residue indicator of nonzero modulo three satisfies the Stern recurrence modulo two, so every even-length palindrome has even Stern value: mirrored digits cancel since 2=-1 modulo three. This gives the matching lower bound at even lengths. The short-length table exhausts the choices of a leading-one half word. Independent recurrence enumeration matched every short value and all gcds over 8190 canonical palindromes of lengths 1–24, plus 484 witness values for lengths 8–128. The four witnesses and parity argument, not the finite replay, prove the unrestricted law.",
+      "replay_paths": [
+        "/workspace/branches/5a36479e-8e47-465d-bcf3-184865128494/replay.py"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 gives a digit-pattern formula for individual Stern values. The Christoffel-word result in §9 addresses a full level. Record 0a25efd8bf3c gives exact ternary residue laws and lifts for the indices of even-length binary palindromes."
+        ],
+        "reasoning": "A whole-layer distribution does not determine a restricted-layer gcd. The ternary-lift theorem is stronger on index residues, not on Stern value divisibility. Even combined with Stern parity it supplies a lower bound at even lengths, not sharpness or the odd-length law.",
+        "searches": [
+          "arXiv:1105.0086 Theorem 1.1; arXiv:1410.4085 §9 Eq. (18); Resultary 0a25efd8bf3c, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83; VERIFICATION.md and verify.py as recorded evidence",
+        "arXiv:1105.0086 Theorem 1.1",
+        "arXiv:1410.4085 Proposition 5.4 and §9",
+        "OEIS A002487 and A006995",
+        "Resultary records 8c7eb2a5d08a and 0a25efd8bf3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pattern formula computes s at a given word. The catalogue result states that every even-length binary palindrome is a multiple of three."
+        ],
+        "reasoning": "The previously available parity implication cannot exclude higher powers of two or odd common factors. Choosing four uniform mirrored witness families and eliminating their common dependence on ell gives the missing upper bound; it is not a direct instance of the prior parity or reversal statements.",
+        "searches": [
+          "arXiv:1105.0086 Theorem 1.1 and arXiv:1410.4085 Proposition 5.4; Resultary 0a25efd8bf3c first paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 5.4 proves s(n)=s(R(n)) for binary reversal R. Record 8c7eb2a5d08a classifies the gcd of s(n) and s(n+2) and its divisor strata."
+        ],
+        "reasoning": "Reversal is the identity on the indices in question, so value symmetry by itself imposes no cross-index common divisor. The next-nearest-neighbor gcd is a two-value invariant at a specified separation, not the gcd over all reversal-fixed indices in one layer.",
+        "searches": [
+          "Resultary: fixed-bit-length Stern gcd on binary palindromic indices, including Stern divisor strata; records 8c7eb2a5d08a and 0a25efd8bf3c",
+          "arXiv:1410.4085 Proposition 5.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A002487 lists individual Stern values and discusses palindromic runs of values. A006995 tabulates numbers with palindromic binary expansions, not Stern gcds by their bit length. The closest catalogue gcd table uses indices n and n+2."
+        ],
+        "reasoning": "These tables allow one to form particular gcds from finite data; they are not a tabulation or uniform classification of this gcd. Palindromic runs of values and Stern values at palindromic indices are different conditions.",
+        "searches": [
+          "OEIS A002487, comments on Stern values and palindromes; OEIS A006995, definition, listed terms, comments and table link; Resultary fixed-length Stern palindrome gcd search"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact gcd on the reversal-fixed set in each canonical binary layer, including the three exceptions to gcd(ell,2). The ingredients of binary transfer and the even-length divisibility obstruction are not new; the strongest inspected comparisons do not give the uniform upper bound or the fixed-length classification.",
+      "residual_risks": [
+        "The targeted comparisons with existing Stern identities, tables and catalogue records do not exclude unindexed equivalent work under continuant or word formulations. This is not a claim of publication priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General evaluation tool, not a restricted-layer gcd",
+          "evidence": [
+            "Pattern expansion for individual s(n)."
+          ],
+          "identifier_or_url": "arXiv:1105.0086",
+          "material_read": "Theorem 1.1, PDF p. 2, text offset 2078",
+          "method": "Open-access PDF passage",
+          "title": "A Pattern Sequence Approach to Stern’s Sequence",
+          "trigger": "General binary-digit formula for Stern values"
+        },
+        {
+          "assessment": "Relevant Stern identities without the reversal-fixed layer gcd",
+          "evidence": [
+            "s(n)=s(R(n)); the inspected level formula treats Christoffel-word lengths over the full level."
+          ],
+          "identifier_or_url": "arXiv:1410.4085",
+          "material_read": "Proposition 5.4, p. 17, offset 40498, and §9 Eq. (18), p. 27, offset 64504",
+          "method": "Open-access PDF passages",
+          "title": "Sturmian words and the Stern sequence",
+          "trigger": "Binary reversal and distributions at a fixed level"
+        },
+        {
+          "assessment": "Different indexing family",
+          "evidence": [
+            "For n+1=2^r(2j+1), the invariant is gcd(2r+1,s(j)-s(j+1)) for the two indices n and n+2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-exact-two-step-stern-gcd-law-divisor-strata-densities-and-fi--8c7eb2a5d08a/RESULT.md",
+          "material_read": "Finding and scope, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "The exact two-step Stern gcd law: divisor strata, densities, and first occurrences",
+          "trigger": "Closest indexed Stern gcd law"
+        },
+        {
+          "assessment": "Covers index divisibility, not the Stern gcd",
+          "evidence": [
+            "Every member is divisible by three; the higher-lift result concerns residues of the palindrome itself."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-binary-palindrome-ternary-lifting-an-exact-first-level-bias-and--0a25efd8bf3c/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Binary-palindrome ternary lifting: an exact first-level bias and unrestricted higher lifts",
+          "trigger": "Same fixed-length even palindromic index family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Canonical binary palindromes are precisely the fixed points of a natural symmetry of Stern values. A gcd across a whole fixed-length layer detects exactly its common arithmetic obstructions, rather than a chosen pair or numerical sample. The classification separates the forced factor two from all additional length-specific factors and supplies a uniform bounded-size witness for sharpness. This gives a reusable test of common divisibility in these layers without computing exponentially many values.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

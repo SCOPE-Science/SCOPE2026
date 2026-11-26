@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:23:24.333536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The north-east convention agrees with the rank of the specified permutation matrix in Fink–Rajchgot–Sullivant. Congruence by the diagonal cocharacter of exponents 3^a preserves each rank condition and separates the coordinate lines by base-three uniqueness. For a<b, the smallest rank-one and rank-two corners for E_ab+E_ba are (a,b) and (b,a); rank monotonicity gives the asserted two inequalities. Among the b entries of the prefix, at most a−1 can exceed n+1−a, so in fact R_w(b,a)≥b−a+1≥2 automatically. The same argument with b=a gives R_w(a,a)≥1 for every diagonal point. Therefore the formula is correct and can be simplified to n+Σ_a(n+1−a−m_a); no second order statistic is actually needed. Euler localization counts these points even in the singular case. Every summand is nonnegative, and their simultaneous vanishing requires the reverse permutation by induction on a. The ambient maximum requires the (1,n) point to survive when n≥2, hence w(1)=1, which conversely suffices; for n=1 the sole point attains both bounds. The all-size argument is symbolic; the finite checker described in VERIFICATION.md was not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fink–Rajchgot–Sullivant relate the affine symmetric-matrix strata to type-C Bruhat geometry.",
+          "Escobar–Fink–Rajchgot–Woo include the same ideals in a larger class but state results about Gröbner bases, subword complexes and multigraded Hilbert series.",
+          "LeVan–Raicu study local Euler obstruction, not the ordinary Euler characteristic of this projectivization."
+        ],
+        "reasoning": "A flag-variety Bruhat count for the full projective Schubert variety is not a count for the projectivization of its affine matrix patch. The inspected broader statements do not compute this patch's projectivized fixed locus.",
+        "searches": [
+          "arXiv:1510.04124, §2 Proposition 2.1 and §3",
+          "arXiv:2104.09589v2, abstract and introduction",
+          "LeVan–Raicu, DOI 10.5802/alco.211, PDF p. 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.04124",
+        "arXiv:2104.09589v2",
+        "DOI:10.5802/alco.211",
+        "Resultary 6e8cceb4fc77"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-filtration record gives off-diagonal matrix units total rank two. For north-east conditions these same units can fail a rank-zero rank bound at (a,b) even though the whole matrix has rank two.",
+          "The exact minimum and maximum have prefix conditions on w, absent from the total-rank result."
+        ],
+        "reasoning": "Known rank definitions and the localization theorem are inputs. The distinguishing step applies the corner constraints to the fixed lines and extracts the permutation-dependent surviving count; the inspected adjacent conclusions do not replace this step.",
+        "searches": [
+          "arXiv:1510.04124, §2 Proposition 2.1 and §3",
+          "arXiv:2104.09589v2, abstract and introduction",
+          "Resultary 6e8cceb4fc77, RESULT.md, Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1510.04124, §3, PDF p. 12: the north-east rank matrix counts the 1s of the reversed-column permutation matrix, so the objects coincide after translating conventions.",
+          "The indexed symmetric determinantal rank-filtration result concerns only a bound on total rank, not the prefix-minimum count."
+        ],
+        "reasoning": "The equivalent count is of symmetric coordinate lines not forbidden by rank-zero north-east corners (the rank-two test is automatic). The strongest retrieved census concerns total rank, which does not determine whether such a corner forbids an entry.",
+        "searches": [
+          "Resultary: Euler characteristic projectivized symmetric matrix Schubert varieties Fink Rajchgot Sullivant rank conditions fixed points",
+          "Resultary: Euler characteristic of a symmetric matrix Schubert variety is a two-order-statistic count",
+          "Web: symmetric matrix Schubert Euler characteristic projective fixed points torus localization (quoted ‘symmetric matrix Schubert’ and ‘Euler characteristic’ phrases)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct Resultary 6e8cceb4fc77, RESULT.md, computes n and binom(n+1,2) for total symmetric rank 1 and ranks ≥2, respectively, with no permutation parameter.",
+          "No matching permutation-indexed numeric table surfaced."
+        ],
+        "reasoning": "The endpoints and some fixed-point types coincide, but the total-rank result cannot distinguish permutations having intermediate coordinate counts. Same-day indexing does not establish precedence or equivalence.",
+        "searches": [
+          "Resultary: Euler characteristic projectivized symmetric matrix Schubert varieties Fink Rajchgot Sullivant rank conditions fixed points",
+          "Resultary: Euler characteristic of a symmetric matrix Schubert variety is a two-order-statistic count"
+        ]
+      },
+      "rationale": "The strongest inspected overlap counts the same types of ambient fixed points but under an overall rank cutoff. Prior symmetric Schubert results establish the convention, ideals and patch geometry; no inspected statement gives the global projective fixed-point census for these permutation-indexed north-east conditions or its sharp equality cases. The supported distinction is the permutation-dependent count, not the localization method, and the second statistic adds no independent information.",
+      "residual_risks": [
+        "A differently presented count for projectivized type-C patches or an unindexed observation could cover the formula; the source checks are bounded.",
+        "The shared date of the indexed rank-filtration result does not establish ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rank convention and related affine patch geometry; no covering projective count in these passages",
+          "evidence": "P(w) is obtained from w₀w; the north-east minors are of size R(w)_ij+1. Proposition 2.1 concerns the type-C strata.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.04124",
+          "material_read": "§2 Proposition 2.1, PDF pp. 5–7, and §3, PDF p. 12",
+          "method": "Open-access primary-text inspection",
+          "title": "Matrix Schubert varieties and Gaussian conditional independence models",
+          "trigger": "Primary definition and plausible broader Bruhat count"
+        },
+        {
+          "assessment": "Broader algebraic results, no projective Euler census in inspected statements",
+          "evidence": "Includes the symmetric Schubert ideals, distinguishes differing corner conventions, and gives Gröbner and multigraded Hilbert data.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.09589v2",
+          "material_read": "Abstract and introduction, beginning at PDF p. 1",
+          "method": "Open-access primary-text inspection",
+          "title": "Gröbner bases, symmetric matrices, and type C Kazhdan–Lusztig varieties",
+          "trigger": "Broader class containing the frozen ideals"
+        },
+        {
+          "assessment": "Different Euler invariant",
+          "evidence": "Restricts local Euler obstruction calculations to the big cell; it does not supply the ordinary Euler characteristic in question.",
+          "identifier_or_url": "https://doi.org/10.5802/alco.211",
+          "material_read": "PDF p. 2, passage on the symmetric rank stratification",
+          "method": "Open-access primary-text inspection",
+          "title": "Euler obstructions for the Lagrangian Grassmannian",
+          "trigger": "Euler terminology in the relevant symmetric Schubert geometry"
+        },
+        {
+          "assessment": "Genuine method and endpoint overlap, but not the permutation-indexed count",
+          "evidence": "Its total-rank levels contain diagonals at rank one and all symmetric coordinate points for any cutoff ≥2.",
+          "identifier_or_url": "Resultary 6e8cceb4fc77",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Configured Resultary search and local mirror inspection",
+          "title": "Euler characteristic stabilizes at rank two in symmetric determinantal varieties",
+          "trigger": "Strongest distinct indexed result with same fixed-point geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives a readily usable exact topological invariant and both extremal classifications for an established permutation-indexed family. It identifies the rank-zero corner pattern, equivalently the prefix minima, as sufficient despite the higher minors defining these varieties. That simplification, not novelty of the localization technique or a purported independent role for two statistics, gives the formula value when comparing different permutations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

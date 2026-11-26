@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The monomer–dimer parsing is canonical because each maximal run of the special symbol has even length. A legal edge changes one effective level by one or one dimer indicator by one; the reverse shortest path is explicitly achieved by removing source-only dimers, adjusting free monomer levels, and installing target-only dimers. This proves all pairwise distances, not just graph adjacency. For even alphabets, the alternating complemented-low/high threshold encoding cannot contain `11` internally; a present dimer forces the adjacent low bits to zero. Coordinate toggles furnish all metric edge classes and prove the isometric lower bound. Every claimed step was checked against the domain and boundary cases \(n=1\), \(k=4\); verification reran exhaustive all-pairs checks on the packaged script. Remaining computational limitation: finite checks alone do not prove unbounded claims.
+## correctness
 
-## Originality — PASS, with bounded priority risk
-Iršič–Klavžar–Tan, arXiv:2307.13317, Proposition 5.8 gives dimension \((2k-2)n-1\) and Problem 5.10 explicitly questions optimality. Cabello–Eppstein–Klavžar (2011) previously gave a general characterization using semicube coordinating paths; the new construction explicitly realizes its one-path extreme for this later graph family. The new theorem gives a smaller *isometric* Fibonacci embedding in all even parameters and proves its minimal length. Their published median-graph result implies an isometric hypercube embedding, but not the Fibonacci no-adjacent-one ordering of exactly \(kn-1\) essential coordinates. Došlić–Podrug's metallic cubes are not the same graph family, and Munarini's ordinary Pell graph concerns \(k=2\), outside the dimension improvement. Semantic and alias comparisons found no directly covering statement, although an unindexed or later equivalent theorem remains possible. The odd-alphabet question and nonisometric minimum are not resolved.
+PASS
 
-## Value — PASS
-The original graph paper isolates reducing the Fibonacci host dimension as a dedicated open problem. For every even alphabet this theorem cuts the known bound by \((k-2)n\), a linear saving that grows with both graph parameters. The proof gives a transparent optimal-distance labeling, a sharp dimension certificate through intrinsic metric classes, and a constructive shortest-path algorithm useful in constrained-network routing and state-space representations. These are structural gains rather than a re-indexing of a known enumeration.
+The original paper's monomer/dimer definition agrees with the frozen even-run parsing and legal moves. Each move changes one effective level by one or toggles just one dimer start. Dissolve source-only dimers, keep the common dimers (their endpoints already have target effective levels), adjust the remaining monomers monotonically, and insert target-only dimers. Target dimers are disjoint and each insertion is then legal, so the coordinate distance is attained. A list of moves and the label can be produced in O(kn) time; this does not count printing a full word per move. Threshold bits turn level differences into Hamming distance. For k=2r, consecutive bits inside a site block are a low test h<j<=r and a high test h>=j'>r, so cannot both be one. A dimer bit of one forces both neighbouring low tests to vanish. This permits precisely kn−1 positions, including at n=1. In an isometric hypercube encoding the metric cross-sums of two edges differ iff their bit directions coincide. The frozen witnesses use all kn−1 directions, hence require that many in any isometric encoding; every Fibonacci cube has its Hamming metric by dropping nonshared ones and then adding target ones. Distance one also proves that the image is induced.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The explicit even-alphabet construction at the hypercube lower bound is distinct from the longer embedding in the original paper, the general semicube characterization, and results on similarly named but nonidentical cubes. The published problem asks about arbitrary subgraph embeddings, so the shorter construction answers the reduction question on this family, but exact minimality is only among isometric embeddings.
+
+## value
+
+PASS
+
+The construction reduces the dimension in an explicit published problem by (k−2)n and meets a metric lower bound for an infinite natural subfamily. The level/dimer coordinates additionally give exact distances and a constructive geodesic, not just an improved numerical bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,82 +1,47 @@
-# Exact interior-launch Stratonovich diffusivity budget, monotone escape gain, and a half-budget boundary layer
+# Strict launch-position gain and sharp endpoint laws for budgeted Stratonovich escape
 
 ## Finding
 
-Write the reflecting endpoint as \(x=0\), the absorbing endpoint as \(x=\ell\), and the launch point as \(x=a\ell\), with \(0<a<1\) and \(b=1-a\). For any fixed mean diffusivity \(D_0>0\), the *exact global solution* to the diffusivity-budget problem has two levels. Let \(t>1\) denote the unique positive root of
+Consider a zero-drift one-dimensional Stratonovich diffusion on \([0,\ell]\), reflected at zero and killed at \(\ell\), launched at \(a\ell\) for \(0<a<1\). Fix the spatial mean diffusivity \(D_0>0\). If \(T_*(a)\) denotes the least mean absorption time at this budget, then the relative gain over homogeneous diffusion,
 \[
- b t^3-a t-b=0.
+\eta(a)=1-\frac{T_*(a)}{\ell^2(1-a^2)/(2D_0)},
 \]
-The optimal interior and target-side diffusivities are respectively
+is strictly increasing on \((0,1)\), and
 \[
- D_{\rm in}=\frac{D_0}{a+b t^2},\qquad
- D_{\rm out}=\frac{D_0 t^2}{a+b t^2}.
+\lim_{a\downarrow0}\frac{\eta(a)}{a^3}=\frac13,\qquad
+\lim_{a\uparrow1}\frac{1-\eta(a)}{\sqrt{1-a}}=2.
 \]
-The corresponding normalized optimal mean absorption time is
-\[
- \frac{D_0}{\ell^2}\inf_D \mathbb E_{a\ell}\tau
- =\frac{(2t^3-1)^2}{2(t^3+t-1)^3},\qquad
- a=\frac{t^3-1}{t^3+t-1}.
-\]
-The homogeneous reference time is \(\ell^2(1-a^2)/(2D_0)\). Its fractional optimal reduction
-\[
- \eta(a)=1-\frac{\inf_D\mathbb E_{a\ell}\tau}{\ell^2(1-a^2)/(2D_0)}
-\]
-is strictly increasing over \(0<a<1\). Both endpoint laws are sharp:
-\[
- \eta(a)\sim\frac{a^3}{3}\quad(a\downarrow0),\qquad
- 1-\eta(a)\sim2\sqrt{1-a}\quad(a\uparrow1).
-\]
-The target-side interval consumes a fraction
-\[
- \frac{bD_{\rm out}}{D_0}=\frac{t^3}{2t^3-1}>\frac12
-\]
-of the total diffusivity budget, tending to precisely one half as its relative width \(b\) vanishes. At this limit \(D_{\rm in}/D_0\to1/2\) and \(b D_{\rm out}/D_0\to1/2\).
+These laws quantify both the onset of the gain and the rate at which the optimal relative time tends to zero near the target.
 
 ## Assumptions and scope
 
-Take a one-dimensional diffusion on the finite interval \([0,\ell]\), reflected at zero and killed at \(\ell\), with Stratonovich prescription and no imposed drift. For positive measurable diffusivity \(D\) with \(\int_0^\ell D(x)\,dx=\ell D_0\) and \(\int_0^\ell D(x)^{-1/2}\,dx<\infty\), define the process through the strictly increasing intrinsic coordinate \(s(x)=\int_0^x D(y)^{-1/2}\,dy\), which turns it into reflected, absorbed Brownian motion with generator \(\partial_s^2\). This specifies the physical transmission convention at a discontinuity. Piecewise constant diffusivity is admitted and unique up to null sets; if smooth diffusivity is required, the same value is a sharp approximable infimum. The launch position is strictly between the endpoints; limits at endpoints are one-sided and do not assert finite positive profiles at \(a=1\).
+Admit positive measurable \(D\) with \(\int_0^\ell D(x)\,dx=\ell D_0\) and \(\int_0^\ell D(x)^{-1/2}\,dx<\infty\). To specify transmission at jumps of \(D\), define the diffusion by the intrinsic coordinate \(s(x)=\int_0^x D(y)^{-1/2}dy\) and reflected, absorbed Brownian motion with generator \(\partial_s^2\). If only smooth positive profiles are admitted, the same statements hold for the infimum, which is not attained for an interior launch. A smooth transition between the two positive optimal levels, followed by normalization to the original budget, approximates the intrinsic integrals and therefore the minimum.
 
 ## Proof
 
-1. **Exact first-passage reduction.** In the intrinsic coordinate, the mean time to reach the absorbing endpoint starting at \(s_0=s(a\ell)\), with reflecting point zero, solves \(u''=-1\), \(u'(0)=0\), \(u(s_\ell)=0\). Therefore \(\mathbb E\tau=[s_\ell^2-s_0^2]/2\). Introduce the normalized interval lengths \(a,b\), let \(z(y)=D(\ell y)/D_0\) for \(0\le y\le1\), and set \(S_1=\int_0^a z(y)^{-1/2}dy\) and \(S_2=\int_a^1 z(y)^{-1/2}dy\). The dimensionless time is exactly \(S_1S_2+S_2^2/2\).
+Write \(b=1-a\) and \(z(y)=D(\ell y)/D_0\). The intrinsic-coordinate Poisson equation gives \(\mathbb E\tau=[s(\ell)^2-s(a\ell)^2]/2\). Thus the normalized objective is \(S_1S_2+S_2^2/2\), with \(S_1=\int_0^a z^{-1/2}\) and \(S_2=\int_a^1 z^{-1/2}\). For fixed interval means \(u,v\) with \(au+bv=1\), strict Jensen gives \(S_1\ge a/\sqrt u\), \(S_2\ge b/\sqrt v\), with equality only for each interval constant almost everywhere. The objective strictly increases in both positive arguments.
 
-2. **Global reduction to two levels.** Let \(u\) and \(v\) be the mean normalized diffusivities on the two subintervals. The budget is \(au+bv=1\). Strict Jensen convexity of \(z\mapsto z^{-1/2}\) gives \(S_1\ge a/\sqrt u\) and \(S_2\ge b/\sqrt v\), with simultaneous equality if and only if \(z\) is constant separately on both intervals. As the exact time is strictly increasing in each positive \(S_i\), every non-two-level profile is strictly suboptimal relative to its associated two-level profile. This proves global reduction without relying merely on a stationarity equation.
-
-3. **Unique two-level minimizer.** Parameterize \(t=\sqrt{v/u}>0\); the budget requires \(u=(a+bt^2)^{-1}\) and \(v=t^2/(a+bt^2)\). The dimensionless time becomes
+Set \(t=\sqrt{v/u}\). The reduced objective and its derivative are
 \[
- F(t)=(a+bt^2)\left(\frac{ab}{t}+\frac{b^2}{2t^2}\right),\qquad
- F'(t)=\frac{ab}{t^3}(bt^3-at-b).
+F(t)=(a+bt^2)\left(\frac{ab}{t}+\frac{b^2}{2t^2}\right),\qquad
+F'(t)=\frac{ab}{t^3}(bt^3-at-b).
 \]
-The cubic is negative at zero and at one, has exactly one positive zero by its one-valley derivative, and is eventually positive; consequently that zero is greater than one and is the unique global minimizer. The divergence of \(F(t)\) at both zero and infinity excludes missing boundary minimizers. Substituting the cubic gives \(a=(t^3-1)/(t^3+t-1)\), \(b=t/(t^3+t-1)\) and the stated normalized minimum.
+The polynomial has one stationary point on \(t>0\), a minimum, and is negative at zero and one. Its unique positive zero is greater than one and yields the unique global minimizer. This is the one-dimensional Stratonovich specialization of the published stationarity equations; the reduction is included to make the gain proof self-contained. In particular, writing \(K=t^3+t-1\) gives \(a=(t^3-1)/K\), \(b=t/K\), \(u=(a+bt^2)^{-1}\), \(v=t^2u\), and \(F_*=(2t^3-1)^2/(2K^3)\).
 
-4. **Strict gain law.** Set \(K=t^3+t-1\) and
+The residual ratio is \(R(t)=1-\eta(a(t))=(2t^3-1)^2/[t(2t^3+t-2)K]\). Differentiating gives
 \[
- R(t)=1-\eta=\frac{(2t^3-1)^2}{t(2t^3+t-2)K}.
+R'(t)=-\frac{(t-1)^2(2t^3-1)(2t^3+1)(2t^4+4t^3+3t^2+2t-2)}{t^2K^2(2t^3+t-2)^2}<0.
 \]
-Direct differentiation and factorization yield
+The quartic is positive for \(t>1\), being increasing there and equal to nine at one. As \(a'(t)=(2t^3+1)/K^2>0\), the gain is strictly increasing in \(a\). At \(t\downarrow1\) use the exact identity
 \[
- R'(t)=-\frac{(t-1)^2(2t^3-1)(2t^3+1)\bigl(2t^4+4t^3+3t^2+2t-2\bigr)}{t^2 K^2(2t^3+t-2)^2}<0
+1-R(t)=\frac{(t-1)^3(2t^4+2t^3+3t^2+t+1)}{t(2t^3+t-2)K}.
 \]
-for every \(t>1\). Indeed the quartic factor is at least its value nine at \(t=1\), while all other denominator and numerator factors have the displayed signs. Since \(a'(t)=(2t^3+1)/K^2>0\), \(\eta\) is strictly increasing in the original launch fraction.
-
-5. **Endpoint and budget limits.** At \(t\downarrow1\), exact series give \(1-R(t)=9(t-1)^3+O((t-1)^4)\) and \(a=3(t-1)+O((t-1)^2)\), hence \(\eta\sim a^3/3\). At \(t\to\infty\), \(b=t/K\sim t^{-2}\) and \(R(t)\sim2/t\), giving \(1-\eta\sim2\sqrt b\) and \(F(t)\sim2b^{3/2}\). Finally \(b v=t^3/(2t^3-1)\) and \(a u=(t^3-1)/(2t^3-1)\), proving the sharp half-budget split.
-
-## Verification
-
-Execute the standalone file `check.py` with Python 3, SymPy and SciPy installed: `python check.py`. It checks all exact derivative and rational identities, both endpoint constants, 11 independent numeric scalar optimizations, and 330 random heterogeneous-profile comparisons with the analytic global minimum. Numerical checks are auxiliary; the preceding Jensen, cubic-root and polynomial-sign arguments prove the claims for all stated parameters and admissible profiles.
+This is asymptotic to \(9(t-1)^3\), while \(a\sim3(t-1)\). At \(t\to\infty\), \(R\sim2/t\) and \(b\sim t^{-2}\). These establish the two limits. As a consequence of the known optimality relation, the normalized target-side budget share is \(bv=t^3/(2t^3-1)\to1/2\), and \(u\to1/2\); this allocation is context for the gain law, not a separate priority claim.
 
 ## Relationship to prior work
 
-Menon's 2026 work already derives the general variational condition, identifies the interior plateau and numerically finds a two-level Stratonovich optimum for a nonboundary launch. Its Fig. 4 and Eqs. (46)–(52) are prior coverage for the *qualitative two-layer structure*, which is not claimed here as new. The distinct assessed result is the explicit entire launch-position algebraic solution, strict monotonic improvement theorem, exact cubic onset, square-root target-layer asymptotic, and half-budget allocation law, replacing numerical-only interior-position characterization in the referenced source.
+Menon, dos Santos and Anteneodo, [arXiv:2311.00818](https://arxiv.org/abs/2311.00818), §2.1, Eqs. (10)–(14), gives the intrinsic-coordinate time for arbitrary profiles. Menon, [arXiv:2611.17470v1](https://arxiv.org/abs/2611.17470v1), Eq. (50)–(52) and Fig. 4(a), treats the same optimization with a broader variational framework. In dimension one with the Stratonovich parameter \(1/2\), the stationarity equation above the launch point uses the full intrinsic length divided by \(2D_{\rm out}^{3/2}\); below the launch point it uses the target-side intrinsic length divided by \(2D_{\rm in}^{3/2}\). Equating them gives \(b/t=(a+b/t)/t^3\), exactly the cubic used here. The paper's Fig. 5 uses numerically optimized profiles for the gain curve. The claim here is the strict all-launch gain theorem and its two sharp asymptotic laws, not the variational condition, the two-level design or its algebraic parameterization.
 
-Menon, dos Santos and Anteneodo (2023), arXiv:2311.00818, already give the arbitrary-profile Stratonovich first-passage identity and discuss fixed-average comparisons; that identity is reused, not renamed as new. Their full text develops comparisons for specified diffusivity shapes rather than the exact full-budget optimal interior-launch problem. Tung and Lawley (2026), arXiv:2512.19646, address general first passage and small absorbing targets in three-dimensional heterogeneous media, not this fixed-budget one-dimensional optimization.
+## Verification and limitations
 
-## Limitations
-
-The result assumes a freely selectable positive spatial diffusivity with only an average budget; a pointwise cap, lower bound, smoothness constraint, different stochastic prescription, spatial dimension, or generalized boundary mechanism changes the optimizer. The interface is defined by the intrinsic-coordinate Stratonovich transmission convention. For smooth-only profiles, an approximating sequence realizes the stated infimum but the discontinuous exact optimizer lies outside the smooth class. No inference about higher-dimensional optima or first-passage variance is made. Related unindexed optimization results remain a publication-priority uncertainty, and no independent mathematical audit has been performed.
-
-## References
-
-1. L. Menon, *Optimal heterogeneous diffusivity profiles for mean first-passage minimization*, arXiv:2611.17470v1 (first public 2026-11-12), https://arxiv.org/abs/2611.17470 . Read in full, especially Eqs. (12), (46)–(52), Figs. 4–5, and Appendix B.
-2. L. Menon Jr., M. A. F. dos Santos and C. Anteneodo, *Random-search efficiency in a bounded interval with spatially heterogeneous diffusion coefficient*, arXiv:2311.00818v1 (2023-11-01), https://arxiv.org/abs/2311.00818 . Full text, especially Secs. 2.1 and 2.4.
-3. H.-R. Tung and S. D. Lawley, *Escape from heterogeneous diffusion*, arXiv:2512.19646 (2025-12-22), https://arxiv.org/abs/2512.19646 . Abstract and scope comparison.
+The symbolic identities for the derivative and limits can be checked with the accompanying `check.py` (SymPy and SciPy). Its finite profile comparisons do not prove the optimization or endpoint laws; those follow from the analytic argument. The results do not cover different prescriptions, dimension, drift, pointwise caps, or boundary/launch conditions. Literature comparisons do not certify historical priority.

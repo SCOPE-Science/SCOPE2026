@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:38:50.019759Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–67; VERIFICATION.md; VERIFY.py inspected, not executed",
+        "/workspace/branches/51be0ace-3dd0-4246-bcc2-09d80e01f744/bounded_repro.py and repro_m3.log through repro_m7.log: independently constructed integer matrices and matched every characteristic-polynomial coefficient for m=3 through 7 (dimensions 21, 36, 55, 78, 105)."
+      ],
+      "rationale": "The unordered-pair hopping matrix is precisely token-graph adjacency with weight one. On each pair of distinct petals the internal hopping is the sum of the two leaf swaps; its tensor sign modes have eigenvalues 2, 0, 0, −2. The double-odd modes decouple. At each petal the single-odd sector is a star of m−1 cross-petal modes coupled to the odd hub-pair mode with weight √2, with central diagonal −1; its contrasts and two-dimensional block give the zero modes and the quadratic. The even sector couples the hub-pair modes both to same-petal pairs by √2 times the identity and to cross-petal modes by √2 times unsigned incidence B. BBᵀ=(m−2)I+11ᵀ has eigenvalues m−2 and 2(m−1), with multiplicities m−1 and 1. Each singular direction of squared singular value s yields (λ−2)(λ²−λ−2)−2sλ, and ker B yields the stated +2 factor. These blocks exhaust the space. Compact eigenvectors use a double-odd cross mode, differences sharing the odd petal, and an alternating four-cycle in ker B, respectively; the last needs m≥4 and +2 is absent at m=3. The explicit flat blocks have the stated dimensions, not necessarily the total multiplicities after accidental coincidences; the other blocks carry mass 5m/[m(2m+1)], which vanishes for bounded continuous tests.",
+      "residual_risks": [
+        "Finite reproduction is a safeguard; the block argument supplies the universal statement. No formal certificate or expert attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected general results involve strongly regular graphs, Laplacian containment, spectral radius, or distance-regular families; friendship graphs in scope are nonregular."
+        ],
+        "reasoning": "These results do not yield the full characteristic polynomial for all friendship parameters.",
+        "searches": [
+          "arXiv:math/0507251, strongly regular graph results",
+          "arXiv:2310.16929, spectral-radius results and distance-regular quotients"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0507251",
+        "arXiv:2310.16929",
+        "arXiv:1310.6529",
+        "Frozen RESULT.md lines 69–89 (secondary description of c081d2602b88)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same two-token graph has degrees 2, 4, and 2m, so its combinatorial Laplacian is not a scalar shift of adjacency. Base-graph eigenvalue sums do not encode hard-core exclusion on this graph."
+        ],
+        "reasoning": "The Laplacian eigenvalues alone do not specify these adjacency factors. A published Laplacian reduction retaining action by each degree class could make the new algebra substantially closer to a corollary; that stronger fact was not verified.",
+        "searches": [
+          "c081d2602b88 as described at RESULT.md line 75",
+          "arXiv:1310.6529, PDF p. 1",
+          "arXiv:2310.16929, pp. 3, 11–16"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetric-square adjacency is exactly the operator in the finding; the friendship base-graph spectrum is a different operator on a smaller space."
+        ],
+        "reasoning": "The boson, two-token, and symmetric-square formulations are equivalent and were compared as such. The inspected sources establish that framework and other spectral results, not this evaluated family.",
+        "searches": [
+          "arXiv:math/0507251, symmetric squares and exchange Hamiltonians",
+          "arXiv:2310.16929, token-graph spectra",
+          "arXiv:1310.6529, friendship graph spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen record, line 75, describes a Laplacian spectrum and spanning-tree count; its account is not independent primary evidence."
+        ],
+        "reasoning": "A family record or exact polynomial table would be relevant. No equivalent adjacency entry was verified; the corpus gap limits confidence, and no chronological inference is drawn.",
+        "searches": [
+          "Local Resultary discovery (unavailable)",
+          "c081d2602b88, exact same base graph and token count; exact cited URL rejected by the OA reader for invalid whitespace"
+        ]
+      },
+      "rationale": "The distinct claim supported by the accessible statements is the complete adjacency spectrum of this two-particle family, with explicit compact states and the adjacency level-counting limit. Neither the token/symmetric-power identification nor the incidence method is new. The closest reported same-object result concerns the combinatorial Laplacian; full text was unavailable and the possible scope of its block calculation is a named risk, not negative evidence.",
+      "residual_risks": [
+        "Local Resultary search was not exposed, and c081d2602b88 primary text was inaccessible; degree-resolved or adjacency results there cannot be ruled out.",
+        "No historical priority guarantee against an unlocated equivalent windmill computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same construction; different spectral results in the passages inspected",
+          "evidence": "Symmetric difference defines adjacency; the exchange mapping covers this Hamiltonian. The abstract's cospectrality result concerns strongly regular graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0507251",
+          "material_read": "PDF p. 1 and pp. 18–19",
+          "method": "OA PDF passage inspection",
+          "title": "Symmetric Squares of Graphs",
+          "trigger": "Exact operator under different terminology"
+        },
+        {
+          "assessment": "Does not supply the claimed factors in the inspected theorems",
+          "evidence": "Laplacian containment, spectral-radius bounds and examples, and distance-regular quotient results concern other invariants or hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.16929",
+          "material_read": "PDF p. 3 and pp. 11–16",
+          "method": "OA PDF passage inspection",
+          "title": "On the spectra and spectral radii of token graphs",
+          "trigger": "Potential stronger spectral theorem"
+        },
+        {
+          "assessment": "Base graph only",
+          "evidence": "The stated friendship spectrum is for the 2m+1 vertex adjacency matrix, not the unordered-pair matrix.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.6529",
+          "material_read": "PDF p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "The graphs with all but two eigenvalues equal to ±1",
+          "trigger": "Friendship spectrum under the same graph name"
+        },
+        {
+          "assessment": "Reported Laplacian overlap; full extent not verified",
+          "evidence": "The exact cited URL is unusable; the supplied account identifies the same graph, Laplacian operator and incidence method.",
+          "identifier_or_url": "c081d2602b88",
+          "material_read": "Frozen RESULT.md line 75 only; primary text unavailable",
+          "method": "Local catalogue discovery and cited-source OA retrieval attempted",
+          "title": "Integral Laplacian spectrum and spanning-tree complexity of two-token friendship graphs",
+          "trigger": "Strongest same-object match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof; independently checked decomposition"
+      ],
+      "rationale": "This is a full exact invariant across a natural highly connected family for which the hard-core condition prevents reading off the energies from the one-particle modes. The computation identifies an extensive flat-state component, with bounded configuration support witnesses and a precise limiting density, not merely a small spectrum or a reformulation of token adjacency.",
+      "residual_risks": [
+        "The counting measure does not imply local dynamical or disorder-robustness results."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

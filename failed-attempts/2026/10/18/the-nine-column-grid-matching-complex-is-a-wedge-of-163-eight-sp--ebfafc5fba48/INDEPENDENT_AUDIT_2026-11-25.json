@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:01:35.789595Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the pivot/first-neighbor matching in RESULT.md lines 14–18. For a downward unmatched step at a node, removal of the branch-defining neighbor can only move to a later branch or the toggle class; matched arrows preserve that class. Inside the toggle class, up adds the pivot and an unmatched down cannot delete it, so no directed cycle exists. Induct inside each branch. Removing the empty-face pair gives exactly one critical vertex without changing the 8/9 boundary. Independent replay `python3 /workspace/review_evidence/grid9_replay.py <frozen verification/certificate.json>` recovered the 182 and 19 critical masks, all 159 signed entries (max absolute value 2), and the +1 determinant by rational elimination, without executing the submitted verifier. The replay also confirmed all face counts by closed-neighborhood deletion (7,594,361 total including empty; reduced Euler characteristic 163). The Morse reduction sums signed alternating paths with the negative inverse incidence for each up step; paths starting at an upper-paired eight-face cannot reach a critical eight-face. The resulting CW model is simply connected with reduced homology only in degree 8, free of rank 163 by the primitive full-column-rank minor. Hurewicz supplies maps representing a basis and the homological Whitehead theorem makes their wedge a homotopy equivalence. This verifies an integral homotopy classification, not merely agreement of Betti numbers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general early theorems give connectivity and selected homology vanishing; the conclusion covers the wedge type for every width 3 through 9. Conjecture 4.1 for all widths is not needed for the comparison.",
+          "Resultary 2352ab105c17 covers only widths 2–8. Resultary 620f36bbabcc states the exact width-nine type using 212 critical 8-cells, 49 critical 9-cells and unit pivots, but is catalogued 2026-11-08 and is not the basis of earlier coverage."
+        ],
+        "reasoning": "The prior preprint's proved/computed finite range includes width nine, regardless of whether a general all-width recurrence is valid.",
+        "searches": [
+          "arXiv:2609.27366v1 Theorems 1.2–1.3, Corollary 1.4, and §4 (SageMath, 163)",
+          "Resultary semantic matching-complex lookup; widths through eight and corrected width nine"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.27366v1 §§1,4",
+        "DOI:10.37236/10496 and 2025 corrigendum",
+        "DOI:10.1007/s10801-007-0096-x",
+        "Resultary 2352ab105c17 and 620f36bbabcc",
+        "Frozen RESULT.md, VERIFICATION.md and verification/ package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.3 supplies simple connectivity (in particular n=9). Table 1 gives exactly one nonzero reduced integral homology group, free of rank 163; §4 states the wedge consequence."
+        ],
+        "reasoning": "Even without the explicit concluding sentence, Hurewicz represents each degree-eight basis element by a sphere map and homological Whitehead supplies the equivalence. Thus the prior data and theorem mechanically give all parts of the frozen Finding.",
+        "searches": [
+          "Chauhan–Sharma–Shukla Theorem 1.3 and §4 Table 1 plus following paragraph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chauhan–Sharma–Shukla §1 explicitly identifies M(G_3×n) with Ind of the line graph. Their §4 concerns exactly that complex.",
+          "The Bousquet-Mélou–Linusson–Nevo independence complex is on vertices of the square grid itself, not on its edges. The withdrawn Goyal–Shukla–Singh prediction of both degrees 8 and 9 is not matching evidence for this claim."
+        ],
+        "reasoning": "The line-graph formulation is equivalent, whereas independent sets of the original grid encode a different simplicial complex. The decisive source uses the equivalent object with exactly the stated width.",
+        "searches": [
+          "Matching complex of P3 square P9; independence complex of its line graph; width-9 integral wedge",
+          "Goyal–Shukla–Singh §3.3.1, Theorem 1 and corrigendum; Chauhan–Sharma–Shukla §1 and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv v1 §4, extracted-text offset 163010 onward: 'homology groups (with coefficients in ℤ)'; width 9 entry '8: ℤ^163', with the table caption identifying nontrivial homology. The following paragraph asserts the wedge for 3≤n≤9.",
+          "The earlier corrigendum reports SageMath concentration in degree eight, but prints neither the group nor a torsion conclusion. The retracted paper's numerical table stops at width eight."
+        ],
+        "reasoning": "Table 1 in the September preprint is exact integral group data, not just a field Betti number, and provides the precise multiplicity.",
+        "searches": [
+          "arXiv:2609.27366v1 HTML literal locators Sage and 163, then open §4 Table 1 and its immediately following paragraph",
+          "EJC 28(4) P4.16 Table 1 and p. 27 corrigendum"
+        ]
+      },
+      "rationale": "Chauhan–Sharma–Shukla, arXiv:2609.27366v1 (2026-09-23), §4 Table 1 explicitly reports the integral homology group Z^163 in degree 8 at width 9, and the immediately following paragraph explicitly concludes a wedge of (n−1)-spheres for 3≤n≤9 using simple connectivity. Together these give the exact 163-eight-sphere homotopy type for the same strip before the frozen finding. The frozen self-review lacked the full text and incorrectly treats this as an outstanding case. The current Morse certificate is an independently reproducible route, not a new stated homotopy classification.",
+      "residual_risks": [
+        "The search is bounded and does not adjudicate the earliest discovery or the provenance of separate certificates. Forman full text was not accessible in the attempted retrieval; its cited theorem is methodological and does not affect the exact prior coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact claim already covered",
+          "evidence": [
+            "Table 1 lists width 9 as 8:ℤ^163 with integral coefficients; the subsequent paragraph asserts wedge homotopy types through width nine."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.27366v1",
+          "material_read": "§1 Theorems 1.2–1.3 and Corollary 1.4 (offset 6700 onward); §4 Table 1, setup and wedge argument (offset 163010–165305)",
+          "method": "Full arXiv v1 HTML via literal locators then bounded offset readings",
+          "title": "Homology of matching complexes of 3×n grid graphs",
+          "trigger": "Same object, general-width results, plausible exact width-nine computation"
+        },
+        {
+          "assessment": "The original prediction is withdrawn; corrigendum supplies qualitative prior overlap only",
+          "evidence": [
+            "The non-induced-subgraph map flaw affects the recurrence; p. 27 reports homology nontrivial only in dimension 8 in SageMath."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i4p16/pdf/",
+          "material_read": "PDF pp. 2, 23 and corrigendum p. 27 (offset 85000 onward)",
+          "method": "Primary PDF bounded pages by theorem, table and corrigendum",
+          "title": "Matching Complexes of 3×n Grid Graphs, with corrigendum",
+          "trigger": "Same graph and reported discrepancy at width nine"
+        },
+        {
+          "assessment": "Different underlying graph for the independence complex",
+          "evidence": [
+            "Studies grid-vertex independent sets with grid boundary conditions, not matchings of the 3×9 strip."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-007-0096-x",
+          "material_read": "Primary PDF opening abstract",
+          "method": "Bounded PDF read at offset 0",
+          "title": "On the independence complex of square grids",
+          "trigger": "Possible equivalent grid complex or related Morse method"
+        },
+        {
+          "assessment": "First is a narrower different range; second an exact match catalogued later",
+          "evidence": [
+            "2352ab105c17 stops at eight; 620f36bbabcc gives 163 eight-spheres by a different matching census."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-integral-sphere-wedge-classification-at-the-first-corrected-3--620f36bbabcc",
+          "material_read": "Mirrored RESULT.md Findings at offset 0",
+          "method": "Resultary semantic search and local mirror passage comparison",
+          "title": "Resultary records 2352ab105c17 and 620f36bbabcc",
+          "trigger": "Closest indexed finite classifications"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Width nine is a meaningful correction boundary and the exact Morse certificate has verification value. The frozen Finding, however, presents the already published homotopy type and its already tabulated multiplicity as the mathematical advance. It makes no distinct claim about a new method or structural invariant beyond that exact recomputation.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

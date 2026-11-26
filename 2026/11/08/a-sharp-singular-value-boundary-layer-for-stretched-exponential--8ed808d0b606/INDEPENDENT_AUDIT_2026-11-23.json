@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:34:50.580132Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Polar action of the shift sends e_j to e_(j+1); the log-weight update is convolution by the two-point law (1-t,t), so n steps give the claimed binomial expectation. Compactness and strict monotonicity in j give precisely the ordered list and its norm. Bounded convergence for (1+X_n)/n proves the logarithmic norm asymptotic. For alpha>1, the integrated derivative is >=alpha*j and for fixed j its n^(alpha-1)-scaled value tends to alpha*j*t^(alpha-1). This gives both relative vanishing and summable domination for any fixed p>0. Alpha=1 is exactly geometric. For 0<alpha<1, on j<=A n^(1-alpha) the rescaled derivative is uniformly convergent in mean to alpha*t^(alpha-1): binomial concentration bounds the lower tail (where the negative power is at worst polynomial) by exponential probability, and on the central interval the mean is uniformly continuous in the rescaled variables. Integrate and use floor error O(n^(alpha-1)). The infinite sum needs more than the local limit: using X_n<=n gives D_n(j)>=alpha*j*(2n+1)^(alpha-1) for j<=n, hence after scaling a geometric tail O(exp(-const*A)); for n<j<2n the concavity lower bound (n+1+j)^alpha-(n+1)^alpha is >=const*n^alpha, and j>=2n gives >=const*j^alpha, since (n+1)/j<=3/4 for n>=2. Both latter tails vanish after normalization. Integrating the local profile to power p gives t^(1-alpha)/(pc alpha). A fresh finite diagnostic used binomial coefficient propagation from [1] by convolution, t=.3,c=.7,p=1.2 and j=0..399; at alpha=.5 the ratios to the predicted mass were 1.266251,1.130181,1.062390 at n=100,400,1600; this truncated diagnostic is not the infinite proof. At alpha=2, D_n(j)=j^2+2j(1+nt) exactly. Packaged checker inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 5.8 treats general Schatten unilateral shifts and gives unnormalized quasi-norm limit zero. Thm. 1.1 gives individual singular limits. Dykema–Schultz Thm. 5.2 gives tracial L2 convergence to U times an invariant geometric mean.",
+          "The indexed 2026-11-17 regularly varying result concerns regularly varying weights and a rank scale n; the weights exp(-c(j+1)^alpha) are not regularly varying with finite index."
+        ],
+        "reasoning": "Products/individual limits or unnormalized quasi-norm convergence to zero do not control quotients by a norm that also tends to zero. The regularly-varying theorem's hypotheses and normalization differ; it is also later than the frozen record.",
+        "searches": [
+          "arXiv:2611.07728v1 Thm. 1.1 and Prop. 5.8",
+          "arXiv:math/0512197v4 §§4–5",
+          "Resultary: binomial Aluthge weighted shift stretched exponential Schatten singular values relative mass"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.07728v1 §5",
+        "arXiv:math/0512197v4 Thm. 5.2",
+        "arXiv:2610.11336v1 abstract",
+        "Resultary bilateral and regularly varying comparison claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prop. 5.8's quantitative input is the binomial formula, which by substitution gives the exact list. Dykema–Schultz conclude absolute convergence, and Pal–Chandok study weighted numerical-radius inequalities."
+        ],
+        "reasoning": "Local concentration at a moving rank, followed by the separate infinite-tail domination at two rank scales, is needed to infer the coefficient and profile. The cited quantitative input does not give this asymptotic by substitution alone.",
+        "searches": [
+          "arXiv:2611.07728v1 Prop. 5.8 proof and Eq. (9)",
+          "arXiv:math/0512197v4 Thm. 5.2",
+          "arXiv:2610.11336v1 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stanković Eq. (9) gives the identical binomial weighted geometric mean on logs and its proof identifies positive shift weights with the singular values.",
+          "Dykema–Schultz use binomial weighted log averages in their finite-algebra setting."
+        ],
+        "reasoning": "Changing from weight indices to sorted singular indices incurs no new work for monotone weights. The new statistic is the sum after division by the evolving maximum, so unnormalized weight iteration is prior, not evidence of prior normalized mass asymptotics.",
+        "searches": [
+          "Resultary: binomial Aluthge weighted shift stretched exponential Schatten singular values relative mass",
+          "arXiv:2611.07728v1 §5, Prop. 5.8, Eq. (9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact asymptotic is the bilateral stretched-exponential result 304047bdec1c. Its theorem gives a Gaussian width n^(1/4) at the bilateral Laplace exponent and a lattice-pinned quadratic regime, and its proof localizes its moving optimal shift using centered binomial fluctuations."
+        ],
+        "reasoning": "The bilateral normalization minimizes an expected power of absolute displacement over all integer sites, so its minimizing index moves near -nt. On this unilateral lattice the minimum is fixed at j=0 and lies at distance order n from that region. Although bilateral weights can be restricted to the positive side, the stated mass windows center at excluded indices and do not give the tail's distinct normalization or normalized mass.",
+        "searches": [
+          "Resultary: binomial Aluthge weighted shift stretched exponential Schatten singular values relative mass",
+          "Web: Stankovic 2026 Aluthge iterates weighted shifts Schatten norm stretched exponential binomial singular values boundary layer",
+          "Resultary 304047bdec1c, Finding and Scope"
+        ]
+      },
+      "rationale": "Best of knowledge for the normalized trichotomy and stretched-exponent profile only. The exact singular list follows directly from known binomial geometric weight iteration and is correctly excluded from the novelty claim. The comparison below checks whether prior results dominate the normalized statement, not just whether they mention weighted shifts.",
+      "residual_risks": [
+        "An unindexed broader binomial-smoothing classification or earlier worked specialization could overlap. No claim of exhaustive priority. The adjacent Resultary comparisons concern the inspected statements and proof passages rather than unexamined sections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact binomial formula and unnormalized convergence; not the asserted relative profile",
+          "evidence": [
+            "Prop. 5.8 concludes norm_p tends to zero for 0<p<infinity; Eq. (9) gives the exact weight product."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.07728v1",
+          "material_read": "Abstract, Thm. 1.1, §5 Prop. 5.8 and its binomial formula (9)",
+          "method": "Relevant original HTML passages and PDF introduction",
+          "title": "Singular values of iterated Aluthge transforms of compact operators",
+          "trigger": "Same exact shift iteration and Schatten convergence"
+        },
+        {
+          "assessment": "Prior for binomial averaging, other operator setting and no relative count in inspected theorem",
+          "evidence": [
+            "Thm. 5.2 shows tracial L2 convergence to U exp(E^alpha log|T|) for measurable-action operators."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0512197v4",
+          "material_read": "Abstract, section map and Thm. 5.2 statement/opening proof",
+          "method": "Read selected arXiv HTML passages",
+          "title": "Brown measure and iterates of the Aluthge transform for some operators arising from measurable actions",
+          "trigger": "Broader binomial log-averaging approach"
+        },
+        {
+          "assessment": "The advertised numerical-radius bounds concern a different functional; no whole-paper negative inference.",
+          "evidence": [
+            "Abstract describes inequalities using a Schatten norm and examples on matrices, not an iteration asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.11336v1",
+          "material_read": "Abstract",
+          "method": "Limited abstract inspection",
+          "title": "On weighted Schatten p-numerical radii via generalized Aluthge transformation",
+          "trigger": "Generalized Aluthge and Schatten in the same paper"
+        },
+        {
+          "assessment": "Comparable formula, but different extremizer and normalization; does not cover the unilateral boundary theorem",
+          "evidence": [
+            "The norm exponent scales as [nt(1-t)]^(alpha/2), not (tn)^alpha; the Laplace profile in Finding centers at k=-nt with width n^(1/4), and at alpha=2 the normalized bilateral sums are theta functions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-two-scale-aluthge-asymptotics-of-compact-bilateral-stretched-exp--304047bdec1c/RESULT.md",
+          "material_read": "Finding (all three assertions), Scope, and Proof §§1–2 through the moving-window localization argument",
+          "method": "Public repository RESULT source",
+          "title": "Two-scale Aluthge asymptotics of compact bilateral stretched-exponential shifts",
+          "trigger": "Same weight function on a bilateral rather than unilateral lattice"
+        },
+        {
+          "assessment": "Later comparison on nonoverlapping weight hypotheses",
+          "evidence": [
+            "The required w_floor(nu)/w_n→u^(-beta) must be finite and positive; a stretched exponential ratio tends to 0 or infinity off u=1. The asserted mass grows on scale n when beta*p>1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-a-universal-linear-singular-value-boundary-layer-for-regularly-v--948fb95b2a1e/RESULT.md",
+          "material_read": "Finding, Scope and Proof §§1–2",
+          "method": "Public repository RESULT source",
+          "title": "A universal linear singular-value boundary layer for regularly varying Aluthge shifts",
+          "trigger": "Same profile and mass objectives for another class of unilateral shifts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "When every unnormalized singular value tends to zero, the mass carried by the leading one can still have three qualitatively distinct behaviors. The parameter boundary, exact effective spectral count, and shape of the near-leading spectrum distinguish these regimes sharply for a canonical decay family; the uniform tail argument makes the result a statement about all ranks, not a finite-mode calculation. Scope is fixed parameters and the specified compact unilateral shifts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

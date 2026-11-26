@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:37:38.089907Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unordered two-token configurations the AA, AB and BB layers have degrees 2n, N-2 and 2m, respectively, and there are only AA–AB and BB–AB off-diagonal blocks. An AA pair couples to each AB pair containing one of its A vertices, giving the unsigned incidence block tensored with the all-ones vector on B, and symmetrically for BB. The incidence Gram matrix on an r-vertex part is (r-2)I+J, giving full rank for r>=3 and singular values sqrt(2r-2) on constants and sqrt(r-2) on the zero-sum subspace. The two outer incidence kernels give eigenvalues 2n and 2m in dimensions m(m-3)/2 and n(n-3)/2; the tensor product of the two zero-sum spaces in AB gives N-2 in dimension (m-1)(n-1). Coupling just the A-zero-sum directions to their AB lifts gives the two-by-two block with trace m+3n-2 and determinant n(m+2n-2), and hence roots n and m+2n-2, each repeated m-1 times. The B-zero-sum block gives m and n+2m-2, each repeated n-1 times. In the remaining three-layer constant block, the off-diagonal magnitudes are sqrt(2n(m-1)) and sqrt(2m(n-1)). Its determinant is zero from the constant token vector, its trace is 3N-2, and its order-two principal minors sum to 2N(N-1); its roots are 0,N,2N-2. These orthogonal pieces exhaust binom(N,2) dimensions. Vanishing kernel dimensions at a side length of three and coincident numerical eigenvalues are handled by the stated multiplicity convention. There is exactly one zero, so the graph is connected; multiplying the positive eigenvalues and dividing by binom(N,2) leaves 4 from the two exceptional nonzero constant-layer roots, as asserted. The bundled numerical and modular checker was inspected, not executed, and is not needed for the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exclusion Hamiltonian on the biclique is mn/2 - 2 S_1 dot S_2, with eigenvalues mn/2 + S_1(S_1+1) + S_2(S_2+1) - S(S+1) under spin coupling. The local multiplicity of spin r/2-a on r sites is binom(r,a)-binom(r,a-1).",
+          "The complement/Johnson theorem gives general simultaneous spectral pairing; the gap and cograph integrality theorems cover weaker consequences."
+        ],
+        "reasoning": "Use the full local spin decompositions in the Hamiltonian, not only the locally symmetric spin subspace. The spin-pair decomposition and fixed weight recover the required eigenspaces for two particles as a special case of the operator on the full occupation space. The complement theorem is another route: the complement token graph has components J(m,2), K_m square K_n, and J(n,2); the one-token lifts identify which complement eigenvalues belong to the 0 and N Johnson sectors, and the rest pair with 2N-2.",
+        "searches": [
+          "arXiv:1207.4106 Sections 3–4, Eqs. (12)–(13) and (15)–(17)",
+          "arXiv:2012.00808 Theorem 6.2",
+          "Verma (2026) Theorem 3.6",
+          "arXiv:2309.07089 Theorem 2.2 and Section 2.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Mendonça arXiv:1207.4106",
+        "Resultary 40156451790b and 7c4aeb6f2350",
+        "arXiv:2012.00808",
+        "arXiv:2309.07089 Theorem 2.2 and Section 2.2",
+        "arXiv:2610.00500v1 Corollary 4.14",
+        "Verma (2026) Theorem 3.6",
+        "Barik–Verma DOI 10.1016/j.laa.2024.02.004 abstract/metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set a=m/2-S_1, b=n/2-S_2, c=N/2-S. For two particles M=2-N/2, so c is 0, 1 or 2 with a+b<=c; impose nonnegative allowed local spins and the usual spin triangle range. Each admissible total spin contributes one state at this fixed M for each of the local spin copies.",
+          "The eigenvalue becomes c(N+1-c)-a(m+1-a)-b(n+1-b), of multiplicity [binom(m,a)-binom(m,a-1)][binom(n,b)-binom(n,b-1)]. For (a,b)=(0,0), c=0,1,2 gives 0,N,2N-2. For (1,0) and (0,1), c=1,2 gives n and m+2n-2, or m and n+2m-2, respectively. At c=2, (1,1), (2,0), (0,2) give N-2,2n,2m with the asserted dimensions; the nonexistent local spin at a side size of three corresponds to multiplicity zero."
+        ],
+        "reasoning": "This substitution gives every entry, including multiplicities, from the earlier operator and standard spin decomposition, without relying on the paper's reduced locally symmetric expression (18) or its subsequent gap sentence for the full fixed-particle space. The tree count follows mechanically from the matrix-tree theorem and is also printed in the indexed duplicate.",
+        "searches": [
+          "Mendonça Eqs. (12), (13), (15), (17) and fixed particle number n=N/2+M; compare with frozen multiplicities",
+          "Resultary 40156451790b Finding and incidence decomposition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mendonça's operator is the sum of I minus the endpoint transposition over original edges. On configurations with exactly two occupied sites, a term is zero if occupancies agree and otherwise replaces the occupied endpoint by the other, giving precisely the token-graph Laplacian.",
+          "Resultary 40156451790b uses the same unordered two-subsets and unnormalized Laplacian and writes its eigenvalue multiset as characteristic factors."
+        ],
+        "reasoning": "The fixed-two-particle exclusion space and the token vertex space are canonically the same, with no scaling of the unit-rate operator. The characteristic factors recover the eigenvalue multiset including every multiplicity.",
+        "searches": [
+          "two-token biclique Laplacian vs two-particle symmetric simple exclusion on complete bipartite graphs",
+          "arXiv:1207.4106 Eqs. (1)–(5), (15)–(17)",
+          "Resultary full two-token Laplacian spectrum and spanning trees of K_m,n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "40156451790b states z(z-t)(z-2t+2) times precisely the seven further factors with the frozen multiplicities (t=m+n), and groups the same spanning-tree terms into pairs.",
+          "7c4aeb6f2350 gives the exact endpoint 2(m+n-1) via the bipartite quotient, not the full list."
+        ],
+        "reasoning": "The first passage supplies exact symbolic coverage for the same parameter domain, not just sampled agreement. The second covers only the extremal eigenvalue.",
+        "searches": [
+          "Resultary 40156451790b Finding, offset 0",
+          "Resultary 7c4aeb6f2350 Finding"
+        ]
+      },
+      "rationale": "Mendonça's 2013 exclusion-process spin Hamiltonian and tensor spin multiplicities specialize to the full two-token spectrum, not just its extremal values. The tree product is then the direct matrix-tree corollary. In addition, the distinct indexed finding 40156451790b explicitly prints the identical characteristic polynomial and tree product and uses the same incidence-block argument. Its later record date does not establish historical priority; the earlier exclusion-process coverage does not depend on that record. The inaccessible Barik–Verma full text is not a reason for failure.",
+      "residual_risks": [
+        "The Barik–Verma full text was not available in the bounded lawful retrieval; whether it prints the specialized factors is unresolved but not decisive.",
+        "The chronological relationship of the two matching records is not determined; exact overlap and earlier operator-level coverage do not require such a determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The full operator and spin multiplicities give exact specialization; not an explicit printed ten-factor table",
+          "evidence": "Eq. (15) holds on the full occupation space and Eq. (17) gives the coupled-spin eigenvalue. Using the universal local multiplicities from Eqs. (12)–(13) and restricting to M=2-N/2 supplies exactly the frozen spectrum, including lower local spins not captured by a locally symmetric reduction.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.4106",
+          "material_read": "Section 2 Eqs. (1)–(5), offset 6769; Section 3 Eqs. (12)–(13), offset 12900; Section 4 Eqs. (15)–(17), spin and particle constraints, offsets 20000–25439",
+          "method": "Open-access PDF operator, representation-multiplicity and statement comparison",
+          "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+          "trigger": "Broader complete-bipartite spectrum under the exclusion-process equivalence"
+        },
+        {
+          "assessment": "Exact indexed match; no inference about chronological priority from the later record date",
+          "evidence": "Its characteristic factors and tree product coincide term by term after setting t=N and ungouping the paired factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-laplacian-spectrum-and-spanning-tree-count-of-two-token-co--40156451790b/RESULT.md",
+          "material_read": "Finding, assumptions, and opening incidence decomposition in Proof, local mirror offset 0 through 3115",
+          "method": "Direct factor and hypothesis comparison",
+          "title": "Exact Laplacian spectrum and spanning-tree count of two-token complete-bipartite graphs",
+          "trigger": "Same graph, parameter regime and both exact invariants"
+        },
+        {
+          "assessment": "Known radius endpoint, not a full census",
+          "evidence": "The spectral radius equals 2(m+n-1) for m,n>=2, by the bipartite signless-Laplacian quotient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-exact-laplacian-spectral-radius-of-2-token-complete-bipartite-gr--7c4aeb6f2350",
+          "material_read": "Finding and quotient method in local mirror",
+          "method": "Indexed statement comparison",
+          "title": "Exact Laplacian spectral radius of 2-token complete bipartite graphs",
+          "trigger": "Same object and an exact spectral invariant"
+        },
+        {
+          "assessment": "Gives a general alignment framework, not itself the printed biclique result",
+          "evidence": "Pairs eigenvalues of token-graph Laplacians for a graph and its complement with eigenvalues of the Johnson graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.00808",
+          "material_read": "Section 6 Theorem 6.2, offset 72840",
+          "method": "Open-access theorem passage inspection",
+          "title": "On the Laplacian spectra of token graphs",
+          "trigger": "General complement spectral pairing"
+        },
+        {
+          "assessment": "May contain the explicit specialized result; no negative inference from access",
+          "evidence": "The accessible description addresses structural properties and eigenvalue bounds; whether it prints the multiplicity table remains unverified.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2024.02.004",
+          "material_read": "Accessible abstract/metadata only; no full text obtained",
+          "method": "Bounded lawful retrieval and repository-copy attempt",
+          "title": "Spectral properties of token graphs",
+          "trigger": "Directly relevant modern spectral paper omitted from the full-text comparison in the frozen package"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The spectrum and spanning-tree count are natural invariants, and the incidence proof is transparent. But as a new exact-invariant contribution, every spectral factor is already obtained by the two-particle substitution in the earlier biclique exclusion Hamiltonian, and the tree count is its routine Kirchhoff product. The same explicit formulas and block method are also already present in the indexed comparison. No distinct invariant or surviving mathematically substantive result is established in this frozen scope.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:56:49.183994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each r,K>0, h>ell>=0, u,v>0 and X0>0, I recomposed the constant-rate logistic flow and its catch a log(1+x J_a). The HL and LH terminal denominators are 1+mz and 1+nz, with n-m=(H-L)pq>0. Writing s=1-L, the catch difference divided by K is d A-L B, with B>0 and sign A=sign(z-s). For L>0 the derivative ratio A'/B' is (1+mz)(2z+nz^2-s)/(d(1+pz)(1+qz)); both positive factors increase for z>max(0,s), since 2+qs>0. Averaging against dB, including the mass B(s) with zero slope when s>0, gives strict increase of A/B on that domain. Its initial limit is 0 for s>=0 or (L-1)/d for s<0, below L/d; its limit at infinity is infinite. At z=1 the two log arguments 1+m+Hpq and 1+m have weighted mean 1+n, with strictly positive weights d/H and L/H; strict log concavity places the crossing above 1. For L=0 the factorization itself gives equality exactly at 1. Integral J_a covers a=1 without division by zero. Thus the comparison is global in positive initial stock, with no restrictions on rates relative to r. Replay: RESULT.md lines 41–98 supply the analytic identities. Independently integrating x'=x(1-a-x), c'=ax by classical RK4 with 2048 uniform steps per block and bisecting z in [1,2] reproduced the numerical example, z_crit about 1.018264393667 and delta at z=.6 about -0.099326033822. The frozen script was read, not executed; that illustrative check is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu et al. compare annual sustainable yield on a periodic trajectory as closure length varies",
+          "Córdova-Lepe et al. give persistence, extinction and periodicity conditions for feedback closure after instantaneous catches"
+        ],
+        "reasoning": "Periodic-state comparisons do not quantify catch for each arbitrary initial balance on a prescribed horizon, and instantaneous feedback pulses do not subsume continuous positive efforts. No inspected general result covers that joint quantification.",
+        "searches": [
+          "Yu–Tang–Lou 2016, Section 2 and Theorem 2.2",
+          "arXiv:1110.6413v1, Sections 2 and 4"
+        ]
+      },
+      "checked_sources": [
+        "Yu–Tang–Lou (2016), art. 14",
+        "Córdova-Lepe–del Valle–Robledo arXiv:1110.6413v1",
+        "Resultary da77aeed6889",
+        "Resultary a83ea653873b",
+        "Resultary 9433bb12fafb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Constant-rate logistic formulas are classical and imply the L=0 case by comparing the no-effort flow against its starting stock and using monotonicity of the subsequent high-effort catch",
+          "Those formulas do not by themselves give uniqueness or the strict above-K inequality for L>0"
+        ],
+        "reasoning": "For two positive rates both catch terms matter and can oppose one another. The ratio monotonicity and strict Jensen bound are the substantive additional argument; the known zero-effort and periodic cases are not claimed as novel.",
+        "searches": [
+          "Yu–Tang–Lou 2016, equations (2.2)–(2.6), Theorem 2.2",
+          "Resultary da77aeed6889, RESULT opening finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary da77aeed6889, RESULT opening finding: a crossover question for integrated unharvested population-time under switched carrying capacities and equal durations",
+          "Resultary a83ea653873b and 9433bb12fafb, RESULT opening findings: quota ordering for persistence, and a timing crossover for terminal stock"
+        ],
+        "reasoning": "Switching fishing mortality changes the linear net rate and the catch weight together, not the quadratic coefficient at fixed r and K. Matching the biomass flows through a reparametrization would not also identify the effort-weighted integral with unweighted population-time. The discrete persistence threshold and terminal-stock timing reversal are other observables.",
+        "searches": [
+          "Primary lookup for finite-horizon two-rate logistic catch-order crossover",
+          "Resultary: switched logistic cumulative population, harvest ordering, seasonal timing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue findings are da77aeed6889, a83ea653873b and 9433bb12fafb, none giving this analytic binary order criterion"
+        ],
+        "reasoning": "The target is a theorem over continuous rates and durations, not a tabulable finite instance; the relevant result catalogue was checked. Ranked retrieval is not exhaustive.",
+        "searches": [
+          "Local Resultary semantic lookup for logistic crossover, cumulative catch, two-rate scheduling"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-parameter prescribed finite-horizon catch-order crossover, especially for two strictly positive efforts and its sharp location relative to K, together with the contrasting terminal ordering. Neither the population law nor the elementary zero-low-effort comparison is credited as a new method or model.",
+      "residual_risks": [
+        "An equivalent result may occur in switching or fisheries optimal-control literature under different terminology. The bounded search had no further useful primary match and does not certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical flow and periodic-objective overlap, no two-positive-effort fixed-stock comparison in the passages",
+          "evidence": "Theorem 2.2 optimizes annual sustainable yield on the periodic trajectory over closure timing.",
+          "identifier_or_url": "https://scik.org/cmbn/article/2016-14/cmbn-2016-14.pdf",
+          "material_read": "Abstract, Section 2 (printed pp. 5–9), equations (2.2)–(2.6) and Theorem 2.2",
+          "method": "OA PDF bounded text, offsets 0 and 6443–19092",
+          "title": "Revisiting logistic population model for assessing periodically harvested closures",
+          "trigger": "Closest same-flow closed/open fishery model"
+        },
+        {
+          "assessment": "Different dynamics, time control and objective",
+          "evidence": "Captures are instantaneous and determine subsequent closures; the theorem addresses persistence and periodicity.",
+          "identifier_or_url": "arXiv:1110.6413v1",
+          "material_read": "Abstract, Sections 1.2, 2.2–2.4 and 4 Theorem 1",
+          "method": "OA PDF bounded text, offsets 0 and 6457–19104",
+          "title": "A pulse fishery model with closures as function of the catch: Conditions for sustainability",
+          "trigger": "Harvest/closure switching and thresholds"
+        },
+        {
+          "assessment": "Different observable and stage parameter; no implication established",
+          "evidence": "Unharvested population-time with two carrying capacities and equal phase lengths, not effort-weighted catch.",
+          "identifier_or_url": "Resultary 2026/11/22 da77aeed6889",
+          "material_read": "RESULT opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Universal duration boundary for cumulative population under two switched logistic carrying capacities",
+          "trigger": "Closest structural crossover in catalogue"
+        },
+        {
+          "assessment": "Other model and observable",
+          "evidence": "Compares discrete-time persistence thresholds as the high quota varies.",
+          "identifier_or_url": "Resultary 2026/10/18 a83ea653873b",
+          "material_read": "RESULT opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A one-switch law for quota ordering in two-season Beverton–Holt persistence",
+          "trigger": "Quota-order analogue"
+        },
+        {
+          "assessment": "Other model and observable",
+          "evidence": "Seasonal discrete recruitment and a single removal compared at two dates by terminal stock.",
+          "identifier_or_url": "Resultary 2026/10/26 9433bb12fafb",
+          "material_read": "RESULT opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-crossing timing law for one-off harvest in seasonal Ricker recruitment",
+          "trigger": "Stock-conditioned order reversals"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact order criterion addresses a natural comparison when the two efforts and durations are fixed. It proves that below carrying capacity the later high-effort block increases catch but leaves less stock, and that two positive efforts postpone the unique reversal beyond carrying capacity. That is actionable mathematical information about two distinct objectives in the model, not a general policy recommendation or a statement about sustainable yield.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

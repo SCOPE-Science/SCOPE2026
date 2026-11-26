@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Every internal degree-two best response is the three-periodic XOR recurrence; leaf constraints depend only on arm length modulo \(3\), and the hub has exactly the two cases used by the formula. Thus every possible pure equilibrium is counted once, with complete boundary and nonnegativity checks. The reproducible exhaustive tests check 704 small spiders and 4,468,176 candidate profiles; the proof, not this finite census, covers all parameters.
+## correctness
 
-## Originality — PASS (best-knowledge priority assessment)
-Gilboa and Nisan's 2022 Section 3 gives the specific best response and the mod-three **path** and **cycle** phenomena and proves general-graph NP-completeness, but its inspected mathematical sections do not supply a spider equilibrium polynomial or the hub-compatible residue classification. Related broad hardness and bounded-treewidth algorithms [2–4 in RESULT.md] do not logically imply a closed coefficient formula. A prior equivalent enumeration under alternative vocabulary remains a residual risk; absence from searches is not a formal uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The exact producer-count spectrum and sharp criterion for nonzero pure equilibrium classify a natural infinite branching-tree class within a pattern whose general equilibrium-decision problem is NP-complete. The formula captures exponential multiplicity, all producer-count coefficients, and the qualitatively different hub-active boundary. This is a structural classification rather than a single instance or routine numeric exercise.
+Under the strict unique best response specified in the assumptions, an internal arm vertex satisfies x[j+1]=x[j−1] XOR x[j]. With hub value c and first-arm value a the arm repeats c,a,c XOR a. The leaf equation x[ℓ]=x[ℓ−1] forces a=0, a=c, or c=0 for residues 0, 1, or 2 respectively, including a one-edge arm. For c=0 only residue-two arms can activate, each with exactly 2(ℓ+1)/3 producers; the hub excludes singleton activated-arm subsets and no others. For c=1 no residue-two arm is allowed and the hub requires exactly one residue-one arm. Then the determined words and the hub contribute 2+2Σ⌊ℓᵢ/3⌋ producers in total. This exhausts labeled equilibria, including equal arm lengths or equal subset weights; setting z=1 gives the count and the nonzero criterion. An independent bitmask enumeration checked 398,160 profiles over 125 arm multisets with at most 13 vertices and degrees 3–5 (/workspace/branches/frozen_math_replay.py, argument 4); the uploaded script was inspected, not executed. Finite tests corroborate the coefficients without establishing the unbounded formula.
 
-## Sources and limits
-Primary sources: https://arxiv.org/abs/2207.04238 (Section 3); https://arxiv.org/abs/2301.11580 (intro and structural hardness analysis); https://arxiv.org/abs/2012.02916 (algorithms on bounded-treewidth networks); https://arxiv.org/html/2301.11849v3 (intro and picky-pattern analysis). The scope is labeled homogeneous strict best-response games on spiders. A specialized equivalent may remain undiscovered; external independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The result's distinct content is the all-arm-length, labeled producer-weight polynomial and its hub residue restriction, not the exact-one rule or the period-three path recurrence. Closest inspected primary results cover the local path structure or algorithms for finding one equilibrium; closest indexed results differ in graph, response, or equilibrium notion. The pass is for the bounded comparison, not proof of literature priority.
+
+## value
+
+PASS
+
+The spider is a natural next tree family beyond paths, where a genuine branching constraint appears. The exact distribution by number of producers, not just feasibility or the total count, distinguishes families with repeated/unbalanced arms and shows how the hub can forbid an otherwise viable single arm or enable a uniquely hub-active profile. It provides an explicit classification without enumerating profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

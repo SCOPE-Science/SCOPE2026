@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:31:46.288718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two outer-product updates give a 2-by-2 block of trace 9 and determinant 8 for M_u alongside an eigenvalue 1, and M_v is diagonal. Thus the spectra are (1,1,8) and (0,4,5), with unique unsmoothed winner u and traces 10 and 9. Set t=exp(-1/mu); the sign of the objective difference is the negative of the sign of P=2t+t^8-1-t^4-t^5=(t-1)Q(t). Descartes' bound of two positive zeros counted with multiplicity and the exact signs at 1/2, 3/5 and 9/10 prove two simple roots, all ties and all three winner intervals. Independent 60-digit bisection on P, not the frozen script, gives 1.879597222729257440 and 6.819744289599112074 for the two mu values. For d=2 the sorted smaller eigenvalue and the trace are the two ascending partial sums; strict advantage in both makes the sum of the strictly decreasing convex exponentials smaller. Concretely, at fixed trace that sum decreases as the smaller eigenvalue moves toward half the trace, while at fixed smaller eigenvalue it decreases as the trace increases. Increase the trace first and the smaller eigenvalue second; the intermediate ordered pair is feasible. Dimension one is immediate. The claim is about binary choices, not fractional optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hendrych et al. use the identical normalized soft minimum and establish that mu<delta/log d suffices to preserve an optimizer separated by gap delta.",
+          "The approximation and gradient results do not specify the number of changes for larger mu."
+        ],
+        "reasoning": "The general bound already covers endpoint stability at low smoothing. It does not cover an interval of strict preference for a singular option, the ensuing return to the same winner, or a rank-one construction showing it.",
+        "searches": [
+          "Hendrych, Besancon and Pokutta, arXiv:2608.27024v1, Bayesian E-optimal setting, Eqs. (4)–(5), optimizer-gap argument, computational Section 7",
+          "d'Aspremont, arXiv:math/0512344, Eqs. (3.3)–(3.4)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.27024v1",
+        "arXiv:math/0512344",
+        "Resultary 5db6cc6094bf, b0ebfc73ec69, 66922def8ca6",
+        "Frozen result, verification notes and captured output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ascending partial sums are (1,2,10) and (0,4,9); neither vector weakly supermajorizes the other. In dimension two the smallest eigenvalue and trace are all the partial sums, so the obstruction there is a standard decreasing-convex order consequence."
+        ],
+        "reasoning": "The standard order explains the dimension-two obstruction and does not determine a winner in this example. The intermediate sign and exact number of sign changes require a further witness and argument beyond the endpoint statements and gap bound.",
+        "searches": [
+          "arXiv:2608.27024v1 Eq. (5) and optimizer-gap argument compared with the original exact two-root proof",
+          "Weak supermajorization test on the ascending spectral partial sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At beta=1/mu the same comparison is 2e^(-beta)+e^(-8beta) versus 1+e^(-4beta)+e^(-5beta), or the power sums of (e^-1,e^-1,e^-8) and (1,e^-4,e^-5).",
+          "Taking negative eigenvalues exchanges soft minimum and soft maximum, which is the log-trace-exponential smoothing of d'Aspremont, Eq. (3.3)."
+        ],
+        "reasoning": "A transform-order example with the same endpoint constraints or a dominating realizable family would be pertinent. Standard log-trace-exponential smoothing alone gives no such reversal, and a two-switch example for a different objective is not equivalent.",
+        "searches": [
+          "Local Resultary: spectral soft minimum / Bayesian E-design and two-switch reentrance",
+          "Finite Laplace transform and power-sum reformulations of the displayed spectra",
+          "d'Aspremont, arXiv:math/0512344, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The reentrant three-bit Ehrenfest result changes an approximation threshold under variation error. The three-level order polytope result changes the least-variance covariance eigenspace with size. The same-day Lanczos result changes the sign of an extreme mode of an approximation error once."
+        ],
+        "reasoning": "None of the inspected comparisons involves the same soft-min ranking of two competing rank-one Bayesian designs, nor yields the displayed crossover polynomial.",
+        "searches": [
+          "Local Resultary: explicit spectra (1,1,8)/(0,4,5), entropic spectral rankings and temperature reversals",
+          "Resultary 5db6cc6094bf, b0ebfc73ec69 and 66922def8ca6: bound findings"
+        ]
+      },
+      "rationale": "The normalized smoothing, Bayesian E-design setting, low-smoothing stability, and the elementary d<=2 majorization argument are not new. The contribution that survives comparison is the explicit minimal-dimensional shared-prior rank-one witness, with a singular interior winner, strict agreement at both endpoints, and exactly delimited reversals; it is not supplied by the inspected smoothing results or the distinct indexed two-switch examples.",
+      "residual_risks": [
+        "The external comparison under finite Laplace-transform, power-sum, and catalytic/trumping terminology is not exhaustive; an older equivalent crossing construction remains possible. No priority claimed for two-switch behavior as an abstract pattern."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method and low-smoothing conclusion, not this reversal",
+          "evidence": "Normalized soft minimum and mu log d error bound imply stability for mu<delta/log d.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.27024v1",
+          "material_read": "pp. 3–5 (OA offsets 9300, 17400, 22000), Eqs. (4)–(5); pp. 12–14 numerical smoothing",
+          "method": "Primary OA full-text passages",
+          "title": "Discrete eigenvalue optimization from entropic smoothing and first-order methods",
+          "trigger": "Identical objective and E-design model"
+        },
+        {
+          "assessment": "General smoothing/gradients, not exact temperature ranking",
+          "evidence": "Log-trace-exponential smoothing of the largest eigenvalue has a mu log d error bound.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0512344",
+          "material_read": "Section 3, p. 6, Eqs. (3.3)–(3.4)",
+          "method": "Primary OA full-text passages",
+          "title": "Smooth Optimization with Approximate Gradient",
+          "trigger": "Sign-dual matrix-exponential smoothing"
+        },
+        {
+          "assessment": "Similar transition terminology, distinct objectives and theorems",
+          "evidence": "Ehrenfest variation-error selection, order-polytope covariance, and Lanczos approximation, respectively.",
+          "identifier_or_url": "Resultary 5db6cc6094bf; b0ebfc73ec69; 66922def8ca6",
+          "material_read": "Bound original findings",
+          "method": "Local Resultary search and mirrored sources",
+          "title": "Reentrant sharp variation-error transition; two sharp least-variance transitions; parity and an extreme-mode sign transition",
+          "trigger": "Indexed structural or matrix-exponential analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a compact counterexample to reading the low- and high-smoothing rankings as evidence for intermediate smoothing. It works for two legitimate rank-one experiments on a common prior, selects a singular design on a whole open interval despite a full unit loss in the exact E-objective, and locates that interval exactly in the smallest possible dimension. This supplies a reproducible diagnostic instance for a standard objective without claiming a solver failure or general switch bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

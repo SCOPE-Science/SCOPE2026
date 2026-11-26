@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every \(m,n\ge2\), the partition-lattice Möbius formula follows by classifying nonempty neighbourhoods of right-shore vertices by the coarsest partition they connect. The \(b=1,3\) partition terms yield the full modulo-four classification; all other terms vanish modulo four. The Stirling recurrence fixes its parity uniformly. Explicit sign choices attain multiplier magnitude one for every shore size at most three. For \(K_{4,4}\), two structurally independent exact calculations agree at each of 65,536 characters; the complete signed histogram, rather than isolated samples, proves the minimum multiplier three and the sharp condition number.
+## correctness
 
-**Originality — PASS under bounded literature comparison.** The 2008 Boolean Fourier survey covers general convolution, and the inspected 2017 bipartite chromatic-polynomial literature covers unsigned counting and orientation interpretations, not the sign-sensitive frequency-uniform modulo-four assertion or the 49-level connected-subgraph spectrum of \(K_{4,4}\). Previous indexed computations for fixed-excess \(K_{2,n}\) and for the tree-only subfamily of \(K_{4,4}\) cannot imply the new whole-family Fourier statement merely by matching the graph name; taking a union changes the character multipliers. Search limitations and a possible unindexed signed-reliability specialization remain priority risks.
+PASS
 
-**Value — PASS.** Recovering an unknown signal from Boolean additive convolution with a natural network connectivity constraint requires *every* frequency multiplier to survive. The new all-parameter congruence settles exact invertibility on all nontrivial complete bicliques, while the first thick-shore example displays a genuine quantitative transition from unit to nonunit optimal spectral gap. The exact 49-level certificate determines the sharp inverse norm at that boundary and supplies a reproducible comparison point for more complicated biclique signings. Neither generic reliability counts nor parity alone determines this finite sharp stability constant.
+For an edge subset with no isolated right vertex, its nonempty right neighborhoods generate a partition of the left shore by equivalence closure. The subset is connected exactly when this generated partition is one block. Summing the signed weights of neighborhoods lying inside blocks, then applying the partition-lattice Möbius function, proves equation (1). The source's phrase 'common coarsest partition' should be understood as this finest compatible partition, or join of neighborhood-generated relations; the actual inversion uses the correct containment. Even numbers of blocks give even column factors and hence products divisible by four; factorials discard all block counts ≥5. The surviving one-block term is (−1)^n and each three-block term is 2 modulo four. The Stirling recurrence gives S(m,3)≡m mod 2, including m=2. For m=2 opposite signs in every column kill the two-block term. For m=3 columns (++−) and (−−+) include one column annihilating each two-block term, as do (++−) and (+−+); the specified multiplicities give −1 for even n and +1 for odd n, with transposition covering n=2. Nonzero integer multipliers give invertibility and the sharp thin unit gaps. Fresh BFS plus integer Walsh transform reproduced all 65,536 coefficients and every bin of the 49-level frozen histogram: rank 65,536, |W|min=3 (11,664 instances of −3), |W|max=W(0)=36,317, and Parseval sum 2,380,070,912. Counting convolution on the unitary character basis therefore has inverse norm 1/3 and condition number 36,317/3.
 
-Scientific limitations: the sharp spectral gap remains unclassified for general shores of size four or greater; novelty has not been independently established; inaccessible full text of one related reliability article and older chromatic-polynomial specializations remain historical risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The signed connected-subgraph polynomial, Fourier diagonalization, and Möbius machinery are established. The distinct content is the residue for every edge-sign assignment, the simultaneous sharp thin-shore unit gaps, and the first unrestricted nonunit gap and complete histogram. The closest inspected sources concern vertex-colouring data, fixed edge counts including spanning trees, or known polynomial expressions rather than the evaluated congruence and gaps. In particular the K(2,n) layer formulas give overlap in the summands of the thin case, not a formula in the inspected statements for the whole theorem.
+
+## value
+
+PASS
+
+The natural connected-spanning indicator defines a recovery operator whose nonvanishing is not guaranteed by generic Fourier theory. A sign-uniform mod-4 invariant establishes exact recoverability across all bicliques; explicit small-shore witnesses and the complete first thicker case identify where the unit spectral floor first increases. The exact multiplicity and extremal coefficients answer conditioning questions for a standard host and distinguish the observable sharply from the spanning-tree projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:20:40.757679Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–61; original CHECK.py and VERIFICATION.md inspected without executing",
+        "Corrected RESULT.md, Finding, Assumptions and Proof; independently written corrected CHECK.py and its reproducible output"
+      ],
+      "rationale": "For the repaired theorem, multiplication by z^-1(z+1)^2 models the cyclic update, including two coincident neighbors at n=2. If n=2^s u with u odd, the multiplicity of z+1 in z^n-1 is 2^s; the kernel of multiplication by a polynomial f in the quotient is the space of multiples of (z^n-1)/gcd(f,z^n-1). Thus the nested kernels have dimensions min(2t,2^s) starting at t=0. For odd n the only nontrivial difference at positive time is the all-one complement mask, excluded by odd cyclic length and the simultaneous absence of 11 and 00. For even n set M=2^s. For every 1<=t<=M/2, the exponent M-2t is even, so (z+1)^(M-2t) encodes a length-M word supported on even indices and repeated admissibly to obtain length n. Repetition intertwines the updates and is injective. Modulo (z+1)^M, the image of that word at t-1 is a unit shift of (z+1)^(M-2), nonzero, and at t is zero. This finds an actual collision of two different time-(t-1) outputs at each stated step, including n=2. Thereafter the ambient kernels and hence the actual source partitions agree. Counts of images, not equality of the sets of images, stabilize. Ran the newly written CHECK.py in the corrected files: VERIFY_OK n=2..16: image counts and all strict-step witnesses.",
+      "residual_risks": [
+        "Finite checks do not prove all n,t. The polynomial proof supplies the universal statement; no later fiber distribution or sizes of individual strict losses are claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The permuted Rule 90 Finding treats all even lengths and any site permutation on the full vector space, including identity. For identity the one- to two-step ambient rank drops iff 4 divides n; for n=2 mod 4 the kernel cannot grow and consequently no source restriction coarsens after step one. The separation record treats wider initial spacings but explicitly only one spatial observation."
+        ],
+        "reasoning": "The no-growth branch is implied by ambient equality and is credited. Increasing ambient kernels, even with the classical full-state saturation depth known, give only a possible loss on a restricted set. Neither inspected theorem guarantees actual new constrained identifications at every step before stabilization.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-sharp-mod-four-stabilization-and-zero-mode-rank-dichotomy-for-pe--39040a59fa6b",
+          "Resultary 2026/11/22/SCOPE-sharp-separation-threshold-for-lossless-cyclic-rule-90-readout--b1a0513ff160"
+        ]
+      },
+      "checked_sources": [
+        "The two mirrored Rule 90 records on separation and mod-four stabilization above",
+        "Miller–Bardzell §3 and Mollard arXiv:1201.1494",
+        "Local Resultary enquiries and adjoining records named above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r=1, the separation record's inputs are the same indexed no-11 cyclic words at n>=5, with the same full one-step formula and parity-mask proof. The unrestricted necklace record quotients rotations, and the XOR-profile record uses paths with endpoints not adjacent. The ambient rank result gives strict drops somewhere in the full state space, not supported source witnesses."
+        ],
+        "reasoning": "The original overlap is demonstrable without assuming a same-day order. The corrected proof adds a parity-supported period-2^s witness whose exact annihilation time can be set independently to any t up to 2^(s-1); neither the one-step census, ambient rank decrease alone, a rotation quotient nor a path XOR profile yields that conclusion on this source domain.",
+        "searches": [
+          "Resultary 2026/11/22/SCOPE-sharp-separation-threshold-for-lossless-cyclic-rule-90-readout--b1a0513ff160, Finding and proof §§2–4",
+          "Resultary 2026/10/25/SCOPE-sharp-mod-four-stabilization-and-zero-mode-rank-dichotomy-for-pe--39040a59fa6b, Finding",
+          "Resultary 2026/11/8/SCOPE-the-four-valued-predecessor-law-for-cyclic-rule-90-necklaces--1b4786197dbc",
+          "Resultary 2026/11/16/SCOPE-exact-xor-representation-profile-and-fourth-walsh-moment-of-fibo--04d47201df94"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source is exactly indexed cyclic Lucas strings, not Fibonacci strings or necklaces. Strict loss at step t is equivalent to the source XOR difference set meeting ker(Phi^t) outside ker(Phi^(t-1)). The literature excerpt for unrestricted Rule 90 yields two versus four predecessor states at one step, regardless of the source constraint."
+        ],
+        "reasoning": "Knowing a kernel increases in the full vector space does not generally imply an increase in this difference-set intersection. The corrected theorem solves the restricted existence problem by making each difference an admissible source itself and pairing it with zero.",
+        "searches": [
+          "Resultary: cyclic Rule 90 no adjacent ones constrained Lucas independent sets exact strict image cardinality decrease at every step until two-adic saturation depth 2^(v2(n)-1) nilpotence loss constrained hard-core period witness",
+          "Mollard arXiv:1201.1494 pp. 1 and 3",
+          "Miller–Bardzell, Complex Systems 15 (2004), §3 Corollary 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching table of one-step fiber multiplicities for r=1 appears in the separation Finding and is excluded from the revised claim. The exact frozen self-hit a49ca7533403 states a second-step strict loss for 4|n but not a strict loss at every growing stage and an exact full horizon. The dyadic extinction Resultary hit 3b09cd75d1f5 is a sequential site-update model on all configurations, not a synchronous constrained horizon."
+        ],
+        "reasoning": "The catalog comparisons distinguish exact multiplicity tables at the first step from stage-by-stage strictness to a specific terminal step. The absence of another hit is not treated as evidence of historical priority.",
+        "searches": [
+          "Resultary: cyclic Rule 90 no adjacent ones constrained Lucas independent sets exact strict image cardinality decrease at every step until two-adic saturation depth 2^(v2(n)-1) nilpotence loss constrained hard-core period witness",
+          "Resultary 2026/11/22/SCOPE-sharp-separation-threshold-for-lossless-cyclic-rule-90-readout--b1a0513ff160, Finding"
+        ]
+      },
+      "rationale": "The repaired contribution is the exact time horizon of strict losses on the constrained source, with an admissible witness at every increasing kernel stage. The all-state kernel and one-step constrained inverse-fiber census are credited, not reasserted as novel results. The exact constrained horizon is not covered in the inspected stronger and equivalent formulations.",
+      "residual_risks": [
+        "Martin–Odlyzko–Wolfram (1984), Algebraic Properties of Cellular Automata, was identified from Miller–Bardzell but the attempted direct full-text route timed out. It is a plausible older source for the unrestricted time kernel; no coverage claim is inferred from inaccessibility. Bounded comparison does not certify historical priority for the constrained horizon."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact overlap as a broader one-step result at r=1, n>=5. Time iteration is explicitly outside scope.",
+          "evidence": [
+            "Theorem case 3 gives the same singleton, double and triple counts and unique zero triple; the proof uses the same parity masks, and the scope says it studies one spatial observation."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-separation-threshold-for-lossless-cyclic-rule-90-readout--b1a0513ff160",
+          "material_read": "RESULT.md, Finding and proof §§1–4, mirrored offsets 0–5593",
+          "method": "Local mirrored primary record",
+          "title": "Sharp separation threshold for lossless cyclic Rule 90 readout",
+          "trigger": "Stronger one-step constrained inverse-fiber spectrum on the same cyclic inputs"
+        },
+        {
+          "assessment": "Covers the unrestricted mod-four time boundary, not strictness at each step for the constrained source.",
+          "evidence": [
+            "With P=I the first two ranks match at n=2 mod 4 and differ by two at 4|n; the state space is explicitly all of F_2^N."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-mod-four-stabilization-and-zero-mode-rank-dichotomy-for-pe--39040a59fa6b",
+          "material_read": "RESULT.md Finding, scope and start of proof, mirrored offset 0–3616",
+          "method": "Local mirrored primary record",
+          "title": "Sharp mod-four stabilization and zero-mode rank dichotomy for permuted Rule 90 rings",
+          "trigger": "Potential stronger time-stability theorem including identity permutation"
+        },
+        {
+          "assessment": "Antecedent for unrestricted two-versus-four predecessors, not a restricted time theorem in the inspected passage.",
+          "evidence": [
+            "The predecessor count is 2^gcd(2,n) for any attainable unrestricted output."
+          ],
+          "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2018/02/15-2-2.pdf",
+          "material_read": "§3 Corollary 5, PDF p. 11, offset 26800, and reference to the 1984 algebraic antecedent",
+          "method": "OA primary PDF passage",
+          "title": "The Evolution Homomorphism and Permutation Actions on Group Generated Cellular Automata",
+          "trigger": "Classical unrestricted Rule 90 kernels"
+        },
+        {
+          "assessment": "Same indexed cyclic language; the inspected material concerns cube graph structure.",
+          "evidence": [
+            "The Lucas strings satisfy both path no-adjacent-ones and the condition b_1 b_n not equal to one."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1201.1494",
+          "material_read": "PDF pp. 1 and 3",
+          "method": "OA primary PDF passages",
+          "title": "Maximal hypercubes in Fibonacci and Lucas cubes",
+          "trigger": "Identification of identical constrained language under alternative terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, Finding and parity-supported witness proof",
+        "Comparison with the unrestricted mod-four theorem and the one-step separation theorem above"
+      ],
+      "rationale": "The indexing, hard-core language and synchronous dynamics are canonical. A nonlinear source restriction can hide ambient rank losses, so knowing the all-state horizon does not answer whether observation precision continues to degrade on this source. The theorem proves that no growing-kernel stage is hidden at even lengths, identifies exactly when a decoder's source partition will stop changing, and gives explicit admissible collision witnesses at every step up to that boundary. This is a natural time invariant and an exact structural guarantee, not a repeat of the one-step count.",
+      "residual_risks": [
+        "No statement about noise, other initial spacing rules, or exact magnitudes of the losses is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

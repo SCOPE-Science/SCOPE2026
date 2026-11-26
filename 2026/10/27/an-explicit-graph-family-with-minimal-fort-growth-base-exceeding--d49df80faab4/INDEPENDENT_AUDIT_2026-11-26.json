@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:59:28.195695Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The eleven edges are exactly the stated join, with vertex 0 isolated in its original three-vertex part. Independent enumeration tested the outside-neighbor and proper-subset conditions on all 64 masks and recovered eight rooted triples and the six rootless minimal forts 24,15,123,134,235,345. Testing the 32 peripheral masks recovered the stated 17 admissible masks, with counts (2,3,8,4) by root-neighbor count. For a global fort omitting 0, each nonempty peripheral intersection is admissible. Those with count 1 contain 24; those with count other than 1 are themselves local rootless forts and contain a local minimum. These local minima remain forts and remain minimal in the bouquet, so any minimal rootless global fort lies in a single petal. For a fort containing 0, restrictions are independent rooted local forts. There is no rooted fort of size at most two, and the only pairs not completing a rooted triple are 15 and 24, so every rooted fort contains one of the eight triples. Hence each global rooted minimum must use one such triple per petal. The unions are minimal: keeping 0 would require keeping each whole triple, and dropping it leaves subsets of the selected pairs, none of which has a nonempty peripherally admissible subset. This proves 8^k+6k for all k. The independent enumeration did not execute the supplied checker; the supplied 14,76,530 are recorded corroboration only. Taking roots with |V|=5k+1 gives the exact subsequence limit 8^(1/5), strictly above 3^(1/3); no all-orders or extremality result is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker et al. obtain 3^k+3k from complete-block windmills and give a general middle-binomial upper bound, not a dominating general-graph growth construction.",
+          "Dat and Kenter's ~1.32472 growth is for paths and controls trees up to polynomial factors. Abiad and Ghasemi Nezhad separate a block-graph minimal-fort lower bound and a tree algorithm from their exponential statements about all forts."
+        ],
+        "reasoning": "The tree and complete-block hypotheses do not cover the cyclic non-clique petal. Exponential abundance of arbitrary forts cannot substitute for abundance of inclusion-minimal forts.",
+        "searches": [
+          "arXiv:2404.05963, windmill enumeration and general antichain bound",
+          "arXiv:2605.07298, extremal minimal-fort estimates on trees",
+          "arXiv:2609.11754, introduction and statements of Theorems 2.8, 4.14 and Corollary 3.11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_output.txt",
+        "Resultary 592759b318d7 and f0761e894052, cited sections",
+        "arXiv:2404.05963, 2605.07298 and 2609.11754, bounded passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Beating 3^(1/3) follows already from the cocktail-party base 12^(1/6). The frozen base strictly beats that earlier exhibited base since 8^6=262144>248832=12^5.",
+          "A complete windmill petal or universal-hub cocktail-party petal does not have the same peripheral admissibility test. For the present root, a piece with just one root-neighbor can be locally obstructed yet occur across petals; showing that every such piece contains the zero-root-neighbor fort 24 is what prevents new multi-petal rootless minima."
+        ],
+        "reasoning": "The indexed benchmark covers the qualitative phenomenon, but neither prior exact formula yields this gadget's split or its strictly improved exponent. The local admissibility implication is essential to the all-k result.",
+        "searches": [
+          "Resultary 592759b318d7, Finding and Proof §§1–3",
+          "Becker et al., Corollary 28 and discussion of the growth conjecture"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact local graph can be described as K6 minus two disjoint copies of P3, rooted at the center of one missing-edge P3.",
+          "The October 13 cocktail-party bouquet uses K6 minus a matching with an external shared hub. Its order and split are 6r+1 and (12^r,11r), versus 5k+1 and (8^k,6k)."
+        ],
+        "reasoning": "These are different petals and different counts, not isomorphic graph descriptions or a parameter renaming of the indexed example. The primary search yielded no relevant primary result and is not used as negative evidence.",
+        "searches": [
+          "Resultary: minimal forts, graph vertex-sum/bouquet/windmill constructions and exponential growth",
+          "Primary search: zero forcing, minimal forts, 12^r, bouquet, windmill growth base"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest indexed comparison is cocktail-party record 592759b318d7, which proves 12^r+11r. The distinct same-day hit f0761e894052 concerns functional covers of rooted-star posets, not zero forcing."
+        ],
+        "reasoning": "The inspected entries do not give the exact 8^k+6k count or this rooted gadget. This is an evidence-limited finding, not a claim that all graph catalogs or unindexed results were exhausted.",
+        "searches": [
+          "Resultary: exact bouquet minimal-fort formula, local petal counts, same-day graph-fort and rooted terms"
+        ]
+      },
+      "rationale": "The broad claim that a connected family can exceed the windmill base is already indexed and is not credited as original. The supported distinct claim is the explicit shared-root, five-new-vertices petal, its exact split count and the larger base 8^(1/5), not a first resolution of faster-than-windmill growth.",
+      "residual_risks": [
+        "No exhaustive search of unpublished small-gadget tables or all representations of equivalent bouquets was made.",
+        "The full Abiad–Ghasemi Nezhad PDF was accessible but was not read exhaustively; the comparison concerns its identified principal statements.",
+        "This audit does not claim that 8^(1/5) is the largest known or attainable base over all graph families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative claim but not the frozen construction, exact count or larger base",
+          "evidence": "12^r+11r on 6r+1, with a separate universal hub and cocktail-party petals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-cocktail-party-bouquet-exceeds-the-windmill-minimal-fort-growt--592759b318d7",
+          "material_read": "Finding and Proof §§1–3",
+          "method": "Published-record local mirror",
+          "title": "A cocktail-party bouquet exceeds the windmill minimal-fort growth bound",
+          "trigger": "Same growth objective and indexed exact bouquet formula"
+        },
+        {
+          "assessment": "Not a mathematical match",
+          "evidence": "Considers covers of expansive relations and functional-cover ranks, not minimal forts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-functional-cover-spectrum-and-poisson-transition-for-expansive-r--f0761e894052",
+          "material_read": "Finding",
+          "method": "Published-record local mirror",
+          "title": "Functional cover spectrum and Poisson transition for expansive relations",
+          "trigger": "Distinct same-day ranked match with rooted terminology"
+        },
+        {
+          "assessment": "Prior benchmark, does not dominate new base in inspected statements",
+          "evidence": "Corollary 28, with r=4, gives 3^k+3k on 3k+1.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.05963",
+          "material_read": "PDF p. 2 upper bound and growth discussion, pp. 17–18 Corollary 28",
+          "method": "Targeted OA PDF passages",
+          "title": "On the number of minimal forts of a graph",
+          "trigger": "Primary benchmark and possible general construction"
+        },
+        {
+          "assessment": "Different graph class",
+          "evidence": "The tree maximum is bounded by a polynomial times the path count, not an upper bound for cyclic graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.07298",
+          "material_read": "Theorem 1 and path asymptotics, pp. 1–3",
+          "method": "Targeted OA HTML/PDF passages",
+          "title": "On the Number of Zero Forcing Minimal Forts on Trees",
+          "trigger": "Extremal minimal-fort count"
+        },
+        {
+          "assessment": "Accessible theorem summaries concern other objects or classes",
+          "evidence": "States n/3 for block-graph minimal forts, exponential counts of arbitrary forts for specified classes, and an exact tree algorithm. These passages do not give a cyclic bouquet's minimal-fort exponent.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.11754",
+          "material_read": "Abstract and introduction, pp. 1–2, in particular offsets 4550–6950 separating main results",
+          "method": "Targeted OA PDF, located with minimal-fort and graph-construction keywords",
+          "title": "Fort Abundance in Zero Forcing",
+          "trigger": "Potential later general abundance or exact-count result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The numerical improvement over the indexed cocktail-party benchmark is small, but has a structural reason: rooting inside the petal rather than adding a universal hub yields eight independent local choices per five new vertices; the rootless admissibility analysis prevents combinations spanning petals from generating spurious minima. The exact family and split give a useful stronger lower bound in the motivated connected extremal problem, without assuming all better examples must take this form.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

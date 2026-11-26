@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:21:19.741307Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussian summability gives finite random total intensity almost surely for each K. Independent gamma mixing gives independent Bernoulli indicators with p=1−(1+u)^(-K), u=exp(−E). On either sign in a fixed centered energy window, Kh²=(4A² log K)^(-1), the mesh is A^(-1)(1+o(1)), and Ku=A^(-1)e^(−y). Taylor's formula bounded by K(K+1)u²/2 gives the rare-success estimate uniformly. The log Laplace functional for each compactly supported nonnegative test is then a Riemann sum plus an error bounded by a multiple of the sum of squared probabilities, which tends to zero. The independently marked limit has intensity e^(−y)dy per side. Vague convergence alone does not justify the farthest-site limit: summing the dominating Ku beyond T+t and bounding by a boundary cell plus Mills' inequality gives an upper bound e^(−t)/A+e^(−t)√(log K/(T+t)) per sign. Fixed intervals (t,M] and M→∞ give the complementary bound. The maximum individual tail probability vanishes, so the product of no-detection probabilities tends to exp(−2e^(−t)). Since T+t>0 eventually, the event equality holds even with no detections or only a detection at zero. Tightness gives the radius scale, while Kh²→0 at the nearest nonzero site makes p_{1,K}→1. The explicit mesh gives A=(log K)^(3/2)/2 and the stated additive −log 2 in T. Inspected verify_edge.py without running it: its nominal gamma-integral comparison is two algebraically equivalent marginal formulas, a floating-point consistency check, not independent integration or a limit proof.",
+      "replay": "Frozen RESULT.md proof. Independent bounded energy-window calculation and output: private evidence files gamma_cox_bounded_check.py and gamma_cox_bounded_check.out; convergence of the finite estimates is not a proof of the infinite-grid limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Micheas explicitly distinguishes pointwise fixed-site convergence from uniform convergence over arbitrary infinite sets and discusses the unresolved passage beyond finite candidates. Generic law-of-small-numbers and extreme point-process tools are applicable after intensity convergence and tail control, but do not specify their values for this lattice. The exact OA retrieval attempts for the two cited generic articles did not return their text."
+        ],
+        "reasoning": "The widening array changes the problem; it cannot be obtained by taking the fixed-candidate statement with a K-dependent candidate count. The exact Bernoulli marginal plus generic convergence tools nevertheless explains much of the mechanism, so the novelty is narrowly model-specific.",
+        "searches": [
+          "arXiv:2611.16011v1 §§2.4, 3 around the finite-set results and §5",
+          "Hüsler–Schmidt rare-events paper, exact publisher link",
+          "DOI 10.1016/j.spl.2026.110722"
+        ]
+      },
+      "checked_sources": [
+        "Micheas arXiv:2611.16011v1, relevant primary passages",
+        "Primary topical search on Cox zero detection",
+        "Resultary dense-grid Gamma-Cox/rare-event search",
+        "Exact access attempts for the two generic comparison citations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a fixed candidate set, the prior error bound uses terms K exp(−K|g(x_j)|²) at fixed nonzero |g(x_j)|; for the refining lattice the nearest nonzero coordinate instead satisfies K h_K²→0. At the predicted edge, balancing energy-site density A_K against per-site success A_K^(-1)e^(−y) and controlling the infinite Gaussian tail yields the missing quantitative conclusion."
+        ],
+        "reasoning": "The no-classification observation at the first neighbor is a direct consequence of the prior marginal. The new claim must be assessed on the sharp marked edge and extremum, whose constants and uniform tail bound are not supplied by the fixed-set theorem alone.",
+        "searches": [
+          "Micheas, Lemmas 6 and 8, Theorem 9, and concluding remarks",
+          "Resultary dense-grid gamma-Cox detector / outer edge search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Micheas Lemma 6 has exactly the occupied-site marginal for g(x)=x, and Lemma 8 assumes independent Gamma(K,1) variables at finitely many fixed candidate sites. After mixing, this is also an independent inhomogeneous Bernoulli lattice problem; the presence-only observable is not a new dependent Cox field."
+        ],
+        "reasoning": "The relevant equivalent statement is an extreme-point limit for a spatially inhomogeneous Bernoulli triangular array, not convergence of the complete random intensity or of all Poisson multiplicities. The independent Bernoulli reformulation carries the same shrinking grid and moving edge.",
+        "searches": [
+          "Poisson Cox method detecting zeros function gamma e^{-K g(x)^2} zero detection stochastic search Robert Casella gamma Cox noisy zero set Gumbel Gaussian tail lattice",
+          "Micheas arXiv:2611.16011v1, Lemma 6, Lemma 8 and Theorem 9",
+          "Resultary: Gamma Cox Poisson zero detection refining lattice Gaussian spatial thinning Gumbel rare-event outer edge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed comparison returned this target, a distinct gamma-Cox spectral model, and other extreme-value applications, not a matching lattice-centered extreme law. The inspected detector source has exact site probabilities and finite error bounds, not the centering log K+log A_K or the centered maximum distribution."
+        ],
+        "reasoning": "The exact one-site expression is covered. A table of Bernoulli marginals or a formula for a different extreme statistic is not the desired all-site sharp centering; the limited search cannot establish absence elsewhere.",
+        "searches": [
+          "Resultary: Gamma Cox Poisson zero detection refining lattice Gaussian spatial thinning Gumbel rare-event outer edge",
+          "Micheas arXiv:2611.16011v1, marginal and fixed-set bound"
+        ]
+      },
+      "rationale": "The Cox zero detector, its gamma–Bernoulli marginal, fixed-candidate consistency and the general Poisson rare-event mechanism are prior. The supported contribution is explicit edge centering, including log A and its constant for a concrete dense grid, the two-sided marked intensity, and control of all sites beyond a moving threshold in the refining-grid regime. No novelty is assigned to gamma mixing or the generic Poisson limit machinery.",
+      "residual_risks": [
+        "Other independent Gaussian-thinning lattice results may state an equivalent extreme law under another interpretation.",
+        "The two broader point-process references were not read in full; this assessment concerns the known source model and the inspected comparisons, not unique historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model and fixed-set detection theorem covered; no refining-lattice extreme profile in inspected scope",
+          "evidence": "Theorem 9 assumes a finite distinct set D, and the paper separates pointwise from infinite-set uniform convergence. The marginal is exactly 1−(1+exp(−K|g(x_j)|²))^(−K).",
+          "identifier_or_url": "https://arxiv.org/html/2611.16011v1",
+          "material_read": "OA text around Lemmas 4 and 6, finite-set consistency Lemma 8 and Theorem 9, and concluding discussion",
+          "method": "Matched the independent atomic probabilities and compared candidate-set quantifiers, uniformity, and type of limit",
+          "title": "Zero detection via Cox random measures",
+          "trigger": "Same gamma-Cox marginal and zero-detection model"
+        },
+        {
+          "assessment": "No independent full-text noncoverage judgment",
+          "evidence": "Its potential role is as a general limit tool; no author-specific statement beyond the bibliographic description is inferred here.",
+          "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/note-on-the-point-processes-of-rare-events/71026A8318DFBF6AC19D692E9AF3E5E1",
+          "material_read": "Citation in frozen bibliography only; exact OA retrieval did not yield text",
+          "method": "Tried exact publisher link; limited scope assessment to background named by the frozen claim",
+          "title": "A note on the point processes of rare events",
+          "trigger": "Possible broad triangular-array Poisson framework"
+        },
+        {
+          "assessment": "Broader priority comparison unresolved at full-text level",
+          "evidence": "Frozen citation identifies a generic extremes comparator; no independent model-specific coverage determination from that citation alone.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2026.110722",
+          "material_read": "Citation in frozen bibliography only; DOI OA retrieval did not yield text",
+          "method": "Tried exact DOI; did not infer whole-paper content from metadata",
+          "title": "A directional Poisson point process for univariate extremes",
+          "trigger": "Possible broad extreme point-process framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-set consistency guarantee is misleading on a refining mesh. The edge limit supplies an explicit spatial uncertainty scale and centered radius quantiles despite virtually certain classification error somewhere. The marked point process also describes the two separate sides. This is a useful theoretical calibration for the exactly linear, on-grid independent idealization, not a general or practical zero certification method.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

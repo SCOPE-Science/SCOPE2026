@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytical proof of the universal claim is the endpoint-gap representation of the Gini numerator at one through three households, combined with the concave Karamata inequality on equal-total majorized profiles. That proof holds for all positive real incomes and all positive nondecreasing concave transformations. No finite computation is claimed to prove that universal quantifier.
+## correctness
 
-Run the self-contained checker from this package with `python3 verify_gini.py`. It uses only Python's standard library and exact `fractions.Fraction` arithmetic. It independently computes the same Gini values from ordered weighted sums and from pairwise differences; checks every majorization partial sum; verifies the raw, top-coded and smooth exact Gini comparisons; checks the displayed rational difference; and runs 1,685 low-dimensional example transformations, plus 329 cross-check profiles.
+PASS
 
-Successful execution prints:
+Write G=N/(nS) in the sorted convention with N=sum_{i<j}(z_j-z_i). At n=1 N=0; at n=2 and 3 N is the extreme gap multiplied by 1 and 2, respectively, by cancellation of all intermediate terms. Original majorization with equal totals gives x_1<=y_1 and x_n>=y_n (use the prefix of length n-1 and subtract from the common total). The common monotone map preserves these comparisons, enlarging the gap in f(x) relative to f(y). Concave Karamata gives S(f(x))<=S(f(y)), both strictly positive. Thus the numerator and denominator changes both favor the stated ratio, with ties and flat f allowed. For n=4 the sorted prefix totals of x and y are (1,2,3,6) and (1,2,4,6); raw (N,S) are (6,6) and (4,6), and after the top-code they are (3,5) and (4,6). The resulting reversal is 3/20 versus 1/6. For f(t)=1-8^(-t), f is positive and f'>0>f'' on t>0. From the exact three transformed values, using denominators 512 for x and 64 for y, the (N,S) pairs are (189,1855)/512 and (28,238)/64. The Ginis are 27/1060 and 1/34, with difference -71/18020. This algebra independently checks the exact witnesses; universal preservation does not rely on finite enumeration. The supplied exact-arithmetic checker and recorded verification output were read, not executed. The claim requires original equal totals and the majorization comparison of profiles, not just their untransformed Gini ranking.
 
-```
-VERIFY_OK majorization=PASS raw=1/4,1/6 capped=3/20,1/6
-VERIFY_OK smooth=27/1060,1/34 smooth_gap=-71/18020
-VERIFY_OK independent_gini_profiles=329 low_order_transform_comparisons=1685
-```
+## originality
 
-This verifies the finite witness arithmetic and supports reproducibility; it neither tests every concave function nor proves mathematical originality. No independent scientific audit or validation has been performed.
+PASS
+
+The credited result is the combined sharp boundary for a single relative Gini coefficient comparing two initially majorized profiles after a common positive nondecreasing concave map. Endpoint cancellation at n<=3 and Karamata are existing ingredients. Impact of top-coding on ordinal inequality rankings is also documented, but the checked evidence does not establish the universal small-n theorem or the sharp first strict reversal under these matched hypotheses. Same-input comparisons, different indices, and data-dependent Winsorization are distinguished below. This judgment is limited by the unavailable full text of the 1994 empirical paper.
+
+## value
+
+PASS
+
+A common top-code or saturating concave rescaling is a natural way to modify incomes. The result identifies exactly when a reversal first becomes possible even with initial Lorenz dominance, and demonstrates it with a strict smooth witness rather than an artifact of a flat cap or noncomparable originals. The mechanistic distinction is useful: an endpoint gap controls the low-dimensional numerator, while at four households interior ranks matter and can overcome the favorable denominator comparison. No empirical prevalence or maximal size is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:52:59.361311Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, Assumptions and Proof",
+        "VERIFICATION.md; verify_census.py (inspected, not run); canonical_representatives.csv",
+        "Independent replay: python3 /workspace/checks/review_2_3_5.py 3"
+      ],
+      "rationale": "For row sum k, the constants are an invariant line with eigenvalue k. In quotient coordinates x_i−x_3, the quotient matrix is D_ij=A_ij−A_3j for i,j<3. Trace zero, determinant zero, and positive sum q of the principal 2-minors give exactly the quotient polynomial t(t²+q); the resulting four eigenvalues are simple. The frozen analytic bound q≤3 at k=3 follows from tr(A²)≥Σ A_ii²≥3. I independently enumerated all row choices at k=1,2,3 using the quotient predicate and weak connectivity. Simultaneous conjugacy and balanced-block testing over all 13 proper partitions reproduced labeled counts 1560/840/176, orbit counts 65/36/8, synchrony counts (0,47,18)/(1,27,8)/(2,5,1), all 109 frozen CSV entries, and the three displayed representatives. Equal incoming multiplicities give equal multisets and hence equal derivatives on the polydiagonal; unequal multiplicities can be detected by a smooth input-symmetric sum of interpolating functions. The k=1 replay had no cases; k=2 had 216 labeled cases in nine classes, five with one proper partition and four with two. Valency zero cannot have the imaginary pair. Thus three is minimal independently of the cited lower-valency results.",
+      "residual_risks": [
+        "The census is exact for weakly connected four-cell directed multigraphs with loops and multiplicities; it is not a classification of dynamical equivalence or nonlinear bifurcations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior paper describes general four-cell synchrony-lattice possibilities and fully classifies valency two, not the four-cell case at arbitrary valency.",
+          "The adjacent Resultary records concern five cells at valency two; the onset result gives two primitive classes among 191 five-cell classes."
+        ],
+        "reasoning": "A list of possible lattices does not give their realizations or counts at valency three. Changing the cell number at fixed valency two does not classify the four-cell odd-valency regime.",
+        "searches": [
+          "arXiv:2611.15221v1, Proposition 9 and Theorems 8, 10, 19 and 20",
+          "Resultary zero-Hopf census search: 95cf641f37cc and 32f261a3f323"
+        ]
+      },
+      "checked_sources": [
+        "Aguiar–Dias–Mokhtari, arXiv:2611.15221v1",
+        "Local Resultary records 54578f6164a6, 95cf641f37cc, 32f261a3f323",
+        "Valency Hub W_hgay8sv9 (index entry)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 8 excludes valency one. Theorems 10, 19 and 20 exclude the primitive case at valency two and classify its nine connected classes.",
+          "These restrictions do not assert existence at valency three. Even-valency constructions cannot give an odd valency-three representative by the stated scaling."
+        ],
+        "reasoning": "The lower bound is prior; the three new census representatives supply attainment and the full distribution. Neither the lower-valency result nor a general list of possible lattices implies the valency-three counts.",
+        "searches": [
+          "arXiv:2611.15221v1 abstract, Proposition 9 and Theorems 8, 10, 19–20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 9 and Theorem 10 treat proper robust synchrony through the synchrony lattice; the lattice with only the two trivial spaces is the frozen no-proper-balanced-partition condition.",
+          "The source provides the lattice framework, not the population of that lattice at valency three."
+        ],
+        "reasoning": "The comparison uses the same graph isomorphism and input-symmetric balanced synchrony, not a redefinition or a classification by nonlinear dynamics. The frequency counts and incidence of primitive networks are additional exact data.",
+        "searches": [
+          "Primary literature lookup for four-cell zero-Hopf valency-three networks, primitive synchrony and the 109/65/36/8 census",
+          "Aguiar–Dias–Mokhtari arXiv:2611.15221v1, definitions and synchrony-lattice results; literal locators ‘valency three’ and ‘valency 3’"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 54578f6164a6 is the identical frozen record; neighboring 95cf641f37cc and 32f261a3f323 have different cell count and valency.",
+          "The Valency Hub entry indexes the nine-network valency-two paper, not a valency-three table."
+        ],
+        "reasoning": "The exact catalogue self-match does not establish a separate source, and the neighboring entries do not encode the 109-class table.",
+        "searches": [
+          "Local Resultary search for four-cell zero-Hopf valency-three census and synchrony",
+          "Valency Hub W_hgay8sv9; arXiv:2611.15221v1 classification statements"
+        ]
+      },
+      "rationale": "The supported distinct advance is the complete valency-three spectral and synchrony census and the primitive representatives, which settle the minimum when combined with the already known lower-valency exclusions. The leading primary source supplies those exclusions, not the decisive upper bound or the census. No independent equivalent table was established in the checked sources.",
+      "residual_risks": [
+        "Specialized or unindexed coupled-cell catalogues may contain additional data; no historical-priority guarantee is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the lower-valency exclusions and general lattice framework, not the valency-three count",
+          "evidence": [
+            "Abstract: nine connected four-cell valency-two networks; Theorem 8 rules out valency one; Theorem 20 gives a two-dimensional synchrony space in each of its three classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.15221v1",
+          "material_read": "Abstract; Theorem 8, Proposition 9, Theorem 10 (HTML offsets 30720–37203); Theorems 19–20 (offsets 57450–65449)",
+          "method": "Lawful arXiv full-text passage comparison",
+          "title": "Zero-Hopf networks",
+          "trigger": "Primary same-object four-cell zero-Hopf classification"
+        },
+        {
+          "assessment": "One self-match and two distinct parameter regimes",
+          "evidence": [
+            "54578f6164a6 has the assigned 109-class statement; the other two concern five-cell valency two, not four-cell valency three."
+          ],
+          "identifier_or_url": "54578f6164a6; 95cf641f37cc; 32f261a3f323",
+          "material_read": "The assigned Finding and scopes of the related indexed five-cell results",
+          "method": "Local Resultary catalogue comparison",
+          "title": "Resultary zero-Hopf records",
+          "trigger": "Exact and near-exact census title matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and complete representative table",
+        "arXiv:2611.15221v1 lower-valency baseline"
+      ],
+      "rationale": "This is the full census at the first valency where the known four-cell spectral mechanism is not constrained by a proper robust synchrony space. Exact representatives and the joint distribution by frequency and synchrony make the result useful for choosing and comparing networks in subsequent bifurcation studies; the cutoff is determined by the onset, not an arbitrary slice.",
+      "residual_risks": [
+        "The census identifies candidate network types; it does not determine their nonlinear normal forms or unfolding equivalences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

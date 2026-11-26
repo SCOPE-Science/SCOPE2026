@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:54:16.822170Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–101; VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/independent_checks.py, exact node quadratics using symmetric and antisymmetric tangent axes"
+      ],
+      "rationale": "On the smooth conic the restriction of H is u⁶+λu³v³+v⁶ with six simple zeros, giving transverse coordinates and six A₂ points. Off the base points, the affine critical equations imply x³=y³. If one coordinate vanishes both do, with curve equation sλ²=1 and quadratic 3xy. Otherwise the order-three symmetry takes the point to the diagonal w; the derivative and equation give H=2wG, then w=−λ/2 and s=1/λ²−1/4. For x=w+e+d,y=w+e−d the quadratic part is 3Ue²−9U²d² with U=w²−1≠0, hence nodal. At infinity repeated binary roots force s=−1/4 and y³=1, with transverse Z derivative zero and quadratic at y=1 equal to −9(y−1)²/4−3Z². The three walls therefore exhaust the possible outer singularities; only the first two can coincide, at λ²=−4. Finiteness of the singular locus forces reducedness; a proper factorization would require at least five intersections by Bézout, impossible at unibranch cusps and at most four transverse nodes. The genus and Tjurina counts follow from g_a=10 and local δ=1 and τ=2,1. For the lift, use G+T²=H−cT³=0 in [X:Y:Z:T]; where G≠0 the inverse is T=−sqrt(s)H/G, and over G=H=0 the lifted system is smooth by transversality of dG,dH at T=0. This checks smoothness globally off walls, and gives the stated complete intersection after the linear change of coordinates. Adjunction makes it canonical. The cubic gradient with T=0, Z=0, or TZ≠0 allows a singularity only at λ²=4, s=−1/4, or s=1/λ²−1/4, respectively. The quadratic cover is branched at the zeros of a degree-six section on this smooth cubic, all simple because a multiple zero would make the covering curve singular.",
+      "residual_risks": [
+        "Finding line 26 uses ‘drops’ for both invariants. The displayed formulas (and proof) are decisive: the normalization genus drops and the Tjurina length increases by k. No result is asserted for the excluded parameter locus or for a smooth canonical curve at the nodal walls."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oka–Pho separate inner and outer singularities and classify possible torus-sextic baskets, with genus entries. The other source studies fundamental groups of complements of unions of generic fibers of component-free pencils."
+        ],
+        "reasoning": "Possible baskets and topological theorems for generic fibers do not specify which parameter values in this concrete family realize each basket; neither entails the exhibited involution and simple cubic branch divisor. Only the accessible passages support these comparisons.",
+        "searches": [
+          "Oka–Pho arXiv:math/0201035 pp. 6, 11–17, 28",
+          "Cogolludo-Agustín–Elduque arXiv:2507.15814 p. 1 and Definition 1.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0201035 pp. 6, 11–17, 28",
+        "arXiv:2507.15814 p. 1 and Definition 1.1",
+        "Resultary c6a2ab748385 (self-match), f5538e86f750, 0c80eb440b17 (summary)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The genus and total Tjurina length are mechanical once a basket is known; the Oka–Pho degeneration arrow is not a parameter identification with the frozen two-parameter family. The indexed analogous pencil does not supply the exceptional collision or the displayed canonical double cover."
+        ],
+        "reasoning": "The distinct work is locating all outer critical points and proving no other walls in the specified slice, and identifying the swap quotient of its nonsingular normalization explicitly; neither is just repackaging the genus or Tjurina entries, nor a restriction of the compared diagonal pencil.",
+        "searches": [
+          "Oka–Pho §5 maximal normal forms, nt100 p. 17, Table 1 p. 28",
+          "Resultary f5538e86f750 Finding and prior-work discussion",
+          "Frozen RESULT.md Steps 2–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The close SCOPE pencil uses the diagonal quadric ΣXᵢ² and diagonal cubic ΣXᵢ³, giving one one-node and two three-node directions in the three-variable case, with no four-node collision. Oka–Pho provide maximal normal forms and degeneration relations; the compared form nt100 is 3E₆+A₁, not the nt24 member."
+        ],
+        "reasoning": "There is no linear projective identification of the two displayed torus pairs, even allowing cubic rescaling: Hessians of the two diagonal cubics are multiples of the three coordinate lines, so a cubic equivalence must be monomial. No monomial change turns a diagonal quadric into XY−Z². This also excludes a projective identification of members with exactly six cusps at their transverse bases: the six cusp points determine the smooth base conic (Bézout), and the two cubics through the same base differ, after rescaling, by G times a linear form L. Comparing the proportional sextic equations first modulo G and then modulo G² forces H·L to vanish on the conic; hence L=0. This argument does not classify all possible classical normal forms. The non-primary results of the targeted web query did not establish absence of any form.",
+        "searches": [
+          "Resultary exact family and wall equations, equation XY−Z² and X³+Y³+λZ³, rational 6A₂+4A₁, and genus-four bielliptic model",
+          "Oka–Pho arXiv:math/0201035 §§3.2,5 and Table 1; targeted web query on Oka–Pho 6A₂+4A₁ normal form",
+          "Resultary f5538e86f750 RESULT.md offsets 0 and 5670"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 explicitly lists [[6A₂],[A₁]] with g=3, [[6A₂],[3A₁]] with g=1, and [[6A₂],[4A₁]] with g=0. c6a2ab748385 is the assigned result itself; the genuine same-day f5538e86f750 uses another torus pencil, while 0c80eb440b17 is a binary-sextic discriminant analogue, assessed from its summary only."
+        ],
+        "reasoning": "The configurations, including existence of the rational basket and its genus, are known and not credited as new. The table does not give these three wall equations and the same-parameter four-node crossing for the displayed torus pair. Same-day dating alone does not order or dismiss the distinct analogue.",
+        "searches": [
+          "Oka–Pho Table 1, entries nt1, nt19, nt24 and degeneration arrow nt24→nt100",
+          "Resultary c6a2ab748385, f5538e86f750, 0c80eb440b17"
+        ]
+      },
+      "rationale": "Oka–Pho already give the singularity baskets and genera, and the torus lift as a method is not the distinguishing point. The verified surviving result is the wall equations with node locations and the exceptional collision in this symmetric normal form, together with its explicit bielliptic description off the walls. The closest distinct indexed diagonal pencil has a similar node census but is not the same projective family.",
+      "residual_risks": [
+        "Another differently parameterized classical torus-sextic normal form or explicit degeneration could cover part of the family. The finite primary passages do not settle all historic priority questions. No chronological inference is made about same-day work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact baskets and genera already known; inspected maximal forms and degeneration do not identify the stated family or quotient",
+          "evidence": [
+            "nt1 [[6A2],[A1]] [3,13,10,18]; nt19 [[6A2],[3A1]] [1,15,6,6]; nt24 [[6A2],[4A1]] [0,16,4,0] → nt100; nt100 is [[3E6],[A1]]."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0201035",
+          "material_read": "p. 6 classification conventions; §3.2 degeneration meaning; §5 p. 11 onward and nt100 p. 17; Table 1 p. 28",
+          "method": "Lawful OA PDF extraction, offsets about 18000, 36100, 57000 and 92000–94576",
+          "title": "Classification of sextics of torus type",
+          "trigger": "Exact prior baskets and candidate classical normal forms"
+        },
+        {
+          "assessment": "Material analogue for a different pencil; no projective equality on the compared six-cusp loci, by conic and cubic recovery and Hessians",
+          "evidence": [
+            "(ΣXᵢ²)³+t(ΣXᵢ³)² has three nodes at t=−1,−2 and one at t=−3 when n=3, with genera 1,1,3. No four-node collision or the displayed bielliptic model there."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 f5538e86f750",
+          "material_read": "RESULT.md offsets 0 and 5670",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Binomial nodal walls and two elliptic fibers of a symmetric torus sextic pencil",
+          "trigger": "Strong distinct same-day exact nodal wall and genus match"
+        },
+        {
+          "assessment": "Generic-fiber complement result, not evidence of special-fiber coverage",
+          "evidence": [
+            "Concerns complements of unions of generic fibers of component-free pencils. No inference from an unsuccessful literal search for Example 5.5."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.15814",
+          "material_read": "p. 1 abstract and Definition 1.1",
+          "method": "Lawful OA PDF extraction",
+          "title": "The fundamental group of the complement of a generic fiber-type curve",
+          "trigger": "Possible broad pencil implication"
+        },
+        {
+          "assessment": "Weaker analogy on different objects; not a full-text comparison",
+          "evidence": [
+            "The summary concerns the binary-sextic divisor and symmetric six-root configurations, rather than this plane torus sextic and its genus-four normalization."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8 0c80eb440b17",
+          "material_read": "Resultary indexed summary only",
+          "method": "Local Resultary semantic search",
+          "title": "Generic ordinary crossing of the bielliptic binary-sextic divisor at the two-involution locus",
+          "trigger": "Keyword overlap on biellipticity and a discriminant crossing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Steps 2–5 and Limitations",
+        "Oka–Pho Table 1",
+        "Resultary f5538e86f750 Finding"
+      ],
+      "rationale": "The symmetric torus family is a concrete test of how known singularity baskets occur in parameter space. The exact exhaustive wall geometry distinguishes isolated genus-one and genus-three walls from a rational collision, and the generic involution and its branch data give a usable model of the normalized curves. Recomputing the listed baskets or genera alone would not establish this value.",
+      "residual_risks": [
+        "The result is local to this chosen symmetric family and the stated characteristic-zero parameter domain; it does not classify all torus sextics or bielliptic canonical curves."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,13 @@
-# Self-review
+# Scientific assessment
 
-## Correctness — PASS
+## Correctness
 
-The four-vertex closed-neighborhood lower bound is attained by explicit word constructions, so the minimum sizes are established without assuming earlier enumerative theorems. For odd lengths, the excess-cover argument excludes any double-selected column, and the independent-set condition on empty columns proves that the sole surplus singleton pair is unique. Color forcing supplies exactly two configurations at each distinguished-pair position, with an explicit parity condition on the pair. A one-token change can only move a member of that pair to its neighboring empty column; the target row is uniquely forced by domination at the newly emptied column. The resulting permutation \((i,x)\mapsto(i-2,\bar x)\) has order \(2n\) and consists of one orbit. The parity of the source and target rows proves the slide dichotomy. The even divisible-by-four and length-three boundary arguments are separate. Two complete finite enumeration strategies, with attached code and outputs, agree in their shared ranges.
+The closed-neighborhood lower bound is attained by a word with one pair of consecutive occupied columns. Any optimum has two excess coverage incidences, which excludes a column with two selected vertices. This leaves a single same-row adjacent pair and alternating colors across empty columns. In a one-token replacement only the adjacent pair can supply the departing token, and domination forces the destination to be the opposite row of a neighboring column. The resulting permutation of pair position and color is a single cycle of length $2n$. Finite enumerations are supporting checks, not the all-length proof.
 
-## Originality — PASS, with stated historical risk
+## Relation to earlier results
 
-The closest *same-host* work is Allagan (2026), arXiv:2601.03488, whose full text counts optimal dominating sets and introduces numerical flexibility indices, but does not classify edges of either reconfiguration graph. Suzuki–Mouawad–Nishimura (2014), arXiv:1401.5714, treats addition/removal adjacency among dominating sets up to a threshold, not fixed-size one-token moves. Bouchou–Blidia (2016), DOI:10.7494/OpMath.2016.36.5.563, treats criticality of a related domination invariant on cycles. Fricke et al. (2011) introduce the sliding \(\gamma\)-graph construction without this cyclic-prism family classification. Equivalence via two-row encodings and stronger prior-coverage possibilities were compared in statement form; none of the inspected results states or entails these specific connected-component isomorphisms. Bibliographic and research-record coverage is incomplete; an unindexed equivalent result remains possible.
+The ordinary minimum-size and minimum-state counts are known. The independent-domination exchange theorem covers both move graphs for lengths divisible by four and lengths congruent to three modulo four with $n\ge7$, since the ordinary minimum sets in those cases are independent and the two minimum sizes coincide. The finding is narrowed to $n\equiv1\pmod4$, $n\ge5$, where the ordinary minima are not independent and the independent optimum has a different size. The known word language in this class gives a starting point, but the inspected enumeration does not state the two exchange graphs. A previously unlocated equivalent analysis remains possible.
 
-## Value — PASS
+## Value and limits
 
-Minimum dominating-set counts do not determine accessibility under single-monitor reassignment. The theorem gives a sharp infinite parity-controlled obstruction: for odd prism lengths, unrestricted one-token relocation always connects all \(2n\) optimum sets, but edge-constrained relocation changes from a full cycle to a completely edgeless graph as the length changes by two. The diameter \(n\) supplies an exact movement cost. The additional zero-defect regime of lengths divisible by four gives a natural comparison. This answers a well-motivated reconfiguration question on a standard cubic family, rather than an arbitrary finite slice or an algebraic restatement of counts.
-
-## Limitations and closest literature
-
-The two-defect class \(n\equiv2\pmod4\) is not addressed, nor are larger feasible sets. Finite verification does not establish the infinite theorem by itself. Priority has not been independently established against all unpublished or inaccessible sources. The model's distinction from addition/removal is essential.
-
-Self-review: passed. Independent audit: not yet performed.
+The exact contrast between complete slide immobility and a connected jump cycle with linear diameter holds for an entire natural congruence class. It is a fixed-cardinality result at the minimum domination threshold, not a claim about addition/deletion moves or the excluded prism sizes.

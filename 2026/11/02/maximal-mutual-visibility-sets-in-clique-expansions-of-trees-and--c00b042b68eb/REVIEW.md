@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof characterizes selected-pair geodesics by the unique base-tree paths, derives a necessary and sufficient Steiner-internal-fiber condition, and proves the saturating and external-attachment criteria for inclusion-maximality in both directions. The maximal-set correspondence recovers its subtree and omitted vertices uniquely, including width-one internal fibers. The path formula follows by counting every interval of length at least two; the binomial boundary and the series sum are checked. A standalone direct shortest-path enumeration corroborates the full cardinality coefficients in 214 graphs (185,798 candidate subsets; at most 12 vertices). This check does not certify unbounded parameters independently of the proof.
+## correctness
 
-## Originality — PASS, provisional
-The 2022 strong-product study (arXiv:2210.07835) concerns mutual-visibility numbers and bounds; the 2023 lower-number study (arXiv:2307.02951) concerns minimum cardinalities of maximal sets. The later 2024 visibility-polynomial paper (arXiv:2412.03066) provides a general framework for counting all mutual-visibility sets, not this structural maximal-set polynomial on clique-expanded trees. The 2026 ordinary-tree Steiner-hull theorem (arXiv:2601.08270) addresses the unit-fiber boundary and is credited. Searches of the corresponding object under clique path, interval graph, lexicographic and strong-product formulations, as well as related published descriptions, did not identify an equivalent coefficientwise theorem. No complete negative literature certificate is asserted; terminology variants remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The result solves the entire inclusion-maximal size distribution for the natural family of tree clique expansions and completely describes all maximal sets. Even its highly structured unit interval specialization has exact arithmetic-progression supports and arbitrarily long internal gaps, which scalar mutual-visibility parameters do not reveal. The weighted formula admits nonuniform fibers and includes exact multiplicities, not merely extremal sizes.
+Between distinct fibers a geodesic projects to the unique base-tree path, and any representatives in the intermediate fibers work. Thus on the Steiner hull of occupied fibers, each internal fiber must have a hole, as witnessed by occupied leaves on opposite sides. Conversely those holes suffice. Maximality forces full leaves and exactly one hole per internal fiber, including the case of a width-one empty internal fiber. A neighbor outside the hull at an internal vertex allows a harmless one-vertex extension. If instead every internal vertex has all its tree neighbors in the hull, each external vertex attaches at a leaf, so adding it makes a full leaf fiber block visibility to another leaf. Filling any internal hole also blocks visibility. The full leaf fibers recover the hull and each omission is recoverable, proving the bijection and labeled multiplicities. Empty and single-fiber sets are not maximal in a nontrivial tree; a single base vertex yields its whole clique. On P_n an interval of j+2 fibers has n−j−1 positions, m^j omissions and order 2m+j(m−1). Summation gives the stated totals, and equal-length intervals at consecutive integer starts with length 3/2, then rescaled, represent exactly those graphs. Independently compared distance-preserving deletion tests against the full predicted cardinality counts on six expansions, including branching and width-one internal fibers.
 
-## Remaining limitations
-The general-tree expression enumerates eligible connected subtrees without claiming computational efficiency. The result does not cover general chordal graphs. Numerical checks are finite. Independent proof review and exhaustive publication-priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The weighted hull classification and exact labeled maximal-set enumerator are distinct from the inspected total-visibility product results, ordinary-tree leaf and maximum-set results, lower visibility numbers and all-visible-set polynomials. Credit both the Steiner criterion and the known width-one maximum layer as prior; the pass is for the variable-width maximal configuration theorem and its refined clique-path consequence.
+
+## value
+
+PASS
+
+The hull bijection isolates exactly how maximality interacts with full fibers and exterior branches, rather than only reproducing a visibility extremum. It gives full-size multiplicities even with unequal widths, and the path specialization gives unbounded gaps between consecutive attainable sizes in a connected and familiar graph class (unit interval graphs, n≥3).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

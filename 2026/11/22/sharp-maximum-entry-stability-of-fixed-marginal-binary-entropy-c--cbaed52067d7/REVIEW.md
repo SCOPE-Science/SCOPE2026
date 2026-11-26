@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The feasible coupling is a one-dimensional open interval with a strictly increasing log-odds parameter, hence the unique exact optimum is interior for every real log-kernel. Implicit differentiation yields a checkerboard rank-one Jacobian with exact induced maximum-entry norm \(4/H_{r,c}(z)\). Strict convexity of the positive reciprocal curvature yields a unique minimizer, segment integration gives the global bound, and explicit admissible infinitesimal checkerboard inputs establish sharpness. Both marginal harmonic inequalities and their equality conditions have been proved, as has the sign identity for the worst-conditioned coupling. Standard-library checker replay: 9,675 supplementary assertions passed. Risk: these numeric checks are finite; the universal claim rests on the written analytic proof, which independently needs external review.
+PASS
 
-## Originality — PASS (provisional priority)
+With fixed interior marginals the feasible table is P(z)=(z,r-z,c-z,1-r-c+z). The first-order equation equates its log odds Theta(z) to the checkerboard contrast h(X). Theta is strictly increasing onto R, with Theta'=H, so every interior z is realizable and the positive optimum is unique. The input contrast has max-entry dual norm 4 and the output checkerboard has max-entry norm 1. Integrating the derivative gives the global bound, and perturbing the realizing kernel at z_* in the checkerboard direction proves sharpness as a supremum. H'' is twice the sum of the four inverse cubes, and endpoint blow-up makes its minimizer unique. Row and column reciprocal-pair bounds are 4/[r(1-r)] and 4/[c(1-c)], respectively, with equality exactly for equal splits in the relevant pairs. If c=1/2 the row bound attains the smaller variance, and symmetrically if r=1/2. At independence, H'(rc) is minus (1-2r)(1-2c) divided by the positive product r²(1-r)²c²(1-c)²; strict monotonicity of H' gives the association sign. Cost scaling by 1/epsilon is exact. No evidence of finite-pair attainment is needed.
 
-Eisenberger et al., arXiv:2205.06688, Sec. 4.2, derive general Sinkhorn gradients and therefore establish the *pointwise derivative concept*, but not the global maximum-entry optimization over all fixed-marginal binary kernels or its balanced-variance rigidity. Ghosal et al., arXiv:2106.03670, Theorem 1.4, concern convergence under changes of costs/marginals rather than a sharp modulus. Eckstein–Nutz arXiv:2110.06798 concerns general quantitative stability, especially varying marginals. Published binary Sinkhorn sweep contraction concerns iterated scaling coordinates, not this map from a changing log-kernel to an optimal plan. The known analytic background is acknowledged rather than claimed as new. Residual risks: an exact equivalent may have appeared in classical binary contingency tables or sensitivity-analysis literature not uncovered by the targeted comparisons; the full Eckstein–Nutz paper was not materially read, so its precise boundary is assessed from abstract/introduction only.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-cell setting is the first nontrivial entropy transport problem with both sets of marginal constraints. The result gives the exact, attained-in-the-derivative worst robustness coefficient for *all* input kernel contrasts, clarifies exactly when a natural marginal-variance bound is sharp, and shows the worst susceptibility generally occurs at associated rather than independent tables. These are natural invariants for perturbations of differentiable transport layers, not arbitrary finite-table computations. It is limited to two rows and two columns and does not assert a broader large-table result.
+Best-of-knowledge pass for the optimized fixed-marginal diagnostic and, in particular, its sharp variance-equality and association classifications. The fixed-margin odds parameterization and pointwise Sinkhorn differentiation are not new. Writing a global norm as the supremum of the pointwise norm is a standard step and is not credited in isolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The optimized response is a natural conditioning invariant for a binary regularized transport block. The strict gap from the generic smaller-variance estimate outside the balance locus and the location of the worst table relative to independence are practically and mathematically informative, beyond rephrasing the inverse-odds formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

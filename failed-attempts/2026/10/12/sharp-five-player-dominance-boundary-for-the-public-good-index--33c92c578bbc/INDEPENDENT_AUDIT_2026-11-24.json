@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:51:42.312357Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–176; frozen VERIFICATION.md and verify_public_good_dominance_first_layer.py (inspected without execution)",
+        "Independent standard-library replay: python3 /workspace/branches/38ba22a6-fa0b-4b5c-a527-cf53fc0b9842/reviewer_public_good_dominance_census.py",
+        "Replay output: /workspace/branches/38ba22a6-fa0b-4b5c-a527-cf53fc0b9842/reviewer_public_good_dominance_census.out, lines 1–16, REVIEWER_CENSUS_OK"
+      ],
+      "rationale": "Each nonempty antichain of nonempty coalitions gives exactly one monotone truth table with losing empty and winning grand coalition. The branch-on-pivot recursion generates each once by including or excluding the pivot, deleting only comparable sets when including it. Properness is then exactly the exclusion of two complementary wins. The independent replay evaluates every eligible substitution for each ordered pair and compares the raw minimum-winner counts, which have a common positive normalization. Canonical representatives are minima over all player permutations. The replay found proper-game counts 1,3,11,80,2645 and isomorphism counts 1,2,5,14,86; no violations through four, 460 at five in the nine given orbits, and histogram 300/120/40. It checked each displayed quota-weight representation against all 32 coalitions, as well as the normalized vectors and strict weight and index directions. The reported fraction 92/529 is correct and simplifies further to 4/23. Greater or equal weight implies Isbell dominance, so the lower boundary also holds for local monotonicity in proper weighted games.",
+      "residual_risks": [
+        "No exhaustiveness at n≥6 or minimality of the displayed weights is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Freixas–Kurz prove dominance for uniformly complete games and local monotonicity for uniformly weighted games. Their four-player example {12,13,14,234} still satisfies dominance despite nonuniformity.",
+          "The preceding DP/SS catalogue is over every proper simple game through five players, not just a weighted subclass, so the containment reduction can use it for exclusion."
+        ],
+        "reasoning": "The uniformity results alone would not give the global boundary. The earlier complete catalogue, with the small residual-set implication below, does.",
+        "searches": [
+          "Resultary: Isbell dominance Public Good index simple games local monotonicity",
+          "Freixas–Kurz arXiv:1411.0944v1, pp. 2, 6–7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 1acdbecf1e75, RESULT.md table and complete DP/SS statement",
+        "Freixas–Kurz arXiv:1411.0944v1 pp. 2, 6–7, 26",
+        "Independent exact Public Good row and census replay"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For i dominating j, let I,J be the stripped minimal winning families containing only i or only j of the pair. They live on at most three other players. Every Y in J contains an X in I by substitution and minimality. If both families are nonempty, properness gives X∩Y nonempty for every cross pair. A strict Public Good loss for i is |J|>|I|.",
+          "If |I|=1, at least two incomparable Y must contain its sole nonempty X; on at most three ground elements this forces a singleton X and exactly two size-two supersets in J. Thus DP_j exceeds DP_i by 2/3−1/2 before normalization, with common minimal winners canceling.",
+          "If |I|≥2, the only possible case is |I|=2, |J|=3, using the maximum antichain size on three elements. The size-three antichain must consist of all singletons or all pairs. For singletons, covering by nonempty X requires three distinct X. For pairs, every X must meet all pairs and therefore have size at least two, so covering the pairs again requires three X. Both are impossible.",
+          "The dominance is strict: mutual dominance gives a swap automorphism and equal Public Good counts. Strict Isbell dominance entails strictly greater Shapley–Shubik score for i, by the positively weighted sum of differences between the two players' substitution values. Thus every Public Good failure forces a strict DP/SS reversal. Conversely, all nine earlier tabulated families exhibit a Public Good failure by exact direct checks."
+        ],
+        "reasoning": "The earlier complete theorem restricts every possible Public Good failure to its already-tabulated layer, and row evaluation gives equality of the two sets through five players. The new 300/120/40 counts are the orbit-size sums for one, two, or three loss directions read from those same graphs; they are not an independently new census. The frozen finding asserts the marginal classification, not a novel structural theorem explaining the cross-index coincidence.",
+        "searches": [
+          "Resultary 1acdbecf1e75, finding, definition of Deegan–Packel and complete enumeration proof at offsets 0–5492",
+          "Frozen RESULT.md lines 3–59; exact comparison of the two tables and directed loss tests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Freixas–Kurz arXiv:1411.0944v1, PDF p. 2, states the dominance postulate and that the Public Good index violates local monotonicity and hence can violate dominance.",
+          "The October 4 catalogue 1acdbecf1e75 compares Deegan–Packel to Shapley–Shubik weak orders, not literally Public Good to Isbell."
+        ],
+        "reasoning": "In weighted games a strict weight reversal is a certificate of an Isbell failure; the substitution relation, not weights alone, is required for general proper simple games. The pathology is known, and comparing the different index pair is justified here by an actual implication on the claimed domain, not by identifying the definitions.",
+        "searches": [
+          "Resultary: Public Good index Isbell dominance five-player proper simple games 460 2645",
+          "Resultary: Freixas Kurz Holler Napel Public Good index local monotonicity dominance",
+          "Literature: Freixas Kurz The cost of getting local monotonicity Public Good index dominance Holler Napel five-player census"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 1acdbecf1e75 table gives all nine of the same minimal winning families under 1=A, ..., 5=E, including the same orbit size and identical quota and weight vector in every row. For example, the frozen compact witness AB,ACD,ACE appears there as 12,134,135 with orbit 60 and [8;5,3,2,1,1].",
+          "It already gives zero proper DP/SS disagreements through four and 460 of 2645 at five."
+        ],
+        "reasoning": "This is a preexisting table of the actual game families and certificates, not a coincident parameter hit. Direct Public Good count and dominance substitutions on its nine rows recover the new columns, and the set inclusion established below makes that table exhaustive for the original finding.",
+        "searches": [
+          "Resultary: Public Good index dominance 5 players census",
+          "Resultary: five-player proper simple games Public Good index dominance 460 2645",
+          "Resultary 1acdbecf1e75, RESULT.md offsets 0–5492"
+        ]
+      },
+      "rationale": "Public Good/Isbell is a different comparison from Deegan–Packel/Shapley–Shubik, but the earlier Resultary record 1acdbecf1e75 provides the complete first failing layer that the finding presents as its contribution: identical nine antichains, orbit sizes and quota-weight vectors. This is stronger than matching totals. An elementary containment argument shows every Public Good/Isbell violation at this size must lie in that earlier catalogue; computing the new index and directions just on those representatives then gives every stated addition. The rejection is based on this verified coverage and reduction, not on whether an older Public Good paper was accessible. The earlier record does not literally state the Public Good histogram.",
+      "residual_risks": [
+        "The older Holler–Napel text might give further Public Good examples or results; the current rejection is independent of that uncertainty.",
+        "The implication proved here is limited to at most five players and does not identify the indices or claim equivalence beyond that regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical classification object after applying the verified small-game reduction; different index pair as literally stated",
+          "evidence": "All nine families, orbit sizes, quota-weight vectors, the count 460/2645 and the four-player exclusion match. No Public Good dominance is asserted in that result.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-five-player-proper-game-boundary-for-deegan-packel-versus--1acdbecf1e75",
+          "material_read": "RESULT.md finding and nine-row table, assumptions, proof, verification claims, related work and limitations; decisive table and definitions in offsets 0–5492, subsequent material at 5500–8692",
+          "method": "Resultary search and local mirror statement-level comparison",
+          "title": "Sharp five-player proper-game boundary for Deegan-Packel versus Shapley-Shubik ranking",
+          "trigger": "Exact same-game layer in the local published search"
+        },
+        {
+          "assessment": "Establishes known pathology and positive subclasses; not the game-layer census in the inspected passages",
+          "evidence": "Gives uniform complete and uniformly weighted results and a positive nonuniform four-player example.",
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0944v1",
+          "material_read": "PDF p. 2; pp. 6–7 incl. Example 1; reference listing p. 26, OA offsets 5664–6792, 20200–25050, 93233",
+          "method": "Bounded primary OA PDF passage reads",
+          "title": "The Cost of Getting Local Monotonicity",
+          "trigger": "Earlier Public Good dominance results and possible small weighted examples"
+        },
+        {
+          "assessment": "Exact examples and attribution not independently verified; not used as adverse evidence",
+          "evidence": "Primary text was not retrieved; no claim about coverage based on this access outcome.",
+          "identifier_or_url": "https://doi.org/10.1007/s11135-005-4755-5",
+          "material_read": "No primary full-text passage; the separate Holler–Napel 2004 reference in Freixas–Kurz p. 26 was seen, not this 2005 paper",
+          "method": "OA requests via DOI, Springer PDF and article routes",
+          "title": "Local monotonicity of power: Axiom or just a property?",
+          "trigger": "Frozen citation to known weighted Public Good failures"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and stated contribution at lines 184–203",
+        "Resultary 1acdbecf1e75 complete table",
+        "Containment reduction and independent row calculations recorded above"
+      ],
+      "rationale": "Dominance is a motivated axiom and a genuinely new first failing layer would be worthwhile. Here the combinatorial classification, weighted witnesses, and counts of games are recovered from an existing exact nine-row table by a short reduction. The remaining normalized index columns, loss-direction labels and their histogram are routine row evaluations and orbit-size sums, not an independently motivated exact invariant that survives removal of the covered census. A structural study of why the first layers coincide would be a different contribution; it is not the frozen finding and no repaired claim is submitted.",
+      "residual_risks": [
+        "The judgement concerns the stated marginal census, not the broader scientific interest of comparing coalition-based indices."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

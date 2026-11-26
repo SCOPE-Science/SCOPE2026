@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The published Zeckendorf Apéry formula implies that each residue row is a thresholded Fibonacci summand-count word. The unique initial block has length \(F_a-1\). The crucial new calculation is the exact concatenation \(B_a=B_{a-1}\mathbin{\|}(1+B_{a-2})\); at every nonzero threshold the joining entry is excluded, so the multisets of noninitial runs obey \(\mathcal R_a=\mathcal R_{a-1}\uplus\mathcal R_{a-2}\uplus\{F_{a-2}-1\}\), with empty initial multisets. Solving this recurrence gives all frequencies and excludes every other length. Direct coin-change membership, independent Zeckendorf thresholds, and the stated histogram agree for parameters \(5\le a\le24\). The numerical checks are finite; the argument is uniform for all larger parameters.
+## correctness
 
-## Originality — PASS on inspected material
-Robles-Pérez and Rosales establish the Apéry representatives, Frobenius number, and genus for exactly these semigroups, and are an acknowledged essential input, but do not state a complete frequency census of all gap-block lengths. An accessible public result on isolated gaps supplies only the length-one case, \(F_{a-4}\), and cannot determine the remaining spectrum or its Fibonacci recurrence. A second public result gives pseudo-Frobenius elements; the 2025 r-Fibonacci article gives Frobenius, genus, and type; general perfect-semigroup literature deals with isolated gaps and covarieties. These distinctions are comparisons of mathematical statements and logical coverage, not merely of titles. The remaining risk is an unindexed equivalent derivation from the known Apéry formula or digital-word recurrence; the available literature review cannot certify universal priority.
+PASS
 
-## Mathematical value — PASS
-A complete distribution of maximal missing-integer intervals is a natural refinement of the genus and isolated-gap count in a classical Frobenius family. It gives the exact full frequency for arbitrarily many length scales, proves the disappearance of the penultimate Fibonacci length, and derives a uniform structural recursion rather than recomputing finite tables. This is materially more informative than the known length-one classification.
+For m=F_a, the published Apéry representative mβ(r)+r gives the gap test β(r)>q at qm+r. The multiples of m separate the rows, so the runs in each thresholded word really are maximal in the semigroup. The Zeckendorf split B_a=B_(a−1) concatenated with (1+B_(a−2)) follows by using F_(a−1) and then a remainder strictly below F_(a−2). At each q≥1 the first entry of the second piece is a separator; its q=1 tail contributes exactly one block of length F_(a−2)−1 and its higher levels give the noninitial blocks from B_(a−2). The first piece contributes those from B_(a−1). The empty noninitial multisets at a=3,4 and this recurrence give the stated Fibonacci multiplicities, including a=5; q=0 contributes the unique initial block. Summation gives F_(a−2) blocks. An independent coin-change replay for a=10 scanned 1 through 275 and recovered the complete displayed spectrum; it is a finite cross-check only. The frozen verifier was inspected, not executed.
 
-## Sources and limitations
-Primary arithmetic input: arXiv:2210.00816, Theorem 4.6 (first version 2022-10-03). Closest all-family comparison: public `Isolated gaps in Fibonacci-shifted numerical semigroups`, 2026-11-02, its complete `RESULT.md` inspected. Other checked material: public `Pseudo-Frobenius spectrum and Padovan type of shifted-Fibonacci numerical semigroups`, 2026-10-18; López-Medel et al., DOI 10.1007/s40065-025-00513-3; Moreno-Frías and Rosales, arXiv:2305.14967. The proof does not enumerate precise start positions or generalize to arbitrary recurrences. External priority and proof verification are not independent certifications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the full uniform maximal-gap-length histogram, not the Apéry theorem, known genus or isolated-gap count. The closest same-family record gives exactly the length-one component. The inspected prior inputs do not give the run recurrence or an equivalent all-length count; the uniform distribution uses the separating threshold boundary and a run-multiset recurrence, not just a fixed-parameter Apéry enumeration.
+
+## value
+
+PASS
+
+Maximal gap blocks refine the established genus and isolated-gap invariants of a previously studied numerical-semigroup family. A uniform complete distribution tells which lengths occur and their frequencies, including the skipped penultimate Fibonacci length, without enumerating the semigroup. The threshold-word recurrence explains those facts and provides a reproducible structural reason for the Fibonacci frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

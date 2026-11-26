@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:49:36.507905Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and assumptions",
+        "VERIFICATION.md",
+        "verify.py, lines 35–104",
+        "verify_output.txt, lines 1–23"
+      ],
+      "rationale": "Independent proof reconstruction: for at least four white vertices, a first forcer v in the complement must have all the remaining whites in its tree neighborhood. Any other blue vertex has at most one tree neighbor in that remaining set (otherwise there is a four-cycle), so no second force is possible. For a nonstar there are no complement isolates; two whites fail precisely when their external tree neighborhoods coincide, which in a connected tree of this order means sibling leaves. A three-white set succeeds exactly if an external vertex sees two of the whites in the tree that are not both sibling leaves, and misses the third. Its witness count is the stated degree/leaf sum. Distinct witness centers use distinct pairs and form a five-vertex path with the white triple in alternating positions; three witnesses would form a subdivided triangle. Each unoriented four-edge path thus removes exactly one duplicate. A nonstar has adjacent internal vertices, giving a valid witness by choosing one more neighbor at one center and a third white outside its closed neighborhood, so a_T is positive. The isolated vertex of the star complement must be blue, and at most one clique vertex can be white. The path count uses a difference of squares over adjacency-list sums, giving O(n) arithmetic operations, not a bit bound. An independent bit-mask enumeration tested every white set for all 125 order-five and 1296 order-six labeled trees (4,000 and 82,944 trials); every coefficient agreed. The accompanying verify.py and verify_output.txt were inspected, not executed; the finite checks do not prove the all-orders assertion.",
+      "residual_risks": [
+        "Finite reproduction covers only orders five and six; general correctness is established by the forcing argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Curl et al. give a forbidden-complete-bipartite-subgraph lower bound and the exact minimum size for tree complements; their tree argument supplies a minimum set, not its multiplicity. Boyer et al. give general leading-degree coefficient formulas and fort bounds."
+        ],
+        "reasoning": "The sources cover the cutoff and the top terms, but neither inspected result counts all successful triples in complements of arbitrary nonstar trees.",
+        "searches": [
+          "Curl et al., arXiv:2206.03932, §2 Theorem 2.1 and Proposition 2.2",
+          "Boyer et al., arXiv:1801.08910, §3 Theorem 1 and Proposition 18"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.03932",
+        "arXiv:1801.08910",
+        "Resultary 6c7cf7fab756",
+        "Resultary 76693759f476",
+        "Resultary 07fffeb0f7e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Boyer's general external-neighborhood test, specialized to sibling leaves, gives b_T, and its isolate test gives the coefficient n for nonstars and 1 for all-blue. Curl supplies the cutoff, and K_{n−1} plus an isolate gives the known star behavior."
+        ],
+        "reasoning": "Those ingredients leave [x^{n−3}] undetermined. The distinct contribution is counting valid triples and identifying their exact overcount with unoriented four-edge paths.",
+        "searches": [
+          "Boyer et al., Theorem 1",
+          "Curl et al., Proposition 2.2",
+          "Resultary 6c7cf7fab756, 76693759f476, 07fffeb0f7e1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary records 6c7cf7fab756, 76693759f476 and 07fffeb0f7e1 give exact path and/or cycle complement formulas or fort descriptions. For P_n the review formula gives (n−2)(n−3)−(n−4)=n²−6n+10, the exact overlapping path coefficient."
+        ],
+        "reasoning": "Path complements are genuine overlap, not coverage of branching trees. A cycle is outside the tree claim. Catalogue dates alone establish neither priority nor provenance. Fort-based general bounds are not an exact all-tree count.",
+        "searches": [
+          "Resultary: exact zero-forcing polynomials and minimal forts of tree/path/cycle complements",
+          "Boyer et al., arXiv:1801.08910, §3 and fort bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved exact catalogue formulas concern paths/cycles. Packaged verify_output.txt reports finite tree sample and exhaustive-order checks, not an all-orders table."
+        ],
+        "reasoning": "No inspected table gives the arbitrary-order branching-tree coefficient. Sample agreement is correctness corroboration only.",
+        "searches": [
+          "Resultary tree-complement zero-forcing enumerations",
+          "Published complement-tree coefficient and successful-set table search"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-tree three-white classification and exact coefficient a_T (including its linear-arithmetic evaluation), not the already known minimum size, the upper coefficients implied by general formulas, the star formula, or the path specialization.",
+      "residual_risks": [
+        "A fort or successful-set enumeration in another terminology may have escaped the bounded literature search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers minimum sizes and the lower-degree cutoff, not the three-white coefficient",
+          "evidence": "The nonstar and star values are n−3 and n−1; the constructive argument supplies a forcing set.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.03932",
+          "material_read": "PDF pp. 3–4, §2 Theorem 2.1 and Proposition 2.2",
+          "method": "Lawful OA passage inspection",
+          "title": "On the zero forcing number of the complement of graphs with forbidden subgraphs",
+          "trigger": "Exact same graph family and scalar parameter"
+        },
+        {
+          "assessment": "Mechanically implies the three top coefficients but not a_T",
+          "evidence": "The n−2 count uses unequal external neighborhoods; the fort statement supplies coefficient bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.08910",
+          "material_read": "PDF p. 3, §3 Theorem 1; p. 13 Proposition 18",
+          "method": "Lawful OA passage inspection",
+          "title": "The zero forcing polynomial of a graph",
+          "trigger": "General polynomial coefficient formulas"
+        },
+        {
+          "assessment": "Equivalent on paths; no extension to branching trees established",
+          "evidence": "Exact path coefficient n²−6n+10; one record extends path treatment to n=4.",
+          "identifier_or_url": "Resultary: 6c7cf7fab756, 76693759f476, 07fffeb0f7e1",
+          "material_read": "Matching findings on path/cycle complement polynomials and path minimal forts",
+          "method": "Local catalogue lookup and mirror inspection",
+          "title": "Zero-forcing polynomials of complements of paths and cycles; related minimal-fort and well-forcedness records",
+          "trigger": "Strongest catalogue special-case matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Steps 4–6 and the two order-six spiders"
+      ],
+      "rationale": "The minimum-set count distinguishes tree complements that have identical order, degree multiset and minimum forcing size. The witness/overcount description gives a linear-arithmetic computation for the whole natural family, replacing subset enumeration and explaining why the four-edge path count appears.",
+      "residual_risks": [
+        "No claim that the polynomial distinguishes all tree isomorphism types or that the arithmetic operation bound is a bit bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

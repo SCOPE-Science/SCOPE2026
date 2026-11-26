@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:33:24.418512Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The original equations and universal asymptotic are correct; the original Finding's prose incorrectly said zero-or-light probabilities were lowered even though its own zero-probability and PGF inequalities run in the opposite direction. The complete corrected RESULT.md and SLOGAN.txt are in repairs/3; the new wording states only the exact expectations and tail comparisons. Conditioning gives G=exp(c(z exp(d(z-1))-1)); the log PGF difference is b-a-z h(1-z)>0 because h(t)=b exp(-at)-a exp(-bt) decreases from b-a and stays positive. Taking z=(log n-2 log log n)/d gives logarithmic Chernoff overhead o(n); the event K=floor(n/log n), Y=n-K has first-stage factorial cost -n+o(n), canceled by the +n+o(n) term from the second-stage factorial. Replacing (n-K) log log n by n log log n costs o(n). The resulting two log-tails differ by n log(b/a)+o(n), proving reversal at every sufficiently large integer threshold. An independently written positive incomplete-gamma survival sum (independent_recheck.py, compound_tail) confirms negative differences at thresholds 1–11 and +0.000306018554012509325 at 12. The frozen 646-check script was inspected, not run. No finite-population or uniform-threshold conclusion follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zheng is a plausible precedent for the unshifted asymptotic, but full text was unavailable",
+          "Bening–Korolev landing material concerns deficiency comparisons; its primary theorems were not recovered"
+        ],
+        "reasoning": "If the same logarithmic constant is known for Y alone, it transfers: split at K=floor(n/sqrt(log n)), whose upper-tail cost dominates n log log n, while shifting n by that amount changes the target log scale by o(n). The tail lemma thus has genuine residual priority risk; the compared sources do not establish the universal combined ordering in this setting.",
+        "searches": [
+          "Neyman type A compound Poisson tail asymptotic log P(X≥n) -n log log n + n log parameter Zheng 1995 asymptotic tail",
+          "Resultary: iterated exponential entire generating function coefficients compound Poisson tail logarithmic asymptotic Bell number saddle point",
+          "DOI:10.1080/03610919508813282",
+          "DOI:10.3390/math10244712"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_poisson.py, REVIEW.md, SLOGAN.txt",
+        "Corrected RESULT.md and SLOGAN.txt",
+        "Resultary local mirror",
+        "arXiv:2302.03210",
+        "DOI:10.1080/03610919508813282",
+        "DOI:10.3390/math10244712"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The model in Boudreau et al. specializes to the displayed PGF; its critical-case probabilities and numerical crossings do not give a tail estimate",
+          "The adjacent convex-order statement concerns a different count and comparisons of convex expectations"
+        ],
+        "reasoning": "The PGF itself is standard and the mean follows by differentiation. Exact strict comparison of those PGFs and the eventually reversed tail still require the parameter-order and unbounded-threshold arguments audited here.",
+        "searches": [
+          "arXiv:2302.03210, model and risk comparison sections",
+          "Resultary 2026/10/25/SCOPE-convex-order-rearrangement-of-finite-generation-epidemic-risk-un--3d9444e260e3, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boudreau et al., pp. 8–9 and 15–16: generation-indexed transmission and distinct cumulative outbreak-risk metrics, including crossings in examples",
+          "RESULT.md lines 38–44: the relevant compound-Poisson jump is 1+Poisson(d), not the ordinary Neyman A jump"
+        ],
+        "reasoning": "A metric crossing in examples does not give strict PGF order or an eventual survival comparison for all swapped pairs. The shift is one per cluster, not a fixed shift of the final count.",
+        "searches": [
+          "Resultary: strict probability generating function order eventual reversed survival tails two generation epidemic opposite transmission order",
+          "Resultary: shifted Poisson jumps compound Poisson exact upper-tail log constant survival reversal",
+          "arXiv:2302.03210"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/25/SCOPE-convex-order-rearrangement-of-finite-generation-epidemic-risk-un--3d9444e260e3, RESULT.md opening statement: convex ordering and elimination for terminal incidence"
+        ],
+        "reasoning": "This distinct same-day result is not ranked by date. Terminal incidence is not cumulative incidence, and terminal convex order does not supply the cumulative survival asymptotic. Fixed-parameter numerical tables cannot establish the universal order or limiting ratio.",
+        "searches": [
+          "Resultary: A universal early-suppression rare-tail reversal in two-generation Poisson epidemics",
+          "Resultary: compound Poisson Neyman type A upper tail log d log log n asymptotics shifted Poisson jumps"
+        ]
+      },
+      "rationale": "The supported distinct claim is the joint strict PGF order and quantitative eventual upper-tail reversal for cumulative two-generation counts for every fixed opposite ordering, not the invention of the PGF framework or of compound-Poisson tail methods. The corrected wording does not enlarge the theorem.",
+      "residual_risks": [
+        "An inaccessible Neyman Type A asymptotic or broader nested-exponential coefficient theorem may subsume the logarithmic tail lemma; no priority conclusion is drawn for that lemma alone.",
+        "Search scope does not establish historical priority for the combined comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework and example overlap, not equivalent theorem",
+          "evidence": "Generation-indexed transmissibility and critical-case risks; cumulative-size distributions can cross in a case study.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-023-01220-w",
+          "material_read": "OA author PDF, pp. 1, 8–9, 15–16",
+          "method": "Located and read bounded primary PDF passages",
+          "title": "Temporal and Probabilistic Comparisons of Epidemic Interventions",
+          "trigger": "Same generation-dependent branching framework and cumulative-case risk metrics"
+        },
+        {
+          "assessment": "Possible coverage of tail sublemma unresolved",
+          "evidence": "Paper addresses Neyman Type A approximation; no theorem-level asymptotic was verified.",
+          "identifier_or_url": "https://doi.org/10.1080/03610919508813282",
+          "material_read": "Bibliographic evidence; no full text recovered",
+          "method": "DOI and publisher PDF/full-text routes and OA repository recovery",
+          "title": "A note on an approximation to Neyman type A distributions",
+          "trigger": "Possible prior sharp tail for unshifted compound Poisson counts"
+        },
+        {
+          "assessment": "Related comparator; full theorem scope not independently established",
+          "evidence": "Deficiency comparison, not observed evidence of the claimed strict PGF/survival relation.",
+          "identifier_or_url": "https://doi.org/10.3390/math10244712",
+          "material_read": "Publisher landing/abstract material only",
+          "method": "Lawful publisher retrieval attempt",
+          "title": "Comparing Compound Poisson Distributions by Deficiency: Continuous-Time Case",
+          "trigger": "Compound-Poisson comparison cited in the record"
+        },
+        {
+          "assessment": "Distinct random variable and ordering",
+          "evidence": "Rearrangement of terminal-generation incidence in convex order, not cumulative survival.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-convex-order-rearrangement-of-finite-generation-epidemic-risk-un--3d9444e260e3",
+          "material_read": "RESULT.md theorem at offset 0",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Convex-order rearrangement of finite-generation epidemic risk",
+          "trigger": "Closest same-day catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural cumulative count, even strict ordering of all discounted expectations and a smaller mean can coexist with a strictly larger extreme upper tail; the theorem identifies the exact exponential rate of that reversal, not just an instance. This is a useful benchmark for distinguishing risk metrics in an idealized branching model, not an operational intervention or finite-population prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

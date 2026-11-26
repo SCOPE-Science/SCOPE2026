@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The Smith form reduces each zero-product sandwich to matrices supported only at strict inequalities between Smith exponents. A size-optimal row/column vertex cover gives a generator upper bound, and the Hall-deficiency formula produces an equally large matching and a constructive sharp factorization. The argument applies over every finite commutative chain ring; finite-field polynomial computations and separate mixed-characteristic modular computations independently check the invariant and example boundaries. The proof does not mistake vanishing determinants for zero image-module generator rank.
+## correctness
 
-## Originality
-**PASS with historical-priority qualification.** The full 2026 zero-insertivity text explicitly provides the two-by-two field case and a one-entry construction over any ring, but no all-length Smith-spectrum capacity. The inspected published division-ring half-rank result proves only the length-one boundary and explicitly does not treat nonfield coefficients. The 2013 finite-chain-ring matrix-shape paper supplies established Smith machinery but not the constrained zero-product sandwich extremum. Search records and own accessible claims contain no equivalent \(n-\lceil n/(k+1)\rceil\) theorem. Older results under unrelated matrix-factorization terminology remain a residual risk.
+PASS
 
-## Mathematical value
-**PASS.** The zero-insertive locus is a structural measure of failure of semicommutativity. The theorem gives a natural, optimal all-length generator-capacity invariant and shows a nontrivial nilpotent-thickening transition: the field cap \(\lfloor n/2\rfloor\) rises to \(n-1\) precisely once the radical length reaches \(n-1\). The fixed-factor Smith-level formula explains the extremum, rather than merely recomputing known finite counts.
+In Smith coordinates the right factor has form D_{k-a}H after the coordinate change, because Ann(pi^a)=pi^{k-a}R including levels 0 and k. The middle product Y=D_a S D_{k-a} is supported only on a_i<a_j. At any h its entries are covered by the rows a_i<h and columns a_j>h. Splitting into those two blocks factors YH through a free module of rank n-n_h, proving the upper bound without confusing image generators with reduction rank or minors. For an independent sharpness argument, sort the levels and write m=max n_h. Pair row i with column i+m for 1<=i<=n-m; a_{i+m}>a_i since no equal-level block has m+1 entries. Put ones at any t of these pairs in S and take H=I. The resulting t separated entries are nonzero powers of pi, and their image is a direct sum of t nonzero cyclic modules, each contributing one residue-field generator by Nakayama. This realizes every t including zero for the original A by reversing the coordinate changes. Balanced multiplicities give the global optimum n-ceil(n/(k+1)), also for n=1 and fields, and yield the k>=n-1 criterion at n>=2.
 
-## Boundaries
-This is not a complete membership classification, a matrix count, or an independently reviewed theorem. Historical priority remains provisional; the executable checks only corroborate small cases.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The field boundary is covered, including the fixed-rank bound by ordinary subspace arguments. The checked statements do not cover the arbitrary-length, fixed-Smith-level generator capacity. The radical filtration changes the support to strict inequalities over k+1 levels; the optimized bound detects capacity above half rank, already at n=3, k=2, where reduction to the residue field loses the witness.
+
+## value
+
+PASS
+
+The zero-product sandwich is an established object and the generator count is its natural image-size invariant over a local ring. The exact formula sees the full Smith profile, explains the field/nonfield change, and detects precisely when an image can have n-1 generators. The witness and bound make the result useful without assuming a particular residue field or equal characteristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

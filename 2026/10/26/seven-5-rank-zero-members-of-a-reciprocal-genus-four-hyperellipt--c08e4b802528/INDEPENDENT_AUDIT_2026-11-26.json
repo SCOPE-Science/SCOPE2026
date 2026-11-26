@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:34:59.754596Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–83; VERIFICATION.md, verify.py, requirements.txt",
+        "Fresh reproduction: SYMPY_GROUND_TYPES=python python3 /workspace/audit-reproduce-1.py (SymPy 1.14.0)"
+      ],
+      "rationale": "The reciprocal factorization in t=x^2 gives a quadratic in t+t^(-1) and a simple extra factor t+1 off the stated bad locus. Repeated roots occur at the quadratic discriminant or at the two branch values ±2, which gives exactly S; the leading coefficient is 1, so the degree-ten squarefree case has genus four. Fresh coefficient extraction gives B and its basis-reversed twin. On D=0, u=0 forces the singular pairs (0,0),(4,2). For the rank-one case, write B as x y^T with x=(u,ell)^T and y=(1,h/u)^T. The column-action Cartier map is (Bv)^(1/5); its square is represented after raising to the 25th power by B^(5)B. The middle scalar is (y^(5))^T x=N/u^5. Thus the block dies after the second iterate if N=0 and otherwise its image line is preserved with nonzero action; this establishes the stable ranks independently of the ordinary matrix rank that gives the a-number. A fresh exact calculation in U=a^2+2b checked the resultant and found the elimination generator a^8(a+1)(a+2)(a-2)^6 Q(a). The monic fiber gcds for a=0,1,2,3,4 are b^3,1,b-1,b-2,b-2, respectively; only (3,2) is smooth. Adjoining Q to the ideal gives precisely (Q,U-(a^2+2 beta(a))). The reduction of S there is coprime to Q. The modular Frobenius criterion verified irreducibility of Q, so the six marked points have exact degree six and the claimed extension census follows.",
+      "residual_risks": [
+        "The coefficient-marked locus is not a geometric isomorphism-class census and stable rank zero is not a calculation of the Newton polygon.",
+        "The uploaded verifier was inspected, not executed. The separate reproduction uses the pure-Python SymPy ground types to avoid ordering issues in modular factor-list formatting."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Algorithm 3.1.3 assumes p>=7 and returns superspecial isomorphism-class representatives.",
+          "The earlier characteristic-five uniqueness statement concerns a superspecial genus-four isomorphism class, as reported in the introduction to Ohashi–Kudo."
+        ],
+        "reasoning": "Superspeciality is strictly more restrictive than rank zero. The audited rank-zero points have a-number 2, not 4, so the earlier superspecial classification does not supply them.",
+        "searches": [
+          "arXiv:2312.16858 introduction, Table 1 and Algorithm 3.1.3",
+          "Fuhrmann–Garcia–Torres Theorem 3.1 as cited in Ohashi–Kudo"
+        ]
+      },
+      "checked_sources": [
+        "Bounded local Resultary family and polynomial lookups",
+        "Focused primary-literature lookup and above OA passages",
+        "Frozen RESULT.md prior-work and scope statements"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior family and standard semilinear method determine the setup and a way to compute ranks, not a reported exact arithmetic classification of this determinant-zero locus in characteristic five."
+        ],
+        "reasoning": "The contribution is the exact characteristic-five elimination/support and irreducibility calculation together with its rank interpretation. Knowing how to compute a twisted Cartier product does not supply the orbit decomposition or account for the singular fibers.",
+        "searches": [
+          "Ohashi–Kudo (3.6), introduction and Algorithm 3.1.3",
+          "Frozen RESULT.md comparison to arXiv:1710.10726 for semilinear Cartier conventions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equation of Ohashi–Kudo is exactly the same, with A=a and B=b.",
+          "Indexed reciprocal genus-three work concerns a different genus and rank; the inspected characteristic-five genus-four rank computations use x^10+x^7+ax^4+bx."
+        ],
+        "reasoning": "The family itself is established. The new target is the characteristic-five marked rank-zero support, not an unmarked family reparametrization. Isomorphism of isolated exceptional curves across different families would not identify their complete marked loci.",
+        "searches": [
+          "Resultary searches for the reciprocal-even family, title and elimination-polynomial terms",
+          "arXiv:2312.16858 §3.1 (3.6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 1 gives automorphism possibilities in characteristics p>=7, not the p=5 rank strata.",
+          "The closest indexed genus-four characteristic-five records 51423d54dfe7 and 524d08c4edf5 give a rank-zero point of a different normalized equation; no exact same-family table was identified in the bounded results."
+        ],
+        "reasoning": "Neither automorphism tables nor a rank-zero count in the other equation provide the marked pair set, its degree-six orbit, or the extension census.",
+        "searches": [
+          "Local Resultary family, title and rank-zero elimination queries",
+          "Ohashi–Kudo Table 1"
+        ]
+      },
+      "rationale": "The exact reciprocal family and the Cartier machinery are prior. The supported distinction is the smooth characteristic-five rank stratification and exact seven-point coefficient-marked census for that family. The same-equation primary text, characteristic-five superspecial context and closest indexed rank computations do not give this marked classification in the inspected evidence.",
+      "residual_risks": [
+        "The focused literature query did not produce additional direct coverage. The 1997 superspecial theorem was checked via Ohashi–Kudo's account, not by direct reading.",
+        "Unindexed characteristic-five arithmetic tables or undiscovered equivalences across marked families might alter priority; no comprehensive priority or inter-family isomorphism determination is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same family, different characteristic/output for the enumeration algorithm",
+          "evidence": "The same six-term polynomial appears; the algorithm takes p>=7 and returns superspecial isomorphism classes. The introduction cites the p=5 uniqueness of a superspecial genus-four isomorphism class, not a rank-zero parameter census.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.16858",
+          "material_read": "§3.1 pp. 8–9 equation (3.6), OA offset 23600; Table 1 p. 5; Algorithm 3.1.3 p. 10 at offset 25177; introduction p. 2 at offset 3725 and cited reference p. 23",
+          "method": "OA full-text passage inspection",
+          "title": "Computing superspecial hyperelliptic curves of genus 4 with automorphism group properly containing the Klein 4-group",
+          "trigger": "Exact established reciprocal family, potential prior arithmetic and characteristic-five classification"
+        },
+        {
+          "assessment": "Distinct family",
+          "evidence": "x^10+x^7+ax^4+bx with rank-zero parameter (4,2), not the reciprocal-even coefficient family.",
+          "identifier_or_url": "2026/10/26/SCOPE-characteristic-five-p-rank-strata-and-a-unique-supersingular-cur--51423d54dfe7",
+          "material_read": "Indexed statement of the polynomial and exceptional parameter",
+          "method": "local Resultary comparison",
+          "title": "Characteristic-five p-rank strata and a unique supersingular curve",
+          "trigger": "Same index date, genus, characteristic and rank-stratification question"
+        },
+        {
+          "assessment": "Distinct family",
+          "evidence": "Studies the rank-zero point (-1,2) in the family with x^7, ax^4 and bx terms, not a marked stratification for the reciprocal-even normalization.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-transverse-rank-zero-point-in-a-genus-four-c-6-family-in-chara--524d08c4edf5",
+          "material_read": "Indexed statement of family and rank-zero point",
+          "method": "local Resultary comparison",
+          "title": "A transverse rank-zero point in a genus-four C6-family in characteristic five",
+          "trigger": "Potential characteristic-five rank-zero overlap"
+        },
+        {
+          "assessment": "Other genus and rank",
+          "evidence": "Three marked rank-one points yield one isomorphism class in genus three; this does not give marked characteristic-five rank-zero strata in genus four.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-unique-rank-one-jacobian-class-in-a-reciprocal-genus-three-f--c26779cc9d90",
+          "material_read": "Indexed statement on rank and isomorphism count",
+          "method": "local Resultary comparison",
+          "title": "The unique rank-one Jacobian class in a reciprocal genus-three family",
+          "trigger": "Reciprocal family and marked versus unmarked census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–37 and 63–83",
+        "Ohashi–Kudo (3.6) and Algorithm 3.1.3"
+      ],
+      "rationale": "This is a complete arithmetic classification on an established two-parameter family at a small characteristic outside the cited superspecial enumeration. It distinguishes intermediate rank from rank zero despite identical Cartier ranks on D=0, and gives an exact field-of-definition census via a rational point and an irreducible sextic orbit. These are useful input for choosing or counting marked examples over extensions; they are not an arbitrary lookup in one small field or a generic change of coordinates.",
+      "residual_risks": [
+        "The value is family-relative and arithmetic, not a claim about supersingular Newton polygons or distinct isomorphism classes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

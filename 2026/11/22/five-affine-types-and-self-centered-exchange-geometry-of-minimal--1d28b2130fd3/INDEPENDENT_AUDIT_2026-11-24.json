@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:48:56.583451Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–31, VERIFICATION.md, both supplied programs and saved stdout inspected, not executed",
+        "Independent replay: python3 /workspace/branches/2b73469d-7e50-473e-83f7-2725ba9c16ba/paley13_replay.py; output /workspace/branches/2b73469d-7e50-473e-83f7-2725ba9c16ba/paley13_replay_output.txt"
+      ],
+      "rationale": "The independent exhaustive replay checked all 8,191 nonempty subsets. A connected dominating set is indeed upward-closed: every added vertex is adjacent to a member of the original dominating set, so the enlarged induced subgraph stays connected as well as dominating. Single-deletion minimality is therefore equivalent to inclusion-minimality. Counts by sizes 1–13 are (0,0,0,260,975,1625,1703,1287,715,286,78,13,1), with exactly 260 deletion-minimal sets, all of size four. The replay used unrestricted one-in/one-out exchanges and obtained 1,911 edges; all-source BFS visits all 260 vertices and every eccentricity equals four. The affine maps with quadratic-residue multipliers preserve differences and hence both the original graph and exchange adjacency. The computed orbit and shell rows are 0x17: 78,14,(1,14,79,115,51); 0x1b: 39,20,(1,20,70,116,53); 0x2b: 78,14,(1,14,70,132,43); 0x2d: 39,12,(1,12,74,128,45); 0x8d: 26,15,(1,15,69,133,42). Thus the polynomial and all five exchange rows match the frozen claim, not just a summary of minimum cardinality.",
+      "residual_risks": [
+        "Finite exhaustion proves this labelled graph only; it neither establishes a conjecture for other Paley orders nor identifies token-slide metrics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elsawy explicitly constructs P13 from the six nonzero quadratic residues modulo 13.",
+          "Golovach et al. provide algorithms and bounds for enumerating inclusion-minimal connected dominating sets in specified graph classes."
+        ],
+        "reasoning": "The graph construction and general enumeration problem are existing. An algorithm is enough to pose or compute the census from the input; the cited results do not give its exact output or a structural theorem implying the affine-shell distribution.",
+        "searches": [
+          "Elsawy arXiv:1203.1818, PDF pp. 29–30",
+          "Golovach–Heggernes–Kratsch DOI:10.4230/LIPIcs.IPEC.2015.307, pp. 307–309"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary exact records 1d28b2130fd3 (the assigned item), bb59f463fd26, a37d18f4dcd4, 24a2261a2118",
+        "Elsawy arXiv:1203.1818 pp. 29–30; Golovach et al. pp. 307–309; Matsushita–Wakatsuki Thm. 1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph-specific complex record describes homotopy types of two simplicial complexes; the cited primary Theorem 1.1 describes combinatorial Alexander duality. The enumeration source gives a minimality criterion and algorithmic framework."
+        ],
+        "reasoning": "Homotopy types and duality neither select the connected minimal sets nor determine their shortest-path exchange graph. An enumeration framework alone does not give the exact self-centered, nonregular geometry; the finite classification requires the additional exhaustive checks.",
+        "searches": [
+          "Resultary a37d18f4dcd4: Paley-thirteen neighborhood/dominance complexes",
+          "Matsushita–Wakatsuki arXiv:2312.02639, Thm. 1.1",
+          "Golovach–Heggernes–Kratsch pp. 307–309"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest same-host record bb59f463fd26 has 247 minimum locating-dominating 4-sets, 1,599 jump edges and 858 slide edges.",
+          "The standard private-neighbor-or-cut-vertex criterion describes connected-domination minimality.",
+          "Record 24a2261a2118 classifies the connected-domination jump graph of Q4, with 192 states and 384 edges."
+        ],
+        "reasoning": "An unrestricted replacement is token jumping, not sliding. The locating and connectivity conditions differ even on P13; their unequal counts exclude an alias. With fixed size four, all 260 inclusion-minimal solutions here are also minimum solutions, but the Q4 instance does not imply any P13 profile.",
+        "searches": [
+          "Resultary: P13 connected domination exchange, locating domination one-swap graph, minimum connected-dominating-set jump and slide",
+          "Golovach–Heggernes–Kratsch, IPEC 2015, pp. 307–309"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search hit 1d28b2130fd3 is the assigned record itself. The distinct P13 table in bb59f463fd26 counts locating-dominating solutions and exchanges. Elsawy lists the same modular graph and some properties, not this census."
+        ],
+        "reasoning": "Neither the identical indexed record nor exact numbers for a different invariant constitute independently existing coverage. The overlap is recorded without presuming order from the common date.",
+        "searches": [
+          "Resultary: P13 connected-domination count and jump geometry; exact census/metric records 1d28b2130fd3 and bb59f463fd26",
+          "Elsawy arXiv:1203.1818, P13 construction and graph properties"
+        ]
+      },
+      "rationale": "The exact result supported as distinct is the joint inclusion-minimal census and full metric/orbit classification of its one-swap graph. The same graph has a close same-day exact reconfiguration result for locating domination, but that has a different feasible family and different edge counts. The general enumeration methods do not supply these exact outputs or structural class. No historical priority is inferred beyond the bounded evidence.",
+      "residual_risks": [
+        "One targeted public search produced no probative result; unindexed exact tables or graph-invariant computations remain possible.",
+        "No within-day ordering was established for the distinct P13 item; it concerns a different invariant in any event."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-day result for a different feasibility condition",
+          "evidence": "247 minimum locating-dominating four-sets, 1,599 jump edges, 858 slide edges.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-thirteen-antipodal-code-pairs-in-the-paley-locating-dominati--bb59f463fd26",
+          "material_read": "RESULT.md Finding",
+          "method": "Published local mirror",
+          "title": "The thirteen antipodal code pairs in the Paley locating-domination graph",
+          "trigger": "Strongest exact same-host overlap"
+        },
+        {
+          "assessment": "Simplicial complexes, not solution exchange",
+          "evidence": "Homotopy classification concerns Lovász neighborhood and dominance complexes.",
+          "identifier_or_url": "2026/11/1/SCOPE-dual-sphere-wedge-homotopy-of-the-paley-thirteen-neighborhood-an--a37d18f4dcd4",
+          "material_read": "RESULT.md Finding",
+          "method": "Published local mirror",
+          "title": "Dual sphere-wedge homotopy of the Paley thirteen neighborhood and dominance complexes",
+          "trigger": "Same graph and domination-related invariant"
+        },
+        {
+          "assessment": "Different host graph",
+          "evidence": "Q4 has 192 states and 384 jump edges in that record.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-cayley-exchange-graph-of-minimum-connected-dominating-sets-i--24a2261a2118",
+          "material_read": "RESULT.md Finding",
+          "method": "Published local mirror",
+          "title": "The Cayley exchange graph of minimum connected dominating sets in the four-cube",
+          "trigger": "Same feasibility and jump rule"
+        },
+        {
+          "assessment": "No pertinent census in the inspected passages",
+          "evidence": "Constructs P13 via the same quadratic residue set and discusses graph properties.",
+          "identifier_or_url": "https://arxiv.org/pdf/1203.1818",
+          "material_read": "PDF pp. 29–30; offset 58803 for the P13 construction",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Paley Graphs and Their Generalizations",
+          "trigger": "P13 graph-specific prior classification"
+        },
+        {
+          "assessment": "Class algorithms and bounds, not the frozen exact instance",
+          "evidence": "Describes bounded-class enumeration and the private-neighbor-or-cut-vertex minimality criterion.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.IPEC.2015.307",
+          "material_read": "PDF pp. 307–309, class table and minimality definition",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Enumerating Minimal Connected Dominating Sets in Graphs of Bounded Chordality",
+          "trigger": "Closest general enumeration results"
+        },
+        {
+          "assessment": "No implication for the target finite exchange graph",
+          "evidence": "Combinatorial Alexander duality, not a connected domination census or metric.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.02639",
+          "material_read": "PDF pp. 1–2, Thm. 1.1",
+          "method": "Lawful OA PDF, bounded theorem passage",
+          "title": "Matsushita–Wakatsuki, arXiv:2312.02639",
+          "trigger": "General theorem behind the same-graph complex record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–16 and independent replay output; same-host locating-domination table as contrast"
+      ],
+      "rationale": "Connected domination asks for a connected backbone reaching every vertex, a natural invariant of a canonical finite-field graph. A reconfiguration researcher would need exact swap reachability, eccentricities, and their symmetry types on this host independently of its minimum size. In particular the nonregular but self-centered exchange graph is an exact geometric feature, and the uniform size of all inclusion-minimal sets rules out larger minimal backbones. These are not read off the minimum value or the graph's construction.",
+      "residual_risks": [
+        "It is a single named graph; it does not establish a Paley-family or network performance theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

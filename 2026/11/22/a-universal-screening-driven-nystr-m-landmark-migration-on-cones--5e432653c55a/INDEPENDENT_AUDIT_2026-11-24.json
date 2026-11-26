@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:10:46.253901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The constant and hub/base contrast modes give cone eigenvalues 0 and m+1; the orthogonal mean-zero base modes have eigenvalues b_j=1+ν_j. Walk-regularity implies regularity and constant diagonal of all Laplacian spectral projectors by polynomial interpolation in the adjacency matrix. Thus the peripheral resolvent diagonals r, and their derivatives, are independent of the vertex. The hub diagonal is h=(μ+1)/(μ(μ+m+1)); computing each peripheral projector weight gives r/h=1+Σ c_j μ/[m(μ+1)(μ+b_j)]. The complement identity on the mean-zero space gives c_j≥0, with some positive unless the base is complete. The ratio is strictly greater than 1, and the error difference E_p-E_o is (log(r/h))′ by K′=-K². The derivative of the ratio is Φ/[m(μ+1)²]; each nonzero term of Φ has derivative -2c_j b_j(μ+1)/(μ+b_j)³ and the sum changes sign from positive to negative. This proves the unique global switch, all tie cases and the square-root bounds (strict for multiple contributing values). The conditional covariance block is the inverse of the retained principal precision matrix by the Schur complement, verifying the screened grounding interpretation. For cycles C₄ only ν=2 contributes, yielding √3. For growing cycles, with f=(1+ν-μ²)/(μ+1+ν)², the full periodic sum yields Φ/m²=I-(f(0)+J)/m+O(e^{-cm}), uniformly near the limiting root (the summands are analytic in a common strip). Setting Y=μ+3-2cos θ gives f=1/Y-μ(μ+1)/Y², so integration and differentiation give I=(μ+1)(5-2μ-μ²)/[(μ+1)(μ+5)]^{3/2}. Also J=1-μ(μ+1)/√[(μ+1)(μ+5)]-(μ+1)I. At x=√6-1 the root is simple, I′(x)=-2(x+1)²/D^{3/2}, so the first correction is (f_x(0)+J(x))/I′(x), precisely the stated positive γ (the sign reduces to 57>22√6). Root localization follows from opposite signs on both sides of x and uniqueness; Taylor expansion gives the O(m⁻²) remainder. Replay: RESULT.md proof steps 1–4. The supplied finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nyström theory covers SPSD approximation generally. The prior clique cone record allows vertex-transitive bases and multiple hubs but varies a different parameter. The two-landmark result treats the same screened wheels with a different cardinality, and the single-landmark defective C₅ record has multiple vertex orbits and no cone."
+        ],
+        "reasoning": "These general frameworks and nearby instances do not yield the all-μ hub/periphery classification on walk-regular cones. In particular, selecting a pair in a conditional trace problem is not equivalent to selecting one optimum vertex.",
+        "searches": [
+          "arXiv:1303.1849",
+          "arXiv:1302.0450",
+          "Resultary ac79798d2c91, 8a3ab978200b and 0ad48f507a95"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_cone.py",
+        "arXiv:1302.0450, 1407.1569 and 1303.1849",
+        "Resultary ac79798d2c91, 8a3ab978200b and 0ad48f507a95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known grounded inverse-trace or information-centrality formulations allow the objective to be posed but do not give the monotone sum Φ for μ>0. Nearby migration analogues change either the shifted matrix, the column count or the symmetry class."
+        ],
+        "reasoning": "The frequency shift enters each normalized diagonal-ratio term twice and produces zeros at √b_j; that monotonic comparison and the new cycle correction require the particular uniform resolvent family. Endpoint preferences or a weighted unscreened switch do not imply its uniqueness.",
+        "searches": [
+          "Resultary ac79798d2c91, Finding and cone/wheel threshold",
+          "Resultary 8a3ab978200b and 0ad48f507a95, Findings",
+          "arXiv:1407.1569, single-leader criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact equivalent objective is tr[(μI+L_G)_{-v,-v}⁻¹], twice the unit-noise steady covariance trace for uniformly damped followers and one hard-pinned leader. The published leader comparison uses an unscreened retained Laplacian with a multiplier on peripheral edges."
+        ],
+        "reasoning": "Uniform screening adds μI to all retained diagonal entries; changing rim conductance instead changes off-diagonal entries and scales the mean-zero base Laplacian. The objective type agrees but the families, parameters and thresholds do not. The focused public search did not retrieve a useful new mathematical source.",
+        "searches": [
+          "\"screened grounded Laplacian\" inverse trace leader selection uniformly shifted Laplacian cone wheel one-column Nyström",
+          "arXiv:1302.0450, pp. 5–6",
+          "arXiv:1407.1569, p. 15",
+          "Resultary ac79798d2c91"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior wheel-cone calculation has conductance threshold t_*=0.06817086453 m²+0.16355226001 m+O(1). The two-landmark record gives examples under the same screen but a different selection problem."
+        ],
+        "reasoning": "These are neither the same spectral threshold nor a table of the same invariant; the present μ threshold tends to a finite nonzero constant with a 1/m correction. Exact evaluation of a few wheels would not yield the uniform spectral theorem.",
+        "searches": [
+          "Resultary screened-cone and innovation neighbors ac79798d2c91, 8a3ab978200b, 0ad48f507a95"
+        ]
+      },
+      "rationale": "Credit the standard Nyström, inverse-trace leader and conditional covariance formulations. The best-supported distinct result is the unique uniformly screened switch on all qualifying cones and its wheel correction, not the first discovery of hub/periphery migration under any tuning or a new objective.",
+      "residual_risks": [
+        "The focused search surfaced no relevant new primary passage; this is not evidence against unlocated work on damped grounded Laplacians or Gaussian conditional variance designs. The close reweighted-cone result is substantial prior context, not exact coverage of the stated shift family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong analogue under peripheral edge reweighting, not uniform screening",
+          "evidence": "Unique switch with rim weight t on weighted clique cones, and cycle threshold of order m² in t.",
+          "identifier_or_url": "Resultary ac79798d2c91",
+          "material_read": "RESULT.md, offsets 0 and 4100, Finding and threshold comparison",
+          "method": "Local mirror",
+          "title": "A universal single-leader migration law for vertex-transitive graph cones",
+          "trigger": "Same cone and wheel geometry and inverse-trace leader objective"
+        },
+        {
+          "assessment": "Different cardinality; same-day date gives no priority order",
+          "evidence": "Gives the hub–rim pair versus rim–rim pair transition on the seven-rim wheel and endpoint comparisons for larger rims.",
+          "identifier_or_url": "Resultary 8a3ab978200b",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local mirror",
+          "title": "The first screened wheel with a hub-to-rim two-landmark transition",
+          "trigger": "Same screened wheels and Nyström trace error"
+        },
+        {
+          "assessment": "Different graph family; same-day date gives no priority order",
+          "evidence": "Three consecutive optimal vertex orbits on a defective weighted C₅, not a walk-regular-base cone.",
+          "identifier_or_url": "Resultary 0ad48f507a95",
+          "material_read": "RESULT.md offset 0, Finding",
+          "method": "Local mirror",
+          "title": "A three-stage screening migration for one Nyström landmark on a defective cycle",
+          "trigger": "Same positive shift and one-column trace criterion"
+        },
+        {
+          "assessment": "Prior inverse-trace optimization framework",
+          "evidence": "Uses trace of an inverse Laplacian with leader feedback, not an all-screen cone threshold formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "Pages 5–6, OA offset 11530",
+          "method": "Open original PDF passage",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "Inverse-trace noisy-consensus interpretation"
+        },
+        {
+          "assessment": "Unscreened centrality comparison",
+          "evidence": "Gives a single-leader information-centrality result without the uniform diagonal shift at issue.",
+          "identifier_or_url": "https://arxiv.org/pdf/1407.1569",
+          "material_read": "Page 15, OA offset 62347",
+          "method": "Open original PDF passage",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "Graph-specific single-leader centrality result"
+        },
+        {
+          "assessment": "General approximation framework, not the graph theorem",
+          "evidence": "Studies Nyström sketches of SPSD matrices; the inspected passage does not give the uniformly screened cone comparison.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1849",
+          "material_read": "Page 1, OA offset 0",
+          "method": "Open original PDF passage",
+          "title": "Revisiting the Nyström Method for Improved Large-Scale Machine Learning",
+          "trigger": "Established SPSD Nyström context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives an exact optimizer for a natural resolvent model and a systematic failure of the largest-diagonal heuristic, not an isolated small graph. It gives a spectral threshold requiring only the base eigenvalues and a sharp first size correction for a canonical family. The interpretation applies only to the one-landmark trace objective, not arbitrary loss or landmark counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

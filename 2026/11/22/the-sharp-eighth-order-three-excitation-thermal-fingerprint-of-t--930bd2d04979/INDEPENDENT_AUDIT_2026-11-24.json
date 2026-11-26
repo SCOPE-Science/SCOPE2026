@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:32:41.256384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 5–61",
+        "VERIFICATION.md, check_walks.py and check_matrix.py, read without execution",
+        "Independent replay: python3 /workspace/branches/review-evidence/replay5.py"
+      ],
+      "rationale": "The positive unit exchange on the three-excitation block is the symmetric adjacency on 560 three-subsets: each accepted edge move flips exactly one occupied bit and one empty bit, uniquely. Independently generated both Cayley bases on Z4² and lifted undirected edges by this bit transposition; checked degree six, two common base neighbors for each distinct pair, four-clique counts 8 and 0, and symmetric zero-diagonal token adjacency with 8736 directed entries. For each root computed rows of powers only up to H^4 and used the Frobenius product of H^k with H^(k-1) and itself for traces at 2k-1 and 2k. This exhaustive arbitrary-precision integer replay returns the shared traces [560,0,8736,17472,407040,2680320,39058944,437090304] and eighth traces 6117992448 (rook), 6115799040 (Shrikhande). Their difference is 2193408. Dividing by 560 times 8! gives exactly 17/175. Finite-dimensional exponentiation gives the entire series and analytic O(z^9) remainder; (-1)^8=(-i)^8=1, so both specified substitutions have the same leading distinguishing order and coefficient.",
+      "residual_risks": [
+        "The replay exhausts all states through the claimed order; it does not classify the full spectrum, other excitation sectors, or individual coherences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary symmetric-power paper reports tested symmetric-cube noncospectrality on strongly regular graphs through order 36. Rudolph's example is a different 24-vertex pair. Shiau et al. tabulate two-particle overlap metrics, and Gamble et al. treat two-boson walks."
+        ],
+        "reasoning": "Qualitative noncospectrality implies some differing trace, but does not imply the first one occurs at eight or give its value; changing degrees of freedom or observables does not establish the tested identity.",
+        "searches": [
+          "Audenaert et al., arXiv:math/0507251, p. 2 and section 10",
+          "Rudolph, arXiv:quant-ph/0206068, level-three spectral example",
+          "Shiau et al., arXiv:quant-ph/0312170, comparison table",
+          "Gamble et al., arXiv:1002.3003, two-boson walk"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0507251; quant-ph/0206068; quant-ph/0312170; 1002.3003; 2505.00859",
+        "Resultary 930bd2d04979 (the frozen record) and f9027d05a3f2 (classical Ising)",
+        "Shrikhande base graph table"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier Ising record uses the same base pair and gets its first even-subgraph expansion difference at degree eight, by 96. The design-spectrum paper also treats this exact pair, but its parameter is the order of a complete graph admitting an edge decomposition."
+        ],
+        "reasoning": "An Ising even-subgraph coefficient counts a different collection from closed walks with three occupied vertices; sharing the pair, word partition function and the number eight does not imply either moment table. The design spectrum is not an eigenvalue spectrum. No matching implication was established.",
+        "searches": [
+          "Resultary f9027d05a3f2, Finding and even-subgraph proof",
+          "Audenaert et al., introduction and section 10",
+          "Forbes and Rutherford, arXiv:2505.00859, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Audenaert et al. symmetric k-power uses k-subsets with symmetric difference an edge, exactly the occupation rule here. The Cayley rook and line graph of K4,4 are presentations of the same rook graph."
+        ],
+        "reasoning": "Three-token adjacency, symmetric-cube adjacency and the specified XY excitation block describe the same matrix up to relabeling. Heat and coherent traces are two substitutions into the same normalized entire trace, not independent originality claims.",
+        "searches": [
+          "Resultary: rook/Shrikhande three-token symmetric cube and eighth-order partition function",
+          "Shrikhande 4x4 rook symmetric cube 3 token graph spectra eigenvalues characteristic polynomial third symmetric power trace 2193408",
+          "Audenaert et al., arXiv:math/0507251, definition and computational section"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Audenaert computations do not publish pair-specific level-three spectra, characteristic polynomials or power traces in the inspected section. The catalogued exact energy trace table is in the frozen entry itself. The graph table lists the base spectrum 6^1, 2^6, (-2)^9, not the token spectrum."
+        ],
+        "reasoning": "A full prior pair of token spectra or characteristic polynomials would imply this exact moment result even without its coefficient being printed. The inspected counts of noncospectral tests and the base spectrum cannot be used as such a table.",
+        "searches": [
+          "Audenaert et al., section 10, pp. 15–17, numeric and determinant tests",
+          "Resultary exact target 930bd2d04979 and Ising comparison f9027d05a3f2",
+          "Shrikhande graph spectrum table, jaanos.github.io/tables/graphs/Shrikhande.html"
+        ]
+      },
+      "rationale": "The three-token sector is a known symmetric cube, and qualitative spectral distinction in that sector is not novel. The claim that survives is the first differing normalized trace coefficient being exactly 17/175 at order eight. Neither the strongest inspected symmetric-power computations nor the earlier same-pair Ising expansion determine that coefficient or the seven preceding cancellations for this Hamiltonian.",
+      "residual_risks": [
+        "Unindexed prior spectra, determinant polynomials or walk-count tables could establish equivalence. The inspected table and literature comparisons do not prove historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the qualitative separation, not the order or numeric coefficients",
+          "evidence": "Symmetric-cube discrimination in the tested SRGs, computational section describes determinant tests and counts of graphs, not pair-specific spectra or trace table.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0507251",
+          "material_read": "Definition and introduction, pp. 1–2; section 10, pp. 15–17 (offsets 36700–50443)",
+          "method": "Bounded open primary PDF passages",
+          "title": "Symmetric Squares of Graphs",
+          "trigger": "Same token lift and qualitative spectral computations on the relevant graph class"
+        },
+        {
+          "assessment": "Comparison uses a different 24-vertex pair",
+          "evidence": "Level two agrees and level three differs; no level-three trace table for the rook and Shrikhande pair.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0206068",
+          "material_read": "Level-three example, p. 4, offsets 17100 and 22033",
+          "method": "Bounded open PDF passages",
+          "title": "Constructing physically intuitive graph invariants",
+          "trigger": "Excitation-exchange spectral distinction at level three"
+        },
+        {
+          "assessment": "Different numerical invariant",
+          "evidence": "Table I concerns two-particle dynamical overlap metrics, not symmetric-cube spectra.",
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/0312170",
+          "material_read": "pp. 11 and 13, Table I and context",
+          "method": "Bounded open PDF passages",
+          "title": "Physically-motivated dynamical algorithms for the graph isomorphism problem",
+          "trigger": "Graph discrimination and numerical comparison tables"
+        },
+        {
+          "assessment": "Different particle number and comparison",
+          "evidence": "Two-boson walk/Green-function methods do not supply the three-excitation normalized trace.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.3003",
+          "material_read": "Abstract and p. 9 (offsets 2162 and 55250)",
+          "method": "Bounded open PDF passages",
+          "title": "Two-particle quantum walks applied to the graph isomorphism problem",
+          "trigger": "Quantum walk comparison on related graphs"
+        },
+        {
+          "assessment": "Classical zero-field Ising Hamiltonian, not the three-token block",
+          "evidence": "Degree-eight even-subgraph coefficient differs by 96 under that expansion.",
+          "identifier_or_url": "2026/11/8/SCOPE-an-all-coupling-ising-partition-function-inequality-for-the-cosp--f9027d05a3f2",
+          "material_read": "Finding and even-subgraph expansion, offsets 0 and 4280",
+          "method": "Local Resultary mirror",
+          "title": "An all-coupling Ising partition function inequality for the cospectral rook and Shrikhande graphs",
+          "trigger": "Strongest same-pair overlap: first degree-eight partition-function difference"
+        },
+        {
+          "assessment": "Base adjacency data only",
+          "evidence": "Strongly regular parameters (16,6,2,2) and base spectrum, with the rook graph as the other parameter match.",
+          "identifier_or_url": "https://jaanos.github.io/tables/graphs/Shrikhande.html",
+          "material_read": "Graph comparison and spectrum, offset 0",
+          "method": "Website reader",
+          "title": "Shrikhande graph",
+          "trigger": "Potential exact spectral tabulation"
+        },
+        {
+          "assessment": "Design spectrum is unrelated to Hamiltonian eigenvalues",
+          "evidence": "The spectral set is defined via complete-graph edge decompositions and is {96t+1:t>=1} for both graphs.",
+          "identifier_or_url": "https://arxiv.org/abs/2505.00859",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Open PDF passage",
+          "title": "The design spectrum of the Shrikhande graph",
+          "trigger": "Same pair with spectrum in the title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, the normalized trace and scope",
+        "Audenaert et al. qualitative separation",
+        "Independent finite replay and classical Ising comparison"
+      ],
+      "rationale": "The rook/Shrikhande pair is the canonical strongly regular comparison, and the symmetric-cube block is a natural common setting for its known spectral distinction. The first unequal trace fixes the earliest distinguishability for the normalized high-temperature and short-time trace observables, including seven nontrivial-order tests of cancellation through order seven with order zero fixed by dimension. The exact order and coefficient answer a sharper question than the known existence of separation, and the matched Ising order does not make the quantum conclusion redundant.",
+      "residual_risks": [
+        "No implication about the earliest order for arbitrary measurements, transition amplitudes or all strongly regular pairs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

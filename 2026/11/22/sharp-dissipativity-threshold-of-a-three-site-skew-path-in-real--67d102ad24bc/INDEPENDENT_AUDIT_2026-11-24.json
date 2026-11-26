@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:03:12.940457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof §§1–4, lines 32–68",
+        "Frozen VERIFICATION.md and verify_path_skew.py"
+      ],
+      "rationale": "Reconstructed the real quartic quotient in the antisymmetric and kernel coordinates. The two polynomial identities bound the nonnegative-sign branch strictly below 1/2; on the opposite branch removing the kernel coordinate strictly increases the quotient unless it was already zero. The value 2/3 at u=1/2 excludes the first branch. The derivative on the remaining interval has sign given by the strictly decreasing cubic in u^2, which changes sign once; restoring the one-sided numerator sign gives exactly the claimed maximizing line. The norm derivative yields the bound for both signs of beta (and beta=0); a norming initial vector proves optimality with prefactor one. Skew symmetry and the characteristic polynomial give the contrast with Euclidean contractivity and spectral stability. Independently expanded the polynomial identities and derivative and isolated the cubic root by rational signs at 0.23310321709649116 and 0.23310321709649117 (python3 /workspace/branches/review_replay.py 4). The bundled diagnostics were inspected, not run, and are not an all-vector proof.",
+      "residual_risks": [
+        "Only the equal-coupling real three-site path and the all-time prefactor-one bound were verified; this is not an arbitrary-weight, complex-space or general transient-norm theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Lebesgue-space result distinguishes v(T) from the larger absolute numerical radius and gives universal inequalities, not a sharp upper bound and equality case for this signed quotient.",
+          "The general theorem about exponential estimates from numerical abscissas applies once the abscissa is known."
+        ],
+        "reasoning": "The abstract statements cover the framework and semigroup application, not the finite path-specific optimization.",
+        "searches": [
+          "arXiv:1011.4785v1, numerical radius and absolute numerical index",
+          "arXiv:2608.19913v1, §5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d81ced4c9642 (mirrored RESULT.md)",
+        "Boubaker, Gernandt and Selmi, arXiv:2608.19913v1",
+        "Martín, Merí and Popov, arXiv:1011.4785v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known prefactor-one principle gives the damping threshold if supplied the exact path abscissa; it says nothing about whether adding a kernel component can improve the quotient.",
+          "The certified strict branch inequalities are what exclude that improvement and force the maximizing line here."
+        ],
+        "reasoning": "Credit the semigroup mechanism as prior. None of these prior conclusions mechanically implies the optimizing geometry and exact path constant together.",
+        "searches": [
+          "arXiv:2608.19913v1 §5",
+          "arXiv:1011.4785v1 Introduction",
+          "Resultary d81ced4c9642, Finding and equations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign isometry identifies the one-sided supremum with the spatial numerical radius for this path.",
+          "The known two-coordinate skew rotation gives 1/(2√2) at p=4. Restriction to the path's antisymmetric plane instead has norm (2a^4+b^4)^(1/4) and matrix [[0,1],[-2,0]] in (a,b); it is not the standard two-coordinate rotation."
+        ],
+        "reasoning": "A two-dimensional computation may compute the value on the invariant plane but does not show that it bounds the ambient space or exhausts the normers. Two-coordinate-supported vectors cannot attain the path value.",
+        "searches": [
+          "arXiv:1011.4785v1",
+          "Resultary d81ced4c9642"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored three-point conditional-expectation commutator supplies a different exact constant and full normers for a triangular three-edge matrix."
+        ],
+        "reasoning": "The two-edge path has different support, preserved by real ℓ4 signed-permutation isometries, and the commutator's exact computation is not the path computation.",
+        "searches": [
+          "Resultary search for real ℓ4 three-site skew numerical radius/logarithmic norm, strongest match d81ced4c9642"
+        ]
+      },
+      "rationale": "The supported distinct result is the path-specific global maximization including exclusion of the kernel coordinate, the cubic value and the full set of normers. The logarithmic-norm-to-semigroup implication and two-coordinate benchmarks are existing results; no inspected comparison provides the path extremum or its normers.",
+      "residual_risks": [
+        "An unindexed exact finite-dimensional path computation or stronger equality theorem might exist. This is a bounded statement-level comparison, not a claim of exhaustive priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General mechanism is prior; no path optimization in inspected example",
+          "evidence": "Explicit prefactor-one example is a multiplication operator on L1/L2 with complex two-coordinate fibres.",
+          "identifier_or_url": "https://arxiv.org/html/2608.19913",
+          "material_read": "§5, offsets 46723–52717",
+          "method": "OA primary HTML, bounded section",
+          "title": "On the Numerical Range of Linear Relations in Banach Spaces",
+          "trigger": "General Banach numerical-abscissa and prefactor-one estimates"
+        },
+        {
+          "assessment": "General inequalities and two-coordinate benchmark, not the path equality case",
+          "evidence": "Displays the two-coordinate skew-rotation formula M_p and distinguishes numerical radius from absolute numerical radius.",
+          "identifier_or_url": "https://arxiv.org/html/1011.4785v1",
+          "material_read": "Introduction, offsets 0–6462 and 6400–10886",
+          "method": "OA primary HTML, bounded passages",
+          "title": "On the numerical radius of operators in Lebesgue spaces",
+          "trigger": "Real lp numerical-radius inequalities and two-coordinate formulas"
+        },
+        {
+          "assessment": "Different matrix, non-equivalent under path-space isometries",
+          "evidence": "The matrix has all three skew couplings and its radius is √(3√6)/16, not the cubic path value.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-numerical-radius-of-a-three-point-conditional-expectation--d81ced4c9642/RESULT.md",
+          "material_read": "RESULT.md, offsets 0–4298",
+          "method": "Local Resultary mirror",
+          "title": "Sharp numerical radius of a three-point conditional-expectation commutator",
+          "trigger": "Closest indexed same-space exact skew result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and equality/semigroup proof"
+      ],
+      "rationale": "The minimal equal-edge path with a nontrivial continuous kernel direction is a useful test case for whether an invariant subspace controls a non-Hilbert contraction threshold. The complete normer classification resolves that issue rather than only producing a lower bound from the plane. The exact scalar threshold gives a usable benchmark distinguishing initial norm growth from spectral and Euclidean stability.",
+      "residual_risks": [
+        "The value is that of a sharp local growth benchmark, not a general formula for weighted paths or for the maximum transient amplification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:48:47.772825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive axes are invariant by the coordinate factors. In the equation for M=u+v the dispersal terms sum to −δ(u−v)²; the resulting logistic upper bound gives global bounded trajectories with bounded derivatives. Logistic comparison for v gives liminf v≥v_0. At limsup times for v the derivative tends to zero, implying V≤v_0+aU for the two limsups. If U>0, its own fluctuation sequence then gives 0≤U[1/(m+U)−H]<0, so u→0 and the v equation gives v→v_0. For w=v−v_0−au the exact filter is w'=−(s+δ)vw−au'. Since u'/u→0, the initial memory decays after division by any fixed u^p, and u(t−τ)^p/u(t)^p→1 on each fixed lag. On a sufficiently late tail this ratio is at most exp(pητ), while the filter is bounded by exp(−(s−η)τ). For η<s/(p+1), dominated convergence gives w/u^p→−aL/s whenever u'/u^p→L. In the strict branch, p=1 gives w=o(u); hence u'/u²→−(H−1/m), and p=2 gives the lag limit. At equality, the exact per-capita drift is −H²u²/(1+Hu); p=1 and then p=2 give w=o(u²), so u'/u³→−H² and p=3 gives the cubic lag. Integrating the derivatives of u^-1 and u^-2 gives precisely the two reported amplitudes. Conclusions concern patch one and positive data only, not extinction of both patches. Frozen VERIFICATION.md and verify.py were inspected, not executed. The recorded symbolic and BDF checks are not needed to prove the global or infinite-time results.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "In the primary paper Thm. 2.2 excludes positive equilibria in the target branch; Thm. 2.3 gives local attraction on the physical side; the proof of Thm. 2.6 gives a boundedness comparison. The Dulac computation in the proof of Thm. 2.7 is strictly negative for every m>0 whenever e≤B<s, including the target branch, although that theorem's stated conclusion addresses a different equilibrium.",
+          "The later 3f1b82e47fda covers all positive data in the same branch and adds two-term corrections; the later 512fe1e1d255 addresses a controlled near-extinction tube and a crossover."
+        ],
+        "reasoning": "The earlier paper already provides the broader planar proof machinery and matching local dynamics; restricting its stated global conclusions to their own domains does not restrict the explicit Dulac inequality. The later records help delimit scopes but do not prove earlier priority.",
+        "searches": [
+          "Xia et al. arXiv:2310.10558, Thms. 2.2, 2.3 and proofs of Thms. 2.6–2.7",
+          "Resultary 3f1b82e47fda and 512fe1e1d255, Findings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Xia et al. arXiv:2310.10558",
+        "Resultary 3f1b82e47fda, 512fe1e1d255 and 04eddb3a1618",
+        "Published-literature search for the same-model critical rate and lag"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the exact ODE the proof of Thm. 2.7 uses g=1/(u²v²) and divergence (e−s)/(u²v²)−[1/((m+u)²v²)+δ/(u²v)+δ/(uv²)]. This is strictly negative at e=B for all m>0. The boundedness argument of Thm. 2.6 is independent of the strict inequality e>B.",
+          "The scalar lower comparison v'≥v[s−(s+δ)v] keeps the bounded omega-limit off v=0. If it stays interior, absence of positive equilibria would make it a periodic orbit by Poincaré–Bendixson, ruled out by the prior Dulac inequality. If it hits u=0, the logistic boundary flow puts (0,v_0) in it, and the prior one-sided local attraction gives convergence.",
+          "On the center graph the forward drifts are −(H−1/m)u² and −H²u³ at leading order, respectively, and graph invariance fixes the lag coefficients. The usual exponential transverse tracking does not change these coefficients, as positive u on a converging trajectory is subexponential (u'/u→0)."
+        ],
+        "reasoning": "Thus every positive trajectory is already forced into the regime of the earlier local reduction by a direct planar argument using the published results and a scalar boundary comparison. Both physical-time limits and both lags are then forced by that reduction. The fluctuation/filter proof in the frozen record is a valid alternative, but does not supply a distinct mathematical conclusion.",
+        "searches": [
+          "Xia et al. arXiv:2310.10558, Thms. 2.2–2.3 and 2.6–2.7, especially the displayed Dulac calculation on PDF p. 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The forward-time coordinates u and w=v−v_0−au convert exactly to the paper's x_1=au, y_1=w, t_1=−st, with a=B/s. The quadratic cancellation occurs at the same m=1/H.",
+          "In the exact original vector field the center graph satisfies w'(u)u'=−(s+δ)vw−au'. Matching the leading coefficients gives w=(a(H−1/m)/s)u²+o(u²) in the strict branch, and w=(aH²/s)u³+o(u³) at equality."
+        ],
+        "reasoning": "The coefficients can be recovered by applying the published coordinate transformation and local reduction to the exact published ODE, without relying on the typography or normalization of a coefficient table. Integrating the resulting quadratic or cubic forward-time center drift is equivalent to the two stated time limits.",
+        "searches": [
+          "Xia et al. arXiv:2310.10558, Eq. (2.1), Eq. (2.7) and Thm. 2.3",
+          "Local Resultary search: double-critical nonlinear two-patch Allee extinction, quadratic-to-cubic rate and nullcline lag"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-11-08 entry 3f1b82e47fda gives the same global condition, both rate limits and both lag limits, plus a stronger expansion. The 2026-11-02 crossover record includes rates in a local tube; the same-day 04eddb3a1618 uses a periodically forced Lotka–Volterra system rather than this ODE.",
+          "The older article presents the local cancellation and center terms, rather than tabulating the physical-time limits."
+        ],
+        "reasoning": "This comparison is on the exact coefficients and regimes. Later wording and a different same-day model do not settle priority; the earlier dynamical implications do.",
+        "searches": [
+          "Local Resultary: 3f1b82e47fda, 512fe1e1d255, and same-day 04eddb3a1618",
+          "Xia et al. arXiv:2310.10558, subsection on boundary equilibria, Eq. (2.7)"
+        ]
+      },
+      "rationale": "The four rate and lag limits are coefficient consequences of the prior same-model local reduction, and the claimed extension to all positive data follows from that paper's existing global proof ingredients at these parameters. The latter is not a stated theorem in Xia et al., but it is a direct implication, not merely a resemblance to their theorems on adjacent branches. The decisive comparison is to the earlier paper, not to a later catalogue match.",
+      "residual_risks": [
+        "The date of later exact overlap does not establish its provenance, and the broader literature search is not exhaustive.",
+        "The earlier primary paper does not state the precise all-positive-data conclusion or four normalized limits verbatim; the originality decision is based on the explicit implication given above."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior local rates and lag coefficients by implication; prior global ingredients imply convergence in the target branch although neither printed global theorem states it",
+          "evidence": [
+            "Exact same system and threshold. No positive equilibrium there; (0,v_0) attracts from the right. Boundedness and the strictly negative e≤B Dulac calculation both apply at equality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.10558",
+          "material_read": "PDF p. 4 Eq. (2.1) around offset 12800, p. 5 Thm. 2.2 around offset 17400, pp. 6–7 Thm. 2.3 and (2.6)–(2.7) at offsets 20000–27356, pp. 9–10 Table 1 and Thms. 2.6–2.7 and their proofs at offsets 31350–37476",
+          "method": "OA primary PDF passage inspection; coefficient comparison in exact original variables and deduction from the displayed Dulac inequality",
+          "title": "Stability and bifurcation analysis of a two-patch model with Allee effect and dispersal",
+          "trigger": "Exact ODE, critical surface and possible coverage by earlier local and global theory"
+        },
+        {
+          "assessment": "Exact and stronger mathematical overlap, but later-dated",
+          "evidence": [
+            "Same ODE, global condition, both rate and both lag limits, with additional two-term estimates."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-term-critical-extinction-in-a-nonlinear-two-habitat-allee-mo--3f1b82e47fda",
+          "material_read": "RESULT.md Finding and proof at mirror offsets 0 and 7951",
+          "method": "Local mirror passage inspection",
+          "title": "Two-term critical extinction in a nonlinear two-habitat Allee model",
+          "trigger": "Closest indexed match to the all-data rate and lag laws"
+        },
+        {
+          "assessment": "Later partial overlap with local data scope and no lag coefficient claim",
+          "evidence": [
+            "Has the fixed-parameter leading rates and near-critical crossover in a controlled near-extinction regime."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-universal-quadratic-to-cubic-extinction-crossover-in-a-nonlinear--512fe1e1d255",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Universal quadratic-to-cubic extinction crossover in a nonlinear Allee model",
+          "trigger": "Potential coverage of both powers in one regime"
+        },
+        {
+          "assessment": "Different dynamical system and threshold",
+          "evidence": [
+            "Uses a periodically forced cooperative Lotka–Volterra system, not the nonlinear dispersal ODE under review."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-universal-two-component-critical-extinction-profiles-in-periodic--04eddb3a1618",
+          "material_read": "RESULT.md Finding at mirror offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Universal two-component critical extinction profiles in periodic systems",
+          "trigger": "Same-day critical extinction catalogue hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An extinction rate and lag valid throughout a basin can be useful. Here the basin on the stated parameter surface follows by applying the prior same-model no-cycle and local-attraction arguments, with a scalar logistic boundary check. The four constants are forced by the existing local reduction. The alternate direct proof is clear, but the frozen claim gives no additional rate regime, uniform transition or independent phenomenon beyond those implications.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

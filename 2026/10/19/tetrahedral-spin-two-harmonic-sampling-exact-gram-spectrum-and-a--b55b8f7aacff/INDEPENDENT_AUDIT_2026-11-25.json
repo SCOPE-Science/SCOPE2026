@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:03:46.631688Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired theorem retains the exact-degree ranks and Gram branches. The frozen proof used P'' instead of P''' in the -6x middle term of the twice-differentiated ODE, in the essential infinite-tail argument. The complete corrected files give the actual identity and explicit monotone bounds. The frozen normalization aside was also reversed: rescaling the domain inner product alone by c rescales the adjoint and Gram by c^(-1). Trace-free tangent contractions eliminate the radial correction in the derivative of the scalar kernel with normalized area; the kernel normalization leaves P_l in G_l. I reproduced the four character-block characteristic polynomials by independent directional Taylor expansions and used the finite Rodrigues formula to recompute the low-degree derivatives and all 63 low-degree inequalities. The minimum branch ratio there is 4/81 at l=4. The rank then has the claimed values in low degree, with the three stated branches counted with weights 2,3,3 even when they coincide. The classical Bernstein estimate follows from DLMF 18.14.3 at α=β=0. With the corrected ODE, derivative bounds decrease after normalization and evaluating the upper bounds at n=25 is sufficient. The three exact relative-error bounds 386359/405000, 387277/405000 and 572713/1215000 were independently recomputed; all are strictly below one. This analytic argument is required beyond the finite cutoff. For xyz, at the all-plus vertex the ambient Hessian restricts to -1/√3 times the tangent metric and even sign changes carry it to the other vertices; trace-free measurements therefore vanish. Rank six makes its span the entire degree-three kernel, not the kernel at other degrees. The independent finite replay is python3 /workspace/repairs/4/reproduce_tetra.py (SymPy); the supplied frozen scripts were inspected and not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pérez-Saborid gives the scalar addition theorem underlying the kernel; Bouzas gives general bilocal tensor identities; the Bernstein-type inequality is a classical bound."
+        ],
+        "reasoning": "These general statements provide entries or analytic estimates, but not a finite-orbit spectrum or an all-degree interpolation result. In particular abstract representation blocks do not imply their nonvanishing: the degree-three rank is genuinely deficient and the high-degree bounds require numeric geometry and normalized constants.",
+        "searches": [
+          "arXiv:0806.3367 §V eq. (94)",
+          "arXiv:1103.2983 §4 eqs. (18), (20a–c)",
+          "DLMF 18.14.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0806.3367",
+        "arXiv:1103.2983",
+        "DOI:10.3390/universe10120461",
+        "arXiv:2010.09433",
+        "2026/10/25/SCOPE-exact-wigner-sampling-spectra-on-the-twelve-fivefold-icosahedral--1e4c42991dc6",
+        "2026/11/16/SCOPE-exact-quadrupolar-slepian-spectrum-of-a-tetrahedral-spherical-vo--40ef6d9bb1cb",
+        "2026/11/8/SCOPE-sharp-lower-fourth-moment-and-isotropy-stability-for-real-cubic--784bbc03b536",
+        "DLMF 18.14.3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general tensor identities could be used as an alternative input for the tetrahedral block computation, not as a result about those blocks. The indexed tetrahedral-cap record describes cubic concentration over finite regions; its full statement was unavailable."
+        ],
+        "reasoning": "No inspected claim implies the exact spectral factors or the all-degree positivity threshold. Even a degree-three concentration result for the same tetrahedron would need a specific limiting statement connecting it to both Hessian components at every vertex, and could not by itself settle the higher-degree threshold.",
+        "searches": [
+          "arXiv:1103.2983 §4 and arXiv:2010.09433 §II.E",
+          "2026/11/8/SCOPE-a-fourfold-optimal-mode-transition-in-tetrahedral-cap-cubic-sph--f727ebdca345"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "González Ledesma–Mewes relate the helicity components of tensor harmonics to spin-weighted harmonics; Monteverdi–Winstanley give weighted and differentiated addition identities."
+        ],
+        "reasoning": "In orthonormal frames the two trace-free Hessian components can be replaced by their two complex helicity combinations. The change of coordinates does not give the tetrahedral Gram eigenvalues or their simultaneous nonvanishing in every l≥4.",
+        "searches": [
+          "tetrahedral spin-2 sampling and polarization harmonic Gram spectrum",
+          "arXiv:2010.09433 §II.E, eqs. (48)–(51)",
+          "Universe 10 (2024) 461 eqs. (8), (12)–(14)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest sampled-rotation spectrum is for Wigner matrix coefficients on twelve icosahedral rotations. The closest quadrupolar tetrahedral spectrum concerns concentration in a Voronoi cell, and the closest xyz result concerns fourth moments, not a sampling kernel."
+        ],
+        "reasoning": "Neither an integral concentration spectrum nor a spectrum on another finite orbit is a table of tetrahedral pointwise trace-free Hessian measurements. Finding xyz elsewhere does not establish it is the only invisible cubic mode.",
+        "searches": [
+          "Resultary: tetrahedral spin-2 sampling, Wigner spectra, tetrahedral quadrupolar and cubic harmonics",
+          "2026/10/25/SCOPE-exact-wigner-sampling-spectra-on-the-twelve-fivefold-icosahedral--1e4c42991dc6",
+          "2026/11/16/SCOPE-exact-quadrupolar-slepian-spectrum-of-a-tetrahedral-spherical-vo--40ef6d9bb1cb",
+          "2026/11/8/SCOPE-sharp-lower-fourth-moment-and-isotropy-stability-for-real-cubic--784bbc03b536"
+        ]
+      },
+      "rationale": "The corrected claim still combines the explicit finite tetrahedral Gram spectrum, cubic kernel, and sharp all-degree surjectivity threshold. Classical addition theorems and spin-helicity conversion are not credited as new. Inspected finite-group or tetrahedral catalogued spectra change the operator, locus, or signal class and do not cover this statement.",
+      "residual_risks": [
+        "Older angular-momentum tables or unindexed finite-spin interpolation results may encode an equivalent spectrum. The cubic tetrahedral-cap record was assessable only from its indexed summary. Bounded searches do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical kernel, not discrete sampling spectrum",
+          "evidence": "Legendre addition theorem for an orthonormal degree-l surface-harmonic basis.",
+          "identifier_or_url": "arXiv:0806.3367",
+          "material_read": "§V pp. 17–18, eq. (94), offset 49300",
+          "method": "OA PDF passage",
+          "title": "The coordinate-free approach to spherical harmonics",
+          "trigger": "Underlying scalar reproducing kernel"
+        },
+        {
+          "assessment": "General tensor identities, not orbit ranks",
+          "evidence": "Bilocal tensor addition formulas and arbitrary-rank relations; would still require evaluating the finite geometry and proving spectral nonvanishing.",
+          "identifier_or_url": "arXiv:1103.2983",
+          "material_read": "§4 p. 6 eqs. (18), (20a–c), offset 36200; p. 7 around offset 45000",
+          "method": "OA PDF passages",
+          "title": "Addition theorems for spin spherical harmonics. II Results",
+          "trigger": "Possible general tensor-kernel specialization"
+        },
+        {
+          "assessment": "Foundation only",
+          "evidence": "Spin-weighted addition identities and derivative relations, not tetrahedral interpolation.",
+          "identifier_or_url": "https://doi.org/10.3390/universe10120461",
+          "material_read": "pp. 4–6, eqs. (8), (12)–(14), Remark 5, offsets 18000 and 28000",
+          "method": "OA PDF passages",
+          "title": "Monteverdi and Winstanley, spin-weighted spherical harmonic addition identities",
+          "trigger": "Derivative formulations of the same harmonic kernel"
+        },
+        {
+          "assessment": "An equivalent representation, not an equivalent rank theorem",
+          "evidence": "Relates tensor helicity components and spin-weighted harmonics.",
+          "identifier_or_url": "arXiv:2010.09433",
+          "material_read": "§II.E p. 8 eqs. (48)–(51), offset 50300",
+          "method": "OA PDF passage",
+          "title": "Spherical-harmonic tensors",
+          "trigger": "Helicity representation of the measured tensor components"
+        },
+        {
+          "assessment": "Different orbit and domain",
+          "evidence": "Wigner coefficient sampling on twelve rotations, not degree-l scalar Hessian sampling at four vertices.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-wigner-sampling-spectra-on-the-twelve-fivefold-icosahedral--1e4c42991dc6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact Wigner sampling spectra on the twelve fivefold icosahedral rotations",
+          "trigger": "Finite point-sampling spectrum of a Platonic symmetry family"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Degree-two energy concentration in one spherical Voronoi cell, not pointwise derivatives.",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-quadrupolar-slepian-spectrum-of-a-tetrahedral-spherical-vo--40ef6d9bb1cb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Exact quadrupolar Slepian spectrum of a tetrahedral spherical Voronoi cell",
+          "trigger": "Exact tetrahedral quadrupolar spectrum"
+        },
+        {
+          "assessment": "Overlap in example but not invariant",
+          "evidence": "Uses xyz as a fourth-moment equality case, without a Hessian-sampling operator.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-lower-fourth-moment-and-isotropy-stability-for-real-cubic--784bbc03b536",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp lower fourth moment and isotropy stability for real cubic spherical harmonics",
+          "trigger": "Same tetrahedrally symmetric cubic xyz"
+        },
+        {
+          "assessment": "Extent of coverage unresolved",
+          "evidence": "Summary describes degree-three concentration on four caps; not relied on for a whole-text comparison.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-fourfold-optimal-mode-transition-in-tetrahedral-cap-cubic-sph--f727ebdca345",
+          "material_read": "Indexed summary only; local full-text retrieval unsuccessful",
+          "method": "Local catalogue summary",
+          "title": "A fourfold optimal-mode transition in tetrahedral-cap cubic spherical concentration",
+          "trigger": "Same tetrahedral directions and degree three"
+        },
+        {
+          "assessment": "Establishes the classical bound used, not tetrahedral Gram positivity",
+          "evidence": "Putting α=β=0 in the Jacobi inequality gives the asserted interior Legendre estimate.",
+          "identifier_or_url": "https://dlmf.nist.gov/18.14.E3",
+          "material_read": "§18.14(i), eq. (18.14.3), text offsets 2250–3795",
+          "method": "OA webpage equation and context",
+          "title": "NIST DLMF: Inequalities for classical orthogonal polynomials",
+          "trigger": "Classical exterior input to the infinite-degree argument"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two spin-two Hessian measurements at the vertices of a regular tetrahedron define a natural invariant problem in finite sampling of exact-degree harmonics. The result identifies exactly when all eight measurements are independent and identifies the unexpected extra cubic null mode, neither of which follows from counting domain and range dimensions. The Gram factors contain more information than rank, and the repaired uniform argument establishes interpolation for every subsequent degree rather than a finite experimental range.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

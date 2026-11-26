@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:53:52.466924Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both extreme recurrence coefficients of F^t are 1, giving bilateral surjectivity and a t-dimensional homogeneous space K_t with t consecutive free coordinates. Kernel trace surjectivity suffices for full image. It is also necessary for each fixed pattern: evaluating arbitrary configurations on the pinned sites exhausts the trace space, and a proper kernel trace gives a proper, varying coset as the target varies. At time b=2^m Frobenius makes K_b exactly the b-periodic sequences, so fullness is residue injectivity; fullness persists because F is onto. This includes a singleton at time one and m=0. Counting one site per occupied residue gives the binomial quotient; the log of the falling-factorial ratio is −k(k−1)/(2b)+O(k³/b²+k²/N) in the stated scaling, proving the phase-dependent limit. For the unrounded clock, z^s maps to evaluation on K_t, relations include (1+z)^t, and the t consecutive independent evaluations prove that the induced Laurent quotient is the full dual. Hence the first full-image time is one plus the maximum root order of a nonempty subset sum. For triples, odd subsets have order zero, and a pair has order 2^v₂(gap), by Frobenius and the simple root of the odd-power binomial, valid also after translating negative indices. Therefore the triple CDF at 1+2^(m−1) is exactly the injective-residue CDF with k=3. In the telescoping moments the tail numerator is 3·2^(−m)−2·4^(−m)−3/N+2/N² over Δ_N. Summing with increments 2^(m−1) and 3·4^(m−1), respectively, gives (5) and (6); the squared mean is O(R²) and the second moment has leading term 3N/2. The limiting CDFs at 3 and 5 are 3/8 and 21/32. These are statements about uniform unordered samples without replacement, the general rounded clock and the specifically three-site unrounded clock. The provided verifier was inspected, not executed; its finite checks are not needed for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "628f97a371fe uses general characteristic and l-fold bucket occupancy but fixes the window length p·b and tests only sampled times.",
+          "eff551c94343 covers progressions over general finite fields; 4fda5089f2de covers two-site clocks over Z/p^rZ. Neither stated classification covers arbitrary three-site samples without further analysis.",
+          "Rule 150 entry 35e8ff480012 uses additional residues modulo 3; c42823a10929 assumes primitive local polynomial of degree at least 3."
+        ],
+        "reasoning": "A broader alphabet, rule class, or trace-rank framework is not a broader theorem on uniform unrounded triple moments for this bilateral law. The matched prime-power Poisson regime has only p fixed sites per bucket, unlike the dilute regime here where N/b diverges.",
+        "searches": [
+          "Resultary prime-power occupancy clocks, progression masks, two-site clocks, and three-pinned-site classifications",
+          "arXiv:2610.33131v2 §5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md (1)–(11), VERIFICATION.md and verify_threepoint.py (read only)",
+        "Resultary 628f97a371fe, eff551c94343, 4fda5089f2de, 35e8ff480012, c42823a10929",
+        "arXiv:2610.33131v2",
+        "Sutner, De Bruijn Graphs and Linear Cellular Automata, pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The progression proof supplies both the quotient and the valuation of a two-term polynomial. Binary parity then readily reduces the triple maximum to pairs, so the triple clock is close to that prior machinery rather than an independent algebraic technique.",
+          "The fixed p·b probability theorem does not yield the stated k²/N→0 regime by choosing p=2. The explicit triple moment and tightness analysis needs the three-site reduction, arbitrary-N residue counts and a tail sum. The qualitative LEO theorem supplies no such law."
+        ],
+        "reasoning": "The overlap narrows the originality to the quantitative sampling analysis and its combination with the unrounded exact clock, not the fibre argument, elementary occupancy counting or the birthday asymptotic in isolation.",
+        "searches": [
+          "628f97a371fe proof at OA offset 2700: Frobenius, probability, Poisson window",
+          "eff551c94343 proof at OA offset 2400: quotient and root orders",
+          "Haugland et al. Theorem 5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prime-power observation clocks uses I−shift, identical to I+shift over F₂; l=1 specializes to residue injectivity in its p·b window, and the same kernel decomposition gives that criterion for arbitrary finite masks at l=1.",
+          "The binomial progression paper's proof §2 identifies evaluations with monomials in the Laurent quotient, which is the same rank mechanism underlying (9)."
+        ],
+        "reasoning": "Changing sign in characteristic two or reformulating as kernel trace rank does not create a distinct claim. The shared criterion and algebra do not themselves evaluate the dilute-window and unrounded triple distributions and moments together.",
+        "searches": [
+          "Resultary semantic queries for binary Rule 102, dyadic sparse-cylinder full-image times and additive CA three-site clocks",
+          "Resultary 628f97a371fe and eff551c94343, exact Finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At p=2, l=1, its coefficient [z^k](1+2z)^b gives exactly the target probability at N=2b. The progression record gives T=1+2^(v₂(d)+1) for the exact triple {0,d,2d}.",
+          "The checked sources give no table or closed form for the arbitrary-triple finite moments (5)–(6)."
+        ],
+        "reasoning": "The two exact overlaps are restricted parameter families and should be credited as such. A table of a few finite masks would not entail the all-R moment identities anyway.",
+        "searches": [
+          "Resultary semantic lookup of exact random-mask clock distribution, triple mean/variance and limiting median",
+          "628f97a371fe exact coefficient probability formula"
+        ]
+      },
+      "rationale": "There is material same-day overlap in the full-image residue criterion, random bucket sampling and unrounded-clock machinery. Credit those ingredients, not a new Frobenius or quotient mechanism. The surviving contribution in the frozen Finding is the general dyadic-window rounded law in the dilute phase regime, together with the arbitrary three-site unrounded law and its evaluated exact moments and tight limit. The checked results do not give that quantitative conclusion; this is not a finding of chronological priority over the same-day records.",
+      "residual_risks": [
+        "Priority among same-day entries is unresolved. The target alludes to earlier separated-block and progression results without precise citations; the checked public comparisons are bounded.",
+        "The standard quotient/parity reduction and birthday calculation make independent rediscovery plausible; no claim of global priority attaches to these steps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_PARTIAL_COVERAGE",
+          "evidence": "For T tested at l·b, every bucket must contain at most l; at p=2,l=1 this is the frozen criterion and N=2b probability. Its fixed-p finite-capacity scaling and sampled clock differ.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-prime-power-observation-clocks-an-exact-collision-law-for-random--628f97a371fe/RESULT.md",
+          "material_read": "Finding at offset 0; proof §§1–4 and sampled-time limitation around offsets 2700–6900.",
+          "method": "Resultary local-mirror passage and parameter specialization.",
+          "title": "Prime-power observation clocks: an exact collision law",
+          "trigger": "Same additive difference CA, sampled full-image and random occupancy laws."
+        },
+        {
+          "assessment": "SHARED_MECHANISM_AND_EXACT_SPECIAL_CASE",
+          "evidence": "The proof identifies any finite trace rank with a Laurent monomial rank and evaluates a two-term difference root. Its theorem is for progressions; it does not work out the frozen random distributions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-prime-adic-sparse-cylinder-hitting-time-law-for-binomial--eff551c94343/RESULT.md",
+          "material_read": "Finding at offset 0; proof §§1–5, OA offset 2400.",
+          "method": "Local-mirror reading and comparison of duality and the p-adic progression lemma.",
+          "title": "A sharp prime-adic sparse-cylinder hitting-time law for binomial automata",
+          "trigger": "Exact unrounded time for the same rule on progression masks, with potentially general duality."
+        },
+        {
+          "assessment": "TWO_SITE_COVERAGE",
+          "evidence": "p^v_p(d)+1 at p=2,r=1; no three-site random-mask result in the inspected finding.",
+          "identifier_or_url": "2026/11/22/SCOPE-prime-adic-information-staircases-for-two-site-cylinders-of-addi--4fda5089f2de",
+          "material_read": "Local-mirror Finding at offset 0.",
+          "method": "Exact statement comparison.",
+          "title": "Prime-adic information staircases for two-site cylinders",
+          "trigger": "Exact time for a pair under the same binary rule."
+        },
+        {
+          "assessment": "DIFFERENT_CA",
+          "evidence": "Rule 150 (not Rule 102); the classification uses an additional mod-3 clock.",
+          "identifier_or_url": "2026/11/22/SCOPE-cyclotomic-two-clock-image-filtration-for-three-pinned-sites-in--35e8ff480012",
+          "material_read": "Local-mirror Finding at offset 0.",
+          "method": "Rule and parameter comparison.",
+          "title": "Cyclotomic two-clock image filtration for three pinned sites",
+          "trigger": "Triple exactness and dyadic gap valuations."
+        },
+        {
+          "assessment": "QUALITATIVE_PRIOR_FRAMEWORK",
+          "evidence": "The inspected results concern qualitative LEO or short-cylinder sufficient conditions, not exact random sparse-site times.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.33131v2",
+          "material_read": "PDF pp. 2–3 and Theorem 5.4, printed p. 22 around OA offset 73300.",
+          "method": "Original PDF passage comparison.",
+          "title": "Locally eventually onto cellular automata",
+          "trigger": "Existing locally eventually onto theorem for bipermutive rules."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a concrete quantitative question that qualitative eventual onto-ness cannot answer: how widely dispersed pinned sites delay a full bilateral image. The phase-sensitive birthday scale for many pins and the three-pin contrast between a fixed median, logarithmically divergent expectation and order-N variance distinguish typical from mean behavior. The results are exact for the stated sampling models and do not claim unrounded times for general k.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

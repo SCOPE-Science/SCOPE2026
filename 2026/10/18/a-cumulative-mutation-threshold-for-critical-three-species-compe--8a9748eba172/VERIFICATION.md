@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the directory containing these files. The standalone program requires only Python 3 and no network access. On its completed test run it reported:
+## correctness
 
-```
-power q=1.0: at t=350, budget=1.4652, KL=1.923341756e-05
-power q=2.0: at t=350, budget=0.249288, KL=0.02811517477
-power q=0.5: at t=400, budget=9.51249, KL=3.700743418e-17
-PASS: 288 exact/algebraic, entropy, limiting-ratio and trajectory checks
-```
+PASS
 
-The exact tests use rational arithmetic for the independently constructed original and normalized vector fields, the total-logistic identity and entropy derivative, across 35 choices of positive densities, positive critical-line coefficients and mutation intensity. They also check the entropy-dissipation inequality and near-uniform ratio numerically. Finite-step Runge–Kutta samples show consistency with predicted budget behavior. Near machine precision, empirical entropy is not a reliable asymptotic-rate estimator: the \(q=0.5\) sample simply confirms strong finite-time contraction. Analytical arguments in RESULT.md, not sampled trajectories, establish the omega-limit and all-measurable-schedule assertions.
+On the critical line, the symmetric part of the interaction matrix is the all-ones matrix, so S'=S(1−S) and the normalized competition is antisymmetric. Positive solutions exist globally for locally integrable rates: the positive orthant is invariant, each coordinate has a scalar Grönwall lower bound on finite intervals, and S bounds the populations. Direct differentiation of H gives −μD with D=(Σ1/p_i−9)/3. For x=3p_i, 1/x−1+log x≥0 gives D≥3H. The sublevel H≤H(0) is compact in the open simplex, and D/H extends to 6 at u by the quadratic terms 9Σ(p_i−1/3)² and (3/2)Σ(p_i−1/3)². Boundedness of the extended ratio and integration give a positive lower bound if M is finite, and no finite-time hit of u. Infinite M forces H→0, and averaging the extended ratio with weights dM gives the limit −6. For finite M, the positive limiting entropy level is one smooth closed curve by strict convexity, and the unmutated tangent field is nowhere zero there because α≠1. On any bounded translated time window ∫μ tends to zero, even with unbounded pulses, while S→1 uniformly. Continuous dependence via the integral equation then puts the full forward unmutated orbit through any accumulation point into the omega-limit set. This is the whole level; S→1 transfers it to densities. Integrating the example schedule gives the stated cutoff and q=1 exponent.
 
-No independent scientific audit has been performed. The package does not claim formal verification of every infinite-time conclusion.
+## originality
+
+PASS
+
+Constant-rate convergence and the sharp exponent in that special case are covered by earlier or independently indexed statements, and the unmutated periodicity is known. The distinct claim supported here is the two-sided arbitrary-schedule budget classification, including the exponent for general infinite budgets and the entire positive periodic omega-level for finite budgets.
+
+## value
+
+PASS
+
+This identifies the scalar budget separating convergence from persistence of cycling in a standard critical competition model even when the rate is pulsed or lacks a limit. It quantifies the infinite-budget branch sharply in its natural clock and identifies the full limit set in the finite-budget branch rather than just precluding convergence. The constant-rate observation alone would not justify this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

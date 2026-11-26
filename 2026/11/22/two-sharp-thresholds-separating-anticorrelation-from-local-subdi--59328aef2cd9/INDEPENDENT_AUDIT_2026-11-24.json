@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:08:18.753333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently solved the stationary Lyapunov equation with F=[[-γ₁,0],[-γ₁,−γ₂]] (the first diagonal entry is −γ₁) and diffusion covariance diag(2D₁,2D₂). For velocity row ℓ=(γ₁,γ₂), C(t)=ℓe^(tF)Σℓᵀ has just the two stated exponential modes. The integrated covariance and its first signed moment are obtained as −ℓF⁻¹Σℓᵀ=D₂ and ℓF⁻²Σℓᵀ=(D₂/γ₂)(1−d/(1+q)), confirmed by symbolic matrix calculation. At d=1−q² the slow coefficient is zero and C remains strictly positive at finite lag; above it the bracket after removing the slow exponential decreases strictly from C(0)>0 to a negative constant. J′=C and J(∞)=D₂ imply positivity of J for all positive times and a unique overshoot when there is a sign change. The sign of ν−1 is that of H=tM′−M, with H(0)=0 and H′=2tC. Its negative-mode tail is strictly decreasing from a positive maximum. It crosses zero once exactly when H(∞)<0, which is strictly above d=1+q; equality leaves H(t)>0 at every finite positive time. Subtracting the first-moment tail at equality gives ν−1∼q e^(−γ₂t)/(1−q) after division by M∼2D₂t; otherwise the nonzero signed moment gives the reciprocal-time equivalent. Independently integrated the matrix-exponential covariance for γ₁=1, γ₂=1/2, D₂=1, D₁=1.8, obtaining roots 2.46428736 and 6.73178398, in order. Read the supplied checker and recorded finite tests, not run; the proof uses the signed moment and cannot be replaced by root sampling. Scope is stationary initialization, independent Gaussian noises and strictly ordered positive rates, not fitted finite-window exponents.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general n-layer construction specializes to the exact two-layer process and supplies the MSD, but §§3.1–3.2 separate approximate ballistic, anomalous and Fickian behavior, not a fixed-q pointwise sign theorem.",
+          "A general formula for covariance or MSD determines the function; its sign for every finite t needs the single sign change and signed moment argument."
+        ],
+        "reasoning": "A dominating result would, for example, give the all-time sign of H for a class of finite sums including this coefficient ordering. Neither the inspected general model nor the indexed comparisons provide that stronger sign result.",
+        "searches": [
+          "Wang–Voulgarakis 2024 Eqs. (2)–(5) and n=2 Eq. (8)",
+          "Resultary: layered OU exact threshold, local anomalous slope and signed covariance moment"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Voulgarakis, doi:10.3390/physics6020042 (primary text)",
+        "Voulgarakis, doi:10.1103/PhysRevE.108.064105 (bibliographic and cited attribution; decisive text unavailable)",
+        "Targeted Resultary catalogue checks for two-layer OU sign and local-slope criteria"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exact M implies the C coefficient test, while J′=C immediately fixes the running-diffusivity overshoot. The older equivalent MSD writes out the full time dependence, giving enough data for the present first-moment computation.",
+          "The added implication is global: H′ changes sign once and the first moment fixes whether the decreasing tail ever crosses zero, including strict positivity at cancellation. There the slow covariance mode yields the exponential approach of ν."
+        ],
+        "reasoning": "The earlier complete solution is substantive partial coverage, not just similar parameters. The second boundary and strict time-uniform comparison require further sign analysis; they are not the earlier D₂<D₁ rule, nor the asymptotic Fickian statement.",
+        "searches": [
+          "doi:10.3390/physics6020042 pp. 646–648, especially §3.2 Eq. (8)",
+          "doi:10.1103/PhysRevE.108.064105 for cited Eq. (15)/(16), accepted-manuscript and lawful alternate-copy retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier paper's d equals D₂/D₁, the reciprocal of the audited d. Its Eq. (8) provides the n=2 MSD; differentiating twice recovers a two-exponential stationary covariance. Its approximate transition around its d=1 uses time-scale separation and illustrative powers.",
+          "Instantaneous subdiffusion is the strict condition tM′−M<0. In this model the equivalent terminal test is a negative signed first covariance moment, not a negative covariance at some lag."
+        ],
+        "reasoning": "Approximate transient scaling is not an equivalent statement: q=1/2 and audited d=1.2 place the older ratio below one but give no ν<1 at any time. A proof of the equivalent signed-moment criterion and its equality case would count as coverage.",
+        "searches": [
+          "Resultary: hierarchical OU negative velocity memory versus instantaneous logarithmic MSD slope",
+          "Wang–Voulgarakis 2024 §3.2 Eqs. (8)–(10)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact identical indexed item SCOPE-20261122-59328aef2cd9 is this finding, not distinct prior evidence.",
+          "The earlier source's example exponents and curves in §3.2 and Fig. 1 are sampled approximations, not a table of all-q phase boundaries or critical decay exponents."
+        ],
+        "reasoning": "Catalogue and primary results establish prior exact dynamics, not a distinct exact table of these joint boundaries in the inspected material. The bounded lookup does not establish historical uniqueness.",
+        "searches": [
+          "Resultary: 1−q² and 1+q OU thresholds and critical exponential",
+          "Primary literature: hierarchical OU transient subdiffusion and negative correlation; exact prior model by DOI"
+        ]
+      },
+      "rationale": "The exact stochastic solution is prior, and the anticorrelation threshold alone follows directly from the sign of the known slow covariance coefficient; the running diffusivity overshoot is its immediate integral consequence. The distinct contribution is the exact joint finite-time classification, especially the all-time strict absence of local subdiffusion in the intervening region and at the second boundary, the unique additional crossing outside it, and the cancellation law at the boundary. The exact earlier MSD contains the inputs to derive this result, but its stated transient-regime classification does not compare or control these two signs at a fixed finite rate ratio. The result is best understood as a sharp sign theorem about the known solution, not priority for the solution or phenomenology.",
+      "residual_risks": [
+        "The 2023 paper's exact equation surroundings remained inaccessible after a lawful alternate-copy search; attribution is not independent inspection of its unstated or stated consequences.",
+        "The distinctions are analytic consequences of prior exact dynamics; an equivalent two-mode or signed-moment theorem could narrow priority. No exhaustive claim is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The exact n=2 MSD is prior; the following asymptotic and illustrative criterion is not the claimed instantaneous-log-slope sign theorem.",
+          "evidence": [
+            "Eq. (8) cites Voulgarakis (2023) for the two-layer MSD.",
+            "Eq. (9) explicitly uses γ₁≫γ₂ in its intermediate-time scale. The text uses d=D₂/D₁ and reports ν≈0.12 for a selected case, not an all-parameter pointwise test."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/physics6020042",
+          "material_read": "PDF pp. 646–648, Eqs. (2)–(5), Eq. (8) and following §3.2 (decisive text offsets 17600–22387); later reference to [57]",
+          "method": "Lawful full-text PDF copy at https://pdfs.semanticscholar.org/1e58/e090ace41f41205fd724c04711d4301c9864.pdf; model, exact equation and scope comparison",
+          "title": "Hierarchically Coupled Ornstein–Uhlenbeck Processes for Transient Anomalous Diffusion",
+          "trigger": "Same model and exact MSD with an apparent conflicting transient criterion"
+        },
+        {
+          "assessment": "Prior exact solution credited and corroborated by the 2024 article; no whole-document judgment about the 2023 threshold discussion.",
+          "evidence": [
+            "The 2024 article attributes Eq. (8) to its reference [57]. The specific original Eqs. (15)/(16) and surrounding text could not be rechecked directly."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.064105",
+          "material_read": "Bibliographic identification and the 2024 paper's explicit citation for Eq. (8); no first-hand equation passage from 2023 accessible",
+          "method": "Lawful APS publisher and accepted-copy lookup; focused alternative-copy literature lookup",
+          "title": "Multilayered noise model for transport in complex environments",
+          "trigger": "Original same-model source cited for exact ACF and MSD"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A negative velocity-memory interval and a diffusivity overshoot can be observed while the instantaneous MSD slope never falls below one. The exact separation and endpoints show precisely when the two diagnostics disagree, even at fixed positive rate separation or equal noise amplitudes. This is a natural full-parameter distinction in a previously used model, with a testable change from inverse-time to exponential approach at the boundary, not a re-solution of the dynamics or a claim of globally anomalous diffusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

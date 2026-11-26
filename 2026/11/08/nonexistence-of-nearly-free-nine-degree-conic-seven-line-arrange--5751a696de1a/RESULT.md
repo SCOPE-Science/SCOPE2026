@@ -1,95 +1,52 @@
-# Nonexistence of nearly free nine-degree conic–seven-line arrangements with simple intersections
+# Nonexistence of nearly free degree-nine conic–seven-line arrangements with simple intersections
 
 ## Finding
 
-There is no nearly free reduced plane curve over \(\mathbb C\) which is the union of **one smooth conic and seven distinct lines** and whose singularities are exclusively ordinary nodes \(A_1\), tacnodes \(A_3\), and ordinary triple points \(D_4\).
-
-This settles the one-conic/seven-line case of the previously open degree-nine existence problem for such nearly free conic–line arrangements. It does not assert nonexistence for degree-nine arrangements with two or more conics or for arrangements allowing other singularity types.
+There is no nearly free reduced plane curve over \(\mathbb C\) consisting of one smooth conic and seven distinct lines whose singularities are exclusively ordinary nodes \(A_1\), tacnodes \(A_3\), and ordinary triple points \(D_4\). The conclusion is only for the one-conic/seven-line stratum of degree nine.
 
 ## Assumptions and scope
 
-Write \(D=Q\cup L_1\cup\cdots\cup L_7\subset\mathbb P^2_{\mathbb C}\), with \(Q\) a smooth irreducible conic and the \(L_i\) pairwise distinct lines. Suppose every singular point of this *reduced union* is a transverse ordinary node, an ordinary tangency of exactly two smooth branches (a tacnode), or a transverse ordinary triple of three smooth branches. The assertion concerns nearly freeness in the standard sense: for a degree-nine equation \(f\) defining \(D\), the saturation quotient of its Jacobian ideal is nonzero and has graded components of dimension at most one. Write \(r=\operatorname{mdr}(f)\) for the minimal degree of a nonzero homogeneous Jacobian relation.
-
-A triple point is either a meeting of three lines *off* the conic, or a meeting of the conic and exactly two lines, all transverse. A tacnode necessarily occurs between \(Q\) and one of the lines (distinct lines cannot be tangent). No higher multiple intersections are allowed.
+Let \(D=Q\cup L_1\cup\cdots\cup L_7\subset\mathbb P^2_{\mathbb C}\), where \(Q\) is smooth and the lines are distinct. Nearly free means that the saturation quotient of the Jacobian ideal of a reduced equation of \(D\) is nonzero, with each graded component of dimension at most one. A line tangent to \(Q\) contributes one tacnode and cannot participate in a triple on \(Q\); all other lines are called secants. A triple on \(Q\) consists of \(Q\) and two distinct secants, all transverse. In particular a contact point does not lie on another line of the arrangement.
 
 ## Proof
 
-**1. Near-freeness fixes the Tjurina number.** The established minimal-Jacobian-relation bound for conic–line arrangements with exactly these singularity types is
+**Numerical reduction.** Write \(n,t,s\) for the numbers of nodes, tacnodes, and triples of \(D\). By Gałecka [1, Theorem 3.4, Propositions 4.1 and 4.4], near freeness implies \(4\le r=\operatorname{mdr}(D)\le\lfloor9/2\rfloor=4\), hence \(\tau(D)=8^2-4(8-4)-1=47\), and
+\[8+n+\tfrac34s\ge 7+\tfrac52t.\]
+Bézout and the local Tjurina numbers give \(n+2t+3s=35\) and \(n+3t+4s=47\). Consequently \(s=12-t\), \(n=t-1\), and \(1\le t\le4\).
+
+Write \(u\) for the triples off \(Q\), \(v\) for the triples on \(Q\), and \(h=7-t\) for the number of secants. Thus \(u+v=12-t\) and \(v\le h\) by Bézout on the secants, so \(u\ge5\). In the arrangement of just the seven lines, the number of double points is **\(21-3u\)**: the \(v\) intersections on \(Q\) remain double points when the conic is removed. The number of double points off \(Q\) is \(21-3u-v\). No point of the line arrangement has multiplicity at least four. The strong line inequality of Hirzebruch [2, Section 6, (9)] therefore gives \(21-3u+3u/4\ge7\), so \(u\le6\).
+
+No three distinct tangents to \(Q\) concur, since they would give three collinear points on the smooth dual conic. Let \(a,b,g\) count the off-conic triples with respectively two, one, and zero tangents. Thus \(u=a+b+g\). Counting the pairs of tangents, the pairs of secants, and the mixed pairs, respectively, gives
 \[
-\operatorname{mdr}(f)\geq \frac23\deg(D)-2=4.
+a\le\binom t2,\qquad b+3g+v\le\binom h2,\qquad 2(a+b)\le th.
 \]
-For a nearly free degree-nine curve, the exponents \((d_1,d_2)\) satisfy \(d_1+d_2=9\), \(d_1\le d_2\), and \(d_1=\operatorname{mdr}(f)\). Therefore \(r=d_1=4\). The nearly-free Tjurina formula yields
-\[
-\tau(D)=(9-1)^2-r(9-r-1)-1=64-16-1=47.
-\]
-The bound, exponent formula and Tjurina characterization appear in Gałecka [1, Sections 3–4]; they apply because the allowed singularities are quasi-homogeneous.
+At the \(b\)-type triples on any fixed tangent, the pairs of secants are disjoint, so \(b\le t\lfloor h/2\rfloor\). We will use also the simple graph on the secant lines with one edge per pair meeting on \(Q\). Its maximum degree is two and all edges correspond to distinct points. In particular, when \(v=h\) it is a disjoint union of simple cycles.
 
-**2. Bézout and local singularities.** Let \(n,t,s\) denote the numbers of nodes, tacnodes and ordinary triple points. There are \(\binom72=21\) pairwise line intersection contributions and \(2\cdot7=14\) conic–line contributions. Local intersection multiplicities are respectively \(1,2,3\); local Tjurina numbers are \(1,3,4\). Thus
-\[
- n+2t+3s=35,\qquad n+3t+4s=47.
-\]
-Subtracting and eliminating gives
-\[
- t+s=12,\qquad n=t-1.
-\]
-In particular, \(t\ge1\).
+**One tangent.** Here \(a=0\), \(b\le3\), and \(u\ge5\) forces \(g\ge2\). Since \(b+g+v=11\) and \(b+3g+v\le15\), we have \(g=2,b=3,u=5,v=6\). Every secant participates in one \(b\)-type triple (the pairs at the tangent are disjoint) and has exactly two on-conic pair intersections. Each secant has six incidences with other lines, counted by pairs. The \(b\)-type triple and the two on-conic intersections account for four; all six line double points are on \(Q\). Thus each secant participates in exactly one of the two \(g\)-type triples. The secants form two disjoint pencils of three with distinct centers \(A,B\) off the tangent. In the affine chart with the tangent at infinity, the \(b\)-type triples pair the pencils' lines in parallel directions, once in each direction. The central symmetry \(x\mapsto A+B-x\) exchanges the pencils, exchanges the six distinct off-diagonal intersections in pairs, and preserves \(Q\) because five distinct points determine a smooth conic. Its restriction to \(Q\cong\mathbb P^1\) is a nonidentity involution, so has two fixed points over \(\mathbb C\). But its only plane fixed points are the line at infinity and the affine midpoint. The former has just one point on \(Q\) by tangency. The midpoint cannot lie on \(Q\), since it is distinct from and collinear with two exchanged affine conic points. This is a contradiction.
 
-**3. A conic–line Hirzebruch bound limits tangencies.** For arrangements with \(k\) smooth conics and \(d\) lines and these singularities, Gałecka [1, Proposition 4.4] quotes the geometric inequality
-\[
-8k+n+\tfrac34s\ge d+\tfrac52t.
-\]
-Taking \(k=1\), \(d=7\), \(n=t-1\), \(s=12-t\) gives \(16+t/4\ge7+5t/2\), hence
-\[
- t\le4.
-\]
+**Two tangents.** Here \(a\le1\), \(b+3g+v\le10\), and \(a+b+g+v=10\), giving \(2g\le a\le1\), hence \(g=0\). The bound \(b\le4\) now forces \(a=1,b=4,u=5,v=5\). The on-conic pair graph on the five secants is a 5-cycle; its complement is also a 5-cycle. Let \(S_*\) be the secant through the intersection of the two tangents. Each tangent participates in two \(b\)-type triples and cannot use \(S_*\) in either. Its pairs must therefore form a perfect matching in the complement cycle with \(S_*\) deleted. This is a four-vertex path, which has just one perfect matching, so the two tangents would use the same secant pair at a \(b\)-type triple, contrary to the absence of fourfold intersections.
 
-**4. The ordinary line triples are numerous.** Split \(s=u+v\), where \(u\) counts triples of lines off \(Q\), and \(v\) counts transverse triples comprising \(Q\) and two lines. Each of the \(t\) tacnodes involves a different tangent line to \(Q\); a smooth conic has a unique tangent at a point, and a line has at most one tangency to a conic. Hence exactly \(h=7-t\) lines are nontangent. At a transverse triple on \(Q\), both incident lines must be nontangent. Every nontangent line has only two intersections with \(Q\), counted with multiplicity; therefore \(2v\le2h\), or \(v\le7-t\). It follows that
-\[
- u=(12-t)-v\ge (12-t)-(7-t)=5.
-\]
+**Three tangents.** Here \(a+b+g+v=9\), \(a\le3\), and \(b+3g+v\le6\), hence \(a=3,g=0\) and \(b\in\{2,3\}\). Call the tangents \(T_i\) for \(i=1,2,3\); the three secants through their pair intersections are distinct, and we label \(S_i\) the one through the intersection of the other two tangents. Write \(S_4\) for the remaining secant. A \(b\)-type triple on \(T_i\) can only use \(S_i,S_4\), because the two other secants already meet \(T_i\) at the \(a\)-type triples. All six secant pairs are used by \(b\) or \(v\); in particular the three pair intersections of \(S_1,S_2,S_3\) lie on \(Q\). If \(b=2\), then \(v=4\), so the on-conic pair graph must be a 4-cycle, not contain a triangle. If \(b=3\), normalize \(T_1,T_2,T_3\) to the coordinate axes and \(S_4\) to \(x+y+z=0\) (it misses the three tangent vertices). The other three secants are \(y+z=0,x+z=0,x+y=0\). Their three pair intersections, up to scaling, are
+\[(1,1,-1),\quad(1,-1,1),\quad(-1,1,1).\]
+The dual conic matrix has zero diagonal and off-diagonal entries \(A,B,C\) at positions \(12,13,23\), respectively, because the coordinate axes are tangent; \(ABC\ne0\) by nonsingularity. The primal equation is given by its adjugate, i.e.
+\[-C^2x^2-B^2y^2-A^2z^2+2BCxy+2ACxz+2AByz=0.\tag{1}\]
+Subtracting its value at the second point from its value at the first gives \(4C(B-A)\); subtracting its value at the third from its value at the first gives \(4B(C-A)\). If all three values vanish, then \(A=B=C\), but the first value is then \(-5A^2\ne0\). This eliminates \(b=3\).
 
-**5. Hirzebruch's *strong* inequality for the seven-line subarrangement.** On forgetting \(Q\), the seven distinct lines have only double and triple intersections, with \(u\) triple points and
-\[
- t_2^{\mathrm{lines}}=21-3u-v
-\]
-double points. The \(v\) points on \(Q\) are ordinary double intersections of the two corresponding lines. Hirzebruch's inequality [2, Section 6, equation (9)] for a complex arrangement of \(\ell\) lines with \(t_\ell=t_{\ell-1}=t_{\ell-2}=0\) gives, in the absence of points with multiplicity at least four,
-\[
- t_2^{\mathrm{lines}}+\tfrac34t_3^{\mathrm{lines}}\ge\ell.
-\]
-For \(\ell=7\), this reads \(21-3u-v+\tfrac34u\ge7\), or
-\[
- 9u+4v\le56.
-\]
-But \(u+v=12-t\), \(u\ge5\), and \(t\le4\), so
-\[
-9u+4v=4(u+v)+5u=4(12-t)+5u\ge4\cdot8+25=57,
-\]
-a contradiction. Therefore the proposed nearly free arrangement does not exist. \(\square\)
+**Four tangents.** Here \(v=8-u\) is 2 or 3, and \(b+3g+v\le3\) gives \(g=0\), \(b\le3-v\), so \(a=u-b\ge5\). Each of the three secants contains at most two vertices of tangent pairs, because a tangent cannot meet that secant twice. At least two secants thus each join two vertices of disjoint tangent pairs, making them two of the three diagonal lines of the complete quadrilateral of tangents. Their intersection is on neither a tangent nor \(Q\): normalize the tangents to \(x=0,y=0,z=0,x+y+z=0\) and the diagonals are \(x+y=0,x+z=0,y+z=0\). Their pair intersections are the three points listed above, visibly off the tangents. In (1) the fourth tangency says \(A+B+C=0\); the three values at these points are \(4BC,4AC,4AB\), all nonzero.
 
-## Verification
+The pair of diagonal secants therefore uses an off-conic secant pair that does not contribute to \(b\). This forces \(v=2\), \(b=0\) (only one off-conic pair is then available), so \(u=a=6\). All three secants would have to be the three diagonal lines, and none of their pair intersections is on \(Q\), contradicting \(v=2\). This finishes the proof.
 
-The argument is uniform over \(\mathbb C\) and is not an inference from finite-field sampling. The standalone standard-library program `verify_constraints.py` enumerates the bounded integer incidence possibilities using exact rational arithmetic, checking both quoted geometric inequalities, Bézout, the local Tjurina relation, and the conic incidence constraint. Run `python3 verify_constraints.py`; the expected line starts with `DEGREE9_ONE_CONIC_SEVEN_LINES_NO_NEARLY_FREE_PASS` and finishes with zero surviving integer cases. Its function is a reproducible arithmetic cross-check, not a proof of either external geometric inequality.
+## Verification and limitations
 
-The two external inequalities have been checked against their primary textual statements: Gałecka's Proposition 4.4 [1] and Hirzebruch's **strong** line-arrangement inequality [2, equation (9)], whose nonconcurrency hypotheses are met because the seven-line arrangement has no intersection of multiplicity four or higher. The weaker inequality with coefficient \(1\) instead of \(3/4\) is insufficient for this contradiction.
+`verify_constraints.py` independently checks the finite numerical reduction and the adjugate polynomial evaluations with exact integer arithmetic. The script is not the proof of the geometric exclusions, which use the pencil symmetry, matching obstruction, and explicit conic calculations above. The incorrect count \(21-3u-v\) cannot be used as the total number of double points of the line-only arrangement.
 
-## Relationship to prior work
+This excludes neither arrangements with several conics nor examples admitting other singularities, such as ordinary quadruple points. Historical priority is not implied by proving this statement. Gałecka leaves degrees eight and nine open in the cited classification; the numerical inequalities here leave surviving incidence patterns, which require the extra geometry.
 
-Gałecka [1] initiated the near-freeness classification for these three local singularity types, established the syzygy and conic–line inequalities used here, and explicitly left total degrees eight and nine open. The nonexistence result above concerns the natural first nonlinear-component case within degree nine and uses a second, independent Hirzebruch inequality applied to the **line-only subarrangement**. It is not an existing theorem of [1] restated with different parameters.
-
-Măcinic and Pokora [3] investigate plus-one generated arrangements with defect two, rather than the nearly-free (defect-one) condition. The constructions of Bannai, Kawana, Masuya and Tokunaga [4] show that one-conic/seven-line incidence arrangements can exist with different singularity counts, without contradicting the near-freeness obstruction. Pokora's 2026 degree-nine nearly-free example [5] admits ordinary quadruple singularities and therefore lies outside the exact \(A_1/A_3/D_4\) scope here.
-
-## Limitations
-
-The conclusion applies only to one smooth conic plus exactly seven distinct lines over \(\mathbb C\), with no other singularity types. It leaves the two-conic/five-line and three-conic/three-line degree-nine cases undecided, and does not address free curves or plus-one generated curves of greater defect. Priority could be affected by an earlier incidence inequality or unindexed classification equivalent to the combination used here. No claim of independent mathematical validation is made.
+The cases with \(u=6\) also fall under the previously recorded sharp Tjurina bound for conics adjoining the non-Fano seven-line arrangement [3], which gives \(\tau\le46\) in that stratum. That bound does not address \(u=5\). Pokora's example [4, Theorem 4.1] has four ordinary quadruple points and is outside the present hypotheses.
 
 ## References
 
-[1] A. Gałecka, *On the nearly freeness of conic-line arrangements with nodes, tacnodes, and ordinary triple points*, arXiv:2204.13969 (first posted 2022-04-29), *Boletín de la Sociedad Matemática Mexicana* 28, article 67 (2022), DOI: 10.1007/s40590-022-00461-4. Primary text: https://link.springer.com/article/10.1007/s40590-022-00461-4 .
-
-[2] F. Hirzebruch, *Singularities of Algebraic Surfaces and Characteristic Numbers*, MPI preprint 85-39 (1985), Section 6, inequality (9). Primary full text: https://archive.mpim-bonn.mpg.de/id/eprint/2262/1/preprint_1985_39.pdf .
-
-[3] A. Măcinic and P. Pokora, *On plus-one generated conic-line arrangements with simple singularities*, arXiv:2309.15228 (2023); *Atti Accad. Naz. Lincei Rend. Lincei Mat. Appl.* 35 (2024), DOI: 10.4171/RLM/1044. https://arxiv.org/abs/2309.15228 .
-
-[4] S. Bannai, R. Kawana, K. Masuya, and H. Tokunaga, *Zariski pairs of conic-line arrangements with a unique conic*, arXiv:2410.04969 (2024). https://arxiv.org/abs/2410.04969 .
-
-[5] P. Pokora, *On the Numerical Terao Conjecture*, arXiv:2608.05662 (2026), Section 4. https://arxiv.org/abs/2608.05662 .
+1. A. Gałecka, *On the nearly freeness of conic-line arrangements with nodes, tacnodes, and ordinary triple points*, arXiv:2204.13969, Bol. Soc. Mat. Mex. 28, 67 (2022), DOI: 10.1007/s40590-022-00461-4.
+2. F. Hirzebruch, *Singularities of Algebraic Surfaces and Characteristic Numbers*, MPI preprint 85-39 (1985), Section 6, inequality (9), https://archive.mpim-bonn.mpg.de/id/eprint/2262/1/preprint_1985_39.pdf .
+3. *Sharp Tjurina bound for conics adjoining the non-Fano seven-line arrangement*, Resultary record 20d0ed6a92c8, §6.
+4. P. Pokora, *On the Numerical Terao Conjecture*, arXiv:2608.05662, Theorem 4.1.

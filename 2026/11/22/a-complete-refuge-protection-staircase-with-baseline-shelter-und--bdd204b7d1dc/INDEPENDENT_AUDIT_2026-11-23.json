@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:02:26.608867Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files, including check.py inspected as text; corrected RESULT.md, REVIEW.md and VERIFICATION.md",
+        "Independent derivative, threshold and lattice replay"
+      ],
+      "rationale": "For the corrected record, the fixed-initial-abundance hazard gives expected survivors N exp(−Td₀) Σᵢ exp(−a/(b+rᵢ)), a=Td₁N>0, with zero survival at zero total cover. The simplex is compact and the zero-cover extension is continuous. With pair total cover C fixed and x<C/2, the derivative of the pair objective has the sign of H(x/C)−a/C. Writing y=(C−x)/x>1 gives H=2y log(y)/(y²−1), strictly increasing in x/C from 0 to 1: log(y)−(y²−1)/(y²+1) is positive by differentiation from y=1. Thus an unequal interior pair is strictly below an endpoint or the midpoint on its feasible interval; every maximizing allocation has j equal positive supplements R/j, with arbitrary occupied labels. After dropping the common baseline and prefactor, the support objective is Qⱼ=j[exp(−θuⱼ)−exp(−θv)] for β=b/R>0, θ=a/R, uⱼ=j/(1+βj), v=1/β. Qⱼ₊₁/Qⱼ is (j+1)/j times the upper-tail probability of [uⱼ₊₁,v] under density proportional to exp(−θt) on [uⱼ,v]. This decreases strictly by exponential tilting, starts above 1 at θ↓0 by the interval lengths, and tends to 0. Hence each adjacent equality occurs once. For continuous support x>0, Q′ has the sign of 1/λ−L(z), where λ=θ/β, z=λ/(1+βx), and L(z)=∫₀¹(1−s)exp(−zs)ds. L increases strictly as x increases, to 1/2. The derivative is strictly positive when λ≤2; when λ>2 it changes sign once from positive to negative since L(λ)<1/λ. Consequently at an adjacent equality exactly those two integers are global maximizers. At θⱼ the next larger support is already worse than j+1, and the next smaller is already worse than j; the strict ratio monotonicity orders their crossings θⱼ₊₁<θⱼ<θⱼ₋₁ wherever defined. Thus the staircase has no skips or extra tie sizes. At β=0 the objective becomes j exp(−θj); its adjacent ratios give ordered crossings log((j+1)/j). Bracketing the positive-baseline root with points on either side of the zero-baseline crossing proves convergence as β↓0. The independent replay reproduced the four-patch β=1/2 crossing values 1.358513260963, 1.496945595991 and 1.828133590308 and the strict support-2 optimum at θ=1.6. The 20,460 simplex-lattice comparisons had no discrepancy beyond roundoff (maximum excess 5.55e−17). Reading the bundled checker and recomputing loop counts gives 1,632, 523,590, 56,000, 119,988, 552 and 614,215 diagnostics, totaling 1,315,977; the first count denotes support values across 136 exact tie cases.",
+      "replay_paths": [
+        "/workspace/branches/bd94c80e-e0c1-4335-87bb-936bba6c2fbd/ordinal5_recomputation.md"
+      ],
+      "residual_risks": [
+        "The independent decimal thresholds and lattice replay are bounded floating-point checks, not a proof for real-valued allocations or arbitrary parameters. The bundled checker was not executed during the review.",
+        "The result assumes identical patches, fixed total supplement, and a hazard evaluated at initial abundance throughout the exposure. It does not apply as stated to dynamic depletion or heterogeneous patches."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ginsberg is the strongest identified plausible general comparator, but full text was not obtained; the Case PDF for Vicentini returned HTTP 403.",
+          "Samhouri et al. Eq. (1) gives the additive refuge hazard. Its field application uses an ODE with changing prey abundance and found better support for the piecewise alternative."
+        ],
+        "reasoning": "A general optimization algorithm at fixed parameter values is not by itself a theorem on strict crossing order as the hazard parameter varies. The biological antecedent provides the hazard, not a supplementary-cover allocation theorem; its dynamic application is not equivalent to the fixed-hazard objective.",
+        "searches": [
+          "Ginsberg identical-plant solution (publisher DOI and RePEc access record); Vicentini general S-shaped allocation (Case repository); Samhouri et al., DOI 10.1007/s00442-009-1307-z, Eq. (1) and A field application"
+        ]
+      },
+      "checked_sources": [
+        "Resultary and public literature searches; full Resultary prey occupancy and Hill staircase records",
+        "Vicentini repository abstract; Ginsberg publisher excerpt and RePEc access record; Samhouri et al. primary text, Eq. (1) and field application"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prey occupancy proof uses rational-product thresholds, not ratios of integrals over nested intervals with exponential tilts. The Hill proof uses a fixed peak of benefit per dose; applying a nonlinear change to identify the returns would not preserve the linear total-supplement constraint.",
+          "Even a prior reduction to equal positive allocations would leave adjacent equalities to locate and order. The explicit tilt and strict continuous-support unimodality give these steps here."
+        ],
+        "reasoning": "The inspected staircase proofs and hazard equation do not imply the positive-baseline ordered crossings. A full prior identical-plant result that supplies these order and equality conclusions for this family would change the assessment; the accessible excerpt does not establish that implication.",
+        "searches": [
+          "Full Resultary prey occupancy and Hill active-target proofs; Samhouri et al. Eq. (1); publisher excerpt of Ginsberg's identical-plant solution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is exactly a separable fixed-sum allocation with common return exp(−a/(b+r))−exp(−a/b), up to constants and a positive multiplier. This is an identical-plant problem; the return can have one inflection, changing from convex to concave at total cover a/2.",
+          "Vicentini's abstract addresses S-shaped allocation, and Ginsberg's publisher excerpt claims a complete solution of the identical-plant problem. Only those accessible materials were read for these two works."
+        ],
+        "reasoning": "A prior identical-plant theorem can cover optimizer structure without using refuge terminology. Neither accessible text supplies an evaluated shifted exponential crossing law or proves that varying θ visits every support in order. Whether their full results imply more remains open in this review.",
+        "searches": [
+          "Public literature on fixed-sum S-shaped resource allocation and identical-plant allocation: Vicentini (1970), Case operations report 370; Ginsberg (1974), DOI 10.1016/0022-0531(74)90053-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prey occupancy staircase allocates biomass with return rt−(r/K)t²−ct/(1+ht). Its adjacent differences are affine in c and give rational-product thresholds, unlike the exponential-tail equations here.",
+          "The Hill staircase uses log(1+xʰ), with a fixed benefit-per-dose peak and a varying budget. It is not a table of positive-baseline refuge thresholds."
+        ],
+        "reasoning": "A prior support table with the same objective and crossing parameter would suffice even under different terminology. These two full records enumerate different objectives; matching the qualitative staircase does not make either threshold table equivalent.",
+        "searches": [
+          "Resultary refuge/shelter and allocation-staircase comparisons; full prey occupancy staircase 0d3ae31b84de and Hill active-target staircase a81be9bbd6bd"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit shifted inverse-exponential support selector with strictly ordered positive-baseline crossings and exact ties, not for S-shaped resource allocation, the hazard model or the general idea of a staircase. General identical-plant allocation is a real equivalence risk: the available historical abstracts could cover the structural reduction, but they do not establish the particular parameter-dependent crossing and no-skip theorem. This is not a claim of exhaustive priority.",
+      "residual_risks": [
+        "The complete texts of Vicentini (1970) and Ginsberg (1974) were not obtained. Their accessible material cannot settle priority for the equal-positive reduction or exclude a general theorem that implies more.",
+        "Search coverage is not exhaustive. The originality assessment is for the ordered positive-baseline selector and tie classification as a whole."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Plausible structural antecedent; no whole-document noncoverage conclusion",
+          "evidence": [
+            "The abstract poses resource allocation with S-shaped utilities."
+          ],
+          "identifier_or_url": "https://commons.case.edu/wsom-ops-reports/370/",
+          "material_read": "Repository abstract; full report PDF not obtained (HTTP 403)",
+          "method": "Compare separable fixed-sum allocation formulation and curvature of the shifted inverse-exponential return",
+          "title": "S-Shaped Utility Functions: A Review and a Resource Allocation Problem",
+          "trigger": "General S-shaped allocation may include the common return in the refuge objective"
+        },
+        {
+          "assessment": "Potential coverage of the structural reduction; accessible material insufficient to establish exact staircase coverage or noncoverage",
+          "evidence": [
+            "The excerpt claims a complete solution for identical plants; it does not present the shifted inverse-exponential threshold equations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-0531(74)90053-2",
+          "material_read": "Publisher abstract excerpt and RePEc record (https://ideas.repec.org/a/eee/jetheo/v9y1974i3p283-292.html), marked subscriber-only for full text",
+          "method": "Compare advertised identical-plant solution to the equality structure and the θ-dependent ordering needed here",
+          "title": "The multiplant firm with increasing returns to scale",
+          "trigger": "Identical-plant optimization is equivalent in formulation to the held-hazard allocation"
+        },
+        {
+          "assessment": "Same qualitative staircase, not an implication for the refuge model",
+          "evidence": [
+            "Prey biomass is allocated; adjacent differences are affine in predation parameter c, with rational-product thresholds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-occupancy-staircase-for-prey-aggregation-under-crowding--0d3ae31b84de/RESULT.md",
+          "material_read": "Full primary finding and proof",
+          "method": "Compare what is allocated, total constraint, return family and adjacent-support equations",
+          "title": "An exact occupancy staircase for prey aggregation under crowding",
+          "trigger": "Related ecological optimization with exact successive support changes"
+        },
+        {
+          "assessment": "Analogous structure, not an equivalent threshold theorem",
+          "evidence": [
+            "Uses log(1+xʰ) with a fixed benefit-per-dose peak and varying total budget."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-a-complete-active-target-staircase-for-independent-hill-inhibiti--a81be9bbd6bd/RESULT.md",
+          "material_read": "Full primary finding and proof",
+          "method": "Compare log-return, varying parameter and peak mechanism to the positive-baseline exponential model",
+          "title": "A complete active-target staircase for independent Hill inhibition",
+          "trigger": "Equal-positive support and no-skip staircase under a separable nonlinear return"
+        },
+        {
+          "assessment": "Source for the hazard, not the fixed-supplement optimization theorem",
+          "evidence": [
+            "Eq. (1) gives the additive hazard; the field application fits a changing-abundance ODE and finds better support for the piecewise alternative."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00442-009-1307-z",
+          "material_read": "Primary text, especially Eq. (1) and A field application",
+          "method": "Compare hazard equation, abundance treatment during exposure and optimized variables",
+          "title": "Samhouri et al., empirical refuge-hazard model",
+          "trigger": "Direct biological antecedent of the additive hazard used in the objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected refuge theorem and independent allocation replay",
+        "Samhouri et al. hazard model and field-application distinction",
+        "Full prey occupancy and Hill staircase comparators"
+      ],
+      "rationale": "For a fixed supplement across identical patches, the theorem determines exactly when to spread protection and when to concentrate it as the held hazard increases. Every support size occurs on a nonempty interval, and baseline-dependent thresholds distinguish equal-support ties from regimes with a single maximizing support size. The result is an exact benchmark with a transparent scope, beyond the existence of an allocation rule or a finite numerical example.",
+      "residual_risks": [
+        "The benchmark does not justify field recommendations, fitted parameter thresholds, or extrapolation to changing prey abundances and heterogeneous patches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

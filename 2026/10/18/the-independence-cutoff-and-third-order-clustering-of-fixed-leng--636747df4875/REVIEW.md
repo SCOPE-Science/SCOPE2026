@@ -1,19 +1,21 @@
-# Review of the palindromic match independence classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The equality-constraint graph gives exact all-subset success probabilities by independent component labels. Distinct mirror-center matchings form no cycle, proving pairwise independence. The parity-path reduction for lengths two and three and the rank of three consecutive windows for all longer lengths establish the sharp boundary. The nonnegative third-order cumulant comparison proves that the count, despite binomial first two moments, cannot have the binomial law beyond the boundary. Nonuniform covariance follows from a shared endpoint and Cauchy–Schwarz. All unbounded statements are supported by these arguments; 2931 finite exact checks are supporting replication only.
+PASS
 
-## Originality
+An equality graph with v vertices and c components has q^c consistent labels. Two distinct reflection matchings have no common edge and cannot have an alternating cycle, since two reflections compose to a nonzero translation on the integer line. For three consecutive windows, compositions of consecutive reflections connect x to x+2 for every x from 0 through k−1 in the block of length k+2 (allowing a reflection to fix its center). Thus each parity is connected, and the middle matching joins the two parities exactly when k is even. The rank is 2r+1 in either case. At k=2 or 3 any selected equalities form a forest. Distinct-index third cumulants are nonnegative since the joint rank is at most 3r; all repeated-index terms reduce to those of independent Bernoulli variables. The positive consecutive-triple contribution therefore rules out a binomial count, not just mutual independence. For k=4 and 5 I independently computed binary incidence-matrix ranks for all 15 and 28 offsets, respectively, with 1≤a<b≤2k−2. Only (1,2) has rank deficit, equal to one. For b≥2k−1 one gap is ≥k and separates an outer window. Direct word enumeration at five selected (q,k,N) also confirmed the count's third cumulant. In the nonuniform boundary overlap, one size-three equality component replaces two size-two components, and the bracket equals Var(w_X) for X with law w, proving the stated rigidity. All cases M=1,2 and r=1 are consistent.
 
-PASS with residual historical-priority risk. The accessible complete arXiv works by Rubinchik–Shur (2015) and Gabric–Shallit (2019) address positional means/distinct factors and parity of palindrome prefixes, respectively; they do not establish this full indexed joint-success law. The 2013 reverse-complement DNA-palindrome study by Špoljarić–Ugrina is a material partially inaccessible source; a whole-document NOT_COVERING claim is not made, and count-cumulant corollaries may be contained there. General pattern-count machinery may imply portions of the claim. No independent historical audit is asserted.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The equality graph supplies a natural complete description of location-indexed palindrome dependence; the length-four transition and higher-order clustering show that matching binomial mean and variance does not ensure binomial distribution. The explicit nonuniform-source boundary identifies when this feature ceases to hold, with direct implications for random-word occurrence models.
+The positional mean is known, and the graph-labeling identity and odd/even coupling are not independently credited as new. The distinct mathematical package is the sharp fixed-length joint-independence/binomial cutoff with its third-order obstruction, exact small-length cumulants and one-overlap rigidity. The nearest accessible results do not give or force that package. This is a best-of-knowledge judgment, not historical-priority certification.
 
-## Limitations
+## value
 
-Only literal reversal palindromes, independent symbol sources, and the stated finite ranges are covered. No closed-form full count histogram, arbitrary nonuniform all-subset law, or tail approximation is asserted. The 2013 DNA-paper source was only abstract accessible. Independent scientific and historical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This settles when a binomial model of a basic sliding-window statistic is exact: mean and variance match for every length, yet the third cumulant detects a sharp failure. An exact correction at the first two nontrivial lengths and the uniformity criterion at one shared site make the result useful for calibrating dependence, beyond a routine moment or a few tabulated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

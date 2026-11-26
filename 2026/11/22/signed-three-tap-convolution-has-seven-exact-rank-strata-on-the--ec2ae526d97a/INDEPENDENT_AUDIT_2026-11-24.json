@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:33:17.181253Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Left-normalization multiplies the regular convolution matrix by an invertible left translation and gives I+L_a-L_b. A matrix column y is delta_y+delta_(ay)-delta_(by), with three distinct supports; every row also has exactly three +/-1 entries. Swapping the two positive sites re-normalizes to (a^-1,a^-1 b); S_5-conjugation is a simultaneous A_5 automorphism and preserves rank. Each original kernel has exactly two ordered descriptions, so a normalized-pair count is multiplied by 60/2=30. Independently generated all 3422 normalized ordered pairs and 23 disjoint exhaustive orbits, and checked every pair's intrinsic rule and modular rank at both primes, not just representatives. Normalized counts for ranks 40,45,49,54,55,56,60 were 60,120,120,120,240,360,2402, exactly giving the stated 102660-kernel census. For (3,(5,5),60), 120 same-class pairs had rank 49 and 120 different-class pairs rank 60; the two five-cycle classes were computed and found inversion-stable. The CSV representatives, orbit sizes and order invariants agree. Both primes were checked by trial division. Each integer minor of size k<=60 has |det|<=3^(k/2)<=3^30 by Hadamard, less than the product of the primes. Thus agreement at d<60 forces all (d+1)-minors to vanish integrally while a nonzero d-minor mod a prime yields the lower bound; d=60 is maximal. All signed 64-bit elimination products and subtractions stay within range. The conclusion concerns complex rank and geometric nullity, not algebraic zero-eigenvalue multiplicity. Replay: python3 /workspace/branches/14658e4f-ea82-449c-8709-0e66eaa4030d/independent_check.py. The uploaded CSV and both checker sources were inspected but no uploaded program was executed. This is exhaustive for the stipulated finite signed domain only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md 60–76 reports general Fourier/uncertainty bounds, n-Cayley block methods and unsigned normal-Cayley results; attempted targeted OA readings did not recover usable paper passages.",
+          "Resultary f54aef0f9268 describes attainable complex ranks over weights on 3-point supports in A4, not the rank at this fixed signed weight on all supports of A5, especially those generating A5."
+        ],
+        "reasoning": "General support/Fourier inequalities are bounds, not a complete rank and multiplicity formula at these coefficients. A method to factor the matrix into irreducible blocks still requires calculating their signed ranks. Conjugation-invariant unsigned connection-set theorems do not subsume isolated signed nonnormal supports. An A4 weighted attainable-rank set does not specify the rank of one particular triple of coefficients or the full-generating A5 strata.",
+        "searches": [
+          "arXiv:math/0608702, Theorem 1",
+          "DOI:10.37236/3105, abstract",
+          "DOI:10.1007/s10801-018-0860-0",
+          "Resultary: Exact three-tap convolution nullities on the icosahedral rotation group A5 unsigned positive group algebra rank three point supports exact finite table"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, orbit_table.csv, both Python verifier sources and requirements.txt",
+        "Resultary 49866d6f62a3, ec2ae526d97a, 53e265734f6f, f54aef0f9268 summaries",
+        "arXiv:math/0608702 and DOI:10.37236/3105 (identified primary passages sought; no independent full text acquired)",
+        "DOI:10.1007/s10801-018-0860-0 and DOI:10.1081/AGB-120027974 (frozen comparison and citation)",
+        "A5 ATLAS and MathOverflow question 304138 search excerpts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the same support {e,a,a^-1} with a of order three, unsigned I+L_a+L_(a^-1) has rank 20 (one constant direction in each three-element coset). Signed I+L_a-L_(a^-1) has eigenvalues 1,1+i sqrt(3),1-i sqrt(3) on each coset, hence rank 60. At generating geometry (3,(5,5),60), exact signed calculation distinguishes 49 from 60 by the relative class flag."
+        ],
+        "reasoning": "The same support can give different ranks, so the unweighted rank table cannot just be read as the signed table. The relative five-cycle flag was already useful for other Cayley invariants; detecting it does not prove the signed rank change. The uniform exhaustive signed computation is the extra exact information.",
+        "searches": [
+          "Resultary 49866d6f62a3 and f54aef0f9268",
+          "Frozen RESULT.md 44–74 and orbit_table.csv",
+          "MathOverflow question 304138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary match ec2ae526d97a is this assignment. The A5 unweighted index entry 49866d6f62a3 and the binary icosahedral group entry 53e265734f6f have different coefficient or group assumptions.",
+          "MathOverflow question 304138 discusses the split-conjugacy flag in a two-generator unsigned Cayley graph girth/isomorphism problem. Its available excerpt is not an assertion about the rank of I+L_a-L_b."
+        ],
+        "reasoning": "Using left instead of right action or reversing quotient orientation does not change the rank comparison. A coefficient character twist cannot remove the negative sign on full-generating supports because A5 has no nontrivial character into {+1,-1}. Support order data and a familiar conjugacy flag need not furnish the rank law for fixed signs.",
+        "searches": [
+          "Resultary: A5 alternating group icosahedral signed Cayley group ring convolution rank nullity three distinct support sites 1+a-b 49 five-cycle conjugacy exact",
+          "Web: alternating group A5 icosahedral signed Cayley digraph rank nullity signed group algebra three-term convolution 1+a-b split five-cycle conjugacy classification rank 49"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalogue table 49866d6f62a3 counts 34220 unweighted supports with 15200 singular; its available summary is about a 13-type unsigned classification. The assigned CSV and independent replay give 102660 sign-decorated kernels and the seven-rank histogram. The ATLAS search hit provides group data, including generator orders; the snippet supplies no signed-rank table."
+        ],
+        "reasoning": "The group table gives inputs for a certificate but not the ranks; weighting the three sites and distinguishing the negative label triples the census and can change rank on the same support. The exact signed hit is the assigned record, not a separate source. Search nonmatches do not establish exhaustive priority.",
+        "searches": [
+          "Resultary: Exact three-tap convolution nullities on the icosahedral rotation group A5 unsigned positive group algebra rank three point supports exact finite table",
+          "Resultary: A5 alternating group icosahedral signed Cayley group ring convolution rank nullity three distinct support sites 1+a-b 49 five-cycle conjugacy exact",
+          "ATLAS of Finite Groups: A5, https://brauer.maths.qmul.ac.uk/Atlas/alt/A5/"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact signed A5 classification, not for group Fourier decomposition, three-point support geometry, the existence of split 5-cycle classes, or modular elimination. The closest A5 classification is explicitly unweighted in the available statements; the signs cannot in general be removed, and the distinct signed ranks are independently verified. No retrieved stronger theorem or exact catalogue entry covers the signed enumeration; plausible unread primary statements remain a disclosed risk.",
+      "residual_risks": [
+        "Closest unsigned and A4 mirror full texts were not recovered; stronger weighted results in unread articles or signed group-algebra tables remain possible.",
+        "No whole-document exclusion is claimed for the cited Cayley graph literature or for alternative signed-filter terminology. No priority conclusion is inferred from same-day dates, search rankings or absence of hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credit unsigned exact classification and quotient geometry; no equivalent signed rank classification in the available statement",
+          "evidence": "Synopsis treats unweighted three-tap convolution on 34220 supports. The order-three coset witness gives ranks 20 unsigned and 60 signed on one and the same support.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-three-tap-convolution-nullities-on-the-icosahedral-rotatio--49866d6f62a3",
+          "material_read": "Resultary synopsis and frozen RESULT.md 62, 74 (local full mirror attempt unavailable)",
+          "method": "Semantic catalogue and exact local-mirror passage attempt; independently checked an order-three support comparison",
+          "title": "Exact three-tap convolution nullities on the icosahedral rotation group",
+          "trigger": "Closest substantial A5 rank classification with split-five-cycle flag"
+        },
+        {
+          "assessment": "Distinct object and output, not ruled out by date",
+          "evidence": "Attainable ranks over weights by A4 support geometry; does not classify fixed signed ranks of fully generating A5 supports.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-three-tap-fourier-rank-spectra-on-the-tetrahedral-group--f54aef0f9268",
+          "material_read": "Resultary synopsis; full record passage not recovered",
+          "method": "Semantic index and identified mirror attempt",
+          "title": "Exact three-tap Fourier-rank spectra on the tetrahedral group",
+          "trigger": "Same-day potentially encompassing weighted classification on a subgroup"
+        },
+        {
+          "assessment": "Reported general inequality is not the exact fixed-coefficient census; access-limited full-paper scope",
+          "evidence": "A lower bound in terms of supports does not determine the seven signed ranks or their multiplicities.",
+          "identifier_or_url": "arXiv:math/0608702",
+          "material_read": "Frozen RESULT.md 60–70 comparison; no independent paper passage acquired",
+          "method": "Targeted OA PDF theorem attempt",
+          "title": "Uncertainty Principles for Compact Groups",
+          "trigger": "General group algebra rank/uncertainty theorem"
+        },
+        {
+          "assessment": "Reported methodological precedent; exact overlap in unread text not excluded",
+          "evidence": "A block method applicable to convolution does not by itself give ranks at 3422 explicit pairs.",
+          "identifier_or_url": "https://doi.org/10.37236/3105",
+          "material_read": "Frozen RESULT.md 60–72 characterization; targeted public abstract passage not acquired",
+          "method": "Identified citation and OA page attempt",
+          "title": "On the Characteristic Polynomial of n-Cayley Digraphs",
+          "trigger": "General block-factorization method"
+        },
+        {
+          "assessment": "Reported unsigned conjugation-invariant setting does not cover arbitrary signed normalized inputs",
+          "evidence": "I+L_a-L_b need not be normal, and its weighted support need not be conjugation-invariant.",
+          "identifier_or_url": "https://doi.org/10.1007/s10801-018-0860-0",
+          "material_read": "Frozen RESULT.md 60–76 description of normal inverse-closed setting; not an independent full-text read",
+          "method": "Frozen citation comparison",
+          "title": "Remarks on singular Cayley graphs and vanishing elements of simple groups",
+          "trigger": "Singular Cayley operators on simple groups"
+        },
+        {
+          "assessment": "Useful evidence of known class flag, different invariant in the available excerpt",
+          "evidence": "The two choices of generator classes distinguish unsigned graphs and girth, not signed three-tap kernel nullity.",
+          "identifier_or_url": "https://mathoverflow.net/questions/304138/cayley-graph-of-a-5-with-generators-1-2-3-4-5-1-4-3-2-5",
+          "material_read": "Search excerpt, not full discussion",
+          "method": "Focused web literature lookup",
+          "title": "Cayley graph of A5 with two 5-cycle generators",
+          "trigger": "Independent use of exactly the same relative split-class test on A5 generators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The signed coefficients are a natural minimal change from an unweighted 3-site filter on the smallest nonabelian simple group; the theorem gives a complete fixed-coefficient invertibility/nullity classification rather than selected examples. A full-generating support geometry with identical group and quotient orders can yield rank 49 or invertibility depending only on the relative five-cycle classes. The exact signed counts and order test are useful group-algebra benchmarks, without making claims about condition numbers, general complex coefficients or other groups.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

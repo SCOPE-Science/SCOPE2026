@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:08:59.569474Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Use the published two-periodic reduction for finite positive total activity. For A>B>0, division gives r=(A/B)^(1/k)=(1+A)/(1+B)>1. Combining A=r^k B with 1+A=r(1+B) gives the displayed A,B; substitution verifies the converse and the parameter is unique. An explicit coefficient replay for the all-k identity: multiply d(log Λ)/dr by r S_k S_{k−1}. For degree n the coefficient is the sum of k i−(k+1)j−1 over i+j=n, 0≤i≤k−1, 0≤j≤k−2. For 0≤n≤k−2 this is −(n+1)(n+2)/2. Reversing both indices sends n to 2k−3−n and negates the summand, so the numerator is anti-palindromic. Dividing by r−1 gives a palindromic polynomial, with coefficients equal to the negative cumulative sums on n≤k−2, namely binomial(n+3,3). This verifies every stated coefficient, including k=2. Positivity gives strict increase on r>1, with endpoints Λ_cr at r=1 and growth asymptotic to r at infinity. With r=e^s, the linear terms in log Λ cancel and the log-sinh expansion gives log(Λ/Λ_cr)=k(k+1)s²/24+O(s⁴). The order parameter is tanh(ks/2), which gives the asserted amplitude when divided by sqrt(Λ/Λ_cr−1). Swapping parities acts by r↦1/r. Replay: RESULT.md lines 59–129 and Eq. (4.2) of arXiv:2205.02025. VERIFICATION.md and artifacts/verify.py were inspected and not executed; the frozen finite tests are corroborative and not used for the all-k proof. The theorem covers scalar parity totals, not all Gibbs measures or a single spin component.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The countable-state source uses Descartes' rule on A(1+B)^k−B(1+A)^k and an S-shaped composition to prove uniqueness up to swapping above Λ_cr. The countable-state follow-up characterizes the same two-cycle by iteration. The inspected multi-state capacity-C framework includes the classical hard-core model at C=1 but does not itself identify the coefficient certificate or its parity-total amplitude."
+        ],
+        "reasoning": "The threshold and count are directly covered, not merely similar. An implicit iteration, even with its sharp threshold, is not an evaluation of the full derivative or its positive coefficients; other compatibility graphs are not interchangeable.",
+        "searches": [
+          "arXiv:2205.02025, Proposition 2 and §4 solution-count argument",
+          "arXiv:2206.06333, pp. 5–7 two-cycle analysis",
+          "arXiv:1007.4806, pp. 1–2",
+          "Hard-core Cayley-tree periodic branch parameter and two-cycle bifurcation literature"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "Resultary and the four indexed comparisons above",
+        "arXiv:2205.02025",
+        "arXiv:2206.06333",
+        "arXiv:2111.11163",
+        "arXiv:1007.4806",
+        "Suhov–Rozikov (2004), citation and attributed threshold only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ratio coordinate is directly obtained from the old system, and the known threshold and branch count are recovered rather than newly proved for the first time. The all-order derivative formula requires identifying the negative triangular coefficients and their anti-palindromic partners and integrating those first differences to obtain the positive symmetric binomial form. The normalized onset requires evaluating the quadratic coefficient k(k+1)/24 in log activity and comparing it with the linear coefficient k/2 in the parity imbalance."
+        ],
+        "reasoning": "The reverse implication from a critical activity and solution count gives neither the coefficient structure nor the normalized leading prefactor. The latter two explicit structural statements, rather than the immediate ratio substitution or known phase count, support acceptance.",
+        "searches": [
+          "arXiv:2205.02025, Eq. (4.3), Proposition 2 and the critical fixed-point argument",
+          "arXiv:2206.06333, scalar two-cycle characterization",
+          "Frozen RESULT.md lines 84–129"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical two-state boundary-law equations z1=(1+λ z2)^(−k), z2=(1+λ z1)^(−k) become the frozen countable-state scalar equations under A=λ z1, B=λ z2, Λ=λ. The inspected two-state explicit formulas are low-order, including the Cardano construction at k=3; the countable-state paper gives the identical general scalar system."
+        ],
+        "reasoning": "The reduction to total activities makes older two-state results directly comparable; countably many states alone is not a reason for novelty. The older exact low-order expressions cover those slices but do not establish the simultaneous all-order coefficient identity or amplitude.",
+        "searches": [
+          "Resultary: all-order hard-core tree two-periodic branch, parity totals, sharp square-root onset",
+          "arXiv:2205.02025, Eq. (4.2)",
+          "arXiv:2111.11163, Eq. (3.4) and its k=2 and k=3 branches"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The order-three hard-core catalogue result gives an equivalent k=3 branch using x+y=a, xy=a(a−1), and λ=1/[a²(a−1)] for its reconstruction application. The generalized-key result has a different four-state compatibility graph, and the SOS result uses a different observable and four-height-periodic laws. The same-day uncountable-spin amplitude is for translation-invariant boundary laws and kernel-dependent normalization."
+        ],
+        "reasoning": "The k=3 record is exact partial overlap rather than a database confirmation of all orders. The other inspected statements differ in model, periodicity or normalization, not merely the notation or title. No order is inferred from same-day dates.",
+        "searches": [
+          "Resultary: all-degree two-periodic Cayley-tree formulas, order-three branch and exact critical amplitudes",
+          "2026/10/12/SCOPE-exact-reconstruction-margin-on-the-order-three-hard-core-periodi--1d6895e8fdce",
+          "2026/10/12/SCOPE-order-six-reversal-of-the-generalized-key-two-periodic-bifurcati--e9b9bad08e1d",
+          "2026/10/12/SCOPE-sharp-all-degree-threshold-for-a-4-periodic-alternating-magnetis--f0b1042ed90f",
+          "2026/10/13/SCOPE-exact-square-root-amplitude-at-the-uncountable-spin-cayley-tree--59ef7f58eb69"
+        ]
+      },
+      "rationale": "Credit existing coverage of the exact same scalar equations, critical activity and solution count, including explicit k=2 and k=3 two-state slices. The supported distinct claim is the all-k geometric-sum representation together with its explicit positive-binomial derivative certificate and the exact normalized parity-total onset. The representation is a short elimination; the coefficient identity, not a new critical activity or a new solution count, is the strongest distinct structural content supported by the inspected evidence.",
+      "residual_risks": [
+        "The 2004 Suhov–Rozikov paper was not read in full; it is the principal unresolved comparison for equivalent two-state all-order formulas. No historical priority claim is made. Search limitations and the uncovered low-order comparisons do not negate the checked distinct all-order certificate and amplitude."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior coverage of the reduced system, threshold and multiplicity",
+          "evidence": "Eq. (4.2) has the identical two equations; Proposition 2 reasons by sign changes and the later argument uses the S-shaped map, rather than the all-order coefficient formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.02025",
+          "material_read": "pp. 3–4 compatibility setup; pp. 9–10, Eq. (4.2), Eq. (4.3), Proposition 2 and solution count (OA passages around offsets 36500, 38720, 44800)",
+          "method": "Open-access primary PDF passages",
+          "title": "Gibbs measures for HC-model with a countable set of spin values on a Cayley tree",
+          "trigger": "Identical model and scalar boundary laws"
+        },
+        {
+          "assessment": "Threshold and unique unordered two-cycle covered",
+          "evidence": "The scalar iteration fixes the same critical activity and characterizes the two-cycle without the displayed positive-binomial factorization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2206.06333",
+          "material_read": "pp. 5–7, scalar iteration and period-two comparison",
+          "method": "Open-access primary PDF passages",
+          "title": "A HC model with countable set of spin values: uncountable set of Gibbs measures",
+          "trigger": "Same countable-state scalar two-cycle after reduction"
+        },
+        {
+          "assessment": "Equivalent scalar problem, with explicit low-order branches",
+          "evidence": "At k=3 cube roots x,y obey λxy(x+y)=1 and x²+y²+xy=x+y; Cardano and quadratic inversion yield the two ordered solutions. The text refers to Suhov–Rozikov for the general threshold.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.11163",
+          "material_read": "p. 5, new variables and Eq. (3.4); pp. 7–9, explicit k=2,3; references pp. 12–13",
+          "method": "Open-access primary PDF passages",
+          "title": "Gibbs measures for the hard-core model on a Cayley tree",
+          "trigger": "Two-state formulation with equivalent scalar system and explicit periodic branches"
+        },
+        {
+          "assessment": "Relevant finite-capacity context; not evidence of absence elsewhere in the paper",
+          "evidence": "The inspected setup addresses rooted regular trees and phase-transition questions; it does not state the evaluated coefficient or amplitude formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1007.4806",
+          "material_read": "pp. 1–2, finite-capacity model and C=1 specialization",
+          "method": "Open-access primary PDF passages",
+          "title": "The multi-state hard core model on a regular tree",
+          "trigger": "Broader regular-tree hard-core phase framework"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not evidence for or against exact all-order coverage",
+          "evidence": "The cited-source passages identify it as a general threshold predecessor; the derivative certificate and exact amplitude could not be checked against that paper itself.",
+          "identifier_or_url": "Suhov–Rozikov, Queueing Systems 46 (2004), 197–212",
+          "material_read": "Bibliographic citation and attributed threshold result in arXiv:2111.11163; full text not retrieved",
+          "method": "Citing primary paper and targeted OA literature lookup",
+          "title": "A hard-core model on a Cayley tree: an example of a loss network",
+          "trigger": "Foundational two-state threshold source with the same rescaled scalar problem"
+        },
+        {
+          "assessment": "Same branch at k=3 only",
+          "evidence": "Uses λ=1/[a²(a−1)] and xy=a(a−1), with a=x+y, in a reconstruction theorem.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-reconstruction-margin-on-the-order-three-hard-core-periodi--1d6895e8fdce",
+          "material_read": "Finding and setup",
+          "method": "Local Resultary and published-record mirror",
+          "title": "Exact reconstruction margin on the order-three hard-core periodic branch",
+          "trigger": "Explicit alternating hard-core scalar branch"
+        },
+        {
+          "assessment": "Different four-state compatibility graph and orientation behavior",
+          "evidence": "The generalized-key branch has a reversal at k=6; the frozen scalar-total activity is strictly increasing for all k≥2.",
+          "identifier_or_url": "2026/10/12/SCOPE-order-six-reversal-of-the-generalized-key-two-periodic-bifurcati--e9b9bad08e1d",
+          "material_read": "Finding and Proof",
+          "method": "Local Resultary and published-record mirror",
+          "title": "Order-six reversal of the generalized-key two-periodic bifurcation",
+          "trigger": "Hyperbolic parameterization of a two-periodic hard-core branch"
+        },
+        {
+          "assessment": "No matching model or observable",
+          "evidence": "A four-height-periodic SOS subfamily gives sqrt(6k(k−1)/(k+1)) with a different parameter and order parameter.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-all-degree-threshold-for-a-4-periodic-alternating-magnetis--f0b1042ed90f",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary and published-record mirror",
+          "title": "Sharp all-degree threshold for a 4-periodic alternating-magnetism SOS branch",
+          "trigger": "All-degree Cayley-tree onset with an adjacent amplitude"
+        },
+        {
+          "assessment": "Different spin space, symmetry sector and invariant",
+          "evidence": "Translation-invariant [0,1]-spin laws give a kernel-dependent amplitude, not the two-periodic scalar totals here.",
+          "identifier_or_url": "2026/10/13/SCOPE-exact-square-root-amplitude-at-the-uncountable-spin-cayley-tree--59ef7f58eb69",
+          "material_read": "Finding and assumptions",
+          "method": "Local Resultary and published-record mirror",
+          "title": "Exact square-root amplitude at the uncountable-spin Cayley-tree bifurcation",
+          "trigger": "Same-day exact onset amplitude in a superficially close tree context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit all-order coefficient certificate controls the entire symmetry-broken branch and removes the need to solve implicit coupled equations to parameterize the activity. The normalized amplitude is a quantitative local benchmark in the actual order parameter, beyond knowing where the bifurcation occurs or that a second pair exists. Both are natural invariants of a standard tree phase transition, useful without claiming coverage outside the two-periodic sector.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

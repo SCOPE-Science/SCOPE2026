@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:26:18.266413Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4",
+        "Frozen VERIFICATION.md and verify.py, inspected, not executed",
+        "Independent bounded replay: python /workspace/review_evidence/replay.py (record 3; symbolic projection of the peak-one hat via the affine Gram matrix; norm square, absolute integral and quadratic response)"
+      ],
+      "rationale": "Use the peak-one hat h with nodes (0,t,1), rather than a truncated power. Its affine projection is (1−t)+(2t−1)x from its first two moments. The residual H has nodal values −(1−t), 2t(1−t), −t; these show ||H||∞=max(t,1−t). Its squared L² norm is the difference between 1/3 and 1/4+(2t−1)^2/12, namely t(1−t)/3. The left and right roots are t/(1+2t) and (2−t)/(3−2t); since ∫H=0, twice the negative triangle areas give ||H||₁=4t(1−t)/[(1+2t)(3−2t)]. The nested-space increment is the rank-one orthogonal projection with kernel H(x)H(y)/||H||₂². The measurable input sgn(H) attains the L∞-to-C norm. Multiplying the norm factors yields the formula. Reflection and differentiating on the left half give the unique midpoint minimum 3/2 and unattained boundary supremum 4. The inequality against 3 there is 4t²−8t+1>0, giving the stated threshold with its reflection. The quadratic inner product is −t(1−t)/12, so the increment on x² is −H/4, giving both the endpoint identity and the nonvanishing limit on fixed smooth data.",
+      "residual_risks": [
+        "The output norm is the continuous supremum, equal to its essential supremum; attainment uses a measurable input not required to be continuous."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gawlik–Lew give smooth-data differences under shape regularity/quasi-uniformity and different norms. Oswald discusses individual projector bounds; Passenbrunner supplies periodic whole-projector estimates and inverse-Gram decay."
+        ],
+        "reasoning": "Neither the geometric decay bound nor uniform boundedness of each projector fixes the norm of their difference. The shrinking cell destroys quasi-uniformity, and L²-type convergence does not force uniform convergence at the endpoint.",
+        "searches": [
+          "arXiv:1408.4104 Theorems 2.1–2.2",
+          "arXiv:math/0611573, arXiv:1103.1950, arXiv:1212.2777"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4fc9acb1ee67, 448008040630, 850f3e97c96f, 9499aea3bfb2",
+        "Ciesielski–Kamont DOI 10.4064/sm164-1-4 pp. 55–59; arXiv:1408.4104 Theorems 2.1–2.2; arXiv:math/0611573 pp. 1 and 4; arXiv:1103.1950 Theorem 1; arXiv:1212.2777 §4",
+        "Targeted primary literature lookup for the arbitrary first Franklin detail and exact difference norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older Franklin framework constructs the detail abstractly, and the whole-line exact law uses the same rank-one norm identity. The finite-interval shape and its boundary limit are not the older formula."
+        ],
+        "reasoning": "The general construction supplies a method to calculate the detail, not its exact finite-interval norm, comparison with 3, or the quadratic-data failure. Those depend on the endpoint residual and the absolute integral, with no matching general evaluated law in the inspected material.",
+        "searches": [
+          "Ciesielski–Kamont equations (2.11)–(2.12); Resultary 4fc9acb1ee67 limitations; Gawlik–Lew Theorems 2.1–2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A single Franklin basis element is precisely the orthogonal detail. The earlier exact increment record 4fc9acb1ee67 operates on a bi-infinite unit grid and obtains a midpoint maximum and a boundary limit 2."
+        ],
+        "reasoning": "The shared rank-one characterization is not new. Restricting the whole-line domain afterwards is not the same projector as imposing a finite-interval inner product from the outset. Its differing limiting law and reversed extremum rule out identity by affine rescaling.",
+        "searches": [
+          "Resultary rank-one Franklin refinement increment L∞ norms and collapsing-knot spline projection; 4fc9acb1ee67",
+          "Ciesielski–Kamont Franklin orthogonal system"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed functions refer to whole alternating/periodic-grid projectors or the whole-line increment; the two 11/2 periodic findings are distinct same-day records. Ciesielski–Kamont give whole-projector kernel row norms and bounds."
+        ],
+        "reasoning": "Absolute integration of the difference kernel cannot be replaced by a difference of the two absolute row integrals, and the cited exact numbers concern different operators. Comparing same-day results by content does not establish temporal priority.",
+        "searches": [
+          "Resultary exact refinement increments and exact periodic linear-spline projector norms: 4fc9acb1ee67, 448008040630, 850f3e97c96f, 9499aea3bfb2",
+          "Ciesielski–Kamont pp. 55–59, equations (2.11)–(2.12)"
+        ]
+      },
+      "rationale": "This is the first nonaffine Franklin detail on a finite free-endpoint interval, so the rank-one construction itself is classical. The closest exact increment norm located is for a bi-infinite grid, where the optimizer is reversed and the collapsing limit differs. The inspected general projector results concern each whole projector separately; nearby finite-element results impose different norm or mesh hypotheses. The claimed finite-interval all-t norm and fixed smooth-data obstruction were not found as statements or as specializations of those results.",
+      "residual_risks": [
+        "Older Franklin literature may contain an equivalent first-detail calculation. Full texts for Bechler (DOI 10.1016/S0021-9045(03)00030-3) and Dickopf–Krause (DOI 10.4208/nmtma.2014.1218nm) were unavailable through the attempted lawful access; no claims about their entire texts are made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Closest exact analogue with different boundary conditions, extrema and limit",
+          "evidence": "Bi-infinite unit grid, unique midpoint maximum 27/26+45√3/52 and collapsing limits 2, not the finite-interval values.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-endpoint-norm-of-a-single-franklin-spline-refinement-incre--4fc9acb1ee67",
+          "material_read": "RESULT.md Finding and Proof from offset 0; relation and limitations from offset 6300",
+          "method": "Indexed lookup and mirrored result inspection",
+          "title": "Exact endpoint norm of a single Franklin spline refinement increment",
+          "trigger": "Exact increment, potentially same as the one-knot theorem"
+        },
+        {
+          "assessment": "Classical detail framework, exact integrals for whole partial-sum projectors",
+          "evidence": "Defines successive orthogonal spline details, but the kernel row norm compared is that of a whole projector, not of this difference.",
+          "identifier_or_url": "https://doi.org/10.4064/sm164-1-4",
+          "material_read": "Primary PDF pp. 55–59, including (2.11)–(2.12)",
+          "method": "Bounded lawful open primary PDF text, https://www.impan.pl/shop/en/publication/transaction/download/product/90654",
+          "title": "The Lebesgue constants for the Franklin orthogonal system",
+          "trigger": "Classical arbitrary-knot Franklin details and tabulated norms"
+        },
+        {
+          "assessment": "Different mesh assumptions and output norms",
+          "evidence": "Quasi-uniform nearby meshes and Sobolev or L² estimates, not a degenerating-cell uniform boundary limit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1408.4104",
+          "material_read": "Abstract p. 1 and Theorems 2.1–2.2, pp. 4–6",
+          "method": "Bounded open primary PDF inspection",
+          "title": "Supercloseness of orthogonal projections onto nearby finite element spaces",
+          "trigger": "Closest smooth-data projection-difference setting"
+        },
+        {
+          "assessment": "Individual projector bound; different instability theorem",
+          "evidence": "The one-dimensional bound 3 is for a single projector. The counterexample theorem has higher-dimensional scope.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611573",
+          "material_read": "p. 1 and Theorem 1, p. 4",
+          "method": "Bounded open primary PDF inspection",
+          "title": "A counterexample concerning the L²-projector onto linear spline spaces",
+          "trigger": "The classical 3 bound used as a benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and its fixed quadratic witness",
+        "Resultary whole-line refinement increment 4fc9acb1ee67",
+        "Oswald arXiv:math/0611573 p. 1"
+      ],
+      "rationale": "This is the smallest nested refinement that isolates what a newly introduced spline degree of freedom can do in max norm. Two individually bounded least-squares projectors can have an increment with norm tending to 4, and the persistent error for a fixed smooth quadratic shows the effect is not an artifact of adversarial inputs varying with t. The sharp formula also separates the finite free-endpoint setting from whole-line spline refinement, which has a different dependence on knot placement.",
+      "residual_risks": [
+        "The smallest free-endpoint hierarchy does not characterize arbitrary knots in larger meshes or weighted projections."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

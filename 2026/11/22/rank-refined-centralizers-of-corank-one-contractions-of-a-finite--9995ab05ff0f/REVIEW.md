@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary-increment parametrization proves that every corank-one contraction is a reflected one-flat-step map. For a fixed unreflected map, the commutation equation forces a constant right tail if the middle image lies below the plateau, and an initial flat run followed by all rising steps if it lies at the plateau. These cases exhaust the centralizer and are counted independently by binomial coefficients. Their polynomial sum yields the stated cardinality, exact positive difference, and normalized-rank mixture. The endpoint cases are handled explicitly. A separate exhaustive multiplication checker compares every predicted coefficient with independently enumerated maps for chain sizes 2 through 10, including reflected maps. There is no reliance on finite enumeration for the asymptotic proof, which follows from binomial concentration and discrete-uniform convergence.
+PASS
 
-## Originality — PASS (best available evidence)
+The n-1 image-rank layer has exactly one zero increment and start 1 or 2; reflecting conjugates the two start classes. For a=a_{n,i}, f([i]) must lie in [i]. For j>i the exact commuting equation is a(f(j))=f(j-1). If f(i)<i, the only preimage of that value is itself and the right tail is constant; for h prefix rises there are i-1-h allowable endpoints below i, giving (i-1)binom(i-2,h). If f(i)=i, the right tail stays there for an arbitrary number of flat steps, then advances by one at every step, because higher values have singleton preimages. Every binary prefix ending at i and every such tail is allowed. This yields both polynomial branches, including i=1 and the idempotent endpoint. Writing S_m=1+z+...+z^m, (1+z)S_{m-1}-S_m=z+...+z^{m-1}; substituting proves the difference factor, with contiguous positive support up through rank n-1 and the identity's top coefficient unchanged. For the weak limit the two class weights are in ratio (i-1):2(n-i+1); the scaled binomial parts concentrate at theta/2 by their O(n) variance and the independent discrete uniform in the second class converges to Uniform[0,1-theta]. At theta=0 the first weight vanishes, including sequences taking i=1; at theta=1 both supports collapse to 1/2. Only the endpoint i=n-1 is idempotent, since applying a twice to i+2 differs for all other i. For n=2 both corank-one maps are constants, with z+z^2 as stated.
 
-The closest same-monoid literature gives overall rank and fixed-point distributions and idempotent centralizer cardinalities, not complete rank distributions for centralizers of **nonidempotent corank-one maps**. The prior idempotent endpoint at the maximal plateau is explicitly acknowledged as covered. The comparison distinguishes the new nonidempotent polynomial and sharp coefficientwise ordering from idempotent centralizer size profiles, random power-stabilization laws, and independent-product convolution formulas. Full mathematical texts were examined for the three particularly relevant published claims; the foundational 2013 arXiv manuscript was inspected in its arXiv-rendered text. Residual risk: a more general historical centralizer theorem or an implicit semigroup-presentation calculation may specialize to the new distributions.
+## originality
 
-## Value — PASS
+PASS
 
-A centralizer rank spectrum is a canonical invariant quantifying the internal commutation of a finite transformation semigroup. Rank \(n-1\) is the first singular stratum below the identity, and its nonidempotent members are not covered by the known idempotent-centralizer profile. The theorem gives the whole stratum at once, detects plateau position through strictly ordered rank multiplicities, and exhibits a continuum of genuinely mixed atomic/continuous limiting laws. The new contribution is not the preexisting global rank count or the previously studied idempotent boundary.
+Pass for the nonidempotent corank-one rank profile as a family, the strict coefficient ordering and its conditional mixed law. The endpoint clamp overlap is exact and not new; its same-day weighted statement was explicitly compared. Normal forms, unconditioned rank counts and the degenerate single-chain case are not the distinct contribution.
 
-## Source boundaries and limitations
+## value
 
-The source date applies to the archival foundational semigroup, not to the later comparison results. The result is for full, monotone, nonexpansive maps and fixed rank-one-deficiency centralizers only. It does not classify arbitrary-element centralizers or prove publication priority against all possible implicit formulations. The finite checker is corroborative; independent mathematical assessment remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nontrivial rank layer below the units of a standard finite-chain monoid is natural, and it admits a complete, explicit distribution rather than just a count. The constant versus delayed advancing tail yields strict monotonicity below the identity rank and a nontrivial atom beside a continuum for interior scaling parameters. Neither phenomenon follows from the sizes of the idempotent centralizers alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

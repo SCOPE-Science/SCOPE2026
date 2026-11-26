@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:57:55.953210Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, adaptive_preorder_trees.json, verify_preorder.py, generate_certificate.py and verifier_output.txt",
+        "Independent replay: python /workspace/branches/recheck_3.py"
+      ],
+      "rationale": "Both orientations on a pair forbid the all-positive label; on a cycle choose a cyclic traversal with at least one positive edge, giving inconsistent cyclic weak inequalities with one strict inequality. On a forest the imposed orientations are acyclic and even distinct ranks suffice, proving precisely the stated support criterion and n−1, including the empty domain at n=1. A depth-d tree needs 2^d distinct concepts. The four-label positive root branch has (75−13)/2=31 concepts by collapsing tied labels and swapping the two labels on strict orders, so depth six fails. An independent scan of consecutive-surjective rank tuples and exact depth feasibility returned the four dimensions 0,1,3,5 with 1,3,13,75 distinct concepts; it separately checked all 8 and 32 leaf paths against the supplied certificate. Concatenation allows independently chosen within-block weak orders and fixes all between-block comparisons, proving 5s and the gap s+1 without any extrapolation from the computation.",
+      "residual_risks": [
+        "Exact adaptive ranks were checked only at n≤4; no larger exact formula is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The component-bounded strict-poset problem has three- and four-element unrestricted ranks 3 and 6 and its own support condition. The 321-avoiding case already illustrates a direct-sum unbounded gap for strict permutations. The compatibility incidence studied by Duan et al. is not ordered-pair membership."
+        ],
+        "reasoning": "Class containment supplies bounds, not the tie-sensitive exact values. Neither the larger poset class nor the permutation subclass determines the weak-order profile.",
+        "searches": [
+          "Resultary 2026/10/25/SCOPE-sharp-online-and-static-shattering-laws-for-bounded-component-pa--24b384d97317",
+          "Resultary 2026/10/25/SCOPE-comparison-shattering-in-321-avoiding-permutations-the-first-two--2687562ef4ab",
+          "arXiv:2412.06402"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.03337, 2306.06247, 2310.04812, 2412.06402",
+        "Four inspected Resultary records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The empty-poset case gives the strict-order forest criterion. Earlier block amplification in related classes already establishes that general phenomenon. Equivalence-query learning works with whole concepts and counterexamples, not these ordered-pair coordinates."
+        ],
+        "reasoning": "Static transfer and generic amplification are not independent originality claims. The exact first adaptive gap specific to ties is what does not follow from these statements; the all-size weak-order lower bound then follows by the standard block construction.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-comparison-shattering-for-linear-extensions-of-finite-posets--aed8bda32d56",
+          "Resultary 321-avoiding comparison record and seven-item permutation record",
+          "arXiv:2310.04812"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both ordered comparisons can be zero for a tie; in strict permutation comparisons each determines the other. Top-j membership and set-valued ranking feedback are different query domains."
+        ],
+        "reasoning": "Static shattering is equivalent to strict-permutation comparison shattering: distinct ranks realize all forest labels; cyclic labels and the two-positive label on a reversed pair remain impossible with ties. This equivalence does not extend to adaptive trees.",
+        "searches": [
+          "Resultary weak-order comparisons and strict permutation/poset comparison shattering",
+          "Focused primary search for VC and Littlestone dimensions of pairwise weak-order/ranking comparisons",
+          "arXiv:2304.03337",
+          "arXiv:2306.06247"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strict total-order table begins 0,1,2,4; the strict-poset result has 3,6 at sizes 3,4. Neither is a table for normalized weak orders under binary strict comparison."
+        ],
+        "reasoning": "The exact known entries for the neighboring classes do not tabulate this invariant on this class.",
+        "searches": [
+          "Resultary exact comparison ranks: 2026/11/2/SCOPE-the-seven-item-entropy-obstruction-for-adaptive-permutation-comp--6c4de5b628dc; 2026/10/25/SCOPE-sharp-online-and-static-shattering-laws-for-bounded-component-pa--24b384d97317"
+        ]
+      },
+      "rationale": "Pass for the model-specific tie-sensitive adaptive profile and its consequences, not for the general idea of block amplification or for the static combinatorics by itself. Forest shattering is the same as for strict permutations; the adaptive ranks differ when opposite comparisons can both receive zero. The closest larger and smaller order classes do not imply the exact profile or when the first weak-order gap occurs. Bounded evidence does not establish historical priority.",
+      "residual_risks": [
+        "Focused primary searches and the compared records do not rule out nonindexed exact comparison-tree evaluations or alternate terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different ranking incidence and feedback",
+          "evidence": [
+            "Permutations under relevance-score feedback; binary restriction asks whether a label is in the top j."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.03337",
+          "material_read": "PDF pp. 1–2, ranking/domain definitions",
+          "method": "OA primary text, bounded passages",
+          "title": "On the Learnability of Multilabel Ranking",
+          "trigger": "Online ranking comparison"
+        },
+        {
+          "assessment": "No exact weak-order comparison rank in cited material",
+          "evidence": [
+            "Uses sets of acceptable predictions and defines a set-valued extension of Littlestone dimension."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.06247",
+          "material_read": "PDF pp. 1, 2, 5, feedback and dimension definitions",
+          "method": "OA primary text, bounded passages",
+          "title": "Online Learning with Set-valued Feedback",
+          "trigger": "Littlestone dimension in ranking"
+        },
+        {
+          "assessment": "General neighboring framework, not an exact class evaluation",
+          "evidence": [
+            "Equivalence queries present a whole concept to receive a counterexample."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+          "material_read": "PDF pp. 1–2, abstract and equivalence-query model",
+          "method": "OA primary text, bounded passages",
+          "title": "Applications of Littlestone Dimension to Query Learning and to Compression",
+          "trigger": "Possibly general implication for comparison queries"
+        },
+        {
+          "assessment": "Different incidence relation",
+          "evidence": [
+            "Compatibility is via a common refinement on a domain of orders."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.06402",
+          "material_read": "PDF p. 1, compatibility definition and set systems",
+          "method": "OA primary text, bounded passages",
+          "title": "VC-dimensions Between Partially Ordered Sets and Totally Ordered Sets",
+          "trigger": "Order-based VC characterization"
+        },
+        {
+          "assessment": "Close, but strict partial orders need not be weak orders",
+          "evidence": [
+            "Unrestricted three/four-item values 3 and 6; unbounded gap already at component bound three."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-online-and-static-shattering-laws-for-bounded-component-pa--24b384d97317",
+          "material_read": "Class definition, support criterion and small ranks",
+          "method": "Resultary search and matching result in local mirror",
+          "title": "Sharp online and static shattering laws for bounded-component partial orders",
+          "trigger": "Close ordered-pair membership and unbounded-gap theorem"
+        },
+        {
+          "assessment": "Earlier analogous phenomenon for a different class",
+          "evidence": [
+            "VC n−1 via a cycle obstruction and star support; exact ranks through eight in the 321-avoiding class."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-comparison-shattering-in-321-avoiding-permutations-the-first-two--2687562ef4ab",
+          "material_read": "VC proof mechanism, exact adaptive-rank statement and product bound",
+          "method": "Resultary search and matching result in local mirror",
+          "title": "Comparison shattering in 321-avoiding permutations",
+          "trigger": "Earlier comparable gap via blocks"
+        },
+        {
+          "assessment": "Strict rankings only",
+          "evidence": [
+            "Ranks 0,1,2,4,6,9,11 through seven and a block gap."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-seven-item-entropy-obstruction-for-adaptive-permutation-comp--6c4de5b628dc",
+          "material_read": "Rank profile and no-ties assumption",
+          "method": "Resultary search and matching result in local mirror",
+          "title": "The seven-item entropy obstruction for adaptive permutation comparisons",
+          "trigger": "Exact adaptive comparison rank table"
+        },
+        {
+          "assessment": "Covers the strict-order version in the empty-poset case, not weak-order adaptive ranks",
+          "evidence": [
+            "Specializing to no imposed order gives forests for unordered comparison supports."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-comparison-shattering-for-linear-extensions-of-finite-posets--aed8bda32d56",
+          "material_read": "Static characterization and linear-extension domain",
+          "method": "Resultary search and matching result in local mirror",
+          "title": "Comparison shattering for linear extensions of finite posets",
+          "trigger": "Broader static support result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and adaptive_preorder_trees.json",
+        "Compared strict-permutation and strict-poset rank profiles in the originality assessment"
+      ],
+      "rationale": "The first gap is an exact boundary for a natural binary comparison model where ties are unobserved on a single negative answer. The three- and four-item thresholds distinguish it from strict permutation comparison and the four-item threshold also distinguishes it from unconstrained strict-poset comparison. The finite result supplies a concrete product witness; the broad existence of adaptive/static gaps is not itself the scientific gain.",
+      "residual_risks": [
+        "The displayed amplification is a lower bound, not an optimum or an asymptotic rank estimate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

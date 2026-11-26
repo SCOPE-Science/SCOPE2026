@@ -1,15 +1,21 @@
-# Research assessment: parity-stable inversion of cyclic Rule 90
+# Independent mathematical audit
 
-## Correctness — PASS
-The GF(2) polynomial model gives the exact kernel dimension \(\min(2t,2^{v_2(n)})\) from a root-multiplicity calculation. For odd rings the only nonzero kernel element is the all-ones word, whose complement cannot coexist with a cyclic no-`11` input. On even rings the four period-two kernel elements give a complete collision partition: one triple, \(2^{n/2}-2\) doubles, and the rest singletons. At \(n\equiv2\pmod4\) the kernel cannot grow under iteration; at \(4\mid n\) the period-four sparse word gives a strict second-step loss. Exact source counts follow from a two-state transfer trace, with conditional error and entropy obtained from fiber sizes. The embedded checker independently computes one-step maps and exhaustive fibers through length sixteen, as well as the relevant iterate comparisons. No finite check is used as an infinite proof.
+## correctness
 
-## Originality — PASS, qualified
-Miller–Bardzell (2004) prove the unrestricted Rule-90 kernel/predecessor law; this does not say what happens when inputs must be cyclic independent sets. Mollard (2012) treats Lucas-cube combinatorics, not cellular-automaton fibers. The published linear Fibonacci-cube XOR representation theorem (2026-11-16) explicitly excludes cyclic Lucas constraints; the published Rule-90 necklace inverse-degree theorem (2026-11-08) includes unrestricted inputs modulo rotation, not indexed admissible inputs. The further result on Bayesian reconstruction for biased full-support product input (2026-10-26) has different probabilistic domain and conclusion. Actual searches for constraint aliases, time iterations, exact fiber spectra and related code embeddings found no identical or stronger statement. Residual risk: an unindexed earlier combination of cyclic independent-set arithmetic and additive-cellular-automaton kernel theory could imply the result.
+PASS
 
-## Mathematical value — PASS
-The forbidden-neighbor rule is the canonical hard-core/Lucas constraint and the update is the classical additive Rule 90. The finding identifies exactly when that nonlinear input constraint acts as a zero-error code under an otherwise noninjective dynamics, gives full finite-length decoding ambiguity and exact Bayes/entropy loss, and proves a sharp modulo-four transition in whether further time destroys information. This is a natural structural input-output property, not a sample-count table or arbitrary parameter slice. No claim is made for noisy observations or later-time full spectra when four divides the ring length.
+For the repaired theorem, multiplication by z^-1(z+1)^2 models the cyclic update, including two coincident neighbors at n=2. If n=2^s u with u odd, the multiplicity of z+1 in z^n-1 is 2^s; the kernel of multiplication by a polynomial f in the quotient is the space of multiples of (z^n-1)/gcd(f,z^n-1). Thus the nested kernels have dimensions min(2t,2^s) starting at t=0. For odd n the only nontrivial difference at positive time is the all-one complement mask, excluded by odd cyclic length and the simultaneous absence of 11 and 00. For even n set M=2^s. For every 1<=t<=M/2, the exponent M-2t is even, so (z+1)^(M-2t) encodes a length-M word supported on even indices and repeated admissibly to obtain length n. Repetition intertwines the updates and is injective. Modulo (z+1)^M, the image of that word at t-1 is a unit shift of (z+1)^(M-2), nonzero, and at t is zero. This finds an actual collision of two different time-(t-1) outputs at each stated step, including n=2. Thereafter the ambient kernels and hence the actual source partitions agree. Counts of images, not equality of the sets of images, stabilize. Ran the newly written CHECK.py in the corrected files: VERIFY_OK n=2..16: image counts and all strict-step witnesses.
 
-## Closest sources and limits
-The full 2004 primary paper's finite Rule-90 kernel analysis was inspected; Mollard's primary arXiv text was read for the cyclic Lucas constraint, and the directly related published linear-Fibonacci and necklace Rule-90 results were read in complete findings. No independent audit has been performed. The exact first-public day of the older 2004 journal source was not verified; the arXiv submission dated 2009-03-13 is the earliest verified day-resolved antecedent used for archival classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired contribution is the exact time horizon of strict losses on the constrained source, with an admissible witness at every increasing kernel stage. The all-state kernel and one-step constrained inverse-fiber census are credited, not reasserted as novel results. The exact constrained horizon is not covered in the inspected stronger and equivalent formulations.
+
+## value
+
+PASS
+
+The indexing, hard-core language and synchronous dynamics are canonical. A nonlinear source restriction can hide ambient rank losses, so knowing the all-state horizon does not answer whether observation precision continues to degrade on this source. The theorem proves that no growing-kernel stage is hidden at even lengths, identifies exactly when a decoder's source partition will stop changing, and gives explicit admissible collision witnesses at every step up to that boundary. This is a natural time invariant and an exact structural guarantee, not a repeat of the one-step count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

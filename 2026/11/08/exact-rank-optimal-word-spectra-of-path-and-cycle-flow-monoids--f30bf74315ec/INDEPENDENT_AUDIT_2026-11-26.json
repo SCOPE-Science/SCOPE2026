@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:36:41.127103Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A strict drop takes the image S to S minus the letter's source, and occurs exactly when both endpoints lie in S. Sources cannot recur, and each arrow points to a surviving or later-removed vertex. There are no repeated undirected edges or undirected cycles: an undirected cycle would require that every vertex of that cycle use its sole outgoing arrow on the cycle, giving a directed cycle. Thus the words are rooted spanning forests with descendant-before-ancestor edge orders, and any such order realizes all its drops. In a path component with a edges, pruning either endpoint until one vertex remains yields 2^a internal words; fixing the survivor at position j instead gives binom(a,j-1). For a path, the k=n-m components have ordered nonnegative edge counts of sum m. Shuffling their orders gives the multinomial sum 2^m k^m. For a cycle, marking one omitted edge gives n cuts and counts each forest-word pair k times, yielding the ratio n/k. At m=n-1 the path binomial row and the uniform cycle reset counts follow by choosing the survivor, with each possible path position appearing once per fixed cycle vertex across the omitted edges. The empty word, P1, and C3 are included in these arguments. A separate bounded transformation-based DFS also matched the spectra and per-vertex reset counts through n=6 for both families; no replay artifact from that check was retained. The unrestricted proof does not depend on the finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Assem–Derets–Nehaniv use the same right action and a rooted spanning tree to show that connected-graph reset threshold is n-1. Cameron et al. give individual transformation length results and rank-related bounds."
+        ],
+        "reasoning": "The construction certifies attainment of a length, but a single shortest construction does not specify all orders or count them at any rank. A minimum length attached to an individual transformation does not give its number of representations.",
+        "searches": [
+          "arXiv:2608.24239, connected-graph reset threshold",
+          "arXiv:1602.00935, minimum lengths and digraph ranks"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt (support inspected, not executed)",
+        "Resultary 20f6f6c2c8cb, 7ea017efeb25 and f30bf74315ec (self-match)",
+        "arXiv:2608.24239 and 1602.00935"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The tree construction supplies the known lower-bound attainment. The frozen claim counts every compatible rooting and ordering, including for all intermediate ranks; component weights depend on both ends of a path, and cycle counts require distinguishing an omitted edge."
+        ],
+        "reasoning": "The literature existence result and nearby directed-run formula do not mechanically give the bijection for arbitrary minimum-rank words and the resulting sums. The novelty credited is the exact edge-alphabet spectrum, not tree-based pruning or the multinomial theorem.",
+        "searches": [
+          "arXiv:2608.24239, spanning-tree reset construction",
+          "Resultary 7ea017efeb25, Finding and schedule proof",
+          "Weighted rooted path-component count versus labeled word count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 7ea017efeb25 counts directed-run schedules in comoving coordinates by a multinomial and explicitly excludes intervening rotations from the count. Resultary 20f6f6c2c8cb counts literal shortest words, but with one rotation and one collapse and only at initial thresholds."
+        ],
+        "reasoning": "The former fixes a missing set and uses only one collapse direction per residue orbit; the latter charges for rotation. Neither is equivalent to independent choices of oriented edges with the rank-drop-only length cost. The final multinomial identity is standard; it is not itself a prior enumeration of these words.",
+        "searches": [
+          "Path/cycle edge-collapse flow monoids, geodesic words, deletion orders, weighted rooted forests",
+          "Resultary: strict-collapse schedules and cyclic one-point rank bottlenecks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match f30bf74315ec is this frozen finding itself. The separate same-day 20f6f6c2c8cb concerns the two-letter model. No independent exact spectrum or finite table subsuming the claimed uniform formulas was identified in the checked sources."
+        ],
+        "reasoning": "Neither a catalogue self-match nor a matching power of two for different words establishes coverage.",
+        "searches": [
+          "Resultary: full word multiplicities and shortest reset counts for path/cycle flow monoids"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-rank multiplicity of literal minimum-length words in the alphabet of both orientations of every edge, including the ratio and reset-image specialization. The inspected statements on reset thresholds, individual element lengths and nearby collapse-schedule counts do not cover it.",
+      "residual_risks": [
+        "The broad literature query returned irrelevant material; that supplies no negative evidence. An earlier treatment of these multiplicities under weighted pruning or deletion-order terminology remains possible. The paper comparisons are to the inspected passages, not whole-document exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same alphabet; prior threshold, not the claimed enumeration in the inspected argument",
+          "evidence": "Defines both orientations and right action; rooted spanning tree proves threshold n-1 for connected graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.24239",
+          "material_read": "p. 2, offset 5540, and p. 3, offset 9705",
+          "method": "OA paper passages",
+          "title": "Algebraic Characterizations for Minors of Finite Graphs via Flow Transformation Monoid Division and Embedding",
+          "trigger": "Same graph monoid and shortest resets"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "The inspected results concern minimum generator length for transformations and rank-related length bounds, rather than multiplicities of words in a rank stratum.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.00935",
+          "material_read": "p. 3, offset 9650, and p. 10, offset 34045",
+          "method": "OA paper passages",
+          "title": "Lengths of words in transformation semigroups generated by digraphs",
+          "trigger": "Arc generators and minimum word lengths"
+        },
+        {
+          "assessment": "Different alphabet and rank range; no equivalence established",
+          "evidence": "Two letters a(i)=i+1, b sending only 0 to r; counts the first r+1 thresholds.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-first-rank-bottleneck-of-cyclic-one-point-automata-has-2-r-1--20f6f6c2c8cb/RESULT.md",
+          "material_read": "Finding and scope, local-mirror offset 0",
+          "method": "OA local-mirror passage",
+          "title": "The first rank bottleneck of cyclic one-point automata has 2^(r-1) optimal words",
+          "trigger": "Distinct same-day literal optimal-word result in a cycle-related setting"
+        },
+        {
+          "assessment": "Analogous multinomial for a different counted object",
+          "evidence": "Counts deletion schedules for a prescribed reachable image and a forward step, explicitly not literal automaton words.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-counts-of-strict-collapse-schedules-in-cyclic-defect-one-a--7ea017efeb25/RESULT.md",
+          "material_read": "Finding and proof passages, local-mirror offsets 0 and 2600",
+          "method": "OA local-mirror passages",
+          "title": "Sharp counts of strict-collapse schedules in cyclic defect-one automata",
+          "trigger": "Plausible equivalent deletion-order formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank and word length are natural observables for this generating alphabet. The formulas give the exact number of fastest compression sequences at each attained rank and quantify the contribution of closing the path into a cycle. For instance, normalizing by alphabet size to the m-th power gives the probability that m independent uniform letters achieve the largest possible rank loss. Neither reset threshold nor enumeration of monoid elements supplies that statistic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

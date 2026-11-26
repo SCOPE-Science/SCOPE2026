@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-PASS: conditioning gives an exact positive Poisson series; on the event that the Poissonized total stays within its nearest-integer margin the count-ratio test equals a Poisson integer threshold. Chebyshev supplies an explicit O(1/K) comparison at every noninteger effort; each positive jump of the limiting tail yields a strict finite-K interior peak, and analyticity makes it strict. The packaged outward-rounded standard-library checker establishes fourteen separated interval inequalities for the actual 0.1% cutoff, with a positive analytic truncation bound. No finite experiment is used as proof of arbitrarily many peaks.
+PASS
 
-The assumptions, strict-inclusive read threshold, positive-count guard, exact distribution, and distinction between limiting and finite cutoff cases were reconstructed. The seven-peak bound is proved by strict interval comparisons; the general arbitrary-peak result follows analytically and is not extrapolated from finite checks.
+By Poisson addition N/K has mean s and variance s/K. Within distance d_s of a noninteger s, integer C is above the same threshold for C≥N/K and C>s; the explicit C≥1 clause excludes zero-total retention. Bounding the exceptional probability by Chebyshev gives the stated inequality without needing independence of C and N. On (j,j+1), the limiting Poisson upper tail has positive derivative γe^(−γs)(γs)^j/j!, and the change of the required count at j produces exactly the mass of Z_j=j as a downward jump. For finitely many j, choose a common small η and use strict increase to make every interior witness beat both endpoints of its bracket; the pointwise quantitative bound transfers all finitely many strict gaps. Adjacent closed brackets share an endpoint (the text's 'disjoint' is imprecise); their interiors are disjoint and every maximum lies inside. To check analyticity directly, condition on N=n: the probability is e^(−Ks) times the exponential generating series with coefficients in [0,1] and coefficient 0 at n=0, hence entire and nonconstant (positive for s>0). Isolation of level-set zeros makes the interior maxima strict; an interior minimum between consecutive strict maxima follows by compactness. The arbitrary-count claim varies K with L; it does not give unbounded peaks at a fixed cutoff. At K=1000 and γ=1/4, an independently written standard-library computation at all 15 rational points checked all 14 inequalities using a 90-digit bracket for exp(−μ), positive outward-rounded recurrences, and an upper geometric remainder for C>30. For example, at j=7 the certified lower endpoint for the witness exceeds 0.00189099, and both upper bounds at the adjacent endpoints are below 0.00116238. Read VERIFICATION.md and check.py as text; from the frozen package, the supplied replay path is `python3 check.py`. Neither check counts every peak or verifies a field-data claim.
 
-## Originality: PASS on inspected evidence
+## originality
 
-PASS on material inspected: primary metabarcoding papers empirically motivate relative-abundance filters; known binomial/Poisson exact-test sawtooth literature concerns discrete test-power critical values, not this continuous-effort two-Poisson ratio-tail probability and its rare-threshold limit. Related published mathematical findings concern singleton-richness or richness-variance peaks, not a dominating proposition. Historical priority is provisional due to broad potentially related statistical literature.
+PASS
 
-Closest prior work: Westerduin et al. (2023), Drake et al. (2022), Alberdi et al. (2018), Gentile and Sambucini (2023), and the classical sawtooth-power abstract of Chernick and Liu (2002). Comparison is by hypotheses and implications rather than by title matches. The Chernick–Liu full text was unavailable through inspected public access. Earlier general theories may yet cover or anticipate the mechanism; this is the main residual priority risk.
+The supported distinct result is the unbounded finite peak count across relative cutoffs for a continuous Poissonized probability at fixed below-threshold composition, together with an exact seven-peak lower bound at one specified cutoff. Fixed sample size sawteeth and qualitative depth dependence are not claims of novelty. Actual adjacent catalogue claims were compared, and the plausible power-function sources that could not be read are identified rather than ruled out.
 
-## Value: PASS
+## value
 
-PASS: 0.1% relative abundance is directly used by a motivating ecological study, and the exact finite seven-peak certificate proves that repeated spurious acceptance peaks are not merely a scaling-limit artifact. Arbitrarily many maxima under decreasing cutoffs expose a counterintuitive limit to choosing sequencing depth from one unimodal error curve. The result is a motivated analytical boundary for fixed-fraction read filtering, not an arbitrary table recomputation or field recommendation.
+PASS
 
-The target is false retention of an individual nonlocal sequence in an idealized composition model, not a claim about any sampled locality or an empirical intervention. The mathematical result provides a concrete caution about inference from a one-peak model of filtering error across sequencing depth.
+This supplies a structurally informative counterexample to the intuition that more reads should steadily reduce retention of a particular below-threshold spurious taxon. It explains how a random denominator and the advancing integer retention count produce repeated peaks even after averaging over total depth. The finite certificate makes the effect concrete at a specified small relative cutoff rather than relying entirely on extreme K. It does not address total richness, effects across taxa, or practical optimal sequencing depth.
 
-## Scientific limitations
-
-The theorem assumes independent Poisson counts, fixed composition and a single spurious sequence; it excludes PCR amplification bias, tag jumping, clustering across samples, and overdispersion. The seven-peak result is a certified lower bound, not a full extremum census. Independent experimental verification has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

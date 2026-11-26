@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:23:14.986262Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–48; frozen VERIFICATION.md, rankcheck.py, and verify.py",
+        "/workspace/branches/b401b808-9fed-409c-ab50-70c134ae3f4f/replay_record1.py (independent bounded replay)"
+      ],
+      "rationale": "The quandle identity with x=k−1 and y=k makes consecutive differences of any endomorphism constant; conversely every ax+b preserves the operation, including at p=2. Commutation is the vanishing of the minors of the two-row matrix (u;b), where u_i=a_i−1. With h the minimum truncated valuation of u, dividing u by p^h and reducing b modulo p^{e−h} gives a unit pivot if h<e. The reduced b is one scalar multiple of the reduced u and there are p^{ht} lifts; for h=e all translations are free. This yields p^{e+(t−1)h}. A nonunit slope forces h=0. The valuation counts c_ν and the capped sum of valuations of the product give the asserted weights. Summing the translation count over h gives the stated total; subtraction of the baseline p^{e(t+1)} puts the excess entirely in the all-unit cell. This also gives the identity at t=1, the 9153-example, and the multiplicative rank exponents under Chinese remaindering. Separate pointwise enumeration for (2,2,3) matched all 27 nonzero rank profiles with total 400 and all-unit count 176, and sampled h=0,1,2 fibers had respective sizes 4,16,64.",
+      "residual_risks": [
+        "The frozen scripts were inspected, not executed. Finite replay is corroboration only; the arbitrary-p,e,t decision is analytic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite-chain-ring primitive matrix lemma forces an outer product at every unit entry, and its shell sum is exactly the all-arity unweighted normalization. The prior centralizer kernel uses the same equation and its unit ideal case."
+        ],
+        "reasoning": "The chain-ring result is broader than the cyclic prime-power case. The centralizer spectrum or graph clique result alone is not a substitute for the full rank law, but the two-pole theorem includes precisely the needed unit-pivot structure as well as the total.",
+        "searches": [
+          "Resultary two-pole 8fae3394a05c, Steps 2–3",
+          "Resultary affine spectra 5531b23a5b4d, Finding and centralizer proof",
+          "Cheraghpour et al. arXiv:2402.12619v1 Corollary 2.9"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8fae3394a05c, 5531b23a5b4d, 6b7aca53a924, 750c79168a4a, 86b84ad88c25, 40009d5572c2",
+        "arXiv:1012.5291, 2604.02063, 2402.12619v1, and 2009.12340 (abstract: affine-monoid quiver)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At a unit u_j the earlier primitive lemma forces b_i=(b_j/u_j)u_i, giving one free scalar. Every singular slope has unit u_j. Summing the free-scalar count over the c_ν slope choices at each prescribed valuation gives exactly p^e times the product of c_ν in all cells except the full-rank cell; the latter is forced by subtraction from the already known total. The product exponent is just the valuation of the product of scalar slopes."
+        ],
+        "reasoning": "The claimed decoupling and one-cell correction come directly from the published unit-pivot and unweighted determinant statements. They are not merely consistent with, nor an empirical extrapolation of, the prior total. For a fixed nonprimitive row the same unit-coordinate assertion on the reduced ring then gives the displayed lift factor.",
+        "searches": [
+          "Read 8fae3394a05c RESULT.md offsets 3700–6917, specifically primitive matrix lemma and final D formula",
+          "Read 5531b23a5b4d centralizer kernel proof around offset 3888"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Affine composition identifies the target commuting tuples with two-row determinant-zero matrices by translating the first row a to a−1. Kasai gives the same equation for the affine group; the prior affine-monoid result works with nonunit slopes as well."
+        ],
+        "reasoning": "The change of variables is a bijection on all parameter tuples, so the prior determinantal theorem applies exactly to the unweighted target, not just to an analogous ring or graph.",
+        "searches": [
+          "Resultary lookup for commuting affine tuples, shifted multiplier ranks, and two-by-many determinant-zero matrices",
+          "Elhamdadi–MacQuarrie–Restrepo arXiv:1012.5291 Theorem 2.1; Kasai arXiv:2604.02063 Lemma 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected same-day Findings 750c79168a4a, 86b84ad88c25, and 40009d5572c2 treat chain clamps, different Alexander quandles, and partial dihedral isometries, respectively. Earlier 6b7aca53a924 is a maximal-clique result. The exact unweighted entry is 8fae3394a05c."
+        ],
+        "reasoning": "No separate published weighted table was needed for the failure: exact prior structural coverage, not a title match or inferred same-day order, gives the weighted cells.",
+        "searches": [
+          "Resultary searches for rank-refined centralizers, quandle endomorphism image spectra, and dihedral product-image ranks"
+        ]
+      },
+      "rationale": "The prior two-pole determinantal record already proves both the exact unweighted count and the unit-entry-pivot structural lemma that computes every singular-slope rank cell here. Although the rank-marked polynomial is not printed in the prior result, it is mechanically determined by these prior statements and ordinary slope valuation. The independently correct extension of the fixed-row count to h>0 is itself the same pivot lemma after a quotient and counting independent lifts, and is not needed for any new cell in the claimed polynomial.",
+      "residual_risks": [
+        "This is a demonstrated implication, not a finding that the prior record printed the weighted polynomial verbatim. No ordering inference was made from same-day metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive mechanical coverage of the claimed weighted result in the prime-power case",
+          "evidence": "Proof states that a unit pivot forces each entry to be the product of its row and column pivot coefficients divided by the pivot, and D_{ell,k}=S_ell(q)q^{ell k}−(S_ell(q)−1)q^{(ell−1)k}.",
+          "identifier_or_url": "2026/11/2/SCOPE-two-pole-commuting-tuple-and-clique-enumerators-for-triangular-a--8fae3394a05c/RESULT.md",
+          "material_read": "Finding and proof Steps 2–3; checked offsets 3700–6917 including primitive outer-product lemma and D identity",
+          "method": "Local Resultary mirror",
+          "title": "Two-pole commuting-tuple and clique enumerators for triangular algebras over finite chain rings",
+          "trigger": "Exact all-arity determinant-zero count and possible proof-level implication for rank marking"
+        },
+        {
+          "assessment": "Prior commutation kernel and unit-ideal case, not an explicit tuple-weighted polynomial",
+          "evidence": "Uses the map (v,e)↦ue−vb with image (u,b) and centralizer size |R|²/|(u,b)|.",
+          "identifier_or_url": "2026/11/2/SCOPE-centralizer-spectra-of-finite-affine-monoids-distinguish-local-r--5531b23a5b4d/RESULT.md",
+          "material_read": "Finding offsets 0–2199 and proof around 3500–4800",
+          "method": "Local Resultary mirror",
+          "title": "Centralizer spectra of finite affine monoids distinguish local-ring geometry",
+          "trigger": "Same affine monoid including singular maps and shifted slopes"
+        },
+        {
+          "assessment": "Prior invertible part, not the joint census",
+          "evidence": "Describes the dihedral automorphism group as the affine group.",
+          "identifier_or_url": "https://arxiv.org/abs/1012.5291",
+          "material_read": "Theorem 2.1, p. 3, offset about 8000",
+          "method": "OA primary text",
+          "title": "Automorphism groups of Quandles",
+          "trigger": "Affine identification in the same dihedral quandle"
+        },
+        {
+          "assessment": "Same commutation equation for unit slopes",
+          "evidence": "The criterion is (a−1)d=(c−1)b for the two affine permutations.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.02063",
+          "material_read": "§2 Lemma 2.1, p. 2, offset about 7000",
+          "method": "OA primary text",
+          "title": "Cross-Commuting Nonabelian Squares in Affine Groups over Finite Commutative Principal Ideal Rings",
+          "trigger": "Exact affine commutation formulation"
+        },
+        {
+          "assessment": "Graph quantities rather than the rank-weighted fiber",
+          "evidence": "The inspected result concerns graph edges and clique numbers for triangular rings.",
+          "identifier_or_url": "https://arxiv.org/html/2402.12619v1",
+          "material_read": "Corollary 2.9 and nearby text, HTML offset about 32500",
+          "method": "OA primary text",
+          "title": "On Commuting graphs of triangular rings",
+          "trigger": "Potentially stronger commuting-graph enumeration"
+        },
+        {
+          "assessment": "Distinct object and sampling",
+          "evidence": "Products of independently sampled partial dihedral isometries, rather than commuting total quandle homomorphisms.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-product-rank-law-for-the-dihedral-restriction-monoid-of-a--40009d5572c2/RESULT.md",
+          "material_read": "Opening Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact product-rank law for the dihedral restriction monoid",
+          "trigger": "Same-day exact product-rank title with dihedral terminology"
+        },
+        {
+          "assessment": "Distinct quandle and no commuting-tuple condition",
+          "evidence": "Counts images of individual endomorphisms of a square-zero unipotent Alexander quandle.",
+          "identifier_or_url": "2026/11/22/SCOPE-complete-endomorphism-image-spectrum-of-square-zero-unipotent-al--86b84ad88c25/RESULT.md",
+          "material_read": "Opening Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Complete endomorphism image spectrum of square-zero unipotent Alexander quandles",
+          "trigger": "Same-day quandle endomorphism image-rank census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–19 and Steps 3–6",
+        "Resultary 8fae3394a05c Steps 2–3"
+      ],
+      "rationale": "The joint image ranks are natural, and the explicit polynomial can be a convenient reference. The claimed new information, however, is a mechanical weighting of the established unit-pivot stratum plus residual subtraction in one cell. Product rank is determined by the individual valuations and adds no independent invariant. No further nonmechanical surviving claim is established for the frozen result.",
+      "residual_risks": [
+        "The decision is about the scientific contribution of this precise census, not its correctness or expository utility."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

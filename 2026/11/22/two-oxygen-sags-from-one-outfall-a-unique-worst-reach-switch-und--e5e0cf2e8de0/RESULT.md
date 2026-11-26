@@ -61,7 +61,11 @@ P(d_1)\ge D_{d_1}(t_2(d_2))>D_{d_2}(t_2(d_2))=P(d_2),
 \]
 so \(P\) is strictly decreasing. Continuity of \(P\) follows from continuous parameter dependence and the transversal downstream zero of \(D_d'\), for which \(D_d''=f'<0\) at stationarity.
 
-At \(d=t_0\), the downstream coefficient drop makes the deficit increase immediately after \(t_0\), hence \(P(t_0)>U(t_0)\). If \(d_{\mathrm{end}}<\infty\), then \(t_2(d)\downarrow d_{\mathrm{end}}\) as \(d\uparrow d_{\mathrm{end}}\), and \(P(d)\to U(d_{\mathrm{end}})<U(t_0)\). If \(d_{\mathrm{end}}=\infty\), then the representation
+At \(d=t_0\), the downstream coefficient drop makes the deficit increase immediately after \(t_0\), hence \(P(t_0)>U(t_0)\). If \(d_{\mathrm{end}}<\infty\), define the weighted downstream slope, for \(t\ge d\), by
+\[
+G(d,t)=e^{cd}(f(d)-cU(d))+\int_d^t e^{cs}f'(s)\,ds.
+\]
+It is strictly decreasing in \(t\), and at fixed \(t\) its derivative in \(d\) is \(c(b-c)e^{cd}U(d)>0\), using \(U'=f-bU\). Thus \(G(d,d_{\mathrm{end}})<G(d_{\mathrm{end}},d_{\mathrm{end}})=0\) for \(d<d_{\mathrm{end}}\). Since \(G(d,d)>0\) in the two-peak regime, \(d<t_2(d)<d_{\mathrm{end}}\); in particular \(t_2(d)\to d_{\mathrm{end}}\) from below as \(d\uparrow d_{\mathrm{end}}\). The stationary height is \(f(t_2(d))/c\), so \(P(d)\to f(d_{\mathrm{end}})/c=U(d_{\mathrm{end}})<U(t_0)\). If \(d_{\mathrm{end}}=\infty\), then the representation
 \[
 D_d(d+s)=U(d)e^{-cs}+\int_d^{d+s}e^{-c(d+s-u)}f(u)\,du
 \]
@@ -102,5 +106,5 @@ An abrupt reaeration interface is an idealization. No mixing/dispersion, hydrody
 2. D. Pathak et al., *High-resolution water-quality and ecosystem-metabolism modeling in lowland rivers*, Limnology and Oceanography 67 (first published 13 April 2022), DOI: https://doi.org/10.1002/lno.12079 . Full text inspected: https://aslopubs.onlinelibrary.wiley.com/doi/10.1002/lno.12079 .
 3. G. D'Agostino and H. J. Eberl, *Uncertainty Analysis of a Simple River Quality Model Using Differential Inequalities*, SIAM Review (2025), DOI: https://doi.org/10.1137/23M1616406 . Full text inspected: https://epubs.siam.org/doi/full/10.1137/23M1616406 .
 4. H. W. Streeter and E. B. Phelps, *A Study of the Pollution and Natural Purification of the Ohio River*, U.S. Public Health Bulletin 146 (1925); classical oxygen-sag model.
-5. *Reentrant double-sag regimes for two separated biochemical oxygen-demand sources* (published mathematical result, 2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb . Full result text inspected for comparison.
-6. *Finite-reach saturation and a quadratic placement law for one fractional river aerator* (published mathematical result, 2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939 . Full result text inspected for comparison.
+5. *Reentrant double-sag regimes for two separated biochemical oxygen-demand sources* (published mathematical result, 2026), https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-reentrant-double-sag-regimes-for-two-separated-biochemical-oxyge--92e4f7efeacb .
+6. *Finite-reach saturation and a quadratic placement law for one fractional river aerator* (published mathematical result, 2026), https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-finite-reach-saturation-and-a-quadratic-placement-law-for-one-fr--0af40980b939 .

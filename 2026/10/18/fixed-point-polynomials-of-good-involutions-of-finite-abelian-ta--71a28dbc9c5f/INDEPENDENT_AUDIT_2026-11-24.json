@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:54:25.873602Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With R_y(x)=2y−x, the first good identity implies commutation with R_yR_0, i.e. translation by 2y. Thus the displacement is a map δ on B=A/2A. The second identity forces 2δ=0, and conversely these displacements satisfy both good identities since −x and x represent the same quotient class and −δ=δ. Squaring gives exactly δ(c+πδ(c))=δ(c). Its quotient involution decomposes separately in each coset of π(T). On a paired class c,c′ there are exactly K common displacements lifting c′−c, no fixed points, and no dependence on other pairs. An unpaired class has K−1 nonzero displacements with no fixed points and a zero displacement fixing all h points, giving K−1+z^h. The count of labeled j-edge matchings on L classes is L!/[2^j j!(L−2j)!]; the b independent blocks give the displayed power. Multiplication by 2 implies |T|=|B|, and the 2-primary cyclic factors of order exactly 2 contribute precisely the nonzero directions in π(T). This checks the total-count dependence, the elementary-abelian example and the identity-only odd-order and trivial-group boundaries. An independent enumeration generated actual involutions on group elements by singles and pairs in equal-double fibers, then tested commutation directly using the quandle operation table. Nine groups through order 16 agreed, including Z/2⊕Z/4 (total 36), (Z/4)^2 (256), and (Z/2)^2⊕Z/4 (5776). Finite checks do not establish the general case without the bijection. The supplied replay command is python3 check.py as named in RESULT.md and VERIFICATION.md; the source docstring alone uses an outdated filename. The uploaded code was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ta treats all abelian Alexander quandles and therefore classifies the functions underlying the whole frozen family. Taniguchi's connected classification does not cover even-order finite Takasaki groups, which have multiple 2A cosets.",
+          "The 849a303ddc25 classification describes all automorphisms for A=(Z/4)^d, not arbitrary finite abelian A."
+        ],
+        "reasoning": "For exponent-four groups of that restricted form, the indexed automorphism formula can be restricted to arbitrary vertical translations: to preserve doubles the base map must be the identity, and then every vertical translation is good. This accounts for the e=0 specialization there, but not for mixed groups, where the good identity can allow swaps of distinct inner orbits.",
+        "searches": [
+          "arXiv:2508.16772v1, Theorem 4.2 and connected Alexander discussion",
+          "arXiv:2302.11138, Theorems 1.3 and 2.5",
+          "Resultary 849a303ddc25, Finding and displayed automorphism form"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Ta, arXiv:2508.16772v1",
+        "Taniguchi, arXiv:2302.11138",
+        "Resultary 2dab3525dc88 and 849a303ddc25",
+        "Kamada–Oshiro (2010), secondary attribution and unsuccessful direct retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ta's Theorem 5.11 counts orbit pairings with two labels per singleton or pair, in two separate parity blocks; its linear quandle parameter is 2n+1 mod 4n, not −1 except when n=1.",
+          "The new evaluation groups B by cosets of π(T), uses the common fiber size |ker π| for transpositions and separates the zero label from all other labels on each fixed class."
+        ],
+        "reasoning": "The technique and some unrefined weights are already available, but neither specialization nor relabeling of those fixed-parameter censuses gives the h-dependent monomer weight and the independent blocks for every d,e. The classification needs an actual enumeration of its coupled solutions, rather than substituting parameters into a known general count.",
+        "searches": [
+          "arXiv:2508.16772v1, Theorems 4.2 and 5.11 including the latter proof",
+          "Resultary 2dab3525dc88 and 849a303ddc25, actual Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For an abelian Alexander quandle with φ=−1, Ta's criterion becomes ρ(a)=a+ψ(a), ψ(a)∈A[2], ψ constant on inner orbits, and ψρ=ψ.",
+          "Core and Takasaki describe the same operation here. Good involutions are individual maps, not isomorphism classes, and are a proper subset of all automorphisms in general."
+        ],
+        "reasoning": "Ta's statement specializes exactly to the prior structural starting point. By itself a parametrization with the coupled condition ψρ=ψ is not the evaluated fixed-point polynomial.",
+        "searches": [
+          "Resultary: fixed-point polynomial and counts of good involutions in finite abelian core or Takasaki quandles",
+          "arXiv:2508.16772v1, Theorem 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ta enumerates unrefined counts for small cyclic linear quandles in Table 1 and gives an exact OEIS-identified unrefined count for Λ_(4n,2n+1).",
+          "The 2dab3525dc88 histogram for (Z/4)^2 counts all 6144 automorphisms, of which 2769 are fixed-point-free; the good-involution count is 256, of which 81 are fixed-point-free."
+        ],
+        "reasoning": "The aggregate automorphism histogram does not select good involutions. Exact unrefined cyclic counts cover particular examples, not the full polynomial stratified by d,e,h.",
+        "searches": [
+          "arXiv:2508.16772v1, Table 1 description p. 13 and Theorem 5.11 p. 16",
+          "Resultary 2dab3525dc88, exact fixed-point PDF/PGF and r=2 histogram"
+        ]
+      },
+      "rationale": "Credit the displacement parametrization, connected cases and matching precedents to the prior literature. The supported distinct claim is the evaluated fixed-point polynomial, with exact block factorization and simultaneous treatment of arbitrary finite abelian groups, including mixed order-two and higher 2-power factors. The strongest inspected structural classification admits those groups, but does not evaluate the count or its fixed-point weights. The inspected exact enumerators either count a different subset or concern a different family; specialized overlap is not credit for the full formula. This is a bounded comparison, not a priority guarantee.",
+      "residual_risks": [
+        "The original Kamada–Oshiro article could not be inspected directly, so the exact treatment of earlier dihedral cases is not independently verified here.",
+        "The targeted checks cannot exclude an unindexed closed enumeration or a differently phrased exact formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact structural and methodological precedents, not the all-group weighted census",
+          "evidence": "Theorem 4.2 states ρ(a)=ψ(a)−φ(a) and ψs_a=ψ=ψρ; Theorem 5.11 counts two parity blocks of labeled matchings in a specific cyclic linear family without marking fixed points.",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.16772v1",
+          "material_read": "Theorem 4.2 and nearby connected discussion (offset 32500 onward); Table 1 discussion p. 13; Theorem 5.11 and proof p. 16 (offset 48762 onward)",
+          "method": "Open-access PDF passage location and offset inspection",
+          "title": "Good involutions of twisted conjugation subquandles and Alexander quandles",
+          "trigger": "Strongest prior structural classification and matching census"
+        },
+        {
+          "assessment": "Connected classification, relevant to the odd-order boundary",
+          "evidence": "The connected hypothesis leaves out all even-order finite Takasaki groups, since these have nontrivial A/2A.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.11138",
+          "material_read": "Theorem 1.3 p. 2 and Theorem 2.5 p. 5",
+          "method": "Open-access author PDF passage inspection",
+          "title": "Good involutions of generalized Alexander quandles",
+          "trigger": "Preceding classification of generalized Alexander quandles"
+        },
+        {
+          "assessment": "Different ensemble and restricted underlying groups",
+          "evidence": "The PGF averages over all automorphisms of Core((Z/4)^r), determined by all affine base maps and all fiber translations; its r=2 table confirms it is not counting good involutions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-the-fixed-point-law-of-exponent-four-core-quandle-automorphisms--2dab3525dc88/RESULT.md",
+          "material_read": "Finding, entire PGF and r=2 table, offset 0",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "The fixed-point law of exponent-four core-quandle automorphisms",
+          "trigger": "Closest exact fixed-point generating function in the indexed catalogue"
+        },
+        {
+          "assessment": "Implies a restricted fixed-fiber case after imposing goodness",
+          "evidence": "F_(L,v,t)(a,b)=(La+v,Lb+t_a) for A=(Z/4)^d. Goodness imposes L=I,v=0; the arbitrary t then has one zero choice per fiber, giving precisely (2^d−1+z^(2^d))^(2^d), with no mixed primary factors.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-automorphisms-and-inner-symmetries-of-4-torsion-takasaki-quandle--849a303ddc25/RESULT.md",
+          "material_read": "Finding through the displayed automorphism and inner group formulas, offset 0",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "Automorphisms and inner symmetries of 4-torsion Takasaki quandles",
+          "trigger": "Possible implication from the full automorphism group"
+        },
+        {
+          "assessment": "Credit the dihedral precedent; exact original scope and wording unverified",
+          "evidence": "Ta explicitly describes recovering the Kamada–Oshiro dihedral result. The inaccessible source is not treated as evidence of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1090/S0002-9947-2010-05131-1",
+          "material_read": "No direct primary passage retrieved; the attribution was checked in Ta's introduction",
+          "method": "Lawful DOI, journal PDF, and alternate OA lookup attempted",
+          "title": "Homology groups of symmetric quandles and cocycle invariants of links and surface-links",
+          "trigger": "Known cyclic-dihedral precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the natural fixed-point inventory for a standard class of maps on finite abelian core quandles. It evaluates a coupled classification into a closed census rather than asking the reader to enumerate allowed displacement functions. The factors explain why the total uses only two rank parameters and why actual fixed-point degrees also use the fiber size. A researcher needing the fixed-point-free count or quick comparison of groups with equal 2-rank can extract it directly, including mixed-factor groups not covered by the cyclic or exponent-four special cases. The method is short and has precedents, but the all-group weighted invariant is not a single parameter substitution into an established enumerator.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:31:28.186632Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions, Proof and example",
+        "VERIFICATION.md and verify_ideal_probability.py (inspected, not executed)",
+        "Independent direct ideal-lattice replay"
+      ],
+      "rationale": "The simple socle is m² because the latter is nonzero and is killed by m. For any nonzero ideal I, the last nonzero m^j I lies in its intersection with the socle, so I contains m², also when I=m². A proper ideal lies in m. The action on m/m² factors through k=R/m; thus the quotient subspace lattice gives exactly the nonzero proper ideals, plus boundary ideals 0 and R. Multiplication of lifts is well-defined because m·m²=0, and k-bilinear by taking a lift of the residue scalar and using the same quotient action on the socle. A radical vector lifts into Ann(m)=m², proving perfection with no splitting and including characteristic two. The product vanishes iff W is contained in U-perp, whose dimension is d−a; this yields the stated Gaussian factor even for a or b zero or a+b>d. Summation gives H_q(d); in an ordered tuple, a zero factor or three proper factors makes the product zero. With no zero factors, the counts of nonzero products with zero, one and two proper entries are 1, sG, and choose(s,2)(G²−H); the ordered pair occupies the two positions in their natural order. This proves the formula for all s>=2 with no exclusion on repeats. In d=1 the lattice is the four-ideal chain, giving G=2 and H=3. Direct replay recovers small ideal lattices by sums of principal ideals: characteristic four gives seven ideals and 25/49 for s=2 without a coefficient field, and the two ternary forms each give 15/32 but respectively 3 and 1 nonzero square-zero ideals. It also verifies the refined pair counts and exact s=3,4 probabilities in all three examples. The replay corroborates the proof and is not used to generalize its quantifiers.",
+      "replay_paths": [
+        "/workspace/replay/review_3.py"
+      ],
+      "residual_risks": [
+        "No result outside finite commutative local Gorenstein rings of Loewy length exactly three. Repeat samples and inclusion of 0 and R are essential to the stated normalization; the dimension-refined count excludes both extremes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.6 counts exponent tuples for chain rings, Corollary 4.7 makes Loewy-length universality explicit; Problem 1 asks about extending universality and Problem 4 about equal ideal lattices. The split-bilinear subalgebra lattice counts isotropic subspaces (offset 5174), not arbitrary ordered orthogonal pairs. For d>1 the free cube-zero truncation has square layer dimension greater than one, and the square-zero probability formula assumes m²=0."
+        ],
+        "reasoning": "The chain theorem specializes to d=1, not the non-chain cases. An isotropic count corresponds to a diagonal constraint on a pair; it neither states the dimension-refined arbitrary-pair law nor supplies the no-splitting ideal probability theorem.",
+        "searches": [
+          "Chakraborty–Patra arXiv:2608.14618v1 §§4 and 10",
+          "Resultary ...--fc812afc8d34 unital subalgebra lattice",
+          "Resultary ...--65e93eba2f24 cube-zero symmetric truncation and ...--6a4e558183af square-zero probabilities"
+        ]
+      },
+      "checked_sources": [
+        "Resultary lattice, zero-divisor, and ideal-probability matches",
+        "Chakraborty–Patra, Aliniaeifard–Behboodi and Essa–Mohammad primary passages",
+        "Curtis–Diesl–Rieck retrieval and metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 2.8 constructs one complete bipartite subgraph using principal ideal annihilators for d>6. Form-sensitive element graph results highlight rather than establish the ideal-law insensitivity. The finite subspace count itself follows from perfection; the theorem additionally identifies all ideals in possibly nonsplit rings and enumerates all tuples."
+        ],
+        "reasoning": "Neither the specific subgraph nor the chain exponent formula yields both arbitrary-dimension orthogonal pair incidence and all ordered lengths for arbitrary q,d. If a greater theorem provided the full dimensioned annihilator map for this family, the contraction to probabilities would be elementary; that implication was not established by the available comparators.",
+        "searches": [
+          "arXiv:1102.4835v1 Lemma 2.8 and its proof p. 7",
+          "arXiv:2608.14618v1 Thm. 4.6 and §10",
+          "Resultary short Gorenstein element graphs ...--3dd8b506381f and ...--4c304d68b8d2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordered pairs in the nonzero proper ideal lattice correspond to orthogonality incidence including loops I²=0; an ordinary simple annihilating-ideal graph alone omits those loops and does not count tuple samples with repetitions, 0 and R. Hyperedges require distinct eligible ideals and nonzero proper subproducts."
+        ],
+        "reasoning": "One could use a full rank-stratified reflexive relation plus the extreme ideals to recover this result, but the checked annihilating-ideal and hypergraph passages do not supply that relation. Element zero-divisor graphs use individual elements rather than ordered ideal tuples.",
+        "searches": [
+          "Resultary short Gorenstein local ideal product probabilities, dimension-refined annihilation and subspace polarity",
+          "Classifying Annihilating-Ideal Graphs of Commutative Artinian Rings Curtis Diesl Rieck PDF Gorenstein symmetric bilinear form",
+          "Aliniaeifard–Behboodi Lemma 2.8; Essa–Mohammad hypergraph definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest catalog counts tabulate unital subalgebras and isotropic subspaces, ideals of a different truncation, square-zero-ring probabilities, or element zero-divisor graph structure in d=2. None of these tables has the ordered annihilating-ideal dimension counts on this class. The primary probability theorem tabulates via total exponents, only for chains."
+        ],
+        "reasoning": "Finite-ring tables could corroborate small instances but could not supply the quantified q,d,s theorem; no complete formula covering the non-chain case was identified in the inspected catalog and primary statements.",
+        "searches": [
+          "Resultary ideal census/probability hits ...--fc812afc8d34, ...--65e93eba2f24, ...--6a4e558183af and ...--3dd8b506381f",
+          "Chakraborty–Patra Theorem 4.6 and final open problems"
+        ]
+      },
+      "rationale": "The closest probability theorem handles chains (and principal rings via products), overlapping only the chain case here, while the nearest polarity/lattice and graph results address other objects or weaker conclusions. The elementary Gaussian count is not claimed to be original as finite geometry. The distinct supported result is the full ordered ideal-product distribution with no coefficient-field assumption and its form-independence, together with the dimension-refined incidence. No broad assertion about laws of longer rings or discovery priority is established.",
+      "residual_risks": [
+        "Full text of Curtis–Diesl–Rieck was not available from the lawful routes checked; a related annihilator-lattice theorem or an unindexed equivalent might exist.",
+        "No originality is attributed to the Gaussian count of subspaces in a fixed perpendicular space taken by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior definition and chain theorem, not the non-chain class",
+          "evidence": "Chain exponent criterion sum>=Loewy length and division by (n+1)^s; explicit questions about extending universality and whether the ideal lattice suffices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.14618v1",
+          "material_read": "§4 Theorem 4.6 and Corollary 4.7 near offset 27400, §10 Problems 1 and 4 near offset 70800",
+          "method": "OA primary passages",
+          "title": "Ideal Zero-Product Probability in Finite Commutative Rings",
+          "trigger": "Same invariant and universality question"
+        },
+        {
+          "assessment": "Partial structural overlap only",
+          "evidence": "Large d: uses annihilator estimates for two principal ideals to find K_{d−6,3}; no full ordered incidence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.4835v1",
+          "material_read": "Lemma 2.8 and proof p. 7, near offset 19685",
+          "method": "OA primary passage",
+          "title": "Rings Whose Annihilating-Ideal Graphs Have Positive Genus",
+          "trigger": "Same short Gorenstein hypotheses"
+        },
+        {
+          "assessment": "Different lattice and count; split models",
+          "evidence": "Classifies unital subalgebras via Z(U) and I(U,f), and counts totally isotropic subspaces, not ideal tuples.",
+          "identifier_or_url": "2026/10/12/SCOPE-subalgebra-lattices-of-short-bilinear-local-algebras-and-a-sharp--fc812afc8d34",
+          "material_read": "Finding offset 0 and isotropic count offset 5174",
+          "method": "Resultary and local mirror",
+          "title": "Subalgebra lattices of short bilinear local algebras and a sharp reconstruction criterion",
+          "trigger": "Plausible stronger lattice/polarity classifier"
+        },
+        {
+          "assessment": "Different invariant and smaller range",
+          "evidence": "Element graph classified by q and the isotropic-line count, so depends on form, unlike the target law.",
+          "identifier_or_url": "2026/11/8/SCOPE-complete-ordinary-zero-divisor-graphs-of-short-finite-gorenstein--3dd8b506381f",
+          "material_read": "Finding offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Complete ordinary zero-divisor graphs of short finite Gorenstein local rings",
+          "trigger": "Exact ring hypotheses for d=2"
+        },
+        {
+          "assessment": "Different combinatorial event",
+          "evidence": "Distinct eligible ideals with zero full product and all (k−1)-fold products nonzero.",
+          "identifier_or_url": "https://doi.org/10.26713/cma.v15i1.2378",
+          "material_read": "Definition p. 2, offset 2760",
+          "method": "OA primary passage",
+          "title": "On a k-Annihilating Ideal Hypergraph of Local Rings",
+          "trigger": "Potential s-ary ideal incidence equivalent"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not negative evidence",
+          "evidence": "DOI publisher request denied; targeted search found metadata and a different metric-dimension paper whose abstract concerns principal rings.",
+          "identifier_or_url": "https://doi.org/10.1080/00927872.2018.1439040",
+          "material_read": "Bibliographic data; no accessible full text located",
+          "method": "DOI access and lawful recovery plus title-specific literature query",
+          "title": "Classifying Annihilating-Ideal Graphs of Commutative Artinian Rings",
+          "trigger": "Potential general annihilator-lattice classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen theorem and split/anisotropic witness",
+        "Chakraborty–Patra §10 problem statements",
+        "Mixed-characteristic and ternary replays"
+      ],
+      "rationale": "The formula answers a motivated case of the ideal-product universality question beyond chain or principal rings. It identifies exactly what the full sequence forgets: two forms with identical q,d and all tuple probabilities can have different square-zero ideals. The dimension-refined result explains the mechanism, and the lack of a coefficient-field assumption materially expands the class. This is more than substituting parameters in the chain formula.",
+      "residual_risks": [
+        "Universality uses q and d, not Loewy length alone; does not give a classification up to ring isomorphism."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

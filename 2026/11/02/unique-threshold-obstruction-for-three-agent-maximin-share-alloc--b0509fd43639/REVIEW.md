@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument is constructive in both directions. A nonexistence instance must have positive MMS shares, so three nonempty MMS partitions exist; picking distinct singleton parts forces an allocation, leaving only one common singleton and a distinct perfect matching for each agent. Any additional acceptable bundle is a one- or two-element subset of the four remaining goods and directly yields an MMS allocation. Conversely, the three pairings cannot supply a disjoint rainbow triple, while the constructed binary monotone valuations realize the forbidden acceptance pattern with each MMS equal to one. The lower-size case is proved. The independent exhaustive checker confirms \(15625\) five-good partition triples, \(30\) obstruction signatures, one orbit, and \(720\) successful acceptance extensions; it does not replace the universal proof over real-valued monotone functions.
+PASS
 
-## Originality — PASS, qualified
+With a zero share one can give that agent nothing: a positive-share agent's singleton part blocks at most one part of a second positive-share agent's three-part partition. In a failure with all shares positive, two distinct singleton goods in different agents' partitions block at most two parts for the third agent and would give a fair allocation. Thus all singleton parts coincide; the other two parts form a matching, and equal matchings for any two agents likewise give a fair allocation. The decisive all-bundles step is that every 3-subset of the remaining four goods already contains an edge of each matching. A newly accepted singleton admits an edge of a different agent avoiding it; a newly accepted nonmatching pair has a complement in another agent's matching. In both cases the remaining agent takes the common singleton. Conversely distinct matchings cannot supply disjoint edges on four vertices. All accepting partitions must use the common singleton by size, giving uniqueness. The binary realization achieves share 1 and the five choices of singleton and six agent assignments give 30 patterns, one relabeling orbit. For at most two goods all shares are zero; on three goods positive-share agents accept each singleton, and on four goods two different singletons and a third avoiding part always exist when needed. Independent bitmask allocation check: `cd /workspace && python audit_checks.py 5`; 1, 216, 15625 profiles at sizes 3, 4, 5, respectively, with 0, 0, 30 failures and all 720 single-bundle extensions restoring feasibility. The finite checker supplements the proof for arbitrary real-valued monotone utilities.
 
-Feige (2026), arXiv:2610.06125v1, is the closest source. Its Theorem 6 already constructs a counterexample at precisely three agents and five goods (the parameter \(c=2\)); that existence is expressly **not new**. The theorem inspected does not give the converse that *every* failing monotone instance has precisely the same accepting bundles, nor the uniqueness of every agent's MMS partition or the complete first-failure layer. Its Appendix B poses the general rainbow-matching extremal question, without a five-good uniqueness classification. The additive lower bounds in Feige–Sapir–Tauber (2021) and Hummel (2023), and supply-augmentation work of Barman–Rammohan–Sethia (2025), do not imply this threshold rigidity. Targeted semantic research-record searches and accessible literature searches located no equivalent necessity theorem, although absence from such searches cannot establish priority. See structured comparisons in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural exact classification, not a new wording of the known example. It determines all obstructions at the smallest failure size, proves that **no extra acceptable bundle can coexist with failure**, and removes uncertainty about arbitrary monotone utility magnitudes by identifying the exact threshold-level invariant. This provides a compact test and an extremal base case for the colored-partition/rainbow-matching formulation of MMS. The result makes no claim of an improved general asymptotic bound or broad approximation theorem.
+The supported contribution is the all-bundles rigidity in every failing profile, equivalently maximality of the obstructing acceptance families: permitting even one formerly unacceptable bundle restores feasibility. The sharp size, the example, the partition-triple necessity and classification, and the resulting count at partition level are already covered and are not independent contributions. The all-bundles claim is explicitly the frozen theorem's main assertion, not a replacement theorem.
 
-## Limitations and uncertainty
+## value
 
-The scope is three agents, at most five goods, nonnegative normalized monotone set valuations, and exact MMS. The rigidity concerns acceptability at the MMS threshold; it does not classify entire numerical utility functions. An unindexed equivalent classification remains a publication-priority risk, and no independent external audit has been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At the first possible failure size this classifies the entire acceptance profile, not just partition witnesses. The maximality statement tells a researcher whether a putative counterexample survives an arbitrary additional threshold bundle, and provides an exact base case for extending rainbow MMS obstructions. The short proof adds a distinct diagnostic even though the partition classification and minimal example already exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

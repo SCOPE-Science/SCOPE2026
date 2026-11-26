@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:16:53.665972Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 25–81",
+        "VERIFICATION.md lines 19–27",
+        "verify_gap_product.py (inspected, not executed)"
+      ],
+      "rationale": "Pigeonhole two agents assigned to the same facility and use the triangle inequality to get OPT≥δ even off reports. Omitting one endpoint of a closest pair attains δ. If P is the product of all gaps, omitting an endpoint deletes its gap, and omitting an interior point merges its incident gaps, giving weights P/g and P(1/g_left+1/g_right). Every reciprocal occurs twice, so the normalization is 2PH. Multiplying by the actual omitted-agent cost gives the claimed expected cost. For q_j=δ/g_j, choose a maximizing q_s=1. Each adjacent ratio touching s equals the corresponding neighboring q; each other ratio is ≤1. With d=1 at an endpoint or d=2 in the interior and u the sum of neighboring q, the ratio is ≤(2k-d+u)/(2(1+u))<k-d/2. This includes ties and is strict for every finite positive-gap profile. With one unit gap and all others equal to L→∞, the ratios touching the unit gap tend to zero and the rest are 1, and the denominator tends to 2. Putting the unit gap at the appropriate index proves both suprema.",
+      "residual_risks": [
+        "Only distinct reports and k+1 agents; does not establish incentives, repeated-report guarantees or bounds for other mechanisms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both papers give the all-population 2k factor, and Jia's sharpness uses n=1+kM with repeated locations. Other n=k+1 mechanisms mentioned in the papers do not yield a sharp Product-Gap statement. The October result covers all k≥2 at n=k+1 with distinct positions, and additionally classifies exact welfare-optimal profiles."
+        ],
+        "reasoning": "The population-unrestricted bound is not a sharp statement for the restricted regime; the earlier catalogue theorem, rather than the general 2k result, directly covers the main finding.",
+        "searches": [
+          "Jia arXiv:2608.19633 Theorems 1 and 3",
+          "Chan, Lin and Wang arXiv:2608.22484 Lemma 5 and introduction",
+          "Resultary mirror 100028d5c3f5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirror 100028d5c3f5, 57ea40341f63 and 905ac68fbec5",
+        "Jia arXiv:2608.19633",
+        "Chan, Lin and Wang arXiv:2608.22484"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof keeps one neighboring ratio u and uses m∑g_i^{-1}≥1+u; it bounds all remaining ratios by 1. For an interior shortest gap keep both neighbors, so u is their sum and there are k−3 remaining ratios. The exact same inequality gives (2k−2+u)/(2(1+u))<k−1. In the earlier proof's one-unit-gap family, an interior placement removes two adjacent ratios in the limit instead of one and gives k−1."
+        ],
+        "reasoning": "The conditional value is a direct consequence of the earlier exact formula and bounding and sharpness scheme, not an independently motivated new mechanism or a new optimization argument.",
+        "searches": [
+          "Resultary mirror 100028d5c3f5, proof passage at character offset 3303"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "100028d5c3f5 writes w_j=P(g_j^{-1}+g_{j+1}^{-1}) for interior omissions and W=2P∑g_i^{-1}; normalizing gives exactly the frozen law after reindexing. The expectation and k−1/2 supremum agree. 57ea40341f63 is a distinct same-day record also stating the global bound and omission law; no priority order is inferred from that date."
+        ],
+        "reasoning": "Product-Gap and Gap-Product denote the same law here. Omitted versus selected indexing and δ versus m are only changes of notation.",
+        "searches": [
+          "Resultary Product-Gap/Gap-Product first-surplus and exact one-omission queries",
+          "Resultary mirror 100028d5c3f5 and 57ea40341f63",
+          "Jia arXiv:2608.19633 Definition 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "905ac68fbec5 gives the exact first positive-cost 5/2 ratio at k=3,n=4. 100028d5c3f5 gives the exact symbolic ratio and supremum, not merely sample profiles."
+        ],
+        "reasoning": "An enumerative database is not applicable to a supremum over arbitrary positive real gaps; the exact case and formula records are the applicable comparison.",
+        "searches": [
+          "Resultary mirror exact ratio records 100028d5c3f5, 57ea40341f63, and 905ac68fbec5"
+        ]
+      },
+      "rationale": "An earlier catalogue result proves the exact omission weights, expected cost, unrestricted optimum and nonattained sharp k−1/2 bound in the same regime, for k≥2 rather than k≥3. Its proof already bounds the ratio by retaining the normalized contribution from a neighbor of a shortest gap and uses the same single-short-gap extremizing family. The conditional k−1 value is not explicitly stated there, but it follows immediately by keeping both neighbors of an interior shortest gap in those same inequalities and moving the shortest gap into the interior in the same family. There is no surviving distinct contribution beyond this direct specialization of the earlier argument.",
+      "residual_risks": [
+        "No exhaustive historical priority claim; the interior formula is assessed as an implication, not attributed verbatim to the earlier record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage; immediate two-neighbor implication",
+          "evidence": [
+            "Exact 2P∑g_i^{-1} normalizer; ratio ≤(2k−1+u)/(2(1+u)) and matching one-unit-gap family for k≥2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-one-omission-approximation-frontier-for-product-gap-facili--100028d5c3f5/RESULT.md",
+          "material_read": "Finding and omission and upper-bound proof, including offsets 2200 and 3303",
+          "method": "Local mirror primary text at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact one-omission approximation frontier for Product-Gap facility location",
+          "trigger": "Same regime, exact expected cost and supremum"
+        },
+        {
+          "assessment": "Same mechanism, general guarantee, not restricted sharpness",
+          "evidence": [
+            "Probability proportional to consecutive-gap product; global 2k guarantee; examples with 1+kM agents."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.19633",
+          "material_read": "Introduction p. 2, Definition 3.1 and Theorem 1 p. 6, Theorem 3 p. 10",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Product Gap Mechanisms for Multi-Facility Location",
+          "trigger": "Originating Product-Gap paper"
+        },
+        {
+          "assessment": "General guarantee; nearby n=k+1 statements concern different mechanisms",
+          "evidence": [
+            "Lemma 5 gives 2k; the nearby introduction mentions Pick the Loser and Inverse-Square."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.22484",
+          "material_read": "Introduction pp. 2–3 and Lemma 5 p. 22",
+          "method": "Lawful OA PDF passage reading",
+          "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+          "trigger": "Independent formulation as Gap-Product"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 53–81",
+        "Earlier one-omission theorem 100028d5c3f5, upper-bound and sharpness proof"
+      ],
+      "rationale": "The exact first-surplus guarantee would be useful in isolation, but is already known. On narrowing to what is not explicitly stated earlier, the one-unit improvement in the doubled numerator counts one additional neighbor of a shortest gap and leaves the same extremal family. The record does not establish a further structural theorem or an independently useful gap beyond that immediate boundary-versus-interior consequence.",
+      "residual_risks": [
+        "The conditional bound can be useful as a corollary of the established theorem; this is not a mathematical objection to the bound."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

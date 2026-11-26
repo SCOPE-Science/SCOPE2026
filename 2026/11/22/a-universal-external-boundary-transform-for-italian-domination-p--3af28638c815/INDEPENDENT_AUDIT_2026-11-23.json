@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:45:26.597351Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the support P of positive base labels. On P the valid root/leaf pairs are (1,1),(1,2),(2,0),(2,1),(2,2). Outside P the leaf cannot be zero, and it may be 1 exactly when a positive base neighbor is present; label 2 is always sufficient. This establishes independence of the local choices, all three weight factors, and unique decomposition by P. No connectivity assumption was used. Adjoining to P all vertices outside P and its boundary gives a dominating set of size n−b(P); any minimum dominating set attains the bound, so the least exponent is n+γ(G). Exactly the maximizing supports contribute there, with local constant term 2 per positive root. Evaluation at one is direct. Independent exhaustive base-3 enumeration for all 75 labeled bases of orders 1–4 compared 1,215 coefficient positions with the product; it reproduced the stated two-vertex-edge polynomial and the K3 leading coefficient 6. This was separate from the inspected, unexecuted supplied checkers; their larger counts are package-reported, and neither computation substitutes for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shao–Zhao compute Italian coefficients for paths, trees and cycles, and can therefore compute the coefficients of a corona whose base is a tree.",
+          "The 54ece45394cc transfer-matrix trace computes every coefficient on sunlets; cb6b3b535307 gives an all-corona transform for independent double Roman functions, an inequivalent constraint."
+        ],
+        "reasoning": "The exact tree and cycle-base coverage must be credited, but it is not an arbitrary-base boundary identity. A wider domain in a different labeling predicate supplies no specialization to unrestricted Italian functions.",
+        "searches": [
+          "arXiv:2610.00108 §§1.1–1.2",
+          "arXiv:2006.02124 abstract and rooted products",
+          "Resultary 54ece45394cc and cb6b3b535307"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1701.01416",
+        "arXiv:2006.02124 (abstract)",
+        "arXiv:2610.00108",
+        "Resultary 9dede768c463, 54ece45394cc, 5450d38234da, fa69dce458b7, b4d53f386ee5, cb6b3b535307"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alizadeh et al. already prove γ_R2(G∘K1)=n+γ(G) for arbitrary G. The sunlet trace determines the entire special-case polynomial. The ordinary-Roman external-boundary specialization gives different coefficients."
+        ],
+        "reasoning": "The scalar theorem gives the least exponent but no coefficient. The sunlet transfer matrix depends on a cyclic sequence and does not extend to arbitrary adjacency. The unrestricted Italian enumeration needs the exact positive-support partition and local weights; it is not the identical enumeration with renamed labels.",
+        "searches": [
+          "arXiv:1701.01416 Theorem 3.2 p. 7",
+          "arXiv:2610.00108 §§1.1–1.2",
+          "Resultary 54ece45394cc and 5450d38234da"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Italian and Roman {2} use the same zero-neighbor sum constraint. For the base boundary polynomial J_G(s,t)=Σ_P s^|P| t^b(P), (1) is the specialization z^(2n) J_G(2+2z+z²,(1+z)/z).",
+          "Resultary 5450d38234da and b4d53f386ee5 use the same statistic for pointwise-minimal ordinary Roman functions; fa69dce458b7 adds no isolated zero vertex and uses a different profile."
+        ],
+        "reasoning": "Neither naming the subset polynomial nor sharing a boundary statistic identifies the same target count. For example, on a single base vertex 5450d38234da gives 3z² whereas unrestricted Italian gives 3z²+2z³+z⁴; the necessary local factors must be established anew.",
+        "searches": [
+          "Resultary: one-leaf corona Italian or Roman {2} domination full weight enumerator and external boundary profile",
+          "arXiv:1701.01416 Theorem 3.2",
+          "Resultary 5450d38234da, b4d53f386ee5, fa69dce458b7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "54ece45394cc gives tr(T(z)^n) for every C_n corona and its optimum census; 9dede768c463 gives the exact minimum multiplicities by the cycle length modulo three."
+        ],
+        "reasoning": "These are exact infinite families of prior counts, not merely finite tables; they cover the cycle-base restriction fully. They do not yield the arbitrary-base identity. No covering table of arbitrary-base counts was identified in the inspected sources.",
+        "searches": [
+          "Resultary full Italian polynomial and minimum census for sunlet graphs (54ece45394cc)",
+          "Resultary exact minimum Italian-domination multiplicities of sunlet graphs (9dede768c463)"
+        ]
+      },
+      "rationale": "Pass for the all-base all-weight Italian transform and general minimum multiplicity formula, not the scalar minimum or any priority claim on cycle bases. In addition to already known sunlet minima, an earlier record gives the entire polynomial for sunlets. No inspected broader statement effects this substitution for unrestricted Italian labelings of arbitrary one-leaf coronas.",
+      "residual_risks": [
+        "The particular cited Roman-neighborhood record 15936ceec4cf was not present at its local mirror path; the distinct records above were compared on their own terms.",
+        "An older general rooted-product or domination-polynomial formula reducing exactly to this substitution remains possible; catalogued and retrieved coverage does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar minimum exactly",
+          "evidence": [
+            "When H=K1, the Roman {2} number is n+γ(G)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1701.01416",
+          "material_read": "Primary PDF p. 7, Theorem 3.2",
+          "method": "Read theorem and compared target quantities",
+          "title": "Roman {2}-domination in graphs and graph products",
+          "trigger": "Same definition and corona product"
+        },
+        {
+          "assessment": "Related scalar result; no whole-paper noncoverage inference from abstract",
+          "evidence": [
+            "Closed formulas for the minimum on rooted products including corona instances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.02124",
+          "material_read": "Primary PDF abstract, p. 1",
+          "method": "Compared stated invariant and graph operation",
+          "title": "Italian domination in rooted product graphs",
+          "trigger": "General rooted-product antecedent"
+        },
+        {
+          "assessment": "Exact coverage on its classes; not general-base boundary transform",
+          "evidence": [
+            "Paths, trees and cycles are the stated domains."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00108",
+          "material_read": "Primary text §§1.1–1.2, pp. 3–4",
+          "method": "Compared all-coefficient algorithm and graph domain",
+          "title": "Counting Weight-k Italian Dominating Sets on Trees and Cycles",
+          "trigger": "Same full-weight enumeration"
+        },
+        {
+          "assessment": "Covers the cycle-base minimum multiplicity",
+          "evidence": [
+            "Counts 3·2^q, (3q+1)(q+3)2^q and (3q+2)2^(q+1) for cycle lengths 3q, 3q+1 and 3q+2."
+          ],
+          "identifier_or_url": "Resultary 9dede768c463",
+          "material_read": "Local RESULT.md, Finding, offset 0",
+          "method": "Compared the exact specialization",
+          "title": "Exact minimum Italian-domination multiplicities of sunlet graphs",
+          "trigger": "Same optimum census on cycle bases"
+        },
+        {
+          "assessment": "Covers the full polynomial for all cycle bases, not all bases",
+          "evidence": [
+            "Trace of T(z)^n gives all coefficients for C_n∘K1, n≥3."
+          ],
+          "identifier_or_url": "Resultary 54ece45394cc",
+          "material_read": "Local RESULT.md, Finding, offset 0",
+          "method": "Compared the all-weight statement and exact graph family",
+          "title": "Full Italian domination polynomial and minimum labeling census of sunlet graphs",
+          "trigger": "Strongest same-class exact coefficient overlap"
+        },
+        {
+          "assessment": "Different counted functions",
+          "evidence": [
+            "Its summand is 2^|V∖N[A]| z^(2n−|N(A)∖A|) for minimal ordinary Roman functions."
+          ],
+          "identifier_or_url": "Resultary 5450d38234da",
+          "material_read": "Local RESULT.md, Finding, offset 0",
+          "method": "Compared predicate, factors and the one-vertex-base polynomial",
+          "title": "Exact pointwise-minimal Roman profiles of one-leaf coronas",
+          "trigger": "Same external-boundary statistic and all-base corona operation"
+        },
+        {
+          "assessment": "Additional restraint changes the enumerated class",
+          "evidence": [
+            "The zero-induced subgraph is required to have no isolated vertices."
+          ],
+          "identifier_or_url": "Resultary fa69dce458b7",
+          "material_read": "Local RESULT.md, Finding, offset 0",
+          "method": "Compared zero-label restriction and profile",
+          "title": "Restrained Italian domination polynomials of leaf coronas from induced boundary profiles",
+          "trigger": "Same graph class and Italian terminology"
+        },
+        {
+          "assessment": "Different labeling predicate and minimality restriction",
+          "evidence": [
+            "External-boundary census for pointwise-minimal ordinary Roman functions."
+          ],
+          "identifier_or_url": "Resultary b4d53f386ee5",
+          "material_read": "Local RESULT.md, Finding, offset 0",
+          "method": "Compared counted class",
+          "title": "A vertex boundary census for minimal Roman functions on one-leaf coronas",
+          "trigger": "Additional similar census"
+        },
+        {
+          "assessment": "Different domination invariant",
+          "evidence": [
+            "Transform over independent sets and open neighborhoods under double Roman constraints."
+          ],
+          "identifier_or_url": "Resultary cb6b3b535307",
+          "material_read": "Local RESULT.md, Finding, offset 0",
+          "method": "Compared support class and label conditions",
+          "title": "The independent double Roman weight enumerator of leaf coronas",
+          "trigger": "All-corona transformed polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This identifies sufficient base-graph information for every coefficient of a natural enumerator, for arbitrary cyclic or disconnected bases as well as trees. It also gives an explicit census of all optimizers, not just the already known minimum. Replacing enumeration of labelings on 2n vertices by a structural subset sum is useful without implying polynomial-time complexity. The all-base reduction, not repetition of the known sunlet counts, is the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

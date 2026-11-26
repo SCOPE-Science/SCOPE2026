@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:34:43.599137Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions, proof and limitations, especially lines 15–41",
+        "VERIFICATION.md and verify.py"
+      ],
+      "rationale": "A direct event argument avoids assuming generator-domain regularity or a finite mean in advance. Set S=α+β. From the reset site while inactive, the time to go active has rate α+rηπ₁: all other reset outcomes leave the searcher at that same state. Its mean is Δ=S/[α(S+rη)]. Starting active, measure time only while active. A direct reset occurs at rate r; an off excursion begins at rate β, lasts an independent Exp(α+r), and ends in a position reset with probability r/(α+r). If it ends in reactivation, the active Markov motion continues from the same state. Thus in active time the first disruptive reset has rate q=r+βr/(α+r), is independent of the active path, and competes with τ. A cycle succeeds with probability F(q) and uses mean active time d=(1−F(q))/q. The expected wall-clock time including all off waits until reset or success is d[1+β/(α+r)]. After a direct reset the inactive probability is ηπ₀; after a reset during an off period it is 1−ηπ₁. Including the time to return to active at x_* adds d[rηπ₀+βr(1−ηπ₁)/(α+r)]Δ to the cycle cost. The combined multiplier of d is exactly S/α. By regeneration at active x_* and F(q)>0 the mean is finite and equals Sd/[αF(q)], independent of η. Stationary initialization adds π₀Δ, giving the formula and strict improvement for η'>η. This is a mean identity only, and geometry independence concerns the penalty at a common starting and reset site, not arbitrary initial sites or the full mean itself. The finite-state script and recorded comparisons were inspected, not executed.",
+      "residual_risks": [
+        "The active-clock argument uses strict immobilization and no unmodeled memory during an off excursion, plus independent Poisson/exponential clocks. F(q)=0 is excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Majumdar solve a renewal system for two ballistic directions, including velocity reversal/randomization. arXiv:2205.13985 resets position, conformation and local times in a partially reactive boundary model. No full text of the relevant 2020 switching-diffusions paper was obtained lawfully."
+        ],
+        "reasoning": "None of the inspected full-text statements proves the arbitrary-active-law, zero-motion inactive specialization with independent stationary partial refresh. A representation for another reset renewal kernel does not directly imply the required cancellation and universality. A genuinely encompassing general treatment remains possible.",
+        "searches": [
+          "arXiv:1808.06450, general-velocity renewal and protocol comparisons",
+          "Bressloff, DOI 10.1088/1751-8121/ab97e0, lawful publisher and repository lookup",
+          "arXiv:2205.13985, reset rule"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 26c7f1ebdda1",
+        "arXiv:2107.02148",
+        "arXiv:1808.06450",
+        "arXiv:2205.13985",
+        "DOI 10.1088/1751-8121/ab97e0 (access outcome only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The gate comparison has a factor exp[−L(√((r+S)/D)−√(r/D))] and contrasts full stationary redraw with retention. In the frozen model, the corresponding difference for any pair of refresh probabilities comes solely from π₀ times an initial inactive hold, since the active-start mean cancels exactly."
+        ],
+        "reasoning": "The distance-dependent gate delay cannot give this geometry-independent difference by normalization. Invariance of the active-start mean and the specific rational function of η require accounting for the reset hazard during an interval with no motion; neither the gate formula nor the ballistic protocol formulas contain this step.",
+        "searches": [
+          "arXiv:2107.02148, Appendix B, especially Eq. (B.2)",
+          "SCOPE-a-universal-gate-memory-delay-independent-of-surface-reaction-th--26c7f1ebdda1, Finding and assumptions",
+          "arXiv:1808.06450, Eqs. (84)–(91)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proposed equivalence at the level of the mean is active-only Poisson resetting at q with cost multiplier S/α, plus a stationary probability of an initial inactive hold of mean Δ. The inspected two-state renewal sources instead describe moving velocity states or a Brownian target gate."
+        ],
+        "reasoning": "A target gate which merely disables reaction does not freeze Brownian motion. Neither switching velocities nor relabeling the moving gated-target particle as the searcher makes the position constant in the inactive state; the disruptive-reset thinning and mean-time cancellation therefore do not follow from those results.",
+        "searches": [
+          "Resultary semantic searches for frozen inactive searcher, stationary internal state redraw versus retention, and effective active-time resetting",
+          "arXiv:1808.06450, two-state reset renewal, Eqs. (60)–(69)",
+          "arXiv:2107.02148, Appendix B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest inspected entry: 2026/11/22/SCOPE-a-universal-gate-memory-delay-independent-of-surface-reaction-th--26c7f1ebdda1. It states universality in the reaction-threshold distribution, with a difference depending explicitly on D and the reset distance L."
+        ],
+        "reasoning": "This is distinct from a geometry-independent rational function of α, β, r and η: different dynamics when inactive, different dependence, and endpoint rather than partial-refresh comparison. No exact match was verified in returned items; ranked retrieval is not exhaustive.",
+        "searches": [
+          "Resultary semantic searches for the rational refresh penalty, position resets with partial stationary internal redraw, and immobile-state mean invariance"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete partial-refresh mean law for a strictly immobile off state, including active-start invariance and cancellation of all active-search dependence from the stationary-start difference. The nearest verified comparisons treat moving internal states or a switching target that does not stop the searcher's interior motion. A generic two-state renewal system is antecedent methodology, not a demonstration of this scalar cancellation for the frozen model.",
+      "residual_risks": [
+        "Nonretrieval of the 2020 switching-diffusions full text is not evidence of noncoverage; a broader matrix-renewal or time-change theorem with this specialization remains a priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct Brownian gate model; its universality is across reaction thresholds, not spatial laws or starting distances.",
+          "evidence": "The particle moves when the gate is reflecting, and the displayed strictly positive difference depends on L and D.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-universal-gate-memory-delay-independent-of-surface-reaction-th--26c7f1ebdda1",
+          "material_read": "RESULT.md Finding and assumptions, offsets 0–2880, and relevant mean-difference discussion around offset 5800",
+          "method": "Published record via local mirror",
+          "title": "A universal gate-memory delay independent of surface-reaction thresholds",
+          "trigger": "Closest catalogue overlap on stationary redraw versus retention"
+        },
+        {
+          "assessment": "Related endpoint protocol comparison, but gate permits ordinary Brownian motion when closed. Difference is geometry dependent.",
+          "evidence": "The retention/redraw distinction and resulting distance-dependent difference in Appendix B. The Bressloff gated-target antecedent is DOI 10.1088/1751-8121/abb844, distinct from the cited switching-diffusions paper.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.02148",
+          "material_read": "PDF Appendix B, p. 14, Eq. (B.2), around offset 68000, and bibliography identifying the gated-target antecedent",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Search of stochastically gated targets with diffusive particles under resetting",
+          "trigger": "Closest primary comparison of retaining versus resetting a stationary two-state process"
+        },
+        {
+          "assessment": "Two moving velocity states; not stationary redraw of a strictly immobilized off state.",
+          "evidence": "Reset reverses velocity with its own probability; velocity randomization corresponds to probability 1/2. Separate renewal quantities govern its protocols.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.06450",
+          "material_read": "PDF introduction around offset 1293; Eqs. (60)–(69) and (84)–(91), pp. 11–14",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Run and tumble particle under resetting: a renewal approach",
+          "trigger": "Two-state renewal and partial change of internal state at reset"
+        },
+        {
+          "assessment": "Inaccessible in bounded retrieval; no statement-level conclusion about potential coverage from this paper.",
+          "evidence": "No lawful full text was recovered; the paper must not be confused with the different gated-target article DOI 10.1088/1751-8121/abb844.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab97e0",
+          "material_read": "Bibliographic identity and access outcomes only; no verified primary equations",
+          "method": "Lawful publisher PDF and alternate repository lookup attempted",
+          "title": "Switching diffusions and stochastic resetting",
+          "trigger": "Plausible broader switching-reset coverage cited by the frozen record"
+        },
+        {
+          "assessment": "Distinct model and reset rule; not an alternate copy of the inaccessible paper.",
+          "evidence": "Resets of position, conformation, and local times are used for partially reactive boundaries.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.13985",
+          "material_read": "PDF pp. 1 and 4, around offset 13200",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Stochastically switching diffusion with partially reactive surfaces",
+          "trigger": "Accessible related reset-renewal model with internal conformation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, proof and Brownian example",
+        "Related gated-target protocol comparison in arXiv:2107.02148"
+      ],
+      "rationale": "This answers a natural protocol-design question: when does the mean benefit of forgetting an internal mode depend on the search geometry? It identifies all geometry dependence in one active first-passage transform and shows why the benefit at the reset point comes solely from stationary initialization into the frozen state. The exact penalty and active-start invariance apply without solving the spatial process, even when its original mean first-passage time is infinite.",
+      "residual_risks": [
+        "No stochastic ordering, arbitrary non-reset initial location, or extension to a moving inactive state is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

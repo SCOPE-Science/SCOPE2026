@@ -1,9 +1,21 @@
-# Scientific review of the outermost coverage covariance
+# Independent mathematical audit
 
-**Correctness — PASS.** Independent first attempt times yield a finite-clock representation for each retained interval. Two multiplicities at the last dependent distance share exactly one exponential clock; conditional independence and spatial reflection reduce their covariance to the variance of an explicitly increasing function of that clock. The pivotal event was checked against its full list of competing intervals. Exact finite-order enumeration reproduces the conditional polynomial and rational saturation covariance for dimers and trimers, and a separate quadrature check supports the all-time expression. No finite computation is treated as an infinite-parameter proof. The explicit all-length algebra and strict positivity are proved in `RESULT.md`.
+## correctness
 
-**Originality — PASS, with residual priority uncertainty.** Krapivsky's 2022 work introduces the process and its one-site statistics; Viot–Krapivsky's 2024 full text treats small-length one-site densities and explicitly suggests further pair-correlation work. A previously published trimer result, inspected in full, studies the separate triple-coverage indicator at saturation, not the all-time multiplicity covariance for every length. A known dimer full-multiplicity covariance law already gives the \(k=2\) boundary value, so only \(k\ge3\) is claimed as new. Actual published-finding corpus and literature searches also considered finite-range aliases, stronger coverage and database coefficients. The principal remaining risk is an unindexed all-length RSC correlation formula or an unstated implication in general local-dependence theory; independent publication-priority review is warranted.
+PASS
 
-**Mathematical value — PASS.** The precise outermost spatial covariance measures how far a single deposition event can couple two coverage multiplicities. A universal positive rational law for every length, at all times, establishes a sharp physical correlation horizon and the unexpected \(k^{-5}\) edge-strength scale despite a linearly increasing range. The exact natural observable is not recovered from small-length one-site density tables or the previously reported trimer triple-occupation statistics. No claim is made about all shorter-distance correlations, multidimensional lattices or macroscopic fluctuation constants.
+A site is first covered at the earliest first-attempt time among its k incident starts, because that attempt must be accepted. A start can be accepted only once, and at its first attempt, exactly when it attains such a minimum for some site. This verifies the local-clock representation on the infinite lattice and the clock window [x-2k+2,x+k-1]. Sets separated by at least 3k-2 use disjoint independent coordinates. At 3k-3 the sole shared clock is U_{k-1}, fixed by reflection, so the covariance is the variance of the common conditional mean. Only start 0 on the left can see the shared clock. Given U_0=s≤t, switching the shared clock from earlier than s to later changes acceptance precisely when starts 1,…,k-2 are all later and start -1 is earlier: the latter covers all sites before k-1, whereas if it is later, site k-2 already certifies acceptance. Integration against e^{-s} yields g_k(min(u,t)) plus a constant. The derivative g'_k=e^{-(k-1)s}(1-e^{-s}) gives strict positivity even for arbitrarily small positive times. Multiplying g'_k and 2g_k g'_k by the exponential survival factor and integrating reproduces the two finite-time moments. Independent symbolic integration in the uniform variable e^{-U} (python /workspace/independent_checks.py 5) verifies the jammed simplification and k=2,3,4 values; the leading k^{-5} term follows from degrees. The conclusion on decay is about covariance, not a computed Pearson correlation coefficient. No uploaded verifier was executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct claim is the all-k≥3 full-multiplicity last-lag covariance, including its finite-time strict positivity and jammed asymptotic. First-arrival locality, dimer results, trimer-indicator results and one-site laws are credited separately. The access limits below do not establish priority or absence.
+
+## value
+
+PASS
+
+Locating the last possible dependence by clock windows is cheap; showing that this boundary is attained for every positive time and quantifying how weak that farthest coupling becomes is more informative. The explicit all-length covariance and fifth-power saturation scale distinguish an expanding interaction range from the fast falloff of its edge strength, and give an exact benchmark for two-point calculations beyond available one-site laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:42:39.905474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof and scope",
+        "VERIFICATION.md",
+        "verify_primitive_rows.py",
+        "verify_primitive_rows.out"
+      ],
+      "rationale": "From a+1=(t+1)(b+1), p is congruent to -2^b modulo the odd q, so the two odd factors are coprime and both exceed 1. The four odd parts 1,p,q,pq are distinct; complementation preserves the box and the two omitted pairs are disjoint (their entries have precisely these odd parts). With T=2^(a+1) and B=2^b, the box sum is 2B(T-1)(T-B), the omitted sum is 2B^2+Tp, and (T-1)(T-B)-B=Tp. The remaining sum is Tp(2B-1)=2N. If q=2^(b+1)-1 were a proper power, use a prime exponent r: for r=2, b+1=2 is immediate and b+1>=3 is impossible modulo 8; for odd r, (z^r+1)/(z+1) is odd and greater than 1, impossible for a divisor of a power of 2. The valuations of q survive in N, excluding all proper powers. Both positive factors in 2^a p increase strictly with a; log N=2(b+1)t log 2+O_b(1), and upper and lower cutoffs on t give the stated count. For b=1, p is coprime to 3 for every a>=2, so the same identity applies and v_3(N)=1. The supplied grid and row replay were inspected as finite regression evidence, not rerun or used for the infinite conclusions.",
+      "residual_risks": [
+        "No maximality of the progression or claim about odd primitive examples follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 already covers every a>b as strongly pseudoperfect. The dyadic 60 family already gives infinitely many non-power examples by v_3=1. The Omega<=3 classification cannot see a>=2 with p,q>1."
+        ],
+        "reasoning": "Neither broader membership nor unfixed-row infinitude ensures infinitely many primitive members in each prescribed row. The reported count is not a count of all primitive members of a row.",
+        "searches": [
+          "arXiv:2609.36068v1, pp. 6 and 13–14",
+          "Resultary bfd0e030e549",
+          "Resultary e44b0bb26fb1",
+          "Targeted primary-literature search for the Wang–Zelinsky primitive row family"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.36068v1",
+        "OEIS A334405",
+        "Resultary bfd0e030e549 and e44b0bb26fb1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 9 gives the divisors omitted in the prime case and a construction in the composite case; the primitive discussion concerns the perfect-power definition and questions on odd examples."
+        ],
+        "reasoning": "No inspected implication covers the row assertion without the added congruence and valuation argument. The logarithmic count is straightforward once the primitive subfamily has been identified; it is not asserted as a standalone new counting method.",
+        "searches": [
+          "arXiv:2609.36068v1, Theorem 9 proof and Questions 18–20",
+          "Resultary bfd0e030e549, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 9 deliberately permits composite p and q; it supplies membership, not exclusion of perfect powers. The progression is the residue class a+1=0 mod b+1 with a>b."
+        ],
+        "reasoning": "A search in the source's perfect-power usage, rather than divisibility primitiveness, gives the relevant comparison. The residue class synchronizes powers of 2 modulo q so that the full valuations of q survive. That restriction and its implication were not found in the checked prior family.",
+        "searches": [
+          "Resultary: primitive progression inside the Wang–Zelinsky rows",
+          "arXiv:2609.36068v1, Theorem 9 and primitive definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table includes terms such as 60 and 312 and lists strong pseudoperfectness, not the perfect-power restriction by row."
+        ],
+        "reasoning": "Individual entries already tabulate membership, but the table neither assigns row primitivity nor forces the progression and its coefficient.",
+        "searches": [
+          "OEIS A334405, definition, terms, comments and links"
+        ]
+      },
+      "rationale": "Strong pseudoperfectness, the choice of omitted complementary pairs, the definition of primitivity, and infinitude of even primitive examples have prior coverage. The distinct claim is a specified progression guaranteed primitive in every row of Theorem 9, the quantitative count of that subfamily, and removal of the progression restriction in row b=1.",
+      "residual_risks": [
+        "The bounded primary-literature search added no relevant match; unindexed applications of the same simple congruence may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct membership overlap; no row primitivity in the inspected clauses",
+          "evidence": "The theorem requires a>b, not coprimality; Question 18 asks about odd primitive numbers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.36068v1",
+          "material_read": "p. 6, Theorem 9 and proof, offset 16243; pp. 13–14, offset 37618",
+          "method": "Open PDF, located and read bounded passages",
+          "title": "Strongly Pseudoperfect Numbers",
+          "trigger": "Exact family and primitive terminology"
+        },
+        {
+          "assessment": "Implies general even primitive infinitude, not rowwise results",
+          "evidence": "Every term has unchanged 3- and 5-adic valuation one.",
+          "identifier_or_url": "2026/10/4/SCOPE-all-dyadic-multiples-60-cdot-2-n-are-strongly-pseudoperfect--bfd0e030e549",
+          "material_read": "RESULT.md, Finding",
+          "method": "Resultary and mirrored record",
+          "title": "All dyadic multiples 60·2^n are strongly pseudoperfect",
+          "trigger": "Closest indexed explicit primitive infinitude"
+        },
+        {
+          "assessment": "Different restriction",
+          "evidence": "Only 6 and 28 have Omega<=3; the submitted family has Omega>=4.",
+          "identifier_or_url": "2026/10/4/SCOPE-strongly-pseudoperfect-integers-with-omega-n-le3--e44b0bb26fb1",
+          "material_read": "RESULT.md, Finding and scope, offsets 0–1348",
+          "method": "Resultary and mirrored record",
+          "title": "Strongly pseudoperfect integers with Omega(n)<=3",
+          "trigger": "Nearby exact indexed classification"
+        },
+        {
+          "assessment": "Membership table only for this comparison",
+          "evidence": "No fixed-row progression or primitive condition in the inspected entry.",
+          "identifier_or_url": "https://oeis.org/A334405",
+          "material_read": "Definition, terms, comments and example",
+          "method": "Public OEIS page",
+          "title": "Strongly pseudoperfect numbers",
+          "trigger": "Exact underlying sequence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof",
+        "Wang–Zelinsky Theorem 9 and Questions 18–20",
+        "Resultary dyadic 60 family"
+      ],
+      "rationale": "The progression guarantees a genuine structural property in every row without primality assumptions on either odd factor. Unlike generic infinitude, it supplies explicit primitive examples for an arbitrary prescribed b, and a natural growth law in that parameter row. The b=1 strengthening is a boundary example, not the main value claim.",
+      "residual_risks": [
+        "The result does not answer the cited odd-case question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

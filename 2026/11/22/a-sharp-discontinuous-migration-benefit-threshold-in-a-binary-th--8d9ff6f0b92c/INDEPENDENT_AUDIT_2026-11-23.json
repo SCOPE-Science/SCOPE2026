@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:40.597015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated symmetric exchange after reproduction, the trace can be checked by separating closed three-step patch paths into zero and two switches. With t=1-d it is (r+1)[r t^3+(r^2+r+1)t d^2]; the determinant is r^3(1-2d)^3. The smaller eigenvalue is below r^2 throughout: on [0,1/2] it lies in [0,r^(3/2)], and above 1/2 it is negative. Therefore the sign of growth minus r^2 is the opposite of the sign of the frozen quadratic Q_r(d) for d>0. Its positive leading coefficient, vertex in (1/2,1), positive values at zero and one, and discriminant (r^2-4r+1)(r^2+4r+1) prove the exact open winning interval and the double-root tie at (3-sqrt(3))/2 when r=2+sqrt(3). Compactness gives maximizers, and the interval endpoints converge to the tie rate from above. At zero the right derivative of growth is -3r^2 by the characteristic identity, so the improvement does not come from small exchange. On the capped interval Q is decreasing, with Q_r(1/2)=(-r^2+4r+1)/4; this gives the second threshold and the exact tie. Patch conjugation and cyclic characteristic-polynomial invariance include singular half exchange; for constant calendars the column-sum norm gives the sedentary upper bound. Replay: RESULT.md §§1–5; hand substitution yields Q_4(2/3)=-2/9, Q_4(1/2)=1/4, Q_5(1/2)=-1. The supplied checker and JSON were inspected, not executed: the counter includes floating-point grid iterations where the comparison may be skipped and is not a count of exact assertions or a continuum certificate. The analytic argument does not depend on it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives endpoint optimality for up to three positive phases in its equal-pool model. Its exchange probability is half its mixing parameter. The latter has a general two-season bound and a three-season witness using a neutral season."
+        ],
+        "reasoning": "The general endpoint result covers the capped optimization structure. It cannot adjudicate d>1/2, where the exchange matrix has a negative second eigenvalue and the initially winning direct-exchange band occurs. The neutral-season witness is not a stronger statement for this calendar.",
+        "searches": [
+          "Resultary 2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303",
+          "Resultary 2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and verification_certificate.json",
+        "Published Resultary mirror: identical record, equal-pool endpoint theorem, two-season endpoint/neutral-season witness, paired-season survival threshold",
+        "Schreiber–Li arXiv:1007.5267v1 and Katriel arXiv:2104.01589"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At full pooling the product has Perron root ((r+1)/2)^3. Its excess over r^2 factors as (r-1)(r^2-4r-1)/8. The prior capped endpoint theorem plus this elementary endpoint evaluation implies the capped threshold."
+        ],
+        "reasoning": "The capped numerical threshold is a corollary, even if unstated. The direct threshold, winning interval and discontinuous approach instead need the characteristic sign reduction across the negative-determinant region and the model-specific discriminant. Neither the capped theorem nor the paired-season survival condition supplies them.",
+        "searches": [
+          "Resultary equal-pool theorem, three-phase proof, offsets 3450–5710",
+          "Resultary paired-habitat finding, offsets 250–3186"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical assigned Resultary record is the same claim, not an independent antecedent. The distinct same-date record varies migrant survival over paired opposing seasons in a four-season cycle.",
+          "Schreiber–Li Theorem 2 addresses invasion/selection; Katriel's model uses a continuous-time periodic Floquet exponent."
+        ],
+        "reasoning": "Growth per season versus per cycle is a monotone cube-root reparameterization and does not change the threshold. Conjugation/cyclic permutation leaves the binary three-season spectrum unchanged, but neither operation maps it to the paired four-season model, and the ecological/Floquet statements do not evaluate the fixed H,L,L product.",
+        "searches": [
+          "Resultary: exact binary three-season direct-exchange migration threshold; 2026/11/22/SCOPE-a-sharp-discontinuous-migration-onset-threshold-under-paired-hab--bbfca9e7c040",
+          "arXiv:1007.5267v1",
+          "arXiv:2104.01589"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct catalogue results supply a neutral-season numerical witness, a capped endpoint theorem, or a different four-season condition; none of those passages tabulates the full direct-exchange interval as a function of r."
+        ],
+        "reasoning": "This is a two-continuous-parameter sign classification; a threshold example or fixed-rate entry cannot supply it. No applicable exact table was established by these inspections.",
+        "searches": [
+          "Resultary exact-claim and paired-calendar hits above",
+          "arXiv:1007.5267v1 Theorem 2; arXiv:2104.01589 model"
+        ]
+      },
+      "rationale": "The unrestricted direct-exchange classification, including the exact winning interval and the nonzero limiting optimum, is not covered by the inspected endpoint or paired-season results. Credit is for that classification and its contrast to the capped model, not for discovering capped endpoint optimality or the general phenomenon of discontinuous migration onset.",
+      "residual_risks": [
+        "McPeek–Holt full text was not inspected. Differently indexed positive-matrix or migration literature could contain an equivalent direct-exchange analysis.",
+        "No historical priority claim is made against the distinct same-date finding; its mathematical regime is different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers capped structure and implies capped threshold with endpoint substitution, not unrestricted exchange",
+          "evidence": "Its equal-pool parameter spans precisely current d in [0,1/2].",
+          "identifier_or_url": "2026/10/12/SCOPE-four-seasons-are-necessary-and-sufficient-for-interior-optimal-d--277a84601303/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–3496; three-phase proof offsets 3450–5710",
+          "method": "Published mirror, bounded original passages",
+          "title": "Four seasons are necessary and sufficient for interior-optimal dispersal in a two-patch periodic model",
+          "trigger": "Plausibly stronger three-season comparison"
+        },
+        {
+          "assessment": "Different calendar and no all-r classification",
+          "evidence": "The witness is I, diag(1,4), diag(4,1), with half-exchange growth 25/4 versus endpoint growth 4.",
+          "identifier_or_url": "2026/10/26/SCOPE-two-season-endpoint-optimality-and-the-first-interior-dispersal--4bf78d70bf53/RESULT.md",
+          "material_read": "Finding and assumptions offsets 0–3677; witness around offset 5372",
+          "method": "Published mirror, bounded original passages",
+          "title": "Two-season endpoint optimality and the first interior dispersal optimum",
+          "trigger": "Plausibly same three-season advantage"
+        },
+        {
+          "assessment": "Shares discontinuous onset, not the same threshold or a covering model",
+          "evidence": "Four seasons D_+,D_+,D_-,D_-; onset is controlled by migrant survival and a cubic/double-root criterion. No priority ordering inferred from the date.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-discontinuous-migration-onset-threshold-under-paired-hab--bbfca9e7c040/RESULT.md",
+          "material_read": "Finding and assumptions offsets 250–3186",
+          "method": "Published mirror, bounded original passages",
+          "title": "A sharp discontinuous migration-onset threshold under paired habitat seasons",
+          "trigger": "Strongest distinct same-date overlap"
+        },
+        {
+          "assessment": "Different mathematical comparison",
+          "evidence": "Invasion/selection in periodic environments is not comparison of the prescribed binary linear cycle to its sedentary growth.",
+          "identifier_or_url": "https://arxiv.org/abs/1007.5267v1",
+          "material_read": "PDF p. 1 and Theorem 2 on PDF p. 6, offsets 18000–21248",
+          "method": "Open original PDF, targeted reading",
+          "title": "Evolution of unconditional dispersal in periodic environments",
+          "trigger": "Primary periodic two-patch dispersal antecedent"
+        },
+        {
+          "assessment": "Continuous time rather than the specified discrete product",
+          "evidence": "Uses periodic differential equations and Floquet exponents.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.01589",
+          "material_read": "PDF pp. 1 and 3, abstract and model offsets 596–3585 and 12227–14777",
+          "method": "Open original PDF, targeted reading",
+          "title": "Dispersal-induced growth in a time-periodic environment",
+          "trigger": "Primary dispersal-induced growth antecedent"
+        },
+        {
+          "assessment": "Unresolved source; no negative inference",
+          "evidence": "No direct statement-level comparison possible from the attempted access.",
+          "identifier_or_url": "https://doi.org/10.1086/285453",
+          "material_read": "No original full-text passage obtained",
+          "method": "Lawful source access attempt returned HTTP 403",
+          "title": "The evolution of dispersal in spatially and temporally varying environments",
+          "trigger": "Plausible classical primary antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full binary three-season contrast family is a natural minimal seasonal imbalance, not a single favorable example. Its classification separates local loss at zero exchange from a global gain first attainable at a rate bounded away from zero, and isolates the interval of fitness contrasts for which changing the physical exchange rule changes whether a gain is possible. This gives a useful benchmark for two-patch deterministic growth models without asserting an empirical or evolutionary conclusion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

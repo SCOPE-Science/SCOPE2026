@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:04:14.223489Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After normalization by the throughflow, the column deficits of the loss-and-transport matrix are a, b and 1+c. Its positive diagonal, nonpositive off-diagonal and strict column dominance give stability and a nonnegative inverse. Expansion along the end rows gives the quadratic P and the three stated cofactors; mass balance is a z₁+b z₂+(1+c)z₃=1. For N=n₀+n₁m+m² the derivative numerator in ascending order is n₁P₀−n₀P₁, 2(P₀−n₀P₂), P₁−n₁P₂. Substituting the middle-source cofactor gives the three sign factors b−T_C, b−a/c and b−T_A. In the open band the first and last coefficients have opposite signs, so the two real roots have opposite signs and the one positive root crosses strictly. Outside the band the coefficients have a common weak sign, with at least one strict unless a=c and b=1. This includes T_A≤0, equality at either threshold and the constant case. The same substitution gives strictly positive derivative for the upstream cofactor and strictly negative for the downstream cofactor. For two boxes the derivative numerators are ab and −a(a+1), and one box has no interbox exchange. For (3,3,1) the middle derivative numerator is 24−6m², with E₂(2)=3/22 and both endpoint exports 1/8. For (20,20,1) it is 380(21−m²); the positive root raises export relative to the common endpoint by about 40.9%. The supplied checker.py was inspected, not executed; its rational linear solves and finite sign/identity checks supplement, rather than prove, the all-parameter classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Håkanson–Bryhn employ a four-compartment phosphorus budget with mixing, sedimentation, resuspension and other fluxes.",
+          "0b48c5f4ae13 bounds critical points of stationary mean concentration versus an overall switching intensity for a single reservoir in a reversible Markov environment."
+        ],
+        "reasoning": "The larger compartment framework provides governing equations but not a read theorem about optimizing a common exchange in this chain. A single environmental switching multiplier leaves fixed transition ratios; here the ratio of downstream to upstream jump rates changes with m, and export is at a separate outlet. Even the similar three-state onset in the reservoir model does not specialize to the stated thresholds or monotonicity by injection position.",
+        "searches": [
+          "Håkanson & Bryhn, 10.1007/s11270-007-9502-1, model and Table 4",
+          "Gresch et al., 10.1021/es801651j",
+          "Resultary 0b48c5f4ae13, bounds on stationary reservoir concentration extrema"
+        ]
+      },
+      "checked_sources": [
+        "Soetaert–Herman open manuscript",
+        "Håkanson–Bryhn open article",
+        "Resultary 89b160aaa5b3, 0b48c5f4ae13 and 95d6860f0732",
+        "Gresch et al. and 10.1029/2002WR001288: limited or no primary text as specified above",
+        "Shanahan–Harleman (1984): abstract/bibliographic comparison reported in frozen support only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-box pulse model does not assert monotonicity or its failure for a continuously forced exit fraction.",
+          "The filtration model varies placement and observes a transient. The accessible search description for 10.1029/2002WR001288 concerns coupled first-order transport; the paper was not independently readable."
+        ],
+        "reasoning": "Holding geometry, source and throughput fixed while varying a common interface rate is essential to this classification. Neither the change in time or source/filter placement nor the reservoir's stationary environmental averaging implies the sign diagram. The term 'three-component' in an inaccessible transport paper cannot settle model equivalence. Same-day records were compared on claims, not assumed earlier or later.",
+        "searches": [
+          "Resultary 89b160aaa5b3 and 0b48c5f4ae13, mathematical findings",
+          "Resultary 95d6860f0732, three-room path filtration",
+          "10.1029/2002WR001288, analytical three-component transport"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is also the exit-before-killing probability for a particle injected into one of three serial states, with forward rate 1+m, backward rate m, local killing a,b,c and a unit terminal exit rate.",
+          "Soetaert–Herman use adjacent advection and dispersion calibrated with conservative salinity; 89b160aaa5b3 optimizes the concentration in a receiving compartment at one time after a pulse."
+        ],
+        "reasoning": "These are related transport formulations, but zero local killing, or a fixed-time response to a pulse, does not give this positive-killing absorbed fraction. Integrating the exit flux over the full residence time is material to the target observable and to the two-box monotonicity.",
+        "searches": [
+          "Soetaert & Herman (1995), 10.1007/BF00008582, transport equations",
+          "Resultary 89b160aaa5b3, unequal-loss exchange optimum",
+          "Primary literature lookup: reactive three-box advective–dispersive steady export and reactor backmixing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "89b160aaa5b3 has a finite-time two-box maximum; 0b48c5f4ae13 has a sharp n−2 critical-point bound in its switching model; 95d6860f0732 compares filter placements for a three-room transient."
+        ],
+        "reasoning": "These exact results vary different parameters or optimize different responses. None of the inspected statements supplies the (a,b,c) classification delimited by T_A and T_C; this is a bounded statement comparison, not a proof of exhaustive absence.",
+        "searches": [
+          "Resultary exact mixing/compartment exchange records 89b160aaa5b3, 0b48c5f4ae13 and 95d6860f0732",
+          "Soetaert–Herman (1995), residence-time and conclusions sections"
+        ]
+      },
+      "rationale": "Standard box mass balances and backmixing operators are not new. The supported distinct claim is the exact steady-state max/min and source-position phase diagram for common symmetric exchange in the specified directed three-cell chain, including the minimal cell number within that class. Neither close primary transport modeling nor the inspected transient and stationary catalogue analogues establishes the same optimization theorem. This conclusion does not certify historical priority.",
+      "residual_risks": [
+        "Full Gresch et al., Shanahan–Harleman and three-component transport articles were not compared independently; relevant older reactor or transport work may supply a closer statement.",
+        "The known broader compartmental frameworks were compared on accessible passages, not certified free of all corollaries in the rest of the literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related transport operator, different conservation assumption, use of dispersion, and endpoint",
+          "evidence": [
+            "The conserved chlorinity transport is used to calibrate fixed dispersion coefficients and estimate residence times."
+          ],
+          "identifier_or_url": "https://www.vliz.be/imisdocs/publications/ocrd/140774.pdf",
+          "material_read": "Abstract and transport equations, journal pp. 215, 217–218 (PDF offsets 952 and 8050–12540), and conclusions near offset 40700",
+          "method": "Lawful OA manuscript PDF, targeted passage reads",
+          "title": "Estimating estuarine residence times in the Westerschelde (The Netherlands) using a box model with fixed dispersion coefficients",
+          "trigger": "Close primary analogue of the adjacent advective–dispersive compartment matrix"
+        },
+        {
+          "assessment": "Broader modeling precedent but no applicable threshold theorem in the examined material",
+          "evidence": [
+            "Four compartments, monthly mass balances and multiple internal processes; Table 4 includes surface/deep-water fluxes and nonmixing processes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11270-007-9502-1",
+          "material_read": "Model setup pp. 119–120 (offset 1200); Table 4 p. 123 (offset 21800)",
+          "method": "Lawful OA full article PDF, targeted reads",
+          "title": "A Dynamic Mass-balance Model for Phosphorus in Lakes with a Focus on Criteria for Applicability and Boundary Conditions",
+          "trigger": "Multicompartment reactive environmental mass balance with internal exchange"
+        },
+        {
+          "assessment": "Plausible overlap cannot be judged from the whole paper",
+          "evidence": [
+            "Frozen support reports model construction and calibration in the available excerpts; no verified exact classification attributed to this paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1021/es801651j",
+          "material_read": "No independently accessible full-text sections; frozen RESULT.md and AUDIT.json describe the work",
+          "method": "Lawful publisher article and abstract requests returned access denial",
+          "title": "Compartmental Models for Continuous Flow Reactors Derived from CFD Simulations",
+          "trigger": "Industrial reaction and backmixing comparator"
+        },
+        {
+          "assessment": "No whole-document judgment; components need not represent serial compartments",
+          "evidence": [
+            "The accessible description identifies advective–dispersive–reactive transport with first-order coupling; it does not specify the stated chain extremum."
+          ],
+          "identifier_or_url": "https://doi.org/10.1029/2002WR001288",
+          "material_read": "Primary search description only; article page and PDF unavailable",
+          "method": "Literature lookup and lawful publisher article/PDF requests",
+          "title": "An analytical solution of the three-component transport equation with application to third-order transport",
+          "trigger": "Potential exact analysis of coupled three-component reactive transport"
+        },
+        {
+          "assessment": "True related result, not a counterexample or implication for steady outlet export",
+          "evidence": [
+            "Two unequal-loss communicating boxes; pulse input and single-time receiving concentration."
+          ],
+          "identifier_or_url": "Resultary 89b160aaa5b3",
+          "material_read": "Finding, model and optimized observable",
+          "method": "Local Resultary mirror",
+          "title": "A sharp exchange-rate optimum for an unequal-loss two-box tracer",
+          "trigger": "Closest exchange-rate extremum in fewer than three boxes"
+        },
+        {
+          "assessment": "Comparable onset, different generator dependence and output",
+          "evidence": [
+            "Reversible switching environmental states in a single reservoir, n−2 critical-point bound and a sharp three-state example."
+          ],
+          "identifier_or_url": "Resultary 0b48c5f4ae13",
+          "material_read": "Finding and hypotheses of the state-count bound",
+          "method": "Local Resultary mirror",
+          "title": "Environmental state complexity bounds for extrema of reservoir pollutant concentration",
+          "trigger": "Same-day stationary optimum with a two-to-three onset"
+        },
+        {
+          "assessment": "Filter placement and time comparison, not exchange optimization",
+          "evidence": [
+            "Transient downstream concentration on a three-room path; varies placement and observation time."
+          ],
+          "identifier_or_url": "Resultary 95d6860f0732",
+          "material_read": "Finding and compared placements",
+          "method": "Local Resultary mirror",
+          "title": "A unique transient filtration placement reversal with cumulative downstream response",
+          "trigger": "Same-day three-room line and downstream constituent comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The internal loading position gives a demonstrable mechanism for a sign reversal in mixing sensitivity in a natural open transport model. It is not just an example of a rational curve: the two distinct endpoint-derivative thresholds give a complete decision rule for the first chain size that can admit either an interior maximum or minimum. The equal-endpoint examples show why comparing only weak and strong mixing can miss appreciably greater export. These are theoretical model diagnostics, not a recommendation to tune real dispersion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:00:51.898718Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Finding, word-basis proof, equations for the reduced rank loci and finite-field counts",
+        "VERIFICATION.md and verify.py; inspected word concatenation and modular rank enumeration, not executed"
+      ],
+      "rationale": "Words of degree at least four vanish, so scalars and cubics are central. Write the remaining parts as u in degree one and Q in degree two. If u is nonzero, a linear change of generators makes it x. On the quadratic words the kernel of [x,-] is k x^2: the three images of xy, yx and y^2 are independent by their x^2y, yx^2 and xy^2 coefficients, including in characteristic two. On linear words the degree-two component has rank one, with kernel kx, and the degree-three image of that kernel is [Q,x], already in the quadratic-input image. This gives rank four. If u=0, only the map on the two linear inputs survives. For Q nonzero it cannot vanish on both, since the quadratic centralizers of x and y intersect trivially. It has rank one precisely when it has a nonzero kernel vector l, in which case the same word calculation in a basis starting at l forces Q to be a nonzero scalar multiple of l^2. For Q with coordinates (alpha,beta,gamma,delta), this locus with its vertex included is beta=gamma and alpha delta=beta^2; on alpha nonzero take l=x+(beta/alpha)y, and when alpha=0 the equation forces beta=0 and the nonzero case is a multiple of y^2. Over the algebraic closure the resulting hypersurface is the irreducible Veronese cone; its gradient vanishes on the hypersurface only at the vertex even in characteristic two (alpha=delta=0 then forces beta=0). The tangent dimension at the vertex is three, greater than the cone dimension two. Product with the nine free central coordinates gives the stated singular locus; the rank-at-most-two locus is the linear subspace u=0 of dimension thirteen. Over F_q the punctured cone has (q+1)(q-1) points, and the remaining quadratic coefficients and free central coordinates give the four indicated multiplicities. Weighting those multiplicities by q^(-r) and dividing by q^15 gives 2q^(-4)+q^(-5)-q^(-6)-q^(-7), the stated probability.",
+      "residual_risks": [
+        "Replay with python verify.py; the verifier covers four prime fields and has no scheme-theoretic or all-fields certificate.",
+        "The geometric conclusions concern reduced loci, not their possibly nonreduced determinantal ideals."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The class-three algebra-group spectrum treats all d>=2, with class sizes 1,q^(d-1),q^d,q^(d^2+d-2) and a scalar-square condition for the second class of elements. Boyarchenko defines the same family of free nilpotent associative algebras but the inspected group-commutator pairing results are structural, not an elementwise rank census."
+        ],
+        "reasoning": "At d=2 the all-d table gives precisely the four ranks and all finite-field strata after adjoining the scalar coordinate; the older structural comparisons are not needed for that direct implication.",
+        "searches": [
+          "Published finding 57b6649e632f, all-d class-size spectrum",
+          "arXiv:1003.2742, graded free nilpotent algebras and top-layer commutators"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked matches and mirrored findings cf83a5465863 and 57b6649e632f",
+        "arXiv:1003.2742 and 1510.08211, targeted primary-text passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first comparison proves over any field that Q is rank one exactly when Q is a nonzero scalar square of a linear word. In coordinates the reduced closure is the standard cone beta=gamma, alpha delta=beta^2, which is singular at the vertex only even in characteristic two. The second comparison yields the histogram by specializing d=2 and multiplying its element counts by q. The generic centralizer sum turns either histogram into the probability."
+        ],
+        "reasoning": "The different wording of the singular-locus claim does not leave a separate classification: it follows from the same identified reduced cone and its elementary gradient. The probability is a direct average, not an independent invariant calculation once the rank census is known.",
+        "searches": [
+          "Published finding cf83a5465863, Zero linear part case",
+          "Published finding 57b6649e632f, Step 1 and element-count table",
+          "arXiv:1510.08211, centralizer-sum formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the radical J and normalized unit group 1+J, commutation of 1+u and 1+v is equivalent to uv=vu. Thus the class size of 1+u is the index of the linear kernel and equals q^rank ad_u. The scalar part of the unital algebra does not affect the rank, and multiplies each radical element count by q."
+        ],
+        "reasoning": "A group class-size census with element counts is a census of the identical rank invariant after this conversion, not just a coincidental probability match.",
+        "searches": [
+          "Resultary: truncated tensor algebra adjoint ranks, Veronese cone, finite-field commuting probability and class-three algebra-group conjugacy",
+          "Published findings cf83a5465863 and 57b6649e632f, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The table in cf83a5465863 gives q^9, (q^2-1)q^9, (q^4-q^2)q^9, 0 and (q^2-1)q^13 in ranks 0 through 4, and the same probability written as 2q^(-4)+q^(-5)-q^(-6)-q^(-7)."
+        ],
+        "reasoning": "This is an exact table for the same unital algebra and the same uniform distribution over its elements, not a finite sample or differently normalized count.",
+        "searches": [
+          "Resultary: two-generator quotient by words of length four with ranks 0,1,2,4 and empty rank-three stratum",
+          "Published finding cf83a5465863, Finding table and probability"
+        ]
+      },
+      "rationale": "The distinct indexed Adjoint-rank gap and Veronese centralizer stratum in a truncated free algebra proves the identical characteristic-uniform ranks and counts for the identical algebra and probability. Its word argument explicitly identifies the rank-one stratum with the nonzero scalar squares over any field, not just a set of finite-field cardinalities. Adjoining the zero quadratic and free central coordinates gives the same reduced Veronese cone; its singular vertex is an immediate geometric consequence. A second indexed result for free class-three algebra groups gives the numerical part by specialization to two generators. These are exact coverage findings, not historical assertions: both indexed comparators carry later displayed dates than the frozen record. No precedence, derivation or authorship conclusion is made.",
+      "residual_risks": [
+        "The relationship between these versions is unknown; later displayed record dates are not evidence of earlier publication. Existence of these exact matches settles coverage, not historical priority.",
+        "Hansmann's work on circle groups of free nilpotent associative algebras was not available at full-text level; the group-spectrum record describes it as addressing the subgroup generated by the generators. Its exact scope and any older treatments of the full group remain unverified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent census and cone; reduced geometry follows directly, publication priority not inferred",
+          "evidence": [
+            "Exact rank table, word proof over any field, nonzero scalar-square criterion and identical normalized probability."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-adjoint-rank-gap-and-veronese-centralizer-stratum-in-a-truncated--cf83a5465863/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof through the cone and probability calculations, mirrored offsets 0–about 4600",
+          "method": "Targeted reading in lawful local mirror",
+          "title": "Adjoint-rank gap and Veronese centralizer stratum in a truncated free algebra",
+          "trigger": "Identical algebra, invariant and exceptional stratum"
+        },
+        {
+          "assessment": "Mechanically implies the full finite-field counts and gives the scalar-square condition",
+          "evidence": [
+            "Full group 1+J, centralizer-kernel argument, all-d element counts and class-number formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-four-size-conjugacy-spectrum-of-free-class-three-algebra-gro--57b6649e632f/RESULT.md",
+          "material_read": "Finding, Assumptions and Step 1, mirror offsets 0–2498",
+          "method": "Targeted reading in lawful local mirror",
+          "title": "The four-size conjugacy spectrum of free class-three algebra groups",
+          "trigger": "Stronger family with class sizes equivalent to adjoint ranks"
+        },
+        {
+          "assessment": "Structural antecedent, not a rank census in the inspected statements",
+          "evidence": [
+            "Constructs graded quotients of the tensor algebra and gives group commutator pairings in top layers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.2742",
+          "material_read": "§§3.1–3.3, pp. 7–9, Proposition 3.1 and Lemma 3.4 and construction",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "Representations of unipotent groups over local fields and Gutkin’s conjecture",
+          "trigger": "Same class of free nilpotent associative algebras"
+        },
+        {
+          "assessment": "Generic averaging identity, not a specialized distribution in the compared material",
+          "evidence": [
+            "Expresses commuting probability as a sum of centralizer cardinalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.08211",
+          "material_read": "§§1–2, pp. 2–3, equation (2.1)",
+          "method": "Targeted lawful OA PDF passages",
+          "title": "On commuting probability of finite rings",
+          "trigger": "General ring centralizer sum for commuting probability"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md rank loci and probability",
+        "Published finding cf83a5465863, exact histogram and scalar-square criterion; published finding 57b6649e632f, broader class spectrum"
+      ],
+      "rationale": "The rank stratification is a natural invariant of the first two-generator truncation with both quadratic and cubic commutators. But the exact census is already matched, and the probability is a weighted sum of that census. The additional dimensions and vertex calculation are routine consequences of the already identified reduced scalar-square cone and the central coordinates. The frozen statement supplies no distinct invariant or geometric refinement beyond those covered facts.",
+      "residual_risks": [
+        "This is not a judgment about the value of a scheme-theoretic or higher-truncation result, neither of which is claimed."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

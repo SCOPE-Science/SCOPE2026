@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Taylor expansion \(\tan z=z+\sum_{j\ge1}c_jz^{2j+1}\) has strictly positive coefficients by the exact derivative recurrence. Triangle inequality gives the sharp radial majorant \(|N(z)|\le A(|z|)\); the equality set on every circle is the two real points, making the iterated envelope exact. Strict monotonicity of \(A(t)/t\) proves the unique critical radius. Inside the disk the envelope decreases to zero; \(A(t)/t^3\) monotonicity proves the stated uniform cubic-rate bound. The critical real two-cycle blocks any larger centered disk; all other critical-circle points enter the basin. The proofs do not rely on numerical samples. The enclosed checker reproduced 991 sample comparisons and 13 rational coefficients, but finite tests do not certify infinite dynamics.
+PASS
 
-## Originality — PASS with priority risk
+The tangent series converges on |z|<π/2 and its coefficients are all positive by the recurrence from T′=1+T². Removing the linear term bounds |N(z)| by A(|z|). Equality at positive radius requires the cubic and quintic terms to have the same argument, hence z²>0. A(t)/t increases strictly from 0 to infinity, so the unique R solves A(R)=R and A contracts radii below R. Monotonicity and closure of [0,R] under A give the iterated upper bound without hitting a pole; oddness and N(r)=−A(r) show both real extremizers attain it. For n≥1 and r>0 these are the only maximizers; at n=0 all boundary points attain the same maximum. Since A(t)/t³ increases, iteration of the cubic bound on [0,r] gives the claimed exponent (3ⁿ−1)/2 for r<R. The open disk is connected and attracts to zero. Each nonreal point of its critical circle maps into the disk and belongs to the immediate component by its radial segment to zero. The two real points alternate and obstruct any larger centered disk; |N′(±R)|=A′(R)>A(R)/R=1, giving repulsion under the return map. π-periodicity of tangent translates the statement. An independent bounded calculation gave R≈1.165561185207211 and passed 135 sampled root, orbit and modulus checks; the supplied check.py was inspected, not rerun. Neither numerical check establishes the universal claims.
 
-Cloutier et al. (2024), Sections 2.3.1 and 2.3.5, provide the real two-cycle and describe the complex disk inclusion only as a numerical appearance. Bray et al. (2020) focus their proven disk bound on the Newton map of tangent, not of sine. The October 4, 2019 precursor establishes the real critical value alone. Targeted indexed and public literature searches found no matching complex statement, and the closest published indexed Halley comparison uses a different function and algorithm. A general power-series majorant is an old method, but the fully sharp specialized centered-basin geometry and all-iterate envelopes were not identified in the relevant inspected sources. Unindexed equivalent results remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The optimal Euclidean convergence-disk radius for a complex Newton map is a natural invariant required for worst-case convergence guarantees. The 2024 article expressly discusses this precise numerical geometric question. The theorem proves the conjectured inclusion, classifies the entire critical-circle contact set and provides exact finite-time modulus extrema and a uniform rapid convergence bound; it does more than recompute a real threshold. Its proof is short but settles a motivated mathematical gap.
+Credit the published real cycle, real-axis boundary, and numerical proposal for the centered disk. The supported distinct claim is the analytic complex inclusion and precise circle contact, together with exact all-iterate radial maxima. Bounded searches and comparison support this distinction, not absolute priority.
 
-## Limitations and closest literature
+## value
 
-No claim is made about the full immediate-basin boundary or other basins. The convergence disk is maximal only among centered disks. General analytic majorant arguments could have an equivalent specialization not captured by the search. Sources: Cloutier et al. (2024), DOI 10.3390/sym16020162; Bray et al. (2020), DOI 10.1155/2020/1853467; 2019 real-only mathematical discussion https://math.stackexchange.com/questions/3379990/.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives an exact geometric boundary for a natural Newton iteration and resolves a published numerical centered-disk claim. It distinguishes points on the first-contact circle that enter the basin from the only two obstructions, and gives sharp worst-case errors at every finite iteration, not just an asymptotic local convergence order. The known real number alone is not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

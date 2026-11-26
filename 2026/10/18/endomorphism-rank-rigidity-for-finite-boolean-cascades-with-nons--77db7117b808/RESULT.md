@@ -1,102 +1,42 @@
-# Endomorphism-rank rigidity for finite Boolean cascades with nonsingleton levels
+# Image ranks of retractions of finite Boolean cascades
 
 ## Finding
-Let \(h\ge 2\), and let \(P=A_1\oplus\cdots\oplus A_h\) be an ordinal sum of pairwise disjoint antichains, ordered so that points in \(A_i\) are below points in \(A_j\) exactly when \(i<j\). Write \(n_i=|A_i|\ge2\) and let \(H=\operatorname{Up}(P)\) be the finite Heyting algebra of all upsets.
 
-**Normal-form theorem.** Every Heyting endomorphism \(\Phi:H\to H\) is uniquely the inverse-image operator \(f^{-1}\) of exactly one map of the following two types:
-
-1. **Level-preserving type:** \(f|_{A_1}:A_1\to A_1\) is arbitrary, whereas \(f|_{A_i}\) is a permutation of \(A_i\) for each \(2\le i\le h\).
-2. **Initial-collapse type:** for a unique \(j\in\{2,\ldots,h\}\) and a point \(c\in A_j\), \(f(x)=c\) on \(A_1\cup\cdots\cup A_j\), whereas \(f|_{A_i}\) is a permutation of \(A_i\) for each \(i>j\).
-
-In particular, the complete endomorphism count is
+Let \(P=A_1\oplus\cdots\oplus A_h\) be an ordinal sum of disjoint antichains, with \(h\ge2\) and \(n_i=|A_i|\ge2\). In the finite Heyting algebra \(H=\operatorname{Up}(P)\), let \(\Phi\) range over the idempotent endomorphisms. Its rank here is the cardinality of \(\Phi[H]\), not the number of points in the image of its dual map. Then
 \[
-|\operatorname{End}(H)|=n_1^{n_1}\prod_{i=2}^h n_i!+\sum_{j=2}^h n_j\prod_{i=j+1}^h n_i!.
+\sum_{\Phi^2=\Phi} z^{|\Phi[H]|}=
+\sum_{r=1}^{n_1}\binom{n_1}{r}r^{n_1-r}z^{2^r+\sum_{i=2}^h(2^{n_i}-1)}
++\sum_{j=2}^h n_j z^{2+\sum_{i=j+1}^h(2^{n_i}-1)}.
 \]
-Empty products are one. The distinct possible cardinalities of endomorphism images, together with their full multiplicities, are as follows:
-
-* For \(1\le r\le n_1\), the image size is
-\[
-R_r=1+(2^r-1)+\sum_{i=2}^h(2^{n_i}-1),
-\]
-with multiplicity
-\[
-M_r=\binom{n_1}{r}\,r!\,\left\{\begin{matrix}n_1\\r\end{matrix}\right\}\prod_{i=2}^h n_i!,
-\]
-where the braces denote a Stirling number of the second kind.
-* For \(2\le j\le h\), the image size is
-\[
-Q_j=2+\sum_{i=j+1}^h(2^{n_i}-1),
-\]
-with multiplicity
-\[
-N_j=n_j\prod_{i=j+1}^h n_i!.
-\]
-These image sizes are pairwise distinct across the stated families. Moreover, the number of idempotent Heyting endomorphisms is
-\[
-\boxed{\sum_{r=1}^{n_1}\binom{n_1}{r}r^{n_1-r}+\sum_{j=2}^h n_j.}
-\]
-At image size \(R_r\), precisely \(\binom{n_1}{r}r^{n_1-r}\) of the endomorphisms are idempotent. At image size \(Q_j\), precisely \(n_j\) are idempotent. Thus this is also a rank-resolved classification of retractions.
+All displayed exponents are distinct. More precisely, for each specified nonempty subset \(C\subseteq A_1\) of size \(r\), there are \(r^{n_1-r}\) idempotent endomorphisms whose dual map has image \(C\cup A_2\cup\cdots\cup A_h\). For each \(2\le j\le h\) and \(c\in A_j\), exactly one has dual image \(\{c\}\cup A_{j+1}\cup\cdots\cup A_h\). There are no other dual images of idempotent endomorphisms.
 
 ## Assumptions and scope
-The poset \(P\) has at least two levels, each containing at least two incomparable points. The carrier points are distinguished when counting maps. An upset is a subset \(U\subseteq P\) satisfying \(x\in U\) and \(x\le y\Rightarrow y\in U\). The operations of \(H\) are \(\cap\), \(\cup\), \(\varnothing\), \(P\), and implication
-\[
-U\to V=\{x\in P:\uparrow x\cap U\subseteq V\},\qquad \uparrow x=\{y\in P:x\le y\}.
-\]
-An endomorphism preserves all these operations. Its **image size** is the cardinality of \(\{\Phi(U):U\in H\}\), not the size of the image of \(f\) on worlds. Idempotence means \(\Phi^2=\Phi\).
 
-The nonsingleton hypothesis matters. For the three-element chain \(a<b<c\), the map \(a\mapsto b\), \(b\mapsto c\), \(c\mapsto c\) satisfies the bounded-morphism condition but shifts levels, so the theorem would fail if singleton levels were admitted. No assertion about arbitrary finite Heyting algebras or about all order-preserving poset maps is made.
+The elements of each antichain are distinguished. The Heyting operations are intersection, union, the two named bounds and implication, given by \(U\to V=\{x:\uparrow x\cap U\subseteq V\}\). A retraction here means an idempotent endomorphism, equivalently a homomorphism onto its image that fixes its image. Its dual map is an Esakia bounded morphism. The nonsingleton assumption is used in the proof and no analogous census is asserted with singleton levels.
 
 ## Proof
-**1. Finite Esakia duality.** A map \(f:P\to P\) defines a Heyting endomorphism \(f^{-1}:U\mapsto f^{-1}(U)\) precisely when it is a bounded morphism, meaning
+
+By finite Esakia duality [1], the endomorphisms of \(H\) are exactly the inverse-image maps of the unique self-maps \(f\) of \(P\) satisfying
 \[
-\tag{1}f(\uparrow x)=\uparrow f(x)\quad\text{for all }x\in P.
+f(\uparrow x)=\uparrow f(x)\qquad(x\in P).
 \]
-This is finite Esakia duality [1, Theorem 2.6]. Explicitly, equation (1) implies order preservation and the implication identity \(f^{-1}(U\to V)=f^{-1}(U)\to f^{-1}(V)\): the latter equivalence at \(x\) follows by substituting \(f(\uparrow x)=\uparrow f(x)\). Conversely, if inverse images preserve implication, the missing back-lifting condition in (1) would distinguish a principal-upset test, so (1) is necessary. Finite upsets separate distinct points; therefore different bounded morphisms yield different algebra endomorphisms.
+The equation implies monotonicity. The equivalence with preservation of implication can also be checked pointwise: if a point \(y\ge f(x)\) is missing from \(f(\uparrow x)\), the upsets \(U=\uparrow y\), \(V=U\setminus\{y\}\) witness failure of preservation at \(x\); conversely the equation identifies the two inclusion tests for implication. By uniqueness, idempotence is precisely \(f^2=f\), which means \(f\) fixes every element of its image.
 
-**2. Each source antichain has a single target level.** Write \(L(y)\) for the target-level index of a point \(y\in P\). Fix \(1\le i<h\) and let \(T_i=A_{i+1}\cup\cdots\cup A_h\). For each \(x\in A_i\), (1) reads
-\[
-\tag{2}\{f(x)\}\cup f(T_i)=\uparrow f(x).
-\]
-Suppose two points \(x,y\in A_i\) have \(L(f(x))=k<\ell=L(f(y))\). Every point of \(T_i\) lies above both \(x\) and \(y\), so \(f(T_i)\subseteq\uparrow f(y)\). But by (2) for \(x\), the set \(f(T_i)\) must contain all of \(A_\ell\), since \(\ell>k\). Its intersection with \(A_\ell\) is therefore all of \(A_\ell\). On the other hand, \(\uparrow f(y)\cap A_\ell=\{f(y)\}\). This contradicts \(n_\ell\ge2\). The same conclusion is obvious at the maximal source level, since images of maximal points under (1) are maximal. Thus each \(A_i\) maps wholly to one target level, say \(\ell_i\), and \(\ell_h=h\).
+Let \(j\) be the first occupied level of \(S=f(P)\) and put \(C=S\cap A_j\). The bounded-morphism equation makes \(S\) an upset, so it contains every point above level \(j\). These points are all fixed. If \(x\in A_j\) mapped to a point of some \(A_k\), \(k>j\), then \(f(\uparrow x)\) would contain all of \(A_k\), since \(\uparrow x\) contains \(A_k\) and \(A_k\) is fixed. In contrast, \(\uparrow f(x)\) contains only \(f(x)\) in \(A_k\), contradicting \(n_k\ge2\). Hence \(f(A_j)\subseteq C\), with \(C\) fixed.
 
-Order preservation forces \(\ell_1\le\cdots\le\ell_h\). Let \(j=\ell_1\). The image \(f(P)\) is an upset by (1). In particular \(f(P)\) contains every point of every level \(A_k\) with \(k>j\), and the sequence \(\ell_1,\ldots,\ell_h\) visits each such \(k\).
+For \(j=1\), each of the \(n_1-r\) points outside \(C\) in that level can be mapped independently into \(C\); these maps satisfy the bounded-morphism equation because the full upper suffix is fixed. For \(j>1\), any \(x\) below level \(j\) has \(f(x)\le f(c)=c\) for every \(c\in C\). The lowest occupied level of \(S\) is \(j\), so \(f(x)=c\) for all \(c\in C\) and \(C\) is a singleton. All points at or below level \(j\) must map to that point, leaving exactly one map for the specified \(c\). It satisfies the equation since for such a lower source its upper cone maps onto \(\{c\}\) together with the complete suffix. This proves the classification directly for retractions.
 
-**3. No target level above the first may be visited twice.** If \(\ell_i=\ell_s=k\) for \(i<s\), every point of \(A_i\) is below every point of \(A_s\). Their images lie in the same antichain \(A_k\); order preservation makes them equal. Consequently all images in \(f(A_i)\cup f(A_s)\) coincide. Monotonicity of the level indices means all source levels mapping into \(A_k\) form a consecutive interval, whose union must therefore have a singleton image. If \(k>j\), however, the upset property gives \(f(P)\cap A_k=A_k\), containing at least two points: contradiction.
+Restricting an upset of \(P\) to \(S\) is surjective onto \(\operatorname{Up}(S)\), since \(S\) is an upset. Its inverse images under \(f\) distinguish any two different restrictions, by surjectivity onto \(S\). Consequently \(|\Phi[H]|=|\operatorname{Up}(S)|\). A nonempty upset in an ordinal sum takes an arbitrary nonempty subset from its lowest occupied level and the whole of each higher level. Including the empty upset gives \(1+\sum_i(2^{|S\cap A_i|}-1)\), proving the exponents in the finding. The exponents in the first family strictly increase with \(r\), those in the second strictly decrease with \(j\), and the smallest in the first exceeds the largest in the second by \(2^{n_2}-1\). Counting the choices of \(C\) or \(c\) gives the displayed polynomial.
 
-It follows that levels \(j+1,\ldots,h\) are each visited exactly once. Since there are \(h-j\) of them and the source has \(h\) levels, monotonicity of \(\ell_i\) forces
-\[
-\ell_1=\cdots=\ell_j=j,\qquad \ell_i=i\text{ for }i>j.
-\]
-If \(j=1\), the first level maps arbitrarily into itself. Each higher level is the only source of the entire target level and hence maps bijectively. If \(j>1\), the first \(j\) source levels all map into the same target antichain; cross-level comparability forces their images to be a single common point \(c\in A_j\). Every higher level again maps bijectively. This proves exhaustiveness and uniqueness of the two forms. Conversely, a direct check of (1) verifies both forms.
+## Verification and limitations
 
-**4. Counts and endomorphism image ranks.** In the level-preserving case, there are \(n_1^{n_1}\) bottom-level maps and \(\prod_{i=2}^h n_i!\) choices above. In the initial-collapse case, choose \(j\), the point \(c\in A_j\), and permutations above \(j\), giving \(n_j\prod_{i>j}n_i!\) maps. These cases are disjoint.
+The accompanying finite checker enumerates bounded morphisms on small carriers and compares the image ranks and total idempotent counts with formulas. For example, on levels \((2,3,2)\) the retraction polynomial is \(2z^2+3z^5+2z^{12}+z^{14}\). The rank-resolved formulas and classification for arbitrary level sizes follow from the proof, not extrapolation. No publication priority or arbitrary-poset classification is asserted.
 
-Because \(f(P)\) is an upset, restriction \(U\mapsto U\cap f(P)\) maps \(\operatorname{Up}(P)\) surjectively onto \(\operatorname{Up}(f(P))\), and the inverse-image map separates those restrictions. Hence
-\[
-\tag{3}|\operatorname{Im}(f^{-1})|=|\operatorname{Up}(f(P))|.
-\]
-For an ordinal sum with level cardinalities \(m_1,\ldots,m_s\), the number of upsets is \(1+\sum_{i=1}^s(2^{m_i}-1)\): a nonempty upset has a unique least occupied level, an arbitrary nonempty subset there, and all higher levels entirely. For a level-preserving map with \(r\) different bottom images, (3) gives \(R_r\). The number of bottom transformations of image size \(r\) is \(\binom{n_1}{r}r!\left\{\begin{matrix}n_1\\r\end{matrix}\right\}\). For an initial-collapse map with index \(j\), its image poset is \(\{c\}\oplus A_{j+1}\oplus\cdots\oplus A_h\), giving \(Q_j\). Since all \(n_i\ge2\), the \(R_r\) increase strictly with \(r\); the \(Q_j\) decrease strictly with \(j\); and \(R_1>Q_2\). This proves the claimed rank distribution without collisions.
+## Relationship to other work
 
-**5. Idempotents.** Faithfulness of the inverse-image representation gives \((f^{-1})^2=f^{-1}\iff f^2=f\). In the level-preserving case, all upper permutations must be identities, while a bottom idempotent transformation with \(r\) fixed image points is specified by choosing those \(r\) points and mapping each of the remaining \(n_1-r\) points to one of them. Thus its count is \(\binom{n_1}{r}r^{n_1-r}\). In the collapse case, the upper permutations must again be identities; the constant prefix fixes its selected point \(c\), leaving exactly \(n_j\) idempotents for each \(j\). This proves all formulas.
-
-## Verification
-The standalone Python 3 file `verify.py` has no third-party dependencies. Run `python3 verify.py` in the directory containing that file. It exhaustively enumerates all maps of the specified finite carriers for nine parameter vectors, directly tests (1), independently generates the normal-form maps, computes endomorphism-image ranks by acting on every upset, tests implication preservation where stated, and checks the rank/idempotent formulas. The checked parameter vectors are \((2)\), \((3)\), \((2,2)\), \((2,3)\), \((3,2)\), \((2,2,2)\), \((2,3,2)\), \((2,2,3)\), and \((3,2,2)\). The finite checks include the one-level boundary case, although the theorem focuses on at least two levels. Their combined raw map-space size is \(2{,}523{,}822\) candidate functions.
-
-For example, at level sizes \((2,3,2)\), the four endomorphism-image cardinalities are \(2,5,12,14\), with respective multiplicities \(2,6,24,24\) and eight total idempotents.
-
-## Relationship to prior work
-Finite Esakia duality and the bounded-morphism condition are standard and explicitly supplied by Bezhanishvili, Bezhanishvili, Moraschini and Stronkowski [1, Section 2, Theorem 2.6]. The same paper [1, Section 3] situates ordinal sums of antichains as the finite duals of Boolean cascades and studies their associated varieties; it does not state this complete endomorphism normal form or image-rank formula in the sections inspected and in the article-wide text search. Bezhanishvili, Carai and Morandi [2] develop a general duality perspective rather than the present count. Neither standard duality itself nor the notion of a Boolean cascade is claimed as original.
-
-Adams, Koubek and Sichler [3] studied endomorphism monoids of general Heyting algebras, including near-rigidity phenomena. The accessible abstract does not give the present rank-resolved finite-cascade formulas, but its complete article was not accessible and remains a priority risk.
-
-Existing mathematical records on order-preserving mapping spaces of weak orders and on their ordinary poset retractions treat a larger/different class of maps. Those statements do not supply the additional exact back-lifting condition (1), its rigidity consequences, or the rank-resolved Heyting endomorphism count. Existing counts of embedded Heyting subalgebras for two-level examples likewise do not count all retraction maps, and do not cover the arbitrary number of nonsingleton levels treated here.
-
-## Limitations
-This is an internally checked mathematical argument, not an independent certification or a proof of absolute publication priority. Literature access did not include the body of the directly relevant 1985 Adams–Koubek–Sichler article or every older specialist article on Boolean-cascade endomorphisms; equivalent older formulas may exist. The result assumes every antichain has at least two elements. It does not classify arbitrary finite posets or arbitrary order-preserving maps, whose behaviour may differ markedly. No infinite analogue or asymptotic claim is asserted.
+Reference [2] already gives the complete endomorphism normal form and rank polynomial at equal level widths, and an exact suffix recursion for the all-endomorphism rank polynomial at arbitrary positive widths. Neither that census nor its nonsingleton simplification is claimed here. The invariant here counts only idempotents, resolved by image rank and by specified dual image; the fixed-image argument determines which of the endomorphisms counted by the general rank polynomial are retractions.
 
 ## References
-[1] G. Bezhanishvili, N. Bezhanishvili, T. Moraschini and M. Stronkowski, *Profiniteness and representability of spectra of Heyting algebras*, first publicly posted 2021-03-03, arXiv:2103.02530, https://arxiv.org/abs/2103.02530. In particular Sections 2 and 3.
 
-[2] G. Bezhanishvili, L. Carai and P. J. Morandi, *A frame-theoretic perspective on Esakia duality*, Algebra Universalis 84 (2023), article 30, DOI:10.1007/s00012-023-00827-3; https://air.unimi.it/handle/2434/1011749.
-
-[3] M. E. Adams, V. Koubek and J. Sichler, *Endomorphisms and homomorphisms of Heyting algebras*, Algebra Universalis 20 (1985), 167–178, DOI:10.1007/BF01278594. Abstract-level comparison only.
+1. G. Bezhanishvili, N. Bezhanishvili, T. Moraschini and M. Stronkowski, *Profiniteness and representability of spectra of Heyting algebras*, Theorem 2.6, https://arxiv.org/abs/2103.02530.
+2. *Frontier rigidity and exact Heyting endomorphism-rank census for finite weak orders*, Resultary record 6af93dfcdf0d, https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-frontier-rigidity-and-exact-heyting-endomorphism-rank-census-for--6af93dfcdf0d.

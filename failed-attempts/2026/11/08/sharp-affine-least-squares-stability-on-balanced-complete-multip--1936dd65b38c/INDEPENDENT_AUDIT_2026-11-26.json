@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:18.974767Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and Proof, lines 3–92",
+        "Frozen VERIFICATION.md, lines 19–29",
+        "Frozen verify_turan_projector.py, lines 9–96 (inspected only; the dense inversions and grid checks are finite corroboration)"
+      ],
+      "rationale": "Unit-edge hat products have integrals 1/3 at a given endpoint and 1/6 across the edge. Thus Q=6M=2dI+A with d=(r−1)s. If H averages within each part and J/(rs) averages globally, the orthogonal blocks I−H, H−J/(rs), J/(rs) have eigenvalues 2d, st, 3d in Q. Inverting them gives the displayed rows β(3st+1), β, −2β. The evaluation kernel interpolates those rows multiplied by six. It integrates to one because the projector preserves constants. With T=3st+1 its negative mass is 12βd/(T+2)+4β(s−1)d+12β choose(r−1,2)s², obtained from the negative triangles on the first two edge classes and the constant negative value on the third. One plus twice this mass simplifies to 2+1/(3t)−4/(3(ts+1)), the stated formula. The sign input can be set to either unit sign on any zeros. Values at a vertex yield sharp essential supremum because the output is continuous and incident edges have positive measure arbitrarily close to it. For any interior evaluation on vw, the two endpoint kernels have opposite signs on a positive-length subinterval of the source edge vw near v, so its nontrivial convex interpolation has strictly smaller L¹ norm. The threshold follows from t(s−4)+1. Differentiating the simplified expression gives 4t/[3(ts+1)²] in s and −1/(3t²)+4s/[3(ts+1)²] in t; at t≥3 the latter is positive for s=2,3 and negative for s≥4. This gives the unique minimum 121/63 at (3,2); the two stated limits and the bound approached at r=3 as s grows give the unattained supremum 19/9.",
+      "residual_risks": [
+        "No result for unequal part sizes or changed edge lengths or densities is being validated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "15fe144028e2 covers r≥2 and m≥1, including the bipartite equality at (m,r)=(3,2) and the larger family's supremum 7/3.",
+          "Indexed e72b2b6a5e15 and 3e0b8abda735 give strict bounds below 3 for broader graph classes. Inspected approximation papers treat interval L-splines, higher-dimensional simplicial partitions, or manifold kernel spaces."
+        ],
+        "reasoning": "The general inequalities and the work on different spaces do not by themselves give this exact norm. The exact balanced-family statement, however, strictly contains the frozen range with the same assumptions on edge measure and function space.",
+        "searches": [
+          "Resultary: metric graph L2 projector L-infinity stability piecewise linear splines graph",
+          "Resultary: quantum graph polynomial splines L-infinity norm L2 orthogonal projector exact stability",
+          "Kayumov arXiv:math/0408418 p. 2; Oswald arXiv:math/0611573v1 abstract; Hangelbroek et al. arXiv:1005.2424 Corollary 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary entries 15fe144028e2, 569b060b5cf2, 2cac5439a7dd, e72b2b6a5e15 and 3e0b8abda735",
+        "arXiv:math/0408418, math/0611573v1 and 1005.2424",
+        "DOI 10.1007/s10543-006-0062-3 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier proof gives the full inverse-mass kernel, with positive diagonal, negative entries across parts, and affine interpolation in both evaluation and integration variables.",
+          "Its exact difference from 2, strict part-size monotonicity and two limits are explicit."
+        ],
+        "reasoning": "Along edge vw near v, K_v is positive and K_w negative by the earlier inverse. The strict L¹ triangle inequality then excludes all interior evaluation points without a new structural lemma. The monotonicity in the number of parts is obtained by differentiating 2+1/(3t)−4/(3(ts+1)), and its limits on the restricted parameter range immediately give the envelope.",
+        "searches": [
+          "15fe144028e2 RESULT.md, Finding and Proof at offsets 0–5703",
+          "Frozen RESULT.md, Proof, strict interior and envelope steps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed November 1 15fe144028e2, Finding and Proof, gives the exact rational formula and writes its difference from 2 as [m(2r−3)−8r+13]/[3(2r−3)(m(2r−3)+1)]."
+        ],
+        "reasoning": "Set m=s and note −8r+13=−4t+1. The geometry, norm, normalization and real function spaces coincide. The external query supplied no relevant comparator and is not evidence of absence.",
+        "searches": [
+          "Resultary: balanced complete multipartite graph spline projection exact formula threshold",
+          "Resultary: balanced multipartite metric graph affine least-squares projection formula complete r-partite unit edges",
+          "External literature: \"balanced complete multipartite\" \"metric graph\" \"L-infinity\" projector piecewise affine exact norm complete r-partite spline"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary entry 15fe144028e2 gives a closed form, sign transition and limits for integer parameters encompassing all assigned cases.",
+          "Nearby entries 569b060b5cf2 and 2cac5439a7dd instead give norms for complete-split graphs and K_{m,n,1}, respectively."
+        ],
+        "reasoning": "The exact hit is a distinct record, not the frozen record or a table of finite examples. The neighboring formulas have different part configurations and are not the evidence of equivalent coverage.",
+        "searches": [
+          "Resultary: complete multipartite metric graph L-infinity norm L2 projection piecewise affine exact norm",
+          "Resultary: balanced complete multipartite graph spline projection exact formula threshold"
+        ]
+      },
+      "rationale": "The distinct indexed November 1 result states the identical sharp norm, sign extremizers and transition for a strictly larger balanced family. Its proof gives the same three kernel entries. Strict exclusion of interior evaluations is an immediate consequence of those entries on the edge of evaluation itself. The monotonicity in r and the restricted envelope are direct algebraic consequences of the already stated formula and limits. Demonstrable indexed coverage and these implications exhaust the substantive claim; index date is not used to determine authorship or historical priority.",
+      "residual_risks": [
+        "No absolute historical priority determination. Boman's full text was not available. Related quantum-graph work, Pesenson DOI 10.1016/j.jat.2005.04.007 and Arioli–Benzi DOI 10.1093/imanum/drx029, could not be inspected in full through the attempted lawful routes. The originality decision rests on a directly inspected exact indexed theorem, not on unavailable literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact norm and threshold on a strictly wider range; additional frozen claims follow directly from the prior formula and kernel",
+          "evidence": "r≥2,m≥1; R−2=[m(2r−3)−8r+13]/[3(2r−3)(m(2r−3)+1)]; inverse entries proportional to 3m(2r−3)+1, 1, and −2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-endpoint-stability-and-part-size-threshold-for-balanced-mu--15fe144028e2/RESULT.md",
+          "material_read": "Finding, scope and proof through the positivity defect, offsets 0–5703",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact endpoint stability and part-size threshold for balanced multipartite metric-graph splines",
+          "trigger": "Exact balanced multipartite affine projector and threshold match"
+        },
+        {
+          "assessment": "General bound, not exact balanced multipartite specialization",
+          "evidence": "Norm strictly below 3 for finite metric graphs, with hypercubes approaching 3.",
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-dimension-free-stability-of-metric-graph-linear-spline-pro--e72b2b6a5e15",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp dimension-free stability of metric-graph linear-spline projectors",
+          "trigger": "Broader exact invariant or general graph bound"
+        },
+        {
+          "assessment": "Interval L-spline estimates in the inspected text, not the graph result",
+          "evidence": "Uniform estimates over interval partitions and an exact exponential-spline case.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+          "material_read": "PDF p. 2, offset 2200",
+          "method": "OA PDF passage",
+          "title": "Least-squares approximation by second-order L-splines",
+          "trigger": "Spline projector norm under related terminology"
+        },
+        {
+          "assessment": "Different domains and conclusion",
+          "evidence": "Unbounded constants on simplicial partitions of polyhedral domains in dimension above one.",
+          "identifier_or_url": "https://arxiv.org/html/math/0611573v1",
+          "material_read": "Abstract, offset 274",
+          "method": "OA HTML passage",
+          "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+          "trigger": "Related sharp L∞ stability question"
+        },
+        {
+          "assessment": "Kernel-generated approximation spaces on manifolds, not hat functions on balanced metric graphs",
+          "evidence": "L^p boundedness under manifold and mesh-ratio hypotheses.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "Abstract p. 1 offset 869 and Corollary 5.3 p. 17 offset 60248",
+          "method": "OA PDF passages",
+          "title": "Kernel Approximation on Manifolds II: The L∞-norm of the L2-projector",
+          "trigger": "Possible broad projection stability framework"
+        },
+        {
+          "assessment": "Not evaluated for coverage; does not affect the exact indexed match",
+          "evidence": "No scientific finding inferred from the access limitation.",
+          "identifier_or_url": "https://doi.org/10.1007/s10543-006-0062-3",
+          "material_read": "Bibliographic metadata only; no primary theorem text read",
+          "method": "Publisher and alternate lawful retrieval attempts; redirects and no repository text located",
+          "title": "Estimates for the L2-projection onto continuous finite element spaces in a weighted Lp-norm",
+          "trigger": "Plausible weighted finite-element stability comparator cited in the frozen result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and proof of the threshold and envelope",
+        "Indexed 15fe144028e2, Finding and exact inverse-kernel proof"
+      ],
+      "rationale": "Exact projector norms and a size threshold are meaningful for this graph family, but the frozen result recomputes an already indexed exact invariant and threshold. The restricted envelope and interior exclusion are short consequences of the same published formula and signs, not a still-open boundary or a distinct useful invariant.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

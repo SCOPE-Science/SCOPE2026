@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:02:35.637268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual domain is membership queries on all lower ideals of an explicitly given finite poset. Starting with [∅,P], an available x∈U\\L genuinely splits the interval: after a positive label the lower endpoint is L∪↓x, and after a negative label the upper endpoint is U\\↑x. Each free set shrinks, so induction gives the maximum over root queries of one plus the lesser branch rank (a singleton has rank 0, including for an empty poset). The number of ideals is bounded by counting antichains of maximal elements, including the empty antichain. Thus there are at most (Σ_{j≤w} binom(n,j))² endpoint pairs and at most n queries at each; checking and updating bitsets and preprocessing the order is polynomial overhead. This establishes XP, not FPT. VC shattering is equivalent to being an antichain: comparable points forbid the upper-only pattern, and the downclosure of chosen positives realizes every labeling on an antichain. On the two-row grid the ideals are exactly pairs 0≤b≤a≤n. For each t, the rectangle t≤a≤n, 0≤b≤t is a product of threshold classes with n−t+1 and t+1 concepts; median queries give the sum of the floors of their binary logarithms by concatenation, even when one factor is a singleton. At n=2^(k+1)−2 and t=2^k−1 this gives 2k. The whole grid has 2^(2k+1)−2^k ideals, so the binary leaf count gives the upper bound 2k for every k≥1. Taking t nearest n/2 also proves the all-n logarithmic estimate without claiming the formula holds at every n. This is a full proof replay (RESULT.md §§1–5); the supplied verify.py and its finite coverage were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Boolean-aggregation theorem is an upper bound for closures, not a bound on exact version-space state enumeration.",
+          "The partition result proves exact shattering/rank and a version-space description in a refinement-closed equality-query model; the zero-set paper gives exact dimensions for linear combinations of independent functions, not the poset-ideal class.",
+          "Mere intersection closure does not imply an interval version space: conditioning {∅,{a},{b},{a,b,c}} negatively at c leaves no greatest member."
+        ],
+        "reasoning": "A generic finite-class max/min recursion gives no polynomial-in-n state bound. Here the needed structure is closure of the full ideal class under both branch types plus the width bound on antichains. No inspected broader result supplies the same bounded-width algorithm.",
+        "searches": [
+          "Ghazi et al., arXiv:2007.03668 §2.2, Proposition 2.3",
+          "Resultary 2203ea0ddc4a, Finding and proof §§5–6",
+          "Guingona et al., arXiv:2109.04805v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6262182a47f2, 2203ea0ddc4a, 386b1dcb4b2c and 1c2ce94b6b24",
+        "Ghazi et al. arXiv:2007.03668",
+        "Guingona et al. arXiv:2109.04805v1",
+        "DOI 10.1016/j.tcs.2012.02.008 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior grid recurrence has O(n^4) states and O(n^5) running time for [2]×[n]; it subsumes numerical computation on that exact family.",
+          "The all-k proof needs a 2^k-by-2^k independent rectangle and the grid-wide cardinality estimate; the all-width algorithm needs the general branch-closure induction and maximal-element counting."
+        ],
+        "reasoning": "Pointwise computational access to an invariant is not a proven closed form for an infinite subsequence. The additional structural arguments prove the retained claims beyond the earlier grid algorithm.",
+        "searches": [
+          "Resultary 6262182a47f2, four-bound recurrence, exact threshold census and limitations",
+          "Ghazi et al., arXiv:2007.03668 §2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier two-row source uses exactly 0≤b≤a≤n and the same two families of threshold membership tests; its four bounds code the two ideal endpoints in this special case.",
+          "The refinement-closed partition source uses equality on pairs, not membership in lower ideals."
+        ],
+        "reasoning": "The grid aliases are equivalent and account for real partial coverage. The partition analogue is a different concept class, and the prior grid parameterization does not cover general bounded-width posets.",
+        "searches": [
+          "Local Resultary: Littlestone or mistake-tree rank of lower ideals; nested thresholds, two-row Ferrers shapes and chain interleavings",
+          "Resultary 6262182a47f2, Finding and four-interval normal form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026-10-26 grid recurrence supplies first depth thresholds 1,2,3,5,8,12,17,25,36,52; the overlapping finite dyadic values are not separately new.",
+          "The other records give exact ranks for the first five Boolean lattices and the first four heights of perfect binary ancestor ideals. Neither table concerns the all-k grid equality."
+        ],
+        "reasoning": "The observed grid values and rank evaluator are known. A finite list for the grid, or entropy saturation or deficits for other posets, does not certify the claimed infinite sequence of exact grid ranks.",
+        "searches": [
+          "Local Resultary exact width-two rank thresholds and related ideal-lattice ranks: 6262182a47f2, 386b1dcb4b2c, 1c2ce94b6b24"
+        ]
+      },
+      "rationale": "Credit the earlier exact polynomial-state two-row recurrence and finite grid census to Resultary 6262182a47f2. The distinct claims supported here are the explicit endpoint-state transition bound for all finite bounded-width posets and the uniform sharp dyadic rank, not the width-two four-endpoint recurrence, its sample values, the generic Littlestone recurrence or the VC-width identity. The earlier exact computation evaluates every fixed grid but does not give the universal dyadic equality without a separate all-k tree construction.",
+      "residual_risks": [
+        "A more general exact algorithm or a closed grid rank may be indexed under alternate order-theoretic game, threshold or Young-diagram terminology.",
+        "No historical-priority conclusion follows from the bounded searches; the inaccessible Gray-code article was not judged by its title alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior two-row computation and finite table; neither all-poset XP bound nor verified uniform dyadic rule.",
+          "evidence": [
+            "States the four-bound recurrence and O(n^5) time, with ten explicit thresholds.",
+            "The limitations distinguish the ability to compute each finite rank from a closed formula for thresholds."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-polynomial-state-littlestone-recurrence-for-two-row-order--6262182a47f2/RESULT.md",
+          "material_read": "Finding, proof steps 1–4 (offsets 0–7739), and limitations.",
+          "method": "Bounded local-mirror passages.",
+          "title": "Exact polynomial-state Littlestone recurrence for two-row order ideals",
+          "trigger": "Strongest exact overlap: same concepts, queries and rank."
+        },
+        {
+          "assessment": "Different concepts and queries.",
+          "evidence": [
+            "Refinement-closed partitions are observed via pair equality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-refinement-closed-partition-concepts-exact-shattering-supports-o--2203ea0ddc4a",
+          "material_read": "Finding and proof §§5–6, local-mirror offsets near 0 and 6000.",
+          "method": "Bounded local-mirror text inspection.",
+          "title": "Refinement-closed partition concepts: exact shattering supports",
+          "trigger": "Exact residual version spaces in another closure class."
+        },
+        {
+          "assessment": "Aggregated-class dimension upper bounds, not exact bounded-width computation.",
+          "evidence": [
+            "Bounds general Boolean aggregation rather than counting residual ideal intervals."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+          "material_read": "PDF p. 2, §2.2, Proposition 2.3.",
+          "method": "Bounded primary PDF inspection.",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "Possible more general aggregation theorem."
+        },
+        {
+          "assessment": "Exact rank result for a different object.",
+          "evidence": [
+            "Dimension d−1 for zero sets of nontrivial linear combinations of d independent functions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Version 1 PDF p. 1, abstract and stated family.",
+          "method": "Bounded primary PDF inspection.",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Exact online and static dimensions of a different structured set system."
+        },
+        {
+          "assessment": "Not used to establish noncoverage.",
+          "evidence": [
+            "The bibliographic title concerns Gray-code generation; the mathematical passages could not be checked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2012.02.008",
+          "material_read": "Citation/metadata only; full text unavailable after bounded access.",
+          "method": "Lawful retrieval attempt.",
+          "title": "Efficient generation of the ideals of a poset in gray code order, part II",
+          "trigger": "A cited related ideal algorithm under potentially overlapping terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result gives tractable exact online-rank evaluation throughout the natural class of posets of each fixed width, rather than just one structured grid. The rank certificate on the infinite dyadic family realizes the information upper bound in a class with fixed VC dimension; it gives a concrete, quantitative comparison of static and adaptive complexity and an exact benchmark for algorithms. The bounded-width transition estimate and the uniform exact subsequence, not the already available width-two rank table or the elementary VC formula, supply the value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

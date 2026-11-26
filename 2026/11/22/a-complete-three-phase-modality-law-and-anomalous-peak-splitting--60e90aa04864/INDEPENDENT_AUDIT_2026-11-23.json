@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:57:18.209754Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The normalized stationary position is the exponentially weighted integral of the unique stationary finite-state motor chain; exponential contraction eliminates the initial position, and sign reversal gives evenness. The known normalized characteristic function gives the moments of sqrt(U)*V with the frozen beta parameters. Compact support makes moment equality determining. Integrating the scaled V density against U and substituting U=z+(1-z)t gives the exact positive Euler integral, with correct normalization and no atoms. Independent ODE derivation from stationary transport: let q=p_++p_- and m=p_+-p_-. Total flux gives m=xp; the difference equation gives q'=(x^2*p)'-R*x*p; the active sum equation gives (x*q-m)'+T*p-(R+T)*q=0. Differentiate the last equation after substitution for q', so no division by 1-R-T is needed. The result is (x^3-x)p''+((6-2R-T)x^2+T-2)p'+(2-R)(3-R-T)x*p=0. Changing to u=1-x^2 gives exactly the stated Gauss ODE. At each critical point, the sign of the second derivative is fixed by the sign of minus (2-R)(R+T-3), since p>0; this prohibits a second critical point. When that coefficient is zero, ODE uniqueness for the first-order equation in f' gives either no zeros or identically zero derivative. The latter occurs only at the explicitly excepted uniform case (1,2); the half-support critical-point count is for nonuniform profiles. The increasing and decreasing regions with reinforcing factors follow by the pointwise signs of their z-derivatives, including R=1 and e=0. For R>=2 the nonincreasing scaled-V density and strict loss of positive mixture mass as x increases yield strict decrease, also at R=2. Near the outer edge the Euler factor and its z-derivative stay bounded with nonzero limiting factor, so R-1 sets the edge sign or R=1 uses e. In the two mixed regions, c+e=(T-1)/2. For T<3, scaling t=zs in I'_e gives e*B(c,1-c-e)*z^(c+e-1). For T<1, I_e itself is order z^(c+e), and at T=1 it is logarithmic, so this derivative also dominates in those cases; for 1<T<3 the density factor is finite at zero. At T=3 the derivative diverges logarithmically with sign e, and for T>3 the beta integrals yield p_z(0)/p(0)=(2-R)(R+T-3)/(2(T-3)). Therefore the mixed cases have opposite center and edge signs as claimed and each unique extremum has the stated type. The root equation follows from the differentiated Euler integral, including the factor 1/2. For the splitting, the critical equation gives |R-1|=|(1-z)I'_e/I_e|<=|e|/z because [t+(1-t)z]>=z. This explicitly excludes escape to the outer edge, which the compact-interior argument alone would not do. Thus z_* goes to zero. After scaling t=zs, the integrand of z^(1-c-e)*I'_e/e is bounded for z<1/2, |e|<=delta<1-c by s^(c-1)*(1+s/2)^(-1+delta) on the positive axis, an integrable majorant. Also I_e(z_*) tends to B(c,c) by dominance, choosing delta<c as well. The critical equation gives z_*^(1-c-e) asymptotic to e*B(c,1-c-e)/((R-1)*B(c,c)), positive on the stipulated side. Its logs give e*log z_* -> 0; the beta reflection identity and z_*=x_*^2 then yield the stated leading coefficient and exponent. This is fixed-R only and does not extend to the uniform or marginal rates or to thermal/different switching generators.",
+      "reproduction": "Independent check without executing the packaged script. For R in {1/2,1,3/2,2}, T in {1/2,1,2,3,7/2,4}, solve the exact state moment system a_n=n*(n*I-Q^transpose)^(-1)*diag(-1,0,1)*a_(n-1), where the generator Q in order -1,0,1 has rows (-R,R,0),(T/2,-T,T/2),(0,R,-R) and a_0=(T/2,R,T/2)/(R+T). Each sum through n=12 agrees with the beta-product moments (288 comparisons). Independent 70-digit quadrature integrates the Euler integrand and its first derivative, splitting at t=z and (1+z)/2, using z=10^(-10) and 0.99999 for (R,T)=(0.6,0.5),(0.6,1),(0.6,1.4),(0.6,1.6),(1,1),(1,2),(1,4),(1.4,2.4),(1.4,2.7),(1.4,3),(1.4,5),(2,4),(2.4,6). All sign pairs agree. For R=0.55 on the lower side and R=1.65 on the upper side, use |T-R-1|=10^(-3),10^(-5),10^(-8), bracket the root by z from 0.05 to 5 times the predicted z, and bisect the hypergeometric derivative for 140 iterations. At 10^(-8) the ratios of the observed x_*^(2-R) to the stated leading term were 1.00000011202705 and 0.999999503506985 respectively; direct integral derivatives also bracketed both roots within factors 0.999 and 1.001 in z. These checks are diagnostic, not proofs for the continuum. The frozen verifier was inspected as text.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. cover the entire positive-rate forward density and discuss examples and separate center/boundary behavior. Basu et al. use the same process but with a single rate R=T; their abstract gives the shape change at R=T=1.",
+          "Earlier state-resolved reconstruction determines the full motor-conditioned law and the special line joint density; the analytic-center resonance summary covers all T=R+1+2n as statements on analyticity and polynomial-beta forms. Retrieved thermal or saturating-speed transition records use other generators."
+        ],
+        "reasoning": "Forward laws, stronger state resolution, and regularity on discrete parameter curves are meaningful overlap, but not already a global result about the derivative of the marginal across an open two-rate plane. The diagonal is disjoint from the T>R+1 bimodal-interior region. No inspected dominating modal theorem supplies the full case split.",
+        "searches": [
+          "finite tumble time harmonic mode stationary gamma trimodal Sun Ye Podgornik independent two rate modality extrema active particle",
+          "hypergeometric beta product symmetric stationary density critical points location modes harmonic trap run rest beta product monotonicity unimodal classify",
+          "arXiv:1910.10083 Section 2 Eqs. (7a)–(7c)",
+          "arXiv:2409.00578v2 Sections III and V",
+          "Resultary: State-resolved stationary reconstruction beta binomial trapped three state run tumble rest particle harmonic trap and exact two moment inverse fold"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2409.00578v2",
+        "arXiv:1910.10083v1",
+        "Resultary state-resolved stationary reconstruction (Finding and proof portions); analytic-center resonance, exact two-moment inverse fold, beta–Bernoulli coupling and thermal/saturating-speed mode-law records (summaries)",
+        "arXiv:2503.11128 abstract (directional Gaussian hypergeometric beta laws, statistical sampling context; no full-text inference made)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source gives the normalized hypergeometric characteristic function and center branch, but particular local singularities do not prohibit two or more interior turning points; the scalar transport/ODE sign at a derivative zero is the necessary additional argument.",
+          "The prior joint formula (5) sums to the exact same beta profile on T=R+1. Near the resonance, the local fractional-power branch of the known law can be used as an input; balance with the regular beta curvature and control of the moving root are still required for the explicit splitting law.",
+          "The source's prose after Eq. (43) asserts a divergent outer density for R=1,T>2; the positive integral instead has a finite positive edge limit for R=1 at any T, for example p_(1,4)(x)=3(1+x^2)/8. This discrepancy concerns the prior prose, not the frozen theorem."
+        ],
+        "reasoning": "The exact distribution implicitly determines its mode diagram, but neither its existence nor center and edge local exponents are a proved global classification. The additional sign obstruction and endpoint/root balance give the specific asserted implications, rather than simply evaluating the known formula at a few parameters.",
+        "searches": [
+          "arXiv:2409.00578v2 Sections III/V, Eqs. (38)–(43)",
+          "arXiv:1910.10083 Section 2",
+          "Resultary state-resolved stationary reconstruction, Eq. (5) and flux reconstruction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same law can be defined by a three-velocity motor generator, the normalized 1F2 characteristic function, or the product of independent beta variables for the squared position and a symmetric sign.",
+          "Sun–Ye–Podgornik's source is the same general-rate forward law. The earlier Resultary inverse-fold and beta–Bernoulli coupling summaries explicitly describe beta products for this process; the exact stationary-reconstruction record gives the same beta profile at T=R+1."
+        ],
+        "reasoning": "Changing from a forward characteristic function or a product law to a positive 2F1 integral is not itself the novelty. To be an equivalent predecessor, an analysis of the transformed density must control p'(x) on (0,1) (not modes of the Z=x^2 density, which has a Jacobian), including global uniqueness and the splitting constant.",
+        "searches": [
+          "run and tumble finite tumble time harmonic trap independent rates Sun Ye Podgornik stationary density mode phase diagram extrema trimodal bimodal peak splitting exact",
+          "Resultary: finite tumble run rest harmonic trap stationary density extrema mode phase diagram peak splitting",
+          "Resultary: Exact analytic-center resonance lines for a finite-tumble run-and-tumble particle beta product first analytic line stationary distribution",
+          "arXiv:2409.00578v2 Section III"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sun et al.'s Fig. 2 shows example profiles with independently set rates and discusses local power laws; it is not a table of all half-support critical-point counts. The Resultary exact resonance summaries identify the first special line and the exact beta family, not an opening law from either side."
+        ],
+        "reasoning": "A grid of profiles and prior formulas at the transition, including the uniform point, cannot exclude unseen critical points or determine the off-line bifurcation law. No exact separately earlier matching all-rate table was identified; the audited record itself is not prior.",
+        "searches": [
+          "Resultary: finite tumble run rest harmonic trap stationary density extrema mode phase diagram peak splitting",
+          "Resultary: Exact analytic-center resonance lines for a finite-tumble run-and-tumble particle beta product first analytic line stationary distribution",
+          "arXiv:2409.00578v2 Fig. 2 and Eqs. (39)–(43)"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass only for the full two-rate global critical-point classification (apart from already known cases) and the off-resonance fixed-R splitting with explicit prefactor. The forward stationary law, beta-product method, some center/edge asymptotics, and the exact resonance profile are prior.",
+      "residual_risks": [
+        "An unlocated beta-product or special-function shape theorem could supply a nontrivial implication; the closest resonance and inverse-record comparisons were limited to indexed claims after full-text access failed. No comprehensive historical-priority claim.",
+        "An initial search was unavailable; a later distinct modality query returned no close hits, which is not evidence of absence. The conclusion rests on the actual comparison to accessible primary text and known same-model results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent forward law and qualitative/local shape facts; no full all-rate critical-point theorem in the inspected material",
+          "evidence": [
+            "Section III rescales b=v=1 and gives the hypergeometric transform and density, analyzes center divergence and outer support behavior, and states the uniform point.",
+            "Section V describes approximately independent center/boundary controls, not critical-point uniqueness or a splitting law."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2409.00578v2",
+          "material_read": "Introduction/model, Section III Eqs. (38)–(43), Fig. 2 caption and following discussion, Section V conclusion",
+          "method": "Open arXiv HTML plus targeted conclusion inspection",
+          "title": "Exact moments for a run and tumble particle with a finite tumble time in a harmonic trap",
+          "trigger": "Identical arbitrary-rate Markov motor and stationary forward distribution"
+        },
+        {
+          "assessment": "Directly covers the older diagonal shape transition only",
+          "evidence": [
+            "Both running-to-rest rates are gamma and the two rest exit rates are gamma/2, yielding R=T after rescaling. The abstract already describes three peaks below gamma/mu=1 and a central peak above it."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10083",
+          "material_read": "Abstract, Introduction, Section 2 Fig. 1 and projected rates, Eqs. (7a)–(7c), stationary equations",
+          "method": "Targeted arXiv PDF text inspection",
+          "title": "Exact stationary state of a run-and-tumble particle with three internal states in a harmonic trap",
+          "trigger": "Same three-state harmonic process and prior phase classification"
+        },
+        {
+          "assessment": "Covers the stationary state reconstruction and the exact T=R+1 marginal, not the all-rate derivative classification in the inspected statements",
+          "evidence": [
+            "Summing Eq. (5) gives exactly C_R*(1-x^2)^(R-1) at T=R+1; Eq. (1) recovers hidden-state densities from a given marginal."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-state-resolved-stationary-reconstruction-and-a-unique-beta-binom--18a2152addfb/RESULT.md",
+          "material_read": "Finding and Eqs. (1)–(5), scope, stationary flux reconstruction, moment section and proof of existence of the binomial sector",
+          "method": "Public Resultary-indexed result full-text sections",
+          "title": "State-resolved stationary reconstruction and a unique beta–binomial sector in a three-state active oscillator",
+          "trigger": "Same model, possibly stronger stationary theorem and same resonance"
+        },
+        {
+          "assessment": "Partial access; stated results include center analyticity only on resonance lines and polynomial-times-beta formulas there",
+          "evidence": [
+            "The indexed statement gives gamma_T=gamma_R+(2n+1)b with a fractional or logarithmic branch elsewhere; it does not state rate-plane extremum count or a peak-opening constant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-analytic-center-resonance-lines-for-a-finite-tumble-run-an--a0785c41aaa8",
+          "material_read": "Indexed statement only; full public raw record request timed out",
+          "method": "Targeted Resultary summary and direct lawful public retrieval attempt",
+          "title": "Exact analytic-center resonance lines for a finite-tumble run-and-tumble particle",
+          "trigger": "Same law, special line, and local nonanalytic branch relevant to splitting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The global mode census distinguishes center accumulation, support-edge accumulation and interior bimodality when the rates can vary independently, even where singularity exponents alone miss a finite local peak or valley. Ruling out competing extrema matters for interpretation of the observable and turns the fixed-R opening law into an unambiguous measurable displacement with a continuously varying exponent. The exact boundary profile and equal-rate cases are not the added value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

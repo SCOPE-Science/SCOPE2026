@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise scalar recurrence is derived by nondimensionalizing the analytic nonlinear-preconditioned quadratic iteration. The fixed-point stability frontier follows from three strict real Schur–Jury inequalities. Any primitive two-cycle must be symmetric because the soft-sign function is odd and strictly increasing; the exact cycle equation therefore has one positive solution precisely beyond the calculated frontier. The common Jacobian at the two orbit points is Schur stable throughout the supercritical range, with three explicitly positive test quantities. The no-momentum global assertion uses an invariant positive-magnitude interval and strict distance contraction toward its unique fixed point. A standalone program reproduces 9,140 supplementary numerical identities and comparisons. The nonlinear dynamics exactly at the positive-momentum stability threshold are **not** asserted.
+PASS
 
-## Originality — PASS (bibliographic risk retained)
+For the precise smooth scalar recurrence, the companion Jacobian has trace (1+beta)q and determinant beta*q. Its strict Schur region is -1/(1+2*beta)<q<1 for 0<=beta<1. At zero q=1-a; at criticality the roots are -1 and beta/(1+2*beta), and above criticality the characteristic polynomial is negative at -1, so a real root lies below -1. Adding the equations for any two-cycle and using odd injectivity of the smooth sign forces the two entries to be negatives; then solving the single remaining equation gives exactly the claimed amplitude and square-root coefficient. On this cycle q=1-a_c^3/a^2 lies strictly in the Schur interval for every finite a>a_c, and the return derivative is the square of the one-step derivative. For beta=0 the magnitude strictly decreases to zero when a<=2; at a=2 the increment of its inverse square tends to 2 off the finite-hit set. For a>2 magnitudes enter (0,sqrt(a^2-1)) unless they hit zero; the magnitude map g preserves that interval by its explicit maximum. There g+r is strictly increasing and g-r changes sign at h, giving strict contraction of distance to h off h. Above 2h iterates must eventually cross into (0,2h) or converge to a forbidden fixed point there; then strict contraction on a compact set separated from zero yields convergence to h. No global result for positive momentum follows. Read the frozen RESULT.md proof, VERIFICATION.md, and artifacts/verify_scalar_soft_muesterov.py; the recorded finite run is not a fresh execution, and the proof does not depend on it.
 
-The closest primary paper, *Convergence guarantees for Muon: New parameter regimes and generalizations* (arXiv:2609.30546v1), develops the Muesterov recurrence and small-step convergence but does not state the exact momentum-dependent period-two threshold and locally attracting branch. The published *A sharp flip frontier for the Polar-Express surrogate on scalar quadratics* concerns a different fourth-root surrogate **without** momentum: its zero-momentum phase picture does not imply the exact result for the square-root surrogate and any momentum parameter. *Insights on Muon from Simple Quadratics* discusses unsmoothed exact-sign dynamics, distinct from this analytic smooth-sign map. Closely indexed mathematical records and accessible prior findings did not disclose equivalent statements. As always, an older unindexed dynamical-systems analysis could cover the same simple nonlinear recurrence, and the literature comparison is not an exhaustive certification.
+## originality
 
-## Value — PASS
+PASS
 
-The exact threshold varies nontrivially from \(2\) to \(4/3\) over the admissible momentum range, establishes a precise instability mechanism missing from generic small-step results, and provides a unique stable competing oscillatory attractor for arbitrarily large steps. Distinguishing zero-state stability from a persistent nonzero periodic orbit is directly relevant to interpreting momentum-induced failure of convergence. The optional zero-momentum global proof makes the boundary precise without claiming a global theorem for all momentum. The scope is a one-dimensional noiseless analytic preconditioner, not full matrix Muon or a stochastic algorithm.
+Credit the same scalar model, the Nesterov linearization mechanism and analogous already-known oscillations. The supported distinction is the complete nonlinear period-two branch for this exact positive-momentum recurrence, including uniqueness and attraction for every finite supercritical step, with a global scalar zero-momentum endpoint classification. The reviewed sources and indexed comparators do not supply that result; this is not an absolute priority claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact threshold tells when increasing step size destroys local convergence in a natural scalar specialization of a published optimizer. The isolated cycle exists and stays locally stable arbitrarily far past onset, which does not follow from the threshold or a local flip theorem. The zero-momentum global result and critical rate also locate the scope of the stability analysis. The contribution is model-specific rather than a general optimization theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

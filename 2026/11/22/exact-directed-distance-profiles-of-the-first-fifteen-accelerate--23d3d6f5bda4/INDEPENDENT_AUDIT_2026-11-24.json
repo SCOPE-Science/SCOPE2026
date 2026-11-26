@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:54:32.667980Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, census.tsv and reverse_checks.txt",
+        "arXiv:2611.06878v1, §4.2, Definition 4.7, Corollary 4.8 and Example 4.9",
+        "Independent replay: python3 /workspace/branches/5481930e-4f09-4c49-a6f0-794076c24048/independent_bitfront.py MIN_LEVEL MAX_LEVEL; saved chunks use ranges 1–8, 9–12, 13, 14, 15; requires NumPy with bitwise_count",
+        "Independent direct level-1–9 check: direct_check_small.py and direct_small_01_09.txt in the same directory"
+      ],
+      "rationale": "The primary source defines accelerated first-return edges, with each edge here assigned unit cost despite variable labels. Its adjacency matrices are row-source, column-target in right-to-left lexicographic order; Corollary 4.8 and Example 4.9 give the stated two permutation recursions and check the orientation. Both base maps swap the two vertices. In the independent packed BFS, each target stores a source bitset, initially the diagonal pair; unioning the frontier bitsets at the two predecessors and removing already visited bits gives exactly the pairs newly reached at each distance. A source's last discovery depth is its outward eccentricity. All sources reach all targets. A separate ordinary directed BFS cross-checks levels 1–9. I compared the saved independent results against the actual frozen census.tsv: all 174 distance bins, 15 radii, 15 diameters, 15 eccentricity histograms and 15 ordered diametral-pair counts match. In particular, levels 9–15 have d=n+4, and level 15 has radius 18, diameter 19, eccentricity counts 18:19720 and 19:13048, and 17,136 ordered diametral pairs out of 1,073,741,824 total pairs. The Moore comparison is valid because distance at most n−1 reaches no more than 2^n−1 vertices with two outgoing edges per vertex. The proof claims neither an all-level upper bound nor a bound on the unaccelerated shift time.",
+      "residual_risks": [
+        "The frozen executables were not run. The independent computation verifies all histogram buckets and their statistics for the stated finite range only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "D’Angeli–Hammer–Rodaro give a diameter formula for their distinct tree automaton-group family. Mitchell–Walton–Whittaker establish the block recursion and strong connectivity of the accelerated Kolakoski family."
+        ],
+        "reasoning": "No identification of that other diameter theorem's graph hypotheses with the accelerated directed graphs was evidenced. Strong connectivity gives the existence of directed shortest paths, not exact diameters, eccentricities or distance multiplicities.",
+        "searches": [
+          "D’Angeli–Hammer–Rodaro arXiv:2603.09514v1, §3 Proposition 3.1 on Schreier diameters",
+          "Mitchell–Walton–Whittaker arXiv:2611.06878v1, Corollary 4.8 and Theorem 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary accelerated Kolakoski metric searches",
+        "arXiv:2611.06878v1",
+        "arXiv:2605.14234v1",
+        "arXiv:2603.09514v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 4.8 supplies only the adjacency construction; Example 4.9 illustrates level-2 matrices. Theorem 5.3 gives strong connectivity. A simple universal two-outdegree argument gives diameter at least n, not n+4."
+        ],
+        "reasoning": "Graph construction makes the metrics computable but does not evaluate them. The known theorem and universal lower bound do not mechanically imply the finite equality or the profile, e.g. the outdegree bound has no farthest-pair multiplicity information. The construction and connectivity are credited.",
+        "searches": [
+          "Corollary 4.8, Example 4.9 and Theorem 5.3, arXiv:2611.06878v1",
+          "MacAulay arXiv:2605.14234v1, finite group computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary ID ending 23d3d6f5bda4 matches the finding, including its finite range and directed distances, and is the identical assigned record. The primary graph is defined by first-return edges with variable-length original labels."
+        ],
+        "reasoning": "The exact catalogue match is not distinct coverage. Counting accelerated edges of unit cost is not the same as measuring original shifts, counting undirected steps, or tabulating periodic orbit lengths. Transposing the graph preserves the aggregate ordered-pair histogram but does not in general identify outward eccentricity histograms, so the direction convention has been checked explicitly.",
+        "searches": [
+          "Resultary: accelerated Kolakoski Schreier directed ordered-pair distance distribution, outward eccentricity and exact diameter",
+          "Mitchell–Walton–Whittaker arXiv:2611.06878v1, §4.2 and Definition 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary's exact metric-table hit is this finding itself. MacAulay reports finite-level transformation-group orders through level 12 and studies orbits of group elements."
+        ],
+        "reasoning": "The finite levels and Kolakoski terminology overlap but group orders and maximal-length permutation orbits are not all-pairs distances for the two accelerated forward edges. No distinct quantitative table covering this metric census was found in the bounded comparison.",
+        "searches": [
+          "Resultary: exact n+4 directed diameter and 17,136 diametral pairs on accelerated Kolakoski graphs",
+          "MacAulay arXiv:2605.14234v1, §3.4, p. 11 and §4"
+        ]
+      },
+      "rationale": "The supported distinct result is the evaluated metric census on the specific directed accelerated graphs for levels 1–15, including the finite n+4 run and ordered farthest-pair counts. The closest exact catalogue hit is the assigned record itself. The primary source provides the very same graphs, recurrence and strong connectivity, but its inspected construction and connectivity claims do not evaluate these metrics. Nearby transformation-group computations and other Schreier graph diameter results study different invariants or graph families.",
+      "residual_risks": [
+        "Bounded catalogue and primary-passage comparisons do not exclude unindexed specialized shortest-path calculations or establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact graph and connectivity coverage, not the evaluated metric census in these results",
+          "evidence": [
+            "First-return edges; row-source block matrices (0,Q;P,0) and (0,Q²;P²,0); strong connectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.06878v1",
+          "material_read": "§4.2 near offset 49358; Definition 4.7, Corollary 4.8 and Example 4.9, PDF pp. 12–13 (OA offsets 68907–73369); §5 Theorem 5.3",
+          "method": "OA HTML and PDF passages",
+          "title": "The full Kolakoski shift is topologically transitive",
+          "trigger": "Primary source for exactly the same directed accelerated graphs"
+        },
+        {
+          "assessment": "Transformation groups and orbit lengths, not shortest directed distances",
+          "evidence": [
+            "Finite group orders are given through level 12."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.14234",
+          "material_read": "Abstract, §3.4 p. 11 and §4",
+          "method": "OA PDF, bounded passages",
+          "title": "Group Theory of the Kolakoski Sequence",
+          "trigger": "Related Kolakoski automata with finite-level exact tables"
+        },
+        {
+          "assessment": "Distinct tree automaton-group graph family",
+          "evidence": [
+            "The proposition computes a Schreier diameter in that setting, not a Kolakoski directed pair-profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.09514",
+          "material_read": "§3, Proposition 3.1, PDF p. 5",
+          "method": "OA PDF, bounded passage",
+          "title": "D’Angeli–Hammer–Rodaro, arXiv:2603.09514",
+          "trigger": "Nearby exact Schreier diameter formula"
+        },
+        {
+          "assessment": "Identical assigned record, not separate coverage",
+          "evidence": [
+            "Same level range, same diameter n+4 at levels 9–15 and 17,136 ordered pairs at maximal distance at level 15."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-directed-distance-profiles-of-the-first-fifteen-accelerate--23d3d6f5bda4",
+          "material_read": "Finding and metric summary",
+          "method": "Resultary hit compared against bound original RESULT.md",
+          "title": "Exact directed-distance profiles of the first fifteen accelerated Kolakoski Schreier graphs",
+          "trigger": "Strongest exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mitchell–Walton–Whittaker, §4.2 and Theorem 5.3",
+        "Frozen census.tsv and independent distance-profile comparison"
+      ],
+      "rationale": "The accelerated graphs arise in an established proof about the Kolakoski shift; their directed metric quantifies how far apart targets remain after acceleration, beyond the qualitative fact of strong connectivity. The profile gives reusable exact benchmarks for tight diameter or eccentricity estimates. A full initial range through level 15 covers both the lower-level transitions and the seven-level diameter excess of four, while histograms measure the rarity of extreme paths rather than only their existence. This is a useful finite result, not evidence of a proved asymptotic pattern or any elapsed-shift-time bound.",
+      "residual_risks": [
+        "The cutoff is finite; no stabilization or upper bound for levels beyond 15 is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

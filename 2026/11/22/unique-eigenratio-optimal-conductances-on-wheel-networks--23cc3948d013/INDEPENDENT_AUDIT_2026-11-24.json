@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:39:34.050886Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the complement of constants, the hub-versus-rim vector gives Rayleigh value (m+1) mean(a). Averaging the first real Fourier pair gives mean(a)+s_m mean(b), an upper bound on the gap; averaging the highest pair gives mean(a)+S_m mean(b), a lower bound on the maximum. In the even case the last pair is replaced by the alternating mode of norm squared m, giving the same comparison. Thus for all connected allocations the eigenratio is bounded below by the displayed max/min function of r=mean(b)/mean(a), with finite r because the hub is connected. The function strictly decreases up to m/S_m and then strictly increases: the middle rational branch has derivative (S_m-s_m)/(1+s_m r)^2 and this middle interval collapses at m=3. Constant within-class weights realize the Fourier spectrum and bound, including K4. At equality the mean ratio is forced and both first real Fourier vectors individually attain the minimum Rayleigh value, so the first complex mode is a gap eigenvector. At each rim vertex its eigen-equation has imaginary part (b_(j-1)-b_j)sin(2pi/m)=0 and then forces a_j constant via its real part. This rules out all asymmetric optima, not merely those found by averaging. For m>=7, s_m<1 makes the uniform-star gap bound sharp and strict unless the rim budget is zero, with spoke equality again forced. Dividing the two gap formulas yields the stated comparison, and s_m=4pi²/m²+O(m^-4), S_m=4+O(m^-2) give the asymptotics. Independently assembled incidence-based Laplacians agree for eight sizes and 48 sampled nonsymmetric budgets; for B=1, m=6 gives ratio 2.8, and m=7 gives ratio 3.35227951010077 and gap fraction 0.839949343506056. Replay: python /workspace/branches/reproduce_frozen.py (wheels section). Frozen checker and verification notes inspected, not executed. The all-conductance theorem is analytic; the comparison refers to the combinatorial Laplacian, not normalized or stochastic weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kempton et al. abstract and Eq. (4) optimize the same eigenratio with nonnegative weights under maximum weighted-degree caps; positive caps cover every connected ray after rescaling.",
+          "Shafi et al. §IV gives general spectral-constraint formulations. The same-day exact eigenratio result concerns one-leaf coronas; its cyclic case gives a sunlet, not a wheel."
+        ],
+        "reasoning": "The generic problem covers these wheel shapes, but the inspected optimization formulations do not solve their equality cases or yield b/a=m/S_m by statement or immediate specialization. A common hub is not interchangeable with m private leaves; the corona classification does not include wheels.",
+        "searches": [
+          "arXiv:1505.07279",
+          "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+          "2026/11/22/SCOPE-a-reciprocal-eigenratio-optimum-for-one-leaf-graph-coronas--12d89118b80f"
+        ]
+      },
+      "checked_sources": [
+        "Earlier indexed wheel gap and wheel SLEM records",
+        "Kempton–Herrmann–di Bernardo arXiv:1505.07279",
+        "Boyd–Diaconis–Parrilo–Xiao Eq. (1.1) and §5.4.3",
+        "Shafi–Arcak–El Ghaoui Allerton 2010 §§I, IV",
+        "Same-day exact corona eigenratio record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quadratic-price frontier supplies the same Figuring-of-gap comparator, and related first-mode equality tools are already established. At m>=7 the gap-optimal wheel is a star; the present eigenratio optimizer has strictly positive rim on every edge.",
+          "The generic cap-constrained eigenratio framework supplies an algorithmic optimization model, not the wheel ratio or a rigidity statement."
+        ],
+        "reasoning": "Averaging can account for a symmetric candidate but not uniqueness among independent asymmetric variables. The simultaneous spectral bounds and their sharp equality analysis are needed for exact classification and the separation; neither the previous maximizing-gap statement nor the stochastic-chain theorem entails them.",
+        "searches": [
+          "Indexed quadratic spoke-price frontier, Finding",
+          "Kempton et al. arXiv:1505.07279, Eq. (4)",
+          "Boyd et al. wheel stochastic theorem §5.4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd et al. Eq. (1.1) minimizes SLEM of nonnegative symmetric stochastic P; the closed wheel solution in §5.4.3 gives relative rim/spoke transition rate 2 for six rim vertices, whereas the eigenratio solution gives 3/2.",
+          "The indexed constrained wheel mixing law likewise minimizes SLEM, with a lower bound on individual rim transitions."
+        ],
+        "reasoning": "Eigenratio is equivalent to choosing the best global unconstrained scalar rescaling of the spectrum on the complement of constants, but the implied stochastic matrix need not have nonnegative diagonal. The actual rate discrepancy proves the inspected SLEM method gives a different optimizer.",
+        "searches": [
+          "Resultary meaning search: weighted wheel Laplacian eigenratio, absolute gap and discrete-time SLEM",
+          "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "2026/11/8/SCOPE-a-four-phase-constrained-fastest-mixing-law-for-wheel-networks--bf3349aa8c4f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed same-graph gap theorem specifies the star at equal prices for m>=7, not the eigenratio allocation. The stochastic wheel formula is exact but already differs for m=6. A same-objective exact catalogue hit on coronas uses a different graph."
+        ],
+        "reasoning": "A formula for the cycle frequencies or a table of wheel spectra is input to the optimization, not the optimum for independent weights. No independent exact entry found has this optimizer and unrestricted uniqueness.",
+        "searches": [
+          "Resultary wheel eigenratio and symmetric wheel spectrum lookup",
+          "2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99",
+          "Boyd et al. §5.4.3"
+        ]
+      },
+      "rationale": "The established optimization problem and wheel Fourier formulas are not claimed as new. The supported distinction is the exact all-size wheel eigenratio optimum, uniqueness against asymmetric allocations at fixed total budget, and its quantitative separation from absolute gap optimization. The earlier gap formula is credited, and the generic eigenratio literature genuinely overlaps in feasible shapes.",
+      "residual_risks": [
+        "Kempton et al.'s supplement was not separately read; related generic graph design literature may contain an unindexed wheel specialization.",
+        "The broad published-source query was uninformative and gives no evidence of absence. The same-day corona record has no established priority order relative to this one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the gap comparator, not the ratio design",
+          "evidence": "Star, full-rim and critical regimes for maximizing lambda_2 with class-dependent prices and no asymmetric optima.",
+          "identifier_or_url": "2026/10/12/SCOPE-quadratic-spoke-price-frontier-for-fastest-mixing-on-wheels--24216ca23b99",
+          "material_read": "Local RESULT Finding, chars 416–3933",
+          "method": "Resultary local mirror, statement comparison",
+          "title": "Quadratic spoke-price frontier for fastest mixing on wheels",
+          "trigger": "Exact wheel conductance optimum, same unrestricted edge class"
+        },
+        {
+          "assessment": "Covers weight-ray optimization as a framework; no exact wheel result seen",
+          "evidence": "Defines lambda_n/lambda_2, weighted-degree feasible caps, quasiconvexity and distributed optimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.07279",
+          "material_read": "PDF p. 1 abstract and p. 2 Eq. (4) and adjoining text",
+          "method": "Lawful OA preprint passages",
+          "title": "Self-organization of weighted networks for optimal synchronizability",
+          "trigger": "Same scale-invariant objective in generic weight-design framework"
+        },
+        {
+          "assessment": "Different stochastic constraints and objective",
+          "evidence": "Entrywise nonnegative stochastic P; q*/p*=2 at six rim vertices.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "PDF p. 2 Eq. (1.1), §5.4.3 printed pp. 814–815",
+          "method": "Lawful OA PDF mathematical statement comparison",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Exact earlier wheel optimizer"
+        },
+        {
+          "assessment": "Generic spectral-constraint design, not demonstrated coverage of the claim",
+          "evidence": "The abstract discusses eigenvalue spread; §IV gives semidefinite upper/lower eigenvalue constraints.",
+          "identifier_or_url": "https://people.eecs.berkeley.edu/~elghaoui/Pubs/SAE_Allerton_2010.pdf",
+          "material_read": "PDF p. 1 abstract and §IV p. 4",
+          "method": "Lawful OA primary-text passages",
+          "title": "Designing Node and Edge Weights of a Graph to Meet Laplacian Eigenvalue Constraints",
+          "trigger": "General Laplacian optimization with budgets"
+        },
+        {
+          "assessment": "Related objective and rigidity, different topology; priority not inferred",
+          "evidence": "Cycle cores with private leaves give sunlets; no common-hub wheel result.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-reciprocal-eigenratio-optimum-for-one-leaf-graph-coronas--12d89118b80f",
+          "material_read": "Local RESULT Finding, chars 0–3947",
+          "method": "Local mirror",
+          "title": "A reciprocal eigenratio optimum for one-leaf graph coronas",
+          "trigger": "Same-day exact unrestricted eigenratio theorem on graph families"
+        },
+        {
+          "assessment": "Different stochastic problem",
+          "evidence": "Individual rim transition minimum and SLEM, with unconstrained chain at threshold zero.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-four-phase-constrained-fastest-mixing-law-for-wheel-networks--bf3349aa8c4f",
+          "material_read": "Local RESULT Finding, chars 0–3840",
+          "method": "Local mirror",
+          "title": "A four-phase constrained fastest-mixing law for wheel networks",
+          "trigger": "Same-graph explicit fastest-mixing law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The wheel is a standard test graph with a universal hub and local cycle constraints. The result separates two natural spectral meanings of fast convergence on exactly the same feasible graph, showing a constant-order eigenratio benefit at an order-m cost in absolute decay rate in the regime studied. The exact allocation and equality rigidity make the tradeoff interpretable and usable, rather than reporting an isolated numerical improvement or a symmetric-candidate computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

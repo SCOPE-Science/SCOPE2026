@@ -1,19 +1,21 @@
-# Review: square-root price singularity in resistance-optimal subdivided bicliques
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem covers all integer bipartitions with at least two vertices in each class, all strictly positive edge prices and budgets, and the whole unrestricted edge-conductance simplex. Strict convexity is obtained from the second derivative of the positive-definite trace-inverse after fixing the all-ones eigenvector; injectivity of the edge-weighted Laplacian supplies uniqueness. The four spectral sectors have total dimension equal to the subdivided graph, and direct reciprocal-eigenvalue summation gives the explicit Kirchhoff index. Budget elimination yields the stationarity equation; the same convexity proves it has exactly one positive optimizer. The balanced asymptotic follows from the coefficient ratio, and the critical-window profile follows from a strictly decreasing rational bijection. The standalone verifier independently confirms small full spectra, price optimizers, polynomial identities and limiting comparisons. Finite numerical checks are not the proof of the infinite statements.
+PASS
 
-## Originality — PASS, with residual coverage risk
+On the orthogonal complement of the constants, the objective is N times the trace of the inverse Laplacian. Its second directional derivative is strictly positive for any nonzero Laplacian perturbation, and the edge-to-Laplacian map is injective here. As a connected allocation approaches disconnection the smallest restricted eigenvalue goes to zero. Compactness therefore gives an attained unique optimum, fixed by S_p × S_q; either orbit weight zero would isolate original vertices. Homogeneity forces full spending. In an orthonormal left-standard block the diagonal is (qx,x+y) and the off-diagonal is −√q x, giving determinant qxy; the right block gives pxy. In the constant block the three principal two-minors are pqxy, qxy, pxy, so their sum is Nxy. The remaining (p−1)(q−1) directions have eigenvalue x+y. Summing inverse eigenvalues verifies all coefficients. The full-budget t parametrization is regular and bijective on the positive budget segment, so strict convexity on the segment justifies uniqueness of the stationary root, without claiming convexity in t. In the balanced case c_m/a_m ∼ m; for Q>P the root is bounded above by √(P/Q), hence tends to zero and gives m t² → P/(Q−P). Swapping sides and equality handle the other prices. In the fixed-δ window the limiting derivative equation has a unique sign-changing zero because φ(t)=(1−t)(1+t)^3/t² strictly decreases from +∞ to −∞. Uniform convergence on compact positive t-intervals brackets the finite-size root at that zero. These are general proof checks; verify.py was inspected, not run. Its spectral and optimizer examples are finite numerical corroboration, not certificates of the limits.
 
-Ghosh, Boyd and Saberi's 2006 proceedings article gives general convex conductance allocation, including analytic barbell results; it does not derive the stated two-price edge-subdivided biclique formulas. Yang and Klein's March 7, 2014 arXiv preprint treats unweighted Kirchhoff indices of subdivisions and triangulations, not independently priced conductances or their optimizing singular asymptotics. The exact objects, limiting ratio, order-inverse-size price window, and possible stronger reductions were compared with these sources and indexed related mathematical claims. Generic convexity and unweighted subdivision formulas alone do not imply the priced optimality or limit curve without the weighted decomposition and optimization proved here. Specialized historical or nonindexed treatment might still cover parts of the result; the search does not establish absolute uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Private relay vertices on every biclique edge form a standard natural network subdivision. Optimizing total effective resistance under classwise pricing is a meaningful allocation question with a completely explicit objective. The result identifies a nontrivial singular structure: the expensive class remains essential for connectivity at every finite size yet receives an asymptotically vanishing relative conductance, with square-root scaling; the critical window of price asymmetry is exactly inverse-size, not simply a smooth fixed-price perturbation. The exact arbitrary-imbalance formula and balanced crossover give usable test cases for resistance-network design and spectral optimization beyond a routine unweighted index evaluation.
+General convexity and the homogeneous subdivision Kirchhoff index are covered antecedents. The supported distinct contribution is the unequal-price, two-spoke-orbit optimization on the once-subdivided biclique, and its fixed-gap and positive critical-window laws. The strongest inspected matching-price records concern unsubdivided graphs and their different support limit does not imply this one.
 
-## Limitations and relevant literature
+## value
 
-The asymptotics are specific to balanced bipartitions; the finite graph formula covers arbitrary bipartitions of the stated size. The work is not a general theory for every subdivided graph. The closest inspected primary texts are the 2006 Ghosh–Boyd–Saberi proceedings paper and Yang–Klein's arXiv:1403.1851. Broader or uncatalogued weighted-subdivision studies remain a legitimate coverage risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural design problem reveals support retention despite an asymptotically vanishing expensive allocation. The weighted trace resolves the competition between the leading (x+y) term and the spoke-specific singular terms, quantifies the exact optimum for finite graphs, and yields a continuous positive crossover distinct from matching deletion on ordinary bicliques. That makes the result useful beyond a unit-weight numerical evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact joint probability-generating function follows from three exclusive single-particle statuses and the Poisson marking formula. A Palm argument selects precisely the first binding particle; differentiation gives the displayed conditional generating function and mean. The derivative identity \(\int_0^t\rho(u)\psi''(q(u))\,du=\mu-\psi'(q(t))\) proves fixed-positive-time finiteness even if the batch second moment diverges. Dominated/monotone convergence and a regularly varying Riemann sum give the size-biased limit and the complete three-regime theorem. The Brownian erfc asymptotic fixes the logarithmic and essential factors. Independent finite-state checks in `CHECK.py` passed 54 comparisons; `TAIL_CHECK.py` passed six finite power-tail comparisons. The analytical arguments, not these finite checks, establish the theorem.
+PASS
 
-## Originality — PASS, qualified
+For the density-based conditioning at t>0, the marked-batch intensity for a designated binder of age u carries weight z rho(u) psi'(w(u)+z ell(u)). Its independent background contributes the Poisson generating functional; at z=1 the age integral is 1-psi(q(t)). The binder accounts for the extra one in the mean. Monotone differentiation from below is valid even with infinite second moment: the possibly singular integral is bounded by mu-psi'(q(t)), by changing variables from age to binding probability. Uniform convergence of the short-age marks then gives the normalized pgf psi'(z)/mu and reduces the mean to the difference quotient of psi'. If J=1 almost surely, the triggering-batch sibling term vanishes identically. For the tail exponent between one and two, the rescaled sum has integrable bounds proportional to x^(-alpha) min(x,1), and integration by parts gives Gamma(2-alpha)/(alpha-1). At alpha=2, truncating at j=floor(1/F) and replacing 1-(1-F)^(j-1) by (j-1)F costs O(F) including the upper tail; the lower sum has leading c F log(1/F). The erfc asymptotic and the bounds exp(-dt)P(H<=t)<=F(t)<=P(H<=t) give the displayed constants. Finite ordinary mean follows by domination by total production. Inspected both frozen scripts without executing them. A separate finite check, python3 -B /workspace/review-evidence/independent_checks.py 2, passed 12 uniformized exponential-hitting generator comparisons; it does not attest to Brownian or infinite-tail limits.
 
-Boyer and Mercado-Vásquez, arXiv:2611.04843v1, Sections 2, 4 and 6 and Appendix A, already establish the single-particle input, unconditional particle counts, first-binding marginal survival, mean first-passage times, and burst comparisons. Those are not claimed. The new joint live-count/first-binding transform retains information missing from the no-hit marginal, and the sharp second-moment-boundary law has different quantifiers and outcomes. Mercado-Vásquez and Boyer, arXiv:2602.11095, treat earlier unit-production first-passage theory. Accessible statement-level comparisons with relevant published work on mortal recruitment, renewal sources and batch-reset gases did not identify a covering statement. Some complete manuscripts remained inaccessible; an equivalent in general marked-Poisson Palm literature cannot be excluded and is a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The live population at the first actual reaction, rather than its unconditional mean or the average reaction waiting time, is a natural size-biased observable in burst-produced transport. The theorem determines exactly when this conditional mean remains bounded and identifies both a critical inverse-time law and an essential singularity, with leading constants and no source-intensity dependence. The results do not establish experimental observability, noisy inference, interactions or nonexponential mortality.
+Credit the same-model survival marginal, standard Palm weighting and regular-variation tools as prior. The checked sources do not cover the joint live count, its early size-biased limit in the stated batch immigration model, or its sharp Brownian mean crossover. Same-day related records are compared on their statements, not presumed later.
 
-## References and integrity
+## value
 
-The scientific source is D. Boyer and G. Mercado-Vásquez, *Stochastic synthesis and degradation of arbitrary diffusive processes*, arXiv:2611.04843v1 (3 November 2026). The preceding unit-production source is arXiv:2602.11095v1. The complete contents of the mathematical claim and proof are in `RESULT.md`; numerical checks are independent supporting evidence only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The actual population present at binding is distinct from ordinary occupancy or mean first-passage time. The finite-time integrability versus early-time divergence and the change from an essential singularity to an inverse-time law and then a finite limit identify exactly when marginal population averages are misleading for this observable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

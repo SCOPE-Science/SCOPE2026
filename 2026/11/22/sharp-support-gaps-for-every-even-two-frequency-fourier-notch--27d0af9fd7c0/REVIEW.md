@@ -1,11 +1,21 @@
-# Scientific review of the even-notch support-gap theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The global maximum \(\lambda_k\) is certified by strict monotonicity of the derivative's sign function on the first negative-cosine lobe and a strict denominator bound on every later lobe. This proves the witness \(P_k\ge0\) on the entire putative support interval, with exactly two contacts. Integrating it forces the claimed two cosine fibers, whose weights and two sine constraints give the explicit rigid equality measure. The simple-root implicit-function expansion establishes the \(O(k^{-3})\) gap remainder. The delivered `CHECK.py` confirms sampled cases and identities but supplies no inference beyond finite diagnostics. The proof treats all finite positive Borel measures and complex Fourier zeros, including endpoints.
+## correctness
 
-**Originality — PASS, best-knowledge.** The exact fourth-notch result is known and excluded from the new contribution. The retrieved three-notch \(\{1,2,6\}\) result assumes an additional moment and does not imply a statement about all measures satisfying only \(\{1,k\}\). Peherstorfer's consecutive-degree quadrature theorem and Tan–Zhang's consecutive-zero support-gap theorem impose different, stronger constraints. Di Dio–Kummer's small-gap moment results address atom-number bounds, not longest circular arcs. The all-even unique-contact and large-frequency law was not found in the actual broad/alias searches. Gilbert–Smyth (2000) and Goldstein–McDonald (1984) remain unresolved abstract-level priority risks, not evidence of novelty.
+PASS
 
-**Value — PASS.** This is a natural infinite hierarchy of two-frequency Fourier exactness designs: it determines an exact sharp geometric invariant and all extremizers, including genuinely new secondary frequencies six and higher and the precise approach to a semicircular gap. The four-point and sixth-notch examples give benchmark optimal sparse positive quadrature measures. It is not a single arbitrary finite calculation or a routine rescaling of the known fourth-notch case; the first-lobe domination proof is uniform in the harmonic index.
+Reconstructed the global witness proof in RESULT.md §§1–5. F_k(x)=(-1)^{k/2}T_k(x). On the first negative-cosine lobe, the derivative of −cos(t)/sin(t/k) has the sign of g_k, with g′_k=(1−k^{-2})cos(t)sin(t/k)<0 and opposite signs at π/2 and π. Thus there is exactly one positive maximizing contact there; if k≥6, all later negative lobes have t≥5π/2, and their ratio is strictly smaller than h_k(π) by denominator monotonicity on the allowed range. For k=4 no later negative lobe occurs. Strict decrease of F_k(u)−λ_k u on [0,sin(π/(2k))] gives exactly the left contact. Integration against any positive measure after rotating its complementary support arc forces the contact fibers, excluding any longer gap by the first cosine moment. At the sharp gap the first cosine moment fixes both positive totals, the polynomial witness enforces the kth cosine moment, and the opposite nonzero kth sine signs make the sine matrix nonsingular. Hence the stated four-point measure attains the bound and is rigid. Uniformly on [π/2,π], k g_k(t)=t sin t+cos t+O(k^{-2}); the limiting root is simple. This gives t_k=t_*+O(k^{-2}), λ_k/k=L+O(k^{-2}); the equation for a_k=k arcsin r_k has uniformly O(k^{-2}) error and a simple limiting root, giving the claimed O(k^{-3}) for G_k. Independent 60-digit evaluations agree with the displayed a_*, G₄, G₆ and G₈. The inspected Python checker covers finite meshes and includes k=2 only as a diagnostic; its hardcoded G₄ benchmark differs from the actual 2.569356100631680534… by about 2×10^{-13}, well within its explicit tolerance. No script run or numerical mesh was used as a proof.
 
-The main limits are to even secondary frequencies and exact vanishing conditions; neither perturbation stability nor an independently certified historical priority is claimed. Some older relevant full texts were inaccessible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported new scope is the uniform even family beginning at k=6, its rigid optimizers and high-harmonic law. The revealed same-day {1,4} match is exact at k=4 and explicitly credited by the audited record (which names the other result ID in its frozen audit); it is not counted as new. The statement comparisons do not establish an antecedent for the uniform new claim. Older extremal trigonometric papers remain genuine access risks.
+
+## value
+
+PASS
+
+The exact feasible support gap for two prescribed Fourier zeros is a natural sparse quadrature invariant. The uniform first-lobe argument determines it and all extremizers for every even degree, not merely a tabulated low-degree substitution. The limiting approach to a semicircular gap with an exact leading coefficient and the four-node rigidity make the classification useful for comparisons across harmonics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

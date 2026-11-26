@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mixed-axis stationary-entanglement classification
+# Independent mathematical audit
 
-From the package directory, run `python checker.py` with SymPy and NumPy available. This reconstructs the stationary matrix from the displayed rational expressions; symbolically checks the exact two rationalized partial-transpose branches and the eighth-degree sign polynomial; verifies coefficientwise positivity of the polynomial certifying exclusion of the second branch; verifies the decisive relationship between the middle coefficients of the first-branch polynomial; and solves independently assembled complex \(16\times16\) Lindblad generators for 130 randomized strictly positive parameter tuples.
+## correctness
 
-For each of those 130 tuples, the checker compares the explicit stationary state with direct linear-system solution, trace, positive-semidefiniteness, and direct Wootters-eigenvalue concurrence. Another 120 independent random triples check one positive polynomial root and the concurrence signs on either side. The completed run printed `PASS: symbolic coefficient certificate, one-crossing argument, independent 16x16 master equation and direct concurrence; numeric assertions: 880`. Exact symbolic coefficient positivity establishes the all-positive-parameter claims; random cases are finite consistency tests, not a substitute for the analytic proof.
+PASS
 
-Scope limitation: the modeled noise operators are precisely \(X\otimes I\) and \(I\otimes Z\) with Poisson *joint* state resets to \(\lvert00\rangle\). No many-body, thermal or arbitrary-noise universality is established. Independent experimental validation, independent audit, and comprehensive priority certification have not been performed.
+For every fixed J,a,b,r>0 the trace-preserving completely positive no-reset evolution yields the displayed positive, unit-trace reset resolvent, and differences contract at least as e^{-rt}. An independent exact substitution into the full four-by-four master equation verified the stationary matrix, all nine printed coefficients of P, and 55 strictly positive monomials in Q; thus the second concurrence branch is strictly negative. For the first branch positivity is equivalent to P>0 by rationalization of nonnegative operands. P0–P2 are negative and P5–P8 positive. B3 decreases in J² and is positive at J²=a²/20; if P3≥0, then J²>a²/20 and the verified expression B4−B3 is strictly negative, so P4>0. Descartes' rule (discarding zero coefficients) with the endpoint signs gives one simple positive root and the exact inclusive separable interval. The independent radicand limit r⁴(s_o²−w²)=24a²J² in the limit, together with q+k=2J/r+O(r⁻²), gives the claimed expansion. Replay: python3 /workspace/branches/independent_exact_checks.py qubits. Frozen checker inspected, not run; its 880 numerical assertions are reported by the source, not independently replayed. The high-rate law is pointwise in the fixed noise/coupling rates.
+
+## originality
+
+PASS
+
+The strongest inspected matches already contain joint-reset stationary concurrence, one-onset diagrams and high-reset entanglement under other hypotheses. They do not cover the specific mixed local axes, for which the verified result is a strictly positive unique threshold for every finite positive pair of local rates. This is a bounded statement-level conclusion, not a general novelty claim for entanglement by resetting or for the resolvent.
+
+## value
+
+PASS
+
+An exhaustive classification of the entanglement sign for a naturally specified pair of local Pauli errors distinguishes an axis-induced change in the achievable phase diagram: no finite fixed pair of noise rates forbids entanglement, and no further disentanglement window is possible beyond the onset. The latter does not follow just from the high-reset expansion; the threshold can be calculated from the explicit polynomial. This does not mean concurrence is monotone above onset or remains appreciable as r grows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific assessment: exact nodal walls and bielliptic canonical model
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives a complete gradient elimination over the affine chart and a separate exhaustive infinity analysis. All putative additional singularities are nondegenerate by exact Hessian determinants. The six base points are transverse and have analytic normal form \(u^3+sv^2=0\). Bézout excludes factorization of a sextic with at most four nodes and six unibranch cusps; the genus and Tjurina formulas then follow. The quadric-cubic model is obtained by reversible homogeneous identities, its generic smoothness follows from equality of arithmetic and geometric genus, and the quotient cubic is checked smooth away from the same walls. Exact symbolic checks in `check.py` passed. The proof does not cover the excluded parameter lines.
+PASS
 
-## Originality — PASS, qualified
+On the smooth conic the restriction of H is u⁶+λu³v³+v⁶ with six simple zeros, giving transverse coordinates and six A₂ points. Off the base points, the affine critical equations imply x³=y³. If one coordinate vanishes both do, with curve equation sλ²=1 and quadratic 3xy. Otherwise the order-three symmetry takes the point to the diagonal w; the derivative and equation give H=2wG, then w=−λ/2 and s=1/λ²−1/4. For x=w+e+d,y=w+e−d the quadratic part is 3Ue²−9U²d² with U=w²−1≠0, hence nodal. At infinity repeated binary roots force s=−1/4 and y³=1, with transverse Z derivative zero and quadratic at y=1 equal to −9(y−1)²/4−3Z². The three walls therefore exhaust the possible outer singularities; only the first two can coincide, at λ²=−4. Finiteness of the singular locus forces reducedness; a proper factorization would require at least five intersections by Bézout, impossible at unibranch cusps and at most four transverse nodes. The genus and Tjurina counts follow from g_a=10 and local δ=1 and τ=2,1. For the lift, use G+T²=H−cT³=0 in [X:Y:Z:T]; where G≠0 the inverse is T=−sqrt(s)H/G, and over G=H=0 the lifted system is smooth by transversality of dG,dH at T=0. This checks smoothness globally off walls, and gives the stated complete intersection after the linear change of coordinates. Adjunction makes it canonical. The cubic gradient with T=0, Z=0, or TZ≠0 allows a singularity only at λ²=4, s=−1/4, or s=1/λ²−1/4, respectively. The quadratic cover is branched at the zeros of a degree-six section on this smooth cubic, all simple because a multiple zero would make the covering curve singular.
 
-Oka–Pho's classification already contains the exact singularity *baskets* \(6A_2+A_1\), \(6A_2+3A_1\) and \(6A_2+4A_1\); those baskets are expressly prior art. The additional statements are the exact parameter-wall arrangement and four-node collision in the specified symmetric two-parameter pencil, the all-fiber integrality on the stated open base, and the explicit smooth canonical bielliptic normalization on its complementary open subset. The 2026 Dimca–Sticlaru paper treats Tjurina/Betti formulas but not the exact symmetric pencil; the Cogolludo-Agustín–Elduque generic-fiber result is likewise not a special-fiber classification. Searches of published mathematical records and accessible prior claims found no direct or stronger equivalent description. Risk remains that a differently parameterized classical normal form encodes the same information.
+## originality
 
-## Value — PASS
+PASS
 
-The family is a geometrically natural symmetric \((2,3)\)-torus pencil with six persistent cusps. The classification identifies every parameter at which its geometric genus and Tjurina scheme jump, including a transverse four-node crossing that forces rational normalization. The canonical quadric-cubic equations identify a bielliptic structure on the generic genus-four normalization, providing a useful bridge from singular plane models to smooth canonical curves. This is more structural than an isolated basket example, and the exact walls are not implied merely by the known existence of those baskets.
+Oka–Pho already give the singularity baskets and genera, and the torus lift as a method is not the distinguishing point. The verified surviving result is the wall equations with node locations and the exceptional collision in this symmetric normal form, together with its explicit bielliptic description off the walls. The closest distinct indexed diagonal pencil has a similar node census but is not the same projective family.
 
-## Limits of review
+## value
 
-Only the new statements were assessed. The main remaining originality risk is an equivalent published parameterization not found by the inspected source sections, semantic record comparisons, or exact-formula web searches. The excluded parameter loci are not classified. The checker supplements, rather than replaces, the mathematical proof. No external audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The symmetric torus family is a concrete test of how known singularity baskets occur in parameter space. The exact exhaustive wall geometry distinguishes isolated genus-one and genus-three walls from a rational collision, and the generic involution and its branch data give a usable model of the normalized curves. Recomputing the listed baskets or genera alone would not establish this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

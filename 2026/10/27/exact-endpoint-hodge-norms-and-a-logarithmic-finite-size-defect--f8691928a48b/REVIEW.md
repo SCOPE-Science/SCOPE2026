@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof starts from the exact factorization \(L=(3I+A)L_C\) and a cyclic resolvent with exponentially decaying alternating kernel. It obtains every cut-projection edge column for both displacement classes and the diagonal effective resistances. The universal kernel inequalities bound the short-edge norm, a five-current lower estimate handles the long-edge norm, and exact strict dominance follows analytically for \(n\ge17\) (cut) and \(n\ge36\) (cycle). Exact rational elimination checks all smaller admissible integers; the separate direct graph-Laplacian replay checks the current formulas. The two infinite geometric tails establish the logarithmic asymptotics. The checked executable is `checker.py`; no floating-point experiments replace proof. The claim excludes nonorthogonal projection optimization and general cycle powers.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+For the indicated orientations L=(3I+S+S^{-1})(2I-S-S^{-1}); periodizing q^{|j|}/sqrt(5) solves the first factor's dipole-kernel calculation (the kernel itself solves the delta source), with mass 1/5. Convolving the centered cycle path current gives the two signed current rows for each edge type. Both rows sum to zero, and passing from Q to I-Q replaces just a positive diagonal R in (0,1) by 1-R. The five selected positive long-edge entries yield A2 >= 2+2K0-32/(5n); subtracting the short-edge geometric upper bound and then 2(R2-R1) yields the stated strict cut comparison for n>=17 and strict cycle comparison for n>=36. Separately reconstructed both full columns from the grounded graph Laplacian at every n=7..35 and matched the resolvent entries exactly; the minimum margins were 12/91 and 8/91, both at 7. Replay: python3 /workspace/branches/frozen_math_recheck.py 2. For each long-edge row its two positive geometric tails have ratio r^2 and jointly contain log(n)/log(1/r)+O(1) entries above the baseline; the discarded tail mass is O(1/n). Periodization alters the centered-representative sums by at most an exponential tail in absolute mass, since positive part is 1-Lipschitz. Doubling the losses for baselines 2/(5n) and 4/(5n) gives the common coefficient 12/(5 log(1/r)); the zero-baseline mass and diagonal limit give the stated constants. Symmetry gives equality of the induced real 1 and infinity norms. The frozen script was read, not run.
 
-The principal eligible framework is Dilworth--Kutzarova--Ostrovskii, arXiv:2305.12582 (first posted 2023-05-21), on invariant cycle projections and torus/Hamming examples. The strongest same-object comparison is the published squared-cycle pairwise hitting-time formula of Doi et al., arXiv:2110.12614, together with Chair's exact effective resistances, arXiv:1401.5628. Their data can recover each electrical projection entry by polarization, but do not by themselves select the maximizing edge orbit or evaluate its absolute norm and logarithmic finite-size defect. Those are the precise additional statements proved here. Indexed research-record searches covered the same graph, Cayley generator presentation, Hodge/transfer-current aliases, absolute column sums, and logarithmic corrections. An equivalent calculation in less-indexed network literature remains possible; the older circulant paper DOI:10.1002/qua.21068 was not fully inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The graph \(C_n^2\) is the first nontrivial power of a cycle with two edge directions, a natural test of endpoint behavior beyond cycles, tori and Hamming graphs. The result simultaneously gives all finite-size norms, proves the strict direction of the maximum for both complementary projections, and identifies a nonstandard common \(\log n/n\) correction with an explicit coefficient. That correction originates in the alternating Green-kernel sign threshold, rather than in elementary spectral or effective-resistance averages.
+On available evidence the distinct result is the simultaneous strict orbit comparison and exact absolute-current endpoint norms, including the squared-cycle logarithmic defect and coefficient. The electrical data and general projection framework are prior; related logarithmic defects on other cyclic graph families preclude a claim of novelty for the phenomenon in general.
 
-## Scope and limitations
+## value
 
-Only real, unweighted, canonical Euclidean-orthogonal cut/cycle projections on squared cycles with at least seven vertices are covered. The finite certificate covers exactly 29 integer sizes; the infinite tail uses the written analytical inequalities. The full published source landscape cannot be exhaustively certified, and independent mathematical evaluation is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The square of a cycle is a natural first nontrivial cycle power. The diagonal correction makes cut and cycle maximizers genuinely separate tests. Proving both strict maxima for all admissible sizes, and explaining the logarithmic defect via the number of geometric entries above a moving threshold, gives an exact benchmark beyond a resistance formula or a limit alone. The scope is canonical projections, not minimal projection constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

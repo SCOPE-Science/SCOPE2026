@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:23:47.732557Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The basin is the union of initial states reaching all zeros or all ones under synchronous strict open-neighbor majority with tie retention. Unanimity is absorbing; forward iteration until unanimity or a repeated word tests exact membership, independently of the eventual period bound. Independent exhaustive enumeration of all labeled graph masks, all present nonbridges and all initial words reproduced connected-graph counts (1,4,38,728), eligible deletion counts (0,3,84,3140), and gain–loss counts (0,0,0,240) for orders 2 through 5; order 1 has no edges. It reproduced all seven lower-order marked-edge rows, accounting for all 87 eligible pairs through order 4. Canonicalizing each qualifying pair by all simultaneous vertex permutations gave the two stated marked types with 120 labeled pairs each. The diamond with leaf has 26→30, losing 2 and gaining 6; the house has 22→24, losing 2 and gaining 4. Direct application of the update rule also checks the four witness trajectories, including old two-cycles and new fixed nonunanimous states. The frozen checkers were inspected, not executed. Replay the separately written computation with python3 /workspace/branches/aa496d05-0411-4b00-992c-44c11b0e804a/independent_majority_enum.py. Exhaustion is exact only through order 5; larger orders are not needed for the minimum and are not classified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frucht and Chvátal hits are order-12 fixed-graph censuses, not all-graphs theorems. The complete-bipartite defect hit 4c37e2b972d1 concerns a restricted graph family and equilibrium/oscillation basins.",
+          "The closest primary comparison concerns a different observable. No broader sharp-minimum or all-small-graphs theorem was established from the bounded search."
+        ],
+        "reasoning": "Bipartite defect calculations cannot count the two nonbipartite exceptions; fixed-graph censuses cannot rule out smaller graphs. Eventual period at most two, even if applied here, would not compare these basins across graphs.",
+        "searches": [
+          "Resultary: one-edge majority defect, Frucht edge deletion census, Chvátal consensus promotion",
+          "Bounded literature lookup: majority dynamics basin edge deletion graph enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof, tables and witnesses; VERIFICATION.md; verify_all_labelled.cpp; verify_independent.py",
+        "BRICS RS-00-8",
+        "Resultary 4c0365926b8e, 98121e5d4755 and 4c37e2b972d1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A positive cardinality change alone does not imply loss of any previously attracted word, as the order-four cycle illustrates (10→12 with no loss). The Frucht record establishes both phenomena at a larger order; its exact graph is not in the minimum-order census.",
+          "The two minimal exceptions and the lower-order exclusion come from exact statewise comparison and simultaneous marked-edge relabeling, neither supplied by the compared criteria or censuses."
+        ],
+        "reasoning": "Credit prior nonmonotonicity and verified same-phenomenon witnesses; neither, separately or together, supplies the sharp cutoff or its two equality types. Same-day catalogue dates do not resolve priority.",
+        "searches": [
+          "BRICS RS-00-8 pp. 5, 9 and 12",
+          "Resultary 4c0365926b8e, 98121e5d4755 and 4c37e2b972d1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frucht record 4c0365926b8e uses the same either-unanimity attraction criterion; all 18 edge deletions exchange basin members, and 11 have positive net gain.",
+          "BRICS RS-00-8 pp. 5, 9, 12 defines correctness by reaching the initial majority and reports its graph-level nonmonotonicity."
+        ],
+        "reasoning": "Reaching the other unanimous state is failure for the initial-majority criterion but counts in the frozen basin. The Frucht result does entail existence of this phenomenon at order 12, but not minimality or order-five representatives.",
+        "searches": [
+          "Resultary: majority consensus basin gaining and losing initial states under one-edge deletion",
+          "Mustafa–Pekeč BRICS RS-00-8, initial-majority and edge deletion passages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinguishing target entries are orders through 5, with labeled edges and graph-specific dynamical basin differences; inspected Frucht evidence concerns 18 deletions of a single order-12 graph.",
+          "A list of connected graphs or unlabeled graph types alone gives no basin intersections. No examined distinct table contains the order-five marked counts and basin changes."
+        ],
+        "reasoning": "The independent computation corroborates the claimed table; it is not evidence of priority. The closest published census does not cover the table parameters.",
+        "searches": [
+          "Resultary: minimum small graph majority consensus gain–loss, exact marked deletion census",
+          "Bounded literature lookup for tiny-graph majority basin tables"
+        ]
+      },
+      "rationale": "The same pointwise-versus-aggregate phenomenon occurs in the independently indexed Frucht graph census, and deletion nonmonotonicity for a different initial-majority criterion is classical. Neither establishes the sharp order-five cutoff or the full marked-edge classification there. Pass is for those sharp classification claims, not priority for observing generic nonmonotonicity or the phenomenon in arbitrary order.",
+      "residual_risks": [
+        "An unindexed exact prior enumeration might contain the same sharp cases; the broad literature search had low yield.",
+        "The Chvátal comparison is summary-limited and reopening the exact BRICS passages timed out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive coverage of a different graph-level property; no full-document absence assertion",
+          "evidence": "Democratic consensus computers recover the initial majority; that property is not preserved under edge addition/deletion.",
+          "identifier_or_url": "BRICS RS-00-8 (2000), Mustafa–Pekeč",
+          "material_read": "PDF locator passages pp. 5 and 9 (offsets 8225, 18115) and p. 12 (26059, 26653); bounded reopening timed out",
+          "method": "Lawful OA PDF passage location",
+          "title": "Democratic Consensus and the Local Majority Rule",
+          "trigger": "Majority nonmonotonicity under edge addition or deletion"
+        },
+        {
+          "assessment": "Material overlap at order 12 only; not a five-vertex minimum classification",
+          "evidence": "All 18 deletions gain and lose members, 11 increase total basin and 7 decrease it, with totals from 866 to 1478.",
+          "identifier_or_url": "2026/11/17/SCOPE-every-edge-of-the-asymmetric-frucht-graph-both-creates-and-destr--4c0365926b8e",
+          "material_read": "Local mirrored RESULT.md finding, offset 0",
+          "method": "Resultary lookup and local mirror read",
+          "title": "Every edge of the asymmetric Frucht graph both creates and destroys consensus-attracted states",
+          "trigger": "Strongest distinct matching same-basin deletion phenomenon"
+        },
+        {
+          "assessment": "Order-12 basin increase established from summary; pointwise loss overlap unresolved",
+          "evidence": "The summary treats basin gains for each edge of a single 12-vertex graph; it does not say whether old members are lost.",
+          "identifier_or_url": "2026/11/17/SCOPE-consensus-promotion-and-delayed-relaxation-under-every-single-ed--98121e5d4755",
+          "material_read": "Resultary summary only; full retrieval timed out",
+          "method": "Resultary and bounded statement retrieval",
+          "title": "Consensus promotion and delayed relaxation under every single-edge deletion in the Chvátal graph",
+          "trigger": "Similar deletion baseline and aggregate increase"
+        },
+        {
+          "assessment": "Bipartite restricted family and different census; no broad full-text exclusion inferred",
+          "evidence": "Equilibrium and oscillation basins under removal of one cross-edge in a complete bipartite graph.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-one-edge-majority-defect-has-three-exact-basin-responses--4c37e2b972d1",
+          "material_read": "Resultary summary of invariant and parameter family",
+          "method": "Resultary lookup",
+          "title": "A one-edge majority defect has three exact basin responses",
+          "trigger": "Exact one-edge basin formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum is a natural boundary for a concrete dynamical distinction relevant to changing a network: improvement in total attraction need not preserve attraction for each initial condition. The complete classification identifies two different minimal patterns and exact witness states; it rules out all smaller witnesses without picking an arbitrary cutoff. This supplies compact falsification and regression examples for stronger monotonicity conjectures.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

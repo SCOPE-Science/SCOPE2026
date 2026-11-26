@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite domain, binary Fano incidence graph, exact-cover characterization of seven simple hexagonal faces, orientation compatibility, and perfect-matching switching rule are explicit. The exact-cover recurrence is exhaustive: every candidate embedding must cover each of the 42 vertex angles exactly once, and every branch covers the selected uncovered angle. The matching recursion is exhaustive. Two separately written programs using XOR-lines and cyclic-difference-set lines agree on all eight embeddings, all 24 matchings, and every stated component and multiplicity count. The certificate is generated and fully replayed by the supplied exact verifier.
+## correctness
 
-**Originality — PASS, with residual historical risk.** Zhang–Ye (2007 online) classify \(k\)-resonance for one-layer toroidal polyhexes; Tratnik–Ye (2017) prove induced-hypercube structure for proper face subsets but do not cover the all-faces case; Klin–Muzychuk–Reichard (2019) already give all 24 matchings, eight one-factorizations, and three seven-regular Klein association graphs. We credit all such previously known structure. The assessed claim is specifically the eight embedded seven-face reconfiguration graphs \(3C_7\sqcup3K_1\), the frozen-one-factorization bijection, and their twofold incidence. These follow neither from knowing that 24 matchings exist nor from the stronger-but-different 7-regular Klein adjacency relation. Unindexed embeddings or dimer tables remain a material priority risk.
+PASS
 
-**Value — PASS.** The smallest regular seven-hexagon toroidal map exhibits three explicit odd face-flip cycles of length seven and three frozen configurations for *every* one of its eight embedding face systems. Every proper subset of the seven faces yields a forest with \(24-3|\mathscr S|\) components, whereas the full face set gives odd seven-cycles. This is a natural, sharp boundary case for proper-face-set hypercube theorems, and the embedding-to-factorization bijection explains the freezing in graph-theoretic rather than coordinate-dependent terms. The result is a complete classification rather than an arbitrary small numerical improvement.
+At a cubic vertex the three face angles exhaust the three unordered incident pairs. Conversely a complete angle cover glues disks with every edge incident twice and with a single circular vertex link at every vertex; the orientability constraints and Euler characteristic 14−21+7=0 identify the torus. The classification and flip counts were independently reproduced using rotations, not the frozen angle-cover programs. In an oriented cellular embedding the local cyclic orders determine face walks up to coherent choice of orientation; there are exactly two orders at each cubic vertex. Tracing every one of the 2^14 systems gave 16 orientations with seven distinct simple length-six faces, yielding eight boundary sets, twice each under reversal. Exhausting the 24 incidence bijections and toggling their alternating faces gave three 7-cycles and three isolated matchings for each set, with exactly one edge of each face label in each cycle. The frozen triples partition all matchings and exhaust all eight edge-disjoint triples. Exactly 28 six-cycles and 84 individual flips were found; each occurs twice across the eight systems. Removing any face label breaks every 7-cycle; retaining s labels gives exactly 3s edges and hence 24−3s components in a forest. The independent replay also checked all 127 proper subsets per system. Replay with python3 /workspace/branches/448c5fd8-2195-4b24-a20c-34156db20879/heawood_rotation_replay.py; the companion .out contains the incidence and label records. Supplied certificate and verifiers were inspected without executing the frozen code. No claim about embeddings with nonsimple faces is needed.
 
-The result treats only seven-simple-hexagon cellular face systems of the Heawood graph and claims no new description of the previously published 7-regular Klein graph. Its computations and literature comparisons have not undergone independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The pass is for the complete embedding-indexed classification, particularly the bijection between all hexagonal torus boundary sets and all frozen one-factorizations, with the twofold face and flip incidence counts. The 24 matching states, eight one-factorizations, 84 unrestricted flips and the natural embedding's own 3C7 plus 3K1 decomposition are covered; they are not independently credited. The inspected claims do not supply the exhaustive correspondence across boundary systems. This is not a priority finding.
+
+## value
+
+PASS
+
+The choice of admissible torus faces changes the allowed moves on the same finite matching space. A complete census of that natural variation, including the exact embedding-to-factorization correspondence and how individual hexagon flips distribute among embeddings, separates geometry-dependent freezing from the known unrestricted trade graph. A user of this standard small toroidal example can determine exactly which embeddings freeze a matching or allow a given trade. This is more than a one-map repeat or a matching-count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

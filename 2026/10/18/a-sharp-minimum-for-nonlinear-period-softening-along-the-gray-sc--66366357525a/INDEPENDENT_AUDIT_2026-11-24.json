@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:12:14.801531Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof §§1–5; VERIFICATION.md; check_symbolic.py and check_shooting.py inspected",
+        "Independent scalar elimination and harmonic projection; review_checks.py ordinal 2",
+        "Delgado et al. arXiv:1702.03353, Theorem 2 for Bautin structure"
+      ],
+      "rationale": "The positive equilibrium equations imply trace k−v² and determinant (F+k)(v²−F). Zero trace and positive determinant give s=v=√k, F s=(F+k)², and exactly the stated open arc t=F/k. I checked the physical-time coefficient independently using a scalar oscillator, rather than the source's complex quadratic homological calculation. With s the equilibrium v at the actual parameters, c=F+k and X=s−s²/v, elimination of u gives X''=(k−v²)X'+s²F−cF(s−X)−cs²v, with v=s/(1−X/s). At Hopf the quadratic/cubic force terms are −csX²−cX³; the corresponding damping terms are (−2sX−3X²)X'. In time-angle θ the leading radius term is a cos θ; its second-order constant/cos 2θ/sin 2θ corrections are h0=−cs/(2ω²), hc=cs/(6ω²), hs=−s/(3ω). The cubic cos θ force is a³[−2cs(h0+hc/2)−3c/4−sωhs]. Dividing the bracket by 2ω² gives the relative period coefficient, the claimed C(t). The change X=v−s+O((v−s)²) preserves the first-harmonic amplitude to leading order. To justify the detuned limit on any shrinking cycle, a smooth time-preserving linear and quadratic normalization gives an angular speed bounded away from zero and log radial derivative σ+O(ρ²). The simple orbit winds once; integrating log radius gives σ=O(max ρ²), and the radius varies relatively by O(max ρ²) per turn. Thus the linear stiffness in the scalar oscillator differs from ω_lin² only by σ²=O(a⁴); the detuned linear damping is quadrature, not an order-a³ in-phase contribution. Off-arc coefficient changes are o(1), and the quadratic corrections have no first harmonic. This argument does not divide by the real cubic coefficient and remains valid at t=1/3. Ordinary cycles exist near t≠1/3 (σ_F at fixed k is −1/t and the radial cubic in the source is nonzero there); cycles tending to t=1/3 also follow by choosing arbitrarily small ordinary cycles as neighboring Hopf points approach it, consistently with the established Bautin result. The derivative has sign opposite to the strictly decreasing quartic P on (0,1); P(0)=10, P(1)=−80 and both endpoints of C diverge. The bounded independent replay `python3 /workspace/review_checks.py 2` checks the algebra and yields t*=0.300154330325167455… and C(t*)=15.796641246067701232…, and C(1/3)=16 exactly. None of the frozen scripts was executed; shooting at two t values is optional corroboration only.",
+      "residual_risks": [
+        "Pointwise at fixed 0<t<1, not uniform at a singular endpoint; does not address arbitrary-path absolute period, global cycles, or spatial dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same Gray–Scott kinetics and exact Bautin location (k,F)=(9/256,3/256), with radial unfolding; the printed normal form has φ̇=1."
+        ],
+        "reasoning": "Orbital classification supplies cycle existence and topology, but normalizing angular speed removes the quantity in the period claim. An extra physical-time computation with the actual-parameter frequency and concentration amplitude is necessary.",
+        "searches": [
+          "arXiv:1702.03353 full text, pp. 2, 10–11, Theorem 2 and polar normal form"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1702.03353v1; DOI:10.1016/0009-2509(84)87017-7; DOI:10.1016/0009-2509(83)80132-8",
+        "Catalogue findings identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1984 historical work is the closest physical-oscillator source; only bibliographic/abstract-level access was available. Its discussion of residence-time changes at that level does not specify the fixed-comparator amplitude coefficient or sharp minimum. Delgado's directly read time-normalized result does not supply them."
+        ],
+        "reasoning": "Raw variation with a kinetic parameter includes linear detuning; it cannot in general be identified with the intrinsic amplitude shift. A historical full-text formula could alter the assessment; no such evidence was recovered.",
+        "searches": [
+          "Primary literature: Gray Scott 1984 DOI 10.1016/0009-2509(84)87017-7 period formula oscillations; Delgado Hernández-Martínez Pérez-López 2017 homogeneous Gray–Scott period Bautin",
+          "OA checks for DOI:10.1016/0009-2509(84)87017-7 and DOI:10.1016/0009-2509(83)80132-8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-20261011-aabe4353694d Finding/physical period proof: fixed-determinant Selkov family, T_K/(2π/√K)=1+[(2K−1)(4K²+3K−2)/(6K(1+2K−2K²))]μ+O_K(μ²).",
+          "SCOPE-20261011-eb28160f951f Finding: positive period derivative for a one-parameter Brusselator Hopf crossing B=1+A²+μ."
+        ],
+        "reasoning": "Both periods are in physical time, and comparing their actual eigenfrequency rather than the Hopf frequency changes only O(μ²) on those paths. Nevertheless the vector fields, observed amplitudes and parameter spans are different; neither gives the Gray–Scott coefficient or its optimum. A time-rescaled angular variable is not a physical-time period invariant.",
+        "searches": [
+          "Resultary: Gray Scott reaction kinetics Hopf small periodic orbit nonlinear frequency period first harmonic Bautin cubic normal form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full findings: SCOPE-20261018-4858fb8038b0 optimizes a phase-sensitive Fourier moment, not a period; SCOPE-20261018-15d0d0237b2c gives Oregonator cycle exclusion, not cycle-period residuals.",
+          "SCOPE-20261011-2ed9a58b5113 gives stationary Gray–Scott nullcline calibration such as E[v²|u]=F(1−u)/u, not Hopf period data."
+        ],
+        "reasoning": "No exact expression or tabulated sharp minimum identified in these checked matches. Same-date entries were compared as distinct claims, not ordered by date.",
+        "searches": [
+          "Resultary: 2026/10/18 A sharp minimum nonlinear period softening along the Gray-Scott Hopf curve first harmonic period residual"
+        ]
+      },
+      "rationale": "The supported distinction is the physical-time, same-parameter linear comparison with the measured v harmonic for arbitrary shrinking cycles in this model, and its full-arc sharp optimum. The Hopf and Bautin locations and the general normal-form machinery are not new. Inaccessible historical material is an unresolved priority risk, not evidence of absence.",
+      "residual_risks": [
+        "The 1984 historical physical-period article (and the 1983 precursor) could not be inspected at full-text level. The best-of-knowledge distinct result is not an absolute priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "exact bifurcation overlap, not physical frequency",
+          "evidence": [
+            "The Bautin result states the radial normal form and φ̇=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.03353",
+          "material_read": "p. 2 offsets 4458–7909 and pp. 10–11 offsets 24827–30212; Theorem 2 and polar equations",
+          "method": "OA PDF passage inspection",
+          "title": "Global bifurcation map of the homogeneous states in the Gray–Scott model",
+          "trigger": "same complete two-parameter model, Hopf and Bautin"
+        },
+        {
+          "assessment": "full-text coverage unverified",
+          "evidence": [
+            "Abstract-level qualitative period discussion is not a source for the amplitude coefficient; more detailed content is unknown."
+          ],
+          "identifier_or_url": "doi:10.1016/0009-2509(84)87017-7",
+          "material_read": "index/landing and abstract level only; direct/VPN OA attempts and DOI repository recovery did not obtain full text",
+          "method": "lawful OA/metadata retrieval",
+          "title": "Autocatalytic reactions in the isothermal, continuous stirred tank reactor: oscillations and instabilities in the system A + 2B → 3B; B → C",
+          "trigger": "foundational exact-system chemical-oscillator period study"
+        },
+        {
+          "assessment": "historical content not established at full-text level",
+          "evidence": [
+            "Bibliographic focus is isolas and multistability, not sufficient to conclude a full-text absence of period calculations."
+          ],
+          "identifier_or_url": "doi:10.1016/0009-2509(83)80132-8",
+          "material_read": "bibliographic level; no lawful full text recovered",
+          "method": "OA retrieval and DOI repository check",
+          "title": "Autocatalytic reactions in the isothermal, continuous stirred tank reactor: isolas and other forms of multistability",
+          "trigger": "earlier Gray–Scott precursor"
+        },
+        {
+          "assessment": "analogous observable in a different vector field and path",
+          "evidence": [
+            "Its sign formula is parametrized by a fixed-determinant Selkov unfolding, not Gray–Scott t on the full Hopf curve."
+          ],
+          "identifier_or_url": "SCOPE-20261011-aabe4353694d",
+          "material_read": "RESULT.md Finding and physical-period proof, offsets 0 and 3000",
+          "method": "local Resultary mirror",
+          "title": "Two sign reversals in the near-Hopf period of a constant-determinant Selkov family",
+          "trigger": "closest catalogue exact physical-time period sensitivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md claim and limitations; Delgado et al. polar Bautin normal form"
+      ],
+      "rationale": "The frequency relevant to a real homogeneous oscillator is its physical-time frequency, not the unit angular speed of an orbital normal form. Calibrating it against the nearby focus and using a measurable first harmonic separates parameter detuning from nonlinear period softening. The exact sign and sharp quantitative minimum across the curve, including nonzero softening through a radial stability switch, answer a coherent comparison question beyond bifurcation existence.",
+      "residual_risks": [
+        "No claim about behavior of extended reaction-diffusion systems or absolute period along arbitrary feed/decay paths."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

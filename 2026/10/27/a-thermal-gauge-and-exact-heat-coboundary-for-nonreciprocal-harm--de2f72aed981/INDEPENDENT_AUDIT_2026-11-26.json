@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:47:31.239459Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The edge relation is w_j/w_i=a_ij/a_ji, whose cycle products give necessity and whose path products give a gauge component by component. The Stratonovich rule cancels the two force terms in H_W exactly, and the Itô corrections also agree. Equivalently the change (x,v)↦(W^(1/2)x,W^(1/2)v) makes the stiffness symmetric, replaces each thermostatted temperature by w_iT_i and replaces injected heat Q_i by w_iQ_i. At calibration the thermostat generators are symmetric for the Gibbs density; the divergence-free Hamiltonian part is skew and changes sign under velocity reversal. For the chain, energy dissipation puts every drift eigenvalue in the closed left half-plane. A nonzero imaginary-axis eigenmode has zero velocity and position at the frictional endpoint; the nonzero tridiagonal edge entries propagate zero through the chain. Zero frequency is excluded by confining stiffness. Hurwitz drift plus the positive-definite Gibbs covariance gives a positive noise Gramian via the Lyapunov integral, and mixing follows. Stationary energies at the two ends of the observation interval therefore become independent Gamma(N,Θ), giving the characteristic function stated. Conversely, with positive friction at every site, comparing reversed-adjoint velocity derivatives forces the velocity Maxwellian with local temperatures; stationarity then gives ∇log f=−diag(1/T_i)Φx, requiring symmetry and positive definiteness for a normalizable density. The all-site necessity is not asserted for partially thermostatted graphs. /workspace/review_checks/check_4.py independently checks an unequal-mass, unequal-coupling chain with endpoint-only noise using its stationary Lyapunov residual and the Gaussian two-time quadratic-form determinant. This is finite corroboration, not a proof for arbitrary graph or time.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng–Li–Tu treats the same two-reservoir nonreciprocal chain and calibration cT_L=bT_R, gives the mean current manifold and a rank-one scaled joint fluctuation law. Appendix A after (A3) drops boundary terms at scaled order.",
+          "Loos–Klapp's all-edge condition is stated irrespective of topology/system size in the overdamped setting; the inspected underdamped scaling is for two coupled degrees of freedom."
+        ],
+        "reasoning": "An SCGF at speed t cannot distinguish the different order-one laws of a heat direction it annihilates. A full path's possible underdamped reversibility with only end baths is not implied by a condition for a model with all friction and noise channels active.",
+        "searches": [
+          "Cheng–Li–Tu arXiv:2609.09593v1 pp. 4, 7–9; Loos–Klapp arXiv:2008.00894 §§III.A, VI, VII"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and VERIFY.py",
+        "arXiv:2609.09593v1",
+        "arXiv:2008.00894",
+        "arXiv:2211.05502",
+        "Resultary 8e558034cb4c summary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Loos–Klapp plus the reciprocal first law already implies the two-bath two-site specialization. Cheng–Li–Tu describe the trajectory heats as distinct and discard time-boundary terms in passing to the SCGF."
+        ],
+        "reasoning": "To recover the asserted law one has to identify a positive quadratic energy for the exact null heat, establish the calibrated degenerate-noise chain is mixing, and analyze its two boundary energies rather than its extensive cumulants. The standard Gamma calculation after that identification is elementary; neither it nor a reinterpretation of the mean-current line alone supports novelty.",
+        "searches": [
+          "Loos–Klapp Eq. (42) heat increment rescaling and underdamped Eq. (45)",
+          "Cheng–Li–Tu pp. 7–9, Eqs. (37)–(49) and discussion alongside Appendix A Eq. (A3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Loos–Klapp Eq. (13) is exactly the weight compatibility at a mutually coupled thermostatted edge after setting w_i=Θ/T_i. Eqs. (41)–(43) rescale a pair to a reciprocal process and rescale heat; Eq. (45) and Eqs. (47), (50) treat an underdamped pair.",
+          "Resultary 8e558034cb4c summary concerns reversible observation of one coordinate of a dissipative dimer, not whole-chain equilibrium."
+        ],
+        "reasoning": "The coordinate scaling means the thermal-gauge claim is closely related to (and for the pair reducible to) an ordinary reciprocal first law. The scientific distinction is the specific heat direction and law for arbitrary length and endpoint-only baths, not a novel method of diagonal symmetrization.",
+        "searches": [
+          "Resultary: thermal gauge, nonreciprocal harmonic network detailed balance, weighted heat coboundary",
+          "Primary literature: nonreciprocal harmonic chain weighted heat and reversible thermal calibration; Loos–Klapp §§III.A, VI, VII"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same calibration and same macroscopic null combination occur in Cheng–Li–Tu. Loos et al. give exact two-site mean-current cancellation at a calibrated temperature ratio."
+        ],
+        "reasoning": "There is no natural invariant table for this heat observable across arbitrary positive-coupling chains. Exact earlier formulas for the means and the collective SCGF identify the same direction but do not give its finite-time energy difference or limiting order-one characteristic function.",
+        "searches": [
+          "Exact calibration and heat expressions in arXiv:2609.09593v1 Eqs. (16), (20)–(21), (37)–(49); arXiv:2211.05502 Eqs. (3)–(6)"
+        ]
+      },
+      "rationale": "Pass for the explicit arbitrary-length endpoint-chain heat coboundary, including off-calibration, and the order-one stationary limit of that identified heat combination at calibration. The cycle condition is classical. The all-site thermal edge condition is substantially anticipated in the earlier overdamped result, and reciprocal scaling and heat-increment rescaling already occur for a pair, including an underdamped extension. Neither those passages nor the same-chain collective SCGF establish the compared arbitrary-length endpoint-bath theorem. The generic reciprocal energy-balance and equilibrium Gamma factors are not independently new.",
+      "residual_risks": [
+        "Other exact reciprocal heat-distribution results or underdamped extensions of diagonal scaling may supply closer implicit antecedents; the comparison does not establish exhaustive priority. Scope of the pass excludes the classical balance criterion and the two-site consequences of established heat rescaling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers mean calibration and extensive fluctuation manifold, not the compared exact order-one law",
+          "evidence": [
+            "Mean currents proportional to cT_L−bT_R; boundary terms affect only the nonexponential prefactor and are dropped at SCGF scale."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.09593v1",
+          "material_read": "p. 4 Eqs. (16), (20)–(21); pp. 7–8 Eqs. (37)–(49); p. 9 discussion and Appendix A near (A3), PDF extraction offset 62115",
+          "method": "Targeted OA passage comparison",
+          "title": "Energy Transport Structure and Fluctuation Theorem in Nonreciprocal Harmonic Chains",
+          "trigger": "Same arbitrary-length chain, same endpoint products and calibration"
+        },
+        {
+          "assessment": "Covers the thermal edge condition in the overdamped model and closely anticipates the two-site heat transformation in the underdamped case; not the arbitrary endpoint-chain law",
+          "evidence": [
+            "Their balance equation a_ij T_j=a_ji T_i is equivalent to the frozen edge condition for reciprocal thermal weights."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.00894",
+          "material_read": "§III.A p. 7 Eq. (13); §VI p. 15 Eqs. (41)–(43); §VII p. 16 Eqs. (45), (47), (50)",
+          "method": "Targeted OA full-text comparison",
+          "title": "Irreversibility, heat and information flows induced by non-reciprocal interactions",
+          "trigger": "Direct thermal symmetrization and heat mapping precursor"
+        },
+        {
+          "assessment": "Earlier calibrated mean currents for a pair, not the arbitrary-length coboundary or limit",
+          "evidence": [
+            "Both heat rates vanish on κ_H/κ_C=T_H/T_C."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.05502",
+          "material_read": "p. 4 Eqs. (3)–(6)",
+          "method": "Targeted OA full-text comparison",
+          "title": "Nonreciprocal nanoparticle refrigerators: design principles and constraints",
+          "trigger": "Exact nonreciprocal two-bath calibration and heat comparison"
+        },
+        {
+          "assessment": "Summary describes one-coordinate reversible marginal in a heat-carrying dimer, not reversed detailed balance of the entire chain. No whole-document verdict is made.",
+          "evidence": [
+            "Unique tuning gives an equilibrium OU path for one observed coordinate while strict heat flow persists."
+          ],
+          "identifier_or_url": "8e558034cb4c",
+          "material_read": "Resultary summary only; mirrored RESULT.md unavailable",
+          "method": "Local Resultary search and attempted mirror inspection",
+          "title": "A unique two-bath tuning makes a dissipative Gaussian dimer exactly reversible in one coordinate",
+          "trigger": "Closest indexed thermal calibration hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The directed edge products select a concrete measured heat combination whose finite-time fluctuations are a boundary energy even at unequal gauge temperatures. At calibration its exact stationary law identifies the fluctuations invisible to the same model's extensive SCGF. This makes the order-one channel usable without reconstructing the entire joint heat law and distinguishes it from vanishing average current or a two-particle mapping alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

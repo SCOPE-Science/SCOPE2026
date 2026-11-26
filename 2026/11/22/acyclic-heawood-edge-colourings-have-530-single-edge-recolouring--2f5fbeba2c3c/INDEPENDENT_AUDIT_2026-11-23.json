@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:44:52.652368Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–35",
+        "VERIFICATION.md lines 19–23 and VERIFY_OUTPUT.txt lines 1–14",
+        "verify_incidence.cpp lines 25–113 and verify_incremental.cpp lines 1–81",
+        "Independent replay /workspace/branches/heawood_independent.py"
+      ],
+      "rationale": "Reconstructed the cubic lower bound: any proper three-colouring is three perfect matchings, and each pair makes cycles. The three distinct colours at a fixed cubic vertex give a unique representative of each orbit; existence of four-colour states and the full census were independently reproduced. I used nonzero vectors and covectors of F_2^3 with zero pairing to construct the incidence graph, assigned line-stars rather than point-stars, and tested two-colour forests by traversing alternating paths from endpoints (an unvisited vertex belongs to a cycle). For adjacency, I used no proposed-move validity checker: for each deleted flag, two valid states are adjacent via that flag exactly when their remaining patterns agree modulo palette; a full unaffected line-star fixes this palette bijection. Every 20-edge acyclic restriction still uses four colours: with at most three, at least two of the three matchings would have size seven and their union would cycle. Thus a legal named recolouring cannot be hidden as a quotient loop. The calculation asserted that no unordered pair occurred for two different deleted flags. Full independent results: 230336 proper representatives, 119784 acyclic representatives, 2874816 named acyclic states, 299880 undirected edges, and components 1×392, 14×112, 42×24, 40040×1, 76776×1. The degree histogram agrees term by term; all 392 frozen states have sizes (5,5,5,6), as do 42112 mobile states. Replay: /workspace/branches/heawood_independent.py, Python ≥3.10; run `enum 0 24 DIR` then `join DIR` with a fresh directory (actual enumeration run partitioned at 0,3,7,11,15,19,24). No frozen code was executed. In the source, the incremental program prints rather than asserts much of its census; its GCC-style header is not universal C++17. The independent calculation does not rely on those claims or on sampled eccentricities.",
+      "residual_risks": [
+        "The result is specific to this graph, four colours and the stated single-edge move; no diameter assertion is audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Andersen–Máčajová–Mazák are credited with the cubic index theorem; their full text was inaccessible in this review. The cited cubic algorithm and list-edge recolouring sources also could not be read through the attempted lawful routes."
+        ],
+        "reasoning": "Existence or a constructive algorithm for one acyclic four-colouring does not determine the number of valid colourings or connectivity of all of them. Proper-list recolouring allows states excluded by the additional bichromatic-forest filter. Inaccessible material is a limitation, not evidence of noncoverage.",
+        "searches": [
+          "Primary literature lookup: Heawood acyclic four-edge-colouring enumeration and reconfiguration",
+          "10.1002/jgt.20650",
+          "10.1007/978-3-642-21204-8_17",
+          "Ito–Kamiński–Demaine, Reconfiguration of List Edge-Colorings in a Graph"
+        ]
+      },
+      "checked_sources": [
+        "Resultary indexed comparisons above and the frozen identity hit",
+        "Andersen–Máčajová–Mazák DOI 10.1002/jgt.20650 (retrieval limited)",
+        "Máčajová–Mazák DOI 10.1007/978-3-642-21204-8_17 (retrieval limited)",
+        "Ito–Kamiński–Demaine original and manuscript routes (retrieval limited)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cubic index only selects the palette; the closest exact trade theorem gives connectivity and diameter for its strong-colouring whole-class trade graph, not the graph after a forest filter and single-edge restriction."
+        ],
+        "reasoning": "There is no demonstrated reduction that preserves this state space and its edges. In particular, a connectivity conclusion for a looser move or a larger state space does not imply connectivity or component sizes in the specified subgraph.",
+        "searches": [
+          "Resultary 4b64a4175adc whole-class trade threshold",
+          "Resultary f42ba7a5e7e8 proper-edge mobility",
+          "10.1002/jgt.20650 cubic index premise"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "4b64a4175adc counts 416 optimal strong seven-edge-colourings and uses whole-class trades; f42ba7a5e7e8 considers proper four-edge recolouring on Petersen; 3487b14e2bb2 and 78dac1ccb780 recolour vertices of Heawood."
+        ],
+        "reasoning": "Acyclicity permits colour classes that are not induced matchings; whole-class trades and vertex recolouring do not give these adjacencies. Changing from named states to orbits accounts for a factor 24 for states, not an identification with any of those results.",
+        "searches": [
+          "Resultary: Heawood/Fano acyclic four-edge colourings, single-edge reconfiguration and frozen sectors",
+          "Resultary records 4b64a4175adc, 3487b14e2bb2, 78dac1ccb780 and f42ba7a5e7e8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching census hit was the frozen finding itself; the other exact Heawood edge table inspected counts strong seven-colour partitions. The exact Heawood vertex results use different state spaces."
+        ],
+        "reasoning": "Neither the strong-colouring table nor the vertex-colouring counts tabulate the same invariant. No independent exact table of the acyclic optima or their quotient components was located.",
+        "searches": [
+          "Resultary lookup for Heawood 119784 acyclic edge colourings and 530 components",
+          "Resultary record 4b64a4175adc, Finding"
+        ]
+      },
+      "rationale": "The minimum palette is known and is not credited as novel. The closest inspected indexed results change the colouring predicate or the move; none gives the four-colour acyclic single-edge quotient spectrum or implies it. The supported originality is the exact state and move-graph census, not the general existence theorem, Fano representation, enumeration technique, or single-edge move concept.",
+      "residual_risks": [
+        "The accessible evidence does not rule out an unindexed Heawood enumeration or ancillary tables in the inaccessible cubic-colouring papers. No historical priority certification is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different states and moves",
+          "evidence": "416 strong seven-colour partitions; whole-class trades become connected at three classes, with diameter six.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-two-to-three-class-trade-threshold-for-optimal-strong-ed--4b64a4175adc",
+          "material_read": "RESULT.md Finding, offset 0, mirror commit 36a7204",
+          "method": "Local mirror passage",
+          "title": "A sharp two-to-three-class trade threshold for optimal strong edge-colourings of the Heawood graph",
+          "trigger": "Same graph, palette quotient and exact move graph"
+        },
+        {
+          "assessment": "Related but not equivalent, without assuming date priority",
+          "evidence": "Locally identifying vertex colourings; 54264 named states, 6048 frozen, and vertex rather than edge moves.",
+          "identifier_or_url": "2026/11/22/SCOPE-frozen-colourings-and-a-sharp-two-vertex-mobility-threshold-for--3487b14e2bb2",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Frozen colourings and a sharp two-vertex mobility threshold for the Heawood graph",
+          "trigger": "Distinct same-day indexed Heawood frozen-state census"
+        },
+        {
+          "assessment": "Different state space",
+          "evidence": "2106 named proper vertex states with 126 frozen and one mobile component of order 1980.",
+          "identifier_or_url": "2026/11/2/SCOPE-fano-flags-and-the-unique-mobile-sector-of-heawood-3-colourings--78dac1ccb780",
+          "material_read": "Indexed finding identifying the property and counts",
+          "method": "Resultary catalogue comparison",
+          "title": "Fano flags and the unique mobile sector of Heawood 3-colourings",
+          "trigger": "Same graph and mobility census"
+        },
+        {
+          "assessment": "Different graph and condition",
+          "evidence": "Named proper four-edge-colourings of Petersen, with no acyclicity filter.",
+          "identifier_or_url": "2026/11/8/SCOPE-local-sign-parity-and-exact-mobile-distances-in-petersen-four-ed--f42ba7a5e7e8",
+          "material_read": "Indexed finding identifying the state space",
+          "method": "Resultary catalogue comparison",
+          "title": "Local sign parity and exact mobile distances in Petersen four-edge colourings",
+          "trigger": "Same single-edge mechanics and palette size"
+        },
+        {
+          "assessment": "Credit the stated general index theorem; scope of any ancillary census unverified",
+          "evidence": "Frozen RESULT.md lines 41–47 distinguish the general minimum from the state and move counts.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20650",
+          "material_read": "Frozen citation and description only; full text not retrieved",
+          "method": "Lawful DOI retrieval attempted, denied",
+          "title": "Optimal acyclic edge-coloring of cubic graphs",
+          "trigger": "Broader class containing Heawood and exact same colouring predicate"
+        },
+        {
+          "assessment": "Residual risk, no positive coverage evidence",
+          "evidence": "The title addresses optimal colouring algorithms of the encompassing cubic class; it does not establish the scope of any enumerations.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-21204-8_17",
+          "material_read": "Frozen citation only; publisher route did not furnish text",
+          "method": "DOI and publisher copy attempted",
+          "title": "An Algorithm for Optimal Acyclic Edge-Colouring of Cubic Graphs",
+          "trigger": "Potential exact computational overlap"
+        },
+        {
+          "assessment": "General move analogue; no primary confirmation of any appendix or benchmarks",
+          "evidence": "Frozen RESULT.md line 43 describes proper list edge-colouring, not the acyclic state constraint.",
+          "identifier_or_url": "https://dspace.mit.edu/entities/publication/bb785ce8-54b8-410f-9221-e28f5a647d36",
+          "material_read": "Frozen description and citations; neither the IEICE page nor accepted manuscript yielded text",
+          "method": "Original site and lawful accepted-manuscript route attempted",
+          "title": "Reconfiguration of List Edge-Colorings in a Graph",
+          "trigger": "Prior use of single-edge moves"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen move and component theorem, RESULT.md lines 5–21",
+        "Independent projection census"
+      ],
+      "rationale": "Heawood is a canonical small cubic incidence graph. At the minimum acyclic palette, local mobility does not follow from existence; the exact spectrum reveals isolated optima and many finite sectors alongside two very large sectors. The precise counts, degree distribution and one-way frozen profile give usable reference invariants for testing local recolouring conjectures and enumeration or sampling on the constrained space. This is a complete classification for a natural move rule, not an arbitrary sample or another computation of the known index.",
+      "residual_risks": [
+        "The census supplies no explanation for the sector sizes in general and does not imply analogous behaviour on other cubic graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

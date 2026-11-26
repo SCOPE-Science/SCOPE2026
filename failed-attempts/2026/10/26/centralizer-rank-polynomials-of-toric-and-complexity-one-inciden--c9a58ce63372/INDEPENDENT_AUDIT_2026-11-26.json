@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:00:57.411273Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the diagonal vertex labels. On every edge with unequal labels the commutation equation uniquely solves for b's arrow coefficient given the vertex values of b. For equal labels this arrow coefficient is free; precisely those edges S with nonzero arrow coefficient in a impose equalities on b's vertex values. Consequently dim C_A(a)=m−|D|+n−r(S), where D consists of unequal-label edges and r(S)=n−k_G(S) over every finite field. Weight each active equal edge by q−1, and each remaining edge by 1 if equal or qz if unequal. Expanding the latter as qz+(1−qz)1_equal and counting equality assignments on S∪T gives exactly the displayed double sum. Dividing by q^c removes the only dependence on n beyond r(E). In a forest the vertex differences and edge coefficients are independent parameters once root labels are fixed, with one zero-rank pair and q²−1 rank-one pairs per edge. On a cycle the provisional independent-edge contribution is the trace of the transfer matrix power, with eigenvalues P_q(z) and 1−z; only S containing the whole cycle overcounts rank by one, requiring all its labels equal and coefficients nonzero. Correcting the q(q−1)^ell such choices gives the stated term, and pendant edges supply independent P_q(z) factors. This includes isolated vertices and the edgeless case; the invariant counts elements, not distinct adjoint operators. No uploaded code was executed; the universal proof, not the finite output, establishes correctness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 theorem covers every orientation of every finite simple graph over any finite field, with isolated vertices and the edgeless case. Its Eq. (2) is literally the same forest law. The October 4 Kronecker comparison is a two-vertex parallel-arrow family. Can studies torus complexity, and Sokal documents the Potts expansion method."
+        ],
+        "reasoning": "Map the vertex idempotents and oriented Hasse arrows of the quiver to the diagonal and arrow basis of the incidence algebra. There are no nonzero arrow-arrow products because the poset has no strict chain of three elements. The resulting algebra is isomorphic to A_Q, so the stronger earlier theorem directly implies the frozen all-graph statements, without any characteristic restriction or loss of parameters.",
+        "searches": [
+          "Resultary 38b9edb44d0d, Finding and Assumptions and scope",
+          "Resultary 75cb49b6c27d, finite Kronecker commutator fibers",
+          "Can arXiv:2105.09826 and Sokal arXiv:math/0503607"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files",
+        "Resultary 38b9edb44d0d, d24c3c8c856e, 75cb49b6c27d, 0bac557ba3bf and 72db712673b3",
+        "Sokal arXiv:math/0503607",
+        "Can arXiv:2105.09826 (abstract)",
+        "Gargate–Gargate arXiv:2009.04243v1 (abstract)",
+        "Dutta et al. arXiv:1803.04111 (abstract and Eq. 1.1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the earlier formula, r(S)=|S| on a unicyclic graph unless S contains its cycle, in which case r(S)=|S|−1. With cycle length ell the hypothetical rank |S| gives the two transfer eigenvalues P_q(z),1−z; restoring the deficit on S containing the cycle gives exactly q(q−1)^ell(z^(ell−1)−z^ell), times P_q(z) per pendant edge."
+        ],
+        "reasoning": "The cycle expression need not have been printed in October 12 to be covered: the single circuit and known coloring/equality weights specialize the earlier histogram by an elementary transfer sum and one correction, with no new parameter regime or independent mathematical claim. Likewise, different connected trees of equal size having the same histogram is immediate from the earlier forest law.",
+        "searches": [
+          "Resultary 38b9edb44d0d, Eq. (1) and exact rank step (5)",
+          "Resultary d24c3c8c856e, unicyclic Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Eq. (1) counts a itself with exponent rank(ad_a). For the exact equal-edge set Z, its proof uses r(S)+m−|Z| with S⊆Z the nonzero arrow support, and counts diagonal labels by χ_{G/Z}(q). The nearby derivation records count all linear derivations, a different object."
+        ],
+        "reasoning": "The kernel of ad_a is C_A(a), so the earlier and frozen generating functions use the same exponent and multiplicities. Regroup the earlier sum by S, and expand χ_{G/Z}(q)=Σ_{T⊆E\\Z}(−1)^|T| q^{n−r(Z∪T)}. Equivalently, for any fixed S expand the weight on edges outside S as qz+(1−qz)1_equal rather than grouping first by the exact Z. Both count the same diagonal assignments; changing the summation does not produce a distinct invariant.",
+        "searches": [
+          "Resultary semantic comparison of centralizer-dimension histograms, elementwise adjoint rank and radical-square-zero quivers",
+          "Resultary 2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d, Eq. (1) and proof steps 1–4",
+          "Resultary 0bac557ba3bf and 72db712673b3, derivation rank spectra"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact forest polynomial q^c(1+(q²−1)z)^m is printed in the earlier record. The November record gives an explicit unicyclic law for distinct inner derivations; each such map has q preimages a when the graph is connected, since Z(A) consists of the constant diagonal and zero arrow part."
+        ],
+        "reasoning": "The symbolic forest match is prior; the explicit November cycle match is later and not evidence of earlier priority by itself. A finite table would not decide the general theorem; the earlier closed all-graph formula already determines every tabulated value.",
+        "searches": [
+          "Resultary 38b9edb44d0d, Eq. (2)",
+          "Resultary 2026/11/2/SCOPE-graphic-matroid-adjoint-rank-spectra-in-radical-square-zero-quiv--d24c3c8c856e, Finding"
+        ]
+      },
+      "rationale": "Earlier Resultary record 38b9edb44d0d (2026-10-12) proves the full elementwise adjoint-rank polynomial, normalized graphic-matroid invariance and forest law for radical-square-zero quivers on arbitrary finite simple graphs over all finite fields. The height-at-most-two incidence algebra is exactly its specialization to the oriented Hasse graph. The new double sum is inclusion–exclusion in the earlier flat formula, and the single-cycle law is a mechanical simplification of that same full histogram. The decisive overlap is not just a commuting-pair count and is not based on unavailable literature.",
+      "residual_risks": [
+        "The frozen prose does not identify the exact external chromatic-fiber antecedent it describes. External searching was bounded. Neither limitation weakens the verified earlier full-histogram coverage in Resultary 38b9edb44d0d."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct earlier coverage of the whole rank distribution and its normalized invariance, exact same forest formula, and mechanical implication of the single-cycle law.",
+          "evidence": "For A_Q=F_q Q/J² and any finite simple G the polynomial over a is a sum over flats Z weighted by χ_{G/Z}(q) and supports S⊆Z with exponent m−|Z|+r(S).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d/RESULT.md",
+          "material_read": "Finding Eqs. (1)–(3), assumptions, proof steps 1–5; offsets 0–6,749",
+          "method": "Local Resultary mirror, decisive statement and proof passage checked",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity for radical-square-zero quiver algebras",
+          "trigger": "Earlier full histogram for a broader algebra class"
+        },
+        {
+          "assessment": "Later corroborating equivalent formula after changing from distinct maps to elements; not the decisive chronological source.",
+          "evidence": "For a connected graph the kernel of the map a↦ad_a has size q, explaining the factor in the elementwise law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-graphic-matroid-adjoint-rank-spectra-in-radical-square-zero-quiv--d24c3c8c856e",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Graphic-matroid adjoint-rank spectra in radical-square-zero quiver algebras",
+          "trigger": "Exact explicit cycle comparison and possible counting difference"
+        },
+        {
+          "assessment": "Related narrower family, not the source of the decisive general histogram.",
+          "evidence": "Two vertices with parallel arrows; zero and nonzero additive commutator fibers and commuting probability.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-commutator-fibers-and-commuting-probabilities-of-finite-kronecke--75cb49b6c27d",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Commutator fibers and commuting probabilities of finite Kronecker algebras",
+          "trigger": "Earlier square-zero commutator-fiber comparison"
+        },
+        {
+          "assessment": "Covers the standard Potts and Fortuin–Kasteleyn counting framework, not by itself the centralizer-rank theorem.",
+          "evidence": "The graph coloring/partition-function formulation and matroid framework supply the equality-edge expansion.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0503607",
+          "material_read": "PDF p. 2, text offset near 5,303",
+          "method": "Primary PDF passage inspection",
+          "title": "The multivariate Tutte polynomial (alias Potts model) for graphs and matroids",
+          "trigger": "Prior equivalent expansion machinery"
+        },
+        {
+          "assessment": "Background on toric complexity; not used to conclude noncoverage of the whole paper.",
+          "evidence": "Studies incidence-monoid automorphisms and torus-action complexity.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.09826",
+          "material_read": "PDF p. 1 abstract",
+          "method": "Primary abstract inspection only",
+          "title": "Incidence Monoids: Automorphisms and Complexity",
+          "trigger": "Structural complexity motivation cited by frozen record"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full histogram is a natural invariant, but it had already been computed in a strictly broader setting. The unicyclic expression is a convenient simplification using one circuit and the standard two-eigenvalue cycle transfer matrix, not a missing exact invariant beyond the earlier general formula. The alternative inclusion–exclusion and tree examples do not leave a distinct mathematical gap relative to that result. No repaired finding is justified on the evidence reviewed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

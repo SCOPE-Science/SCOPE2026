@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:20:05.037660Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–72",
+        "VERIFICATION.md lines 3–13 and 19 onward",
+        "check.py lines 7–116; inspected, not executed",
+        "Independent positive-kernel decomposition and norming-vector calculation stated above"
+      ],
+      "rationale": "An independent sharp bound avoids the frozen minimax step. Write a=(1+t)/2, b=1/n, u=|t|, q=a+b+2u. Hub-antisymmetric and leaf-contrast eigenvalues of M are nonnegative; the remaining block is congruent to [[a,t],[t,b]]. Thus M is positive exactly when kappa=t^2-ab<=0, giving the two stated roots and norm one in that region. Otherwise set d=kappa/q and V=d vv*, where v has entry 1 at each hub and -sgn(t) at each leaf. The corresponding block of M+V is congruent to [[a+d,t-sgn(t)d],[t-sgn(t)d,b+d]], with determinant zero and nonnegative diagonal. Elementary contrast eigenvalues are unchanged. Thus M=(M+V)-V is a difference of positive kernels. Combining their Gram factors with a sign on the second summand bounds the ordinary and all amplified norms by the common sum of their diagonals, 1+2d. For p proportional within the two classes as stated, let s be its hub mass. On the compressed constant plane, D_p V D_p has range spanned by (sqrt(s),-sgn(t)sqrt(1-s)); the range of D_p(M+V)D_p there is spanned by ((a+u)sqrt(s),sgn(t)(b+u)sqrt(1-s)). These are orthogonal at s=(b+u)/q. D_p V D_p then has its sole nonzero eigenvalue d on the negative line of D_p M D_p, which has trace one. The spectral-sign input gives the lower bound 1+2d, including degenerate contrast eigenvalues. Positivity and norm endpoints simplify as stated. For the infinite case, b tends to zero; finite compressions give the lower bound. Taking d=t^2/(a+2u) for t nonzero yields the same positive-kernel construction on every finite corner (remaining determinant b(a+d)>=0), with bounded Gram vectors, hence a normal completely bounded multiplier. At t=0 the multiplier is the diagonal expectation. This proves all operator, cb and limiting claims in the specified parameter range.",
+      "residual_risks": [
+        "The proof relies on real weights in [-1,1] for positivity on both contrast spaces. Numerical trace-norm tests are not needed for the exact bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The cited Christensen theorem supplies a general self-adjoint variational characterization. The transitive-symmetry framework compared in the frozen record does not make these two orbit classes transitive; idempotence holds here only at t=0,1. The related complete-bipartite indexed threshold is |t|=1/sqrt(mn), symmetric in the sign."
+        ],
+        "reasoning": "The generic variational principle does not supply the scalar sharp certificate. An evaluated two-class theorem for arbitrary orbit-averaged diagonals could cover it, but the available size-only bipartite statement has diagonal block parameters 1/m and 1/n. Here a=(1+t)/2 varies with t and is not generally 1/m for an admissible integer m.",
+        "searches": [
+          "Christensen arXiv:2505.24670 Theorem 2.2",
+          "Davidson–Donsig arXiv:math/0506073",
+          "Levene arXiv:1302.4849",
+          "Resultary complete-bipartite and star weighted norm families; primary search of weighted two-hub or multipartite Schur norms"
+        ]
+      },
+      "checked_sources": [
+        "Frozen proof and comparison",
+        "Resultary complete-bipartite and star summaries, earlier star endpoint and exact assigned-record match",
+        "Cited variational and idempotent frameworks, with access limits noted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact reduction here changes the hub block to (1+t)/2 while keeping unit diagonal before compression. A complete-bipartite integer size formula has this scalar pattern when the effective reciprocal hub size is 1/m, but does not establish the general sign-dependent parameter law. The earlier positive endpoint is a genuine corollary."
+        ],
+        "reasoning": "Replacing an integer size by a varying real effective size in a closed form is not a theorem of extension. The shared two-orbit scalar optimization is substantial overlap; the additional spectral/Gram argument validates the new supported signed family. No priority ordering is inferred from same-day indexing.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-radial-schur-amplification-and-contractivity-on-complete-b--9ef396a6d51f",
+          "Christensen Theorem 2.2",
+          "Star endpoint reduction and complete-bipartite sign gauge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At t=1 the two hub rows and columns of M are identical. Splitting one hub into two duplicate labels preserves the cb multiplier norm by compression of an amplification and the reverse corner restriction. The earlier star endpoint therefore gives the same endpoint, not just a numerically equal value."
+        ],
+        "reasoning": "At t!=1 the duplicate-row reduction fails. Gauging t to -t by vertex sign conjugation would require reversing every edge around a triangle, whose edge-sign product is invariant. The two signed branches are not equivalent by the bipartite sign gauge.",
+        "searches": [
+          "Resultary: sharp radial Schur amplification and contractivity on complete bipartite graphs signed edge amplitude 9ef396a6d51f",
+          "2026/11/8/SCOPE-exact-endpoint-schur-norms-of-radius-one-balls-on-stars-of-arbit--708bab8a17cc",
+          "Levene arXiv:1302.4849"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match for the signed split-graph law is the assigned record. The separate weighted-star summary gives |t|=1/sqrt(n) and an infinite law 1+2t^2/(1+2|t|); the earlier star record covers t=1 as explained above."
+        ],
+        "reasoning": "The one-hub laws have no sign dependence. Neither their tables nor the identical record supply independent coverage of the varying signed triangular family.",
+        "searches": [
+          "Resultary exact split-graph title, signed rational formula and infinite law",
+          "2026/11/22/SCOPE-sharp-radial-schur-amplification-and-a-positivity-threshold-on-f--ae120c684c6d",
+          "Earlier positive star endpoint 708bab8a17cc"
+        ]
+      },
+      "rationale": "Pass for the varying signed two-hub family, the asymmetric thresholds and the full infinite-leaf law, not for the previously covered positive unit endpoint. The strongest available unweighted-diagonal complete-bipartite statement uses two independent classes and does not state a hub-diagonal parameter tied to the edge coefficient. An earlier formula allowing that parameter would be material; no such statement was established.",
+      "residual_risks": [
+        "Primary full-text retrieval and local Finding extraction were incomplete. An earlier arbitrary two-orbit diagonal-weight law implying the full family could not be excluded. No independent priority claim is made for an endpoint or for the variational method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shares the two-class calculation, but indexed hypotheses concern the complete-bipartite size parameters",
+          "evidence": [
+            "Threshold |t|=1/sqrt(mn) and joint infinite limit 1+|t|."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-radial-schur-amplification-and-contractivity-on-complete-b--9ef396a6d51f",
+          "material_read": "Exact available index summary; targeted Finding retrieval timed out",
+          "method": "Resultary and local-mirror passage attempt",
+          "title": "Sharp radial Schur amplification and contractivity on complete bipartite graphs",
+          "trigger": "Strongest family-level overlap"
+        },
+        {
+          "assessment": "Covers the t=1 endpoint, not the signed family",
+          "evidence": [
+            "Norm (5n-1)/(3n+1) and infinite 5/3 on the star lift exactly to the t=1 split kernel."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-endpoint-schur-norms-of-radius-one-balls-on-stars-of-arbit--708bab8a17cc",
+          "material_read": "Indexed endpoint statement",
+          "method": "Resultary and independent duplicate-label reduction",
+          "title": "Exact endpoint Schur norms of radius-one balls on stars of arbitrary degree",
+          "trigger": "Earlier coincident endpoint"
+        },
+        {
+          "assessment": "Generic optimization antecedent, not identified as an evaluated two-hub law",
+          "evidence": [
+            "Variational minimum over Q with Q plus and minus M positive semidefinite."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.24670",
+          "material_read": "Quoted theorem statement in frozen RESULT.md lines 43–52; original not retrieved",
+          "method": "Targeted OA retrieval attempt; independent proof avoids needing the citation",
+          "title": "The Schur multiplier norm and its dual norm",
+          "trigger": "General self-adjoint norm principle"
+        },
+        {
+          "assessment": "No additional exact coverage established; t=1 already credited through the star reduction",
+          "evidence": [
+            "K_{1,1,n} is nonvertex-transitive for n>=2; the generic signed multiplier is not an idempotent."
+          ],
+          "identifier_or_url": "arXiv:math/0506073; arXiv:1302.4849",
+          "material_read": "Frozen comparison lines 77–81 and references; no original passage retrieved",
+          "method": "Targeted OA lookup",
+          "title": "Norms of Schur Multipliers; Norms of idempotent Schur multipliers",
+          "trigger": "Orbit formula or idempotent endpoint overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–37 and 54–72",
+        "Resultary star and complete-bipartite comparisons"
+      ],
+      "rationale": "The two adjacent hubs are the minimal split-star modification that introduces triangles and invalidates the sign gauge behind symmetric bipartite bounds. The exact continuum winds up with genuinely different signed positivity thresholds and norm branches and an explicit norming input; the infinite law retains the sign effect rather than erasing it. This is a concrete benchmark beyond the known positive idempotent endpoint and the symmetric bipartite model.",
+      "residual_risks": [
+        "No evidence of a full multipartite classification or claims outside the prescribed real interval."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

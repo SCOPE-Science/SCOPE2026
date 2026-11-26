@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:21:16.456541Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–67",
+        "Frozen VERIFICATION.md and verification/bruteforce.py, transfer.py and both output files (read, not executed)",
+        "arXiv:2001.01376v1 PDF, Definition 8 and Proposition 9",
+        "Independent replay: python3 /workspace/review_checks.py (deletion function)"
+      ],
+      "rationale": "Cai et al., Proposition 9, and its Type-A definition supply the exact distinct-read criterion; distance one has only one read in common. The alternating disagreement interval is uniquely the span of the mismatches, and even length is equivalent to weight preservation. Cutting where consecutive letters are equal gives disjoint maximal alternating blocks; each block contributes precisely its number of opposite-symbol endpoint pairs. The matrix entries give the correct length, Hamming weight and product of zero/one counts for the two endpoints, and equal touching symbols identify exactly the permitted joins. Its zero constant term ensures the formal inverse, with the empty word accounted for separately. Counting placements and outside bits gives both edge formulas without double-counting, and no edges skipping a weight layer. With block minority/majority counts a_i,b_i, the degree is at most both rs and ∑a_i(a_i+1)≤r(r+1); alternating all minority bits in one block and padding by majority bits attains the bound, also when r=0 or s=r. Handshaking and the binomial ratio's supported factors (k−j)(n−k−j)/[(n−2j)(n−2j−1)]≤1/2 give the claimed limit by dominated convergence. Direct enumeration of distinct deletion-output sets, compared with a separately expanded transfer series, confirmed joint histograms, both edge strata and layer maxima through n=8, including constant words and n=1. This PASS covers the mathematical Finding; there is an inaccurate descriptive clause about prior spectra in line 73, addressed under originality.",
+      "residual_risks": [
+        "The finite enumeration is only corroborative; no concentration, independence-number, or multi-deletion conclusion follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Type-A theorem subsumes the adjacency lemma. The general-alphabet degree and edge results give unrestricted degrees or aggregate edge numbers; the run-capped comparison counts disagreement spans and average degree in a different class."
+        ],
+        "reasoning": "The graph's partition by weight is not resolved by unrestricted degrees or the total count. One must distinguish the interval parity, available outside mass, and the sequence of endpoint bits.",
+        "searches": [
+          "arXiv:2001.01376v1 Definition 8 and Proposition 9",
+          "Resultary general-alphabet degree recurrence 7fbc301106f7, exact all-alphabet edge census 737fed325e91 and run-capped record 4a3ef99abab1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 69–85",
+        "Primary arXiv:2001.01376v1",
+        "Resultary f45a481280b1, 7fbc301106f7, 737fed325e91, b85913bb6305, 1e0b06ffdce5, 7d25cc21af64 and 4a3ef99abab1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unrestricted proof chooses the first symbol only to double a count; it does not record its interactions with parity of blocks and composition. Aggregate edge numbers are recovered by summing E and J and cannot be inverted to obtain the layer arrays. Coloring and fixed-layer capacity do not specify degrees."
+        ],
+        "reasoning": "The earlier characterization provides a constructive starting point, but the explicit layer solution requires selecting the preserved-weight moves, carrying composition and endpoint states, and solving the finite-weight extremum and density limit. The strongest prior theorem is not a stronger degree claim that specializes to these statistics.",
+        "searches": [
+          "f45a481280b1 proof offsets 3270–5531; finite-alphabet edge enumeration 737fed325e91; fixed-composition coloring 1e0b06ffdce5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Type-A adjacency is exactly alternating disagreement; a maximal one-run of length h in the difference word corresponds to a maximal alternating block of length h+1 in the source word.",
+          "The older full-degree run enumerator weights that block by its total number of length≥2 intervals, binom(h+1,2); the current statistic is floor((h+1)/2)ceil((h+1)/2) and is tracked jointly with composition."
+        ],
+        "reasoning": "The two decompositions describe the same adjacency with different encodings, but the statistic has changed as well. Simply specializing variables in the older full-degree enumerator does not give the new array. Only tracking the source symbol on both ends of the blocks and reweighting the contributing intervals supplies the needed information.",
+        "searches": [
+          "Resultary meaning search for binary two-read single-deletion degree spectra and constant-composition edge counts",
+          "arXiv:2001.01376v1; complete binary degree spectrum f45a481280b1, Finding and proof Steps 2–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary complete degree spectrum is for a different observable. Same-day weight-resolved counts on the Fibonacci-constrained family exclude occurrences of 11. The same fixed-weight graph's clique and chromatic numbers and the single weight-two layer's capacity are distinct invariants. The title match to this exact frozen record is a self-match."
+        ],
+        "reasoning": "The exact related records do not tabulate the new joint spectrum or determine all layer edges. The run restriction in the Fibonacci problem eliminates neighbors in ways not reversible from those counts.",
+        "searches": [
+          "Resultary indexed exact comparisons f45a481280b1, 7fbc301106f7, b85913bb6305, 1e0b06ffdce5, and 7d25cc21af64"
+        ]
+      },
+      "rationale": "Credit the joint weight and even-interval degree enumeration, exact edge stratification and layer-specific maximum and mean, not adjacency or the unrestricted degree-spectrum method. RESULT.md line 73 incorrectly calls the prior full-graph spectrum the marginal ∑_k P_{n,k,d}. That marginal instead counts within-layer degrees across all words. For n=3, 010 has full degree 3 and within-layer degree 2, and the same-layer maximum anywhere is 2, so the histograms differ. This error in the comparison does not alter the Finding or its proof; it is the distinction between the observables that establishes the gap.",
+      "residual_risks": [
+        "The bounded scholarly and index comparisons do not establish exhaustive priority. Same-day publication dates do not determine ordering or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established adjacency, not exact layer invariants",
+          "evidence": "Opposite alternating phases characterize two shared one-deletion descendants for Hamming distance at least two; distance one gives only one shared read.",
+          "identifier_or_url": "https://arxiv.org/pdf/2001.01376v1",
+          "material_read": "Definition 8 and Proposition 9, p. 3, extraction offsets 23560–27140",
+          "method": "Lawful OA primary PDF",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Same deletion-ball intersection and Type-A characterization"
+        },
+        {
+          "assessment": "Same graph, all-neighbor degree and no composition refinement",
+          "evidence": "One-run contribution binom(h+1,2) and doubling for the arbitrary initial bit do not separate even- and odd-disagreement intervals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1/RESULT.md",
+          "material_read": "Finding, offsets 0–3319; proof Steps 2–3, offsets 3270–5531",
+          "method": "Local Resultary mirror",
+          "title": "Complete degree spectrum of the binary two-read deletion-reconstruction graph",
+          "trigger": "Strongest overlap on exact graph degree spectrum"
+        },
+        {
+          "assessment": "Unrestricted full degree",
+          "evidence": "General-alphabet recurrence and fluctuations for all neighbors, not degree restricted to the same composition.",
+          "identifier_or_url": "7fbc301106f7",
+          "material_read": "RESULT.md offsets 0–3385",
+          "method": "Local Resultary mirror",
+          "title": "Exact degree law and Gaussian fluctuations in the two-read deletion reconstruction graph",
+          "trigger": "Broader alphabet and exact degree law"
+        },
+        {
+          "assessment": "Aggregate edge total only",
+          "evidence": "Its binary total 1+(n−2)2^(n−1) is obtained by summing over the new within- and between-layer counts.",
+          "identifier_or_url": "737fed325e91",
+          "material_read": "RESULT.md offsets 0–3468",
+          "method": "Local Resultary mirror",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+          "trigger": "Possible encompassing edge census"
+        },
+        {
+          "assessment": "Restricted graph, not an encompassing edge count",
+          "evidence": "Vertex words avoid 11; those constrained edge counts do not give the unconstrained layer counts or spectrum.",
+          "identifier_or_url": "b85913bb6305",
+          "material_read": "RESULT.md offsets 0–2983",
+          "method": "Local Resultary mirror",
+          "title": "Weight-resolved two-read deletion ambiguity in Fibonacci-constrained binary words",
+          "trigger": "Exact weight-resolved edges on a related source"
+        },
+        {
+          "assessment": "Different invariants",
+          "evidence": "Chromatic and clique numbers at fixed composition, not degree histograms, maxima, or edge strata.",
+          "identifier_or_url": "1e0b06ffdce5",
+          "material_read": "RESULT.md offsets 0–2399",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fixed-composition coloring of the two-read deletion graph",
+          "trigger": "Exactly the same weight-layer graph"
+        },
+        {
+          "assessment": "Different statistic and only weight two",
+          "evidence": "Independent-set optimum, not the all-layer degree or edge enumerations.",
+          "identifier_or_url": "7d25cc21af64",
+          "material_read": "RESULT.md offsets 0–2582",
+          "method": "Local Resultary mirror",
+          "title": "Exact two-read single-deletion capacity in the binary weight-two layer",
+          "trigger": "Fixed-weight reconstruction code claim on a shared layer"
+        },
+        {
+          "assessment": "Different degree and constraints",
+          "evidence": "Disagreement spans and mean degree in run-capped sources rather than fixed-weight exact degree distribution.",
+          "identifier_or_url": "4a3ef99abab1",
+          "material_read": "RESULT.md offsets 0–3000",
+          "method": "Local Resultary mirror",
+          "title": "Two-read deletion ambiguity across all bounded-homopolymer sources",
+          "trigger": "Local ambiguity and allowed spans across source classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–38 and 41–67",
+        "Resultary 1e0b06ffdce5 and 7d25cc21af64 on the same graph or a fixed-weight layer"
+      ],
+      "rationale": "Fixed composition is a natural source constraint for deletion-reconstruction problems. The layer graph is the relevant local ambiguity object for such codes, so the full histogram, sharp maximum versus typical-scale mean, and distinction between preserved-weight and cross-weight edges give usable quantitative information not provided by the unconditioned graph. These results solve an exact motivated enumeration problem without claiming an optimal code size or downstream coding theorem.",
+      "residual_risks": [
+        "The asymptotic describes a mean, not a concentration statement or a capacity bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

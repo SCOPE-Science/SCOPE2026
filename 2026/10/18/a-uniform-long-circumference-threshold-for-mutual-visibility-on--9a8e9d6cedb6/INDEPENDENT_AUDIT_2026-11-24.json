@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:24:38.176032Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–42",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent reachable-set spot check"
+      ],
+      "rationale": "A shortest path in a fixed cycle layer cannot move in the path coordinate. Four marks in such a layer obstruct both arcs between an alternating pair, proving the upper bound 3s. For the stated M, h=floor(t/3)>=2s separates the three width-s windows and makes all marked columns distinct. In one window a move in the starting column followed by a move in the destination row has length 2|a-b| and no marked interior. Across windows orient from one to its cyclic successor. The forward column distance is h+b-a, or h+r+b-a across the wrap with r=t-3h. Thus t-2D is at least h+r-2(s-1) before the wrap and h-r-2(s-1)>=0 at the wrap. Equality is harmless: the selected arc is still shortest. Switch rows in the empty column immediately after the first window; each row segment encounters only its own marked endpoint. This also works when the endpoints have identical first coordinates. The resulting length is D+|a-b|. Independently, reachable-set expansion on the graph with other marks removed checked 699 endpoint pairs including all three residues at s=3 and s=5; replay: python3 -I /tmp/opencode/frozen_audit_small_checks.py, visibility(). These finite checks corroborate the path argument; frozen scripts were inspected, not run.",
+      "residual_risks": [
+        "No necessity, optimal cutoff, or conclusion outside the stated parameter domain was audited; the finite computation alone cannot establish the theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The proved 2t cylinder regime requires s+1>=t>=6, disjoint from the frozen range. The two general layer bounds give 3s as an upper bound only on this range.",
+          "The November catalogue theorem covers every t>=6s by proving 3s at t=6s-6 or t>=6s-4."
+        ],
+        "reasoning": "The later broader theorem genuinely covers the numerical statement, but no inspected earlier theorem supplies the matching lower bound on the frozen range.",
+        "searches": [
+          "arXiv:2309.15201 Proposition 2.1 and Theorem 2.4",
+          "arXiv:2112.13024 Theorem 3.2(i)",
+          "arXiv:2512.01978 Theorem 6.3",
+          "Resultary 2026/11/22 record 6c58cbd63369"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary match 6c58cbd63369",
+        "arXiv:2309.15201",
+        "arXiv:2112.13024",
+        "arXiv:2512.01978; DOI 10.1002/net.70074"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact result and the general product inequalities do not imply a 3s lower bound in this parameter wedge.",
+          "The later proof uses starts 0,q,2q for t mod 3 in {0,1}, but 0,q,2q+1 when t mod 3=2, with q=floor(t/3)."
+        ],
+        "reasoning": "The later statement implies the numerical result for every frozen pair; its size-3s construction is exactly the frozen M only in two residues. It does not by itself certify the specified M in the third residue. The inspected earlier sources do not supply the missing construction or the numerical lower bound.",
+        "searches": [
+          "Primary literature lookup for the Korže–Vesel path-cycle conjecture and long-cylinder proofs",
+          "Resultary 6c58cbd63369 RESULT.md, Finding and construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Factor interchange does not change the graph; the fault-tolerant paper explicitly puts the ordinary parameter at k=0 and restricts its new cylinder theorem to k>=1.",
+          "For t>=6s, min(3s,2t)=3s, so the older conjecture predicts precisely the numerical result on this domain."
+        ],
+        "reasoning": "The conjugate parameter notation and k=0 formulation lead to the same problem. A conjecture and the solution for k>=1 are not proofs of the k=0 result.",
+        "searches": [
+          "Local Resultary comparison: ordinary mutual visibility, path times cycle, staggered triads, 3s and long circumference",
+          "arXiv:2512.01978 §6.2 (ordinary = fault tolerance k=0)",
+          "arXiv:2309.15201 Conjecture 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct local-mirror match is the 2026-11-22 record 6c58cbd63369; it is not the frozen 2026-10-18 record.",
+          "The earlier small-cycle table and finite computational agreement through t=17 do not include even the first frozen pair (s,t)=(3,18)."
+        ],
+        "reasoning": "Finite low-circumference values cannot decide an unbounded two-parameter region. Catalogue chronology, not merely an entry's distinct identity, matters for the direction of the overlap.",
+        "searches": [
+          "Local Resultary strongest statement match: staggered triads on long cylindrical grids",
+          "arXiv:2309.15201 Remark 2.5, Table 1 and Conjecture 2.6"
+        ]
+      },
+      "rationale": "The prior literature supplies the upper bound and predicts the numerical answer, but does not prove this long-cylinder case. The closest distinct catalogue record is a later mathematical strengthening of the numerical result and overlaps even in its construction for two residues. It is not evidence that the frozen October record was covered as of its date. The priority conclusion is qualified to the inspected, dated evidence and to ordinary mutual visibility.",
+      "residual_risks": [
+        "An unindexed earlier proof of this aspect-ratio regime or a stronger covering result could alter the originality assessment; the later catalogue overlap itself does not show earlier publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior bound and predicted answer, not a prior proof of the frozen result.",
+          "evidence": [
+            "Theorem 2.4 proves 2t for s+1>=t>=6; Conjecture 2.6 proposes min(3s,2t) for t>=12."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2309.15201",
+          "material_read": "Proposition 2.1, Theorem 2.4, Remark 2.5 and Conjecture 2.6, especially PDF pp. 4–5, 9.",
+          "method": "Inspected the primary PDF and compared stated hypotheses, family and inequality directions.",
+          "title": "Mutual-visibility sets in Cartesian products of paths and cycles",
+          "trigger": "Same invariant and product; possible proved range including long cylinders."
+        },
+        {
+          "assessment": "Supplies the applicable upper bound only.",
+          "evidence": [
+            "μ(G□H)≤min{μ(G)|V(H)|,μ(H)|V(G)|}."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024",
+          "material_read": "Theorem 3.2(i), PDF p. 6, OA text offset 15135.",
+          "method": "Read the primary statement, substituted the path and cycle layer parameters.",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "General Cartesian-product bounds might close both sides."
+        },
+        {
+          "assessment": "Does not prove the stated ordinary case.",
+          "evidence": [
+            "§6.2 cites the ordinary conjecture separately and treats k>=1 in its new theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2512.01978; DOI 10.1002/net.70074",
+          "material_read": "§6.2, PDF pp. 13–14, including Theorem 6.3, OA text offsets 38000 and 42000.",
+          "method": "Inspected the OA preprint of the paper at the cylindrical-product case.",
+          "title": "Fault-tolerant mutual-visibility: Complexity and solutions for grid-like networks",
+          "trigger": "Later primary cylinder work may include ordinary visibility as k=0."
+        },
+        {
+          "assessment": "Later coverage of the numerical claim; not earlier priority evidence.",
+          "evidence": [
+            "The proved t=6s-6 or t>=6s-4 domain includes t>=6s; the third band's start changes for residue 2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-staggered-triads-attain-the-mutual-visibility-bound-on-long-cyli--6c58cbd63369",
+          "material_read": "Local mirror RESULT.md, Finding and proof, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4.",
+          "method": "Compared theorem domains, band locations and catalogue dates.",
+          "title": "Staggered triads attain the mutual-visibility bound on long cylindrical grids",
+          "trigger": "Strongest distinct Resultary statement match."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 17–53",
+        "Korže–Vesel Conjecture 2.6"
+      ],
+      "rationale": "This explicitly realizes the conjectured optimum in a natural unbounded regime, including arbitrary path height and all cycle residue classes. The empty-column switch explains why both the cycle geodesic constraint and the avoidance constraint can be met simultaneously. It is a partial solution with a sufficient, not asserted sharp, threshold.",
+      "residual_risks": [
+        "The later catalogue theorem extends the numerical domain; the frozen theorem is not the strongest known cutoff in that comparison."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

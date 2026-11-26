@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:08:45.373944Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated initial state and companion matrix give M^7=I+2B. The parity word has least period seven, class 0 mod 7 is excluded mod 4, and the odd normalized increments in class 4 mod 7 give exactly v2(D_(7t+4))=1+v2(t) for t>0. This forces every period to contain the full dyadic factor in the exhibited matrix period, and gives one coincidence per period at k>=2 in this class. In class 5, put u=t+1 and factor the uniformly convergent binomial series as 2uH(u). The initial terms of H sum to -u; the degree-two and degree-three correction coefficients are even, and v2(j!)=j-s_2(j) proves integrality of all later polynomial coefficients. Each later product contains at least two even factors at every 2-adic integer, so both its value and derivative vanish mod 2; the polynomial secant is even for arguments congruent mod 2 by Taylor expansion, and for opposite parities because both values are even. This proves the exact isometry and supplies the unique compatible zero. The first eight terms give H(0)=32 mod 64 and the remaining terms vanish at that precision. The roots 0 and alpha are separated at valuation 5: below this valuation the two valuations agree, while on 32Z_2 exactly one is 5 and the other is at least 6. Counting the resulting residue classes, including the transition at k=12, gives the asserted sharp plateau. Bravo's nonnegative solution list and Theorem 2.3 also confirm that the only ordinary same-index equalities are at 4 and -2; the interpolation agrees with integer powers at negative integers by continuity, so the other root is not an ordinary integer. An independent bounded recurrence calculation reproduced the counts through k=16, using the given initial triples, reducing at each recurrence step modulo 2^k, and counting over 7*2^(k-1) indices. The source check.py was inspected, not executed; the all-k proof does not rely on finite sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact zero-hit variance for primitive Padovan orbits modulo powers of two (3b25687bed0c, Finding) gives a distribution over primitive initial states, with mean 3 and variance k-1. Two exact dyadic residue sections of the Perrin numbers (ab2bd84778a5, Finding) evaluates the individual residue sections 7t+1 and 7t+3. Bravo–Irmak's accessible abstract identifies P_n-1 and R_n+1 as its valuation targets."
+        ],
+        "reasoning": "Orbit-wide moments do not assign the count to this particular initial triple, and Perrin-section fiber data do not pair sequence values at the same index. Neither is a dominating classification of the target fixed difference.",
+        "searches": [
+          "Resultary: dyadic coincidence/difference formulation",
+          "DOI 10.55730/1300-0098.3568, publisher abstract"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1007/s00009-023-02467-2",
+        "DOI 10.55730/1300-0098.3568 (abstract only)",
+        "Resultary 3b25687bed0c and ab2bd84778a5",
+        "OEIS A000931, A001608, A104217"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bravo lists ten nonnegative solutions for P_n=±R_m on p. 3 and the negative-index classifications on pp. 3–4. The 2024 abstract states individual shifted valuations; linked full text could not be opened independently."
+        ],
+        "reasoning": "The exact-integer classification rules out additional ordinary same-index zeros but does not establish the extra 2-adic zero. Separate valuations do not determine the valuation after equal leading dyadic terms cancel. The independent proof explicitly performs this second-order analysis; the conclusion about the 2024 work is limited to the material inspected.",
+        "searches": [
+          "Bravo 2023 DOI 10.1007/s00009-023-02467-2, pp. 3–4",
+          "Bravo–Irmak 2024 DOI 10.55730/1300-0098.3568, abstract; attempted publisher PDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary match to the assigned finding is the same record, not a prior occurrence. Bravo's classification solves P_n=±R_m over integer pairs; in particular it supplies the two ordinary same-index equalities, not the zero classes of the fixed difference at every dyadic precision."
+        ],
+        "reasoning": "Same-index congruences are exactly zero residues of the fixed difference recurrence (initial triple -2,1,-1). Integer zeros of that recurrence need not exhaust its 2-adic zeros, and do not determine multiplicities in a modular period.",
+        "searches": [
+          "Resultary: Padovan Perrin matching-index congruence count modulo powers of two, 2-adic difference roots and stabilized 65 coincidences",
+          "DOI 10.1007/s00009-023-02467-2, Theorems 2.1–2.3 and Corollaries 2.4–2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first two inspected entry heads list sequence terms (A000931 uses a shifted Padovan convention); A104217 lists individual Perrin periods, including 7, 14 and 28 at 2, 4 and 8."
+        ],
+        "reasoning": "Sequence terms permit finite recomputation, and periods specify the range but not its matching-index counts. The inspected entry fields are not an exact table or all-level formula for C_k.",
+        "searches": [
+          "OEIS A000931",
+          "OEIS A001608",
+          "OEIS A104217"
+        ]
+      },
+      "rationale": "The known integer equalities and individual-sequence period/lifting results are not credited as new. The surviving contribution is the evaluated dyadic zero statistic of the fixed difference recurrence, including its two-root valuation law. No inspected earlier statement or exact table yields it; there is a specific secondary risk from the incompletely accessible 2024 paper.",
+      "residual_risks": [
+        "The 2024 full text was independently inaccessible, so an unstated or implicit stronger lemma was not ruled out by direct inspection.",
+        "Unindexed exact calculations for the same initial state and other sequence entries remain possible; the checked fields and bounded searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary integer equalities, not the congruence counts",
+          "evidence": [
+            "Eq. (1.1) has independent integer indices and admits 123 signed solutions; the plus-sign equal-index entries are n=4 and n=-2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-023-02467-2",
+          "material_read": "Open PDF pp. 1, 3–4, introduction solution list, Theorems 2.1–2.3 and Corollaries 2.4–2.5",
+          "method": "OA PDF text, compared the entries with equal indices",
+          "title": "Common Values of Padovan and Perrin Sequences",
+          "trigger": "Same sequences, including the integer zeros inside the new dyadic branches"
+        },
+        {
+          "assessment": "Partial access; abstract does not cover the difference statistic",
+          "evidence": [
+            "The abstract states results for P_n-1 and R_n+1, not their matching-index difference."
+          ],
+          "identifier_or_url": "https://journals.tubitak.gov.tr/math/vol48/iss6/13/",
+          "material_read": "Publisher abstract; linked PDF endpoint returned 403",
+          "method": "OA page and attempted PDF retrieval",
+          "title": "The 2-adic valuation of shifted Padovan and Perrin numbers and applications",
+          "trigger": "Same recurrences and prime; possible stronger lifting theorem"
+        },
+        {
+          "assessment": "Distinct statistic",
+          "evidence": [
+            "Zero-hit mean and variance are over primitive orbits, not this fixed initial state."
+          ],
+          "identifier_or_url": "Resultary 3b25687bed0c",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Exact zero-hit variance for primitive Padovan orbits modulo powers of two",
+          "trigger": "Potential eigen-orbit or zero-count classification under alternate initial conditions"
+        },
+        {
+          "assessment": "Distinct single-sequence statistic",
+          "evidence": [
+            "Residue sections 7t+1 and 7t+3 concern Perrin alone."
+          ],
+          "identifier_or_url": "Resultary ab2bd84778a5",
+          "material_read": "Mirrored RESULT.md, Finding",
+          "method": "Local Resultary search and mirror reading",
+          "title": "Two exact dyadic residue sections of the Perrin numbers",
+          "trigger": "Potentially related dyadic residue tables"
+        },
+        {
+          "assessment": "Input values and individual periods only in the inspected fields",
+          "evidence": [
+            "A104217 records Perrin periods, not pairwise simultaneous hits."
+          ],
+          "identifier_or_url": "https://oeis.org/A000931 ; https://oeis.org/A001608 ; https://oeis.org/A104217",
+          "material_read": "Entry heads, term fields and initial A104217 comments",
+          "method": "OA website text",
+          "title": "Padovan, Perrin and Perrin period entries",
+          "trigger": "Possible exact sequence or period/count table overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sequences share a recurrence but have different natural initial conditions. The matching-index invariant separates the growth of the least period from a sharply bounded coincidence count. Identifying and separating the two nearby dyadic roots explains 64 hits in one residue branch and shows why exact integer equalities and marginal valuations miss the effect. This is a complete and reusable arithmetic description of the fixed difference, not just a numerical plateau or a general claim about unrelated sequences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

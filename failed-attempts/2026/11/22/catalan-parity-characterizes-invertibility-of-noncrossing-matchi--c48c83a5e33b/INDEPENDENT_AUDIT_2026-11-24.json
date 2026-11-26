@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:40:09.600363Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–59; VERIFICATION.md, lines 19–25; verify_noncrossing_walsh.py, lines 16–97 (inspected only)."
+      ],
+      "rationale": "Each eligible chord must join opposite parities because its two open arcs must contain even numbers of vertices. Characters of the F_2 chord group diagonalize unnormalized convolution. Reflection pairs all noncentral root-partner classes. The central class exists only for odd n=2m+1 and has C_m^2 elements, so the parity recurrence, with C_1=1, characterizes odd Catalan numbers at the Mersenne orders; an odd sum of signs never vanishes. For even n each reflected pair contributes opposite signs to the proposed root-star frequency. For odd n, the two embedded copies of the smaller frequency are disjoint, reflected and away from the root. The noncentral cancellation is intact, and conditioning on the antipodal chord makes the contribution exactly W_m(S_m)^2, with root sign +1. Non-Mersenne odd orders recurse to a positive even order before reaching 1. At n=1 the usual two-vertex matching convention gives a single edge and two nonzero multipliers.",
+      "residual_risks": [
+        "The finite exact examples and zero counts are reported by the source; the all-order conclusion was assessed from the proof, not by exhaustive Fourier scanning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The direct predecessor also gives gcd 2^(s_2(n+1)-1) and at least 2^(2n-1) distinct zeros at a singular order.",
+          "baf34171c9b2 covers many weight-n/2 star zeros at even n>=4 and classifies the least supports at n=8. Lin states the Catalan parity criterion; this alone gives only the invertible direction."
+        ],
+        "reasoning": "The stronger same-object predecessor subsumes the entire theorem, not just classical parity or the even-order witness.",
+        "searches": [
+          "c838773114fa, Finding, Steps 1–4",
+          "baf34171c9b2, Finding and Proof §1",
+          "Lin arXiv:1012.1756v1 §3, Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c838773114fa, baf34171c9b2, e353f7965df9, 84ddf083bb47, 66429c48a810",
+        "Lin arXiv:1012.1756; Postnikov–Sagan arXiv:math/0601339; Asinowski arXiv:1502.05332 p. 1; Kemp et al. arXiv:0906.2183 p. 1; DeCorte–de Laat–Vallentin arXiv:1307.5703 p. 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier construction uses j -> -j mod 2n, antisymmetric root chords, reflection-symmetric nonroot chords, and copies the smaller zero on the two arcs of the fixed antipodal chord."
+        ],
+        "reasoning": "The anti-signed root pairs and central product are the same proof. At even orders the sign conventions differ by one common root sign per matching. At odd orders reversing the noncentral root signs changes only the signs of terms already canceled, while the central contribution is still the square of the smaller zero. There is no surviving new theorem under the other sign convention.",
+        "searches": [
+          "c838773114fa, Proof Step 3, mirror offset 4137",
+          "Frozen RESULT.md lines 33–54"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "c838773114fa uses exactly the same W_n, eligible edge set, and invertibility iff n+1 is a power of two.",
+          "e353f7965df9 treats centered incidence covariance and integral spanning; 84ddf083bb47 treats Dyck up-step coordinates modulo four. Neither is the source of the direct match."
+        ],
+        "reasoning": "Existence of a zero Walsh coefficient is equivalent to failure of the claimed invertibility, not a weaker statement; the prior entry explicitly gives both forms. The degree-one edge Gram problem and the step-coordinate problem use different statistics. A step zero can be pulled back through the linear map recording smaller endpoints, but the inspected mod-four theorem does not supply the needed all-order zeros.",
+        "searches": [
+          "Resultary: signed noncrossing matchings, all-order Walsh invertibility, Mersenne criterion, antipodal root cancellation",
+          "c838773114fa, Finding and Proof Step 3",
+          "e353f7965df9 and 84ddf083bb47, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed predecessor gives an exact yes/no classification for every n, not just listed small orders. The frozen small spectra serve as finite corroboration and are not a standalone exhaustive classification."
+        ],
+        "reasoning": "A finite table cannot establish priority for an all-order theorem; here an actual exact prior formula covers every order without needing a separate inventory of small spectra.",
+        "searches": [
+          "Resultary c838773114fa, The Finding and Assumptions",
+          "baf34171c9b2 at n=8",
+          "Frozen RESULTS and checker for n<=4"
+        ]
+      },
+      "rationale": "Verified prior coverage: the earlier catalogue entry c838773114fa states the identical all-order convolution theorem for the same n² chord coordinates and proves it by the same reflection and two-arc lift, in addition to exact gcd and zero-count results. The sign convention for the root star in the two proofs is immaterial to zero existence.",
+      "residual_risks": [
+        "An exterior signed-Catalan or Temperley–Lieb equivalent may also exist; the available external search did not settle that. The earlier exact catalogue statement and matching proof are sufficient for this verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit prior coverage of all claims in the Finding, including the proof witness.",
+          "evidence": [
+            "The Finding states the equivalent zero-existence and invertibility criteria; Step 3 uses the same reflection, fixed root chord and smaller arcs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/16/SCOPE-dyadic-rigidity-and-exact-walsh-singularity-of-noncrossing-perfe--c838773114fa/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0; proof of zero criterion, Step 3, at offset 4137",
+          "method": "Resultary lookup and direct bounded local-mirror passage reads",
+          "title": "Dyadic rigidity and exact Walsh singularity of noncrossing perfect matchings",
+          "trigger": "Nearly exact title and all-order matching Walsh family"
+        },
+        {
+          "assessment": "Partial prior coverage of the even-order method.",
+          "evidence": [
+            "Many weight-n/2 star zeros for even n>=4, and 544 classified weight-four supports at n=8."
+          ],
+          "identifier_or_url": "baf34171c9b2",
+          "material_read": "Finding and Proof §1, offset 0",
+          "method": "Resultary and local-mirror passages",
+          "title": "Sharp fourth-order Walsh cancellation for sixteen-point noncrossing matchings",
+          "trigger": "Explicit even-order star zeros"
+        },
+        {
+          "assessment": "A centered restricted-rank result; not equivalent to global convolution invertibility.",
+          "evidence": [
+            "Centered degree-one edge covariance has rank (n-1)^2 with integral incidence-difference spanning."
+          ],
+          "identifier_or_url": "e353f7965df9",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary and local-mirror passages",
+          "title": "Integral Fourier identifiability from noncrossing perfect matchings",
+          "trigger": "Same chord-incidence model and Fourier terminology"
+        },
+        {
+          "assessment": "Parity theorem credited to Deutsch and Sagan, not the matching cancellation theorem.",
+          "evidence": [
+            "C_n is odd precisely for n=2^a-1; the paper then treats congruences of these odd numbers."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1012.1756v1",
+          "material_read": "§3 Theorem 3.1, p. 3, offset 6021; references p. 8, offset 17440",
+          "method": "Bounded primary OA PDF passages",
+          "title": "The odd Catalan numbers modulo 2^k",
+          "trigger": "Cited sufficiency fact"
+        },
+        {
+          "assessment": "Different coordinates and mod-four conclusion.",
+          "evidence": [
+            "Signs are on 2n up-step coordinates, not on all independent eligible chords."
+          ],
+          "identifier_or_url": "84ddf083bb47",
+          "material_read": "Finding and Assumptions, offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "A binary-digit parity law and the mod-four Walsh spectrum of Catalan matroid bases",
+          "trigger": "Related Catalan Walsh parity theorem"
+        },
+        {
+          "assessment": "Exact results at one order in different coordinates; no relative priority asserted.",
+          "evidence": [
+            "128 zeros at semilength five in the up-step cube."
+          ],
+          "identifier_or_url": "66429c48a810",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local-mirror passage",
+          "title": "Affine Walsh zeros and optimal Fourier recovery for the semilength-five Dyck language",
+          "trigger": "Same-day related exact Fourier zeros"
+        },
+        {
+          "assessment": "Defines weights by heights of Dyck ascents, not arbitrary polygon chord signs.",
+          "evidence": [
+            "The inspected definition and results concern divisibility of these height-weighted sums."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0601339",
+          "material_read": "p. 1 around offset 1600",
+          "method": "Bounded primary OA PDF passage",
+          "title": "On the divisibility of weighted Catalan numbers",
+          "trigger": "Signed or weighted Catalan enumeration"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof; Resultary c838773114fa, Finding and Step 3; Lin, Theorem 3.1."
+      ],
+      "rationale": "The complete criterion is a well-motivated theorem in isolation, but this record contributes no independent useful remainder: the stronger prior record already gives both the classification and the constructive witness. The elementary reflection proof of Catalan parity and the bounded numerical corroboration do not supply a new mathematical payoff in this setting.",
+      "residual_risks": [
+        "An independent new spectrum or nullity result might be valuable, but the frozen finding expressly does not claim one."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

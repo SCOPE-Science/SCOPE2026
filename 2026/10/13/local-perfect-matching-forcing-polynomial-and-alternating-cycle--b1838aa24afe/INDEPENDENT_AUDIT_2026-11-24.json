@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:43:30.132483Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verify_independent.cpp (uploaded code inspected, not executed)",
+        "Frozen alternating_cycles.csv and quartet_orbits.csv, exact equality with the independent enumeration",
+        "Independent bounded replay: python3 /tmp/opencode/coxeter_review.py /workspace/source/2026/10/13/local-perfect-matching-forcing-polynomial-and-alternating-cycle--b1838aa24afe"
+      ],
+      "rationale": "A forcing subset of M hits every simple M-alternating cycle: missing one permits a flip, while any different extension yields a missed cycle via symmetric difference. Its matching-edge mask therefore lies outside the down-sets of complements of all cycle masks. An independently written check directly enumerated vertex-simple alternating walks starting at their least vertex and using the matching edge first, which selects one orientation and covers all cycles. The length histogram for 8,10,12,14,16,18,20,22,24 is (1,4,4,12,9,4,16,16,8). Exhaustive mask tests found disjoint 10- and 12-cycles and no triple; mask disjointness equals vertex disjointness since each cycle uses the M-edge incident with every vertex it contains. Each decagon shares one M-edge (two vertices) with the unique eight-cycle. Downward closure of the bad masks gives polynomial coefficients in degrees 0 through 14 of (0,0,0,0,198,1018,2300,3124,2918,1988,1000,364,91,14,1). To count the full automorphism group independently, distance signatures to ordered anchors (0,6,4,1) separate the 28 vertices. All admissible images of the anchors were tried, extending via the uniquely determined signatures and testing adjacency; this found 336 automorphisms. A distinct residual matching count gave 84, equal to the size of the canonical matching's orbit, proving matching transitivity. The 16,632 quartets are all distinct because a forcing quartet has only one completion. Direct orbit traversal gives 48 orbits of 336 and 3 of 168. Both frozen CSVs agree exactly with the independently enumerated data in the fixed lexicographic labeling. Thus f=4, ν=2 and gap=2 for all matchings.",
+      "residual_risks": [
+        "The finite reproduction is for the stated Fano-triangle graph, not all cubic graphs or a smallest-order packing-gap claim. The orbit certificate identifies representatives in the frozen zero-based labeling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem C assumes planar and bipartite. The Coxeter graph is of girth 7 and orientable genus 3, so it has an odd cycle and is not planar. The MATCH paper's alternating-cycle criterion and general methods characterize the optimization, not its exact Coxeter values."
+        ],
+        "reasoning": "The general theorem's hypotheses fail, and a general algorithm or exact criterion does not itself give the submitted enumeration.",
+        "searches": [
+          "Afshani–Hatami–Mahmoodian arXiv:0903.2578v1, §3 Theorem C",
+          "MathWorld, Coxeter Graph",
+          "Liu–Ma–Yao–Wang, MATCH 87, pp. 563–564"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 990910a9a818 and 14c1abfea76d",
+        "Liu–Ma–Yao–Wang MATCH 87, Definition 2.1",
+        "arXiv:0903.2578v1 Theorem C",
+        "MathWorld Coxeter Graph",
+        "Symmetry 17(1):133 (partial access only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heawood supplies a precedent for the type of classification but uses a different graph, subsets and orbit structure. The other Coxeter finding exhibits an alternating pair in the same graph but does not give the 74-cycle census, exclude triples in its inspected finding, or determine the 51 quartet orbits. The planar-bipartite equality is not an implication for this graph."
+        ],
+        "reasoning": "The precise gap, census and orbit counts need a Coxeter-specific exhaustion. Compare the actual content even across same-day or later catalog records, without treating dates as a novelty test.",
+        "searches": [
+          "Resultary 990910a9a818, Finding",
+          "Resultary 14c1abfea76d, Finding and switch/diameter proof passages",
+          "arXiv:0903.2578v1 Theorem C and MATCH 87 Definition 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard graph-level forcing polynomial sums x^{f(G,M)} over M; the submitted P_M sums z^{|S|} over forcing subsets of a fixed M. The later Coxeter record 14c1abfea76d uses the same disjoint non-line Fano triples with cyclic labels, states 8/10 cycle switch results and gives an 8+16 disjoint packing witness, but its inspected finding is not the forcing-subset classification."
+        ],
+        "reasoning": "Renaming the graph or translating Fano labels does not change invariants. A graph-level forcing-number evaluation would not determine the finer coefficients or the minimum-subset orbit census. A lower-bound witness from switches is only partial overlap with the packing claim.",
+        "searches": [
+          "Resultary: Coxeter perfect matching forcing polynomial, alternating cycles, packing and quartets; Heawood fixed-matching forcing subsets",
+          "Liu–Ma–Yao–Wang, MATCH 87, pp. 563–564, Definition 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Heawood catalog entry reports 14z³+28z⁴+21z⁵+7z⁶+z⁷ and two minimum-triple orbits for a different graph. The later Coxeter entry overlaps in total matchings and particular alternating cycles but not in the inspected quartet/profile statements. The 2025 matching-polynomial article's detailed tables were not read."
+        ],
+        "reasoning": "A known or tabulated aggregate count of perfect matchings is different from the distribution of identifying subsets and from the symmetry-orbit table. The uninspected table is a remaining risk rather than evidence of either coverage or novelty.",
+        "searches": [
+          "Resultary entries 990910a9a818 and 14c1abfea76d",
+          "Symmetry 17(1):133 (2025), matching-polynomial table attempt",
+          "MathWorld Coxeter Graph invariant entry"
+        ]
+      },
+      "rationale": "The verified exact novelty distinction is the fixed-matching forcing-subset profile, full alternating-cycle census and packing number, and minimum-quartet orbit classification on the Coxeter graph. The graph, forcing criterion and previously reported total number of matchings are not credited as new. Two distinct catalog findings have substantial overlap in method or object, but neither gives the joint Coxeter classification in the inspected passages.",
+      "residual_risks": [
+        "The detailed 2025 tables and any unindexed forcing classifications were not ruled out. The later Coxeter record already contains a particular disjoint alternating pair; priority for that narrower fact is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analogous enumeration on a different graph, not Coxeter-specific coverage.",
+          "evidence": "Heawood fixed-matching profile begins 14z³+28z⁴, with two types of optimal triples.",
+          "identifier_or_url": "2026/10/13/SCOPE-four-set-obstructions-and-two-optimal-forcing-triple-types-in-th--990910a9a818",
+          "material_read": "RESULT.md, Finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Four-set obstructions and two optimal forcing triple types in the Heawood graph",
+          "trigger": "Same-day indexed match for fixed-matching forcing-subset profiles and orbits"
+        },
+        {
+          "assessment": "Same Fano-triple graph with another labeling. Switch results and disjoint pair overlap partially; no fixed-matching forcing-subset polynomial or quartet orbits in the inspected passages.",
+          "evidence": "Uses 84 matchings and 8/10-cycle switches, and gives an antipodal symmetric difference with alternating lengths 8 and 16.",
+          "identifier_or_url": "2026/10/25/SCOPE-decagon-mobility-and-two-cycle-antipodes-among-coxeter-perfect-m--14c1abfea76d",
+          "material_read": "RESULT.md offsets 0 and 2021–4431, Finding and proof/assumptions passages",
+          "method": "Local Resultary mirror",
+          "title": "Decagon mobility and two-cycle antipodes among Coxeter perfect matchings",
+          "trigger": "Same graph and alternating-cycle parameter"
+        },
+        {
+          "assessment": "Prior forcing criterion and graph-level polynomial; different polynomial from this finding.",
+          "evidence": "Defines unique extension and the alternating-cycle test; Definition 2.1 counts matchings by forcing number.",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match87/n3/match87n3_561-575.pdf",
+          "material_read": "pp. 563–564, including Definition 2.1 (OA offsets 4300–6574)",
+          "method": "Open primary PDF passages",
+          "title": "Computing the Forcing and Anti–Forcing Numbers of Perfect Matchings for Graphs by Integer Linear Programmings",
+          "trigger": "Alternate terminology and general forcing methods"
+        },
+        {
+          "assessment": "Does not apply to the Coxeter graph.",
+          "evidence": "Equality of forcing number and maximum disjoint alternating-cycle packing assumes planar bipartite graphs.",
+          "identifier_or_url": "https://arxiv.org/html/0903.2578v1",
+          "material_read": "§3 Theorem C, OA offset 19045",
+          "method": "Open primary HTML passage",
+          "title": "On the spectrum of the forced matching number of graphs",
+          "trigger": "General forcing-versus-packing theorem"
+        },
+        {
+          "assessment": "Confirms graph invariants, not the forcing census.",
+          "evidence": "28 vertices, 42 edges, girth 7 and orientable genus 3.",
+          "identifier_or_url": "https://mathworld.wolfram.com/CoxeterGraph.html",
+          "material_read": "Entry at offset 0",
+          "method": "Public web page",
+          "title": "Coxeter Graph",
+          "trigger": "Standard graph identification and general-theorem scope"
+        },
+        {
+          "assessment": "No inference about its detailed scope is made from unavailable tables.",
+          "evidence": "The frozen source credits the article for the total matching count; this is not credited as new here and is checked independently for correctness.",
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/17/1/133",
+          "material_read": "Partial publisher access/metadata only; detailed tables not obtained",
+          "method": "Lawful open full-text retrieval attempt",
+          "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+          "trigger": "Potential exact table for Coxeter matching data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, forcing-set and packing claims",
+        "Afshani–Hatami–Mahmoodian Theorem C",
+        "Independent finite reproduction and orbit certificates"
+      ],
+      "rationale": "A classical highly symmetric cubic graph supplies an explicit strict boundary to a standard transversal-versus-packing equality. The fixed-matching generating polynomial and orbit classification distinguish how minimal identifying information sits in the graph, beyond either the known total number of matchings or a sole witness of a strict gap. The exact data can be used to compare forcing across symmetry and planarity regimes.",
+      "residual_risks": [
+        "No extremal graph order or wider graph-family theorem is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:53:05.631339Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding and Proof, VERIFICATION.md, both verification programs and recorded outputs, requirements.txt",
+        "Independent replay: python3 /workspace/branches/recheck_1.py 8; output /workspace/branches/recheck_1.txt"
+      ],
+      "rationale": "Birkhoff duality identifies the eight-generator bound with the bound on the poset of join-irreducibles, with order direction fixed. An independent exact census added a minimal point below each up-set, which is exhaustive by deletion of a minimal point. It canonically minimized the strict-relation masks over all permutations within the invariant (number of predecessors, number of successors) classes, so equality of keys is exactly isomorphism. For each ideal S, the numbers below and above are ideal counts in the induced subposets on S and its complement, minus one. The independent counts used deletion of a maximal element or forcing it and all its predecessors, rather than all pairwise ideal comparisons. The layer counts were 1, 2, 5, 16, 63, 318, 2045, 16999; one combined profile map contained 19,448 keys for 19,449 types. Its only nonsingleton bucket consisted exactly of the two claimed eight-point masks up to canonicalization, with the stated eighteen pairs. The longest chains have four and five points by the predecessor recurrence. Direct two-direction refinement confirms separation at round two: the unique (4,8) node in A has lower first-round colors (0,17), (1,13), (1,15), (3,12), and this round-two key does not occur in B. Equality and incomparable counts per color add no extra distinction once the common first-round totals and the two directed counts are given.",
+      "residual_risks": [
+        "Exact finite computer-assisted proof through eight join-irreducibles; not a statement on the first collision by total lattice cardinality without that bound, or on uniqueness at larger sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arvind et al. p. 1 describes general color refinement; Krebs–Verbitsky p. 4 and §4 relate refinement rounds to two-variable counting logic."
+        ],
+        "reasoning": "General counting equivalences and refinement-depth results do not identify the first failure for this invariant on distributive lattices. In particular the exceptional lattices separate at round two, so this is not an obstruction to full refinement.",
+        "searches": [
+          "Arvind et al., arXiv:1502.01255",
+          "Krebs–Verbitsky, arXiv:1407.3175"
+        ]
+      },
+      "checked_sources": [
+        "10.37236/1641",
+        "arXiv:1502.01255",
+        "arXiv:1407.3175",
+        "Resultary 01bf6e8789db, 86bf40d26650, 75a64ec066f3, e2121450dd04"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-point generation proves coverage of the candidates, not which profiles collide. The eight-point graded-one-type record instead counts fibers of a polynomial for types over a poset; its 31 collision fibers concern that other invariant."
+        ],
+        "reasoning": "The known constructions permit the calculation; they do not force its result without the separate cross-type comparison. The target is not a parameter instance of the one-type classification.",
+        "searches": [
+          "DOI 10.37236/1641, PDF p. 3",
+          "arXiv:1502.01255 and arXiv:1407.3175 §4",
+          "Resultary e2121450dd04"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The six-point record uses the same strict degree pair on the points of width-two posets, not on their ideal lattices. The rooted-forest ideal-lattice record uses paired cover degrees on a restricted class. The interval-order record uses point degrees in interval orders."
+        ],
+        "reasoning": "Neither replacing the lattice by its join-irreducible poset nor replacing strict comparisons by covers is an invariant-preserving rephrasing of this census. Same-day indexing does not affect the comparison.",
+        "searches": [
+          "Resultary: strict predecessor/successor degree-pair profiles and one-round fingerprints for finite distributive lattices",
+          "Resultary 01bf6e8789db, 86bf40d26650, 75a64ec066f3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original lattice enumeration article p. 3 gives the maximal-point construction. The ranked Resultary results inspected included related finite collision records, but no table of these joint lower/upper ideal counts or the claimed exceptional pair was found."
+        ],
+        "reasoning": "Counts of types and a method for constructing representatives do not tabulate their strict-order degree signatures.",
+        "searches": [
+          "Erné–Heitzig–Reinhold, DOI 10.37236/1641",
+          "Resultary searches for the eight-join-irreducible strict degree-pair census and related equivalents"
+        ]
+      },
+      "rationale": "The inspected prior work supplies enumeration and refinement machinery and closely related invariants, not this first collision and its cross-layer census. The finite classification, not Birkhoff duality, the known type counts, or the general logic framework, is the supported distinct claim.",
+      "residual_risks": [
+        "The targeted external search was unavailable; the accessible primary comparisons and limited ranked catalogue results do not rule out earlier specialized computations or alternative terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Enumeration construction, not the profile classification",
+          "evidence": [
+            "Adds a maximal point in one-point extensions of posets."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1641",
+          "material_read": "PDF p. 3, offset 7300",
+          "method": "Open primary text",
+          "title": "On the Number of Distributive Lattices",
+          "trigger": "Established exhaustive lattice enumeration"
+        },
+        {
+          "assessment": "General framework",
+          "evidence": [
+            "Classical color refinement can fail as a graph isomorphism test."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1502.01255",
+          "material_read": "PDF p. 1, offset 900",
+          "method": "Open primary text",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Related refinement invariant"
+        },
+        {
+          "assessment": "General refinement-round and logic comparison",
+          "evidence": [
+            "Relates rounds and two-variable counting logic, without determining the claimed lattice collision."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.3175",
+          "material_read": "PDF p. 4, offset 10850; §4 p. 16, offset 47600",
+          "method": "Open primary text",
+          "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+          "trigger": "Possible coverage by a bounded-round theorem"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "The two witnesses are six-point posets of width at most two, not ideal lattices with eight join-irreducibles."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-unique-six-point-degree-profile-collision-among-width-two-po--01bf6e8789db",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "The unique six-point degree-profile collision among width-two posets",
+          "trigger": "Same invariant on a neighboring class"
+        },
+        {
+          "assessment": "Different invariant and scope",
+          "evidence": [
+            "Uses cover counts and bounded-width rooted forests."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-one-round-counting-fingerprints-of-rooted-forest-ideal-lattices--86bf40d26650",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "One-round counting fingerprints of rooted-forest ideal lattices of width at most two",
+          "trigger": "Same type of construction and refinement round"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "Reconstructs interval orders from their point degrees."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-degree-pair-reconstruction-and-catalan-margin-fibers-of-finite-i--75a64ec066f3",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Degree-pair reconstruction and Catalan margin fibers of finite interval orders",
+          "trigger": "Related reconstruction statement"
+        },
+        {
+          "assessment": "Different polynomial invariant",
+          "evidence": [
+            "Concerns fibers of graded one-point types, not ideal-lattice node degrees."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-eight-point-collisions-of-graded-one-point-types-in-the-ge--e2121450dd04",
+          "material_read": "RESULT.md finding, offset 0",
+          "method": "Local publication mirror",
+          "title": "Sharp eight-point collisions of graded one-point types in the generic poset",
+          "trigger": "Same size parameter and collision terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope",
+        "Independent census and round-two check",
+        "Primary and catalogue comparisons above"
+      ],
+      "rationale": "The cutoff is the first failure of a natural invariant on a canonical lattice family, not an arbitrary enumeration slice. The unique obstruction at that first layer, including cross-layer exclusions and its resolution at the next round, is a precise benchmark for reconstruction by local counting.",
+      "residual_risks": [
+        "Does not classify stable-refinement failures or later one-round collisions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

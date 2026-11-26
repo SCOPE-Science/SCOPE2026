@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:50:00.336410Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–75",
+        "Frozen VERIFICATION.md and check_gossip.py, inspected not executed",
+        "Separately authored 5x5 rational projection check at (2,3)"
+      ],
+      "rationale": "Conditioning the first edge gives B_(k+1)=E[Q B_k Q] on the mean-zero space. Shore permutations force B_k to be scalar on each of the three sectors; projected edge-vector squared lengths are w_i and E[zz^T] has eigenvalues d_i there. Expansion of Q=I−zz^T/2 gives row i of M. Projection contraction gives B_(k+1) <= B_k and hence nonincreasing forcing s_k/4 <= 1/2. The common-uniform last-reset coupling orders the responses in reverse order of d. Strictness holds on the event of no reset at the smaller d in any step and a final reset only at the larger d; this event has positive probability and compares the unchanged 1 with at most 1/2. Thus k>0 gives precisely the stated worst sectors, including their direct sum at equal shores, while k=0 is tied on all sectors. All M entries are positive, and row sums are at most ν with the third strictly smaller; positivity makes all entries of M²1 strictly below ν² and implies the higher-power bound and Perron rate <ν. The Perron eigenvector puts the root above max_i(1−d_i); the secular sum then decreases from infinity to 1/2 at 1. In proportional growth, the upper 2x2 limiting block of q(I−M) has the stated smaller eigenvalue and the third eigenvalue is 1+1/r. M is diagonally similar to a real symmetric diagonal-plus-rank-one matrix (rank-one entries sqrt(d_i w_i d_j w_j)/4), so the Perron mode tracks the smallest of the scaled losses. The smaller branch satisfies (3−2rR)(3−2R)=1, with negative derivative and endpoints 1 and 4/3. For fixed p, at ε=1/q=0 the two modes off the simple unit mode have eigenvalues 1−1/p and 1−3/(4p). Pairing the middle-row derivative with the left and right unit modes e_B and (1/3,1,1/3) gives −2/3, proving the separate fixed-p limit. An independent exact rational check for (p,q)=(2,3) compared the full 5x5 projection recursion to the three-mode reconstruction entrywise at horizons 0–4; e.g. at k=2 the three coefficients were (53/96,97/144,113/288).",
+      "residual_risks": [
+        "The bounded exact recurrence test is corroboration, not a test over all graph sizes or horizons. The result is for expected squared error and uniform iid edges, not a pathwise exponent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd et al. gives the expected-matrix spectral bound and more exact covariance criterion. Loizou–Richtárik p. 1 describes a general framework with pairwise gossip as a special case. Agaskar et al. is credited by the frozen record for general exact tensor-power MSE; exact text not recovered in this review."
+        ],
+        "reasoning": "Without crediting novelty for exact moment propagation, a general lifted formula by itself does not give the strict finite ordering, compare all three regimes, or evaluate the two distinct asymptotic scalings.",
+        "searches": [
+          "Boyd et al. author PDF pp. 1 and 5",
+          "arXiv:1905.08645v2 randomized gossip framework",
+          "Agaskar–Wang–Lu DOI 10.1109/GlobalSIP.2014.7032145"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c93f751b4cab and 69f82814e595",
+        "Boyd et al. (2006) pp. 1, 5",
+        "Loizou–Richtárik arXiv:1905.08645v2 p. 1",
+        "Agaskar et al. DOI and OA access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The star result already identifies leaf contrasts for all positive horizons and computes a large-star 4/3 ratio, while the general method already yields an exact operator iteration.",
+          "Here there are two competing nontrivial within-shore sectors and a separate inter-shore sector. Their comparison uses a common nonincreasing forcing and strict reset coupling; proportional and fixed-p limits are obtained from different limiting matrices."
+        ],
+        "reasoning": "The family-specific order and full gain law are not a parameter substitution into either verified antecedent. The recurrence as an instance of general lifting is credited as such.",
+        "searches": [
+          "Resultary star RESULT.md offsets 0 and 4353",
+          "Boyd et al. 2006 p. 5 lifted covariance comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boyd–Ghosh–Prabhakar–Shah 2006 p. 5 discusses lifted covariance/Kronecker second-moment convergence; the rank-one Kaczmarz projection formulation is also equivalent on the mean-zero subspace.",
+          "Resultary 69f82814e595 has an exact two-mode law for K_(1,m)."
+        ],
+        "reasoning": "A lift and its adjoint may act on covariance instead of a quadratic form of the initial state. This is the same second-moment mechanism, but it does not resolve the maximizing initial eigenspace on K_(p,q) for p>=2 before further analysis.",
+        "searches": [
+          "Resultary: complete bipartite three-mode finite-horizon gossip, larger shore extremizers",
+          "Randomized Gossip Algorithms, covariance/Kronecker formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical target c93f751b4cab appears in Resultary. The distinct same-day 69f82814e595 supplies the star law and its 4/3 ratio."
+        ],
+        "reasoning": "Credit the exact numerical overlap 4/3 and do not infer priority within the day. A star value is not a table for all p>=2 or the positive continuous aspect-ratio branch, and a star lacks the smaller-shore zero-sum sector.",
+        "searches": [
+          "Resultary: continuous aspect-ratio speedup law, star boundary and 4/3 gain"
+        ]
+      },
+      "rationale": "The general lifted second-moment method and the one-step bound are not new. The supported specific result combines the sharp all-horizon shore extremizers for two nontrivial shores with the continuous aspect-ratio gain and a separate fixed-p asymptotic. The strongest distinct Resultary comparator already has the analogous star extremizer and 4/3 limit but its one-dimensional shore eliminates a sector and does not imply this theorem.",
+      "residual_risks": [
+        "The exact Agaskar–Wang–Lu primary passages were inaccessible through the tried routes.",
+        "An equivalent family-specific analysis may exist outside the inspected results; no priority assertion based on search absence or the shared Resultary date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material analog on the excluded one-vertex shore; no within-day ordering inferred",
+          "evidence": "Two modes, leaf contrasts worst at every positive horizon, large-star limit 4/3; no second nonzero within-shore mode.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-horizon-mean-square-decay-for-randomized-pair-avera--69f82814e595",
+          "material_read": "Local RESULT.md offsets 0 and 4353, finding, proof and comparison",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact finite-horizon mean-square decay for randomized pair averaging on stars",
+          "trigger": "Same dynamics, close finite extremizers and matching limiting speedup"
+        },
+        {
+          "assessment": "General analysis, not the stated complete bipartite classification in the passages inspected",
+          "evidence": "Expected update spectral bound and lifted covariance/Kronecker-product criterion.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+          "material_read": "p. 1 and p. 5, OA offsets about 1000 and 27700–34115",
+          "method": "OA author PDF",
+          "title": "Randomized Gossip Algorithms",
+          "trigger": "Foundational gossip model and second-moment rate methods"
+        },
+        {
+          "assessment": "Inspected abstract establishes general setup; phrase miss is not a whole-document comparison",
+          "evidence": "Pairwise gossip is recovered within a more general framework.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.08645v2",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF; targeted phrase lookup",
+          "title": "Randomized gossip algorithms: A unified framework for analyzing average consensus",
+          "trigger": "Generalizations of pairwise gossip"
+        },
+        {
+          "assessment": "General exact MSE credited; no whole-paper noncoverage inference",
+          "evidence": "The frozen discussion credits arbitrary row-system tensor iteration; the cited Harvard route did not return the exact OA text, and IEEE returned HTTP 202.",
+          "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+          "material_read": "Frozen RESULT.md lines 83–85 gives the related-work characterization; primary statement not independently retrieved",
+          "method": "Author-repository bitstream and IEEE DOI access attempts",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "Plausible equivalent exact second-moment formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and exact ordering/asymptotic proof, lines 13–31 and 54–75"
+      ],
+      "rationale": "This is a natural graph family for comparing one-step spectral contraction with worst-case expected squared error. The exact optimizer across all positive horizons and the strict comparison show when a standard power estimate overstates disagreement. The limiting ratio quantifies the effect of imbalance (up to a factor 4/3 in logarithmic mean-square decay rate) rather than merely giving a tractable recurrence.",
+      "residual_risks": [
+        "The speedup compares predicted logarithmic rates under the same protocol, not two algorithms, runtime, or high-probability convergence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:57:21.944414Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–47 and VERIFICATION.md",
+        "Frozen VERIFY.py inspected without execution; separate finite reproduction checked six odd frequencies only"
+      ],
+      "rationale": "For odd m≥3 the consecutive turning points and endpoints bound exactly m full monotone laps with alternating values ±1. Refinement by inverse branches multiplies the lap count by m at every iteration: adjacent refined laps meet at genuine turns, including prior lap boundaries because the new outer map is strictly monotone near each endpoint on the appropriate one-sided interval. Lap growth gives log m. For d=1−|x|<k⁻², the identity d′=1−cos(kd) gives d′≤k²d²/2, so the endpoint bands are forward invariant, contracting doubly exponentially, with endpoint signs determined by the residue of m modulo four. The derivative k|sin(kd)| along the captured tail is at most k²d there, so logarithmic derivative averages tend to −∞, also when a derivative vanishes exactly. For x in the survivor, |f′(x)|²=k²(1−f(x)²)≥2−k⁻². Nullity can be verified directly: put a=1−k⁻², J=[−a,a], and restrict the m inverse branches g_i to J. They map into J by forward invariance of the bands, have contraction 1/√(2−k⁻²), and log|g_i′(y)|=−log k−(1/2)log(1−y²) is Lipschitz on J. Summing along compositions bounds the derivative distortion of every depth-n inverse branch, uniformly in n by a geometric series. The first-level survivor misses a fixed positive-length hole in J near an interior turn. Pulling that hole back inside every depth-n cylinder removes a uniformly positive fraction of its length, so survivor lengths decay geometrically. Thus almost all points enter a band, reflection equates the two fixed-endpoint basin masses in the first parity, and alternating capture gives the uniform two-cycle empirical measure in the second. The empirical limits on this full-measure set exclude any other physical measure.",
+      "residual_risks": [
+        "No claim about all invariant measures, generic parameters, or persistence under perturbations. Finite sample captures do not establish Lebesgue-null survival."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical lap entropy formula gives log m once all m laps are full",
+          "Demers p. 6 describes a bounded-distortion condition in an induced model with holes"
+        ],
+        "reasoning": "General full-branch entropy and distortion machinery covers ingredients, not the identification of the sine-map bands, their parity-specific superattraction or explicit expansion constant. The cited lap-growth theorem's original full text was not independently retrieved; the standard theorem is used for the correctness proof.",
+        "searches": [
+          "Misiurewicz–Szlenk, Entropy of piecewise monotone mappings",
+          "Ali Ali et al. DOI 10.1088/1572-9494/acf307 §2.1",
+          "Demers arXiv:math/0404255 bounded-distortion condition"
+        ]
+      },
+      "checked_sources": [
+        "Ali Ali et al. DOI 10.1088/1572-9494/acf307 at listed passages",
+        "Demers arXiv:math/0404255 p. 6",
+        "Resultary 8ea4870dc653 and 1c8c559ea9e2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source supplies the parametric map and derivative as well as numerical analysis",
+          "The distinct same-date record analyzes an inverse-level density, not iteration basins"
+        ],
+        "reasoning": "The particular formula is a parameter substitution, but that substitution alone is not the proof of the simultaneous dynamical assertions. The endpoint-distance inequality and survivor estimate select the Lebesgue statistics missed by lap coding. The inverse-level density result does not transfer to this single-sine resonance.",
+        "searches": [
+          "Ali Ali et al. abstract and §2.1 Eq. (1) and derivative; Demers p. 6; Resultary 1c8c559ea9e2 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ali Ali et al. §2.1 Eq. (1) coincides at A=1, phase=0, ω=πm/2",
+          "The indexed 8ea4870dc653 is the frozen record itself; distinct 1c8c559ea9e2 instead uses an incommensurate two-sine map"
+        ],
+        "reasoning": "The variable x↦kx equivalently gives y↦k sin y on [−k,k], so changing from frequency to amplitude under a linear conjugacy is not new. A coding of full laps describes topological complexity but does not transport Lebesgue physical basins by itself; null survival and the endpoint parity calculation are needed.",
+        "searches": [
+          "sin(a x) interval map integer resonance odd pi/2 all critical points attracting fixed endpoint full branches topological entropy log n sine map almost every basin physical measure",
+          "sin(ax) interval map topological entropy attracting endpoints superstable sine full branch large entropy almost every orbit attraction",
+          "Resultary: sine-map resonance, topological entropy, endpoint basin and expanding survivor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8ea4870dc653 is a self-match, not corroboration",
+          "Same-date 1c8c559ea9e2 concerns density of inverse levels in an incommensurate two-sine map"
+        ],
+        "reasoning": "No distinct exact match was verified. Isolated tabulated frequencies or bifurcation images would not certify the all-odd-m formulas, full-measure basin classification or exact Lyapunov conclusion.",
+        "searches": [
+          "Local Resultary index and mirror: resonant sine map, physical measures, and single- versus two-sine dynamics"
+        ]
+      },
+      "rationale": "The single-sine formula, entropy tool, and distortion method are prior work. The supported distinct result is their use with the exact odd resonance to classify the full-measure physical statistics simultaneously with unbounded entropy, explicit expansion of the survivor and an almost-sure derivative exponent of −∞. The compared primary model passage and distinct indexed inverse-level result do not give this joint classification. This is not a claim of priority for the general possibility of large entropy with simple physical statistics.",
+      "residual_risks": [
+        "Historical coverage of the same maps under amplitude scaling or broader postcritically finite interval-map results is not exhaustively excluded. Bounded searches and primary passages are not a proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model coverage, no resonant joint theorem in the inspected passages",
+          "evidence": "Defines A sin(ω₁(x−φ)) and describes parameter-dependent numerical single- and two-sine analysis. The PDF and supplied publisher-history note give different published dates; no priority inference depends on resolving that discrepancy.",
+          "identifier_or_url": "https://doi.org/10.1088/1572-9494/acf307",
+          "material_read": "PDF abstract p. 1, §2.1 p. 4, Eq. (1) and derivative (offset 11800)",
+          "method": "Bounded primary PDF passages",
+          "title": "A novel multi-stable sinusoidal chaotic map with spectacular behaviors",
+          "trigger": "Exact parent parametric sine map"
+        },
+        {
+          "assessment": "Relevant general dynamical framework, not exact resonance classification",
+          "evidence": "Provides a bounded-distortion condition for an induced interval system with holes.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0404255",
+          "material_read": "PDF p. 6, around extraction offset 17700",
+          "method": "Bounded OA primary PDF passage",
+          "title": "Markov Extensions for Dynamical Systems with Holes: An Application to Expanding Maps of the Interval",
+          "trigger": "Expanding survivor and distortion"
+        },
+        {
+          "assessment": "Different dynamics question; no demonstrated implication",
+          "evidence": "Inverse-level density for an incommensurate two-sine map, not endpoints or entropy of iterated single-sine resonance.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-inverse-level-density-and-a-square-root-edge-law-for-an-in--1c8c559ea9e2",
+          "material_read": "Indexed claim and scope of density result",
+          "method": "Local Resultary index comparison",
+          "title": "Exact inverse-level density and a square-root edge law for an incommensurate two-sine map",
+          "trigger": "Closest distinct same-date sine-map catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations",
+        "Ali Ali et al. §2.1 model context"
+      ],
+      "rationale": "For a published sine family used to study chaotic dynamics this supplies an exact diagnostic: the computably increasing topological entropy and the entirely atomic physical statistics give opposite pictures of this same natural parameter family. It identifies where the noncaptured dynamics must lie, with an explicit expansion floor, and makes the physical outcome determinate even down to the two half-measure basins versus a single full-measure two-cycle. Its value is that concrete classification and a caution against reading typical chaos from entropy, not a new general entropy theorem.",
+      "residual_risks": [
+        "Exact resonance only; no empirical use or generic parameter inference justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

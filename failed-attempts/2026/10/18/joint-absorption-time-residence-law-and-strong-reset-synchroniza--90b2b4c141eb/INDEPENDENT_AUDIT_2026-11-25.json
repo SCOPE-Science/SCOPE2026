@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:29:17.543072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The joint law, moment formulas, strict sign and synchronization asymptotics hold. Independently, for a reset-free leg let H be the first hit of zero and W the piecewise occupation penalty. The contribution from absorption first is g(a)=E_a exp(-integral_0^H (r+W)dt); the reset-first contribution is h(a)=r E_a integral_0^H exp(-integral_0^t (r+W)ds)dt. Renewal gives F=g(a)/(1-h(a)). With C=cosh(mu a), S=sinh(mu a), K=C+(nu/mu)S, matching the killed diffusion solutions gives g(a)=1/K and h(a)=[r(C-1)/(r+q)+(nu/mu)Sr/(r+p)]/K. Thus F^{-1} is exactly (1), including p or q zero. Occupation at the single reset point has zero duration, and each trial has success probability exp(-z); the reset-first exponential moment is continuous at zero and strictly less than one there, while the success-first moment is bounded for tilts below r. This justifies the moments. For dimensionless alpha=p/r and beta=q/r the first derivatives of F^{-1} at zero are sinh z and cosh z-1; the Hessian entries are -sinh z, (z cosh z-sinh z)/2, and z sinh z-2(cosh z-1). Applying the Hessian of -log(F^{-1}) yields (2); the covariance coefficient (4^n-n-1)/(2n+1)! is positive for n>=1. Substitution into the normalized variance of the difference gives (3). In (1) normalized Laplace arguments are O(e^{-z}) and mu a=z+O(ze^{-z}), so the limit is 1/(1+s+t). The limiting pair is positive on the diagonal and the mean ratio tends to one, giving convergence of U/tau to 1/2 in probability. If A,B are the two normalized variances and M is the defect, 1-corr=[M-(sqrt(A)-sqrt(B))^2]/(2 sqrt(AB)); A,B=1+O((1+z)e^{-z}), M~4e^{-z}, proving (5). Replay uses the displayed renewal and derivative identities. The frozen check.py was inspected, not executed; its numerical checks would not prove any infinite-domain or asymptotic statement. No formal proof or expert attestation is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Singh–Pal gives the general scalar Feynman–Kac equation and the exact upper marginal; Li–Zhou concerns continuous diffusions without Poisson jumps.",
+          "Linn–Lawley gives a frequent-reset exponential limit for completion time, not for the two separate residence components.",
+          "The catalogue exposure result includes the same model with additional occupation-density local time at the reset point."
+        ],
+        "reasoning": "General scalar machinery and two separate marginal or scalar limits are not a joint evaluation. The extra-local-time transform is genuine stronger coverage of the pair.",
+        "searches": [
+          "arXiv:2202.02715v1 Eq. (9)",
+          "DOI:10.1239/aap/1386857857 pp. 1049–1050",
+          "arXiv:2302.05409v1 Theorem 1",
+          "Resultary: joint first-passage exposure law"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9d06348897e5, RESULT.md",
+        "Singh and Pal, arXiv:2202.02715v1",
+        "Li and Zhou, DOI:10.1239/aap/1386857857",
+        "Linn and Lawley, arXiv:2302.05409v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger joint law uniquely determines covariance and all normalized moments. Its denominator agrees on an open wedge and yields the same Hessian and the same strong-reset expansion.",
+          "The cited earlier upper-residence and scalar limit statements alone do not determine the pair."
+        ],
+        "reasoning": "The frozen positivity and leading constants are explicit, but follow by second derivatives, one hyperbolic-series sign check and leading-term expansion of the covered law. Catalogue coverage does not by itself settle historical priority.",
+        "searches": [
+          "Exposure RESULT.md at mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:2202.02715v1 Eqs. (28)–(30)",
+          "arXiv:2302.05409v1 Eqs. (9)–(10)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exposure RESULT.md: set the local-time transform argument to zero and identify T=U+L, R=U.",
+          "On p>=q, put s=q and v=p-q in the exposure transform; its second denominator term p sinh(mu a)/(D mu nu) equals p nu sinh(mu a)/((r+p)mu)."
+        ],
+        "reasoning": "Although the substitution does not use nonnegative v on p<q, the joint Laplace law of (T,R) determines its law on all of [0,infinity)^2 and hence determines (R,T-R) for every p,q>=0.",
+        "searches": [
+          "Resultary: joint first-passage exposure law for Brownian diffusion with Poisson resetting",
+          "arXiv:2202.02715v1, Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct indexed record's RESULT.md contains an evaluated transform for the same complete parameter family, not a numerical sample or just a descriptive search match."
+        ],
+        "reasoning": "There is no finite census or tabular invariant to match; the appropriate exact catalogue object is an evaluated law up to invertible coordinate change, and that match exists.",
+        "searches": [
+          "Resultary: joint first-passage exposure law for Brownian diffusion with Poisson resetting, 9d06348897e5"
+        ]
+      },
+      "rationale": "Distinct catalogue coverage of the full residence law is established: the November 2 joint first-passage exposure result contains (T,R) with T=U+L and R=U. This is more than a matching model or marginal. An invertible change of random variables gives exactly the frozen joint law, and differentiation, normalization and expansion of that same transform give the claimed residence cumulants and defects. The frozen record isolates useful consequences not separately displayed there, but no distinct law or independently substantive mathematical remainder is established. This is a coverage judgment against the available corpus, not a claim that the November-labelled catalogue record predates the October-labelled entry or establishes historical priority.",
+      "residual_risks": [
+        "Catalogue dates are not proof of provenance or submission priority.",
+        "The literature comparison is not an exhaustive priority search; the affirmative overlap, not an unavailable source or keyword miss, is the basis of the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the joint residence law under an invertible reparameterization",
+          "evidence": "The transform covers completion time, upper residence and reset-point local time; marginalize the last variable and use L=T-R.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-joint-first-passage-exposure-law-for-brownian-diffusion-with-poi--9d06348897e5",
+          "material_read": "RESULT.md, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0–7601",
+          "method": "Local indexed search and mirrored result inspection",
+          "title": "Joint first-passage exposure law for Brownian diffusion with Poisson resetting",
+          "trigger": "Same model and potentially stronger joint law"
+        },
+        {
+          "assessment": "Known method and upper marginal, not an evaluated two-region joint law in these passages",
+          "evidence": "Eq. (28) equals the q=0 case at D=1/2; Eqs. (29)–(30) give upper-residence moments.",
+          "identifier_or_url": "https://arxiv.org/html/2202.02715v1",
+          "material_read": "Section 2 Eq. (9), near offset 16500; Section 4 Eqs. (23)–(30), near offset 27000",
+          "method": "Open-access full-text passage comparison",
+          "title": "First-passage Brownian functionals with stochastic resetting",
+          "trigger": "Same first-passage and reset model"
+        },
+        {
+          "assessment": "Related ODE machinery, without the specified Poisson reset-to-point process",
+          "evidence": "The model in the opening statements is a time-homogeneous diffusion and the transforms are characterized by associated differential equations.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1386857857",
+          "material_read": "Abstract and introduction, printed pp. 1049–1050",
+          "method": "Original passage comparison",
+          "title": "The Joint Laplace Transforms for Diffusion Occupation Times",
+          "trigger": "General joint occupation-time transforms"
+        },
+        {
+          "assessment": "Covers the scalar completion-time limit, not the exact normalized residence defect",
+          "evidence": "The limiting random variable in the theorem is the normalized completion time under frequent resetting.",
+          "identifier_or_url": "https://arxiv.org/html/2302.05409v1",
+          "material_read": "Theorem 1 and Eqs. (9)–(10), near offset 9400",
+          "method": "Open-access full-text passage comparison",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "Possible implication for synchronization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The absorption time is physically partitioned into two natural cumulative exposures, so strict positive cross-covariance despite disjoint instantaneous indicators and the leading coefficient of their normalized synchronization defect are informative, beyond a scalar mean capture rate. This assesses the scientific utility of the formulas, not novelty or additional value over a source that already determines them.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

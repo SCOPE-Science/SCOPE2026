@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:58:04.648814Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent first-step check decomposes each parent passage into a geometric number of failed child excursions and one final step. At a vertex with h children the failure count has mean h and variance h(h+1); a failed excursion chooses a uniform child and lasts 1+Z_c. Induction gives mean 2s_v−1 and the variance recurrence V_v=sum_c V_c+4sum_c s_c²+4(s_v−1)², equivalent to the frozen recurrence. Thus V_x=4s(s−1)+8sum_{v≠x}s_v(s_v−1), independent of the part beyond y. At fixed branch sizes the lower bound requires every proper descendant of a branch root to be a leaf; strict integer smoothing then gives the unique balanced size multiset. For the upper bound, induction on an unrestricted branch of size r gives maximum P(r)=(4/3)r(r−1)(2r−1), uniquely at the endpoint-rooted path: the child-size contributions F(u)=P(u)+4u(u−1) have strictly increasing increments, so concentrate all surplus on one child, and one child is best when the number is unrestricted. At x this same allocation at fixed k gives (s−k,1,…,1), including k=s−1, when all children are leaves. Substitution of s=2m+1, k=m verifies both polynomials and the ratio asymptotic m/6 with equal marked degrees, mean and order. Inspected VERIFICATION.md and verify.py without running the latter; the absorbing-chain check there is finite (s=2–8) and not needed for the proof. In its final m-loop it asserts the lower expression and U>=L rather than a separate upper-polynomial identity; the upper polynomial was checked by exact substitution above.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chiclana's tree estimate specializes at an edge to a lower bound (2/3)(E tau)^2, without k. Wang's accessible abstract describes extremal expected hitting and mixing times; full text was unavailable."
+        ],
+        "reasoning": "A size-only, nonsharp variance lower bound is not a sharp fixed-degree interval; expectation and mixing time are different quantities. The abstract is not a whole-thesis exclusion.",
+        "searches": [
+          "Chiclana arXiv:2605.17513, Theorem 1.1 and Corollary 1.5",
+          "Wang, Extremal Random Walks on Trees, Macalester honors project 12"
+        ]
+      },
+      "checked_sources": [
+        "Aldous–Fill §5.3 Theorem 5.20",
+        "arXiv:2605.17513",
+        "Wang 2009 repository abstract",
+        "Resultary 89d802391c64 (self), 77cc14140aa2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known formula evaluates any given tree, but extraction of both sharp endpoints at every (s,k) requires the strictly convex allocation of child sizes and the path-versus-star shape optimization. The pendant-conductance formula does not keep to the same class of walks or fix the same marked local and global data."
+        ],
+        "reasoning": "No numerical or parameter specialization of those comparisons produces both extremizers or the displayed matched-data separation; the exact moment identity is established prior input.",
+        "searches": [
+          "Aldous–Fill exact edge variance, Theorem 5.20",
+          "77cc14140aa2, RESULT.md Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact general variance is a double sum over vertices in the starting component with kernel 2d(y,v∧w)−1 and degree-product weights, minus the mean. Decomposing the kernel by common ancestors in S gives the frozen fringe identity using sum_{w∈S_z} deg_T(w)=2s_z−1."
+        ],
+        "reasoning": "The fringe sum and adjacent-edge mean are not distinct findings; the question is the optimization at fixed root arity, or fixed degree k+1 in the full tree.",
+        "searches": [
+          "Aldous–Fill §5.3, Theorem 5.20, equations (5.81), (5.85)",
+          "Resultary tree edge-passage variance, source degree, rooted fringe sizes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "89d802391c64 is the identical assigned result. Distinct same-day hit 77cc14140aa2 gives a continuous-time weighted pendant-leaf perturbation with unchanged core-to-core mean and an additive variance term."
+        ],
+        "reasoning": "The second record varies conductance rather than optimizing rooted branch geometry at fixed order and degrees for a non-lazy discrete-time walk. Its date alone does not settle priority.",
+        "searches": [
+          "Resultary, tree edge hitting-time variance with fixed size and degree, mean-preserving variance separation"
+        ]
+      },
+      "rationale": "The adjacent-edge mean and exact variance are already available, including the fringe form by regrouping. The supported distinct claim is the sharp degree-and-size-conditioned corridor with both rooted equality classifications and its quantitative same-data consequence. Neither the exact predecessors nor the distinct indexed overlaps checked supply this optimization.",
+      "residual_risks": [
+        "Wang's full thesis was not readable via the inspected lawful repository route. The bounded comparison does not rule out another source carrying out the same constraint-specific optimization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact formula predecessor, without the constrained optimization",
+          "evidence": "(5.81) gives 2|A(i,j)|−1; (5.85) gives the degree-weighted common-ancestor sum, equivalent to the frozen variance identity.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch5.S3.html",
+          "material_read": "§5.3, Theorem 5.20, (5.81), (5.85), OA offsets 0–5645",
+          "method": "OA primary webpage",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "Exact adjacent-edge tree mean and variance for all trees"
+        },
+        {
+          "assessment": "Relevant general lower bound, not the degree-conditioned corridor",
+          "evidence": "Corollary 1.5 gives log(4)/(3 log(d(x,y)+1)) times the squared mean as a lower bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.17513",
+          "material_read": "Theorem 1.1 p. 1 and Corollary 1.5 p. 3; OA offsets 3700 and 7800",
+          "method": "OA full-text passages",
+          "title": "Nonconcentration of hitting times for random walks on graphs",
+          "trigger": "Tree-specific lower bounds on variance of hitting time"
+        },
+        {
+          "assessment": "Same-day distinct statement, not equivalent coverage",
+          "evidence": "For a continuous-time weighted core with an added pendant leaf, a variance term 2 E L_v/w can vary at fixed core-to-core mean.",
+          "identifier_or_url": "2026/11/8/SCOPE-pendant-conductance-orders-first-passage-fluctuations-without-ch--77cc14140aa2",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Pendant conductance orders first-passage fluctuations without changing the mean",
+          "trigger": "Strong indexed overlap on mean-preserving variance variation"
+        },
+        {
+          "assessment": "Contents beyond the abstract unresolved",
+          "evidence": "The abstract describes expectation and mixing-time problems, not the fixed-degree variance conclusion.",
+          "identifier_or_url": "https://digitalcommons.macalester.edu/mathcs_honors/12/",
+          "material_read": "Repository landing-page abstract only; full-text download returned 403",
+          "method": "OA repository",
+          "title": "Extremal Random Walks on Trees",
+          "trigger": "Plausible extremal tree hitting-time precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete sharp optimization answers how much root-degree information restricts dispersion when the mean is already fixed by the size of the starting component. The equality shapes identify two competing mechanisms, and the unbounded matched-data ratio shows that any size-independent multiplicative prediction from those statistics fails. Credit rests on the sharp constrained classification, not on rediscovering the known moment formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

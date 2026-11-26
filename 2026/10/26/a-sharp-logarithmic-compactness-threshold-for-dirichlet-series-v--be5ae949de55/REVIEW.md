@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The principal branches are analytic on the stated domains because \(\operatorname{Re}L(z)>1-\log2>0\) and \(\operatorname{Re}M(z)>2+\log(1-\log2)>0\). The derivative formula reduces the membership question to an explicit boundary integral. Its polar-coordinate scale is \(h(\log\log(e/h))^{2\alpha-2}/\log^2(e/h)\); the resulting logarithmic profile tends to zero below \(\alpha=1\), remains positive at \(\alpha=1\), and diverges above it. The operator conclusions then follow from the cited boundedness and compactness criteria.
+PASS
 
-## Originality
+The lower positive-real-part bounds place L and M in the principal logarithm domains. Taylor expansion at zero gives the ordinary powers-of-two Dirichlet series for every Re s>0; α=0 is zero. For α≠0, chain differentiation gives H′=αM^(α−1)/((1−z)L). By periodicity and the simple zero of 1−2^(−s) at each boundary singularity, at local Euclidean distance ρ the measure density is comparable to α²σρ⁻² W(ρ), with W(ρ)=log(e/ρ)⁻²(log log(e/ρ))^(2α−2). A box abutting a singularity contains a fixed angular sector at radii comparable to h, giving the lower mass bound cα²hW(h). For boxes within 2h of a singularity, polar integration is bounded by Cα²∫₀^(4h)W(ρ)dρ, at most C′α²hW(h) since W is eventually increasing and W(4h) is comparable to W(h). Away from singularities but still in their neighborhoods, ρ⁻²W(ρ) is eventually decreasing in ρ, so at distance at least 2h the density bound integrated over a box is O(α²hW(h)). Uniformly regular boxes give O(h³). The resulting per-scale profile tends to zero below one, stays bounded and positive at one, and diverges above one. The unweighted mass per h is bounded at small scales for every fixed α; at larger scales each period has finite weighted derivative mass, with exponential decay at large σ, so μ(Q)/h stays bounded. This gives BMOA membership and verifies the LMOA hypotheses or their failure as appropriate. Tong–Wang–Yuan Theorems 1.1 and 1.2 then give all the operator assertions on both spaces, including the critical weak-compactness and complete-continuity exclusions.
 
-The closest source is Tong–Wang–Yuan, arXiv:2610.21873v1, which supplies the general \(LMOA_{\mathcal D}\) boundedness criterion, the \(LMOA_{\mathcal D,0}\) compactness criterion, and the one-variable lift through \(2^{-s}\). The paper does not state the present explicit parameter family or its box-profile asymptotic. Searches for the exact symbol family returned the general criterion and classical one-variable context, but no exact family-level statement; absence of a match is not proof of novelty. The family-specific Carleson estimate is the claimed addition; no priority claim is made for the classical one-variable critical example.
+## originality
 
-## Value
+PASS
 
-This is a natural endpoint test family for a newly characterized compactness criterion. It exhibits a sharp transition among compact, bounded noncompact, and unbounded Volterra operators and quantifies the approach to the endpoint by an explicit iterated-log profile. This gives concrete symbols against which essential-norm estimates for the Dirichlet-series setting can be tested.
+The supported distinct result is the quantitative Carleson-box profile and the resulting sharp classification for this entire explicit power family. The general Volterra criteria, the power-of-two lift and classical disk endpoint theory are antecedents. The closest queried indexed result addresses a different operator setting. The comparison does not claim priority for a single log-log critical disk example or certify worldwide priority.
 
-## Closest literature and limitations
+## value
 
-The general theorem in arXiv:2610.21873v1 covers all symbols once their logarithmic mean-oscillation membership is known; the present proof supplies the missing membership calculation for this family. The classical one-variable Volterra papers cited there are relevant to the boundary example, but their full text was not used to assert noncoverage. No exact essential-norm constant or classification beyond this family is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit singular power family demonstrates a sharp endpoint failure of three compactness notions even though the operator is bounded. The uniform iterated-log profile measures approach to that endpoint and distinguishes all real powers, giving concrete test symbols for the general Dirichlet-space criteria rather than just renaming a single example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:53:29.007473Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–75, VERIFICATION.md body and check_cubic_orbits.cpp",
+        "Independent orbit and truth-table computation: /tmp/opencode/frozen_review/cubics.py",
+        "Pineda Montoya arXiv:2611.02544v1 examples and scope"
+      ],
+      "rationale": "Linear output additions vanish in D2; under a linear input substitution (x,z) maps to (Tx,Tz). Thus separation is exactly the pairwise incomparability of the 31 nonzero-indexed support rows and is constant on each target orbit. The Boolean quotient by x_i²=x_i is essential to the action on quadratic coefficients. Independently enumerated GL orbits of all 1,047,552 exact-cubic masks in increasing order by breadth-first closure under a variable 5-cycle, one swap, and a transvection, applying each generator through direct polynomial expansion with square-free reduction. The permutation generators and conjugated transvections generate all GL(5,2). This found sixteen total exact-cubic orbits, of which precisely the nine specified minima satisfy direct truth-table separation. This cross-check did not use the supplied program's Gray-code membership scan or disjoint-set enumeration on passing words. It confirmed each size and the sum 690,432; multiplying by 32 gives 22,093,824. Orbit–stabilizer gives the nine stated stabilizer orders; evaluation of the third difference against all basis-vector pairs gives radical dimension 2 in exactly the first two orbits and 0 in the rest. Directly confirmed the four literature/construction masks and their orbit locations. The supplied checker prints locations rather than asserting the four expected locations, but the independent results establish them.",
+      "residual_risks": [
+        "Results classify normalized functions modulo output linear terms and origin-preserving input changes, not raw functions under GL alone and not algebra isomorphism classes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Zeng–Yang tables count 48 affine classes for the full quotient and 11 for degree at most three. The web table provides 48 representative truth tables, eight of exact cubic degree.",
+          "The cubic-layer classification explicitly drops quadratics, linears and constants, and thus cannot classify the extensions retained here."
+        ],
+        "reasoning": "The full affine quotient is broader in covered functions but coarser in equivalence. Restricting that action to GL splits orbits. For an affine orbit with stabilizer H, the GL split corresponds to the orbits of H on possible origins, and subgroup stabilizer data are required. The prior representative and count tables do not provide them.",
+        "searches": [
+          "Zeng–Yang arXiv:1912.11189v1 Tables I and III",
+          "Khoruzhii–Gelß–Pokutta arXiv:2606.28473 pp. 1–2",
+          "Boolean Functions for Cryptography affine table, n=5"
+        ]
+      },
+      "checked_sources": [
+        "The Resultary records and primary sources above",
+        "Independent check of the affine-table refinement using all 32 translations of each representative"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pineda Montoya explicitly leaves the stabilizer action on quadratic extensions and completeness as separate issues. In the current theorem seven passing degree-three classes up to GL have the same radical dimension 0, yet are distinct after retaining quadratics.",
+          "Translating and normalizing the table reps gives candidates for a marked-origin refinement, not a test of their equivalence; the actual splits above require identifying their GL components."
+        ],
+        "reasoning": "Known examples and coarser classifications do not prove the distinct refined count, the individual sizes and the locations. A new computation of the stabilizer/suborbit action or GL closures with separation is essential, not a routine specialization or extraction of exact prior values.",
+        "searches": [
+          "Pineda Montoya arXiv:2611.02544v1 §9",
+          "Khoruzhii–Gelß–Pokutta arXiv:2606.28473 definition of cubic-layer equivalence",
+          "n=5 affine table transcribed and compared with all GL components by the independent computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target acts on exact-degree-three classes in RM(3,5)/RM(1,5) by the input group GL(5,2); normalizing the constant to zero gives the frozen representative convention.",
+          "The published symmetric and nonsymmetric examples are particular points in this orbit problem, not a list of all orbits."
+        ],
+        "reasoning": "Extended affine input equivalence forgets the marked origin, while cubic-layer equivalence forgets the quadratics. Neither is the same relation as the frozen GL action.",
+        "searches": [
+          "Resultary semantic search for ordered-separating cubic Boolean functions, five-variable GL equivalence and third-polar refinement",
+          "arXiv:2611.02544v1 Introduction and closing discussion",
+          "Boolean Functions for Cryptography, Affine Equivalence Classes: Definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual n=5 table has one truth-table representative per affine class. Affine row 9 splits into target minima 20480, 20640 and 20650, and row 32 into 20484, 20644 and 20652. Row 33 splits into 1536 and 1543, and row 46 yields 20784.",
+          "The neighboring Resultary records give existence by dimension or witness counts for a specific family, not this orbit table."
+        ],
+        "reasoning": "The affine table is useful seed data for an alternative exhaustive derivation, but it does not encode the requested linear orbit equivalences or sizes as rows to extract. For instance the three inequivalent minima over row 32 have distinct stabilizer orders while all share that one affine row.",
+        "searches": [
+          "https://booleanfunction.github.io/equivalence-classes.html, Definitions and n=5 rows 1–48",
+          "Resultary 8d30715c879d and d2beb6785961 plus exact self-match 3c357e02ae40"
+        ]
+      },
+      "rationale": "The distinct claim is the exact origin-preserving GL classification with quadratic information retained, not the known examples, affine-input classes, or classification of third polars. Tested the strongest concrete table comparison by translating the prior 48 affine representatives through every choice of origin, normalizing, extracting degree-three masks and matching them to the independently computed GL components. Its eight exact-cubic affine rows cover the entire candidate space, a substantial known reduction. The passing rows 9, 32, 33, and 46 split respectively into 3, 3, 2, and 1 target orbits. The short prior representative list plus translations supplies candidates, not the needed identifications, stabilizer orders or separation tests. These subgroup refinements are not numerical readouts or a specialization of the prior coarser equivalence theorem. No inspected source gives this subgroup classification or its separation-selected census.",
+      "residual_risks": [
+        "Priority against a separate published or unindexed full GL classification of five-variable cubic cosets remains unresolved. The underlying enumeration behind the web affine table was not audited as a historical source; its exact-cubic row coverage was independently checked here. No originality credit is given for the older affine census or the published exemplars."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complete affine representatives, not the target subgroup census",
+          "evidence": "Equivalence is f(Dx+a)+b·x+c. Rows 9 and 32 each contain three distinct passing GL orbits rather than a single target row.",
+          "identifier_or_url": "https://booleanfunction.github.io/equivalence-classes.html",
+          "material_read": "Definitions, offsets 0–1881, and the 48-row n=5 truth-table census, offsets 3240–6719",
+          "method": "Bounded primary table retrieval and independent translation/normalization comparison",
+          "title": "Affine Equivalence Classes — Boolean Functions for Cryptography",
+          "trigger": "Potentially dominating exact five-variable table"
+        },
+        {
+          "assessment": "Counts affine-input orbits rather than origin-preserving suborbits",
+          "evidence": "The five-variable tables report 48 affine classes of the full quotient and 11 with degree at most three modulo affine outputs.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.11189v1",
+          "material_read": "Tables I and III, PDF pp. 5–6 (offsets about 34900 and 41885)",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Computing the Number of Affine Equivalence Classes of Boolean Functions modulo Functions of Different Degrees",
+          "trigger": "Broader Reed–Muller coset classification"
+        },
+        {
+          "assessment": "Known examples and a stated open classification issue",
+          "evidence": "Gives the five-variable delta and cubic-block extension; keeping quadratic data is necessary and the stabilizer action on extensions is not classified.",
+          "identifier_or_url": "https://arxiv.org/html/2611.02544v1",
+          "material_read": "Introduction and examples at offsets about 1400–2500; closing discussion at offsets about 96600–97405",
+          "method": "Bounded primary OA HTML passages",
+          "title": "Counterexamples to a Cubic Nondegeneracy Conjecture",
+          "trigger": "Same ordered separation condition and five-variable examples"
+        },
+        {
+          "assessment": "Different quotient despite cubic terminology",
+          "evidence": "The equivalence ignores terms of degree at most two; no data on the separation predicates of distinct quadratic extensions.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.28473v1",
+          "material_read": "PDF pp. 1–2 (offsets 0 and about 11200)",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Classification of Boolean Cubic Forms in Ten Variables",
+          "trigger": "Higher-dimensional cubic orbit classification"
+        },
+        {
+          "assessment": "Different scope",
+          "evidence": "Existence by dimension and witness counts for a particular family, respectively; no general five-variable subgroup orbit table.",
+          "identifier_or_url": "Resultary 8d30715c879d and d2beb6785961",
+          "material_read": "Opening RESULT.md statements",
+          "method": "Local Resultary and mirror inspection",
+          "title": "Four-variable obstruction and exact dimension spectrum; Four-level ordered-witness spectrum",
+          "trigger": "Nearby indexed claims with the same separation predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations",
+        "Pineda Montoya closing discussion",
+        "Independent exact-cubic GL census and prior affine-table comparison"
+      ],
+      "rationale": "This is a complete small-dimensional classification for the separation predicate behind a proposed normal form and its known counterexamples. It determines how quadratic extensions split under the actual linear equivalence and gives explicit representatives and exact stabilizers, data not supplied by pure cubic or affine-input tables. For example three distinct accepted classes over affine row 32 are distinguished by their GL stabilizers. A researcher studying the ordered condition can use the nine classes and sizes, not merely the two possible radical dimensions or a list of examples. The value lies in this exact refinement, not just in exhaustively scanning a finite domain.",
+      "residual_risks": [
+        "Restricted to five variables with no structural formula for larger dimensions or implication about ungraded algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

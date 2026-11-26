@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:14:42.893407Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–91; VERIFICATION.md and verify.py inspected as evidence",
+        "/workspace/evidence/correctness-notes.md section 3",
+        "python3 /workspace/evidence/crown_review.py independently verified properness, nonempty colors and actual shortest-distance codes for n=6,7,8,9,10,11,12,13,14,17,23"
+      ],
+      "rationale": "The deficiency sum for an n-coloring permits at most one singleton. Except at at most two vertices, the code is therefore determined by its one missing color, giving a contradiction for n>=3. The proposed proper (n+1)-coloring distinguishes the incident-color complements, which are exactly the nonzero coordinates of the locating codes. I checked the terminal-versus-bulk congruences, the complete four-collision list in the divisible-by-three case, and the replacement pairs including k=3 and k=4. The three small permutations work. Unused colors are ruled out by the number of distinct two-element complements.",
+      "residual_risks": [
+        "The replay is finite corroboration; the arithmetic case argument covers all orders in the claim. No scope extension to n=4,5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.4 covers intact complete bipartite graphs; Theorems 3.3–3.4 delete matchings from complete graphs, not bicliques."
+        ],
+        "reasoning": "Neither theorem's hypotheses include these crowns for n>=6.",
+        "searches": [
+          "Korivand et al., arXiv:2310.05609v1, Thms. 2.4, 3.3, 3.4"
+        ]
+      },
+      "checked_sources": [
+        "Korivand et al., arXiv:2310.05609v1",
+        "Resultary b495bd2cf253"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic-array construction for unequal part sizes is analogous but does not analyze two missing colors at every vertex after a diagonal deletion; the balanced intact case gives n+2."
+        ],
+        "reasoning": "Restricting a proper edge-coloring to a subgraph preserves properness, not locating distances or code distinction, and need not eliminate a color. The upper bound requires the new collision analysis and the lower bound uses the deleted graph's degree and deficiency.",
+        "searches": [
+          "Korivand et al., Theorem 2.4 and its cyclic-array construction; Resultary b495bd2cf253"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Korivand et al., arXiv:2310.05609v1, Sec. 3.2 uses matchings of edges and distances to endpoint sets",
+          "Resultary b495bd2cf253 states locating and neighbor-locating numbers for vertex colorings of the same crown graphs"
+        ],
+        "reasoning": "The prime on the invariant is substantive: it is a partition of edges into matchings, not a proper partition of vertices. The graph aliases do not identify the two problems.",
+        "searches": [
+          "Resultary: crown graph edge-locating coloring; complete bipartite graph minus perfect matching; two-hole Latin constructions",
+          "Primary literature: crown graph edge-locating chromatic number / K_n,n minus matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed exact crown-graph formula, Resultary b495bd2cf253, is for chi_L and chi_NL; no table or formula for chi'_L on crowns was identified."
+        ],
+        "reasoning": "An exact indexed value of a different invariant cannot supply these values, even when graph, parameter and number match.",
+        "searches": [
+          "Resultary semantic search for crown graph, edge-locating invariant and two-hole partial Latin claims; top 50 per search",
+          "Primary crown graph edge-locating lookup"
+        ]
+      },
+      "rationale": "No inspected source covers the sharp edge-locating invariant for this deletion family. The same numerical answer for two vertex-coloring invariants on the same graph is not the theorem being audited.",
+      "residual_risks": [
+        "Bounded searches do not rule out an unindexed equivalent edge-coloring theorem or partial Latin-square construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant methods, not covering the crown theorem",
+          "evidence": [
+            "Intact balanced biclique n+2; intact unequal biclique max{n,m}+1; matching-deletion ambient graphs K_2n and K_(2n+1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2310.05609v1",
+          "material_read": "Theorem 2.4 and cyclic-array construction (offsets 12600–14799), definition and matching-deletion Theorems 3.3–3.4 (offset around 29320)",
+          "method": "OA full-text passage inspection",
+          "title": "Edge-Locating Coloring of Graphs",
+          "trigger": "Introduces the exact invariant and computes related bipartite and matching-deletion cases"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "chi_L(Cr_n)=chi_NL(Cr_n)=n+1 is a vertex-coloring result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-optimal-neighbor-locating-and-locating-colorings-of-crown-graphs--b495bd2cf253",
+          "material_read": "Opening statement, offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local indexed search and mirror passage inspection",
+          "title": "Optimal neighbor-locating and locating colorings of crown graphs",
+          "trigger": "Same graphs and numeric formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Theorem, proof and prior comparison",
+        "Korivand et al., Theorem 2.4"
+      ],
+      "rationale": "This computes a sharp, naturally defined invariant on an infinite family adjacent to the motivating complete bipartite case. The one-color savings under matching deletion is nontrivial because locating constraints need not survive deletion; the explicit modular construction and separate lower bound establish the exact change.",
+      "residual_risks": [
+        "No claim about arbitrary deleted matchings or classification of optimal colorings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

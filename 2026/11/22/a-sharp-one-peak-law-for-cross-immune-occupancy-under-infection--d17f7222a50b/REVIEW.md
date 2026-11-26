@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact four-state equilibrium reduction, polynomial (1), and positive root (2) have been checked symbolically. A separate scalar equilibrium derivation proves that effective immune-escape strength increases strictly with the physical feedback coefficient; the derivative positivity and negative feedback-parameter derivative are algebraically explicit. The derivative of the root then has exactly the sign asserted. The exact example and 60 rational positive-rate checks passed. The theorem is an equilibrium result and makes no assertion of global attraction.
+## correctness
 
-**Originality — PASS, subject to literature limits.** The initiating full text introduces the four-compartment equations but not the derived cross-immune threshold or finite-feedback optimum. The closest public mathematical result already establishes all-feedback equilibrium uniqueness and infection-prevalence monotonicity; those are used only as background and also independently reconstructed in the proof, not advertised as new. Searches for cross-immune equilibrium maxima, equivalent expressions, and all-feedback turning-point classification did not reveal a covering statement. This search is not proof of uniqueness in the literature; unindexed prior derivations remain possible.
+PASS
 
-**Value — PASS.** The intermediate immune class is an explicitly modelled epidemiological state. Accelerating entry into and exit from this state has opposing effects, so knowing that infected prevalence increases does not determine its equilibrium occupancy. The theorem supplies a sharp, interpretable rate threshold separating monotone depletion from one finite-feedback accumulation peak, and a closed-form reproducible example. This is not merely a renamed monotonicity property of prevalence.
+For the specified normalized equations with positive rates, β>μ+α, σ=0 and matched nonnegative feedback, stationarity fixes S=(μ+α)/β. Substitution of I=(μP+γkC)/(μ+α) and R=P-I-C into the C balance gives βγC²+[δγk+(δ+γ)(μ+α)+μβ/k]C−δαP=0. The positive root is unique and gives R>0 by that balance, so reconstruction does not add a spurious solution. The determinant and mass equation at fixed candidate I reproduce the scalar infected-root equation, with strictly positive z derivative and negative feedback derivative by the stated factorizations; uniqueness and increasing I also follow from the earlier October theorem. Thus k=1+εI is continuous, strictly increasing and unbounded with k(0)=1. The C derivative has sign opposite δγ−μβ/k², giving strict decline for k>1 at equality, and strict rise then fall across the unique stationary point sqrt(μβ/(δγ)) when μβ>δγ. The supplied radical example satisfies the quadratic and k-to-ε relation; the large-k limit is zero. This is an equilibrium statement only, not stability, transient behavior, or application outside these equations. Inspected VERIFICATION.md and verify.py without executing them.
 
-**Closest sources and limitations.** Ramírez-Gutiérrez et al. (2026), arXiv:2610.01111v1, provides the underlying model and weak/strong feedback regimes. The October 11, 2026 public result *All-feedback endemic uniqueness and separate monotonicity in the prevalence-driven SIRCm system* is stronger for infected prevalence but does not state cross-immune occupancy unimodality. The setting is limited to prevalence feedback, equal strengths and zero reinfection. Full historical priority and dynamic stability are not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier exact equilibrium characterization and feedback monotonicity of I substantially overlap the setup and proof of the k correspondence. The supported distinction is the new analytic classification and exact turning point for C itself, requiring elimination of the implicitly varying I and analysis of the resulting positive C root. Neither endemic uniqueness nor coordinate reconstruction from a given infected root states or determines the sign by direct specialization alone.
+
+## value
+
+PASS
+
+For the stated mathematical model, the intermediate-state occupancy can behave qualitatively differently from strictly increasing infection prevalence. An exact criterion distinguishing uniform decline from a unique interior maximum, including the location in the original feedback coordinate, is useful for interpreting this equilibrium family and is stronger than reconstructing coordinates pointwise. No clinical, stability, intervention, or broader model conclusion is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

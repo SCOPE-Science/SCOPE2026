@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:47:42.240935Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both aligned length-14 cells contribute four opportunities and one outgoing gap of each length 2, 3, 4, and 5. At an arbitrary cutoff an incomplete cell adds only a bounded discrepancy. Starting from the cell origin, the offsets selected before the next origin in the four successive threshold bands are (0,2,5,9)/(0,2,6,9), (0,5,9)/(0,6,9), (0,5,9)/(0,6), and (0,5)/(0,6). In each case the next eligible offset after those is 14, and the right endpoint is included in each band because eligibility is weak. Thus the exact count follows by induction across arbitrary cell words. When c is in (3,4], the ratio differs from (3-N_B(m)/m)/14 by o(1); alternating doubly exponential runs have negligible total past length relative to each final run, so the averages approach zero and one along the two types of endpoints. Their vanishing one-step jumps ensure every intermediate value is a limit point. Outside the band and within (0,5] the cell counts are independent of the letters. For periodic clocks the projected map on phases is a finite deterministic map with fixed elapsed time on each phase transition, giving a limiting density. Greedy earliest selection in each finite window is maximum-cardinality by replacing any competitor's first event by the first available event and inducting. Translation changes the finite-window maximum by bounded endpoint errors, and reflection of a whole-period window exactly preserves separated subsets. Every permutation of at most three gaps is dihedral, and the four-gap witness is strict. The expression 'each block of four' is read in its construction/proof sense of aligned cells, not arbitrary sliding windows (which can straddle a switch). No claim is proved for c>5 on this nonperiodic family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The three-phase theorem gives a complete rate formula in the sorted gaps alone after normalizing the period to one; it covers the three-gap order-invariance lower bound for 0<c<P. When c≥P, the next firing at a fixed phase is shifted by floor(c/P) periods plus a residual-delay update (and for c an integer multiple of P it is exactly at that phase), so the order-invariance follows for every c.",
+          "The Sturmian catalogue result concerns a rate jump for a structured aperiodic two-gap clock, not nonconvergence with a four-gap uniform histogram."
+        ],
+        "reasoning": "Credit the stronger explicit three-phase result regardless of unknown same-day order. Its scope does not include the new four-gap periodic pair or the glued nonperiodic counterexample.",
+        "searches": [
+          "Resultary 75c848f38758, Finding and assumptions, offset 0",
+          "Resultary 9e02bdaae0ad, Finding",
+          "arXiv:2611.17219v1, threshold recursion and lattice context"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.17219v1",
+        "DOI:10.1007/s00422-021-00868-8",
+        "Resultary:75c848f38758",
+        "Resultary:9e02bdaae0ad",
+        "Resultary:0c6f4d1f228d (same record)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known three-phase rate is invariant under all orders of three gaps; the two exhibited four-gap clocks instead have 3/14 and 1/7 for the same c in (3,4]. Their cells share a reset phase, allowing exact concatenation.",
+          "Neither a phase result for periodic three-gap clocks nor an interval law for stochastic inputs yields bounded discrepancy of the deterministic input histogram alongside nonconvergent output counting."
+        ],
+        "reasoning": "The exact construction and limiting interval require the new four-gap combinatorial effect and controlled stitching; general projection alone is not an implying theorem.",
+        "searches": [
+          "arXiv:2611.17219v1 HTML offsets 21000–27000",
+          "Resultary 75c848f38758 and 9e02bdaae0ad",
+          "Peterson pp. 177–178"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 3 gives the same forward projection, including equality at threshold.",
+          "Peterson describes nonparalyzable detection (the same event rule for a deterministic event stream and constant dead time), but the inspected setting is stochastic Poisson input and finite-window interval distributions."
+        ],
+        "reasoning": "The same map is also finite-window maximum-cardinality c-separated packing when started at the earliest event. Neither the known rule nor finite-window maximality implies nonconvergence under fixed empirical input marginals.",
+        "searches": [
+          "Resultary: deterministic refractory thinning or nonparalyzable dead-time filtering with fixed gap histogram",
+          "Kaymakçalan–Selçuk arXiv:2611.17219v1, Theorems 2–3",
+          "Peterson DOI:10.1007/s00422-021-00868-8, pp. 177–178"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact table and sharp threshold band indexed under 0c6f4d1f228d are this assigned record itself. The closest distinct rate table located is the three-phase plateaus record.",
+          "The external lookup did not yield a useful additional source."
+        ],
+        "reasoning": "The distinct three-phase table has no four-gap order pair and no aperiodic nonconvergence; the exact self-match is not independent prior coverage.",
+        "searches": [
+          "Resultary: A=(2,3,4,5), B=(2,4,3,5), fixed gap histogram and order-dependent firing rates",
+          "Targeted literature search for fixed-marginal deterministic dead-time or gap-order firing-rate counterexamples"
+        ]
+      },
+      "rationale": "Pass for the four-gap order obstruction and its exact fixed-marginal nonconvergence construction. The projection law, greedy cardinality argument, and the order-invariance lower bound for three periodic gaps do not independently clear prior-coverage checks. The three-phase catalogue theorem already gives that invariance for thresholds below one period, and the other thresholds add only a trivial case. This does not cover the exhibited four-gap order dependence or the sharp nonconvergence band and full interval of limit points.",
+      "residual_risks": [
+        "Unindexed deterministic detector, scheduling or packing literature may contain an equivalent witness. The external lookup miss is not evidence of absence. Same-day catalogue comparisons establish overlap or difference, not priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact antecedent for the forward-projection rule",
+          "evidence": "The threshold first-hit time is projected forward; threshold attainment is with ≥. The normalization Vr=0 and V∞=1 gives the proposed delay exactly.",
+          "identifier_or_url": "https://arxiv.org/html/2611.17219v1",
+          "material_read": "Equation (3), Theorems 2–3, HTML offsets 21000–27000",
+          "method": "Bounded primary HTML examination",
+          "title": "Structure-Preserving Leaky Integrate-and-Fire Dynamics on Arbitrary Time Scales",
+          "trigger": "Same model, threshold boundary and possible implying theorem"
+        },
+        {
+          "assessment": "Covers the three-gap order-invariance component, not the complete sharp obstruction and counterexample",
+          "evidence": "For the period-one three-phase clock the rate formula depends only on sorted gaps and is independent of initial phase; threshold range is 0<s<1.",
+          "identifier_or_url": "Resultary:75c848f38758",
+          "material_read": "Finding and assumptions at offsets 0–2591; order-independence passage at offset 2574",
+          "method": "Bounded published local-mirror reading",
+          "title": "Four sharp firing-rate plateaus and a hidden two-cycle transition on three-phase clocks",
+          "trigger": "Potential overlap with the minimum-four lower bound"
+        },
+        {
+          "assessment": "Different structured clocks and rate question",
+          "evidence": "Two-gap Sturmian clocks and an exact jump in existing rates rather than a nonconvergent rate with fixed one-gap frequencies.",
+          "identifier_or_url": "Resultary:9e02bdaae0ad",
+          "material_read": "RESULT.md Finding",
+          "method": "Published local-mirror statement comparison",
+          "title": "Sturmian renormalization and a sharp firing-rate jump for aperiodic opportunity clocks",
+          "trigger": "Related aperiodic gap-clock claim"
+        },
+        {
+          "assessment": "Mechanism overlap; different input and conclusion",
+          "evidence": "Describes fixed dead times and nonparalyzable detection in a stochastic interval-distribution treatment, not an order-sensitive deterministic fixed-histogram count theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/s00422-021-00868-8",
+          "material_read": "pp. 177–178, scope and detector model",
+          "method": "Bounded primary text comparison",
+          "title": "A numerical method for computing interval distributions for an inhomogeneous Poisson point process modified by random dead times",
+          "trigger": "Equivalent-rule alias in detector literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact agreement of the entire one-gap empirical distribution, not just average clock speed, is a natural regularity hypothesis for a deterministic firing limit. This counterexample sharply disproves it while giving bounded discrepancy, minimal periodic motif length, exact threshold endpoints, and the entire interval of output limit points. The result explains why order information is necessary; it does not claim such failure is generic or model an empirical population.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

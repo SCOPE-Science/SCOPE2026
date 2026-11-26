@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T10:02:18.241017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–67; frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Independent binary rank reproduction: /workspace/branches/48c4d043-4c80-4a0d-8a30-51b301dc1d7f/independent_theta_nullity.py and independent_theta_nullity.out, all 12,074 ordered length vectors in the four stated boxes"
+      ],
+      "rationale": "On an oriented path the homogeneous vertex equations give the repeated values a,s_i,a+s_i in characteristic two. When t_0=0, substituting the forced s_i into the terminal equations gives (1+t_2)a=(1+t_2)b=0, with t_2 and t_1 of the same parity. Otherwise a=b, and with S the sum of the free first internal values, the two constraints are (1+t_1)a+S=0 and (1+t_0+t_1)a+S=0. Since t_0>0, the constraint on S has rank one; the difference t_0 a=0 gives the other bit of rank exactly when t_0 is odd. These reductions are necessary and sufficient even for length two and when r=2. Eulerian degree parity gives (I+A)1=1, so all-on solutions are the translate of the kernel with size 2^nullity.",
+      "residual_risks": [
+        "The matrix census is finite; the terminal-equation proof establishes the universal classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edwards uses length n_i equal to the number of internal vertices, not the edge length ell_i. Its reduced counts t and m therefore equal the frozen t_0 and t_2, respectively, with l=r. The paper permits general moduli and some multigraph reductions.",
+          "Corollary 2.8 gives an iff for winnability under a surjective linear map from the old coloring variables to the reduced colors (set the removed coordinates to zero to obtain any target). Section 4 applies the reduction along theta paths, so codimension is preserved."
+        ],
+        "reasoning": "Reduction to a smaller theta graph loses no codimension. The two-path case is a cycle, with the classical period-three nullity rule also obtained by closing the same two-dimensional recurrence around the cycle.",
+        "searches": [
+          "Edwards et al., §§2 and 4; Ballard–Budge–Stephenson, path/cycle and generalized-star results; Codsi et al., Theorems 2.1 and 4.2"
+        ]
+      },
+      "checked_sources": [
+        "Edwards et al. (2010), Corollary 2.8 and Theorems 4.3–4.4",
+        "Dolati–Golalizadeh, Lemma 8",
+        "Codsi et al., Theorems 2.1 and 4.2",
+        "Ballard–Budge–Stephenson, Proposition 3.1",
+        "Resultary 5ab999f42cc6 and 4ff4cf9f39c8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For t=0 the two-terminal matrix has off-diagonal l-2m=0 mod 2 and diagonal 1-m. Its image codimension is 0 for m even and 2 for m odd; m=t_2 and t_1 have the same parity here.",
+          "For t>0 the theorem equates all t differences b_i,2-b_i,1, giving t-1 independent constraints. The divisibility by gcd(2-6m-3t+2l,2) contributes nothing when t is odd and one further linear constraint when t is even. It is independent because the terminal color b_0 appears with coefficient 1 while it occurs in none of the difference constraints."
+        ],
+        "reasoning": "These dimensions are exactly the frozen four cases. Every solvable right-hand side then has 2^nullity preimages, and with even degrees the all-on right-hand side is solvable. No additional singular-case theorem is needed.",
+        "searches": [
+          "Specialize Edwards et al. Theorem 4.3(1),(2) to k=2, using Corollary 2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edwards et al. classify precisely which right-hand sides belong to the image of the closed-neighborhood matrix after reduction. Over F_2, rank-nullity identifies codimension of that image with the number of binary degrees of freedom in a solvable press system."
+        ],
+        "reasoning": "A condition for each coloring is stronger than an invertibility test and must not be compared only with the uniqueness corollary.",
+        "searches": [
+          "Lights Out on Finite Graphs Edwards generalized theta Theorem 4.3",
+          "Resultary: generalized theta, nullity, and all-on solutions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary matches involve forest convolution on theta graphs or all-on strategy weight on GP(n,3), not the same table of binary vertex-matrix nullities. Dolati–Golalizadeh's symbolic matching formula is for the same theta graph but gives total matchings; its parity, with Codsi et al., gives the zero-nullity cases only."
+        ],
+        "reasoning": "An exact invariant table for a different operator or counting problem does not establish all kernel dimensions. The decisive prior coverage instead comes from the winnability equations.",
+        "searches": [
+          "Resultary 5ab999f42cc6, 4ff4cf9f39c8, actual Findings",
+          "Dolati–Golalizadeh DOI:10.7151/dmgt.1646, Lemma 8"
+        ]
+      },
+      "rationale": "The full nullity law, not just uniqueness, is a direct characteristic-two codimension reading of Edwards et al. (2010), Corollary 2.8 and Theorem 4.3 on winnable colorings of generalized theta graphs. For a square matrix the codimension of the winnable-color space is the nullity. That equivalence supplies the positive-nullity cases even though the earlier paper emphasizes winnability rather than the count of press subsets.",
+      "residual_risks": [
+        "This is verified coverage of the mathematics, not attribution of historical priority among earlier papers. No priority claim depends on a catalogue date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior coverage by exact codimension specialization",
+          "evidence": "Reduction is an iff for winnable colors; the reduced theorem supplies t-1 plus the parity-dependent terminal constraint, or a two-dimensional image calculation when t=0.",
+          "identifier_or_url": "https://msp.org/involve/2010/3-1/involve-v3-n1-p03-p.pdf (DOI:10.2140/involve.2010.3.17)",
+          "material_read": "Corollary 2.8, printed pp. 22–23, offsets 14390–16475; Notation 4.2, Theorem 4.3 and equations (4-1)–(4-8), and Theorem 4.4, printed pp. 26–29, offsets 24650–30183 and 31600 onward",
+          "method": "Locate and read theorem, reduction and proof passages in publisher PDF",
+          "title": "Lights Out on finite graphs",
+          "trigger": "Same generalized theta family and exact compatibility for arbitrary initial colors"
+        },
+        {
+          "assessment": "Exact matching counts; parity gives uniqueness only",
+          "evidence": "Modulo 2 only the product of f(ell_i) and the terms with a single f(ell_i-2) survive. With Fibonacci parity this yields the all-on uniqueness criterion, not the kernel dimensions for nonunique cases.",
+          "identifier_or_url": "https://bibliotekanauki.pl/articles/743313.pdf (DOI:10.7151/dmgt.1646)",
+          "material_read": "Lemma 8 and start of its proof, printed pp. 778–779, PDF offsets 21960–24920; Fibonacci convention located in introduction",
+          "method": "Locate and read the full-text passage from the lawful open PDF",
+          "title": "Sharp bounds for the number of matchings in generalized-theta-graphs",
+          "trigger": "Exact pre-existing theta invariant cited in the original"
+        },
+        {
+          "assessment": "Known all-on uniqueness and a sufficient cycle condition",
+          "evidence": "Even degrees and odd matching count are equivalent to unique all-on solution. Absence of cycles of length divisible by 3 is sufficient, not necessary.",
+          "identifier_or_url": "https://arxiv.org/html/2602.07241v1",
+          "material_read": "Theorem 2.1 and Remark 2.2 near offset 6400; Theorem 4.2 near offset 17110",
+          "method": "Primary HTML passages",
+          "title": "Extremal Graphs for the Lights Out Problem",
+          "trigger": "General matching determinant and cycle criteria"
+        },
+        {
+          "assessment": "Related one-terminal classification rather than the decisive two-terminal coverage",
+          "evidence": "Generalized stars are glued at one vertex.",
+          "identifier_or_url": "https://mgo.syr.edu/wp-content/uploads/2015/10/Lights_Out_Paper.pdf",
+          "material_read": "Proposition 3.1, p. 15, PDF offset 43373",
+          "method": "Primary PDF passage",
+          "title": "Lights Out for Related Graphs",
+          "trigger": "Path and cycle nullity and modulo-three gluing"
+        },
+        {
+          "assessment": "Different operator",
+          "evidence": "Complex Fourier convolution of acyclic edge subsets, not I+A over F_2.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-modulo-four-recovery-law-for-all-forest-convolution-on-general--5ab999f42cc6",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "A modulo-four recovery law for all-forest convolution on generalized theta graphs",
+          "trigger": "Same theta family and a nullity law"
+        },
+        {
+          "assessment": "Different family",
+          "evidence": "Generalized Petersen graphs, not theta graphs.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-all-on-switch-weight-spectrum-of-operatorname-gp-n-3--4ff4cf9f39c8",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Configured Resultary search and local mirror passage",
+          "title": "The all-on switch weight spectrum of GP(n,3)",
+          "trigger": "Exact all-on solution counting"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, theorem, examples and proof",
+        "Edwards et al., Corollary 2.8 and Theorem 4.3"
+      ],
+      "rationale": "The closed form is a lucid specialization and all-on solution counts are natural, but here both are obtained from already explicit compatibility equations by counting their independent constraints over F_2. The examples and cycle boundary do not add a scientifically distinct result to that specialization.",
+      "residual_risks": [
+        "The pedagogical usefulness of the derivation is separate from the lack of a new exact invariant under review."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

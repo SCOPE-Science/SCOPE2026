@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:27:54.729469Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof; VERIFICATION.md; check_projection.py inspected, not executed",
+        "Independent exact boundary minimization and segment argument; no numerical assumption"
+      ],
+      "rationale": "For t>0 reflection to the positive quadrant strictly improves any negative coordinate; when the input is feasible t≤1/4 its unique nearest point is itself. Outside, compactness ensures a minimizer, which must lie on the boundary since any interior point can move toward the target. On the positive boundary set s=x−y; then x+y=(1+s²)/2 and −1≤s≤1, with x=(1+s)²/4, y=(1−s)²/4. Squared error is (1+s²−4t)²/8+s²/2. As a strictly convex quadratic in s² its minimizer is 4t−3 clipped to [0,1]. This establishes all fibers, including the singleton at t=3/4 and the two endpoints at t=1. Substitution gives the four stated distances. The first derivatives match at the joins (0, 2, 2 respectively); the second derivatives jump 0→4, 4→0, and 0→4. At t=3/4+δ the two branches differ by norm 2√(2δ) and each lies at distance √(2δ+2δ²) from the singleton, verifying sharp local exponent 1/2. Independently of the swap argument, if w is any nearest point to z, then along z_s=(1−s)z+s w, 0<s<1, w is the unique nearest point: the squared-distance gap to any y≠w is (1−s)(||z−y||²−||z−w||²)+s||y−w||²>0. Two distinct w at each t>3/4 therefore force incompatible limits for any planar local selection.",
+      "residual_risks": [
+        "The explicit list is for diagonal data. At t=3/4 the projection is single-valued at that point, and the record's no-selection assertion is for t>3/4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das Gupta–Kumar prove order preservation under strictly ordered data; Yang et al. obtain necessary optimality conditions; Won et al. study nonconvex projection and report scalar proximal closed forms for p=1/2 or 2/3, with caveats about multiplicity and duality."
+        ],
+        "reasoning": "Necessary conditions, iterative algorithms, and scalar penalized proximal formulas do not specify global constrained minimizers on the equal-coordinate slice. The ordering proposition is an actual prior ingredient in the selection argument, not a prior calculation of the multivalued parameter set.",
+        "searches": [
+          "Das Gupta–Kumar (ICCV 2013) §2, Proposition 2.1",
+          "Yang–Wang–Wang, arXiv:2101.01350 §2.1",
+          "Won–Lange–Xu, arXiv:2203.00564 §§2.4.2, 3, 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen prior-work discussion; Resultary and exact literature passages identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The coordinate-swap ordering in the earlier projection paper implies the required ordering under diagonal perturbations as soon as the two diagonal branches are known. More generally, the direct segment inequality in the correctness assessment makes discontinuity a consequence of any multiple nearest-point fiber."
+        ],
+        "reasoning": "Do not credit the conditional no-selection implication or the generic nonuniqueness phenomenon as new. The inspected antecedents do not determine the threshold 3/4, the endpoint threshold 1, or all diagonal fiber and distance branches; the claimed added information comes from the global minimization on an explicitly bounded arc.",
+        "searches": [
+          "Das Gupta–Kumar Proposition 2.1 and proof",
+          "Won–Lange–Xu §§2.4.2 and 3",
+          "Parabolic-arc equivalent formulation and local metric projection implication"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The local exact match is the assigned record. Das Gupta–Kumar and Yang et al. give the identical general constrained projection problem; in symmetric coordinates the relevant boundary is the parabola x+y=(1+(x−y)²)/2 truncated at the axes. Targeted searches for the axial projection found general parabola definitions or general distance-minimization material, not a decisive source for the complete truncated profile."
+        ],
+        "reasoning": "Converting to a parabolic arc identifies the elementary geometry that controls the answer. Neither the curve definition nor the general ℓ_p formulation alone locates the global minimizing branch and the endpoint crossover for this arc. No independently stated equivalent full classification was verified.",
+        "searches": [
+          "Resultary: p=1/2 diagonal formula, projection nonuniqueness, local selection and square-root splitting",
+          "Primary comparison: Das Gupta–Kumar equations (4)–(5), arXiv:2101.01350 §2.1",
+          "Literature search: axial nearest point of a parabola, closest-point transition and parabolic medial axis"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest distinct local explicit bifurcation statement is for a scalar logistic-induced spectral proximal map, with two minimizers and square-root splitting. No independent catalogue entry tabulating the reviewed ball's diagonal fibers appeared."
+        ],
+        "reasoning": "A square-root split in a different objective is an analogy, not a table or exact classification for the Euclidean half-quasinorm ball.",
+        "searches": [
+          "Resultary: exact half-quasinorm projection fiber and distance phase diagram",
+          "2026/10/26 SCOPE-sharp-proximal-bifurcation-and-cusp-laws-for-logistic-spectral-s--7fbc9df4762d"
+        ]
+      },
+      "rationale": "The supported distinct content is the complete explicit diagonal classification, including where nonuniqueness begins and the sharp geometry of its onset. The general ℓ_p projection problem, coordinate-ordering lemma, and obstruction once a fiber is known to contain two points do not, by themselves, constitute a separate novelty claim. The inspected general methods do not state or supply without additional global minimization the specific diagonal phase diagram.",
+      "residual_risks": [
+        "Chen et al.'s primary text and the 2026 Springer candidate were not inspected in full. Earlier equivalent axial-parabola formulas or specializations may be unindexed; the review does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact prior problem and ordering ingredient; inspected passage does not locate diagonal coexistence",
+          "evidence": [
+            "v_i>v_j implies x_i≥x_j for any nearest point; projection may be reduced to nonnegative coordinates."
+          ],
+          "identifier_or_url": "https://openaccess.thecvf.com/content_iccv_2013/papers/Gupta_Non-convex_P-Norm_Projection_2013_ICCV_paper.pdf",
+          "material_read": "§2, equations (4)–(5), Proposition 2.1 and swap argument; printed pp. 1594–1595, offsets 10116–15309 onward",
+          "method": "Open conference PDF passage inspection",
+          "title": "Non-convex P-Norm Projection for Robust Sparsity",
+          "trigger": "Same optimization, potentially exact projection or ordering"
+        },
+        {
+          "assessment": "General necessary conditions, not the asserted full diagonal fibers",
+          "evidence": [
+            "Necessary optimality for the nonnegative ℓ_p-ball with p=1/2 geometry discussed."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2101.01350",
+          "material_read": "§2.1, pp. 7–8, extracted offset 17905",
+          "method": "Open preprint passage inspection",
+          "title": "Towards An Efficient Approach for the Nonconvex ℓ_p Ball Projection: Algorithm and Analysis",
+          "trigger": "Same projection including p=1/2"
+        },
+        {
+          "assessment": "General problem and multiplicity; not a closed global diagonal profile in the passages",
+          "evidence": [
+            "Set-valued scalar proximal operator and known p=1/2 and 2/3 formulas; a further KKT/bisection approach by Chen et al. is cited."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.00564",
+          "material_read": "Introduction and §§2.4.2, 3, 5.3; offsets 0, 18851, 31923, 42102",
+          "method": "Open preprint passage inspection",
+          "title": "A unified analysis of convex and non-convex ℓ_p-ball projection problems",
+          "trigger": "Broader exact projection or closed-form scalar antecedent"
+        },
+        {
+          "assessment": "Analogous onset for a different model",
+          "evidence": [
+            "Scalar logistic-induced spectral proximal minimization, not projection onto a planar half-quasinorm ball."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-proximal-bifurcation-and-cusp-laws-for-logistic-spectral-s--7fbc9df4762d",
+          "material_read": "Mirrored original Finding",
+          "method": "Resultary lookup and exact local mirror",
+          "title": "Sharp proximal bifurcation and cusp laws for logistic spectral shrinkage",
+          "trigger": "Explicit square-root splitting and multiplicity in nearby projection-like problem"
+        },
+        {
+          "assessment": "No full-text conclusion",
+          "evidence": [
+            "The accessible description indicates approximate projection for 0<p<1."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11590-026-10116-2",
+          "material_read": "Search description only; article and PDF routes returned 404",
+          "method": "Identified publisher OA attempts",
+          "title": "2026 article on approximate Euclidean projection onto quasi-norm balls",
+          "trigger": "Possible general numerical projection coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact minimization and continuity analysis; general nonconvex projection comparisons above"
+      ],
+      "rationale": "The dimension, exponent and equal-coordinate line are intrinsic to the smallest symmetric nonconvex projection example in this family. The complete classification gives a usable exact benchmark for positive-coordinate, diagonal and axis solutions, proves when symmetry breaks while the distance stays differentiable, and distinguishes the onset of nonunique projection from the mere fact of nonconvexity. These exact transition locations and branch sizes matter for checking projection or branch-selection algorithms; value does not rest on the elementary conditional obstruction to selecting two nearest points.",
+      "residual_risks": [
+        "This example is a diagonal benchmark, not a full planar medial-axis classification or a new projection algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

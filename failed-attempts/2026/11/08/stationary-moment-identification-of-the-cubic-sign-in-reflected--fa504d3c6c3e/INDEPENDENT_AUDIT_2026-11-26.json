@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:48:02.911439Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Zero flux and variance rate D (not diffusion coefficient D) give exponent (μx²+sx⁴/2)/D. In the strictly positive stationary exponential family of Y=X², Y² is not affine in Y, so the covariance matrix of (Y,Y²) is positive definite. At fixed β=s/(2D), the derivative of m2 in α=μ/D is Var(Y)>0; the limiting values at α→−∞ and +∞ are 0 and L² by compact-support concentration, since exp(βx⁴) is uniformly bounded above and below for each fixed β. Matching m2 is therefore possible at any β. The fixed-m2 derivative of m4 in β is the strictly positive Schur complement, proving the sign comparison, including equality only for β=0, and showing variance-alone ambiguity for every interior variance. Integrating the derivative of x^(2k+1)(L²−x²)p for k=0,1 removes the endpoint terms and gives the exact two-by-two system, with Δ=A² times the positive variance of X² under the normalized weight x²(L²−x²)p. Cramer's rule gives both displayed ratios, not the scale D. An independent exact uniform-case check at L=1 gives Δ=32/33075 and Q=R=0. Replay RESULT.md:42–83; frozen verifier and dependency were inspected, not executed. The reported quadrature cannot replace these arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yu–Drton–Shojaie allow transformed truncated distances to interval endpoints, and derive closed-form normal equations in exponential families on general domains.",
+          "Miyazawa treats more general two-sided reflected stationary laws. Pavliotis–Zanoni use polynomial moments for a related inference task, but that particular work is not the decisive boundary precedent."
+        ],
+        "reasoning": "On [−L,L] take truncation at least L and h(v)=v(2L−v) for 0≤v≤L, extended constantly beyond L. Then the published weight is exactly w=L²−x². With t=(x²,x⁴/2), constant base term and θ=(μ/D,s/D), their population Γ is E[w t′t′ᵀ]=4[[A,B],[B,C]], and g=−E[(wt′)′]=4(Q,R). Thus the exact rational formulas and endpoint cancellation are obtained from the earlier estimator without a new step except polynomial substitution. The true weighted score loss is strictly convex here by positivity of w away from the endpoints and noncollinearity of the derivative functions.",
+        "searches": [
+          "arXiv:2009.11428 Definition 2, Definition 3 and Eqs. (15)–(17)",
+          "arXiv:2410.11496v2 two-sided reflected stationary laws",
+          "arXiv:2212.00403v2 polynomial-drift moment inference"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2009.11428 §§3.2,3.5",
+        "arXiv:2610.38866v1",
+        "arXiv:2410.11496v2",
+        "arXiv:2212.00403v2",
+        "two Resultary inverse-moment examples listed above",
+        "frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior general normal equations reproduce the rational claim entry for entry.",
+          "For the compact canonical family, ∇log Z=(m2,m4) in (α,β); its Hessian is the covariance of (Y,Y²), positive definite on the whole parameter plane."
+        ],
+        "reasoning": "Strict monotonicity of the gradient of the log partition function gives (θ−θ0)·(∇log Z(θ)−∇log Z(θ0))>0 for distinct θ,θ0. Choosing θ0=(α0(m2),0) to match the first coordinate leaves exactly β[m4−H_L(m2)]>0. Existence and range of the matching first coordinate at every fixed finite β follow from bounded tilt and concentration at the min or max of Y. This verifies the sign and its one-moment obstruction as immediate general exponential-family consequences rather than attributing them to temporal regression or claiming a printed duplicate.",
+        "searches": [
+          "arXiv:2009.11428 §3.5 canonical family and general-domain moment matrices",
+          "RESULT.md:49–62 fixed-variance comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yu–Drton–Shojaie write the quadratic canonical-parameter problem in Eqs. (14)–(17) with an endpoint-distance weight and first and second derivatives of the chosen sufficient statistics.",
+          "Sanders et al. target the sign of the cubic normal form, but via temporal regression from noisy pre-transition observations."
+        ],
+        "reasoning": "The rational method in the frozen result is exactly the population normal equation of that boundary-weighted score method. Temporal pitchfork regression supplies the motivating question but is not the coverage argument.",
+        "searches": [
+          "arXiv:2009.11428 general-domain exponential-family score matching, §§3.2, 3.5",
+          "arXiv:2610.38866v1 noisy cubic normal form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact hit was the present record itself. The two nearby same-day entries concern respectively a trapped run-and-tumble particle with a moment fold and a harmonic model with switching diffusivity, with different hidden parameters and recovery thresholds."
+        ],
+        "reasoning": "There is no finite parameter table underlying the claim. The compared catalogue findings are different inverse models; neither is evidence of an earlier exact entry for this cubic diffusion, and their shared date establishes no within-day order. Independent general coverage of the formulas comes from the earlier primary paper above.",
+        "searches": [
+          "Resultary: reflected cubic drift stationary moment sign and rational reconstruction",
+          "2026/11/8/SCOPE-a-twofold-stationary-moment-fold-and-three-moment-identifiabilit--be13e0084c9a",
+          "2026/11/8/SCOPE-sharp-eighth-moment-identification-of-hidden-diffusivity-switchi--56d3d976847e"
+        ]
+      },
+      "rationale": "The explicit rational reconstruction is covered by a published general boundary-weighted score-matching formula for exponential families, down to its exact sufficient statistics, boundary weight and moment matrix. The profile sign test is a one-step specialization of strict monotonicity of an exponential-family mean map with one coordinate matched; the claimed variance-only obstruction is the elementary endpoint range of the remaining one-dimensional tilt. The reflected stationary model and the temporal data distinction are real, but no nonmechanical remainder survives in the frozen exact claims.",
+      "residual_risks": [
+        "Hu–Xi DOI:10.1016/j.spl.2021.109099 was not available in full text; Hu et al. DOI:10.1007/s11203-014-9112-7 remains a bibliographic comparison. They might contain additional linear reflected-model precedent. Neither is needed for the mathematical prior-coverage decision.",
+        "No assertion is made that an earlier work printed the exact pitchfork sign curve or the same symbols."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact broader coverage of the rational estimator after selecting the stated distance weight and sufficient statistics.",
+          "evidence": [
+            "(9)–(11) define transformed distance weighting on general interval components; (15)–(17) give the quadratic loss and normal-equation entries; Theorem 4 gives the closed-form inverse."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.11428",
+          "material_read": "PDF §3.2, Definitions 2–3, around text offset 22039; §3.5, Eqs. (14)–(17) and Theorem 4, around offset 37811",
+          "method": "Open-access PDF, locate and read bounded passages",
+          "title": "Generalized Score Matching for General Domains",
+          "trigger": "Possible prior general boundary-annihilating inverse for polynomial exponential families"
+        },
+        {
+          "assessment": "Related physical motivation and different data; no general noncoverage claim from an abstract.",
+          "evidence": [
+            "Regression of linear/cubic normal-form contributions from noisy temporal observations."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.38866v1",
+          "material_read": "Abstract around HTML offset 1120",
+          "method": "Open-access HTML passage",
+          "title": "Early warning of critical transitions: Distinguishing supercritical and subcritical bifurcations from noisy observations",
+          "trigger": "Same pitchfork-sign target"
+        },
+        {
+          "assessment": "Supports model-level precedent, not the decisive rational formula.",
+          "evidence": [
+            "Covers state-dependent diffusions and extension to two-sided reflection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2410.11496v2",
+          "material_read": "PDF pp. 1 and 3, outline of two-sided extension",
+          "method": "Open-access PDF passages",
+          "title": "The stationary distributions of state-dependent diffusions reflected at one and two sides",
+          "trigger": "Broader reflected stationary distribution models"
+        },
+        {
+          "assessment": "Related methodology on a different model; boundary formula coverage instead follows from Yu–Drton–Shojaie.",
+          "evidence": [
+            "Classical moment methods for polynomial McKean dynamics; continuous observations in the cited unknown-diffusion scenario."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2212.00403v2",
+          "material_read": "Introduction, around HTML offset 4800",
+          "method": "Open-access HTML passage",
+          "title": "A method of moments estimator for interacting particle systems and their mean field limit",
+          "trigger": "Polynomial drift inference from moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Static sign diagnosis under reflection is a sensible motivating problem. In the specified exact model it reduces completely to strict convexity with one moment matched and to an already general boundary-weighted estimator. The record does not add a substantive exact invariant beyond these routine consequences; it also claims no robustness or observation regime in which the general argument requires a new idea. The specialized formulas are useful exposition, not a surviving new scientific result to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

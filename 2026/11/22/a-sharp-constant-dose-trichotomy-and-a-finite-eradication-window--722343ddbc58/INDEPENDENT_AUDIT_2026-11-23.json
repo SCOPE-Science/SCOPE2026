@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:28:16.032152Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–74; independent monotone stationary-equation and exact rational checks",
+        "Frozen VERIFICATION.md and verify_calculations.py (static inspection; replay path verify_calculations.py)"
+      ],
+      "rationale": "The matrix is irreducible Metzler and its upper eigenvalue λ has a positive right eigenvector. The eigenvector's second row gives λ>t−ν. An independent global check is to set q=(t−λ)/(ν+λ−t)>−1, including when s≥t. Then t−s=μq+νq/(1+q), a strictly increasing function of q, and q′=(k/(1+c)²−mq)/(μ+ν/(1+q)²). Thus λ′ has the sign of q−k/(m(1+c)²). With y=1+c and δ=k+t−r, this is the sign of δ−G(y), where G(y)=2k/y+k(μ₀−m)/(my²)+νk/(my²+k). G′ is the sum of −2k(y−1+μ₀/m)/y³ and −2mνky/(my²+k)², hence negative on y≥1. Its values run from k+L at y=1 down to 0 at infinity. This establishes strict decrease for δ≤0, one unique interior minimizer if 0<δ<k+L, and strict increase for c>0 if δ≥k+L, including the zero initial derivative at equality. A finite cap truncates these monotone branches. Bounded t−s and growing μ imply q→0, so λ→t; when δ≤0, s>t at finite c and λ>t. At an interior minimum λ=t−νk/(my²+k). As δ→0+, y→∞ and inversion of G(y)=2k/y+k(μ₀−m+ν)/(my²)+O(y⁻⁴) gives the claimed reciprocal divergence and quadratic rate improvement. In the rational example δ=50/33=G(3), with λ(2)=−1/11. Independent expansion gives det M=(−33c²+404c−223)/(363(1+c)) and strictly negative trace. Consequently λ is negative precisely between the two positive roots (202±√33445)/33, zero at the roots, and positive at nonnegative concentrations strictly beyond that closed interval. The high-dose limit is positive.",
+      "residual_risks": [
+        "The supplied script was not executed; its finite numerical grids are not a global monotonicity or asymptotic certificate.",
+        "The proof's phrase 'outside it the determinant is negative' applies strictly beyond the two endpoints; at the endpoints its own exact formula gives zero. 'Strictly positive weighted average' refers to the weights, not the sign of the growth rate. Neither wording issue affects the stated classification.",
+        "Net negative asymptotic growth is not finite-time extinction in this linear ODE, and the fixed-parameter asymptotic is not uniform over varying model parameters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 compares min σ over a finite cap to the long-run growth under treatment trajectories satisfying (A), for affine induction/reversion with nonnegative slope parameters as defined there. Constant reversion is allowed. The proof uses averaging and convexity of the sensitive-cell net rate.",
+          "The two other candidate articles did not yield primary full text in the bounded attempts; detailed hypotheses and any special-case overlap are not independently resolved by those attempts."
+        ],
+        "reasoning": "The prior theorem is stronger in the class of dosing controls on its domain, but characterizes neither the minimizer as a function of the parameters nor the sign of the growth exponent across unrestricted constant doses. Hence its conclusion does not dominate the present exact phase diagram.",
+        "searches": [
+          "arXiv:2412.16391v1, Supplement S1.2.3, Theorem 1 and condition (A) in the Lemma 4 material",
+          "Corigliano et al. DOI 10.1103/mh5v-lcyw and Fischer–Blüthgen DOI 10.1016/j.jtbi.2023.111716, bounded lawful OA attempts"
+        ]
+      },
+      "checked_sources": [
+        "Gunnarsson–Magnússon–Foo, arXiv:2412.16391v1, §2.1 and Supplement S1.2.3",
+        "Resultary exact frozen hit and distinct 6cdd505d6f1b",
+        "Corigliano et al. and Fischer–Blüthgen, bounded DOI access attempts only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior bounded-dose comparison leaves min σ itself as an optimization; its Jensen argument is about the sensitive net-rate function rather than monotonicity of the Perron derivative. It gives no stationary-root count or asymptotic as the cap is removed.",
+          "The nearest indexed theorem controls a difference between finite-period and rapid-cycling exponents, not the sign of σ(c) for intermediate fixed c over a continuum of c."
+        ],
+        "reasoning": "Reusing the model and Perron formula is not itself a contribution. Resolving the remaining scalar optimization requires a monotone stationary reduction; inverting it and solving the sign test for a concrete example are separate from the inspected control and Floquet implications.",
+        "searches": [
+          "arXiv:2412.16391v1 Supplement Theorem 1 statement and proof at HTML offset 115300",
+          "Resultary 6cdd505d6f1b, local RESULT.md opening"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior affine switching rates specialize to μ=μ₀+mc and constant ν by setting the slope of reversion to zero. The equilibrium growth exponent in that case is the same dominant eigenvalue, so the model and scalar objective are not new.",
+          "The prior qualitative and capped optimization statements do not specify both parameter boundaries, prove strict constant-dose unimodality on the unbounded domain, or quantify its singular transition."
+        ],
+        "reasoning": "The axes were compared after translating phenotype rates, switching conventions and constant-reversion specialization, not simply by title or biological mechanism. A numerical/qualitative interior preference is not the strict shape classification and its singular and sign laws.",
+        "searches": [
+          "Resultary lookup for two-phenotype constant-dose trichotomy, interior Perron minimum and finite eradication window",
+          "Gunnarsson–Magnússon–Foo arXiv:2412.16391v1, §2.1 Eq. (1), Supplement S1.2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed trichotomy hit is the frozen record itself, not separate evidence. The distinct same-day record gives a finite-period on/off Floquet growth shift relative to rapid cycling, not an exact table of constant-dose thresholds, minima or zeroes.",
+          "The initiating paper provides the growth function and treatment comparison, not a table classifying all constant-dose parameter regimes or the rational example's exact roots in the inspected sections."
+        ],
+        "reasoning": "Exact threshold/parameter entries and the rational sign witness were compared with the closest indexed cases. Sharing the two-phenotype setting does not equate a period-dependent Floquet shift to a constant-matrix eigenvalue optimization. Same-day dates establish no priority order.",
+        "searches": [
+          "Resultary constant-dose trichotomy exact hit 722343ddbc58 and finite-period dosing frequency record 6cdd505d6f1b",
+          "Gunnarsson–Magnússon–Foo arXiv:2412.16391v1, §2.1 and capped Case I comparison"
+        ]
+      },
+      "rationale": "The initiating work already contains the model including the constant-reversion specialization, the Perron growth objective, favorable intermediate constant dosing and the bounded-dose schedule result under its hypotheses. The narrower mathematical contribution is the parameter-complete constant-dose phase split, strict uniqueness and exact root, singular transition law, and a rational sign diagram. The indexed finite-period result changes the optimization question. The available evidence supports originality of the narrower claim, not of the drug-plasticity model, intermediate dosing idea, or prior control theorem.",
+      "residual_risks": [
+        "Broader web queries deferred; that is not negative evidence. The closest starting paper was checked at the decisive results, but uninspected work may offer an exact stationary-law alias.",
+        "No absolute priority claim is supported. Related resistance optimization full texts unavailable in the bounded attempts were not excluded by full-document comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on model, objective and finite-cap control theorem; no classification of constant-dose curves in compared statements",
+          "evidence": "Affine switching with constant-reversion case allowed; at bounded c, min σ is no greater than the stated long-run growth for schedules satisfying (A). The proof averages the affine rates and uses convexity of λ₀.",
+          "identifier_or_url": "https://arxiv.org/html/2412.16391v1",
+          "material_read": "§2.1 Eq. (1) and model passages, HTML offsets 9482–14435; Supplement Lemma 4 condition (A), near 108600; Supplement S1.2.3 Theorem 1 and proof, 115300–118432",
+          "method": "Bounded OA primary-text passages; decisive theorem independently read",
+          "title": "Optimal dosing of anti-cancer treatment under drug-induced plasticity",
+          "trigger": "Identical base model and plausible stronger prior dosing-optimality result"
+        },
+        {
+          "assessment": "Related model, distinct mathematical observable",
+          "evidence": "Exact sign of the on/off finite-period Floquet shift versus rapid cycling, not the fixed-dose Perron optimizer or net-decay window.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-all-period-dosing-frequency-sign-law-for-two-state-drug--6cdd505d6f1b",
+          "material_read": "Local RESULT.md, opening scope and finding, offset 0",
+          "method": "Resultary lookup and bounded local-mirror reading",
+          "title": "A sharp all-period dosing frequency sign law for two-state drug-induced plasticity",
+          "trigger": "Closest distinct same-day two-state dosing result"
+        },
+        {
+          "assessment": "Source-access limitation; cannot exclude exact overlap from nonaccess",
+          "evidence": "No primary mathematical passage from this article was used as proof of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1103/mh5v-lcyw",
+          "material_read": "Citation and comparison in frozen RESULT.md; no primary full text read",
+          "method": "Bounded OA DOI attempt; HTTP 403",
+          "title": "Optimal Treatment for Drug-Induced Cancer Persisters Involves Release Periods and Intermediate Drug Doses",
+          "trigger": "Intermediate dosing and treatment-induced tolerance, plausible conceptual overlap"
+        },
+        {
+          "assessment": "Detailed special-case comparison remains unresolved",
+          "evidence": "No primary full-text equation or theorem from this article was used as proof of noncoverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jtbi.2023.111716",
+          "material_read": "Citation and frozen comparison; DOI route did not yield full text",
+          "method": "Bounded OA DOI attempt, landing/abstract only",
+          "title": "On minimising tumoural growth under treatment resistance",
+          "trigger": "Earlier tumor-growth optimization under resistance potentially containing an equivalent special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, scope and exact witness",
+        "arXiv:2412.16391v1 Supplement Theorem 1"
+      ],
+      "rationale": "The classification fills a specific mathematical gap left after the motivating bounded-dose result reduces schedule optimization to choosing a constant. It tells when a cap binds, when zero dose minimizes the model rate, and when exactly one interior dose minimizes it. The coupled divergence and diminishing gain quantify how the finite optimum is lost, and the rational example shows why negative asymptotic growth at an intermediate concentration cannot be inferred from either endpoint regime. This is a useful fixed-model classification, not a clinical assertion.",
+      "residual_risks": [
+        "The high-dose limit extrapolates a linear switching assumption. The window is a deterministic asymptotic result, not evidence of safety, patient outcomes, or finite-time eradication."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

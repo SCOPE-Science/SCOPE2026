@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:33:20.066063Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two edge increments 1−exp(iθ) and 1−exp(2iθ) give the stated rank-one transfer-current projector at nonzero frequency and the zero matrix at discrete zero. Inverting the scalar denominator 3+2cosθ gives the periodization of g(r)=(-t)^|r|/√5. The squared cross-channel kernel is a pair of one-sided geometric series on r≥0 and r≤−1; its transform is (1−t)²(1−s)(1+exp(iθ))/(5D). The long-channel diagonal is 1−g(0) at r=0 and −g(r) otherwise before squaring, yielding the same covariance diagonal as the short channel. The upper band is increasing in x=|cos(θ/2)|; its derivative has sign of (1+s)^2+4sx²−12sx≥s>0. The lower band decreases in x to zero at x=1. Triangle exchanges force each constant-on-tree edge weighting to be constant on both channels, so there is only one exact null direction. Squaring the periodized kernel gives an alias error bounded by O(nt^n): the sum of products of two translates at separation hn is O((1+|h|n)t^(|h|n)). Deleting the zero projector subtracts P0/n from every current entry; the cross term gives +2P0∘P(θ)/n in the covariance and the marginal gives −diag(P0)/n. The constant-square term affects only j=0, where the positive branch stays separated from zero. At small nonzero frequencies the lower-band unit vector tends to (1,1)/√2; the Rayleigh shift is 1/(2n). Taking j=1 gives the upper bound for the scaled minimum, while all minimizing frequencies tend to zero and the nonnegative limiting lower band gives the reverse bound. Thus both limits and the stated ratio follow with the unnormalized Euclidean convention. In `python3 /workspace/independent_checks.py 4`, a separate Fourier-frequency convolution of the current projectors (no geometric Green formula) gave nλ_min^+=0.5065023 and λ_max=0.3575523 at n=640; this is a bounded cross-check, not the proof. The supplied checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klee–Stamps abstract identifies weighted Laplacian determinants and determinant evaluation as the method. Kassel–Wu PDF abstract assumes domain approximation in dimension d≥2 for its Green-function, correlation and pattern-field limits. The frozen attribution for Baron et al. is the count nF_n² and the circulant host Laplacian."
+        ],
+        "reasoning": "A general edge-pair determinantal identity covers the finite entrywise covariance recipe, not the uniform small-frequency expansion and minimization. A higher-dimensional domain-approximation limit does not specialize to the long periodic squared cycle with its removed current mode.",
+        "searches": [
+          "arXiv:1903.03575",
+          "arXiv:1312.2946",
+          "10.1016/j.spl.2018.06.007",
+          "Baron et al., The number of spanning trees in the square of a cycle, Fibonacci Quarterly 23 (1985)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check_square_cycle.py and accompanying metadata and self-audit",
+        "Resultary Möbius-ladder and wheel catalogue statements",
+        "arXiv:1903.03575 and arXiv:1312.2946 PDF abstracts",
+        "Baron et al. (1985) and Avena–Gaudillière DOI 10.1016/j.spl.2018.06.007: bibliographic/frozen attributions and attempted access only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The asserted low-frequency shift uses P(0) deleted on the discrete grid, whereas the limiting matrix uses lim P(θ)=P0, and the finite nonzero-frequency band has first-order term u*Δ(0)u=1/2. None of the compared statements gives that shift for this graph."
+        ],
+        "reasoning": "Combining general transfer current with knowledge of the host Laplacian gives the input to the calculation. Squaring, controlling aliasing uniformly and projecting the 1/n perturbation before minimizing are substantive steps beyond substituting a count or a fixed-frequency formula.",
+        "searches": [
+          "arXiv:1312.2946 transfer-current pattern fields",
+          "arXiv:1903.03575 weighted spanning-tree enumeration",
+          "Resultary same-day Möbius-ladder conditioning record d2f9d9b3d6ba"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Möbius-ladder catalogue statement has a UST occupation covariance with one deterministic dependence and limit κ_n/n=√3/2 in its conventions. The wheel result is a different graph with quadratic growth."
+        ],
+        "reasoning": "Matching observable, nullity and growth order are structural overlaps. The Möbius-ladder graph has degree 3, not the two cyclic length classes of the degree-4 squared cycle; neither analogue fixes this graph's Fourier bands and floor. No order is inferred from the same date.",
+        "searches": [
+          "Resultary: squared cycle, two edge-length Fourier channels, transfer-current covariance and linear conditioning",
+          "2026/11/16/SCOPE-linear-fourier-condition-growth-for-uniform-m-bius-ladder-spanni--d2f9d9b3d6ba",
+          "2026/11/8/SCOPE-quadratic-vertex-covariance-anisotropy-of-wheel-spanning-tree-po--20c51f1ae988"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The reported same-graph Fibonacci formula evaluates only the total tree count. The exact target was not matched by a distinct retrieved catalogue statement; closest records give wheel or Möbius-ladder spectra."
+        ],
+        "reasoning": "A scalar count and spectra for other graphs are not an evaluated table for the covariance blocks on C_n². These retrieval results do not exclude an earlier exact squared-cycle structure factor.",
+        "searches": [
+          "Resultary: exact two-channel edge covariance spectrum, nλ_min^+→1/2 for squared-cycle spanning trees",
+          "Baron et al., Fibonacci Quarterly 23 (1985), 258–263"
+        ]
+      },
+      "rationale": "Best-knowledge pass for the evaluated squared-cycle covariance bands and the missing-mode correction yielding the sharp floor and condition ratio. Graph enumeration and general transfer-current formulas are credited as prior. A same-day graph analogue is compared on substance, not dismissed on date.",
+      "residual_risks": [
+        "A prior periodic transfer-current or edge structure-factor analysis could contain an equivalent specialization. Full Baron et al. and matching mirror records were not independently retrieved; the broader paper comparisons are limited to the inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General enumeration input; preview does not settle graph-specific full-text coverage",
+          "evidence": [
+            "Abstract: determinant of a reduced weighted Laplacian computes the weighted spanning-tree enumerator."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.03575",
+          "material_read": "PDF abstract and opening definitions, lines 10–38 of extracted preview",
+          "method": "OA retrieval attempt and identified arXiv PDF preview",
+          "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+          "trigger": "General weighted determinant route"
+        },
+        {
+          "assessment": "Stated main domain-approximation limit has different hypotheses and observable",
+          "evidence": [
+            "Abstract, lines 6–20: d≥2 domain approximation and periodic-pattern Gaussian white noise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.2946",
+          "material_read": "PDF abstract and contents; §§3–5 identified, not fully inspected",
+          "method": "OA retrieval attempt and identified arXiv PDF preview",
+          "title": "Transfer current and pattern fields in spanning trees",
+          "trigger": "Transfer-current correlations and periodic asymptotics"
+        },
+        {
+          "assessment": "Credits known enumeration, no whole-paper noncoverage claim",
+          "evidence": [
+            "Frozen result reports nF_n² and a circulant Laplacian."
+          ],
+          "identifier_or_url": "https://www.mathstat.dal.ca/FQ/Scanned/23-3/baron.pdf",
+          "material_read": "Citation and outcome as reported in frozen RESULT.md lines 120,129; primary article not obtained",
+          "method": "Bounded attempts at cited PDF and identified Fibonacci Quarterly copy; frozen attribution only",
+          "title": "The number of spanning trees in the square of a cycle",
+          "trigger": "Identical host graph"
+        },
+        {
+          "assessment": "Material analogy, different graph and sharp coefficient",
+          "evidence": [
+            "One deterministic dependence, κ_n/n→√3/2 for that graph."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-linear-fourier-condition-growth-for-uniform-m-bius-ladder-spanni--d2f9d9b3d6ba",
+          "material_read": "Catalogue statement; mirror full text unavailable",
+          "method": "Resultary and bounded mirror attempt",
+          "title": "Linear Fourier condition growth for uniform Möbius-ladder spanning trees",
+          "trigger": "Same-day linear UST condition law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least nontrivial variance over edge Fourier channels measures a natural conditioning problem on a canonical two-length periodic graph. The limiting lower band suggests an order n⁻² grid minimum; the actual n⁻¹ floor and its exact coefficient identify a different fluctuation scale imposed by the finite graph. This is not just a recomputation of the number of spanning trees.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

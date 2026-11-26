@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Exact generating-function extraction gives the coefficient recurrence. A Bernoulli-denominator bound shows the normalized polynomial summation operator preserves Z_2[x]. The normalized polynomial is x modulo 2^(nu2(m)) at all depths; convolution yields the exact claimed leading bit, with multiplier-one oddness showing sharpness. The standalone recurrence checker corroborates 500 finite cases and 40 sharp witnesses but infinite correctness follows from symbolic induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Odd-base published theorem requires m>=5 and gcd(m,6)=1, excluding all even bases.",
+        "Depth-three published gcd result fixes four shifted branches and does not treat arbitrary depth r or the parity profile at every n.",
+        "Żmija (2024) general high-order theorem gives lower divisibility rather than the exact quotient parity."
+      ],
+      "reasoning": "Different parameter ranges cannot dominate the all-even-base and all-depth claim. Fixed-depth gcd data and odd-base results are not logically sufficient to yield the new parity convolution. We do not claim to have excluded every implicit derivation from earlier general lemmas.",
+      "searches": [
+        "Rødseth Sellers Gupta m-ary partition congruence sharp even m all levels at m^r-1 exact two-adic valuation",
+        "2026/11/8/SCOPE-sharp-leading-m-adic-units-for-all-ones-m-ary-partition-indices--a4362220d5df",
+        "2026/11/8/SCOPE-sharp-universal-gcds-for-the-four-depth-three-branches-of-m-ary--9f08fd865d9d",
+        "arxiv:2403.04495"
+      ]
+    },
+    "checked_sources": [
+      "Rødseth and Sellers (2001), author PDF full main results and proof, DOI 10.1006/jnth.2000.2594.",
+      "Żmija, arXiv:2403.04495, 2024-03-07 preprint full HTML.",
+      "Published odd-base leading-unit theorem, entire RESULT.md.",
+      "Published four depth-three branch gcd theorem, entire RESULT.md.",
+      "Ulas and Żmija, colored p-ary partition valuations, relevant statements."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new theorem implies nondivisibility by the next power of two at n=1 for every even base/depth, beyond an ordinary lower modulus.",
+        "The new congruence at every n simultaneously gives a depth-independent convolution; fixed-depth gcd and even-base lower bounds cannot recover it without additional proof."
+      ],
+      "reasoning": "The statement entails the known even-base lower divisibility as a special case, and adds sharpness plus complete normalized parity at all multipliers. An existing generic extraction identity provides an avenue to prove it but does not logically specify the exact quotient without the dyadic integrality and congruence lemma.",
+      "searches": [
+        "doi:10.1006/jnth.2000.2594",
+        "arxiv:2403.04495",
+        "For every even m and r>=2 v2(b_m(m^r-1)) = 1+(r-1)(v2(m)-1) exact m-ary partition values",
+        "normalized m-ary partition coefficients b_m(m^r n-1)/(m/2)^(r-1) stabilize mod 2 independent of r",
+        "2026/11/8/SCOPE-sharp-leading-m-adic-units-for-all-ones-m-ary-partition-indices--a4362220d5df",
+        "2026/11/8/SCOPE-sharp-universal-gcds-for-the-four-depth-three-branches-of-m-ary--9f08fd865d9d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rødseth–Sellers (2001), Theorem 1: lower even-base modulus and extraction, no explicit first normalized binary digit.",
+        "Żmija arXiv:2403.04495: higher-order congruence divisibility, without all-depth sharpness at m^r-1.",
+        "Indexed full-text odd-base leading-unit result explicitly has gcd(m,6)=1."
+      ],
+      "reasoning": "An equivalent result would say that the universal even-base divisibility modulus has an odd quotient at all-ones indices and identify the quotient modulo two for every multiplier n. None of the inspected statements contains that assertion. The older operator is a common proof ingredient, not itself a stronger targetwise parity theorem.",
+      "searches": [
+        "For every even m and r>=2 v2(b_m(m^r-1)) = 1+(r-1)(v2(m)-1) exact m-ary partition values",
+        "normalized m-ary partition coefficients b_m(m^r n-1)/(m/2)^(r-1) stabilize mod 2 independent of r",
+        "sharp 2-adic unit at m-ary partition Mersenne index m^r minus one, all even bases",
+        "doi:10.1006/jnth.2000.2594",
+        "arxiv:2403.04495"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic published-finding corpus search for even-base all-ones valuations and leading bits had no exact match; closest indexed records are the odd-base unit theorem and depth-three four-branch gcd theorem.",
+        "The 2001 author manuscript lists a universal congruence, not an exact all-r table of first quotient bits."
+      ],
+      "reasoning": "Neither the exact-parameter semantic records nor the inspected literature tables specify this even-base all-depth digit profile; absence of an indexed record alone is not proof of novelty.",
+      "searches": [
+        "For every even m and r>=2 v2(b_m(m^r-1)) = 1+(r-1)(v2(m)-1) exact m-ary partition values",
+        "m-ary partition b_m(m^n-1) 2-adic exact valuation normalized parity",
+        "2026/11/8/SCOPE-sharp-leading-m-adic-units-for-all-ones-m-ary-partition-indices--a4362220d5df",
+        "2026/11/8/SCOPE-sharp-universal-gcds-for-the-four-depth-three-branches-of-m-ary--9f08fd865d9d"
+      ]
+    },
+    "rationale": "The 2001 Rødseth–Sellers Theorem 1 and lemmas establish divisibility and extraction but not exact all-depth even-base sharpness or the normalized convolution; the full March 2024 Żmija article establishes general lower congruence moduli. The mathematically nearest full-text published studies respectively exclude even bases and fix the depth to three. No checked source states the same infinite targetwise even-base first-bit law, while unindexed or implicit coverage is a residual risk.",
+    "residual_risks": [
+      "An implicit specialization of older high-order congruence machinery or an unindexed equivalent parity theorem cannot be excluded from published search alone.",
+      "The same extraction recurrence appears in prior work; the novel claim is the exact even-base leading-bit law, not the recurrence or universal lower bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes divisibility and framework; does not state exact normalized parity at all depths or all-ones valuation equality",
+        "evidence": [
+          "Theorem 1 even-base modulus m^(r-1)/2^(r-2), equivalent to exponent 1+(r-1)(nu2(m)-1)",
+          "Operator lemmas give modular lower bounds but not the new first-bit convolution."
+        ],
+        "identifier_or_url": "https://www.d.umn.edu/~jsellers/p14.pdf",
+        "material_read": "Theorem 1, extraction operator setup, several supporting lemmas and main proof including its prime-two divisibility cases",
+        "method": "Full author PDF text and page-image inspection, theorem/quantifier comparison",
+        "title": "On m-ary Partition Function Congruences: A Fresh Look at a Past Problem",
+        "trigger": "Foundational sharp even-base divisibility modulus at exactly these indices"
+      },
+      {
+        "assessment": "Higher-order divisibility framework does not identify exact normalized first bits or sharpness at all even-base all-ones indices",
+        "evidence": [
+          "The general lower-modulus theorem is strictly weaker in quotient precision than the present parity statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.04495",
+        "material_read": "Full arXiv HTML mathematical statements and technical proof sections, including the major congruence theorem",
+        "method": "Primary full-text reading and comparison of moduli, hypotheses and implied unit residues",
+        "title": "High order congruences for M-ary partitions",
+        "trigger": "Middle-cohort reference with generalized high-order divisibility"
+      },
+      {
+        "assessment": "Requires odd m coprime to six and explicitly disclaims even bases; does not cover the new statement",
+        "evidence": [
+          "Theorem: m>=5 with gcd(m,6)=1, normalized leading m-adic digit ((m+1)/2)^(r-2).",
+          "Limitations explicitly say no even bases."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-leading-m-adic-units-for-all-ones-m-ary-partition-indices--a4362220d5df",
+        "material_read": "Complete published RESULT.md, including theorem, integral change-of-basis proof, verification, literature comparisons, limitations and bibliography",
+        "method": "Read full published mathematical result and checked parameter ownership",
+        "title": "Sharp leading m-adic units for all-ones m-ary partition indices",
+        "trigger": "Same all-ones index family and unit-digit question"
+      },
+      {
+        "assessment": "Fixed depth three and branch gcds, not an arbitrary-depth normalized parity profile",
+        "evidence": [
+          "Theorem uses indices m^4 n-m-am^2-bm^3 and four a,b in {0,1}; it does not state all-r first-bit stability."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-universal-gcds-for-the-four-depth-three-branches-of-m-ary--9f08fd865d9d",
+        "material_read": "Complete published RESULT.md, including four-branch theorem, integer polynomial proof, verification and limitations",
+        "method": "Read full published proof and matched exact depth, index shifts, and conclusions",
+        "title": "Sharp universal gcds for the four depth-three branches of m-ary partition congruences",
+        "trigger": "Potential stronger exactness of even-base m-ary congruences"
+      },
+      {
+        "assessment": "Colors and p-ary base change the sequence; this cannot dominate the uncolored even-base theorem as stated",
+        "evidence": [
+          "Its generating functions include color multiplicity, distinct from uncolored b_m."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.04628",
+        "material_read": "Relevant theorem statements and introductory definitions distinguishing colored counts",
+        "method": "Primary arXiv manuscript comparison of counted objects",
+        "title": "On p-adic valuations of colored p-ary partitions",
+        "trigger": "Possible general p-adic valuation statement for partition sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "22cb7606-3f0d-4918-bf56-41aff78368de",
+  "value": {
+    "rationale": "The 2001 universal even-base congruence leaves the natural question of sharpness at all depths and its first nonzero binary digit. The theorem supplies an exact valuation family for every even base, every depth, and a stable parity profile at all multipliers; it is a structural, motivated sharpening with practical large-index reduction, not merely a small finite table or arbitrary slice.",
+    "status": "PASS"
+  }
+}

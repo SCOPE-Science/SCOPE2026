@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:04:24.557206Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen formulas and asymptotic calculations are correct. The two-sided exponential already has norm one. With the unweighted coefficient sum the Walnut prefactor is η; after division by redundancy n it is η/n, the normalization used for the displayed bound formulas. The published optimizer localization and convexity ensure that bounded-strip stationary brackets contain the global optimizers: for A the log is strictly concave on (arccosh n,4 arccosh n) for large n, and B is strictly convex; the analogous K argument in the frozen proof uses strict log-convexity on the localization interval. Independently expand x csch x=1−x²/6+O(x⁴), x coth x=1+x²/3+O(x⁴) and the exponential factors with x=h/n, h=2 log n+s. The leading terms of the normalized deficits are h²/(6n²)+2(1+h)e^(−h) and h²/(3n²)+2(1+h)e^(−h). Taylor series bound derivative errors by O((log n)³/n⁴) on each bounded strip, so the stationary equations after division by h/n² give e^(−s)=1/6 or 1/3 up to O((log n)²/n²). In the ratio the leading terms add, giving the mathematically correct but previously covered condition-number result. In the repaired theorem, substituting h=2 log n+s and subtracting each optimum leaves J_A(s)−J_A(log 6) and J_B(s)−J_B(log 3) with uniform O(1/log n) error on compact strips. Thus evaluation at the previously established condition-number offset tending to log 4 is valid. Both regret coefficients are positive by strict convexity and unequal offsets; no statement for other windows or unbounded shifts follows. The independent bounded replay `python3 reproductions/frozen-1-5-reproduction.py gabor` used 55-digit arithmetic at n=127,4096,131071 and tested brackets, profiles and finite penalties, not normalization or the universal proof. The frozen script was inspected but not executed. The repaired proof explicitly treats the two individual objectives and cites the known K optimizer as an input.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.7 and §8 give exact finite-parameter bound functions, uniqueness, optimizer order, and localization around 2 arccosh n, not the leading additive constants and the compact-uniform individual bound deficits.",
+          "The narrower symmetric-window condition-number theorem controls only the ratio; it does not separate the loss of each individually optimized bound. The fixed unequal-tail theorem does not cover the degenerate equal-decay limit."
+        ],
+        "reasoning": "Finite-parameter formulas and global optimizer localization are inputs; extracting each bound's offset and the regret on its own second scale requires balancing its own derivative and uniform expansion. The existing K result does not determine A and B separately.",
+        "searches": [
+          "Faulhuber–Shafkulovska arXiv:2204.02917v2 Theorem 2.7 and §8",
+          "High-density Gabor optimizer offsets and Section 8",
+          "Asymmetric two-sided exponential high-density offset and loss theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.02917v2 / doi:10.1016/j.acha.2023.101574",
+        "Resultary records f41cc49ca05f, 9ccc03766e12 and 42731fc6bcba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Eq. (3) gives log K=h²/(2n²)+4(1+h)e^(−h) plus a uniform error that is o(log n/n²) on h=2 log n+s with bounded s. Exponentiating and using the prior minimizing s=log 4 gives the frozen centered K profile directly.",
+          "That argument yields only the sum of the leading normalized bound losses, not the separate quadratic balancing coefficients 1/6 and 1/3 in h²/n² or the two individual losses at h=η_K,n. The repair derives them from the separate A and B formulas, including the differentiated control needed for global optimizer offsets."
+        ],
+        "reasoning": "The prior condition-number law and its profile are excluded as discoveries. The specific retained quantitative tradeoff is not an instance of the earlier ratio theorem or of the unequal-rate limit.",
+        "searches": [
+          "November 2 symmetric-window RESULT.md, Finding and Eqs. (3)–(7)",
+          "arXiv:2204.02917v2, Eq. (8.2) and Section 8 optimizer analysis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior symmetric-window input uses q instead of n and centers at 2 log(2q)=2 log q+log 4. Its lattice, unit window and condition-number objective agree exactly; multiplication of each frame bound by the same n cancels in the ratio.",
+          "The asymmetric-window indexed result works at fixed unequal decay rates with a different 2 log n−log log n centering and explicitly excludes uniformity toward equal rates."
+        ],
+        "reasoning": "The condition-number portion is truly equivalent, not just numerically close. The unequal-tail profiles cannot be evaluated at equal rates under their hypotheses and do not cover the repaired result.",
+        "searches": [
+          "Resultary: high-density logarithmic balancing for two-sided exponential Gabor frames",
+          "Resultary: high-redundancy exponential lattice optimizer geometry and regret losses",
+          "Literature: exact log 6, log 3 and log 4 exponential Gabor frame optimizer offsets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-high-density-logarithmic-balancing-for-optimal-two-sided-exponen--f41cc49ca05f is a distinct earlier record; it explicitly gives the same K optimizer, not the repaired individual offsets or individual regret constants.",
+          "SCOPE-a-logarithmic-logarithmic-lattice-law-for-asymmetric-exponential--9ccc03766e12 addresses unequal decay. The exact frozen record 42731fc6bcba is a self-match, and the same-day indexed one-sided exponential regret case changes the window."
+        ],
+        "reasoning": "The exact K match is credited and removed from the claimed increment. No distinct exact table for the two retained individual offsets and regrets was established, which is only bounded evidence.",
+        "searches": [
+          "Resultary: high-density logarithmic balancing, asymmetric exponential lattice law, individual optimizer and Pareto-loss terms",
+          "Literature: three exact constants and quantitative two-sided exponential Gabor optimizer loss"
+        ]
+      },
+      "rationale": "This pass applies only to the substantive repaired theorem. The frozen three-objective originality claim fails in material part: the earlier identical-window result already explicitly states the log 4 location at the same error order, and its uniform expansion immediately implies the centered K loss. Corrected RESULT.md, SLOGAN.txt and the scientific notes in VERIFICATION.md remove those K results as contributions. The remaining log 6 and log 3 estimates, the two separate frame-bound loss profiles, and their sharp costs at the known condition-number optimum are distinct on the actual evidence checked.",
+      "residual_risks": [
+        "The literature assessment is bounded; the absence of a further decisive web-search hit does not establish priority of the two individual offsets or regrets.",
+        "Earlier frame-bound calculations and unindexed exponential-window asymptotics may contain related formulations outside the inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact functions and finite-n optimization structure, not the repaired centered loss theorem",
+          "evidence": [
+            "Equation (8.2) matches the displayed normalized functions at γ=1; for unweighted coefficient bounds a common factor n is required. For n≥11 Eq. (8.25) uses (arccosh n,4 arccosh n); §8 proves the requisite strict concavity/convexity on the indicated domains."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2204.02917v2",
+          "material_read": "§2.4 Theorem 2.7 (offsets 15771–19893), §3 Eq. (3.5), §8 Eq. (8.2) (75500–80396), Eq. (8.25) (90620–94213), convexity/localization parts §§8.1.3, 8.2, 8.3",
+          "method": "Read primary statements and formulas, compared the convention and checked localization and concavity hypotheses",
+          "title": "Gabor frame bound optimizations",
+          "trigger": "Exact bound formulas, normalization and global optimizer premises"
+        },
+        {
+          "assessment": "Directly states the K optimizer location with the same remainder; mechanically covers its centered profile, not the individual A and B results",
+          "evidence": [
+            "The finding gives η_q=2 log(2q)+O((log q)²/q²); Eq. (3) expands log κ uniformly on the localization interval, and Eqs. (6)–(7) give the optimal value."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-high-density-logarithmic-balancing-for-optimal-two-sided-exponen--f41cc49ca05f/RESULT.md",
+          "material_read": "Finding, assumptions, proof Eqs. (1)–(7) and prior-work discussion, offsets 0–7659",
+          "method": "Compared conventions and inserted h=2 log n+s into the actually stated uniform expansion",
+          "title": "High-density logarithmic balancing for optimal two-sided-exponential Gabor frames",
+          "trigger": "Exact same-window optimizer asymptotic and prior implication for the centered K profile"
+        },
+        {
+          "assessment": "Related distinct theorem that does not specialize to the repaired symmetric result",
+          "evidence": [
+            "It assumes 0<r<R and uses centering 2 log n−log log n; estimates are not claimed uniform as R−r tends to zero."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-logarithmic-logarithmic-lattice-law-for-asymmetric-exponential--9ccc03766e12/RESULT.md",
+          "material_read": "Finding and hypotheses on fixed unequal tail rates",
+          "method": "Compared parameter domain, centering and uniformity at the equal-rate boundary",
+          "title": "A logarithmic-logarithmic lattice law for asymmetric exponential Gabor frames",
+          "trigger": "Possibly covering three-objective optimizer and loss theorem with exponential tails"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The retained result distinguishes two natural conflicting design objectives and measures, with exact positive constants, the loss in each if one instead chooses the known best-conditioned lattice. Neither the ratio optimum nor its loss alone tells which individual sharp frame bound deteriorates or by how much. Compact-uniform losses at the operative scale and the quantitative tradeoff remain useful after removing the duplicated condition-number result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

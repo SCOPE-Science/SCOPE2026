@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:39:53.194017Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof steps 1–5",
+        "Frozen VERIFICATION.md and verify_secant.py, lines 14–49 (inspected, not executed)"
+      ],
+      "rationale": "In the exact coordinates (s,z)=(x+y,y−x), write b=cs^d. Then s'=s+z+3b and z'=b. For V(s)=cs^{d+1}/(d+1), the increment of V(s)−z² is the nonnegative convexity remainder plus z²+bz+2b²=(z+b/2)²+7b²/4. The increment is strict off the fixed origin. A bounded subsequence bounds this increasing quantity above on the entire orbit, so summation forces b and z to zero; otherwise the norm tends to infinity. A nondecreasing step in |s_n| places the orbit in the claimed cone via z_n=cs_{n−1}^d. There must be such a step on every escaping tail, since eventual strict decrease bounds both coordinates; s_n=0 at such a step would also give s_{n−1}=z_n=0 and is impossible on escape. Both cones preserve sign and satisfy r'≥r+2cr^d. Once successive signs agree, r_{n+1}=3cr_n^d(1+e_n) with 0<e_n≤4r_n^{1−d}/(9c), since cr_{n−1}^d≤r_n/3. For W_n=log r_n+log(3c)/(d−1), the recurrence W_{n+1}=dW_n+log(1+e_n) yields a finite positive height (take W_n>0 on a late tail); the geometric tail shows W_n−Hd^n→0, giving the multiplicative constant rather than just a logarithmic scale. Also z_n/s_n→1/3, which gives the signed direction. A sufficiently small neighborhood of a nonzero point has Lyapunov oscillation less than its first-step increment, so no positive iterate returns to it. Its inverse images are disjoint and any invariant probability gives them equal mass; a countable cover then gives zero mass off the origin without integrability assumptions.",
+      "residual_risks": [
+        "The frozen checker samples rational states in three odd degrees and does not check the infinite escape-height tail or invariant probabilities. These follow from the analytic argument above, not the recorded checker result.",
+        "No extension to the rational secant algorithm or to a perturbation is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A(c), PDF p. 4, states that the odd-negative basin equals its global stable manifold and is unbounded. Section 6, pp. 32–33, constructs points in that basin to prove unboundedness.",
+          "The quantified Resultary result covers both signs of a, but only even d≥2."
+        ],
+        "reasoning": "Sign breadth with even degree does not cover odd degree. The same-map unbounded-basin result leaves open what happens to arbitrary points outside that basin.",
+        "searches": [
+          "arXiv:2405.08791, Theorem A(c), Section 6",
+          "Resultary 2026/10/11, 329ac93ba819, Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2405.08791 / doi:10.3934/dcds.2024122",
+        "Resultary 329ac93ba819 and 4f718681482c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 6 constructs noncompact parts of the set converging to zero, not positive- and negative-sign escape channels for nonconvergent initial data.",
+          "The even-degree height law uses the same prefactor (3|a|)^(−1/(d−1)); the earlier escape direction has sign opposite a, whereas the fixed negative odd branch here has both signs."
+        ],
+        "reasoning": "Basin membership alone does not exclude bounded recurrent dynamics on its complement. The even-degree directional/height law cannot classify both odd-degree escape rays or establish odd-negative wandering and invariant-probability conclusions.",
+        "searches": [
+          "arXiv:2405.08791, Section 6 (OA text offsets 112413 and 119850)",
+          "Resultary 329ac93ba819, mirrored RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen map corresponds to a=−c. Lemma 2.1(b), PDF p. 6, reduces odd degrees with the same coefficient sign to a representative coefficient; Section 6 uses a=−1."
+        ],
+        "reasoning": "The negative sign in the cited convention does not become the positive-coefficient odd branch under this reduction; odd scalings change the coefficient by a positive factor and preserve degree parity. These are genuinely different regimes, not different notations for the same result.",
+        "searches": [
+          "arXiv:2405.08791, model and Lemma 2.1(b)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching 2026/11/22 entry 4f718681482c is the assigned Finding itself. The closest distinct retrieved match, 2026/10/11 entry 329ac93ba819, gives one oriented escape ray and the same scalar prefactor under even degree; its actual Finding was compared."
+        ],
+        "reasoning": "The identical entry is not separate coverage, and no distinct same-day overlap was identified in the bounded comparison. The even-degree hit is material overlap in asymptotics, not coverage of the original parameter range.",
+        "searches": [
+          "Local Resultary: odd negative secant escape, recurrence and exact superexponential scale"
+        ]
+      },
+      "rationale": "The stable-basin identification is prior and is not being credited as new. The distinct result is the exhaustive complement dynamics for this odd negative branch, with two signed absorbing channels, quantified escape, and nonwandering/probability rigidity. The closest earlier exact scale is genuinely related but assumes even degree, and the same-map odd-negative published theorem resolves the basin, not the complement.",
+      "residual_risks": [
+        "The inspected literature and local Resultary searches are bounded; an earlier unindexed odd-negative counterpart is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the stable-basin identification but not the distinct complement classification",
+          "evidence": [
+            "A(c) gives basin equals stable manifold and unboundedness; Section 6 says the remaining task is the unboundedness of that manifold and ends there."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.08791; doi:10.3934/dcds.2024122",
+          "material_read": "Theorem A(c), PDF p. 4; Lemma 2.1(b), p. 6; Section 6, pp. 32–33",
+          "method": "Read targeted OA PDF passages",
+          "title": "On the basin of attraction of a critical three-cycle of a model for the secant map",
+          "trigger": "Exact polynomial family and odd negative coefficient"
+        },
+        {
+          "assessment": "Material asymptotic overlap in a disjoint degree regime",
+          "evidence": [
+            "Even d≥2, nonzero a, one oriented escape ray with direction normalized by s to (1/3,2/3), and positive height with the same exact prefactor."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-escape-direction-and-exact-superexponential-scale-for--329ac93ba819",
+          "material_read": "RESULT.md Finding, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary match and mirrored record text",
+          "title": "Universal escape direction and exact superexponential scale for an even-degree secant model",
+          "trigger": "Same asymptotic scale and direction in the polynomial family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and scope",
+        "Fontich–Garijo–Jarque, Theorem A(c) and Section 6"
+      ],
+      "rationale": "The natural unresolved question after identifying the stable basin is the fate of every initial point outside it. Strict global increase and two finite-entry channels settle it in the exact branch and prove recurrence rigidity for all Borel probabilities, not just those of compact support. The exact prefactor and positive height add quantitative information not supplied by the dichotomy alone.",
+      "residual_risks": [
+        "The result describes the exact truncated model, not the dynamics of the untruncated root-finding iteration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

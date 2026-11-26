@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:20:20.635989Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions, and Proof §§1–5",
+        "Frozen VERIFICATION.md and check_polygon_design.py"
+      ],
+      "rationale": "For 0<θ<π, sine weights are positive and support evaluation on the intervening vertex cone has exactly the two stated terms. The only determinant permutations are the identity and the full cycle. The first n−1 rows have a nonsingular triangular minor, so the even balanced locus has corank one, with z_(j+1)=−a_j z_j/b_j and every z_j nonzero. An open interval of shifts by z stays in the exact-fan type cone and gives distinct polygons with identical data. For the tail, independently set x_j=log(b_j/a_j), a smooth strictly increasing coordinate with derivative sin θ/[sin α_j sin(θ−α_j)], put S=∑x_j and P_a=∏a_j. In even order D=P_a(1−e^S). On S=0, ∇D=−P_a∇S and the adjugate is nonzero. Hold x_1,…,x_(n−1) fixed and change x_n to S, then rescale S=y/t. The event becomes t|1−e^(y/t)|<‖adj A‖_2/P_a, with smooth coordinate density and continuous threshold. Compact design support bounds both the ratio and y on the event uniformly. Dominated convergence yields transverse length 2‖adj A‖_2/P_a at S=0; changing back by coarea gives precisely the stated integrand 2‖adj A‖_2/‖∇D‖_2 times the density. The hypersurface has zero design probability, and the midpoint neighborhood ensures a strictly positive coefficient. In odd order D is uniformly positive on the compact support. Tail integration verifies the exact moment cutoff including the divergent p=1 case. Conditional squared error is σ²‖A^−1‖_F², between σ²T² and nσ²T², yielding the stated risks. The extra facet row kills the sole kernel direction everywhere on the locus; continuity of the smallest singular value on compact offset sets proves uniform stability. This covers n=3 and all even n≥4. The frozen checker was inspected, not executed: its finite tests concern the determinant, kernel and a transverse pole and do not establish the tail coefficient or risk theorem.",
+      "residual_risks": [
+        "Uniform bounds use a compact subset of open sectors with fixed n; risk concerns the unconstrained parameter inverse with independent positive-variance noise, not an estimator constrained to feasible polygons."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.7 characterizes generic rank by a matching; the one-per-sector incidence graph has a full matching in both parities. Resultary contains an exact C/t kernel-matrix collision law and a C/R projected Sylvester error law with the same p<1 moment cutoff, as well as a same-date Gaussian update result with different exponents."
+        ],
+        "reasoning": "Generic rank cannot distinguish an empty singular set from a transverse codimension-one one. The cited tail mechanisms act on different matrix families or solution measurements, and do not determine the polygon coefficient, odd boundedness or the additional row's intersection with the kernel.",
+        "searches": [
+          "Dostert–Jochemko arXiv:2201.03419v4, §3.2, Theorem 3.7",
+          "Random inverse norm tails and induced tube/coarea asymptotics",
+          "Resultary 2bac4e280898, 2cf8444fe5f7 and 367d4212442f"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Relationship to prior work",
+        "arXiv:2201.03419v4, §§3.1–3.2",
+        "Resultary 2bac4e280898, 2cf8444fe5f7 and 367d4212442f (Finding statements)",
+        "Older support-reconstruction citations as qualified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic theorem omits the exceptional set by design. A general transverse tube law produces a first-order coefficient once the rank and normal variation are controlled; here one must prove D=P_a(1−e^S) and ∇S≠0, identify adjugate nonvanishing, and check that the sampling density gives positive mass on the regular locus."
+        ],
+        "reasoning": "Once transversality is established the tail integral and moment/risk consequences use standard tools, but these cannot by themselves identify the singularity or give the all-design parity characterization. A known one-parameter hexagon ambiguity likewise gives neither all-offset balance nor the almost-sure but infinite-risk regime.",
+        "searches": [
+          "Dostert–Jochemko arXiv:2201.03419v4, Example 3.4 and Theorem 3.7",
+          "General coarea tube argument and Resultary 2bac4e280898"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The support design is a weighted sum of identity and cyclic shift rows. Dostert–Jochemko Example 3.4 has row measurement v_i+v_(i+1), rank five, and alternating kernel. Dividing each row's direction and value by its norm gives exactly the equal-midsector unit-direction n=6 design. The inverse norm tail is equivalently the linear small-ball law for σ_min(A)."
+        ],
+        "reasoning": "The hexagon instance and its noiseless ambiguity really coincide, not merely in plot or parity. Varying all offsets and all orders is not a rescaling of this single example. The alternate least-singular-value formulation changes the variable, not the model or the exact coefficient.",
+        "searches": [
+          "Dostert–Jochemko arXiv:2201.03419v4, Example 3.4 and Theorem 3.7",
+          "Lele–Kulkarni–Willsky, JOSA A 9 (1992), 1693–1714, cited eqs. (7)–(9)",
+          "Fixed-fan support interpolation, cyclic sparse inverse and least-singular-value small-ball tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hexagonal rank/kernel is a covered entry. Resultary 2bac4e280898 gives C=n(n−1)γ^−1∫w² for exponential-kernel collisions. No compared entry tabulates the angular-density-dependent integral for the cyclic support-sampling operator."
+        ],
+        "reasoning": "A known precise case must be credited but does not extend to the general offsets. The kernel-collision constant concerns coincidence of point inputs, not balancing a product of angular sine ratios; a substitution of n or density does not match the singularities.",
+        "searches": [
+          "Resultary inverse norm tails 2bac4e280898, 367d4212442f and 2cf8444fe5f7; exact fixed-fan examples in arXiv:2201.03419v4, §3.1"
+        ]
+      },
+      "rationale": "Credit the fixed-fan interpolation, generic matching criterion and exact equal-midsector hexagon ambiguity as prior context. A linear small-ball law near a transverse corank-one singularity is a general coarea mechanism, not a new general tail principle. The supported distinct result is the complete all-offset parity classification, explicit locus/transversality and exact inverse tail on this structured design family, together with the associated risk distinction and a fixed-row remedy. The closest available general statements do not identify this locus or evaluate the relevant hypotheses and coefficient for it.",
+      "residual_risks": [
+        "The cited 1992 equations were not accessible by the attempted lawful routes. A differently named prior cyclic-design or structured inverse result could cover additional details; irrelevant search hits are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact n=6 midpoint overlap and compatible generic matching criterion; no arbitrary-offset singular/tail classification in these statements",
+          "evidence": [
+            "Example uses u^(i)=v_i+v_(i+1) and y^(i)=2, with support vectors 1+λ(1,−1,1,−1,1,−1), |λ|≤1/3; the endpoints are triangles. Theorem 3.7 gives generic identifiability iff a size-n matching exists in the measurement support graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.03419 (v4)",
+          "material_read": "§3.1 Example 3.4 and §3.2 Theorem 3.7",
+          "method": "Lawful OA primary statement inspection",
+          "title": "Learning polytopes with fixed facet directions",
+          "trigger": "Exact prior ambiguity and stronger-looking generic identifiability theorem"
+        },
+        {
+          "assessment": "Interpolation and noisy support reconstruction credited as background; exact equation attribution and full scope were not independently resolved",
+          "evidence": [
+            "The frozen proof reconstructs the interpolation directly from the vertex-cone geometry; the comparison's key determinant and transversality are specific to one measurement per sector."
+          ],
+          "identifier_or_url": "https://www.princeton.edu/~kulkarni/Papers/Journals/j005_1992_lkw_osa.pdf; https://willsky.lids.mit.edu/publ_pdfs/76_pub_IEEE.pdf",
+          "material_read": "Frozen RESULT.md lines 80–94 attributes sine interpolation to Lele et al. eqs. (7)–(9) and support-line consistency to Prince–Willsky; attempted Lele primary full text unavailable",
+          "method": "Frozen source comparison and targeted lawful OA attempts, including the identified Princeton copy",
+          "title": "Convex-polygon estimation from support-line measurements and applications to target reconstruction from laser-radar data; Reconstructing convex sets from support line measurements",
+          "trigger": "Older fixed-fan interpolation, least-squares and noisy inverse context"
+        },
+        {
+          "assessment": "Shared tail phenomenon but different input models, singularities, or observed quantities; no same-date priority order assumed",
+          "evidence": [
+            "Kernel collisions: C/t inverse tail and p<1 moment cutoff. Haar projections: C/R projected solution norm/error tail. Gaussian updates: (log R)/R versus R^−1/2 for two rank-one completions of a corank-one PSD matrix."
+          ],
+          "identifier_or_url": "Resultary 2bac4e280898; 2cf8444fe5f7; 367d4212442f",
+          "material_read": "Finding statements on the local mirror",
+          "method": "Resultary search and local mirror passage inspection",
+          "title": "Universal collision-tail and nugget moment laws for random exponential-kernel matrices; Exact R^−1 tail for Haar rank-one Sylvester projections; A sharp Gaussian rank-completion tail reversal between symmetric and independent updates",
+          "trigger": "Same asymptotic exponent or related corank-one inverse instability, including distinct same-date result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Dostert–Jochemko arXiv:2201.03419v4, Example 3.4 and Theorem 3.7"
+      ],
+      "rationale": "One support observation per known fan sector is a natural square inverse design. Generic identifiability alone is misleading here: in even order a positive-variance unconstrained inverse has infinite squared risk although singular matrices have probability zero. The analytic constant and sharp moment threshold identify the instability, and the specified one-row measurement provides a uniform remedy on the same compact offset class. This is more substantive than observing an isolated singular grid or deriving generic rank again.",
+      "residual_risks": [
+        "No asymptotic-in-n or regularized/constrained estimator risk claim is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

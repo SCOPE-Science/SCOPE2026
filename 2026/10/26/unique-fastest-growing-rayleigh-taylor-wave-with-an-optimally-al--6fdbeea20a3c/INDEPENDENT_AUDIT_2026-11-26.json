@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:16:34.903327Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified heavy-over-light inviscid normal mode, unit interface displacement gives upper/lower interface velocity potentials −Γ coth(kh)/k and +Γ coth(k(L−h))/k; the hydrostatic jump and tension give Γ²D=k(G−σk²). At fixed k, the coth addition formula writes D=(a+b)coth S+(at+b/t)/sinh S for S=kL and t=sinh(k(L−h))/sinh(kh). The minimum is unique because t decreases bijectively from infinity to zero and equality in AM–GM fixes t=√(b/a). The allocation formula, strict half/square-root-share bounds, monotonicity in S and equal-depth deficit follow from this equality (z coth z is strictly increasing). The optimized denominator is a positive mixture of coth S and coth(S/2). Each component's negative logarithmic derivative q=2kd/sinh(2kd) strictly decreases; differentiation of the weighted mean gives mean(q′) minus Var(q), with the derivative in log k, so the elasticity drops strictly from 2 to 1. Its crossing with the increasing capillary term gives the unique maximum in scalar k, with k_c/√3<k_*<k_c/√2. At this crossing, increasing L lowers the elasticity at fixed k and shifts the crossing to smaller k, while D_* decreases pointwise and the maximum growth increases. The bounds keep k_* away from zero in the L limits, giving the stated wavenumbers, growth constants and thickness offset from the exact formulas. This is not uniqueness of a horizontal propagation direction. Read the frozen verification notes and script; the reported finite tests are corroboration, not the proof. The decision uses the analytic check, not execution of the supplied script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 148–152 locates the prior multilayer dispersion setting and cites fixed-depth Eq. (2) of the 1996 paper; primary full texts were not independently accessible."
+        ],
+        "reasoning": "A broad forward eigenvalue problem that includes the two-fluid dispersion law gives the objective but does not itself optimize under the fixed-sum variable-depth constraint. No available statement was found imposing that constraint and giving allocation plus global uniqueness.",
+        "searches": [
+          "Mikaelian 1990, DOI 10.1103/PhysRevA.42.7211",
+          "Mikaelian 1996, DOI 10.1103/PhysRevE.54.3676 and identified author-uploaded ResearchGate page"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md (especially lines 64–142, 148–162), VERIFICATION.md and verify.py",
+        "Resultary comparisons and exact IDs listed above",
+        "Mikaelian 1990 and 1996 lawful access attempts and the frozen reference comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact constrained AM–GM equality, positive-mixture elasticity and the resulting strict crossing and height dependence are separate consequences requiring a proof beyond specifying the dispersion relation."
+        ],
+        "reasoning": "The shallow optimizer is suggested by the shallow expansion and the deep wavenumber is classical, but those limits do not imply the exact all-height depth split or uniqueness and sharp bounds at intermediate heights.",
+        "searches": [
+          "Frozen RESULT.md lines 68–142 versus cited finite-depth dispersion and the inspected fixed-total-depth internal-wave record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE-sharp-total-depth-allocation-maximizing-the-slowest-multilayer-i--63b03be27cb0, RESULT.md at the opening finding: maximize slowest rigid-lid hydrostatic internal-wave speed, equal depths for two layers",
+          "SCOPE-two-wavenumber-tomography-and-an-exact-depth-reflection-ambiguit--77cae454cb33, opening finding: depth/density inversion from two frequencies"
+        ],
+        "reasoning": "Neither optimizing a stable long-wave speed nor recovering parameters from gravity-wave frequencies is equivalent to maximizing finite-k capillary instability growth over both the split and k. The long-wave allocation even selects a different split.",
+        "searches": [
+          "Resultary: exact joint Rayleigh–Taylor optimization; fixed-total-depth layer allocation; variable-thickness Mikaelian formulations",
+          "Primary-literature search: exact 1996 Mikaelian article title and full text"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two inspected catalogue matches give, respectively, a different optimizer and an inverse uniqueness/ambiguity result."
+        ],
+        "reasoning": "No exact indexed match was found in these checks. A numerical table of fixed-depth growth rates would not establish this parameter-uniform variational claim.",
+        "searches": [
+          "Resultary exact theorem and fixed-total-depth allocation searches, followed by matched RESULT.md readings"
+        ]
+      },
+      "rationale": "Pass the fixed-total-height free-interface joint optimization, not the classical dispersion law or its infinite-depth most unstable wavenumber. The closest inspected total-depth calculation optimizes a different wave observable in a different regime. Available evidence does not establish prior coverage of the joint theorem; priority remains provisional where primary text could not be read.",
+      "residual_risks": [
+        "Uninspected primary text could contain a related free-interface constrained optimization; searches were bounded and cannot certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related objective, not equivalent; date does not determine priority.",
+          "evidence": [
+            "Rigid-lid Boussinesq hydrostatic wave speed, not capillary growth; equal-depth two-layer allocation."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-total-depth-allocation-maximizing-the-slowest-multilayer-i--63b03be27cb0/RESULT.md",
+          "material_read": "Opening finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Sharp total-depth allocation maximizing the slowest multilayer internal-wave speed",
+          "trigger": "Closest same-day fixed-total-depth allocation match"
+        },
+        {
+          "assessment": "Related inverse problem, not the optimization.",
+          "evidence": [
+            "Two frequency measurements determine invariants with a depth-reflection ambiguity."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-two-wavenumber-tomography-and-an-exact-depth-reflection-ambiguit--77cae454cb33/RESULT.md",
+          "material_read": "Opening finding at offset 0",
+          "method": "Local published-record mirror",
+          "title": "Two-wavenumber tomography and an exact depth-reflection ambiguity",
+          "trigger": "Two-layer dispersion and depth parameters"
+        },
+        {
+          "assessment": "Open priority risk, not evidence of noncoverage.",
+          "evidence": [
+            "Frozen comparison attributes the classical fixed-wall dispersion to the multilayer model."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.42.7211",
+          "material_read": "No primary full text read; frozen comparison at lines 148–152 read",
+          "method": "APS HTML/PDF access attempts unsuccessful",
+          "title": "Rayleigh–Taylor and Richtmyer–Meshkov instabilities in multilayer fluids with surface tension",
+          "trigger": "Highly relevant general multilayer forward problem"
+        },
+        {
+          "assessment": "Fixed-depth Eq. (2) is attributed by the frozen record, not independently passage-confirmed here. No whole-paper coverage claim.",
+          "evidence": [
+            "Identified alternate: https://www.researchgate.net/publication/13322820_Rayleigh-Taylor_instability_in_finite-thickness_fluids_with_viscosity_and_surface_tension ."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.54.3676",
+          "material_read": "No primary full text read; frozen comparison at lines 148–152 and 160–162 read",
+          "method": "APS HTML/PDF unavailable; identified public ResearchGate copy returned 403 by both routes, and PubMed abstract retrieval did not return text",
+          "title": "Rayleigh–Taylor instability in finite-thickness fluids with viscosity and surface tension",
+          "trigger": "Closest cited finite-depth primary paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-height geometry supplies a natural design constraint. The exact allocation and strict wavenumber bounds answer how to place the interface and which mode then grows fastest, without a two-dimensional numerical search. The uniqueness proof and finite-size trends supply information not contained in the standard deep-layer result. This value is for linear inviscid theory under the stated wall and allocation assumptions, not nonlinear or viscous prediction.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

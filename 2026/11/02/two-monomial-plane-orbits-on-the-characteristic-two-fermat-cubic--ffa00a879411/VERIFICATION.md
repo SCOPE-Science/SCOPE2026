@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 verify_fermat_plane_orbits.py` with the Python standard library. The saved script was executed and printed `VERIFY_OK` after checking every reduced-row-echelon plane, the complete orbit partition, every geometric-plane weight distribution, Frobenius fixedness, and all 4 representative-versus-orbit intersection count vectors.
+## correctness
 
-The exhaustive finite search covers all \(376805\) candidate three-spaces over \(\mathbb F_4\). The independent geometric completeness argument in RESULT.md uses maximal Hermitian isotropy and the degree-\(3\) Fermat equation to show all *geometric* planes descend to \(\mathbb F_4\). The normal-bundle computation separately shows infinitesimal reducedness; it is not inferred from a finite point count.
+PASS
 
-Full unitary-group incidence is classical and is not a novelty claim. Originality of the three restricted two-cell matrices has only been reviewed against the identified sources and accessible prior claims; it is not independently certified.
+Vanishing of the cubic coefficients gives W^(2)=W^perp for the bilinear coordinate pairing, hence W^(4)=W and descent to F4. The restricted normal derivative sending a complementary vector n to sum_i (r_i^(2)·n)t_i² is an isomorphism onto the three-dimensional square span; the resulting products t_i²t_j are distinct, so the plane Hilbert tangent vanishes. Over F4, a weight-two vector splits off a self-dual two-coordinate summand, and a residual length-four self-dual space in systematic form has monomial 2×2 right block (each row has odd weight). Without weight two, the 3×3 right block in systematic form has three full rows. Normalize its first row and first column to one; orthogonality forces the other rows to be (1,α,α²) and (1,α²,α), in either order. Thus the two types are each one monomial orbit. Independent replay built systematic planes from all orthogonal norm-one triples, deduplicated by projective point sets and compared all ordered intersections by cardinality 0,1,5,21 instead of rank. It confirmed counts 405 and 486, both weight profiles, all three quotient matrices and the 15 Frobenius fixed planes, all in the pairing class. The remaining Frobenius cycles are pairs and give the stated zeta function. The quotient eigenvalues follow from each row sum and the trace.
+
+## originality
+
+PASS
+
+The supported distinct contribution is the coordinate-monomial equitable partition with its joint line/point/disjoint intersection profiles. The 891 planes, F4 descent, ambient unitary incidence and total valencies, pairing construction, and hexacode weights are classical or covered in the checked sources. The published full plane data allow reconstruction but do not give the relative incidence split in the inspected material. Frobenius data are already encoded in the published plane permutation and are not the basis for this pass.
+
+## value
+
+PASS
+
+Coordinate structure gives a natural partition of the maximal isotropic spaces into the familiar pairing family and the characteristic-two hexacode family. The complete equitable quotient for each of the three intersection relations resolves where the global valencies go under this geometrically meaningful symmetry restriction. It supplies usable coordinate-sensitive incidence data rather than a recount of 891 or a list of code weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:58:05.744837Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For y=λx²/(2c) the effective normalized step is α(1+y)/(1+(1+α)y), giving x₊=x t(y), t(y)=(1+y−α)/(1+(1+α)y). The strictly increasing t lies strictly between −1 and 1 at y>0 when α≤2; a positive limit of the decreasing magnitude contradicts continuity of this strict inequality. T′(0)=1−α, and at α=1 the leading map term is λx³/(2c). At α=2, y₊=y[(1−y)/(1+3y)]² gives the reciprocal increment 8(1+y)/(1−y)². It tends to 8 on nonterminating orbits, hence ny_n→1/8, with the stated spatial and loss constants. Terminating orbits are excluded. For α>2, the origin is locally repelling and the unique equation t(y)=−1 gives y_*=(α−2)/(α+2). At that root the denominator is α²/(α+2), so differentiating T gives T′(±r)=t+2y t′=1−8/α² and the return derivative is its square, less than one, including the zero-multiplier case. At the cycle λγ=2 and excess loss is cy_*. It disproves all-start convergence but says nothing about uniqueness among non-antipodal cycles or global basins. Inspected the exact-arithmetic diagnostics in check_ngn.py and VERIFICATION.md; the upload was not executed. The rational identities and limiting argument certify the theorem independently of those diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Orvieto–Xiao give a fixed-step strongly-convex bound with nonzero residual for the positive-floor scalar specialization when σ>1/(2L). Schaipp–Gower–Taylor bound a per-step model stability index.",
+          "The zero-minimum SPD result gives exact one-step envelopes and explicitly does not classify positive-floor trajectories."
+        ],
+        "reasoning": "The stronger-looking general estimates do not determine the scalar critical threshold, critical convergence or the cycle and multiplier.",
+        "searches": [
+          "\"nonnegative Gauss-Newton\" \"positive minimum\" scalar quadratic fixed step two-cycle objective floor",
+          "arXiv:2407.04358v1 §4.2 Theorem 4.6",
+          "arXiv:2602.09842 §4.3 Lemma 4.2",
+          "2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_ngn.py",
+        "arXiv:2407.04358v1",
+        "arXiv:2602.09842",
+        "Resultary/mirror 1deba921869e, 737f754c4cc5, da4742ebe857, 5f6e926df82f, 86e9f0621099, a0ce65708c0d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original authors' positive-floor quadratic Figure 2 shows nondivergence and observes a large-step effective size bounded by 2/λ; its plot and theorem do not identify the actual iterate limit. Substituting the known update gives a map, but not yet its global subcritical argument, critical reciprocal limit, and attracting branch for every supercritical parameter."
+        ],
+        "reasoning": "The local flip heuristic alone does not imply the critical coefficient or guarantee a persistent attracting cycle all the way to arbitrarily large finite steps.",
+        "searches": [
+          "arXiv:2407.04358v1 §§2.2.2 and 4.2",
+          "arXiv:2602.09842 Eq. (12) and Lemma 4.2",
+          "5f6e926df82f and 86e9f0621099 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Capped SPS subtracts a loose lower bound from the loss in the Polyak step numerator and uses a hard minimum with its cap. For NGN the finite-σ step is the harmonic combination 1/(σ^(−1)+||g||²/(2f)), not a hard cap.",
+          "The Polar-Express comparison uses u₊=u[1−τ/(1+|u|⁴)^(1/4)] on a zero-floor quadratic, with a different critical decay power."
+        ],
+        "reasoning": "Neither is the NGN rational update under the given positive objective offset; sharing a flip value is not statement equivalence.",
+        "searches": [
+          "Resultary: scalar nonnegative Gauss-Newton fixed-base step positive objective floor quadratic stability threshold attracting antipodal two-cycle",
+          "2026/10/4/SCOPE-a-loose-sps-lower-bound-restores-the-scalar-gradient-descent-sta--86e9f0621099",
+          "2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 1deba921869e indexed hit is the assigned work itself. The same-day a0ce65708c0d hit studies two-state Prox-NAG-GS with an attracting minimizer and escape for some starts, not the submitted NGN transition."
+        ],
+        "reasoning": "The exact lookup is for a symbolic bifurcation theorem, not a tabulated invariant. The matching self-record gives no independent coverage; actual distinct hits require comparing the maps and conclusions.",
+        "searches": [
+          "Resultary: scalar nonnegative Gauss-Newton fixed-base step positive objective floor quadratic stability threshold attracting antipodal two-cycle"
+        ]
+      },
+      "rationale": "The NGN rule and the positive-floor scalar test problem are known, as are bounds separating boundedness from convergence. The exact all-start threshold, critical coefficient and attracting cycle on the actual positive-floor map are distinct within the examined sources. Overlap with scalar flip theorems for other adaptive updates does not give this explicit classification.",
+      "residual_risks": [
+        "Other equivalent rational-map analyses or prior treatment of the exact limit could exist beyond the bounded exact-map search.",
+        "Same-date comparisons establish differences of statement, not a date ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model overlap, qualitative boundedness and residual theory; not the exact bifurcation",
+          "evidence": [
+            "Figure 2 uses f*=0.1, λ=1.2, observes never growing unbounded and effective step bounded by 2/λ for large σ. Theorem 4.6 has a nonzero positive-minimum residual in the large-step regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.04358v1",
+          "material_read": "§§2.2.2–2.2.3 and Figure 2, OA offsets 22644–30049; §4.2 Theorem 4.6, offset 51744 onward",
+          "method": "Lawful arXiv HTML, passage and theorem comparison",
+          "title": "An Adaptive Stochastic Gradient Method with Non-negative Gauss-Newton Stepsizes",
+          "trigger": "Same rule, same positive-floor scalar family, fixed-step bounds"
+        },
+        {
+          "assessment": "One-step index rather than trajectories",
+          "evidence": [
+            "δ_NGN=(γ/2)||g||²≤δ_SGD and sublinear growth in the base step are not iterate stability thresholds."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.09842",
+          "material_read": "§4.3 PDF p. 6, Eq. (12) and Lemma 4.2, OA offset 43550",
+          "method": "Lawful arXiv PDF passage",
+          "title": "Step-Size Stability in Stochastic Optimization: A Theoretical Perspective",
+          "trigger": "Same NGN rule and a stability comparison"
+        },
+        {
+          "assessment": "Zero-minimum one-step envelopes, not positive-minimum dynamics",
+          "evidence": [
+            "Scalar case has no finite envelope mode switch; the source distinguishes one-step from long-time claims."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5",
+          "material_read": "RESULT.md Finding and scope from offset 0",
+          "method": "Local mirror",
+          "title": "Two sharp regularization transitions for nonnegative Gauss–Newton steps on SPD quadratics",
+          "trigger": "Strongest distinctive same-algorithm quadratic index hit"
+        },
+        {
+          "assessment": "Zero-floor model indices, not trajectories",
+          "evidence": [
+            "The radial profile is assumed to vanish at zero."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-square-root-curvature-orders-proximal-and-gauss-newton-stability--da4742ebe857",
+          "material_read": "RESULT.md main statement from offset 0",
+          "method": "Local mirror",
+          "title": "Square-root curvature orders proximal and Gauss–Newton stability on radial losses",
+          "trigger": "Related radial-loss NGN stability theorem"
+        },
+        {
+          "assessment": "Different adaptive map",
+          "evidence": [
+            "Uses fourth-power dependence and critical k^(−1/4) state decay."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local mirror",
+          "title": "A sharp flip frontier for the Polar-Express surrogate on scalar quadratics",
+          "trigger": "Closest scalar flip analogy including critical decay"
+        },
+        {
+          "assessment": "Capped SPS with a different step and cycle",
+          "evidence": [
+            "Offset is in the lower-bound parameter of SPS on a zero-minimum objective."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-a-loose-sps-lower-bound-restores-the-scalar-gradient-descent-sta--86e9f0621099",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local mirror",
+          "title": "A loose SPS lower bound restores the scalar gradient-descent stability threshold",
+          "trigger": "Offset-like effect and scalar cycle"
+        },
+        {
+          "assessment": "Two-state algorithm, no mathematical equivalence demonstrated",
+          "evidence": [
+            "Minimizer remains locally attracting and escaping trajectories are part of the theorem."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-antipodal-escape-threshold-for-the-scalar-prox-nag-gs-method--a0ce65708c0d",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local mirror",
+          "title": "An antipodal escape threshold for the scalar Prox-NAG-GS method",
+          "trigger": "Distinct same-date indexed antipodal cycle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The simplest strongly convex test problem used by the method's authors separates boundedness from optimization: the true additive objective floor leaves an explicit attracting obstruction at every supercritical fixed base step, while the critical orbit still converges at a different rate with a sharp constant. This is a useful exact counterexample to inferring large-step minimization from NGN's per-step stability, not just a local derivative threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

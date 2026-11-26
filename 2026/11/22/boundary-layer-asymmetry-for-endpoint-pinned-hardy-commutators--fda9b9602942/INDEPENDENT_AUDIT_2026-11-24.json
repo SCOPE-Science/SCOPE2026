@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:19:23.372496Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, formula, kernel and curvature argument",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent rational interval reproduction: /workspace/branches/fe8edcc8-b7ac-4a89-973c-d56baffbc4b2/interval_repro.py"
+      ],
+      "rationale": "The commutator has triangular kernel (b(x)-b(t))/x, square integrable by the Lipschitz bound, so its squared Hilbert–Schmidt norm is the kernel integral without any additional factor. The ramp functions meet continuously at both breakpoints and have the required pinned endpoints. Integrating the affine differences on the three intervals gives the displayed logarithmic expression, including its continuous a=0 value and the opposite-sign tent at a=1/2. Differentiation gives E'''=-4(4a²+4a-1)/(a(2a+1)^3), so E'' first rises from minus infinity and then decreases to its positive right-end value. It crosses zero exactly once. Thus E' first decreases then increases; the positive endpoint signs and the opposite signs at 1/100 and 1/64 prove exactly two critical points, the first a strict maximum, the second a minimum. Since the two endpoint energies coincide and E initially increases, the first point is the unique maximum within the family. An independently written bounded calculation used range reduction and exact rational atanh-series remainder bounds to reproduce all four derivative signs, the positive right-end curvature, and the strict witness bound E(1/64)-E(0)>0.00054767456646. This last inequality rules out the tent even in the full admissible class without finding the unrestricted optimizer.",
+      "residual_risks": [
+        "The strict witness and a root bracket were reproduced, not all printed high-precision decimals. The supplied script's MAXIMUM_HS_SQUARE_BRACKET display by itself is not a rigorous bound on the maximum from above: evaluating E at a bracket endpoint does not supply that upper bound without an error bound for the critical point. The theorem's witness and unique-maximum argument do not use that display.",
+        "No global maximizing symbol in the full Lipschitz class is identified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected arXiv paper gives Hardy commutator Hardy-space/weak L1 bounds for BMO symbols; the Niu–Guo–Li theorem concerns boundedness on Hardy spaces.",
+          "The two cited Fu–Lu and Yu–Lu full texts could not be independently inspected via the lawful routes attempted; there is no negative full-text finding for either."
+        ],
+        "reasoning": "Bounds for broader operator classes or BMO symbols do not in themselves give exact Hilbert–Schmidt energies or maximize them under a Lipschitz constraint with two endpoint pins. The inaccessible sources remain qualified coverage risks, not a basis for a verdict.",
+        "searches": [
+          "Zhao–Fu–Lu arXiv:1106.0456",
+          "Niu–Guo–Li DOI 10.1186/s13660-020-02518-2",
+          "Fu–Lu DOI 10.1002/mana.200610775 and Yu–Lu DOI 10.1155/2013/431692"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 33677ede3aa1, 7e2b67f7c66b, 9856fd98253d",
+        "arXiv:1106.0456",
+        "10.1186/s13660-020-02518-2",
+        "10.1002/mana.200610775 and 10.1155/2013/431692 (access attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The kernel identity and elementary integration tools are standard. Exact norms on individual powers do not give cross terms for a signed piecewise-affine symbol or the global derivative sign structure in the shift parameter.",
+          "Hardy-space boundedness does not imply a strict ordering of the two squared Hilbert–Schmidt norms tested here."
+        ],
+        "reasoning": "A kernel formula does not by itself settle the apparent tent extremality or the curved optimization. The result's distinct part is the concrete pinned witness with exact signs and the full one-parameter maximum, not a general commutator identity.",
+        "searches": [
+          "Resultary 33677ede3aa1, formula and kernel proof; arXiv:1106.0456 Section 3; frozen RESULT.md Steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hardy power-commutator result uses the same underlying averaging operator and gives a squared Hilbert–Schmidt formula for x^alpha, not for the signed piecewise-affine class pinned at both endpoints.",
+          "The real-variable Cesàro singular-system result uses a kernel with the extra 1/(1-t) factor in its stated coordinates. The spectral-tail optimization is for nondecreasing endpoint-gap-one symbols and a large-index coefficient, not for the squared Hilbert–Schmidt norm of pinned symbols."
+        ],
+        "reasoning": "Neither renaming Hardy/Cesàro nor reversing the symbol sign produces an equivalence of the constrained optimization problems. The operator kernel, symbol set, and norm functional must all agree for transfer of extremality.",
+        "searches": [
+          "Resultary matching Hardy average/Hardy commutator Hilbert–Schmidt energy, piecewise affine Lipschitz symbols and tent counterexample",
+          "Resultary 33677ede3aa1, 7e2b67f7c66b, 9856fd98253d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact record fda9b9602942 is the frozen record itself. The closest distinct exact formula returned covers powers, rather than the energy curve or tabulated witness for this family."
+        ],
+        "reasoning": "The identical record is not independent coverage and the inspected formulas do not evaluate the requested constrained family by matching parameters. No same-day ordering or exhaustive negative is inferred.",
+        "searches": [
+          "Resultary exact and nearby records for Hardy power commutators, endpoint-pinned tent and three-ramp extremum: fda9b9602942, 33677ede3aa1, 7e2b67f7c66b, 9856fd98253d"
+        ]
+      },
+      "rationale": "The supported distinction is a strict exact counterexample to tent optimality for the endpoint-pinned Hilbert–Schmidt problem and the exact three-ramp optimization supporting it. The leading prior overlaps are the same Hardy commutator with a different symbol family, and related Cesàro commutator spectral results with a different kernel or objective. They establish context but do not supply this signed pinned witness or the one-parameter maximum.",
+      "residual_risks": [
+        "No exclusion of equivalent historical results in the two inaccessible cited texts or in unindexed work. The originality decision is limited to the inspected comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same-operator norms for distinct symbol family",
+          "evidence": "The exact squared Hilbert–Schmidt formula is for x^alpha and does not have the two endpoint pins or the signed ramps.",
+          "identifier_or_url": "Resultary 33677ede3aa1",
+          "material_read": "Finding and Proof §1, local mirror offset 0",
+          "method": "Targeted local mirrored text inspection",
+          "title": "A universal singular-value Weyl law for Hardy power commutators",
+          "trigger": "Strongest same-operator exact Hilbert–Schmidt formula"
+        },
+        {
+          "assessment": "Different kernel or objective; no extremum transferred",
+          "evidence": "The Jacobi result involves an extra 1/(1-t) kernel factor. The sharp-tail result treats a high-index singular-value coefficient and monotonicity with endpoint gap one.",
+          "identifier_or_url": "Resultary 7e2b67f7c66b and 9856fd98253d",
+          "material_read": "Operator, functional and symbol assumptions in the mirrored statements",
+          "method": "Targeted local mirrored text inspection",
+          "title": "Exact Jacobi singular system of a real-variable Cesàro commutator; Sharp spectral-tail extremizers for monotone multipliers of the real-variable Cesàro operator",
+          "trigger": "Alternate commutator nomenclature and related exact extremality"
+        },
+        {
+          "assessment": "Different notion of endpoint and boundedness objective",
+          "evidence": "The commutator is defined there and the read section proves H^1-to-weak-L^1 estimates for BMO symbols, not pinned L² Hilbert–Schmidt optimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1106.0456",
+          "material_read": "PDF p. 1 and Section 3, pp. 5–6",
+          "method": "Targeted lawful OA PDF inspection",
+          "title": "Endpoint estimates for commutators of Hardy operators",
+          "trigger": "Same Hardy commutator family and endpoint terminology"
+        },
+        {
+          "assessment": "Different functional question",
+          "evidence": "The inspected theorem is a boundedness result on Hardy spaces, not an exact pinned-symbol Hilbert–Schmidt energy comparison.",
+          "identifier_or_url": "https://doi.org/10.1186/s13660-020-02518-2",
+          "material_read": "P. 1 and Theorem 3.2, pp. 4–5",
+          "method": "Targeted lawful OA article inspection",
+          "title": "Hardy-operator commutators on Hardy spaces (Niu, Guo and Li)",
+          "trigger": "Broader Hardy commutator theorem"
+        },
+        {
+          "assessment": "Access-limited",
+          "evidence": "The routes attempted refused access. The frozen descriptions of these papers are not used as an independent whole-paper noncoverage finding.",
+          "identifier_or_url": "https://doi.org/10.1002/mana.200610775 and https://doi.org/10.1155/2013/431692",
+          "material_read": "No independent primary full-text passage verified",
+          "method": "Lawful publisher and OA-copy access attempts",
+          "title": "Commutators of generalized Hardy operators; Boundedness for a Class of Generalized Commutators of Fractional Hardy Operators with a Rough Kernel",
+          "trigger": "Closest historical Hardy-type boundedness references cited by the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, kernel, derivative sign structure, strict rational comparison and scope",
+        "Independent rational witness and derivative-sign replay"
+      ],
+      "rationale": "The tent is the natural pointwise upper envelope for nonnegative pinned unit-Lipschitz profiles. The strict witness shows that this pointwise argument fails for a genuinely two-point, directionally weighted commutator energy. The gain is not an optimization tolerance or an unmotivated tiny perturbation: the positive one-sided derivative at the tent gives a robust strict improvement by adding the boundary ramp, while the other critical point and right-end behavior show how the orientation matters within the family. This is an exact counterexample relevant to the larger extremal question, with a precise limited optimum rather than a claim to have solved the full problem.",
+      "residual_risks": [
+        "The result does not determine an unrestricted optimizer, and gives no sharp ordinary operator norm or general Schatten extremum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

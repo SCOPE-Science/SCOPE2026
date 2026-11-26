@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:10:42.782536Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–113; VERIFICATION.md and check_section.py inspected, bundled script not executed",
+        "Independent replay: python /workspace/reproductions/section.py"
+      ],
+      "rationale": "The signed pair inequalities give the cube and axial vertices and the 24 cube-to-axis edges. Sorting absolute normal coordinates and taking a>b>c>0 leaves just two possible vertex sign patterns, separated by a=b+c. I independently clipped all twelve facet inequalities after substituting x=-(by+cz)/a. The exact vertex shoelace sums in yz coordinates give 6 vertices and projected area 12a/(a+b+c), or 8 vertices and projected area equal to the second frozen formula with rho replaced by a. The order and active edges cannot change within either open chamber, since no vertex crosses the plane. Multiplying by rho/a gives the intrinsic area. Continuity follows by rotating the planes and using the continuous bounded radial function of K; separate exact clips at (1,1,1), (1,1,0) and (1,0,0) confirm the important boundary values. In the hexagonal chamber Cauchy–Schwarz is tight only at a=b=c. The inequality (a+b+c)^2-2rho^2=4bc-(a-b-c)^2 is strict for c>0 since |a-b-c|<=c and b>=c; c=0 in this chamber forces a=b. In the octagonal chamber s=b+c<1 after rescaling a=1, the area factors P,Q and denominator are positive (Q>=(1-s)(1+2s)>0). The independent replay converts the squared upper-bound polynomial to Bernstein form and checks all 28 coefficients; the positive first row makes the inequality strict for s<1. The logarithmic derivative numerator decreases in t=(b-c)^2, so a minimum at fixed s occurs at an endpoint. Direct differentiation of the squared endpoint profiles gives minima 3sqrt(6) and 5sqrt(10)/2, both strictly above 4sqrt(3). The equality wall belongs to the closed hexagonal formula. Undoing signed permutations yields exactly the stated eight and twelve unit normal directions, with antipodal identification for planes.",
+      "residual_risks": [
+        "The hexagon/octagon cardinalities are for generic directions. The area formulas cover nongeneric normals as stated. Nothing is established about the full law of random section areas or about noncentral sections."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Best Ways to Slice a Polytope, Theorem 2.5 and the proof's determinant formula, give a rational function on each central chamber for unit normals; Theorem 1.3 gives algorithms including maximal affine volume.",
+          "Intersection bodies of polytopes, Theorem 2.6, constructs the semialgebraic body via fixed crossing edges and tetrahedral/simplex determinants; Example 2.8 treats a translated cube."
+        ],
+        "reasoning": "The machinery applies to this polytope and anticipates rationality and the determinant evaluation method. It does not assert numerical extrema or their directions for this shape, and still requires nontrivial shape-specific calculation, signs and equality analysis.",
+        "searches": [
+          "Primary search: convex polytope slicing chamber complex exact parametric hyperplane section volume central hyperplane sections Brandenburg De Loera Meroni polytope volume optimization",
+          "Berlow–Brandenburg–Meroni–Shankar, Intersection bodies of polytopes, doi:10.1007/s13366-022-00621-7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 14003d3fb67c, e3eefc4ab49f, d0c20cbcf9e2, b4ab86a8f54b; related stretched-side-count entries cc15cbcebdf3 and 571b0a11a2c1",
+        "ArXiv:1307.5138; arXiv:2304.14239v1; doi:10.1007/s13366-022-00621-7",
+        "Supplemental object/covering comparisons arXiv:1403.2847 §3.1 and arXiv:math/9906066 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section-type partitions agree, and a known radial function and general determinant or radial-integration machinery recover the area in principle.",
+          "The octagonal-area inequalities depend on the actual two-variable rational expression and its exact positivity and endpoint analysis, not merely the number of section sides or the radial mean."
+        ],
+        "reasoning": "A combinatorial partition or scalar average alone is strictly weaker. Known evaluators provide a route, not a parameter-only corollary giving the sharp central area minimum/maximum and all ties. The new content is not the section algorithm or chamber partition.",
+        "searches": [
+          "Compare 14003d3fb67c and e3eefc4ab49f to the two frozen chambers; compare d0c20cbcf9e2's radial and mean-area laws and general intersection-body algorithms against the sharp bound proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Živaljević arXiv:1307.5138 §3 Fig. 5 identifies this body as the regular three-dimensional simplex-generated zonotope and FCC Voronoi cell.",
+          "Resultary b4ab86a8f54b studies the same body's orthogonal shadow B(U)=4(2a+b), which happens to share the minimum 4sqrt(3) but has maximum 4sqrt(5)."
+        ],
+        "reasoning": "The zonotope, cube-plus-axial vertices and FCC descriptions agree up to scale. Projection is not intersection, so even their shared minimum is not statement-level coverage. Equivalently, the frozen area is the radial function of the intersection body of K.",
+        "searches": [
+          "Local Resultary: rhombic dodecahedron, FCC Voronoi cell, central slice area, 4sqrt(3) and 6sqrt(2), body and face diagonals",
+          "Primary search: rhombic dodecahedron FCC Voronoi cell central plane sections maximum minimum area (110) (111) exact cross section area formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "14003d3fb67c on the same date proves pointwise side-count complementarity N_C+N_R=12; e3eefc4ab49f gives the identical a=b+c side-count boundary.",
+          "d0c20cbcf9e2 gives the same polytope's radial function 2/(a+b) and exact mean area 8sqrt(3) log(1+sqrt(3))-2pi.",
+          "The projection result b4ab86a8f54b identifies 6sqrt(2) as a mean, not a maximum."
+        ],
+        "reasoning": "These checked records have exact values and sometimes the same object, but side counts, the mean area and shadow statistics do not provide an evaluated pointwise area profile or its equality directions. The shared date of 14003d3fb67c does not establish precedence.",
+        "searches": [
+          "Local Resultary: pointwise central-section profile, exact Haar central-section law, mean central area, side counts and random shadows of the rhombic dodecahedron"
+        ]
+      },
+      "rationale": "The supported contribution is the compact, evaluated directional area profile for this polytope together with its sharp minimum and maximum and complete equality orbits. Generic vertex-sign chambers, rationality and exact section-volume algorithms are known; the combinatorial hexagon/octagon classification also overlaps the indexed literature and is not credited separately as original. The closest same-body area source computes a directional mean, not pointwise area or extreme directions. General slicing algorithms can produce unsimplified section formulas and optimize them with further input-specific work; none of the inspected statements evaluates both chambers and proves the two exact sharp bounds and strict equality classes here. This is not a claim of historical priority.",
+      "residual_risks": [
+        "Older general central-section references (including Filliman's rational chamber treatment) or an unindexed exact FCC calculation may contain a closer comparison; no exhaustive historical-priority claim is made. Keyword misses were not used to conclude absence of coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material overlap in section types, not the area theorem",
+          "evidence": "N_C+N_R=12; generic hexagon or octagon and stretched-body side-count law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-pointwise-complementary-sections-of-boxes-and-rhombic-dodecahedr--14003d3fb67c",
+          "material_read": "RESULT.md Finding offset 0 and probability proof around offset 4300",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Pointwise complementary sections of boxes and rhombic dodecahedra",
+          "trigger": "Same object and calendar date; generic central sections"
+        },
+        {
+          "assessment": "Covers the partition, not the pointwise area or sharp extrema",
+          "evidence": "Normal chamber a<b+c yields a hexagon; a>b+c yields an octagon for the rhombic dodecahedron.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-central-section-complementarity-between-the-cube-and-the-rhombic--e3eefc4ab49f",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Configured local mirror",
+          "title": "Central-section complementarity between the cube and the rhombic dodecahedron",
+          "trigger": "Same polytope and exact chamber boundary"
+        },
+        {
+          "assessment": "Mean and radial-distance law, not the directional section-area theorem",
+          "evidence": "Radial function 2/(a+b); exact mean area 8sqrt(3) log(1+sqrt(3))-2pi.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-three-chamber-radial-law-and-exact-mean-central-section-area-of--d0c20cbcf9e2",
+          "material_read": "RESULT.md Finding offset 0 and Mean section area around offset 4500",
+          "method": "Configured local mirror",
+          "title": "Three-chamber radial law and exact mean central-section area",
+          "trigger": "Closest indexed exact central-sectional area on the same normalization"
+        },
+        {
+          "assessment": "Different observable, even though one bound coincides",
+          "evidence": "Projection area B=4(2a+b), min 4sqrt(3) and max 4sqrt(5) at signed (2,1,0) directions; 6sqrt(2) is its mean.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-random-shadow-law-and-first-spherical-cap-contact-for-the--b4ab86a8f54b",
+          "material_read": "RESULT.md Finding offset 0 and upper-tail passage near offset 4700",
+          "method": "Configured local mirror",
+          "title": "Exact random shadow law and first spherical-cap contact",
+          "trigger": "Same object and a coinciding extremal constant"
+        },
+        {
+          "assessment": "Identifies body but addresses other invariants",
+          "evidence": "Minkowski sum of simplex-generators, standard cubulation and FCC Voronoi identification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1307.5138",
+          "material_read": "§3 Definition 5, Fig. 5 and ensuing discussion, PDF pp. 5–6, offsets 10620–13057",
+          "method": "Lawful author preprint",
+          "title": "Illumination complexes, Δ-zonotopes, and the polyhedral curtain theorem",
+          "trigger": "Equivalent zonotope and FCC descriptions"
+        },
+        {
+          "assessment": "Applies as a general method; does not give this evaluated area profile and sharp pair of extrema in the inspected statements",
+          "evidence": "Piecewise rationality on unit-normal chambers and exact algorithms for optimal slices.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.14239v1",
+          "material_read": "Theorem 1.3 pp. 3–4, offsets 10300–12732; Theorem 2.5 and determinant proof p. 7, offsets 22170–23936",
+          "method": "Lawful author preprint",
+          "title": "The Best Ways to Slice a Polytope",
+          "trigger": "Strong general slicing and optimization theorems, including exact metric slices"
+        },
+        {
+          "assessment": "General exact construction is applicable, but does not supply the frozen sharp profile and equality theorem",
+          "evidence": "For a fixed chamber the same edges are crossed and simplex volumes determine the radial function; the nearby worked example is a translated cube.",
+          "identifier_or_url": "https://doi.org/10.1007/s13366-022-00621-7",
+          "material_read": "Theorem 2.6 and its determinant construction, printed pp. 423–424, offsets 11150–13542; exact Example 2.8 locator p. 425",
+          "method": "Lawful publisher PDF",
+          "title": "Intersection bodies of polytopes",
+          "trigger": "The frozen pointwise profile is exactly an intersection-body radial function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Živaljević §3; Resultary 14003d3fb67c and d0c20cbcf9e2"
+      ],
+      "rationale": "This is a motivated exact invariant of a classical FCC Voronoi cell: the Euclidean area perpendicular to any direction, not an arbitrary isolated slice. The closed formulas replace per-normal polytope clipping, and the sharp range with full equality directions gives an exact anisotropy benchmark not supplied by the known side-count or mean-area laws. The body has two distinct symmetry orbits realizing the extrema; these equality statements require global control across the piecewise area landscape, not just evaluations on high-symmetry axes.",
+      "residual_risks": [
+        "The useful invariant is specifically central-section area; there is no asserted full random-area distribution or general section theorem for all lattice cells."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

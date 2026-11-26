@@ -1,24 +1,21 @@
-# Review of gap-suffix compression of inverse Lyndon arrays
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact domain comprises every nonempty binary word specified by nonnegative gaps around any number of ones, including zero ones, consecutive ones, and empty boundary gaps. The proof identifies the inverse Lyndon entry at every zero position; proves an order isomorphism between one-started suffixes and a terminal-aware, reverse-ordered integer gap code; derives expanded LCE from matching completed blocks; and applies the published nearest-greater-suffix/border identity to obtain the entry at every one position. Integer suffix sorting, LCP range minima, prefix sums and a monotone next-greater scan establish the advertised compressed time/space bounds. The actual packaged independent oracle passed the finite tests reported in `check_output.txt`. Finite experiments are sanity checks and not a proof of the all-parameter theorem.
+PASS
 
-## Originality (O): PASS, with stated historical-priority risk
+A zero start fails exactly upon including the next 1, if any. At a 1 start, two completed blocks first disagree at the next 1 of the shorter gap; a terminal 1-block is smaller than a block with a following 1 whether it ends before that following 1 or still has a zero. Hence reversed integer gap order with a bottom terminal represents full suffix order, independently of the trailing gap. For a greater later suffix j and code LCP h, both unequal symbols are interior gaps, so the expanded common prefix is the sum of the h equal block lengths plus 1+g_{j+h}. The next-greater correction can also be seen directly: in the suffix at p, let d be the least displacement of a lexicographically greater suffix, and H its LCE. A shorter failure cutoff c=e+LCE(p,p+e)<d+H with e>=d would give a greater suffix at displacement e-d: equality under a shift of d holds at every tested character through position c, since c<d+H. Repeat to reach a positive displacement <d (impossible) or 0 (impossible mismatch). Less than or equal to the first failure cutoff, no truncated suffix wins, and any first winning mismatch persists at larger prefix lengths. This proves the correction and the no-greater case. Comparison sorting the gap-index pairs, radix prefix doubling, linear Kasai and stack, and O(log(r+1)) per LCP range query give the claimed preprocessing/space bounds in word operations. There are at most r+1 nonempty zero runs and r singleton ones; query is by binary search, with the all-zero query constant time (uniformly O(1+log(r+1))). Independent all-length direct prefix testing over all 8,190 nonempty binary words through length 12 agrees (python3 /workspace/reproductions/3.py; 3.txt). These checks do not replace the proof or time analysis.
 
-The original and extended 2026 papers on the inverse Lyndon array provide the NGS/LCE formula and an expanded-text linear-time array construction. Their inspected Sections 3--4 do not give a terminal-aware sparse-binary gap-code suffix sorting, compressed expanded-LCE retrieval, or a complete arithmetic-progression encoding computed without expansion. Ghuman, Giaquinta and Tarhio's 2019 Section 5 is an RLE algorithm for ordinary Lyndon **factorization**, a different, single-factorization output, not for all inverse Lyndon array entries. The 2025 compressed Lyndon-array article's accessible abstract deals with standard arrays during grammar decompression; the full paper was not inspected, so it remains a residual comparison risk. Search comparisons for inverse arrays, sparse words, gap suffixes, RLE and aliases in the available indexed results did not reveal an equivalent theorem, but search absence is not proof of priority. An unindexed or unstated reduction could cover this result; that remains a live risk requiring human confirmation.
+## originality
 
-## Value (V): PASS
+PASS
 
-This concerns the full new inverse Lyndon data structure, not an arbitrary counting slice. The general 2026 algorithm takes time proportional to the expanded length, whereas sparse words may have enormous zero runs. The proved transformation replaces the text by only one suffix-code symbol per marked one, faithfully handles the terminal short-suffix asymmetry and the otherwise problematic border correction, and returns every array entry in a compact queryable form. The \(O((r+1)\log(r+2))\) preprocessing cost is independent of the zero-run sizes on a word RAM; this is an asymptotic algorithmic improvement whenever \(r\ll n\). No claim is made for unrestricted alphabets, explicitly outputting the full array, or optimal time.
+The supported distinct contribution is the compressed full-array algorithm on binary zero gaps with complexity in the marked-one count, not the published NGS/LCE identity, ordinary Lyndon factorization, or the expanded inverse array. The closest inspected claims do not supply this reduction with the terminal block and border correction.
 
-## Closest sources and limits
+## value
 
-* Negri et al., arXiv:2603.17537v1, §§3.1--3.2: defines the inverse Lyndon array and proves the NGS/border correction.
-* De Felice et al., arXiv:2609.23401v1, §§3--4: develops expanded-input linear-time construction and relation to canonical inverse factorization.
-* Ghuman, Giaquinta and Tarhio, Algorithms 12(6):124 (2019), §5: RLE ordinary Lyndon factorization, not the inverse array.
-* *Space-Efficient Lyndon Array Construction from Compressed Texts* (2025): only public abstract inspected; full-document implications remain a stated priority risk.
+PASS
 
-The proof is mathematical and the verification is same-model only. It has not been independently audited.
+Exact random access to an entire inverse array without enumerating arbitrarily long zero runs is a useful output guarantee. The nonzero border correction at the marked positions is computed without character-level expansion, not just a bound on the number of segments. The gain needs actual sparsity for the preprocessing to beat expanded linear time; no claim extends to arbitrary alphabets or explicit expansion.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

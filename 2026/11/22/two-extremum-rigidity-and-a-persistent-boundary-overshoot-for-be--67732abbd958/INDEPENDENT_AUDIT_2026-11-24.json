@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:12:11.928361Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a nodal step the Bernstein coefficients of (2B_n-B_n^2)s_j are 2*1_{k>=j}-q_{j,k}. The binomial kernel has derivative n*b_{n-1,j-1}(p)>0 on 0<p<1 when summed over the upper tail, so all nodal increments Delta q are strictly positive. They are also strictly less than 1 because n>=2, all n increments are positive, and they sum to 1. The consecutive differences of the response coefficients are therefore strictly negative except at k=j-1. After x=t/(1+t) and division by the common positive factor, the derivative has respectively two or one Descartes sign changes. For the interior jump the two endpoint derivative signs are negative but the integral of the derivative is 1, forcing two interior crossings and exhausting the bound with simple roots. Hence the strict minimum is below zero and the strict maximum above one. For the boundary jump the opposite endpoint signs force one simple root, giving a maximum above one at j=1 and by reflection a minimum below zero at j=n. Telescoping the nodal differences bounds the seminorm by the largest step variation times the input variation, and a pointwise real step attains equality. Summing the monotone pieces gives 2*(max-min)-1, including both endpoint cases. In degree two the first step has coefficients (0,5/4,1), maximum 25/24 at 5/6, hence K_2=13/12. For j=1 at x=u/n the response limit is 1-2 exp(-u)+exp(-a*u), a=1-exp(-1). The rescaled derivative coefficients tend for fixed k to 2*1_{k=0}-a*exp(-k); the n and n-1 binomial laws tend to Poisson uniformly on bounded u-intervals, since the finite weights converge uniformly and the tails for k>=M are bounded by sup(u)/M. The limiting derivative has its only crossing at u_*=e log(2/a), so bracketing and the finite-degree unique root give nx_n->u_* and the exact overshoot exp(-1)*(a/2)^(e-1). This gives a lower bound for liminf K_n, not the global asymptotic. Independent replay: python3 -B /workspace/branches/independent_replay.py 5. Direct polynomial composition gives g_{3,2}=(-7x+48x^2-32x^3)/9 and its two exact critical points. An independent binomial-sum calculation at n=800 gives (nx_n,Var(g))=(3.1258408620,1.1016371315) versus limiting (3.1309776982,1.1016715060); finite corroboration only. Frozen check_boolean.py was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Boolean-sum family covers r=2 as an operator but measured errors in the cited results are different quantities. SCOPE-20261122-3019bdce0f24 controls an integrated endpoint-interpolation defect of B_n^r; SCOPE-20261122-9f55314ca99c studies powers of the Bernstein–Durrmeyer operator."
+        ],
+        "reasoning": "Bounds on those other defects, on positive smoothing operators or on smooth inputs do not imply a sharp variation norm and two strict overshoots for the signed operator on arbitrary BV steps.",
+        "searches": [
+          "Resultary: iterated Bernstein Boolean sum total variation norm jump response; Bernstein combination variation diminishing shape preservation Boolean sum critical points",
+          "Draganov 2014 and 2022 main approximation results",
+          "Raşa 2006 iteration references; direct lawful OA checks of Agrawal–Kasana 1984 and Gonska–Zhou 1994"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261122-afdd60173aa6",
+        "SCOPE-20261122-3019bdce0f24",
+        "SCOPE-20261122-9f55314ca99c",
+        "DOI:10.33993/jnaat351-1018",
+        "DOI:10.1007/s00025-014-0389-z",
+        "DOI:10.24193/subbmath.2022.3.10",
+        "DOI:10.1515/dema-1984-0320 (citation only)",
+        "DOI:10.1016/0377-0427(92)00133-T (landing page/abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary BV telescoping reduction to unit jumps is elementary. The new work needed here is the sign count for the specific signed coefficients of the Boolean sum and the nonzero Poisson-layer overshoot. The prior positive iterate result has different coefficient signs and no implication of this limit."
+        ],
+        "reasoning": "Difference bounds or shape control for each positive iterate separately do not give the exact extremum count, attained sharp coefficient, or asymptotic amplification for their signed combination. The approximation antecedents also omit the boundary derivative scaling.",
+        "searches": [
+          "Raşa 2006 §1–2, Draganov 2014 §1 and 2022 strong-converse statements; exact step and plateau extremizer comparisons with SCOPE-20261122-afdd60173aa6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The classical B_{n,r}=I-(I-B_n)^r is exactly this operator at r=2, not just a similarly named construction. The quoted approximation results concern uniform or smoothness-modulus errors, not the stated jump variation.",
+          "SCOPE-20261122-afdd60173aa6 uses positive powers B_n^r on functions constrained by f(0)=f(1)=0."
+        ],
+        "reasoning": "The positive iterate and the signed difference of iterates are not equivalent, and the endpoint restriction excludes individual step extremizers of the frozen theorem. Uniform approximation bounds on continuous inputs do not classify the derivative zeros of the pointwise jump outputs.",
+        "searches": [
+          "Resultary: Bernstein Boolean sums bounded variation step responses variation norm; two-extremum rigidity persistent boundary overshoot Bernstein",
+          "Resultary: Bernstein combination variation diminishing shape preservation Boolean sum critical points",
+          "Raşa 2006 §1–2; Draganov 2014 §1; Draganov 2022 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 67732abbd958 is the assigned result itself and not independent prior work. The exact endpoint-anchored norm in afdd60173aa6 is a survival-probability formula with plateau extremizers, not a step-range extremum formula for the Boolean sum. No covering exact table surfaced in the bounded returns."
+        ],
+        "reasoning": "Compare the exact norm definitions, allowable data, and operator before treating even numerically similar finite-degree tables as equivalent. The analytic all-degree and boundary claims are the target, not a new value just for n=2.",
+        "searches": [
+          "Resultary: Bernstein Boolean sum exact sharp variation coefficient step extrema boundary layer; iterated Bernstein Boolean sum total variation norm jump response",
+          "Compare exact formulas in published Findings afdd60173aa6, 3019bdce0f24 and 9f55314ca99c"
+        ]
+      },
+      "rationale": "The operator and standard Bernstein sign/step methods are not new. The distinct increment is the exact critical-point classification for the signed second Boolean sum, yielding its sharp unrestricted BV coefficient, and the first-step boundary limit. The closest exact BV results use different operators, boundary constraints or defects. The same-operator approximation results inspected do not supply the asserted jump profile or boundary limit. Priority is bounded by the sources actually read, especially in the older literature.",
+      "residual_risks": [
+        "Full-text priority in Agrawal–Kasana (1984) and Gonska–Zhou (1994) remains unresolved. Micchelli (1973), Mastroianni–Occorsio (1977), Felbecker (1979) and Cheng–Zhou (2019) are historical leads not inspected in full.",
+        "Bounded catalogue matching does not establish the absence of another equivalent shape or sharp BV theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material methodological overlap, not exact claim coverage",
+          "evidence": [
+            "B_n^r, fixed endpoint data f(0)=f(1)=0, survival-probability formula and plateau extremizer. No signed r=2 Boolean combination or first-step boundary limit in those passages."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-endpoint-anchored-variation-norms-of-iterated-bernstein-op--afdd60173aa6",
+          "material_read": "Mirrored RESULT.md Finding, Assumptions and Proof §2, offsets 0–5527",
+          "method": "Published statement and proof passage via local mirror",
+          "title": "Sharp endpoint-anchored variation norms of iterated Bernstein operators",
+          "trigger": "Strongest distinct exact finite-degree BV norm on iterated Bernstein objects"
+        },
+        {
+          "assessment": "Different functional or kernel",
+          "evidence": [
+            "The first uses an integrated L1 defect relative to endpoint interpolation; the second uses Durrmeyer powers and midpoint-step extremizers."
+          ],
+          "identifier_or_url": "SCOPE-20261122-3019bdce0f24; SCOPE-20261122-9f55314ca99c",
+          "material_read": "Mirrored RESULT.md passages offsets 0–3593 and 0–3313 respectively",
+          "method": "Published statements via local mirror",
+          "title": "Exact integrated BV decay for all iterates of the Bernstein operator; Sharp bounded-variation norms of every Bernstein–Durrmeyer power",
+          "trigger": "Exact Bernstein-family decay and variation norms"
+        },
+        {
+          "assessment": "Approximation estimates, not the BV jump result",
+          "evidence": [
+            "Defines P+Q-PQ and I-(I-B_n)^k, and uses moduli of continuity and smoothness for uniform-error estimates."
+          ],
+          "identifier_or_url": "https://doi.org/10.33993/jnaat351-1018",
+          "material_read": "Open paper pp. 111–112, §1 and start of §2, offsets 0 and 3982; later argument and references pp. 113–115, offset 7975",
+          "method": "Lawful open full-text PDF, bounded excerpts",
+          "title": "Iterated boolean sums of Bernstein and related operators",
+          "trigger": "Classical same-family Boolean sums"
+        },
+        {
+          "assessment": "Depends on smoothness measures rather than jump variation",
+          "evidence": [
+            "Defines B_{r,n}=I-(I-B_n)^r; simultaneous approximation estimates via moduli and K-functionals."
+          ],
+          "identifier_or_url": "https://fmi.uni-sofia.bg/sites/default/files/users/u847/bernsim10.pdf",
+          "material_read": "Author manuscript pp. 1–2, §1, offsets 0 and 4493, and references near offset 50500",
+          "method": "Lawful author-hosted full-text PDF, bounded excerpts",
+          "title": "On Simultaneous Approximation by Iterated Boolean Sums of Bernstein Operators",
+          "trigger": "Identical Boolean-sum operator including r=2"
+        },
+        {
+          "assessment": "Strong-converse approximation, not the BV result",
+          "evidence": [
+            "Uses the same operator definition but the inspected results bound approximation errors rather than jump extrema or boundary overshoot."
+          ],
+          "identifier_or_url": "https://www.cs.ubbcluj.ro/journal/studia-mathematica/journal/article/view/772/pdf_1",
+          "material_read": "Open paper pp. 591–592, §1, offset 0, and §4/references pp. 597–598, offset 16600",
+          "method": "Lawful open full-text PDF, bounded excerpts",
+          "title": "A Strong Converse Inequality for the Iterated Boolean Sums of the Bernstein Operator",
+          "trigger": "Same operator and potentially dominating exact inequalities"
+        },
+        {
+          "assessment": "Coverage unresolved, not negative evidence",
+          "evidence": [
+            "Direct OA attempt for the 1984 work did not yield a text; the 1994 DOI yielded only a landing page/abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/dema-1984-0320; https://doi.org/10.1016/0377-0427(92)00133-T",
+          "material_read": "Bibliographies in open texts; for the 1994 paper a landing page/abstract only, no full text for either",
+          "method": "Lawful direct OA attempts and reference inspection",
+          "title": "On the iterative combinations of Bernstein polynomials; Approximation theorems for the iterated Boolean sums of Bernstein operators",
+          "trigger": "Older work on the same operator family, plausible priority comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The signed second Boolean sum is a classical acceleration of a positive operator; its exact multiplier on variation is a natural stability invariant for discontinuous data. Knowing the endpoints and a triangle estimate on the two Bernstein terms would not give the exact extrema and norm. The explicit Poisson limit shows a variation cost that survives mesh refinement for jumps on the boundary scale and gives its location, beyond a low-degree instability example. It makes no claim that the boundary jump maximizes the global asymptotic norm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review: two-step Bergman zero condensation
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct moment integration independently fixes the full normalizations. Splitting the power series around the degree \(N\) gives a two-sided Laurent limit, with geometric majorants on both tails. Ramanujan's classical bilateral summation locates its unique simple annular zero at \(-1/\tau\). Argument-principle winding gives the exact \(N\)/\(N+1\) counts, and the different rescaling inside \(|s|<q\) excludes spurious interior zeros. The result is for fixed parameters and fixed radius; finite checks do not establish its infinite-range conclusion.
+## correctness
 
-**Originality — PASS, best knowledge.** Perälä's disk-weight construction shows zero-producing Bergman weights but does not, in the inspected theorem statements/proofs, provide the precise two-level family or its eventual exact per-radius counting law. Boudreaux's radial examples have different hypotheses. Ramanujan's bilateral summation is credited and supplies the core analytic identity; the Bergman zero law is a nontrivial limit-plus-winding application. A full comparison with Zeytuncu's older text was not completed, so an equivalent consequence remains a genuine residual priority risk. Relevant published-search results about power-deficit radial weights address a distinct zero-free weight, not this inner-step mass blowup. Search failure alone is not evidence of originality.
+PASS
 
-**Mathematical value — PASS.** It separates two regimes of zeros for a natural explicit radial-weight discontinuity: exactly \(N\) roots accumulate at the jump radius and exactly one macroscopic outlier survives. The threshold \(1/\tau\) can be tuned while \(q\) is fixed. Unlike mere existence of Bergman kernel zeros, the result offers a sharp infinite-family zero count and a structural mechanism linking moment transitions to bilateral theta products.
+Integrating u^n against the weight in u=|z|² gives (1+τq^(n−N))/(n+1); reciprocal monomial norms give the stated kernel. For the shifted and normalized series on r0≤|s|≤r1 with q<r0≤r1<1, write ρ=q/r0. The absolute difference from the bilateral limit is bounded by [r1/(1−r1)²+τ^(−1)ρ/(1−ρ)²]/(N+1)+τ^(−1)ρ^(N+1)/(1−ρ), from the index correction and omitted negative tail. The DLMF summation with a=−τ,b=−τq gives the stated product, including the constant (the factor 1+τ is canceled when changing (−τq;q)∞ to (−τ;q)∞). All reciprocal-s factors have zero winding on these circles since the zero of each such factor lies at modulus at most q and its pole is at zero. Among forward factors only 1+τs can contribute, with simple zero at −1/τ. Uniform convergence and homotopy on each fixed circle preserve winding off this zero; multiplication by s^N restores the N term for the argument principle. On a small disk about −1/τ Rouché gives one zero counted with multiplicity, and smaller such disks give convergence. The normalized kernel on compact subsets of |s|<q tends uniformly to q^(−1)(1−s/q)^(−2), excluding inner zeros and proving the stated radial condensation. No moving-radius, angular uniformity or whole-disk count is inferred. The frozen code and 69-check output were inspected, not executed. Its sampled winding is numerical only; the moment-inversion assertions reuse the same expression and are an algebraic consistency check, not independent integration. The analytic checks above do not depend on either safeguard.
 
-**Limits and risks.** No full-disk count or moving-radius uniformity is proved; no independent priority confirmation has been conducted. The possibility of a stronger older result implying the statement is not ruled out, especially from specialized radial zero literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+To the best of the inspected evidence the distinct claim is the exact radius-dependent jump and movable, isolated zero at fixed q with a nonintegral exponent offset. There is direct prior work on the weight class, existence and prescribed numbers of zeros, and a close indexed bulk-condensation theorem on the integer phase, but none of the compared statements covers this phase or implies its outlier law.
+
+## value
+
+PASS
+
+Two levels give a minimal radial perturbation for testing zero geometry. At a fixed interface the phase moves one simple negative zero through the whole open radial gap (q,1) while the N bulk zeros remain near the interface. Recovering an eventually exact count on both sides, not just existence or normalized density, separates these two mechanisms and gives a useful explicit benchmark for weighted-kernel asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

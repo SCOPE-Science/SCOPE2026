@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:03:48.335541Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–96; VERIFICATION.md and verify.py inspected, not executed",
+        "Independent exact replay: python /workspace/branches/replay_frozen_math.py (PASS, record 3 section)"
+      ],
+      "rationale": "Stochastic Fubini and one-dimensional Itô kernel integrals recover the variance and cross-covariance; Gaussian conditioning gives the variance reduction c(t)^2/(v(t)+eta). At (t,eta)=(0,0), c(t)=O(t) and v(t) is of order t, so the extension by zero agrees with the deterministic observation. I independently verified the derivative -2QF/D^2 of Q^2/D, the cubic endpoint signs and the zero-noise factorization. For positive noise strict convexity and opposite endpoint signs force a single upward crossing, and the quadratic factor gives the unique crossing at zero noise. The zero-noise root exceeds sqrt(L); at y_infinity=sqrt(2L-1) the cubic is strictly positive, and F_T<0 below this point. These give the strict positive-noise shifts, monotonicity, and a bracket independent of noise, proving the stated uniform stiff limit on taking logarithms. For small damping the kernel error gives c_lambda(t)=t-t^2/2+O(lambda t) and v_lambda(t)=t+O(lambda t^2), with v_lambda(t) at least exp(-2 lambda)t; hence the gain converges uniformly even at zero noise. The Brownian gain has the displayed unique optimizer, so the argmax converges.",
+      "residual_risks": [
+        "Uniformity here concerns large damping, not persistence of an information gain at infinite noise. The proof and not the cubic grid checks supplies the full parameter statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The noisy average-case quadrature paper provides bounds, and the dissertation abstract explicitly mentions OU trajectory designs and separately integral estimation.",
+          "The two indexed exponential-kernel quadrature results concern stationary OU, one noiseless and the other for two noisy sites."
+        ],
+        "reasoning": "Stationarity deletes the initialization-dependent covariance term and changes the one-site optimum. General error bounds and an abstract describing an exact-design framework do not imply the stated finite-noise nonstationary classification.",
+        "searches": [
+          "Cai–Lam–Scarlett arXiv:2202.10615, pp. 1–3, 5",
+          "Purdue dissertation AAI3043760",
+          "Resultary 2026/11/8 ID 971795799fba and 2026/11/22 ID b27c43c7986c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Resultary IDs cbf9c855a342, 80ea10271416, 971795799fba, b27c43c7986c",
+        "DOI 10.1081/STA-120022249, Purdue AAI3043760, arXiv:1808.10722 and 2202.10615"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected method and trajectory theorem do not yield the scalar cubic or the bracket between its noiseless and high-noise roots. The historical abstract does not give the one-site design or specify noise."
+        ],
+        "reasoning": "The exact positive-noise signs and the uniform-in-noise stiff sandwich require the additional scalar covariance analysis; historical coverage of the noiseless subcase is unresolved, not excluded.",
+        "searches": [
+          "arXiv:1808.10722 §2.2; DOI 10.1081/STA-120022249 abstract; Resultary local mirror ID 80ea10271416 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The OU kernel for s<=t is e^(lambda s)(1-e^(-2 lambda s))/(2 lambda) times e^(-lambda t), fitting the historical product family; the integration weight is one. The publisher abstract alone does not identify the one-site positive-noise case.",
+          "The Bayesian integration formula gives the general reduction to a conditional variance, not the shape of c(t)^2/(v(t)+eta)."
+        ],
+        "reasoning": "The product-covariance and Bayesian/quadrature descriptions are materially relevant equivalent frameworks. Neither inspected passage provides the model-specific positive-noise global design or limit laws.",
+        "searches": [
+          "Mukherjee, On Sampling Designs for Integral Estimation of a Random Process, DOI 10.1081/STA-120022249",
+          "Pronzato–Zhigljavsky arXiv:1808.10722 §2.2 Eq. (2.13)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ID cbf9c855a342 is the frozen record itself. ID 80ea10271416 has the same process and observation model but its exact optimum minimizes integrated pointwise conditional variance."
+        ],
+        "reasoning": "The different risk has the integral of the squared cross-covariance, not the square of its integral. Neither common notation nor noise monotonicity makes the stationary equations identical.",
+        "searches": [
+          "Resultary: 2026/11/22/SCOPE-unique-noisy-one-site-design-for-a-zero-start-ornstein-uhlenbeck--cbf9c855a342",
+          "2026/11/22/SCOPE-a-unique-noise-monotone-observation-time-for-a-zero-initialized--80ea10271416"
+        ]
+      },
+      "rationale": "On the compared records and accessible primary material, the complete finite-noise zero-start scalar-integral design, noise monotonicity and uniform stiff law are established as a distinct package. A historical noiseless/product-covariance precursor remains plausible. The source's description of the dissertation should not be read as restricting it to trajectory risk; its abstract also mentions integral estimation.",
+      "residual_risks": [
+        "Mukherjee's article and dissertation full texts were not available through the lawful routes used. Their actual coverage of the noiseless one-site result and any noisy extension remains unknown; the positive-noise law is not certified as first.",
+        "Bounded searches and same-day catalogue evidence do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential historical overlap; cannot exclude the noiseless specialization",
+          "evidence": "Abstract describes exact designs for weighted integrals with R(s,t)=u(s)v(t), not the specific parameters or observation noise.",
+          "identifier_or_url": "https://doi.org/10.1081/STA-120022249",
+          "material_read": "Publisher abstract only",
+          "method": "Lawful publisher access and DOI copy lookup; direct and VPN full-text routes did not yield full text",
+          "title": "On Sampling Designs for Integral Estimation of a Random Process",
+          "trigger": "Exact weighted-integral design for the product covariance family containing zero-start OU"
+        },
+        {
+          "assessment": "Relevant unresolved historical source",
+          "evidence": "Abstract names OU in its path designs and explicitly considers estimation of an integral as well.",
+          "identifier_or_url": "https://docs.lib.purdue.edu/dissertations/AAI3043760/",
+          "material_read": "Abstract at offsets 602, 1049, 1477; dissertation full text not read",
+          "method": "Public Purdue catalogue",
+          "title": "Optimal designs for estimating the path of a stochastic process",
+          "trigger": "Exact OU designs and integral estimation"
+        },
+        {
+          "assessment": "General framework, no covering claim in passage",
+          "evidence": "Known-zero-mean posterior-variance criterion, not the noisy zero-start OU one-site specialization.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.10722",
+          "material_read": "§2.2 pp. 4–6 including Eq. (2.13)",
+          "method": "OA PDF",
+          "title": "Bayesian quadrature and energy minimization for space-filling design",
+          "trigger": "General integral risk in equivalent formulation"
+        },
+        {
+          "assessment": "Methodological context, not exact OU location",
+          "evidence": "Error bounds, notably for Matérn and squared-exponential kernels.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+          "material_read": "Abstract, pp. 2–3 and noisy average-case definition p. 5",
+          "method": "OA PDF",
+          "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+          "trigger": "Noisy quadrature theory"
+        },
+        {
+          "assessment": "Same-day related alternative loss",
+          "evidence": "Minimizes integrated trajectory conditional variance, not conditional variance of the integral.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-unique-noise-monotone-observation-time-for-a-zero-initialized--80ea10271416",
+          "material_read": "Mirrored Finding offsets 97–473",
+          "method": "Resultary and local mirror",
+          "title": "A unique noise-monotone observation time for a zero-initialized OU process",
+          "trigger": "Same process and readout, potentially identical objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–32, 63–92; independent stationary-algebra replay"
+      ],
+      "rationale": "The one-reading scalar-integral placement has exact interior bounds and moves systematically with measurement noise in a zero-start Markov model. A uniform large-damping bound across noise regimes gives a genuine qualitative placement rule, and the Brownian limit connects two normalized Gaussian integral designs. This is a natural complete fixed-budget classification rather than a numerical instance.",
+      "residual_risks": [
+        "No multisite or stationary-OU design follows, and the information gain tends to zero in the infinite-noise limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

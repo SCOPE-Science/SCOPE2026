@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and exact limits
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` establishes the all-integer assertions. The two standalone checkers are finite confirmations and are not substitutes for that proof. No external or independent scholarly audit has been performed.
+## correctness
 
-Run `g++ -O2 -std=c++17 exhaustive_checker.cpp -o exhaustive_checker && ./exhaustive_checker` with an ordinary C++17 compiler; it enumerates all subsets (not only minimum-sized subsets) of both \(K_{2,2}\otimes K_{2,2}\) and \(K_{2,3}\otimes K_{2,2}\). Their complete code counts are respectively \(256\) and \(576\), with factorwise counts \(16\) and \(24\), degree \(12\) and \(16\), diameter four and covering radius two. It verifies each code's total-perfect condition directly from open graph neighborhoods and obtains every exchange edge and shortest-path distance.
+PASS
 
-Run `python3 independent_check.py` with Python 3's standard library; it constructs factor-product graph vertices differently, exhaustively checks all four-element subsets in those two examples, and verifies the three-factor \(K_{2,2}\) example's \(64\) factorwise codes, all \(64\) distances from a reference factorwise code, and \(1000\) reproducible ambient samples. Its arity-three \(K_{4,4}\) construction tests all \(4096\) factorwise product codes against the injective-coordinate witness and confirms that at most two of its eight pattern selections can agree with a factorwise code, proving the six-exchange example.
+Two vertices are adjacent exactly when their shore patterns are complementary, in which case adjacency is complete. Testing the open-neighbor condition on either side of each component forces one vertex in each pattern. The independent choices give count ∏N_ε=B^(2^(r−1)); a move must change exactly one coordinate of this choice vector, giving the Cartesian product of cliques, its degree, and diameter 2^r because every pattern has at least two choices. Factorwise codes are identified by their coordinate projections, so there are B. Their number of common pattern choices is the product of the per-factor counts of equal endpoints (each 0, 1 or 2). Expanding by these three cases gives the stated elementary-symmetric multiplicities, disjoint-code multiplicity, and minimum distance. Any complementary patterns prescribe one endpoint on each named shore, so two positions can always be preserved. Under the stated shore bounds the injective labels within each shore force a conflict for every noncomplementary pair, proving an exact worst case of 2^r−2. For r=2 these bounds are exactly the standing hypotheses, and the stated example follows. The finite C++ and Python checkers and finite_checks.txt were inspected, not executed; the all-parameter proof requires no enumeration.
 
-Scope limits: no large-arity exhaustive search was performed, the all-arity theorem is supported by its direct proof, and the exact covering radius at \(r\ge3\) for factors with shores smaller than \(2^{r-1}\) is not claimed. The originality assessment is necessarily limited by searchable historical sources.
+## originality
+
+PASS
+
+The known product-component and total-perfect-code existence setting is not claimed as new. The supported distinct finding is the factorwise family's distance and covering geometry inside the whole exchange graph, with an exact count and exchange graph in this particular tensor-product family. No stronger comparable result or distinct equivalent indexed finding was demonstrated; overlap with individual older examples is not ruled out.
+
+## value
+
+PASS
+
+The all-code count and graph alone are easy once the components are recognized. The valuable additional comparison is that the natural factorwise family is exponentially sparse yet has an exact, sharp worst-case exchange proximity in the stated range, together with a distance distribution that quantifies how separated factorwise solutions are. It distinguishes general local reconfiguration from the global consistency needed to factor a code; no smaller-shore radius claim is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

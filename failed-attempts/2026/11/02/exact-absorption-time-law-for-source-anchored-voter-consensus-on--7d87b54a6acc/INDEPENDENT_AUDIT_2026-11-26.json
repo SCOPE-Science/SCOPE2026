@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:42:33.198784Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At a deterministic horizon, reversing the iid copying arrows traces each site back either to a correct source or to an initially incorrect ordinary site. Consensus is absorbing, so T≤t is exactly the event of no unanchored lineage after t reversed arrows. At j distinct unanchored sites, selecting one of the j sites and copying one of the z+j−1 source/other occupied sites drops the count by one with probability p_j. Positions may otherwise move, but the count kernel does not depend on them. The strong Markov property gives independent geometric waiting times with support starting at 1, including the case m=1. Partial fractions of (1−E[s^T])/(1−s) give the survival coefficients; the j=1 coefficient is the telescoping product m(z+1)/n. All rates are strictly ordered and less than 1. For fixed z, scaling each fixed waiting time by n² gives its exponential limit and the uniform remainder bound is the convergent tail sum of 1/[j(j+z−1)]. This proves the limit, with finite mean and nonzero variance. Splitting off E_1 and using an exponential moment for the remaining sum above rate z proves the limiting tail, whose product coefficient tends to z+1. Euler's sinh product evaluates the one-source transform; shared copying preserves sitewise order and proves worst-case dominance. A separately written exact-rational finite check passed 770 forward/geometric CDF and 770 spectral-survival comparisons over 55 populations 2≤n≤11, 1≤z<n and 0≤t≤13, plus 55 leading-coefficient comparisons. Replay procedure: propagate the count distribution from j=m using up and down probabilities j(m−j)/n² and j(n−j)/n²; independently propagate a pure-death chain with decrements p_j, and compare both CDFs and the displayed survival sum at each tick. The tridiagonal comparison in the frozen verify.py follows the same finite scope; neither finite test proves the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Corujo's Theorem 1.3 gives the eigenvalues of the Moran generator as linear combinations of mutation eigenvalues minus (p/N)j(j−1). For the one-way boundary use reverse rate epsilon>0, whereby the two-type generator is irreducible and the nonzero mutation eigenvalue is −(z+epsilon); let epsilon decrease to zero. Continuity of the finite characteristic polynomial gives the eigenvalues −j(j+z−1) with p=N, including j=0.",
+          "Fill's Theorem 1.2 applies to the consecutive correct-count chain started at its lower endpoint, with absorption at its upper endpoint and positive internal birth/death probabilities. Its non-unit eigenvalues are positive, 1−j(j+z−1)/n², so the theorem immediately gives independent geometric summands.",
+          "Jenkins–Spanò §2.1 defines the classical entrance-from-infinity pure-death chain with rates j(j+theta−1)/2 and §2.2 gives its exact probabilities, crediting Griffiths and Tavaré."
+        ],
+        "reasoning": "The combination of explicitly known transition, spectral and passage statements covers the finite law, not just a general method whose unknown spectrum is supplied by the record. The irreducibility restriction of the cited spectral result is handled by the stated elementary finite-matrix limit.",
+        "searches": [
+          "Corujo arXiv:2010.08809, Eq. (1.2), Theorem 1.3",
+          "Fill arXiv:0707.4042, Theorem 1.2",
+          "Jenkins–Spanò arXiv:1506.06998 §§2.1–2.2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Local Resultary 21e594f1243c, 2551722f2bda and 9b405daedec7",
+        "arXiv:2302.08600, 2010.08809, 0707.4042, 1506.06998 and 1408.2130",
+        "Aldous–Fill §14.3",
+        "DOI 10.1016/j.physa.2014.07.033 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution in Fill gives exactly the frozen product pgf; differentiation, partial fractions and the first residue give the moments and finite sharp coefficient. In the first residue the factors are k(k+z−1)/[(k−1)(k+z)], which telescope.",
+          "The fixed-z limit from this known product uses n² times each success rate fixed and the summable uniform discarded mean. It converges to the already known absorption law q_0^z(2t). The z=1 expression then follows by Euler's product. The ordering assertion is immediate from monotonicity of the copy updates."
+        ],
+        "reasoning": "The finite distribution is an exact specialization of stronger existing results, even if the source-anchored notation is absent. The anchored-arrow proof is correct and convenient, but the ensuing formulas, convergence, and monotonicity do not supply a nonmechanical remainder. Fudolig–Esguerra remains unresolved independently of this demonstrated implication.",
+        "searches": [
+          "arXiv:2302.08600 source-chain equations; arXiv:2010.08809 spectral formula; arXiv:0707.4042 product pgf; arXiv:1506.06998 Eq. (5)",
+          "DOI 10.1016/j.physa.2014.07.033, same-model exact consensus literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Becchetti et al. give the same source-anchored count transitions. Writing j for the incorrect count, P(j,j+1)=j(m−j)/n² and P(j,j−1)=j(m−j+z)/n².",
+          "Consequently n²(P−I) is exactly the two-type neutral Moran generator in Corujo's Eq. (1.2), with population N=m, p=N and one-way per-individual transition rate z from incorrect to correct. The diagonal agrees by conservation of rows; no jump-chain or time-dependent identification is required."
+        ],
+        "reasoning": "This equates the entire finite-state operator, so prior exact spectra transfer, including all levels, not merely a diffusion or mean approximation.",
+        "searches": [
+          "Local Resultary: fixed sources, zealotry, exact consensus distribution and absorption on complete graphs",
+          "arXiv:2302.08600 §§2,4",
+          "Neutral Moran one-way mutation eigenvalues and zealotry fixation law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed Resultary statements address a weak-preference dissenting-component exponent, continuous-clock star placement, and the maximum of continuous-time clique petal times, rather than the stated discrete complete-graph finite table for arbitrary z.",
+          "The exact classical probability array q_m^theta(t) in Eq. (5) gives the entire limiting CDF as q_0^z(2t). For this row the k=1 exponential term in 1−q_0^z(2t) has coefficient z+1 and decay e^(−zt); higher modes decay faster."
+        ],
+        "reasoning": "The infinite limiting law and leading coefficient match an exact known probability array, not just an asymptotic order; the finite family is covered via the prior spectral factorization rather than an integer table.",
+        "searches": [
+          "Local Resultary exact-law and sharp consensus query, nearest hits 21e594f1243c, 2551722f2bda and 9b405daedec7",
+          "Jenkins–Spanò arXiv:1506.06998, Eq. (5)"
+        ]
+      },
+      "rationale": "The exact source-anchored count kernel is already known. Its transient spectrum is a direct boundary specialization of Corujo's explicit neutral Moran spectrum, and Fill's exact birth–death passage-time theorem gives the claimed independent geometric sum from those eigenvalues. The sharp finite coefficient is its first partial-fraction coefficient. The fixed-source limit follows directly by scaling these factors with a summable mean bound and is the classical absorption law of the coalescent with mutation after deterministic time rescaling. No material distinct scientific claim was established in the frozen finding; this does not depend on access to the zealotry paper.",
+      "residual_risks": [
+        "The Fudolig–Esguerra paper might give this distribution directly, but its lawful full text was not located. The decision rests on explicit established coverage via the equivalent finite generator and passage theorem, not on that access gap or a claim of ﬁrst priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model kernel and bounds, not an inspected product formula; decisive operator identification when combined with prior spectral results.",
+          "evidence": "Up and down probabilities for i correct sites are (n−i)i/n² and (n−i)(i−z)/n².",
+          "identifier_or_url": "https://arxiv.org/abs/2302.08600",
+          "material_read": "§2, PDF p. 5, offsets 21924–24094; §4, PDF pp. 9–10, offsets 35000–44859",
+          "method": "Primary OA passages and conversion from correct to incorrect count",
+          "title": "On the Role of Memory in Robust Opinion Dynamics",
+          "trigger": "Same sequential source-anchored chain"
+        },
+        {
+          "assessment": "Explicit spectrum covers the exact finite operator after standard one-way specialization.",
+          "evidence": "Each transition coefficient is population of the original type times (mutation rate plus p/N times population of the new type); eigenvalues subtract (p/N)j(j−1) from the j-fold mutation eigenvalue in the two-type case.",
+          "identifier_or_url": "https://arxiv.org/abs/2010.08809",
+          "material_read": "Eq. (1.2) and irreducibility hypothesis, PDF pp. 1–2, offsets 4500–7652; Theorem 1.3, PDF p. 3, offsets 14300–17744",
+          "method": "Primary OA theorem and generator comparison, followed by continuity at zero reverse rate",
+          "title": "On the spectrum and ergodicity of a neutral multi-allelic Moran model",
+          "trigger": "Possible equivalent finite operator and explicit spectrum"
+        },
+        {
+          "assessment": "Applicable exact prior product and independent geometric representation.",
+          "evidence": "Endpoint passage pgf is the product of (1−theta_j)s/(1−theta_j s) over non-unit eigenvalues, giving independent geometricals when nonnegative.",
+          "identifier_or_url": "https://arxiv.org/abs/0707.4042",
+          "material_read": "Theorem 1.2 and following positivity corollary, PDF p. 2, offsets 4780–6476",
+          "method": "Primary OA text, matched endpoint hypotheses and all eigenvalues",
+          "title": "The passage time distribution for a birth-and-death chain: Strong stationary duality gives a first stochastic proof",
+          "trigger": "Potential general exact absorption-law factorization"
+        },
+        {
+          "assessment": "Exact earlier coverage of the limiting law itself and its sharp tail, not an earlier assertion about convergence of the discrete voter model.",
+          "evidence": "The ancestral process enters from infinity at rates j(j+theta−1)/2; its state-zero probability is given by an explicit alternating spectral series.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.06998",
+          "material_read": "§2.1 and §2.2, Eq. (5), PDF pp. 5–6, offsets 15016–19110",
+          "method": "Primary OA exact transition array and time substitution",
+          "title": "Exact simulation of the Wright–Fisher diffusion",
+          "trigger": "Possible classical killing-coalescent form of the limiting law"
+        },
+        {
+          "assessment": "Tail and full-distribution coverage unresolved; not used as negative or decisive evidence.",
+          "evidence": "Bibliographic record and frozen citation place exact consensus analysis in the single-type zealotry model, but update conventions and precise statements could not be checked.",
+          "identifier_or_url": "https://doi.org/10.1016/j.physa.2014.07.033",
+          "material_read": "Bibliographic result only, not full text",
+          "method": "Targeted literature search and lawful DOI/publisher retrieval; no accessible alternate full text found",
+          "title": "Analytic treatment of consensus achievement in the single-type zealotry voter model",
+          "trigger": "Cited exact-mean work with plausible additional full-law coverage"
+        },
+        {
+          "assessment": "Partial thematic overlap; none is the earlier arbitrary-z finite discrete complete-graph law as stated here.",
+          "evidence": "The exponent in the weak-preference regime and the continuous-time star and clique-bouquet results have different graph or clock, and the bouquet observable is a maximum over petals.",
+          "identifier_or_url": "Resultary 21e594f1243c; 2551722f2bda; 9b405daedec7",
+          "material_read": "Original findings of the three records",
+          "method": "Local mirror statement and hypotheses comparison",
+          "title": "Nearest indexed results on anchored dissent, star placement, and clique bouquets",
+          "trigger": "Closest Resultary findings in the local search"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The absorption distribution is a meaningful invariant and the graphical proof is concise. The frozen contribution, however, consists of an equivalent specialization of a known finite spectrum and passage law, followed by direct moment, residue, and fixed-rate scaling computations into a known limit law. The graphical proof uses the standard arrow construction with sources treated as absorbing ancestors and does not establish a separate new structural claim on other graphs or protocols. A convenient derivation of the exact specialization does not on its own establish scientific value at the required bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

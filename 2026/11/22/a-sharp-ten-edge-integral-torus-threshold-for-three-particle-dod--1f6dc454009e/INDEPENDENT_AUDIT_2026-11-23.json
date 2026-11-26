@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:16:53.164832Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent replay: python /workspace/review-evidence/3.py. It reconstructs GP(10,2), enumerates every simple cycle via its least edge, verifies girth 5 and 1,168 cycles, and enumerates all relevant vertex-disjoint triples: no cycle over length 10 fits alongside two cycles of length at least 5. The 56 triples split 20/30/6 at maxima 5/8/10. Using a different vertex numbering, consecutive reduced half-edge differences, and signed exterior products, the replay gives 9,120 top chains, 22,800 degree-two chains, 56 zero integer boundaries, binary differential rank 9,094, and unit minors (-1,+1) for the 20 and 26 chosen chains. This gives a rational kernel of dimension 26, and the full unit minor gives an integral coordinate retraction: no finite index remains. Every octagon chain matches a signed pair of distinct pentagon chains in all coordinates; independently, each octagon is the outer boundary of two pentagons sharing an edge, with no new vertices, so this relation is compatible with the other two disjoint cycles. The first 20 elements of the basis span a primitive lattice, leaving a free rank-six quotient. The exhaustive maximum-length list rules out generation at nine as well as eight. The weight-three reduced comparison theorem, its natural embedding maps, and its tensor product on disjoint subgraphs identify the signed cycle products with actual geometric tori of the unordered space, not merely cycles in an arbitrary chain complex. The frozen verifier and output were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first work computes all graph-configuration homologies by a natural comparison with the chain complex, including its reduced model; it does not supply the evaluated short-cycle subgroup in this graph.",
+          "An–Knudsen prove a planar generation theorem for H_2; their higher-degree extension is Conjecture 1.2. The general geometric-class description, even taken as a generating statement, does not constrain maximal constituent cycle length or give unit minors."
+        ],
+        "reasoning": "No broader inspected theorem implies the integral pentagon filtration or the six complementary length-ten basis elements by a parameter specialization.",
+        "searches": [
+          "An–Drummond-Cole–Knudsen arXiv:1708.02351 Theorem 4.5, Proposition 4.9, §5.1",
+          "An–Knudsen arXiv:2008.10371 Theorem 1.1, Conjecture 1.2 and §3.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py, verification_output.txt",
+        "Published Resultary records 9bf90b9f8ec6 and f82c97912155, actual RESULT.md passages",
+        "An–Drummond-Cole–Knudsen arXiv:1708.02351",
+        "An–Knudsen arXiv:2008.10371",
+        "Independent replay /workspace/review-evidence/3.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank 26 gives a dimension target, but checking 26 geometric chains span over Q would still leave integral index open; the actual unit minors and equality in the full chain module settle those questions.",
+          "The prior external product theory identifies the meaning of each class, not the independence, primitivity, or disappearance of all thirty octagon generators."
+        ],
+        "reasoning": "The stronger distinction is geometric and integral, not a recalculation of rank. Knowing the chain model and rank does not give the list of small geometric generators or its saturation without separately evaluating the tori.",
+        "searches": [
+          "Local same-weight Resultary RESULT.md offsets 300–5360",
+          "An–Knudsen §3.1 product classes, and Theorem 1.1 / Conjecture 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The external-product chain of three loop classes on disjoint embedded cycles is exactly the geometric fundamental class being counted, up to signs.",
+          "The prior same-weight Resultary result identifies an abstract integral kernel basis, without the condition that its basis vectors be signed products of short disjoint cycles."
+        ],
+        "reasoning": "Switching between product tori, external products, and tensor products does not change the geometric claim. Switching from unordered three points to two points changes both the allowed configurations and the governing chain group, so that result is not equivalent.",
+        "searches": [
+          "Local Resultary: three-particle dodecahedral configuration space, GP(10,2) top homology, product tori; dodecahedral integral cycle-length torus lattices",
+          "An–Knudsen, arXiv:2008.10371 §3.1, external product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November 8 record gives H_3(B_3(D);Z)=Z^26, and leaves geometry of its basis outside its result.",
+          "The October 25 record has 36 disjoint pentagon-pair basis tori in H_2; its two-point octagon–octagon and pentagon–octagon lattices have indices 4096 and 2 respectively."
+        ],
+        "reasoning": "The exact ambient rank is table/prior-record coverage and is not credited. The available lattice data are for a different particle number and do not settle the requested filtration.",
+        "searches": [
+          "Local Resultary exact/same-weight lookup 9bf90b9f8ec6",
+          "Local Resultary two-point cycle-length lattice lookup f82c97912155"
+        ]
+      },
+      "rationale": "The ambient top rank and general chain/geometric-class machinery are known. The distinct contribution is an identified integral basis of product tori and the primitive strict cycle-length filtration up to the sharp threshold, including every octagon relation in this graph. Neither an arbitrary integral nullspace basis nor a two-particle torus lattice computes that filtration.",
+      "residual_risks": [
+        "An unindexed graph-configuration computation could contain the same geometric basis or filtration. Historical priority is not certified.",
+        "The configuration-space interpretation uses the published comparison and external-product results; independent finite replay verifies the resulting algebra, not those general theorems by machine proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of ambient rank, not the geometric basis or filtration",
+          "evidence": "Integral top-chain reduction supplies rank 26 and independent kernel elements; geometric structure is not claimed.",
+          "identifier_or_url": "2026/11/8/SCOPE-twenty-six-top-degree-integral-cycles-in-the-three-particle-dode--9bf90b9f8ec6",
+          "material_read": "RESULT.md offsets 300–2950 and 2950–5360",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Twenty-six top-degree integral cycles in the three-particle dodecahedral configuration space",
+          "trigger": "Identical graph, weight, and ambient top homology"
+        },
+        {
+          "assessment": "Analogous but not dominating coverage",
+          "evidence": "Two-point pentagon-pair basis and length-pair index table concern H_2, not triples in H_3.",
+          "identifier_or_url": "2026/10/25/SCOPE-integral-cycle-length-torus-lattices-in-the-dodecahedral-two-poi--f82c97912155",
+          "material_read": "RESULT.md near offset 1450",
+          "method": "Local Resultary mirror",
+          "title": "Integral cycle-length torus lattices in the dodecahedral two-point configuration space",
+          "trigger": "Same graph, same type of lattice but a different weight"
+        },
+        {
+          "assessment": "Supplies premises, not evaluated lattices",
+          "evidence": "Natural homology comparison, reduced inclusion a quasi-isomorphism, embedded loop class in weight one, and tensor products from disjoint unions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1708.02351",
+          "material_read": "§4.2 Theorem 4.5 and Proposition 4.9, offsets 70740 and 74454; §5.1 loop classes, offsets 98750–101000; Definition 5.10",
+          "method": "Primary OA PDF, targeted passages",
+          "title": "Subdivisional spaces and graph braid groups",
+          "trigger": "Integral chain comparison and geometric loop representatives"
+        },
+        {
+          "assessment": "Theorem is H_2; geometric product identification is usable, no H_3 cutoff",
+          "evidence": "Disjoint-subgraph external products are represented by tensor products of chains; higher-degree planar generation is posed as a conjecture in this work.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.10371",
+          "material_read": "Theorem 1.1 and Conjecture 1.2, PDF pp. 1–2 offsets 3440–5681; §3.1 p. 7 offsets 17760–19054",
+          "method": "Primary OA PDF, targeted passages",
+          "title": "On the second homology of planar graph braid groups",
+          "trigger": "Potential planar generation theorem implying the stated H_3 basis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The dodecahedral graph and its face loops give a natural geometric filtration of a known configuration-space group. Knowing that face tori already span a primitive rank-20 subgroup, that all allowable octagons add nothing, and that six specific ten-cycle tori supply exactly the missing primitive generators distinguishes geometry and integral structure invisible to the known Betti number. This is an exact usable basis and cutoff, not a repeat of the rank calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

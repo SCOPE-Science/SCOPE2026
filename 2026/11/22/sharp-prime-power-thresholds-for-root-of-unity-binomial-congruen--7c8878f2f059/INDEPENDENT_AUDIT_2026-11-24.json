@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:26:00.394264Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–53; VERIFICATION.md; check_miska_band.py (read, not executed). Independently checked the valuation count, block polynomial, edge coefficients and forward/backward finite differences. The recorded six direct checks concern feasible small r and are supplementary, not tests of the infinite necessity statement."
+      ],
+      "rationale": "At n=-1 and m<d=p^r, the root-of-unity average filters the signed elementary symmetric terms of the factors d/i to degrees kt. There are at most p-1 factors of valuation one and all others have valuation at least two, so every term has valuation at least 2kt-(p-1). Congruences for all m at n=-1 therefore hold when r<=L=2t-p+1 and propagate to every integer by Pascal differences and induction on m. For r>L, write j=t-p+1 and c=[p(p-1)+q]p^(r-2) with q as in RESULT.md; t<=c<d. The factors attaining valuations one and two have the counts asserted in the proof. Minimal products in degree t use all p-1 of the former and exactly j of the latter. The normalized valuation-two product consists of p-1 complete blocks of nonzero residues followed by q extra factors. Its complete-block contribution is (1-X^(p-1))^(p-1)=1+X^(p-1) through degree p over F_p. Hence the required coefficient is 1/j! for 2<=j<=p-2, and 1 at both j=p-1 and j=p. The valuation-one normalization is a unit and all degrees >=2t have strictly larger valuation, giving exact valuation L at (n,m)=(-1,c). This is a finite difference of order d-1-c of the top-degree discrepancy, so at least one of the consecutive top-degree inputs from -1 to d-2-c fails. The degree-c valuation is not an asserted top-degree valuation.",
+      "residual_risks": [
+        "Restricted to the stated prime and root-count band; no assertion for composite d or about other prime-power bands."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Here the logarithmic index in the general bounds is 1 and v_p(t!)=1. Cor. 3.11 implies success for r<=2t-p+1, Prop. 3.7 gives failure for r>2t-1. Theorem 2.3 excludes the exceptional range from its classification, and Cor. 3.9 requires t a power of p."
+        ],
+        "reasoning": "None of these broader statements implies failure in the intermediate band; the specialized success proof itself is covered.",
+        "searches": [
+          "Miska arXiv:2203.03281v1, Thm. 2.3, Prop. 3.7 and Cors. 3.9, 3.11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary index and matching mirror",
+        "Miska, arXiv:2203.03281v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The top-degree failure here follows from the exact lower-degree witness at c=[p(p-1)+q]p^(r-2), with residue nonzero at 2t-p+1, including the two exceptional j values."
+        ],
+        "reasoning": "This supplies an obstruction precisely where the prior bounds give neither outcome; it is not merely evaluating or restating a prior cutoff.",
+        "searches": [
+          "Miska arXiv:2203.03281v1, Prop. 3.7 versus Cor. 3.11; frozen RESULT.md lines 30–53"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Miska's C_t compares the same average at degree d-1 for every integer n. Requiring the full lower-degree family is equivalent by finite differences, not a different congruence."
+        ],
+        "reasoning": "Originality is not credited to the equivalent formulation or to finite differences, but to the intermediate-degree choice and its nonzero normalized coefficient in the gap.",
+        "searches": [
+          "Resultary: averaged binomial congruence with roots of unity, prime powers and sharp first-band exponent",
+          "Miska arXiv:2203.03281v1, Def. 2.2 and the Pascal difference reduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest index entry was the frozen record itself. Miska's general classification leaves precisely the relevant exponents among its exceptions."
+        ],
+        "reasoning": "No distinct exact classification of the band was found in these checks; a self-match does not bear on priority. Finite examples alone would not cover the quantified band.",
+        "searches": [
+          "Resultary indexed findings on Miska C_t and the sharp exponent in p<t<2p",
+          "Miska arXiv:2203.03281v1, Thm. 2.3 exceptional cases"
+        ]
+      },
+      "rationale": "The new part is failure throughout the p-2 exponents 2t-p+2 through 2t-1. Miska already gives the entire success range and failure beyond that gap; the witness settles the gap and turns the prior bounds into an exact cutoff.",
+      "residual_risks": [
+        "Comparison is bounded; the final journal full text (DOI 10.1007/s40840-022-01266-4) and all subsequent potential equivalents were not independently compared in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sufficient half and a weaker necessary bound; prime-power root count case not applicable.",
+          "evidence": [
+            "At index 1, the sufficiency bound is 2(t+1)-(p+1); the failure bound is 2t-v_p(t!)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2203.03281",
+          "material_read": "Definition 2.2 and Theorem 2.3 (p. 3), Proposition 3.7 (p. 5), Corollaries 3.9 and 3.11 (pp. 6–7), arXiv v1",
+          "method": "Accessible text and specialization of exponent bounds",
+          "title": "Binomial Coefficients, Roots of Unity and Powers of Prime Numbers",
+          "trigger": "Same congruence and general exponent bounds"
+        },
+        {
+          "assessment": "Identical record, not distinct coverage.",
+          "evidence": [
+            "Same iff bound and same degree-c obstruction."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-prime-power-thresholds-for-root-of-unity-binomial-congruen--7c8878f2f059",
+          "material_read": "Mirror RESULT.md Finding and witness statement",
+          "method": "Indexed claim checked against local mirror",
+          "title": "Sharp prime power thresholds for root-of-unity binomial congruences",
+          "trigger": "Exact Resultary match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Miska's general bounds and frozen proof"
+      ],
+      "rationale": "This closes a gap in a published classification for an infinite, naturally distinguished band, using the first two nontrivial valuation layers and an explicit obstruction. It fixes the exact boundary wherever the existing sufficient bound in this band is used, rather than adding isolated finite tests.",
+      "residual_risks": [
+        "Value is for this precise band, not a classification of all t or d."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

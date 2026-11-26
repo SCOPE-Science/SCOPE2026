@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:31:08.973197Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–97; VERIFICATION.md, lines 21–35; check_signature.py, lines 11–108 (inspected, not executed)",
+        "Replay: python3 /workspace/reproductions/frozen_math_checks.py 1; direct modal partition refinement on bounded finite S5 classes, including repeated values. Starting atom partitions refine from 1, 2, 3, 4 to 2, 7, 20, 52 and are then stable, with maximum per-theory minimum sizes 2, 3, 4, 5."
+      ],
+      "rationale": "In fixed standard successor arithmetic every allowed equality is an atom E_j or a Boolean constant after cancellation. A knowing-value target is either rigid or an injective successor shift of c. Work inside the root's equivalence class: by induction a formula has the same truth at all worlds of a given tag for fixed class signature. In the K step the class is unchanged at each world, and only the set of present tags matters. In the Kv step each selected named tag supplies one value; if selected, the outside tag supplies 0, 1 or at least 2 values, and the only test is whether the total is at most one. This applies to arbitrary finite formula nesting even on infinite classes. Conversely, root tags are tested by atoms; possibility of each E_j gives the named support; possibility of E_* and Kv(E_*,c) distinguish all three outside cases, including vacuity. Consequently each realized signature and every union of signatures are definable at depth one. An all-unnamed one-value point and a two-value point give depth-zero equivalence but different Kv truth, also at k=0. One representative per named value and r distinct unnamed representatives are both necessary and sufficient, with maximum k+2. For r=0 each nonempty T contributes |T| root choices; for each of r=1,2 each T contributes |T|+1. Summing yields 3k*2^(k-1)+2^(k+1) for k>=1 and two theories at k=0. All subsets of these theories being definable gives exactly 2^N_k formula classes.",
+      "residual_risks": [
+        "Finite refinement is a bounded check. It does not cover arbitrarily large supports or k; induction and characteristic formulas prove the unrestricted claim under the stated one-agent standard semantics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang allows the broader successor grammar and proves a formula/depth-dependent finite-model bound. Gu–Wang gives general invariance and a finite-model equivalence characterization. Wang–Fan's accessible abstract describes a multi-agent completeness result, with the earlier language lacking numerical equality according to Wang 2026."
+        ],
+        "reasoning": "Neither satisfiable-formula bounds nor a general bisimulation criterion state the minimum size to realize an entire fixed-k pointed theory or the number of such theories; the explicit observable label support supplies more information. The missing Wang–Fan full text limits the scope of that comparison.",
+        "searches": [
+          "Wang arXiv:2606.31891, §3, Lemma 5.1 and Theorem 5.2",
+          "Gu–Wang arXiv:1604.08709 §5.1",
+          "Wang–Fan, Conditionally Knowing What, indexed abstract and Wang 2026 introductory comparison"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.31891 and 1604.08709 full-text passages; Wang–Fan abstract and secondary description; Resultary 69587faa1873 and f721419c88bd; attempted certificate record 9c9b7f880828"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gu–Wang Theorem 5.2 imposes no finiteness on invariance; the converse cited for original knowing-value models is finite. The equality of named/unnamed tag classes must be checked against the pair clauses for this specialized setting. The separation/optimality argument needs fixed numeral tests and the three-way split on the unnamed tag; the spectrum then needs the admissible-point count."
+        ],
+        "reasoning": "A finite generic bisimulation theorem is not itself the sharp all-model size or depth-one result. Prior machinery materially reduces the problem, but the exact constructive characterization and census are the distinct results credited here. The same-day parity and non-contingency analogues have different invariants and do not imply the numerical knowing-value classification.",
+        "searches": [
+          "Gu–Wang §5.1 Definition 5.1, Theorem 5.2 and Corollary 5.4/Theorem 5.6",
+          "Wang §5 Lemma 5.1 and Theorem 5.2; Resultary parity and non-contingency findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C-bisimulation preserves atom labels and matches accessibility and unequal-value successor pairs. On the frozen classes, matching tags preserves a pair of distinct named tags, a named and an unnamed tag, or two unnamed tags exactly when the latter are present in at least two distinct values. This makes the invariance direction a concrete specialization of their theorem."
+        ],
+        "reasoning": "The route through unequal-value pairs is equivalent to the core semantic idea and is prior. The stated lower bounds and exact characteristic classes rely on exhibiting and counting definable numerical tests in this fragment, not on a general equivalence theorem alone.",
+        "searches": [
+          "Resultary semantic search: successor knowing-value finite numeral observations, single-agent S5 depth collapse, exact pointed-theory and model-size census",
+          "Gu–Wang arXiv:1604.08709, §5.1 Definition 5.1 and Theorems 5.2, 5.3, 5.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "69587faa1873 obtains exact S5 parity types via affine hulls. f721419c88bd obtains exact spectra for non-contingency on nonreflexive rooted stars. Those are distinct findings, not rewordings of this theory census. The cited singly-exponential certificate record could not be checked at its malformed source link or at the corresponding exact catalog-mirror path."
+        ],
+        "reasoning": "Neither inspected exact census has the present atom semantics and knowing-value operator together. The certificate citation is not relied on to establish non-coverage, and a missing match is not evidence of nonexistence.",
+        "searches": [
+          "Resultary lookups for successor numerical observations, knowing-value invariant and exact spectra; neighbors 69587faa1873 and f721419c88bd",
+          "Exact cited certificate path 9c9b7f880828, local mirror attempted"
+        ]
+      },
+      "rationale": "Credit Gu–Wang's knowing-value bisimulation as a direct general route to invariance, also for infinite models: one can encode the fixed numerical tests as atom labels, relate equal tags and verify the successor and unequal-value pair clauses from the signature. The finite-model converse in that source is not itself a classification of arithmetic types. The supported distinct result is the explicit necessary and sufficient bounded-observation invariant with depth-one characteristic formulas, sharp per-type and uniform world counts, and exact theory/formula census. Those quantitative and definability statements do not appear in the strongest available comparisons, and require arithmetic-label restrictions and explicit witnesses/counting, not just invoking general bisimulation invariance or the successor finite-model property.",
+      "residual_risks": [
+        "General knowing-value bisimulation is especially close; priority cannot be certified against all other unindexed specializations.",
+        "The full text of Wang–Fan (2014) and the cited certificate record were not available. The originality pass does not treat either access gap as evidence of non-coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains the logic and a general small-model method; inspected bound is formula-sensitive rather than this exact expressivity classification",
+          "evidence": [
+            "Grammar permits the general equality/conditional knowing-value syntax; the finite-model theorem gives a bound of the form (2|Sigma|)^(depth(phi)+1)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.31891",
+          "material_read": "PDF pp. 1–4 and 13–15; §3 grammar, Lemma 5.1 and Theorem 5.2; extracted offsets 0, 9300, 50600 and 53900",
+          "method": "Open primary PDF",
+          "title": "Knowing-Value Logic with Successor Arithmetic",
+          "trigger": "Exact arithmetic logic and broader finite-model result"
+        },
+        {
+          "assessment": "Earlier conditional connective and completeness result credited; exact full-text scope unresolved",
+          "evidence": [
+            "The abstract distinguishes multi-agent completeness from the single-agent case; Wang 2026 describes the prior language as lacking numerical equality and terms."
+          ],
+          "identifier_or_url": "https://www.aiml.net/volumes/volume10/Wang-Fan.pdf",
+          "material_read": "Indexed abstract and indirect comparison in Wang 2026 §1; full paper not retrieved",
+          "method": "Exact publisher URL and lawful alternative hostname attempted; abstract and primary successor-paper introduction read",
+          "title": "Conditionally Knowing What",
+          "trigger": "Earlier conditional knowing-value calculus and possible single-agent antecedent"
+        },
+        {
+          "assessment": "Direct route to the invariance part; no stated bounded-observation sharp spectrum and characteristic-model theorem in inspected passages",
+          "evidence": [
+            "The cited equivalence result in the first-order language is for finite models; the unrestricted forward invariance matches unequal-value successor pairs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.08709",
+          "material_read": "PDF pp. 17–18; §5.1 Definition 5.1, Theorems 5.2/5.3/5.6 and Corollary 5.4; offsets about 51100–56262",
+          "method": "Open primary PDF",
+          "title": "Knowing Value Logic as a Normal Modal Logic",
+          "trigger": "Strongest semantic antecedent, C-bisimulation"
+        },
+        {
+          "assessment": "Scope unresolved; the frozen description is not independently accepted as a non-coverage finding",
+          "evidence": [
+            "Frozen RESULT.md lines 101–103 and 117 describe a certificate bound in input-formula length and supply an invalid repository URL; the matching local item was unavailable."
+          ],
+          "identifier_or_url": "Resultary 9c9b7f880828",
+          "material_read": "Frozen discussion of reference [4]; no primary material retrieved",
+          "method": "Cited link and exact local-mirror item tried; bounded catalog lookup",
+          "title": "Successor knowing-value satisfiability has singly-exponential certificates",
+          "trigger": "Cited quantitative bound in the same arithmetic logic"
+        },
+        {
+          "assessment": "Structurally similar, different observable and invariant",
+          "evidence": [
+            "Uses a local vector and affine hull, with minimum size dim(H)+1, rather than named values and two-outside-value detection."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-affine-hull-signatures-and-optimal-models-for-the-one-agent-pari--69587faa1873/RESULT.md",
+          "material_read": "Finding, offsets 0–3526",
+          "method": "Local catalog mirror",
+          "title": "Affine-hull signatures and optimal models for the one-agent parity fragment",
+          "trigger": "Exact signatures and minimum representatives for a same-day one-agent S5 fragment"
+        },
+        {
+          "assessment": "Different frame class and operator",
+          "evidence": [
+            "Nonreflexive rooted stars and propositional non-contingency, not a reflexive S5 class with numeric value equality tests."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-pointed-theory-spectrum-and-optimal-tests-for-non-continge--f721419c88bd/RESULT.md",
+          "material_read": "Finding, offsets 0–3483",
+          "method": "Local catalog mirror",
+          "title": "Exact pointed-theory spectrum and optimal tests for non-contingency",
+          "trigger": "Same-day exact pointed spectra and depth-one collapse"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–32 and 55–83; Wang, arXiv:2606.31891, Theorem 5.2; Gu–Wang, §5.1"
+      ],
+      "rationale": "The arithmetic-observation budget is a natural finite parameter in a language with arbitrarily nested knowledge tests. The classification identifies exactly what information such tests retain, and yields both a sharp uniform representative bound and a complete finite normal form, rather than a loose satisfiability bound or just an example. The least-world formula and exact census are independently useful for finite reasoning in this fragment.",
+      "residual_risks": [
+        "No implication for multiple agents or constants, unrelated propositional letters, announcements or richer arithmetic is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

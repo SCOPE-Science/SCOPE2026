@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:46:06.802832Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–93; VERIFICATION.md and checker.py inspected, not executed",
+        "Independent replay: /workspace/branches/6db67dc2-e173-4732-8797-90f0d1658bdc/independent_check.py; for U_n=1−(−1)^n the exact ordered square is 4/(2k−1)"
+      ],
+      "rationale": "The normalized monomial matrix is a backward shift with weights U_n/√n and kills constants; hence the nonzero squared singular values are the decreasing rearrangement of b_n/n for b_n=|U_n|². If R>1, the R-normalized sum of dominant modes has positive Cesàro mean square by distinct-phase geometric sums, so it is bounded away from zero along infinitely many n even after the subdominant error; the weights are unbounded. For R<1 they decay geometrically, and for R=1 they are O(n^{-1/2}), proving the compact extensions. At R=1 the closure of the phase powers has Haar empirical law by character averages and density of trigonometric polynomials; the decaying remainder preserves it. Its mean square is the sum of squared unit-mode amplitudes. To count b_n/n>ε, truncate at B/ε for B>sup b_n; on each block with εn between two continuity points, prefix differences give limiting upper and lower sums for the distribution's survival function. Boundary blocks have arbitrarily small total width, so even atoms do not affect the layer-cake limit ε·count→c_U. Comparing the count at (c_U±δ)/k traps the kth ordered square, including in the presence of ties or zeros. Schatten and rearranged-log claims follow; geometric summation by parts gives the stronger O(1) monomial-index remainder. In Jackson's case the root 1 is always critical for |q|≤1, and the distinct root q contributes exactly one additional squared amplitude only on the circle. The periodic, irrational and Jackson numerical or exact finite checks are consistent.",
+      "residual_risks": [
+        "Finite sorts corroborate normalization only. The conclusion relies on fixed finite data and distinct unit phases, not on a phase-uniform remainder, convergence in monomial order, or applicability to repeated roots."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hekkelman–McDonald identifies a Dixmier trace under heat-semigroup and commutator hypotheses, not a kth singular value limit. The external search surfaced general Weyl material and results on other almost-periodic operators, not a theorem on bounded empirical sequences weighted by 1/n. Resultary 55d46a0e8618 concerns radial Toeplitz spectral cycles with log-periodic coefficients."
+        ],
+        "reasoning": "Logarithmic trace regularity is strictly weaker than convergence of k times the kth eigenvalue. Classical Weyl or equidistribution tools supply ingredients but the inspected results do not replace the threshold-counting step.",
+        "searches": [
+          "Resultary: general rearrangement theorem diagonal density of states Weyl asymptotic Dixmier trace",
+          "Literature index: almost periodic diagonal operator singular value Weyl law counting sequence weights n inverse quasiperiodic Cesaro mean Birman Solomyak",
+          "Hekkelman–McDonald, SIGMA 20 (2024), 007, Theorem 1.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.20593v1, 2112.07883v4, 2611.26331v1; SIGMA 20 (2024), 007",
+        "Resultary 021f2c0bee79, 948fb95b2a1e, 55d46a0e8618, ea31c245e336; literature-index queries listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known algebraic monomial action plus Gaussian normalization immediately implies the shift and the elementary boundedness estimates. The target sharp coefficient also requires controlling a moving threshold in the rearranged b_n/n, which involves more than averaging b_n or taking harmonic means."
+        ],
+        "reasoning": "The nontrivial implication to establish is ε times the exceedance count tending to the empirical first moment, then inversion. The reviewed trace and radial-boundary results do not entail that step just by substituting Binet coefficients.",
+        "searches": [
+          "Orozco López arXiv:2610.20593v1 §§3.2–3.3",
+          "Alpay–Cerejeiras–Kähler arXiv:2112.07883v4",
+          "Hekkelman–McDonald Theorem 1.4; local Resultary 021f2c0bee79"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orozco López gives the same recurrence quotient and the same action on unnormalized monomials. Ali–Kähler–Ruzhansky arXiv:2611.26331v1 gives the Jackson formula, but studies Jackson adjoint and grading on q-Fock spaces. Resultary ea31c245e336 treats finite differences of integration-jet shifts, not differences of dilations."
+        ],
+        "reasoning": "Same formal Jackson formula on different Hilbert norms is not a unitary equivalence of operators or singular values. The known monomial identity gives the Gaussian weights, but does not itself give their rank-ordered law.",
+        "searches": [
+          "Resultary: Binet recurrence derivative Gaussian Fock space singular values Weyl law roots",
+          "Resultary: Jackson q difference derivative Gaussian Fock space singular values boundary Schatten",
+          "Literature index: \"Jackson q-derivative\" \"Fock space\" (\"singular values\" OR Schatten)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest earlier Resultary hit 021f2c0bee79 gives a near-boundary scaling law for polynomially weighted radial Fock dilations, not the fixed critical Binet operator. Hit 948fb95b2a1e treats Aluthge iterates of regularly varying positive shifts. No exact ordered critical constant or Jackson factor-two table was retrieved in the compared hits."
+        ],
+        "reasoning": "A varying radial parameter or Aluthge iteration is not the fixed-symbol, large-rank limit, especially with exact periodic vanishing or irrational phase oscillation. The absence of an exact hit is not proof of novelty.",
+        "searches": [
+          "Resultary: weighted diagonal sequence empirical distribution singular value counting limit mean b_n",
+          "Resultary: Jackson q difference derivative Gaussian Fock space singular values boundary Schatten",
+          "Focused Jackson literature query above"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp pointwise ordered Weyl constant for finite critical Binet symbols and the Jackson boundary consequence, not the recurrence quotient, monomial identity, or elementary weighted-shift compactness. The closest abstract density-of-states theorem compared gives a Dixmier trace, which is an averaged conclusion and does not imply this pointwise asymptotic under that conclusion alone. The other close Fock and Jackson results use different operators or different norms. No equivalent exact law or broader applicable pointwise theorem was established in the sources checked.",
+      "residual_risks": [
+        "A general pointwise rearrangement theorem for empirical-law weights, or an equivalent result expressed in another almost-periodic operator language, may exist outside the bounded searches. This is not a claim of priority for Jackson calculus or the algebraic Binet derivative."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algebraic input, no Fock spectral statement in inspected formulation",
+          "evidence": [
+            "The Binet quotient and coefficient identity already occur there."
+          ],
+          "identifier_or_url": "arXiv:2610.20593v1",
+          "material_read": "§3.2 Def. 3 Eq. (31) and §3.3 Thm. 4 Eq. (33), OA offsets 16600–21599",
+          "method": "Bounded OA passages",
+          "title": "The U-Derivative Associated with Linear Recurrence Sequences",
+          "trigger": "Exact same algebraic operator"
+        },
+        {
+          "assessment": "Inspected scope concerns generalized Hilbert spaces and sampling",
+          "evidence": [
+            "The Hilbert spaces are adapted to generalized derivatives, rather than the fixed Gaussian spectral problem here."
+          ],
+          "identifier_or_url": "arXiv:2112.07883v4",
+          "material_read": "Abstract, OA offset about 400",
+          "method": "OA paper passage",
+          "title": "Generalized Fock-space and fractional derivatives: Uniqueness of Sampling and Interpolation Sets",
+          "trigger": "Broad operator theory for recurrence-like derivatives in Fock settings"
+        },
+        {
+          "assessment": "Trace identity, not direct pointwise coverage",
+          "evidence": [
+            "Theorem 1.4 uses heat-semigroup and commutator conditions to identify the DOS via Dixmier trace; the conclusion is not k s_k²→c."
+          ],
+          "identifier_or_url": "SIGMA 20 (2024), 007; https://sigma-journal.com/2024/007/",
+          "material_read": "pp. 1–5, OA offsets 1100–7430, Theorem 1.4 on p. 5 offset 13700",
+          "method": "OA paper with theorem comparison",
+          "title": "A General Dixmier Trace Formula for the Density of States on Open Manifolds",
+          "trigger": "Possible general diagonal-weight or density-of-states implication"
+        },
+        {
+          "assessment": "Different dilation and limit",
+          "evidence": [
+            "Radial parameter near the boundary and its distribution/Schatten blow-up, not oscillatory critical weights at fixed parameters."
+          ],
+          "identifier_or_url": "Resultary 021f2c0bee79",
+          "material_read": "RESULT.md opening Finding",
+          "method": "Local mirror",
+          "title": "Universal singular-value boundary law for polynomially-weighted radial Fock dilations",
+          "trigger": "Closest earlier Fock singular-value scaling hit"
+        },
+        {
+          "assessment": "Different norm and spectral question; later preprint",
+          "evidence": [
+            "The classical Gaussian space is background; the Jackson adjoint and grading in the claim there use L²(C,μ_q) and q-Fock kernels."
+          ],
+          "identifier_or_url": "arXiv:2611.26331v1",
+          "material_read": "Abstract, introduction pp. 1–2 and Jackson definition, OA offsets 288, 1650–4160, 9323",
+          "method": "OA PDF passages",
+          "title": "Polyanalytic q-Fock spaces and the polyanalytic q-Bargmann transform",
+          "trigger": "Closest focused Jackson/Fock literature hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 9–32 and 66–93; Orozco López algebraic comparison; independent finite normalization check"
+      ],
+      "rationale": "The formula gives the exact size and order of the critical singular numbers, not just compactness, summability or an averaged trace. It makes the boundary effect of each unit mode explicit despite cancellation of individual monomial coefficients, and identifies the jump at every nontrivial unit Jackson parameter. That is a useful spectral invariant for this natural class of recurrence differences on a fixed standard space.",
+      "residual_risks": [
+        "The result does not give a uniform crossover as roots approach the unit circle, a rate for the rank asymptotic, or a result for confluent or infinite Binet data."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

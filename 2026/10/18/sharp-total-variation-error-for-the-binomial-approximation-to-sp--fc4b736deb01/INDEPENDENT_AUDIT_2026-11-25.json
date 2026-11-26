@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:14:16.278384Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–17 and 20–108; VERIFICATION.md line 20; verify.py lines 11–76."
+      ],
+      "rationale": "The Stirling generating function is the mgf of the Irwin–Hall sum after division by t^k, giving exactly E Z^r=S(k+r,k)/binom(k+r,k). Taking the binomial weight outside the expectation and tilting by (φ+Z)^R normalizes the mixture. Since Q=Z/(φ+Z) is strictly increasing on the support of a nondegenerate tilted law, the variance excess R(R−1) Var(Q) is strictly positive for R≥2, against the binomial at the same exact mean. The endpoint moment expansion uses the exact density v^(k−1)/(k−1)! for v=k−Z in (0,1), and a complete beta integral with exponentially small relative tail error outside a fixed neighborhood. Centered Taylor expansion at E Q in L1 has O(R) second derivative norm on a compact parameter interval (expectation of the absolute binomial second score) and O(R²) globally by the signed finite differences of binomial masses. This leaves O(1/R) distance to the mean-matched binomial. The remaining first score at q has L1 norm E|B_R−Rq|/[q(1−q)], whose CLT limit after division by √R follows from uniform integrability. For an independent check, take R+k independent trials with k named outcomes of weight 1 and one null of weight φ. Counting onto assignments shows that spillage equals the total active count minus k conditional on seeing all k names; the unconditional shifted Bin(R+k,q) differs in TV by at most k(1−1/(k+φ))^(R+k). Write that shifted binomial as Bin(R,q) minus an independent L distributed as Bin(k,1−q). If b is the Bin(R,q) mass function, E[b(·+L)]−b=E L Δb+O_L1(R^(-1)), because Δ²b factors into the convolution of first differences of two roughly equal binomials, each of L1 norm twice its modal mass by unimodality. Thus TV is k(1−q) max b + O(R^(-1)), yielding exactly the stated constant by Stirling. The same conditioning argument gives the stated variance correction, since the unconditional variance is (R+k)q(1−q) and conditioning changes the bounded second moment by only exponentially small terms times a polynomial in R.",
+      "residual_risks": [
+        "The uploaded verifier was inspected, not executed; its exact examples and finite TV diagnostics do not certify the theorem. Constants and error estimates in the proof can depend on fixed k and φ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The extended occupancy paper mixes spillage laws over occupancy to get a binomial. Gismatullin–Tardivel give the exact Stirling/Irwin–Hall moment identity. Indexed a3b75adb8e9d and a854baff1a18 concern bi-uniform mixture convex-order dispersion and a bimodal beta-binomial rare-count limit, respectively."
+        ],
+        "reasoning": "A binomial as the mixed law does not give a spillage law mixed from binomial components. The moment identity helps give that representation once weights are transformed and tilted; neither it nor the unrelated mixture families provide the spillage TV coefficient.",
+        "searches": [
+          "arXiv:2209.02220 §5 and Theorem 15; DOI 10.37190/0208-4147.00156 Theorem 2.1; local Resultary binomial-mixture dispersion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.03126",
+        "arXiv:2209.02220",
+        "DOI 10.37190/0208-4147.00156",
+        "Resultary 2b2a9eb3d62a, a3b75adb8e9d, a854baff1a18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems 2–3 give exact and asymptotic moments, and the discussion identifies binomial convergence. Theorem 4 gives the reverse-oriented mixture. The occupancy model itself yields an exponentially good shifted-binomial approximation, but the unshifted TV constant requires evaluating the first lattice displacement with sufficiently small L1 remainder (or the score and variance argument in the frozen proof)."
+        ],
+        "reasoning": "Neither agreement of leading moments nor the mean shift alone forces a TV coefficient. The strict same-mean variance corollary is a standard consequence once the mixing is shown, and may also be derivable from O’Neill's exact moments; this is not the basis for the originality pass.",
+        "searches": [
+          "arXiv:2201.03126 Theorems 2–4; Gismatullin–Tardivel Theorem 2.1; compare frozen Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O’Neill Theorem 3 uses ψ=φ/(k+φ)=1−q, so its fixed-parameter binomial moment comparison targets the same binomial. It does not give the √R-scaled TV limit. Resultary 2b2a9eb3d62a gives a sharp TV phase diagram for a Pólya-urn count compared with a binomial, not the spillage law."
+        ],
+        "reasoning": "Complementing the binomial parameter reconciles notation but does not turn moment asymptotics into TV asymptotics; reinforced binary sampling has a different count law and regime.",
+        "searches": [
+          "arXiv:2201.03126 spillage asymptotic binomial approximation; Resultary spillage binomial approximation, sharp total variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected candidate Findings measure a reinforced binary count, a bi-uniform mixture, or a bimodal beta-binomial family. No inspected statement or table reports the exact √(kφ/(2π)) spillage coefficient in the stated scaling."
+        ],
+        "reasoning": "Their parameters cannot be substituted into the exact conditional occupancy law to give the asserted limit. This bounded check is not evidence that no indexed match exists elsewhere.",
+        "searches": [
+          "Local Resultary queries for spillage TV and exact binomial mixtures; strongest neighboring records 2b2a9eb3d62a, a3b75adb8e9d, a854baff1a18"
+        ]
+      },
+      "rationale": "O’Neill already defines the law, identifies the binomial approximation through its asymptotic moments, and supplies the exact finite moments. The sharp first-order TV coefficient relative to the specific ordinary unshifted Bin(R,q) is not supplied by those moment statements. None of the strongest inspected primary or indexed statements covers that coefficient; the continuous tilted binomial mixture is not O’Neill's mixture with the component and target laws reversed. The originality judgment is on the sharp TV theorem, not on the Stirling moment identity or binomial-mixture variance formula.",
+      "residual_risks": [
+        "The broader web search was low-yield; hidden equivalent approximations in occupancy or lattice local-limit literature remain possible.",
+        "The exact variance comparison is less secure as an originality claim than the sharp TV theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the law and its exact/asymptotic moments, not the inspected sharp TV claim",
+          "evidence": [
+            "Theorem 3 identifies binomial-like asymptotic moments in the fixed k and φ regime; Theorem 4 makes a binomial by mixing spillage distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.03126",
+          "material_read": "Definition p. 2 offset 3200; Theorems 2–3 p. 4 offsets 9430 and 10250; discussion and Theorem 4 p. 5 offset 11800",
+          "method": "Bounded primary OA PDF passages",
+          "title": "An Examination of the Spillage Distribution",
+          "trigger": "Primary source for the exact same spillage law and binomial approximation"
+        },
+        {
+          "assessment": "Different mixture orientation",
+          "evidence": [
+            "Theorem 15 has a binomial as the output of mixing spillage over occupancy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.02220",
+          "material_read": "§5, pp. 18–19 offsets 67100 and 70000; Theorem 15 p. 27 offset 74400",
+          "method": "Bounded primary OA PDF passages",
+          "title": "Three Distributions in the Extended Occupancy Problem",
+          "trigger": "Broader occupancy distribution identities and mixtures"
+        },
+        {
+          "assessment": "Covers the Irwin–Hall moment identity, not the spillage TV calculation",
+          "evidence": [
+            "The identity is E Z^r=S(k+r,k)/binom(k+r,k). The recovered version does not independently anchor the journal's online publication date."
+          ],
+          "identifier_or_url": "https://doi.org/10.37190/0208-4147.00156",
+          "material_read": "OA-recovered Theorem 2.1, p. 2, offset 7350",
+          "method": "Bounded primary OA passage via DOI",
+          "title": "Beta distribution and associated Stirling numbers of the second kind",
+          "trigger": "Exact moment ingredient used in the proof"
+        },
+        {
+          "assessment": "Different family and scaling",
+          "evidence": [
+            "Pólya urn count, with reinforcement as the variable controlling the TV regimes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-total-variation-phase-diagram-for-reinforced-binary-samp--2b2a9eb3d62a/RESULT.md",
+          "material_read": "Mirrored Finding, offset 0",
+          "method": "Local Resultary search and bounded mirror reading",
+          "title": "A sharp total-variation phase diagram for reinforced binary sampling",
+          "trigger": "Closest indexed sharp TV-to-binomial result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Steps 1–5; O’Neill arXiv:2201.03126 Theorem 3 and discussion."
+      ],
+      "rationale": "For the natural binomial already proposed for this distribution, the result quantifies precisely how good the approximation is and identifies the mechanism: an order-one count displacement produces the leading TV loss, while matching the mean removes that first-order loss. The exact mixture makes the finite-size spread distinction interpretable. This separates two practical approximations that asymptotic first moments alone cannot distinguish in TV.",
+      "residual_risks": [
+        "Does not optimize over all binomial approximations or cover growing k or varying φ."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

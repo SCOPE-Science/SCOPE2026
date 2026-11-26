@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:24:02.739525Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–96",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Orthonormal real-mode projection gives independent OU noise with variance rate 2D and drift νq_i². At stationarity the common age is Exp(r), and the conditional coordinate variance is v_i(A)=(2D/b_i)(1−exp(−b_i A)). Conditional means of unsquared coordinates are zero and distinct coordinates are conditionally independent. For squares of distinct coordinates (including a sine/cosine pair at the same wavenumber), total covariance leaves only w_iw_j Cov(v_i(A),v_j(A)). For a single squared coordinate's variance there would also be 2w_i²E[v_i(A)²]. Subtracting Laplace moments r/(r+b_i+b_j)−r²/((r+b_i)(r+b_j)) gives numerator r b_i b_j over the common denominator. The resulting kernel is a Cauchy matrix up to positive row and column scalings, taking x_i=b_i and y_j=r+b_j in the classical determinant formula. Both Vandermondes are positive on ordered distinct indices and no denominator vanishes, proving all minors and full rank. Normalization gives ρ²=1−(b_i−b_j)²/(r+b_i+b_j)², hence strict increase for i≠j, the limits, and the inverse on the indicated range. With known L, this statistic is a function of r/(2ν), so recovering the absolute r from it requires calibrating ν.",
+      "residual_risks": [
+        "The submitted finite checker was inspected, not executed. Its printed counter 608 counts the inverse assertion also on the five diagonal iterations where that branch is skipped. This does not affect the proof. Pearson correlations of raw energies, repeated rates, and finite-sample stability are not the proved claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "581ff25262aa allows heterogeneous frequencies and noises, including equal-rate pairs.",
+          "637c73ad6d17 treats a harmonically pinned infinite-line interface and uses height/spatial covariance and kurtosis.",
+          "60c8bc7c3b67 uses a two-time fourth cumulant of OU dynamics with a Gaussian stationary marginal; 0ac3d73ad09e infers drift/noise from two known reset rates."
+        ],
+        "reasoning": "The heterogeneous OU pair formula is broader in precisely the relevant dynamics and observation. The two other inference methods and the pinned-interface work use different input observables and do not alone give the stated statistic.",
+        "searches": [
+          "Resultary: periodic Edwards Wilkinson interface reset rate inference Fourier modes reset age Cauchy kernel",
+          "Resultary: spectral rate tomography resetting Fourier energy covariance known diffusivity Poisson reset"
+        ]
+      },
+      "checked_sources": [
+        "581ff25262aa",
+        "637c73ad6d17",
+        "60c8bc7c3b67",
+        "0ac3d73ad09e",
+        "13a63e19f161",
+        "arXiv:1312.5954",
+        "arXiv:2211.00563"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "581ff25262aa explicitly uses ω_i=2λ_i, ϑ_i=D_i/2 and a common independent Poisson origin-reset clock for arbitrary positive λ_i,D_i.",
+          "Cauchy nodes x_i=b_i and y_j=r+b_j give the exact mixed-minor products. The ratio of squared off-diagonal to the two diagonal entries yields the affine denominator r+b_i+b_j under the square root identity."
+        ],
+        "reasoning": "Apply the pair formula to the Fourier labels, evaluate the usual Cauchy determinant after separable scaling, and solve the normalized identity for r. Earlier interface height/width results and common-reset particle correlations provide context, not this decisive implication.",
+        "searches": [
+          "581ff25262aa, local mirror Finding and assumptions offset 0, stationary representation proof",
+          "13a63e19f161 Finding, offset 0",
+          "arXiv:1312.5954 PDF p. 2 and arXiv:2211.00563 PDF p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "581ff25262aa states Cov(H_i,H_j)=ϑ_iϑ_j r ω_iω_j/[(r+ω_i)(r+ω_j)(r+ω_i+ω_j)] for distinct labels.",
+          "The periodic EW coordinates follow exactly the specified OU dynamics with the same D for each label."
+        ],
+        "reasoning": "A reset OU ensemble and this Fourier truncation are equivalent for the required quadratic observables after the stated parameter/weight substitution. The normalized diagonal source is a distinct-label covariance at equal frequencies, not a repeated-label variance.",
+        "searches": [
+          "Resultary: common Poisson resetting shared reset age multimode Ornstein-Uhlenbeck coordinates squared amplitudes covariance",
+          "Web: (\"common resetting\" OR \"global resetting\") multimode Ornstein-Uhlenbeck squared energy covariance shared Poisson reset age Fourier modes Edwards-Wilkinson interface"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "13a63e19f161 supplies Cauchy determinant products for causal exponential contrasts, not an EW energy table.",
+          "581ff25262aa gives an exact formula for any admissible pair, more informative than an entry table."
+        ],
+        "reasoning": "A fixed-cutoff numerical table is not the target, which is an arbitrary-cutoff formula and inverse; the available analytic entry formula covers all needed rows, columns and equal-frequency distinct-coordinate entries simultaneously.",
+        "searches": [
+          "Resultary: Cauchy determinant Fourier Gram scale chain exponential contrast",
+          "Resultary: periodic Edwards Wilkinson interface reset rate inference Fourier modes reset age Cauchy kernel"
+        ]
+      },
+      "rationale": "The decisive overlapping Resultary theorem 581ff25262aa explicitly gives the pairwise stationary covariance of quadratic energies for independently driven OU coordinates with a common origin-reset Poisson clock. It allows distinct labels with identical relaxation frequencies, so it already yields every entry, including the cross-sine/cosine diagonal when those two modes are taken as the labels. With λ_i=νq_i², D_i=D, ω_i=b_i and H_i=λ_iX_i²/2, multiply its pair formula by (2w_i/λ_i)(2w_j/λ_j). One obtains the identical kernel; there are at least four real coordinates in the claimed cutoffs, so the source hypothesis of at least three labels causes no restriction. Cauchy's determinant identity applies directly to that prior formula after scaling out u_i and u_j. The proposed inverse is the one-step normalization and solution of the resulting two-by-two ratio, not a separate unresolved theorem. This rejects substantive originality based on exact statement-level coverage and deductions, not chronological priority from same-day dating.",
+      "residual_risks": [
+        "Priority order of same-day records is not established. The ruling is about demonstrable mathematical coverage. The independent web search was bounded and does not establish lack of other antecedents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive general coverage of covariance and hence elementary corollaries",
+          "evidence": "Explicit pair formula holds for distinct labels; frequencies are arbitrary and may coincide. The real sine and cosine coefficients at one wavenumber are just such separate labels.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-unique-three-energy-sign-crossover-under-heterogeneous-global--581ff25262aa/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §1, local mirror offsets 0–4376",
+          "method": "Local published mirror",
+          "title": "A unique three-energy sign crossover under heterogeneous global resetting",
+          "trigger": "Same stationary pair energy covariances in more general common-clock OU dynamics"
+        },
+        {
+          "assessment": "Different observable and regime",
+          "evidence": "Uses point variance, spatial correlation and excess kurtosis of an infinite-line pinned field, not spectral cross-component energies.",
+          "identifier_or_url": "637c73ad6d17",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local published mirror",
+          "title": "Joint recovery of resetting, pinning and noise strength in a fluctuating interface",
+          "trigger": "Explicit reset-rate inference for EW"
+        },
+        {
+          "assessment": "Different method",
+          "evidence": "Two-time fourth cumulant with Gaussian marginal is not an equal-time energy covariance under flat resetting.",
+          "identifier_or_url": "60c8bc7c3b67",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local published mirror",
+          "title": "A universal fourth-cumulant clock for Gaussian-marginal reset diffusions",
+          "trigger": "Fourth-order reset-rate inference"
+        },
+        {
+          "assessment": "Method overlap only",
+          "evidence": "Cauchy product for causal contrast Gram volumes, not shared-clock calibration.",
+          "identifier_or_url": "13a63e19f161",
+          "material_read": "Finding, offset 0",
+          "method": "Local published mirror",
+          "title": "Tree-invariant Fourier Gram volumes and unique optimal scale chains for causal exponential contrasts",
+          "trigger": "Another exponential-channel Cauchy determinant"
+        },
+        {
+          "assessment": "Background",
+          "evidence": "Whole-profile flat resets and stationary height/width statistics.",
+          "identifier_or_url": "arXiv:1312.5954",
+          "material_read": "PDF p. 2, approximately offset 9000",
+          "method": "OA primary PDF passage inspection",
+          "title": "Fluctuating interfaces subject to stochastic resetting",
+          "trigger": "Primary EW global-reset framework"
+        },
+        {
+          "assessment": "Background",
+          "evidence": "Reset-induced correlations among otherwise independently driven Brownian particles; the inspected passage is not a heterogeneous OU energy formula.",
+          "identifier_or_url": "arXiv:2211.00563",
+          "material_read": "PDF p. 2, approximately offset 10138",
+          "method": "OA primary PDF passage inspection",
+          "title": "Simultaneously reset Brownian particles",
+          "trigger": "Common-reset dependence due to shared age"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:7–28,38–46,85–90,106–108",
+        "581ff25262aa Finding and assumptions"
+      ],
+      "rationale": "The spectral calibration is a useful interpretation: it makes clear how to measure a latent covariance diagonal without mistaking a raw energy variance for that diagonal. But after the verified heterogeneous OU pair kernel the sine/cosine identification, classical minor product, and one-pair algebraic inverse are direct consequences. The frozen result does not establish additional scientific content such as a recovery result with unobserved quadratures, robust finite-data identification, or a new positivity mechanism; one is not required in general, but without a substantive remainder this particular specialization and normalization do not clear the value bar.",
+      "residual_risks": [
+        "Does not dispute the exact observable's usefulness as a corollary. No repaired claim was substituted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

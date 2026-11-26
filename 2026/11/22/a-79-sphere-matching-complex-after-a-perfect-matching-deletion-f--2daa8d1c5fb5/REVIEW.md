@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph has 24 edges and 513 faces including the empty simplex. A fully specified and re-executed 217-pair acyclic matching leaves exactly 79 critical two-faces after the augmented empty-face pair, with one ordinary critical zero-face. The exhaustive Hasse graph has 1,392 covers and passes an integer DAG topological sort. Forman's homotopy theorem gives the claimed wedge. The independent face-count and Euler check agree. No numerical approximation, extrapolation, or assumed torsion-freeness is used.
+## correctness
 
-**Originality — PASS against inspected evidence.** The primary full text [1], including Example 3.3, proves the intact complete graph's 132-sphere result but not the four-disjoint-edge deletion. The outerplanar theorem [2] cannot apply because this graph violates the outerplanar edge bound. Searches for the graph as a cocktail-party graph, crosspolytope graph, complete four-partite graph, and matching-deleted complete graph found no statement giving the exact 79-sphere homotopy type. Search absence is not a uniqueness proof; a broader unindexed multipartite matching-complex result remains a risk.
+PASS
 
-**Value — PASS.** This is a natural first dimension-two example in the cocktail-party family, a canonical symmetric deletion of a complete graph. It determines the integral *homotopy type* and quantifies the sharp change from 132 to 79 two-sphere summands under the deletion of a perfect matching. The result is finite but gives a substantive exact topological comparison for a standard graph class, not an arbitrary graph census entry.
+Independent endpoint-disjoint enumeration gave 24 allowed graph edges and augmented face counts (1,24,156,272,60). The stated priority toggles produced 217 disjoint Hasse pairs and exactly 79 unmatched three-edge faces. Topological elimination exhausted all 513 faces and all 1392 directed augmented cover relations. Restricting to the ordinary nonempty face poset discards the empty-face pair and retains a DAG (512 faces, 1368 arcs), with exactly one critical vertex and 79 critical 2-cells and no other critical cells. The discrete Morse CW model therefore attaches all 2-disks by their boundaries to the single vertex, giving a wedge of 79 two-spheres and the stated integral homology. The Euler characteristic 80 is a check, not the homotopy argument.
 
-**Closest sources and limitations.** [1] Mondal–Mukherjee–Saha, arXiv:2305.02973, pp. 1, 5, 13; [2] Bayer–Jelić Milutinović–Vega, arXiv:2411.04601, Theorem 2. Only this eight-vertex case is established, and publication equivalence cannot be excluded completely.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: the exact two-sphere wedge for this canonical perfect-matching deletion is distinct from the intact graph calculation and from the broader published results inspected. Literature coverage is not exhaustive.
+
+## value
+
+PASS
+
+Deleting a whole perfect matching is a canonical symmetric boundary case, not an arbitrary graph-census entry. A complete homotopy comparison with intact K₈ shows the same sphere dimension and an exact fall from 132 to 79 summands after all four pair deletions. The finite certificate gives more than a change in Euler characteristic or field Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

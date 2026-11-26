@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,6 +21,6 @@
 
 # Verification protocol
 
-Run `python3 CHECK.py` from the directory containing this document. Expected final line begins `VERIFY_OK`; no downloads or third-party modules are required. This checks all binary inputs through length sixteen, then restricts them to cyclic no-adjacent-one sources. It compares two independently coded synchronous Rule-90 updates and the complete nonempty output-fiber histograms, and checks iterated stabilization and second-step collapse. Reproduction of this finite check was performed on the standalone packaged source.
+Run `python3 CHECK.py` in this directory. The standard-library script exhausts all admissible inputs for lengths 2 through 16, iterates their image sets through two steps beyond the predicted stabilization time, and checks each explicit strict-step witness separately. The expected output is `VERIFY_OK n=2..16: image counts and all strict-step witnesses`.
 
-The all-length/all-time statement is proved in RESULT.md by the exact polynomial kernel and cyclic parity-class argument. Enumeration cannot establish the infinite claim or historical novelty. All reported review judgments are same-model; no independent mathematical audit or external certificate has been performed.
+The all-length and all-time theorem follows from the polynomial kernel calculation and admissibility of the periodic witnesses. The finite check does not prove generality or address publication priority.

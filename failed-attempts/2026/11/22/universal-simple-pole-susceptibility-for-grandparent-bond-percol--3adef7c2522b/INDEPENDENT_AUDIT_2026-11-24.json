@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:01:45.985271Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–76; VERIFICATION.md and CHECK.py (inspected, not executed); arXiv:2611.09762v1, Secs. 2.1–2.3, Propositions 7–9, Theorem 10, and Lemma 12. Analytic replay: the tilted offspring pgf and derivative computation above."
+      ],
+      "rationale": "The augmented-ancestor expectation and residue are correct. Interpret the shorthand 'reachable downwards from the root' in the proof using the cited two-seed block definition: the root is included, and recurse from each included tree vertex to each child iff the child's edge to its grandparent is open (the formal parent serves as the grandparent of the children of the root). Traversing only long edges from the root itself would omit the odd parity class. The prefix has thinned offspring of mean mp and separates into two long-edge classes, based at the root and the formal parent. A short edge inside the prefix plus formal parent joins them; there are exactly N independent opportunities when the prefix has size N. A boundary child's closed long edge leaves only connections through its parent, so the attached subproblems are independent new augmented blocks when their parent is reached. With x=1-p, the size law tilted by x^N has normalizer a=x*phi(1-p+p*a). For that tilted tree the offspring pgf is x*phi(1-p+p*a*u)/a, obtained by weighting each open child's independent subtree by its factor a. Its mean is x*p*v, so its expected even population is 1/(1-(x*p*v)^2). It follows that the unnormalized even-size correction is a/Delta, as in U. The known boundary expectation is V and summing block generations gives U/(1-V), including the continuous values U(0)=V(0)=0 by finite mean. At the critical point p_c<m^-2 both denominators are positive and f<=1-p^2<1. Differentiating the fixed point gives f'<0 and v'<=0; at fixed v the derivative of H=x^2*v/Delta is -2*x*v*(1-p*x^3*v^2)/Delta^2<0 because p*m^2<=1, whereas its v derivative is positive. Thus V'>0 is finite without a second-moment assumption. U>=p from the root short edge, and an ordinary first-order expansion gives the displayed positive finite residue. This does not establish an original-root or quenched formula.",
+      "residual_risks": [
+        "The reported finite exact enumeration and numerical pole checks were not rerun. They do not certify the infinite-variance case; that case follows from evaluation strictly inside the pgf disk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ménard–Sénizergues work throughout with only finite offspring mean and give explicit derivative signs for their critical function. Hutchcroft gives comparable inverse-linear growth for fixed quasi-transitive nonunimodular graphs, not the random annealed amplitude. Špakulová computes the regular threshold in a deterministic transitive setting."
+        ],
+        "reasoning": "The exact implication comes from the finite-mean block description and transversality in the identical model, not by applying the fixed-graph asymptotic to a random rooted graph.",
+        "searches": [
+          "arXiv:2611.09762v1, Theorem 10 and Lemma 12",
+          "arXiv:1711.02590, Thm. 1.6",
+          "arXiv:0801.4153, regular grandparent example"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.09762v1; arXiv:0801.4153; arXiv:1711.02590; arXiv:0911.2636; Resultary record 209c69f86976"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior E|boundary D| is the displayed V. The parity gate makes E|D|=1/(1-mp)-E[x^N*N_even]. Under the total-size weight from the prior gate, the standard branching tilt has offspring pgf x*phi(1-p+p*a*u)/a, so E[x^N*N_even]=a/(1-(x*p*v)^2). The source critical function F_m=(1-mp)*Delta*(1-V) has partial_p<0 and partial_v>0 at p_c (Lemma 12(c)); f is decreasing inside the analytic pgf disk."
+        ],
+        "reasoning": "There is no new exploration or critical estimate needed. The tilt and the even-generation sum evaluate the numerator directly from the supplied block law. The stated derivative signs, the implicit fixed point and the chain rule already make 1-V vanish simply; taking the ratio yields the exact positive residue. The absence of the expression in print does not remove this mechanical coverage.",
+        "searches": [
+          "arXiv:2611.09762v1, Proposition 7 parity gate, Proposition 9 Eq. (5), proof of Lemma 11 and Lemma 12(c)",
+          "arXiv:0911.2636, Thm. 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior C_p is precisely the cluster attached to the formal parent, excluding that parent; its total size is a sum of block sizes over the exploration family. Proposition 9 and the proof of the critical equation already give the exact V."
+        ],
+        "reasoning": "The susceptibility is the expectation of a marked branching-tree total, not a separate threshold or original-root observable. The mean recurrence is chi=E|D|+V*chi even with within-block correlation of size and offspring, because descendant blocks are fresh.",
+        "searches": [
+          "arXiv:2611.09762v1, Sec. 2.1 and Propositions 7–9",
+          "arXiv:0911.2636, Thm. 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical catalogue record is not a distinct precedent. The strongest distinct hit gives an exact conditional original-root susceptibility for site percolation and a survival amplitude under a second factorial moment. The regular grandparent threshold 0.158656326... is tabulated in the prior regular example."
+        ],
+        "reasoning": "The site observable and regular threshold do not tabulate the bond augmented-ancestor susceptibility or its residue. The negative decision rests on strong primary implication, not on a catalogue coincidence or publication order.",
+        "searches": [
+          "Resultary: bond grandparent percolation susceptibility and critical amplitude; local mirror RESULT.md for 209c69f86976",
+          "arXiv:0801.4153 regular example"
+        ]
+      },
+      "rationale": "The prior primary paper does not print this susceptibility or its amplitude. Nevertheless, in the identical finite-mean model and identical augmented cluster it already gives the independent marked blocks, the parity gate, the explicit offspring mean V and the differentiable transverse critical equation. Applying the ordinary progeny sum and reweighting its given thinned tree by the already used total-size factor (1-p)^N gives the exact numerator by a geometric sum over even generations. This is mechanical implication of the exact claim, not merely a shared method, inaccessible possible overlap, or overlap on the deterministic exponent alone.",
+      "residual_risks": [
+        "The inspected primary source gives the ingredients and transversality, not a printed susceptibility amplitude; the negative judgment is about implication, not a claim of verbatim prior publication. Catalogue dates do not establish order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact framework and critical transversality; mechanical implication of the full formula",
+          "evidence": "The parity gate, independent blocks, explicit (1-p)^2*v/Delta boundary correction, and strict opposite partial derivative signs of F_m are supplied under the same finite-mean hypothesis.",
+          "identifier_or_url": "https://arxiv.org/html/2611.09762v1",
+          "material_read": "Sec. 2.1 augmented convention; Secs. 2.2–2.3 Propositions 7–9 and Theorem 10; OA offsets 44500–50100 for explicit derivative of the boundary pgf and 52600–56241 for Lemma 12(c) and critical proof",
+          "method": "Lawful bounded OA HTML reads",
+          "title": "Percolation on grandparent graphs of Bienaymé trees",
+          "trigger": "Identical bond model, exploration and finite-mean critical equation"
+        },
+        {
+          "assessment": "Regular threshold overlap only",
+          "evidence": "Size-four pieces with size-two borders give the regular grandparent threshold about 0.158656326, not the annealed finite-mean formula.",
+          "identifier_or_url": "https://arxiv.org/abs/0801.4153",
+          "material_read": "PDF p. 23, OA offsets 66000–70169",
+          "method": "Lawful OA PDF passages",
+          "title": "Critical percolation of virtually free groups and other tree-like graphs",
+          "trigger": "Deterministic regular grandparent benchmark"
+        },
+        {
+          "assessment": "Inverse-linear order on qualifying fixed graphs, not amplitude",
+          "evidence": "The theorem assumes a quasi-transitive nonunimodular automorphism subgroup and gives comparability, not a sharp random-tree residue.",
+          "identifier_or_url": "https://arxiv.org/abs/1711.02590",
+          "material_read": "Theorem 1.6, PDF p. 6, OA offsets 18000–22751",
+          "method": "Lawful OA PDF passages",
+          "title": "Non-uniqueness and mean-field criticality for percolation on nonunimodular transitive graphs",
+          "trigger": "Possible broader coverage of exponent one"
+        },
+        {
+          "assessment": "Routine geometric-sum ingredient",
+          "evidence": "The expected total progeny with a special root law is 1+E[xi_0]/(1-E[xi]) below criticality; not in itself a grandparent-graph theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/0911.2636",
+          "material_read": "Theorem 3.1, PDF p. 9, OA offsets 24700–28897",
+          "method": "Lawful OA PDF passages",
+          "title": "Susceptibility of random graphs with given vertex degrees",
+          "trigger": "General branching susceptibility identity"
+        },
+        {
+          "assessment": "Different percolation and observable",
+          "evidence": "Conditional original-root site susceptibility 1/[1-mp-m^2*p*(1-p)] and a survival-probability amplitude, not the present bond model.",
+          "identifier_or_url": "2026/11/22/SCOPE-mean-universal-site-percolation-threshold-and-critical-amplitude--209c69f86976",
+          "material_read": "Local mirror RESULT.md, main formula and hypotheses",
+          "method": "Resultary lookup and local mirror reading",
+          "title": "Mean-universal site percolation threshold and critical amplitude",
+          "trigger": "Strongest distinct indexed grandparent susceptibility match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen numerator, denominator and residue; arXiv:2611.09762v1 Propositions 7–9 and Lemma 12(c)"
+      ],
+      "rationale": "The mean cluster size and its amplitude are natural and potentially useful quantities, but this submission as a distinct finding adds only the routine total-progeny and weighted even-generation evaluations to an existing exact block law and transverse critical equation. The finite-mean scope comes from the same prior block law and its interior pgf fixed point. No independent nonmechanical invariant, broader coverage, or new estimate is demonstrated.",
+      "residual_risks": [
+        "The formula can still be useful as a worked corollary; this decision does not question its correctness or utility as a reference calculation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

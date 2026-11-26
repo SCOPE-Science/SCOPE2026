@@ -1,101 +1,60 @@
-# Uniform-disk law and Cauchy disintegration for hemispherical geodesic midpoints
+# Dimension rigidity for orthogonal projections of hemispherical geodesic midpoints
 
 ## Finding
 
-Let \(H=\{(x_1,x_2,x_3)\in S^2:x_3\ge0\}\) be the closed unit northern hemisphere, and let \(X,Y\) be independent, normalized spherical-area-uniform points of \(H\). Almost surely \(X\ne-Y\). Put
-\[
-M=\frac{X+Y}{\|X+Y\|},\qquad \Delta=\arccos(X\cdot Y)\in(0,\pi),\qquad Z=M_3.
-\]
-Thus \(M\) is the midpoint of the unique minimizing spherical geodesic. Let \(\Pi(M)=(M_1,M_2)\) be its *orthogonal* projection onto the equatorial plane, not its stereographic or gnomonic projection.
+Let \(d\ge2\) be an integer and let \(X,Y\) be independent points sampled by normalized surface area on the upper hemisphere of the unit sphere \(S^{d-1}\subset\mathbb R^d\). Let \(M=(X+Y)/\|X+Y\|\) be the shorter-geodesic midpoint, and let \(U=(M_1,\ldots,M_{d-1})\) be its orthogonal projection. **The law of \(U\) is uniform by Euclidean volume on the unit \((d-1)\)-ball if and only if \(d=3\).** More precisely, if \(\sigma_{d-1}\) is the surface area of \(S^{d-1}\), the projected density has a representative continuous at the center with value \(4/\sigma_{d-1}\). In dimensions other than three this is incompatible with uniformity, whatever the shape of the density away from the center.
 
-**Exact planar midpoint law.** The random point \(\Pi(M)\) is *uniform by Euclidean area* on the unit disk. Equivalently, the spherical-area density of \(M\) is \(Z/\pi\) on \(H\), \(Z\) has density \(2z\) for \(0<z<1\), and \(1-Z^2\) is uniform on \([0,1]\).
-
-**Complete joint disintegration.** At an interior midpoint \(m\), write \(z=m_3\in(0,1)\), \(s=\sqrt{1-z^2}\), and take the unit tangent vectors \(e_1=(e_3-zm)/s\), \(e_2=m\times e_1\). The ordered endpoint pair has the unique representation
-\[
-X=\cos t\,m+\sin t\,v,\quad Y=\cos t\,m-\sin t\,v,\quad
-v=\cos\phi\,e_1+\sin\phi\,e_2,
-\]
-where \(0<t<\pi/2\), \(0\le\phi<2\pi\). Set \(w=\sin^2t\), and
-\[
-q(z,\phi)=\frac{z^2}{z^2+(1-z^2)\cos^2\phi}.
-\]
-The joint probability measure of \((M,\phi,w)\), with reference measure spherical area \(d\sigma(m)\,d\phi\,dw\), has the constant density
-\[
-\boxed{\frac{1}{2\pi^2}\,\mathbf1_{\{m\in H^\circ,\ 0<w<q(z,\phi)\}}.}
-\]
-In particular,
-\[
-\boxed{f(\phi\mid Z=z)=\frac{z}{2\pi\{z^2+(1-z^2)\cos^2\phi\}},\qquad
-w\mid(z,\phi)\sim\operatorname{Unif}[0,q(z,\phi)].}
-\]
-After reduction modulo \(\pi\), the variable \(\tan\phi\) is Cauchy with scale \(1/z\). Moreover
-\[
-\boxed{\mathbb E[\cos^2\phi\mid Z=z]=\frac{z}{1+z},\qquad
-\mathbb E[\cos^2\phi]=2\log2-1.}
-\]
-Thus the theorem gives an exact disk/Cauchy/uniform-factorized method of sampling an *ordered independent* uniform hemispherical endpoint pair.
-
-**Geodesic-length law.** Independently of the preceding marginal calculations, the complete length distribution is
-\[
-\boxed{f_\Delta(\delta)=\left(1-\frac\delta\pi\right)\sin\delta\quad(0<\delta<\pi),}
-\]
-with \(\mathbb E[\Delta]=4/\pi\) and \(\mathbb E[\Delta^2]=2\).
-
-**Dimension rigidity.** For an upper hemisphere of \(S^{d-1}\subset\mathbb R^d\), two independent surface-uniform endpoints and the same geodesic midpoint operation yield a midpoint whose orthogonal projection onto the equatorial \((d-1)\)-ball is uniform **if and only if \(d=3\)**, for every integer \(d\ge2\).
+The sufficiency in dimension three is the previously known midpoint area density proportional to height [1]. Below we rederive it and give conditional formulas to make the three-dimensional case explicit; the novelty claim is the dimension-rigidity theorem, not the disk marginal, a standalone geodesic-length law, or the midpoint–lune construction.
 
 ## Assumptions and scope
 
-All spheres have radius one; endpoints are sampled by normalized *surface* measure, not by volume in a solid hemisphere or by uniform chord/line measure. The midpoint uses the shorter intrinsic geodesic. Coincident and antipodal endpoint pairs, midpoint at the pole or equator, and nonunique tangent frames have probability zero; all density assertions are on interiors or are understood almost everywhere. The ordered pair convention matters when reconstructing endpoints; exchanging endpoints sends \(\phi\) to \(\phi+\pi\). The dimension assertion concerns orthogonal projection and the same independent-uniform-endpoint model in every dimension.
+Sampling is by surface measure, not by volume in a solid hemisphere or isotropic-line measure. Orthogonal projection is meant literally. The boundary of the hemisphere and coincidences or antipodes have probability zero. Density assertions are almost everywhere unless a representative is specified. The construction uses ordered endpoints. Exchanging the endpoints negates the tangent direction.
 
-## Proof
+## Proof of the pole-density obstruction
 
-**1. Full-sphere midpoint coordinates.** For two independent points on the full \(S^2\), rotational invariance makes the midpoint \(m\) uniform on \(S^2\) and the ordered tangent direction \(\phi\) uniform on its tangent circle, conditional on the half-separation \(t=\Delta/2\). Also \(X\cdot Y\) is uniform on \([-1,1]\), so the density of \(t\) is \(\sin(2t)\,dt\), \(0<t<\pi/2\). Hence the full-sphere joint law equals
+First take independent surface-uniform endpoints on the full sphere. Away from the coincident and antipodal sets let \(T=\tfrac12\arccos(X\cdot Y)\), and use the orthonormal pair \((M,V)\), where
 \[
-\frac{d\sigma(m)}{4\pi}\frac{d\phi}{2\pi}\sin(2t)\,dt.
+X=\cos T\,M+\sin T\,V,\qquad Y=\cos T\,M-\sin T\,V.
 \]
-The endpoint event \(X,Y\in H\) has probability \(1/4\), by independence and hemisphere symmetry. Conditioning multiplies the preceding density by four on the admissible region.
+At almost every fixed \(T\in(0,\pi/2)\), the joint distribution of the pair \((M,V)\) is the unique \(O(d)\)-invariant probability measure on the space of ordered orthonormal pairs; orthogonal transformations are transitive on this space. Thus \(M\) is surface-uniform and \(V\), conditional on \(M=m\), is uniform on the tangent unit sphere (two equally likely tangent directions when \(d=2\)). The distribution of \(T\) is independent of this pair.
 
-**2. Endpoint positivity and the constant-density transformation.** With \(z=m_3\) and \(s=\sqrt{1-z^2}\), the two third coordinates are \(z\cos t\pm s\cos\phi\sin t\). They are both nonnegative precisely when
+Let \(z=m_d\). The event that both endpoints lie in the upper hemisphere has unconditional probability \(1/4\) and is equivalent to \(z\cos T\ge |V_d|\sin T\). On the upper open hemisphere, write \(A(m)\) for its probability under the stated conditional law of \(T,V\). A density representative for the conditioned midpoint relative to spherical area is \(4A(m)/\sigma_{d-1}\). The inequality \(|V_d|\le\sqrt{1-z^2}\) gives the bounds
 \[
-\tan t\le\frac{z}{s|\cos\phi|},
+\Pr\big\{\sqrt{1-z^2}\,\sin T\le z\cos T\big\}\le A(m)\le1.
 \]
-with the evident infinite-bound convention when \(\cos\phi=0\). Since \(w=\sin^2t\) satisfies \(dw=\sin(2t)\,dt\), this condition is exactly \(0<w<q(z,\phi)\), and the stated constant joint density \(1/(2\pi^2)\) follows. This is a genuine joint disintegration, not a marginal ansatz.
+As \(z\to1\), the indicator in the lower bound tends to one for every \(T\in(0,\pi/2)\). Dominated convergence yields \(A(m)\to1\) and \(A(e_d)=1\). This also proves continuity at the pole without relying on continuity of a chosen tangent frame. In the upper-hemisphere coordinates \(u=(m_1,\ldots,m_{d-1})\), the surface element is \(du/z\). The projected density is consequently \(4A(m)/(\sigma_{d-1}z)\) on the open ball; in particular it is continuous at \(u=0\) with value \(4/\sigma_{d-1}\).
 
-**3. Midpoint and tangent-angle laws.** Integrating over \(w\) gives the joint midpoint/direction density \(q(z,\phi)/(2\pi^2)\). The elementary integral, valid for every \(0<z\le1\), is
+If the ball law were uniform, its constant density would be \(1/\kappa_{d-1}\), where \(\kappa_{d-1}=\pi^{(d-1)/2}/\Gamma((d+1)/2)\). Almost-everywhere equality with that constant and continuity at the center force \(\sigma_{d-1}/\kappa_{d-1}=4\). Writing
 \[
-\int_0^{2\pi}\frac{d\phi}{z^2+(1-z^2)\cos^2\phi}=\frac{2\pi}{z}.
+r(d)=\frac{\sigma_{d-1}}{\kappa_{d-1}}=2\sqrt\pi\,\frac{\Gamma((d+1)/2)}{\Gamma(d/2)},
 \]
-It follows by dividing the circle into four quadrants and substituting \(u=\tan\phi\). Thus \(f_M(m)=z/\pi\). In equatorial Cartesian coordinates \(u=(m_1,m_2)\), spherical area satisfies \(d\sigma(m)=d^2u/z\); therefore \(f_M(m)d\sigma=d^2u/\pi\), proving uniformity on the unit disk and \(f_Z(z)=2z\). Dividing the midpoint/direction joint density by \(z/\pi\) proves the conditional angular law. On either half-turn interval \(\phi\in(-\pi/2,\pi/2)\) modulo \(\pi\), substitution \(a=\tan\phi\) yields normalized density \(z/\{\pi(1+z^2a^2)\}\), the claimed Cauchy distribution. Conditional \(w\) is uniform by constancy of the joint density.
+one has \(r(2)=\pi\), \(r(3)=4\), \(r(4)=3\pi/2>4\), and \(r(d+2)=\frac{d+1}{d}r(d)>r(d)\). Hence among integers \(d\ge2\) the condition holds exactly at three. The calculation below proves sufficiency, completing the theorem.
 
-For the conditional angular moment, use
+## The known dimension-three marginal and an explicit disintegration
+
+In dimension three the full-sphere dot product is uniform on \([-1,1]\), so \(W=\sin^2 T=(1-X\cdot Y)/2\) is uniform on \([0,1]\) before conditioning. For \(0<z=m_3<1\) use the tangent frame \(e_1=(e_3^{\mathrm{std}}-zm)/\sqrt{1-z^2}\) and \(e_2=m\times e_1\), where \(e_3^{\mathrm{std}}=(0,0,1)\). With \(V=\cos\phi\,e_1+\sin\phi\,e_2\), the two endpoint heights are \(z\cos T\pm\sqrt{1-z^2}\cos\phi\sin T\). Their simultaneous nonnegativity is equivalent, up to null boundaries, to \(W<q(z,\phi)\), where
 \[
-\frac{\cos^2\phi}{z^2+(1-z^2)\cos^2\phi}=
-\frac{1}{1-z^2}\left(1-\frac{z^2}{z^2+(1-z^2)\cos^2\phi}\right).
+q(z,\phi)=\frac{z^2}{z^2+(1-z^2)\cos^2\phi}.
 \]
-Integration gives \(\mathbb E[\cos^2\phi\mid Z=z]=z/(1+z)\). Integrating this against \(2z\,dz\) gives \(2\log2-1\).
+The full-sphere density relative to \(d\sigma(m)\,d\phi\,dw\) is \(1/(8\pi^2)\) on its support, so after conditioning it is \(1/(2\pi^2)\) on \(z>0\) and \(0<w<q(z,\phi)\), zero elsewhere.
 
-**4. Geodesic length.** Before hemisphere conditioning, \(\Delta\) has density \(\tfrac12\sin\delta\). For two fixed unit vectors of mutual angle \(\delta\), a uniformly rotated north pole sees both third coordinates positive with probability \((\pi-\delta)/(2\pi)\): the admissible poles form a spherical lune of area \(2(\pi-\delta)\). Conditioning on the pair lying in the hemisphere multiplies by four. Therefore \(f_\Delta(\delta)=(1-\delta/\pi)\sin\delta\). Direct integration gives the first and second moments as stated.
+Integrating over \(w\) and \(\phi\) gives the midpoint spherical density \(z/\pi\): the needed integral of \([z^2+(1-z^2)\cos^2\phi]^{-1}\) over \([0,2\pi)\) is \(2\pi/z\), by the substitution \(a=\tan\phi\) on each quadrant. Since \(d\sigma=du/z\), the projected density is the constant \(1/\pi\). Thus \(Z=M_3\) has density \(2z\), and \(Z^2\) and \(1-Z^2\) are both uniform.
 
-**5. Dimension rigidity.** On \(S^{d-1}\), rotational invariance makes the *unconditioned* pair midpoint uniform. At the north pole \(m=e_d\), the endpoints are always in the northern hemisphere whenever their midpoint is \(m\), because each has height \(\cos t>0\). Continuity of the conditioned midpoint density near the pole follows from dominated convergence in the rotationally invariant midpoint/tangent/half-distance disintegration. Hence its pole density is \(4/\sigma_{d-1}\), where \(\sigma_{d-1}=2\pi^{d/2}/\Gamma(d/2)\). If orthogonal projection were uniform in the equatorial unit ball of volume \(\kappa_{d-1}=\pi^{(d-1)/2}/\Gamma((d+1)/2)\), its corresponding spherical density at the pole would be \(1/\kappa_{d-1}\). Necessarily
+Dividing the joint midpoint-angle density by \(z/\pi\) shows that given \(M=m\), the angle has density \(z/[2\pi(z^2+(1-z^2)\cos^2\phi)]\). This depends only on \(z\). The density of \(a=\tan\phi\) after reducing the angle modulo \(\pi\) is \(z/[\pi(1+z^2a^2)]\), the Cauchy density with scale \(1/z\). The two possible lifts to an angle modulo \(2\pi\) are equally likely; given \((z,\phi)\), \(W\) is uniform on \([0,q(z,\phi)]\). The same conditional angular density gives
 \[
-\frac{\sigma_{d-1}}{\kappa_{d-1}}=
-2\sqrt\pi\frac{\Gamma((d+1)/2)}{\Gamma(d/2)}=4.
+\mathbb E[\cos^2\phi\mid Z=z]=\frac{z}{1+z},\qquad
+\mathbb E[\cos^2\phi]=\int_0^1\frac{2z^2}{1+z}\,dz=2\log2-1.
 \]
-This ratio is strictly increasing with \(d>0\) since its logarithmic derivative is half the positive difference of digamma values at \((d+1)/2\) and \(d/2\). It equals four exactly at \(d=3\). The preceding direct density computation proves sufficiency in that dimension, completing the if-and-only-if statement.
+For the first identity use \(\cos^2\phi/[z^2+(1-z^2)\cos^2\phi]=(1-z^2)^{-1}\big(1-z^2/[z^2+(1-z^2)\cos^2\phi]\big)\) and the preceding integral. The conditional law supplies a sampler: draw a uniform disk point, lift it to \(m\) with positive height, draw the Cauchy tangent variable and an independent fair choice of lift, and draw \(W\) uniformly up to \(q\). Reconstruct \(X,Y\) from \(T=\arcsin\sqrt W\) and \(V\) above.
 
-## Verification
+## Prior coverage and verification
 
-The proof is exact; the accompanying executable `check_midpoint.py` supplies independent Monte Carlo checks, not a substitute for any analytic argument. It directly samples 660,000 ordered endpoint pairs and tests projected squared-radius quantiles, midpoint-height and length moments, the exact length CDF, and the conditional tangent-angle identity. A separate factorized disk/Cauchy/uniform sampler generates 340,000 ordered pairs and tests hemisphere support, endpoint height means, endpoint cross moment and length mean. Elementary gamma-function tests compare the pole-density criterion for ambient dimensions 2 through 25. The checker prints `HEMISPHERE_GEODESIC_MIDPOINT_UNIFORM_DISK_AND_CAUCHY_OK` if all specified assertions hold. Execute from the package directory using `python check_midpoint.py` with NumPy installed.
+The accepted 2012 answer in [1] gives the midpoint spherical density proportional to \(\cos\theta\) and the polar-angle density proportional to \(\sin(2\theta)\) for the same normalized-sum model; \(\cos\theta=z\) makes this precisely the disk-uniform marginal after orthogonal projection. A separate answer on the same page identifies the uniform squared height numerically. The midpoint–lune Jacobian approach in [1] is also relevant to the disintegration calculation. Neither answer states the comparison between the center value \(4/\sigma_{d-1}\) and \(1/\kappa_{d-1}\) in arbitrary dimension. The halfsphere hull work [2] concerns sampling in the same region but has a different observable. Results on Euclidean straight chords in a solid hemisphere, as in [3], use a different sampling model.
 
-## Relationship to prior work
-
-Bárány, Hug, Reitzner and Schneider (arXiv:1505.04672, first public version 18 May 2015) study spherical convex hulls of independent points in halfspheres, including facet counts, surface area, mean width, volume and approximation. That important same-domain study does not state a two-point geodesic-midpoint pushforward or the disk/Cauchy joint law. Gille (2005, DOI 10.3844/jmssp.2005.24.28) obtains *Euclidean straight-line* chord-length densities of a solid hemisphere under isotropic-line sampling; it uses a different sample space and does not imply the area-uniform *spherical surface endpoint* midpoint distribution. Both source texts were checked for the relevant objects and results. The use of spherical midpoint parametrization, the sine separation density, and the disk Jacobian is classical; the asserted contribution is their evaluated conditional joint law, its Cauchy factorization and its dimension-specific uniform-projection consequence, not these classical ingredients.
-
-## Limitations
-
-The result does not extend the uniform-disk conclusion to arbitrary spherical caps or other sampling weights. The uniqueness statement is restricted to orthogonal projections of midpoint distributions for independent area-uniform endpoint pairs; alternative projection maps may have other equal-area properties. Searches cannot establish absolute historical uniqueness; older integral-geometric or directional-statistical sources may encode equivalent transformations. No independent mathematical audit has been performed. The numerical checks are finite and do not certify the infinite statements.
+The proof is analytic. The accompanying unchanged `check_midpoint.py` supplies finite Monte Carlo corroboration of the dimension-three sampling laws, including radius, midpoint-height and angle moments and checks of a factorized sampler. It also compares the pole-density criterion for ambient dimensions 2–25 and checks auxiliary length statistics not claimed as a result here. With NumPy installed it can be run as `python check_midpoint.py`; its success marker is `HEMISPHERE_GEODESIC_MIDPOINT_UNIFORM_DISK_AND_CAUCHY_OK`. These checks cannot certify the all-dimension assertion. The theorem concerns the stated surface-endpoint model and orthogonal projection only; it does not classify other caps, sampling weights, or projections.
 
 ## References
 
-1. I. Bárány, D. Hug, M. Reitzner, R. Schneider, *Random points in halfspheres*, arXiv:1505.04672v1 (18 May 2015), https://arxiv.org/abs/1505.04672 ; open manuscript https://arxiv.org/pdf/1505.04672 .
-2. W. Gille, *Chord Length Distributions of the Hemisphere*, *Journal of Mathematics and Statistics* **1** (2005), 24–28, published 31 March 2005, DOI 10.3844/jmssp.2005.24.28, https://thescipub.com/jmss/jmssp.2005.24.28.pdf .
+1. joriki, accepted answer to *Distribution of sum of two directions on hemisphere?*, Mathematics Stack Exchange, 25 May 2012 (UTC), [answer 149572](https://math.stackexchange.com/a/149572). See also Sasha's [answer 149366](https://math.stackexchange.com/a/149366), 24 May 2012 (UTC).
+2. I. Bárány, D. Hug, M. Reitzner and R. Schneider, *Random points in halfspheres*, [arXiv:1505.04672](https://arxiv.org/abs/1505.04672).
+3. W. Gille, *Chord Length Distributions of the Hemisphere*, *Journal of Mathematics and Statistics* **1** (2005), 24–28, [doi:10.3844/jmssp.2005.24.28](https://doi.org/10.3844/jmssp.2005.24.28).

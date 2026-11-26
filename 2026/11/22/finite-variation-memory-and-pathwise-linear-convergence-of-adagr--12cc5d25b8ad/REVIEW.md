@@ -1,23 +1,21 @@
-# Review of finite-memory convergence under Bernoulli interpolation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result treats the exact current-gradient, previous-sample-difference accumulator of the published AdaGrad-Diff algorithm. For an arbitrary nonnegative bounded scalar curvature sequence, eventual smallness of normalized steps (under the temporary assumption of divergent variation) gives a telescoping descent bound for squared gradients divided by the increasing weight. An elementary square-root summation contradiction proves that the variation accumulator must actually be finite, with no probabilistic input. On the Bernoulli model, infinitely many zero-to-active transitions rule out a limiting weight at or below the two-step stability barrier along any nonzero trajectory. Active steps then have a uniform strict contraction; the strong law yields exponential convergence, finite squared gradients, and the exact log rate, including its possible negative-infinity case. The event intersection is legitimate in finite dimension. The script checks rational identities and finite sample paths, but these computations are not the proof.
+PASS
 
-Risks and boundaries: no convergence or rate is claimed for general bounded nonnegative curvature paths without recurring active observations. In particular, the pathwise finite-variation lemma alone is not asserted to force minimizer convergence. Exact stochastic rates may not control moments of convergence times or expected errors.
+For the scalar deterministic lemma, if S_n diverges, choose N with w_n≥ηL for n≥N. The step multiplier then is 1−t with 0≤t≤1, and the drop in x² is at least t x²≥ηg²/(Lw). Thus the weighted gradient-energy sum converges. With B_n=Σ_{j=N}^n g_j² and C=ε+sqrt(S_{N−1}+2g_{N−1}²), the difference-square bound gives w_n≤C+2sqrt(B_n). If B diverges then g_n²/(C+2sqrt(B_n))≥[sqrt(B_n)−sqrt(B_{n−1})]/3 once sqrt(B_n)≥C, contradicting weighted summability. B bounded instead forces S bounded, completing the contradiction with no a priori iterate bound. In the Bernoulli case disjoint zero-to-active blocks occur infinitely often almost surely. If w_∞≤ηL/2, every active multiplier has modulus at least one (including equality), and each such block contributes at least L²x_0² to S on a nonzero path, impossible. Above the strict threshold the active multipliers eventually lie in a compact subinterval in modulus below one; the strong law for activations gives exponential decay and squared-gradient summability. For the exact log rate, sum only over active times. If the terminal multiplier is nonzero, its active-step logarithms converge to the stated constant, so Cesàro averaging in the active index and the strong law give the product with p. If it is zero but the path does not hit zero, an arbitrary negative bound eventually holds for all active logarithms and gives rate −∞. This does not assert that such a terminal weight must occur. A coordinate that hits zero has finitely many remaining nonzero gradient differences and stays zero. Each event is coordinatewise; finite intersection requires no within-time independence. Unbiasedness and the variance identity follow by independent current sampling and summing coordinatewise square deviations, without cross terms. Consecutive sampled curvatures are independent, not generally the observed gradients themselves.
 
-## Originality — PASS, subject to independent historical verification
+## originality
 
-The primary source, Bojović–Salzo–Pontil, arXiv:2602.13112, Algorithm 3.6 and its deterministic and stochastic convergence results, explicitly distinguishes deterministic squared-difference summability from the stochastic interpolation question left open in its concluding future-work discussion. This result proves finite variation, unrestricted-step almost-sure convergence and an exact rate for a narrow but genuinely stochastic subclass (independent Bernoulli-zero or positive sample curvatures on a separable strongly convex quadratic). Their deterministic theorem does not imply the result, because the sampled gradient changes when the iterate does not.
+PASS
 
-Rodomanov–Jiang–Stich, arXiv:2406.06398, develops a variation-adaptive stochastic method under a finite feasible-diameter assumption and establishes expected optimization bounds, not the unconstrained Bernoulli pathwise claim. Ward–Wu–Bottou, arXiv:1806.01811, concerns AdaGrad-Norm accumulating gradient magnitudes, a different update. Related published records involving momentum/friction or plain SGD have a different state and cannot imply a statement about this cumulative-difference metric without a new reduction. No identity, duality or stronger known theorem was identified in the inspected sources; this is not a claim of exhaustive literature coverage.
+The same update and deterministic finite variation are prior. The pathwise argument for bounded arbitrary time-varying nonnegative scalar curvature and its stochastic Bernoulli consequences on an unbounded domain are distinct from the strongest compared same-algorithm theorems and the deterministic AdaGrad-Norm threshold analogue.
 
-Residual risks: older specialized results for one-dimensional adaptive stochastic recursions, or later versions of the direct preprint, may contain a covering corollary not found in the material examined. Independent literature priority verification remains required.
+## value
 
-## Value — PASS
+PASS
 
-The paper explicitly highlights unresolved squared-gradient-difference summability under stochastic interpolation and its importance for iterate convergence. This theorem supplies a nontrivial positive test case with arbitrary base step, no bounded domain, multiplicative stochastic gradient noise and an exact random rate. Its deterministic bounded-nonnegative-curvature lemma explains why variation accumulation self-limits, and its Bernoulli argument explains how random recurrence forces the terminal weight into the ordinary stability interval. This informs which structural properties may support more general stochastic analyses, rather than providing a routine fixed-step quadratic computation.
+The primary paper flags an unconstrained interpolation summability question. This restricted positive answer is mathematically useful because the deterministic lemma gives a mechanism for finite difference memory without bounded-domain assumptions, and the Bernoulli structure gives a precise almost-sure threshold and logarithmic rate for any positive step and denominator floor. It does not purport to solve the generic open problem or to give an expected or uniform rate.
 
-The result does not solve the full stochastic interpolation problem, characterize nonseparable objectives, or give uniform stochastic complexity bounds.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

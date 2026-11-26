@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:50:16.355259Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated distinct-third-edge rule, a selected three-edge path is impossible (its middle edge is a forbidden third edge), as is a selected triangle. Hence the selected-edge components are stars; three leaves cannot all be independent within the allowed offsets −2,−1,1,2. The two-leaf offsets (−2,1),(−1,2),(−2,2) give two width-four and one width-five patterns. The nearest-endpoint and interleaving arguments force an exact two-unused-vertex minimum gap between spans; the gap and leaf conditions also suffice. Unique ordered components then give T^t x^{2(t−1)}/(1−x)^{t+1}, and leftover vertices distributed in t+1 slots give the binomial expression, including the constant 1. For m>0 selected edges the minimum order is 3m−2 plus the parity of m, attained with the shortest tiles. For n=6k+r and r=0,1, the only maximal families have 0 or 2 singleton tiles. After dividing out 2^k, their slack counts are [y^(r+2)](1+y/2)^k/(1−y)^(k+1) and binom(k+1,2)/2 times [y^r](1+y)^2(1+y/2)^(k−1)/(1−y)^(k+2). Expanding at r=0,1 gives the claimed numerators 11k²+17k+8 (over 8) and 15k³+47k²+50k+16 (over 16). Residues 2,3 have one singleton and slack 0,1; residues 4,5 have no singletons and slack 0,1. A slack unit either lengthens a tile or is placed in one gap, yielding the other four formulas. I separately enumerated every edge subset up to n=11 by conflict masks directly on graph edges and compared complete coefficients, and checked the exact rational/integer maxima through 50 using the rational GF's recurrence. Order zero gives 1 as intended; orders 1–5 give the stated maxima multiplicities. No finite test substitutes for the structural proof.",
+      "replay": "python3 /workspace/branches/independent-eop.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equal intervals [i,i+2.1] represent the path square; Santra's O(n²) algorithm solves maximum EOP on its proper-interval superclass. The tree algorithm of Brešar–Samadi obtains the scalar and constructs a maximizer."
+        ],
+        "reasoning": "The broader proper-interval result covers scalar optimization but its stated program does not enumerate all feasible cardinalities or count maximum solutions. The tree algorithm doesn't apply to the triangular path square for n≥3.",
+        "searches": [
+          "Santra arXiv:2510.16236 §2 and Theorem 6 (proper interval graphs)",
+          "Brešar–Samadi arXiv:2403.00750 Theorem 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (read only), verify_output.txt",
+        "arXiv:2510.16236, 2403.00750 and 2406.04020",
+        "DOI 10.1051/ro/2022171 and 10.1007/978-3-031-16081-3_36 (access limited)",
+        "Resultary 8c3bbc4f388f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forest enumerator and tree characterization address a domain excluding the path squares, and the proper-interval theorem outputs a maximum, not its multiplicity. The degree and coefficient identities here follow from a unique width/gap proof not supplied by those results."
+        ],
+        "reasoning": "The exact optimum is computeable by prior work, but the packing polynomial and its leading coefficients do not follow from the inspected scalar algorithm, partition number or forest recursion.",
+        "searches": [
+          "Brešar et al. arXiv:2406.04020 Corollary 2.9",
+          "Santra arXiv:2510.16236 Theorem 6",
+          "Resultary 8c3bbc4f388f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2406.04020 §1, p.2, explicitly identifies an injective edge coloring with a partition into EOPs and distinguishes EOPs from matchings."
+        ],
+        "reasoning": "Individual admissible color classes are the same subsets studied here. The minimum palette for a full partition is not the count of all individual admissible subsets by size. Full-text consequences of the specific power-graph proceedings paper remain unverified.",
+        "searches": [
+          "Injective Edge Coloring of Power Graphs and Necklaces, DOI 10.1007/978-3-031-16081-3_36",
+          "Brešar, Dravec, Hedžet & Samadi arXiv:2406.04020 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed result supplies a five-state polynomial recursion for every finite forest (mirrored RESULT.md, offset 0). The frozen small-order census 1,1,3,2,5,9,16,4,18,4,16 was independently reproduced; this is check data, not prior work."
+        ],
+        "reasoning": "For n≥3 the path square contains a triangle, so the forest table does not contain this sequence except trivial small orders. No exact matching census was located in inspected sources.",
+        "searches": [
+          "Resultary: edge-open packing polynomial, square of path, optimum counts and injective edge-coloring classes",
+          "8c3bbc4f388f, Finding"
+        ]
+      },
+      "rationale": "Supported novelty is the full size enumerator/unique component encoding and maximum-set census for the path square. The scalar optimization is already algorithmically covered and the packing problem is an established object. No inspected source covers the claimed enumerative result.",
+      "residual_risks": [
+        "Full texts of Bu–Chen–Zhu and Chelladurai et al. were not recovered; an unindexed counting consequence remains possible. This is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar optimization but not the enumerative claim",
+          "evidence": "Theorem 6 gives O(n²) computation of the EOP number",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16236",
+          "material_read": "§2 and Theorem 6, PDF pp. 3 and 6, extracted offsets 12337 and 26109",
+          "method": "Primary OA PDF text inspection",
+          "title": "Edge open packing on subclasses of chordal graphs",
+          "trigger": "General proper-interval algorithm may cover the result"
+        },
+        {
+          "assessment": "Matching and coloring distinctions verified; tree and product results do not give this path-square count",
+          "evidence": "Partitions into EOP classes and the tree characterization",
+          "identifier_or_url": "https://arxiv.org/abs/2406.04020",
+          "material_read": "§1 p. 2 offset 5681 and Corollary 2.9 p. 13 offset 56980",
+          "method": "Primary OA PDF text inspection",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Injective-color alias and tree/product antecedents"
+        },
+        {
+          "assessment": "Tree optimization, not path-square enumeration",
+          "evidence": "Linear tree maximum computation with recovery of one maximum set",
+          "identifier_or_url": "https://arxiv.org/abs/2403.00750",
+          "material_read": "Introduction p. 2 offset 6680; Theorem 3.6 p. 10 offset 42566",
+          "method": "Primary OA PDF text inspection",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Original algorithms and max-set construction"
+        },
+        {
+          "assessment": "Cannot resolve latent exact coverage in either inaccessible work",
+          "evidence": "Power-graph paper studies injective edge coloring; later papers credit 2022 EOP introduction",
+          "identifier_or_url": "10.1007/978-3-031-16081-3_36; 10.1051/ro/2022171",
+          "material_read": "Bibliographic/abstract-level evidence and later papers' definition discussion; no full text independently read",
+          "method": "Lawful publisher/DOI and alternate OA attempts",
+          "title": "Injective Edge Coloring of Power Graphs and Necklaces; Edge open packing sets in graphs",
+          "trigger": "Directly relevant path powers and original EOP work"
+        },
+        {
+          "assessment": "Not a superclass or matching table",
+          "evidence": "Scope is finite forests",
+          "identifier_or_url": "Resultary 8c3bbc4f388f",
+          "material_read": "Mirrored Finding at offset 0",
+          "method": "Local Resultary search and mirror comparison",
+          "title": "An exact five-state edge-open-packing polynomial recursion for forests",
+          "trigger": "Complete enumerator in a related graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The gap-and-tile description isolates the local mechanism of the packing on a basic infinite chordal graph family and gives every subset-size coefficient, not only the optimum. The exact residue-dependent multiplicity exposes how width slack and alternative singleton tiles create many optima at certain lengths, information not provided by scalar optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

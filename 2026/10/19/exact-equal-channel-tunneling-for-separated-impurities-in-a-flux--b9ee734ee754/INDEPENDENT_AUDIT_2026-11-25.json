@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:11:04.619395Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70; VERIFICATION.md; inspected VERIFY.py lines 19–105. The analytic check above is decisive; the supplied finite-section diagnostics were not used as an infinite-volume certificate."
+      ],
+      "rationale": "The prescribed compact vector solves the hub cancellation on each of its three incident hubs. Its translates have Gram symbol 1+cos(phi/2) cos(k)>0 and span the one-dimensional flat fiber. The decaying root of the Gram recurrence is -r and the n=0 equation fixes the inverse normalization (1+r²)/(1-r²). For d≥2 the four touched translates are distinct; the restricted onsite Gram is two copies of a block with eigenvalues (1±r)²/[2(1+r²)]>0. Thus the Hermitian reduction is positive definite and rank four. In the symmetric/antisymmetric basis its same-cell blocks are diag((1+r)/2,(1-r)/2); the intercell Gram kernel before the change of basis is proportional to [[-r,r²],[1,-r]], yielding the stated rank-one off-block with entries of magnitude h_d after whitening. In a shifted spectral variable y=x-1/2, the rank-one Schur determinant multiplies (y²-r²/4)² by 1-h_d²[2y/(y²-r²/4)]². Hence the four roots are positive and distinct and the two ordered doublets split by precisely 2h_d. For the full operator, ker(H0)∩ker(W_d) remains a reducing zero subspace and its orthogonal complement has a four-dimensional isolated zero eigenspace separated from the dispersive spectrum by the fixed positive gap. Ordinary isolated-cluster perturbation on that complement gives slopes equal to the four compression eigenvalues, hence the claimed O(epsilon²) expansions at fixed J, phi, d. At phi=pi/2, r=sqrt(2)-1 and the ratio is r². No finite-strength equality or uniform estimate in closing gap or increasing d is certified.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marques et al. treat the flat-band projection and single-pair projected matrix. Viedma et al. evaluate selected fluxes and separations numerically."
+        ],
+        "reasoning": "The general projection machinery supplies ingredients, not the evaluated rank-four characteristic polynomial or its identity for arbitrary d≥2, 0<phi<pi.",
+        "searches": [
+          "arXiv:2407.14405v1 Eqs. (35), (42)–(44); arXiv:2407.15789v1 Sec. VI.A; targeted literature lookup for analytical two-pair treatment and the thesis mentioned in the frozen record"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary",
+        "arXiv:2407.15789v1",
+        "arXiv:2407.14405v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-pair eigenvalues give the limiting two copies but no cross blocks; numerical distance trends give neither their exact rank-one structure nor equal splittings of both compressed channels."
+        ],
+        "reasoning": "The equality depends on the rank-one cross block and its two equal squared coordinate weights in each same-cell eigenbasis. It is not a specialization of the evaluated single-pair result.",
+        "searches": [
+          "Compare arXiv:2407.14405v1 Eqs. (35), (42)–(44) and arXiv:2407.15789v1 Sec. VI.A with frozen RESULT.md lines 51–70"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Viedma et al. use precisely the half-gap (E_+-E_-)/2 and compare upper and lower branches, describing the results as approximately equal.",
+          "Closest identified Resultary record 2026/10/18/SCOPE-a-single-bond-pair-defect-creates-a-sharp-1-n-fidelity-window-in--3a74218086dc concerns an antisymmetric hopping-pair defect and a transfer ceiling, not the two onsite-pair compression."
+        ],
+        "reasoning": "The half-gap formulation is equivalent at the level of the observable; the reported approximation does not assert an exact equality of compressed doublets.",
+        "searches": [
+          "Resultary: two onsite impurity pairs in flux-threaded diamond chains and flat-band coupling; arXiv:2407.15789v1 Sec. VI.A Eq. (7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fig. 6 uses separations 6 and 8 at phi=pi/2; the relevant discussion reports numerical trends, not the radical ratio or the exact distance prefactor. No materially matching exact table was identified in the local comparison."
+        ],
+        "reasoning": "A numerical value near 0.17 does not specify an exact radical and does not certify the all-parameter function.",
+        "searches": [
+          "Local Resultary comparison for exact two-pair spectrum/coupling; arXiv:2407.15789v1 Fig. 6 and Sec. VI.A"
+        ]
+      },
+      "rationale": "The closest primary work treats the same two-pair coupling problem numerically and observes approximate channel equality. The exact compressed determinant, its all-separation splitting, and the resulting first-order prefactor are the supported distinct contribution. No priority is claimed for the projection framework, single-pair energies, or qualitative exponential falloff.",
+      "residual_risks": [
+        "The 2024 thesis mentioned without a title, author or URL was not identified and its exact contents remain unresolved.",
+        "Bounded comparisons do not rule out unindexed derivations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Approximate and numerical overlap; exact theorem not stated in inspected comparison",
+          "evidence": [
+            "Half-gap Eq. (7); 'approximately equal results' and 'very similar' branches; numerical separation dependence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.15789",
+          "material_read": "v1 PDF p. 7, Sec. VI.A, Eq. (7), Fig. 6 and adjacent text (extraction offsets 41900–45414)",
+          "method": "Targeted lawful OA full-text passage inspection",
+          "title": "Flux-mediated effective Su–Schrieffer–Heeger model in an impurity decorated diamond chain",
+          "trigger": "Same two-separated-pair geometry and coupling observable"
+        },
+        {
+          "assessment": "Established method and separate single-pair specialization",
+          "evidence": [
+            "Projected 2×2 impurity matrix and single-pair energies."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.14405",
+          "material_read": "v1 Eqs. (35), (42)–(44) and surrounding text (extraction offsets near 37900 and 42800–47613)",
+          "method": "Targeted lawful OA full-text passage inspection",
+          "title": "Impurity flat band states in the diamond chain",
+          "trigger": "Projection formalism and analytically treated impurity states"
+        },
+        {
+          "assessment": "Unresolved specific access/identification risk, not negative evidence",
+          "evidence": [
+            "Frozen record describes a possibly relevant indexed thesis but does not identify it."
+          ],
+          "identifier_or_url": "Frozen RESULT.md line 82; no bibliographic identifier specified",
+          "material_read": "Frozen limitation; no thesis passage identified or read",
+          "method": "Bounded literature lookup and frozen-reference inspection",
+          "title": "Unidentified 2024 doctoral thesis mentioned in the frozen record",
+          "trigger": "Possible priority for the exact two-pair calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Viedma et al., Sec. VI.A and Fig. 6; frozen Finding and Limitations"
+      ],
+      "rationale": "The exact invariant answers a comparison already singled out in a physical model: whether two channels merely appear close, and what sets the distance dependence of their effective tunneling. It gives a usable normalization and a sharp separation law for the weak-impurity regime, while distinguishing a true projection identity from the full-Hamiltonian approximation.",
+      "residual_risks": [
+        "No claim is made about transport, topological protection or finite-strength equality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

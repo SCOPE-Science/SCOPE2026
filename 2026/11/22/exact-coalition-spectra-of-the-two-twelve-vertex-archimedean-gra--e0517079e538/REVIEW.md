@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph definitions fix both labelled twelve-vertex adjacency structures. Since neither graph has a universal vertex, the coalition-partition definition is equivalent to requiring each block to have nonempty undominated set and another block with disjoint undominated set. This equivalence is proved in the result. The restricted-growth-string enumeration of the \(4,213,597\) partitions per graph is bijective, with no deduplication issue. A second least-unassigned-subset recursion independently traverses every partition and applies bitmask missed-neighborhood tests. All coefficients agree, all degree-eight configurations have been listed, and higher coefficients vanish. The cube and tetrahedral symmetry groups were explicitly generated and their orbits checked against the complete optimum lists. The runnable artifacts therefore suffice for a finite exhaustive proof, although independent scholarly validation remains outstanding.
+PASS
 
-## Originality — PASS, with historical-priority risk
+With no universal vertices, every block must be non-dominating and have at least one other block with dominating union; partners need not be exclusive. The missed-set characterization is exact by the intersection law for complements. I inspected the supplied enumerators and certificates, but did not execute uploaded code. The independent Python replay /workspace/checks/5.py orders blocks by (cardinality, mask), uses direct intersection with every closed neighborhood to test domination, and checks the entire partition traversal against the Stirling counts for every k. Each graph visits all 4,213,597 partitions; the independent coefficient vectors for k=2,...,8 are (24,10128,194733,582874,378855,47900,762) and (171,24846,258625,441384,153715,7422,93), with zeros elsewhere. Totals are 1215276 and 886256. Every winning partition agrees with the frozen list after vertex renumbering. Counting profiles in these complete lists gives (420,180,162) and (12,81) in the stated order. Independently extending partial adjacency-preserving bijections over all unused images gives the full automorphism groups of orders 48 and 24; their actions yield 23 and 7 orbits, agreeing on every orbit representative up to action, size and profile with the frozen JSON. Replay: python3 /workspace/checks/5.py cubo <frozen directory> and similarly trunc, logs in /workspace/checks/5-cubo.txt and 5-trunc.txt. The packaged shell marker alone does not check every archived coefficient or profile; the independent comparisons and exhaustive counts are decisive. The result is finite and does not imply an all-graphs theorem.
 
-The 2020 foundational definition gives no such complete pair of enumerators or counts. The inspected 2022 preprint on cubic graphs stops at ten vertices, below the truncated tetrahedron's twelve. The cuboctahedral vertex problem is equivalent to the edge coalition partition problem of the three-cube; the inspected 2026 edge-coalition study does not give a cube value or a complete edge-coalition census. The closest indexed records on the same two solids compute their second-independence homotopy rather than their coalition partitions, which implies no coefficient here. Exact-topic web and indexed-record searches revealed no covering statement, but this cannot prove absolute historical uniqueness. Some indexed records lacked accessible full text.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The cuboctahedron and truncated tetrahedron form a canonical comparison pair: the only two twelve-vertex Archimedean graphs and the first is the line graph of a cube. Despite different degrees they share a sharp eight-block coalition optimum while displaying different full partition spectra, three versus two optimal block profiles and twenty-three versus seven symmetry orbits. The twelve-vertex cubic case is a natural first dimension beyond a published enumeration of cubic graphs of order at most ten. This is a complete finite invariant and optimizer classification, not an arbitrary slice of computed data.
+No distinct covering claim was established for the complete labelled spectra or the optimum orbit census. Compare the edge-coalition alias literally, and distinguish the strongest nearby results on the scalar maximum, a different graph family, or the same graph with a different invariant.
 
-## Closest literature and limits
+## value
 
-- Haynes et al., *Introduction to coalitions in graphs* (2020), establishes the invariant.
-- Alikhani et al., *Coalition of cubic graphs of order at most 10* (2022 preprint), does not reach twelve vertices.
-- Besharati et al., *Edge Coalitions in Graphs* (2026 inspected version), gives the relevant line-graph formulation without a cube census.
+PASS
 
-No all-orders or graph-class generalization is asserted. Checked full texts, exact comparisons and residual access risks are recorded in `AUDIT.json`. The complete finite enumeration is a self-review, not an independent mathematical audit.
+These are the two canonical Archimedean graphs on twelve vertices, not two arbitrary graph samples. The full labelled invariant and symmetry classification distinguish their coalition combinatorics despite equal maximum eight, and provide a reproducible benchmark for cubic coalition and cube edge-coalition computations beyond a scalar lookup. The precise counts and profiles, not just reproducing a maximum, are useful finite data.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

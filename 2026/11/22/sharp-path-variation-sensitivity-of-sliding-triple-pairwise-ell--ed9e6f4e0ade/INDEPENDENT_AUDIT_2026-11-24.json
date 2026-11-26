@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:01:13.955764Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a unit step on the input path only the windows straddling its edge can respond. A single affected window is at the output boundary. When there are two, their derivatives are u=∂c D(a,b,c) and v=−∂b D(b,c,d). Hölder bounds each by M=2^(1/p). If b<c and u<0, put s=c−b and t=a−c. The numerator in |u| is t^(p−1)−s^(p−1), and the denominator is at least (2t^p)^((p−1)/p). This gives |u|≤M/2, with the reflected estimate for v; b=c gives magnitude M/2 for nonconstant crossing triples. Thus opposite signs force one smaller amplitude. Counting adjacent differences with zero, one, or two flanking zeros gives 3M/2, 5M/2, 3M at lengths 4, 5, ≥6, respectively. The 1-norm of the coefficients in the unit-step decomposition is exactly input TV. To justify line integration at constant triples one may approximate the initial endpoint by data with no constant triples, so the segment meets nondifferentiability in finitely many parameters, and pass to the limit by continuity. With (a,b,c,d)=(1,0,ε,ε), the derivative tends to (−M/2,M), and finite differences tending to this derivative prove the sharp supremum for fixed p. At the endpoints the statistic is range or twice range, and the two crossing range derivatives have the same weak sign. An actual small positive step at that same baseline leaves the first range fixed and increases the second by the step size, even though c=d; no strict ordering of the two tied entries is needed. The n=3 output TV is identically zero, so the endpoint discontinuities are for n≥4 only. The proof establishes the continuum; the frozen NumPy tests were inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-graph Gini cut result allows more window sizes but remains an ℓ1 absolute-difference result. The three-site p-mean record varies p in a residual minimization defining a location, not a dispersion. The inspected primary texts concern statistical efficiency, influence or sampling, rather than path-TV Lipschitz gain."
+        ],
+        "reasoning": "More window sizes at one exponent, or a continuum of exponents for another statistic, does not dominate the simultaneous p-and-length claim.",
+        "searches": [
+          "Resultary: sliding local ℓp/Gini/standard-deviation variation bounds",
+          "arXiv:1405.5027",
+          "arXiv:1406.2275"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and cited published records a89e9ca30f9b, e2ffeca087e4, bec95f897de0",
+        "arXiv:1405.5027 and arXiv:1406.2275, bounded passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp Gini statement covers n≥2m, giving n≥6 at m=3, not the exact short-path classification. The variance identity gives all p=2 lengths. Pointwise convergence or bounds at a pair of exponents do not imply convergence or values of the optimal two-input gains."
+        ],
+        "reasoning": "Credit each implication, but the shared-order derivative estimate at general p and the nonuniform approach to both endpoints are distinct mathematical claims.",
+        "searches": [
+          "a89e9ca3-0f9b-487f-be6a-d2be1d31011a: Finding and sharpness range",
+          "e2ffeca0-87e4-4cab-8d56-eba50099a21e: Finding and proof",
+          "bec95f897de0: Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D1 is three times the average of the three absolute pair differences and twice D∞. D2 is three times the three-site population standard deviation by the sum-of-squares identity."
+        ],
+        "reasoning": "These identities identify genuine coverage of named slices. They do not turn p-mean location or Gini dispersion into the full pairwise power-dispersion family.",
+        "searches": [
+          "Resultary: sliding triple pairwise power dispersion, Gini, standard deviation and path TV",
+          "a89e9ca3-0f9b-487f-be6a-d2be1d31011a",
+          "e2ffeca0-87e4-4cab-8d56-eba50099a21e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The moving-standard-deviation table reads 0,1/√2,5√2/6,√2; multiplying by 3 reproduces exactly the p=2 row. The Gini sharp formula at window size 3 is 4/3 for n≥6, giving 4 after rescaling. The identical indexed target is not independent coverage."
+        ],
+        "reasoning": "The database supplied exact special-case constants but no independently matched table for the continuum and both limiting transitions. An unavailable literature lookup is not negative evidence.",
+        "searches": [
+          "Resultary matching Gini, moving standard deviation, three-point p-means and pairwise ℓp records"
+        ]
+      },
+      "rationale": "Pass for the continuum sharp law and its endpoint discontinuities, with exact prior coverage credited for the quadratic slice and the long-path Gini endpoint. The strongest other matched three-site p-family is a different filter. There is no priority claim from same-day publication dates.",
+      "residual_risks": [
+        "The literature search and OA extraction were not fully available; no comprehensive historical claim follows.",
+        "Same-day listings do not establish order. A broader exact operator inequality in uninspected literature cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the long-path endpoint, not the finite-p continuum",
+          "evidence": "Normalized coefficient 2 floor(m²/4)/binom(m,2) is sharp for n≥2m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-complete-graph-cut-law-for-sliding-gini-dispersion-in-path--a89e9ca30f9b",
+          "material_read": "RESULT.md Finding, scope, Proof §§1–3",
+          "method": "Published record mirror",
+          "title": "Sharp complete-graph cut law for sliding Gini dispersion in path variation",
+          "trigger": "Exact p=1 normalization match"
+        },
+        {
+          "assessment": "Covers the entire p=2 slice after rescaling",
+          "evidence": "Population standard-deviation gain is 0,1/√2,5√2/6,√2 at lengths 3,4,5,≥6.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-variation-instability-onset-and-nonattainment-for-moving-t--e2ffeca087e4",
+          "material_read": "RESULT.md Finding, scope and proof",
+          "method": "Published record mirror",
+          "title": "Sharp variation-instability onset and nonattainment for moving three-point standard deviation",
+          "trigger": "Exact p=2 normalization match"
+        },
+        {
+          "assessment": "Distinct operator",
+          "evidence": "Outputs the minimizer of a sum of powered residuals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-quadratic-loss-phase-transition-in-path-variation-for-slid--bec95f897de0",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Published record mirror",
+          "title": "Sharp quadratic-loss phase transition in path variation for sliding three-point p-means",
+          "trigger": "Same window and variation metric with a variable p"
+        },
+        {
+          "assessment": "The inspected passages are about statistical efficiency; not a whole-paper exclusion",
+          "evidence": "Analyzes mean deviation and Gini efficiency, including a contamination model.",
+          "identifier_or_url": "https://arxiv.org/abs/1405.5027",
+          "material_read": "PDF text offsets 6–24 and 30–40, abstract and beginning of §1",
+          "method": "Open preprint PDF text",
+          "title": "On the efficiency of Gini’s mean difference",
+          "trigger": "Gini and standard-deviation comparison"
+        },
+        {
+          "assessment": "The inspected passages concern population estimation, not the stated stability law",
+          "evidence": "Treats sampling and estimation of finite-population dispersion measures.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.2275",
+          "material_read": "PDF text offsets 17–27 and 34–40, abstract and introduction",
+          "method": "Open preprint PDF text",
+          "title": "Gini’s mean difference and variance as measures of finite populations scales",
+          "trigger": "Gini and variance comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sliding local dispersion filter is a natural use of both Gini-type and quadratic scale statistics. The exact length cutoffs and strict drops at both limiting exponents show that pointwise approximation by very small or very large finite powers cannot be used to infer worst-case stability of the limiting filter. The crossing-window estimate identifies why adding independent worst-case responses would overestimate the gain; the explicit baselines give practical tests. This value does not depend on treating the known quadratic or Gini slices as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

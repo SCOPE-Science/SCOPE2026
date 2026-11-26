@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The direct OR/XOR definition and an independent support-set formulation agree on every six- and seven-subset of the nonzero five-bit vectors. Exhaustive enumeration gives exactly ten valid six-word codes and no valid seven-word code; heredity then proves the optimum is six. The same census verifies that all ten equality cases are precisely the labeled \(K_{2,3}\) edge families, and a full \(S_5\) action check gives one orbit with stabilizer order \(12\).
+## correctness
 
-## Originality
-PASS. The closest inspected literature covers fan-out-two/constant-weight-two X-codes through graph girth and general asymptotic bounds. Those statements do not imply that unrestricted arbitrary-weight codes have the same optimum or that every unrestricted equality case is forced to weight two. Exact-parameter, graph-alias, published-finding corpus, current-ledger, and prior-ledger searches found no matching unrestricted equality classification. Residual risk remains from inaccessible 2003 proceedings full text or obscure unindexed enumerations.
+PASS
 
-## Value
-PASS. The five-output case is the first nontrivial compaction boundary in this parameter family under the packaged finite check, and the theorem explains why arbitrary fan-out cannot improve the classical minimum-fan-out construction there. A complete equality classification and symmetry census is a natural structural refinement with direct relevance to small X-compactor design.
+There is an independent short upper-bound and rigidity proof. For each unknown word U, projection outside supp(U) is injective on the whole code: no other word projects to zero (one-error condition), and no two other words have the same projection (two-error condition). Thus n<=2^(5-wt(U)) for every U, and for n>=6 all words have weight at most two. The zero word is impossible. If a singleton occurs, every other word avoids its coordinate; deleting that singleton and coordinate leaves at least five words in length four, all of weight at most one by the same bound, a contradiction. For the remaining weight-two words the X-condition is exactly triangle-freeness: two disjoint edges have four-point XOR, and two adjacent edges have two-point XOR covered by an unknown edge iff they form a triangle. At least six edges require maximum degree at least three; degree four forces a four-edge star; degree three leaves an independent three-neighbor set and only one other vertex, which must join all three neighbors to reach six edges. This forces K_2,3 and excludes seven. Conversely every labeled K_2,3 satisfies the X-condition. Its smaller shore can be chosen in ten ways, all one S_5 orbit, with stabilizer S_2 times S_3 of order 12. Read RESULT.md, VERIFICATION.md, the census and recorded output, and inspected artifacts/verify.py without executing it. Independent projection enumeration (`python3 /tmp/opencode/frozen_math_replay_1_2_4.py 1`) covered the remaining 5,005 six-subsets and 6,435 seven-subsets after the weight bound, giving 10 and 0 respectively. All census masks, edge lists, degree-three shores and recorded artifact hashes matched. The original larger candidate counts are binomial(31,6)=736281 and binomial(31,7)=2629575. No larger-parameter classification is inferred.
 
-## Closest literature and limitations
-The constant-weight-two graph correspondence is prior work and already yields the \(K_{2,3}\) construction. The new content is unrestricted optimality and rigidity. The result is limited to binary \((5,n,2,1)\) X-codes, and two 2003 proceedings sources were available only through public abstracts/metadata.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known construction, weight-two extremum and its graph equality case are not the novelty. The justified distinction is that the extremum remains six without a fan-out constraint and that every unrestricted optimizer lies in the classical weight-two class. The checked literature does not already supply that reduction or the unrestricted equality classification for these parameters.
+
+## value
+
+PASS
+
+This parameter lies at the first genuine compaction length for this error/unknown model. In fact, n>m for m=1,2 forces zero weight by the projection bound; for m=3,4 it forces weight at most one, hence n<=m. At m=5, the six-word construction gives n>m. It is useful at this natural cutoff to know not only that the fan-out-two architecture works but that no higher- or mixed-weight architecture competes, and to have all possible optima up to wire relabeling. The restricted graph result does not answer that structural question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

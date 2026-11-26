@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim concerns stationary equal-rate Erlang renewal calls with exactly two equal windows and a nonempty detection requirement in each. The proof derives the joint no-event probability through a phase-cycle generator with a killed final transition in each recorded interval. It explicitly computes the one-, two- and three-stage laws, then differentiates the three-stage exponentially damped sinusoid. The first stationary maximum is strictly above the infinite-gap limit, later maxima have exponentially smaller positive excursions, and the endpoint is strictly worse. A direct finite-state, standard-library checker performed 533 assertions over representative positive inputs. This corroboration is not used as the proof of universal quantifiers. Residual risk: the stated model is highly idealized; results should not be extended to unequal windows or nonstationary processes without new analysis.
+PASS
 
-## Originality: PASS (provisional priority)
+A unit-rate Poisson jump process advances the phase mod m; a call is precisely a wrap, so intercall times are Erlang and the equilibrium phase is uniform. With x=lambda*w and y=lambda*g, suppress the wrap during each window: Z=e^(-x) sum_(j<m) x^j N^j/j!. Inclusion-exclusion gives 1-2*pi*Z*1+pi*Z*exp(y(P-I))*Z*1, with no restriction on gap calls. The one-phase formula follows from independent Poisson increments (the shared endpoint at zero gap has no atom). The two-phase nonstationary eigenmode contributes -x^2 exp(-2x-2y)/4, giving a strictly increasing function and no finite maximizer. The three-cycle has conjugate exponents -3/2 +/- i sqrt(3)/2. Contracting the three shifted phase laws with the two no-call factors yields the stated A and B, and the derivative coefficients are C=-3A/2+omega B=x^3(x+4)/12>0 and D=-omega A-3B/2. The first critical angle is pi/2+arctan(D/C); it is a maximum. At any maximum the excess term before damping is (-AD+BC)/sqrt(C^2+D^2)=omega(A^2+B^2)/sqrt(C^2+D^2)>0. Successive maxima decrease by exp(-2*pi*sqrt(3)) in excess above the limit. At zero gap A<0, so neither the initial boundary, later peaks nor the infinite-gap limit compete with the first maximum. The quotient D/C equals R, with R'=-8 sqrt(3)(x^2+2x+4)/(3x^2(x+4)^2)<0 and limits +infinity and -1/sqrt(3), giving both sharp endpoint limits of the gap. The unit example was independently reproduced by direct positive summation over Poisson counts and uniform initial phase: python3 /workspace/checks/renewal_example.py. It yields gap 2.85747542539998 and probabilities 0.05711456541455, 0.10634765599656, and 0.10598563991666 for zero gap, optimum, and infinite gap respectively. That bounded check is not the proof of the all-window-length result. Results do not cover unequal windows, a constrained horizon, other renewal laws, or higher phase counts.
 
-The closest mathematical source, Nolan (2017), gives general Erlang renewal phase-matrix *joint distributions* and nonadjacent coincidence functions, and consequently supplies a general starting point for computing two-window probabilities. It does not state an optimized nonempty-window confirmation probability, a sharp one/two/three-stage distinction, the explicit globally optimal positive three-stage silent gap, or its strict monotonicity. These are not merely different notation for an existing optimized claim. The closest acoustic sources (Stevenson et al. 2014, Balantic and Donovan 2019, Van Helsdingen et al. 2024) emphasize calling dependence, surveillance scheduling, or underdispersed cues, but do not treat this exact Erlang gap-design objective. Existing probability machinery is credited, and the broader renewal-optimization literature remains a priority risk rather than being claimed exhaustively excluded.
+## originality
 
-## Value: PASS
+PASS
 
-Repeated acoustic confirmation matters for survey reliability, and published acoustic scheduling work explicitly contemplates two distinct positive recording occasions. The result shows a qualitative change in the optimal design caused *solely by renewal-stage structure*, at fixed positive recording duration: memoryless calls make gap irrelevant, Erlang-two calls favor ever-increasing separation, and Erlang-three calls require a finite specific gap. It supplies exact non-asymptotic timing at every positive recording length and a universal bounded optimal-gap interval; for the dimensionless example of unit recording length, two-confirmation probability improves from 0.0571145654 to 0.1063476560 versus contiguous windows. This is a natural model-specific design benchmark, not a generic claim that regular calling always improves detection.
+The global confirmation-gap classification and explicit optimizer survive the compared sources. The phase-chain joint count law and acoustic confirmation motivation are known and are not separate novelty claims.
 
-## Closest literature and limitations
+## value
 
-The reference probability matrices overlap with Nolan (2017), whose derivation is not rediscovered. The analysis differs from the continuous-time stationary two-state availability and Poisson or independent-hourly-detection models appearing elsewhere. The conclusion depends on stationary phases, equal window lengths, a single caller with perfectly detected instantaneous calls and no endpoint deadline. More general renewal and surveying theories may contain an equivalent optimizer statement. Full primary web texts and precise compared claims, methods, and residual risks are recorded in AUDIT.json and RESULT.md.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It identifies the sharp threshold for a strict finite optimal gap for a natural two-confirmation criterion. Stage complexity changes the decision from neutral to unbounded separation to a unique finite optimum; the spectral mechanism explains why. The improvement from 0.05711 to 0.10635 over contiguous unit windows is illustrative; the value of the theorem is the exact stage and window-length dependence, not just the improvement over the already close infinite-gap value or a claimed field recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

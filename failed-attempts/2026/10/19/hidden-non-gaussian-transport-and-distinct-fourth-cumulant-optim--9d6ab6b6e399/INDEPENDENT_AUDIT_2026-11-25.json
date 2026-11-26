@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:07:25.399604Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–27, 29–91",
+        "Frozen VERIFICATION.md and verify.py lines 7–76 (inspected, not executed)",
+        "Exact ordered-time calculation in this review"
+      ],
+      "rationale": "Independent calculation: for four ordered velocity times with successive gaps x,y,z, condition on the clock and use Gaussian pairings within unbroken intervals. The adjacent pairing factors and cancels from the connected moment. The two remaining pairings each require no refresh across the full span; subtracting the unconditional covariance products gives the connected moment 2 sigma^4 exp[-a1(x+z)](exp[-a2 y]-exp[-2 a1 y]), with a1=gamma+r and a2=2 gamma+r. It is strictly positive for positive gaps. Integration over the ordered time simplex, with the factor 24, proves strict displacement fourth cumulant at every positive time. After dividing by t the gap integrand acquires the factor (1-(x+y+z)/t)_+; dominated convergence gives 48 sigma^4/a1^2 times (1/a2-1/(2 a1)), exactly the claimed absolute rate. The covariance gives Var(X_t)/t -> 2 sigma^2/a1 and hence the claimed standardized rate. Differentiation gives the respective derivative signs 2 gamma^2-4 gamma r-3 r^2 and 2 gamma^2-r^2, establishing unique interior maxima. Repeating the endpoints of the connected moment and adding the two cross-pair products yields Cov(V_0^2,V_t^2)=2 sigma^4 exp[-a2 t]; the two lag slopes invert as stated. This route does not require interchanging derivatives and renewal limits.",
+      "residual_risks": [
+        "No claim about a finite-time maximizing refresh rate, noisy inference, or non-Maxwellian resets; proof uses positive gamma, r and invariant Gaussian variance."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen–Löwen's retained-position propagator and moment hierarchy fix the refreshed variable at y0; they need extension for distributed Gaussian marks.",
+          "The indexed covariance-twins result proves the full ordered four-time connected velocity function in the exact Gaussian-marked model, not merely one square-velocity lag."
+        ],
+        "reasoning": "The general fixed-value renewal method is background, but the distinct same-model multi-time formula gives stronger coverage of the proposed fourth-order lag observable.",
+        "searches": [
+          "arXiv:2401.12685 §§2–3",
+          "Resultary d13d753808a7, RESULT.md Proof §§1–3, 5"
+        ]
+      },
+      "checked_sources": [
+        "Resultary d13d753808a7 and dc4dddaa64f9 (distinct indexed records)",
+        "Olsen and Löwen, arXiv:2401.12685"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At repeated times, the indexed four-time formula gives cum(V_0,V_0,V_t,V_t)=2 sigma^4 exp(-2 lambda t)(exp(rt)-1). Its velocity covariance supplies the two missing cross-pair products.",
+          "Differentiating the two indexed coefficients at fixed gamma and sigma^2 gives the frozen quadratic derivative numerators and unique optima."
+        ],
+        "reasoning": "The lag inverse follows directly from the same two exponents and the maxima require only rational differentiation. Neither is a separately established advance over the stronger available indexed result; this does not establish earlier priority.",
+        "searches": [
+          "Resultary d13d753808a7, Proof §§1–2 and §5",
+          "arXiv:2401.12685, §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed covariance-twins RESULT.md, Finding/Assumptions at offset 0 and Proof §§2–3 at offsets 3525–4567: iid invariant Gaussian velocity marks, same thermal OU between events, no position resets, and a strictly positive connected displacement fourth cumulant at every positive time.",
+          "Olsen–Löwen §§2–3 instead reset the hidden variable to a fixed value, with zero reset velocity in the application."
+        ],
+        "reasoning": "Poisson rethermalization and Maxwellian refresh are equivalent here, including independence of the reset marks. Deterministic zero-velocity reset is not equivalent.",
+        "searches": [
+          "Resultary: Maxwellian velocity-only refresh, covariance twins and displacement identification; 2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7",
+          "arXiv:2401.12685"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first hit's coefficients are 24 sigma^4 r/[lambda^3(2 lambda-r)] and 6r/[lambda(2 lambda-r)], lambda=gamma+r.",
+          "The second hit optimizes a different, zero-reset model, with one standardized optimum near r/gamma=2.5565366."
+        ],
+        "reasoning": "The relevant exact lookup is for symbolic formulas, not a numerical table of rates. The first hit matches both formulas after substituting 2 lambda-r=2 gamma+r.",
+        "searches": [
+          "Resultary d13d753808a7, exact coefficients in Proof §5 at offset 6428",
+          "Resultary 2026/11/2/SCOPE-a-unique-optimum-of-non-gaussian-displacement-under-poisson-velo--dc4dddaa64f9, Finding and Proof §4"
+        ]
+      },
+      "rationale": "A distinct indexed result covers the same unreset-position process and gives a stronger connected velocity formula, the same strict all-time displacement result, and both exact asymptotic coefficients. The two optima and the proposed velocity-lag inversion follow directly, even though they are not stated as such there. This is demonstrated scientific coverage, not a finding about chronological priority: the covering record has a later date in its index path, and the checked primary fixed-reset paper does not establish this Gaussian-marked result. No separate non-mechanical remainder in the frozen Finding was identified.",
+      "residual_risks": [
+        "Index dates and demonstrated equivalence do not settle priority or derivation history. The focused literature search did not identify an earlier exact Gaussian-marked source; that is not evidence that none exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen fourth-order findings directly or by mechanical consequences, without determining chronological priority",
+          "evidence": [
+            "Same Gaussian marks and unreset position; same exponential covariance; full connected four-time function; both exact asymptotic coefficients."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7",
+          "material_read": "RESULT.md Finding and Assumptions (offset 0), Proof §§1–3 (offsets 3305–4567 onward), §5 (offset 6428)",
+          "method": "Targeted local mirror reading following indexed search",
+          "title": "Gaussian covariance twins and displacement-only identification of Poisson-rethermalized Ornstein–Uhlenbeck motion",
+          "trigger": "Closest same-model indexed statement"
+        },
+        {
+          "assessment": "Related but inspected application fixes reset velocity at zero and does not give Gaussian-mark results",
+          "evidence": [
+            "Generic hidden variable reset to y0; Langevin velocity relaxation between reset events."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+          "material_read": "OA PDF pp. 3–8, §2 Eqs. (1), (7), (13), §3 Eqs. (21), (26)–(27)",
+          "method": "Targeted OA full-text passages",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "Closest cited primary partial-reset framework"
+        },
+        {
+          "assessment": "Different deterministic reset protocol and different optimum",
+          "evidence": [
+            "The standardized optimum near r/gamma=2.5565366 is not a Maxwellian-refresh result."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-unique-optimum-of-non-gaussian-displacement-under-poisson-velo--dc4dddaa64f9",
+          "material_read": "RESULT.md Finding, Assumptions, and Proof §4",
+          "method": "Targeted local mirror reading following indexed search",
+          "title": "A unique optimum of non-Gaussian displacement under Poisson velocity resetting",
+          "trigger": "Exact optimization near match"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof §§1–5 and Limitations",
+        "Indexed covariance-twins result, Proof §§1–3 and 5"
+      ],
+      "rationale": "As a scientific statement, this separates the effects of thermal relaxation and velocity refresh in a model whose entire second-order velocity signal cannot do so. Comparing absolute and variance-normalized fourth-order transport also changes the predicted operating point substantially. This physical and inferential motivation is distinct from whether the formulas constitute a new contribution, which fails above.",
+      "residual_risks": [
+        "Ideal stationary lag measurements only; no finite-sample estimator, thermostat performance, or finite-time optimization result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

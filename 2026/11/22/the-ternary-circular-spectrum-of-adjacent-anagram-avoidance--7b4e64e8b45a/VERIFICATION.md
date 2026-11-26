@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_spectrum.py` and `python3 verify_bruteforce.py` from an extracted copy of this package. Both use the Python standard library only.
+## correctness
 
-The first program constructs the integer triple-overlap matrix from the original forbidden-block predicate. It independently calculates traces of its first \(27\) powers, uses exact Newton identities to recover all characteristic coefficients, and verifies the proposed factorization of \(\det(I-zT)\) coefficient by coefficient. The second enumerates all ternary indexed words for lengths one through eleven and compares the cyclic block predicate directly, without using matrix traces; it also checks primitive rotation classes through length nine.
+PASS
 
-Recorded checks: exact determinant certificate passed; all first fifteen transfer trace values passed; all eleven exhaustive finite length comparisons passed; primitive-orbit identity checks through length nine passed. The finite enumeration is a cross-check only, while the all-length proof relies on the closed-walk bijection and exact determinant identity. These are same-package calculations, not independent expert certification. The package does not attempt to resolve historical equivalence across all possible literature.
+The triple-overlap rule tests exactly the specified four-letter windows. For a closed walk with distinguished time zero, the first coordinates give the indexed periodic word, and the other coordinates are forced to be its next two symbols, including at periods 1, 2 and 3. Thus traces count all indexed periodic words, not just those of least period n. I built the adjacency independently by excluding (a=c and b=d) or (a=d and b=c), used exact characteristic-polynomial arithmetic instead of Newton sums, and recovered lambda^6 times the reverse F, G and H^2 factors. The logarithmic derivative gives the stated first fifteen counts. Möbius inversion partitions fixed points by least period; a rotation through j positions fixes exactly C_gcd(n,j) words, proving the total necklace formula by Burnside. Direct exhaustive word and rotation-class checks of both formulas through n=9 also agree. Replay: python -B /workspace/branches/independent_checks.py 5.
+
+## originality
+
+PASS
+
+No inspected distinct statement determines this ternary periodic spectrum. The closest located catalogue statements use the same type of orbit invariant but impose different alphabet and window rules; the closest primary circular-avoidance formulations impose different period ranges and/or equality predicates. Credit the established transfer and orbit inversion methods, not as part of the new claim. This is a bounded comparison, not a claim of historical priority.
+
+## value
+
+PASS
+
+Length two is the first root length at which anagrams give a different obstruction from literal repetition. The ternary case is a natural fixed local constraint, and periodic multiplicities are information not supplied by linear-word totals. The explicit cubic, quartic and doubled septic give the complete all-period counts and permit primitive rotation-class enumeration without constructing or powering the 27-state graph anew. Value is the exact orbit invariant for this natural rule, not novelty of the transfer procedure or a claim about all Abelian squares.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

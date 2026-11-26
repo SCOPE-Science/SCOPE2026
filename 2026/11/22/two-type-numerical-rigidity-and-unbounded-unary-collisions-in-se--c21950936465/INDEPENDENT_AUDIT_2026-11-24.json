@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:42:06.727450Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–73",
+        "Frozen VERIFICATION.md, code/verify_semigeneric.py, verification/check_output.txt (inspected; stored run not repeated)",
+        "Independent bounded check: python /tmp/opencode/frozen_1_5_review_checks.py (record 4 block)"
+      ],
+      "rationale": "The parity axiom gives a row-plus-column binary matrix per pair of distinct occupied classes, with one gauge bit and no cross-pair constraints. Restriction to the actually named base is surjective, block by block, by extending the row and column potentials; the orientation fibre has the difference of the full and base dimensions. Assigning new coordinates to distinguished existing classes or to blocks of an unordered partition into fresh classes gives the displayed binomial/Stirling factors without a factorial loss. Homogeneity and the age property identify labelled extension diagrams with the ordered injective types. For r=2, the cases of zero fresh classes, one fresh class (one or two new coordinates there), and two fresh classes contribute respectively k²2^(2k−2), (2k+1)2^(n+k), and 2^(2n+1). At fixed unary count U and unequal class numbers k>j, equality forces n<m and U/2^(j−1)<2k·2^(k−j). Substituting in the difference of the two binary counts gives a strict negative upper bound, at most −13 for k=2 and −3k²−1 for k≥3 after normalization. Equal class numbers recover n from U. In the family k=2^(g+2)(2^e−1)−1, the change in the power of 2 cancels the change in the class term exactly; feasible bases realize every e≥1. An exact independent integer sweep found 30 equal-unary pairs for n≤255 and all had the proved ordering.",
+      "residual_risks": [
+        "The sharp arity threshold means that the list up through arity one fails and the list up through arity two succeeds, not a claim about the injectivity of any other single statistic. Numerical recovery does not recover the finite diagram or the individual class sizes. The integer sweep is only a finite corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coskey–Ellis Lemma 4.1 gives the two-subset decomposition used for the orientation rank. Jasiński et al. give the age and Fraïssé/Ramsey setting. The EPPA theorem is about extensions of partial automorphisms, not counts of types.",
+          "The grid result 801562567ff1 recovers support sizes given base cardinality in a different model with two transverse equivalences."
+        ],
+        "reasoning": "Structural homogeneity makes diagrams realizable as types, and the parity rank makes orientation counts tractable. Neither supplies an inverse theorem for two numerical counts with unknown base size. EPPA is a different finite-extension property.",
+        "searches": [
+          "Coskey–Ellis arXiv:1509.04222 §4",
+          "Jasiński et al. arXiv:1310.6466 §10",
+          "Hubička et al. DOI 10.1007/s00493-025-00179-7 Theorem 1.2",
+          "Resultary 801562567ff1"
+        ]
+      },
+      "checked_sources": [
+        "Five original mirrored Resultary records listed above",
+        "Coskey–Ellis arXiv:1509.04222",
+        "Jasiński et al. arXiv:1310.6466",
+        "Hubička et al. DOI 10.1007/s00493-025-00179-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-partition parity dimension yields the marked counting formula after proving surjective restriction and choosing the new classes. The grid inverse uses a different structure and a given base size, and the two-part graded inverse has more information than an ungraded unary count."
+        ],
+        "reasoning": "Marked enumeration is a direct application of known rank with a fibre argument, not the main priority claim. The equal-unary comparison requires a separate integer inequality, and the explicit family changes the size of the base while keeping t₁ unchanged; those implications are not supplied by the prior inverse results.",
+        "searches": [
+          "5135d85e91a6 Proof; Coskey–Ellis Lemma 4.1; 801562567ff1 Proof §§5–6; 2865ab8fd324 inverse theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0abc3dbf3e2f Finding and one-point classification: its nonalgebraic one-type count is exactly t₁=2^n+k2^(k−1). For the two-class case, summation of the graded singleton count in 2865ab8fd324 likewise gives t₁.",
+          "5135d85e91a6 counts unmarked injective-tuple orbits; fixing the pointwise named-base diagram changes the group action and count."
+        ],
+        "reasoning": "Replacing types by pointwise-stabilizer orbits is equivalent, but replacing them by unmarked age counts or adding singleton score grading changes the statistic. The exact overlap at r=1 does not give rigidity of (t₁,t₂) or the unbounded obstruction.",
+        "searches": [
+          "Local Resultary marked-base, orbit-spectrum and semigeneric one-point comparisons: 5135d85e91a6, 0abc3dbf3e2f, 2865ab8fd324"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "5135d85e91a6 computes the fixed-partition factor 2^((h−1)N−binom(h,2)) and sums it by Stirling layers, without named base fibres. 03514b39812a counts permutation-fixed orientations and two-part isomorphism classes. 0abc3dbf3e2f does tabulate the same ungraded unary formula."
+        ],
+        "reasoning": "The directly shared factors and exact unary result are credited. None of these inspected enumerations tabulates the binary-and-higher fixed-base spectrum or the joint inverse invariant.",
+        "searches": [
+          "Local Resultary exact semigeneric enumeration and symmetry results: 5135d85e91a6, 03514b39812a, 0abc3dbf3e2f, 2865ab8fd324"
+        ]
+      },
+      "rationale": "The known parity-matrix factor and unmarked spectrum are not original. The unary formula has exact same-date catalogue overlap (including a graded specialization for two classes); its priority cannot be determined from those dates. The supported distinct result is the marked-base spectrum together with cardinality-free two-count recovery and explicit arbitrarily separated unary collisions, not another presentation of the unary classification alone.",
+      "residual_risks": [
+        "Same-day priority for unary formulas is unresolved; broader unindexed numerical reconstruction results remain possible. No historical priority is claimed for the orientation factor or the unmarked count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap in the count per class partition",
+          "evidence": "Unmarked count sums the same orientation weight over all Stirling layers.",
+          "identifier_or_url": "Resultary 2026/10/4 5135d85e91a6",
+          "material_read": "RESULT.md Finding and Proof, offsets 0–4988",
+          "method": "Local catalogue query and original mirrored text",
+          "title": "Exact Stirling-layer orbit profile of the semigeneric complete multipartite digraph",
+          "trigger": "Same structure and exact enumeration"
+        },
+        {
+          "assessment": "Related inverse problem, not implied",
+          "evidence": "Two named equivalences; recovers support sizes with base cardinality supplied. Its all-arity collisions keep that base cardinality fixed.",
+          "identifier_or_url": "Resultary 2026/10/26 801562567ff1",
+          "material_read": "Finding and Proof §§5–6, offsets 0–8778",
+          "method": "Local original mirrored text",
+          "title": "Arity-two saturation and unbounded collisions in the countable grid",
+          "trigger": "Closest inverse type-spectrum result"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Counts permutation-fixed matrices and two-part isomorphism classes.",
+          "identifier_or_url": "Resultary 2026/10/25 03514b39812a",
+          "material_read": "Finding and comparisons, offsets 0–8128",
+          "method": "Local original mirrored text",
+          "title": "Cycle-parity symmetry character for two-part semigeneric digraphs",
+          "trigger": "Same orientation matrices and an exact orbit census"
+        },
+        {
+          "assessment": "Exact unary overlap, same-day priority unresolved",
+          "evidence": "Nonalgebraic type count 2^n+k2^(k−1); main theorem concerns a feasibility matrix's Smith form.",
+          "identifier_or_url": "Resultary 2026/11/22 0abc3dbf3e2f",
+          "material_read": "RESULT.md Finding and one-point classification, offsets 0–4370",
+          "method": "Local original mirrored text",
+          "title": "Integral torsion in directional one-type feasibility for the semigeneric digraph",
+          "trigger": "Same-object exact singleton count"
+        },
+        {
+          "assessment": "Unary overlap on specialization, different inverse statistic",
+          "evidence": "Coefficients sum to the ordinary count for k=2; the inverse theorem keeps the grading.",
+          "identifier_or_url": "Resultary 2026/11/22 2865ab8fd324",
+          "material_read": "Finding and inverse theorem, offsets 0–7823, and scope discussion",
+          "method": "Local original mirrored text",
+          "title": "Sharp sixfold fibers of graded singleton types over two-part semigeneric bases",
+          "trigger": "Graded form of the singleton invariant"
+        },
+        {
+          "assessment": "Known structural ingredient",
+          "evidence": "Two subsets determine the orientation between two antichains.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.04222",
+          "material_read": "§4 Lemma 4.1, PDF p. 6",
+          "method": "Open PDF passage inspection",
+          "title": "The conjugacy problem for automorphism groups of homogeneous digraphs",
+          "trigger": "Primary parity decomposition"
+        },
+        {
+          "assessment": "Supports the Fraïssé premise, not inverse counts",
+          "evidence": "Defines the parity-constrained multipartite age and treats Ramsey expansions of its limit.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.6466",
+          "material_read": "§10 p. 25",
+          "method": "Open PDF passage inspection",
+          "title": "Ramsey precompact expansions of homogeneous directed graphs",
+          "trigger": "Basic model and age"
+        },
+        {
+          "assessment": "Different extension invariant",
+          "evidence": "EPPA gives a finite witness extending partial automorphisms; it does not count types over pointwise named parameters.",
+          "identifier_or_url": "https://doi.org/10.1007/s00493-025-00179-7",
+          "material_read": "p. 2 definition and Theorem 1.2",
+          "method": "Open primary passage inspection",
+          "title": "Extension Property for Partial Automorphisms of the n-partite and Semigeneric Tournaments",
+          "trigger": "Plausible broader finite-extension theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§2–4",
+        "Resultary 5135d85e91a6 and 801562567ff1"
+      ],
+      "rationale": "The pointwise type spectrum is a natural invariant of a homogeneous structure with named parameters. The nontrivial distinction is exact recovery of both base size and support count without either supplied, with an explicit family showing that unary ambiguity can hide an arbitrarily large difference in base size. This gives a usable sharp numerical reconstruction threshold, beyond recording parity counts already available.",
+      "residual_risks": [
+        "This is a numerical invariant theorem for this limit, not a reconstruction of the named digraph or a claim about other homogeneous structures."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

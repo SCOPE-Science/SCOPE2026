@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The complete parameter proof is given in `RESULT.md`, Steps 1–8. The reproducible standard-library program `reproducibility/check.py` was run on seven finite parameter pairs with no external libraries. It checks the predicted composition-centralizer spectrum, exact image-order counts, retractions, and the number of automorphism-conjugacy classes, as well as the equality between the summed spectrum and the ordered commuting-pair count.
+# Independent mathematical audit
 
-For \((p,r)=(7,3),(13,3),(13,4),(13,6)\), all maps were independently evaluated as functions on the actual semidirect product; the group-homomorphism property was exhaustively tested on all ordered pairs of group elements, and the commuting relation was also compared against full function composition for every pair of maps. Three further cases including the composite complement \(r=15\) checked the derived complete parameter composition algebra. Saved exact output is included in `reproducibility/check-output.txt`, ending `FROBENIUS_ENDOMORPHISM_CENTRALIZER_CHECKS_PASSED`.
+## correctness
 
-The code is a finite independent check of the written formulas, not an infinite proof and not an independent mathematical audit. No assertions are made about the full generality of the result based only on these samples. Scientific limitations and historical-priority risks are in `RESULT.md` and `REVIEW.md`.
+PASS
+
+The commutator subgroup is the prime kernel and is fully invariant; for generator images (a^s,a^t b^k) the conjugation relation is s(u^k−u)=0. With s≠0 faithfulness forces k=1; when k=0 the order relation forces t=0. These constraints are sufficient by the presentation. In normalized color c=t/(1−u^k), a nonzero nonunit is (k,c); its product with (l,d) is (kl,c) for kl≠0 mod r and the trivial map otherwise. A unit acts on colors from the left by x↦sx+t/(1−u), and from the right leaves the nonunit unchanged. Thus the nonunit has p−1 commuting units (its color stabilizer), p(gcd(k,r)−1) commuting nonzero nonunits from zero products, and r−gcd(k,r) others of its own color, plus the trivial map. The affine-unit centralizers have p units for a nonzero translation and p−1 for a nonidentity multiplier; only the latter fixes one color and admits r−1 commuting nonunits. This gives all coefficients and the only coincidence, d=1 with the multiplier stratum, since r≥3 and d<r. The identity and trivial map alone have full centralizer. Nonunit image order is r/d, idempotence is k²=k mod r (2^ω(r) residues including zero), and unit conjugacy consists of the affine classes and one orbit per nonzero k, plus the trivial map. The degree-weighted sum counts ordered commuting pairs, with leading p³ for fixed r as asserted. A separate direct enumeration over all generator image pairs in four explicit groups, comparing their actual values on the two generators under composition, matched the full spectrum and color test, including composite and prime-power complements.
+
+## originality
+
+PASS
+
+The supported distinct claim is the composition-centralizer spectrum and the arithmetic commutation rule for the whole endomorphism monoid of this family, with their calculated consequences. The closest primary comparator covers the same group family but a different transformation semigroup. Existing affine automorphism and metacyclic classification results establish part of the ambient structure, not the interaction with nonunits.
+
+## value
+
+PASS
+
+The natural smallest prime-kernel Frobenius family allows the complete composition-commutation invariant, not just unit centralizers or its average, to be read off from divisibility in the complement. The field-color rule shows exactly how changing from a prime to a composite complement changes graph connectivity between color classes; together with the distribution it gives directly usable input for commuting-graph and endomorphism-monoid comparisons. This is a uniform structural result, not a table of small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

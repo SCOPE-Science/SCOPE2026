@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:12:50.934092Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict sign in the frozen Finding at line 35 is false on its stated domain. For l=2 and equal positive assisted pair values, τ_(a,2)=1=l−1, so the correction is zero, not negative, for any positive noninteger y. The scalar inequalities themselves are correct: Taylor's lower remainder uses a positive decreasing derivative factor of order q, and the upper one a negative increasing factor of order q+1; the binomial factors are positive and t−k≥0. The multipartite substitutions match the actual source, with a strict upper improvement only when τ_(a,l)>l−1 and y is noninteger. At an integer the lower refinement and truncation together extend continuously: from below the correction becomes the new Taylor term, from above the new correction vanishes. The upper correction tends to zero from both sides, with an exact integer polynomial. The calculation at α=5 reproduces Z_2=0.08222754895193034, refined Z_2=0.08551971015395557 and the unweighted algebraic target 0.08611487376972111; 84.6896% is the fraction of that Taylor gap, not a fraction relative to the strongest source bound. The checker grids omit t=k and the uploaded code was not run.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 source bounds start from a base power relation and transfer to other powers via the exact ratio f_x(τ). The source's stronger state-dependent Corollary 3.6 already gives Z_1≈0.1693127724 rather than its unweighted-example Z_2≈0.08222754895 at α=5. The inspected 2024, 2025 and 2023 formulas are different weighted refinements, not the displayed endpoint term."
+        ],
+        "reasoning": "The exact pairwise-power sum raised to the new power remains the stronger bound at the unweighted Taylor stage, in both inequality directions. Evaluating it uses the same input pairwise values and exponent. The distinct weighted results do not by themselves imply the particular corrections, but the source's stronger Taylor identity does once one takes the derivative extremum.",
+        "searches": [
+          "Cao et al. 2026 Theorems 3.1, 4.1 and Corollary 3.6",
+          "Cao et al. 2024 arXiv:2407.18127; Cao et al. 2025 DOI 10.1140/epjp/s13360-025-06029-1; Xie–Zhao–Li arXiv:2302.13601"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py",
+        "Cao–Jing–Misra–Wang 2026 DOI 10.1007/s11128-026-05076-6",
+        "Cao et al. arXiv:2407.18127 and DOI 10.1140/epjp/s13360-025-06029-1",
+        "Xie–Zhao–Li arXiv:2302.13601",
+        "Resultary record c6a205de37b8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source retains ξ∈(k,t) with f_x^(n)(ξ)/n!=binom(x,n)((1+ξ)^(x−n)−ξ^(x−n)). For n=q its bracket is decreasing in ξ, and for n=q+1 it is increasing; the coefficients and (t−k)^n have nonnegative sign. Theorem 3.1 uses m=q off integers, Theorem 4.1 uses m=q+1 off integers, both truncating at m−1."
+        ],
+        "reasoning": "Taking the extremal value over [k,t] yields exactly the two corrections, with no proof-specific entanglement mechanism or extra hypotheses. For partial sums S_l, p_l^x f_x(S_(l−1)/p_l)=S_l^x−S_(l−1)^x; the source's base relation and exact coefficients give the full telescoping power bound before any Taylor truncation.",
+        "searches": [
+          "Cao et al. 2026 Taylor appendix, Theorem 3.1 and Theorem 4.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source uses exactly f_x(t)=(1+t)^x−t^x and the same Lagrange remainder with evaluation at an intermediate ξ; the audited corrections evaluate that displayed remainder at t.",
+          "The closest indexed endpoint hit c6a205de37b8 concerns endpoint feasibility in a continuous cyclic chain, not these power or entanglement inequalities."
+        ],
+        "reasoning": "For t>k the two endpoint terms are the infimum of the positive remainder factor and the supremum of the negative one over [k,t]. Thus an equivalent formulation is the standard extremal derivative estimate on the source's Taylor remainder; the other indexed endpoint problem is not equivalent.",
+        "searches": [
+          "Resultary: endpoint Lagrange remainder for (1+t)^x−t^x, continuous integer-threshold monogamy and polygamy",
+          "Cao et al. 2026 DOI 10.1007/s11128-026-05076-6, Appendix proof of the Taylor step"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The paper provides the normalized state, concurrences C_AB=1/2 and C_AC=√2/4, and relevant plotted bounds. For γ=2 these give τ=2 and pairwise squared sum 3/8; the claimed corrected value and 84.6896% are arithmetic consequences at x=5/2, k=1. No materially matching indexed table or finding was located in the checked hits."
+        ],
+        "reasoning": "A function inequality over real t,k and exponents is not appropriately an integer sequence lookup. The actual exact-instance check is against the published example: the statistic is only for Z_2 and its unweighted algebraic target, not the stronger state-dependent Z_1 reported in the same example.",
+        "searches": [
+          "Resultary: continuous staircase entanglement hierarchy Taylor remainder",
+          "Cao et al. 2026 Example 3.7 and Figure 1 discussion"
+        ]
+      },
+      "rationale": "No inspected prior application states the corrections verbatim. However the actual source already gives the same Taylor derivative identity, exact Lagrange remainder, truncation orders and telescoping ratio variables. The two proposed corrections are precisely the ordinary derivative-extremum estimate for that displayed remainder, with the extremum at the right endpoint by one differentiation. The transfer and threshold matching are direct consequences; there is no separate new inequality mechanism beyond this routine substitution.",
+      "residual_risks": [
+        "An earlier application could state the same corrections verbatim. The rejection rests on the verified direct implication from the source, not an assertion that broader searches were exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact remainder and transfer already present; endpoint extrema are a mechanical application. The refined numerical bound is compared only with the ordinary source Z_2, not its stronger Z_1.",
+          "evidence": [
+            "Theorems truncate at order m−1; the appendix displays the unused remainder at ξ; the example's squared concurrence sum is 3/8 and the normalized total concurrence is 1/√2."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11128-026-05076-6",
+          "material_read": "Theorem 3.1 p. 5 offset 13390; Example 3.7 p. 8 offset 28300; Figure 1 discussion p. 9 offset 32100; Theorem 4.1 p. 10 offset 34177; Taylor appendix offset 47500",
+          "method": "OA primary full-text passages",
+          "title": "Unified monogamy and polygamy relations for multipartite systems",
+          "trigger": "Same function, hierarchy, cutoff conventions, and numerical example"
+        },
+        {
+          "assessment": "Weighted comparison, not an endpoint Lagrange estimate",
+          "evidence": [
+            "An inspected specialization gives 0.0615234375 on the source example, below ordinary Z_2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.18127",
+          "material_read": "Corollary 2.2 offset 10003 and Theorem 3.1 offset 13800",
+          "method": "OA primary text",
+          "title": "Tighter parameterized monogamy relations",
+          "trigger": "Adjacent parameterized power inequality and concurrence hierarchy"
+        },
+        {
+          "assessment": "Other weighted refinements, not the endpoint term",
+          "evidence": [
+            "The inspected monogamy bound is on 0≤α≤γ; the paper also treats assisted polygamy."
+          ],
+          "identifier_or_url": "https://doi.org/10.1140/epjp/s13360-025-06029-1",
+          "material_read": "Monogamy exponent domain and assisted-polygamy statements",
+          "method": "OA primary text passages",
+          "title": "Superior monogamy and polygamy relations and estimates of concurrence",
+          "trigger": "Adjacent older monogamy and assisted-polygamy hierarchies"
+        },
+        {
+          "assessment": "A different power-transfer refinement",
+          "evidence": [
+            "The inspected monogamy exponent domain is 0≤α≤γ; it does not state the endpoint correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.13601",
+          "material_read": "Weighted monogamy and polygamy passages and stated monogamy exponent range",
+          "method": "OA primary text passages",
+          "title": "General Monogamy and polygamy properties of quantum systems",
+          "trigger": "Possible broader weighted transfer theorem"
+        },
+        {
+          "assessment": "Unrelated model and no transfer implication",
+          "evidence": [
+            "Continuous cyclic-chain endpoint feasibility, not Taylor bounds on entanglement."
+          ],
+          "identifier_or_url": "Resultary record c6a205de37b8",
+          "material_read": "Local-mirror finding statement",
+          "method": "Indexed full-statement comparison",
+          "title": "Endpoint conditions certify the continuous cyclic chain",
+          "trigger": "Closest indexed endpoint and continuity result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The improvement over the selected truncation is real at unequal positive ratios, but the correction already evaluates fractional powers at the same known τ values. The exact pairwise-power target, requiring no extra state information, telescopes to a strictly stronger bound in the same algebraic stage and has no staircase. No easier evaluation, stronger state guarantee or independent structural payoff is established. Restricting strictness to τ_(a,l)>l−1 would fix the boundary error but would not rescue the claimed contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

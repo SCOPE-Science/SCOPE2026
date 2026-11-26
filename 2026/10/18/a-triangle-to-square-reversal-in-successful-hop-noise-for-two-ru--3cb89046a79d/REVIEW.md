@@ -1,19 +1,21 @@
-# Mathematical review: successful-hop noise on the two smallest exclusion rings
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The counted tilt is defined by the successful-hop matrix, including counted transitions that remain inside a quotient orbit. Stationary left nullvectors, centered Poisson correctors, and principal-eigenvalue derivatives recover the two rational mean rates and Fano ratios. Exact algebra verifies strict Fano-sign inequalities, the cubic and sextic optimality equations, and uniqueness by a single Descartes sign change plus endpoint derivative signs. An independent full relative-state construction recovers these expressions at five rational reversal rates on each ring. This is finite corroboration of, not a substitute for, the displayed quotient-matrix proof for all positive rates.
+PASS
 
-## Originality — PASS within inspected research, residual risk stated
+Reconstructed the transitions using d→d−u or d+v modulo n and deleting d=0 targets, and checked both reflection and particle exchange preserve the labels of counted events. A counted transition inside the first triangle orbit is a null state change but contributes exactly z=e^k−1 to the tilted diagonal; reversals remain unweighted. The irreducible generator at a>0 has a simple zero eigenvalue. Analytic dominant-eigenvalue differentiation gives Qg=μ1−J1, ν=μ+2πJg−2μπg. An independent symbolic reproduction used the 8- and 12-state unquotiented tilted matrices, not the supplied quotient or its Poisson equation. For p(y,z)=det(yI−Q−zJ) at (0,0), row multilinearity gives μ=−p_z/p_y and F=1−(p_yy μ²+2p_yz μ+p_zz)/(μ p_y). It reproduced both rational functions exactly. Replay: python /workspace/branches/check_full_activity.py (SymPy). The sign factorization gives the unique triangle crossing at a=1 and strict positivity of F4−1, and each derivative numerator has one sign change and changes sign between zero and infinity. The reproduced roots and minimum values round to the printed values. The leading and constant terms give the fast limits and slow-rate divergence. The frozen checker was inspected, not run.
 
-Slowman–Evans–Blythe (arXiv:1601.00954) solve the same two-particle model's stationary distribution, rather than the long-time cumulants of the total successful-hop count. Mallmin–Blythe–Evans (arXiv:1810.00813) solve the un-tilted spectrum and relaxation properties, rather than the tilted total-hop observable. Chakraborty–Pradhan (arXiv:2309.02896) investigate signed integrated spatial currents and mobility, not the all-bond unsigned count for two particles on the three- and four-site rings. Targeted published-record searches and previously documented mathematical-claim comparisons found no equivalent evaluated sign contrast or finite unique noise optimizers. General tilted-generator machinery is prior theory; its existence does not itself state these new evaluated inequalities. A possible previously derived equivalent activity formula in uninspected work remains a genuine historical originality risk; the searches are not a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The triangle has only adjacent pairs, while the square is the first exclusion ring allowing separated pairs. A sharp change from attainable sub-Poisson counting to strict super-Poisson counting therefore marks a motivated geometric boundary rather than an arbitrary numerical instance. Exact globally optimal reversal rates quantify a natural tradeoff between persistent runs and noise from jams. Two smallest geometries only are claimed; no unproved general-n extension is implied.
+The same dynamics and their stationary and un-tilted spectral solutions are established. Published SSEP activity cumulants and indexed exclusion activity records give both fast-reversal boundary Fano values, so those values are not credited as distinct. The inspected persistent-walker current work counts signed displacement, and the SSEP activity solutions eliminate orientation. Neither gives the finite-positive-a sign contrast or optimal reversal rates of the successful-hop activity.
 
-## Limitations
+## value
 
-Only two identical walkers, n=3 or n=4, unit successful-hop attempt rates, independent positive direction-reversal rates, and the total successful-hop count are considered. Full counting distributions, large-ring classification, and independent validation remain open. Source comparisons are bounded to the inspected material.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The triangle and square are the first ring geometries without and with a nonadjacent pair, respectively. Their exact contrast distinguishes a regime with sub-Poisson successful-hop noise from one with strictly super-Poisson noise for all finite rates, and the two genuine finite optima are quantitative benchmarks. This is a motivated finite comparison, not a classification of larger rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

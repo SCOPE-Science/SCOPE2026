@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:11:44.976179Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–102; VERIFICATION.md; CHECKER.py and requirements.txt inspected, not run",
+        "Independent replay: python3 /workspace/review_checks/check_1.py (SymPy and mpmath). It checked characteristic polynomial, T^8 positivity, projectors modulo P and exact rational Rouché bounds; roots have the stated moduli. A separate 100-digit trial at b=0 and b=1.75 compared the five amplitudes against direct logarithmic iteration."
+      ],
+      "rationale": "The numerator minus denominator factors as the product of the three input differences from 1; their sum is the product of their sums with 1 plus 2b. This gives exactly the specified Cayley map, never creates a zero from an admissible history, and gives nonnegative forcing bounded by log(1+2b). Entrywise U_0 dominates a positive multiple of the Perron right eigenvector, so u_n is bounded below by that multiple of rho^n. Smoothness of the forcing on the resulting small Cayley inputs gives the stated super-exponential bound. The shift by c/2 and the left/right eigenprojectors give the exact finite variation-of-constants formula; in the omitted tail, the factor |t|^(-j-1) at k=n+j is dominated by the geometric decay obtained from rho^j >= 1+j(rho-1), even for the stable pair. Unshifted Perron projection gives the positive amplitude and its bounds; dominated convergence with epsilon_k(b)/b <= 2 gives the right derivative at fixed history and strict positivity. For the claimed possible growth, at b=0 choose a positive Perron initial vector plus a small real part of a lambda eigenvector. This is realizable by an admissible history and gives a nonzero growing oscillatory envelope (two successive cosines cannot both tend to zero). Conversion to log|z_n-1| adds log 2 plus a super-exponentially small correction. An exact initial zero propagates by the primitive lag graph, consistently outside the logarithmic statement.",
+      "residual_risks": [
+        "The frozen CHECKER.py does not contain the additional high-precision five-mode trial mentioned separately in the verification prose; the independent replay supplies a diagnostic of that kind, not a proof of any limit. The analytic proof supplies the limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xi–Sun treats a broader rational family, gives its sign itinerary law and proves global asymptotic stability. Zhang–Shen resolves signs/semicycles and GAS for the exact object; the local linearization is nilpotent."
+        ],
+        "reasoning": "Broader coverage of the recurrence and convergence is not broader coverage of logarithmic asymptotics or parameter response.",
+        "searches": [
+          "Xi–Sun Proposition 2.2 and Theorem 3.3",
+          "Zhang–Shen Theorems 2.1 and 3.1 and §5"
+        ]
+      },
+      "checked_sources": [
+        "AIMS Math. 9 (2024), DOI 10.3934/math.20241370",
+        "Adv. Difference Equ. (2006), DOI 10.1155/ADE/2006/27637",
+        "Resultary entries 607c9fc2b6af and c420e9a2eb1c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier sign laws concern the itinerary of z_n-1 and stability gives its decay to zero. Neither gives the nonreal eigenmodes of -log|r_n|, a summable nonconstant forcing in every mode, or the derivative of its Perron amplitude."
+        ],
+        "reasoning": "The claimed refinement requires a nonlinear modulus identity and quantitative forcing/tail control in addition to linear spectral theory; it does not follow by reciting the known stability or sign conclusions.",
+        "searches": [
+          "Primary theorem/proof passages: Xi–Sun §§2–3; Zhang–Shen §§2–3, 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both primary sources contain the same recurrence, Xi–Sun through k=1 and lags (1,2,4).",
+          "The inverse-linear-clock record c420e9a2eb1c instead has x_(n+1)=(b x_n+x_(n-4))/(b+1+x_(n-1)) at an extinction boundary."
+        ],
+        "reasoning": "Equivalent recurrence and stability are credited; a different rational map with a different asymptotic scale is not equivalent coverage.",
+        "searches": [
+          "Resultary: exact lag (1,2,4), five-mode expansion, amplitude parameter response",
+          "Zhang–Shen (1.2)",
+          "Xi–Sun (1.6)–(1.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matching indexed and mirrored result is 607c9fc2b6af, the record under review. The nearby distinct record c420e9a2eb1c does not match."
+        ],
+        "reasoning": "No distinct exact entry was identified in the bounded comparison; the self-match is not prior evidence.",
+        "searches": [
+          "Resultary: exact recurrence and five-mode/amplitude-sensitivity terms; mirror 607c9fc2b6af and c420e9a2eb1c"
+        ]
+      },
+      "rationale": "Credit the recurrence, global stability, superattracting linearization and sign structure as existing. The inspected theorem statements do not cover the quantitative five-mode logarithmic expansion with explicit convergent amplitudes, its unstable oscillatory correction, or the positive right derivative of the leading amplitude. PASS is limited to those quantitative results.",
+      "residual_risks": [
+        "The bounded primary comparison does not establish global priority. The supplemental websearch wave was unavailable; this is not negative evidence about other quantitative treatments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact object and qualitative results covered",
+          "evidence": [
+            "(1.2) is the same recurrence; Theorem 2.1 gives semicycle patterns; Theorem 3.1 is GAS, with all-zero linearization coefficients. §5 summarizes these qualitative results."
+          ],
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2024/10/PDF/math-09-10-1370.pdf",
+          "material_read": "p. 1; Theorems 2.1 and 3.1 and opening proofs (PDF offsets 17593 and 22502); conclusions (offset 49768)",
+          "method": "OA PDF literal location followed by bounded passage reads",
+          "title": "Global asymptotic stability and trajectory structure rules of high-order nonlinear difference equation",
+          "trigger": "Exact recurrence and parameter range"
+        },
+        {
+          "assessment": "Exact recurrence included, sign law and GAS covered",
+          "evidence": [
+            "k=1, (i_0,i_1,i_2)=(1,2,4) gives the frozen map. The stated results are on signs and stability."
+          ],
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1155/ADE/2006/27637.pdf",
+          "material_read": "p. 3 (1.6)–(1.7), p. 4 Proposition 2.2, p. 6 Theorem 3.3",
+          "method": "Bounded primary PDF passages",
+          "title": "Global behavior of a higher-order rational difference equation",
+          "trigger": "General odd-input formula may specialize"
+        },
+        {
+          "assessment": "Same record, not distinct coverage",
+          "evidence": [
+            "Same recurrence, amplitude sums, derivative and assumptions."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-five-spectral-clocks-at-a-superattracting-rational-five-dimensio--607c9fc2b6af",
+          "material_read": "Mirrored RESULT.md finding and prior-work passage, offsets 0 and 7280",
+          "method": "Resultary and local mirror",
+          "title": "Five spectral clocks at a superattracting rational five-dimensional map",
+          "trigger": "Exact indexed hit"
+        },
+        {
+          "assessment": "Different recurrence and regime",
+          "evidence": [
+            "Extinction-boundary inverse-linear asymptotic, not the lag-(1,2,4) superattracting equilibrium."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-critical-inverse-linear-clock-and-a-sharp-logarithm-cancellati--c420e9a2eb1c",
+          "material_read": "Mirrored finding and assumptions, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "A critical inverse-linear clock and a sharp logarithm cancellation",
+          "trigger": "Nearby quantitative rational recurrence result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–50; Zhang–Shen Theorems 2.1 and 3.1; Xi–Sun Theorem 3.3"
+      ],
+      "rationale": "Separates five observable scales hidden by the zero linearization of a previously studied map. The growing subleading term on the logarithmic scale and the explicit parameter response answer meaningful questions that stability and signs alone cannot answer.",
+      "residual_risks": [
+        "Fixed recurrence and pointwise asymptotics; subleading amplitudes need not be nonzero for all histories."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

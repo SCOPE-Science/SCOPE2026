@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:04:42.982399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the all-prime and all-polynomial argument, not just the monomial tests. Euler exponents are (1/n)∑_{d|n} μ(n/d)P(U_d), so their integrality is equivalent to the stated prime-power congruences by Möbius inversion and factoring off each p-part. The ghost sequence tr((M²)^n) has integral Euler exponents by det(I−xM²)^−1; cancelling 8 against odd prime powers in 8U_n²=V_{2n}−2(−1)^n proves sufficiency at odd primes for every even weight. At 2, V_n≡2 mod 4 and doubling give v₂(U_{m2^r})=r for odd m, making r=1 exactly the parity obstruction. Conversely, infinitely many inert odd primes send U_{mp} to −U_m; for each fixed m, integrality forces P(−U_m)=P(U_m) over Z, hence evenness. The equivalent polynomial normal form follows by division by Y−1. For an even weight, clearing denominators in the Binet expansion and pairing conjugates gives the stated rational power. At the root associated with α^{2j₀}, the largest index attaining the maximal positive denominator deficit contributes an odd valuation after clearing; smaller indices cannot hit this root, and larger ones contribute even valuations. With D the stated power of two, extending that valuation gives v(E_P)=odd/D; the ramification index is divisible by D, forcing degree D even over Q(√2)(x), and any rationalizing exponent is divisible by D. Constants and H=0 give rational series. For a nonzero odd part the highest odd exponent contributes an uncancelled irrational log-derivative residue at x=α^{−d}; local Puiseux orders of algebraic functions are rational. The monomial product follows by conjugate pairing; its smallest multipliers follow from the parity test. Replay: RESULT.md §§1–7; checker.py was read, not run, and its finite coefficient and ghost tests do not prove the degree or universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dold/Euler criteria address arbitrary integer ghosts; general trace congruences apply at all primes before division by 8. The older catalogue hit concerns local Dold repairs and a trace companion, per its available summary.",
+          "The inspections did not recover full text for the Minton paper and the Dold survey; only their general scope is used here."
+        ],
+        "reasoning": "A trace or general recurrence criterion does not itself determine the modulus at 2 after dividing by 8, nor the exact denominator when spectral roots from multiple powers coincide. No available broader statement covering those conclusions was established.",
+        "searches": [
+          "10.1090/S0002-9939-2014-12168-X",
+          "10.1112/blms.12531",
+          "arXiv:2611.16283v2, §§2 and 4",
+          "Resultary Pell Dold hit 5efb21654a4c"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and Proof; VERIFICATION.md; checker.py",
+        "Resultary 65cc5bcef315, ab1691f88d96, 92815a83dd01, 5efb21654a4c",
+        "arXiv:2611.16283v2",
+        "OEIS A208034",
+        "Minton and Byszewski–Graff–Ward (access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Euler criterion reformulates integrality but leaves the tests for all P to be solved. The confirmed Fibonacci degree theorem concerns only its specified monomial family. The prior catalogue Pell hit describes a local repair problem, not polynomial evaluation and radical degrees."
+        ],
+        "reasoning": "The Pell doubling calculation and the no-cancellation argument at the largest extremal root supply input not provided by those statements; no exact implication was found.",
+        "searches": [
+          "arXiv:2611.16283v2, Corollary 2.3, Theorems 1.1 and 4.1",
+          "Resultary 5efb21654a4c",
+          "OEIS A208034"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary Fibonacci classification ab1691f88d96 describes all-polynomial algebraicity and a 5-adic spectrum for Fibonacci weights; 92815a83dd01 concerns Fibonacci genus and ramification.",
+          "Li–Zhong–Zhou Theorem 1.1 gives evenness and three values equal modulo 5 for Fibonacci weights, and Theorem 4.1 gives degree 5^{k−1} for 5F_n^{2k}."
+        ],
+        "reasoning": "The Binet/trace and Euler-product formulations are related, but replacing the Fibonacci roots and discriminant by the Pell pair changes the exceptional prime, the local obstruction, and the spectral-factor denominators. These are not equivalent weights on the same object. The distinct same-day records were compared on mathematics, without assigning within-day priority.",
+        "searches": [
+          "Resultary: Pell sequence polynomial weights exponential integrality algebraic degree 2-adic degree spectrum",
+          "arXiv:2611.16283v2, Theorem 1.1 and §4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A208034 records the k=1 series and explicitly lists the three all-k multiplier-one/multiplier-two integrality claims as conjectures; no degree statement occurs in that passage.",
+          "The exact Resultary hit 65cc5bcef315 is the assigned result itself."
+        ],
+        "reasoning": "The known base series and the statements of conjectures receive prior credit. Neither is a prior proof of the polynomial classification.",
+        "searches": [
+          "OEIS A208034, COMMENTS",
+          "Resultary: Pell sequence polynomial weights exponential integrality algebraic degree 2-adic degree spectrum"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the all-polynomial ordinary Pell criterion and exact degree, including the conjectured all-k monomial integrality families. Neither the general tools nor the close Fibonacci analogues inspected give the Pell dyadic criterion or its exact spectrum. The exact index self-hit does not establish prior coverage.",
+      "residual_risks": [
+        "An earlier general recurrence result might specialize to some Pell integrality assertions; full text of Minton and the Dold survey was not available in the attempted routes.",
+        "The older Pell catalogue comparison uses its available summary only; no absolute publication-priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close analogue, different recurrence and prime",
+          "evidence": [
+            "Theorem 1.1 uses P(0)≡P(1)≡P(2) mod 5; Theorem 4.1 uses the Fibonacci weight 5F_n^{2k}."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16283v2",
+          "material_read": "Abstract; Theorem 1.1 (offset 3461); §4 Theorem 4.1 (offset 19996)",
+          "method": "Targeted OA full text",
+          "title": "Integral Exponential Series: Fibonacci Weights and Implicit Equations",
+          "trigger": "Closest primary polynomial-weight classification"
+        },
+        {
+          "assessment": "Exact conjectures, not proofs",
+          "evidence": [
+            "The passage explicitly calls the three corresponding all-k integrality or nonintegrality assertions conjectures."
+          ],
+          "identifier_or_url": "https://oeis.org/A208034",
+          "material_read": "COMMENTS at offset 343",
+          "method": "Targeted public-page reading",
+          "title": "OEIS Pell-square exponential series",
+          "trigger": "Exact monomial family claim"
+        },
+        {
+          "assessment": "No equivalent statement in material read; older Pell hit not exhaustively excluded",
+          "evidence": [
+            "The first hit concerns Fibonacci spectral denominators at 5. The older Pell hit is summarized as local Dold repair and signed orbit spectra for Pell data and a trace companion."
+          ],
+          "identifier_or_url": "Resultary ab1691f88d96; 5efb21654a4c; related 92815a83dd01",
+          "material_read": "Catalogue claim summaries; corresponding full texts unavailable in the local mirror",
+          "method": "Configured catalogue and local mirror check",
+          "title": "Complete Fibonacci polynomial algebraicity; Pell local Dold repair",
+          "trigger": "Strongest distinct structural analogue and older Pell/Dold hit"
+        },
+        {
+          "assessment": "Residual access risk, not affirmative noncoverage",
+          "evidence": [
+            "No full-text comparison is claimed for these two works."
+          ],
+          "identifier_or_url": "10.1090/S0002-9939-2014-12168-X; 10.1112/blms.12531",
+          "material_read": "Citation and stated scope only; original passages not retrieved",
+          "method": "Lawful direct and alternate-route access attempts; HTTP 403",
+          "title": "Linear recurrence sequences satisfying congruence conditions; Dold sequences, periodic points, and dynamics",
+          "trigger": "Possible broader Gauss/Dold coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem settles three concretely stated Pell monomial conjecture families and determines exactly which arbitrary polynomial combinations survive the dyadic obstruction. The precise ramification/degree exponent remains useful when spectral factors from distinct degrees coincide; it determines whether an algebraic Pell exponential is rational and the exact rationalizing power. These are more than reproducing the first few coefficients or making the Fibonacci parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

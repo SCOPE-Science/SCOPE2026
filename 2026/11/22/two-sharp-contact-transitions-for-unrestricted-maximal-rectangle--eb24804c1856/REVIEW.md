@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric normalization, all four vertices of an unrestricted rectangle, and the extremal quantifiers are explicit. A sum-of-absolute-inner-products inequality proves that every feasible rotated rectangle can be replaced by a cut-parallel rectangle of identical area; this is stronger than an unproved symmetry assumption. The exact one-variable envelope has two strictly controlled stationary branches, yielding exhaustive sharp phase thresholds and equality configurations. Boundary derivatives and thin-cap coefficients follow by differentiation and Taylor expansion. A stand-alone independent-formula diagnostic was run from the delivered artifact path and passed the tests described in VERIFICATION.md. Its finite samples are not treated as infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, not independently certified)
+For half-sides a≥b and center c, the vertical half-extent |u_y|+|v_y| is ≥b, and the maximum squared vertex norm is at least |c|²+a²+b²+2b|c| by the orthonormal component inequality. Hence a same-area feasible horizontal rectangle can be centered if h+b≤0, and can be placed with bottom h and top h+2b otherwise: the vertex bound then gives a²+(h+2b)²≤1 and h+2b>|h|. This proves the needed unrestricted reduction for every orientation and translation. With t the largest absolute endpoint height, the sharp area envelope is 2 sqrt(1−t²) min(2t,t−h). The interior optima of its two smooth branches are t=1/sqrt(2) and t=q; the second derivative test is not needed to select regimes because the branch derivatives change sign once and the second branch derivative at t=−h has sign 1−3h². This yields the three branches and the two transitions. Equality in the vertex bound plus the cutting constraint forces vertical half-extent b when h>−1/sqrt(2); in the centered comparison case use a²+b²=1, c=0 and b=−h. Thus the short side is vertical and the optimizer unique after the first threshold, including at the second. Before the first, equality of the disk bound gives exactly centered inscribed squares that pass the cut; at the first only the aligned square fits. Differentiation gives the stated one-sided second derivatives (on the last branch M′=−2 sqrt(1−q²), q′=q/(4q−h)); expansion q=1−(1−h)/3+O((1−h)²) and the cap-area integral yield the stated constants. Read VERIFICATION.md and checker.py: finite orientation samples, grid and quotients are diagnostic, not an unrestricted proof. Did not execute the uploaded script.
 
-Searches of the mathematical-result index for inscribed rectangles, disk caps, circular segments, arbitrary orientations and contact transitions did not retrieve an equivalent theorem. Cabello et al. (arXiv:1405.1223) solve convex-polygon rectangle optimization algorithmically; their discrete polygon setting does not state these continuous curved-cap formulas. Behroozi (arXiv:1905.13246) develops general convex optimization and axis-aligned parameterizations, but the inspected parts do not give the unrestricted orientation reduction, both exact transition cut levels, and differentiability classification for circular segments. The familiar semicircle optimum is a single instance of the third regime and implies no transition formula. General numerical optimization algorithms could of course evaluate a specific segment but do not alone imply this exact phase diagram. An older specialized account that was not found or is not accessible remains the material historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The family of all circle–halfplane intersections is a canonical continuous family of convex bodies, with natural competing contacts between curved and flat boundaries. The unrestricted orientation issue is substantive, and the optimum changes at two distinct algebraic heights; the curvature jumps and the sharp limiting area fraction quantify physically meaningful geometric behavior. This is a complete, motivated all-parameter extremal classification rather than a parameter-substitution exercise or an unmotivated isolated constant.
+The strongest inspected theorem for axially symmetric sets applies but does not imply cut-parallel orientation, its equality cases, or the two exact contact transitions. The indexed exact match is this same record. No distinct covering statement was found in the compared sources; priority remains best-of-knowledge.
 
-## Scientific limits
+## value
 
-No extension to arbitrary quadrilaterals, intersections of unequal disks, or quantitative stability of near-extremizers is established. Historical priority is not independently certified. Finite numerical diagnostics complement but do not prove the continuous theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a classical curved family, the key obstruction is the free orientation, not finding a stationary height under a chosen axis. The same-area comparison resolves that obstruction and yields uniqueness and distinct contact thresholds as well as differentiability and thin-cap utilization for the actual unrestricted optimum. The result is more than an isolated semicircle value or a box-finding algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

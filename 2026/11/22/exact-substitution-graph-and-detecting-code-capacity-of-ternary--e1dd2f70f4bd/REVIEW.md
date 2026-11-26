@@ -1,11 +1,21 @@
-# Review of the ternary short-repeat-free Hamming graph result
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit bijection between words and binary comparison strings without consecutive ones gives the vertex count. An interior substitution preserving adjacent distinctness necessarily creates a forbidden alternating triple; the remaining graph fibers are Cartesian products of one- or two-vertex complete graphs. Fibonacci endpoint counts prove every component multiplicity and the independence polynomial for all lengths. An edge-by-edge independently formulated enumeration of all admissible ternary words of lengths 4 through 16 confirms these formulas. The computation checks finite instances only; the symbolic proof handles arbitrary lengths.
+## correctness
 
-**Originality — PASS with residual priority risk.** Relevant original manuscripts were inspected for their precise error models, statements, constructions and implications. Chee et al. enumerate/encode irreducible words; Kovačević treats duplication-confusability; Tang et al. (2019) analyze detection/correction with duplications present; Tang et al. (2022) treat a multiple-duplication-plus-edit channel; Yu–Schwartz treat duplication-free code constructions. These do not give the one-substitution induced Hamming graph or full detecting-codebook polynomial. Related published results about restricted swap graphs, tandem-duplication confusability and unrestricted Hamming graphs have different adjacency relations. Search cannot exclude prior equivalent work elsewhere; independent literature priority is not certified.
+PASS
 
-**Value — PASS.** This gives a complete infinite-family classification of the one-symbol mutation graph for a natural tandem-irreducible constrained language. The bounded component theorem is a structural fact; its immediate consequence is the exact capacity and the full size distribution of every possible one-substitution-detecting codebook, including extremal multiplicities and limiting density. The optimality claim is restricted to substitution detection inside the admissible language, not mixed-edit correction.
+Taking adjacent differences modulo 3 gives signs ±1; abab corresponds to an alternating triple, so comparison bits avoid consecutive ones. The six initial letter/sign choices give 6 F_n admissible words. At an interior substitution the neighbors must coincide; swapping the local sign pair (s,-s) to (-s,s) then creates an alternating triple with the next unchanged sign, or with the previous one at the last interior position. Such an unchanged sign exists for n>=4. Thus all moves are at endpoints. For n>=5 the two endpoint restrictions are independent: each has two choices on an equal-sign pair in the core and one choice on an unequal-sign pair. For k=n-4>=2 core comparison bits, the counts with endpoint types 00, exactly one 1, and 11 are F_k, 2 F_(k-1), F_(k-2), obtained by fixing endpoints and their forced zero neighbors; at k=2 the counts are 1,2,0, and at k=3 the 11 case is just 101. Each core contributes a connected K_1, K_2 or C_4, with six initial choices per bit string. At n=5 there is one comparison bit, and at n=4 the forbidden word removes one vertex from each endpoint square. The independence polynomials multiply; their degrees and leading coefficients give the asserted sizes and counts. Dividing by 6 F_n and taking Fibonacci ratios gives phi^(-6)+2 phi^(-5)+2 phi^(-4)=5-2 sqrt(5). The alphabet, boundary model and detection-only reading are essential.
 
-**Limitations.** The result is ternary and for linear words avoiding duplication lengths one and two. It does not solve correction of substitutions or codes for channels that also perform duplications. An equivalent result in unlocated literature may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The admissible language and its Fibonacci cardinality are prior. The supported distinct contribution is the exact Hamming-one component structure on that language and the resulting full independent-set and maximum-codebook enumeration. Neither the closest different-edit problems on this same language nor the inspected mixed-channel results cover those invariants.
+
+## value
+
+PASS
+
+The constrained source language is established in coding theory. The graph's confinement to fibers of the whole interior is a structural restriction not visible from Fibonacci enumeration alone. It identifies the complete set of editing-confusability components, yields the exact optimum for one-substitution detection, and gives the total number of codebooks at every size and a nontrivial limiting occupied fraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

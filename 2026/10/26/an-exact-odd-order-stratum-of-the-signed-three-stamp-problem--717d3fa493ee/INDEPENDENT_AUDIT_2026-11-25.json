@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:34:22.798603Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Theorem 4.1 of van Doorn–Monticone–Nathanson v1 supplies the strict signed-versus-ordinary bound at every odd h≥3; their Theorem 1.1 gives ordinary range 9t²−2 at h=6t−3. Integrality bounds the signed optimum by 9t²−3. For the proposed basis, z copies of 2t+1 yield the full step-2t progression from −ht+(3t+1)z to ht+(t+1)z. Even t makes t+1 invertible modulo 2t, and the initial progressions start at or before their least nonnegative representatives. The gap between successive blocks in a residue is 2t(z+3t+1−h), which joins the first two in every residue and a third for z₀≤t−3. The latter reach past 9t²−3; for z₀≥t−2 the first two reach at least 9t²−2t−2, so the next point in that residue cannot come before 9t²−2. At z₀=t−2 the third block starts at 9t²+2t−2, proving the claimed first gap. The proof's parenthetical suggesting this third block might not be admissible is unnecessary and false (z₀+4t=5t−2≤h throughout); it does not affect the argument. Independent exact-multiplicity enumeration reproduced the first gaps 34, 142, 322 and 1294 at t=2,4,6,12. Frozen checks are finite support only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strict bound covers all odd h≥3, but gives no matching signed construction.",
+          "Nathanson's Problem 5 asks about signed versus ordinary ranges, not an exact solution. The lattice-slice search surfaced no covering theorem."
+        ],
+        "reasoning": "Neither the stronger parameter range of the prior upper bound nor the more general formulation of the question supplies a sharp lower bound here.",
+        "searches": [
+          "arXiv:2610.19470v1 Theorems 1.1 and 4.1",
+          "arXiv:2605.26425v1 Problem 5",
+          "Resultary: lattice tiles and fixed-sum slices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verifier_output.txt, and verify.py (read, not executed)",
+        "arXiv:2610.19470v1 and arXiv:2605.26425v1",
+        "Resultary 233f4ed02dd4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strict bound plus integrality gives ≤9t²−3 only. The achieved equality further requires three-stage residue coverage by a signed basis.",
+          "The h=2 rigidity analysis supplies no progression coverage for h≥9."
+        ],
+        "reasoning": "The known upper bound is fully credited; a construction yielding all residues up to that exact bound is the supported new step, not a restatement of strictness.",
+        "searches": [
+          "arXiv:2610.19470v1 Theorems 1.1 and 4.1",
+          "Resultary 233f4ed02dd4 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under A→A+b the exact h-fold sumset translates by hb, so an unanchored longest-run result does not automatically give the anchored signed extremum.",
+          "Resultary 233f4ed02dd4 determines three-point pair-sum runs and anchored h=2 spectra."
+        ],
+        "reasoning": "This is precisely the signed h-fold anchored problem in van Doorn–Monticone–Nathanson; the equivalent pair-sum formulation at h=2 changes the order and does not settle the infinite stratum.",
+        "searches": [
+          "Resultary: translated three-point sumsets and longest consecutive runs",
+          "Web: exact signed three-stamp range"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact two-summand catalogue is confined to h=2; Stöhr's closed formula is for the ordinary, not signed, range.",
+          "The frozen and independent finite enumerations do not identify an earlier table for all h≡9 mod 12."
+        ],
+        "reasoning": "Even matching isolated computed h values would not cover the infinite congruence theorem; an exact general prior formula for the signed range would, but the inspected treatise explicitly leaves it open.",
+        "searches": [
+          "Resultary 233f4ed02dd4",
+          "arXiv:2610.19470v1 ordinary/signed range comparison"
+        ]
+      },
+      "rationale": "The sharp equality on h≡9 mod 12 uses a known global obstruction and a matching uniform construction. The prior same-problem paper gives the obstruction but leaves the odd exact values open; the other inspected exact signed-range result is at h=2. No inspected exact match or earlier stronger covering statement was identified.",
+      "residual_risks": [
+        "The frozen discussion alludes to an unidentified result for h≡11 mod 12; no source was identified, so any broader overlapping claim remains unverified.",
+        "Historical unindexed or equivalently formulated lattice/sumset results are not ruled out by this bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies upper bound; leaves exact odd values open. Theorem numbering differs in v2.",
+          "evidence": [
+            "p. 2, offset about 6029; pp. 9–11, offsets 28900–34810"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.19470v1",
+          "material_read": "Introduction, Theorems 1.1 and 4.1 and strictness proof",
+          "method": "Bounded OA primary text, version 1",
+          "title": "Positivity and negativity for h-bases for n",
+          "trigger": "Exact same signed extremum and decisive strict upper bound"
+        },
+        {
+          "assessment": "Poses signed-versus-ordinary question; does not compute the stratum.",
+          "evidence": [
+            "p. 3, offset 9486"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.26425v1",
+          "material_read": "Problem 5",
+          "method": "Bounded OA primary text",
+          "title": "Problems in additive number theory, VII: The structure of additive h-bases for n",
+          "trigger": "General signed-basis question"
+        },
+        {
+          "assessment": "Three-element signed and unanchored intervals at h=2 only.",
+          "evidence": [
+            "RESULT.md offsets 0–6752, exact pair-sum longest-run values and h=2 spectra"
+          ],
+          "identifier_or_url": "Resultary 233f4ed02dd4",
+          "material_read": "RESULT.md statement, anchored spectra, and comparison",
+          "method": "Local mirror",
+          "title": "Three-point pair-sum interval rigidity and the first signed basis spectrum",
+          "trigger": "Exact catalogue and translated interval equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact signed range was an open part of a natural extremal problem. The construction closes the gap to the strict prior upper bound at infinitely many odd orders, with a simple uniform family and an explicit first missing integer. This gives an exact answer on a non-arbitrary stratum selected by parity and residue coverage, without claiming the other odd orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

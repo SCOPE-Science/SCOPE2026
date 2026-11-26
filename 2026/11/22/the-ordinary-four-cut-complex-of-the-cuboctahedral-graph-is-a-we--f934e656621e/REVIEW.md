@@ -1,15 +1,21 @@
-# Scientific review: cuboctahedral ordinary four-cut complex
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined by the twelve lexicographically ordered cube edges, so its adjacency is unambiguous. Full enumeration yields exactly 369 disconnected four-vertex sets, the asserted face vectors and a complete five-skeleton in the original cut complex. The included 132-pair collapse certificate was replayed from its actual package directory, with every free face checked against **all** current cofaces, leaving a two-complex of face vector (12,60,112). Since the original dual contains the complete two-skeleton and therefore is simply connected, the collapse and Euler characteristic prove its homotopy type as 63 two-spheres. Integral Alexander duality, the original complex's full five-skeleton, Hurewicz and Whitehead establish the 63 seven-spheres. The independent mod-two boundary ranks 306, 462, 49 and 11 are consistent with that integral proof. This is finite exhaustive mathematics, not an infinite extrapolation.
+## correctness
 
-## Originality — PASS on inspected evidence
-The full-text HTML versions of the foundational papers [1,2] were inspected, including relevant hypotheses, theorems and family tables; neither treats the cuboctahedral line graph. The complete next-to-top skeleton assumption of [1, Theorem 6.1] fails here because 24 seven-vertex faces are absent. The nearest publicly recorded classifications [3,4] concern \(\Delta_3(C)\) and \(\Delta_5(C)\), which neither state nor entail \(\Delta_4(C)\). Searches also checked the line-graph and octahedral synonyms, the Alexander dual formulation, the rank 63, and stronger general graph-family theorems; no covering statement was found. Unindexed or inaccessible equivalent work remains a residual bibliographic risk.
+PASS
 
-## Value — PASS
-The cuboctahedral graph is a canonical Archimedean graph, the line graph of a cube, and both adjacent cut thresholds have documented mixed-dimensional topological behavior. Exactly classifying the missing intermediate threshold is a natural finite cut-complex problem rather than a chosen arbitrary slice. It determines full integral homotopy—not only field homology—and shows the nonmonotone pattern of mixed-dimensional and single-degree sphere-wedge types across three consecutive thresholds. The complete elementary-collapse certificate supplies a reusable benchmark without claiming a larger graph-family theorem.
+The dual is precisely the complex with no disconnected induced four-subset. Enumeration via the geometric cuboctahedron independently found 126 connected four-sets, 24 five-faces, no higher dual faces, and the stated primal face vector. Independently replayed all 132 supplied pairs in cube-edge labels, requiring a unique proper coface at each deletion; the residual face vector is (12,60,112). A separate greedy collapse in geometric labels reduced the dual to (12,66,118) in 126 moves, also of reduced Euler characteristic 63. The original dual's complete two-skeleton makes it simply connected, so its collapsed two-complex has free H2 of rank 63 and is a wedge of 63 two-spheres by Hurewicz and homological Whitehead. Integral Alexander duality on 12 labels puts its cohomology in primal homology degree 12-2-3=7. The primal full five-skeleton gives 4-connectivity, and Hurewicz with vanishing H5 and H6 gives 6-connectivity. An integral basis represented by seven-spheres then gives the claimed wedge. Purity follows from the 369 distinct complements, each of size eight.
 
-## Closest literature and limitations
-[1] *Topology of Cut Complexes of Graphs*, arXiv:2304.13675; [2] *Topology of Cut Complexes II*, arXiv:2407.08158; [3] *The cuboctahedral three-cut complex is a mixed-dimensional sphere wedge*; [4] *A mixed-dimensional sphere wedge for the cuboctahedral five-cut complex*. The result does not determine equivariant homology, larger line graphs, shellability or a general threshold formula. A bibliographic search is not a uniqueness proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected exact and nearby statements do not give either homotopy type for the ordinary four-cut of this graph. This is a bounded comparison, not a priority determination.
+
+## value
+
+PASS
+
+The natural intermediate cutoff for a standard named graph has only top-dimensional homotopy, in contrast to both adjoining mixed-dimensional wedges. This determines an integral homotopy type and its dual in a case not handled by the complete-skeleton shortcut; it is more than a face count or a field Betti calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

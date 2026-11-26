@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:34:35.582757Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated adjacency, two or more selected colors force both neighboring fibers to be empty and hence force the original fiber to be full by domination. Singleton runs are monochromatic of length ≥2. A singleton's omitted colors are dominated by a neighbor whose selected singleton is the same color as the singleton in the original fiber, not the omitted color. An empty fiber has a full neighbor or two unequal singleton neighbors. Charging the latter type to the next singleton run is injective, giving e≤2f+s/2, hence |S|≥2k+(q−2)f. A periodic two-singleton/one-empty pattern with cyclically proper colors exists for k≥2 and q≥3. At equality f=0, there are k isolated empty fibers with 2k singleton fibers between them, so every run has length two. The three labeled residues give the trace count using eigenvalues q−1 and −1; k=2 counts ordered pairs of distinct colors. Different residues change at least k vertices from each set and changing any one run color changes both of its vertices, proving the two-removal and two-insertion bound. The supplied checker was read, not executed. Independent replay `python3 /workspace/audit_replay.py 3` exhausts actual vertex subsets up through size 2k for (k,q)=(2,3),(2,4),(3,3), obtains 18,36,18 minima, and checks exact configuration and all pairwise symmetric differences. The proof, not the replay, covers all stated k,q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem is for all n≥6 and q≥3. It puts k=floor(n/3), r=n−3k and allows exactly k empty layers separated by monochromatic singleton runs of lengths 2+e_j with sum e_j=r and unequal consecutive colors. Kuenzel–Rall give the scalar minimum ceil(2n/3)."
+        ],
+        "reasoning": "Setting r=0 forces all extras e_j to vanish. Thus the broader theorem supplies the entire equality classification, not merely one construction or the scalar minimum.",
+        "searches": [
+          "Resultary e9f31746918a, Finding and Assumptions; local mirror at snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "arXiv:2203.12397, Proposition 6(c)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py",
+        "arXiv:2203.12397",
+        "arXiv:2303.08190",
+        "Resultary e9f31746918a and 5713d863fdac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed classification makes each run a two-fiber equal-color pair for n=3k. The published i-graph framework uses token slides on paths or cycles themselves, not this product."
+        ],
+        "reasoning": "Within a residue any color difference changes two selected vertices; across residues at least k≥2 selected fibers disappear in each direction. Thus the stronger structural claim directly implies no token jump and therefore no slide, even without explicit reconfiguration wording. The published scalar minimum alone would not suffice.",
+        "searches": [
+          "Resultary e9f31746918a, exact structural paragraph of Finding",
+          "arXiv:2303.08190, p. 1, definition of the i-graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The later-indexed e9f31746918a Finding concerns the same categorical product and counts labeled subsets. For n=3k the empty layers and the monochromatic singleton runs are exactly the frozen periodic residue configurations. Kuenzel–Rall's weak partitions specialize to the same local fiber rules."
+        ],
+        "reasoning": "No change of product, occupation weights, labeling, or domination notion is required. The Cartesian circular-ladder hit instead has a different adjacency and does not match.",
+        "searches": [
+          "Resultary: minimum independent domination of direct products of cycles and complete graphs; cyclic color gaps and token jumps",
+          "arXiv:2203.12397, weak-partition criteria, pp. 4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general multiplicity equals (n/k) binom(k+r−1,r) times the cyclic color factor (q−1)^k+(−1)^k(q−1); the Finding explicitly notes that the geometric factor is 3 at n=3k."
+        ],
+        "reasoning": "This is exact formula-level coverage at all frozen parameters, not coincidence of a few test values or a numerically matching graph invariant.",
+        "searches": [
+          "Resultary e9f31746918a, exact multiplicity formula, Finding offset 0"
+        ]
+      },
+      "rationale": "A distinct indexed result, e9f31746918a, gives every minimum configuration and its exact labeled multiplicity for all n≥6 and q≥3 in precisely the same product. Its specialization n=3k gives the exact structure and count, and the two-removal and two-insertion bound then follows directly from that same structure. This is present coverage, not a finding that the distinct record preceded the frozen one.",
+      "residual_risks": [
+        "The distinct covering record has a later path date; the review establishes mathematical coverage in the current corpus, not historical priority or attribution. The available targeted searches do not establish the earliest formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exact claim by specialization plus the immediate pairwise difference argument; no priority inferred",
+          "evidence": "At n=3k the geometric factor is 3, each positive run is a monochromatic pair, and exactly k empty layers separate the pairs.",
+          "identifier_or_url": "Resultary 2026/11/8, e9f31746918a",
+          "material_read": "Finding and assumptions, mirror offsets 0–3275; complete statements of multiplicity and run characterization",
+          "method": "Bounded local-mirror reading of actual RESULT.md",
+          "title": "Cyclic color-gap rigidity and exact minimum independent-domination multiplicities in C_n × K_q",
+          "trigger": "Distinct broader result on the same configurations and number"
+        },
+        {
+          "assessment": "Published earlier framework and scalar result; not credited here as stating the complete census or reconfiguration claim",
+          "evidence": "Weak partitions give the fiber-local rules, and Proposition 6(c) gives i(C_n×K_q)=ceil(2n/3) on the relevant range.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12397",
+          "material_read": "PDF pp. 4–5, weak-partition criteria, offsets 10900–12217; p. 6, Proposition 6(c), offsets 14534–17988",
+          "method": "Bounded full-text inspection",
+          "title": "On Independent Domination in Direct Products",
+          "trigger": "Original primary antecedent for local constraints and independent domination number"
+        },
+        {
+          "assessment": "Path/cycle token-sliding framework, not the product classification",
+          "evidence": "The i-graph edges are adjacent-vertex exchanges; the stated families concern the paths and cycles themselves.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.08190",
+          "material_read": "PDF p. 1, OA offsets 1557–4351",
+          "method": "Bounded full-text inspection for definitions and scope",
+          "title": "The i-Graphs of Paths and Cycles",
+          "trigger": "Possible reconfiguration antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The full labeled classification is a natural structural question, but relative to the available all-length result this exact slice and its trace count are parameter substitutions. The frozen reconfiguration conclusion uses only the immediate pairwise difference of the already classified configurations, so it does not leave an independent exact invariant or structural gap under the review standard. This is not a mathematical error or a claim about the merit of the broader classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

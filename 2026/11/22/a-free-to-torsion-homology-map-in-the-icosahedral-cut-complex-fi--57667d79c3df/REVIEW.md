@@ -1,19 +1,21 @@
-# Scientific review — icosahedral six-to-five cut transition
+# Independent mathematical audit
 
-## Correctness: PASS
-The vertex-labeled graph, all 4096 possible subsets, both ordinary cut complexes, signed boundaries and deterministic integer cancellation rule are provided in the executable verifier. All 638 cancellations for the six-cut complex are unimodular and leave six generators in degree three plus 26 in degree four with zero differential. The five-cut complex independently reduces through 1,293 unimodular cancellations to one boundary coefficient 2 and 30 free top generators. Exact mod-two chains supply a 44-simplex four-cycle in the six-cut complex whose image is not a boundary in the five-cut complex. Natural universal coefficients convert this nonzero mod-two map into an integral surjection onto the target \(\mathbb Z/2\). Full source code and recorded output were executed and inspected. These calculations certify integral homology, not geometric homotopy wedges.
+## correctness
 
-## Originality: PASS against inspected evidence
-The closest result, *Integral two-torsion in the five-cut complex of the icosahedral graph*, gives only the five-cut integral homology, with no six-cut group or connecting map. The 2023 foundational paper establishes the cut definition and nested stages; its graph-family results do not cover this special icosahedral adjacent-stage homomorphism. The 2024 sequel treats six-cut grid graphs, not the icosahedron. Exact-parameter, alias, equivalent-statement and broader-coverage searches in the indexed record and broader literature did not find a result that computes or implies the nontrivial map. An unindexed equivalent remains possible, and search absence alone is not a proof of novelty.
+PASS
 
-## Value: PASS
-The known five-cut two-torsion motivates the natural next stage of the same decreasing graph-cut filtration. The exact calculation answers whether the preceding torsion class is detected by the earlier torsion-free integral homology: it is, through a surjection from \(\mathbb Z^{26}\), with index-two kernel. This is a genuine connecting-map invariant not derivable from either stage's separate Betti numbers; the finite computation has mathematical significance because the two adjacent natural stages are already singled out by a torsion event. It also determines the entire integral six-cut homology and gives nonshellability and non-Cohen–Macaulayness.
+An independent exact computation identifies the frozen edge list with the two pentagonal rings of an icosahedron, enumerates faces by component unions, and performs top-down augmented integral unit elimination with a different pivot order. The stage-6 residual has six degree-3 and 26 degree-4 generators and no differential. Stage 5 has one generator in each of degrees 4 and 5 and thirty in degree 6, with a single coefficient -2 (the sign is basis-dependent). Unit elimination is integral: replace the pivot row basis vector by the normalized pivot column and clear its entry from the remaining columns. The chain identity splits off this two-term summand. Over F2, writing P for the stage-5 degree-5 boundary and Q for the stage-6 degree-4 boundary, the rank of the block map (P,i;0,Q) is 756; subtracting rank P=461 and rank Q=294 gives 1 on homology. Direct parity and span tests also validate the recorded 44-simplex cycle. Natural UCT applies with no H3 Tor term on either side, so the integral map is surjective with index-two kernel. The field H3 obstruction is below the pure dimension 5, which rules out shellability and Cohen–Macaulayness. No geometric collapse or wedge decomposition follows from the chain elimination.
 
-## Closest literature and limits
-1. Bayer et al., *Topology of Cut Complexes of Graphs* (arXiv:2304.13675v1, 2023), Definitions 2.6–2.7 and the section-seven graph families.
-2. Bayer et al., *Topology of Cut Complexes II* (arXiv:2407.08158v1, 2024), its grid section and conclusion.
-3. *Integral two-torsion in the five-cut complex of the icosahedral graph* (public `RESULT.md`), determining the neighboring five-cut group but not its inclusion from stage six.
+## originality
 
-The computation is exact for this one finite labeled graph; it is not a general theorem on all polyhedral graphs, and it does not prove a wedge-of-spheres homotopy type. The searches cannot exclude unindexed equivalences. External independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stage-5 homology and the nesting are prior. The exact adjacent-stage induced map and stage-6 integral groups are not supplied by the identified work; the strongest claim is the actual surjection onto the torsion class, not the discovery of torsion in cut complexes.
+
+## value
+
+PASS
+
+The known torsion provides a reason to study these exact adjacent stages. The map answers whether the torsion class already has a lift from a torsion-free group at the preceding stage; stage-wise and rational data cannot answer this. The full integral calculation is also a reproducible nonshellable example on a natural graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

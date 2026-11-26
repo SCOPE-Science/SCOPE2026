@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:52:08.062743Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–76 and 88–90",
+        "Frozen verify_passivity.py and VERIFICATION.md",
+        "Independent replay: enumerate pairs of nonnegative triples summing to N for each tested N through one above its predicted threshold, using exact integer comparisons in Q(phi); at breakpoints check the strict rational window up through the returned height."
+      ],
+      "rationale": "The rearrangement criterion for diagonal finite systems makes a strict population inversion necessary and sufficient for any unitary to lower the energy. For a higher-minus-lower occupation difference the energy and scaled negative log population change by p+r n and p+(r+delta)n respectively, with p=Delta b+Delta c and n=Delta c. Opposite strict signs give n=−q<0, r<p/q<r+delta and occupation difference (−p,p+q,−q). Thus N>=p+q and a pair of product vectors realizes equality for any feasible p,q. This uses beta>0 only and excludes equality endpoints. For k>=1 the upper neighbor F_(2k+1)/F_(2k) and lower neighbor F_(2k+2)/F_(2k+1) have determinant one; the open activation window lies between them for delta<=epsilon_(k−1). The sum of the two positive integer determinant contributions to q gives q>=F_(2k+2), and p>phi*q gives p>=F_(2k+3) since F_(2k+3)−phi*F_(2k+2) is strictly between 0 and 1. The mediant realizes both bounds iff the lower threshold is crossed. For k=0 the pair (2,1) is first possible. With m=2k+2, epsilon_k is asymptotic to sqrt(5)*phi^(-2m), F_(m+2) to phi^(m+2)/sqrt(5), and the consecutive epsilon ratio tends to phi^4. Varying delta across each plateau and approaching its open lower end from above realizes the stated liminf; the included upper end realizes the limsup. The proof is for the no-ancilla unitary minimum, not the amount of work extracted.",
+      "residual_risks": [
+        "Finite replay at delta=1/2,1/3,1/20,1/25 returned 3,8,8,21 and the first four equality endpoints returned 8,21,55,144; it is not the proof of the infinite formula.",
+        "Does not extend the Fibonacci conclusion to arbitrary irrational gaps, catalysts, or restricted controls."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The energy–surprisal order test is necessary and sufficient for general finite N, but does not supply evaluated activation counts for this spectral family. The virtual-temperature rational condition supplies the correct window for the adjacent transitions, as a sufficient witness. The three-level interpolation condition concerns constraints for N-passivity rather than giving these counts in its inspected statement.",
+          "The one-sided continued-fraction theorem evaluates the sequence of denominator records for the transformed irrational, not the global-unitary reduction or the physical envelope."
+        ],
+        "reasoning": "General order testing and one-sided approximation are both stronger within their individual domains. Neither is an existing analytic finite-copy threshold with the necessary height reduction and small-departure behavior.",
+        "searches": [
+          "Koukoulekidis et al. arXiv:1912.07968, Lemmas 6–7",
+          "Salvia–Giovannetti arXiv:1912.02099, Proposition 1",
+          "Skrzypczyk–Silva–Brunner arXiv:1412.5485, Eq. (9)",
+          "Hančl–Turek arXiv:1809.01013v2, Thm. 4.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1912.07968, 1412.5485, 1912.02099 and 1809.01013v2",
+        "DOI 10.1038/s41467-017-01505-4",
+        "Resultary d9a37c2da2f6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The witness condition alone does not rule out a cheaper inversion; an auxiliary-machine cycle is not the specified no-ancilla unitary. The general order criterion allows deriving the lower bound by the exact occupation-difference calculation, not by assuming selected transitions are optimal.",
+          "After that step the published number theory gives the heights. Pulling back the strict endpoints and evaluating both plateau edges using the Fibonacci error is needed for the physical asymptotic statement."
+        ],
+        "reasoning": "Established tools account for the arithmetic and inversion framework. The adjudicated advance is the synthesis that proves and evaluates the global physical minimum and its oscillatory scaling; no inspected statement directly supplies that output by mere substitution.",
+        "searches": [
+          "Statement-level comparison of Eq. (9) of arXiv:1412.5485 with Lemmas 6–7 of arXiv:1912.07968, and with Thm. 4.5 of arXiv:1809.01013v2",
+          "Sparaciari–Jennings–Oppenheim DOI 10.1038/s41467-017-01505-4, Eqs. (22), (26)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing x=q/(p+q) turns the rational window into 1/(1+phi+delta)<x<phi^(-2), with reduced denominator equal to physical height. Hančl–Turek Def. 2.2 and Thm. 4.5 give the lower records for that continued fraction, including 1/3,3/8,8/21,21/55.",
+          "Resultary d9a37c2da2f6 gives a sharp odd-copy law for equally spaced qutrits; the frozen first copy counts include the even count 8 and the Hamiltonian is not affinely equivalent to an equally spaced one."
+        ],
+        "reasoning": "The one-sided approximation theorem is a genuine equivalent arithmetic formulation after establishing the exact physical objective. The equally spaced result is a genuine same-problem neighbor, but not the same spectrum or formula.",
+        "searches": [
+          "Resultary semantic lookup for exact finite-copy qutrit activation and spectral-gap staircases",
+          "Bounded literature lookup for one-sided best rational approximations and golden-ratio activation; Hančl–Turek arXiv:1809.01013v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary gives exact copy counts for the different equally spaced model, not a table for the fixed irrational Hamiltonian. The Fibonacci fractions and their denominators are classical and are not new exact table entries.",
+          "The assessed exact object is an entire parameterized threshold and its limiting envelope, not the bare integer sequence."
+        ],
+        "reasoning": "A finite numerical table cannot encode the open breakpoint convention or the two limiting coefficients. The searched exact neighbor does not encode either for this spectrum.",
+        "searches": [
+          "Resultary record 2026/10/12/SCOPE-sharp-odd-copy-activation-law-for-passive-equally-spaced-qutrits--d9a37c2da2f6, Finding and Proof",
+          "Hančl–Turek arXiv:1809.01013v2, arithmetic characterization"
+        ]
+      },
+      "rationale": "Credit is limited to the evaluated golden-ratio first-copy minimum as a function of the physical parameter, its strict endpoint rule, and the distinct optimized accumulation constants. The sufficient rational witness, the general exact ordering criterion and the number-theoretic lower record sequence are prior. The strongest comparisons provide these ingredients or a different exact spectrum, not the physical staircase and envelope together; the reduction proving the exact cost p+q for every possible unitary and evaluating it is material.",
+      "residual_risks": [
+        "A bounded search does not exclude overlooked priority overlap between quantitative passivity and one-sided Diophantine approximation; no new arithmetic characterization or general passivity test is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact ordering criterion, not the evaluated threshold",
+          "evidence": "Additive energy–surprisal ensemble is totally ordered iff the state is N-passive; first unordered ensemble yields a general algorithm.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.07968",
+          "material_read": "PDF pp. 4–5, Lemmas 6–7",
+          "method": "OA full-text passages, offsets approximately 20200–27100",
+          "title": "The geometry of passivity for quantum systems and a novel elementary derivation of the Gibbs state",
+          "trigger": "General exact finite-N test"
+        },
+        {
+          "assessment": "Same open interval as a sufficient witness; no optimality conclusion there",
+          "evidence": "Two transitions with the specified rational gap relation give nonpassivity at their combined copy count.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.5485",
+          "material_read": "PDF p. 3, Eq. (9)",
+          "method": "OA full-text passage near offset 15800",
+          "title": "A short note on passivity, complete passivity and virtual temperatures",
+          "trigger": "Likely equivalent rational inequality"
+        },
+        {
+          "assessment": "Covers the arithmetic best approximants through the transformed continued fraction; no physical activation law",
+          "evidence": "First-kind best lower approximants minimize one-sided error at bounded denominator; the continued-fraction characterization gives the stated lower records for phi^(-2).",
+          "identifier_or_url": "https://arxiv.org/abs/1809.01013v2",
+          "material_read": "PDF pp. 3 and 9, Def. 2.2 and Thm. 4.5",
+          "method": "OA full-text passages near offsets 8100 and 25500",
+          "title": "One-sided Diophantine approximations",
+          "trigger": "Broader theorem for the exact rational height after change of variables"
+        },
+        {
+          "assessment": "Inspected proposition of Salvia–Giovannetti gives necessary inequalities rather than the frozen Fibonacci optimum",
+          "evidence": "Constraints on three-level populations use selected tensor occupation configurations.",
+          "identifier_or_url": "https://arxiv.org/abs/1912.02099v4",
+          "material_read": "PDF p. 10, Proposition 1",
+          "method": "OA PDF passage near offset 42600",
+          "title": "Energy upper bound for structurally-stable N-passive states",
+          "trigger": "Three-level N-passivity comparison"
+        },
+        {
+          "assessment": "Scope differs: auxiliary-machine work-extraction cycles",
+          "evidence": "Rational gap conditions and activation regions in the presence of a machine, not minimum copies for a unitary on copies alone.",
+          "identifier_or_url": "https://doi.org/10.1038/s41467-017-01505-4",
+          "material_read": "PDF pp. 5–6, Eqs. (22), (26)",
+          "method": "OA full-text passages near offsets 37400–43400",
+          "title": "Energetic instability of passive states in thermodynamics",
+          "trigger": "Rational-gap qutrit activation protocol"
+        },
+        {
+          "assessment": "Material overlap in question but not the normalized Hamiltonian or answer",
+          "evidence": "Equally spaced spectrum and arbitrary ordered positive populations; closed form 2 floor(min(a,b)/|a−b|)+3 in its log-gap notation.",
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-odd-copy-activation-law-for-passive-equally-spaced-qutrits--d9a37c2da2f6",
+          "material_read": "RESULT.md, Finding and Proof",
+          "method": "Resultary search and local mirror passage",
+          "title": "Sharp odd-copy activation law for passive equally spaced qutrits",
+          "trigger": "Closest exact catalogue result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Scope and Proof §§1–3",
+        "Published general passivity criterion arXiv:1912.07968 and sufficient witness arXiv:1412.5485"
+      ],
+      "rationale": "A sharp physical activation cost for a canonical incommensurate gap resolves questions left open by constructing a sufficient witness or running an ensemble-order algorithm: which copy count is first, what happens exactly at the jumps, and whether a single near-thermal scaling coefficient exists. The unequal coefficients show that even the sharp square-root asymptotic does not admit a single constant. This is a motivated boundary calculation despite the narrow spectrum.",
+      "residual_risks": [
+        "It measures onset rather than extractable work size or control complexity, and requires the exact golden-ratio gap."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

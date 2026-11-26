@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event-phase covering arcs are unwrapped without overlap because the total lifted span is less than half a day, while the phase circle is longer than half a day. Membership of at least \(r\) equal-width, ordered arcs is exactly the union of the \(N-r+1\) consecutive-block intersections; their union length gives the closed form. Explicit derivatives prove strict increase then decrease on either side of resonance, and the shorter-side denominator gives the unique global maximum. A standalone exact-rational checker independently partitions all orbital phases and passes 29,988 assertions. Risks are confined to strict modeling assumptions (instantaneous centers, consecutive windows, narrow periods), which are stated in the claim.
+PASS
 
-## Originality — PASS (best-knowledge, provisional historical priority)
+For δ=|P−1| the residues of consecutive nights step by ±δ modulo P. Reflection and a common shift give intervals with starts jδ and width w; the lifted span is <1/2<P, so no additional copies overlap. Each window sees at most one center, and disjoint nights cannot count the same event center. A phase with at least r hits belongs to an intersection of r consecutive intervals. Those intersections are translates of an interval of length ℓ=w−(r−1)δ; the union has length ℓ+(N−r)min(δ,ℓ) when ℓ>0 and measure zero otherwise, including the touching case. Divide by P for uniform phase. At δ=w/r the numerator changes from slope N−2r+1≥1 to slope −(N−r+1)(r−1); dividing by either 1+δ or 1−δ preserves the respective strict signs on the two positive branches since w<1≤r−1. Hence resonance is a strict local minimum, and the denominators r−w and r+w give the higher short-period peak and the unique global maximum. The limiting c/r follows directly by substitution. The attached checker was inspected, not executed; the interval proof supplies the universal result.
 
-Inspected full accessible text of von Braun and Ciardi (2007 arXiv version), Beatty and Gaudi (2008), and von Braun, Kane and Ciardi (2009), including their detection and scheduling sections. The papers calculate/simulate transit window functions and justify the physical question, but do not state this closed form or the unique asymmetric off-resonance peaks under its all-\(N\), all-\(r\) assumptions. Beatty and Gaudi explicitly say their approximation omits integer-day aliasing. The closest available research-index finding treats weather reliability and freely scheduled three observation windows rather than orbital-period detuning with fixed daily windows. A general circular-arc coverage theorem may subsume the geometry, and exhaustive priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The mathematical objective is the exact multi-transit center-hit completeness across orbital-period aliases, a recognized limitation in astronomical transit surveys. The result supplies a full coverage law, a sharp resonance minimum, two exact neighboring period-optima with a strict global preference, and a singular many-night limit. For 30 visits and a 10-minute nightly window, the model predicts a roughly 14.55-fold gain from slight period detuning versus one-day resonance. Such an exact, auditable counterpoint to numerical window functions offers a meaningful benchmark, while not predicting real transit detections.
+In the evidence inspected, phase-fraction window functions and mechanisms for computing them are established, but the specific short-window all-N, all-r formula together with the strict two-lobe classification and asymmetric global optimizer is distinct. A generic exact phase partition does not give a formula or determine the maximizing period without the consecutive-intersection reduction and branch analysis. This is a best-of-knowledge decision, not a priority certificate.
 
-## Context and risks
+## value
 
-Closest literature: von Braun–Ciardi (2007), Beatty–Gaudi (2008), von Braun–Kane–Ciardi (2009), and a related three-window weather-reliability analysis. Limits: finite transit duration, missing nights and noise are excluded; historical priority against broader phase-coverage geometry remains uncertain. Numerical checks validate examples, not infinite quantifiers; the analytic proof establishes the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A useful exact benchmark for the near-resonance behavior of phase-coverage calculations: it identifies when nightly redundancy is maximal at resonance, why detectability instead peaks at a small detuning, and why the two peaks differ despite symmetric raw coverage. The peak remains of order one for w=c/N at fixed r while the resonance coverage goes to zero. The application is narrowly a coverage test for ideal point events, not a claim about actual exoplanet yields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

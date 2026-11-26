@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:05:17.285935Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–39 and 43–73",
+        "Frozen VERIFICATION.md and verify_k2q_gain.py lines 17–53, 88–141 (inspected)",
+        "Independent replay: python3 /workspace/independent_checks.py 3"
+      ],
+      "rationale": "The grounded quadratic form is positive definite on the entire compact positive-budget simplex. The second variation is 2||A^(-1/2) H A^(-1)||_F^2, positive for every nonzero diagonal direction; thus the unrestricted optimum is unique and invariant under permutations within each part. Splitting into the two zero-sum spaces and the two part-constant vectors gives the stated scalar inverse trace. Independent exact differentiation recovers both endpoint expressions: the derivative into the feasible segment at y=0 is negative for all q>=3, and the derivative into the segment at x=0 has the boxed numerator. Strict convexity makes a nonnegative derivative at x=0 sufficient, including equality, and otherwise gives one interior critical point. The unfolded level function (t+2)^3/t has its unique minimum 27 at t=1 and tends to infinity at both ends; integer q(q-1) crosses 27 first at q=6. On the two monotone branches the roots tend respectively to zero and infinity, giving q t_-~8/q and q t_+~q^2 from the defining equation. The independent full-matrix directional derivative at q=6, B=6 equals 1/54. The frozen self-review's phrase 'peripheral-only boundary is never optimal' in its correctness paragraph reverses the boundary label; RESULT.md correctly rules out y=0, the hubs-only boundary.",
+      "residual_risks": [
+        "The onset is minimal only within the specified two-hub complete bipartite family; the computation is supplementary and is not proof-assistant certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General trace-inverse convexity and a relaxation are available in Lin–Fardad–Jovanović.",
+          "Zhou et al., eqs. (5), (7), (9), (12)–(13), optimize an extreme eigenvalue under degree-weighted cost.",
+          "The K_{p,q} heterogeneous-price all-budget law optimizes lambda_min, not the reciprocal sum."
+        ],
+        "reasoning": "The convex framework supplies a marginal condition but does not give its graph-specific sign. A stronger topology range under a different objective does not subsume this result.",
+        "searches": [
+          "arXiv:1302.0450 pp. 5–6",
+          "arXiv:1511.02012 pp. 5–8",
+          "Resultary ebfcf6b0163e Finding and Assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.0450",
+        "arXiv:1511.02012",
+        "Resultary ebfcf6b0163e, bd015dfc5cdd, 6f11a7095f0f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Star hub support follows from a different cubic H_m(B); perfect leader counts are optimized on a principal minor; general noisy-consensus convexity does not evaluate the new endpoint derivatives."
+        ],
+        "reasoning": "The material new content is the evaluated marginal inequality with both equality endpoints, integer onset, and scales, not the convexity method or the general existence of hub reentrance.",
+        "searches": [
+          "bd015dfc5cdd Finding and Proof",
+          "6f11a7095f0f Finding and Proof",
+          "1302.0450 objective/relaxation pp. 5–6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lin–Fardad–Jovanović use the same variance-to-trace normalization with D_kappa D_x and binary leader choices.",
+          "Resultary bd015dfc5cdd treats continuous gains and the same objective on K_{1,m}; 6f11a7095f0f treats trace inverse on K_{2,q} with perfect grounded k-subsets."
+        ],
+        "reasoning": "Binary/perfect grounding is not a reparametrization of an uncapped finite continuous gain budget. The star and two-hub matrices have different zero-sum modes; the star support equation does not transfer.",
+        "searches": [
+          "Resultary comparisons: same continuous A-optimal hub deactivation/reactivation and same K_{2,q} inverse-trace leader allocation",
+          "arXiv:1302.0450, pp. 5–6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest checked same-object archive entry bd015dfc5cdd first exhibits reentrance for a star with m=4, with scales 2/m and m^2; same-topology 6f11a7095f0f has a discrete k-dependent threshold and K_{2,8} example."
+        ],
+        "reasoning": "Neither archived classification can be read as the two continuous thresholds at q>=6. No equivalent exact entry was identified in the checked comparisons.",
+        "searches": [
+          "Resultary exact-continuous-support comparison: K_{2,q} A-optimal budget, hub reactivation, two threshold scales"
+        ]
+      },
+      "rationale": "The prior objective and the qualitative phenomenon of hub reentrance are credited. The exact two-hub finite-budget support law, onset and asymptotic scales are not covered by the closest checked claims. The star comparator is not set aside because of its date; the distinction is its graph and support polynomial.",
+      "residual_risks": [
+        "Unindexed equivalent continuous allocation work may exist; same-day dating does not establish priority between the star and two-hub results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers objective and convexity, not finite continuous K_{2,q} support",
+          "evidence": [
+            "Sigma=(L+D_kappa D_x)^(-1)/2, binary x with fixed cardinality and convex relaxation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.0450",
+          "material_read": "PDF pp. 5–6, text offsets 11431–17409",
+          "method": "Open primary PDF passage comparison",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "General inverse-trace noisy-consensus objective"
+        },
+        {
+          "assessment": "Different spectral objective and budget",
+          "evidence": [
+            "Weighted cost sum d_i w_i^alpha=C and optimization of largest eigenvalue of A-D."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1511.02012",
+          "material_read": "PDF pp. 1, 5–8; eqs. (5), (7), (9), (12)–(13)",
+          "method": "Open primary PDF passage comparison",
+          "title": "Enhancing Speed of Pinning Synchronizability: Low-Degree Nodes with High Feedback Gains",
+          "trigger": "Continuous budgeted pinning"
+        },
+        {
+          "assessment": "Does not subsume the reciprocal-eigenvalue sum law",
+          "evidence": [
+            "Price-ordered activation under lambda_min optimization."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-heterogeneous-price-pinning-on-complete-bipartite-networks--ebfcf6b0163e",
+          "material_read": "RESULT.md Finding and Assumptions at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact Heterogeneous-Price Pinning on Complete Bipartite Networks",
+          "trigger": "All-budget pinning theorem on a larger bipartite family"
+        },
+        {
+          "assessment": "Same effect on a different graph; no two-hub law",
+          "evidence": [
+            "Star K_{1,m} has cubic H_m(B), onset m=4, and scales 2/m and m^2."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-reentrant-hub-grounding-in-a-optimal-noisy-star-consensus--bd015dfc5cdd",
+          "material_read": "RESULT.md Finding, Assumptions, Proof and prior-work discussion, offsets 0–9160",
+          "method": "Resultary local mirror",
+          "title": "Reentrant hub grounding in A-optimal noisy star consensus",
+          "trigger": "Same-day closest match in objective and support reentry"
+        },
+        {
+          "assessment": "Distinct feasible set and grounded matrix",
+          "evidence": [
+            "Exactly k perfect leaders; hub-count alternatives and onset example K_{2,8}, not finite gains."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-the-cubic-hub-allocation-threshold-for-multi-leader-coherence-on--6f11a7095f0f",
+          "material_read": "RESULT.md Finding, Assumptions and Proof from offset 0",
+          "method": "Resultary local mirror",
+          "title": "The cubic hub-allocation threshold for multi-leader coherence on K_{2,q}",
+          "trigger": "Same graph and a cubic inverse-trace hub threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 11–39, 64–73",
+        "Resultary bd015dfc5cdd, comparison of graph family and budget scales"
+      ],
+      "rationale": "For a standard variance objective on a natural redundant-hub family, the unique allocation is not nested in budget. Exact onset and thresholds predict when two simultaneously active actuators should both be disabled, and separate a vanishing lower budget from a diverging upper one. This extends rather than rediscovers the star phenomenon, with a new two-hub test that avoids solving the interior optimization to decide support.",
+      "residual_risks": [
+        "No implication for arbitrary K_{p,q}, heterogeneous prices, capped gains or a spectral-gap objective."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

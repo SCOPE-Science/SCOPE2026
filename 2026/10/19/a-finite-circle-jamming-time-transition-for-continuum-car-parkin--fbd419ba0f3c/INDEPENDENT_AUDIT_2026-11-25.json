@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:49:16.147919Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof",
+        "Frozen VERIFICATION.md and checks.py (read only)"
+      ],
+      "rationale": "After any acceptance the next positive-rate waiting time is exponential at the Lebesgue measure of the available centers. The accepted count is bounded by floor(L), and zero-measure contact placements never occur. After the first rod the residual unoccupied arc is an interval of length L−1; its feasible-center length is (L−2)_+. For 2<L≤3 a second rod leaves both empty arcs of length at most one, hence jams. For 3<L≤4 split the residual free length L−2 after the second rod by a uniform position on [0,L−2]; the two empty arc lengths are x and L−2−x. At most one exceeds one, so the resulting positive rate has density 2/(L−2) on (0,L−3), with the remaining mass at zero. Independence from the earlier clocks follows from independent Poisson times and locations up to the stopping time and rotation invariance; a fourth rod is impossible almost surely even at L=4. Integrating exp(−at) against that rate density gives the stated tail, while adding the independent light-tailed clocks changes its large-t expression only by O_L(t⁻²). Integration yields the truncated mean and divergence. For L>4, k=floor(L/2)+1 satisfies k+1<L<2k. Prescribe the first k labeled proposals in cyclic order near a configuration with first center gap 2 and other gaps all (L−2)/(k−1)∈(1,2). Keeping one clockwise chart fixed gives a product box in first-center and gap coordinates with unit Jacobian. Move the first gap through 2+ε and hold the remaining free coordinates in that box so the last gap stays in (1,2). All k proposals are accepted, the remaining rate is ε, and the mean of the next wait integrates against a positive constant density to infinity. This argument handles even integer L, not only generic circumferences. Replay: integrate the two subintervals 0≤x<L−3 and 1<x≤L−2, and use the gap-coordinate Jacobian above for L>4. The packaged quadrature and sampling are supporting tests, not the continuum proof.",
+      "residual_risks": [
+        "The exact coefficient is only for fixed 3<L≤4; there is no claim for a joint L↓3 and t→∞ limit or for the tail constant at L>4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Privman–Yan PDF pp. 12–13 invokes Pomeau's mechanism based on a distribution of nearly fitting gaps; Purvis et al. was not accessible in full."
+        ],
+        "reasoning": "Mean coverage approaching its jammed limit by a power law is related but does not give a finite-volume probability of any future deposition nor the exact density and coefficient at small circumferences.",
+        "searches": [
+          "arXiv:1606.01823",
+          "DOI 10.1103/PhysRevE.91.022118"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, prior-work comparison",
+        "arXiv:1606.01823",
+        "arXiv:cond-mat/0202465",
+        "Resultary 472861c917c3 and 0335952f8ba4",
+        "Kumar, Huillet, and Purvis et al. (full texts not inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established near-fit mechanism accounts for the possibility of algebraic relaxation, and the dimer law addresses an actual last-deposition time but in a different limit and geometry."
+        ],
+        "reasoning": "Neither supplies the exact support transition at L=3, the two-piece uniform mixing density giving 2/(L−2), or the positive-volume near-pinched configuration for all L>4.",
+        "searches": [
+          "arXiv:1606.01823, PDF pp. 12–13",
+          "arXiv:cond-mat/0202465, §2.3 and conclusion",
+          "arXiv:2608.22671"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After the first rod, the remaining ring dynamics are equivalent to an interval of length L−1 with rod support contained in that interval and physical-time Poisson attempts.",
+          "Kumar is a plausible finite-interval comparator but its full text could not be retrieved; the frozen bibliography cites interval configurations and absorption counts. Huillet addresses circle deposition; independent access to the full comparison was unavailable."
+        ],
+        "reasoning": "An interval theorem for physical last acceptance with the same normalization could transfer by adding an independent Exp(L) first clock. Absorption counts or configuration laws alone do not give this physical-time mixture, so no priority claim is inferred from these accessible descriptions or the retrieval failures.",
+        "searches": [
+          "arXiv:2608.22671",
+          "DOI 10.1088/0305-4470/36/49/002"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known scalar Gumbel law for open-path dimers, a marked Poisson refinement, and a later cyclic dimer analogue; §2.3 gives the corresponding logarithmic-size Gumbel centering in a discrete model."
+        ],
+        "reasoning": "A fixed finite discrete model has rates bounded away from zero before jamming. It cannot yield the fixed finite circumference continuum law over a continuously distributed arbitrarily small rate.",
+        "searches": [
+          "Resultary 2026/10/18/472861c917c3",
+          "Resultary 2026/10/25/0335952f8ba4",
+          "arXiv:cond-mat/0202465 §2.3"
+        ]
+      },
+      "rationale": "The supported increment is the physical last-acceptance time law on a finite continuum ring: the sharp mean cutoff (including the equality case), the exact first nontrivial terminal-stage survival, and its explicit coefficient. Small-gap power laws and discrete-lattice jamming times are not new. The inspected prior results do not entail this combination.",
+      "residual_risks": [
+        "A prior finite-interval physical-time result could transfer by the first-rod reduction; the unavailable Kumar and Huillet texts remain relevant priority risks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanism is prior, assertion distinct",
+          "evidence": "Nearly fitting gaps explain power-law approach to jammed coverage on imprecise substrates.",
+          "identifier_or_url": "https://arxiv.org/abs/1606.01823",
+          "material_read": "Abstract, PDF pp. 12–13 (around offset 19684)",
+          "method": "OA PDF passage read",
+          "title": "Random Sequential Adsorption on Imprecise Lattice",
+          "trigger": "Prior power-law near-gap mechanism"
+        },
+        {
+          "assessment": "Different physical model and limit",
+          "evidence": "Asymptotic Gumbel maximum over a growing discrete system; it does not imply the fixed-L continuum tail.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0202465",
+          "material_read": "§2.3 eqs. 2.26–2.27, dimer mapping p. 21 and conclusion pp. 32–33",
+          "method": "OA PDF passages read",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Actual prior jamming-time formula"
+        },
+        {
+          "assessment": "Different deposition models",
+          "evidence": "Adjacent-site dimers on an open discrete path or a discrete cycle; marked Poisson or Gumbel limits, not continuum fixed-circumference laws.",
+          "identifier_or_url": "Resultary 2026/10/18/472861c917c3; 2026/10/25/0335952f8ba4",
+          "material_read": "First record around offset 1431; second record Finding at offset 0",
+          "method": "Published record passages read",
+          "title": "Spatial Poisson limits for late dimer arrivals in Page–Rényi parking; Poisson late-availability and a Gumbel jamming time for cyclic dimer adsorption",
+          "trigger": "Published finite discrete path and finite periodic comparators"
+        },
+        {
+          "assessment": "Unresolved scope",
+          "evidence": "Reported interval spatial/absorption-count scope; no inference about possible physical-time results from inability to retrieve it.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.22671",
+          "material_read": "Frozen bibliographic description; independent full text unavailable",
+          "method": "Lawful OA attempted via direct and VPN retrieval",
+          "title": "Exact Finite-Length Theory of Uniform Car Parking: Spatial Laws, Absorption, and Aggregation",
+          "trigger": "Finite interval becomes exact model after first ring acceptance"
+        },
+        {
+          "assessment": "Unresolved independently",
+          "evidence": "Frozen bibliography describes a free-deposition configuration model; the paper could not be inspected for kinetic formulas.",
+          "identifier_or_url": "https://doi.org/10.1088/0305-4470/36/49/002",
+          "material_read": "Frozen bibliographic description only; full text unavailable",
+          "method": "Lawful OA route and available-copy attempt",
+          "title": "Random covering of the circle: the configuration-space of the free deposition process",
+          "trigger": "Direct circle geometry comparator"
+        },
+        {
+          "assessment": "Not resolved at full-text level",
+          "evidence": "No negative evidence based on access failure.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.91.022118",
+          "material_read": "Citation; full text not accessible",
+          "method": "Lawful OA route and repository-copy attempt",
+          "title": "Scaling behavior near jamming in random sequential adsorption",
+          "trigger": "Related availability scaling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and proof of the near-pinched configuration"
+      ],
+      "rationale": "A.s. finite completion despite infinite expected physical time is a concrete distinction for a canonical finite-volume stochastic process, and the exact cutoff shows it begins immediately when a nearly fitting third placement becomes possible. The explicit tail and truncated mean quantify the resulting rare events and give a benchmark that cannot be read from either count-only parking algorithms or infinite-volume coverage.",
+      "residual_risks": [
+        "No assertion about other object sizes, lattices, or the exact survival constant beyond L=4."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

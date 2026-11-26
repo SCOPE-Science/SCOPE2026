@@ -105,7 +105,7 @@ the uncovered square area is exactly the area of the two triangular projection t
 \[
 \boxed{1-C=\frac{(\alpha+\beta-W)^2}{4\alpha\beta}.}\tag{3}
 \]
-For \(0<W\le1/\sqrt2\), choose \(\alpha=\beta=1/\sqrt2\), which satisfies the displayed range and makes (3) equal \((1-\sqrt2W)^2\); hence \(C=\sqrt2W-W^2/2\).
+For \(0<W\le1/\sqrt2\), choose \(\alpha=\beta=1/\sqrt2\), which satisfies the displayed range and makes (3) equal \((1-W/\sqrt2)^2\); hence \(C=\sqrt2W-W^2/2\).
 
 For \(1/\sqrt2\le W<1\), put \(r=\sqrt{2W^2-1}\) and take
 \[
@@ -113,7 +113,7 @@ For \(1/\sqrt2\le W<1\), put \(r=\sqrt{2W^2-1}\) and take
 \]
 They satisfy \(\alpha^2+\beta^2=1\), \(\alpha+\beta=1/W\), and \(\alpha-\beta=r/W\le W\), while \(W\le\alpha+\beta\). Formula (3) therefore gives \(1-C=(1-W^2)/2\), so \(C=(1+W^2)/2\). This matches the global upper bound in each regime.
 
-**4. Single-strip angular and central-offset uniqueness.** For a central plank, the upper-bound equality identities in part 2 with a single \(q_1\) force \(s=\sqrt2W\) in the first regime and \(s=1\) in the second. The first condition says \(\alpha=\beta\), while the second says \(\alpha+\beta=1/W\). Together with \(\alpha^2+\beta^2=1\), these characterize the stated angles, up to symmetries. At those angles \(W>\alpha-\beta\) and \(W<\alpha+\beta\). The density of the projection variable is even, constant only on its middle plateau, and strictly decreasing outside it. Sliding a length-\(W\) projection interval away from the origin therefore strictly decreases its mass; so the unique maximizing offset is \(t=0\). The two area branches coincide at \(W=1/\sqrt2\), with value \(3/4\), and both strictly increase. Inverting the branches proves the width-versus-coverage formula.
+**4. Single-strip angular and central-offset uniqueness.** The upper-bound equality identities in part 2 apply to a single plank at any offset and force \(s=\sqrt2W\) in the first regime and \(s=1\) in the second. The first condition says \(\alpha=\beta\), while the second says \(\alpha+\beta=1/W\). Together with \(\alpha^2+\beta^2=1\), these characterize the stated angles, up to symmetries. At those angles \(\alpha-\beta<W<\alpha+\beta\). If \(f\) is the projection density, the derivative of the covered area with respect to \(t\) is \(f(t+W/2)-f(t-W/2)\). By evenness and monotonicity in \(|t|\), this derivative is nonpositive for \(t>0\); it is strictly negative for sufficiently small positive \(t\), since \(W/2\) lies strictly inside the decreasing part of the density. Thus \(t=0\) is the unique maximizing offset. The two area branches coincide at \(W=1/\sqrt2\), with value \(3/4\), and both strictly increase. Inverting the branches proves the width-versus-coverage formula.
 
 ## Verification
 
@@ -121,7 +121,7 @@ The standalone script `checks/verify.py` checks five exact SymPy identities for 
 
 ## Relationship to prior work
 
-Bakaev and Polyanskii's 2026 theorem proves that for every planar convex body there exists an optimal partial-plank covering using a single plank. Their Lemma 5 supplies the Bang-map uncovered-volume principle used here; it does not state the complete square-specific optimal area function, its unique optimal direction transition, the exact inverse coverage-width profile, or the quantitative dispersion bound for arbitrary families. The present contribution concerns those stronger square-specific statements, not the general planar one-plank existence theorem. The plank-covering stability literature deals with covering an annulus or controlling overlap under near-complete coverage, rather than the sharp fixed-budget square-area profile. Comparisons of accessible research records and keyword/implication searches found no directly covering statement, but search incompleteness and earlier unindexed work remain possible.
+Bakaev and Polyanskii's Theorem 12 proves single-plank sufficiency for planar convex bodies. Its proof reduces the optimal uncovered area to minimizing the erosion by a segment; for a square this recovers the sharp area profile by minimizing \((1-W|u_1|)(1-W|u_2|)\). The same area formula (and hence its inverse), angle transition and unique centering also occur, after rescaling, in the October 25, 2026 Resultary record [3]. The distinct quantitative statement here is the bound for an individual family in terms of its width-weighted direction dispersion. It is obtained by keeping the family's full erosion in Bakaev and Polyanskii's Lemma 5, rather than using the minimum over single directions, and separating the two nonnegative sources of deficit in the square. The plank-covering stability work [2] concerns coverage of annuli and overlap, rather than this fixed-budget directional deficit. These comparisons do not establish historical priority.
 
 ## Limitations
 
@@ -131,3 +131,4 @@ The formula is proved for a Euclidean unit square, not arbitrary rectangles or h
 
 1. E. Bakaev and A. Polyanskii, *Optimal partial plank coverings*, arXiv:2607.27483, first posted July 29, 2026, https://arxiv.org/abs/2607.27483. Relevant: Section 2, Lemma 5 and Section 4, Theorem 12.
 2. E. Bakaev and A. Yehudayoff, *Volume stability of plank covers*, arXiv:2609.30409, first posted September 24, 2026, https://arxiv.org/abs/2609.30409. Relevant: stability for covering rather than optimal partial square-area profiles.
+3. Resultary record 9b6351cd0a30, October 25, 2026, https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-partial-plank-and-translation-overlap-phase-transition-for--9b6351cd0a30. Relevant: the side-two square and its maximizing single-plank configurations.

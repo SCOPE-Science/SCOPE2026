@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:51:19.165199Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–29 and 35–97",
+        "Frozen CHECK.py, lines 19–49; inspected, not executed",
+        "Frozen VERIFICATION.md",
+        "/workspace/branches/review-3-certificate.py"
+      ],
+      "rationale": "With dt/2, the Gram matrix splits into the even 2x2 block on (1,cos(omega t)) and the sine block; nonzero gap gives positive Gram determinants D and T/2. Inversion and Cauchy–Schwarz give the stated exact E/D+O/T and kernel equality family. I independently checked F=657 DT/4−ET−OD. Using x=sqrt(u), D=(1+B)/2−(1−cos(2x))/(2u) and E=1+(B+cos(4x))/2+(sin x−sin(3x))/x, I rebuilt its Taylor coefficients as exact fractions and certified F70/u^4>1/100 by centered Taylor bounds on 36 closed intervals of width 1/4, without using the uploaded Bernstein implementation. Replay: python3 -I -B /workspace/branches/review-3-certificate.py. The cubic-and-lower coefficients vanish, and leading coefficients agree with the source. On |u|=100, the four original trig majorants follow from e<3 using sinh(10)/10, sinh(20)/20, cosh(20), cosh(40), and imply |F|<10^29. Cauchy's bound gives the certified tail <u^4/1000 for 0<u<=9, so the positivity is uniform, not sampling. For omega>=3, the exponential Gram eigenvalues are >=1/3 from absolute off-diagonal row sums <=2/omega, hence K<=9. As omega tends to zero, the rescaled basis 1,sin(omega t)/omega,2(1−cos(omega t))/omega^2 tends to 1,t,t^2 at the observation and evaluation points. The Legendre kernel then gives 1+12+5(11/2)^2=657/4 and yields a limiting extremizing family but no positive-gap equality. Reflection and unimodular modulation preserve the estimate.",
+      "residual_risks": [
+        "Exact rational certificate plus analytic bounds, not a formal proof-assistant attestation; result is for an equispaced triple and one exterior evaluation location under the stated normalization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 has an implicit absolute constant; Proposition 3.10 has k exp(3k arcosh x) multiplying the unnormalized L2 norm."
+        ],
+        "reasoning": "The arbitrary-frequency theorem has wider scope, but specializing its explicit bound gives 18 exp(18 arcosh 2) in the squared averaged convention, not a sharp upper bound at the collision value.",
+        "searches": [
+          "Resultary: Chebyshev/exponential-sum extrapolation",
+          "Zhang arXiv:2607.10501v2, Theorem 1.1, Lemma 3.8, Proposition 3.10"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local search and the three indicated mirror passages",
+        "arXiv:2607.10501v2",
+        "Targeted primary-literature web lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Chebyshev witness is a lower-bound construction for the extrapolation growth scale; the classical Legendre kernel computes the limit as gaps close."
+        ],
+        "reasoning": "Neither polynomial limit nor growth scale supplies the decisive strict positive-gap comparison. An exact endpoint result or an energy-dilation inequality for only two frequencies does not imply that pointwise three-tone comparison.",
+        "searches": [
+          "Zhang arXiv:2607.10501v2, Lemma 4.1 and Proposition 4.3",
+          "Endpoint, two-tone exterior and centered energy-dilation Resultary statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Endpoint three-tone result e11889d28f9d, mirror RESULT.md offset 0–1727; two-frequency exterior leverage 517d41b07a68, offset 0–1797; bunched-index web search returned generic nondecisive hits."
+        ],
+        "reasoning": "Exterior leverage, pointwise extrapolation, and a sharp squared evaluation norm describe the same quantity with matching norm conventions. The endpoint theorem has x=1; changing variables to make x=2 an endpoint would change the observation interval. The two-frequency span does not contain the general third tone.",
+        "searches": [
+          "Resultary: exact doubled-window three-tone constant; symmetric triple exterior evaluation; sharp evaluation at x=2",
+          "Web search: symmetric three-frequency Fourier sum sharp extrapolation evaluation norm exterior point Nikolskii doubled interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected closest exact indexed constants: 9 for the symmetric triple at x=1, 13 for two frequencies at x=2 in averaged normalization, and an exact centered energy-dilation result for two frequencies c62e16d66212."
+        ],
+        "reasoning": "These are natural exact results but vary either evaluation location, dimension or functional. No independent exact x=2 three-tone table was located in this targeted comparison; the identical frozen record is not a separate comparator.",
+        "searches": [
+          "Resultary: 657/4, doubled-window exact evaluation, sharp three-tone x=2"
+        ]
+      },
+      "rationale": "The exact exterior positive-gap rigidity and sharp constant are distinct from the available endpoint and two-frequency theorems. General sparse-Fourier extrapolation controls growth rate, not this sharp finite-dimensional constant. The collision limit and the Gram-matrix method by themselves are not original.",
+      "residual_risks": [
+        "Specialized sharp exponential-sum inequalities under other terminology may remain unindexed; generic web hits do not establish absence. The reviewed passages support the distinctions above, not priority over all literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broader scale bounds but not a sharp constant at the tested point",
+          "evidence": [
+            "Proposition 3.10 bounds x>=2 by k exp(3k arcosh x) times unnormalized L2; Proposition 4.3 uses a Chebyshev lower-bound witness."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.10501",
+          "material_read": "v2, pp. 2, 16–17, 20: Theorem 1.1, Lemma 3.8, Proposition 3.10 eq. (44), Lemma 4.1 and Proposition 4.3",
+          "method": "Bounded primary PDF text inspection",
+          "title": "Optimal Extrapolation Bounds for Sparse Fourier Sums",
+          "trigger": "Closest broader sparse Fourier extrapolation theorem"
+        },
+        {
+          "assessment": "Different evaluation point, does not cover exterior sharpness",
+          "evidence": [
+            "At x=1 the strict sharp bound is 9 times the averaged squared norm; scope excludes sharp exterior evaluation."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-endpoint-nikolskii-constant-for-symmetric-three-tone-fouri--e11889d28f9d",
+          "material_read": "RESULT.md offset 0–1727, finding and scope",
+          "method": "Local Resultary mirror inspection",
+          "title": "Sharp endpoint Nikolskii constant for symmetric three-tone Fourier sums",
+          "trigger": "Matching three-tone observation space and collision extremizer"
+        },
+        {
+          "assessment": "Only two frequencies",
+          "evidence": [
+            "Sharp (1+3x^2)/2 relative to unnormalized energy, with two distinct frequencies."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-two-frequency-exterior-fourier-leverage-and-the-quadratic--517d41b07a68",
+          "material_read": "RESULT.md offset 0–1797, finding and scope",
+          "method": "Local Resultary mirror inspection",
+          "title": "Sharp two-frequency exterior Fourier leverage and the quadratic collision defect",
+          "trigger": "Matching exterior evaluation problem"
+        },
+        {
+          "assessment": "Different functional and only two frequencies, irrespective of publication order",
+          "evidence": [
+            "Integrated energy on enlarged centered windows; no three-frequency result."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-centered-energy-dilation-for-two-frequency-fourier-sums--c62e16d66212",
+          "material_read": "RESULT.md offset 0–1847, finding and scope",
+          "method": "Local Resultary mirror inspection",
+          "title": "Sharp centered energy dilation for two-frequency Fourier sums",
+          "trigger": "Related indexed sharp Fourier extrapolation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and limitations",
+        "Zhang arXiv:2607.10501v2, extrapolation setting"
+      ],
+      "rationale": "The far endpoint of the adjacent unit prediction interval is a natural test point for sparse extrapolation. The three-tone result gives an exact evaluation benchmark beyond the two-tone case and distinguishes every genuine finite gap from the confluent quadratic limit, a conclusion not available from growth-rate estimates or the limit calculation.",
+      "residual_risks": [
+        "Not the sharp profile at every exterior point or a bound for all configurations of three frequencies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:52:45.825811Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 3–58",
+        "Frozen VERIFICATION.md, lines 1–21",
+        "Frozen check.py, lines 1–92 (inspected, not executed)"
+      ],
+      "rationale": "For six i.i.d. Bernoulli(p) trials with strictly positive stakes summing to one, a stake at least p already certifies probability at least p. In the complementary class p>1/6 is necessary and sufficient for feasibility, singletons lose and every set of size at least four wins. Up to and including 1/5 every pair wins; up to and including 1/4 beyond that, failed pairs intersect (at most five) and all triples win. In the final interval, all 15 perfect matchings meet the winning pairs and each pair is counted three times. Hence at least five pairs win. Failed triples are pairwise 2-intersecting, since otherwise their union plus at most one remaining singleton gives weight below 3p≤1. Such a family has size at most four: after choosing two triples with common pair, either all triples contain that pair or all are contained in the union of those two. The only five-winning-pair case is a star, since each matching then has exactly one winning pair; every triple wins in that case (a failed triple off the center, the remaining failed pair and the center would sum to less than 3p). Its probability exceeds the four-core baseline by p²(1−p)³(5p−1). Otherwise six winning pairs and sixteen winning triples already give that baseline exactly. Equal or nearly equal cores of sizes six, five and four realize the three laws with all six stakes positive. The strict light-stake inequality and the dominant equality example were checked separately, including the endpoints. This is a continuum proof, not a grid inference.",
+      "residual_risks": [
+        "The optional rational-grid program does not exhaust real stakes; the extremal conclusions rely on the analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unconditional regimes in the anchor include p≤10⁻⁴⁶ and reciprocal probabilities p=1/m; the unrestricted continuum 0≤p≤1/3 appears there as a conjecture."
+        ],
+        "reasoning": "Known broader regimes do cover individual ordinary cases but do not prove the light-stake continuum envelope; in particular their target p is strictly below the new light-stake bound. The conjecture is not a coverage theorem.",
+        "searches": [
+          "arXiv:2606.30287v1, known small-p and reciprocal-p regimes",
+          "arXiv:2606.18119v1, §3.3, general weighted-sum question"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.30287v1",
+        "arXiv:2606.18119v1",
+        "arXiv:2002.06804v4",
+        "Resultary ed600339602a, 9051b3e3ae8c and 235cc647b649"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The five-weight proof includes attaining heavy-core profiles but its failed-pair/triple bounds use no more than five weights. The sixth positive stake adds new winning/losing subset constraints."
+        ],
+        "reasoning": "An older bound p, even where known, gives no sharp strict excess. A five-stake minimizer gives a candidate for six stakes after perturbation, not the lower bound for every six-stake vector; the six-vertex matching and triple argument supplies that missing direction.",
+        "searches": [
+          "Five-weight Resultary proof: offsets 2137, 2818, 4257",
+          "arXiv:2606.30287v1, Conjecture 1 and proven ranges"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mean-crossing/MMS formulations concern the ordinary unrestricted lower bound. Optimizing stakes at threshold t in 2002.06804v4 takes a supremum."
+        ],
+        "reasoning": "Same mean-crossing normalization is genuine overlap for the ordinary bound. Maximizing a fixed-threshold tail is not equivalent to minimizing it over light stakes (complementation would also change the event, probability and constraints).",
+        "searches": [
+          "arXiv:2606.30287v1, Conjecture 1 and MMS implications",
+          "arXiv:2606.18119v1, §3.3",
+          "arXiv:2002.06804v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The five-weight record yields T5 and T4 on the corresponding intervals for its at-most-five-weight light class. The separate same-day four-stake record is a maximum over four stakes. The Chaundy–Bullard record gives monotonicity and an equal-stake maximum at threshold 1/3."
+        ],
+        "reasoning": "The closest tabulated values are genuine overlaps for a smaller class, not an exact entry for the assigned invariant. The same-day record was compared on content, not assumed earlier or later.",
+        "searches": [
+          "Resultary semantic lookup: Bernoulli mean crossings, non-dominant/light stakes, exact six-weight envelope",
+          "Resultary 2026/10/18/SCOPE-a-sharp-five-weight-gap-for-bernoulli-mean-crossings--ed600339602a",
+          "Resultary 2026/10/13/SCOPE-exact-four-stake-phase-diagram-for-the-bernoulli-averaging-probl--9051b3e3ae8c",
+          "Resultary 2026/10/12/SCOPE-strict-subcritical-chaundy-bullard-monotonicity-at-the-one-third--235cc647b649"
+        ]
+      },
+      "rationale": "Supported for the sharp six-weight non-dominant envelope, hence the six-weight bound across the stated full interval, not for the general conjecture, its reciprocal-p cases or the binomial-tail formulas themselves. The closest five-weight result has two coincident envelope values on a strictly smaller feasible class. It does not bound the larger six-weight class from below. No verified source compared here supplies the full six-weight envelope.",
+      "residual_risks": [
+        "Fernandez 2012 question body was inaccessible; no conclusion about its complete contents.",
+        "The assigned record was not resolved in the searched mirror snapshot. Catalogue retrieval is not exhaustive and the frozen record itself would not be separate prior coverage.",
+        "The comparisons do not establish absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ordinary special-probability cases covered; full envelope not supplied by these results",
+          "evidence": [
+            "Conjectured lower bound p for the unrestricted range through 1/3; proven small-p and reciprocal-p regimes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.30287v1",
+          "material_read": "Conjecture 1, equality example and known-result passage, offsets 1943 and 7423",
+          "method": "OA full-text passage inspection",
+          "title": "On the Probability a Weighted Bernoulli Sum Exceeds Its Mean",
+          "trigger": "Same ordinary mean-crossing question and stronger arbitrary-summand target"
+        },
+        {
+          "assessment": "Formulates and discusses the problem; inspected results are not the six-weight envelope",
+          "evidence": [
+            "MMS connection and small-p range through 10⁻⁴⁶."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.18119v1",
+          "material_read": "§3.3, offsets 32891 and 34036",
+          "method": "OA full-text passage inspection",
+          "title": "First Proof Second Batch",
+          "trigger": "Same question and candidate partial results"
+        },
+        {
+          "assessment": "Different optimization direction",
+          "evidence": [
+            "Defines π(p,t) as a supremum over stakes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2002.06804v4",
+          "material_read": "Opening optimization definition and Theorem 7, offset 13615",
+          "method": "OA full-text passage inspection",
+          "title": "Optimizing stakes in simultaneous bets",
+          "trigger": "Same independent Bernoulli weighted sums and stake optimization"
+        },
+        {
+          "assessment": "Not adjudicated; access risk",
+          "evidence": [
+            "HTTP 403 on both routes; no substantive source evidence from the hit."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/265163/convex-combinations-of-low-probability-bernoulli-variables",
+          "material_read": "Search-visible title only; substantive text not obtained",
+          "method": "OA website retrieval attempted on direct and alternate routes",
+          "title": "Convex Combinations of Low Probability Bernoulli Variables",
+          "trigger": "Early statement plausibly treating same inequality"
+        },
+        {
+          "assessment": "Partial scope overlap only",
+          "evidence": [
+            "T5 when 1/5<p≤1/4; four-heavy/one-light construction and T4 lower bound when 1/4<p≤1/3, with at most five stakes."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-five-weight-gap-for-bernoulli-mean-crossings--ed600339602a",
+          "material_read": "Finding and proof offsets 2137, 2818 and 4257",
+          "method": "Resultary lookup, local mirror passage inspection",
+          "title": "A sharp five-weight gap for Bernoulli mean crossings",
+          "trigger": "Nearest exact envelope overlap in Resultary"
+        },
+        {
+          "assessment": "Different feasible class and objective direction",
+          "evidence": [
+            "Exact maximum M4(p,t) with four stakes."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-four-stake-phase-diagram-for-the-bernoulli-averaging-probl--9051b3e3ae8c",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary lookup, local mirror passage inspection",
+          "title": "Exact four-stake phase diagram for the Bernoulli averaging problem",
+          "trigger": "Distinct same-day close title and phase diagram"
+        },
+        {
+          "assessment": "Binomial-tail overlap not the constrained minimum",
+          "evidence": [
+            "Equal-stake maximum at threshold 1/3."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-strict-subcritical-chaundy-bullard-monotonicity-at-the-one-third--235cc647b649",
+          "material_read": "Finding",
+          "method": "Resultary lookup and matching scientific statement comparison",
+          "title": "Strict subcritical Chaundy–Bullard monotonicity at the one-third threshold",
+          "trigger": "Exact binomial tail comparison at the same endpoint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof §§2–5",
+        "Milojević–Sudakov, arXiv:2606.30287v1, Conjecture 1",
+        "Five-weight Resultary record ed600339602a"
+      ],
+      "rationale": "Six is a meaningful finite case of the weighted mean-crossing question. Removing the immediate single-stake certificate isolates the genuinely collective tail mechanism. The three attained laws locate exact jumps caused by the strict light-stake constraint, and the last branch settles the competing matching/star and triple configurations. This supplies a sharp benchmark not determined by the unrestricted bound or a smaller-stake computation.",
+      "residual_risks": [
+        "No result for more than six stakes or for unequal Bernoulli parameters is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

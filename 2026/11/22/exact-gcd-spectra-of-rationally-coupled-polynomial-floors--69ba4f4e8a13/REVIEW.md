@@ -1,19 +1,21 @@
-# Scientific review of exact gcd spectra of rationally coupled polynomial floors
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact identity \(\gcd(bm+r,T,T+m+e)=\gcd(r-be,T,m+e)\) reduces the question to one exceptional progression and finitely many constant-modulus gcd laws. On nonzero progressions, Weyl equidistribution supplies independence of the floor residue, the starting-index residue, and the fractional-part interval. CRT gives the exact distribution \(H_c(d)\). On the exceptional progression, the published polynomial-floor large-prime theorem (Holdridge, Theorem 1.3; linear case Champagne) upgrades the finite-modulus gcd law to the unrestricted two-variable zeta law. The resulting formula is normalized, and a finite Möbius transform gives the stated parameter-only total-variation bound. Integer/CRT enumeration (496 cases), rational Möbius checks (3500 equalities), and exact-integer-square-root diagnostics were reproduced from the standalone verifier. These numerical cases do not establish the infinite argument.
+PASS
 
-## Originality
+For n=bm+r, subtracting the two floors gives m+e with e the indicator of the upper fractional-phase interval, so the gcd reduces exactly to gcd(r-be,T,m+e). In each nonzero residue class, the highest irrational positive-degree coefficient remains irrational after the affine substitution and rational scaling for every fixed modulus and subprogression. Weyl therefore makes m mod c, T mod c and the phase jointly uniform in the required sense. CRT gives H_c(d); combining the two phase branches produces the weight 2(b-c)/b². Only r=0 needs an infinite sieve. Holdridge Theorem 1.3 allows any irrational nonconstant coefficient in degree at least two, and the linear tail quoted in the same introduction allows arbitrary real intercept and irrational slope. Thus it applies to f(bm). For any fixed d and prime cutoff R at least as large as every prime divisor of d, exact valuations at p<=R are tested modulo the product of p^(v_p(d)+1). The limiting product is obtained by Weyl; the discrepancy from the exact gcd event is contained in the checked large-prime tail. This gives 1/(zeta(2)d²), including b=1. The mixture normalizes, and only this class contributes when d>=b. In the rate calculation, summing the arithmetic progression after the Möbius expansion cancels the full zeta(2) term against the untruncated linear term. The two zeta-series tails are O(1/(b²d)), the bounded rounding term is O((1+log(b/d))/(b²d)), and the explicit d>=b tail contributes O(b^-2) in total. These bounds prove both asserted rates in the specified order of limits. Independent exact arithmetic matched 78 finite CRT cases, 306 finite Möbius cases, and 450 tail cases; these are not tests of the infinite tail theorem.
 
-PASS, with bibliographic risk. The two floor polynomials differ by rational linear \(n/b\), so their vector violates the necessary total-homogeneous equidistribution condition of Holdridge and the prior split-polynomial work; the uniform \(1/\zeta(3)\) theorem is not applicable for any fixed \(b\). The full dependent-triple gcd histogram, exact stable zeta-two tail at \(d\ge b\), and quantitative total-variation interpolation are not stated in the inspected main primary text or the closest full published findings. The published single-floor \(b=1\) branch and its large-prime theorem are explicitly prior, not new. An equivalent unindexed dependent-floor result remains possible; the preceding checks do not constitute proof of historical uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The work answers a natural distributional question precisely where the standard polynomial-vector equidistribution assumption fails. It determines every gcd mass, identifies a sharp arithmetic cutoff separating finite-residue corrections from a universal heavy tail, and quantifies recovery of the classical three-integer law as the rational shift denominator grows. The complete family and total-variation comparison are mathematical structure, not an arbitrary finite computation or renaming.
+The supported distinct contribution is the full limiting histogram for the rationally dependent triple, its exact finite-denominator tail and its quantitative TV transition. The two-coordinate law and its large-prime input are not claimed as new. The strongest partly inaccessible comparison, a same-day translated-power joint law, cannot be deemed equivalent from its indexed statement; the possible quadratic overlap is recorded explicitly.
 
-## Closest work and limitations
+## value
 
-Holdridge, arXiv:2611.02223v1 (2026-11-01), Theorems 1.2–1.3; Banks–Shparlinski, arXiv:2205.00253v3; the published coprimality result for split integer polynomials and equidistributed floors; the published numerator-independent gcd histograms for rational floor dilations. Holdridge's theorem supplies the essential large-prime tail and already covers \(b=1\). No effective rate for the finite-\(n\) density, no simultaneous \(b,n\to\infty\) statement, and no extension to rational-coefficient \(f\) is claimed. A cited Champagne manuscript could only be checked through the primary paper's presentation and bibliography, so priority uncertainty remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The rational difference makes an independent-floor model inapplicable, but an exact law is still obtainable. It identifies how the residue-zero branch produces a different tail for every finite denominator and quantifies convergence of the full dependent spectrum to the three-integer law, not just a coprimality statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

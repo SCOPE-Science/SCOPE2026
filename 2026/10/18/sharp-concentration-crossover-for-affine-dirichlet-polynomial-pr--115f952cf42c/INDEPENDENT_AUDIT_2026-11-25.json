@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:45:32.866423Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-audited /workspace/repairs/4/RESULT.md. The symmetric Dirichlet covariance is 1/[n(na+1)] on the sum-zero hyperplane. The resulting kernel is symmetric and affine in its evaluation point, so the absolute row integral is convex and all vertices give its common maximum. Testing the sign of a vertex row gives the endpoint lower bound even though the vertex itself has zero mass: the output is continuous and the interior has full support. The vertex row has mean one and sign threshold a/(na+1), giving the credited beta expression by truncated first moment. With λ=na, beta–gamma algebra makes YS Gamma(a,1) for S independent Gamma(λ,1), and the difference of the two deviations is bounded by E[Y] times the root mean square of S−(λ+1), exactly √(λ+1)/n. The absolute Gamma deviation follows by integrating the derivative of x^a e^(−x) from 0 to a. At λ→0 the elementary bounds squeeze; at λ→c>0 the beta fractional moment is O(1/n), so n(λ+1)Y→0 in probability and the bounded negative part has limit c in mean. At λ→∞ the relative error is O(λ^(−1/2)+λ^(−1)) for a≤1 and O(n^(−1/2)) for a≥1, by the positive lower bound on g(a) from its asymptotics at zero and infinity. This also gives divergence and the subsequence argument for merely unbounded λ. These checks replay directly from the repaired proof. The frozen formula and analysis are mathematically correct; the repair concerns originality, not a numerical flaw. CHECK.py was inspected, not executed, and its finite regression grid is not the proof of either the bound or arbitrary-path limits. No unequal-parameter or higher-degree claim is validated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The asymmetric theorem 5c9fbf13aa23 has a large-total Gaussian limit with the number of coordinates and the fractions fixed.",
+          "The 10/25 and 11/02 asymmetric projection records state the growing-dimension limits for fixed coordinate weight and fixed total weight; 8de5a5d258c9 has a sharper fixed-total deficit."
+        ],
+        "reasoning": "Broader coverage of exact pointwise norms does not establish a uniform approximation at moving small a. Fixed-dimension, fixed-fraction limits cannot be evaluated at fractions 1/n while sending n to infinity without additional uniform control. In particular none of these fixed-path claims yields the equivalent for a_n→0 with na_n→∞.",
+        "searches": [
+          "Resultary: dimension-uniform Gamma coupling bound affine orthogonal projector norm symmetric Dirichlet arbitrary concentration sequence n alpha crossover fixed total concentration",
+          "5c9fbf13aa23; 1ef5a2f170d1; e08f2dea6b7e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py; repaired RESULT.md",
+        "Resultary 5c9fbf13aa23, 1ef5a2f170d1, 8de5a5d258c9, e08f2dea6b7e, 99c2b9dd9b34",
+        "Griffiths and Spanò arXiv:1003.5131",
+        "Aktaş and Xu arXiv:1111.2994 pp. 1–2 (simplex polynomial systems, not endpoint norms)",
+        "Chernov DOI 10.1090/S0025-5718-2011-02513-5, repository accepted version"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard kernel already reduces a vertex row to a Jacobi kernel under a beta marginal.",
+          "The later fixed-total, fixed-coordinate and fixed-dimension formulas use a different set of quantifiers. They do not give a finite-parameter cross-regime relative estimate or cover arbitrary oscillation of a_n."
+        ],
+        "reasoning": "The known exact representation provides a starting law, but does not directly imply the uniform quantitative comparison without constructing the independent beta–gamma product and controlling its error. The repair proves that additional estimate and uses it in the sparse and large-coordinate ranges, plus a separate bounded-total argument.",
+        "searches": [
+          "Griffiths and Spanò arXiv:1003.5131 §2.2 p. 16",
+          "5c9fbf13aa23 fixed-proportions limit",
+          "8de5a5d258c9 and e08f2dea6b7e fixed-path statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5c9fbf13aa23 gives the identical function F_A(a*) with total A and minimum parameter a*, as the equal L^1 and L∞ norms. Setting A=na and a*=a proves exact equivalence for the endpoint formula.",
+          "8de5a5d258c9 expresses the same pointwise norm in a beta boundary-term form and treats fixed positive total λ and fixed positive per-coordinate a, separately."
+        ],
+        "reasoning": "The exact formula is covered even in different beta-integral presentations. The repair preserves that formula as a known identity, and does not claim the uniform and fixed-parameter special cases as new. The quantified joint error and divergent-path theorem are not reparameterizations of the fixed cases.",
+        "searches": [
+          "Resultary: exact sharp L1 and L-infinity norms of affine orthogonal projection under symmetric Dirichlet measure, beta marginal formula, arbitrary parameter sequence n a_n concentration crossover, uniform Gamma coupling",
+          "arXiv:1003.5131 Section 2.2",
+          "Resultary 5c9fbf13aa23 Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact a=1 uniform-volume norm in 99c2b9dd9b34 uses intrinsic dimension d=n−1.",
+          "The database gives the exact beta norm for all a in the asymmetric theorem and several later records; the checked hits give no bound of the form |L/n−g(a)|≤√(na+1)/n for every n,a."
+        ],
+        "reasoning": "Exact formula coverage is positive evidence, not inferred from a numerical sample. A table of norms or a fixed-a limit cannot certify the dimension-uniform inequality. The primary keyword search did not return a stronger match, which is not evidence of absence.",
+        "searches": [
+          "Resultary 5c9fbf13aa23; 99c2b9dd9b34; 8de5a5d258c9",
+          "Primary literature search: affine orthogonal projection symmetric Dirichlet simplex sharp L1 L-infinity norm"
+        ]
+      },
+      "rationale": "For the frozen record the exact endpoint formula fails originality: the distinct 5c9fbf13aa23 Finding covers it for arbitrary positive parameters, hence for the full symmetric family, not only a=1. The repaired RESULT.md credits this result as input and states the finite-parameter Gamma comparison and the joint arbitrary-sequence crossover as the contribution. Fixed-path asymptotics also receive credit. The inspected comparisons do not supply the uniform error or the path-uniform divergent law and boundedness criterion. The equal date on the two records establishes no historical priority.",
+      "residual_risks": [
+        "A uniform beta–gamma approximation under different terminology or a joint asymptotic in unindexed literature remains possible. This is a best-of-knowledge assessment of the repaired claim, not a priority determination."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen exact formula; its large-concentration limit fixes dimension and proportions",
+          "evidence": "F_A(a*) is the equal endpoint norm for any positive parameter vector. Exact formula overlap remains irrespective of same-date ordering.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-least-concentrated-vertices-govern-asymmetric-dirichlet-affine-p--5c9fbf13aa23/RESULT.md",
+          "material_read": "Finding, Assumptions and kernel passages, mirror offsets 0–4200",
+          "method": "Indexed published record, local-mirror statement inspection",
+          "title": "Least-concentrated vertices govern asymmetric Dirichlet affine-projection stability",
+          "trigger": "Potential exact coverage by an asymmetric theorem"
+        },
+        {
+          "assessment": "Pointwise exact formula and fixed paths covered; not the stated all-scale comparison",
+          "evidence": "Fixed λ yields a (log n)/n correction, fixed a yields g(a), and its large-a limit holds for fixed n. None of these error terms is a uniform bound in both n and a.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-logarithmic-concentration-boundary-for-affine-jacobi-projectio--8de5a5d258c9/RESULT.md",
+          "material_read": "Finding, Assumptions, proof of the vertex norm and later asymptotic passages (offsets 0 and 8400)",
+          "method": "Indexed published record, local-mirror text inspection",
+          "title": "A logarithmic concentration boundary for affine Jacobi projection norms",
+          "trigger": "Strongest matching concentration boundary and potential uniformity"
+        },
+        {
+          "assessment": "Covers exact norm and two fixed paths, not arbitrary divergent total",
+          "evidence": "Dimension-growth regimes explicitly take the common parameter fixed or exactly θ/n with θ fixed.",
+          "identifier_or_url": "e08f2dea6b7e",
+          "material_read": "Finding and scope, local mirror offsets 0–4459",
+          "method": "Actual published passages via local mirror",
+          "title": "Sharp Dirichlet-weighted affine projection norm and the rare-vertex concentration transition",
+          "trigger": "Potential broader concentration theorem in a later indexed result"
+        },
+        {
+          "assessment": "Covers the polynomial kernel framework, not the repaired result",
+          "evidence": "Coordinate kernel at a simplex vertex reduces to a univariate Jacobi kernel; the vertex coordinate has the beta marginal.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.5131",
+          "material_read": "Abstract and Section 2.2, PDF p. 16 (OA offset around 48750)",
+          "method": "Lawful OA text inspection",
+          "title": "Orthogonal polynomial kernels and canonical correlations for Dirichlet measures",
+          "trigger": "Direct mathematical framework for the projector and its vertex row"
+        },
+        {
+          "assessment": "Different measure, norm and problem",
+          "evidence": "Measures projection approximation error in L² on the simplex boundary, not the Dirichlet endpoint operator norm or concentration asymptotics.",
+          "identifier_or_url": "https://centaur.reading.ac.uk/33215/1/Optimal%20convergence_Chernov.pdf",
+          "material_read": "Accepted version, abstract and Theorem 1.1, PDF pp. 5–6",
+          "method": "Lawful alternate repository copy of the same paper",
+          "title": "Optimal convergence estimates for the trace of the polynomial L²-projection operator on a simplex",
+          "trigger": "Plausible projector estimate cited from abstract only in the frozen record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The surviving result distinguishes bounded amplification from divergence for every dimension-dependent symmetric concentration path, not just two fixed examples. The uniform Gamma comparison produces leading values for sparse parameters with growing total mass, large parameters and mixed sequences; the exact pointwise norm alone does not expose that quantitative stability threshold. This supports the narrower finding without presenting already covered formula recomputation as the contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

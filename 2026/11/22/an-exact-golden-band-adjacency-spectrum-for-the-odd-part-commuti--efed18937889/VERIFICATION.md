@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The package includes `artifacts/check_odd_commuting_spectrum.py` and its actual replay output `artifacts/verification_output.txt`. Run `python3 artifacts/check_odd_commuting_spectrum.py` after extracting the files. Python 3 and NumPy are required. For each of the prime fields of orders three, five and seven, the checker independently computes 30,000 exterior-odd-products using the degree-two and degree-four formulas and compares with the graph's clique/incidence rule, and checks all projective-point incidence Gram products. For the field of three elements it additionally enumerates all 6,561 odd elements to reconstruct clique sizes and compares every eigenvalue of the symmetric 201-class compressed graph with the theorem (maximum numerical error less than \(4\times10^{-13}\)). The decomposition of within-class sum-zero subspaces adds the remaining \(-1\) eigenvalues. No exhaustive search over all fields is claimed.
+## correctness
 
-The exact symbolic calculations in the proof show that the quotient determinant is nonzero for every odd prime power, and each other spectral band excludes zero. No Lean, external certification or independent mathematical audit is claimed.
+PASS
+
+Odd anticommutation in odd characteristic reduces the edge test to zero degree-two and degree-four products. For v≠0, the label (projective v, normalized pairing divided by the scalar of v) specifies a clique of size s; the v=0 clique joins these by point–hyperplane incidence. Counting hyperplanes through one or two points gives NᵀN=q²I+(q+1)J. The clique, dual-scalar and label contrasts have the asserted scalar eigenvalues; the nonconstant incidence modes couple by q√[(q−1)qs]=s and give the golden pair. The singleton zero and two global constants give precisely Q_q. Total dimension is q⁸. Independently, writing D=q⁴−1 and l=q³−1, expansion gives det Q_q=D[1−s+q⁴(2l−D+1)]=−D[q⁷(q−2)+q³(q−1)−1]; it is strictly negative for q≥3. The other blocks also exclude zero. These counts use finite-field dimensions and hold also over extensions.
+
+## originality
+
+PASS
+
+Passes for the full adjacency spectrum and nonsingularity of this specified odd-part graph to best current knowledge. The closest same-algebra sources give multiplication/commutation equations, adjoint ranks, commuting-tuple counts, or fibers, not the normalized class splitting or the action on the projective nonconstant modes. Equitable quotients and projective-design singular values are standard; the distinct claim is their graph-specific synthesis and the complete result, not those tools.
+
+## value
+
+PASS
+
+This graph is intrinsically defined on the whole odd component, where graded and ordinary commutation are related by zero products. The exact multiplicities and uniform invertibility are structural information about a q⁸-vertex adjacency operator, not recovered from commuting-pair totals. The argument explains the golden bands by matching clique size to the nonconstant projective-incidence coupling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

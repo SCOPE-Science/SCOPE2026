@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:56:25.051121Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim is over the binary alphabet, for full iterates only, r>=1 and k>=2. The iteration doubles the count of ones and inserts r(r+2)^k zeros between the two identical copies. Splitting any word of length 2m into two length-m words proves universality inductively; the all-one word of length 2m+1 precludes more. An absent word of length 2m+1 must have both its length-(m+1) prefix and suffix absent from the previous iterate, since otherwise the other m letters embed in the other copy. For r>=2 the overlap is a single letter; if it is zero it fits in the middle, and if it is one the endpoint zeros, if present, skip the respective endpoint ones. In every such case one more one is needed than remains. For r=1 the allowable overlap triples are exactly 000, 001, 100, 101, 111. The first four admit a central zero run with at most m letters on either side. For 111 the endpoints 00,01,11 and their reversals omit respectively 2,1,0 of the two adjacent boundary ones, by the prefix and suffix 101. The boundary ones are disjoint and this again leaves exactly one too few. The nine and four parameter choices give distinct words. At k=2 in the r>=2 case every occurring pattern for r=2 persists by zero-gap inclusion, and the endpoint argument keeps the four exceptions absent. The two finite bases were independently reproduced by collecting all obtainable strings of length at most five by append-or-skip (python3 /workspace/branches/frozen_math_replay.py 2): both have all sixteen length-four words and the exact reported nine/four missing lists at length five. The inspected frozen checker instead uses digital and morphic constructions and an earliest-occurrence automaton; its reported sampled runs corroborate but do not establish the induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "f1b1925790cc gives exactly the nine-word SAS formula for an even number of ones with odd-indexed gaps of length 1 and even-indexed gaps of length at least 3, and specializes it to Cantor.",
+          "Theorem 3.4 characterizes selections within the arches, and Theorem 4.19 gives a general SAS-tree and polynomial-delay enumeration."
+        ],
+        "reasoning": "The alternating-gap theorem subsumes r=1, but its odd-gap hypothesis fails for every r>=2. General arch selection and enumeration take a given finite word; reducing their output to a uniform four-word language requires a family-specific step.",
+        "searches": [
+          "Resultary: first nonuniversal length and alternating gaps",
+          "arXiv:2108.13968, Theorems 3.4 and 4.19"
+        ]
+      },
+      "checked_sources": [
+        "Published Resultary catalogue and the two distinct matching records above",
+        "arXiv:2108.13968",
+        "arXiv:1703.04063",
+        "DOI:10.1016/j.tcs.2015.12.022 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general SAS characterizations process the arch data for individual words; the exact residual factorization 0/1 · 1^(2^k−1) · 0/1 is not in the inspected results.",
+          "The k-abelian paper concerns contiguous factors by its Definition 1, so its regularity theorem is not a shortest scattered-absence formula.",
+          "The permutation-complexity article's full text could not be inspected; its inaccessible text is not negative evidence."
+        ],
+        "reasoning": "An algorithm enumerating a finite language is not the closed uniform classification; the enlarged-gap overlap and endpoint argument supply the missing implication.",
+        "searches": [
+          "arXiv:2108.13968, pp. 204–205 and 226–227",
+          "arXiv:1703.04063, Definition 1 and abstract",
+          "DOI:10.1016/j.tcs.2015.12.022 via OA and publisher"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "d88887bf9366, Finding and Assumptions, states the identical nine-word pattern and index 2^k for the complete ordinary Cantor iterate and expressly excludes other substitutions.",
+          "Absent Subsequences in Words, Definitions 2.2–2.4, specifies the same notion of scattered absence and the arch representation."
+        ],
+        "reasoning": "After normalizing the exponent and alphabet, the first hit is exact for r=1. Neither that hit nor the definitions state the enlarged-gap language.",
+        "searches": [
+          "Resultary: ordinary Cantor word, exact shortest absent scattered subsequences, all generations",
+          "Kosche–Koß–Manea–Siemer, arXiv:2108.13968"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two identified indexed records reproduce the nine words in equivalent symbolic form; neither exact passage lists the four-word formula at r>=2."
+        ],
+        "reasoning": "This is a bounded exact-record comparison, not a claim of exhaustion; both hits are genuine partial rather than full coverage.",
+        "searches": [
+          "Published Resultary semantic search on complete Cantor-like block shortest absent scattered sequences, nine and four",
+          "Exact Finding passages for d88887bf9366 and f1b1925790cc"
+        ]
+      },
+      "rationale": "Two distinct indexed findings cover the ordinary Cantor case exactly; credit that coverage without inferring priority from directory dates. The supported distinction is the larger-gap r>=2 regime and the uniform parameter transition between the exact languages, not the r=1 formula in isolation or the general SAS framework. No inspected statement supplies or mechanically implies that full distinction.",
+      "residual_risks": [
+        "The exact four-word larger-gap result could exist under different gap or arch terminology.",
+        "Full text of the cited permutation-complexity article was unavailable for independent comparison.",
+        "Ordinary Cantor branch has verified coverage; no priority ordering follows from the indexed path dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact partial coverage",
+          "evidence": "For n>=2 gives SAS(C_n)={00,01,11}1^(2^n−3){00,10,11} and index 2^n; other substitutions excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-nine-shortest-absent-subsequences-of-every-finite-binary-cantor--d88887bf9366",
+          "material_read": "RESULT.md Finding and Assumptions (offset 0), Limitations",
+          "method": "Published Resultary search, followed by local-mirror statement inspection",
+          "title": "Nine shortest absent subsequences of every finite binary Cantor word",
+          "trigger": "Exact r=1 candidate"
+        },
+        {
+          "assessment": "Broader coverage of the ordinary Cantor branch only",
+          "evidence": "Requires gap 1 in every odd position and gap >=3 in every even position; r>=2 violates the odd-gap condition.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-nine-missing-subsequences-at-the-first-nonuniversal-length-of-ca--f1b1925790cc",
+          "material_read": "RESULT.md Finding and Assumptions (offset 0), Cantor specialization around offset 4600",
+          "method": "Published Resultary search and local-mirror statement inspection",
+          "title": "Nine missing subsequences at the first nonuniversal length of Cantor words and alternating-gap words",
+          "trigger": "Plausible dominating gap theorem"
+        },
+        {
+          "assessment": "Framework and general algorithms, no inspected uniform specialization",
+          "evidence": "Arch-selection characterization and a polynomial-delay SAS tree for individual inputs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Definitions 2.2–2.4, Theorems 3.4 and 4.19",
+          "method": "Original OA paper, bounded sections around offsets 10800, 19800, 89200",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General SAS characterization or enumeration may subsume the claim"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The theorem addresses the 3-regular k-abelian complexity function; the equivalence uses contiguous factor counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1703.04063",
+          "material_read": "Page 1 abstract and Definition 1",
+          "method": "Original OA paper",
+          "title": "On the k-Abelian Complexity of the Cantor Sequence",
+          "trigger": "Adjacent Cantor language invariant"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence",
+          "evidence": "Publisher access returned 403; no identified repository copy was obtained.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2015.12.022",
+          "material_read": "Bibliographic identity only",
+          "method": "Lawful OA lookup and publisher access attempted; no full text obtained",
+          "title": "On the permutation complexity of the Cantor-like sequences",
+          "trigger": "Same substitution family; named possible overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact forbidden language is a finer invariant than the universality index or a numerical search. The natural Cantor-morphic family has a sharp change of forbidden pattern shape and cardinality when the smallest zero blocks grow from one to at least two, and the precise result holds at every generation. This supplies a useful test family for exact subsequence-language theory, independently of the already covered ordinary Cantor slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

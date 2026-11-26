@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:13:45.969849Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With signed masses w_i on the m strictly ordered nonzero magnitudes a_i, the bias equals sum_i w_i min(a_i,c). Mean zero sets its right tail to zero and b(0)=0. Every nonzero sign component must contain a nonzero interior knot because no affine piece with two zero endpoints can be nonzero. Thus the m−1 potential knot components allow at most m−2 reversals, including in the presence of vanishing signed masses or zero intervals. For the proposed alternating unit-height knot pattern on 1,…,m−1 and zero endpoint values, negative jumps of slope have absolute magnitudes 3, then 4 at each interior index up through m−2, then 3 and 1; these sum to 4m−5. Telescoping gives zero first moment and interpolated biases of alternating height ±1/(4m−5), so the simple half-integer crossings are exactly as stated. For this family only, two roots of the nondecreasing drift would imply each positively weighted score is constant on their interval and hence saturated; zero total would require a subset of weight exactly one half, impossible for the odd denominator. The root sign is opposite the drift at zero. Monotonicity and unit Lipschitz constant give (x−x_c)F_c(x)≥F_c(x)^2 and hence the residual decrease eta(2−eta)F_c(x)^2 in squared distance; boundedness and uniqueness give global convergence at each fixed c. This is deterministic population convergence, not stochastic sample-path convergence. Inspected the frozen verifier without running it; its exact finite cap tests do not establish the general bound or uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koloskova et al. bound threshold-dependent bias/convergence neighborhoods, not alternation of its sign for a given law. Chen et al. give a three-component example with two distinct centered magnitudes and nonzero bias at c=1, and a symmetric example with a flat drift zero interval. Qian et al. give a direction error for three component gradients at one point and one cap."
+        ],
+        "reasoning": "A worst-case absolute bias envelope, a fixed-threshold bad step, and flatness for a different distribution do not give the number of cap reversals or attainability with an odd-weight uniquely rooted law.",
+        "searches": [
+          "PMLR 202 koloskova23a PDF pp. 1–2 (bias)",
+          "arXiv:2006.15429 Examples 1–2",
+          "PMLR 130 qian21a Example 1"
+        ]
+      },
+      "checked_sources": [
+        "PMLR 202 koloskova23a",
+        "arXiv:2006.15429",
+        "PMLR 130 qian21a",
+        "10.1214/aoms/1177703732 (OA attempt; no full text)",
+        "Resultary records b944eb52abb2, 9cd1f92c87f5 and b3ad57d2e5ab"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen's biased example has m=2 and is consistent with zero threshold reversals; its plateau example shows why uniqueness must be limited to the constructed family. The same-day stochastic two-atom exact laws do not reach the minimum m=3 needed for any mean-drift cap crossing."
+        ],
+        "reasoning": "The support-limited alternation and simultaneous construction are the contribution. The proof needs both spline endpoint cancellation and conversion of arbitrary alternating knot data into a centered, positive-weight, non-half-partition law, rather than transferring an earlier fixed-cap example or convergence result.",
+        "searches": [
+          "arXiv:2006.15429 Examples 1–2",
+          "PMLR 130 qian21a Example 1",
+          "Resultary b944eb52abb2 Finding and assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The drift zero is exactly the Huber location score equation after the sign change in location, with weights fixed as c varies; a count of the signs attained by this score at the mean is an equivalent test.",
+          "As a spline in c, the claim is a zero-boundary interpolation bound with one-sided truncated linear basis min(a_i,c), not the Resultary spline L² projection's total-variation norm inequality. The Huber article's full text was not independently obtained."
+        ],
+        "reasoning": "Equivalence would make any prior sharp fixed-law Huber path crossing theorem covering. Classical location-score equivalence by itself does not give the endpoint count with realizable probability weights and unique roots.",
+        "searches": [
+          "Huber location M-estimation path clipping threshold sign changes centered finite distribution bias spline transform variation diminishing number of zeros",
+          "Huber 1964 DOI 10.1214/aoms/1177703732",
+          "Resultary linear-spline variation b3ad57d2e5ab"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day two-atom clipped record b944eb52abb2 gives finite-step stationary-lattice and skewness-window results; the multiplicative-gradient record 9cd1f92c87f5 gives fixed-cap equilibria for g(x,A)=Ax; the linear-spline record b3ad57d2e5ab gives a TV bound for a projection."
+        ],
+        "reasoning": "These are neighboring exact classifications of different observables or oracle models, not a table or theorem giving the m-dependent closed sharp count for additive centered noise. Dates alone were not used to distinguish the claims.",
+        "searches": [
+          "Resultary sharp support-count clipping reversals and Huber paths",
+          "b944eb52abb2; 9cd1f92c87f5; b3ad57d2e5ab (Resultary Findings)"
+        ]
+      },
+      "rationale": "The inspected sources cover Huber-score background and fixed-cap examples, including asymmetric bias and a nonunique mean-field equilibrium, but not the supported precise claim: the optimal count across caps for a single fixed centered law, with equality families that have a unique attracting root at every cap. The elementary spline representation and monotone Lipschitz convergence principle are not standalone novelty.",
+      "residual_risks": [
+        "A specialized Huber location-path theorem or sharp variation-diminishing result for the same zero-boundary spline class may exist; no blanket noncoverage follows from inaccessible full text or ranked searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related bounds, not the cap-path result in inspected passages",
+          "evidence": [
+            "The bounds depend on arbitrary thresholds and address noise-dependent bias and convergence guarantees."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v202/koloskova23a.html",
+          "material_read": "PDF pp. 1–2, abstract and bias discussion",
+          "method": "OA passage lookup",
+          "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+          "trigger": "General clipping thresholds and bias bounds"
+        },
+        {
+          "assessment": "Exact antecedents for bias and nonunique drift roots, not threshold reversal count",
+          "evidence": [
+            "At c=1, component centers (−3,−3,9) give nonzero clipped drift at mean 1; symmetric centers (−3,3) give a flat interval [−2,2]."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.15429",
+          "material_read": "PDF p. 2, Examples 1–2",
+          "method": "OA passage lookup",
+          "title": "Understanding Gradient Clipping in Private SGD: A Geometric Perspective",
+          "trigger": "Direct finite fixed-cap clipping examples"
+        },
+        {
+          "assessment": "Fixed state and threshold, not a cap-varying centered scalar law",
+          "evidence": [
+            "Gradients of (−x²,−x²,5x²) at x=1 clip to (−2,−2,2) at c=2, moving away from the minimizer."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v130/qian21a.html",
+          "material_read": "Abstract and PDF p. 4, Example 1",
+          "method": "OA passage lookup",
+          "title": "Understanding Gradient Clipping In Incremental Gradient Methods",
+          "trigger": "Direction of clipping bias"
+        },
+        {
+          "assessment": "Classical context; specialized full-text coverage unresolved",
+          "evidence": [
+            "The clipped location-score equivalence is direct, but no full-text novelty inference is made from these routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177703732",
+          "material_read": "Public landing/abstract material, not main text",
+          "method": "Project Euclid and identified OA PDF routes",
+          "title": "Robust Estimation of a Location Parameter",
+          "trigger": "Equivalent clipped location score and possible earlier path complexity"
+        },
+        {
+          "assessment": "Different stochastic observable, oracle, or spline operation",
+          "evidence": [
+            "Two-atom finite-step lattice law, fixed-cap multiplicative bistability, and TV(P_delta f) ≤ 3 TV(f) for a spline L² projection."
+          ],
+          "identifier_or_url": "b944eb52abb2; 9cd1f92c87f5; b3ad57d2e5ab",
+          "material_read": "Resultary local-mirror Findings; b944eb52abb2 also assumptions",
+          "method": "Resultary search and statement inspection",
+          "title": "Sharp skewness window and mixing penalty; three-atom bistability; linear-spline variation bound",
+          "trigger": "Closest catalogue analogues of clipping, atom count and variation bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result addresses a specific obstruction to interpreting bias bounds: increasing the cap can repeatedly move the population equilibrium from one side of the true minimizer to the other for one unchanged law. The exact minimum noise complexity, an explicit rational family for each feasible count, and uniqueness and convergence over that family make the boundary sharp and meaningful. It is not a statement about privacy or sampled SGD.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

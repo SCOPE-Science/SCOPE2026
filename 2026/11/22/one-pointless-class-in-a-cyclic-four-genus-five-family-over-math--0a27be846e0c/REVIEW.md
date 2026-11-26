@@ -1,11 +1,21 @@
-# Review: Pointless cyclic-four genus-five pullbacks over \(\mathbb F_{17}\)
+# Independent mathematical audit
 
-**Correctness — PASS.** The degree-twelve model is geometrically smooth exactly when the discriminant \(-4ab^3-27a^2c^2\) of its associated cubic is nonzero, and then has genus five. The rational-point criterion is exact because both infinity and the fiber above zero are included, and the nonzero fourth-power set is exhaustively listed. Normalizing nonsquare \(c\) reduces the coefficient enumeration to eight times seventeen cases; a complete eight-row table lists every surviving \(b\), with all four survivors smooth. The four normalized candidates form one explicit fourth-power rescaling orbit. The self-contained exact verifier separately tests all \(4352\) parameter triples, finding \(4096\) smooth and \(32\) smooth pointless cases, and verifies the orbit.
+## correctness
 
-**Originality — PASS, qualified.** Existence of a pointless genus-five curve over this field is **already covered** by the earlier genus-three example of Howe–Lauter–Top together with the genus-raising theorem of Becker–Glass; it is not the assessed claim. The newly assessed claim is the complete coefficient count, the four-pair normalized classification, and one diagonal isomorphism orbit inside a naturally symmetry-constrained genus-five family. Literature and mathematical-record searches for equivalent fourth-root elliptic pullbacks, diagonal twists, full parameter tables and stronger genus-five classifications found no covering result. Full historical novelty cannot be guaranteed; unindexed family calculations remain the main residual risk.
+PASS
 
-**Value — PASS.** The family has a canonical cyclic-order-four morphism to a genus-one curve, making its arithmetic-pointlessness stratum intrinsic to a motivated covering construction rather than an arbitrary equation slice. Determining exactly which cyclic-four pullbacks are pointless, and establishing that all marked solutions represent one curve, is a complete natural finite classification. The single-class rigidity is not implied by prior mere existence theorems.
+With a,c != 0 and characteristic 17, F(x^4) is squarefree iff the cubic F(t)=at^3+bt+c is separable: all roots are nonzero and the fourth-power map is étale there. A squarefree degree-12 branch polynomial gives genus five; repeated roots decrease the branch degree after square-factor removal. The discriminant is -4ab^3-27a^2c^2, with one zero b for each a,c because cubing permutes F17*. Independent replay /tmp/opencode/check_cyclic_independent.py computed the polynomial gcd with its derivative for all 4352 triples and counted all affine fibers from a direct square-root census plus both possible points in the infinity chart (y/x^6)^2=a there). It confirms 4096 genus-five triples, 32 smooth pointless ones, and normalized pairs (3,5),(5,3),(12,14),(14,12) at c=3. Exact enumeration of all 256 scalings (u,v) gives precisely that 32-element pointless set as the orbit of (5,3,3); this proves one abstract class within the family without asserting diagonal transformations are the only available isomorphisms. The resulting map to the separable cubic quotient has degree four, with the four distinct powers of x->4x acting faithfully; the odd-degree cubic quotient has a rational point at infinity and is elliptic. Both x=0 and infinity are included, and zero RHS is a point.
 
-**Limitations.** This does not establish the full automorphism group, global uniqueness among all curves of genus five, or any classification at other finite fields. The result is exactly finite and independently executable, but not independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact classification of this coefficient family at F17 survives, not the existence of pointless genus-five hyperelliptic curves. Howe–Lauter–Top's Table 1 genus-three example over F17 has an irreducible quadratic factor x^2+13x+1 (remainder zero, discriminant 12 nonsquare mod 17, checked by exact division), so Becker–Glass Theorem 3.2 supplies genus-five existence. Neither gives the exact cyclic-four pullback stratum. The closest indexed genus-five classification statements use different families and fields; no exact table for this F17 family was established.
+
+## value
+
+PASS
+
+This is a complete pointlessness and rigidity calculation in the natural degree-four cyclic pullback of short Weierstrass elliptic curves at a small split field, not an arbitrary list of sparse equations or a first existence claim. For comparisons of arithmetic behavior under cyclic pullbacks the precise marked population and fact that it is one diagonal orbit are useful; a point-count example or general existence theorem does not supply that rigidity. No claim about arbitrary genus-five curves, arbitrary fields or every twist of the geometric curve.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

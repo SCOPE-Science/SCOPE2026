@@ -1,9 +1,21 @@
-# Scientific assessment: perfect-matching complex of the first square cylinder
+# Independent mathematical audit
 
-**Correctness: PASS.** Two independent complete facet enumerations agree on 32 perfect matchings of the explicitly defined 12-vertex, 20-edge graph. Their downward closure has the verified face vector \((20,142,392,418,192,32)\). The standalone checker replays each of 526 explicit elementary simplicial collapses, always confirming a unique codimension-one coface. The residual has 18 vertices, 66 edges, and 60 triangles; its spanning-tree presentation contains 49 generators, and all are killed using 49 certified single-letter triangle relators. Thus the fundamental group is actually trivial (not just its abelianization). Euler characteristic and integral freeness give \(H_2\cong\mathbb Z^{11}\); Hurewicz plus Whitehead proves the wedge-of-two-spheres homotopy type. Four independent finite-field boundary calculations give consistent rank 49. Residual correctness risk: possible implementation mistakes despite two independent facet tests and complete certificate replay.
+## correctness
 
-**Originality: PASS with a specific residual risk.** The full-text November 13, 2026 rectangular-grid paper classifies the *open* three-row grid, not longitudinal column identification. Additional alias searches identify the graph with the three-dimensional cubical box \(P_2\square P_2\square P_3\). The closest published larger box concerns an ordinary, not a perfect, matching complex. Three closest prior public research claims were inspected by full text: the open \(P_3\square P_4\) five-cycle, a transversely closed \(C_3\square P_4\) strip, and the doubly periodic \(C_4\square C_4\) torus. These define genuinely different graph products, and their theorems do not imply the homotopy type for \(P_3\square C_4\). Search of actual aliases, an exact 32-facet / eleven-sphere pattern, and other nearby grid variants identified no covering statement. An equivalent unpublished or differently indexed result remains possible; the older polygonal-line-tiling full text was not obtained in this review.
+PASS
 
-**Mathematical value: PASS.** A four-column cycle is the smallest longitudinally periodic *square* circumference, and its Cartesian decomposition also makes this the first rectangular three-dimensional box beyond the cube. It is the natural first periodic-boundary comparison to the recent exact open-grid theorem. Closing three boundary edges changes \(\mathcal M_p(P_3\square P_4)\simeq S^1\) to an integral \(\bigvee^{11}S^2\), simultaneously shifting the first nonzero homotopy degree and raising its multiplicity. This supplies an exact structural benchmark for a missing periodic family and determines the attaching-map issue rather than merely reporting a face count or Betti number. No recurrence or theorem about all periodic lengths is claimed.
+Independent enumeration gives 32 perfect matchings and face vector (20,142,392,418,192,32). Independent replay validates all 526 free-face pairs; the remaining complex is connected with face vector (18,66,60). Contracting the 17-edge tree gives 49 generators; each of the 49 recorded relators kills exactly one generator after the previous eliminations, proving trivial fundamental group over the integers, not just after abelianization. The residual complex is two-dimensional, so its H2 is free, of rank 11 by Euler characteristic 12. Hurewicz realizes the basis and the simply connected homology Whitehead theorem gives the claimed wedge equivalence. Low-dimensional reduced homology excludes pure shellability.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The inspected exact classifications are of different graphs or different invariants. No checked source covers the integral wedge type for the four-column cylinder. This finding excludes the already known open-strip comparison from its new content.
+
+## value
+
+PASS
+
+This is a natural first boundary comparison with the even-width open-strip theorem: closing the longitudinal direction at four columns produces a genuinely different homotopy dimension and a precise multiplicity, not just an agreement of Euler characteristics. The full integral classification is useful as a benchmark for attempts to extend open-strip results to periodic strips or cubical boxes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

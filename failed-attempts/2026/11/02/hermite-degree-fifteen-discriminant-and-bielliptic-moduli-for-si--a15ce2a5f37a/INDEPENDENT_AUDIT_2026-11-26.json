@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:55:46.450108Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–42",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Ciliberto et al., arXiv:2602.11725, §2.4",
+        "Shaska–Völklein, arXiv:math/0107142, Remark 5 and Theorem 3",
+        "/workspace/review_evidence/check_3.py"
+      ],
+      "rationale": "I checked the unambiguous set equality stated immediately after the product formula: the image is the intersection of H=0 with the squarefree sextics. The normal form pairs the roots into three quadratic differences summing to zero. Conversely, a vanishing pairing determinant has rank two with all relation coefficients nonzero by disjointness of the pairs. Scaling by this relation reconstructs a split cubic with zero root sum. At each of the six roots it has exactly one simple difference zero and c4 nonzero (a nonzero double root and a distinct third root in the depressed local cubic), giving I2; the degree-one fundamental bundle gives a rational elliptic surface. The product has degree 15 in each root form, and the permutation sign character is trivial by a nonvanishing specialization with two roots equal. It descends to coefficient degree 15, with the claimed GL2 weight. The involution configurations are irreducible, there is no discriminant component, and the witnessed unique zero factor has nonzero derivative in a root coordinate. The pencil is base-point-free and of degree two. Conversely, a nonhyperelliptic order-two lift cannot fix a branch point downstairs: a local parameter at that branch point would have a lift with derivative squaring to −1, not +1. Thus the descended involution exchanges three pairs. The cross-ratio check at {±1,±2,±3} gives exactly identity and negation, verifying generic pairing uniqueness on the irreducible locus. Common scaling and the S3 relabeling do not change the isomorphism class of the split Weierstrass surface, giving the generic inverse. Independent exact cross-ratio replay: `python3 /workspace/review_evidence/check_3.py`.",
+      "residual_risks": [
+        "The introductory phrase ‘smooth-squarefree locus’ must mean smooth branch covers (squarefree sextics), as the precise formulation on line 12 says, not the smooth locus of the Hermite hypersurface. The latter reading is false: {±1,±2,±1/2} has both t↦−t and t↦−1/t exchanging three pairs. Two distinct determinant factors vanish, making this squarefree point singular on H=0, since the distinct-root coordinate cover is étale. ‘Fixed-point-free’ similarly refers to the six points of the divisor, not to the entire projective line."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The surface paper gives all equations as split cubic models with a zero sum of quadratic roots; the genus-two paper treats elliptic subfields, the automorphism loci and birational parameters of the bielliptic locus."
+        ],
+        "reasoning": "The former includes all triples obtained from two independent differences; the latter gives the matching criterion and generic pairing uniqueness, with extra elliptic involutions on proper subloci. No unclassified fiber-parameter cases remain for the frozen hypotheses.",
+        "searches": [
+          "Ciliberto et al. arXiv:2602.11725 §2.4",
+          "Shaska–Völklein arXiv:math/0107142 Lemma 3, Theorem 3 and proof"
+        ]
+      },
+      "checked_sources": [
+        "Ciliberto et al. arXiv:2602.11725",
+        "Shaska–Völklein arXiv:math/0107142",
+        "Abdesselam–Chipalkatti arXiv:1008.3117",
+        "Resultary 0c80eb440b17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ciliberto et al. explicitly ask the equation/genus-two question, but their §2.4 already supplies the two free difference quadratics with third equal to minus their sum.",
+          "The older dependence criterion is necessary and sufficient for the bielliptic pairing, and the older automorphism analysis gives a unique such pairing generically."
+        ],
+        "reasoning": "A squarefree matched dependent triple determines exactly one projective relation, with coefficients nonzero; normalize by it and linearly invert the published difference map. Common scalar and permutation are coordinate choices. This proves both directions and the generic inverse directly from the prior statements, even though Question 25 itself does not print the synthesis. Taking the determinant over each pairing gives the known hypersurface equation up to scalar once degree 15 is noted.",
+        "searches": [
+          "Ciliberto et al. §§2.4, 2.7 Question 25",
+          "Shaska–Völklein Remark 5, Lemma 3 and Theorem 3",
+          "Abdesselam–Chipalkatti §1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 5 gives the actual equivalence for three squarefree-product quadratics: linearly dependent iff a projective involution switches each root pair.",
+          "Abdesselam–Chipalkatti identify the degree-15 involution hypersurface of binary sextics and its known skew-invariant equation."
+        ],
+        "reasoning": "The coefficient determinant is precisely the existing dependence test, and its pairing-wise zero set is the classical involution locus. Calling the invariant a surface discriminant does not make its degree, zero set or bielliptic characterization a new fact.",
+        "searches": [
+          "Resultary six I2 / six double fibre discriminant, elliptic surface, Hermite sextic, bielliptic",
+          "arXiv:math/0107142 Remark 5",
+          "arXiv:1008.3117 §1.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical X6 is already recorded explicitly as degree 15 with a known equation. The Nov. 8 Resultary item concerns a generic two-branch crossing on a two-involution sublocus and explicitly withdraws the stronger novelty claim for the identification and reconstruction."
+        ],
+        "reasoning": "The later crossing theorem is not earlier priority and is not the assigned theorem. Its overlap assessment can be independently verified in the older sources; the earlier degree-15 entry is exact coverage of the invariant, not a separate database certification of the surface terminology.",
+        "searches": [
+          "Resultary 0c80eb440b17",
+          "Abdesselam–Chipalkatti §1.5, X6"
+        ]
+      },
+      "rationale": "Substantial prior implication is established, not merely plausible overlap or a same-title match. Combining the published split-cubic classification with the older exact linear-dependence criterion makes the squarefree surface-image equivalence a direct corollary. The classical invariant/degree and generic uniqueness on the bielliptic side were also already available. The determinant product and cubic reparametrization are explicit realizations of this implication, not a distinct new classification in the frozen scope.",
+      "residual_risks": [
+        "The audit establishes prior implication, not a claim that an earlier paper literally printed this full surface-to-curve theorem or this specific product expression."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies exhaustive parametrization, not the explicit synthesis in Question 25",
+          "evidence": "All Weierstrass equations for the six I2 case are given by the split cubic with Q3=−Q1−Q2; the paired differences are the factors of the discriminant square root.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.11725",
+          "material_read": "PDF p. 13 §2.4 (offset 42726); p. 19 §2.7 including Question 25 (offsets 61500 and 63817)",
+          "method": "Primary OA PDF",
+          "title": "Rational elliptic surfaces with six singular double fibres",
+          "trigger": "Exact surface family and the question being answered"
+        },
+        {
+          "assessment": "Gives the criterion and generic pairing/bielliptic data that make the surface result a corollary",
+          "evidence": "For squarefree product the involution exchanges each quadratic's roots iff the quadratics are dependent. Exceptional extra involutions satisfy proper parameter equations; Theorem 3 analyzes the resulting locus birationally.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0107142",
+          "material_read": "PDF p. 8 Remark 5 and Lemma 3 (offset about 20926); pp. 13–14 Theorem 3 and proof (offsets 34056–40991)",
+          "method": "Primary OA PDF",
+          "title": "Elliptic subfields and automorphisms of genus 2 function fields",
+          "trigger": "Exact classical bridge between the two families"
+        },
+        {
+          "assessment": "Classical invariant coverage",
+          "evidence": "X6 is explicitly identified as a degree-15 hypersurface with defining equation a known skew-invariant of binary sextics.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.3117",
+          "material_read": "PDF p. 4 §1.5 (offset 8258), plus beginning of §1.6",
+          "method": "Primary OA PDF",
+          "title": "Quadratic involutions on binary forms",
+          "trigger": "Previously known invariant and degree"
+        },
+        {
+          "assessment": "Later distinctly scoped crossing theorem; corroborates rather than establishes the prior implication",
+          "evidence": "The record proves a generic two-branch crossing and gives a minor 9/8; it withdraws novelty for the degree-15 identification, genus-two equivalence and birational surface reconstruction as substantially covered by combining the primary papers.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-the-degree-fifteen-six-double-fibre-discriminant-and-its-biellip--0c80eb440b17",
+          "material_read": "RESULT.md offsets 0–7316; result and narrowing/withdrawal passage",
+          "method": "Local Resultary mirror",
+          "title": "The degree-fifteen six-double-fibre discriminant and its bielliptic double locus",
+          "trigger": "Closest indexed record on precisely these objects"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Findings, Proof and Limitations",
+        "Ciliberto et al. §§2.4 and 2.7",
+        "Shaska–Völklein Remark 5 and generic automorphism analysis",
+        "Abdesselam–Chipalkatti §1.5"
+      ],
+      "rationale": "Question 25 gives a real motivation and the synthesis is useful exposition. As a distinct research finding, however, the narrow identification and invariant are mechanically supplied by the earlier parametrization, exact pairing test and classical involution hypersurface. Writing determinants for the old test and inverting a linear difference map do not give an additional unknown exact fact. The frozen result expressly leaves the exceptional moduli fibers and degenerations out of scope; the later two-branch theorem is not a remainder proved here.",
+      "residual_risks": [
+        "This is a value judgment about the frozen research increment, not a denial of usefulness as an answer or expository bridge."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

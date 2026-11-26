@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:42:25.552491Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For label j≥2 the future event of remaining a leaf is independent of its depth and has probability (j−1)/(n−1). Multiplication by the label-depth pgf z H_{j−1}/(j−1) and normalization by E L_n=n/2 gives the size-biased leaf pgf. The identity mH_{m+1}−(m−1)H_m=(1+z)H_m telescopes to the stated shifted Bernoulli sum. The vertex law includes the independent Bernoulli(1/2) term; the total variation to the size-biased leaf law is one quarter of the sum of absolute successive atom differences, which unimodality makes twice the maximum atom before multiplication by one quarter. For ordinary trees the conditional leaf increment is Bernoulli(1−L_n/n), so total variance gives the recurrence (1−2/n)Var(L_n)+1/4, with Var(L_2)=0 and Var(L_n)=n/12 for n≥3. Sampling leaves via the same kernel contracts the TV of tree laws, bounded by E|2L_n/n−1|/2; the reverse triangle inequality gives exactly the claimed error, not equality for ordinary sampling. The Fourier local limit follows from the variance proxy v_n, the modulus bound and centered Bernoulli third absolute moments at most p(1−p); after rescaling t by 1/√v_n the modulus is dominated by an integrable Gaussian, and the bound is uniform in the atom because the Fourier phase has unit modulus. A nearest integer to the mean attains the asymptotic mode height; v_n=log n+O(1). The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen comparison describes external path lengths and individual indexed depths; the indexed Lundblad–Wagner subject is the average-depth gap. The primary passage attempts supplied no usable text to decide a stronger coverage claim."
+        ],
+        "reasoning": "Even common first-order Gaussian approximations of the two individual laws do not determine the leading TV separation. A theorem supplying a uniform signed profile with remainder smaller than the mode height in TV could cover it, but none was established by the evidence inspected.",
+        "searches": [
+          "Lundblad–Wagner DOI 10.4230/LIPIcs.AofA.2026.2 and arXiv:2611.16674; Panholzer–Prodinger DOI 10.1002/rsa.20161; Elizalde arXiv:2302.05252 as identified by the frozen bibliography"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Local Resultary exact self-match and records b6cfcc92dbd6, e35cdf8704cb",
+        "Lundblad–Wagner primary citations, access limited as documented"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A tree-wise external path length divided by leaf count determines a conditional mean, whereas the frozen result uses the full signed first difference of the Bernoulli convolution and a quantitative change of tree measure."
+        ],
+        "reasoning": "The mean comparison does not imply the half-mode TV identity or the ordinary-leaf error bound. The standard vertex-depth law and local limit method are not independently claimed as novel.",
+        "searches": [
+          "Resultary leaf-versus-vertex depth gap record b6cfcc92dbd6; Lundblad–Wagner path length and external path length, DOI 10.4230/LIPIcs.AofA.2026.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct match suffix b6cfcc92dbd6 reports a tree-wise average-depth difference, with mean 1/2 and Gaussian fluctuations. The distinct parity-coupling match suffix e35cdf8704cb concerns uniform ordered trees."
+        ],
+        "reasoning": "An average-depth gap is one moment and its fluctuations are not the norm of the difference of annealed laws. A parity-count covariance in an ordered tree has neither the same model nor the full distance statistic.",
+        "searches": [
+          "Resultary: recursive trees leaf versus vertex depth gap; exact annealed total variation and size-biased leaf laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact match is the frozen record itself; adjacent summaries do not tabulate these annealed laws."
+        ],
+        "reasoning": "This is an all-size comparison with an asymptotic constant; a finite enumeration table is not coverage. A prior symbolic all-size law would matter, especially for the proxy.",
+        "searches": [
+          "Resultary: exact recursive-tree vertex and leaf TV, uniform recursive tree depth laws"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the annealed ordinary-leaf TV bound and sharp leading constant, with an exact size-biased proxy. The confirmed adjacent catalogue claims concern different statistics or laws. Individual profile or tree-wise mean results cannot be credited as an annealed TV comparison. The relevant primary passages were not retrieved, so priority remains conditional on the available evidence.",
+      "residual_risks": [
+        "No primary full text for the closest Lundblad–Wagner or individual-leaf-depth comparison was confirmed. A prior exact biased leaf pgf or a sharper signed annealed law may exist; unavailable literature is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The result explicitly described by the summary is on a different statistic; whole-document coverage remains unverified",
+          "evidence": "Tree-wise averages; mean 1/2 and fluctuations at scale √(log n/n), not annealed TV of a sampled depth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-gaussian-fluctuations-of-the-leaf-versus-vertex-depth-gap-in-recursive-trees--b6cfcc92dbd6",
+          "material_read": "Resultary scientific summary; primary mirror read timed out",
+          "method": "Local catalogue search and attempted exact-source read",
+          "title": "Gaussian fluctuations of the leaf versus vertex depth gap in recursive trees",
+          "trigger": "Identical tree model and two depth notions"
+        },
+        {
+          "assessment": "Different tree ensemble and statistic",
+          "evidence": "Parity-count covariance for uniform ordered trees.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-vertex-leaf-depth-parity-coupling-in-uniform-plane-trees--e35cdf8704cb",
+          "material_read": "Resultary scientific summary",
+          "method": "Local catalogue search",
+          "title": "Exact vertex-leaf depth parity coupling in uniform plane trees",
+          "trigger": "Exact comparison of leaf and vertex depths"
+        },
+        {
+          "assessment": "No primary-text priority conclusion",
+          "evidence": "The available descriptions concern tree-wise average depths; they do not establish TV of the mixture laws.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2 ; https://arxiv.org/abs/2611.16674",
+          "material_read": "Frozen RESULT.md lines 90–100 comparison and bibliography; OA DOI and arXiv requests timed out",
+          "method": "Frozen comparison, catalogue comparison and attempted OA passage retrieval",
+          "title": "Path Length and External Path Length in Random Trees; The External Path Length and Terminal Wiener Index in Random Trees",
+          "trigger": "Closest cited primary work on the recursive-tree leaf/vertex comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two natural annealed laws have the same broad Gaussian scale but remain distinguishable in TV at an explicit leading rate. The exact leaf-size-biased proxy explains the nonzero separation and quantifies the effect of the sampling design. This answers a distribution-level question that a mean gap or an individual depth CLT does not resolve.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

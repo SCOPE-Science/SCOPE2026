@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:48:57.751405Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–39 and VERIFICATION.md reproduction notes",
+        "certificates.json, verify.py and verify_independent.py, inspected as evidence",
+        "Independent replay: python3 /workspace/review_checks/frozen_replay.py 2",
+        "Corrected /workspace/repairs/2/RESULT.md, VERIFICATION.md and REVIEW.md"
+      ],
+      "rationale": "The frozen text fails as written when it says the relaxation is integral through length six. At length four take FUFD, FUDF, UFDF: the three deletion shadows have pairwise intersections but no triple intersection. Half weight on each and zero elsewhere is feasible, and the tight pair constraints uniquely determine the three positive coordinates on the face fixing all others to zero. This gives a fractional vertex despite equality of the optimal objectives. The corrected Finding asserts zero objective gap through six, not polyhedral integrality, and gives the explicit counterexample. The table and first strict objective gap are correct. A received word identifies its source layer by max(#U,#D), even when the output is not an excursion. I independently generated the layers by choosing nonflat positions and balanced up positions, reconstructed the deletion incidence, and used exact fractions to check every capacity and cover constraint and matching objective. Each disjoint-shadow witness attains the floor of the layer's bound. An independent ordered enumeration of compatible sets of that known optimal size counted every optimizer once, without relying on either frozen graph search. It confirmed the entire table; at n=7 the layer capacities are 1,5,14,5, values 1,5,217/15,5, and counts 1,9,11,1440. The repaired text also correctly describes the pruned Bron–Kerbosch search as retaining every maximum clique, not necessarily visiting every smaller maximal clique. No certificate data or executable changes are needed.",
+      "residual_risks": [
+        "The table and exact LP certificates concern only n=1,...,7. No equality between insertion and deletion fractional optima, all-length result, or rounding failure at n=7 is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The deletion hypergraph and fractional upper-bound framework apply to arbitrary fixed-length source subsets. The inspected application concerns run-length-limited sources.",
+          "Motzkin paths are classically enumerated, and Motzkin words appear in constructions for a prefix/suffix non-overlap condition."
+        ],
+        "reasoning": "These provide the source counts and the general optimization model, not a stronger evaluated deletion packing theorem for all the stated Motzkin layers. Non-overlap is not equivalent to disjoint deletion outputs.",
+        "searches": [
+          "Kulkarni–Kiyavash arXiv:1211.3128v1 §V-A, arbitrary constrained sources",
+          "Stanovnik–Moškon–Mraz DOI 10.1007/s10623-023-01344-z, Motzkin code construction",
+          "Oste–Van der Jeugt DOI 10.37236/4781, Motzkin enumeration"
+        ]
+      },
+      "checked_sources": [
+        "Kulkarni–Kiyavash arXiv:1211.3128v1, Oste–Van der Jeugt DOI 10.37236/4781, Stanovnik–Moškon–Mraz DOI 10.1007/s10623-023-01344-z",
+        "Resultary 6a6d1499205f, 25a61255a325, e01093069dfd",
+        "Corrected RESULT.md Finding and scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The arbitrary-source framework sets up matching and fractional covering; it does not evaluate the exact optima. The Dyck formula supplies the no-flat even layers but not layers containing flats. The swap optima do not give deletion optima for the same source words."
+        ],
+        "reasoning": "The numerical optima, first nonzero objective gap, and number of attaining Motzkin codebooks require the new incidence and optimizer calculations; they are not obtained by direct substitution into an existing evaluated theorem.",
+        "searches": [
+          "Kulkarni–Kiyavash pp. 2,4,12 and Resultary 6a6d1499205f, e01093069dfd, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lemma 2.1 identifies equal-length s-deletion and s-insertion conflicts and the corresponding edit-distance condition. Thus the integer codebooks/capacities are equivalent to the insertion version on the same source domain.",
+          "The same-source adjacent-exchange result uses a different conflict relation; the Dyck result describes the no-flat source constraint."
+        ],
+        "reasoning": "The equivalence of integer feasible codebooks is credited. Pairwise conflict equivalence alone does not identify the fractional LP incidences for deletion and insertion. The swap and Dyck comparisons do not state the equivalent full Motzkin deletion or insertion census.",
+        "searches": [
+          "Motzkin excursion constrained single-deletion packing and optimal codebooks, primary-literature and Resultary comparison",
+          "Kulkarni–Kiyavash arXiv:1211.3128v1, Lemma 2.1",
+          "Resultary e01093069dfd and 6a6d1499205f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Dyck result first separates at semilength 5; its short-block values agree on the shared no-flat even layers. The Fibonacci result first separates at length 6 under avoidance of 11. The Motzkin swap table uses another channel and has its first rounding failure at length 7.",
+          "No matching full labeled Motzkin deletion-optimizer table was present in the inspected results."
+        ],
+        "reasoning": "The known Motzkin numbers and the Dyck subtable are not new. No inspected table evaluates the flat-containing Motzkin layers or the combined gap and optimizer populations; different same-day records are not discarded or taken as evidence of ordering.",
+        "searches": [
+          "Resultary 6a6d1499205f (Dyck one-deletion), 25a61255a325 (Fibonacci-constrained deletion), e01093069dfd (Motzkin adjacent exchange)",
+          "Oste–Van der Jeugt Motzkin path count"
+        ]
+      },
+      "rationale": "The supported distinct claim is the full Motzkin single-deletion table, including optimum codebook counts and the first strict objective gap. Path enumeration and the general deletion-shadow LP are prior, and the no-flat even layers reduce to Dyck instances. The repair preserves the novel aggregate table and makes no priority claim for the small counterexample used to clarify polyhedral terminology.",
+      "residual_risks": [
+        "Equivalent integer tables may be indexed under single insertion or edit distance, and an unindexed enumeration cannot be excluded. No claim of historical priority is based on same-day publication dates or the absence of a search hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior LP framework and integer duality; no Motzkin evaluation in the inspected statements",
+          "evidence": [
+            "Equal-length deletion conflicts are equivalent to insertion conflicts. Maximum hypergraph matching admits a fractional upper bound, also for arbitrary fixed-length source subsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1211.3128",
+          "material_read": "pp. 2, 4 Lemma 2.1, and 12 §V-A, offsets 13575, 25726–26749, 94466",
+          "method": "OA primary text",
+          "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+          "trigger": "Arbitrary-source framework and insertion/deletion equivalence"
+        },
+        {
+          "assessment": "Covers the source column only",
+          "evidence": [
+            "The paths from (0,0) to (n,0) in the stated class are counted by the Motzkin numbers."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/4781",
+          "material_read": "p. 1, offset 1867",
+          "method": "OA primary text",
+          "title": "Motzkin Paths, Motzkin Polynomials and Recurrence Relations",
+          "trigger": "Exact source enumeration"
+        },
+        {
+          "assessment": "Prefix/suffix constraint, not a deletion correction condition",
+          "evidence": [
+            "Discusses a construction using colored Motzkin words, under non-overlap."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+          "material_read": "p. 4 at offset 12081",
+          "method": "OA primary text",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Motzkin-related finite-code optimization"
+        },
+        {
+          "assessment": "No-flat sublanguage, with matching shared early layers but different full problem",
+          "evidence": [
+            "Dyck capacities 1,1,2,4,9,24; first objective gap at semilength 5."
+          ],
+          "identifier_or_url": "6a6d1499205f",
+          "material_read": "Finding, offsets 724–1385",
+          "method": "Resultary and local mirror",
+          "title": "Exact short-block one-deletion codes on Dyck words and the first fractional gap",
+          "trigger": "Closest lattice-path deletion model and exact LP gap"
+        },
+        {
+          "assessment": "Different constrained source",
+          "evidence": [
+            "The binary avoidance condition is no 11; first objective separation is at length 6."
+          ],
+          "identifier_or_url": "25a61255a325",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local mirror",
+          "title": "First fractional deletion-packing gaps for Fibonacci-constrained words",
+          "trigger": "Exact constrained one-deletion packing benchmark"
+        },
+        {
+          "assessment": "At-most-one-adjacent-exchange channel, not deletions",
+          "evidence": [
+            "At length 7 the integer optimum is 28 and the fractional value is 5515/182; this is a rounded-bound failure in that channel."
+          ],
+          "identifier_or_url": "e01093069dfd",
+          "material_read": "Finding, offset 370",
+          "method": "Resultary and local mirror",
+          "title": "First integer-rounding failure for one-swap codes on Motzkin excursions",
+          "trigger": "Exact same-source finite-code and fractional table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md: table, layer decomposition, fractional vertex and limitations",
+        "Resultary Dyck and Motzkin swap benchmarks 6a6d1499205f and e01093069dfd"
+      ],
+      "rationale": "Classical Motzkin paths with an unmarked deletion form a natural constrained channel. The cutoff is meaningful because it pinpoints the first strict loss of the basic fractional bound, while showing its floor is still exact. Moreover, the repaired statement separates the geometry of the relaxation from its objective: fractional vertices occur earlier than the first strict objective gap. Exact populations of labeled maximum codebooks add a reproducible design benchmark not supplied by the capacity alone.",
+      "residual_risks": [
+        "The contribution is a finite benchmark, not an asymptotic description, a general classification of its polytope, or a claim to beat a previously sharp rounded upper bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

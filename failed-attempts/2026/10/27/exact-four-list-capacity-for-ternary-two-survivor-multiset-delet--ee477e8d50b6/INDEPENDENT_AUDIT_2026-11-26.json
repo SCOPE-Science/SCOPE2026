@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:39:38.826972Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: definitions, degree bound, construction, and small lengths",
+        "Frozen VERIFICATION.md, CHECKS.txt and verify.py: finite construction/profile and twelve-word subset checks"
+      ],
+      "rationale": "There are six possible outputs and the cap of four gives at most 24 incidences. At n≥4 the three pure sources have degree one, the six (n−1,1,0) sources degree two, and every other source has degree at least three. Degree three requires exactly two positive coordinates, both at least two; three positive coordinates already give the three mixed pairs plus a monochromatic pair. For a putative 12-word code the total degree is at least 36−2·3−6=24, hence all nine low-degree words and exactly three degree-three words are required. The nine use three places in each monochromatic list, whereas the other three would need six of the three remaining places. Deleting codewords cannot violate the list restriction, so every larger size is also impossible. The nine low-degree words plus (n−2,1,1) and (1,n−2,1) give distinct words with loads (4,4,3,4,4,4) in the stated convention. At n=2 the channel is identity on six sources; at n=3 each output acquires precisely three distinct parents by adding one symbol, so all ten sources fit. The contextual first-failure claim is correct: at allowance one use just the pure words; at allowance two add the three cyclic majority/minority choices; at allowance three use all nine low-degree words.",
+      "residual_risks": [
+        "The frozen checker was read, not run. Its exact recorded tests are bounded; the cited additional ILP output is not needed for the symbolic result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The main high-list theorem assumes L≥5. The sharp plateau theorem assumes L≤k (so L≤2 when two symbols survive) and the alphabet-parity result assumes q≥4.",
+          "The optimizer classification for exactly q=3, k=2, L=4 covers all n≥4 and is strictly stronger than counting the maximum size.",
+          "Primary deletion-ball geometry and unique error recovery use other constraints; the ordered insertion/deletion list-rate work does not bound this finite unordered simplex problem."
+        ],
+        "reasoning": "No extrapolation from the other parameter regimes is needed: 721484583889 covers the identical regime explicitly.",
+        "searches": [
+          "Resultary 99b929446e96, 992c110431e7, 2946968acded, 721484583889",
+          "arXiv:2603.18322, arXiv:1612.08837, arXiv:2609.21395"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 99b929446e96, 721484583889, 992c110431e7, 2946968acded",
+        "arXiv:2601.05636, arXiv:2603.18322, arXiv:1612.08837, arXiv:2609.21395"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 11-word construction is Type I with B_2 omitted: the three pure words and six nearly pure words together with B_0 and B_1.",
+          "The lower-length values follow from the whole simplex and at most three parents, and the failure of bound 12 is immediate from capacity 11."
+        ],
+        "reasoning": "Neither the construction nor the length≥4 value nor the trivial boundary values supply a noncovered, valuable remainder. The result does not claim the stronger optimizer census.",
+        "searches": [
+          "Resultary 99b929446e96, Relationship to prior work",
+          "Resultary 721484583889, Finding, Type I, and relationship paragraph",
+          "Frozen Finding at n=2 and n=3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The integer-simplex output-incidence constraint is exactly the coordinatewise domination condition in Resultary 721484583889; both count distinct parents of each unordered pair, not deletion histories.",
+          "The two-survivor section of arXiv:2601.05636 imposes disjoint received sets (unique decoding)."
+        ],
+        "reasoning": "Representing received pairs as a six-row capacity system preserves this list constraint exactly. Replacing capacity four by one does not.",
+        "searches": [
+          "Local Resultary: ternary two-survivor multiset list capacity, high-list saturation, optimal four-list classification",
+          "arXiv:2601.05636, Two survivors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=4 capacity table in 99b929446e96 starts 3, 6, 9, 11, 13 for L=1,…,5; its relationship section also states 11 for every n≥4 at L=4.",
+          "Resultary 721484583889 gives the same exact all-length value, not only sample lengths."
+        ],
+        "reasoning": "The table alone would cover only one length; the bounded article passages supply coverage for the entire nontrivial range.",
+        "searches": [
+          "Local Resultary: exact ternary four-list optimizer and high-list capacities",
+          "Resultary 99b929446e96, Verification and Relationship to prior work"
+        ]
+      },
+      "rationale": "The exact n≥4 capacity 11 for this same channel is explicitly stated in the 2026/10/26 Resultary high-list record, which calls it a separately recorded special case. The distinct 2026/11/22 optimizer-classification record states and proves the same capacity with the same hypotheses and a stronger classification (including the frozen construction). This is affirmative equivalent coverage. The first record's unidentified antecedent does not resolve historical priority, and the second record's later path date is not evidence of earlier priority. The leftover n=2 and n=3 statements are just the full source space, not a distinct theorem.",
+      "residual_risks": [
+        "The high-list record does not directly identify its antecedent for L=4. This limits priority attribution, not the statement-level comparison.",
+        "Primary-source checks were bounded and no broad negative bibliographic assertion is made; the verdict relies on exact indexed evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Main theorem excludes L=4 but text and table give affirmative coverage",
+          "evidence": "The relationship section states ‘A related previously recorded special case determines the ternary four-list capacity 11 for n≥4’; the length-four exact list table gives 11 at L=4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-high-list-saturation-for-ternary-two-symbol-multiset-deletion-co--99b929446e96/RESULT.md",
+          "material_read": "L=5 boundary, verification table, and Relationship to prior work from offset 4202",
+          "method": "Bounded local mirror passages",
+          "title": "High-list saturation for ternary two-symbol multiset deletion codes",
+          "trigger": "Same alphabet and survivor size; explicit adjacent list regime"
+        },
+        {
+          "assessment": "Exact stronger coverage; not evidence of earlier priority",
+          "evidence": "Maximum 11 for every n≥4 and all optimizers characterized; Type I includes the frozen construction. Explicitly disclaims novelty for eleven.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-classification-and-enumeration-of-optimal-ternary-four--721484583889/RESULT.md",
+          "material_read": "Finding and assumptions at offset 0, prior-work passage at offset 7736",
+          "method": "Bounded local mirror passages",
+          "title": "Complete classification and enumeration of optimal ternary four-list multiset deletion codes",
+          "trigger": "Identical parameters and stronger theorem"
+        },
+        {
+          "assessment": "Different list-size range",
+          "evidence": "For k=2 the permitted list sizes are at most two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sharp-list-capacity-plateau-for-high-deletion-multiset-channels--992c110431e7",
+          "material_read": "RESULT.md statement and parameter restrictions",
+          "method": "Bounded local mirror passage",
+          "title": "Sharp list-capacity plateau for high-deletion multiset channels",
+          "trigger": "Potential broader theorem"
+        },
+        {
+          "assessment": "Different alphabet-size range",
+          "evidence": "Its theorem assumes an alphabet of size at least four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-alphabet-parity-thresholds-for-two-survivor-multiset-list--2946968acded",
+          "material_read": "RESULT.md statement and parameter restrictions",
+          "method": "Bounded local mirror passage",
+          "title": "Sharp alphabet-parity thresholds for two-survivor multiset list decoding",
+          "trigger": "Alternate incidence bound for two survivors"
+        },
+        {
+          "assessment": "Unique decoding, not list-four capacity",
+          "evidence": "The bound and construction use squarefree packings and disjoint received sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+          "material_read": "Two survivors, Eq. (3), OA offset 67858",
+          "method": "OA HTML passage",
+          "title": "Multiset Deletion Codes: Cyclic Syndrome Constructions, Bounds, and Exact Results",
+          "trigger": "Primary exact two-survivor results"
+        },
+        {
+          "assessment": "Related geometry, no matching exact claim in inspected passages",
+          "evidence": "Distance distributions and deletion-ball size bounds do not impose four distinct parents per observed pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+          "material_read": "Abstract and introduction, offsets 4732–7292",
+          "method": "OA HTML passages",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Same output balls and geometry"
+        },
+        {
+          "assessment": "Different recovery condition",
+          "evidence": "General multiset error correction and unique recovery, not the finite four-list capacity.",
+          "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+          "material_read": "Theorems 1 and 2, offsets 18729 and around 23233",
+          "method": "OA full-text passages",
+          "title": "Codes in the Space of Multisets—Coding for Permutation Channels With Impairments",
+          "trigger": "Foundational multiset channel"
+        },
+        {
+          "assessment": "Different channel and asymptotic rate objective",
+          "evidence": "Ordered words and insertions/deletions with fixed list size, rather than finite ternary multisets with two unordered survivors.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21395",
+          "material_read": "Abstract at offset 0 and introduction around offset 8737",
+          "method": "OA full-text passages",
+          "title": "Ordered insertion/deletion codes with constant list size (arXiv:2609.21395)",
+          "trigger": "Potential related constant-list bounds"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, degree proof and relationship section",
+        "Exact capacity and construction coverage in Resultary 99b929446e96 and 721484583889"
+      ],
+      "rationale": "The first departure from the monochromatic capacity bound is a motivated channel question, and the degree proof is useful for understanding it. But the frozen contribution is the already indexed exact capacity and a construction in an already indexed optimizer family, without a new structural consequence. The remaining lengths just use every source. There is no distinct useful exact fact here to retain as a separate contribution.",
+      "residual_risks": [
+        "This is a judgment of the frozen contribution, not of the usefulness of knowing the capacity or of the stronger optimizer classification."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary Poisson age is exponential, the conditional particle variance is the Ornstein--Uhlenbeck variance, and its exponential transform has the exact beta density. The conditional count is binomial. Expansion at the equilibrium-support endpoint gives the coefficient \(c\), while a binomial central limit theorem gives the pointwise crossover. The strictly positive quotient bound for \((p(v)-p_*)/v\) plus Hoeffding concentration supplies an integrable dominator for every \(\beta>0\). The Gaussian moment calculation verifies the explicit constant and the inverse-map calculation verifies the macroscopic density regimes. Numerical binomial/age quadratures are reproducible but are not an infinite proof.
+## correctness
 
-**Originality — PASS (with risk).** The confined ideal-gas paper arXiv:2606.31634 identifies the joint age mixture and explicitly lists interval full counting statistics as further work. arXiv:2509.06658, §III equations (52)–(55), treats full counting under free diffusion and derives a generic binomial mixture; it does not provide the confined equilibrium lower boundary or finite-size \(\sqrt N\) crossover. arXiv:2503.14733, §III.D, analyzes full counting in a repulsive Dyson gas with a different conditional fluctuation scale. Research-record and literature searches for aliases (trapped counting, endpoint smoothing, beta-binomial mixture, relaxation-rate exponents) returned no equivalently covering claim; this does not constitute proof of global novelty. A general unpublished/implicit mixed-binomial boundary theorem could subsume the calculation.
+PASS
 
-**Value — PASS.** The lower edge of the macroscopic particle-fraction support has a physically natural interpretation: the equilibrium single-particle occupancy probability. Finite systems can fall below that bound because of conditional binomial fluctuations, but the overall probability is controlled by the competing rare age event. The exact nonstandard exponent \(r/(4\mu)\), positive prefactor and full Gaussian smoothing profile quantify how a measurable finite-size feature vanishes, beyond the usual mixture-law or leading counting density. This provides a concrete response to a counting-statistics direction explicitly raised by the confined-gas literature.
+The independent Brownian drivers give conditional iid positions, not independent stationary particles after averaging over the common clock. The stationary age T has exponential rate r and V=exp(−2μT) has CDF v^β. The OU variance (D/μ)(1−v) gives the stated increasing binomial parameter p(v), with derivative c at zero. For v=w/√N the count threshold, centered at Np(v) and divided by √N, tends to s−cw; conditional variance divided by N tends to σ²>0. The triangular binomial CLT then gives the stated integrand; the floor shifts the centered threshold by O(N^−1/2). The continuous positive secant slope (p(v)−p*)/v has a positive minimum δ on the closed interval when extended at zero. Beyond a fixed w the centered left tail is bounded by exp(−δ²w²/2) uniformly in N on w≤√N; extend the integrand by zero outside that range. Multiplying by w^(β−1) gives integrability at zero and infinity for every fixed β>0. The limit is c^(−β) E[(s−σZ)_+^β] by integrating over the Gaussian, giving the claimed positive finite profile and gamma constant at s=0. Conditional variances of K_N/N are bounded by 1/(4N), giving the macroscopic limit p(V); the change-of-variables density β[p^−1(z)]^(β−1)/p'(p^−1(z)) gives the three edge regimes. The supplied script was inspected, not run: its limit ratios are numerical illustrations, and its assertion compares two quadratures of the same mixture with different variables and tail cutoffs.
 
-**Residual limits.** Fixed positive parameters only, no joint scaling in resetting rate, no interaction or non-Poisson protocol. Prior results on free resetting and repulsive log-gases are closely related but do not imply this precisely stated lower boundary layer in the independent harmonic gas. Independent confirmation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinction is the fixed-window count's finite-N lower-edge boundary layer with explicit coefficients in the noninteracting, common-Poisson-reset OU model. The same model's stationary age mixture was established previously; the generic binomial mixture mechanism and the macroscopic exponent in a different trapped reset gas are not new. None of the inspected formulas for free diffusion counts, interacting trapped counts, or other observables in the same model gives this count-specific finite-size law. The bounded comparison does not certify historical priority or a resetting-specific universality claim.
+
+## value
+
+PASS
+
+The boundary layer answers a fixed-window counting question in an established model and distinguishes finite-sample events below the equilibrium fraction from the hard endpoint of the macroscopic law. It gives a quantitative relationship between the reset rate, equilibrium sampling fluctuations, and the probability and shape of that rare event, including the normalization an analyst would need. A macroscopic edge-density exponent alone would not supply this information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

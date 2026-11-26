@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:57:01.584992Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–43",
+        "Frozen VERIFICATION.md, verify_poset_threshold.py and verification_output.txt"
+      ],
+      "rationale": "Dilworth partitions a finite width-w poset into w nonempty chains. On a chain of length l, prefix hypotheses have dimension floor(log2(l+1)) by leaf counting and recursive bisection. In a product on disjoint domains, a query affects one factor only; a branch of a shattered query must reduce that factor's dimension by at least one, giving the upper bound by summing factor dimensions. Concatenating independent trees gives equality for the product. Every ideal is a prefix tuple, so k_i=floor(log2(l_i+1)) must sum to at least K. Minimizing the sum of 2^k_i-1 first forces sum K, then balancing by discrete strict convexity, giving the stated N_w(K). At equality all l_i=2^k_i-1 and a K-tree needs all 2^K available tuples. A cross-chain comparison would forbid one, so the disjoint union is forced. For w>=2 this excludes connected equality; adjoining a global bottom preserves the antichain and all projected old ideals. Padding above with a chain preserves width and the old tree for the fixed-size formula. An antichain is statically shattered by taking down-closures, and no comparable pair can be shattered. The frozen code and output were read, not executed; the finite enumeration and arithmetic checks are not the unrestricted proof.",
+      "residual_risks": [
+        "The frozen finite search checks natural labels to six vertices and does not independently establish connectedness or the fixed-size extremum in general; those are covered by the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The later bounded-width record gives exact computation for individual ideal classes and two-row results, not a minimum size or equality classification. Dilworth supplies the chain cover. Ghazi et al. study Boolean aggregation on common domains."
+        ],
+        "reasoning": "Even exact instance computation does not give the uniform size bound, or characterize when the chain product bound can be saturated.",
+        "searches": [
+          "Resultary on exact bounded-width computation of online ranks of order ideals",
+          "Ghazi et al., PMLR 132 (2021), pp. 1–2",
+          "Dilworth, Ann. Math. 51 (1950), 161–166"
+        ]
+      },
+      "checked_sources": [
+        "Resultary two-row, bounded-width, layered-order-ideal and component-rank Findings",
+        "Liu–Weselcouch §4.1",
+        "Ghazi et al. pp. 1–2",
+        "Felsner–Krawczyk–Trotter p. 1",
+        "Guingona et al. Theorem 3.10",
+        "Frozen RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither a fixed-family calculation nor the chain partition alone gives the simultaneous equality constraints: balanced integer depths, saturated prefix lengths, and all tuples realized. The zero-set theorem concerns a different concept class."
+        ],
+        "reasoning": "The finite-product bound, size minimization and leaf-count saturation together prove the extremal result and rigidity, not a simple specialization of the inspected related findings. The connected and fixed-size formulas are consequences of that distinct core.",
+        "searches": [
+          "Compare the two-row and bounded-width Resultary Findings with frozen RESULT.md lines 29–40",
+          "Liu–Weselcouch §4.1; Guingona et al. arXiv:2109.04805 Theorem 3.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent optimization is over intersections with w chain-prefix/nested-threshold classes subject to total domain size. Liu–Weselcouch use a width-two ideal-lattice embedding into a product of chains to study P-partition generating functions, not this optimization.",
+          "Felsner–Krawczyk–Trotter use online dimension for online realizers rather than ideal-membership trees."
+        ],
+        "reasoning": "A shared poset parameter or product-of-chains representation does not make the invariant or its extremizers equivalent.",
+        "searches": [
+          "Resultary: Littlestone/online shattering of order ideals with sharp fixed-width size and equality thresholds",
+          "Literature query on poset ideal Littlestone dimension and width thresholds",
+          "Liu–Weselcouch arXiv:1807.02865 §4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The grid table is for depth versus number of columns of [2]×[n]. Its first depth 4 occurs at five columns (ten vertices); the all-width-two minimum is six vertices. Related layered-poset and component-rank findings index different families or ranks."
+        ],
+        "reasoning": "No checked table encodes N_w(K) with the same extremization and hypotheses; same-day ordering was not inferred.",
+        "searches": [
+          "Local Resultary ranked results on exact thresholds and tables for finite ideal classes",
+          "Same-day two-row grid RESULT.md, Finding and first-threshold table"
+        ]
+      },
+      "rationale": "The closest same-day finding treats the same query model on two-row grids, and the known chain decomposition and threshold facts cover ingredients. The supported distinct claim is the exact minimum over all width-w posets and the equality structure, which also yield the connected and fixed-size statements. No inspected source gives an equivalent or stronger extremal theorem.",
+      "residual_risks": [
+        "Bounded literature review: a treatment under nested thresholds or online prediction of monotone paths may have been missed.",
+        "The same-day grid result was compared on content; chronology within that date is unresolved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial method/domain overlap, different extremum; same-day priority not inferred",
+          "evidence": "Exact recurrence and ten thresholds for [2]×[n], whose depth-four minimum is ten vertices, not the all-poset optimum six.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-polynomial-state-littlestone-recurrence-for-two-row-order--6262182a47f2",
+          "material_read": "RESULT.md offsets 0 and 6346, Finding and thresholds",
+          "method": "Local mirror passages",
+          "title": "Exact polynomial-state Littlestone recurrence for two-row order ideals",
+          "trigger": "Same-day width-two ideal-membership result"
+        },
+        {
+          "assessment": "Per-poset algorithm and grid sequence, not the uniform extremal theorem",
+          "evidence": "No balanced-chain size minimum or equality classification in the inspected claims.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-online-ranks-of-finite-order-ideal-classes-bounded-width-exact-c--68248a42b6fd",
+          "material_read": "RESULT.md offsets 0 and 6466",
+          "method": "Local mirror passages",
+          "title": "Online ranks of finite order-ideal classes",
+          "trigger": "Broader exact bounded-width treatment"
+        },
+        {
+          "assessment": "Product model related, theorem is about a different invariant",
+          "evidence": "Embedding of width-two ideal lattice and P-partition generating function equivalence.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.02865",
+          "material_read": "§4.1, pp. 12–13, OA offset near 39062",
+          "method": "Bounded OA full text",
+          "title": "P-Partition Generating Function Equivalence of Naturally Labeled Posets",
+          "trigger": "Width-two product embedding and uniqueness"
+        },
+        {
+          "assessment": "Different operation and no width/size equality statement",
+          "evidence": "Pointwise Boolean aggregation of classes on a common domain.",
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+          "material_read": "pp. 1–2, OA offsets near 1344 and 3502",
+          "method": "Bounded OA full text",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "General Littlestone combination bounds"
+        },
+        {
+          "assessment": "Distinct notion",
+          "evidence": "Online formation of a realizer, not a binary ideal-membership tree.",
+          "identifier_or_url": "Felsner, Krawczyk and Trotter, title as indexed",
+          "material_read": "p. 1, OA offset 0",
+          "method": "Bounded OA full text",
+          "title": "On-Line Dimension for Posets Excluding Two Long Incomparable Chains",
+          "trigger": "Possible alias for online dimension of posets"
+        },
+        {
+          "assessment": "Different class and invariant comparison",
+          "evidence": "Both dimensions equal d−1 for a family of zero sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Theorem 3.10, p. 9, OA offset near 22001",
+          "method": "Bounded OA full text",
+          "title": "Littlestone and VC-dimension of Families of Zero Sets",
+          "trigger": "Prior exact Littlestone/VC comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–20 and 29–40",
+        "Compared two-row and bounded-width Resultary Findings"
+      ],
+      "rationale": "For the natural ideal-membership class, the theorem gives a uniform, sharp element budget for adaptive shattering at prescribed static dimension, rather than a bound or a family example. It forces all extremizers at the onset and determines exactly the extra cost of comparability connectivity. These facts also answer the fixed-size adaptive-minus-static extremum without running an instance algorithm.",
+      "residual_risks": [
+        "No classification of all fixed-size or connected extremizers beyond the stated unique unrestricted onset."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:15:16.359435Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Zeckendorf uniqueness identifies the slice with nonadjacent subsets of indices 2 through M (the maximum sum from those indices is F_(M+1)-1 by the largest-index recursion). On a complete Pisano block multiple all ordered coordinates have exactly the cycle law. Per coordinate pair the equal-index event has count L^(k-1) Q_k; each adjacency orientation has count L^(k-1) P_(k-1) plus O(L^(k-2)), since F_j+F_(j+1)=F_(j+2) and precisely one boundary pair is lost. Two distinct compatible forbidden constraints identify at least two differences between coordinates, leaving at most k-2 free indices. Division by k! therefore gives the stated negative correction; k=2 has a bounded boundary error. Unaligned populations have bounded count errors and forbidden pairs are O(L^(k-1)); the standard shifted subset count gives the conditional limit. The 0 and 1 in the period give positivity as asserted. An independent largest-index digit recursion and exact period convolution reproduce all four pairs of constants and check aligned finite differences for five (k,m) pairs, all residues, via `python3 /workspace/reproductions/frozen_checks.py 4`. This is finite corroboration, not the error-bound proof. The frozen verification file and artifacts/verify.py were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md lines 65–70 describe Wagner's fixed-digit-sum discrepancy result and Lao et al.'s progression infinitude and run results. Primary full-text retrieval did not succeed; these characterizations are from the frozen comparison, not a primary reinspection."
+        ],
+        "reasoning": "A discrepancy estimate that does not decay at fixed weight, and mere infinitude in progressions, do not give a limiting rational distribution or its two-term aligned expansion. Broader generating-function implications not visible in the accessible material remain possible.",
+        "searches": [
+          "Wagner, DOI:10.1007/s11139-006-0001-6, Theorem 12",
+          "arXiv:2606.24006v1"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md lines 17–34, 41–70",
+        "Resultary October dyadic record 3be0fd61032a, RESULT.md",
+        "DOI:10.1007/s11139-006-0001-6 (retrieval attempted)",
+        "arXiv:2606.24006v1 (retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For k=2 the prior dyadic leading term has an O(L) error, exactly the scale of the new coefficient -H_(2,m)(r). The frozen derivation separates weighted double-index and adjacent-index distributions for arbitrary fixed k,m."
+        ],
+        "reasoning": "The frozen leading dyadic specialization is covered; the aligned correction is not a consequence of a remainder at its own scale. The best-of-knowledge pass is for the substantive general and second-order extension, not a priority assertion about the included examples.",
+        "searches": [
+          "October dyadic record RESULT.md and frozen RESULT.md lines 17–34, 44–59",
+          "Wagner, Theorem 12 (primary retrieval attempted)",
+          "arXiv:2606.24006v1 (primary retrieval attempted)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The inspected October dyadic record counts two-summand Zeckendorf–Niven integers by even residue modulo 2^a; on weight two this is precisely the even-residue slice of the frozen count."
+        ],
+        "reasoning": "Weight-two divisibility imposes evenness, so the partial equivalence is exact after identifying the cutoff scale. It gives neither other weights nor the second coefficient. The assigned record's own search hit is not a separate source.",
+        "searches": [
+          "Resultary: fixed-weight Zeckendorf residue law with Pisano-period alignment and adjacent-pair correction",
+          "arXiv:2606.24006v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October record's RESULT has a 16-class table of the even residues modulo 32 giving leading coefficients kappa(r mod 32)/(18·2^a) for a>=5, with sharp 7/3 bias."
+        ],
+        "reasoning": "This is a real prior table for a subclass, not evidence of coverage of the frozen aligned second-order coefficients.",
+        "searches": [
+          "Resultary: two-summand Zeckendorf–Niven dyadic residue bias",
+          "2026/10/25/SCOPE-a-uniform-32-class-dyadic-bias-law-for-two-summand-zeckendorf-ni--3be0fd61032a"
+        ]
+      },
+      "rationale": "Pass for the distinct all-fixed-(k,m) aligned two-term coefficient and accompanying general law, not for every leading special case. The October dyadic two-summand record directly covers even-residue leading asymptotics in its modulus range, including the aggregate 5/9 example, and actually gives a more explicit grouped table in that range. Its O(L) counting error leaves the linear term undetermined. No inspected statement covers the arbitrary fixed-weight aligned collision correction. The primary-source access limitation remains material to the historical priority assessment.",
+      "residual_risks": [
+        "Wagner and Lao et al. decisive full-text passages were not confirmed; an equivalent coefficient extraction in earlier recurrence-numeration work remains possible.",
+        "The included dyadic leading special case is already covered; lack of a further match is not priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct partial coverage, not the arbitrary-weight two-term formula",
+          "evidence": [
+            "a>=5; coefficient kappa(r mod 32)/(18·2^a) for even r; 16 classes and an O(L)-scale remainder."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-a-uniform-32-class-dyadic-bias-law-for-two-summand-zeckendorf-ni--3be0fd61032a",
+          "material_read": "RESULT.md, finding with even-residue leading coefficients and remainder",
+          "method": "Resultary search and local mirror",
+          "title": "A uniform 32-class dyadic bias law for two-summand Zeckendorf–Niven integers",
+          "trigger": "Closest exact residue table in Resultary"
+        },
+        {
+          "assessment": "Access-limited; broader equivalence not ruled out",
+          "evidence": [
+            "Frozen RESULT.md lines 67 and 70 describe exp(-c k/log m) discrepancy and note equivalent generating-function formulations as a priority risk."
+          ],
+          "identifier_or_url": "10.1007/s11139-006-0001-6",
+          "material_read": "Frozen description of Theorem 12 only; lawful author manuscript and journal-route attempts did not return decisive primary text",
+          "method": "OA passage retrieval attempts and frozen comparison",
+          "title": "Numbers with fixed sum of digits in linear recurrent number systems",
+          "trigger": "Plausibly broader recurrence-numeration theorem"
+        },
+        {
+          "assessment": "Access-limited; frozen comparison concerns infinitude and runs",
+          "evidence": [
+            "Frozen RESULT.md line 65 distinguishes progression infinitude and runs from conditional fixed-weight densities."
+          ],
+          "identifier_or_url": "arXiv:2606.24006v1",
+          "material_read": "Frozen description only; OA retrieval did not return the decisive primary text",
+          "method": "OA passage retrieval attempts and frozen comparison",
+          "title": "On Zeckendorf-Niven numbers and arithmetic progressions",
+          "trigger": "Same Zeckendorf–Niven objects and residues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-weight conditional law addresses a different question from density or mere infinitude in all integers. The second coefficient measures the first local exclusion effect and separates repeated indices from Fibonacci adjacency. It supplies reusable exact arithmetic asymptotics across arbitrary fixed weights and moduli and makes explicit when the limiting law is nonuniform, without claiming natural density.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:25:25.699385Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing the shift autocorrelations gives T²=(3+S)/3. Odd extension degree excludes a quadratic subfield and hence forces T rational; a reduced denominator s would satisfy s²|3, so T is integral. S=3(T²−1) is odd with |S|≤17; T must be even, leaving 0 or ±2 and respectively seven or thirteen positive signs. The symmetric circulant Gram spectrum has constant mode T² and paired modes k,35−k with 3λ_k=3+∑σ_a cos(2πka/35). For nonzero k, the full root sum gives the equivalent 3λ_k=7/2+2∑_(a∈P) cos(2πka/35), also for nonunits. Independently replayed all combinations with python3 /workspace/replay/shift35_review.py, using alternating arctangent brackets for π, a rational Taylor bound plus cosine's Lipschitz bound, and outward rounding at scale 10^18. The 19,448 and 2,380 candidates gave 19 and zero survivors with no ambiguous signs. The 19 have λ₀=0 and all other λ_k≥67924701873905317/1500000000000000000, exceeding the frozen common bound. Independent orbit grouping verified disjoint sizes 12,3,4 and the three frozen representatives. Real shift-only realizability follows by Fourier inversion of the symmetric coefficients sqrt(λ_k), with the forward transform unnormalized and inverse divided by 35; this gives the autocorrelation and squared norm one. It does not realize a prescribed field degree or impose any nonzero modulation equation. The bundled rational code at verification/spectral_census.py was inspected, not executed; its positive-definite print label means strict positivity on the nonconstant subspace for survivors, not on the whole space.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The degree sieve requires d=4m²−1 with even v₂(m), allowing d=35 at m=3. The inspected positivity exclusion in the abstract is for all positive shifts, not a mixture with 13 positive paired distances."
+        ],
+        "reasoning": "A general sieve and an all-positive exclusion neither enumerate the mixed signs nor exclude the T=±2 branch at d=35. The latter requires a further spectral argument or certified enumeration.",
+        "searches": [
+          "arXiv:2610.13168v1 abstract, §4, §5.2 Proposition 5.3",
+          "Primary query for dimension 35 real WH SIC, odd-degree shift signs, Gram positivity and zero coordinate sum"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, REVIEW.md, VERIFICATION.md and verification/spectral_census.py",
+        "Van Loo–Oggier arXiv:2610.13168v1",
+        "Song–Tranel arXiv:2106.11047",
+        "Resultary --132a86d69a57"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Combining the prior shift identity and odd-degree field sieve with elementary parity still leaves seven and thirteen positives. Song–Tranel's inspected concurrence matrix classification uses different size and design constraints."
+        ],
+        "reasoning": "The earlier general positivity criterion is the predicate tested, not its enumeration. A conclusion about all full fiducials, if obtained by other constraints, would not itself classify the separately realizable real shift-only profiles.",
+        "searches": [
+          "Van Loo–Oggier arXiv:2610.13168v1 §4 and Proposition 5.3, exact scope versus frozen lines 31–49",
+          "Song–Tranel arXiv:2106.11047 classification of circulant concurrence matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic autocorrelations are first rows of real circulant Gram matrices; nonnegative Fourier eigenvalues characterize exactly the shift-only realizable sign patterns. The cited literature uses related positive-semidefinite or circulant spectral methods."
+        ],
+        "reasoning": "The spectral equivalence and recovery by taking square roots are not new. The classification asks which constrained ± sign sets obey that criterion, not how to express it or general existence of a real fiducial.",
+        "searches": [
+          "Dimension-35 real Weyl–Heisenberg/SIC odd-degree sign configurations, circulant shift Gram and cyclic autocorrelation",
+          "Van Loo–Oggier arXiv:2610.13168v1 §4",
+          "Song–Tranel arXiv:2106.11047 p. 40"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue neighbour 2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57 classifies binary order-five de Bruijn autocorrelation fibers, with 526 autocorrelations and two exceptional homometry pairs, not any dimension-35 WH signs."
+        ],
+        "reasoning": "Binary 32-coordinate de Bruijn autocorrelation fibers differ both in domain and objective. No exact matching table was identified in this comparison; failed retrievals and search misses are not evidence of absence.",
+        "searches": [
+          "Resultary: exact dimension-35 cyclic-shift signs, Weyl–Heisenberg shift Gram, cyclic sign autocorrelation census",
+          "Targeted primary dimension-35 SIC/real fiducial sign search"
+        ]
+      },
+      "rationale": "The distinct claim is the complete dimension-35 shift PSD census and resulting exclusion of T=±2 under the necessary field-degree restriction, not the general sign identity, odd-degree dimension criterion, circulant diagonalization, or spectral factorization. The strongest inspected primary passages supply the general restrictions but not the finite classification. Neither the local catalogue comparisons nor the searched primary passages establish covering evidence for this census. This is a bounded judgement, not a priority guarantee.",
+      "residual_risks": [
+        "The cited Khatirinejad and Appleby full texts were not inspectable in the attempted OA routes. A general SIC Gram article and a Springer chapter surfaced in the targeted search but could not be read; no conclusion is inferred from the access failures. An unindexed exact finite census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides structural restrictions and positivity method, not exact dimension-35 mixed-sign coverage in these passages",
+          "evidence": "Proposition 5.3 gives the odd-degree sieve; §4 uses Gram positivity; the all-positive statement does not reach the thirteen-positive family.",
+          "identifier_or_url": "https://arxiv.org/html/2610.13168v1",
+          "material_read": "Abstract offset 960, §4 offsets 53100–56571, §5.2 Proposition 5.3 offsets 62300–67768",
+          "method": "OA HTML passages",
+          "title": "Real Fiducial Vectors Only Exist in Dimensions d≡3 (mod 4)",
+          "trigger": "Closest prior with the same real WH objects, shift signs and odd-degree constraint"
+        },
+        {
+          "assessment": "Different design classification",
+          "evidence": "The symmetric integral circulant concurrence matrices there are subject to partial geometric design conditions, not the 17 paired shift signs and T² restriction.",
+          "identifier_or_url": "arXiv:2106.11047",
+          "material_read": "PDF p. 40, offset 116821",
+          "method": "OA PDF",
+          "title": "Partial geometric designs having circulant concurrence matrices",
+          "trigger": "Potential general circulant-sign spectrum classification"
+        },
+        {
+          "assessment": "Different dimension, alphabet-restricted inputs and fibers, not the claimed sign test",
+          "evidence": "Classifies length-32 binary de Bruijn autocorrelation fibers, reporting 526 distinct autocorrelations and two exceptional pairs.",
+          "identifier_or_url": "2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57",
+          "material_read": "RESULT.md offset 0",
+          "method": "Local catalogue and mirror",
+          "title": "Almost complete cyclic phase retrieval for binary order-five de Bruijn cycles",
+          "trigger": "Nearby same-day catalogue autocorrelation classification"
+        },
+        {
+          "assessment": "Unavailable, no noncoverage verdict based on access",
+          "evidence": "Known citation from frozen source; no primary passage relied upon.",
+          "identifier_or_url": "DOI:10.1007/s10801-007-0104-1",
+          "material_read": "Full text not reached in this check",
+          "method": "Lawful OA attempts",
+          "title": "On Weyl-Heisenberg orbits of equiangular lines",
+          "trigger": "Potential implication via general real-fiducial equations"
+        },
+        {
+          "assessment": "Unavailable, no noncoverage verdict based on access",
+          "evidence": "Known citation from frozen source; no primary passage relied upon.",
+          "identifier_or_url": "DOI:10.1063/5.0083520",
+          "material_read": "Full text not reached in this check",
+          "method": "Lawful OA attempts",
+          "title": "SIC-POVMs from Stark units: Prime dimensions n²+3",
+          "trigger": "Related real fiducial constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dimension 35 is the first dimension above three admitted by the stated odd-degree necessary sieve, making it a motivated exact instance. Reducing 21,828 discrete possibilities to three multiplier templates and ruling out the nonzero sum branch gives a usable, exact constraint for further fiducial or sign-subsystem work. The classification is complete for the stated real shift-only PSD relaxation; its value does not depend on claiming full WH realizability or nonexistence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

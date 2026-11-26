@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:19:11.028490Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–95",
+        "Frozen VERIFICATION.md lines 19–23 and check.py lines 1–71; finite quadrature diagnostics inspected, not executed"
+      ],
+      "rationale": "The normalized measure and the even absolute value give 1/π on the positive half-period. Factoring the polynomial and replacing (2 sin(t/2))⁻¹ by t⁻¹ on [1/N,π] change the norm by O(1), as does discarding t≤1/N. After u=Nt the difference between m_N/N and fixed α changes the numerator by at most 2u/N, hence its weighted integral also by O(1). The Cesàro mean M of F_α(u)=4|sin(u/2)cos(αu/2)| exists (irrational continuous torus flow, or rational periodicity). For G(R)=∫₀ᴿ(F_α−M)=o(R), integration by parts gives G(R)/R and ∫₁ᴿG(u)/u²=o(log R) by an ε-bound on the tail, proving C=M/π without a Diophantine or uniform rate. The torus product gives 16/π³; absolute cosine-series convergence lets one average termwise, and the resonances n=pℓ, m=qℓ with mean cos²=1/2 give exactly the factor 2 and sign (−1)^(qℓ) in the series. For even q each positive summand is strictly dominated by its (3,2) counterpart unless (p,q)=(3,2); for odd q the positive alternating deficit is less than 1/105 away from (2,1), whose deficit exceeds 1/45−1/945. This gives uniqueness against the generic irrational value as well. Substitution x=cos v gives ∫₀^π|sin v cos 2v|dv=(4√2−2)/3. For (3,2), use symmetry about π/2, split at π/6 on the first half, and use primitive cos(v)/2−cos(5v)/10; this gives (6√3−4)/5. The multiplier 4/π² produces both claimed closed forms. Rational corrections have magnitude O(q⁻⁴), so they vanish along rational approximations to an irrational, and the dense irrational values witness a discontinuity at each rational. Scope is exactly fixed slopes, equal unit-weight blocks and continuous normalized circle measure; the passage saying ‘positive-frequency’ includes frequency zero by the explicit polynomial and has no mathematical effect.",
+      "residual_risks": [
+        "No variable-slope or uniform convergence claim, and no inference from finite quadrature to the limiting law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Survey Theorem 5.1 relates the L1 norm to a truncated Fourier-transform integral up to a bounded error for its radial class. Proposition 5.1 gives M(Λ) log N+o(log N) for its compactly supported jump class, where M is an almost-periodic mean. The displayed proof uses the weighted mean of the absolute jump exponential sum.",
+          "Survey Theorem 6.3/6.3′ instead treats triangular planar lattice sums on a log² scale. The sparse-frequency paper discusses growing neighboring gaps; the frozen family has unit gaps within each block.",
+          "Liflyand's 2022 paper abstract describes a broad multiplier-norm representation; attempts at the primary and identified alternate publisher PDF routes did not retrieve full text."
+        ],
+        "reasoning": "Credit the broader multiplier and jump-mean reduction, including implicit existence for the centered one-dimensional symbol. The retrieved results do not evaluate its resonant means, classify discontinuities, or optimize them over α. No whole-paper exclusion is claimed for the inaccessible 2022 comparison.",
+        "searches": [
+          "Liflyand 2006 survey, (5.1)–(5.5), Proposition 5.1 and Theorem 6.3/6.3′",
+          "Liflyand Lebesgue constants dilated step multiplier symbol bounded variation Fourier jump exponential polynomial logarithmic coefficient one dimension finite union intervals",
+          "A General Theorem on Lebesgue Constants, DOI:10.1007/s10958-022-06213-z",
+          "arXiv:2409.07093 and arXiv:2303.10919"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 97–109",
+        "Resultary 6f295f59de60 and adjacent endpoint/zero searches",
+        "Liflyand 2006 §§5–6",
+        "arXiv:2409.07093 and arXiv:2303.10919",
+        "Bibliographic comparisons at DOI:10.1007/s10958-022-06213-z and MDPI 13(8):505"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Up to a phase and O(1) endpoint coefficients, the frozen sum samples the even step symbol 1_{[(α−1)/2,(α+1)/2]}(|x|). Its Fourier transform is 2[sin((α+1)ξ/2)−sin((α−1)ξ/2)]/ξ, so the general norm representation gives the same logarithmic mean of the absolute paired sine/cosine factor.",
+          "The frozen reduced-denominator parity law comes from exactly the nonconstant resonances n=pℓ,m=qℓ and includes a uniform magnitude estimate by denominator. The sharp extremizer comparisons require monotonicity in p and q in the even case and a separate alternating-deficit estimate in the odd case."
+        ],
+        "reasoning": "Limit existence and the implicit flow mean are not claimed as new once the general reduction is specialized. The reduced-slope series, irrational continuity and rational jumps, and two strict global comparisons are the additional results, not an application of an existing extremal theorem found in the comparison.",
+        "searches": [
+          "Liflyand 2006 Theorem 5.1 and Proposition 5.1 compared by recentering the frozen two blocks",
+          "Resultary 6f295f59de60 Finding compared under the two-phase averaging formulation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 6f295f59de60 has the same generic number 16/π³ and a product of sine and cosine magnitudes in singular-value tails, but fixes an irrational aperture width and allows the displacement to vary, with rational constants depending only on the displacement denominator.",
+          "For that comparison even rational denominators are below the generic value and odd above; dependent irrational b=2a is also exceptional. The frozen problem has the opposite signs and no exceptional irrational slope."
+        ],
+        "reasoning": "The two-aperture result averages a sampled pair of phases tied to two fixed geometric parameters for an operator's singular-value tail. The present one-dimensional continuous logarithmic mean averages along a flow with frequency vector (1,α); reducing the slope to p/q matters through both p and q. Shared trigonometric factors do not identify the joint means or extrema.",
+        "searches": [
+          "Resultary two equal consecutive Fourier blocks, two equal-width circular intervals, arithmetic parity and precise extrema of Lebesgue constants",
+          "Lebesgue constant L1 logarithmic asymptotic two separated blocks of consecutive frequencies Fourier projection Dirichlet kernel proportional gap rational irrational arithmetic slopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed exact constants, Resultary 6f295f59de60, have the same base value but the opposite rational parity and a different dependency on its parameters. The traditional one-block coefficient is 4/π², not the two-block coefficient.",
+          "Catalog comparisons on endpoint-frequency splitting and two-interval Fourier zeros concern finite consecutive-sum perturbations and zero sets/Wiener cyclicity respectively."
+        ],
+        "reasoning": "There is no finite-census prerequisite for this continuum classification; the appropriate exact check was for an indexed closed formula or rational table, including the candidates 2 and 3/2. The apparent shared constant in the two-aperture record does not cover those extrema or the rational series.",
+        "searches": [
+          "Resultary arithmetic two-band Fourier constant, equal separated blocks, two-aperture parity and sharp-extremum comparisons",
+          "Liflyand 2006 Theorem 6.3/6.3′ and Jaming–Kellay–Saba 2023 introduction"
+        ]
+      },
+      "rationale": "General truncated Fourier-transform norm estimates and almost-periodic jump means already give the method and, after recentering the two bands, the existence and implicit mean formula. The distinct supported result is the explicit arithmetic evaluation for every slope, its nonzero parity corrections and continuity classification, and the exact unique global extrema. Related two-aperture singular-value constants have a genuinely different averaging problem and parity, not an equivalent arithmetic law.",
+      "residual_risks": [
+        "Existing general formulas substantially cover the mean reduction and existence. An older or inaccessible worked arithmetic evaluation and optimization could still overlap; the two identified restricted-access texts were not read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial broader reduction and existence overlap; triangular results have different dimension and scale",
+          "evidence": "Theorem 5.1 compares to (2π)^−n times the Fourier-transform norm truncated at πN; Proposition 5.1 states M(Λ) ln N+o(ln N) and obtains M by almost-periodic jump averaging.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ojac/vol1/liflyand_2006.pdf",
+          "material_read": "§5 (5.1)–(5.5), offsets 128060–132727; pp. 48–50 Proposition 5.1 and its jump-mean proof, offsets 149750 onward; p. 58 Theorems 6.3/6.3′ around 181408",
+          "method": "OA primary survey PDF passages",
+          "title": "Lebesgue constants of multiple Fourier series",
+          "trigger": "Strong prior jump-mean and multiplier theorem, plus rational/irrational comparisons in Fourier sums"
+        },
+        {
+          "assessment": "Exact nearby but different averaging and parameter regime",
+          "evidence": "Equal-width apertures, fixed irrational width a and displacement b. Rational b parity is below for even denominators and above for odd; b=2a is an exceptional irrational case.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-arithmetic-parity-and-sharp-singular-value-tails-of-two-aperture--6f295f59de60",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary search and local-mirror RESULT.md",
+          "title": "Arithmetic parity and sharp singular-value tails of two-aperture operators",
+          "trigger": "Same generic constant, product of two absolute trigonometric factors and arithmetic parity"
+        },
+        {
+          "assessment": "Sparse growing-neighbor-gap regime, not two consecutive growing bands",
+          "evidence": "Estimates for sequences whose neighboring gaps tend to infinity do not have the unit-gap interiors of the frozen spectrum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.07093",
+          "material_read": "p. 1 abstract offsets 0–647 and p. 2 Kahane discussion near 6948",
+          "method": "OA primary PDF passages",
+          "title": "On L1-norms for non-harmonic trigonometric polynomials with sparse frequencies",
+          "trigger": "Cited gap-dependent L1 estimates"
+        },
+        {
+          "assessment": "Benchmark and lower-bound context",
+          "evidence": "Discusses the Littlewood lower-bound problem and classical one-block kernel, not an equal two-band ratio law in the inspected passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.10919",
+          "material_read": "p. 1 introduction, offsets 0 and 2892",
+          "method": "OA primary PDF passages",
+          "title": "The Littlewood problem and non-harmonic Fourier series",
+          "trigger": "Classical logarithmic norm and generalized lower bounds"
+        },
+        {
+          "assessment": "Plausibly covers the norm representation; specific applications and stronger coverage not resolved from this text",
+          "evidence": "The abstract describes representing a polynomial's multiplier-sample norm by the multiplier's Fourier-transform norm; no assertion about the contents of theorem or examples is made from it.",
+          "identifier_or_url": "https://doi.org/10.1007/s10958-022-06213-z",
+          "material_read": "Bibliography and abstract only; primary and identified alternate publisher PDF routes attempted",
+          "method": "Lawful OA retrieval attempts and bibliographic abstract",
+          "title": "A General Theorem on Lebesgue Constants",
+          "trigger": "Potential stronger multiplier representation theorem"
+        },
+        {
+          "assessment": "No statement-level verdict on this comparison",
+          "evidence": "Bibliographic description mentions classical Fourier approximation, even and odd cases, and asymptotic formulae.",
+          "identifier_or_url": "https://www.mdpi.com/2075-1680/13/8/505",
+          "material_read": "Indexed bibliographic description only; OA attempt did not return paper text",
+          "method": "Primary search and lawful OA retrieval attempt",
+          "title": "On Lebesgue Constants",
+          "trigger": "Targeted search hit on exact Fourier Lebesgue constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–31 and 57–91",
+        "Liflyand 2006 jump-mean theorem and the related but different Resultary two-aperture law"
+      ],
+      "rationale": "The equal two-band family is a natural first departure from the classical single block and has only one normalized separation parameter. The explicit law shows exactly when separating the bands changes the leading constant, how the sign and decay depend on reduced arithmetic data, and where the two extreme projection costs occur over a continuum of slopes. It is a complete comparison in this family, not merely another use of an almost-periodic existence theorem or a finite numerical census.",
+      "residual_risks": [
+        "No conclusion for unequal lengths, coefficient phases, higher dimensions or varying gap ratios."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

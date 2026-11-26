@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -19,7 +22,7 @@
 # Verification record
 
 ## Reproducible checks
-Run `python3 verify.py` using Python 3.10 or later. The program uses standard-library rational arithmetic and no external data or network. It reconstructs the Volterra polynomial kernel and the antidiagonal coefficients at orders 1 through 6, verifies the finite Gram-matrix spectral product, and checks 28 sampled noninteger Vandermonde determinants. The actual package-path replay returned:
+Run `python3 verify.py` using Python 3.10 or later. The original program uses standard-library rational arithmetic and no external data or network. It includes 28 sampled noninteger Vandermonde consistency checks, alongside integer-order consistency checks at orders 1 through 6 for the comparison described in `RESULT.md`. The original package records this output:
 
 ```
 PASS: m=1,...,6 exact polynomial-kernel and spectral-product identities;
@@ -27,4 +30,4 @@ PASS: 28 noninteger finite Vandermonde consistency certificates.
 ```
 
 ## Mathematical and scientific limits
-The exact-arithmetic computations are finite checks, not proofs for all orders. The general proof uses a noninteger fractional-power expansion, a Vandermonde independence argument for arbitrarily many columns, midpoint reflection anticommutation, and polynomial coefficient plus Hilbert determinant identities for integers. Noninteger decay rates and nullspaces are outside the claim. A relevant archival article was not available in full text, so historical priority is not independently certified. The review is same-model only; no independent audit has been performed.
+The general claim is proved by the kernel expansion on a separated rectangle, the resulting Vandermonde independence for arbitrarily many columns, compactness, and reflection anticommutation. The numerical or exact-arithmetic checks at finitely many examples do not establish any universal rank or inertia statement. The integer formulas are supplied for comparison and credited in `RESULT.md`. Noninteger eigenvalue decay rates and the nullspace are outside the claim. Historical priority over possible broader convolution results is not asserted.

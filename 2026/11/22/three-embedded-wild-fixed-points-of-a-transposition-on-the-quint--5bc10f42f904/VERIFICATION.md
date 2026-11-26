@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-Use Python 3 and SymPy 1.10 or newer. In a directory containing the attached file run `python3 verify_fixed.py`. The exact-chart checks verify the involution, the fixed equations, the special-fiber relation, and the tangent linear part. The standalone finite-field enumeration includes every point of the blowup over six small prime fields, not just the affine part; the resulting fixed-point counts are respectively \(3,7,9,11,15,17\) for characteristics \(2,3,5,7,11,13\). The observed marker is `M05_TRANSPOSITION_WILD_EMBEDDED_FIXED_SCHEME_VERIFIED`.
+## correctness
 
-The universal claim is proved symbolically in RESULT.md; the finite counts are corroborations, not an extension-field or infinity certificate by themselves. The characteristic-two embedded nilradical follows from the exact local quotient and is checked algebraically. The proof assumes the standard integral blowup identification with \(\overline M_{0,5}\). No independent mathematical audit was performed.
+PASS
+
+The integral blow-up identification follows from the universal stable four-pointed curve: over the cross-ratio line, blowing up the three collisions of the diagonal with the constant sections 0,1,∞ separates the marks and inserts the stable two-mark tail at each special fiber. The universal curve is M̄₀,₅; the action on the dense open is exchange of the free coordinates and agrees with the lift by separatedness. Every fixed point maps to the diagonal, and above each center the fixed directions have both coordinates nonzero, so the invariant unit-slope chart exhausts all exceptional fixed support. The swap is (x,r)↦(rx,r⁻¹); its equalizer is exactly (xt,t(t+2)) for t=r−1. The quotient is also the fiber product Z[x] ×_{F₂} Z, via t=0 and (x,t)=(0,−2), with matching reductions given by evaluation at x=0 mod 2. This proves the claimed scheme union, Spec F₂ intersections and flatness; the strict transform of the diagonal is still P¹ because its center ideal is invertible on it. Flat base change is not needed to get the equalizer equations on fibers: the fixed-scheme formation commutes with base change. At 2 the quotient is k[x,t]/(xt,t²), with the nonzero class t annihilated by (x,t) and a smooth reduced line. This gives exactly three embedded associated points, no others. In the ambient completed characteristic-two chart the derivative is identity but x maps to x+xt, ruling out formal linearization. Counts over finite fields follow from rational reduced support. Independent proof details are in /workspace/calculations/geometric_checks.md; the submitted finite enumeration was inspected, not executed, and is not the universal proof.
+
+## originality
+
+PASS
+
+Credit the known split blow-up model and transposition action, including its lifted Cremona description in a different marking model. The distinct supported result is the complete integral fixed equalizer for the single transposition, notably its three characteristic-two collisions and their scheme structure. A close same-day double-transposition theorem exhibits the same kind of degeneration, but it does not state or imply the single-transposition result.
+
+## value
+
+PASS
+
+The fixed scheme of a basic moduli symmetry is a natural arithmetic invariant. The sharp computation distinguishes a flat reduced total scheme from a nonreduced special fiber with exactly three embedded defects, and detects non-linearizability despite identity tangent action. These are data that a point count or tame fixed-locus study would miss, useful independently of any subsequent quotient classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

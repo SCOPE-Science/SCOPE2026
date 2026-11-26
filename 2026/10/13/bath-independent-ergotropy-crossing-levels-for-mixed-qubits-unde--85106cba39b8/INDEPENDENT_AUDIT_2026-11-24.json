@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:50:51.918024Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–34, 38–82, 88",
+        "VERIFICATION.md lines 18–24 and verify_crossing.py lines 6–58, inspected, not executed"
+      ],
+      "rationale": "The Lindblad equations give z_i(q)=-eta+q(z_i+eta) and b_i(q)=qb_i. In units of h, e_i(q) is the nonnegative upper root of F_i(u)=u^2-2z_i(q)u-qb_i; the other root is nonpositive. For e_1(q)>0, the sign of e_1-e_2 is therefore the sign of F_2(e_1)=q[2(z_1-z_2)e_1+b_1-b_2]. Implicit differentiation gives e_i'=e_i(e_i+2eta)/(2q sqrt(z_i(q)^2+qb_i))>0 on the positive locus. If b_1<b_2, initial ordering forces z_1>z_2 and e_1(1)>e_*>0; as q runs down from 1 to 0 the affine sign changes exactly once, and e_2>0 even if e_1 later vanishes. If b_1>b_2, e_1>0 and the affine sign is positive at both ends of the level range [0,e_1(1)]. For equal b, initial ordering forces z_1>z_2 and monotonicity in z excludes inversion; zero plateaux are not reversals. Substituting the unique level in the quadratic gives the quoted q_* and t_*. With A=2e_*z_1+b_1, q_*(0)=e_*^2/A<1, so dq_*/deta=2e_*(A-e_*^2)/(A+2eta e_*)^2>0, giving the fixed-rate time claim including the bath endpoints. Direct rational substitution for the frozen example gives e_*=7/40, q_*(0)=49/400 and q_*(1)=203/320.",
+      "residual_risks": [
+        "The recorded seeded sampling is corroboration only and was not replayed. The universal result rests on the analytic proof, not the sampling or any formal verification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former covers mixed states qualitatively and exact time for pure states; Appendix C explicitly uses cos(theta) and sin^2(theta) of a pure Bloch input. The latter provides the thermal master equation and rate parameterization, not a pairwise crossing theorem."
+        ],
+        "reasoning": "The shared dynamical equations are prior; the inspected result for arbitrary mixed pairs does not solve for their common level or establish the fixed-total-rate time monotonicity. The pure-state derivation cannot be instantiated to inputs with independent b and z.",
+        "searches": [
+          "arXiv:2602.11056v3 §II.1, Eqs. (17)–(19); Appendix C, Eqs. (52)–(55)",
+          "arXiv:2504.07200v3 §VII.1, Eqs. (64)–(65)"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked lookups and the b3e2dfd8d564 record",
+        "arXiv:2602.11056v3",
+        "arXiv:2504.07200v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For pure states b_i=1-z_i^2 gives e_*=(z_1+z_2)/2. Set a=1/eta and kappa=a gamma: q_*^-1=4[a(1+z_1 z_2)+(z_1+z_2)]/[(z_1+z_2)(4+a(z_1+z_2))], precisely Eq. (19)."
+        ],
+        "reasoning": "The overlap is exact on the pure slice, not a different discovery there. For the mixed problem, subtraction at a common positive level eliminates both bath bias and time and yields the new invariant; the older single-state dynamics supplies the starting point, not an exact mixed crossing comparison by specialization.",
+        "searches": [
+          "Direct algebraic specialization against arXiv:2602.11056v3 Eq. (19) and Appendix C, Eqs. (54)–(55)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1 and Eqs. (17)–(18) give coherence ordering; l1 coherence is sqrt(b).",
+          "Closest adjacent Resultary record SCOPE-exactly-one-free-energy-crossing-for-a-coherently-prepared-therm--b3e2dfd8d564 proves a free-energy result for a coherently prepared state and its population-inverted counterpart, not pairwise ergotropy."
+        ],
+        "reasoning": "The two orderings are exactly equivalent, so the existence criterion alone is covered. Free energy includes an entropy term and the other record fixes a different pairing of states; its crossing assertion does not imply a mixed-qubit ergotropy crossing level.",
+        "searches": [
+          "Resultary: record title, mixed-state coherence ordering, bath-independent crossing level, temperature-dependent crossing time",
+          "Sapui–Konar–Sen (De), arXiv:2602.11056v3, §II.1 and Appendix C"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior formula entry found is the pure-input Eq. (19), identical on the pure slice. No matching mixed-level formula was found in the compared indexed results."
+        ],
+        "reasoning": "There is no natural finite table for arbitrary continuous physical inputs and rates; the closest exact-formula source, rather than a table of particular state pairs, is the meaningful comparison.",
+        "searches": [
+          "Resultary semantic searches on the exact work level and crossing time",
+          "arXiv:2602.11056v3 Eq. (19), Appendix C"
+        ]
+      },
+      "rationale": "The frozen record credits the already-known mixed-qubit coherence-ordering criterion and pure-input exact-time formula. The distinct portion is the analytic arbitrary-mixed-input positive crossing level and time, with uniqueness and comparison of temperatures at fixed total rate. The strongest prior treatment uses purity in its exact inversion and does not state the mixed-pair bath-independent work invariant.",
+      "residual_risks": [
+        "Equivalent mixed-pair manipulations of the published exact dynamics may exist in unindexed sources; the statement-level comparisons are not a global priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative criterion and exact pure time; no mixed invariant in decisive passages",
+          "evidence": [
+            "Theorem 1 and surrounding text address mixed-input crossing region; Eq. (52) begins with an arbitrary pure state; Eq. (55) is the same pure-time inversion as Eq. (19)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.11056v3",
+          "material_read": "§II.1 Theorem 1 and Eqs. (17)–(19); Appendix C Eqs. (52)–(55)",
+          "method": "OA HTML bounded passages around offsets 26,500, 35,400, and 88,726",
+          "title": "Ergotropic Mpemba crossings in finite-dimensional quantum batteries",
+          "trigger": "Same pairwise ergotropy question, channel, and ordering criterion"
+        },
+        {
+          "assessment": "Dynamical framework, not the pairwise result",
+          "evidence": [
+            "Thermal master equation and emission/absorption rates; a one-state application."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2504.07200v3",
+          "material_read": "§VII.1 Eqs. (64)–(65) and mixed-qubit illustration",
+          "method": "OA HTML bounded passage near offset 21,800",
+          "title": "Ergotropy-Based Quantum Thermodynamics",
+          "trigger": "Same one-qubit GAD framework"
+        },
+        {
+          "assessment": "Related but different invariant and restricted pair",
+          "evidence": [
+            "The order comparison concerns nonequilibrium free energy, not extractable unitary work."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exactly-one-free-energy-crossing-for-a-coherently-prepared-therm--b3e2dfd8d564",
+          "material_read": "RESULT.md theorem for coherent and population-inverted preparations",
+          "method": "Local Resultary search and mirror passage",
+          "title": "Exactly one free-energy crossing for a coherently prepared thermal qubit",
+          "trigger": "Closest local semantic hit for thermal qubit crossing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 7–23 and 88–98",
+        "arXiv:2602.11056v3 §II.1 and Appendix C"
+      ],
+      "rationale": "Knowing that the order reverses does not give the extractable work at reversal. The common work is an exact experimentally interpretable invariant of a natural shared thermal channel, separating two effects (unchanged work level, changed elapsed time). The formula answers a mixed-input question left open by the qualitative criterion and the pure formula and applies through diagonal and endpoint baths without a dynamical approximation.",
+      "residual_risks": [
+        "The monotonicity statement holds at fixed total rate, not fixed microscopic coupling in general; no claim beyond the shared semigroup is assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

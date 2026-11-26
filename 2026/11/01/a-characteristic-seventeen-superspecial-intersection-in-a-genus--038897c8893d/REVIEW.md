@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six branch points are distinct precisely outside \(t=0,1\). Two explicit elliptic quotient maps have independent pulled-back holomorphic differentials and give an isogeny. Exact extraction of \(c_{16}\) and \(c_{32}\) in characteristic \(17\) yields a diagonal Cartier–Manin matrix whose entries factor as displayed in `RESULT.md`. Polynomial Euclidean division, the quadratic discriminant, and the quotient \(j\)-invariants check the rank-zero and rank-one loci without finite-sample extrapolation. Newton slopes follow from the elliptic product, and vanishing Cartier yields the stated \(a\)-number. The small-prime assertion is covered by exact gcd computations at every smaller odd prime.
+## correctness
 
-## Originality — PASS (with residual historical-priority risk)
-Shaska–Völklein (2001) and Shaska (2012) give the classical general elliptic-subcover framework, not the displayed finite-characteristic collision and complete \(17\)-rank census. Harashita–Yamamoto's multiplicity-one theorem gives a general scheme-theoretic property of the full Rosenhain superspecial locus, without identifying this pencil's arithmetic roots. Ando's 2025 superspecial count concerns a different, more symmetric family, not this particular equation. Searches of accessible research results and literature under the equation, equivalent bielliptic descriptions, Hasse factors, the prime, and elliptic \(j\)-invariant did not identify an equal or stronger explicit classification. Such negative searches cannot prove absolute novelty; unindexed historical tables and specialized genus-two class catalogs are residual risks.
+PASS
 
-## Mathematical value — PASS
-The pencil is a natural subfamily of the classical two-dimensional genus-two locus with complementary elliptic quotients. The exact first simultaneous zero at \(17\), with quotient \(j\)-invariants colliding at \(8\), describes when both separate elliptic factors become supersingular. The two rank-zero geometric parameters and four rank-one parameters give a complete Newton stratification, not an arbitrary isolated congruence. The precise field-of-definition dichotomy is useful for identifying such reductions and for comparing arithmetic of the elliptic-cover moduli locus; no downstream theorem is asserted.
+In odd characteristic the sextic is squarefree exactly for t≠0,1. The two quotient maps give elliptic curves and their differential pullbacks are 2x dx/y and 2 dx/y, a basis. Thus the quotient maps induce a separable isogeny to the product, so the Newton polygons are assembled from the two elliptic factors. Cartier is diagonal because the off-diagonal exponents are odd; at each geometric parameter the nonzero diagonal entries persist under semilinear iteration, giving stable rank equal to rank and a-number equal to 2 minus rank. An independent multinomial expansion gives the two diagonal factors exactly, their monic gcd t²−t+1 at 17 and gcd 1 at 3,5,7,11,13. Thus the common Hasse zero gives a-number 2 and superspeciality; precisely one diagonal zero occurs at 5,7,11,14. For the quotient j formulas, applying the cubic invariants to E1 gives 64(3t+1)³/[t(t−1)²]; inversion u↦1/u in the quartic model gives a twist of E1 at 1/t and the stated E2 invariant. Modulo the common quadratic the denominators are units and both invariants are 8. The quadratic discriminant 14 is nonsquare in F17, and subtracting the excluded and exceptional parameters gives (0,4,11) and (2,4,281). These are marked counts; inversion of the original x gives the geometric t↔1/t identification. The first-prime result is for this pencil and odd primes only. Independent certificate: /workspace/branches/430c75c1-717f-4000-b335-ce3931326929/record4_poly_check.py, with adjacent record4_poly_check.txt; frozen script and snapshot were inspected, not executed. The certificate checks finite-field algebra, not the general Cartier or isogeny facts.
 
-## Limits
-The count refers to marked equations, not geometric isomorphism classes; inversion identifies pairs. General superspecial classifications may implicitly contain this example. No integral endomorphism computations, independent checking, or publication priority certificate is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct claim supported by the comparison is the full marked rank stratification and prime boundary in this reciprocal one-parameter pencil, not discovery of an unmarked superspecial curve type. Classical bielliptic normal forms, the prior polynomial criteria for superspeciality, and prior superspecial counts by unmarked automorphism group materially cover background and the class containing the rank-zero pair. The compared sources do not give the common-zero and rank-one slices together in the marked coordinate or the smallest prime for this pencil.
+
+## value
+
+PASS
+
+The model fixes an opposite branch pair and arranges the other four branch values as the roots of x⁴−t. Its natural reciprocal symmetry exchanges the elliptic quotient j maps, so the problem asks whether and where their supersingular conditions actually meet in one coefficient. The split between a quadratic common locus, four rational parameters with exactly one supersingular factor, and the remaining ordinary parameters is an explicit benchmark for rank stratification in a geometrically motivated slice. The first odd prime and field-of-definition distinction give useful boundaries. The contribution is not a re-count of unmarked superspecial curves or a new general test for superspeciality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

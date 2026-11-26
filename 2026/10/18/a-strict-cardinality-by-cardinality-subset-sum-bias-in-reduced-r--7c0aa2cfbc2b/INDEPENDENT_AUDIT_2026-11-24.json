@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:59:23.924898Z",
+  "axes": {
+    "correctness": {
+      "rationale": "CRT makes the reduction from U_N onto F_p^× surjective for every p|N. Being a group homomorphism, it has equal fibers of size m=φ(N)/(p-1). For each nontrivial additive character, the p-1 nonzero values of the exponent run over all nonidentity p-th roots; thus the character product is ((1-(-z)^p)/(1+z))^m. Its degree-r coefficient is (-1)^r B_{p,m}(r), because every term of degree r in the product has the same sign. Fourier inversion gives the two count levels: the nontrivial-character sum is p-1 at zero and -1 at each other residue. Every degree from 0 to (p-1)m is representable by filling m slots of capacity p-1, so the difference is nonzero, including p=2 and both endpoint cardinalities. Uniformity modulo N would project to uniformity modulo p. At odd p, evaluating the alternating polynomial at z=1 and removing the empty subset gives zero; this only proves cancellation after projection, not pooled equidistribution modulo composite N. I independently enumerated literal combinations for 2≤N≤16 and compared integer counts for all divisor primes, sizes and residues with the coefficient formula. Frozen verify.py was inspected, not executed; its descending dynamic program checks 2≤N≤96. The infinite theorem follows from the character calculation, not either finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 counts solutions of ∑ a_i x_i≡b mod n subject to gcd(x_i,n)=t_i. Taking a_i=t_i=1 still allows coordinate collisions and thus does not count the fixed-cardinality layers.",
+          "The cited Wagon–Wilf result is an initial-interval equidistribution criterion; that family includes the prime case U_N=[1,N-1] but not the general composite case. The full text was not recovered for independent scope confirmation."
+        ],
+        "reasoning": "Collision inclusion-exclusion could reuse a tuple formula, and abstract Fourier enumeration works for arbitrary multisets. Neither is by itself a stronger stated uniformity classification for these layers. In particular, a general coefficient formula needs a separate evaluation and positivity proof to give the strict signed law for every (N,p,r).",
+        "searches": [
+          "Web literature: number of distinct unit solutions linear congruence x1 + ... + xk = b modulo n coprime distinct subset sums reduced residue system Ramanujan sums cycle index",
+          "Restricted linear congruences arXiv:1503.01806v3 Theorem 3.6",
+          "Wagon–Wilf DOI 10.37236/1183 and cited Citeseerx alternate"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Gaitanas arXiv:2304.14141",
+        "Restricted linear congruences arXiv:1503.01806v3",
+        "Wagon–Wilf DOI 10.37236/1183 (limited access)",
+        "Resultary e2fb1d197950 and b36d723bd0ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaitanas partitions units into doubling orbits and uses every nonempty binary expansion within an orbit; the result and polynomial formulation pool all sizes.",
+          "For prime N, nonuniformity of a fixed-size layer already follows from elementary divisibility: N does not divide binomial(N-1,r). That is not the composite conclusion or the two-level projected count.",
+          "The gcd-restricted tuple theorem has no distinctness constraint; aggregating its tuple counts over prime fibers cannot remove collisions."
+        ],
+        "reasoning": "An aggregate uniform distribution does not determine any particular layer, and the prime-case nonuniformity does not extend by divisibility to all composite N. The evaluated coefficient distinguishes the layers even when the total subset count is divisible by N.",
+        "searches": [
+          "Gaitanas arXiv:2304.14141 Theorem 1.1 and its proof, §2 Theorem 2.1",
+          "Wagon–Wilf DOI 10.37236/1183, cited scope and access attempts",
+          "arXiv:1503.01806v3 Theorem 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen count is for distinct residue classes modulo N; the projected multiset has m distinguishable unit occurrences per nonzero prime residue. An ordered-tuple equivalent must enforce distinctness modulo N and divide by r!.",
+          "e2fb1d197950 uses a product with factors (1+ζ^(ta)) raised to multiplicities, but for all subset sizes at once.",
+          "b36d723bd0ec uses a cyclotomic product for binary radix strings of fixed length, not selection of exactly r of the units with prime-projection fibers."
+        ],
+        "reasoning": "Fixed string length or pooled all-subset counts do not enforce the claimed selection size. The projected copies must remain distinguishable, and allowing arbitrary repeated unit selections changes the character coefficient.",
+        "searches": [
+          "Local Resultary: reduced residues, fixed-cardinality subset sum and cyclotomic residue bias; e2fb1d197950, b36d723bd0ec",
+          "arXiv:1503.01806v3 Theorem 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e2fb1d197950 RESULT.md offsets 0–3780 gives all-subset multiset autocorrelation under odd-modulus assumptions.",
+          "b36d723bd0ec RESULT.md offsets 0–3491 gives periodic/signed residue recurrences for binary radix strings."
+        ],
+        "reasoning": "No independent numerical table is required for an all-parameter law; the exact indexed statements, including the same-day one, are examined as potential formula coverage. These passages do not give the two exact levels by r for reduced units.",
+        "searches": [
+          "Local Resultary: fixed-cardinality bias, cyclotomic cancellation and multiset unit-subset products, opening statements of e2fb1d197950 and b36d723bd0ec"
+        ]
+      },
+      "rationale": "The supported distinct claim is the evaluated two-level prime-projection law for all cardinalities of the full reduced residue set, with strict nonzero bias and resulting nonuniformity modulo N. Neither general character inversion nor pooled odd-modulus unit-subset uniformity is distinct. The strongest related published computations either pool the layers, treat an initial interval, or count tuples with gcd constraints but allow repetition. The two strongest local indexed comparisons have different cardinality conventions or objects. The polynomial simplification and sign-definiteness exploit equal fibers and the exact product of nonidentity prime roots, rather than substituting parameters into a covering evaluated subset-count theorem. The comparison is bounded and not a priority certification.",
+      "residual_risks": [
+        "The official and alternate routes for Wagon–Wilf did not yield the full paper; a stronger implicit specialization or another distinct-coordinate subset-count result might remain unlocated.",
+        "Fourier and cycle-index enumeration are standard. The verdict concerns the evaluated law and its universal strictness, not ownership of a method or certainty of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pooled nonempty subset equidistribution, not a size-layer statement",
+          "evidence": [
+            "Theorem 1.1 gives (2^φ(n)-1)/n for odd n",
+            "The proof uses all nonempty binary representations on each doubling orbit"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.14141",
+          "material_read": "Theorem 1.1, proof and start of Theorem 2.1, PDF p. 2–3, offsets 5800–10795",
+          "method": "Open primary PDF passage comparison",
+          "title": "On subset sums of the units modulo n which are equally distributed modulo n",
+          "trigger": "Closest same-unit-set equidistribution theorem"
+        },
+        {
+          "assessment": "Relevant unresolved access risk, not a full-text exclusion or evidence of same-claim coverage",
+          "evidence": [
+            "Reported interval setting would include U_N when N is prime; it does not generally represent a composite reduced residue system"
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/1183",
+          "material_read": "Frozen citation and comparison; OA publisher route returned a comment only, and the cited Citeseerx PDF was unavailable",
+          "method": "Lawful retrieval attempts and bounded reported-scope comparison; no original theorem text independently read",
+          "title": "When are subset sums equidistributed modulo m?",
+          "trigger": "Plausible fixed-size theorem for underlying intervals"
+        },
+        {
+          "assessment": "Explicit formula for restricted tuples without pairwise distinctness",
+          "evidence": [
+            "Only congruence and coordinatewise gcd restrictions in the theorem statement"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.01806v3",
+          "material_read": "Theorem 3.6 at printable PDF p. 9, offsets 31100–32523",
+          "method": "Open primary PDF passage comparison",
+          "title": "Restricted linear congruences",
+          "trigger": "Potential general count for gcd-constrained unit-sum solutions"
+        },
+        {
+          "assessment": "Related pooled multiset-subset enumeration, not the stated cardinality layers",
+          "evidence": [
+            "Product with multiplicities evaluated without a cardinality marker",
+            "Concerns autocorrelation at odd moduli"
+          ],
+          "identifier_or_url": "Resultary e2fb1d197950 RESULT.md",
+          "material_read": "Opening finding and assumptions, offsets 0–3780",
+          "method": "Local mirror passage comparison",
+          "title": "Two-level cyclic autocorrelation is equivalent to signed doubling",
+          "trigger": "Closest indexed unit multiset character-product law"
+        },
+        {
+          "assessment": "Similar method, different underlying sets and parameters",
+          "evidence": [
+            "Fixed-length two-digit radix strings and signed-translate recurrences, not fixed-size subsets of U_N"
+          ],
+          "identifier_or_url": "Resultary b36d723bd0ec RESULT.md",
+          "material_read": "Opening finding and assumptions, offsets 0–3491",
+          "method": "Local mirror passage comparison",
+          "title": "Cyclotomic cancellation and signed residue recurrences for two-digit radix sets",
+          "trigger": "Same-day indexed cyclotomic signed-count result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Layer-by-layer strict nonuniformity answers a natural question raised by the standard pooled odd-modulus theorem. The sign and exact magnitude explain how the pooled projected distributions cancel despite strict bias in every layer. The result also excludes uniformity in cases where total-count divisibility cannot: for example N=21,r=6 has 924 subsets, divisible by 21, but the three projected counts are 402,261,261. This is an all-moduli structural statement, not a recomputation of a small case or an unevaluated use of character orthogonality.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

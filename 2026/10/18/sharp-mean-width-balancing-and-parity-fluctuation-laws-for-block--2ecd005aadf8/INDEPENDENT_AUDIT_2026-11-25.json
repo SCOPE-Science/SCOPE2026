@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:28:11.061513Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof, lines 3–64",
+        "Frozen VERIFICATION.md and CHECK.py"
+      ],
+      "rationale": "Disjoint checks give a Cartesian product of one-block hulls. Every admissible sign vector remains exposed as a cube vertex. For m_j≥3, fixing one or two signs leaves respectively 2^(m_j−2) or 2^(m_j−3) completions, so the vertex mean is zero and covariance is I_N. Averaging enclosing ellipsoid inequalities gives tr(A^(−1))+z^T A^(−1)z≤1, yielding det(A)≥N^N with equality only for the centered ball. A negative sign product requires at least one reversal and the cheapest costs exactly 2M_j. Gaussian sign parity is fair and independent of magnitudes, and radial independence divides the expected Gaussian support width by E R=a_N. This gives the stated width and, because p_(r−1)−2p_r+p_(r+1) is the integral of q^(r−1)(1−q)²>0, the two strict extremal partition rules (trivial for k=1). Opposite directions flip the sign product precisely in odd blocks, establishing the exact loss and its zero atom. For the minimum limit, independently obtained the global dominance q(t)≤exp(−ct): if f(t)=c exp(−t²/2), then q(t)/f(t)=integral_0^infinity exp(−tu−u²/2)du≤1/c. Thus q(s/m)^m≤exp(−cs), justifying all fixed moments by dominated convergence as the tails tend to exp(−cs). The per-block limiting odd/even variances are respectively 4/c² and 12/c²; uniformly bounded third moments give Lyapunov's CLT when k,m both grow. The uncentered sum of scaled block losses is O_P(k); dividing the radial normalization error by sqrt(k) costs O_P(sqrt(k/N))=o_P(1), with no need for independence of that error. The fixed-k laws follow by joint independent block convergence and Slutsky. Finally 2kp_m/a_N is asymptotic to sqrt(2 pi) k²/N^(3/2). The frozen checker was inspected, not run; its integer directions and finite quadrature are supplementary.",
+      "residual_risks": [
+        "The stated fluctuation limits and crossover assume equal blocks with m→infinity, and the CLT also requires k→infinity. No analogous limit for heterogeneous sizes or overlapping checks was verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ermel–Walter develops even-parity polyhedral descriptions and extended formulations; its ordered groups are not separate even sign constraints. Del Pia–Khajavirad's inspected abstract concerns polynomial-size signed-hypergraph formulations.",
+          "Barthe–Fradelizi gives volume-product results for convex bodies including reflection group products, distinguished from Euclidean mean width.",
+          "The type-B/type-D comparison uses a single signed-permutation orbit of a weight vector, not a product of independently parity-constrained blocks."
+        ],
+        "reasoning": "Broader polyhedral formulations and volume-product inequalities do not calculate this Gaussian support width; even an exact single-orbit defect with parity and asymptotic variance does not state a block partition extremum or the spherical-normalized product CLT.",
+        "searches": [
+          "Ermel–Walter arXiv:1803.10561",
+          "Del Pia–Khajavirad arXiv:2309.08693",
+          "Barthe–Fradelizi DOI 10.1353/ajm.2013.0018",
+          "Resultary db06b6bbd0f8"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1803.10561",
+        "arXiv:2309.08693 abstract",
+        "Barthe–Fradelizi hal-00793781",
+        "Resultary db06b6bbd0f8, b30f6c42489a and 6561f67baac0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-block correction, opposite-direction parity effects and one-block laws are known or closely overlapping ingredients. The classical body and group do not distinguish different product block profiles with the same N and k.",
+          "Strict curvature of the half-normal-minimum tail integral, and control of radial fluctuation when the number of blocks grows, supply the additional extremal and fluctuation conclusions."
+        ],
+        "reasoning": "Support additivity, half-normal minima and standard CLT tools are not themselves new. The checked findings do not determine the unique two extremal profiles or the two parity CLTs and the crossover for the specified joint limit. Those are the supported distinct claims, rather than the isolated single-block formulas or enclosing balls.",
+        "searches": [
+          "Resultary db06b6bbd0f8 Finding offsets 0–2378",
+          "Barthe–Fradelizi HAL hal-00793781, abstract and type-D body text",
+          "Ermel–Walter arXiv:1803.10561 opening definitions and extended formulations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barthe–Fradelizi explicitly defines the same one-block vertex hull as a demihypercube and describes type-D isometries and the parity of central symmetry.",
+          "Resultary db06b6bbd0f8 gives a single-orbit support and opposite-direction defect law matching the mechanism for one equal-weight block, with a nonliteral equal-weight case because its weights are strictly increasing.",
+          "Resultary 6561f67baac0 instead uses the continuous cube slice by a sum halfspace; it is not the demihypercube."
+        ],
+        "reasoning": "Changing from signs to zero–one coordinates is an affine scaling, and disjoint parity hulls are products of the classical one-block hull. The single-block support identity extends additively to products but does not in itself record the optimizers over block profiles or a normalized growing-block fluctuation comparison.",
+        "searches": [
+          "Resultary: parity-sensitive spherical width, type-B/type-D signed permutation orbits, synchronized parity code polytopes and halfcube contact structures",
+          "Primary literature: demihypercube/demicube, parity polytope Gaussian mean width, independent parity-check block products and half-normal minima",
+          "Barthe–Fradelizi HAL hal-00793781, demihypercube passage"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The single-orbit index displays the odd/even width effects, a zero atom in even dimension, and the 2π/6π variance constants, in its one-orbit normalization regime. Those numbers overlap the frozen per-block limiting quantities, not its Gaussian multi-block limit.",
+          "The indexed synchronized-parity description treats Hausdorff distance/deep holes with a different constraint. Its complete text and that of the cited single-spin ellipsoid record were not retrieved."
+        ],
+        "reasoning": "The exact comparisons concern symbolic block-profile invariants and laws, not a scalar table. A match of a variance constant or a 2-to-a-power parity atom does not carry the product hypotheses and limit quantifiers.",
+        "searches": [
+          "Resultary db06b6bbd0f8 single-orbit exact width gap and limit laws",
+          "Resultary b30f6c42489a inverse-block-size balancing and synchronized parity deep holes",
+          "Resultary search for 15c85fee505a type-D spin Löwner ellipsoid"
+        ]
+      },
+      "rationale": "The demihypercube, even-check formulation, support optimization, reflection symmetries and related single-block enclosing ellipsoid facts are not credited as new. The supported distinction is exact strict balancing and maximal imbalance of intrinsic widths for product block profiles, together with the parity-dependent multi-block fluctuation and scaling laws. The closest indexed type-B/type-D width result has substantial one-block overlap, but its stated class and conclusions do not cover these product and growing-block assertions; it is also dated later than the frozen record.",
+      "residual_risks": [
+        "The original single-spin-ellipsoid catalogue comparison 15c85fee505a and the synchronized-parity full text were not located. No novelty credit is assigned for the one-block ellipsoid.",
+        "The finite search cannot exclude an earlier equivalent width/fluctuation result under coding-theory or product demihypercube terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same one-block body and parity symmetry; different invariant and conclusions",
+          "evidence": "The abstract gives sharp volume-product bounds, including for products of isometry groups; the body passage defines DH^n by the positive sign product and describes type-D isometries and even-dimensional unconditionality.",
+          "identifier_or_url": "https://hal.science/hal-00793781/document",
+          "material_read": "Abstract and type-D discussion, author PDF offsets 0–3350 and 85270–88920 (PDF p. 20 and following)",
+          "method": "Lawful exact same-paper HAL author version identified via LAMA catalogue after first PDF was unavailable",
+          "title": "The volume product of convex bodies with many hyperplane symmetries",
+          "trigger": "Exact same one-block demihypercube and product reflection groups under alternative terminology"
+        },
+        {
+          "assessment": "Classical geometric object and polyhedral formulation, not product width theorem",
+          "evidence": "The even parity polytope is defined as a convex hull of parity-constrained zero–one vertices; the inspected extensions and groups address formulations and not independent block width optimization.",
+          "identifier_or_url": "https://arxiv.org/pdf/1803.10561",
+          "material_read": "Definitions and outer descriptions on opening PDF pages, offsets 4240 and 7549",
+          "method": "Lawful OA PDF, targeted passage reading",
+          "title": "Parity Polytopes and Binarization",
+          "trigger": "Classical single-check body and grouped coordinate terminology"
+        },
+        {
+          "assessment": "Different objective in the inspected material; no whole-document exclusion asserted",
+          "evidence": "The abstract describes signed-hypergraph polynomial-size extended formulations, not Euclidean width or parity fluctuations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.08693",
+          "material_read": "Abstract, PDF p. 1, extracted offset 800",
+          "method": "Lawful OA PDF, targeted abstract inspection",
+          "title": "The pseudo-Boolean polytope and polynomial-size extended formulations for binary polynomial optimization",
+          "trigger": "Broader pseudo-Boolean polytope formulation possibility"
+        },
+        {
+          "assessment": "Material overlap with one block and per-block constants, not coverage of block optimization or product CLT",
+          "evidence": "A single strictly ordered weight vector determines the signed-permutation orbit. The difference under opposite directions gives parity-dependent losses and limits of exponential or half-atomic exponential type, with the same odd/even variance constants; no array of independent parity blocks is included.",
+          "identifier_or_url": "Resultary db06b6bbd0f8",
+          "material_read": "Local mirror Finding and assumptions, offsets 0–2378, especially 1100–2378",
+          "method": "Resultary search and local mirror statement reading",
+          "title": "A universal parity-sensitive spherical width gap between type-B and type-D orbits",
+          "trigger": "Closest exact statement for parity and Gaussian width loss"
+        },
+        {
+          "assessment": "Different metric and check constraints in available evidence; full scope unresolved",
+          "evidence": "The summary identifies synchronized block parities and squared Hausdorff distance with an independent parity benchmark, not a statement about mean width or a CLT.",
+          "identifier_or_url": "Resultary b30f6c42489a",
+          "material_read": "Indexed summary; matching local mirror full text unavailable",
+          "method": "Resultary search and local mirror availability check",
+          "title": "Inverse-block-size balancing and exact deep holes of synchronized parity-code polytopes",
+          "trigger": "Block balancing for a parity-code polytope and comparison to independent blocks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5",
+        "Resultary db06b6bbd0f8 single-orbit comparison"
+      ],
+      "rationale": "The exact volume-free-width comparison shows that Euclidean mean width distinguishes independent-check arrangements not distinguished by vertex count, vertex radius, covariance, or the enclosing ball. It gives both optimizing profiles and a concrete k versus N scale on which the deficit stays observable, and explains why parity shows up in width fluctuations despite identical first-order block means. The intrinsic comparison is useful on its stated family without claiming a general coding-theoretic theorem.",
+      "residual_risks": [
+        "The crossover concerns absolute, unscaled mean-width deficit; no nonzero relative-width loss or applicability to overlapping constraints is inferred."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive initial occupancy, the reciprocal \(y=1/p\) obeys \(y'=-r(t)y+2\). The symmetric smooth ramps have exactly unit homogeneous multipliers and additive increments bounded between \(2\eta e^{-\eta}\) and \(2\eta e^{\eta}\). Composing the four intervals yields \(y_{n+1}=q_n y_n+b_n\), with \(q_n=e^{H_n-F_n}\to e^{-\delta}\) and \(b_n\to2(1+e^{-\delta})\). Contraction for positive \(\delta\) yields the claimed peak; expansion for negative \(\delta\) and positive forcing at zero \(\delta\) imply extinction. Long monotone segments and shrinking ramps transfer the discrete limits to the full trajectory. Both Bohl extremes are attained on increasingly long opposite-signed plateaux. For the balanced linear-length calendar, summable \(b_n-4\) implies \(y_n=4n+O(1)\). The separate finite checker passed; it does not prove the infinite limits.
+PASS
 
-## Originality — PASS (literature-bounded)
+Frozen proof line 71 reverses the signs of the two plateaux; the replacement RESULT.md fixes this without changing the correct exponent pair or the theorem. Independently, |r|≤1 and the all-interval averages on diverging hostile and favorable plateaux are respectively −1 and +1, so both extreme Bohl exponents are attained in the long-interval definition. The positive invariant interval gives y=1/p and y′=−ry+2. Each reflected ramp has exactly zero net integral and contributes an additive integral between 2η exp(−η) and 2η exp(η). Propagating hostile, first ramp, favorable, final ramp gives y_{n+1}=q_n y_n+b_n with q_n=e^(H_n−F_n), b_n=2q_n(1−e^(−H_n))+2(1−e^(−F_n))+e^(−F_n)B_n+E_n. Thus q_n→q=e^(−δ) and b_n→2(1+q). Eventual contraction gives the affine limiting fixed point if q<1; eventual expansion gives y_n→∞ if q>1. If q=1, for each h>0 small one eventually has y_{n+1}≥(1−h)y_n+3, hence liminf y_n≥3/h and y_n→∞. At each hostile finish p≤e^(−H_n); from the next ramp to the favorable start p remains o(1), then increases on the favorable plateau while p<1/2. The last ramp changes p by at most 3η_n, giving the stated full-time peak as the limit of the season boundaries. For the specified balanced calendar b_n−4 is absolutely summable and q_n=1 exactly, giving y_n=4n+O(1) and n p(T_n)→1/4. The source checker was inspected, not run.
 
-Full accessible source comparisons identified the prior reciprocal formula, the mixed-sign zero-lower-occupancy theorem, and a specially tuned piecewise weak-persistence example, all credited. The precise contribution is a smooth fixed-colonization calendar with an all-initial-condition necessary-and-sufficient season-length offset classification, exact upper peak and critical law. Searches of published research records on the originating paper, equivalent inverse-occupancy recurrences, Bohl spectra, smooth ramps and critical rates found no dominating claim among the returned matches. A failed search is not a proof of historical novelty.
+## originality
 
-The closest source is Robledo and Bustamante, arXiv:2504.20396v1, specifically Appendix B's single engineered piecewise example. That work proves possible weak persistence but not the all-offset phase classification claimed here. Amster, Robledo and Sepúlveda, arXiv:2412.02952v1, analyze almost-periodic environments without these diverging blocks. The specific retrieved research records are documented in AUDIT.json; the closest concern finite-period Floquet matrices or discrete biomass models. Risk remains that a broader nonautonomous logistic theorem could subsume part of the result.
+PASS
 
-## Value — PASS
+Credit the prior reciprocal reduction and mixed-Bohl possibility of weak persistence. The supported distinct claim is the exact duration-offset threshold and peak for the entire specified smooth calendar class (all positive initial occupancies), together with a critical boundary law for an explicit schedule. The best located prior same-model comparison is a tuned example, rather than a classification in the finite offset δ, according to the frozen source’s recorded inspections; external text access limits are explicit.
 
-Mixed-sign Bohl exponents do not settle persistence in the general model. Here, even though the favorable and hostile seasons both diverge and the Bohl extremes stay fixed, an asymptotic duration imbalance of order \(1\) switches extinction into weak persistence. The peak \(\tfrac12\tanh(\delta/2)\) and the special balanced season-boundary rate \(1/(4n)\) quantify an ecologically motivated information gap rather than a merely numerical observation.
+## value
 
-## Verification and limitations
+PASS
 
-Run `python3 CHECK.py`. It passes eight finite seasonal-offset trajectories and thirty ramp comparisons. Finite checks do not replace the analytical proofs. This deterministic fraction-of-patches theorem does not predict finite-population survival, and the critical rate is not claimed for all zero-offset schedules. Historical priority and scientific validation have not been independently established.
+The mixed-sign Bohl exponents do not determine persistence, even at fixed growth extrema and with both seasons diverging. This structured class isolates a natural missing variable, the finite difference of durations, and gives the exact deterministic peak and a critical-rate benchmark, rather than only constructing another nonextinct example.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

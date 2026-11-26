@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:43:45.654570Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding, scope and Proof, lines 5–50",
+        "VERIFICATION.md and verify.py (inspection only)",
+        "/workspace/branches/5c94cda8-807d-4c91-abd5-bcd0bb400b74/independent_check.py"
+      ],
+      "rationale": "The bracket recursion makes the first column determine the automorphism; any column with first entry a≠0 gives a triangular map with diagonal a,a²,…,aⁿ and preserves all zero brackets. On k[t]/(tⁿ) this map is aU(t)σ_a. In the conjugacy equation U(t)W(at)=H(t^ℓ)W(t), the degree-j coefficient of the new gauge term is aʲ−1, so a choice can be made at every degree, with only multiples of ℓ retained in H. The cyclic norm is conjugacy invariant and equals H^ℓ; raising to ℓ is bijective on the abelian principal-unit p-group, giving uniqueness. The centralizing gauges are the units supported at multiples of ℓ, so all normal forms have the stated equal-size fibers. Only the exponent residue ℓ−1 can support fixed vectors. With m=⌊n/ℓ⌋ this block is multiplication by H−1 on k[z]/(z^m), giving dimension min(m,ord(H−1)) or zero for m=0. Uniform coefficients of H give the displayed multiplicities; ℓ=1 and m=1 obey the same count, and the ℓ>n case gives the fixed-point-free criterion by cyclicity of k×. Burnside accounts for ordered tuples and the one-tuple count follows also by making the leading coordinate an i-th power orbit and removing all higher coefficients by principal units. Fresh exhaustive elimination for (q,n)=(2,4),(3,4),(5,5),(7,4) agreed with all histograms, including a fixed-point-free sector, and an explicit nonconstant ℓ=2 conjugacy over F₅ preserved the computed fixed rank.",
+      "residual_risks": [
+        "Fresh computation is confined to small prime-field cases. The proof covers extension fields and unbounded n.",
+        "Conjugacy at fixed a is under the principal-unit subgroup, not the full group."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kurdachenko–Pypka–Subbotin's Theorem 2.11 gives the semidirect product of principal units and F× over a general field for the type I algebra.",
+          "Calderón et al. give the triangular automorphism form and toral gradings over C.",
+          "7deee5bcc828 projects by the coprime cyclic norm onto the fixed units, with exactly the claimed normal-form fiber size."
+        ],
+        "reasoning": "These are structural coverage including the normal form in the archive, not an all-q rank enumeration. Diagonal gradings only identify candidates for eigenvalue one, not the rank on the resonant block for nonsemisimple automorphisms.",
+        "searches": [
+          "arXiv:2108.06794, Theorem 2.11",
+          "arXiv:1708.01753, §3.1 and toral grading discussion",
+          "Resultary 7deee5bcc828, norm decomposition"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 18–24 and 56–69",
+        "arXiv:2108.06794 and arXiv:1708.01753",
+        "Resultary 7deee5bcc828, f362685886bd, 0baa1992ba37, 9c043b691451 and 384e824d6aaa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later norm proof implies the principal-unit representative and fiber count exactly. It obtains the order by conditions d j p^t<n on the nonzero coefficients, not their individual effect on fixed vectors.",
+          "The spectrum instead restricts the represented operator to the eigenspace residue ℓ−1 and truncates the first nonzero degree of H−1 at m."
+        ],
+        "reasoning": "The available representatives are sufficient raw input, not themselves an implication at the level of order or class counts. The rank argument must identify and evaluate the residual multiplication block, and then count the complete valuation law rather than its coarse order thresholds. The one-tuple formula, by contrast, has exact archive coverage.",
+        "searches": [
+          "Resultary 7deee5bcc828, group law and §2 norm and p-power conditions",
+          "arXiv:2108.06794, Theorem 2.11 and Corollary 2.10",
+          "arXiv:1708.01753, §3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "7deee5bcc828 uses the opposite bracket convention; preserving a bracket is equivalent to preserving its opposite. Its semidirect product has the same substitution action and its norm selects the same resonant unit.",
+          "0baa1992ba37 treats a different fixed-subalgebra action and imposes p>n."
+        ],
+        "reasoning": "Passing to the opposite does not distinguish the group or the represented linear maps; the genuine distinction is the natural representation's fixed-rank distribution as opposed to abstract element order or a different fixed-subalgebra problem.",
+        "searches": [
+          "Local Resultary: null-filiform finite-field fixed spaces, cyclic norm and conjugacy census; 7deee5bcc828, f362685886bd, 0baa1992ba37",
+          "arXiv:2108.06794 and arXiv:1708.01753"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7deee5bcc828 enumerates exact element orders and conjugacy classes for the same algebra; f362685886bd gives the one-tuple orbit total.",
+          "9c043b691451 has a complete fixed-space spectrum for a standard filiform Lie algebra, not this Leibniz algebra. 384e824d6aaa counts automorphisms of a different quantum complete intersection."
+        ],
+        "reasoning": "The same-group data are different marginals. Neither exact order counts nor the one Burnside moment give the fixed-space histogram; the other exact spectrum is for a different algebra.",
+        "searches": [
+          "Local Resultary: 7deee5bcc828, f362685886bd, 9c043b691451 and 384e824d6aaa"
+        ]
+      },
+      "rationale": "The all-automorphism fixed-space polynomial in the natural n-dimensional representation is the supported distinct claim. The triangular parametrization and group structure are established. The strongest same-family catalogue comparator contains the same norm-based normal form and equal fibers, and another gives the one-tuple orbit count; neither is credited here as an independent originality gain. The same-family element-order and abstract conjugacy counts do not count the individual fixed-block ranks, which require resolving the full first nonzero resonant coefficient rather than just thresholds for its p-power order.",
+      "residual_risks": [
+        "Group-theoretic normalization is classical and precisely overlaps a distinct archive source. Displayed archive dates do not establish authorship or priority.",
+        "The cited Normurodovna DOI 10.55640/eijmrms-06-06-16 was not available in full text through the bounded retrieval; exact coverage by that paper remains unverified.",
+        "No exhaustive literature-priority conclusion follows from the bounded comparisons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact normal-form overlap; counts different invariants",
+          "evidence": [
+            "The norm projection has fibers q^(n−1−⌊(n−1)/d⌋) and yields representatives supported at multiples of d; the main tables count orders and conjugacy classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-joint-element-order-and-conjugacy-census-for-null-filiform-leibn--7deee5bcc828/RESULT.md",
+          "material_read": "Mirror offsets 0–4528, Finding and group law/norm proof",
+          "method": "Local Resultary and mirrored primary passage",
+          "title": "Joint element-order and conjugacy census for null-filiform Leibniz automorphisms",
+          "trigger": "Same automorphism group, orbit representatives and cyclotomic case divisions"
+        },
+        {
+          "assessment": "Established group structure used by the frozen analysis",
+          "evidence": [
+            "The type I automorphism group splits as a semidirect product of the truncated principal-unit group and the field's multiplicative group."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.06794",
+          "material_read": "p. 12, offset 33480–35650, Theorem 2.11 and proof",
+          "method": "Bounded primary PDF passage",
+          "title": "On the automorphism groups of some Leibniz algebras",
+          "trigger": "General-field structural antecedent of the same automorphism group"
+        },
+        {
+          "assessment": "Matrix-form and semisimple structural antecedent",
+          "evidence": [
+            "The automorphism parametrization is stated, but the compared toral analysis does not enumerate kernel sizes of nonsemisimple automorphisms over finite fields."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.01753",
+          "material_read": "§3.1, p. 3, offset 11973, and torus/gradings discussion",
+          "method": "Primary PDF passage",
+          "title": "Abelian groups gradings on null-filiform and one-parametric filiform Leibniz algebras",
+          "trigger": "Natural representation and toral residue spaces"
+        },
+        {
+          "assessment": "Exact one-tuple overlap, not a complete fixed-space distribution",
+          "evidence": [
+            "The same total 1+Σ gcd(i,q−1) counts orbits on vectors."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-field-point-orbit-and-local-symmetry-census-for-null-fili--f362685886bd",
+          "material_read": "Mirrored RESULT.md near offset 1395, one-vector orbit count",
+          "method": "Local Resultary and mirrored source",
+          "title": "Finite-field point-orbit and local symmetry census for null-filiform Leibniz algebras",
+          "trigger": "Same natural action and Burnside comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 5–24 and 40–50",
+        "Resultary 7deee5bcc828 and f362685886bd"
+      ],
+      "rationale": "The fixed-space polynomial is a natural invariant of the actual automorphism action, rather than an abstract group order. It distinguishes nonsemisimple operators within a scalar order, gives exact probabilities of each fixed dimension, and by Burnside supplies all tuple-orbit counts rather than merely the one-vector marginal. Those uses justify the precise census even after crediting the known normalization.",
+      "residual_risks": [
+        "The uses established here concern only the natural null-filiform module and its ordered tuples."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

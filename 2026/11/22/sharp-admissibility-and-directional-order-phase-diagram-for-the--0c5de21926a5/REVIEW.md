@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The claim fixes all parameter ranges and derives \(k=h'\) and the exact sign of \(k'=h''\). The derivative has either a strictly monotone path or one unique minimum according as \(b\) lies above or below \(1-2/a\). Its endpoints and minimum give sharp attainable/approachable derivative bounds \([-L,M]\). The mixed copula density is \(1+\alpha k_1k_2\); full-range density positivity is equivalent to the claimed two-sided amplitude inequality. Uniform margins are automatic from \(h(0)=h(1)=0\). Conditional distribution derivatives and the rank-one determinant give stochastic order and TP2/RR2. Exact boundary cases and the omitted singular exponent are distinguished. SymPy differentiation of the second derivative reduced identically to zero; the packaged standard-library checker reproduced the \([-4,4]\) and \([-2,2]\) special intervals, a one-switch case, negative-density witnesses beyond both boundaries, and 180 deterministic grid envelope checks. The analytic proof, not the grids, establishes universal quantifiers.
+PASS
 
-## Originality (O) — PASS, priority qualified
+Recover the phase diagram by setting q=(1-a)t^b/[a+(1-a)t^b]. Then tP'/P=q, tq'=bq(1-q), and k=h'=1-P(1+q), so k'=-(P/t)q[(1+b)+(1-b)q]. The bracket has the sign of a(b+1)+2(1-a)t^b. It is positive on the open interval at and above the threshold: for b>0 use a(b+1)>0, and for b<0 use the value 2-a+ab at t=1 and strict decrease toward it. Below threshold it has exactly one zero at the displayed t*, and k decreases then increases. The endpoint values are M and -(1-a). At t* the base is a(1-b)/2 and q=-(b+1)/(1-b), giving the stated -L. Since P<1 and 0<q<1 in the interior and k(1)=a-1<0, the derivative range closes to [-L,M] with 0<L<1. The mixed density is 1+alpha k1 k2; the extreme products are independent across the two coordinates, giving the interval including both endpoints. Outside it a negative interior rectangle follows by continuity, even if the extremum is a boundary limit. For an interior response argument h2>0, hence the conditional CDF v+alpha k1 h2 has the opposite direction to the stochastic order. Its turning point and the transposed direction follow exactly. The ordered density minor factors as alpha times the product of the two ordered k differences. Either reversal gives both signs; otherwise the sign is alpha, with independence giving zero. This covers endpoint admissibility and the equality threshold without extending to b=0. The frozen checker was read, not executed; its finite grids are not the proof. Analytic replay: RESULT.md lines 42–73.
 
-Chesneau (2024), DOI 10.37190/ord240304, Table 2 and Section 4.2, gives the identical FGM-N1 construction only with sufficient \(\alpha\in[-1,1]\) and displays density plots, not its optimal amplitude or the directional-order thresholds. Fuchs and Tschimpke (2023), arXiv:2306.09676, Example 4, gives the general FGM derivative-positivity condition and familiar order notions; this implies the method of reducing validity to a derivative range, but does not give the new power-mean extrema, the precise \(b=1-2/a\) switching law, or their full family-specific TP2/RR2 classification. Durante (2009) gives the general copula scheme. Amblard and Girard (2009) gives broad FGM extensions in an abstract; full-text noncoverage cannot be asserted. Search comparisons included aliases, generalized FGM rank-one formulae, and accessible recorded claims, with no identical parameter-specific theorem found. The result is not certified independent or historically unique; the inaccessible older full text remains a priority risk.
+## originality
 
-## Value (V) — PASS
+PASS
 
-The original FGM-N1 construction is an explicit five-parameter model for asymmetric dependence. Its amplitude bounds were sufficient but not known sharp within that presentation. The new necessary-and-sufficient classification separates valid from invalid likelihood models without relying on arbitrary parameter boxes, and exhibits nontrivial strict expansions such as \([-2,2]\) with a switch in just one regression direction. The one-coordinate turning-point threshold gives a complete qualitative choice between globally ordered conditional distributions and local stochastic-order reversal; its simultaneous TP2/RR2 boundary identifies when strong dependence regularity is available. These are natural structural and modeling questions about the full originally introduced family, not just a numerical improvement.
+The primary literature covers the same family on a sufficient box and the generic rank-one positivity mechanism. What survives as distinct is the evaluated, sharp power-mean derivative envelope and its one-turn and two-direction density-order classifications, not the construction or general derivative test.
 
-## Source comparisons and limitations
+## value
 
-The 2024 primary article and the 2023 generalized FGM primary preprint were read at the relevant formulae and dependence discussion. The 2009 Durante construction was compared through the source article's detailed attribution; an Amblard–Girard general FGM article was only accessible at abstract level. No claimed generic FGM determinant or derivative criterion is novel. The result excludes \(b=0\) and limiting shape values; the finite checker is supplemental, and historical priority is not independently settled.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact parameter interval is needed to distinguish permissible models from negative-density candidates, especially when the original convenient bound excludes valid and qualitatively different cases. The one-switch threshold and the need for both coordinate thresholds for TP2/RR2 give usable criteria for selecting asymmetric regressions, beyond the rank-one method itself. Value is confined to the given nonzero finite exponents and strict shape range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The leaf-to-map bijection is proved in both directions from the precise forth/back definition for reflexive ancestor orders. The recurrence separates full-palette child subtrees from all-monochrome child subtrees and uses the exact surjection count. The degree threshold is proved by a constructive converse; equality rigidity is established by producing a globally onto coloring with a forbidden intermediate support in every nonstar reduced tree. The unique-trivalent formula follows by a one-dimensional excess multiplier on its ancestor chain. An independent, direct enumeration of vertex functions checks 462 tree/target instances up to six vertices against the leaf-color and recurrence calculations. Finite checks do not substitute for the all-size proof.
+## correctness
 
-## Originality
-PASS with residual bibliographic risk. The classical forth/back notion is not a novelty claim. Endriss' ordered-tree p-morphisms introduce additional relations, while Goranko–Otto develop general frame theory and tree unfolding; the inspected relevant sections do not state the fan leaf-color census or sharp extremizers. Nearby mathematical records concern three-level target forks, chain targets and graph-incidence fans; their claims do not imply a two-level fan classification for ancestor-ordered trees. Search results and accessible literature cannot exclude every implicit or unpublished prior derivation; the main risk is that the leaf-color characterization may be an overlooked elementary corollary of general p-morphism theory.
+PASS
 
-## Mathematical value
-PASS. The full sequence of fan-target homomorphism counts is a natural invariant of finite rooted S4 frames. The theorem determines its exact structural information threshold (all targets see maximum outdegree, but none sees shape within full-binary trees), gives sharp extremizers and equality cases at each target size, and isolates a quantitative depth signal for a single ternary branch. This is a structural inverse-limit and extremal classification, not a single small numerical computation. The proof also identifies the sharp \(k=2\) versus \(k\ge3\) transition in what leaf constraints are visible.
+In the repaired statement the reflexive descendant cone of x must map onto the successor cone of f(x). A leaf maps to a top; a top-valued vertex has one leaf color by forth, and a bottom-valued vertex has every color on leaves by back followed by descent from each top witness. In the converse, nested palettes give forth, leaves witness the tops and a bottom-valued vertex witnesses itself. Thus the bijection and all three recurrence cases follow. Collapsing unary vertices deletes only duplicate support tests. A reduced nonstar with at least k≥3 leaves has a branching vertex with a child subtree containing s≥2 leaves and t≥1 outside. Taking h=max(2,k−t) gives h≤s and 2≤h≤k−1, with k−h≤t. Hence one can use exactly h colors inside and all other colors outside, obtaining a globally onto coloring that cannot extend. A star passes every global onto assignment, with endpoints ℓ<k or k=2 correctly treated. The recurrence gives positive excess over k iff a child has positive excess or the local arity is at least k. Each binary ancestor multiplies ternary excess 6 by 3. For ℓ=4 the reduced degree budget sum(d−1)=3 gives the four values 3,9,21,39; at any ℓ≥4 the balanced split and caterpillar split give distinct full-binary shapes. These facts remain valid as consequences; the repair changes the novelty scope, not the attachment test cases.
 
-## Evidence, scope and remaining risks
-The direct verifier tests all increasingly labeled rooted trees with at most six vertices and fan sizes two through four, and checks nonisomorphic four-leaf full-binary witnesses. The unrestricted claim uses the written proof. The bibliographic search includes general modal-frame textbooks, one open thesis and one handbook chapter, as well as specific searches for fan-target tree-morphism enumeration. No exhaustive survey of every historical result is claimed. Independent scientific validation and deeper historical comparison remain advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only the repaired structural claim: the map-level leaf-palette characterization for arbitrary k and rooted trees, and its sharp star equality criterion. The frozen novelty scope included the unrestricted census; that part is covered by the general Resultary recurrence and is now explicitly credited, with threshold, depth and collision computations retained as consequences rather than independent novelty claims.
+
+## value
+
+PASS
+
+The repair answers a structural question about a simple but nondiscrete target: which leaf assignments actually generate bounded maps, and exactly which shapes impose no obstruction beyond onto versus constant? The strict equality characterization distinguishes all genuine nested branch shapes from the reduced star at a fixed leaf count; computing counts for individual pairs or matching a few profile values does not supply it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

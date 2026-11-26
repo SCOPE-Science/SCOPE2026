@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:51:27.442024Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete revised RESULT.md and SLOGAN.txt are in /workspace/repairs/1/. The theorem and its domain are retained. With k=a+c and ℓ=a+1, the generator gives LR=c−kR, L(US)=R−ℓUS and L(U²)=2US−2U²+2δ. The stationary covariance inputs are V=ac/k², V/ℓ and 2V/[ℓ(k+2)] in that order; the last follows from the R·U² balance and the mean of U², c/(kℓ)+δ. Solving the triangular transform and subtracting the autonomous backward covariance gives 2ac/[ℓk(k+2)] times [2/((s+2)(s+k))+(k+2)/((s+2)(s+k)(s+ℓ))]. Both inverse convolution kernels are strictly positive at every positive lag without divisions by rate differences. Setting s=0 gives the area, and the two-fold convolution's linear term gives the slope. At a=c=1 the profile is t(1+t)e^(−2t)/4, with area 1/8, slope 1/4 and maximum at 1/√2. The independent centered thermal OU component contributes zero to both mixed covariances: its square is independent of R and the cross term has zero mean conditionally on the motor. The repair states the exact rational transform rather than a fixed pole count. In the combined numerator factor 2s+2ℓ+k+2, substitution of s=−k gives a−c+4, so s+k cancels at c=a+4 and the remaining transform is exactly 4ac/[ℓk(k+2)(s+2)(s+ℓ)]. Substitution of s=−2 and s=−ℓ gives 3a+c and k+2, so neither remaining factor cancels. This check and positivity also hold when ℓ=2 on that line. Independent bounded semigroup/quadrature comparisons at distinct and coincident rates agreed within 9.3×10⁻¹⁶; the tested rates, lags, formulas and numerical differences are recorded in /workspace/branches/fa7b2abf-1961-4121-8679-a185da51908f/independent_notes.md. The frozen verifier was inspected, not run; its Monte Carlo starts the motor in stationarity but the position at zero with burn-in 18, at a=c=1 and lag one. The replacement correctly calls that check a finite burn-in approximation, not exact stationary sampling. The revised claim compares the two covariances and does not infer causation, a position-only arrow, or entropy production.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Ye–Podgornik compute one-time positional moments at stationarity and their time-Laplace analogues from an initial ensemble. Sun–Ye–Chen compute conditional positional moments and give a multipoint propulsion correlation method."
+        ],
+        "reasoning": "The latter method could be used to set up this statistic by inserting S² in the harmonic-filter integrals. Extracting and comparing the two stationary mixed lags and proving a strict sign over the whole parameter domain still require a calculation and positivity argument; a formula for generating raw moments does not itself state or mechanically establish that inequality.",
+        "searches": [
+          "arXiv:2409.00578 abstract and model Sec. II",
+          "arXiv:2610.24961 Summary and Appendix A"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.24961",
+        "arXiv:2409.00578",
+        "arXiv:1910.10083",
+        "Resultary records dc843e2cf037 and 1e0612824cd5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same finite-tumble generator supports an all-position fourth-order hierarchy in the mirror, with different resolvent poles and lag signs. The primary paper's Appendix A builds correlations of products of propulsion values rather than explicitly certifying this filtered antisymmetry."
+        ],
+        "reasoning": "Neither gives the two positive convolution terms for this observable. Model and method overlap are substantial and acknowledged, but the sign ordering with independent thermal-noise cancellation is a distinct conclusion.",
+        "searches": [
+          "arXiv:2610.24961 Summary and Appendix A",
+          "Resultary mirror: SCOPE-a-sharp-time-arrow-reversal-diagram-for-a-harmonically-trapped-f--dc843e2cf037, finding and generator derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With the two motor speeds normalized, motor occupancy is S² and harmonic potential energy is proportional to U². Reversing the lag swaps the order of the two observables. The closest mirrored time-arrow formulas use a cubic-linear positional pair."
+        ],
+        "reasoning": "The cubic-linear positional pair has no observed occupancy variable. In the same three-state model it can even change sign with lag, so replacing it with this mixed pair is not an equivalent reformulation.",
+        "searches": [
+          "Resultary: harmonic run and tumble particle motility energy one-sided time reversal mixed third moments squared position telegraph",
+          "Primary search: harmonic trapped finite duration run and tumble particle two-time cross correlation motility activity squared position energy time reversal asymmetric Sun Ye Podgornik exact moments Basu"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact mixed-lag index hit is the frozen record itself; nearby formulas are for position-only fourth-order time arrows or stationary moments. Basu et al. derive stationary positional densities in the equal-rate case."
+        ],
+        "reasoning": "A density of one observation time cannot be used as a table of mixed forward and backward lags. No independent matching transform or evaluated sign law appeared in the inspected material.",
+        "searches": [
+          "Resultary: harmonic run and tumble particle motility energy one-sided time reversal mixed third moments squared position telegraph",
+          "arXiv:1910.10083 Sec. 2 and abstract"
+        ]
+      },
+      "rationale": "The model and several routes to computing moments are established. The retained contribution is the explicit stationary mixed-lag antisymmetry and its strict all-rate, all-lag sign. The inspected literature provides inputs or raw multipoint moment machinery, not this evaluated sign conclusion. The replacement now explicitly credits the inspected position-only arrow in the same finite-tumble model; that arrow can change sign and does not evaluate the mixed motor-position law. The cancellation remark is algebra from the retained transform, not a separate priority claim.",
+      "residual_risks": [
+        "An indexed or unindexed evaluation of the same stationary mixed moment using the earlier correlation machinery may exist; the inspected passages do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model and available machinery, not the mixed-lag sign theorem in inspected passages",
+          "evidence": "The summary specifies conditional positional distributions as a position/velocity joint density; Appendix A constructs terms for products of propulsion values.",
+          "identifier_or_url": "https://arxiv.org/html/2610.24961",
+          "material_read": "Introduction/model outline, summary and Appendix A propulsion correlation passages (including offset 39000 segment)",
+          "method": "Primary arXiv HTML text by section",
+          "title": "Run-and-tumble particles in a harmonic external field: constructing the solution of the Fokker–Planck equation from the equations of motion",
+          "trigger": "Same finite-run/rest mechanism and potentially broader moment methods"
+        },
+        {
+          "assessment": "One-time moments, not the stationary mixed-lag inequality",
+          "evidence": "The abstract describes time-Laplace transforms for intermediate positional moments and steady-state distributions; Sec. II distinguishes run and tumble rates.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.00578",
+          "material_read": "Primary PDF abstract and Sec. II model/moment scope",
+          "method": "OA PDF text",
+          "title": "Exact moments for a run-and-tumble particle with a finite run-and-tumble time in a harmonic trap",
+          "trigger": "Same model and time-Laplace methods"
+        },
+        {
+          "assessment": "Exact model restriction at zero thermal diffusion, but a stationary positional result",
+          "evidence": "The rates ±1→0 are γ and 0→each sign γ/2; the abstract's result is about the marginal stationary distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/1910.10083",
+          "material_read": "Primary PDF abstract and Sec. 2, Fig. 1 and rate description (pp. 4–5)",
+          "method": "OA PDF text",
+          "title": "Exact stationary state of a three-state run-and-tumble particle in a harmonic trap",
+          "trigger": "Equal-rate specialization"
+        },
+        {
+          "assessment": "Distinct position-only observable and distinct sign law",
+          "evidence": "The difference E[X₀³X_t]−E[X₀X_t³] has a regime with one sign reversal.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-time-arrow-reversal-diagram-for-a-harmonically-trapped-f--dc843e2cf037",
+          "material_read": "Mirrored finding, assumptions and moment/resolvent derivation",
+          "method": "Local Resultary/OA mirror text",
+          "title": "A sharp time-arrow reversal diagram for a harmonically trapped finite-tumble particle",
+          "trigger": "Same model and an exact all-rate time-arrow calculation"
+        },
+        {
+          "assessment": "Different motor and different observable",
+          "evidence": "The motor has fixed speed magnitude and Poisson sign flips, so its putative R is constant; the strict negative arrow instead uses two positional observables.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-strictly-negative-all-rate-fourth-order-time-arrow-for-a-trapp--1e0612824cd5",
+          "material_read": "Mirrored finding and model assumptions",
+          "method": "Local Resultary/OA mirror text",
+          "title": "A strictly negative all-rate fourth-order time arrow for a trapped telegraph particle",
+          "trigger": "Related one-signed convolution certificate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "With simultaneous measurements of the run flag and position, time ordering can be tested directly even where equal-time information cannot distinguish the two lags. The exact all-rate sign, closed profile and invariance under independent additive diffusion provide a quantitative benchmark for a joint observable absent from the position-only literature comparison. The conclusion concerns the population covariance, not the precision of its empirical estimate or a causal inference from that estimate. The scope and numerical clarifications leave this value intact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

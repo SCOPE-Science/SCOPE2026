@@ -1,19 +1,21 @@
-# Scientific assessment: two-community weighted clique projection norms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies the Euclidean-orthogonal weighted-incidence projection and diagonalizes its vertex Laplacian into the two zero-sum community sectors and the sign sector. All incident-edge and cross-edge current classes are enumerated explicitly. Their signs and multiplicities yield the absolute column sums, so the formulas are not guessed from examples. Factored comparisons establish the special crossover \(x=3/7\) only for \(n=5\); reciprocal comparisons and exact derivatives prove the global optima, including the two \(n=3\) cycle optima. A direct grounded-Laplacian exact-rational checker verifies 3,285 full columns across 54 graphs. The unrestricted theorem follows from algebra, not from that finite sample.
+PASS
 
-## Originality — PASS, residual bibliographic uncertainty
+For Q=D^T L^+ D with D carrying square roots of conductances, the eigenvalues of L on class-centered vectors and on the class difference are n(1+x²) and 2nx², respectively. Using their reciprocals gives the internal-source sums and the cross-source types according to zero, one or two matching endpoints. Only the zero-match cross current changes sign, at x=1. The P column sum equals the Q sum plus 1 minus twice the Q diagonal, since the latter is in [0,1]. Symmetry gives the same real induced 1 and infinity norms. I checked the factored orbit comparisons: the weak-cross cycle factor (n²−4n+2)x+n²−6n+2 is negative for n=3,4, is 7x−3 for n=5, and positive for n>=6; the strong-cross differences are strictly positive even at the smallest allowed n. Comparing z>1 to 1/z strictly improves the internal branch in both norms and improves the weak cross cycle branch except for exact equality at n=3. On x>=1 each cross maximum is the top Rayleigh quotient of the corresponding symmetric 2-by-2 matrix with off-diagonal coefficient half the numerator's linear coefficient; its positive maximizing ratio exceeds 1 and solves x−1/x=4(n−1)/n for Q or 4(n−2)/n for P. Thus x=1 is not a global maximizer; only the n=3 cycle branch has the additional reciprocal optimizer. The quotient values give the stated finite-n maxima and are strictly below their n→∞ limits, proving both sharp suprema.
 
-Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582v1, develops invariant/minimal cycle-space projections for Hamming graphs and discrete tori, not these arbitrary two-community positive-conductance endpoint norms. Schild–Rao–Srivastava, arXiv:1708.01632v1, and Gurel-Gurevich–Nachmias–Sachdeva, arXiv:2605.24130v1, give broader operator localization estimates but do not state or imply the exact phase classification. Separate existing complete multipartite and perfect-matching-weighted formulas concern different families, so they do not subsume the theorem. The scope and actual comparisons are documented in AUDIT.json. Equivalent calculations in less-indexed electrical-network literature remain possible; search failures are not treated as uniqueness evidence.
+## originality
 
-## Value — PASS
+PASS
 
-The family is the standard two-community conductance model with full within- and between-class connectivity. The complete phase diagram has a unique five-per-class cross–within–cross reentrance, and the sharp weight-optimized norms exhibit distinct stationary points, a low-dimensional reciprocal symmetry exception and bounded golden-ratio-type dimension limits. These furnish structural Banach-operator information rather than an arbitrary finite computation.
+The weighted transfer-current operator is standard, and reentrance already occurs in another indexed weighted family. The supported distinct claim is the exact two-equal-clique positive-cross-conductance classification, with its n=5 crossover, n=3 reciprocal cycle optimum, and sharp finite-size and uniform optimizations. The strongest inspected localization theorems and indexed exact formulas do not provide these by specialization.
 
-## Scientific and validation limits
+## value
 
-The proof is for real coordinate endpoint norms and canonical orthogonal projections, not arbitrary projection constants; community sizes must be equal and conductances uniform by edge class. Exact finite checks corroborate but cannot establish unrestricted statements. No independent mathematical audit or publication priority is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-community complete network is a natural weighted test family, and a closed norm bound alone would conceal the change in maximizing type. In particular one size has an extra cycle phase while the smallest size has two distinct maximizing conductances. Exact comparisons and uniform sharp bounds therefore give structural information about coordinate amplification in the canonical projections, not just a list of example calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

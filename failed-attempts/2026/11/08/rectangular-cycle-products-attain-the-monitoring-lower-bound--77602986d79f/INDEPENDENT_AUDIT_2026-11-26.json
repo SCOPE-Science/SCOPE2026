@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T14:42:21.001770Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The additive distance in a Cartesian product shows that an edge can be monitored only by two points in its own factor fiber: for endpoints differing in both coordinates the two extreme orders of factor moves give edge-disjoint shortest paths, while a one-coordinate path cannot leave its fiber. Thus the m short-cycle fibers force 3m probes. In a cycle of order k≥5 a gap at most floor((k−1)/2) is monitored by its two endpoints on the unique shortest arc; one pair never covers the whole cycle. Each constructed column is a translate of the equally spaced triple. In each row the preimages of selected residues r under floor(nj/m) are consecutive nonempty blocks [ceil(rm/n),ceil((r+1)m/n)−1]; extending cyclically, a gap between blocks at residue distance g has length at most 1+ceil((g−1)m/n). The residue gaps are at most ceil(n/3), hence the bound B in RESULT.md lines 37–46. For m≥11 use ceil(m/3)+1≤floor((m−1)/2), checked at m=11,…,16 and extended by periods of six. Independently computing B by exact rational ceilings for m=5,…,10 and n=5,…,m gives respectively [2], [3,2], [3,3,3], [3,3,4,3], [3,3,4,4,3], [3,3,4,4,4,4]. Only (5,6) and (7,8) violate the allowable bound. Applying the two replacement shift lists to the column triple and computing consecutive row differences including wraparound gives maximum row gaps respectively 2 and 3, and column maxima 2 and 3. This bounded check can be replayed with the ceilings and shift tuples in RESULT.md lines 29–60; the general proof is not an extrapolation. The uploaded verifier was inspected, not executed. The result holds for 5≤n≤m with no assertion about smaller factors or the strong product.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1eb742b8d821 gives the same complete m,n≥5 formula and also states an additional formula for factors of order 3 or 4. Haslegrave gives general bounds and the equal-length case."
+        ],
+        "reasoning": "The larger indexed range contains every assigned parameter pair. The primary general product bounds and the square theorem alone do not contain the rectangular equality.",
+        "searches": [
+          "Resultary 1eb742b8d821; Haslegrave arXiv:2210.08955 Theorems 1 and 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2210.08955",
+        "Resultary 0d8bc8c6c44a",
+        "Resultary 3220f7d4762f",
+        "Resultary 1eb742b8d821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Haslegrave's general bounds specialize to 3m≤meg≤3m+3n−9; Theorem 4 sharpens them only on the diagonal. Indexed proofs already exhibit three-point columns and a balanced floor map with two corrections."
+        ],
+        "reasoning": "The claim is not a corollary of the general bounds alone. It is directly covered by the indexed rectangular theorems and their constructive witnesses, so giving an explicit optimum does not establish a distinct surviving finding.",
+        "searches": [
+          "Haslegrave arXiv:2210.08955, pp. 2,5; Results 0d8bc8c6c44a and 3220f7d4762f proof passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0d8bc8c6c44a states meg(C_m □ C_n)=3max{m,n} for every m,n≥5; 3220f7d4762f uses the opposite ordering 5≤m≤n and the same Cartesian product.",
+          "Both findings use monitoring by all shortest paths and constructive attainment of the lower bound."
+        ],
+        "reasoning": "Swapping factors is an isomorphism and does not alter monitoring. The alternate ordering and rectangular-torus name describe the same mathematical statement.",
+        "searches": [
+          "Resultary exact monitoring edge-geodetic number 3 max rectangular torus",
+          "Resultary cycle-product balanced floor map and fiber lower bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read the exact formula in the Finding of each of 0d8bc8c6c44a, 3220f7d4762f and 1eb742b8d821; these are exact statements for whole families, not coincidences in finite tables."
+        ],
+        "reasoning": "A parameter table is unnecessary: there are three direct exact indexed statements, not just matching small values or similar titles.",
+        "searches": [
+          "Resultary exact formula for monitoring edge-geodetic numbers of rectangular toroidal grids",
+          "Resultary sharp rectangular discrete torus 3max"
+        ]
+      },
+      "rationale": "Three other indexed records explicitly state the all-rectangles formula on the same unordered range, and two already present the balanced three-per-column construction with small-case adjustments. Haslegrave's primary paper alone does not cover unequal lengths, but that does not negate the direct indexed coverage. This is demonstrated statement-level overlap, not a priority determination based on dates.",
+      "residual_risks": [
+        "This comparison does not establish historical priority among the overlapping records or exhaust the primary literature. The cycle premise has a self-contained proof here; primary evidence for it was indirect through Haslegrave's citation of Dev et al."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background and diagonal case only",
+          "evidence": "The lower bound is max{meg(G)|H|,meg(H)|G|}; the stated upper bound yields 3m+3n−9 here. Theorem 4 gives meg(C_m □ C_m)=3m for m≥5.",
+          "identifier_or_url": "https://arxiv.org/pdf/2210.08955",
+          "material_read": "Theorem 1 and proof, p. 2; Theorem 4, p. 5",
+          "method": "OA full-text passage inspection, offsets 8222 and 17808",
+          "title": "Monitoring edge-geodetic sets: hardness and graph products",
+          "trigger": "Primary source for the exact Cartesian criterion, bounds and square theorem"
+        },
+        {
+          "assessment": "Direct substantive coverage",
+          "evidence": "States the 3max formula for all m,n≥5 and gives a three-point-per-column construction with two adjustments.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-monitoring-edge-geodetic-numbers-of-rectangular-toroidal-g--0d8bc8c6c44a",
+          "material_read": "Finding and proof",
+          "method": "Local Resultary mirror, RESULT.md offsets 75 and 1288",
+          "title": "Exact monitoring edge-geodetic numbers of rectangular toroidal grids",
+          "trigger": "Exact indexed same-invariant rectangular match"
+        },
+        {
+          "assessment": "Direct substantive coverage",
+          "evidence": "States the same formula for 5≤m≤n and uses a balanced floor-map construction with two repairs.",
+          "identifier_or_url": "2026/10/25/SCOPE-sharp-monitoring-edge-geodetic-number-of-all-rectangular-discret--3220f7d4762f",
+          "material_read": "Finding and proof",
+          "method": "Local Resultary mirror, RESULT.md offsets 77 and 1260",
+          "title": "Sharp monitoring edge-geodetic number of all rectangular discrete tori",
+          "trigger": "Indexed balanced-floor construction for the same optimum"
+        },
+        {
+          "assessment": "Exact coverage on the assigned domain",
+          "evidence": "States 3max{m,n} on m,n≥5 and also treats min{m,n}≤4.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-monitoring-edge-geodetic-numbers-of-all-rectangular-discre--1eb742b8d821",
+          "material_read": "Finding and beginning of proof",
+          "method": "Local Resultary mirror, RESULT.md offsets 615 and 2241",
+          "title": "Exact monitoring edge-geodetic numbers of all rectangular discrete tori",
+          "trigger": "Indexed exact claim on a larger parameter domain"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Sharpness for unequal tori is intrinsically a motivated question, but this record re-establishes the already indexed exact invariant with the same type of constructive witness. It does not add a new parameter regime, a distinct optimization of the witness, or a structural result beyond that documented coverage. No worthwhile independent remainder is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

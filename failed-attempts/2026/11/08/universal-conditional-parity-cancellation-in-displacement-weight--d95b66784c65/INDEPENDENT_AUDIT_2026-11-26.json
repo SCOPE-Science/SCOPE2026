@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:18.203010Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The conditional ratio and cancellation are correct, but the frozen Finding, line 6, calls both sequences positive under all allowed h. In fact h(0)=1 and h(d)=0 for d≥1 makes every outcome have unit weight, so A_2=1−1=0. Only T_m needs and has strict positivity. For the formula, the nearest earlier larger label marks the last vacant space before the target at the car's arrival. Induction over car labels shows that a fiber consists exactly of independent preferences from each ensuing contiguous interval, giving the weighted product of prefix sums. At the maximum label k the interval has length k and that label blocks any right-hand interval from reaching the left block. Thus the standardized left and right weights are unchanged and summing over actual left label sets leaves a common factor F(k). A left set {s_1,…,s_a} contributes precisely Σ(s_i−i) cross inversions, in addition to n−k from the maximum. The sign-weighted subset coefficient is (−1)^(a(a−1)/2)[z^a]∏_(j=0)^(n−2)(1+(−1)^j z); adjacent factors pair as 1−z², yielding G in both parities and also in the empty case n=1. T_a T_b>0 gives a well-defined ratio for every k. Summing over k gives the two recurrences. In the unit-interval specialization, pairing neighboring maximum positions in the even signed recurrence gives E′=O; the odd signed recurrence gives O=2E²−E, also the unsigned exponential-series equation. CHECK.py and VERIFICATION.md were inspected, not run; their finite tests do not test strict positivity of A_m or prove the all-kernel assertion.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Celano et al. give product displacement-geometric fiber weights for interval parking functions and allow arbitrary outcome statistics, including several at once; taking ordinary parking functions permits marking K and sign.",
+          "The Celano statement inspected does not by itself specialize to arbitrary h; the length-to-prefix-sum substitution uses the individual allowed displacement intervals."
+        ],
+        "reasoning": "A geometric specialization of the conditional enumerator is available directly from that general statistic theorem. Replacing each geometric prefix sum by the corresponding sum of arbitrary displacement weights is termwise over the same Cartesian product of feasible displacements. No additional sign mechanism appears in the arbitrary h case.",
+        "searches": [
+          "Celano et al. arXiv:2507.07243 Theorem 4.3 Eqs. (9)–(10)",
+          "Pinsky arXiv:2404.11529 Theorems 1 and 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and CHECK.py",
+        "Pinsky arXiv:2404.11529 Theorem 1",
+        "Celano et al. arXiv:2507.07243 Theorem 4.3",
+        "Resultary 5673f1b918ad and e0f7e729d464"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older signed shuffle multiplies the left and right standardized weights by a sum of subset signs. The subset signs do not depend on the parking weight or on the actual values within either standardized block.",
+          "The only change from the uniform argument is ℓ↦∑_(0≤d<ℓ)h(d), preserving independence and standardization, with the same common maximum-position factor canceled by normalization."
+        ],
+        "reasoning": "Write arbitrary independent standardized block weights as U(τ) and V(υ) in the earlier fixed-position sum. Summing over label sets gives exactly the same signed factor G and unsigned binomial factor, already evaluated by the prior argument. With the displacement-prefix product as U and V, the displayed ratio follows term by term and odd/even cancellation is the same vanishing shuffle factor. The conclusion is not inferred from an unconditional parity-bias statement alone.",
+        "searches": [
+          "5673f1b918ad and e0f7e729d464 fixed-position decomposition",
+          "arXiv:2507.07243 geometric product-of-prefix-sums theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two earlier Resultary proofs give fixed-position signed contributions with the same G factor despite stating unconditional uniform sign biases.",
+          "Pinsky identifies the uniform weight product ∏ℓ_i. The same conditional statistic is expressible as a signed fixed-position contribution divided by its unsigned contribution."
+        ],
+        "reasoning": "Before summing over positions, the earlier proofs' contribution is the uniform specialization of the claimed ratio. Fixing the maximum-labeled car's position is equivalent to fixing the separator for the signed shuffle.",
+        "searches": [
+          "Resultary conditional parity of parking-function outcomes by last-car position",
+          "Resultary 5673f1b918ad fixed-last-position proof and e0f7e729d464 fixed-vacancy signed shuffle",
+          "Pinsky arXiv:2404.11529 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact index hit d95b66784c65 is the frozen record itself. The distinct earlier symbolic recurrences already use the same fixed-position Gaussian-binomial factor; no separate exact arbitrary-kernel table or duplicate theorem was identified."
+        ],
+        "reasoning": "The evidence is a symbolic proof comparison, not agreement with a numerical table or self-overlap. The arbitrary-kernel formula reduces to the earlier fixed-position contributions at F(r)=r.",
+        "searches": [
+          "Resultary parking displacement-weighted conditional sign and parity cancellation",
+          "Resultary 2026/10/13/SCOPE-a-strict-even-permutation-bias-in-classical-parking-outcomes--5673f1b918ad",
+          "Resultary 2026/10/18/SCOPE-a-universal-even-parity-bias-in-random-parking-outcomes--e0f7e729d464"
+        ]
+      },
+      "rationale": "The conditional signed-shuffle argument at a fixed last-car position, including the factor G(n−1,k−1), already appears in earlier indexed results. Their bias theorems are uniform and unconditional, but the matching fixed-position argument in the proofs matters. Its labeled-subset sum only uses that the factorized fiber weight is constant under changing the left label set at fixed standardized subpermutations. The displacement-weighted case has precisely that property by substituting a prefix sum of h for the length of the same allowed displacement interval. Thus the extension is a direct reweighting of the existing fixed-position argument, not a distinct new sign decomposition. This is not a claim that an inspected earlier theorem literally states the arbitrary-kernel ratio.",
+      "residual_risks": [
+        "The located Pinsky last-position theorem and the additional Celano proof passage were not retrieved in bounded requests. This does not decide their coverage.",
+        "No exact earlier statement for every h is asserted. The comparison rests on the equivalent fixed-position shuffle calculation and weight substitution, not on title similarity or lack of search results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier uniform fiber formula; no conclusion on unread Theorem 3 passage",
+          "evidence": "Theorem 1 states probability ∏ℓ_i/(n+1)^(n−1) for a specified outcome.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.11529",
+          "material_read": "Theorem 1 Eq. (1.5), PDF pp. 2–3, around offset 4800. Theorem 3 located on p. 5, offset 12972, but the passage could not be retrieved",
+          "method": "OA primary-text inspection and bounded follow-up",
+          "title": "The distribution on permutations induced by a random parking function",
+          "trigger": "Same uniform outcome fibers and last-car statistic"
+        },
+        {
+          "assessment": "Product geometric-weighted fibers with arbitrary outcome statistics, not literally arbitrary h",
+          "evidence": "The fiber weight is ∏[L_ℓ(i;σ)]_q and the result allows any statistic on outcomes and joint tracking.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.07243",
+          "material_read": "Theorem 4.3 Eqs. (9)–(10), PDF p. 12, offset 53716; additional targeted proof lookup timed out",
+          "method": "OA primary-text inspection",
+          "title": "ℓ-Interval Parking Functions: Foata invariance, statistic generating functions, and ciphers",
+          "trigger": "Closest general weighted outcome-statistic formula"
+        },
+        {
+          "assessment": "Material prior fixed-position argument in uniform case",
+          "evidence": "Fixed-position signed contribution uses G(n−1,k−1), giving the uniform conditional cancellation before summation over k.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-strict-even-permutation-bias-in-classical-parking-outcomes--5673f1b918ad",
+          "material_read": "RESULT.md signed recurrence and fixed-last-car-position proof, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local-mirror text inspection",
+          "title": "A strict even-permutation bias in classical parking outcomes",
+          "trigger": "Earlier exact parking sign recurrence"
+        },
+        {
+          "assessment": "Same evaluated sign-shuffle contribution at a fixed position in the uniform model",
+          "evidence": "Previous signed-shuffle proof makes the Gaussian-binomial evaluation the fixed-vacancy coefficient.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-universal-even-parity-bias-in-random-parking-outcomes--e0f7e729d464",
+          "material_read": "RESULT.md uniform signed recurrence and fixed-vacancy signed-shuffle proof, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary lookup and local-mirror text inspection",
+          "title": "A universal even parity bias in random parking outcomes",
+          "trigger": "Earlier result using final-order parity and a fixed vacancy"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Conditional parity under displacement weighting is a natural statistic, but the frozen contribution does not go beyond the known fixed-vacancy signed shuffle with the same factorization and substituted local weights. The cancellation and ratios transfer without a different structure or a new evaluation of the remaining signed sums. The recurrences and already-known ordered-Bell specialization do not leave a substantive additional finding to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

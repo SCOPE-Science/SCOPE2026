@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:07:15.251419Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–83",
+        "Frozen VERIFICATION.md and wealth_phase_check.py (inspected, not executed)"
+      ],
+      "rationale": "For sufficiently large N the given rates are probabilities. The one-site weight ratio G(k−1)/G(k)=g_N(k) balances each legal move against its reverse with the symmetric proposal, and P−D=K_N leaves the factor exp(−τD/N). Irreducibility follows by moving units from positive sites along paths to negative sites (intermediate sites receive before giving, so the ceiling is never breached), then connecting nonnegative configurations by surplus-to-deficit path transfers; legal reverse paths complete the argument. Given d>0 and j negative sites, choose their locations, a positive composition of d and a weak composition of K_N+d; this gives the three stated binomial factors. For d≥εN², expanding the two large binomial numerators as products of at most N terms gives a uniform O(1) error in the logarithm after replacing each factor by d or K_N+d, respectively. Stirling on the short factorials yields the stated entropy uniformly, with the endpoint conventions; the two missing degrees in the composition factors introduce only O(log N). For d=o(N²), monotonicity of sector counts bounds d≤εN² by the ε-sector and the tilt costs at most |τ|ε per vertex, while d=0 has entropy 1+log κ. Maximizing first over q gives q=√δ/(√(κ+δ)+√δ); the debt entropy has derivative 1/√(δ(κ+δ)), decreasing from infinity. Thus the unique cap or interior maximizer is exactly δ_τ, including equality at τ_c. A strict entropy gap against polynomially many sectors gives concentration, with feasible lattice sectors approaching the maximum even at the cap. Conditional hypergeometric signs converge to independent signs for fixed coordinates. The joint composition-tail ratio is a product of s−1 terms 1−Σ h_i/(M+j), j=1,…,s−1, and its log tends to −(sN/M)Σ x_i along convergent sector ratios; subtracting one handles positive compositions. This yields the two-sided exponential with the stated scales and mixture masses. Exchangeability and the two-coordinate limit make each bounded continuous empirical test variance vanish, and the debt and sign-fraction conclusions follow from concentration. The derivative formula gives the strict one-sided kink.",
+      "residual_risks": [
+        "No computational claim substitutes for the analytic entropy and composition estimates. The argument gives neither critical fluctuations nor mixing-time information."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sakagawa's finite product law covers symmetric proposals and its fixed-g limit allows high average wealth, but uses a fixed transfer function, not an N-varying one.",
+          "The Cao–Reed preprint gives a general reversible finite law and analyzes a fixed per-agent scale and a different donor rule; its phase split is in time rather than in τ."
+        ],
+        "reasoning": "Broader finite detailed balance is genuine prior coverage of that proof step. A fixed-function high-wealth limit does not provide the uniform asymptotics under an N-dependent exponential tilt that competes with sector entropy.",
+        "searches": [
+          "Sakagawa arXiv:2610.00901v1, Proposition 1.1 and Theorem 1.4",
+          "Cao–Reed arXiv:2311.07851, Lemma 2.2 and §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Sakagawa arXiv:2610.00901v1",
+        "Cao–Reed arXiv:2311.07851",
+        "Resultary 87984e9090be",
+        "Focused weak-bias literature comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "None of those passages treats the exp(−τD/N) tilt at D of order N². The preprint's finite law is an exact starting point but by itself provides no competing entropy at speed N.",
+          "The frozen proof derives sector entropy and an interior maximizer, which is neither a fixed equal-rate cap law nor the fixed favorable-positive-rate one-sided limit."
+        ],
+        "reasoning": "Pointwise convergence at fixed transfer functions cannot be applied to this array, and the equal-rate law of large numbers alone cannot control exponentially tilted sectors. The distinct exact result is the finite-parameter phase diagram and equilibrium law derived from that competition.",
+        "searches": [
+          "Sakagawa, Theorem 1.4 and constant-on-each-side example",
+          "Cao–Reed, §2 large-population remark and §3 constraint set",
+          "Resultary 87984e9090be, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The stationary law is equivalently a tilt exp(−τD/N) of the uniform capped ensemble at fixed K_N.",
+          "Sakagawa arXiv:2610.00901v1, Theorem 1.4, already covers the equal-rate slice and gives two-sided exponential laws for appropriate fixed transfer functions."
+        ],
+        "reasoning": "Asymmetric-Laplace and two-sided exponential terminology describes the same local distribution, not by itself the same debt selection. The new issue is the dependence of that selection on the order-1/N log rate ratio.",
+        "searches": [
+          "Resultary: weak asymmetry N-dependent donor rates capped debt exchange critical threshold two-sided exponential equilibrium",
+          "Focused literature lookup: near-equal donor rates exp(τ/N) and capped-debt exchange at quadratic total wealth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 87984e9090be gives fixed p≤q, linear total wealth and debt scales, and geometric reserves and integer local wealth. It does not give the quadratic-wealth crossover or its threshold."
+        ],
+        "reasoning": "This is a same-process indexed comparator, but neither the scaling nor the observable's claimed limit agrees. No exact threshold match surfaced in the focused comparison; the miss is not proof of absence.",
+        "searches": [
+          "Resultary: weak-bias cap saturation; matched finding 87984e9090be on bank reserves and local wealth",
+          "Focused same-crossover primary-literature query"
+        ]
+      },
+      "rationale": "The finite stationary product structure and the equal-rate limit are known. The supported distinction is the stationary triangular-array crossover at fixed τ and wealth of order N²: a macroscopic debt ceiling becomes inactive at the explicit finite τ_c, with positive interior debt, a kink, and an explicit equilibrium family. The inspected fixed-rate limits and finite stationary formulas do not furnish this scale-dependent limit.",
+      "residual_risks": [
+        "The journal version of Cao–Reed was not directly accessible; evidence is from the lawful same-paper preprint with different numbering. Bounded comparison does not rule out a less-indexed equivalent ensemble calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers finite detailed balance and equal-rate slice, not the N-dependent weak-bias selection",
+          "evidence": "The convergence theorem takes a fixed transfer function and allows growing wealth per site; the two-rate examples can yield the same local law type without the same crossover.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00901v1",
+          "material_read": "PDF p. 3 Proposition 1.1, pp. 4–5 Theorem 1.4, p. 5 piecewise constant rate example",
+          "method": "Primary OA PDF, bounded proposition, theorem and example comparison",
+          "title": "Convergence of stationary distributions for a class of zero-range processes and its application to a wealth distribution model with debt",
+          "trigger": "Same process and large-wealth limiting stationary distributions"
+        },
+        {
+          "assessment": "Finite-law overlap; inspected analysis is a different asymptotic problem",
+          "evidence": "Uses the rational rate f*(x)=(x−1)/x for x>1 and 1 otherwise in the specialized model and fixes M=Nμ and B*=Nμν. The phases are time phases. Final journal theorem numbering was not directly inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.07851; DOI 10.1051/mmnp/2025007",
+          "material_read": "Preprint pp. 5–8, Lemma 2.2 and donor rule; p. 11 finite-N limit remark; pp. 16–17 mean-field constraints",
+          "method": "Lawful arXiv copy of the same paper after publisher page access failed",
+          "title": "A biased dollar exchange model involving bank and debt with discontinuous equilibrium",
+          "trigger": "Plausible overlapping biased-debt equilibrium and earlier reversible law"
+        },
+        {
+          "assessment": "Fixed rates and linear total wealth/debt scale; no exact crossover overlap",
+          "evidence": "K_N/N and L_N/N converge to positive constants; the limit describes geometric reserve and unscaled integer local wealth.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-geometric-bank-reserves-and-rate-blind-local-wealth-in-debt-cons--87984e9090be/RESULT.md",
+          "material_read": "Mirrored RESULT.md, Finding and scaling assumptions",
+          "method": "Bounded local mirror comparison",
+          "title": "Geometric bank reserves and rate-blind local wealth in debt-constrained exchange",
+          "trigger": "Indexed same-object stationary debt and wealth limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof §§2–5",
+        "Sakagawa, Theorem 1.4"
+      ],
+      "rationale": "When per-agent wealth is order N, a log rate bias of order 1/N competes with entropy at speed N. The constrained entropy switches from a cap optimizer to an interior optimizer, giving a sharp usable transition parameter, a nonzero interior debt and a measurable change of limiting stationary law. This explains what fixed-bias limits cannot resolve, with no extra graph-mixing assumption.",
+      "residual_risks": [
+        "The value is in the equilibrium crossover for this scaling and rule, not in the known finite product law or a claim of dynamical universality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

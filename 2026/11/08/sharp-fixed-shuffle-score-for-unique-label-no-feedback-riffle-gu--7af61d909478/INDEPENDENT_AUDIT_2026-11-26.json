@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:40:14.468201Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof",
+        "Frozen VERIFICATION.md and checks/verify.py (inspected, not executed)",
+        "/workspace/audit_checks/1.py"
+      ],
+      "rationale": "A forward m-packet shuffle can be drawn by choosing an iid uniform packet word, cutting the input at the word counts, and drawing from the next named packet. Independent inverse stable sorts on fair bits compose to a stable sort on k-bit keys, yielding the forward m=2^k model after inversion. In the forward word construction, conditional on packet t at position i, the original index of the card equals one plus the number of earlier word entries ≤t plus the number of later word entries <t. This is precisely the stated independent pair of binomials. For rows bounded away from the endpoints, the component variance is n v_t(i/n)+O(1) uniformly. The Bernoulli characteristic function bounds the centered product by exp(-c σ²u²) for |u|≤pi, and Taylor expansion at u=O(n^(-1/2)) has cumulative cubic error O(n|u|³). Fourier inversion thus gives both the sharp peak upper bound uniformly in j and the matching asymptotic at j within O(1) of its mean. For a label bounded away from packet interfaces, competing means are linearly far away; even in its own component, rows farther than n^(-2/5) in scaled distance give exponentially small mass by Hoeffding. The column peak therefore has exactly the claimed leading profile, reached asymptotically at the nearest mean row. For excluded columns, the two endpoint components have maximal point probabilities bounded by constants times j^(-1/2) or (n-j+1)^(-1/2): if h trials can yield r successes then h≥r and the binomial peak is O((h+1)^(-1/2)). The other components are O(n^(-1/2)) uniformly. Thus for fixed interface width epsilon the omitted columns cost O((sqrt(epsilon)+epsilon)sqrt(n)+1); the interior integral is first truncated and only becomes full as epsilon decreases to zero. Every permuted guess has the column-capacity upper bound. In the explicit permutation the designated component's mean differs from its guess by t r0/m, so its interior Riemann sum matches the upper bound in the limit. The integrable linear-variance integral evaluates to 2/(sqrt(a_t)+sqrt(a_(t+1))). Independent exact forward-law checks for n=2,…,5 and m=2,4 including composition, and numerical constant evaluation, can be replayed with python3 -B /workspace/audit_checks/1.py. The asymptotic proof does not depend on those finite checks.",
+      "residual_risks": [
+        "Only first-order asymptotics at fixed k; the explicit strategy need not be exactly optimal on any specified finite deck. The limiting estimates do not allow k to grow with n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026 preprint explicitly permits repeated guesses, optimizes separately at each position and obtains 2 sqrt(n/((m-1)pi))+O_k(1). It attributes the equally weighted shifted two-binomial mixture to the earlier paper."
+        ],
+        "reasoning": "A maximum over all guess sequences bounds a maximum over permutations but does not identify it, and the repeated-guess optimum has a different leading constant already at m=2. A formula for the marginal entries does not by itself identify the sharp matching score.",
+        "searches": [
+          "arXiv:2611.04339v1 Abstract, §1, explicit large-n strategy and marginal discussion",
+          "DOI 10.3934/math.20251075, 2025 position-marginal formulation as described in the 2026 preprint"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7af61d909478 (same record), 6806b0a229ff and 314e4e9f3541",
+        "arXiv:2611.04339v1",
+        "arXiv:2308.15782v1",
+        "Published attributions for DOI 10.3934/math.20251075 and DOI 10.1214/aoap/1028903379"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-shuffle optimal sequence cited in the accessible papers repeats labels, beginning 1,2,2,3,3. The no-feedback protocol excludes revealing card identities and correctness; complete-feedback comparisons change that protocol."
+        ],
+        "reasoning": "Neither the repeated-label strategy nor a feedback-dependent one is admissible in the frozen permutation problem. The missing work in the matching problem is a sharp column-capacity profile and a simultaneously near-saturating assignment; the preceding formulas do not provide those.",
+        "searches": [
+          "Kuba–Panholzer arXiv:2308.15782v1 §2.2 p. 3",
+          "Krityakierne–Thanatipanonda arXiv:2611.04339v1 abstract/§1",
+          "Ciucu DOI 10.1214/aoap/1028903379 as attributed in these works"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary hit 7af61d909478 is the frozen record itself; nearby inverse-riffle hit 6806b0a229ff concerns inversions with correlated labels, not expected bijective hits.",
+          "The permutation constraint makes the objective a maximum-weight perfect matching on the marginal matrix."
+        ],
+        "reasoning": "A sharp bijective-guess score for the inverse law would also cover the value: inversion transposes the marginal matrix and inverse guess permutations give the same assignment optimum. This equivalence does not transport a particular strategy without inversion and does not apply to row-wise repeated guesses. The inspected inverse-riffle comparison supplies neither optimum.",
+        "searches": [
+          "Resultary unique-label/no-repeat forward GSR guessing and fixed-shuffle score",
+          "Resultary card guessing matching/assignment and inverse riffle overlap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned exact coefficient plus strategy statement was the frozen hit 7af61d909478. The later result 314e4e9f3541 concerns limiting distributions for optimal guesses with repetition."
+        ],
+        "reasoning": "Target indexing is not a separate exact table or prior result; repeated-guess distribution asymptotics cannot tabulate permutation-constrained expected optima. The searches are not evidence that no unindexed result exists.",
+        "searches": [
+          "Resultary fixed k permutation-constrained constant C_m and block-interleaving",
+          "Resultary one-shuffle unique-label coefficient sqrt(2/pi)"
+        ]
+      },
+      "rationale": "Pass for the sharp leading constant for one-use-per-label matching and the explicit asymptotically optimal permutation. The forward marginal mixture and the repeated-guess optimal score are established elsewhere and are not credited as new.",
+      "residual_risks": [
+        "The earlier marginal article and Ciucu's full original paper were not available in the bounded retrieval. Unindexed constrained-guess or inverse matching coverage remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Overlap in shuffle and marginals, not constraint or extremum",
+          "evidence": "Repeated guesses allowed; separate row optimization, repeated-label strategy and distinct score asymptotic.",
+          "identifier_or_url": "https://arxiv.org/html/2611.04339v1",
+          "material_read": "Abstract, introduction and §1, offsets 560–5899",
+          "method": "Primary OA text",
+          "title": "Optimal no-feedback card guessing after a fixed number of riffle shuffles",
+          "trigger": "Same forward GSR law, fixed k and optimal expected score"
+        },
+        {
+          "assessment": "Different guess space",
+          "evidence": "The displayed one-shuffle optimum repeats labels; one-time refers to the shuffle.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.15782v1",
+          "material_read": "p. 1 protocol and §2.2 p. 3 (near offset 9463)",
+          "method": "Primary OA PDF",
+          "title": "On card guessing games: Limit law for no feedback one-time riffle shuffle",
+          "trigger": "Potential earlier m=2 specialization"
+        },
+        {
+          "assessment": "Marginal coverage supported by attribution; no full-paper negative conclusion",
+          "evidence": "The sequel identifies this article as the source of the equally weighted two-binomial mixture.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20251075",
+          "material_read": "Attribution and mixture description in the 2026 preprint §1; original full text not recovered",
+          "method": "Lawful OA retrieval attempt and explicit attribution in accessible sequel",
+          "title": "A generating function framework for the no-feedback card guessing game after riffle shuffles",
+          "trigger": "Source of exact position marginals and possible broader guessing theorem"
+        },
+        {
+          "assessment": "Repeated-guess overlap supported; other variants not resolved",
+          "evidence": "Later passages attribute the repeated-label score near 2 sqrt(n/pi) to Ciucu, not a permutation-constrained constant.",
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1028903379",
+          "material_read": "Published attributions in the accessible sequel and Kuba–Panholzer; original full text not recovered",
+          "method": "Bounded Project Euclid retrieval attempt and source comparison via later papers",
+          "title": "No-feedback card guessing for dovetail shuffles",
+          "trigger": "Historical one-shuffle and dovetail guessing results"
+        },
+        {
+          "assessment": "Different statistic or constraint",
+          "evidence": "The first studies inversion counts with correlated keys. The later second allows repeated guesses.",
+          "identifier_or_url": "Resultary 6806b0a229ff and 314e4e9f3541",
+          "material_read": "Matching scope and Findings",
+          "method": "Local Resultary mirror",
+          "title": "Three-scale inversion laws for correlated-label inverse riffle shuffles; Half-normal sum limit for optimal no-feedback guessing after multiple riffles",
+          "trigger": "Potential inverse or exact same-game reformulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and constructive strategy",
+        "arXiv:2611.04339v1 fixed-count repeated-guess score"
+      ],
+      "rationale": "Requiring all labels to be used exactly once is a natural no-feedback variant and genuinely couples positions. Even at one shuffle the restriction changes the leading coefficient from 2/sqrt(pi) to sqrt(2/pi). The theorem quantifies the restriction for each fixed shuffle count, and the constructive permutation attains the optimal leading term without a finite assignment solve.",
+      "residual_risks": [
+        "No claim of a finite-n solution, score distribution or growing-shuffle threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

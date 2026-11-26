@@ -1,18 +1,21 @@
-# Scientific review: exceptional excitation clocks on line graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is precisely about the line graphs of \(GP(5,1)\) and \(GP(5,2)\), each with fifteen labelled vertices and \(3^{15}\) labelled states. The update is specified unambiguously. Two complete, independent state-transition reconstructions agree on every nonempty period/entry histogram cell (46 and 37 cells). An exhaustive cycle classifier counts least periods and sharp depths, and a separate indegree-pruning algorithm corroborates them. A standard-library-only permutation checker enumerates all twenty and 120 automorphisms of the triangle-free cubic bases, which exactly recover the full line-graph automorphisms via their ten incidence-star triangles. It validates each exceptional cycle and obtains the claimed partitions. The proof includes the finite-map correctness argument. Remaining risk is undetected errors shared by code and problem formulation; no formal or external audit is claimed.
+## correctness
 
-## Originality — PASS, qualified
-Actual searches of indexed published mathematical records for one-contact Greenberg–Hastings dynamics on the Petersen line graph, pentagonal-prism line graph, and possible exceptional-period preservation found no equivalent indexed claim. The closest published ten-vertex generalized Petersen census has the *same periodwise non-three numbers* but on the original graphs; that fact alone does not determine the nonlinear dynamics of their fifteen-vertex line graphs. Gravner–Lyu–Sivakoff (2016) supply qualitative general circulation criteria, not exact line-graph transition counts. The published Tait-coloring theorem is for two-contact threshold and period three. We inspected the complete primary arXiv HTML theory and the full published-finding corpus `RESULT.md` for each close statement. Historical/unindexed stronger equivalent results remain a material priority risk. Search absence is not a uniqueness proof.
+PASS
 
-## Value — PASS
-The pair is canonical (the two ten-vertex generalized Petersen graphs) and the line-graph operation is natural, increasing the graph from ten cubic sites to fifteen quartic sites. Exact non-three orbit populations survive this expansion in both pairs even as period-three orbits grow from 150 to 195250 and from 80 to 220810, and maximum first-entry times grow from eight to seventeen and six to twelve. The unusual conservation is a motivated exact comparison, not an arbitrary subcount, and the distinct geometric-class partitions show structural differences invisible to temporal counts. The complete finite orbit and basin tables are useful benchmarks for studying excitability under graph transformations, without implying a general theorem or physical causal interpretation.
+Independently reconstructed both base- and line-graph updates. On the line graph a resting edge is excited precisely if an endpoint is incident to an excited edge; encoding excited and refractory bit planes yielded a fresh successor array. Iterating the image of the entire state set to a stable image isolates the cycle states, since the stable image is permuted by the update, and every cycle survives. Reverse substitution through deleted layers recovers exact first-entry distances. The replay covered all 14,348,907 configurations per line graph, matched all 46 and 37 nonzero period/entry cells and all 186 and 150 exceptional temporal representatives after phase canonicalization, and independently confirmed the base counts. Maximal entry depths are 17 (80 states) and 12 (1,200 states), all eventual period three. Exhaustive base permutations of orders 20 and 120 give the reported orbit-size partitions. The line graph recovers each base vertex as a triangle because both base graphs are cubic and triangle-free, so those permutations give the full spatial group. The repaired comparison and references do not alter any dynamics or numerical claim.
 
-## Closest sources and residual limits
-- Gravner, Lyu, Sivakoff (arXiv:1610.07320v1, 2016-10-24), Theorem 3: qualitative global graph dynamics; no precise line-graph census.
-- Published `Exact recurrence and basins on the two ten-vertex generalized Petersen graphs`: original cubic graphs; equivalent *numerical exceptional counts* but not coverage of the expanded graph dynamics.
-- Published `Tait colourings as primitive-three excitation on cubic line graphs`: distinct excitation threshold and primitive period.
-- Other exact finite-graph studies concern different graphs and do not imply this result. The finite calculation is complete for the stated two graphs but not independently externally audited, and wider priority remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired claim only: the Petersen-line labelled census and the two base censuses are credited as already covered in the inspected corpus. No equivalent prism-line census or full prism/Petersen exceptional geometric partitions and cross-graph comparison were established in the inspected sources. The earlier base data and separate Petersen-line data together already imply the Petersen half of the non-three comparison; the prism half and the two line-graph geometric partitions are the distinct remainder.
+
+## value
+
+PASS
+
+The natural ten-site cubic graphs already exhibit different long exceptional periods. The exact larger-graph comparison tests whether those clocks and multiplicities survive a specific standard graph operation despite dominant-period and transient changes. It supplies a sharp finite benchmark and a complete exceptional spatial classification for testing structural explanations. That value is not based on recomputing the overlapping Petersen-line labelled table or on an unsupported general conservation assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:49:15.051873Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Finding, Assumptions and scope, Proof",
+        "VERIFICATION.md and verify_boolean_preconditionals.py (inspected, not run)",
+        "Independent replay: python3 /workspace/audit_checks.py 2"
+      ],
+      "rationale": "P3 and P4 make each row factor through meet with its antecedent. P1–P2 fix the top row; the bottom row is constant. P5 is automatic on these two rows. In an atom row the inner antecedent is either 0 or the atom, giving exactly the tests at t, u_r and v_r (the test at v_r is automatic). The row count for the four t values is 4,6,6,25. The atom swap has 7 fixed tables, 5 induced. Antitone precomplementations are counted by 1+4+4+16, and the representing negation is unique by evaluation at consequent 0. For T, t and v_r must be top and each u_r is independently 0 or the other atom; inflation selects only the paired choices for F. On a smaller bounded lattice (a chain), T forces nu(0)=1 and nu(x)=0 for x>0, so inflation holds. On the diamond the asymmetric choice gives an explicit violation. Independent exact replay from all 4^4 possible single rows, filtered by the original axioms, gives 144 candidates and the labeled/orbit pairs (41,24),(25,15),(16,9),(4,3),(2,2).",
+      "residual_risks": [
+        "Enumeration is for the four-element Boolean lattice; only the minimality argument concerns other bounded lattices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rank-two normal form specializes to the same K row conditions; N_2=41 and I_2=25. It explicitly excludes orbit counts and acknowledges the k=2 values as previously recorded.",
+          "The later atom criterion implies the least-cardinality separation and gives the diamond T/F counts and orbits."
+        ],
+        "reasoning": "Count a real stronger labeled overlap, not an overlap in the partition into isomorphism classes. Distinguish later coverage of the T/F subproblem from evidence of an earlier result.",
+        "searches": [
+          "Resultary: SCOPE-exact-preconditional-spectra-of-finite-rank-two-atom-lattices--8eea2e51d811",
+          "Resultary: SCOPE-finite-atom-criterion-for-double-negation-redundancy-in-precondi--d32b9d739f06"
+        ]
+      },
+      "checked_sources": [
+        "Holliday arXiv:2402.02296v4",
+        "Chen arXiv:2607.20221v1",
+        "Resultary record IDs 8eea2e51d811, 8dc1434dbb19, d32b9d739f06"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtraction gives 16 noninduced from 41 and 25. Labeled totals alone do not determine orbits: one needs 7 total swap-fixed and 5 induced swap-fixed tables. The earlier two-F result does not give the asymmetric T-not-F witness or minimality."
+        ],
+        "reasoning": "The matched statements explain the labeled census and known F subcount; they do not supply the full orbit refinement, which requires separate symmetry analysis and the actual T constraints.",
+        "searches": [
+          "Holliday Proposition 2 and Figure 2",
+          "Resultary rank-two proof and Finding",
+          "Resultary Nov. 2 atom-criterion Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holliday gives P1–P5, the precomplementation construction and a four-element example; Chen gives the equivalent K/T/F framework."
+        ],
+        "reasoning": "The named classes and induction formula are prior definitions/structure; an example separating axioms is not an enumeration or an orbit census.",
+        "searches": [
+          "Holliday arXiv:2402.02296v4 Definition 1 and Proposition 2",
+          "Chen arXiv:2607.20221v1 §§3.1–3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 13 Finding explicitly gives exactly two F-preconditionals on the four-element Boolean algebra. The rank-two Finding lists 41 and 25 as labeled values. No inspected table gives the 24/15/9 total/induced/noninduced orbit census."
+        ],
+        "reasoning": "The isolated F subcount and the labeled overlap are credited, not offered as new exact data.",
+        "searches": [
+          "Resultary: SCOPE-the-first-nonunique-fundamental-conditional-on-a-boolean-algebra--8dc1434dbb19",
+          "Resultary rank-two atom lattice and double-negation records"
+        ]
+      },
+      "rationale": "Pass for the integrated spectrum, particularly the automorphism-orbit census by subclass and the T-versus-F separation at the least lattice size. Do not credit standalone novelty to the earlier two-F count or treat the complete labeled K census as distinct from the rank-two overlap. The same-day rank-two record acknowledges the k=2 values as previously recorded and does not compute isomorphism classes. Its date does not establish priority. The later atom-criterion record overlaps the T/F refinement, not the full K orbit split.",
+      "residual_risks": [
+        "Same-day relative order not established; real labeled overlap recorded regardless of order.",
+        "Unindexed equivalent orbit enumerations are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitions, construction and an example; not the reviewed exact spectrum in these passages",
+          "evidence": "Definition states P1–P5; Proposition gives the construction; Figure 2 witnesses independence of modus ponens.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.02296v4",
+          "material_read": "Definition 1 (p. 2), Proposition 2 (p. 3), Figure 2 context (p. 5)",
+          "method": "OA primary text, bounded passages",
+          "title": "Preconditionals",
+          "trigger": "Original axioms; four-element example; induced representation"
+        },
+        {
+          "assessment": "Same classes, not a four-element census in these passages",
+          "evidence": "T adds conditional identity and semicomplementation; F also adds double-negation inflation.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.20221v1",
+          "material_read": "§§3.1–3.2, pp. 8–9",
+          "method": "OA primary text, bounded passages",
+          "title": "Fundamental Propositional Logic with Preconditional",
+          "trigger": "K/T/F overlap"
+        },
+        {
+          "assessment": "Equivalent labeled specialization at k=2; relative order not established; no orbit count",
+          "evidence": "N_2=41 and I_2=25; counts explicitly are not isomorphism-class counts; k=2 values are described as previously recorded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-preconditional-spectra-of-finite-rank-two-atom-lattices--8eea2e51d811/RESULT.md",
+          "material_read": "Finding, allowed atom-row pairs in Proof, relationship and limitations",
+          "method": "Resultary lookup and local mirror primary passages (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Exact preconditional spectra of finite rank-two atom lattices",
+          "trigger": "Same-day stronger exact normal form and census"
+        },
+        {
+          "assessment": "Prior exact subsidiary result",
+          "evidence": "Exactly two F-preconditionals on the four-element Boolean algebra, with different negations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-the-first-nonunique-fundamental-conditional-on-a-boolean-algebra--8dc1434dbb19/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local mirror text",
+          "title": "The first nonunique fundamental conditional on a Boolean algebra",
+          "trigger": "Prior exact F count"
+        },
+        {
+          "assessment": "Later implication, not evidence of prior coverage",
+          "evidence": "T=F iff at most one atom for finite lattices; explicit four T, two F and orbit counts on the diamond.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-finite-atom-criterion-for-double-negation-redundancy-in-precondi--d32b9d739f06/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary lookup and local mirror text",
+          "title": "Finite atom criterion for double-negation redundancy in preconditionals",
+          "trigger": "Exact T/F and minimality overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Proof §§2–4",
+        "Exact independent row enumeration and orbit counts"
+      ],
+      "rationale": "The first branching Boolean lattice is a natural test case for the axiom hierarchy. The classification distinguishes 24 symmetry types and the induced/noninduced orbit split, data not recovered from the labeled total alone. It also gives an explicit smallest bounded-lattice separation of T and F, explaining what is absent on smaller lattices rather than merely reporting a search hit.",
+      "residual_risks": [
+        "No larger-Boolean-lattice census or general logical completeness result follows from the finite classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

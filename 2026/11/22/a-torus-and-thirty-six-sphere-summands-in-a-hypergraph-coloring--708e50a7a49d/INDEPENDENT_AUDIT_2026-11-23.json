@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:39:16.501529Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof 1–4",
+        "Frozen VERIFICATION.md and verify_hypergraph.py (inspected, not executed)",
+        "arXiv:1104.0483v3, Lemma 17, Proposition 19 and Example 23",
+        "/workspace/checks/structural_reconstructions.md, record 3; /workspace/checks/cross_nerve.py (run)"
+      ],
+      "rationale": "Independent geometric reconstruction: the nine edges are the row-union-column crosses of the 3×3 array of vertices. All chosen crosses lie in one connected component, and the isolated cells are exactly the product of the unused rows and columns. The nonempty intersection poset in reverse inclusion is therefore the product of two nonempty face posets of a triangle boundary, ordered by used row and column supports. This is the cell face poset of ∂Δ²×∂Δ² and realizes to T². The 9 supports of shape 1×1 give S³ and empty lower intervals, the 18 of shape 1×2 or 2×1 give S¹ and two-point lower intervals, and the 9 of shape 2×2 give S⁰ and lower intervals that are subdivided square boundaries. Proposition 19 gives the base T² and the joins S¹*S⁰ and S⁰*S¹, hence precisely 27 S² and 9 S³. Equivalently, for the wedge lemma the nonempty intersection diagram can be made constant on all proper inclusion maps by homotopy equivalences: for each sphere choose a point missing all its strictly smaller subcomplexes, contract their union in the punctured sphere, and extend the homotopy to the sphere. The top term is the order-complex base, not a contraction of an actual empty set. A separate reproduction built the nerve from rectangle supports, checked its (9,36,36,9) counts and validated all 18 uploaded collapse pairs as data; the resulting (9,27,18) complex has cycle links, closed connected manifold incidences and rational H₂ of rank one, consistent with the direct torus proof. The integral homology, fundamental group and cohomology ring follow from the homotopy splitting, not the reverse.",
+      "residual_risks": [
+        "The result concerns the ordinary nonequivariant coloring complex, not a general class of hypergraphs or an equivariant wedge.",
+        "The prior example's printed cup-product degree is inconsistent with two H¹ inputs. The present ring calculation uses its own wedge equivalence, not that sentence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 17 computes each intersection sphere dimension from hypergraph components. Proposition 19 expresses the full homotopy type as joins of those spheres with lower-interval order complexes in the intersection poset.",
+          "The source explicitly leaves the lower-interval order complexes dependent on the underlying hypergraph; the cited example does not evaluate its complete poset or base order complex."
+        ],
+        "reasoning": "The general wedge theorem is genuine pre-existing homotopy-level machinery, not just homology, but stating it for these nine edges leaves unresolved the topology of the order complexes. A further classification of the complete supports and identification of their torus is needed to obtain the specific wedge.",
+        "searches": [
+          "arXiv:1104.0483v3, Wedge Lemma 16, Lemma 17 and Proposition 19"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1104.0483v3 / PMC3587399",
+        "Resultary: 708e50a7a49d (self-hit)",
+        "Frozen RESULT.md, prior-work discussion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The authors give same-row or same-column S¹ pair intersections, diagonal S⁰ intersections and examples of empty triple intersections when meeting all rows or columns.",
+          "What completes the implication is that every nonempty support sphere is indexed by a proper row/column pair, with exactly the componentwise order, yielding both the torus base and the square-boundary intervals. The paper does not state that evaluation."
+        ],
+        "reasoning": "This is a genuinely resolved case of the wedge formula, not a new wedge theorem. The product-of-face-posets topology or a valid nerve collapse is a mathematical argument beyond substituting sphere dimensions or reading off known Betti numbers.",
+        "searches": [
+          "arXiv:1104.0483v3, Proposition 19 and Example 23 incidence discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Example 23 uses exactly the frozen edge set; it says the edge-sphere torus is the underlying idea and labels its drawing intuitive motivation. Its concluding intersection observations say they suggest the illustrated structure.",
+          "The example proves nontrivial cup product/non-wedge-of-spheres and reports ranks 2,28,9; these are consequences of the claimed type but do not determine it."
+        ],
+        "reasoning": "The homotopy type, including π₁ and an actual torus wedge, is stronger than ranks plus a nonzero product. The intuitive drawn torus and partial incidence observations are not a stated or proved torus equivalence for the intersection poset.",
+        "searches": [
+          "arXiv:1104.0483v3, Example 23 and Figs. 1–2",
+          "PMC3587399, Example 23",
+          "Resultary: hypergraph coloring complex Example 23, nine edges, torus and sphere wedge"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed result 708e50a7a49d is the frozen result itself; no distinct exact match surfaced in the focused returns.",
+          "The exact published computation listed in Example 23 is cohomology ranks, not a homotopy-type table or an identification of the top interval."
+        ],
+        "reasoning": "The closest exact computation by the original authors cannot recover the homotopy splitting merely by consulting its ranks. No separate exact catalogue entry for the wedge was identified.",
+        "searches": [
+          "Resultary indexed search for Example 23's exact homotopy type and torus wedge",
+          "arXiv:1104.0483v3 Example 23, published cohomology computation"
+        ]
+      },
+      "rationale": "The exact hypergraph, torus design intuition, integral cohomology ranks and non-wedge-of-spheres observation are prior. The narrow supported increment is evaluating the full homotopy wedge for this example. The original's general join formula and suggested geometry do not identify the base homotopy type or evaluate the relevant intervals for the example; that requires the independent topological and poset computations.",
+      "residual_risks": [
+        "Unindexed computations or an external worked evaluation of Example 23 could affect priority. The original torus intuition and overlap in exact ranks substantially limit what is new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pre-existing model, wedge method, ranks, cup-product motivation and torus intuition; no evaluated full wedge in the inspected example",
+          "evidence": "Proposition 19 gives S^{d_p}*Δ(P_<p). Example 23 describes the figure as intuitive motivation, lists the given nine edges and Z²,Z²⁸,Z⁹, then says observed intersection behavior suggests the illustrated structure. Its printed degree for the H¹×H¹ cup product is inconsistent, hence not independent verification of the torus ring.",
+          "identifier_or_url": "https://arxiv.org/pdf/1104.0483; doi:10.1016/j.disc.2012.04.027; PMC3587399",
+          "material_read": "Open full-text passages on Wedge Lemma 16, Lemma 17, Proposition 19 (pp. 14–15, PDF offsets 53700–61682), and §5.2 Example 23 (pp. 16–17, PDF offsets 64600–70064; PMC equivalent cup passage)",
+          "method": "Located exact proposition and example and read their surrounding passages; compared the statements to the reconstructed support poset",
+          "title": "Hypergraph Coloring Complexes",
+          "trigger": "Same exact hypergraph and the strongest available general homotopy theorem"
+        },
+        {
+          "assessment": "Identical frozen record, not a distinct prior",
+          "evidence": "Same exact example, T²∨27 S²∨9 S³ and nerve-collapse certificate.",
+          "identifier_or_url": "Resultary: 708e50a7a49d",
+          "material_read": "Original mirrored RESULT.md, main type and nerve collapse proof",
+          "method": "Indexed search and original text via local mirror",
+          "title": "A torus and thirty-six sphere summands in a hypergraph coloring counterexample",
+          "trigger": "Exact indexed homotopy-type match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Breuer–Dall–Kubitzke, Example 23 and Proposition 24",
+        "Frozen RESULT.md, stated homotopy type and limitations"
+      ],
+      "rationale": "Example 23 is a motivated uniform-hypergraph counterexample, not an arbitrary small arrangement. Its full integral homotopy type distinguishes a torus obstruction with explicitly quantified sphere contributions from the many complexes sharing its published additive invariants. It provides an exact homotopy benchmark, including the fundamental group and the origin of the nonzero product. No value is assigned to recomputing the already published ranks by themselves.",
+      "residual_risks": [
+        "The calculation is for one particular prior example and does not introduce a general homotopy classification theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

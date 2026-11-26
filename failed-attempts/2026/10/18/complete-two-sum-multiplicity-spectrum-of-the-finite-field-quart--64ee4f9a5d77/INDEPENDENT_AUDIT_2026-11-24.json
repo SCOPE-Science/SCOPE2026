@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:15:53.543534Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–77",
+        "VERIFICATION.md:19–25, verify_quartic.py and verification_output.txt (inspected, not executed)",
+        "Independent replay: python3 /workspace/review_checks.py quartic"
+      ],
+      "rationale": "For s≠0 the bijection w=2t/s−1 changes the ordinate to (w⁴+6w²+1)/8 after dividing by s⁴. Squaring w gives the involution v↦−6−v with a fixed point −3 and exceptional pair {0,−6}; their distinct targets have multiplicities 1+δ and 2+η. The character-product sum is −ε: after shifting v by 3 and taking out χ(−1), the sum of χ(z²−9) is −1 by counting (z-u)(z+u)=9. Removing the three exceptional points gives precisely the three orbit equations and their solutions. Half of the nonzero discriminants are nonsquares, and including their targets gives the asserted k₀. At s=0 the fourth-power map on F× has kernel size g, including the separate singleton at y=0. Aggregation, 8/g=3−ε, and summation of squared multiplicities give the stated global spectrum, support and (known) energy. Independent direct ordered enumeration checks each slice, including zeros, over q=5,7,11,13,19,29,49,125, with an irreducible cubic model for F₁₂₅; all counts, support and energy agree.",
+      "residual_risks": [
+        "Finite enumeration is only corroboration. The character argument proves the characteristic >3 result, including nonprime fields, but says nothing about characteristics two and three."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 text explicitly credits the odd-characteristic Dickson value-set formula to Theorem 10 of the 1988 paper. Using the source's body notation d=gcd(4,q−1), e=gcd(4,q+1), its specialization gives S=floor((q−1)/(2d))+floor((q+1)/(2e))+1+1_{η=−1, q≡3 or 5 mod 8}. The prefatory Theorem 1.4 has a garbled gcd and power-of-two specification; the specialization is checked against the actual image decomposition, not that typo. In §2 and §3 write D₄ as z+a⁴/z on z from the fourth powers of F_q× and of the norm-a coset. These power sets have sizes (q−1)/d and (q+1)/e, with z↔a⁴/z giving distinct pairs except at ±a². The two images can overlap only at these two fixed points; their symmetric-difference count on the two power sets is one for q≡1,7 mod 8 and is zero for η=1 or two for η=−1 when q≡3,5 mod 8. This gives the stated floor formula. The 2026/11/2 catalogue theorem also covers the complete histogram exactly at perturbation parameter zero, but postdates the frozen record."
+        ],
+        "reasoning": "Using χ(2)=1 for q≡1,7 mod 8 and −1 for q≡3,5 mod 8, and δ=ηχ(2), the floor formula is precisely S=(3q+4+ε+2δ−2η)/8 for every field in scope. This is not an implication from the later catalogue theorem alone.",
+        "searches": [
+          "Value sets of Dickson polynomials over finite fields, Chou–Gomez-Calderon–Mullen (1988), Theorem 10",
+          "Brazelton et al. (2024) Theorem 1.4, §2, Notation 3.1, Propositions 3.5, 3.8, 3.11",
+          "Resultary even-quartic graph generalization 0e6d34edb345"
+        ]
+      },
+      "checked_sources": [
+        "Brazelton–Harrington–Litman–Wong author PDF",
+        "Chou–Gomez-Calderon–Mullen (1988) citation and retrieval attempt",
+        "2016 quartic value-set DOI abstract and retrieval attempt",
+        "Resultary 235f10989b3f, 0e6d34edb345, 327b026713c6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let S be the known nonzero-s image size. Parity under w↦−w puts the only odd-sized fiber at the target of w=0, where w²(w²+6)=0 has L=2+η roots. All other positive fibers are of size two or four since the polynomial is even and degree four. Thus k₂+k₄=S−1 and 2k₂+4k₄=q−L; k₀=q−S and the odd counts are forced by L."
+        ],
+        "reasoning": "Solving those two elementary equations reproduces k₂ and k₄, and adding the fourth-power zero-slice gives all N_j and the sumset size. Thus the strongest prior implication uses the image theorem, not the earlier energy identity. No distinct nonmechanical remainder is established.",
+        "searches": [
+          "2024 Dickson image size and degree-four specialization",
+          "Resultary 235f10989b3f fixed-s collision count",
+          "Frozen RESULT.md:38–42, 66–77"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For s≠0 the frozen ordinate is an affine transform of D₄(w,a)=w⁴−4aw²+2a² for a=−3/2. In particular χ(a)=η. The 2024 paper gives the first-kind recurrence/Binet formula, the hyperbolic and elliptic images and their overlap, and states the size of the value set over arbitrary odd prime powers."
+        ],
+        "reasoning": "The nonzero-s slice is literally the image of a known Dickson polynomial after bijective changes of source and target. No new count of such images is needed. At s=0 the support is the standard cyclic-group fourth-power image plus zero.",
+        "searches": [
+          "Quartic value sets x⁴+a x²+b x with b=0",
+          "Dickson polynomials exact image cardinality over finite fields",
+          "Brazelton–Harrington–Litman–Wong, Residue sums of Dickson polynomials over finite fields"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier quartic energy gives a weighted second moment, not a same-target census. The cited exceptional-field tables could not be read from the mirror; their credit is stated by the frozen record and is not decisive here. The same-day prime-square record is a unit-perturbed ring energy, a different problem. The later even-quartic record gives the exact spectrum uniformly at a=0."
+        ],
+        "reasoning": "Finite tables or an energy result alone would not imply the exact histogram across all fields. The prior uniform Dickson theorem is the dominating exact image count that matters; no inference from the date of the same-day ring result is needed.",
+        "searches": [
+          "Resultary quartic energy 235f10989b3f, same-day ring moment 327b026713c6, later even-quartic spectrum 0e6d34edb345",
+          "Cited q=5 and q=13 quartic-power-image results bccd0021eeec and 3cf25572a021"
+        ]
+      },
+      "rationale": "An older, broader Dickson-polynomial value-set theorem supplies the entire claimed support calculation. Taking its degree-four case and using one exceptional fiber plus total mass then mechanically recovers the whole claimed multiplicity histogram, not only its second moment. This is established by a statement-level specialization of pre-2026 literature, not by the inability to retrieve other papers or the date of a later catalogue record.",
+      "residual_risks": [
+        "No claim that the earlier sources literally tabulate the graph histogram; it is mechanically implied by an earlier uniform image formula. The exact scope of the 2016 article beyond its indexed abstract and the cited finite tables remain unverified; neither is needed for the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Pre-2026 broader exact coverage of the required image count; verified via body notation and power-set pairing",
+          "evidence": "D_n(z+a/z,a)=z^n+a^n/z^n, with complementary full-field and norm-coset parametrizations. The body uses gcd(n,q+1) and highest power of two dividing q²−1, and the only overlaps are at ±2a^(n/2). For n=4 the resulting size is the frozen S.",
+          "identifier_or_url": "https://tbrazel.github.io/assets/papers/dickson.pdf",
+          "material_read": "Author PDF abstract, Theorem 1.4 and preceding attribution (p. 3, offset 11940), §2.1 Eq. (2), Proposition 2.14 (p. 7), Notation 3.1 (p. 8, offset 30150), Propositions 3.5 and 3.8 (pp. 10 and 12), overlap discussions §§3.2–3.3 (pp. 13–15)",
+          "method": "Lawful author PDF; bounded original passages with independent case comparison",
+          "title": "Residue sums of Dickson polynomials over finite fields",
+          "trigger": "Degree-four Dickson alias for the slice and exact image counts"
+        },
+        {
+          "assessment": "Earlier attribution; exact implication independently established from accessible pre-2026 primary text",
+          "evidence": "The indexed abstract identifies cardinalities of Dickson value sets over F_q as the result; the accessible 2024 paper gives a statement and derivation for odd characteristic.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-314X(88)90006-6",
+          "material_read": "Indexed original abstract; Theorem 10 identified by explicit attribution in the 2024 paper, not read in the 1988 original",
+          "method": "Publisher and identified CORE PDF retrieval attempts; relied on accessible 2024 theorem and proof",
+          "title": "Value sets of Dickson polynomials over finite fields",
+          "trigger": "Earlier main value-set theorem identified in the 2024 primary paper"
+        },
+        {
+          "assessment": "Reinforces plausible overlap; not the basis of the verdict",
+          "evidence": "The abstract advertises an exact formula for the number of values of x⁴+a x²+b x for b=0 over odd finite fields.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2016.01.013",
+          "material_read": "Indexed publisher abstract only",
+          "method": "Lawful publisher and DOI/alternate retrieval attempts; no full text obtained",
+          "title": "A note on value sets of quartic polynomials",
+          "trigger": "Exact even-quartic value-set problem in the literature"
+        },
+        {
+          "assessment": "Same second moment, not by itself the full histogram",
+          "evidence": "The frozen result reproduces its energy, which depends on χ(−3) and not separately on χ(−6).",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-additive-energy-of-the-finite-field-quartic-graph--235f10989b3f/RESULT.md",
+          "material_read": "Finding and fixed-s collision-count proof",
+          "method": "Local Resultary mirror",
+          "title": "Exact additive energy of the finite-field quartic graph",
+          "trigger": "Earlier same-graph collision formula"
+        },
+        {
+          "assessment": "Later exact indexed superset, not prior evidence by date",
+          "evidence": "At perturbation zero its Z=1 and T=(q−1)χ(−6) give this histogram and the same support.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-twofold-sum-multiplicity-spectrum-for-even-quartic-grap--0e6d34edb345/RESULT.md",
+          "material_read": "Finding, global spectrum and support formulas",
+          "method": "Local Resultary mirror",
+          "title": "Complete twofold-sum multiplicity spectrum for even-quartic graphs over finite fields",
+          "trigger": "Exact same-type histogram and support for a broader graph family"
+        },
+        {
+          "assessment": "Different scope and invariant",
+          "evidence": "The work concerns unit perturbations over Z/p²Z and a fourth moment, not this complete finite-field graph census.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-fourth-moments-of-unit-perturbed-quartic-graphs-over-prime--327b026713c6/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact fourth moments of unit-perturbed quartic graphs over prime-square rings",
+          "trigger": "Same-day quartic moment hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–77",
+        "Brazelton et al. degree-four specialization and prior-implication comparison above"
+      ],
+      "rationale": "The ordered convolution histogram is a natural invariant, and the direct quadratic-character proof is readable. But for this exact classification the old Dickson value-set theorem plus parity and total mass already determines every entry. Recasting that consequence in graph notation and adding the cyclic-group zero slice does not supply a distinct exact invariant under the value criterion. A useful exposition is not a repaired new finding.",
+      "residual_risks": [
+        "No decision is made on the novelty or value of a different weighted problem or a larger quartic family. No surviving new statement warranted a repair of this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

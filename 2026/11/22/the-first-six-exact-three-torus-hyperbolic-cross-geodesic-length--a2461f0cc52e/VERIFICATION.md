@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-The result concerns the six discrete strengths \(t=1,\ldots,6\) only. For a primitive winding \(v\) a hyperbolic-cross design geodesic is equivalent to the finite condition \(m\cdot v\ne0\) for every nonzero \(m\in H_3(t)\). Every minimal vector has, after sign changes and permutation, positive ordered coordinates \(a\le b\le c\), with \(\gcd(a,b,c)=1\). The proposed winners establish finite norm caps \(C_t\); any shorter or equal-length competitor must lie in the exhaustive integer box \(1\le a\le b\le c\le\lfloor\sqrt{C_t}\rfloor\) and also satisfy \(a^2+b^2+c^2\le C_t\).
+## correctness
 
-To verify, execute `python checker.py` using Python 3 and its standard library. It generates each complete integer hyperbolic cross, enumerates every potential norm-bounded primitive competitor, and searches every cross frequency for an exact vanishing integer dot product. It asserts the unique survivors and their squared norms \((21,65,101,133,133,314)\). Primitive candidate counts are \((9,41,80,119,119,421)\), and the numbers excluded by exact integer witnesses are \((8,40,79,118,118,420)\). The proof of the search bound makes this a reproducible exhaustive finite certificate, not a random experiment or a partial numerical scan.
+PASS
 
-This finite theorem does not cover all strengths or nongeodesic designs. An earlier equivalent computational table remains a historical-priority possibility. Independent audit was not performed.
+The winding is constant-speed, so its normalized arclength equals ds/(2π) in the stated parameter. The Fourier integral vanishes exactly when m·v≠0. Unit frequencies exclude zero coordinates; signed permutations preserve the cross, and division by a common factor preserves every nonvanishing dot product. Thus positive ordered primitive triples suffice. At each displayed cap any equally short or shorter triple is in the bounded search, which includes equality. An independent calculation solves m₃=−(a m₁+b m₂)/c by divisibility for |m₁|,|m₂|≤t; when m₁=m₂=0 there is no nonzero orthogonal frequency. It finds one survivor per cap with exactly the stated winding norms (21,65,101,133,133,314), primitive candidate counts (9,41,80,119,119,421), and cross cardinalities (27,81,135,225,279,405). Each survivor attains its cap and the physical length is 2π times its norm, proving minimality and the signed-permutation classification.
+
+## originality
+
+PASS
+
+The generic Fourier criterion, the cross itself and the t=1 cube answer are not new. The supported distinct result is the sharp finite three-dimensional classification at strengths 2 through 6, including equality cases; the strongest related theorems treat a different dimension or set of frequencies, weaker optimality, or a different objective.
+
+## value
+
+PASS
+
+For an independently motivated Fourier exact-design problem, the shortest primitive winding gives the exact cost of a single periodic trajectory. Beyond the known cube baseline, the first five nonbox cases locate a genuine plateau despite 54 added frequencies and then an exact jump from 133 to 314 in squared cost; in particular (3,−2,0) enters at strength six and obstructs the old optimum. This initial classification with rigidity provides precise feasible designs and benchmarks for sharpening higher-dimensional length bounds, not just examples at one selected parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

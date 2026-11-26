@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact quadratic-cone Fourier multipliers and plane/intersection inclusion–exclusion give all eigenvalues. The tangent case has an exhaustive four-band frequency partition. In the transverse case the dual cone gives the attained \(\sqrt q\) lower bound, while the reverse triangle inequality controls every other band except characteristic-three order three, resolved explicitly. Checker reproduces 3,672 complete direct Fourier identities in four finite fields; the proof handles arbitrary odd prime powers.
+## correctness
 
-**Originality — PASS relative to inspected sources.** The related Euclidean cone moment work (Demeter, arXiv:2610.23679) is not a finite-field convolution theorem. The finite-field cone extension paper (González-Riquelme–Ismoilov, arXiv:2509.05600) concerns \(L^2\to L^4\) extremizers rather than the full ambient counting-convolution spectrum of a union. Iosevich–Li–Yu (arXiv:2609.25404) addresses spectral-synthesis complexity, not this exact model. Classic finite-field Gauss identities (Kazhdan–Polishchuk, arXiv:math/0003011) are credited. A previously unlocated general transform theorem remains possible; no priority certification is asserted.
+PASS
 
-**Value — PASS.** The theorem determines the precise loss and restoration of Fourier identifiability under a geometrically canonical tangent-to-transverse deformation. It provides an all-field exact \(\ell^2\) deconvolution condition number and a complete tangent nullity, quantitatively separating singular measurement from noisy but invertible recovery.
+A separate derivation slices the cone at y. At y=0 it gives the x-axis, and for each y≠0 it gives x=z²/y. At u≠0 the latter slice has multiplier χ(u/y)𝒢ψ(y(v−w²/(4u))) by square completion. Summing over y≠0 using the quadratic character and 𝒢²=χ(−1)q gives qχ(−D); the x-axis contributes zero. For c=0, u≠0 this is also the union multiplier: the q(q−1) frequencies D=0 vanish and q(q−1)² have magnitude q. If u=0 and w≠0, all nonzero-y slices vanish and the x-axis contributes q, canceled at c=0 by subtraction of the intersection, giving q(q−1) more zeros. On the axis u=w=0, the zero frequency is 2q²−q, and the nonzero v frequencies have magnitude q(q−1) for every c. With c≠0 and u≠0 one omits precisely the c slice from the cone sum. At D=0 this leaves magnitude √q, and at D≠0 it leaves at least q−√q>√q for q≥5. In F₃ only one nonzero-y slice remains, so its magnitude is actually √3 at every u≠0 (consistent with the source's inclusive bound). For c≠0, u=0,w≠0 the multiplier is q. The origin attains the triangle-inequality upper bound. Unitary character diagonalization of counting convolution yields the listed singular values, inverse norm and condition number; the argument works in extension fields as well.
 
-The result is restricted to odd fields, this split quadratic cone, the specified parallel planes and complex counting-convolution. No independent mathematical or bibliographic audit has been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical quadratic Gauss sums and the cone transform are prior ingredients, as is Fourier diagonalization. The strongest indexed geometry and operator matches are distinct; none of the inspected statements supplies this union's explicit cancellation counts and sharp translated lower bound. This is a bounded conclusion, not a priority guarantee.
+
+## value
+
+PASS
+
+A natural one-parameter change in incidence keeps support size and upper multiplier fixed yet changes an extensive nullspace of size 2q(q−1) into exact invertibility, with a sharp recovery scale √q and no excluded odd extension fields. The result quantifies a geometric effect on a precise operator, not just a cone transform or a nonvanishing example at one field size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

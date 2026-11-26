@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:24:39.057899Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent coordinate derivation starts at the centroid and takes the three vectors to the midpoints of the edges incident to one vertex. Inverting these midpoint identities gives the four even-minus sign patterns in those vectors. Each opposite-edge equality makes a pair of the vectors orthogonal, and nondegeneracy makes all three lengths positive. Conversely the edge-square triple is four times the three pairwise sums of squared semiaxes, so the sorted axes determine the similarity class. The origin has equal vertex distances and equal perpendicular distances to the four faces (the omitted vertex has signed axial-coordinate sum 3, and all other vertices have sum -1), giving the exact circumradius and inradius. At fixed E, the resulting inverse squared roundness is a constant plus (1+E^-2)(z+E²/z) with z=t² in [1,E²]. This is strictly decreasing to z=E and then strictly increasing, and its values at z=1,E² agree. Thus both endpoints, all intermediate values, and precisely two distinct sorted-axis classes for each interior value follow; the two quadratic roots have product E². Each endpoint decreases strictly as E increases above 1; solving the two reciprocal quadratics gives the stated fixed-h interval. Expanding the endpoint equalities at E=1 gives deficits 4(E-1)²/27 and (E-1)²/9, respectively, hence the stated sharp inverse coefficients. At E=1 the only tetrahedron up to similarity is regular. The exact-rational checker was read, not executed; the proof is real-variable and algebraic. The displayed covering-radius specialization is algebraically correct conditional on the cited prior covering formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "3c21c1faa6d8 fixes the two radii and bounds volume. The distinct same-day b8c01c278eb3 studies covering-ball uniqueness and near-optimal rigidity. The frozen source attributes M(h)=1/[2 sqrt(1-h²)] and a tetrahedron example to Nour."
+        ],
+        "reasoning": "Volume bounds at fixed radii and covering optimization given a simplex do not classify which h can occur at fixed box eccentricity or count the shapes. The broader covering formula transfers an h interval once obtained; it is not that interval.",
+        "searches": [
+          "Nour arXiv:2611.14181v1, Theorem 2.3, Example 2.6 and Section 3",
+          "Resultary: fixed-radii interval for concentric bicentric tetrahedra; covering ball linear rigidity for circum-incenter simplices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checks/exact_profile_check.py",
+        "Resultary 77a188e3731e, 3c21c1faa6d8 and b8c01c278eb3 (indexed summaries)",
+        "Nour arXiv:2611.14181v1 and Rajpoot DOI 10.13140/RG.2.2.25136.20485 (identified; primary retrieval attempted)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard radius product expresses h at each given triple but does not determine the two-to-one image at fixed axis ratio. A general Kantorovich bound with minimum axis square m and maximum M gives h>=2 sqrt(mM)/[3(m+M)]; at E=2 this lower estimate is 4/15, strictly weaker than sqrt(2/27)."
+        ],
+        "reasoning": "The classical reciprocal-sum bound need not realize sharpness with three equally weighted axes. Pinning the extreme axes and optimizing the remaining axis gives the strict branches and the sharp endpoints; neither the sample at E=2 nor the fixed-edge profile transfers this classification by a parameter substitution.",
+        "searches": [
+          "Frozen RESULT.md:35–68, 76–95 compared to 77a188e3731e, Rajpoot's analytical disphenoid radii and Nour Example 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed 77a188e3731e statement fixes normalized variance of the three squared edge-pair lengths and reports two isosceles boundary branches; the frozen result fixes E=a/c.",
+          "At fixed E=2, the edge squares divided by four are (2,5,5) at t=1 and (5,5,8) at t=2. Their variances agree but their means differ, so their variance normalized by squared mean differs."
+        ],
+        "reasoning": "Fixing normalized edge-square variance is not equivalent to fixing the extreme box-axis ratio. The reciprocal-axis involution t -> E/t preserves h and E, not that normalized variance in general. Shared isosceles extremizers are not equivalent coverage.",
+        "searches": [
+          "Resultary: fixed edge-square anisotropy disphenoids radius ratio profile sharp interval",
+          "Rajpoot DOI 10.13140/RG.2.2.25136.20485 and analytical disphenoid radii"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest competing catalog entry reports a sharp (r/R)² profile indexed by edge-square variance, including a vanishing lower bound at its critical variance; it does not give a table of the fixed-E spectrum. Nour's cited Example 2.6 uses the particular (2,2,1) shape, explicitly credited in RESULT.md:74–82."
+        ],
+        "reasoning": "A single prior shape instance and its covering-ball consequence are not a table for all real E or a determination of the lower pair, upper shape, and interior shape count. No distinct exact fixed-E table was established in the inspected evidence.",
+        "searches": [
+          "Resultary: sharp disphenoid radius spectrum at fixed box eccentricity E and geometric-progression semiaxes; fixed-edge profile 77a188e3731e"
+        ]
+      },
+      "rationale": "Limited to the full sharp fixed-box-eccentricity spectrum, its equality and two-branch classification and the corresponding inverse bounds. The box model, radius product formula and prior covering formula are not novelty claims. The strongest available neighboring results use different constraints or different outputs, and the available statements do not imply these sharp envelopes. Older radius material and full formula-level comparisons to the fixed-edge record remain access risks; this is a best-of-knowledge judgment, not a priority attestation.",
+      "residual_risks": [
+        "Unavailable formula-level details of the edge-square-variance comparison and earlier disphenoid-radii literature.",
+        "An earlier explicit three-variable reciprocal-sum optimization with the same extremal-coordinate constraint could specialize to the same spectrum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related but different constraint; no whole-document absence claim",
+          "evidence": [
+            "Fixed normalized squared-edge variance; two isosceles branches and a critical variance 1/4 in the indexed summary."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-radius-ratio-profile-at-fixed-edge-square-anisotropy-for-d--77a188e3731e",
+          "material_read": "Catalog scientific summary; targeted original mirror passage retrieval timed out",
+          "method": "Resultary and targeted mirror lookup",
+          "title": "Sharp radius-ratio profile at fixed edge-square anisotropy for disphenoids",
+          "trigger": "Same class, same radius ratio, related sharp equality shapes"
+        },
+        {
+          "assessment": "Prior shape and covering formula credited; no unsupported whole-document conclusion",
+          "evidence": [
+            "The frozen work takes the cited unit-circumradius example with axes (2,2,1)/3 and derives rather than claims novelty for its covering-radius specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.14181",
+          "material_read": "Frozen pinpointed description of Theorem 2.3, Example 2.6 and Section 3; primary OA passages not obtained",
+          "method": "Targeted OA and identified copy attempts; comparison with RESULT.md:74–82",
+          "title": "A counterexample to the strong version of the union of uniform closed balls conjecture in dimensions three and higher",
+          "trigger": "Explicit (2,2,1) antecedent and covering formula"
+        },
+        {
+          "assessment": "Credited as relevant background; possible exact overlap cannot be excluded",
+          "evidence": [
+            "RESULT.md:88,93 identifies the work and flags limited access."
+          ],
+          "identifier_or_url": "10.13140/RG.2.2.25136.20485",
+          "material_read": "Citation and abstract-level characterization in the frozen record; no original full-text passage obtained",
+          "method": "Title/identifier lookup and targeted attempt at the identified accessible record",
+          "title": "Analytical Solution of Disphenoid (Isosceles tetrahedron)",
+          "trigger": "Earlier disphenoid-radius formulas and possible sharp constraints"
+        },
+        {
+          "assessment": "Different constrained quantity and objective",
+          "evidence": [
+            "Fixes the two radii and optimizes volume, with equal-axis boundary examples."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-volume-interval-for-concentric-bicentric-tetrahedra--3c21c1faa6d8",
+          "material_read": "Catalog scientific summary; original mirror passage unavailable",
+          "method": "Resultary and targeted mirror lookup",
+          "title": "Sharp volume interval for concentric bicentric tetrahedra",
+          "trigger": "Similar centered-box equality shapes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extreme-axis ratio is an intrinsic geometrically motivated distortion parameter. The theorem gives exact global roundness bounds at a prescribed distortion, both lower equality classes, the non-isosceles upper shape for E>1, and the full inverse shape ambiguity and near-regular window. These supply quantitative information not present in an unconstrained radius formula; no significance is attributed merely to the rational test grid or to the previous covering result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

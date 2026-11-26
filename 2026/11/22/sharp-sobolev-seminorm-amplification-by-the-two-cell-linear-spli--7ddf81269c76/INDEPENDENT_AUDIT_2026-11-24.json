@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:30:06.594847Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the derivative operator by adjoining the hinge w=(x-h)_+ to the affine subspace. With b=1-h, its affine projection is b²/2+β(x-1/2), β=b²(1+2h); the residual v has squared L² norm h³b³/3. If F(t)=∫_t^1 v and A(t)=6t(1-t), the derivative kernels on the left and right cells are A−βF/‖v‖² and A+(1−β)F/‖v‖². This gives the piecewise kernels in RESULT.md:34–43 by integration. For the left row the negative part on the long side beyond (1+2h)/3 has integral 2b²/(9h); the right row is its reflection with h and b swapped. Both have integral one, so taking the larger absolute integral and its kernel-sign derivative gives exactly the attained L∞ result. The squared L² norm is the top eigenvalue of the weighted row Gram matrix; integrating the polynomial pieces gives cross inner product −3(1−2h)²/(20hb), trace 3(1+4hb)/(10hb), and discriminant 9(1−4hb)(1−3hb)/(100h²b²). The adjoint applied to a top eigenvector supplies an admissible extremizing derivative. Both formulas decrease strictly as the mesh approaches balance: for L², write u=hb and observe that 1/u and sqrt((1−4u)(1−3u))/u decrease on (0,1/4]. Substitution verifies both minima and the leading graded constants. The one-cell affine projector has kernel A and fixed seminorm gains (1 and sqrt(6/5)), so it has no grading divergence. In RESULT.md:45 the prefactor for a slope kernel is a difference of coordinate vectors, not scalar hat values; the explicit kernels and proof calculation use that interpretation. Read checker.py and VERIFICATION.md; no uploaded code was executed and no formal verification is claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RESULT.md:80–89 identifies sufficient mesh-grading stability estimates and an infinite graded H¹ counterexample; decisive primary text was not retrieved."
+        ],
+        "reasoning": "Sufficient bounds on qualified meshes and examples refuting unconditional stability do not by themselves furnish sharp constants on each of the three-node meshes.",
+        "searches": [
+          "Primary-literature search: exact W¹p stability and sharp grading constants for one-dimensional linear-spline L² projection",
+          "Diening–Storn–Tscherpel, arXiv:2008.01801, Theorem 4.13",
+          "Bank–Yserentant, DOI 10.1007/s00211-013-0562-4, §7"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:14–20, 22–75, 80–89; checker.py; VERIFICATION.md",
+        "Resultary records b3ad57d2e5ab, ce52dee09ef7, 61a51e76f5c1 (catalogue statements)",
+        "Diening–Storn–Tscherpel Theorem 4.13 and Bank–Yserentant §7 (citations and bounded access attempts, not read in full)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sharp L∞ answer requires the signed mass of a row and the L² answer its weighted singular value, including the cross moment. A universal bound on the L¹ derivative operator does not specify either quantity."
+        ],
+        "reasoning": "Neither dimension-free variation nor qualitative H¹ instability implies the exact input extremizers, exponents with coefficients, or balanced minimizer.",
+        "searches": [
+          "Fixed-mesh induced slope Gram comparison with Resultary W¹,¹ variation entry b3ad57d2e5ab",
+          "Comparison with Theorem 4.13 and §7 identified in RESULT.md:81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First catalogue summary uses bounded inputs with derivative output on a periodic uniform mesh; the second concerns the L∞ projector and Green functions on the real line."
+        ],
+        "reasoning": "Differentiating the projector and measuring f′ modulo constants, rather than measuring f itself, changes the domain and the induced kernel. These indexed statements do not give the finite-interval two-row norm.",
+        "searches": [
+          "Resultary: sharp two-cell spline derivative seminorm orthoprojector",
+          "Resultary: 2026/10/18/SCOPE-sharp-rough-input-slope-amplification-for-periodic-linear-spline--ce52dee09ef7",
+          "Resultary: 2026/10/18/SCOPE-one-anomalous-cell-destroys-the-sharp-uniform-mesh-spline-projec--61a51e76f5c1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct same-day entry describes a universal sharp variation factor of 3 over finite meshes, with sharpness over graded meshes, rather than a table of the fixed-mesh p=2,∞ norms."
+        ],
+        "reasoning": "Variation is the derivative L¹ norm; neither the scalar variation factor nor same-day indexing identifies the two exact formulas or a priority order.",
+        "searches": [
+          "Resultary finite-mesh spline norm search",
+          "Resultary: 2026/11/22/SCOPE-a-sharp-universal-variation-bound-for-one-dimensional-linear-spl--b3ad57d2e5ab"
+        ]
+      },
+      "rationale": "The supported distinction is the exact pair of attained, fixed two-cell derivative-to-derivative norms, with their balanced minima and precise singular-grading behavior. The reviewed indexed statements concern L¹ variation or bounded-input projector/slope norms; broad stability estimates and qualitative instability do not establish these sharp numbers. This is a bounded best-of-knowledge decision, not a priority certification.",
+      "residual_risks": [
+        "Primary OA access limits and unavailable full indexed text leave possible earlier equivalent formulas unresolved, particularly results encoded as integrated Green kernels on variable finite meshes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Adjacent sharp L¹ derivative inequality, not demonstrated equivalent coverage",
+          "evidence": [
+            "Catalogue: factor 3 for variation, sharp over graded meshes."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-universal-variation-bound-for-one-dimensional-linear-spl--b3ad57d2e5ab",
+          "material_read": "Resultary catalogue finding; full matching text unavailable",
+          "method": "Local Resultary search; lawful mirror retrieval attempted",
+          "title": "A sharp universal variation bound for one-dimensional linear spline projection",
+          "trigger": "Closest indexed finite-mesh projection result"
+        },
+        {
+          "assessment": "Primary comparison remains limited; no exact constant follows from the stated description",
+          "evidence": [
+            "Cited Theorem 4.13 concerns sufficient stability conditions, as characterized by the frozen submission."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.01801",
+          "material_read": "Frozen RESULT.md:81 and 87 descriptions; OA arXiv requests including Theorem 4.13 timed out",
+          "method": "Targeted lawful OA attempts at arXiv text and cited alternatives",
+          "title": "On the Sobolev and Lp-Stability of the L²-projection",
+          "trigger": "Broader Sobolev stability theorem for the same class of projectors"
+        },
+        {
+          "assessment": "Qualitative instability overlap on available evidence; exact prior coverage unresolved",
+          "evidence": [
+            "The cited §7 example is described as an infinite geometrically graded partition."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00211-013-0562-4",
+          "material_read": "Frozen RESULT.md:81 and 88 descriptions; primary §7 not retrieved",
+          "method": "Targeted lawful OA retrieval attempted",
+          "title": "On the H¹-stability of the L²-projection onto finite element spaces",
+          "trigger": "Cited graded-mesh counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the smallest mesh that can isolate grading-dependent instability of the ordinary L² projection. Exact best factors make the comparison quantitative: the Lipschitz seminorm grows as the inverse short-cell length while the Hilbert seminorm grows as its inverse square root. The formulas also give concrete worst inputs and the unique optimal knot. These are useful sharp benchmarks for mesh-dependent stability, not just repetitions of an upper estimate or numerical examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

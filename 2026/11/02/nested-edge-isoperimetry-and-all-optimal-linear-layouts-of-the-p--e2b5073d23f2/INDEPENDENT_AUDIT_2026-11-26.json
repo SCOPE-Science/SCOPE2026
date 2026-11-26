@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:59:03.481650Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the point-line Levi graph using projective Pappus coordinates and checked its isomorphism with the signed-offset LCF graph. A direct crossing-edge scan of all 262144 subsets gave b=(0,3,4,5,6,7,6,7,8,7,8,7,6,7,6,5,4,3,0) and m=(1,18,27,54,126,324,18,108,540,54,540,108,18,324,126,54,27,18,1), including the empty and full sets. The LCF prefixes realize every entry of b. Each edge contributes its span to the sum of prefix cuts, so sum(b)=99 and max(b)=8 are attained lower bounds on the two objectives. Equality for the sum holds exactly when all prefixes are minimizing sets. With one path at the empty set, forward extension by one vertex to any minimizing superset counts each labelled optimal order once and gives 31,850,496 paths to the full set. No identification by automorphisms or reversal was taken. Replay and raw results: /workspace/review-evidence/1/pappus_independent_check.py and /workspace/review-evidence/1/pappus_independent_check.out. The frozen certificate and checkers were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen proof uses the general cut-sum lower bound and equality criterion attributed to Horton–Parker–Borie; the older paper's exact passage was not accessible.",
+          "The Heawood result concerns the 14-vertex Fano Levi graph and gives MinLA 69 and 1,548,288 orders. The Möbius ladder theorem gives n·4^n labelled orders for M_(2n) and the prefix characterization within that family."
+        ],
+        "reasoning": "A general optimization identity does not count minimizer chains for Pappus. The Heawood and Möbius ladder records are close in mathematical goal, but the Pappus graph is not a member of either covered class (in particular it has girth six, whereas the order-18 Möbius ladder has squares). No priority inference is drawn from their same-day dates.",
+        "searches": [
+          "DOI 10.1016/S0166-218X(00)00173-6, Horton–Parker–Borie; alternate full-text attempt",
+          "Resultary same-day arrangement records dc3e824375f5 and 930de13ad3f0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json, verify_lcf.py and verify_incidence.py",
+        "arXiv:2601.17519 Table A4",
+        "MathWorld Pappus Graph",
+        "DOI 10.1016/S0166-218X(00)00173-6 (bibliographic/abstract access)",
+        "Resultary 761840bb7a71, 1b9ce34e6c8b, dc3e824375f5 and 930de13ad3f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The scalar rounded to 0.78 uniquely identifies 7/9 among fractions with denominator at most 9 in the rounding interval. It forces b_9=7. For k=6,7,8, cubic boundary parity and b_k≥7k/9 give lower bounds 6,7,8, reached by the LCF prefixes. For k≤5, girth six gives induced forests, and connected prefixes attain the tree bound. Complementation gives the rest.",
+          "Neither the scalar table nor the classical identification analyzes the minimizing-subset poset of the Levi graph."
+        ],
+        "reasoning": "Combining prior data with direct prefix evaluation yields the profile values and the minima of both layout objectives. It is the multiplicities and the count of chains in this graph's optimizer poset that require the new graph-specific enumeration. A generic counting recurrence is not itself an evaluation of that count.",
+        "searches": [
+          "arXiv:2601.17519, definition on p. 2 and Table A4",
+          "MathWorld Pappus Graph, girth and LCF description",
+          "Horton–Parker–Borie citation and frozen cut-sum derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "MathWorld identifies the 18-vertex Pappus Levi graph by [5,7,−7,7,−7,−5]^3 and identifies it as Hamiltonian.",
+          "The two indexed Pappus cut records concern homotopy types of simplicial complexes defined by complements of independent sets."
+        ],
+        "reasoning": "The LCF and point-line descriptions denote the same graph, but the nine-point collinearity graph does not. In a cubic graph minimizing a boundary at size k is equivalent to maximizing induced edges at that size; by complementation the counts are symmetric in k. The cut-complex invariants are not either version of these minimizing-subset multiplicities.",
+        "searches": [
+          "Resultary: Pappus nested edge-isoperimetric sigma-good complete boundary profile all optimal linear orders",
+          "MathWorld Pappus Graph, LCF passage",
+          "Resultary Pappus cut hits 761840bb7a71 and 1b9ce34e6c8b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table A4, PDF p. 36, Pappus row, gives rounded i(G)=0.78, a single normalized boundary minimum.",
+          "The bounded exact-number and profile searches produced no matching table or count; named indexed arrangements concern other graphs."
+        ],
+        "reasoning": "The rounded scalar is materially overlapping and can determine its attaining boundary numerically, but supplies neither tie counts at each k nor the incidence relations needed to count full optimal chains. The negative search is bounded evidence, not an absence proof.",
+        "searches": [
+          "Resultary: Pappus graph 31,850,496 optimal linear arrangement permutations",
+          "Resultary: Pappus graph complete edge-isoperimetric profile minimizer counts b_k m_k",
+          "Web exact-number and profile searches",
+          "arXiv:2601.17519, Appendix A Table A4"
+        ]
+      },
+      "rationale": "The supported distinct result is the complete labelled minimizer multiplicities and the exact count of optimal arrangements on this specific canonical graph. The prior scalar edge-isoperimetric number, classical graph description, general layout lower bound, and analogous counts on other graphs are credited. The unweighted boundary profile and layout values admit an elementary derivation combining the scalar, girth, parity and prefix evaluation; they are not treated as separate priority claims.",
+      "residual_risks": [
+        "Horton–Parker–Borie full text was not recovered; unindexed historical graph-layout calculations and tables are not ruled out.",
+        "The checked sources establish prior scalar and method-level coverage, not historical priority for the multiplicities or exact optimal-order count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coverage of the scalar, not tie multiplicities or optimal-order count",
+          "evidence": "Pappus row ends in i(G)=0.78.",
+          "identifier_or_url": "arXiv:2601.17519",
+          "material_read": "Definition, PDF p. 2, offset 5000; Appendix A Table A4, p. 36, offset 117200",
+          "method": "OA full-text passage inspection",
+          "title": "The edge-isoperimetric number of graphs and their powers",
+          "trigger": "Exact graph in a published table"
+        },
+        {
+          "assessment": "Classical LCF/Levi identification",
+          "evidence": "Hamiltonian and LCF [5,7,−7,7,−7,−5]^3.",
+          "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+          "material_read": "Graph description at offset 260",
+          "method": "Public page passage inspection",
+          "title": "Pappus Graph",
+          "trigger": "Graph and Hamilton order aliases"
+        },
+        {
+          "assessment": "Distinct graph and count",
+          "evidence": "14-vertex Fano Levi graph, MinLA 69 and 1,548,288 orders.",
+          "identifier_or_url": "2026/11/2/SCOPE-all-optimal-linear-arrangements-of-the-heawood-graph--dc3e824375f5",
+          "material_read": "RESULT.md theorem at offset 280",
+          "method": "Local index and mirror text",
+          "title": "All optimal linear arrangements of the Heawood graph",
+          "trigger": "Closest layout count for a small incidence graph"
+        },
+        {
+          "assessment": "No inclusion of Pappus in the stated family",
+          "evidence": "For M_(2n), n·4^n optimal labelled orders and all optimal prefixes minimizing.",
+          "identifier_or_url": "2026/11/2/SCOPE-the-exact-number-of-minimum-linear-arrangement-orders-of-the-m-b--930de13ad3f0",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Local index and mirror text",
+          "title": "The exact number of minimum linear arrangement orders of the Möbius ladder",
+          "trigger": "Broader family with exact optimal-prefix counts"
+        },
+        {
+          "assessment": "Exact historical theorem passage unverified; no negative full-text inference",
+          "evidence": "OA repository copy not recovered; alternate-access attempt returned 403. The required general lower bound was checked directly from the edge-span identity.",
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00173-6",
+          "material_read": "Bibliographic and abstract listings only",
+          "method": "DOI lookup, OA retrieval and identified alternate-copy attempt",
+          "title": "On minimum cuts and the linear arrangement problem",
+          "trigger": "Original general layout implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a canonical small cubic symmetric incidence graph, the complete minimizer tie counts and the precise number of labelled optimum layouts quantify the degeneracy of two linked optimization problems, beyond a best-known objective and beyond existence of a nested order. They provide a reproducible exact benchmark for subset and layout enumeration methods with unambiguous symmetry normalization. The result need not assert generalization to other configurations or other Hamilton cycles to supply those invariants.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

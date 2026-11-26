@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:39:47.812316Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–61, VERIFICATION.md lines 19–25, and verify_adjacent_swap_ball.py lines 8–71 inspected; frozen script not executed.",
+        "Independent radius2_independent_check.py enumerated distinct outcomes for all q=2 centers at lengths 2–10, q=3 at 2–7 and q=4 at 2–6. It checked the local formula, nonbinary maxima and their multiplicities, exact rational means, and edge totals. Replay by adding all neighbors of all length-zero and length-one outcomes to a set, then comparing its size and aggregations to the formulas."
+      ],
+      "rationale": "Deleting no-op swaps leaves single active edges, unordered disjoint active pairs, and overlapping active swaps on a triple. Their changed supports are, respectively, two neighbors, four positions (uniquely paired into disjoint adjacent edges), and either all three positions of a triple or its separated endpoints. A repeated-endpoint or constant triple adds no new word, a triple with exactly one equal adjacent pair adds one, and an all-distinct triple adds two distinct rotations. Thus the count is 1+b+binom(b,2)-t+2d+e, evaluable in one scan. The triple correction is at most 1 per triple after subtracting t; maximizing also needs b=n-1. Its equality conditions are precisely all-distinct triples for n>=3 or an unequal pair for n=2, giving q(q-1)(q-2)^(n-2) centers. Uniform boundary indicators have mean p and pairwise joint mean p^2, including neighboring sites by conditioning on their shared letter. The local means of t,d,e per triple are p^2, p(q-2)/q, and 2p/q, so E[-t+2d+e]=(n-2)p^2. The resulting mean is the stated one. Swaps are reversible, so the simple graph has degree |B_2(w)|-1; summing degrees and dividing by two proves the edge total. This counts labelled words, not edit histories or swaps across different compositions.",
+      "residual_risks": [
+        "Finite tests do not validate other radii or other edit distances; the infinite-domain result follows from the support proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovačević–Goyal–Kiah defines this successive metric. Proposition 5 bounds the two-batch model, equal to successive at radius two, and Proposition 6 gives exact averages for disjoint one-batch spheres, omitting overlap counts.",
+          "The fixed-composition multipermutation paper gives radius-two bounds in the material inspected; that is not the pointwise all-composition result. The indexed Kendall-ball spectrum, by contrast, explicitly determines all center sizes and their distribution."
+        ],
+        "reasoning": "Earlier related bounds are not equated with the exact formula. The indexed coverage goes beyond record 4 by computing the full distribution.",
+        "searches": [
+          "Kovačević–Goyal–Kiah arXiv:2509.06692 Sec. 1.2 and Propositions 5–6",
+          "Buzaglo–Yaakobi–Etzion–Bruck, Error-Correcting Codes for Multipermutations, Sec. IV.A–B",
+          "2026/11/22/SCOPE-exact-radius-two-kendall-ball-spectra-for-multiset-words--4c63e213834d, equations (1)–(4)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary ranked lookup and local-mirror Finding",
+        "Assigned record 5",
+        "arXiv:2509.06692",
+        "arXiv:1905.02752",
+        "arXiv:1408.4963",
+        "Error-Correcting Codes for Multipermutations, ISIT 2013"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The mean is identical as stated in record 5. In indexed Eq. (4), replacing (q-1)/q^2 by p(1-p) yields 1+mp+(m-1)(m+2)p^2/2, exactly the frozen mean.",
+          "Multiplying the mean minus one by q^n/2 gives the edge count without another mathematical result."
+        ],
+        "reasoning": "The explicit edge formula and complexity remark are immediate consequences of the already-covered local count and mean; neither is a distinct surviving exact result.",
+        "searches": [
+          "Frozen record 5, RESULT.md Finding",
+          "Indexed Kendall-ball spectrum equations (1)–(4)",
+          "Frozen record 4, RESULT.md lines 29–38 and 56"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With the same ball definition, record 5's s=t and h=d+e by case-splitting the three letters; hence its correction -s+h+d equals -t+2d+e. Its nonbinary maximum, equality cases and uniform mean coincide.",
+          "In the indexed formulation, write m=n-1, K=m-b, C=constant triples, A=alternating unequal-end runs of type aba with a!=b. Then t=d+A and d+e+C+A=n-2; the formula becomes binom(m-K,2)+2m-K-C-2A, exactly Eq. (1) of the indexed result.",
+          "Cicirello's sequence distance is the minimum number of adjacent swaps within each composition; the inspected definition establishes the metric alias, not the new count."
+        ],
+        "reasoning": "These are exact statement-level identities for all shared n,q, not just agreement in selected tests. The equivalence does not order the same-day records.",
+        "searches": [
+          "Assigned frozen record 5, RESULT.md lines 4–41",
+          "2026/11/22/SCOPE-exact-radius-two-kendall-ball-spectra-for-multiset-words--4c63e213834d",
+          "Cicirello arXiv:1905.02752 Sec. 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first indexed hit is not a finite numerical check: its exact transfer matrix gives center-size frequencies for every q,n in scope and its Finding states the same nonbinary extremum and mean.",
+          "The other matches concern exactly two operations or the Ulam/LCS metric, respectively, not the at-most-two adjacent-swap ball."
+        ],
+        "reasoning": "Verified the relevant indexed result at the statement level and excluded similarly titled hits with different objects.",
+        "searches": [
+          "Resultary lookup for exact radius-two adjacent-swap ball sizes and maxima",
+          "2026/11/22/SCOPE-exact-radius-two-kendall-ball-spectra-for-multiset-words--4c63e213834d",
+          "2026/11/22/SCOPE-complete-maximizers-of-exact-two-adjacent-swap-spheres-over-nonb--228c8deb5a52",
+          "2026/10/26/SCOPE-an-exact-radius-two-ulam-ball-around-alternating-balanced-binary--79265e1ef491"
+        ]
+      },
+      "rationale": "Verified full coverage of the substantive claim by distinct records: assigned record 5 has the identical pointwise formula, nonbinary extremal result and mean, and an indexed result gives the same count in another basis plus a full distribution. The graph edge count is immediate from the common mean. This is a finding of equivalent coverage, not an assertion that record 5 or the later-dated catalogue record has historical priority over record 4.",
+      "residual_risks": [
+        "The comparisons establish duplication, not historical order or dependence. The earlier literature checks do not by themselves establish an earlier exact formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same local formula, mean and nonbinary extrema, with additional binary classification in record 5",
+          "evidence": "Its ball permits overlapping swaps and counts distinct words at distance at most two, identically to record 4.",
+          "identifier_or_url": "Assigned frozen record 5, RESULT.md",
+          "material_read": "Finding, scope and proof, lines 4–79",
+          "method": "Direct frozen-source read and algebraic identity h=d+e",
+          "title": "Exact radius-two successive adjacent-swap balls over finite alphabets",
+          "trigger": "Distinct same-day finding on successive swaps"
+        },
+        {
+          "assessment": "Pointwise equivalent, greater distributional scope, later dated",
+          "evidence": "Formula in equal-adjacency, constant-triple and alternating-triple statistics gives the same size; the mean then gives the undirected edge count.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-radius-two-kendall-ball-spectra-for-multiset-words--4c63e213834d",
+          "material_read": "RESULT.md Finding equations (1)–(4) and local-count proof",
+          "method": "Local mirror at 36a7204b5741b75430355c38bf9bf0ef7468c2a4; offsets 0–2257 and 700–4691",
+          "title": "Exact radius-two Kendall-ball spectra for multiset words",
+          "trigger": "Strongest indexed equivalent result"
+        },
+        {
+          "assessment": "Definitions and partial coverage; not the exact successive count in these passages",
+          "evidence": "Prop. 5 normalizes the two batches then bounds possible overlapping second swaps; Prop. 6 counts disjoint supports only.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.06692",
+          "material_read": "Sec. 1.2, PDF pp. 4–5; Proposition 5 and proof, pp. 9–10; Proposition 6, pp. 10–11",
+          "method": "OA PDF offsets 14860, 31350, 36150",
+          "title": "Bounds on Codes Correcting Adjacent Transpositions",
+          "trigger": "Earlier same metric and closely related exact ball enumeration"
+        },
+        {
+          "assessment": "Same distance, not equivalent volume theorem in the inspected passage",
+          "evidence": "Minimal adjacent swaps among sequences with equal multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.02752",
+          "material_read": "Sec. 3.2, PDF pp. 6–7",
+          "method": "OA PDF offset 22037 onward",
+          "title": "Kendall Tau Sequence Distance: Extending Kendall Tau from Ranks to Sequences",
+          "trigger": "Metric with repeated symbols"
+        },
+        {
+          "assessment": "Distinct-symbol center invariance only in inspected passage",
+          "evidence": "Right invariance makes all centers equivalent in S_n; repeated letters have variable ball sizes.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.4963",
+          "material_read": "Sec. II, PDF p. 4",
+          "method": "OA PDF offset 14194",
+          "title": "Bounds on the Size of Permutation Codes with the Kendall Tau-Metric",
+          "trigger": "Possible permutation-ball formula implying the extremal count"
+        },
+        {
+          "assessment": "Restricted multipermutation bounds",
+          "evidence": "Radius-one sizes and radius-two bounds in a fixed-composition family, not the exact unrestricted center formula in the inspected sections.",
+          "identifier_or_url": "Buzaglo–Yaakobi–Etzion–Bruck, ISIT 2013",
+          "material_read": "Sec. IV.A–B",
+          "method": "OA PDF offsets 25200–33121",
+          "title": "Error-Correcting Codes for Multipermutations",
+          "trigger": "Related repeated-symbol balls"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "Assigned record 5 Finding",
+        "Indexed Kendall-ball spectrum Finding"
+      ],
+      "rationale": "Center-specific ball sizes are useful for coding and graph calculations, but the formula, extremizers and average are already covered by distinct findings, and the extra edge count is only the degree-sum identity. There is no independently useful unknown exact remainder in the delivered statement.",
+      "residual_risks": [
+        "This assesses the distinct contribution of this package, not the usefulness of the common lemma."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

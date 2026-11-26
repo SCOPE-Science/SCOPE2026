@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:03:54.859492Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the stated fixed real trial line, the Gaussian projections on u and (Au-mu*u)/beta are independent. After normalization by ||Su||, the dot product with the second projection has conditional law N(0,1) independent of V=||Su||^2, giving rate mu+beta*Z/sqrt(V) and the shifted Student law. The sign event is Z<0 and V/(V+Z^2)<beta^2/(mu^2+beta^2), which gives the half-beta expression, independently of sign, and V/ell tending to one gives convergence in probability. For p,t>0, conditioning on V and doing the normal integral gives E exp(-pt*Lambda)=exp(-pt*mu) E exp((pt*beta)^2/(2V)); this is infinite at V=0 under any finite chi-square degrees of freedom. A reused Euler multiplier raised to power 2k is comparable to |Z/sqrt(V)|^(2k) in the tails, so the inverse-chi-square integral converges exactly for ell>2k, with logarithmic divergence at equality. The same infinite second moment holds for the error relative to any deterministic finite comparator, by a triangle bound. In the independent case Tonelli factors the nonnegative product; no factor has zero expectation for beta>0 and h>0. For ell>2 the one-step expectation is (1-h*mu)^2+h^2*beta^2/(ell-2), strictly below one exactly on the stated interval and equal to one at the positive endpoint. The diagonal example and deterministic beta=0 exception agree. The uploaded script was read, not executed; finite samples can check scales/quantiles but not moment divergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carrel–Grigori use fresh independent sketch pairs at macro-steps analytically and a held pair in experiments.",
+          "Krieger–Schweitzer give the sketched-inner-product Galerkin/residual setup under embedding hypotheses; Balabanov–Nouy give high-probability sketch embedding and quasi-optimality statements."
+        ],
+        "reasoning": "The resampling distinction and projected equations pre-exist. Embedding-event bounds do not imply either the unconditioned small-denominator integrability threshold or the exact product-moment stability range.",
+        "searches": [
+          "arXiv:2607.03402 Sec. 5–6",
+          "arXiv:2510.17538 Sec. 2.3 and 4.2",
+          "arXiv:1803.02602 Sec. 3.1 and 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --6bf113754aed, --38a83f9c9464, --79a6cc28b936",
+        "arXiv:2607.03402, arXiv:2510.17538, arXiv:1803.02602"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known reciprocal distribution recovers the rate by inversion almost surely. With the scalar ODE identity this gives an immediate exponential-moment test; the fixed-k Euler cutoff likewise follows from Student moment order.",
+          "The Euler refresh result requires independence across the time steps and determining precisely where the resulting second-moment factor crosses one. The overlapping exponential result uses a frozen rate and does not supply that comparison."
+        ],
+        "reasoning": "The known law and its elementary frozen deductions are not independent novelty. The scientifically distinct contribution is their sharp comparison with unconditional refreshed Euler and its explicit decay boundary, not a stronger general sketch-embedding result.",
+        "searches": [
+          "Full statements of the three Resultary records above; Carrel–Grigori Sec. 5 and Krieger–Schweitzer Sec. 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-vector FOM with a Gaussian inner product uses the same sketched Rayleigh rate. The frozen Euler problem is integrability of a power of one multiplier, whereas fresh Euler is the product of independent squared multipliers with one-step expectation fixed.",
+          "Resultary --79a6cc28b936 has the same shifted-Student exponent and all-positive-moment divergence on its overlapping sketch-size range."
+        ],
+        "reasoning": "Credit the identical distribution and recognize substantive exact-time equivalence on the intersection. Reciprocal linear-solve error, exponential norm moments and independent-product stability are not identical observables.",
+        "searches": [
+          "Resultary: Gaussian sketched Galerkin rank-one fixed trial space Student t rate infinite moments exact exponential frozen sketch refreshed Euler second moment threshold",
+          "Resultary: one-mode Galerkin sketch-rate Euler ell greater than 2k moment threshold",
+          "Resultary: fixed vector Gaussian sketch negative Rayleigh quotient probability Student t regularized incomplete beta sign loss"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "--6bf113754aed gives a one-step solve coefficient equal in distribution to the reciprocal of this rate.",
+          "--38a83f9c9464 gives an infinite-mean energy-error barrier for Gaussian sketched Galerkin linear solves.",
+          "--79a6cc28b936 gives shifted-Student one-vector exponential propagation with all positive moments divergent and additional logarithmic tail asymptotics, but no Euler frontier."
+        ],
+        "reasoning": "The local catalogue has significant overlaps that must be credited, but not an entry giving the combined reused/fresh Euler boundary among the inspected hits. Dates indicate catalogue order only and are not used to argue away exact-time overlap or to settle priority.",
+        "searches": [
+          "Three scoped Resultary queries above; inspect RESULT.md at offset 0 for --6bf113754aed, --38a83f9c9464 and --79a6cc28b936"
+        ]
+      },
+      "rationale": "Pass for the explicit dynamical comparison of frozen and independent-refresh Euler, particularly the independent mean-square frontier, not for the Gaussian sign law, the shifted-Student rate, or the sketched projected equation. An earlier same-rate reciprocal calculation is mathematically very close and makes the frozen-law consequences short deductions. A later Resultary exponential record substantively overlaps the exact-time portion, independently of its date, but neither it nor the earlier records give the two Euler reuse conventions and their different boundaries. No inspected source covers the combined Euler stability result.",
+      "residual_risks": [
+        "Catalogue relationship and priority of the overlapping exact-time statements were not resolved; no priority is claimed for the rate law or exact-time divergence in isolation.",
+        "Bounded comparison of catalogue and cited OA literature, not a comprehensive search of stochastic numerical stability literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier coverage of the distribution ingredient, for a solve rather than time propagation.",
+          "evidence": [
+            "The one-step coefficient has law 1/(mu+beta*T_ell/sqrt(ell))."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-an-all-oversampling-infinite-risk-law-for-gaussian-sketched-fom--6bf113754aed",
+          "material_read": "RESULT.md, offset 0, theorem and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "An all-oversampling infinite-risk law for Gaussian-sketched FOM",
+          "trigger": "Exact same random scalar inside reciprocal"
+        },
+        {
+          "assessment": "Fixed Krylov-space linear-solve risk, not an Euler moment comparison.",
+          "evidence": [
+            "Unconditional infinite mean of energy error despite finite oversampling."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-an-oversampling-proof-infinite-mean-barrier-for-gaussian-sketche--38a83f9c9464",
+          "material_read": "RESULT.md, offset 0, central theorem",
+          "method": "Local Resultary mirror",
+          "title": "An oversampling-proof infinite-mean barrier for Gaussian-sketched Krylov Galerkin projections",
+          "trigger": "Gaussian Galerkin infinite moments at any finite sketch size"
+        },
+        {
+          "assessment": "Substantive exact-time overlap for 2<=ell<n; includes tail asymptotics but not either Euler threshold. Its relationship to the frozen record is not established by catalogue dates alone.",
+          "evidence": [
+            "One-vector approximation exp(-t*lambda_hat)b with shifted Student lambda_hat; every positive moment of the approximation norm and error diverges."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-exact-student-law-and-logarithmic-error-tails-for-one-vector-gau--79a6cc28b936",
+          "material_read": "RESULT.md, offset 0, assumptions and theorem",
+          "method": "Local Resultary mirror",
+          "title": "Exact Student law and logarithmic error tails for one-vector Gaussian-sketched matrix exponentials",
+          "trigger": "Near-exact match to frozen exact-time claim"
+        },
+        {
+          "assessment": "Prior sampling conventions but not this scalar stability theorem.",
+          "evidence": [
+            "Independent sketch pair may be drawn at macro-steps; experiments hold the pair fixed over a trajectory."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.03402",
+          "material_read": "Sec. 5, PDF p. 12, offset 45200, and its reference to Sec. 6 experiments",
+          "method": "Open PDF passage inspection",
+          "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+          "trigger": "Same distinction between fixed and refreshed sketches in time integration"
+        },
+        {
+          "assessment": "Projected dynamics and sketched residual orthogonality, not unconditional tails or moment thresholds.",
+          "evidence": [
+            "Sketched-Arnoldi analysis uses a subspace embedding."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.17538",
+          "material_read": "Sec. 2.3 pp. 4–5 at offset 18000 and Sec. 4.2 pp. 14–15 at offset 54000",
+          "method": "Open PDF passage inspection",
+          "title": "A general framework for Krylov ODE residuals with applications to randomized Krylov methods",
+          "trigger": "Previously stated ODE Galerkin equation with a sketched inner product"
+        },
+        {
+          "assessment": "High-probability/embedding guarantees are not unconditional moment statements.",
+          "evidence": [
+            "Definitions of sketch embedding and Galerkin quasi-optimality on successful embedding events."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.02602",
+          "material_read": "Sec. 3.1 p. 11 at offset 33000 and Sec. 5.1 pp. 23–24 at offset 77000",
+          "method": "Open PDF passage inspection",
+          "title": "Randomized linear algebra for model reduction. Part I: Galerkin methods and error estimation",
+          "trigger": "Broader randomized Galerkin guarantees that might imply stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The same unconditional Gaussian sketch at the same finite row count and step size can have a decaying second moment under independent refresh and an infinite one after finitely many steps under reuse. The sharp refreshed stepsize ceiling and the precise reuse cutoff determine where this happens, which neither a high-probability embedding statement nor a negative-rate probability decides. The distinction concerns a fixed rank-one model, not a prescription for higher-rank algorithms or computational cost.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

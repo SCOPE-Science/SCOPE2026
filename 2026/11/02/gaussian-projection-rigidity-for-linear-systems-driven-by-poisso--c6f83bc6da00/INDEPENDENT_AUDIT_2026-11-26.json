@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:53:01.536645Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Condition on all Poisson clocks, leaving the Gaussian integrators independent. Stochastic Fubini on each reset interval turns the integrated response into a Brownian integral with deterministic kernel ∫_u^b h_j(-t) dt. The terms' variances add, including the independent Gaussian response, giving the positive squared-integral sum. Exponential integrability of the deterministic filter in time and the stationary Laplace bath moments give every finite output moment by Minkowski and justify passage from truncation. The decisive strictness argument works for signed filters: choose an interval where a nonzero response has constant strict sign; expose the entire clock outside a short middle interval and require its neighboring reset points, which are then fixed, to lie in that sign interval. With positive conditional probabilities there are no middle resets, or one near an interior point. The difference of squared-integral terms on the affected interval is ∫[Q²+2Q∫_u^c h_j(-t)dt]du over its part before the insertion; both terms are nonnegative and Q² is strictly positive. All exterior contributions are unchanged. Thus that bath variance is random; independence prevents cancellation. Analyticity on the last reset interval also gives positive conditional variance almost surely for any nonzero response. Consequently the density is symmetric and strictly decreasing for positive arguments (finite there, since each Gaussian density at a fixed x≠0 has a uniform upper bound in the variance), and the positive characteristic function is a Laplace transform of variance in squared frequency. Gaussian conditional moments and strict Jensen give all the asserted even inequalities and κ4=3 Var(V); when all transfers vanish only the independent Gaussian part remains. OU covariance matching is exact at all stationary lags by independence and linear filtering. For the fixed-end chain, the energy estimate excludes unstable modes and excludes imaginary modes because zero boundary velocities force all coordinates of a nonzero-frequency mode to vanish by nearest-neighbor recursion; zero frequency is excluded by positive stiffness. The positive real-frequency inverse of the irreducible diagonally dominant tridiagonal matrix is entrywise positive, hence no site has a zero transfer from either wall. As an independent scalar check, stationarity of Y^i X^j gives (ai+r 1_{j>0})M_ij=iM_{i-1,j+1}+Dj(j-1)M_{i,j-2}. With a=r=D=1 this yields M_02=2, M_04=24, M_11=M_20=1, M_13=15, M_22=32/3 and M_31=M_40=8, giving κ4=5; eliminating the same moments symbolically gives the claimed general scalar formula. The uploaded verify.py was read, not executed; the recurrence is a special case, not the network proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior stationary four-point connected correlations are derived for the resetting Brownian bath, and general linear Green-function responses already imply covariance matching. The strongest indexed filtered-sign theorem located assumes nonnegative L¹ kernels."
+        ],
+        "reasoning": "Filtering the known bath four-point expression with a signed product does not by positivity of the bath kernel alone give a strictly positive result. The local reset insertion into a sign interval proves strictness without assuming an impulse response sign on the rest of the half-line.",
+        "searches": [
+          "Poisson-reset Brownian finite-dimensional stable linear system Gaussian variance mixture arbitrary impulse response fourth cumulant (Resultary)",
+          "arXiv:2507.22199v1 Supplement SIII.2",
+          "arXiv:2210.09035v3 Eqs. (4)–(5)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (read only)",
+        "arXiv:2306.09453v2, 2307.06127v3, 2210.09035v3 and 2507.22199v1",
+        "Resultary records d0ea0b36a797, 7fc19401bd11 and c69dc0d762a5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chain paper reports finite-size non-Gaussian velocity and empirical kurtosis behavior, chiefly at zero endpoint temperatures for the calculation; the catalog chain theorem supplies analytic positivity for that specific system, including Gaussian heating. The nonnegative-kernel theorem does not assert the signed-filter case."
+        ],
+        "reasoning": "One cannot deduce an iff theorem for arbitrary networks, arbitrary linear projections including exactly invisible baths, and all moments from empirical finite-chain signs or from exact results confined to a chain or nonnegative filters.",
+        "searches": [
+          "arXiv:2307.06127v3 §§2–3.2 Eq. (16)",
+          "d0ea0b36a797 proof offsets 3250–6299",
+          "c69dc0d762a5, nonnegative-filter scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier harmonic-trap resetting-noise model is one stable scalar filter; with D_current=r²D_paper its exact variance and fourth moment yield the frozen scalar checker formulas. Indexed four-time signs for nonnegative kernels give strictly positive fourth cumulants in that restricted class."
+        ],
+        "reasoning": "The relevant equivalence is between Gaussianity and a deterministic zero transfer from each resetting input, not merely non-Gaussianity of a single filter with positive exponential kernel. Clock conditioning gives a mixture in both settings; proving a nonconstant variance against impulse-response sign changes is additional work.",
+        "searches": [
+          "Poisson-reset Brownian finite-dimensional stable linear system Gaussian variance mixture arbitrary impulse response fourth cumulant (Resultary)",
+          "resetting Brownian single linear filter harmonic trap exact stationary fourth moment cumulant Gaussian comparison (Resultary)",
+          "arXiv:2306.09453v2 Eq. (33), Eqs. (58)–(60), Appendix E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed chain result has every-site strict fourth cumulant and covariance-matched OU comparison, and the indexed thermal scalar result evaluates fourth and sixth cumulants plus optima. Neither exact match of a named application yields the unrestricted network criterion."
+        ],
+        "reasoning": "There is real exact coverage of a chain corollary and scalar data; no matching catalog entry for the arbitrary-network classification with a strict all-even hierarchy was located in these searches. Catalog dating alone is not a priority argument.",
+        "searches": [
+          "harmonic chain boundary resetting Brownian bath velocity kurtosis finite chain (Resultary)",
+          "resetting Brownian single linear filter harmonic trap exact stationary fourth moment cumulant Gaussian comparison (Resultary)",
+          "d0ea0b36a797; 7fc19401bd11"
+        ]
+      },
+      "rationale": "Credit strict variance nondegeneracy and the exact Gaussian/no-transfer criterion over arbitrary signed stable linear readouts, with the resulting shape and moment hierarchy. Do not credit covariance matching, classical mixture theory, or the already known scalar moments in isolation. The closest chain entry essentially duplicates the specific finite-chain fourth-cumulant conclusion; the full-network criterion, not priority for that corollary, supports this pass.",
+      "residual_risks": [
+        "A general reset-driven stochastic filtering theorem phrased in other terms may cover all signed responses. The catalog dates of overlapping applications do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact scalar overlap only",
+          "evidence": "One stable harmonic filter, with rescaled forcing r y_r, has an even-moment recursion and evaluated second/fourth moments.",
+          "identifier_or_url": "https://arxiv.org/html/2306.09453v2",
+          "material_read": "§2 Eq. (1) offset 3700; §4 Eq. (33), §4.2 Eqs. (58)–(60) offset 50000; Appendix E Eqs. (188)–(190) offset 138400",
+          "method": "OA full text",
+          "title": "Active particle in a harmonic trap driven by a resetting noise",
+          "trigger": "Exact scalar resetting-response antecedent"
+        },
+        {
+          "assessment": "Prior model and numerical finite-size evidence",
+          "evidence": "Provides reset walls and Langevin bath equations, plotted non-Gaussian velocity, and observed bulk inverse-size kurtosis scaling, not uniform analytic positivity.",
+          "identifier_or_url": "https://arxiv.org/html/2307.06127v3",
+          "material_read": "§2 Eqs. (1)–(3) offset 7500; §§3.1–3.2 and Eq. (16), offsets 13500,18200,21500–25000",
+          "method": "OA full text",
+          "title": "Stationary state of harmonic chains driven by boundary resetting",
+          "trigger": "Identical chain model and observed positive kurtosis"
+        },
+        {
+          "assessment": "Established linear covariance framework",
+          "evidence": "The Green-function output two-time correlations depend on the force two-point law.",
+          "identifier_or_url": "https://arxiv.org/html/2210.09035v3",
+          "material_read": "Eqs. (4)–(5), offset 8500",
+          "method": "OA full text",
+          "title": "Stationary states of activity-driven harmonic chains",
+          "trigger": "Covariance matching and Green-function response antecedent"
+        },
+        {
+          "assessment": "Bath-level correlations, not projection characterization",
+          "evidence": "Derives covariance and ordered four-point/connected bath correlations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2507.22199v1",
+          "material_read": "Supplement SIII.2 p.16 Eqs. (S75)–(S79), offsets 95000–101796",
+          "method": "OA PDF passage",
+          "title": "Knight, Kaveh and Pruessner, arXiv:2507.22199v1",
+          "trigger": "Prior bath four-point formula"
+        },
+        {
+          "assessment": "Direct overlap of the chain corollary, not the network criterion",
+          "evidence": "Every site has a positive fourth cumulant with independent endpoint heating; covariance-matched OU comparison also given.",
+          "identifier_or_url": "2026/11/8/SCOPE-strict-non-gaussian-velocity-fluctuations-at-every-site-of-a-res--d0ea0b36a797/RESULT.md",
+          "material_read": "Finding and proof passage, offsets 3250–6299 for variance nondegeneracy",
+          "method": "Local Resultary mirror",
+          "title": "Strict non-Gaussian velocity fluctuations at every site of a reset chain",
+          "trigger": "Strongest finite-chain overlap"
+        },
+        {
+          "assessment": "Scalar case overlap",
+          "evidence": "Gives standardized fourth/sixth cumulants and their reset-rate optima for a scalar harmonic filter with independent thermal forcing.",
+          "identifier_or_url": "2026/11/8/SCOPE-thermal-broadening-preserves-the-strict-ordering-of-two-non-gaus--7fc19401bd11/RESULT.md",
+          "material_read": "Finding",
+          "method": "Local Resultary mirror",
+          "title": "Thermal broadening preserves the strict ordering of two non-Gaussian cumulants",
+          "trigger": "Exact thermal single-filter comparison"
+        },
+        {
+          "assessment": "Filtered strict positivity for nonnegative L¹ kernels",
+          "evidence": "Covers nonzero nonnegative filters, not arbitrary signed stable impulse responses or the all-even hierarchy.",
+          "identifier_or_url": "2026/11/8/SCOPE-four-time-sign-fingerprints-of-covariance-matched-resetting-gaus--c69dc0d762a5/RESULT.md",
+          "material_read": "Finding and kernel scope",
+          "method": "Local Resultary mirror",
+          "title": "Four-time sign fingerprints of covariance-matched resetting and Gaussian baths",
+          "trigger": "Most relevant filtered cumulant theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The criterion identifies exactly which linear projections can distinguish covariance-matched reservoirs despite identical full two-time correlations. It both rules out cancellation among independent visible baths and upgrades a fourth-order diagnostic to an all-order one, with the chain illustrating why positive finite-size kurtosis persists under additional Gaussian heating.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

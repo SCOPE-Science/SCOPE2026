@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:27:52.801018Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the last-point recurrence: a predecessor contributes exactly when its covered-line mask strictly increases with the last point, and the last point partitions the legal orders. An independently written forward recurrence over every mask, with incidence constructed over F4, reproduced 738840 reachable masks, maximum length 10, 140448 maximum supports, 36288000000 orders, coverage of all lines, and all six profile multiplicities. Any incomplete legal sequence admits a point on an uncovered line as an extension, so a maximum is complete. For a separate upper bound, the incidence entry over F4 is 1+(a dot p)^3; the cubic factors as (a dot p)(a dot p)^2, giving nine rank-one terms plus the constant and hence rank at most ten. Fresh-line witnesses form a unit triangular submatrix, bounding legal length by that rank. Dot-product duality and disjoint target shores justify squaring the support count and multiplying squared order counts by C(20,10). Four vertices cannot cover 21 opposite-side vertices; five points on a line and, dually, five lines through a point attain the ordinary minimum on their shores. These are exact results for the specified plane, not for every order.",
+      "replay": "python3 /workspace/branches/32a03552-4a56-497e-8287-e18899249ea7/independent_pg24_census.py; matching output in independent_pg24_census.txt in the same directory. Frozen verifier sources inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md:67 reports Theorem 8.4 as the general parameter identity, and the projective-plane construction in Theorem 4.7 of the other paper as the incidence complement."
+        ],
+        "reasoning": "The conversion is already covered and needs separate input for the shore census. Covering in an incidence complement uses opposite adjacencies, so even the maximum length there is not a transfer. Binary incidence rank gives an upper bound on triangular witnesses, not which supports attain it or how often.",
+        "searches": [
+          "Brešar et al., doi:10.1016/j.disc.2014.07.016",
+          "Brešar–Henning–Rall, arXiv:1601.07525",
+          "Gologranc–Jakovac–Kos–Marc, arXiv:1906.12235"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and bound verification material",
+        "Resultary SCOPE025, 15b46d8f6e4d, ecacc8554454, 9ecd9d75ebf1 and exact self-hit dd5ad16e589f",
+        "arXiv:1601.07525 and arXiv:1906.12235 (attempted primary retrieval; cited statements separately identified)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "9ecd9d75ebf1 indexes sequence rigidity on the triangular graph L(K_n). Frozen RESULT.md:57 gives independent-shore decomposition; lines 13–21 give the new incidence-profile data."
+        ],
+        "reasoning": "The square and shuffle formulas follow mechanically once the shore census is supplied. Neither the parameter conversion nor the different incidence or graph classifications reviewed give the underlying legal-order recurrence values or its six maximum-support profiles.",
+        "searches": [
+          "arXiv:1601.07525, Theorem 8.4",
+          "Resultary 2026/11/8 SCOPE record 9ecd9d75ebf1",
+          "Resultary SCOPE025"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md:42–48 defines a legal-order recurrence, not a count of all blocking sets. SCOPE025's index gives an 8 by 8 incidence maximum M(8,8)=24 and extremal incidence-degree types."
+        ],
+        "reasoning": "The shore problem is Grundy hypergraph covering, or an ordered triangular incidence-witness problem. A uniquely restricted matching is a witness after choosing the line endpoints; it is not counted with the same multiplicities as orders of points. Dense 8 by 8 incidence submatrices and general blocking sets do not impose the ten-point legality and ordering condition.",
+        "searches": [
+          "Resultary: PG(2,4) Grundy covering, longest total domination sequences and blocking-set profiles",
+          "arXiv:1601.07525, Theorem 8.4 (retrieval attempted)",
+          "Resultary 2026/9/7/SCOPE025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed claim is the assigned dd5ad16e589f record itself. Distinct same-date records 15b46d8f6e4d and ecacc8554454 index, respectively, maximal independent-set size data and minimum maximal matching exchange, not legal order data. SCOPE025 is a different census by its indexed statement."
+        ],
+        "reasoning": "No inspected statement supplies the table with the same domains and legality count; distinct same-day items were compared on content, not presumed to be later.",
+        "searches": [
+          "Resultary: PG(2,4) exact counts 140448 and 36288000000, ten-point line-intersection profiles",
+          "Resultary: PG(2,4) incidence matching and domination spectra"
+        ]
+      },
+      "rationale": "The finite census of legal maximum supports, orders and intersection types is the distinct content on available evidence. Neither ordinary total domination nor the general incidence-graph conversion is credited as new. Even a rank bound and an exact maximum would not determine the census.",
+      "residual_risks": [
+        "Lawful OA and mirror requests did not yield decisive full-text passages. The older PG(2,4) incidence census's full record and ancillary material remain unexamined; a table under an equivalent triangular-matching formulation is possible.",
+        "The externally known maximum might appear separately; the originality assessment is of the exact legal-support/order/profile classification, not an assertion of priority for every constituent numerical fact."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes reviewed scope; not outside priority evidence",
+          "evidence": [
+            "Finding, recurrence, shore decomposition and reference distinctions"
+          ],
+          "identifier_or_url": "frozen RESULT.md and VERIFICATION.md",
+          "material_read": "RESULT.md:5–79 and verifier notes",
+          "method": "Read assigned files",
+          "title": "Six line-intersection profiles of longest total-dominating sequences in PG(2,4)",
+          "trigger": "Exact claim and cited comparisons"
+        },
+        {
+          "assessment": "General conversion credited; no claim about unseen contents",
+          "evidence": [
+            "gamma_gr^t(I(H)) = 2 rho_gr(H) in the reported theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.07525",
+          "material_read": "Theorem 8.4 as reported in RESULT.md:67; primary passage not obtained",
+          "method": "Lawful primary OA retrieval attempted; used cited statement with attribution",
+          "title": "Total dominating sequences in graphs",
+          "trigger": "General theorem on the exact parameter and incidence graph"
+        },
+        {
+          "assessment": "Reported example uses incidence complement; inaccessible remainder not evaluated",
+          "evidence": [
+            "Frozen comparison identifies Theorem 4.7 and the opposite adjacency convention"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1906.12235",
+          "material_read": "Construction and theorem as described in RESULT.md:67,79; primary passage not obtained",
+          "method": "OA retrieval attempted",
+          "title": "On graphs with equal total domination and Grundy total domination number",
+          "trigger": "Projective-plane-related construction"
+        },
+        {
+          "assessment": "Indexed claim is not the ten-point legal-order support census",
+          "evidence": [
+            "M(8,8)=24 and extremal incidence-degree types"
+          ],
+          "identifier_or_url": "Resultary 2026/9/7/SCOPE025",
+          "material_read": "Indexed statement only; mirror text unavailable",
+          "method": "Local Resultary search and attempted local mirror retrieval",
+          "title": "Extremal PG(2,4) incidence census",
+          "trigger": "Same plane and possible prior configuration table"
+        },
+        {
+          "assessment": "Different selections and conditions; no priority ordering presumed",
+          "evidence": [
+            "Maximal independent sets by shore sizes; minimum maximal matching exchange"
+          ],
+          "identifier_or_url": "Resultary 2026/11/22 records 15b46d8f6e4d and ecacc8554454",
+          "material_read": "Indexed summaries",
+          "method": "Local Resultary search",
+          "title": "Independent domination spectrum and minimum maximal matching exchanges",
+          "trigger": "Distinct same-day incidence graph censuses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical order-four plane is a natural small test case where the gap between domination and legal sequential domination and the structure of extremizers can both be resolved exactly. The profile census distinguishes maximum supports containing a line from genuinely nontrivial blocking sets and supplies exact support and order benchmarks for future covering and configuration work. These quantities are not obtained from the rank bound or the domination identity alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

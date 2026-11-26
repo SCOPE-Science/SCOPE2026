@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T08:30:55.087881Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–105",
+        "Frozen VERIFICATION.md and verify_critical_ladder.py (text inspection only)",
+        "Independent small ladder edge-subset comparison; total unweighted tree counts 1,4,15,56,209,780 for n=1–6"
+      ],
+      "rationale": "For nonempty ordered rung columns, each consecutive pair forces a rail cut in its gap; edge count permits exactly one there and no others. Conversely, the uncut rail in each gap connects the bounding rungs, and both portions of the cut rail reach a bounding rung; tails are intact. Thus the multiplicity is the product of twice each gap length. Summing over the two boundary offsets and positive gaps gives 2^(k−1) binom(n+k−1,2k−1). At c=t/n² the masses multiplied by n tend to 2^(k−1)t^k/(2k−1)!, dominated by 2^(3k−2)t^k/(2k−1)!. Normalization yields the stated odd-Poisson, total variation convergence, pgf and mean. The conditional position weights give the product-of-gaps density by midpoint Riemann sums, normalized by the Dirichlet integral. Independent uniform discrete cuts in each gap couple to independent uniform continuum cut positions, with independent fair rail labels. Equivalently, conditional on k, the ordered unlabelled rungs and cuts alternate as 2k−1 uniform order statistics. The antisymmetric rail sector gives the weighted rung kernel 2c(L+2cI)^−1. Its normalized midpoint cosine modes give the stated Neumann kernel: after step embedding the bounded mode functions converge for fixed m and the summable O(m^−2) bound controls the kernel tails uniformly. The Fredholm series for the step-kernel process therefore converges to that for the limiting kernel; rounding points in the cells to their midpoints shifts positions by at most 1/n. The count eigenvalues give the two sharp-scale ends by a vanishing nonconstant-mode sum or by any fixed number of modes tending to certainty, respectively. Independent edge-subset checks at n≤6 agree with all rung-set multiplicities.",
+      "residual_risks": [
+        "The finite checks do not prove a limit; the analytic summable bound and conditional spatial argument are essential. The submitted verification script was not replayed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed finite weighted ladder result already covers K=2c(L(P_n)+2cI)^−1 for all finite n,c>0. Klenke's Proposition 1.5 gives the exact weighted finite count; Remark 1.4 already gives the independent fair rail and uniform conditional cut location on the two-sided ladder.",
+          "The theoretical source for the determinantal finite edge law is the transfer-current theorem; its DOI retrieval here yielded only a landing page/abstract."
+        ],
+        "reasoning": "The broader finite formulas and generic transfer-current principle are scientific inputs, not separately original. Neither infinite-volume fixed-c renewal nor the inspected finite result states the joint rescaled open-boundary marked geometry.",
+        "searches": [
+          "Klenke arXiv:1704.00182v1, pp. 5–7",
+          "Resultary finite weighted ladder record 647fc3f7ee8c, Finding/Proof",
+          "Burton–Pemantle DOI 10.1214/aop/1176989121 (landing/abstract)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md prior-work discussion",
+        "Klenke arXiv:1704.00182v1",
+        "Resultary entries 647fc3f7ee8c, c4b024089d31 and 5eb0f876c681",
+        "Burton–Pemantle DOI landing/abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuum eigenvalues and the odd count can be recovered by critical scaling of the published kernel and weighted count, respectively. Klenke already supplies the cut mechanism away from endpoints in the two-sided setting.",
+          "The conditional product-of-gaps calculation identifies the joint law with two special endpoints and independently marked interior cuts, beyond a kernel substitution or the fixed-weight stationary renewal law."
+        ],
+        "reasoning": "Do not count separate identities direct from the prior finite spectrum or finite enumerator as new. The supported claim combines those with a finite open-geometry argument and identifies the explicit joint conditioned law and correct regime; the inspected sources do not give this as a specialization of an existing marked continuum theorem.",
+        "searches": [
+          "Resultary finite-ladder and critical-wheel original Findings 647fc3f7ee8c and c4b024089d31",
+          "Klenke arXiv:1704.00182v1, Remark 1.4 and Proposition 1.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ladder's rungs and unlabelled rail cuts interlace as an odd number of points on an interval. The affiliated Dirichlet spacings have two endpoint parameters one.",
+          "The wheel interlaces a positive even count on a cycle; its component lengths have all parameters two. Klenke's rung process is stationary on a two-sided ladder at fixed conductance."
+        ],
+        "reasoning": "Removing a boundary from the statement or changing the graph to a wheel does not preserve the parity or open-boundary mass law. The continuum alternating representation makes the exact difference visible.",
+        "searches": [
+          "arXiv:1704.00182v1, Theorem 1.3, Remark 1.4 and Proposition 1.5",
+          "Resultary critical wheel record c4b024089d31, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact critical-ladder match is the assigned record itself. The earlier ladder match covers every finite kernel and its fixed-c boundary/bulk behavior; the wheel match is a different critical graph. The adjacent same-date circular-ladder result optimizes spacings of three weighted rungs rather than computing this critical process."
+        ],
+        "reasoning": "Direct finite overlap is credited. None of the distinct entries states the joint open interval odd count, boundary gaps and rail cuts at this scaling.",
+        "searches": [
+          "Resultary records 5c0aa24eed75, 647fc3f7ee8c, c4b024089d31 and 5eb0f876c681"
+        ]
+      },
+      "rationale": "Credit the joint, open-boundary critical marked limit, including its different parity and boundary-gap parameters, not the known finite kernel, finite enumerator or generic fair-cut mechanism. In isolation the Neumann spectral limit and count asymptotics are direct consequences of known finite inputs after the critical scaling calculation; the evidence supports distinct content in identifying the full boundary-sensitive geometry and its crossover, not new transfer-current or count techniques.",
+      "residual_risks": [
+        "Bounded source comparison does not exclude an unindexed open-boundary continuum forest or ladder formulation.",
+        "The transfer-current paper's full text was not read, and the Häggström thesis was compared only at the level of official topic metadata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact overlap for finite DPP and its kernel; inspected limit scope differs",
+          "evidence": [
+            "K^(n)=2cB_n^−1 with B_n=L(P_n)+2cI, for n,c>0."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c",
+          "material_read": "RESULT.md Finding/Proof, offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Exact finite-volume rung kernel and boundary–bulk split for weighted ladder spanning trees",
+          "trigger": "Exact prior finite model and kernel"
+        },
+        {
+          "assessment": "Finite enumerator and cut mechanism prior; differing stationary or finite scope",
+          "evidence": [
+            "Remark 1.4: one missing horizontal edge per renewal gap, with uniform position given the gap and an independent fair rail label.",
+            "Proposition 1.5: exact weighted finite ladder tree count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.00182v1",
+          "material_read": "Theorem 1.3, Remark 1.4 and Proposition 1.5, pp. 5–7 (PDF offsets 13000–22470)",
+          "method": "Open-access primary PDF passages",
+          "title": "The Random Spanning Tree on Ladder-like Graphs",
+          "trigger": "Exact weighted count and potential prior marked cut law"
+        },
+        {
+          "assessment": "Material analogue, not equivalent",
+          "evidence": [
+            "Positive even-conditioned Poisson point count and cyclic Dirichlet spacings; no open endpoint parameters."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-exact-spoke-cut-compositions-in-weighted-wheel-spanning-trees-an--c4b024089d31",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Bounded local mirror reading",
+          "title": "Exact spoke–cut compositions in weighted wheel spanning trees and their critical spatial limit",
+          "trigger": "Strong prior critical interlacing and Dirichlet analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof Steps 3–6",
+        "Prior finite ladder, infinite ladder and critical wheel comparisons"
+      ],
+      "rationale": "The critical-scale result tells when this finite connected model has a nontrivial finite rung process and specifies a complete boundary-sensitive spatial law, including the positions and rails of missing edges. These are not determined by a count distribution alone. The difference between open-interval odd interlacing and cyclic even interlacing is a meaningful geometric effect. The value is the joint scaling description, not recomputing the known finite kernel or applying a Poisson identity in isolation.",
+      "residual_risks": [
+        "Fixed critical parameter, open rails and homogeneous conductances only; no supercritical fluctuation law or arbitrary-width conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:48:03.200405Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The gap-run law and the perfectness dichotomy are correct. The multiplicity is a and gcd(a,2a+1)=1. Writing any non-a generator sum as B+a(B+C) with Mersenne coin total B and coin count C, a positive residue wrap B=r+ha pays h(a+1) in the quotient before coin cost; this is larger than c(r)≤r for h≥1. Multiples of a cannot improve the minimum, so w_r=r+a(r+c(r)). For adjacent residues append a unit coin, and for the reverse inequality delete a unit coin or replace one nonunit b_i by two b_{i−1}, using b_i−1=2b_{i−1}; all coins are odd so the adjacent cost difference is ±1. Membership thresholds K_r=r+c(r) are nondecreasing with jumps 0 or 2. Each row starts with a multiple of a and has at most one terminal run; exactly K_r−K_{r−1} rows have a run starting at r, of length a−r. Summing gives a−1+c(a−1). In the subfamily the last residue is the sum of two Mersenne coins, and its predecessor is a single coin for n=1 and an odd noncoin representable with three coins for n≥2. This yields the stated isolated counts and total. Independent direct generator-membership DP plus minimum-coin DP agreed at 34 distinct a, including all a=3..25, 31 and 79, and the union with all s,n=1..4 examples. The reproduction checks a full terminal block of members before truncating the gap scan. Replay: python3 /workspace/branches/7b3a8df7-c1de-4d61-95b8-88bfa89e9035/ordinal5_actual.py. This is bounded corroboration; the frozen checker was inspected, not run. There is no claim beyond this affine binary family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior models include generators b^i a + ((b^i−1)/(b−1))d with 1≤i≤k; b=2,d=1 gives precisely the stated generators up to i=k. The prior hypothesis a≥k−1 holds for k=floor(log₂ a). Their formulas cover all residues, not just the maximum or sum."
+        ],
+        "reasoning": "This finite truncation represents the full infinite span: for i>k write b_i=ha+r, h≥1. Then g_i=(b_i+1+h)a+r, whereas r copies of g_1=2a+1 give 2ra+r. Their difference is the nonnegative multiple [h(a+1)+1−r]a. Also every coin fitting any r<a is retained. Thus there is no omitted range of a or i that evades the stronger theorem.",
+        "searches": [
+          "arXiv:2306.10738v1 Lemmas 3.3–3.4, Theorem 3.5",
+          "arXiv:2306.03459v4 Lemma 2.6, Theorem 2.10 and Lemma 2.11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.10738v1 Eq. (4), Lemmas 3.3–3.4",
+        "arXiv:2306.03459v4 Lemma 2.6, Theorem 2.10 Eq. (8), Lemma 2.11 and Sec. 4",
+        "Resultary record 584c998005ae",
+        "DOI 10.1155/2022/6590211 (full text unavailable in this check)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing the prior formulas gives K_r=r+c(r), with c(r) the greedy optimal number of odd coins, and gives K_r nondecreasing. Each K_r is even and adding a unit coin gives K_r≤K_{r−1}+2. For a=(2^s+1)2^n−1 the greedy list at a−1 is b_{n+s},b_n. At a−2 it is b_{n+s} alone if n=1; for n≥2 the remainder after b_{n+s} is 2b_{n−1}<b_n, giving three coins."
+        ],
+        "reasoning": "The previously established monotonicity and a one-step parity bound force each histogram entry to be zero or two, without needing the submitted coin-splitting argument. The total is K_{a−1} and R_a(1)=K_{a−1}−K_{a−2}; the explicit greedy evaluations already give a+1 and the exact n=1 versus n≥2 count. Nothing in the main theorem or special boundary survives as a nonmechanical extension of these prior results.",
+        "searches": [
+          "arXiv:2306.03459v4 Eq. (8) and Lemmas 2.6 and 2.11",
+          "arXiv:2306.10738v1 Lemmas 3.3–3.4 and Eq. (4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The purported new frequency is the first difference of the row thresholds K_r=(w_r−r)/a: a row ends with a run beginning at r iff K_{r−1}≤q<K_r. Eq. (4) expresses w_r via the greedy Mersenne coin counts at b=2,d=1."
+        ],
+        "reasoning": "For the prior monotone threshold sequence, the run histogram is precisely its discrete derivative read in reverse residue order, and conversely the histogram determines the threshold sequence by summation starting with K_0=0. This is a direct equivalent encoding on the same family, not an aggregate statistic that would require inferring gaps from genus alone.",
+        "searches": [
+          "Resultary: affine binary numerical semigroups gap runs paired gaps two generator congruence affine Apéry",
+          "Primary search: numerical semigroup gap blocks runs affine repunit perfect Thabit minus one isolated gaps Liu Xin Mersenne consecutive gaps frequency Apéry binary",
+          "arXiv:2306.10738v1 Sec. 3, Eq. (4) and Lemmas 3.3–3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related mirrored histogram treats two-generator semigroups with second-generator residue d≥2 and different frequencies. The exact indexed match is this record itself. The primary Eq. (4) acts as a complete per-residue threshold specification, with no need for an independent histogram table."
+        ],
+        "reasoning": "The two-generator histogram does not establish coverage here. The formula computing the known full residue table does: the target coefficients are adjacent table differences. A missing separately printed histogram is not evidence of a new mathematical invariant in this family.",
+        "searches": [
+          "Resultary: affine binary numerical semigroups gap runs paired gaps two generator congruence affine Apéry",
+          "Resultary mirror: SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae, finding",
+          "arXiv:2306.10738v1 Eq. (4)"
+        ]
+      },
+      "rationale": "The proposed result is a direct corollary of stronger prior Apéry and greedy change-making theorems, rather than just sharing their starting methods. The cited arXiv:2306.10738v1, Lemmas 3.3–3.4 and Eq. (4), directly give the identical full monotone threshold list after specialization; arXiv:2306.03459v4, Lemma 2.6, Theorem 2.10 Eq. (8), and Lemma 2.11 explicitly provide the optimal greedy coin costs and the same list and monotonicity. A row boundary count is just the first difference of that complete known list. Parity and adding a unit coin give the zero-or-two statement immediately; the total and isolated counts are a telescope and evaluations of the last two known greedy costs. No claim is made that the earlier papers use the same histogram wording. Coverage is by implication, not an exact textual match.",
+      "residual_risks": [
+        "The exact priority of the histogram wording and the scope of the inaccessible 2022 paper are not established. Neither is needed for the explicit implication from the inspected 2023 v1 and 2025 v4 preprints."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the exact full threshold list and monotonicity needed to deduce the claim",
+          "evidence": "Eq. (4) gives N_dr=(Σx_i)a+r((b−1)a+d) for the greedy representation; Lemma 3.4 makes its weight Σb^i x_i nondecreasing in greedy order, which is the order of r. At b=2,d=1 this is aK_r+r at every residue.",
+          "identifier_or_url": "https://arxiv.org/html/2306.10738v1",
+          "material_read": "Primary OA preprint introduction, Sec. 3 weighted coin optimization, Lemmas 3.3–3.4, Eq. (4) and Theorem 3.5 proof passages",
+          "method": "OA HTML text by section and offset",
+          "title": "A Note on Generalized Repunit Numerical Semigroups",
+          "trigger": "Directly broader affine family and possible full threshold information"
+        },
+        {
+          "assessment": "Strong explicit prior coverage independent of whether the histogram is printed",
+          "evidence": "For b_(i+1)=2b_i+1 the coin sequence is orderly. Theorem 2.10 gives N_dr=aΣx_i+r(ua+d) and Lemma 2.11 proves nondecrease of the weight Σ(ub_i+1)x_i for s_i≤u+1, including the equality case s_i=2,u=1 here. Sec. 4 explicitly uses the greedy last residue in the s=1 Thabit subfamily.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03459v4",
+          "material_read": "OA PDF v4 abstract, Sec. 2 Lemma 2.6, Theorem 2.10 Eq. (8), Lemma 2.11, Theorem 2.12 and Corollary 2.16 proof passages, and opening of Sec. 4",
+          "method": "Primary arXiv PDF text by page/offset",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups (v4 of arXiv:2306.03459)",
+          "trigger": "Earlier cited preprint series, current version, with the binary coin setting and Thabit subfamily"
+        },
+        {
+          "assessment": "Unresolved comparison, not negative evidence; not needed for the prior-coverage decision",
+          "evidence": "The cited title and frozen context indicate a parameter-overlapping family. The decision rests instead on the accessible primary results covering all a.",
+          "identifier_or_url": "https://doi.org/10.1155/2022/6590211",
+          "material_read": "Frozen bibliographic description only; primary full text was not retrieved",
+          "method": "OA full-text attempt at the cited DOI",
+          "title": "On the Numerical Semigroup Generated by {(2^k−m)2^(n+i)−1}",
+          "trigger": "Overlapping −1 generators and preceding Apéry results identified in the frozen bibliography"
+        },
+        {
+          "assessment": "Distinct two-generator family, not the decisive source",
+          "evidence": "Its second generator has residue d≥2 and counts include one run at each of several longer lengths; it does not state a zero-or-two law.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-run-length-frequencies-for-binary-semigroups-with-a-dt-1-a--584c998005ae",
+          "material_read": "Mirrored finding, scope and initial Apéry calculation",
+          "method": "Local Resultary/OA mirror text",
+          "title": "Exact run-length frequencies for binary semigroups with a=dt+1 and b=a+d",
+          "trigger": "Same exact run-length statistic and possible alternative binary parametrization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The histogram and perfectness question are natural, and the short self-contained proof is useful exposition. But as a standalone mathematical finding this histogram is a routine first difference of the previously explicit monotone integer thresholds; even the support and boundary reduce to their known coin costs by parity and greedy evaluation. The total is also (F+1)/a directly since the maximal Apéry element is w_(a−1). No additional nonmechanical increment or distinct application is demonstrated. A citation or numerical certificate would not produce a surviving original result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

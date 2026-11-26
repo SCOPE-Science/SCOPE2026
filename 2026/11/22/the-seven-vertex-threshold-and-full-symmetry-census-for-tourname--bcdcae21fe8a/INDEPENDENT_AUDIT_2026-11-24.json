@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:14:33.924190Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 13–60; VERIFICATION.md and the supplied C++ and Python sources (inspected, not executed)",
+        "/workspace/branches/f3cb0d91-4dc8-4fbd-bf36-1d36b4b7d433/independent_census.py",
+        "/workspace/branches/f3cb0d91-4dc8-4fbd-bf36-1d36b4b7d433/full_run.txt"
+      ],
+      "rationale": "For a marked pair, rank at least one means the four orientations to the pair all occur. Rank at least three of the empty marking therefore requires a vertex admitting such a pair with both an in-neighbor and an out-neighbor. Fewer than six vertices cannot realize even one full pair profile; at six, the two witnesses force the same vertex's outdegree to be 2 and 3, respectively. Rank at least four requires a triple with eight distinct possible extensions, hence at least eleven vertices. A separately written and executed bottom-up recursion scans every labelled tournament of orders 1–7. It finds no rank-three case below seven and 1,503,216 positive cases at seven. Exact orbit enumeration gives 313 of 456 classes and the positive automorphism-order counts (1:292, 3:17, 5:2, 7:1, 21:1), with labelled counts recovered from orbit weights. By the rank-four obstruction all positive cases at seven have rank exactly three.",
+      "residual_risks": [
+        "The census classifies automorphism-group orders, not permutation actions or general higher-order group structure.",
+        "No cutoff at rank four or census beyond seven vertices is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The family H_t has rank t on 2^t−1 vertices, specializing at t=3 to a seven-vertex example."
+        ],
+        "reasoning": "The construction proves an upper bound on the minimum, not that all smaller hosts fail or that a prescribed fraction of minimum-order hosts succeed.",
+        "searches": [
+          "arXiv:2604.14461 §5, Lemma 5.3 and Theorem 5.4"
+        ]
+      },
+      "checked_sources": [
+        "López-Callejas–Navarro-Castillo §5",
+        "McKay tournaments",
+        "Resultary bcdcae21fe8a, a3c35b6162f1, 9836ef0ec9c0 and e2773954132c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One rank-three H₃ and a total of 456 hosts do not give either the six-vertex contradiction or the split 313 versus 143. Orbit-stabilizer converts already computed rank-filtered orbit sizes, not unfiltered counts, to the labelled total."
+        ],
+        "reasoning": "The lower bound exploits a degree contradiction particular to tournaments, and the census requires evaluating rank on the tournament orbits; neither is direct substitution in the inspected priors.",
+        "searches": [
+          "arXiv:2604.14461 Theorem 5.4 and McKay seven-vertex catalogue; Resultary graph and oriented graph comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The paper's relative rank uses one-point extensions over a specified marking, as here. The graph-spectrum and colored-pair records have different available types (e.g. nonedges in oriented graphs), despite similar extension-rank terminology."
+        ],
+        "reasoning": "Changing the class for relative rank changes the universal extension condition. Neither an undirected graph census nor an unrestricted oriented-graph threshold supplies the rank in the class of all finite tournaments.",
+        "searches": [
+          "López Callejas Navarro Castillo tournament rank seven minimum tournament rank three census automorphism",
+          "arXiv:2604.14461 Definition 2.3",
+          "Resultary a3c35b6162f1, 9836ef0ec9c0 and e2773954132c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "McKay lists 456 unlabelled tournaments at n=7 without the rank filter. Resultary 9836ef0ec9c0 is the graph spectrum; bcdcae21fe8a is the identical audited record."
+        ],
+        "reasoning": "An unfiltered host catalogue is not a table of marked-extension ranks or their automorphism distribution. The same frozen record is not a distinct antecedent.",
+        "searches": [
+          "McKay Combinatorial Data, Digraphs/Tournaments",
+          "Local Resultary extension-rank-three tournament and graph census comparisons"
+        ]
+      },
+      "rationale": "The rank definition and seven-vertex existence example are prior. The distinct supported content is necessity of seven vertices, and the complete labelled and unlabelled rank-three census refined by automorphism order. The inspected general theorem and tournament catalogue do not settle those rank-filtered assertions.",
+      "residual_risks": [
+        "A differently indexed earlier rank calculation is not excluded by bounded searches.",
+        "No credit is assigned for constructing a seven-vertex rank-three example or for the total number 456 alone."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same rank definition and prior upper bound of seven for onset, not a seven-vertex census or six-vertex exclusion in the inspected passages.",
+          "evidence": [
+            "Theorem 5.4 gives rk(H_t)=t, with |H_t|=2^t−1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.14461",
+          "material_read": "Definition 2.3 (HTML offset 12986), §5 (offset 62000), Lemma 5.3 and Theorem 5.4 (offset 68000)",
+          "method": "Bounded lawful OA primary text",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Defines the same rank and builds hosts of given rank"
+        },
+        {
+          "assessment": "Confirms all-class count, not the rank or symmetry refinement.",
+          "evidence": [
+            "456 is the number of all nonisomorphic seven-vertex tournaments."
+          ],
+          "identifier_or_url": "https://users.cecs.anu.edu.au/~bdm/data/digraphs.html",
+          "material_read": "Tournaments entry for n=7, public page offset 0",
+          "method": "Bounded public catalogue inspection",
+          "title": "Combinatorial Data: Digraphs and Tournaments",
+          "trigger": "Exact-order database could cover the census"
+        },
+        {
+          "assessment": "Undirected graphs and other colored-pair classes, not the present tournament class and census.",
+          "evidence": [
+            "The graph records use edge/nonedge extensions; the oriented graph setting includes a nonedge type not allowed in tournaments."
+          ],
+          "identifier_or_url": "Resultary a3c35b6162f1, 9836ef0ec9c0, e2773954132c",
+          "material_read": "Local mirror RESULT.md findings and class definitions",
+          "method": "Local Resultary search and matching mirror passages",
+          "title": "Sharp rank-three onset and six-edge extremum for finite graphs; complete seven-vertex extension rank-three graph spectrum; sharp three-round thresholds and certified extremizers for coloured pairs",
+          "trigger": "Similar onset, rank and exact census under other descriptions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Rank definition and analytical order-six obstruction in frozen RESULT.md",
+        "Independently verified rank-filtered counts; McKay's unfiltered baseline"
+      ],
+      "rationale": "This is the natural first nontrivial host-order cutoff for the specified extension depth, not an arbitrary slice. The census shows that the first possible order already has many distinct qualifying hosts, and the orbit refinement quantifies how automorphisms affect the comparison between labelled and unlabelled prevalence. It supplies an exact reference point for later structural work on the invariant.",
+      "residual_risks": [
+        "The result is a finite classification by rank and group order, not a structural theorem for arbitrary tournaments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

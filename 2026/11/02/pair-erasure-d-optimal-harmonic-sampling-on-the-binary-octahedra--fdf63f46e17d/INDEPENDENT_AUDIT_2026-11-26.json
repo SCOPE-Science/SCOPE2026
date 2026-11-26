@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:58:49.389554Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the cube rotation action the four body diagonals identify the quotient with S4. Relative quaternion scalar magnitudes 1/sqrt(2), 1/2 and 0 correspond respectively to quarter turns (4-cycles), third turns (3-cycles), and half turns (the two order-two classes). Even Chebyshev values 13 at 1, 1 at 0 and 1/2, and −1 at 1/sqrt(2) give B=12I+J−2A. On the trivial, sign, 2-dimensional, standard and twisted standard irreducibles the 4-cycle sum has scalars 6,−6,0,−2,2, with multiplicities the squared dimensions. This gives eigenvalues 24,24,12,16,8 and strict positivity. Inverting these central scalars and using the character table gives diagonal 101/1152 and off-diagonal numerators −4,−7,+9,−9 in the stated order. Jacobi's identity reduces each minor divided by det B to (101²−b_h²)/1152². The class sizes 8,3,6,6 multiply by 24/2 for unordered pairs; the unique maximizing class is the 3-cycles and the best/worst ratio simplifies to 2037/2024. I independently generated 24 proper signed permutation rotations, evaluated the kernel from squared relative quaternion scalar (1+trace(R_x^T R_y))/4, recovered eigenvalue multiplicities by an annihilating polynomial and four exact trace moments, and evaluated all 276 retained determinants directly by integer Bareiss elimination. They match 96 at 10185, 36 at 10152, and 72 each at 10120 in the two remaining classes, scaled by 1152²/det B. Replay: python3 /workspace/evidence/1.py, output /workspace/evidence/1.out. This checks the fixed degree and erasure count, not conditioning or arbitrary erasures.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c8794d8a3ae7 constructs the same kernel and certifies all degrees' ranks; at degree 12 it computes rank by Gaussian elimination and explains which representation sectors contribute to rank.",
+          "Hirao–Nozaki–Tasaka classify harmonic strengths and give 48-point antipodal design uniqueness at specified degrees; their criterion is harmonic sums, not a retained-evaluation determinant. Evans–Pugh use binary-octahedral representation and spectral-measure data in the McKay setting."
+        ],
+        "reasoning": "Degree scope in the rank paper and set scope in the design paper are stronger in their own invariants. Neither controls the inverse entries by relative class used by the frozen complementary-minor classification. Known character data are reusable proof inputs, not independent novelty.",
+        "searches": [
+          "Resultary c8794d8a3ae7, exact rank certificate and steps 2–5",
+          "arXiv:2507.01358, Theorems 1.2 and 1.4(ii)",
+          "arXiv:0906.4314, section 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c8794d8a3ae7",
+        "Resultary 2b55835ab263",
+        "arXiv:2507.01358",
+        "arXiv:math/0502566",
+        "arXiv:0906.4314"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rank-24 theorem plus Gram positivity implies strict positivity and nonsingularity of every retained principal Gram, so credit that coverage.",
+          "Exact pair determinants additionally use the inverse coefficient for each conjugacy class. Neither full rank, nor absence of degree 12 from the design-strength list, nor a single-cell spectrum supplies these coefficients."
+        ],
+        "reasoning": "The known character method and Jacobi identity permit a short calculation but are not a prior statement dominating the four-class determinant census. The independently useful result is which pairs tie, how many optimize, and their exact objective values, not the pre-existing rank conclusion.",
+        "searches": [
+          "c8794d8a3ae7 RESULT.md Finding and exact finite rank certificate",
+          "arXiv:2507.01358 Theorem 1.2",
+          "frozen RESULT.md proof steps 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 48 normalized F4 roots, the binary octahedral group of unit quaternions, and its two antipodal 24-cell sets describe the same frozen geometry; passing to 24 representatives is valid at even degree.",
+          "Weeks constructs invariant eigenmodes on the homogeneous quotient, not a sample Gram on the group regarded as a set of sites."
+        ],
+        "reasoning": "Rank of the normalized F4 point evaluations is truly the same as frozen kernel rank, but is neither a spectrum of that Gram nor a determinant classification after deleting points. Quotient-manifold eigenmodes address a different space and question.",
+        "searches": [
+          "Resultary c8794d8a3ae7, Finding and group-theoretic interpretation",
+          "arXiv:2507.01358, definition and group data",
+          "arXiv:math/0502566, section 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2b55835ab263 gives an all-degree eigenvalue table on the D4 24-cell, with 24 signed roots (12 antipodal pairs), not on both 24-cells comprising the frozen 48 sites.",
+          "c8794d8a3ae7 gives rank 24 at degree 12 for the correct configuration. No same-configuration two-erasure determinant table was identified by the exact-value search."
+        ],
+        "reasoning": "An isolated 24-cell spectrum is the wrong matrix; rank data on the right matrix do not distinguish the deletion types. Lack of an additional matching search hit does not prove priority.",
+        "searches": [
+          "Resultary exact values 10185, 10152, 10120 and degree-12 two-erasure harmonic sampling",
+          "Resultary 2b55835ab263 and c8794d8a3ae7, exact tables"
+        ]
+      },
+      "rationale": "The rank-24 statement and hence positive definiteness and principal nonsingularity are covered by the same-geometry all-degree rank record and are not the distinct contribution. On the inspected evidence, the degree-12 spectral multiplicities and the normalized two-erasure minor distribution, including the exact 3-cycle optimizer census, are not given by that record's rank theorem or the other relevant results.",
+      "residual_risks": [
+        "An earlier association-scheme principal-minor classification or finite spherical interpolation result may encode this exact census under different terminology.",
+        "The rank record and frozen record have the same catalogue date; their sequence and independence are not inferred. The focused literature search did not offer additional relevant evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full rank, not pair-erasure determinants",
+          "evidence": [
+            "Rank 24 at degree 12 and lower rank at every smaller even degree. The certificate evaluates ranks by exact elimination; the character argument in step 5 describes nonzero sectors, not their inverse correlations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-degree-spherical-harmonic-sampling-ranks-on-the-normalized-f--c8794d8a3ae7/RESULT.md",
+          "material_read": "Finding, assumptions and proof steps 1–5, offsets 0–5850; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Bounded local-mirror statement and proof inspection",
+          "title": "All-degree spherical-harmonic sampling ranks on the normalized F4 root system",
+          "trigger": "Same geometry, degree 12 included, stronger parameter range for rank"
+        },
+        {
+          "assessment": "Different configuration",
+          "evidence": [
+            "D4 roots of a single regular 24-cell give 12 antipodal classes; the frozen F4 configuration gives 24 classes."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-complete-exact-degree-harmonic-sampling-spectrum-of-the-regular--2b55835ab263/RESULT.md",
+          "material_read": "Finding and eigenvalue table, offsets 0–4374",
+          "method": "Bounded local-mirror comparison",
+          "title": "Complete exact-degree harmonic sampling spectrum of the regular 24-cell",
+          "trigger": "Similar indexed exact spectral table"
+        },
+        {
+          "assessment": "Same geometry, different invariant",
+          "evidence": [
+            "2O is order 48 with quotient S4; T(2O)={22,14,10,6,4,2} union positive odd degrees. Vanishing harmonic sums are not deletion-minor identities."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2507.01358",
+          "material_read": "pp. 1–4, offsets 4301, 6780 and 11277; harmonic strength, Theorems 1.2 and 1.4(ii)",
+          "method": "OA PDF primary passages",
+          "title": "Spherical designs for finite quaternionic unit groups and their applications to modular forms",
+          "trigger": "Same quaternionic group and harmonic evaluation"
+        },
+        {
+          "assessment": "Invariant modes on the quotient, not a point-sampling optimization",
+          "evidence": [
+            "Constructs eigenmodes on S³/O* using invariant polynomials."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0502566",
+          "material_read": "Section 11, pp. 17–19, offset 41732",
+          "method": "OA PDF primary passages",
+          "title": "Exact Polynomial Eigenmodes for Homogeneous Spherical 3-Manifolds",
+          "trigger": "Binary-octahedral spherical harmonics"
+        },
+        {
+          "assessment": "Classical spectral context, not exact degree-12 inverse/minors",
+          "evidence": [
+            "Binary-octahedral character/McKay spectral-measure data accompany different matrices and objectives."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0906.4314",
+          "material_read": "Section 4.4, p. 19, offset 68503",
+          "method": "OA PDF primary passage",
+          "title": "Spectral Measures and Generating Series for Nimrep Graphs in Subfactor Theory",
+          "trigger": "Binary-octahedral character and spectral data"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Degree 12 is the first even degree with full antipodal interpolation on this canonical configuration (the independently inspected rank table certifies all smaller even degrees as deficient). Two erasures are the first cardinality for which the relative position of erased points can matter in a transitive design. The complete determinant census distinguishes every such deletion, revealing both a strict geometrical optimizer and a tie between different rotation classes. The small ratio alone would not motivate the work; the useful exact fact is the identity and multiplicity of every maximizing deletion and the determinant penalty of each alternative at this natural full-rank degree. No claim about larger erasures or conditioning is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

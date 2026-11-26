@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:39:28.429677Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The markerless multiset of cyclic rows decomposes in decreasing order of remaining zero prefix length ℓ, with the following two gaps breaking order inside a group by decreasing lexicographic size. The final symbol is 1 precisely on the three rows with ℓ equal to the entire associated gap, including a zero gap. Tied identical rotations have the same last letter. The first rotation starts at a longest zero-run and the last at a longest one-run, so the last column starts with 1 and ends with 0; its linear run count is twice the number of one-blocks. For distinct x<y<z, only consecutive gap levels can touch. In cyclic order (x,y,z) the y mark comes first at level y and touches the z mark iff z=y+1; the x mark is not first at level x. In the reversed order the y mark ends its level and x begins its level, so those marks touch iff y=x+1, while z and y do not touch. Two equal gaps have consecutive marks; in the smaller-equal case the two marked rows precede the unmarked row in their level, and in the larger-equal case the smaller mark comes first in its own level. Thus the pair meets the third mark exactly for gap difference one. All equal gaps give one block. For six runs, the two orientations count d₁≥2 and d₂≥2 separately at gap sum 3x+2d₁+d₂. Their series z⁴/[(1−z³)(1−z)²] has coefficient Σ(n−6−3j) at n−3; each orientation is a primitive necklace of n indexed words. The equal-gap class contributes n/3 two-run words if 3 divides n; otherwise the unique neighboring-gap two-run necklace contributes n. Subtraction from binomial(n,3) gives the four-run formula, including empty small classes. Independent replay `python3 /workspace/review_checks.py 4` sorts integer-encoded rotations of all 40,919 labeled weight-three words for 4≤n≤32 and reproduces both structure and census. The frozen checker was only inspected; its stale comment saying gap sums through 90 does not match the loop through 35.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov. 22 sparse-weight law, Finding offset 0: r≤2k; positive gaps separated by at least two suffice, but are not necessary for equality.",
+          "The fixed-points paper's publisher abstract explicitly addresses words unchanged by BWT and sparse binary fixed points up to four occurrences of either letter. The frozen discussion links the RLE paper to general clustering bounds; the primary full text was not independently retrieved."
+        ],
+        "reasoning": "A general upper bound and a sufficient equality condition do not characterize all six-run weight-three words. Fixed-point membership is not a run count of arbitrary images; the exact published spectrum is the covering source.",
+        "searches": [
+          "Resultary: circular Burrows–Wheeler runs sparse weight, gap separation",
+          "Mantaci et al. DOI 10.1016/j.tcs.2017.07.015 and DOI 10.3233/FI-2017-1566"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Published Resultary exact spectra and sparse-weight finding",
+        "Primary passages and bibliographic leads in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Nov. 8 proof requires the marked y- and x-rows to meet exactly for y=x+1 in the reverse orientation and the z- and y-rows to meet exactly for z=y+1 in the forward orientation. This matches the frozen separation criteria after negating the adjacency conditions."
+        ],
+        "reasoning": "The structural supplement is covered as well as the table. Taking the labeled proportions mechanically yields the frozen convergence to one; the exact match even states a sharper rate. Distinguish this mathematical equivalence from historical antecedence.",
+        "searches": [
+          "Comparison of Nov. 8 Finding and proof offset 4139 with frozen lines 4–17 and 20–32; Oct. 25 necklace formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Nov. 8 exact circular BWT record uses identical multi-rotation, alphabet, no-marker, indexed-word and linear-run conventions (Finding and Assumptions, offsets 0–2061).",
+          "Simpson–Puglisi, EJC 15 (2008), R83: Theorem 2.5 handles the coprime two-block case; Corollary 2.6 gives the general characterization by conjugates of standard words or their powers."
+        ],
+        "reasoning": "Markerless cyclic and circular BWT here denote the same transform. With both letters present, two runs are exactly perfect clustering 1³0^(n−3); the classical result already covers that branch but not the four-/six-run split.",
+        "searches": [
+          "Resultary: complete sentinel-free circular BWT run census for three ones; weight-three labeled words and necklaces",
+          "Simpson–Puglisi, Words with simple Burrows-Wheeler Transforms, Theorem 2.5 and Corollary 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nov. 8 exact indexed-word Finding: the complete 2/4/6 table matches all six formulas and the n≥4 hypotheses; see offsets 0–2061. Proof offset 4139–6365 explicitly includes the (x,z,y) and (x,y,z) adjacency directions and zero gaps.",
+          "Oct. 25 necklace Finding, offset 0–1815: C₂=1 and C₄=n−4+1_{3|n}, with the explicit remaining C₆ formula."
+        ],
+        "reasoning": "The first is direct exact coverage, not merely a similar statistic. The second is the rotation quotient, but only the equal-gap class has a shorter orbit: a proper repeated word of weight three must repeat three times and have equal gaps. Thus R₄=nC₄ and R₆=nC₆; the unique C₂ class has orbit n/3 if divisible by three, n otherwise.",
+        "searches": [
+          "Resultary: exact run spectrum of the circular Burrows–Wheeler transform for binary words with three ones",
+          "Resultary: exact Burrows–Wheeler run spectrum of cyclic binary words with three markers"
+        ]
+      },
+      "rationale": "The entire labeled census and the orientation-dependent cyclic-gap criterion are materially coextensive with a distinct, available exact published finding. A second exact necklace census also gives the labeled census by orbit sizes. Both matching catalogue paths are dated later than the frozen one; the disposition records verified duplicate scientific coverage, not a claim that either publication predates the frozen derivation or establishes historical priority.",
+      "residual_risks": [
+        "Dates of catalogue paths do not establish derivation order or priority between the exact results.",
+        "The RLE full text and three-one fixed-point proposition were not independently retrieved; this does not affect the documented exact match."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Coextensive labeled census and structural criterion",
+          "evidence": "Same table; opposite cyclic orientations make different consecutive gap pairs adjacent, including when the smallest gap is zero.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-run-spectrum-of-the-circular-burrows-wheeler-transform-for--1b2e4b268091/RESULT.md",
+          "material_read": "Finding/Assumptions offsets 0–2061, and proof offsets 4139–6365",
+          "method": "Published-record mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact run spectrum of the circular Burrows–Wheeler transform for binary words with three ones",
+          "trigger": "Exact weight, conventions, and census"
+        },
+        {
+          "assessment": "Exact census recoverable via orbit sizes",
+          "evidence": "C₂=1, C₄=n−4+1_{3|n} and explicit C₆; periodic necklaces are included.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-burrows-wheeler-run-spectrum-of-cyclic-binary-words-with-t--17765181f4c4/RESULT.md",
+          "material_read": "Finding/Assumptions offsets 0–1815 and proof passage from offset 4539",
+          "method": "Published-record mirror",
+          "title": "Exact Burrows–Wheeler run spectrum of cyclic binary words with three markers",
+          "trigger": "Same law in rotation-quotient coordinates"
+        },
+        {
+          "assessment": "General but insufficient for exact three-one census",
+          "evidence": "r≤2k with a sufficient, explicitly nonnecessary separated positive-gap condition.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-sparse-weight-law-for-circular-burrows-wheeler-runs--31ca9d66545f",
+          "material_read": "Finding, offset 0",
+          "method": "Published-record mirror",
+          "title": "A sharp sparse-weight law for circular Burrows–Wheeler runs",
+          "trigger": "General weight-k setting with exact maximal count bound"
+        },
+        {
+          "assessment": "Covers the two-run subclaim",
+          "evidence": "Characterizes binary two-block BWT by conjugates of standard words or powers of standard words.",
+          "identifier_or_url": "Electronic Journal of Combinatorics 15 (2008), R83",
+          "material_read": "Abstract/definition and offsets 3459 and 6920, Theorem 2.5/Corollary 2.6",
+          "method": "OA PDF passage inspection",
+          "title": "Words with simple Burrows-Wheeler Transforms",
+          "trigger": "Classical perfect clustering theorem"
+        },
+        {
+          "assessment": "Primary comparison unresolved; not used as absence evidence",
+          "evidence": "Frozen discussion attributes a general upper-bound analysis to the article.",
+          "identifier_or_url": "DOI 10.1016/j.tcs.2017.07.015",
+          "material_read": "Bibliographic lead and frozen RESULT.md line 58; no primary full text retrieved",
+          "method": "Repository PDF and DOI access attempts",
+          "title": "Measuring the clustering effect of BWT via RLE",
+          "trigger": "BWT run counts and general bounds"
+        },
+        {
+          "assessment": "Abstract identifies a different predicate; no whole-paper negative assertion",
+          "evidence": "Studies B(w)=w with explicit cases of at most four occurrences of either letter.",
+          "identifier_or_url": "DOI 10.3233/FI-2017-1566",
+          "material_read": "Publisher abstract, offset 0; Proposition 4.2 not obtained",
+          "method": "Publisher abstract and attempted postprint access",
+          "title": "On Fixed Points of the Burrows-Wheeler Transform",
+          "trigger": "Binary words with exactly three ones appear in a neighboring problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Weight three naturally permits the first full two/four/six split for this compression statistic. However, the precise invariant and its orientation-sensitive classification are both already supplied in the matching record; the coefficient calculation here provides an alternative enumeration, not a distinct open invariant or a new structural consequence. The already-known two-run case and the conversion between indexed and circular counts do not supply an independently valuable remainder under the exact-invariant criterion.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

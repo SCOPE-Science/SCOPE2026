@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:04:18.233289Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–29",
+        "Frozen VERIFICATION.md line 21 and check_colex.py lines 1–47, inspected without execution; direct word-check count is 11·(2^16−1)=720885"
+      ],
+      "rationale": "The last-symbol/residue transitions recognize exactly the stated language (the empty word starts at Z_0); a sufficiently long zero prefix gives each residue with either final symbol, and 11 reaches the sink. All-zero suffixes distinguish unequal residues among states with the same last symbol. A suffix 10^t chosen to accept from a Z state separates it from any O state, and every nonsink state has an accepting suffix unlike the sink. This gives 2m+1 distinct reachable residuals and 2m nonempty residuals for the trim partial automaton. If Z_r<Z_s, backward propagation along the cyclic zero transitions gives Z_i<Z_{i+(s−r)} for every i; iterating the nonzero residue difference closes a strict cycle. Thus the Z states give a width-m lower bound. Ordering all Z states below all O states with no intra-layer comparisons gives width m and makes backward propagation vacuous on strict pairs. With the sink, both 0 and 1 enter it, so sink<Z_r violates the label axiom. Conversely Z_r<sink propagates via O_{r−1} and the sink's zero-loop to O_{r−1}<sink, again violating the label axiom. The antichain increases to m+1 and the same two-layer order with an isolated sink realizes m+1. This argument treats the start label # as additional and least; the start also has a 0 predecessor. It applies at m=2 and all higher moduli without any empirical extrapolation.",
+      "residual_risks": [
+        "The checker tests a proposed order and state minimization, not width optimality independently; its printed width is the formula. The recorded SciPy requirement is unnecessary for the shipped standard-library code. Neither issue affects the analytic conclusion.",
+        "No claim is established for language width over all equivalent automata or for another alphabet order."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General papers supply the width framework and characterization, not a uniform formula for this combination of congruence and run constraint.",
+          "The earlier exact forbidden-factor record uses avoidance of 0^r1, has width r+1 on its minimal trim partial DFA, and explicitly excludes a sink."
+        ],
+        "reasoning": "The factor-only calculation is not a general theorem for modular products or completions. A general way to compute the parameter for a supplied finite graph does not by itself evaluate both parametric widths or show the gap is attained uniformly.",
+        "searches": [
+          "arXiv:2208.04931, §2.1 and §2.2, co-lex axioms and DFA maximum order",
+          "arXiv:2410.04771, §2, automaton width and language width",
+          "Resultary 294ac7d4ffb0, exact prefix-sorting cost for avoiding a binary zero-run"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 59328820aa55 (self-match), 294ac7d4ffb0, 721b1c01a04c, 6dcb469e388b",
+        "arXiv:2208.04931, §2; arXiv:2410.04771, §2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older exact co-lex-width record has no length-residue cycle or completion comparison.",
+          "The general DFA result places bounds in terms of reaching-word intervals but does not prescribe those intervals for this family."
+        ],
+        "reasoning": "The pair of widths depends on an all-residue obstruction plus mixed-incoming-label propagation from the sink and a matching width order. Neither minimal state counts for related languages nor the general maximum-order theorem alone gives the sharp one-unit comparison.",
+        "searches": [
+          "Resultary 294ac7d4ffb0, RESULT.md, Finding/Assumptions/Proof",
+          "arXiv:2410.04771, Lemma 2.10, width-realizing order"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cotumaccio et al. define I_u with accepted-word prefixes on useful states. Becker et al. use all reaching words and allow mixed incoming labels, giving a nonempty reaching set for the complete-DFA sink.",
+          "The latter distinguishes width of a DFA from width minimized over equivalent DFAs."
+        ],
+        "reasoning": "The general interval characterization is an equivalent method under the all-reaching-word convention. One must still establish the interleaving of the residue classes and the sink's relation to them. Accepted-prefix sets with usefulness assumed cannot instead be applied verbatim to the dead state.",
+        "searches": [
+          "arXiv:2208.04931, §2.2, maximum co-lex order and prefix sets",
+          "arXiv:2410.04771, §2, Definitions 2.5–2.9 and Lemma 2.10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed match 59328820aa55 is the assigned result itself.",
+          "Distinct same-day records count scattered 010 occurrences or distinct subsequences modulo m and give state complexities, not these widths."
+        ],
+        "reasoning": "The shared no-11 base and modular parameters do not make the accepted languages or co-lex comparisons equal. Same-day dates were not used to infer order or dismiss overlaps.",
+        "searches": [
+          "Resultary: modular Fibonacci/no-11 length-modulus automata co-lex width and complete versus partial DFA",
+          "Resultary 721b1c01a04c and 6dcb469e388b, same constrained base language with modular statistics"
+        ]
+      },
+      "rationale": "Standard residual minimization and the general theory of co-lex ordering are prior machinery. The supported distinct content is the exact pair of widths for the length-modular no-11 minimal automata, especially sharpness of the one-unit sink cost. The closest forbidden-factor and modular-result comparisons inspected do not give that pair; this is not a comprehensive priority claim.",
+      "residual_risks": [
+        "An unindexed exact treatment of modular run-limited languages or a general completion formula could supply additional coverage; none of the inspected statements does so."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General order framework; accepted-prefix convention assumes useful states.",
+          "evidence": [
+            "The special # precedes the alphabet; comparison constrains incoming labels and propagates on equal labels.",
+            "Lemma 2.8 relates order to reaching sets under the paper's hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2208.04931",
+          "material_read": "§2.1, OA PDF pp. 10–11; §2.2, Definition 2.1, p. 12; Definition 2.7/Lemma 2.8/Corollary 2.9, p. 15",
+          "method": "OA primary-text passage inspection",
+          "title": "Co-lexicographically Ordering Automata and Regular Languages — Part I",
+          "trigger": "Underlying invariant and possible prior maximum-order result"
+        },
+        {
+          "assessment": "Applicable general method, not the parametric width values.",
+          "evidence": [
+            "I_u uses all words reaching u, and mixed incoming labels are allowed.",
+            "Lemma 2.10 gives a width-realizing order; Definition 2.9 distinguishes automaton and language width."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2410.04771",
+          "material_read": "§2, Definitions 2.5–2.9 and Lemma 2.10, OA PDF pp. 6–7",
+          "method": "OA primary-text passage inspection",
+          "title": "On the Complexity of Computing the Co-lexicographic Width of a Regular Language",
+          "trigger": "General characterization applicable to reachable sink and distinction from language width"
+        },
+        {
+          "assessment": "No residue restriction or complete-sink analysis.",
+          "evidence": [
+            "Avoiding 0^r1 yields trim width r+1 and minimum Wheeler DFA size 2r+1."
+          ],
+          "identifier_or_url": "Resultary 294ac7d4ffb0",
+          "material_read": "RESULT.md, Finding, Assumptions and Proof, mirror offset 0",
+          "method": "Local mirror, original passages",
+          "title": "Exact prefix-sorting state cost for avoiding a binary zero-run factor",
+          "trigger": "Closest published exact co-lex width of a minimal binary factor-avoiding DFA"
+        },
+        {
+          "assessment": "Different statistic and state complexity only.",
+          "evidence": [
+            "The filtered quantity is scattered 010 occurrences modulo m."
+          ],
+          "identifier_or_url": "Resultary 721b1c01a04c",
+          "material_read": "RESULT.md, Finding and Assumptions, mirror offset 0",
+          "method": "Local mirror, original passages",
+          "title": "Exact minimal automata for modular scattered 010 counts under the no-11 restriction",
+          "trigger": "Same no-11 constraint and modular filter"
+        },
+        {
+          "assessment": "Different statistic and state complexity only.",
+          "evidence": [
+            "The filtered quantity is the count of distinct scattered subsequences."
+          ],
+          "identifier_or_url": "Resultary 6dcb469e388b",
+          "material_read": "RESULT.md, Finding and Assumptions, mirror offset 0",
+          "method": "Local mirror, original passages",
+          "title": "Exact state complexity of modular distinct subsequence counting",
+          "trigger": "Same no-11 constraint and modular filter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 9–13, 25–29",
+        "arXiv:2410.04771, §2, Definition 2.9",
+        "Resultary 294ac7d4ffb0, Finding and Assumptions"
+      ],
+      "rationale": "Length congruence on the basic binary run-limited language yields a concrete family in which a residue cycle forces growing width although the number of symbol layers is fixed. The exact trim-versus-complete comparison is useful for interpreting the same co-lex invariant when implementations implement missing transitions using a dead state. The forced extra antichain member, not the standard product state construction, is the useful exact information.",
+      "residual_risks": [
+        "No broader language-width lower bound or general characterization of the sink cost follows from this example alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:28:28.962367Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For base-five doubling, the least digit ≥3 produces a Lucas zero (no earlier carry), and otherwise the digit factors are (1,2,1,0,0). Summing complete five-term blocks and the final partial block gives (u,a)↦(−u+c_d a,w_d a) with c=(0,1,3,4,4); leading zeroes preserve (0,1). On independent uniform digits, the first digit 3 or 4 kills the second coordinate forever, and Y_r=(−1)^r S(n) is then constant as depth advances. The coupling error is at most the survival probability (3/5)^r, uniformly in each residue. For an independent distribution check, affine equivariance of the digit rules makes the limiting signed value from initial (u,a≠0) equal in law to u+aZ with Z the limit from (0,1). Conditioning on the first digit gives two chances in five of Z=1, and otherwise the push-forwards of Z by z↦−z, −1−2z, −3−z, each with weight 1/5. This map contracts differences of laws by at most 3/5, and (1,8,2,1,2)/14 satisfies its five equations exactly. Sign reflection at odd depth gives (1,2,1,2,8)/14. Multiplying the coupling error by 5^r proves the bound for counts, and opposite parity limits differ in all four nonzero coordinates. Independently checked all 20 published certificate equations, the five-state equations, all seven finite histograms and the exact integer binomial sum histogram at depth four via python3 /workspace/branches/reproduce_3_4_5.py. The supplied checker and recorded output were read, not executed; the finite tests do not replace the coupling. The frozen theorem makes no claim at residue zero for arbitrary cutoffs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Tauraso treats weighted/shifted congruences at prime-power upper endpoints; Mattarei evaluates a whole initial-block generating polynomial; Chen–Hou–Zeilberger includes broad constant-term sequence congruences and a central-binomial endpoint example."
+        ],
+        "reasoning": "These furnish endpoint identities, or in Mattarei's case digit/coefficient information sufficient to start a new proof. An endpoint identity is not a frequency statement over all intermediate endpoints. The reviewed results do not assert any two-phase running-value distribution.",
+        "searches": [
+          "arXiv:0805.0563 Theorem 1.1",
+          "arXiv:0906.4290 Theorem 3",
+          "arXiv:1509.09070 Theorem 2.1 and Corollary 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Resultary de3c07978889, 88cd6f9d99bb, 85923533227d",
+        "arXiv:0805.0563, 0906.4290, 1509.09070",
+        "doi:10.1112/S0024610701002630 (abstract and access attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete prime-power polynomial specifies all its coefficient residues but does not supply an evaluated histogram of prefix values. The proof needs the cumulative recurrence, parity correction after absorption, and evaluation of the resulting law.",
+          "Neither compared individual-coefficient record nor the endpoint congruences identifies those evaluated quantities."
+        ],
+        "reasoning": "There is a direct reconstruction of a finite block from ordered coefficients, but the explicit alternating limit and exponential bound are not a direct parameter substitution into any inspected theorem; an analysis over arbitrary depth is needed.",
+        "searches": [
+          "Mattarei Theorem 3",
+          "Barat–Grabner doi:10.1112/S0024610701002630",
+          "Resultary 88cd6f9d99bb, 85923533227d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The signed running-sum law is a first-absorption law of a base-five transducer; it can equivalently be evaluated by the five-state affine distribution equation in the correctness check.",
+          "Barat–Grabner's abstract covers binomial residues and general q-ary digit-block arithmetic functions, but no exact running-sum law is visible in inspected material."
+        ],
+        "reasoning": "A digit theorem can provide an approach to frequencies once the transducer is identified. No inspected source specifies or evaluates the signed first-absorption law. The full scope of Barat–Grabner has not been established from the abstract.",
+        "searches": [
+          "Resultary semantic lookups for modulo-five central-binomial prefix-sum distributions and digit transducer/first-defect laws",
+          "doi:10.1112/S0024610701002630"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct catalogue hit de3c07978889 is the assigned record itself.",
+          "88cd6f9d99bb gives complete-block counts of binom(4n,2n) mod 5 and a square-root signed imbalance bound, while 85923533227d studies character parity and finite-block laws for individual binomial coefficients including binom(4n+2,2n+1)."
+        ],
+        "reasoning": "The adjacent tables count values of coefficients, not cumulative residues. A coefficient histogram loses the order information required to determine the histogram of the prefix sums.",
+        "searches": [
+          "Resultary semantic lookups for complete base-five block counts of the running partial sums",
+          "Resultary 88cd6f9d99bb and 85923533227d"
+        ]
+      },
+      "rationale": "Lucas products, endpoint congruences and finite-state methods are established. The substantiated distinct claim is the evaluated pair of running-sum laws at the two parity subsequences, with the pointwise error and failure of the four densities. None of the compared statements gives this evaluated law.",
+      "residual_risks": [
+        "Barat–Grabner's unavailable full text or another digital-distribution theorem could contain an evaluated equivalent or a more direct specialization; the abstract cannot exclude that.",
+        "This is bounded statement-level comparison, not a claim of global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Endpoint congruences, not running frequency theorem",
+          "evidence": [
+            "Weighted shifted sums over prime-power ranges, including endpoint cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0805.0563",
+          "material_read": "Theorem 1.1, PDF p. 3, OA offset 6090",
+          "method": "OA paper text",
+          "title": "New congruences for central binomial coefficients",
+          "trigger": "Same binomial sums at prime-power scales"
+        },
+        {
+          "assessment": "Strong arithmetic input, no evaluated prefix-sum distribution in inspected theorem",
+          "evidence": [
+            "Evaluates Σ_{k<q} binom(2k,k)x^k modulo p for odd-prime powers q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0906.4290",
+          "material_read": "Theorem 3, PDF p. 6, OA offset 22650",
+          "method": "OA paper text",
+          "title": "Asymptotics of partial sums of central binomial coefficients and Catalan numbers",
+          "trigger": "Same partial-sum sequence and prime-power block"
+        },
+        {
+          "assessment": "General endpoints, not block law of varying endpoints",
+          "evidence": [
+            "Prime-power endpoint congruences for constant-term sequences and central-binomial example."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.09070",
+          "material_read": "Theorem 2.1 p. 3 (offset 6094) and Corollary 2.3 p. 6 (offset 11940)",
+          "method": "OA paper text",
+          "title": "Automated Discovery and Proof of Congruence Theorems for Partial Sums of Combinatorial Sequences",
+          "trigger": "General partial-sum congruence literature"
+        },
+        {
+          "assessment": "Broad methodological overlap; precise coverage unresolved",
+          "evidence": [
+            "Abstract covers distributions modulo prime powers, p-adic valuations, and asymptotics of functions depending on q-ary digit blocks."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/S0024610701002630",
+          "material_read": "Crossref-deposited abstract only; full text not recovered",
+          "method": "Bibliographic metadata and lawful OA lookup, including identified Cambridge route",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Plausible broader digital-distribution theorem"
+        },
+        {
+          "assessment": "Unaccumulated coefficients with different indexing, not the prefix sum",
+          "evidence": [
+            "Only residues 0,1,4; complete-block counts and a square-root imbalance."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-square-root-imbalance-for-binom-4n-2n-modulo-five--88cd6f9d99bb",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Sharp square-root imbalance for binom(4n,2n) modulo five",
+          "trigger": "Exact complete-block frequencies modulo five"
+        },
+        {
+          "assessment": "Individual values and characters, not cumulative sum histograms",
+          "evidence": [
+            "Legendre-symbol parity and a finite-block congruence law for binom(4n+2,2n+1)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-parity-rigidity-and-exact-first-defect-laws-for-central-binomial--85923533227d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Parity rigidity and exact first-defect laws for central-binomial quadratic characters",
+          "trigger": "Central-binomial first-defect laws and digit methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The summatory central-binomial sequence is a natural arithmetic object. Prime-power endpoints and the single-coefficient distribution do not determine whether its residue classes among indices have densities via known endpoint laws. The distinct even/odd histograms and a uniform finite-depth error quantify a concrete obstruction for every nonzero residue; the absorption argument identifies its source. This is more than obtaining digit recurrences or small tables and does not presume wider-modulus generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

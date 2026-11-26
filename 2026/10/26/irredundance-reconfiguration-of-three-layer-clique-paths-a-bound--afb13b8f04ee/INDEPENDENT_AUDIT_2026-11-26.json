@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:06:44.675489Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ 1–3, enumerations and slide classification",
+        "Frozen VERIFICATION.md table, verify.py, and AUDIT.json (recorded rather than authoritative evidence)",
+        "Independent /workspace/audit_evidence/reproduce.py 4 5 6 7, check5(): all 2,396,160 masks via coverage multiplicities, maximal and optimal families, actual edge moves and all-pairs core distances"
+      ],
+      "rationale": "If the middle is empty, a multi-vertex outer occupancy forces every one of its vertices to use its matched middle vertex as witness; this requires disjoint indices across the outer layers. Singletons in both outer layers can share an index. If the middle is occupied, a second vertex in either outer layer is impossible because the whole middle clique is dominated by a selected middle vertex. With both outer singletons a middle vertex can only witness in the middle clique, so at most one middle vertex can be selected; any triple works by taking outer witness indices different from the middle index and a middle witness outside the two outer indices. A unique outer singleton can witness exactly when a proper subset of middle indices is selected, and middle vertices use the vacant outer layer. The middle-only selections always work. Counting the four disjoint cases yields I_n. Irredundance is hereditary, so the maximal configurations are exactly full complementary outer allocations (2^n), the full middle layer, the two families of singletons plus n−1 middle vertices (2n^2), and the three-layer triples (n^3). For n≥4, only size n is optimal. A slide within a singleton-plus-middle family changes one coordinate, yielding each rook graph. The hub slides to each family only at matched diagonal indices. A within-layer slide of a full outer allocation creates a repeated index, and a middle slide leaves n−1≥3 outer vertices, forbidden with a nonempty middle. No outer-to-outer slide can join the two families. Thus the maximum-set slide graph is exactly the stated union; an off-diagonal vertex is at distance two from the hub, so opposite off-diagonal vertices realize diameter four. Edge count and component counts follow.",
+      "residual_risks": [
+        "Finite checks corroborate rather than prove the general classification. n=3 is not covered, and a token jump is not a slide."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kuenzel–Rall Theorem 3 classifies well-dominated clique products. The complete-multipartite record treats one graph inducing a multipartite complement relation. The cited enumeration paper is scoped to claw-free graphs in its accessible description."
+        ],
+        "reasoning": "Well-dominatedness concerns equality of sizes of minimal dominating sets. The target graph is not complete multipartite (an outer vertex is nonadjacent to adjacent vertices in the opposite layer), and it is not claw-free (b_i with leaves a_i,c_i,b_j). No inspected broader result contains this family with the requisite conclusion.",
+        "searches": [
+          "arXiv:2306.04105v2, Theorem 3",
+          "Resultary cea2cfd82f21, Finding",
+          "DOI 10.1016/j.tcs.2018.02.014, publisher abstract/landing page"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1812.03382v3, arXiv:2306.04105v2",
+        "Resultary cea2cfd82f21 and 08d2face3c0b",
+        "DOI 10.1016/j.tcs.2018.02.014, abstract scope only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The well-dominated theorem gives non-well-dominatedness of K_n square P_3 for n≥4. The IR-graph framework uses the same adjacency rule, whereas the semitotal polynomial has no slide result."
+        ],
+        "reasoning": "None controls the indexing of size-n outer allocations, the same-layer rook adjacencies, or the diagonal hub restriction. Non-well-dominatedness can indicate unequal sizes of some maximal irredundant sets but does not imply the exact counts or component structure.",
+        "searches": [
+          "Mynhardt–Roux arXiv:1812.03382v3",
+          "Kuenzel–Rall arXiv:2306.04105v2 Theorem 3",
+          "Resultary 08d2face3c0b exact-host theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mynhardt–Roux define IR-graph edges by swapping one vertex for a neighbor between maximum irredundant sets, the same move as here. The closest exact-host Resultary hit, 08d2face3c0b, counts inclusion-minimal semitotal dominating sets."
+        ],
+        "reasoning": "The framework is equivalent terminology for the move, not the resulting graph. Minimal domination with companion distance at most two neither equals maximal private-witness irredundance nor specifies slides; a shared n^3 coefficient does not make the enumerators equivalent.",
+        "searches": [
+          "Web: K_n square P_3 irredundant sets polynomial irredundance graph rook graph",
+          "Resultary: three-layer clique path irredundance slide reconfiguration K_n P_3",
+          "arXiv:1812.03382v3, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "08d2face3c0b gives n^3u^3+(2^n-2n-1)u^n+2nu^(n+1) on the exact host for semitotal domination. cea2cfd82f21 gives an irredundance census on a different class."
+        ],
+        "reasoning": "Neither indexed result contains the target maximal polynomial or a rook-and-hub plus isolates table. Frozen finite samples are evidence for correctness, not a prior table.",
+        "searches": [
+          "Resultary: irredundance reconfiguration K_n square P_3 maximal irredundant polynomial",
+          "Resultary 08d2face3c0b and cea2cfd82f21, Finding sections"
+        ]
+      },
+      "rationale": "The closest exact-host claim concerns a different set predicate; the same slide framework and related private-witness classifications do not classify this host family. This is a bounded best-of-knowledge decision.",
+      "residual_risks": [
+        "Full claw-free paper was unavailable, and unindexed IR-graph analyses may contain related results. Search miss was not treated as proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework rather than the stated realization by this fixed host",
+          "evidence": "IR-graph swaps a single vertex for a neighbor between maximum irredundant sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/1812.03382v3",
+          "material_read": "PDF p. 2, offset 4740, definition and motivation",
+          "method": "Primary OA PDF literal locate and bounded read",
+          "title": "Irredundance Graphs",
+          "trigger": "Same upper-irredundance reconfiguration move"
+        },
+        {
+          "assessment": "Same host class, weaker/different predicate and conclusion",
+          "evidence": "For m≠3, K_m square H is well-dominated iff H=K_m; definition concerns all minimal dominating set sizes.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.04105v2",
+          "material_read": "PDF pp. 1–2, offsets 750 and 4500, definition and Theorem 3",
+          "method": "Primary OA PDF literal locate and bounded read",
+          "title": "A characterization of well-dominated Cartesian products",
+          "trigger": "Same clique product with path"
+        },
+        {
+          "assessment": "Different host class",
+          "evidence": "Sets in a single part and certain pairs across non-singleton parts; complete multipartite hypothesis excludes the target.",
+          "identifier_or_url": "2026/10/4/SCOPE-all-irredundant-sets-of-complete-multipartite-graphs--cea2cfd82f21",
+          "material_read": "Finding and stated graph class, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "All irredundant sets of complete multipartite graphs",
+          "trigger": "Similar irredundance classification in a related class"
+        },
+        {
+          "assessment": "Same host, different set property; no exact overlap",
+          "evidence": "Minimal semitotal dominating sets counted by n^3u^3+(2^n-2n-1)u^n+2nu^(n+1).",
+          "identifier_or_url": "2026/10/25/SCOPE-semitotal-domination-and-inclusion-minimality-polynomials-of-thr--08d2face3c0b",
+          "material_read": "Finding, hypothesis, and definition at offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Semitotal domination and inclusion-minimality polynomials of three-layer clique paths",
+          "trigger": "Exact host and closely allied set-enumeration problem"
+        },
+        {
+          "assessment": "Stated claw-free scope excludes these graphs; possible ancillary extensions not verified",
+          "evidence": "The target has induced claw b_i with pairwise nonadjacent leaves a_i,c_i,b_j.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2018.02.014",
+          "material_read": "Publisher landing page and accessible abstract; no full text",
+          "method": "DOI and publisher attempts; full text returned access error",
+          "title": "Enumeration of maximal irredundant sets for claw-free graphs",
+          "trigger": "General enumeration using same set property"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; general IR-graph definition; Kuenzel–Rall Theorem 3"
+      ],
+      "rationale": "On a natural Cartesian-product family, the result resolves both the quantitative gap between minimal size of a maximal set and the optimum, and the reachability of every optimum under an established slide model. The coexistence of exponentially many frozen optima with a diameter-four nontrivial component is information neither a count of optima nor the known domination result determines. The nontrivial component has quadratic size, not size uniformly bounded in n.",
+      "residual_risks": [
+        "Only clique products with a three-vertex path and n≥4; does not classify longer layer paths or jump reachability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

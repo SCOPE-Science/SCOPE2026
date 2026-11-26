@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:49:04.783802Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The criterion for a given circular factor is to hit the union of its occurrence intervals modulo N, not to hit every occurrence. The frozen per-position incidence masks implement this criterion exactly. An independent factor-oriented enumeration formed those unions, filtered every unordered pair at each length 1 through N, and compared the full surviving edge set to the Cartesian product of the two active symbol classes for all m=1,...,12. It reproduced both shore sizes, 2^(m−1) edges, the isolates, and all strict-drop lists. For m=12 it checked 71,629 length-tagged factors, with 2,048 edges, shores 64 and 32, 281 isolates and drops at 1,2,3,5,8,13,21,34,55,89,144. There is no drop at m=1. One position cannot cover both distinct length-one factors, so the nonempty edge sets give minimum size two. The original checker and recorded output were inspected without running the original. Replay: python3 /workspace/branches/d7217b17-d1cf-4f0e-b0ba-db0bf27f7c9c/independent_fibonacci_circular_attractor.py --max-m 12; independent-summary.txt and per-level edge files are in that directory. This proves exactly the twelve finite cases, not a recurrence for all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 34 characterizes primitive conjugates of standard Sturmian words by the existence of a smallest circular attractor formed by two consecutive positions, directly overlapping the finite Fibonacci minimum-size question.",
+          "Romana gives general circular-attractor algorithms; Carey–Clampitt discuss factor complexity and partitioned-factor classes, not the compatible pairs."
+        ],
+        "reasoning": "Existence of an adjacent minimum pair, general decision algorithms and factor-complexity theorems do not specify the full graph on all positions or when each length removes previously viable pairs.",
+        "searches": [
+          "Mantaci et al., Theorem 34, PDF p. 20, offset 47962",
+          "Romana, ICTCS 2023, PDF pp. 3–4",
+          "Carey–Clampitt arXiv:1804.08724v2, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checker.py and checker-output.txt",
+        "arXiv:2602.16152; arXiv:1804.08724v2; ICTCS 2023 CEUR 9885; Mantaci et al. TCS 2021",
+        "Resultary 1f4a31bc89e1 and 664e6800e498"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Sturmian theorem yields existence of a consecutive pair in the applicable primitive conjugates, and hence the minimum size in conjunction with the two-letter lower bound. It does not enumerate all nonconsecutive pairs.",
+          "The general circular-to-linear reduction preserves the full problem only on the central copy in w³, for which the cited linear Fibonacci-word theorem is not an exact classifier. General search algorithms still require solving the individual constraints."
+        ],
+        "reasoning": "The finite exhaustive certificate resolves information not established by any inspected general theorem: every partner relation and the exact levels at which surviving pairs change.",
+        "searches": [
+          "Mantaci et al., Proposition 28, Lemma 30 and Theorem 34",
+          "Banbara et al. arXiv:2602.16152, pp. 1–2",
+          "Romana, circular attractor and Fibonacci example passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Banbara et al. characterize minimum linear Fibonacci attractors; the indexing is different and their constraints use ordinary substrings of a linear word.",
+          "The circular-to-linear equivalence in Mantaci et al. uses central positions in a triple copy w³, not the single linear Fibonacci word whose pairs Banbara et al. describe."
+        ],
+        "reasoning": "Index shifts, cyclic relabeling, and the triple-copy reduction were considered. The linear Fibonacci characterization does not apply merely by rotating or identifying the endpoints of its single input word.",
+        "searches": [
+          "Resultary meaning search: Fibonacci circular minimum attractor pairs, complete bipartite graph and critical factor lengths",
+          "Banbara et al., arXiv:2602.16152, pp. 1–2",
+          "Mantaci et al., A Combinatorial View on String Attractors, Proposition 28 and Lemma 30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1f4a31bc89e1 classifies two-position attractors for 0 1^a 0 1^b 0 1^c with distinct positive gaps. It does not treat the sequence of circular Fibonacci graph instances.",
+          "664e6800e498 is a census of order-five de Bruijn cycles with minimum size seven.",
+          "Romana explicitly gives one-based {12,13} for the word abaababaabaab. Relabeling a=0 and b=1 gives F5 and translates that pair to zero-based {11,12}, one earlier exact edge."
+        ],
+        "reasoning": "The known edge is credited. Neither the nearby same-day catalogue results nor the published example tables enumerate this graph family or its drop lengths. Date does not rule coverage in or out.",
+        "searches": [
+          "Resultary: all minimum circular Fibonacci pairs and strict-drop lengths",
+          "Resultary 1f4a31bc89e1 and 664e6800e498, RESULT.md Findings, offset 0",
+          "Romana, p. 4, Fibonacci example, offset 13000"
+        ]
+      },
+      "rationale": "The distinct claim is the full compatibility graph and length-by-length redundancy profile across the twelve circular Fibonacci words. The graph includes known edges and its nonempty minimum-size-two feature already has substantive prior coverage. The strongest inspected literature and catalogue statements do not determine all shores, edges, and strict drops.",
+      "residual_risks": [
+        "An equivalent unindexed circular enumeration or a stronger pair theorem phrased in terms of conjugate Sturmian or Christoffel words could have been missed.",
+        "The frozen related-work text omits the directly relevant Mantaci et al. result and should not be read as claiming novelty for the existence of size-two circular attractors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Linear Fibonacci result; not the circular graph",
+          "evidence": [
+            "Uses ordinary linear substrings and a different index convention."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "PDF pp. 1–2, offsets 1100 and 4768, definition and main-results scope",
+          "method": "OA PDF passage inspection",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Complete minimum Fibonacci attractor characterization"
+        },
+        {
+          "assessment": "Direct prior example of a target edge and shared algorithms",
+          "evidence": [
+            "Displays abaababaabaab with attractor {12,13} in one-based positions, corresponding to F5 and edge {11,12} in zero-based positions."
+          ],
+          "identifier_or_url": "https://ceur-ws.org/Vol-3587/9885.pdf",
+          "material_read": "Definition, PDF p. 3 offset 9850; Fibonacci example, p. 4 offset 13000",
+          "method": "OA PDF passage inspection",
+          "title": "An Algorithmic View on Circular String Attractors",
+          "trigger": "Same circular problem and exact Fibonacci example"
+        },
+        {
+          "assessment": "Overlaps consecutive-minimum existence, not complete pair and drop classification",
+          "evidence": [
+            "Central-copy w³ reduction. Primitive standard Sturmian conjugates are exactly the relevant words with a smallest circular attractor of two consecutive positions in the theorem's regime."
+          ],
+          "identifier_or_url": "Mantaci et al., Theoretical Computer Science (2021), Proposition 28, Lemma 30, Theorem 34",
+          "material_read": "PDF p. 17 offset 40700 and p. 20 offset 47962",
+          "method": "OA PDF proposition and theorem inspection",
+          "title": "A Combinatorial View on String Attractors",
+          "trigger": "Potentially stronger circular/Sturmian attractor theorem and linear reduction"
+        },
+        {
+          "assessment": "Factor complexity and partitions, not a pair-cover theorem",
+          "evidence": [
+            "Complexity counts alone do not identify which positions lie in the occurrence unions."
+          ],
+          "identifier_or_url": "arXiv:1804.08724v2",
+          "material_read": "PDF p. 1, offset 0, abstract and introductory scope",
+          "method": "OA PDF passage inspection",
+          "title": "Partitioned Factors in Christoffel and Sturmian Words",
+          "trigger": "Broader circular factor structure might imply compatibility"
+        },
+        {
+          "assessment": "Different circular word families",
+          "evidence": [
+            "Three positive marked gaps in one record; 2,048 binary order-five de Bruijn cycles in the other."
+          ],
+          "identifier_or_url": "Resultary 1f4a31bc89e1; 664e6800e498",
+          "material_read": "Both RESULT.md Findings, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "A sharp three-marker transition for circular binary string attractors; Complete minimum circular-attractor census of binary order-five de Bruijn cycles",
+          "trigger": "Closest indexed exact circular attractor classifications"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite certificate goes beyond finding one attractor or re-counting factors: it identifies all freely combinable choices of the two markers and every length that affects the solution set. The twelve consecutive canonical words, through the 377-position case, provide a reproducible structural and constraint-redundancy benchmark for circular attractor work. The useful content is the verified product and drop structure, not the cutoff as a purported natural transition or any unproved generalization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

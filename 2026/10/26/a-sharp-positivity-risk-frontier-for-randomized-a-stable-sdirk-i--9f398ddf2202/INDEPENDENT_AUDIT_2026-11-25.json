@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:49:08.714689Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 67–106 (stages, moment condition, sharp bound and sign laws)",
+        "Frozen VERIFICATION.md and verify.py (inspected; replay command from the record directory: python3 verify.py; not executed in this review)"
+      ],
+      "rationale": "Solving the two triangular stages gives the stated rational multiplier. Its derivative is s^3(2x-1)/(1+sx)^3, and the endpoints locate the two sign boundaries at 2 and 1+√3. The two third-order expressions reduce to x²−x+1/2 and x−x², so both target expectations impose the same mean m=1/12 on U=(x−1/2)^2. In the mixed range the negative set is U<a_s. Thus m≥a_s Pr(U≥a_s), with equality for the proposed atoms at 0 and a_s; the atom at the boundary is zero-amplifying, not strictly positive. At a_s=m only δ_m in U avoids negatives, and above the upper step endpoint all draws are negative. The positive-side attainment follows by choosing parameters on both sides of the mean-matching parameter in the open positive region. The finite-step uniform laws follow by iid parity and the geometric waiting time, with no zero atom. For the more general endpoint-tail limit, an atom at the moving boundary is allowed: writing F(u)=Pr(ξ−1/2<u), its mass is at most F((1+ε)u)−F(u), hence o(F(u)) by regular variation and ε↓0. The chance that a zero absorbs the process before a negative is therefore o(1), preserving the stated exponential limit for the first negative iterate. For A-stability, writing C=x²−2x+1/2, the squared denominator minus squared numerator on z=iω is (x⁴−C²)ω⁴≥0 on the stated x interval. There are no left-half-plane poles and the limit at infinity has modulus at most one. The real endpoint bounds give strict fixed-s contraction. An independent evaluation of the displayed quadratic gives s*=2.2458294939508745 at double precision; the analytic proof, not this evaluation or the finite grids, establishes the result.",
+      "residual_risks": [
+        "The general endpoint-tail proof needs the moving-zero-atom observation above; for a fixed atomic law the waiting time need not be geometric.",
+        "Scalar exact-arithmetic results only. Expected third-order identities do not assert convergence order for changed samplers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A-stability and mean-square stability concern moduli, with no constraint on the probability that the real multiplier is negative.",
+          "Remark 3.3 checks the formal identities in expectation for uniform draws, rather than an optimization over samplers."
+        ],
+        "reasoning": "Neither type of stability implies a sharp negative-step probability at a fixed order-condition moment.",
+        "searches": [
+          "Eisenmann et al., §5 Remark 5.6 and Proposition 5.8",
+          "Bochacik and Przybyłowicz, §3, equation (18)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.18928v1",
+        "arXiv:2404.19059",
+        "Resultary record 119cb032c3ba"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-law sign formula provides the negative interval U<a_s. The sharp all-law equality also depends on identifying a shared order moment and attaining the positive-mass bound with atoms at distinct endpoints of a truncated moment problem."
+        ],
+        "reasoning": "The probabilistic consequences for fixed uniform draws are closely derivable once the negative interval is known. The inspected fixed-law results do not themselves supply or dominate the admissible-law frontier, its optimizer, or its strict-versus-nonnegative distinction.",
+        "searches": [
+          "arXiv:2607.18928v1, Remark 3.3 and stability function",
+          "Resultary record 119cb032c3ba, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first source has exactly the same tableau and scalar rational function under z=−s; the second uses a different rational factor in its probabilistic stability calculation."
+        ],
+        "reasoning": "Changing the sign convention for the test eigenvalue does not produce a new method. The alternate implicit RK2 schemes and their magnitude stability conditions are not equivalent to the constrained sign-risk question.",
+        "searches": [
+          "Eisenmann et al., arXiv:2607.18928v1, §§3, 5",
+          "Bochacik and Przybyłowicz, arXiv:2404.19059, §§1, 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching stored result gives the same uniform sign probability, square-root onset and iid count laws and adds a Poisson critical window; its result text does not give the all-law moment frontier."
+        ],
+        "reasoning": "There is substantive exact overlap for the uniform subproblem, not for the optimization or changed-sampler strict-positivity feasibility.",
+        "searches": [
+          "Resultary same-tableau randomized SDIRK sign-risk, critical-window and moment-frontier comparison",
+          "2026/11/2/SCOPE-sharp-sign-loss-probability-and-poisson-critical-window-for-rand--119cb032c3ba"
+        ]
+      },
+      "rationale": "Credit is for the sharp frontier, strict-positivity feasibility boundary and optimal redesign over the expected-order moment class. The originating paper supplies the tableau, uniform sampler, rational stability function and A-stability. The November 2 catalogue record materially overlaps the uniform sign-risk, square-root onset and iid count results, which are not credited as distinct from that record. Its statements do not settle the optimization over general admissible sampling laws. The catalogue date is not used to decide priority.",
+      "residual_risks": [
+        "Not an exhaustive historical search; uniform subclaims have demonstrable catalogue coverage and are not used to support distinctness.",
+        "The extremal inequality itself is elementary. Credit is for locating and attaining the precise frontier for the published tableau under its natural order constraint, not for a novel general moment inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same method, uniform sampler, stability function and order identities for that sampler; no constrained-risk formula in these passages",
+          "evidence": [
+            "Equal weights 1/2, diagonal ξ and off-diagonal 1−2ξ; uniform independent draws",
+            "Stability function and A-stability in §5"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2607.18928v1",
+          "material_read": "§3 including Remark 3.3, offsets 25915–33231; §5 including Remark 5.6 and Proposition 5.8, offsets 50374–55374",
+          "method": "OA primary text, bounded passage inspection",
+          "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge–Kutta Method",
+          "trigger": "Origin of the exact tableau and randomized order/stability results"
+        },
+        {
+          "assessment": "Exact uniform overlap, no statement of the moment-constrained optimization in the inspected text",
+          "evidence": [
+            "Same tableau, uniform sign-loss probability and square-root onset; independent counts and N^−2 Poisson window"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-sign-loss-probability-and-poisson-critical-window-for-rand--119cb032c3ba/RESULT.md",
+          "material_read": "RESULT.md, offsets 0–7768, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and local mirror reading",
+          "title": "Sharp sign-loss probability and Poisson critical window for randomized SDIRK",
+          "trigger": "Strongest related exact same-family catalogue hit"
+        },
+        {
+          "assessment": "Different schemes and modulus-based criterion",
+          "evidence": [
+            "Schemes (S1),(S2); mean-square test uses E|1+z/(1−zτ)|²."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2404.19059",
+          "material_read": "§1, PDF pp. 3–4 (offset 9960); §3, pp. 9–10 (offset 35500), including (18)",
+          "method": "OA primary PDF text, bounded passage inspection",
+          "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+          "trigger": "Plausibly overlapping probabilistic stability for randomized implicit RK2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and §§2–4 of proof",
+        "Eisenmann et al., §3 and §5"
+      ],
+      "rationale": "Changing the sampler while preserving the source method's formal expected-order conditions is a natural design question. Its exact step threshold 2.24582949… is strictly above the uniform sampler's sign onset at 2, and distinguishes strict safety, inevitable zero amplification at the frontier for negative-free draws, and unavoidable negative risk above it. The optimizer and upper-endpoint jump clarify why zero multipliers cannot be ignored in the design problem; A-stability alone offers no such guidance.",
+      "residual_risks": [
+        "One-step scalar risk is not positivity of internal stages, nonlinear systems, or a higher-order convergence guarantee for the optimized law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

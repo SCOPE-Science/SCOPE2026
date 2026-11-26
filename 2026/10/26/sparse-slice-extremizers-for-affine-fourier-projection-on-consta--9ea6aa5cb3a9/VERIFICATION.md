@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -18,4 +21,4 @@
 
 # Verification and reproducibility
 
-The self-contained checker `johnson_projection_check.py` uses only Python standard-library exact fractions and combinatorial integers. Execute `python johnson_projection_check.py`. The observed result was `EXACT_VERIFY_OK assertions=44094` and exact layer maximizers \((n,k)=(20,4),(50,5),(100,7),(300,13)\). It constructs actual projection matrices and verifies symmetry, idempotence, trace, and row norms for small dimensions. It checks the binomial hypergeometric formulas through \(n=120\), including special cases. The mathematical proof of the universal asymptotic, the strictly decreasing Poisson peaks, and uniqueness of the sparse optimizer is in `RESULT.md`; finite runs do not establish these infinite claims. Independent audit has not been performed.
+Run `python3 check_eventual_width.py`. The new finite checker compares the exact optimizer prediction with the full hypergeometric absolute row sum at all smaller widths for 143 sample sizes, and checks the strict signs on both sides of 48 predicted transitions. The proof of eventual localization and the exact arithmetic threshold are in `RESULT.md`. The finite checks do not establish an earliest cutoff or replace that proof. The original kernel checker, `johnson_projection_check.py`, pertains to the exact row norm and does not check the new eventual-width statement.

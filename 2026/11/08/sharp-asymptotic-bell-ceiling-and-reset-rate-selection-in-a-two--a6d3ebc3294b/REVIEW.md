@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact symmetric-triplet decomposition places the reset vector in a dark eigenstate and a bright two-level sector. The bright high-energy leakage is at most order \(1/j\) uniformly over all evolution times, yielding an explicit stationary trace-norm bound independent of reset rate. The two-qubit Pauli tensor of the effective state has singular values \(1,h,h\), with \(h=\kappa/(1+\kappa^2)\). The Horodecki criterion, optimization of \(h\), and uniform gap separation establish the limiting Bell maximum and the rate of every maximizing sequence. A separate energy-dephasing computation establishes the fixed-finite-coupling zero-reset limit. The delivered script independently checks full spectral averaging against a direct stationary Liouville solve and executes 262 assertions. The analytic proof, not finite tests, supports the infinite limits.
+PASS
 
-## Originality — PASS (best-knowledge, priority risk)
+The repaired theorem uses dimensionless time and explicitly fixes the units issue: r_*~Omega^2/(2J) does not imply r_*->0 along arbitrary j->infinity (e.g. Omega=j,J=j^2); with Omega fixed it does. CHSH is taken over nondegenerate projective spin observables. In the occupied subspace, A has energy -j and (B,S) is the block with diagonals -j,j and off-diagonals 1. Expanding B in its two eigenvectors cancels the entire lower-mode error; the remaining upper-mode vector is sin(theta)(exp(-i omega t)-exp(i omega t))/sqrt(2) times its unit eigenvector. Its norm bound yields the stated projector trace-norm bound pointwise and after averaging against any age law. Integration against qe^{-qt} gives the effective 00/11 block; the correlation singular values are 1,|kappa/(1+kappa^2)|,|kappa/(1+kappa^2)|. The Tsirelson operator-norm bound gives the Lipschitz constant 2 sqrt(2). The profile tends to 2 at both ends, so a positive profile gap off a compact neighborhood plus the all-rate bound gives interior attainment by continuity and forces every optimizer to kappa=1 asymptotically (no finite-j uniqueness claimed). The dropped fixed-j statement is correct under the same nondegenerate convention: dephasing leaves T_{yy}=1/[2(1+j^2)] and T_{zz}=(2j^2+1)/[2(1+j^2)]. An independent column-stacked stationary solve in /tmp/opencode/frozen_1_2_3_checks.py confirmed finite examples, e.g. j=40 at q=delta gives 2.235637382686. Read the uploaded check.py but did not execute it.
 
-Kulkarni–Majumdar, arXiv:2307.07485, already derive this exact stationary Ising-dimer model, investigate its strong-coupling/weak-reset scaling, and show an asymptotic concurrence peak of one-half. Neither the basic state formula, the crossover scale, nor that concurrence observation is new. The additional claim is a **uniform over all reset rates** Bell-CHSH error bound, its sharp limiting supremum \(\sqrt5\), and convergence of every maximizing reset rate to the avoided-crossing splitting. The general Horodecki criterion supplies the CHSH test but not this rate optimization. A 2026 related two-qubit study was accessible only in abstract form and remains a specific unresolved publication-priority risk; no independent novelty certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-CHSH violation is strictly stronger than entanglement for generic mixed states. The singular regime \(r\sim\Omega^2/(2J)\) produces stationary Bell nonlocality even though the reset rate goes to zero, while the limit at fixed finite coupling is Bell-local. The forced location of every asymptotically optimal rate is a nontrivial design law for a physically motivated reset-entanglement model.
+PASS applies to the repaired uniform-in-time approximation of the evolving density projector, robust under age averaging, with global Poisson optimization as its consequence. The pointwise CHSH window, its sqrt(5) peak, and the fixed-j zero-rate limit are directly covered by earlier Resultary findings and are no longer presented as new. The nearest prior finite-rate tensor determines the Bell function and could be used to derive uniform estimates by additional bounds; it does not give the repaired trace-norm theorem or state the all-rate optimizer conclusion. This comparison is based on primary passages and does not assert priority beyond them.
 
-## Sources and limitations
+## value
 
-Motivating primary: Kulkarni and Majumdar (2023), https://arxiv.org/abs/2307.07485 . Bell test: R. Horodecki, P. Horodecki and M. Horodecki (1995), https://doi.org/10.1016/0375-9601(95)00214-N . Related but incompletely inspected: Murauer et al. (2026), https://arxiv.org/abs/2610.40638 . The result concerns a two-qubit, pure-state jointly Poisson-reset steady state, ideal CHSH measurements and the strong-coupling supremum. No finite-coupling global \(\sqrt5\) bound is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit time-uniform two-state approximation keeps the correct slow energy gap, avoiding secular phase errors and allowing arbitrarily long or widely distributed ages. Its all-rate consequence rules out better Bell values at escaping reset scales and answers an optimization question not settled by a scaling-family peak. The selected physical scale and its dimensional qualification are usable without claiming newness for the old window or endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:14:48.903059Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md lines 5–31 and 35–83; VERIFICATION.md lines 19–25; verify_design.py inspected but not executed.",
+        "Independent replay: python3 /workspace/branches/independent-checks/analytic_spot_checks.py ou. Direct covariance inversions at four c values corroborate the stationary points and sampled asymmetric comparisons. High-precision limiting phase 1.803005921905025193 and period fraction 0.286957304895144571 agree with the published precision. Global strictness is established by the analytic inequalities."
+      ],
+      "rationale": "For three scalar observations and three mean parameters the joint information determinant is (det X)^2/det Sigma. Common translation rotates the sine and cosine columns and leaves Sigma unchanged. Direct row subtraction gives det X=4 sin(a/2) sin(b/2) sin((a+b)/2); OU innovations give det Sigma=sigma^6(1-exp(-2ca))(1-exp(-2cb)). At a+b=2pi the end phases coincide and the determinant is zero, even though OU covariance is nonsingular at distinct times; as a gap goes to zero its sine squared divided by its covariance factor is O(gap). For smaller positive spans, the two gap terms in the log square root each have second derivative -1/(4 sin^2(x/2))+c^2/(2 sinh^2(cx))<=-1/(2x^2), giving unique equality of gaps at fixed span. The derivative of the equal-gap log objective is the stated root function; its derivative is strictly negative by sin(theta)<=theta and sinh(c theta)>=c theta. It is positive near zero and negative at 2pi/3. The overhead-like term 2c/(exp(2c theta)-1) decreases strictly with c, which moves the root strictly upward. Its limits are 1/theta and 0 uniformly on the compact interval from the limiting lower root to 2pi/3, yielding the two claimed limiting gaps. Evaluating the limiting determinant ratio requires squaring the ratio of the limiting equal-gap square-root objectives; this gives 0.8726723961736. The singular covariance at infinite tau is not treated as an admissible design problem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 of arXiv:1303.2863 establishes uniform universal approximate design under periodic covariance assumptions.",
+          "PMC4914140 discusses continuous-time signed design measures and their N+2 point discretizations, and multiparameter D-optimal polynomial examples with exponential covariance."
+        ],
+        "reasoning": "Stationary exponential covariance on the line is not periodic even on a closed observing window of one orbital period; the two ends have identical mean phase but not identical observations. The continuous-time/approximate results and their discretizations do not establish an exact unrestricted optimum for three observations of this regression. The polynomial/exponential example uses the covariance but not these regressors or this saturated objective.",
+        "searches": [
+          "Resultary: periodic-covariance trigonometric designs",
+          "Dette, Pepelyshev and Zhigljavsky arXiv:1303.2863 §4.2 and PMC4914140 §§2.4, 2.5, 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact-design, RV scheduling, periodic trigonometric design and complex OU queries and distinct findings above",
+        "Lam et al. 2408.16830; Dette et al. 1303.2863 and PMC4914140; Baran et al. 1704.05719, passages listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lam et al. give a Fisher information framework and choose precision for K with a quasi-periodic kernel. Baran et al. give a spacing rule for the complex trend problem. Dette et al. give the periodic/approximate and continuous/discretization results described above."
+        ],
+        "reasoning": "An information formula supplies the objective but implies no gap optimizer. The other spacing results use different regression/covariance structures and do not force strict concavity of the two terms at fixed span in this saturated determinant, or the optimal span specific to this trigonometric model.",
+        "searches": [
+          "Lam et al. arXiv:2408.16830 §§2.1–2.2",
+          "Baran et al. arXiv:1704.05719 Theorem 3.2",
+          "Dette et al. arXiv:1303.2863 §4.2 and PMC4914140 §§2.4, 2.5, 3.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complex OU primary theorem optimizes estimation of a constant complex trend from bivariate complex OU data on a half-line.",
+          "Same-day three-node Fourier-volume record, 2026/11/22/SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7, Finding."
+        ],
+        "reasoning": "Replacing sine and cosine columns by conjugate Fourier modes preserves the determinant up to a fixed factor, but the present span constraint and inverse covariance remain and its modes are {0,1,-1}, not {0,1,4}. Rotation of the phase columns does not transform the scalar mean-and-harmonic OU problem into estimation of a two-component constant complex trend.",
+        "searches": [
+          "Resultary: exact saturated three-observation sinusoidal OU design",
+          "Resultary: complex OU equal-spacing design",
+          "Baran, Szák-Kocsis and Stehlík, arXiv:1704.05719 Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct matching catalogue hit is the assigned record. The distinct three-node Fourier-volume record optimizes an unweighted squared determinant with different modes.",
+          "The same-day Sobolev trace and earlier four-sample phaseless records concern different operators and data."
+        ],
+        "reasoning": "The exact-law check is for an equation and limiting constants as well as all positive correlation-time ratios, not a table of sampled optima. The inspected design results do not reproduce the OU root equation or limiting determinant ratio. Same dates are not used for priority.",
+        "searches": [
+          "Resultary: exact saturated three-observation sinusoidal OU design",
+          "Resultary: radial velocity scheduling Fisher information and Gaussian-process noise"
+        ]
+      },
+      "rationale": "The supported distinct claim is the globally optimized finite saturated determinant in this exact nonperiodic exponential covariance model, including its strict gap law and short- and long-correlation benchmarks. Equal spacing in other D-design models, approximate design results, and the general Fisher information formula are not attributed novelty.",
+      "residual_risks": [
+        "A specialized finite correlated-regression result could overlap outside screened material. In particular, the targeted sections of PMC4914140 do not constitute a whole-paper or bibliography exhaustion.",
+        "No historical precedence is inferred from same-day dates or the bound record's own catalogue hit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same planning context, different criterion, kernel and parameters",
+          "evidence": "Fisher-information setup for (K,P_orb,T0), K precision, and quasi-periodic stellar-activity GP.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.16830",
+          "material_read": "PDF pp. 3–4, §§2.1–2.2, around offsets 12278, 14811 and 17311",
+          "method": "OA primary PDF passages",
+          "title": "gaspery: Optimized Scheduling of Radial Velocity Follow-Up Observations for Active Host Stars",
+          "trigger": "Closest application to radial-velocity scheduling with correlated noise"
+        },
+        {
+          "assessment": "Periodic kernel and continuous/approximate design",
+          "evidence": "Universal optimality of uniform design in the stated periodic covariance and trigonometric setting, not a nonperiodic saturated design.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.2863",
+          "material_read": "§4.2, Theorem 4.2, PDF pp. 19–20 around offsets 48313–49357",
+          "method": "OA primary PDF passages",
+          "title": "Optimal design for linear models with correlated observations",
+          "trigger": "Potentially dominating trigonometric criterion"
+        },
+        {
+          "assessment": "Adjacent continuous theory and discretization, no exact saturated coverage in inspected sections",
+          "evidence": "Single-parameter trigonometric/triangular covariance example, N+2-point discretizations, and matrix-weighted D-optimal polynomial/exponential example.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4914140/",
+          "material_read": "§2.4 around 22583 and Table 4 around 67979–68052; §2.5 around 23814 and 24253; §3.6 around 48445 and 49333",
+          "method": "Primary full-text BioC passages; PDF extraction unavailable",
+          "title": "Optimal designs in regression with correlated errors",
+          "trigger": "General designs including trigonometric regression, D-optimality and exponential covariance"
+        },
+        {
+          "assessment": "Different observation dimension, mean and domain",
+          "evidence": "The result selects equal spacing and a scalar optimum for estimation of constant complex trend of a two-component complex OU process on the nonnegative half-line.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.05719",
+          "material_read": "PDF pp. 2–3 and 5–6, around offsets 5470, 6475 and 14943; Theorem 3.2",
+          "method": "OA primary PDF passages",
+          "title": "D-optimal designs for complex Ornstein-Uhlenbeck processes",
+          "trigger": "Close title, OU covariance and scalar spacing optimization"
+        },
+        {
+          "assessment": "Unweighted determinant with different Fourier modes",
+          "evidence": "Optimizes three circle nodes for modes {0,1,4} modulo rotation and permutation.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "The sharp three-node Fourier volume gap for the sparse modes 0,1,4",
+          "trigger": "Same-day saturated Fourier determinant geometry"
+        },
+        {
+          "assessment": "Different norm and model",
+          "evidence": "Optimizes a mean-zero periodic H1 trace norm with gaps (t,t,1-2t), not an information determinant.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-nonuniform-three-point-sobolev-trace-design-on-a-circle--e4c7a6f7a5fa",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "Sharp nonuniform three-point Sobolev trace design on a circle",
+          "trigger": "Same-day exact circle design with three points"
+        },
+        {
+          "assessment": "Different design/data law",
+          "evidence": "Four-sample squared-intensity lifting determinant, not scalar OU regression.",
+          "identifier_or_url": "2026/11/8/SCOPE-d-optimal-angular-separation-for-four-phaseless-samples-of-a-dam--4e687c3ec1ab",
+          "material_read": "Finding at offset 0",
+          "method": "Resultary and mirrored RESULT.md",
+          "title": "D-optimal angular separation for four phaseless samples of a damped model",
+          "trigger": "High-ranked angular determinant design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Three epochs are the minimal data size for the three coefficients, so the unrestricted optimum is a natural benchmark. The exact dependence on the correlation time shows that optimal spacing need not be one third of a period under known correlated noise; the strict equality result and the finite limiting determinant loss quantify this substantive distinction. This is a model benchmark, not a scheduling recommendation for realistic noise or different precision objectives.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

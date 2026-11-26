@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:19:19.029868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A bi-infinite predecessor segmented at word boundaries gives a walk in the word relation and hence a directed cycle. A closed walk of length k concatenates to a legal periodic predecessor with period dividing k|w|; conversely such a predecessor gives a closed walk of length k. The shortest closed walk is a simple cycle, so the least multiplier is at most four whenever one exists. This also works for words whose least period divides their length. Closing the two generators on the right from the identity captures all words; the identity, of girth one, cannot inflate any rule's index. An independent edge-set implementation propagated distances to find first returns at each of the four vertices and traversed every reachable relation in breadth-first order. It matched all 256 CSV rows, counts (156,82,16,2), maximum closure size 2375, both exception classes and their orbit partitions, and precisely the ten rules with first witness length three. Direct periodic evaluation gives outputs 001001, 1111 and 0000 for the three stated examples. Replay: python3 /workspace/branches/replay_eca.py <frozen record directory>/classification.csv. This did not execute the supplied verifier or reproduce its auxiliary n≤7 ring sweep. Symmetry follows from commuting reflection and bit flip with all period constraints (output flip complements the target). The proof is a spatial one-step result on the bilateral shift, not a statement about temporal cycles or continuous right inverses.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mariot et al. give the u-closure graph and cycle/period characterization for a specified word, with Rule 106 examples (Fig. 4), and a treatment of linear bipermutive maps. The left-permutative indexed record describes exact word-level lifts for its 16 rules.",
+          "The split-epicness result concerns a strong periodic-point condition with compatible periodic lifts, not an all-rule quantitative census."
+        ],
+        "reasoning": "Prior word-level period methods and general bounds overlap the ingredients. A specified-word algorithm does not optimize over all admissible words of all rules or establish a uniform cutoff; the permutative subfamily omits nonpermutative rules and thus does not supply those missing cases.",
+        "searches": [
+          "Mariot et al., Computing the Periods of Preimages in Surjective Cellular Automata, §3 pp. 11–12",
+          "Resultary 2026/11/2 7369edc8c842, Finding",
+          "Salo–Törmä arXiv:1309.2456 Def. 7 and Thm. 1"
+        ]
+      },
+      "checked_sources": [
+        "Salo arXiv:2209.13373, Prop. 19 and Tables 1–2",
+        "Mariot et al. 2017, §3 pp. 11–12",
+        "Salo–Törmä arXiv:1309.2456 Def. 7/Thm. 1",
+        "Meunier arXiv:1406.5306 Thm. 1.1",
+        "Resultary Findings 000091ce92bc (Rule 22), d5ff140ba7f7 (Rule 18), d4f1725c3486 (image entropy), 7369edc8c842 (left-permutative rules), 17f030b45c05 (fixed common multiplier)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Salo's Rule 41 period-three obstruction is the stated example up to shifting. The Rule 22 entry already proves its sharp threefold index; the distinct same-date Rule 18 entry gives its word-level obstruction and factor two. The fixed-multiplier analysis gives a four-cycle obstruction for Rule 90 and uses the same elementary four-vertex bound.",
+          "A graph of girth four on four vertices has only simple four-cycles, so any common multiplier must be divisible by four. Thus m=6 implies B=3 once the general girth bound is available; m=4 itself leaves both B=3 and B=4 possible, as the enumerated rules illustrate."
+        ],
+        "reasoning": "These are genuine partial coverages, including some mechanically implied cases; they do not give the full discrimination or the sharp length-three witness classification. The credited result is the whole target-dependent census and cutoff, not the previously covered singleton computations or the four-state cycle argument alone.",
+        "searches": [
+          "Salo arXiv:2209.13373 §6.1 Prop. 19",
+          "Resultary 2026/10/25 000091ce92bc and 2026/10/27 d5ff140ba7f7, Findings",
+          "Resultary 17f030b45c05, universal bound and exact per-rule classification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B=1 is precisely the weak same-period property. The indexed universal-lift theorem instead minimizes a single m working for every target, giving m=1,2,4,6 with multiplicities 156,82,6,12.",
+          "Its Rule 30 has a target with only threefold-cycle lengths and another with only twofold-cycle lengths, forcing a common multiple of six. This does not require any single target to need a least multiplier of six."
+        ],
+        "reasoning": "Minimization over a common multiplier and maximization of separately minimized multipliers do not commute. In particular the indexed m=4 class mixes actual B=3 and B=4. Agreement on the two lowest classes, and the common closure technique, does not determine the remaining classes or the shortest witness lengths.",
+        "searches": [
+          "Resultary: elementary cellular automata shortest periodic preimage multiplier and sharp witness cutoff",
+          "Resultary 2026/11/8 17f030b45c05, Finding and exact per-rule classification",
+          "Salo arXiv:2209.13373 §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Salo tabulates regularity obstructions and inverse radii/counts; Meunier's grouping is by communication complexity and nonuniversality. The distinct Oct. 27 census tabulates one-step image entropy. The Nov. 8 exact assignment records m(r), not B(r) and shortest words attaining it."
+        ],
+        "reasoning": "None of these exact tables is a lookup of the frozen target-dependent obstruction data. The Nov. 8 proof computes the same finite monoids, but changes the predicate to a single common power; obtaining the upper bounds for the ambiguous m=4 cases and attaining lengths needs different checks, not a relabeling of the reported table.",
+        "searches": [
+          "Salo arXiv:2209.13373 Tables 1–2",
+          "Meunier arXiv:1406.5306 Thm. 1.1",
+          "Resultary 2026/10/27 d4f1725c3486 and 2026/11/8 17f030b45c05, Findings"
+        ]
+      },
+      "rationale": "The supported distinct claim is the complete target-dependent lifting-index census with exact short-witness cutoff. The closure-graph method, the weak same-period condition, and individual obstructions are established work, not credited as new. Closely overlapping catalogue claims were compared on their actual multipliers and quantifiers.",
+      "residual_risks": [
+        "A specialist ECA catalogue or unpublished note could already contain the precise target-dependent table or witness data; bounded retrieval does not rule that out.",
+        "The close indexed common-multiplier analysis shares an exhaustive closure method; indexed dates are not used to infer provenance or independent discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Rule 41 example and weak-property context, not the full index table",
+          "evidence": [
+            "Its periodic 010 target lifts at length six but not three; Table 2 concerns weak inverse radii/counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+          "material_read": "§6.1 Prop. 19, p. 9, and Tables 1–2 (pp. 9, 13)",
+          "method": "OA primary PDF passage comparison",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Same-period preimages and Rule 41 obstruction"
+        },
+        {
+          "assessment": "Prior relation/cycle method and exact chosen-word periods for surjective rules; different scope and quantifier",
+          "evidence": [
+            "An edge of the u-closure graph records a path labeled u; Fig. 4 illustrates two outputs of Rule 106."
+          ],
+          "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+          "material_read": "Abstract, §3 closure graph and Lemma 6, pp. 11–12 including Fig. 4 and Lemma 7",
+          "method": "Author OA postprint text",
+          "title": "Computing the Periods of Preimages in Surjective Cellular Automata",
+          "trigger": "Exact period multipliers for periodic outputs"
+        },
+        {
+          "assessment": "Shared method and partial implication; different optimized invariant",
+          "evidence": [
+            "Counts for the common multiplier m are 156/82/6/12 for m=1/2/4/6; Rules 94 and 90 share m=4 but differ in B."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-universal-period-lifting-for-one-step-elementary-cellular--17f030b45c05/RESULT.md",
+          "material_read": "Finding, assumptions, proof and verification, offsets 0–6894",
+          "method": "Local catalogue mirror, exact quantifier and table comparison",
+          "title": "Sharp universal period lifting for one-step elementary cellular automata",
+          "trigger": "Strongest similar 256-rule table"
+        },
+        {
+          "assessment": "Split epicness and nonuniversality respectively, not a table or cutoff for shortest lifting",
+          "evidence": [
+            "The first uses a strong periodic-point condition; the latter classifies 55 of 88 non-isomorphic rules as not intrinsically universal."
+          ],
+          "identifier_or_url": "arXiv:1309.2456; arXiv:1406.5306",
+          "material_read": "Respectively Def. 7/Thm. 1 pp. 18–19 and Thm. 1.1 p. 2",
+          "method": "OA primary passages",
+          "title": "Category Theory of Symbolic Dynamics; Unraveling simplicity in elementary cellular automata",
+          "trigger": "Potential stronger symbolic-dynamical criterion or existing exact table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Among periodic points already known to be attainable, the index measures the least extra ring length one must permit when a lift is unavailable at the target period. The exact spectrum separates cases not distinguished by the common-multiplier table, and the sharp length-three cutoff gives useful minimal obstruction tests despite the all-period quantifier. This is a motivated finite classification with a verified cutoff, not merely an enumeration of rule codes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

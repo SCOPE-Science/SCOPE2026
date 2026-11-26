@@ -1,15 +1,21 @@
-# Scientific assessment: Exact periodic Floquet spectrum distribution of the twisted baker map
+# Independent mathematical audit
 
-## Correctness — PASS
-For integers \(M\ge2\), \(n\ge1\), and \(1\le k\le n\), the signed monomial matrices decompose into \(g=\gcd(M,k)\) coordinate cycles of length \(\ell=M/g\). Each cycle has exactly \(k/g\) right-branch negative doubling factors. Every left symbol sits in one of the \(k+1\) gaps and contributes to the cycle determined by the gap's residue modulo \(g\). All residues are represented, proving both necessity and sufficiency of the claimed cycle-exponent multisets. Stars and bars proves the complete spectral-frequency formula; root moduli prove class distinctness, and extremal compositions prove the contrast bounds. The originating arXiv full text supports the word--point bijection. An independent finite-range integer checker made 2510 exact characteristic-polynomial comparisons across 180 parameter triples; this is supporting evidence, not an infinite proof.
+## correctness
 
-## Originality — PASS
-Saiki--Takahasi--Yorke prove the symbolic correspondence, qualitative real/nonreal distinctions and density. The closest public result, *Exact real-spectrum residue law for the twisted baker map*, already proves the signed monomial characteristic factorization and exact real/nonreal type proportions. It does **not** give the cycle exponents allowed at fixed twist count, realize every weak composition, count each complete spectrum or derive sharp spectral contrasts. Direct comparison of its entire RESULT.md and targeted semantic database queries, including integer-partition and spectral-anisotropy formulations, revealed no dominance. Work on heterochaos baker maps uses a different system. A possible unindexed equivalent derivation remains a historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The originating map was designed to demonstrate subtle multidimensional periodic instability. The new theorem solves the natural **complete conditional Floquet spectrum census** and counts each eigenvalue multiset of return Jacobians, refining an existing two-class spectral dichotomy. It also supplies sharp achieved eigenvalue-modulus contrasts and a partition generating function in all dimensions. These are unbounded structural results, not isolated small examples.
+The two indicated branch maps have the given signed monomial derivatives. Independently of the cited coding theorem, both closed inverse branches map the box to itself. In normalized coordinates y1=(x1+1)/2 and yi=xi otherwise, the left inverse halves slot 1; the right inverse shifts backward, with slot 2 to slot 1 taking t to (1+t)/2 and slot 1 to slot M taking t to 1-t. If a word has k>0 right symbols, repeating its inverse ℓ=M/gcd(M,k) times makes each coordinate traverse the entire cyclic list of slots q=k/gcd(M,k) times, hence contracts every direction. The inverse product has a unique fixed point. In its periodically repeated inverse itinerary a boundary value cannot stay on the boundary: to enter slot 1 from slot 2 while remaining on the boundary it must enter at value 1; the next left inverse in slot 1 makes it interior, or the next right inverse sends it to slot M at 0 and the following entry into slot 1 makes it interior. Once interior it remains interior. Thus the closed-branch construction does not yield spurious itineraries at a switch, and different positioned words give different points. Forward each cycle of the return coordinate permutation wraps exactly q times, giving (-2)^q. A left step in gap j doubles a coordinate in cycle class j mod g, up to relabeling, so the only additional exponent is b_r, the gap sum. Any composition is attainable by putting each part in the first corresponding gap. Cycle factors with distinct b have distinct root moduli, so only permutations of a tuple can identify spectra. There are q+1 gaps of residue 0, and q for every other residue, giving the stated multiplicities by stars and bars, including q=1 and N=0. The contrast is 2^((max b-min b)/ℓ); concentrated and balanced compositions respectively give the attained extrema, while g=1 forces contrast 1.
 
-## Scope and risks
-All counts are for fixed points of the \(n\)-th iterate with \(k\) right-branch visits, not exclusively primitive orbits. The method uses published coding and does not infer singular-value anisotropy or generic smooth-map behavior. Independent mathematical and historical-priority audits have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The coordinate-cycle factorization and much of the real/nonreal type classification are already known. Credit is confined to the fixed-twist attainable exponent profiles, exact multiplicities of the spectra, and resulting sharp contrasts. The available strongest pre-dated result does not classify how the left-step weights are distributed among cycles.
+
+## value
+
+PASS
+
+The map is a natural example of periodic instability. Conditioning on twist count controls the coordinate permutation but not the expansion accumulated by each cycle. The classification resolves exactly which expansion profiles are possible at those fixed permutation data and how often they occur, information lost in the known real/nonreal dichotomy even for spectra of identical type. This is a complete spectral census with realizable extrema, not just a rephrasing of the monomial factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:38:18.535650Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and independent.cpp (inspected only), python_output.txt, cpp_output.txt, shattered_trees.json, maximal_matchings_15.txt",
+        "Independent exact replay: python3 /workspace/branches/replay-2.py"
+      ],
+      "rationale": "A path matching is inclusion-maximal exactly when its indicator has no adjacent ones and every zero touches a one. For m>0 this is equivalent to a first one at edge 1 or 2, successive gaps of length 2 or 3, and the last one at edge m−1 or m (indices restricted to existing edges). The empty path has one hypothesis. The two first-one choices give the asserted recurrence for m≥3. A depth-d tree needs at least 2^d distinct consistent hypotheses, since each fixed matching follows one leaf. My independent gap-based enumeration and depth-feasibility recursion exactly recovered the complete profile, checked every leaf of each supplied shattered tree against its entire branch (including the empty-path certificate), and checked the printed 65-matching list against the generated class. At m=15 only edges 4 and 12 give two branches of size at least 32, each splitting 33 no/32 yes. Reflection reduces to edge 4. In its no branch only edge 12 splits with both counts ≥16, giving 17 no/16 yes. In the doubly negative branch only edge 8 splits with both counts ≥8, giving 8 no/9 yes. In both final subfamilies the maximum smaller side over all edges is 3, so neither can shatter depth three. This precludes depth six at m=15, while the validated tree gives depth five; all smaller paths attain the cardinality bound. The replay directly checked the supplied JSON and text data, rather than assuming the frozen Python generator had reread those files.",
+      "residual_risks": [
+        "The exhaustion is for 0 through 15 edges only, over all inclusion-maximal matchings; no formula for later sizes, for maximum matchings, or for paths queried by vertices is asserted by the matching theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Littlestone dimension hardness/approximation results are not a structured path evaluation.",
+          "The two later path-MIS records give a static dimension or full static support polynomial. The same-day fixed-quota work treats matchings with exactly three edges per P_8 component, a different concept class."
+        ],
+        "reasoning": "The broader static results do not upper-bound adaptive depth at their static dimension, and the fixed-quota result does not determine the dimension of the maximal-matching class.",
+        "searches": [
+          "Manurangsi arXiv:2211.01443, Abstract, Introduction and §2.1",
+          "Resultary 1d3f970e51af and 2c80e8096553 on path MIS static shattering",
+          "Resultary 80bcd6d85d15 on fixed-quota path matchings"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 80bcd6d85d15, 85d3ecbad804, d770e9ac4db6, 1d3f970e51af, 2c80e8096553",
+        "arXiv:2211.01443; arXiv:1907.07216v6; OEIS A000931 and A001608"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The static formula floor((m+1)/3) gives five at m=15, hence only Ldim≥5; 65 hypotheses gives only Ldim≤6.",
+          "Random greedy MIS density does not constrain every binary query split in the game on the full class."
+        ],
+        "reasoning": "Even combining the two strongest numerical implications leaves 5 versus 6 unresolved; the branch-count obstruction and the validated attainment checks for smaller sizes genuinely settle the first miss.",
+        "searches": [
+          "Resultary 1d3f970e51af, VC formula and ranges of exact Ldim",
+          "OEIS A000931, path count",
+          "Krivelevich–Mészáros–Michaeli–Shikhelman arXiv:1907.07216v6, abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The line graph of the m-edge path is the m-vertex path; independent domination is equivalent to inclusion-maximal independence there, with edge queries mapped to vertices.",
+          "Resultary d770e9ac4db6 treats that same class up to P_10, with Ldim=4 at ten. The similar same-day 85d3ecbad804 concerns all inclusion-minimal dominating sets; those need not be independent."
+        ],
+        "reasoning": "The exact alias yields real coverage of earlier cases by the later P_10 record. The minimal-dominating class is not interchangeable, and neither result reaches the claimed first miss.",
+        "searches": [
+          "Resultary searches under inclusion-maximal matchings, maximal independent sets in the line graph, independent dominating sets, and path online shattering",
+          "Resultary d770e9ac4db6 and 85d3ecbad804, Findings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "With the A000931 displayed path indexing, P_15 has Padovan count a(21)=65; A001608 is the maximal-independent-set count for cycles, not paths.",
+          "The path-MIS entries inspected report exact online dimensions only through ten, or give static but not exact adaptive shattering data."
+        ],
+        "reasoning": "The exact 65 is known, as are several smaller online dimensions. No inspected table supplies exact Ldim=5 at m=15 together with attainment through m=14.",
+        "searches": [
+          "OEIS A000931 (Padovan) and A001608 (Perrin)",
+          "Exact/path-family comparisons in Resultary d770e9ac4db6, 1d3f970e51af, 2c80e8096553"
+        ]
+      },
+      "rationale": "The concept classes are exactly path maximal-independent-set classes under the line-graph relabeling. The classical count and information ceiling are not new, and exact early dimensions and a static formula appear in related catalogue work. The inspected statements do not give the decisive adaptive depth-six obstruction at 15 or prove the exact first miss; this is the distinct claim.",
+      "residual_risks": [
+        "The focused external query yielded no relevant results; it is not evidence of absence. Füredi's text and the 1994 unpublished Yanco–Bagchi enumeration manuscript cited in A000931 were not read.",
+        "Catalogue dates for neighboring results are not proof of priority; the statement-level distinctions do not establish exhaustive historical coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General hardness and definition; no path profile in those passages",
+          "evidence": [
+            "§2.1 defines the shattered online query tree; the introduction treats explicit general classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.01443",
+          "material_read": "Abstract and Introduction p. 1, §2.1 p. 5",
+          "method": "OA PDF passage inspection",
+          "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+          "trigger": "General adaptive-dimension methods and scope"
+        },
+        {
+          "assessment": "Different statistic on maximal independent sets",
+          "evidence": [
+            "Random-order greedy construction and asymptotic density, not adaptive shattering of the full class."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.07216v6",
+          "material_read": "Abstract p. 1",
+          "method": "OA PDF passage inspection",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Exact combinatorial family, possibly a path result"
+        },
+        {
+          "assessment": "Path counts already known; Perrin is the related cycle sequence",
+          "evidence": [
+            "A000931 associates path size n−6 with a(n) for n>6; a(21)=65."
+          ],
+          "identifier_or_url": "https://oeis.org/A000931 and https://oeis.org/A001608",
+          "material_read": "A000931 recurrence and path interpretation (offsets 0 and 4500), A001608 recurrence and cycle interpretation (offsets 0 and 1000)",
+          "method": "OA public-page passage inspection",
+          "title": "Padovan sequence; Perrin sequence",
+          "trigger": "Exact path and cycle counting aliases"
+        },
+        {
+          "assessment": "Different concept classes and questions",
+          "evidence": [
+            "Minimal dominating sets of P_11 with 36 concepts; exactly-three-edge matchings in disjoint P_8 components, not all maximal matchings."
+          ],
+          "identifier_or_url": "Resultary 85d3ecbad804 and 80bcd6d85d15",
+          "material_read": "Both Findings, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "First VC–Littlestone separation for minimal dominating sets of paths; An unbounded VC–Littlestone gap in fixed-quota path matchings",
+          "trigger": "Same-date statements on path shattering and matching aliases"
+        },
+        {
+          "assessment": "Earlier path sizes only, in a later catalogue entry",
+          "evidence": [
+            "VCdim=3 and Ldim=4 at P_10, and dimensions through P_10."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-sharp-degree-threshold-for-an-unbounded-vc-littlestone-gap-in--d770e9ac4db6",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Sharp degree threshold for an unbounded VC–Littlestone gap",
+          "trigger": "Same class and exact online results via line graphs"
+        },
+        {
+          "assessment": "Static formula and selected online bounds, not exact first miss",
+          "evidence": [
+            "The all-path formula is for VCdim; the static polynomial record explicitly excludes an exact Littlestone claim."
+          ],
+          "identifier_or_url": "Resultary 1d3f970e51af and 2c80e8096553",
+          "material_read": "Findings at offset 0; static polynomial limitations near offset 9300",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Linear static–online shattering separation for maximal independent sets; Exact shattering polynomial for maximal independent sets of paths",
+          "trigger": "Strongest candidate path-MIS formula"
+        },
+        {
+          "assessment": "Unresolved full-text comparison, not negative evidence",
+          "evidence": [
+            "Direct retrieval returned HTTP 403; no identified repository copy was available."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.3190110403",
+          "material_read": "Bibliographic reference only; full text unavailable",
+          "method": "Attempted lawful direct/VPN and repository retrieval",
+          "title": "The number of maximal independent sets in connected graphs",
+          "trigger": "Potential older source for the enumeration alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–4",
+        "Contrasts with standard Padovan counts and all-size static shattering in the inspected comparisons"
+      ],
+      "rationale": "In a natural concept family indexed by path size, the cardinality bound is the benchmark for adaptive membership-query depth, and equality up to the first miss is not automatic. The exact cutoff at 15 edges distinguishes hypothesis counting from optimal realizable mistake depth. The short query-balance obstruction and explicit depth-five witness make the meaningful first failure independently reusable, rather than merely providing a finite table entry.",
+      "residual_risks": [
+        "No claim about eventual size behavior or open-learning performance outside this realizable path concept class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

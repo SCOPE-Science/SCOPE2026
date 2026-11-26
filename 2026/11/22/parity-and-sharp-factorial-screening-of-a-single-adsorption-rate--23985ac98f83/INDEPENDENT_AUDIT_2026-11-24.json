@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:27:05.540893Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–84; frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "Independent replay: python3 /workspace/branches/4320cd14-8f03-4fce-97dc-9a3c205d4c68/record3_bounded_check.py"
+      ],
+      "rationale": "Dependencies follow strictly decreasing clock paths; retaining just the ordinary clocks on a length-k path bounds the probability of the required order by 1/k!, even if the path meets the marked vertex. Summing against the exponential number of paths gives finite dependence almost surely. In the uniform-label coordinate x=1-e^{-t}, independent detached branches give h'=-h^{q-1}; integrating h^q at an ordinary full vertex yields the frozen p_*. Along the marked-to-target path there are q-2 unchanged child branches at each internal site and q-1 unchanged branches at the target. Subtracting the homogeneous cavity recursion and using du=h^{q-2}dx therefore gives δ_j=-Tδ_{j-1} and the target weight e^{-u}du, with δ_0=g_a. For a>1 the coupled marked label is strictly earlier; the function 1_{s≤x}h(s)^{q-1} is nonincreasing and strictly decreasing in (0,x), giving a strict sign even at x=1. The reverse holds for 0<a<1. Positive integration preserves strictness, so the sign alternates. The uniform bound |g_a|≤1 gives L^r/r!. Expansion at zero yields g_a=-(a-1)u+O_{q,a}(u²), with a global quadratic remainder by continuity even for a<1. The iterated remainder has one extra power and factorial factor. Integration against e^{-u} evaluates the leading term at the upper endpoint with relative O_q(1/r) error, yielding the stated signed coefficient for fixed q and a≠1. For a=1 the response is identically zero.",
+      "residual_risks": [
+        "The q=3, a=2 shell-one and shell-two examples were reproduced analytically. Independent x- and u-coordinate ODEs agree at q=4, a=2, r=5 to about 1.9×10^-15 on a response of about -1.84226259329×10^-5. Neither the ODE comparison nor the deposited finite-depth check proves the infinite-tree formula. No uniformity in a or q, or formal or expert certification, is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose–Sudbury's tree theorems concern homogeneous occupation and homogeneous two-point covariance, including alternating sign.",
+          "The pinned-color tree result changes the initial seed and state space. The two-defect dimer and Petersen records treat mixed responses or global terminal statistics in different graphs and dynamics."
+        ],
+        "reasoning": "Even an all-distance homogeneous theorem does not cover an independent finite change in the root clock law. The related defect findings are not theorems for arbitrary finite site-rate changes on regular trees.",
+        "searches": [
+          "Penrose–Sudbury, arXiv:math/0503519, §4.1, Theorems 12–13",
+          "Focused external lookup for heterogeneous and single-site defects",
+          "Resultary localized kinetic perturbations and pinned-color results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records and primary passages in source_inspections",
+        "Focused primary literature search for heterogeneous rate responses"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Homogeneous covariance weights an occupation event, not the distribution of the marked attempt time by the arbitrary density a(1-x)^{a-1}. The earlier dimer result does not transport through the line graph to the branching tree. arXiv:2404.05080 changes the substrate rather than the clock."
+        ],
+        "reasoning": "The homogeneous cavity law is a required input, not the heterogeneous result: the initial cavity difference, time change along the affected branch, and endpoint asymptotic for the target all require separate steps. No checked prior result supplied the complete finite-amplitude identity and coefficient by specialization.",
+        "searches": [
+          "Compare Penrose–Sudbury homogeneous occupation and covariance formulas and the one-dimensional dimer tail with the frozen Volterra response",
+          "arXiv:2404.05080 and cited adsorption-percolation literature comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026/10/26/SCOPE-alternating-factorial-screening-of-one-anomalous-dimer-adsorptio--62931be7f8b0 gives the alternating single anomalous edge-rate response for dimers on the line, with leading coefficient proportional to (λ-1)e^{-1}.",
+          "Dimer blocking on edges is monomer blocking on the line graph. The line graph of a two-sided path is a path, of degree two; the present regular trees have induced claws and are not line graphs."
+        ],
+        "reasoning": "The earlier dimer finding is a genuine one-dimensional model analogue, not an equivalent formulation for q≥3. Detached off-path branch messages and the resulting L=log(q-1)/(q-2) do not occur in that case.",
+        "searches": [
+          "Resultary semantic search for single kinetic-defect factorial screening, monomer and dimer adsorption",
+          "Focused primary search for heterogeneous single-site arrival rates in blocking RSA on regular trees"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact catalogue entry is the one-dimensional anomalous dimer edge record. Other matched entries give color-seed responses or two-defect statistics, as detailed in source_inspections."
+        ],
+        "reasoning": "The object is a continuum of rate-dependent response functions, not a finite table lookup. The indexed exact formulas found are for different initial data, processes or graph families and do not enumerate this response.",
+        "searches": [
+          "Resultary exact screening laws, one-defect and two-defect adsorption records"
+        ]
+      },
+      "rationale": "The homogeneous cavity law and the occurrence of alternating factorial screening in a one-dimensional adsorption defect are prior. The distinct contribution is an exact finite-rate response at all distances on a branching regular tree, including the q-dependent clock transformation and sharp coefficient. The checked close sources do not give this response as a special case.",
+      "residual_risks": [
+        "Bounded searches cannot exclude a prior timed-defect or heterogeneous-rate treatment. The Evans and 2012 full texts were unavailable in the checks; neither access failure nor the noisy primary search is negative priority evidence. The same-day findings were compared by claim, not date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers homogeneous law and covariance, not rate defect",
+          "evidence": "The alternating two-point dependence is between sites in the same homogeneous process; the theorem does not alter the root clock.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503519",
+          "material_read": "§4.1, Theorems 12–13, PDF pp. 18–20 (text offsets about 51000–56948)",
+          "method": "OA primary PDF passages",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Blocking RSA on the same regular tree, with exact all-distance formulas"
+        },
+        {
+          "assessment": "Substantive overlap in phenomenon, one-dimensional mechanism only",
+          "evidence": "It treats a single anomalous dimer edge rate λ on the integer line and a signed tail (-1)^j(λ-1)e^{-1}/(j+1)!.",
+          "identifier_or_url": "2026/10/26/SCOPE-alternating-factorial-screening-of-one-anomalous-dimer-adsorptio--62931be7f8b0",
+          "material_read": "RESULT.md finding and model, beginning at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Alternating factorial screening of one anomalous dimer adsorption rate",
+          "trigger": "Closest prior single-defect response and tail scale"
+        },
+        {
+          "assessment": "Different perturbation and observable",
+          "evidence": "A preoccupied color seed in two-color dynamics gives a positive color response, not a clock-rate effect in one-color blocking.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-factorial-screening-of-a-pinned-color-in-antagonistic-adso--f1ce28d42035",
+          "material_read": "RESULT.md finding, beginning at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact factorial screening of a pinned color in antagonistic adsorption",
+          "trigger": "Tree adsorption with exact factorial decay after a local change"
+        },
+        {
+          "assessment": "Different graph and response",
+          "evidence": "The object is a mixed response to two anomalous dimer-edge rates on the line.",
+          "identifier_or_url": "2026/11/22/SCOPE-parity-signed-nonlinear-interference-between-two-kinetic-defects--1ce909334539",
+          "material_read": "RESULT.md finding, beginning at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Parity-signed nonlinear interference between two kinetic defects",
+          "trigger": "Related signed rate-defect screening"
+        },
+        {
+          "assessment": "Different graph and statistic",
+          "evidence": "Two changed clocks affect terminal-size probabilities on the finite Petersen graph, rather than terminal occupation in each shell of an infinite tree.",
+          "identifier_or_url": "2026/11/22/SCOPE-geometry-signed-two-site-kinetic-interference-on-the-petersen-ad--c78640a90221",
+          "material_read": "RESULT.md finding, beginning at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Geometry-signed two-site kinetic interference on the Petersen adsorption graph",
+          "trigger": "Related site-clock perturbations"
+        },
+        {
+          "assessment": "Inspected model concerns substrate defects",
+          "evidence": "The defects change the substrate and the work measures coverage versus defect density, not single-site rate response.",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.05080",
+          "material_read": "PDF p. 1, offset 0, opening description",
+          "method": "OA primary PDF passage",
+          "title": "One-dimensional k-mer RSA with substrate defects",
+          "trigger": "Primary lookup for adsorption with defects"
+        },
+        {
+          "assessment": "Access limitation; no noncoverage inference",
+          "evidence": "The frozen bibliography identifies this as a periodic-rate comparison, not verified from full text here.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spa.2012.01.007",
+          "material_read": "No primary full-text passage obtained",
+          "method": "Bounded lawful retrieval attempt",
+          "title": "Percolation of even sites for random sequential adsorption",
+          "trigger": "Cited asymmetric-rate adsorption comparison"
+        },
+        {
+          "assessment": "Access limitation; no noncoverage inference",
+          "evidence": "The frozen record attributes homogeneous empty-cluster shielding to this source; retrieval did not confirm the full scope.",
+          "identifier_or_url": "J. W. Evans, J. Math. Phys. 25 (1984), 2527–2532",
+          "material_read": "No primary full-text passage obtained",
+          "method": "Bounded lawful DOI retrieval attempt",
+          "title": "Exactly solvable irreversible processes on Bethe lattices",
+          "trigger": "Cited exact shielding framework on the same type of tree"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Volterra identity, strict-sign analysis and factorial asymptotic",
+        "One-dimensional kinetic-defect and homogeneous tree comparisons above"
+      ],
+      "rationale": "A finite change of the site attempt rate is a natural perturbation of greedy blocking on a branching graph. The sign at every distance, nonvanishing for every a≠1, and the exact leading factorial constant distinguish the response from a dependency-path upper bound or a linearized homogeneous covariance. The closed formula can predict local changes without simulating a growing neighborhood; quantitative screening persists despite exponential shell growth.",
+      "residual_risks": [
+        "No claim about repeated attempts, graph cycles, general rates, or joint responses to multiple defects."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

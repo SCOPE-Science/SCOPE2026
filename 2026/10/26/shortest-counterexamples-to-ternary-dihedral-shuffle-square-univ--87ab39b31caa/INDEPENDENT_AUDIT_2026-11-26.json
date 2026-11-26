@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:54:58.166868Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the narrowed complete census in the corrected RESULT.md. For h≤3, two equal-Parikh subsequences suffice because every permutation is dihedral. Parity-character filtering gives (3^(2h)+3)/4 indexed even words. Every balanced partition of the known witness pairs adjacent with opposite zero positions. The original direct verifier is exhaustive over half-position subsets and doubled-string rotation or reflection; independently, python3 /workspace/audit_replay/shuffle.py constructs all successful words forward by interleaving each half-word with each dihedral image over every mask, and takes the complement among even words. It gives success counts 3,21,183,1593, exactly 48 length-eight failures, and equality with the specified orbit. The replay is finite and gives no information for larger lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact m_3(4)=7 result minimizes the number of arbitrary permutations covering all words. The graph-theoretic shuffle work concerns ordinary identical-copy shuffles."
+        ],
+        "reasoning": "Neither the existence of an optimal unrestricted cover nor a negative result for identical copies specifies which words fail for the fixed subgroup D4.",
+        "searches": [
+          "Resultary seven-permutation ternary length-four cover 07a749473b9e",
+          "arXiv:2503.22043v2 ordinary shuffle squares, abstract and §1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 07a749473b9e and bounded ranked searches for the 48-count/orbit",
+        "arXiv:2308.13882v2 §2.3",
+        "arXiv:2503.22043v2",
+        "Frozen RESULT.md, VERIFICATION.md and verify.py; corrected RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Neither listed permutation of 00011022 preserves four-cycle adjacency, nor do their inverses. This already refutes the conjecture and, with the elementary h≤3 observation, gives minimum length eight. It does not exclude additional inequivalent length-eight failures."
+        ],
+        "reasoning": "Repair removes novelty of the particular counterexample and sharp cutoff; proving no second orbit requires the distinct full D4 census, not merely observing the implication for that witness.",
+        "searches": [
+          "Resultary 07a749473b9e local mirror offsets 0–6381, lower and upper bound arguments",
+          "arXiv:2308.13882v2 Conjecture 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conjecture 2 asks for a shuffle permutation in D_h, exactly two complementary ordered subsequences related by rotations and reflections. Its nearby 001221 example addresses a different whole-word transformation."
+        ],
+        "reasoning": "The repaired classification applies to the exact conjecture; rotating the full eight-letter word in the answer is an orbit operation, not the definition of an admissible subsequence partition.",
+        "searches": [
+          "Resultary: exact complete list 48 shortest length eight ternary dihedral shuffle square obstructions one orbit 00011022",
+          "arXiv:2308.13882v2 §2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier lower table gives full neighborhoods only for seven selected words, with 00011022 matching only inverse-class reps 1324 and 2314. The upper table gives incremental coverage counts for seven selected permutations, and reports 1641 even words; it does not give the D4 incidence census."
+        ],
+        "reasoning": "The known witness and size of the whole universe are credited. The exact 48-word single orbit does not follow from the tabulated neighborhoods or incremental cover counts.",
+        "searches": [
+          "Resultary 07a749473b9e, exact lower-bound neighborhood and upper-bound coverage tables",
+          "Resultary: 48 labeled length-eight exceptions and single orbit"
+        ]
+      },
+      "rationale": "The original's witness and refutation are already implied by an earlier exact table and are not accepted as new. The delivered repair credits that table and claims only the distinct complete first-failure classification (48 indexed words, one orbit), which is not implied by the inspected optimal-cover theorem or its tables. No same census or dominating statement was found in the bounded checks.",
+      "residual_risks": [
+        "A different account of the complete census may exist outside the material inspected.",
+        "The exact witness web search was uninformative rather than proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior implication of the same witness, not the complete obstruction orbit",
+          "evidence": "Witness row 00011022: 1324, 2314. Upper table lists increments under an unrestricted seven-permutation family, not D4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-seven-permutations-suffice-and-are-necessary-for-ternary-length--07a749473b9e/RESULT.md",
+          "material_read": "Finding, inversion reduction, complete seven-witness neighborhood table, and upper covering certificate",
+          "method": "Resultary lookup and local mirror passage inspection",
+          "title": "Seven permutations suffice and are necessary for ternary length-four shuffle coverings",
+          "trigger": "Identical word, alphabet and length in an exact table"
+        },
+        {
+          "assessment": "Same conjecture, no first-failure census in the cited section",
+          "evidence": "Every even ternary word is conjectured to be a shuffle gamma-square for a dihedral permutation gamma.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.13882v2",
+          "material_read": "PDF p. 7 §2.3, definitions, different whole-word counterexample and Conjecture 2",
+          "method": "OA PDF passage inspection and version check",
+          "title": "Variations on shuffle squares",
+          "trigger": "Source of the conjecture"
+        },
+        {
+          "assessment": "Different shuffle property",
+          "evidence": "Definition uses two identical copies; inspected ternary examples do not classify dihedral failures.",
+          "identifier_or_url": "https://arxiv.org/abs/2503.22043v2",
+          "material_read": "Abstract, §1.1 and ternary examples on PDF pp. 9 and 29",
+          "method": "OA PDF passage inspection",
+          "title": "Shuffle squares and ordered nest-free graphs",
+          "trigger": "Nearby shuffle-square classification literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete shortest-obstruction set, rather than the already known isolated witness, is a motivated finite structural classification for a named conjecture. The single orbit and its exhaustive sharp count tell later work that no other obstruction shape occurs at the first length.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

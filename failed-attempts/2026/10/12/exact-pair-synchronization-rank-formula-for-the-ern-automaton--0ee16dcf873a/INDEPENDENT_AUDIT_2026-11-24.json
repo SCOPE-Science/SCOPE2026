@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:12:23.826854Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The canonical short-arc start x is unique (choose the larger endpoint at a diametric tie). For rank D=(r-1)n+n-x, rotation drops rank by one off wraparound and raises it at wraparound. When x=n-1, b changes the pair to P(r-1,0) or merges it if r=1, dropping rank by one. If only the other endpoint is n-1, x=n-1-r; b increases the separation by one and the rank by n when 2r+2<=n (including the diametric endpoint), or flips the start to zero and increases the rank by r when 2r+1=n. Otherwise b fixes the pair. The rank therefore lower-bounds length, and a^(n-1-x)b(a^(n-1)b)^(r-1) attains it; this also covers n=2. For i<j and g=j-i, the shorter gap gives the smaller cost since a gap change of at least one contributes at least n, larger than a start-coordinate difference; for g=n-g the second cost is smaller. Each full separation layer gives n consecutive ranks and the final diametric layer when present gives n/2. This proves the proposed hardest pair, spectrum, and mean. certificate.json and verify.py were inspected, not executed; the all-n proof is the rank argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The thesis gives a gap procedure and an extremal subset with sharp length for each size. The exact circular-gap Resultary entry treats every subset in the convention b(0)=1."
+        ],
+        "reasoning": "The relabeling q→q+1 mod n conjugates a and b to the all-subset convention. The broader Resultary result therefore specializes to pairs. Cardoso's extremal procedure supplies the earlier shortest path needed to recover the complete pair case, irrespective of exact distances for larger sets.",
+        "searches": [
+          "Cardoso, proofs of Theorems 5.2.2 and 5.2.3, printed pp. 72–74, OA offsets 173100–178970 for the gap construction and extremal argument",
+          "Resultary 660b6553bb5e, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Cardoso DOI 10.34626/607f-t921",
+        "Behague–Johnson arXiv:2008.12166v1",
+        "Gusev arXiv:1404.6731",
+        "Resultary 261334d3d0c0, 660b6553bb5e, fe81919abba1 and 6c832e7845c7 (local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m=2 Cardoso's sharp subset is {0,floor(n/2)}, with sharp length binom(n,2). The gap construction specializes to (a^(n-1)b)^r for n=2r+1 and a^(r-1)b(a^(n-1)b)^(r-1) for n=2r (n=2 is the single b).",
+          "Behague–Johnson gives the same hardest pair after relabeling, hence the same abstract spectrum."
+        ],
+        "reasoning": "The explicit Cardoso geodesic visits every pair exactly once because it passes through binom(n,2) pairs and no geodesic repeats a state. In each block at separation s rotation increments the canonical start x through n-1, and the following b moves to separation s-1 with start zero or merges. The only partial block is the initial even diametric one beginning at x=n/2. Thus a pair on the path has exactly n-x letters left in its own block and (s-1)n in following blocks. Every suffix is shortest, giving the claimed labeled formula immediately, not just the distance multiset. The spectrum, hardest pair and mean also follow.",
+        "searches": [
+          "Cardoso repository PDF, §5.2, Theorems 5.2.2–5.2.3, especially the extremal subset and first gap increment on printed pp. 73–74",
+          "Behague–Johnson arXiv:2008.12166v1, pp. 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cardoso uses the same a and b and follows the first attainment of successive maximal gaps. Resultary records 261334d3d0c0 and 6c832e7845c7 give the two cost branches for positive letter costs, equivalent here at unit costs; fe81919abba1 gives the same unweighted formula."
+        ],
+        "reasoning": "In fe81919abba1 the backward branch (n+1)(n-g)-n-i equals n(n-g)-j. In the weighted records the unit-cost specialization removes the weighting, not the rank constraint. n=2 missing from one such statement is immediate because b alone merges the only pair.",
+        "searches": [
+          "Resultary: Černý prescribed pair synchronization distance, pair rendezvous rank, exact circular gap and shortest merging words",
+          "Cardoso, DOI 10.34626/607f-t921, Chapter 5 §5.2, Theorems 5.2.2–5.2.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed results encode exact labeled pairs symbolically for variable n. Gusev provides an explicit pair automaton for odd n and studies random synchronization times rather than reporting an all-n deterministic distance table."
+        ],
+        "reasoning": "A finite table is not required for an all-n match; the symbolic indexed formulas already enumerate the whole distance table. A random expected time for one prescribed pair is not the deterministic mean over uniform initial pairs.",
+        "searches": [
+          "Resultary fe81919abba1 and 261334d3d0c0 (exact symbolic distances and full pair ranks)",
+          "Gusev arXiv:1404.6731, §3, Lemma 1 and Fig. 3"
+        ]
+      },
+      "rationale": "Cardoso's accessible 2014 thesis, in the same automaton convention, gives the constructive shortest path from the labeled extremal pair upon specializing its gap procedure to two states. That path already gives the rank of every labeled pair by taking suffix lengths; the submitted formula is an immediate evaluation of those lengths. Several distinct later-dated Resultary records also have actual mathematical coverage; that corroborating overlap is not a claim about their priority. The thesis passage, not the mere extremal length or unavailable literature, decides this failure.",
+      "residual_risks": [
+        "The compact formula was not located verbatim in Cardoso's inspected passages; the mathematical implication is explicit and is the basis for the verdict.",
+        "No priority is inferred from the dates of the distinct Resultary records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier proved constructive geodesic implies all the labeled pair ranks",
+          "evidence": "The sharp subset, the rotation count for its first gap increment, and the n-letter blocks for successive increments yield the parity-dependent words traced above.",
+          "identifier_or_url": "https://repositorio-aberto.up.pt/bitstream/10216/73496/2/32442.pdf (DOI 10.34626/607f-t921)",
+          "material_read": "Automaton convention pp. 20–21; §5.2 Theorems 5.2.2–5.2.3 and proofs, printed pp. 72–74; decisive portion at OA offset 173100 onward",
+          "method": "Lawfully accessible repository PDF full-text passages",
+          "title": "The Černý Conjecture and Other Synchronization Problems",
+          "trigger": "Cited plausible earlier thesis on exact Černý subset bounds"
+        },
+        {
+          "assessment": "Gives the extremal pair and abstract spectrum, distinct from directly printing a labeled rank",
+          "evidence": "t(S) is the shortest distance to a singleton, RDV(2,n)=binom(n,2), and the cited maximizing pair is {2,floor(n/2)+2} in that convention.",
+          "identifier_or_url": "https://arxiv.org/pdf/2008.12166v1",
+          "material_read": "pp. 3–4, OA offsets 9500–11875",
+          "method": "Primary OA PDF passages",
+          "title": "Synchronizing Times for k-sets in Automata",
+          "trigger": "Prior prescribed-pair weight and extremal Černý pair"
+        },
+        {
+          "assessment": "Related odd-n pair graph; target is random synchronization time",
+          "evidence": "The graph is an alternate representation, but its inspected expected-time statements do not state the deterministic all-n formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.6731",
+          "material_read": "§3, Lemma 1 and Fig. 3, pp. 5–7, OA offsets 14600–19722",
+          "method": "Primary OA PDF passages",
+          "title": "Synchronizing automata with random inputs",
+          "trigger": "Explicit Černý pair automaton"
+        },
+        {
+          "assessment": "Same pair distances at unit costs for n>=3",
+          "evidence": "The branches reduce to ng-i and n(n-g)-j.",
+          "identifier_or_url": "2026/10/18/SCOPE-cost-invariant-unique-optimal-merging-words-for-every-pair-of-er--261334d3d0c0/RESULT.md",
+          "material_read": "Finding and proof, two branches",
+          "method": "Resultary search and local mirror",
+          "title": "Cost-invariant unique optimal merging words for every pair",
+          "trigger": "Weighted formulation for identical pairs"
+        },
+        {
+          "assessment": "Broader exact subset result, includes pairs under a conjugacy",
+          "evidence": "Same rotation, b(0)=1 after shifting state labels by 1.",
+          "identifier_or_url": "2026/10/26/SCOPE-an-exact-circular-gap-formula-for-every-ern-subset-rendezvous-ti--660b6553bb5e/RESULT.md",
+          "material_read": "Finding and proof, automaton convention and distances",
+          "method": "Resultary search and local mirror",
+          "title": "An exact circular-gap formula for every Černý subset rendezvous time",
+          "trigger": "Potential all-subset domination"
+        },
+        {
+          "assessment": "Same unweighted formula, with stronger shortest-word claims",
+          "evidence": "Backward branch (n+1)(n-g)-n-i equals n(n-g)-j.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-single-geodesic-orders-every-pair-of-the-ern-automaton--fe81919abba1/RESULT.md",
+          "material_read": "Finding and proof, rank branches",
+          "method": "Resultary search and local mirror",
+          "title": "A single geodesic orders every pair of the Černý automaton",
+          "trigger": "Master geodesic and explicit labeled ranks"
+        },
+        {
+          "assessment": "Same rank plus stronger weighted optimality",
+          "evidence": "Canonical circular separation count gives the unit-cost rank directly.",
+          "identifier_or_url": "2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md",
+          "material_read": "Finding and proof, canonical separation coordinate",
+          "method": "Resultary search and local mirror",
+          "title": "Coordinatewise optimal pair synchronization in the Černý automata",
+          "trigger": "Cost-independent synchronization and circular separation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Prescribed-pair distances are natural invariants, and the local rank proof is clear. But the closed expression is the count of the unused rotations and blocks of an already known constructive geodesic, and the mean and spectrum require no further result. The proof is a useful presentation of covered mathematics, not a new scientific contribution; no separate claim about larger subsets or costs is made in the frozen record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

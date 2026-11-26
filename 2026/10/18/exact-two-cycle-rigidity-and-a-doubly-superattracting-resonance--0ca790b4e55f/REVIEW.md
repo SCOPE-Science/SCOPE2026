@@ -1,19 +1,21 @@
-# Review of the exact rational-map two-cycle theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The global two-cycle census follows by eliminating the second-coordinate return equations, which force \(x_1=-x_0\ne0\), then the first-coordinate equations, which force \(a=-2(1+y_0^2)\), \(y_1=-y_0\). There are exactly two ordered solutions for \(a<-2\), representing one orbit. The two orbit-point Jacobians are equal, trace zero, and have square \(\mu I_2\), with \(\mu=-7-16/a\). Thus the stability intervals, double \(-1\) collision, and zero-Jacobian resonance follow without approximations. The exact executable checks agree. No nonlinear classification at the nonhyperbolic \(-1\) boundary is claimed.
+PASS
 
-## Originality — PASS, subject to historical priority limits
+The sum of vertical increments over a primitive two-cycle is c(x0+x1)=0. Because c≠0, x1=−x0; x0=0 would imply a fixed point. Thus the two horizontal multipliers are both −1, forcing a=−2(1+y0²)=−2(1+y1²). The ordinates differ by cx0≠0, so they are exactly u and −u with u>0, and the horizontal coordinates follow. Reversal of sign merely exchanges the two points. Direct substitution gives existence for all a<−2 and the equality endpoint gives no primitive cycle. At both points xy=−2u²/c; the derivative is the same trace-zero matrix with entries (−1, −8u²/[c(1+u²)]; c, 1). Its square is minus its determinant times the identity, i.e. (1−7u²)/(1+u²) I. This gives the sink/source windows and the repeated −1 endpoint. At a=−16/7 the return derivative is the zero operator, not merely a matrix with two zero eigenvalues. Since the return is smooth on the plane, at each point the return error obeys a local O(norm(error)²) bound and hence converges for sufficiently small initial errors. No nonlinear classification follows at the repeated −1 endpoint. Independent bounded replay: python3 /workspace/branches/independent_replays.py, function cycle, checked both orbit points and coordinate directions for ten rational cases and the three multiplier parameters. The identity and exhaustion are analytic, not inferred from the samples.
 
-The originating open-access paper [1], including its family equation, fixed-point analysis, zero-offset numerical bifurcation figures, and conclusions, was inspected. It already reports numerical period-two behavior near \(a=-2.1\), and higher periods near \(a=-2.7\). This finding **does not claim** discovery of that cycle's numerical existence. Instead it proves the unique global orbit count, the exact parameter threshold, scalar two-step derivative, and simultaneous double-multiplier superattraction at \(a=-16/7\). Searches for equivalent expressions and broader coverage did not identify these statements. Other indexed exact two-cycle theorems concern distinct maps. An unindexed priority source remains possible. The manuscript's apparent December 2021 acceptance/online label does not unambiguously document public availability then.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The parent study emphasizes coexisting attractors and numerical period-doubling in precisely this line-of-fixed-points subfamily. The analytical theorem supplies a full-plane classification instead of finite graphical sampling, explains the observed loss of the attracting two-cycle with the **exact** threshold \(a=-8/3\), and reveals an unexpected scalar return Jacobian and doubly superattracting resonance at \(a=-16/7\). Such a simultaneous two-multiplier cancellation is geometrically stronger than an ordinary one-dimensional multiplier crossing. The exact result does not purport to solve global basins or higher-period dynamics.
+Pass is for the exact global primitive two-cycle census and scalar two-step derivative in the zero-offset family, including the isolated quadratic-attraction parameter. No source examined states a matching theorem. The parent model and the numerical two-cycle observation attributed to its authors are not credited as new. The parent primary text remains inaccessible in the bounded lawful attempts; the scientific verdict does not assert what that text omits.
 
-## Literature, evidence and limits
+## value
 
-[1] L.-P. Zhang, Y. Liu, Z.-C. Wei, H.-B. Jiang, and Q.-S. Bi, “A class of two-dimensional rational maps with self-excited and hidden attractors,” *Chinese Physics B* **31** (2022), 030503, DOI: 10.1088/1674-1056/ac4025; open HTML: https://cpb.iphy.ac.cn/fileCPB/journal/article/cpb/html/2022/1674-1056/cpb_31_3_030503.shtml . The formula is equation (1); the relevant numerical observations are in section 3, case I, and Figures 1–3. The theorem excludes nonzero offsets, higher-period creation and the stability of boundary points \(a=-8/3\) and \(a=-2\), beyond what is proved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parameter slice is motivated by reported period-two behavior in the parent map. The result resolves an exact all-plane orbit count and its full two-step linearization, not just a numerical stability fit. The scalar return exposes distinct exact boundaries, especially a zero return operator with quadratic attraction, giving testable parameters and a starting point for an analysis of the unsolved nonlinear endpoint. The contribution is the combined family-specific classification, not the standard trace-zero matrix identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

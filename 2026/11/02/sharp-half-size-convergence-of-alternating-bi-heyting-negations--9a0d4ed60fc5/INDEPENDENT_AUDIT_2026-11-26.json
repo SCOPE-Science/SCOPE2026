@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:01:18.276621Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, assumptions and proof steps 1–4",
+        "VERIFICATION.md, checker scope and expected marker",
+        "checker.py, direct negation composition and separate graph expansion"
+      ],
+      "rationale": "On upsets, composing the ordinary Heyting pseudocomplement with the co-Heyting supplement gives F(U)=up(down(U)). A point belongs after one step exactly if it shares a lower bound with some point in U. Thus reflexive common-lower-bound graph expansion gives F^j, and its components agree with the comparability graph (each graph edge is a comparability walk of length at most two; comparables are adjacent). Closure fills exactly the reached components, and the fixed sets are precisely the upsets with upset complements. If k>0 is the last strict growth index in the sense of k steps, a shortest length-k path from U has k distinct nonminimal vertices before its last vertex: starting at a minimal vertex would make the next vertex also belong to U, and an internal minimal vertex would supply a shortcut. Choose a minimal lower bound for each edge; finiteness makes such a choice possible and minimality among common lower bounds implies minimality in the poset. Repetition of a chosen bound would again shortcut the path. These k new distinct vertices prove n>=2k. As an independent graph check, any shortest comparability path from U must first descend (an ascending step stays in U) and alternate directions (two successive steps in one direction shortcut by transitivity). Grouping descending-ascending pairs, with a solo last descending edge if needed, shows that distance from U in the common-lower-bound graph is the ceiling of half the comparability distance: the reverse inequality is immediate by expanding each common-lower-bound edge into at most two comparability edges. In the height-two fence the comparability graph is a path of 2k vertices from b_0 to a_(k-1), hence that endpoint takes k steps. An added isolated vertex does not alter the reached component; n=1 and U empty are fixed from the start.",
+      "residual_risks": [
+        "The frozen checker was inspected, not executed. It enumerates naturally labelled poset encodings up to six points with repetitions and tests a finite fence range; the proof is what applies to arbitrary finite n. The distances in the two graphs are not generally identical: incomparable maxima sharing a minimum give distances 1 and 2 from one to the other."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The alternating-nuclei result gives floor(h/2)+1 for composing two arbitrary nuclei on a finite Heyting frame of height h. Gopaulsingh studies successive lower and upper approximations using two equivalence relations (e.g. L2 L1), including reconstruction problems."
+        ],
+        "reasoning": "A size bound on this alternating pair of negations is not the height bound for alternating two nuclei: the negations are antitone, not nuclei; even the composite cannot be an alternating product of two nuclei on the same height-two frame for unbounded k, since the cited height bound would be uniform. Equivalence-class approximations act on a different carrier and are not identified with the mixed up/down closure by the inspected results.",
+        "searches": [
+          "Resultary f1fb76461c77",
+          "Gopaulsingh, Double Successive Rough Set Approximations, §4 and Conclusion",
+          "Tasiou, §2.1"
+        ]
+      },
+      "checked_sources": [
+        "Tasiou §2.1",
+        "Stell–Worboys §2",
+        "Gopaulsingh §4 and Conclusion",
+        "Resultary f1fb76461c77, d96482bfb41c, 221ee3578598"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A comparability-component theorem only decides eventual membership and does not count individual F-steps. Counting ordinary edges without the alternation property gives only n-1, and an example matching floor(n/2) must start at an upset.",
+          "The finite bound follows by the structural step of compressing a shortest descending/ascending zigzag from an upset into common-lower-bound moves, or by counting disjoint minimal edge witnesses and nonminimal vertices. The extremal fence realizes the maximum under the upset constraint."
+        ],
+        "reasoning": "The mathematics is elementary but the additional metric argument and an admissible extremizer are needed: neither the least-updownset formula nor the adjacent exact results imply the whole sharp theorem under their stated hypotheses.",
+        "searches": [
+          "Tasiou §2.1 Definitions 2.1–2.2 and Example 2.6",
+          "Resultary f1fb76461c77 and d96482bfb41c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tasiou's implications U->V=(down(U\\V))^c and U<-V=up(U\\V) give the composite exactly as up(down(U)); Definition 2.1 gives the same comparability-component closure via zigzags.",
+          "Dual passing to downsets uses common upper bounds with the same extremal size bound; a comparability zigzag of minimum length from an upset yields the step count by pairing its descending and ascending steps.",
+          "Stell–Worboys give the general co-Heyting supplement. The same-day spectra record covers static excluded-middle/double-negation formulas and uses comparability components."
+        ],
+        "reasoning": "The operation is already given by the prior formulas, and the eventual closure is prior coverage even under renaming. The compared statements do not identify the exact iteration count from metric distance or state the extremal finite carrier result. Composing via the order dual does not change that question.",
+        "searches": [
+          "Tasiou, Algebra Universalis 86:16, §2.1 Definitions 2.1–2.2 and Example 2.6",
+          "Stell–Worboys, COSIT 1997, §2",
+          "Resultary 221ee3578598"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rough-approximation record finds extinction time n for alternating lower approximations of two perfect matchings on a connected 2n-cycle and studies a random-input cutoff.",
+          "The spectra record treats static formulas for excluded middle and double negation in finite Heyting algebras, with component data."
+        ],
+        "reasoning": "Both are relevant exact statements. The matching extinction time has the same half-size shape but concerns shrinking sets under a pair of equivalence relations on a special alternating graph; the finite spectra count static properties. Neither gives the exact all-poset upset iteration bound. Same-day catalogue placement does not determine priority.",
+        "searches": [
+          "Resultary d96482bfb41c (alternating lower approximations)",
+          "Resultary 221ee3578598 (same-day finite Heyting spectra)"
+        ]
+      },
+      "rationale": "The supported distinct claim is the sharp number of iterations for this particular composite on finite posets, with start-dependent graph distances and a matching fence at each size. The bi-Heyting operations, their up/down-set expression, comparability components and the eventual least updownset are established ingredients, not the basis of the pass.",
+      "residual_risks": [
+        "The external keyword search did not return a materially useful match and has no negative evidential weight. A prior finite zigzag or finite-topological formulation could have been missed. The pass is a best-of-knowledge decision from the compared statements, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes identical algebraic ingredients and eventual closure; not the sharp iteration count in the compared passages.",
+          "evidence": "T(Y) is least updownset via comparability zigzags; Example 2.6 gives implications for upsets.",
+          "identifier_or_url": "https://doi.org/10.1007/s00012-025-00892-w",
+          "material_read": "§2.1 Definitions 2.1–2.2, pp. 3–4, offsets 7164/7844; Example 2.6, p. 4, offset 9711",
+          "method": "Lawful primary OA passages",
+          "title": "Profinite bi-Heyting algebras",
+          "trigger": "Identical order semantics and comparability closure"
+        },
+        {
+          "assessment": "General algebraic definition, not a finite-poset step bound in the inspected section.",
+          "evidence": "Co-Heyting supplement is defined as the least element joining with the argument to top.",
+          "identifier_or_url": "https://doi.org/10.1007/3-540-63623-4_49",
+          "material_read": "§2 p. 4, offset 8777",
+          "method": "Lawful OA author copy",
+          "title": "The Algebraic Structure of Sets of Regions",
+          "trigger": "General co-Heyting supplement as a related formulation"
+        },
+        {
+          "assessment": "Different approximation/reconstruction problem with two equivalence relations.",
+          "evidence": "Defines compositions such as L2 L1 and studies decomposing or reconstructing them.",
+          "identifier_or_url": "Gopaulsingh, Double Successive Rough Set Approximations",
+          "material_read": "§4 p. 7, offset 17195; Conclusion p. 24, offset 75885",
+          "method": "Lawful primary OA passages",
+          "title": "Double Successive Rough Set Approximations",
+          "trigger": "Two-step approximation operators as a possible broader form"
+        },
+        {
+          "assessment": "Closest general iteration overlap; not a bound for this pair or this parameter.",
+          "evidence": "Sharp floor(h/2)+1 for two nuclei and frame height h; the current height-two fences have unbounded index.",
+          "identifier_or_url": "Resultary f1fb76461c77",
+          "material_read": "RESULT.md, offsets 0 and 4944",
+          "method": "Local Resultary mirror",
+          "title": "Sharp alternating nucleus stabilization on finite Heyting frames",
+          "trigger": "Sharp alternating-composition stabilization on finite Heyting frames"
+        },
+        {
+          "assessment": "Matching scaling in a specific geometry, distinct operators and quantifiers.",
+          "evidence": "Extinction time n on a connected 2n-cycle for two perfect matchings, and a random-input cutoff.",
+          "identifier_or_url": "Resultary d96482bfb41c",
+          "material_read": "RESULT.md, offsets 0 and 8500",
+          "method": "Local Resultary mirror",
+          "title": "Exact extinction time spectra and logarithmic cutoff for alternating lower approximations",
+          "trigger": "Exact finite alternation bound with half-size form"
+        },
+        {
+          "assessment": "Static spectra are not per-start iteration of the mixed composite.",
+          "evidence": "Excluded-middle and double-negation spectra involving comparability components.",
+          "identifier_or_url": "Resultary 221ee3578598",
+          "material_read": "RESULT.md, offsets 0 and 8000",
+          "method": "Local Resultary mirror",
+          "title": "Joint excluded-middle and double-negation spectra of finite Heyting algebras",
+          "trigger": "Distinct same-day finite-poset negation result with component formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof steps 2–4",
+        "Tasiou §2.1, component closure",
+        "Resultary f1fb76461c77, height parameter for a different operator class"
+      ],
+      "rationale": "The existing component description says where closure ends but not how many mixed-negation layers are needed to get there. The theorem gives that cost from the start set and a sharp worst case using only carrier size, with no saving from restricting to height two. In particular a fence misses its terminal minimum before the predicted step, giving an explicit minimal-size obstruction to faster uniform convergence. This is a bound on the specified iteration, not a claim about the expressive depth of all possible formulas.",
+      "residual_risks": [
+        "No bound for infinite carriers or for arbitrary other composites is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

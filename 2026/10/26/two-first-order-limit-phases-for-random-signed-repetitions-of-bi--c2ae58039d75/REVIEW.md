@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Effective Hanf normal forms reduce bounded-rank truth on degree-two coloured paths to finite endpoint neighbourhood data once all interior types are saturated. Disjoint seed blocks give exponentially likely saturation even under global copy/reversal dependence. Endpoint windows are either independent uniform or reversal-coupled uniform, proving the two limit laws, effectivity, convergence rate and dyadic spectrum. The exact total-variation formula follows from injection of the seed into the signed concatenation. Critical restrictions are that the signature has immediate successor (not global order) and that copy count, template and formula are fixed.
+## correctness
 
-## Originality
-PASS with historical-priority risk. The direct primary inspection was of Markström–Räty, arXiv:2610.22218v1, on logical limit laws for regular languages and small permutation classes: neither signed-copy correlated ensembles nor a two-phase endpoint law was found there. Kuske–Schweikardt supplies general effective locality rather than the specialized distribution classification. Searches for reversed/duplicated random words and first-order limits returned string-complexity and duplication-channel results that do not imply the claim. A broader general theorem on correlated words with local saturation could nonetheless subsume it; this remains a risk, and no independent audit has taken place.
+PASS
 
-## Value
-PASS. The classification covers in one theorem random squares, random palindromic copies, and arbitrary fixed orientations of repeated blocks, and proves exactly which nonlocal dependence survives first-order observation. It gives sharp logical separation, a constructive complete limit-probability spectrum, exponential rates, and an exact opposite total-variation result, explaining why global singularity need not imply first-order distinguishability.
+The Gaifman degree of a successor path is at most two, so effective bounded-degree Hanf locality gives a radius and count cap for each fixed rank. Short endpoint balls are fixed by the two length-(2r+1) boundary words; full balls are binary windows. Each interior pattern has linearly many independent disjoint trials in the seed, each of fixed positive success probability. A binomial tail and union bound give simultaneous saturation except with exponentially small probability. Reversal permutes the full-window types; internal seams can only add to a saturated count. For n>2(2r+1), equal endpoint signs use disjoint seed windows, whereas opposite signs give a uniform window and its reverse. Couple the exact boundary laws before discarding the marginal failure probabilities; this proves exponential rank-theory TV even across different fixed copy counts. A long inserted block containing all patterns repeatedly gives a computable representative for each admissible boundary pair. Uniform averaging gives dyadic values, and prefix tests realize all dyadics. Endpoint bit equality separates the two phases; injectivity of the first block gives TV exactly 1−2^(-(m−1)n) for full words. Independent bounded replay passed 336 endpoint cases, 196 injectivity cases, 36 full-word-TV cases and 16 capped-local-profile comparisons.
 
-## Limits
-Finite enumeration confirms only small input identities. Global order or explicitly marked copy boundaries would change the logical outcome. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The locality tool, independent-word comparison law, and support-size TV identity are not claimed as standalone contributions. The distinct content is the exact two-phase law for fixed signed repetitions, the attainable spectrum in each phase and the quantitative difference between local theories and the entire distribution.
+
+## value
+
+PASS
+
+The signed repetition operation is natural and enforces macroscopic dependence invisible to each fixed logical rank except for exactly one endpoint distinction. The result supplies a complete phase classification and a uniform-in-sentence-at-fixed-rank comparison, even while full distributions become nearly singular. Neither the dyadic spectrum nor the TV calculation alone is the asserted value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

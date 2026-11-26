@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph distances are proved for the full integer domain \(n\ge3\). For any cut, the within-class and off-matching cross-class averages have exact formulas in the integers \(k,\ell,t\). Identity (1) proves the sharp cut inequality for even and odd \(n\), with the only boundary \(v=n\) in odd order discharged by the parity \(|k-\ell|\ge1\). Applying finite \(\ell_1\)-metric cut decomposition gives a lower bound for arbitrary target dimension. The balanced-cut construction gives all three distance classes and the upper bound. The equality restrictions follow by forcing every inequality in the lower-bound chain to equality. Exact finite standalone verification replayed 180380 assertions; it is supplemental, not a proof of every \(n\).
+PASS
 
-## Originality — PASS (qualified)
+Distances on the full unweighted crown are 2 within a side, 1 across a present edge and 3 on a deleted matched pair; n≥3 permits the requisite paths. Counting cut separations and substituting v=k+ℓ, z=k−ℓ gives h n(n−1)(U−(h−1)S/h)=(n−h)v−v²/2+(h−1/2)z²+2ht. Complementation allows v≤n. The even expression is visibly nonnegative; in the odd case v=n is the only potentially negative size and z is then odd. The zero cases give exactly the stated balanced selections of one vertex per matched index, and in odd order also the balanced selections omitting one index. After the distortion normalization d≤m≤Dd, the finite cut decomposition extends the inequality to m. The balanced-subset construction gives separation probability h/(2h−1), so total weight 2(2h−1)/h yields the required within-class, edge and matched-pair distances; the last lies between 3 and 3D. The equality chain at the optimum forces each within-class distance and each edge distance individually and forces equality for every nonconstant cut in any positive cut decomposition. The claim does not require classifying all matched-pair distances.
 
-The full graph family and fixed unit-edge metric were compared with the closest graph-metric literature, including the 2002 manuscript/2004 journal article by Gupta–Newman–Rabinovich–Sinclair, the 2017 shortest-path decomposition paper of Abraham–Filtser–Gupta–Neiman, the 2022 deranged-matching paper of Johnston–Kayll–Palmer, and summaries of published graph-invariant calculations. General embedding existence and bounds are weaker than the new exact family-wide formula. The matching-enumeration paper studies an unrelated statistic despite having the identical graph object. A previously recorded exact supremal negative-type exponent for these graphs implies non-isometric behavior beyond the small cases but does not imply the sharp positive-distortion constants or cut-equality classification. Prior exact \(\ell_1\) distortions of other graph families cannot be specialized to this one. A 1996 Matoušek paper is a specific residual risk because its abstract discusses finite metric embeddings and crown graphs appear in secondary descriptions; only abstract-level material was available, so absence of covering results from its full text is *not* asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The candidate solves a natural all-parameter metric-embedding problem with a sharp two-step staircase from isometric to increasing distortion, gives a finite explicit optimal embedding for each graph, and determines the support of optimal cut metrics. The precise invariant is standard and the finite graph family natural; the result is not a numerical slice of arbitrary parameters. It can inform cut-cone extremizers and metric design even though a larger embedding theorem is not claimed.
+The closest same-graph results determine negative type or a Poincaré quotient, not the distortion, and the nearest indexed exact distortion result concerns K₃,ₙ, not a crown. In particular, even the sharp same-object Poincaré inequality optimizes a different linear combination and has different odd-order equality cuts. The inspected record and primary-literature comparisons do not cover the exact distortion and cut equality theorem. This is a qualified conclusion, not priority certification.
 
-## Scope and residual risks
+## value
 
-Only unweighted crowns and real \(\ell_1\) spaces of unrestricted dimension are covered; the dimension of smallest optimal realization and all possible matched-pair distances are not classified. Historical priority under alternative graph or Banach-space terminology is not independently certified. An inaccessible plausible old source remains identified explicitly. The proof is analytic and self-contained, while computer checks confirm finite instances only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A crown is a natural highly symmetric nontrivial graph metric. The result quantitatively separates the two isometric cases from the rest, yields a sharp parity staircase and an explicit optimal embedding, and proves which distances and cut-support restrictions every optimal embedding satisfies. A qualitative nonisometry result or a general graph embedding bound cannot be used in place of those data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:52:07.959735Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–35; VERIFICATION.md; verify.py lines 28–53 (path component indexed by order s, starting at s=2)"
+      ],
+      "rationale": "The main classification and formulas are correct. The diagonal vertex forces selection in every row; each selected vertex bounds its row's omissions by k; the symmetric circulant construction attains equality, with no duplicated offsets because k<m. At equality every selected vertex has exhausted its allowance within its own row, so no cross-row edge splits selected from omitted. This is exactly symmetry of the omission matrix, and the converse follows because each row is nonempty and all cross-row partners of selected vertices are selected. The coefficient, complementation and involution arguments follow. But under the standard edge-count meaning of path length, the frozen Finding and Proof falsely require paths of length at least two in the k=2 component description. For m=4, take a block diagonal omission matrix with two 2-by-2 all-ones blocks. It is valid and represents two single-edge paths, each with both endpoints looped. Paths must have at least two vertices, not at least two edges. The printed generating function already counts the two-vertex components correctly.",
+      "residual_risks": [
+        "The path-order error is local and does not invalidate the minimum value, classification by matrices, or enumeration. There is no evidence for a higher-depth all-minimizer classification."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "023a3f7ea943 states gamma_k^L(S(n,m))=(m−k)m^(n−1) at every depth n≥1 in the admissible range. Theorems 10–11 of Božović supply the k=1 and m=3 scalar specializations."
+        ],
+        "reasoning": "The general formula contains the audited scalar at n=2; it does not by itself give the all-minimizer classification, which is covered separately by a700d19c9c6e.",
+        "searches": [
+          "Resultary ID 023a3f7ea943",
+          "arXiv:2610.01584v1 §5 Theorems 10–11"
+        ]
+      },
+      "checked_sources": [
+        "Resultary a700d19c9c6e and 023a3f7ea943",
+        "arXiv:2610.01584v1 and 2606.22422",
+        "OEIS A000085 and A000986"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Finding gives [x_1^r⋯x_m^r] times the same product, N_m,k=N_m,m−k, the endpoint involution formula, and for r=2 the loop-ended paths on at least two vertices and ordinary cycles with the same EGF."
+        ],
+        "reasoning": "Complementation converts the coefficient at r=m−k to the coefficient at k. The earlier r=2 at capacity m−2 directly converts to the frozen k=2 omission picture at capacity 2, including the EGF. Nothing scientifically new follows from switching selected and omitted.",
+        "searches": [
+          "2026/11/2/SCOPE-extremal-k-limited-domination-of-depth-two-sierpi-ski-graphs-as--a700d19c9c6e RESULT.md Finding and row-sum-two passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier theorem: a_ij=1 exactly for selected vertices, symmetric row sum r=m−k. The frozen theorem uses omitted vertices instead. Both use selected-vertex capacity |N(u)\\D|≤k."
+        ],
+        "reasoning": "Replace the earlier selected matrix A with J−A, where J is the all-ones matrix. This is a reversible relabelling of the exact same optimal sets and quantifiers.",
+        "searches": [
+          "Resultary: depth-two Sierpinski limited domination, symmetric regular binary matrices; ID a700d19c9c6e",
+          "arXiv:2606.22422 Definition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000085 is the involution sequence, also the count of symmetric permutation matrices; A000986 counts symmetric binary matrices of row sum two and lists 1,0,1,4,18,112,820,… with an equivalent EGF. The earlier Resultary theorem supplies the same bivariate coefficient and domination interpretation."
+        ],
+        "reasoning": "The table entries cover the matrix sequences, not alone the graph correspondence. In combination with the exact earlier catalogue theorem no labelled count survives as distinct.",
+        "searches": [
+          "OEIS A000085 and A000986",
+          "Resultary a700d19c9c6e Finding"
+        ]
+      },
+      "rationale": "The earlier Resultary finding a700d19c9c6e gives exactly the same complete labelled extremal classification and enumerations on the same parameter range. Its selected-vertex matrix is J minus the frozen omission matrix. Applying this bijection changes the common row sum from m−k to k and derives every mathematical counting and classification assertion, with the k=2 path-order wording corrected. This is verified coverage, not a priority inference from similarity or an unavailable paper.",
+      "residual_risks": [
+        "Absolute historical priority was not adjudicated. Earlier underlying enumerative publications were not read in full; the exact matching prior Resultary statement suffices for coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage under the affine involution A↦J−A",
+          "evidence": "All minima are selected symmetric binary matrices of row sum m−k; the coefficient, complementary capacities, involutions and row-sum-two EGF are explicit.",
+          "identifier_or_url": "2026/11/2/SCOPE-extremal-k-limited-domination-of-depth-two-sierpi-ski-graphs-as--a700d19c9c6e",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0; row-sum-two proof passage offset 4400",
+          "method": "Published Resultary local mirror",
+          "title": "Extremal k-limited domination of depth-two Sierpiński graphs as symmetric regular binary matrices",
+          "trigger": "Same graphs, capacities, all-minimizer matrix census and EGF"
+        },
+        {
+          "assessment": "Broader scalar result",
+          "evidence": "gamma_k^L(S(n,m))=(m−k)m^(n−1) for n≥1, m≥2 and 1≤k<m.",
+          "identifier_or_url": "2026/10/12/SCOPE-exact-limited-domination-of-every-sierpi-ski-graph--023a3f7ea943",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "Exact limited domination of every Sierpiński graph",
+          "trigger": "Possible broader value formula"
+        },
+        {
+          "assessment": "Explicit scalar k=1 and m=3 cases",
+          "evidence": "gamma_1^L(S(n,m))=(m−1)m^(n−1); gamma_k^L(S(n,3))=(3−k)3^(n−1) for k=1,2.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01584v1",
+          "material_read": "§5 Theorems 10–11, OA HTML offsets 25700 and 28600",
+          "method": "Primary OA text inspection",
+          "title": "On k-limited domination: complexity and Sierpiński graphs",
+          "trigger": "Primary result on same graph family and parameter"
+        },
+        {
+          "assessment": "Same parameter",
+          "evidence": "At most k neighbors outside D for each vertex in D.",
+          "identifier_or_url": "https://arxiv.org/html/2606.22422",
+          "material_read": "Definition 1, OA HTML offset 10105",
+          "method": "Primary OA text inspection",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Capacity convention"
+        },
+        {
+          "assessment": "Matrix enumerations already catalogued",
+          "evidence": "A000986's EGF is (1−z)^(-1/2) exp(−z−z²/4+z/(2(1−z))), obtained from the frozen EGF by summing its two series.",
+          "identifier_or_url": "https://oeis.org/A000085 and https://oeis.org/A000986",
+          "material_read": "Entries' definitions, terms, and A000986 generating function",
+          "method": "Public sequence-database text",
+          "title": "Involutions and symmetric binary matrices of row sum two",
+          "trigger": "Exact counting tables"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding; Resultary a700d19c9c6e Finding"
+      ],
+      "rationale": "An all-minimizer structural classification beyond a scalar extremum is intrinsically useful, but the frozen switch from selected to omitted entries is just complementation of an already complete classification on the same domain. It adds no distinct structural, enumerative or application result. Fixing the path-length wording would restore the intended mathematics, not leave a substantive new result to repair.",
+      "residual_risks": [
+        "This is a judgment on the frozen submission's contribution, not on the usefulness of the earlier structural theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

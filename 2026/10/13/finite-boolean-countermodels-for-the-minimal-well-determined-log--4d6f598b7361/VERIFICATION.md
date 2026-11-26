@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -32,4 +35,4 @@ formula_nontheorems_in_exhaustive 6620
 two_element_separation_failure_3_chain_counterexample PASS
 ```
 
-The 12,882 cases include 7,882 exhaustive two-variable formula trees through five leaves and 5,000 deterministic random three-variable formulas. The checker also enumerates all 576 relevant two-element choices for the separating formula and directly recomputes the three-chain witness. These finite tests cannot certify the unlimited formula theorem or noncoverage in the literature. The exact general proof is the structural induction in `RESULT.md`, with the external Lemma 4.4 and soundness theorem explicitly identified as relied-upon premises.
+The 12,882 cases include 7,882 exhaustive two-variable formula trees through five leaves and 5,000 deterministic random formulas drawn from a three-variable language. The 576 two-element cases are assignments across three-leaf formulas. The checker separately enumerates all \(2^5=32\) two-element choices for the separating formula and directly recomputes the three-chain witness. These finite tests cannot certify the unlimited formula theorem or noncoverage in the literature. The exact general proof is the structural induction in `RESULT.md`, relying on Lemma 4.4 with Corollary 4.8 and on the soundness theorem in the cited work.

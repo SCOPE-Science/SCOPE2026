@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical and numerical verification
 
-The proof uses (i) exact two-sided stationary Poisson-reset ages, (ii) a mean-square comparison with signed independent exponential age, (iii) exponentially decorrelated marked ages at separated observation times, (iv) the exact \(e^{-(r+2\lambda)t}\) product covariance for age and orientation, and (v) a finite-grid maximal inequality. Every step is explained in `RESULT.md` and is valid uniformly on fixed finite horizons under its stated assumptions.
+# Independent mathematical audit
 
-The supplementary script `verify.py` uses event-driven resets and flips, fourth-order Runge–Kutta integration of the deterministic segment, and a fixed NumPy seed. The tests at rates 20 and 80 for both \(g(v)=\tan v\) and \(g(v)=\tanh v\), with flip rate 0.8, check \(\mathbb E|rV/\Sigma|\to1\), \(\mathbb E(rV/\Sigma)^2\to2\), a positive-lag covariance, and scaled finite-horizon spatial variance. They passed the script's explicitly programmed tolerances. Separate exact algebraic moment identities for linear drag furnish an independent check of the asymptotic amplitude. Monte Carlo samples are finite and neither prove convergence nor validate general-drag long-time diffusivity interchange.
+## correctness
 
-The published motivating model and numerical results were inspected in its accessible full text. The comprehensive general partial-resetting work by Olsen and Löwen could not be inspected beyond abstract level, leaving documented originality uncertainty. Independent scientific validation is unperformed.
+PASS
+
+The corrected claim was checked on its stated stationary, fixed-parameter domain. The last-reset integral and |V| <= min(b,Sigma A) bound lead to the two squared errors 4r² lambda E[A³]=24 lambda/r and L²r² E[A⁴]/4=6L²/r². Concatenating clipped independent backward windows and exponential tails gives the independent age marks outside a probability m exp(-rd); fourth moments justify the product limits. The standardized covariance is exp(-2 lambda t)/2 for t>0 and 1 at t=0. Age regression and sign independence give the centered integrand covariance exp(-(r+2 lambda)|t-s|); summing squared grid values and interval increment bounds gives 4nT/(r+2 lambda)+2T²/n. Integrating the stationary coupling error then proves the uniform L² limit and the finite-time variance. The linear benchmark follows separately from the generator and covariance ODE; it is not a nonlinear diffusion limit. VERIFICATION.md and verify.py were inspected, not executed; simulations are supplementary. Replay: repaired RESULT.md, Proof and Verification and linear benchmark.
+
+## originality
+
+PASS
+
+The surviving claim is the simultaneous quantitative stationary Laplace and separated exponential-mark limits and strong finite-horizon integrated-telegraph limit, not the reset protocol, linear formulas, stationary age construction alone, or the diffusion exponent. Checked overlap does not cover that joint claim.
+
+## value
+
+PASS
+
+In a specific persistent active-particle model, the result identifies quantitatively different instantaneous and time-integrated limits. It explains why a non-Gaussian stationary velocity law with a discontinuity in its limiting autocorrelation can coexist with a continuous telegraph-driven displacement. The unified finite-horizon statement is useful independently of a new long-time diffusivity formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

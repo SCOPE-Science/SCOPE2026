@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:49:38.585862Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 7–63",
+        "VERIFICATION.md",
+        "CHECK.py lines 19–87"
+      ],
+      "rationale": "Conditionally expand the square of ||v||²+a²+2<v,X>; the term linear in <v,X> has mean zero. The martingale and Rademacher sum both have second moment equal to the partial sum of squared lengths. The fourth-moment increments therefore differ by 4 E[a²||v||²−<v,X>²], which telescopes. For nonzero v and a, d²=2a²(1−c), giving the exact ratio 2(1+c) of the defect integrand to the weighted squared distance wherever the latter is positive. Orthogonal independent fair steps attain R/D=1/2 and positive angles approaching zero give the limit 1/4. Zero integrands imply radial alignment at every nonzero state; conditional centering gives fair signs on that event, and neither defect nor distance imposes a direction at zero. Zero-length steps contribute nothing. Inspected CHECK.py: quartic moments and transverse term are rational; the angular-distance tests use floats, and the examples are not a proof of the universal statement.",
+      "residual_risks": [
+        "No claim for random lengths or mere upper bounds; stability is weighted by the preceding squared radius."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 covers norm bounds and an entire class of even convex test functions in the plane; Lemma 6 proves a pointwise affine majorant before taking expectations. Lemma 7 includes dimension reduction for norm distributions in Euclidean spaces."
+        ],
+        "reasoning": "A nonnegative fourth-moment comparison alone would not suffice to imply the metric claim. The proof's explicit majorant is decisive: its slack formula is meaningful and identical in any real Hilbert space by the two-vector calculation. The Euclidean dimension reduction is context, not a needed assumption about joint preservation of every quantity.",
+        "searches": [
+          "arXiv:2610.31449v1 §3 Theorem 3 and Lemma 6; §4 Lemma 7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.31449v1",
+        "arXiv:2608.17802",
+        "2026/11/8/SCOPE-sharp-fourth-moments-and-a-torsion-threshold-for-signed-coordina--5bb2dcd28dff (summary only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Subtracting the fixed-length quartic from the prior affine majorant cancels the constant and linear terms, leaving the claimed remainder. Conditional centering and second-moment agreement give exact telescoping. On positive distance terms R/D is the weighted average of 1/[2(1+c)], with endpoint behavior realized in a two-step planar example. Zero slack is equality in radial Cauchy–Schwarz and gives the fair signs after centering.",
+          "arXiv:2608.17802 concerns extremal fourth moments of independent scalar Rademacher coefficient vectors, not this implication."
+        ],
+        "reasoning": "The earlier proof mechanically gives the main identity, the weighted-distance conversion and its best constants require only elementary geometry, and passing through a zero state removes the radial constraint directly. Unstated final wording is not an independent result in this case.",
+        "searches": [
+          "arXiv:2610.31449v1 Lemma 6 affine majorant and Theorem 3 induction",
+          "arXiv:2608.17802 Theorem 1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior affine majorant joins the values at x=±av/||v||. On the fixed-length sphere its slack for f(t)=t⁴ is exactly 4(a²||v||²−<v,x>²)."
+        ],
+        "reasoning": "The transverse deficit is the same one-step slack expressed in inner products. The expression depends only on v and x through their lengths and inner product, so computing it requires no dimension-specific argument. The signed-radial formulation just factors 1−c² as (1−c)(1+c).",
+        "searches": [
+          "Hilbert martingale fourth-moment comparison, orthogonal increment remainder and radial alignment",
+          "arXiv:2610.31449v1 §3, Lemma 6 proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest thematic returned record 2026/11/8/SCOPE-sharp-fourth-moments-and-a-torsion-threshold-for-signed-coordina--5bb2dcd28dff describes a signed-coordinate Fourier cross and coefficient-energy deficit in its indexed summary, not a conditional martingale deficit. Exact mirror text was unavailable."
+        ],
+        "reasoning": "No exact database match was established in the ranked results. The indexed summary is not proof of full-text noncoverage; the decision instead rests on the inspected mathematical antecedent.",
+        "searches": [
+          "Resultary: martingale angular/radial fourth-moment deficit and weighted Rademacher comparison"
+        ]
+      },
+      "rationale": "The highlighted defect is the direct quartic fixed-length slack of the cited earlier pointwise comparison, not a new comparison mechanism. The distance constants and equality are immediate sharp consequences of the same slack and one elementary angular identity. The prior paper does not explicitly print the frozen final statement, but no independently substantive addition survives the implication check.",
+      "residual_risks": [
+        "This is a proof-level coverage finding, not a claim that the exact weighted-distance wording or constants were explicitly published in the earlier paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the comparison and gives the exact defect as a direct proof-level implication",
+          "evidence": [
+            "The affine majorization proof uses a single ball increment and is exact at the two signed radial endpoints. At fixed radius its quartic slack is exactly the transverse term."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.31449v1",
+          "material_read": "§3 Theorem 3 and Lemma 6 and pointwise proof (OA offsets 6375, 9073, 13850); §4 Lemma 7 (offset 17200)",
+          "method": "Primary open-access HTML passages and algebraic specialization",
+          "title": "Concentration inequalities for vector-valued martingales",
+          "trigger": "Cited broader comparison with a potentially exact one-step remainder"
+        },
+        {
+          "assessment": "Distinct scalar coefficient extremal problem",
+          "evidence": [
+            "The independent scalar Rademacher sum and its coefficient mass do not address angular alignment of Hilbert martingale steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.17802",
+          "material_read": "Theorem 1.2, fixed-fourth-moment extremal principle, OA offset 7445",
+          "method": "Primary open-access HTML",
+          "title": "Fourth-Moment Geometry of Rademacher Sums",
+          "trigger": "Related fourth-moment geometry from literature search"
+        },
+        {
+          "assessment": "Indexed object differs; no full-text exclusion asserted",
+          "evidence": [
+            "Summary describes a signed-coordinate Fourier cross rather than a martingale filtration or increment-angle deficit."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-fourth-moments-and-a-torsion-threshold-for-signed-coordina--5bb2dcd28dff",
+          "material_read": "Indexed title and summary only; mirror text not obtained",
+          "method": "Local Resultary semantic lookup and attempted exact source retrieval",
+          "title": "Sharp fourth moments and a torsion threshold for signed-coordinate Fourier crosses",
+          "trigger": "Highest-scoring thematic Resultary return"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and Limitations",
+        "arXiv:2610.31449v1 Lemma 6 and proof"
+      ],
+      "rationale": "The weighted distance is a useful way to teach what loss in the comparison measures, but the frozen claim does not obtain a stability conclusion beyond algebraically rewriting the existing pointwise slack. In particular it does not approximate a martingale by an extremizing process in a path metric or constrain directions at resets. As a standalone result the routine specialization and its elementary endpoint examples do not clear the scientific-value bar.",
+      "residual_risks": [
+        "The decision does not discount the expository usefulness of the identity."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

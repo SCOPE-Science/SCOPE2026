@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-23.md",
+      "INDEPENDENT_AUDIT_2026-11-23.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-From this directory, run `python3 check.py` (Python 3 standard library only). A successful execution prints `PASS: exact 2x2 matrix equalities, 2x2 sharp angular test, 9800 finite endpoint tests`.
+## correctness
 
-The checker compares both sides of the two-by-two Schur/Loewner equivalence on 1,400 rational test matrices and checks seven finite coarse-endpoint maps per matrix by separate forward substitution. It also checks exact \(\theta=0\) and \(\theta=\pi/4\) matrices, the determinant at four rational unit-circle angles, and the instability of the noncommuting example. Random choices use fixed seed `34011` and exact `fractions.Fraction` arithmetic.
+PASS
 
-Finite checks do not prove a claim in arbitrary dimension. The proof uses algebraic identities, a positive-definite similarity, the symmetric Schur-complement theorem, and a two-by-two determinant sign characterization. The endpoint result assumes exactly specified coarse initialization, one exact FCF sweep, and the long-trajectory limit; no finite-precision or nonlinear result is claimed. Independent audit has not been performed.
+Under strict Euclidean positive-definite contraction hypotheses, parallel C relaxation gives Fx at every positive coarse index from constant initialization; the second F relaxation does not change C points. The fine coarse-point residuals are zero at index one and (F²−F)x thereafter. Exact coarse forward substitution gives the ordered partial geometric sum and operator-norm convergence to V∞=F−C⁻¹D for C=I−Ψ and D=F(I−F). D^{1/2} conjugates this to H=F−D^{1/2}C⁻¹D^{1/2}≺I. Complementing the symmetric block matrix with diagonal blocks I+F and C first on C and then on I+F gives Inertia(I+H)=Inertia((I+F²)(I+F)⁻¹−Ψ), including nullity. Thus singular semidefinite difference gives a nondecaying −1 mode; a negative direction gives an eigenvalue below −1. Direct 2×2 arithmetic gives trace 43/840 and determinant (2−15 sin²θ)/3360 of the difference; at π/4 the endpoint trace is −51/32 and determinant 27/64, giving the stated eigenvalues. This is an analytic verification of the limiting restart, not of a finite-length trajectory or repeated solves on one trajectory. The frozen check.py was inspected, not executed.
+
+## originality
+
+PASS
+
+Credit the algorithm, ordered one-sweep operator, and commuting endpoint formula as prior. The distinct contribution supported here is the necessary-and-sufficient noncommuting SPD restart condition, its exact boundary inertia, and the rotated stability loss, not discovery of the restart algorithm or geometric-sum identity. No inspected prior result supplies that sharp noncommuting restart classification.
+
+## value
+
+PASS
+
+For natural nonmatching fine/coarse quadratic surrogates the exact gain boundary and its unstable-mode count are usable design tests. The smallest possible rotation example shows why individual strict contractions and their spectra alone cannot ensure restart stability. The Schur algebra is standard, but this exact criterion for the endpoint restart addresses a substantive failure mode of the method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

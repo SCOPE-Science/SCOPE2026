@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:23:53.059882Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, proof steps 1–5",
+        "VERIFICATION.md and verify.py, inspected as supplementary diagnostics, not executed"
+      ],
+      "rationale": "For one tap, the maximum of |a+k0| on the interval is t+|c+k0|. With at least two taps, k0=-c and k1=-t²/4 yield the characteristic factor z²-(a-c)z+t²/4; its roots have modulus t/2 throughout, including the double roots ±t/2 at the endpoints. For arbitrary gains, let r be their maximum spectral radius and L(z)=z−Σ k_j z^(−j). For positive R≥r the open exterior |z|>R omits the entire uncertainty interval under L, by p_a(z)=z^(H−1)(L(z)−a). Applying the inverse Joukowski map Φ of that slit and the reciprocal gives a disk self-map g(ζ)=1/Φ(L(R/ζ)), removable at zero with g(0)=0 and g′(0)=t/(2R). If r<t/2 take positive r<R<t/2 to contradict Schwarz. At r=t/2 take R=r; the derivative is positive one, hence g is the identity. Inverting yields L(z)=c+z+t²/(4z), fixing every Laurent coefficient. Continuity of the companion spectral radius on the compact interval makes pointwise strict Schur stability equivalent to a maximum <1; the thresholds are strict. At t=0 exact cancellation puts all poles at zero. Read the proof and support; no numerical test is used to establish the continuum bound or rigidity. The result is for fixed drift and fixed real taps, not switching, general compensators, or an endpoint power estimate at repeated poles.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fonte formulates one compensator for a continuous-time SISO segment and requires a Hurwitz polynomial segment. The two directly relevant Schur-stability papers did not yield decisive full-text passages."
+        ],
+        "reasoning": "A broader stabilization theorem could be relevant by rescaling the disk radius if it characterized exactly the fixed tap class. Fonte's inspected formulation uses a different stability region and compensator problem; it supplies no matching rate extremum or equality characterization. The inaccessible comparisons remain open, not findings of noncoverage.",
+        "searches": [
+          "Fonte, Conditions for the Simultaneous Stabilizability of a Segment of Systems, §II",
+          "Katbab–Jury DOI 10.1080/00207179008934138",
+          "Büyükköroğlu DOI 10.3390/mca21020025"
+        ]
+      },
+      "checked_sources": [
+        "Resultary FIR/interval searches and nearest Hénon entry",
+        "Fujinami et al., Example II.1",
+        "Fonte, §II",
+        "Katbab–Jury and Büyükköroğlu, limited as above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-drift example only supplies a feasible controller at particular drifts; the slit argument gives g′(0)=t/(2R), and equality determines the entire Laurent expansion."
+        ],
+        "reasoning": "Pairwise existence cannot imply the optimum for all intervals or preclude better higher-order policies. The classical inverse Joukowski map and Schwarz lemma are ingredients, not claimed advances; the supported claim is their exact application to this radius and unique tap vector.",
+        "searches": [
+          "Fujinami et al., Example II.1",
+          "Fonte, §II",
+          "RESULT.md, proof steps 3–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fujinami et al. stabilize the pair a=±1.1 by gains (0,−0.21), without optimizing its rate. The alternate minimum-rate design for the full interval there is (0,−0.3025).",
+          "The closest surfaced Resultary summary, SCOPE-sharp-fir-length-stabilization-and-optimal-contraction-in-a-filtered-henon-map--9b1458c26e06, describes equilibrium stabilization in a filtered Hénon map, not constant uncertain drift in the scalar linear family."
+        ],
+        "reasoning": "The key equivalence turns an entire drift interval into an omitted slit for one Laurent polynomial. Testing only the two drifts is not this avoidance condition, and the fixed-system Hénon Jacobian problem does not have the matching uncertainty or admissible Laurent family.",
+        "searches": [
+          "Resultary: scalar finite memory feedback full real interval exact minimax spectral radius unique two-tap Joukowski Schwarz lemma",
+          "Resultary: interval uncertain scalar drift feedback characteristic polynomial minimax spectral radius two taps t/2 simultaneous stabilization",
+          "Fujinami et al., arXiv:2609.16300, Example II.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed summary concerns filtered Hénon local equilibria, not the same family or optimization."
+        ],
+        "reasoning": "A finite invariant table is not applicable to a symbolic continuum-of-drifts formula with all finite tap lengths and an equality theorem. The relevant exact-formula catalogue comparison is the Resultary check; its results do not establish absence.",
+        "searches": [
+          "Resultary queries listed under equivalent_formulations"
+        ]
+      },
+      "rationale": "The closest inspected comparisons do not establish the sharp all-length full-interval radius and its rigidity for the fixed FIR state-feedback class. This finding is supported as distinct to the extent of available evidence, not a priority certification for robust Schur theory or for the classical slit map.",
+      "residual_risks": [
+        "The strongest unresolved comparison is Katbab–Jury; classical interval Schur or omitted-value stabilization literature may contain an equivalent specialization. The closest Hénon catalogue comparison is based on a summary only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates result; no full-interval rate or rigidity in the inspected example",
+          "evidence": "The pair ±1.1 defeats static feedback, but K0=0 and K1=−0.21 stabilize both plants.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.16300",
+          "material_read": "p. 2, Example II.1, extracted text around offset 12900",
+          "method": "Lawful OA PDF, targeted passage",
+          "title": "Policy Gradient over History-Dependent Policy Classes for LQR with Domain Randomization",
+          "trigger": "Same scalar FIR setup and two-plant example"
+        },
+        {
+          "assessment": "Different polynomial region and synthesis class in the inspected formulation",
+          "evidence": "SISO plants G_λ(s) with λ∈[0,1]; one compensator should make the segment Hurwitz.",
+          "identifier_or_url": "https://skoge.folk.ntnu.no/prost/proceedings/acc08/data/papers/0199.pdf",
+          "material_read": "p. 1, §II, extracted text around offset 1800",
+          "method": "Lawful OA PDF, targeted passage",
+          "title": "Conditions for the Simultaneous Stabilizability of a Segment of Systems",
+          "trigger": "Simultaneous stabilization for a full parameter segment"
+        },
+        {
+          "assessment": "Unresolved",
+          "evidence": "Publisher retrieval blocked; no lawful repository copy recovered.",
+          "identifier_or_url": "https://doi.org/10.1080/00207179008934138",
+          "material_read": "No primary theorem or usable abstract recovered in this review",
+          "method": "Exact DOI and publisher abstract/full-text URLs through lawful OA retrieval, including configured alternate route",
+          "title": "Robust Schur-stability of control systems with interval plants",
+          "trigger": "Strong plausible discrete-time interval-plant comparison"
+        },
+        {
+          "assessment": "Unresolved at theorem level",
+          "evidence": "The returned material does not expose a statement that can be specialized to the minimax claim.",
+          "identifier_or_url": "https://doi.org/10.3390/mca21020025",
+          "material_read": "Landing/abstract metadata only; no theorem passage",
+          "method": "Exact DOI and OA publisher HTML/PDF routes",
+          "title": "Fixed Order Controller for Schur Stability",
+          "trigger": "Fixed-order Schur controller design"
+        },
+        {
+          "assessment": "Summary indicates a different object; not a full-text noncoverage assertion",
+          "evidence": "The summary concerns a local-equilibrium gain threshold and a Jacobian spectral-radius optimizer for a filtered Hénon map.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-fir-length-stabilization-and-optimal-contraction-in-a-filtered-henon-map--9b1458c26e06",
+          "material_read": "Resultary summary only; targeted local mirror file unavailable",
+          "method": "Local Resultary search and attempted exact mirror read",
+          "title": "Sharp FIR length stabilization and optimal contraction in a filtered Hénon map",
+          "trigger": "Closest FIR threshold and spectral-radius catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fujinami et al., Example II.1",
+        "RESULT.md, Finding and limitations"
+      ],
+      "rationale": "The prior two-plant example motivates a concrete memory question. Quantifying the greatest benefit of any finite number of taps for a full drift interval and proving that only one lag is needed, with a unique optimum and exact thresholds, converts it into a useful sharp design theorem. The nonattainment of strict stability at the critical widths is meaningful; the claim is not merely a familiar existence test or an empirical improvement.",
+      "residual_risks": [
+        "The design result gives a spectral rate, not a transient bound at the exact endpoint rate or a switching-stability guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

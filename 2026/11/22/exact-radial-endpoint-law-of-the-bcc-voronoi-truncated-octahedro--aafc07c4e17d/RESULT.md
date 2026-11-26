@@ -1,8 +1,8 @@
-# Exact radial endpoint law of the BCC Voronoi truncated octahedron
+# All-orders endpoint expansion for the BCC Voronoi radial law
 
 ## Finding
 
-Let \(L=\mathbb Z^3\cup(\mathbb Z^3+(1/2,1/2,1/2))\) and let \(X\) be uniform in its centered Euclidean Voronoi cell \(V\). Set \(R^2=5/16\), the maximum squared distance from \(0\) in \(V\). For every \(0<\varepsilon<1/64\), the upper quantization-error tail has the **exact** integral law
+Let \(L=\mathbb Z^3\cup(\mathbb Z^3+(1/2,1/2,1/2))\) and let \(X\) be uniform in its centered Euclidean Voronoi cell \(V\). Set \(R^2=5/16\), the maximum squared distance from \(0\) in \(V\). Luo's facet quadrature determines the radial distribution (see Relationship to prior work). Here we extract its **convergent all-orders endpoint expansion** by resolving the 24 extremal vertex caps. The resulting fixed-simplex representation, valid for \(0<\varepsilon<1/64\), is
 
 \[
 \mathbb P\bigl(R^2-\|X\|_2^2<\varepsilon\bigr)
@@ -15,7 +15,7 @@ where \(\Delta=\{(a,b):a\ge0,\ b\ge0,\ a+b\le1\}\), \(c=1-a-b\), and
 H(a,b,c)=a^2-a(b+c)+b^2+c^2.
 \]
 
-In particular this tail has a convergent all-orders power series (on the displayed interval):
+The resulting explicit coefficients are
 
 \[
 \begin{aligned}
@@ -26,7 +26,7 @@ C_m&=\frac{768\,8^m}{m+3}\binom{2m+2}{m}\int_{\Delta}H(a,b,1-a-b)^m\,da\,db.
 \end{aligned}
 \]
 
-Every \(C_m\) is a strictly positive rational number. Thus for independent uniform points \(X_1,\dots,X_N\in V\) and \(M_N=\max_{1\le j\le N}\|X_j\|_2^2\), the near-covering-radius sample extreme has the exact limiting law
+Every \(C_m\) is a strictly positive rational number. As a consequence, for independent uniform points \(X_1,\dots,X_N\in V\) and \(M_N=\max_{1\le j\le N}\|X_j\|_2^2\), the near-covering-radius sample extreme has the limiting law
 
 \[
 \lim_{N\to\infty}\mathbb P\bigl(N^{1/3}(R^2-M_N)>t\bigr)=\exp(-128t^3),\qquad t\ge0.
@@ -115,13 +115,19 @@ To reproduce: run `python3 check_bcc_tail.py` from the package directory. The co
 
 ## Relationship to prior work
 
-Luo's 2026 theorem establishes the BCC lattice as the unique fixed-covolume optimizer of all finite \(p\)-th Voronoi moments; the present result instead gives an explicit near-worst-case **probability law**, all its exact Taylor coefficients, and a maximum-error extreme-value law at the fixed optimizer. Luo's fixed-square integral for every \(p\) implicitly determines the bounded radial distribution through its full moment sequence, but it does not state this local endpoint integral or its coefficients. Bourne–Cagnetti–Roper established earlier local lattice optimality, while Barnes–Sloane addressed mean square distortion and Bambah the covering radius. General Voronoi-cell geometry and the regular truncated-octahedral vertex configuration are not new.
+Luo's Proposition 2.3 and equations (2.8)–(2.9) supply an alternative, global representation of this same radial law. Write \(Q\) for the value of one of Luo's two quadratics at a uniform point of \([-1,1]^2\), using the square quadratic with probability \(1/4\) and the rhombus quadratic with probability \(3/4\). Let \(U\) have density \(3u^2\) on \([0,1]\), independent of \(Q\). Equation (2.9) and \(\operatorname{vol}(V)=1/2\) give
+\[
+\mathbb E\|X\|^p=2^{-p/3} E_p(A_{\rm bcc})=\mathbb E\bigl[(U\sqrt Q/2)^p\bigr].
+\]
+The even powers, together with total mass one, identify the squared-radius distribution by compact-support moment determinacy. Equivalently, one can integrate the radial variable directly in the facet pyramids of Proposition 2.3, obtaining \(\Pr(\|X\|^2>s)=\mathbb E[(1-(4s/Q)^{3/2})_+]\) for \(s\ge0\). The contribution here is not identification of the radial distribution from scratch, but a fixed-simplex cap representation adapted to the endpoint and the explicit positive rational coefficient formula there. In the facet quadrature the contributing part of the square shrinks with the deficit, so one cannot obtain those coefficients by simply taking Taylor coefficients of the unrestricted integrand. The sample extreme law is a consequence of the leading cap coefficient.
+
+Bourne–Cagnetti–Roper studied lattice optimality, Barnes–Sloane addressed mean square distortion, and Bambah the covering radius. General Voronoi-cell geometry and the regular truncated-octahedral vertex configuration are not new.
 
 A public result on the four-dimensional \(D_4\) Voronoi 24-cell has a related near-covering-radius analytic method but treats a different lattice, dimension, cell and local cone. Results on regular-simplex nearest-vertex error likewise do not yield the 3D BCC coefficients. These are not claims of first use of local cone expansions generally.
 
 ## Limitations
 
-The exact integral is proved for \(0<\varepsilon<1/64\); neither the largest validity interval nor the full cumulative radial law at every radius is determined. This is an exact *fixed-cell* statement, not a new optimization theorem comparing lattices. The series is convergent for the stated interval, but its unscaled coefficients must be rescaled for other covolumes. Historical priority remains provisional, especially under alternate terminology such as radial error CDF, Wigner–Seitz distance distribution or spherical-polyhedron intersection volumes; independent external audit is not asserted.
+The fixed-simplex endpoint integral is proved for \(0<\varepsilon<1/64\); the largest validity interval for this representation is not asserted. This is an exact *fixed-cell* statement, not a new optimization theorem comparing lattices. The series is convergent for the stated interval, but its unscaled coefficients must be rescaled for other covolumes. No priority is asserted for the underlying radial distribution or for the general use of local cone expansions.
 
 ## References
 

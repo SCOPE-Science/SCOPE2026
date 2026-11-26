@@ -1,13 +1,21 @@
-## Correctness
-PASS. The equivalence of the five-deletion sets in the cuboctahedral line graph to spanning cube Hamiltonian paths is proved by the linear-forest argument. Two independent source implementations exhaust the 792 five-deletion candidates or enumerate spanning vertex paths directly, then reconstruct all legal slides, unrestricted jumps, symmetry actions and all-source shortest paths. Both scripts completed successfully with exactly matching outputs. The finite verification is exhaustive for the fixed graph; no extension to larger graphs is asserted.
+# Independent mathematical audit
 
-## Originality
-PASS, under best-knowledge priority. The operation and 72 unoriented configurations are not original; the 2020 paper explicitly counts 144 oriented configurations. The 2005 full arXiv manuscript checks a different (two-dimensional square) lattice's transition graph, while 2020 investigates space-filling-curve entanglement and precomputed 2×2×2 path counts without giving the 72-state pair-distance graph. The 2026 general backbite connectivity theorem requires a spanning squared path for its main implication, impossible in the triangle-free cube. Closest indexed findings are for the four-cube, Heawood, Herschel and other different graphs. Targeted searches found no exact cube-three diameter or orbit-shell result; this is not a proof of absolute priority. The Mansfield 1982 primary text was not inspected, and unindexed exact analyses remain possible.
+## correctness
 
-## Value
-PASS. A minimum feedback set of the cuboctahedral graph is simultaneously a compact spanning chain in the three-dimensional unit cube. The exact transition graph answers the quantitative mobility question that the previously known configuration count cannot answer: four reversible local moves per optimum suffice to reach any other in at most six moves, this bound is sharp at every starting state, and even 120 additional nonlocal exchanges leave the complete diametral relation unchanged. Orbit-specific distance shells characterize three natural geometries and make the result a fully reproducible small-dimensional benchmark for algorithms sampling Hamiltonian walks.
+PASS
 
-## Limitations
-Only the labelled three-cube and its line graph are covered. Earlier path counts are acknowledged; no infinite-family or mixing-time theorem is asserted. Residual historical priority uncertainty remains, and an independent scientific assessment has not been performed.
+The induced line graph of a set of retained cube edges is acyclic exactly when those edges form a linear forest: degree three yields an incident-edge triangle, and with degrees at most two a cycle survives as a line-graph cycle. Seven retained edges on eight vertices therefore require a spanning path, and an explicit cube Hamiltonian path proves that keeping seven is possible. In a legal exchange an added edge cannot join two old internal vertices: restoring both degree bounds with one deletion would require deleting the very edge just added. An endpoint-to-interior addition requires deletion of the old cycle edge at the interior vertex and is a slide; an endpoint-to-endpoint addition gives a cycle and the two endpoint-adjacent deletions are slides, with five more unrestricted deletions. Thus line-graph slides are exactly endpoint backbites. An independent exact reproduction regenerated the surviving sets and, separately, the unoriented spanning paths and both moves, obtaining identical graphs in the two representations. Replay with python3 /workspace/branches/848edb27-0ab4-456a-bf08-a40f784a6563/independent_check.py. Its BFS and pair verification (lines 134–173; independent_check_output.json lines 2–42) give 72 states, 144 and 264 edges, every eccentricity six in both graphs, and identical sets of 144 unordered distance-six pairs. The exact distance histograms are (144,408,624,732,504,144) and (264,408,576,684,480,144). The action of coordinate permutations and bit flips gives three orbits of 24; the replay (lines 177–230 and output lines 43–124) agrees with all shell and path signatures, not merely the diameter.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The credited assertion is the specific cube/cuboctahedral exchange metric, including the orbit shells and preservation of the diameter-pair set. Neither the backbite move nor the count of Hamiltonian paths is credited as new; the two representations encode one result. Several prior or parallel graph-specific analyses are relevant, but none of the accessible statements supplies this metric.
+
+## value
+
+PASS
+
+The cube is a canonical small three-dimensional lattice cell in backbite sampling, and its line graph is a natural test of how locality constrains optimal decycling sets. The large increase in one-step moves without any change in the full worst-case pair set is not implied by connectivity or by the known path count. Exact orbit shells and distances are useful small-instance benchmarks in both settings. No general cube theorem or mixing-time conclusion is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

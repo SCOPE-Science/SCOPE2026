@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:05:01.359296Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reproduced every size stratum and all five universality tests with /workspace/branches/replay_order16.py; read the submitted checkers but did not execute them. In the replay a pair of subsets of reciprocal sizes tiles iff its nonzero difference masks are disjoint: precisely such an intersection would give a repeated sum, and there are 16 sums. I grouped every zero-containing set of each divisor size by that difference mask, and intersected the exact Fourier-zero masks within each permissible complement bucket and then across permissible buckets. Evaluating in the basis 1,ζ,…,ζ^(E/2−1) with ζ^(E/2)=−1 gives the exact zero criterion (E=2 works too). Each possible spectrum translates to one containing 0; test its entire nonzero difference mask against the common Fourier-zero mask, checking all subgroups separately by difference closure. Translating complements changes each Fourier coefficient only by a phase, so no nonnormalized complement can change the mask. Uniformly over labeled tiles of size k, anchoring accounts for a fraction k/16, by double-counting a tile and a chosen element, also for periodic tiles. Replay produced totals (795,1611,2155,3147,4747) and obstruction totals (764,1056,1168,896,0), with all size columns as in RESULT.md. The cyclic example also checks: the alternating parity complements have all nonzero restricted character differences of {0,…,7} orthogonal, but difference 8 in the only order-eight dual subgroup restricts trivially. This proves the bounded order-16 classification; no extrapolation or formal proof claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lagarias–Szabó p.2 gives the cyclic strong-Tijdeman sufficient condition via Lagarias–Wang’s Theorem 1.2. Proposition 3 of Farkas–Matolcsi–Móra compares all groups of a fixed generating dimension by an enlargement, not just the five groups of order 16."
+        ],
+        "reasoning": "Neither the cyclic existence framework nor a dimension-wise equivalence supplies the subgroup-coset obstruction counts. The exact primary passage for the stated prime-power cyclic scope was not legible in the extracted author copy; no novelty credit is taken for cyclic existence.",
+        "searches": [
+          "Lagarias–Wang DOI 10.1006/jfan.1996.3008 author copy, attempted Theorems 1.2–1.3",
+          "Lagarias–Szabó arXiv:math/0008132",
+          "Farkas–Matolcsi–Móra arXiv:math/0612016 Prop. 3"
+        ]
+      },
+      "checked_sources": [
+        "13d57276661d",
+        "3706d926dcfb",
+        "5c6c05045dc1",
+        "27eae8f2814b",
+        "arXiv:math/0008132",
+        "DOI 10.1006/jfan.1996.3008 (primary access limited)",
+        "arXiv:math/0612016"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Weak tiling equivalence tells which A tile, not which frequencies distinguish every complement. The Z4² affine result implies that one row. Neither of the compared general existence statements rules out or counts subgroup-coset bases for the other groups."
+        ],
+        "reasoning": "The zero row in F2⁴ does have a short structural explanation: if A−A contains a subspace K of size |A|, then every complement is a transversal to K and K’s annihilator is universal. For sizes 2 and 4 take an included direction or the span of two independent directions in an anchored set of size 4; for size 8 the disjoint shifts are a nonzero coset b+Per(A) because all such shifts give the set complement of A, and a hyperplane can avoid that coset. Sizes 1 and 16 are immediate. This explains the contrast, rather than claiming a novel hard theorem in that group alone; it does not supply the non-elementary obstruction numbers.",
+        "searches": [
+          "3706d926dcfb Finding on weak tile-to-tile equivalence",
+          "13d57276661d Finding/Proof",
+          "arXiv:math/0612016 Proposition 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Farkas–Matolcsi–Móra define one character basis shared by all complements; testing a clique in the intersection of Fourier zeros is the equivalent difference criterion. The cyclic framework uses universal spectra of a periodic form, not necessarily cosets."
+        ],
+        "reasoning": "For a dual subgroup H, its restrictions are an orthogonal basis on B iff B is a transversal to H’s annihilator: Fourier coefficients on H record the occupancies of the quotient cosets. Requiring one such H for all B is stronger than individual spectrality or independent transversal choices. A frequency coset translates to H, and a universal spectrum which is itself a transversal of a subgroup need not be a subgroup coset.",
+        "searches": [
+          "Resultary universal complement spectra order sixteen and subgroup obstructions",
+          "arXiv:math/0612016 §2, p.3, offsets 9000–12554",
+          "arXiv:math/0008132 p.2, offset 4850"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 3706d926dcfb table gives anchored tiles (1,15,95,139,1), (1,15,183,371,1), (1,15,311,387,1), (1,15,359,787,1), (1,15,455,1395,1), respectively. Multiplying by 16/k gives all five ordinary size profiles exactly. The distinct same-day 13d57276661d record gives universality and the whole Z4² obstruction row, including (0,96,352,720,0)."
+        ],
+        "reasoning": "This is stronger overlap than the two individually cited ordinary Fuglede totals. Neither the all-type anchored baseline nor the specialized Z4² obstruction census supplies the other groups’ obstruction profiles. The key differences are the latter profiles and cross-type conclusions, not five new ordinary tile counts.",
+        "searches": [
+          "Resultary 3706d926dcfb Finding, origin-containing tile table",
+          "Resultary 13d57276661d Finding, size-resolved table",
+          "Resultary 27eae8f2814b and 5c6c05045dc1 Findings"
+        ]
+      },
+      "rationale": "The full size-resolved ordinary tile baseline in all five groups is already available under anchoring, and every universal/subgroup count in the Z4² row exactly overlaps record 5. These are not credited as new. The supported distinct result is the joint census outside that row: exact obstruction size profiles for Z16, Z8×Z2 and Z4×Z2² and the subgroup-versus-arbitrary comparison across types, including the elementary abelian zero row. Cyclic universal existence is credited to the prior cyclic framework, not identified as an addition.",
+      "residual_risks": [
+        "Same-day chronology for the overlapping Z4² row is not inferred.",
+        "The exact theorem passage in the original Lagarias–Wang author's PDF could not be checked in the available extracted copy. This does not affect the direct finite census or earn novelty credit for cyclic existence.",
+        "A bounded search cannot rule out another unindexed catalogue of the non-elementary obstruction counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the whole Z4² row; same catalogue date does not resolve priority",
+          "evidence": "All 2155 tiles have a universal spectrum; obstruction profile (0,96,352,720,0) totaling 1168, plus affine witnesses.",
+          "identifier_or_url": "2026/11/22/SCOPE-universal-complement-spectra-in-mathbb-z-4-2-an-exact-non-subgro--13d57276661d/RESULT.md",
+          "material_read": "Finding/Proof at offsets 0–5089, and frozen sibling record 5",
+          "method": "Configured local mirror and frozen source comparison",
+          "title": "Universal complement spectra in Z4²: an exact non-subgroup obstruction census",
+          "trigger": "Exact same-group obstruction totals"
+        },
+        {
+          "assessment": "Covers all of the ordinary tile counts, not the simultaneous subgroup obstruction counts",
+          "evidence": "Full anchored counts for all five groups and divisor sizes; apply factor 16/k.",
+          "identifier_or_url": "2026/10/11/SCOPE-normalized-weak-tiling-forces-tiling-in-every-abelian-group-of-o--3706d926dcfb/RESULT.md",
+          "material_read": "Finding, offsets 0–1772",
+          "method": "Configured local mirror",
+          "title": "Normalized weak tiling forces tiling in every abelian group of order 16",
+          "trigger": "Potential exact five-group baseline"
+        },
+        {
+          "assessment": "Ordinary spectrality and tiling, not common spectra of all complements",
+          "evidence": "3147 tiles; same size profile (16,120,1436,1574,1).",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-fuglede-census-for-mathbb-z-4-times-mathbb-z-2-2--5c6c05045dc1/RESULT.md",
+          "material_read": "Finding and beginning of Proof, offsets 0–1769",
+          "method": "Configured local mirror",
+          "title": "Exact Fuglede census for Z4×Z2²",
+          "trigger": "Exact fourth-group tile count"
+        },
+        {
+          "assessment": "Known Z4² baseline and ordinary affine classes",
+          "evidence": "2155 tiles/spectral sets over 19 classes, not a universal-complement criterion in the inspected finding.",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-fuglede-census-in-the-sixteen-point-group-mathbb-z-4-2--27eae8f2814b/RESULT.md",
+          "material_read": "Finding at offset 356",
+          "method": "Configured local mirror",
+          "title": "Exact Fuglede census in the sixteen-point group Z4²",
+          "trigger": "Prior exact tile/spectral census"
+        },
+        {
+          "assessment": "Cyclic sufficient theorem, no groupwise subgroup-coset census in inspected result",
+          "evidence": "Cites Lagarias–Wang Theorem 1.2 conditional on the strong Tijdeman property.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0008132",
+          "material_read": "Page 2, offset 4850",
+          "method": "OA PDF passages",
+          "title": "Universal Spectra and Tijdeman’s Conjecture on Factorization of Cyclic Groups",
+          "trigger": "Prior cyclic universal existence"
+        },
+        {
+          "assessment": "Direct scope check limited; do not infer noncoverage",
+          "evidence": "Accessible follow-up gives the cited cyclic sufficient theorem, not the precise prime-power scope.",
+          "identifier_or_url": "https://websites.umich.edu/lagarias/doc/fuglede.pdf",
+          "material_read": "Attempted Theorems 1.2–1.3; retrieved text not legible for the decisive passage",
+          "method": "OA author copy; DOI and identified alternates attempted",
+          "title": "Spectral Sets and Factorizations of Finite Abelian Groups",
+          "trigger": "Primary cyclic theorem cited for Z16"
+        },
+        {
+          "assessment": "Equivalent definition and different dimension-wide quantifier",
+          "evidence": "Universal spectra vs tile-to-spectral implication across all groups of a fixed generator dimension; proof uses a larger group.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0612016",
+          "material_read": "Page 3, §2 and Proposition 3, offsets 9000–12554",
+          "method": "OA PDF passages",
+          "title": "On Fuglede’s Conjecture and the Existence of Universal Spectra",
+          "trigger": "Potential general theorem implying finite universal spectra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete first comparably small multi-type cutoff for common Fourier bases tests a natural restriction: are simultaneous spectra still possible when the frequencies must form a subgroup coset? The exact profiles distinguish a common basis from a common quotient transversal, quantify how severely they diverge, and expose the elementary-abelian contrast, including abundant obstructions even in the cyclic group with prior existence. The value lies in the exact obstruction data across types, not in recomputing known tile counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:43:58.703883Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The primary source confirms the WNM and Nelson equations and both recovery definitions. On a chain, WNM forces product either zero or min, with the zero cut given by d(y)=y→0. Conversely weak negation gives the symmetric condition x≤d(y) iff y≤d(x), so a triple product is nonzero precisely when every pair passes the nonzero cut, and then equals the triple minimum. This verifies associativity and the displayed residuum follows by maximizing the allowed argument. For Nelson only x>y with x≤d(x) needs a check. If d(y)=d(x), the second conjunct is top and exceeds x→y=d(x); if d(y)>d(x), then d(d(y))≤d(d(x))≤d(x)<d(y), so the square of d(y) is d(y) and the conjunct equals d(x). Thus the stated consecutive strictness criterion suffices and is necessary. With r=d(1), if r<n−2 the penultimate point must map to zero and can be deleted (renaming top), preserving all interior inequalities. If r=n−2 and n≥4, d(n−2) must equal 1: a larger value would repeat r on the initial increasing-index segment x≤d(x), violating strictness. Restriction to [1,n−2] and subtraction of one then gives the n−2 case, with the inverse obtained by adjoining new outer bounds. Distinct negations cannot be identified by an order automorphism; the two branches give the Fibonacci recurrence with bases 1 and 2. The support of positive d on the nonzero elements ends at r, so exactly n−2−r interiors have defect. For fixed r>0 strip penultimate zeros until size r+2, then use the paired branch, with r=1 handled at size three; r=0 gives a single map. The limit follows from Fibonacci ratios and the stated moments are those of the limiting geometric distribution, not an assertion of moment convergence for the finite laws.",
+      "replay": {
+        "command": "python3 /workspace/branches/163e1721-9cca-4663-94b8-1cc8db63c049/independent_replay.py",
+        "result": "Direct WNM, finite residuation, original Nelson equation and recovery computations for n=2 through 8 give counts 1,2,3,5,8,13,21; the n=8 defect vector in ascending defect order is (8,5,3,2,1,1,1). The independent replay verifies each finite cell in this range; it is not a proof for general n."
+      },
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible paper cites a generic weak-negation construction and finite-chain generation/local finiteness, and discusses Heyting/filer data in a twist representation.",
+          "It gives the WNM chain operations and Nelson condition, but the located statements do not classify the finite chains by cardinality or by r=d(1). The older full texts could not be examined."
+        ],
+        "reasoning": "Generating a variety by finite chains is not a count or an ordered list of their isomorphism classes. The broader WNM operations still require a Nelson restriction, and the stated twist data have not been shown to enumerate the totally ordered objects by size and defect. The two inaccessible articles leave open a stronger classified-case implication.",
+        "searches": [
+          "Flaminio–Rivieccio 2022, DOI:10.1016/j.fss.2022.03.021 and UNED repository record",
+          "Noguera–Esteva–Gispert 2008, DOI:10.1002/malq.200710054 and author manuscript",
+          "arXiv:2606.31277, §2.1 and twist-structure discussion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary mirrored RESULT.md a875fbe924be",
+        "arXiv:2606.31277",
+        "DOI:10.1016/j.fss.2022.03.021 (limited access)",
+        "DOI:10.1002/malq.200710054 (full text inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior recovery result gives the unique unary operations and so determines J once a chain is given, but does not count possible values of d(1) among Nelson chains.",
+          "The comparator obtains Fibonacci coefficients from the sizes of the generalized Sugihara fibers and sums over exterior shell sizes. The frozen proof instead needs the Nelson condition to enforce strictness in the lower segment and the two distinct finite restriction/extension bijections."
+        ],
+        "reasoning": "Knowing the recovery operations and finite-chain generation does not determine the admissible finite negations or their census. The very similar combinatorics for the other class do not mechanically establish the necessary PQN structural result. Once that result is proved the limit is routine and is not independent originality.",
+        "searches": [
+          "arXiv:2606.31277, §§2.1, 2.2, 3, 4 and twist-representation discussion",
+          "Mirrored RESULT.md a875fbe924be, Proof Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The primary source represents PQN chains via a WNM product and Nelson axiom; the frozen proof extracts a precise finite criterion on plateaus of the antitone negation.",
+          "In a875fbe924be the intrinsic decomposition is a reflection of a generalized Sugihara monoid inside an odd Sugihara shell, with the central class counted by sizes of ordered fibers."
+        ],
+        "reasoning": "The analogous recurrence/composition data are not an identification of residuated-chain structures. One chain class is bounded and integral with potentially noninvolutive residual negation at bottom; the other has an involution and a possibly non-top monoid unit, and uses idempotence and shell statistics. No inspected construction links recovery defect to the exterior shell as an algebraic invariant.",
+        "searches": [
+          "Resultary: prelinear quasi-Nelson finite chain Fibonacci census and recovery duality",
+          "arXiv:2606.31277, weak negations and twist representation discussion",
+          "Mirrored RESULT.md a875fbe924be, Proof Steps 1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored census of negatively generated De Morgan monoids has 1+sum_{d=1}^{t−1} F_d u^d at size 2t by the number d of nonidempotents. This is the same array as the PQN census by r=n−2−J under n=t+1 and d=r. The shell law on its nonidempotent sample has the same limit in j.",
+          "No table for PQN with the recovery statistic was located in the Resultary material searched."
+        ],
+        "reasoning": "The serious numerical match is real, including the exceptional entry 1, and the geometric limit is not a novel distribution. The table classifies a distinct class; equality of the counts after reindexing neither proves nor supplies the PQN count.",
+        "searches": [
+          "Resultary: Fibonacci spectra of finite algebraic chains and PQN recovery",
+          "Mirrored RESULT.md a875fbe924be, offsets 3080–6160 and 6350–7676"
+        ]
+      },
+      "rationale": "Existing representation theorems and chain recovery formulas are credited, not claimed new. The closest Resultary record has the very same Fibonacci coefficient profile under reindexing and the same limiting law for another chain class and another statistic, but no identified algebraic implication yielding the PQN census or recovery defect. The supported contribution is the structural PQN enumeration by recovery defect, not novelty of the Fibonacci or geometric laws as numerical patterns.",
+      "residual_risks": [
+        "No absolute priority claim: the inaccessible 2022 and 2008 full texts may contain a finite shape classification or relevant stronger consequence. Algebraic translations to other chain varieties that transfer the closely matching statistics were not ruled out by these checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same numeric profile after reindexing; not established to be equivalent as an algebraic classification",
+          "evidence": [
+            "At size 2t the central reflection contributes d non-idempotents, d+s+1=t, with F_d types for d≥1 and one fully idempotent type. The shell law is for non-idempotent types. The skeleton and fibers are defined using x→e and are not the PQN residual negation."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-fibonacci-and-idempotence-graded-spectra-of-finite-negatively-ge--a875fbe924be",
+          "material_read": "Mirrored RESULT.md Finding and Proof Steps 1–4, including offsets 3080–6160 and 6350–7676, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary search and bounded mirror reading",
+          "title": "Fibonacci and idempotence-graded spectra of finite negatively generated De Morgan monoids",
+          "trigger": "Exact Fibonacci profile and geometric-law overlap"
+        },
+        {
+          "assessment": "Exact coverage of axioms, representation ingredients and the recovery operators; no finite census in the passages read",
+          "evidence": [
+            "Nelson inequality, WNM product, generic weak-negation generators and local finiteness; the endpoint/other-point operator of eq. (9), and maximum consistency via the vanishing meet test."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.31277",
+          "material_read": "§§2.1–2.2 offsets approximately 11900–19490 and 22358; §3 offsets 34600–35351; §4 offsets 39500 and 51664–51973; twist discussion around 118500",
+          "method": "Primary OA HTML bounded passages",
+          "title": "Recovery operators in quasi-Nelson logic: the prelinear case",
+          "trigger": "Underlying definitions, exact chain recovery operators and possible finite-chain coverage"
+        },
+        {
+          "assessment": "Indeterminate for finite enumeration, not negative evidence",
+          "evidence": [
+            "The accessible citing text attributes a generic weak-negation chain construction and finite generation results to the 2022 paper. Actual completeness of its finite-chain descriptions was not established."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.fss.2022.03.021",
+          "material_read": "Publisher landing/abstract material; attribution in arXiv:2606.31277 §2.1, in particular Thm. 4.2 and Cor. 3.2; no 2022 full text read",
+          "method": "Lawful DOI and identified UNED repository access; repository attempts failed",
+          "title": "Prelinearity in (quasi-)Nelson logic",
+          "trigger": "Most plausible earlier PQN classification by standard-chain or twist semantics"
+        },
+        {
+          "assessment": "Cannot assess the full paper's coverage",
+          "evidence": [
+            "The accessible PQN paper invokes the WNM representation, which does not by itself give the Nelson-filtered finite census."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/malq.200710054",
+          "material_read": "No full text; publisher and cited usiena-air author-manuscript routes returned HTTP 403",
+          "method": "Lawful DOI and identified manuscript attempts; accessible representation checked in arXiv:2606.31277 instead",
+          "title": "On triangular norm based axiomatic extensions of the Weak Nilpotent Minimum logic",
+          "trigger": "Potential stronger finite weak-negation representation/count theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The algebras and operators are fixed by an existing logic, and the prevalence of dual versus nondual recovery is a natural structural question. The finite classification is strong enough to predict how often every defect occurs, including the unique extreme defect and the bounded typical defect at large size. Its contribution is the intrinsic chain decomposition and exact census for these operations; the subsequent Fibonacci limit calculation, taken alone, would not meet the value bar.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

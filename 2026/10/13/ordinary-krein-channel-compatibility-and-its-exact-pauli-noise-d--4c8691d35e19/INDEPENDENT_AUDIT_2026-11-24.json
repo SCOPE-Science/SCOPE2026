@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:11:12.140222Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–84 and 86–165; VERIFICATION.md and artifacts/verify.py inspected, not executed",
+        "Heo, Filomat 40(4), DOI:10.2298/FIL2604449H, §2",
+        "/workspace/review_checks.py, record5 (run via python3 /workspace/review_checks.py)"
+      ],
+      "rationale": "Input-first Choi vectorization gives C_Xi=(J_A^T tensor J_B) C_Phi: expand J_A E_ij=sum_k (J_A)_ki E_kj and left multiply the output by J_B. Gamma=J_A^T tensor J_B is a Hermitian involution even for a non-real symmetry. If C and Gamma C are both PSD, Hermiticity implies Gamma C=C Gamma, and on the negative eigenspace C and -C are PSD, forcing the block to vanish. Thus C has positive support, Xi=Phi, and the range vectors in every Kraus decomposition satisfy J_B K=K J_A; conversely these vectors give a positive Choi matrix unchanged by the twist. No TP is used here. The TP normalization then gives Phi^*(P_B^±)=P_A^±. At J=Z for qubits, diagonal Kraus coefficient columns have unit norm, so their scalar inner product c has |c|<=1; the displayed pair realizes every c, including the unit circle and zero. For Pauli noise let t=q_X+q_Y. On input |0><0| the target moves mass t to |1><1| and every compatible channel fixes the input, yielding trace norm 2t without ancillas. The proposed I/Z mixture is compatible and the difference is q_X(Ad_X-id)+q_Y(Ad_Y-Ad_Z), whose diamond norm is at most 2t by the unit channel norm. The endpoints t=0 and t=1 cause no exception; depolarizing has t=p/2, hence unhalved distance p. The independent rational grid verifies the Pauli probability mass reassignment and matching l1 upper bound in 3,185 instances; the Choi and norm arguments, not the grid or the frozen checker, prove the continuum statement.",
+      "residual_risks": [
+        "Left-multiplication complete J-positivity only, not covariance under conjugation by J. Finite dimensions; metric claim only for fixed qubit Z and Pauli noise, unhalved norm."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heo's Remark 2.8 identifies J-CP with CP of the left-twisted map; the passage preceding Remark 2.2 explicitly gives the equal-symmetry sufficient intertwining premise. Earlier Felipe-Sosa–Felipe covers J-Kraus maps and the twist in the equal-space setting.",
+          "The known Pauli-pair norm is the l1 probability distance; restricted to I/Z competitors, reassigning the flip mass gives minimum 2t."
+        ],
+        "reasoning": "The primary CP/J-CP results supply the tests but not the structural consequence of joint positivity. The Pauli-pair norm settles the restricted Pauli-to-Pauli optimization. Extending this to arbitrary complex-coherence compatible channels requires certifying no improvement from those competitors: the population witness does so (equivalently, Pauli twirling preserves compatibility and contractively sends the disk to its real I/Z diameter). This is a short sharp consequence of the intersection identification, not an independent new norm theorem.",
+        "searches": [
+          "Heo DOI:10.2298/FIL2604449H §2, Remarks 2.2 and 2.8, Prop. 2.10",
+          "arXiv:2009.07759 §§3 and 3.1",
+          "arXiv:2301.09192 p. 5, diamond norm of two Pauli channels"
+        ]
+      },
+      "checked_sources": [
+        "Heo DOI:10.2298/FIL2604449H §2",
+        "arXiv:2009.07759, arXiv:1604.08031, arXiv:2301.09192",
+        "Heo DOI:10.1007/s11128-022-03771-8 (attempted, not independently read)",
+        "Resultary 68bc6f4e7b8c, 8e247c0a93d2, af36f7621f27"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heo's twist identifies the second positivity constraint. Combined with ordinary Choi positivity, the additional order argument that the negative spectral block must vanish yields the necessity, rather than merely assuming intertwining as in Heo's sufficient condition.",
+          "The dephasing disk follows from the existing general Schur theorem once membership in the intersection is established. The channel distance follows by the population witness plus reassigning flip mass, using only standard norm facts."
+        ],
+        "reasoning": "Credit verified known coverage of the disk in ordinary channel language, and known Pauli-pair comparisons. Neither states a theorem identifying simultaneous ordinary and twisted CP with matched-sector Choi support. The independent remainder concerns that necessity and its use to separate arbitrary Pauli noise from the full intersection, not a new derivation of already known Schur structure alone.",
+        "searches": [
+          "Heo DOI:10.2298/FIL2604449H §2 near Def. 2.1 and Remarks 2.2, 2.8",
+          "arXiv:1604.08031 Theorem 1",
+          "arXiv:2301.09192 p. 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Vicente–Streltsov Theorem 1 equates fixing incoherent states with diagonal Kraus operators and Schur multiplication by a positive unit-diagonal matrix. For d=2 this is precisely the complex disk |c|<=1.",
+          "For higher-dimensional J with repeated eigenspaces, the cone consists of block-intertwining Kraus operators and need not fix each basis projector within those eigenspaces. Covariance under Ad_Z alone is weaker: X conjugation is covariant, but has twisted Choi matrix supported with negative sign."
+        ],
+        "reasoning": "The established Schur characterization covers the ordinary disk, not its identification from simultaneous CP conditions for given J_A and J_B. Neither generic covariance nor fixing every basis state is equivalent to the complete general claim.",
+        "searches": [
+          "Web: Pauli channels diamond distance genuinely incoherent channels phase damping bit flip closest dephasing Schur channels resource measure channel coherence",
+          "arXiv:1604.08031 p. 3 Theorem 1",
+          "Resultary: CP/CP-J intersection, population-preserving qubit channels and phase disk"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest same-day mirrored Finding 68bc6f4e7b8c uses a real-visibility dephasing channel as input and proves an entanglement-breaking threshold for repeated rotated channels. Later 8e247c0a93d2 concerns related optimized rotated dephasing; af36f7621f27 uses another dephasing model and Hilbert–Schmidt mixing. No exact intersection or distance match surfaced."
+        ],
+        "reasoning": "Use of a standard dephasing member does not establish a compatibility classification or operational distance. The exact frozen Finding and the different same-day record should not be conflated, and the dates do not establish priority.",
+        "searches": [
+          "Resultary: exact frozen title, simultaneous ordinary/Krein CP, population-preserving phase damping, Pauli diamond separation"
+        ]
+      },
+      "rationale": "The twist and Choi criteria are established. Heo explicitly gives strong intertwining as a sufficient premise (in the same-symmetry case); his inspected criteria concern the two positivities individually, not the necessity of strong intertwining in their intersection. The ordinary qubit disk itself is prior as the d=2 genuinely incoherent/Schur channel class, and the diamond metric for two Pauli channels is prior. The supported distinct content is identifying the simultaneous positivity cone via matching symmetry sectors, identifying that known disk specifically as the qubit intersection, and giving the attained separation from the full compatible class. This is not a priority claim for the disk, the metric, or the elementary Pauli probability calculation.",
+      "residual_risks": [
+        "The earlier Heo article remained inaccessible; an equivalent support theorem in a differently named sector-preserving formalism cannot be excluded by this bounded search.",
+        "Novelty is not attributed to the established ordinary dephasing disk or Pauli-to-Pauli norm formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers twist, individual CP criteria and sufficient premise, not the necessity stated in this finding in those passages",
+          "evidence": [
+            "If Phi(JT)=J Phi(T) for equal input/output J, ordinary CP and J-CP coincide; Remark 2.8 characterizes J-CP alone by positivity of the Choi matrix of X -> J_B Phi(J_A X)."
+          ],
+          "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2026/40-4/40-4-18-134.pdf (DOI:10.2298/FIL2604449H)",
+          "material_read": "Publisher PDF §2 transition from Def. 2.1 to Remark 2.2, p. 1451 at offset 9083; Remark 2.8 and Prop. 2.10, pp. 1454–1455 at offset 21257",
+          "method": "Lawful OA via the publisher's volume 40 issue 4 archive after DOI route failed; located and read relevant passages",
+          "title": "Completely J-positive (bi-)linear maps on Krein spaces and their Choi J-matrices",
+          "trigger": "Primary definition and plausible stronger joint CP coverage"
+        },
+        {
+          "assessment": "Unresolved beyond later accessible Heo text; no full-text claim made",
+          "evidence": [
+            "Frozen comparison reports the twist and sufficient direction only, but that account does not replace independent access."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11128-022-03771-8",
+          "material_read": "Not independently obtained; frozen source reports Prop. 2.2 and Remark 2.4, and §6 examples",
+          "method": "Attempted lawful OA via Springer DOI and alternate resolution; report in frozen source treated as secondhand",
+          "title": "Quantum J-channels on Krein spaces",
+          "trigger": "Heo's earlier channel framework is a plausible home for an equivalent intersection theorem"
+        },
+        {
+          "assessment": "Covers correspondence to ordinary CP maps, not requirement that the original map and its twist are both CP",
+          "evidence": [
+            "Channel normalization is imposed on the associated ordinary map in the quantum J-channel definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2009.07759",
+          "material_read": "§3.1 pp. 10–11, Eq. (21), Lemma 16 and Thm. 17 around offset 46000; §3 pp. 13–15, Thm. 20, Def. 22, Prop. 24 around offsets 57000 and 65000",
+          "method": "OA primary PDF passages",
+          "title": "J-states and quantum channels between indefinite metric spaces",
+          "trigger": "Earlier J-channel and J-Kraus framework"
+        },
+        {
+          "assessment": "Explicitly covers the ordinary qubit disk via general Schur characterization, not its relation to twisted CP",
+          "evidence": [
+            "Genuinely incoherent operations fix incoherent states, have diagonal Kraus operators and are Schur maps for PSD unit-diagonal symbols."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.08031",
+          "material_read": "p. 3 Theorem 1 and proof, text offset 20930",
+          "method": "OA primary PDF passage",
+          "title": "The resource theory of coherence: Genuine coherence and the limitations of measurement-based coherence manipulations",
+          "trigger": "Equivalent ordinary formulation of the population-fixing qubit disk"
+        },
+        {
+          "assessment": "Covers diamond distances between Pauli channels, hence the elementary optimization over compatible I/Z mixtures; target compatibility class is not a finding of the paper",
+          "evidence": [
+            "Two Pauli channels have diamond norm distance twice TV of their probability distributions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.09192",
+          "material_read": "Pauli definition and p. 5 two-Pauli-channel diamond identity, text offsets 18300–24629",
+          "method": "OA primary PDF passage",
+          "title": "Lower Bounds on Learning Pauli Channels with Individual Measurements",
+          "trigger": "Possible known exact norm underlying the proposed distance"
+        },
+        {
+          "assessment": "Different dynamics and thresholds, no implication for joint CP or exact distance",
+          "evidence": [
+            "Real-visibility dephasing plus rotations for entanglement breaking; parity dephasing sequences for Hilbert–Schmidt mixing."
+          ],
+          "identifier_or_url": "Resultary 68bc6f4e7b8c, 8e247c0a93d2, af36f7621f27",
+          "material_read": "Mirrored RESULT.md offset 0, respectively 3976, 3488 and 2519 characters",
+          "method": "Local Resultary searches and source passages",
+          "title": "Resultary rotated and parity dephasing Findings",
+          "trigger": "Closest indexed dephasing overlaps, including same-day record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 17–79 and 97–160; Heo §2; arXiv:1604.08031 Theorem 1"
+      ],
+      "rationale": "It is a natural physical realizability question whether maps constructed using an indefinite positivity notion are also ordinary CP. A structural answer for arbitrary finite input and output sectors, without assuming equal signs or a trace normalization to prove necessity, shows exactly which population transfers physical compatible maps forbid. The Pauli formula translates that obstruction into a sharp operational separation even allowing all coherent phases in the free comparator. The value lies in that intersection and its quantitative interpretation, not in renaming the familiar Schur-channel disk or proposing a new diamond-norm method.",
+      "residual_risks": [
+        "Not a formula for arbitrary non-Pauli noise, higher-dimensional approximation, or alternative definitions of J-positivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

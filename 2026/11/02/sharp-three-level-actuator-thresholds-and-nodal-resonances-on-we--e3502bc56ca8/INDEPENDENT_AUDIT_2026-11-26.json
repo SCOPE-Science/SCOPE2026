@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:19:24.684899Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–32 and 36–103",
+        "Frozen VERIFICATION.md and verify.py, read as evidence"
+      ],
+      "rationale": "For the full symmetric Laplacian, PBH reduces to excluding eigenvectors zero on S. Split into hub-zero, zero-sum pair differences and the three-dimensional common-pair space. The pair block has two simple eigenvalues with eigenvectors nonzero at both ports, so each covered pair kills one amplitude and two uncovered pairs give an invisible difference. When a≠c, the hub coupling (a,c) has nonzero projection onto both pair eigenvectors: its orthogonal direction (c,−a) is sent by the pair block to a positive multiple of (1,−1). Thus the common-pair block has simple eigenvalues disjoint from the pair eigenvalues and no hub-zero eigenvector. A nonconstant common mode vanishing at x has z_o=−my by orthogonality to constants; the x equation then gives b=ma, and (−m,0,1) on the common coordinates realizes it. The y counterpart gives b=mc. With equal spokes, antisymmetric pair modes require coverage of all pairs. At the only collision, b=mu, the merged eigenspace has coordinates z_o=−2mr, (x_j,y_j)=(r+t_j,r−t_j). One hit per pair lets the t_j cancel any r; the hub or a double hit forces r=0. Off collision the remaining symmetric modes are visible with all pairs covered. These facts give the minimum sets and their counts, including m=2. A wholly unseeded petal cannot first be forced, and one seed per petal cannot start with a white hub; adding the hub proves Z=m+1.",
+      "residual_risks": [
+        "The 9,126 comparisons are recorded rather than independently replayed. The proof does not use them or assume numerical rank stability near the exceptional surfaces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The unweighted cograph theorem takes m_i−1 leaders from each sibling cell; on friendship graphs the cells are the singleton hub and the m pairs.",
+          "The zero-forcing criterion is uniform over qualitative classes, not a theorem for the minimum on this fixed weighted subfamily."
+        ],
+        "reasoning": "Cograph coverage yields all 2^m unweighted minimum placements, but does not imply the weighted changes when a≠c or b=mu.",
+        "searches": [
+          "Mousavi–Haeri–Mesbahi, arXiv:1802.03599, Theorem 12",
+          "Monshizadeh–Zhang–Camlibel, arXiv:1403.4868"
+        ]
+      },
+      "checked_sources": [
+        "Resultary eb2edd4af407, 82f6daf71fff, 78656348d693 and 1c1e7b6f78d5",
+        "arXiv:1403.4868",
+        "arXiv:1802.03599",
+        "Frozen RESULT.md, lines 105–120"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform zero forcing guarantees controllability at m+1 but does not exclude the m−1 fixed-weight minimum.",
+          "Prior unweighted sibling-cell results and the weighted grounded trace optimization do not identify invisible global eigenmodes."
+        ],
+        "reasoning": "General PBH/equitable-space methods supply the framework; using them still requires the non-overlap and nodal calculations that distinguish the full positive parameter space.",
+        "searches": [
+          "arXiv:1403.4868 and arXiv:1802.03599; Resultary 82f6daf71fff and 78656348d693; attempted doi:10.1155/2013/405034"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Dutch windmill record specializes to the unweighted friendship graph at cycle length three.",
+          "The same-motif weighted leader-selection record instead optimizes a grounded-follower inverse trace."
+        ],
+        "reasoning": "Dutch windmill is a motif alias only in the triangle/unweighted slice. Grounding selected vertices and minimizing an inverse trace is not the PBH feasibility problem for the full Laplacian with independent coordinate inputs.",
+        "searches": [
+          "Resultary: weighted friendship graph, Dutch windmill, dedicated-input controllability and leader selection",
+          "arXiv:1403.4868; arXiv:1802.03599"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The windmill catalogue entry gives minimum m, 2^m placements and Z=m+1 at cycle length three.",
+          "The K_{m,m} detuning record has different edges and a different exceptional relation; the two inverse-trace records do not tabulate PBH placements."
+        ],
+        "reasoning": "There is exact catalogue overlap in the unweighted slice, but no inspected placement table includes both unequal-spoke nodal surfaces or the weighted symmetric resonance. Same-day dates were not used to establish order.",
+        "searches": [
+          "Resultary dedicated input and friendship placement search: eb2edd4af407, 82f6daf71fff, 78656348d693, 1c1e7b6f78d5"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the all-positive-weight, all-placement classification, especially the two one-port nodal failures and the symmetric weighted collision. The unweighted minimum, placements and zero-forcing baseline already have coverage; no novelty is credited to them.",
+      "residual_risks": [
+        "Full-text checks of Xiang et al. (10.1155/2013/405034), Rahmani et al. (10.1137/060674909), and the threshold-graph comparison (10.1049/iet-cta.2018.5875) were unavailable; motif-specific older weighted results under other terminology remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unweighted friendship graph only",
+          "evidence": [
+            "The sibling-cell rule gives minimum n−p and all m_i−1-per-cell selections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.03599",
+          "material_read": "Theorem 12, p. 6, offset 57600",
+          "method": "Primary OA PDF passage",
+          "title": "Laplacian controllability of cographs",
+          "trigger": "Stronger graph-family result"
+        },
+        {
+          "assessment": "Uniform criterion, not fixed weighted classification",
+          "evidence": [
+            "Controllability is quantified over a qualitative matrix class."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1403.4868",
+          "material_read": "Abstract and qualitative-class criterion, pp. 1–3",
+          "method": "Primary OA PDF passages",
+          "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+          "trigger": "Baseline and potential general coverage"
+        },
+        {
+          "assessment": "Later-dated unweighted overlap",
+          "evidence": [
+            "At triangle length the minimum sets are exactly one neighbor per petal, with zero-forcing minimum m+1."
+          ],
+          "identifier_or_url": "eb2edd4af407",
+          "material_read": "Finding and triangle specialization, offsets 0 and 3850",
+          "method": "Primary local Resultary mirror",
+          "title": "Exact dedicated-input controllability of Dutch windmill Laplacians below the zero-forcing threshold",
+          "trigger": "Same motif and predicate at cycle length three"
+        },
+        {
+          "assessment": "Different objective and model",
+          "evidence": [
+            "The work fixes equal unit spokes and uses tr(L_FF^-1) for two grounded leaders."
+          ],
+          "identifier_or_url": "82f6daf71fff",
+          "material_read": "Finding, offset 0",
+          "method": "Primary local Resultary mirror",
+          "title": "Two-leader phase transitions on weighted friendship graphs",
+          "trigger": "Same motif and variable weight"
+        },
+        {
+          "assessment": "Different graph and symmetry-breaking parameter",
+          "evidence": [
+            "It varies a matching weight in a complete bipartite network and detects its own matching-weight equality."
+          ],
+          "identifier_or_url": "78656348d693",
+          "material_read": "Finding, offset 0",
+          "method": "Primary local Resultary mirror",
+          "title": "Perfect-matching detuning halves minimum vertex actuation on K_{m,m}",
+          "trigger": "Closest analogue of weighted all-placement law"
+        },
+        {
+          "assessment": "Grounded inverse trace, not Kalman controllability",
+          "evidence": [
+            "Censuses optimal placements for leader budgets under the unit-weight inverse-trace objective."
+          ],
+          "identifier_or_url": "1c1e7b6f78d5",
+          "material_read": "Finding, offset 0",
+          "method": "Primary local Resultary mirror",
+          "title": "Exact hub-abandonment threshold for noise-free leaders on friendship graphs",
+          "trigger": "Same graph and placement census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, all-set theorem and PBH proof; comparison to qualitative-class zero forcing"
+      ],
+      "rationale": "The result explains exactly which independent coordinate inputs can be removed by asymmetric weighting, and why merely counting eigenvalue multiplicities is insufficient for placements on the nodal surfaces. It supplies a usable complete criterion across an entire natural repeated-weight family, including examples where actuating one port but not the other changes feasibility.",
+      "residual_risks": [
+        "Exact rank does not quantify control energy, robustness or performance under other weight models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

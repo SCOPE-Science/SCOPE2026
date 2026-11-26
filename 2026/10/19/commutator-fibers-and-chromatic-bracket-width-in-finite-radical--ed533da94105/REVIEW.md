@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full theorem follows from a cornerwise commutator identity, explicit fiber dimensions of zero versus nonzero linear maps, and an exact equivalence between sums of brackets and color separation. No field-characteristic exclusions arise, and empty graphs, isolated vertices, loops, parallel arrows, and opposite orientations are included. The checker exhausts small instances using direct algebra multiplication.
+## correctness
 
-**Originality — PASS within investigated coverage.** The closest earlier indexed finite-Kronecker commutator-fiber result treats only the two-vertex case. Previously recorded finite-quiver unit-group width is mathematically distinct: the additive bracket palette has \(q^{2r}\) colors, and for \(q=2\) it can be nonzero while the unit group is abelian. The 2017 square-zero quiver literature examines bimodules, while the 2021 and 2024 bracket-width primary papers treat simple vector-field and current Lie algebras rather than the finite-field quiver family. Exact targetwise fibers for arbitrary finite quivers were not identified in the inspected coverage. Residual risk: older unindexed finite-ring or metabelian Lie-algebra commutator descriptions might contain an equivalent theorem.
+PASS
 
-**Value — PASS.** Complete fibers supply a natural numerical invariant for every target, not just a single commuting probability. The exact elementwise and global bracket widths connect algebraic commutator complexity to graph colorability and exhibit arbitrarily large width over a fixed finite field. Arrow multiplicities affect fiber sizes while not affecting width, exposing a structural distinction.
+For fixed diagonal pairs c(i)=(a_i,b_i), the bracket on an arrow corner is (a_i−a_j)v_ij−(b_i−b_j)u_ij. Diagonal and loop output vanish; each off-diagonal corner is in the bracket span by [e_i,u]=u. Unequal colors give a surjective linear map with q^dimension preimages per target; equal colors give q^(2 dimension) for zero only. Multiplying gives the claimed q^(2h+M) normalization and support-conditioned weights. Exact support F gives product over its edges of (q^μ−1) possible targets, subject to q²-colorability for a single bracket. For r brackets, the tuple of r diagonal pairs must separate every edge supporting the sum. Conversely use a proper q^(2r)-coloring, route each nonzero edge vector entirely to one separating coordinate pair, and solve the independent corner equations. The argument includes r=0, the zero target, no off-diagonal arrows, both orientations and characteristic two. A full-support target attains the maximum.
 
-The scientific package reports its conditional priority assessment and deliberately makes no independent-validation claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct content relative to inspected earlier sources is the general support-resolved bracket result, in particular the exact additive length threshold for every target and every number of brackets together with the uniform fiber formula. The zero fiber in the simple-graph scope and the two-vertex case are not new. Two later distinct indexed results materially reproduce the loopless result in both fibers and width; this is equivalent coverage, not a historical-priority conclusion.
+
+## value
+
+PASS
+
+A support graph gives an exact length for each bracket target and sharp worst cases that are unbounded at fixed field size. This also identifies all unattainable single brackets, with precise fiber multiplicities for the remaining targets, substantially beyond an average commutativity statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

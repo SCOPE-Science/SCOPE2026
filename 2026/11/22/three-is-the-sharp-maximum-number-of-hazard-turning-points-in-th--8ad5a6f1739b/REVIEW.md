@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The proof independently reduces hazard stationary ages to a horizontal-line equation for a positive ratio on a finite interval. Its key curvature lemma is explicitly differentiated and checked with independent symbolic differentiation: a quadratic discriminant is strictly negative for every \(0<\theta<1\). This yields the at-most-three global bound, while a logistic-peak concentration construction produces three sign changes for every such shape. The attached checker certifies four signs of an explicit rational witness with exact rational exponential bounds. No finite computation is used as an infinite-root certificate.
+## correctness
 
-## Originality (O): PASS, with bounded historical-priority risk
-The 2023 model paper gives the exact Chen–Perks hazard and examples of hazard shapes but not the sharp universal count of derivative zeros or existence of three for all lower-shape parameters. Earlier pure Chen and additive Chen articles analyze different hazard families. A 2025 follow-up on inverse-power entropy Chen references Chen–Perks as a related construction but studies another formula. Closest accessible published mathematical records involve the Marshall–Olkin proportional half-logistic and other hazards, not this exact four-parameter sum. Absence of a search hit alone is not treated as proof of originality. Unindexed or inaccessible alternative literature could affect priority, although no decisive covering source was found.
+PASS
 
-## Value (V): PASS
-The exact maximum number of hazard reversals is a natural global structural invariant for a reliability lifetime model introduced specifically for nonmonotone failure risks. It rules out all more complex alternating hazard histories and proves an otherwise unillustrated two-minimum/one-maximum regime occurs robustly at **every** subunit Chen shape. This matters for shape-constrained fitting and model interpretation; it is not a routine local derivative evaluation or an arbitrary numerical slice.
+Direct differentiation gives positive derivatives for theta>=1. For a=theta in (0,1), the Chen derivative before x0=((1-a)/a)^(1/a) is -beta G; after and at x0 the total derivative is positive. G diverges at zero and Q stays finite, giving the initial negative sign. For K=Q/G, (log K)'=R-lambda*tanh(log(u)/2), with R=-G'/G>0 since xR>2-a-a*x^a>1. Independently, let A=1-a, w=1-a*x^a/A and T=x^(a-1)/(A*w). Applying the Euler derivative E=x*d/dx gives ET/T=-1+a/w, Ew=-a*(1-w), and x^2*T''/T=2-(3a+a^2)/w+2a^2/w^2. Its numerator quadratic has discriminant a^2*(a-1)*(a+7)<0; the remaining part of R'' is (2-a)*(2-a*A*x^a)/x^3>0. Thus (log K)' is positive for u<=1 and strictly convex on u>=1 because the second derivative of -lambda*tanh(log(u)/2) is nonnegative there. It has at most two zeros. Rolle bounds intersections K=beta by three even with tangencies, and if there are three, none is multiple (otherwise an extra zero of (log K)' would be forced). For fixed a, centering Q at x0/3 sends its height to infinity and its value at 2*x0/3 to zero as lambda grows, while G at both points is fixed positive. The four strict checkpoint signs force three roots and persist on a nonempty open set. Independent exact range-reduced rational Taylor inequalities (python3 /workspace/chen_perks_rational_replay.py) gave -,+,-,+ at x=y^5 for y=1,7/2,19/5,399/100 at the stated rational parameters. That replay certifies those signs, not the general root bound or the optional decimal root locations.
 
-## Sources and limitations
-The complete accessible HTML for https://doi.org/10.3390/math11133001 was read at its model-construction formulas, shape discussion, and conclusions. The relevant mathematical sections of https://doi.org/10.3390/axioms12020118 and https://doi.org/10.3390/math10050674 were read for distinct Chen-based constructions; https://doi.org/10.3390/math13233743 was examined as a related follow-up. The result does not give explicit boundaries between one- and three-turn domains for all parameters, and tangencies need not change monotonicity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The four-parameter distribution and graphical hazard flexibility are prior. The supported distinct result is the sharp stationary-age bound for its exact hazard, counting even degenerate stationary ages, and attainability at every fixed subunit theta. The inspected earlier results do not give that bound or attainment. This is a bounded literature comparison, not a priority guarantee.
+
+## value
+
+PASS
+
+This resolves a natural shape question for an existing reliability law that was illustrated by plots, not settled by them. It tells users which numbers of stationary ages can or cannot occur, proves a genuinely present but bounded three-turn mechanism at each eligible shape, and handles tangencies without equating them with density modes. The curvature bound is structural rather than a fit to test cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

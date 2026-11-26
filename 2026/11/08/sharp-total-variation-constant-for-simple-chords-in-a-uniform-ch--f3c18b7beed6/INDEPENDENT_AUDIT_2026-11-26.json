@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:45:33.737002Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–31 and 35–117, VERIFICATION.md and verify.py inspected without execution",
+        "Independent replay: cd /workspace && python3 branches/audit-replay.py 2; enumerated every matching of 4,6,8,10 vertices, checked rational factorial moments against the formula and verified the positive mass numerator exactly."
+      ],
+      "rationale": "For N=2n≥4, compatible cyclic adjacency pairs form a cycle matching. Counting marked selected edges and positive gaps gives N/(N−k) times binom(N−k,k); multiplying by k! and the probability of the required pairs yields the factorial-moment product. Its recurrence has factor 1+(1−k)/(N−k−1), and all moments are bounded by N/(N−1), including the extension by zero above n. Set b_k=k(3−k)/2. For k≤N/4 the recurrence first gives a_{N,k}−1=O((k+1)²/N). Subtracting (b_{k+1}−b_k)/N gives incremental error O((k+1)³/N²), so telescoping gives O((k+1)^4/N²). For k>N/4 the moment bound and |b_k|=O((k+1)²) are absorbed by that same estimate, even above n. Factorial summability on |z|≤2 now bounds the PGF remainder uniformly, and Cauchy's coefficient bound controls each r≥0, including r>n. Extracting (-z²+4z−3)e^(z−1)/(4n) gives the local correction. Its Poisson-weighted signed mass is zero and the positive coefficients are 1,3,3,1 before factorial weighting at r=1,2,3,4; their factorial-weighted sum is 73/24. The l¹ remainder is O(n^(-2)), giving 73/(96en) against the fixed Poisson target, with the claimed negative r=0 correction.",
+      "residual_risks": [
+        "Enumeration corroborates the finite counting identity, not the uniform analytic estimate. The result is for n≥2 and the full cyclic set of allowed pairs, not the path or mean-matched variant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paguyo gives fixed-target TV O(1/n), with a mean-matched Poisson used inside its proof. Acan gives small-length factorial-moment Poisson limits. Flajolet–Noy give a shifted-Poisson component limit, not a sharp approximation for the adjacency count."
+        ],
+        "reasoning": "The earlier rate bounds the same distance without specifying the exact constant, and the earlier limit for components uses a distinct random variable.",
+        "searches": [
+          "arXiv:2104.01134v2, Theorems 1.2–1.3, section 3",
+          "arXiv:1501.01489, Theorem 3.2 and Lemma 3.3",
+          "Flajolet–Noy, Analytic combinatorics of chord diagrams, section 1 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5e6c4273f9e7 and indexed candidates; arXiv:2104.01134v2 and 1501.01489; Flajolet–Noy (2000)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact deletion law fixes each factorial moment and its fixed-k coefficient, but the stated asymptotic is weak joint Poisson–Gaussian convergence, not a uniform expansion. Paguyo transfers an upper bound from Poisson(2n/(2n−1)) to Poisson(1)."
+        ],
+        "reasoning": "A rate upper bound does not imply a limiting coefficient. A pointwise factorial coefficient does not by itself give the analytic remainder: one needs quantitative control uniformly across k, including the cutoff, before extracting local coefficients and taking TV.",
+        "searches": [
+          "5e6c4273f9e7, exact deletion identity and limitation on growing factorial orders",
+          "arXiv:2104.01134v2, coupling proof around offset 28000"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct Resultary 5e6c4273f9e7 equations (1)–(2) include the full simple-chord PGF and factorial moments, by v=1 or f=1 respectively; its wrap-around convention and uniform measure match exactly."
+        ],
+        "reasoning": "The formulas are equivalent at finite n. This is exact-law overlap and only the controlled asymptotic analysis is credited.",
+        "searches": [
+          "Resultary match 5e6c4273f9e7",
+          "Web: ‘simple chords’ Paguyo random chord diagrams Poisson ‘asymptotic expansion’ exact total variation constant cyclic short chords linear chord diagram loops 73/96"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Distinct matched Resultary 5e6c4273f9e7 was read and gives exact joint PGF. Distinct 66eb34aa2633 was returned as a bivariate crossing/simple-chord polynomial; exact local mirror text unavailable. The distinct c2a530e05e03 concerns non-simple isolated chords."
+        ],
+        "reasoning": "A bivariate polynomial or table of finite distributions is important prior exact-law evidence but does not itself give an all-r controlled asymptotic. No inspected exact table supplies the leading coefficient with uniform error.",
+        "searches": [
+          "Resultary matches 5e6c4273f9e7, 66eb34aa2633, c2a530e05e03"
+        ]
+      },
+      "rationale": "The exact law through factorial moments and the fixed-Poisson O(1/n) TV rate are already covered. The credited increment is the signed local first-order profile with a summable, uniform second-order remainder and the resulting sharp TV coefficient. Fixed-order expansion of the prior factorial moments is immediate but does not justify passage to the full generating function at this precision. The additional uniform remainder argument yields the all-r local statement and the sharp asymptotic rather than just recovering the law or bounding its rate.",
+      "residual_risks": [
+        "An earlier local expansion or equivalent Poisson–Charlier result for these cyclic matchings may exist; the exact-law overlap is real, and one indexed exact-law source was not retrievable. The bounded search does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior O(1/n) rate and no-simple-chord bounds, not the stated expansion",
+          "evidence": "Theorem 1.2 uses fixed Pois(1); the proof uses the mean-matched intermediate and then a triangle bound. Theorem 1.3 bounds the zero-count event.",
+          "identifier_or_url": "https://arxiv.org/pdf/2104.01134v2",
+          "material_read": "Theorems 1.2–1.3, p. 3 / offset 9518, and proof in section 3, p. 9 / offset 28000",
+          "method": "OA PDF bounded passages",
+          "title": "Convergence rates of limit theorems in random chord diagrams",
+          "trigger": "Same object, metric and fixed target; strongest published rate match"
+        },
+        {
+          "assessment": "Stronger exact joint law, no sharp signed marginal limit in the compared claims",
+          "evidence": "Equation (1) at v=1 is the exact finite PGF here; equation (2) identifies all factorial moments. The stated joint convergence and its limitations do not control a growing factorial range.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-factorial-deletion-law-and-joint-poisson-gaussian-limit-for-ra--5e6c4273f9e7/RESULT.md",
+          "material_read": "Finding and limitations, offsets 0–3998 and 8000–9890",
+          "method": "Resultary search plus exact local mirror",
+          "title": "A factorial deletion law and joint Poisson–Gaussian limit for random chord diagrams",
+          "trigger": "Strongest distinct exact-law indexed match"
+        },
+        {
+          "assessment": "Prior Poisson limit via factorial moments",
+          "evidence": "Simple chords have the Poisson(1) limit; the compared proof of convergence does not give the controlled second-order error.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+          "material_read": "Theorem 3.2 and Lemma 3.3, pp. 7–8 around offset 25802",
+          "method": "OA PDF bounded passage",
+          "title": "On a uniformly random chord diagram and its intersection graph",
+          "trigger": "Earlier simple and other fixed-length chord asymptotics"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Shifted Poisson convergence for number of components; component enumeration does not identify all cyclic adjacent pairs.",
+          "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+          "material_read": "Section 1 Theorem 1 around offset 8513, plus nearby root-component description",
+          "method": "OA PDF bounded passage",
+          "title": "Analytic combinatorics of chord diagrams",
+          "trigger": "Earlier asymptotic enumeration of chord structures"
+        },
+        {
+          "assessment": "Unverified beyond matching exact-law topic",
+          "evidence": "The summary describes the joint crossing/simple-chord polynomial; no conclusion about its asymptotic results is drawn from unavailable text.",
+          "identifier_or_url": "2026/11/2/SCOPE-a-bivariate-Touchard-Riordan-law-for-simple-chords-and-crossings--66eb34aa2633",
+          "material_read": "Ranked catalogue summary only; exact RESULT.md unavailable",
+          "method": "Local Resultary search and exact mirror attempt",
+          "title": "A bivariate Touchard–Riordan law for simple chords and crossings",
+          "trigger": "Plausible exact-law overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof sections 2–4; Paguyo Theorem 1.2; exact prior law in 5e6c4273f9e7"
+      ],
+      "rationale": "The signed coefficient identifies which counts supply the TV discrepancy and how the no-chord probability deviates, strengthening an existing natural fixed-target O(1/n) result. The uniformly summable error separates an exact sharp constant from extrapolation, fixed-r formal expansions, or numerical recomputation.",
+      "residual_risks": [
+        "No optimal absolute remainder constant or other adjacency graph or target is assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:32:46.644861Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–51 and 55–107",
+        "VERIFICATION.md, check_tunneling.py and requirements.txt (inspected, not executed)",
+        "/workspace/branches/independent_replay.py, barbell()"
+      ],
+      "rationale": "A sum-zero launch evolves in the left nonbridge eigenspace of eigenvalue −1/(n−1), giving the exact bright-weight factor after right projection. Reflection of the degree-normalized four-dimensional block gives diagonal entries (a, ±1/n) and off-diagonal 1/√n. The even top root is 1; the odd top root θ is in (a,1), by nonzero coupling and Perron simplicity. The lower odd root η is O(1/n) by the product of the roots and θ≥a≥1/2. The identity (1−θ)(1−η)=2/[n(n−1)] gives the positive splitting. In each parity sector the squared residual weight at e₁ is at most q=n/(n−1)². The two errors in survival amplitudes are each at most 2q and each bridge amplitude at most 2√q; the half-differences give a probability error at most 4q+4q. Compact scaled-time convergence gives the first fixed-threshold crossing by bounding the whole earlier compact interval strictly below threshold and evaluating just above the crossing before π/2. The other consequences follow from the exact ceiling and the first sine-envelope peak. Independent full-matrix diagonalization reproduced the gap and 150 packet/time comparisons including bright, localized, dark and complex launches; replay: python /workspace/branches/independent_replay.py 5.",
+      "residual_risks": [
+        "Finite replay is diagnostic only; applies analytically to equal unweighted cliques, normalized adjacency and stated launch support, not arbitrary normalized graphs or first-detection protocols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Equations (A7–A8) are identical to the odd quadratic and root used in the frozen proof; (A9–A14) supply the dark modes and exact parity data.",
+          "The complete same-model spectral solution determines every right-clique probability at all times, not just its scaling limit."
+        ],
+        "reasoning": "The exact solution is stronger evidence than the primary paper's qualitative localization discussion; the group-transfer definition is not a dominating theorem.",
+        "searches": [
+          "Dhamapurkar–Subrahmanyam, Appendix A exact spectrum and eigenvectors",
+          "Brown–Martin–Wright arXiv:2103.08837"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.05643, Appendix A",
+        "arXiv:2103.08837 introductory definition",
+        "Resultary 21494e515130 and 21a1afc56634 summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For the two top parity vectors, (A11–A12) imply 1−wλ ≤ n(λ−a)² ≤ q. The parity half-differences then bound the difference of nonbridge probabilities by 4q and the bridge probability by 4q.",
+          "Substitution at λ=1 into (A7) gives 2, hence (1−θ)(1−η)=2/[n(n−1)]. The dark ceiling and a single peak of the resulting uniform profile give the remaining preparation and time statements."
+        ],
+        "reasoning": "A different observable and explicit numerical constant do not avoid coverage here because both come by direct projection and elementary bounds on the prior exact solution of precisely the same system.",
+        "searches": [
+          "arXiv:2603.05643 PDF, pp. 10–12, Appendix A (A7–A14), (A24)",
+          "Frozen RESULT.md lines 9–43, 69–107"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Left dark subspace and the two reflection parities are exactly the eigenvectors in the prior normalized-adjacency barbell model.",
+          "Exact group transfer of every supported launch is different: the dark component prevents such transfer here, whereas the reviewed finding is approximate bright-weighted population."
+        ],
+        "reasoning": "The equivalent spectral formulation, not the group-transfer alias, supplies exact coverage.",
+        "searches": [
+          "arXiv:2603.05643 Appendix A, (A7–A14)",
+          "arXiv:2103.08837, group-state-transfer definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed summary for 21494e515130 describes return and sinc windows for weighted joins, and 21a1afc56634 describes a three-component weak-edge and Pell waiting times. Exact record text was not available through the mirror."
+        ],
+        "reasoning": "No exact match was verified in the inspected summaries; the negative decision instead relies on exact primary equations.",
+        "searches": [
+          "Resultary normalized barbell packet transfer and weighted quantum joins",
+          "Resultary spectral collision 21494e515130 and weak-edge pulsation 21a1afc56634"
+        ]
+      },
+      "rationale": "The transfer statements are not identically worded in the primary paper, but the same Hamiltonian's published exact eigendata mechanically imply the entire proposed bound and its corollaries. From Appendix A's eigenvectors, the bridge/nonbridge aggregate ratio of a top parity eigenvector is √n(λ−a) (λ=1 or θ). Hence the residual squared weight is at most n/(n−1)², with no new spectral analysis. Directly using the two parity survival amplitudes and the triangle inequality yields the stated constant 8; inserting the Appendix A quadratic yields the gap, and the same profile and ceiling yield the preparation, scale and first-threshold results. This is implicit coverage by stronger exact solution data, not evidence of an identically published population theorem. Use the exact equations (A7–A8), not the inconsistent large-n display (A24) in the retrieved PDF; the exact roots give θ→1 and the quadratic splitting.",
+      "residual_risks": [
+        "Additional sources could state the population theorem explicitly; no priority inferred from same-day catalog entries. The implicit-coverage finding does not depend on them."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS BY DIRECT IMPLICATION",
+          "evidence": "(A7–A14) match the frozen spectral data; re-expansion of (A7) is needed rather than using the inconsistent (A24) display.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.05643",
+          "material_read": "Appendix A, pp. 10–12, exact eigenvalues and eigenvectors; comparison to paragraph on asymptotic forms and Sec. IV localization discussion",
+          "method": "Open PDF; bounded passage inspection around offsets 68000–74785 and 74800–79999 and cited Appendix locators",
+          "title": "Localization Without Disorder: Quantum Walks on Structured Graphs",
+          "trigger": "Same graph and Hamiltonian; cited exact benchmark"
+        },
+        {
+          "assessment": "Different observable in passage inspected",
+          "evidence": "Exact support transfer for an entire source set does not describe bright-weighted approximate transfer.",
+          "identifier_or_url": "https://arxiv.org/abs/2103.08837",
+          "material_read": "PDF p. 1, definition, offsets 1213–1678",
+          "method": "Bounded open-text passage",
+          "title": "Continuous Time Quantum Walks on Graphs: Group State Transfer",
+          "trigger": "Nearby transfer formulation"
+        },
+        {
+          "assessment": "Related scope; theorem-level comparison not established",
+          "evidence": "Summaries concern return probabilities or a third component, not the specified two-clique regional population.",
+          "identifier_or_url": "Resultary:21494e515130; Resultary:21a1afc56634",
+          "material_read": "Index summaries only",
+          "method": "Local Resultary search; exact mirror files unavailable",
+          "title": "Spectral collision spikes and finite-time sinc windows in weighted quantum joins; Sharp Pell waiting-time constant for three-component weak-edge quantum pulsation",
+          "trigger": "Closest indexed exact quantum dynamics results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–45 and 76–107",
+        "arXiv:2603.05643 Appendix A"
+      ],
+      "rationale": "Preparation-sensitive transport on a bottleneck is a meaningful question, and stating the peak and arrival profile is a useful exposition of the exact solution. As a standalone mathematical contribution here, the asserted constant, packet criterion and arrival do not require a new estimate beyond elementary spectral projection of the prior exact eigenbasis for the very same graph. The theorem does not optimize the finite-size envelope or address a new graph or measurement regime. The straightforward correction of the source's displayed asymptotics by its own exact quadratic does not establish a separate valuable remainder.",
+      "residual_risks": [
+        "The decision concerns a standalone finding, not usefulness as a worked transport interpretation."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:11:47.028821Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md line 27 omitted the common weight in the equal-weight corollary: for alpha=beta=2 the optimum is twice the asserted number, since the squared norm is homogeneous of degree one in the weights. The corrected RESULT.md gives gamma times the unit-weight value, and SLOGAN.txt now specifies uniqueness up to reflection. Re-audit: the mean-zero, piecewise-quadratic kernel has derivative t-1_{t>s}; integration gives f(s)-mean(f), also for endpoint evaluations. The squared norm is the top eigenvalue of the weighted Gram. In the ordered triangle x<=y, zero correlation is x^2+(1-y)^2=1/3. On the stated opposite-center branch, b(a) strictly decreases and the diagonal ratio R(a) strictly decreases from 5-2sqrt(3) to 1, giving exactly the proposed scalar Gram. In the dual certificate on lines 54–72, v/u=L and v/(1-u)=U force both displayed derivatives to vanish; v^2/(u(1-u))=ab/[(1/2-a)(1/2-b)]<1 since a+b<1/2. The certificate is a positive definite trace-one test matrix giving a sharp strictly convex quadratic lower bound throughout the triangle, hence equality only at its critical point and the reflection. At and after the threshold the heavier diagonal forces x=1/2 and equality in the PSD spectral bound forces zero off-diagonal, yielding exactly the two reflected y roots with lighter diagonal beta(5-2sqrt(3))/12. At equal weights x=1/sqrt(6), and (x-1/2)^2+1/12=(1-sqrt(2/3))/2, now correctly multiplied by gamma. The supplied checker only tests normalized beta=1 and misses this scaling defect. Independent replay `python3 -I /workspace/review-work/replay.py 2`: 89,304 grid PSD-budget checks with floating-point tolerance, plus explicit nonunit common-weight scaling and saturation checks. These are finite corroboration; the certificate proves the continuum result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Catalogued same-space minimax sampling at three unit-weight sites does not permit suppression or continuous reweighting of a site in the available statement. The two-site result for moment-centered second-order Sobolev penalties changes both the centering constraints and the energy. Frozen RESULT.md §Relationship to prior work reports that Wang–Zhang optimize reconstruction in an RKHS; Privat–Trélat–Zuazua optimize randomly averaged observation of parabolic equations."
+        ],
+        "reasoning": "The order of the energy and the observation objective matter: reconstruction minimizes a different error operator, and an equal-weight three-site theorem with fixed cardinality does not imply all two-site weight ratios. The primary full-text comparisons could not be independently confirmed; the strength of this comparison is limited to the material specified below.",
+        "searches": [
+          "Resultary 361a3cfcf4ee",
+          "Resultary bdf16e2de7bc",
+          "arXiv:1207.5871",
+          "arXiv:1403.6445"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md through all proof and comparison sections; supporting VERIFICATION.md and check.py; corrected RESULT.md and SLOGAN.txt",
+        "Resultary 7148531891d9, 361a3cfcf4ee, bdf16e2de7bc (catalogue summaries)",
+        "Primary-source retrieval attempts specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Available descriptions do not supply a trace-one lower certificate for the weighted two-evaluation Gram on an ordered site triangle or the midpoint zero-correlation equality conditions. The three-site indexed summary reports a double top eigenvalue at its symmetric optimal triple, but a three-by-three matrix having a double top eigenvalue does not even require every two-by-two principal submatrix to be scalar."
+        ],
+        "reasoning": "Tightness of the two-by-two Gram must be proved optimal for this lower branch; general RKHS theory and a diagonal bound alone do not imply it. Above threshold the diagonal bound becomes sharp for a specific lighter site, not an arbitrary point off center. No useful close primary-web hit was identified; that is not evidence of absence.",
+        "searches": [
+          "arXiv:1207.5871",
+          "arXiv:1403.6445",
+          "arXiv:1501.02310",
+          "Resultary 361a3cfcf4ee"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For Brownian motion B subtract its sample-path integral on the unit interval. The covariance is min(s,t)-(s-s^2/2)-(t-t^2/2)+1/3, exactly the frozen K. Thus weighted covariance minimax and the two-site weighted Gram problem are equivalent. The exact catalogue match is the assigned record, not earlier evidence."
+        ],
+        "reasoning": "Knowing the covariance kernel gives the objective, but does not by itself provide the optimal locations, phase threshold, or equality cases. Earlier treatment in this alias remains possible.",
+        "searches": [
+          "Resultary 7148531891d9",
+          "Two-point Neumann Green design and arclength-mean-centered Brownian covariance formulation (frozen RESULT.md lines 35–46 and 88)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact two-point weighted mean-zero H1 classification and 5-2sqrt(3) threshold appeared for the target itself. The close summaries concern three evaluation sites or second-order moment constraints."
+        ],
+        "reasoning": "The check concerns an existing exhaustive phase/optimizer formula for the same two-site kernel, not tabulated Neumann Green values. The index alone cannot establish priority.",
+        "searches": [
+          "Resultary catalogue: 7148531891d9, 361a3cfcf4ee, bdf16e2de7bc"
+        ]
+      },
+      "rationale": "The corrected claim retains the distinct optimization of the exact largest eigenvalue for two weighted sites, across the full weight ratio range, including rigidity at the finite onset of saturation. Common-weight scaling itself is elementary and not a novelty claim. No verified covering primary or distinct indexed result was found in the available statement evidence.",
+      "residual_risks": [
+        "Original OA papers and decisive mirror passages timed out; the inspected summaries and frozen descriptions do not establish whole-document noncoverage.",
+        "Earlier equivalent optimization in Green-function tight-frame design or centered Brownian covariance remains possible. No priority order is inferred from same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Genuine methodological and same-kernel overlap, but different count and fixed equal site weights",
+          "evidence": [
+            "Three unit-weight sites, symmetric optimal triple and a double top Gram eigenvalue in the summary."
+          ],
+          "identifier_or_url": "Resultary 361a3cfcf4ee",
+          "material_read": "Catalogue summary; original mirror passage unavailable",
+          "method": "Resultary search and bounded mirror attempt",
+          "title": "Unique three-point minimax sampling on a mean-zero Sobolev interval",
+          "trigger": "Closest indexed minimax statement in the same space"
+        },
+        {
+          "assessment": "Does not specialize to the first-derivative arclength-mean-zero problem",
+          "evidence": [
+            "Two equal-weight sites, order two, with zero mean and first moment."
+          ],
+          "identifier_or_url": "Resultary bdf16e2de7bc",
+          "material_read": "Catalogue summary",
+          "method": "Resultary search",
+          "title": "Unique symmetric minimax pair for moment-centred second-order Sobolev traces",
+          "trigger": "Same design cardinality"
+        },
+        {
+          "assessment": "Reported reconstruction objective differs from the evaluated joint trace norm; original full-text coverage not certified",
+          "evidence": [
+            "Frozen reference points to Sections 1–4 and Appendix and distinguishes a subspace reconstruction criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.5871",
+          "material_read": "Frozen RESULT.md lines 86–98; independently requested original passages timed out",
+          "method": "Frozen comparison plus targeted OA attempt",
+          "title": "Optimal Sampling Points in Reproducing Kernel Hilbert Spaces",
+          "trigger": "Broad RKHS sampling framework"
+        },
+        {
+          "assessment": "Reported parabolic positive-measure observation differs in geometry and objective",
+          "evidence": [
+            "Randomized initial data and observation domains, not two point evaluations in derivative energy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.6445",
+          "material_read": "Frozen RESULT.md lines 86–98; no independent original passage delivered",
+          "method": "Frozen comparison plus targeted OA attempt",
+          "title": "Optimal shape and location of sensors for parabolic equations with random initial data",
+          "trigger": "Sensor design terminology and possible broader methods"
+        },
+        {
+          "assessment": "Reported countable discrete setting is not the stated continuous interval design",
+          "evidence": [
+            "Frozen reference identifies a discrete sampling framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.02310",
+          "material_read": "Frozen RESULT.md lines 86–98; no independent original passage delivered",
+          "method": "Frozen comparison plus targeted OA attempt",
+          "title": "Discrete reproducing kernel Hilbert spaces: Sampling and distribution of Dirac-masses",
+          "trigger": "Potential abstract kernel sampling coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the exact full design curve for a natural small sensor problem: under enough weight imbalance the heavier sensor attains its standalone minimum and the lighter sensor is forced to a fixed covariance root. Below threshold, optimality instead requires a simultaneous balancing of two orthogonal weighted evaluations. The positive gap to every other ordered placement except the reflected one, and an exact threshold rather than a numerical optimum, answer an actual worst-case trace design question. The normalization/reporting repair does not change those conclusions or promise a result for reconstruction or larger designs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

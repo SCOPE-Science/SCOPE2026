@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:38:38.520353Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md: lines 4–87 and limitations",
+        "VERIFICATION.md: lines 19–25",
+        "verify.py: square moments, quadrature and optimizer checks"
+      ],
+      "rationale": "Projection gives a Minkowski sum of the projected base and a segment of length h√(1−z²), with z=U_3. On lines parallel to the segment the chord lengths increase by its length; integration gives the planar area increment as length times transverse width, also for a degenerate base projection at z=0. The base determinant factor is |z| and the transverse direction is horizontal and perpendicular to the azimuth. The poles give B_h=A. Thus with Z=|U_3| uniform on [0,1], B_h=AZ+h√(1−Z²)W where W is independent of Z and has the base's uniform-direction width law. Conditional variance contributes exactly (2/3)h²(ν−μ²); the variance of the conditional mean contributes A²/12−Aμqh+μ²gh², using the integrals π/4 for √(1−Z²) and 1/3 for Z√(1−Z²). Cauchy's planar perimeter formula gives μ=per(Q)/π. Both q and g are strictly positive (g is itself a variance), so completing the square gives the unique positive optimizer, the minimum, and the increasing excess. By continuity, zero width variance is equivalent to constant width in every direction. At equality t=q/(2g)>1, and the graph of z+t√(1−z²) has endpoints t and 1 and maximum √(1+t²) at z=1/√(1+t²). The larger quadratic root is the endpoint of the descending-branch sublevel interval, and for y≥t the smaller root adds the ascending-branch sublevel length; both formulas agree at y=t and are valid at 1 and at the maximum. This also gives strictly positive variance. The decimal checks give t≈1.191691057107415, C_*≈0.012587701907808, and disk h_*/R≈1.871903935178654.",
+      "residual_risks": [
+        "Packaged code inspected, not executed. Its midpoint quadrature uses the brightness formula rather than proving it, and its finite checks do not test the full-law CDF.",
+        "Independent geometric spot-check replay: project the six vertices of the prism over (0,0),(3,0),(1,2) at height h=0.8, z=0.23 and azimuth φ=1.4. Planar coordinates are (−x sin φ+y cos φ, z(x cos φ+y sin φ)−√(1−z²) times the vertical coordinate). Convex hull and shoelace give area 2.991673061727096, in agreement with the predicted formula; the chord argument establishes the universal result.",
+        "The limitations phrase about full laws should be read as excluding general bases, not the stated constant-width equality law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day e03d3b63d5b7 is a brightness-deficit law for a particular constant-width body in three dimensions, not a prism over a constant-width base.",
+          "The obliquity result 6279ad1d3713 concerns oblique-cylinder line widths; it is not a covering theorem for planar shadows.",
+          "Small's projected-images article was accessible only at landing/abstract level, so no whole-paper negative finding is assigned."
+        ],
+        "reasoning": "The common phrase random projections does not identify the dimension of the projection or the family of bodies; no stronger earlier brightness-optimization statement was established from these sources.",
+        "searches": [
+          "Resultary right-prism and general brightness distribution; e03d3b63d5b7 and 6279ad1d3713",
+          "Primary random projected images, brightness moments and stereology"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e4aab819253b, e03d3b63d5b7, 0d2368f94d4d, 1feeb231b707, eb371b3be549, 6279ad1d3713",
+        "arXiv:1203.2464",
+        "arXiv:1110.0671",
+        "arXiv:1511.08479",
+        "JSTOR 3315425 (limited access)",
+        "Frozen RESULT.md: lines 92–111"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same arbitrary-base variance polynomial in the later e4aab819253b, taken as a starting point, mechanically gives the frozen optimal height and variance by completing a quadratic; their distinct normalized optimum is not itself an equivalent statement.",
+          "The pointwise formula, not the moment table, gives the full law; the universal equality class uses width on every planar direction."
+        ],
+        "reasoning": "There is significant later methodological and intermediate-result overlap, not independent novelty for that polynomial relative to the later document. Among earlier matches, specialization/reoptimization of single-shape or rectangle formulas cannot establish the arbitrary-base sharp infimum and characterize all optimizing bases. The known projection identity alone supplies the geometry, not the sharp variance comparison or its equality law.",
+        "searches": [
+          "e4aab819253b Finding and proof §§1–4",
+          "1feeb231b707 Shadow decomposition and 0d2368f94d4d Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e4aab819253b uses the same brightness decomposition and variance polynomial, but divides by (E B_h)² instead of A².",
+          "Finch distinguishes projected-area chorowidth from line width; the width-moment works and Resultary eb371b3be549 concern the latter."
+        ],
+        "reasoning": "The mean A/2+πμh/4 depends strictly on h. Dividing by its square changes the stationarity condition, not just the units; normalized line width is also a different random variable.",
+        "searches": [
+          "Resultary right-prism projection area variance and universal brightness-stabilizing height",
+          "Finch arXiv:1203.2464 introduction and arXiv:1110.0671 introduction",
+          "arXiv:1511.08479 §1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finch's unit cube second chorowidth moment is 1+4/π. The orthotope record gives first and second shadow-area moments for all rectangular prisms.",
+          "The cylinder record gives the pointwise shadow area for disk bases and the area–perimeter covariance, which is not the area-variance objective."
+        ],
+        "reasoning": "Cube and rectangular-base moment specializations are covered. A disk formula permits the one-body variance optimization but neither handles noncircular constant-width bases nor tests the arbitrary-base equality criterion.",
+        "searches": [
+          "Resultary exact orthotope planar-shadow moments 0d2368f94d4d and exact cylinder shadow mixed moment 1feeb231b707",
+          "Finch arXiv:1203.2464 §2.2 (3-Cube)"
+        ]
+      },
+      "rationale": "Supported distinct content is the optimum and sharp rigidity profile under fixed base-area normalization, together with the full normalized equality-law shared by all planar constant-width bases. The shadow decomposition is classical; cube and rectangular-prism moments and circular-cylinder brightness are not new. A later indexed right-prism result reproduces the arbitrary-base moment calculation and has constant-width optimal bases for a different objective. That substantial overlap is credited without equating the optimized objectives or claiming historical priority from the search.",
+      "residual_risks": [
+        "Small's JSTOR article was not available in full; other older brightness or caliper formulations may contain further overlap. This bounded comparison does not establish priority.",
+        "The later mean-normalized result's exact common moment polynomial limits the independent scope of the calculation; the two normalizations must remain explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later full moment overlap, different optimized objective",
+          "evidence": [
+            "Matches the projection decomposition and variance algebra; divides by squared mean brightness. No stated base-area-normalized universal equality CDF."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-brightness-stabilizing-height-for-convex-prisms--e4aab819253b",
+          "material_read": "Finding and proof §§1–4, offset 0",
+          "method": "Resultary and mirror original passage",
+          "title": "A universal brightness-stabilizing height for convex prisms",
+          "trigger": "Same prism and variance optimization"
+        },
+        {
+          "assessment": "Exact unit cube specialization",
+          "evidence": [
+            "Chorowidth is planar projection area; the unit 3-cube has mean-square chorowidth 1+4/π."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.2464",
+          "material_read": "Introduction and §2.2, offsets 1302 and 9700",
+          "method": "OA primary-text inspection",
+          "title": "Planar Projections and Second Intrinsic Volume",
+          "trigger": "Exact planar-projection moments"
+        },
+        {
+          "assessment": "Covered rectangular-base moment case",
+          "evidence": [
+            "Complete first and second moment formulas apply to 3D boxes, not arbitrary Q."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and mirror original passage",
+          "title": "Exact planar shadow-area moments for all orthotopes",
+          "trigger": "All cuboid shadows"
+        },
+        {
+          "assessment": "Circular brightness known, optimization of different statistic",
+          "evidence": [
+            "Area projection formula and area–perimeter covariance for a circular cylinder."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-exact-cylinder-shadow-mixed-moment-and-sharp-positive-covariance--1feeb231b707",
+          "material_read": "Finding and Shadow decomposition, offset 0",
+          "method": "Resultary and mirror original passage",
+          "title": "Exact cylinder shadow mixed moment and sharp positive covariance",
+          "trigger": "Disk equality case and projected-area formula"
+        },
+        {
+          "assessment": "Different projection dimension",
+          "evidence": [
+            "Width via supporting planes and mean-square widths for regular tetrahedron and cube."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+          "material_read": "Introduction, offset 1400",
+          "method": "OA primary-text passage",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Higher moments of random shadows/width aliases"
+        },
+        {
+          "assessment": "Different projection dimension",
+          "evidence": [
+            "Higher moments of one-dimensional projection lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+          "material_read": "Abstract and §1.1, offset 1850",
+          "method": "OA primary-text passage",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Possible general projection moment framework"
+        },
+        {
+          "assessment": "Full text not assessed",
+          "evidence": [
+            "The bounded available passage does not resolve prior coverage."
+          ],
+          "identifier_or_url": "https://www.jstor.org/stable/3315425",
+          "material_read": "Landing/abstract only",
+          "method": "Primary literature search and lawful OA retrieval attempt",
+          "title": "Reconstructing Convex Bodies from Random Projected Images",
+          "trigger": "Potential older stereological formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md: lines 14–51 and 56–87",
+        "Finch arXiv:1203.2464 §2.2",
+        "Resultary e4aab819253b and 0d2368f94d4d"
+      ],
+      "rationale": "Optimizing height at fixed base-area scale gives a complete, geometrically interpretable comparison for arbitrary bases: a single angular width statistic quantifies the entire increase of optimal variance over a sharp bound and excludes every nonconstant-width base. The optimizers include nondisk and nonsmooth examples and share a full normalized law, not just a moment. This resolves a natural sharp extremal question after the classical projection decomposition rather than reporting another special-body moment.",
+      "residual_risks": [
+        "The deficit measures spread of widths, not distance to a particular disk or a quantitative Hausdorff stability statement. It is not an optimized coefficient of variation or a law for general oblique prisms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

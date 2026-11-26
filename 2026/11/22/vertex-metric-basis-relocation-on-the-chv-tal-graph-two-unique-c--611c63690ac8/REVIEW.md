@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph's 24 listed edges are the exact input. Computing all 66 vertex-pair separator masks is an exact test of the metric basis condition. No subset of size at most three resolves, while exactly 146 four-sets do. Since all moves between those states are enumerated by the one-vertex-difference test and its edge-adjacency restriction, shortest-path searches on the complete finite graphs decide all distances exactly. Two different standalone programs, independently using breadth-first search and Floyd–Warshall, agreed on 928 jump edges, 452 slide edges, both eccentricity spectra, and all 10585 unordered-pair detour values. No infinite generalization is implied.
+PASS
 
-## Originality — PASS, with residual risk
+For the exact twelve-vertex labelled edge list, complete host-graph BFS and exhaustive distance-signature enumeration independently reproduce no resolving set of size at most three and 146 resolving four-sets. Adjacency of bases in the jump graph is symmetric difference of cardinality two; for sliding, its two vertices must be a host edge. All-source BFS on the resulting graphs confirms connectivity, 928 and 452 edges, radii 4 and 4, diameters 4 and 6, slide eccentricities 4:2, 5:104, 6:40 and exactly centers {2,8,9,11} and {3,6,7,10}. All 10585 unordered distinct pairs give jump excesses (10367,218) and slide excesses (4463,4944,1070,92,16) relative to 4−|S∩T|. The proof covers only minimum vertex-resolving sets and single simultaneous replacements. Replay: python3 /workspace/review_checks/1.py; saved output /workspace/review_checks/1.out. This was a fresh finite computation, distinct from inspection of the frozen verifier evidence.
 
-The central comparator is the contemporary *edge-metric* Chvátal-graph basis census, which has 192 optimal five-landmark configurations, versus 146 optimal four-landmark **vertex-metric** configurations here. The predicates are different; none of those indexed edge-resolution data implies the vertex-resolution slide/jump distances. Standard works of Hakanen and collaborators on classical metric bases and Nishimura on the general reconfiguration framework do not report the present finite distance census in the inspected accessible material. Exact full text of the edge-metric comparator was inaccessible; an unpublished or unindexed equivalent computation is possible. No stronger originality claim is made.
+## originality
 
-## Value — PASS
+PASS
 
-The Chvátal graph is a canonical smallest four-regular triangle-free four-chromatic network rather than an arbitrary cut-down subgraph. The exact resilience of its minimum **vertex-location landmark** configurations to local moves is a natural benchmark: every optimal set remains mobile, but the slide diameter increases to six, just two of the 146 solutions are centers, and 16 pairs require four additional steps beyond the exchange lower bound. The full distributions provide meaningful test targets for shortest optimal-solution reconfiguration, especially when comparing vertex and edge sensing constraints on the same network. This is a useful exact finite classification without implying a general algorithmic theorem.
+The supported distinct claim is the exact Chvátal vertex-basis relocation geometry and detour census, not the host graph, the metric-basis definition or the jump/slide framework. Inspected sources do not establish this census. The closest exact same-host result uses a different feasibility predicate; the primary search was bounded and low-yield.
 
-## Limitations and closest literature
+## value
 
-The result is a finite exhaustive certificate only, dependent on the displayed labelled graph and move definition; no larger-graph formula or historical priority is established. Direct comparison was made with the publicly indexed edge-metric Chvátal calculation, as well as accessible work on classical metric bases and token reconfiguration; the edge-metric full text was not accessible during this examination. Ordinary graph-metric and vertex-basis notions are previous literature, not contributions here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Chvátal graph is a classical small regular high-chromatic host with independent interest. Its complete minimum-state mobility geometry quantifies a real difference between global and adjacency-constrained replacements that neither connectivity nor metric dimension records: only two optimal slide starting states and positive jump detours even without locality. The exact pairwise excess census supplies a directly usable small benchmark and a contrast with other hosts where every jump attains the exchange lower bound. This is not a claimed general algorithm or a family-wide result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

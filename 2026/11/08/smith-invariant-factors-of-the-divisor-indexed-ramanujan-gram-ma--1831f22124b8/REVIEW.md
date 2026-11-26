@@ -1,19 +1,21 @@
-# Scientific review: divisor-indexed Ramanujan Gram Smith factors
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The integer identity \(C=M D Z^{\mathsf T}\) follows term-by-term from Kluyver's formula, and both incidence matrices are unimodular. The prime-power Gram core has entries \(p^{i+j}(a-\max(i,j)+1)\). Consecutive leading minors of its unweighted kernel have determinant \(a-i+2\); the Schur complement is explicit. A local diagonal unit splits a factor \(p^{2i}\), whereas a divisibility event \(p\mid(a-i+1)\) produces a unit-determinant two-by-two block after extracting \(p^{2i+1}\). All elimination coefficients are integral over \(\mathbb Z_p\) because later index weights carry additional powers of \(p\). Tensor-product localization proves the all-modulus formula. The verifier independently checks Smith factors from all minors in finite cases. Boundary cases \(n=1\) and final singleton/pair indices are covered.
+PASS
 
-## Originality — PASS, with residual historical uncertainty
+The divisor identity factors C_n as M D Z^T with integral unimodular Möbius and zeta incidence factors. Thus the Gram is integrally equivalent to D(Z^T Z)D, not to the square of the Smith normal form of C_n. For p^a, U=Z^T Z has entries a+1−max(i,j), and differencing neighboring rows and columns of a leading i×i block gives determinant L=a−i+2. When the eliminated prefix U-block is a local unit, each of its remaining cross-columns is (a−j+1) times the all-ones vector, and its inverse sends that vector to its last basis vector divided by L. This gives the claimed residual formula. In the one-index branch the residual diagonal is a unit times p^(2i). In the pair branch the unweighted residual two-block has unit determinant as a−i is a unit; its weighted block has entries divisible by p^(2i+1) and, after division by that power, unit determinant. Elimination of either block is integral: with pivot indices I and later indices J, the multiplier is D_J R_JI R_II^(-1) D_I^(-1), whose entry for j∈J and ℓ∈I includes p^(j−ℓ) and a local-integer factor. The enlarged unweighted prefix is again a unit in both branches, proving the scan inductively (including an empty prefix and the final index). Coprime tensor factors are invertible at p except for the p-factor itself, so local Smith powers repeat with the stated multiplicity and global factors align in sorted order. The product gives n^τ(n); for odd p the last exponent is 2a, and for p=2 the last two indices necessarily form a pair so the last exponent is 2a−1. Only index zero could give a unit, which yields the stated rank. The empty product at n=1 yields (1). As finite corroboration, 75 independently constructed integer Smith computations using a totient-quotient formula for the entries agreed, including prime-power exponents up to 12 and mixed moduli.
 
-Tóth (arXiv:1002.3221v1) develops Ramanujan polynomials and the standard divisor formula, not the integer Gram Smith form. Fowler–Garcia–Karaali (arXiv:1201.1060) establish the supercharacter table, its weighted orthogonality, Kronecker structure and square identity; these do not specify the unweighted Gram cokernel. Schlage-Puchta (DOI:10.1007/s00013-021-01643-8) establishes the determinant of the table, hence only the product of the Gram invariant factors. The new complete invariant-factor profile distinguishes previously undetermined elementary divisors, including nontrivial adjacent-pair transitions. Targeted literature, mathematical alias, and related database searches found no equivalent statement; historical priority cannot be guaranteed by searches alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete classification of an intrinsic integer-lattice invariant associated with a canonical arithmetic Fourier/supercharacter table. It goes beyond determinant and orthogonality to describe the finite abelian cokernel, sharp exponent \(n^2\) (odd \(n\)) or \(n^2/2\) (even \(n\)), and a modular-rank collapse controlled by \(p\mid(a_p+1)\). The exceptional pair substitutions encode a nontrivial arithmetic dependence on the prime-power exponent and are invisible to the already-known determinant. This is a natural all-moduli classification rather than an arbitrary numerical slice.
+The published table, its coprime factorization, its weighted orthogonality and the Gram determinant are prior mathematics. A general gcd-matrix normal form also covers the unscaled core U. The supported distinct claim is the full integral Smith classification of the unweighted Gram, especially the local pairs at indices i with p dividing a−i+1. None of the compared statements supplies the Smith classification after the nonunimodular weights D on both sides.
 
-## Limits
+## value
 
-No claim of novelty is made for the Ramanujan sum formula, supercharacter table, weighted orthogonality, tensor decomposition or determinant. The theorem is restricted to the specified unweighted divisor-indexed Gram matrix. Full-text comparison covered the most directly relevant primary articles; undiscovered equivalent integral classifications remain possible. Finite computations are corroborative and do not establish the universal result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unweighted Gram on the natural divisor-indexed Ramanujan table has an integral cokernel that neither its determinant nor the standard weighted orthogonality identifies. The paired exponents explain departures from naive squared Smith factors and give the full finite abelian group, its exponent, and the modular rank behavior for all n. These are reusable precise invariants for that standard table, not an arbitrary slice or recomputation of its determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

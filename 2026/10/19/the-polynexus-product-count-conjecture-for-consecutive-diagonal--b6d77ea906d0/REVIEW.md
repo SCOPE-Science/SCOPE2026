@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The interval parametrization counts every allowed rook matrix exactly once. Ordinary matrix multiplication is nonzero if and only if the first column interval intersects the second row interval. The complementary disjoint-interval count accounts for both orders, both independently free endpoints, and the necessary bound on total interval length. Grouping by total interval length yields a polynomial sum with a proven degree-six ceiling; the seven displayed evaluations therefore establish an exact polynomial identity, not merely experimental agreement. Subtracting the resulting zero-product count from the square of the established monoid size gives the conjectured formula. The independent standard-library checker tests the direct product definition through dimension nine and the length-sum identity through dimension one hundred.
+PASS
 
-## Originality
+For each block its row and column intervals have the same length; ordinary matrix multiplication is nonzero exactly when the first column interval and second row interval meet. The zero-product gap count has two left/right orders, three slack gaps, and independent unused interval starts. The resulting sum is polynomial of degree at most six by expansion into monomials and summation in s, so the seven exact values in RESULT.md really prove the identity. Independently, classify nonempty intersections by their first position i. The weighted count of intervals starting at i is A=(n-i+1)(n+i)/2; the weighted count containing i is C=(n+1)i(n-i+1)/2, since the free other start contributes n+start-end and averaging over the rectangle of endpoints gives (n+1)/2. At least one interval starts at i, so sum A(2C-A) over i=1..n. Expanding and using power sums gives n(n+1)(7n^4+14n^3+21n^2+14n+4)/120, the claimed expression. Subtracting 2Q_n-1 removes identity pairs exactly; leading terms (7/120)n^6 and (1/9)n^6 give 21/40. The n=1 extension also gives 1 for the product count, without asserting a ratio on an empty nonzero set. Independent replay `python3 /workspace/reproductions/review_2.py` checks explicit interval sets and first overlaps at n=1..10 (17, 118, 514 for n=2,3,4). This finite run supports, not replaces, the symbolic count.
 
-PASS within the inspected material. The original source arXiv:2111.01863, §7, explicitly labels this precise equality Conjecture 1 and verifies only finitely many cases. Its 2022 version-of-record preview was checked, with the full lawful preprint supplying the relevant primary text. The same authors' 2023 open-access continuation concerns the real-parameter inverse monoid and does not state a proof of the original finite product-count conjecture in its inspected sections. OEIS A083200 has the numerical sequence but no monoid-enumeration proof. Targeted mathematical-record and primary-literature searches revealed no dominating or equivalent result; residual risk of an unindexed independent proof remains.
+## originality
 
-## Value
+PASS
 
-PASS. This proves a specifically formulated published conjecture, replacing a sextuple-sum/numerical observation with an all-size combinatorial proof. The resulting exact enumeration and the limiting proportion now hold unconditionally for the natural finite inverse monoid family. The argument also exposes the interval-disjointness mechanism that governs zero products, rather than adding an unmotivated small-case invariant.
+The polynomial and its monoid interpretation as a conjecture are prior. The supported distinct contribution is the all-size proof of their equality, not the sequence or the statement of the conjecture. No equivalent proof was found in the matched statements inspected. The exact conjecture is §7 in the early record reference and §8 in the inspected later author version.
 
-## Scope and remaining limitations
+## value
 
-All nonzero-product pairs are ordered and taken in the full \(M_n\setminus\{0\}\), including identity pairs. The corollary removes these to recover the corresponding ratio for \(S_n\setminus\{0\}\). The result says nothing about individual nonzero product fibers or longer products. Exact independent source equivalence can never be excluded solely by database search, and independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Settles a stated all-size enumeration conjecture for a natural inverse monoid. The interval count explains the algebraic obstruction and turns a conditional proportion into an exact one, rather than improving a finite test cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

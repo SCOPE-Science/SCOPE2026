@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:58:23.832189Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97",
+        "Frozen VERIFICATION.md lines 19–23 and verify.py (read only)",
+        "Independent exact small-field commutator rank and commuting-pair counts"
+      ],
+      "rationale": "The arrow rows of [x,y] are δ_i v_i−u_i(c_i−c_{i+1}), with δ_i=d_i−d_{i+1}. A nonzero δ_i gives its own pivot, independent of the remaining incidence rows. Any proper subset of cycle incidence rows is independent by leaf elimination; the full set has rank n−1, also for the opposed arrows at n=2 and in characteristic two. The provisional rank counts the number of positions with either δ_i or u_i nonzero. Only constant diagonals with all u_i nonzero need correction down by one, giving q(q−1)^n(z^{n−1}−z^n). As an independent count of the provisional part, each zero-sum δ-vector has q diagonal preimages, and the number of zero-sum ordered lists of s nonzero differences is A_s=((q−1)^s+(q−1)(−1)^s)/q, by A_0=1 and A_{s+1}=(q−1)^s−A_s. Summing q binom(n,s) A_s (qz)^s[1+(q−1)z]^{n−s} gives the first two terms of P. The rank zero elements are scalar diagonals with no arrows; every k<n is realized by constant diagonal and k nonzero arrow coordinates, and rank n by nonconstant diagonal and nonzero arrows at all equal-diagonal edges. The probability is q^{−2n}P(q^{−1}). Independently, one can count commuting pairs by treating the pair of diagonal entries at each vertex as one of q² joint labels: each arrow permits q² choices for its two coefficients on equal labels and q on unequal labels. The cycle trace with these weights gives the same probability. Direct bounded counts gave 7/16 for (q,n)=(2,2), 1/4 for (2,3), and 17/81 for (3,2); separate full commutator-matrix checks gave the respective rank histograms (2,6,8), (2,6,32,24), and (3,24,54).",
+      "residual_risks": [
+        "Proof applies to exactly one arrow per cyclic step, including the two distinct opposed arrows at n=2. The uploaded checker was not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October 12 theorem covers all orientations of finite simple graphs, gives the element rank polynomial through flats and graphic ranks, and states the commuting-probability specialization. It excludes two arrows on one pair of vertices.",
+          "Later related records explicitly give unicyclic spectra or extend the rank formula to finite loopless multiquivers. The inspected representation-theory and finite-ring sources address other invariants or general bounds."
+        ],
+        "reasoning": "The exact earlier simple-graph formula, not generic quiver results or later publication dates, is decisive for n≥3. The remaining n=2 invariant is covered by the separate earlier commutator equivalence.",
+        "searches": [
+          "Resultary 38b9edb44d0d Eq. (1), proof, and assumptions",
+          "Resultary later related statements d24c3c8c856e, 73e61818e07a and 3547be760bfd",
+          "arXiv:1804.07082, arXiv:2303.07753, arXiv:1301.0195, arXiv:1510.08211"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 38b9edb44d0d and 75cb49b6c27d (decisive earlier coverage)",
+        "Resultary d24c3c8c856e, 73e61818e07a and 3547be760bfd (later comparisons)",
+        "arXiv:1804.07082, arXiv:2303.07753, arXiv:1301.0195 and arXiv:1510.08211 (bounded passages)",
+        "Frozen RESULT.md lines 99–115"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the October 12 formula, Z is the equal-label edge set and S the nonzero arrow support within Z; the rank exponent is n−|Z|+r(S) on a cycle. The only S with r(S)≠|S| is S=E, requiring Z=E. Its coefficient is the q constant labels times (q−1)^n and it shifts from exponent n to n−1.",
+          "Replacing r(S) by |S| yields cycle weights U=1+(q−1)z for equal labels and V=qz for unequal labels. The transfer trace is [U+(q−1)V]^n+(q−1)(U−V)^n, exactly the frozen first two terms. Evaluating at 1/q and normalizing gives the probability.",
+          "For n=2 the earlier same-direction product has two commutator coordinates of the form (d_0−d_1)v_i−u_i(c_0−c_1). The frozen opposed second arrow has the negative of this second coordinate, an invertible output change for all q."
+        ],
+        "reasoning": "The general flat formula plus its one-dependent-subset specialization exhausts n≥3, and the two-vertex reduction exhausts n=2. No additional rank ranges or centrality claims remain outside these comparisons.",
+        "searches": [
+          "October 12 Resultary Eq. (1) in ID 38b9edb44d0d",
+          "October 4 Kronecker multiplication and center/centralizer sizes in ID 75cb49b6c27d"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 12 rank variable is the rank of b↦ab−ba over the same field, counted over elements, not distinct derivations.",
+          "For two vertices, reversing the second Kronecker arrow multiplies its commutator output coordinate by −1 under the common input coordinate identifications. The resulting opposite-arrow algebra is not being identified as a ring with the Kronecker algebra."
+        ],
+        "reasoning": "The simple-cycle enumerator is directly an instance of the existing adjoint spectrum; for the two-vertex remainder, output scaling leaves every rank and the zero-commutator condition unchanged, also in characteristic two.",
+        "searches": [
+          "Resultary: radical-square-zero quiver adjoint rank spectra, graphic matroid, commuting probability, cycles and parallel arrows",
+          "Resultary IDs 38b9edb44d0d and 75cb49b6c27d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At r=2, the Kronecker Finding and centralizer multiplicities give rank polynomial q+(q³−q)z+q³(q−1)z² and commuting probability (2q²−1)/q⁴.",
+          "The later unicyclic formula in 3547be760bfd states a cycle-length correction that becomes the frozen term on a pure cycle; d24c3c8c856e counts distinct derivations, requiring multiplication by q on the connected cycle."
+        ],
+        "reasoning": "For n=2 the whole spectrum matches, with a rank-preserving equivalence rather than a numerical coincidence at one field. For all n≥3, direct earlier theorem coverage suffices independently of the later exact formula matches.",
+        "searches": [
+          "Resultary IDs 75cb49b6c27d, 38b9edb44d0d, d24c3c8c856e and 3547be760bfd"
+        ]
+      },
+      "rationale": "The already catalogued October 12 graphic-matroid rank enumerator applies to every consistently oriented simple cycle n≥3. Its specialization gives the entire claimed polynomial, including the top-rank correction. The excluded n=2 case has the same commutator pencil ranks as the October 4 two-arrow Kronecker example by an explicit invertible sign change on the commutator output; it does not supply a distinct surviving invariant.",
+      "residual_risks": [
+        "No exhaustive scholarly priority claim. Some broader searches were deferred and the Baclawski incidence-algebra derivations full text was unavailable. The rejection rests on exact inspected formula-level overlap and explicit implications, not on any unavailable literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies every frozen result at n≥3",
+          "evidence": "Per-element rank exponent m−|Z|+r_G(S), summed with proper coloring multiplicity of G/Z; commuting probability is evaluation at q^{-1}. At most one arrow per unordered pair excludes n=2.",
+          "identifier_or_url": "2026/10/12/SCOPE-graphic-matroid-adjoint-spectra-and-vertex-arboricity-for-radica--38b9edb44d0d",
+          "material_read": "RESULT.md Finding Eq. (1), assumptions, and arrow-row/rank proof",
+          "method": "Bounded local-mirror statement and proof passages (opening at offset 0)",
+          "title": "Graphic-matroid adjoint spectra and vertex arboricity for radical-square-zero quiver algebras",
+          "trigger": "Strong earlier theorem for oriented simple graphs"
+        },
+        {
+          "assessment": "Gives the n=2 invariant under the explicit sign change; different algebra",
+          "evidence": "Multiplication is (a,v,c)(d,w,f)=(ad,aw+fv,cf); center size q, one proper centralizer of size q^{r+1}, q^r others of size q², and probability q^{-2}+(q²−1)q^{-r−2}.",
+          "identifier_or_url": "2026/10/4/SCOPE-commutator-fibers-and-commuting-probabilities-of-finite-kronecke--75cb49b6c27d",
+          "material_read": "RESULT.md Finding, multiplication law, rank-equivalent centralizer data and commuting probability",
+          "method": "Bounded local-mirror source passages",
+          "title": "Commutator fibers and commuting probabilities of finite Kronecker path algebras",
+          "trigger": "Earlier two-vertex two-arrow commutator enumerator"
+        },
+        {
+          "assessment": "Later-labelled coverage including opposite arrows, corroborative not needed for priority",
+          "evidence": "Covers parallel arrows in a finite loopless quiver and counts element ranks and commuting pairs.",
+          "identifier_or_url": "2026/11/2/SCOPE-adjoint-rank-enumeration-and-the-vertex-arboricity-threshold-for--73e61818e07a",
+          "material_read": "RESULT.md Finding and assumptions, Eqs. (1), (4)",
+          "method": "Bounded local-mirror statement passage",
+          "title": "Adjoint-rank enumeration and the vertex-arboricity threshold for radical-square-zero quiver algebras",
+          "trigger": "Broader exact loopless quiver result"
+        },
+        {
+          "assessment": "Later-labelled formula specializes at cycle length equal to vertex count",
+          "evidence": "Connected simple unicyclic graph with cycle length at least three; pure cycle gives the frozen correction.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-adjoint-rank-polynomial-of-a-unicyclic-radical-square-zero-q--3547be760bfd",
+          "material_read": "RESULT.md Finding",
+          "method": "Bounded local-mirror statement passage",
+          "title": "The adjoint-rank polynomial of a unicyclic radical-square-zero quiver algebra",
+          "trigger": "Explicit exact correction term on a broader family"
+        },
+        {
+          "assessment": "Inspected material does not give these rank spectra",
+          "evidence": "General probability bounds and isoclinism comparisons are distinct from the enumerator. The exact coverage instead comes from the quiver records.",
+          "identifier_or_url": "https://arxiv.org/abs/1510.08211",
+          "material_read": "p. 1 and pp. 7, 9, Theorem 2.13 and Corollary 2.14",
+          "method": "Bounded primary PDF passages",
+          "title": "On commuting probability of finite rings",
+          "trigger": "General finite-ring probability and centralizer results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–24 and 34–89",
+        "Resultary primary statements 38b9edb44d0d and 75cb49b6c27d"
+      ],
+      "rationale": "The full rank spectrum is a useful invariant of a natural family and the cycle dependence provides a clean example, but the supported contribution is a routine special case of the existing general enumerator, with the exceptional two-vertex case having an already computed commutator-equivalent spectrum. Re-presenting the specialization is not a surviving scientific advance.",
+      "residual_risks": [
+        "This does not judge the value of a theorem for other radical lengths or for finer invariants not computed in the frozen record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

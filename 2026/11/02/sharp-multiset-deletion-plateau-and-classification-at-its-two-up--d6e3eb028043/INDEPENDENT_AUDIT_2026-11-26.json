@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:58:31.158430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–52",
+        "Frozen VERIFICATION.md, verify.py and verification_output.txt inspected; original script not executed",
+        "Replay: python3 -I /workspace/branches/review_reproduction.py 1; /workspace/branches/review_reproduction.txt"
+      ],
+      "rationale": "Two codewords are confusable exactly when their coordinatewise-minimum sum is at least k. At most q words are heavy, since no coordinate can be >=k in two words. Two light words have intersection at least 2n-qh, which exceeds h for n>floor((q+1)h/2), and none exist for n>qh. The pure words and, in the plateau, any light word attain the bounds. At n=T the two light words have overlap h in the odd-q construction and 2 floor(h/2)<=h in the even-q construction; adjoining the pure words proves the required lower bound q+2, not optimality there. At qh and qh-1 (both above T), a maximal book of size q+1 has one light word and one designated heavy word per coordinate. At qh the light word is all h and each heavy word must be pure. At qh-1 the light word is all h except for one h-1: a heavy word on any other coordinate is forced pure, while the deficit-coordinate word can move at most one unit to a different coordinate. Each such choice is compatible and distinct, giving q^2 books on the labeled alphabet. Independent L1-distance clique enumeration for ternary h=3,4 verified the change at T, the 9 and 1 endpoint counts and the disappearance of four-word books past qh.",
+      "residual_risks": [
+        "Finite enumeration is corroboration only. The uploaded script uses int.bit_count, which requires Python 3.10 rather than the stated 3.9; this does not affect the theorem or the standalone replay."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary high-deletion paper gives exact one- and two-survivor results, bounds for three survivors, and a coarse general puncturing bound.",
+          "The deletion-ball paper gives sphere-packing and corrected code–anticode bounds.",
+          "The indexed list-capacity theorem holds for 2<=L<=k only and n>=qh, explicitly excluding L=1 and lengths below qh."
+        ],
+        "reasoning": "Neither an asymptotic rate bound nor the list statement can be specialized to obtain the full unique-decoding regime under review. The list theorem's incidence bound is nevertheless relevant and extends directly to L=1 for n>=qh.",
+        "searches": [
+          "arXiv:2601.05636v1 §§3.5–3.6; arXiv:2601.05636v2 §§4.2–4.4",
+          "arXiv:2603.18322 §§5.1–5.2",
+          "2026/10/26/SCOPE-sharp-list-capacity-plateau-for-high-deletion-multiset-channels--992c110431e7/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 54–67",
+        "Published Resultary searches with directly inspected closest three-survivor and list-capacity entries",
+        "arXiv:2601.05636 v1/v2, 1612.08837, 2603.18322 and 2402.14712"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-survivor argument uses I>=2n-2q for light words and gives complementary half-support witnesses at h=2. Adapting this reasoning yields the general heavy/light inequality, but the exact h=2 theorem has no variable h.",
+          "The list proof's incidence count at L=1 gives the upper bounds q+1 at qh and q after qh; pure words and the sole flat word realize them. That derivation gives mandatory heavy-coordinate occupancy, not a classification of the leftover coordinates below qh.",
+          "The frozen proof resolves integral threshold sharpness using parity and fixes the last heavy word from its intersection budget with the one-deficit light vector."
+        ],
+        "reasoning": "Credit the upper-edge counts derivable from the incidence method and the direct methodological precedent at k=3; the full sharp range and labeled penultimate classification require the additional light-pair and compatibility arguments. They are not parameter substitutions into either prior theorem.",
+        "searches": [
+          "Three-survivor RESULT.md proof steps 1–6, offsets 900–5271",
+          "High-deletion list-capacity RESULT.md, Finding, proof Step 1 and Limitations",
+          "Frozen RESULT.md lines 25–48"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed-weight vectors, the same condition is minimum L1 distance >=2(n-h) since ||x-y||_1=2(n-I(x,y)).",
+          "Kovačević–Tan Theorems 11, 14 and 15 treat lattice tilings, code–anticode bounds and asymptotics; Goyal et al. §IV.A defines the same integer simplex but studies asymptotic rate lower bounds with alphabet dimension scaling with weight."
+        ],
+        "reasoning": "The simplex formulation is mathematically identical for the appropriate minimum distance, but the examined estimates and asymptotic rate arguments do not give the exact finite q+1 range or classify the labeled optimum collections. Ordered-string codes are not equivalent.",
+        "searches": [
+          "Resultary: exact high-deletion multiset intersection plateau and labeled optimal codebooks",
+          "Kovačević and Tan, arXiv:1612.08837",
+          "Goyal–Dao–Kovačević–Kiah L1 Gilbert–Varshamov simplex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The directly inspected three-survivor record gives q+1 from q+2 through 2q, q beyond, and a q+2 witness at q+1; its Step 5 derives heavy-coordinate structure but explicitly does not classify all remaining coordinates.",
+          "The indexed quaternary spectrum concerns k=3."
+        ],
+        "reasoning": "At h=2 the same threshold pattern is already present; the cited exact entries do not tabulate the k>=4 labeled optimal codebooks. The claim is an unbounded-parameter formula, not a finite table replay.",
+        "searches": [
+          "2026/11/2/SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7/RESULT.md",
+          "2026/10/25/SCOPE-exact-quaternary-three-survivor-multiset-deletion-spectrum--10c1013a7401 (index hit)",
+          "Resultary: qh and qh-1 labeled high-deletion codebooks"
+        ]
+      },
+      "rationale": "The exact three-survivor Resultary result substantially overlaps in pattern and proof strategy; the list-capacity result also supplies a heavy-incidence argument that applies at the upper threshold in unique decoding. The supported distinct content is the sharp integral lower threshold and complete plateau for arbitrary survivor budgets in the stated k>=4 regime, including the even-alphabet, odd-h rounding, and the full labeled maximum-book classifications, especially at the penultimate length. The closely matching works do not state those ingredients together or imply them by specializing a stronger theorem. The same-day three-survivor comparison was based on its proof, not priority inferred from the path date.",
+      "residual_risks": [
+        "The inspected record dates do not resolve priority for the argument pattern. Earlier unindexed finite-simplex formulations may exist; the search and primary passages do not establish universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological and exact k=3 overlap, not k>=4 or full endpoint classifications",
+          "evidence": "Exact q+1 plateau on [q+2,2q], q beyond and q+2 witness at q+1. The proof fixes heavy-coordinate occupancy but not all other coordinates.",
+          "identifier_or_url": "2026/11/2/SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7/RESULT.md",
+          "material_read": "Finding and proof steps 1–6, including offsets 900–5271",
+          "method": "Published Resultary search and local mirror",
+          "title": "Exact three-survivor multiset deletion codes over arbitrary alphabets",
+          "trigger": "Same plateau pattern and heavy/light argument"
+        },
+        {
+          "assessment": "Covered method at the upper transition; formal theorem excludes unique decoding and the lower range",
+          "evidence": "qL+1 at qh and qL above for 2<=L<=k; the heavy incidence count itself also works at L=1.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-list-capacity-plateau-for-high-deletion-multiset-channels--992c110431e7/RESULT.md",
+          "material_read": "Finding, assumptions, proof Steps 1–2 (offset 0) and Limitations at offset about 6289",
+          "method": "Published Resultary search and local mirror",
+          "title": "Sharp list-capacity plateau for high-deletion multiset channels",
+          "trigger": "Same n=qh transition and structural method"
+        },
+        {
+          "assessment": "Applicable models and nearby small survivor results, no k>=4 sharp plateau in inspected statements",
+          "evidence": "v2 has exact one- and two-survivor sizes and a bound q+binom(q,2) for three survivors at n>=q+2; v1 gives Reiman and puncturing bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+          "material_read": "v1 §§3.5–3.6 (offsets about 31100–38590); v2 §§4.2–4.4 (about 67866–74365)",
+          "method": "OA primary HTML for both versions",
+          "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions; Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Closest primary results for high deletion"
+        },
+        {
+          "assessment": "General bounds, tilings and asymptotics rather than the examined exact finite cutoff",
+          "evidence": "Code–anticode bound with boundary correction and asymptotics for fixed alphabet and deletion radius.",
+          "identifier_or_url": "https://arxiv.org/pdf/1612.08837",
+          "material_read": "Theorems 11, 14, 15, pp. 8–10, at offsets about 59000, 70914, 76800",
+          "method": "OA primary PDF",
+          "title": "Codes in the Space of Multisets—Coding for Permutation Channels With Impairments",
+          "trigger": "Equivalent integer-simplex coding formulation"
+        },
+        {
+          "assessment": "General packing bounds, not a matching classification",
+          "evidence": "Sphere-packing bound and an explicit warning about truncation of translates at the simplex boundary in code–anticode arguments.",
+          "identifier_or_url": "https://arxiv.org/html/2603.18322",
+          "material_read": "§§5.1–5.2 at offsets about 84829 and 87811",
+          "method": "OA primary HTML",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "General exact finite deletion-ball bounds"
+        },
+        {
+          "assessment": "Same space, different asymptotic rate result",
+          "evidence": "The standard simplex family takes n→infinity and alphabet dimension floor(rho n), deriving asymptotic GV bounds from L1-ball size analysis.",
+          "identifier_or_url": "https://arxiv.org/pdf/2402.14712",
+          "material_read": "Abstract and §IV.A, offset 36970, equations (19)–(21) and Proposition 5 passage",
+          "method": "Primary-literature lookup and OA PDF",
+          "title": "Gilbert–Varshamov Bound for Codes in L1 Metric Using Multivariate Analytic Combinatorics",
+          "trigger": "Code bound stated on the same L1 simplex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–21 and 33–48",
+        "Nearest three-survivor and list-capacity results",
+        "Kreindel et al. arXiv:2601.05636v2 §§4.2–4.4"
+      ],
+      "rationale": "The transition identifies when a highly deleting multiset channel can carry just one message beyond the q monochromatic symbols and shows the first length at which the smaller bound ceases to hold. Its endpoint classifications describe how much freedom optimal codebooks have as that extra message is about to disappear: from q^2 labeled choices to one. These are exact invariants of the natural high-deletion regime, not isolated small-parameter checks. Credit is for the sharp full range and extremizer structure, not for reusing the heavy-coordinate idea.",
+      "residual_risks": [
+        "The record does not determine the maximum at n=T, classify all interior optimizers, or address ordered deletions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

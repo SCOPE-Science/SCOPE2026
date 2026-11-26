@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:26:59.582472Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:3–52",
+        "VERIFICATION.md and both frozen Python checkers (inspected)",
+        "/workspace/branches/replay-1.py"
+      ],
+      "rationale": "For n=2m the surviving-forest edge count gives 2|S|>=n+1+e(S), so m+1 is the lower bound and a set of that size can contain at most one selected edge. Adjacent empty columns leave a square. Conversely, at size m+1 the number of empty columns is m-1 plus the number of doubles. A double cuts the strip and the no-adjacent-empties condition leaves at most one edge across each internal cut, ruling out cycles. Without doubles there are exactly two singleton-to-singleton boundaries. Any cycle must cross every boundary, since removing an uncrossed boundary again makes a strip with at most one edge per internal cut. Its use of both singleton-to-singleton boundaries would force two corresponding selected edges, including at a twisted boundary, a contradiction. In the forward wave the selected a-indices are an even prefix and an odd suffix, with at most one ordinary selected edge where they meet; the b token and the twisted seam create no extra edge. The reverse wave has an odd prefix and even suffix and the same bound. At the all-a transition only the internal 0–1 edge is selected; the subsequent double is isolated from other selections. The holes are separated in these waves and at the transitions. The forward and reverse waves are distinguished by the selected b vertex, with column-index sum strictly decreasing within each; the all-a state and double state are separate and the initial state is distinct from reverse intermediates because it contains a_0. This includes n=4 with empty wave ranges. Therefore the n+1 slides are legal, minimum, and form a simple cycle. Any closed slide walk induces a balanced directed edge multiset on the host, so an odd walk contains an odd host cycle no longer than the walk. In the even host an odd closed walk uses an odd number of antipodal jumps and needs at least n unit steps modulo 2n. For odd n every host edge reverses residue parity, so the parity of the number of selected even vertices bipartitions the slide graph. Independent leaf-peeling enumeration and all-root BFS reproduce odd girths infinity,5,infinity,7,infinity,9,infinity for n=3 through 9, not used as an infinite proof.",
+      "residual_risks": [
+        "No classification of all components or their girths is inferred. The ordinary host odd girth and circulation bound do not by themselves give attainment in the constrained graph."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hertz studies decycling number and finding small decycling sets in bipartite graphs; 2019 exact-family work is a plausible antecedent for minimum feedback numbers but no theorem passage was accessible.",
+          "The accessible Bousquet record concerns FVS reconfiguration connectivity/complexity, not the asserted odd-girth theorem."
+        ],
+        "reasoning": "A size theorem alone cannot certify that an entire shortest host odd cycle can be realized by sliding while staying among optima. Remaining access uncertainty is not taken as evidence of disjointness.",
+        "searches": [
+          "Feedback Numbers of Möbius Ladders (2019), exact-title publication lead",
+          "Hertz DOI 10.7155/jgaa.00567, p. 1",
+          "Bousquet et al. DOI 10.1016/j.tcs.2023.114188, indexed description"
+        ]
+      },
+      "checked_sources": [
+        "Resultary matches 9882bc72cfcd (self), 3a90df7af775 and c5d7e6e6df56",
+        "Avis–Hoang arXiv:2203.16861",
+        "Hertz DOI 10.7155/jgaa.00567",
+        "Bousquet et al. DOI 10.1016/j.tcs.2023.114188",
+        "Feedback Numbers of Möbius Ladders (2019), bibliographic lead"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 19 gives ordinary girth for independent-set slides on cycles, not this optimum FVS family.",
+          "The prism uses an untwisted seam and a local degree law; the Desargues calculation concerns endpoint distances."
+        ],
+        "reasoning": "One cannot substitute a twisted seam into a prior statistic without rechecking the legality of each configuration; host parity and a feasible all-even-order cycle are different issues. The novel, non-mechanical step is the explicit attaining constrained cycle.",
+        "searches": [
+          "arXiv:2203.16861 p. 13, Proposition 19",
+          "Resultary cyclic-prism RESULT.md, offset 650; Desargues RESULT.md, offset 400"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact catalogue match 9882bc72cfcd is the entry under review, not independent precedent.",
+          "Avis–Hoang use independent-set feasibility, and Bousquet et al. are described as allowing unrestricted one-vertex replacement, unlike edge-local optimal FVS sliding."
+        ],
+        "reasoning": "Neither changing the feasible family to independent sets nor adding unrestricted jump edges preserves the odd cycles to be counted.",
+        "searches": [
+          "Resultary: Möbius ladder optimal decycling, feedback vertex set token slides, and odd girth",
+          "Avis–Hoang arXiv:2203.16861, Props. 11 and 19",
+          "Bousquet et al. DOI 10.1016/j.tcs.2023.114188"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact formula hit 9882bc72cfcd is the self-match.",
+          "Distinct 2026/11/22 cyclic-prism record 3a90df7af775 classifies minimum sets and gives a degree enumerator for odd prisms; Desargues record c5d7e6e6df56 concerns jump and slide distances on one fixed graph."
+        ],
+        "reasoning": "Untwisted prism degree data and Desargues distances are distinct invariants on distinct hosts and do not tabulate the Möbius optimum-slide odd-girth law. Same-day entries were compared on content, not excluded by date.",
+        "searches": [
+          "Resultary: Möbius ladder minimum FVS odd girth and graph-family optimal feedback-set relocation"
+        ]
+      },
+      "rationale": "The distinct result is attainment of the host odd-girth bound under minimum feedback-set feasibility, uniformly for every even Möbius ladder. Bipartiteness in the odd case and the host obstruction are generic, not independent novelty. No inspected match supplies the feasible attaining cycle or an equivalent theorem. Exact-family feedback-number and FVS reconfiguration full-text access limits make the verdict best-of-knowledge.",
+      "residual_risks": [
+        "Neither the 2019 exact-family paper nor the full 2023 paper was accessible in this check. Earlier minimum-set classifications or reconfiguration statements may bear on historical priority; no such implication was verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Potential exact-family antecedent unresolved",
+          "evidence": "Title identifies the subject but does not reveal whether the authors classify optimum sets or discuss sliding.",
+          "identifier_or_url": "Exact indexed title, 2019",
+          "material_read": "Bibliographic search lead only; no theorem text",
+          "method": "Located conference PDF and ResearchGate copy, both HTTP 403 on bounded retrieval",
+          "title": "Feedback Numbers of Möbius Ladders",
+          "trigger": "Same host and minimum feedback-set subject"
+        },
+        {
+          "assessment": "Accessible material compares a different move; whole-paper noncoverage not established",
+          "evidence": "The inspected descriptions concern connectivity/complexity under one-vertex replacement, not a length law for edge-local slides.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2023.114188",
+          "material_read": "Publisher landing/abstract and indexed move comparison; no full theorem text",
+          "method": "DOI landing and accessible indexed material",
+          "title": "Feedback vertex set reconfiguration in planar graphs",
+          "trigger": "Same optimization/reconfiguration family, possible broader theorem"
+        },
+        {
+          "assessment": "Related girth mechanism, different feasible family",
+          "evidence": "Prop. 19 gives girth n for independent-set slides on C_n when 1<=k<n/2 and infinity at k=n/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+          "material_read": "PDF pp. 9, 13, Props. 11 and 19",
+          "method": "Bounded OA passage inspection",
+          "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+          "trigger": "Token slides and girth precedents"
+        },
+        {
+          "assessment": "General decycling-number algorithms, not edge-slide odd cycles in inspected material",
+          "evidence": "The paper starts from NP-hardness even on bipartite hosts and studies finding small decycling sets by tabu search.",
+          "identifier_or_url": "https://doi.org/10.7155/jgaa.00567",
+          "material_read": "OA PDF p. 1, offset 1257",
+          "method": "Bounded OA passage inspection",
+          "title": "Decycling Bipartite Graphs",
+          "trigger": "Potential coverage of the odd, bipartite ladder case"
+        },
+        {
+          "assessment": "Different seam and invariant",
+          "evidence": "The graph is the untwisted C_n square K_2; counts and a degree enumerator for odd prism lengths do not contain an odd-girth law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-parity-split-census-and-local-mobility-law-for-optimal-feedbac--3a90df7af775",
+          "material_read": "RESULT.md, offset 650",
+          "method": "Local catalogue mirror",
+          "title": "A parity-split census and local mobility law for optimal feedback sets on cyclic prisms",
+          "trigger": "Same-day closest ladder-family catalogue analogue"
+        },
+        {
+          "assessment": "Different host and shortest-path invariant",
+          "evidence": "The statement compares jump and slide distances of optimal configurations on the Desargues graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-locality-costs-for-optimal-feedback-set-relocation-on-the--c5d7e6e6df56",
+          "material_read": "RESULT.md, offset 400",
+          "method": "Local catalogue mirror",
+          "title": "Sharp locality costs for optimal feedback-set relocation on the Desargues graph",
+          "trigger": "Same-day optimal feedback-set relocation result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–17, 26–52",
+        "Cyclic-prism optimum mobility comparison"
+      ],
+      "rationale": "On a canonical infinite cubic ladder family, odd girth measures the shortest parity-breaking closed relocation with every intermediate placement optimum. A host obstruction need not be sharp after restricting feasible states. The all-even-order attaining construction proves that optimal decycling does not raise the parity-breaking length here, a structural result useful in comparing local configuration graphs to their hosts.",
+      "residual_risks": [
+        "No conclusion about optimal-slide connectivity, distances between arbitrary configurations or ordinary girth."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

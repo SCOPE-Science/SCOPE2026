@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Conditioning on the two-state trap path gives an exact bounded random stationary variance. The coupled zero-flux transport equations yield a properly normalized, positive beta-weighted Gaussian mixture. For fixed rare displacement \(y\), the phase diverges at the variance endpoints, has a strictly positive second derivative, and therefore has precisely one interior minimizer. The Stirling-normalized Laplace expansion produces the claimed prefactor, and the posterior normal limit and state-selection law follow by the same calculation. The inequalities, quartic expansion, remote-saddle expansion, and fixed-rate endpoint power were independently derived. A reproducible checker supports, rather than substitutes for, these infinite-parameter proofs.
+PASS
 
-## Originality — PASS, with residual risk
+This verdict applies to repairs/5/RESULT.md. The frozen large-|y| expansion at line 141 is false as written: its additive constant counts b=1/(2α) twice. With v+=D/α and δ=1−z_y, the saddle gives δ=c/y²+O(y⁻⁴), c=2bv+²/L. The variance term contributes +b, while the entropy contributes a log z₀+b log(1−z₀)−b log c beyond 2b log|y|, with no second +b. The corrected remainder is O(y⁻²). Independently, the normalized weak/strong variance conditional laws are Beta(aq+1,bq) and Beta(aq,bq+1), each with mass 1/2. The resulting mixture yields the stated positive amplitude and strictly convex phase with unique interior minimum, and Stirling plus Laplace yields the leading prefactor and the posterior normal limit. Compact-y uniformity follows by a uniform saddle gap and integrable endpoint majorant after extracting one phase factor. The derivative in y² is positive, giving increasing z_y and current-state posterior. Expanding the saddle at zero gives the quartic coefficient L²/(8v₀⁴H₀)=(α+β)(β−α)²/(64D²) and the relative-error bounds at smaller/intermediate scales. The fixed-q endpoint power and prefactor use the separate one-sided Laplace integral with exponent bq−1. Replay: python /workspace/checks/reproduce.py 5. It independently confirms the constant discrepancy (frozen error tends to −1/2 at α=D=1, β=3 in the residual-minus-constant convention) and corroborates the rare prefactor, posterior and crossover by separate-state Gauss–Jacobi quadrature. The uploaded code was inspected, not run; it checks remote saddle location, not the additive cost constant. The replay does not prove the asymptotics.
 
-Alston, Cocconi and Bertrand (2022, arXiv:2202.02630) establish the two-state fluctuation model and rapid-switching thermodynamics, not the rare-scale rate profile. Biroli, Kulkarni, Majumdar and Schehr (2023, arXiv:2312.02570) explicitly provide the full stationary Gaussian mixture; that formula is prior knowledge, not a new result here. Their main text analyzes fixed-parameter stationary statistics and large-population extreme values, rather than the nested quartic crossover and the rapid-switching single-particle saddle with full prefactor, hidden-state selection and inverse reconstruction. Two additional materially examined published switching-harmonic-gas findings give sharp empirical-energy tails at speed N, and Gumbel maximum edge layers at scale log N, always with fixed switching rate. Their rare-event variance selection applies to large particle populations rather than the present joint fast-switching, single-position regime. The remaining publication-priority uncertainty includes related supplemental materials and later broad variance-mixture analyses.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Fast-switching homogenization gives the correct stationary central Gaussian but can drastically understate rare displacements on the natural square-root-rate scale. An explicit global strict-rate inequality, prefactor and selected hidden-trap posterior quantify exactly how the approximation fails and how atypical positions encode both trap stiffnesses. The two exact nested displacement scales and the ability to reconstruct the two trap stiffnesses are natural structural phenomena, not an arbitrary parameter slice or restatement of the known finite-parameter mixture. The result does not purport to be a new finite-parameter stationary distribution or an independent certification.
+For the corrected result, credit the exact stationary mixture and usual central Gaussian to prior work. The remaining contribution is its quantified two-scale fast-switching density limit and current-state posterior in the positive-stiffness model. No inspected result states or directly specializes to this full asymptotic claim; the stationary integral is a strong precursor from which the result is derived, not itself a new law. Priority remains bounded.
 
-## Scope and residual risks
+## value
 
-The theorem is limited to two strictly confining and distinct stiffnesses, symmetric Markov switching and common Brownian diffusivity. The exact stationary mixture predates this work; the novelty assessment rests on the singular two-scale joint limit, conditional state selection and nonuniform-Gaussian inverse signature. A 2026 age-structured switching-trap article was available at abstract level only. The full supplements to the 2023 primary article were not independently checked for an implicit equivalent asymptotic theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result quantifies the first breakdown of Gaussian relative accuracy rather than merely observing nonuniform tails, distinguishes a quartic correction from a nonlinear rare-displacement rate, and recovers both stiffnesses from their separate signatures at known diffusivity. The posterior shows what information about the current hidden state survives averaging in a rare observation. These are natural features of the known stationary law, not a new notation for it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

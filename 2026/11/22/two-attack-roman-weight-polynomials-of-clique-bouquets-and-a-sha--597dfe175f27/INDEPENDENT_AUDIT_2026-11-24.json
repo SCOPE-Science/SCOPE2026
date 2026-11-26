@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:04:06.064934Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–89 (all assumptions and exhaustive symbolic proof)",
+        "Frozen VERIFICATION.md, CHECKS.txt, verify_attack.py and verify_independent.cpp (inspected only)",
+        "Independent replay: python3 /workspace/review-evidence/3-replay.py (full histograms for four small graphs)"
+      ],
+      "rationale": "For a singleton or pair of zeros the stated union criterion is exactly the existence of distinct adjacent defenders (Hall's conditions for sets of size at most two). With the center labeled 2 the only failure is two zeros with no petal defender, so at most one no-defender petal may contain a zero and it must have exactly one; this gives the A product and B correction. With center 1 or 0 the petal predicate is: every zero has a local defender and each petal with at least two zeros has at least two local defenders. Distinct petals have disjoint local resources. This gives C by subtracting the one-2 states with at least two zeros from A. With center 0 its own singleton attack and its pair with any peripheral zero further exclude exactly the all-ones periphery and the states with one 2 and one 0 in the same petal, all at weight M. This verifies every coefficient and, at z=1, the stated total count. The leading C terms for sizes 2 and 3 are 3z² and 7z³, respectively; for s>=4 its minimum possible degree is four. Comparing center regimes yields the stated minimum counts and their label patterns. At (q,s)=(2,3) exactly 36 center-zero permutations of (0,1,2) in both petals tie the 27 center-two minima. An independent small-graph check by enumerating disjoint zero and defender sets and explicit injective defenses produced minima (weight,count)=(4,4), (7,88), (6,63), and (6,16) for petal sizes (2,2), (2,3,2), (3,3), and (4,4).",
+      "residual_risks": [
+        "Finite histograms only corroborate the formulas; all parameter values rely on the center partition. VERIFICATION.md's phrase about disjoint types is imprecise since C refines A, but they are used under different center-label hypotheses and the summed cases are disjoint."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 gives |V| minus the minimum weight as a maximum cardinality of end-coupled center-disjoint P5 collections, and the accompanying results construct minimum labelings.",
+          "Roman Census gives algorithms for pointwise minimal ordinary Roman functions, including chordal graph classes."
+        ],
+        "reasoning": "The first theorem does apply to the scalar optimization problem, but not to the generating function of all feasible weights or its optimizer multiplicities. The second counts different functions under a different notion of minimality; even a graph-class match does not cover the enumeration.",
+        "searches": [
+          "arXiv:2305.16256, Theorem 9 and Corollary 11 on arbitrary graphs",
+          "Abu-Khzam–Fernau–Mann, arXiv:2208.05261, abstract and definitions"
+        ]
+      },
+      "checked_sources": [
+        "Targeted primary websearch and Resultary comparisons above, including the exact self-match 597dfe175f27"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general optimum is characterized via one extremal parameter, not the number of distinct feasible labelings at each weight or all optimal patterns. A path packing is not stated to be a bijective parameterization of all optimum labelings.",
+          "Ordinary Roman domination ignores pair conflicts, weak Roman permits a move preserving domination, total Roman imposes positive-support adjacency, and hop-total uses distance-exactly-two defenders and totality."
+        ],
+        "reasoning": "Neither the scalar invariant nor a distribution over any of those other function classes provides the weights or multiplicities for the two-attack subset. The assignment's complete petal and center classification supplies that new information.",
+        "searches": [
+          "arXiv:2305.16256, Theorem 9, Lemma 10, Corollary 11",
+          "Resultary local mirror: 60695442a75b, e0942c187585, 5959e7c34d61 and ce7c3b8ab02a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Koch–Shank use the same singleton/pair distinct-defender predicate. The exact catalogue hit 597dfe175f27 is the assigned record itself.",
+          "Ordinary, weak, total, and same-day hop-total Roman studies on windmills or bouquets have different defense conditions."
+        ],
+        "reasoning": "The join and windmill formulations refer to the same graph family here; the Roman variants are not equivalent. For example, labeling the center 2 and all peripheral vertices 0 works for ordinary Roman domination but fails the two-attack pair test.",
+        "searches": [
+          "Resultary: two-attack Roman, 2aRD, simultaneous defense, windmill, friendship graph, clique bouquet and join formulations",
+          "Koch–Shank, arXiv:2305.16256, definition and Lemma 10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact indexed entry was the assigned finding 597dfe175f27. The neighboring polynomial entries enumerate ordinary, total, weak, or hop-total Roman functions, with visibly different minima and counts.",
+          "The primary two-attack paper's complete-graph and star cases are scalar values and do not describe the stated multi-petal clique bouquets."
+        ],
+        "reasoning": "No separate entry with both the correct graph and the correct coefficient-counting predicate was located; term misses in a PDF are not evidence of global absence.",
+        "searches": [
+          "Resultary: two-attack Roman all-weight enumerators and heterogeneous windmills",
+          "arXiv:2305.16256, complete-graph and star results; windmill and block terminology"
+        ]
+      },
+      "rationale": "The prior general two-attack extremal theorem already covers computation of the scalar minimum through a path-packing invariant and construction of a minimum labeling; the invariant or existence of an optimum is not credited as new. The distinguishable claim is the entire feasible weight distribution in heterogeneous bouquets and, in particular, the exact homogeneous census and exhaustive pattern classification, not merely the minimum value. The inspected prior Roman census and windmill polynomials count different feasible sets or only minimal labelings under another predicate.",
+      "residual_risks": [
+        "No historical-priority certification; unindexed equivalent enumerators may exist. The scalar minimum framework is expressly credited to earlier work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial scalar-minimum antecedent, not exact enumeration",
+          "evidence": "Theorem 9 equates |V|−gamma to a maximum over end-coupled center-disjoint paths on five vertices; Lemma 10 maps such collections to feasible labelings. This is not a weight polynomial or a census.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.16256",
+          "material_read": "p. 1 definition (offsets 750–4205); complete graphs and stars (13900–18881); Theorem 9, Lemma 10 and Corollary 11 (roughly 25000–30466)",
+          "method": "Lawful OA PDF, targeted statements and proof context",
+          "title": "On the k-Attack Roman Dominating Number of a Graph",
+          "trigger": "Primary definition and general extremal theorem for the identical predicate"
+        },
+        {
+          "assessment": "Different predicate and pointwise minimal functions only in the compared results",
+          "evidence": "Ordinary Roman defense and pointwise minimality, not distinct simultaneous two-attack defense or all feasible functions.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.05261",
+          "material_read": "Abstract p. 1 and definitions p. 3, offsets 0 and 9300–12270",
+          "method": "Lawful OA PDF, targeted reading",
+          "title": "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes",
+          "trigger": "Strong broader enumerator for Roman functions on chordal classes"
+        },
+        {
+          "assessment": "Different predicate",
+          "evidence": "All ordinary Roman functions; sole minimum of weight 2, incompatible with the simultaneous-attack count.",
+          "identifier_or_url": "2026/10/13/SCOPE-roman-domination-polynomial-of-generalized-windmill-graphs--60695442a75b",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Roman domination polynomial of generalized windmill graphs",
+          "trigger": "Same homogeneous graph and type of polynomial"
+        },
+        {
+          "assessment": "Different condition",
+          "evidence": "Requires a defender move preserving domination.",
+          "identifier_or_url": "2026/10/12/SCOPE-weak-roman-domination-polynomial-of-heterogeneous-windmills--e0942c187585",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Weak Roman domination polynomial of heterogeneous windmills",
+          "trigger": "Same heterogeneous graph and all-weight enumerator"
+        },
+        {
+          "assessment": "Different condition",
+          "evidence": "Requires ordinary adjacent defense and no isolated vertex in positive support.",
+          "identifier_or_url": "2026/10/13/SCOPE-total-roman-domination-polynomial-of-heterogeneous-windmills--5959e7c34d61",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror RESULT.md",
+          "title": "Total Roman domination polynomial of heterogeneous windmills",
+          "trigger": "Same heterogeneous graph and all-weight enumerator"
+        },
+        {
+          "assessment": "Not equivalent, irrespective of same-day order",
+          "evidence": "Uses distance-exactly-two defense and positive-support totality, with minima 4 or 5 in its regimes.",
+          "identifier_or_url": "2026/11/22/SCOPE-hop-total-roman-weight-polynomial-and-the-single-defender-transi--ce7c3b8ab02a",
+          "material_read": "Finding and proof excerpt, offsets 0–7228",
+          "method": "Local mirror RESULT.md",
+          "title": "Hop-total Roman weight polynomial and the single-defender transition",
+          "trigger": "Strongest same-day overlap in graph and scope of enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen polynomial, center-state proof and optimizer classification",
+        "Koch–Shank scalar minimum characterization and the compared windmill polynomials"
+      ],
+      "rationale": "Clique bouquets are a natural cut-vertex family in which local defense choices interact through a single common resource. The heterogeneous polynomial quantifies that interaction for every weight, showing exactly how one undefended petal zero can be paid for at center label 2 or how a center attack imposes a global exclusion at label 0. The explicit optimizer multiplicities and the exceptional 36-way contribution under a different center regime are not supplied by a scalar minimum computation or an ordinary Roman count.",
+      "residual_risks": [
+        "This is not an enumeration on arbitrary block graphs or for higher attack thresholds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

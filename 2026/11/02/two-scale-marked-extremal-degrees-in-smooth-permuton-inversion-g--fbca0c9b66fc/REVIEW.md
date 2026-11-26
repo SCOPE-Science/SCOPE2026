@@ -1,19 +1,21 @@
-# Scientific review: two-scale marked extremal degrees
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact inversion-degree identity separates a local degree into lower/upper marginal-strip counts and an overlap count. In a bounded \(n^{-1/2}\) corner window, the overlap is tight, while the four marginal-strip fluctuations divided by \(n^{1/4}\) converge jointly to four independent standard Brownian motions. Removing the finitely populated corner squares in a Poissonized sample proves their independence from the rare-corner Poisson configurations; the change in a de-Poissonization coupling is negligible. Positivity of the density yields a uniform linear lower bound for the inversion probability outside both diagonal corners; Chernoff bounds then establish localization of every fixed number of smallest degrees. Ordering is stable because the Poisson radial sums are distinct almost surely. Transforming the corner point processes gives the gamma ranks, independent marks and the stated conditional covariance. The eight-file package includes a standalone program and real output, reproducing 362894 exact identity, rational, and finite diagnostic assertions. Finite checks alone are not an infinite proof.
+PASS
 
-## Originality (PASS, subject to historical priority)
+The exact inversion count is the sum of the two lower marginal counts minus twice their overlap (and has the same form at the reflected corner). In a compact corner window the overlap is O_P(1), and counting the vertex itself changes the result by at most a constant. In the Poissonized sample, excising all four compact corner squares separates the four strips from one another and from the two retained corner configurations. Each excised count is tight; uniform marginals give strip intensity t sqrt(n)+O(1) uniformly on compacts. The independent Poisson FCLTs thus give the four Brownian motions, and continuity of the density gives the independent rare corner intensities. Coupling N~Pois(n) to exactly n iid draws changes strip counts by O_P(1) and changes a corner configuration with probability o(1), so the limiting independence is preserved. For localization, density bounded below gives h>=c min(x+y,2-x-y)/2; for R>4t/c, outside the corner triangles of scaled radius R, conditional binomial means exceed 2t sqrt(n) for all sufficiently large n. An exponentially small Chernoff tail beats the union bound. The limiting Poisson configurations supply k vertices below a large t with probability approaching one, and their summation coordinates are almost surely separated in each bounded window, justifying actual-degree sorting and the tie convention. The Jacobian s gives the Gamma rank transform, and evaluating the same Brownian paths yields the conditional covariance and marginal normal law.
 
-Corsini, *Minimal inversion of a permuton sample* (arXiv:2607.28992v1), proves the one-minimum extreme-value limit, and develops rare-corner estimates. Bhattacharya and Mukherjee, *Degree Sequence of Random Permutation Graphs* (arXiv:1503.03582v1), prove a uniform-permutation one-minimum limit and macroscopic-label degree results. Those cover the scalar minimum and motivate the first-scale analysis, but their stated theorems do not give fixed-rank joint geometric marks with the correlated shared-Brownian \(n^{1/4}\) fluctuation process. A comparison against published mathematical records and available earlier claims did not disclose the same marked two-scale theorem. Prior developments of empirical processes may contain implicit components; searches cannot certify priority.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The second-scale marks distinguish independent Poisson placement of the extreme vertices from dependence of their degrees due to common marginal empirical fluctuations. The exact conditional covariance differentiates same-corner pairs from opposite-corner pairs, providing information not reconstructible from a one-dimensional Rayleigh minimum limit. This is a motivated structural description of a natural random graph observable, without claiming the broader singular-density or growing-rank regimes.
+The scalar first minimum is already known in broader settings and the ranked Poisson geometry substantially overlaps related catalogue work. The distinct contribution supported here is the second-scale marked degree law, jointly with the ranked corner points, in which vertices at a common corner share the same Brownian paths. Neither the scalar Rayleigh law nor the inspected first-scale marked geometry implies that joint residual law.
 
-## Limitations and sources
+## value
 
-The hypotheses are continuous strictly positive permuton density, fixed rank, and uniform margins. An inaccessible historical presentation could conceivably supply an equivalent marked process, and the full historical-priority question remains open. References: Corsini, arXiv:2607.28992v1 (2026-07-31); Bhattacharya–Mukherjee, arXiv:1503.03582v1 (2015-03-12). The accompanying analytic proof, not the finite tests, establishes the claimed limiting behavior.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result explains a concrete dependence invisible to the scalar minimum or a Poisson description of leading ranks: vertices at a common corner are driven by common marginal-strip fluctuations, with an explicit geometry-dependent covariance. Independence between corners and dependence within a corner are useful distinctions for subsequent extreme-degree statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

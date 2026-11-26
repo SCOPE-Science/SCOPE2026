@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:00:58.115130Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–117",
+        "VERIFICATION.md, verify.py and verify_output.txt inspected, not executed",
+        "Independent bounded replay bounded_check.py: direct ternary labeling enumeration and rational rank; bounded_check_output.txt"
+      ],
+      "rationale": "For x_i=f(a_i) and y_i=f(b_i), the equations are x_i+sum_(j>=i)y_j=0 and y_i+sum_(j<=i)x_j=0. Their consecutive differences force (x_(i+1),y_(i+1))=(x_i+y_i,-x_i), and the two endpoint equations are x_1+y_1=x_n+y_n=0. Conversely the consecutive differences and endpoints recover every original equation, including n=1. The transfer matrix has cube -I and sixth power I. From (t,-t) the six states are (t,-t),(0,-t),(-t,0),(-t,t),(0,t),(t,0); the last endpoint is satisfied for t nonzero precisely when n=1 mod 3. Restricting x_1 to the allowed labels gives t in {-1,0,1}, and every entry in the orbit is then allowed. The successive weight terms 0,-t,-t,0,t,t cancel per period and leave zero at n=1 mod 6 and -2t at n=4 mod 6. This proves the full classification and maximum. Independent direct closed-neighborhood enumeration of 597870 ternary assignments for n=1 through 6 gives the same full solution sets and weights; exact rational rank checks through n=20 give the predicted real nullity 0 or 1.",
+      "residual_risks": [
+        "The independent finite checks are corroboration. The transfer calculation proves the result for all n and does not cover arbitrary Ferrers shapes with repeated neighborhoods."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected arXiv balanced-domination work addresses convex polytopes, trees, caterpillars and grids, and states a general kernel criterion.",
+          "The all-chain-graph rainbow domination result 46c2544cafc8 uses color subsets and open-neighborhood coverage. The cited older tridiagonal paper is a relevant spectral comparison; no full-text passage was retrieved for it."
+        ],
+        "reasoning": "The kernel criterion applies but does not determine its primitive generating vector or the sum of coordinates for these graphs. The broader rainbow enumerator is for different constraints and is not a dominating parameter theorem for the zero-sum ternary problem.",
+        "searches": [
+          "arXiv:2511.06539: half graph, chain graph, Ferrers, bipartite; contribution paragraph and kernel section",
+          "Resultary: closed neighborhood matrix A(G)+I balanced domination full classification half graph chain graph ternary",
+          "DOI 10.21136/CMJ.2020.0182-19, chain graph"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2511.06539",
+        "DOIs 10.21136/CMJ.2021.0055-20 and 10.21136/CMJ.2020.0182-19 (retrieval attempted)",
+        "Resultary records 9764da27b17b and 46c2544cafc8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=1 mod 6 and n=4 mod 6 the real kernel dimensions are the same (one), but the normalized generator has coordinate sum 0 and -2 respectively. This difference is not determined by multiplicity. The mirrored half-graph four-label result uses a load-at-least-three inequality and independent zeros."
+        ],
+        "reasoning": "The known framework reduces the problem to a constrained linear kernel. Calculating both the primitive coordinates and their period-dependent sum is material here; neither follows merely from a criterion for whether -1 occurs nor from the optimization under another domination definition. A spectral source giving sufficient exact eigenvector data could provide stronger coverage; that was not established from accessible passages.",
+        "searches": [
+          "On the balanced domination of graphs, DOI 10.21136/CMJ.2021.0055-20; arXiv:2511.06539, closed-neighborhood kernel",
+          "Tridiagonal matrices and spectral properties of some graph classes, DOI 10.21136/CMJ.2020.0182-19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2511.06539 gives the ternary zero-sum definition and closed-neighborhood kernel formulation.",
+          "In this family the real nullity is one exactly when n=1 mod 3, but the primitive null vector and its coordinate sum distinguish the two feasible residues modulo six."
+        ],
+        "reasoning": "Ternary solutions are the intersection of the -1 eigenspace of adjacency with the ternary cube, not just a spectral multiplicity. An exact normalized eigenvector formula would be an important equivalent antecedent; a characteristic polynomial alone gives only eigenvalue multiplicity.",
+        "searches": [
+          "Resultary: balanced domination half graph mod six ternary closed-neighborhood zero-sum classification",
+          "Resultary: half graph chain graph balanced dominating functions {-1,0,1} kernel A+I",
+          "Half graph eigenvalues eigenvectors adjacency matrix chain graph half graph cosine spectrum G_n singular values"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The half-graph minimum n+4 in 9764da27b17b belongs to outer-independent double Italian domination on four labels. The chain-graph formula in 46c2544cafc8 is an all-weight rainbow enumeration. Neither is an entry for balanced domination."
+        ],
+        "reasoning": "The meaningful exact-entry lookup is for a formula for the ternary zero-sum invariant on this indexed family, not exact figures for its other domination parameters. The retrieved exact formulas use different rules; the absence of a matched entry from these bounded searches is not a historical-priority claim.",
+        "searches": [
+          "Resultary half-graph balanced function and mod-six queries",
+          "Resultary same-day 9764da27b17b and 46c2544cafc8 Findings"
+        ]
+      },
+      "rationale": "The closest inspected balanced-domination literature gives the closed-neighborhood kernel framework. The two same-day chain/half-graph records actually impose other labeling constraints, not this invariant. The supported distinct claim is the complete normalized ternary solution family and weight phase for the canonical half graph, not the kernel reformulation or a claim to priority for detecting the eigenvalue -1. Exact eigenvector coverage in the inaccessible chain-graph spectral literature remains a specific risk.",
+      "residual_risks": [
+        "Full text of the foundational and cited spectral papers was not retrieved independently. In particular an explicit -1 eigenvector or a main-angle/projection statement could strengthen the prior comparison; the pass does not assert absence of such material in unavailable texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General method and other graph families; no half-graph weight formula in inspected passages",
+          "evidence": [
+            "It requires ternary labels with zero closed-neighborhood sums, and rewrites the condition as membership in a kernel."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.06539",
+          "material_read": "Abstract/contribution offsets 696–1284, definition near 3195, kernel near 9000",
+          "method": "OA HTML literal locators and bounded passages",
+          "title": "Balanced Domination in Convex Polytopes, Trees, and Grid Graphs",
+          "trigger": "Same balanced-domination invariant and kernel method"
+        },
+        {
+          "assessment": "Known foundational definition; primary-study coverage beyond the inspected evidence is not assessed",
+          "evidence": [
+            "The later source explicitly attributes the definition to Xu et al.; no primary passage from the original was verified in this review."
+          ],
+          "identifier_or_url": "doi:10.21136/CMJ.2021.0055-20",
+          "material_read": "No primary full text retrieved; independent secondary comparison in arXiv:2511.06539 around offsets 3195 and 94880",
+          "method": "OA DOI retrieval and bounded secondary definition/reference passages",
+          "title": "On the balanced domination of graphs",
+          "trigger": "Definition's foundational paper and possible family classification"
+        },
+        {
+          "assessment": "Unresolved eigenvector coverage; the retrieval shortfall is not negative evidence",
+          "evidence": [
+            "The frozen bibliography identifies the paper as relevant chain-graph spectral work; whether it determines these normalized coordinates is not established."
+          ],
+          "identifier_or_url": "doi:10.21136/CMJ.2020.0182-19",
+          "material_read": "No decisive original full-text passage retrieved",
+          "method": "OA DOI retrieval and targeted spectral literature lookup",
+          "title": "Tridiagonal matrices and spectral properties of some graph classes",
+          "trigger": "Potential exact eigenstructure antecedent for canonical chain graphs"
+        },
+        {
+          "assessment": "Different parameter, not equivalent coverage",
+          "evidence": [
+            "Labels 0,1,2,3, load at least three, independent zeros, a minimum n+4 and a different class of minimizers."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-outer-independent-double-italian-domination-of-half-graphs--9764da27b17b",
+          "material_read": "Finding near mirror offsets 310 and 796",
+          "method": "Resultary lookup and bounded mirror passage",
+          "title": "Outer-independent double Italian domination of half graphs",
+          "trigger": "Same-day exact domination result on the same graph family"
+        },
+        {
+          "assessment": "Broader graph family but different problem",
+          "evidence": [
+            "Labels are color subsets and the conditions use open-neighborhood coverage, not ternary balance."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-full-2-rainbow-domination-polynomial-of-connected-chain-graphs-b--46c2544cafc8",
+          "material_read": "Finding at mirror offset 0",
+          "method": "Resultary lookup and bounded mirror passage",
+          "title": "Full 2-rainbow domination polynomial of connected chain graphs",
+          "trigger": "Broader Ferrers family with a domination enumerator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding and weight calculation, especially lines 109–117",
+        "arXiv:2511.06539 definition and kernel discussion"
+      ],
+      "rationale": "The half graph is a natural canonical chain graph for the established balanced-domination invariant. The result goes beyond detecting a nonzero kernel: it identifies every feasible labeling and shows why two real-kernel-positive residues give different optimal weights. The exact phase and complete family are useful for distinguishing balanced domination from mere adjacency singularity at -1.",
+      "residual_risks": [
+        "No extension to arbitrary chain graphs or other domination definitions is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:43:25.752963Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently enumerated all 32,769 numerical binary16 inputs, retaining subnormals and identifying signed zeros. On the 2^24 integer scale, adjacent encoding distances and low-bit parity give exact nearest-even rounding; for G the square is rounded before subtracting from 2. A path-index traversal rather than indegree peeling reproduced every cycle-minimum word, least period, and full basin size for both maps, as well as 1,842 differing transitions, image sizes 2,049 and 1,946, and maximal transient lengths 59 and 69, each with multiplicity two. Exact basin weighting reproduced all four fractions (both initial sets, for both maps). Replay: python3 /workspace/branches/89413691-0878-4f51-83d8-e86b7ed4d105/independent_check.py; full_results.json in the same directory records the data. Inspected the frozen verify.py, not executed. Separately, u=(x+2)/4 conjugates the exact real map to the full logistic map, whose arcsine law is the ergodic pushforward of angle doubling; it is equivalent to Lebesgue measure in the interior and yields the asserted zero almost-sure real mean. Nothing about a physical analogue device is certified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klöwer et al. use the r x(1−x) logistic map, including Float16, and explain the distinction between checking all starts and partial orbit sampling.",
+          "Wu's analogue prototype and Sayed's finite-precision logistic study are closely relevant; the decisive full texts were not recovered on this check, so no exclusion is inferred from their titles."
+        ],
+        "reasoning": "Known general finite-state periodicity and orbit-search methods do not determine the numbers here. Exact publication coverage in the unavailable papers remains possible, not demonstrated.",
+        "searches": [
+          "Klöwer et al., DOI:10.1038/s41598-023-37004-4, orbit-search and logistic-map passages",
+          "Wu et al., DOI:10.1049/ell2.12529, targeted DOI/lawful access attempts",
+          "Sayed et al., DOI:10.1155/2017/8692046, publisher and OA attempts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 35a3ca4a276d and 46d23de07c7c",
+        "DOI:10.1038/s41598-023-37004-4; DOI:10.1049/ell2.12529; DOI:10.1155/2017/8692046"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general finite graph principle explains why every path reaches a cycle, not which cycles, basin masses, path depths, transition differences, or weighted means arise.",
+          "Real conjugacy transfers arcsine ergodicity, but not binary16 rounding or the uniform stored-state distribution; the specific quadratic graph statistics require the exact transition computation."
+        ],
+        "reasoning": "Credit existing conceptual and methodological overlap; no verified general theorem or exact special case determines this two-graph comparison.",
+        "searches": [
+          "Klöwer et al., orbit-finding and Float16 discussion, offsets 9000–13918 and 19150–22630",
+          "Resultary 35a3ca4a276d and 46d23de07c7c exact protocol descriptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "35a3ca4a276d enumerates 15,361 stored [0,1] states for two versions of the standard logistic map, including a five-cycle versus an eight-cycle and 12,513 distinct transition disagreements; 46d23de07c7c uses staged expanded logistic arithmetic on [0,1].",
+          "The affine real conjugacy u=(x+2)/4 is not a discrete conjugacy: the signed grid has 32,769 states, and, e.g., x=2^-24 maps to 1/2+2^-26, not a binary16 value."
+        ],
+        "reasoning": "The closest apparent equivalents share the continuous dynamics and arithmetic sensitivity but neither the discrete alphabet nor the rounding rules. Neither supplies these exact finite graphs.",
+        "searches": [
+          "Resultary: exact binary16 evaluation-order cycle census for 2−x², full signed domain, and parameter-4 logistic equivalents",
+          "Resultary 35a3ca4a276d and 46d23de07c7c, RESULT.md Findings, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two inspected tabulations are for different finite graphs and do not reproduce the frozen exact table. The title-resolution search did not establish a source match for the earlier alternate logistic census mentioned by 46d23de07c7c."
+        ],
+        "reasoning": "A tabulation is covering only if its underlying transitions match, or provably transfer. Exact tables on the nonnegative logistic alphabet do not satisfy this condition.",
+        "searches": [
+          "Resultary ranked results for binary16 basin sizes and rounding order; 35a3ca4a276d and 46d23de07c7c",
+          "46d23de07c7c, prior-coverage passage at offset 3315",
+          "Resultary title resolution: Rounding placement changes the complete binary16 logistic attractor census"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the exact signed-domain binary16 census for this pair of rounding protocols, not the real quadratic map, low-precision periodicity, or evaluation-order sensitivity as general phenomena. The strongest inspected alternatives give materially different discrete maps and statistics.",
+      "residual_risks": [
+        "Direct comparison to full Wu and Sayed articles was not possible via the investigated lawful routes.",
+        "The earlier logistic census title cited by 46d23de07c7c was not independently resolved. An unindexed equivalent exact quadratic census cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different domain and discrete evaluations",
+          "evidence": [
+            "15,361 nonnegative [0,1] inputs, five/eight-cycle comparison and 12,513 edge differences."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Two exact binary16 logistic cycle spectra under algebraically equivalent evaluations",
+          "trigger": "Exact half-precision evaluation-order graph census"
+        },
+        {
+          "assessment": "Contrasts other discrete protocols; mentions additional related evidence",
+          "evidence": [
+            "Staged expanded logistic expression on the nonnegative alphabet, with six cycles; related once-rounded/factored logistic results use the same alternate family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c",
+          "material_read": "RESULT.md Finding and prior comparison at offsets 0 and 3315",
+          "method": "Local mirror passage inspection",
+          "title": "Three incompatible complete cycle spectra for half-precision logistic iteration",
+          "trigger": "Potential broader exact binary16 classification"
+        },
+        {
+          "assessment": "Relevant periodicity, simulation and methodology; studied maps differ",
+          "evidence": [
+            "Standard logistic form r x(1−x); checking all initial conditions is distinguished from Monte Carlo sampling."
+          ],
+          "identifier_or_url": "DOI:10.1038/s41598-023-37004-4",
+          "material_read": "pp. 1–4; orbit search and logistic examples, offsets 9000–13918 and 19150–22630",
+          "method": "OA article passage inspection",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Primary low-precision orbit study including Float16"
+        },
+        {
+          "assessment": "Precise prior coverage unverified",
+          "evidence": [
+            "Frozen text credits this work for the real analogue family, not the binary16 graph; no decisive independent passage obtained."
+          ],
+          "identifier_or_url": "DOI:10.1049/ell2.12529",
+          "material_read": "Bibliographic information; independent full-text recovery unsuccessful",
+          "method": "Exact DOI-focused search and publisher/repository access attempts",
+          "title": "Analogue circuit implementation of a new logistic-like map",
+          "trigger": "Same real quadratic family"
+        },
+        {
+          "assessment": "Precise arithmetic and census coverage unverified",
+          "evidence": [
+            "Frozen account describes fixed-point protocols. The title and access outcome alone do not rule out stronger overlap."
+          ],
+          "identifier_or_url": "DOI:10.1155/2017/8692046",
+          "material_read": "Bibliographic information; independent full-text recovery unsuccessful",
+          "method": "PDF, publisher and OA recovery attempts",
+          "title": "Finite Precision Logistic Map between Computational Efficiency and Accuracy with Encryption Applications",
+          "trigger": "Potential exact finite-arithmetic orbit comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical binary16 format and two common rounding abstractions give a natural, complete cutoff. The exact graph is a benchmark for reproducible low-precision chaotic dynamics: changing where rounding occurs changes the largest nontrivial period from 94 to 44, shifts macroscopic basin weights and changes the exact uniform-stored-state mean. A few simulated paths or the real invariant law cannot answer these questions, and the result does not overclaim transfer to other formats or arithmetic protocols.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

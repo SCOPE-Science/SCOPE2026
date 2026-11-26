@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:09:44.893636Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–71",
+        "Frozen VERIFICATION.md and verify.py inspected, not executed",
+        "Corrected /workspace/repairs/4/RESULT.md, exact determinant and exhaustive zero-set intersection proof"
+      ],
+      "rationale": "The frozen L–L exclusion uses an unjustified implication: a single exchange can in principle destroy an adjacent-zero pair and create a disjoint pair next to a different old zero. Restricting the shift to ±1 needs more than the fact that just one zero was lost. The repaired proof verifies all shifts directly and leaves the theorem unchanged. Domination forbids 000, and separation of neighbors forbids two zeros at offset three; these also separate distance-two neighborhoods, and all other neighborhoods are disjoint. The seven-state determinant is checked by its four simple directed cycles and two disjoint pairs. At t=u²,z=w/u its factors are (1−w²)(1−uA−u²B), A=w(1+w⁴), B=w⁴/(1−w²); the coefficients at excesses zero, one and three yield the stated minima, counts and sole n=15 increment. The H and L rotations and exceptional periodic words attain these counts. For n=2m+3, changing vertex coordinates to v=2j turns H zero sets into intervals of length m and the normalized L zero set into {0}∪[2,m−1]∪{m+1}. Intervals overlap in m−1 points just at shifts ±1 in j, yielding ±2 in v. Exactly two intervals overlap the normalized L in m−1 points, [0,m−1] and [2,m+1]; translating back gives L_1 and L_5 from H_0. For an L–L translation by s, symmetry reduces to 1≤s≤m+1 without wrap, giving overlap m−3 at s=1, m−2 at s=2, and at most m+1−s for s≥3 because m is a hole. Thus no L–L exchange occurs. Alternating even codes differ in every coordinate. Each exceptional code keeps at least two of its three disjoint adjacent-zero pairs after one exchange, and two exceptional rotations share at most one zero residue modulo five, so these five are isolated. The odd cycle of H vertices and two neighbors per L give the claimed component and edge counts.",
+      "residual_risks": [
+        "No claim for odd orders below thirteen, a different code definition, or token sliding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems 9–10 establish M_r^I(C_n)≥ceil(n/2) and equality for even n≥2r+4, with an alternating construction. At r=1 this includes every even order in the frozen claim. The three closest odd-order references were not accessible as full text through the attempted lawful routes."
+        ],
+        "reasoning": "General-radius minimum cardinality coverage is real; a lower bound with an extremizer does not itself classify all minimizers or exchange edges. The exact scope of the unavailable odd-order papers is not inferred from their titles.",
+        "searches": [
+          "Bertrand–Charon–Hudry–Lobstein, Section 4.1, Theorems 9–10",
+          "Gravier–Moncel–Semri 10.1016/j.ejc.2004.09.005; Xu–Thulasiraman–Hu 10.1016/j.ejc.2007.09.006; Junnila–Laihonen 10.1007/s00373-011-1058-6"
+        ]
+      },
+      "checked_sources": [
+        "Bertrand–Charon–Hudry–Lobstein 2004",
+        "Resultary 34a87656b6f7",
+        "Candidate odd-cycle references and access limitations listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum cardinality is prior and does not determine orbit structure. Even given the exact two ordinary odd orbits, their exchange neighborhoods require comparing the translated zero sets; the additional five order-fifteen codes require a separate exception and isolation check. The indexed short-cycle result expressly stops at C_11."
+        ],
+        "reasoning": "The uniform odd graph, exact shifts and isolated exceptional configurations are not implied by the verified size or short-cycle results. Even if earlier papers classify the optimal odd words, the priority risk would then concern the census in addition to the exchange geometry; neither identity nor nonidentity was inferred without text.",
+        "searches": [
+          "Bertrand–Charon–Hudry–Lobstein Theorems 9–10",
+          "Resultary 34a87656b6f7 Finding and scope",
+          "Candidate odd-order papers by Gravier–Moncel–Semri, Xu–Thulasiraman–Hu, and Junnila–Laihonen"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 34a87656b6f7 treats both token sliding and token jumping on minimum identifying codes of C_11. Its token-jump graph is connected 4-regular on 33 vertices, with 66 edges, whereas its slide graph is 11K_1 disjoint union C_22."
+        ],
+        "reasoning": "One-out/one-in exchanges are token jumps, not slides. The closest same-definition theorem addresses C_11, which is excluded from the claimed odd range and has a different exchange graph.",
+        "searches": [
+          "Local Resultary: token jumping and token sliding of optimal/minimum radius-one identifying codes of cycles",
+          "Literature search: identifying-code reconfiguration and odd cycle minimum codes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The short-cycle table includes the minimum-code counts and slide graphs for C_8 and C_10; with the known complementary alternating examples and counts of two, the exchange graphs at these two orders are implied. That source's exact table ends at n=10, followed by the separate C_11 theorem."
+        ],
+        "reasoning": "These are two exact even-order overlaps; the table cannot resolve the odd range or the order-fifteen configurations. No exact indexed C_15 match was recovered in the bounded search.",
+        "searches": [
+          "Local Resultary: minimum identifying codes on C_15 and exceptional components",
+          "Resultary 34a87656b6f7, short-cycle table and C_11 result"
+        ]
+      },
+      "rationale": "Prior work covers minimum sizes and includes the even alternating construction. The closest inspected indexed reconfiguration result gives exact token-jumping structure on C_11, outside the odd range, and a short table with two even instances. The credited result is the uniform classification of the minimum-code exchange graph on the stated parity ranges and the exact exceptional isolated component at 15, not the minimum cardinalities or the general reconfiguration setup. No compared primary passage or indexed record yields that classification. The unavailable close odd-order papers are explicit residual risks, not negative evidence.",
+      "residual_risks": [
+        "The exact scope of the three closely related odd-order papers remains unresolved; equivalent optimal-word or C_15 classifications there or elsewhere are not ruled out. No absolute priority is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers even minimum sizes and construction, not the exchange classification in the passage",
+          "evidence": [
+            "Minimum ≥ceil(n/2); even n≥2r+4 attain the bound by the alternating code."
+          ],
+          "identifier_or_url": "https://lsv.ens-paris-saclay.fr/Publis/PAPERS/PDF/BCHL-ejc04.pdf",
+          "material_read": "Section 4.1, Theorems 9–10, PDF p. 12, journal pp. 980–81, OA text near 27800",
+          "method": "OA primary PDF text",
+          "title": "Identifying and locating-dominating codes on chains and cycles",
+          "trigger": "Foundational minimum sizes and alternating construction"
+        },
+        {
+          "assessment": "Exact short-case overlap in the table; main theorem excludes stated odd range",
+          "evidence": [
+            "33 minimum codes at C_11; 66 token-jump edges and a 4-regular graph; counts/slides tabulated only through ten."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-the-first-mixed-mobility-of-minimum-identifying-codes-on-cycles--34a87656b6f7",
+          "material_read": "RESULT.md offsets 590 and 5350, C_11 theorem, small-cycle table and scope",
+          "method": "Local mirror original-text comparison",
+          "title": "The first mixed mobility of minimum identifying codes on cycles",
+          "trigger": "Same code definition and minimum-code exchange invariant"
+        },
+        {
+          "assessment": "Plausible unresolved overlap on odd minimum-word classification; no claim of noncoverage based on access",
+          "evidence": [
+            "Candidate papers are identified by DOI in the frozen references; statement-level coverage could not be established from the available material."
+          ],
+          "identifier_or_url": "10.1016/j.ejc.2004.09.005 ; 10.1016/j.ejc.2007.09.006 ; 10.1007/s00373-011-1058-6",
+          "material_read": "Landing/abstract metadata where available; no decisive full-text optimum-orbit passages obtained",
+          "method": "Lawful DOI/OA and repository attempts; first two yielded only metadata, and repository/publisher attempts for the third did not yield the paper text",
+          "title": "Identifying codes of cycles; Identifying codes of cycles with odd orders; Optimal Identifying Codes in Cycles and Paths",
+          "trigger": "Closest primary sources on optimal words for odd cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Corrected RESULT.md, exact exchange classification and C_15 isolation",
+        "Frozen scope distinguishing token jumps from slides"
+      ],
+      "rationale": "The quantity of interest is the natural reconfiguration graph on optimal solutions, not merely the well-studied minimum size. Exact adjacency gives the connected components and a uniform cycle-and-chord description; the five isolated C_15 codes show a genuine exception to odd connectivity that size bounds alone do not explain. The result is a complete graph classification across infinite ranges, with explicit templates and all possible exchanges.",
+      "residual_risks": [
+        "Minimum-code connectivity need not describe reconfiguration when larger intermediate code sizes are allowed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

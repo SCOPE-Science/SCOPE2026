@@ -51,7 +51,7 @@ All matrices are finite-dimensional, real, and positive definite; \(m\) is any p
 
 ## Proof
 
-**Block reduction and spectral identity.** Let \(x=\omega_1\) and \(y=\|\omega_{2:m+1}\|_2\). For \(x,y>0\), an orthogonal rotation of the bulk coordinates reduces the nontrivial matrix pair to the plane spanned by the top coordinate and the normalized bulk component. On its orthogonal complement, \(N=0\) and \(H=h_2I\). In the plane, the Nyström matrix is rank one and satisfies \(0\preceq N\preceq A\), because \(N=A^{1/2}qq^{\mathsf T}A^{1/2}\) with \(q=A^{1/2}\omega/\|A^{1/2}\omega\|_2\). The residual \(A-N\) has rank one in the plane. Thus
+**Block reduction and spectral identity.** Let \(x=\omega_1\) and \(y=\|\omega_{2:m+1}\|_2\). For \(x\ne0\) and \(y>0\), an orthogonal rotation of the bulk coordinates reduces the nontrivial matrix pair to the plane spanned by the top coordinate and the normalized bulk component. On its orthogonal complement, \(N=0\) and \(H=h_2I\). In the plane, the Nyström matrix is rank one and satisfies \(0\preceq N\preceq A\), because \(N=A^{1/2}qq^{\mathsf T}A^{1/2}\) with \(q=A^{1/2}\omega/\|A^{1/2}\omega\|_2\). The residual \(A-N\) has rank one in the plane. Thus
 \[
 (I+N)^{-1/2}H(I+N)^{-1/2}
 =I+(I+N)^{-1/2}(A-N)(I+N)^{-1/2}
@@ -103,7 +103,7 @@ Frangella, Tropp and Udell study randomized Nyström PCG with a **different scal
 
 ## Limitations
 
-This is an exact low-dimensional spectral-model benchmark with a full-rank positive bulk, not a theorem for arbitrary spectra or actual EDA Hessians. It depends on independent Gaussian coordinates and the fixed scaling \(\theta=1\). Replacing it with the paper's recommended adaptive \(\theta\), increasing sketch rank, or using a genuinely singular \(A\) changes the claim. For this two-level spectrum, exact CG solves the original and preconditioned systems in at most two distinct-eigenvalue steps in exact arithmetic, so the spectral-condition-number effect is **not** evidence for delayed or accelerated CG on this toy family. Finite experiments do not certify novelty, arbitrary-dimensional generality, floating-point stability, or real-world performance.
+This is an exact two-level spectral-model benchmark with a full-rank positive bulk, not a theorem for arbitrary spectra or actual EDA Hessians. The probability laws depend on independent Gaussian coordinates and the fixed scaling \(\theta=1\). Replacing it with the paper's recommended adaptive \(\theta\), increasing sketch rank, or using a genuinely singular \(A\) changes the claim. In exact arithmetic, CG on \(H\) terminates in at most two iterations. For \(m\ge2\) and nondegenerate probes the symmetrically preconditioned system has three distinct eigenvalues \(1,h_2,K(t)\); it can require three iterations if the initial residual has a component in each eigenspace. When \(m=1\), there are only two eigenvalues in the preconditioned system. Strict spectral-condition-number improvement therefore does not imply fewer CG iterations, and the probabilities above are not iteration-count or runtime guarantees. Finite experiments do not certify novelty, arbitrary-dimensional generality, floating-point stability, or real-world performance.
 
 ## References
 

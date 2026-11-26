@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:22:10.806409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning the first A coupon to be the fixed starting vertex changes no total-time distribution by exchangeability and leaves independent future draws. Thus the side must be B precisely when T_b>=T_a: compare physical step indices 2T_b-1 and 2(T_a-1), including a=1. Summing the finite inclusion-exclusion expressions for the A point mass and B survival function over time gives the stated denominator by a geometric series; zero bases at time zero represent 1. Within each non-start orbit, exchangeability gives the claimed probabilities. For m>=2 the squared l2 norm of a mixture of translates of the last geometric stage is at most the squared norm 1/(2m-1) of that stage alone. It is strict for m>=3 because the earlier-stage sum has nondegenerate support, and two distinct translates differ. For the collision asymptotic use integer Fourier inversion after t rescaling: one geometric factor gives a uniform (1+2t^2/pi^2)^{-1} bound on |t|<=pi*m. Gumbel convergence, independent limits, dominated convergence and Plancherel yield the integral of the Gumbel density squared, 1/4. The deterministic difference of centerings divided by m is delta*log(m)/m+o(1) for delta=o(m); centered fluctuation differences are tight, and at finite limits their independent Gumbel difference is continuous logistic. The two-vertex case uses the pgf at 1/2 of the other coupon time and yields the central-binomial identity. Verified 81 small side probabilities, 20 thin-part instances, and 11 balanced cases exactly with a separately written state recurrence (python3 /workspace/branches/frozen_math_recheck.py 5); asymptotic claims use the argument, not those cases. The frozen checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2b607d0cfc50 treats every sequence with b_m/m->1 and finite scaled imbalance, not only floored fixed-c sequences, as well as both infinite drift limits; it also gives a finite strict side-majority boundary and a balanced total-variation asymptotic. The 2022 paper gives a broad last-discovery comparison between starts."
+        ],
+        "reasoning": "The stated fixed-c profile is a restriction of the general scaled-sequence Resultary theorem. The qualitative balanced strict vertex comparison is also a specialization of the broad last-discovery comparison, not just a new finite inequality.",
+        "searches": [
+          "2b607d0cfc50 Finding, exact majority boundary and logistic balance window",
+          "Buchanan–Horn–Rombach arXiv:2209.08079v1 pp. 1–2 including Lemma 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2b607d0cfc50 and 45da9f177f4a, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2209.08079v1",
+        "arXiv:math/0304229v1",
+        "arXiv:1006.3531"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed record proves m Pr(C_m=C'_m)->1/4 via the same Fourier/Plancherel argument. The prior geometric-stage pgf plus p_{2,b}=Pr(C_b>=C_2) evaluates its complement at 1/2 to 2/binom(2b,b). The 2022 Lemma 1 is strict if a cover walk from u to a nonneighbor v exists without revisiting u."
+        ],
+        "reasoning": "For m>=3 and u,v in the same part, such a walk visits the other A vertices and all m B vertices, using a previously visited A other than u as a filler before the last B, then ends at v. Thus Lemma 1 gives a strict comparison with a start in B, and balanced part symmetry converts that comparator to P_B/m. This implies exactly rho_m<1/(2m-1); the per-vertex gap and its coefficient then follow algebraically from the covered side law and collision asymptotic. The thin-part formula is a direct one-parameter transform of the already explicit coupon law.",
+        "searches": [
+          "2b607d0cfc50 Finding and proof offset 7450; compare coupon time identity and collision asymptotic",
+          "arXiv:2209.08079v1 Lemma 1; arXiv:1006.3531 p. 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2b607d0cfc50 explicitly gives p_{a,b}=Pr(C_b>=C_a), the same per-vertex normalization, and both the critical logistic and balanced 1/(8m) formulas. 45da9f177f4a is another matching catalog statement; it contributes no priority inference."
+        ],
+        "reasoning": "Both the double sum and indexed product sum evaluate the same survival expectation E[Pr(C_b>=C_a | C_a)] over the same independent uniform coupon times. Different evaluational forms do not make these endpoint laws different.",
+        "searches": [
+          "Resultary: complete bipartite last-discovery side law and logistic coupon window",
+          "2b607d0cfc50 RESULT.md, offset 0 and offset 7450",
+          "45da9f177f4a RESULT.md, Finding offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact product sum covers all a,b, including thin and balanced cases. Myers–Wilf calculate the exact equal-size tie probabilities, including 1/3, 11/70 and 9/91."
+        ],
+        "reasoning": "Via p_{m,m}=(1+rho_m)/2 the prior tie formula supplies exact balanced endpoint numbers; the indexed exact law supplies all side masses and the named-vertex normalization. The absence of the same double-sum notation is immaterial.",
+        "searches": [
+          "Resultary 2b607d0cfc50 exact law",
+          "Myers–Wilf arXiv:math/0304229v1 §2.1 Eqs. (2)–(7)"
+        ]
+      },
+      "rationale": "Material equivalent coverage is present in the distinct indexed record 2b607d0cfc50. It treats exactly the same walk, start convention, side and individual endpoint law on all positive a,b, declares the same balanced asymptotic coefficient and proves a stronger logistic statement for general scaled integer sequences as well as both infinite drift cases. It uses even the same Gumbel Fourier/Plancherel limit for the collision. The double sum is only another evaluation of the identical coupon comparison; the remaining exact specializations do not support the original core. This is a statement comparison, not a conclusion about authorship or a priority order inferred from catalog dates.",
+      "residual_risks": [
+        "No lawful full text was obtained for Lovász–Winkler (1993, DOI 10.1002/jgt.3190170505) or Ohwa–Shirai (2008), a potential general joint-cover-time/last-point inclusion-exclusion source. Unsettled extent of external priority does not change demonstrated indexed coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct equivalent or stronger coverage of main finite and asymptotic claims",
+          "evidence": [
+            "Exact law, sharp finite majority boundary, logistic balance window, quantitative near-uniformity, Fourier limit 1/4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-last-discovery-bias-and-a-logistic-balance-window-on-complete-bi--2b607d0cfc50/RESULT.md",
+          "material_read": "Finding at offset 0; collision limit, verification and relationship passages at offset 7450",
+          "method": "Resultary retrieval and bounded local-mirror read",
+          "title": "Last-discovery bias and a logistic balance window on complete bipartite graphs",
+          "trigger": "Exact same graph event, parameters and asymptotic invariants"
+        },
+        {
+          "assessment": "Matching catalog statement, no priority inferred",
+          "evidence": [
+            "Exact coupon comparison, balanced correction and logistic window."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-last-vertex-laws-on-complete-bipartite-random-walks-exact-ties-a--45da9f177f4a/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary and local-mirror passages",
+          "title": "Last-vertex laws on complete bipartite random walks: exact ties and critical windows",
+          "trigger": "Second close indexed claim"
+        },
+        {
+          "assessment": "General comparison implies the strict balanced per-vertex direction after symmetry, though not the numeric side law",
+          "evidence": [
+            "Lemma 1 strictness criterion is a cover walk from u to a nonneighbor v without revisiting u."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.08079v1",
+          "material_read": "pp. 1–2, starting at offsets 0 and 2700, in particular Lemma 1",
+          "method": "OA primary PDF passage comparison",
+          "title": "On the Last New Vertex Visited by a Random Walk in a Directed Graph",
+          "trigger": "Potential stronger last-discovery comparison theorem"
+        },
+        {
+          "assessment": "Direct coverage of finite tie probabilities",
+          "evidence": [
+            "Simultaneous-completion expression and example values 1/3, 11/70, 9/91."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0304229v1",
+          "material_read": "§2.1 Eqs. (2)–(7), offset 4450 vicinity",
+          "method": "OA primary HTML passages",
+          "title": "Some New Aspects of the Coupon-Collector's Problem",
+          "trigger": "Exact finite equal-size coupon collision probabilities"
+        },
+        {
+          "assessment": "Supplies the classical Gumbel ingredient, not the graph-specific law in inspected passage",
+          "evidence": [
+            "Attributes the complete-collection Gumbel limit to Erdős–Rényi."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1006.3531",
+          "material_read": "p. 4, offset 7517 vicinity",
+          "method": "OA primary PDF passage",
+          "title": "Approximation Theorems Related to the Coupon Collector's Problem",
+          "trigger": "Prior complete-collection fluctuation law"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The observable and the exact critical scales are intrinsically meaningful, but that substantive work is already represented by a mathematically equivalent or stronger record. The different rational summation, gap normalization and thin-part evaluation are routine consequences in the same model; no new structural or computational need is met by submitting them as this finding. There is no identified valuable distinct remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

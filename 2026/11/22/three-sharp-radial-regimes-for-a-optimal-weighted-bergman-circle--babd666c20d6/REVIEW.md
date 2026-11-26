@@ -1,15 +1,21 @@
-# Scientific review: A-optimal weighted Bergman circle sampling
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim assumes \(\alpha>-1\), integer \(N\ge1\), normalized full-space Bergman point evaluations, and positive sampling masses of total one. The exact Fourier Gram matrix fixes all diagonal entries at a given radius. The Schur-complement inequality bounds the inverse trace, and its equality case forces the regular-polygon design among at most \(N+1\) sites. The radial log-risk derivative is strictly increasing, with opposite endpoint signs, proving a unique global optimum. Gamma-ratio Riemann sums establish the negative-exponent limit; at the critical exponent an exact geometric-series identity yields the \(\log\log N+\log2\) scale; at positive exponents the convergent Beta series and endpoint Laplace estimate yield the \(\alpha\log N\) scale and its constant. Risk constants follow by substituting these scales. The companion standard-library checker passed 278 finite diagnostics; those checks do not replace the asymptotic arguments.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Qu, Qian, Li, and Zhu's primary paper on weighted Bergman best-kernel approximation proves existence of norm-best projections, rather than A-optimal finite-sampling design or inverse-Gram trace asymptotics. Moeller and Ullrich treat random RKHS sampling and worst-case recovery, not deterministic fixed-radius inverse covariance. The closest published-finding corpus finding (ID ending `c051d241328b`) optimizes the spectral condition number on a single Bergman circle. The Fourier rigidity mechanism and normalized kernel are shared background, but a sharp condition-number optimum does not imply the optimizer of the inverse-trace objective or the three new weight-sensitive asymptotic scales. Web and published-finding corpus searches for A-optimal / trace-inverse / radial asymptotics gave no closer covering result. Full text of the closest published-finding corpus GitHub repository entry could not be opened; only its indexed theorem summary was inspected. Earlier general Fourier experimental-design theorems may cover angular equispacing but not these radial asymptotics. Historical priority is therefore provisional rather than independently certified.
+PASS
 
-## Value — PASS
-A-optimality measures total coefficient recovery variance under a fixed sensing-energy budget, a natural alternative to optimizing a single worst singular value. The theorem globally optimizes both angular geometry and radius with exactly the smallest sufficient number of observations, proves complete equality conditions, and establishes a three-regime phase transition, including a distinct \(\log\log N\) critical law and three sharp risk-growth scales. These are motivated structural conclusions for an entire family of Bergman weights, not an arbitrary degree cutoff, isolated numerical table, or a mere reformulation of the known conditioning result.
+At any common squared radius x the monomial Gram diagonal is fixed. The inverse diagonal bound, with equality exactly for a diagonal Gram matrix, reduces the risk to F(x)=(1−x)^(−p)∑ b_k x^(−k). Vanishing first N Fourier moments make the square weighted Vandermonde matrix unitary: row norms force uniform weights, and pairwise row orthogonality forces regular polygon sites up to rotation. The derivative of the log risk at t=−log x is the tilted mean of k minus p/(exp(t)−1), strictly increasing by positivity of the variance and with limits −∞ and N. For L=Nt and 1<p<2 the weighted Riemann integrals have integrable lower endpoints, and bracket L_N by the strictly monotone equation in the finding. At p=2 the harmonic sum at L=log log N+c remains asymptotic to log N (its excess is O(exp(L)/L+L)); the exact stationarity right side is asymptotic to exp(c) log N/2. For p>2 and L=(p−2)log N+c, the beta integral gives total un-tilted mass B=(p−1)/(p−2); the local upper-end scale N/L gives S'_N∼Γ(p)exp(c)N/L. Its contribution to S_N is O(1/L); below a small fixed fraction of N the derivative bound is o(N/L), and the middle block is smaller by a power of N than the leading derivative term. Thus S_N→B, giving the claimed constant shift by bracketing at fixed c. Substituting all three radius laws into F verifies the stated risk constants. Independent checks corroborate angular optimality, exact N=1,p=2 radius x=1/4, and finite solutions for three exponents, including slow convergence at p=2.
 
-## Limitations
-The sample points must share one radius; all weights must be positive and sum to one; the normalization is by the **full** Bergman reproducing kernel, not the polynomial-truncated kernel. No assertion is made about designs with multiple radii or alternative noise models. No effective finite-degree error bound is claimed for the asymptotics. Historical priority requires an independent literature examination; the underlying full published-finding corpus repository file was inaccessible, and independent mathematical audit has not yet been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The regular-polygon geometry and angular Fourier rigidity are already known in closely related optimal circle designs; the angular step is a standard consequence of fixed Gram diagonals and diagonalization. The supported distinct claim is the A-risk radial optimization with full weighted Bergman kernel normalization, especially the sharp transition across p=2 and the sharp risk constants. The strongest nearby theorem minimizes a scale-invariant extremal-eigenvalue ratio on a larger class but gives a different optimizer and no equivalent inverse-trace asymptotic law.
+
+## value
+
+PASS
+
+Inverse trace measures total coefficient-recovery variance in the whitened weighted observation model. With the minimal sufficient number of positive sites under full-kernel scaling, the sharp transition tells a designer where to put the only sampling circle and what total inverse-information growth to expect. The summability change produces three genuinely different radial scales, especially the slow critical double logarithm, not merely a relabeling of a condition-number optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

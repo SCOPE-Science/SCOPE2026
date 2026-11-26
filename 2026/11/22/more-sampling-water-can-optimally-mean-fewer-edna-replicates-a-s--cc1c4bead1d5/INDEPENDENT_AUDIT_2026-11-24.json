@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:02:10.819124Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the stated independent conditional-Poisson and fixed-spurious-positive model the all-negative probabilities are α^n under absence and α^n·product(q(vi)) under presence, where α=1−f and q(v)=1−p+p exp(−λ(v−c)). Their difference is Youden discrimination. g=−log q has g′>0 and g″<0; strict Jensen yields exactly the equal split, including the trivial n=1 case. For E=n g(B/n), direct differentiation gives E″=(B/n)^2 g″(B/n)/n<0, and log(1−exp(−E)) is increasing and strictly concave in E>0. Adding n log α preserves strict log-concavity, which orders secant slopes and makes strict neighbor wins globally decisive (one-sided at an endpoint). This does not assert unique maximizers at every intermediate budget; adjacent finite-budget ties can occur. At fixed count E increases strictly with B. I independently certified the four comparisons with exact rational alternating partial sums of exp(−x), rather than the frozen checker’s reciprocal positive sums. The four certified lower margins exceed 0.0003434316, 0.0011327059, 0.0044248467 and 0.0002921463 respectively; the scores therefore certify the asserted 5-to-4 reversal. For large B, Cn=α^n(1−β^n), β=1−p, and the sign of C(n+1)−Cn is the sign of (1−αβ)β^n−f. Its one crossing gives the ceiling formula with equality only at an integer threshold. The geometric upper bound α^n and the positive limit of J1 restrict all large-budget maximizers to a fixed finite set. At a tie k,k+1 the positive deficits have leading terms α^n n β^(n−1) p e^(λc) e^(−λB/n), so the smaller count approaches faster and wins eventually. The witness threshold is strictly between 3 and 4 by rational signs. As a check on the credited f=0 contrast, the continuous optimum maximizes g(v)/v, with derivative sign v g′−g decreasing strictly from positive at c to negative at infinity; its fixed v gives a count proportional to B, and the integer optimum differs by at most one. Replay: /workspace/reviews/replay_statistics.py and replay_statistics.txt; frozen checker inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader independent-site result permits a random encounter rate and a relocation cost. The two-point rate law {0, λ} with probabilities {1−p,p} and deadline H=B−c produces the zero-alarm version: n visits charge n−1 relocations from H.",
+          "Buxton et al. discuss field/lab replication and volume in terms of occupancy-estimate bias, credible interval width and detectability."
+        ],
+        "reasoning": "The previous encounter result genuinely subsumes the credited f=0 case; it does not include α^n or an absent-condition signal. The empirical occupancy objectives are also different from this model's population discrimination objective.",
+        "searches": [
+          "Resultary: independent-site exponential encounter no false alarms",
+          "Resultary:1c57ff16e046 Finding and Assumptions",
+          "doi:10.1038/s41598-021-91166-7 PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:1c57ff16e046",
+        "Resultary:b1cdc6e1f5b4",
+        "Resultary:bb55400edded",
+        "Resultary:baf53e31123a",
+        "doi:10.1038/s41598-021-91166-7",
+        "doi:10.1002/edn3.70013 (full text unavailable)",
+        "doi:10.1002/ece3.4552 (full text unavailable)",
+        "doi:10.1111/1755-0998.12338 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The zero-alarm renewal result and the false-positive-free PCR staircase cannot account for the geometric count penalty. The fixed-f coarsened-occupancy record changes the estimand and objective, and the effort-proportional alarm theorem changes the false-alarm law."
+        ],
+        "reasoning": "Even where concavity or independence arguments transfer, the exact positive-f count reversal and smaller finite-budget winner at a limiting tie require the joint count/budget score and its deficit asymptotics. Neither follows from the conclusions under the other objectives or alarm laws. Three cited but inaccessible publications are a residual risk, not evidence of noncoverage.",
+        "searches": [
+          "Resultary:1c57ff16e046, b1cdc6e1f5b4, bb55400edded and baf53e31123a Findings and Assumptions",
+          "doi:10.1002/edn3.70013; doi:10.1002/ece3.4552; doi:10.1111/1755-0998.12338"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coarsened occupancy record has fixed per-visit false positives and an ever-detected flag, but optimizes Fisher information about occupancy near ubiquity, not sensitivity minus false-positive rate at fixed total water.",
+          "The Poisson alarm detector record uses OR fusion and a Youden objective but false-alarm intensities proportional to assigned effort by modality."
+        ],
+        "reasoning": "The mathematical role of f here is to multiply both all-negative probabilities by a constant α per added assay independently of its water allocation. Matching OR fusion and even the same discrimination objective does not give that dependence in the continuous effort model. Matching false positives and OR alone does not turn occupancy Fisher information into Youden discrimination.",
+        "searches": [
+          "Resultary: eDNA patch occupancy fixed false-positive any-positive",
+          "Resultary: Poisson monitoring modalities false alarm intensity proportional effort",
+          "Resultary:b1cdc6e1f5b4 and baf53e31123a Findings and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-keyword lookup returned this assigned record itself, not an independent matching result. The close same-day hierarchical replication staircase uses conditional PCR budget and excludes false positives.",
+          "The inspected empirical passage addresses replication and volume effects on detectability and inference, not exact 8 vs 10 budget comparisons in this model."
+        ],
+        "reasoning": "The relevant lookup is for the same exact parameter witness or a stated general non-nesting result that determines it, not any eDNA replication table or staircase. No such exact distinct result was verified; a failed full-text request supplies no negative evidence.",
+        "searches": [
+          "Resultary: strict log-concavity 5-to-4 reversal eventual ceiling eDNA Youden",
+          "Resultary:bb55400edded Finding and Assumptions",
+          "Buxton et al. DOI 10.1038/s41598-021-91166-7, p. 1"
+        ]
+      },
+      "rationale": "The pass is for the budget reversal with fixed independent assay false alarms under the specified patch model and OR Youden objective, together with its exact ceiling and tie resolution. Equal allocation and the zero-false-alarm staircase are not credited as new. The closest formal and empirical sources use a different objective, an effort-dependent false-alarm term, or no false alarms at all. None of the verified alternatives implies the positive-f comparison.",
+      "residual_risks": [
+        "An earlier treatment of the precise count penalty under OR Youden discrimination could exist under general sampling or test-design terminology.",
+        "The cited How, Davis and Ficetola works could not be substantively compared at primary-text level. Add explicit citations for the two related mathematical models when discussing prior work; exact catalogue comparisons are recorded here.",
+        "Same-day chronology of related catalogue records is not inferred from dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the zero-alarm special case, not fixed-f positive alarms",
+          "evidence": [
+            "Any-encounter objective, random site rates, positive relocation cost."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-an-atomic-minimum-rate-criterion-and-exact-integer-staircase-for--1c57ff16e046",
+          "material_read": "Finding and Assumptions, beginning at offset 0",
+          "method": "Local mirror",
+          "title": "An atomic minimum-rate criterion and exact integer staircase for independent-site exponential encounters",
+          "trigger": "General renewal model potentially covering equal allocation and staircase"
+        },
+        {
+          "assessment": "Material overlap in sampling structure, different optimization objective",
+          "evidence": [
+            "Fisher information for near-ubiquity occupancy rather than water-budget discrimination."
+          ],
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-coarsened-occupancy-surveys-have-a-sharp-near-ubiquity-replicati--b1cdc6e1f5b4",
+          "material_read": "Finding and Assumptions, offsets 264–2864",
+          "method": "Local mirror",
+          "title": "Coarsened occupancy surveys have a sharp near-ubiquity replication transition",
+          "trigger": "Fixed false-positive probability and any-positive report"
+        },
+        {
+          "assessment": "Different replication unit and no false positives",
+          "evidence": [
+            "Conditional PCR replication optimizes a missed-detection exponent per cost."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-a-no-skip-pcr-replication-staircase-for-hierarchical-environment--bb55400edded",
+          "material_read": "Finding and Assumptions, beginning at offset 0",
+          "method": "Local mirror",
+          "title": "A no-skip PCR replication staircase for hierarchical environmental DNA sampling",
+          "trigger": "Closest catalogued eDNA threshold result"
+        },
+        {
+          "assessment": "Alarm intensities per effort, not fixed probabilities per additional grab",
+          "evidence": [
+            "Modality effort changes false-positive intensity; false-positive risk is not a constant per independently processed grab."
+          ],
+          "identifier_or_url": "Resultary:2026/11/22/SCOPE-an-exact-budget-staircase-for-poisson-alarm-detectors-with-false--baf53e31123a",
+          "material_read": "Finding and Assumptions, beginning at offset 0",
+          "method": "Local mirror",
+          "title": "An exact budget staircase for Poisson alarm detectors with false alarms",
+          "trigger": "Same discrimination and OR fusion, potentially covering a broad alarm model"
+        },
+        {
+          "assessment": "Estimation emphasis; no corresponding theorem in the inspected passage",
+          "evidence": [
+            "Replication can reduce bias and credible-interval width for occupancy and detectability estimates."
+          ],
+          "identifier_or_url": "https://doi.org/10.1038/s41598-021-91166-7",
+          "material_read": "Nature PDF p. 1, offset 1393 and surrounding stated objectives",
+          "method": "Primary OA PDF",
+          "title": "Optimising sampling and analysis protocols in environmental DNA studies",
+          "trigger": "Primary literature on both field and laboratory replication"
+        },
+        {
+          "assessment": "Residual; no full-text judgment",
+          "evidence": [
+            "Subject overlaps field sampling and replication."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/edn3.70013",
+          "material_read": "Cited title/subject only; primary full text not obtained",
+          "method": "DOI/publisher OA attempted",
+          "title": "Refining Sampling Efforts for Fish Diversity Assessment in Subtropical Urban Estuarine and Oceanic Waters Using Environmental DNA With Multiple Primers",
+          "trigger": "Volume and replication in field eDNA"
+        },
+        {
+          "assessment": "Residual; no full-text judgment",
+          "evidence": [
+            "Subject is multilevel observation uncertainty and adaptive eDNA sampling."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ece3.4552",
+          "material_read": "Cited title/subject only; primary full text not obtained",
+          "method": "DOI/publisher OA attempted; literature lookup did not identify a usable alternate passage",
+          "title": "Accounting for observation processes across multiple levels of uncertainty improves inference of species distributions and guides adaptive sampling of environmental DNA",
+          "trigger": "Potentially related adaptive allocation and observation model"
+        },
+        {
+          "assessment": "Residual; no full-text judgment",
+          "evidence": [
+            "Subject directly overlaps the trade-off between replication and false presences."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/1755-0998.12338",
+          "material_read": "Cited title/subject only; primary full text not obtained",
+          "method": "DOI/publisher OA attempted",
+          "title": "Replication levels, false presences and the estimation of the presence/absence from eDNA metabarcoding data",
+          "trigger": "Explicit study of false presences and replicate count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "More water improves discrimination at each fixed count, but can strictly reduce the unique globally preferred count because a new assay incurs an additional false-alarm risk. The exact example establishes that this is a real optimization phenomenon rather than numerical error, and the limiting count and tie-break explain the saturation regime. The result is a useful idealized design benchmark with independent grabs and symmetric sensitivity/specificity weighting, not a field prescription or a claim about correlated occupancy or biological uncertainty.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific assessment: characteristic-eleven Cartier strata
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is a quantified stratification over the full smooth coefficient locus in \(\overline{\mathbb F}_{11}^2\), not merely an observed finite-field pattern. Smoothness follows from the cubic discriminant; the complete Cartier--Manin matrix is obtained by an exact characteristic-eleven fifth-power coefficient expansion. Independent rank blocks reduce classification to explicit vanishing equations. The identity \(v_2-3v_1=aL\), the exceptional \(a=4\) analysis, and two denominator-cleared fifth-power identities prove there is no undiscovered rank-one parameter over an algebraic extension. At \((0,-2)\) the discriminant and middle Cartier entry are nonzero. The \(101\)-pair ground-field census is independently reproduced from direct modular matrix elimination. No finite experiment is treated as the proof of uniqueness over the algebraic closure.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Kudo--Nakagawa--Takagi (arXiv:2210.14822v1, especially the introduction and Cartier--Manin algorithm in Sections 2–3) established the exact family and its general coefficient method and sought rank-zero, superspecial members, primarily for primes \(17\) through \(997\). Their work does not state the positive-rank characteristic-eleven \(a\)-stratification or the unique rank-one point. Frei (arXiv:1703.03516v2, Sections 1–5) treats broad upper bounds for \(a=g-1\), not the explicit coefficient locus here. Existing rank-zero classifications do not imply the location of a rank-one exceptional curve or the full rank-two divisor. The source family and the Cartier formula are not novel. The full WAIFI 2018 text was not accessible, and an older equivalent computation in characteristic-eleven tables is a residual risk. No claim of absolute priority follows merely from negative searches.
+PASS
 
-**Mathematical value — PASS.** The \(a\)-number and its jump strata are intrinsic geometric invariants of genus-four curves and Jacobians. In this established order-six automorphism family, the unexpected extreme \(a=3\) occurs at precisely one smooth normalized coefficient point, with positive \(11\)-rank, sharply separated from a natural degree-five \(a=2\) divisor and a generic \(a=1\) stratum. This is a complete geometric stratification of a motivated moduli subfamily, not just a single numerical evaluation. It offers a concrete extremal example for studies of high \(a\)-number non-superspecial curves; its parameter census is supplemental rather than its sole value.
+Squarefreeness of xQ(x³) in characteristic 11 is equivalent to bΔ≠0, yielding a genus-four smooth completion. The coefficients of f^5 at indices 11i−j have exactly the displayed three disjoint blocks. On b≠0 the first outer block vanishes only at (0,−2). For the other block v_2−3v_1=aL: a=0 again gives (0,−2); a=4 gives only b=−2, which is singular; otherwise substituting (1−3a)b=−a²+3a+4 gives the cleared powers of a−4, excluding any further simultaneous zero over the algebraic closure. At (0,−2), Δ=10 and P=5, so precisely the Frobenius-stable middle direction survives; Cartier rank and 11-rank are both one. Everywhere else the outer blocks contribute two, so the smooth P=0 locus has a-number two and the remaining locus has a-number one. `python3 /workspace/reviews/evidence/reproduce.py 1` used independent multinomial coefficient extraction, exact polynomial reductions, a squarefree gcd and modular minors on all 121 base-field pairs, obtaining 101 smooth parameters and counts 83,17,1. The finite enumeration is not the proof over the closure. The supplied scripts were inspected, not executed.
 
-**Scope and risks.** The uniqueness is within a fixed normalized family, not all genus-four hyperelliptic curves or all geometric isomorphism classes. The p-rank assertion concerns the unique rank-one point only. No general Newton-polygon or zeta-function classification is claimed. Inaccessibility of some older primary text prevents unconditional priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supported for the explicit characteristic-11 positive-rank stratification over the algebraic closure, in particular the smooth divisor P=0 and its separate unique rank-one parameter. The family, Cartier coefficient rule, rank-zero exclusion, and method of computing matrices are prior, and the finite counts are supporting data rather than a new isomorphism classification.
+
+## value
+
+PASS
+
+For an already studied cyclic genus-four family, the result identifies the full geometric jump divisor and one isolated more extreme Cartier type; the exceptional point also has exactly determined stable rank. Exact geometric membership, not merely enumeration of rational parameters, makes the result a useful classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

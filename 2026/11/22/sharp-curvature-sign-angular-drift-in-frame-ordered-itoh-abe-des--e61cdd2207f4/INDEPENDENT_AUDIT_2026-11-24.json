@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:29:20.985486Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(12), proof and assumptions",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 12–117, inspected without execution"
+      ],
+      "rationale": "In normal coordinates the Hessian of half the squared distance has radial and transverse eigenvalues 1 and q=rS'_K/S_K. Expanding the coordinate quotients gives G=g+Bu+O(‖u‖²) with B=H/2 plus the skew term (H_12/2)J, J taking E_1 to E_2. The local implicit displacement is −hg+h²Bg+O(h³). Since g=−r e_r is an eigenvector of H and H_12=(q−1)sinθ cosθ, the inward-to-azimuthal skew term is exactly r(1−q)sin(2θ)/4. A radial exponential displacement changes no azimuth, so the leading angular increment is the transverse displacement divided by S_K, with error O(h³). The recurrence r_{j+1}=r_j−hr_j+O(h²) on a compact annulus slightly larger than [r_0 exp(−T),r_0], still in the smooth region, gives a uniform O(h) deviation by bootstrap and discrete Gronwall. Summing angular increments and dividing by h gives the integral in (10); (r/S_K)'=(1−q)/S_K and r'=-r give exactly (1). The opposite strict monotonicities of r/S_K in the two curved cases, and its constant value in the flat case, give the exact signs and maximizing angles. Reversing the coordinate order negates the skew term, proving O(h²) fixed-time angular error for the average. At θ=π/4 the intermediate exponential images for a radial candidate are radial-meridian reflections, with equal objective values, and the two components telescope to the radial secant −r+δ/2. Solving δ=h(r−δ/2) gives (2), with 0<δ<r for 0<h<2 and agreement with the locally unique small-h branch.",
+      "residual_risks": [
+        "The informal sign phrase 'positively oriented frame' should be read as sin(2θ)>0, such as θ=π/4, as determined by (1); determinant orientation alone does not fix the sign. When sin(2θ)<0 both curved signs reverse.",
+        "The exact all-0<h<2 statement is existence of the radial bisector branch; there is no assertion of uniqueness among all large-step roots. Fixed-time convergence uses the stipulated angle at every iterate and a smooth polar chart away from the center and cut locus.",
+        "The frozen script uses bounded mesh refinements and finite tolerances, not a uniform proof or an independent numerical run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general centered framework gives coordinate definitions and the update, and the earlier symmetrization text gives general symmetry and order results under its assumptions. The focused literature query supplied no clear additional comparator."
+        ],
+        "reasoning": "Bounds or orders of a general scheme do not give the signed first-order azimuth coefficient, its exact frame maximizers, or equality with the scalar radius midpoint law. An uninformative query is not negative evidence.",
+        "searches": [
+          "arXiv:2608.21862 pp. 12 and 16",
+          "arXiv:1805.07578 p. 7",
+          "\"Itoh–Abe\" \"angular\" error curvature Riemannian discrete gradient"
+        ]
+      },
+      "checked_sources": [
+        "Open preprints arXiv:1804.08104, 1805.07578 and 2608.21862",
+        "Resultary e61cdd2207f4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The quoted schemes alone require evaluating the skew part of the distance Hessian in the rotated frame and integrating its angular effect. Exact bisector reduction instead uses the manifold reflection giving equality of both intermediate objective values, not merely a second-order bound."
+        ],
+        "reasoning": "The checked results supply the algorithmic premises but not a dominating bound or classification that yields the signed coefficient or the exact radial identity by substitution. Cancellation/order in general is not treated as an original construction.",
+        "searches": [
+          "arXiv:1804.08104 pp. 10–11",
+          "arXiv:1805.07578 §3.2",
+          "arXiv:2608.21862 Eqs. (20)–(21), (27)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original coordinate quotient and the current-point center are prior. Swapping endpoints at the same fixed center reverses a coordinate path, so the prior endpoint-reversal average and this two-order average are exactly the same construction."
+        ],
+        "reasoning": "Changing the description to order averaging is not a new method. The claim credited here concerns its and the unsymmetrized method's explicit behavior on the test problem.",
+        "searches": [
+          "arXiv:1804.08104 §3.1",
+          "arXiv:1805.07578 §3.2 and Eq. (3.6)",
+          "arXiv:2608.21862 Eqs. (20)–(21), (27)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact published match (Finding at mirror offset 0) is the assigned record itself. The examined equations specify algorithms rather than tabulate test-case azimuth coefficients or finite-step radial recurrences."
+        ],
+        "reasoning": "Neither the self-match nor the known algorithm is an independent exact table of the two asserted identities. No distinct exact result was established by these searches.",
+        "searches": [
+          "Resultary SCOPE-sharp-curvature-sign-angular-drift-in-frame-ordered-itoh-abe-des--e61cdd2207f4",
+          "arXiv:1805.07578 Eq. (3.6)",
+          "arXiv:2608.21862 Eqs. (20)–(21), (27)"
+        ]
+      },
+      "rationale": "Credit both the Riemannian ordered Itoh–Abe construction and its same-center symmetrization, including the known general order context. The supported distinct content is the explicit sharp signed, frame-relative fixed-time angular coefficient for the specified radial objective and the exact finite-step bisector radial branch. The examined primary passages and published index did not establish these specializations; this is a bounded coverage assessment, not a priority certificate.",
+      "residual_risks": [
+        "A related space-form test calculation under different geometric-integration terminology could exist outside the bounded retrieved literature. The general constructions' applicability does not itself establish or refute priority for this computed coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established algorithm, not the signed angular law",
+          "evidence": "The choice c_k=u_k turns the coordinate equations into successive scalar solves.",
+          "identifier_or_url": "https://arxiv.org/abs/1804.08104",
+          "material_read": "§3.1, pp. 10–11 (PDF text offset 32453)",
+          "method": "Open preprint passages",
+          "title": "Dissipative numerical schemes on Riemannian manifolds with applications to gradient flows",
+          "trigger": "Direct original ordered Riemannian scheme"
+        },
+        {
+          "assessment": "Prior centered method and update",
+          "evidence": "The center c=z and centered coordinate quotient are explicit; these equations do not evaluate the two test-case identities.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.21862",
+          "material_read": "Eqs. (20)–(21), p. 12, and (27), p. 16 (offsets 30691 and 45934)",
+          "method": "Open preprint passages",
+          "title": "Centered Weak Discrete Riemannian Gradients",
+          "trigger": "Same fixed-center coordinate and implicit step in a general framework"
+        },
+        {
+          "assessment": "Same symmetrization, not the specific bisector formula",
+          "evidence": "Endpoint-reversal average evaluated with the same base point; symmetry and order under the stated conditions.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.07578",
+          "material_read": "§3.2, p. 7, Eq. (3.6) (PDF text offset 24800)",
+          "method": "Open preprint passage",
+          "title": "Energy preserving methods on Riemannian manifolds",
+          "trigger": "Exact equivalent of order averaging with the center held fixed"
+        },
+        {
+          "assessment": "Identical finding, not an independent antecedent",
+          "evidence": "Same signed coefficient, known order average, and exact bisector recurrence.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-curvature-sign-angular-drift-in-frame-ordered-itoh-abe-des--e61cdd2207f4",
+          "material_read": "Finding and relationship to prior work at mirror offsets 0 and 8290",
+          "method": "Published index and bounded mirror passages",
+          "title": "Sharp curvature-sign angular drift in frame-ordered Itoh–Abe descent",
+          "trigger": "Exact catalogue match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and equations (9)–(12)",
+        "Celledoni et al., arXiv:1805.07578 §3.2 for existing symmetrization"
+      ],
+      "rationale": "Even on a canonical objective whose exact trajectory has no angular motion, the ordered dissipative scheme can accumulate a signed first-order azimuth bias, reversed by curvature and by frame order. Its sharp coefficient measures an error invisible in radial dissipation or a generic convergence order. The exact bisector identity is a useful separate benchmark for the established symmetric variant.",
+      "residual_risks": [
+        "No claim that this midpoint branch follows exact physical time evolution or that the sign law extends to variable curvature, other objectives or other frame rules."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

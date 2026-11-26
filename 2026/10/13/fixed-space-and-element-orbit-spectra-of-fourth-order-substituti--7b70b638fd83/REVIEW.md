@@ -1,12 +1,21 @@
-# Scientific review: fixed-space spectra of fourth-order substitution jets
+# Independent mathematical audit
 
-## Correctness (PASS)
-Every algebra automorphism is determined by substitution of its unique radical generator with nonzero linear coefficient; its triangular action matrix is explicitly reconstructed in `RESULT.md`. The fixed-vector dimension is one plus the nullity on the four-dimensional radical. Four disjoint multiplier types (generic, cube/fourth roots, odd-characteristic minus one, and one) are counted, and the identity-multiplier rank block is analyzed in each of the three characteristic regimes. The exceptional odd-characteristic resonance is the exact equation \(c=-b^2\), not a numerical guess. The distribution sums to the known group order and its weighted Burnside sum gives the claimed element-orbit count. The bundled verifier exhaustively checks ten finite fields, including extensions, and directly enumerates underlying-set orbits over three of them. The unbounded assertion relies on the complete symbolic stratification, not the experiments.
+## correctness
 
-## Originality (PASS)
-The closest primary full texts inspected were Jennings' 1954 substitution-group framework and its quotient groups, Chinburg–Symonds' 2010 characteristic-two torsion construction, and Lubin's 2011 Nottingham torsion classification. A full public coordinate-cross automorphism finding is strongly relevant: it explicitly identifies the full truncated substitution group and computes its order, but its statement does not provide fixed-subspace fibers. A full Nottingham-brace socle finding treats a different subgroup/action and invariant. Source-specific comparisons and actual searches are recorded in `AUDIT.json`; no exact stronger published fixed-fiber classification was found. Two newer very relevant substitution preprints were accessible only by abstract, and equivalent formulations under different terminology remain a genuine residual publication risk. Structural parametrization and group order are classical and are not claimed as original.
+PASS
 
-## Mathematical value (PASS)
-The complete spectrum controls an intrinsic orbit-counting invariant of a canonical small jet algebra. Length five is mathematically motivated by the first even-degree resonance at multiplier minus one whose fixed-space rank depends on a quadratic coefficient equation. The result separates all characteristics through an abrupt linear-versus-quadratic orbit-count growth law and root-of-unity arithmetic; it is neither a chosen isolated field nor a cosmetic restatement of the automorphism-group order. The scope is explicitly limited to this natural first nontrivial cutoff; no general jet-length solution or independence is asserted.
+The invertible substitutions are exactly the (q−1)q³ choices of nonzero linear and arbitrary higher coefficients. The scalar direction is fixed. On the radical the triangular diagonal is (a,a²,a³,a⁴). Away from ±1 only multipliers of exact order 3 or 4 have a fixed radical coordinate, exactly one. For odd characteristic and a=−1, eliminating the coefficients of t and t³ leaves −2(b²+c)x₂=0 with x₄ free, giving q² dimension-3 maps, and q³−q² dimension-2 maps. At a=1 the first-nonzero coefficient strata b,c,d,none give ranks (3,2,1,0), (2,2,1,0), (2,1,1,0) in the respective characteristic bands; weighting by (q−1)q²,(q−1)q,q−1,1 yields all the stated fibers. Independently one can count orbits by constant term and order of the first nonzero radical term: order 1 gives one, order 2 gives two in odd characteristic or 2q−1 in characteristic two (normalize the square coefficient, then b↦b²+βb has image of index two for β≠0), order 3 gives 1+r₃ except in characteristic three, where it gives q, and order 4 gives gcd(4,q−1). Adding the constant-only orbit per scalar recovers the three Burnside formulas. Independent composition/elimination in /workspace/branches/fe4c77b7-72ca-4498-9b81-cdc434d412a5/replay.py matched every fiber at q=2,3,4,5,7,8,9,11,13,16,25, and direct element-orbit enumeration gave 14,27,52 at q=2,3,4. These are finite checks, not the all-field proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The distinct content is the all-characteristic census, in particular the exact wild-characteristic fixed-space fibers and changed orbit growth. The tame block and the characteristic-five slice have verified catalogue overlap, and neither is credited as independently new here. No inspected comparison covers the wild fixed-space census or all three formulas.
+
+## value
+
+PASS
+
+The full group acting on its own truncated coordinate algebra is a natural finite-field action; the exact spectrum distinguishes more than a group-order or total-orbit calculation. In particular the characteristic-two and characteristic-three fibers isolate different failures of the tame pivot argument, and quantify how they raise orbit growth from order q to order q². Those frequencies and totals are usable benchmarks for longer jets, not consequences of the existing tame count or a renamed characteristic-five result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

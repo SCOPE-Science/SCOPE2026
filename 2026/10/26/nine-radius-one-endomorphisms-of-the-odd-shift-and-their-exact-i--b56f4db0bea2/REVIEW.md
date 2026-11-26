@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The odd shift is exactly the union of two parity-supported full binary shifts. Its five admissible three-neighborhoods yield one identity case and eight induced binary two-input maps with zero on `00`; every unspecified full-shift truth-table bit has multiplicity eight. Surjectivity and all five image languages follow from explicit coarse antecedent formulas and forbidden-word obstructions. The two exact integer characteristic-polynomial calculations give the four entropy values, and the difference map has precisely two coarse antecedents, with the zero-fibre intersection accounted for. The standalone verifier reproduces finite cases and exact matrix arithmetic, without treating finite samples as an infinite proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2014 Salo article treats odd-shift realizability as a class of rule-sequence problems, not the complete nine restricted centered-radius-one self-maps or their image entropy spectrum. The 2022 Salo discussion explicitly establishes Rule 18 = Rule 90 on the odd shift, so this relationship, and the immediate fibre calculation, are not asserted as independently original. Actual published-index searches and local overlap checks did not identify the complete census plus exact image spectrum. Historical priority remains uncertain, especially for unpublished enumerations or reductions using two-phase full shifts.
+PASS
 
-**Value — PASS.** The odd shift is a canonical strictly sofic example. Classifying *all* its elementary endomorphisms by restricted map and image language exposes the sharp distinction between a full-shift-derived noninvertible surjection and five smaller images. The four exact entropy levels capture their dynamical complexity, whereas a list of 72 raw rule numbers would not. This is a motivated natural complete classification, not a parameter substitution or unmotivated finite slice.
+The gap condition is equivalent to support on a single parity, including the zero point and finitely supported points. The only relevant local triples are 000, 001, 010, 100 and 101. The first bit must vanish. If 010 has output one, any active bit for 001, 100 or 101 could be tested on the opposite parity alongside a distant isolated one, violating preservation; the remaining map is identity. Otherwise the three off-center bits are free and act by the eight two-input functions vanishing at (0,0), onto the opposite phase with a harmless shift of coarse index if needed. All five triples occur, so distinct permitted truth tables give distinct restricted maps, and the three irrelevant bits give eight codes per map. Projection, identity and binary difference are onto; the rise/fall images avoid 11 and have explicit predecessors obtained by reading the target directly or shifting it. AND outputs avoid 101, and a preimage of a target b avoiding it is a_k=b_(k-1) OR b_k. Complementing yields the OR image avoiding 010. These three proper coarse languages, the zero image and the full odd shift are distinct, as can be checked using 11, 101 and 010 on the unique nonzero phase. Under the square of the spatial shift, each phase is the corresponding coarse shift; the entropy of their union is the maximum of the two equal coarse entropies. The coarse adjacency polynomials are t^2-t-1 and t(t^3-2t^2+t-1); the cubic's derivative is (3t-1)(t-1), with opposite signs of the cubic at the golden ratio and 2. The entropies therefore have the stated strict ordering and half-log normalization. For difference, fixing one coarse coordinate fixes the entire antecedent recursively in both directions. Nonzero outputs determine their source phase, while at zero the two constant choices on each phase yield three antecedents after counting the common all-zero point just once.
 
-Closest prior treatment is Salo (2014), and the most specific overlap is Salo (2022) on the Rule-18/Rule-90 restriction. Residual risk is an unindexed equivalent complete census; the result applies only to centered radius one and concerns spatial image entropy, not temporal entropy.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the complete centered-radius-one odd-shift self-map census with exact image languages and spatial entropy spectrum. Salo's Rule 18/90 equality is explicitly prior; the fibre formula is an elementary derivative consequence once the phase split is observed, not an independent priority claim. The closest exact table uses the even shift, and the full-shift or finite-ring spectra do not determine which restricted maps preserve the odd shift or what their image languages are.
+
+## value
+
+PASS
+
+This is a complete natural small-radius classification for a standard sofic shift, not just a code count: it identifies the exact proper image subshifts, two distinct images of equal entropy, every onto map and the exceptional zero fibre. These are reusable facts about closure and factor behavior of the odd shift; the easy XOR restriction alone does not supply them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

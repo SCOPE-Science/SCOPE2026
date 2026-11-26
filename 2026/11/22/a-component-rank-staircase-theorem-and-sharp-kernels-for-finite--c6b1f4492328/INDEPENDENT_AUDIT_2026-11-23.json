@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:54:12.051919Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the corrected full finding in /workspace/repairs/2/RESULT.md. The original scope assertion that all ranks of finite hosts are finite fails for arbitrary local hereditary classes. If the base class has only the empty structure and one singleton type, a marked singleton has no challenge, hence satisfies every finite threshold; so does the empty position of the singleton host. Indeed two singleton components have global rank 2, and capping the local ranks at host order would wrongly reject this. The repair instead takes local values in the extended nonnegative integers. For each finite threshold r, every move is local to one occupied class or starts a fresh singleton class. Necessity: arbitrary occupied-class challenges must admit local replies at threshold r-1; a fresh challenge requires using an unused class with original local rank at least r while the remaining classes meet r-1,...,1. Sufficiency: use the local rank reply or consume the highest unused local rank, respectively; the other requirements survive at the lower threshold. This proves the induction including vacuous terminal local positions. Repeating fresh challenges bounds the global rank by the number of unused classes. Induced embeddings of the principal local kernels must go to distinct named E-classes because these kernels are nonempty and E is reflected. In chains, splitting a gap into two gaps of size at least 2^(r-1)-1 is exactly the recursion giving 2^r-1; incomparability separates chains. Summing the ladder gives N_r=2^(r+1)-r-2. One excess point lengthens one chain or adds a singleton; only the latter has a size-two automorphism group. The resulting count is (r+1/2)(N_r+1)!, and the next threshold needs more than one extra vertex. Independent direct recursion by extension relation signatures agreed with the scalar formula in 8,800 positions (all markings through size 8; empty markings through size 12), and gave minima 1,4,11, next-order type counts 2,3,4 and labelled counts 3,300,1676505600. This was a bounded working check, not a preserved replay script or proof of generality; the frozen checkers and their reported outputs were inspected, not run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The available Kubiś–Shelah text gives general finite-list witnesses, not a principal kernel constructed from the local principal kernels.",
+          "López-Callejas–Navarro-Castillo Lemma 6.3, Theorem 6.4 and Proposition 6.5 characterize intervals and ranks for single orders."
+        ],
+        "reasoning": "A finite list need not be principal, and a single-order law does not control a fresh incomparable class or competition for unused classes. The decomposition argument supplies these missing requirements.",
+        "searches": [
+          "Kubiś–Shelah, Evolution systems — an ordinal rank measuring universality, finite-list proposition",
+          "arXiv:2604.14461v1, §§2 and 6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.14461v1 §§2 and 6",
+        "Kubiś–Shelah finite-list proposition, extracted text",
+        "Full Resultary comparisons 23acc2a81818, 745b0aea9a2c and 9da775cd8088"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pure-equivalence analogue provides the fresh-class mechanism only for cardinal capacities. The single-chain interval result supplies the local capacities only. Independently requiring chains to have a large local rank would miss that successful fresh challenges consume distinct classes.",
+          "For example a single long chain has positive single-order rank but zero rank in the class of disjoint unions of chains."
+        ],
+        "reasoning": "One needs the induction to prove necessity of the residual threshold ladder and sufficiency of consuming the largest capacity; neither comparison already proves this for the arbitrary local moves.",
+        "searches": [
+          "arXiv:2604.14461v1 §§2 and 6 versus the corrected finite-threshold composition proof",
+          "Resultary 23acc2a81818 versus arbitrary singleton-type local classes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "23acc2a81818 agrees exactly for pure equivalence relations: occupied-class slack and a descending unused-class size ladder. With the empty base language the local ranks are precisely those sizes.",
+          "745b0aea9a2c uses a fixed-variable game at unlimited depth; 9da775cd8088 compares structures at quantifier rank three. Here challenges are arbitrary admissible abstract one-point extensions of literal marks into one host, and depth is the parameter."
+        ],
+        "reasoning": "Neither changing the name of the pure-set rank nor reading a bound off a two-host first-order equivalence theorem recovers the arbitrary-local transfer; the invariant and the challenge sets differ.",
+        "searches": [
+          "Resultary comparison records 23acc2a81818, 745b0aea9a2c and 9da775cd8088",
+          "López-Callejas–Navarro-Castillo, arXiv:2604.14461v1, Definition 2.3 and §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact count of 102 in 9da775cd8088 concerns equivalence types of theories, not the extremal hosts or their labellings. The staircase in 23acc2a81818 has linear capacities, not the exponential chain capacities and their next-order counts."
+        ],
+        "reasoning": "No inspected exact enumeration supplies the complete marked rank or the extremal census for this invariant. The census is a consequence of the new rank characterization, not a novelty claim for its arithmetic alone.",
+        "searches": [
+          "Resultary 745b0aea9a2c, 9da775cd8088 and 23acc2a81818, comparison of formulas and counted objects"
+        ]
+      },
+      "rationale": "Best of knowledge for the repaired claim. The rank recursion, single-chain gap threshold, and the pure-equivalence staircase are antecedents. The surviving new point is the exact transfer for arbitrary compatible local hereditary classes, including possibly infinite local capacities, and its simultaneous application to marked unions of chains. This does not rely on claiming priority for the pure-equivalence special case or for the one-dimensional gap lemma.",
+      "residual_risks": [
+        "Best-of-knowledge priority only; older unindexed component-rank arguments may exist.",
+        "The Kubiś–Shelah comparison is limited to the accessible extracted material, not a blanket whole-paper exclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct antecedent for rank and single chains, not independent classes",
+          "evidence": [
+            "The gap scale and empty-marking single-order rank are already established."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.14461v1",
+          "material_read": "Definition 2.3, Lemma 6.3, Theorem 6.4 and Proposition 6.5",
+          "method": "Read source HTML and compared the local argument and quantifiers",
+          "title": "A rank function for Fraïssé classes and the rank property",
+          "trigger": "Same rank and exact finite-chain values"
+        },
+        {
+          "assessment": "Generic finite-list antecedent; not an exact staircase or principal-transfer implication in that result",
+          "evidence": [
+            "Existence of a finite list alone does not specify one principal induced witness."
+          ],
+          "identifier_or_url": "Kubiś–Shelah (2024), Proposition 2 (finite-list result)",
+          "material_read": "Extracted text of finite-list result; direct PDF display unavailable",
+          "method": "Text extraction comparison, without a visual cross-check",
+          "title": "Evolution systems — an ordinal rank measuring universality",
+          "trigger": "General witness existence might subsume the explicit kernel"
+        },
+        {
+          "assessment": "Exact overlap on pure equivalence; no arbitrary relational local challenges",
+          "evidence": [
+            "Local vacant capacity is class size and occupied capacity is remaining size in the companion."
+          ],
+          "identifier_or_url": "Resultary 23acc2a81818",
+          "material_read": "Full result, including marked-rank formula and proof",
+          "method": "Compared threshold-by-threshold",
+          "title": "Pure-equivalence one-point-extension rank companion",
+          "trigger": "Identical rank and named classes in the pure base case"
+        },
+        {
+          "assessment": "Different two-structure unlimited-depth invariant",
+          "evidence": [
+            "The bound is on variables, not on depth of adversarial one-point extension in one host."
+          ],
+          "identifier_or_url": "Resultary 745b0aea9a2c",
+          "material_read": "Full result, game definition and classification",
+          "method": "Compared which structures are compared and what a move tests",
+          "title": "Exact fixed-variable theories of finite disjoint unions of chains",
+          "trigger": "Same order class and game terminology"
+        },
+        {
+          "assessment": "Two-host quantifier-rank-three theory census, not ranked one-host minimizers",
+          "evidence": [
+            "Its count does not count isomorphism types at the minimum or next order of the repaired rank layers."
+          ],
+          "identifier_or_url": "Resultary 9da775cd8088",
+          "material_read": "Full result, equivalence criterion and census",
+          "method": "Compared game and enumerated objects",
+          "title": "Exactly 102 rank-three theories of finite direct sums of at most three chains",
+          "trigger": "Same order class and a rank-based exact count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula separates local extension capacity from the consumption of independent classes, so it turns a marked game into local rank computations and yields a constructive principal-kernel transfer. This has content even when local ranks are infinite but global ranks are finite. The chain case gives a usable simultaneous test at every marked position and a sharp minimum and next-order classification, not just a re-count of the known single chain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

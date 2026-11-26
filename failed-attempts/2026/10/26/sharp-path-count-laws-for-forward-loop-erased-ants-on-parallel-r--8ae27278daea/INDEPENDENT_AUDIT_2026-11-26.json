@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:48:55.318961Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–35 and 39–94",
+        "Frozen VERIFICATION.md and verify.py, inspected without executing"
+      ],
+      "rationale": "The first-hit walk reaches F almost surely on the finite positive-conductance graph. Each failed excursion returns to N and is erased. At departure route i has probability w_i/sum_j w_j, and at its first interior vertex the harmonic function j/ell_i gives success probability 1/ell_i because both interior edge weights are w_i=1+A_i. Conditioning the first successful excursion gives the exact stated transition. Independent unit-start pure birth processes at per-particle rates 1/ell_i embed that chain. The total rate at population z is at most z/m, which gives nonexplosion; the finite superposition has infinitely many births. For each process the scaled nonnegative martingale converges almost surely and the scaled geometric law converges to Exp(1), so its almost-sure limit has this law. Independence of processes gives independent limits. At the nth total birth, e^(-tau_n/m)(n+k) converges to the sum S of only the fastest exponential limits. Dividing each coordinate by that identity to the appropriate power yields the joint almost-sure statements; subtracting one from each population does not affect their limits. The shortest ratios form a Dirichlet vector (degenerate when h=1). The longer amplitudes are all positive and share S, not independent in general. Conditional on S=t, their marginal survival probabilities are exp(-x t^r_i); the negative Gamma moment is finite exactly when r_i q<h, with logarithmic divergence at equality.",
+      "residual_risks": [
+        "The reported finite-check count does not test almost-sure convergence or certify the amplitude laws. The tree and harmonic checks are exact in scope; the final gamma diagnostic uses floating arithmetic, notwithstanding the overall check marker."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson’s multicolor triangular-urn theorem and diagonal example apply to every positive deterministic diagonal, not just one or two uniquely fastest routes. With the diagonal replacements all colors lack distinct ancestors, so no logarithmic factor remains.",
+          "Armfield–Mailler’s general forward result treats distance two. Kious–Mailler–Schapira’s backward series-parallel result gives qualitative normalized edge convergence and geodesic support."
+        ],
+        "reasoning": "On this graph both erasures retain the final successful route: in the reversed trace the first edge out of F can never be erased since the trace does not return to F, and the final erased simple path is a whole route. The backward theorem already applies to qualitative selection on the restricted graphs. The stronger exact quantitative coverage comes from the diagonal urn.",
+        "searches": [
+          "Janson, arXiv:2402.01299, Theorem 1.8, §5 (5.11)–(5.12), (5.17), Example 14.2",
+          "Armfield–Mailler, arXiv:2610.18453v1 §1.2",
+          "Kious–Mailler–Schapira, arXiv:2010.04820, Theorem 1.3 and Proposition 2.5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.01299",
+        "arXiv:2610.18453v1",
+        "arXiv:2010.04820",
+        "arXiv:1604.02097",
+        "Resultary 9ac94d22f363 and fa33ac47267d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (14.6) gives independent G_i with Gamma(x_i/lambda_i, scale lambda_i) laws. Equations (5.12) and (5.17) give the limiting i-coordinate G_i times X_0^(-lambda_i/lambda_max) and X_0=lambda_max^(-1) times the sum of G_j over the fastest colors (unit activity)."
+        ],
+        "reasoning": "In the ant specialization x_i=lambda_i, G_i/lambda_i is standard exponential; the fastest colors are exactly the shortest paths. The normalized fractions, slower counts, common denominator, CDF and moment divergence then follow by the same deterministic rescaling and elementary gamma identities. This is actual prior implication, not uncertainty due to an inaccessible source.",
+        "searches": [
+          "arXiv:2402.01299, §5, pp. 24–25, OA offset 88600; Example 14.2 p. 50, offset 180650"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Use Z_i=(A_i+1)/ell_i, so the exact probabilities are Z_i/sum_j Z_j and only coordinate i is incremented by 1/ell_i when selected.",
+          "Janson’s deterministic diagonal replacements give independent Gamma continuous-time limits; Jiang et al. have the same transition for two colors at linear fitness."
+        ],
+        "reasoning": "The Z-rescaling identifies the entire discrete-time Markov chain with the unit-activity diagonal urn, not just its expected drift or exponent.",
+        "searches": [
+          "Janson, arXiv:2402.01299, diagonal Pólya urn, Example 14.2",
+          "Jiang et al., arXiv:1604.02097, linear fitness urn §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identified Resultary comparisons concern respectively a three-vertex power-reinforced imbalance and escape on infinite cycle-decorated trees, not the route-count law. Janson’s worked diagonal-urn example explicitly lists the two-color power-law amplitude and sharp moment threshold."
+        ],
+        "reasoning": "No ranked exact catalog match was identified, but a graph-specific listing is unnecessary to establish the mathematical duplication via the published urn law.",
+        "searches": [
+          "Resultary parallel-route forward loop-erased reinforcement, route counts and Gamma/Yule limits; closest records 9ac94d22f363 and fa33ac47267d",
+          "Janson, arXiv:2402.01299, Example 14.2, (14.6)–(14.9)"
+        ]
+      },
+      "rationale": "The exact limits are covered by the deterministic diagonal specialization of Janson's prior triangular-urn theory after an exact change of variables, not just by a heuristic similarity. Set lambda_i=1/ell_i and Z_i=lambda_i(A_i+1). The frozen excursion identity chooses color i proportional to Z_i and adds exactly lambda_i to that chosen coordinate: Janson's unit-activity diagonal urn starting at x_i=lambda_i. Example 14.2, (14.6), gives independent scaled continuous-time limits G_i distributed as Gamma(1,lambda_i) (shape and scale). With all log exponents zero, the normalization in (5.11)–(5.12) and (5.17) is X_0=(1/lambda_max) sum_(j:lambda_j=lambda_max) G_j=sum_(j in I) E_j for E_j=G_j/lambda_j. Dividing the resulting discrete limit for Z_i by lambda_i gives the exact frozen joint vector for all i, including tied shortest routes. The CDF and moment formula are immediate functionals of that known joint law; the two-color moment threshold is already explicitly treated in (14.9).",
+      "residual_risks": [
+        "The forward-ant doctoral thesis was not available in full for this comparison; the rejection is instead based on positive, inspected urn coverage, irrespective of what that thesis contains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core claim when the route-count chain is put in its diagonal-urn coordinates",
+          "evidence": [
+            "Example 14.2 states that deterministic diagonal colors evolve as independent Yule processes at rates lambda_i, with independent Gamma limits in (14.6). It lists the two-color slower-coordinate ratio and moment threshold in (14.7)–(14.9). The general normalization (5.17) sums the leading colors, so it also handles ties."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.01299",
+          "material_read": "Theorem 1.8 (p. 4, OA offset 15390); §5 (5.11)–(5.17), pp. 24–25 (offset 88600); Example 14.2, p. 50 (offset 180650)",
+          "method": "Primary OA PDF text; applied formulas by explicit substitution",
+          "title": "Almost sure and moment convergence for triangular Pólya urns",
+          "trigger": "General multicolor diagonal urn and exact limit-law representation"
+        },
+        {
+          "assessment": "Different scope of the general graph theorem; supplies context, not the exact quantitative coverage",
+          "evidence": [
+            "The general-graph shortest-path theorem concerns distance two; discussion identifies higher distance and convergence as remaining issues in that framework."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.18453v1",
+          "material_read": "§1.2, Theorem 1.1 and following discussion, HTML offsets 11900–15848",
+          "method": "OA primary HTML",
+          "title": "The Forward-Loop-Erased Ants Walk",
+          "trigger": "Same forward ant process"
+        },
+        {
+          "assessment": "Same qualitative result on these disjoint routes; no sharp amplitudes in inspected theorem",
+          "evidence": [
+            "The rule erases the time-reversed trace. Theorem 1.3 gives normalized limits positive exactly on geodesic edges; Proposition 2.5 supplies a bound, not the exact route amplitudes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.04820",
+          "material_read": "§1.1 p. 1, Theorem 1.3 p. 5, Proposition 2.5 p. 11; OA offsets 3950, 17750, 42950",
+          "method": "OA primary PDF text and exact graph-specific protocol comparison",
+          "title": "Finding geodesics on graphs using reinforcement learning",
+          "trigger": "Series-parallel edge convergence and alternate erasure"
+        },
+        {
+          "assessment": "Equivalent two-route transition at beta=1, directed at other statistics",
+          "evidence": [
+            "Selection weights are f_i X_i^beta. Their central quantities are the last tie and number of ties, not the full vector of count amplitudes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1604.02097",
+          "material_read": "§2 and §2.2, OA offsets 8500 and 15320",
+          "method": "OA primary PDF text",
+          "title": "On the Duration and Intensity of Competitions in Nonlinear Pólya Urn Processes with Fitness",
+          "trigger": "Two-color fitness formulation of the count chain"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof §§1–5",
+        "Janson, arXiv:2402.01299, §5 and Example 14.2"
+      ],
+      "rationale": "The exact graph-specific laws are useful descriptive facts, but for the claimed contribution the only bridge to the already solved diagonal urn is the elementary conductance of a disjoint uniform route, w_i/ell_i, obtained by one-dimensional gambler’s ruin (or direct tree factorization). Once the route chain is written in the matching coordinates, the entire joint law and its marginal moments follow routinely from the prior exact law. The record neither treats non-disjoint networks nor supplies an unresolved quantity such as finite-n error or moment asymptotics. There is no independent nonmechanical remainder to repair.",
+      "residual_risks": [
+        "The decision does not challenge the exact model identity or the value of the related general-graph problem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

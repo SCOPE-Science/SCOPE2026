@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:29:41.840466Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete fiber law, survival probability, TV normalization and exact support statements in RESULT.md lines 3–41 and 43–78 check. Independent proof: put P=D/(q−1) and h=(H−1)/(q−1). A factor has an incident image line/kernel hyperplane (P h choices) and one of q−1 nonzero scales. Given its image line L and a proposed next image L′, exactly J=q^{n−2} hyperplanes through L exclude L′ if L≠L′, and zero if equal. The survival fraction per transition is therefore J(P−1)/(Ph)=λ/C. Conditional on all transitions surviving the initial image line is uniform, and the successive image lines take uniform steps to distinct lines (transition (ones−I)/(P−1)); the last kernel is uniform among the h hyperplanes through the last line, and the scalar of the product is uniform among q−1 choices since one uniformly random factor scale already suffices. This gives per-target conditional probability [h/P + (−1/(P−1))^{r−1}(1_{tr B=0}−h/P)]/[Ph(q−1)]. Multiplying by C λ^{r−1} gives both nonzero rank-one formulas including r=1. No rank≥2 is possible, and subtraction gives the zero count. The conditional signed deviation from uniform scales by (−1/(P−1))^{r−1} from r=1; at r=1 its TV is 1−h/P because the law is uniform on the trace-zero stratum. This yields the stated TV and alternating sign. At r=2 the trace-zero count H(J−1) vanishes exactly for n=2; each class is positive by r=3 and stays so because the transition has positive off-diagonal entries and a positive lower-right entry. Independent replay python /workspace/branches/independent_reproduction.py 4 checked all targets that can occur and exact conditional TV at each length 1–4 for n=2,3 over F2; the general proof uses finite projective counts and is not limited to prime fields. The supplied verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hattingh discusses existence of products of unrestricted square-zero matrices, not the fixed-orbit counts in the inspected passages.",
+          "The compared catalogue proof reduces to a complete graph walk on projective points and terminal hyperplane incidence; its closed form covers the entire prescribed-product law for all k≥2."
+        ],
+        "reasoning": "Unrestricted square-zero existence does not count ordered words in a particular orbit. The exact projective route does; measuring only trace zero is already the incident/nonincident split in that route.",
+        "searches": [
+          "Hattingh arXiv:1804.02140, Ch. 4 §4.2.1.1",
+          "c7286e4b73ec/RESULT.md projective walk proof §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and package scientific notes",
+        "Resultary c7286e4b73ec, Finding/Assumptions and Proof §§1–3",
+        "arXiv:1804.02140, §4.2.1.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The counterpart gives the same spectral data through the complete-graph adjacency powers with eigenvalues P−1 and −1; multiplying by t per step gives λ and μ.",
+          "The known existence setting deals with arbitrary square-zero factors and supplies no probability normalization or fixed-length frequency in the read passage."
+        ],
+        "reasoning": "No further mathematical step beyond notation and the tautological r=1 case is needed to recover the frozen claim from the compared exact entry. The older existence theorem alone would not afford this implication.",
+        "searches": [
+          "c7286e4b73ec/RESULT.md, Finding and proof §§1–3",
+          "Hattingh arXiv:1804.02140, §4.2.1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct entry counts ordered ordinary words in the same rank-one square-zero orbit over all finite fields, with P=D/(q−1), h=(H−1)/(q−1), t=(q−1)J, λ=t(P−1) and μ=−t."
+        ],
+        "reasoning": "For k≥2, its rank-one formula is h(λ^{k−1}−μ^{k−1})/P + μ^{k−1}1_{tr B=0}; this is exactly both frozen formulas. Its TV (P−h)/(P(P−1)^{k−1}) has prefactor H(q−1)/D and the same per-step multiplier. The apparent parameters identify under notation change, not a new trace statistic.",
+        "searches": [
+          "Configured Resultary: minimal nilpotent orbit, all-length square-zero products, exact alternating mixing",
+          "c7286e4b73ec/RESULT.md, Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is a separate entry dated 2026-11-22. Its Finding states the same zero and rank≥2 cases, rank-one law, n=2/k=2 obstruction, survival and conditional TV."
+        ],
+        "reasoning": "This is exact statement coverage, not a catalogue title or a finite table. The k=1 frozen boundary is simply the indicator of the definition of the factor set. The later date cannot be used to infer that the frozen record derived its result from this record.",
+        "searches": [
+          "Local Resultary c7286e4b73ec, local mirror RESULT.md offset 0–5499"
+        ]
+      },
+      "rationale": "A distinct catalogue entry explicitly gives the same complete rank/trace fibers, conditional mixing and support boundary for k≥2, with the omitted length one following from the factor definition. Its later catalogue date establishes equivalent coverage in this review, not earlier precedence or attribution. Earlier factorization existence results are not treated as exact frequency results.",
+      "residual_risks": [
+        "The focused primary search was unproductive and supplies no negative evidence. Full texts of Sullivan DOI 10.1080/03081080701269548, Mohammadian DOI 10.1080/00927872.2011.613423 and Botha DOI 10.1016/j.laa.2016.02.026 were not independently inspected here; their possible earlier coverage is not ruled out.",
+        "The exact catalogue counterpart does not establish priority or provenance; the negative originality decision rests on equivalent coverage now, not alleged earlier publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_EQUIVALENT_COVERAGE_FOR_LENGTH_AT_LEAST_TWO; LATER_CATALOGUE_DATE",
+          "evidence": "Matching difference of rank-one trace fibers (−t)^{k−1}, full law and TV; only r=1 is absent as a stated boundary.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-all-length-multiplication-fibers-and-exact-alternating-mixing-fo--c7286e4b73ec/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–3, offsets 0–5499",
+          "method": "Configured local mirror; statement and derivation comparison",
+          "title": "All-length multiplication fibers and exact alternating mixing for minimal nilpotent matrices",
+          "trigger": "Direct statement match on factor orbit, prescribed products and conditioned TV"
+        },
+        {
+          "assessment": "EXISTENCE_NOT_FIXED_ORBIT_CENSUS_IN_READ_PASSAGE",
+          "evidence": "The inspected result discusses existence for unrestricted square-zero factors; it does not enumerate multiplicities in the minimal nonzero nilpotent orbit.",
+          "identifier_or_url": "https://arxiv.org/pdf/1804.02140",
+          "material_read": "Chapter 4 §4.2.1.1, pp. 62–63, around PDF text offset 147200",
+          "method": "OA thesis, targeted result passage",
+          "title": "Sums and Products of Square-Zero Matrices",
+          "trigger": "Prior square-zero product factorization may include rank or length restrictions"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The target multiplicity and sharp dimension-two obstruction are worthwhile objects; the exact survival-conditioned TV also has real quantitative content. But all that content is already present in the exact counterpart at every substantive length. Adding the length-one tautology or replacing a projective walk by a two-state recurrence does not leave a distinct unknown fact or a demonstrated new use.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

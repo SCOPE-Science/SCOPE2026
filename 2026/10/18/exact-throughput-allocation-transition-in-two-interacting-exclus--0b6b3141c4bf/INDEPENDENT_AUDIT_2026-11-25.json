@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:59:59.128825Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary law gives physical signed total current B J_c; B>0 has no effect on maximizers. Expanding in s=u+v and p=uv gives J_c=s-s^2+p[2-c(2-s)]. The product interval [max(0,s-1),s^2/4] reduces maximization to boundary or diagonal except for a flat fiber. The empty-lane edges attain 1/4 uniquely at half filling; full-lane edges are strictly below the global envelope. On a flat fiber with 1<c<2, s(1-s) can attain 1/4 only at c=4/3, where the exact diagonal witness is 260/1029>1/4; for c>=2 the fiber is nonpositive, and c<=1 gives no interior flat fiber. The first root of 1-2(1+c)q+3cq^2=0 is the unique diagonal maximum, has strictly positive value, and the value decreases from 1/2 to 0 since its c-derivative is -2q^2(1-q). Equating the value to 1/4 yields the strictly increasing cubic in the finding. The inward derivative at the half-filled edge changes sign at 4/3; there the feasible perturbation u=1/2-2v/3 gives the positive leading term v^2/9. The diagonal has negative parallel Hessian eigenvalue and its transverse eigenvalue vanishes at c_s=(5-sqrt(5))/2. Along u=q+h+d, v=q+h-d at c_s, h=-c_s d^2/A gives (c_s^2/A)d^4+O(d^6)>0 with A=2(1+c_s-3c_s q), so equality is not a local maximum. The two exact witnesses, 260/1029 at 4/3 and M(c_s)=(sqrt(5)-1)/5, bracket the unique global crossing. Replay: RESULT.md lines 50–87 and the identities above; python3 /workspace/review_evidence/bounded_checks.py confirms c*=1.35700320530497618. The frozen verifier was inspected, not rerun; its random grid cannot prove uniqueness or exhaust the square. The result is optimization across product measures at independently variable densities, not dynamical selection at conserved lane numbers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans et al. extremize total current for open-system selection along plateaux with K(tau,sigma)=0. Curatolo et al. similarly use reservoir constraints and transverse exchange. Amir et al. project onto an equilibrium manifold parameterized by total density."
+        ],
+        "reasoning": "Optimizing along a reservoir-constrained or transverse-equilibrated manifold does not imply the complete optimizer sets, local Hessian tests and tangent-cone behavior on the freely chosen two-density square.",
+        "searches": [
+          "arXiv:1103.4677 Eqs. (17)–(19)",
+          "arXiv:1510.04150 §4.4.2 Eq. (26)",
+          "arXiv:2501.19355 Eqs. (4)–(12)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2605.06949, 1410.8026, 1103.4677, 1510.04150 and 2501.19355",
+        "Resultary cc2b5b4a429e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exclusion literature specifies a cubic objective. Its extrema, feasible flat fibers and degeneracies of the boundary and transverse stability require separate global and local comparisons. The later catalogue entry does state the global comparison directly."
+        ],
+        "reasoning": "The implicit optimization question in the older current law is not a quoted corollary of a known maximization theorem covering the independent variables. The two separated spinodals and strict behaviors at their equalities are substantive additions relative to the closest inspected statement.",
+        "searches": [
+          "arXiv:2605.06949 Eqs. (10)–(13)",
+          "arXiv:1410.8026 Eq. (2)",
+          "Resultary cc2b5b4a429e, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed F_q throughput switch is exactly the normalized J_c after q=-c (q there is a coupling, not a density), including the optimizer multiplicities and c*=1.357003205304976...",
+          "The two-lane cubic flux itself is identical in the cited literature after B_1=B_2=B and gamma_12=gamma_21=-cB."
+        ],
+        "reasoning": "Neither positive normalization by B nor a sign change of the coupling distinguishes mathematically equivalent optimizer results. The exact later match must be distinguished from prior flux formulas and the local-stability results.",
+        "searches": [
+          "Resultary signed-current/bidirectional two-lane throughput allocation, match cc2b5b4a429e",
+          "arXiv:2605.06949 Eqs. (10)–(13)",
+          "arXiv:1410.8026 Eq. (2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026/11/8 catalogue finding gives q_*=-1.357003205304976... and the same one/three/two global optimizer sets; the frozen record is dated 2026/10/18. The local thresholds were not stated in the inspected result."
+        ],
+        "reasoning": "This is a match at statement level, not merely numerical similarity. Its dated listing does not establish earlier priority, and it does not dispose of the additional local-stability claim.",
+        "searches": [
+          "Resultary SCOPE-sharp-throughput-allocation-switch-in-a-bidirectional-two-lane-e--cc2b5b4a429e"
+        ]
+      },
+      "rationale": "The flux law is prior and explicitly credited. An indexed record with a later date states the same complete global optimizer classification under a sign change. That is exact coverage of the global part, not evidence of antecedence relative to the frozen record's date; absolute priority and provenance are not established. The two strict local thresholds and their equality behavior were not in the matched statement. Earlier inspected sources either provide the current only or study different constrained objectives. The decision credits only the independent-density allocation/stability classification against the dated evidence, not the stationary current itself.",
+      "residual_risks": [
+        "Provenance and absolute priority of the exact overlapping global classifications cannot be inferred from indexing alone.",
+        "The cited Schütz lecture notes could not be passage-extracted after bounded timeouts; that limits comparison rather than implying absence.",
+        "An earlier unconstrained optimization theorem in a different parameterization could remain unlocated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the exact inherited flux and normalization",
+          "evidence": "Conditional drift B-(cB/2)d and j_i=B rho_i(1-rho_i)(1-c rho_other) in the symmetric restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.06949",
+          "material_read": "p. 3, Eqs. (10)–(13), text offsets 12200–16336",
+          "method": "Bounded OA PDF passage",
+          "title": "Multilane Asymmetric Exclusion Process with stationary Bernoulli measure",
+          "trigger": "Exact microscopic couplings and precedent for current"
+        },
+        {
+          "assessment": "Prior current law; different theorem objective",
+          "evidence": "Same two-density current relation in a fluctuation-universality problem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.8026",
+          "material_read": "p. 5, Eq. (2), text offsets 10500–14976",
+          "method": "Bounded OA PDF passage",
+          "title": "Universality classes in two-component driven diffusive systems",
+          "trigger": "Same cubic current in earlier work"
+        },
+        {
+          "assessment": "Extremal-current antecedent on a different feasible set",
+          "evidence": "Total current is evaluated on equilibrated plateaux with K(tau,sigma)=0.",
+          "identifier_or_url": "https://arxiv.org/pdf/1103.4677",
+          "material_read": "p. 8, Eqs. (17)–(19), text offsets 22600–26159",
+          "method": "Bounded OA PDF passage",
+          "title": "Phase diagram of two-lane driven diffusive systems",
+          "trigger": "Potential earlier total-current maximization"
+        },
+        {
+          "assessment": "Different feasible set",
+          "evidence": "Generalized extremal-current principle concerns transverse relaxation with reservoirs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1510.04150",
+          "material_read": "pp. 17–18, §4.4.2 Eq. (26), text offsets 57700–61543",
+          "method": "Bounded OA PDF passage",
+          "title": "Multilane driven diffusive systems",
+          "trigger": "Broader extremal-current principle"
+        },
+        {
+          "assessment": "Projects flux to a different set",
+          "evidence": "Equilibrium manifold constrained by a scalar total density.",
+          "identifier_or_url": "https://arxiv.org/pdf/2501.19355",
+          "material_read": "pp. 3–4, Eqs. (4)–(12), text offsets 8500–13776",
+          "method": "Bounded OA PDF passage",
+          "title": "Hydrodynamics and relaxation limit for multilane exclusion process and related hyperbolic systems",
+          "trigger": "General theorem possibly implying flux extrema"
+        },
+        {
+          "assessment": "Later-dated exact coverage of global part, not evidence for prior local-stability coverage",
+          "evidence": "Set q=-c; its negative threshold and all optimizer sets become those of J_c.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-throughput-allocation-switch-in-a-bidirectional-two-lane-e--cc2b5b4a429e/RESULT.md",
+          "material_read": "RESULT.md, global F_q switch and optimizer sets",
+          "method": "Local published-record mirror",
+          "title": "Sharp throughput allocation switch in a bidirectional two-lane exclusion process",
+          "trigger": "Exact objective and optimizer switch under reparameterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full-square signed-flux optimization is a natural stationary comparison and has an exact first-order change in the maximizing allocation. Exhausting flat fibers rules out extra optima at coexistence. The two distinct spinodals, including their non-maximal equality cases, give a nonzero interval of coexisting local optima and distinguish the global transition from a Hessian instability. No dynamical hysteresis or open-system selection is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

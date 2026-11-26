@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact Schur-complement formula holds for every positive \(a,b\), every unit real \(v\), and every \(k\)-subset, because the chosen principal block remains invertible. The rational residual (1) is strictly decreasing in selected spike mass. The largest \(k\) squared coordinates carry at least \(k/n\) of total mass, with strict inequality unless all are equal, for every interior \(k\). Flat vectors exist and are realized by real orthogonal eigenbases. The elementary symmetric-polynomial calculation independently matches the precise expected-error formula. The finite checker uses actual rational matrix inversions but is not substituted for these universal arguments. The asserted domain, equality cases, and excluded scalar boundary are consistent.
+PASS
 
-## Originality — PASS, subject to independent priority review
+Independently reconstructed the proof for real SPD K=aI+bvv^T, with unit v and a,b>0. For a k-set I, setting s=sum_{i in I}v_i^2, the residual is zero off the complementary principal block and its trace is a(n-k)+ab(1-s)/(a+bs). This follows by subtracting b^2 s/(a+bs) from the rank-one coefficient b in that block. The trace is strictly decreasing in s. The best subset takes the k largest squared coordinates; their total minus k/n is 1/n times the sum of all top-to-bottom differences. Those differences are nonnegative, and equality forces all coordinates to have the same square because both blocks are nonempty. Flat vectors exist, including with arbitrary signs. The k-DPP residual expectation follows by summing det(K_II) times the individual residual diagonals, which are ratios of bordered principal determinants: each (k+1)-minor is counted k+1 times. Substituting e_j=binom(n,j)a^(j-1)(a+jb/n) reproduces the stated value. The proof covers the entire interior range, not just rational input or sampled orientations. The frozen checker was inspected, not executed; its finite tests are supplementary and not required for the proof.
 
-Amsel et al., arXiv:2602.05394v1, Problem 4.7, defines the exact min/max and determinantal expectation and proves a general-spectrum equality only at the endpoint \(k=n-1\); it explicitly asks about other sizes. The present all-interior one-spike equality is not implied by that endpoint argument. Fornace–Lindsey, arXiv:2407.01698, supplies general expectation and selection bounds, not sharp worst-orientation attainment. Chen–Epperly–Tropp–Webber analyze randomized pivoting rather than this deterministic minimax. Related published results on the three-dimensional one-spike *random* two-pivot expected error and three-point correlation-kernel sampling address different quantifiers and lie at the already-known endpoint in dimension three. The proof and comparison support a distinct claim; an unlocated exact special-case statement remains a residual historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-A published and explicit low-rank-approximation question asks whether the volume-sampling spectral upper bound can be tight outside the single-unselected-column endpoint. A rank-one spike above isotropic background is a canonical covariance and kernel-matrix test spectrum. The theorem resolves all genuinely interior subset sizes for this class, exactly identifies when determinant sampling's expected error is as good as the best possible subset for the worst eigenbasis, and supplies a full characterization of maximizing orientations. The result is not extrapolated to arbitrary eigenvalue patterns.
+The expectation formula itself and the all-spectra endpoint are prior. The distinct supported finding is exact attainment by the best deterministic subset in the worst orientation at every interior rank of the one-spike class, including its full equality locus. No direct coverage or stronger implication was established by the checked sources.
 
-## Limitations and references
+## value
 
-Only strictly positive background and spike are covered, with \(n\ge4\) and \(2\le k\le n-2\). The two-level spectrum has a repeated lower eigenvalue, not a general multicluster spectrum. Finite experiments do not prove the statement. References: Amsel et al. (2026), arXiv:2602.05394v1, sec. 4.2; Fornace and Lindsey (2024), arXiv:2407.01698, secs. 2/5 and App. C; Chen et al. (2024/2025), doi:10.1002/cpa.22234, App. C.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The one-spike class is a canonical non-scalar SPD family, not a list of fortuitous numerical examples. Exact sharpness answers an independently posed minimax problem throughout its interior sample-size range on that class. The equality locus identifies precisely when best deterministic landmark choice cannot improve on expected volume sampling in the worst orientation. This supplies a concrete sharp benchmark without claiming to resolve the arbitrary-spectrum problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

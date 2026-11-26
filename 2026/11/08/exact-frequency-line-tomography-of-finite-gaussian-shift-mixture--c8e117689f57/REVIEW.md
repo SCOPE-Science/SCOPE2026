@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Square completion gives the exact normalized Gabor integral and separates the scaled intensity into independent real exponentials indexed by pair sums. Each pair-sum block has independent real exponential-polynomial frequency functions, which proves the generic block rank and the sharp threshold. Full matrix rank implies an \(m^2\)-row minor, while a two-stage real-exponential Vandermonde construction gives an explicit optimal Sidon design. Exact symbolic tests for three configurations corroborate the proof; they are not substitutes for the all-support argument.
+## correctness
 
-**Originality — PASS, provisional priority.** Grohs–Liehr (2021, arXiv:2109.02494) treats Gaussian shift-invariant Gabor phase retrieval with semidiscrete time positions and all frequencies, rather than determining the minimum number of fixed frequency lines or the entire Hermitian rank. Wellershoff (2022, arXiv:2206.03946) gives two-bin nonlinear recovery for bandlimited functions; the Fourier transform of a nonzero finite Gaussian mixture is not compactly supported. Gröchenig (2019, arXiv:1911.11050) studies time-domain phaseless Gaussian translates. Searches for equivalences including Gaussian spectrogram tomography, Sidon shift supports, frequency-line lower bounds and additive-sum matrix ranks found no covering primary result. A presently unlocated general Gaussian lifting theorem remains a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** This solves the natural finite-dimensional instrument-design problem of exactly how many fixed modulation-frequency sweeps suffice for *linear* spectrogram tomography of known Gaussian-translates supports. The line count is a sharp additive-combinatorial invariant, distinguishes Sidon and progression supports, and yields an optimally sized exact finite reconstruction procedure. It is not a mere rephrasing of generic phase retrieval: the complete Hermitian lifting criterion, explicit exceptional resonances and exact finite design are the mathematical objects determined.
+Square completion gives the 1/sqrt(2) transform factor and the displayed Gaussian and phase factors. After scaling out the strictly positive intensity envelope, distinct pair sums give independent time exponentials. At each sum, the positive differences of its off-diagonal pairs are distinct (sum and difference determine the pair), and the constant if present and cosine/sine pairs are real-linearly independent. Their evaluation rows span the block dimension, so a maximal minor is nonzero for some frequency tuple, and its analytic zero set is null. Intersecting the finitely many generic sets proves the simultaneous rank formula; for every tuple below threshold a deficient block has a kernel. Exponential interpolation at any ordered distinct real times (by Rolle's theorem induction on the number of exponents) and extraction of m^2 independent rows prove the exact finite count. For m>=2 the Sidon criterion follows since any collision has weighted size at least three; the sine determinant is the criterion for the pair of lines jointly, not for individual lines. Second-line interpolation after subtracting the already known projections gives the stated optimal layout. The progression central sum has m ordered pairs; no sum can have more since each first index determines at most one second index. For m=1, one measurement suffices. Independently computed the stated exact 9-by-9 determinant by Vandermonde factorization and confirmed the progression ranks 8 and 9.
 
-**Limits.** Real shifts must be distinct; measurements are exact, and no uniform numerical stability or optimal nonlinear phase retrieval count is proved. Prior work with broader assumptions might imply the theorem, so independent literature audit remains worthwhile.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The strongest distinct indexed matches share a Gaussian multiplicity-block mechanism, but their periodic pure-tone measurements separate differences in time rather than sums in time and give a different rank and line count. The inspected Gaussian-shift reconstruction and two-frequency uniqueness theorems also differ in sampling geometry, signal class, or domain of injectivity. No inspected result covers the claimed exact fixed-frequency full-Hermitian rank and finite Sidon layout for arbitrary real translate supports.
+
+## value
+
+PASS
+
+The theorem answers a natural measurement-design question for known shifts and a fixed number of available frequency settings. Pair-sum collisions determine both the exact rank deficit and the optimal scan count; the difference between Sidon supports and progressions grows to m versus two lines. The precise resonance test and finite m^2-sample Sidon layout give information needed to design a successful exact measurement, beyond a qualitative uniqueness theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

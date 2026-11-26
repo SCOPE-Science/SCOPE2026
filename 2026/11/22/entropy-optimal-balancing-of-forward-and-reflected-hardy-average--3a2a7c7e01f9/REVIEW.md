@@ -1,19 +1,21 @@
-# Scientific review of entropy-optimal bidirectional Hardy averaging
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The distributional-BV signed-measure representation reduces the operator defect to the explicitly calculated kernel \(K_\alpha(x,s)\). Its \(L^1\) norm is exactly \(E_\alpha(s)\), which is strictly concave in the jump coordinate and therefore has a unique optimizer. A single jump realizes the upper bound; uniqueness of the maximizing coordinate proves all interior-weight equality cases. Evaluation at the midpoint establishes the global mixture lower bound and its unique optimality. The entropy second-derivative estimate proves the uniform quadratic stability inequality, and near-midpoint jumps establish sharpness of the stability coefficient. The standalone checker passed all documented numerical tests. No finite test is used as an infinite proof.
+PASS
 
-## Originality — PASS with historical risk
+For real distributional BV, subtracting the integral of the step kernels against Df leaves a function with zero distributional derivative, hence a constant. Both averages preserve constants. For a unit jump at s the defect equals −(1−α)(1−s)/(1−x) on x<s and αs/x on x>s. Integration yields E_α; Tonelli and the triangle inequality then bound the general signed-measure defect by ∫E_α d|Df|, and testing one jump gives the exact norm. E_α is strictly concave, with an interior critical point also at the pure endpoints (1−1/e and 1/e respectively). For nonzero variation, equality forces |Df| onto the unique maximum, so the displayed nonconstant steps suffice and exhaust that class. Constants also satisfy the unnormalized inequality as 0=0 and are excluded from the norm quotient and the nontrivial equality classification (as in Proof §4). All mixtures have the same value at s=1/2, but only α=1/2 has zero derivative there; this proves unique minimax balance even against the pure endpoints. At balance E''(s)=−1/[2s(1−s)]≤−2, yielding the integral deficit bound. The Taylor quotient along displaced single jumps tends to 1, so the quadratic factor is sharp. No restriction to monotone inputs or endpoint boundary traces is used.
 
-The directly inspected primary papers are Nekvinda–Pick (2011), Soria (2010), and Lu–Yan–Zhao (2013). They study optimal Hardy source/target spaces, one-sided identity defects on decreasing-function cones in Lorentz settings, and higher-dimensional \(L^p\) Hardy estimates, respectively. These statements do not imply the all-real-BV, unweighted integrated error for a convex family of *forward and reflection-conjugate* Hardy averages, its uniquely minimizing symmetric mixture or its sharp quadratic location bound. The reflected average is not the Copson integral adjoint, and a superposition of two operators is not their convex sum. Electronic searches did not reveal an exact equivalent; searches cannot establish a priority theorem. Unindexed historical work and other terminology remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The precise mathematical choice is whether to average all observations left of a location, all observations right of it, or to mix both while retaining constants. The optimal \(BV\)-normalized integrated approximation error is not furnished by either one-sided norm alone: directional averaging has sharp constant \(e^{-1}\), while the unique optimally balanced design has the smaller exact constant \((\log2)/2\). The new stability inequality bounds *how the entire variation measure must localize* when the worst-case error is nearly attained; it is sharp even for infinitesimal displacement of a single discontinuity. Thus the exact coefficient and rigidity identify an intrinsic design tradeoff for prefix/suffix smoothing of discontinuities, beyond a generic boundedness estimate.
+The checked literature does not give the stated open-interval BV identity-defect norm for fixed convex mixtures of the forward and reflected averages, or its minimax theorem. This is a qualified finding about the specific operator and objective: the signed step reduction and binary-entropy deficit estimate are standard mechanisms, not separate originality claims.
 
-## Sources and limitations
+## value
 
-Primary full-text materials: https://ems.press/content/serial-article-files/35810 ; https://www.impan.pl/shop/en/publication/transaction/download/product/89912 ; https://link.springer.com/article/10.1186/1029-242X-2013-148 . No assertion is made for nonconvex or position-dependent weights, other norms or dimensions. Historical priority and independent mathematical verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A forward/backward average is a natural way to approximate a BV input without choosing a direction. The result determines the best worst-case error among all fixed convex mixes, classifies nontrivial extremizers, and gives a sharp quantitative localization statement for arbitrary signed derivative measures. In particular, a small norm deficit bounds the part of the variation carried away from the midpoint, rather than merely lowering a numerical coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

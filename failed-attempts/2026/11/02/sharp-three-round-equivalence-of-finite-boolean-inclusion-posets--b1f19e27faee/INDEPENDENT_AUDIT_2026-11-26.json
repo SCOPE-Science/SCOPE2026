@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:10:27.772517Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–43; supporting verification files",
+        "/workspace/branches/2baca4d5-9629-4bbf-bcd0-f7b5f387dda4/bounded_replay.py",
+        "/workspace/branches/2baca4d5-9629-4bbf-bcd0-f7b5f387dda4/bounded_replay_n7.txt"
+      ],
+      "rationale": "The six-class theorem is correct in the stated inclusion-only language. After choosing X and Y, the final choice Z can test the common cell X∩Y only for whether all of it lies in Z, and the cell outside X∪Y only for whether none of it lies in Z. Each of those two cells can therefore be capped at one for final-move types. The two cross cells need a cap of two, since their chosen and unchosen parts can affect different inclusions. When a first-move region has size at least three, its second-move split into a cap-two cell and a cap-one cell has the same four possible capped pairs (0,1), (1,1), (2,1), (2,0), independent of its size. Thus first-move types depend only on the two side sizes capped at three; all n≥6 attain the same pairs. For sharpness, relative to X, rank at most two expresses |X|≥1 by a strict predecessor, |X|≥2 by a two-step descending chain, and |X|≥3 by a Y strictly below X that has a strict predecessor and admits a strict intermediate element between Y and X. Dual formulas test |[n]\\X|≥j for j≤3. Existentially quantifying X with both tests expresses n≥i+j for thresholds through six. An independent exact bounded replay also matched all 18 stated local comparisons and the finite equality pattern through n=7. No uploaded script was executed.",
+      "residual_risks": [
+        "The independent replay is bounded and uses Venn cells, not literal subset enumeration; the analytic argument handles the infinite tail and sharpness."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The October inclusion result permits n=0 as well as all positive n.",
+          "Libkin gives a sufficient 2^q tail in pure inclusion; the functional-language record gives an exact 2^q cutoff with constants and Boolean operations."
+        ],
+        "reasoning": "Restriction of the October theorem covers every frozen case. The other two 2^q comparisons by themselves would give only the weaker sufficient tail at eight at this rank.",
+        "searches": [
+          "Resultary finding 528aebaa99cd",
+          "Libkin, Elements of Finite Model Theory, Claim 5.7",
+          "Resultary finding 938cb5f89dc7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 528aebaa99cd, 938cb5f89dc7 and 5a1786b1ea8a",
+        "Libkin Claim 5.7",
+        "arXiv:cs/0407045",
+        "doi:10.4230/LIPIcs.FSTTCS.2018.10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier inclusion theorem needs only domain restriction to yield all frozen equivalences and separations.",
+          "Cardinality quantifier elimination and uniform automatic presentations are different claims from the specialized equivalence classification."
+        ],
+        "reasoning": "Even a different derivation would not make the frozen theorem an additional mathematical claim; no separately stated new invariant or extension survives the exact overlap.",
+        "searches": [
+          "Resultary finding 528aebaa99cd, Finding and finite-type recursion",
+          "Libkin, Chapter 5, Lemma 5.5 and Claim 5.7",
+          "arXiv:cs/0407045",
+          "doi:10.4230/LIPIcs.FSTTCS.2018.10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Finding has P_n≡₃P_m iff min(n,6)=min(m,6), with equality and binary inclusion only."
+        ],
+        "reasoning": "P_n and B_n differ only in notation. Agreement on sentences of nesting depth at most three is the same equivalence in both records.",
+        "searches": [
+          "Local Resultary search for rank-three finite Boolean inclusion-poset equivalence",
+          "Resultary finding 528aebaa99cd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October catalogue entry explicitly says that the positive domain has six classes and that the first tail representative has 64 elements.",
+          "The meet-semilattice entry has a six-atom cutoff but names the ternary intersection graph instead of binary inclusion."
+        ],
+        "reasoning": "The October record matches the entire classification, not just the numeric cutoff. Same numerical cutoff in the meet signature is not the decisive match.",
+        "searches": [
+          "Local Resultary search for the six-atom cutoff and rank-three theories",
+          "Resultary findings 528aebaa99cd and 5a1786b1ea8a"
+        ]
+      },
+      "rationale": "The distinct 2026-10-26 Resultary record already states the identical iff in the identical relational signature on the wider domain n,m≥0, explicitly stating the six positive-parameter classes and the least 64-element tail representative. The frozen Finding is wholly covered; this is a statement-level duplicate, not conjectured overlap or a date-order inference about two same-day records.",
+      "residual_risks": [
+        "This determines known coverage, not first historical priority. The exact catalogue match makes unresolved wider historical coverage immaterial to the decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage on a larger domain",
+          "evidence": [
+            "Finding explicitly restricts to six classes when n≥1; its displayed iff and first tail representative match the frozen theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-seven-rank-three-theories-of-finite-boolean-inclusion-posets--528aebaa99cd/RESULT.md",
+          "material_read": "Finding, scope, and opening finite-type recurrence, offset 0 onward",
+          "method": "Opened the primary record in the local mirror",
+          "title": "Seven rank-three theories of finite Boolean inclusion posets",
+          "trigger": "Exact same language and rank in local catalogue"
+        },
+        {
+          "assessment": "Weaker sufficient bound",
+          "evidence": [
+            "Both atom counts ≥2^q suffice for rank-q equivalence in inclusion language."
+          ],
+          "identifier_or_url": "https://homepages.inf.ed.ac.uk/libkin/fmt/fmt.pdf",
+          "material_read": "Chapter 5, Lemma 5.5 and Claim 5.7, PDF p. 84",
+          "method": "Primary open PDF, located theorem passage",
+          "title": "Elements of Finite Model Theory",
+          "trigger": "Earlier same-language equivalence bound"
+        },
+        {
+          "assessment": "Different signature",
+          "evidence": [
+            "Rank three distinguishes atom counts 1 through 7 and then the ≥8 class in the Boolean functional signature."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-sharp-2-q-atom-visibility-threshold-for-finite-boolean-algebras--938cb5f89dc7/RESULT.md",
+          "material_read": "Finding and functional-signature scope",
+          "method": "Primary record in local mirror",
+          "title": "Sharp 2^q atom-visibility threshold for finite Boolean algebras",
+          "trigger": "Similar rank threshold in Boolean structures"
+        },
+        {
+          "assessment": "Distinct relational signature; not used for the duplicate conclusion",
+          "evidence": [
+            "Atomic comparisons in this result use M(X,Y,Z) for X∩Y=Z."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-rank-three-threshold-for-finite-powerset-meet-semilattices--5a1786b1ea8a/RESULT.md",
+          "material_read": "Finding and signature",
+          "method": "Primary record in local mirror",
+          "title": "Sharp rank-three threshold for finite powerset meet semilattices",
+          "trigger": "Same cutoff in related catalogue item"
+        },
+        {
+          "assessment": "Context, not the basis for coverage",
+          "evidence": [
+            "The theory combines Boolean algebras of sets with Presburger cardinality constraints."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cs/0407045",
+          "material_read": "Abstract and p. 7 Fact 1",
+          "method": "Primary OA PDF passages",
+          "title": "The First-Order Theory of Sets with Cardinality Constraints is Decidable",
+          "trigger": "Venn-cell quantifier-elimination comparison"
+        },
+        {
+          "assessment": "Context only; no whole-document exclusion inferred",
+          "evidence": [
+            "The abstract concerns uniform automatic presentations and model-checking bounds."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.FSTTCS.2018.10",
+          "material_read": "Abstract, p. 1",
+          "method": "Primary OA proceedings PDF passage",
+          "title": "Uniformly Automatic Classes of Finite Structures",
+          "trigger": "Cited finite Boolean algebra algorithmic comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Resultary 528aebaa99cd Finding and finite-type proof"
+      ],
+      "rationale": "The sharp finite cutoff is mathematically useful, but as a contribution this record re-establishes the same exact classification, representative, and boundary already in a distinct record. It does not state an additional useful theorem or method with a new scope.",
+      "residual_risks": [
+        "This judgment concerns added value of the frozen claim, not the usefulness of the known theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

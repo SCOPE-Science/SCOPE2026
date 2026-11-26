@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The accompanying `verify.py` runs with Python 3 and SymPy. Its exact symbolic checks reconstruct the homogeneous defining polynomial and its four partial derivatives; reduce the equation, gradient, and Hessian determinants in each of the three node families; confirm the local leading quartic at the quadruple point; and compute the exact length of the initial homogeneous Jacobian algebra by standard monomials.
+## correctness
 
-Command: `python verify.py`
+PASS
 
-Expected last line: `VERIFY_OK: gradients, three exact nodal Hessian certificates, tangent cone, Euler data`.
+Reconstructed the projective gradient exhaustion. If x=y=0, the two last derivatives exclude zw≠0 and z=0, leaving only P at t=0. With exactly one of x,y zero, the other derivative forces z=w≠0 and then t=1 and one of the two quartic equations at w/z=1. With xy≠0, z=w=0 is excluded by F_z+F_w=−12x²y². The first two derivatives then require h=(z−w)/(z+w) with h²=−3 and x²=−hy², ruling out zw=0. The mixed quartic terms cancel in F, forcing t=1 at w/z=ρ a primitive cube root. In z=1, F_w gives y⁴=−(1+ρ)/4=ρ²/4, and F_z vanishes with these substitutions. This gives 4+4+8+8 points. Independently evaluated the Hessian: at the two axial families it has determinant 3456. Off-axis, write B=1+ρ; H_xx=24By², H_xy/H_xx=−x/y, and the leading 2×2 block has determinant zero. The full determinant is −H_xx(H_yw+(x/y)H_xw)² with the squared term’s argument 24(1+h)y³. This simplifies to 3456ρ², so all points are nodes. At P the homogeneous leading quartic has no projective gradient zero; blowing up gives smooth strict transform along the exceptional genus-three quartic, with E²=−4 and discrepancy 2−4=−2. The smooth tangent cone gives the ordinary multiplicity-four Milnor number 3³=27. A smooth quintic has Euler number 55, and smoothing increases it by the sum of local Milnor numbers on a complex surface; the claimed values 28 and 31 follow. Homogenizing in the base gives the stated nonreduced fiber at infinity.
 
-The proof in `RESULT.md`, rather than this finite program, is responsible for exhausting all complex projective critical points and all parameter values. Smoothness of the projectivized quartic tangent cone and the ordinary-multiple-point formula are checked in the proof. Symbolic polynomial arithmetic provides exact identities over the rational numbers, which remain valid over \(\mathbb C\). The genus, exceptional intersection number, discrepancy, and Euler-specialization steps use standard geometric theorems stated in the proof.
+## originality
 
-The original 2026 manuscript was inspected via its complete arXiv HTML representation, including the smoothness statement and proof in Lemma 3.1. Smoothness of the affine pencil is explicitly credited to the authors; the new result is the detailed singularity basket and its local and topological invariants. Broader historical priority remains provisional. An independent mathematical audit has not been performed.
+PASS
+
+The contribution is the exact singularity basket and its invariants for the displayed pencil, not the known exceptional affine parameter set, the standard ordinary-point invariant formulas, or the formal compactification of the defining equation. Yu–Zhu leave the singular endpoints out of their derivative argument. The closest distinct indexed result concerns the same ordinary-quadruple-point type on a different surface, not this basket.
+
+## value
+
+PASS
+
+The 85-line quintic pencil is already a motivated family. Classifying its two finite degenerations distinguishes markedly different local and topological behavior (one nonrational exceptional curve versus 24 nodes), giving precise input for degeneration and vanishing-cycle calculations. This value rests on establishing the complete fiber baskets, not on reapplying standard formulas in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

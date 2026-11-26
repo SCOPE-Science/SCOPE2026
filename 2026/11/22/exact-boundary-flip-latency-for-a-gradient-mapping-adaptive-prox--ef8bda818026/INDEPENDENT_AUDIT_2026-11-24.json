@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:52:33.267022Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen recursion agrees with deterministic Algorithm 1 specialized to a ball indicator and a centered scalar-Hessian quadratic. Projection reduces to scalar clipping on the initial diameter. Starting on the sphere, a full flip occurs exactly at lambda*eta/S_k >= 2, including equality; every such update multiplies S_k by Q. Counting the qualifying nonnegative exponents gives M, including M=0 when r<1 and a final flip at any exact power r=Q^j. S becomes strictly above the saturation threshold after those flips, so no tail step increases the radius or needs projection. In the interior recursion, S_{k+1}^2-S_k^2=lambda^2*||x_k||^2; the squared radius drop is at least 2*eta*(2-theta_entry)/lambda times S_{k+1}-S_k. Telescoping bounds S above and keeps the tail contraction uniform and strictly below 1 (including finite termination). Taylor expansion gives 1/log Q=eta^2/(2R^2)+1+O(eta^-2); the integer rounding changes the count by at most 1. Independent replay: python3 /workspace/independent_checks.py 2, fifteen rational saturation tests immediately below, at, and above five exact threshold powers; these corroborate, not prove, the general result. The frozen checker and verification record were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Yurtsever Theorem 1 and Corollary 2 bound stationarity and averaged gap under their assumptions; Appendix E.1 gives automatic deterministic increment boundedness.",
+          "The matching Resultary theorem covers automatic increment boundedness and convex optimizer-distance boundedness of the same algorithm."
+        ],
+        "reasoning": "These stronger-in-scope inequalities apply to or are relevant to this instance but do not determine how long a specific objective value stays constant or give the exact large-gain delay.",
+        "searches": [
+          "arXiv:2605.05944 Sections 3–4 and Appendix E.1",
+          "Resultary e3edbe40faf5 RESULT.md",
+          "arXiv:2007.08840v3 Section 3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.05944",
+        "arXiv:2007.08840v3",
+        "Resultary e3edbe40faf5",
+        "Resultary a0ce65708c0d",
+        "Resultary 6eb2c5b9c996"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abstract update determines individual trajectories, and existing analyses bound aggregate quantities, but neither asserts a sharp saturation interval. The exact boundary condition and constant per-flip multiplier must be combined before the integer threshold and leading coefficient follow."
+        ],
+        "reasoning": "The proof is elementary once the example and invariant are identified, but is a sharp instance analysis rather than a renaming or direct parameter substitution into a prior latency theorem.",
+        "searches": [
+          "arXiv:2605.05944 Algorithm 1, Theorem 1, Corollary 2 and Appendix E.1",
+          "Resultary e3edbe40faf5 RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The proximal mapping of a ball indicator is Euclidean projection, so Wang–Yurtsever is the identical recursion, not just a similar method.",
+          "The same-day antipodal escape result uses a scalar two-state Prox-NAG-GS scheme and an l1 regularizer; the B-adaPG boundary result uses Hellinger geometry. Movement-scaled AdaGrad+ has coordinatewise scaling and different diameter conventions."
+        ],
+        "reasoning": "A similar escape phenomenon or movement accumulator is not equivalent to the exact flip count under this projected recurrence.",
+        "searches": [
+          "Resultary ranked optimization matches e3edbe40faf5, a0ce65708c0d, 6eb2c5b9c996",
+          "arXiv:2605.05944 Algorithm 1 and equation (2.5)",
+          "arXiv:2007.08840v3 Section 3.1 Figure 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The quantitative matches in these sources are a different algorithm's threshold or cumulative quantity, or bounds for the identical algorithm, not an exact saturation-count curve."
+        ],
+        "reasoning": "No exact count table was identified in the checked evidence. A finite benchmark table could not cover the positive real parameters; an analytic orbit formula would, and none was found in the inspected matches.",
+        "searches": [
+          "Resultary exact and related boundary records e3edbe40faf5, a0ce65708c0d, 6eb2c5b9c996",
+          "arXiv:2605.05944 Sections 3–4 and Appendix E.1"
+        ]
+      },
+      "rationale": "Best of current knowledge: the method and general convergence/boundedness properties are prior. The supported distinction is the exact plateau count, its sharp diverging gain dependence, and the corresponding pathwise exit and geometric tail on the specified instance. No inspected stronger theorem gives the count as a corollary.",
+      "residual_risks": [
+        "The catalogue ranking and literature comparison are bounded; an unindexed exact treatment of the same scalar projected trajectory could predate the finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers algorithm and general bounds, not the stated latency",
+          "evidence": [
+            "eta_k=eta/S_k, S_1=gamma and movement-squared multiplicative accumulator; O(1/t) general bounds and automatic bounded increments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.05944",
+          "material_read": "Section 2 equation (2.5) and Algorithm 1, PDF pp. 3–4; Sections 3–4 Theorem 1 and Corollary 2; Appendix E.1, PDF pp. 29–30",
+          "method": "Lawful OA full-text passages",
+          "title": "Universal Adaptive Proximal Gradient Methods via Gradient Mapping Accumulation",
+          "trigger": "Identical algorithm and strongest primary comparator"
+        },
+        {
+          "assessment": "Related method, not identical result",
+          "evidence": [
+            "AdaGrad+ uses movement-based per-coordinate scaling and constrained convergence analysis."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.08840v3",
+          "material_read": "Section 3.1 Figure 1, PDF pp. 5–6",
+          "method": "Lawful OA full-text passages",
+          "title": "Adaptive Gradient Methods for Constrained Convex Optimization and Variational Inequalities",
+          "trigger": "Earlier movement-scaled method"
+        },
+        {
+          "assessment": "Same algorithm, different theorem",
+          "evidence": [
+            "Automatic increment and convex optimizer-distance boundedness; no exact startup length."
+          ],
+          "identifier_or_url": "2026/9/17/SCOPE-automatic-boundedness-for-deterministic-gradient-mapping-accumulation--e3edbe40faf5",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published mirror",
+          "title": "Automatic boundedness for deterministic gradient-mapping accumulation",
+          "trigger": "Strongest same-method Resultary match"
+        },
+        {
+          "assessment": "Different recursion and statistic; no date-order inference",
+          "evidence": [
+            "Two-state scalar dynamics with l1 regularization and a two-cycle escape threshold."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-antipodal-escape-threshold-for-the-scalar-prox-nag-gs-method--a0ce65708c0d",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published mirror",
+          "title": "An antipodal escape threshold for the scalar Prox-NAG-GS method",
+          "trigger": "Same-day antipodal-threshold match"
+        },
+        {
+          "assessment": "Different radial recursion",
+          "evidence": [
+            "B-adaPG boundary law depends on a Hellinger-ball kernel, not the Euclidean projected gradient-mapping iteration."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996",
+          "material_read": "RESULT.md Finding",
+          "method": "Local published mirror",
+          "title": "Exact cumulative step boundary law for B-adaPG on an invariant Hellinger ball",
+          "trigger": "Exact adaptive boundary-law match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "On a canonical compact strongly convex test problem, the exact number of zero-improvement updates is a concrete startup obstruction: any fixed nontrivial objective target must wait, yet a fixed projected step solves the same instance in one update. The sharp gain coefficient and proof of later geometric convergence distinguish startup delay from instability. This is useful for interpreting parameter-dependent convergence bounds, not a general complexity lower bound for adaptive methods.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

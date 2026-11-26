@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:43:09.105976Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–84",
+        "VERIFICATION.md:19–25",
+        "verify.py:12–105"
+      ],
+      "rationale": "For spherically symmetric independent volume samples, isotropy gives E[(X·Y)^2]=u²/d with u=E‖X‖², so μ₂=2u and μ₄=2v+(2+4/d)u² with v=E‖X‖⁴. The radial power density gives the asserted F_d and scale. For an independent monotonicity check put s=−log q and k=(d+2)/2. The hyperbolic factor in F_d is 1−[sinh(s)/sinh(ks)]²; the ratio strictly decreases in s because x coth x strictly increases for x>0. This yields the two open endpoints and strict inversion. Both endpoints decrease with d; subtracting the lower endpoint in d from the upper one in d+1 gives (d−5)/[d(d+1)(d+5)], including the nonattainable equality at d=5. Fixing any positive μ₂ by scale makes a ratio in an overlap a genuine moment collision, not a claim that all d≥6 shells are ambiguous. At q=0 expansion starts at q^d with the displayed coefficient. At q=1, expanding the hyperbolic ratio at s=0 gives F_d−(1+1/d)=s²/6+O(s⁴), hence (1−q)²/6+O((1−q)³). The rational function extends analytically at both endpoints, so differentiation gives −F'_d(q) comparable to q^(d−1)(1−q). Integrating on the halves of [0,1] bounds the decrease below by a constant times interval length to the power d (on the right half the lower bound is quadratic). The endpoint orders prove sharpness for the radius ratio. A bounded independent Fraction check corroborated the radial identities and overlaps; the bundled script was inspected, not executed.",
+      "residual_risks": [
+        "The inverse exponents concern deterministic exact population moments and q, not estimator convergence or noisy radii without a scale restriction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "bc270d434482 permits a=0 and gives uniform Hölder stability of the ordered radii on positive bounded scale ranges as well as the global q inequality in its proof.",
+          "Tu–Fischbach gives a forward distance-density theory for spherical radial densities, full-ball moments and a multilayer example."
+        ],
+        "reasoning": "The indexed inverse is broader in radius domain and in the stability variables. Forward distribution theory already covers evaluating moments under radial densities but is not itself the inverse theorem.",
+        "searches": [
+          "Resultary:bc270d434482 finding and proof §§3–5",
+          "arXiv:math-ph/0201046 §§III, V.A, V.C"
+        ]
+      },
+      "checked_sources": [
+        "Resultary bc270d434482 and 611519ee4958",
+        "arXiv:math-ph/0201046",
+        "DOI:10.1088/0143-0807/35/2/025003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The indexed upper endpoint (d+2)(d+3)/[d(d+4)] equals 1+1/d+2/[d(d+4)]; the same passage expressly excludes equality there for positive holes.",
+          "Feasible pairs at each d are exactly μ₂>0 and ratio in that interval. Subtracting endpoints gives the exact overlap length when d≥6 and the excluded touching point at d=5; ordered endpoints exclude all nonadjacent overlaps for d≤5."
+        ],
+        "reasoning": "Unknown-dimension compatibility is exactly intersection of these known fixed-dimension images, with no further modeling hypothesis. The numerical collision is a choice inside their known overlap, not a scientifically distinct inverse theorem.",
+        "searches": [
+          "Resultary:bc270d434482 Finding and proof §3: fixed-d realizability at arbitrary positive M₂"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "bc270d434482 uses a,b and M₂,M₄ in place of r,R and μ₂,μ₄; (d+2)/(2d)=1/2+1/d. Its Q_d equals the frozen F_d pointwise, under the same volume sampling and extrinsic distance.",
+          "Its convexity proof uses x/(e^(sx)−1)=x coth(sx/2)/2−x/2; the linear term cancels in the centered difference, giving the same monotonicity mechanism."
+        ],
+        "reasoning": "The fixed-dimension recovery and stability are equivalent statements on positive-hole shells, not merely similar observables or geometries.",
+        "searches": [
+          "Resultary: two distance moments reconstruct concentric hollow Euclidean balls or spherical shells; sharp radius-ratio inverse",
+          "Resultary:bc270d434482 RESULT.md, offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "bc270d434482 reports the exact all-d allowable intervals and both endpoint constants, so it supplies more than an exact table of sample cases.",
+          "611519ee4958 gives a visibility probability for the event that the connecting segment stays in a shell, a different quantity."
+        ],
+        "reasoning": "The exact indexed classification matches the fixed-dimension invariant directly; the visibility entry supplies no such moment identity.",
+        "searches": [
+          "Resultary shell-distance inverse search; inspected bc270d434482 and 611519ee4958"
+        ]
+      },
+      "rationale": "Material equivalent indexed coverage: the distinct same-day record bc270d434482 gives the identical forward statistic, strict monotonicity, exact realizability range (explicitly including its positive-hole restriction), recovery formula, and both sharp endpoint expansions and inverse exponents. Its statement even extends fixed-dimension recovery to a full ball, and its proof includes the global q-Hölder estimate. The frozen unknown-dimension paragraph is not stated there verbatim, but follows by comparing two endpoints of its already exact realizability intervals at unrestricted positive scale: U_(d+1)−L_d=(d−5)/[d(d+1)(d+5)]. Their monotone order makes this sign test sufficient for low-dimensional identifiability as well. There is no additional inverse analysis in that remainder beyond the interval corollary. This is a finding about equivalent coverage and implication, not a finding of chronological priority between same-day records.",
+      "residual_risks": [
+        "The same-day indexed records do not settle authorship priority or order. The Hong–Hong full text was not available; that does not affect the decisive positive overlap evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent or broader fixed-d statement; exact range directly implies the dimension-overlap result",
+          "evidence": "Identical M₂ and Q_d; exact range explicitly restricted to positive holes; both endpoint expansions and the same inverse bound on q.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-two-moment-recovery-of-concentric-euclidean-shells-in-ever--bc270d434482/RESULT.md",
+          "material_read": "RESULT.md offset 0–7277, Finding, scope and proof §§1–5",
+          "method": "Configured Resultary search and local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp two-moment recovery of concentric Euclidean shells in every dimension",
+          "trigger": "Same inverse data and geometry over every dimension"
+        },
+        {
+          "assessment": "Covers forward theory, not the inspected inverse claims",
+          "evidence": "Forward radial law, full-ball distance moments and a 3D multilayer application.",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0201046",
+          "material_read": "PDF pp. 5, 9, 11: §III Eq. 24; §V.A Eqs. 40–41; §V.C Eqs. 49–52",
+          "method": "OA passage inspection",
+          "title": "Random Distance Distribution for Spherical Objects: General Theory and Applications to n-Dimensional Physics",
+          "trigger": "Earlier exact moment and radial distribution theory"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "Tests whether the connecting segment stays in the shell, not the moments of its ambient length.",
+          "identifier_or_url": "Resultary:611519ee4958",
+          "material_read": "RESULT.md offset 0, Finding and observable",
+          "method": "Local mirror passage inspection",
+          "title": "Exact visibility laws for concentric spherical shells in odd dimensions",
+          "trigger": "Same shell geometry and independent endpoints"
+        },
+        {
+          "assessment": "Unresolved full-text comparison; not the reason for failure",
+          "evidence": "Identified topic is inertia rather than inverse classification from two independent-point distances.",
+          "identifier_or_url": "https://doi.org/10.1088/0143-0807/35/2/025003",
+          "material_read": "Bibliographic identification and accessible description; not full text",
+          "method": "Bounded lawful retrieval and OA lookup",
+          "title": "Moments of inertia of spheres without integration in arbitrary dimensions",
+          "trigger": "Prior moments for spherical shells"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–40",
+        "Resultary:bc270d434482 Finding"
+      ],
+      "rationale": "Two population moments are a natural restricted-data inverse problem for a two-radius shape; an exact attainable range and endpoint conditioning identify what this measurement can recover, and comparing dimensions exposes a real identifiability limit. This is useful as a classification, independent of the finding that it repeats or directly follows from indexed mathematics.",
+      "residual_risks": [
+        "The interval subtraction does not provide a separate substantial contribution once the exact ranges are known; no finite-sample or nonconcentric model is covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

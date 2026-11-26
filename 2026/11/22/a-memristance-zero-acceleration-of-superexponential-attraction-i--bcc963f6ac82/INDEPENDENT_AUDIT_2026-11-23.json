@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:23:56.252765Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fixed line follows from w'=w+y, and substitution gives the exact lag-two recurrence for n≥2. In the interior box y1=O(s²), y2=O(s³), and subsequent y's contract by at most ab s²<1/2 while w<1. Thus their total is less than 2s for small s, closing the bootstrap. The logarithmic forcing remains bounded uniformly over the box. The positive Perron projection of (u2,u1,u0) grows at least as a constant times log(1/s), so it dominates the bounded discounted forcing and gives a positive rho-clock. At the endpoint, the prescribed Y sequence decays at least geometrically; d_n≤2Y_n for n≥2 makes the tail operator a self-map, increasing because d_n<sqrt(2). Its zero-tail iterates converge coordinatewise with dominated sums, and the fixed recurrence propagates strict positivity from y0,y1,y2. The initialization (5) exactly produces y1,y2, with x0 and 1−z0 asymptotic to s/(b sqrt(2)), and x_n<1 ensures positivity of z. The ratio bound gives d_n/y_n→1. In logarithms, subtract the constant log(ab sqrt(2))/3; the Perron part is its growing beta-mode plus a vanishing remainder (the future discounted forcing is bounded by a constant times the supremum of the remaining errors), while the stable convolution tends to zero because both other roots have modulus sqrt(2/beta)<1. The log-majorant gives L_*>0 by the same initial Perron-projection domination. Thus the multiplicative prefactor is correct. Independent exact rational root brackets and a bounded finite-tail replay corroborate the algebra and initial conditions but not the infinite existence or asymptotics. Replay: /workspace/branches/57043f8b-fa81-48d0-a5b5-21feb86759db/own_recurrence_check.py.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. Sections 2.1–2.3 cover both the parabolic subsystem and coupling, and the abstract and dynamical analysis describe numerical multistability and transient dynamics."
+        ],
+        "reasoning": "The c=1 memory-free parabolic subsystem gives the rho recurrence directly. It cannot supply the self-consistent tail deficit or beta-mode because its update has no vanishing memory factor. General companion-matrix results only apply after construction and tail reduction.",
+        "searches": [
+          "A Novel Four Dimensional Memristive Hyperchaotic Map Wang Tong 1879 2023 pdf 10.3390 sym15101879 publisher repository pdf",
+          "discrete memristive parabolic four dimensional map zero memristance positive orbit superexponential double exponential attraction endpoint recurrence"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3390/sym15101879",
+        "Resultary 27d7fc5e5302"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang et al. give the fixed line and linear stability eigenvalues in Section 2.3; the related Resultary classification is one-step and global, not asymptotic."
+        ],
+        "reasoning": "The new step is realizing sqrt(2) as the limit with positive coordinates by satisfying a nonlinear tail constraint. Only then does 1−w_n²/2∼sqrt(2)y_n give an extra power of y_n, a different polynomial, and a meaningful prefactor. Neither checked prior statement implies that construction.",
+        "searches": [
+          "Wang Tong Li four-dimensional parabolic memristive hyperchaotic map Symmetry 1879 positive fixed line superexponential convergence zero memristance memory endpoint",
+          "Resultary 27d7fc5e5302"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang et al. equation (14), specialized to c=1, epsilon=1 and eta=−1/2, gives this exact map. Equations (15)–(16) give the fixed line; (17)–(20) use its linearization."
+        ],
+        "reasoning": "The endpoint is the zero of the multiplicative memory factor on that line, approached with w strictly below it. A fixed-point eigenvalue and a numerical convergence profile do not specify a positive infinite trajectory with exactly that limiting memory.",
+        "searches": [
+          "discrete memristive parabolic four dimensional map zero memristance positive orbit superexponential double exponential attraction endpoint recurrence",
+          "Wang Tong Li four-dimensional parabolic memristive hyperchaotic map Symmetry 1879 positive fixed line superexponential convergence zero memristance memory endpoint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching Resultary record 27d7fc5e5302 concerns the one-step inverse image and omitted targets (2a,Y,Z,0) of the same map. The motivating source's fixed-point spectrum and numerical diagrams are not a table of forward endpoint asymptotics."
+        ],
+        "reasoning": "The same map and zeros ±sqrt(2) appear in that inverse problem, but its omitted output stratum does not give an admissible positive forward endpoint orbit, its Perron clock or prefactor.",
+        "searches": [
+          "discrete memristive parabolic four dimensional map zero memristance positive orbit superexponential double exponential attraction endpoint recurrence"
+        ]
+      },
+      "rationale": "The map, the location of the fixed line, and the elementary interior clock mechanism through the parabolic subsystem are credited or directly recognizable. The realized positive boundary trajectories and the changed rate plus prefactor are the distinguishing claim.",
+      "residual_risks": [
+        "Priority remains provisional. General delay-equation comparisons may provide an alternate proof; searches did not establish any exact earlier positive endpoint trajectory and beta prefactor for this map."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers map and fixed-point linearization, not the endpoint construction in the sections read",
+          "evidence": [
+            "Equation (14) couples the discrete memristor; (16) gives the fixed line and (20) its linearized eigenvalues. The following section is dynamical parameter/numerical analysis."
+          ],
+          "identifier_or_url": "https://mdpi-res.com/d_attachment/symmetry/symmetry-15-01879/article_deploy/symmetry-15-01879.pdf",
+          "material_read": "Abstract, parabolic subsystem and Section 2.3 equations (14)–(20), opening of Section 3",
+          "method": "Legitimate open publisher PDF text",
+          "title": "A Novel Four-Dimensional Memristive Hyperchaotic Map Based on a Three-Dimensional Parabolic Chaotic Map with a Discrete Memristor",
+          "trigger": "Exact motivating map and fixed-line analysis"
+        },
+        {
+          "assessment": "Different dynamical question",
+          "evidence": [
+            "The statement is about a one-step global image and escape of inverse sheets, not positive iterative convergence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-missing-codimension-two-image-stratum-and-paired-inverse-escap--27d7fc5e5302/RESULT.md",
+          "material_read": "Finding, map and scope, exact image and inverse-fiber setup",
+          "method": "Published record full-text mirror",
+          "title": "A missing codimension-two image stratum and paired inverse escape in a four-dimensional memristive map",
+          "trigger": "Same polynomial map and memory zeros"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A proven positive trajectory reaching the vanishing memory factor only in the limit answers whether the modified asymptotic clock is realized, rather than merely suggested by formal substitution. The limiting memory feeds back as an extra factor of y_n and changes both the scale and the first prefactor, isolating an explicit boundary mechanism in an existing model. No full separatrix or hardware behavior is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

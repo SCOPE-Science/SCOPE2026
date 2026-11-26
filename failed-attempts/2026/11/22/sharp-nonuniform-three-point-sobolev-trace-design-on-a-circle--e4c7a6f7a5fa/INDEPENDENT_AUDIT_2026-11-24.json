@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:25:35.190528Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the continuous argument in RESULT.md lines 21–63. The distributional second derivative of the mean-zero Bernoulli kernel is 1 minus the point mass, so the norm squared is the largest eigenvalue of its evaluation Gram matrix. Every two-site principal block bounds this below by 1/12 plus the largest absolute correlation. At the candidate threshold s=G(t)=−G(2t), the admissible gaps are [t,2t] and [1−2t,1−t]. Three small gaps sum to at most 6t<1, two large gaps sum to more than 1, and one large plus two small sum to at least 1 with equality only at (t,t,1−2t). Tightening the threshold eliminates this last case. Solving 5t²−3t+1/3=0 gives the stated t; the optimal Gram matrix is (1/12+s)I−s vvᵀ, v=(1,−1,1), so the upper eigenvalue is double and its eigenvectors map through the adjoint to precisely the two-dimensional norming space. Equal gaps give the asserted 1/9. The supplied checker was inspected, not executed; the result does not depend on its finite grid.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed statement gives the unique gaps (d,d,1−2d) with K(d)+K(2d)=0 for a broad circular kernel class including mean-zero periodic H^s, s>1/2."
+        ],
+        "reasoning": "The present normalization corresponds to s=1 and the mean-zero inverse Laplacian kernel B₂/2. Any positive rescaling in the general kernel convention does not change the optimizer.",
+        "searches": [
+          "Resultary: 724766c6cbf0"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, and checker.py (read only)",
+        "Resultary records 724766c6cbf0, 79110a56a034, ed3ad9071b26",
+        "Supplied comparisons to arXiv:1012.1953v1 and arXiv:1207.5871v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At the indexed optimum, K(t)=−K(2t)>0, giving the rank-one perturbation in the correctness assessment and hence the exact constant and multiplicity.",
+          "The atom-based Sobolev design changes the mean and output norm; the lattice-interpolation and optimal-reconstruction papers, as described at their cited locators, have different objectives."
+        ],
+        "reasoning": "The universal theorem, unlike these other nearby results, directly implies the optimizing geometry; the stated numerical constant, comparison, and norming space are elementary consequences once the geometry is fixed.",
+        "searches": [
+          "Resultary: 724766c6cbf0 and ed3ad9071b26",
+          "arXiv:1012.1953v1",
+          "arXiv:1207.5871v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 24–33 identify the raw trace norm squared with the largest sampling Gram eigenvalue, which is also the objective of Resultary record 724766c6cbf0.",
+          "Wang–Zhang §§2–5, as located in the supplied literature notes, concern reconstruction residual rather than raw gain."
+        ],
+        "reasoning": "Changing from evaluation operators to the Gram matrix leaves the objective unchanged; changing to a reconstruction residual does not.",
+        "searches": [
+          "Resultary: three-site circular largest sampling Gram eigenvalue and periodic Sobolev design",
+          "arXiv:1207.5871v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The universal theorem's indexed statement does not print the radical but its root equation gives it exactly. Distinct record 79110a56a034 gives (1/6,1/6,2/3) and 5/216 for frame potential, not the minimax norm."
+        ],
+        "reasoning": "There is no need for a literal tabulation of the radical to establish coverage; the exact indexed design theorem already supplies it by substitution.",
+        "searches": [
+          "Resultary: three-point periodic Sobolev minimax and frame potential"
+        ]
+      },
+      "rationale": "There is strong statement-level coverage by the distinct indexed universal three-site circular minimax theorem. It treats the same largest-eigenvalue objective, explicitly includes mean-zero periodic H^s for s>1/2, and fixes the unique gaps by K(d)+K(2d)=0. Setting s=1 gives the record's core. The radical and eigenvalue multiplicity then follow by a quadratic and the rank-one Gram calculation, not by a separate design theorem. This is a decision about coverage, not a claim about which same-day document was first.",
+      "residual_risks": [
+        "The full universal-theorem text was not retrieved; the coverage decision rests on its explicit indexed statement and the checked specialization.",
+        "Same-day indexing does not establish priority or derivation in time.",
+        "The exact primary-paper passages for interpolation and reconstruction were inaccessible in the attempted retrievals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the core theorem at statement level; chronology and literal radical in the full text unverified",
+          "evidence": [
+            "Largest sampling Gram eigenvalue, unique gap triple, scalar kernel root, and explicit H^s inclusion."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-universal-three-site-circular-minimax-kernels-and-fractional-sob--724766c6cbf0",
+          "material_read": "Indexed scientific statement; exact mirror passage unavailable",
+          "method": "Local Resultary statement and a targeted mirror retrieval attempt",
+          "title": "Universal three-site circular minimax kernels and fractional Sobolev designs",
+          "trigger": "Same objective and potentially stronger result"
+        },
+        {
+          "assessment": "Different objective at the inspected statement",
+          "evidence": [
+            "Frame-potential optimizer (1/6,1/6,2/3), not the largest-eigenvalue minimizer."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-three-point-periodic-sobolev-frame-potential-a-unique-clustered--79110a56a034",
+          "material_read": "Indexed scientific statement",
+          "method": "Local Resultary",
+          "title": "Three-point periodic Sobolev frame potential",
+          "trigger": "Same kernel and sample count"
+        },
+        {
+          "assessment": "Inspected evidence concerns fixed-lattice interpolation; no whole-paper exclusion",
+          "evidence": [
+            "Interpolation coefficients on prescribed sites are not a minimizer of the raw norm over site triples."
+          ],
+          "identifier_or_url": "arXiv:1012.1953v1",
+          "material_read": "Supplied notes on Problem 2 and Theorem 6.2; primary passage not recovered",
+          "method": "Locator comparison and OA attempt",
+          "title": "Optimal interpolation formulas in the periodic function space of S. L. Sobolev",
+          "trigger": "Nearby periodic Bernoulli-kernel sampling design"
+        },
+        {
+          "assessment": "Inspected evidence concerns reconstruction, not raw gain",
+          "evidence": [
+            "Objective is residual reconstruction error."
+          ],
+          "identifier_or_url": "arXiv:1207.5871v1",
+          "material_read": "Supplied notes on §§2–5, in particular equations (3.3) and (4.11); primary passage not recovered",
+          "method": "Locator comparison and OA attempt",
+          "title": "Optimal Sampling Points in Reproducing Kernel Hilbert Spaces",
+          "trigger": "RKHS site optimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The nonuniform optimal sampling geometry is mathematically useful, but the submitted narrower claim supplies only a mechanical H¹ specialization of a covering structural theorem. The remaining radical, double eigenvalue and explicit norming plane require only the root equation and elementary matrix algebra, rather than resolving an independent motivated gap.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

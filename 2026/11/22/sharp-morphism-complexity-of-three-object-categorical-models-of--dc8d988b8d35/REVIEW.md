@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-object nerve has exactly \(3\) vertices, \(a+b+c\) arrows and \(ab\) two-cells, giving the exact identity \(m=ab+1+2g\). In the sink-cone description, a disconnected attachment graph creates a free circle-wedge summand, contradicting the nondegenerate degree-one cup pairing of an orientable surface. Connectedness and nonzero second homology force \(a\ge2g+1\); reversal forces \(b\ge2g+1\). The proposed cyclic table reaches equality. All extra long-arrow faces are free; the surviving complex is an oriented closed surface of Euler characteristic \(2-2g\), so it has the asserted homotopy type. The finite verifier confirms incidence, links and orientations for twelve parameter values.
+## correctness
 
-## Originality — PASS, with residual publication-priority risk
-The relevant source (Carcacía-Campos, arXiv:2611.09718v1, full accessible Sections 1–4, 7–8) develops object-minimal categories and the sink graph, not the sharp morphism count for genus surfaces. The previously available surface construction establishes existence at three objects and an upper budget, but its conclusion does not imply the universal lower budget. Related sharp resource bounds for sphere bouquets or nonorientable projective-plane complexes do not cover the genus surface. Direct semantic searches for equivalent optimal arrow counts and genus-table formulations did not locate a covering theorem. The possibility of unindexed or differently stated equivalent work remains.
+PASS
 
-## Mathematical value — PASS
-This is an exact resource-optimality classification for a natural infinite family of surfaces, refining the coarser object-count invariant. It identifies a sharp quadratic cost of encoding genus inside a fixed three-object categorical model and pinpoints Poincaré duality as the obstruction preventing compressed composition tables. It is not merely a numerical recomputation: the lower bound ranges over all categories with the specified object count, while the construction proves attainability.
+Nonzero H2 forces a composable pair; with three acyclic objects this gives a chain. The nerve has 3 vertices, m=a+b+c edges and ab triangles, so m=ab+1+2g. The link graph Γ at the sink has b+c vertices, ab edges and an edge-label map to the remaining graph Y with a parallel arrows. To verify the disconnected-domain step, collapse spanning trees in Y and in each component of Γ, first homotoping the link map to be constant on the latter trees at the common basepoint of the quotient of Y. Homotopy invariance of the mapping cone now gives q spokes from that basepoint to the common apex, one per Γ component, and 2-cells attached along the corresponding loops in Y; the paths up and down the same spoke cancel up to attaching-map homotopy. Collapsing one spoke leaves a wedge of q−1 free circles. Their H¹ classes lie in the radical of the degree-one cup form, incompatible with integral Poincaré duality, so q=1. Then β1(Γ)=ab−(b+c)+1=a−2g and the cone sequence injects H2 into H1(Γ); hence a≥2g+1, and reversing arrows gives b≥2g+1. For r=2g+1, the table has r(r−1) long arrows. The unique-use long edges collapse with their triangles, leaving A_j=(f_j,g_j,h_j) and B_j=(f_{j+1},g_j,h_{j−1}). Each edge appears once of each sign; in the three links alternating the two matchings advances indices by ±1 or ±2, so all links are single circles since r is odd. The core is a closed connected orientable surface with χ=3−r=2−2g, realizing both adjacent bounds. Two objects cannot support H2, but the arrow minimum is conditional on three objects.
 
-## Scope and limitations
-No minimum is asserted over acyclic categories with more than three objects, and equality cases are not classified. The proof assumes closed connected **orientable** genus-\(g\) surfaces and ordinary classifying spaces. Reproducibility tests are finite; the mathematical argument is uniform. Independent validation and complete global publication-priority verification are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge, the supported distinct contribution is the sharp uniform lower bound on both adjacent Hom sizes, and hence the minimum total arrow count. The existence of a three-object model, the topology of the reduced cyclic complex and the upper construction are not claimed as independent novelty in this assessment. The closest indexed surface result has strong upper-construction overlap but its available statement does not constrain all three-object competitors.
+
+## value
+
+PASS
+
+The distinction from a bare existence theorem is substantive: at the fewest possible objects, the exact surface genus forces a quadratic total arrow budget and independent lower bounds on both adjacent Hom sets. The use of the surface cup-product pairing to rule out compression provides a meaningful obstruction, with a matching geometric realization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

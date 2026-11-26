@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:59:36.967600Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Below order four the type multiplicities are impossible. At order four both colors have size two. Each mover must have positive utility after a profitable swap, so both stayers gain the other swap vertex as a same-color neighbor. Each had at most one same-color neighbor before, so neither stayers nor movers can lose satisfaction. For order five an independent structural check gives the full classification. Write A={i,a}, B={j,b,c} and swap i and j. Profitability of A forces edge ja, so the A stayer a cannot lose satisfaction. The B stayer that loses satisfaction, say b, must have jb present and ib absent. Profitability of B requires a positive new numerator, so ic is present. Write p=1{ij is an edge}, s=|N(j)∩{b,c}|≥1. If ia were present, B's new utility would be 1/(2+p) and its old utility s/(1+p+s), at least as large. Thus ia is absent. Now b is the only possible loser: c cannot lose a same-type neighbor overall and the movers strictly improve. There can be no gains in the headcount. To keep a unsatisfied requires both ab and ac. B reaches utility 1/(1+p) at i, hence must already have been satisfied, requiring s≥1+p. If p=1 this forces s=2 and contradicts strict improvement, so p=0. A starts at zero and reaches 1/(1+s); to remain unsatisfied requires s=2. These force all edges except bc, which is optional. Conversely both choices of bc give a loss: b goes from (1+1{bc})/(2+1{bc}) to 1{bc}/(2+1{bc}), c's utility is unchanged, and the movers gain from 0 to 1/3 and from 2/3 to 1. The six-edge and seven-edge graphs are thus both attained and nonisomorphic. The frozen six-edge vectors also give H:2→1, utility sum 3/2→2 and the claimed threshold interval. A separately written complete census checked all labeled graphs, colorings and unlike swaps using integer inequalities and permutation isomorphism. It found 38 and 728 labeled connected graphs, 6 and 21 connected classes, and respectively 0 and 2 positive classes at orders four and five. This exhausts only these finite orders. The frozen certificate was inspected, not executed; its replay entry point is python3 verify.py in the frozen package.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The complete-bipartite indexed result uses the same untruncated preferences but restricts graph topology and addresses trajectories and equilibria. Both frozen witnesses contain triangles and hence lie outside that graph family.",
+          "The balanced-neighborhood census is for equal-part complete multipartite graphs with single-peaked utility, not this setting.",
+          "The related general-graph result studies welfare at equilibrium rather than half-satisfied headcounts along individual improving moves."
+        ],
+        "reasoning": "A theorem on all orders of a restricted graph class can omit the extremal witnesses, and an equilibrium theorem gives no exhaustive classification of specific one-step transitions. The checked claims do not dominate this finite classification.",
+        "searches": [
+          "Resultary daacffb64d12, order-independent swap lengths on complete bipartite graphs",
+          "Resultary 35b4a89b1bc4, balanced-neighborhood swap hyperplanes and census",
+          "Bilò et al., DOI 10.1007/s10458-022-09573-7, general-graph welfare result"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:1909.02421, arXiv:1806.08713 and arXiv:1907.07513",
+        "Bilò et al., DOI 10.1007/s10458-022-09573-7",
+        "Zhang, DOI 10.1111/j.1467-9787.2010.00671.x, accessible working-paper pp. 15–16 for the single-peaked utility",
+        "Resultary daacffb64d12 and 35b4a89b1bc4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-rule literature settles other objectives; the target objective uses a discontinuous threshold. The frozen vectors explicitly show that the welfare direction does not determine the headcount direction.",
+          "The truncation changes whether the exhibited pair itself qualifies. The complete-bipartite result excludes both topologies."
+        ],
+        "reasoning": "The audited structural argument must exploit exact inequalities involving stationary agents, movers and topology. It does not follow by specializing a known equilibrium, convergence, or welfare theorem in the inspected passages.",
+        "searches": [
+          "arXiv:1909.02421, main result overview and model definitions",
+          "arXiv:1806.08713 and arXiv:1907.07513, tolerance-cost definitions",
+          "DOI 10.1007/s10458-022-09573-7, general-graph social-welfare passage",
+          "Resultary 35b4a89b1bc4 and daacffb64d12, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Agarwal et al. use exactly the strict two-mover same-type-fraction test; their social welfare is the sum of ratios and their integration count tests for exposure to the other type.",
+          "The truncated cost in the discontent-based model does not strictly improve for the witness's mover from utility 2/3 to 1 at tolerance 1/2.",
+          "The frozen witness increases the sum of utilities while reducing the headcount, so this is not a rephrasing of aggregate utility loss."
+        ],
+        "reasoning": "Counting agents with more than half unlike neighbors is the exact complementary formulation, and strict loss of satisfaction is strict gain of that count. It is not interchangeable with summing fractions, counting agents with unlike neighbors, or requiring both movers to have positive discontent cost.",
+        "searches": [
+          "Resultary: profitable mutual Schelling swaps, unsatisfied/discontent headcount, half same-type neighbors, sharp minimal graph witness",
+          "arXiv:1909.02421, §2 model and welfare/integration definitions",
+          "arXiv:1907.07513, cost and discontent definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact census counts equilibria and profitable swaps on a restricted balanced model. Echzell et al.'s Table 1 reports convergence or improving-response behavior by graph class and tolerance under truncated incentives. Neither enumerates the positive five-vertex types for this property.",
+          "The fresh census groups the same ordinary connected graphs but tests the graph–coloring–swap property, finding one six-edge and one seven-edge positive class."
+        ],
+        "reasoning": "The ordinary graph counts 6 and 21 are corroboration of exhaustive graph coverage, not new data. An atlas of connected graphs alone does not tabulate which admit a swap that lowers the specified headcount.",
+        "searches": [
+          "Resultary: exact census of minimal connected topologies for satisfaction loss under bilateral swaps",
+          "35b4a89b1bc4, exact census Finding",
+          "arXiv:1907.07513, Table 1 p. 6"
+        ]
+      },
+      "rationale": "The distinct claim supported by the comparison is the exact first order and the two connected topologies for loss of the external half-satisfied headcount under strictly fraction-improving bilateral swaps. The closest model papers use the same incentives but different aggregates, or related aggregates with a different move rule. No equivalent one-swap minimum or dominating classification was verified in the targeted comparisons. This does not establish global priority.",
+      "residual_risks": [
+        "The targeted statement-level comparisons cannot rule out an unindexed equivalent counterexample or census under alternative terminology.",
+        "Only relevant passages were inspected; no priority inference relies on directory dates or on unsuccessful searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same bilateral incentives, different evaluated quantities and questions",
+          "evidence": "Both movers improve their same-type fractions. Social welfare sums those fractions; integration counts vertices exposed to the other type. Results are framed around equilibrium and these quantities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.02421",
+          "material_read": "Result overview p. 2 (offset 7456) and §2 p. 3 (offsets 11591 and 13614)",
+          "method": "Open-access PDF passage inspection",
+          "title": "Swap Stability in Schelling Games on Graphs",
+          "trigger": "Closest exact move-rule match"
+        },
+        {
+          "assessment": "Tolerance is part of incentives rather than the external half-headcount evaluation alone",
+          "evidence": "The same-type component has a tolerance-truncated deficit and the model includes a location-distance component.",
+          "identifier_or_url": "https://arxiv.org/pdf/1806.08713",
+          "material_read": "Cost functions p. 3, offset 10580",
+          "method": "Open-access PDF passage inspection",
+          "title": "Schelling Segregation with Strategic Agents",
+          "trigger": "Threshold-based strategic swap model"
+        },
+        {
+          "assessment": "Closest thresholded aggregate, but table and improving moves concern a different model",
+          "evidence": "Threshold-truncated costs pair with discontent counts; the table classifies convergence and cycles, not the untruncated-improvement half-headcount loss property at order five.",
+          "identifier_or_url": "https://arxiv.org/pdf/1907.07513",
+          "material_read": "Cost definition p. 4, offset 13892, and Table 1 p. 6, offset 20991",
+          "method": "Open-access PDF passage inspection",
+          "title": "Convergence and Hardness of Strategic Schelling Segregation",
+          "trigger": "Discontent count and a graph-type table"
+        },
+        {
+          "assessment": "Inspected statement is not a one-step headcount classification",
+          "evidence": "The passage concerns equilibrium social welfare on general graphs rather than the half-satisfaction count change along an individually profitable move.",
+          "identifier_or_url": "https://doi.org/10.1007/s10458-022-09573-7",
+          "material_read": "General-graph social-welfare passage pp. 30–31, offset 93233",
+          "method": "Open-access PDF passage inspection",
+          "title": "Topological Influence and Locality in Swap Schelling Games",
+          "trigger": "Possible domination by graph-topology and welfare results"
+        },
+        {
+          "assessment": "Same move rule but another invariant and a smaller family",
+          "evidence": "The statement concerns trajectory lengths and equilibrium on K_(a,b); both frozen five-vertex topologies have triangles.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-order-independent-swap-lengths-for-multitype-schelling-games-on--daacffb64d12",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "Order-independent swap lengths for multitype Schelling games on complete bipartite graphs",
+          "trigger": "Closest indexed same-utility comparison"
+        },
+        {
+          "assessment": "Different utility, topology scope and count",
+          "evidence": "The census treats equal-part complete multipartite graphs and single-peaked preferences for balanced opposite-type neighborhoods.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-equilibrium-hyperplanes-and-an-exact-census-for-balanced-neighbo--35b4a89b1bc4",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Indexed search and local mirror passage inspection",
+          "title": "Equilibrium hyperplanes and an exact census for balanced neighborhoods",
+          "trigger": "Closest indexed exact topology/census comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The half-satisfied headcount is a natural assessment distinct from both individual preferences and aggregate utility. The result gives a sharp negative answer to its one-move monotonicity, including a witness where total utility actually rises. The order five cutoff is forced by the property rather than chosen arbitrarily, and the full minimal topology classification supplies reproducible minimal test graphs for work on segregation and swap dynamics. Larger-order or other-tolerance theorems are not needed for this finite claim to be useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

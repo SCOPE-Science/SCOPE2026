@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:38:15.245628Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalize u and orthogonally decompose Au into its mean direction and a residual of norm sigma. The sketch of those two orthonormal directions gives independent normal vectors; the normalized dot product conditional on the first vector is standard normal with a law independent of its chi-square length. This yields the exact location, scale and density. Spectral averaging of (lambda-m)(L-lambda)>=0 gives the stated upper variance; maximizing the variance-to-mean-square ratio gives (L-m)^2/(4mL), with endpoint masses L/(m+L), m/(m+L). The Student lower-tail beta argument reaches ((kappa-1)/(kappa+1))^2 at those masses. The endpoint integral with a=s/2, z fixed, is asymptotic to z^a/(a*sqrt(1-z)); dividing by B(a,1/2) and by 2 gives the stated prefactor. Monotone tails in s and their logarithmic asymptotic give the small-delta limit. For fixed delta the Student-to-normal limit at s/kappa -> c gives Phi(-2*sqrt(c)), and comparison of row budgets at ratios above and below the unique solution gives the second limit. K is bounded away from the spectral poles, including at infinity. Locally its singularity is d_lambda/|x-lambda|+O(1), with positive smooth density, so the stated moment cutoff is for positive orders p; zero and negative powers are trivially finite. The regularized local denominator integrates as 2[1+log(epsilon/h)] for h<epsilon, giving the summed logarithmic coefficient with bounded error. The expectation always averages over the random sketch at fixed problem data, sketch dimension and law. The independent replay `python3 /workspace/review_replay.py 2` uses the s=2 density primitive and recovers probability 1/5 and exponent-zero log coefficient 28/(3*sqrt(10)) for the (1,9) witness. The frozen verifier was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-day SCOPE-82e6f28b1c80 quantifies the event that one sketch works simultaneously for every starting vector in a two-mode plane. Its large-kappa tolerance contains delta/2, not delta. The exact distribution of the sketch's adaptive failure event is not the maximum over deterministic independent directions of their individual probabilities.",
+          "Shao's random square complex Petrov–Galerkin pencil has different data and gives high-probability eigenpair statements, not the exact tails of this full shifted operator. SCOPE-2bac4e280898 has the same moment-threshold pattern for a random kernel matrix with colliding sample locations and regularization, not density values at deterministic spectral poles."
+        ],
+        "reasoning": "The stronger-looking simultaneous guarantee is for a different order of probability and quantification. General smooth-density and simple-pole heuristics explain the moment mechanism but do not supply the spectral coefficient or this comparison of positivity budget and conditioning.",
+        "searches": [
+          "Resultary: sharp sketch dimension budget in condition number kappa and failure tolerance delta for fixed-direction Gaussian sketched Rayleigh Ritz positivity",
+          "Resultary: condition number random shift hits eigenvalues inverse distance p-th moments finite exactly p<1 logarithmic cutoff coefficient",
+          "arXiv:2604.01037v3 Secs. 4.1–4.3"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-ec7a4a7d4b05",
+        "SCOPE-82e6f28b1c80",
+        "SCOPE-16336c9a1e80",
+        "SCOPE-79a6cc28b936",
+        "SCOPE-64c030573be9",
+        "SCOPE-2bac4e280898",
+        "arXiv:2111.00113v2",
+        "arXiv:2604.01037v3",
+        "arXiv:2609.29651v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nakatsukasa–Tropp give the compression itself and Grigori–Park–Simunec study convergence and extraction variants; neither inspected passage supplies the optimized fixed-direction risk or budgets.",
+          "The earlier exact shifted-t law implies the pointwise sign probability via symmetry. The frozen classification further optimizes over positive spectra and directions, inverts the sharp tails for confidence budgets, and identifies the full shifted-operator coefficient and failure of finite expected conditioning even at arbitrarily low optimal negativity risk."
+        ],
+        "reasoning": "The law and elementary spectral inequality are not separately original. The supported gap concerns the joint sharp stochastic and conditioning behavior of the specified shift extraction, not a new Student distribution, universal algorithmic result, or proof of absolute priority.",
+        "searches": [
+          "arXiv:2111.00113v2 Eq. (6.12), Sec. 6.8",
+          "arXiv:2609.29651v1",
+          "SCOPE-ec7a4a7d4b05 Proof",
+          "SCOPE-82e6f28b1c80 Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026-10-12 real/complex oversampling result states m>=2, but its exact law covers the fixed-vector law by padding the given operator with an independent invariant spectator, choosing m=2 and s+1 sketch rows. Conditional on the spectator sketch column, projecting onto its orthogonal complement and taking coordinates yields s independent Gaussian coordinates for the two vectors; the common sketch normalization cancels. Thus the earlier law with nu=(s+1)-2+1=s gives exactly the stated one-vector distribution.",
+          "In the 2026-10-25 harmonic result substitute C=A^{-1}, b=Au; then Cb=u and H=(Su)^*(Su)/[(Su)^*SAu]=1/theta_hat almost surely. It gives exactly the same sharp negative risk in the inverted spectral interval. Both quotients have the same sign; the reciprocation does not analyze the full condition number of A-theta_hat*I."
+        ],
+        "reasoning": "Coverage of the Student law does not hinge on allowing the earlier theorem's out-of-scope m=1. The embedding into its actual domain proves coverage. The harmonic overlap is exact rather than a mere shared function, but is later by indexed date and supplies no full-operator coefficient.",
+        "searches": [
+          "Resultary: exact Student law fixed non-eigenvector one-vector Gaussian-sketch Galerkin Rayleigh Ritz shift",
+          "SCOPE-ec7a4a7d4b05 RESULT.md offsets 0 and 3988",
+          "SCOPE-16336c9a1e80 RESULT.md offset 0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-ec7a4a7d4b05 tabulates exact incomplete-beta tails for the non-spectator error, not spectral optimization at fixed kappa. Indexed SCOPE-16336c9a1e80 gives the later equivalent exact sharp risk. SCOPE-64c030573be9 gives a later deterministic one-vector distortion envelope, not an unconditioned Gaussian budget.",
+          "No inspected comparable exact result gives the coefficient 2*sum_lambda d_lambda*f(lambda) for the full shifted operator; the nearest inverse/nugget result has different singularities and coefficient."
+        ],
+        "reasoning": "Credit exact available tail formulas; do not conflate the Student shift-tail exponent, the inverse-scalar tail and the full shifted matrix's poles at all distinct eigenvalues. An absent catalogue hit is not evidence of priority.",
+        "searches": [
+          "Resultary: sharp negative probability fixed direction tall real Gaussian two-sided Rayleigh Ritz quotient positive definite exact beta envelope",
+          "Resultary: full shifted symmetric matrix condition number random shift inverse spectral gap moments logarithmic truncation expectation"
+        ]
+      },
+      "rationale": "The exact one-vector Student law and its fixed-direction tail before spectral optimization are prior consequences, not standalone original here. The supported distinct contribution is the exact condition-number-optimized positivity risk and budget analysis together with the all-finite-width inverse-gap barrier and safeguard coefficient for the full shifted operator. The inspected earlier or same-day comparators do not give that classification; a later harmonic paper gives an exactly equivalent fixed-direction negativity envelope under inversion, but does not address the full shifted operator.",
+      "residual_risks": [
+        "Full text of Statistical properties of sketching algorithms was not retrieved on the attempted route; no whole-paper claim is made. The exact law has already been credited as covered regardless of that access.",
+        "Equivalent spectral optimization or local regularized tail analysis may exist under regression, inverse-gap or shift-invert terminology. No absence or priority conclusion is drawn from catalogue search misses or same-day dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the Student law; not the full classification",
+          "evidence": [
+            "The exact real non-spectator error is sigma*N/sqrt(chi^2_{s-m+1}) with independent numerator and denominator."
+          ],
+          "identifier_or_url": "SCOPE-ec7a4a7d4b05",
+          "material_read": "Local RESULT.md offsets 0 and 3988, assumptions and conditional least-squares proof",
+          "method": "Pad with one spectator and one extra sketch row, verify residualized dimension and compare normalized distributions",
+          "title": "Sharp real–complex Gaussian oversampling thresholds for sketched Ritz moments",
+          "trigger": "Earlier exact Student/beta law"
+        },
+        {
+          "assessment": "Related exact same-day result with materially different quantifiers",
+          "evidence": [
+            "The squared Gaussian column angle has beta parameters 1/2,(s-1)/2; the event it controls simultaneously on the plane has the normal-tail budget with delta/2."
+          ],
+          "identifier_or_url": "SCOPE-82e6f28b1c80",
+          "material_read": "Local RESULT.md offset 0, Finding, Assumptions and Sylvester probability proof",
+          "method": "Compare the two-mode all-start event with maximization of a fixed-direction marginal",
+          "title": "An exact Gaussian positivity threshold for two-mode sketched harmonic Ritz extraction",
+          "trigger": "Exact positively signed Gaussian Ritz tail and high-kappa budget"
+        },
+        {
+          "assessment": "Equivalent fixed-direction sharp sign probability, later indexed, without full shifted-operator coefficient",
+          "evidence": [
+            "The reciprocal Student law and sharp sign risk are stated; its moment condition concerns the harmonic scalar itself."
+          ],
+          "identifier_or_url": "SCOPE-16336c9a1e80",
+          "material_read": "Local RESULT.md offset 0, Finding, Assumptions and Proof",
+          "method": "Invert the coefficient and change trial vector to Au; compare optical target and tail singularities",
+          "title": "Sharp negative-Ritz risk and universal inverse tails for one-dimensional Gaussian-sketched harmonic Arnoldi",
+          "trigger": "Later exact sharp negativity and inverse tail overlap"
+        },
+        {
+          "assessment": "Prior quotient definition; inspected passages do not give the finding's budget or conditioning calculation",
+          "evidence": [
+            "The single-column entry of (SB)^dagger(SAB) is exactly the ordinary sketched quotient."
+          ],
+          "identifier_or_url": "arXiv:2111.00113v2",
+          "material_read": "Eq. (6.12), p. 17; Sec. 6.8, p. 19",
+          "method": "Specialize compression to a single column and compare conclusions",
+          "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+          "trigger": "Ordinary randomized compression"
+        },
+        {
+          "assessment": "Different condition analysis",
+          "evidence": [
+            "The square compressed pencil is Omega^*A(xi)W with complex Gaussian Omega."
+          ],
+          "identifier_or_url": "arXiv:2604.01037v3",
+          "material_read": "Sec. 4.1 Eq. (4), Secs. 4.2–4.3 pp. 8–11",
+          "method": "Compare pencil and Gaussian type with the stated shift and full matrix conditioning",
+          "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+          "trigger": "Conditioning of a randomized projected pencil"
+        },
+        {
+          "assessment": "Context for sketch-based extraction, not evidence of an exact stochastic law in the material read",
+          "evidence": [
+            "The abstract discusses randomized orthogonalization, separation and harmonic/refined variants."
+          ],
+          "identifier_or_url": "arXiv:2609.29651v1",
+          "material_read": "p. 1 abstract",
+          "method": "Compare stated algorithm and conclusions; no whole-paper exclusion based on abstract",
+          "title": "Randomized Jacobi-Davidson method",
+          "trigger": "Motivating extraction method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimized sign probability and confidence budgets answer a concrete choice of sketch width; the inverse-gap result shows why success in that decision says nothing about making the mean full-matrix condition number finite. The exact logarithmic coefficient characterizes how a common spectral-gap regularization changes that expectation. This distinguishes two practically and mathematically different risks for a natural shift, without asserting typical numerical failure, floating-point performance or an adaptive Krylov guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

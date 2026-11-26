@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:47:04.744256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–30, 38–121",
+        "VERIFICATION.md lines 19–25; checks/check.py inspected, not executed",
+        "Replay: cd /workspace && OPENBLAS_NUM_THREADS=1 python3 -B audit_evidence/recheck_1_3.py; walsh()"
+      ],
+      "rationale": "The weighted anti-triangular indicator factors as an upper-triangular ones matrix times reversal. Inverting the ones factor gives a first difference; squaring the symmetric inverse yields Jacobi diagonal (2,6,...,6,4) and off-diagonal (-2,-2sqrt(2),...,-2sqrt(2)). The leading-minor recurrence is det(J-tI); positivity follows from the invertible inverse square and simplicity from the nonzero couplings. The positive vector h=(sqrt(2)s,1+s,...,N+s), s=3+2sqrt(2), has zero edge-shifted residual except for a positive residual at N, giving strict positivity above 6-4sqrt(2) by a sum of squares. The constant-coefficient principal submatrix gives theta <= pi/N. Eliminating u_0 gives the effective left ghost ratio a=sqrt(2)/(2-lambda); the right ghost ratio is b=1/sqrt(2). At small theta, both phases lie in (0,pi/2); the positive least eigenvector and the step size theta<pi keep its last phase below pi, so the right boundary forces (N-1)theta+phi+eta=pi, not a higher multiple. The linear phase corrections sum to 1/(1-a(0))+1/(1-b)-1=5+3sqrt(2), with cubic phase error. Consequently theta=pi/(N+c)+O(N^-4); cosine and inverse-square-root expansions give the specified norm deficit and absolute O(N^-4). Independent diagonalizations of the dense compression and Jacobi matrix agreed at six sizes including N=2 and N=250.",
+      "residual_risks": [
+        "The replay does not prove the phase expansion or give a certified numerical cutoff for its asymptotic error."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lakey abstract situates the dyadic partial-sum estimates in a wider Walsh program; the frozen account identifies its matrix and extremality question",
+          "Hogan–Lakey abstract explicitly describes its main bound as approximate"
+        ],
+        "reasoning": "General Jacobi methods do not supply the two compression-specific boundary parameters without deriving the inverse and matching the endpoint equations. No stronger implication of the stated expansion was found in the available material.",
+        "searches": [
+          "Lakey arXiv:2602.17627v1",
+          "Hogan–Lakey Mathematics 14 (2026), 829"
+        ]
+      },
+      "checked_sources": [
+        "Hogan–Lakey DOI 10.3390/math14050829, OA first page",
+        "Lakey arXiv:2602.17627v1, first page",
+        "Resultary entries f36205c70500 and 959a43f035b8, indexed statements",
+        "Frozen prior-work account lines 126–134"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary abstract states that the norm approaches a fixed value; the frozen source attributes only numerical evidence for N^-2 to Remark 2, which was not independently retrieved",
+          "The audited expansion specifies the coefficient of N^-2 and, equivalently, the coefficient of N^-3 through c"
+        ],
+        "reasoning": "Even convergence plus an order-N^-2 bound would not fix either coefficient. A known extremal-pattern theorem would select a compression but would not by that alone give a phase shift or finite characteristic polynomial.",
+        "searches": [
+          "Hogan–Lakey abstract and attempted Remark 2; RESULT.md lines 126–130",
+          "Lakey abstract and attempted conjecture passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen reduction identifies the norm with a least inverse-square Jacobi eigenvalue",
+          "Hogan–Lakey abstract describes approximate sinusoidal eigenvectors for a compressed Walsh truncation and approach of its norm to a fixed constant"
+        ],
+        "reasoning": "An approximate norm eigenvector and convergence of the norm are not equivalent to the exact characteristic polynomial or boundary phase equation.",
+        "searches": [
+          "Resultary on dyadic Walsh compression, edge gap and exact norm",
+          "Hogan–Lakey DOI 10.3390/math14050829",
+          "Lakey arXiv:2602.17627v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact hit f36205c70500 is the assigned record itself",
+          "Distinct entry 959a43f035b8 covers depth three and extremizers among truncations, per catalogue statement"
+        ],
+        "reasoning": "One depth can overlap as a numerical or exact instance; it cannot give the all-N recurrence or shifted asymptotic. The shared date says nothing about priority.",
+        "searches": [
+          "Resultary exact norm for weighted anti-triangular Walsh compression",
+          "2026/11/22/SCOPE-exact-depth-three-extremizers-for-dyadically-truncated-walsh-had--959a43f035b8"
+        ]
+      },
+      "rationale": "The supported contribution is finite spectral quantification for the already-known compression: the explicit boundary-modified Jacobi recurrence and the sharp deficit coefficient and phase shift. The compression, use of sinusoidal vectors and limiting constant are not credited as new.",
+      "residual_risks": [
+        "The relevant full-text passages in the two primary works were not retrieved; a closer recurrence or phase calculation in their bodies or in other literature is not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified overlap in approximate eigenvector and limit; no document-wide exclusion from abstract",
+          "evidence": "Abstract: 'an approximate eigenvalue bound from which one can conclude that the norm of the truncation approaches a fixed value'.",
+          "identifier_or_url": "https://doi.org/10.3390/math14050829",
+          "material_read": "Official OA PDF, first page, abstract (extraction lines 12–26); targeted Remark 2 passage unavailable",
+          "method": "Indexed lead followed by publisher OA PDF at https://mdpi-res.com/d_attachment/mathematics/mathematics-14-00829/article_deploy/mathematics-14-00829.pdf and literal passage attempt",
+          "title": "An Eigenvector Problem Arising in the Study of Convergence of Walsh–Fourier Series",
+          "trigger": "Same compressed family and sinusoidal eigenvectors"
+        },
+        {
+          "assessment": "Verified dyadic partial-sum scope; exact-compression comparison on the available frozen account",
+          "evidence": "Abstract explicitly focuses on the simpler dyadic partial-sum case of direct L2 bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.17627",
+          "material_read": "First page abstract and beginning of introduction; targeted conjecture passage unavailable",
+          "method": "OA PDF preview; attempted literal retrieval and alternate HTML",
+          "title": "Towards direct L2-bounds for maximal partial sums of Walsh–Fourier series: The case of dyadic partial sums",
+          "trigger": "Prior representation of the dyadic compression"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 4–36, 103–134",
+        "Hogan–Lakey OA abstract, approximate-eigenvalue target"
+      ],
+      "rationale": "This canonical Walsh compression was already a motivated spectral object, and its prior approximate eigenvector analysis left the quantitative rate open on the available evidence. The exact recurrence allows finite-index evaluation without the full Walsh matrix; the proven edge law distinguishes boundary effects from the limiting constant and settles a specific previously numerical scale. It need not establish optimality among all truncations to be useful.",
+      "residual_risks": [
+        "No certified asymptotic error constant or global Walsh maximal-operator estimate is supplied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

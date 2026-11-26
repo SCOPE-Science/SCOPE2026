@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:38:02.986412Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§A–D and Steps 1–5; VERIFICATION.md; verify_circular_arc_concepts.py inspected as text",
+        "Independent replay: python3 /workspace/branches/reproduce_frozen.py 4"
+      ],
+      "rationale": "Intents are all window intersections, so complementing gives all unions of cyclic r-windows. Every included vertex can be covered by one such window iff the mixed word has all one-runs of length at least r. Marking one of j runs produces n choices for its start and j-fold overcounting; stars and bars gives the stated binomial factor. Independently, the formal series for the positive-index counts divided by n is -log((1-z)^2-z^(r+1)), by summing the marked run-pair contributions over j. This gives the trace polynomial, initial terms and recurrence, including r=1. The state graph is strongly connected with a loop and each allowed labeled cyclic word gives exactly one closed walk, so the trace has leading Perron term with coefficient 1. The root equation gives strict decrease in r and limit 1. The one-run term is n*ell; a second run is possible exactly when n >= 2(r+1). A single run of length r proves strict nesting when the defect increases to r+1. Proper intents have size at most ell, and concentric intervals supply an ell+2-element chain. In the middle regime W_0 intersect W_1 is properly below W_0 and contains W_2 intersect W_0, but adjoining W_2 to W_0 intersect W_1 forces the full join by cardinality; this violates modularity. The two boundaries are the Boolean lattice and the modular n-atom diamond, with the n=2 coincidence accounted for. A separately written checker matches the complete intent families, recurrence, formula, crossover and monotonicity for n=2..11, checks maximum chain sizes through n=8 and both modularity and distributivity through n=7, and recovers the n=8 count vector.",
+      "residual_risks": [
+        "Finite checks corroborate the uniform proof; the spectral asymptotic is for fixed r, not a uniform estimate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovačević–Vukobratović, arXiv:2105.04617, abstract and §II: binary words split into alternating blocks with constrained run lengths; general run-length methodology.",
+          "The Cattaneo et al. article could not be retrieved; no full-text assertion is made."
+        ],
+        "reasoning": "A cyclic RLL count for precisely these parameters would give the census after the complement bijection. The inspected RLL material provides established counting methodology, not the concrete closure order, height or modularity classification. Unavailable material is not negative evidence.",
+        "searches": [
+          "Resultary: cyclic uniform sliding-window formal context concept lattice run-length-limited binary strings exact count",
+          "Resultary: minimum run length cyclic binary words exact enumeration transfer matrix trace recurrence",
+          "Web: circular-window concept lattice cyclic intervals exact count modularity run-length-limited strings",
+          "arXiv:2105.04617 §II; DOI 10.1016/j.ins.2015.09.054"
+        ]
+      },
+      "checked_sources": [
+        "Rawson et al., arXiv:2307.11681v1",
+        "Kovačević–Vukobratović, arXiv:2105.04617",
+        "Cattaneo et al., DOI 10.1016/j.ins.2015.09.054 (full text unavailable)",
+        "Resultary cyclic-window and complete-graph closure records listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The crossover follows from the exact cyclic run count and absence of a second run for n < 2(r+1); inverse uniqueness in the count proof depends on proper nesting of the allowed run families.",
+          "The modularity obstruction in frozen Step 5 is a statement about specific meets and joins of window intersections, not a consequence of a word count or rank bound."
+        ],
+        "reasoning": "Do not claim as independent advances what follows from a known reduction or from another part of this classification. The geometric height and lattice-law boundaries require the closure order, which is not furnished by the competing run-count and rank evidence.",
+        "searches": [
+          "Rawson et al., arXiv:2307.11681v1, Theorem 3.1",
+          "Kovačević–Vukobratović, arXiv:2105.04617, §II",
+          "SCOPE-exact-shelah-2-rank-and-stability-threshold-for-fixed-width-cycl--276e78f2c8f8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rawson et al., arXiv:2307.11681v1, Definition 2.4 and Theorem 3.1: general hyperedge intersection/context lattice isomorphism.",
+          "SCOPE 2026/11/8, exact-shelah-2-rank-and-stability-threshold-for-fixed-width-cycl--276e78f2c8f8, Finding: same sliding-window family but Littlestone rank, stability and shattered supports."
+        ],
+        "reasoning": "The general isomorphism identifies the appropriate object, not its census or lattice laws. A shattering or stability result on the same incidence relation does not give those laws. Complementing intents dualizes the order and identifies cyclic-run sets without changing the lattice invariants under review.",
+        "searches": [
+          "Resultary: circular-window concept lattices exact spectra sharp crossover modularity",
+          "Resultary: hyperedge intersection complexes formal concept lattice circular intervals modularity concept count",
+          "Resultary: formal concepts intersections cyclic intervals height modularity concept lattice window hypergraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected same-date record SCOPE-eleven-closed-set-shapes-and-the-symmetry-jump-in-complete-graph--5a8dba88ef8f counts closure shapes for complete-graph edge overlap and gives different parameter and lattice type boundaries."
+        ],
+        "reasoning": "The closest opened exact concept table is not on the same context. No equivalent complete table surfaced in the bounded catalogue searches; overlap for individual width/defect slices of cyclic binary word counts remains possible.",
+        "searches": [
+          "Resultary: 2+n ell concept lattice circular windows exact concepts",
+          "Resultary: circular-window concept lattices exact spectra sharp crossover modularity"
+        ]
+      },
+      "rationale": "The supported contribution is the explicit classification of this labeled cyclic-window closure lattice, including crossover, strict inverse width recovery, height and modularity/distributivity. The general FCA representation and run-language tools are not original, and no standalone priority is inferred for the trace or run count as a word-enumeration technique. The strongest inspected nearby findings describe different structures or different invariants, not the lattice classification.",
+      "residual_risks": [
+        "Equivalent cyclic interval intersection classifications may use graph convexity, closure-system or hypergraph terminology.",
+        "Unretrieved Cattaneo et al. full text and other exact cyclic run enumerations may cover particular components; no exhaustive priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Established general correspondence; not the specific lattice classification in the inspected passages",
+          "evidence": [
+            "Theorem 3.1 gives the lattice isomorphism for a context and its hypergraph representation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.11681",
+          "material_read": "v1 pdf abstract p.1, Definition 2.4 p.2, Theorem 3.1 p.4",
+          "method": "OA PDF locators and bounded primary passages",
+          "title": "Formal Concept Lattice Representations and Algorithms for Hypergraphs",
+          "trigger": "Equivalent hypergraph formulation"
+        },
+        {
+          "assessment": "Relevant tools, not a closure classification",
+          "evidence": [
+            "§II defines sequences via alternating blocks with lengths in an allowed set."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2105.04617",
+          "material_read": "Abstract p.1 and §II p.2, PDF offsets 12391–13336",
+          "method": "OA PDF passages; literal cyclic query used as locator only",
+          "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+          "trigger": "Potential stronger counting theorem"
+        },
+        {
+          "assessment": "Unresolved scope beyond accessible material",
+          "evidence": [
+            "No full-text comparison inferred from the failed access."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ins.2015.09.054",
+          "material_read": "Citation/landing information, no readable full text",
+          "method": "DOI retrieval and identified lawful repository alternate (403)",
+          "title": "On the Connection of Hypergraph Theory with Formal Concept Analysis and Rough Set Theory",
+          "trigger": "Potential uniform-hypergraph counterpart"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": [
+            "Its conclusions concern Littlestone rank and shattering rather than all window intersections and their lattice order."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-exact-shelah-2-rank-and-stability-threshold-for-fixed-width-cycl--276e78f2c8f8",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Resultary query and local mirror",
+          "title": "Exact Shelah 2-rank and stability threshold for fixed-width cyclic windows",
+          "trigger": "Identical base window family"
+        },
+        {
+          "assessment": "Different incidence relation, not equivalent coverage",
+          "evidence": [
+            "Uses nonempty overlap of edges of K_n, with modularity/distributivity at n=4 and neither for n>=5."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-eleven-closed-set-shapes-and-the-symmetry-jump-in-complete-graph--5a8dba88ef8f",
+          "material_read": "Mirrored finding",
+          "method": "Resultary query and local mirror",
+          "title": "Eleven closed-set shapes and the symmetry jump in complete-graph edge contexts",
+          "trigger": "Same-date exact concept and lattice-type census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§A–D and Steps 4–5",
+        "Rawson et al. Theorem 3.1 and the different-invariant catalogue comparison"
+      ],
+      "rationale": "The family comprises canonical translation-invariant interval incidence contexts. Counting and characterizing their closed sets answers which width can be recovered from cardinality and exactly where a second complementary run changes the low-width law. The height bound and modularity witness add order-theoretic information not recovered from cyclic word counts. The result is a full two-parameter classification, not a selected numerical slice.",
+      "residual_risks": [
+        "No claim for general circular-arc contexts; run-length enumeration machinery and the generic FCA equivalence are background."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

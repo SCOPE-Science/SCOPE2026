@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:25:55.887106Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–30 and 34–57",
+        "Frozen CHECKER.py, static branch-matrix and finite-test inspection only",
+        "Frozen VERIFICATION.md, lines 19–23"
+      ],
+      "rationale": "On the clique the centered balls have sizes 1 and n, so the map on positive data is T_i=max(x_i,cΣx) with 1/n<c<1. The absolute-value reduction does not increase the input Euclidean distance. A strict active set of size k>0 must satisfy kc<1 by summing active inequalities, and every such set is feasible with its coordinates equal to one and the others positive and sufficiently small; k=0 occurs for constant positive data. For each cell, counting each undirected edge once gives energy nΣ_{i∈S}|h_i−mean_S(h)|²+k(n−k)|mean_S(h)−cΣh|². The two terms act on orthogonal subspaces: active contrasts with squared singular value n when k≥2, and the rank-one direction u=1_S/k−c1, with eigenvalue k(n−k)||u||²=(n−k)[1+kc(nc−2)]. The empty branch contributes zero. Segment decomposition and continuity give the global upper bound, including tied inputs, and norming directions within strict positive cells give actual distinct positive real attaining inputs. At c=1/2 only k=1 is possible; near it from below both k=1 and k=2 occur and their limiting rank-one values are n(n−1)/4 and (n−2)²/2. Taking the maximum including the k=2 contrast n gives strict left loss for n=3,4 from the contrast and for n≥6 from the rank-one k=2 mode, with equality for n=5. The n=2 case has no admissible c=1/2. At n=6 the two squared values are 8 and 15/2.",
+      "residual_risks": [
+        "The jump and finite-pair attainment follow analytically, not from uploaded numerical outputs. No other graph or norm is certified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The frozen source describes Liu–Lian–Wang and Lu–Zhao as one-input variation work, and González-Riquelme–Madrid as treating qualitative BV continuity and sharp single-output vertex ℓ² norms. Focused search returned no decisive article passage; bounded primary OA attempts timed out."
+        ],
+        "reasoning": "Even a sharp estimate of Var₂(Mf) by Var₂(f) does not control arbitrary baselines f,g by subtraction of the inequalities; vertex ℓ² single-output estimates are also a different ratio. Full-text coverage beyond the cited characterizations was not established.",
+        "searches": [
+          "Primary search: fractional clique two-input Euclidean-to-quadratic-edge variation and sharp graph maximal inequalities",
+          "arXiv:2611.15377v1, Thm. 1.5 and §4",
+          "arXiv:2005.03146v3, Thms. 3–4",
+          "arXiv:2611.24189v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 2be0b442e953 and 1a9c9a4ca51f (catalogue statements)",
+        "Frozen RESULT.md, lines 62–73",
+        "Focused primary lookup and bounded OA checks with no decisive full-text returns"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known branch methods and a fractional jump on another graph are the nearest conceptual comparison. The closest public clique two-input result instead has α=0 and TV on both sides."
+        ],
+        "reasoning": "A general piecewise-linear maximum-over-branches recipe alone would still require computing the feasible k and exact complete-edge spectra and comparing the surviving and disappearing modes. Ordinary clique TV and fractional path spectra provide neither that comparison nor the exceptional n=5 and n≥6 behavior.",
+        "searches": [
+          "Resultary records 2be0b442e953 and 1a9c9a4ca51f",
+          "Frozen RESULT.md, prior-work and references, lines 62–73"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest same-graph catalogue record gives an ordinary α=0 input-TV-to-output-TV coefficient."
+        ],
+        "reasoning": "On a clique V₂(h)=√n||h−mean(h)1||₂, so equivalent statements could use the mean-zero Euclidean output projection, not just edge language. Neither TV on both sides nor an uncentered vertex output norm equals that quotient norm. A bound at α=0 does not cover the feasible-mask changes at α>0.",
+        "searches": [
+          "Resultary: exact fractional complete graph maximal two-input Euclidean-to-edge norm",
+          "Resultary: two-input complete graph variation",
+          "2026/11/17/SCOPE-sharp-two-input-graph-variation-modulus-of-the-centered-maximal--1a9c9a4ca51f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalogue: exact two-input vertex ℓ²-to-edge ℓ² fractional spectral branches and a downward jump on P₃."
+        ],
+        "reasoning": "P₃ is not K₃. In P₃ leaves see an intermediate two-vertex ball, and the edge sum omits the leaf–leaf edge. The branch matrices and energies differ, so the stated comparison does not contain even the complete-graph n=3 law as a parameter specialization, much less the dimension classification.",
+        "searches": [
+          "Resultary: activation threshold jumps in fractional graph-maximal perturbation moduli",
+          "2026/11/22/SCOPE-a-discontinuous-sharp-perturbation-modulus-for-fractional-maxima--2be0b442e953"
+        ]
+      },
+      "rationale": "Pass for the all-size fractional clique Euclidean-to-edge coefficient, feasible-mask spectral formula, and dimension-dependent threshold behavior. The broad phenomenon of jumps for two-input maximal averaging has a close comparison on P₃; no claim of novelty for that general phenomenon alone. The available clique comparisons change the norm, fractionality, or one-input versus two-input structure and do not imply the stated formula.",
+      "residual_risks": [
+        "The primary theorems and catalogue mirrors were not available in full. Priority is not certified and no order is inferred from same-day records; unsuccessful retrieval is not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "P₃ comparison, not a clique formula; possible more general coverage in unavailable text unresolved",
+          "evidence": [
+            "Exact fractional three-vertex path spectral branches and jump."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-discontinuous-sharp-perturbation-modulus-for-fractional-maxima--2be0b442e953",
+          "material_read": "Resultary summary; exact mirror passage unavailable",
+          "method": "Local search and bounded mirror attempt",
+          "title": "A discontinuous sharp perturbation modulus for fractional maximal averaging",
+          "trigger": "Same fractionality, two-input norms and jump mechanism"
+        },
+        {
+          "assessment": "Ordinary averaging and distinct seminorms",
+          "evidence": [
+            "Sharp TV-to-TV statement with α=0."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-two-input-graph-variation-modulus-of-the-centered-maximal--1a9c9a4ca51f",
+          "material_read": "Resultary catalogue statement and frozen comparison",
+          "method": "Local search; exact mirror text not retrieved",
+          "title": "Sharp two-input graph-variation modulus of the centered maximal operator on complete graphs",
+          "trigger": "Same complete graph and two-input comparison"
+        },
+        {
+          "assessment": "One-input variation according to the frozen comparison; primary-paper scope not independently confirmed",
+          "evidence": [
+            "Reported numerator is the variation of one maximal output with input edge variation in the denominator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.15377v1",
+          "material_read": "Frozen prior-work description locating Theorem 1.5 and §4, not the primary theorem text",
+          "method": "Focused literature lookup and literal OA passage attempt",
+          "title": "Sharp Lp and variation inequalities for maximal operators on finite connected graphs",
+          "trigger": "Fractional clique theorem with same maximal-function formula"
+        },
+        {
+          "assessment": "Reported continuity and individual vertex norm, not an exact edge-gradient norm of two differences",
+          "evidence": [
+            "Qualitative graph-BV continuity and sharp strong vertex ℓ² norms according to frozen prior-work text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.03146v3",
+          "material_read": "Frozen summary of Theorems 3–4; primary body unavailable",
+          "method": "Focused literature search and bounded OA attempt",
+          "title": "Sharp inequalities for maximal operators on finite graphs",
+          "trigger": "Finite graph BV and sharp ℓ² treatment"
+        },
+        {
+          "assessment": "Reported as one-input and later contextual comparison",
+          "evidence": [],
+          "identifier_or_url": "https://arxiv.org/abs/2611.24189v1",
+          "material_read": "Frozen citation and comparison; paper passage not confirmed",
+          "method": "Bounded literature and OA retrieval attempts",
+          "title": "Variational Estimates for the Fractional Maximal Operator on Finite Graphs",
+          "trigger": "Recent fractional graph variation comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 34–57",
+        "Distinct fractional path jump and ordinary clique TV catalogue statements"
+      ],
+      "rationale": "An exact perturbation modulus for a standard graph maximal operator answers a stability question not addressed by single-input inequalities. Its spectrum separates contrast and rank-one modes, and strict feasibility rather than continuity of individual maximal outputs controls the jump. The exceptional dimension n=5 and switches in the dominating mode give concrete consequences that a routine upper bound would miss.",
+      "residual_risks": [
+        "Only the stated clique energy norm and fractional range are certified; no claim of a general graph jump theorem or comprehensive threshold classification is needed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

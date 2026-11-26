@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:36:37.935445Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The flux identity 2T=1−tanh(gΔ/2) gives the stated dissipative term in the derivative of V=||x−1/M||². The bias-dependent part of the linear flux contributes zero by cyclic summation; the symmetric part contributes −(1/2)Σ Δ_i². For fixed M the Poincaré constant is positive and the finite jump-generator remainder in LV is at most 2/N. For V², the jump chain rule gives L(V²)=2VLV+Σ rate·(ΔV)², with the last term O(V/N+1/N³), giving stationary E[V²]=O(N⁻²). The scaled processes have tight stationary initial laws, drift bounded by a constant times ||Z|| uniformly in N, bounded martingale bracket rates and jumps of size O(N⁻¹/²). A martingale maximal bound and Gronwall give compact containment; increment tightness follows by localization and the same drift and bracket bounds. On compact sets the drift and bracket tend to HZ and Q, with higher jump terms vanishing. Every stationary subsequential limit solves the OU martingale problem; on the zero-sum hyperplane all nonzero modes are strictly stable, hence the limiting stationary law is unique. Fourth moments give uniform integrability for the lag covariances. The 1/N correction in the alternate rule is a uniform O(1/N) change to the fraction drift at fixed parameters, hence vanishes in the fluctuation drift and can be absorbed in the Lyapunov bounds. Fourier diagonalization of H and Q yields the stated decay, frequency and stationary covariance, with no zero mode. Integrating the exponentially decaying lag covariance yields the sample-mean variance coefficient. Strict monotonicity follows from at least one nonzero sine mode for M≥3. At zero bias the cosecant-square sum gives the stated coefficient. For α=(M+g)/M and d=|δ|>0, an independent roots-of-unity check writes each nonconstant-mode integrand as the Poisson kernel d⁻¹(1−r²)/(1−2r cos θ+r²), r=(α−d)/(α+d). Averaging all grid modes and removing the zero mode gives A_M=2/[M(M+g)]·[(M/d)(1+r^M)/(1−r^M)−α/d²]. This confirms the coth limit from r^M→exp(−2|ζ|/(1+κ)) and gives 2/[d(M+g)] when Md→infinity, in particular for fixed nonzero d. The unbiased/zero-ζ limit is as stated. The crossover describes departure from order-one noise at bias scale 1/M; vanishing biases above that window can have intermediate orders, not necessarily order M⁻¹. Replay in RESULT.md §§1–4. VERIFICATION.md and check.py were inspected, not run: 1,506 counts the first printout and 1,554 the full checker, which addresses the OU algebra and asymptotics rather than proving the particle limit. The assessment is only for the stated sequential limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 multi-urn paper provides the identical limiting flux and general-M saddle-point WKB framework, with drift from the flux Jacobian and state-dependent infinitesimal covariance in Eqs. (22)–(23). It works out four-urn matrices and eigenvalues. The 2021 paper has the three-urn Gaussian and oscillatory relaxation precedents. Aldous–Fill gives the general Green/occupation-asymptotic variance connection."
+        ],
+        "reasoning": "The Cheng–Lai equations directly give the same formal H and Q at the uniform state, not just a related model. Their local near-saddle Gaussian calculation does not justify stationary process convergence with fourth-moment control for all repulsive rings, or derive the stated temporal-noise limit. The general-chain result is for an actual chain with the given generator; connecting it to the limiting particle process requires more than substituting its finite-N urn rates.",
+        "searches": [
+          "Cheng–Lai arXiv:2106.00915 Eqs. (1), (22), (27)–(30)",
+          "Cheng–Lai arXiv:2401.02632 Potts mapping",
+          "Cheng–Lai arXiv:2403.15708 pp. 7 and 15–16, Eqs. (5)–(7), (20)–(25)",
+          "Aldous–Fill Chapter 2 §§2.2.2–2.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 940c457e0eaf and distinct c6ebaa373d37",
+        "Aldous–Fill, Chapter 2",
+        "Cheng–Lai arXiv:2106.00915, 2401.02632, 2403.15708"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set the pinned set in c6ebaa373d37 to a singleton, normalize direction rates by their total and differentiate its explicit discount transform at λ=1 to obtain the mean jump count to the pinned vertex. Dividing by the total rate gives the continuous-time mean h_j. The uniform Green diagonal is Σ_j h_j/M². Summing the geometric form from the Dirichlet recurrence a(h_{j−1}−h_j)+b(h_{j+1}−h_j)=−1 with h_0=h_M=0 recovers the same exact biased-cycle coefficient, hence its coth limit. The formal urn drift and noise at uniformity can likewise be recovered from the older same-model equations."
+        ],
+        "reasoning": "At the formal Gaussian or cycle level the result is a combination of prior calculations, including a covering discounted formula. What is not provided by those calculations is that the stationary logistic particle system actually converges to this Gaussian process, with lag expectations controlled, at each M and for every repulsive interaction and allowed bias. The exact uniform-state dissipation and finite-N concentration establish that bridge. The combined rigorous interacting statement with its quantified long-time and large-ring interpretation is the distinct claim; it is not a priority claim for the hyperbolic kernel itself.",
+        "searches": [
+          "Resultary c6ebaa373d37, Finding and local first-hitting solution",
+          "Aldous–Fill Eq. (2.9), hitting-time/occupation bridge",
+          "Cheng–Lai arXiv:2403.15708, Eq. (6) and saddle-point expansion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Writing P_t=e^{Ht}, the exact lag formula is C_{ii}(t)=[P_t(i,i)−1/M]/(M+g). Thus A_M=2G_{ii}/(M+g), where G is the centered Green kernel of a homogeneous biased cycle walk with rates (α+δ)/4 and (α−δ)/4. The nearest distinct indexed result c6ebaa373d37 gives the complete discounted hitting transform for any gap, including the full cycle cut at a singleton."
+        ],
+        "reasoning": "This reduction is exact and the walk side must not be presented as a new independently obtained invariant. The other record treats a discounted walk and optimizes pinned sets; its formulas underlie the same walk Green coefficient but it contains no corresponding stationary-limit assertion for interacting occupations.",
+        "searches": [
+          "Resultary semantic search for interacting Ehrenfest urn fluctuations, occupation covariance and biased cycle Green functions",
+          "Aldous–Fill, centered Green kernel and random-target identity",
+          "Biased cycle first-passage and Kemeny-constant literature lookup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The hit 940c457e0eaf is the assigned record itself, not an independent antecedent. The older distinct hitting record gives exact closed transform values; at uniformity Cheng–Lai give finite-ring local fluctuation/relaxation matrices, including an explicit small-ring example. No distinct exact entry covering the full interacting stationary time-integral law was identified."
+        ],
+        "reasoning": "The ordinary biased-walk coefficient is already computable from an exact formula—there is no need for a new table. But the known matrices for selected urn counts and a table of walk quantities do not settle the interacting stationary process and all-parameter sequential limits.",
+        "searches": [
+          "Resultary lookup for the exact bias scale and integrated urn occupation variance",
+          "Resultary c6ebaa373d37, exact cycle hitting transform",
+          "Cheng–Lai arXiv:2403.15708 uniform steady-state formulas"
+        ]
+      },
+      "rationale": "The distinct result credited is the all-M stationary fluctuation and occupation-noise theorem for the interacting repulsive particle model, with explicit bias and interaction dependence. The formal linearization framework is prior work, and the integrated OU coefficient and coth profile, taken as facts about a biased nearest-neighbor cycle, are standard cycle-potential mathematics or follow from the exact prior hitting solution. No separate novelty is credited to those cycle identities. The existing WKB approximation and walk results do not establish the stationary particle-to-OU limit and its temporal covariance for this full interacting family.",
+      "residual_risks": [
+        "A dedicated prior formula for biased-cycle Green functions could duplicate the walk calculation; no standalone novelty is claimed for that calculation regardless.",
+        "A rigorous stationary fluctuation theorem for this same repulsive finite-ring model could narrow the distinct contribution. The bounded comparisons do not certify historical priority or exhaust the stochastic-limit literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the walk-side hitting calculation needed for the integrated coefficient, not the urn limit",
+          "evidence": "An exact geometric transform u_{L,j} solves the discount recurrence; the proof includes the singleton-pinned case, for which L=M. Its derivative at unit discount gives mean first passage.",
+          "identifier_or_url": "2026/11/2/SCOPE-discounted-hitting-domination-of-biased-cyclic-walks-and-a-sharp--c6ebaa373d37",
+          "material_read": "RESULT.md, Finding and Proof Step 1, beginning to offset about 4354",
+          "method": "Local publication mirror",
+          "title": "Discounted hitting domination of biased cyclic walks and a sharp drift-induced coverage gain",
+          "trigger": "Distinct exact biased-cycle first-passage formula"
+        },
+        {
+          "assessment": "Covers the abstract walk/occupation connection, not convergence from the interaction model",
+          "evidence": "Defines the integral of centered transitions and relates its diagonal to time-averaged occupation variance and mean hitting times.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/book.pdf",
+          "material_read": "Chapter 2 §§2.2.2–2.3, Eq. (2.9), pp. 29–36",
+          "method": "Open monograph PDF",
+          "title": "Reversible Markov Chains and Random Walks on Graphs",
+          "trigger": "General continuous-time occupation variance and Green identities"
+        },
+        {
+          "assessment": "Material small-ring overlap with Gaussian approximation and relaxation, not all-M process convergence",
+          "evidence": "Three-urn WKB/Lyapunov fluctuations near the uniform state and oscillatory mean occupation dynamics are prior.",
+          "identifier_or_url": "https://arxiv.org/abs/2106.00915",
+          "material_read": "Sec. II Eq. (1), Eq. (22), Eqs. (27)–(30), PDF pp. 2–6",
+          "method": "Open-access paper PDF",
+          "title": "Non-equilibrium thermodynamics and phase transition of Ehrenfest urns with interactions",
+          "trigger": "Initial near-identical three-urn model and fluctuations"
+        },
+        {
+          "assessment": "Model background; no whole-text exclusion from the abstract",
+          "evidence": "The abstract states an equilibrium Potts mapping and phase/dynamics analysis, not a temporal covariance crossover.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.02632",
+          "material_read": "p. 1 abstract and model comparison scope",
+          "method": "Open-access paper PDF",
+          "title": "Non-equilibrium dynamics and phase transitions in Potts model and interacting Ehrenfest urn model",
+          "trigger": "General M-urn/Potts connection could subsume the dynamics"
+        },
+        {
+          "assessment": "Explicit prior mean-field drift and formal Gaussian ingredients, not the stationary finite-N-to-process limit",
+          "evidence": "Eq. (6) is the identical limiting logistic flux. Eqs. (20)–(23) give a saddle-point Gaussian and its Lyapunov drift/noise inputs for general M; the explicit example (24)–(25) covers M=4.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.15708",
+          "material_read": "PDF pp. 6–7 and 15–16, Eqs. (5)–(7) and (20)–(25)",
+          "method": "Open-access paper PDF",
+          "title": "Coexistence of distinct non-uniform non-equilibrium steady states in Ehrenfest multi-urn model on a ring",
+          "trigger": "Same arbitrary-M drift, saddle-point expansion and four-urn matrices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The useful invariant is the occupation-time noise of the interacting particle model in its stationary limit, not a repackaged cycle sum. Justifying the stationary fluctuation field across the whole repulsive class lets one distinguish bias-invariant instantaneous variance from bias-sensitive temporal precision, and quantify exactly when the precision changes with ring size. The concentration argument and exact asymptotics together make this an independently useful benchmark; the textbook walk and series ingredients alone would not meet that bar.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

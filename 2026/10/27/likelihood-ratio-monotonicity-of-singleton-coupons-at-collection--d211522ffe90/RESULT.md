@@ -1,65 +1,44 @@
 # Likelihood-ratio monotonicity of singleton coupons at collection completion
 
 ## Finding
-Let \(q\ge2\) coupon types be sampled independently and uniformly, and let \(T\) be the first draw by which all \(q\) types have appeared. Write \(S\) for the number of types seen exactly once by time \(T\). For every integer \(t\ge q\), the conditional law of \(S\) given \(T=t+1\) is no larger than its law given \(T=t\) in monotone likelihood-ratio order:
-\[
- S\mid(T=t+1)\ \le_{\mathrm{lr}}\ S\mid(T=t).
-\]
-Equivalently, for \(t<u\) and \(s<r\), the joint mass \(p_{t,s}=\Pr(T=t,S=s)\) satisfies the reverse order-two minor inequality
-\[
- p_{t,s}p_{u,r}\le p_{t,r}p_{u,s}.
-\]
-The ordering includes zero-probability boundary cells in the conventional cross-product sense and implies ordinary stochastic ordering. Furthermore, writing \(H_q=\sum_{j=1}^q1/j\) and \(H_q^{(2)}=\sum_{j=1}^q1/j^2\),
-\[
- \operatorname{Cov}(T,S)=q\bigl(H_q^{(2)}-H_q\bigr)
- =-q\sum_{j=2}^q\frac{j-1}{j^2}<0.
-\]
-The exact joint mass itself is previously known (Myers--Wilf, 2003); what is asserted here is its global likelihood-ratio ordering and the displayed compact covariance identity.
 
-## Assumptions and scope
-The alphabet has \(q\ge2\) equally likely symbols; draws are independent, continued to first complete collection. Each \(t\ge q\) has positive probability as a completion time. The singleton count is taken **at completion**, not at a predetermined number of draws. No assertion is made for unequal symbol probabilities. Order \(X\le_{\mathrm{lr}}Y\) here means all cross-products \(f_X(s)f_Y(r)\ge f_X(r)f_Y(s)\) for \(s<r\), allowing zeros.
-
-## Proof
-**1. Reduce stopping to a surjection.** The final draw reveals a previously missing type. Conditional on \(T=t\), the final type is uniform, and the preceding \(\ell=t-1\) draws form a uniform word onto the other \(m=q-1\) types. If \(J=S-1\) counts singleton types in that word, its unnormalised mass is
+Let \(q\ge2\) coupon types be sampled independently and uniformly. Let \(T\) be the discrete draw count at first complete collection and \(S\) the number of types seen exactly once by that draw. The conditional law of \(S\) given \(T=u\) is no larger in monotone likelihood-ratio order than the conditional law given \(T=t\) whenever \(q\le t<u\). In cross-product form, if \(p_{t,s}=\Pr(T=t,S=s)\), then for \(s<r\),
 \[
- C_{\ell,j}=\binom mj\ell!\,[z^{\ell}]z^j F(z)^{m-j},
- \qquad F(z)=e^z-1-z=\sum_{a\ge2}\frac{z^a}{a!}.
+p_{t,s}p_{u,r}\le p_{t,r}p_{u,s}.
 \]
-The factor \(z\) denotes one occurrence, while \(F\) denotes two or more. The coefficient equals the number of length-\(\ell\) surjections having exactly \(j\) singleton fibers. For \(j=m\) it is positive only at \(\ell=m\), so its comparisons with \(j=m-1\) have the required orientation automatically.
+This includes zero-probability cells and implies ordinary stochastic ordering. The contribution concerns this discrete conditional order. The joint mass is due to Myers and Wilf [1]. The uniform identity \(\operatorname{Cov}(T,S)=q(H_q^{(2)}-H_q)\) is already recorded in [2]; it is included below with a derivation for context, not as a novelty claim.
 
-**2. Log-concavity lemma.** The coefficient sequence of \(F\) is supported on the consecutive integers \(a\ge2\) and is log-concave: \((1/a!)^2\ge(1/(a-1)!)(1/(a+1)!)\). Convolution preserves the no-internal-zeros log-concavity of nonnegative sequences: form their Toeplitz matrices; log-concavity is equivalent to nonnegativity of every order-two Toeplitz minor, and the Cauchy--Binet formula preserves these minors under matrix products. Hence the coefficient sequence of \(U(z)=z^jF(z)^{m-j-1}\) is log-concave whenever \(0\le j\le m-2\). Let \(u_v=[z^v]U(z)\). The adjacent-column ratio is
+## Proof of the order
+
+**Stopping prefixes.** Conditional on \(T=t\) and the identity of the final type, the first \(\ell=t-1\) draws are uniform among words onto the other \(m=q-1\) types. Their singleton count is \(J=S-1\). Let \(F(z)=e^z-1-z=\sum_{a\ge2}z^a/a!\). The number of such words with \(j\) singleton types is
 \[
- \frac{C_{\ell,j+1}}{C_{\ell,j}}
- =\frac{m-j}{j+1}
- \left(\sum_{a\ge2}\frac1{a!}\frac{u_{\ell-a}}{u_{\ell-1}}\right)^{-1}
+C_{\ell,j}=\binom mj\ell!\,[z^\ell]z^jF(z)^{m-j}.
 \]
-when the denominator and numerator are positive. For each fixed \(a\ge2\), log-concavity makes \(u_{\ell-a}/u_{\ell-1}\) nondecreasing with \(\ell\) wherever the denominator is positive, with zeros entering monotonically from the left. Thus the sum is nondecreasing and the column ratio is nonincreasing. The support bounds \(\max(0,2m-\ell)\le j\le m-1\) for \(\ell>m\), with \(j=m\) only at \(\ell=m\), handle the zero cells. Multiplying adjacent-column ratios establishes the claimed reverse order-two minor inequality for all \(\ell<\ell'\) and \(j<j'\). Normalisation of rows and the shift \(S=J+1\) do not change it.
+Indeed the singleton types each contribute one occurrence, and all others contribute at least two. Multiplying rows by the positive factor \(q^{1-t}\) gives the joint mass [1], so the minor signs may be proved directly for \(C\).
 
-**3. Covariance identity.** Let \(G_q(z)=\mathbb E[z^T]=q!(z/q)^q\prod_{h=1}^{q-1}(1-hz/q)^{-1}\). For a specified type, either it is the final coupon (contributing \(G_q(z)/q\) to \(\mathbb E[z^T\mathbf 1_{\{\text{type singleton}\}}]\)), or it occurs exactly once before a different final coupon. With \(k=q-2\), \(v=z/q\), and \(B_k(v)=v^k\prod_{h=1}^k(1-hv)^{-1}\), the latter contribution is
+**Log-concave coefficients.** The coefficients of \(F\) are nonnegative, with consecutive support and nonincreasing successive ratios on that support. Such sequences convolve to sequences with the same properties: their lower-triangular Toeplitz matrices have nonnegative order-two minors (use decreasing successive ratios on positive cells and interval support at zeros), and Cauchy–Binet on finite truncations preserves the minor signs under multiplication. Fix \(0\le j\le m-2\), and write \(u_b=[z^b]z^jF(z)^{m-j-1}\), setting coefficients below the support to zero. This sequence is log-concave with consecutive support unbounded to the right. For positive cells in both columns,
 \[
- (q-1)(q-2)!\,v^2\bigl(B_k(v)+vB_k'(v)\bigr).
+\frac{C_{\ell,j+1}}{C_{\ell,j}}
+=\frac{m-j}{j+1}\left(\sum_{a\ge2}\frac{1}{a!}\frac{u_{\ell-a}}{u_{\ell-1}}\right)^{-1}.
 \]
-By symmetry, \(\mathbb E[z^TS]=G_q(z)+q(q-1)(q-2)!v^2(B_k(v)+vB_k'(v))\). Evaluate this expression and its first derivative at \(z=1\), using
+For each \(a\ge2\), the lagged ratio \(u_{\ell-a}/u_{\ell-1}\) is nondecreasing in \(\ell\) wherever its denominator is positive: on positive indices it is a product of \(a-1\) consecutive ratios of the form \(u_b/u_{b+1}\), and entries before the numerator support are zero. Consequently the adjacent-column ratio of \(C\) is nonincreasing with \(\ell\) wherever both cells are positive.
+
+**All minors and boundary cells.** At \(\ell=m\), only \(j=m\) is supported. At \(\ell>m\), the support is \(\max(0,2m-\ell)\le j\le m-1\), since the minimum number of draws with \(j\) singleton types is \(2m-j\), and any excess can go to a nonsingleton type. For \(\ell<\ell'\) and \(j<j'\), a zero left product makes \(C_{\ell,j}C_{\ell',j'}\le C_{\ell,j'}C_{\ell',j}\) automatic. Otherwise \(\ell>m\), \(j'\le m-1\) and the lower support boundary is nonincreasing, so both rows are positive throughout columns \(j,\dots,j'\). Multiply the adjacent-column ratio inequalities over those columns. This also covers \(m=1\), for which no minor has a positive left product. Shifting the columns to \(S=J+1\) and multiplying by row factors preserve the inequalities.
+
+## Previously recorded covariance identity
+
+Write \(H_q=\sum_{j=1}^q j^{-1}\) and \(H_q^{(2)}=\sum_{j=1}^q j^{-2}\). With \(v=z/q\), the probability generating function of \(T\) is \(G_q(z)=q!v^q\prod_{h=1}^{q-1}(1-hv)^{-1}\), by the independent geometric waiting times for new types. For one specified type, being last contributes \(G_q(z)/q\) to its singleton-weighted generating function. If another type is last, delete the specified singleton from the word before the last coupon. The remaining word is onto the \(k=q-2\) other types. These onto words have ordinary generating function \(k!B_k(v)\), with \(B_k(v)=v^k\prod_{h=1}^k(1-hv)^{-1}\): order the first appearances and insert arbitrary words on the types already seen. A word of length \(b\) allows \(b+1\) singleton insertion positions before the final coupon. Summing over the \(q-1\) choices of final type and then summing over specified singleton types gives
 \[
- B_k(1/q)=\frac1{(q-1)!},\quad
- \left.\frac{vB_k'(v)}{B_k(v)}\right|_{v=1/q}=q(H_q-1)-1,
+\mathbb E[z^TS]=G_q(z)+q!v^2B_k(v)(1+D\log B_k(v)),\qquad D=v\frac{d}{dv}.
 \]
-and the derivative of the logarithmic derivative, obtained by differentiating the finite product. One obtains
-\[
- \mathbb E[S]=H_q,\qquad
- \mathbb E[TS]=q\left(H_q^2-H_q+H_q^{(2)}\right).
-\]
-The elementary geometric waiting-time decomposition gives \(\mathbb E[T]=qH_q\). Subtraction proves the covariance identity, and strict negativity follows because \(1/j^2<1/j\) for every \(j\ge2\).
+For \(v=1/q\), the factor \(q!v^2B_k(v)\) is \(1/q\), \(D\log B_k(v)=q(H_q-1)-1\), and \(D^2\log B_k(v)=q^2(H_q^{(2)}-1)-q(H_q-1)\), by differentiating the product. Hence \(\mathbb E[S]=H_q\) and \(\mathbb E[TS]=q(H_q^2-H_q+H_q^{(2)})\). Subtracting \(\mathbb E[T]\mathbb E[S]\), with \(\mathbb E[T]=qH_q\), gives the identity in [2], strictly negative for \(q\ge2\).
 
-## Verification
-The independent standalone Python file `verify.py` checks the previously published joint mass against a direct occupancy-state recurrence, verifies the reverse two-by-two minors exactly for \(2\le q\le9\) and \(q\le t<u\le55\), and directly enumerates complete words for \(q\le4\), \(t\le8\). Truncated stopping-time moment sums provide an additional numerical check on the closed covariance formula. These finite checks supplement the all-parameter proof and do not establish it themselves.
+## Verification and scope
 
-## Relationship to prior work
-Myers and Wilf (2003, Section 4, formula (46)) give exactly the joint mass \(\Pr(T=t,S=s)\) in terms of associated Stirling numbers and marginalise over stopping times. The proof above deliberately **does not claim** that enumeration as new. It establishes a global likelihood-ratio order across completion times and evaluates a mixed moment not presented in their Section 4. Barbour and Gnedin (2008) treat different fixed-time infinite-box occupancy fluctuations, not the finite stopped-sampling cross-time order. Standard log-concavity/convolution machinery supplies one critical inequality tool; the nontrivial comparison is the assembly of the conditional stopping-law kernel and its global minor signs.
-
-## Limitations
-This is an analytical consequence of a known exact joint enumeration; it should not be read as a new distribution formula, a result for nonuniform coupons, an independence statement, or an independently audited priority claim. If a stronger earlier result on total positivity of singleton surjections exists, it might already imply the likelihood-ratio theorem. Numerical checks do not replace the coefficient proof. For \(q=1\), both variables are deterministic and the strict covariance inequality does not apply.
+The supplied `verify.py` checks the known joint mass against a direct occupancy recursion, the reverse minors exactly for \(2\le q\le9\) and \(q\le t<u\le55\), and direct word counts for \(q\le4\), \(t\le8\). It also checks the covariance numerically by truncating the moment sums. These finite checks are corroboration, not substitutes for the analytic argument. No discrete nonuniform order is asserted. A likelihood-ratio comparison given an auxiliary continuous Poissonized cover time [3] is on a different conditioning variable; smoothing a discrete kernel does not in general let one infer the original minors from the smoothed minors.
 
 ## References
-1. Amy N. Myers and Herbert S. Wilf, *Some New Aspects of the Coupon-Collector's Problem*, 2003, arXiv:math/0304229v1 (submitted 2003-04-16), Section 4, formula (46). https://arxiv.org/html/math/0304229v1
-2. A. D. Barbour and A. V. Gnedin, *Small Counts in the Infinite Occupancy Scheme*, arXiv:0809.4387v1 (submitted 2008-09-25). https://arxiv.org/html/0809.4387v1
+
+1. A. N. Myers and H. S. Wilf, *Some New Aspects of the Coupon-Collector's Problem*, 2003, §4, joint-mass equation (44) in the [PDF](https://arxiv.org/pdf/math/0304229).
+2. [*Universal negative cover-time–singleton covariance for unequal coupons*](https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-universal-negative-cover-time-singleton-covariance-for-unequal-c--095ece1fb7b6/RESULT.md), uniform specialization.
+3. [*Strict likelihood-ratio decay of singleton abundance at nonuniform coupon collection*](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-strict-likelihood-ratio-decay-of-singleton-abundance-at-nonunifo--261de08382e0/RESULT.md), continuous Poissonized completion-time result.

@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:36:23.579423Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–62",
+        "VERIFICATION.md",
+        "artifacts/verify.py, lines 9–119",
+        "Independent record4.py and record4.log"
+      ],
+      "rationale": "Each comparable edge maps to an equal or adjacent pair, so the increment of a lift is uniquely in {-1,0,1} even for the four-vertex crown. A nonzero winding requires all 2N increments to have the same unit sign, giving exactly the parity-preserving dihedral automorphisms. Zero winding gives a closed lifted walk with range length <=N, because the walk must go from its minimum to its maximum and return. An independent structural proof of the periodic restriction uses the eventual image: every iterated image is graph-connected and lies in the short arc, hence the stabilized image is an interval. Every vertex of the stabilized image is periodic, and the map restricts to an automorphism of that path, necessarily identity or reversal. A nontrivial reversal preserves crown order only when the endpoint sum is even; it has one fixed center and half the edge length in two-cycles. The two displayed fold constructions are order-preserving on every noncollapsed edge, close at the seam, and fix or reverse exactly their image; their required lengths 2 ell and 4 b do not exceed 2N, including equality. The whole-crown reflection instead fixes two vertices, while rotation by 2r has period N/gcd(N,r). The orbit product for zeta follows formally by counting fixed vertices of each iterate. Independently enumerated all monotone maps by local order-compatible vertex assignments, using stable images to extract cycles: totals 36, 234, 1544, 10030, 64044 for N=2..6, with exact claimed signature sets. Replay: python3 -I /workspace/branches/independent-checks/record4.py; record4.log in the same directory. Frozen script inspected, not executed.",
+      "residual_risks": [
+        "The finite check supplements the all-size proof. The strict comparison is for N>=3; N=2 has equal maxima for nonbijective maps and reversing automorphisms, but distinct fixed-point counts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chocano excludes higher periods and describes fixed point/two-cycle intervals for infinite-fence maps. Resultary 706147a4828e classifies finite-crown homotopy classes by winding/divisibility, and 752c847de57f gives a zero-winding image-rank bound for the stricter bounded-morphism class."
+        ],
+        "reasoning": "These statements explain degree rigidity and local reflection behavior, but do not give the complete dynamics of individual arbitrary order-preserving maps. The bounded-morphism rank result is not a general bound for a larger class by specialization.",
+        "searches": [
+          "arXiv:2209.01837 §3, Theorems 3.4–3.5",
+          "Resultary 706147a4828e and 752c847de57f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.01837",
+        "DOIs 10.1007/BF00383399 and 10.1007/BF01108588 (bibliographic only)",
+        "arXiv:2310.04149",
+        "Resultary 706147a4828e, 752c847de57f, 8a04cae875d9, f8537da7465d and the exact target mirror"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can shift the degree-zero lift by a multiple of 2N so its image is the chosen short invariant interval and its periodic vertices project injectively. Chocano's qualitative conclusions apply there. Whole-crown rotations and reflections give the displayed automorphism signatures by elementary finite permutation calculations."
+        ],
+        "reasoning": "Do not assign separate originality to absence of long periods on the lifted arc, or to the reflection cycle type. The complete finite result needs the half-crown image-size restriction for all monotone maps and parity-compatible finite realizations across the whole range, neither furnished as an exact classification by the compared findings. The zeta conversion itself is standard.",
+        "searches": [
+          "Chocano Theorems 3.4–3.5 compared to degree-zero lift",
+          "Resultary 706147a4828e winding classification and f8537da7465d involution cycle indices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Continuous finite Alexandrov crown maps are the monotone maps in the finding. Chocano's line is the corresponding infinite alternating fence; a degree-zero crown lift can be made periodic in the domain and restricts to its bounded image. Ordinary graph-cycle endomorphisms in Dimitrova et al. use edge-preserving maps instead."
+        ],
+        "reasoning": "The infinite-fence comparison is a reduction with real qualitative coverage, not a synonym for the closed finite problem. It loses nonzero winding and by itself has no crown size parameter. Strictly edge-preserving graph-cycle maps also do not encode the order-compatible collapsed edges here.",
+        "searches": [
+          "Resultary: finite crown order-preserving dynamics, winding, periodic orbits, zeta spectrum and two-cycle gap",
+          "Chocano arXiv:2209.01837 §3",
+          "Dimitrova et al. arXiv:2310.04149 opening definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact full-spectrum catalog hit is the assigned record itself. The distinct same-day f8537da7465d gives fixed-point/two-cycle indices for partial automorphism involutions, including full-domain reflections. Record 8a04cae875d9 counts onto bounded morphisms with a back-lifting property. The older fence/crown enumeration papers could not be read in full."
+        ],
+        "reasoning": "Treat the full-domain involution overlap as material regardless of same-day order. A table of maps by cardinality or a spectrum for a different class is not an all-map temporal spectrum. Access failures are not evidence of absence.",
+        "searches": [
+          "Resultary: exact crown cycle types, endomorphism counts, and zeta functions",
+          "Resultary f8537da7465d and 8a04cae875d9",
+          "Currie–Visentin DOI 10.1007/BF00383399; Farley DOI 10.1007/BF01108588"
+        ]
+      },
+      "rationale": "Credit the exact finite-crown spectrum, in particular sharp nonbijective ranges with every count attained and the quantitative comparison with the whole-crown reflection. The infinite-fence periodic theorems overlap the qualitative local restrictions, and the automorphism component is ordinary dihedral dynamics, also partly present in a distinct same-day cycle-index record. The inspected evidence does not establish prior coverage of the complete finite interval of possibilities and its realization.",
+      "residual_risks": [
+        "Both close older enumeration papers remain unavailable in full text. An older equivalent finite classification or an encoding in those papers cannot be ruled out.",
+        "Same-day overlap establishes matching content, not order or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative degree-zero overlap, not finite sharp attainment",
+          "evidence": "No periods >=3; the two-periodic case has a homeomorphism or a reflection interval with one fixed point.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.01837",
+          "material_read": "PDF §3 Theorems 3.4–3.5, pp. 4–5",
+          "method": "OA PDF passage inspection",
+          "title": "On the dynamics of the combinatorial model of the real line",
+          "trigger": "Matching infinite alternating-fence periodic problem"
+        },
+        {
+          "assessment": "Homotopy classification does not classify a single map's dynamics",
+          "evidence": "Degree-zero class and isolated extremal maps; homotopy is the invariant.",
+          "identifier_or_url": "Resultary 706147a4828e",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Divisibility controls homotopy classes between finite crown circle models",
+          "trigger": "Same finite posets and winding split"
+        },
+        {
+          "assessment": "Overlaps full-domain reflections, not collapsing monotone maps or whole zeta spectrum",
+          "evidence": "Fixed-point/two-cycle indices for involutions on induced subposets; full-domain reflections are a subcase.",
+          "identifier_or_url": "Resultary f8537da7465d",
+          "material_read": "Mirrored RESULT.md, Finding at offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Involution cycle indices and quarter-factorial sparsity in finite crown partial-automorphism monoids",
+          "trigger": "Distinct same-day exact crown cycle-type result"
+        },
+        {
+          "assessment": "Stricter maps and different outputs",
+          "evidence": "Back-lifting is required; zero-winding image ranks or onto-map counts, not the periodic counts of all monotone self-maps.",
+          "identifier_or_url": "Resultary 752c847de57f and 8a04cae875d9",
+          "material_read": "Mirrored Findings and bounded-morphism conditions, offsets 0–5492 and 0 respectively",
+          "method": "Local Resultary search and mirror",
+          "title": "Closed lazy walks classify endomorphisms and image ranks of crown Heyting algebras; Exact bounded-morphism census between finite crown Kripke frames",
+          "trigger": "Closest walk/rank and exact-map tables"
+        },
+        {
+          "assessment": "Unresolved full-text priority risk",
+          "evidence": "Publisher redirects; alternate record unavailable. No scientific noncoverage inferred.",
+          "identifier_or_url": "https://doi.org/10.1007/BF00383399",
+          "material_read": "Bibliographic identification only; no primary pages accessible",
+          "method": "Lawful publisher page/PDF and MaRDI lookup",
+          "title": "The number of order-preserving maps of fences and crowns",
+          "trigger": "Older exact enumeration in the same setting"
+        },
+        {
+          "assessment": "Unresolved full-text priority risk",
+          "evidence": "Full-text access failed; title alone cannot rule out an equivalent result.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01108588",
+          "material_read": "Bibliographic identification only; no primary pages accessible",
+          "method": "Lawful publisher page/PDF lookup",
+          "title": "The number of order-preserving maps between fences and crowns",
+          "trigger": "Older same-object map enumeration"
+        },
+        {
+          "assessment": "Different map class and invariants",
+          "evidence": "Ordinary graph maps and Green relations, generators and enumeration rather than this poset spectrum.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04149",
+          "material_read": "Opening definitions and scope, PDF extracted offsets 0–6590",
+          "method": "OA PDF passage inspection",
+          "title": "On monoids of endomorphisms of a cycle graph",
+          "trigger": "Graph-cycle endomorphism phrasing"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding, proof of realization, and zeta conversion",
+        "Chocano arXiv:2209.01837 §3",
+        "Resultary 706147a4828e and f8537da7465d"
+      ],
+      "rationale": "Gives the complete exact set of possible periodic data for the standard finite circle poset. In particular it gives a sharp and attained loss in two-cycle multiplicity under collapse, even though a collapsing map can still preserve a maximal fixed arc; these are natural dynamics questions not answered by counting maps or homotopy classes. Explicit realization for all sizes is part of the value. The formal zeta encoding and dihedral data alone would be routine.",
+      "residual_risks": [
+        "No transient-time classification or generalization to arbitrary finite spaces is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

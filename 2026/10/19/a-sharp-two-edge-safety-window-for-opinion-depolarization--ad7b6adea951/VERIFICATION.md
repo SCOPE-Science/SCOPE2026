@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact symbolic checker `verify.py` was executed with Python 3 and SymPy 1.14.0. It confirmed the general three-path anticommutator trace and principal-minor polynomial as symbolic identities, the matrix inverse derivative identity, three rational polarization-increase witness slopes, and 96 rational safe-profile comparisons.
+## correctness
 
-The general quantification over real weights, all centered innate opinions, and all nonnegative intervention intensities is supported by the differentiable inverse-matrix identity and the real symmetric matrix eigenvalue argument in `RESULT.md`. Finite checker examples neither enumerate all real parameters nor substitute for that proof.
+PASS
 
-The edge-weight interval endpoints are expressed exactly. Comparisons with existing articles are literature assessments, not a mathematical proof of worldwide priority. Independent audit was not performed.
+On the invariant centered subspace, comparing P_s for all s is equivalent to comparing A_t^{-2} in Loewner order, where A_t=H+tB. Order reversal under positive-definite inversion converts this to ordering A_t² in the opposite direction. For t₂>t₁ its change is (t₂−t₁)[HB+BH+(t₁+t₂)B²], proving sufficiency and necessity by t₁=0, t₂→0. Differentiating gives the stated congruence by A_t^{-2}, so a negative direction y at 0 gives s=H²y with positive initial derivative. Independently, put J=[e₁−e₂,e₂−e₃]; JᵀJ=[[2,−1],[−1,2]]. In Q=JCJᵀ the two diagonal entries of C are (2+4a)u and (2+4b)v; the off-diagonal is −(av+bu). Hence det C=Kuv−b²u²−a²v², and C has the same inertia as Q on the centered subspace. This gives the two positive distinct roots and a negative direction when either update alone is nonzero. Closed endpoints are safe; on a connected update path B² is positive definite on that subspace, which gives strictness for t>0, including relative to t=0. Independent exact evaluation via −2zᵀH⁻¹Bz, z=H⁻¹s, reproduced all three slopes 10/2197 in the example.
+
+## originality
+
+PASS
+
+Passes for the exact two-edge path window with endpoints and two individually unsafe updates jointly safe for every opinion profile. The general anticommutator criterion is a short application of standard matrix order; the single-edge derivative and adverse individual updates already have prior coverage and are not separate novelty claims.
+
+## value
+
+PASS
+
+All-profile safety is actionable when innate opinions are unknown. The weighted three-path is the smallest natural setting with two distinct connected update edges, not an arbitrarily selected example. The exact interval shows how to balance strengths and proves that combining two individually risky updates can protect every fixed profile, including at the sharp boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

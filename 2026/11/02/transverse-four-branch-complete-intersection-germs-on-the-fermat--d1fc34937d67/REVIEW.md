@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The Fano-line Grassmannian chart is explicitly derived from the cubic equation; the four defining coefficient equations have invertible Jacobian in the eliminated variables (determinant 1296). Support classification yields four *exact*, distinct, smooth reduced branches, whose intersection ideal is (CG,DH), not just its initial ideal. Generic elliptic-branch points have independent transverse tangent directions in the smooth Fano fourfold and hence node-by-smooth-curve local form. The intrinsic Fitting singular ideal is the six squarefree pairwise products at every deep point and (u,v) on the open double curve. The local rings and claimed multiplicities follow from exact commutative algebra. Standalone symbolic verification succeeded.
+## correctness
 
-**Originality (PASS, historical uncertainty retained).** Gounelas--Kouvidakis classify 55 smooth components; the nearest published set-theoretic 180/405 singular-locus result expressly disclaims analytic germs and transversality. This finding proves the additional exact local complete intersections and radicality of the singular scheme; neither follows from prior support counts or component smoothness alone. Searches of the available literature, public mathematical records, and accessible historical claims identified no equivalent theorem. Later partially inspected sources and unindexed calculations remain residual priority risks.
+PASS
 
-**Mathematical value (PASS).** The exact local analytic type resolves the specific geometric ambiguity left by the earlier singular-support classification. It determines whether the four components meet transversely, the intrinsic singular subscheme's reducedness, and Hilbert--Samuel multiplicities at distinguished points. These are natural invariants of the highly symmetric surface of second-type lines, not arbitrary numerical slices.
+At a 2+2-support line the four coefficients of the Fermat cubic on the Grassmann chart have linear parts 6A, 6E, 6B, 6F in the displayed order. For each branch's support constraints on C,D,G,H, the mixed cubic coefficients admit B=E=0 and the endpoint cubics solve separately; the implicit solution is unique. Thus these are exact branch ideals, not just tangent ideals. Intersecting (C,D), (G,H), (D,G), (C,H) gives (CG,DH). At any 2+3-support point let p and q lie in the pair and triple blocks and z be the unused coordinate. Linearized cubic constraints kill both variations in the pair-block complement, and constrain the two triple-block variations by the nonzero Fermat differential at q. The two surface tangent planes share precisely the elliptic tangent and have distinct free p-into-z and q-into-z directions. Their scheme intersection has dimension and embedding dimension one, hence is regular. The completed reduced union is the fiber product of the two smooth surface rings over the regular curve ring, giving C[[t,u,v]]/(uv). The completed Fitting ideals are the Jacobian minors computed using completed differentials: (u,v) at a double curve, and all six pairwise products in the regular ambient ring at a fourfold point. Both are radical, which descends by faithful flatness. The homogeneous local models have degrees 2 and 4, giving the asserted Hilbert–Samuel multiplicities. The four tangent planes are simultaneous coordinate planes: adjacent ones share an axis, not pairwise transverse in the fourfold ambient space. This is the geometry encoded by the stated ring. The frozen symbolic verifier and its recorded output were inspected, not executed.
 
-**Limitations.** The theorem concerns the reduced special Fermat locus over the complex numbers, not all cubic fourfolds or any unverified original nonreduced determinantal scheme. Published 180/405 incidence counts are credited to the prior work. Historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known reduced component union and the set-theoretic 180/405 singular incidence are not new. The supported refinement is the exact formal germs and the resulting reduced intrinsic Fitting singular scheme and multiplicities. Neither the same-object component/curve classification nor the related determinantal calculations inspected give this local information; priority outside the read material remains open.
+
+## value
+
+PASS
+
+For this canonical reducible Fano locus, knowing the incidence counts leaves the intersection scheme and local multiplicities open. The exact germs resolve the local intersection geometry on both singular strata and distinguish a reduced intrinsic singular scheme from a merely known reduced support. These local models and degrees are useful input for studying the normalization and intersections of this surface; no extension to other cubics is presumed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

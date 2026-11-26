@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:52:26.410483Z",
+  "axes": {
+    "correctness": {
+      "rationale": "An independent exact check (`python3 /workspace/checks/icosa.py`) builds the icosahedral graph from cyclic signed permutations of (0,1,phi), tests integer-pair squared distances in Z[phi], and computes graph distances by Floyd–Warshall. Applying the strict triangle inequalities to every triple in every subset yields f=(12,66,100,30) and 120 prohibited triples. The admissible triangle patterns are (1,1,1), (1,2,2), (2,2,2), with counts 20,60,20. The distance-two core is connected; its edges have two incident triangles and all links are five-cycles. Its Euler characteristic is 2, so it is a closed combinatorial sphere. Each adjacency edge has two candidate (1,2,2) triangles: choose one per edge. In the union of the core and these selected pairs each such edge is free in its own triangle, since that is its only adjacency edge; collapsing all pairs returns to the sphere. The six distance-three edges occur in no triangles. With them removed the remaining complex contains the simply connected enlarged core with the same one-skeleton, so cells of dimension >=2 cannot introduce fundamental-group generators. Each tetrahedron has two faces occurring in no other tetrahedron; choosing one each gives independent valid collapses and a simply connected two-complex of Euler characteristic 22. Its H2 is free of rank 21; Hurewicz and the simply connected homological Whitehead theorem give a wedge of 21 two-spheres. Reattaching the six bare edges adds one free circle per edge to this connected complex. The finite check establishes the combinatorial data only; the integral homotopy conclusion follows from these topological steps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anand et al. characterize individual GP sets and report a diameter-two result. The Resultary family classifications concern wheels, connected complete multipartite graphs, or an apex joined to disjoint connected triangle-free parts."
+        ],
+        "reasoning": "The icosahedral graph has diameter three and degree five at all twelve vertices: it has no universal apex and is neither a wheel nor a connected complete multipartite graph (which would have diameter at most two). A general face-membership test provides an enumeration route but does not imply the attaching-map and collapse results.",
+        "searches": [
+          "Anand et al. arXiv:1812.08460v2, abstract p. 1",
+          "Resultary a4d11c899702, b98b6f454baf and 334879a4b212"
+        ]
+      },
+      "checked_sources": [
+        "ArXiv:1708.09130 v1 p. 1; arXiv:1812.08460v2 p. 1",
+        "Resultary 0e8039745a96, 4ce34e2d4cf9, 137f948604a4, 07e6e60de0e7, 73ac86596d16, a4d11c899702, b98b6f454baf, 334879a4b212",
+        "Frozen RESULT.md, AUDIT.json and verification materials"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary independence proof already supplies the distance-two spherical core and six antipodal edges. The increased GP face census adds 30 adjacency edges, 80 triangles and 30 tetrahedra, not just isolated cells.",
+          "The earlier GP texts principally give the largest admissible set problem or face-membership criteria in the passages read."
+        ],
+        "reasoning": "Neither the independence subcomplex nor maximal GP size determines what the additional cells do to the fundamental group and second homology; these require the specific free pairs and tetrahedron collapses. No prior numerical equivalence is inferred from equal counts for an unrelated face construction.",
+        "searches": [
+          "Resultary 0e8039745a96, Finding and Proof §1; 137f948604a4, Finding and Assumptions",
+          "Manuel–Klavžar and Anand et al., first-page passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complex can be expressed as the independence complex of the 3-uniform hypergraph of metric-betweenness triples in the original graph. The ordinary graph independence result 0e8039745a96 instead forbids edges and has f=(12,36,20). The dissociation complex forbids induced degree at least two and has f=(12,66,140,105)."
+        ],
+        "reasoning": "These are inequivalent notions of independence. GP permits all adjacency pairs and even adjacency triangles (all three distances are one), which separates it from both ordinary graph independence and dissociation. The GP graph metric is computed before taking a vertex subset.",
+        "searches": [
+          "Resultary exact GP-complex and face-count lookups; 0e8039745a96, 4ce34e2d4cf9, 73ac86596d16",
+          "Manuel–Klavžar arXiv:1708.09130, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact GP hit is the assigned record. The shell-union classification reports six S^2 and twenty-one S^3 summands for shell sets {0,1,3} and {0,2,3}. The open-neighborhood case has 23 S^2 summands and f=(12,60,120,60,12)."
+        ],
+        "reasoning": "The shared numbers in the first comparison occur in different dimensions for common-neighbor face systems. In those shell-union cases the permitted shell around one vertex has seven vertices and is itself a face, while GP has no faces larger than four. No face identity or homotopy transfer/unsuspension establishing the claimed GP homotopy is provided by the inspected statements.",
+        "searches": [
+          "Resultary exact GP and f-vector lookups",
+          "Resultary 137f948604a4 and 07e6e60de0e7"
+        ]
+      },
+      "rationale": "The distinct supported result is the homotopy type and census of the entire intrinsic icosahedral geodesic general-position complex. The distance-two sphere and six antipodal one-cells already occur in the earlier independence-complex calculation and are not new in themselves. The additional face strata and the analysis needed to reach 21 two-spheres are not obtained from that earlier complex or from the available GP membership or other homotopy results.",
+      "residual_risks": [
+        "Independent reading of the foundational GP papers covered their first-page passages, not the full papers; additional conclusions elsewhere were not ruled out.",
+        "The focused wider literature lookup was not probative; a finite census or equivalent topological computation under unindexed metric-betweenness terminology remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GP number and graph-class bounds, not a topology statement in the read passage",
+          "evidence": [
+            "Defines largest vertex sets with no three members on a common geodesic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1708.09130",
+          "material_read": "ArXiv v1 PDF first page, abstract lines 26–33",
+          "method": "Primary first-page passage; additional literal OA extraction unsuccessful",
+          "title": "Graph theory general position problem",
+          "trigger": "Original GP predicate and scope"
+        },
+        {
+          "assessment": "Individual membership and some diameter-two results; no verified whole-paper absence claim",
+          "evidence": [
+            "The statement in the abstract gives a membership characterization and a diameter-two result, not the homotopy type of GP(I)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.08460v2",
+          "material_read": "ArXiv v2 PDF first page, abstract lines 32–38",
+          "method": "Primary first-page passage; additional literal OA extraction unsuccessful",
+          "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+          "trigger": "Plausible broader theorem"
+        },
+        {
+          "assessment": "Earlier proof for a proper subcomplex; credit the core and six circles",
+          "evidence": [
+            "Ordinary independence yields S^2 wedge six S^1 and f=(12,36,20)."
+          ],
+          "identifier_or_url": "Resultary 0e8039745a96 (2026-11-01)",
+          "material_read": "Local mirror Finding and Proof §1",
+          "method": "Targeted Resultary discovery and mirror passage inspection",
+          "title": "The icosahedral independence complex as a sphere with six antipodal chords",
+          "trigger": "Same graph, spherical core and antipodal attachments"
+        },
+        {
+          "assessment": "The coincident ranks have different dimensions and belong to a different face system",
+          "evidence": [
+            "The {0,1,3} and {0,2,3} cases yield six S^2 and twenty-one S^3; the classification concerns union-of-shell neighborhood generators."
+          ],
+          "identifier_or_url": "Resultary 137f948604a4 (2026-10-11)",
+          "material_read": "Local mirror Finding and Assumptions",
+          "method": "Targeted mirror inspection and shell/face comparison",
+          "title": "Complete integral homotopy classification of the icosahedral distance-neighborhood complexes",
+          "trigger": "Same graph and same numerical ranks under a candidate alternate formulation"
+        },
+        {
+          "assessment": "Neither equivalent nor dominating",
+          "evidence": [
+            "Induced degree at most one; f=(12,66,140,105), wedge of twenty S^3."
+          ],
+          "identifier_or_url": "Resultary 73ac86596d16 (2026-10-25)",
+          "material_read": "Resultary statement",
+          "method": "Compared maximum induced degree condition and face census",
+          "title": "The icosahedral dissociation complex: twenty three-spheres and full symmetry",
+          "trigger": "Another all-pairs-allowed complex on these vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural Platonic graph, the full admissible-configuration topology distinguishes GP from independence and neighboring metric complexes. The exact 21 two-spheres, with six free antipodal one-cells, supply a useful structural benchmark not determined by the GP number or by face counts alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

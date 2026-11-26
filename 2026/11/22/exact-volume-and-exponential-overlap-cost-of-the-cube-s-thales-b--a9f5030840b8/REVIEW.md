@@ -1,19 +1,21 @@
-# Scientific review: cubical Thales-ball union volumes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ambient union is exactly \(\{x:\|x\|_2^2\le\|x\|_1\}\), because maximization of the ball membership inequality over cube vertices gives the \(\ell_1\) norm. Spherical polar integration and Gaussian radius-direction independence yield a direct coefficient identity from positive half-normal moments. A strictly monotone tilted-index mean has a unique saddle; its positive variance, span-one lattice property, and exponential moments justify the local central limit expansion including the \(d^{-1}\) relative error. The standalone checker reproduces five explicit low-dimensional formulas and the asymptotic ratios at dimensions 16, 32, and 64. No computation is used to infer an infinite theorem.
+PASS
 
-## Originality — PASS, with priority risk
+The frozen exact theorem is correct, but its displayed decimal tails for τ and β are inaccurate. Independent 51-digit Decimal bisection, using 65 terms of the integrated normal-density series on [0,1] and 148 bisections, gave τ=0.83992367569237268960…, β=1.41094356197717210665…, Λ=1.69763020222053269332…. The repaired statement and diagnostic consistently use correctly rounded values. Completing the square gives membership as ||x||²≤max_v x·v=||x||₁ and containment coordinatewise. The radius ||u||₁, Gaussian radial moment 2^(d/2)Γ(d)/Γ(d/2), and half-normal exponential moments give U_d=2(π/2)^(d/2)[t^d]F(t)^d, including the two-direction sphere at d=1. Expanding through order four recovers the four stated volumes. Strictly positive tilt variance gives uniqueness of the saddle. At it the centered lattice characteristic function has span one; on the rescaled central arc the odd cubic correction integrates to zero, the integrated quadratic remainder in that correction and the quartic error are O(1/d), and both remaining arcs are negligible. The local prefactor and β therefore follow, with division by 2^d giving the claimed base. The positive c_0,c_1,c_2 terms alone give Λ≥(√π+1)/2>1.
 
-Pavlík's primary Thales-covering result (arXiv:2611.14277v1) establishes coverage of a polytope and a power-diagram refinement, but does not compute the full Euclidean ambient union volume or its dimension-dependent asymptotic. Zhigljavsky–Noonan (2020) study volume *inside* cubes and other covering-center schemes rather than the *outside-union overhead* of all vertex-to-center diameter balls. Records concerning Thales disks of regular polygons and regular-simplex dilation hierarchies concern different families and invariants. A related polytope-cutout statement concerns product tilings, not an exact union-volume law. Alias and mathematical-implication searches did not identify an equivalent or stronger published formula. The search is not exhaustive and classical overlap-volume literature may contain an equivalent result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding quantifies a natural inefficiency of the canonical, dimension-independent Thales covering construction. It combines a finite exact answer in every dimension with a sharp nontrivial exponential asymptotic, including its polynomial prefactor, answering how much space outside the cube is swept out by its compulsory balls. The growth base separates total ambient volume from the elementary fact that the cube is fully covered. This is neither a renamed covering theorem nor an arbitrary low-dimensional table entry.
+The repaired contribution is the explicit ambient-volume coefficient formula for the cube's canonical Thales balls, and hence the instantiated sharp overhead. Neither covering of the cube, the Gaussian moment identity, nor a general large-powers estimate is claimed as new. The numeric repair does not change the exact theorem or its prior-work comparisons.
 
-## Scope and evidence limitations
+## value
 
-This is an exact evaluation of a prescribed arrangement, not an optimal covering theorem. The numerical check is supplementary. The asymptotic is proved by a local central limit theorem under explicit exponential-moment, span-one, and positive-variance assumptions. Historical priority is provisional. Independent mathematical review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The general covering theorem leaves open the ambient volume cost of a prescribed natural covering. This result quantifies that cost in every dimension, sharply distinguishes the exponential ambient growth from trivial full coverage inside the cube, and gives a computable formula and leading constant. The significance is the exact geometric volume and scale, not the use of an established saddle method or extra digits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

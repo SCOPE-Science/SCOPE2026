@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite binary source with alphabet fixed as \((0,1)\), the number of shortest absent scattered subsequences is the number of target words of length one more than the greedy arch count that fail greedy embedding. The proof establishes a bijection between an absent target and exactly one target letter consumed in each arch plus a terminal letter missing from the constant tail. For ordered pairs of targets, the four letter-pair states reduce by exchange symmetry to the displayed three-state transfer. Its rational inverse is the stated second-moment series, valid coefficientwise for all nonnegative compositions. The specialization, residues, and strict dominant-pole comparison prove the variance and exponentially growing coefficient-of-variation claims. Direct enumeration through length 14 and independent arch-pair expansion through total degree 12 both passed. Boundary compositions and the empty source are included. Finite tests are not used to establish the unrestricted theorem.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest first-public source, Kosche–Koß–Manea–Siemer, *Absent Subsequences in Words* (arXiv:2108.13968), establishes the arch and absent-subsequence foundations but does not tabulate the second-moment distribution. Adamson and collaborators, *Tight Bounds for the Number of Absent Subsequences* (arXiv:2407.18599), investigate extremal counts for fixed universality index, not an average second moment over source words. Manea–Ringleb–Siemer–Winkler (arXiv:2504.21471) study enumeration algorithms. A previously published univariate first-moment identity \(2/(1-z-3z^2+z^3)\) is fully acknowledged: it does not imply the second moment, its composition refinement, or nonconcentration. A search for equivalent formulas, variance, fixed-composition moments, and database sequences did not find coverage; absence from searches is not proof of absolute novelty. The risk is unindexed papers or independently derived equivalent formulas.
+PASS
 
-## Mathematical value — PASS
-Shortest absent scattered subsequences form a natural object in reconstruction and string algorithms. The second moment and exact fixed-composition variance are mathematically distinct from known extremal and first-moment statistics. The strictly increasing exponential coefficient of variation establishes a qualitative fluctuation phenomenon absent from the prior first-moment result; it rules out concentration on the scale of the mean in the iid uniform model. All-composition rational enumerators offer exact conditional analyses without brute-force word enumeration.
+PASS applies to repairs/5/RESULT.md, not to the frozen iid equivalent. The frozen second-moment diagonal numerator and its residue are false: the bivariate numerator specializes to (1−z)(4−2z−2z²+2z³), and its denominator to (1−z)P₂. The frozen reduction implies a z coefficient of 6, but both length-one sources have S=1, so the sum of S² is 2. The corrected numerator is 2(2−z−z²+z³), giving C₂≈2.217430020 and CV prefactor ≈1.073150221, with the same base ≈1.021673846. The repaired proof rederives the bivariate laws: a shortest absent target has exactly one greedy consumption per complete binary arch and a missing terminal letter in the remainder. For the second moment, both ordered targets must satisfy this constraint using the same arch; writing u=xy and L₀=xy/(1−y), L₁=xy/(1−x), the three pair-state equations sum to F₂=[(1−y)^−1+(1−x)^−1+2(1−u)]/[(1−u)(1−2u)−L₀−L₁]. The one-target equations likewise give F₁. They cover the empty and unary cases with a fixed ambient alphabet. After diagonalization, the two-state transfer has determinant P₂/(1−z) and positive Perron crossing of one at r₂. At other points of the same modulus, strict triangle inequality in an entry with consecutive powers plus Perron comparison gives spectral radius below one. The same scalar argument gives the first-moment pole. Both residues are positive, and 0.406866<2(0.460811)² ensures the squared mean is exponentially negligible. Independent direct enumeration of subsequence sets for all 1024 length-ten sources and rational-coefficient comparison across all 11 weights gave A_{5,5}=1110 and B_{5,5}=10174; rational endpoint-sign checks verified the pole brackets and the numerical residue recalculation was checked against the corrected numerator. The exact bivariate and diagonal transfer calculations in the repair give a replay without depending on finite testing. The frozen checker's bracket checks do not test the false numerator or residues.
 
-## Source comparison and limits
-Compared the definition and arches of arXiv:2108.13968, the extremal counts of arXiv:2407.18599, the algorithms of arXiv:2504.21471, and published related-result summaries on arch universality, shortest-absent extremals, and unrelated deletion-ball variance. There was no implication of the exact second-moment transfer in the inspected statements. The theorem does not give a full probability law or conditional asymptotics as composition varies. The literature novelty assessment remains subject to inaccessible or unindexed equivalent work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For the repaired finding, originality rests on composition-marked moment aggregation, especially the exact second-moment law and its iid relative-variance consequence, not on the single-word SAS characterization, the length-only first moment, or correcting a sign in isolation. The strongest matched exact second-moment result has a restricted source ensemble that does not cover this law.
+
+## value
+
+PASS
+
+The corrected result gives exact compositional variance for a natural, established word statistic where extremal counts and the known summed mean do not quantify typical fluctuations. The second moment uses a common-source ordered-pair count and reveals exponential growth of the relative mean-square deviation in the unrestricted random-source model, something the first moment does not determine. The correction preserves this substantive invariant and gives the right quantitative constants rather than only restating an asymptotic base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

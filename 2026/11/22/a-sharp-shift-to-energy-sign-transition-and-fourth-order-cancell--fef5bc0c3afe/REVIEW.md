@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed limit and asymptotic coefficient follow from the explicit scalar implicit midpoint update, its exact energy law, uniform closeness of the auxiliary variable to its defining radical (by summing midpoint Taylor defects), and the composite midpoint Riemann-sum argument. The sign threshold is a unique root of an explicit quadratic in the positive radical ratio. The standard-library checker validates algebraic identities and representative steps; it does not replace the proof of convergence or uniform remainder estimates. Risk: the conclusion requires the sufficiently small-step positive branch specified in the theorem.
+PASS
 
-## Originality — PASS (qualified)
+For the scheme in RESULT.md, write G(u)=u^3/f(u). The eliminated equation is 2(x_n-u)=h r_n G(u)/(1+hG(u)^2/4). G is strictly increasing on (0,a], and the scalar map v/(1+hv^2/4) is increasing throughout its range for small h. The two sides bracket at u=x_n/2 and u=x_n uniformly for bounded positive r_n, since G(x_n/2)≤x_n^3/(8√C). On every finite prefix the accumulated symmetric chain-rule defect is bounded by const·(max|Δ_n|)^2 Σ|Δ_n|=O(h²): Δ_n=O(h) and Σ|Δ_n|≤a. This bound inductively keeps r positive and bounded (the auxiliary update decreases r while x does), so the branch extends to all steps. At fixed h any positive limiting x contradicts the eliminated step equation and the uniform lower bound on r. The exact energy change is −Δ_n²/h. The per-step defect is −f'''(u)Δ_n³/24+O(|Δ_n|⁵); the mean auxiliary ratio is 1+O(h²) uniformly, so summing and applying composite midpoint quadrature gives h²∫₀ᵃ f'''(u)u⁶du/24+O(h⁴). Both errors use the bounded total variation a, not a fixed number of steps. Substitution t=u⁴/(4C), then s=√(1+t), gives the stated factored coefficient. Its sole zero at s=(2+√10)/3 gives the displayed energy ratio and signs. This proves O(h⁴) at cancellation, not a nonzero h⁴ coefficient or fourth-order state accuracy. VERIFICATION.md and check_quartic_sav.py were inspected, not executed; the decisive verification is the uniform summation and exact integral.
 
-The source paper (arXiv:2607.27795, 2026-07-30) introduces lifted DG–SAV methods and midpoint integration; the new content assessed here is the **quartic long-time auxiliary gap coefficient**, its **energy/shift sign reversal**, and **fourth-order cancellation at a unique shift**. The publicly accessible abstract and related review discuss small SAV gaps but not this parameter threshold. The fully readable 2026 Russo–Ducceschi–Bilbao article addresses nonlinear string dynamics, shift sensitivity, and convergence rather than this scalar dissipative midpoint claim. Published mathematical-record searches for quartic midpoint SAV, invariant-manifold defect and sign thresholds produced no equivalent implication. The primary preprint's complete text was inaccessible; exclusion of an unobserved derivation in that source is a priority risk, not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The natural invariant relation between auxiliary and physical energy can drift under a modified-energy-dissipating method. This theorem gives the exact sign and an actionable, dimensionless shift where the *long-time* drift improves from second to fourth order in timestep, despite unchanged nominal state order. This is useful as a stringent scalar consistency benchmark for structure-preserving integration, not a broad fourth-order integrator theorem. The cancellation is not simply a renaming of midpoint order because the long-time global sign reverses as the physically meaningful shift parameter varies.
+The underlying midpoint DG–SAV scheme, exact modified-energy law, and second-order accuracy are prior work. The supported distinct result is the signed leading coefficient of the infinite-time auxiliary constraint defect on this quartic flow, including its unique cancellation ratio. Accessible comparisons do not establish that result as prior coverage.
 
-## Closest literature and residual limits
+## value
 
-The closest method source is Celledoni, Martín de Diego, Owren and Vaquero (arXiv:2607.27795). Relevant comparator: Russo, Ducceschi and Bilbao, *Nonlinear Dynamics* 114, article 857 (2026), DOI 10.1007/s11071-026-12708-0, full HTML inspected. Broad convergence comparator: Shen and Xu (2018), DOI 10.1137/17M1159968, abstract inspected. Exact method-specific historical priority is not independently confirmed because the primary preprint full text was inaccessible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quartic decay is a canonical scalar gradient flow with a degenerate equilibrium, and the shifted auxiliary variable is meant to represent its physical energy. An artificial, permanently retained bias can have either sign despite the exact discrete dissipation law. The precise coefficient and ratio provide a reproducible benchmark for diagnosing that distinction and for choosing the shift in this model, not a general integrator order upgrade.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

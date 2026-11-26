@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite tense-space duality identifies time reversal with relation transpose; the proof reconstructs both Ferrers corners from row endpoints and proves their separate transpose invariance by an explicit witness argument. Standard Frobenius coordinates give \(2^n\) self-conjugate shapes per corner; two independent Catalan staircase choices give at least \(C_n^2\) admissible nonsymmetric-or-symmetric relations overall. The claimed asymptotic follows by Stirling. A separate exhaustive relation test through \(n=4\), operator-axiom census through \(n=5\), and recurrence counts through \(n=8\) passed.
+## correctness
 
-**Originality — PASS with bounded residual risk.** The 2022 foundational paper supplies duality and the known finite-chain normal form covers arbitrary relations. The new comparison is not the mere specialization \(g=h,f=p\): the separately self-conjugate corner decomposition and resulting exponential rarity inequality require further Ferrers/Catalan combinatorics not asserted in the foundational source. Existing numerical values appear in OEIS A026641, so the values alone are not claimed as original. Searches for time reversal, dual symmetry, Ferrers corner descriptions, and exponential rarity found no directly covering result; wider combinatorial descriptions remain a risk.
+PASS
 
-**Mathematical value — PASS.** Simultaneous collapse of the two temporal pairs is a natural expressivity question for negative-temporal semantics. The corner classification gives an exact structural test; the asymptotic shows a strong scarcity contrast for uniformly chosen finite logical expansions, not simply a small-case count or arbitrary slice.
+On the fixed (n+1)-element algebra the Esakia dual has n points. The finite form of the published representation uses closed fibers (automatic), convex rows, and four upset-preserving tests in both row and column directions. Taking the empty and full input upsets makes each of the two complementary sets of empty and nonempty rows an upset; hence a nonempty relation has no empty row, and likewise no empty column. The tests against thresholds {t,…,n−1} are exactly that the minimum and maximum fiber entries are each nonincreasing. With such row endpoints, a column is a prefix (by its upper-endpoint condition) intersected with a suffix (by its lower-endpoint condition); if nonempty, its endpoints are also nonincreasing as the column index increases. Having no empty column is equivalent to the two extreme endpoints and the no-gap inequality ℓ_i≤u_(i+1)+1. Transpose swaps the two row/column pairs of operators; dual uniqueness on the fixed ordered chain gives the symmetry equivalence. If a missing cell lies below the row minimum, the minimum cell is present and its transpose provides an upper endpoint bound showing the transposed missing cell cannot be above its row maximum. Reversing the inequalities proves the corresponding property above the row maximum. Thus the two missing corners separately have transpose symmetry. The n possible odd distinct diagonal hook lengths give 2^n choices for either symmetric corner, hence Q_n≤1+4^n. Independently placing the endpoints on opposite sides of the antidiagonal yields two Catalan staircase choices and enforces the adjacent no-gap condition. This proves T_n≥1+C_n², also at n=1, and Stirling gives the stated O(n³/4^n) ratio. A fresh program counts symmetric shape pairs and counts all upper boundaries after fixing each lower boundary, reproducing all given counts through n=8; a binary-matrix sweep through n=4 independently cross-checked those counts.
 
-**Limits and risks.** The rarity bound is one-sided and not a sharp equivalent; the numerical sequence is already tabulated; alternative equivalent descriptions in combinatorial literature cannot be excluded. The general finite-row parametrization is stronger on the unsymmetrized family, so priority is asserted only for the specific new time-reversal criterion and exponential bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Passes for the transpose-fixed corner criterion and exponential proportion bound, not for the published duality, the general endpoint model, or the numerical sequence. A distinct indexed inverse-fiber result gives exactly the same general endpoint classification. OEIS A026641 matches the nonempty time-symmetric counts in the tested range, not Q_n without the +1; an all-n equivalence was not established by the inspected sources.
+
+## value
+
+PASS
+
+For a natural involution of a fixed finite operator class, the result both gives an explicit combinatorial description of its fixed subfamily and proves that time reversal is exponentially atypical. This is a qualitative asymptotic statement not supplied by the endpoint census alone, with an explanation via independence of the two unconstrained staircase choices versus the constraints on two self-conjugate boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

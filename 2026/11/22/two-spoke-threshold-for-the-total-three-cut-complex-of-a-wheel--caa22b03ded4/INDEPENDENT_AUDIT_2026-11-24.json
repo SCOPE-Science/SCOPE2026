@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:11:02.175015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The hub is in no independent triple with zero or one missing spoke, or with two adjacent missing spokes, so the complex is a nonempty cone for n>=6. At two nonadjacent failures, the single new triple {h,a,b} adds exactly the simplex on A=V minus {a,b}. Its intersection with the original cone is the restriction of the rim total cut complex to A. Faces omitting a vertex nonadjacent to both a and b are all in the intersection. For the other faces, at cyclic distance two the five candidate vertices induce a path on five vertices, whose only independent triple is its alternating triple; at distance at least three, any independent triple contains one of the two full neighbor pairs, and either pair extends by the opposite endpoint. This gives the two stated joins. Their inclusions are simplicial cofibrations, so unions of the two contractible pieces realize the corresponding suspensions. At n=6 the inner complex is already two disjoint simplices in both cases, including U empty for antipodes. The outer suspension gives S^(n-5), an actual homotopy equivalence. The source verifier inspects all 266 pairs at n=6,...,12 and only uses mod-two boundary ranks; it is not needed for the proof and was inspected rather than run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al. give Delta^t_k(C_n) homotopy equivalent to S^(n-2k) for n>=2k>=4.",
+          "Carnero Bravo studies cycle powers, not these wheel faults."
+        ],
+        "reasoning": "The rim homotopy type does not determine the restriction obtained by excluding both endpoints of the missing spokes.",
+        "searches": [
+          "arXiv:2209.13503v2 Theorem 4.15",
+          "arXiv:2602.21427 Section 5.3 and Question 49"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "Resultary catalogue and local mirror",
+        "arXiv:2209.13503v2",
+        "arXiv:2602.21427"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary one-spoke finding reports a wedge of n-5 spheres of dimension n-3 for n>=5 and uses disconnected triples, not independent triples."
+        ],
+        "reasoning": "Disconnected triples may contain an edge, so that theorem neither yields the cone boundary cases nor the sphere in the total two-spoke setting. The zero/one/adjacent cone cases do follow readily from the prior definition.",
+        "searches": [
+          "Bayer et al. Definition 2.3 and Theorem 4.15",
+          "Resultary local mirror: SCOPE-one-missing-wheel-spoke-creates-a-wedge-of-n-5-top-dimensional-s--93bd4a365ab0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carnero Bravo states Delta^t_d(G)=BI_d(G)^*, where BI_d consists of sets inducing independence number less than d."
+        ],
+        "reasoning": "The dual changes the presentation but not the underlying problem. The stated duality does not compute the two-fault wheel case; the related induced-forest complex uses a different face condition.",
+        "searches": [
+          "Resultary: total three-cut wheel; nonadjacent missing spokes; dual/bounded-independence formulations",
+          "arXiv:2602.21427, Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The identical frozen record is indexed. The distinct one-spoke ordinary cut record and same-day one-edge induced-forest record were also surfaced."
+        ],
+        "reasoning": "Neither distinct record classifies the same complex and fault regime. No other exact classification surfaced in the checked catalogue.",
+        "searches": [
+          "Resultary: total three-cut wheel; nonadjacent missing spokes; dual/bounded-independence formulations"
+        ]
+      },
+      "rationale": "The directly deducible cone cases are not the distinct contribution. The identified cycle and ordinary cut results do not supply the induced restriction or the sphere at the nonadjacent two-spoke threshold; no exact equivalent was found in the checked sources.",
+      "residual_risks": [
+        "No general web search was performed for this record; an equivalent result outside the checked catalogue and primary texts could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the construction and rim cycle, not the needed restriction",
+          "evidence": "Definition uses complementary independent sets; cycle theorem gives S^(n-2k).",
+          "identifier_or_url": "https://arxiv.org/html/2209.13503v2",
+          "material_read": "Definition 2.3 (HTML offset about 8700) and Theorem 4.15 (about 53000)",
+          "method": "Bounded primary text inspection",
+          "title": "Total Cut Complexes of Graphs",
+          "trigger": "Foundational definition and cycle theorem"
+        },
+        {
+          "assessment": "Equivalent formulation; stated cycle-power results do not cover two faulty wheel spokes",
+          "evidence": "Section 3 gives Alexander duality with bounded independence; Section 5.3 concerns powers of cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.21427",
+          "material_read": "Section 3 p.9; Section 5.3 pp.25–28, including Question 49",
+          "method": "Bounded primary PDF inspection",
+          "title": "Total cut complexes and their duals",
+          "trigger": "Equivalent formulation and nearby graph families"
+        },
+        {
+          "assessment": "Different complex, one fault",
+          "evidence": "Uses disconnected triples; asserts a wedge of n-5 spheres of dimension n-3.",
+          "identifier_or_url": "2026/11/17/SCOPE-one-missing-wheel-spoke-creates-a-wedge-of-n-5-top-dimensional-s--93bd4a365ab0",
+          "material_read": "RESULT.md finding and definitions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "One missing wheel spoke creates a wedge of top-dimensional spheres in the ordinary three-cut complex",
+          "trigger": "Closely related wheel fault finding"
+        },
+        {
+          "assessment": "Stated face condition and one-fault regime differ",
+          "evidence": "Induced forests rather than complementary independent triples; deletes one spoke or rim edge.",
+          "identifier_or_url": "2026/11/22/SCOPE-spoke-rim-edge-fault-dichotomy-for-induced-forest-complexes-of-w--b2ebf43a17d6",
+          "material_read": "Indexed finding summary",
+          "method": "Resultary semantic lookup",
+          "title": "Spoke–rim-edge fault dichotomy for induced forest complexes",
+          "trigger": "Distinct same-day wheel fault candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifies a natural minimal edge-fault threshold for a standard graph complex on an unbounded family. The first noncontractible case depends exactly on the relative positions of the two missing spokes, and the result finds the full sphere homotopy type, not just a finite homology pattern.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

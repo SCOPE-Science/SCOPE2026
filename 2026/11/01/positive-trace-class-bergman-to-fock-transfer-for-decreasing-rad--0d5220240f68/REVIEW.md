@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is for positive, bounded, decreasing compact radial masks in the explicitly defined Bergman-to-Fock monomial unitary. All normalizations and ranges are fixed. Direct beta and gamma radial integration gives the eigenvalue laws. The density likelihood ratio has exact logarithmic derivative \(-v/(N-v)\) and crosses one once, proving stochastic and hence operator order for every monomial index. Increasing-likelihood-ratio comparison across successive degrees also proves the asserted decreasing spectral order. Exact diagonal-kernel integration gives finite traces; positivity converts their difference into the trace norm. Uniform kernel expansion supplies the sharp asymptotic, and elementary integration gives the disk formula. The strict failure for one annulus establishes a meaningful boundary. The included finite arithmetic/decimal checks passed, but are not substituted for these infinite proofs.
+PASS
 
-## Originality — PASS under inspected evidence
+Polar integration in the stated probability measures gives normalized scaled Beta(n+1,N+1) and Gamma(n+1,1) radial monomial densities, valid for real N>S. Their ratio at zero has limiting value ∏_{j=1}^{n+1}(1+j/N)>1, decreases by log derivative −v/(N−v) on (0,N), and is zero above N. Normalization forces a single crossing and hence strictly ordered cumulative distributions for every positive finite threshold. Layer cake for the nonincreasing mask makes the diagonal defect nonnegative on every monomial. In each space successive-degree density ratios are constant multiples of v, so the eigenvalues are already ordered by degree. Summing the densities by Tonelli gives the Bergman trace integrand (N+1)/[N(1−v/N)^2] and the Fock integrand 1. The support gap makes both traces finite; positivity converts their difference to the trace norm. Uniform expansion on [0,S] gives (1+2v)/N as the leading integrand, and the positive coefficient is nonzero for a nonzero mask modulo null sets. Integration for a disk gives t(t+1)/(N−t). At N=2 the n=0 ratio at v=3/2 is 3 exp(3/2)/32<1 and decreases, so the supplied annulus really reverses the constant-mode inequality.
 
-The 2026 Ma--Yan--Zheng--Zhu paper establishes weak Bergman-to-Fock localization convergence, a sharp individual Fock Toeplitz norm bound, and separate trace identities. It does not state a positive difference after monomial identification or an exact trace-norm transfer error. The inspected Esmeral--Maximenko and Rozenblum--Vasilevski papers address radial spectra or trace class within one space, without the cross-space stochastic comparison. Searches for the beta-to-gamma formulation, full symbol class and disk formula found no exact or stronger matching claim; search failure itself is not a proof of uniqueness. The inaccessible full text of Suárez (2008) and unindexed stochastic-order applications are residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-Weak semiclassical convergence has no quantitative \(\mathcal S_1\) conclusion in general. In a natural nontrivial cone of compact radial localization masks, the result upgrades the comparison to an all-mode positive operator order and gives the *exact* trace-class error and sharp leading coefficient. The disk identity is an explicit finite-parameter benchmark for spectral approximation, and the annulus obstruction clarifies which structural hypothesis makes the strengthening possible.
+The supported distinct result is the sign and exact finite-scale Schatten-1 difference of the two identified operators, for the whole stated cone. Radial diagonalization, stochastic-order machinery, separate-space traces and weak scale limits are established background. No inspected source supplied the specialized finite-N comparison or its exact trace-norm consequence. The argument is elementary; no novelty is assigned to the general ordering principle.
 
-## Scope and limitations
+## value
 
-The class consists of decreasing radial masks only, with \(N>S\), and the two spaces are matched by normalized monomial bases rather than arbitrary pointwise rescaling. Nonradial symbols, annuli and general localization windows are not covered. Independent validation remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Knowing the exact sign of this finite-parameter localization error upgrades weak convergence to a quantitative trace-class approximation. The coefficient and disk identity are exact, give a sharp benchmark for a natural class of cutoffs, and cannot be inferred from unpaired trace values without an operator-order argument. The annulus counterexample delimits that order even within nonnegative compact radial symbols. The useful content is the precise operator comparison and error, not the textbook stochastic-order rule by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:57:39.292764Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit charts are smooth; the canonical character on each heavy chart has order w/gcd(w,S), with w=a,b and S=r+a+b. The lcm of those two orders is L/gcd(L,S), where L=lcm(a,b). There are no pseudoreflections because r≥2. For d=b−a>0 the b-chart age of class j (1≤j<b) is (r−d)j/b+ceil(dj/b); j=1 gives the necessary bound, and all j give sufficiency. In the a-chart, if dj<a the age is (r+d)j/a; otherwise rj≥dj≥a under the b-chart bound. The strict test uses d<r and a<r+d; necessity of the latter follows from j=1 if a≥r+d. For d=0 the nontrivial chart ages are rj/a. This proves both triangles including the unit-weight cases. In u=r−d, v=r+d−a, the product ab=(2r−u−v)(3r−2u−v) is strictly decreasing in each variable on the feasible region. Bounding it at (3,0), (2,1), (1,3) and (0,4) discards everything except the eight listed corner points. The u=0 and v=0 points have b|S and a|S respectively; (1,1) has L=6(r−1). All are strictly below (2r−3)(3r−4) for r≥3. At (1,2), b−a=r−1, gcd(a,b)=1, S−3a=2 with a odd, and S−2b=1. Thus the product is attained with no cancellations, uniquely and in the terminal triangle. Direct substitution confirms the nine r=2 indices and unique terminal maximizer (2,3). The supplied script and its recorded output are finite regression evidence only; the review uses the exact argument, not an execution of the script.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fake-weighted-projective-space formula computes the index from the data of a single space.",
+          "Bäuerle bounds volume in terms of the given Gorenstein index and dimension."
+        ],
+        "reasoning": "Neither broader result places a sharp upper bound on the variable index over these canonical or terminal weights.",
+        "searches": [
+          "Ghirlanda arXiv:2510.09131, Theorem 3.3",
+          "Bäuerle DOI:10.1007/s10801-024-01366-3, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md",
+        "verify_gorenstein_index_two_heavy.py (inspected, not executed)",
+        "arXiv:1304.3029",
+        "arXiv:2510.09131",
+        "DOI:10.1007/s10801-024-01366-3",
+        "Resultary b0702bbda11b, 7f218dfae0e7 and 5519b06e1341"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formula gives only iota≤ab directly; the product-maximizing corner (u,v)=(0,0) has b dividing S and is not index-maximizing.",
+          "The separate boundary and lcm cancellations are essential before the terminal pair (1,2) wins uniquely."
+        ],
+        "reasoning": "Applying the known pointwise criteria/formula or knowing all index-one members does not mechanically give the exact maximum or the terminal equality case.",
+        "searches": [
+          "Kasprzyk Propositions 2.3, 2.5; Ghirlanda Theorem 3.3; Resultary 7f218dfae0e7 and 5519b06e1341"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kasprzyk Propositions 2.3 and 2.5 concern fractional parts for weighted projective spaces.",
+          "Ghirlanda Theorem 3.3 gives the Picard and index formula specializing to L/gcd(L,S).",
+          "Resultary 7f218dfae0e7 states the exact two-heavy inequalities and counts."
+        ],
+        "reasoning": "The anticanonical Cartier index is neither the Fano index nor the classification of index-one members. The exact parameter triangle is covered; none of these statements supplies the extreme value and equality after the competing divisibility cancellations.",
+        "searches": [
+          "Resultary: two-heavy weighted projective spaces, canonical/terminal, Gorenstein index",
+          "Kasprzyk arXiv:1304.3029",
+          "Ghirlanda arXiv:2510.09131"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "b0702bbda11b is the same record and same all-r claim.",
+          "7f218dfae0e7 is a distinct record on the two-heavy parameter triangle; 5519b06e1341 covers the index-one subclass."
+        ],
+        "reasoning": "The identity with the frozen record is not independent coverage. The two distinct indexed records overlap materially in their inputs or subfamilies but do not state or tabulate this all-r maximum. No order or priority is inferred from the shared date.",
+        "searches": [
+          "Resultary exact and adjacent records b0702bbda11b, 7f218dfae0e7 and 5519b06e1341"
+        ]
+      },
+      "rationale": "Credit the known structural index and age criteria and the distinct indexed exact triangle. The supported distinct result is the sharp all-r optimization of the anticanonical Cartier index with a unique terminal maximizer, not the parameter triangle or the Gorenstein subclass.",
+      "residual_risks": [
+        "The broader keyword search did not return a relevant additional result; it is not evidence that none exists.",
+        "An older equivalent optimization in another notation could have escaped this targeted search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general tests, not the optimization in the inspected results.",
+          "evidence": "Strict and weak fractional-part inequalities specialize to the two distinct triangles.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.3029",
+          "material_read": "§2, Propositions 2.3 and 2.5, pp. 4–5",
+          "method": "OA full-text passages",
+          "title": "Classifying terminal weighted projective space",
+          "trigger": "General singularity criteria and possible maximization coverage"
+        },
+        {
+          "assessment": "Covers the underlying structural formula.",
+          "evidence": "Picard and Gorenstein index formulas specialize to the ordinary case used here.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.09131",
+          "material_read": "§3 Theorem 3.3, p. 6",
+          "method": "OA full-text passage",
+          "title": "A classification algorithm for reflexive simplices",
+          "trigger": "General Cartier-index formula"
+        },
+        {
+          "assessment": "Different quantity optimized.",
+          "evidence": "The stated sharp volume bounds take dimension and index as inputs.",
+          "identifier_or_url": "https://doi.org/10.1007/s10801-024-01366-3",
+          "material_read": "Theorem 1.1, p. 2",
+          "method": "OA full-text passage",
+          "title": "Sharp volume and multiplicity bounds for Fano simplices",
+          "trigger": "Potential stronger extremal theorem"
+        },
+        {
+          "assessment": "Same frozen record.",
+          "evidence": "Both formulas, unique weights and terminality coincide.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-gorenstein-index-maxima-for-canonical-and-terminal-two-hea--b0702bbda11b",
+          "material_read": "RESULT.md opening finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Gorenstein-index maxima for canonical and terminal two-heavy weighted projective spaces",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Exact coverage of the parameter constraints, not the optimand.",
+          "evidence": "Same canonical and terminal inequalities, with counts of the allowed weights.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-triangular-classification-of-canonical-and-terminal-two-heavy--7f218dfae0e7",
+          "material_read": "RESULT.md finding and age-criterion comparison",
+          "method": "Local Resultary mirror",
+          "title": "A triangular classification of canonical and terminal two-heavy weighted projective spaces",
+          "trigger": "Distinct closely matching record"
+        },
+        {
+          "assessment": "Different classification.",
+          "evidence": "Parametrizes index-one members and terminality; this excludes the actual maximizing indices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-divisor-cores-for-gorenstein-two-heavy-weighted-projective-space--5519b06e1341",
+          "material_read": "Claim concerning the Gorenstein subfamily",
+          "method": "Local Resultary evidence",
+          "title": "Divisor cores for Gorenstein two-heavy weighted projective spaces",
+          "trigger": "Distinct record on the index in the same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives an exact obstruction to making the anticanonical divisor Cartier at a fixed multiple in a natural singularity-constrained family in every dimension. The product bound alone selects the wrong weights; local Cartier cancellations determine the sharp answer and explain why strengthening canonical to terminal does not reduce it.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

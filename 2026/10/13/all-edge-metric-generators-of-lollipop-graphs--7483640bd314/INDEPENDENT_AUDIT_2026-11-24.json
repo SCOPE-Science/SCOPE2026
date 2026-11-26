@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:24:31.017004Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two omitted nonattachment clique vertices x,y leave ax and ay indistinguishable. With just x omitted and no tail vertex, ax and ap_1 are indistinguishable even if a is selected. On all of X, distinct clique edges have different nonempty zero-coordinate sets, while path edge p_{r−1}p_r has constant distance r. With one omission x, the remaining clique coordinates (nonempty even at k=3) distinguish path edges by their constant r, and reduce the residual clique collisions to ax′ versus xx′ for each remaining x′. Any selected p_j separates those by distances j and j+1; it also separates ax from ap_1 by distances j and j−1. This proves sufficiency for every ℓ≥1, including the single-edge tail. Counting disjoint cases gives the polynomial; the minimum sets are X and the (k−1)ℓ single-replacement sets, proving the counts and all three membership assertions. Fresh independent BFS/signature enumeration agreed on k=3…6 and ℓ=1…5 (7,440 subsets, 170 coefficient comparisons, 20 parameter pairs for the minima and membership checks). The frozen verifier was inspected, not executed; its expected output alone was not evidence of fresh execution or of the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The foundational paper gives edim(P_n)=1 and edim(K_n)=n−1, and a related omission argument for complete bipartite graphs. The later cited paper treats vertices belonging to all edge metric bases, but full text was not obtained."
+        ],
+        "reasoning": "The separate path and clique values do not imply which vertices may be exchanged across a cut vertex, nor count the resulting bases. The twin omission obstruction in this graph alone forces k−2 nonattachment clique landmarks, not the stronger k−1 total or the precise path replacement behavior. No inspected general result supplies the missing condition.",
+        "searches": [
+          "Kelenc–Tratnik–Yero arXiv:1602.00291, pp. 2 and 4, plus literal lollipop locator",
+          "Hakanen–Junnila–Laihonen–Yero, DOI 10.1016/j.dam.2025.08.054, article and lawful-copy attempts"
+        ]
+      },
+      "checked_sources": [
+        "2026/10/4/SCOPE-dominant-edge-metric-bases-of-lollipop-graphs--f7738c4bc619",
+        "arXiv:1602.00291",
+        "10.1016/j.dam.2025.08.054 (landing/abstract only)",
+        "CORE 270238440 (bibliographic lead, full text inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof relies on the complement of a vertex cover being independent to reduce collisions to edges incident to the same selected vertex; it uses p_2 selected if p_1 is omitted in the attachment collision."
+        ],
+        "reasoning": "The audited criterion implies the prior vertex-cover generator result: a cover omits at most one clique vertex and covers p_1p_2 when ℓ≥2. The converse implication does not hold as a theorem about unrestricted landmark sets. In particular the prior proof never has to handle an uncovered first path edge, or show that any tail vertex p_j, not only a nearby forced one, suffices in a noncover when one nonattachment vertex is omitted. The dominant counts constrain only covers and cannot imply the ordinary enumerator.",
+        "searches": [
+          "Same-family dominant-edge-basis RESULT.md, Finding and Proof, local-mirror offsets 0 and 1700–4491"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The foundational definition uses the minimum distance to the endpoints of each edge. The Resultary lollipop hit imposes the additional vertex-cover criterion.",
+          "A web lead titled The Metric Dimension of Friendship Graph, Lollipop Graph was found, but the two identified copies did not yield accessible full text."
+        ],
+        "reasoning": "Edge separation is not vertex separation, even for this exact normalization: (X minus {x}) together with a resolves vertices, but cannot separate ax and ap_1. Requiring a vertex cover also genuinely restricts ordinary edge generation: X is an ordinary generator and does not cover ap_1. Neither adjacent formulation is the same feasible-set system.",
+        "searches": [
+          "Resultary: edge metric generators lollipop graph clique attached path all generators enumerator",
+          "Web: \"lollipop\" \"edge metric dimension\" \"edge metric bases\" clique path resolving set",
+          "Kelenc–Tratnik–Yero arXiv:1602.00291, generator and basis definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-family Finding gives every vertex cover as a generator, dominant minimum k−1+floor(ℓ/2), and parity-dependent counts, for ℓ≥2."
+        ],
+        "reasoning": "These are exact statements for the same object but a narrower family of admissible sets; the ordinary basis count and polynomial cannot be read off from the dominant values. No ordinary symbolic table/formula matching the audited claim was identified in the checked results.",
+        "searches": [
+          "Resultary: edge metric dimension clique plus attached path lollipop edge bases",
+          "Local mirror RESULT.md, 2026/10/4/SCOPE-dominant-edge-metric-bases-of-lollipop-graphs--f7738c4bc619"
+        ]
+      },
+      "rationale": "The strongest exact-family match establishes vertex covers as generators for tails of length at least two and characterizes dominant edge metric bases. Its actual proof uses the cover assumption and does not establish necessity or sufficiency over all ordinary candidates. The sources reached do not supply the ordinary set system or basis enumerator; the related basis-membership paper could only be checked at landing/abstract level, which is not evidence of noncoverage.",
+      "residual_risks": [
+        "The basis-membership paper and the older lollipop metric dimension lead were not available as full text via the tried copies, so stronger exact overlap there cannot be excluded.",
+        "The limited literature and catalogue comparisons do not rule out an unindexed equivalent classification or a general structural theorem outside the inspected passages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantive partial coverage for vertex covers only, not the ordinary all-set theorem.",
+          "evidence": "The proof invokes independence of the uncovered complement and for the attachment collision forces p_2 into the cover if p_1 is absent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-dominant-edge-metric-bases-of-lollipop-graphs--f7738c4bc619/RESULT.md",
+          "material_read": "Finding and proof/count passage, local-mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, offsets 0 and 1700–4491.",
+          "method": "Passage-level proof and hypothesis comparison.",
+          "title": "Dominant edge metric bases of lollipop graphs",
+          "trigger": "Same graph family and edge separation, with a possible stronger result in the proof."
+        },
+        {
+          "assessment": "Definitions and comparison examples, not the unrestricted clique-with-tail characterization in the inspected passages.",
+          "evidence": "The source gives distinct edge representations as the criterion and the separate edim values for paths and complete graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.00291",
+          "material_read": "PDF p. 2 definitions near offset 9274 and p. 4 clique and path formulae and related complete bipartite argument near offset 13690.",
+          "method": "OA passages compared with the exact lollipop setting.",
+          "title": "Uniquely identifying the edges of a graph: the edge metric dimension",
+          "trigger": "Foundational invariant and relevant clique/path families."
+        },
+        {
+          "assessment": "Full-text scope unresolved; access failure not evidence against overlap.",
+          "evidence": "The title and available material establish relevance to basis membership, not a passage-level lollipop comparison.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2025.08.054",
+          "material_read": "Landing/abstract material only; identified repository attempts timed out or returned 403.",
+          "method": "OA retrieval with alternate-copy attempts.",
+          "title": "On the vertices belonging to all edge metric bases",
+          "trigger": "May cover forced or excluded lollipop basis vertices."
+        },
+        {
+          "assessment": "No full-text inference; the distinction between vertex and edge separation is established directly, not inferred from a snippet.",
+          "evidence": "The hit is titled for metric dimension and names lollipop graphs; no accessible theorem statement was recovered.",
+          "identifier_or_url": "https://core.ac.uk/download/270238440.pdf",
+          "material_read": "Search bibliographic lead only; CORE PDF and identified ResearchGate listing returned 403.",
+          "method": "Targeted OA attempts on two identified copies.",
+          "title": "The Metric Dimension of Friendship Graph, Lollipop Graph",
+          "trigger": "Same graph family; search results mix ordinary and edge metric terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural clique-with-tail joining operation raises a concrete question not answered by knowing the edge dimension of either factor alone: which clique landmarks can be replaced, and by which tail vertices? The classification answers it for every candidate, separating the attachment vertex from positive tail vertices, yielding the full enumeration and exact basis incidence rather than just a dimension or a sample of short tails.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:57:20.219125Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–53; VERIFICATION.md and static check_q2.py description"
+      ],
+      "rationale": "The cardinal coefficients sum to 1 and on each half-interval at most one is negative, by at most 1/8. On the upper half, a single-axis interpolation of a monotone row can be written as its minimum plus two nonnegative increments, and lies in [0,9/8]; interpolating those values along the other axis bounds the result below by −9/64. When both half-intervals are lower, write the negative coefficients as −a and −b. The positive-positive interior may be discarded for a lower bound. Each entry multiplying a negative tensor weight is at most f₂₂; retaining the positive corner gives the bound −[a(1+b)+b(1+a)−ab]f₂₂≥−17/64. This covers the continuum and the boundaries. The data that are 1 on the top-index row or column and 0 elsewhere give equality at (1/4,1/4). Reflection in both coordinates and complement transfer the lower extremum to the upper one. Mixing either witness with (i+j)/4 gives strict data without changing the end range, and converges to the witnesses. Thus strict sharpness is limiting only. Affine normalization preserves both sharp constants.",
+      "replay": "python3 /workspace/review_checks/independent_checks.py 2: rational evaluation for all 20 upper sets of the grid on all 441 points of a 1/20 mesh, including both exact extremizers; -17/64 and 81/64. This check is finite and does not replace the sign argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Floater–Peña's tensor-product theorems guarantee monotonicity from Bernstein or B-spline control coefficients, not the range of the Lagrange interpolant of nodal values. Berrut–Trefethen describes the unrestricted operator norm from its cardinal functions."
+        ],
+        "reasoning": "Monotonicity preservation would be stronger than a range enclosure for the same operator and data, but the actual hypotheses on the basis and coefficients differ. The unrestricted norm yields a weaker envelope, not the constrained sharp one.",
+        "searches": [
+          "Floater Peña 'Tensor-product monotonicity preservation' full text Lagrange bases exact range overshoot quadratic grid",
+          "Floater–Peña Theorems 3.1, 4.1 and §5",
+          "Berrut–Trefethen §9.1"
+        ]
+      },
+      "checked_sources": [
+        "Floater–Peña 1998 (full OA source located and relevant sections read)",
+        "Berrut–Trefethen §9.1",
+        "Resultary 7f9a4d5c7ee7, 68d5f845db4a, 1fad48a6c445 and 1bed81ccbb84"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard norm estimates bound weighted sums by choosing data independently of sign-group correlations. The present negative weights at a lower/lower point share a corner forced by monotonicity."
+        ],
+        "reasoning": "The general estimates alone do not enforce that corner. The isotone constraint, coupling of signs, and feasible maximizing pattern are necessary to obtain the tighter sharp bound; no comparison gives these by specialization.",
+        "searches": [
+          "Berrut–Trefethen §9.1",
+          "Floater–Peña §5 and Theorems 3.1,4.1",
+          "Resultary 7f9a4d5c7ee7 and 68d5f845db4a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-day record 7f9a4d5c7ee7 gives a whole-interval sharp defect for a univariate four-node cubic Lagrange operator, optimizing the symmetric interior node locations. Same-day 68d5f845db4a is a degree-two envelope for Jacobi L² projection of monotone functions."
+        ],
+        "reasoning": "Neither the node counts/degrees of the cubic operator nor the functional-data projection can give this tensor nodal operator by reparametrization. The rank lists are bounded evidence; the date was not used to dismiss either record.",
+        "searches": [
+          "Resultary: \"-17/64\" \"81/64\" quadratic interpolation monotone",
+          "Resultary: 3x3 tensor Lagrange interpolation isotone sample overshoot exact",
+          "Resultary: sharp range envelope bivariate quadratic interpolation monotone 3x3 tensor Lagrange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1fad48a6c445 gives √3/27 on the central cell for uniform four-point cubic interpolation; 1bed81ccbb84 is an exact univariate generalized Floater–Hormann rational bound. No inspected table gives the exact monotone-data tensor quadratic norm/envelope."
+        ],
+        "reasoning": "These exact outputs are for different grids/domains or maps. The unrestricted tensor norm is 25/16, corresponding to lower excursion −9/32, not the sharp monotone excursion.",
+        "searches": [
+          "Resultary exact constants and monotone overshoot: 1fad48a6c445, 1bed81ccbb84, 7f9a4d5c7ee7",
+          "Berrut–Trefethen §9.1 (Lebesgue constants)",
+          "Resultary numeric and operator queries under equivalent_formulations"
+        ]
+      },
+      "rationale": "The strongest inspected matching indexed statements treat univariate cubic Lagrange interpolation, Jacobi projection or rational interpolation. The available full Floater–Peña paper studies different coefficients, bases and a different property. The exact isotone-data biquadratic nodal range, including its extremizers, is not covered by these or the standard unrestricted Lebesgue-constant calculation.",
+      "residual_risks": [
+        "Bounded operator- and constant-specific searches do not establish historical priority; another source could encode the same constrained operator norm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover the identified operator or range claim in the inspected theorems",
+          "evidence": "Tensor Bernstein and B-spline results use monotone arrays of expansion coefficients; later examples/necessary conditions are also about monotonicity of tensor representations.",
+          "identifier_or_url": "https://www.mn.uio.no/math/english/people/aca/michaelf/papers/monorect.pdf (10.1023/A:1018906027191)",
+          "material_read": "Abstract, Thm 3.1 p. 5 (~12711), Thm 4.1 p. 7 (~17461), §5 pp. 8–9 (~22900–25455)",
+          "method": "Author-hosted OA copy of the same PDF after publisher redirect; targeted passage reads",
+          "title": "Tensor-product Monotonicity Preservation",
+          "trigger": "Likely broader tensor-product theorem; frozen comparison only had abstract"
+        },
+        {
+          "assessment": "Provides the standard unrestricted framework, not the exact constrained extremum",
+          "evidence": "Lebesgue constants are operator norms on unrestricted nodal data.",
+          "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/barycentric.pdf",
+          "material_read": "§9.1 p. 11, offsets 35739–36277",
+          "method": "Targeted OA PDF passage",
+          "title": "Barycentric Lagrange Interpolation",
+          "trigger": "Potential unrestricted-norm domination"
+        },
+        {
+          "assessment": "Different degrees/dimensions or projection versus interpolation",
+          "evidence": "Symmetric four-node whole-interval cubic; quadratic Jacobi projection; four-node cubic on central cell.",
+          "identifier_or_url": "Resultary 7f9a4d5c7ee7, 68d5f845db4a and 1fad48a6c445",
+          "material_read": "Each RESULT.md at offset 0, finding and operator/domain description",
+          "method": "Local mirror comparison",
+          "title": "Indexed monotone polynomial interpolation and projection envelopes",
+          "trigger": "Closest exact polynomial envelopes and same-day comparator checks"
+        },
+        {
+          "assessment": "Different univariate rational family",
+          "evidence": "The exact bound is for the degree-one generalized Floater–Hormann construction, not the tensor quadratic Lagrange basis.",
+          "identifier_or_url": "Resultary 1bed81ccbb84",
+          "material_read": "RESULT.md offset 0, finding",
+          "method": "Local mirror comparison",
+          "title": "Three-node extremality for monotone-data overshoot in even-power rational interpolation",
+          "trigger": "Three-node exact monotone overshoot analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The standard uniform biquadratic reconstruction is a natural object for checking whether monotone grid data stay within range. The gain over the unrestricted envelope is numerically modest, but the sharp bound quantifies the required buffer (more than a quarter of the data range on each side), provides an explicit monotone witness and rules out fixing the defect by requiring strict nodal monotonicity alone. The exact coupled-data restriction and witness are useful where a shape- or range-preserving reconstruction is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

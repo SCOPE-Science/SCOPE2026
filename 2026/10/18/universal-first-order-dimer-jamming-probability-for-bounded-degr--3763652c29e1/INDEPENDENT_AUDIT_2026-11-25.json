@@ -1,0 +1,166 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:44:31.919300Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform priorities induce a uniform relative order on the residual allowed edges after each accepted edge. For a,b marked vertices on the two sides at stage k, put A=(k-a)(k-b), B=k² and write e=e_out+d with d counting forbidden edges touching the marks. The avoidance ratio against A/B differs from one by [A d-(B-A)e_out]/[A(B-e)]; here d≤Δ(a+b), e_out≤Δk, and B-A=O(k). Thus it is 1+O(k^-2), uniformly in the residual state for large k. Iterating uniform conditional bounds gives the product of the two falling-factorial ratios with relative O(1/K). For a marked forbidden edge the single-deletion baseline is (k-1)/(k+1), itself within relative O(k^-2) of the complete-host avoidance probability. The product to K is K(K+1)/[n(n+1)], times 1+O(1/K); if the tag is alone at K, the remaining product is exactly 2/[K(K+1)]. Given its survival to K, another residual forbidden edge has chance O_Δ(K/n+mK²/n²), by the three- and four-vertex bounds. Even then final tagged survival is O_Δ(K^-2) by survival to a fixed stage above Δ. With K of order n^(1/3) this gives the asserted uniform per-edge estimate. A jam with k≥2 requires a forbidden K_{k,k} with k≤Δ. There are O_Δ(n) copies for each k, by first fixing one left vertex and using bounded neighborhoods and common neighbors. Each copy's vertices survive to a fixed stage with chance O_Δ(n^-2k), so summing overcounts the failure probability by O_Δ(n^-3), absorbable even for m=1. The empty case, limiting constant and Hall bound also follow. Frozen VERIFICATION.md and verify.py were inspected, not run. The 31 recorded checks include exact one-edge and order-enumeration checks; the arrangement examples just calculate finite probabilities and do not test a uniform asymptotic bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The regular hypergraph theorem bounds the unsaturated fraction with high probability, subject to a maximum pair-degree condition; it is not a relative estimate of the probability of any vacancy on the potentially irregular bipartite host.",
+          "The bounded-degree triangle-free deletion theorem in add1d1408fda is for K_N, not K_{n,n}.",
+          "Dyer–Frieze and Pippenger did not yield accessible decisive full texts."
+        ],
+        "reasoning": "High-probability size bounds and a different host theorem do not provide the tagged-survival prefactor or the biclique overcount required for this finding.",
+        "searches": [
+          "Bennett–Bohman arXiv:1210.3581, Thm. 1.1",
+          "Dyer–Frieze DOI 10.1002/rsa.3240020104",
+          "Pippenger DOI 10.1137/0402034",
+          "Resultary add1d1408fda Finding"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Frozen unipartite record 5",
+        "Resultary 689d74f35ba9, add1d1408fda, 3b9a8257a10c, 06e44bbbe674",
+        "Bennett–Bohman; arXiv:2006.06839; Dyer–Frieze and Pippenger access checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching recurrence assumes disjoint deletions. The unipartite theorem uses one vacancy pool and gives 3m/(N²−1). The hypergraph theorem does not determine any rare failure prefactor for the class at issue."
+        ],
+        "reasoning": "None of the inspected coverages implies the extension to all bounded-degree bipartite forbidden graphs; that extension must control joint survival of adjacent marks and terminal forbidden bicliques.",
+        "searches": [
+          "Resultary 689d74f35ba9 and add1d1408fda, Findings and Assumptions",
+          "Bennett–Bohman arXiv:1210.3581, introduction and Thm. 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random-edge greedy matching and random-priority dimer adsorption are equivalent here. The uniform terminal-failure law does not convert to the unipartite law by setting N=2n: edge pools and the coefficients differ.",
+          "The retrieved restricted-valence RSA paper arXiv:2006.06839 addresses lattices and percolation, not this complete-host deletion process."
+        ],
+        "reasoning": "Algorithm aliases were compared at the level of the actual edge sampling and terminal observable; host and vacancy changes are substantive, not just notation.",
+        "searches": [
+          "Local Resultary: uniform rare jamming for balanced bipartite greedy matching with bounded forbidden degree",
+          "Web literature query on dense bipartite random greedy matching and rare jamming",
+          "Assigned nonbipartite record 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching-deletion entry gives an exact finite recurrence, exact r=0,1, and a two-term uniform expansion with leading term 2r/[n(n+1)] for r vertex-disjoint deletions. Its catalogue date is later.",
+          "The same-day entries concern a split host with Gaussian fluctuations and star rather than dimer adsorption, respectively."
+        ],
+        "reasoning": "Exact matching-subclass values and even its stronger second-order law do not settle dependence on arrangements with adjacent deletions. The same-day comparisons fail to match on mathematical content, not date.",
+        "searches": [
+          "Resultary 689d74f35ba9, Finding and Assumptions; same-day hits 3b9a8257a10c and 06e44bbbe674"
+        ]
+      },
+      "rationale": "The supported distinction is the relative rare-failure asymptotic for arbitrary degree-bounded forbidden bipartite graphs, including adjacent deletions and m=O(1). Neither matching-only recurrences nor inspected general greedy results imply this scope. The one-deletion and matching special cases are not credited as new; historical priority is qualified by unavailable primary passages and unspecified predecessor records.",
+      "residual_risks": [
+        "Full texts of Dyer–Frieze and Pippenger were unavailable, so historical coverage is not exhaustive.",
+        "The frozen text's earlier finite matching calculations and different unipartite deletion theorem were not uniquely identified as antecedent records. The retrieved matching-only result is catalogued later, and its earliest circulation is not established by that date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observable and hypotheses",
+          "evidence": [
+            "Bounds a proportion unsaturated in a regular uniform hypergraph, with high probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1210.3581",
+          "material_read": "PDF pp. 1, 3, introduction and Theorem 1.1; extraction offsets 1905 and 7801",
+          "method": "OA primary passages",
+          "title": "A natural barrier in random greedy hypergraph matching",
+          "trigger": "Potential general same-process control of vacancies"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Publisher retrieval failed; no readable lawful alternate was secured."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+          "material_read": "No decisive primary full text retrieved",
+          "method": "DOI/publisher and availability checks",
+          "title": "Randomized Greedy Matching",
+          "trigger": "Older classical analysis of the random-edge algorithm"
+        },
+        {
+          "assessment": "Coverage unresolved",
+          "evidence": [
+            "Publisher retrieval failed; no readable lawful alternate was secured."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "No decisive primary full text retrieved",
+          "method": "DOI/publisher and availability checks",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Older general edge adsorption analysis"
+        },
+        {
+          "assessment": "Abstract's model is different; no whole-paper noncoverage claim",
+          "evidence": [
+            "Concerns square and triangular lattices, percolation and jamming limits."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.06839",
+          "material_read": "PDF p. 2, Abstract, extraction offset 2235",
+          "method": "OA primary abstract inspection",
+          "title": "Restricted-valence random sequential adsorption",
+          "trigger": "Literature search hit for jamming in random sequential adsorption"
+        },
+        {
+          "assessment": "Stronger within the narrower disjoint-deletion family, later catalogue date",
+          "evidence": [
+            "Exact recurrence and two-term expansion with leading 2r/[n(n+1)] for r disjoint deletions."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-uniform-logarithmic-correction-for-greedy-matching-with-partiall--689d74f35ba9",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Uniform logarithmic correction for greedy matching with partial matching deletions",
+          "trigger": "Exact same host and recurrence for a plausible dominating result"
+        },
+        {
+          "assessment": "Different, nonbipartite host; later catalogue date",
+          "evidence": [
+            "K_N with triangle-free bounded-degree deletions has coefficient 3m/(N²−1)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-universal-rare-jamming-coefficient-for-dense-dimer-adsorption--add1d1408fda",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror inspection",
+          "title": "A universal rare-jamming coefficient for dense dimer adsorption",
+          "trigger": "Potential same rare-jamming law with broader degree hypothesis"
+        },
+        {
+          "assessment": "Different graph and scaling",
+          "evidence": [
+            "Clique joined to an independent set; positive limiting unmatched fraction and Gaussian fluctuations."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-gaussian-jamming-fluctuations-on-complete-split-graphs--3b9a8257a10c",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Gaussian jamming fluctuations on complete split graphs",
+          "trigger": "Same-day jamming result for a dense structured graph"
+        },
+        {
+          "assessment": "Different adsorbed object",
+          "evidence": [
+            "Samples K_{1,3} copies rather than edges, with no same dimer statement in the compared result."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-essential-singularity-jamming-in-random-greedy-three-leaf-star-a--06e44bbbe674",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local mirror inspection",
+          "title": "Essential-singularity jamming in random greedy three-leaf-star adsorption",
+          "trigger": "Same-day complete bipartite adsorption result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The operationally meaningful question is failure despite existence of a perfect matching, including for only one or a few omitted edges. The result gives the leading coefficient with uniform relative accuracy across patterns, not just an expected unmatched fraction on a symmetric host. Controlling surviving tagged defects and terminal bicliques is a substantive reason the leading coefficient is arrangement-independent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

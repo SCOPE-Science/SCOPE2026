@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:44:54.185335Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–95",
+        "Frozen VERIFICATION.md and verify.py",
+        "Independent direct residue-orbit checks for a=3,9,−9"
+      ],
+      "rationale": "The simultaneous zero gcd case is excluded: the only equal positive-index consecutive Fibonacci values are both 1. The quadratic Fibonacci invariant evaluated at the common shifted residue −a forces G_a(n) to divide a²+(−1)^n and hence a⁴−1. Subtracting the two original arguments replaces one divisibility condition by d|F_(n−1). Strong divisibility gives n−1=j z(d), including j=0. The Fibonacci matrix at z(d) is u_d I mod d, with u_d²=(−1)^z(d), so the remaining condition is u_d^j=−a; eligibility and the unique class follow. Equivalently L_d is the Pisano period modulo d, since the matrix first returns to I at z(d) times the scalar unit order. A nonempty single class forces every period on n≥1 to be a multiple of L_d: take any positive representative and add the proposed period. Recovering the gcd from all its divisor predicates proves the converse and the lcm, while Möbius inversion gives the full exact value law. Independently enumerating the complete modular orbits at a=3,9,−9 (lengths 120,240,240) and checking cyclic periods gives 60,60,120 and the stated a=3 histogram. The uploaded verifier was inspected but not run; the proof supplies all shifts.",
+      "residual_risks": [
+        "No complexity guarantee for factoring a⁴−1 or computing ranks; no claims for unequal shifts or different gaps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "These works give boundedness and sufficient state-return periods in wider settings. Hieu–Spilker–Thang explicitly show nonminimal sufficient periods, including 80 vs 40 in the consecutive +2 case; Chen–Pan also distinguish their modular period from the least one."
+        ],
+        "reasoning": "A theorem for a wider shift or recurrence family does not dominate the exact statement when it gives only a sufficient period, even if it applies to all parameters here.",
+        "searches": [
+          "Resultary: general Horadam/recurrence gcd periods",
+          "Hieu–Spilker–Thang Theorem 9",
+          "Do–Thang Theorem 2",
+          "Chen–Pan §2"
+        ]
+      },
+      "checked_sources": [
+        "Rahn–Kreh 18.6.7",
+        "Spilker DOI 10.1007/978-3-319-28203-9_28 (metadata and restatements)",
+        "Chen (2011) primary PDF",
+        "Hieu–Spilker–Thang 22.1.7",
+        "Do–Thang 22.9.4",
+        "Chen–Pan 20.5.8",
+        "Taşdemir–Ertaş (2025) primary PDF",
+        "Resultary focused catalogue and 5a00ad14fbc8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior rank and scalar matrix facts make the local computation short. The known divisor bound and the period modulo a⁴−1 leave unanswered which local target states occur. The inspected broader period theorems do not extract eligible local events."
+        ],
+        "reasoning": "The application of the scalar orbit to the subtracted Fibonacci condition, the removal of ineligible moduli, and the recovery of a lower bound on every overall period from the surviving single classes give the exact solution. The lcm and Möbius conclusions after that step are standard deductions; no separate novelty is attributed to them as general methods.",
+        "searches": [
+          "Rahn–Kreh Theorem 3 and Problem 13",
+          "Hieu–Spilker–Thang Theorem 9 and p. 11",
+          "Chen–Pan §2 and its stated nonminimality limitation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On p. 11 Rahn–Kreh ask for the smallest period for every integer a with |a|≥2, precisely the sequence here. Their exact ±3 periods and necessary restrictions in Theorem 3 do not give the general answer."
+        ],
+        "reasoning": "The rank/scalar condition can equivalently be phrased as the modular orbit visiting (−a,−a); one visit then repeats once per Pisano cycle. This equivalence does not turn a sufficient period modulo a⁴−1 into the sharp lcm over visited divisor states.",
+        "searches": [
+          "Resultary: arbitrary equal shifts of consecutive Fibonacci gcds and least periods; rank/scalar divisor-event classes",
+          "Rahn–Kreh, Problem 13 and Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact single-shift descriptions include ±2, ±3 and ±4. The same-day indexed least-period and value-density theorem 5a00ad14fbc8 is for gcds of x²+x+1 over arithmetic windows, not consecutive Fibonacci values. No all-shift match surfaced in the bounded catalogue queries."
+        ],
+        "reasoning": "Finite known shifts give consistency or partial overlap, not an exact formula for all shifts. The quadratic-window theorem has different divisor events; its similarity is methodological, not an exact record match.",
+        "searches": [
+          "Resultary: Möbius value densities for shifted Fibonacci gcd",
+          "Resultary 5a00ad14fbc8, actual RESULT.md theorem",
+          "Chen (2011), Thms. 4 and 6; Rahn–Kreh (2018), pp. 10–11; Taşdemir–Ertaş (2025), Thms. 3.1–3.2"
+        ]
+      },
+      "rationale": "The supported distinct claim is the all-shift exact least period through eligible divisor events, and the ensuing value frequencies. Rahn–Kreh explicitly pose the same general least-period question after treating ±3. The closest inspected broader theorems provide sufficient Pisano-type periods, in some examples strictly larger than the true periods. Known rank and scalar identities are inputs, and generic lcm and Möbius steps are not new in themselves. The additional step is using orbit membership for each divisor and recovering sharp global minimality from all occupied local classes; no inspected theorem gives this solution for every eligible a.",
+      "residual_risks": [
+        "Spilker's chapter could not be inspected in full; later restatements do not rule out additional content.",
+        "An equivalent unindexed orbit or prime-power formulation of the general solution remains possible. Chen's ±2 cases are relevant prior art in addition to the frozen record's cited special cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same question posed, not general formula in passages inspected",
+          "evidence": "Least period 60 for ±3, then asks what the smallest period is for all |a|≥2.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL21/Kreh/kreh6.pdf",
+          "material_read": "Theorem 3 p. 4, offset 6897; Problem 13 p. 11, offset 24655",
+          "method": "OA primary PDF",
+          "title": "Greatest Common Divisors of Shifted Fibonacci Sequences Revisited",
+          "trigger": "Same general least-period problem"
+        },
+        {
+          "assessment": "Boundedness and sufficient-period antecedent through restatements; residual uncertainty",
+          "evidence": "The chapter is credited for the divisor restriction and existence of a period modulo a⁴−1; the unread full text is not used as negative evidence.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-28203-9_28",
+          "material_read": "Public chapter metadata and later published restatements; no accessible primary full text",
+          "method": "Lawful OA attempt and cross-check of published restatements",
+          "title": "The GCD of the Shifted Fibonacci Sequence",
+          "trigger": "Foundational same-sequence results"
+        },
+        {
+          "assessment": "Known special cases",
+          "evidence": "Exact residue-class descriptions for a=2 and a=−2.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL14/Chen/chen70.pdf",
+          "material_read": "Theorems 4 and 6, pp. 4, 6, offsets 7474 and 11256",
+          "method": "OA primary PDF",
+          "title": "Greatest Common Divisors of Shifted Fibonacci Sequences",
+          "trigger": "Earlier exact small shifts"
+        },
+        {
+          "assessment": "Sufficient period and specific exact cases only for this comparison",
+          "evidence": "Uses a Fibonacci return period and identifies an example with constructed period 80 but least period 40.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Thang/thang42.pdf",
+          "material_read": "Theorem 9 p. 4, offset 7608; p. 11, offset 21263",
+          "method": "OA primary PDF",
+          "title": "The Greatest Common Divisor of Shifted Fibonacci Numbers",
+          "trigger": "Broader equal-shift theorem and discussion of minimality"
+        },
+        {
+          "assessment": "General periodicity, not sharpness",
+          "evidence": "Bounds a period via modular return for bounded sequences.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Thang2/thang15.pdf",
+          "material_read": "Theorem 2, p. 2, offset 1823",
+          "method": "OA primary PDF",
+          "title": "Generalization of Greatest Common Divisor of Shifted Fibonacci Numbers",
+          "trigger": "General shifted Fibonacci divisor sequences"
+        },
+        {
+          "assessment": "Sufficient period only",
+          "evidence": "Determinant bound and state period, expressly not guaranteed to be least.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL23/Pan/pan32.pdf",
+          "material_read": "§2 pp. 3 and 5, offsets 5688 and 11745",
+          "method": "OA primary PDF",
+          "title": "Greatest Common Divisors of Shifted Horadam Sequences",
+          "trigger": "Plausible stronger recurrence theorem"
+        },
+        {
+          "assessment": "Exact special shifts only",
+          "evidence": "Residue-by-residue gcds for a=±4.",
+          "identifier_or_url": "https://proceedings.bas.bg/index.php/cr/article/download/775/747/1281",
+          "material_read": "Theorems 3.1–3.2, p. 5, offset 10276",
+          "method": "OA primary PDF",
+          "title": "On Greatest Common Divisors of Consecutive Shifted Fibonacci Sequences",
+          "trigger": "Recent same consecutive equal-shift setting"
+        },
+        {
+          "assessment": "Different sequence and parameter family",
+          "evidence": "Gcds of values of x²+x+1 over arithmetic windows, not shifted Fibonacci residues.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-sharp-spectra-and-three-point-stabilization-for-shifted-third-cy--5a00ad14fbc8/RESULT.md",
+          "material_read": "Actual theorem in RESULT.md",
+          "method": "Local Resultary mirror",
+          "title": "Sharp spectra and three-point stabilization for shifted third cyclotomic gcds",
+          "trigger": "Same-day catalogue hit with exact periods and densities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Rahn–Kreh, Problem 13",
+        "Frozen RESULT.md, Finding and examples",
+        "Independent orbit checks"
+      ],
+      "rationale": "This gives an explicit all-parameter answer to a prior published least-period question, replacing a potentially nonminimal sufficient period with a sharp, locally computable invariant, and supplies an exact frequency law instead of sample histograms. The criterion isolates why sign can change the least period even while the ambient Fibonacci modulus remains unchanged. The motivation is the exact period and value spectrum of the naturally bounded equal-shift family, not invention of the standard algebraic tools used in the proof.",
+      "residual_risks": [
+        "The formula is effective, not an efficiency guarantee for large shifts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

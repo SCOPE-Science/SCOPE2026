@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:26:14.641392Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two means use unordered distinct pairs and their separate denominators. The edge-cut contributions count precisely the pairs whose unique paths cross that edge, so the stated integer sign test is valid. I independently generated unlabelled trees by attaching a leaf at every vertex of every previous-order representative and deduplicating by the minimum rooted parenthesis code over all roots. The rooted code is complete by induction on the multiset of child codes, and deleting any leaf from a tree shows generation is exhaustive. Direct pair distances (not edge-cut sums) gave nonnegative minima for every order 2–14; at 14 the minimum was 1/52. At 15 there were 7,741 classes, exactly three negative, and exactly one attaining -1/10. The negative classes match canonical codes of B_7,7, B_8,6 and B_9,5 with (leaf count, ordinary sum, terminal sum) = (8,378,98), (9,336,112), (10,296,126), giving -1/10, -4/45, -2/105. This includes order 2, where the samples coincide. Replay: python3 /workspace/repro/record4.py; output /workspace/repro/record4.out. This independently covers the bounded claim without NetworkX and provides no classification at later orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Lundblad–Wagner scope is asymptotic random trees.",
+          "1fd12a7f1d1d gives a covariance of leaf count with Wiener index in random recursive trees.",
+          "The public search surfaced DOI 10.1007/s41870-022-01068-8, an index-computation paper by its available summary; full text was not available on the attempted routes."
+        ],
+        "reasoning": "A random-tree covariance or limiting law need not control every individual tree. A procedure evaluating the index, by itself, does not characterize the optimizer or earliest sign reversal. No broader sharp deterministic theorem was identified.",
+        "searches": [
+          "arXiv:2611.16674v1",
+          "Resultary: random trees, terminal and ordinary Wiener comparisons; 1fd12a7f1d1d",
+          "Public search: normalized terminal Wiener index vs ordinary Wiener index first counterexample tree"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.16674v1",
+        "10.4230/LIPIcs.AofA.2026.2",
+        "1fd12a7f1d1d",
+        "fea9f5be0210 (self-match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both texts use a broom-like root construction in the depth comparison. The November introduction then separately notes deterministic failure for the pair-mean comparison, without a sharp order statement in the inspected passage."
+        ],
+        "reasoning": "Even interpreting that construction as a family containing B_7,7, evaluating it can at most establish an upper bound on the first order. It excludes no smaller tree classes and does not establish the two other negative types or uniqueness of the minimum among all trees.",
+        "searches": [
+          "Lundblad–Wagner arXiv:2611.16674v1 introduction, offsets 3500–4094 onward",
+          "LIPIcs AofA 2026.2, p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lundblad–Wagner explicitly note that the deterministic comparison of the two averages can fail.",
+          "fea9f5be0210 is a self-match, not a separate record."
+        ],
+        "reasoning": "Normalizing the Wiener sums by the appropriate pair counts gives the same comparison. Its nonuniversality was already observed but the located statement gives neither a least order nor a full earliest witness list.",
+        "searches": [
+          "Resultary: smallest unlabelled tree where leaf-pair mean falls below all-vertex-pair mean; normalized terminal minus ordinary Wiener index",
+          "arXiv:2611.16674v1, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact earliest-order census returned by the focused catalogue searches was the target itself; separate nearby results concerned random trees rather than finite sign tables.",
+          "Unlabelled-tree counts do not give the two indices for each tree."
+        ],
+        "reasoning": "A count of 7,741 trees supplies no values of the comparison functional. No separately inspected table contained the sign minima and the exact three negative types.",
+        "searches": [
+          "Resultary: smallest order 15, three broom types, normalized terminal and ordinary mean distance; fea9f5be0210, 1fd12a7f1d1d"
+        ]
+      },
+      "rationale": "The relevant earlier paper explicitly notes deterministic reversal and uses a broom-like shape for an adjacent root-depth comparison. Neither the existence of a reversal nor the shape by itself should be claimed as new. The distinct result supported here is the sharp least order together with the complete first-order classification and unique minimum.",
+      "residual_risks": [
+        "The index-computation paper was not read in full; older or unindexed exact tables may exist.",
+        "The general existence observation and broom-like construction predate the record; priority judgment is only for the sharp minimum and finite characterization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative deterministic failure; adjacent broom-root example does not prove a sharp complete terminal-Wiener census",
+          "evidence": [
+            "States the comparison is 'not deterministically true'; describes conditioned Bienaymé–Galton–Watson and linear preferential-attachment models."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.16674v1",
+          "material_read": "Introduction, HTML offset 3500 onward, terminal Wiener discussion around 4094",
+          "method": "OA original HTML passage",
+          "title": "The External Path Length and Terminal Wiener Index in Random Trees",
+          "trigger": "Same normalized indices; mentions reversal and a broom-like example"
+        },
+        {
+          "assessment": "The inspected construction is about root-depth averages",
+          "evidence": [
+            "A tree with n leaves and a path of length n attached to a common root is used for root-to-vertex/leaf depth."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+          "material_read": "PDF p. 2, text near offset 3300",
+          "method": "OA proceedings PDF passage",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "Earlier conference treatment and possible witness construction"
+        },
+        {
+          "assessment": "Different invariant and probabilistic rather than deterministic scope",
+          "evidence": [
+            "Relates leaf count to normalized all-pairs distance by covariance."
+          ],
+          "identifier_or_url": "1fd12a7f1d1d",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local mirror passage",
+          "title": "Exact leaf–Wiener covariance in random recursive trees",
+          "trigger": "Related catalogue result on leaves and mean distances"
+        },
+        {
+          "assessment": "No full-text coverage judgment",
+          "evidence": [
+            "Available summary concerns computation of the terminal Wiener index."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s41870-022-01068-8",
+          "material_read": "Search summary only",
+          "method": "Bounded OA article and PDF attempts did not resolve",
+          "title": "Computation of terminal Wiener index from subtrees",
+          "trigger": "Algorithm could contain relevant terminal-Wiener examples or tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The normalization makes comparison of terminal and ordinary mean distances a natural deterministic question raised by random-tree work. The least possible reversal order and exhaustive obstruction types are more informative than a family that happens to reverse the inequality. They give precise benchmarks for proposed inequalities sensitive to leaf count or branching structure.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

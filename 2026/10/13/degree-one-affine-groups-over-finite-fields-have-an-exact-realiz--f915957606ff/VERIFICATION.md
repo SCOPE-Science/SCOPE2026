@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-The classification proof is symbolic.
 
-The packaged checker `artifacts/verify.py` constructs
-\[
-\mathbf F_2,\quad
-\mathbf F_4,\quad
-\mathbf F_8,\quad
-\mathbf F_{16}
-\]
-from explicit irreducible binary polynomials.
+# Independent mathematical audit
 
-For each field it constructs the twisted dual-number ring
-\[
-R_q=\mathbf F_q+\mathbf F_q\varepsilon
-\]
-with
-\[
-\varepsilon^2=0,
-\qquad
-\varepsilon a=a^2\varepsilon.
-\]
+## correctness
 
-The checker verifies every unit inverse and confirms that the unit set has cardinality
-\[
-q(q-1).
-\]
-It then checks the explicit bijection
-\[
-(t,a)\longmapsto
-a^{-1}+t a^{-2}\varepsilon
-\]
-from the standard affine multiplication
-\[
-(t,a)(s,c)=(t+as,ac)
-\]
-to \(R_q^\times\), for every ordered pair of affine transformations.
+PASS
 
-It also verifies the conjugation identity
-\[
-a(1+b\varepsilon)a^{-1}
-=
-1+ba^{-1}\varepsilon.
-\]
+For q even, the square map is a field automorphism, so the skew-polynomial quotient by the square of its variable is associative and local. Its units are the product of the square-zero radical units and the field units; a acts on 1+tε by t↦a⁻¹t. Inverting the complement parameter gives the affine action (the map is (t,a)↦(1+tε)a⁻¹). For odd q the translation subgroup K is self-centralizing. A normal 2-subgroup has trivial intersection with K, centralizes it, and is therefore trivial. The center of the affine group is trivial, forcing −1=1 in any realizing ring. In the finite ring the radical subgroup 1+J has 2-power order, so J=0. Artin–Wedderburn and scalar centers reduce the nontrivial factors to GL_d(F_2). The affine group is directly indecomposable: the minimal normal K is contained in one factor of any direct decomposition, as otherwise both factors would centralize it; the other factor then lies in K and is trivial. GL_d(F_2) is simple for d≥3 and cannot contain the proper normal K, while d=2 gives S_3 and q=3, which is realized by M_2(F_2). The trivial-complement case q=2 is included in the construction.
 
-The checker returns `VERIFY_OK`.
+## originality
 
-Finite computation is not used to prove the odd-field obstruction or the infinite even-field family.
+PASS
+
+Prior ring theory supplies the even family by specialization, the odd prime-field obstruction is already covered by the cyclic-holomorph classification, and several small cases are explicit prior results. The supported distinct content is the all-finite-field dichotomy, specifically the obstruction for odd nonprime q outside those prior results.
+
+## value
+
+PASS
+
+Scalar affine groups over all finite fields are a natural family in Fuchs' problem. The classification closes the extension-field gap rather than simply repeating the cyclic case, with a uniform explicit even-field realization and a characteristic/radical obstruction explaining exactly why odd extensions cannot occur.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

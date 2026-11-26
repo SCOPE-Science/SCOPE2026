@@ -1,18 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source gap enumeration is converted to a precise fractional-part condition, split by parity into nested offset intervals, and integrated to produce the exact all-threshold tail law. The endpoint strictness, maximal gap, translation period and positive part at the threshold are handled explicitly. The uniform critical limit follows from an arithmetic-grid discrepancy of at most one gap and a Lipschitz comparison. Independent exact integer-iteration tests cover 847 rational parameter cases; finite tests are not infinite proofs.
+## correctness
 
-## Originality — PASS within inspected evidence
-The originating public preprint [1] proves a pointwise formula for all cycle gaps. That formula is acknowledged as an input, rather than claimed as new. The additional measure-theoretic operation yields a nested-interval identity and an exact law for the offset-parameter distribution, followed by a quantitative singular scaling theorem. The closest published same-map result [2] proves basin geometry and settling, not these parameter-space statistics. The 2015 one-parameter floor-map paper [3] also does not have the free offset in its accessible statement. Searches for equivalent, dual or more general forms found no decisive coverage; full text of the 2025 journal revision was unavailable, which is a real priority risk.
+PASS
 
-## Mathematical value — PASS
-The boundary slope minus one generates an unbounded number of primitive two-cycles. An exact law for their count over a complete affine-offset conjugacy period answers the natural question of how typical this multiplicity is. The uniform-in-offset triangular profile and the uniform random-offset limiting law are both meaningful critical-bifurcation statistics and supply controlled finite-scale errors. The claim is restricted to this natural class; no generic noise theorem is asserted.
+After one iteration every point is integer, so a primitive pair can be written x,x+k with x an integer and k>0. Putting d=2-epsilon, the two floor inequalities intersect exactly at mu-k-1+epsilon k < d x <= mu-k. This both proves the strict cutoff k<1/epsilon and gives at most one pair for each k. Conjugacy by integer translation gives period d. Put p=k mod 2. Modulo one in v={mu/d}, the allowed interval starts at p/2+epsilon k/(2d) and ends, exclusively, at p/2+(1-epsilon k/2)/d; the latter is at most (p+1)/2 since k>=1. Hence there is no wrap, only matching parity is possible, and intervals nest within each half. The mth interval in each half gives the survival length; adding lengths and summing over k=1 through ceil(1/epsilon)-1 gives the stated mean, including reciprocal-integer cutoffs. For w equal to phase within a half, the matching parity lattice with mesh 2 epsilon is cut off by epsilon k<=2dw and epsilon k<2(1-dw). The smaller cutoff is at most one, and if it equals one the strict inequality excludes the potential endpoint. Counting either lattice differs from cutoff divided by its mesh by at most one, including when an endpoint is excluded. Thus epsilon times the count differs from min(dw,1-dw) by at most epsilon; replacing d by 2 adds at most epsilon/2. Under uniform phase the four linear branches yield F uniform on [0,1/2], with CDF Lipschitz constant two, so the coupled CDF error is at most 3 epsilon. At epsilon=1/4 and k=3 the lower offset 5/4 indeed admits {-1,2}, while at offset 3/2 the strict upper test excludes this gap. This is a closed argument for all stated real parameters, not an inference from the finite frozen check.
 
-## Closest literature and limitations
-[1] J. Hoseana, arXiv:2406.14055v1, Theorem 2, 2024-06-20, https://arxiv.org/html/2406.14055v1.
-[2] *Outermost-cycle basin selection and logarithmic settling for quantized affine contractions*, 2026-10-11, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-outermost-cycle-basin-selection-and-logarithmic-settling-for-qua--b81ca333b81c.
-[3] Rozikov, Sattarov and Usmonov, arXiv:1503.07129, 2015-03-24, https://arxiv.org/abs/1503.07129.
-Full text of the revised 2025 journal publication was not accessible. Absolute publication priority and independent validation are not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-offset cycle enumeration is already known for the exact family and directly gives the same positive-gap floor differences. The distinct result is the exact law and uniform singular-limit profile over offset. This uses an analytical reduction of correlated gap events to two disjoint nested families, not a claim of a new classification of periodic points. The strongest indexed same-family overlap concerns the distribution of basins over states and settling from remote initial states, rather than the distribution of the number of primitive cycles over offsets.
+
+## value
+
+PASS
+
+Near a unit negative slope, the known fixed-parameter counts alone do not show how typical or uniform the growth is as offsets are varied. The nested-window description gives all finite survival probabilities and a deterministic phase profile distinguishing offsets with very different growth. A uniform error also controls every discontinuity and implies a quantified distributional limit. These results characterize meaningful parameter sensitivity of a standard quantized dynamical system beyond reenumerating its periodic points.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

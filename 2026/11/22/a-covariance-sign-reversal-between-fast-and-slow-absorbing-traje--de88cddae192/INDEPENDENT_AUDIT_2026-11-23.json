@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:38:11.066964Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Start each trial by drawing its eventual mark and duration jointly; record the mark only on completion. First-renewal conditioning gives the displayed PGF. With x=lambda_0, y=lambda_1, a=1-b, c=bx+ay, u=ax, v=by, the transforms are u(s+y)/(s²(s+c)), v(s+x)/(s²(s+c)), and 2uv(s+x)(s+y)/(s³(s+c)²). For the first means the t² terms are u(y-c)/2 and v(x-c)/2; the mixed moment starts at uv t² and its t³ term is uv(x+y-2c)/3. Subtracting yields the stated cubic coefficient. At infinity the mean rates are uy/c and vx/c and the constant terms are u(c-y)/c² and v(c-x)/c². The mixed moment's linear term is 2uv[(x+y)/c²-2xy/c³], so the covariance slope is uv[(x+y)c-2xy]/c³=uv(y-x)(ay-bx)/c³. Negative poles give decaying remainders and continuity; the strict cubic-negative/linear-positive region is exactly the displayed open wedge, establishing existence but not uniqueness. At b=1/2 the cubic vanishes; an independent series gives the positive quartic xy(x-y)²/96. At the upper endpoint the slope vanishes; the wedge claim concerns nonzero leading coefficients, not a classification of crossings at or beyond that endpoint. Independent bounded rational-transform inversion at b=7/10, x=1, y=5 gives covariance -0.0000297696852314 at t=1/20, 0.0201057054623 at t=1 and 2.71805204843 at t=10. The supplied verifier was inspected, not run: it asserts signs at 1/20 and 10 and prints, but does not assert, the t=1 value. Independent worker additivity is immediate; no conditional-on-count assertion is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 gives the general long-time covariance slope E[(X-E[X]T/E[T])(Y-E[Y]T/E[T])]/E[T] (centered rewards) and a constant term. With X=1(mark 0), Y=1(mark 1) it recovers the large-budget slope exactly.",
+          "Eq. (8) provides a general finite-time covariance convolution; the mutual-exclusion mixed reward vanishes here."
+        ],
+        "reasoning": "This is substantial prior coverage of the method and large-time assertion. Neither the asymptotic theorem nor the general convolution constitutes a sign classification: the early leading-order cancellation and comparison of its sign with the late coefficient are the specific surviving result. Bounded indicator rewards have the required moments; the displayed convolution also applies directly by renewal conditioning.",
+        "searches": [
+          "Literature: multivariate renewal reward covariance 2-term asymptotic expansion multivariate renewal reward processes Patch Nazarathy Taimre covariance sign hyperexponential marked counting",
+          "arXiv:1408.1530 §2 Theorem 2 and §4 Lemma 1/Eq. (8)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.12692v1",
+        "arXiv:1408.1530",
+        "Related published Resultary records 111946ee283b and 70aa78b73aeb (indexed scientific summaries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eqs. (16)–(18) of Reia–Fontanari quantify means and finite-budget bias. The discussion after Eq. (24) distinguishes the variance from a Bernoulli expression; the first-trajectory filter has different counts.",
+          "Patch–Nazarathy–Taimre's general formula can be used with these means to derive the covariance, but the early nonzero order and its sign are not furnished by the general late-time theorem."
+        ],
+        "reasoning": "No prior stronger sign statement was verified. The new scientific content is the identification of the opposite-endpoint criterion and guaranteed reversal, not the transform, the marginals, or the slope in isolation.",
+        "searches": [
+          "arXiv:2611.12692v1 §§3, 4.1, 4.2",
+          "arXiv:1408.1530 Theorem 2 and Eq. (8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary hit is the frozen record itself. Three-unit batch-renewal gaps (111946ee283b) concerns serial covariance of individual gaps as a function of index, not covariance of two marked counts as a function of elapsed time.",
+          "Reia–Fontanari arXiv:2611.12692v1 §4.1 treats the same model and observable counts, but gives their marginal means and discusses joint fluctuations without an endpoint sign theorem."
+        ],
+        "reasoning": "Cov(F,R) is equivalent to Cov(F+R,R)-Var(R), but is not the bias of the observed ratio or an alternating gap statistic. No equivalent sign criterion was found in the compared statements.",
+        "searches": [
+          "Resultary: marked exponential-renewal counts with different completion rates, covariance sign reversal across observation horizons, fast and slow outcomes Markovian arrival",
+          "Literature: marked renewal reward process covariance count types finite time second cross moment hyperexponential durations covariance sign reversal Markovian arrival process"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is this record; Logarithmic sign transition for completion-time covariance with terminal coupon multiplicities (70aa78b73aeb) varies terminal coupon frequency and pairs an occupancy count with a stopping time."
+        ],
+        "reasoning": "Neither a count-distribution algorithm nor a finite table of sign examples would imply the continuum parameter wedge. No independent exact table/operator entry for that criterion was identified among the inspected results.",
+        "searches": [
+          "Resultary marked-renewal covariance query above"
+        ]
+      },
+      "rationale": "The exact early-versus-late sign regime for this specific observed cross-count statistic survives the inspected comparisons. The model, the marginals, the general two-mark covariance construction and the large-budget slope as a renewal-reward specialization are prior machinery/results, not independent originality claims.",
+      "residual_risks": [
+        "Best-of-knowledge assessment: prior literature on marked arrivals or binary hyperexponential rewards may state the same endpoint signs explicitly.",
+        "No statement about classification of all positive-time zeros or a whole-parameter finite-time sign diagram is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same initialization and censoring; establishes means and motivates, but does not give, the cross-count sign regime in these sections",
+          "evidence": [
+            "§3 Eqs. (2)–(6); §4.1 Eqs. (12)–(18) and discussion after (24); §4.2 contrasts first-trajectory filtering"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.12692v1",
+          "material_read": "Full-text HTML §§3–4.2, relevant model, marginal counts and precision discussion",
+          "method": "Read primary text and equations",
+          "title": "Renewal Bias in Parallel Simulations of Absorbing Processes",
+          "trigger": "Identical two-outcome conditional exponential process"
+        },
+        {
+          "assessment": "Covers long-time slope and mixed-moment method, but not the negative-to-positive wedge as a sign theorem",
+          "evidence": [
+            "Theorem 2, Lemma 1, Eq. (8)"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1408.1530",
+          "material_read": "Full-text HTML §§1–2 and relevant §4 covariance proof",
+          "method": "Read statement and convolution; specialized to mutually exclusive indicator rewards",
+          "title": "A Correction Term for the Covariance of Renewal-Reward Processes with Multivariate Rewards",
+          "trigger": "General multivariate covariance allowing duration-dependent rewards"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign of a joint fluctuation matters for uncertainty in mixtures assembled from time-censored absorbing simulations. Within the motivating model the theorem identifies a nonempty open regime where mutual exclusivity of a trial's mark gives the wrong intuition about joint counts after a long budget. It is a structural horizon-dependent effect, not merely computation of already-known expected counts or a chosen numerical witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

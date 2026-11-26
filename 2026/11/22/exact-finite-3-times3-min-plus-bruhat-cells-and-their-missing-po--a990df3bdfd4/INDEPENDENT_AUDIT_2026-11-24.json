@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:03:46.647411Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof Steps 1–4 and frozen verification appendix/script (inspected only)",
+        "Repaired RESULT.md, VERIFICATION.md and verify.py (inspected only; status front matter unchanged)",
+        "Grigoriev arXiv:2611.03896v1, definition of Δ, Theorem 1.2(i) and Example 3.1",
+        "Independent replay: python3 /workspace/review_checks.py 5, equality-winner difference constraints with negative-cycle detection for all permutations at 625 normalized integer targets and four selected examples (passed)"
+      ],
+      "rationale": "For the repaired claim finiteness of a31 forces p(3)=1. Previously infinite supported parameters can be replaced by a common sufficiently large real (every new path exceeds the target), then the left diagonal can be gauged to zero. Bottom row and first column fix u,v,w and c,d. In 321, d1..d4≥0 follow from the available paths via the bottom row. If d2,d3>0, the only minimizing paths at (2,3) and (1,2) force y=a23 and b+x=a12 with x≥a22. Hence a13≤b+y≤a12-a22+a23, giving d5≥0. Conversely set x=a22 and z=a13. If d3=0, y=a23 and b=max(a12-a22,a13-a23) suffice because the bottom-row path already realizes a12. If d3>0, take b=a12-a22 and y=max(a23,a13-b); it either equals a23 by d5≥0 or may be increased without affecting a23 because d2=0. In 231 the sole central path gives d1=0, with the remaining three bounds necessary; taking x=a12,y=a13,z=a23,b=a13-a23 realizes all the minima. Their union and the 231-only region now follow by substitution, including boundary equalities. Both numerical examples satisfy their claimed defects and memberships. The amended Grigoriev comparison matches the original statement: k=1,s=3 admits four minors, while k=2,s=2 admits (q,m)=(1,3), giving d5. No original counterexample claim was retained.",
+      "residual_risks": [
+        "The finite certificate does not prove all-real membership; the reconstructed min-plus elimination does. Targets with infinite entries and matrices of other sizes are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Condition (1) includes all five defects at n=3. Part (ii) gives necessary alternatives up to a vanishing selected defect, not the full exceptional locus. Proposition 4.1 identifies the permutation conditional on existence and tropical nonsingularity."
+        ],
+        "reasoning": "The five-inequality sufficiency is covered by the general theorem, as is the generic full-dimensional exclusion. The necessity alternative permits a vanishing defect without deciding which such points factor. Conditional permutation identification does not establish cell membership, and does not include singular targets.",
+        "searches": [
+          "Grigoriev arXiv:2611.03896v1, Theorem 1.2(i)–(iii), §3 proof and Proposition 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Grigoriev arXiv:2611.03896v1",
+        "Niv arXiv:1202.3615",
+        "Exact assigned Resultary entry and bounded nearby retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Example 3.1 exhibits defects (0,0,1,0,-1) and belongs to 321. It does not decide between the d2=0 or d3=0 exception and the cases with neither zero.",
+          "The repaired 231-only example has (0,3,3,0,-6); the printed longest-cell sufficient conditions are silent on that case."
+        ],
+        "reasoning": "A nonnegative five-defect test and one known negative-d5 member do not prove the exact exceptional boundary equivalence. The general proof gives a useful normalization, but the size-three realization/obstruction with forced paths and the 231 test are additional. The original claim of a new fifth interior condition was removed, rather than certified by recalculation.",
+        "searches": [
+          "Grigoriev arXiv:2611.03896v1, equations (1)–(3), §3 and Example 3.1, §4 Proposition 4.1",
+          "Niv arXiv:1202.3615, Lemma 4.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Niv classifies factorizability into arbitrary sequences of tropical elementary matrices; the criterion is not for two triangular factors separated by a prescribed permutation.",
+          "Focused catalogue results included the exact assigned entry, not a distinct equivalent boundary classification."
+        ],
+        "reasoning": "Changing permitted factor products changes the membership question. Elementary factorizability does not give exact membership of either named cell.",
+        "searches": [
+          "Resultary: finite 3×3 min-plus Bruhat 321/231 membership and boundary-defect comparisons",
+          "Niv arXiv:1202.3615, Definitions 2.4–2.5 and Lemma 4.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/22/SCOPE-exact-finite-3-times3-min-plus-bruhat-cells-and-their-missing-po--a990df3bdfd4 is the exact assigned entry. No distinct matched tabulation of the two finite cells in the inspected catalogue results."
+        ],
+        "reasoning": "The catalogue mirror is not distinct prior coverage. The exact comparisons target formulas in defect coordinates, not merely matching matrix size.",
+        "searches": [
+          "Resultary exact size-three min-plus Bruhat and boundary-cell comparison"
+        ]
+      },
+      "rationale": "Credit the entire prior five-defect chamber and the known existence of exceptions. The revised result adds constructive necessary-and-sufficient tests for all equality cases, including the exact d5<0 exceptional part of 321, and the complete finite 231 cell and its separation from 321. No inspected distinct statement or broader theorem gives these together or implies that remaining classification directly.",
+      "residual_risks": [
+        "An equivalent small-size classification may be unindexed or implicit elsewhere. This is not a complete version-history or priority audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the sufficient region and generic regime; no inspected exact all-boundary two-cell classification",
+          "evidence": [
+            "Printed k+s=n+1 selects Δ(1,2;2,3) at n=3, besides the four southwest minors.",
+            "Example 3.1 identifies that same minor as -1 in its member of the longest cell.",
+            "Proposition 4.1 is conditional on a factorization already existing."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.03896v1",
+          "material_read": "Δ definition, Theorem 1.2(i)–(iii), equations (1)–(3) (PDF p. 2); §3 proof and Example 3.1 (PDF pp. 5–7); §4 Proposition 4.1",
+          "method": "Targeted OA HTML (offsets 4250, 18900 and 22500), with PDF layout checked for the key condition",
+          "title": "Min-plus Bruhat decomposition",
+          "trigger": "Same factorization with a plausible dominating general result; decisive printed theorem"
+        },
+        {
+          "assessment": "Related but different factorization notion",
+          "evidence": [
+            "Factors are tropical elementary matrices without the single prescribed permutation constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.3615",
+          "material_read": "Definitions 2.4–2.5 (PDF p. 3), Lemma 4.5 (PDF p. 11)",
+          "method": "OA PDF targeted definition and lemma",
+          "title": "Factorization of Tropical Matrices",
+          "trigger": "Size-three tropical factorization classification"
+        },
+        {
+          "assessment": "Same assigned record",
+          "evidence": [
+            "The same boundary formulas and same mistaken claim about Grigoriev's fourth/fifth condition."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-3-times3-min-plus-bruhat-cells-and-their-missing-po--a990df3bdfd4",
+          "material_read": "Finding, compared with the frozen result",
+          "method": "Resultary/local mirror",
+          "title": "Exact finite 3×3 min-plus Bruhat cells and their missing polyhedral chamber",
+          "trigger": "Exact catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md Finding, proof and comparison",
+        "Grigoriev arXiv:2611.03896v1, Theorem 1.2 and Example 3.1"
+      ],
+      "rationale": "The generic longest-cell test explicitly leaves a boundary problem. The repaired classification closes it in the first size with two possible finite cells, gives factors on both exceptional parts of the longest cell, and distinguishes decomposability in the second cell even when the longest-cell test fails. The complete criterion is useful for arbitrarily degenerate finite data and does not rely for significance on the false allegation of an error in the prior theorem.",
+      "residual_risks": [
+        "No extension to arbitrary dimension or infinite target entries is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

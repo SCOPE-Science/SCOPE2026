@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:22:03.813261Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–49",
+        "VERIFICATION.md:19–23",
+        "/workspace/review_evidence/5_transition_replay.py (independent polynomial-based bisection)"
+      ],
+      "rationale": "Compactness supplies a maximum. For a sign that attains the absolute maximum, the signed determinant is separately affine; a linear functional on each disk attains its maximum at a rim point, and the larger of the two disk maxima is the hull maximum. Replacing one vertex at a time therefore gives at least one maximizing tetrahedron on the generating circles. The 4+0 cases are flat, and in 3+1 the inscribed triangle area bound follows, for example, by maximizing the product of the sines of its angles at fixed circumradius; the perpendicular apex height gives the stated sharp branch. In 2+2, subtracting chord endpoints and removing chord-vector components of an inter-endpoint column gives the determinant of both full chord vectors and the midpoint difference. Hadamard and the triangle inequality bound it, and both attain equality with opposite axial midpoints and perpendicular cross chords. The scaled objective vanishes on u=1 or v=1, is positive in the interior and increases into the square from either positive part of the zero-coordinate edges. Its log is strictly concave by the diagonal strict curvature of the two log-square-root terms plus a concave log of an affine function. The interior equations yield the claimed positive quadratic root and chord lengths. Strict increase of H for positive ratios follows by holding the smaller-ratio interior optimizer fixed; continuity and endpoint values 1/3 and 8/(9√3) give exactly one crossing. Independently, H²=4(k+1)^4/[9k(2k+1)^2(k+2)]; the positive branch-equality equation on k≥1 gives ρ₀=0.67116753624387024… by decimal bisection. The numerical statement about agreement with the two-chord branch is evidence about that assigned distribution only, not the unrestricted maximum below the transition; the analytic proof explicitly handles both distributions.",
+      "residual_risks": [
+        "The analytic proof establishes the value and constructions, not a classification of all maximizers. The reported frozen four-angle numerical sanity check is not a certificate and was not used to establish optimization over all tetrahedra."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finch measures hull volume, area and mean width for perpendicular disks; Nash et al. study algebraic boundaries and stationary bisecants for a more general two-circle hull problem.",
+          "Horváth gives the regular-simplex extremum on a sphere; nearby hull optimization statements concern whole hull volume under motions or hulls of two regular simplices."
+        ],
+        "reasoning": "A larger family of bodies for a different objective, or an ambient-ball bound without equality, is not a general theorem that supplies the stated unequal-radius maximum. The geometry papers motivate the body and the chord viewpoint without proving the branch change in the inspected claims.",
+        "searches": [
+          "Finch arXiv:1211.4514v3, p. 1",
+          "Nash–Pir–Sottile–Ying arXiv:1612.09382v2, pp. 1–2",
+          "Horváth arXiv:1509.08859v2, §§2, 3.1–3.2"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary 3cfa0dcd5df1, Finding and Proof §§1–3",
+        "Horváth arXiv:1509.08859v2 §§2, 3.1–3.2",
+        "Finch arXiv:1211.4514v3 p. 1",
+        "Nash et al. arXiv:1612.09382v2 pp. 1–2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Steinmetz proof compares the same types at equal radii, where the two-chord branch wins and symmetry gives equal height offsets.",
+          "The unequal-radius solution instead has k determined by k(2k+1)/(k+2)=R²/r² and a crossing with the 3+1 branch. Neither the equal-case maximization nor a whole-hull volume or algebraic boundary formula yields these facts."
+        ],
+        "reasoning": "Some ingredients, including separately affine optimization and the triangle branch, extend directly. The distinctive claim is the globally sharp weighted chord optimum and its competition with the triangle at unequal radii, not a restatement of those ingredients or the equal-radius value.",
+        "searches": [
+          "Resultary 3cfa0dcd5df1, Finding and Proof §§1–3",
+          "Horváth §2; Finch p. 1; Nash et al. pp. 1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 3cfa0dcd5df1 gives the map u=(x+y)/2, v=(x−y)/2 with inverse volume factor 2 from the equal disk-hull model to the equal Steinmetz bicylinder, deriving the same 8R³/(9√3).",
+          "The equal disk hull lies in the enclosing ball and contains a regular tetrahedron, so the classical spherical maximum also gives precisely that value."
+        ],
+        "reasoning": "The linear map rigorously identifies an alternative equal-radius domain, not merely an analogous shape. It does not give the unequal-radius case: the equal cross-section widths used in the identity are explicitly equal at every height. The unequal hull generally does not attain the enclosing-ball regular-simplex bound.",
+        "searches": [
+          "Local Resultary search for maximum-volume tetrahedra in perpendicular disk/circle hulls and Steinmetz bicylinders",
+          "Horváth survey on volume of polytopes circumscribed or inscribed in a sphere, §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact value and coordinates match at ratio one after the determinant scaling; the inspected publications tabulate or characterize other geometric quantities, not a table of maximal tetrahedron volumes in the unequal-radius family."
+        ],
+        "reasoning": "Exact coinciding endpoint data are substantive prior coverage, but cannot distinguish the two branches or determine the crossing at an interior ratio. No ratio-dependent exact profile was established from the inspected evidence.",
+        "searches": [
+          "Resultary 3cfa0dcd5df1, exact maximum and disk-hull transform",
+          "Published papers on perpendicular disk and two-circle hulls, inspected invariant statements"
+        ]
+      },
+      "rationale": "The equal-radius value, generating-circle reduction there, and a stronger equal-radius equality statement already have exact indexed coverage. The equal-radius value is also implied by the classical spherical simplex bound. Originality is supported for the unequal-radius formula and the unique switch between two sharp distributions, without credit for the already covered equal family endpoint or for inventing the domain.",
+      "residual_risks": [
+        "Bounded checked passages do not exclude an unindexed treatment of the unequal-radius extremum. Same-day cataloguing does not assign priority of the equal-radius result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Demonstrable exact equal-radius overlap, even though the title names another body; does not state the unequal-radius transition",
+          "evidence": [
+            "The inverse map has determinant magnitude 2, and at each height the image section is a diamond with the equal widths of the generating disk sections.",
+            "The equal disk hull has maximum 8R³/(9√3) and the given perpendicular-chord supports; the finding classifies equal-radius maximizers in its affine model."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-the-largest-tetrahedron-in-a-steinmetz-bicylinder--3cfa0dcd5df1",
+          "material_read": "RESULT.md offsets 0–5100, Finding and Proof §§1–3, beginning of §4",
+          "method": "Exact local-mirror source read; checked the map and scaling",
+          "title": "The largest tetrahedron in a Steinmetz bicylinder",
+          "trigger": "Exact equal-radius case after a proposed affine equivalence"
+        },
+        {
+          "assessment": "Regular-simplex extremum implies the equal-radius value by containment and an attained witness",
+          "evidence": [
+            "A regular simplex maximizes four-vertex inscribed volume in the sphere; the equal-radius disk hull has such four vertices. Other inspected sections address different hull-volume objectives."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1509.08859v2",
+          "material_read": "§2 offsets 12400–15394; relevant claims in §§3.1–3.2",
+          "method": "Lawful OA HTML passage inspection",
+          "title": "Volume of convex hull of two bodies and related problems (Horváth survey)",
+          "trigger": "Classical ambient-ball extremum could imply part of the frozen result"
+        },
+        {
+          "assessment": "Body geometry and ambient invariants, not the varying-radius tetrahedral optimum in the inspected statement",
+          "evidence": [
+            "The stated objectives are volume, surface area and mean width of the hull."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4514v3",
+          "material_read": "p. 1 statement of scope and invariants",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Identical body construction in part of the paper"
+        },
+        {
+          "assessment": "Different optimized or classified objects in the inspected statements",
+          "evidence": [
+            "Algebraic boundaries, stationary bisecants, face structure and spectrahedral properties, without an unequal-radius inscribed-volume formula in the passages read."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1612.09382v2",
+          "material_read": "pp. 1–2 objectives and boundary statements",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Convex Hull of Two Circles in R³",
+          "trigger": "Broader class including the present hulls and their bisecants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:19–46",
+        "Resultary 3cfa0dcd5df1, equal-radius model and sharp value"
+      ],
+      "rationale": "The natural radius ratio tests whether the symmetric two-chord maximizer persists as the disks become unequal. The exact negative answer—a switch to a triangular base and a single apex—provides a nontrivial sharp example of changing optimizer type, with an explicit dividing parameter and exact extremal values. It goes beyond the already determined symmetric value and remains useful without a complete description of every maximizer.",
+      "residual_risks": [
+        "No extension to offset centers or other dihedral angles is assessed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:23:09.698382Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, chain-ring assumptions and lines 37–140",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Each local chain has ell_i+1 ideals and intersection is nonzero iff the active supports intersect. Removing zero and the ring gives the advertised vertex total and weights, with only the full-support weight reduced by one. Closed neighborhoods are the unions of all support cells meeting the given support. Distinct supports have different such unions, detected by a singleton support in their symmetric difference. In the quotient the degree 2^r−2^(r−|S|)−1 determines |S|; the singleton neighbors of a larger set determine its elements. Thus quotient automorphisms are coordinate relabelings, and for r≥2 the singleton weights force exactly the length-preserving relabelings. They lift as an action by permuting exponent coordinates, proving the split extension, not just its order. The kernel is exactly all independent internal permutations. One may omit at most one vertex per cell from a base; when every cell has size at least two, keeping the other vertices fixes all cells setwise and then pointwise. The full-support cell of W=P−1 vertices is strictly largest for r≥2 (every proper-support weight is at most P/2). Every distinguishing coloring needs W colors. For each proper-cell size k, 1≤k<W, there are at least W palettes of size k by the binomial bound, and fewer than W proper cells overall. Choosing different palettes and coloring each cell injectively destroys both block and internal symmetries. For r=1 the graph is K_{ell_1−1}, including K_1 with Det=0 and D=1. The singleton-size wording must be read with that boundary in mind: the sole cell for r=1 has weight ell_1−1. Inspected the frozen checker and recorded cases; the proof rather than these examples establishes arbitrary tuples.",
+      "residual_risks": [
+        "Does not treat mixed products with field factors, and does not identify graph automorphisms with ring automorphisms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 3.1 gives exactly the same 2^r−1 classes defined by zero coordinates, with adjacency inside a class and equal neighborhoods outside the pair; the paper then uses them to compute strong metric dimension for the all-nonfield family.",
+          "The same-setting 2014 full text was not recovered. The strongest accessible related distinguishing theorem is on nonzero component graphs, arXiv:1908.01001 Theorem 3.4."
+        ],
+        "reasoning": "Identifying the cells supplies the independent symmetric kernels and the immediate twin-based base bound. Strong metric dimension is a different invariant, and the available same-ring statements do not classify the induced weighted quotient action or give the required palettes for the punctured mixed-length graph.",
+        "searches": [
+          "Dodongeh–Moussavi–Nikandish arXiv:2309.13284, Remark 3.1, Lemma 3.1 and Theorem 3.1",
+          "Abu Osba–Al-Addasi–Abughneim DOI 10.1155/2014/952371",
+          "distinguishing number twin classes largest blow up color subsets automorphism"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2309.13284 Remark 3.1 and Theorem 3.1",
+        "arXiv:1908.01001 §§2–3",
+        "arXiv:1804.09701 introduction",
+        "Four Resultary records identified above",
+        "Frozen RESULT.md, lines 174–198"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior support decomposition plus nontrivial class sizes mechanically give Det=N−(2^r−1): at most one omission per class, and one fixed vertex in every class suffices to block class motion.",
+          "The prior q=2 quotient permutation theorem, together with the cell sizes, explains the unweighted action and the standard lift method. Nonuniform weights restrict the action to equal-length coordinates. The q≥3 distinguishing result for vector spaces instead has full-support weight (q−1)^r without a puncture."
+        ],
+        "reasoning": "What remains is not a special case of the old vector formula. It requires identifying the weighted action and proving that injective palettes fit within the punctured largest cell size P−1 for arbitrary lengths while also preventing support motions. Reusing arbitrary palettes injectively within each cell would only kill the internal permutations.",
+        "searches": [
+          "arXiv:2309.13284, Remark 3.1 and Theorem 3.1",
+          "arXiv:1908.01001, §2 and Theorem 3.4",
+          "Frozen RESULT.md, weighted action and palette proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nonzero component graph joins vectors when they share a nonzero coordinate in a fixed basis. For all ell_i=q−1, the ideal graph matches that graph over F_q after deleting one full-support vertex (and both models already omit the all-zero support).",
+          "arXiv:1908.01001 §2 restricts its S_r automorphism theorem to q=2, and Theorem 3.4 for q≥3 gives D=(q−1)^r for the unpunctured graph. arXiv:1804.09701 describes fixing neighborhoods and fixed number in the vector-space setting, and cites work on fixing number there."
+        ],
+        "reasoning": "These are strong analogues: the unweighted Boolean quotient is exactly the q=2 nonzero component graph. Equal chain lengths are closely modeled when ell+1 is a prime power, but Theorem 3.4 does not state the distinguishing number after deleting a universal vertex. Knowing the old value alone does not determine whether the new optimum drops by one. General unequal lengths also change which coordinate permutations lift.",
+        "searches": [
+          "Automorphism related parameters of a graph associated to a finite vector space; nonzero component graph",
+          "arXiv:1908.01001, §§2–3",
+          "arXiv:1804.09701, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both October 4 records give the same support-intersection architecture, one for zero forcing/nullity/rank and one for total and paired domination.",
+          "The reduced comaximal graph record covers determining sets in a different support model (disjoint-support adjacency and products of fields); the same-day total graph record covers these three symmetry parameters on elements of a local ring, not on ideals of a product."
+        ],
+        "reasoning": "The same graph with different invariants is material structural overlap. A distinct same-day graph is excluded by adjacency and vertex-set differences, not by dating. No exact heterogeneous weighted symmetry formula was established in the inspected index hits.",
+        "searches": [
+          "Resultary: ideal-intersection graph support cells and symmetry breaking",
+          "2026/10/4/SCOPE-zero-forcing-recovers-the-local-factor-count-of-nonreduced-finit--859c9e7afd9f",
+          "2026/10/4/SCOPE-minimum-total-and-paired-domination-in-ideal-intersection-graphs--a7f8c7ca2fea",
+          "2026/10/12/SCOPE-determining-sets-of-reduced-comaximal-graphs-a-boolean-phase-tra--04b167ffae3f",
+          "2026/10/13/SCOPE-symmetry-breaking-in-total-graphs-of-finite-local-rings--8d3102f2f8f0"
+        ]
+      },
+      "rationale": "The support-cell geometry and the standard twin argument for the base size are prior or immediate from prior structure and are not credited as distinct. The supported contribution is the exact weighted action for arbitrary nonfield chain lengths and the corresponding sharp distinguishing number, including unequal and repeated lengths and the full-support puncture. A very close preprint on nonzero component graphs treats the unpunctured equal-coordinate model and gives the analogous full-support bound there; it does not give the weighted, punctured ideal graph theorem.",
+      "residual_risks": [
+        "The 2014 exact-setting paper and earlier Chakrabarty et al. paper were not independently available in full text; the access limits do not establish absence of coverage.",
+        "A more general published weighted-support coloring theorem could reduce the remaining contribution; none was established in the passages inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct support-class antecedent; the theorem inspected concerns strong metric dimension",
+          "evidence": [
+            "Remark 3.1 fixes coordinates equal to zero and counts 2^r−1 adjacent-vertex classes; their identical external neighborhoods give the true-twin relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2309.13284",
+          "material_read": "PDF p. 2 graph definition; p. 6, Remark 3.1 and Lemma 3.1, offsets 13900–17465; p. 9, Theorem 3.1",
+          "method": "OA preprint PDF passage inspection",
+          "title": "Strong resolving graph of the intersection graph in commutative rings",
+          "trigger": "Same ideal-intersection graph and nonfield PIR decomposition"
+        },
+        {
+          "assessment": "Exact unweighted quotient action, and analogous distinguishing theorem for unpunctured uniform weights",
+          "evidence": [
+            "§2 explicitly treats q=2, yielding the coordinate symmetric group; Theorem 3.4 states (q−1)^r for r≥3 and q≥3 on the unpunctured vector graph."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.01001",
+          "material_read": "§2 around offsets 9313–9930 and Theorem 2.11 around offset 15917; p. 9, Theorem 3.4 and proof at offset 26580 onward",
+          "method": "OA preprint locate and bounded reading",
+          "title": "Distinguishing Number of Non-Zero Component Graphs",
+          "trigger": "Closely equivalent support-intersection graph and same invariants"
+        },
+        {
+          "assessment": "Fixing neighborhoods and fixed number for the vector model; not evidence of coverage of heterogeneous punctured weights",
+          "evidence": [
+            "The paper distinguishes fixing number from fixed number and identifies the nonzero component graph as its object."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.09701",
+          "material_read": "Abstract and p. 2 scope discussion, offset 4510 onward",
+          "method": "OA preprint bounded reading",
+          "title": "Automorphism related parameters of a graph associated to a finite vector space",
+          "trigger": "Related fixing parameters for coordinate-support graphs"
+        },
+        {
+          "assessment": "Access failure, not negative evidence",
+          "evidence": [
+            "The frozen record credits the structural chain-ring setup to this paper; the assessment here instead relies on the accessible direct structural antecedent arXiv:2309.13284."
+          ],
+          "identifier_or_url": "DOI 10.1155/2014/952371",
+          "material_read": "No relevant full-text passage recovered",
+          "method": "DOI and official PDF routes and lawful OA recovery attempted",
+          "title": "Some Properties of the Intersection Graph for Finite Commutative Principal Ideal Rings",
+          "trigger": "Exact underlying algebraic setting"
+        },
+        {
+          "assessment": "Same structural model, different exact invariant results",
+          "evidence": [
+            "One finding concerns zero forcing, maximum nullity and minimum rank; the other total and paired domination."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-zero-forcing-recovers-the-local-factor-count-of-nonreduced-finit--859c9e7afd9f; 2026/10/4/SCOPE-minimum-total-and-paired-domination-in-ideal-intersection-graphs--a7f8c7ca2fea",
+          "material_read": "Resultary Findings and support-adjacency proof passages",
+          "method": "Resultary and local-mirror text",
+          "title": "Zero forcing recovers the local factor count; minimum total and paired domination in ideal-intersection graphs",
+          "trigger": "Same support-intersection graph and related invariants"
+        },
+        {
+          "assessment": "Different graphs or assumptions; no same-day priority inference",
+          "evidence": [
+            "Reduced comaximal graphs use disjointness on field-support cells. The total graph record concerns element vertices of a local ring."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-determining-sets-of-reduced-comaximal-graphs-a-boolean-phase-tra--04b167ffae3f; 2026/10/13/SCOPE-symmetry-breaking-in-total-graphs-of-finite-local-rings--8d3102f2f8f0",
+          "material_read": "Findings and graph definitions",
+          "method": "Resultary and local-mirror text",
+          "title": "Determining sets of reduced comaximal graphs; symmetry breaking in total graphs of finite local rings",
+          "trigger": "Closely related support/determining parameters and a same-day graph-symmetry record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and palette proof",
+        "Same-ring and vector-support comparisons above"
+      ],
+      "rationale": "Gives the full symmetry and sharp palette size for a natural infinite family with unequal and repeated chain lengths. The indexed weights explain which coordinate symmetries persist, and the exact D+1 yields the product of the local chain lengths without identifying the residue fields. The value lies in the weighted action and sharp distinguishing invariant, not the previously known cell architecture or immediate base-size observation alone.",
+      "residual_risks": [
+        "The recovered product alone is not ring reconstruction; the result makes no claim of giving automorphisms for mixed products with field factors."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

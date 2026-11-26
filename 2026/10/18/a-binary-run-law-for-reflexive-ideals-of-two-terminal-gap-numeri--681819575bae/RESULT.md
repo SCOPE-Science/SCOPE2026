@@ -10,7 +10,7 @@ S_m^{(2)}=\{0\}\cup\{m,m+1,\ldots,2m-3\}\cup[2m,\infty)\cap\mathbb Z.
 \]
 A *normalized ideal* of \(S\) is an ideal \(I\) with \(\min I=0\), equivalently \(S\subseteq I\subseteq\mathbb N\). For subsets of integers, set \(S-I=\{z\in\mathbb Z:z+I\subseteq S\}\), and call \(I\) *reflexive* (or *divisorial*, *bi-dual closed*) when \(I=S-(S-I)\).
 
-**Theorem.** The semigroup \(S_m^{(1)}\) has exactly \(2^{m-1}+1\) normalized ideals, all reflexive. The semigroup \(S_m^{(2)}\) has exactly \(2^{m-1}+5\) normalized ideals, of which exactly \(a_{m-1}+1\) are reflexive, where \(a_n\) is the number of binary words of length \(n\) containing no isolated zero (all zero-runs have length at least two). Explicitly,
+**Normalized-ideal census.** For \(S_m^{(1)}\), the normalized ideals consist of the base semigroup and the \(2^{m-1}\) ideals containing its terminal gap, one for each choice of the low gaps. All are reflexive by symmetry. For \(S_m^{(2)}\), write \(b=2m-2\), \(c=2m-1\). There are \(2^{m-1}\) ideals containing both \(b,c\) and precisely five outside this family: the base semigroup, the two ideals obtained by adding \(b\) with or without the low gap \(1\), and the two obtained by adding \(c\) with or without the low gap \(m-1\). Thus the total counts are \(2^{m-1}+1\) and \(2^{m-1}+5\), respectively. Combined with the length-two window description of reflexivity below, this gives the exact proportion \((a_{m-1}+1)/(2^{m-1}+5)\) for the two-gap family, where \(a_n\) counts binary words of length \(n\) with no isolated zero. For reference, the word count satisfies
 \[
 a_n=\sum_{k=0}^{\lfloor(n+1)/3\rfloor}{n-k+1\choose2k},\qquad
 \sum_{n\ge0}a_nz^n=\frac{1-z+z^2}{1-2z+z^2-z^3}.
@@ -21,7 +21,7 @@ Thus \(a_0=a_1=1\), \(a_2=2\), and \(a_n=2a_{n-1}-a_{n-2}+a_{n-3}\) for \(n\ge3\
 \quad C=-\frac{1-r+r^2}{r(-2+2r-3r^2)},\quad r=\lambda^{-1},\quad C\simeq0.7221244183.
 \]
 
-More precisely, the normalized ideals of \(S_m^{(2)}\) that contain both terminal gaps are indexed by subsets \(T\subseteq\{1,\ldots,m-1\}\). Their reflexive closure is obtained by adding precisely those absent elements of \(T\) that form singleton zero-runs. The ideal \(S_m^{(2)}\) itself is the one further reflexive ideal.
+For the reflexive numerator, namely \(a_{m-1}+1\), the length-two window calculation fills just the singleton zero-runs among the absent low gaps when both terminal gaps are present. The base semigroup itself is the only reflexive ideal outside that family. We include the reflexive count and run calculation to make the census and proportion self-contained, not as separate originality claims.
 
 ## Assumptions and scope
 
@@ -58,14 +58,17 @@ The supplied standalone `verify_reflexive.py` enumerates **all** gap subsets for
 
 ## Relationship to prior work
 
-Campochiaro, D’Anna, and García-Sánchez, *Reflexive ideals of a numerical semigroup* (arXiv:2610.06426v1, first available October 5, 2026), provide the framework for numerical biduality, irreducible reflexive ideals, and Apéry formulas, and characterize reflexivity in several important semigroup classes. Their Proposition 52 gives the classical symmetric-semigroup implication used above; no exact two-terminal-gap word enumeration or exponential density law was found in the relevant manuscript sections. Spirito, *Star operations on numerical semigroups: antichains and explicit results* (arXiv:1604.02862), studies v-closure and the number of star operations, a different enumeration invariant. The present claim is the explicit two-family normalized-ideal census and local singleton-zero closure rule, **not** the general theory of reflexive ideals or the previously known symmetric case.
+Campochiaro, D’Anna, and García-Sánchez [1, Proposition 52] give the symmetric-semigroup implication used in the one-gap case. The binary sequence is OEIS A005251 with index shift two [4]. The sliding-window classification [5] states its theorem for terminal-block lengths \(r\ge3\), but its quotient calculation also works for \(r=2\): the windows are indexed by low gaps, with a window-position absent from the union precisely when both low gaps at the corresponding adjacent pair are absent. A missing low gap therefore survives as a gap of the bidual precisely when it belongs to a missing adjacent pair. The count and singleton-zero rule are included here as consequences of that calculation. This comparison is about mathematical coverage, not chronological priority. The window description does not enumerate the normalized ideals that omit part or all of the terminal block. The distinct census concerns the full normalized-ideal family, including the exceptional cases that determine the denominator of the exact reflexive proportion. Spirito [2] enumerates star operations, a different invariant; Chavan [6] studies counts by codimension or conductor with explicit families other than the census here.
 
 ## Limitations
 
-The theorem counts normalized numerical-semigroup ideals, not translated fractional ideals, ring-theoretic modules, or arbitrary numerical semigroups of conductor \(2m\). The closure rule for nontrivial ideals containing both terminal gaps does not purport to describe all other semigroup families. Literature searches do not establish absolute novelty: an equivalent formula in unindexed work, tables, or another combinatorial formulation remains possible. The independent scientific audit has not been performed.
+The theorem counts normalized numerical-semigroup ideals, not translated fractional ideals, ring-theoretic modules, or arbitrary numerical semigroups of conductor \(2m\). The census of all ideals, including the exceptional cases, is specific to these two families. An equivalent census in unindexed work, tables, or another combinatorial formulation remains possible.
 
 ## References
 
 1. P. Campochiaro, M. D’Anna, P. A. García-Sánchez, *Reflexive ideals of a numerical semigroup*, arXiv:2610.06426v1 (October 5, 2026), https://arxiv.org/html/2610.06426v1.
 2. D. Spirito, *Star operations on numerical semigroups: antichains and explicit results*, arXiv:1604.02862, https://arxiv.org/abs/1604.02862.
 3. S. Bonzio and P. A. García-Sánchez, *The poset of normalized ideals of numerical semigroups with multiplicity three*, Communications in Algebra (2025), title/abstract used to delimit the fixed-multiplicity scope.
+4. The On-Line Encyclopedia of Integer Sequences, A005251, https://oeis.org/A005251 (see the binary-word interpretation at index \(n+2\) for words of length \(n\)).
+5. *Sliding-window classification and growth of reflexive ideals in terminal-gap numerical semigroups*, Resultary 62b4b8c42504, quotient and sliding-window calculation. https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-sliding-window-classification-and-growth-of-reflexive-ideals-in--62b4b8c42504
+6. P. Chavan, *Counting Ideals in Numerical Semigroups*, arXiv:2304.13690, https://arxiv.org/abs/2304.13690.

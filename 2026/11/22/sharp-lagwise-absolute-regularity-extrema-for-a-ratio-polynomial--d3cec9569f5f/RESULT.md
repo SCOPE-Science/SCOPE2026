@@ -17,10 +17,10 @@ Set \(s=\sqrt{1+\alpha}\), \(s_0=\sqrt{(\sqrt5-1)/2}\), and define
 B_m(s)=\frac{2|s-1|}{(s+1)^3}
 \left(\frac{|s^2-1|}{3s^2}\right)^{m-1}.
 \]
-Then \(\beta_m(\alpha)=B_m(\sqrt{1+\alpha})\) for every \(\alpha\ge-r\), including \(\alpha=0\). The full parameterwise maxima are **attained uniquely** as follows:
+When \(m=1\), a factor with exponent \(m-1\) is interpreted as the empty product \(1\), including at \(s=1\). Then \(\beta_m(\alpha)=B_m(\sqrt{1+\alpha})\) for every \(\alpha\ge-r\), including \(\alpha=0\). The full parameterwise maxima are **attained uniquely** as follows:
 \[
 \begin{aligned}
-\sup_{\alpha\ge-r}\beta_1(\alpha)&=\frac{2(1-s_0)}{(1+s_0)^3}=0.07505535155311495\ldots,
+\sup_{\alpha\ge-r}\beta_1(\alpha)&=\frac{2(1-s_0)}{(1+s_0)^3}=0.075055351553114962\ldots,
 &\alpha_{\rm max,1}&=-r,\\
 \sup_{\alpha\ge-r}\beta_m(\alpha)&=\frac{2\sqrt m}{(2+\sqrt m)^3}\left[\frac{m+2\sqrt m}{3(1+\sqrt m)^2}\right]^{m-1},
 &\alpha_{\rm max,m}&=m+2\sqrt m\quad(m\ge2).
@@ -82,7 +82,7 @@ show \(B_m(s_0)<(1/54)(1/4)^{m-2}=B_m(2)\), the value at the admissible positive
 \[
 \left[1-(1+\sqrt m)^{-2}\right]^{m-1}\longrightarrow e^{-1}.
 \]
-This proves the sharp asymptotic. On the centered \(L^2([0,1])\) subspace, the rank-one transition operator has exactly one nonzero eigenvalue \(\lambda_\alpha=\alpha/[3(1+\alpha)]\); thus the lag-\(m\) maximal correlation is \(|\lambda_\alpha|^m\). As \(\alpha\to\infty\), \(|\lambda_\alpha|\to1/3\) while the formula for \(B_m\) tends to zero. This proves the last assertion.
+This proves the sharp asymptotic. On the centered \(L^2([0,1])\) subspace the transition operator has rank at most one, with eigenvalue \(\lambda_\alpha=\alpha/[3(1+\alpha)]\) on the line spanned by \(g_\alpha\) and zero on its orthogonal complement. Thus the lag-\(m\) maximal correlation is \(|\lambda_\alpha|^m\), including zero at independence. As \(\alpha\to\infty\), \(|\lambda_\alpha|\to1/3\) while the formula for \(B_m\) tends to zero. This proves the last assertion.
 
 ## Verification
 Run `python check_beta_envelope.py` with Python 3 and SymPy. The script checks the copula factorization, mixed density, rational integral evaluation, negative-boundary polynomial, derivative formula and exact rational inequalities; it also performs finite, explicitly non-exhaustive numerical sanity checks at several lags. Critical all-domain and asymptotic deductions are analytical and do not rely on a numerical grid or a timeout. Expected final output begins with `PASS: exact algebra`.
@@ -91,7 +91,7 @@ Run `python check_beta_envelope.py` with Python 3 and SymPy. The script checks t
 Chesneau (2023), Proposition 1 and Lemma 1, introduced the ratio-polynomial copula and calculated its self-fold product, using the sufficient parameter interval \(\alpha\ge-1/4\); its rho-of-Spearman optimization is distinct from absolute regularity. Longla, Mous-Abou and Ngongo (2022) studied mixing classes for copula Markov chains, including the FGM fold-product. Longla (2024a), Theorem 2.1, established the general rank-one fold-product principle, and Longla (2024b) further developed general spectral copula mixing properties. Therefore the rank-one composition itself is **not** presented as a new general discovery. The result here is the exact full-parameter, all-lag total-variation coefficient and the nontrivial *global extremizer switch*, with a sharp lag-dependent optimizer and asymptotic. The full admissibility boundary is a prerequisite, not a separate novelty claim. No examined source states this same family-specific sharp envelope.
 
 ## Limitations
-Historical originality is conditional on the accessible cited literature and research-record comparisons; absence of a matching result in searches does not prove first discovery. This is a theoretical stationary-chain result, not an empirical mixing-rate estimation claim. No independent mathematical validation has been performed. The formula uses the exact absolutely continuous copula, not a singular or nonstationary extension.
+Historical originality is conditional on the accessible cited literature and research-record comparisons; absence of a matching result in searches does not prove first discovery. This is a theoretical stationary-chain result, not an empirical mixing-rate estimation claim. The formula uses the exact absolutely continuous copula, not a singular or nonstationary extension.
 
 ## References
 1. C. Chesneau, “Theoretical Advancements on a Few New Dependence Models Based on Copulas with an Original Ratio Form,” *Modelling* 4 (2023), 102–132, published 29 March 2023. https://doi.org/10.3390/modelling4020008 . Primary source, full article, especially Proposition 1, Lemma 1, Sections 2 and 7.

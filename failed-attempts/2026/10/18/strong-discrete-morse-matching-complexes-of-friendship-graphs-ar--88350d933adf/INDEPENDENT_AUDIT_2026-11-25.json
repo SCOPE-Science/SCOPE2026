@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:49:00.756858Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–67",
+        "Frozen VERIFICATION.md, verify_friendship.py and verification_output.txt (inspected, not executed)",
+        "Knudson–Owens–White arXiv:2609.06844v1 §§3–4",
+        "Independent replay: python /workspace/branches/independent_replay.py 3; exhaustive complete face-set comparison at n=1,2,3 with empty-face-inclusive f-vectors [1,6], [1,12,24], [1,18,72,88]"
+      ],
+      "rationale": "For an injective vertex order on the unfilled friendship graph, the descending link is discrete; a pairing is produced exactly when there is one earlier neighbor. A petal entirely before the hub produces its one internal arrow, a petal entirely after the hub its first outer-to-hub arrow, and a split petal no outer arrow. Every selection from the four-point petal factors is realized by placing all internal-choice petals entirely before the hub and the rest after it, with the chosen orientations; the downward closure gives the entire join. A hub-origin arrow forces exactly one earlier outer vertex, so its petal supplies no other pair and all other petals have the two outer-to-hub choices. These choices are all realized and give two cones per petal. Distinct apices never occur together, so the intersection at each attachment is the base, the join of n-1 two-point sets, an S^(n-2). Its inclusion is null because it lies in the cone given by any point of the omitted four-point factor. The simplicial inclusion is a cofibration, so its mapping cone wedges on the suspension S^(n-1), including the two-point base at n=2. The core join has 3^n spheres (iteratively join with four points, i.e. attach four cones along the previous join). Counting faces of the core and faces containing exactly one exceptional apex proves the polynomial. For n=1 every vertex order produces one pair, all six occur, and the six isolated vertices give 1+6t.",
+      "residual_risks": [
+        "The independent enumeration checks only n≤3, and the frozen mod-two computations only the listed finite cases. Neither computation is used as an integral homotopy proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Knudson–Owens–White Proposition 8.5 already treats the one-petal triangle; Proposition 10.3 applies to disjoint unions and cannot be substituted at an identified hub.",
+          "The exact Resultary statement covers every m≥1, not just a finite collection or n=1."
+        ],
+        "reasoning": "The cited disjoint-union or single-cycle results do not give the general connected family, but the distinct matching Resultary record covers the full range directly.",
+        "searches": [
+          "arXiv:2609.06844v1, graph-family results and Proposition 10.3",
+          "Resultary c88f401c5072 theorem scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c88f401c5072 RESULT.md and METADATA.json",
+        "Knudson–Owens–White arXiv:2609.06844v1",
+        "Donovan–Scoville NYJM 29 (2023)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the inspected Resultary finding the wedge dimension is m-1 with the same number of spheres. The exact simplicial join-and-cone identity in that record coincides with the frozen identity after relabeling.",
+          "The matching catalogue record has a different record ID and later publication field; its first-public-date field agrees with the date of the cited foundational preprint and does not show precedence for the friendship-graph claim."
+        ],
+        "reasoning": "There is no extra hypothesis or mathematical strengthening in the frozen claims relative to the matching theorem. Demonstrable equivalent coverage is separable from priority; the later date does not make the identical theorem mathematically distinct or show it was already known at the frozen record's date.",
+        "searches": [
+          "Resultary c88f401c5072 RESULT.md, Finding, Assumptions and start of Proof, and publication field in METADATA.json",
+          "arXiv:2609.06844v1 Proposition 8.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c88f401c5072 uses exactly the same injective orders, one-earlier-neighbor rule, graph with unfilled triangular petals and full downward closure (RESULT.md offsets 330–2523).",
+          "Donovan–Scoville have the same underlying graph, but ordinary edge sets as faces rather than strong vertex–edge Hasse pairs."
+        ],
+        "reasoning": "The friendship/windmill change of graph name is immaterial, but the complex type is essential. The Resultary match has the same complex and is genuinely equivalent; the ordinary matching complex is not.",
+        "searches": [
+          "Resultary: full strong Morse matching complex of friendship graphs, triangular Dutch windmills and triangle bouquets",
+          "arXiv:2609.06844v1 Definitions 3.2 and 4.2",
+          "Donovan–Scoville Definition 5.7 and Theorem 5.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c88f401c5072 gives rank 3^m+2m and the exact all-m, all-k face counts binom(m,k)4^k+2m binom(m-1,k-1)2^(k-1), for 1≤k≤m."
+        ],
+        "reasoning": "This is exact coverage, not a matching sequence of small Betti numbers. Adding the one empty face and taking the generating sum in k gives precisely the frozen polynomial.",
+        "searches": [
+          "Resultary: friendship graphs exponential sphere-wedge formula 3^n+2n and exact face vector"
+        ]
+      },
+      "rationale": "A distinct published record, Resultary c88f401c5072, demonstrably covers both principal claims for the identical full complex, including the same defining vertex-order rule, the wedge theorem and the complete face data. It also displays the same core join and exceptional cone decomposition. Adding the empty-face term to that record's exact face vector is not distinct mathematical content. The n=1 wedge is already in Knudson–Owens–White. No separate original remainder was identified. This is an equivalent-coverage decision: the exact matching catalogue record's publication field is later than the frozen record, and the comparison does not assert that the later record anticipated this one, assign priority, or infer how either record was produced.",
+      "residual_risks": [
+        "The relationship and priority between the two exact matching Resultary records are unresolved; there is no inference of derivation or independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent all-parameter coverage in a distinct, later-dated published record; priority not inferred",
+          "evidence": [
+            "All m≥1, wedge of 3^m+2m spheres S^(m-1); exactly the coefficient formula of the frozen face polynomial; same core join and two cones per petal."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-strong-morse-complexes-of-friendship-graphs-an-exponential-spher--c88f401c5072/RESULT.md",
+          "material_read": "RESULT.md offsets 330–2523 (finding, exact face vector, definition and decomposition); METADATA.json publication field",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; face-vector-to-polynomial and hypothesis comparison",
+          "title": "Strong Morse complexes of friendship graphs: an exponential sphere-wedge formula",
+          "trigger": "Exact family, complex and wedge rank match"
+        },
+        {
+          "assessment": "Defines the full complex and covers the n=1 case; disjoint-union result does not cover one-hub amalgams",
+          "evidence": [
+            "Six strong 1-matchings on C3, wedge of five zero-spheres. The construction on the graph's discrete descending links gives the one-neighbor rule."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.06844v1",
+          "material_read": "Definition 3.2 and construction, PDF pp. 4–5; Definition 4.2 p. 7; Proposition 8.5 p. 13; Proposition 10.3 p. 27",
+          "method": "Open primary PDF, bounded source passages and hypothesis comparison",
+          "title": "Complexes of strong discrete Morse matchings",
+          "trigger": "Same invariant and graph-family computations"
+        },
+        {
+          "assessment": "Different matching complex",
+          "evidence": [
+            "Theorem 5.8 gives contractibility for the ordinary graph matching complex of the triangular windmill."
+          ],
+          "identifier_or_url": "https://nyjm.albany.edu/j/2023/29-54p.pdf",
+          "material_read": "Definition 5.1 p. 1407, Definition 5.7 and Theorem 5.8 p. 1409",
+          "method": "Open primary PDF, comparison of vertices of each complex",
+          "title": "Star clusters in the matching, Morse, and generalized complex of discrete Morse functions",
+          "trigger": "Same graph under Dutch windmill name"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 23–62",
+        "Knudson–Owens–White Proposition 10.3 and Donovan–Scoville Theorem 5.8"
+      ],
+      "rationale": "As mathematics, the uniform integral homotopy and complete face enumeration of a natural one-vertex amalgamation family address a structural question not answered by a disjoint-union join law. The explicit cones explain the effect of the common hub, and the contrast with the ordinary edge-matching complex on the same graphs is substantive. This value does not negate equivalent coverage of the actual result.",
+      "residual_risks": [
+        "No extension to filled simplices or arbitrary vertex amalgams is provided."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

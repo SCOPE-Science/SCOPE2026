@@ -1,11 +1,21 @@
-# Mathematical review of the cyclic two-binomial spectrum theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The scattering statistic counts ordered zero-one pairs. Moving a leading zero to the end subtracts three pairs; moving a leading one adds the number of zeros. The three gap roots and the polynomial identity follow by a finite geometric sum. Polynomial cancellation, a nonsingular three-by-three matrix, and Burnside's lemma prove the complete infinite classification, including the two exceptional small lengths. The verifier checks independently enumerated examples as diagnostic evidence. The underlying exact partner is an involution on cyclic gap triples, so the fiber-size bound is substantive rather than an assumption.
+## correctness
 
-**Originality — PASS, qualified.** The nearest published cyclic two-binomial result gives extrema for the count of distinct observations within one source, not the inverse-fiber enumeration of *the full spectrum with multiplicities*. Brunetti et al. prove modular equidistribution of inversion numbers under rotation but not the full cross-necklace classification; Rigo–Salimov and Lejeune–Rigo–Rosenfeld focus on binomial classes of linear words and infinite-word factors. The three-deck weight-three result is about length-three scattered counts of a single linear word. No source inspected states the reflection-complement partner or \(\binom h2\) cross-necklace doubleton census. An earlier equivalent unindexed result remains possible; novelty is not certified independently.
+PASS
 
-**Mathematical value — PASS.** This gives the exact capacity and inverse multiplicities of a natural cyclic scattered-subsequence observation channel at the first interesting sparse-marker weight. The sharp divisibility-by-three transition, first ambiguity at length nine, and explicit ambiguity involution expose structural information not supplied by a generic inversion congruence or marginal count. The question is motivated by reconstruction from binomial observations rather than an arbitrary finite numerical slice. The all-length classification does not assert coding-optimality under noise or higher-weight inversion.
+For the three gaps g_j, direct one-start counts are t_j=2g_j+g_(j+1). Moving a leading one adds n-3 and moving a leading zero subtracts 3. Multiplication of each zero-gap geometric progression by X^3-1 telescopes to X^(t_j+n)-X^(t_(j+1)+3), including when the gap is empty; adding the three one-start terms yields the exact polynomial identity. Cancellation reduces complete spectra to unordered t triples, working also for periodic sources. The matrix taking gaps to t is invertible with determinant 9 and commutes with 3-cycles, so the two permutation cosets give at most two necklaces. Swapping t_2 and t_3 gives the reversed coordinates subtracted from 2(n-3)/3; integrality requires 3|n, and nonnegativity is exactly the stated bound. At n=3(h+1), there are 3h^2+3h+1 admissible ordered triples by subtracting three disjoint forbidden-coordinate ranges. Burnside gives h^2+h+1 cyclic orbits. Equality under the reflected-complement involution up to a 3-cycle forces one coordinate h and the other two complementary; with h in the middle this gives exactly 2h+1 fixed orbits, including (h,h,h). The remaining orbits pair, giving binom(h,2); subtracting from the unconstrained Burnside count gives (h+1)^2. Independently checked n=3 through 30 (1,360 necklaces) by encoding the one positions p and computing each rotation's count as sum((p-i) mod n)-3, without the gap compression. It reproduced the stated first doubleton spectrum and all sampled fiber counts. This finite check supplements the all-n proof.
 
-**Closest sources and scope limits.** The basic cyclic inversion increment already appears in Brunetti–Del Lungo–Del Ristoro (2002). The 2013 Rigo–Salimov preprint defines the two-binomial observation. The published fixed-weight cyclic fingerprint-extrema result is the closest statement-level comparator; its within-source distinctness bounds cannot imply this cross-source spectrum-fiber distribution. Exact claims require all rotation multiplicities, oriented necklaces, and weight three.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The basic inversion increment and ordinary two-binomial word invariant are prior ingredients. The supported distinct result is the exact inverse-fiber classification for the full rotation multiset, including its only possible mate, divisibility obstruction and complete doubleton census. Inspected neighboring results do not imply it.
+
+## value
+
+PASS
+
+The exact inversion ambiguity of a natural deliberately unlabeled rotation observation is more informative than a support-size bound. A uniform reconstruction law, a sharp divisibility condition, and the exact number and identity of ambiguous sources at the first weight where this obstruction is substantive are useful together. The theorem classifies all lengths, not just the first collision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

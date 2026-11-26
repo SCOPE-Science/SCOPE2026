@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:42:34.331221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on the lattice phase, independent Gaussian measurements with known variance contribute q_E^2/(v/E+w) each for the sole depth parameter. Integrating over phase and tiling the line divides the convolution energy by E+H; the finite-support overlap has a plateau of height min(E,L)/E and two linear ramps of width min(E,L), giving the two frozen pieces with the advertised normalization L/v. Direct differentiation gives sign numerators P_1=3h−2hx−(1+3r+hr)x² and P_2=h+2x−3x²+r(2hx−3hx²+3x²−6x³), each strictly decreasing on its own interval. Both give Q=h(1−r)−(1+3r) at x=1; P_1 starts positive and P_2 tends to minus infinity, allowing exactly one global optimum, including at Q=0. With J=F(x)/[(x+h)(1+rx)], the logarithmic derivative equals F'/F−1/(x+h)−r/(1+rx), strictly increasing in h and strictly decreasing in r pointwise. This proves strict comparative statics across the branch join as well as within branches. Rationalizing the positive quadratic root gives the short-branch formula and the small-h behavior. For r>=1 the optimizer stays at most one; for 0<r<1 eventually it is on the longer branch, bounded above by the positive root of 1+2rx−3rx² because P_2=0 requires that expression positive. Dividing the stationarity equations by h now gives the claimed limiting roots, including the limit one at r=1. At r=0 the long branch is an exact quadratic and grows like sqrt(h/3). These claims concern conditional-on-known-phase depth information averaged over designs, not Fisher information in an observation model marginalizing unknown timing. Read VERIFICATION.md and CHECKER.py without executing the uploaded code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Price–Rogers explicitly use an effective cadence with an exposure-plus-readout denominator and discuss adding per-read noise to photon noise. Hernandez Camero et al. investigate numerical joint-parameter precision and cadence for more realistic light curves.",
+          "Kipping integrates the squared top-hat-convolved transit signal, shows the box-transit case in Fig. 2, and proves smearing attenuation under its noise/cadence assumption. It does not optimize that attenuation against the product of duty cycle and positive flux-floor loss."
+        ],
+        "reasoning": "The information method, integrated box profile, and duty factor are established ingredients. These broader frameworks do not furnish the exact optimizer classification under the added positive independent flux floor. The literature query returned pulsed-radiation dead time and engineering boxcar averaging results, not on-point transit optimization; that search result alone is not negative evidence.",
+        "searches": [
+          "Literature: optimal exposure time longer than transit duration dead time phase averaged Fisher information box transit independent noise floor cadence readout optimal rectangular pulse",
+          "arXiv:1408.4124 equation (9) and read-noise discussion; arXiv:2302.02897 pp. 1–3; arXiv:2305.06790 §§4.2–4.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, CHECKER.py",
+        "Resultary 0dd54e4b63d9",
+        "arXiv:1408.4124",
+        "arXiv:2302.02897",
+        "arXiv:2305.06790"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing contiguous-model phase average gives the common numerator exactly. With r>0 its one-parameter stationarity polynomial does not establish monotonicity, uniqueness, the new boundary h(1−r)=1+3r, or the distinct high-dead-time saturation; those require optimizing with the extra factor 1+rx.",
+          "The frozen noise floor has averaged-flux variance w, or integrated-flux variance wE², not the constant integrated read-noise variance R²."
+        ],
+        "reasoning": "Use of prior geometrical and statistical ingredients is acknowledged. The supported new claim is the complete classification in genuinely different joint parameters, not the geometry or the inherited zero-floor member.",
+        "searches": [
+          "Local original 0dd54e4b63d9 Proof: Phase averaging; Uniqueness and transition; arXiv:1408.4124 Eq. (9) and discussion; arXiv:2305.06790 §§4.2–4.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed known template and independent Gaussian variance, squared matched-filter SNR divided by squared amplitude equals scalar-amplitude Fisher information. Both records also have the same dimensionless numerator F(x), from the same rectangular overlap energy.",
+          "The distinct record's contiguous integrated-read-noise objective is F(x)/(x+R²/(νT)); the frozen objective is F(x)/[(x+h)(1+rx)]. At r=0, h=R²/(νT) makes the objectives identical, including the threshold h=1 and both optimizer formulas. At r>0 the denominator is quadratic in x and cannot equal a constant multiple of any fixed linear x+c."
+        ],
+        "reasoning": "Neither matched-filter versus Fisher wording nor physically different readout models separates the scalar r=0 optimizations. The extra independent flux variance adds an exposure-dependent attenuation that cannot be absorbed by relabeling the single read-noise parameter.",
+        "searches": [
+          "Configured Resultary lookup for exact longer-than-transit exposure threshold with dead time and independent flux-variance floor",
+          "Original exact read-noise crossover RESULT.md, 2026/11/22/0dd54e4b63d9, Finding and Proof (offset 0)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first hit was the frozen record itself. The strongest distinct hit, 0dd54e4b63d9, explicitly supplies the rectangular-event optimization with integrated per-read variance and covers the equivalent r=0 result."
+        ],
+        "reasoning": "The exact indexed overlap is credited, despite different physical parameter names. It is not an entry covering the quadratic-denominator, positive-floor regime. A finite table is not an exhaustive representation of the continuous two-parameter law.",
+        "searches": [
+          "Configured Resultary lookup for the longer-than-transit dead-time/floor threshold and rectangular transient exposure optimization"
+        ]
+      },
+      "rationale": "The box overlap and the entire r=0 boundary case already have exact coverage in equivalent variables. The distinct supported contribution is the joint effect of positive dead time and a positive independent per-exposure flux-variance floor: the two-parameter classification, disappearance of the long-exposure regime for r>=1, and finite saturation as dead time increases. The checked prior passages do not supply this extension. No priority inference is based on same-day dates or differing instrumentation terminology.",
+      "residual_risks": [
+        "The accessible evidence and targeted search do not establish priority against all signal-design or instrumentation literature; differently phrased exact analyses may exist.",
+        "Only the positive-floor classification receives distinct-contribution credit; the same-day catalogue date cannot order the overlapping r=0 result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent coverage for r=0, not the positive independent flux floor",
+          "evidence": "The dimensionless objective has denominator x+R²/(νT), threshold at R²/(νT)=1, and the same quadratic optimizers on both branches as the frozen r=0 subsection.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-exact-read-noise-crossover-for-phase-averaged-transient-expo--0dd54e4b63d9",
+          "material_read": "Original RESULT.md Finding, Assumptions and Proof: Phase averaging and Uniqueness and transition, offsets 0–4003",
+          "method": "Bounded local mirror passage",
+          "title": "The exact read-noise crossover for phase-averaged transient exposure duration",
+          "trigger": "Strongest distinct indexed result with the same box optimum and threshold phenomenon"
+        },
+        {
+          "assessment": "Supplies prior methodology, not this floor threshold",
+          "evidence": "The effective sampling rate uses integration plus readout, and the text discusses quadrature of read and photon noise and the photon-dominated knee; these passages do not give the stated two-parameter singular-event optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/1408.4124",
+          "material_read": "p. 5 Eq. (9), offset about 45700; p. 10 read-noise discussion, offset about 87900",
+          "method": "Bounded OA PDF passages",
+          "title": "Transit Light Curves with Finite Integration Time: Fisher Information Analysis",
+          "trigger": "Closest primary transit Fisher-information work including overhead and read-noise comparisons"
+        },
+        {
+          "assessment": "Related empirical and numerical precision problem",
+          "evidence": "Uses realistic limb-darkening and considers parameter precision across cadences rather than the exact scalar-depth box law.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.02897",
+          "material_read": "Abstract and pp. 2–3, offsets about 1000, 11000, 18500",
+          "method": "Bounded OA PDF passages",
+          "title": "Understanding and predicting cadence effects in the characterization of exoplanet transits",
+          "trigger": "Cited cadence-design Fisher-information literature"
+        },
+        {
+          "assessment": "Same smearing ingredient, not the full objective",
+          "evidence": "Analyzes SNR loss from top-hat smearing, explicitly including a box-transit curve, without the competing positive dead-time and independent flux-floor factors of J.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.06790",
+          "material_read": "Abstract, Eq. (36), §4.3 opening and Fig. 2 box-transit label, offsets near 2280 and 61900–64482",
+          "method": "Located relevant terms and opened bounded OA PDF passages",
+          "title": "The SNR of a Transit",
+          "trigger": "Known smearing and continuous-time integrated information of a top-hat-convolved transit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The positive independent variance term changes the exposure decision qualitatively: it can preclude exposures longer than the event at every dead time, and it bounds the optimal exposure as overhead grows. The exact classification resolves feasibility and equality, gives unique implementable optimizers, and separates two competing effects in a natural ideal model. This is useful as a baseline, not a prescription for correlated noise, imperfect ephemerides, or limb-darkened joint transit fitting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

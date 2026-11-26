@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T12:22:11.249993Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let p count marked vertices with at least two marked neighbours, let e be the number of marked–marked edges, and let Q be the q unmarked vertices with at least two marked neighbours. Handshaking gives p<=e. The induced graph J on A union Q has at least e+2q edges (counting each marked–unmarked edge once); it is nonempty and its cycle space embeds into that of G. Hence e+2q<=m+q-1+beta(G), and p+q<=m-1+beta(G). At most p+q distinct traces have size at least two; there are at most m singleton and one empty trace, and all traces are subsets of A. For sharpness use c marked disjoint triangles and m-3c marked singleton components, then connect representatives with subdivided bridges, add a private leaf to each marked vertex and one pendant beyond a private leaf. The result is connected with no additional cycles and cycle rank c. The distinct traces are the 3c internal triangular pairs, m-2c-1 intercomponent pairs, m singletons, and the empty trace. Bridge pairs connect different marked components and are distinct; the added terminal pendant is unmarked and has no marked neighbour. This proves equality even in the c=0, m=1 boundary, and never for an empty A. The referenced artifacts/verify.py is present under its exact path despite the abbreviated inventory. It was read, not executed. Independent replay python3 -B /workspace/reproductions/2.py used Gray-code edge updates and bitmask components for all 2097151 graph/mark pairs through six vertices and tested 65 exact cactus witnesses joined via a subdivided star; the finite test confirms the computation, not the universal bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dreier et al.: open traces are almost linear, |A|^(1+o(1)), in monadically dependent classes.",
+          "Berthe et al.: exact tight closed forest bound 7m/3 and general width-based closed bounds.",
+          "Beaudou et al.: treewidth-dependent distance-profile bounds.",
+          "Reidl et al.: class-wide linear neighbourhood characterisation of bounded expansion."
+        ],
+        "reasoning": "These give broader context but do not specialize to the exact coefficient and additive budget at all admissible m, or supply matching extremizers with beta=c. A bound with class-dependent constants, or using closed balls or profile equivalence, does not imply the target trace inequality.",
+        "searches": [
+          "arXiv:2607.10941 Theorem 2",
+          "arXiv:2501.08895 Definition 1 and Theorem 6",
+          "arXiv:2607.16889 Theorems 2–4",
+          "arXiv:1603.09532 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and artifacts/verify.py (read only)",
+        "Four cited primary papers at inspected passages",
+        "Resultary block-, interval- and unit-interval-class query results; decisive block graph source read directly"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The block-graph proof uses the vertex–clique incidence forest and its c is the number of components of G[A]. Its m>=4 extremizer puts a triangle on each edge of a marked path, with cycle rank m-1, not the frozen stable range c<=m/3.",
+          "The tight forest result in Berthe et al. uses closed traces."
+        ],
+        "reasoning": "The block-graph witness has triangles sharing marked vertices and does not attain the frozen sparse-cycle profile with vertex-disjoint triangles. The class bound has no assertion for general graphs or a dependency on beta, and its proof cannot be invoked on general non-clique blocks. Known forest behavior alone does not imply the positive budget law.",
+        "searches": [
+          "2026/11/22/SCOPE-sharp-neighborhood-trace-complexity-of-finite-block-graphs--3519bee5e97b, equations (1)–(3) and Sharpness",
+          "arXiv:2607.16889 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact block-graph record uses the same open-neighbourhood trace definition with witnesses both inside and outside A, but optimizes only over block graphs with unrestricted cycle rank.",
+          "Beaudou et al. arXiv:2501.08895 Definition 1 uses closed radius-r balls and profile complexity."
+        ],
+        "reasoning": "Feedback-edge number and cycle-space dimension agree with beta; neither equality types nor closed or distance-r traces are interchangeable with open traces. The proof for the frozen result counts both endpoints that are marked and witnesses outside A.",
+        "searches": [
+          "Resultary: exact open adjacency trace complexity for cyclomatic number and cactus extremizers",
+          "Public search: open neighborhood complexity cyclomatic number feedback-edge set sharp bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored block-graph Finding gives the symbolic class maximum 2^m through m=3 and 3m-2 thereafter; the related interval and unit-interval records optimize over their own classes.",
+          "The allocated public search did not surface a fixed-budget exact table or formula."
+        ],
+        "reasoning": "The claim is unbounded in m and beta, so a finite census by itself could not cover it. No compared symbolic entry has both the target domain (all simple graphs under a cycle budget) and the target extremum.",
+        "searches": [
+          "Resultary: sharp open-neighbourhood trace maxima for block, interval and unit interval graphs",
+          "Public search: open neighborhood complexity cyclomatic number feedback-edge set sharp bound"
+        ]
+      },
+      "rationale": "The forest case is background. For open traces witnessed anywhere, the exact additive cycle-rank dependence on all finite simple graphs and the stable sharpness construction are not covered by the broader asymptotic or closed-neighbourhood results inspected, nor by the exact block-graph class extremum. The latter is a meaningful same-day comparison but provides no chronology and uses a different optimization domain. This is a bounded best-of-knowledge judgment.",
+      "residual_risks": [
+        "A distinct interval/path rigidity lookup hit could not be read in the local mirror.",
+        "Unindexed fixed-budget results and historical priority among same-day records are not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same open trace statistic, different domain and extremizer; same-day date does not fix priority",
+          "evidence": [
+            "3m-2 for m>=4, via clique-block incidence forest; proof counts marked components, not beta.",
+            "Sharp construction places one triangular block per marked path edge."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-neighborhood-trace-complexity-of-finite-block-graphs--3519bee5e97b/RESULT.md",
+          "material_read": "Mirrored Finding, Assumptions, Proof and Sharpness, offsets 0 and 4970",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp neighborhood-trace complexity of finite block graphs",
+          "trigger": "Exact open-trace near match on a class containing the sharp example family"
+        },
+        {
+          "assessment": "Open-neighbourhood asymptotic context, not exact budget coverage",
+          "evidence": [
+            "Bound |A|^(1+o(1)) for the stated classes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.10941",
+          "material_read": "PDF pp. 1 and 3, abstract and Theorem 2, offset 9864",
+          "method": "Open-access PDF passage inspection",
+          "title": "Neighborhood Complexity and Radius-1 Merge-Width in Monadically Dependent Graph Classes",
+          "trigger": "Broad open-neighbourhood complexity theorem"
+        },
+        {
+          "assessment": "Closed balls/distance profiles, not exact open traces",
+          "evidence": [
+            "Radius-r ball includes the centre; profile bound O(t^{O(t)} r^{t+1} m) in terms of treewidth t."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.08895",
+          "material_read": "Definition 1 p. 2 offset about 6200 and Theorem 6 p. 5 offset 17890",
+          "method": "Open-access PDF passage inspection",
+          "title": "Profile and neighbourhood complexity of graphs excluding a minor and tree-structured graphs",
+          "trigger": "Tree-structured complexity bounds"
+        },
+        {
+          "assessment": "Closed-neighbourhood bounds, not the frozen open trace statistic",
+          "evidence": [
+            "The forest theorem is the tight closed bound 7m/3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.16889",
+          "material_read": "pp. 1–3, trace definition and Theorems 2–4, offset 13890 for Theorem 2",
+          "method": "Open-access PDF passage inspection",
+          "title": "Neighbourhood complexity and identification problems for graphs of bounded treewidth and pathwidth",
+          "trigger": "Tight exact forest and width bounds"
+        },
+        {
+          "assessment": "General class-wise asymptotic context only; not a whole-paper noncoverage claim",
+          "evidence": [
+            "Linearity in |X| characterizes bounded expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.09532",
+          "material_read": "Abstract p. 1 only",
+          "method": "Open-access PDF passage inspection",
+          "title": "Characterising Bounded Expansion by Neighbourhood Complexity",
+          "trigger": "General linear neighbourhood complexity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycle rank measures how far an arbitrary graph is from a forest. The exact charge of one extra realizable open trace per unit of cycle rank, with simultaneous equality throughout a stated range and attained by sparse connected cacti, sharpens qualitative neighbourhood-complexity bounds. This also explains how marked witnesses and unmarked witnesses share one cycle budget; it is not a mere renamed forest result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

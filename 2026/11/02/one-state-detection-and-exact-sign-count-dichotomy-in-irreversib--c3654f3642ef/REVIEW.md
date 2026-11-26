@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For strictly positive directed three-cycle rates, stationary weights follow from constant flux, and the generator characteristic polynomial is \(\lambda(\lambda^2+\sigma\lambda+q)\). The centered stationary indicator autocovariance satisfies the resulting second-order ODE, with normalized initial derivative \(-a_i/(1-\pi_i)\). The two solution branches for the discriminant include the repeated-eigenvalue boundary without a diagonalizability assumption. The algebraic inequality \(\Delta\ge0\) forces a unique dominant rate; comparisons with the two positive decay rates prove the strict one-indicator/two-indicator sign classification. The complex branch is a nonzero phase-shifted sinusoid and has infinitely many simple zeros. The proof includes the two-state minimality argument. An independent Poisson-uniformization check passed 13,747 numerical assertions, maximum absolute discrepancy about \(5.09\times10^{-15}\); finite numerical checks do not substitute for the proof.
+PASS
 
-## Originality — PASS on examined evidence; priority provisional
+Stationarity gives C_i(t)=π_i(P_ii(t)−π_i), with π_i positive and proportional to inverse exit rate. Subtracting the stationary projector leaves the quadratic characteristic factor λ²+σλ+q; Cayley–Hamilton applies without diagonalizability. Normalizing by π_i(1−π_i) gives initial slope −r_i with r_i=a_i+yz/(y+z). In the complex regime the normalized covariance is a decaying nonzero sinusoid, so each state has infinitely many simple alternating zeros. For real spectrum choose a maximal a; Δ=(a−b−c)²−4bc and max(b,c)>(√b−√c)² rule out the low branch, giving a≥b+c+2√(bc) and uniqueness. The two decay rates satisfy b+c<γ_−≤γ_+<a. Consequently the fastest r_i exceeds γ_+ and the other two are below γ_−. At distinct roots the slow exponential coefficient is negative only for the fastest indicator, whose bracket divided by the slow exponential decreases from 1 to a negative constant and gives the stated log crossing. The other two are positive in their hyperbolic forms. At the repeated root the affine bracket has negative slope only for the same indicator, with the stated reciprocal crossing time. The stationary two-state covariance is a positive exponential, and the one-state covariance vanishes.
 
-A source- and implication-based comparison was conducted against the 2002 single-unit three-state power-spectrum model, the 2009 reversibility/autocorrelation theorem, the 2010 general three-state correlation/spectral study, and the 2014 three-state overshoot work. Established material includes all stationary Markov spectral machinery, real/complex modes, and the existence of certain negative irreversible autocorrelations. The examined accessible full-text sections do not give the all-rate identity of which **individual occupation indicators** are negative, the unique fastest-site selection under real poles, the zero-count dichotomy and the boundary crossing formula. The 2010 work has general formulae which might contain the specialization; its full text could not be obtained, so implicit or explicit earlier coverage is a material residual risk. No claim of independent priority proof is made.
+## originality
 
-## Value — PASS
+PASS
 
-The natural measurement problem is whether a **single binary site-occupancy trace** can expose directional irreversibility without reconstructing all transitions or specially tailoring a real-valued observable. A general existence theorem for some observable does not choose physical site indicators. This complete three-state classification supplies guaranteed detection by at least one such trace, identifies the precise sensor location in the overdamped/real-eigenvalue regime, and specifies how many sign crossings to expect including an exact marginal case. Its scope is a transparent minimal non-equilibrium cycle, not arbitrary Markov kinetics.
+Exact autocovariance formulas for three-state chains, the binary-output spectrum of this very cycle, and the concept of simple versus oscillatory overshoot all have precedent. The supported distinct result is the simultaneous all-positive-rate zero-count theorem, specifically the explicit fastest-state selection throughout the real-spectrum regime, including its repeated-root boundary. No independent originality is assigned to the correlation formulas, the complex-mode sinusoid inference, or the general possibility of overshoot.
 
-## Closest literature and limitations
+## value
 
-The strongest comparators are Chen (2009), Kuang and Chen (2010), and Jia et al. (2014). The 2002 model gives a renewal spectrum for a specific indicator. The 2014 work provides a general overshoot framework and discriminant argument; it does not supply this all-state directed-cycle selection. The 2010 full text was inaccessible, so future independent historical comparison is essential. This theorem does not transfer unchanged to bidirectional cycles or larger state spaces. The reported numerical certificate is not an infinite proof or independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sign test using only a binary sensor is different from detecting an oscillatory spectrum or building a tailored linear combination of states. This classification tells which sensor can detect negative lag covariance from the rate ordering alone, including the boundary and the nonoscillatory regime where spectrum type by itself does not identify a sensor. The examples and the two-state obstruction delimit the phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

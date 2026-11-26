@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:33:47.579078Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Material model mismatch: Ferrari arXiv:2607.11422v1 Eq. (9) uses 2^(−ℓ)c_ℓ^J multiplying (1−z)^(ℓ+1). With Theorem 3.1's c_2^2=2/3 at J=2, the coefficient of (1−z)^3 is 1/6, not 2/3. This makes the headline classification false for the named optimized scheme, not just a notation issue. For the actual denominator x+5/3−(5/2)z+z²−z³/6 the derivative is −[(z−2)²+1]/2. At x=3/5>141/250 it has a real root s in (1,2), since the denominator is positive at 1 and negative at 2; Vieta gives |Z|²−s²=15−6s>0. The positive real residue therefore dominates, and the genuine optimized scheme has eventually strictly positive weights there, contradicting the stated oscillation. Equal moduli actually occur at s=5/2, x=15/16. For the *displayed* polynomial in the frozen source, the mathematical pole proof does work: P' is strictly negative on the real axis, Vieta gives |Z|²−R²=6−15R/4, and the crossing occurs at R=8/5. The real pole is simple with positive expansion constant; a dominating nonreal pair has both signs on recurring subsequences by density for irrational angle or zero mean and positive mean square for a nondegenerate periodic orbit. At equality the ratio 4|C_Z|²/C_R² reduces to 2/(1+cos θ)=128/107, and rational 2cos θ=43/32 rules out roots of unity. Thus both signs occur infinitely often for that formula at the crossing. Independent exact multinomial extraction of [z⁶] from (60/163)Σ[(240z−150z²+40z³)/163]^m gives −1843765644000/3057125241215467 at x=11/20, also for the displayed polynomial only. BDF2 has positive coefficients up to and including its double real pole case at x=1/2. Read VERIFICATION.md and verify.py without executing the uploaded script: its finite computations check the displayed polynomial, not the citation/normalization and not the infinite claim.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banjai gives an operator coercivity/CQ positivity inequality; Karaa gives positive definiteness of convolution quadratic forms.",
+          "Resultary f721d5ae2cc8 uses the optimized degree-four J=3 symbol; 5744d0bd2daf concerns alternating coefficients of δ_J, not its resolvent."
+        ],
+        "reasoning": "Quadratic-form positivity and symbol signs do not classify individual exponential resolvent coefficients. The closest relevant coverage is the separate exact same-symbol cubic record, not these broader-context results.",
+        "searches": [
+          "arXiv:2203.00986 Theorem 1",
+          "DOI:10.5802/crmath.669 §1",
+          "2026/11/22/...--f721d5ae2cc8 and ...--5744d0bd2daf"
+        ]
+      },
+      "checked_sources": [
+        "Ferrari 2607.11422v1",
+        "Banjai 2203.00986",
+        "Karaa DOI:10.5802/crmath.669",
+        "Resultary 0667c094ef1b, f721d5ae2cc8 and 5744d0bd2daf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For x<15/16 the simple positive real pole is dominant, giving eventual strict positivity from its positive expansion constant. Above 15/16 the catalog's Pringsheim contradiction can be applied to each sign after deleting finitely many terms; the poles cannot disappear upon polynomial subtraction. This gives both signs infinitely often. At 15/16 the catalog pole data give cos θ=7/10; the partial-fraction amplitude ratio 2/(1+cos θ)=20/17 and rational nonintegral 2cos θ=7/5 give both signs by density. The catalog already furnishes a negative sixth coefficient below the equal-modulus point."
+        ],
+        "reasoning": "For the actual Ferrari symbol, the strict regimes, a finite-lag obstruction and the equality behavior are immediate pole and residue consequences of the independently available data. They do not support a substantive repair of the frozen claim at 141/250. No chronology is inferred from the same-day catalog label.",
+        "searches": [
+          "0667c094ef1b RESULT.md, Proof §§2 and 5, local offsets 3157–4200 and 6418–8470",
+          "Ferrari arXiv:2607.11422v1 Eq. (9), Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferrari's factor 2^(−2) gives optimized cubic coefficient 1/6. The matching catalog entry uses precisely that coefficient; the frozen coefficient 2/3 changes the denominator and pole geometry.",
+          "0667c094ef1b, Proof §2, gives real pole s, pair modulus √(s²−6s+15), and equal moduli at s=5/2, x=15/16."
+        ],
+        "reasoning": "The parameter c_2^2 is not the monomial coefficient. These are not aliases for one symbol at different units of x; comparison to the actual optimization must use the normalized symbol and its 15/16 pole crossing.",
+        "searches": [
+          "arXiv:2607.11422v1 §3, Eq. (9), Theorem 3.1",
+          "2026/11/2/...--0667c094ef1b RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "0667c094ef1b, Proof §§1–2 and §5, reports the exact sixth-coefficient algebraic cutoff r_*≈0.933212708152, ω6<0 for r_*<x≤15/16, and the exact 15/16 pole crossover. It establishes negativity somewhere above that cutoff, not an explicit frequency in the outer regime.",
+          "No match for 141/250 for the displayed 2/3-coefficient polynomial was seen in the bounded catalog results."
+        ],
+        "reasoning": "The same-day theorem is about the correct normalization and rigorously distinguishes all-lag positivity and the equal-modulus parameter. It does not state the frozen exact number, which belongs to a different polynomial.",
+        "searches": [
+          "Local Resultary: 141/250, optimized cubic exponential-resolvent coefficient signs",
+          "2026/11/2/SCOPE-sharp-all-lag-positivity-threshold-for-exponential-kernel-trunca--0667c094ef1b/RESULT.md"
+        ]
+      },
+      "rationale": "No distinct valid finding for the named optimal scheme is established by the frozen record. For the correctly normalized Ferrari problem, same-day Resultary 0667c094ef1b already supplies the exact pole crossover and an exact finite-lag obstruction below it; the tail classification follows directly from those pole data. The algebra for the differently normalized polynomial is not a duplicate of that catalog record, but it cannot substantiate a new Ferrari result.",
+      "residual_risks": [
+        "Bounded exact/similarity search does not establish priority or absence of analogues. Banjai–Ferrari's 2026 generalized trapezoidal CQ primary text was not inspected; the decision rests on available primary and catalog evidence, not lack of access.",
+        "The date shared by the assigned record and the distinct same-symbol comparator cannot resolve historical ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively contradicts the frozen identification of the symbol",
+          "evidence": [
+            "Eq. (9) has multiplier 2^(−ℓ); Theorem 3.1 gives 2cos(π/3)/(1+cos(π/3))=2/3 for c_2^2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.11422v1",
+          "material_read": "§3 Eq. (9) PDF p. 4, OA offset 13900; Theorem 3.1 p. 5, offset 17485",
+          "method": "Direct OA PDF targeted passages",
+          "title": "Convolution quadrature based on a truncated trapezoidal rule",
+          "trigger": "defines and optimizes the named scheme"
+        },
+        {
+          "assessment": "Correct symbol; crossover and all-lag threshold stated; frequency beyond threshold not explicit but direct from pole data",
+          "evidence": [
+            "s²−6s+15 complex squared modulus; s=5/2 corresponds to 15/16; sixth lag negative for r_*<x≤15/16; Pringsheim applied above 15/16"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-sharp-all-lag-positivity-threshold-for-exponential-kernel-trunca--0667c094ef1b",
+          "material_read": "Finding/assumptions; §§1–2, 5–6, local offsets 0, 2737–4200 and 6418–8470",
+          "method": "Local Resultary mirror",
+          "title": "Sharp all-lag positivity threshold for exponential-kernel truncated trapezoidal CQ",
+          "trigger": "same-day comparator for the actual optimized cubic and exponential kernel"
+        },
+        {
+          "assessment": "Different operator-level positivity/stability",
+          "evidence": [
+            "Coercivity inequality for a CQ operator symbol"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.00986",
+          "material_read": "Theorem 1 p. 11 and TTR discussion pp. 19–20",
+          "method": "Targeted OA PDF passages",
+          "title": "Implicit/explicit BEM/FEM coupled scheme for acoustic waves with the wave equation in the second order formulation",
+          "trigger": "earlier TTR convolution quadrature and positivity"
+        },
+        {
+          "assessment": "Different quadratic-form positivity",
+          "evidence": [
+            "Positive definiteness of convolution quadratic forms, with BDF2 applications"
+          ],
+          "identifier_or_url": "https://doi.org/10.5802/crmath.669",
+          "material_read": "Abstract and §1 Eqs. (1)–(4), pp. 2–3",
+          "method": "Targeted OA PDF passages",
+          "title": "Positivity of convolution quadratures generated by nonconvex sequences",
+          "trigger": "possibly relevant positivity theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The eventual-versus-all-lag question is motivated for the actual optimized scheme. The frozen polynomial's cubic coefficient instead arises from dropping the normalization factor; no independent reason to study this specific coefficient is established. Correcting it would replace the stated boundary and example, with the normalized problem's crossover and finite-lag distinction already supplied or directly implied by the catalog evidence. The valid algebra for the mismatched polynomial is not a valuable surviving optimized-scheme claim.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For every \(n\ge2\), strict-transitive extension profiles are partitioned into exactly three cases: lower-only order ideals, upper-only filters and nonempty two-sided disjoint index sets. The proof counts these with weights, classifies the simultaneous pair-index automorphism action, and proves the orbit expression and cardinality. An independently implemented transitivity checker verified every ternary assignment through \(n=6\) and every automorphism orbit through \(n=5\). Finite verification corroborates rather than establishes the unbounded result.
+## correctness
 
-**Originality — PASS within inspected evidence.** The earliest 2025 paper provides the known general valid-triple formalism. The published general height-two poset-count formula **already implies the scalar total** and no standalone originality is claimed for it. Its full result, and the published type-counting paper, do not include the bivariate lower/upper generating function or the precise simultaneous-symmetry orbit classification. A paper on standard-example convex-set statistics studies a different invariant and does not entail the exterior-type polynomial. Targeted literature and indexed-result searches found no equivalent orbit polynomial. Residual risk: an unindexed combinatorial specialization may exist; priority is provisional.
+PASS
 
-**Value — PASS.** The standard-example posets are canonical dimension-unbounded obstructions; knowing the complete distribution of single-point placements and their quotient under natural index symmetries provides a motivated finite model-theoretic invariant. The quadratic orbit law against exponential labeled growth is stronger than merely recomputing a known total and gives all bidegree multiplicities. The result is a complete natural classification rather than an arbitrary parameter slice.
+A fresh vertex is specified by a downset L and an upset U with L strictly below U pairwise. These conditions handle every transitivity clause, and the generic poset realizes each profile, with ultrahomogeneity identifying the complete types. If both are nonempty they use only minima for L and maxima for U, with disjoint index sets. If only L can be nonempty, the downset has no maxima, has precisely one maximum and its n−1 mandatory minima, or has all minima and a nonempty subset of maxima. These disjoint cases give the displayed T_n after accounting for the all-incomparable profile. The base group preserves layers, including for n=2, and must preserve the unique missing matched relation, so it permutes the indices simultaneously. In the one-sided exceptional case there is a second orbit of degree n; in the two-sided case the ordered disjoint index sizes determine the orbit. This yields J_n and O_n, with the empty profile counted only once. Each base automorphism extends and equal profiles fixing the base are conjugate by ultrahomogeneity. The term 'orbit-size polynomial' refers to the two type cardinalities, not the cardinality of an orbit; the displayed definition is unambiguous. An independently written bit-row transitivity test and paired-state orbit classification compared every coefficient for n=2 through 6: label counts 19,47,119,315,867 and orbit counts 12,18,25,33,42. Replay: python3 -B /workspace/repro/2.py; output /workspace/repro/2.log. This is finite corroboration, not the general proof.
 
-The classification is only for \(n\ge2\) standard-example bases and one fresh point. No general multitype or arbitrary-poset orbit theorem is asserted. No independent scientific validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar named total is already a corollary, and neither the named-profile formalism nor the bivariate invariant for general bases is new. The supported content is the exact bivariate evaluation and all-n base-automorphism orbit profile for the standard examples. The closest same-day comparisons concern general invariant definitions, another graph family, or an exact small-parameter overlap, not this full evaluation. No temporal priority is inferred from same-day dates.
+
+## value
+
+PASS
+
+Standard examples are a canonical dimension-unbounded family; placement of an exterior point, including its orbit under the base stabilizer, is a natural model-theoretic invariant. The all-n coefficient formulas and complete orbit normal forms, in particular the quadratic-versus-exponential scale and the one-sided degree-n multiplicity, provide usable information beyond the known scalar named total. No general model-theoretic machinery or application to multi-point extensions is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

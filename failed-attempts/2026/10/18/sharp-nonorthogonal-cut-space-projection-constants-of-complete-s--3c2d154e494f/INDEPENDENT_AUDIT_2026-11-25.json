@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:37:14.889790Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–66, VERIFICATION.md, VERIFY.py and VERIFY_LP.py; uploaded scripts inspected without execution.",
+        "Independent unrestricted LP: /workspace/branches/2228442d-089d-4d04-92df-8923e26d59fa/check_split_lp.py, output lp_results.txt in the same directory. With full-row-rank grounded incidence B, all projections are represented as B^T K with K B^T=I, without a symmetry constraint. For (2,2), (3,2), (3,3), (4,2), (4,3) the computed minima match 3/2, 64/39, 115/66, 65/38, 9/5. Floating-point samples corroborate but do not prove the all-parameter result."
+      ],
+      "rationale": "Conjugation by a vertex permutation is a signed edge-coordinate isometry preserving the cut space. The averaged projection still fixes every cut vector and has range in that space, so it suffices to minimize over the invariant family. An elementary stabilizer check also verifies the reduction at m=2 or n=2: a clique-edge column i,j is odd under the transposition of its ends, so its potential is a(e_i-e_j); a cross-edge column i,u has clique potential b(e_i-1_A/m), and a potential on B that is constant off u. Fixing class-constant gradients and the B-mean-zero gradients sets that B potential to -e_u/m. Fixing A-mean-zero gradients leaves just ma+nb=1. The frozen Q_t exhausts these columns with a=(m+nt)/(mN), b=(1-t)/N. The clique column sum is 2(N-1)|a|; the cross column sum is the one in the proof, whose last two absolute terms have a constant signed sum mN in its common denominator. Thus, with K=(m-1)(m+2n-2), on [0,1] the two norms are 2(N-1)(m+nt)/(mN) and 1+K(1-t)/(mN). They cross at t_*=(m-2)(n-1)/D, D=2n(N-1)+K. The first norm for t>1 and the second norm for t<0 cannot improve the crossing. Substitution gives the stated minimum, and at t=0 the cross norm is maximal, with excess K t_* /(mN). This excess is zero exactly at m=2, and taking leading terms on the diagonal gives the three limits.",
+      "residual_risks": [
+        "The proof is in real unweighted edge-l1 and does not classify all non-invariant minimizers or minimize the complementary cycle projection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "745e7b0c399e states the canonical cut-projector norm as a maximum over pairs of parts of F_N(s)+F_N(t), attained between two largest parts, and explicitly excludes unrestricted minima. The balanced results assume equal part sizes. The primary paper gives the averaging method and applications to tori and Hamming graphs."
+        ],
+        "reasoning": "Part sizes (1,...,1,n) are allowed in 745e7b0c399e, so the relevant norm is F_N(1)+F_N(n), exactly the frozen canonical norm after putting N-n=m. This split graph is not balanced when n>=2. Averaging is general prior methodology but does not in itself give the numerical optimum.",
+        "searches": [
+          "Resultary 745e7b0c399e, exact canonical norms for complete multipartite graphs",
+          "Resultary 455756fd66a8 and 0ddb732c660c, balanced multipartite minimality",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582v1 p. 6 equation (4)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 08f819f9ab61, 745e7b0c399e, 455756fd66a8, 0ddb732c660c and 91b9f6372a7d",
+        "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582v1",
+        "Frozen result and targeted mirror attempt for 3c2d154e494f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The global cut-minimum passage of 08f819f9ab61 obtains matching affine bounds on the two orbit norms and attains them, not just an upper bound for one projection. Its prior-work passage does not establish provenance relative to the frozen record. 745e7b0c399e gives the canonical but not minimal norm. The exact assigned mirror path was unavailable; the distinct matched files were accessible."
+        ],
+        "reasoning": "Together the two verified statements give both exact norms; their difference and leading terms yield all remaining displayed cut statements. There is no dependence on assuming the matched files are the same record. The labels alone do not establish direction of priority, and absence of the assigned file from the accessible mirror is not proof it was never public. The negative finding rests on demonstrated coverage and absence of a substantiated distinct contribution, not on an access failure alone.",
+        "searches": [
+          "Actual minima and prior-work passages in 08f819f9ab61, offsets 0–2776, 4530–6631 and 7927–9902",
+          "745e7b0c399e canonical-norm finding and scope at offset 0",
+          "Exact assigned identifier 3c2d154e494f in the Resultary index and attempted local-mirror RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The covering theorem states the unrestricted relative cut constant as 2(N-1)A_C with d_C=D, B_C=(m+2n-2)/D and A_C=(1-nB_C)/m. It states orthogonal cut optimality exactly at clique size two.",
+          "Its invariant projection uses A,B satisfying mA+nB=1 and the same clique and cross prototype column potentials as the frozen family, where A=(m+nt)/(mN) and B=(1-t)/N."
+        ],
+        "reasoning": "D-n(m+2n-2)=m^2+3mn-3m-2n+2, giving literal equality of the two constants for the whole stated domain. Also (1-t_*)/N=(m+2n-2)/D, giving the same attaining projection. The cut part of the two-sided theorem covers this claim even when the additional cycle assertions are set aside.",
+        "searches": [
+          "Resultary: exact cut-space projection constants for complete split graphs, including IDs 3c2d154e494f and 08f819f9ab61",
+          "08f819f9ab61 RESULT.md offsets 0–2776 and 4530–6631"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The covering Resultary result is an exact all-parameter formula, not merely a numerical match on small inputs. It additionally gives the example cut constants 3/2 at (2,2) and 115/66 at (3,3) in the verification section preceding offset 7927. The distinct 745e7b0c399e covers the exact canonical norm.",
+          "The cited weighted triangular-book comparison was not traced to a primary source. The cycle-flow result 91b9f6372a7d on the split family concerns a different range of the projection."
+        ],
+        "reasoning": "Relabeling the parameters in an exact covering formula gives every row the frozen claim would provide. The independent LP confirms the mathematics but adds no priority evidence. Cycle-flow tables themselves cannot be transferred to unrestricted cut minima by complementation, which changes each operator's norm.",
+        "searches": [
+          "Resultary exact-title and exact-formula search; 08f819f9ab61 and 745e7b0c399e full findings",
+          "arXiv:2305.12582v1 text queries for complete multipartite and triangular book"
+        ]
+      },
+      "rationale": "There is verified, exact coverage by a distinct catalogued result of the unrestricted cut constant, the attaining invariant projection and the precise orthogonality threshold. The canonical orthogonal norm also follows by explicit specialization of a separate same-day general multipartite theorem. The gap and limits then require only subtraction and leading terms. The two-sided coverage record has a later catalogue label than the assigned frozen record; this audit is not a finding that it predates the frozen mathematics. But the frozen package and accessible sources do not establish earlier public priority for the assigned result, and no uncaptured substantive claim remains in it. A supported distinct claim is not established, independently of the correctness of the mathematics.",
+      "residual_risks": [
+        "Direction of publication priority between the frozen result and the demonstrably equivalent catalogue result remains unestablished. No inference of copying or historical precedence is made.",
+        "The weighted triangular-book antecedent mentioned in the frozen package is not identified by a primary citation. This does not affect the decisive coverage by the direct cut statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the unrestricted cut theorem and its optimizer. Later catalogue label; historical priority not established here.",
+          "evidence": [
+            "d_C=2n(N-1)+(m-1)(m+2n-2), B_C=(m+2n-2)/d_C, A_C=(1-nB_C)/m; the unrestricted cut minimum is 2(N-1)A_C.",
+            "The Euclidean orthogonal cut projection minimizes the l1 norm exactly when the clique size is two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-distinct-sharp-cut-and-cycle-projections-for-complete-split-grap--08f819f9ab61/RESULT.md",
+          "material_read": "Finding and normal form offsets 0–2776; global cut-minimum passage offsets 4530–6631; verification-end, prior work and limitations around 7707–9902",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Distinct sharp cut and cycle projections for complete split graphs",
+          "trigger": "Exact match of graph, invariant, projection range, and real edge norm"
+        },
+        {
+          "assessment": "Exact broader coverage for the orthogonal norm, only; no priority order inferred from the same-day label.",
+          "evidence": [
+            "Canonical l1 cut norm is the maximum of F_N(s)+F_N(t); an edge between two largest parts attains it.",
+            "The assertion concerns canonical orthogonal projections and does not determine minima over all projections."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-endpoint-hodge-norms-and-an-edge-orbit-reversal-for-comple--745e7b0c399e/RESULT.md",
+          "material_read": "Finding, scope and initial proof, offsets 0–3565",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact endpoint Hodge norms and an edge-orbit reversal for complete multipartite graphs",
+          "trigger": "General formula including parts of size one, hence including the complete split graph"
+        },
+        {
+          "assessment": "Equal-size requirement excludes (1,...,1,n) for n>=2; not the source of exact cut coverage.",
+          "evidence": [
+            "The equal part-size hypothesis is essential to the stated balanced-family scope."
+          ],
+          "identifier_or_url": "Resultary 455756fd66a8 and 0ddb732c660c",
+          "material_read": "Family restrictions in the catalogued statements, with equal part sizes",
+          "method": "Resultary catalogue comparison",
+          "title": "Balanced complete multipartite cut and cycle projection results",
+          "trigger": "Possible general minimality theorem under multipartite notation"
+        },
+        {
+          "assessment": "Cycle-flow rather than cut minimization; not equivalent.",
+          "evidence": [
+            "For m=2 and n>=4 the cycle-flow constant is 3/2; generalized saturation is a cycle-space assertion."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-four-vertex-saturation-law-for-minimum-cycle-projections-on-co--91b9f6372a7d/RESULT.md",
+          "material_read": "RESULT.md finding at offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A four-vertex saturation law for minimum cycle projections on complete split graphs",
+          "trigger": "Same graph under cycle/cut terminology and triangular-book endpoint"
+        },
+        {
+          "assessment": "General automorphism averaging, with stated applications not yielding the complete split-graph cut constant.",
+          "evidence": [
+            "Averaging invariant projections is general methodology; applications named include tori and Hamming graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582v1",
+          "material_read": "PDF p. 6 equation (4) near text offset 18800, and stated application scope",
+          "method": "OA PDF text",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Primary methodological result and possible broader graph invariant coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–21 and 26–63",
+        "08f819f9ab61 cut optimum proof and 745e7b0c399e canonical norm finding"
+      ],
+      "rationale": "The mathematical question itself is worthwhile: an exact gap on an infinite natural graph family would quantify when the canonical cut projection fails to minimize the edge-l1 norm. But that gap and the full optimality characterization are already recoverable from the verified exact coverage. The frozen calculation uses the same two column orbits and one-parameter optimization as the encompassing cut theorem. No further structural phenomenon, parameter range, or meaningfully different method is left; the diagonal limits are immediate consequences of the covered formulas. The rejection is of the added scientific contribution of this record, not of the usefulness of the invariant.",
+      "residual_risks": [
+        "Verified earlier provenance could change how the usefulness of the original contribution is credited. There is no substantive surviving new claim to repair on the present evidence."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

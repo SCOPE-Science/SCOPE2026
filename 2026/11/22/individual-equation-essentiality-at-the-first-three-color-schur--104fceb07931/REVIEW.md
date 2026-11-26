@@ -1,19 +1,21 @@
-# Scientific review: individual equation essentiality at the first three-color Schur obstruction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain consists of all 49 unordered-summand positive additive equations with sum at most 14. The incrementally checked enumeration safely discards partial colorings only after two monochromatic equations, while the bitmask enumeration independently visits every one of the 1,594,323 normalized colorings. Both check 49/49 per-equation counts against a fully embedded CSV. They find no defect-free coloring, exactly 1350 normalized one-defect colorings and 29 individually essential equations. A separate verifier enumerates the six normalized valid colorings of [1,13] and checks the fixed classes and two sum-14 violations for each color choice. Count normalization and repeated-summand conventions are explicit.
+PASS
 
-## Originality — PASS, with identified uncertainty
+The sum over z=2,...,14 of floor(z/2) is 49, with one test for a=b. I independently represented the 3^13 normalized ternary words as bits of a single integer. For each equation its violation mask is the union over hues of the intersection of the three position masks. Updating the zero- and one-defect masks by Z'=Z\B and O'=(O\B)∪(Z∩B) after each equation counts exhaustively, including when a=b. Final popcounts are 0 and 1350; intersecting O with each violation mask reproduced every one of the 49 CSV rows, with 29 positive rows and seven zeros ending at 14. Counts for 5+5=10 and 6+7=13 are 222 and 4 before normalization is undone. Cyclic relabeling gives exactly one representative with c(1)=0 per orbit of size three, hence 4050 named. The surviving [1,13] prefix mask independently gives six named-normalized classes, with the blocks in the result and 2,2,3 violations for the three possible hues of 14 up to permutation. Thus no one right-hand-side-14 deletion can suffice. Replay: python3 /workspace/branches/schur_bitset_reproduction.py <frozen directory>/critical_triples.csv. The frozen programs were inspected, not executed.
 
-The known Schur threshold and the [1,13] color-class rigidity are credited. Thanatipanonda's arXiv:0801.0798, Section 4, is a close primary source on monochromatic triples but proves asymptotic bounds and does not present the 14-integer per-equation deletion table. Kisner 2013 classifies the defect-free [1,13] states and thereby motivates the seven-new-equation observation; the 29/49 quantitative essentiality census and 4050 named near-defect states do not follow from that classification alone. Chappelon et al. 2013 address modular Schur numbers. Indexed findings on rainbow Schur fractions, developed group sum-free families and other three-color systems were compared by their mathematical statements. An unindexed SAT benchmark or other unpublished exhaustive table remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The first three-color Schur obstruction is a canonical finite Ramsey instance. Exact deletion sensitivity is a natural minimal-unsatisfiability invariant: it distinguishes 29 equations whose individual removal is decisive from 20 whose removal leaves the instance unsatisfiable. The separate redundancy of all seven new endpoint equations, proved through rigid color classes, is a structural contrast not conveyed by the classical threshold alone. The exact 49-row multiplicity census can benchmark constraint minimization and robustness studies without requiring any conjectural infinite extension.
+The threshold and the [1,13] rigidity are prior, and the seven endpoint zeros follow directly from that rigidity, so they are not counted as independent originality. The full 49-equation individual-deletion spectrum and the finite one-defect census are the distinct contribution on the sources inspected.
 
-## Limits
+## value
 
-Three named colors, integers 1 through 14, and deletion of one equation only. Computational exhaustion is finite, explicit and independently rerunnable; no claim about larger instances or certified publication priority is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first unsatisfiable three-color Schur interval is canonical, not a chosen arbitrary cutoff. Single-equation sensitivity is an exact way to distinguish indispensable constraints from redundant constraints in that benchmark. The exact survivor multiplicities for all equations quantify how deletion changes the solution set, which a threshold, one UNSAT certificate, or one minimal core does not provide. The full census, not the already implied endpoint fact in isolation, supplies the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:26:00.295517Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md stationary calculation, derivative proof and all boundary cases",
+        "VERIFICATION.md, checker.py, requirements.txt and recorded checker output",
+        "reproductions/audit_reset.py"
+      ],
+      "rationale": "Complete renewal to a centered position and independent fair sign kills the contribution to E[X_0 X_t] from paths with a reset before t. The two stationary moments and exponential response give the covariance integral stated in the proof; the asymptotic variance is twice that integral, with no change to extrema under positive rescaling. Independently, on an uninterrupted cycle in units k=v=1, the Laplace transforms at x of E[X_t sigma_t] and E[X_t^2] are A=1/[x(x+g+1)] and M=(S+2A)/(x+2), from their zero-cross-moment and variance-S initial data. Integrating the cycle reward's second moment over time pairs with survival factor exp(-x times the later time) gives H=x(M+A/(x+g))/(x+1), precisely the stated H. python3 /workspace/reproductions/audit_reset.py (SymPy) reproduces this identity, both derivative factorizations, endpoint formulas and the exact rational witness. In Q_g the only potentially negative coefficients are constant/linear/quadratic and their thresholds are strictly ordered in reverse power order; Descartes' rule gives one simple positive zero for g<g_c and none for g≥g_c. Divergence of R as x approaches sqrt(2) forces the unique minimum to be inside the interval. Positive crossings of S-R yield the claimed min/max ordering and the excluded-rate-zero case S=S_0; at the trough S=S_* the derivative touches zero quadratically, so there is no extremum (horizontal inflection). At x=sqrt(2) the derivative of the position-reset term is zero, not strictly negative as the prose says; the active term is strictly negative by positivity of P_g, so H'<0 there and the finding is unchanged. The unreset stationary case has limit H(0)=1/g; the stated numerical critical g and baseline crossing agree.",
+      "residual_risks": [
+        "Full simultaneous renewal and finite positive reset variance are used. This does not classify static position variance, finite-time estimation variance, or models that keep the position or sign across resets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen treats the reset-distribution model and therefore covers ingredients such as stationary position moments. Guéneau et al. reset the drive while retaining position from the previous cycle. General variance-rate identities relate the integrated covariance to a cycle second moment, but do not evaluate its active harmonic form or locate derivative sign transitions."
+        ],
+        "reasoning": "The broader machinery explains how to derive the observable. This phase boundary additionally requires explicit cycle or two-time covariance evaluation and a global root count over the full g,S domain.",
+        "searches": [
+          "Olsen arXiv:2310.04840v1 §IV, Eqs. 31–43",
+          "Guéneau–Majumdar–Schehr arXiv:2306.09453v1 model discussion",
+          "General regenerative-reward and covariance identities applied to the stated renewal"
+        ]
+      },
+      "checked_sources": [
+        "Olsen and Guéneau–Majumdar–Schehr primary PDFs",
+        "Resultary 63e4c82d236e and 1e2912e30fb8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In noise-only resetting the prior position survives, so the no-reset covariance reduction used here is not an implication of that model. Preferential OU relocalization retains past-position history. The static moments by themselves do not provide the integrated signal or its two-turning-point criterion."
+        ],
+        "reasoning": "The known model and elementary regenerative identities are antecedents. The nontrivial residual calculation is the global derivative and threshold classification, not a new claim about those identities.",
+        "searches": [
+          "Model/observable comparison of the two primary PDFs and Resultary 63e4c82d236e and 1e2912e30fb8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the zero-frequency integrated connected covariance, equivalently the stationary time-average variance rate or centered renewal-cycle reward variance rate. Olsen's same-model equations are one-time moments. Resultary 1e2912e30fb8 concerns the variance of a first-passage time as tumble rate changes."
+        ],
+        "reasoning": "An identical Green–Kubo or reward variance formula plus its rate-extremum classification would be coverage under another name. A static moment or a first-passage random time is not that observable.",
+        "searches": [
+          "Resultary temporal estimation noise, empirical position mean variance, harmonic run-and-tumble resetting and two turning points",
+          "Open literature on fully resetting active particles, time-average variance and renewal–reward"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest returned trajectory-average variance finding, 63e4c82d236e, is for preferential relocation of an OU process into its own past. Olsen's figure concerns static moments, not classification of zeros of the temporal-variance derivative."
+        ],
+        "reasoning": "A closed-form parameter phase boundary, not a finite census, is the object here. None of the compared catalogued findings or primary results gives these phase regions.",
+        "searches": [
+          "Resultary searches for the harmonic simultaneous reset phase diagram and two extrema under resetting",
+          "Olsen §IV and Fig. 5; Guéneau et al. pp. 4–5"
+        ]
+      },
+      "rationale": "The model and static moments are prior work. The distinct finding is the global stationary time-average variance phase diagram: two positive-rate extrema precisely for g below the quartic threshold and S in the stated open window, with a sign-changing reversal relative to the baseline possible. Neither the same-model static moment results nor the compared dynamic resetting results supply that criterion.",
+      "residual_risks": [
+        "Bounded external search returned a nearby noise-reset paper, not an exhaustive map of time-average or large-deviation work. An equivalent phase classification in unlocated temporal-variance work remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Antecedent model and static moments; not the temporal phase boundary",
+          "evidence": "Section IV studies stationary spatial moment dependence on the reset distribution and sign probabilities.",
+          "identifier_or_url": "https://arxiv.org/pdf/2310.04840v1",
+          "material_read": "Abstract and §IV pp. 5–7, Eqs. 31–43 and Fig. 5, offsets about 32719–42178",
+          "method": "Open-access full-text passages",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Same active harmonic reset-distribution model"
+        },
+        {
+          "assessment": "Different renewal rule and observable",
+          "evidence": "Noise is renewed but the position recursion retains the previous position multiplied by a trap decay factor.",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.09453v1",
+          "material_read": "Abstract, model discussion pp. 4–5, offsets about 12100–17066",
+          "method": "Open-access full-text passages",
+          "title": "Active particle in a harmonic trap driven by a resetting noise",
+          "trigger": "Harmonic active dynamics with telegraphic resetting"
+        },
+        {
+          "assessment": "Different particle and resetting history",
+          "evidence": "Brownian OU position relocates to a uniformly sampled past position, not independent simultaneous position/sign renewal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-sharp-empirical-mean-fluctuation-transition-under-preferential--63e4c82d236e",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published record passage",
+          "title": "A sharp empirical-mean fluctuation transition under preferential resetting",
+          "trigger": "Same class of time-average fluctuation observable under confinement and resetting"
+        },
+        {
+          "assessment": "Different observable, parameter and model",
+          "evidence": "First-passage-time variance versus reversal rate in an interval with a sticky/released wall; no harmonic reset cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-a-sharp-two-turning-point-transition-in-run-and-tumble-escape-ti--1e2912e30fb8",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Published record passage",
+          "title": "A sharp two-turning-point transition in run-and-tumble escape-time variance",
+          "trigger": "Two extrema in a run-and-tumble variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact integrated covariance, root classification and rational witness in RESULT.md",
+        "Same-model static moments in Olsen"
+      ],
+      "rationale": "The sharp condition tells when tuning a reset rate can drive stationary estimation noise down, up and down again. This physically meaningful observable differs from the static position variance; the exact two-parameter window, degenerate boundary and baseline-crossing witness give a usable benchmark and not merely an example of nonmonotonicity.",
+      "residual_risks": [
+        "Value is for the specified independent harmonic renewal and infinite observation time, not for a general reset-optimization rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

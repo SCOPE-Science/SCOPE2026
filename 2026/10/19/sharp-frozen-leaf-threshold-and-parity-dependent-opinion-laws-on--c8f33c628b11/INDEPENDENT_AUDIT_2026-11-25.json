@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:26:58.678846Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof, lines 4–55; VERIFICATION.md and verification.py inspected without executing supplied code",
+        "Krishnagopal–Porter arXiv:2402.05368v2 §III.1 Eq. (3) and the directed distance/sampling definitions",
+        "/workspace/branches/2ae54bed-7bd8-4121-b87f-50f7ea64a6dc/rational_replay.py"
+      ],
+      "rationale": "With the directed pure neighborhood rule the hub distance is zero and leaf i tests its deviation from the mean of all leaves, independent of the hub. If no leaf lies at the mean, split the leaves below and above it with counts a,b and group means L,U. The least deviation is at most both group-average deviations, b(U−L)/k and a(U−L)/k; U−L≤1 gives the bound floor(k/2)/k. The balanced endpoint profile attains it and the strict test closes every leaf gate at equality. On this frozen profile the hub is an affine iteration driven by iid Bernoulli(p) leaf selections. For 0<ρ≤1/2 the two images cover the unit interval; all length-n images cover it and shrink uniformly. Every word recurs infinitely often on one full-probability event, so arbitrary neighborhoods are visited infinitely often. At half compromise the recent M bits approximate the hub by at most 2^(−M); empirical block probabilities converge by the strong law on disjoint blocks, giving weak empirical convergence. Binary digit frequencies distinguish the odd-degree measure from Lebesgue measure, dyadic cylinder log masses converge to the binary entropy exponent, and typical-set covering and the dyadic mass-distribution bound give the Hausdorff dimension. Positive cylinders give full support and shrinking cylinder masses give no atoms. A fresh rational replay checked 19,525 grid profiles for k=2,…,6, exact boundary transitions and finite affine-image coverage, without substituting for any infinite-path argument.",
+      "residual_risks": [
+        "Temporal independence is an explicit assumption of this theorem; the inspected primary sampling text confirms the single-edge subcase but does not explicitly state independence between steps.",
+        "No general consensus threshold, general-graph claim, or odd/even occupation classification for other frozen profiles is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general NDW primary passage specifies directed gates and allows single-edge sampling. The binary-star theorem explicitly excludes arbitrary initial leaf opinions; the mixed-confidence theorem is on a three-vertex path."
+        ],
+        "reasoning": "General model applicability is not a theorem about optimizing the minimum deviation on every star. Broader parameter coverage in mixing or binary balance does not cover the nonbinary structural question for general k.",
+        "searches": [
+          "arXiv:2402.05368v2 §III.1 Eq. (3); 815829cbc27e Assumptions and Scope; 37b276c8f32e Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2402.05368v2",
+        "28a3aef41d87",
+        "37b276c8f32e",
+        "815829cbc27e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The binary-star record gives the iid recursion and its stationary law, endpoint recurrence and the classical dyadic entropy law; the three-vertex records give overlapping uniform half-compromise laws."
+        ],
+        "reasoning": "Parity follows on substitution in the binary law; full-path density and empirical convergence follow from the same recursion with the appropriate iid word arguments. None of these implications establishes the sharp upper bound for general real profiles; that requires grouping deviations above and below the mean.",
+        "searches": [
+          "815829cbc27e Finding and Proof on recursion, runs and half compromise; 28a3aef41d87 and 37b276c8f32e Finding/Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "815829cbc27e uses the same pure directed tests and Bernoulli hub recursion for arbitrary binary leaf populations; 28a3aef41d87 and 37b276c8f32e overlap at k=2."
+        ],
+        "reasoning": "The canonical binary profile is a specialization of the indexed binary theorem, with p=floor(k/2)/k. Optimizing across arbitrary leaf vectors is not the same as selecting the best binary leaf count unless one proves that a binary optimizer suffices.",
+        "searches": [
+          "Resultary: pure NDW transitive confidence on stars, frozen leaves, three-agent path and half-compromise Bernoulli laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact results include the three-vertex case and the closed-form min(p,1−p) cutoff across binary populations."
+        ],
+        "reasoning": "These formulas are partial exact coverage. A table over binary populations or any rational grid cannot bound the continuous all-profile optimum without an additional theorem.",
+        "searches": [
+          "Resultary exact threshold entries 28a3aef41d87, 37b276c8f32e and 815829cbc27e"
+        ]
+      },
+      "rationale": "The closest indexed binary-star result covers the canonical binary thresholds, the exact recursion, and the entropy law in degree at least three; the aligned three-vertex records add overlap at degree two. The recursion also makes the stated full interval and empirical refinements accessible by standard iid word arguments. The distinct structural statement is the sharp existence threshold across all real-valued leaf vectors: the prior binary-profile analysis establishes attainability but not the universal upper bound against every nonbinary vector. The arbitrary-profile extremal bound is part of the original finding, not a new repair. Credit the overlapping dynamical consequences and classical dimension law rather than treating them as independently novel. This is a bounded coverage judgment, not historical priority.",
+      "residual_risks": [
+        "The inspections are bounded; catalogue dates and overlap do not establish discovery order. The entropy law itself is classical, and the binary-star dynamical overlap is substantial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms model reduction, not the star extremal theorem in the inspected passages",
+          "evidence": "Each endpoint uses its own directed distance; σ=0 is pure NDW and f=1 is the single-edge sampling case.",
+          "identifier_or_url": "https://arxiv.org/html/2402.05368v2",
+          "material_read": "§III.1 Eq. (3), sampling passage at offsets 16917–22916 and distance/pure-NDW passage at 22916–27902",
+          "method": "Bounded OA primary text inspection",
+          "title": "Bounded-Confidence Models of Opinion Dynamics with Neighborhood Effects",
+          "trigger": "Original NDW model: directed versus symmetric updates and sampling regime"
+        },
+        {
+          "assessment": "Material k=2 overlap, not general stars",
+          "evidence": "Three-vertex path fixed-leaf threshold, center nonconvergence, and uniform half-compromise law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-sharp-three-agent-confidence-threshold-between-consensus-and-p--28a3aef41d87/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–5055",
+          "method": "Local mirror statement comparison",
+          "title": "A sharp three-agent confidence threshold between consensus and persistent fluctuations",
+          "trigger": "Exact earlier-size special case in the index"
+        },
+        {
+          "assessment": "Broader mixing, restricted topology",
+          "evidence": "Includes pure NDW at k=2, endpoint freezing, liminf/limsup, empirical convergence, and uniform half-compromise occupation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-uniform-stationary-volatility-in-a-three-vertex-neighborhood-con--37b276c8f32e/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–4747",
+          "method": "Local mirror statement comparison",
+          "title": "Uniform stationary volatility in a three-vertex neighborhood-confidence model",
+          "trigger": "Potentially stronger mixed-confidence theorem with occupation convergence"
+        },
+        {
+          "assessment": "Covers canonical binary subfamily and recursion; explicitly excludes arbitrary leaf opinions",
+          "evidence": "For arbitrary binary balance in degree at least three: cutoff min(p,1−p), iid affine recursion, stationary law, endpoint recurrence and exact biased binary entropy dimension.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-confidence-transition-and-endogenous-persistent-fluctuat--815829cbc27e/RESULT.md",
+          "material_read": "Finding, Assumptions and Proof of exact gate, recursion and runs at offsets 0–6092; subsequent dimension discussion checked in bounded text through offset 9000",
+          "method": "Local mirror statement and proof comparison",
+          "title": "Exact endogenous freezing and biased stationary laws on binary neighborhood-confidence stars",
+          "trigger": "Closest arbitrary-size star, freezing, and dimension match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Assumptions and Proof; arXiv:2402.05368v2 §III.1; 815829cbc27e Finding and Scope"
+      ],
+      "rationale": "The universal initial-profile bound answers a natural extremal question for a basic network class: whether any genuinely nonbinary arrangement can sustain complete structural leaf unreceptivity above the balanced-endpoint value. It also isolates what the threshold does not say about consensus. The construction demonstrates endogenous persistent fluctuations from asymmetric confidence tests without artificial stubborn agents; in its canonical odd-degree case full path density is compatible with a singular time-occupation measure. The dichotomy illustrates the boundary and is not presented as a new theorem about Bernoulli measures.",
+      "residual_risks": [
+        "The threshold concerns complete structural unreceptivity, not eventual consensus, convergence from generic states, or parity effects for arbitrary leaf balances."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

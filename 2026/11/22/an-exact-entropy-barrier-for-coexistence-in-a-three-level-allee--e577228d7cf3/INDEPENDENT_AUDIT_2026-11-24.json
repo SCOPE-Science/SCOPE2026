@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:08:26.120091Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The entropy gradient produces the three population deviations with the apex weight 1/a₃, cancelling both cross terms. The numerator of F(u)−v_* is a quadratic of leading coefficient −a₁ and roots u_−,u_+, so its factorization gives the claimed signed derivative. The entropy is proper on the positive octant and its strict threshold B is the minimum on u≤u_−; any initial closed sublevel below B is compact and positively invariant. On it the zero set forces u≡u_+, then v≡v_* and w≡w_* on an invariant trajectory, so LaSalle applies. Every larger complete sublevel reaches u<u_−. The strict open certificate is a proper subset of the basin: at (u_−,v_*,w_*) on its boundary, u'=0 and u''=u_−v_*(u_+−u_−)>0, giving immediate entry into u>u_− and then H<B. On a periodic orbit, integrating the signed derivative excludes staying on either side unless u and hence the state are constant. Integrating the three log derivatives yields the stated means, and strict F''<0 yields the strict Jensen conclusion since nonconstant state entails nonconstant prey. The periodic assertions are conditional. Read RESULT.md, VERIFICATION.md and VERIFY.py; the script was inspected, not run, and its single integration is not used as a global certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original model's theorem is local. The distinct indexed theorem uses quadratic strong-Allee growth and two interacting populations; it does not give a general chain theorem that specializes to this rational model."
+        ],
+        "reasoning": "General LaSalle and Jensen principles alone give neither the sign change nor the explicit geometry; those require the exact vector-field and nullcline identities.",
+        "searches": [
+          "Primary literature lookup for tritrophic strong-Allee chain, Lyapunov and global/basin results",
+          "DOI 10.3934/math.2025568, Theorem 4 and §6",
+          "Resultary f7e958313282, finding"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3934/math.2025568",
+        "Resultary f7e958313282",
+        "Resultary e577228d7cf3 (identical record, not distinct prior coverage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Local stability ensures convergence in some neighborhood, not membership of every H<B state. The earlier two-species capture and extinction certificates do not impose inequalities on trajectories in this three-level chain."
+        ],
+        "reasoning": "Even knowing the common prey equilibrium equation, a proof still needs the weighted cancellations, the sign-changing factorization and its global geometry; the orbit mean uses an additional strict concavity argument.",
+        "searches": [
+          "DOI 10.3934/math.2025568, Theorem 4 and §4",
+          "Resultary f7e958313282, entropy capture statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited 2025 paper uses the same equilibria in its local stability result; its numerical basin study is not an analytic sublevel quantified over all initial states. Distinct indexed record f7e958313282 uses a related entropy construction in two species."
+        ],
+        "reasoning": "Changing from entropy to Volterra–Lyapunov terminology gives the same functional method, but the different two-species vector field is not equivalent to the three-level dynamics or its periodic constraints.",
+        "searches": [
+          "Local Resultary semantic lookup for rational Allee trophic chain, Volterra entropy and basin sharpness",
+          "DOI 10.3934/math.2025568, equations (2), (4), Theorem 4 and numerical basins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The self-hit e577228d7cf3 is the same record; the closest distinct indexed finding f7e958313282 is a different model. The prior basin plots are for selected parameters."
+        ],
+        "reasoning": "No separate indexed matching symbolic certificate was found; a finite example or basin diagram does not encode the quantified all-parameter sublevel guarantee or periodic necessity.",
+        "searches": [
+          "Local Resultary lookup for exact entropy basin threshold and lower-root crossing",
+          "DOI 10.3934/math.2025568, numerical basin discussion"
+        ]
+      },
+      "rationale": "The same rational three-level model, its two coexistence equilibria, local stability and numerical basin behavior are already studied; the classical entropy method is also prior. The inspected same-model and same-method comparisons do not provide the sharp complete sublevel certificate or the paired crossing and strict mean constraints for this chain.",
+      "residual_risks": [
+        "A general tritrophic Volterra–Lyapunov basin theorem or another analysis of the same rational model could reduce originality if it yields these conclusions. The comparison is not a claim of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model and local or numerical basin results already covered; inspected passages do not state the entropy or cycle conclusions",
+          "evidence": "Two-root equilibrium algebra, local criterion and numerical bistability are present. Some extracted math glyphs are degraded; keyword misses were not used as evidence of absence.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2025568",
+          "material_read": "Publisher PDF equations (2), (4), p. 12602; Theorem 4 and §4, pp. 12608–12610; §6, pp. 12615–12616",
+          "method": "Lawful publisher PDF, bounded passages near extracted offsets 12000, 45500 and 60500",
+          "title": "A food chain model with Allee effect: Analysis on the behaviors of equilibria",
+          "trigger": "Exact same vector field and competing claims about upper coexistence and basin behavior"
+        },
+        {
+          "assessment": "Method-level overlap, different dynamics and conclusions; shared date does not decide order",
+          "evidence": "Sharp-for-its-sublevel coexistence capture and an extinction certificate in a two-species quadratic strong-Allee model, not the rational three-level chain or its cycle restrictions.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-two-explicit-opposing-basin-certificates-in-a-strong-allee-tippi--f7e958313282",
+          "material_read": "RESULT.md finding and entropy certificate in local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search followed by local mirror passages",
+          "title": "Two explicit opposing basin certificates in a strong Allee tipping model",
+          "trigger": "Closest distinct indexed use of the same entropy-sublevel strategy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit initial-state inequality addresses a natural gap left by local stability and numerical basin plots in a bistable model. It provides a rigorous nonlocal guarantee with a precisely delimited sharpness claim. The same identity, combined with concavity, gives testable restrictions on candidate positive cycles without pretending to classify the full basin or prove cycle existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

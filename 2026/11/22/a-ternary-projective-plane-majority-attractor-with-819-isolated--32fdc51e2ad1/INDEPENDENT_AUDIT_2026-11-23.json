@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:48:22.329800Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In zero-set coordinates each update takes the opposite shore's secants (threshold two for zeros). On a noncollinear set the two-step secant map is extensive. A noncollinear set without a quadrangle is a triangle or has at most one point off a line containing three or more points: two off-line points and two of the collinear points avoiding the intersection with their joining line would give a quadrangle. These sets are fixed. A quadrangle can be put at the three coordinate points and (1,1,1); its first double-secant image adds (1,1,0),(1,0,1),(0,1,1), and the secants of this seven-point set cover every point at least twice. Thus quadrangle-containing sets reach the full shore in four updates. The collinear inputs go to the empty shore; their count, including the empty set, is 1+13+78+52+13=157. This explains the two exceptional fibers and why all 819 other fibers are singletons. I independently exhausted the 8192 masks using the Singer difference set {0,1,3,9} in Z/13 with an explicit F_3^3 coordinate identification (python3 /workspace/checks/plane.py). It reproduced the geometric phase sets, fibers 157 and 7216, and all first entry counts on each shore, including 936 at time four. The recurrent phase bijection turns the full update into swap on 821 x 821 symbols. Product fibers then give the claimed 821 fixed states, 336610 primitive two-cycles, exact basin multiset and joint first entrance counts. The factorization is exhaustive, not a direct replay of 2^26 states. The frozen proof and both supplied scripts were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General synchronous symmetric threshold dynamics have eventual period at most two; Kuhlman et al. discuss that constraint and other threshold graph families.",
+          "Nagy poses internal partitions, not a dynamical counting result."
+        ],
+        "reasoning": "The general eventual-period theorem does not bound first entry sharply here or give stable configurations, individual fibers or basin multiplicities.",
+        "searches": [
+          "DOI:10.1016/0012-365X(80)90121-1",
+          "arXiv:1108.2974",
+          "arXiv:2403.13734"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; both supplied script sources",
+        "Resultary Heawood 8cd2964a9d93, three (9_3) geometries 3dafa4203984 and stopping sets fc9b95f1c3c6",
+        "DOI:10.1016/0012-365X(80)90121-1; arXiv:1108.2974; arXiv:2403.13734"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A recurrent symbol swap gives basin products only after the two-step map and its actual point- and line-shore fibers are known.",
+          "The different phase counts and sharp cutoffs in predecessor incidence graphs demonstrate the non-uniform inputs to that common method."
+        ],
+        "reasoning": "The new ingredient is the PG(2,3) secant classification and transient census; neither the prior reductions nor a known stopping-set spectrum determine it.",
+        "searches": [
+          "Heawood result, local mirror offsets 341 and 4531",
+          "three (9_3) geometries result, local mirror offset 800",
+          "Kuhlman et al. p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heawood has the same swap method but uses 14 vertices, degree three, 58 symbols and cutoff two.",
+          "The order-three stopping-set record counts 769 erasure stopping sets on the same incidence matrix; its predicate is not stability under alternating secant maps.",
+          "Nagy studies incidence-rich/internal partitions."
+        ],
+        "reasoning": "Threshold two for zeros on opposite shores is the complement presentation of this very threshold-three law; neither an erasure peeling predicate nor a friendly partition is equivalent to this iteration.",
+        "searches": [
+          "Resultary majority on finite projective-plane incidence graphs, Heawood and bipartite phase projections",
+          "Resultary PG(2,3) incidence stopping sets",
+          "arXiv:2403.13734"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three (9_3) incidence geometries have 92, 96 and 98 symbols on degree-three 18-vertex graphs; the Heawood table is for the Fano plane.",
+          "The exact stopping-set table is for another invariant on PG(2,3)."
+        ],
+        "reasoning": "None of the retrieved tables covers the labelled 26-vertex, degree-four threshold-three law. The same-day (9_3) result does not have priority assigned within the day.",
+        "searches": [
+          "Resultary Heawood majority basin table",
+          "Resultary exact incidence-graph phase/fiber tables",
+          "Resultary order-three projective-plane stopping configurations"
+        ]
+      },
+      "rationale": "The bipartite swap and eventual-period-two restrictions have precedents. The bounded comparison found no source giving or implying the sharp PG(2,3) open-neighbor strict-majority cutoff, stable phase classification and complete fiber/basin/entry census together, or the main new PG(2,3) census separately. The same-day incidence-graph record is materially relevant but distinct; no same-day priority was inferred.",
+      "residual_risks": [
+        "Goles–Olivos full text was not retrieved; only the abstract/landing material and the published general theorem were relied on.",
+        "An unindexed exact computation or formulation remains possible. This is a bounded best-of-knowledge originality decision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method precedent, different graph and dynamics census",
+          "evidence": "F^4=F^2, 58 fixed configurations and 1653 two-cycle orbits on the cubic Fano Levi graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-two-step-majority-projection-and-exact-attraction-basins-on-th--8cd2964a9d93/RESULT.md",
+          "material_read": "Local mirror offsets 341 and 4531: law, orbit counts and swap/basin reduction",
+          "method": "Resultary search and local mirror reader",
+          "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+          "trigger": "Closest exact dynamical precedent"
+        },
+        {
+          "assessment": "Distinct family with a parallel method",
+          "evidence": "Three cubic 18-vertex instances; 92, 96 and 98 phase symbols with cutoffs 3, 4 and 4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-three-9-3-incidence-geometries-have-distinct-majority-phase--3dafa4203984/RESULT.md",
+          "material_read": "Main phase/fiber/entry table around local mirror offset 800",
+          "method": "Resultary search and local mirror reader",
+          "title": "The three (9_3) incidence geometries have distinct majority phases",
+          "trigger": "Same-day exact incidence-dynamics analogue"
+        },
+        {
+          "assessment": "Different invariant, not exact coverage",
+          "evidence": "The 769 stopping sets are an erasure-decoding classification, not recurrent sections of a twofold secant map.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-complete-stopping-configurations-and-erasure-failure-spectrum-of--fc9b95f1c3c6/RESULT.md",
+          "material_read": "Predicate and count around local mirror offset 360",
+          "method": "Resultary search and local mirror reader",
+          "title": "Complete stopping configurations and erasure-failure spectrum of the order-three projective plane",
+          "trigger": "Exact table on the identical incidence structure"
+        },
+        {
+          "assessment": "Known general period restriction credited; no whole-paper inference",
+          "evidence": "The relevant general restriction is eventual period at most two, not an instance-specific census.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+          "material_read": "Landing page and abstract only; not full paper",
+          "method": "DOI/OA retrieval",
+          "title": "Periodic behaviour of generalized threshold functions",
+          "trigger": "General eventual-period theorem"
+        },
+        {
+          "assessment": "General restriction, not exact coverage in inspected material",
+          "evidence": "Fixed-point or two-cycle attractor constraint.",
+          "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+          "material_read": "p. 1, text offset approximately 900 (eventual behavior)",
+          "method": "OA PDF passage",
+          "title": "Bifurcations in Boolean Networks",
+          "trigger": "General theorems possibly including sharp threshold dynamics"
+        },
+        {
+          "assessment": "Different predicate and class of conclusions",
+          "evidence": "Internal partitions and incidence-rich parts, not temporal attraction.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.13734",
+          "material_read": "p. 1, text offset approximately 810 (problem and main scope)",
+          "method": "OA PDF passage",
+          "title": "Partitioning the projective plane to two incidence-rich parts",
+          "trigger": "Structural projective-plane classification potentially in alternative form"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This natural even-degree projective incidence graph is a test case where the general period theorem says nothing about a sharp transient bound or the distribution of attraction. The complete census explains why three geometric classes yield 819 isolated phases and why only two exceptional phase symbols carry almost all of the nontrivial attraction. It provides exact benchmark data for a related family already studied on smaller cubic incidence graphs; it does not claim a theorem for other orders or tie conventions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

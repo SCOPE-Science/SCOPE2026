@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:08:32.542453Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof, lines 4–72",
+        "Frozen VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent algebraic reconstruction of the boundary transform, spectral tail, strict ordering and first two cumulants"
+      ],
+      "rationale": "With diffusivity D and radiation coefficient kappa, solving DG_s''=sG_s with G_s(L)=0 and DG_s'(0)=kappa(G_s(0)-1) gives the displayed numerator and denominator, including G_0=kappa(L-x)/(D+kappa L). The normalized transform factors into the absorbing first-hit transform conditioned on hitting 0 first and the x-independent boundary-delay transform. Put a=kappa+D/L and phi(s)=Dq coth(qL)-D/L, q=sqrt(s/D). The coth partial fractions give a Lévy density (2D/L) sum_n nu_n exp(-nu_n t); its truncated first moment is finite by sum 1/nu_n<infinity, and its total mass is infinite. Thus the delay law is S_H for an independent rate-a exponential H. Each deterministic positive-length increment is almost surely positive (its atom at zero is lim_{s→infinity} exp(-h phi(s))=0), and a countable rational-interval argument proves a.s. strict increase of S. Sharing a uniform for H and sharing S and the independent conditioned first hit proves strict reactivity ordering. For the spectral construction, the zeros of the even denominator correspond to the positive simple eigenvalues of the Robin–Dirichlet Sturm–Liouville problem; the Robin quadratic form has the nonnegative boundary term eta |f(0)|^2. The denominator regarded as an entire function of z^2 has order at most 1/2, so the normalized product has no extra exponential. The paired eigenvalue factors are exactly Bernoulli/exponential transforms; p_n<1/n and rho_n>D pi^2 n^2/(4L^2) give summable means and the uniform N^(-2) bound. The weak-reactivity limit uses the rate D/L, still strictly positive. Finally log(sinh z/z)=z^2/6-z^4/180+O(z^6) gives the first-hit moments, while phi(s)=Ls/3-L^3 s^2/(45D)+O(s^3) in log[a/(a+phi)] gives the stated delay moments. Independent addition gives the total mean and variance.",
+      "residual_risks": [
+        "The 30 recorded numerical comparisons include finite spectral truncation and small-discount moment fitting; they are not evidence of the infinite product or coupling without the analytic arguments.",
+        "Radiation/local-time normalization is the one given by the stated backward boundary condition. The order is between success-conditioned laws at fixed x, not an unconditioned ordering."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Robin/Dirichlet-to-Neumann and exponential stopping-local-time constructions are classical. The inspected van Doorn result is a ratio-of-polynomial spectral representation for first-passage in discrete birth–death processes. Kent is potentially more directly relevant, but precise hypotheses and theorem passages were not accessible."
+        ],
+        "reasoning": "These results motivate the spectral ratio and subordinator techniques. The checked statements do not supply the success-conditioned interval law with its paired Robin/Dirichlet spectrum, uniform error and strict ordering; no negative scope conclusion is drawn for the unread Kent papers.",
+        "searches": [
+          "Bressloff arXiv:2205.08929, abstract and introduction",
+          "Grebenkov arXiv:1909.07677v2, pp. 3–4",
+          "van Doorn DOI 10.1007/s10959-015-0659-z, equations (2)–(4)",
+          "Kent, Eigenvalue expansions for diffusion hitting times (1980), and The spectral decomposition of a diffusion hitting time (1982), exact-title lawful retrieval attempts"
+        ]
+      },
+      "checked_sources": [
+        "Wu arXiv:2611.01321",
+        "Bressloff arXiv:2205.08929",
+        "Grebenkov arXiv:1909.07677",
+        "van Doorn DOI 10.1007/s10959-015-0659-z",
+        "Kent (1980 and 1982), access limitation",
+        "Resultary ff4440eb15e5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Solving Wu's flat-profile BVP and normalizing gives the frozen conditional transform. To control spectral truncation one needs the paired product with rho_n in the Robin half-period and a summable bound on p_n/rho_n. For strict coupling, the success-conditioned delay uses the shifted exponential rate kappa+D/L and a subordinator with a.s. strictly increasing paths."
+        ],
+        "reasoning": "The boundary problem determines the law implicitly, but using the transform as a law with certified error and coupling is not just a parameter substitution in its stated solution. The common subordinator must be extracted after conditioning; plain common unconditioned threshold coupling does not prove the claimed result.",
+        "searches": [
+          "Wu arXiv:2611.01321, p. 8, eqs. (61)–(63)",
+          "Grebenkov arXiv:1909.07677, pp. 3–4",
+          "Resultary ff4440eb15e5, Finding and Proof 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu formulates the very same defective reaction-time transform in the flat-profile specialization. The first factor of its normalized interval solution is the absorbing first hit conditioned on the left endpoint, not the unconditioned time. A restart at the first left hit, conditional on eventual success, produces the continuation law by strong Markov.",
+          "Grebenkov stops reflected Brownian motion at an independent exponential boundary local time. In the target model an escape boundary competes with that stopping; conditioning away escape changes the drift under h(x)=L-x to -2D/(L-x)."
+        ],
+        "reasoning": "An ordinary reflected process or returning after a reset is not the same success-conditioned interval process. Treat the elementary strong Markov split and underlying conditional BVP as antecedents, reserving the assessment for the precise boundary delay and the verified consequences of its two representations.",
+        "searches": [
+          "Wu arXiv:2611.01321, eqs. (61)–(63), (67), (71)–(72)",
+          "Grebenkov arXiv:1909.07677, eqs. (7)–(10), (18)–(22)",
+          "Resultary ff4440eb15e5, Finding and Proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest distinct same-day result gives a full spectral Bernoulli–exponential delay under farther-target conditioning with interruption, resetting and return to two absorbing targets. Wu gives a backward transform problem and conditional mean; neither inspected source gives the finite-N uniform Robin-spectrum truncation result."
+        ],
+        "reasoning": "The whole series in the distinct reset result is material overlap, not independent evidence for an exact table in this model. The mechanisms and spectral parameters differ, with no checked identification of its model with the Robin success-conditioned one. Relative priority cannot be inferred from the same date.",
+        "searches": [
+          "Local Resultary search for conditional Robin/exit delays and Bernoulli–exponential spectral series",
+          "Resultary record ff4440eb15e5",
+          "Wu conditional-time and backward-transform equations"
+        ]
+      },
+      "rationale": "The same-model boundary problem and hence the conditional Laplace transform under constant diffusivity and zero drift are already implicit in Wu. The existence of a position-independent continuation law is also a strong Markov consequence at the first hit of the reactive endpoint; do not credit factorization alone. The supported distinct contribution is the explicit spectral law of this successful boundary continuation together with its uniform certified truncation and strict cross-reactivity coupling under competing escape. The closest checked local result has a genuinely similar independent Bernoulli/exponential delay but different interruption/reset dynamics. General local-time and hitting-time spectral tools are prior; no inspected theorem gives this complete conditioned law and its two quantitative/ordering consequences. The inaccessible continuous Kent sources leave a specific risk for the spectral part, not a basis for a verdict about their coverage.",
+      "residual_risks": [
+        "Kent's exact range of continuous diffusion passage problems, especially after a transform with an elastic boundary, could not be confirmed. Earlier spectral or inverse-local-time work may cover individual components.",
+        "The local analogue is same-day; no relative priority is assumed. The BVP, strong Markov split, and generic local-time/spectral tools are not independently original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model after specialization; directly covers the BVP and implicitly the normalized transform, not the inspected full constructive result",
+          "evidence": [
+            "Defines the success-weighted transform, the Robin and escape conditions, and the conditional-mean equations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.01321",
+          "material_read": "PDF p. 8, equations (61)–(63), (67), and (71)–(72)",
+          "method": "Bounded primary PDF inspection by equation",
+          "title": "Before the First Bond: Depletion-Assisted Stochastic Capture at the Onset of Endocytosis",
+          "trigger": "Closest same-model prior transform and conditional time"
+        },
+        {
+          "assessment": "General method precedent, not verified coverage of the conditioned interval theorem",
+          "evidence": [
+            "Robin absorption is represented by an exponential stopping local time and analyzed via a Dirichlet-to-Neumann spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.08929",
+          "material_read": "PDF pp. 1–2, abstract and intro local-time/DtN passages",
+          "method": "Bounded primary PDF inspection",
+          "title": "Spectral theory of diffusion in partially absorbing media",
+          "trigger": "Potential general Robin and local-time spectral treatment"
+        },
+        {
+          "assessment": "Directly anticipates the threshold and stopping-transform machinery, not the success-conditioned Robin/escape decomposition",
+          "evidence": [
+            "Uses a boundary-local-time threshold with exponential mean D/kappa for the usual reflected Brownian Laplacian; the inspected formula does not condition on surviving a competing absorbing endpoint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.07677",
+          "material_read": "PDF pp. 3–4, equations (7)–(10) and (18)–(22)",
+          "method": "Bounded OA primary PDF inspection",
+          "title": "Probability distribution of the boundary local time of reflected Brownian motion in Euclidean domains",
+          "trigger": "Continuous local-time spectral mechanism and randomized threshold"
+        },
+        {
+          "assessment": "Related discrete birth–death result, not an elastic diffusion passage theorem",
+          "evidence": [
+            "First-hitting transform is represented by a ratio of transition transforms and then orthogonal polynomials Q_i/Q_j for i<j."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10959-015-0659-z",
+          "material_read": "PDF pp. 1–2, equations (2)–(4)",
+          "method": "Bounded primary paper inspection",
+          "title": "An Orthogonal-Polynomial Approach to First-Hitting Times of Birth–Death Processes",
+          "trigger": "Potential general spectral factorization precedent"
+        },
+        {
+          "assessment": "Possible broader coverage of spectral form is unresolved; no inference about the elastic endpoint from the titles",
+          "evidence": [
+            "No scope-defining primary passage obtained."
+          ],
+          "identifier_or_url": "John T. Kent (1980 and 1982), exact-title references",
+          "material_read": "Bibliographic records only; no accessible theorem passage located",
+          "method": "Targeted lawful retrieval attempts for the identified papers",
+          "title": "Eigenvalue expansions for diffusion hitting times; The spectral decomposition of a diffusion hitting time",
+          "trigger": "Potential continuous spectral representation of the conditioned boundary delay"
+        },
+        {
+          "assessment": "Strong structural overlap, but two absorbing endpoints with interruption/reset-and-return rather than a Robin endpoint competing with escape",
+          "evidence": [
+            "Farther-target conditioned completion is the nearer-target conditioned time plus an independent delay with a full Bernoulli–exponential series."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-an-infinitely-divisible-conditional-exit-delay-survives-arbitrar--ff4440eb15e5",
+          "material_read": "RESULT.md Finding and Proof 1–4, local-mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary and bounded local-mirror passage inspection",
+          "title": "An infinitely divisible conditional exit delay survives arbitrary interruption",
+          "trigger": "Closest distinct same-day local overlap in independent conditioned delays and spectral series"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof 2–4",
+        "Wu arXiv:2611.01321 conditional-time equations",
+        "Resultary ff4440eb15e5"
+      ],
+      "rationale": "For this natural competing-outcome model, the explicit independent sum makes the entire conditioned boundary delay usable, rather than giving only its mean or defining it by a boundary-value problem. The uniform N^(-2) Wasserstein guarantee gives a certified finite approximation independent of reactivity, and the common increasing-process representation proves strict ordering even though conditioning selects different rare outcomes at different reactivities. Together those are meaningful distributional and approximation results beyond the prior BVP or the routine first-hit split.",
+      "residual_risks": [
+        "Restricted to a homogeneous interval with one Robin endpoint and one absorbing escape endpoint; no claim for multiple reactive boundaries, drift, or heterogeneous diffusivity.",
+        "The truncation guarantee controls Wasserstein distance, not relative error in the success probability or a conditioned density."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

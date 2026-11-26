@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Torus reduction sends any nonzero progression step to a full circle. The finite-dimensional trust-region dual proves that a translation along the minor ellipse axis minimizes the maximum modulus, including the degenerate circle/segment cases. The two normalized tie placements reduce to explicit quadratics in a cosine. Their exact lower certificates exceed the coefficient \(\ell_{3/2}\) bound uniformly. Exponent monotonicity gives every degree \(m\ge3\). The quadratic counterexample has an exact torus maximum \(\sqrt5\) and coefficient norm \(3^{3/4}>\sqrt5\). The finite checker is diagnostic only.
+## correctness
 
-## Originality
-**PASS, best-knowledge comparison.** Caro-Montoya, Núñez-Alarcón and Serrano-Rodríguez, arXiv:2607.20847 (23 July 2026), establish asymptotic contractivity for a much broader support class, not an exact degree-three tied-coefficient result. Pellegrino and Teixeira, arXiv:2610.36887v1 (27 October 2026), establish a related tied-largest-coefficient criterion only for degrees at least their explicit \(M_N\); for \(N=3\), its own definition makes \(M_3>3\). It does not state the sharp degree-two failure and degree-three guarantee proved here. The result is also distinct from high-order phase-majorant and \(L^8/L^2\) three-frequency results in the mathematical result database. Searches do not exclude a broader older trigonometric-polynomial inequality that entails the same special case.
+PASS
 
-## Mathematical value
-**PASS.** The three-term progression is the minimal Fourier resonance underlying failures of constant-one Bohnenblust–Hille bounds. The result determines its exact low-degree boundary when the largest coefficient is repeated, separating a concrete failing quadratic from all higher degrees, uniformly in the number of variables and arbitrary complex phases. This is a natural finite-degree boundary rather than an arbitrary numerical slice.
+By the polydisk maximum principle, torus factorization and surjectivity of z^beta, the norm is the circle norm of a/w+b+cw. Make the endpoints nonnegative by rotating the circle and the output, so their sum follows an ellipse with semiaxes s=|a|+|c| and d=||a|-|c||. To maximize the squared translated norm, complete squares with multiplier lambda>s^2: the upper bound apart from |b|^2 is lambda+s^2 t1^2/(lambda-s^2)+d^2 t2^2/(lambda-d^2). At an interior minimizing lambda the square-completion point is a unit vector. At the lower limit the major-axis linear term must vanish and the minor-axis maximizing coordinate fits in the disk, so the first coordinate can complete the boundary; the circle case is rotationally invariant. Thus the bound after infimizing is exact. At each lambda the major-axis weight is no smaller than the minor-axis weight, so the smallest possible peak places the translation on the minor axis, also covering a flat ellipse or vanishing center coefficient. After normalization the coefficient moduli are (1,1,t) in some order. The squared minimal peak is 4+t^2 for the outer tie. For a mixed tie the maximand is (2+2t+t^2)+2(1-t)x-4tx^2 on [-1,1]; the vertex enters at t=1/5. The resulting pieces give excess over 13/5+t+t^2 of 7/5-5t and (25t^2-22t+5)/(20t), both positive on their ranges. Meanwhile (2+t^(3/2))^(4/3)<13/5+2t^(3/2)<=13/5+t+t^2. This proves strictness at p=3/2 including two-term ties, and increasing p preserves it; a monomial attains equality. For the degree-two witness the circle expression is 1+w-w^(-1), attaining squared norm 5; comparing fourth powers gives 27>25. This verifies failure at the immediately smaller degree.
 
-## Limitations and closest literature
-The proof handles only three-term arithmetic-progression support and either monomials or tied positive maxima. No statement is made about unequal top coefficients or the full constant for general supports. The October 2026 comparison addresses the same structural question at a larger degree threshold and is credited explicitly. Potential coverage by classical trigonometric sup-norm inequalities remains a residual originality risk; there has been no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is for the sharp finite degree threshold and strict coefficient inequality on the stated tied class. The phase-minimization conclusion is a special case of Neuwirth's theorem, and the high-degree part overlaps general comparable-coefficient contractivity. Neither alone gives the uniform coefficient comparison at exponent 3/2. The frozen record presents phase analysis as a proof ingredient, not a separate historical novelty claim.
+
+## value
+
+PASS
+
+A three-term progression is the simplest sparse support on which phases can obstruct exact contractivity. Separating phase obstruction from magnitude imbalance by a tied-maxima hypothesis gives a natural, dimension-independent test case. The exact transition between degrees two and three replaces a very large general sufficient degree for this class and identifies when equality can occur.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

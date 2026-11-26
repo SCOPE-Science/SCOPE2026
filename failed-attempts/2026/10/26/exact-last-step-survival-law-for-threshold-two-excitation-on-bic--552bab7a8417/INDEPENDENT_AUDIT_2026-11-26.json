@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:37:20.361501Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 5–57",
+        "Assigned VERIFICATION.md, verify_bipartite_ghm.py and ghm_verification_output.txt (inspected, not executed)",
+        "`python3 /workspace/independent_checks.py`, ghm_orbit and ghm"
+      ],
+      "rationale": "The readout is first entry into a periodic orbit, not time of last excitation. Within each shore, the initial color classes remain internally synchronized. For any subset of classes the test ‘sum of sizes ≥2’ is unchanged by capping each size at 2. This preserves each active class's entire itinerary: with class membership fixed, equality of class-state tuples is equivalent to equality of full labelled states. I wrote and ran a separate bitset simulator on all 676 admissible signatures; it reproduced the full (preperiod, least period) table and verified the thin–fat predicate on every signature, with 24 signatures of preperiod 5 and all 24 eventually fixed. Direct labelled simulations included K_(3,4), where 144 of 2187 states have preperiod 5 and no periodic orbit is nonconstant. In one orientation the fat part contributes P_a ways and the thin part contributes 2Q_b; the reverse case is disjoint since thin parts have fewer than two excited vertices. The two forbidden excited-count ranges used for the closed form of P_n are disjoint for n≥3, and P_n/3^n→1. Fat needs at least four vertices and thin at least three, yielding the exact size boundary, including smaller positive shores.",
+      "residual_risks": [
+        "The labelled tests on individual bicliques are illustrative. All sizes are covered by the proof of the quotient and complete 676-signature check together."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "5bef754e247f gives N_(a,b)(t,p) for all t,p and all positive a,b, and the complete max-preperiod matrix through shore size six with a proof of saturation beyond six.",
+          "The primary arbitrary-graph articles use at least one excited neighbor, not two; other indexed multi-state or asymmetric-threshold results do not substitute for the exact same-model match."
+        ],
+        "reasoning": "The matching full census contains the frozen one-shell result and already states and witnesses the sharp (3,4) boundary. The threshold-one papers do not imply it.",
+        "searches": [
+          "5bef754e247f, Finding and proof §§1, 3–4",
+          "Doba, pp. 102–103",
+          "Gravner–Lyu–Sivakoff, pp. 3325–3326"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 5bef754e247f, RESULT.md and certificate.tsv",
+        "Doba (2018), pp. 102–103",
+        "Gravner–Lyu–Sivakoff (2018), pp. 3325–3326",
+        "Assigned AUDIT.json lines 109–118"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Restrict the displayed exponential sum to (t,p)=(5,1): its table factors in each orientation into the sum of the six fat weights and the two thin weights. Their exponential coefficients are P_n and 2Q_n, respectively; the thin weight is 2z(exp(z)−1−z)."
+        ],
+        "reasoning": "Regrouping these terms gives 2(P_aQ_b+Q_aP_b), including 144 for (3,4); the balanced equivalent follows from the binomial tail. A five-step bound and recurrent counts alone would not imply these facts; the explicitly tabulated complete census does.",
+        "searches": [
+          "5bef754e247f, RESULT.md, coefficient formula (offset 1395) and proof §4 (offset 6500), together with certificate.tsv",
+          "Assigned AUDIT.json lines 109–118, earlier lead ed9eee10-057f-45a6-8801-a54bde6e554a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "5bef754e247f caps the same six initial color cohort sizes at two; its all-class coefficient formula uses weights 1, z and exp(z)−1−z for capped sizes 0, 1 and 2."
+        ],
+        "reasoning": "These weights realize the frozen counts for labelled configurations through exponential coefficient extraction, not only a count of population-count states. The object, synchronous rule and least-period/entry definition agree.",
+        "searches": [
+          "Resultary: ed9eee10-057f-45a6-8801-a54bde6e554a general threshold complete bipartite Greenberg Hastings five-step F^17=F^5 periodic points threshold at least two",
+          "5bef754e247f, RESULT.md and certificate.tsv"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Of the 676 actual rows, 24 have transient 5; all have period 1. Filtering and comparing all rows with the frozen predicate gave zero mismatches. The fat triples are 022, 121, 122, 220, 221, 222 in resting/excited/refractory order, independently paired with either thin triple 201 or 210 and either orientation."
+        ],
+        "reasoning": "This is direct overlap in the exact table of eligible type pairs, not the inference that a bound of five implies a count. The exact table itself supplies the claimed membership criterion.",
+        "searches": [
+          "Resultary 5bef754e247f, published certificate.tsv, columns a0 a1 a2 b0 b1 b2 transient period"
+        ]
+      },
+      "rationale": "A distinct Resultary record 5bef754e247f exactly covers the threshold-two symmetric biclique model and gives a complete labelled first-entry-time/period formula with explicit certificate rows. Filtering its certificate yields precisely the claimed thin–fat set, and its coefficient formula yields the closed count directly. This is equivalent coverage in the available corpus, not a claim of historical priority: the matching record is indexed under November 1 and the frozen source is filed under October 26.",
+      "residual_risks": [
+        "No historical priority inference is made from the index dates. The older same-model lead ed9eee10-057f-45a6-8801-a54bde6e554a remains unverified at primary-source level, and the cited Durrett–Griffeath arXiv text was not accessible. The verdict relies on the demonstrated complete indexed census, not those gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers full frozen stratum by direct specialization; not evidence of discovery order",
+          "evidence": [
+            "All-size coefficient formula, all 24 matching rows, and explicit K_(3,4) sharpness witness."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-threshold-two-excitation-on-bicliques-sharp-orbit-onsets-and-a-f--5bef754e247f",
+          "material_read": "RESULT.md Finding/coefficient formula, proof §§1, 3–4, and certificate.tsv columns and transient-five row filter",
+          "method": "Resultary index and bounded local-mirror inspection; exact tabular predicate comparison",
+          "title": "Threshold-two excitation on bicliques: sharp orbit onsets and a five-step clock",
+          "trigger": "Exact same model with general entry-time/period census"
+        },
+        {
+          "assessment": "Different threshold",
+          "evidence": [
+            "Activation needs at least one excited adjacent vertex; deterministic case sets p=1."
+          ],
+          "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "pp. 102–103, activation definition and deterministic rule",
+          "method": "Open PDF",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Finite-graph activation law"
+        },
+        {
+          "assessment": "Different threshold",
+          "evidence": [
+            "One excited neighbor is sufficient."
+          ],
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "pp. 3325–3326, update definition",
+          "method": "Open author-hosted PDF",
+          "title": "Limiting Behavior of 3-Color Excitable Media on Arbitrary Graphs",
+          "trigger": "Broader graph results"
+        },
+        {
+          "assessment": "Not independently established; not a basis for the verdict",
+          "evidence": [
+            "Reported claims include F^17=F^5, periodic counts, and sharpness for both parts of size at least four."
+          ],
+          "identifier_or_url": "ed9eee10-057f-45a6-8801-a54bde6e554a",
+          "material_read": "Only the recoverable claim as reported in assigned AUDIT.json; no underlying paper or certificate retrieved",
+          "method": "Assigned audit lead and targeted index query",
+          "title": "Earlier threshold-dependent bipartite excitation result (title as described in assigned audit)",
+          "trigger": "Same-model earlier lead"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 32–57",
+        "Resultary 5bef754e247f, exact coefficient formula and certificate"
+      ],
+      "rationale": "The last-entry stratum is a sensible quantitative object, and its simple expression is convenient. But the frozen submission extracts an already exactly tabulated shell of the same model using the same finite quotient. The short factorization groups two lists of shore triples in that table without a new dynamical invariant, argument, or boundary beyond the existing census.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

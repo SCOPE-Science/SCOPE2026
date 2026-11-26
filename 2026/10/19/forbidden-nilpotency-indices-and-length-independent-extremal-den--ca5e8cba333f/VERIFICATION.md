@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of forbidden nilpotency indices
+# Independent mathematical audit
 
-Run `python3 verify_nilpotent_gap.py` beside this file. The program independently enumerates all \(2\times2\) matrices with nilpotent reductions and multiplies them to determine their least zero powers, without using the proof's recurrence to assign powers.
+## correctness
 
-The exact checked configurations are \(\mathbb Z/8\mathbb Z\), \(\mathbb F_2[t]/(t^3)\), \(\mathbb Z/16\mathbb Z\), and \(\mathbb Z/27\mathbb Z\). Their nilpotent totals are respectively \(1024,1024,16384,59049\), with maximal-index counts \(384,384,6144,34992\). All forbidden-index counts are zero. The first two rings have matching index histograms despite different characteristics. The program also checks \(\nu(C)=5\) over \(\mathbb F_3[x,y]/(x^2,y^2)\) and \(\mathbb F_5[x,y]/(x^2,y^2)\), and \(\nu(C)=4\) over the corresponding characteristic-two ring.
+PASS
 
-The proof verifies the general companion recurrence, valuation bounds, exact determinants in the first radical layer, and non-chain witness symbolically. The finite tests are checks and do not certify all rings or constitute independent mathematical validation.
+Nilpotence is equivalent to nilpotent reduction because A² is then in πM₂(R), so A^(2m)=0. There are q² residue nilpotents (zero plus (q+1)(q−1) choices of image line and nonzero quotient-to-line map), each with q^(4m−4) lifts. The zero fiber dies by power m. In each other fiber t=tr(A) and d=det(A) belong to (π). If d∈(π²), Cayley–Hamilton gives inductively A^h∈π^(h−1)RA+π^h RI, so A^(m+1)=0. If d=πδ with δ a unit and t=πτ, put B=τA−δI; then A²=πB, B commutes with A, and B modulo π is invertible as a nonzero scalar plus a nilpotent. Thus π^(m−1)B^(m−1)A=A^(2m−1)≠0, since its factor after π^(m−1) has nonzero reduction. The determinant's first-order map at each rank-one residue matrix has a nonzero cofactor and is affine surjective; this applies without a coefficient-field splitting. The fraction (q−1)/q of each nonzero fiber therefore has index 2m, giving the stated count and density. Companion matrices with (t,d)=(π,0),(0,π) attain m+1 and 2m. For the nonchain witness, C³=−xC−xyI, C⁴=−2xyC and C⁵=0; the lower-left entries certify both characteristic cases. Separate literal matrix-power enumeration matched total/extremal counts 1024/384 in Z/8 and F₂[t]/(t³), 16384/6144 in Z/16, and 59049/34992 in Z/27. No forbidden index occurred. Finite tests corroborate but do not establish the general proof.
+
+## originality
+
+PASS
+
+The distinct claim supported by the inspected literature is the joint full forbidden interval and global extremal mass for all finite commutative chain rings at every m≥3, including mixed characteristic, with an explicit nonchain failure. Known companion classification supplies the reduction; the equal-characteristic length-three regular-fiber result and the equal-characteristic arbitrary-length extremal-fiber count materially overlap and are not credited as separate novelty. The inspected higher-tail theorem does not cover the full new interval for m>3 or the mixed-characteristic scope.
+
+## value
+
+PASS
+
+The result replaces a coarse universal 2m nilpotency bound by a forbidden interval whose length increases without bound, and supplies a ring-independent exact extremal share across mixed and equal characteristics. The determinant-layer criterion makes the result usable without similarity enumeration; the nonchain example isolates a real boundary rather than adding an arbitrary small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

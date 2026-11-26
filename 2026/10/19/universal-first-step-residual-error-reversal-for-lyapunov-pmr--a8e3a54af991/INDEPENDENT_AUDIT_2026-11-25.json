@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:19:14.428087Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Lund–Palitta's scalar harmonic correction is −b²/a. Writing Hv=av+bw with w orthonormal to v gives residual square (1−2ay)²+2b²y², with minimum at the stated MR coefficient. PMR and Galerkin lie on opposite sides of MR and the ratio of their distances to MR is a²/(a²+b²)<1 for b>0. In an eigenbasis of H, let D,D′ be independent eigenvalue draws with masses equal to the squared components of v. The exact entry formula X_jk=v_j v_k/(H_jj+H_kk) gives ⟨X,vvᵀ⟩=E[1/(D+D′)]>1/(2a) by strict Jensen for b>0. Thus the Frobenius-error quadratic decreases throughout the interval of the three coefficients, yielding the displayed solution-error order. If b=0 all three recover the exact solution. In the exhibited family the leading Galerkin error is K⁻¹ times the matrix with entries (1/2,−1/2;−1/2,0), whereas PMR and MR errors tend to 1/4 and 1/6. Substitution of a→1 and b²→1 gives both stated residual ratios. The displayed inequalities are correct; 'opposite directions' is informal, since both comparisons to Galerkin reverse but MR still beats PMR on both metrics. The replay path is the supplied exact-rational verifier, inspected but not executed; it hard-codes extraction rules and is not a substitute for the analytic check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.2 gives general Galerkin minimization in the SPD operator energy norm. For L(E)=HE+EH, weights on entries in an eigenbasis are λ_j+λ_k, not 1.",
+          "Resultary 89eb763dddfc studies one-step MR/GMRES for symmetric linear systems; error amplification in its sharp bound requires an indefinite active spectrum. It does not compare harmonic PMR with Galerkin for SPD Lyapunov equations."
+        ],
+        "reasoning": "The energy ordering follows from the method coefficients and energy optimality, but is not the claimed unweighted ordering. Norm comparison across arbitrary H has a condition-dependent constant and does not give the signed Frobenius comparisons or the asymptotic witness.",
+        "searches": [
+          "Palitta and Simoncini arXiv:1908.06016 Proposition 2.2 and Lyapunov specialization",
+          "Resultary 89eb763dddfc symmetric GMRES(1) Euclidean error barrier"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2312.00463",
+        "Lin and Simoncini MRlyap1.pdf",
+        "arXiv:1908.06016",
+        "Resultary 65682c1c69b9, 10f94e78e67e, 89eb763dddfc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In one dimension the known methods determine all three coefficients and the generic MR formulation determines the least residual. To get the strict Frobenius-error order one also needs the inverse-spectral Jensen inequality for vᵀXv. The two-eigenvalue family keeps the exact solution bounded and suppresses the larger eigenvalue forcing weight at rate K⁻² while b² tends to 1.",
+          "General residual-to-error estimates involve the inverse Lyapunov operator; they neither establish the inter-method ranking nor exhibit this diverging ratio with better residual."
+        ],
+        "reasoning": "The part genuinely assessed is the cross-norm comparison and its unbounded example, not the coefficients or their routine residual minimization on their own.",
+        "searches": [
+          "Lund–Palitta §§2–3 and PMR residual analysis",
+          "Palitta–Simoncini Proposition 2.2 and SPD Lyapunov energy norm",
+          "Lin–Simoncini Eq. (1.3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lund–Palitta gives the modified projected equation and M_PM R=H_m^{−*}E_m H_{m+1,m}^*H_{m+1,m}; at dimension 1 this gives −b²/a. The method and coefficient are directly covered.",
+          "Lin–Simoncini defines matrix Frobenius MR over Y in the approximation space. This yields the scalar minimizer but is not a comparison of solution errors with PMR and Galerkin."
+        ],
+        "reasoning": "These are identical definitions after scalar specialization; the bounded-away residual improvement combined with unbounded error distortion is not stated by either definition.",
+        "searches": [
+          "Lund and Palitta arXiv:2312.00463 §§2–3, Eqs. (8), (11)",
+          "Lin and Simoncini MRlyap1.pdf Eq. (1.3)",
+          "Focused literature search for Lyapunov harmonic PMR first-step residual and Frobenius solution error"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-sweep Gauss–Seidel record 65682c1c69b9 has a vanishing relative coefficient residual and nonvanishing energy error in increasing dimension, not the three Lyapunov extractions. The diagonal Lyapunov Gramian record 10f94e78e67e treats diagonal-plus-one-factor representation, not a Krylov residual/error theorem.",
+          "The symmetric one-step GMRES record is on a different comparison as detailed above. No exact distinct hit surfaced; the universal spectral-parameter theorem is not a finite table entry."
+        ],
+        "reasoning": "Neither the common residual/error theme nor the common rank-one Lyapunov object gives matching statements.",
+        "searches": [
+          "Resultary queries for universal Lyapunov ordering, one-dimensional MR/PMR coefficients and unbounded PMR-to-Galerkin Frobenius-error ratio",
+          "Resultary 65682c1c69b9, 10f94e78e67e and 89eb763dddfc, local-mirror RESULT.md"
+        ]
+      },
+      "rationale": "Supported for the combined strict first-step rank-one Frobenius comparisons and the explicit unbounded error-ratio witness with lower residual. It is not a claim to the PMR method, MR principle, Galerkin's energy optimality, or the general distinction between residual and error.",
+      "residual_risks": [
+        "Searches are bounded; an equivalent first-step calculation in older or unindexed Krylov literature cannot be excluded.",
+        "The scope is the exact unweighted Frobenius error at Krylov dimension 1, not multiple iterations or block/nonnormal extensions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers PMR definition and residual motivation, not the assessed combined claim",
+          "evidence": "The harmonic M uses inverse-adjoint H_m and the last Arnoldi coupling squared.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.00463",
+          "material_read": "§2 Eq. (8), p. 3; §3 Eq. (11) and immediate PMR comparison, p. 5",
+          "method": "OA PDF targeted equation and passage comparison",
+          "title": "Low-rank-modified Galerkin methods for the Lyapunov equation",
+          "trigger": "Exact PMR method being specialized"
+        },
+        {
+          "assessment": "MR definition is prior",
+          "evidence": "The test objective is the Frobenius norm of the full Lyapunov residual.",
+          "identifier_or_url": "https://www.dm.unibo.it/~simoncin/MRlyap1.pdf",
+          "material_read": "p. 2, Eq. (1.3)",
+          "method": "OA PDF extraction and equation comparison",
+          "title": "Minimal residual methods for large scale Lyapunov equations",
+          "trigger": "Identical true residual minimizer"
+        },
+        {
+          "assessment": "Weighted energy theorem does not decide the stated unweighted Frobenius comparison",
+          "evidence": "The energy square is 2 tr(EᵀHE) for symmetric E.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.06016",
+          "material_read": "Proposition 2.2 pp. 4–5 and Lyapunov energy specialization",
+          "method": "OA PDF proposition and norm comparison",
+          "title": "Optimality properties of algebraic (Petrov-)Galerkin methods",
+          "trigger": "Possible broader Galerkin optimality implication"
+        },
+        {
+          "assessment": "Different solvers, optimization variables or operator classes",
+          "evidence": "None compares the three specified Lyapunov extraction rules in the same first rank-one space.",
+          "identifier_or_url": "Resultary 65682c1c69b9, 10f94e78e67e, 89eb763dddfc",
+          "material_read": "Finding and relevant definitions in their RESULT.md files",
+          "method": "Local mirror statement and scope comparison",
+          "title": "Fixed-sweep Gauss–Seidel residual illusion; exact one-factor representability for diagonal Lyapunov Gramians; symmetric GMRES(1) Euclidean error barrier",
+          "trigger": "Closest indexed residual/error and Lyapunov neighbors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem and witness answer a concrete diagnostic question for a practical class of solvers: in the simplest common Krylov trial space, even a fixed-factor better harmonic residual can coexist with an arbitrarily worse actual Frobenius error. Showing strict universal rank relations and unbounded distortion with only two eigenvalues is stronger and more useful than saying that ill-conditioning can make residuals misleading.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

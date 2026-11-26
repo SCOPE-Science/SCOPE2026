@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:09:40.324901Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar period equals the return period of the triple state. M^13=I+3B, the two seed states are nonfixed modulo 3, and B is nonzero on both seeds modulo 3. Cubing lifts the operator, with (U^{3^m}−I)/3^{m+1}≡B mod 3; a unit multiplier therefore gives state displacement of exact 3-adic valuation m+1. This proves the least period for all k, not just the return by the proposed period. In each regular residue branch F(t)/3 has one root modulo 3 and unit increments at every higher digit, so one lift at each step. Perrin r=0 gives F(t)/3≡1 mod 3. Padovan r=9 vanishes identically modulo 9. For f=F/9 its reduction is 1+2t+binom(t,2) with roots 1,2 mod 3. For m≥1 the cubing quotient is B+3B²+3B³ mod 9, unchanged under further cubing since the further error terms are multiples of 9. Multiplication by U^t≡I+3tB mod 9 yields f(t+3^m)−f(t)≡3^m t mod 3^{m+1}. The two root classes have unit slope and lift uniquely; there are three representatives of each normalized root in the full t-window, giving six exceptional zero indices plus three regular ones for k≥3. The base moduli and claimed densities follow. Independent replay python3 -B /workspace/branches/independent_padovan_perrin.py obtained all eight coefficient rows by scalar finite differences and checked both first returns and full mod-13 counts through k=11 (767,637 positions per sequence at k=11). The all-k result uses the lifting proof, not the finite replay.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "4375e8fcf1b1 gives exact Perrin period and residue-fiber minima; its zero target has three occurrences and proof identifies the same branches. The available Bravo 2023 primary text instead studies P_n=±R_m over the integers. The Bravo–Irmak publisher abstract concerns shifted 2-adic valuations. The 2022 paper's full text was not obtained by lawful OA attempts."
+        ],
+        "reasoning": "A full ternary fiber theorem for the right Padovan seed would subsume the distinct part, but a broad Perrin-only result or a theorem about different valuations does not. No negative judgment about the uninspected 2022 text is inferred.",
+        "searches": [
+          "Resultary: complete ternary residue coverage and parity/minimum fibers of the Padovan and Perrin recurrence",
+          "Resultary 4375e8fcf1b1",
+          "Bravo, Bravo and Luca DOI 10.1007/s00574-022-00315-7; Bravo DOI 10.1007/s00009-023-02467-2; Bravo–Irmak DOI 10.55730/1300-0098.3568"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 4fc0b74b0c47, 4375e8fcf1b1 and ca6f19065212",
+        "OEIS A104217, A000931, A001608",
+        "DOI 10.1007/s00009-023-02467-2 and 10.55730/1300-0098.3568",
+        "Attempted original text DOI 10.1007/s00574-022-00315-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both Perrin results imply the exact three zeros for k≥2 after counting the integer zero R_1 in the period; the valuation record's finite-valuation convention excludes that integer zero in its separate counts. Neither covers Padovan. The shifted Padovan target P_n+1≡0 is different from P_n≡0."
+        ],
+        "reasoning": "The Perrin side has demonstrable catalogue coverage, independent of unresolved historical priority. Padovan's normalized singular mod-13 branch and stable six contributions are not consequences of the compared period, other target, or competing sequence theorems.",
+        "searches": [
+          "Resultary 4fc0b74b0c47 exact ternary valuation Finding and proof",
+          "Resultary 4375e8fcf1b1 zero-target case",
+          "Resultary ca6f19065212 shifted Padovan valuation Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An index shift aligns OEIS Padovan indexing with the frozen seed but translates the mod-13 classes. Record ca6f19065212 concerns v_3(P_n+1), hence target −1, not zero. Record 4fc0b74b0c47 gives exactly the Perrin zero branches r=1,3,9 via valuation, with β_1=0."
+        ],
+        "reasoning": "An equivalent valuation law at target zero covers zero counts by testing v_3≥k. Changing the target to −1 is not an index normalization and cannot supply the claimed exceptional zero branch; aligning indexing alone preserves counts.",
+        "searches": [
+          "Resultary: Padovan and Perrin ternary valuations, zero classes, 3-adic roots",
+          "OEIS A000931 and A001608",
+          "Resultary ca6f19065212 and 4fc0b74b0c47"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A104217 lists 13,39,117 at moduli 3,9,27 and a period program. The sequence entries supply terms and show the indexing difference for Padovan. The catalogue exact hits cover the Perrin side, not a table of Padovan all-power zero counts."
+        ],
+        "reasoning": "Period and initial data are known and help identify the proper counting window. They do not determine higher zero counts without the exceptional lifting computation.",
+        "searches": [
+          "OEIS A104217 Perrin periods modulo n",
+          "OEIS A000931/A001608 for exact normalizations",
+          "Resultary: three-power zero indices over one exact least period"
+        ]
+      },
+      "rationale": "Credit the unshifted Padovan zero-count law and exceptional six-index branch, and thus the exact contrast with Perrin. Do not credit the Perrin side or the period data as distinct contributions: available catalogue records cover the Perrin law, and period values are tabulated. The decisive Padovan side is not shown covered by the inspected adjusted-value, integer-multiplicity, or period sources. This is a bounded assessment without a priority judgment.",
+      "residual_risks": [
+        "Full text of the 2022 Padovan-type multiplicity paper remained inaccessible; scope beyond identified material is unresolved. An unindexed theorem could cover the unshifted Padovan valuation. The identified Perrin comparisons have later displayed dates; coverage, not chronology or priority, is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the Perrin zero-count law for k≥2 after including the integer zero",
+          "evidence": "Exact valuations are given on r=1,3,9, with one normalized root per branch and β_1=0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-valuations-and-uniformly-bounded-discrepancy-for-p--4fc0b74b0c47/RESULT.md",
+          "material_read": "RESULT.md Finding and valuation-lifting proof",
+          "method": "Bounded local mirror passages",
+          "title": "Exact ternary valuations and uniformly bounded discrepancy for Perrin numbers",
+          "trigger": "Same recurrence, base prime and zero branches"
+        },
+        {
+          "assessment": "Covers the Perrin period and zero fiber",
+          "evidence": "Zero target has exactly three occurrences; regular zero branches are r=1,3,9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-ternary-residue-coverage-and-sharp-minimum-fibers-of-th--4375e8fcf1b1/RESULT.md",
+          "material_read": "RESULT.md Finding, exact period and zero residue fiber proof",
+          "method": "Bounded local mirror passages",
+          "title": "Complete ternary residue coverage and sharp minimum fibers of the Perrin sequence",
+          "trigger": "Stronger ternary residue statement"
+        },
+        {
+          "assessment": "Different target",
+          "evidence": "The valuation is of P_n+1, not P_n; it gives no valuation classification at the target zero of P_n.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-ternary-valuations-and-sharp-discrepancy-for-shifted-padov--ca6f19065212/RESULT.md",
+          "material_read": "RESULT.md Finding and normalization",
+          "method": "Bounded local mirror passages",
+          "title": "Exact ternary valuations and sharp discrepancy for shifted Padovan numbers",
+          "trigger": "Same prime and Padovan recurrence"
+        },
+        {
+          "assessment": "Solves a distinct problem",
+          "evidence": "The displayed equation P_n=±R_m is an integer common-value problem, without a ternary zero target.",
+          "identifier_or_url": "https://doi.org/10.1007/s00009-023-02467-2",
+          "material_read": "Primary PDF p. 1, §1, normalizations and problem statement",
+          "method": "OA Springer PDF passage",
+          "title": "Common Values of Padovan and Perrin Sequences",
+          "trigger": "Same integer sequences"
+        },
+        {
+          "assessment": "Coverage unresolved for this source",
+          "evidence": "No accessible original result passage was recovered; no conclusion about full-text coverage is drawn.",
+          "identifier_or_url": "https://doi.org/10.1007/s00574-022-00315-7",
+          "material_read": "Bibliographic identification only; frozen account is not independent full-text evidence",
+          "method": "DOI/Springer PDF attempts returned redirect errors; no alternate repository copy identified",
+          "title": "On the Multiplicities of Padovan-Type Sequences",
+          "trigger": "Possible broader Padovan-type multiplicity results"
+        },
+        {
+          "assessment": "The stated result targets a different prime and shifts",
+          "evidence": "The abstract specifies 2-adic valuations of P_n−1 and R_n+1; it does not state a 3-adic result.",
+          "identifier_or_url": "https://doi.org/10.55730/1300-0098.3568",
+          "material_read": "Publisher abstract",
+          "method": "Bounded OA publisher page",
+          "title": "The 2-adic valuation of shifted Padovan and Perrin numbers and applications",
+          "trigger": "Might provide a prime-adic analogue"
+        },
+        {
+          "assessment": "Exact period benchmarks, not all-power zero-frequency classification",
+          "evidence": "Perrin periods 13,39,117 at n=3,9,27; standard Perrin seeds match, while the Padovan table is shifted.",
+          "identifier_or_url": "https://oeis.org/A104217",
+          "material_read": "Description, values and computation program; A000931 and A001608 initial entries for normalization",
+          "method": "Bounded OEIS entries",
+          "title": "Perrin periods modulo n",
+          "trigger": "Exact period data for the known normalization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prime three is the natural setting for a common short residue period and competing singular branches of two standard seeds. The exact Padovan branch splits into two normalized simple roots while the exceptional Perrin branch dies. This explains a persistent factor-three difference in rare-zero densities between two sequences sharing the same recurrence and exact period, an all-exponent invariant useful for recurrence valuation and distribution questions rather than another finite period table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

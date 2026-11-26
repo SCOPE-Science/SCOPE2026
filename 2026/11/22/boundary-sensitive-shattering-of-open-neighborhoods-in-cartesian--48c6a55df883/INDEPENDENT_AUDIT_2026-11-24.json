@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:16:08.476975Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, hypotheses, formulas and Proof Steps 1–4",
+        "Frozen VERIFICATION.md and verify_pathbox_neighborhoods.py, inspected without execution"
+      ],
+      "rationale": "Manhattan distance shows that distinct centers share at most two open neighbors; a trace on three elements of a hypothetical shattered four-set would contradict this when compared with the all-positive center. Every singleton has both labels. A pair is shattered exactly when it has a common center and each endpoint has a private center; a support vertex itself supplies the empty trace by bipartiteness. Straight distance-two pairs have just one common center, diagonal pairs two. This gives n-4 truncated at zero on a path, removes exactly four corner incidences for diagonal pairs in a rectangle (correcting the double subtraction of its two diagonals at 2 by 2), and leaves all distance-two pairs in d>=3. For triples, opposite neighbors on the same axis cannot be labeled positive without the third point. On three distinct axes the unique all-positive center, pairwise intermediate centers, and bipartiteness supply all but singleton traces. A singleton has a witness exactly when its chosen direction extends straight, or there is an unused direction on another axis. A fourth axis always works. In d=3 the numbers of interior axes h=3,2,1,0 give, respectively, 8 times the product, the sum of pairwise products, the sum of truncated (n_i-3), and the all-sides-at-least-3 indicator, using the interior counts (n_i-2). These counts imply the stated VC thresholds, including (2,2,3) and (2,2,4) on opposite sides of the threshold.",
+      "residual_risks": [
+        "The finite trace enumeration only checks the specified small boxes. The universal result is the geometric trace argument. It uses open neighborhoods, simple paths and n_i>=2; it is not a closed-neighborhood or arbitrary induced-subgraph result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary Hamming paper gives VCdim<=3, exact full-Hamming thresholds and inheritance of the upper bound for induced subgraphs.",
+          "The coefficientwise Hamming census explicitly treats full H(d,q), not induced subgraphs; the all-dimensional box record uses all nonempty Cartesian boxes as concepts."
+        ],
+        "reasoning": "The induced-subgraph result gives the cap but not the degree-three threshold for arbitrary side lengths or the exact support counts. The Hamming coefficient theorem is exact coverage of the all-binary case, not of these restricted-center witnesses.",
+        "searches": [
+          "Adler–Benediktsson–Macpherson arXiv:2007.16042, abstract and Theorems 4.6–4.7",
+          "Resultary c2c444ddd1a2, Finding and Limitations",
+          "Resultary 83eb70554249, all-dimensional boxes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.16042",
+        "Resultary c2c444ddd1a2, dd0fe3219184, 83eb70554249, cba8fc708d0d, c72aa9c369dd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A triple in the ambient binary Hamming graph can use a direction unavailable at a boundary center of the path box. The frozen d=3 criterion counts when a straight extension or another available axis restores each singleton witness.",
+          "The d=2 correction deletes diagonals incident to degree-two box corners, a boundary distinction not supplied by an ambient Hamming dimension bound."
+        ],
+        "reasoning": "The restriction eliminates witnesses and requires a new necessary-and-sufficient boundary analysis. Neither the inherited cap nor the counts of the full graph imply the general coefficients by specialization.",
+        "searches": [
+          "arXiv:2007.16042 Theorems 4.6–4.7; Resultary c2c444ddd1a2 Finding/Limitations and dd0fe3219184 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Threshold words 1^t 0^(n_i-1-t) identify each path with an induced subgraph of a hypercube; their coordinate-block product gives an induced binary Hamming embedding of each box.",
+          "Only when all sides are 2 is the relevant graph the whole binary Hamming graph. Convex rectangles on the same grid have a different trace family: already on 2 by 3 their polynomial is 1+6z+15z^2+2z^3, not 1+6z+2z^2."
+        ],
+        "reasoning": "Induction of a graph preserves adjacency but restricts which centers can be used as witnesses; it does not preserve pair and triple support counts. Likewise same-ground-set convexity concepts do not compute this polynomial.",
+        "searches": [
+          "Resultary semantic lookup for path-box open-neighborhood shattering, coefficientwise support counts and rectangular grid VC polynomials",
+          "arXiv:2007.16042 Section 4, induced-subgraph comparison"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary Hamming specialization gives C_2=2^(d-1) binom(d,2) for d>=3 and C_3=2^d binom(d,3) for d>=4, with the matching lower-dimensional zero cases.",
+          "Separate same-day matches use closed neighborhoods, respectively in products of cliques and toroidal king graphs; the rectangular path-grid entry is instead convex-set shattering."
+        ],
+        "reasoning": "The exact binary specialization is a covered subfamily. The separate same-day records were excluded by matching their mathematical statements, not by assuming their ordering. No distinct general path-box open-neighborhood table was identified in the bounded lookup.",
+        "searches": [
+          "Resultary matching coefficientwise open-neighborhood Hamming families and separate November 22 neighborhood censuses: c2c444ddd1a2, dd0fe3219184, cba8fc708d0d, c72aa9c369dd"
+        ]
+      },
+      "rationale": "The distinct result is the exact support classification and coefficientwise boundary dependence for all Cartesian path boxes. The Hamming upper bound and the entire all-binary specialization are already covered and receive no originality credit. Inspected results on all boxes, convex sets and different neighborhood relations are not equivalent.",
+      "residual_risks": [
+        "A differently phrased or unindexed exact census is not excluded; the comparison assigns coverage only from the statements inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior degree cap and ambient dimension thresholds",
+          "evidence": "The edge-relation concepts are open neighborhoods and the bounds pass to induced subgraphs; the theorem is not a census of support sets.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Abstract, PDF p. 1, text offset about 2036; Section 4, Theorems 4.6–4.7, pp. 21–22, offset about 56836",
+          "method": "Targeted OA PDF reading",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Open-neighborhood VC result and induced-subgraph implication"
+        },
+        {
+          "assessment": "Exact full-Hamming counts, including all-binary path boxes",
+          "evidence": "Counts support types for full H(d,q) and expressly leaves induced subgraphs outside its scope.",
+          "identifier_or_url": "Resultary c2c444ddd1a2",
+          "material_read": "Finding at mirror offset 0 and Limitations/Relationship at offset about 6649",
+          "method": "Targeted Resultary local mirror reading",
+          "title": "Coefficientwise VC-shattering census of open neighborhoods in Hamming graphs",
+          "trigger": "Closest same-concept prior coefficient formulas"
+        },
+        {
+          "assessment": "Different concepts",
+          "evidence": "The first uses geodesically convex sets; the second uses all nonempty Cartesian boxes. Neither counts individual open neighborhoods.",
+          "identifier_or_url": "Resultary dd0fe3219184 and 83eb70554249",
+          "material_read": "Findings, offsets 0 and about 73",
+          "method": "Targeted Resultary local mirror reading",
+          "title": "Exact VC-shattering polynomial of rectangular path grids; All-dimensional shattering census for discrete axis-parallel boxes",
+          "trigger": "Identical or closely matching domain with exact coefficientwise invariant"
+        },
+        {
+          "assessment": "Different graph and neighborhood relation in each case",
+          "evidence": "The rook graph is a product of cliques and the king graph is toroidal; both concepts are closed neighborhoods.",
+          "identifier_or_url": "Resultary cba8fc708d0d and c72aa9c369dd",
+          "material_read": "Findings, mirror offsets about 72 and 65",
+          "method": "Targeted Resultary local mirror reading",
+          "title": "Closed-neighborhood shattering of unequal rectangular rook graphs; Complete shattering profiles for cyclic king neighborhoods",
+          "trigger": "Separate same-day shattering census hits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, support classification, proof of singleton witnesses and examples",
+        "arXiv:2007.16042 Section 4 and Resultary c2c444ddd1a2 for benchmarks"
+      ],
+      "rationale": "The coefficients answer more than the scalar VC dimension: they locate and count every support. The private-witness criterion explains why three dimensions are genuinely boundary sensitive and why a fourth axis removes the obstruction; it decides concrete finite-box questions, such as the first cubic support appearing at 2 by 2 by 4 rather than 2 by 2 by 3. This is a structural and exact result for the natural finite induced-grid family, beyond the already known degree cap and binary counts.",
+      "residual_risks": [
+        "No implications for general induced subgraphs, toroidal products, closed neighborhoods, or bigger-radius balls are established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

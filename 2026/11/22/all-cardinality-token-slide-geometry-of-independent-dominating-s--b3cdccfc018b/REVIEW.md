@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every open ladder with at least two rungs, the proof establishes that each independent dominating set has occupied endpoints, isolated vacant rungs, and alternating occupied layers. These structural conditions are both necessary and sufficient and yield unique sign/gap encodings. Every legal slide corresponds to swapping two neighboring unlike gap bits. The resulting two exclusion-token path graphs have exact vertex and edge counts; their geodesics and unique coordinatewise medians yield the distance and diameter formulas. The degenerate zero-particle and saturated-particle graphs have been addressed explicitly.
+## correctness
 
-Three independent computational checks were reproduced from their supplied source and output files: original-graph bitmask exhaustion through ten rungs, independent ternary-word/gap comparison through eighteen rungs, and token-path BFS with unique median validation through eight positions. These checks do not substitute for the infinite combinatorial proof.
+PASS
 
-## Originality — PASS (with priority caveat)
-Stevanović (2001) proves the total unweighted maximal-independent-set count for open ladders; this total is **not** claimed as original. Brewster, Mynhardt and Teshima (2023) develop i-graphs and classify path and cycle seed graphs but do not establish this all-cardinality two-row ladder result. The closely relevant published 2026 circular-ladder result uses related gap words for *minimum* configurations on *cyclic* prisms, and does not prove the open-ladder two-component, all-cardinality geodesic/median theorem. Hoang (2026) studies ladder graphs as *targets* of realizability, not as domination-constrained seed graphs. Searches for minimal-vertex-cover equivalences, path token swaps, broader grid theorems, and existing tables found no result entailing this exact claim. The possibility of unindexed equivalent work remains.
+Independence gives at most one selection per rung. An empty endpoint or a pair of consecutive empty rungs leaves a vertex undominated. Between successive occupied rungs with no empty rung, independence forces opposite selected rails; across a single empty rung, domination of both vertices on that rung forces the same alternation condition. These three conditions are also sufficient. A first-rail choice and the z=n−k one-vacancy gaps among p=k−1 gaps therefore encode the states exactly. Since n≥2 requires k≥2, a vertical flip breaks alternation with at least one neighboring occupied rung, by independence or by domination according as the gap has size zero or one. A horizontal slide preserves feasibility exactly when it transfers a vacancy across an internal selected rung into an empty gap, hence swaps adjacent 01 and 10 and preserves the first-rail choice. This proves the two path-token components, including z=0,p. For their metric, sorted tokens cannot pass. Moving all left-going tokens in increasing order and then all right-going tokens in decreasing order attains the sum of absolute displacements; target positions are strictly increasing, so no intervening token blocks those moves. Opposite packed configurations attain z(p−z). Coordinatewise medians are strictly increasing and are the unique tuple in all three pairwise metric intervals. Each consecutive gap pair contributes binom(p−2,z−1) edges per copy in the nonsaturated range. Summing the binomial counts gives the two stated series (subtracting the n=1 term for vertices). At minimum size, z=p for odd n and z=p−1 for even n, yielding the stated singleton and path cases.
 
-## Mathematical value — PASS
-This solves a complete, natural family of reconfiguration graphs over *every* feasible independent-domination cardinality. The two-component invariant determines reachability; the exact distance formula gives optimal reconfiguration sequences; component medianity and the full generating functions give structural and enumerative information beyond the known scalar Fibonacci total. It extends a motivated line of research on i-graphs of paths and cycles, not an arbitrary small numerical example.
+## originality
 
-## Limitations and closest prior work
-The result is restricted to open two-row Cartesian ladders, fixed-size slides preserving independence and domination. It is neither a proof about unrestricted independent-set token sliding nor an assertion about cyclic or twisted ladders. The exact unweighted total is credited to D. Stevanović, *Fibonacci Quarterly* (2001). Full relevant primary texts inspected include arXiv:2303.06299, arXiv:2303.08190, arXiv:2606.03765 and the published 2026 circular-ladder result. The originality finding is based on available scientific literature and recorded claims, not an exhaustive global priority certificate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Bounded pass for the all-cardinality structure theorem for the open ladder as a seed, especially the exact two-copy isomorphism and preservation of a first-rail phase under every legal slide. The unweighted maximal-independent-set count, known path-factor examples and standard grid/lattice metric consequences are not independent originality claims. The closest circular-ladder result uses a related gap construction but does not cover this open-boundary state space or all feasible open-ladder cardinalities.
+
+## value
+
+PASS
+
+The result identifies every fixed-size state graph of a natural and widely used seed, not just its independent domination number or total static count. The explicit coordinate map decides reachability, constructs shortest legal sequences and identifies the exact obstructions to crossing components. This is a useful structural classification; the older Fibonacci total and standard consequences for path-token factors are not by themselves the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:55:19.631090Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, model, recurrence and exact census",
+        "Frozen VERIFICATION.md and both submitted program texts; output_direct.txt and output_functional.json",
+        "Nakar–Ron arXiv:2205.08972 Theorem 1 and spatial-period definition",
+        "Independent centered sweep replay: repaired RESULT.md, Exact enumeration of transients and basins",
+        "Published Paley benchmark 13a06d889156"
+      ],
+      "rationale": "The repaired result preserves the exact numbers, makes the recurrent labels explicit as prior-implied, and gives a simplified complete sweep. For the closed centered radius-four map M, F=R₅M and the translation commutes, hence F-periodicity of period p implies M^(19p)x=x. On the prime ring, any proper spatial period implies constancy. Nakar–Ron Theorem 1 then leaves only constant words or strongly stable alternating runs of length at least five. With 19 sites there cannot be four such runs, so the only nonconstant possibilities are the rotations of 1^k0^(19−k), 5≤k≤14. Each is fixed by M and travels under F with primitive period 19. Independently built M for all 524,288 masks from the centered sliding sum, directly checked all target states are M-fixed, iterated each input to its first target label, and compared every class total and entry row to the tables. In order by depth, the two columns are (2,190), (90744,161120), (142956,85272), (38798,1900), (3306,0); the basin totals are 137903 for each constant and 13376,18202,24947,34200,33516,33516,34200,24947,18202,13376 for increasing block length. Rotation invariance preserves first entry and orbit labels in the two frames. Had any mask failed to hit the target set by four, the sweep would have rejected it. In the original F frame the witness trajectory is 21391→401507→235520→1792→0; precisely the depth-four masks fail F²²x=F³x. A separate independent direct-offset census also agrees, and the Paley figures used for comparison match the inspected original baseline and stored checker output. No submitted script was executed.",
+      "residual_risks": [
+        "Complete enumeration only for the labelled nineteen-site rule; no other-order cutoff or general basin formula follows. No formal verification or expert attestation is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Centered-majority Theorem 1 classifies temporally periodic states into strongly stable runs and spatially periodic weakly stable states; it also gives an upper bound of 2r on lengths of unstable intervals in transient states and discusses stabilization qualitatively.",
+          "General tournament results exclude two-cycles and nonunanimous fixed points in regular tournaments; the matched order-23 work instead directly enumerates its 23-site models."
+        ],
+        "reasoning": "The structural theorem covers the recurrent set as a special case, but the transient facts do not enumerate predecessor trees or give the exact four-step bound with its population. A complete order-23 enumeration cannot specialize to order 19; both the ring length and the neighborhood change.",
+        "searches": [
+          "arXiv:2205.08972 Theorem 1, pp. 5–6 and transient discussion",
+          "Resultary original Paley/tournament statements 13a06d889156",
+          "Resultary d6a7bd7d1f44"
+        ]
+      },
+      "checked_sources": [
+        "Frozen and repaired RESULT.md and slogan",
+        "arXiv:2205.08972 Definition 9 and Theorem 1",
+        "Resultary 13a06d889156, d6a7bd7d1f44, 57acbeca82a7, 624ce6cd08d3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any F-periodic state, raising the period by a factor of 19 eliminates rotation. The prime ring eliminates any nonconstant proper-period weakly stable words, and stable runs have length at least five, leaving exactly ten block lengths plus the two constants. This verifies prior implication of the whole recurrent set, not merely its two fixed points.",
+          "Neither that argument nor the Paley/resized baseline constrains how many masks feed a given rotating block or unanimity at each time."
+        ],
+        "reasoning": "The supported distinct claim requires actual transient counts and a finite uniform bound with a matching witness. The repair attributes the structural implication before giving them, instead of presenting it as independent new scope.",
+        "searches": [
+          "arXiv:2205.08972 Definition 9 and Theorem 1",
+          "Resultary 13a06d889156 and d6a7bd7d1f44 original findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F=R₅M transports the centered orbit classes by rotating each time slice, and preserves first-entry time and the block-length or unanimity basin labels.",
+          "One-sided catalogue result 57acbeca82a7 is three-tap, equivalent to shifted radius one, and centered result 624ce6cd08d3 is radius three and concerns preimages of two-cycles."
+        ],
+        "reasoning": "An exact centered radius-four census on 19 sites, grouped by rotations, would count as existing coverage. The inspected centered structural theorem and other-width preimage/wave results do not evaluate that census. Their component implications are credited rather than treated as novelty.",
+        "searches": [
+          "Resultary: centered radius-four / nine-tap shifted majority on a nineteen-site ring, carousel-19 transient and basin census",
+          "arXiv:2205.08972 Definitions 7–9 and Theorem 1",
+          "Resultary 57acbeca82a7 and 624ce6cd08d3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-order Paley comparator has consensus 516764, nonconsensus 6156+1368, and depth seven for quadratic-residue, not consecutive, offsets.",
+          "The closely related same-day distinct study has order 23, out-degree 11 and sharp carousel depth four but different basin counts; it is not discarded because of its date. The exact indexed order-19 consecutive-offset match was the frozen record itself."
+        ],
+        "reasoning": "Equal order and degree do not determine the dynamics. Likewise a matching numerical cutoff at a different size is not an exact matched population, sharpness proof, or univariate size theorem. No priority claim follows from the shared day.",
+        "searches": [
+          "Resultary: consecutive-offset cyclic/carousel 19 majority exact basin / entry table",
+          "2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156",
+          "2026/11/22/SCOPE-two-degree-matched-tournaments-separate-into-exclusive-four-and--d6a7bd7d1f44"
+        ]
+      },
+      "rationale": "The repaired claim is the exact distribution of attraction and first entry, the sharp finite cutoff and the resulting quantitative Paley contrast. It no longer claims the ten-wave recurrent classification as distinct; that classification is proved as an attributed corollary. No inspected primary or indexed result supplies the remaining order-nineteen transient and basin data for the consecutive-offset rule.",
+      "residual_risks": [
+        "Bounded literature and corpus comparison: an unindexed exact radius-four 19-site enumeration or a different general quantitative estimate may remain. The attributed recurrent-set and published Paley census are not counted as new. No priority order inferred for same-day records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the exact recurrent classification; no matching basin/depth census in inspected relevant passages",
+          "evidence": "Non-strongly-stable recurrent configurations have a proper spatial period, while strongly stable runs have length at least r+1. For transients the theorem bounds unstable interval length by 2r, and the discussion addresses monotonic stabilization, not the required all-state counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+          "material_read": "Definition of spatially periodic, p. 4 near text offset 9900; pp. 5–6 statement of Theorem 1 and transient discussion, offsets 12300–16323",
+          "method": "Located and read primary OA PDF passages; independently checked decisive theorem wording and instantiated r=4, n=19",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+          "trigger": "Potentially stronger theorem for the exact centered frame"
+        },
+        {
+          "assessment": "Prior Paley census and general qualitative tournament facts, not a consecutive-offset census",
+          "evidence": "Quadratic-residue offsets yield 342 four-cycles, 18 nineteen-cycles, and 516764 consensus-attracted masks with sharp depth seven; it also establishes the no-two-cycle and regular-tournament fixed-point restrictions.",
+          "identifier_or_url": "2026/11/17/SCOPE-a-forbidden-two-clock-and-the-paley-19-revival-of-majority-oscil--13a06d889156",
+          "material_read": "Mirrored RESULT.md near offsets 0 and 4200",
+          "method": "Local Resultary search and mirror original",
+          "title": "A forbidden two-clock and the Paley-19 revival of majority oscillations",
+          "trigger": "Exact same-order tournament benchmark"
+        },
+        {
+          "assessment": "Material conceptual overlap at a different order, no matched order-19 census",
+          "evidence": "The statement is for Paley and carousel on Z/23 with out-degree eleven. Carousel consensus and wave populations are 4482196 and 3906412; maximum depth four is for that different map.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-degree-matched-tournaments-separate-into-exclusive-four-and--d6a7bd7d1f44",
+          "material_read": "Mirrored original finding and assumptions, text offsets 0–2506",
+          "method": "Local Resultary search and direct statement check via mirror",
+          "title": "Two degree-matched tournaments separate into exclusive four- and twenty-three-step majority clocks",
+          "trigger": "Same-day and same graph comparison template; possible exact family/census overlap"
+        },
+        {
+          "assessment": "Different rule width",
+          "evidence": "The one-sided update has three taps and corresponds to centered radius one, not the nine-tap operator here.",
+          "identifier_or_url": "2026/11/17/SCOPE-missing-maximal-individual-periods-in-one-sided-majority-waves-o--57acbeca82a7",
+          "material_read": "Mirrored original statement, offset 0",
+          "method": "Local Resultary search and mirror original",
+          "title": "Missing maximal individual periods in one-sided majority waves on binary rings",
+          "trigger": "Equivalent shifted-majority method and possible ring-size specialization"
+        },
+        {
+          "assessment": "Different radius and transient target",
+          "evidence": "It considers predecessors of centered two-cycles at radius three, not the radius-four one-block and consensus basins on nineteen sites.",
+          "identifier_or_url": "2026/11/1/SCOPE-sharp-radius-three-onset-of-transient-attraction-to-majority-aut--624ce6cd08d3",
+          "material_read": "Mirrored original statement, offset 0",
+          "method": "Local Resultary search and mirror original",
+          "title": "Sharp radius-three onset of transient attraction to majority-automaton two-cycles",
+          "trigger": "Similar centered majority transient invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md basin and first-entry tables and enumeration",
+        "Paley-19 record 13a06d889156",
+        "Nakar–Ron Theorem 1 and transient discussion"
+      ],
+      "rationale": "The degree-matched Paley-19 baseline fixes a natural order and degree before computation. A recurrent-set theorem by itself does not say how often the waves are reached. The distinct census shows 248482 of 524288 masks reach waves under the ordered neighborhoods versus 7524 reaching any nonconsensus orbit under quadratic-residue neighborhoods, and gives the exact per-wave probabilities and the sharp distribution of entry times. This quantifies attraction and a finite transient bound that cannot be read from the already-covered list of recurrent configurations. It is not offered as a scaling law.",
+      "residual_risks": [
+        "The comparison is for these two natural tournaments at one order; it does not isolate a universal graph statistic controlling majority attraction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four original branch maps and their piecewise probabilities produce a connected reversible \(n\)-state Markov graph with stationary weights proportional to \(\sin((j+1/2)\pi/n)\). Direct trigonometric substitution gives all edge conductances, including the two bridges and two leaves, with no omitted edge. An effective-resistance computation gives two parallel arms, each \((4n^2/\pi^2)\log n+O(n^2)\). The weighted same-parity Poincaré estimate is \(O(n^2)\), strictly smaller than the bottleneck scale; trial potentials and eigenfunction concentration furnish matching Rayleigh bounds \(1-\lambda_2\sim2\pi^2/(n^2\log n)\). Laziness halves the gap. The actual packaged checker compares independent kernel constructions, stationary balance and several eigenvalues. Finite spectra corroborate but do not prove the asymptotic.
+PASS
 
-## Originality — PASS on inspected evidence
+The primary angular law reduces on the half-offset class to a reversible weighted cycle on 1,…,n−2 with two leaves. In the interior the branch factor is sinθ·uα(θ)=sin(θ+α)/(2cosα); at the left truncation the weight to the leaf is sin(α/2) and the remainder gives the bridge sin(α/2)/(2cosα), using sin(3α/2)=(1+2cosα)sin(α/2). Reflection handles the other end. Normalizing by Sₙ=csc(α/2) gives the stated Dirichlet energy without a factor of two. In each arm, each step-two strand contributes 2α⁻² log n+O(α⁻²) by the reciprocal sine sum, while the bridge contributes O(α⁻²). The two arms therefore give conductance Gₙ∼α²/(2 log n). Same-parity paths to the middle have resistance bounded by Cα⁻²(1+|log sinθ|). Weighted Cauchy–Schwarz followed by summation against the sine masses bounds the squared deviations from parity anchors by O(α⁻²) times the energy. The harmonic test function with anchors ±1 gives the upper bound 4Gₙ(1+o(1)); the upper bound in turn forces the normalized second eigenfunction to concentrate at its anchors. The parity masses tend to 1/2, so the squared anchor difference tends to 4, and the minimum energy at those anchor values gives the matching lower bound. Substituting α=π/n gives 2π²; laziness halves the gap. At even n the core is an even cycle and the leaves preserve bipartiteness, so the algebraic gap must not be confused with an absolute gap for Pₙ.
 
-Feres (2007) explicitly constructs the triangular angular map and finite rational dihedral orbits, while Vales and Pinto-de-Carvalho (2020) establish the circular-billiard formulation and qualitative rational/irrational mixing properties. Neither inspected text supplies the present sharp finite-class spectral-gap rate or its leading constant. Vales (2022) covers the same angular law on constant-curvature surfaces with qualitative mixing statements, not quantitative rational spectral gaps. Feres--Zhang (2012) and Chumley et al. (2020) address spectral estimates for geometrically different random scattering laws; their conclusions do not logically imply this particular two-parity, endpoint-resistance asymptotic. Semantic mathematical-record searches for the exact model, parity/graph reduction, logarithmic gap and equivalent terms returned no dominating mathematical claim. Residual risk: additional priority literature could contain a disguised electrical-network formula or the same spectral scaling. Failed searches do not establish global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The random circular billiard has an intrinsic rational-angle finite class, whose slowest relaxation rate is quantitatively meaningful even though the overall rational-angle process cannot mix across distinct classes. The result demonstrates an anomalous logarithmic slowdown caused by sparse coupling of the two angle-parity strands at grazing reflection angles, identifies its precise leading coefficient, and separates it from ordinary smooth Legendre diffusion approximations. The theorem provides a natural measurable obstruction and benchmark for quantitative random-billiard mixing, not an arbitrary finite-table recomputation.
+The angular model, the selected weighted graph's topology and sine invariant law, and its periodicity have prior coverage. The supported distinct contribution is the leading-constant logarithmic algebraic gap for this orbit and the equivalent lazy relaxation law. No inspected statement supplies that rate or makes it a direct corollary under the given hypotheses.
 
-## Limitations
+## value
 
-Only the specified finite angle orbit is treated. The original Feres reflection law is older than the 2020 circular embedding; the new contribution is the logarithmic spectral asymptotic, not the map. Aperiodicity for the unmodified operator fails at even \(n\), so an always-ergodic relaxation statement uses the lazy operator. No full-space or independent validation is asserted. Comprehensive priority review remains open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a quantitative relaxation law for a naturally specified invariant family in a standard random billiard. The logarithmic penalty is not the diffusive n² scale suggested by the interior cycle alone. Identifying it with two grazing-angle resistance arms and proving the leading constant distinguish a meaningful dynamical effect from a small finite spectrum computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

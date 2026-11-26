@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:50:36.710609Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A maximum-index update is precisely an endpoint maximum in the enlarged window; on the circle each index's winning starts lie in one contiguous arc within the k starts containing it. Since n>k, there is more than one winner, so the number of cyclic runs equals the number of distinct winners and the number of transitions. For a separate local check, condition on the largest among the k+d+1 sites for 1<=d<=k. If it is at either outer endpoint, the other interval contributes an endpoint with probability 2/(k+1) by rank symmetry; there are two such placements. A union maximum at a shared site can contribute only when the shared site is an endpoint of both enlarged windows, i.e. d=k, giving an extra 1/(2k+1). Disjoint intervals are independent. This gives both signs and the exact harmonic variance after summing each of the two orientations of lags 1 through k. Jensen on the k denominators k+2 through 2k+1 has strict average reciprocal greater than 2/[3(k+1)], which yields the stated lower bound; k times the explicit variance tends to 8 log(2)-5. The nondegenerate bounded stationary k-dependent CLT applies at each fixed k, and the cyclic sum differs from an appropriate linear sum by at most k terms. The frozen exact-enumeration checker was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Austin et al. give generating functions for the complete count law at all lengths; Glasgow's accessible abstract describes a general factorial-moment recurrence and solved mean and second factorial moment.",
+          "Alon–Feldheim is on run probabilities of general sliding-window processes, not this exact pair kernel. The same-day rank record includes the extremal-rank lag 1 and k specializations but not all intermediate lags, and disclaims extremal ranks as new."
+        ],
+        "reasoning": "The prior all-length count theorem is the actual dominating exact result. The broader block-factor bounds and the same-day rank result are not relied on to infer full prior coverage.",
+        "searches": [
+          "Austin et al. DOI 10.1214/aoms/1177706893; Glasgow DOI 10.1214/aoms/1177706273",
+          "Alon–Feldheim arXiv:1402.1975",
+          "Resultary edb65e349ab4, rank-dependent sliding order statistics"
+        ]
+      },
+      "checked_sources": [
+        "Austin et al. 1957 abstract and exact theorem restatement",
+        "Glasgow 1959 abstract",
+        "Alon–Feldheim arXiv:1402.1975",
+        "Resultary edb65e349ab4 and stated semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2c_d is the second sample-length difference of Var(M_{k+d}); differentiating the old generating recurrence gives 4A/(1-x)+2A^2/(1-x)^2 for B'. The second summand starts at degree 2k, producing exactly the extra full-window term.",
+          "The cyclic law is 1+M_{n-1,k} in distribution, and the stated CLT is the standard positive-variance fixed-range CLT. No independent claim remains at these scopes."
+        ],
+        "reasoning": "This is explicit prior implication of the actual quantitative sign-transition claim, not an assumption that a paper with a nearby subject must have it or that inaccessible text cannot contain it.",
+        "searches": [
+          "Austin et al. 1957 theorem restatement, definition and Eq. (1), offsets 0–3450",
+          "Resultary edb65e349ab4, Finding and Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original linear k-local maxima count is exactly one plus the linear update count, by contiguous winning runs; an atomless iid sample and a uniform permutation have the same relevant ranks.",
+          "Rectangular dependence supports on the line and circle have the identical joint laws at cyclic distances up to k when n>=2k+2."
+        ],
+        "reasoning": "Translation between distinct maxima, transitions, and cyclic versus linear conventions is exact, not a comparison of titles. Deleting the global maximum reduces the entire cyclic total law to the same linear object.",
+        "searches": [
+          "Resultary: cyclic sliding window maxima changes exact lag covariance local maxima permutation transition overlap endpoint variance harmonic number",
+          "Literature: Austin Fagen Lehrer Penney locally maximal elements random sample sliding window change indicators covariance autocorrelation overlapping maxima location exact variance permutation visibility graph degree local maxima 1957"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible Eq. (1) generates every coefficient f_k(N,j)/N!, not just a finite table. It therefore provides reliable moment coefficients for all sizes needed in the second differences.",
+          "Using two y derivatives and a coefficient difference extracts the exact kernel in closed form without a separate asymptotic or case enumeration."
+        ],
+        "reasoning": "The generating function is stronger than a database of finite values and already yields this exact infinite array by elementary coefficient extraction.",
+        "searches": [
+          "Resultary exact lag covariance and cyclic extrema search",
+          "Theorem of the Day, Distribution of local maxima in random samples, Eq. (1)",
+          "Austin et al. and Glasgow exact moment papers"
+        ]
+      },
+      "rationale": "The principal claim is mechanically recoverable from the published all-length linear count distribution already cited by the record. For fixed k let M_N be the linear count of distinct k-window maxima, m=N-k, and U_m=Var(M_{k+m}). A linear winning index never reappears after its contiguous run, so M_{k+m}=1+sum of the m stationary update indicators. Writing c_d for the linear lag covariance gives 2c_d=U_{d+1}-2U_d+U_{d-1}. This exact inversion is available from the *family* of prior scalar laws; the claim that a scalar law does not determine individual lags applies only at a single sample size. Moreover it gives the precise closed formulas by two y-derivatives of Austin et al.'s published generating recurrence. In the accessible mathematical restatement Eq. (1), v_x=yv^2+(1-y)P, where P=sum_{j=1}^{k-1} j x^(j-1), v(0,y)=1, and v(x,1)=1/(1-x). Put A=(1-x)^2 v_y(x,1), B=(1-x)^2 v_yy(x,1). Then A=x^k[1-(k-1)x/(k+1)] and B'=4A/(1-x)+2A^2/(1-x)^2. The exact means are 1+2m/(k+1), so the variance second difference gives c_d=(1/2)[x^(k+d+1)]B-(2/(k+1))^2. For 1<=d<=k the coefficient equals (8/(k+1)+2*1_{d=k})/(k+d+1) immediately from B'; this is exactly the frozen rational kernel, including its sign reversal. These linear covariances are the cyclic local covariances up to wrap reversal under the stated n bound. For the aggregate itself, rotate the global maximum to a fixed site and delete it: windows containing it all choose it, and every other window is in the remaining n-1 consecutive sites, which have uniform relative ranks. Thus the cyclic total has exactly the prior linear count law at N=n-1 plus one, stronger than just inherited first and second moments. No available primary body is claimed to state these reductions, but the explicit implication needs only the verified restatement of the prior theorem. The new proof is a transparent local explanation, not a distinct uncovered invariant.",
+      "residual_risks": [
+        "The historical primary bodies could not be lawfully read through the available routes, so no assertion is made that those papers explicitly print the lag kernel.",
+        "The negative originality result rests instead on a constructive implication from the published recurrence as reproduced in accessible exposition; it does not rest on access failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full text not independently compared; theorem content verified from explicit restatement",
+          "evidence": "Abstract concerns distribution of the number of different locally maximal elements in a continuous sample.",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177706893",
+          "material_read": "Accessible abstract; requested 1957 pp. 786–790 body was not accessible",
+          "method": "Literature lookup and lawful primary OA attempt",
+          "title": "The Distribution of the Number of Locally Maximal Elements in a Random Sample",
+          "trigger": "Same count for linear windows"
+        },
+        {
+          "assessment": "Gives the explicit all-length recurrence that dominates the frozen kernel",
+          "evidence": "Uses consecutive windows and counts every distinct permutation value chosen as a maximum; Eq. (1) is v_x=yv^2+(1-y) sum_{j=1}^{k-1}j x^(j-1).",
+          "identifier_or_url": "https://www.theoremoftheday.org/Statistics/PermLocalMax/TotDPermLocalMax.pdf",
+          "material_read": "p. 1, definitions, probability generating function and Eq. (1), its example and derivative discussion",
+          "method": "Open full-text exposition, offsets 0–3450",
+          "title": "Distribution of local maxima in random samples",
+          "trigger": "Exact accessible statement of the 1957 theorem"
+        },
+        {
+          "assessment": "Prior linear moments; exact body formulas not relied on",
+          "evidence": "Abstract states general recurrence and solution for mean and second factorial moment.",
+          "identifier_or_url": "https://doi.org/10.1214/aoms/1177706273",
+          "material_read": "Accessible abstract and bibliographic data; Glasgow (1959), pp. 586–590; body not accessible",
+          "method": "Literature lookup and lawful PDF attempt",
+          "title": "Note on the Factorial Moments of the Distribution of Locally Maximal Elements in a Random Sample",
+          "trigger": "Direct follow-up already solves count moments"
+        },
+        {
+          "assessment": "Related but not the exact kernel",
+          "evidence": "Run probability bounds, not pairwise change covariances of maxima.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.1975",
+          "material_read": "Open preprint treatment of constant and monotone runs",
+          "method": "OA primary preprint inspection",
+          "title": "A note on general sliding window processes",
+          "trigger": "Referenced general block-factor theory"
+        },
+        {
+          "assessment": "Partial endpoint overlap, not a separate all-lag predecessor",
+          "evidence": "When j=k, its lag 1 and k formulas match the frozen maxima specializations; material new scope there is interior ranks.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-rank-dependent-covariance-and-an-independent-median-shell-for-sl--edb65e349ab4/RESULT.md",
+          "material_read": "Finding and assumptions, offset 0",
+          "method": "Local mirror full-text passage",
+          "title": "Rank-dependent covariance and an independent median shell for sliding order statistics",
+          "trigger": "Explicit overlapping sliding change indicator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The negative-to-positive transition is an informative way to explain dependence, and the short local proof has pedagogical value. But the exact invariant is an elementary extraction of the earlier count generating theorem, the aggregate circular law reduces directly to it, and the fixed-width CLT is standard. The frozen package does not isolate a surviving unknown structural claim beyond that extraction. No repair is justified for this record without a substantively different result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

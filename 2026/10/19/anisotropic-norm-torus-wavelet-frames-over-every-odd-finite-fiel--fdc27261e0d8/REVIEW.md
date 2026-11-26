@@ -1,15 +1,21 @@
-# Review of anisotropic norm-torus wavelet frames
+# Independent mathematical audit
 
-## Correctness — PASS
-For each odd prime power \(q\), a nonsquare \(\delta\) makes \(x^2-\delta y^2\) an anisotropic field norm. The quadratic-character identity counts exactly \((q-\chi(-1))/2\) nonzero slopes \(c\) for which \(1-\delta c^2\) is nonsquare. With opposite-sign pair representatives, the two graph branches enumerate every nonzero norm once. The order-\(q+1\) cyclic kernel of the extension-field norm acts freely and transitively on each norm level, giving an exact punctured-plane tiling. A horizontal character basis restricted from the graph is a Parseval frame on every deleted-origin block; disjoint dilation supports give global Parseval tightness. Fourier inner products prove the exact regular-simplex Gram blocks. These steps establish the theorem for all odd prime powers, independently of the finite checker.
+## correctness
 
-## Originality — PASS (best knowledge)
-Iosevich–Lai–Mayeli, *Tight Wavelet Frame Sets in Finite Vector Spaces* (arXiv:1703.06842, 2017), establishes the spectral tiling criterion and a graph construction for prime \(q\equiv3\pmod4\); Proposition 4.6 excludes **Euclidean** rotations for \(q\equiv1\pmod4\), while Section 5 asks whether wavelet frame sets nevertheless exist and about extension to prime powers. Their proof therefore does not entail this anisotropic norm-torus construction for every odd prime power. Rahimi–Seddighi (arXiv:1705.11127) concerns one-dimensional prime-field wavelet frames, and Mayeli (arXiv:1703.06771) discusses locally compact abelian group spectral criteria. The present explicit two-slope anisotropic transversal, all-odd-prime-power existence statement, and Gram-block classification were not identified in the available published comparisons. This is a best-knowledge conclusion, **not a uniqueness or exhaustive-priority certificate**. An analogous construction using an equivalent quadratic form might appear elsewhere; Sinha–Sahoo (DOI:10.5666/KMJ.2021.61.2.371) was inspectable only at abstract level.
+PASS
 
-## Mathematical value — PASS
-The natural gap was existence of finite two-dimensional tight wavelet frame sets for primes \(q\equiv1\pmod4\), where the earlier Euclidean rotational method fails, as well as arbitrary odd prime powers. The anisotropic form removes the isotropic-zero-radius obstruction and yields actual constructions, not merely a restated abstract existence criterion. Exact redundancy, Gram eigenvalues, and a flexible family of explicit graph transversals make the result applicable to finite Fourier/wavelet frame design.
+Counting the nonzero-difference hyperbola by (x−y)(x+y)=a proves the character sum −1 for x²−a and hence ∑χ(1−δc²)=χ(−1); there are no zeros. A graph tiles vertically and the trace characters in the first coordinate form its spectrum (the finite-field trace pairing is nondegenerate, even when Tr(1)=0). Squaring the chosen ± representatives and their negatives gives each square once; the other slope multiplies those norms by a nonsquare. The punctured graph thus has one representative at each nonzero norm, and norm-one field multiplication acts simply transitively on each level, tiling all nonzero frequencies. With determinant one and the stated transpose/shift, the Fourier amplitude is q^(−1/2) times the character in the graph coordinate; disjoint blocks and trace-character orthogonality yield Parseval and the exact simplex Gram. Each nonzero slope and its zero locus recover c and H from the graph, so the count is of distinct graphs for fixed δ, not equivalence classes or all graph transversals. Exact finite arithmetic at q=3,5,9,27 independently confirmed slope counts, orbits and off-diagonal character sums.
 
-## Verification and limitations
-The analytical proof does not require numerical calculations. The standalone pure-Python checker verifies eight selected fields \(q\in\{3,5,7,9,11,13,25,27\}\), including extensions; it tests norm values, dilation partition, and block Fourier inner products. Those cases cannot independently establish the all-field claim. No claims are made for characteristic two, higher dimensions, or a basis of the full function space. The complete text of Sinha–Sahoo (2021) remains an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the explicit two-slope norm transversal for every odd prime power and exact count of the stated family at fixed nonsquare δ, not for the abstract frame criterion or the previously constructed prime q≡3 (mod 4) graph. Iosevich–Lai–Mayeli’s Theorem 4.4 is an exact special case at δ=−1 with the usual half of the prime field. The anisotropic form, unlike the q≡1 Euclidean form, has a norm-one group acting regularly on each nonzero norm level. The trace-character and deleted-column Gram computations are natural consequences of this explicit construction, not an independent novelty claim.
+
+## value
+
+PASS
+
+The useful step is the explicit graph transversal that is simultaneously compatible with additive tiling, spectrality, and anisotropic cyclic norm dilation in the previously problematic q≡1 regime as well as in nonprime fields. The exact family count makes that construction quantitative; the simplex computation alone would not be a contribution independent of the transversal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

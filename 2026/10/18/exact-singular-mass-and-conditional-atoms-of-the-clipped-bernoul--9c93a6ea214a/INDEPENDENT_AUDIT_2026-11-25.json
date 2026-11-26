@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T18:37:23.112399Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<r<1 the lower Fréchet clipping is inactive, and the upper clipping cuts at L<u<H: the boundary equations are r√[u(1−u)v(1−v)]=(1−u)v and r√[u(1−u)v(1−v)]=u(1−v), respectively. For each fixed v, C(u,v) is absolutely continuous in u; its a.e. derivative gives a version of the conditional CDF (take a common full-measure set at rational v and use right continuity). For fixed u the derivative is 0, ∂uG, and 1 in the three open regions, with the right-continuous boundary values. Substituting the two boundary equations into the interior derivative gives jumps L/(2u) and (1−H)/(2(1−u)). The remaining conditional mass is smooth between the curves with the stated positive mixed partial: for a=√[u/(1−u)]<1<b=√[v/(1−v)], its negative correction is bounded using (1−a²)(b²−1)≤(b−a)² and b/a<1/r; same-sign factors give density at least one. Uniform U then gives two graph measures with zero planar Lebesgue support, each of mass −s log(s)/[2(1−s)], s=r²; there is no remaining singular-continuous or edge mass. Reflection, the product and Fréchet endpoint copulas, and −log(s)>1−s verify the sign symmetry, endpoint limits and strict monotonicity. The proof is replayable from RESULT.md lines 53–122; the supplied finite grid/quadrature verifier was inspected, not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source introduces the clipped formula with a Bernoulli correlation parameter. The second proves it is a copula and gives the interior mixed partial (5). Xie–Yang–Zhu give a transformed family with singular support on the main diagonal."
+        ],
+        "reasoning": "A general copula validity proof and an interior density formula do not give the singular mass; the other family does not cover these non-diagonal singular graphs.",
+        "searches": [
+          "arXiv:2207.10583v1, section 2",
+          "arXiv:2301.05507v1, section 2 and section 6",
+          "arXiv:1710.01200v1, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_copula_decomposition.py",
+        "Four indexed copula searches",
+        "arXiv:2207.10583v1",
+        "arXiv:2301.05507v1",
+        "arXiv:1710.01200v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof integrates ∂aC on boundary rectangles and bounds the interior expression by 1; the clipped side has ∂aC=1 in the upper region. These steps establish positivity but do not compute the mass allocated to the curve.",
+          "The claimed result uses both one-sided conditional CDF limits, verifies exhaustiveness by disintegration, then evaluates the two nonconstant atom weights and their log integrals."
+        ],
+        "reasoning": "The atoms are mathematically determined by the known piecewise CDF, but no stronger decomposition or singular-mass theorem was established in the inspected text. The measure-level calculation, not the clipping curves or differentiating for the regular density alone, is the distinct result.",
+        "searches": [
+          "arXiv:2301.05507v1, eqs. (4b)–(5), (39)–(47), (51), and (55)–(65)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (47) already gives H(u)=u/[u+ρ²(1−u)], with the other branch by symmetry. Eq. (51) already gives the odds relation underlying the logit form.",
+          "The indexed max-quotient rank-correlation envelope uses a singular part supported on U=V, not the clipped law's two distinctly shifted graphs."
+        ],
+        "reasoning": "The logit shift is a re-expression of known boundary geometry, not independent novelty. The exact atom weights and total mass are the comparison target in all coordinates.",
+        "searches": [
+          "Resultary: clipped Bernoulli-correlation copula conditional atoms and density",
+          "Resultary: logit-parallel curves and equivalent clipped-copula decomposition",
+          "arXiv:2301.05507v1, sections 6.2–6.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The returned closest thematic record, Sharp rank-correlation envelope at fixed diagonal coincidence mass (2026-11-22), uses p=∫f in a max-quotient family and bounds Spearman correlation; it does not give the exact mass or atom formula of this family."
+        ],
+        "reasoning": "The quantity is a continuous-parameter mass, not a discrete sequence. Exact-formula and decomposition searches found no confirmed equivalent formula in the inspected indexed sources.",
+        "searches": [
+          "Resultary: exact −ρ² log(ρ²)/(1−ρ²) copula singular mass",
+          "Resultary: conditional atoms and equivalent clipped-copula decompositions"
+        ]
+      },
+      "rationale": "Credit only the explicit measure-level result: the right-continuous conditional law with two atom weights and the exact aggregate singular fraction. The clipping construction, boundary curves, and regular density are already known. The strongest inspected source verifies copula positivity at a clipping boundary by bounding a first derivative; it does not identify the conditional CDF jumps, establish that they exhaust the singular part, or integrate their mass. The new measure calculation uses those known ingredients but is not a restatement of their results.",
+      "residual_risks": [
+        "The inspected passages do not establish exhaustive priority, especially under a different name for the same clipping law.",
+        "General web-search returns were uninformative; this was not used as evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Construction already known",
+          "evidence": "Piecewise clipping of the Bernoulli joint-probability expression by W and M, with Bernoulli Pearson ρ.",
+          "identifier_or_url": "https://arxiv.org/html/2207.10583v1",
+          "material_read": "Section 2, around offsets 7,157 and 10,950",
+          "method": "Open full-text passage inspection",
+          "title": "Correlated Boolean Operators for Uncertainty Logic",
+          "trigger": "Origin of the clipped construction"
+        },
+        {
+          "assessment": "Substantial ingredient overlap, not the exact decomposition",
+          "evidence": "Gives the first and mixed partials and the independent clipping curves; boundary-rectangle proof checks inequalities rather than an exact conditional atom kernel or integrated singular fraction.",
+          "identifier_or_url": "https://arxiv.org/html/2301.05507v1",
+          "material_read": "Section 2 eqs. (4b)–(5); sections 6.2–6.7, eqs. (39)–(65)",
+          "method": "Open full-text equation inspection",
+          "title": "Correlation-Based And-Operations Can Be Copulas: A Proof",
+          "trigger": "Same copula with explicit boundary and derivative analysis"
+        },
+        {
+          "assessment": "Related distinct family",
+          "evidence": "Singular support on the main diagonal in the stated construction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1710.01200v1",
+          "material_read": "PDF pp. 1–2, abstract and introduction",
+          "method": "Open full-text passage inspection",
+          "title": "A family of transformed copulas with singular component",
+          "trigger": "Possible equivalent singular copula family"
+        },
+        {
+          "assessment": "Different family and moment problem",
+          "evidence": "A max-quotient family puts p=∫f on the main diagonal and bounds its Spearman correlation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-rank-correlation-envelope-at-fixed-diagonal-coincidence-ma--14ef900fcb2d",
+          "material_read": "RESULT.md finding and model description",
+          "method": "Local indexed-mirror reading",
+          "title": "Sharp rank-correlation envelope at fixed diagonal coincidence mass",
+          "trigger": "Closest indexed singular-copula decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a previously proposed uncertainty copula, the fraction of observations on deterministic conditional branches is a motivated, directly usable invariant. For example at |ρ|=1/2 the Lebesgue density accounts for only about 54% of the joint probability. Knowing the two conditional atoms and their weights distinguishes the genuine law from a density-only treatment and gives the full conditional sampling distribution. No novelty or value credit is assigned to the already known clipping geometry or interior formula in isolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

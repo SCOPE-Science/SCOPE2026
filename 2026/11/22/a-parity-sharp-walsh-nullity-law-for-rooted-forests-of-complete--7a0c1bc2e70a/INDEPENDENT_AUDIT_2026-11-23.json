@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:42:59.636349Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Steps 1–5, and verify.py (static inspection)",
+        "/workspace/branches/015ae3d9-cfd5-45d5-8f4c-d9484d78b927/bipartite_walsh_repro.py and bipartite_walsh_repro.out"
+      ],
+      "rationale": "Deleting the new vertex from a spanning tree of the root-weighted augmentation designates exactly one root per forest component, so the matrix-tree cofactor is the multiaffine root enumerator. Substitution of signs computes the unnormalized Walsh sum with no positivity requirement. In the bipartite Schur complement the off-diagonal block has rank one and both diagonal blocks are invertible for m,n≥2, yielding the determinant prefactor and the product of the two reciprocal-diagonal sums. Its vanishing gives the exact zero-product equality; each weight pair contributes binomial multiplicity (eigenvalues for different pairs need not be distinct). The even-even equality is blocked modulo 2. At balanced odd d, write Q=d²−1 and c=(d−1)/2. Same-side weights cannot give equality except at (c,c); opposite displacements a and −b require Q(a−b)=2ab with 0<2ab≤Q/2, impossible. Stirling gives 2/(πd) for the resulting relative nullity. For d,d+1 the zero equation determines v=(d²−1)u/[d(d+2)−2u] where u=d−x and v=y. For 1≤u≤d, the positive difference u−v is strictly below one: the denominator is at least d², and u(2d+1−2u)≤(2d+1)²/8<d² for d≥2. Thus only u=v=0 remains, giving exactly one zero character. The computation supports, but does not prove, the all-size classifications.",
+      "residual_risks": [
+        "Replay with python3 /workspace/branches/015ae3d9-cfd5-45d5-8f4c-d9484d78b927/bipartite_walsh_repro.py. Direct edge-subset/root-choice enumeration and signed sums checked 1,157,008 edge subsets and 1,616 characters across eleven finite pairs, including nullities 0,9,0 at (2,2),(3,3),(4,4), 1 at (2,3),(3,4),(4,5), and 25 at (3,5). Uploaded code was not run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matrix-forest framework works for general graphs; the indexed Jin–Liu and Székely articles deal with enumeration for complete bipartite or multipartite graphs. Their rooted counts by part size are reported with theorem locators in the frozen dossier; the latter two primary PDFs were not independently readable in this review."
+        ],
+        "reasoning": "An exact unsigned root histogram gives the signed polynomial by a binomial or Krawtchouk transform, so it subsumes raw enumeration. It does not tell which alternating sums vanish or why there are no other zero shell pairs for these infinite subfamilies.",
+        "searches": [
+          "Chebotarev–Shamis arXiv:math/0602575",
+          "Jin–Liu, Ars Combinatoria 70 (2004), Theorem 2.3",
+          "Székely, Ars Combinatoria 73 (2004), Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary search and related complete-graph source",
+        "Open Chebotarev–Shamis text; indexed Jin–Liu and Székely sources with frozen theorem locators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Matrix-tree with an augmented root already yields the signed determinant, and the determinant lemma gives the spectrum swiftly. The nonexistence of opposite balanced displacements and the strictly sub-unit displacement for consecutive shores are separate integer arguments; neither follows by a graph- or activity-parameter substitution in the complete-graph theorem."
+        ],
+        "reasoning": "The exact all-dimension ranks are more than an uncomputed transform or a routine reparametrization of the complete-graph spectrum.",
+        "searches": [
+          "arXiv:math/0602575, introductory matrix-forest statements and §3",
+          "Resultary mirrored Rooted-forest root profiles on complete graphs, finding and scope",
+          "Frozen proof Steps 4–5 versus Jin–Liu Theorem 2.3 and Székely Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A zero coefficient is equivalent to a singular Laplacian with a ±1 diagonal perturbation, not to a zero of the ordinary graph Laplacian. Classical shore-root cardinality counts do determine the underlying root-set distribution by shore symmetry."
+        ],
+        "reasoning": "Changing to signed determinants or to the Walsh transform of the root counts does not identify a separate novelty for the operator formula. The exact solution counts for the signed equality remain the nontrivial claim.",
+        "searches": [
+          "complete bipartite rooted forest root sets Walsh transform Fourier spectrum convolution signed Laplacian K_m,n zero determinant singularity ±1 diagonal",
+          "Resultary: rooted spanning forest root-set Walsh XOR convolution nullity complete bipartite signed Laplacian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored related root-profile record treats K_n at root activity t>0, with a single support-size parameter. Other retrieved Walsh records concern edge-frequency trees or arborescences rather than the root sets of forests in a biclique."
+        ],
+        "reasoning": "K_n is not K_m,n with m,n≥2 and the single-threshold equation does not encode the two-shore multiplicities; no matching prior table was identified. Independent small computations were checking correctness, not exclusion of earlier work.",
+        "searches": [
+          "Resultary: rooted spanning forest root-set Walsh XOR convolution nullity complete bipartite signed Laplacian",
+          "complete bipartite rooted forest root sets Walsh transform Fourier spectrum convolution signed Laplacian K_m,n zero determinant singularity"
+        ]
+      },
+      "rationale": "The Walsh transform is a direct signed evaluation of a classical root enumerator and uses a standard rank-one determinant reduction. The substantive distinct contribution is the exact multiplicity and uniqueness of the balanced and consecutive-shore zeros. No prior statement or stronger root-count theorem inspected here supplies those arithmetic conclusions without the new exclusion arguments. Historical priority remains bounded.",
+      "residual_risks": [
+        "Primary Jin–Liu and Székely PDF passages were not independently retrieved as readable text. Unindexed signed determinant or rank results may exist. The spectrum formula alone is a standard derivation; priority assessment is for the specific zero classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies root enumeration structure, not the two-shore integer zero exclusion",
+          "evidence": [
+            "The introduction attributes det(I+L) to the rooted-forest count and points to Theorems 5–6. The coefficient argument uses principal minors grouped by root-set size."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0602575",
+          "material_read": "Open introduction and matrix-tree/rooted-forest setup, plus the principal-minor coefficient argument",
+          "method": "Primary-text comparison with the augmentation and signed evaluation",
+          "title": "Matrix-Forest Theorems",
+          "trigger": "Classical determinant identity behind the spectrum"
+        },
+        {
+          "assessment": "Credited unsigned enumeration; no independent whole-document exclusion",
+          "evidence": [
+            "Shore-symmetric counts can be divided by binomial shore-root choices and Walsh transformed; this is not by itself a zero classification."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20070/volume-70-paper-12.pdf",
+          "material_read": "Indexed bibliographic/enumeration context; Theorem 2.3 as described by the frozen dossier; primary PDF not independently read",
+          "method": "Scope and mathematical implication comparison, with access limitation",
+          "title": "Enumeration for spanning forests of complete bipartite graphs",
+          "trigger": "Same underlying rooted-forest profile"
+        },
+        {
+          "assessment": "Plausible broader source for enumeration; not evidence of the all-size signed rank formulas",
+          "evidence": [
+            "The reported part-root-count theorem generalizes the unsigned enumeration."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf",
+          "material_read": "Indexed summary and frozen dossier description of Theorem 1; open PDF did not expose extractable text",
+          "method": "Compare counted quantities without drawing a negative conclusion from access failure",
+          "title": "Counting rooted spanning forests in complete multipartite graphs",
+          "trigger": "Same invariant for a broader graph family"
+        },
+        {
+          "assessment": "Same method on a different graph, not a stronger theorem covering biclique shore weights",
+          "evidence": [
+            "K_n with common root activity t and one Walsh weight, not K_m,n with two Walsh weights."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-rooted-forest-root-profiles-on-complete-graphs-exact-fourier-res--d9a4486575de",
+          "material_read": "Mirrored finding and scope",
+          "method": "Compare graph, frequencies, and activity parameter",
+          "title": "Rooted-forest root profiles on complete graphs: exact Fourier resonances and sharp gaps",
+          "trigger": "Closest same Fourier observable in the local index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, finding and limitations; reviewed nullity proofs and exact reproductions"
+      ],
+      "rationale": "The exact kernel measures lost Walsh modes in a natural forest-root convolution. Proving zero loss for both even shores, an explicit central-binomial defect for odd balanced shores, and one lost mode for consecutive shores exposes distinct behavior on natural infinite families, useful beyond raw root enumeration.",
+      "residual_risks": [
+        "No simple classification of all remaining unbalanced pairs, condition-number theorem, or gap bound is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

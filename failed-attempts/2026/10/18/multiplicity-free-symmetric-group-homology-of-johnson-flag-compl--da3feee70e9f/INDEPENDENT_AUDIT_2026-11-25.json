@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:22:50.285104Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The star and top simplices meet pairwise in at most an edge, so the apex collapse eliminates all faces above dimension two without affecting the graph. The triangular two-skeleton of the convex hypersimplex supplies simple connectivity. In reduced Euler character, each edge contributes to two local simplex sums and once globally, leaving one signed edge module; flags and augmentation have the displayed signs. This yields the stated characteristic, and Jacobi–Trudi telescoping cancels the boundary terms using e2=h1^2-h2. The partitions are legitimate and distinct for n>=2k; absence of the trivial and sign representations proves the two invariant-vanishing claims. Independent clique enumeration and hook lengths gave face counts 70,560,1120,560,112 and dimensions 35,90,56 summing to 181 (python3 /workspace/check_frozen_math.py). Frozen verification files were inspected, not executed. Here 'self-complementary' should mean the middle layer admits the set-complement automorphism, not that J(8,4) is isomorphic to its graph complement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.1 supplies the ribbon for every rank selection. Here the composition is (k-1,1,1,n-k-1). The later indexed Johnson record gives the stated Specht shapes with j up to min(k,n-k)-1."
+        ],
+        "reasoning": "The broader Johnson range contains the entire frozen range, and rank selection gives a second way to obtain the same representation.",
+        "searches": [
+          "arXiv:2604.06479v1, §4 Proposition 4.1",
+          "Resultary: SCOPE-multiplicity-free-symmetric-group-homology-of-johnson-graph-rips--067d75c1a79e"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Hersh–Sundaram arXiv:2604.06479v1, Proposition 4.1",
+        "Indexed records 067d75c1a79e and 4f727a8ead7e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ribbon multiplicities count standard tableaux with descents exactly k-1,k,k+1. The first k-1 entries lie in row 1, then k,k+1,k+2 start rows 2,3,4. Subsequent row indices weakly decrease; no new cells can go into rows 3 or 4 before row 2 grows, after which one cannot return. The rest fills row 2 up to j with 1<=j<=k-1, then row 1. There is exactly one tableau for each (n-j-2,j,1,1)."
+        ],
+        "reasoning": "The Euler-character bridge to the earlier ribbon and the explicit descent calculation give the exact claim, including multiplicity one. The distinct later record states that claim directly.",
+        "searches": [
+          "Hersh–Sundaram Proposition 4.1; Stanley Theorem 4.3 as cited there",
+          "Resultary 067d75c1a79e Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the rank-selected Boolean order complex, let T be the full three-rank flag module and Q the rank-(k-1,k+1) pair module. For each pair there are two middle sets, so T=Q plus the signed line over each Johnson edge. Thus [T]-[Q]=[E]; all other reduced Euler-character terms match frozen eq. (1). Both homologies concentrate in degree two."
+        ],
+        "reasoning": "These are equal rational S_n-modules, not just equal dimensions or related labels. This comparison needs no claim of equivariant homotopy equivalence.",
+        "searches": [
+          "Hersh–Sundaram arXiv:2604.06479v1, Proposition 4.1; ranks {k-1,k,k+1}",
+          "Resultary: SCOPE-all-weight-symmetric-group-homology-characters-of-johnson-graph--4f727a8ead7e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "067d75c1a79e indexes the exact all-parameter irreducible list, not a table of ranks. 4f727a8ead7e gives the all-weight virtual character."
+        ],
+        "reasoning": "Exact statement-level indexed coverage obviates inference from the J(8,4) finite computations.",
+        "searches": [
+          "Resultary: 067d75c1a79e and 4f727a8ead7e, exact Finding passages"
+        ]
+      },
+      "rationale": "A distinct published Johnson result gives the very same decomposition for the strictly larger range n>=6, 3<=k<=n-3. Its later date establishes coverage at review time, not earlier priority. Independently, the earlier rank-selected Boolean-lattice theorem already yields the same module under a simple Euler-character identification. The irreducible list is the elementary descent-tableau specialization of the known ribbon. The cited nonequivariant wedge and weight-three results do not by themselves imply it; the Boolean-lattice comparison and exact indexed overlap are decisive.",
+      "residual_risks": [
+        "Stanley's 1982 original Theorem 4.3 was not read directly; the accessible proposition supplies the requisite theorem independently. No priority is inferred from later indexed dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier broader theorem specializes to the same module after the flag-character identification",
+          "evidence": [
+            "Top rank-selected Boolean homology affords the ribbon with parts determined by the successive selected-rank differences."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.06479v1",
+          "material_read": "§4 Proposition 4.1 and proof, offsets approximately 70400–75566",
+          "method": "Open-access arXiv HTML",
+          "title": "Stability and ribbon bases for the rank-selected homology of geometric lattices",
+          "trigger": "All-rank Boolean-lattice homology correspondence"
+        },
+        {
+          "assessment": "Same result in a broader k range, later than the frozen record",
+          "evidence": [
+            "All n>=6 and 3<=k<=n-3; same multiplicity-one irreducibles in the frozen range."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-multiplicity-free-symmetric-group-homology-of-johnson-graph-rips--067d75c1a79e/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "Multiplicity-free symmetric-group homology of Johnson graph Rips complexes",
+          "trigger": "Exact indexed overlap"
+        },
+        {
+          "assessment": "Same Euler-character identity, not the explicit irreducible list",
+          "evidence": [
+            "The all-weight virtual character uses the same oriented edge, vertex, and flag modules."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-all-weight-symmetric-group-homology-characters-of-johnson-graph--4f727a8ead7e/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Published local mirror",
+          "title": "All-weight symmetric-group homology characters of Johnson graph Rips complexes",
+          "trigger": "Matching virtual-character formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The module is a natural invariant, but the claimed addition is the irreducible split of a known rank-selected ribbon. Once the incidence modules are written down, the comparison is a two-element fiber identity and the split is a short consecutive-descent count. The rank and homology concentration were already known, and no further equivariant structure or application is established. The finite ranks and absence of invariants are consequences, not a separate valuable remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

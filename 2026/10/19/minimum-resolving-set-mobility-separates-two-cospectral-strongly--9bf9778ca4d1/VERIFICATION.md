@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-25.md",
+      "INDEPENDENT_AUDIT_2026-11-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The scientific claim is finite and reproducible with standard Python 3. Run `python3 verify_direct.py` and `python3 verify_characterization.py` from the folder containing the included files. Compare their standard outputs with `verify_direct.out` and `verify_characterization.out`. The former uses full distance vectors and exchange graph traversal; the latter uses shortest-path-derived pair-separation masks and exhaustive equality checks against the explicit formula and translation families. Both enumerate every four-subset of each 16-vertex graph, and all smaller subsets for the lower bound. All two-exchange breadth-first searches run from every minimum basis.
+# Independent mathematical audit
 
-The proofs of the rook metric dimension and general rook resolving-set criterion are previously published (Cáceres et al., arXiv:math/0507527). The Shrikhande dimension-four value is also previously published (Bailey, arXiv:1312.4973). The new finite structure and capacity statements are checked as described in the included programs and the Result proof. No unbounded parameter range or mathematical uniqueness beyond the two specified graph isomorphism types is asserted.
+## correctness
 
-Independent scientific audit has not been performed. The checks are computational verification, not third-party certification.
+PASS
+
+Independently reconstructed both labeled graphs and tested every common-neighbor count and degree, hence their shared strongly regular parameters and spectrum. For diameter two, unselected vertices are distinguished exactly by their selected-neighbor subsets; selected vertices are distinguished by their own zero distances. Enumerated all subsets through size four and matched the explicit rook cross families and all three disjoint Shrikhande translation families. Formed every pairwise basis overlap. In the rook case the one-exchange adjacency agrees with equality of the central row/column and variation of exactly one excluded coordinate; all 288 moves slide. Shrikhande has no overlap of size three. For exact two exchanges both graphs are connected, with 1872 and 240 edges, degrees 26 and 10, and eccentricity three at every basis. At capacity five consecutive size-four states along any path are identical or share three landmarks, so different one-exchange components cannot join. At six, each exact-two step uses the union of the two bases and costs four add/delete moves; the diameter-three paths therefore give the claimed twelve-step upper bound, not optimality of twelve.
+
+## originality
+
+PASS
+
+Pass for the ordinary four-landmark mobility contrast and the exact two-replacement restoration and capacity threshold, not for the metric dimensions, rook basis count or its underlying shape. Neither the confirmed prior static characterization nor the close indexed reconfiguration comparisons supplies the Shrikhande ordinary-basis obstruction and paired two-exchange connectivity and distances. Thesis coverage remains an access risk, not evidence of overlap.
+
+## value
+
+PASS
+
+The graph pair is a canonical test of what strong regularity and shared metric dimension do not determine. The ordinary basis spaces genuinely differ in local mobility, and the exact two-exchange calculation gives a sharp, comparable resolution-preserving capacity boundary rather than a bare census. These are usable finite benchmarks for landmark reconfiguration; no general bound for strongly regular graphs is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

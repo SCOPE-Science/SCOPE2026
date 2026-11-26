@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:26:21.465333Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 5–64",
+        "VERIFICATION.md, verification_output.txt, verify_group_ring.py and verify_compatible_differentials.py (inspected, supplied scripts not executed)",
+        "Independent replay: python3 /workspace/branches/656700ec-5fce-4cf7-b8e8-366103b9bcf2/independent_recompute.py"
+      ],
+      "rationale": "Over the algebraic closure, the trivial idempotent gives dual numbers and each nontrivial unordered inverse-character pair gives a full 2 by 2 block. Odd order excludes other fixed characters. Frobenius permutes these blocks, with center of the descended simple algebra equal to F_(q^d) on a length-d orbit; finite fields split the central simple algebra. In each matrix block, a nonzero square-zero matrix has image equal to kernel, a line. Its commuting square-zero matrices are its scalar multiples by the centralizer calculation. Conversely, for two nonzero square-zero matrices, even one-sided zero product forces equality of those lines, hence both products vanish. Left multiplication acts on two columns and has k-rank 2d; the dual-number contribution is rank 1 for each nonzero scalar. Counting a unique line per nonzero tuple yields the full polynomial and all-zero normalizations. Enlarging a compatible space to the product of its projections proves maximality is blockwise, and the linear span of E-1 gives the elementary abelian correspondence. Over the closure the local reduced locus is the cone over P^1 times P^(r-1) in bidegree (2,1): the line [u:v] gives nilpotent direction [uv:u^2:v^2:uv]. Its product with the other blocks and the affine dual-number locus yields the claimed irreducibility and dimension, not original-scheme reducedness. Direct independent enumeration confirmed the 512 individual elements in each order-nine example and the distinct 22,720 and 40,000 ordered pair totals; the maximal-space counts 27 and 81 follow from Frobenius orbit degrees (1,3) versus (1,1,1,1), not from brute-force subspace enumeration.",
+      "residual_risks": [
+        "The 2014 citation in RESULT.md overstates the scope of the cited theorem for noncyclic H; the independent character argument repairs the logical dependency within the existing proof. The bounded enumeration does not independently count maximal subspaces or prove the unbounded statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The double-flag theorem covers all matrix sizes, ranks, field orders and tuple arities, also retaining common image span and kernel dimensions.",
+          "The 2014 theorem gives units and related block structure for cyclic odd rotation subgroup D_(2n), not arbitrary odd abelian H as attributed in the record. Ngo–Šivic study commuting nilpotent varieties rather than this finite-field rank count; Kaur–Khan give unit-group structure in the cyclic prime-power rotation case."
+        ],
+        "reasoning": "The broad double-flag statement covers the exact per-block count. The cyclic-group citations do not by themselves cover the full abelian scope, but the character-orbit decomposition is elementary and is separately shown in the record.",
+        "searches": [
+          "7465760ed8a5, Finding and Proof §§1–3",
+          "Makhijani–Sharma–Srivastava, Theorem 3.1 and equation (3.2)",
+          "arXiv:1308.4438 p. 1 and arXiv:1307.0282 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary records 7465760ed8a5, 3f6b29b03a8b and c95206811566",
+        "DOI:10.1142/S179355711450034X, arXiv:1308.4438, 1001.0811 and 1307.0282"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a nonzero rank vector in size two, the only double-flag stratum has t=k=1, contributing (Q+1)(Q-1)^j for j nonzero rank-one coordinates. The zero vector contributes one. These are all possible rank vectors.",
+          "Apply T_i -> T_i^(2d) to the matrix-rank markers, multiply all factors and insert independent dual-number coefficients. This gives precisely the claimed polynomial, the ordered-pair contrast, and the univariate specialization."
+        ],
+        "reasoning": "This is an exact implication for every parameter, not an analogy. The common-line structure also gives the maximal spaces by taking a full line in each block, and the reduced geometric factors by taking the cones of tuples on those lines.",
+        "searches": [
+          "Double-flag theorem 7465760ed8a5, n=2 specialization of the joint count",
+          "RESULT.md, decomposition (1) and rank computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In every 2 by 2 block, a compatible tuple is exactly an ordered pairwise-annihilating tuple including all diagonal products.",
+          "Britnell–Wildon study whether similarity classes contain a commuting pair of representatives, not the count of actual labelled tuples."
+        ],
+        "reasoning": "The first reformulation changes no tuples; the second is genuinely a different invariant. The finite fields of the matrix factors and the original ground-field left-regular rank are connected by the monomial substitution T_i^(2d).",
+        "searches": [
+          "Resultary: finite group algebra all-arity commuting square-zero tuple rank polynomial",
+          "7465760ed8a5, Finding and Proof §1, local mirror offset 0",
+          "arXiv:1001.0811, p. 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7465760ed8a5 is a distinct same-day exact labelled rank distribution on matrices, stronger than the local rank marginal required here.",
+          "3f6b29b03a8b concerns cross-products at distinct indices in radical-square-zero quiver algebras, not the same constraints. Later c95206811566 gives maximal square-zero spaces, individual left ranks and the reduced individual locus in generalized dihedral algebras."
+        ],
+        "reasoning": "An identical whole-algebra table was not needed: the exact local table together with the block decomposition gives the joint table. The later incidence entry overlaps r=1 and maximal spaces but is not evidence of earlier precedence.",
+        "searches": [
+          "Resultary: generalized dihedral group algebra square-zero maximal spaces left multiplication rank spectrum",
+          "Resultary 7465760ed8a5, 3f6b29b03a8b and c95206811566"
+        ]
+      },
+      "rationale": "The main all-arity rank census is mechanically obtained from the exact n=2 marginal of a distinct indexed arbitrary-size matrix-tuple theorem, followed by independent multiplication of block factors and change of rank units. Centralizer rigidity supplies the exact equivalence of tuple constraints. The two same-day entries cannot be ordered by their dates; this is demonstrable coverage by a stronger statement, not a priority or derivation claim. The accompanying maximal-space and reduced-locus statements are immediate structural consequences of the same 2 by 2 line decomposition, not an independently established new remainder of the finding.",
+      "residual_risks": [
+        "External web search was unavailable on the attempted query; that is not negative evidence. Public priority or dependence between the same-day entries is not established. The finding is mathematically correct even though the stronger indexed result covers its crucial enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the crucial local rank count; no inference of within-day order",
+          "evidence": "Exact formula fixes ranks of every tuple entry and imposes T_i T_j=0 for every ordered pair including i=j.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-double-flag-enumeration-of-pairwise-annihilating-square-zero-mat--7465760ed8a5/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–4",
+          "method": "Local Resultary mirror, opening page",
+          "title": "Double-flag enumeration of pairwise annihilating square-zero matrix tuples",
+          "trigger": "Strongest same-day general rank-vector match"
+        },
+        {
+          "assessment": "Antecedent structure for odd cyclic rotations; the citation does not prove the arbitrary abelian or tuple theorem",
+          "evidence": "Theorem uses D_(2n) with odd n and expresses the unit group in GL(2) factors; (3.2) concerns the semisimple quotient.",
+          "identifier_or_url": "DOI:10.1142/S179355711450034X",
+          "material_read": "Theorem 3.1 and equation (3.2), p. 3; radical discussion p. 4",
+          "method": "Lawful IIT Delhi PDF, OA locator and offsets 12600, 18400 and 24839",
+          "title": "The unit group of finite group algebra of a generalized dihedral group",
+          "trigger": "Cited algebra and unit-group structure"
+        },
+        {
+          "assessment": "Later overlapping classification, not all-arity equivalent coverage",
+          "evidence": "Individual left-rank count, reduced individual square-zero locus, and maximal square-zero-space incidence.",
+          "identifier_or_url": "Resultary 2026/11/22 c95206811566",
+          "material_read": "Opening Finding and subsequent passage at offset 7642",
+          "method": "Local Resultary mirror",
+          "title": "Square-zero linear space incidence in generalized dihedral group algebras",
+          "trigger": "Same full algebra family and maximal-space claim"
+        },
+        {
+          "assessment": "Different algebras and tuple constraints",
+          "evidence": "Only cross-products at distinct indices are required to vanish, with no prescribed individual rank-vector census here.",
+          "identifier_or_url": "Resultary 2026/11/2 3f6b29b03a8b",
+          "material_read": "Opening Finding",
+          "method": "Local Resultary mirror",
+          "title": "Pairwise-annihilating tuple varieties of radical-square-zero quiver algebras",
+          "trigger": "Same-day tuple-count alternative"
+        },
+        {
+          "assessment": "Antecedent geometric context, not the relevant finite-field enumeration statement",
+          "evidence": "Commuting nilpotent tuple varieties and irreducibility, without the square-zero rank census in the inspected statement.",
+          "identifier_or_url": "arXiv:1308.4438",
+          "material_read": "Abstract and opening p. 1",
+          "method": "OA PDF",
+          "title": "On varieties of commuting nilpotent matrices",
+          "trigger": "Broader geometry"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Commuting representatives of similarity classes.",
+          "identifier_or_url": "arXiv:1001.0811",
+          "material_read": "Abstract and opening p. 1",
+          "method": "OA PDF",
+          "title": "On types and classes of commuting matrices over finite fields",
+          "trigger": "Finite-field commutation literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof §§2–6",
+        "7465760ed8a5, exact matrix rank distribution as specialized above"
+      ],
+      "rationale": "The rank statistic is natural and the equal-order contrast is illustrative. However the actual census is a direct fixed-size specialization and multiplication of known local counts, and the illustrative contrast merely evaluates those factors. The other assertions use the same single-line geometry and product decomposition without an independently useful uncovered structural step. The narrow exact invariant therefore does not survive the mechanical-implication requirement.",
+      "residual_risks": [
+        "This rejects the frozen claim as a distinct scientific contribution, not the algebraic correctness or the pedagogical utility of the comparison."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -8,9 +8,9 @@ The rank at every degree is
 \[
 \boxed{\operatorname{rank}T_\ell=0\ (\ell=0,1),\quad 5\ (\ell=2),\quad 6\ (\ell=3),\quad 8\ (\ell\ge4).}
 \]
-Thus all eight complex quadrupolar curvature measurements can be interpolated independently starting at degree four. At degree three exactly one nonzero scalar harmonic is invisible: the kernel is spanned by the restriction of \(xyz\) to the sphere. This is different from sampling values, gradients, the full Hessian, or a band of mixed degrees.
+Thus all eight complex quadrupolar curvature measurements can be interpolated independently starting at degree four. At degree three the invisible harmonics form a one-dimensional space spanned by the restriction of \(xyz\) to the sphere. This is different from sampling values, gradients, the full Hessian, or a band of mixed degrees.
 
-More strongly, the normalized Gram operator \(G_\ell=(2\ell+1)^{-1}T_\ell T_\ell^*\) has exactly three eigenvalue expressions, with algebraic multiplicities \(2,3,3\):
+More strongly, the normalized Gram operator \(G_\ell=(2\ell+1)^{-1}T_\ell T_\ell^*\) has the following spectral branches of dimensions \(2,3,3\), counted together when values coincide:
 \[
 \begin{aligned}
 \lambda_{\ell,A}&=D+\frac43Q-\frac{32}{9}R+\frac{32}{27}U,\\
@@ -22,7 +22,7 @@ where \(P_\ell\) is the Legendre polynomial normalized by \(P_\ell(1)=1\) and
 \[
 D=4P_\ell''(1)=\frac{(\ell-1)\ell(\ell+1)(\ell+2)}2,\quad Q=P_\ell''(-1/3),\quad R=P_\ell'''(-1/3),\quad U=P_\ell''''(-1/3).
 \]
-The expressions are eigenvalues of the normalized, explicitly framed Gram matrix; the multiplication of harmonic inner products by a positive scalar changes all eigenvalues by that scalar but not the ranks.
+The expressions are eigenvalues of the normalized, explicitly framed Gram matrix. Multiplying the domain inner product by a positive scalar, with the codomain inner product fixed, divides all eigenvalues by that scalar and leaves the ranks unchanged.
 
 ## Assumptions and scope
 
@@ -78,7 +78,7 @@ For every integer \(4\le\ell\le24\), the exact rational recurrence of Legendre j
 \]
 with \(J_{n,-1}=0\). The bundled standard-library exact-arithmetic checker tests every one of the 63 inequalities; it also independently constructs harmonic-polynomial nullspaces and evaluates all eight Hessian measurements at degrees zero through seven.
 
-**4. Uniform high-degree positivity.** Set \(n=\ell\ge25\), \(x=-1/3\), and \(b=(n-1/2)^{-1/2}\). Bernstein's classical interior Legendre bound
+**4. Uniform high-degree positivity.** Set \(n=\ell\ge25\), \(x=-1/3\), and \(b=(n-1/2)^{-1/2}\). Bernstein's classical interior Legendre bound (the \(\alpha=\beta=0\) specialization of [DLMF 18.14.3](https://dlmf.nist.gov/18.14.E3))
 \[
 (1-x^2)^{1/4}|P_j(x)|\le\frac{2}{\sqrt{\pi(2j+1)}}
 \]
@@ -89,7 +89,13 @@ implies \(|P_n(x)|,|P_{n-1}(x)|\le b\). The standard identity \((1-x^2)P_n'=n(P_
 |P_n'''|\le\tfrac{15}{8}n^3b,\quad
 |P_n''''|\le\tfrac53n^4b.
 \]
-For transparency, the differentiated ODEs are \((1-x^2)P_n''-2xP_n'+n(n+1)P_n=0\), \((1-x^2)P_n'''-4xP_n''+(n(n+1)-2)P_n'=0\), and \((1-x^2)P_n''''-6xP_n''+(n(n+1)-6)P_n''=0\). The displayed derivative bounds follow by inserting \(|x|=1/3\), \(1-x^2=8/9\), and \(n\ge25\).
+The Legendre ODE and its first two derivatives are \((1-x^2)P_n''-2xP_n'+n(n+1)P_n=0\), \((1-x^2)P_n'''-4xP_n''+(n(n+1)-2)P_n'=0\), and \((1-x^2)P_n''''-6xP_n'''+(n(n+1)-6)P_n''=0\). In the last equation the middle term involves the third derivative. Inserting \(|x|=1/3\) and \(1-x^2=8/9\), and using the first derivative estimate, gives successive upper bounds for \(|P_n''|/(n^2b)\), \(|P_n'''|/(n^3b)\), and \(|P_n''''|/(n^4b)\) of
+\[
+\frac98\left(1+\frac2n\right),\qquad
+\frac98\left(\frac32+\frac{19}{6n}\right),\qquad
+\frac98\left(\frac54+\frac5n\right),
+\]
+respectively, by using each preceding stated estimate and dropping the subtractions from \(n(n+1)-2\) and \(n(n+1)-6\). Each quantity decreases for \(n\ge25\), and its value at \(25\) is below the corresponding constant above.
 
 Also \(D\ge(12/25)n^4\) and \(b\le(51/50)n^{-1/2}\). Applying the triangle inequality separately to each of the three explicit Gram branches, and noting that each resulting upper bound decreases with \(n\), gives
 \[
@@ -103,7 +109,7 @@ These rational constants are the respective bounds evaluated at \(n=25\); they a
 
 ## Verification
 
-Run `python3 check_exact.py` in this directory to check all Legendre-jet rational inequalities through degree 24 and directly compute the harmonic-polynomial Hessian sampling ranks for degrees zero through seven. Run `python3 check_gram.py` (requires SymPy) to derive all group-circulant blocks and symbolically verify the three-branch factorization. Both scripts were executed against the embedded sources. The two finite computations corroborate the proof; the Bernstein-ODE argument, not finite enumeration, proves the infinite tail.
+Run `python3 check_exact.py` to check all Legendre-jet rational inequalities through degree 24 and directly compute the harmonic-polynomial Hessian sampling ranks for degrees zero through seven. Run `python3 check_gram.py` (requires SymPy) to derive all group-circulant blocks and symbolically verify the three-branch factorization. The additional checker `reproduce_tetra.py` uses a finite Rodrigues expansion and directional Taylor coefficients to reproduce the low-degree inequalities, block factorization, and three rational tail constants. The Bernstein-ODE argument, not finite enumeration, proves the infinite tail.
 
 ## Relationship to prior work
 
@@ -111,7 +117,7 @@ The scalar spherical-harmonic addition theorem and coordinate-free tensor differ
 
 ## Limitations
 
-This is a result for the trace-free intrinsic Hessian only, at the four stated tetrahedral points. It does not claim full-jet interpolation, stability bounded uniformly in degree, other Platonic configurations, mixed-degree signal recovery, or originality certified by independent literature review. The normalized Gram eigenvalue formulas are coordinate/frame dependent up to the evident orthogonal re-framings, although ranks are intrinsic. Unindexed older angular-momentum or finite-group sampling tables could contain equivalent spectral information. No independent mathematical audit has been conducted.
+This is a result for the trace-free intrinsic Hessian only, at the four stated tetrahedral points. It does not claim full-jet interpolation, other Platonic configurations, or mixed-degree signal recovery. Rotating the orthonormal tangent frame can change the displayed matrix entries but conjugates the Gram matrix by a block orthogonal matrix and preserves its spectrum. Unindexed older angular-momentum or finite-group sampling tables could contain equivalent spectral information.
 
 ## References
 

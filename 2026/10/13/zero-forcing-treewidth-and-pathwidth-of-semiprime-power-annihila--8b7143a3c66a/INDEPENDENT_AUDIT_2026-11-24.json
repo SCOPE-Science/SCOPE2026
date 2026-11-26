@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T23:58:00.253712Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, divisor ideals, chronological forces, branch sets and a=1 boundary",
+        "VERIFICATION.md",
+        "verify.py, lines 4–67"
+      ],
+      "rationale": "The 2a nonzero proper divisor ideals are precisely A_i=(p^i), 1≤i≤a, and B_j=(p^j q), 0≤j<a; each has a nonzero annihilator. Products give no A−A edges and the threshold i+j≥a for A−B or B−B edges (on distinct vertices). From A_1,...,A_{a−1}, the chronological forces A_i→B_{a−i} are legal because B_j with j>a−i are already blue, after which B_1→A_a→B_0 clears the graph. Writing U_i=A_i and V_i=B_{a−i}, the disjoint edges U_iV_i form K_a branch sets since U_jV_i is an edge for i<j. Independently, a width-(a−1) path decomposition consists of the a−1 bags {V_1,...,V_i,U_i,...,U_{a−1}} for 1≤i≤a−1, then {V_1,...,V_{a−1},U_a} and {U_a,V_a}. Vertex occurrences are consecutive; the bags cover U_iV_j iff j≤i and all V−V edges, as V_a has no V-neighbors. The minor lower bound, this path-decomposition upper bound and the forcing/width inequality establish equality; at a=1 the graph is K_2. A fresh finite enumeration from ideal-product divisibility for n=3·2^a, 1≤a≤7, gave Z=1,1,2,3,4,5,6 and minimum-set counts 2,2,6,23,63,207,559. This only corroborates Z for those rings. The packaged verify.py was read but not executed; its recorded finite checks are not the all-exponent proof.",
+      "residual_risks": [
+        "No assertion about a complete classification of minimum forcing sets or a maximum-nullity equality is audited."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Artinian vertex characterization applies, and the Z_n work determines clique number and weak perfectness. The matched broader papers' inspected abstracts concern reduced-ring domination/radius or semigroup graph structure and diameter, not these parameter certificates. Resultary a8f5518e4e9c and 4300fa13ef6a use skew or failed-skew forcing."
+        ],
+        "reasoning": "The pure chain-graph case drops the B−B edges, so its ordinary Z cannot simply be substituted: adding edges can change forcing. The full graph has an induced P_4, so a threshold-graph theorem would not include it. General ring structure gives the input graph, not these invariants.",
+        "searches": [
+          "Behboodi–Rakeei, arXiv:0808.3187, Proposition 1.3",
+          "Nikandish–Maimani–Izanloo, DOI 10.11575/cdm.v11i1.62406, Theorem 2.4",
+          "ArXiv:1905.04530 and arXiv:1411.4159 for broader annihilating-ideal graph families",
+          "Resultary chain/threshold graph forcing comparisons"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0808.3187",
+        "DOI 10.11575/cdm.v11i1.62406",
+        "DOI 10.1002/jgt.21637 (availability and general background)",
+        "arXiv:1905.04530",
+        "arXiv:1411.4159",
+        "Resultary 1eca1a8f78f2, 538bbe021c4b, 7178b3fa1b20, 86625146ed7a, a8f5518e4e9c, 4300fa13ef6a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier clique/weak-perfectness calculations supply no K_a minor or optimal forcing sequence. E.g., at a=4 the largest clique has size 3, whereas the four branch sets in the reviewed theorem exhibit a K_4 minor. The general inequality tw≤pw≤Z then converts the two matching bounds into the equality claim."
+        ],
+        "reasoning": "Neither colorability, the clique lower bound, independence data nor the general width chain implies the needed graph-specific upper and lower bounds. The first two parameters may also be established by the explicit path decomposition and minor, without relying on the inequality for their upper bounds.",
+        "searches": [
+          "DOI 10.11575/cdm.v11i1.62406, Theorem 2.4",
+          "Barioli et al., DOI 10.1002/jgt.21637",
+          "Resultary 1eca1a8f78f2 and 538bbe021c4b, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 1eca1a8f78f2 treats the identical p^a q family but gives independence data; 7178b3fa1b20 and 86625146ed7a cover compressed and ordinary zero-divisor graphs of individual chain rings, respectively.",
+          "For Z/nZ, two elements generate the same principal ideal precisely when their gcd with n coincides, which also determines their annihilator. Thus the annihilator quotient is a meaningful equivalent graph formulation; the single-chain-ring comparisons lack the other prime factor."
+        ],
+        "reasoning": "Changing to the compressed graph terminology does not change the arithmetic problem. The retrieved single-chain results and independence polynomial do not establish the claimed parameters for the equivalent two-prime graph.",
+        "searches": [
+          "Resultary: semiprime-power annihilating-ideal or compressed zero-divisor graph, ordinary zero forcing and widths",
+          "Published annihilating-ideal graph, compressed zero-divisor graph, treewidth and pathwidth of residue rings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 538bbe021c4b gives Z=tw=pw=2 and a zero-forcing polynomial for p²q²; 1eca1a8f78f2 gives exact independence data for p^a q. The frozen finite enumeration concerns bounded a only."
+        ],
+        "reasoning": "The p²q² result is a distinct same-day mathematical comparison, not evidence of priority or coverage of p^a q. Shared numerical values do not match the graph family, and independence counts are not forcing or width counts.",
+        "searches": [
+          "Resultary: exact p^a q width/forcing values and paired minor",
+          "Resultary width and zero-forcing polynomials for two-prime annihilating-ideal graphs"
+        ]
+      },
+      "rationale": "The structural description of the arithmetic graph is prior background, as are general width/forcing inequalities. The supported distinct claim is the exact three parameters with matching explicit certificates for p^a q,  a≥2. Neither a same-family independence result nor a same-day equality for p²q² gives this claim.",
+      "residual_risks": [
+        "An unlocated result for equivalent compressed zero-divisor graphs or a compatible broader class could alter the priority assessment. Some cited general background was not available in full text; no absence inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers vertex eligibility, not the three parameters",
+          "evidence": "Every nonzero proper ideal of an Artinian ring is a vertex of the annihilating-ideal graph.",
+          "identifier_or_url": "https://arxiv.org/abs/0808.3187",
+          "material_read": "PDF p. 4, Proposition 1.3",
+          "method": "Lawful OA passage inspection",
+          "title": "The Annihilating-Ideal Graph of Commutative Rings I",
+          "trigger": "Foundational vertex definition for Artinian rings"
+        },
+        {
+          "assessment": "Covers graph background and clique/coloring, not the sharp width/forcing comparison",
+          "evidence": "Weak perfectness for every n and determination of clique number; no width or forcing result was established from the inspected material.",
+          "identifier_or_url": "https://doi.org/10.11575/cdm.v11i1.62406",
+          "material_read": "PDF abstract and printed p. 18, Theorem 2.4",
+          "method": "Lawful OA passage inspection",
+          "title": "The annihilating-ideal graph of Z_n is weakly perfect",
+          "trigger": "Same Z_n graph family and exact clique invariants"
+        },
+        {
+          "assessment": "General inequality credited; unavailable full text is not evidence against prior coverage",
+          "evidence": "The comparison uses tw≤pw≤Z; the review independently constructs pathwidth and minor certificates.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.21637",
+          "material_read": "Citation/metadata and general inequality as used in the frozen proof; full text not retrieved",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Parameters Related to Tree-Width, Zero Forcing, and Maximum Nullity of a Graph",
+          "trigger": "General width and forcing relationships"
+        },
+        {
+          "assessment": "Does not cover the nonreduced p^a q case in the stated scope",
+          "evidence": "The paper works with reduced rings and the abstract treats radius and domination via Zariski topology; p^a q for a≥2 gives a nonreduced ring.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.04530",
+          "material_read": "Abstract and §1 reduced-ring convention",
+          "method": "Lawful OA passage inspection",
+          "title": "A little more on the zero-divisor graph and the annihilating-ideal graph of a reduced ring",
+          "trigger": "Broad annihilating-ideal graph search hit"
+        },
+        {
+          "assessment": "General semigroup/ideal-product framework; studied parameters in the inspected passage are different",
+          "evidence": "The abstract covers connectedness, completeness, diameter and girth for its ideal-product graph settings, not the three values here.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.4159",
+          "material_read": "PDF p. 1, abstract and introduction start",
+          "method": "Lawful OA passage inspection",
+          "title": "The Annihilating-Ideal Graph of a Ring",
+          "trigger": "Broad graph structural search hit"
+        },
+        {
+          "assessment": "Same family with different invariant, and same invariant equality on a different family, respectively",
+          "evidence": "The first gives α=a for p^a q; the second gives Z=tw=pw=2 for p²q².",
+          "identifier_or_url": "Resultary 1eca1a8f78f2; 538bbe021c4b",
+          "material_read": "Both local-mirror RESULT.md Findings",
+          "method": "Local catalogue lookup and original passage inspection",
+          "title": "Same-family independence polynomial and balanced two-prime zero-forcing/width comparisons",
+          "trigger": "Strongest exact-family and exact-parameter catalogue matches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and forcing/minor proof; direct path-decomposition check"
+      ],
+      "rationale": "The exact equality joins a forcing process to a width obstruction in a natural family of ideal-product graphs. The matching explicit sequence, minor and boundary case provide usable sharp test instances of the general inequalities. The value is the structural equality and certificates; merely recovering a from the graph is not new information because its vertex count is 2a.",
+      "residual_risks": [
+        "The parameter formula distinguishes exponents only within the stipulated a≥2 family; a=1 and a=2 both have all three parameters equal to 1."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

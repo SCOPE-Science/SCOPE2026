@@ -1,15 +1,21 @@
-# Scientific review — three-axis Gram discriminant
+# Independent mathematical audit
 
-## Correctness — PASS
-The differential of the three off-diagonal products has an annihilating linear form exactly when \(VH=0\) for a nonzero hollow symmetric \(H\). The possible ranks show that the complete critical support is a union of three rank-one determinantal cones. Their target images are exactly the axes. Xie's all-fiber complete-intersection theorem supplies the expected-codimension premise. On each nonzero axis, orthogonal splitting at the first nonisotropic vector yields the **exact** fiber equation \(B(w_2,w_3)=0\) and hence an ordinary quadratic transverse germ at every singular point. The Jacobian scheme of that quadratic equation is the reduced zero section. The included standalone finite-field check returned `GRAM_DISCRIMINANT_EXACT_OK`; it is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, subject to bibliographic risk
-Xie's arXiv:2610.02585v1 Theorem 1.1 and Section 4 cover all-fiber FRS and integral complete intersections, not critical-value image or singular schemes on punctured axes. Casabella–Sammartano's arXiv:2512.25058 treats zero-target orthogonal frames, not nonzero fibers. A closest prior computation on the zero fiber identifies six reduced singular components and generic nodes; that domain is different and does not imply the nonzero-axis classification. Focused searches using discriminant, critical values, rank-one degeneration and nonzero Gram fibers, including published-finding corpus published records, found no stronger covering statement. Equivalent older specialized computations are a residual risk; the search itself is not taken as uniqueness proof.
+PASS
 
-## Value — PASS
-The discriminant gives the full smooth base locus of a natural flat morphism. The theorem determines the exact nonzero-singular-fiber geometry, including reducedness and local multiplicity along a smooth family, for every complex dimension \(M\ge3\). It sharpens a qualitative rational-singularity theorem with a nontrivial, uniform and geometrically motivated stratification. Its precise new content is the all-target classification, not another analysis of the zero fiber.
+For coefficients a,b,c of the three pairwise products, the annihilator equations are exactly VH=0 with H the corresponding hollow symmetric matrix. Any nonzero entry h gives a 2-by-2 minor -h^2, so rank(H)>=2 and criticality forces rank(V)<=1. At rank one, V=u(alpha,beta,gamma), and the coefficient-matrix determinant is -2 alpha beta gamma. Thus the origin and exactly the rank-one frames with a zero column are critical. Each support component is an irreducible M-by-2 rank-one cone of dimension M+1. Its image is on the corresponding axis and (e_1,tau e_1,0), and permutations thereof, hit every asserted value. Outside the axes the full Jacobian has rank 3, giving smooth fibers there. On the tau!=0 axis any critical frame must have v_3=0 and v_2 proportional to v_1 with q(v_1)!=0. Over the open q!=0, projecting along v_1 eliminates the two scalar components exactly and leaves the equation B(w_2,w_3)=0 on the two copies of v_1^perp. The Gram matrix is invertible locally over that base; absorbing it into one fiber coordinate system gives the exact split quadratic equation, even Zariski-locally. Its fiber derivatives generate all normal coordinates, and the equation and all base derivatives are in the same ideal. This identifies the full singular scheme with the reduced zero section, of dimension M, and gives the stated completed local ring, rank and multiplicity at every such point. Column permutations handle the other two axes.
 
-## Scope and limitations
-No claim is made about the scheme structure of the entire critical locus or its target image, the singular scheme over the origin, maps with four or more vectors, or positive characteristic. The theorem uses the all-fiber complete-intersection result of arXiv:2610.02585v1. Relevant earlier literature can contain implicit algebraic consequences not indexed by title.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Jacobian linear algebra substantially overlaps the separate zero-fiber record, and its rank computation makes the ambient support and axes a short further deduction. The distinct scientific content supported here is the all-target description together with an exact, reduced singular scheme and a uniform local equation at every point on each punctured-axis singular locus. Neither a generic zero-fiber node nor an all-fiber rational-singularity theorem covers that local-model assertion. This compares content, not priority.
+
+## value
+
+PASS
+
+The three-column map is a natural first multi-coordinate off-diagonal Gram map. The result separates the smooth parameter locus from singular fibers and determines an exact transverse model uniformly across the punctured critical strata. This is useful information for singularity stratification and is substantially finer than the known generic structural properties of fibers or a generic node calculation at zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

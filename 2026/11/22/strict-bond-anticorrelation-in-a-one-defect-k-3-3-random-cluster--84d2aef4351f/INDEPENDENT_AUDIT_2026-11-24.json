@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:27:32.723938Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph has six vertices with isolated vertices counted in k(A). For each of the 36 distinct unordered pairs, stripping only the marked activities from the four occupation cells gives Cov=x_e x_f(F00 F11-F10 F01)/Z². The separately written integer replay (branches/2760e33c-5e6f-463f-a09b-d3e7f82e1958/k33_independent_replay.py) enumerated all 512 subsets, multiplied each quotient back by q²(1-q), and matched the frozen certificate coefficient by coefficient for every pair. The automorphisms fixing the defect produce eight actual pair orbits, with sizes 4,4,2,4,8,8,4,2. Their distinct quotients have 26,25,65,58,67,64,65,58 monomials, all with positive coefficients on the support. Thus each quotient is strictly positive for positive q,v,w, and the normalized covariance is strictly negative since additionally 1-q>0 and Z>0. This covers all independent choices of q,v,w in the stated domain, including w=v; it does not cover nine independent edge activities, general K_m,n, or negative association. The accompanying replay JSON and summary are in the same replay directory. Frozen verify.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao–Fu Theorems 1.1–1.2 cover complete bipartite graphs K_m,n with m,n≥2 under the uniform forest and uniform connected-spanning-subgraph measures. Although they include this graph, they do not quantify over positive cluster weight and a freely varying defect activity.",
+          "Zhao–Zhou's broader all-edge-weight result requires rank or corank at most three. Tang–Zhang Theorem 1.2 requires a connected regular graph sequence of growing degree, isoperimetry, a pair distance bound, and homogeneous p; it does not specialize to a fixed cubic K3,3 with mixed activities."
+        ],
+        "reasoning": "The strongest broader statements have genuinely nonmatching parameter, rank or graph assumptions. Stronger graph coverage in a boundary ensemble does not imply the interior finite-q theorem.",
+        "searches": [
+          "arXiv:2610.36749 complete bipartite negative edge correlation",
+          "arXiv:2609.11578 high-degree regular graphs",
+          "arXiv:2611.15512",
+          "arXiv:math/0602648 Theorem 5.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen ordinal 3 RESULT.md, VERIFICATION.md, verify.py and CERTIFICATE.json",
+        "Frozen ordinal 4 for cross-comparison",
+        "arXiv:2610.36749, arXiv:2611.15512, arXiv:2609.11578 and arXiv:math/0602648 passages listed",
+        "Resultary 5e0f6e40d62f and 44c562cc82bd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At common unit activity the q↓0 law on a connected graph selects uniform connected spanning subgraphs. Negativity in that boundary law or in a uniform forest law cannot decide sign throughout the positive-q interval or independently for all w>0.",
+          "Series–parallel two-sum closure does not imply a statement on K3,3. A one-defect certificate for K5 cannot be specialized by equating or deleting activities to this six-vertex graph. Two fixed-host proofs using similar enumeration do not establish a common general theorem."
+        ],
+        "reasoning": "The verified result fills the stated interior/fugacity gap without claiming priority for the generic Rayleigh identity, the homogeneous slice on its own, or every bipartite graph.",
+        "searches": [
+          "Cao–Fu Theorems 1.1–1.2",
+          "Zhao–Zhou abstract",
+          "Wagner Theorem 5.8(d)",
+          "frozen ordinals 3 and 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Via the multiaffine partition function the covariance sign is the conditional four-cell Rayleigh difference sign; the cycle matroid uses r(A)=6-k(A), so the usual rank and component weights differ only by a fixed power of q under the corresponding multivariate Tutte convention.",
+          "The K3,3 cycle matroid has rank 5 and corank 4; exchanging rank and corank by duality does not move it into the ≤3 theorem. The graph has a K4 minor (contract two disjoint opposite-part edges), so the series–parallel route does not apply."
+        ],
+        "reasoning": "Compared random-cluster, multivariate Tutte and matroid Rayleigh formulations, rather than treating their different names or the planar-bipartite label as novelty. The certificate specializes to a two-activity slice and does not establish an arbitrary-weight matroid property.",
+        "searches": [
+          "Resultary K3,3 and K3,n negative edge covariance forest and random-cluster records",
+          "arXiv:2611.15512 Z-Rayleigh",
+          "arXiv:math/0602648 Potts-Rayleigh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5e0f6e40d62f indexes formulas for three pair types under uniform forests of K3,n; the n-range was not resolved from the body, and even inclusion at n=3 would not match the law here. The separate K3,n arboreal-gas hit is indexed for n≥5 under a different measure.",
+          "No separate homogeneous K3,3 covariance table or matching one-defect certificate was identified by these bounded searches. Frozen same-date ordinal 4 gives eight orbits on K5, not tables for the nine-edge bipartite graph."
+        ],
+        "reasoning": "A table must match both host graph and polynomial variables/measure to subsume the exact coefficients. No ordering of the two frozen records is inferred from the common displayed date.",
+        "searches": [
+          "Resultary exact edge anticorrelation K3,3 homogeneous and one defect",
+          "Resultary exact strict edge anticorrelation for uniform forests of K3,n",
+          "Resultary K3,n arboreal gas and K5 one defect"
+        ]
+      },
+      "rationale": "Best of current knowledge for the whole one-defect positive-activity K3,3 family at 0<q<1, not for negative correlation on this host under every measure. The graph falls outside the rank/corank and series–parallel results, and the known complete-bipartite uniform forest and uniform connected-spanning ensembles are different laws. The comparable one-defect K5 record is a different fixed host, not a stronger graph theorem. No historical priority guarantee.",
+      "residual_risks": [
+        "The corpus check was bounded and one forest record was only available via its index. An unpublished or unindexed weighted K3,3 computation or a general theorem beyond the inspected sufficient conditions could overlap. No claim of world priority or of coverage exclusion for unread text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact host overlap, different probability ensembles.",
+          "evidence": "Strict edge-pair comparison under uniform forests and uniform connected spanning subgraphs of all K_m,n with m,n≥2.",
+          "identifier_or_url": "https://arxiv.org/html/2610.36749",
+          "material_read": "v1 abstract and §1, Theorems 1.1–1.2",
+          "method": "Targeted arXiv HTML passages after OA passage service timeouts",
+          "title": "Negative edge correlation in complete bipartite graphs",
+          "trigger": "Contains K3,3 and proves strict negative edge covariance"
+        },
+        {
+          "assessment": "Rank or corank cutoff excludes this cycle matroid.",
+          "evidence": "All-positive activities and 0<q≤1 for rank or corank at most three.",
+          "identifier_or_url": "https://arxiv.org/html/2611.15512",
+          "material_read": "Abstract",
+          "method": "Targeted arXiv HTML passage",
+          "title": "Every rank-three matroid is Z-Rayleigh",
+          "trigger": "Broader all-positive-weight Rayleigh theorem including duals"
+        },
+        {
+          "assessment": "Does not apply to this fixed degree-three graph or activity pattern.",
+          "evidence": "Connected regular graph sequences with growing degree, two-scale edge isoperimetry, homogeneous p, and distance bound r_n log d_n=o(d_n).",
+          "identifier_or_url": "https://arxiv.org/html/2609.11578",
+          "material_read": "§1.4, Theorem 1.2",
+          "method": "Targeted arXiv HTML statement",
+          "title": "Negative correlation for the random-cluster model below one on high-degree regular graphs",
+          "trigger": "Same q interval and strict edge correlation for regular graphs"
+        },
+        {
+          "assessment": "Series–parallel and two-sum input does not cover this graph.",
+          "evidence": "The theorem provides two-sum closure; no decomposition within the asserted series–parallel class is possible for K3,3.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0602648",
+          "material_read": "Theorem 5.8(d) and series–parallel route",
+          "method": "Targeted arXiv passage",
+          "title": "Negatively correlated random variables and Mason’s conjecture",
+          "trigger": "Potts-Rayleigh closure and series–parallel property"
+        },
+        {
+          "assessment": "Uniform forest law is different even if n=3 is included.",
+          "evidence": "Index reports strict negative correlation for the uniform forest law and three pair-type formulas.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-strict-edge-anticorrelation-for-uniform-forests-of-k-3-n--5e0f6e40d62f",
+          "material_read": "Resultary indexed summary; exact n-range not established",
+          "method": "Local indexed search and comparison",
+          "title": "Exact strict edge anticorrelation for uniform forests of K3,n",
+          "trigger": "Matching complete bipartite family and exact edge-pair formulas"
+        },
+        {
+          "assessment": "Independent host-specific result, no equivalence or chronology inferred.",
+          "evidence": "K5 has ten edges with nine equal weights; it covers all 45 pairs and needs a non-coefficientwise positivity argument in one type. K3,3 has nine edges and different component counts.",
+          "identifier_or_url": "2026/11/22/SCOPE-strict-bond-anticorrelation-on-a-one-defect-k-5-random-cluster-g--44c562cc82bd",
+          "material_read": "Resultary summary and assigned frozen ordinal 4 RESULT.md lines 3–45",
+          "method": "Local indexed lookup and actual frozen statement/proof inspection",
+          "title": "Strict bond anticorrelation on a one-defect K5 random-cluster graph",
+          "trigger": "Same positivity question and certificate strategy in the nearest fixed host"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "K3,3 is a natural small non-series-parallel bipartite test case outside the rank/corank cutoff. A single weighted bond models the smallest nonhomogeneous perturbation while allowing arbitrarily strong disorder, not just perturbation of equal weights. All-pair, full-domain sign with integer certificates gives an exact benchmark for when negative dependence persists despite that disorder. The domain-wide conclusion does not follow from a small rational grid or an endpoint ensemble.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

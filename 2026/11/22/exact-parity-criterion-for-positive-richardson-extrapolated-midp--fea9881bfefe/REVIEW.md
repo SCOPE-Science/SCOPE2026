@@ -1,12 +1,21 @@
-# Scientific review: midpoint Richardson weight parity
+# Independent mathematical audit
 
-## Correctness — PASS
-The integer midpoint-overlap criterion follows by clearing denominators: a point on a coarse midpoint grid appears on a refined midpoint grid exactly when the panel-count ratio is odd. Exact Lagrange interpolation at zero gives alternating-sign extrapolation coefficients, and their sample-normalized absolute magnitudes increase strictly along every integer-divisibility chain (lower adjacent ratio greater than \(4/3\), except the initial step which is at least 2). Every collected weight is consequently a strictly signed alternating tail over one overlap block. This yields the if-and-only-if parity criterion, exact negative mass, norm and maximum. The midpoint Euler–Maclaurin identity supplies arbitrary-depth polynomial exactness. Exact-rational checks on 680 chains and separate representative full-order polynomial tests passed; no finite experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The closest prior published comparison is the 2026-10-13 *Positive-weight Richardson–Romberg quadrature on nested integer refinement chains*. It uses closed trapezoidal sample grids, for which all integer refinements nest. A predecessor from 2026-09-21 handles fixed integer refinement factors, also for trapezoidal grids. Those published results imply the common coefficient identities and coefficient-magnitude estimates, which are credited. They do not imply the midpoint-specific odd-ratio nesting, even-ratio disjoint blocks, sign parity, exact negative mass, or positive mixed-even-ratio examples. Berrut and Trummer (2022) give the midpoint-offset Euler–Maclaurin setting; Farzi (2014) discusses positive trapezoidal extrapolation weights. De Camargo (2022) on classical Romberg quadrature was accessible only as an abstract and publisher notes, so historical equivalence risk persists. No claim of comprehensive historical uniqueness is made.
+PASS
 
-## Value — PASS
-In Romberg-style extrapolation, high order does not by itself prevent negative quadrature outputs from nonnegative samples. Whether midpoint grids overlap depends on the parity of refinement ratios, making the result directly relevant to selecting admissible multilevel sampling chains. The precise distinction between positive mixed-parity chains and negative ones, plus the exact worst-case bounded-sample-error norm, is a structural design criterion rather than a small numerical improvement. This is restricted to half-cell midpoint rules and exact arithmetic; it does not address asymptotic efficiency or stochastic noise.
+The Vandermonde conditions give the Lagrange weights at zero. For x_j=N_j^{-2}, the ratio of successive absolute per-node coefficients is bounded below by 2 times the product of (1-4^{-q}) over earlier levels, hence is strictly greater than one (the first ratio is at least two). Two grids in an integer-divisibility chain are nested if their quotient is odd and disjoint if it is even. Each actual node receives an alternating tail entirely within one block, with the strict sign of the terminal coefficient, so there are no zero weights. The nonfinal terminal level just before an even refinement at i is i-1; its sign is negative exactly when i and d have the same parity. Summing over disjoint negative blocks recovers the negative coefficient sums, and the sharp absolute perturbation bound is attained by sign-aligned node errors. For the strict maximum, tails in any earlier block have magnitude at most b_t<b_d, including singleton tails newly introduced at that block's last grid; in the final block only singleton tails reach b_d. This clarifies an overstatement in the prose of the maximum proof without changing the conclusion. The midpoint Euler–Maclaurin expansion terminates at the claimed degree and the moment conditions cancel all remaining even powers.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The supported distinct contribution is the midpoint-specific necessary and sufficient parity classification and negative-block formula for all integer-divisibility chains. Evaluation by Lagrange weights, alternating growth techniques, polynomial exactness, the general norm identity, and the form of the final-grid peak are established or analogous to prior work, not independent novelty claims. No inspected prior statement covers the midpoint classification.
+
+## value
+
+PASS
+
+For standard midpoint quadrature with an arbitrary admissible refinement chain, the classification decides directly whether high-order extrapolation retains norm one under bounded sample errors. The positions, not just the presence, of even refinements distinguish stable positive mixed chains from genuinely negative ones. Quantifying the defect gives a usable exact error bound on nonpositive chains. The contribution is the structural classification and its consequence for chain choice, not merely two small computed examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

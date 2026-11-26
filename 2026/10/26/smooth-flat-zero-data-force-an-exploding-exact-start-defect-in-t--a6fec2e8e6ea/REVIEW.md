@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact solution and global state-Lipschitz property are immediate from \(f(t,v)=v+g'(t)-g(t)\). The derivation uses the primary paper's actual two-stage coefficients and shape rule, not an altered scheme. For every integer \(N\ge4\), irrationality gives a finite nonzero exact input and an offset \(0<\delta<h\). The derivative quotient and the exponential-stage amplification are explicit, with a uniform bound \(E-\delta^{-2}\ge (2h^4)^{-1}\). Only bounded remainder terms remain in the full step. This proves divergence, not merely a large numerical sample. `verify.py` supplied separate symbolic and high-precision checks within the same review, returning `VERIFY_OK 91`.
+## correctness
 
-**Originality: PASS (best knowledge, with residual risk).** Gu–Chen–Jung's 2024 primary text defines the method and assumes bounded shape in its convergence theorem; neither is presented as new. Gu–Jung 2021 explicitly recognizes possible denominator singularity and cites a remedy, so neither the quotient nor the zero-denominator warning is new. The checked material does not state or imply the quantitative uniform-grid positive blow-up in exact-data local defect for a smooth globally state-Lipschitz IVP with **no zero mesh datum**. published-finding corpus semantic searches for flat zeros, adaptive Gaussian RBF shape blowup and exact-data inconsistency returned other method-specific effects, not a covering statement. There remains risk of an equivalent formulation in the classical variable-shape/stability literature, and the 2020 MQ-RBF article could only be read as an abstract.
+PASS
 
-**Value: PASS.** A formal higher-order truncation cancellation in a variable-shape integrator is useful only when the shape remains controlled. The theorem supplies a strong nonpathological smoothness boundary: even \(C^\infty\) data and a globally Lipschitz scalar vector field cannot replace the bounded-shape assumption, and simple avoidance of zeros at mesh points is not sufficient. The failure is superexponential and occurs on all sufficiently fine uniform meshes, which is materially stronger than an isolated division-by-zero warning. It motivates explicit shape-control assumptions and tests without claiming a new algorithm.
+The original Gaussian method's Eq. (12) and Eq. (15) use the stated exponential stage and signed squared shape parameter; a negative value is allowed. The smooth affine-in-state IVP has exact solution g and state Lipschitz constant 1. For h=1/N and t=ceil(N tau)/N, irrationality gives 0<delta=t-tau<h, and t+h<tau+2h<1 for N>=4. At the exact datum the numerator f_t+f_v f equals g'', with g''/g=4/delta^6-6/delta^4. The logarithm of the amplified g is (h^2/delta^6)(8/9-4 delta^2/3-delta^4/h^2). The parentheses exceed 1/2 when h<=1/4 (lower bound 107/144), uniformly for every mesh offset, so the logarithm is at least 1/(2h^4). The amplified term enters the update with positive coefficient 3h/4; the rest of the defect depends only on bounded g and g' at points in [0,1], so an N-independent K exists. This establishes a nonuniform local defect at a moving exact-data node, not failure of pointwise consistency at a fixed nonzero datum, propagated global divergence, or a contradiction of the original bounded-shape convergence theorem. The frozen checker was read, not run; its finite log-domain diagnostics are not used in the bound.
 
-The finding is limited to the original uncapped exact shape parameter and exact-data one-step defects. It neither disputes the source theorem under its actual assumptions nor establishes global recursive divergence. Full comparison with some older adaptation and denominator-remedy literature remains a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The method, quotient, and bounded-shape convergence condition are prior work; the contribution is the quantitative positive divergent exact-start defect on every fine uniform mesh for one smooth globally state-Lipschitz problem with no zero denominator at the tested nodes. Available sources do not establish that result; the older adaptive RBF singularity literature was not fully accessible, so priority is qualified.
+
+## value
+
+PASS
+
+This is a motivated sharp failure mode for a specific published numerical integrator. It shows why even unusually benign smooth, state-Lipschitz solution data cannot replace uniform shape control: the exact-start defect can grow without a mesh node ever hitting the zero. The grid-uniform positive lower bound makes the phenomenon stronger and more actionable than warning of an undefined formula at a zero.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

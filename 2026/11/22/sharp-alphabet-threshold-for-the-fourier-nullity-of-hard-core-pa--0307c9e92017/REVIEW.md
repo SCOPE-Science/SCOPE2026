@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reduces the full group Fourier transform by character orthogonality to a signed path independence polynomial. Its six-periodic reduction modulo the alphabet size proves zero-freedom away from lengths congruent to one modulo three. At critical lengths, exact differentiation at the formal zero-alphabet point gives an integer polynomial with constant coefficient equal up to sign to the number of trivial characters on designated sites. Integer root divisibility rules out additional zeros when the alphabet order exceeds that count. The converse and sharp counterexample follow from exact recurrences. The packaged check reruns these statements at finite parameters, but the proof is not computational induction.
+## correctness
 
-## Originality
-**PASS under bounded comparison.** The independent-set counts and Fibonacci-cube Hasse structures of Codara–D'Antona (2012), and forbidden-substring graph isomorphisms of Azarija et al. (2014), do not imply the exact finite-abelian Fourier zero set. The random Fibonacci tree analysis of Hare–Saunders (2016) covers recurrence zeros in the binary signed setting, not polynomial root rigidity as the alphabet varies. The closest indexed graph-exclusion Fourier interpolation result treats an indexed Fourier submatrix, not convolution by the entire constrained word indicator. The path and cycle indexed historical claims concern different ensembles or binary cyclic first-zero degrees. Unindexed equivalent signed partition-function identities remain possible; such a source would change the originality conclusion.
+PASS
 
-## Value
-**PASS.** A concrete information-recovery problem for hierarchical local exclusion is solved exactly over every finite abelian alphabet in a growing sharp alphabet-length regime. The result specifies the full lost character space and its exact dimension, not just a parity observation or an isolated example. A root-divisibility argument identifies why the transition is linear in word length and the sharpness family proves the bound cannot simply be lowered. It is limited to paths and the stated large-alphabet range.
+Unnormalized convolution on all of H^n diagonalizes in the character basis. Orthogonality at a supported site gives q−1 or −1, so the multiplier is the path independent-set sum with P_i=P_(i−1)+a_i P_(i−2), P_0=P_(−1)=1. Reducing all activities modulo q gives the 6-periodic sequence 1,0,−1,−1,0,1 starting at i=0. The nonzero residues ±1 exclude zeros off n≡1 mod 3 without requiring q prime. For n=3k+1 use an indeterminate Q in place of q. The constant term vanishes; differentiating in each trivial-coordinate activity at all activities −1 splits the occupied-site weight into segments j−2 and n−j−1. The product is zero unless j≡1 mod 3, where it is (−1)^k, including empty end segments. Thus a zero at q requires q|t for the number t of trivial designated sites. At q≥k+2 this forces t=0. Conversely specified activities −1 at the designated sites propagate P_1=0 to every P_(3h+1), regardless of the two intervening activities. Counting character choices gives nullity q^(2k)(q−1)^(k+1) and the stated rank and fraction (also valid at k=0).
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The binary signed recurrence, its six-cycle and the related binary invertibility residue already appear in prior catalogue work. The supported distinct result is the sharp higher-alphabet classification of the kernel in the singular residue, including the explicit extra-zero boundary witnesses. The checked partition-function and graph papers do not give that classification.
+
+## value
+
+PASS
+
+A full kernel characterization for all abelian alphabet structures of a given order determines exactly which Fourier modes are lost. The sharp boundary separates structural zeros from additional arithmetic cancellations and explains a nonvanishing limiting fraction of lost modes at threshold. This is more informative than an isolated determinant evaluation or a recurrence reformulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

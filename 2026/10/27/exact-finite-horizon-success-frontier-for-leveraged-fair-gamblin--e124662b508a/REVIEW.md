@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A full Bellman induction bounds **every** fair next-fortune distribution on \([-(L-1)z,M]\) by a global affine majorant for the continuation probability. Its unique contact points (for \(L>1\)) give both the optimum and conditional-law uniqueness. Direct differentiation proves a single maximizer, and strict convexity plus Taylor expansion gives the \(1/N\) deficit. The endpoints \(L=1\) and \(N=1\) are proved separately. Independent finite rational/symbolic checks and 15,375 sampled dual inequalities passed. Numerical checks are not a substitute for induction.
+PASS
 
-## Originality — PASS (subject to independent priority evaluation)
+Reconstructed the finite-horizon Bellman induction for arbitrary conditional next-wealth laws. At k=1 the affine bound from the mean touches only at the legal endpoints. For k>=2 and a=(L-1)z, the logarithmic derivative of V_(k-1)(u)/(u+a) has the sign of z(M/u)^(1/(k-1))-u for L>1, with opposite signs at small u and u=M, and a unique zero at u*=z(M/z)^(1/k). The line c(y+a) also dominates the terminal value for y<=0, so the mean gives Lzc for every conditional law, not merely binary bets. Equality forces support at -a and u*, and the mean fixes the two masses. Induction along the visited surviving history gives the exact value and uniqueness; the two-point construction stops within budget. For L=1 stopped nonnegative fair wealth gives x/M, attained immediately. Strict convexity of log(1+(exp(t)-1)/L) gives strict budget monotonicity; its quadratic coefficient is (L-1)/(2L^2), giving the displayed deficit. The unlimited supremum follows by bounding success by time N and taking the increasing union for each policy, together with finite-budget achievability. The frozen grid tests were inspected, not run or used as the universal proof.
 
-Kuszmaul's arXiv:2610.19239v1, Lemma 2.1, already gives the **constructive equal-multiplier lower bound** when its multiplier is chosen as \((M/x)^{1/N}\). Proposition 2.2 provides only the unlimited-time upper bound. The mathematical distinction is the new matching **finite-horizon upper bound against all adaptive conditional lotteries**, the uniqueness of optimal conditional laws when \(L>1\), and the first-order gap. Full accessible motivating text and the directly relevant finite-play primitive-casino literature were compared by feasible lotteries and implied statements, not title alone. The latter prescribes fixed odds and permits no negative fortune. No directly covering research record was located. General abstract gambling-envelope theorems and the inaccessible complete Yao (2007) text remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The finite number of available bets is an intrinsic constraint, especially because the motivating infinite-horizon success level requires increasingly many small proportional wins. The result calculates the exact budget/success frontier, resolves optimization over much more general adaptive lotteries, identifies its rigid optimizer, and specifies the first-order opportunity cost of a finite budget. It is not merely recalculation of the already known achievable strategy.
+Credit Kuszmaul for the model, the strategy attaining the displayed expression, and the unlimited-horizon bound. The supported distinct result is the matching finite-horizon upper bound over arbitrary adaptive laws, its equality characterization, and the resulting sharp expansion of optimal success. Neither the inspected assertions nor the nearest indexed results establish this finite-budget optimum.
 
-## Scientific limitations
+## value
 
-No real-market applicability is inferred. The uniqueness assertion is only for positive-fortune visited states and leverage strictly above one. The derivation is within a bounded-target, fair-lottery model. A broader and previously unlocated exact-control theorem may affect independent originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp finite budget changes the attainable success despite unchanged fair leverage constraints. Proving the global upper bound and equality law settles whether adaptive laws can improve on the known fixed-multiplier strategy and quantifies exactly how the optimum approaches the unlimited value; it is not just evaluation of that strategy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

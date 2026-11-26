@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete polynomial update is reduced by the star's invariant subspaces to four matrix-entry types. The directed hub–leaf entries have a strictly positive quadratic multiplier. Every distinct-leaf entry is exactly \(ab h^2[3-(2a+B)h]/6\), forcing permanent sign loss above \(3/(2a+B)\). Both diagonals decrease strictly; the leaf diagonal remains positive at that outer-leaf cutoff, while the hub diagonal has exactly one zero given by \(f(u)=-a/B\). At the outer-leaf cutoff, the hub diagonal has sign given by \(16r^3+9r^2-3r-4\), which has exactly one positive root. This proves the claimed necessary-and-sufficient interval and its one switch for all real positive rates and all integer \(m\ge2\). Symbolic simplifications and 7,623 exact matrix-entry comparisons are supplementary checks. Critical assumptions, endpoint cases and strict inequalities have been examined.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For h≥0 the leaf-difference mode has multiplier f(ah); the hub versus constant-leaf system has multipliers 1 and f((a+mb)h). This yields the hub diagonal and the difference T_jj−T_ij=f(ah) for distinct leaves. Direct multiplication gives T_ij=ab h²[3−(2a+mb)h]/6. At its positive zero h_L one has ah_L<3/2 and T_jj=f(ah_L)>f(3/2)=1/16; monotonicity of the leaf diagonal follows from its nonnegative projector coefficients multiplying the decreasing modes. The two hub–leaf directions are proportional to 1−f((a+mb)h), strictly positive for h>0. The hub diagonal falls from 1 to −∞, and at h_L it has the sign of F(r)=16r³+9r²−3r−4 with r=a/(mb). F'(r)=3(2r+1)(8r−1), F(0)=−4 and F(1)>0 imply precisely one positive zero; exact opposite signs at r=1/2 and 3/5 and bisection confirm the stated crossover. Both limiting entries remain negative once their own cutoff is crossed. Row sums are one, and h=0 is the identity. The finite verifier was inspected, not executed. Its 7,623 figure is the number of matrix entries covered across exact samples; the code compares five representative entries per matrix and checks row sums. No claim about internal stages is established.
 
-Research comparisons covered the general graph-Laplacian positivity study of Blanes–Iserles–Macnamara, the polynomial invariance thresholds of Horváth–Song–Terlaky, the complete-multipartite exact third-order calculation and the bidirected-star fourth-order calculation. Primary source text and both closest public mathematical notes were inspected materially. The complete-multipartite note includes the undirected rate-equal star, which is a special case, but not distinct inward/outward rates or the cubic rate-balance switch. The bidirected-star note varies rates but analyzes RK4, whose transition obstruction is qualitatively different. Generic sufficient SSP or invariance thresholds do not supply this exact restricted-family if-and-only-if rule. A differently parameterized older specialist result remains possible; priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two possible failures affect different matrix entries and give distinct timestep restrictions for the same widely used third-order RK endpoint on reversible but nonuniformly stationary Markov networks. Their exact crossover is independent of the number of leaves, a structural law useful for determining whether the hub holding probability or leaf-to-leaf transport controls the timestep. This is an exhaustive all-rate, all-leaf-count classification, not an isolated numerical example. It does not concern the RK internal stages, numerical accuracy or arbitrary leaf-specific rates.
+The supported distinct claim is the two-obstruction independent-rate classification and its crossover, not positivity of a cubic polynomial on a symmetric star or the general existence of root-based invariance tests. The strongest inspected symmetric and quartic results do not imply it.
 
-## Scope and limitations
+## value
 
-All claims apply to the completed classical cubic RK map on finite bidirected stars with common inward rate and common outward rate. The proof is self-contained but historical literature searches cannot establish priority absolutely. Independent verification and independent audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result gives an exact bound and identifies which physically distinct transition fails for every balance of inward flow and aggregate hub outflow; both regimes occur. Independence of the switch from leaf count and permanent sign loss above the bound make this more than an isolated cubic-root calculation. It does not give a bound for accuracy or SSP stage positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

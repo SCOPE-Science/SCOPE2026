@@ -1,19 +1,21 @@
-# Scientific review: square-zero block injections
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The square-zero condition is equivalent to disjoint domain and image sets of whole blocks. The order constraint fixes their pairing, and each active block bijection has \(m!\) choices; this gives the stated exact formula. The iid ternary-label conditioning and lattice local central limit theorem prove the fixed-block Gaussian regime and sharp full-monoid probability. Ratios of successive parity-allowed vacancy masses, together with a summable uniform majorant, establish the factorial-critical Poisson law in total variation. All 17 direct map-enumeration tests and the independent asymptotic diagnostics pass. Finite checks are corroboration rather than infinite proofs.
+PASS
 
-## Originality — PASS relative to inspected primary literature
+The second iterate is defined on a domain block exactly when its entire image block is again in the domain. Thus square-zero is equivalent to disjoint block supports, the ordered pairing is forced, and the labeled pointwise rank is mt. With s=√(m!), the categorical product law with weights (s,1,s) conditioned on equal sign counts assigns the correct multiplicity to every support configuration. Given H=h, the conditioning weight is the central binomial mass on k−h trials, zero in the wrong parity. On compact centered √k windows the allowed-parity weight divided by the unconditional tie probability tends uniformly to 2. The weight ratio is bounded whenever h/k stays away from 1; the remaining binomial tail is exponentially small even after dividing by the tie probability of order k^(−1/2). This proves the conditional Gaussian limit, including the variance and parity mesh. The tied-binomial expression for the full monoid gives the independent variance 2s/(1+s)^2 per trial of its difference process, compared with 2s/(1+2s) in the ternary bridge, giving the stated prefactor and exponential base. For h=r+2j the exact ratio to h=r has falling-factorial numerator ((k−r)/2)_j²/(m!)^j times r!/(r+2j)!, and is bounded by r!L^(2j)/(r+2j)! when λ_k≤L. Summable domination gives normalized ℓ¹ convergence, and vanishing of the j>0 mass as λ_k→0, including odd parity. The positive critical regime is a limit along sequences of integer pairs (e.g. choose k near 2λ√(m!) in the desired parity), not a claim that one can tune integer m at every consecutive k. The supplied finite diagnostics were inspected but not replayed and are not used as limit proofs.
 
-Caneco–Fernandes–Quinteiro, arXiv:1905.11489v1 (2019), defines the monoid and gives its total size, but the inspected source does not give the square-zero block-rank law and its factorial-critical double limit. Garba (1994) and Laradji–Umar (2015) treat nilpotents of ordinary unblocked order-preserving partial injections. The m=1 scalar central-trinomial count is known (OEIS A002426), and the full factorial-weighted scalar sum is expressible as a generalized trinomial coefficient; those algebraic identities are not claimed as new. Kachalla–Madu–Ngulde (2024) investigates nilpotent factorizations, not this distribution. The older Garba/Laradji–Umar full texts were unavailable here, so their complete implications could not be ruled out. Prior generalized-trinomial local-limit results may also cover a reformulation. Publication priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The number of block-internal bijections is \(m!\), creating a natural parameter controlling the square-zero rank distribution. The result determines this invariant for an infinite family and gives two concrete regimes: \(O(k)\) normally fluctuating vacant blocks at fixed block size versus a parity-conditioned Poisson number at the critical factorial scale \(m!symp k^2\). This behavior is not supplied by the monoid's total size. No general theory of all nilpotents or external significance is claimed.
+The general coefficient family, the full-monoid cardinality, and the unweighted row are known. Credit is for the square-zero rank law in this normally ordered block monoid, especially the factorial-scale double limit in total variation with necessary parity and the sharp fixed-block comparison to the full monoid. No equivalent stronger statement covering those claims was identified in the inspected sources; the probability tools themselves are standard.
 
-## Verification and limitations
+## value
 
-`verify.py` enumerates actual partial maps, checks exact distributions, and tests both critical parities and fixed-block variance scaling. The argument concerns square-zero elements, not every nilpotent; all infinitely indexed conclusions rest on the paper proof. Equivalence to a previously published stronger weighted-trinomial theorem remains a residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite count alone is elementary and the coefficient representation is classical. The stronger quantitative result compares nilpotent rank under a fixed block size with the near-maximal rank regime as the local permutation group grows; it identifies exactly which vacancies remain and why parity cannot be ignored. The TV window and sharp exponential rarity in the full monoid are usable rank-distribution facts for this natural transformation family, rather than isolated sample counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

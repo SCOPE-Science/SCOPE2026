@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:26:24.998521Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof does not establish the upper bound: an overlap of length greater than four need not equate the last four letters of the first string to the first four of the second (e.g. 011001 -> 110011 has overlap five with different boundary four-mers). Repaired RESULT.md establishes the missing invariant for all reachable states. Starting substring-free, any newly contained third word would have to cross both copy boundaries at a maximum-overlap merge and give a strictly longer overlap, impossible. The reverse containment would imply a previous containment. An overlap from or to the new component longer than the corresponding terminal or initial copy would also give a previous containment; shorter overlaps already occurred with the original copy. Hence the maximum never increases from its initial bound of three, and original endpoint four-mers indeed determine every overlap. The state DP takes every ordered maximum-overlap merge, with no omissions at zero, and combines bitsets of additional savings; the head and tail labels remain unique across disjoint components. The independently written `python3 /workspace/repairs/2/spectrum_replay.py 16 <frozen witnesses.txt>` ran to completion, caching 2,262,415 states including 208 terminals versus the frozen C++ count of 2,262,207 nonterminals. It returned exactly savings 37..45 and replayed nine literal histories against every then-current ordered-pair overlap, checking coverage and each length 19..27. A word of length L has at most L-3 four-windows, so the replayed length-19 witness is optimal. Frozen C++ and Python programs and recorded outputs were inspected, not executed. The repaired claim has the same exact spectrum; this is not a pass for the frozen proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "c5782f9cc70b covers all 65,535 nonempty masks in 16,959 reversal/complement classes. In its code the full mask survives the canonical-orbit filter and greedy is computed as 4*count-minimumGreedyCompression(s). Shibata's fixed-length bounds concern arbitrary input worst-case ratios."
+        ],
+        "reasoning": "The all-subsets result does cover the worst endpoint, including this mask, despite not printing its individual answer. Its scalar minimum and the wider approximation results do not determine intermediate lengths.",
+        "searches": [
+          "Resultary c5782f9cc70b: RESULT.md and verify_binary_four.cpp",
+          "arXiv:2609.01365 fixed-length discussion, p. 4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both C++ programs, Python witness checker, witnesses and captured outputs",
+        "arXiv:2608.20018, 2609.01365, 2102.05579",
+        "Local Resultary c5782f9cc70b, a4c0a785c07b, 25f98f2d59f0, 1f99cb2640b2 and self-match 570894b19121"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older scalar recursion minimizes d plus future savings; it computes the endpoint 27 when applied to the full mask. It discards attainable savings greater than the minimum. The repaired result explicitly retains the set and supplies histories at every interior length."
+        ],
+        "reasoning": "The credited method exposes how to set up an all-ties computation, but the closed interval assertion does not follow by specialization of a prior scalar theorem or output. The actual upper-bound reproving and the optimum are supporting facts, not asserted novelty.",
+        "searches": [
+          "Resultary c5782f9cc70b, RESULT.md recurrence for F(P) and G(S), code main loop and saved output",
+          "arXiv:2608.20018 Lemma 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chukhin–Kulikov–Mihajlin–Smal already establish the equal-length endpoint overlap property. Nikolaev compares worst-case approximation guarantees using transformed inputs with forced merge sequences."
+        ],
+        "reasoning": "Endpoint compression applies directly and is credited as prior methodology. A de Bruijn Euler traversal yields optimum, not the length distribution of Greedy. A transformation to another input does not assert an attainable set on the original universe.",
+        "searches": [
+          "Resultary queries for the full length spectrum, length-four Greedy papers, and tie-breaking equivalence",
+          "arXiv:2608.20018, Lemma 2.2",
+          "arXiv:2102.05579, pp. 1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "570894b19121 is a self-match. a4c0a785c07b is a full random-tie law on a specified eight-word input (lengths 11..17); 1f99cb2640b2 concerns the full three-mer universe. 25f98f2d59f0 treats subsets first exceeding ratio 3/2. The output of the all-subsets program reports global extremizers and their witnesses, not the full-set attainable lengths."
+        ],
+        "reasoning": "These exact finite counts on different starting sets do not imply the spectrum after adding input words. None is dismissed based on its publication date. No distinct exact full-set attainable-length table was verified.",
+        "searches": [
+          "Local Resultary queries for the exact binary-four-mer spectrum and for relations to Chukhin et al., Shibata, and Nikolaev",
+          "c5782f9cc70b/output_binary_four.txt"
+        ]
+      },
+      "rationale": "The repaired claim credits the endpoint lemma, the standard de Bruijn optimum, and the all-subset census that already computes the maximal endpoint. The supported distinct contribution is the attainable set on the full input, notably all intermediate lengths with legal witnesses. Neither the established extrema nor the scalar exact minimization over future savings asserts there are no gaps.",
+      "residual_risks": [
+        "The cited de Bruijn 1946 full text was not retrieved; the standard optimum is not a priority claim and was verified directly. A distinct unindexed full-set spectrum remains possible. The same-day all-mask result proves computational coverage, not an ordering of discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Computational coverage of maximal endpoint; no attainable set for full mask",
+          "evidence": "The full mask is a fixed point of reversal/complement and thus gets a scalar minimum-savings calculation. The output only prints global maximizing cases and their witnesses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-worst-case-greedy-ratio-for-distinct-binary-four-mers--c5782f9cc70b",
+          "material_read": "RESULT.md Finding and recurrence/certificate, offsets 0 and 2600–4975; verify_binary_four.cpp, offsets 4360–5809; output_binary_four.txt",
+          "method": "Local Resultary mirror, exact theorem, loop and captured output",
+          "title": "Sharp worst-case Greedy ratio for distinct binary four-mers",
+          "trigger": "Stronger all-subset exact worst-output calculation"
+        },
+        {
+          "assessment": "Same endpoint reduction, different approximation statements",
+          "evidence": "Relates current overlaps to the rightmost and leftmost input words; reports the three-mer ratio and length-at-least-six lower bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20018",
+          "material_read": "Abstract, p. 1; Lemma 2.2, p. 3",
+          "method": "Targeted primary OA PDF passages",
+          "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+          "trigger": "Same equal-length Greedy model and crucial overlap lemma"
+        },
+        {
+          "assessment": "Asymptotic construction and global/fixed-length bounds, not this spectrum",
+          "evidence": "The fixed-length discussion reports a range for the length-four worst ratio, not full-set ties.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.01365",
+          "material_read": "Contributions pp. 1–2; fixed-length discussion p. 4",
+          "method": "Targeted primary OA PDF passages",
+          "title": "Disproving the Greedy Superstring Conjecture",
+          "trigger": "Potential fixed-length scope overlap"
+        },
+        {
+          "assessment": "Different conclusion",
+          "evidence": "Transforms instances to force a merge history; does not transfer individual attainable lengths on a fixed original input.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.05579",
+          "material_read": "pp. 1–2, transformation and approximation implication",
+          "method": "Targeted primary OA PDF passage",
+          "title": "All instantiations of the greedy algorithm for the shortest superstring problem are equivalent",
+          "trigger": "Tie-breaking-equivalence possibility"
+        },
+        {
+          "assessment": "Exact law of a different input",
+          "evidence": "Eight specified words and lengths 11–17, not all sixteen four-mers.",
+          "identifier_or_url": "Resultary:a4c0a785c07b",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "The exact random-tie output law of a binary four-mer Greedy superstring instance",
+          "trigger": "Closest exact same-word-length tie law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete read universe is canonical, and the distance from an optimal de Bruijn output to a bad tie resolution motivates asking which intermediate lengths can occur. Exact extrema alone could hide holes. The gapless spectrum with literal legal histories gives a reproducible fixed-input benchmark for comparing tie rules, without advancing a universal ratio claim. This value does not depend on passing off the known endpoint methodology or the scalar all-subset calculation as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

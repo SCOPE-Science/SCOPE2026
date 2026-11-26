@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:41:42.159205Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–36 and 38–80",
+        "Frozen VERIFICATION.md lines 19–25",
+        "Frozen spectral_checks.py lines 1–32 (inspected, not run)",
+        "Corrected RESULT.md and VERIFICATION.md in repairs/2"
+      ],
+      "rationale": "The frozen text falsely calls b_a involutive and uses that in its proof (already b_a(b_a(0))=−2a/(1+a²)≠0). The repair replaces it with the actual inverse (z+a)/(1+az), proves bounded composition for both signs of the Poisson weight, and corrects the frozen verification note that overstated what finite-section checks test. The final finding retains the same operator and band/norm formulas. Independently, pushing normalized circle measure forward under b_a gives P_(−a); its moments give H_mn=(−a)^|m−n|. Grouping coefficients into even/odd pairs gives the stated continuous Hermitian symbol: the even-row odd-column coefficient at block offset k is (−a)^|2k−1|. Its geometric series yields exactly the displayed off-diagonal, and multiplying the proposed inverse gives I using (1+a²)²−a²|1+e^(iθ)|²=1−2a²cosθ+a⁴. With both weights positive, the larger inverse-symbol eigenvalue grows and the smaller decreases with |cos(θ/2)|; reciprocating gives both claimed bands with their endpoint order. At a zero weight there is a zero band plus one diagonal range. Essential inclusion in both directions follows from the Toeplitz product modulo compacts and weakly null polarized Hardy kernels, as reconstructed in the repair. Compression bounds and inclusion of both essential endpoints give the true norm and lower Gram edge; the Calkin identities give the same essential and inverse norms. The actual inverse automorphism completes the t≠±1 invertibility argument; for t=±1 its composition with twice a parity projection has closed range and infinite kernel. The repair concerns essential bands, not the full spectrum inside a gap.",
+      "residual_risks": [
+        "The optional numerical program is representative and finite; no gap-eigenvalue census follows from it or is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected Charpentier–Zarouf abstract concerns boundedness in weighted Beurling–Sobolev spaces. Matrix Toeplitz theory gives spectral ranges from a known symbol; its cited 2025 article was not accessible in this audit."
+        ],
+        "reasoning": "The general Fredholm symbol principle alone has no formula for the parity-composition block or its monotone exact endpoint values. Access failures leave further implicit-coverage risk.",
+        "searches": [
+          "Choe–Koo–Wang–Yang linear-fractional combinations",
+          "Charpentier–Zarouf arXiv:2611.17392",
+          "Continuous matrix Toeplitz spectral theory, DOI 10.1112/tlm3.70009"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md comparison",
+        "Charpentier–Zarouf abstract",
+        "Two nearest local Resultary findings, including 2026/11/16/SCOPE-sharp-norm-and-isolated-amplification-for-squaring-composition-o--5c45332157d6",
+        "Compact-combination and continuous matrix Toeplitz references (access caveats above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General compression and Calkin facts determine bounds and spectral ranges in symbol form. The exact parity off-diagonal series and the inverse-symbol monotonicity are specific to this pair, and neither of the inspected nearby catalogue findings supplies them."
+        ],
+        "reasoning": "The audited model-specific endpoint theorem is not established by any inspected stronger claim via simple parameter substitution.",
+        "searches": [
+          "Frozen proof §§1–4 against the scalar Poisson and continuous matrix Toeplitz reductions",
+          "Resultary de Branges–Rovnyak spectral findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is algebraically C_(b_a)(I+tC_(−z)); grouping Taylor indices by parity gives the vector Hardy Toeplitz formulation. The local search returned the same target itself and different de Branges–Rovnyak operators, not independent equivalences to the result."
+        ],
+        "reasoning": "Neither the change to a block symbol nor the use of the opposite-parameter inverse changes the operator whose exact edges are claimed.",
+        "searches": [
+          "Resultary paired Hardy composition, parity–Poisson matrix symbol, Gram and essential bands"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The examined exact-band catalogue entry treats finite rational de Branges–Rovnyak Gram matrices; the sharp squaring-composition entry has a different function space, operator and operator-vs-essential norm relation."
+        ],
+        "reasoning": "A numerical table would not verify joint real and complex parameter dependence. The appropriate exact-result catalogue was checked; the target self-match is not a precedent.",
+        "searches": [
+          "Resultary exact Toeplitz bands, Hardy/de Branges–Rovnyak sharp composition norms"
+        ]
+      },
+      "rationale": "The surviving claim is the model-specific exact parity-Gram essential spectrum, explicit gap criterion and sharp stability edges for this particular pair. The inspected same- or nearby-area results do not give those formulas or a direct prior specialization. Using the standard continuous-symbol spectrum principle after deriving the exact operator symbol is not itself an originality claim.",
+      "residual_risks": [
+        "Some composition and Toeplitz sources could not be read in full; focused literature search did not resolve whether a close implicit realization exists. No exhaustive priority conclusion follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scope differs at abstract level; no whole-paper exclusion",
+          "evidence": "Single-symbol boundedness criteria between weighted spaces, rather than the exact paired Gram spectral formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.17392",
+          "material_read": "Page 1 abstract, offset 0",
+          "method": "OA arXiv passage",
+          "title": "Composition operators on weighted Beurling–Sobolev spaces",
+          "trigger": "Related Fourier/operator-matrix formulation"
+        },
+        {
+          "assessment": "Unresolved primary-text access",
+          "evidence": "The frozen comparison identifies compactness rigidity as its subject; no independently verified whole-paper exclusion.",
+          "identifier_or_url": "https://doczz.net/doc/7661708/compact-linear-combinations-of-composition",
+          "material_read": "Citation and frozen source comparison only; no readable primary passage",
+          "method": "Lawful cited-copy retrieval attempt (403)",
+          "title": "Compact linear combinations of composition operators induced by linear fractional maps",
+          "trigger": "Linear combinations in the same symbol class"
+        },
+        {
+          "assessment": "General ingredient reconstructed directly; article-specific comparison remains limited",
+          "evidence": "The standard symbol principle has been checked mathematically, not attributed to an unread passage as an exact-model precedent.",
+          "identifier_or_url": "https://doi.org/10.1112/tlm3.70009",
+          "material_read": "Bibliographic identification and frozen Section 2 citation; primary passage unavailable",
+          "method": "Lawful DOI, publisher and repository-copy retrieval attempts",
+          "title": "Truncated Floquet–Bloch transform for computing the spectral properties of large finite systems of resonators",
+          "trigger": "General continuous Hermitian matrix Toeplitz bands"
+        },
+        {
+          "assessment": "Different exact model",
+          "evidence": "Finite Gram matrix in a rational de Branges–Rovnyak space with boundary rank defect.",
+          "identifier_or_url": "2026/11/1/SCOPE-an-exact-toeplitz-band-for-every-boundary-pole-de-branges-rovnya--6c180207a945",
+          "material_read": "Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "An exact Toeplitz band for every boundary pole",
+          "trigger": "Exact Toeplitz Gram structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Final repaired Finding and proof §§2–4",
+        "Inspected adjacent Hardy-type and Toeplitz results"
+      ],
+      "rationale": "For a natural two-symbol family, the exact ends give both conditioning and its essential counterpart, while the internal edges determine when distinct spectral bands exist for complex t. These are operationally different data from boundedness, compactness or a single-symbol norm, and the closed-form gap law provides parameter information beyond the abstract existence of a Toeplitz symbol.",
+      "residual_risks": [
+        "Restricted to this parity pair and classical H², with no classification of isolated gap spectrum."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

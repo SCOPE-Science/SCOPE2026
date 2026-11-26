@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:18:54.601360Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Proof and Verification; VERIFICATION.md; verify_cycle_fault.py inspected, not executed",
+        "/workspace/branches/0e04373b-1e0e-4984-86cb-16d55ca9ff63/independent_n9_check.py: exact neighborhood and coface checks for n=9,10; at n=9 residual f-vectors (9,27,16) and (9,25,14); final peeled connected graph has 9 vertices and 11 edges"
+      ],
+      "rationale": "For n>=9 the signed shifts from -4 to 4 are distinct modulo n; the positive shift intersections of Q_0 with Q_d have sizes 2,1,2,1 for d=1,2,3,4, and larger cyclic shifts give zero. Thus triangles have unique supporting neighborhoods. Difference-two edges {i-1,i+1} are supported only in their own Q_i; after its U_i collapse their only coface is V_i. The surviving A_i,B_i form a connected closed orientable triangulated surface: the edges of differences 1,3,4 have degree two, the six-cycle links have distinct vertices, and the listed orientations cancel on each edge. Its Euler characteristic is zero, giving the intact torus. A length-one fault reduces Q_0,Q_1 to A_0,B_1; the same collapses elsewhere remove exactly the open faces B_0,A_1 from the torus, with disjoint vertex sets and all boundary edges retained. A length-two fault reduces Q_0,Q_2 to U_0,V_2, which collapse on their own difference-two edges. The residual complex lacks the two pairs A_0,B_0 and A_2,B_2 and just their two internal diagonals; it is connected via difference-one edges and has Euler characteristic -2. Its two missing disks touch at one boundary vertex, so the manifold-with-boundary argument for length one should not be used verbatim. Instead, closed-surface dual connectivity gives each remaining triangle component an edge to a deleted triangle. That edge survived since it has a remaining coface. Peeling a rooted spanning tree outward uses a parent edge still present and free at each step, leaving a connected graph of rank three. Rotations and reflections cover all edges.",
+      "residual_risks": [
+        "The independent finite spot-check is supplementary; no assertion for n<=8, multiple faults, or equivariant collapse is reviewed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The circulant classification assumes a 4-regular circulant; the neighborhood mapping-torus theorem specializes at k=2 to S^1×S^1, and the intact torus-retraction result also starts without an edge fault. The faulted graph has two degree-three endpoints, with other vertices still degree four."
+        ],
+        "reasoning": "None of the intact graph hypotheses or conclusions supplies the needed faulted retraction.",
+        "searches": [
+          "arXiv:1802.04526, Theorems 2.5 and 4.4",
+          "Resultary a2339801b688 and cbe9f8c4f2d2, §Finding"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1802.04526",
+        "Resultary a2339801b688, cbe9f8c4f2d2, 2b770c91b674, 9d144ad1399f and exact self-match beddc9ace2db"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The vertex-fault transition removes the vertex and its incident edges; it gives S^1 at n=8 and three circles at n=9. Edge deletion retains endpoints and affects only their two supporting neighborhoods. Intact or flag results do not identify those two lost carriers."
+        ],
+        "reasoning": "Knowing the intact abstract homotopy type does not specify how local removal changes the complex. The candidate independently proves the exact two fault models and their collapse types.",
+        "searches": [
+          "Resultary 2b770c91b674 §Finding and §Assumptions",
+          "arXiv:1802.04526 Theorem 2.5(C)",
+          "Resultary 9d144ad1399f §Finding and §Assumptions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_n(1,2) and C_n^2 are the same intact graph; its clique/flag complex is not its open neighborhood complex. The sparse cyclic flag edge-fault theorem at p=2 gives circle ranks two and one for the two faults, rather than three and three."
+        ],
+        "reasoning": "Circulant notation relabels the graph but the different face conditions prevent transfer of the flag-complex result.",
+        "searches": [
+          "Resultary: open neighborhood complex of C_n(1,2) or C_n^2 after deleting either edge type",
+          "arXiv:1802.04526, Theorem 2.5(C)",
+          "Resultary 9d144ad1399f, §Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit is the assigned row. The closest matching numerical wedge appears for a vertex fault at n=9 only in the inspected vertex transition; the flag-fault record concerns a different complex."
+        ],
+        "reasoning": "There is no separate exact classification in the checked catalogue hits; matching one homotopy rank for a different operation is not corroboration or duplication.",
+        "searches": [
+          "Resultary targeted squared-cycle neighborhood fault search; exact hit beddc9ace2db; neighboring cases 2b770c91b674 and 9d144ad1399f"
+        ]
+      },
+      "rationale": "The intact homotopy torus is already known. The supported contribution is the all-order edge-fault wedge classification for both edge orbits, with different puncture geometry but the same homotopy type. No inspected matching theorem handles these nonregular open neighborhood complexes after an edge fault.",
+      "residual_risks": [
+        "Focused accessible comparisons are nonexhaustive; an unindexed theorem for these precise edge faults could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Intact circulant classification, no edge-fault inference",
+          "evidence": [
+            "(s,t)=(1,2) and n>=9 meet the connected-sum-of-tori case; the damaged graph is not 4-regular."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1802.04526",
+          "material_read": "Theorem 2.5(C), PDF p. 3, offset 7908; Theorem 4.4, p. 13, offset 44780",
+          "method": "Lawful OA PDF passages",
+          "title": "Homotopy type of the neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulant graphs",
+          "trigger": "Intact squared cycle and potential generalization"
+        },
+        {
+          "assessment": "Intact k=2 is covered",
+          "evidence": [
+            "The mapping-torus statement specializes to the ordinary torus for k=2 and n>=9."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-sphere-mapping-tori-in-neighborhood-complexes-of-every-stable-cy--a2339801b688",
+          "material_read": "Original §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sphere mapping-tori in neighborhood complexes of every stable cycle power",
+          "trigger": "Broader cycle-power formula"
+        },
+        {
+          "assessment": "Intact comparison",
+          "evidence": [
+            "States an equivariant torus retraction for the intact complex."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-a-sphere-quotient-and-equivariant-torus-retraction-for-square-cy--cbe9f8c4f2d2",
+          "material_read": "Original §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sphere quotient and equivariant torus retraction for square-cycle neighborhood complexes",
+          "trigger": "Possibly prior torus core"
+        },
+        {
+          "assessment": "Removes a vertex rather than an edge",
+          "evidence": [
+            "C_8^2-v gives one circle and C_9^2-v three circles; this is not an all-order edge-fault result."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-two-order-vertex-fault-transition-in-squared-cycle-neigh--2b770c91b674",
+          "material_read": "Original §§Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp two-order vertex fault transition in squared-cycle neighborhood complexes",
+          "trigger": "Same base graph and rank-three faulted result"
+        },
+        {
+          "assessment": "Different complex and resulting ranks",
+          "evidence": [
+            "For p=2, n>=10, the flag complex yields two circles after a length-one fault and one after a length-two fault."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-edge-fault-simple-homotopy-threshold-in-sparse-cyclic-fl--9d144ad1399f",
+          "material_read": "Original §§Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A sharp edge-fault simple-homotopy threshold in sparse cyclic flag complexes",
+          "trigger": "Same edge operation and potential broader family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof",
+        "arXiv:1802.04526; Resultary 2b770c91b674 and 9d144ad1399f"
+      ],
+      "rationale": "This is a complete, uniform stability test of a familiar intact torus model under the simplest graph fault. Neither graph edge orbit preserves the fundamental class, and both create an extra independent loop. Contrasting separate holes with disks touching at a vertex yields a concrete reason not to predict the new topology from the intact type or from a manifold heuristic alone.",
+      "residual_risks": [
+        "The result does not establish a general defect law for other cycle powers or relate all graph-edge deletions to holes in a fixed core."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

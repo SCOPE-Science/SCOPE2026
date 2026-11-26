@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:01:34.967151Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Generate iid labels even after the bounded first-emptying time T, but do not remove any more balls. Exactly one bin survives when n≥2, including a=0,n with T=0; R=n−T. If bin 1 survives, the fixed-horizon deficit (a−B)_+ is the number of label-2 draws after T, and (B−a)_+=0. Their expected contributions conditional on the stopped history are qR and zero. If bin 2 survives, reverse the roles to obtain pR for the positive excess (B−a)_+. Dividing by the respective probabilities and adding proves the identity. Taking successive integer differences gives (F_B(a)−q)/(pq), whose slopes increase strictly because every binomial atom is positive. Since F_B(0)=q^n<q and F_B(n−1)=1−p^n>q, the first q-crossing is interior, and a zero slope gives exactly the adjacent tie shown. For fixed p, Berry–Esseen and positive normal density near z_p bracket the quantile between np+√(npq)z_p plus and minus a p-dependent bounded integer correction. The standardized binomial has unit second moment, providing uniform integrability of both hinge losses; the normal moments at Φ(z_p)=q give limiting normalized loss φ(z_p)/(pq), hence the stated leading remainder. Read frozen VERIFICATION.md and verify.py without executing them. Independent exact enumeration of iid label histories at 208 allocations, covering four adjacent ties and degenerate splits, agrees with the formula and optimizing sets (python -I /workspace/branches/independent_checks.py 2). The asymptotic and all-real-p statements are justified by proof, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Correa et al. prove balanced allocation for equal bin-selection probabilities, and end their nonuniform section with a root-n optimal-location conjecture, not a proof. The 4 October Resultary record gives general quantile minimizers of the pinball loss. The Arrow–Harris–Marschak and Zhou–Wang–Zhang full texts were not recovered; those access results establish no mathematical exclusion."
+        ],
+        "reasoning": "After multiplying the new objective by pq the cost is Eρ_q(B−a), so the earlier critical-fractile principle already determines its minimizer given the reduction. Equal-probability balance (even in more than two bins) does not cover arbitrary fixed bias, and the quantile principle does not identify a stopped-process cost as that loss.",
+        "searches": [
+          "arXiv:2602.12523v2 abstract/introduction and §3",
+          "Resultary d324a589847a, quantile and pinball loss",
+          "10.2307/1906813 classical critical-fractile antecedent",
+          "10.1287/opre.2025.2228 terminating stock allocation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.12523v2",
+        "arXiv:1110.5686",
+        "Resultary d324a589847a",
+        "Resultary 5c28676f124f",
+        "10.2307/1906813 (landing page)",
+        "10.1287/opre.2025.2228 (no full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Correa nonuniform section compares specific allocations and raises the root-n location issue; it does not give an asymmetric fixed-horizon loss identity. The generic loss theorem solves a given check loss, while the Feller-type matchbox theorem gives a remainder law in a different stopping convention."
+        ],
+        "reasoning": "The frozen proof couples fixed total B to the stopped cost via conditional post-stop label counts; that gives exactly the weights 1/q and 1/p. Neither the example, the conjectured scale, the general critical fractile nor the inspected matchbox formula supplies that coupling or the exact identity for all splits and biases. The optimizer and leading normal loss are consequences of this process-specific reduction, not separate claims of invention of the standard methods.",
+        "searches": [
+          "Correa et al. arXiv:2602.12523v2 §3 PDF p. 8, OA offset 27986; HTML offset 31200",
+          "Resultary d324a589847a, mirrored result offsets 0–4482",
+          "Shevelev arXiv:1110.5686, introductory definition and (1.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Correa et al. use the same first-emptying process, and give (6,5/6) with objective values 3125/1296 at (5,1) and 139/81 at (4,2). Shevelev §1 quotes the Feller matchbox convention of stopping on a draw that finds an already empty box; formula (1.1) includes zero remainder for equal stocks and equal draw probabilities."
+        ],
+        "reasoning": "The Correa special example is an exact model match, not the all-size optimum. The quoted matchbox law is not the same law: for stocks (1,1), first-emptying always leaves one, whereas the Feller convention can leave zero. The two descriptions cannot be identified by matching the words ‘bin’ and ‘matchbox’.",
+        "searches": [
+          "Correa et al. arXiv:2602.12523v2, §3, nonuniform ball removal",
+          "Matchbox problem, first empty versus first found empty, unequal sizes and biased choice",
+          "arXiv:1110.5686, §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day record 5c28676f124f optimizes a KL divergence comparing hypergeometric near-census sampling with a binomial law and obtains a root-n imbalance, not a first-depletion cost. d324a589847a is about minimized quantile loss across laws with fixed atom weights. The published numeric comparison in Correa et al. is a case of the target, not a table of the claimed general rule."
+        ],
+        "reasoning": "Neither matching asymptotic scale nor common use of binomial CDFs identifies the target objective. The checked exact example is covered and credited; no equivalent general exact catalogue statement was established. No order is inferred from a same-day record.",
+        "searches": [
+          "Resultary: biased two-bin first depletion, exact binomial positive-part loss, quantile allocation and expected remaining stock",
+          "Resultary 5c28676f124f and d324a589847a",
+          "arXiv:2602.12523v2 exact unequal-selection example"
+        ]
+      },
+      "rationale": "The binomial critical fractile and Gaussian limit calculations are standard once the objective is a binomial check loss. The supported distinction is the exact fixed-horizon loss representation of the biased first-depletion remainder, and the resulting all-size optimizer and explicit fixed-bias asymptotics in the same model as the prior unequal-selection example. Correa et al. already identify the phenomenon and conjecture a root-n scale in their unequal-selection discussion; the bound formula provides the precise two-bin shift. No inspected source gives or otherwise determines the exact reduction and optimizer for arbitrary bias and allocation. Scoped decision; not an absolute priority claim.",
+      "residual_risks": [
+        "The available evidence cannot exclude coverage by the full Zhou–Wang–Zhang paper or by unindexed work on biased matchboxes that uses first-emptying rather than first-discovery. Arrow–Harris–Marschak was not inspected in full. No absolute priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general equal-selection result and single exact unequal-selection comparison plus conjectured scale",
+          "evidence": "Values 3125/1296 and 139/81 at the indicated allocations; the unequal-selection discussion ends with an O(√n) conjecture relative to a ‘balanced allocation’. The wording is not a separate formal definition of balance there.",
+          "identifier_or_url": "https://arxiv.org/html/2602.12523v2",
+          "material_read": "Abstract/introduction, HTML offsets 683–1543; §3 PDF p. 8 offset 27986 and HTML offset 31200",
+          "method": "OA original PDF and html",
+          "title": "About a Ball Removal Process on Bins",
+          "trigger": "Same process and exact biased example"
+        },
+        {
+          "assessment": "Relevant classic comparison with a different stopping convention",
+          "evidence": "The introduction reproduces the Feller equal-stock fair-choice problem; the draw discovers an empty box and the remaining-stock law includes r=0.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.5686",
+          "material_read": "PDF §1 and eq. (1.1), OA offsets 0–3528",
+          "method": "Targeted literature search and original OA PDF",
+          "title": "Banach Matchboxes Problem and a Congruence for Primes",
+          "trigger": "Possible equivalent two-stock stopping law"
+        },
+        {
+          "assessment": "Covers the optimization principle after the check-loss reduction",
+          "evidence": "Quantile minimizers for the pinball loss; no first-depletion objective.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-fixed-profile-range-of-optimal-quantile-loss-over-standard--d324a589847a",
+          "material_read": "Mirrored RESULT.md offsets 0–4482",
+          "method": "Resultary search and local mirror",
+          "title": "Exact fixed-profile range of optimal quantile loss over standardized laws",
+          "trigger": "Broader result for minimized pinball losses"
+        },
+        {
+          "assessment": "Distinct sampling mechanism and objective",
+          "evidence": "Hypergeometric sampling without replacement versus binomial KL divergence, not iid first emptying and expected remainder.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-square-root-imbalance-maximizes-near-census-binary-urn-relativ--5c28676f124f",
+          "material_read": "Mirrored finding",
+          "method": "Resultary search and local mirror",
+          "title": "A square-root imbalance maximizes near-census binary urn relative entropy",
+          "trigger": "Closest same-day catalogue resemblance in biased/root-n allocation"
+        },
+        {
+          "assessment": "Not relied on to rule out overlap; generic critical fractile already credited",
+          "evidence": "No original theorem passage was available through the attempted retrieval.",
+          "identifier_or_url": "10.2307/1906813",
+          "material_read": "Landing page only",
+          "method": "Lawful OA attempt",
+          "title": "Optimal Inventory Policy",
+          "trigger": "Classical newsvendor and inventory policy antecedent"
+        },
+        {
+          "assessment": "Full-text coverage unresolved, not treated as a negative finding",
+          "evidence": "The accessible scope is related terminating inventory and substitution; the unavailable theorem assumptions and statements cannot be compared.",
+          "identifier_or_url": "10.1287/opre.2025.2228",
+          "material_read": "No full text; bibliographic and public abstract level only",
+          "method": "Lawful OA attempt; publisher 403, no identified repository copy",
+          "title": "Optimal Inventory Allocation for Indifferent Goods Under Dynamic Substitution",
+          "trigger": "Plausible same-object inventory and termination theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the first nonuniform case of a published allocation problem, the identity turns a stopping-time objective into an explicit static binomial loss. It replaces single-instance comparisons with a full finite rule including exact ties and gives the sign and leading size of the correction to proportional allocation plus the optimal expected remainder. The result addresses a natural two-bin question, without claiming a general multibin theorem or uniformity for p approaching the endpoints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

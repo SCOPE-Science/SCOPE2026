@@ -1,11 +1,21 @@
-# Review of multiplicative-orbit collapse
+# Independent mathematical audit
 
-**Correctness — PASS.** The original valuation theorem gives the alternating base-five digit criterion. Explicit carry transitions for multipliers two and three show that each even/odd digit pair is an independent base-25 choice, and that the next multiplier square rejects the least nonzero block. The dimension follows from the uniform three-branch cylinder structure. The separate exact valuation checker validates 281275 finite identities, but the proofs are not based on extrapolation.
+## correctness
 
-**Originality — PASS, with a priority qualification.** The 2008 source proves the digit criterion, not the exact two- and three-point multiplicative intersections. The 2013 and 2015 Cantor papers study the three-adic digits-zero-and-one set and its multiplier automata, not the prime-five alternating-digit set of these generalized binomial coefficients. The claimed novelty is the evaluated intersection law, not digit criteria, general automaton techniques, or universal Hausdorff dimension methods. Semantic published-finding corpus and available historical-claim searches found no dominating statement. A broad unindexed path-set theorem or historical result may nevertheless subsume the computation.
+PASS
 
-**Mathematical value — PASS.** The natural nondivisibility-index set supports uncountably many five-adic two-position orbits, with positive fractal dimension, yet no nonzero three-position orbit at either of its first two small integer ratios. This sharp finite-time extinction is a structural boundary for multiplicative dynamics on an arithmetic digit set, not an isolated congruence computation. The ratio-four witness establishes optimality of the least excluded ratios.
+The starting alternating digit criterion follows from Straub–Amdeberhan–Moll Theorem 3.2 with p=5 and k=3; independently, the 5-adic binomial upper parameter −1/3 has all base-25 digits 8, since 8/(1−25)=−1/3. By continuity from nonnegative integer upper parameters and the Frobenius/Lucas coefficient identity over F_5, (1−9z)^(−1/3) reduces to the product over j≥0 of (1+z^(25^j))³(1+z^(5·25^j)). The binomial coefficients in those factors are units, so E uses precisely the base-25 alphabet D={0,1,2,3,5,6,7,8}. As max(D)·3=24, there are no carries at all between base-25 blocks for the first multiplication by 2 or 3. The sets D ∩ {a:ma∈D} are {0,1,3} and {0,1,2}. For a nonzero five-adic or ordinary integer in either pair set, the least nonzero block yields m²a=4 or 12 for m=2, and 9 or 18 for m=3, all outside D even after reduction modulo 25. This excludes every nonzero triple. The pair-prefix counts are 3^r including r=0. The 3^r balls of radius 25^(−r) give the Hausdorff upper bound; the uniform digit measure gives each such cylinder mass 3^(−r), and for intervening ball radii gives the same power-law bound up to a constant. This proves the matching lower bound and uncountability. The triple is a singleton, and 2,8,32 have only blocks in D (32=1·25+7), so ratio four admits a positive triple.
 
-**Limitations.** The results are restricted to prime five, the three-central binomial sequence and the two indicated ratios. They make no claim about a five-adic analytic continuation of the coefficients or about undiscovered general prior results. No independent external audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: the unit-index language itself is prior work. The distinct supported claim is the evaluated two- and three-position orbit classification for this prime-five alphabet, including the pair dimensions and the change at ratio four. Related indexed and cited work develops multiplicative digit intersections but the available statements do not already evaluate this case.
+
+## value
+
+PASS
+
+This natural set of binomial coefficient unit indices has a sharp small-multiplier boundary: two independent restrictions preserve a positive-dimensional set with an exact growth rate, but the third position collapses both to zero, and ratio four disproves a generic collapse. The exact pair languages and the sharp witness make the small classification usable even without an all-multiplier result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

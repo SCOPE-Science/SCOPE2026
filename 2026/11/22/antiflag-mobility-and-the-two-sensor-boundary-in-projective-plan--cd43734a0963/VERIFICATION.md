@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,4 @@
 }
 ---
 
-The mathematical argument proves the two-sensor classification for every existing finite projective plane of order at least two, without assuming a coordinate model. The two independent Fano graph representations were used to reproduce all \(28\) optimal pairs, all \(84\) unrestricted replacements, zero adjacent slides, and the exact shortest-path and geodesic distribution. The order-three computational test is finite corroboration only; it is not used to infer the all-orders result.
-
-Run `python3 verify_fano.py` and `python3 verify_dual.py`. Both require only Python 3's standard library. They should exit normally and print `PASS` output. No external package, precomputed table or historical artifact is required.
-
-The proof does not determine the optimum sensor count in planes of order at least three. Independent external validation has not been performed.
+The proof in `RESULT.md` gives the all-order first-force obstruction and a bijection for the equality count. Its finite check independently counts eligible source vertices at orders two and three by forming the initial observed set for every placement of size at most the plane order. The frozen Fano checkers concern complete observation and reconfiguration on the Heawood graph; they are not certificates for the first-force equality classification or all-order count.

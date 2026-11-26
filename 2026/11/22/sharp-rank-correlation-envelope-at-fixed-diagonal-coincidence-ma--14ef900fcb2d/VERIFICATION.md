@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` establishes the generator admissibility criterion, the complete attainable two-statistic region, and rigidity. The supplementary `check.py` uses SymPy exact symbolic operations and prints a PASS indication after all assertions succeed; it was executed successfully in the package environment.
+## correctness
 
-**Confirmed exact checks:** the weight integral \(\int_0^a4t(a^2-t^2)dt=a^4\), the two sides of the deficit-kernel identity, the lower generator's mass \(a^2\) and rank value \(a^4\), the upper generator's mass \(1-b\) and rank value \(1-b^3\), the uniform-generator deficit for \(p=a^2\), and three rational probability settings with convex mixtures and nonnegative off-diagonal densities. All comparisons in the checker use exact SymPy expressions or rational inequalities rather than numerical floating-point tolerance.
+PASS
 
-**Proof checks beyond code:** the measure with off-diagonal density \(h(\max(u,v))\) and diagonal density \(f(t)dt\) has uniform marginals because \(u h(u)+\int_u^1h(v)dv+f(u)=1\). Conversely the off-diagonal mixed derivative of the copula must be nonnegative. The lower-deficit identity is obtained analytically by Fubini. Boundary equality uniqueness and full interval attainment follow by sign and convexity arguments; they are not established by finite sampling.
+On either open triangle the mixed density is h(max(u,v)); positivity implies h>=0 almost everywhere. Conversely, that density plus the diagonal line density f has both marginals uniform by f=k-tk' and k(1)=1. Integrating the conditional mass for u<=v gives u k(v), as desired. Thus p=integral f and Tonelli for the copula integral gives rho=3 integral t^2 f. The upper endpoint follows by subtracting b^2 from the moment weight and comparing with the upper step at b=1-p; the integral has strict sign unless the generators agree a.e. For the lower deficit, the primitive of 4t(a^2-t^2) divided by the square of the endpoint cancels with subtraction of 4(a^2-t^2), leaving 3t^2-2a^2 below a. Above a the primitive is a^4, leaving the nonnegative factor (t^2-a^2)(3t^2+a^2)/t^2. At a=sqrt(p), vanishing forces h=0 below a and f=0 above a; local absolute continuity then gives k=a below a, hence f=a there. Both step generators satisfy the copula criterion. Fixed-p convex interpolation and the forced constant endpoint generators establish the full closed region. Independently checked both kernel identities and 216 rational admissible generator examples using /workspace/reproductions/frozen_diagnostics.py 3. The frozen checker was not executed; none of these examples substitutes for proof.
 
-**Unproved and unverified limits:** no assertion about arbitrary copulas outside the stated max-quotient family; no independent mathematical audit; and incomplete access to the 2015 diagonal-expansion full text leaves a residual historical-priority risk.
+## originality
+
+PASS
+
+Best of current knowledge for the sharp joint fixed-diagonal-mass envelope with its lower deficit and rigidity. The copula family, marginal/rank formulas, known extremal examples, and standard upper fixed-mass rearrangement principle are not the originality claim.
+
+## value
+
+PASS
+
+Exact coincidence and rank concordance encode different dependence properties. At each tie mass this theorem gives the precise information that one statistic does and does not determine about the other, with identifiable endpoints and an exact lower deficit even for merely measurable generators. The result does not generalize the range to arbitrary copulas or make an estimation claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

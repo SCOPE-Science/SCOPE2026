@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:27:23.362301Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–80",
+        "Frozen VERIFICATION.md and check_hypercycle.py (inspected, not executed)"
+      ],
+      "rationale": "The two roots and the sign interval follow from the single maximum of h(S)=S exp(-gamma S) and the strict parameter inequality. Positive coordinates persist locally by the exponential solution of each coordinate's scalar multiplicative equation. With Q=sum_i w_i w_(i-1), direct summation gives S'=exp(-gamma S)Q-dS and (log P)'=h(S)-nd. For n=3, S^2/3-Q is one sixth of the sum of squared pairwise differences; for n=4, Q=(w1+w3)(w2+w4), bounded by S^2/4. Thus the scalar comparison S'<=S(h(S)/n-d) and the equilibrium S_+ of the scalar RHS give S<=S_+, including initial equality. Up to any first time reaching S_-, P is nondecreasing, which excludes that time by S>=n P^(1/n)>S_-. This supplies the tangency/invariance step even on the non-strict upper face. S<=S_+ and P>=P0 give the stated individual lower bounds, compactness and continuation. By monotonicity or the invariance principle, a forward-invariant omega-limit orbit must have S=S_+ and equality in the Q bound. For n=3 this gives all coordinates equal. For n=4 it gives equal odd and even sums, whose difference has derivative -exp(-gamma S)uv when equal, where u=w1-w3 and v=w2-w4. Hence uv is identically zero along such an orbit. Substituting the equal sums and exp(-gamma S_+)S_+/4=d gives u'=-dv, v'=du, so the only orbit with uv identically zero is the origin in (u,v), proving convergence. The positive diagonal data strictly below the lower equilibrium decay to zero, showing optimality among the stated uniform product thresholds. Equality at the lower diagonal equilibrium cannot be added to the recovery criterion. For n>=5, substituting a small first Fourier mode into Q-S^2/n gives a strictly positive quadratic contribution proportional to cos(2pi/n), consistent with the listed five-member example. That last check does not show failure of recovery at higher dimension.",
+      "residual_risks": [
+        "The invariant set is an inner subset of the recovery basin, with strict product condition, not its exact boundary. The convergence claim is continuous-time and not inferred from the numerical trajectory samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 authors expressly note lack of analytical proof for their proposed basin split, and Figure 2.2 is a numerical illustration for n=5. The 2012 paper is cited there for a distinct global-extinction regime when condition (2.2) fails. The independent DOI, publisher PDF and ResearchGate access attempts did not produce readable original text for 2012.",
+          "Example 2.1 of the 2008 paper states interior global asymptotic stability for the normalized hypercycle for n=2,3,4. This is a relative composition result on the simplex."
+        ],
+        "reasoning": "No stronger verified basin characterization for the positive cone subsumes the target. The normalized equations can be reached using shares w_i/S and a time change, but the normalized stability theorem does not exclude S->0, ensure infinite rescaled time, or supply the biomass and product inequalities.",
+        "searches": [
+          "Studying the Dynamics of Open Cyclic Replication Systems Pavlovich Bratus 2012 global stability basin; A mathematical framework of consumer-resource dynamics arXiv 2511.06509 Proposition 2.4 global basin numerically suggested",
+          "doi:10.3103/S0278641912030077 Pavlovich Bratus Russian original pdf Вестник Павлович Братусь динамики систем циклической репликации",
+          "Benaïm–Hofbauer–Sandholm author PDF 08jbd.pdf, Example 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6ea56ffdba9d (assigned record itself)",
+        "arXiv:2511.06509v1",
+        "doi:10.1080/17513750801915269 via author PDF",
+        "doi:10.3103/S0278641912030077 (access attempted; original text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The open-model Proposition 2.4 uses Jacobian calculations and gives only local upper-equilibrium stability. Conditional permanence as defined in that paper is existence of an interior compact invariant set, not a proof of convergence from every point satisfying this particular inequality.",
+          "The verified 2008 interior global statement concerns normalized compositions. It cannot itself compare the total mass with S_-, guarantee persistence of P, or give the sharp open initial condition. The 2012 full text was not independently recovered."
+        ],
+        "reasoning": "The proof under review combines an open total-mass upper comparison with an absolute-product Lyapunov quantity and a nontrivial four-coordinate equality set. Neither known local behavior nor normalized global behavior implies the claimed open basin core without an additional argument of that kind.",
+        "searches": [
+          "arXiv:2511.06509v1, pp. 3–6, Proposition 2.4 and basin discussion",
+          "doi:10.1080/17513750801915269, Example 2.1",
+          "doi:10.3103/S0278641912030077 and ResearchGate 389515517"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary hit 6ea56ffdba9d is exactly the frozen record, not another deposit. No distinct equivalent result was established among inspected hits.",
+          "The 2025 equations reduce to this model with cyclic A and equal d. A condition on G, on P, or on sum(log w_i) is equivalent here. The inspected stability proposition and basin discussion do not give one of these equivalent initial-region conditions."
+        ],
+        "reasoning": "Equivalence of the dynamics and equilibrium equation was confirmed. What distinguishes the finding is an open-cone quantified basin certificate and its threshold, not the equation or a reparametrization of the roots.",
+        "searches": [
+          "Resultary: open hypercycle geometric-mean recovery core and threshold",
+          "Resultary targeted comparisons: Pavlovich–Bratus; Bratus–Drozhzhin–Novozhilov; Benaïm–Hofbauer–Sandholm",
+          "arXiv:2511.06509v1, Eq. (2.1), matrix (2.5) and Proposition 2.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue statement is the assigned record itself. The prior open paper contains the positive equilibrium root equation and basin numerics, not a verified product-threshold entry in the inspected texts."
+        ],
+        "reasoning": "An equilibrium root or a phase portrait is not a table of guaranteed attraction regions. This theorem is a parameter-wide implication for initial data, not a benchmark root or trajectory; no independent exact coverage was located.",
+        "searches": [
+          "Resultary 6ea56ffdba9d, mirrored RESULT.md offset 261",
+          "arXiv:2511.06509v1, Section 2, equilibrium condition and Fig. 2.2"
+        ]
+      },
+      "rationale": "The same open model, equilibrium equation and small-cycle local stability are already known. The decisive verified comparison is the 2025 original paper: it proves local upper-equilibrium stability but describes the basin split as numerically motivated and analytically unproved, and its global extinction result concerns the regime without two positive equilibria. The normalized hypercycle theorem does not bound open total mass. No checked source gives the stated sufficient inner basin with an optimal uniform product threshold under the cap. The 2012 comparison was not readable in the independent retrievals; the pass is bounded by the verified material, not an assertion that the historical paper has no overlapping results.",
+      "residual_risks": [
+        "The 2012 historical comparison is a genuine access limitation. The accessible citing passage does not exclude an overlapping positive-equilibrium result elsewhere in that paper.",
+        "The searches do not certify publication priority or absence from other historical literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact setup, local upper stability and numerical basin conjecture, not a verified stronger positive-regime basin result",
+          "evidence": [
+            "Proposition 2.4 has asymptotic stability for n=3,4, not global basin control; basin discussion explicitly says it has no analytical proofs. Prior global extinction cited there is for failure of the positive equilibrium condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.06509v1",
+          "material_read": "§2 eq. (2.1) and cyclic matrix (2.5), pp. 3–4 (offsets 9800 and 12300); conditional permanence near offset 12148; Proposition 2.4 and basin discussion, p. 5 (offsets 16800–17054); Fig. 2.2 p. 6 (offset 21413)",
+          "method": "Bounded open primary PDF text",
+          "title": "A mathematical framework of consumer–resource dynamics: How to incorporate interactions between interactions in evolutionary process",
+          "trigger": "Exact open model and possible already-proved global basin split"
+        },
+        {
+          "assessment": "Plausible historical overlap remains open; no whole-document noncoverage inference",
+          "evidence": [
+            "The checked 2025 citing passage attributes the no-positive-equilibrium global extinction result to this paper. That attribution does not establish what else the 2012 paper covers."
+          ],
+          "identifier_or_url": "https://doi.org/10.3103/S0278641912030077",
+          "material_read": "No original text recovered in independent retrieval. Frozen AUDIT.json records a partially garbled representation of stability and phase-portrait material; the 2025 original paper's p. 5 citation and references identify this older source in the no-positive-equilibrium case.",
+          "method": "Lawful DOI and publisher HTML/PDF attempts failed with redirects; the cited ResearchGate copy at https://www.researchgate.net/publication/389515517_Pavlovich-Bratus returned HTTP 403; targeted search for the Russian original yielded no usable hit",
+          "title": "Studying the Dynamics of Open Cyclic Replication Systems",
+          "trigger": "Historical source with similar open dynamics and phase portraits; possibly a rigorous positive-regime result"
+        },
+        {
+          "assessment": "Confirms global stability within the normalized interior; no implication for absolute biomass survival threshold",
+          "evidence": [
+            "At n=2,3,4 the unique normalized interior rest point is globally asymptotically stable within the interior. Total mass and open extinction are not part of (H)."
+          ],
+          "identifier_or_url": "https://homepage.univie.ac.at/josef.hofbauer/08jbd.pdf",
+          "material_read": "Author-hosted primary PDF, Example 2.1 and Eq. (H), PDF pp. 4–5, offset 22490 onward",
+          "method": "Lawful bounded OA PDF text; author copy of doi:10.1080/17513750801915269",
+          "title": "Robust permanence and impermanence for stochastic replicator dynamics",
+          "trigger": "Stronger normalized global convergence theorem in small dimensions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, statement, sharpness proof and limitations",
+        "arXiv:2511.06509v1, Proposition 2.4 and basin discussion"
+      ],
+      "rationale": "The open system has competing extinction and positive equilibria, so local stability and normalized coexistence do not answer whether a given positive initial condition recovers. The theorem supplies a directly checkable, full-dimensional sufficient region, quantitative coordinate lower bounds and an obstruction to uniformly improving the threshold within the proposed class. It is an informative inner basin theorem without claiming to solve the full separatrix problem.",
+      "residual_risks": [
+        "Value concerns this deterministic mathematical model with equal dissipation and the stated small cycle lengths; no empirical, heterogeneous-system or higher-cycle guarantee follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

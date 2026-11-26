@@ -1,18 +1,21 @@
-# Review: Prime-polynomial subgroups of every quadratic finite-field modulus: exact order profiles and a characteristic-parity transition
+# Independent mathematical audit
 
-## Correctness — PASS
-The canonical representative of a degree-two quotient unit is either a nonzero constant or a degree-one irreducible, so scalar avoidance is necessary and sufficient. The irreducible case is the unique-subgroup/intersection theorem in a cyclic group of order \(q^2-1\). The split case uses CRT to turn scalar avoidance into injectivity of projection, followed by exact graph-homomorphism counts. The repeated case uses the coprime orders of scalar and principal-unit groups to force a trivial graph, leaving Gaussian-binomial vector-subspace counts. All three cases exhaust monic quadratics. The parity-sensitive maximum and equality counts follow by strict order comparisons. The independent finite-field subgroup enumerator matches all complete profiles in 109 cases; it is corroborative, not the proof.
+## correctness
 
-## Originality — PASS (best-knowledge with residual risk)
-The motivating primary paper (Trey Li, 2026-11-01) poses the polynomial analogue and does not classify all quadratic subgroups. The closest indexed prior finding *Complete prime-polynomial unit groups over finite fields* was read in full: it classifies whole groups, principally over \(\mathbb F_2\), and explicitly excludes proper subgroup classification. The present order-profile formula covers all proper and full subgroups over every prime power, giving cases not implied by the published classification, including every \(q>2\). published-finding corpus searches for polynomial prime-unit subgroup order profiles, quadratic moduli, graph subgroups, and repeated-root cases found no equivalent or dominating statement. Accessible research histories were searched for claim overlap, not used to reassess prior work. Independent, unindexed derivations remain a risk; standard subgroup counting is not new by itself.
+PASS
 
-## Mathematical value — PASS
-Trey Li's open-ended polynomial analogue makes the complete degree-two subgroup profile a natural first classification: degree two is the smallest polynomial degree permitting different irreducible, split, and nonreduced quotient structures. Exact order counts distinguish their arithmetic mechanisms and expose the characteristic-parity switch in the sharp maximum, for an infinite collection of finite fields and moduli rather than a single experiment. The result is deliberately limited to degree two and does not settle the higher-degree analogue.
+In degree less than two every nonconstant representative is linear and irreducible, so the subgroup criterion is exactly trivial intersection with the scalars. In the irreducible case cyclic intersection has order gcd(d,q−1), giving precisely the eligible divisors of q+1. In split coordinates (u,v/u), an eligible subgroup projects injectively onto a cyclic group of order d dividing q−1; its graphs are in bijection with the d possible images of a generator under the homomorphism to F_q^×. In dual-number coordinates the same projection argument gives a graph over a p-subgroup, with trivial scalar component by coprimality; the number of dimension-j subspaces is the asserted Gaussian binomial. The modulus counts are q(q−1)/2 of each distinct-root type and q repeated-root moduli. For odd q the admissible irreducible-case order is odd and at most (q+1)/2, and the split order is at most q−1; for even q, q+1 is admissible and exceeds both other bounds. This proves the two maxima and equality multiplicities, including q=2. The independent replay `python3 /workspace/branches/6cf518ec-dc68-4638-90a8-23187f126c47/quadratic_slice.py` directly enumerated units and all subgroups of the 13 monic quadratic quotients over F_2 and F_3 and obtained aggregate profiles {1:4,2:2,3:1} and {1:9,2:6,3:3}. This checks only the two prime fields; the arbitrary-field conclusion follows from the proof, not either finite checker. The packaged 109-case result is author-reported, not this replay or a formal certificate.
 
-## Sources and limitations
-1. https://arxiv.org/html/2611.01793v1 — motivating definitions and Question 6.6.
-2. https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-complete-prime-polynomial-unit-groups-over-finite-fields--6f138ca9083c/RESULT.md — closest full-group theorem, complete text read and limitations compared.
+## originality
 
-An equivalent statement may exist in non-indexed finite-ring literature. No results for higher-degree moduli are inferred, and no independent mathematical audit has been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The checked prior work supplies the polynomial convention, question and the F_2 whole-group cases, not the proper-subgroup profiles, arbitrary-field counts or parity-dependent extremal classification. Credit that overlap and the standard group-theoretic ingredients, not priority beyond the checked material.
+
+## value
+
+PASS
+
+This closes the natural first degree of the proposed polynomial analogue at subgroup level. It distinguishes embedded subgroups from whole-group eligibility and gives three genuinely different behaviors, including elementary-abelian subgroups in the nonreduced case and a characteristic switch in the maximizing modulus. The full counts and exact extremizers are usable as a quadratic baseline beyond isolated examples, although the proof uses elementary algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

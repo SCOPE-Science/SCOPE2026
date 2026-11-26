@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:39:57.288791Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired comparison, exact trial factorization gives only (difference, prime)=(20,5) for q≥5 and differences 1–20. The prime progression removes 2 and 3 obstructions at admissible exponents. At fixed cutoff Y, CRT and the prime number theorem in fixed progressions give uniform independent reduced choices at squares of primes 5≤q≤Y. For any fixed shift c, q>Y up to X^{1/4} contributes at most 4X/(φ(q²)log X) primes per q by Brun–Titchmarsh in the reduced class c mod q². Larger q up to √X are bounded by counting integers, O(X^{3/4}+√X) in total. Dividing by π(X;36,7) and letting Y→∞ proves the infinite model, since the same tail is summable in the model. This replaces the frozen proof’s moment argument, which used a squarefree-tuple count with a majorant allowing nonsquarefree divisors and described a modulus bound as a divisibility. At q=5 the two laws agree on the probability of covering zero or one missed labels; they differ only for U={0,20}, when the collision contributes 1/20. Forcing the ordinary labels at sixteen separate primes and avoiding the special classes elsewhere has a positive product probability. The signed sum follows from changing the q=5 factor only for subsets containing both special labels. Separate finite replay by state counting instead of inclusion–exclusion confirms the factor arithmetic and correction in truncated models with up to twenty other primes: python3 /workspace/branches/independent_replay.py 2. The asymptotic proof, not the finite replay, establishes the repaired sign in the infinite model.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Remark 4 initially describes noncolliding width <20, but the p. 13 passage expressly says the restriction was an artefact of the stated factors and gives 1−#{2^a mod q² : a∈A}/φ(q²) for an arbitrary finite admissible A.",
+          "The paper considers the global exhaustion limit undecided, which is unrelated to the first collision's benchmark error."
+        ],
+        "reasoning": "Take A=T for every T inside the eighteen labels. No larger-window theorem is needed to establish the exact density, and no novelty is assigned to the fixed-shift sieve. The repaired statement compares two specific models with different local marking rules; the inspected finite-set theorem supplies their factors but not the positive-event comparison.",
+        "searches": [
+          "Harman–Paquin arXiv:2610.07214v1, pp. 10 and 13, finite-window and arbitrary-set passages",
+          "Resultary: arbitrary finite admissible exponent lists and squarefree-prime local law"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.07214v1, especially pp. 10 and 13",
+        "Resultary 7ca9eaac71fe and targeted catalogue searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior arbitrary-set local factor gives δ(T)=H_j except for T containing both distinguished labels, when it gives H_j(1+1/(20−j)). Inclusion–exclusion has precisely the two frozen sums.",
+          "Neither the inspected p. 13 arbitrary-set passage nor the shorter-window remark compares the collided all-failure law with the fictitious all-distinct law by a nonnegative event."
+        ],
+        "reasoning": "The specialized exact expression is a direct corollary and is demoted to background. A new argument is needed to turn its alternating correction into a strictly positive comparison: conditional completion probabilities differ only on the missed pair, and that condition must be realized with nonzero mass in the infinite tail. This is the supported distinct remainder.",
+        "searches": [
+          "arXiv:2610.07214v1 p. 13 offset 45350 and p. 10 offset 33300",
+          "Resultary 7ca9eaac71fe Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The cited paper recognizes that the two labels with difference 20 have identical conditions modulo 25.",
+          "Its p. 13 formulation counts distinct reduced powers locally and describes failure density for any fixed admissible set; it does not formulate the correction as the missed-pair event."
+        ],
+        "reasoning": "Simultaneous squarefreeness for subsets and the all-failure probability are equivalent data by inclusion–exclusion, so the exact formula cannot be credited as new. The strict comparison requires distinguishing the cases of zero, one and multiple uncovered labels at the last local choice.",
+        "searches": [
+          "Resultary: first order-20 prime-square collision, 18-exponent density and strict comparison",
+          "arXiv:2610.07214v1 Prop. 2, §4 Remark 4 and p. 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The p. 10 discussion describes Table 3's five-form density and the disjoint windows up to sixteen admissible exponents; p. 13 gives a sixteen-form numerical example and the general local law.",
+          "The closest inspected Resultary finding 7ca9eaac71fe computes the least prime requiring exponent six, not a comparison of densities."
+        ],
+        "reasoning": "Absence of the exact eighteen-label number from a table is irrelevant to its being covered by the general law. No table or exact comparison for the repaired positive correction was identified in the material examined.",
+        "searches": [
+          "Resultary: eighteen exponents, width twenty, correction modulo 25 and citation arXiv:2610.07214",
+          "arXiv:2610.07214v1 Remark 4/Table 3 scope and p. 13 density discussion"
+        ]
+      },
+      "rationale": "Pass applies only to the corrected scope: the positive-event identity and strict direction of the first collision error relative to the all-distinct benchmark. The exact eighteen-exponent density as a purported new result fails the prior-implication check. Harman–Paquin explicitly gives the arbitrary finite-set distinct-residue law at p. 13, which mechanically yields that density and even the signed correction expression. The frozen comparison to Remark 4 alone materially understates coverage. The repair credits the exact formula and isolates what is not supplied by that law as stated: resolving the sign of a cancellation-heavy signed difference by identifying the lone uncovered-pair event and proving it has positive mass.",
+      "residual_risks": [
+        "An uninspected coverage-model comparison or unindexed explicit correction could overlap the strict sign claim.",
+        "One related literature query was uninformative; the assessment relies on the actual prior finite-set passage and its implications rather than the absence of search hits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the local collision and the exact density via specialization; no recovered strict comparison against the fictitious all-distinct model",
+          "evidence": [
+            "p. 10: order-20 collision modulo 25 ends disjointness.",
+            "p. 13: ‘for an arbitrary finite set A of admissible exponents’ coincident conditions merge under CRT, with local factor counting distinct powers and resulting failure density ρ_A."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.07214v1",
+          "material_read": "Prop. 2 and Remark 4 (p. 10 offset 33300), arbitrary admissible set discussion p. 13 (offset 45350)",
+          "method": "OA primary PDF passage extraction",
+          "title": "The One-Power Erdős Conjecture for Primes p≡7 (mod 36)",
+          "trigger": "Same progression, first collision and exact finite-set densities"
+        },
+        {
+          "assessment": "Different finite minimum-witness claim, not a density or correction",
+          "evidence": [
+            "States finite least witness p=189954151 requiring exponent six."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26 7ca9eaac71fe",
+          "material_read": "Finding",
+          "method": "Local Resultary search and mirror read",
+          "title": "First exponent-six prime in the squarefree one-power problem modulo 36",
+          "trigger": "Same prime progression and threshold interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the first natural loss of local disjointness, even the direction of error of the prior extrapolation is not evident from its alternating terms. The revised result explains which event matters exactly: all other labels must already be covered, and both colliding labels must remain. Its positive mass proves a structural, strict underestimate without numerically resolving tiny differences. This is useful for interpreting the first collided window, distinct from copying the prior general law at one parameter. It does not estimate the numerical density, give a uniform sieve, or settle unrestricted representations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

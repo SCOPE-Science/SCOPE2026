@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:43:11.405056Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Assumptions; Proof Steps 1–5, especially (1)–(6)",
+        "Frozen VERIFICATION.md and checker.py, inspected, not executed"
+      ],
+      "rationale": "The explicit assumptions and transition probabilities specify two independent draws from the n−1 other agents, with repeats allowed; the Finding's phrase 'distinct-index neighbors' should not be read as excluding repeats. At bias 1/9 the exact up/down ratio gives r=8k(n−k)/[(n−1)²+8k²]. The first-step differences satisfy λ_k d_k−μ_k d_(k−1)=1 and the initial equation at k=0, with absorption and finite mean guaranteed by the finite positive upward path. Iteration and summation give exactly the two nested sums. For x=k/n, 1−f(x)=(4x−1)²/(1+8x²), and the log perturbation from excluding the updater is O(1/n). At width h=n^(2/3), λ→1/8 and summing log r produces −(32/9)(u³−v³); the O(h/n) perturbation disappears. Globally the product is bounded by a constant times exp[−c n^(−2)Σ(ℓ−n/4)²]. The block of m successive indices has sum of squares at least (m³−m)/12. When the right endpoint is far from n/4, the terms with m≤|k−n/4|/2 have the extra decay exp[−c m(k−n/4)²/n²], and the rest have the cubic tail. With λ bounded below for k≤n/2 these give the integrable O(h/[1+((k−n/4)/h)²]) bound on d_k. The last half is O(n log n) by a fixed ratio gap starting at 3n/8, with earlier-index products suppressed. These estimates justify the inner and outer limits, including all fixed starts below 1/4, and the Gaussian midpoint integration gives the stated Gamma(1/6) coefficient. At p>1/4 one can start the ratio gap at a fixed p0 strictly between 1/4 and p, not at p itself. For k≥(1−δ)n, terms beginning below (1−2δ)n are exponentially suppressed, the remaining ratios are O(δ), and 1/λ_k=(n/(n−k))[1+O(δ+1/n)]. Hence the final states give coefficient 1 in front of n log n as δ→0, and the earlier states are O_δ(n). The scale counts individual updates throughout.",
+      "residual_risks": [
+        "The claim is an expectation limit at the exact bias, not a weak limit of the hitting time or a bias-detuning theorem. Finite rational tests are consistency checks only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader saddle-node formulas concern overdamped Langevin dynamics in a potential, with initial/absorbing positions and a backward differential equation.",
+          "The same-model Theorem 3.1 treats α>1/9 or α<1/9, not equality; the threshold geometry in Lemma 4 of the preprint is not a passage theorem."
+        ],
+        "reasoning": "Neither stated theorem handles the exact discrete quadratic bottleneck with far-left starts and absorption near the upper boundary; convergence on a stopped bounded diffusion window would not itself give mean hitting time to consensus.",
+        "searches": [
+          "arXiv:1902.07382, §III.A–B",
+          "Mukhopadhyay Theorem 3.1, Lemma 3.2 and Remark 3.7"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1017/S0269964823000098 / arXiv:2208.12245",
+        "arXiv:1902.07382",
+        "Resultary 538e5bf91609 and 9ac99b94a870"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local generator inferred from the transition probabilities is (1/8)∂²+(4/3)u²∂, so the generic diffusion passage formula does give F and C once convergence of the means is established.",
+          "The original neighbor-only finite-n terms alter log ratios by O(1/n); controlling their sum over O(n^(2/3)) and bounding contributions from all other states is required. The coarse off-critical conclusions supply neither of these nor the harmonic endpoint coefficient at equality."
+        ],
+        "reasoning": "The noncovered result is a discrete limit and matching theorem, not extraction of a new constant from a known continuous passage formula. Simple substitution into the off-critical bounds or the saddle-node ODE does not establish it.",
+        "searches": [
+          "Mukhopadhyay journal §3, Theorem 3.1 and Remark 3.7",
+          "Hathcock–Sethna §III.A, Eqs. (13)–(15) and §III.B.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mukhopadhyay's Eq. (2) analyzes an auxiliary self-sampling count chain; Remark 3.7 returns to the original for the stated off-critical results.",
+          "Hathcock–Sethna Eq. (14) is the very same double integral for the diffusion with V(u)=−4u³/9 and noise amplitude 1/2, using start s and sending the absorbing point to +∞; Eq. (15) supplies the full-line passage value in Airy form."
+        ],
+        "reasoning": "This recognizes mathematical equivalence of the limiting integral rather than claiming a new saddle-node function. Diffusion normalization alone is not a theorem transferring expected total consensus time of the discrete finite chain to that integral.",
+        "searches": [
+          "Mukhopadhyay arXiv:2208.12245 / DOI 10.1017/S0269964823000098, biased two-choices complete graph",
+          "Hathcock–Sethna arXiv:1902.07382, noisy saddle-node finite launching and absorbing positions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 538e5bf91609 concerns synchronous power-weighted conclave voting with n singleton candidates and weak reinforcement, with exponential rather than critical-polynomial scaling.",
+          "Later 9ac99b94a870 concerns opposing zealots and gives a harmonic-number passage time at its own critical exponent."
+        ],
+        "reasoning": "No relevant exact finite table can decide the asymptotic, and these indexed formula matches at the level of topic are different chains. The closest full statements do not cover this normalization, start regime or observable.",
+        "searches": [
+          "Resultary: biased two choices critical consensus n^(4/3)",
+          "Resultary: critical and metastable consensus passage"
+        ]
+      },
+      "rationale": "The distinct contribution is the controlled discrete consensus asymptotic for the original neighbor-only chain: critical-window start profile, below-window matching and above-window n log n matching at the precise bias omitted in the same-model prior theorem. The cubic diffusion kernel and its full-passage constant in saddle-node units are classical; only their rigorously derived realization and normalization in this chain, plus matching to actual consensus, are credited. Neither the same-model off-critical bounds nor the diffusion calculation implies the required uniform integrability or the remote absorbing-end estimate.",
+      "residual_risks": [
+        "A general birth–death saddle-node passage theorem with suitable global matching hypotheses could narrow the contribution; the checked Langevin result is not such a theorem. Bounded searches do not exclude uncataloged model-specific work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same setting and off-critical estimates; equality is excluded by the formal statement",
+          "evidence": "Auxiliary self-sampling chain in Eq. (2); the two open bias intervals in Theorem 3.1 do not include 1/9.",
+          "identifier_or_url": "https://doi.org/10.1017/S0269964823000098; arXiv:2208.12245",
+          "material_read": "Journal PDF §3, Eq. (2), Theorem 3.1 and Lemma 3.2 onward (p. 5 ff.), Remark 3.7 (p. 12); preprint v3 Lemma 4 (p. 8)",
+          "method": "OA primary paper text",
+          "title": "Phase Transitions in Biased Opinion Dynamics with 2-choices Rule",
+          "trigger": "Same model and threshold"
+        },
+        {
+          "assessment": "Covers the diffusion profile and full passage value, not a discrete consensus-chain convergence theorem",
+          "evidence": "Eq. (14) gives the double-integral diffusion mean with finite launching and absorbing positions; Eq. (15) gives the universal Airy scaling function for full passage.",
+          "identifier_or_url": "https://arxiv.org/pdf/1902.07382",
+          "material_read": "§III.A and beginning of §III.B.1, PDF pp. 4–5, offsets 28000–35899",
+          "method": "OA PDF text",
+          "title": "Reaction rates and the noisy saddle-node bifurcation: Renormalization group for barrier crossing",
+          "trigger": "Plausible equivalent cubic kernel and universal Gamma constant"
+        },
+        {
+          "assessment": "Different model and regime",
+          "evidence": "Synchronous power-weighted conclave voting; exponential scale under α_n=c/√n.",
+          "identifier_or_url": "Resultary 538e5bf91609",
+          "material_read": "Finding and Assumptions",
+          "method": "Local mirror",
+          "title": "Square-root weak reinforcement shifts the metastable consensus clock",
+          "trigger": "Closest same-day consensus-time crossover hit"
+        },
+        {
+          "assessment": "Related asymptotic question, different dynamics and formula",
+          "evidence": "Opposing zealots; m(m+1)H_m at the critical response exponent.",
+          "identifier_or_url": "Resultary 9ac99b94a870",
+          "material_read": "Statement of model and critical passage formula",
+          "method": "Local mirror",
+          "title": "Flat criticality, boundary layers and exponential consensus passage",
+          "trigger": "Critical consensus passage with boundary-layer terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof §§3–5",
+        "Mukhopadhyay Theorem 3.1"
+      ],
+      "rationale": "The exact threshold is a natural gap between fast and exponentially slow regimes. The result identifies a different scale, quantifies the dependence on starts across the bottleneck, and separates it from a distinct coupon-collector endpoint even at the same bias. This is useful discrete finite-size information about a standard model beyond the known continuous normal form.",
+      "residual_risks": [
+        "The work does not address the absorption-time distribution, general graphs or a detuned bias window."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

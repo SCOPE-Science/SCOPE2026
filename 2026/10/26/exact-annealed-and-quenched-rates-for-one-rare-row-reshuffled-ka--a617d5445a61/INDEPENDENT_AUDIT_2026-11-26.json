@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:17:27.283813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each change of the current null line multiplies squared norm by x and consecutive projections onto the same line are idempotent. For the previous endpoint U the switch counts at first/interior/last rare-row positions are (2,2,1); for endpoint V they are (1,3,2). The interior category is empty at a=1. The current endpoint is V exactly in the last position, so the within-epoch count is 2+A_(j−1)−A_j−2A_(j−1)F_j. Starting in U sets A_0=0, and summing gives the claimed path count. The indicators for the cross-epoch last/first pattern are iid within each parity, with mean 1/m², which gives the almost-sure factor by two strong laws. Weighting the same switch cases by their equiprobable positions gives both columns of T. Its trace is x², its determinant is −x²(1−x²)/m², and strict positivity of T and the positive Perron projections give the claimed mean-square factor for the specified initial mass. For t=m⁻² and z=x⁻²>1, the rescaled Perron root y solves y(y−1)=t(z−1). The second derivative of z^(2t)−z^t−t(z−1) has sign that of (4t−2)z^t+1−t<0; its value and first derivative vanish at 1. This gives the strict lower inequality against the almost-sure factor. The characteristic polynomial at x equals x²(1−x)[1−t(1+x)]>0, proving the upper inequality. Products with the rare row at an endpoint attain squared operator norm x; interior products have squared norm x². The small-x and m=2 statements follow from the explicit roots. At a=1 the system is square rather than strictly overdetermined, but the explicit hypotheses and proof include this case. All factors are per epoch and for squared error. Independent replay: for u=(1,0), v=(4/5,3/5), apply the two integer matrices 25P_u=((0,0),(0,25)) and 25P_v=((9,−12),(−12,16)) to (0,1), for all rare-position sequences at a=1,…,4 and k=1,…,5. Checked 5694 paths and 40 endpoint expectation components against the formulas by clearing denominators and comparing modulo the first 36 primes starting at 1009. Their product exceeds the absolute difference bound 2·5^5·25^65, so agreement there is exact. The uploaded checker was read, not executed; its PASS count is a recorded finite check at another overlap, not the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Han–Xie treat the same independent reshuffling rule and bound contraction by the maximum epoch operator norm. Strohmer–Vershynin bound expected error for independent sampling with replacement."
+        ],
+        "reasoning": "The Han–Xie bound applies and yields the known type of worst-epoch comparison. A uniform norm bound cannot distinguish annealed and quenched rates, and with-replacement bounds do not specialize to the without-replacement epoch sequence.",
+        "searches": [
+          "Han–Xie arXiv:2410.01140v1, §2 and §3 Theorem 3.2/Corollary 3.3",
+          "Strohmer–Vershynin arXiv:math/0702226v1, §2 Theorem 2",
+          "Bai–Wu DOI 10.1016/j.laa.2018.05.009; abstract-level only"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verification/check_rrk.py",
+        "arXiv:2410.01140v1",
+        "arXiv:math/0702226v1",
+        "DOI 10.1016/j.laa.2018.05.009 (abstract-level)",
+        "Resultary f1e5ffc63f15, d549f7251aa1, 54597ea58934 and 809fa13c87b2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With iid whole-epoch maps M, second moments obey Σ_next=E[MΣMᵀ]. The worst-epoch norm benchmark x follows by applying the uniform norm criterion to endpoint positions. The closest indexed one-epoch risk supplies just a scalar for a different initial direction."
+        ],
+        "reasoning": "Generic lifting supplies an abstract recursion, but not its explicit endpoint-line reduction, the almost-sure boundary-pattern contribution or the strict inequalities for these eigenvalues. Those require the actual distribution of epoch products and the comparison proof.",
+        "searches": [
+          "Han–Xie §3; Resultary 54597ea58934, Finding and prior-work section; Resultary f1e5ffc63f15, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "f1e5ffc63f15 fixes the same planar row family with initial error equal to the repeated-row normal and compares one epoch of RR to IID at the same projection count. Its RR result is (1−x)x/m; its two-state generating function is for IID switches within that one epoch.",
+          "d549f7251aa1 gives exact deterministic cyclic two-row relaxed sweep powers."
+        ],
+        "reasoning": "Identifying overlaps and rotating/sign-normalizing the row normals recovers the same family in f1e5ffc63f15, but the start, path ensemble and performance statistic differ. Neither the one-epoch RR scalar nor the IID switch matrix tracks rare-row last/first coincidences across independent permutations. Cyclic relaxed powers do not produce that distribution.",
+        "searches": [
+          "Configured Resultary search for repeated planar rows, rare-row permutation sweeps and exact Kaczmarz convergence factors; matched f1e5ffc63f15, d549f7251aa1 and 54597ea58934"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed results respectively give exact one-epoch RR-versus-IID risks, an optimal planar IID annealed rate, deterministic relaxed two-row cost, and an optimal IID one-step law for a linearly independent equicorrelated block."
+        ],
+        "reasoning": "There is material exact overlap on the one-epoch row family and on tools for IID rates, but no compared table or closed form covers both rates under independent fresh reshuffling. The same-day equicorrelated result requires distinct independent rows and is a one-step worst-direction decrease, not this asymptotic mean-square rate. No priority is inferred from dates.",
+        "searches": [
+          "Resultary exact Kaczmarz sampling/rate matches f1e5ffc63f15, 54597ea58934, d549f7251aa1 and 809fa13c87b2"
+        ]
+      },
+      "rationale": "The supported distinct content is the distributional multi-epoch result: the pathwise cross-boundary exponent, its almost-sure limit, the exact specialized mean-square recurrence and limit, and the strict rate comparison. Two-line projection geometry, uniform norm bounds and generic second-moment propagation are not original here.",
+      "residual_risks": [
+        "Bai–Wu was available at abstract level only; an attempted author-archived copy of Agaskar–Wang–Lu's exact-MSE work cited in the planar record did not resolve. Other random-projection product literature may contain a specialized equivalent calculation. The exact one-epoch risk in the related record is material overlap in model and method, not evidence of the claimed multi-epoch rates or of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Applicable uniform contraction, not exact distributional rates",
+          "evidence": "Maximum over permutation products gives the uniform bound.",
+          "identifier_or_url": "https://arxiv.org/html/2410.01140v1",
+          "material_read": "§2 Algorithm 1, offset 9446; §3 Theorem 3.2/Corollary 3.3, offset 15496",
+          "method": "OA primary HTML",
+          "title": "A simple linear convergence analysis of the reshuffling Kaczmarz method",
+          "trigger": "Same independently reshuffled Kaczmarz algorithm"
+        },
+        {
+          "assessment": "Strong overlap on model; different initial condition and one-epoch comparison",
+          "evidence": "Starts at e_0=a, the repeated normal, and gives RR risk (1−k)k/m versus IID.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-multiplicity-threshold-for-one-epoch-kaczmarz-reshufflin--f1e5ffc63f15",
+          "material_read": "RESULT.md, Finding and Assumptions, offset 0",
+          "method": "OA local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp multiplicity threshold for one-epoch Kaczmarz reshuffling reversal",
+          "trigger": "Same planar repeated-row family, exact reshuffling risk and IID comparison"
+        },
+        {
+          "assessment": "Different deterministic relaxed iteration and metric",
+          "evidence": "Exact operator powers of fixed cyclic two-row sweeps, including transients at optimal relaxation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+          "material_read": "RESULT.md, offsets 0–5799 and subsequent proof passage",
+          "method": "OA local mirror",
+          "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+          "trigger": "Exact finite-horizon rates in a two-line system"
+        },
+        {
+          "assessment": "Independent row sampling, not independent permutation epochs",
+          "evidence": "Exact optimal annealed factor for IID sampling; prior-work discussion notes lifted MSE dynamics.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-planar-coincidence-theorem-for-optimal-randomized-kaczmarz-sampl--54597ea58934",
+          "material_read": "RESULT.md, Finding and Assumptions offsets 0–5276 and prior-work offset 9890",
+          "method": "OA local mirror",
+          "title": "Planar coincidence theorem for optimal randomized Kaczmarz sampling",
+          "trigger": "Exact mean-square rates in real planar frames"
+        },
+        {
+          "assessment": "Different row family and rate",
+          "evidence": "Linearly independent rows with 0<α<1, optimal independent one-step sampling and a sharp uniform one-step decrease.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-optimal-kaczmarz-sampling-for-an-equicorrelated-block-with--809fa13c87b2",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "OA local mirror",
+          "title": "Exact optimal Kaczmarz sampling for an equicorrelated block with one exceptional row",
+          "trigger": "Distinct same-day exact result with one exceptional row"
+        },
+        {
+          "assessment": "With-replacement expected bound, not epoch rates",
+          "evidence": "Independent sampling with probability proportional to squared row norm.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0702226",
+          "material_read": "v1 §2 Theorem 2, PDF p. 4, offset 7933",
+          "method": "OA primary PDF",
+          "title": "A randomized Kaczmarz algorithm with exponential convergence",
+          "trigger": "General randomized Kaczmarz expected rate"
+        },
+        {
+          "assessment": "Full theorem comparison unavailable; no conclusion about the entire paper",
+          "evidence": "Abstract-level randomized convergence comparison, not evidence of exact reshuffle coverage.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.009",
+          "material_read": "DOI landing page and abstract-level material only",
+          "method": "Lawful OA retrieval attempt; no accessible repository copy located",
+          "title": "On convergence rate of the randomized Kaczmarz method",
+          "trigger": "Convergence factors for randomized Kaczmarz"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Repeated measurements plus one rare independent direction form a natural model in which dependence at epoch boundaries matters. Sharp distributional rates give a concrete benchmark for assessing uniform permutation bounds, and show that the mean-square and typical factors can differ by a divergent ratio at small overlap even when both improve on the sharp uniform bound. This is useful beyond a one-sweep calculation; it does not assert any work-normalized advantage of duplication.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

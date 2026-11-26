@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The eight length-three subsequence counts of a binary three-one word follow from the three zero-prefix sums and the three gap coordinates. With the total zero count fixed, the full deck is determined by the counts for 011, 101 and 001. Equality of the first two forces the affine gap displacement \((t,-3t,3t,-t)\); equality of 001 then forces \(t(c-b+3t)=0\). The nonzero solution is unique, proves all fibers have size at most two, and gives an exact involutive parametrization. Independent gap-counting produces the stated rational series, with no extrapolation from finite coefficients. A standalone full-deck checker compares all source words with up to 25 zeros and 500 deterministic larger cases. No theorem for larger weights or alternate channels is claimed.
+PASS
 
-## Originality — PASS, with residual literature risk
+At fixed N=n−3, the two-one coordinates A=3a+b and B=2(b+c) determine the third two-one coordinate and S=sum p_i=A+B/2 for the three zero-prefix counts. The one-one-coordinate C=[001] fixes sum p_i^2=2C+S; then [010]=(N−1)S−2C and [100]=3 binom(N,2)−C−[010]. The all-zero and all-one counts depend only on N. A,B and the total force gap shifts (t,−3t,3t,−t), so the change in C is t(c−b+3t), from the squared-prefix changes (t,−2t,t). Its unique possible nonzero root forces the middle gaps to swap, with nonnegativity the only extra constraint. Orienting t>0 avoids all double counting and gives N=a+d+2c+4t in the theorem’s parameters. Subtracting one per doubleton yields the displayed rational series, including zero terms below n=3. The first pair has N=4 and is exactly the stated pair of length-seven words. The doubleton series has leading pole 1/[8(1−z)^4] at 1; other poles have order at most two. It follows that there are N^3/48+O(N^2) doubletons, establishing both the coefficient 7/48 for distinct decks and the 1/4 ambiguous-word limit. An independent direct positional count for 0–8 zeros, 495 words, found 472 fibers and 23 doubletons, all as predicted.
 
-Chrisnata et al., *On the number of distinct k-decks: Enumeration and bounds*, Section 5.3 (DOI: 10.3934/amc.2021032) prove the 2-deck nullspace observation and a cubic-order bound, but expressly formulate the all-length rational series as Conjecture 1. The new part is the complete three-deck fiber classification and an all-length proof of that precise conjecture, not the known nullspace calculation. The 2019 conference antecedent does not give the conjectured enumeration. Nilforoushan–Parvaresh (arXiv:2609.23106) obtain unrestricted-weight growth exponents and linear affine-dimension results, not this exact fixed-weight count; infinite-word binomial complexity is likewise a different problem. Searches by conjecture, equivalent formulations, and deck fiber parameters found no covering result. Equivalent material could exist outside the inspected corpus; the absence of a search hit alone is not treated as novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact all-length solution to an explicitly posed enumeration conjecture supplies a complete structural account of the zero-error ambiguity for the smallest unresolved fixed-weight three-deck slice. Beyond the rational series, it determines every fiber and proves a nontrivial asymptotic one-quarter ambiguous-word proportion. This is an intrinsic sequence-reconstruction invariant, not an arbitrary finite parameter chosen for computational convenience.
+The generating function as a conjecture, the gap-line direction, the binomial difference underlying the collision test and the cubic-order result all have antecedents in Chrisnata et al. Credit the completed equivalence for the entire deck, the exhaustive nonredundant enumeration of doubletons, and hence the proved identity, not the original ingredients or the formula's conjectural discovery. Several separately indexed records give equivalent proofs or classifications and are recorded as material coverage; their catalogue paths are later than the frozen record's, but path dates alone do not establish priority or independent discovery. No earlier established proof surfaced in the evidence inspected.
 
-## Residual limitations
+## value
 
-The work does not establish higher-weight counts, noisy-channel capacity, or independent third-party validation. It depends on a self-contained proof and finite corroborative checks; no source-access limitation is concealed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This solves a specifically posed exact enumeration question and explains the source of every lost count, rather than just determining the leading order. The collision classification also answers word-level reconstruction at weight three, with the sharp first ambiguity and the limiting failure fraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

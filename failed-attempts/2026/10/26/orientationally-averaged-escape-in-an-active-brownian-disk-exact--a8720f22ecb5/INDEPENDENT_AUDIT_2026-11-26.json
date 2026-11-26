@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:01:17.750397Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, proof and scope",
+        "Frozen VERIFICATION.md and verify.py inspected as supplied diagnostics; script not executed"
+      ],
+      "rationale": "The backward generator is Δ_x+γ∂²_θ+p e_θ·∇_x. The passive killed heat resolvent R has bounded e_θ·∇_x R on bounded functions (integrable t^(-1/2) Dirichlet heat-gradient bound at short times and exponential decay at long times, also with static θ); R(I−p e_θ·∇_x R)^(-1) gives a convergent expansion near zero. Angle translation by π eliminates odd averaged powers. At first order the first harmonic is f(r)cos(θ−arg x), with f=−A_γ^(-1)r/2. The averaged second-order forcing is −(rf)'/(2r); regularity at the center and absorption give G(r)=∫_r^1 f(s)ds/2. Integration gives the stated Bessel expression and f_0=(r³−r)/16 gives the zero-rotation endpoint. Writing f=rh reduces positivity of A_γ^(-1) to the radial four-dimensional Dirichlet resolvent, proving strict sign and ∂_γf=A_γ^(-2)r/2>0 inside. With k=√γ, k³G(1−z/k)=[I_0(k)/I_1(k)−I_0(k−z)/I_1(k)−z+z²/(2k)]/4. The standard large-argument expansion is uniform for bounded z and gives the claimed layer, including z=0 by the zero Dirichlet extension. At fixed r<1 the second Bessel ratio is exponentially small (also at r=0) and the first is 1+O(1/k), giving the bulk remainder. No joint p–γ estimate was used.",
+      "residual_risks": [
+        "The remainder is local in propulsion for fixed γ; the layer concerns G alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The susceptibility result gives strict complete monotonicity, which includes the frozen first-derivative assertion.",
+          "Di Trapani–Franosch–Caraglio treat the full time-dependent propagator in the same absorbing disk and give general-order recurrence plus integrated q=1,2 expressions for the spectral coefficients."
+        ],
+        "reasoning": "The spectral machinery can encode MFPT via survival integration; the compared passages do not explicitly extract the same disk Bessel response. The indexed stronger scalar monotonicity directly covers the frozen ordering.",
+        "searches": [
+          "Resultary b7fecaf47750",
+          "arXiv:2306.12702v1, propagator recurrence and Appendix C"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary b7fecaf47750",
+        "Iyaniwura–Peng arXiv:2506.15813v1",
+        "Di Trapani–Franosch–Caraglio arXiv:2306.12702v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact susceptibility formula applies at r=1−z/√γ for every γ large enough; the shifted Bessel ratio tends uniformly to e^(−z) for bounded z. The fixed-radius Bessel ratio is exponentially small and I_0(k)/I_1(k)=1+O(k^(-1)).",
+          "The 2025 first harmonic also yields G by the averaged quadratic radial Poisson equation and a single quadrature; the paper's passage stops at the order of the correction."
+        ],
+        "reasoning": "The indexed exact formula contains the full dependence needed for both asymptotics; nonstatement of the asymptotic profile is not a mathematical gap in coverage.",
+        "searches": [
+          "Resultary b7fecaf47750 Finding and fast-rotation scope",
+          "arXiv:2506.15813v1 Eq. (12)",
+          "arXiv:2306.12702v1 second-order construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary b7fecaf47750 uses C_g=−G_γ for the same angle average at fixed radius and states the identical Bessel formula and static-angle limit.",
+          "Iyaniwura–Peng use swimming Péclet number and angle average; their first-order harmonic cancels, and the passage states the first averaged correction is of quadratic order."
+        ],
+        "reasoning": "Changing sign/parameter notation does not change the fixed-point mean exit response. The 2025 first-order and order-of-error statements alone do not give its value.",
+        "searches": [
+          "Local Resultary: absorbing-disk weak-activity escape susceptibility",
+          "arXiv:2506.15813v1, Eq. (12)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matched distinct 2026/11/2 record b7fecaf47750, which gives an analytic formula rather than a table."
+        ],
+        "reasoning": "An exact functional match is more informative than matching any sampled parameter table; it does not establish prior chronology.",
+        "searches": [
+          "Local Resultary for fixed-radius angle-averaged quadratic response and fast rotational diffusion in an absorbing disk"
+        ]
+      },
+      "rationale": "The distinct indexed completely-monotone susceptibility result states the identical all-radius response after C_γ=−G_γ and proves stronger parameter ordering. Its exact formula directly gives both displayed asymptotics by standard I_0/I_1 asymptotics, including the bounded-z substitution recorded in correctness. The layer is not explicitly labeled there, but this is coverage by implication, not an independent missing theorem. That source is dated later than the frozen record; this is a finding of demonstrable coverage, not of earlier priority or dependence. The older papers checked supply the expansion machinery and first harmonic rather than explicitly stating the same closed quadratic coefficient.",
+      "residual_risks": [
+        "No priority conclusion is drawn from the later exact catalogue match.",
+        "The earlier propagator and unpublished calculations could contain additional implicit or explicit overlap; the literature search is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same coefficient and stronger ordering; asymptotic layer follows directly although not stated",
+          "evidence": [
+            "C_g=−G_γ; formula holds at each radius; fast-rotation statement explicitly pointwise away from rim."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2/SCOPE-completely-monotone-weak-activity-escape-susceptibility-for-an-a--b7fecaf47750",
+          "material_read": "RESULT.md finding, coefficient, monotonicity and fixed-radius asymptotics",
+          "method": "Local mirror original-text comparison",
+          "title": "Completely monotone weak-activity escape susceptibility for an active Brownian disk",
+          "trigger": "Identical geometry, averaging and perturbative order"
+        },
+        {
+          "assessment": "Exact first-order input and cancellation, not explicit quadratic coefficient in the compared text",
+          "evidence": [
+            "First radial Bessel harmonic; uniform orientation leaves O(Pe_s²) as first correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.15813v1",
+          "material_read": "Eq. (12) and discussion near OA offset 23176",
+          "method": "OA primary-text reading",
+          "title": "Mean first passage time of active Brownian particles in two dimensions",
+          "trigger": "Same backward problem and small-propulsion expansion"
+        },
+        {
+          "assessment": "Underlying second-order spectral machinery, not explicit comparison of the target asymptotics",
+          "evidence": [
+            "Eq. (38) recurrence; Appendix C gives time-integrated versions for q=1,2 to compute the M coefficients; survival/FPT obtained from the propagator."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.12702v1",
+          "material_read": "OA offsets 29337–36323 and Appendix C opening near 49130",
+          "method": "OA primary-text reading",
+          "title": "Active Brownian Particles in a Circular Disk with an Absorbing Boundary",
+          "trigger": "Same dynamics and all-order propagator perturbation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, stated physical regime and two asymptotic regimes"
+      ],
+      "rationale": "The fixed-start quadratic escape-time response is the first nonvanishing weak-activity effect for uniform orientation. Its sign, order with rotation, and near-wall scaling quantify meaningful transport behavior not apparent from the unaveraged first harmonic or a fixed-radius expansion. This value assessment does not certify distinctness.",
+      "residual_risks": [
+        "The result does not transfer a joint error estimate to finite propulsion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

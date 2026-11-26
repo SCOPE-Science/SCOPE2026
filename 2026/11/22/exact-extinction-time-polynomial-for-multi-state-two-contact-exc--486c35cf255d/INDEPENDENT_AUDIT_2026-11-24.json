@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:33:22.360305Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding, Assumptions and scope, Proof and Verification",
+        "Frozen verify_extinction.py and verify_output.txt (14 finite cases), and VERIFICATION.md; original code inspected, not executed. Replay entry point: verify_extinction.py. Its test cases do not prove the all-k/all-m formula."
+      ],
+      "rationale": "Each peripheral vertex has just two neighbors, its partner and the hub. A new excitation at time one is therefore either a hub activation with at least two initially excited peripherals, or a peripheral activation requiring an initially excited hub and an initial 0/1 pair. The two modes exclude each other. In the first, there are no excited peripherals at time one; in the second, the hub is at state 2, is not resting, and cannot excite a peripheral. No excitation is created at time two, and after that no excited vertex remains. Thus a time-one activation lasts until update k, whereas an initially positive state r lasts to update k-r absent reactivation. The two trigger counts subtract respectively zero or one ones from all peripheral words, and words avoiding both ordered 0/1 pairs from all petal words. These give the stated C_(k,m); each trigger is possible already for one petal. Without time-one activation the minimum initial positive state determines the first hitting time. The alphabets excluding successively smaller positive states give the lower layer differences, and subtraction gives the layer at k-1. The early-layer probability is ((k-1)/k)^(2m+1); the three excluded terms of C_(k,m), after normalization by k^(2m+1), decay exponentially for fixed k, giving the two-layer limit. The argument includes k=3: at time one the previously excited hub is already refractory even if it will return to rest at time two. For (k,m)=(3,1) the proof gives (1,7,16,3), consistent with the supplied census.",
+      "residual_risks": [
+        "No formal proof or expert certification was checked. The universal conclusion uses the time-one propagation argument, not the supplied finite runs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general three-state criterion gives extinction at threshold two because the maximum induced edge count per vertex is 3m/(2m+1)<2; any subset not using the hub induces at most a matching. Longer refractory chains preserve the separation used in its event-matching proof.",
+          "Durrett–Griffeath use threshold contact and automatic advancement on a lattice; Fretter et al. mainly consider stimulus propagation in networks with relative thresholds."
+        ],
+        "reasoning": "Credit eventual extinction and the multicolor threshold framework as known. The known global budget and lattice results do not give the exact first hitting layer or its population for all labeled colorings.",
+        "searches": [
+          "Resultary 352367f51e91 maximum induced edge-density criterion",
+          "Durrett–Griffeath author-hosted Asymptotic Behavior of Excitable Cellular Automata, pp. 183–184",
+          "Fretter et al. arXiv:1403.6174"
+        ]
+      },
+      "checked_sources": [
+        "Resultary statement comparisons 45299ac945e0, 352367f51e91, 13eed7214670, e79c2691fb75, 49c8edcd3797, 735009d19bc6, 58917bc0decb",
+        "Durrett–Griffeath, pp. 183–184, lawful author copy",
+        "Fretter et al. arXiv:1403.6174",
+        "Focused public lookup under friendship/windmill/cactus aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The density criterion establishes a finite excitation budget, not that all new excitations occur at update one.",
+          "The wheel proof allows rim excitations supported by two cyclic rim neighbors and subsequent time-two activation; its top-layer criterion for rim length at least four is a count of overlapping cyclic motifs. The friendship proof uses time-one-only activation and independent petal constraints."
+        ],
+        "reasoning": "Neither a finite excitation budget nor specialization of wheel or sunlet parameters supplies the all-state friendship census. The matching-rim obstruction and the resulting exact finite counts are the distinct mathematical work; the shared 2/k limit is contextual corroboration, not independent priority evidence.",
+        "searches": [
+          "352367f51e91 original Finding",
+          "45299ac945e0 original Finding and first-update proof",
+          "735009d19bc6 original Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closest multistate threshold-two comparison 45299ac945e0 concerns K_1 joined to a cyclic rim; its longest extinction time for rim length at least four is k+1, with hub colors 1 and k-1 driving that layer and limiting mass 2/k.",
+          "On the cone over a matching (the friendship graph), the maximal layer is k and instead driven by hub colors 0 and 1."
+        ],
+        "reasoning": "Replacing a cyclic rim by independent petal pairs removes the two-rim-neighbor channel. The wheel's two hub channels and transfer formula are not the same triggers or the same census, even though the limiting maximal-layer probabilities coincide.",
+        "searches": [
+          "Local Resultary: threshold-two multistate hub, windmill/friendship/cactus, extinction polynomial and maximal shell",
+          "Public query: Greenberg Hastings threshold two friendship graph windmill triangular cactus extinction time census excitable cellular automaton absolute two contacts refractory"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The friendship records 13eed7214670 and e79c2691fb75 concern three-state threshold one and recurrent orbits; 49c8edcd3797 gives threshold-one four-color extinction with maximum seven and a different limiting law.",
+          "Same-day 735009d19bc6 concerns three-state threshold two on sunlets, not multiple triangles sharing one hub; the wheel record 58917bc0decb has a sharp 3, 4 or 5-update bound depending on its rim."
+        ],
+        "reasoning": "Exact tables for the same topology at threshold one, or the same threshold on a different topology, do not encode the ordered petal-pair count at threshold two. The distinct same-day cactus hit was compared by statement, not excluded by date.",
+        "searches": [
+          "Resultary exact friendship and adjacent-cactus censuses: 13eed7214670, e79c2691fb75, 49c8edcd3797, 735009d19bc6, 58917bc0decb",
+          "Focused public literature lookup using friendship and windmill aliases"
+        ]
+      },
+      "rationale": "The supported distinct claim is the depth-one trigger and full labelled all-k extinction-time census for friendship graphs at absolute threshold two. Eventual extinction is covered by a prior general criterion, and the analogous 2/k mass from two hub-state channels is known for multistate wheels. Neither observation is credited as a new general phenomenon here.",
+      "residual_risks": [
+        "The close wheel analogue already gives the same limiting maximal-layer mass. Priority for the distinct exact friendship census could be affected by unindexed hub/cactus calculations or inaccessible full text. The bounded comparison cannot certify worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial conceptual precedent, different graph, clock and trigger counts",
+          "evidence": "For k>=4 and a cyclic rim of length at least four it gives time k+1 via a five-letter motif with hub color 1 or multiple three-letter motifs with hub color k-1.",
+          "identifier_or_url": "45299ac945e0",
+          "material_read": "RESULT.md §Finding and start of Proof, offset 0 to 4100",
+          "method": "Local Resultary mirror",
+          "title": "Two motif channels control the sharp extinction shell of multistate excitable wheels",
+          "trigger": "Closest multistate threshold-two common-hub census and the same 2/k limit"
+        },
+        {
+          "assessment": "Covers eventual extinction, not the depth-one trigger or the census",
+          "evidence": "Maximum induced edge density below the threshold implies extinction, with a finite excitation budget.",
+          "identifier_or_url": "352367f51e91",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A densest-subgraph threshold and finite excitation budget for three-state graph dynamics",
+          "trigger": "General theorem that already covers qualitative extinction"
+        },
+        {
+          "assessment": "Different threshold and recurrent behavior",
+          "evidence": "Both statements concern threshold one and recurrent three-cycles, not universal threshold-two extinction.",
+          "identifier_or_url": "13eed7214670; e79c2691fb75",
+          "material_read": "Both original RESULT.md Findings, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact entrance-time census for three-state excitation on friendship graphs; Shared three-cycle skeleton and unequal stopping-time laws for excitation on friendship graphs",
+          "trigger": "Same topology and entrance-time statistic"
+        },
+        {
+          "assessment": "Threshold one, not a specialization at k=4",
+          "evidence": "Sharp extinction at seven and a uniform limiting law on updates 4–7.",
+          "identifier_or_url": "49c8edcd3797",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Four-color excitation on friendship graphs",
+          "trigger": "Same topology and four-color extinction census"
+        },
+        {
+          "assessment": "Sunlet rather than friendship topology",
+          "evidence": "For C_n with one leaf attached to each rim vertex it gives sharp time three at n=3 and four otherwise, with three colors.",
+          "identifier_or_url": "735009d19bc6",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A four-update extinction clock and exact temporal census",
+          "trigger": "Distinct same-day threshold-two cactus census"
+        },
+        {
+          "assessment": "Different family and clock",
+          "evidence": "The sharp wheel clock is 3, 4 or 5 depending on rim size, not an all-k friendship census.",
+          "identifier_or_url": "58917bc0decb",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp five-step extinction for threshold-two excitation on wheel graphs",
+          "trigger": "Nearby exact threshold-two clock for three colors"
+        },
+        {
+          "assessment": "Prior for the general update framework, with lattice neighborhoods",
+          "evidence": "Automatic modulo advancement of positive states and threshold contact of zeros are specified; neighborhoods studied are metric balls on the lattice.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper79.pdf",
+          "material_read": "pp. 183–184 rule and neighborhood definition, OA offset 4650",
+          "method": "Lawful author-hosted PDF after the cited arXiv route was unavailable",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "General multistate threshold-dependent update model"
+        },
+        {
+          "assessment": "Different threshold and initial-state experiment",
+          "evidence": "Uses a relative neighborhood-activity threshold and propagation from a single excitation, not the absolute threshold-two all-state census.",
+          "identifier_or_url": "https://arxiv.org/abs/1403.6174",
+          "material_read": "p. 1, OA offset 3200",
+          "method": "Lawful OA PDF",
+          "title": "Topological Determinants of Self-Sustained Activity in a Simple Model of Excitable Dynamics on Graphs",
+          "trigger": "Potential equivalent graph motif excitation analysis"
+        },
+        {
+          "assessment": "Full-text coverage not determined; general framework credited",
+          "evidence": "The accessible multistate lattice treatment supplies the model comparison; no conclusion about the inaccessible paper's full contents is drawn from the denial.",
+          "identifier_or_url": "https://doi.org/10.1137/0134040",
+          "material_read": "Cited bibliographic entry only; full-text DOI retrieval denied",
+          "method": "Lawful OA retrieval attempted",
+          "title": "Spatial Patterns for Discrete Models of Diffusion in Excitable Media",
+          "trigger": "Historical source of the update framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Finding and Proof",
+        "Resultary 352367f51e91 for qualitative prior and 45299ac945e0 for the cyclic-rim contrast"
+      ],
+      "rationale": "Friendship graphs isolate the effect of a universal hub and degree-two petal vertices in a natural family. The full labelled counting law gives more than qualitative extinction: it identifies precisely when any new excitation can occur and partitions all initial conditions by relaxation time. Contrasting the cone over a matching with a wheel shows how identical limiting top-layer masses can arise from different trigger states and different sharp clocks. The all-color polynomial makes that comparison exact rather than an empirical observation.",
+      "residual_risks": [
+        "The structural proof uses the specific petal geometry and cannot be extrapolated to arbitrary cactus graphs or a different excitation threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:10:43.181555Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The fitted-weight L1 statistic is the full pmf L1 discrepancy (twice conventional total variation); the all-zero sample has the specified extension. For Poisson pmfs the affinity is exp(−(√s−√t)²/2); the L1 bound and Poisson sample-mean variance give an expected fitting error at most 2/√n. The change from replacing one draw is bounded by 2/n for the unfitted discrepancy. Cellwise binomial deviations can be summed despite multinomial dependence, and the binomial and Poisson mean-deviation identities follow by positive-part summation. For λ_n/n² tending to finite positive κ, the local CLT gives the Gaussian cell-mean profile on bounded standardized windows; bounded second moments permit passage to uniform Poisson deviations there (by subsequences and compactness), and Chebyshev bounds missing tails. A central window with O(√λ_n) cells gives the zero limit when √λ_n=o(n), and the deterministic overlap bound n max_k q_{λ_n}(k) gives the limit two when n=o(√λ_n). After scaling to the standard normal, the modal probability is continuous and strictly decreasing in its mean, giving monotonicity and both endpoint values. On compact κ intervals its branch derivatives are bounded; differentiating under the integral, ignoring the measure-zero crossing sites for each κ, gives C1 with continuous derivative by domination. Transverse crossing boundaries are analytic locally, and the unbounded tail uses the analytic zero-mode branch with uniform Gaussian domination. At the peak crossing of j, the branch difference is a(j)(f−j)/j to first order with positive derivative jump. The new interval has half-width √((κ_j−κ)/κ_j) and integration of the quadratic cap gives exactly 4φ(0)a(j)/(3κ_j^(3/2)). Its nonzero one-sided term precludes a second derivative. Independent split-interval Simpson quadrature returned D(0.2)=1.099789562606009 and D(κ_1)=1.027858248254292; the numerical increment over the local low-mode branch divided by the predicted cusp term was 1.000045 to six decimals for j=1–4 at relative offset 10^−4. The frozen check.py and VERIFICATION.md were inspected, not executed. The proof has no reliance on numerical coverage and does not treat bootstrap size or power.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 supplies finite-n bounds valid for general pmfs",
+          "Barbour PDF pp. 1–2, offsets 0–7744: approximation of counts of occupied boxes and boxes with exactly r observations"
+        ],
+        "reasoning": "The generic bounds can be applied row by row and support the subcritical result (the Poisson square-root mass sum is O(λ^(1/4))), not an exact critical mean. Occupancy counts by size need not encode the joint weighting by cell-specific expected occupancy needed by this L1 profile. The inspected occupancy result is not a dominating exact statement.",
+        "searches": [
+          "Berend–Kontorovich arXiv:1205.6711v2, Theorem 4",
+          "Barbour arXiv:0902.0879v1, general infinite occupancy approximation"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 8275326fd4d5 (same finding) and a28d134ea06c (distinct)",
+        "arXiv:2402.12866v1",
+        "Kirui thesis Chapter 3",
+        "arXiv:1205.6711v2",
+        "arXiv:0902.0879v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kirui et al. PDF p. 8, offset 20900, includes n=30,50,100 simulation design",
+          "The thesis uses the integer mode for an L-infinity tail term",
+          "The distinct indexed record explicitly requires λ_n→0 and a fixed rare-cell index r"
+        ],
+        "reasoning": "These imply neither the Gaussian-occupancy integral at λ_n/n²→κ nor its nonsmooth dependence on κ. The local limit gives the continuous range of cell intensities, and the Gaussian peak crossing an integer converts a classical modal derivative jump into a new integrated one-sided 3/2 term. The checked subcritical implication is credited, not treated as exclusive novelty.",
+        "searches": [
+          "Kirui et al. arXiv:2402.12866v1, §3 simulations and null framework",
+          "Kirui 2023 thesis Chapter 3 pp. 17–23",
+          "Berend–Kontorovich §2 and local record a28d134ea06c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kirui et al., arXiv:2402.12866v1, PDF pp. 3 and 6, offsets 5200 and 13400: empirical/fitted pmf ratio and the fitted-Poisson weight statistic including the mass past the sample maximum",
+          "Berend–Kontorovich, arXiv:1205.6711v2, §2 Eq. (9): n times expected empirical L1 equals the sum of centered binomial absolute deviations"
+        ],
+        "reasoning": "Past the sample maximum only the fitted mass contributes, so Kirui's formula is exactly the present statistic, not a different statistic or a new definition. The unfitted expected discrepancy is also exactly the prior generic binomial marginal expression. Neither identification includes the triangular-array critical evaluation.",
+        "searches": [
+          "Local Resultary: fitted-Poisson empirical weights, empirical PMF L1 or twice total variation, growing-mean occupancy and modal cusps",
+          "Focused literature lookup for Kirui's fitted-Poisson empirical-weight statistic and increasing-intensity limits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct local match is the assigned record itself, 8275326fd4d5",
+          "Distinct record a28d134ea06c, RESULT.md Finding offsets 0–4198: shrinking mean and nonzero fixed-weight rare-cell limits, but fitted-Poisson-weight distances tend to zero",
+          "Kirui thesis PDF pp. 22–23, offsets 58000–62378: classical floor(λ) mode and integer tie"
+        ],
+        "reasoning": "A catalogue reappearance of the same finding is not independent coverage. The distinct record treats disjoint regimes and a different kind of staircase. A table or formula for the Poisson mode is a building block, not an evaluation of the integrated profile's singularity.",
+        "searches": [
+          "Local Resultary: Poisson triangular-array empirical-weight limits, exact occupancy profile, and staircase/modal cusps",
+          "Kirui thesis, Chapter 3, Poisson mode formula"
+        ]
+      },
+      "rationale": "The distinct result is the exact growing-intensity critical profile and its infinite modal cusp ladder, with both endpoint regimes. The statistic, generic empirical-L1 bounds and Poisson mode facts are not new. The closest different Resultary finding actually assumes vanishing intensity; the broader empirical-distribution result can give the subcritical limit but does not determine the profile or its regularity. The assessment is bounded by the compared sources.",
+      "residual_risks": [
+        "The thesis completion year is known but the public deposit day was not established.",
+        "A broader triangular-array empirical-L1 limit not inspected could affect which parts are prior consequences.",
+        "The bounded lookup does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines exact fitted-weight L1 norm and examines finite-sample test behavior; inspected passages do not give the joint growing-mean theorem",
+          "evidence": [
+            "L1 partial sum to sample maximum plus the fitted tail"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.12866",
+          "material_read": "v1 PDF pp. 3, 6, 8, offsets 5200, 13400, 20900",
+          "method": "Bounded OA primary text",
+          "title": "On new tests for the Poisson distribution based on empirical weight functions",
+          "trigger": "Same statistic and motivating test"
+        },
+        {
+          "assessment": "Covers weight definition and Poisson mode fact; not the L1 cusp result in the inspected passages",
+          "evidence": [
+            "At integer intensity adjacent modes tie; used for an L-infinity tail"
+          ],
+          "identifier_or_url": "https://repository.nwu.ac.za/bitstreams/6bc2adcb-3dbb-4312-b440-4d92cc48d5f6/download",
+          "material_read": "Chapter 3 PDF pp. 17–23, offsets 41000–52476 and 58000–62378",
+          "method": "Bounded OA thesis text",
+          "title": "On a new class of tests for the Poisson distribution based on empirical weight functions",
+          "trigger": "Earlier same-test thesis and modal formula"
+        },
+        {
+          "assessment": "Partially implies outer subcritical behavior; no exact critical formula",
+          "evidence": [
+            "Sum of binomial cellwise mean deviations and finite-n distribution-dependent bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1205.6711",
+          "material_read": "v2 §2 Eq. (9) and Theorem 4, PDF pp. 3–4",
+          "method": "Bounded OA primary text",
+          "title": "On the Convergence of the Empirical Distribution",
+          "trigger": "Possible stronger arbitrary-alphabet L1 theorem"
+        },
+        {
+          "assessment": "Different aggregate occupancy variables",
+          "evidence": [
+            "Counts occupied and exactly r-occupied boxes"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0902.0879",
+          "material_read": "v1 PDF pp. 1–2, offsets 0–7744",
+          "method": "Bounded OA primary text",
+          "title": "Univariate approximations in the infinite occupancy scheme",
+          "trigger": "Generic occupancy Poisson approximation"
+        },
+        {
+          "assessment": "Does not cover the growing-mean regime",
+          "evidence": [
+            "The true mean tends to zero; even its fixed-weight staircase is not an integrated growing-intensity profile"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sparse-poisson-staircase-limits-for-empirical-weight-goodness-of--a28d134ea06c/RESULT.md",
+          "material_read": "Finding and Assumptions and scope, offsets 0–4198",
+          "method": "Local Resultary and bounded local-mirror text",
+          "title": "Sparse-Poisson staircase limits for empirical-weight goodness-of-fit distances",
+          "trigger": "Strongest distinct indexed same-test result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives a quantitative null regime boundary for an existing goodness-of-fit statistic: a well-specified fitted null can produce a distance close to its maximum once the effective Poisson width overwhelms n. The exact middle profile and infinite regularly located losses of second differentiability are informative structure not supplied by consistency bounds or by a single calibrated simulation. It is not a bootstrap error-control theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

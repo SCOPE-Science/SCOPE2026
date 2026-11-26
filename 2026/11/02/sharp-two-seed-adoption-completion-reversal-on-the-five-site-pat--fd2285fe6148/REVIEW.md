@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The stochastic adoption model is a finite acyclic continuous-time Markov chain. Its exponential-race recurrence gives unique expectations because every nonterminal total rate is at least the number of unadopted vertices times \(a>0\). Exact symbolic substitution proves the six reflection-class formulas, positivity of eight comparison differences, and a single quadratic crossover. Smaller paths are checked by explicit positive expressions. The bundled standard-library `verify.py` independently checks all stated symbolic identities against the recurrence plus 152 exact-rational evaluations. The proof is exact; finite tests are supplementary.
+## correctness
 
-**Originality (PASS with historical priority risk).** The model mechanism is not new: Bass (1969). Bertotti–Modanese (2019) treat heterogeneous mean-field adoption peaks rather than finite-path complete-adoption hitting times; Kreindler–Young (2014) use a different diffusion model; Rossman–Fisher (2021) examine advertising and seed centrality via simulations. The compared claims do not imply the exact five-path two-seed switch or its minimality. Full access to the Rossman–Fisher main text was limited, so a hidden equivalent theorem cannot be ruled out. Broader pure-birth Markov-chain algebra also could subsume this case; a direct exact-result match was not found in inspected sources.
+PASS
 
-**Value (PASS).** The two natural placements—peripheral endpoints versus nearly peripheral spaced seeds—trade off competing route coverage and fast imitation. The exact switch at a nontrivial algebraic threshold establishes an interpretable structural failure of a fixed placement recommendation at the minimal network size and supplies a reproducible benchmark for seeding algorithms with spontaneous advertising. This is not a policy estimate or a claim for general graphs.
+An independent exact reproduction sums over every complete adoption order. The probability of an order is the product of the selected hazards divided by the total hazards; conditional on that order the mean of the dimensionless waiting-time sum is the sum of reciprocal total hazards, because the minimum exponential time is independent of the winning clock. The resulting symbolic aT values agree with the six frozen rational expressions, and exact polynomial sign checks show each excluded pair is worse than both {1,4} and {1,5} for every x>0. Reflection ties {1,4} with {2,5}. The remaining difference a(T15−T14) has numerator x(4x²−11x−8) over a strictly positive denominator, giving one positive zero (11+√249)/8 and exactly the specified three-way tie. Checking every pair on P3 and P4 proves strict endpoint optimality; on P2 both vertices are already seeded. This is for positive finite hazards and the expected all-adopted hitting time. Independent replay: python3 /workspace/reproduction/5.py (SymPy); passed for every pair on P2–P5 using exact arithmetic. The uploaded script was read, not executed: it uses an occupied-set recurrence, exact symbolic identities and finite rational spot checks.
 
-The main residual scientific uncertainty concerns historical priority rather than the finite algebra. The date January 1, 1969 is supported by the publishing journal's issue listing and places the motivating model in the archive literature cohort.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No originality is credited for the discrete Bass hazard, exponential-race expectation equations, or the general idea of optimized seeding on paths. The closest verified same-hazard literature treats unseeded adoption probabilities and expected adoption levels, and the closest two-seed path classification optimizes expected final reach under independent bond transmission. Neither gives the exact completion-time crossover with two seeds or its smallest path order. Earlier advertising and seeding work could not all be inspected in full; that limits priority exclusion but is not itself adverse evidence.
+
+## value
+
+PASS
+
+Placement matters here only through speed, since positive innovation makes eventual full adoption certain. The exact minimum-size counterexample to a rate-independent endpoint placement rule, including the location of the switch and all optimal pairs at equality, gives a motivated benchmark for time-to-coverage optimization. The narrow P5 result is useful because minimality and the whole positive parameter range are proven, not merely because the state space was exhaustively evaluated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

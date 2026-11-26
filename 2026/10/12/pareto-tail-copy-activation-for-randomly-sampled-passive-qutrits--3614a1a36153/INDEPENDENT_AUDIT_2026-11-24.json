@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:36:59.447101Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for repairs/4/RESULT.md. The frozen exact constant integral is correct, but its equality to 0.5226368151659937... overstates the accuracy of the archived quadrature by about 1.25e-13. Independent SciPy evaluations in two coordinates, and 50-digit mpmath, give 0.5226368151661182760231851559693..., supporting the rounded repair; replay evidence is in branches/65794f39-2759-43f0-b191-6d0a54510829/independent_quadrature.py and independent_quadrature.txt. I reconstructed the proof: adjacent shells are sufficient to test monotone population order and the two endpoint-difference maxima are floor((N-1)/2) and floor((N+1)/2), unchanged from odd N to the following even N; equality remains passive. Activation persists at higher N. The ordered simplex is one of six congruent-in-area permutation sectors, so the uniform density is 12 in (p1,p2). The change to (u,v) has Jacobian u/(1+u+uv)^3; its integral in v over the correctly ordered bounds is the stated difference with factor 6. In log coordinates the scaled interval width tends to 2a and is bounded by 2a, while b>=a/2 gives the integrable envelope proportional to a exp(-5a/2). The trace of the bounded continuous density on the diagonal yields C_f, positive at the required interior positivity; a null Gibbs curve and monotone squeezing yield almost-sure finiteness and the real-t asymptotic. Layer cake gives the positive-moment cutoff. The corrected complete file was inspected; the old finite output is retained only as an archived consistency check. No frozen script was executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koukoulekidis et al. characterize k-passivity by a total order and describe finding the first failing k algorithmically. Salvia–Giovannetti give three-level population constraints for N-passivity. Skrzypczyk–Silva–Brunner derive deterministic finite activation from distinct virtual temperatures and identify the complete-passivity condition."
+        ],
+        "reasoning": "These statements address testing or bounding passivity for a fixed state. They provide antecedents for the shell criterion and Gibbs exception, but no distribution over states, Jacobian, or ensemble asymptotic.",
+        "searches": [
+          "arXiv:1912.07968v3, Lemma 7",
+          "arXiv:1912.02099v4, Proposition 1",
+          "arXiv:1412.5485v2, finite activation by unequal virtual temperatures"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Repaired RESULT.md and independent numerical replay evidence",
+        "Resultary d9a37c2da2f6",
+        "arXiv:1912.07968v3",
+        "arXiv:1912.02099v4",
+        "arXiv:1412.5485v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known statewise formula identifies the integration domain. The repaired result calculates its weighted ordered-simplex area, then finds a positive finite trace integral with a justified integrable envelope for all densities under the stated hypotheses."
+        ],
+        "reasoning": "The deterministic formula is a prerequisite, not a stronger ensemble theorem of which these results are special cases. The distribution calculation and extraction of its 1/t law under continuous densities are the supported new claims. The decimal fix and endpoint elaboration do not change that scope.",
+        "searches": [
+          "Resultary d9a37c2da2f6 versus repaired RESULT.md Proof §§2–3",
+          "arXiv:1912.07968v3, Lemma 7 and activation algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The alternate deterministic threshold compares the copy-dependent multiplier of |a-b| with min(a,b) and gives A=2 floor(min(a,b)/|a-b|)+3 away from a=b."
+        ],
+        "reasoning": "At thresholds 2m+1, A>2m+1 is exactly min(a,b)>=m|a-b|, which is the repaired wedge inequality. This same-day indexed record is genuine deterministic overlap regardless of priority, but its Finding specifies no sampling law.",
+        "searches": [
+          "Resultary comparison for deterministic odd-copy activation and the ensemble survival/tail of passive equally spaced qutrits",
+          "2026/10/12/SCOPE-sharp-odd-copy-activation-law-for-passive-equally-spaced-qutrits--d9a37c2da2f6/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching indexed exact formula tabulates no survival values or density-dependent constants. The frozen numeric output is internal to the assigned record, not independent prior coverage."
+        ],
+        "reasoning": "An external table of finite numbers would not resolve the exact function over all m or the theorem for continuous f. The exact indexed object here is the statewise count; it is credited, not counted as newly computed.",
+        "searches": [
+          "Resultary d9a37c2da2f6, Finding: exact odd-copy count",
+          "Frozen VERIFICATION.md and verify.py, recorded quadrature versus claimed constant"
+        ]
+      },
+      "rationale": "The repaired finding claims the ensemble survival law and sharp tail, not the exact single-state activation criterion. The strongest distinct Resultary overlap gives that deterministic criterion exactly, including odd activation and the Gibbs exception. The inspected source statements do not address the pushforward of the sampling law, the sharp tail constant, or divergence of the mean. This is supported distinct ensemble content, not a claim of general priority.",
+      "residual_risks": [
+        "Unlocated ensemble-law work could give the same tail or a broader coarea statement for activation under random sampling. Unrelated web search results provide no evidence against it.",
+        "The relative priority of the distinct deterministic record is not inferred from its date."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the deterministic wedge but not the claimed ensemble theorem",
+          "evidence": "Exact least odd activation count away from the Gibbs curve and passivity at all copy numbers on it.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-sharp-odd-copy-activation-law-for-passive-equally-spaced-qutrits--d9a37c2da2f6/RESULT.md",
+          "material_read": "RESULT.md, offset 0, deterministic Finding",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Sharp odd-copy activation law for passive equally spaced qutrits",
+          "trigger": "Identical energies, full-rank passive states and exact activation count"
+        },
+        {
+          "assessment": "General deterministic criterion; no ensemble law in the inspected passage",
+          "evidence": "k-passivity iff the state commutes with H and the associated V_k is totally ordered.",
+          "identifier_or_url": "arXiv:1912.07968v3",
+          "material_read": "Lemma 7, p. 5, offset 26000 and adjacent activation discussion",
+          "method": "OA PDF bounded passage",
+          "title": "The geometry of passivity for quantum systems and a novel elementary derivation of the Gibbs state",
+          "trigger": "General geometric k-passivity and algorithms for first activation"
+        },
+        {
+          "assessment": "Related deterministic inequalities, not the sampling result in the inspected proposition",
+          "evidence": "The proposition imposes inequalities on three populations of an N-passive system.",
+          "identifier_or_url": "arXiv:1912.02099v4",
+          "material_read": "Proposition 1, p. 10, offset 42800",
+          "method": "OA PDF bounded passage",
+          "title": "Energy upper bound for structurally-stable N-passive states",
+          "trigger": "Finite-copy constraints for three nondegenerate levels"
+        },
+        {
+          "assessment": "Covers common-temperature complete passivity and sufficient-copy activation, not ensemble tails",
+          "evidence": "Thermal states have a common virtual temperature; an imbalance of virtual temperatures allows finite-copy activation.",
+          "identifier_or_url": "arXiv:1412.5485v2",
+          "material_read": "p. 1, offset 1570 and p. 3, offset 17200",
+          "method": "OA PDF bounded passages",
+          "title": "A short note on passivity, complete passivity and virtual temperatures",
+          "trigger": "Complete passivity and finite-copy activation background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Even with almost-sure finite activation, the ensemble mean diverges. The exact law provides a quantitative baseline for copy budgets, and the general density result identifies the thermal-curve trace as controlling the leading tail and fixes all positive moment thresholds. This is useful statistical structure beyond the known deterministic passivity test or numerical examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

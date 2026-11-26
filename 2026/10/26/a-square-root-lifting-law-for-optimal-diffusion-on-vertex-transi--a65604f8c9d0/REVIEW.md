@@ -1,19 +1,21 @@
-# Scientific review of the square-root lifting law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full statement is quantified for finite connected vertex-transitive base graphs, symmetry-invariant positive base-edge costs, integer leaf multiplicity and arbitrary feasible nonnegative conductances. The spectral gap is concave in edge weights, so averaging over automorphisms and private-leaf permutations yields an optimal uniform-leaf representative even when the competitor is asymmetric. The uniform-leaf block spectrum has lower branch determined by the base spectral gap; the branch is strictly increasing in that gap and lies below the leaf-difference eigenvalue. The definition of the base unit-budget optimum therefore gives a sharp cost constraint. A Schur complement and a strictly convex one-variable minimization prove the exact square-root formula and produce a feasible attaining allocation. Boundary zero-rate choices have zero gap. Critical identities were rederived symbolically, and numerical assembled-matrix checks cover vertex-transitive examples, including non-edge-transitive prisms. No finite check is substituted for the quantified proof.
+PASS
 
-## Originality — PASS, with bounded uncertainty
+The Rayleigh minimum on the fixed orthogonal complement of constants is concave in all edge weights. Averaging over lifted core automorphisms and independent leaf permutations preserves cost and yields equal leaf weights with no loss, even against arbitrary asymmetric competitors. With equal y, the leaf-difference modes have eigenvalue y, while each core mode of eigenvalue a gives the 2×2 block with diagonal a+qy,y and off-diagonal -sqrt(q)y. For a>0 the smaller eigenvalue lies in (0,y) and increases strictly with a (its eigenvector has nonzero core component). Disconnected designs have zero gap. For a target r>0, the Schur complement at the core gap gives exactly y>r and a≥r(q+1+qr/(y-r)). Homogeneity gives the sharp lower cost a/β, attained by scaling any unit-cost base optimizer. With u=y/r, the remaining tradeoff is between q/[β(u-1)] and Nqd(u-1). Their product is q²Nd/β, so their sum has minimum 2q sqrt(Nd/β) exactly at u-1=1/sqrt(βNd). This proves the displayed total cost, attainment, and uniqueness of the scalar split among uniform-leaf optimizers. The cycle and prism formulas follow from their elementary spectra; s≥5 distinguishes the prism cycle edges from rungs by the number of 4-cycles they lie in. The supplied Python computes full eigenspectra but its numerical comparisons test only eig[1], not every eigenvalue. Those samples are supplementary and were not rerun.
 
-The closest continuous-time reference is Sun, Boyd, Xiao, and Diaconis (2006, DOI 10.1137/S0036144504443821), whose complete discussion provides the general semidefinite model, concavity and cycles but not an exact pendant-decoration lifting rule. Barik, Pati, and Sarma (2007, DOI 10.1137/050624029), especially Theorem 3.2, provides unweighted corona Laplacian spectra, but no class-cost-constrained global conductance optimization. Boyd, Diaconis, Parrilo, and Xiao (2009, DOI 10.1137/070689413) provides symmetry reductions for a discrete-time SLEM objective with different admissibility constraints. The present theorem supplies the quantitative budget transfer, positive square-root allocation, arbitrary leaf multiplicity, and non-edge-transitive core handling. Searches for equivalent statements and stronger results did not establish coverage, but specialized prior sources may be missed and literature search cannot prove absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The lifting theorem is a nontrivial exact composition law: a network with an arbitrary number of private leaves per vertex can be optimized from the original core's one scalar unit-budget spectral-gap value, without solving the larger semidefinite problem. It specifies the globally optimal cost split and private-leaf conductance, and carries every optimal base conductance profile forward. It applies even when different core-edge orbits require distinct costs and optimal weights, as shown by the explicit two-orbit prism family. The result is motivated by budgeted diffusion-network design and provides a reusable design rule rather than an arbitrary graph enumeration.
+Credit the earlier sunlet optimum, the known fastest-mixing variational framework and the corona spectral mechanism. The evidence supports the distinct general lifting statement: any leaf multiplicity, vertex-transitive cores with multiple invariant cost orbits, and an exact scalar reduction through β with unrestricted competitors. This is a bounded best-of-knowledge judgment, not publication priority certification.
 
-## Closest antecedents and boundaries
+## value
 
-The explicit primal formula does not assert new general eigenvalue perturbation theory or an unrestricted optimizer-uniqueness classification. It depends on vertex transitivity and invariant cost coefficients, and treats the combinatorial continuous-time Laplacian. Prior works supply the general optimization framework, spectral ingredients and symmetrization methods; their combination requires an additional sharp scalar budget calculation to obtain the stated identity. The core constant is not universally evaluated for all graphs. Full specialist-literature exhaustion and independent auditing remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem solves a natural continuous-time diffusion design problem, reducing a new optimization on the decorated graph to one base invariant plus a closed-form allocation. It certifies global optimality even against asymmetric competitors and preserves practicality when distinct edge orbits carry different prices; it is not just evaluation of a fixed-weight spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

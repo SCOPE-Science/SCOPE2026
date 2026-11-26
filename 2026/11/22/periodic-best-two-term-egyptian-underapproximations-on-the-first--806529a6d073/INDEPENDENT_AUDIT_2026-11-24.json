@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:40:28.124827Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Admissibility forces a≥u; for a≥2u the sum is ≤1/u, strictly below the admissible greedy sum with a=u. For each remaining a=u+s the best ordered second denominator is max{a,floor(qa/(5a−q))+1}; the plus-one remains necessary when the residual is a unit fraction. With d_s=5s+4 and X_s=q(u+s), the unordered minimum error is d_s t_s/[X_s(X_s+t_s)] for t_s=d_s−(X_s mod d_s); it is a lower bound on legal error even when ordering is active. For s=0 the numerator is 16 at even u and 12 at odd u. For s=1 the t_s values at u residues 0 through 8 are 4,7,9,1,1,9,7,4,9. Expanding the comparisons in RESULT.md lines 55–82 verifies strict improvement exactly at residues 3 and 4 of u in the unbounded range (the other-case positive cubic is already positive at u=3). For s=2, monotonicity in t_s and parity give the two bounds in lines 84–103; the cross-multiplied differences are 4q²(u−6)(3u+2) and 2q²(u²−24u−21), excluding s=2 for even u>6 and odd u≥25. For s≥3, the coarser lower bound with t_s replaced by 1 in the numerator and d_s in the denominator yields D_u(s); its quadratic coefficient is −80u−16. Both endpoint polynomials are positive from u=34, so concavity excludes every s=3,…,u−1. Legal ordering of T₀ and T₁ in that range follows from d_s<q. The required finite range was independently replayed in exact Fractions: /workspace/branches/fffe1c3d-efa1-4ee2-94fa-74cd16606304/replay_boundary.py with output replay_boundary.txt in the same directory. The small test used 14 candidates; the complete 2≤u≤33 run used 560, found no discrepancy, and reproduced the sole (6,40),(8,15) tie at 23/120 and the two specified exceptions. All boundary winners have distinct denominators. The supplied checker was inspected, not executed, and the additional frozen sample up to u=500 is not needed. Translating the two residues to m and adding the two isolated failures gives density 2/9, excluding the tie where greedy is still best. Finally, coprimality for 2≤p≤4 forces the least positive shift to be at most p−1 (and p=1 has shift 1); for p=5 the shift 4 occurs precisely at q≡1 mod 5.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nathanson supplies the pointwise candidate framework plus complete I(2) and I(3) cases, here m=1 and m=2. The p divides q+1 criterion is inapplicable since q+1≡2 mod 5.",
+          "Chu's uniqueness range is Upsilon≤3 subject to its exception; the assertion for each threshold ≥4 is existential.",
+          "Kovač–Tang studies large term count for each fixed target, not a fixed term count over varying q."
+        ],
+        "reasoning": "Pointwise finite enumerability is not an all-q residue classification. The checked stronger-looking results either fix a low first-denominator interval or have distinct hypotheses and quantifiers.",
+        "searches": [
+          "Nathanson arXiv:2202.00191 §§6–7, finite two-term algorithm and low harmonic intervals",
+          "Chu arXiv:2306.12564v2 Theorem 1.3",
+          "Kovač–Tang arXiv:2607.28387v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, check.py and AUDIT.json",
+        "Independent exact boundary script and output listed under correctness",
+        "arXiv:2306.12564v2",
+        "arXiv:2202.00191",
+        "arXiv:2607.28387v2",
+        "Resultary 76e74216e1f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior threshold-four witness 5/16 and low interval classifications do not say when the greedy pair is tied, or when a second alternative T₂ wins elsewhere on the ray.",
+          "The new tail result uses a modular calculation for s=1 and parity and concavity to eliminate all other first denominators uniformly."
+        ],
+        "reasoning": "One cannot get the two residue classes, exceptions or the sole tie by simple instantiation of those covering-in-part statements. The additional uniform inequalities and exhaustive finite boundary are the substantive implications, not the stored finite sample.",
+        "searches": [
+          "Chu arXiv:2306.12564v2 Theorem 1.3 and construction §3",
+          "Nathanson arXiv:2202.00191 Theorems 6–7",
+          "Resultary 76e74216e1f0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chu's Upsilon shift is constantly four here: 5 divides q+4 and no earlier positive shift. Example 1.1 explicitly compares (4,17) with (5,9) for 5/16, whose m is 3.",
+          "Chu's k=4 construction includes q=16; it gives failures, not the complete set of maximizing pairs for every m."
+        ],
+        "reasoning": "The optimizer law is a strict two-unit-fraction problem equivalently expressed by its first denominator or its residual completion. The specific overlapping failure is prior; a family of witnesses to suboptimal greediness does not classify all maximizing pairs or equality cases.",
+        "searches": [
+          "Resultary: best strict two-term unit-fraction underapproximations with numerator five and divisibility threshold four",
+          "Chu arXiv:2306.12564, Example 1.1 and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact I₄=(1/4,1/3] catalogue classification includes the row a=17 (greedy second denominator) and competitor (5,9) on this target. Only m=3 of the ray lies in I₄.",
+          "Nathanson's exact low interval results also account for m=1,2; no wider ray-wide table is established in the checked passages."
+        ],
+        "reasoning": "This is positive exact coverage at the few identified targets, not an inference from lack of a search hit. Below 1/4, m≥4 and the I₄ table cannot decide any tail cases.",
+        "searches": [
+          "Resultary: exact two-term Egyptian underapproximation classification for the first-denominator-four interval, 76e74216e1f0"
+        ]
+      },
+      "rationale": "Known exact coverage includes the low harmonic intervals and individual numerator-five targets, notably 5/16 in Chu and in the first-denominator-four catalogue classification. The supported distinct claim is a uniform all-m classification on the full threshold-four ray, with both modulo-nine winner classes, the two sporadic failures and the only tie. Neither the pointwise algorithm nor the checked existence or eventual-greediness theorems supply that uniform result.",
+      "residual_risks": [
+        "An unindexed classification for another parameterization of this rational ray or a stronger general two-term formula could cover the tail; bounded literature inspection does not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Motivates threshold four and covers specific failures, not the all-m optimizer classification.",
+          "evidence": [
+            "Theorem 1.3 makes the threshold k≥4 statement existential. Example 1.1 gives (4,17) versus (5,9) at 5/16; the k=4, v=1 construction has q=16."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2306.12564",
+          "material_read": "v2 abstract p. 1, Example 1.1 p. 2, Theorem 1.3 p. 3, construction §3 pp. 11–12.",
+          "method": "Targeted OA PDF passages at offsets about 8268, 10156 and 31900.",
+          "title": "A Threshold for the Best Two-term Underapproximation by Egyptian Fractions",
+          "trigger": "Closest threshold result and exact overlap on the numerator-five ray"
+        },
+        {
+          "assessment": "Finite per-target search framework; exact interval classifications intersect the ray in two early cases.",
+          "evidence": [
+            "I(2)=(1/2,1] covers 5/6 and I(3)=(1/3,1/2] covers 5/11; the latter is a failure case. The inspected classification hypotheses miss the infinite tail."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.00191",
+          "material_read": "§6 pp. 11–12 and §7 Theorems 6–7 pp. 15–17.",
+          "method": "Targeted OA PDF passages, offsets about 40400 and 53400.",
+          "title": "Underapproximation by Egyptian fractions",
+          "trigger": "General candidate algorithm and explicit harmonic intervals"
+        },
+        {
+          "assessment": "Material exact overlap at m=3 only.",
+          "evidence": [
+            "The I₄ classification contains the greedy-second-denominator 17 comparison with (5,9). All m≥4 give 5/(5m+1)<1/4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-two-term-egyptian-underapproximation-classification-for-th--76e74216e1f0",
+          "material_read": "Mirrored RESULT.md, including Finding, I₄ table and comparisons (starting at offset 0).",
+          "method": "Resultary and original statement/table local mirror read.",
+          "title": "Exact two-term Egyptian underapproximation classification for the first-denominator-four interval",
+          "trigger": "Closest exact catalogue interval and explicit table"
+        },
+        {
+          "assessment": "The available eventual-greediness statement has different parameter quantifiers.",
+          "evidence": [
+            "Fixes a rational target and lets the number of unit fractions grow, covering repeated and distinct denominators; here the number of terms is two throughout."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.28387",
+          "material_read": "v2 abstract p. 1, offset 0.",
+          "method": "Bounded OA PDF statement read.",
+          "title": "Eventually greedy best Egyptian underapproximations of rational numbers via optimal control",
+          "trigger": "Potentially broader greedy versus optimal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The ray is the first possible numerator at a threshold not covered by the greedy-uniqueness guarantee. An explicit periodic rule with a complete census of nonperiodic exceptions and the unique tie is more useful than pointwise enumeration or additional failure examples: it answers exactly when greedy wins and identifies the true maximizers when it does not. The finite boundary is justified by uniform estimates rather than an arbitrary computational cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

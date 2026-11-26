@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The least local periods \(16\cdot7^{a-1}\) and \(10\cdot11^{b-1}\) follow from explicit companion-matrix powers with unit first-order lifts. Regular branches are local isometries, while singular branches are counted through Lucas squares; the latter include all zero, nonzero even-valuation, and nonsquare cases. The two periods have exact gcd two, forcing parity-compatible CRT synchronization, which gives every fiber and an inclusion-exclusion support count. An executable checker independently iterated complete periods and checked every target in seven composite exponent pairs, including \((3,3)\). The infinite theorem rests on the proof, not enumeration.
+PASS
 
-## Originality — PASS on inspected evidence
+The return of (F_n,F_(n+1)) to (0,1) is equivalent to M^n=I, so scalar periods equal matrix orders. Direct prime-level iteration gives 16 and 10; the two displayed powers are I+pB with unit upper off-diagonal in B. The binomial p-power lift gives v_p(F_(Pt))=1+v_p(t) for nonzero t, which proves the exact prime-power orders; gcd=2 and lcm=80·7^(a−1)·11^(b−1). For a period increment h=Pt with t nonzero, L_h+2 is a unit, so (L_h−2)(L_h+2)=5F_h² gives v_p(L_h−2)=2v_p(F_h). In the Fibonacci addition law, if L_r is a unit the term F_hL_n uniquely has the smallest valuation: the normalized Fibonacci branch is an isometry at each finite precision, giving one preimage per target in its residue disk. The excluded indices are 4 and 12 modulo 16 and 5 modulo 10. In those branches F_r is a unit, so the Lucas addition law instead makes the normalized Lucas map isometric and onto the divisible Lucas classes. The identity L_n²=5F_n²+4(-1)^n, with 10F_r a unit, then identifies the exceptional frequency with R_(p,k). For D=0 the root is divisible by p^ceil(k/2), giving p^floor(k/2) choices (including k=1); nonzero represented D has no root unless its valuation is even and the unit part is a square, and gives 2p^h roots when v_p(D)=2h≥2. Generalized CRT gives one index for each pair of equally paritied local indices, none otherwise. The seven-adic support sizes (even, odd, intersection) are (3A+2Q_7,4A,2A), A=7^(a−1), and eleven-adic sizes are (5B,2B+Q_11,B), B=11^(b−1), with Q at exponents a−2,b−2. Inclusion–exclusion yields the finite formula; Q_p counts squares and its normalized limit is the sum of the even valuation weights, p/[2(p+1)]. Substitution proves the two-variable density and discrepancy, not just a diagonal limit. A fresh recurrence replay checked complete parity tables and the root counts up to local exponent five and every composite fiber and support for all nine exponent pairs in [1,3]², including the stated support values 35, 1755 and 130525. Replay: python /workspace/replay_frozen.py 1. Finite checks do not establish the all-exponent theorem without the proof.
 
-Bragman–Rowland's 2022 prime-power Fibonacci study determines limiting prime-power support, illustrating the seven-adic tree, not the all-level composite frequency law. The closest publicly indexed seven-adic Lucas fiber result uses analogous square-root methods but concerns a different recurrence output and no cross-prime parity synchronization. A prior eleven-adic Fibonacci fiber classification likewise has no mixed-index information. published-finding corpus searches for simultaneous Fibonacci \(7^a11^b\) frequencies, CRT parity obstructions, and the exact proposed density found no covering record. Exact implication comparison: the new mixed statement cannot be read off any **one** of these sources; a combined adaptation of their methods is needed. Residual risks are an unindexed exact mixed result and reduction from a sufficiently strong general interpolation theorem.
+## originality
 
-## Value — PASS
+PASS
 
-Simultaneous modular realizability of a natural recurrence is not multiplicative even for coprime moduli. This exact classification identifies the missing index-parity compatibility, obtains every finite fiber, and computes the previously unstated two-prime limiting density \(523/1848\), a structural distinction from multiplying the known separate densities \(41/56\) and \(145/264\). It addresses a motivated gap left by prime-power-focused work rather than an arbitrary finite slice.
+Pass is for the exact mixed Fibonacci frequency and support laws with the parity obstruction and quantified mixed density; it is not for the prime-power densities, local branch structure in itself, or CRT. The verified prior support results are substantial, and a same-day distinct index supplies the whole eleven-adic local frequency component already at proof level. None of the inspected stronger statements provides the parity-synchronized finite precision pushforward across both primes and the resulting mixed coefficient law without the additional finite-precision counts and synchronized support analysis.
 
-## Limitations and closest literature
+## value
 
-The result is limited to two named prime-power factors and to the standard initial conditions. The closest literature is Bragman and Rowland (arXiv:2202.00704), Carlip and Somer (2007), and *Exact seven-adic Lucas residue fibers and the 41/56 range measure* (public mathematical record, 2026). These sources motivated the method; the new claim is the simultaneous-frequency and parity-support law. External independent verification and exhaustive bibliographic coverage are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The attained residues and their frequencies are natural invariants of the classical Fibonacci orbit. The smallest shared period modulus in this two-prime family enforces a concrete correlation: separate large local ranges do not combine independently. The exact all-target finite counts, support cardinality and nonzero asymptotic deficit quantify that correlation, covering the regular and ramified branches without orbit enumeration. This is more informative than an arbitrary finite modulus example or a repetition of the local image densities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

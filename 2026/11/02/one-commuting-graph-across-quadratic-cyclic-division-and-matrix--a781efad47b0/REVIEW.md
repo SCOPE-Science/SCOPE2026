@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The commutator identity is derived from the defining multiplication for every characteristic and every nonzero parameter. Its two cases give the complete elementwise commutants. The quotient-line partition and weighted pair count prove the exact graph and probability. The matrix-ring realization follows from finite-field norm surjectivity. The degree-two norm criterion proves division for parameters outside the base field; a direct square calculation proves commutant nonclosure. The supplied executable independently exhausts both multiplication and commutant sets for four finite field sizes; it is corroboration, not a substitute for the proof.
+## correctness
 
-## Originality — PASS (qualified)
-Nevins–Pumplün (arXiv:2610.30921v1), §§1–2 and §§3–4, concerns the construction and equivalence classification of the same algebras; its inspected body does not state the parameter-independent commuting graph, complete commutants, or nonclosure contrast. The established associative matrix-ring graph and recent work on unrelated finite ring/presemifield commutation do not imply the proper nonassociative case. Indexed mathematical record queries used aliases 'centralizer', 'commutant', 'cyclic semifield', 'Sandler', 'Petit', 'matrix-ring commuting graph', and the exact formulas, and did not locate a covering assertion. Residual possibility of older nonindexed semifield commutant results remains; priority is not externally certified.
+PASS
 
-## Mathematical value — PASS
-A complete and parameter-independent commuting classification for an infinite family of genuine division nonassociative algebras is a natural structural result. The exact equality of their graphs and commutation probabilities with the associative matrix ring, despite the failure of commutant subalgebra closure, is a substantive boundary on what the commuting graph detects. No claim is made for arbitrary semifields or for higher extension degree.
+For z=u+vt and w=x+yt the constant commutator coefficient is a(vσ(y)−yσ(v)). When v≠0 it vanishes exactly for y=cv with c∈F, and the t-coefficient then vanishes exactly for x−cu∈F. For v=0 and u∉F the t-coefficient forces y=0, giving K=F+Fu. This proves both the commuting center F and C(z)=F+Fz for z∉F, with no division by 2. Noncentral commutation is equality of projective lines in the three-dimensional quotient by F, with q(q−1) vertices per line. The ordered-pair count includes loops and all central elements: q·q⁴+(q⁴−q)q². For a∈F×, choose b with bσ(b)=a; the representation u+vt↦(x↦ux+vbσ(x)) preserves multiplication and is injective because σ is not the identity (evaluate at 1 and at x∉F). For a∉F, a nonzero left factor with v=0 immediately forces a zero right factor if the product is zero; with v≠0, u=0 also forces x=y=0, and otherwise elimination of y gives (N(u)−aN(v))x=0 with nonzero coefficient. So there are no zero divisors and all nonzero left/right multiplication maps are bijective by finiteness. The associator on (t,t,t) is (a−σ(a))t. Finally z²−Tr(u)z=aN(v)−N(u) lies outside F for v≠0, and (F+Fz)∩K=F there; thus C(z) is not closed under multiplication. The clique in the stated graph is C(z) minus F, not the whole commutant.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The split graph is not a distinct contribution. The originality pass is for the exact proper quadratic Petit commutation law across parameters and its juxtaposition with split matrix commutation, including the systematic nonclosure of the proper v≠0 commutants. Inspected comparative results do not cover that combination or imply the proper calculation.
+
+## value
+
+PASS
+
+A natural all-characteristic comparison shows that the same entire commuting graph and probability can occur for a split matrix algebra and a proper division algebra even though one has multiplication-closed commutants and the other has an explicit whole class of nonclosed commutants. The graph therefore loses a precise structural property; the uniform elementwise description also resolves every centralizer size, rather than merely fitting graph counts at small q.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

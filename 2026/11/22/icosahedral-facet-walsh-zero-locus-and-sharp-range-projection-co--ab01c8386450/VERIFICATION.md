@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-Use `python3 verify.py` with Python 3.8+ and no additional dependencies. The checker derives the icosahedral facets from the pentagonal construction and separately as all triangles of an independently built graph. It checks vertex and edge incidence counts, each of the \(4096\) direct signed face sums, every value of the structural \(20-10|S|+8(e-t)\) formula, and the separate complete Walsh–Hadamard transform.
+## correctness
 
-The checker verifies the six-set zero-count table \((72,260,180,120,80,12)\), the \(796\) total zeros, the complete signed eigenvalue histogram, the exact spectral gap \(2\), and the rank \(3300\). It then computes the integer projection-kernel histogram, verifies that the transform restores the frequency projection mask, and checks \(\sum_x|4096p(x)|=56232\), yielding \(7029/512\). These are exhaustive exact-integer checks for the stated finite object, not random tests or extrapolation.
+PASS
 
-## Limits
+Expanding the three sign factors per triangle and summing uses five facets per vertex and two per edge, giving 20−10|S|+8(e−t). Complementation reverses every facet sign; reducing modulo eight leaves only sizes 2, 6, 10. The size-two zeros are exactly the 36 nonedges, and size six requires e−t=5. An independent exact calculation from the cyclic coordinate families (0,±1,±φ), with φ²=φ+1, uses squared distance four for edges and 3-cliques for faces. Direct face signs, the structural formula and the integer Walsh transform agree on all modes. The calculation reproduces all bins of the signed spectrum, the 724 six-set zeros by (e,t), and all bins of the inverse Walsh transform of the nonzero-mode mask. Rank is 3300 and nullity 796; on the orthogonal complement of the kernel the multiplier moduli range from two to twenty, yielding the pseudoinverse norm and condition number. In the convolution matrix of the range projection, every row and column has the same absolute sum, 56232/4096, so this is both endpoint norms. For any projection onto W, its translation conjugates fix W pointwise and map into W. Their average still has those two properties and commutes with translations. The joint character spaces are one-dimensional over either scalar field, forcing the average to be identity on the surviving modes and zero on the others. Since translation is isometric, averaging cannot increase either endpoint norm. Thus the all-projections minimum follows analytically, not from checking a numerical kernel. Exact replay: independent_icosahedron.py with independent_run.txt; the frozen verifier was inspected, not executed.
 
-The script itself does not verify external bibliographic priority or an infinite family; the symbolic proof of projection optimality is given in `RESULT.md`. Independent audit: not performed.
+## originality
+
+PASS
+
+The distinct contribution is the exact facet-incidence zero set, complete signed spectrum, and sharp numerical range-projection norm for this specific graph, not the geometry or the projection averaging principle. The strongest inspected prior six-set statement describes a 200-element family contained in the new 724-element six-set zero family; it neither refers to the Walsh observable nor determines the other zeros or norm.
+
+## value
+
+PASS
+
+Facet convolution is a natural symmetric operator on vertex-set functions. Its null modes identify precisely which character signals it erases, while the endpoint projection constant is the exact cost of extracting its attainable range in the two endpoint norms even with unrestricted choice of projection. Those invariants are not determined by the vertex-facet incidence counts or by the Hilbert condition number. The zero criterion and independent exhaustive census give structural and quantitative information for a fixed, natural object.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

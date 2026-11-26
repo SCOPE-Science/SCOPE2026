@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:27:05.459396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the Euclidean projector in R^(d+1), with coordinate maximum norm measuring perturbations, differentiation in the middle region gives scalar row sum (1+||u||_1)/2. The spatial rows maximize as s/||x|| approaches 1 from below; Cauchy–Schwarz on the other d−1 entries gives the stated g_d, and g_d''<0 with opposite derivative signs at 1/2 and 1/sqrt(2). Evaluating g_d at 1/sqrt(2) proves spatial dominance for d=2,3,4 (the test margin decreases up to d=4 and is still positive there). At d=5 the stated quadratic majorant gives g_5 <= (9+4sqrt(2))/12 < 11/9 < sqrt(5)−1, and g_d(a)−sqrt(d)+1 decreases pointwise thereafter. On a segment the two cone boundaries have finitely many crossings unless the defining quadratic vanishes identically; in that case split at any change in sign of the scalar coordinate, on each piece of which the projector is identity or zero. Integration and interior row-sign perturbations give global sharpness, including the one-dimensional spatial case. Independent bisection gave 1.361178997924584, 1.463035638120580 and 1.541623172494264 for the three exceptional constants. The supplied verifier was inspected, not executed; the numerical replay is not the all-d proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong–Tunçel–Xiu's introduction includes second-order cones in the broader symmetric-cone family; §3 gives generalized projection Jacobians. Németh–Zhang investigate projection order-isotonicity and complementarity, not a sharp coordinatewise norm."
+        ],
+        "reasoning": "The general Jacobian is an input, not the extremized row-sum classification. Isotonicity is a different conclusion. Neither is needed to infer overlap, because the distinct Resultary record states the theorem itself.",
+        "searches": [
+          "Kong–Tunçel–Xiu, Clarke generalized Jacobian of the projection onto symmetric cones, manuscript §3",
+          "Németh–Zhang, arXiv:1405.7835v2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_lorentz.py",
+        "Resultary 2d1b9aa4230e, fbfc40872e9c, 8dad3ac9984d, 78696bf157c3",
+        "Kong–Tunçel–Xiu manuscript",
+        "Németh–Zhang arXiv:1405.7835v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The planar records concern projections minimizing the ambient l_p distance; the ball result has a different target. The exact Lorentz duplicate already derives the same middle-region Jacobian and row-sign local sharpness."
+        ],
+        "reasoning": "No implication from those neighboring planar/ball problems is required. The matching result covers both the theorem and the mechanism used for sharpness.",
+        "searches": [
+          "Published SCOPE/Resultary 2d1b9aa4230e, fbfc40872e9c, 8dad3ac9984d and 78696bf157c3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published Finding uses Q_d for the same Euclidean nearest-point map, d for spatial dimension, and the same induced two-point maximum-norm quotient. It includes L_1=1, the identical exceptional branches and root equation, the scalar branch and the switch at d=5."
+        ],
+        "reasoning": "Changing the notation and using a narrower isolating interval for the same unique root leaves the theorem unchanged.",
+        "searches": [
+          "Local Resultary search for sharp coordinatewise Lipschitz transition of Euclidean Lorentz-cone projection",
+          "Resultary 2d1b9aa4230e, RESULT.md, Finding at offset 80"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2d1b9aa4230e tabulates the same values in dimensions 2–5 along with their defining formulas. 78696bf157c3 gives the ball-clipping constant (1+||w||_2/min_i w_i)/2, whose equal-weight specialization happens to match the scalar Lorentz branch."
+        ],
+        "reasoning": "The first is formula and invariant identity, not just matching numbers; the second shares a numeric expression for a different map. No free-standing sequence database is relevant to this projector invariant.",
+        "searches": [
+          "Local Resultary numerical and formula comparison: 2d1b9aa4230e and 78696bf157c3"
+        ]
+      },
+      "rationale": "A distinct published Resultary record expressly states the identical Euclidean-projector/coordinate-norm problem, all sharp constants, the same optimizing equation, and the exact dimension-five switch. The tighter bracket on the same unique root is a direct endpoint sign check, not an independent finding. This decision concerns demonstrated equivalent coverage; the two path dates do not settle historical priority or how the records relate.",
+      "residual_risks": [
+        "Historical priority and provenance of the exact-match records are unresolved. A primary search without an exact hit is not proof that no earlier outside source exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "equivalent coverage",
+          "evidence": [
+            "Same quotient, d=1, exceptional root/formulas at 2–4, and axial dominance starting at spatial dimension five."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-coordinatewise-lipschitz-transition-for-euclidean-lorentz--2d1b9aa4230e/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, opening proof, offset 80–2680",
+          "method": "local Resultary mirror",
+          "title": "Sharp coordinatewise Lipschitz transition for Euclidean Lorentz-cone projection",
+          "trigger": "materially exact local match"
+        },
+        {
+          "assessment": "relevant derivative background, not the stated sharp classification in inspected passages",
+          "evidence": [
+            "Second-order cone included in symmetric-cone setting; §3 studies the Clarke generalized Jacobian of the projector."
+          ],
+          "identifier_or_url": "https://www.math.uwaterloo.ca/~ltuncel/publications/CGJ-SVVA2.pdf",
+          "material_read": "Introduction p. 2 and §3 p. 8 opening, manuscript",
+          "method": "lawful OA passage inspection",
+          "title": "Clarke generalized Jacobian of the projection onto symmetric cones",
+          "trigger": "broader projection calculus"
+        },
+        {
+          "assessment": "different objective in inspected abstract",
+          "evidence": [
+            "Characterizes isotone projection sets and applies them to complementarity."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1405.7835v2",
+          "material_read": "abstract",
+          "method": "OA HTML passage inspection",
+          "title": "Extended Lorentz cones and mixed complementarity problems",
+          "trigger": "projection onto related cones"
+        },
+        {
+          "assessment": "adjacent but not equivalent",
+          "evidence": [
+            "The wedges use l_p projection, and the clipping theorem targets a ball rather than the Lorentz cone."
+          ],
+          "identifier_or_url": "Resultary fbfc40872e9c, 8dad3ac9984d, 78696bf157c3",
+          "material_read": "three Finding passages, offsets 100, 70 and 60 respectively",
+          "method": "local Resultary mirror",
+          "title": "Planar cone projection and Euclidean-ball clipping comparisons",
+          "trigger": "sharp projection stability and matching high-dimensional expression"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The amplification factor and switch of the worst output coordinate answer a natural robustness question, but the record adds no substantive claim beyond the equivalent published classification. A narrower bracket for the same optimizer and more displayed decimal digits are routine refinements, not a worthwhile surviving result.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

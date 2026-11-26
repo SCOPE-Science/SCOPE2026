@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:49:25.813964Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–44; checks/types.cpp and checks/types.py as text",
+        "Frozen checks/cpp_classes.txt and checks/reproduction.txt as recorded results",
+        "Independent `python3 /workspace/branches/ef_replay.py dynkin 40`, output `/workspace/branches/ef_dynkin.txt`"
+      ],
+      "rationale": "The diagram orders and arm lengths agree with the claimed finite simple graphs. Four ordered choices with replacement and a terminal diagram distinguishing equality, adjacency and neither give a complete EF invariant by backwards induction using sets of next-choice types. An independently written enumeration reproduces the entire finite partition through parameter 40 for A,D and includes E6, E7 and E8. The virtual-endpoint strategy handles the infinite tails: a gap count measures unused interior vertices, the thresholds are 1,3,7,15,31, and a gap above threshold can absorb a move while matching a short side exactly or leaving enough on both sides. Equality and adjacency are preserved at threshold 1; a move at an already paired endpoint or extra pendant preserves the invariant at the lower threshold. In D_n the spine has n−4 interior vertices and the two off-spine vertices meet only the paired trivalent end. Thus A≥33 and D≥35 each stabilize, and the exhaustive finite checks bridge those tails to A16 and D17, including all cross-series distinctions. The D17 class has no smaller representative inside the listed family, so the sharp ceiling is 17, not a claim about all finite graphs.",
+      "residual_risks": [
+        "The finite run establishes the bridge and distinctions within the enumerated range; the unbounded conclusion uses the separately checked gap lemma. No claim for richer diagram signatures or other families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bohman et al. Theorems 3.1–3.2 give asymptotic extrema of defining depths and Lemmas 3.3–3.5 give general game tools/bounds. SCOPE-905a6c22a404 treats all diameter-four trees but uses rank three."
+        ],
+        "reasoning": "General defining-depth asymptotics do not determine all pairwise rank-four comparisons for trivalent trees; the growing-degree regime does not give the D cutoff. Diameter four includes D6, but neither includes every D and E graph nor specifies their rank-four types.",
+        "searches": [
+          "Bohman et al., First-Order Definability of Trees and Sparse Random Graphs, Introduction and §3",
+          "SCOPE-905a6c22a404 Finding and scope"
+        ]
+      },
+      "checked_sources": [
+        "Resultary",
+        "SCOPE-a6c244ee8bb8",
+        "SCOPE-905a6c22a404",
+        "Brown–Hoshino publisher and attributed theorem lead",
+        "Bohman et al. §3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior path classification supplies the sixteen A classes. Rank-four equivalence implies rank-three equivalence, so a lower-rank table can constrain where applicable but does not give the higher-rank types. An upper bound on rank needed to define a tree is a different comparison."
+        ],
+        "reasoning": "Neither the broad tree bounds nor path/non-tree comparisons supply the needed exact threshold and sharpness inside the D-series or resolve all branch-family cross-comparisons. Those features are retained as the distinct claim.",
+        "searches": [
+          "Frozen RESULT.md lines 5–18 and 46–48 versus the linear-forest record, diameter-four tree record, and Bohman et al. §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A_n is exactly P_n on n vertices. The linear-forest record states the exact rank-four path threshold 16 (attributed to Brown–Hoshino Theorem 3.10) and separately classifies a disjoint union of two paths versus a path."
+        ],
+        "reasoning": "The path reparameterization is existing coverage. A trivalent spider is neither a path nor a disjoint union of paths, and treating the diagrams as unlabelled spiders does not turn the known forest theorem into the missing rank-four cases.",
+        "searches": [
+          "Resultary for rank-four EF equivalence of finite simply laced Dynkin diagrams, paths and three-arm trees",
+          "SCOPE-a6c244ee8bb8 Finding; Brown–Hoshino path theorem lead"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest tables concern P_m versus P_n and disjoint unions, or nine rank-three classes of diameter-four trees."
+        ],
+        "reasoning": "The exact A threshold is present and credited; the indexed tables inspected do not give the D tail, exceptional triple and cross-series noncoincidences. The same-day record was evaluated by statement, not discarded or given priority based on the calendar date.",
+        "searches": [
+          "Resultary exact-partition and tree/linear-forest lookups; SCOPE-a6c244ee8bb8 and SCOPE-905a6c22a404"
+        ]
+      },
+      "rationale": "The A-path threshold is credited prior coverage, not the new claim. The supported contribution is the exact D stabilization, E distinctions and full cross-series partition. The strongest inspected indexed and published results overlap on paths, on a small subset of the trees at a different rank, or on general bounds, not on this combined classification.",
+      "residual_risks": [
+        "Primary Brown–Hoshino theorem text was not independently read from the available scan; exact path coverage is credited rather than presented as new.",
+        "A specialized prior trivalent-tree result is not excluded by the bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material subclaim overlap, not D/E or cross-series coverage",
+          "evidence": [
+            "It states P_m≡4P_n iff m=n or both≥16, credited to Brown–Hoshino; its additional result is about P_a disjoint union P_b versus P_c."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-four-round-connectedness-camouflage-in-finite-linear-forests-a-s--a6c244ee8bb8",
+          "material_read": "RESULT.md, offsets 250–1981 and 950–2071",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Four-round connectedness camouflage in finite linear forests",
+          "trigger": "Exact path rank-four overlap"
+        },
+        {
+          "assessment": "Different domain and rank",
+          "evidence": [
+            "Nine rank-three theories and sharp ten-vertex bound in the diameter-four family."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-nine-rank-three-theories-of-finite-diameter-four-trees-with-a-sh--905a6c22a404",
+          "material_read": "RESULT.md offsets 0–1181 and 1600–2400",
+          "method": "Local mirror, same snapshot",
+          "title": "Nine rank-three theories of finite diameter-four trees",
+          "trigger": "Potential broader tree-family table"
+        },
+        {
+          "assessment": "Credit exact path overlap from inspected catalogue statement and frozen attribution, not a verified primary-text reading",
+          "evidence": [
+            "The indexed statement of the theorem has the exact threshold 16 on the same paths."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20083/volume-83-paper-13.pdf",
+          "material_read": "Lawful publisher PDF and page attempted; theorem not readable on attempted text route. Theorem 3.10 attribution from SCOPE-a6c244ee8bb8",
+          "method": "Publisher OA attempt and secondary locator comparison",
+          "title": "The Ehrenfeucht–Fraïssé Game for Paths and Cycles",
+          "trigger": "Cited exact A-series path theorem"
+        },
+        {
+          "assessment": "Asymptotics and general game results, not exact table coverage",
+          "evidence": [
+            "Defining depth minimizes rank for identification up to isomorphism; §3 bounds worst-case depths over broad tree classes and treats path-versus-colour-separated-path and tree-versus-nontree games."
+          ],
+          "identifier_or_url": "doi:10.1017/S0963548306008376; https://edoc.hu-berlin.de/bitstreams/442d2d36-b746-4235-9404-aef14a9e24b3/download",
+          "material_read": "Printed pp. 375–376 Introduction and pp. 378–379, Theorems 3.1–3.2 and Lemmas 3.3–3.5, offsets about 2000, 12000 and 16800",
+          "method": "Institutional OA PDF passages",
+          "title": "First-Order Definability of Trees and Sparse Random Graphs",
+          "trigger": "Strong general tree-definability and EF bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical ADE family motivates asking which distinctions its underlying graphs retain under weak logic. The exact trivalent-family stabilization and comparisons tell when distinct orders are no longer discernible and whether exceptional diagram types can be confused with other diagrams. The sharp representative bound and cross-series classification supply that usable exact information; the value is not the recomputed known path threshold alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

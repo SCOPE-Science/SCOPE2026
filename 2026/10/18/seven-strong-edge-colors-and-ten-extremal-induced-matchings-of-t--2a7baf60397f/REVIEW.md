@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem refers to the uniquely specified thirty-vertex duad–syntheme incidence graph, not a similarly named twenty-eight-vertex Coxeter graph. Both independently written standard-library scripts generate exactly forty-five graph edges. One exhaustively visits every induced matching by increasing edge labels; the other enumerates all maximal induced matchings using Bron–Kerbosch and then takes their subsets. Both give nine nonzero size strata, a largest size of nine, ten maximum matchings, intersection one for every distinct pair of maxima, and multiplicity two for each of the forty-five edges. The six-color exclusion is a cardinality reduction to ninety fully exhausted cases, with thirty-two candidate seven-cliques in every case and no four-cover; both scripts verify it. Both explicitly check the seven-color assignment against all incompatible edge pairs. The combinatorial reduction and finite exhaustiveness, rather than output logs alone, justify the claim.
+PASS
 
-## Originality
+The repaired claim is exact strong chromatic index 7. A conflict between distinct duad–syntheme flags is exactly either cross-membership, including when they share an endpoint. The complete 45-entry coloring in repairs/1/RESULT.md passed its self-contained check of all equal-color edge pairs after reconstructing the canonical list; the proof uses the published six-color obstruction. Independently, the fresh standard-library replay /workspace/branches/24c45266-cb6b-47b6-8e5c-b64957ac6274/reproduce_tutte_coxeter.py and its .out.json regenerated the full 30-vertex, 45-edge instance and all induced matchings: (45,720,5160,16920,22680,8520,720,90,10), with maximum size nine. Every size-eight class has a unique parent, two maxima meet in one edge, and no edge lies in three maxima, so with no nine-class at most two eight-classes fit into six, covering at most 44 edges. With a nine-class at most one eight-class fits: two disjoint eights would have to omit their intersections with the nine-class, yet still share their parents' mutual intersection. The sole six-color profile is then (9,8,7,7,7,7). Each of the 90 ordered parent pairs leaves 32 candidate sevens, and fresh exhaustive tests found no cover by four. The frozen mathematical assertions therefore also check out; the repair addresses coverage, not a false enumeration. Frozen scripts and recorded outputs were inspected, not run. No conclusion for a larger family or list-coloring follows.
 
-**PASS, with bibliographic residual risk.** Lužar, Máčajová, Škoviera and Soták, arXiv:2101.04768, Section 5, already establish nonexistence of a strong six-edge-coloring for this particular cage; that lower bound is fully credited. Their checked manuscript then proposes the broader seven-color conjecture and reports seven-color experiments on graphs with no more than twenty-six vertices, not this thirty-vertex instance. The explicit seven-color upper bound, complete ten-maximum induced-matching structure and independently replayable finite lower-bound proof are not covered by those statements. Earlier planar-graph upper bounds and general induced-matching results do not imply the graph-specific answer. Targeted mathematical searches and accessible historical-claim checks yielded no exact antecedent. A hidden graph database entry, supplemental file or unindexed coloring is a possible residual risk, not a novelty certificate.
+## originality
 
-## Value
+PASS
 
-**PASS.** The Tutte–Coxeter graph is the unique cubic girth-eight cage and was specifically singled out in the 2021 paper as requiring more than six strong colors. Closing its upper bound at seven supplies an exact high-girth benchmark for the proposed seven-color phenomenon, not merely a routine new example. The unusual ten-by-forty-five incidence design also explains a sharp packing obstruction within all maximum induced matchings, and its full matching census provides reusable finite combinatorial data. No general bound for other graphs is asserted.
+For the frozen combined contribution originality fails in part: the matching census and incidence classification are covered by the earlier partition classification or direct consequences of it, and the six-color obstruction is published. The repaired claim retains only the independently checkable seven-color upper bound yielding the exact index, with both overlaps credited. The strongest inspected primary passage offers only non-six-colorability and a conjectural general seven-color upper bound. Neither the distinct Resultary matching records nor the inspected published comparisons establish the seven-color upper bound. This PASS is for the repaired claim only.
 
-## Scope and limitations
+## value
 
-The result is finite and self-contained, with no generalization to all cubic girth-eight graphs or any list-coloring statement. The six-color impossibility proof uses an exhaustive small exact-cover remainder rather than a wholly noncomputational construction; the recursion is complete and supplied. Publication priority is not established definitively, and an independent scientific audit is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The repaired result computes a natural invariant of the canonical cubic girth-eight cage, singled out as a six-color obstruction in the literature. An explicit seven-coloring resolves the exact value needed to compare that obstruction with the broader seven-color conjecture. This is useful without claiming a general upper bound or counting the already-covered matching design as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

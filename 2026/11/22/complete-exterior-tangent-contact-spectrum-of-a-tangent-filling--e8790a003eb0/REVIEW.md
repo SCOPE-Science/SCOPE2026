@@ -1,19 +1,21 @@
-# Review: complete exterior tangent-contact spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All fields, projective normalizations and exclusions are explicit. The gradient identity gives a rational contact equation for every exterior point. The six boundary vertices give \(q-3\) contacts each. Nonvertices give the character formula \(q-4-\chi_q(t^2-t+1)\), using nonsingular conics and checking that the forbidden points are disjoint. Counting this quadratic character across all four lines gives the complete boundary histogram. A nodal cubic through the singular point has \(q+1-\chi_q(-3)\) rational points; removing six boundary points and the node itself gives \(q-6-\chi_q(-3)\) allowed contacts. These facts establish all stated quantifiers for every prime power of characteristic greater than three; direct complete enumerations for nine prime fields and three quadratic fields agree. Residual risk is an implementation-independent conceptual error in identifying the local contact equation, mitigated by direct gradient enumeration and full proof.
+PASS
 
-## Originality — PASS, with a priority limitation
+Reconstructed the proof over every finite field of characteristic >3. The rational locus follows from nonzero (q−1)-powers being 1. At a geometric singularity normalize the coordinate sum to 1; vanishing of the gradient gives x^(q−2)=y^(q−2)=z^(q−2)=3. The translated variables u=3x−1, v=3y−1, w=3z−1 have sum and sum of squares zero, satisfy T^3−uvw=0, and obey u^q=u^2+2u and analogues. Squaring and summing yields 12uvw=0, so all three vanish. The nondegenerate quadratic term gives the node; uniqueness and Bézout exclude reducibility in degree ≥4. For the incidence count, the normalized gradient is (1/x−3,1/y−3,1/z−3). The six vertices each exclude exactly three choices from q. The product equation on a coordinate nonvertex and the nonsingular conic on the sum-zero line each give q−4−χ(t²−t+1) after disjoint exclusions. The sum of χ(t²−t+1) is −1 by a factorization with nonzero constant; subtracting t=0,1 yields the claimed frequencies. For the cubic at the node, the three exceptional slopes 0, −1 and infinity retain distinct third points at infinity, and exactly 1+χ(−3) slopes lose their third point to the node. Removing six boundary points and the node leaves q−6−χ(−3). Checked the incidence total and the q=5,7 cases including the zero-frequency boundary row. The proof, not the frozen arithmetic logs, certifies the all-field formula. See checks/analytic-notes.md.
 
-Asgarli–Ghioca, arXiv:2302.13420v1, Theorem 1.3 and Section 3, introduced the exact model and proved existence of exterior tangents for sufficiently large fields; the present formula reconstructs the **number** of rational contact points through every exterior point and their exact distribution over all fields of the stated characteristic. The public theorem *Exact rational bitangent counts for a tangent-filling plane curve* describes the fibres of the rational Gauss map (one or two rational contacts per **tangent line**). These are not the fibres of the **exterior-point incidence projection**, so its line-count statistics do not imply the stated pointwise character formula or histogram. The related public records on an eighteen-tangent cover for \(q=11\) and on a four-nodal double plane treat distinct-tangent covering and the geometry of the tangent map, respectively, not this uniform all-field theorem. Searches of the original article, indexed public results, exact equations, character aliases and related incidence questions revealed no result whose statement dominates the claim. Unindexed earlier calculations and the possibility of an unnoticed equivalence remain residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The original tangent-filling problem is a qualitative covering problem. The complete arithmetic contact-incidence profile is a natural refinement: it specifies the exact multiplicity of the tangent covering at **every** point outside the smooth curve, identifies the quadratic-character source of its small-field exceptions, and proves that precisely the singular point fails to be covered when \(q=5\) or \(q=7\). This is a uniform complete classification of a naturally motivated incidence statistic, not an arbitrary small finite-field table or another rephrasing of the published number of tangent lines. The conclusion does not count distinct tangent lines through each point and does not determine the full geometric dual.
+The supported contribution is the uniform exterior contact-count law and incidence total, not the curve, qualitative coverage for q≥11, or the uncovered node at q=7. The closest inspected results do not determine the point-side multiplicities including repeated contributions from one tangent line.
 
-## Closest work and limits
+## value
 
-Sources: Asgarli and Ghioca, *Tangent-filling plane curves over finite fields*, https://arxiv.org/html/2302.13420v2 ; *Exact rational bitangent counts for a tangent-filling plane curve*, https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-exact-rational-bitangent-counts-for-a-tangent-filling-plane-curv--51fb2a9a947e/RESULT.md ; *An eighteen-tangent projective triangle on the first Asgarli–Ghioca curve*, https://github.com/published-finding corpus/2026/blob/main/2026/10/13/SCOPE-an-eighteen-tangent-projective-triangle-on-the-first-asgarli-ghi--6ed9d400dac8/RESULT.md ; *The four-nodal double plane behind the tangent map of the Asgarli–Ghioca curve*, https://github.com/published-finding corpus/2026/blob/main/2026/11/2/SCOPE-the-four-nodal-double-plane-behind-the-tangent-map-of-the-asgarl--7693cabfbd09/RESULT.md . All existing geometric and tangent-fibre facts are credited rather than claimed as additions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact covering multiplicity is a natural refinement of tangent filling for the defining example. It quantifies redundancy at the exterior points, distinguishes the small fields from the general case, and isolates the dependence on the quadratic character. It is a uniform result, not a single-field recomputation or a renamed Gauss-fibre count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:44:32.068301Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the frozen RESULT.md lines 5–38, the centered linear coordinate x has squared norm S_n, path gradients 1 and closing gradient n−1. Its Rayleigh quotient is [B−(t−(n−1)^2)c]/S_n. The parabolic path weights solve Lx=Λx, and on monomials of degree k the scaled path operator is triangular with leading coefficient k(k+1)/2, so the path gap is simple and separated. Equality in Rayleigh at c=0 determines all weights by the vertex recurrences. The positive directional derivative at t<(n−1)^2 follows from the simple eigenvalue, decreasing each path weight uniformly while adding the chord. At equality Rayleigh attainment forces w_i=Λu_i−(n−1)c; positivity of L−ΛI on centered vectors is then equivalent to positivity of A_n−(c/Λ)((n−1)I−11^T) in difference coordinates. Indeed the squared norm of a centered cumulative sum has Gram entry C_ij=i(n−j)/n for i<=j; summing each row gives u_i. The constant gradient is a null vector; the smallest eigenvalue on its orthogonal complement gives precisely the claimed cutoff. The e_1 test yields ρ_n≤(n−1)/(2n)<1/2, so path weights remain strictly positive; a nonconstant null gradient appears at the endpoint. Independent exact characteristic polynomials confirm all four example radicals (python3 /tmp/opencode/frozen_math_reproduction.py). The supplied script was inspected but not executed; neither finite checks nor the recorded numerical optimization prove the unrestricted optimizer statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "b8eae264de71 permits arbitrary positive masses and arbitrary path-edge unit prices, and proves the screening threshold, strict gain and compulsory edge below it, and all critical optimizers.",
+          "The SIAM Review paper's Result 5 gives the parabolic path solution; Result 6 for general cycle costs concerns the dimension of optimal unfoldings, not this critical face."
+        ],
+        "reasoning": "Taking all m_i=p_i=1 gives S=n−1, V=S_n, G_i=u_i, the same path solution and exactly the same critical affine weights in all dimensions.",
+        "searches": [
+          "Resultary b8eae264de71, RESULT.md Finding and Assumptions and scope, offsets 0–3993",
+          "Sun–Boyd–Xiao–Diaconis, §§5.2–5.3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary b8eae264de71, d9373cd674f6, 798a42b2934c",
+        "Sun–Boyd–Xiao–Diaconis, DOI 10.1137/S0036144504443821"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With uniform masses and ordinary prices the denominator is d^T((n−1)I−11^T)d and the numerator is Λ d^T(diag(u)−C)d. Both are unchanged under adding a constant to d; the extra x-orthogonality in the generalized statement selects one representative per gradient class.",
+          "The spectral endpoint is consequently Λλ_2(A_n)/(n−1). Testing d=e_1 modulo constants bounds it by Λ(n−1)/(2n), strictly below the ordinary-edge cutoff Λ/2."
+        ],
+        "reasoning": "This recovers the full critical face, strict positivity of path edges there and the extra endpoint eigenvector (a minimizing gradient); no subcritical formula is needed to cover the frozen claim. No numerical coincidence or date inference is used.",
+        "searches": [
+          "b8eae264de71 RESULT.md, boundary formula t_*=min(t_edge,t_spectral) and quotient A(g)/R(g)",
+          "Frozen RESULT.md lines 72–86"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Continuous-time symmetric spectral-gap maximization is equivalent to gap-one cost minimization by positive scaling.",
+          "For positive gap an at-most-B optimum spends B, so the budget difference in the generalized record gives no separation."
+        ],
+        "reasoning": "The generalized mass-weighted formulation with all masses equal to one is exactly the frozen Laplacian objective; the closing-edge price and conductance are simply renamed.",
+        "searches": [
+          "Resultary: one priced closing edge fastest mixing cycle and complete critical optimizers; closest general record b8eae264de71",
+          "Sun–Boyd–Xiao–Diaconis, DOI 10.1137/S0036144504443821, §3.3 Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The C5 catalogue theorem has t=16 and c_max=(10−sqrt(10))/200 for B=1, and also solves the lower-price phase at this size.",
+          "The C4 theorem has t=9 and c_max=B/15."
+        ],
+        "reasoning": "These are exact special-size overlaps, not by themselves full coverage of the arbitrary-order claim.",
+        "searches": [
+          "Resultary d9373cd674f6, C5 exact price transition, RESULT.md offsets 0 and 9174",
+          "Resultary 798a42b2934c, C4 sharp shortcut-cost transition, RESULT.md offset 0"
+        ]
+      },
+      "rationale": "The distinct indexed result b8eae264de71 demonstrably covers the one-exceptional-price theorem including the complete critical interval. This is a coverage verdict, not a historical priority claim: the broader record has a later catalogue date path, which is not a verification of discovery or priority order. The older-path C4/C5 records separately cover their sizes. The Brownian-bridge spectral expression is an exact change of coordinates in the broader variational endpoint, not an independent remaining optimization result.",
+      "residual_risks": [
+        "Discovery and publication priority between the frozen and broader indexed results was not established from the date paths.",
+        "Fiedler's historical path source was not independently inspected in full; it is not needed for the decisive full coverage evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all frozen optimum regimes and the whole critical segment by uniform specialization",
+          "evidence": "q_c=(sum sqrt(p_i))^2, affine critical weights, endpoint min of edge and spectral cutoff; explicit specialization given above.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-mass-independent-edge-screening-and-complete-critical-optimizers--b8eae264de71/RESULT.md",
+          "material_read": "Finding, Assumptions and scope, theorem with endpoint quotient, start of proof (offsets 0–3993)",
+          "method": "Local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Mass-independent edge screening and complete critical optimizers for priced reversible cycles",
+          "trigger": "Dominating arbitrary-mass and path-price theorem"
+        },
+        {
+          "assessment": "Exact C5 overlap, stronger for subcritical C5 only",
+          "evidence": "Critical t=16; with B=1 critical endpoint (10−sqrt(10))/200.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-the-exact-price-transition-for-fastest-mixing-on-a-five-cycle--d9373cd674f6",
+          "material_read": "RESULT.md offsets 0 and 9174",
+          "method": "Local mirror text",
+          "title": "The exact price transition for fastest mixing on a five-cycle",
+          "trigger": "Exact one-priced C5 match"
+        },
+        {
+          "assessment": "Exact C4 overlap",
+          "evidence": "Critical t=9 and c_max=B/15, agreeing with S_4=5 and ρ_4=1/3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-a-sharp-shortcut-cost-phase-transition-for-fastest-mixing-on-a-f--798a42b2934c",
+          "material_read": "RESULT.md offset 0, finding",
+          "method": "Local mirror text",
+          "title": "A sharp shortcut-cost phase transition for fastest mixing on a four-cycle",
+          "trigger": "Exact one-priced C4 match"
+        },
+        {
+          "assessment": "Framework and path antecedent; inspected cycle passages do not state the critical segment",
+          "evidence": "General costed SDP, exact path weights and equal-cost cycle, arbitrary-cost unfolding dimension.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf (DOI 10.1137/S0036144504443821)",
+          "material_read": "§3.3 Eq. (3), §5.2 Result 5, §5.3 Result 6 and cycle discussion, pp. 686–687 and 695–697",
+          "method": "OA author PDF text, offsets 17574, 47258 and 50168",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "Primary weighted continuous-time optimization antecedent"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Viewed as a mathematical theorem apart from the overlap, an exact threshold distinguishing mandatory and forbidden use of an optional link, and a full critical optimal segment including its multiplicity endpoint, is meaningful for diffusion network design. It does not solve the whole subcritical optimization; the failing axis is demonstrable originality coverage.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review: metric-order reversal in a reversible three-level thermal gate
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The forward generator has exact independent slow middle-occupation and fast outer-imbalance modes, with rates \(a\) and \(ar+c(1-r)\). Weighted orthogonality gives the squared Hilbert distance, while sign analysis gives a different piecewise-affine total-variation distance. Under strict slow-mode inversion, each distance has one and only one positive crossing. Two exact rational examples certify opposite timing orderings, including root-region checks. `checker.py` recomputes the generator relations, modal and variation identities, and witness inequalities in exact arithmetic; analytic proofs supply the unrestricted quantifiers. The existence threshold is a derivative calculation and is acknowledged as a specialization of known modal geometry.
+PASS
 
-## Originality — PASS (qualified)
+Detailed balance holds pairwise and the zero-sum slow/fast modes decay with rates a and ar+c(1-r), with orthogonality in the stationary-weighted norm. Initially the squared weighted norm plus one is Z(beta_b)Z(2beta-beta_b)/Z(beta)^2, strictly decreasing toward the bath by strict monotonicity of the Gibbs mean energy. TV initially is the maximum of the falling ground-state deficit and falling upper-state surplus. The fast amplitude n has strictly decreasing temperature-parameter dependence in beta because q2 decreases and q0 increases. Thus the weighted squared-distance difference after removing its common exponential is strictly increasing in z^2. The rescaled TV difference is constant before either hinge, possibly decreasing if warm activates alone, then strictly increasing from the hot activation onward (or increasing through both segments if hot activates first). With the strict slow-amplitude inequality and the initial ordering there is one genuine root for each metric. The middle Gibbs mass derivative changes sign at most once, and a strictly ascending part with q1 above the bath value is available exactly when E>2 Delta and beta_b>beta_*, giving the supporting boundary on the stated nonnegative domain. An independent rational computation projected the forward generator onto its modes and solved the unsquared absolute-value difference between coordinate breakpoints. The computed pairs (z2^2,zTV) were (8180/3657833,4259/126087) and (228877/138852250,2816/24875), with opposite nonzero signs of z2^2-zTV^2, giving the claimed time orders since z decreases with time.
 
-The core comparison concerns the order of *two distinct genuine distance metrics*, not the existence of Markovian Mpemba relaxation itself. Lu–Raz (2017) and Gelbwaser-Klimovsky (2026) establish the broader three-level slow-mode geometry. Pardhi–Abbas–Das (2026) cover a genuine Hilbert metric in continuous-state diffusion; Taye (2026) analyzes relative-entropy timing and energy. An accessible previous finite-state Hilbert zero-count result implies the Hilbert uniqueness, but has no TV crossing-time comparison. Exact scans of relevant public statements and literature did not find both rationally certified opposite metric orders for this gate. Full-text access to one earlier 2026 necessary-conditions paper was incomplete; a stronger later full paper was inspected. Wider implicit-prior coverage remains possible. Failed searches are not novelty certificates.
+## originality
 
-## Value — PASS
+PASS
 
-Comparative Mpemba timing is sensitive to the measuring distance even when both are true and contractive. The explicit sharp contrast, two complete exact examples, and analytical hinge criterion make this a meaningful boundary for selecting a relaxation diagnostic; the new value is not the known general condition for existence. This is a finite-state mathematical benchmark, not a prediction for physical water cooling or noisy observation.
+The supported distinct contribution is the exact two-way timing comparison for TV and stationary-weighted Hilbert distance with canonical preparations in this gate. Neither existence of a three-level Mpemba effect nor metric-dependent timing in general is credited as new.
 
-## Closest sources and limitations
+## value
 
-Primary sources and the accessible full-text comparisons are listed in `RESULT.md` and `AUDIT.json`. The proof is limited to a three-level canonical Gibbs gate, \(0<a<c\), with a fixed bath for each pair. A different source may implicitly contain equivalent results. No independent audit or experimental verification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Opposite exact root orders, with a unique true crossing of both metrics in each witness, rule out a universal schedule ordering between two standard norms even within a single three-level rate form and canonical temperatures. The result distinguishes occurrence of a Mpemba effect from what time either diagnostic reports, with strict margins certified independent of numerical precision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

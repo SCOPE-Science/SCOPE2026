@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:15:33.967304Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 15–69, VERIFICATION.md and check_feres.py (inspected, not executed)",
+        "Primary piecewise angular law: arXiv:2005.01892 §3.1 and Feres §2.2",
+        "Independent finite spectra: /workspace/branches/67e47500-9fe0-4f78-b26d-48d84361caa0/independent_graph_check.py and independent_graph_check.csv"
+      ],
+      "rationale": "The primary angular law reduces on the half-offset class to a reversible weighted cycle on 1,…,n−2 with two leaves. In the interior the branch factor is sinθ·uα(θ)=sin(θ+α)/(2cosα); at the left truncation the weight to the leaf is sin(α/2) and the remainder gives the bridge sin(α/2)/(2cosα), using sin(3α/2)=(1+2cosα)sin(α/2). Reflection handles the other end. Normalizing by Sₙ=csc(α/2) gives the stated Dirichlet energy without a factor of two. In each arm, each step-two strand contributes 2α⁻² log n+O(α⁻²) by the reciprocal sine sum, while the bridge contributes O(α⁻²). The two arms therefore give conductance Gₙ∼α²/(2 log n). Same-parity paths to the middle have resistance bounded by Cα⁻²(1+|log sinθ|). Weighted Cauchy–Schwarz followed by summation against the sine masses bounds the squared deviations from parity anchors by O(α⁻²) times the energy. The harmonic test function with anchors ±1 gives the upper bound 4Gₙ(1+o(1)); the upper bound in turn forces the normalized second eigenfunction to concentrate at its anchors. The parity masses tend to 1/2, so the squared anchor difference tends to 4, and the minimum energy at those anchor values gives the matching lower bound. Substituting α=π/n gives 2π²; laziness halves the gap. At even n the core is an even cycle and the leaves preserve bipartiteness, so the algebraic gap must not be confused with an absolute gap for Pₙ.",
+      "residual_risks": [
+        "The independent spectra use the displayed graph, not a second full implementation of the piecewise law, and cover finite n only. The identities and Dirichlet argument establish the infinite claim. No conclusion for the full spatial-angle process follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feres–Zhang's curvature-parameter bounds use a different operator class and mean-zero spectral-radius gap; the weak-scattering result gives a Legendre approximation in another microstructure regime. Vales–Pinto-de-Carvalho distinguish irrational and rational Strong Knudsen behavior, without a fiber relaxation rate."
+        ],
+        "reasoning": "Neither comparison yields the finite half-offset two-parity bottleneck. A gap based on spectral radius is zero for the unmodified even-n chain, whereas the claimed gap uses the second-largest algebraic eigenvalue.",
+        "searches": [
+          "Feres–Zhang §1.1 (spectral-gap estimates)",
+          "arXiv:2005.14318 introduction and Theorem 1 (weak scattering)",
+          "arXiv:2005.01892 Theorem 3.9 and Prop. 3.10"
+        ]
+      },
+      "checked_sources": [
+        "Feres §2.2; arXiv:2005.01892; Feres–Zhang §1.1; arXiv:2005.14318",
+        "Resultary 5099efea0ad1 and d34f2167245b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The graph characterization is a starting point; no prior bound read provides both the diverging arm resistance and the smaller same-parity weighted equilibration scale."
+        ],
+        "reasoning": "A standard electrical estimate or a known unicyclic topology alone does not imply a sharp spectral constant. The matching lower bound requires proving that variance collapses to two parity anchors on the relevant energy scale; the asymptotic then uses both parallel arms and the normalized masses.",
+        "searches": [
+          "Resultary 5099efea0ad1 Finding and limitations",
+          "Feres–Zhang §1.1 and arXiv:2005.14318 Theorem 1",
+          "Comparison of unicyclic-fiber conclusion with the two-arm Rayleigh proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four-branch law and rational dihedral orbit are classical. The earlier unicyclic-fiber theorem specializes exactly to the half-offset orbit with the same n−2 cycle, two leaves and sine weights."
+        ],
+        "reasoning": "The weighted fiber is not a new model. The gap can equivalently be phrased as a lazy L² relaxation time, but the qualitative orbit and periodicity classifications do not give that time.",
+        "searches": [
+          "Feres, Random Walks Derived from Billiards §2.2; arXiv:2005.01892 §3.1 and Prop. 3.6",
+          "Resultary rational Feres angular fiber, m=1, t=π/(2n), record 5099efea0ad1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier 5099efea0ad1 treats the exact graph specialization but expressly does not provide exact second eigenvalues or optimal uniform gap bounds. The later d34f2167245b treats spatial Fourier mixing conditional on angle classes, not this second-eigenvalue asymptotic."
+        ],
+        "reasoning": "The closest inspected entries share the mathematical object, but do not state the sharp finite-angular rate. Date alone is not the reason for either distinction.",
+        "searches": [
+          "Local Resultary rational-angle Feres fiber and logarithmic spectral-gap comparisons, including 5099efea0ad1 and d34f2167245b"
+        ]
+      },
+      "rationale": "The angular model, the selected weighted graph's topology and sine invariant law, and its periodicity have prior coverage. The supported distinct contribution is the leading-constant logarithmic algebraic gap for this orbit and the equivalent lazy relaxation law. No inspected statement supplies that rate or makes it a direct corollary under the given hypotheses.",
+      "residual_risks": [
+        "A separately formulated sharp relaxation theorem for the equivalent reversible weighted cycle may exist beyond the inspected sources. Priority is assessed only against actual located coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same kernel and orbit mechanism, not the rate",
+          "evidence": [
+            "Four angular branch maps and piecewise probabilities; rational angles give a walk on a finite dihedral orbit."
+          ],
+          "identifier_or_url": "https://www.math.wustl.edu/~feres/random_billiard.pdf",
+          "material_read": "§2.2 PDF pp. 7–9, offsets 16800, 19300, 21400",
+          "method": "Open primary PDF passages",
+          "title": "Random Walks Derived from Billiards",
+          "trigger": "Original four-branch kernel and rational angle orbit"
+        },
+        {
+          "assessment": "Same branch law and qualitative finite-class context",
+          "evidence": [
+            "Sine continuum invariant law, finite reachable classes, rational/irrational Strong Knudsen distinction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.01892",
+          "material_read": "§3.1 pp. 4–5, Prop. 3.6 p. 6, Thm. 3.9 and Prop. 3.10 pp. 7–8, offsets 11200, 14500, 19800",
+          "method": "Open primary PDF passages",
+          "title": "A Random Billiard Map in the Circle",
+          "trigger": "Same circular billiard angular marginal"
+        },
+        {
+          "assessment": "Different geometric hypotheses and spectral convention",
+          "evidence": [
+            "Mean-zero spectral-radius gap and curvature-dependent bounds, not n-dependent half-offset gap."
+          ],
+          "identifier_or_url": "https://www.math.wustl.edu/~feres/spectralgapnew.pdf",
+          "material_read": "§1.1 PDF p. 5, offset 14000",
+          "method": "Open primary PDF passage",
+          "title": "Spectral gap for a class of random billiards",
+          "trigger": "Possible earlier quantitative spectral theorem"
+        },
+        {
+          "assessment": "Weak-scattering approximation for other operators",
+          "evidence": [
+            "Legendre-operator limit in the stated microstructure regime; not a finite half-offset rational chain."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.14318",
+          "material_read": "Intro pp. 2–3 and gap definition/Thm. 1 p. 7, offsets 7000, 9000 and 23884",
+          "method": "Open primary PDF passages",
+          "title": "Knudsen Diffusivity in Random Billiards: Spectrum, Geometry, and Computation",
+          "trigger": "Possible diffusion/spectral asymptotic covering the rate"
+        },
+        {
+          "assessment": "Covers graph and invariant masses, not the asymptotic spectral conclusion",
+          "evidence": [
+            "For m=1 and t=π/(2n), its n−2 cycle, two leaves, sine weights and parity-period dichotomy specialize exactly."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-unicyclic-fiber-theorem-and-an-arithmetic-mixing-dichotomy-for--5099efea0ad1/RESULT.md",
+          "material_read": "Mirrored RESULT.md Finding, rational-fiber parameters and limitations",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "A unicyclic fiber theorem and an arithmetic mixing dichotomy for rational Feres billiards",
+          "trigger": "Earlier exact overlap of the underlying angular fiber"
+        },
+        {
+          "assessment": "Different observable and conclusion",
+          "evidence": [
+            "Studies conditional spatial mixing rather than the angular second algebraic eigenvalue as n grows."
+          ],
+          "identifier_or_url": "Resultary d34f2167245b",
+          "material_read": "Mirrored RESULT.md statements on angle classes and Fourier modes",
+          "method": "Local Resultary catalogue and mirror",
+          "title": "Conditional spatial mixing on rational Feres billiard angle classes",
+          "trigger": "Related angular class and possible mixing-rate overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md sharp limit and two-arm proof",
+        "Earlier unicyclic-fiber characterization 5099efea0ad1 and qualitative arXiv:2005.01892"
+      ],
+      "rationale": "This is a quantitative relaxation law for a naturally specified invariant family in a standard random billiard. The logarithmic penalty is not the diffusive n² scale suggested by the interior cycle alone. Identifying it with two grazing-angle resistance arms and proving the leading constant distinguish a meaningful dynamical effect from a small finite spectrum computation.",
+      "residual_risks": [
+        "The result does not determine worst-case rates over other offsets, spatial mixing, or total-variation cutoff."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

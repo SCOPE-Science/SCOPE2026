@@ -1,15 +1,21 @@
-# Review of the parity-twisted three-tap nullity theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof uses the complete induced-character decomposition of the regular representation, not just a determinant vanishing test. Every two-by-two block is analyzed separately. Same-coset zeros have rank zero (kernel dimension two); mixed-coset zeros have rank one (kernel dimension one). Cubic root counting, the equality of the two singularity criteria, and the factor-of-two gcd dichotomy are all explicit. Counting each unordered three-element support exactly once gives the stated support census. Separate exact rational regular-matrix computations verify the formulas for all triples through order \(36\) dicyclic groups, and a paired split/twisted check exhaustively tests smaller groups. The finite computations do not purport to prove the infinite theorem.
+## correctness
 
-## Originality
-**PASS with residual historical-equivalence risk.** The dicyclic determinant factorization recorded by Paudel–Pinner [1, equation (17)] is stronger at the level of arbitrary coefficients and determines whether a determinant vanishes, but it does not give the full three-tap complex kernel dimensions or the parity-sensitive *paired comparison* with the dihedral group, let alone the exact count of supports where nullity halves. Dai–Li [2] supply representation/idempotent machinery, not this special-value classification. Behajaina–Legrand [3, Theorem 3.1] concern integral undirected Cayley graphs with inverse-closed, identity-excluding connection sets, not all nonsymmetric three-tap convolution nullities. Accessible research records on elementary generalized dihedral groups and ternary Heisenberg groups also consider three-tap nullity, but over different groups; the former's split extension does not have the central-twist phenomenon. The older dihedral three-tap classification is highly relevant; applying it naively gives an incorrect nullity for the parity-resonant mixed supports. A general factorization can be further analyzed to recover the result, so hidden equivalent statements remain possible.
+PASS
 
-## Value
-**PASS.** The object is natural: exact kernels of three-site convolution operators on the two canonical cyclic-index-two extensions. The complete result identifies a structural boundary: twisting the square of a reflection by the central involution leaves *every singular-support location* unchanged while suppressing precisely half of the kernel modes in an arithmetic family. The theorem quantifies this difference at every order through a closed count and a simple valuation criterion, providing explicit rank defects for signal recovery and convolution invertibility. It is not a parameter renaming of the split theorem because the positive nullities genuinely differ for the same labeled supports; for example \(m=3\), the supports \(\{1,a^2,b\}\) have dihedral nullity \(4\) and dicyclic nullity \(2\).
+Use the regular Fourier basis e_z=Σ_j z^(−j)[a^j] and b e_z for z^(2m)=1; left multiplication by a acts with eigenvalues z,z⁻¹ and the reflection square gives the factor z^m (or 1 in the split case). This accounts for every dimension, including z=±1. Pure supports factor to 1+a^u+a^v: if ξ=z^g gives a cubic pair, its order is exactly 3 because gcd(q,u/g,v/g)=1, and both primitive choices work precisely for the stated residue pair and 3|q. Each lifts to g characters and kills both block coordinates. Mixed supports translate to 1+a^u+a^v b, preserving the same-coset displacement up to sign. The block is singular exactly at a primitive cubic z^u, restricted to z^m=1 in the dicyclic case, with kernel dimension one since the off-diagonal entries are nonzero. Counting preimages yields both gcd formulas and the shared singularity test; gcd(2m,u)/gcd(m,u)=2 precisely at the stated 2-adic threshold. For the pure census, at each common valuation t<r there are 2(N/3^(t+1))² ordered displacement pairs per anchor; count both cosets and divide by six. For mixed supports, count N choices for the first tap in the pair and N for the singleton, both pair cosets, and divide ordered pairs by two. Of the displacements not divisible by 3^r, the fraction divisible by 2^(s+1) is 2^(−s−1), by coprimality. This verifies all three counts and the r=0 case. An independent exact-QQ sparse regular-matrix checker ranked identity-anchored triples and used left translation in each group to check every labeled support for m=2,3,4,6,9, obtaining (pure,mixed,halved)=(16,144,72),(128,1152,288),(480,5184,2592) in the three divisible cases. Finite checks are corroboration, not the proof for all m.
 
-## Closest sources and limitations
-The closest general determinant identity is [1], and the closest family-wide group representation and Cayley spectrum discussions are [2] and [3]. The theorem assumes unweighted distinct triples and complex coefficients. Broader literature may contain an unlocated equivalent specialization, and independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The split dihedral branch and its singular support census already occur in a distinct Resultary record, and the central-twist factors are known. The supported distinct claim is the paired exact comparison on the same labels: identical singular supports, a strict factor-of-two drop on the specified mixed parity stratum, and the closed census of that stratum. The indexed date does not resolve priority for the shared branch.
+
+## value
+
+PASS
+
+The full paired law detects a difference in kernel dimension where support singularity alone cannot distinguish the split and central-twisted extensions. It locates and counts exactly when the twist removes half of the kernel directions, beyond the already-covered split census. The support class and coordinate comparison are natural and the result applies at every group order in scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

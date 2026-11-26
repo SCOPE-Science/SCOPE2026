@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:45:28.531238Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 19–113. The determinantal area and additive perimeter yield D_n=(ΣR_i²)/(πn)+(1/n)Σ_(i<j)R_iR_jH(Θ_i−Θ_j) with H=2/π−|sin|. H has mean zero and variance 1/2−4/π², and angular terms of distinct pairs are conditionally uncorrelated even when they share an index (condition on that angle). Total variance gives the exact two terms in line 32; covariance with perimeter follows from the conditional mean, with integrability under a third moment. The Fourier coefficients of H and the telescoping sum give the nonnegative Fourier representation. Finite-mode CLT covariance blocks are q/2 times the identity and orthogonal to the centered radius; the expected positive spectral tail tends to zero uniformly in n. This proves the exponential law and joint independence. The sine product gives a/sin(πa/2), including the continuous and hyperbolic branches, and Parseval gives the claimed variance. In the array, the squared mean weighted Hilbert norm of the vector of normalized Fourier-sum differences from the unit-radius case is σ_n²/2, with weights (4k²−1)⁻¹. Cauchy–Schwarz then bounds the deficit difference in L1 by O(σ_n), leaving the independent mark CLT. Expansion of the squared perimeter yields line 51 exactly. Terms of the area variance from adjacent distinct edges contribute n(n−1)(n−2) times 4σ_n²/π², while disjoint edges are independent. The centered third cumulant of the independent series is strictly negative (absolute L3 summability), so every finite-τ Gaussian convolution remains non-Gaussian. The displayed theorem uses a fixed bounded iid mark law; the scope remark about differing rows is valid for a uniformly bounded array, or with a Lindeberg condition for the row sums, not merely a bound varying arbitrarily by row. The frozen Monte Carlo verifier was inspected, not run; the exact identities and limits were checked analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schneider §3 represents valuations as U-statistics; Theorem 3 gives an ordinary Gaussian fixed-law valuation CLT. The indexed 9a9fb17a260f theorem treats arbitrary deterministic diffuse weight arrays and specifies a central-limit-scale spike obstruction."
+        ],
+        "reasoning": "The generic Gaussian valuation CLT does not imply the second-order canceled shape distribution. The deterministic indexed array theorem does: almost surely nΣw_i²→q/r² by the strong law, and max R_i/√n→0 follows from Borel–Cantelli since E R_i²<∞. The array hypotheses therefore hold conditionally on the full radial sequence, giving a deterministic conditional limiting law. Passing a bounded radial characteristic function through that convergence by dominated convergence gives independence from the radial perimeter CLT as well.",
+        "searches": [
+          "Literature search: random planar zonotope isotropic independent segment directions random lengths area isoperimetric deficit weighted exponential Fourier series radial marks Gaussian crossover critical fluctuations",
+          "arXiv:2202.06774 §3 and §4 Theorem 3",
+          "9a9fb17a260f Finding and conditional moments"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–127, VERIFICATION.md, verify.py",
+        "Resultary 9a9fb17a260f, 95e0628386f8, 2e185012cf0e; attempted lookup of opaque 474c5a5f-f684-4deb-8225-2bcddca2d7a3",
+        "arXiv:2202.06774v1; abstract comparisons arXiv:2206.03204v1 and 2303.18045v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first record gives E_Θ D_n*=nΣw_i²/π and Var_Θ D_n*=n²(1/2−4/π²)Σ_(i<j)w_i²w_j². The second record estimates the L2 difference of centered degenerate area kernels at noisy and fixed radii by O(n^(−β)) for power-law noise, and uses angles only for the limiting degenerate component and marks only for the first-order component."
+        ],
+        "reasoning": "Rescaling the first record's moments by (T_n/n)² gives E_Θ D_n=ΣR_i²/(πn) and Var_Θ D_n=(1/2−4/π²)Σ_(i<j)R_i²R_j²/n². Taking expectations and adding the variance of the conditional mean gives the frozen finite variance; pairing the conditional mean with 2ΣR_i gives 2(E R³−rq)/π. In the second record's kernel estimate one simply uses O(σ_n) in place of O(n^(−β)); pair orthogonality then gives an O(σ_n) error in area divided by n, and the exact radial first-order term is (1−1/n)(2s_n/π)G_n. These imply the full sequence and joint versions without a new limiting mechanism. The third cumulant is preserved by independent Gaussian convolution, and the displayed exact B_n identity is the algebraic definition of D_n with additive perimeter.",
+        "searches": [
+          "9a9fb17a260f Assumptions and scope, exact conditional formulas",
+          "95e0628386f8 Proof §§2 and 4, mirror offsets 0 and 5240"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "9a9fb17a260f, Finding and assumptions: normalized-perimeter deficit converges to ρS with ρ=q/r² for iid positive lengths of finite second moment. 2e185012cf0e gives the fixed-unit-length series and sine-product transform in a centered-generator convention."
+        ],
+        "reasoning": "Set T_n=ΣR_i, w_i=R_i/T_n and D_n*=n(1/π−A_n/T_n²). Then D_n=(T_n/n)²D_n* and T_n/n→r, giving exactly qS. Centered generators [-u,u] differ from [0,u] by translation and doubling, so the associated area shift/deficit rescales by four; this fixes rather than distinguishes the already-known unit law.",
+        "searches": [
+          "Resultary: random zonotope isotropic segment lengths perimeter-cancelled isoperimetric deficit exponential spectral series radial universality crossover centered area",
+          "Resultary: random zonotope fixed unit lengths isotropic deficit Fourier exponential series locally biased directions exact law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "95e0628386f8 gives all three crossover regimes with Gaussian and centered exponential-series terms independent; its exact finite area variance specializes to lines 65–66 of the frozen source. 9a9fb17a260f records the exact conditional deficit mean and variance for arbitrary deterministic weights. The original's opaque fixed-length UUID was not resolved; its account is consistent with the separately inspected 2e185012cf0e."
+        ],
+        "reasoning": "Take base length r=1, mark variance 1, and reduce the uniform directed angles modulo π. Then the critical indexed limit equals 1/π−S+2τG/π and its variance formulas coincide. The exact covariance with raw perimeter is not printed in either matched Finding; it follows directly from the conditional mean rather than from a numerical match.",
+        "searches": [
+          "Resultary: fixed unit length locally direction biased Fourier deficit exponential series isotropic limit",
+          "Resultary: 474c5a5f-f684-4deb-8225-2bcddca2d7a3",
+          "95e0628386f8 Finding, Proof §§2–4"
+        ]
+      },
+      "rationale": "Distinct indexed findings give the radial deficit law and the critical area crossover (9a9fb17a260f and 95e0628386f8). The former's deterministic-weight theorem also gives the fixed-law joint radial independence by conditioning, and its exact conditional identities give the stated unconditional variance and covariance by elementary unconditioning. The latter's proof already gives the joint critical limit and extends to arbitrary σ_n→0 by replacing its power-law small parameter in one bound. The exact comparisons concern coverage, not historical priority or dependence.",
+      "residual_risks": [
+        "The dates of the distinct matching records do not establish relative priority or dependence; the result is a coverage comparison.",
+        "The cited opaque fixed-length record remains unresolved. Full passages from de Wet (10.37920/sasj.1987.21.2.1), Silverman (10.2307/3213243) and Vitale (10.1214/aoap/1177005938) were not recovered; general degenerate-statistic and empirical-process antecedents were not exhausted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact equivalent law; broader deterministic theorem and conditional formulas imply the fixed-law additions",
+          "evidence": "Limit ρS under diffuse weights, including iid lengths with ρ=q/r²; explicit finite conditional mean and variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-perimeter-normalized-random-zonogons-universal-second-order-area--9a9fb17a260f/RESULT.md",
+          "material_read": "Finding, assumptions, and Fourier proof opening, mirror offset 0 onward",
+          "method": "Indexed search and direct local-mirror passage",
+          "title": "Perimeter-normalized random zonogons: universal second-order area law and a sharp spike obstruction",
+          "trigger": "Exact diffuse radial universality and finite moments"
+        },
+        {
+          "assessment": "Covers the same critical, noise-dominated and shape-dominated laws and gives the argument for the joint/sequence extension",
+          "evidence": "Bounded radial marks, exact area variance, critical independent normal and centered exponential series, and L2 small-noise estimate for the degenerate part.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-critical-radial-noise-crossover-for-areas-of-random-planar-zon--95e0628386f8/RESULT.md",
+          "material_read": "Finding, assumptions, Proof §§2–4 (mirror offsets 0 and 5240)",
+          "method": "Indexed search and direct local-mirror passages",
+          "title": "A critical radial-noise crossover for areas of random planar zonotopes",
+          "trigger": "Exact crossover regimes and variance"
+        },
+        {
+          "assessment": "Same fixed-length law after rescaling",
+          "evidence": "Uniform directions and unit lengths give an exponential-series area fluctuation and a sine-product transform; fixed perimeter makes centered area the negative of centered deficit.",
+          "identifier_or_url": "2e185012cf0e",
+          "material_read": "Indexed RESULT.md statement of the limit and transform",
+          "method": "Indexed search and local-mirror passage",
+          "title": "A non-Gaussian sine-product law for areas of uniformly directed planar zonotopes",
+          "trigger": "Exact fixed-length series under symmetrized segments"
+        },
+        {
+          "assessment": "Related U-statistic representation and Gaussian CLT but not the radial second-order and critical conclusions",
+          "evidence": "Valuations are written as U-statistics; the cited Gaussian CLT uses a fixed generator law.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.06774",
+          "material_read": "v1 abstract, §3 PDF p. 4, and §4 Theorem 3 p. 7",
+          "method": "Bounded OA PDF passages",
+          "title": "Random zonotopes and valuations",
+          "trigger": "General valuation limit that might subsume the theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The scale transition and exact shape law address a real fluctuation problem, but both are already established in the matching theorems. The finite raw covariance and fixed-law independence are mechanically recoverable from the existing conditional theorem and moments, and the sequence extension uses the existing small-noise argument without a changed threshold or new regime. No separately substantial contribution survives the comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

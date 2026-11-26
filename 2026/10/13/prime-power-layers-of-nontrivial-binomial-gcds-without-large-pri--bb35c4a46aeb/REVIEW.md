@@ -1,21 +1,21 @@
-# Self-review: prime-power layers of nontrivial binomial GCDs
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The published binomial-GCD criterion is invoked with \(n=k+1\), and its nontriviality condition is exactly the existence of an exact prime-power component \(p^a\ge\sqrt n\). For integers whose largest prime factor does not exceed \(\sqrt n\), this dominant component has exponent at least \(2\) and is unique. Writing \(n=p^a b\) produces an exact coprimality count, not a heuristic one. Partial summation using the prime number theorem produces the two constants \(2a/(a+1)\) and \(2a/(a-1)\), while the uniform sum over exponents at least \(3\) is smaller by a power of \(X\). The packaged verifier checks the source criterion directly in finite cases and reproduces the exact count independently by factoring each integer; those computations are not used as the infinite proof.
+PASS
 
-## Originality
+This PASS is for the complete corrected files in /workspace/repairs/3/. In the frozen proof, line 68 bounded the sum over integers m>Y by the tail integral from Y, which is not valid for arbitrary nonintegral Y. For example, when a=3 and Y=29/10, the terms m=3,4,5 alone sum to more than 1/(2Y²) before multiplying by X. The corrected proof starts at L=floor(Y)+1, retaining the first term and bounding the rest by the integral from L. This gives at most Y^a+Y^(a+1)/(a−1), uniformly O(X^(2/3)) for a>=3; for Y<2 the sum starts at 2 and the corrected integral estimate is at most X·2^(−a)(1+2/(a−1))<2√X. I reconstructed the other steps: Theorem 1 of arXiv:2606.22997v1 has k=n−1>=2 and gives D=1 iff n/M>M; negation gives the stated criterion. Distinct exact blocks are coprime and have product dividing n, so two cannot be at least √n. An exponent-one dominant block would violate P^+(n)<=√n, since equality would force n=p². For a>=2 and n=p^a b with b<=p^a and p not dividing b, p²<=n and every other prime q has q²<=b²<=n, proving the converse. The floor formula counts b<=min(p^a,X/p^a) excluding multiples of p exactly. At Y=X^(1/(2a)), partial summation with the prime number theorem gives Y^(a+1)/((a+1)log Y) and X·Y^(1−a)/((a−1)log Y) for the leading pieces. The floor and far-tail errors are O_a(X^(1/a)); the two coprimality corrections are O_a(X^(1/2)). Both exponents are strictly below (a+1)/(2a) for any fixed a>=2. Conversion from log Y gives 4a²/(a²−1). The corrected uniform estimate sums over at most log_2 X exponents, giving o(X^(3/4)/log X) beyond the a=2 layer, whose coefficient is 16/3. The verification notes now distinguish the direct binomial-GCD check from the five cutoff comparisons; no uploaded code was run or needed to prove the asymptotic.
 
-**PASS.** Guo–Qiu–Cao–Feng–Gao prove the decisive membership criterion, and OEIS A080170 records the complementary zero-GCD sequence. The primary full text was searched for counting, density, distribution, and asymptotics; it gives no such layer theorem. Claim-specific searches by the source title, exact parameter, \(16/3\) constant, \(3/4\) exponent, equivalent formulations, and mathematical-literature searches found no statement of the same hierarchy. The result expressly depends on the published criterion and classical PNT; it is not described as a new proof of the criterion or a new prime-counting method.
+## originality
 
-An unindexed equivalent counting formulation remains a residual literature risk. No claim of exhaustive global literature coverage or independent certification is made.
+PASS
 
-## Value
+The repair leaves all counting claims unchanged and separates them from the imported pointwise membership criterion and its exact-valuation strengthening. I compared the closest indexed GCD valuation work, the related moment law on the same sequence, the exact OEIS entry, and the closest located external asymptotic paper. None of their inspected results supplies the layer equivalents or the sharp unweighted total on the specified square-root-smooth class. The uniform-bound correction is not itself claimed as novel.
 
-**PASS.** The square-root threshold is distinguished by the published positivity criterion, not chosen ad hoc. Restricting to integers with no prime factor above the same threshold isolates the complementary *prime-power* mechanism. Its distribution is extremely sparse but has a precise \(X^{3/4}/\log X\) scale, and every fixed prime-power exponent belongs to a coherent hierarchy of different scales and exact rational constants. This addresses a natural quantitative question left untreated by the source's membership theorem; it is not merely a single computed value or arbitrary subfamily.
+## value
 
-## Literature and limits
+PASS
 
-The closest reference is arXiv:2606.22997v1, especially Theorem 1 and Lemma 9; OEIS A080170 is the original database entry. The new results require that classification as an input. They provide fixed-exponent asymptotics, not a uniform growing-exponent estimate or a formula for the actual positive GCD values.
+The square-root cutoff is intrinsic to the imported exact GCD criterion. Removing the large-prime cases isolates the place where nontriviality depends on higher exact prime powers; quantifying that exception with a power-law scale, a sharp constant, and disjoint layer equivalents is substantially more informative than zero density or finite counts alone. The corrected proof keeps these findings and the boundary unchanged.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

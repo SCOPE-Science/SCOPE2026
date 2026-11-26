@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:31:16.815211Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md §§Assumptions and Proof 1–4",
+        "verify_cubics.py and VERIFICATION.md, inspected without executing supplied code",
+        "/workspace/branches/frozen_replay.py, ordinal 5"
+      ],
+      "rationale": "Depressing the cubic is unique since 3 is invertible. For each depressed slope A the constants B and B+v−us run as an independent pair because u≠0, giving the exact autocorrelation sum over A. For A≠0 the discriminant factors as −27 times a translate of B² by a nonzero constant; the two-factor quadratic character count gives sum −χ_q(−3). A zero discriminant then gives two distinct rational roots: the double root is unique, hence rational, the simple root is rational, and a triple root would force A=0. For nonzero discriminants the parity of Frobenius on the three roots gives one rational root exactly for nonsquare discriminants. Counting all pairs (B,x) gives q and eliminates the repeated-root count, yielding m(A)=(q−χ_q(−3))/3. For A=0 the cube-map calculation gives m(0)=0 or 2(q−1)/3 as claimed. Exactly A=0 and A=−u differ from the generic product, and −3 is a square exactly when there is a nontrivial cube root of unity. The resulting expressions agree, and are positive at the smallest permitted q=5 and above. Independently evaluated root-avoiding constants by Horner evaluation in eight fields, including genuine quadratic extensions, and verified 526 shift cases; the counts at q=5,7,25,49 were 12,36,1728,13056. Replay: `python3 /workspace/branches/frozen_replay.py 5`.",
+      "residual_risks": [
+        "Finite enumeration is corroboration; the coefficient separation and character argument establish all specified prime powers. Neither u=0 nor characteristics two and three are included."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 for distinct polynomial shifts of degree <n over odd prime powers specializes to q³/9+O(q^(5/2)) at n=3,r=2. Bender–Pollack likewise give asymptotics for polynomial differences.",
+          "The exact cubic scalar-shift theorems cover prime powers, but with scalar-specific corrections, including cubic-class-dependent elliptic traces in the q≡1 mod 3 case."
+        ],
+        "reasoning": "Broader type/degree coverage at asymptotic accuracy does not fix the exact −3q+2χ(−3) correction, and the exact scalar-shift setting does not dominate the shift family.",
+        "searches": [
+          "Bary-Soroker arXiv:1206.3930, Theorem 1.1",
+          "Bender–Pollack arXiv:0912.1702, Theorem 1.3",
+          "Bary-Soroker–Stix arXiv:1711.05564, Theorems 1.2 and 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Bary-Soroker arXiv:1206.3930",
+        "Bender–Pollack arXiv:0912.1702",
+        "Bary-Soroker–Stix arXiv:1711.05564",
+        "Effinger–Hicks–Mullen DOI metadata and limited indexed excerpt",
+        "Local Resultary characteristic-three affine-rank, cubic three-shift Möbius, and length-three consecutive irreducibility results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The continuous-in-parameters aspect is a finite-field bijection: with u≠0, the free quadratic coefficient controls the difference of the two depressed constants, making them separately summable. With a scalar shift the constants stay linked by one fixed difference.",
+          "Simultaneous squarefreeness or a Möbius product is not the pair of irreducibility indicators: reducible squarefree cubics contribute. A tuple asymptotic does not resolve the exact finite correction."
+        ],
+        "reasoning": "No inspected theorem yields the claimed count by specializing its parameters. The additional slope separation and the one-cubic fiber calculation are substantive ingredients linking known cubic structure to the exact correlation.",
+        "searches": [
+          "Compare scalar-shift Theorems 1.2 and 1.4 with the frozen depressed-cubic reduction",
+          "Compare local exact affine rank, Möbius, and consecutive irreducibility statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bender–Pollack's twin-count definition specializes to this exact statistical object, taking A=uT+v; their theorem is asymptotic.",
+          "The exact cubic formula of Bary-Soroker–Stix concerns f,f+h with scalar h. Translation and nonzero dilation of T preserve the degree of the difference; neither turns uT+v into a scalar."
+        ],
+        "reasoning": "Equivalent notation exists for polynomial shifts, but the known exact constant-shift statistic is not an equivalent normalization. Translating T can remove v for the target, not the nonzero slope.",
+        "searches": [
+          "Resultary: exact cubic irreducibility twins with nonconstant affine-linear shift over finite fields",
+          "Bender–Pollack arXiv:0912.1702, definition of π_2(n;A,q)",
+          "Bary-Soroker–Stix arXiv:1711.05564, definition of π(d,q;h)",
+          "Literature query for f and f+aX+b and Effinger–Hicks–Mullen"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest local exact laws concern characteristic-three depressed cubics with constant offsets, three-shift Möbius correlations for constant shifts, and nested polynomials of differing degrees. None tabulates these pairs of arbitrary monic cubics or provides the target uniform count in u and v.",
+          "The indexed Springer excerpt shows a 'Definitions and the Fixed Degree Case' section, but no matching fixed-degree formula was available there; the full-text attempt failed. A generic integer-sequence lookup would not establish the finite-field shift hypotheses of this parameterized formula."
+        ],
+        "reasoning": "The accessible exact material uses different indicators or domains. The very plausible older fixed-degree chapter was not presumed non-covering from its snippet or failed retrieval.",
+        "searches": [
+          "Exact law and twin irreducible polynomial queries in Resultary",
+          "Effinger–Hicks–Mullen exact chapter DOI and indexed PDF for the fixed-degree case; targeted search for the defining passage"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact count for a nonconstant linear difference over the full specified odd prime-power domain, not the twin-polynomial formulation, the main term, or arithmetic of a single cubic. The strongest accessible exact cubic literature counts constant differences and the literature covering the target differences gives only asymptotics. The exact local analogues inspected have different shifts, invariants, coefficient objects, or characteristic. The 2002 chapter remains an explicit priority risk, not a verified match.",
+      "residual_risks": [
+        "Effinger–Hicks–Mullen (2002) could contain an equivalent fixed-degree result; its primary text was not retrievable by the lawful routes tried. A bounded search does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the shifts but only asymptotically",
+          "evidence": "Distinct shifts of degree <n, q odd, and main term q^n/n^r with an O(q^(n−1/2)) error.",
+          "identifier_or_url": "https://arxiv.org/pdf/1206.3930",
+          "material_read": "p. 2, Theorem 1.1, offset 5108",
+          "method": "OA PDF passage inspection",
+          "title": "Hardy-Littlewood tuple conjecture over large finite field",
+          "trigger": "Broadest matching polynomial-shift tuple theorem"
+        },
+        {
+          "assessment": "Asymptotic with the same main term, no exact correction",
+          "evidence": "Nonzero shift A of degree <n is permitted.",
+          "identifier_or_url": "https://arxiv.org/pdf/0912.1702",
+          "material_read": "Definition at offset 7880, p. 3 Theorem 1.3 at offset 9006",
+          "method": "OA PDF passage inspection",
+          "title": "On quantitative analogues of the Goldbach and twin prime conjectures over F_q[t]",
+          "trigger": "Earlier matching twin-count definition"
+        },
+        {
+          "assessment": "Exact coverage for scalar h only",
+          "evidence": "Counts f and f+h with h a nonzero field element, with elliptic-trace/cube-class corrections in the split case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1711.05564",
+          "material_read": "p. 2 shift definition and Theorem 1.2, offsets 6957 and 10795; p. 3 Theorem 1.4, offset 14263",
+          "method": "OA PDF passage inspection",
+          "title": "Cubic twin prime polynomials are counted by a modular form",
+          "trigger": "Closest accessible exact enumerative theorem for twin cubics"
+        },
+        {
+          "assessment": "Unresolved prior coverage, not used as negative evidence",
+          "evidence": "The indexed section heading supplies no shift definition or exact cubic count.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-59435-9_8",
+          "material_read": "Bibliographic entry and indexed snippet for p. 95 §2 'Definitions and the Fixed Degree Case'; full text not read",
+          "method": "Lawful DOI and Springer chapter/PDF direct/VPN attempts (redirect failure), original-copy search and indexed-passage lookup",
+          "title": "Twin Irreducible Polynomials over Finite Fields",
+          "trigger": "Older exact-degree chapter potentially treating polynomial differences"
+        },
+        {
+          "assessment": "Different characteristic, polynomials and shift",
+          "evidence": "Characteristic three, depressed cubics and constant offsets rather than the full monic cubics with nonzero slope difference.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-affine-rank-laws-for-simultaneous-irreducible-characterist--8d5bcff11c80",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured local mirror after ranked query",
+          "title": "Exact affine rank laws for simultaneous irreducible characteristic-three cubics",
+          "trigger": "Most relevant local simultaneous-cubic irreducibility analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and coefficient separation",
+        "Bary-Soroker's polynomial tuple asymptotic",
+        "Bary-Soroker–Stix exact scalar-shift theorems"
+      ],
+      "rationale": "This is the exact first nonconstant shift family in the intensively studied cubic twin-prime count. It quantifies an arithmetic contrast: the exact answer is uniform in the two shift coefficients, with only a quadratic-character correction to the constant-coefficient-independent main terms, whereas the exact scalar shift can fluctuate with the scalar cube class and elliptic traces. The exact finite-field law, including extension fields, is useful as a benchmark for conjectures and computations on short polynomial correlations and is not supplied by asymptotics or a generic positivity statement.",
+      "residual_risks": [
+        "No extrapolation to other polynomial degrees, difference degrees, or excluded characteristics is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

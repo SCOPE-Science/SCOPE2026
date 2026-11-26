@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational cross-checks
+# Independent mathematical audit
 
-Run `python verify_cycle_squarezero.py` using standard Python 3; the script requires no external packages. It checks the five-state transfer formula and integer recurrence for \(q\in\{2,3,4,5\}\), and the combinatorial top-component count for \(4\le n\le15\). It independently enumerates all length-one and length-two coefficients satisfying the square-zero path-product equations for nine small \((n,q)\) cases; every length-three coefficient is free, providing the exact factor \(q^n\).
+## correctness
 
-The exhaustive counts are: \(N_4(2)=640\), \(N_5(2)=3584\), \(N_6(2)=17408\), \(N_7(2)=88064\), \(N_4(3)=18225\), \(N_5(3)=255879\), \(N_6(3)=2735937\), \(N_4(4)=188416\), \(N_5(4)=4980736\). Additional path-basis multiplication tests compare the extracted equations against literal concatenation. Extension-field arithmetic over \(\mathbb F_4\) is implemented using the irreducible polynomial \(t^2+t+1\). A successful run ends with `VERIFY_OK_CYCLIC_J4_SQUAREZERO`.
+PASS
 
-The counts are finite checks, not substitutes for the proof of the general rank formula, transfer identity, geometric dimension or top-component classification. No independent audit is asserted.
+Truncated path concatenation gives the two stated equations and leaves the length-three coefficients free. The adjacent-pair equation forces independent arrow support. The nonzero entries in the middle-layer constraint matrix form disjoint edges and two-edge stars: a row and column of degree two cannot meet, because this would require consecutive occupied indices. Each nonempty matrix block has rank one, uniformly in the nonzero coefficients and the field, so summing the resulting kernel sizes gives the point count. The transfer trace counts labeled cyclic words with the declared weights. Independently, each nonempty support decomposes into gaps of length at least two; after normalizing by q^(2n), it has activity (q−1)/q² per occupied vertex and factor q per gap of length two or three. Writing t=(q−1)/q², the gap generating function is A(z)=t(qz²+qz³+z⁴/(1−z)). The weighted labeled-support series is zA′(z)/(1−A(z)) in positive degrees for nonempty supports, by marking a starting occupied site and dividing by the number of occupied sites. Adding the empty support and undoing the normalization yields the characteristic denominator 1−q²x−q³(q−1)x²+q⁶(q−1)²x⁴, in agreement with the given trace recurrence. For the geometry, each fixed-support stratum is a vector bundle over a torus and is irreducible; its dimension is 2n−|S|+p₂+p₃. The bound p₂+p₃≤|S| is sharp exactly for the empty support or when every circular gap has length two or three. Distinct such stratum closures differ because the identically zero arrow coordinates recover the support. An irreducible closure of maximal dimension is a component, and the finite stratification accounts for every top component. Marked-gap counting gives the stated multiplicity. The characteristic-two group interpretation follows from (1+x)²=1+x² and the nilpotence of the radical.
+
+## originality
+
+PASS
+
+An exact Resultary match dated later contains the support formula and recurrence (even with one additional n), and should be recognized as equivalent on the shared range; that date is not evidence of prior coverage. It expressly does not include the component theorem. Earlier inspected claims involve a different truncation or invariant. The supported contribution is the exact point count for J⁴ and especially the relation between kernel-rank strata and top components, not the classical enumeration of two-or-three circular gaps itself.
+
+## value
+
+PASS
+
+The fourth truncation is the first where the arrow support interacts with a free-but-constrained next path layer in the square. The result gives both a compact exact recurrence for the rational-point census and a geometric interpretation of the leading supports as components, rather than just a routine transfer of a known count. The answer applies in all characteristics and gives, in characteristic two, an exact census of the identity and involutions of the associated algebra group.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

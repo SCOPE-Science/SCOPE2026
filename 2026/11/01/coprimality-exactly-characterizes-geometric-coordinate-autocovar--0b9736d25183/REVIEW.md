@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The source's expanding map and uniform contraction mixture individually preserve Lebesgue probability. Their Koopman actions on Fourier characters are explicit; coprimality is exactly the condition for their commutation. For coprime bases, a binomial expansion and the known Fourier coefficients of the centered coordinate prove every lag. An explicit comparison of both mixed operator orders proves the \(\gcd(M,N)^2\) excess and the converse using only \(p(1-p)>0\). Exact-rational independent branch integration corroborates 82 identities for several bases and parameters, but finite tests are not used to justify infinite quantifiers.
+## correctness
 
-## Originality — PASS within inspected evidence
-Homburg--Kalle's 2022 primary preprint gives the same map and Lebesgue stationarity but focuses on common-noise two-point separation, not the same-trajectory coordinate covariance. The primary text was inspected in its introduction, stationarity section, dynamics and concluding results, with full-text searches for correlation and covariance. Yan et al. study a nonuniformly stationary **single contraction** random map; Kalle--Zeegers use nonlinear superattracting branches and Young towers. The existing equal-base formula covers noncoprime matching bases, not the cross-base coprimality equivalence. Related published index summaries for two-coprime-expanding map grid collapse and for mixtures of two integer expanding maps are different objects and do not imply this covariance theorem. Search results alone do not prove priority; a full specialist literature review is a residual risk.
+PASS
 
-## Mathematical value — PASS
-The two natural integer parameters define the same affine model already studied for synchronization and intermittent two-point behavior. Their greatest common divisor is a sharp necessary-and-sufficient criterion for an exact all-lag geometric covariance law. The second-lag defect detects the obstruction exactly, rather than approximately, and the coprime zero-Lyapunov regime demonstrates a meaningful separation between Lyapunov intermittency and observable temporal decorrelation.
+An independent real-variable check uses D_b g(x)=g({bx}) and its Lebesgue adjoint B_b, the uniform inverse-branch average, with B_b f=f/b for f(x)=x-1/2. Both Markov actions preserve Lebesgue integrals. In B_M D_N the branch residues are Nj+floor(Nx) modulo M; when M,N are coprime they permute the M residues, yielding D_N B_M. Adjointness then gives <f,D_N^j B_M^l f>=1/(12 N^j M^l) and commuting-binomial expansion gives the all-lag law and its convergent sum. At lag two the reverse-order mixed term is <D_M f,D_N f>. Write M=dM', N=dN' and use uniformity of {dx}; the mixed integral reduces to coprime bases M',N', for which the same adjoint and permutation identities (also valid for base 1) give 1/(12 M'N')=d²/(12MN). The other mixed term is 1/(12MN). The stated C0,C1,C2 and lag-two defect follow, strictly positive exactly for d>1 when pq>0. The formula is algebraic in p and holds at the stated zero-Lyapunov parameter. Homburg–Kalle Theorem 1.1(ii) verifies the accompanying common-noise intermittency at zero exponent for these probabilities, with the exception for coalesced pairs; it is not a statement about this annealed covariance.
 
-## Boundaries
-The claim concerns stationary annealed autocovariance of the centered coordinate and does not assert global exponential mixing, uniqueness of stationarity, or independence from common-noise effects. Endpoints of the probability interval are excluded. Some related indexed full texts were inaccessible; their available claims concern different maps and thus are not treated as proof of novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The random system, its stationarity and critical common-noise intermittency are prior results, and the matched-base single-coordinate covariance has indexed exact coverage in a narrower subfamily. The supported distinction is the arbitrary-base arithmetic characterization of all-lag geometric coordinate covariance, and the exact second-lag test. It is not a general random-map mixing or intermittency theorem.
+
+## value
+
+PASS
+
+The natural stationary coordinate detects a structural arithmetic boundary: the entire covariance sequence is geometric exactly when a single lag-two equality holds. The excess gives its exact deviation for every pair of noncoprime bases. It also distinguishes geometric coordinate correlation at the critical probability from intermittency of common-noise pair dynamics; that coexistence is an interpretation, not an originality claim about intermittency itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

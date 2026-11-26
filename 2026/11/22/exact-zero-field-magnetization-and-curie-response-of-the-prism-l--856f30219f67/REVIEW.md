@@ -1,15 +1,21 @@
-# Scientific review of the prism-line Ising magnetization theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. Every line-graph bond belongs to exactly one triangle at a cubic base vertex; all triangles can simultaneously attain energy \(-J\). The transfer matrix follows from the two explicit not-all-equal triangle constraints at each column, and periodic closure gives the trace with no double counting. Exact determinant expansion and implicit differentiation provide the four-factor spectral law and Curie coefficient. An independent original-edge interaction census over all assignments with circumferences three to six reproduces the complete ground-state histograms, including their magnetizations; a separate symbolic program checks the analytic identities. These finite checks corroborate but do not replace the all-length argument.
+## correctness
 
-## Originality
-PASS on available evidence, with residual historical risk. The closest directly inspected primary paper, Varma (arXiv:1305.4606), addresses the saturation field on different ladders and a two-dimensional kagome model, not the longitudinal zero-field magnetization polynomial of these prism line graphs. The exact entropy growth base was previously present in a different Eulerian-orientation ice-rule enumeration on prism line graphs and is expressly not claimed as original. The current result distinguishes that previously studied ensemble from physical edge spins and derives a field-weighted polynomial and a specific zero-temperature Curie constant. Searches for prism-line Ising, kagome tubes, transfer matrices, algebraic Curie coefficients, and stronger equivalent classifications yielded no exact covering statement; title or parameter mismatches alone were not treated as proof of novelty. A separate 1987 susceptibility paper concerns transverse response of different lattices; 2017 work again concerns two-dimensional perpendicular response. Some plausible unindexed sources were not fully accessible, so definitive priority is not established.
+PASS
 
-## Mathematical value
-PASS. The coefficient quantifies a physically natural fluctuation response across all circumferences of a frustrated, finite-width kagome-type tube, rather than providing an arbitrary finite enumeration. The complete magnetization-weighted partition polynomial permits exact finite-size response and higher moments; its nontrivial limiting algebraic Curie amplitude is not inferable from the unweighted residual entropy. The underlying transfer decomposition gives a reproducible benchmark for quasi-one-dimensional frustrated magnetism.
+Each bond of the simple prism line graph belongs to just one base-vertex triangle, valid also for n=3. A triangle costs -J for not-all-equal edge spins and 3J otherwise. Opposite signs on the rungs and rails attain the lower bound everywhere, so the full ground-state set is exactly the NAE assignments at energy -2nJ. Conditioning on two incoming and two outgoing rail spins and summing the allowed rung spin gives the displayed entries with weight z^(outgoing rail sum+rung). Closing with a trace counts labeled assignments with every spin weighted once. Rail exchange splits off a one-dimensional eigenvalue -(z+z^-1); the complementary three-dimensional block has the stated cubic. At z=1 its roots are -1 and (5±sqrt(17))/2. At fixed n, fluctuation–dissipation and the finite positive excitation gap reduce T chi_n to the ground-state variance of M divided by 3n, exactly the second log-fugacity derivative shown. Near zero log fugacity the four eigenvalues admit analytic branches on a complex disk (they are simple at 0), with the ratios of the three subleading eigenvalues to L_+'s branch uniformly smaller than one in modulus on a sufficiently small disk. Thus n^-1 log trace differs from log of the leading branch by an analytic exponentially small correction, whose derivatives at zero tend to zero by Cauchy's estimate. Implicit differentiation of the cubic gives zero first derivative and the stated radical second derivative divided by 3; this justifies the stated order of limits only. Independent replay: python3 /workspace/checks/frozen_replay.py 5; weights constructed from the constraints, exact cubic and radical, and separate bit-enumerated NAE counts 86, 450, 1942 at n=3,4,5 with sum M^2 of 150,1152,5990 and exact weighted checks at z=2. The radical evaluates to 0.20787388005845981757.
 
-## Scientific scope and residual risks
-The model is classical, zero-field and nearest-neighbor isotropic, with \(3n\) labeled spins and \(n\ge3\); the zero-temperature limit precedes the infinite-cylinder limit. The calculations do not determine physical transverse response or robustness to additional couplings. Existing entropy results and transfer-matrix methodology are not novel; unpublished or unindexed exact magnetization calculations could affect originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is the spin-magnetization Laurent polynomial and resulting ordered longitudinal Curie limit for the specified classical zero-field prism-line ensemble. Do not assign originality to the transfer method or to the shared entropy growth base. The retrieved same-day ice record establishes overlap in that base but not chronology.
+
+## value
+
+PASS
+
+Complete magnetization weights of a natural frustrated cubic line-graph family give exact finite-circumference responses and higher moments, not just unweighted degeneracy. The nontrivial limiting longitudinal Curie coefficient is independent information from the residual entropy and useful as a finite-width benchmark with a specified order of limits. It makes no assertion about quantum transverse response, other couplings or the reverse order of limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

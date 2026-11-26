@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:32:55.953553Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 17–84",
+        "VERIFICATION.md lines 19–29",
+        "verify.py (inspected, not executed)",
+        "/workspace/review_evidence/4-check.py"
+      ],
+      "rationale": "For distinct nonzero zero divisors, multiplication vanishes exactly when the valuations sum to at least m. In the kernel equations the deleted diagonal forces constancy on every high layer. Only the socle high layer has size nonzero modulo p; the V_1 equation forces its constant to vanish, and the socle equation then forces the total of the low coordinates to vanish. Each remaining high layer is uniquely determined by the specified tail of low sums. This gives the stated rank and makes the kernel pairing the ordinary dot product on a low-coordinate zero-sum hyperplane. Its radical is the all-ones line, because the low layer sizes are multiples of p, and this vector has zero high extension. No vertex is isolated, so the dual has no unit vector; two low vertices in one layer give a weight-two dual word. The primal distance-one witness follows from r_b-r_a=e_a-e_b for socle vertices and r_u=1_socle for u in V_1, with q-1 invertible in the coefficient field, including the singleton socle. Independently constructed the graphs using actual ring multiplication in Z/81, F_3[x]/(x^4) and F_2[x]/(x^5); ranks were 9, 9, 4 and hull dimensions were 1 via rank(A)-rank(A^2). The length-five case tested a nonzero high-coordinate lift. Replay: python3 /workspace/review_evidence/4-check.py. These instances confirm rather than prove the general argument.",
+      "residual_risks": [
+        "The direct-ring reproduction checks only three specified rings; extension residue fields and arbitrary lengths are covered by the proof, not by that reproduction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed theorem covers arbitrary residue-field sizes and characteristics and also characterizes every unit vector in C, including the middle layer at even length.",
+          "Rather studies graph structure and real spectral data; the Resultary zero-forcing/minimum-rank hit concerns minimization over all real matrices with the graph pattern, not the prime-field rank of this fixed matrix."
+        ],
+        "reasoning": "The indexed theorem dominates the entire frozen scope and the stronger unit-vector result includes all socle witnesses; spectral and minimum-rank comparisons do not supply this modular classification.",
+        "searches": [
+          "Resultary: all lengths, prime characteristic adjacency rank versus real minimum rank",
+          "arXiv:2604.03101, Theorems 2.1–2.2",
+          "DOI 10.12988/ija.2019.9211"
+        ]
+      },
+      "checked_sources": [
+        "Resultary entries aeb9d6118aed and 86625146ed7a",
+        "arXiv:2610.08480v1",
+        "arXiv:2604.03101",
+        "DOI 10.12988/ija.2019.9211 (full text unavailable)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both indexed/frozen statements use simple adjacency over F_p; the indexed theorem gives the entire dual, parameters, hull, and a complete unit-word classification.",
+          "The 6 October preprint uses the same graph convention and row-space definition. The exact socle row witness contradicts the claimed distance two even over F_3."
+        ],
+        "reasoning": "Every scientific assertion in the frozen theorem follows from the distinct indexed theorem with m=ell; the short socle row combination offers a verification of a covered conclusion rather than a separate uncovered mathematical result. The dates are recorded separately from implication.",
+        "searches": [
+          "Resultary ID 2026/11/8/SCOPE-adjacency-codes-of-finite-chain-ring-zero-divisor-graphs-uniform--aeb9d6118aed",
+          "arXiv:2610.08480v1, §§2 and 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed theorem, Finding and proof §2: C^perp={(z,B^T z): sum_L z=0}, where B_{uv}=1_{nu(u)+nu(v)>=m}; explicit code parameters and hull F_p(1_L,0_H)."
+        ],
+        "reasoning": "For high coordinate v, (B^T z)_v sums precisely the allowed low layers; on the socle it sums all low entries and is zero. This identifies the complete kernels, not just their dimensions.",
+        "searches": [
+          "Resultary: finite chain-ring zero-divisor adjacency row code, explicit modular kernel, hull and distance one",
+          "Resultary ID 2026/11/8/SCOPE-adjacency-codes-of-finite-chain-ring-zero-divisor-graphs-uniform--aeb9d6118aed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue contains the exact family and parameters in the 8 November entry, not a match inferred from a numerical table.",
+          "Sarkar–Hansda–Maji Table-level parameter comparison: Theorems 4.6–4.7 give dimension p^2, the zero-sum V_1 dual and hull dimension one for odd p and length four, but report primal distance two."
+        ],
+        "reasoning": "The preprint overlap is restricted and one entry is false under its own definition; the exact indexed theorem, rather than that erroneous entry, establishes equivalent coverage.",
+        "searches": [
+          "Resultary catalogue: exact chain-ring prime-field adjacency code parameters and hull",
+          "arXiv:2610.08480v1, §4.2"
+        ]
+      },
+      "rationale": "A distinct indexed finding states a stronger theorem for exactly the same graph, base field and length range. Its dual formula is the frozen kernel after rewriting B^T z as valuation tail sums; its hull, parameters, and unit-vector classification imply every frozen assertion. This is demonstrable equivalent coverage, not a judgment that the later-dated entry has historical priority or an allegation of copying. The genuine correction of the earlier odd-prime distance remains correct but is also an implication of the indexed theorem.",
+      "residual_risks": [
+        "The 8 November catalogue path postdates the 18 October frozen path; the relation and historical priority of the two records were not established. Equivalent coverage is established.",
+        "Exact contents of the Tirop–Oduor–Olwamba propositions were not verified; this did not determine the verdict."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers and strengthens every frozen assertion",
+          "evidence": "Identical simple graph and coefficient field; dual formula, code parameters, hull line and exact unit-vector supports.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-adjacency-codes-of-finite-chain-ring-zero-divisor-graphs-uniform--aeb9d6118aed/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–2 (offsets 0–4477, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "method": "Configured local mirror, exact statement and proof passage",
+          "title": "Adjacency codes of finite chain-ring zero-divisor graphs: uniform dimension, hull and weight-one spectrum",
+          "trigger": "Closest exact Resultary match"
+        },
+        {
+          "assessment": "Exact restricted overlap with a contradicted primal distance",
+          "evidence": "Distinct zero divisors are joined iff their product is zero; adjacency rows over F_p generate the code; distance 2 is reported for the same convention.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08480v1",
+          "material_read": "PDF §2 definition on p. 2 and Theorems 4.6–4.7 on pp. 9–10",
+          "method": "Open-access PDF passage inspection",
+          "title": "Graph-Based Linear Codes Associated with the Finite Ring F_p[x]/<x^4>",
+          "trigger": "Reported disagreement on primal distance"
+        },
+        {
+          "assessment": "Structural overlap, not the fixed modular code",
+          "evidence": "Even-length graph structure and A_alpha spectra, not the prime-field hull or distances.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.03101",
+          "material_read": "Abstract and Theorems 2.1–2.2, pp. 4 and 9",
+          "method": "Open-access PDF passage inspection",
+          "title": "Spectral Properties of Zero-Divisor Graphs of Truncated Polynomial Rings",
+          "trigger": "Possible broader spectral/graph overlap"
+        },
+        {
+          "assessment": "Access limitation only",
+          "evidence": "Precise rank comparison with this source remains unverified.",
+          "identifier_or_url": "https://doi.org/10.12988/ija.2019.9211",
+          "material_read": "No full text retrieved; no conclusion drawn about §§3.3 or Propositions 6–7 from their absence",
+          "method": "Lawful OA lookup",
+          "title": "On the Adjacency Matrices of the Anderson-Livingston Zero Divisor Graphs of Galois Rings",
+          "trigger": "Possible modular adjacency comparator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 35–96",
+        "arXiv:2610.08480v1, Theorems 4.6–4.7"
+      ],
+      "rationale": "The complete dual description uniformly explains which prime-field constraints survive in mixed and equal characteristic and supplies a concrete correction to the earlier length-four minimum distance. Those are useful structural facts, not a claim of good error correction. The value of the mathematics does not remove the exact catalogue overlap.",
+      "residual_risks": [
+        "The primal distance is one, so the family is not useful as an error-correcting construction on that evidence alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

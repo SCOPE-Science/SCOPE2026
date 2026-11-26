@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized atomic Hardy operator is represented exactly by the two forms \(Q(h)\) and \(R(h)\) on \(H^1(0,T)\), after the logarithmic substitution. Their variational Euler equation has precisely the two stated Robin conditions. The phase function \(\kappa T+3\arctan(2\kappa)\) is strictly increasing, excludes missing or repeated positive singular values, and yields the claimed quantization. Compactness and the strict \(4\) bound follow from the form identity. Direct integration yields the exact Hilbert–Schmidt sum; Taylor expansions of the phase yield both limiting regimes and the Schatten cutoff. The embedded finite checker passed 12069 assertions, including independently computed Galerkin singular values. Risk: computational assertions do not independently certify the infinite-dimensional proof.
+PASS
 
-## Originality — PASS, with residual bibliography risk
+The primitive g on [beta,beta+1] has g(beta)=beta f(0) and g'=f on the shifted continuous interval. Polarization of the two norm forms gives -g''=eta g/y^2 with g'(beta)=(1-eta)g(beta)/beta and g'(beta+1)=0, where eta=1/s^2. The left sign comes from the atomic term and integration by parts at the lower endpoint. Under g(y)=sqrt(y) h(log(y/beta)), the input form is coercive on H^1 and the output form is the squared norm of the compact map h->(h(0),h). The input form minus a quarter of the output form is strictly positive for every nonzero h, excluding zero or imaginary wave number at a nonzero singular value. With eta=1/4+kappa^2, the left condition on h fixes the initial phase modulo pi as 2 atan(2 kappa), and the right condition adds atan(2 kappa). The resulting phase is strictly increasing from 0 to infinity. All roots j>=1 give weak and hence operator eigenvectors; the initial Robin condition leaves a one-dimensional solution space, ensuring simplicity. The phase at kappa=sqrt(3)/2 exceeds pi when T>0, giving 1<s_1<2. With the normalized atomic coordinate the atomic and continuous squared kernels sum to 1+integral_0^1 dx/(beta+x)=1+T. For fixed T, kappa_j~pi j/T gives the Schatten cutoff. For T tending to infinity at fixed j, kappa_j~pi j/T and 2-s_j~4 kappa_j^2. At small T the first root starts at sqrt(3)/2, with derivative -sqrt(3)/3, giving s_1'=1/2; fixed j>=2 instead have T kappa_j tending to (j-3/2)pi. Independent checks of the determinant in the mass coordinate and nonuniform-cell numerical compressions at three atom masses agreed at ranks 1–5; these do not replace the analytic proof.
 
-The 2026 atomless distribution-transport theorem excludes atomic measures and explicitly leaves discrete–continuous Hardy theory for further work. The 2018 general-measure inequality proves only strictness relative to the universal \(L^2\) constant for finite starting atoms, not this exact one-atom singular spectrum, sharp sum or fixed-rank edge law. The general Volterra singular-asymptotic source offers background for the high-rank power law, not observed direct coverage of the exact mass-dependent phase; only its abstract was accessible. An indexed published finite Cesàro result shares the logarithmic-square edge *scale*, but its finite discrete matrix and boundary conditions do not imply the atomic continuous full-spectrum equation. These statement-level comparisons do not prove absolute novelty, and classical Sturm–Liouville or older Hardy literature may contain an equivalent special case.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A current literature-identified gap is precisely what fails when distribution transport encounters atoms. One atom already changes a noncompact sharp-norm Hardy limit to a compact simple-spectrum operator. The exact quantization determines all singular values and approximation numbers, its Schatten endpoint, the exact Hilbert–Schmidt mass, a sharp inverse-logarithmic-square edge for every fixed spectral rank, and a distinct rank-one dominant-atom limit. This is a natural complete classification with quantitative boundary behavior, rather than only a routine inequality or arbitrary test value.
+The exact positive singular spectrum for one normalized endpoint atom, and its mass-dependent fixed-rank limits, are the supported distinct claims. The operator definition and upper norm bound are covered by general-measure Hardy theory; the squared Hilbert–Schmidt norm is an immediate kernel computation and is not relied on as an independent originality claim. The same leading edge coefficient is already known for a distinct finite Cesàro model, so the novelty is not the coefficient or inverse-logarithmic-square scale in isolation.
 
-## Evidence and limits
+## value
 
-The proof, all normalizations, and both regimes are in `RESULT.md`; the executable finite consistency checks are in `check_atomic_hardy.py`. Bibliographic comparisons concern actually inspected source material and reported search summaries, not claimed exhaustive text searches. No external or independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A positive initial atom is a natural minimal departure from the atomless Hardy model, and that departure changes the compactness and creates a spectral endpoint condition involving the eigenvalue. An all-rank quantization resolves the approximation numbers and the transition between the near-Hardy norm edge and a rank-one limit. This yields more information than the prior strict norm inequality or a routine computation of the Hilbert–Schmidt norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

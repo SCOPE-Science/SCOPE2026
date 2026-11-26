@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:48:27.566586Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each coordinate the product L2 norm is at most (a^2+s)^(k/2), so the series tail tends uniformly to zero and the mean is the target inverse times b. For a branch parameter c, centering gives X_c=(a+c epsilon)X'_c+c mu epsilon with mu=(1-a)^-1, and the primed pair independent of epsilon. For c,d the covariance solves K_cd=(a^2+cds)K_cd+cds mu^2, so inserting c,d=1,-tau reproduces all three terms and the factor 1/4. Squared Euclidean risk adds coordinates even with dependent noise coordinates. The bracket derivative is 2B[tau/(B-s tau^2)^2-1/(B+s tau)^2] and is strictly increasing for an active mode, negative at 0 and positive at 1. Positive weighted sums retain these signs and strict convexity. Only one weighted active mode uses the quartic: square-rooting the stationary equation with positive denominators gives the stated polynomial. Its derivative in u is positive; its expansion at nu=0 and its factorization at nu=1 give the two boundaries. The normalized risks at high noise tend to 1/4 at the optimum and 1/2 at full mirror. Uniform moment convergence on the compact parameter interval gives consistency of finite-depth minimizers, with a tau-independent truncation bias. Read VERIFICATION.md and verify.py without executing supplied code. Ancillary erratum: the quoted variances in the scalar example are correct, but full mirroring is about 25.8% above the optimum; 20.5% is the reduction relative to full mirroring. That reversed percentage base does not affect the theorem, example optimum, or risks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neininger's affine covariance recurrence immediately specializes to the paired second-moment formula, including the cross term. Blanchet–Sigman gives the product-sum fixed point in a sampling setting. Ghadimi–Wang gives an existing stochastic inverse-Hessian approximation via a randomized Neumann truncation."
+        ],
+        "reasoning": "The old covariance framework explains why only second moments enter, and its specialization is not an independent originality claim. It does not optimize tau in the fixed equal-weight shared-noise family or assert the endpoint signs and noise boundaries.",
+        "searches": [
+          "Neininger, Limit Laws for Random Recursive Structures and Algorithms, Lemma 5.2.1 and Theorem 5.2.2",
+          "Blanchet–Sigman, On Exact Sampling of Stochastic Perpetuities",
+          "arXiv:1802.02246, Lemmas 3.1–3.2 and Algorithm 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2611.15895v1 and 1802.02246",
+        "Neininger 1999 and Blanchet–Sigman 2011",
+        "Resultary 518462160bee (same record), a7c25255549a and a79434e38772"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From the general covariance lemma, K_cd=cd s mu^2/(1-a^2-cd s), so the explicit equal-weight risk is covered as a direct specialization. The prior estimator article instead proves cancellation and samples performance at discrete strengths, choosing full mirroring for cancellation.",
+          "The proposed selection result needs a strict-convexity and two-endpoint-sign analysis for every admissible active mode, which survives arbitrary positive mode sums; the scalar stationarity and singular-noise limits then give the quartic and distinct risk ratios."
+        ],
+        "reasoning": "Distinguish deriving a risk objective from proving a structural minimizer theorem, including the contrast with the prior default. Neither odd cancellation, the old general covariance theorem, nor a finite grid entails those optimizer claims simply by specializing its stated conclusions.",
+        "searches": [
+          "arXiv:2611.15895v1, Proposition 3.4 and Appendix C.6",
+          "Neininger 1999, Lemma 5.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bohne et al. use the same mirrored product pair, up to the factor-noise sign convention. Their full-mirror result cancels odd perturbation degrees and their experiments report variance changes with tau.",
+          "Conjugating the noise sign does not affect the variance computation. The centered pair is a K=1 bivariate affine fixed point with diagonal multiplier (a+epsilon,a-tau epsilon), where the shared epsilon must be retained."
+        ],
+        "reasoning": "Matched the estimator and coupled perpetuity representations rather than treating normalization, sign change, or covariance nomenclature as novelty.",
+        "searches": [
+          "arXiv:2611.15895v1, Sec. 3.4, Appendix A.3 and C.4–C.6",
+          "Resultary: partial antithetic mirroring, paired stochastic Neumann inverses and exact optimal strength",
+          "Neininger 1999, Chapter 5 affine random recursions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalogue hit 518462160bee is the frozen record itself. The earlier a7c25255549a treats a finite average of jointly Gaussian linear-plus-quadratic responses and a cross-validation score. The same-day a79434e38772 uses a two-stage stochastic extragradient model and stationary risk.",
+          "Appendix C.6 tabulates finite-run values on a discrete tau grid, with smaller variance at some smaller tested strengths."
+        ],
+        "reasoning": "There is empirical and structural overlap, but the table cannot determine the continuous distribution-free limiting optimizer, and the other catalogued objectives are not the Neumann-product risk. Same-day dates were not used to infer priority.",
+        "searches": [
+          "Bohne et al. arXiv:2611.15895v1, Appendix C.6 variance table and adjacent ablations",
+          "Resultary: paired stochastic Neumann exact variance optimum",
+          "Resultary a7c25255549a and a79434e38772"
+        ]
+      },
+      "rationale": "The estimator, full-reflection odd cancellation, and general affine-recursion covariance machinery are verified prior coverage. The supported distinct result is the universal variance-optimal mirror-strength selection theorem within the stated equal-weight exact-reference commuting family, including the one-mode calibration and sharp boundary ratios, not a claim to new perpetuity covariance theory. No inspected prior result determines that selection or implies it by a reduction of an existing optimizer theorem.",
+      "residual_risks": [
+        "An earlier explicit estimator-specific optimization or equivalent implication in uninspected work remains possible. The general covariance lemma and prior mirror experiments already overlap materially and are not claimed as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Estimator, cancellation and empirical partial-mirror variance changes are prior; not a continuous universal optimum theorem",
+          "evidence": "Proposition 3.4 and Appendix A.3 concern odd-order cancellation; the C.6 discrete variance ablation does not give a limiting distribution-free stationary equation or unique minimizer.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.15895v1",
+          "material_read": "Sec. 3.4, PDF p. 6, offsets 22944–30480; Appendix A.3, p. 15, offset 59121; C.4–C.6, pp. 21–22, offsets 86101, 87544 and 90753",
+          "method": "OA preprint PDF passages",
+          "title": "Your Hypergradient is Skewed: Antithetic Neumann Estimation for Bilevel Optimization",
+          "trigger": "Exact estimator family and mirror parameter"
+        },
+        {
+          "assessment": "Directly covers the covariance calculation; not mirror optimization",
+          "evidence": "The affine vector covariance recurrence includes cross-covariances. Inserting K=1 and the paired diagonal random multiplier gives the exact formula.",
+          "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/thesis.pdf",
+          "material_read": "Chapter 5, Lemma 5.2.1 p. 83, offset 241441; Theorem 5.2.2 p. 86, offset 252500",
+          "method": "OA dissertation PDF passages",
+          "title": "Limit Laws for Random Recursive Structures and Algorithms",
+          "trigger": "Potential general covariance coverage of the exact risk"
+        },
+        {
+          "assessment": "Neumann identity and random truncation are prior; no paired tuning",
+          "evidence": "The approximation is based on a randomly truncated Hessian-inverse product scheme, not shared-noise paired strengths.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.02246",
+          "material_read": "Lemma 3.1, Algorithm 3, Lemma 3.2; PDF p. 18, offsets 68935–70652",
+          "method": "OA preprint PDF passages",
+          "title": "Approximation Methods for Bilevel Programming",
+          "trigger": "Foundational stochastic Neumann inverse result"
+        },
+        {
+          "assessment": "Representation and sampling, not a coupled optimizer",
+          "evidence": "The perpetuity law is expressed through an affine distributional fixed point.",
+          "identifier_or_url": "https://web.stanford.edu/~jblanche/papers/ExactLinearRecAPT-6.pdf",
+          "material_read": "PDF p. 1, product-sum definition and fixed point",
+          "method": "OA author PDF passage",
+          "title": "On Exact Sampling of Stochastic Perpetuities",
+          "trigger": "Equivalent perpetuity representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prior default mirror strength is natural for cancellation, but cancellation and variance minimization are different objectives. A universal strict interior choice over the entire exact-reference commuting family, with a sharp noise-dependent calibration and an exact separation from full mirroring at the stability boundary, gives a usable benchmark for a naturally tunable estimator rather than an arbitrary finite test. No benefit for wall-clock cost, noncommuting systems, skewness, or training metrics is inferred.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

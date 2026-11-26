@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:09:46.943348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–59; accompanying check.py and frozen verification notes inspected, not executed",
+        "Independent replay: python3 /workspace/branches/0ccc8925-c5e5-40af-9962-33ddb1f8624e/independent_check.py, small-check.log and extended-check.log. A literal-symbol deletion conflict graph yields exact maxima (1,1,2,3,4,4,5) for n=2,…,8. It verifies all weight-one shadows through n=40 and disjointness of the construction through n=40 and at 41, 42, 59, 100, 101, 200."
+      ],
+      "rationale": "For input ones at i<j the one-deletion outputs of weight one have their one at i or j−1. They coincide exactly for adjacent ones. Thus if L selected words have adjacent ones and S do not, L+2S≤n−1. Consecutive starts for the adjacent words collide on a weight-two output, so L≤ceil((n−1)/2); taking floors gives the claimed upper bound. In the construction adjacent starts are even and spaced by two while the gap-three starts are 1 mod 4. The weight-one outputs are disjoint (one even index per adjacent word or a disjoint pair of odd indices for each gap-three word). For weight-two outputs the new first-one positions for distinct starts within either family lie in disjoint sets {i−1,i}, with unavailable positions at the boundary simply excluded. Across families the output gap is one versus two or three, so the descendants are disjoint. Counting the two families saturates the bound, including the sole word at n=2.",
+      "residual_risks": [
+        "Finite replay supports the theorem but does not prove the all-n statement; the shadow and start-separation proof does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected constant-weight graph result gives the chromatic and clique numbers for each layer; Sloane's definition and discussed VT results concern general single deletions."
+        ],
+        "reasoning": "The chromatic and clique numbers do not determine the independence number of the layer. A general binary code construction likewise does not give a sharp weight-two packing optimum. Exact coverage is supplied by the matching-scope repository findings, not inferred from the broad cited works.",
+        "searches": [
+          "Cullina–Kulkarni–Kiyavash arXiv:1211.4056 pp. 9–10; conference DOI 10.1109/ISIT.2012.6284242",
+          "Sloane arXiv:math/0207197 p. 1 and p. 3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–17 and 65–77",
+        "Resultary f07c464a7d1d, cc9ec0df2283 and 1370efa22dd5 (full decisive RESULT.md passages)",
+        "Resultary channel comparison da86d12c66bc",
+        "Primary OA arXiv:math/0207197, 1211.4056 and 1711.03682v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two all-length findings use arbitrary single deletion and identical support families. The zero-deletion-or-transposition result forbids deletion of a one and includes the unchanged word; the adjacent-transposition paper uses swaps, not deletions."
+        ],
+        "reasoning": "The exact findings already prove both sides of the same packing problem and the given explicit code; no extension or additional result is needed to get the frozen statement. The channel near matches are not used as coverage.",
+        "searches": [
+          "Mirrored RESULT.md Findings and construction passages for f07c464a7d1d and 1370efa22dd5",
+          "Resultary near match da86d12c66bc and arXiv:1711.03682v3, p. 1, adjacent-transposition definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "1370efa22dd5 gives n−1−floor((n+1)/4) and the same even-adjacent and gap-three support sets.",
+          "Sloane defines correction by disjoint descendant sets; equivalently this is independence in the graph of shared descendants."
+        ],
+        "reasoning": "The alternative expression equals floor((3n−2)/4) on every residue of n modulo four, with identical length, weight and deletion hypotheses. Different graph-theoretic wording does not change the optimum. Zero-only deletion and adjacent transposition are different channels.",
+        "searches": [
+          "Resultary binary weight-two arbitrary single-deletion optimum lookup",
+          "SCOPE record 1370efa22dd5, exact optimum for binary weight-two single-deletion-correcting codes",
+          "arXiv:math/0207197, Definition 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "f07c464a7d1d gives the precise optimum for every n≥2 and the same construction; cc9ec0df2283 gives the formula and matching construction for n≥3 under either-symbol deletion; 1370efa22dd5 states the equivalent all-n≥2 formula and construction."
+        ],
+        "reasoning": "These are exact theorem matches rather than a finite numerical pattern. The omitted n=2 in one hit is elementary and is already explicitly covered by the other two.",
+        "searches": [
+          "Resultary lookup, exact hits f07c464a7d1d, cc9ec0df2283, 1370efa22dd5"
+        ]
+      },
+      "rationale": "Two distinct earlier public repository findings give the all-n≥2 binary exact-weight-two optimum under deletion of either symbol and the same construction. A third gives the same optimum from n≥3. The exact repository coverage suffices independently of unresolved external historical priority.",
+      "residual_risks": [
+        "A broader external historical-priority search was not performed. The exact earlier repository evidence is already decisive and is not a claim about who first proved the theorem externally."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": [
+            "It states floor((3n−2)/4) for all n≥2 with arbitrary single deletion and gives the same support construction."
+          ],
+          "identifier_or_url": "2026/10/12/SCOPE-sharp-binary-weight-two-deletion-codes-at-every-blocklength--f07c464a7d1d",
+          "material_read": "Mirrored RESULT.md Finding, deletion hypotheses and support construction",
+          "method": "Local mirror of exact repository record",
+          "title": "Sharp binary weight-two deletion codes at every blocklength",
+          "trigger": "Exact Resultary formula, model and range match"
+        },
+        {
+          "assessment": "Covers n≥3",
+          "evidence": [
+            "Either symbol may be deleted; the formula and attaining construction are stated for all n≥3."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-exact-single-deletion-code-capacity-at-binary-hamming-weight-two--cc9ec0df2283",
+          "material_read": "Mirrored RESULT.md scope, Finding and proof bounds",
+          "method": "Local mirror of exact repository record",
+          "title": "Exact single-deletion code capacity at binary Hamming weight two",
+          "trigger": "Exact Resultary formula and channel match"
+        },
+        {
+          "assessment": "COVERS",
+          "evidence": [
+            "For n≥2 it states n−1−floor((n+1)/4) and the same construction, with the same channel and weight."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-exact-optimum-for-binary-weight-two-single-deletion-correcting-c--1370efa22dd5",
+          "material_read": "Mirrored RESULT.md Finding and construction",
+          "method": "Local mirror and comparison of four length residues",
+          "title": "Exact optimum for binary weight-two single-deletion-correcting codes",
+          "trigger": "Possible exact match in alternate floor notation"
+        },
+        {
+          "assessment": "Definitions and general bounds context, not an exact layer result in examined passages",
+          "evidence": [
+            "The definition is disjoint arbitrary-symbol deletion shadows; the Z-channel historical remark does not restrict that definition to removing zeros."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0207197",
+          "material_read": "PDF p. 1 Definition 1.1 and p. 3 discussion of VT origin",
+          "method": "Primary OA PDF passages",
+          "title": "On Single-Deletion-Correcting Codes",
+          "trigger": "Cited primary source on disjoint descendants and VT codes"
+        },
+        {
+          "assessment": "Restricted-graph overlap, not the optimum packing in inspected theorem",
+          "evidence": [
+            "The exact modified-VT theorem is about χ and ω, not α."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+          "material_read": "PDF pp. 9–10, OA offsets 47450 and 51690; DOI version had no located OA full text",
+          "method": "Primary OA arXiv version, comparison of graph invariants",
+          "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+          "trigger": "Primary constant-weight deletion graph results"
+        },
+        {
+          "assessment": "Different channel",
+          "evidence": [
+            "Adjacent transposition preserves length, unlike the arbitrary single-symbol deletion model."
+          ],
+          "identifier_or_url": "arXiv:1711.03682v3; DOI 10.1016/j.dam.2018.03.085",
+          "material_read": "PDF p. 1 model description, OA offset 0",
+          "method": "Primary OA arXiv passage",
+          "title": "On the graph of single adjacent transpositions",
+          "trigger": "Possible same-weight confusability-graph formulation"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–59 and 69–71",
+        "Resultary f07c464a7d1d and 1370efa22dd5, Findings and constructions"
+      ],
+      "rationale": "The weight-two optimum under deletion of either symbol is a natural exact invariant, but the assigned finding supplies the same formula, same range and same optimal support construction as existing findings. There is no classification of all extremizers or other distinct mathematical remainder to retain.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

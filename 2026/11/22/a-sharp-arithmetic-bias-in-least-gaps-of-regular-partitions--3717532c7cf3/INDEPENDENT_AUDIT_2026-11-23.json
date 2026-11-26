@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:08:50.441664Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The mandatory-part bijection gives the exact survivor quotient, with h=rAℓ(m). For m≡s mod ℓ the sum of allowed parts is ρℓ m²/2+sm/ℓ+(s−s²/ℓ)/2; the preceding shift is h−rm. The uncoloured Rademacher formula in Agarwal–Garg–Maji Corollary 2.3 has leading term ℓ⁻¹ᐟ² ∂NI₀(2√(μℓ(N+(ℓ−1)/24))). Its I₁ expansion gives (2) with dℓ=√μℓ(ℓ−1)/24−3/(16√μℓ). For the rest, Theorem 3.7 bounds the exponential sum by Oℓ,ε(N¹ᐟ² k¹ᐟ²⁺ε). With I₁(u)≤u eᵘ the differentiated Bessel term is Oℓ(k⁻² exp(u)); at k≥2 its exponent is at most half the principal exponent, and ∑k⁻³ᐟ²⁺ε converges. The finitely many other k=1 terms have smaller exponential rates. This justifies the quantitative input, not merely the leading equivalent. For t=n⁻¹ᐟ⁴, y=mt, κ=√μℓ and L(h)=log[pℓ(n−h)/pℓ(n)], on compact y-windows L(h−rm)−L(h)=κ r y t+O(t³), while exp(L(h))=exp(−γy²)[1−κ r s y t/ℓ+O(t²)]. Their product exp(L(h))·[exp(L(h−rm)−L(h))−1] gives the stated uniform mass coefficient κ²r²y²(1/2−s/ℓ). For clarity, the square-root-log cutoff in m in step 4 requires h=O(√n log n), larger than the window initially stated in (3). The same Taylor expansion gives the displayed main terms there with remainder O(n⁻¹(1+log n)³), which suffices for the extension invoked in step 4. The survivor at sufficiently large cutoff is O(n⁻²); summing the local error yields O(t² polylog n)=o(t). Shifted Euler–Maclaurin has no order-t contribution from the leading mass function because it vanishes at zero; the second Gaussian integral gives (ℓ−2s)Cℓ,r and hence strict eventual ordering for fixed ℓ,r. The uploaded test and retained output were read only; no finite test is used as an asymptotic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wagner's leading local equivalent specializes to r√μℓ m n⁻¹ᐟ² exp[−rρℓ√μℓ m²/(2√n)], the full leading term in the scaling window.",
+          "The indexed joint survivor/running-minimum law gives greater generality for leading probabilities, not a uniform second-order mass expansion. Agarwal–Garg–Maji supplies coefficient asymptotics rather than the signed arithmetic correction for this statistic."
+        ],
+        "reasoning": "The stronger-in-scope leading results cover the leading marginal (including leading class equidistribution using the local equivalent), but their stated errors do not expose an n⁻¹ᐟ⁴ signed correction after residue summation.",
+        "searches": [
+          "Wagner general-Λ Theorem 3, author-hosted PDF p. 6",
+          "arXiv:2511.05907v1 Corollaries 2.2–2.3 and Theorem 3.7; Hagis Theorem 6 via the uncoloured formula",
+          "Resultary a7d5664f9d36 joint Rayleigh limit"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–102 and VERIFICATION.md, verify.py, verification_output.txt",
+        "arXiv:2611.07871v1",
+        "Wagner (2011) original OA PDF",
+        "arXiv:2511.05907v1",
+        "Resultary a7d5664f9d36, 11f1f81a8477, 252a05c68d19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact generating identity for total least-gap counts and a leading local equivalent do not bound the difference between large class probabilities to o(n⁻¹ᐟ⁴).",
+          "The finite-size mark work computes the difference between two multiplicities at the first deficient part, summing over all permitted gap locations. Its cancellation does not give differences between two location sublattices."
+        ],
+        "reasoning": "The known identities permit the derivation, but the second-order cancellation between two shifts, the linear dependence on the residue, and the uniform enough arithmetic summation must actually be proved. None follows as a parameter specialization of the inspected prior conclusions.",
+        "searches": [
+          "Priya–Bhowmick–Meher Proposition 2.2 and Theorems 1.4–1.6",
+          "Wagner Theorem 3",
+          "Resultary 11f1f81a8477 proof Steps 3–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient of Pℓ(q) q^{Bℓ(m)}(1−q^{rm}) is precisely the difference of the two shifted partition counts, so the exact mass identity is covered.",
+          "The least multiplicity gap restricted to ℓ-nonmultiples is Wagner's generalized smallest gap for Λ={j:ℓ∤j}; its Dirichlet series is (1−ℓ⁻ᶻ)ζ(z)."
+        ],
+        "reasoning": "Rewriting the event as a coefficient or a shifted quotient gives equivalent leading objects. Neither equivalent identity, without second-order asymptotic control and summation on the arithmetic sublattices, proves the signed class correction.",
+        "searches": [
+          "arXiv:2611.07871v1 Proposition 2.2: least r-gap and point-count generating function",
+          "Wagner (2011) Theorems 1 and 3: smallest gap and general allowed part set",
+          "Resultary a7d5664f9d36: simultaneous survivor counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The distinct same-day 11f1f81a8477 derives an n⁻¹ᐟ⁴ signed bias for multiplicity marks at a least gap and a tie probability, not the residue of the gap. Its proof localizes a generating function for the difference of marked counts and does not state the second location-mass term.",
+          "252a05c68d19 treats competition among least absent parts in specified residue classes for ordinary partitions; it gives leading class selection in a different ensemble."
+        ],
+        "reasoning": "Both hits matter, but neither indexes this arithmetic location bias and its constant. No chronological claim rests on a shared date.",
+        "searches": [
+          "Resultary least gap of regular partitions, finite-size bias, residue-class least missing part: a7d5664f9d36, 11f1f81a8477 and 252a05c68d19"
+        ]
+      },
+      "rationale": "The exact point law and its leading local Rayleigh term are prior, and the coefficient expansion is an input, not a new partition asymptotic. The genuinely distinct result is the uniform signed second local term and the nonzero residue-class correction with eventual strict order. The closest indexed finite-size bias concerns a different random mark of the same gap.",
+      "residual_risks": [
+        "Hagis's original was not inspected independently; the available uncoloured formula and its attribution were read in Agarwal–Garg–Maji. An implicit or unindexed older second-order treatment remains possible; no absolute priority inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact count formula covered; signed residue law not in inspected results",
+          "evidence": "The generating factor is a difference of shifts, with separate aggregate sum asymptotics for selected ℓ.",
+          "identifier_or_url": "https://arxiv.org/html/2611.07871v1",
+          "material_read": "Proposition 2.2 (OA offsets 11991–16756), Theorems 1.4–1.6 (around 9300)",
+          "method": "Original OA text",
+          "title": "The minimal excludant and the least r-gaps of ℓ-regular partitions",
+          "trigger": "Same statistic and exact point law"
+        },
+        {
+          "assessment": "Leading local term covered by specialization; no signed correction in the inspected result",
+          "evidence": "The general allowed-set theorem applies to (1−ℓ⁻ᶻ)ζ(z) and gives the same leading mass at m of order n¹ᐟ⁴.",
+          "identifier_or_url": "https://www.finanz.math.tugraz.at/~wagner/limitdist.pdf",
+          "material_read": "PDF pp. 4–7, Theorems 1 and 3; OA offsets 9485, 12800 and 16800",
+          "method": "Author-hosted original OA PDF",
+          "title": "Limit distributions of smallest gap and largest repeated part in integer partitions",
+          "trigger": "Potential general local limit covering the regular-part ensemble"
+        },
+        {
+          "assessment": "Exact coefficient formula and quantitative tail bound support the analytic input, not the residue-bias law",
+          "evidence": "The uncoloured Bessel formula, attributed to Hagis Theorem 6, singles out k=Q=1,m=s=0; coefficient bound and Bessel derivative give a uniformly summable exponentially smaller tail.",
+          "identifier_or_url": "https://arxiv.org/html/2511.05907v1",
+          "material_read": "Corollaries 2.2–2.3, equation (2.2); Theorem 3.7 bound and its use after (4.11); OA offsets 14150–20285, around 51972, and 79100–80677",
+          "method": "Original OA text",
+          "title": "Rademacher-type exact formula and higher order Turán inequalities for r-colored ℓ-regular partitions",
+          "trigger": "Decisive two-term partition coefficient input and check against Hagis"
+        },
+        {
+          "assessment": "Exact joint survivors and leading limit already covered",
+          "evidence": "The coefficient equivalent and limiting quotient do not provide the signed second-order correction.",
+          "identifier_or_url": "2026/11/8/SCOPE-joint-least-multiplicity-gap-laws-for-regular-partitions--a7d5664f9d36",
+          "material_read": "RESULT.md OA offsets 0–7544, Finding and survivor/limit argument",
+          "method": "Local Resultary mirror",
+          "title": "Joint least-multiplicity-gap laws for regular partitions",
+          "trigger": "Same ensemble and gap, possible stronger joint result"
+        },
+        {
+          "assessment": "Material overlap in statistic and scale, but a different marked observable",
+          "evidence": "The saddle calculation in equations (3)–(7) treats differences of multiplicity marks aggregated across locations, not second-order local location masses or residues.",
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-finite-size-multiplicity-mark-bias-at-a-least-gap-of-r--11f1f81a8477",
+          "material_read": "RESULT.md OA offsets 0–3573 and 3550–8005, Finding and proof of marked-count difference and tie probability",
+          "method": "Local Resultary mirror",
+          "title": "The first finite-size multiplicity-mark bias at a least gap of regular partitions",
+          "trigger": "Same-day bias for the same gap at the same asymptotic scale"
+        },
+        {
+          "assessment": "Different ensemble with leading class selection",
+          "evidence": "Ordinary partitions; leading joint Rayleigh/class selection, not signed secondary bias in an ℓ-regular partition.",
+          "identifier_or_url": "2026/10/25/SCOPE-joint-rayleigh-law-for-congruence-class-missing-parts-and-the-ev--252a05c68d19",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local Resultary mirror",
+          "title": "Joint Rayleigh law for congruence-class missing parts",
+          "trigger": "Possible equivalent residue-selection law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Rayleigh limit is blind to residue order. The second local term identifies precisely how the omitted arithmetic progression affects where the first deficient part lands, and the summed signed coefficient yields asymptotically strict ordering not visible in the leading law. This is a sharp structural correction for a previously studied statistic, not just an improved numerical fit or a new name for the exact count formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

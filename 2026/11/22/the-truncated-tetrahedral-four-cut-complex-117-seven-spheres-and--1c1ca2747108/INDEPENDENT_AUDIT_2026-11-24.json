@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:31:17.115487Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4, VERIFICATION.md, CERTIFICATE.json, verify.py and verification_output.txt",
+        "python /workspace/replays/3_5_topology.py 5 (independent connectivity, certificate replay, all 24 traces)"
+      ],
+      "rationale": "Rebuilt the directed-pair graph and tested induced quadruple connectivity by testing all bipartitions, independently finding 48 connected and 447 disconnected four-sets. Every seven-set lies in a facet; the literal complement predicate gives the complete two-skeleton plus the 48 tetrahedra in the dual. Replayed all 48 supplied free triangle/tetrahedron pairs and checked the eleven-edge spanning tree and 55 unit-edge relations, yielding a simply connected two-complex with reduced Euler characteristic 117. Hurewicz and homological Whitehead give the dual wedge. Combinatorial Alexander duality gives sole reduced H₇ of rank 117 on the original complex; its full six-skeleton gives five-connectivity, so Hurewicz and H₆=0 upgrade it to six-connectivity and give the seven-sphere wedge. The only graph triangles are the four vertex blocks; the unique reversed-edge connection between each pair of blocks determines each vertex from its two block labels, so the permutation action on blocks is faithful and exhausts the automorphism group. Independently evaluated the original reduced Lefschetz sum for all 24 permutations by enumerating unions of vertex cycles: after negating the reduced Euler trace, a fixed face formed by r cycles contributes (−1)^r, including the empty face. This returned (117,7,1,3,1). Irreducible character inner products with class sizes (1,6,3,8,6) give (8,4,16,13,9).",
+      "residual_risks": [
+        "Integral equivalences are nonequivariant; the character decomposition is rational, not a classification of the integral S₄-module."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Topology I Theorem 6.1 and Topology II Theorem 2.16 supply Euler and homology constraints given a full skeleton. Topology II Proposition 2.18 and the pentagonal-girth classification use short-cycle restrictions not satisfied here. Its §5 graph-specific results concern rectangular grids."
+        ],
+        "reasoning": "Four triangles exclude the girth hypotheses. Full-skeleton information alone does not kill the penultimate homology or determine the dual homotopy type.",
+        "searches": [
+          "Bayer et al. arXiv:2304.13675 §6; arXiv:2407.08158 §§2 and 5; Resultary 94b36fd5471f on girth at least five"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675 §6; arXiv:2407.08158 §§2 and 5",
+        "Resultary 94b36fd5471f, fcd3a75bd7da, f934e656621e, 06da2f0ef7ce (mirror passage around offset 5082 on three-cut verification), and target self-match"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Euler formula gives 447−binom(11,4)=117 once the graph-specific facet and skeleton data are known. The three-cut comparison uses disconnected triples, and the pentagonal-girth theorem expressly excludes triangles."
+        ],
+        "reasoning": "The Euler value is not presented as a new general theorem. A wedge of spheres of the specified dimension and the full character need the graph-specific collapse and trace computation in addition to Euler data. Neither the broader theorem nor the adjoining exact calculations imply those conclusions.",
+        "searches": [
+          "Compare Topology I Theorem 6.1 and Topology II Theorem 2.16 with frozen dual collapse, π₁ proof and signed traces; compare girth theorem and three-cut verification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The frozen directed-pair model is the cubic 12-vertex Archimedean graph. arXiv:2304.13675 defines the same ordinary cut operation. Same-day fcd3a75bd7da treats GP(6,2) and f934e656621e treats L(Q₃), neither is the truncated tetrahedron."
+        ],
+        "reasoning": "Using graph dual notation or the Archimedean name does not change the comparison. The dual and primal conclusions were both checked; other same-order polyhedral graphs are not equivalent parameters.",
+        "searches": [
+          "Resultary: truncated tetrahedron directed-edge graph ordinary 4-cut, Alexander dual, 117 spheres, tetrahedral action; primary search: truncated tetrahedral or truncated tetrahedron four-cut complex Alexander dual homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1c1ca2747108 is the target self-match. Adjacent catalogued classes include Dürer 105 S⁷, cuboctahedral 63 S⁷, and a same-graph three-cut verification in 06da2f0ef7ce. The graph catalogue lead MathWorld names the graph, not a four-cut table entry."
+        ],
+        "reasoning": "Naming or tabulating the graph itself does not establish its exact cut invariant. The neighboring data have different graph or cut parameters and cannot be counted as a matching table.",
+        "searches": [
+          "Exact Resultary lookup for truncated tetrahedral 117 spheres and H₇ character (117,7,1,3,1); primary literature search with graph aliases and 4-cut"
+        ]
+      },
+      "rationale": "General full-skeleton theorems already supply the Euler-count machinery. The available matching statements do not also establish the homotopy types and character for this graph. Same-day exact four-cut studies of the Dürer graph and cuboctahedral graph treat genuinely distinct graph parameters, not alternate descriptions of this graph. The exact same-graph index hit is the frozen record itself. The characteristic low-girth, ordinary four-cut calculation, dual homotopy and action therefore survive the statement-level comparisons.",
+      "residual_risks": [
+        "No comprehensive census of all low-girth cubic four-cut complexes or proof of historical priority; an unindexed graph-specific calculation or unlocated general theorem could alter the comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage of general Euler and homology calculations; not a wedge theorem for this graph",
+          "evidence": "Full skeleton constrains homology to the top two degrees and gives the Euler expression; the top wedge conclusion there additionally uses shellability, and the sufficient skeleton criterion excludes short cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "§6, PDF pp. 17–18; Theorem 6.1 and Proposition 6.2, OA around offset 72623",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Original definition and potential general full-skeleton implication"
+        },
+        {
+          "assessment": "The general results give useful ingredients, not this exact classification",
+          "evidence": "Full-skeleton Euler result and separate low-cycle condition; specialized graph calculations are for rectangular grids.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "Theorem 2.16, PDF p. 6, offset 25506; Proposition 2.18, p. 8, offset 31302; Proposition 5.13 and Theorem 5.14, pp. 19–20, offset 84356",
+          "method": "Primary OA PDF bounded passages",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Broader four-cut and symmetry theorems"
+        },
+        {
+          "assessment": "Does not apply to this low-girth graph",
+          "evidence": "The ordinary four-cut hypothesis requires girth at least five and expressly excludes triangles.",
+          "identifier_or_url": "Resultary 94b36fd5471f",
+          "material_read": "RESULT.md mirror passage at offset 7560",
+          "method": "Resultary and local mirror",
+          "title": "Homotopy classification of four-cut complexes at the pentagonal girth boundary",
+          "trigger": "Potential stronger theorem for the same cut parameter"
+        },
+        {
+          "assessment": "Different graph and automorphism representation",
+          "evidence": "GP(6,2), homotopy type ∨¹⁰⁵S⁷ and D₆ character, not the directed-edge graph and S₄ action.",
+          "identifier_or_url": "Resultary fcd3a75bd7da",
+          "material_read": "RESULT.md mirror Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "The Dürer four-cut complex: 105 seven-spheres and its dihedral homology character",
+          "trigger": "Close analogue in dimension and equivariant scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and independent topological and trace checks",
+        "Bayer et al. full-skeleton comparison; Resultary 94b36fd5471f and 06da2f0ef7ce"
+      ],
+      "rationale": "The truncated tetrahedron is a canonical highly symmetric small graph whose triangles put it outside the higher-girth classification. At the natural next cut level after the three-cut result, the precise integral types for both dual partners and the full tetrahedral character distinguish homotopy and symmetry phenomena that an Euler count would not record. The eight-dimensional fixed subspace is genuine representation information, not just a table enumeration of connected quadruples.",
+      "residual_risks": [
+        "No general cubic-family, shellability or equivariant sphere-wedge conclusion is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

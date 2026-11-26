@@ -1,19 +1,21 @@
-# Review of cyclic power-GCD prime-square Smith factors
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is precisely restricted to every odd prime \(p\) and every integer \(a\ge1\). Its matrix identity \(G=uI+v(I_p\otimes J_p)+J\) is verified entrywise for all three gcd classes. For primes \(\ell\ne p\), \(p\)-unit averaging gives a genuine integral local direct-sum decomposition. At \(\ell=p\), a \(p\)-by-\(p\) unit pivot and Schur complement isolate the exact valuation multiplicities. The rational determinant then forces the last \(p\) valuations to be precisely \(a+1\), rather than merely bounded below. Coprimalities with the final scalar eigenvalue and consecutive divisibility identify the global ordered Smith factors. These steps establish an infinite proof independent of the included exact finite checker; the checker reproduced 4,499 grouped assertions across seven test cases.
+PASS
 
-## Originality — PASS, qualified
+Grouping the full residue set modulo p gives uI+v(I_p⊗J_p)+J_{p²}; the three rational eigenvalues u, α, β with multiplicities p(p−1), p−1, 1 give a nonzero determinant. Away from p, the corresponding averaging projections are integral over each local ring, so the eigenvalues give the local Smith valuations there. At p, the distinguished p×p block P reduces to J_p−I_p. Its square modulo p is I_p−2J_p but more directly (J_p−I_p)(−I_p−J_p)=I_p since J_p²=0 modulo p; the stated invertibility is valid even though constants and the sum-zero subspace do not give a direct sum in this field. With R the remaining incidence matrix and W=vI+J, block elimination gives the Schur complement u(I+RWP⁻¹Rᵗ). The bracket reduces to p copies of I_{p−1}+J_{p−1}, each of rank p−2 over the residue field. There are therefore p unit factors, p(p−2) factors of valuation a and p factors of valuation at least a+1. For all odd p, including a=1, both α and β have valuation one; the determinant forces the last p valuations to be exactly a+1. This proves the rank and p-primary assertions. At every other prime dividing β, v and c are units since β−vc=p²; at primes not dividing β the displayed factors have one zero valuation, p(p−1) valuations of v and p−1 of vc. These multisets match the local splittings. The positive factors form a divisibility chain (in particular p divides c and the last ratio is β/p), so the local comparisons identify the full integral form. Independently computed integer Smith diagonals for (3,1), (3,6), (5,1), (5,3) agree.
 
-The closest earlier arithmetic matrix works, Haukkanen–Korkee (2005) and Hong (2008), study gcds of *entries* in a positive-integer indexing set and matrix divisibility, not the cyclic difference gcd kernel and its integral Smith factors. Telloni–Williams (2014) gives polynomial-matrix Smith forms for a special circulant class, whereas the theorem concerns fixed integer matrices for all odd \(p\) and \(a\). Noferini–Williams (2019) offers general circulant companion-ring reductions, not these closed entries. Nearby arithmetic-circulant results and a largest-factor calculation for the unpowered cyclic gcd matrix do not imply its complete list at every exponent. Exact-claim, equivalence, and broader-coverage searches did not identify a covering result. This is a best-knowledge mathematical novelty assessment, not a proof of priority; general algorithms might yield an implicit specialization.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Cyclic gcd kernels are natural arithmetic convolution matrices, and their full integral cokernel determines all integer obstructions to solving the corresponding convolution equations. The theorem determines every invariant factor over a two-parameter infinite family; its special \(p\)-primary structure and prime-to-\(p\) factors cannot be read from the elementary rational eigenspectrum alone. This is a complete classification at the first nonsquarefree prime-power group order, rather than a routine single determinant or isolated computed example.
+There is exact overlap with the largest-factor and mod-p rank claims for a=1 in a distinct same-day record. The supported distinct contribution is the complete ordered integral Smith family for all a≥1. Neither the inspected nonsingular companion-ring tools nor the indexed filtrations and tensor-product forms give that family mechanically. This is not a claim of priority for the unpowered exponent or mod-p rank.
 
-## Closest literature and limitations
+## value
 
-Relevant primary sources: Haukkanen–Korkee (2005), DOI 10.1155/IJMMS.2005.925 (publisher PDF text, Sections 1–3, inspected); Hong (2008), DOI 10.1016/j.laa.2007.08.037 (abstract examined, full text unavailable); Telloni–Williams (2014), DOI 10.1016/j.laa.2014.06.032 (open preprint, Sections 1–4 and theorem framework inspected); Noferini–Williams (2019), arXiv:1908.07331 (introduction, Theorem A, and related companion-ring formulation examined). The prime \(2\), higher prime-power cyclic orders, and incomplete index sets are not claimed. The possibility of implicit coverage by a general Smith-form specialization remains a genuine residual originality risk. No independent audit was carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The prime square is the first cyclic order with an intermediate residue layer and no squarefree product reduction. For this natural integer kernel the entire finite cokernel gives torsion multiplicities at the defining prime and elsewhere, information not captured by rational eigenvalues or the largest factor. The powered family is uniform rather than a handpicked example, and the integral Schur calculation supplies exactly the local information unavailable by averaging at p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

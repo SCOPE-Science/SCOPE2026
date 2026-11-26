@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The defect-bond description is checked against all \(16\) four-bit contexts for each of the forward and reflected rules. Rule 184 translates \(11\) defects one bond left and \(00\) defects one bond right, annihilating only an adjacent \(00\)-then-\(11\) collision; the complementary reflected map translates them in the opposite directions without collisions on the \(1100\)-free image. The \(32\)-context composite test establishes the exact right inverse there. The two maps therefore give both inclusions \(F(X_t)=X_{t+1}\) for every nonnegative integer \(t\), with quantifiers and bilateral boundary conditions explicit. Distinct forbidden patterns are factor-incomparable and are extendible to bilateral configurations, proving minimality and the sharp loss length. Exact prefix transfer polynomials and rational root bounds prove the strict first-to-second entropy loss. Reproducible low-time graph closures and direct enumeration corroborate, rather than substitute for, the all-time proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest full-text study, De Oliveira et al. (2015), directly studies Rule 184 at two time steps, its process-graph growth and proposed limit behavior. It does not present a proved minimal forbidden-word basis at every time or the \(2t+4\) first-loss clock. Fukś (1997) supplies the classical traffic-defect interpretation, not this all-time language theorem. An existing published one-step reachability result supplies the \(t=1\) case and reflected inverse, and a complete all-256-rule first/second-image study covers the short-time first-loss fact. Those special cases are **not** claimed new. The current all-time induction  are not subsumed by their explicit conclusions. published-finding corpus record searches included all-time aliases, ballistically annihilating defects, finite forbidden bases, second-iterate entropy, inverse maps, and potential exact tables. Priority against unindexed historical calculations or implicit equivalents remains provisional; unsuccessful database searches do not prove uniqueness.
+PASS
 
-## Value — PASS
-This is a natural complete, all-time classification of image subshifts for a paradigmatic conservative nonlinear automaton: each temporal step adds exactly one independent symbolic obstruction, yet every finite-time image remains of finite type and no finite stabilization occurs. The \(2t+4\) law identifies the exact increasing observation horizon needed to detect every successive change. The first/second entropy values are prior results and not claimed new. This is more than re-evaluating a known table, a fixed-depth numerical output, or an arbitrary parameter substitution.
+In the bilateral shift an A=11 bond followed by a consecutive B=00 bond bounds exactly 11(01)^j00, of gap 2(j+1). The local tables give A motion left and B motion right, with only separation-two B,A pairs deleted. Surviving defects preserve order: only B,A gaps shrink, and at the smallest possible gap their defects disappear rather than cross. For consecutive output A,B, their ordered ancestors bracket at least one consecutive input A,B transition, so the ancestral gap is at least 2(t+1) on X_t and the output gap at least 2(t+2). Conversely the Rule-226 reflected branch G moves A right and B left; there are no collisions on an output avoiding 1100, and the remaining gaps after G meet X_t's bound. The five-bit discrepancy table shows F(Gy)=y on that shift. Thus F(X_t)=X_{t+1}, including t=0, and induction gives every stage. Basis words are pairwise noncontaining because their only 11 and 00 are the terminal defects. Every finite avoiding word can be extended by a constant zero left tail and constant one right tail without creating an A-to-B defect pair. Therefore the avoiding-word languages are actual bilateral image languages, the basis is exactly minimal, and W_t is in Y_t but not Y_{t+1}, the first difference at length 2t+4. The independent bounded replay script independent_check.py checked the full four- and five-bit tables and 32 finite-block cases through t=4 (largest input block length 14); those checks supplement the all-time induction. The shipped verifier was inspected, not executed. No finite-ring or asynchronous generalization is asserted.
 
-## Limitations and relevant prior literature
-Only synchronous Rule 184 on the bilateral full shift is covered. The result does not classify fixed finite-ring images at all times or inverse fiber sizes. Related literature: Wu–Zhang (arXiv:2611.03758v1); De Oliveira et al. (2015/2016, doi:10.1002/cplx.21686, §4.1); Fukś (1997, arXiv:comp-gas/9703001); the published exact cyclic Rule184 one-step reachability study; and the published 256-rule first-versus-second-image classification. No comprehensive priority or independent external assessment is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct supported claim is the exact bilateral minimal forbidden basis at arbitrary finite t and the sharp first-loss clock. Previously stated t=1 reachability and inverse, and the separately recorded t=2 list, are credited and are not new. Accessible prior statements give local dynamics, individual-block preimages, or small-time languages, not the all-time two-inclusion classification. The main inaccessible process-graph source remains an explicit priority risk.
+
+## value
+
+PASS
+
+The exact minimal bases for a standard number-conserving cellular automaton characterize all finite-time reachable words on the bilateral full shift, not just the entropy or an isolated early image. The new obstruction's sharp length at every step gives strict descent and quantifies what can be distinguished by a fixed observation window. The inverse construction is a finite-depth reachability method; neither the t=1 nor the t=2 computation alone supplies the invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

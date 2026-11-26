@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:51:24.423216Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the given real generator, L²+L+I=0, so each Taylor polynomial reduces to R=aI+bL. With δ=a²−ab+b²=det R and tr(RᵀR)=2δ+b², the largest singular value is (sqrt(4δ+b²)+|b|)/2. Thus the two signs 1−δ±b≥0 characterize contraction exactly. I reconstructed their factors: RK2 gives −h³(h−2)/4 and −h(h−2)(h²+4)/4; RK3 gives −h³[(h−1)³−5]/36 and −hE(h)/36; RK4 gives −h³(h−2)Q(h)/576 and −hF4(h)/576 in the record's notation. These yield the full intervals including h=0 and endpoint inclusion: E is negative up to its sole positive root, by the derivative bound on [0,2] and the strictly increasing shift beyond 2, and the cubic factor is negative up to that root (<5/2). For RK4, Q>0 and F4<0 on [0,2] and the Q factor alone rules out all h>2. Exact determinant and trace at 9/4 confirm strict RK3 contraction, RK4 norm growth, and RK4 spectral radius squared 1949353/4194304. Independent exact arithmetic: python /workspace/branches/math_checks.py 3; the printed decimal root is only a rendering. The frozen verify.py and recorded verification notes were inspected, not rerun. This is a Euclidean one-step result, not a nonlinear energy or accuracy claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The local order/index criterion 2m+1≤p applies to the equivalent index-one matrix at p=3,4 but only for sufficiently small steps.",
+          "The complete RK2 damped-oscillator frontier in c4ff16d39c20 specializes at damping ratio v=1 to h=2 and R2=−I."
+        ],
+        "reasoning": "The broader RK2 frontier covers the RK2 part exactly, whereas local RK3/RK4 results do not cover their sharp global step intervals. Catalogue path dates are not used to establish priority.",
+        "searches": [
+          "arXiv:2308.05689, Theorem 2",
+          "arXiv:2310.19758, Proposition 3",
+          "Resultary c4ff16d39c20, Finding and assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2310.19758",
+        "arXiv:2308.05689",
+        "arXiv:1811.10680",
+        "Resultary 178c00968abe",
+        "Resultary c4ff16d39c20"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun–Shu's one-step RK4 expansion example uses L=−[[1,2,2],[0,1,2],[0,0,1]], with expansion at sufficiently small positive steps; the same section discusses two-step contraction.",
+          "The rank-one tridiagonal family result makes RK3 and RK4 locally safe on the two-dimensional member."
+        ],
+        "reasoning": "Neither the different counterexample nor the same-family local theorem entails the quintic cutoff, the exclusion of all larger RK4 steps, or the strict 9/4 same-matrix comparison under spectral stability.",
+        "searches": [
+          "arXiv:1811.10680, introduction and Section 3.2",
+          "arXiv:2308.05689, Theorem 2",
+          "arXiv:2310.19758, equation (2) and Proposition 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The N=2 matrix in (2) is QᵀLQ with Q=[[0,−1],[1,0]], so its Euclidean Taylor-polynomial norms are identical.",
+          "Resultary 178c00968abe treats the same oscillator family but classifies full RK4 isometries R4=±I, not the steps with largest singular value at most one."
+        ],
+        "reasoning": "Orthogonal equivalence is exact; it does not turn a local criterion or full-isometry classification into a global norm bound. At h=2 the present RK4 update is not a full isometry.",
+        "searches": [
+          "arXiv:2310.19758, equation (2), Definition 2 and Proposition 3",
+          "Resultary: findings on exact Euclidean contractivity, strong stability and isometries for Taylor Runge–Kutta polynomials on the rank-one-damped planar oscillator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest inspected catalogue statements are the exact-isometry and RK2-frontier records, not a table of three thresholds.",
+          "Sun–Shu Section 3.2 provides an exact RK4 example for a different 3×3 matrix and different step scope."
+        ],
+        "reasoning": "No inspected exact record or table supplies the matching RK3/RK4 intervals. The bounded searches do not certify uniqueness.",
+        "searches": [
+          "Resultary: exact RK2/RK3/RK4 one-step contractivity ranges, planar semidissipative matrix and rank-one-damped oscillator",
+          "arXiv:1811.10680, Section 3.2"
+        ]
+      },
+      "rationale": "The supported distinct finding is the global same-matrix RK3/RK4 threshold comparison and spectral-versus-energy witness, with RK2 as a baseline. The canonical matrix, qualitative strong-stability phenomena, and the RK2 slice found separately in a broader catalogue record are not credited as distinct discoveries here. No inspected stronger statement implies the RK3 and RK4 thresholds on this matrix.",
+      "residual_risks": [
+        "An uninspected specialized planar norm calculation could already derive the RK3/RK4 thresholds; bounded searches cannot certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact orthogonal matrix equivalence; local coverage only for RK3/RK4.",
+          "evidence": [
+            "N=2 has index one; strong stability is stated for sufficiently small steps."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.19758",
+          "material_read": "Equation (2), p. 2; Definition 2 and Proposition 3, pp. 2–3",
+          "method": "OA original PDF passages",
+          "title": "Hypocoercivity for Linear ODEs and Strong Stability for Runge–Kutta Methods",
+          "trigger": "Canonical generator and possibly sharp criteria"
+        },
+        {
+          "assessment": "Class-level local criteria, not an exact finite-step classification of this matrix.",
+          "evidence": [
+            "The order/index condition supplies local guarantees."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.05689",
+          "material_read": "Theorem 2, p. 6",
+          "method": "OA original PDF passage",
+          "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+          "trigger": "General criteria potentially implying the thresholds"
+        },
+        {
+          "assessment": "Different generator and step regime.",
+          "evidence": [
+            "3D RK4 one-step amplification for sufficiently small positive steps; two-step contractivity is a different claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1811.10680",
+          "material_read": "Introduction p. 3 and Section 3.2 p. 9",
+          "method": "OA original PDF passages",
+          "title": "Strong stability of explicit Runge–Kutta time discretizations",
+          "trigger": "Known RK3/RK4 contrast"
+        },
+        {
+          "assessment": "Classifies isometry, not nonexpansion.",
+          "evidence": [
+            "Its hypothesis and conclusion concern R4=±I, with two parameter pairs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-two-exact-isometries-of-classical-rk4-on-rank-one-damped-pla--178c00968abe",
+          "material_read": "RESULT.md Finding and assumptions",
+          "method": "Local Resultary mirror",
+          "title": "The two exact isometries of classical RK4 on rank-one-damped planar oscillators",
+          "trigger": "Same operator family and method"
+        },
+        {
+          "assessment": "Covers RK2 slice; does not treat RK3 or RK4.",
+          "evidence": [
+            "H(1)=2 with R2=−I at the boundary for the equivalent oscillator."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-energy-contraction-frontier-for-explicit-rk2-on-damped-o--c4ff16d39c20",
+          "material_read": "RESULT.md, including Finding and its exact v=1 case",
+          "method": "Local Resultary mirror",
+          "title": "A sharp energy contraction frontier for explicit RK2 on damped oscillators",
+          "trigger": "Broader exact contractivity frontier"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal rank-one-damped hypocoercive benchmark occurs in strong-stability theory, and its exact semigroup strictly dissipates energy. Matching all step sizes rather than finding one failure exposes a roughly 19% larger safe step for RK3 than RK4, while 9/4 separates norm stability from eigenvalue stability in exact arithmetic. This is a meaningful fixed-matrix benchmark independent of the already covered RK2 slice, not a general method-order or accuracy claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is for all labeled alphabets of size \(q\ge2\) and all integers \(k\ge2\), with a precise choice of index jump rather than skipped-position gap. Universality at the minimum possible length gives exactly \(k\) permutation blocks by the arch characterization. The repeated-letter targets force every inter-block occurrence jump, yielding the lower bound on the worst-target optimized embedding jump. A greedy embedding of each arbitrary target yields a matching upper bound. The count of permitted adjacent blocks follows an explicit step-by-step restricted-permutation construction, and multiplication over block boundaries gives the complete cumulative and exact spectra. The max-radius probability is an exact ratio. The standalone exhaustive checks of 888 universal hosts in seven parameter families and 27 permutation cases corroborate—not prove—the infinite assertions.
+## correctness
 
-## Originality — PASS, residual risk acknowledged
-The closest inspected primary preprint, Day–Kosche–Manea–Schmid, analyzes general matching and complexity of gap-constrained universality, not this shortest-host exact distribution. The survey's arch theorem provides a needed known ingredient. Chen–Chen treats bounded-drop permutations, so the isolated combinatorial factor is specifically excluded from claims of novelty. A published insertion-radius theorem optimizes edit operations, not embedding jump. A published binary universality-index formula likewise has no gap statistic. Targeted published-record and literature searches found no statement implying the all-parameter formula, but absence from available indices does not establish uniqueness; an equivalent specialized result may be inaccessible or unindexed.
+PASS
 
-## Mathematical value — PASS
-Unlike an arbitrary parameter sample or an isolated count, the theorem identifies a natural resource for shortest universal test strings: the maximum positional separation required to witness every pattern. It gives a structural formula for that bottleneck, exact counts at **every** admissible tolerance and alphabet size, all minimum-tolerance optimizers, and a sharp concentration law identifying how the poorest possible tolerance dominates for growing pattern length. These results distinguish the gap-resource design problem from ordinary universality and are potentially useful when universal sequence hosts must meet locality limits. The repeated-symbol bottleneck makes the answer exact rather than heuristic.
+The shortest length is qk: constant targets require k copies of each label, and k permutation blocks suffice. For necessity, cut greedily at the first full-alphabet prefix of each remaining suffix. The sequence of last-to-appear symbols forces any embedding of that sequence to reach at least the corresponding cuts; if there are fewer than k cuts, appending a symbol missing in the remainder obstructs universality. At length qk this forces k blocks of length q. Each constant target has a unique embedding, so all forward displacements are witnessed as jumps q+p_(i+1)(a)-p_i(a). Conversely, earliest-match embedding starts in the first block and advances at most one block per match. For a cross-block step to b from offset r, p_i(b)≤r, so the jump is no larger than the corresponding constant-target jump. Same-block jumps are below q and the maximal forward displacement is nonnegative by summing over labels. For a fixed block the nested allowed new positions give d+1 choices on each of the first q−d rows and d! choices on the remainder; the count is the same from every block. Subtraction gives the exact spectrum, d=0 forces repeated permutations, and the ratio at d=q−2 to unrestricted choices is (q−1)/q per transition. These are maximum index differences, not skipped-position counts, and each target may choose its embedding.
 
-## Closest literature and limitations
-The proof builds on the arch characterization in Kosche et al.'s survey and a known bounded-permutation counting method; it is not a claim to either result. Day et al.'s general hardness results are for substantially broader hosts and constraints and do not conflict with this exact special family. The result concerns only hosts of length \(qk\), uniform consecutive jumps, and patterns of length \(k\ge2\). Independent scientific validation is not part of this review. An equivalent unindexed specialization remains a concrete originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the bottleneck-radius bridge and the resulting distribution on all indexed shortest hosts, not for arch factorization, permutation-block structure, or the restricted-permutation count. No inspected strong match gave or implied this bridge. Same-day matches were compared without inferring publication order.
+
+## value
+
+PASS
+
+The worst-target best-embedding problem appears to require testing q^k targets and choices of embeddings. The exact witness-and-greedy bridge reduces it to linear scanning of adjacent blocks, and yields the entire labeled-host spectrum and sharp extremizers, rather than an example, a sampling estimate, or only a decision bound. Minimum length is the natural rigidity regime for this question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

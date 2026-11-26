@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:53:47.442754Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the given degree inner product and π=d_w/(2m), exact transfer up to phase preserves energy moments. Hs=−√π e_w and (e_w,Pe_w)_d=0 force γ=1−π by the first moment. The squared target image then gives R_w=||Pe_w||²=d_w/(2m−d_w). Cauchy–Schwarz bounds R_w below by d_w divided by the sum of degrees of the neighbors; this is at least d_w/(2m−d_w). Equality forces equal neighbor degrees and no nonneighbor because all degrees are positive. Conversely a universal apex with k-regular base has π=1/(k+2), and the span of its unit vertex state and the normalized constant on the base is invariant even when the base is disconnected. At the forced γ the two-state block squares to I/(k+2) and maps s to −e_w/√(k+2); its exact exponential gives all stated perfect times and the probability law. This includes k=0 and a two-vertex graph. The cone over P3 has R_w=4/9>3/7 for the apex, so universality alone fails. Independently written exact quadratic-field block checks for 0≤k≤12 and the P3 cone check are replayable with python3 /workspace/branches/9909a74a-ffc2-4579-b873-50462f33f873/independent_check.py. The frozen checker was inspected but not executed: its degree census is rational, its block checks floating point; neither is the all-graph proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The constant-entrance theorem holds for finite irreducible reversible chains with weights and loops and gives a closed-form probability law. Mograby et al. work with the same probabilistic Hamiltonian but their inspected theorem gives approximate bounds. Razzoli et al. prove a universal-marked-vertex result for the combinatorial Laplacian and ordinary uniform input."
+        ],
+        "reasoning": "The Markov-chain result strictly contains the graph case. The Razzoli theorem does not: the apex of a cone over P3 is a sharp counterexample in the degree-normalized model.",
+        "searches": [
+          "Resultary: stationary to marked-state perfect quantum search for reversible chains",
+          "arXiv:2207.01686, Theorem 2.3",
+          "arXiv:2202.13824v2, Corollary 2 and §5.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary constant-entrance record 72856888b565",
+        "Resultary double-cone normalized transfer search result 51d3b84f5e64",
+        "arXiv:2207.01686",
+        "arXiv:2202.13824v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The broader record explicitly imposes the same stationary input, rank-one oracle strength, sign of γ and exact probability one. Its necessary-and-sufficient condition and formulas specialize without any extra spectral hypothesis or different state convention."
+        ],
+        "reasoning": "Connected simple graphs give irreducible reversible chains. The graph characterization is immediate from the constant entrance requirement and the degree definition. The original graph proof is valid but does not establish an uncovered theorem.",
+        "searches": [
+          "10/13 constant-entrance record, universal condition, scope and start of proof",
+          "Mograby et al., p. 2 and Theorem 2.3",
+          "Razzoli et al., Corollary 2 and eqs. (42)–(43)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The constant-entrance theorem uses π_v=d_v/(2m) for the graph walk; f↦√(2m)f maps the frozen degree inner product unitarily into ℓ²(π) and takes s and e_w precisely to its input and oracle vectors.",
+          "For u≠w, P_uw=0 off the neighborhood and 1/d_u on it. A positive constant is equivalent to a universal apex with regular base."
+        ],
+        "reasoning": "Both statements concern exactly the same transition matrix and dynamics after the constant scaling of Hilbert space. At a universal apex over a k-regular base, the constant is 1/(k+1), equal to π_w/(1−π_w) as required.",
+        "searches": [
+          "Resultary: exact perfect stationary-state random-walk Laplacian search, cone apex and constant entrance",
+          "10/13 constant-entrance record, Finding and Assumptions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cataloged stronger statement gives γ_*=(1−π_w)/(1−P_ww), p(t)=π_w+(1−π_w)sin²(√π_w t), and all times (j+1/2)π/√π_w. The neighboring exact two-adic regular-double-cone record is apex-to-apex transfer, not oracle search."
+        ],
+        "reasoning": "Setting P_ww=0 and π_w=1/(k+2) recovers every exact formula, including all times, rather than just an overlap at complete graphs.",
+        "searches": [
+          "Resultary: exact perfect time and tuning for normalized-Laplacian search on cones",
+          "10/13 constant-entrance record, Finding"
+        ]
+      },
+      "rationale": "The full mirrored statement of a distinct indexed Resultary theorem for reversible Markov chains covers the graph classification, the unique tuning, the entire success curve and every perfect time by direct specialization. Neither the different normalization of the written Hilbert-space measure nor the graph-specific equality proof changes the result. This is verified mathematical coverage, not a claim about priority between same-date records.",
+      "residual_risks": [
+        "The matching catalog theorem and the frozen finding bear the same date; no claim about ordering, first derivation or attribution follows from it.",
+        "The negative comparisons with other literature are restricted to the stated inspected results, not an exhaustive priority survey."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies all frozen claims, not just a similar summary",
+          "evidence": "P_uw=π_w(1−P_ww)/(1−π_w) for all u≠w with unique γ and all times in ℓ²(π).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-constant-entrance-criterion-for-perfect-quantum-search-on-reve--72856888b565/RESULT.md",
+          "material_read": "Finding, Assumptions and initial necessity/sufficiency proof, offset 0 through 3869",
+          "method": "Local Resultary mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A constant-entrance criterion for perfect quantum search on reversible Markov chains",
+          "trigger": "Exact reversible-chain iff with potentially identical oracle and tuning"
+        },
+        {
+          "assessment": "Model and complete-graph case are prior; the reviewed general theorem is approximate, not the cone iff",
+          "evidence": "Uses normalized Dirac and constant states; regularity gives a proportional Laplacian on complete graphs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2207.01686",
+          "material_read": "Page 2 eqs. (1.2)–(1.6), offset about 6200; p. 4 Theorem 2.3, offset about 18000; p. 5 complete-graph discussion",
+          "method": "OA primary PDF text",
+          "title": "Quantitative approach to Grover's quantum walk on graphs",
+          "trigger": "Same probabilistic-Laplacian search model"
+        },
+        {
+          "assessment": "The theorem is for D−A and uniform input and does not dominate the degree-normalized claim",
+          "evidence": "At γ=1/N it reaches certainty at π√N/2 for any fully connected marked vertex.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.13824v2",
+          "material_read": "Page 12 Corollary 2 and p. 13 §5.1 eqs. (42)–(43), offsets about 36300–41000",
+          "method": "OA primary PDF text",
+          "title": "Universality of the fully connected vertex in Laplacian continuous-time quantum walk problems",
+          "trigger": "Perfect search at a universal marked vertex"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The model-dependent distinction from combinatorial-Laplacian search is mathematically useful. As a candidate distinct finding, however, the graph theorem and all exact constants are an immediate graph specialization of the verified existing criterion. The same moment/equality framework appears there, and the frozen record supplies no further invariant or uncovered class.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

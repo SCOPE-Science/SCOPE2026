@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The file `verify_complete_tripartite.py` implements the exact recursively defined finite first-order rank-type invariant in two independently written forms, with and without orbit compression. Running it over all twenty sorted triples in \(\{1,2,3,4\}^3\) exhausts every possible capped case. Both methods return the identical nine-class partition, checked by equality of full nested signature objects rather than digest collisions. Additional larger-size tests are not used as the infinite proof; the classwise four-round back-and-forth argument supplies that step. The program is self-contained and uses Python's standard library only.
+## correctness
 
-The recorded output in `verification_output.txt` was obtained by executing this script. No formal proof assistant, independent scientific reviewer, external certification, or probabilistic inference is claimed. The only computational assumption is correct execution of the provided transparent finite recursion; its logical correctness is justified in the proof.
+PASS
+
+For arbitrary part sizes, match the three actual parts to their size-four caps; through four EF rounds repeats can be matched and fewer than four earlier picks cannot exhaust a capped-large part. This preserves equality and all ternary edge atoms. For the 20 sorted capped profiles, a separate full-vertex, pairwise EF recursion checked all 190 distinct pairs, requiring both directions of the one-move extension condition. Its nine classes agree exactly with the stated truncation-and-merger rule, including (2,2,3) with (2,3,3). The representative minima follow by the table and monotone capping, and the class of (3,3,3) requires every part to have at least three vertices. The sharp nine-vertex bound is internal to the family only.
+
+## originality
+
+PASS
+
+No inspected independent source covers the nine classes or the key merger in the pure ternary signature. The related matching-defect census verifies only the intersection with all part sizes at most two; an unattributed cross-reference there is a residual risk, not an identified competing statement.
+
+## value
+
+PASS
+
+Rank four is a meaningful observability threshold in this ternary language: an edge uses three vertices and the additional move can probe multiplicity, but the rank cost of reconstructing the hidden binary partition leaves a genuine merger unseen in the binary model. The exact classification gives all distinguishable profiles and a sharp small-model bound for a natural family, not an arbitrary finite slice or mere table of vertex counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:44:19.239753Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Only four divisors contribute, with coefficients H, −HP, −HQ, HPQ and respective divisibility conditions H, HP, HQ, HPQ. For t=floor(n/H) in 0,…,PQ−1, summing yields F(n)=H((t mod P)−Q floor(t/Q)). Each block [jQ,(j+1)Q) contains every residue modulo P since Q>P; its band is disjoint from the next because P−1<Q. The number of t of residue r is the difference of the floors at ((j+1)Q−1−r)/P and (jQ−1−r)/P, and each t accounts for H indices. This proves the exact multiplicities and both extrema. The first band is nonnegative and the remaining ones are strictly negative; this cutoff is within one period. The full-period term at n=HPQ makes F(HPQ)=0, and periodicity of the summands then gives period HPQ. A proposed period d with HQ≤d<HPQ contradicts F(d)<0=F(0); one with d<HQ would force all values to be nonnegative. The inspected verifier's recorded 103 tuples and 1,138,338 indices are finite corroboration, not an independent runtime reproduction or the basis of the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kühn–Robles sum over q≤x at fixed n; their pointwise divisor formula applies generally."
+        ],
+        "reasoning": "The explicit formula is in the other summation variable. The pointwise formula alone neither states nor computes the block multiplicities or the sign range.",
+        "searches": [
+          "arXiv:1311.2816v3 Definition 1.4, Theorem 1.1, Lemma 2.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary catalogue and same-record mirror",
+        "arXiv:2312.07098v1",
+        "arXiv:1311.2816v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.4 lower-bounds max_N |sum_{j=1}^{N^s} c_k^{(s)}(j)|; the HTML explicitly contains absolute-value bars.",
+          "Lemma 2.3 reduces the summands to divisibility indicators."
+        ],
+        "reasoning": "A lower bound on an absolute maximum cannot imply an exact signed spectrum and multiplicities. The divisor identity supplies the starting data; proving simultaneous residue coverage, band separation and the one-sided period structure is additional.",
+        "searches": [
+          "arXiv:2312.07098v1 Theorem 3.4",
+          "arXiv:1311.2816v3 Lemma 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The catalogue match d9c83e757496 is the assigned result itself.",
+          "Thomas–Namboothiri treats cumulative generalized Ramanujan sums, with upper summation endpoint N^s in Theorem 3.4."
+        ],
+        "reasoning": "An N^s-restricted prefix norm bound concerns the same increments but neither labels the values nor gives all consecutive prefix statistics.",
+        "searches": [
+          "Resultary: cumulative Cohen/Ramanujan sums, two prime powers, prefix spectrum and sign cutoff",
+          "Thomas–Namboothiri arXiv:2312.07098v1 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local catalogue returned the original statement but no distinct match for a table or parametrized spectrum."
+        ],
+        "reasoning": "Agreement of a special-case table would check only that case; the claim is an all-parameter classification. Search limitations do not certify absence.",
+        "searches": [
+          "Resultary: exact prefix-sum spectra/values of two-prime-power Cohen–Ramanujan sums"
+        ]
+      },
+      "rationale": "The divisor identity and study of extrema of these prefixes are prior art. The supported distinct result is the full fixed-modulus two-prime-power classification, including per-value counts, exact extrema and a sharp one-period sign cutoff. It is not a specialization of the prefix norm lower bound or the modulus-summed explicit formula in the primary sources checked.",
+      "residual_risks": [
+        "A prior fixed-modulus formula for semiprime or two-prime-power cumulative Ramanujan sums could exist beyond the sources checked; no historical-priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record, not independent prior coverage",
+          "evidence": [
+            "Same two-prime-power hypotheses, bands, counts and sign cutoff."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-prefix-spectra-and-sign-cutoff-for-two-prime-power-cohen-r--d9c83e757496",
+          "material_read": "RESULT.md finding and proof, starting at offset 0",
+          "method": "Local catalogue and mirror; checked against frozen record",
+          "title": "Exact prefix spectra and sign cutoff for two-prime-power Cohen–Ramanujan sums",
+          "trigger": "Closest exact catalogue hit"
+        },
+        {
+          "assessment": "Related absolute-maximum lower bound, not the exact consecutive-prefix classification",
+          "evidence": [
+            "Theorem 3.4 displays max_N |sum_{j=1}^{N^s} c_k^{(s)}(j)| ≥ J_{2s}(k)/(4k^s)+J_s(k)/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2312.07098v1",
+          "material_read": "Theorem 3.4 at HTML text offset 41748; proof from PDF pp. 17–19",
+          "method": "OA HTML TeX checked against exact PDF passage; PDF text extraction drops the absolute-value bars",
+          "title": "On near orthogonality of certain k-vectors involving generalized Ramanujan sums",
+          "trigger": "Same cumulative sums and extremal problem"
+        },
+        {
+          "assessment": "Supplies the classical input identity, but principal explicit formula sums over modulus",
+          "evidence": [
+            "C^(β)(n,x)=sum_{q≤x} c_q^(β)(n); Lemma 2.3 is pointwise."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.2816v3",
+          "material_read": "Definition 1.4 p. 1, Theorem 1.1 p. 2, Lemma 2.3 p. 5",
+          "method": "OA PDF passage inspection",
+          "title": "Explicit formulas of a generalized Ramanujan sum",
+          "trigger": "Potentially broader explicit-formula coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Prefix extrema are an existing question for Cohen sums. The full distribution over the first modulus family with two distinct primes gives exact signed benchmarks and determines where a prefix can be nonnegative without enumerating its period. This is an infinite parameter result about a natural cumulative invariant; the separated bands and single cutoff, not the divisor formula itself or the k=6 example, provide the value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

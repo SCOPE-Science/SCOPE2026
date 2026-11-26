@@ -1,15 +1,21 @@
-# Self-review: modular attachment gaps and unicyclic PCF colourings
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed domain is every finite connected simple unicyclic graph with at least one off-cycle vertex, with one bare-cycle caveat. The root-and-predecessor construction partitions off-cycle colourings into independently chosen local configurations, with degree factors \(b(1)=b(2)=1\), \(b(d)=d\) for \(d\ge3\). Cycle-child choices yield weights \(t_i\), \(1\), and \(2\), depending on whether cycle-neighbour colours agree and whether there is an attachment. Three-colour cycle edge increments \(\pm1\) give a three-residue closure constraint; zero weights restrict changes to the attachment vertices. For gaps \(\ell_j\), closure is equivalent to a signed sum of the gaps divisible by three; it has a solution unless exactly one gap is nondivisible by three. An explicit four-colour construction handles all lengths, including the special five-cycle with attachments. Direct independent neighbourhood enumeration corroborates the exact \(N_3\) formula on 276 generated graphs and 504 one-leaf cycle-subset patterns. Neither the finite census nor the recorded execution is treated as an infinite proof.
+## correctness
 
-## Originality — PASS, with qualified historical priority
-Caro–Petruševski–Škrekovski (2022, arXiv:2203.01088) classify the trees and bare cycles, but not tree-decorated cycle attachment-gap phases or their exact colour counts. Caro–Petruševski–Škrekovski–Tuza (arXiv:2410.02336, 2024/2025) already show that four colours suffice for unicyclic graphs outside the bare \(C_5\), using the stronger strong-odd condition; the present four-colour existence fact is therefore not claimed as new. The inspected recent structured-classes PCF paper (arXiv:2611.03906v1, 2026) studies well-partitioned chordal, interval and ordered bipartite classes rather than arbitrary unicyclic PCF counts or this modular characterization. The publicly available four-mode counting law for uniformly hairy cycles covers only the uniformly positive attachment subclass, where the modular obstruction cannot occur. The separate degree-factorization theorem for strong-odd colourings of forests concerns a stronger condition on acyclic graphs. No examined result states or dominates the exact attachment-gap criterion together with the unrestricted rooted-tree PCF three-colour count. Older publications under alternative terminology remain an express residual priority risk; lack of search hits alone is not a novelty proof.
+PASS
 
-## Value — PASS
-The theorem gives a complete sharp chromatic classification for an infinite natural class of graphs that interpolates between trees and cycles, with a genuinely nontrivial dependence on attachment positions: two leaves on a five-cycle can switch the optimum between three and four solely by moving one leaf. It additionally counts all named three-colourings for arbitrary rooted-tree decorations and proves a degree-data invariance at that palette size. The known four-colour upper bound or separate cycle chromatic values do not determine this criterion or counting invariant. No all-palette or multiple-cycle extension is asserted.
+With a vertex and parent fixed in three named colours, the permitted assignments to children are either all in the third colour or exactly one in that colour; merge these when there is one child, and handle no children separately. This gives b(d). With the cycle fixed, equal cycle-neighbour colours require exactly one child in the third colour (t_i choices), and distinct colours require monochromatic attachments (two choices if nonempty, one if empty). The tree recursion is a bijection and the sign sum counts exactly the proper cycle assignments with these weights. Unattached vertices force the edge increment to remain constant. Each nonzero gap contributes freely +1 or −1 modulo three and these can sum to zero via opposite pairs or an equal triple unless there is exactly one. Two colours cannot provide a witness at a cycle vertex. The length-3 and length-4 core blocks have distinct consecutive triples even across joins; on a decorated C5 rotate (1,2,3,4,2) so its only equal-neighbour vertex has a child available as a witness. Outward extension with children different from the vertex and parent preserves a singleton parent colour. Independent direct checks matched N₃=6 and 0 for adjacent and distance-two C5 leaves, and 12 and 36 for two C6 examples including a branched tree; the obstructed C5 example had 288 valid four-colour assignments.
 
-## Limitations and priority risk
-Only the three-named-colour count is enumerated, not the four-colour optimum population. A bare five-cycle still requires five colours and is explicitly outside the main classification. Existing sources cover some subclasses; unindexed or inaccessible older sources could contain equivalent formulations. The verification is finite corroboration alongside an all-order symbolic proof, and an independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The verified overlap is the old tree/bare-cycle and corona chromatic information, and the exact census on uniformly hairy cycles. The part supporting the pass is the exact modular obstruction for arbitrary nonuniform attachment positions together with the three-colour census for arbitrary attached rooted trees. The strong-odd citation in RESULT.md should not be described as a stronger condition implying PCF: it permits odd multiplicities greater than one. This attribution issue does not affect the explicit four-colour PCF construction or the distinctive three-colour results.
+
+## value
+
+PASS
+
+The attachment-position obstruction is a natural exact colouring invariant and distinguishes equal-size and equal-degree-multiset examples. It applies across arbitrary rooted trees, and the local factorization gives exact polynomial-time three-palette counting rather than only an existence bound. Neither the four-colour construction alone nor the uniform leaf subfamily is the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

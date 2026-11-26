@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T16:49:56.988967Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 19–56; VERIFICATION.md lines 19–23; CHECKS.txt; all three attached verifier sources inspected, not executed.",
+        "Independent replay: python3 /workspace/branches/81ebfe02-8614-43f9-b1d8-d2401d1bf568/independent_reproduction.py (petersen_run.log and dodecahedron_run.log in the same directory)."
+      ],
+      "rationale": "For the defined simple cubic GP(10,2), a block is eligible exactly when it is independent and no outside vertex has two neighbors in it. The least-uncovered-vertex recurrence counts partitions of fixed vertices without ordering the blocks. A separately written exhaustive implementation reproduced the polynomial 1+20t+100t^2+120t^3+90t^4+10t^6, no four-block partition, and 212 five-block partitions with the three profiles 60, 100 and 52. At most three blocks cannot cover 20 vertices (each block has size at most six). Exactly two five-block partitions are square colorings. Independently, fixing the colors on the even inner pentagon as 0,...,4, the even outer vertices at 2a are restricted to a±2 mod 5. The distance-two constraints around this outer five-cycle force a constant choice of sign. The odd outer vertices are then forced by their two adjacent even outer and two distance-two even inner vertices; their colors are a+4 for the plus sign and a+2 for the minus sign at 2a+1. The odd inner colors are then forced to a+1 and a, respectively. Both assignments satisfy the constraints. The modulo-five quotient is locally bijective, so counts of each neighbor color pull back; Petersen has minimum six, independently reproduced. Thus the decrease is strict and 210 of the 212 optimal partitions fail to color the square.",
+      "residual_risks": [
+        "The exact counts are graph-specific; no classification of automorphism orbits or higher-order generalized Petersen graphs is verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first paper's abstract describes planar bounds and graph-family results. The latter paper gives the exact Petersen result and studies odd-independence for several classical families."
+        ],
+        "reasoning": "Existence bounds and maximum-set sizes do not give coefficients for every set size or the disjointness needed for the 212 exact covers. The inspected statements do not supply the dodecahedral census.",
+        "searches": [
+          "arXiv:2410.02336, abstract and dodeca literal locator",
+          "arXiv:2509.20763, Proposition 15 and Section 3 scope"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary index",
+        "Kwon–Park arXiv:2401.11653",
+        "Caro et al. arXiv:2410.02336",
+        "Caro et al. arXiv:2509.20763"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 15 proves Petersen strong odd chromatic number six and classifies its nonsingleton odd-independent sets as open neighborhoods. The proof's disjointness criterion also yields the 15 Petersen six-partitions from the 15 edges."
+        ],
+        "reasoning": "The quotient value and square implication are known. Pullback gives only the non-strict inequality, not dodecahedral optimality or the 210-partition gap. Neither the published Petersen classes nor the general bounds mechanically produce the lift's census.",
+        "searches": [
+          "arXiv:2509.20763, Proposition 15, pp. 13–14",
+          "arXiv:2401.11653, Fig. 1 and paragraph below"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fig. 1 and the following paragraph give a Petersen six-color example and the general square-to-strong-odd implication. The dodecahedral claim counts unlabelled exact covers of eligible blocks, not labelled vertex colorings, orbits or square colorings alone."
+        ],
+        "reasoning": "The strong-odd and square problems agree at the scalar optimum here but have different sets of optimal partitions. The general implication only supplies containment, not its size or strictness on this graph.",
+        "searches": [
+          "Resultary: dodecahedral GP(10,2) strong odd coloring, odd-independent-set polynomial, 212 partitions and square colorings",
+          "arXiv:2401.11653, p. 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact indexed match SCOPE-strong-odd-colourings-of-the-dodecahedral-graph-a-212-partition--8bec1e4c5fa9 is this record; no distinct matching indexed census was returned."
+        ],
+        "reasoning": "The identical record supplies no independent priority evidence. Nearby strong-odd entries concern different graphs, so they do not constitute a table of the asserted values.",
+        "searches": [
+          "Local Resultary search for the odd-independent polynomial and 212/two partition counts on the dodecahedral graph"
+        ]
+      },
+      "rationale": "Passes for the dodecahedral invariant and enumerative refinement and the specific strict covering example, not for the Petersen value or the general implication from square coloring. Crediting the exact Petersen theorem sharpens the citation without changing the finding.",
+      "residual_risks": [
+        "Unindexed finite enumerations and earlier square-coloring catalogues may overlap individual counts; no global priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the example and general implication, not the dodecahedral statistics in the inspected passage",
+          "evidence": "Figure caption specifies an SO 6-coloring of Petersen; the next paragraph states chi_so(G) <= chi(G^2).",
+          "identifier_or_url": "https://arxiv.org/pdf/2401.11653",
+          "material_read": "p. 3, Fig. 1 and surrounding text (offset 7160 onward)",
+          "method": "OA PDF literal locator followed by bounded passage",
+          "title": "Strong odd coloring of sparse graphs",
+          "trigger": "Foundational definition, square comparison and Petersen example"
+        },
+        {
+          "assessment": "Exact prior coverage of the Petersen ingredient; no dodecahedral implication from this proposition",
+          "evidence": "Proposition 15: Petersen has alpha_od=3, chi_so=6, and every nontrivial odd independent set is a vertex neighborhood.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.20763",
+          "material_read": "Section 3 overview and Proposition 15, pp. 13–14 (offset 29270 onward)",
+          "method": "OA PDF bounded passages",
+          "title": "The odd independence number of graphs, I: Foundations and classical classes",
+          "trigger": "Exact quotient value and a plausible source of class statistics"
+        },
+        {
+          "assessment": "Relevant broader methods, no decisive graph-specific statement identified",
+          "evidence": "Abstract names planar bounds, trees, unicyclic graphs and graph products; the keyword miss is not proof of absence.",
+          "identifier_or_url": "https://arxiv.org/pdf/2410.02336",
+          "material_read": "p. 1 abstract and scope; literal dodeca locator had no hit",
+          "method": "OA PDF bounded read and literal locator",
+          "title": "On strong odd colorings of graphs",
+          "trigger": "Planar and product-family results might include the dodecahedron"
+        },
+        {
+          "assessment": "Identical assigned finding, not an antecedent",
+          "evidence": "Same fixed graph, odd-independent polynomial, 212 optima and two square partitions.",
+          "identifier_or_url": "Resultary:SCOPE-strong-odd-colourings-of-the-dodecahedral-graph-a-212-partition--8bec1e4c5fa9",
+          "material_read": "Local index summary and frozen RESULT.md",
+          "method": "Local Resultary lookup and statement comparison",
+          "title": "Strong odd colourings of the dodecahedral graph: a 212-partition census",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof; independent census; published square-to-strong-odd implication"
+      ],
+      "rationale": "For a canonical cubic planar graph, the census makes the distinction between two natural coloring constraints measurable even when their minimum color numbers coincide. The 210-versus-two split and size profiles, together with a strict covering example, are useful exact data not inferred from the generic bounds.",
+      "residual_risks": [
+        "The value is a graph-specific enumeration and witness, not a general covering or square-coloring theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

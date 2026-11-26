@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact covariance Gram matrix and integrated covariance sections yield the rational objective in RESULT.md. The strictly positive split derivative on the diagonal proves noncollocation for all positive finite noise; the exact terminal derivative excludes the free endpoint, and a conditional-variance argument excludes the start. Uniform small-inverse-noise expansions, localization at the unique maximizer of the leading function, and a uniform negative Hessian near that point establish high-noise global uniqueness and the two sharp location offsets. The optimized collocation benchmark is separately maximized, and its cubic asymptotic risk differs by exactly \(1/18\). The standalone symbolic checker independently replayed the algebraic identities and the five numerical illustrations. No finite test is used as an infinite proof.
+PASS
 
-## Originality — PASS with bibliographic qualification
+Independently integrated the two Brownian covariance sections, inverted the noisy two-observation matrix and reproduced all boundary derivative identities and the cubic expansion by symbolic algebra (python /workspace/review-evidence/check_brownian_algebra.py). A measurement at zero is pure noise and an extra positive-time observation yields a strictly positive integrated reduction; the ordered split derivative and terminal inward directions eliminate every remaining boundary point, including (1,1). Compactness and uniform convergence of the gain divided by ε=1/η localize every maximizer at (1,1). Uniform Hessian control near that corner makes the ordered gain strictly concave for small ε and thus gives global uniqueness in that regime. At the interior stationary point, the derivatives of the order-ε² term at the corner are −1 and −1/3, while A′(t)=2t(1−t), yielding endpoint deficits ε/2 and ε/6 with O(ε²) errors. The cubic gain coefficient is 8/3+u−u²+v/3−v² for bounded rescaled deficits u,v; substituting those asymptotics gives 53/18. On the diagonal a single observation of variance η/2 is sufficient; differentiating 2εA(t)/(1+2εt) gives the optimal deficit ε/3+O(ε²) and the coefficient 26/9. Their difference is 1/18, comparing optimized designs rather than a fixed replication benchmark. Uniform analytic remainders and the localization justify using the corner expansion at the optima.
 
-The relevant inspected framework is Ji and Müller (2016), whose fixed-design posterior variance expression is general but does not state the specific all-noise noncollocation and high-noise Brownian optimizer laws. Mukherjee's open paper on processes without quadratic mean derivatives deals with *noiseless* observations and asymptotics in observation count; it explicitly describes the 2003 product-covariance work in the same interpolatory observation setting. The older Müller-Gronbach approach also concerns direct process observations, not two independently noisy sensors. Exact statement-and-implication searches found no broader published result establishing these two-site constants or their optimized replication gap. Residual priority risk is material because the full 2003 article and dissertation were inaccessible. Search absence is not treated as a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is a natural constrained short-budget nonlinear placement benchmark. The global fact that no finite amount of independent observation noise makes exact replication optimal is stronger than an optimizer computed at a few noise levels. The explicit high-noise boundary layer gives two different offsets from the free terminal point, a rate of site collision, and a sharp positive third-order cost of forced replication. These are useful for verifying noise-aware numerical design algorithms and for distinguishing path recovery from integration or endpoint estimation; the fact does not follow just by renaming the Brownian-bridge design.
+Best-of-knowledge pass for the fixed-two-sensor Brownian theorem, with the general Gaussian design criterion credited. Related results change the covariance, the sensor count, the target, or the observation/noise regime; their verified statements do not imply the joint conclusion.
 
-## Remaining limitations
+## value
 
-The uniqueness constant is existential, and all-noise uniqueness is not claimed. Older historical work not available in full remains a source-priority uncertainty. No independent validation or peer review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The design question has a nontrivial competition: at leading order maximal noise drives both measurements to the same endpoint, but for every finite noise the exact optimum is distinct and strictly interior. The sharp split, uniqueness in the singular regime and optimized cubic risk gap quantify the limits of replication rather than simply computing an objective at a few locations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

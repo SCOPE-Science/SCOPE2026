@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:07:49.673649Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the carry and count certificate in RESULT.md §§1–4. Unique representatives of the three residues force the least-significant-first carry; the reachable states from zero are 0, −1, −2, and leading zeroes cycle the two negative states rather than rescuing them. For a most-significant prefix its acceptance set is the preimage of {0}; appending a digit takes one further preimage. Full and empty are absorbing, and the proper nonempty subsets give the displayed six-state graph. From there every mixed state can reach A, and from A the extensions 12 and 212 reach acceptance and rejection, respectively. Thus mixed cylinders actually contain positive-measure pieces of both eventual outcomes. For an independent exact count, the transient graph has an equitable partition {A,F}, {B,U}, {D,V}, with rows (2,1,0), (0,1,1), (1,1,0). Its characteristic polynomial is (t−1)(t²−2t−1), so initial counts 1,3,8 give the claimed numerator 1 and denominator by the recurrence. The quotient has a positive eigenvector at λ=1+√2, which lifts to the full graph. The undetermined unions decrease and their measures are O((λ/3)^n); absorption proves eventual stabilization almost everywhere. Away from the countable ternary endpoints there is a unique nested coding, and the two-sided cylinder test identifies the essential boundary exactly with the survivor image there. For the lower bound the digit-labelled Perron measure assigns O(λ^{−n}) to a level-n cylinder. An interval with 3^{−n−1}<|I|≤3^{−n} meets at most a bounded number of those grid intervals, giving the stated Frostman exponent; the cylinder cover gives the upper box bound and hence both box dimensions of the compact survivor image. Countable endpoint differences are used only for Hausdorff dimension of the essential boundary. verify_boundary.py was inspected, not executed; the independent quotient proof is exact and unbounded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou covers the scaling convergence for the very same digit set; his exponential L¹ estimate suffices for a.e. eventual stabilization.",
+          "Abram–Lagarias give right-resolving path-set entropy log ρ(T) and discuss conditions under which symbolic entropy supplies geometric dimension."
+        ],
+        "reasoning": "Once the ambiguity graph and two-sided boundary identification are supplied, the entropy/dimension step is standard. The general results do not supply that graph's growth or identify these survivors as exactly the points with both outcomes locally in positive measure off the endpoints.",
+        "searches": [
+          "arXiv:2611.07446v1, Theorems 1.3 and 1.5",
+          "arXiv:1207.5004v5, Theorem 1.13 and dimension discussion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_boundary.py",
+        "Tangjai 2020",
+        "arXiv:2611.07446v1",
+        "arXiv:1207.5004v5",
+        "Resultary entries 2d6a2bd91774 and 10c464008822"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "None of the compared statements identifies which most-significant cylinders admit both eventual outcomes and counts them by length. The same-day prime result is about primes rather than ambiguity of all normalized integers."
+        ],
+        "reasoning": "Finite integer block counts alone do not show that those cuts persist in the measurable limit or imply the mixed-prefix law. Synchronization supplies the bulk limit, not the size of its exceptional ambiguity set. The exact count and the two positive-measure descendants per mixed prefix supply those missing links.",
+        "searches": [
+          "Tangjai 2020, Theorem 3.13",
+          "arXiv:2611.07446v1, §6.1 and Theorem 1.5",
+          "Resultary 10c464008822, RESULT.md Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tangjai's A_{0,1,5} is exactly the same integer language. Her Pell substitution and block census are for maximal consecutive blocks over specified finite integer ranges.",
+          "Zhou's four-carry table for the digit set gives a zero-synchronizing word 021."
+        ],
+        "reasoning": "The relevant alternative formulations are automatic characteristic sequence and carry language. A block census for finite represented integers is not a census of most-significant cylinders with two attainable limiting outcomes. The reverse preimage automaton restricts to reachable input carries and tracks acceptance ambiguity, not individual carry trajectories.",
+        "searches": [
+          "Tangjai 2020, M-DFAO, Lemma 3.7 and Theorems 3.13/3.15",
+          "arXiv:2611.07446v1, §6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit 2d6a2bd91774 is the assigned record. Distinct same-day hit 10c464008822 uses the same digits but gives prime-density liminf 5/8 and limsup 3/4 with a different Boolean state space.",
+          "Tangjai counts consecutive blocks; the inspected Pell substitution and block formula are not tabulations of the mixed-prefix counts."
+        ],
+        "reasoning": "Neither the coincidence of a growth base nor the common digit set establishes an exact match. The distinct catalogue claim was inspected without assuming within-day priority.",
+        "searches": [
+          "Resultary: ternary {0,1,5} carry ambiguity, Pell growth and essential boundary",
+          "Tangjai 2020, Pell count tables and block-count theorems"
+        ]
+      },
+      "rationale": "The distinct contribution is the ambiguity-prefix law and the essential-boundary dimension (with box dimensions for the compact survivor image). The same integer language, Pell block-count phenomena and measurable scaling convergence are already prior; exponential L¹ convergence of indicators in Zhou also implies almost-everywhere eventual stabilization by Borel–Cantelli. They are background, not independent novelty claims here.",
+      "residual_risks": [
+        "An unindexed equivalent boundary calculation from the known automatic sequence or its Pell substitution could exist. The comparison establishes the listed overlaps, not worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial prior language and block-count coverage; not the inspected boundary claim",
+          "evidence": [
+            "The paper defines the same finite-sum set and uses the substitution a→ab, b→aba. Theorem 3.13 counts maximal consecutive blocks over [0,8·3^r−1]."
+          ],
+          "identifier_or_url": "https://thaijmath.com/index.php/thaijmath/article/download/970/976/1000",
+          "material_read": "Abstract; M-DFAO passage (PDF p. 5); Lemma 3.7 (p. 6); Theorem 3.13 (p. 10)",
+          "method": "Targeted OA PDF passages",
+          "title": "A Non-standard Ternary Representation of Integers",
+          "trigger": "Exact same digit language and prior Pell structure"
+        },
+        {
+          "assessment": "Prior scaling and synchronization, distinct from boundary count",
+          "evidence": [
+            "Theorem 1.5 gives exponential L¹ error for the approximating indicators. Section 6.1 lists {−3,−2,−1,0} and the synchronizing word 021 for this digit set."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.07446v1",
+          "material_read": "Theorem 1.3 (offset 10537), Theorem 1.5 (15062), §6.1 (69426)",
+          "method": "Targeted OA full text",
+          "title": "Periodic counting, carry synchronization, and primes in nonstandard numeration systems",
+          "trigger": "Same digit system and same scaling family"
+        },
+        {
+          "assessment": "General method, not a computation for this graph",
+          "evidence": [
+            "Right-resolving reachable presentations have entropy log of the spectral radius; geometric dimension additionally depends on coding maps and separation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1207.5004v5",
+          "material_read": "Theorem 1.13 (offset 18835); geometric-dimension discussion (26684)",
+          "method": "Targeted OA full text",
+          "title": "Path sets in one-sided symbolic dynamics",
+          "trigger": "Possible general graph coding and dimension coverage"
+        },
+        {
+          "assessment": "Same representation, different invariant and state graph",
+          "evidence": [
+            "Prime-density liminf and limsup 5/8 and 3/4; uses a 14-vector Boolean state set."
+          ],
+          "identifier_or_url": "Resultary 2026/11/22, 10c464008822",
+          "material_read": "RESULT.md opening/finding, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Configured catalogue and targeted local mirror reading",
+          "title": "Sharp prime density oscillation for the ternary digit set 0,1,5",
+          "trigger": "Closest distinct indexed same-parameter hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The measurable limit was known, but the essential boundary gives a representative-independent measure of where local membership is genuinely unstable. The exact prefix law and dimension quantify this exceptional set for the specific digit system already studied for its Pell structure; positive mass of both outcomes, rather than just finite-scale variation, makes the dimension geometrically informative.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

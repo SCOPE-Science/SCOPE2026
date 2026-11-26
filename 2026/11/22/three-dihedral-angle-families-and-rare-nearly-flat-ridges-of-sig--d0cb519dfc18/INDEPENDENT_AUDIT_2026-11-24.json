@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:08:32.154651Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and Proof; VERIFICATION.md; inspected verify_ridges.py without executing it",
+        "Kohl–Olsen–Sanyal arXiv:1906.01469 §5 Cor. 5.7",
+        "Fresh review replay: /workspace/reviews/replay_5.py and /workspace/reviews/replay_5.txt, exact fraction-free affine-rank test"
+      ],
+      "rationale": "The known facet description is equivalent to row and column absolute sums at most one. Saturating same-support facets with h differing signs forces h coordinate zeros in addition to a row/column sum equality, so h≥2 is excluded. With h=1, filling the other n−1 entries uniformly gives exactly two tight facets for n≥3; at n=2 the unit entry forces a separate perpendicular equality. With different same-type supports the uniform fill has opposite sums 2/n<1 for n≥3. For n=2 both opposite sums must be one and the signs imposed by the two rows or columns fix an additional independent equality. Mixed-support sign disagreement forces the shared entry to vanish and a further row sign inequality to be tight independently; agreement admits a shared magnitude strictly between zero and one and a strictly positive distribution of the two remainders, so precisely those two facets are tight. A ridge has exactly two containing facets, as seen in a two-dimensional transverse section. Normal lengths are √n and the three inner products are 0, 1 and n−2. Counting distinct supports, matching shared signs, and Hamming-one edges of the sign cube gives the three multiplicities, including coincidence at n=3 and only the mixed class at n=2. Dividing by the total gives masses tending to 2/3, 1/3, 0; the rare mass is asymptotic to (2/3)2^(−n), so its contribution to the scaled mean is O(n2^(−n)). The small-angle formulas n arcsin(1/n)→1 and arccos(1−2/n)∼2/√n give both stated limits. Independently, exact integer affine ranks on every facet pair at n=2,3,4 gave normal-product histograms {1:32}, {0:384,1:360}, {0:3072,1:2048,2:256}. The proof, not the low-order replay, handles all n.",
+      "residual_risks": [
+        "The result is only for the canonical unrescaled Frobenius geometry and uniform weighting over ridges, not area-weighted curvature or arbitrary affine realizations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 2.10 gives a dimension formula on fully indecomposable facial matrices, with additive reduction in Cor. 2.11; Thm. 2.14 gives the pattern order",
+          "Thm. 3.3 characterizes faces of dimension two as triangles or rectangles, and Thm. 3.4 characterizes and counts facets"
+        ],
+        "reasoning": "The general face theorem is a route to calculating incidence; it does not evaluate the codimension-two solutions by support and sign compatibility. Classifying dimension-two faces has the right dimension only at n=2.",
+        "searches": [
+          "Chen–Zhu Thm. 2.10, Cor. 2.11, Thm. 2.14 and Thms. 3.3–3.4",
+          "Kohl–Olsen–Sanyal §5 Cor. 5.7"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Zhu 2024, Kohl–Olsen–Sanyal 2020, Kohl–Olsen 2019 precursory preprint",
+        "Resultary 07308b86f132, 0b3b5f19faf2, d7b54d914584"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior facet normals fix the angle once a ridge pair is known; the dimension rule needs a facial matrix with its zero, sign, and decomposition data",
+          "The frozen support/sign test exhibits interiors for all allowed pairs and rules out the prohibited pair families uniformly"
+        ],
+        "reasoning": "A finite rank test for a specified pair is available from earlier descriptions. Obtaining and counting the full pair classification in general n, including the additional tight constraints at n=2, requires evaluating that geometry, not substituting n into an already evaluated ridge formula. The asymptotics are elementary consequences of the resulting closed counts, not a separate new theory.",
+        "searches": [
+          "Chen–Zhu Thm. 2.10 and Cor. 2.11 versus frozen Proof §§1–3",
+          "Kohl–Olsen–Sanyal Cor. 5.7 versus the metric computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kohl–Olsen Def. 3.1 and Chen–Zhu p. 747 define the same signed-permutation hull; arXiv:1906.01469 Cor. 5.7 states its signed row and column facets",
+          "Catalogue 07308b86f132 is about complete bipartite symmetric edge polytopes, 0b3b5f19faf2 about K_(2,q) symmetric-edge ridge angles, and d7b54d914584 about ordinary partial-permutation completion"
+        ],
+        "reasoning": "The signed/type-B aliases are the same object; the indexed edge and completion objects are not an equivalent Euclidean model. The assigned catalogue self-match is excluded.",
+        "searches": [
+          "Resultary: signed permutation/signed Birkhoff/type-B Birkhoff ridges and angle spectrum; symmetric edge and partial-permutation comparisons",
+          "arXiv:1903.12634v1 §3.1 and arXiv:1906.01469 §5",
+          "Chen–Zhu, Faces of the signed Birkhoff polytopes, p. 747"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kohl–Olsen–Sanyal's tables address volume and h* data, not ridge incidence or Frobenius angle frequencies",
+          "Chen–Zhu Thm. 3.4 gives facet counts, not the requested ridge-angle histogram in the inspected passages"
+        ],
+        "reasoning": "A facet count, face representation, or unweighted f-vector would not alone state the separation into three inner-product families. No independent exact-angle table was found in the inspected sources.",
+        "searches": [
+          "Resultary signed Birkhoff ridge counts/metric multiset",
+          "Kohl–Olsen–Sanyal §5 Tables, including Table 3; Chen–Zhu §§2–3"
+        ]
+      },
+      "rationale": "The hull, full facet model and general combinatorics of faces are prior work. The strongest same-object general result gives a dimension rule and the face lattice, but not an evaluation of codimension-two support types or a metric enumeration; the theorem on two-dimensional faces is not a ridge theorem for n≥3. The supported distinct claim is the explicit all-order classification in facet coordinates, the complete Frobenius angle histogram and its rare-class limit, not the exceptional n=2 shape or the general face machinery. No independent equivalent or dominating exact classification was verified.",
+      "residual_risks": [
+        "Comparison is bounded to the inspected primary papers and indexed findings. Unindexed evaluations of ridges, particularly small n, can exist; no absolute priority assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Broad face method but no all-order explicit codimension-two metric table",
+          "evidence": "Dim F(A) uses support size and fixed line counts on fully indecomposable blocks; Thm. 3.3 is dimension-two, not codimension-two.",
+          "identifier_or_url": "https://doi.org/10.13001/ela.2024.8153",
+          "material_read": "Definition p. 747; Thm. 2.10 and Cor. 2.11 (OA offsets 25200–27825); Thm. 2.14; Thms. 3.3–3.4 (around 37050–41427)",
+          "method": "Journal OA PDF, decisive passages by offset",
+          "title": "Faces of the signed Birkhoff polytopes",
+          "trigger": "Same hull and general face dimensions; possible already-classified ridges"
+        },
+        {
+          "assessment": "Exact facet inequalities are known, not the claimed ridge spectrum",
+          "evidence": "Signed row/column facet inequalities; earlier Birkhoff tensor inequality description credited to McCarthy–Ogilvie–Spitkovsky–Zobin.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.01469",
+          "material_read": "§5 Cor. 5.7, p. 12, around OA offset 42492; §5 table topics",
+          "method": "Open-access paper passages",
+          "title": "Unconditional reflexive polytopes",
+          "trigger": "Old facet realization and possible tabulation"
+        },
+        {
+          "assessment": "Confirms the same hull; earlier version of the combinatorial background",
+          "evidence": "The convex hull of signed permutations is called type-B or signed Birkhoff.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.12634v1",
+          "material_read": "§3.1 Def. 3.1, p. 5, around OA offset 17590",
+          "method": "Open preprint passage",
+          "title": "Birkhoff polytopes of different type and the orthant-lattice property",
+          "trigger": "Type-B alias and historic definition"
+        },
+        {
+          "assessment": "Only method/topic analogues; no same-object claim from these matches",
+          "evidence": "Complete bipartite graph symmetric edge hulls or ordinary partial-permutation completion, rather than signed Birkhoff geometry.",
+          "identifier_or_url": "Resultary 07308b86f132, 0b3b5f19faf2, d7b54d914584",
+          "material_read": "Indexed mathematical statements and object definitions as shown in catalogue summaries",
+          "method": "Local Resultary query",
+          "title": "Related Resultary symmetric-edge angles/faces and partial-permutation completion",
+          "trigger": "Similar terminology, angle enumeration and matrix realization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof; Chen–Zhu §§2–3"
+      ],
+      "rationale": "Ridges are the natural codimension at which this canonical realization has an ordinary dihedral angle. The exhaustive classification converts a general face model of a standard polytope into explicit metric data: no acute angles, a small excess at typical nonorthogonal ridges, and a separate exponentially rare almost-flat family. The exact family counts identify which faces cause the two scales; the contribution is not a small-n table or an arbitrary subsequence.",
+      "residual_risks": [
+        "Uniform counting measures frequency, not ridge volume or an intrinsic-volume contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

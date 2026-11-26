@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:54:41.942317Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gauge the phases of the unilateral shift recursively along the coordinate chain. Absolute values of a trial vector suffice for the numerical radius of the resulting nonnegative shift. The two parity classes on the k+1 interval vertices are both nonempty; normalizing each to squared mass 1/2 gives the same edge product 1/(2 sqrt(mn)) and thus the upper dual bound for every starting index and arbitrary bounded ambient weights. For odd k the alternating weights give disjoint norm-one two-vertex blocks. For even k=2q the stated adjacent-weight sums at even and odd vertices are 2 sqrt(q/(q+1)) and 2 sqrt((q+1)/q), including both endpoints. They give a strictly positive eigenvector with eigenvalue one; conjugation by its diagonal makes the block row-stochastic and hence its spectral radius one. The edge sum is 2 sqrt(q(q+1)). Equality on the interval forces a common phase and equality in the top-eigenvalue Rayleigh quotient; stepping through the vertex equations from the left endpoint uniquely fixes each edge. This includes k=1 and only asserts uniqueness for weights vanishing outside the interval. The even-length improvement follows by comparing k(k+2) with (k+1)^2. These exact equations establish all lengths; the frozen numerical script is supplementary, not rerun or treated as an independent certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sharif's asymptotic result and its proof yield the finite constant k+1, and Example 2.9 gives the single coordinate norm 2.",
+          "Undrakh et al., Theorem 2.2, p. 949, gives determinant formulas for fixed finite shift matrices.",
+          "The DOI and publisher route did not yield the 2022 determinantal paper; no negative claim based on failed retrieval."
+        ],
+        "reasoning": "The broader norm and radius methods evaluate given operators or bound averages without determining all interval-linear dual extrema and their equality cases. The uniform block estimate is already numerically sharp for odd lengths, but does not imply the strict improvement or profile for even lengths.",
+        "searches": [
+          "arXiv:2303.00876v2, Theorem 2.1 and Example 2.9",
+          "DOI:10.13001/1081-3810.2821, Theorem 2.2",
+          "DOI:10.7153/oam-2022-16-75"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2303.00876v2",
+        "DOI:10.13001/1081-3810.2821",
+        "Resultary 12716bf88722",
+        "Resultary a6c67187469c",
+        "Resultary 17db4dbf42a4",
+        "Resultary 191526c15335",
+        "DOI:10.7153/oam-2022-16-75 (retrieval attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sharif's bound at n=k+1 gives k+1, strictly greater than sqrt(k(k+2)) for even k; Example 2.9 covers k=1 exactly.",
+          "The graph-edge result gives a Rayleigh representation but not a finite linear-functional value."
+        ],
+        "reasoning": "Knowing the one-coordinate value and the overall cap does not settle the simultaneous allocation to k adjacent coordinates. The nonnegative saturated path with the correct parity masses and the forced recurrence give additional mathematical information over these prior bounds.",
+        "searches": [
+          "Sharif arXiv:2303.00876v2, proof of (10), Example 2.9",
+          "Resultary 12716bf88722, path specialization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Undrakh et al., pp. 944–945, identify the real part of a weighted shift with a weighted adjacency operator.",
+          "Resultary 12716bf88722, Finding and Assumptions, uses one half the largest eigenvalue of the nonnegative weighted adjacency matrix, giving the same norm on a path.",
+          "Resultary 17db4dbf42a4 uses a weighted Schatten-fourth radius, not numerical radius."
+        ],
+        "reasoning": "The path representation is genuinely equivalent. Writing the adjacency matrix in bipartite blocks makes the estimate a bilinear pairing against constant left and right unit vectors. Attaining that estimate with the path zero pattern requires matching every vertex equation; the prior norm representation does not supply those edge values. A block-LMI feasibility formulation has the same optimization issue, and a Schatten radius is a different objective.",
+        "searches": [
+          "Weighted-path spectral norm and numerical radius; Ando block-LMI; weighted Schatten radii",
+          "Resultary 12716bf88722 and 17db4dbf42a4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Matching norm: Resultary 12716bf88722, graph-edge convexity and smoothness, not interval-sum duality.",
+          "Same-day Resultary a6c67187469c, Finding and proof, moves a single enhanced edge within a finite path. Same-day 191526c15335 studies weighted Schatten-fourth sparsification for a four-cycle."
+        ],
+        "reasoning": "A positional comparison for prescribed defect weights is not an optimization over all weights at fixed norm; a four-cycle for another radius is neither the path nor the objective. The distinct indexed records were compared on statements, not filtered by date.",
+        "searches": [
+          "Resultary: finite weighted path numerical-radius sharp dual edge sum parity and extremizers"
+        ]
+      },
+      "rationale": "The numerical-radius norm, the weighted-path spectral reduction and the uniform block bound are prior. The supported distinct claim is attainment of the sharp all-length dual parity law, including the strict even improvement, and the exact unique supported equality profiles. A general feasibility or spectral characterization is not a proof of attainability and equality here. No exhaustiveness or historical priority is asserted.",
+      "residual_risks": [
+        "A general graph-supported matrix extremal theorem in equivalent terminology could cover parts of the result; the search was bounded.",
+        "No original Ando passage was retrieved; the block-LMI comparison is structural, not a source inspection of Ando's paper.",
+        "The 2022 determinantal paper was not obtained in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior estimate and k=1 case credited",
+          "evidence": "The normalized finite sum bound has denominator n where the number of weights is n-1; coordinate norm is 2.",
+          "identifier_or_url": "https://arxiv.org/html/2303.00876v2",
+          "material_read": "§2, Theorem 2.1, proof of (10) at offset 22900 and Example 2.9 at offset 37653",
+          "method": "OA full text, bounded passages",
+          "title": "On the numerical radius of weighted shifts on ℓ² as a norm on ℓ∞ and connections to Banach limits",
+          "trigger": "Same norm and consecutive block sums"
+        },
+        {
+          "assessment": "Prior spectral reduction, not dual optimization",
+          "evidence": "Weighted A-infinity real part has maximal spectrum giving radius; finite weighted matrices admit determinant formulas.",
+          "identifier_or_url": "DOI:10.13001/1081-3810.2821",
+          "material_read": "Journal pp. 944–945 and Theorem 2.2, p. 949",
+          "method": "Publisher OA PDF",
+          "title": "The Numerical Radius of a Weighted Shift Operator",
+          "trigger": "Equivalent spectral formulation"
+        },
+        {
+          "assessment": "Equivalent representation but distinct theorem",
+          "evidence": "Half of maximal weighted adjacency eigenvalue; convexity and smoothness rather than block-sum dual norm.",
+          "identifier_or_url": "Resultary 12716bf88722",
+          "material_read": "RESULT.md, Finding and Assumptions",
+          "method": "Published Resultary record, local mirror",
+          "title": "Strict convexity and the full smooth locus of graph-edge numerical-radius norms",
+          "trigger": "Exact matching norm on a path"
+        },
+        {
+          "assessment": "Different extremum",
+          "evidence": "Relocates one enhanced edge with weights prescribed, not maximizing consecutive sums over a numerical-radius unit ball.",
+          "identifier_or_url": "Resultary a6c67187469c",
+          "material_read": "RESULT.md, Finding and proof",
+          "method": "Published Resultary record, local mirror",
+          "title": "Strict centerward growth of the numerical radius of a single defect",
+          "trigger": "Closest distinct same-day weighted-path hit"
+        },
+        {
+          "assessment": "Different radius and constraints",
+          "evidence": "Schatten-fourth values or sparsification do not equal the weighted-shift numerical-radius block functional.",
+          "identifier_or_url": "Resultary 17db4dbf42a4 and 191526c15335",
+          "material_read": "RESULT.md, findings on shift radius and four-cycle sparsification",
+          "method": "Published Resultary records, local mirror",
+          "title": "Sharp weighted Schatten-fourth radii of nilpotent shifts; Sharp three-regime sparsification of the weighted Schatten-fourth radius",
+          "trigger": "Potentially equivalent extremal profiles in weighted operator radii"
+        },
+        {
+          "assessment": "Access limitation, not a finding of noncoverage",
+          "evidence": "No decisive passage retrieved.",
+          "identifier_or_url": "DOI:10.7153/oam-2022-16-75",
+          "material_read": "No technical text obtained",
+          "method": "DOI and attempted lawful publisher PDF",
+          "title": "Numerical radii of weighted shift operators using determinantal polynomials",
+          "trigger": "Potential direct weighted-shift coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Consecutive finite averages are the natural nonasymptotic counterpart of the established asymptotic averaging question in this norm. The exact constants and equality profiles resolve the entire family, including a strict improvement at every even length and the structural difference between zero-weight gaps and a connected positive optimizer. It is not a numerical recomputation at one length.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

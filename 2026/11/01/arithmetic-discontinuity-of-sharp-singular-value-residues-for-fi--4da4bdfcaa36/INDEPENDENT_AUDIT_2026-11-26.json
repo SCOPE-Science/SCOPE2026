@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:30:44.375689Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the specified target norm, the images of the Hardy monomials are orthogonal and have lengths (k+1)^(-alpha)|sum_j a_j rho_j^k|, tending to zero. At L=t^(-1/alpha), count those with (k+1)/L below the 1/alpha power of the modulus. On a bounded window containing all such indices, character tests against continuous functions of (k+1)/L converge to the Lebesgue-Haar product: geometric partial sums are bounded for every nontrivial character and summation by parts handles the slow factor. The threshold graph has product measure zero by its singleton x-sections, even when the orbit distribution has atoms or exact cancellations. Integrating the subgraph gives M_alpha; the squared modulus has Haar mean sum_j |a_j|^2 by distinctness, so M_alpha>0. Inversion of the strict count yields s_n~M_alpha^alpha n^(-alpha) and harmonic summation gives the critical residue. For the equal two-term example the finite cosine sum is 1+2 sum_{k=1}^{floor((b-1)/2)} cos(pi k/b); the Dirichlet kernel formula yields the two parity values, including b=1 (coincident rotations combined) and b=2 (zeros on odd indices). On irrational orbits the mean is 4/pi. Rational denominators tending to infinity give that same limit, with strict finite-denominator inequalities in opposite directions. The diagonal difference bound k|theta-phi|/(k+1) independently gives norm Lipschitz continuity. No numerical premise is needed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ehrhardt–Zhou Theorem 1.1 treats finite-section determinants of block Laurent operators, not diagonal counts near zero.",
+          "Lattice Weyl constant for power-decaying Rhaly matrices, 7ef05af50a3c: a mean of a symbol power for a different, non-diagonal Rhaly operator.",
+          "For any uniformly Bohr-almost-periodic sequence the same graph/count proof would give a Bohr mean. No published theorem of this precise broader weighted rearrangement form was identified in the bounded lookup."
+        ],
+        "reasoning": "An existing theorem with the last stated scope would cover the main law. A formal extension of the present argument is not evidence that such a theorem was previously established. The inspected spectral and determinant theorems do not provide it.",
+        "searches": [
+          "Primary literature: \"almost periodic\" diagonal operator singular values decreasing rearrangement Weyl law counting function weighted sequence n^{-alpha} mean",
+          "arXiv:1811.09892 Theorem 1.1",
+          "Resultary: AP compact-diagonal rearrangements / sharp spectral profiles"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 3–131, VERIFICATION.md 19–23 and checker.py (read, not executed)",
+        "arXiv:2610.19658",
+        "arXiv:1811.09892",
+        "arXiv:2509.01094",
+        "arXiv:2605.00213",
+        "Resultary c5f38d61391e, 7ef05af50a3c, 6f295f59de60, c3e225ab48a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun–Liu (9.9) specializes at derivative and monomial degrees zero to the exact one-rotation sequence.",
+          "Du–Liu treat two generalized composition operators on Bergman spaces for boundedness and compactness; Sen–Barik–Paul Theorem 1.3 is a Hilbert–Schmidt criterion."
+        ],
+        "reasoning": "Knowing individual singular values cannot recover cancellation of the simultaneous complex diagonals or the orbit-dependent distribution of their sum. The classical finite sum gives the rational residue once the counting law identifies it, not the law by itself.",
+        "searches": [
+          "arXiv:2610.19658 §9.2 Theorem 9.2",
+          "arXiv:2509.01094 abstract",
+          "arXiv:2605.00213 Theorem 1.3",
+          "Resultary 7ef05af50a3c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Twisted-diagonal trace spectra, c5f38d61391e, Finding and counting argument: an oscillatory power-decaying diagonal with an orbit average, but its entries are Jacobi trace asymptotics, not the general trigonometric polynomial in this claim; dated 2026-11-02."
+        ],
+        "reasoning": "The natural equivalent statement is a weighted distribution count for a finite Bohr trigonometric polynomial, not a count in its original order or a determinant limit. Related orbit-average counts do not establish this class or its two-term norm-discontinuity comparison.",
+        "searches": [
+          "Resultary: finite rotation sums Haar counting",
+          "Resultary: almost-periodic compact-diagonal rearrangements",
+          "Primary literature: \"almost periodic\" diagonal operator singular values decreasing rearrangement Weyl law counting function weighted sequence n^{-alpha} mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Arithmetic parity and sharp singular-value tails of two-aperture sampling, 6f295f59de60, uses the same finite cosine summation with different prefactors and a different convolution operator; dated 2026-11-22."
+        ],
+        "reasoning": "The trigonometric sum is a classical elementary identity, not itself original. The target is the entire parameterized operator residue and its continuity set, not an unknown entry in a numerical table; no exact table for that operator invariant was identified.",
+        "searches": [
+          "Resultary: rational-angle cotangent/cosecant residues",
+          "Resultary 6f295f59de60, Finding and proof"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the finite-superposition sharp residue and its explicit arithmetic discontinuity, not for the one-rotation diagonal, the summation identities, or the general equidistribution mechanism. No inspected antecedent gives or implies the full claim as a stated general theorem.",
+      "residual_risks": [
+        "An older general compact-diagonal or regularly varying weighted-distribution theorem could cover the counting law indirectly; the lookup was bounded.",
+        "Only the stated theorem or abstract passages were compared where indicated. No absolute priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact one-rotation antecedent",
+          "evidence": "The displayed rearrangement with m=n=0, beta_1=1, beta_2=1+2alpha and unimodular slope gives (k+1)^(-alpha).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19658",
+          "material_read": "§9.2 Theorem 9.2, (9.9), PDF pp. 62–63",
+          "method": "OA primary PDF passage",
+          "title": "Weighted composition–differentiation operators on mixed-norm, derivative Hardy and F(p,q,s) spaces",
+          "trigger": "Exact rotation singular values"
+        },
+        {
+          "assessment": "Different operation and limit",
+          "evidence": "The displayed Szegő–Widom limit concerns finite-section determinants of block Laurent operators.",
+          "identifier_or_url": "https://arxiv.org/abs/1811.09892",
+          "material_read": "Theorem 1.1, PDF p. 5",
+          "method": "OA primary PDF passage",
+          "title": "Asymptotics of determinants for finite sections of operators with almost periodic diagonals",
+          "trigger": "Plausible broader AP spectral coverage"
+        },
+        {
+          "assessment": "Scope comparison, not a whole-paper exclusion",
+          "evidence": "The abstract names boundedness and compactness on Bergman spaces, not a Hardy-to-coefficient-space residue.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.01094",
+          "material_read": "Abstract, PDF p. 1",
+          "method": "OA primary PDF abstract",
+          "title": "Sums of two generalized weighted composition operators between Bergman spaces",
+          "trigger": "Two-symbol sum"
+        },
+        {
+          "assessment": "Ideal criterion rather than sharp counting asymptotic",
+          "evidence": "The statement tests Hilbert–Schmidt membership.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.00213",
+          "material_read": "Theorem 1.3, PDF p. 3",
+          "method": "OA primary PDF passage",
+          "title": "Composition-differentiation operators on weighted Dirichlet spaces",
+          "trigger": "Dirichlet ideal properties"
+        },
+        {
+          "assessment": "Close mechanism; different operator and later date",
+          "evidence": "The formula uses power-decaying Jacobi trace entries and rational-orbit/irrational-Haar means; it does not provide arbitrary finite rotation superpositions.",
+          "identifier_or_url": "c5f38d61391e",
+          "material_read": "Finding and counting proof, offsets 0 and 5600",
+          "method": "Indexed record and local mirror",
+          "title": "Twisted-diagonal trace spectra and arithmetic Schatten thresholds",
+          "trigger": "Close moving-cutoff analogue"
+        },
+        {
+          "assessment": "Earlier related result for different matrices",
+          "evidence": "The coefficient is a mean of a symbol power for a Rhaly matrix, with different structural hypotheses.",
+          "identifier_or_url": "7ef05af50a3c",
+          "material_read": "Finding, offset 0",
+          "method": "Indexed record and local mirror",
+          "title": "A lattice Weyl constant for power-decaying Rhaly matrices",
+          "trigger": "Earlier power-decay Weyl coefficient"
+        },
+        {
+          "assessment": "Same summation identity, different operator and later date",
+          "evidence": "The even/odd cosine sum is used with a different convolution model and prefactors.",
+          "identifier_or_url": "6f295f59de60",
+          "material_read": "Finding and proof, offsets 788 and 5000",
+          "method": "Indexed record and local mirror",
+          "title": "Arithmetic parity and sharp singular-value tails of two-aperture sampling",
+          "trigger": "Same parity summation and type of tail"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact tail constant for a natural class of compact superpositions quantifies cancellations that individual ideal memberships do not detect. The two-term example gives sharp rational values and demonstrates a genuine instability of the critical residue in an operator-norm Lipschitz family, not an instability of operator norm itself. The elementary ingredients do not make the combined spectral and arithmetic conclusion vacuous.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

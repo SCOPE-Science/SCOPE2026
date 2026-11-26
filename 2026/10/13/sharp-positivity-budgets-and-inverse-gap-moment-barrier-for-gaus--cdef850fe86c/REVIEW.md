@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is restricted to a deterministic noneigenvector and independent finite-row real Gaussian sketch. The orthogonal Gaussian decomposition gives the exact Student law including normalization; the endpoint quadratic bound gives the attained sharp positivity probability; beta endpoint asymptotics and the Student central limit theorem give both sample-budget limits. The positive density at every distinct eigenvalue gives the complete \(p<1\) moment threshold and the logarithmic safeguard coefficient. Reproduction from the actual standalone `verify.py` returned `VERIFY_OK` with 74 checks. Those calculations are supporting evidence, not substitutes for the general proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The closest inspected papers concern sketched Jacobi–Davidson under separation (Grigori–Park–Simunec, arXiv:2609.29651v1), square complex-Gaussian randomized Petrov–Galerkin eigenpair extraction (Shao, arXiv:2604.01037v3), and general sketched eigensolver stability (Nakatsukasa–Tropp, arXiv:2111.00113v2). Their material findings do not imply the exact law **for the stated real, tall, fixed-vector quotient**, the attained optimal spectral-ratio positivity envelope, and especially the conditioned shift's entire inverse-gap moment spectrum and regularization coefficient. Student tails and the spectral interval variance bound are classical and receive no separate novelty credit. Equivalent results could occur under regression, ratio-of-Gaussian or spectral shifting terminology; absence from searched sources is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The exact probability budget quantifies how many rows are needed for positive one-vector Ritz shifts in SPD systems at a fixed spectral ratio. The inverse-gap theorem reveals a nontrivial moment pathology unaffected by any finite sketch width and measures precisely the benefit of a spectral-gap floor. These are actionable mathematical risk descriptors of a natural sketched eigenvalue extraction primitive, not arbitrary parameter slices. No claim is made about adaptive or structured-sketch solvers or observed finite-precision failure.
+Normalize u and orthogonally decompose Au into its mean direction and a residual of norm sigma. The sketch of those two orthonormal directions gives independent normal vectors; the normalized dot product conditional on the first vector is standard normal with a law independent of its chi-square length. This yields the exact location, scale and density. Spectral averaging of (lambda-m)(L-lambda)>=0 gives the stated upper variance; maximizing the variance-to-mean-square ratio gives (L-m)^2/(4mL), with endpoint masses L/(m+L), m/(m+L). The Student lower-tail beta argument reaches ((kappa-1)/(kappa+1))^2 at those masses. The endpoint integral with a=s/2, z fixed, is asymptotic to z^a/(a*sqrt(1-z)); dividing by B(a,1/2) and by 2 gives the stated prefactor. Monotone tails in s and their logarithmic asymptotic give the small-delta limit. For fixed delta the Student-to-normal limit at s/kappa -> c gives Phi(-2*sqrt(c)), and comparison of row budgets at ratios above and below the unique solution gives the second limit. K is bounded away from the spectral poles, including at infinity. Locally its singularity is d_lambda/|x-lambda|+O(1), with positive smooth density, so the stated moment cutoff is for positive orders p; zero and negative powers are trivially finite. The regularized local denominator integrates as 2[1+log(epsilon/h)] for h<epsilon, giving the summed logarithmic coefficient with bounded error. The expectation always averages over the random sketch at fixed problem data, sketch dimension and law. The independent replay `python3 /workspace/review_replay.py 2` uses the s=2 density primitive and recovers probability 1/5 and exponent-zero log coefficient 28/(3*sqrt(10)) for the (1,9) witness. The frozen verifier was inspected, not executed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact one-vector Student law and its fixed-direction tail before spectral optimization are prior consequences, not standalone original here. The supported distinct contribution is the exact condition-number-optimized positivity risk and budget analysis together with the all-finite-width inverse-gap barrier and safeguard coefficient for the full shifted operator. The inspected earlier or same-day comparators do not give that classification; a later harmonic paper gives an exactly equivalent fixed-direction negativity envelope under inversion, but does not address the full shifted operator.
+
+## value
+
+PASS
+
+The optimized sign probability and confidence budgets answer a concrete choice of sketch width; the inverse-gap result shows why success in that decision says nothing about making the mean full-matrix condition number finite. The exact logarithmic coefficient characterizes how a common spectral-gap regularization changes that expectation. This distinguishes two practically and mathematically different risks for a natural shift, without asserting typical numerical failure, floating-point performance or an adaptive Krylov guarantee.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

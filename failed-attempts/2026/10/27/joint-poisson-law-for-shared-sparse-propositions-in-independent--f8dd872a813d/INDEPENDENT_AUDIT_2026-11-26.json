@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:45:11.718551Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–66; VERIFICATION.md and checker.py (read-only)",
+        "Asai–Kubo–Kuo, arXiv:math/0104137, Theorem 1, pp. 1–2",
+        "Independent replay: /workspace/branches/09c00948-8cfe-460f-a793-e7b103547221/record4_repro.py; record4_small.txt and record4_full.txt"
+      ],
+      "rationale": "For a marked set of size m, choosing ordered disjoint designated blocks and partitioning what remains gives the stated mixed factorial moment, with zero moment if the selected vertices would exceed m. Log-concavity of B_n/n! gives the claimed uniform factorial-moment bound. The needed Bell ratio also follows from Dobiński's sum: for weights k^n/k!, consecutive ratios (1+1/k)^n/(k+1) decrease in k; at k=(1±epsilon/2)n/W(n) their logarithms have strictly positive or negative leading terms of order W(n), respectively. Geometric tail comparison therefore gives exponentially small weight outside (1±epsilon)n/W(n), even after multiplication by n/W(n). The expectation of 1/k under these weights is B_{n-1}/B_n and is asymptotic to W(n)/n. The factorial-moment bound dominates each finite-coordinate generating-function series uniformly on compact sets; coefficients converge, and a tail bound by the sum of (mb_n)^j/j! above J upgrades convergence to full-array TV. Exchangeability makes the conditional law of each agent's counts constant over marked sets of the same size, so conditional independence is already exact for deterministic size. The Bernoulli size has scaled variance at most (np_nb_n)b_n, and the fixed-size limit along all deterministic sequences with mb_n tending to c yields the claimed TV limit for the conditional product mixture. The logical event is nonzero total count. The subcritical bound is a union bound on all fully marked blocks; the supercritical second-moment argument for marked singleton blocks works in both models by the fixed-shift Bell ratio asymptotic.",
+      "residual_risks": [
+        "The independent restricted-growth-string replay checks 406 exact factorial-moment equalities for n≤7, j≤3, k_j≤2 and all marked sizes, not the limiting distribution. The proof is for fixed r and independently selected uniform partitions, not a quenched limit or a bound for growing r."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arratia–Tavaré model unmarked assembly size counts as independent Poisson variables conditioned on their weighted sum. The earlier sparse-colouring result specializes to marked partitions and also treats all first-order sentences in the one-relation signature."
+        ],
+        "reasoning": "General unmarked assembly theory does not by itself give the shared-color result. The decisive stronger ingredient is the earlier marked single-relation full process; its all-sentence result is broader logically in that one-relation signature but is not an all-sentence theorem for multiple relations.",
+        "searches": [
+          "arXiv:1308.3279, Arratia–Tavaré, pp. 5, 32 and 61",
+          "Prior Resultary sparse-colouring RESULT.md, Finding and Proof Steps 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Earlier sparse-colouring Resultary full-process theorem",
+        "Arratia–Tavaré primary text",
+        "Asai–Kubo–Kuo Theorem 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For mb_n→c>0, choose Bernoulli probabilities p_n^±=(m±m^(2/3))/n (eventually admissible). Both satisfy the prior theorem. Realize each mark set as a prefix of one independent uniform random ordering with binomial size. With probability tending to one the sizes bracket m by binomial concentration. The vector of fully marked class counts is coordinatewise monotone in the prefix size. Lower rectangles of any fixed finite coordinate vector are therefore squeezed to the common prior Poisson limit. Existence of a marked class above size J is increasing and is bounded by the upper model's prior tail estimate plus the bracket failure probability. This proves one-agent fixed-size TV directly from the prior. Conditional on a particular size-m set, independent partitions give independent copies of a law constant on size-m sets by permutation invariance. For Bernoulli marks the conditional law is this product at a random size that concentrates on the critical window. The endpoint claims transfer by monotonicity from fixed c and then c→0 or c→∞ and by a union bound over fixed r."
+        ],
+        "reasoning": "These are routine implications of the earlier one-agent process, not a new mixed-relation asymptotic estimate. The finite-n fixed-cardinality independence is the immediate conditional product identity for a statistic whose conditional law is constant on an exchangeability orbit. It requires no new property of Bell partitions beyond relabeling invariance.",
+        "searches": [
+          "2026/10/26/SCOPE-a-critical-sparse-colouring-convergence-law-for-uniform-random-e--7590ed096e16, Proof Step 1 and Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier Finding uses p_n W(n)→c and counts exactly those j-classes all of whose vertices satisfy the same unary predicate. It gives the limiting independent Poisson size process, the Poisson(e^c−1) total, and exactly 1−exp(1−e^c) for the witness. Step 1 bounds the unobserved tail in expectation."
+        ],
+        "reasoning": "Since nb_n∼W(n), the scale is the same. The earlier finite-coordinate and tail conclusions imply discrete full-array TV by truncation. The earlier witness lacks an explicit P(x) conjunct, but E(x,x) makes that conjunct redundant.",
+        "searches": [
+          "Resultary: 2026/10/26/SCOPE-a-critical-sparse-colouring-convergence-law-for-uniform-random-e--7590ed096e16",
+          "Local-mirror RESULT.md offset 0, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed formula gives c^j/j!, Poisson(e^c−1), and the same marginal witness threshold, not merely a numerical instance."
+        ],
+        "reasoning": "A numerical table is not an appropriate comparison for this full asymptotic law with real c; the exact indexed symbolic law supplies the relevant comparison. It contains no literal r-agent TV formula.",
+        "searches": [
+          "Resultary exact claim: 2026/10/26/SCOPE-a-critical-sparse-colouring-convergence-law-for-uniform-random-e--7590ed096e16, Finding and Step 1"
+        ]
+      },
+      "rationale": "A distinct earlier indexed record already proves the same one-agent Bernoulli full marked-size Poisson process with the same intensities, witness probability, and endpoint regimes. Its result implies the one-agent discrete TV limit by its finite-coordinate convergence and explicitly controlled aggregate tail. The fixed-size and shared-predicate product extensions follow routinely from that result by monotone removal of the random size and conditioning on the fixed-size mark set. Thus the fact that the earlier record does not print the multiagent statement is not a substantive unfilled mathematical gap. This is an implication finding, not a claim that the earlier record literally states every formula here.",
+      "residual_risks": [
+        "The timing or scope of still earlier marked-assembly results is not resolved here. The negative judgment rests on the explicit earlier indexed law and the mathematical implication, not on an unavailable or unsuccessfully searched source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact marginal law and substantive prior coverage by implication",
+          "evidence": "Step 1 establishes finite-coordinate Poisson limits and an expected aggregate size tail tending to zero as the cutoff grows. The Finding also gives both endpoint regimes.",
+          "identifier_or_url": "2026/10/26/SCOPE-a-critical-sparse-colouring-convergence-law-for-uniform-random-e--7590ed096e16",
+          "material_read": "RESULT.md, Finding, assumptions, and Proof Steps 1–3, offset 0",
+          "method": "Local mirror",
+          "title": "A critical sparse-colouring convergence law for uniform random equivalence relations",
+          "trigger": "Same model at one relation and exactly the same sparse scale and count intensities"
+        },
+        {
+          "assessment": "Method and unmarked one-partition basis, not decisive for shared marks",
+          "evidence": "Set partitions are assemblies with m_i=1, with tuning x exp(x)=n and a Poisson independent component process conditioned on total size.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.3279",
+          "material_read": "PDF p. 5; §5.3 p. 32; p. 61",
+          "method": "OA primary text",
+          "title": "Independent Process Approximations for Random Combinatorial Structures",
+          "trigger": "Possible general marked-assembly coverage"
+        },
+        {
+          "assessment": "Verifies the cited input, not the multiagent statement",
+          "evidence": "The theorem gives log-concavity of the normalized Bell numbers B_n/n!.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0104137",
+          "material_read": "Abstract and Theorem 1, PDF pp. 1–2",
+          "method": "OA primary text",
+          "title": "Bell numbers, log-concavity, and log-convexity",
+          "trigger": "Nonstandard Bell-number uniform bound used in the proof"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Steps 1–5",
+        "Earlier sparse-colouring Finding and Step 1",
+        "Monotone bracketing and conditional product argument above"
+      ],
+      "rationale": "The sparse logical threshold and marked-size spectrum are natural, but they are already present for one relation. The proposed new joint information follows from standard size bracketing and the conditional product identity; none of the stated events requires joint interaction of the equivalence relations beyond sharing the mark set. There is no independently useful unknown exact invariant or quantitative dependence result left after crediting the earlier law.",
+      "residual_risks": [
+        "No growing-agent, quenched, or genuinely interacting multi-relation statement was established, so those possible extensions are not evaluated as part of this record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

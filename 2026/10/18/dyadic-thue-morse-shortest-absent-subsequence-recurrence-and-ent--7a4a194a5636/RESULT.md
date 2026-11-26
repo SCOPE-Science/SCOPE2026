@@ -1,85 +1,68 @@
-# Dyadic Thue–Morse shortest-absent-subsequence recurrence and entropy
+# Entropy and alternating leading constants for shortest absent subsequences of Thue–Morse prefixes
 
 ## Finding
-Let \(\tau_i\) be the parity of the number of ones in the binary expansion of \(i\), and let \(T_m=\tau_0\tau_1\cdots\tau_{2^m-1}\). For every integer \(m\ge1\), let \(A_m\) count distinct **shortest absent subsequences** of \(T_m\) over the ambient alphabet \(\{0,1\}\). Then every shortest absent subsequence has length \(2^{m-1}+1\), and
+
+Let \(T_m\) be the standard binary Thue–Morse prefix of length \(2^m\), and let \(A_m\) count its distinct shortest absent binary scattered subsequences, for \(m\ge1\). Write \(r=m-1\). Define the positive integers \(s_0=1,t_0=2\), \(s_{j+1}=s_jt_j\), \(t_{j+1}=s_j^2+2\), and put \(\varepsilon_j=\log_2(1+2/s_j^2)\). Set
 \[
-\begin{gathered}
-s_0=1,\quad t_0=2,\\
-s_{r+1}=s_rt_r,\qquad t_{r+1}=s_r^2+2\quad(r\ge0),\\
-A_m=s_{m-1}+t_{m-1}.
-\end{gathered}
+\lambda=\frac13+\sum_{j\ge0}\frac{\varepsilon_j}{3\cdot2^{j+1}},\qquad
+C=\frac13\sum_{j\ge2}(-1)^j\varepsilon_j.
 \]
-This gives \(A_1,\ldots,A_7=3,5,12,74,2666,3647090,6476006417762\). In addition,
+Both series converge absolutely, and \(C>0\). With \(u=2^C\), the count has two different leading constants at the same exponential rate:
 \[
-\begin{aligned}
-\lambda&=\lim_{m\to\infty}\frac{\log_2 A_m}{2^{m-1}}\\
-&=\frac13+\sum_{j=0}^{\infty}\frac{\log_2(1+2/s_j^2)}{3\cdot2^{j+1}}\\
-&=0.649537093097466\ldots,
-\end{aligned}
+\frac{A_{r+1}}{2^{\lambda 2^r}}=
+\begin{cases}
+u+u^{-2}+O(4^{-r}),&r\text{ even},\\
+u^{-1}+u^2+O(4^{-r}),&r\text{ odd}.
+\end{cases}
 \]
-and \(\log_2 A_m=\lambda\,2^{m-1}+O(1)\). Per symbol of \(T_m\), the logarithmic exponent is \(\lambda/2=0.324768546548733\ldots\).
+In particular, the base-two logarithmic growth per symbol of \(T_m\) is \(\lambda/2=0.324768546548733\ldots\), but there is no single leading constant for the full sequence \(A_m\) at this rate. The exact count recurrence is an input to this asymptotic, not a separate novelty claim.
 
 ## Assumptions and scope
-A subsequence is obtained by deleting zero or more positions while preserving the order of the remaining symbols; it need not be contiguous. Two candidate subsequences are counted once when their binary strings agree. Absent means not a subsequence of the indicated finite source word. The source is the standard Thue–Morse fixed point of \(0\mapsto01\) and \(1\mapsto10\), with its prescribed left-to-right order; neither arbitrary permutations of blocks nor other codings are included. Indices satisfy \(m\ge1\) and \(r\ge0\). The logarithm in the limit is base two.
+
+The alphabet is \(\{0,1\}\), and different embeddings of the same string count only once. A subsequence preserves order but need not be contiguous. Here \(T_0=0\), \(T_{m+1}=\mu(T_m)\), where \(\mu(0)=01\) and \(\mu(1)=10\). Thus \(T_m\) has bits given by parity of binary digit sum, and \(T_{m+1}=T_m\overline{T_m}\) with bitwise complement. The theorem concerns dyadic prefixes of this word only; it is not an asymptotic for absent factors or for minimal absent subsequences of all lengths.
 
 ## Proof
-Write \(k=2^{m-1}\). The word \(T_m\) is the concatenation of \(k\) binary blocks of length two, with block \(j\) equal to \(\tau_j(1-\tau_j)\) for \(0\le j<k\). In particular, each block contains both letters. Every binary word of length \(k\) is therefore a subsequence by selecting the \(j\)-th letter (indexed from zero) from block \(j\) for \(0\le j<k\). However, \(T_m\) contains exactly \(k\) zeros, so \(0^{k+1}\) is absent. The shortest absent length is precisely \(k+1\).
 
-Let \(v=v_0\cdots v_k\) be an arbitrary binary string of that length. Perform greedy subsequence matching in the sequence of length-two blocks. If a block consumes two required letters, the \(k\) blocks can jointly consume at least \(k+1\) letters: before that block each earlier block consumes at least one, and each later block can also consume at least one because it contains both letters. Conversely, if none consumes two letters, exactly \(k\) letters are consumed and the last is unmatched. Before the first two-letter consumption, block \(j\) starts from required symbol \(v_j\). Consequently block \(j\) consumes two letters precisely when the ordered adjacent pair \(v_jv_{j+1}\) equals the block \(\tau_j(1-\tau_j)\). Thus **the absent strings are exactly those that avoid the length-two pattern prescribed at each successive boundary**, in the sense that \(v_jv_{j+1}\ne\tau_j(1-\tau_j)\) for every \(0\le j<k\).
+**Count recurrence.** Write \(k=2^{m-1}\). The prefix \(T_m\) consists of \(k\) ordered blocks \(01\) or \(10\). Every length-\(k\) word embeds by taking one symbol per block, but the prefix has only \(k\) zeros, so the shortest absent length is \(k+1\). For a candidate \(v=v_0\cdots v_k\), greedy matching must consume at least one symbol in each block until the candidate is exhausted. If some block consumes two, the candidate is fully matched by the end. Until the first such double consumption, the upcoming required pair at block \(j\) is \(v_jv_{j+1}\), which the block consumes exactly when that pair equals the block. Thus \(v\) is absent precisely when every pair differs from the block at its corresponding index.
 
-Use row indices for \(v_j\) and column indices for \(v_{j+1}\). For a prescribed block \(01\), the three allowed pairs yield
+For a block \(01\) or \(10\) the allowed pair matrices in the state order \((0,1)\) are
 \[
-M_0=\begin{pmatrix}1&0\\1&1\end{pmatrix};
+M_0=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad M_1=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
 \]
-for a prescribed block \(10\), they yield
-\[
-M_1=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
-\]
-Define \(P_r=M_{\tau_0}M_{\tau_1}\cdots M_{\tau_{2^r-1}}\), and \(J=\begin{pmatrix}0&1\\1&0\end{pmatrix}\). The number of permitted paths equals the sum of the entries of \(P_{m-1}\), so
-\[
-A_m=\operatorname{tr}(P_{m-1})+\operatorname{tr}(P_{m-1}J).
-\]
-Put \(t_r=\operatorname{tr}(P_r)\) and \(s_r=\operatorname{tr}(P_rJ)\). Because \(P_0=M_0\), we have \((s_0,t_0)=(1,2)\). The Thue–Morse substitution obeys \(T_{r+1}=T_r\overline{T_r}\). Since \(JM_0J=M_1\), \(JM_1J=M_0\), we obtain
-\[
-P_{r+1}=P_rJP_rJ=(P_rJ)^2.
-\]
-The matrix \(P_rJ\) has determinant \(-1\) (each \(M_b\) has determinant one and \(\det J=-1\)). Cayley–Hamilton in dimension two then gives
-\[
-(P_rJ)^2=s_r(P_rJ)+I.
-\]
-Taking ordinary traces yields \(t_{r+1}=s_r^2+2\). Taking traces after multiplying on the right by \(J\) yields \(s_{r+1}=s_rt_r\), because \(\operatorname{tr}(J)=0\). This establishes the exact integer recurrence and \(A_m=s_{m-1}+t_{m-1}\) for all indicated indices.
+Let \(P_r\) be the product of these matrices along the bits of \(T_r\), in their written order, and \(J=\begin{pmatrix}0&1\\1&0\end{pmatrix}\). The sum of the entries of \(P_r\) is \(A_{r+1}=s_r+t_r\), where \(s_r=\operatorname{tr}(P_rJ)\) and \(t_r=\operatorname{tr}(P_r)\). Because \(JM_0J=M_1\) and \(T_{r+1}=T_r\overline{T_r}\), one has \(P_{r+1}=(P_rJ)^2\). The determinant of \(P_rJ\) is \(-1\); Cayley–Hamilton gives \(P_{r+1}=s_rP_rJ+I\). Taking traces with and without a final \(J\) yields the two updates in the Finding, with the initial values from \(P_0=M_0\).
 
-For the limit, set \(a_r=\log_2 s_r\) and \(\varepsilon_r=\log_2(1+2/s_r^2)\). The recurrence entails
+**Entropy and the leading constants.** Put \(a_r=\log_2 s_r\). The updates imply \(a_0=0,a_1=1\) and
 \[
-a_0=0,\quad a_1=1,\qquad a_{r+2}=a_{r+1}+2a_r+\varepsilon_r.
+a_{r+2}=a_{r+1}+2a_r+\varepsilon_r.
 \]
-Solving the forced second-order recurrence with characteristic roots \(2\) and \(-1\) gives the exact identity
+The roots of the homogeneous recurrence are \(2\) and \(-1\), so substitution, or convolution with the impulse response, gives
 \[
-a_r=\frac{2^r-(-1)^r}{3}+\sum_{j=0}^{r-2}\frac{2^{r-j-1}+(-1)^{r-j-2}}{3}\,\varepsilon_j
+a_r=\frac{2^r-(-1)^r}{3}
++\sum_{j=0}^{r-2}\frac{2^{r-j-1}+(-1)^{r-j-2}}{3}\varepsilon_j.
 \]
-(the sum is empty for \(r=0,1\)). Since \(t_r\ge2\), the first recurrence implies \(s_r\ge2^r\), so
+The sum is empty for \(r=0,1\). Since \(t_j\ge2\), \(s_j\ge2^j\), hence \(0<\varepsilon_j\le (2/\ln 2)4^{-j}\). Extending both sums to infinity gives
 \[
-0\le\varepsilon_r\le\frac{2}{\ln2}\,4^{-r}.
+a_r=\lambda 2^r+(-1)^r C+O(4^{-r}).
 \]
-Therefore the indicated positive series for \(\lambda=\lim a_r/2^r\) converges absolutely, and the displayed finite identity implies \(a_r=\lambda2^r+O(1)\): its alternating correction is bounded, and its omitted series tail contributes \(O(2^r8^{-r})\). Finally, \(t_r=s_{r+1}/s_r\), hence
+Indeed, the leading-mode tail is \(O(2^r8^{-(r-1)})\) and the alternating-mode tail is \(O(4^{-(r-1)})\). The alternating coefficient is \((-1+\sum_{j\ge0}(-1)^j\varepsilon_j)/3\). Since \(\varepsilon_0-\varepsilon_1=\log_2 3-\log_2(3/2)=1\), this is the stated \(C\). The \(s_j\) are strictly increasing, hence the \(\varepsilon_j\) strictly decrease; grouping the terms of the tail in pairs starting at \(j=2\) shows \(C>0\).
+
+Now \(\log_2 t_r=a_{r+1}-a_r=\lambda 2^r-2(-1)^r C+O(4^{-r})\). Exponentiating and adding the two terms in \(A_{r+1}=s_r+t_r\) yields the displayed ratio. Its odd limit minus its even limit is
 \[
-\log_2t_r=a_{r+1}-a_r=\lambda2^r+O(1).
+(u-u^{-1})(u+u^{-1}-1)>0.
 \]
-For positive \(s_r,t_r\), the logarithm of their sum differs from the maximum logarithm by at most one; therefore \(\log_2(s_r+t_r)=\lambda2^r+O(1)\). Substituting \(r=m-1\) proves the claimed limit and asymptotic.
+The exact asymptotic therefore cannot be written with one constant times \(2^{\lambda 2^r}\) and relative error tending to zero.
 
 ## Verification
-The standalone `verify.py` implements four distinct calculations: the explicit two-integer recurrence; independent direct triangular-matrix multiplication; direct enumeration of every possible missing subsequence and direct greedy membership checking for \(m=1,\dots,5\); and distinct-subsequence dynamic programming with last-occurrence correction for \(m=1,\dots,9\). All three independent checks reproduce the recurrence's exact counts on their stated ranges. Invoke `python3 verify.py` in the directory containing this file; the last line is `ALL CHECKS PASS`. The infinite theorem rests on the proof above, not on finite verification. The numerical series can be evaluated by iterating \((s_r,t_r)\); its tail has the explicit geometric bound in the proof.
 
-## Relationship to prior work
-Kosche, Koß, Manea, and Siemer introduced systematic study of shortest absent subsequences and binary arch decompositions in *Absent Subsequences in Words* (2021). Their general characterization subsumes the membership framework used above but does not state the dyadic Thue–Morse recursion or entropy value. Adamson and coauthors (2024) study sharp bounds and enumeration of absent subsequences for fixed universality index, but not the complete count of shortest absent subsequences on the canonical dyadic Thue–Morse prefixes.
+The accompanying `verify.py` checks the integer count recurrence by direct transfer-matrix products, short-word greedy membership enumeration, and distinct-subsequence dynamic programming on bounded dyadic prefixes. It does not establish the limiting behavior or the alternating constants; those follow from the estimates above. For numerical evaluation of \(\lambda\) the omitted tail after summing through \(j=J\) is at most \(8\cdot8^{-(J+1)}/(21\ln 2)\). The corresponding error in the alternating sum defining \(C\) is bounded by the first omitted \(\varepsilon_j/3\).
 
-A separately published result titled *Fibonacci extremals for shortest absent subsequences of binary words* derives **the same two triangular transition matrices** for binary 01/10 block words and extremizes their products over the choice of blocks. Thus the transition-matrix representation itself is not claimed as new. Its fixed-length global Fibonacci maximum does not specify the Thue–Morse product, its quadratic renormalization, or its particular asymptotic exponent. The contribution here is the complete Thue–Morse-specific two-integer dynamics together with its explicit limiting entropy; the general transfer idea is prior work. A second published note on the *Closed-form law for binary subsequence universality* enumerates all binary words by their universality index, a different statistic from the number of shortest absent subsequences of a prescribed word.
+## Relationship to prior work and limitations
 
-## Limitations
-The recurrence applies to binary dyadic Thue–Morse prefixes, not arbitrary prefix lengths, alphabets, or minimal absent subsequences of unrestricted lengths. The comparison with known universal matrix-transfer formulas is essential: the result is a specialization with an additional nontrivial self-similar trace law, not a newly invented transfer formalism. The primary literature and searched mathematical records did not supply this exact recurrence and entropy, but an older equivalent trace-map or continued-fraction formulation could exist outside the inspected sources. No independent mathematical audit is claimed.
+General arch descriptions of shortest absent subsequences are given by Kosche et al. The same triangular matrices for binary complementary blocks occur in *Fibonacci extremals for shortest absent subsequences of binary words*. *Quadratic recurrence for shortest absent subsequences of Thue–Morse prefixes* gives the same count dynamics in the coordinates \((s_j+t_j,s_j)\) with the prefix index shifted by one. The catalog dates do not establish priority. Eliminating \(s_j\) gives the classical Thue–Morse trace map \(t_{j+2}=t_j^2(t_{j+1}-2)+2\); the growth exponent here is the escape exponent of its particular positive orbit, converted to base two and measured on the half-length scale. The asymptotic claim retains both modes of the logarithmic recurrence and gives the two explicit and provably unequal limits for the shortest-absent-string count. The comparison with prior work is bounded; no novelty is asserted for the transfer framework, the exact count recurrence, or the trace map itself.
 
 ## References
-1. M. Kosche, T. Koß, F. Manea, S. Siemer, *Absent Subsequences in Words*, arXiv:2108.13968v1 (first submitted 2021-08-31), https://arxiv.org/abs/2108.13968.
-2. D. Adamson et al., *Tight Bounds for the Number of Absent Subsequences*, arXiv:2407.18599 (first submitted 2024-07-26), https://arxiv.org/abs/2407.18599.
-3. *Fibonacci extremals for shortest absent subsequences of binary words*, research note (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28.
-4. *Closed-form law for binary subsequence universality*, research note (2026), https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37.
+
+1. M. Kosche, T. Koß, F. Manea, and S. Siemer, *Absent Subsequences in Words*, [arXiv:2108.13968](https://arxiv.org/abs/2108.13968).
+2. *Fibonacci extremals for shortest absent subsequences of binary words*, [Resultary](https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28/RESULT.md).
+3. *Quadratic recurrence for shortest absent subsequences of Thue–Morse prefixes*, [Resultary](https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-quadratic-recurrence-for-shortest-absent-subsequences-of-thue-mo--9824aedbf416/RESULT.md).
+4. Q. Liu and Y. Qu, *Iteration of polynomial pair under Thue–Morse dynamic*, [arXiv:1403.2257](https://arxiv.org/abs/1403.2257), equation (1).

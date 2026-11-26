@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:36:52.067596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof called E nondegenerate, but the stated assumption only put it inside a nondegenerate subspace, which does not guarantee nondegeneracy of its restriction. The surviving existential theorem is repaired by explicitly choosing E as the span of an orthonormal subset and specifying the source's fixed characteristic different from two. In the repaired construction, permutation of transcendence basis elements extends to a field automorphism and then to a form-preserving automorphism fixing the vector basis, verifying indiscernibility over finite A. For each block the first q powers give an invertible q-point Vandermonde matrix for q≤k−1. Nondegeneracy of E gives surjectivity of the q linear constraints on x_j in E, and the monic target power of degree k−1 cannot agree with a polynomial of lower degree at k distinct points. In any witness of the same type, scalar coordinates are all equal or all distinct; the first possibility repeats an identical consistent instance by the defining type equations. In the second, inversion at the first k−1 field coordinates recovers every e_{j,l} inside the containing substructure, whether or not it was required to contain A. Thus dimension at least r(k−1) is forced, including r=1 and k=2, and the explicit nondegenerate E over the same algebraically closed field attains it. The frozen verify.py was inspected, not executed. Its reported 198 rational assertions check finite ranks, not the model theory, and the repaired scientific notes correct the sample points to prefixes of 0,…,k−1 without changing recorded status.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prop. 4.4 has a countable-base hypothesis and gives some witness in T_{2k|V(b)|}; Prop. 4.7 is a sufficient-dimension transfer of k-dividing when M contains A,b and m≥2k|V(b)|."
+        ],
+        "reasoning": "Sufficient dimensions do not imply the exhibited instance needs r(k−1), and the latter proposition's different base-containment assumption cannot be read as a lower bound.",
+        "searches": [
+          "Resultary: Dobrowolski Hoffmann finite-dimensional dividing bound",
+          "Dobrowolski–Hoffmann JSL §4 Propositions 4.4 and 4.7"
+        ]
+      },
+      "checked_sources": [
+        "Dobrowolski–Hoffmann DOI 10.1017/jsl.2024.9 (journal numbering; arXiv:2111.02389 has the upper bound as Prop. 4.3)",
+        "Resultary ee908111b8bd and 7bb1168c556c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing upper-bound statements concern all formulas with a given parameter size and do not construct a family forcing an independent span. The repaired family has a scalar coordinate and r vector coordinates for every k and r."
+        ],
+        "reasoning": "The lower bound needs two inputs not provided by the cited upper bounds: exact k-inconsistency with distinct scalar parameters, and a type that forces any witnessing sequence to span all r blocks. The construction supplies both, with a matching finite model.",
+        "searches": [
+          "Resultary: Vandermonde and k-dividing exact witness dimension",
+          "JSL §4 Definition 4.3 and Propositions 4.4, 4.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Definition 4.3 uses an A-indiscernible sequence of realizations of tp(b/A) contained in a finite-dimensional substructure. The substructure need not contain A."
+        ],
+        "reasoning": "The repaired lower bound is for this very notion: the witness's scalars and vectors generate A's basis through Vandermonde inversion. It is not a weaker assertion using a dimension artificially imposed by requiring all base parameters to lie in the containing model.",
+        "searches": [
+          "Resultary: Vandermonde witness and finite-dimensional dividing family",
+          "Dobrowolski–Hoffmann JSL §4 Definition 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed finite-field bilinear entries concern tuple orbit profiles and retraction rank spectra, not witness dimensions under dividing over algebraically closed fields."
+        ],
+        "reasoning": "Those entries are exact data for different invariants in different structures; their ranks cannot be substituted for the minimum dimension of a model containing an indiscernible sequence. No exact dimension table for this family was identified.",
+        "searches": [
+          "Resultary: r(k−1) lower bound for finite-dimensional dividing",
+          "Resultary ee908111b8bd and 7bb1168c556c Findings"
+        ]
+      },
+      "rationale": "The source defines precisely the same finite-witness notion and supplies a sufficient dimension 2kr, not the necessary dimension of this family. The independent blocks recovered from the witness itself force a lower bound despite the source not requiring that the finite model contain the base. Bounded indexed checks did not establish an equivalent interpolation family or a general prior lower bound. The supported distinction is this exact lower-bound family, not a new upper bound or the optimality of the coefficient 2.",
+      "residual_risks": [
+        "An unindexed folklore or interpolation example could give the same lower bound. The bounded comparison does not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact theory and witness notion; upper not lower bound",
+          "evidence": [
+            "Characteristic p≠2, with p=0 allowed; proof presented for the symmetric form.",
+            "The finite witness sequence need not be in a substructure containing A in Definition 4.3; Prop. 4.7 separately assumes containment and a sufficient dimension."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/jsl.2024.9",
+          "material_read": "Journal §4 pp. 1688–1690, including definitions of T_infty and T_m, Definition 4.3 and Propositions 4.4 and 4.7; extracted PDF offsets 84100, 88900 and 91000",
+          "method": "Bounded official OA PDF inspection",
+          "title": "On rank not only in NSOP1 theories",
+          "trigger": "Exact finite-dimensional dividing witness definition and strongest matching general theorem"
+        },
+        {
+          "assessment": "Different field hypotheses and invariant",
+          "evidence": [
+            "Counts tuple automorphism orbits for structures over a fixed finite field, not dimensions of dividing witnesses."
+          ],
+          "identifier_or_url": "Resultary ee908111b8bd",
+          "material_read": "Finding",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Exact product-tuple orbit profiles for homogeneous finite-field bilinear spaces",
+          "trigger": "Closest indexed bilinear-space tuple match"
+        },
+        {
+          "assessment": "Different mathematical structure and question",
+          "evidence": [
+            "Ranks of retractions for split bilinear-product algebras are not minimum witness dimension."
+          ],
+          "identifier_or_url": "Resultary 7bb1168c556c",
+          "material_read": "Finding",
+          "method": "Bounded local mirror passage inspection",
+          "title": "Complete retraction rank spectra of split bilinear-product algebras",
+          "trigger": "Possible rank-spectrum overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The construction answers a natural sharpness question about a general finite-dimensional witness theorem. It forces both parameters to enter at linear order, with an exact minimum and an attaining witness, not just a parameter-dependent sufficient dimension or a change of notation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

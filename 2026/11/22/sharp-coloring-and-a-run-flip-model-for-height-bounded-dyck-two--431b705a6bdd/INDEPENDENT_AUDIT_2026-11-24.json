@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:44:46.765291Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_decks.py and verify_structure.py",
+        "Repaired /workspace/repairs/2/RESULT.md and SLOGAN.txt",
+        "Replay: python3 /workspace/branches/independent_2.py; output /workspace/branches/independent_2.txt",
+        "Cai et al., Definition 8 and Proposition 9"
+      ],
+      "rationale": "In the strict ceiling two, odd prefix heights must be one; even heights can be zero or two. This corrects frozen line 37, which says the intervening heights are always one or two. The internal pairs are exactly 10 or 01. An edge in the Dyck graph differs on full pair blocks and is Type A exactly when a consecutive block of equal orientations flips. XOR by the alternating mask turns these into alternating-interval flips; intervals of length at least two give the unrestricted two-read deletion graph and singleton flips give the cube, disjointly. One can check the Type-A criterion directly in the equal-content case: if deletions are at different positions, their alignment is a left or right shift on the first-to-last mismatch interval, and each orientation determines at most one descendant by shifting the deletion within equal runs to those two endpoints. Both orientations are possible exactly when the mismatches alternate; they then give distinct descendants. Counting intervals gives the degrees and edges including the empty bit vector. Trimming fixed endpoints preserves all Type-A adjacencies and sends the clique to the standard fixed-weight clique; the component coloring comes from the number of 01 pairs. Independent deletion-bucket enumeration through semilength eight checked the checksum, clique, constant-run graph, direct shortened deletion decks plus cube, degree maximum, edge totals and induced five-cycle. The all-parameter isomorphism is proved, not extrapolated.",
+      "residual_risks": [
+        "The isomorphism is for height at most two, not higher ceilings. The coloring does not compute the largest single codebook."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trimming both fixed endpoints embeds Dyck graphs into the length-2(n−1), weight-(n−1) layer; the fixed-composition result on that layer gives the n-color checksum and an explicit clique of pairs already inside height two.",
+          "The full Dyck edge and maximum-degree work treats all heights, not the graph of paired height-two blocks."
+        ],
+        "reasoning": "Broader coverage settles the coloring after the induced embedding; it does not identify the entire height-two adjacency graph with a graph on half as many word coordinates.",
+        "searches": [
+          "Resultary 1e0b06ffdce5, 3635f93f657f and b19c2f7e6141",
+          "Cai et al., general binary deletion intersections"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2001.01376v2",
+        "Resultary 1e0b06ffdce5, f45a481280b1, 737fed325e91, b19c2f7e6141, 3635f93f657f, 268e2a51ec42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-composition clique (10)^j(01)^(m−j) already consists of pair blocks. Its length-eight five-cycle words 01011001, 10011001, 10010101, 10101010, 01011010 also consist of pair blocks. Wrapping by 1 and 0 and padding by identical pairs transfers these witnesses to height two.",
+          "Degree and edge laws are immediate after establishing the cube-augmented graph isomorphism."
+        ],
+        "reasoning": "The known clique and odd hole directly cover those pieces after trimming, beyond what happens on the untrimmed balanced layer. The revised claim isolates the structural step needed to transfer the whole short-word graph; all inherited consequences are separately attributed.",
+        "searches": [
+          "Resultary 1e0b06ffdce5, RESULT.md Proof §§1–3 (offset 0–6049)",
+          "Resultary f45a481280b1 and 737fed325e91 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For m=n−1 the alternating mask x_i=b_i XOR ((i−1) mod 2) converts constant blocks to alternating blocks; length-one flips are precisely the cube edges excluded by the Type-A criterion.",
+          "The unrestricted binary graph D_m alone is not the model; the cube term is necessary."
+        ],
+        "reasoning": "The corrected statement makes the exact correspondence explicit, allowing transfer of known unrestricted results while distinguishing the paired Dyck object from the unrestricted graph alone.",
+        "searches": [
+          "Resultary: height-bounded Dyck deletion, run flips, binary XOR difference and deletion graph with cube edges",
+          "Cai et al. Def. 8 and Prop. 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "737fed325e91 gives 1+(m−2)2^(m−1) edges for the unrestricted length-m binary graph, and f45a481280b1 gives degrees from adjacent-XOR one-runs.",
+          "268e2a51ec42 concerns the full Dyck triangle census; the public search returned unrelated material, not negative evidence."
+        ],
+        "reasoning": "Add m·2^(m−1) cube edges, or m to each degree initially given by XOR one-runs of lengths r_i−1. These prior formulas explain the frozen statistics. No inspected independent record states the height-two cube-augmented graph identification.",
+        "searches": [
+          "Resultary: exact deletion edge counts, degree spectrum, Dyck triangle and height-two run statistics",
+          "Public web query on binary Dyck two-read deletion graphs"
+        ]
+      },
+      "rationale": "For the narrowed result only: the height-two identification with the edge-disjoint union of an unrestricted binary deletion graph and a cube is a structural correspondence, not a claim to rederive known checksum, clique, odd-hole, edge or degree results as independently new findings. The inspected circle of related exact records does not state this identification or mechanically provide the Dyck pairing and mask that realize it.",
+      "residual_risks": [
+        "Bounded search cannot rule out earlier descriptions of the binary-deletion-plus-cube graph or the Dyck graph isomorphism; no within-day ordering is assigned to the fixed-composition result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives Type-A criterion, not the paired Dyck identification",
+          "evidence": "Hamming-distance one has one common descendant; for higher distance, two exactly for opposite phases of an alternating interval.",
+          "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+          "material_read": "Definition 8 and Proposition 9, offsets 33200–43954",
+          "method": "OA arXiv original HTML",
+          "title": "Coding for Sequence Reconstruction for Single Edits",
+          "trigger": "Exact adjacency criterion"
+        },
+        {
+          "assessment": "Direct coverage of coloring and witnesses after trimming; chronological priority unresolved",
+          "evidence": "χ=ω=1+min(k,N−k), checksum, pair-block clique and explicit balanced eight-bit five-cycle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-fixed-composition-coloring-of-the-two-read-deletion-graph--1e0b06ffdce5/RESULT.md",
+          "material_read": "Finding and Proof §§1–3, offsets 0–6049",
+          "method": "Resultary local mirror",
+          "title": "Sharp fixed-composition coloring of the two-read deletion graph despite induced odd holes",
+          "trigger": "Same coloring method, clique and odd hole"
+        },
+        {
+          "assessment": "Degree law transfers upon adding the cube",
+          "evidence": "Uses triangular sums of one-runs of the XOR-difference word on unrestricted binary sources.",
+          "identifier_or_url": "2026/11/2/SCOPE-complete-degree-spectrum-of-the-binary-two-read-deletion-reconst--f45a481280b1",
+          "material_read": "RESULT.md, degree and domain in the Finding",
+          "method": "Resultary local mirror",
+          "title": "Complete degree spectrum of the binary two-read deletion reconstruction graph",
+          "trigger": "Run-degree equivalent"
+        },
+        {
+          "assessment": "Supplies the unrestricted term, not the augmented Dyck correspondence",
+          "evidence": "Binary count 1+(m−2)2^(m−1).",
+          "identifier_or_url": "2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+          "material_read": "RESULT.md, unrestricted edge formula",
+          "method": "Resultary local mirror",
+          "title": "Exact edge count of the finite-alphabet two-read single-deletion graph",
+          "trigger": "Potential edge formula overlap"
+        },
+        {
+          "assessment": "Unrestricted bound alone does not show tightness on a height-restricted source",
+          "evidence": "Maximum clique size floor(N/2)+1 at length N.",
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-clique-bound-and-two-pencil-structure-in-the-two-read-sing--b19c2f7e6141",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Sharp clique bound and two-pencil structure in the two-read single-deletion graph",
+          "trigger": "Potential stronger unrestricted clique theorem"
+        },
+        {
+          "assessment": "Full-height edge/degree classification, not the short-word identification",
+          "evidence": "Exact edge bijection and maximum degree (n−1)², unique for n≥3.",
+          "identifier_or_url": "2026/11/8/SCOPE-dyck-restricted-two-read-deletion-graph-a-vertex-marked-bijectio--3635f93f657f",
+          "material_read": "RESULT.md Finding and domain",
+          "method": "Resultary local mirror",
+          "title": "Dyck-restricted two-read deletion graph: a vertex-marked bijection and sharp degree",
+          "trigger": "Same deletion adjacency on Dyck words"
+        },
+        {
+          "assessment": "Different invariant on the full source",
+          "evidence": "Unrestricted-height triangle count and T_(n+1)−T_n=2E_n.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-triangle-edge-cumulative-law-for-dyck-word-two-read-deletion-a--268e2a51ec42",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "A triangle-edge cumulative law for Dyck-word two-read deletion adjacency",
+          "trigger": "Same-day Dyck ambiguity graph statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired Finding and isomorphism proof",
+        "Direct deletion-deck replay of both sides"
+      ],
+      "rationale": "The remainder gives a complete edge-preserving reduction for the natural two-level Dyck channel. It replaces deletion-deck comparisons of length 2n by an unrestricted graph with n−1 coordinates and exactly one additional edge type; this determines every neighborhood and permits transfer of structural information, not just two known totals. Known color and degree identities illustrate the transfer rather than carrying the value assessment by themselves.",
+      "residual_risks": [
+        "No higher-height graph identification or optimal single code proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

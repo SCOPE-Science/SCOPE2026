@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed-derivative probability coupling proves the exact reduction to two opposing jump masses. The convex cut-length envelope establishes the finite formula, and cyclic averaging plus strict monotonicity prove the global design bound. Shift-period rigidity and the exact alternating-cut polynomial prove the full minimizer classification. The checker executes 3,369 exact rational tests, but the proof supplies the all-\(N\) and all-real-gap argument.
+## correctness
 
-**Originality — PASS (qualified).** Primary full-text inspections distinguish continuous-boundary BV trace optimization (Cianchi et al. 2013), scalar Koksma–Hlawka discrepancy (Aistleitner–Dick 2014), abstract trace inequalities (Cianchi–Maz'ya 2015), and BV metric-domain trace existence (Lahti–Shanmugalingam 2015) from the operator and sharp alternating design class proved here. Relevant index searches returned circular derivative-energy \(H^1\) norms and spline projection questions, neither implying this \(W^{1,1}\)-to-\(\ell^2\) arclength-centered statement. Historical unindexed priority remains possible; there is no claim of exhaustive priority resolution.
+PASS
 
-**Value — PASS.** The exact minimax trace constant determines a natural worst-case multi-sensor amplification for rough periodic signals, and the complete optimal-node classification exhibits an unexpected arithmetic nonrigidity and a universal contrast tolerance \(\sqrt2-1\). The result also gives a finite exact certificate for assessing arbitrary irregular designs.
+For a periodic W¹,¹ primitive, its derivative has zero total mass, and the product of its normalized positive and negative parts expresses its centered sample vector as a mixture of the vectors of centered arc indicators, times V/2. Endpoint atoms may be approximated by disjoint smooth derivative bumps away from sample sites to obtain the supremum; for limiting cuts touching sample sites, first approach from the admissible sides. For k consecutive included sites the squared output is F_k(L)=k(1−L)²+(N−k)L². Convexity selects a short or long endpoint for each run, and complementation turns the short endpoint into a long one; empty and full arcs are complements. Long endpoints have cyclic mean (k+1)/N, and F_k increases strictly above k/N. This proves the sharp uniform-design lower bound, with equality requiring every long cut to equal its mean for each central k. Consecutive shifts in the odd case and gcd(2m,m+1)=1 for even m force equal gaps; for odd m the gcd is two and the gaps alternate. In that case even k give the larger of the two long lengths (k+1+e)/N and odd k give (k+1)/N. The central and nearest even cuts yield m²+1 and m²+2e+e² after multiplying the squared constant by 4N, so exactly e≤√2−1 is allowed. At N=2 the formula specializes to (1/4) max(1,2 max_i g_i²). Replay: RESULT.md lines 26–46. CHECK.py and VERIFICATION.md were inspected but not executed; their recorded finite rational checks are not the proof.
 
-**Scope and risks.** Distinct sites, real-valued inputs, unnormalized finite-dimensional \(\ell^2\) norm, and continuous arclength centering are essential. No extension to \(W^{1,p}\) for \(p>1\), to weighted sensors, or to all finite metric graphs is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The derivative-measure reduction is a standard idea. The supported distinct result is the exact all-N Euclidean trace-design law with continuous mean and the complete optimizer classification, including a bounded nonuniform alternating family. Inspected scalar discrepancy, BV boundary trace, and Hilbert sampling results do not establish it. This is best-knowledge comparison, not historical priority.
+
+## value
+
+PASS
+
+The theorem gives both the worst possible centered sample deviation for a given design and exactly which node placements minimize it, even when equally spaced sites are not the only optimum. The parity-dependent rigidity and quantitative tolerance for alternating gaps are useful to anyone choosing sites under a total variation budget; the result is not limited to a toy size or a finite sweep.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

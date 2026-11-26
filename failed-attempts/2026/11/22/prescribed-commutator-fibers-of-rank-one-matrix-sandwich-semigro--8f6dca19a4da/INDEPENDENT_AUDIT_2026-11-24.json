@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:05:52.713323Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–70",
+        "Frozen VERIFICATION.md and checker.py (inspected, not executed; the frozen verification notes describe the output but no separate captured output file is supplied)",
+        "Independent replay: python3 /workspace/branches/471c5ebe-5bd4-4eb1-93b5-ec4a7dbc6bed/independent_check.py; captured independent_check_output.json in that directory"
+      ],
+      "rationale": "Factor A as a nonzero column times a nonzero row; independent base changes reduce it to E11 while preserving the predicates and transporting fibers bijectively. In this basis the product difference is UJV with shared first-row/first-column data t and independent lower blocks supplying q^{2h} lifts. The top-left coefficient vanishes and rank is at most two, including characteristic two. In rank two both factors have full rank. Both zero axes force t=0 and the usual GL2 number of factorizations; exactly one zero axis is impossible; both nonzero axes with zero corner impose one nonzero determinant value, giving an SL2 coset. For the terse rank-one step at line 64: if t is nonzero and the first row vanishes, every column of V is in ker(tJ)=span(t^T). A vanishing first column then forces UJt^T=0, hence the entire target is zero. Thus rank one with both axes zero really does force t=0. Count lower-block factorizations by the dimension of the first factor's image (one or two) to get the claimed fiber. With one zero axis and one nonzero axis, t is nonzero, one factor is forced by that axis and the other has one linear condition per lower row (or column). A rank-one target with both axes nonzero cannot have corner zero. The zero count splits into t=0 (unconstrained lower-block zero-product pairs) and t nonzero (q^{alpha+beta} solutions per such t, given the two vanishing axes). The sum gives exactly equation (26). All target counts follow by the rank-one scalar quotient, the standard rank-two block count, and (for both axes nonzero) q^{alpha+beta-1} lower blocks per nonzero axis pair. To see the last count directly, for Z=(0,r;c,D) with c,r nonzero, rank two means D=c s+t r; the map (s,t) to D has a one-dimensional kernel. Independent enumeration matched every target in (2,2,2), (2,3,3) and (3,3,3) and the target-class counts; at (3,3,3) sorted in the table's order the counts are 32,72,72,48,1728, with reduced rank-two fiber sizes 48 and 24. The zero fibers were 88,29889,6987465 respectively.",
+      "residual_risks": [
+        "The independent reproduction enumerates the reduced shared-t factor problem in three prime-field cases, then applies the analytically proved lift count. The universal and extension-field claims rest on the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dolinka–East studies Green's relations, regularity, generation and related structure for X⋆Y=XAY. Dolinka–East–Ruškuc studies congruences of maximum regular subsemigroups of transformation variants.",
+          "85aa4c5711c9, Finding, gives a more constrained commuting-idempotent spectrum (zero commutator, idempotent inputs). Neither it nor the primary structural results cover nonzero fibers for arbitrary matrix inputs."
+        ],
+        "reasoning": "The central overlap is with an equivalent algebra presentation of a separate exact table, not a purported corollary of general sandwich structure or a commuting-idempotent count. No exact primary-paper match was located by the bounded query; that does not rule one out.",
+        "searches": [
+          "Web search: (\"rectangular-band semigroup algebra\" OR \"rectangular band algebra\") commutator fibers prescribed target matrix rank finite field",
+          "arXiv:1503.03139, definition and structural results; arXiv:2403.05191v1, offset 0",
+          "Resultary: finite rectangular band semigroup algebra commutator rank prescribed target fiber"
+        ]
+      },
+      "checked_sources": [
+        "Frozen records 2 and 3",
+        "Resultary e74f328cc322, 6f0f9b3726a9 and 85aa4c5711c9, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "Dolinka–East arXiv:1503.03139 and Dolinka–East–Ruškuc arXiv:2403.05191v1, inspected passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With A=E11 the two axes and zero corner give direct ordinary-rank strata. The two-zero-axis counts are standard ranks of the lower block. A one-axis rank-one matrix is an outer product with the distinguished nonzero factor coordinate normalized to 1. In the both-nonzero rank-two case a fixed nonzero pair of axes c,r permits exactly q^{alpha+beta-1} blocks D=c s+t r as checked above."
+        ],
+        "reasoning": "The target cardinalities are mechanical from the same target partition by elementary linear algebra without further assumptions on A. They remain differently stated content, but do not supply a separate nonmechanically implied claim. The frozen pair and mirror entries establish overlap; neither record order nor date establishes priority.",
+        "searches": [
+          "Frozen record 2 Finding and Proof versus frozen record 3 Finding and Proof step 6",
+          "Resultary e74f328cc322, Finding, mirror offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen record 2 / indexed e74f328cc322, Finding lines 9–29, gives all five prescribed formulas and the identical empty-fiber criterion after identifying AZ=0 with vanishing column sums, and ZA=0 with vanishing row sums.",
+          "For J=1_n 1_m^T, product XJY is the exact band product and JZJ=(1_m^T Z1_n)J."
+        ],
+        "reasoning": "Given A rank one, choose invertible P,Q with QAP^{-1}=J and carry X,Y,Z to PXQ^{-1}, PYQ^{-1}, PZQ^{-1}. Ranks, annihilator predicates, and ordered pairs all transport. Thus the proofs apply to the same classification. The identical indexed copy of record 3 was not used as overlap evidence.",
+        "searches": [
+          "Resultary: Prescribed-commutator fibers of finite rectangular-band algebras",
+          "Resultary: Prescribed commutator fibers rank-one matrix sandwich semigroups"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6f0f9b3726a9 supplies the zero fiber and rank and centralizer aggregates, and disclaims prescribed nonzero fibers in Limitations.",
+          "e74f328cc322 prints the five common nonzero fixed-target fiber values and all exclusions, but does not print the target cardinalities for each class."
+        ],
+        "reasoning": "Distinguish exact table overlap for the claimed new fibers from earlier rank-aggregate overlap and from the genuinely additional cardinality column. The classification itself is identical in the common domain.",
+        "searches": [
+          "Resultary: Commutator-rank census finite rectangular-band semigroup algebras",
+          "Resultary: Prescribed-commutator fibers of finite rectangular-band algebras"
+        ]
+      },
+      "rationale": "The central prescribed-target result is already stated by the distinct same-date rectangular-band record e74f328cc322, in an exactly equivalent coefficient algebra. All nonzero rank-one sandwiches are isomorphic to the all-ones sandwich, so changing the middle matrix is not a genuine generalization. The added target-count column is real additional printed content, but is obtained by elementary rank stratification (including one affine block count), not a distinct substantive result. The November 2 aggregate census establishes only earlier partial overlap. This conclusion is about coverage and lack of a separate established contribution, not relative chronological precedence between the two same-date originals.",
+      "residual_risks": [
+        "Do not infer priority between same-date records. The result is not being labeled historically known solely on the basis of same-day publication.",
+        "Other primary homotope, Rees or sandwich results could contain additional coverage not found by bounded lookup."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent nonzero prescribed fibers; relative precedence unresolved",
+          "evidence": [
+            "Rank/predicate rows agree termwise with the sandwich table. It includes degenerate dimensions but no explicit target-count column."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-prescribed-commutator-fibers-of-finite-rectangular-band-algebras--e74f328cc322",
+          "material_read": "Frozen RESULT.md lines 9–29 and proof; mirror Finding offset 0",
+          "method": "Exact Resultary match and local mirror/frozen passage comparison",
+          "title": "Prescribed-commutator fibers of finite rectangular-band algebras",
+          "trigger": "Exact census under algebra identification"
+        },
+        {
+          "assessment": "Exact overlap for zero fiber and totals by rank, not for the novel-in-form target strata",
+          "evidence": [
+            "Provides N0,N1,N2 and centralizer counts and expressly leaves prescribed nonzero targets untreated."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-commutator-rank-census-of-finite-rectangular-band-semigroup-algebras--6f0f9b3726a9",
+          "material_read": "Finding and Limitations, local mirror offsets 0 and 6500",
+          "method": "Resultary search and local mirror passage reads",
+          "title": "Commutator-rank census of finite rectangular-band semigroup algebras",
+          "trigger": "Earlier exact counts on an isomorphic algebra"
+        },
+        {
+          "assessment": "Same structural framework, different theorems",
+          "evidence": [
+            "Defines X⋆Y=XAY; results address regularity, Green's relations, generators and idempotent-generated structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.03139",
+          "material_read": "Definition offset 0 and structure offsets 11700–14364",
+          "method": "OA passage reads",
+          "title": "Semigroups of rectangular matrices under a sandwich operation",
+          "trigger": "Same sandwich operation"
+        },
+        {
+          "assessment": "Different objects and invariant",
+          "evidence": [
+            "Studies congruences of regular subsemigroups of variants of transformation semigroups."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.05191v1",
+          "material_read": "Offset 0, object and result summary",
+          "method": "OA passage read",
+          "title": "Congruences of maximum regular subsemigroups of variants of finite full transformation semigroups",
+          "trigger": "Variant semigroups in the cited literature"
+        },
+        {
+          "assessment": "Not arbitrary inputs or nonzero commutator targets",
+          "evidence": [
+            "Conditions on idempotence of both inputs and commuting products."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-joint-matrix-rank-spectrum-of-commuting-idempotents-in-rectangul--85aa4c5711c9",
+          "material_read": "Finding, local mirror offset 0",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Joint matrix-rank spectrum of commuting idempotents in rectangular sandwich semigroups",
+          "trigger": "Same matrix setting with commutation counts"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen records 2 and 3, tables and rank-stratum proofs; target-count proof and direct affine-block check"
+      ],
+      "rationale": "The GL2/SL2 distinction is an informative part of the shared classification, but is not an additional invariant obtained by reformulating it as rank-one sandwich multiplication. The surplus target counts come from ordinary rank-one vector choices, ordinary rank-two matrix counts and one affine block dimension. No new distinct classification, meaningful boundary, or nonmechanically implied exact invariant remains to support the separate record.",
+      "residual_risks": [
+        "This assesses the marginal scientific content of the separate record, not whether the equivalent census is useful as a result or exposition."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

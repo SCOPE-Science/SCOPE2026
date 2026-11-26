@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T16:48:35.005741Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Completing the square in a perpendicular chord of E(A) replaces A=[[a,b],[b,c]] by diag(a,det(A)/a). Thus D=det(A) is fixed and the squared semiaxis on the new line is x cos²(delta)+(D/x)sin²(delta). With t=x/sqrt(D) and u=(t-1)/(t+1), elementary substitution gives u_new=u(u+C)/(1+uC) with C=cos(2 delta); 1+uC>0. Subtracting its squared ratio from one gives (1-u²)(1-C²)/(1+uC)². This is in [0,1] and keeps |u|<=rho=|u_1|. For nonzero previous iterates it is between [(1-rho)/(1+rho)](1-C²) and (1-C²)/(1-rho)². The lower bound gives the claimed exponential estimate; if an iterate is zero it is absorbing, otherwise summable energy makes the squared-ratio product positive (the tail log is summable). The two semiaxes tend to the same radius exactly in the circular case, independently of direction. Finite cancellation is exactly C=-u for u nonzero, and the finite rational compositions on each aligned sign branch have nonzero power-series leading terms at zero and finitely many real zeros per step. In particular, if 'principal axes' permits the major axis along H_1 or along H_1 perpendicular, use initial u_1=rho or -rho; the finite-zero proof covers both. The harmonic directions cross arbitrarily late lifts of every target angle with overshoot tending to zero, and C>0 at each step preserves positive u_1, giving exactly the stated orbit. C=0 is a 45-degree change (not a literal quarter-turn); it squares u and validates the displayed double-exponential law. The bundled checker was read, not executed; exact products and cancellation are certified here by algebra, not finite floating-point tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ulivelli proves all-sequence convergence in shape for convex bodies and gives the same ellipse step. Theorem 2.4 controls actual major-axis increments in the nonconvergent case. Bianchi et al. establish shape convergence for square-summable increments and include dense nonconvergent sequences and disk convergence for irrational Kronecker advances."
+        ],
+        "reasoning": "Shape convergence allows a noncircular limit and cannot itself decide when the limiting semiaxes coincide. The older rotating segment inclusion already gives noncircularity for suitably elongated ellipses in a dense harmonic-type example; the record sharpens to every aligned noncircular ellipse in its example and treats all alternating or near-perpendicular sequences as well. Neither broader shape result gives the conditional converse for each ellipse in the finite-energy regime.",
+        "searches": [
+          "arXiv:2611.21167v1 Theorem 1.1 and §2.2",
+          "arXiv:1206.2041v1 Example 2.1 and Theorems 2.2, 5.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.21167v1",
+        "arXiv:1206.2041v1",
+        "Resultary ellipse and Steiner symmetrization records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ulivelli's eigenvalue-loss inequality bounds the loss below by the spectral gap times sin² of the actual major-axis change. At noncircular steps the actual change is congruent to the prescribed change modulo pi/2, up to a choice of sign."
+        ],
+        "reasoning": "That inequality already yields the divergent-energy implication by telescoping if a positive limiting spectral gap is assumed: sin²(2 delta) is at most four times sin² of the realized change. It supplies neither an upper relative-loss bound ensuring persistence in the reverse direction nor the exception count. The full nonlinear rational-loss comparison, not ordinary shape convergence or the sufficient implication alone, is credited here.",
+        "searches": [
+          "arXiv:2611.21167v1 Theorem 2.4 Proof, Eq. (6) and ellipse formulas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The web lookup for this full exact criterion was unavailable. Resultary returned the assigned result, a finite disk-generation criterion for lenses, and SCOPE-a-log-periodic-fibonacci-convergence-law-for-the-linearized-kron--4b02728f499b."
+        ],
+        "reasoning": "The energy is equivalent to a sum of squared distances of step angles to the nearest multiple of pi/2, since the distances lie in [0,pi/4]. Treating angles only modulo pi, using ordinary squared increments, would not treat perpendicular reversals as zero-loss steps. A linearized fixed Kronecker process cannot determine the nonlinear finite cancellation C=-u or give the summable-direction converse for arbitrary sequences.",
+        "searches": [
+          "iterated Steiner symmetrization ellipse disk convergence necessary sufficient square sum angle increments sin 2 Ulivelli Bianchi Gronchi anisotropy eccentricity prescribed direction",
+          "Iterated planar Steiner symmetrization ellipse disk convergence exact angular energy sum sin squared consecutive directions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed quantitative analogue studies the linearized golden-ratio Kronecker process; the finite unit-disk representation criterion concerns a different class of sets and an exact representation, not convergence to a disk."
+        ],
+        "reasoning": "A constant-angle rate or closed finite example in the index would not settle the exact nonlinear criterion and exceptional set. This is not recomputation from a table.",
+        "searches": [
+          "Iterated planar Steiner symmetrization ellipse disk convergence exact angular energy sum sin squared consecutive directions"
+        ]
+      },
+      "rationale": "The ellipse matrix step, convergence in shape, and dense-direction nonconvergence are prior work. The nonzero residual-versus-exact-cancellation alternative for every finite-energy sequence, the resulting all-initial-ellipses iff, and the explicit anisotropy bound in prescribed, not realized, angles are the new package on the compared evidence.",
+      "residual_risks": [
+        "The dedicated literature lookup was unavailable. An earlier recurrence or criterion for prescribed directions could be indexed under ellipse axis ratio, projective dynamics, or directions modulo right angles.",
+        "Novelty is not claimed for the sufficient half by itself, known ellipse shape convergence, or the rotating example construction in general."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap for determinant/matrix step and partial covering for divergent energy by the eigenvalue-loss inequality; not the full criterion",
+          "evidence": [
+            "§2.2 gives diag(d,det(A)/d)",
+            "Eq. (6) telescopes absolute loss when the gap stays positive"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.21167v1",
+          "material_read": "Abstract, Theorem 1.1, Corollary 2.2, and full §2.2/Theorem 2.4 proof",
+          "method": "Read primary HTML, compared the two loss formulas and angular variables",
+          "title": "Iterated Steiner symmetrization of convex bodies always converges in shape",
+          "trigger": "Same ellipse transformation and all-sequence shape classification"
+        },
+        {
+          "assessment": "Dense rotating counterexample mechanism and shape convergence are prior; no stated arbitrary-sequence disk iff, residual ellipse result or exceptional set",
+          "evidence": [
+            "Example 2.1 uses a rotating segment and product of cosines",
+            "Theorem 5.1 uses irrational constant increments"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1206.2041v1",
+          "material_read": "Introduction, §2 Example 2.1, Theorem 2.2, and §5 disk convergence and nonconvergence examples",
+          "method": "Read primary HTML; compared convergence metric, direction hypotheses and limit geometry",
+          "title": "Convergence in shape of Steiner symmetrizations",
+          "trigger": "Square-summable angular steps and dense nonconvergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a given infinite prescribed sequence the result separates collapse to a disk from noncircular shape limits, using an intrinsic angular sum with no need to track the changing major axis. The quantitative estimate and finite-cancellation distinction give genuine additional content beyond mere convergence up to rotations and explain why dense prescribed lines do not settle this question. It is a planar ellipse theorem and does not infer circularization for arbitrary convex bodies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

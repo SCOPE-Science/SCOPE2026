@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gaussian covariance formula follows from the OU semigroup with equilibrium variance one. Product additivity yields the one-cycle Jeffreys observable, and the renewal-reward formula supplies its rate. Differentiation of a geometric-series Laplace transform gives an exact expression for each derivative. Every discarded term is positive, with total bounded by \(a^{K+1}/2\). At cutoff \(K=250\), rational interval calculations prove derivative signs \((+,-,+,-)\) at \(r=1,3,20,200\), forcing two distinct strict maxima and an intervening minimum. The mathematical claim is deliberately limited to this explicitly defined endpoint functional, not a full thermodynamic entropy.
+## correctness
 
-## Originality — PASS, best-knowledge with risks
-Farago (arXiv:2605.28445) studies the one-coordinate harmonic reset-cycle KL framework and qualitative turnover. An existing one-dimensional OU renewal-spacing optimization concerns one rate/one relaxation scale, not the superposed two-scale Poisson-frequency response. Mori–Olsen–Krishnamurthy (arXiv:2211.15372) treat total entropy production, and Gupta–Olsen–Krishnamurthy (2025) treat erasure work. Searches of relevant published literature and mathematical records did not exhibit this exact two-dimensional anisotropic Gaussian parameter witness with the four certified derivative signs. Known generic multipeak sums could imply its structure, and a broad theorem or an unexamined paper may cover the example; searches are not a proof of novelty.
+PASS
 
-## Value — PASS
-Anisotropic harmonic traps naturally have multiple independent relaxation scales but a *single controlled reset clock*. The example demonstrates that choosing a reset rate from a single apparent dissipation peak can miss a second local optimum. The phenomenon persists for rigorously defined Gaussian physical observables and refines the single-scale turnover picture without asserting a universal law. It is a structural counterexample, not a routine recomputation of a known table.
+The OU variances conditioned on shared cycle age t are v_j=1−(1−q_j)e^(−k_j t); the conditional Gaussian Jeffreys divergence is additive, with each term (v/q+q/v−2)/2. Exponential cycle integration gives J(r)=F_(1/2)(r)+100 F_(9/10)(r/100); the prefactor 100 cancels when differentiating. In a separate exact calculation, expand q/v=q Σ_(n≥0) a^n e^(−ns), a=1−q, and differentiate u²/(u+n) to get 1−n²/(u+n)² per term. At cutoff 16 the discarded derivative tail is positive and less than a^17/2 per coordinate; rational comparisons give J′(1), J′(20)>10^−4 and J′(3), J′(200)<−10^−4. This independently establishes the critical signs from the stated Gaussian model. An extremum on each closed bracket is interior by the endpoint derivative signs. Since the Laplace formula is real analytic and nonconstant, zeros of J minus its attained extremal value are isolated locally, so these extrema are strict. No uploaded code was executed. The independent calculation is replayable in review_checks.py, ou().
 
-## Boundaries
-No independent audit, external certification, or priority guarantee is claimed. The functional is a specific endpoint symmetric KL rate and not the full stochastic entropy production. The proof verifies two maxima, not an exhaustive critical-point census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit harmonic Gaussian endpoint and reset-cycle calculations as background. The supported distinct claim is the explicit two-scale non-unimodality witness for the Poisson-frequency objective, certified by alternating derivative signs. Do not credit a general theory of multiple modes or priority over unchecked work.
+
+## value
+
+PASS
+
+A specific exact witness tests frequency tuning for a natural conditional endpoint objective. It shows that two ordinary Gaussian modes at distinct relaxation scales invalidate any blanket unique-peak assumption for this optimization, even with independent reset coordinates and a single global clock. The rational sign proof avoids mistaking numerical noise near the shallow second peak for a real extremum. This does not imply multimodality of physical entropy production.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

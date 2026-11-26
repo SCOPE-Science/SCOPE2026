@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:55:26.979026Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–103",
+        "Frozen VERIFICATION.md, lines 19–32",
+        "verify.py, lines 12–95",
+        "Liu et al., arXiv:2106.03420v1, Appendix A equations (27)–(29)"
+      ],
+      "rationale": "The unperturbed circulant spectrum gives the monic factor 2[T_N(E/2)−C], and the (0,0) cofactor is the path polynomial U_(N−1)(E/2), since the reciprocal hoppings gauge to unit hoppings on the path. This gives the claimed impurity sign and normalization. On each full negative-sine lobe write the normalized secular ratio as (1−T_N(x)/C)/S(x), with x=cos θ and S=−U_(N−1)>0. Its critical-point numerator converges with derivatives to −S′. That limit has exactly one simple zero in the lobe and none at the endpoints by interlacing of simple polynomial roots, so for fixed N and large C there is one nondegenerate minimum and no extra critical points. A lobe contributes two real roots at and above its minimum, counting the double root, and none below. For E=2 cosh ξ the positive-V equation has exactly one root: for ξ>g, (cosh(Nξ)−C)/sinh(Nξ) is positive and increasing, as is the remaining sinh ξ factor. For odd N there is no root at or below −2. For even N, −2 is crossed at V=2(C−1)/N: the exterior negative-energy polynomial increases strictly in ξ for E=−2 cosh ξ, and on the terminal interior lobe θ=π−t the ratio 2(C−cos(Nt))sin(t)/sin(Nt) increases strictly for 0<t<π/N (the Chebyshev denominator sin(Nt)/sin(t) decreases from N to 0). This accounts for exactly one additional real root without double counting −2. Thus the maximum full-lobe minimum is the eventual threshold for large C. The bounds 2(C−1)/M_j≤V_j≤2(C+1)/M_j give the fixed-N prefactor. Every noncentral negative antinode has q>1, while the central negative antinode exists precisely for N≡3 mod 4 and has maximum q=1. In that lobe the analytic minimizer of (1−t sin(Nδ))cos δ/cos(Nδ), t=1/C, is odd in t; its slope is N/(N²−1). Its minimum is even in t with quadratic coefficient −N²/[2(N²−1)], giving the C^(-1) correction and C^(-3) remainder after multiplying by 2C. The cutoff deficit follows by expanding 2 sqrt(C²−1). For the separate large-N limit, write each lobe as cos u / cos((D+u)/N), with D the nonnegative scaled distance of its antinode from π/2. Maximization can be restricted to u≥0 by reflection within the lobe, and the maximum increases with D. The nearest distances are 0, π/2, π in the listed classes. The stationarity equation tan u=tan((d_N+u)/N)/N gives u=d_N/N²+O(N^(-4)) and the claimed reciprocal expansion. Values at N=4,5 agree with the extrema of U_3 and U_4.",
+      "residual_risks": [
+        "The supplied finite checker was inspected, not run; the proof supplies the all-N fixed-size limit. There is no uniform-in-N,g error estimate or claim of diagonalizability. The displayed exponentially small cutoff deficit applies only to N≡3 mod 4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu gives the same on-site model and a large-system effective threshold. Guo changes boundary coupling; Kokkinakis et al. use a complex impurity on a reciprocal open chain."
+        ],
+        "reasoning": "Boundary-coupling or complex-impurity results do not specialize to a real positive site perturbation on this ring. The direct prior realification paper is strong coverage of the setup but not a uniform formula for the fixed-N strong-asymmetry residual.",
+        "searches": [
+          "Liu et al. arXiv:2106.03420v1 main-text realification discussion and Appendix A",
+          "Guo et al. arXiv:2102.03781v2 Eq. (1)",
+          "Kokkinakis et al. arXiv:2511.17390v1 model definition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.03420v1",
+        "Resultary bcc2f2b27cd4",
+        "arXiv:2102.03781v2",
+        "arXiv:2511.17390v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior intersection equation suffices to set up the negative-lobe minima; on a full lobe the cos(Nθ)=1/C test even directly recovers the sufficient cutoff using sin θ≤1. It does not determine which lobe controls the true threshold, count the terminal and exterior roots for the fixed-size limit, or evaluate the optimized subleading coefficient."
+        ],
+        "reasoning": "The distinct result is not the replacement of 2 sinh(Ng) by its leading exponential. The root count, central-antinode selection and expansion at a moving minimum show exactly when the sufficient bound is asymptotically close in absolute terms and by how much. The separate nearest-lobe comparison supplies residue-dependent large-N corrections, not just large-N convergence.",
+        "searches": [
+          "Liu et al. Appendix A, equations (27)–(29) and finite-size threshold discussion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu's intersection problem f_1(θ)=2(cos(Nθ)−C)/sin(Nθ), f_2(θ)=V/ sin θ, rearranges to the same lobe equation F_C(θ)=V. Its 2 sinh(Ng) cutoff is sufficient, and it explicitly allows a smaller finite-size critical value."
+        ],
+        "reasoning": "The secular equations are exactly equivalent; neither that equation nor realification is credited as new. The actual ratio to the sufficient cutoff in the fixed-N, large-g regime is the distinct claim.",
+        "searches": [
+          "Resultary: nonreciprocal single on-site impurity ring real spectrum, Chebyshev lobe threshold, modulo four",
+          "Liu et al. arXiv:2106.03420v1, Appendix A equations (27)–(29)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed four-site threshold changes a bond conductance in a Markov ring and varies bias. Liu's expression is the sufficient bulk-real cutoff, not values of the fixed-N prefactors R_N."
+        ],
+        "reasoning": "The indexed four-state quantity isn't R_4 in disguise: the operator and varying parameter differ. No exact earlier table for the present lobe extrema or arithmetic classes was established by these comparisons.",
+        "searches": [
+          "Resultary: four-site defect ring underdamping and spectral-realification threshold; Resultary bcc2f2b27cd4 Finding",
+          "arXiv:2106.03420v1, discussion of the critical value in the main text and Appendix A"
+        ]
+      },
+      "rationale": "Liu et al. already give the same secular equation, an appropriate sufficient cutoff and the realification phenomenon. The supported distinct results are the fixed-size strong-asymmetry prefactor, its arithmetic classification, and the two different asymptotic refinements. The closest inspected primary passage does not state these, and the sufficient bound and its large-system approximation cannot replace them.",
+      "residual_risks": [
+        "The same secular equation makes earlier derivation of some refinements plausible; this is not a worldwide priority certification. The available retrieval of the cited 2008.05501v1 was not version-consistent and was not used for priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior secular equation and sufficient cutoff, with finite-size gap acknowledged; no stated fixed-N modulo-four analysis in those passages.",
+          "evidence": [
+            "The Appendix analyzes intersections of f_1 and f_2; the exact finite-size critical value can be smaller than 2 sinh(Ng)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2106.03420v1",
+          "material_read": "Main-text discussion, offsets 13200–18172; Appendix A equations (27)–(29), offsets 33400–39383",
+          "method": "Open arXiv text passages",
+          "title": "Exact solution of single impurity problem in non-reciprocal lattices: impurity induced size-dependent non-Hermitian skin effect",
+          "trigger": "Identical site perturbation and secular equation, possible exact threshold coverage"
+        },
+        {
+          "assessment": "Different generator and single-bond defect, not the on-site spectral prefactor even at four sites.",
+          "evidence": [
+            "Markov relaxation spectrum, with bias as the transition variable."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-unique-spectral-underdamping-transition-on-a-one-defect-four-s--bcc2f2b27cd4/RESULT.md",
+          "material_read": "Finding and assumptions from offset 0",
+          "method": "Local mirrored Resultary text",
+          "title": "A unique spectral underdamping transition on a one-defect four-site ring",
+          "trigger": "Nearest indexed ring-invariant/threshold match"
+        },
+        {
+          "assessment": "Perturbs couplings between the ends, not a single diagonal entry.",
+          "evidence": [
+            "Equation (1) has separate end-to-end hopping terms."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2102.03781v2",
+          "material_read": "Model and equation (1), offset 6479",
+          "method": "Open arXiv passage",
+          "title": "Exact solution of non-Hermitian systems with generalized boundary conditions",
+          "trigger": "Similar nonreciprocal ring solvable by a secular equation"
+        },
+        {
+          "assessment": "Not the same physical or polynomial family.",
+          "evidence": [
+            "Reciprocal open chain and complex site impurity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2511.17390v1",
+          "material_read": "PDF p. 2 around offset 4952",
+          "method": "Open arXiv PDF text passage",
+          "title": "Kokkinakis et al., complex-impurity chain",
+          "trigger": "Possible related impurity threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 7–42 and 65–103",
+        "Liu et al. Appendix A and main-text cutoff discussion"
+      ],
+      "rationale": "The previous sufficient cutoff leaves open whether it is a quantitatively useful stand-in for the true last realification threshold on a finite ring. The result distinguishes an exponentially small absolute error for one residue class from a leading-order gap for the others at fixed N, gives an exact expression to compute the prefactor, and quantifies how these classes converge as N grows. This is a substantive sharpness criterion for the stated single-impurity model.",
+      "residual_risks": [
+        "No conclusion about dynamics from spectral reality alone or about a joint scaling of g and N."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

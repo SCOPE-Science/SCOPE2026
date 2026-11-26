@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:13:59.586016Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 14–50, VERIFICATION.md and verify.py (read only)",
+        "python3 /workspace/branches/replay_prism.py: the exact 16-state, 10-arc certificate and full vertex-neighbour enumeration for n=3..8",
+        "Independent skip-two replay: /workspace/branches/3ce1a215-9a88-4569-993f-d42aa966e334/independent_gp_n2_check.py and .out: 256 states, 160 arcs, the stated four cyclic components and direct labelled template agreement",
+        "python3 /workspace/repairs/1/verify.py: reproduced 16 states, 10 arcs, two loops and a four-cycle, and exact direct template agreement for n=3..8; replacement VERIFICATION.md front matter byte-compared to frozen"
+      ],
+      "rationale": "The frozen bound |D^c|<=e(D,D^c)<=|D| forces size at least n, attained by either layer. At equality each vertex has exactly one opposite-class neighbour, and conversely such a labelling pairs its two classes across the cut. Each marked closed transfer walk gives exactly one indexed column word (successive overlaps recover it) and vice versa, including n=3 at k=1 and n=5 at k=2. The independently reproduced cyclic components have lengths 1,1,4 at k=1 and 1,1,5,5 at k=2; each cyclic component is a simple directed cycle, so it contributes its length exactly at multiples of that length. The repair additionally proves the retained claim without computation: any crossing spoke forces its neighbouring spokes to cross, giving the two layer words. With no crossing spoke, each column has a common bit and the two ring neighbours have different bits; equivalently x_(i+2)=1-x_i. The four initial conditions all have least period four and are exactly the shifts of (0,0,1,1) in whole columns, closing precisely when 4 divides n.",
+      "residual_risks": [
+        "Finite replays corroborate the exact local constraints. For the repaired theorem arbitrary n follows from propagation and the two-step anti-periodicity, not finite testing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karami classifies which quotient matrices are realized; Bouquet–Picouleau study perfect matchings containing cuts, while Castonguay et al. study exact perfect-matching cuts with added complementary-subgraph requirements",
+          "Radić–Tepeh's abstract gives complexity and exact Goldberg-snark values",
+          "The circular-ladder catalog result gives the full polynomial, including this census, but appears later"
+        ],
+        "reasoning": "Occurrence does not count maps. A disconnected complementary 2-factor yields an exact matching cut only if contracting its cycles along the matching incidences gives a bipartite multigraph; existence of a cut contained in a perfect matching is also not the required exact census. The later broader polynomial would imply the minimum coefficient but is not an antecedent of the already frozen coefficient.",
+        "searches": [
+          "arXiv:2606.14190v1 Theorem 1 and Corollary 1",
+          "arXiv:2011.03318v2",
+          "arXiv:2210.06714v1",
+          "arXiv:2610.01796v1",
+          "SCOPE-20261108-4d83cdec888e"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261027-d7e5e94d2c79",
+        "SCOPE-20261108-4d83cdec888e",
+        "SCOPE-20261102-07ff361ad99e",
+        "SCOPE-20261026-43beb49dfa00",
+        "arXiv:2606.14190v1",
+        "arXiv:2011.03318v2",
+        "arXiv:2210.06714v1",
+        "arXiv:2610.01796v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The layer colouring supplies n and two minimizers; the quotient-matrix theorem gives existence for all admissible skips and not the count",
+          "The June preprint attributes an enumeration for skip two to the 2016 source; the full 2016 material could not be retrieved in this check"
+        ],
+        "reasoning": "The prism census separates those baseline layer solutions from all additional optimizers. Proving the number and the obstruction needs the rung propagation and no-crossing-spoke periodicity, or a complete equivalent argument; they do not follow from existence or from the half-order lower bound alone. The identified ambiguity around the 2016 enumeration particularly affects the excluded skip-two claim and does not establish prior coverage of the prism.",
+        "searches": [
+          "Karami arXiv:2606.14190v1 pp. 2–3",
+          "Alaeiyan–Karami 2016 citation and access attempts",
+          "Exact-cut and containment definitions in arXiv:2210.06714 and arXiv:2011.03318"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Karami Theorem 1 gives the occurrence of the quotient matrix for every admissible n,k",
+          "SCOPE-20261027-d7e5e94d2c79 gives two constant and two period-five word orbits at skip 2 only",
+          "SCOPE-20261108-4d83cdec888e identifies the prism with C_n square K_2 and gives the same four extra whole-column templates"
+        ],
+        "reasoning": "In these cubic graphs, labelled minimizers are exactly the quotient-matrix colourings and the connected cut count is half their number. Matching the rotations of the first skip-two template and its complement against the two frozen words proves exact duplication of that component. None of those skip-two identities gives the period-four prism classification. The later circular-ladder overlap is exact but not evidence of a result predating the frozen prism census.",
+        "searches": [
+          "Resultary and primary literature: circular ladder / generalized Petersen prism, 1-limited domination, exact perfect-matching cut, equitable (2,1;1,2) colouring",
+          "Alaeiyan–Karami DOI 10.1007/s12044-016-0285-4; arXiv:2606.14190v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE-20261108-4d83cdec888e Finding gives exactly 2+4 times the divisibility-by-four indicator and the same templates, as part of the full prism polynomial",
+          "SCOPE-20261102-07ff361ad99e gives the later exact skip-two count",
+          "SCOPE-20261026-43beb49dfa00 counts total-domatic partitions allowing one or two opposite neighbours, not the exact-one subcount"
+        ],
+        "reasoning": "The prism hit could not be dismissed on terminology: its coefficient and templates match exactly, with later catalog dating. The other exact matches apply only to skip two; an earlier total-domatic aggregate is not an evaluator for the exact-one partitions even there.",
+        "searches": [
+          "Resultary: complete one-limited domination polynomial of circular ladders, all perfect matching cuts, and total domatic partition counts for GP(n,2)"
+        ]
+      },
+      "rationale": "The retained claim is the full labelled minimizer census of circular ladders, including the periodic obstruction and actual optimizing subsets; not the half-order bound, existence of a quotient matrix, or the skip-two census. No examined antecedent supplies that prism census. An indexed November 8 statement does give the same minimum coefficient and has broader scope; it is later than the frozen prism statement, which was explicitly included already, and is credited rather than treated as evidence of earlier coverage.",
+      "residual_risks": [
+        "Full text of the plausible 2016 reference could not be retrieved for this review. No unqualified historical priority claim is made for the prism enumeration.",
+        "Catalog comparison uses the frozen date of the existing prism result, not a claim that this narrowing newly discovered the census at the time of review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Entire skip-two census duplicates; does not cover the retained prism; no same-day priority inferred",
+          "evidence": "The labelled colouring count is 2+10 times the divisibility-by-five indicator and the specified word orbits agree exactly after rotations and a global complement.",
+          "identifier_or_url": "SCOPE-20261027-d7e5e94d2c79",
+          "material_read": "RESULT.md Finding and Proof lines 5–47",
+          "method": "Frozen package and explicit template comparison",
+          "title": "All perfect matching cuts of generalized Petersen graphs with inner step two",
+          "trigger": "Strongest distinct exact overlap with frozen claim"
+        },
+        {
+          "assessment": "Later exact coverage, broader than the frozen original's prism component",
+          "evidence": "The same minimum n, labelled count and templates accompany the full polynomial.",
+          "identifier_or_url": "SCOPE-20261108-4d83cdec888e",
+          "material_read": "RESULT.md Finding, local-mirror offset 0",
+          "method": "Resultary and exact local-mirror statement",
+          "title": "Complete one-limited domination polynomial of circular ladders",
+          "trigger": "Exact match to the repaired claim under the alias circular ladder"
+        },
+        {
+          "assessment": "Occurrence of each matrix, not enumeration of its realizations in the theorem",
+          "evidence": "The array {1;1} occurs throughout, corresponding to the target quotient matrix. The introduction says the 2016 paper enumerated perfect two-colourings at skip two.",
+          "identifier_or_url": "arXiv:2606.14190v1",
+          "material_read": "Abstract and introduction, pp. 1–2; Theorem 1 and intersection-array list, p. 3",
+          "method": "Lawful OA theorem passages",
+          "title": "Intersection Arrays of Completely Regular Codes of Covering Radius One in Generalized Petersen Graphs",
+          "trigger": "Primary broader result on perfect two-colourings"
+        },
+        {
+          "assessment": "Older exact scope unresolved; no whole-document exclusion",
+          "evidence": "Frozen discussion attributes a layer-colouring existence construction, while the later introduction mentions enumeration at skip two. The latter wording does not establish whether maps or matrix types were meant.",
+          "identifier_or_url": "10.1007/s12044-016-0285-4",
+          "material_read": "Bibliographic citation and the 2026 preprint's attribution; not original full text",
+          "method": "Tried publisher, IAS and identified alternate; redirects or access denials; exact-title alternate search yielded no extra copy",
+          "title": "Perfect 2-colorings of the generalized Petersen graph",
+          "trigger": "Exact colouring formulation and possible earlier classification"
+        },
+        {
+          "assessment": "Decision/existence under containment, not exact cut counting",
+          "evidence": "The problem asks if there is a perfect matching that contains an edge cut.",
+          "identifier_or_url": "arXiv:2011.03318v2",
+          "material_read": "Abstract and definition, pp. 1–2; Theorem 4.11 p. 22",
+          "method": "OA definition and theorem passages",
+          "title": "The complexity of the perfect matching-cut problem",
+          "trigger": "Exact-sounding alias under a different definition"
+        },
+        {
+          "assessment": "Different decision/structural problem, no prism census in inspected material",
+          "evidence": "A cut here is itself a perfect matching; the complementary-subgraph restriction is extra.",
+          "identifier_or_url": "arXiv:2210.06714v1",
+          "material_read": "Abstract and p. 2 definition, offset around 6418",
+          "method": "OA definition and problem statement",
+          "title": "Perfect matching cuts partitioning a graph into complementary subgraphs",
+          "trigger": "Exact perfect-matching cuts under matching terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–7 and 19–21",
+        "Repaired RESULT.md, Finding and Proof",
+        "arXiv:2606.14190v1 Theorem 1 for the existence-versus-census distinction"
+      ],
+      "rationale": "The exact optimizer list for a canonical family of cubic graphs is useful beyond knowing the minimum size: it identifies precisely when the optimum is degenerate and gives every labelled optimizer. The period-four rigidity explains the arithmetic obstruction without a finite-order extrapolation. The narrowed statement retains this full natural family and is not an arbitrary slice or a renamed skip-two count.",
+      "residual_risks": [
+        "No claim to cover nonminimum sets or skips other than one."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

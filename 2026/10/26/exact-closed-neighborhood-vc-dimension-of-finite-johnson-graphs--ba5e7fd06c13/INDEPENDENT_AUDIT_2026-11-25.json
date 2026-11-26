@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:58:48.583873Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 24–63; VERIFICATION.md, lines 19–44; verify.py, lines 7–144, inspected, not executed",
+        "Independent exhaustive run, replay /workspace/replay/5.js (node 5.js)",
+        "Adler–Benediktsson–Macpherson, arXiv:2007.16042, Theorems 3.6–3.7"
+      ],
+      "rationale": "A full trace puts the sample in N[C]. Encode its other vertices as unique swaps (removed row, added column). Relative to C, a center at distance 0 gives the full trace; one swap gives the union of its row and column and includes C; two swaps give the product of the selected row and column pairs and omit C; greater distance gives an empty trace by the triangle inequality. Verified the bound with an independent exhaustive enumeration over all samples of five cells in a 5x5 grid and four cells in a 4x4 grid with C included. Every pattern can be relabeled into these grids; the code permits arbitrary unoccupied coordinates in determining traces and thus can only enlarge the real trace family. It yielded maxima 24 over 53,130 samples and 25 over 1,820 samples, both below 32. Independently enumerating traces by symmetric difference in the seven base graphs returned 1,2,3,3,4,3,4 for J(4,2), J(5,2), J(6,2), J(7,2), J(8,2), J(6,3), J(7,3), and exact open dimension 4 in both J(7,2) and J(6,3). A parameter increase can preserve all witnesses by adjoining common elements to every vertex and leaving other new elements unused, so both equality and Johnson distance are preserved. This transfers the two size-four lower witnesses to all larger required parameters, up to complementation. Rank one is complete, and the optional k=0,n cases have one vertex; identical closed neighborhoods give dimension zero.",
+      "residual_risks": [
+        "The upper bound is computer-assisted, not a formal proof. The finite enumeration verifies the kernel and base cases; the trace reduction, relabeling and monotonicity are separate mathematical arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.6 bounds open dimension by four; Theorem 3.7 attains it for 1<k<n-1 and binomial(n,k)>=16. The abstract notes boundedness for closed neighborhoods.",
+          "Coudert et al. give a general graph algorithm for computing closed-neighborhood VC dimension."
+        ],
+        "reasoning": "The open theorem has a different neighborhood predicate. A general algorithm on individual finite input graphs does not give the uniform symbolic upper bound or classification; that requires the finite trace reduction independent of n,k.",
+        "searches": [
+          "Adler–Benediktsson–Macpherson, arXiv:2007.16042, Theorems 3.6–3.7",
+          "Coudert et al., arXiv:2405.07588, abstract and graph VC-dimension definition"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.16042",
+        "arXiv:2405.07588",
+        "Three Resultary original findings listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the closed geometry a one-swap center includes its own cell and includes the anchor C; a two-swap center omits C.",
+          "Monotonicity from an induced Johnson slice extends lower bounds but cannot extend upper bounds to larger k and n-k."
+        ],
+        "reasoning": "The prior grid approach is a real methodological precedent. Its open theorem and the exact small-slice results cannot simply be substituted to establish the closed upper bound for all ranks. The independent cutoffs for both anchor cases supply that missing implication.",
+        "searches": [
+          "Compare the rook-grid approach of Adler–Benediktsson–Macpherson, §3, with the closed trace kernel and fixed-slice catalogue findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed Johnson ball membership is |C intersect Q|>=k-1, unlike the open test of equality to k-1.",
+          "In the triangular slice the closed predicate is that the center edge meets the sample edge; complementation identifies k and n-k."
+        ],
+        "reasoning": "The open and closed objects are not interchangeable: J(6,3) and J(7,2) each have open dimension four but closed dimension three. The equivalent edge-hit and inclusive-ball formulations identify genuine overlaps on the low-rank slices.",
+        "searches": [
+          "Resultary lookup for inclusive radius-one Johnson balls, closed Johnson VC dimension, triangular shattering and open/closed exceptions",
+          "Adler–Benediktsson–Macpherson, arXiv:2007.16042, abstract and Theorems 3.6–3.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two 2026-11-08 records give the exact k=3 and k=2 dimensions and stronger support counts/classifications.",
+          "The 2026-11-02 record gives closed/open 3/4 for J(6,3) and adds its four-query trace spectrum and Littlestone dimension."
+        ],
+        "reasoning": "These are exact overlapping slices and should not be credited as distinct from the frozen table on those slices. Their catalogue dates are later than the frozen record and do not establish independence or priority. They do not include min(k,n-k)>=4 or prove the uniform bound.",
+        "searches": [
+          "Resultary closed Johnson-three support orbit, triangular shattering polynomial, and first closed-Johnson online gap; exact Findings at offsets below"
+        ]
+      },
+      "rationale": "The supported distinct content is the sharp closed-neighborhood upper bound uniformly in both Johnson parameters and its use in the complete dimension table. An exact open-neighborhood theorem and boundedness of the closed variant are prior. The k=2 branch is expressly not claimed new, and later catalogue records give exact, in parts stronger, coverage of the k=2 and k=3 branches. No inspected source gives an all-rank closed upper bound of four or a result implying it; the fixed slices do not control larger min(k,n-k).",
+      "residual_risks": [
+        "The frozen text's assertion of a separately earlier k=2 derivation is not tied to a specific prior source. The matching later catalogue record does not establish that chronology.",
+        "The read passages and indexed matches cannot establish publication priority or exhaust equivalent fixed-weight code formulations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves the matching open bound and open values, not the closed table",
+          "evidence": [
+            "The family is the adjacency relation of distinct vertices; the closed-family note states boundedness, not this classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Abstract, p. 1; Theorems 3.6 and 3.7, pp. 9 and 18 (text offsets 900, 25100, 46150)",
+          "method": "Lawful OA original PDF passages",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same graph family, grid method and plausible dimension theorem"
+        },
+        {
+          "assessment": "Algorithmic context rather than an all-parameter Johnson bound",
+          "evidence": [
+            "The computational input is a graph and its concepts are the vertex closed neighborhoods."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+          "material_read": "Abstract p. 1 and definition p. 4 (text offsets 0, 13200)",
+          "method": "Lawful OA original PDF passages",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "General algorithm for the exact closed predicate"
+        },
+        {
+          "assessment": "Same fixed-rank table and stronger classification of four-point supports",
+          "evidence": [
+            "Inclusive intersection threshold >=2; dimension 0,0,2,3 at n=3,4,5,6 and 4 from n=7."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-closed-johnson-three-balls-have-one-four-point-shattered-orbit--64cf06f45a62/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–1771",
+          "method": "Local mirror original RESULT.md",
+          "title": "Closed Johnson-three balls have one four-point shattered orbit",
+          "trigger": "Exact matching k=3 closed class"
+        },
+        {
+          "assessment": "Same k=2 branch, stronger polynomial of shattered supports",
+          "evidence": [
+            "Degree is 0 for n=2,3, 1 at n=4, 2 at n=5, 3 at n=6,7 and 4 thereafter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-complete-closed-neighborhood-shattering-polynomial-of-triangular--08634914be96/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2035",
+          "method": "Local mirror original RESULT.md",
+          "title": "Complete closed-neighborhood shattering polynomial of triangular Johnson graphs",
+          "trigger": "Exact matching k=2 edge-hit case"
+        },
+        {
+          "assessment": "Exact overlap on J(6,3), additional adaptive result, no all-rank VC upper bound in the read statement",
+          "evidence": [
+            "The four-point closed trace counts are 4, 8 and 14, never 16; open and closed dimensions are 4 and 3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-first-closed-johnson-online-shattering-gap-and-its-four-quer--7a25f2fdfdab/RESULT.md",
+          "material_read": "Finding and scope, offsets 0–2133",
+          "method": "Local mirror original RESULT.md",
+          "title": "The first closed-Johnson online-shattering gap and its four-query trace spectrum",
+          "trigger": "Exact open/closed comparison at the balanced exception"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–24, 28–59 and 65–73",
+        "ArXiv:2007.16042, Theorems 3.6–3.7; independent kernel and base reproduction"
+      ],
+      "rationale": "The uniform sharp dimension bound and complete finite classification are natural invariants of a standard graph family. They quantify exactly when taking closed instead of open neighborhoods changes shattering, and the finite trace kernel removes any dependence of the proof on the ambient Johnson parameters. Neither a low-rank regression nor a mildly improved algorithm on a few graphs would establish this structural result.",
+      "residual_risks": [
+        "No conclusions for arbitrary-radius balls, arbitrary induced subgraphs, or adaptive shattering follow from this classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

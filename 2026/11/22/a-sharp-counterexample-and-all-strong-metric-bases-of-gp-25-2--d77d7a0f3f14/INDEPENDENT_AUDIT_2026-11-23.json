@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:46.848082Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a mutually maximally distant (MMD) pair, a resolving vertex other than either endpoint would extend a geodesic at one endpoint and contradict MMD. Conversely a longest geodesic containing the geodesic subpath between a given pair has MMD endpoints, so a vertex cover of the MMD graph resolves that pair. Therefore complements of maximum independent sets are exactly strong metric bases. I independently constructed the graph, computed integer distances by Floyd–Warshall and reconstructed every MMD edge. Counts were 125 outer, 50 inner, no cross edges, and the complete difference table matched. Pivoted Bron–Kerbosch on the entire complement (no assumed classification or orbit truncation) enumerated 21,000 maximal cliques, with maximum size 16 and exactly 125 maximum cliques. Their actual vertex sets equal the 25×5 claimed patterns; direct evaluation of the distance equality for all 1,225 pairs and each of the 125 complements also passed. Replay: python3 /workspace/reviews/evidence/gp25-independent.py. Both uploaded implementations and the verification notes were inspected but not executed. This certifies the specific graph, not the family. For k=6, 34 contradicts the proposed equality at 35, not the proved upper bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The preprint's exact all-index formulas for residue 0 and 2 modulo four exclude 25. For residue 1, Cor. 1 gives sdim(GP(4k+1,2))≤5k+5 for k≥3; Open Problem 1 proposes equality for k≥5."
+        ],
+        "reasoning": "The formal result only gives ≤35 here; the open proposal does not prove 35 and is refuted by the audited value. None implies the classification.",
+        "searches": [
+          "arXiv:1507.00881, Thms. 1–2, Cor. 1 and Open Problem 1",
+          "DOI:10.2298/AADM161110032K (journal version sought)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and decisive passages in 66c9fa60c33e and 41c380ebfefc",
+        "arXiv:1507.00881 preprint",
+        "Frozen RESULT.md and verification package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "≤35 remains consistent with 34; equality at 35 is an unproved prediction, not a theorem. The MMD vertex-cover equivalence still requires solving the resulting exact graph problem."
+        ],
+        "reasoning": "An independently reproduced maximum independent-set classification supplies what the prior bounds and the general reformulation do not: sharpness at 34 and the exact multiplicity and patterns.",
+        "searches": [
+          "arXiv:1507.00881, Cor. 1 and Open Problem 1",
+          "Oellermann and Peters-Fransen, DOI:10.1016/j.dam.2006.06.009 (standard reduction, also proved in the frozen result)",
+          "Resultary 66c9fa60c33e and 41c380ebfefc Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The identical indexed frozen record is not independent overlap. Resultary 66c9fa60c33e uses the same GP(n,2) family but studies quantifier rank four in adjacency logic; 41c380ebfefc studies edge metric dimension of DGP(n,1).",
+          "The exact alternative formulation here is maximum independence in the MMD graph, of size 16 with 125 maximizing sets."
+        ],
+        "reasoning": "Edge distance signatures and rank-four equivalence do not encode strong vertex geodesic resolution. Translation to standard MMD vertex cover or complement clique makes the invariant computable, but does not itself supply these exact independent-set patterns.",
+        "searches": [
+          "Resultary: GP(25,2) strong metric dimension, strong resolving graph, MMD and all strong metric bases",
+          "arXiv:1507.00881",
+          "Resultary 66c9fa60c33e and 41c380ebfefc"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 4 explicitly covers n≤19, with n=6,10,14,18 handled separately. Its last row is n=19, dimension 24; it lists witnesses, not counts of all bases. It has no n=25 entry.",
+          "The distinct indexed finite edge-metric table concerns DGP(n,1) at 3≤n≤12, not this graph/invariant."
+        ],
+        "reasoning": "There is no n=25 strong-metric value or minimum-basis table entry in these inspected candidates. The same frozen indexed entry does not count as separate prior evidence.",
+        "searches": [
+          "arXiv:1507.00881 Table 4 and preceding paragraph",
+          "Resultary GP(25,2) strong metric basis and dimension lookup; nearby records 66c9fa60c33e and 41c380ebfefc"
+        ]
+      },
+      "rationale": "The inspected Petersen-graph source conjectures the wrong equality at this index and does not tabulate it; neither nearby indexed invariant nor the standard MMD reduction gives the sharp value or the bases. No claim of exhaustive historical priority.",
+      "residual_risks": [
+        "An unindexed computation or newer correction could duplicate the finite result; the journal DOI full text was not separately inspected. The preprint suffices to identify and compare the proposed equality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound and explicit conjecture, no exact result or census at n=25",
+          "evidence": "Equality proposed for k≥5; applicable bound gives 35 at k=6, and table stops at 19.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.00881",
+          "material_read": "Cor. 1 and Open Problem 1, printed p. 10 around text offset 25000; Table 4 and discussion, conclusion around offset 28246; residue-class scope of Thms. 1–2",
+          "method": "OA arXiv PDF text and decisive bounded passages; journal DOI attempt did not yield readable full text",
+          "title": "The strong metric dimension of some generalized Petersen graphs",
+          "trigger": "Original GP(n,2) bound, conjecture and exact table"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "The theorem classifies agreement of first-order sentences of quantifier rank at most four; no metric resolving sets.",
+          "identifier_or_url": "2026/11/2/SCOPE-ten-four-round-theories-of-generalized-petersen-graphs-with-step--66c9fa60c33e",
+          "material_read": "RESULT.md Finding and Assumptions and scope",
+          "method": "Local mirror, offset 0–2200",
+          "title": "Ten four-round theories of generalized Petersen graphs with step two",
+          "trigger": "Distinct Resultary hit for the same full graph family"
+        },
+        {
+          "assessment": "Different graph family, landmark condition and finite range",
+          "evidence": "DGP(n,1) has four layers; uses vertex-to-edge distances with the minimum endpoint convention.",
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-ten-cycle-onset-and-all-small-edge-metric-bases-of-double--41c380ebfefc",
+          "material_read": "RESULT.md Finding, table and Assumptions and scope",
+          "method": "Local mirror, offset 0–2165",
+          "title": "Sharp ten-cycle onset and all small edge-metric bases of double generalized Petersen graphs",
+          "trigger": "Distinct finite metric-basis classification in Resultary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph and order are motivated before computation by a published family proposal. This case gives a directly checkable counterexample and an exact sharp value, not just a stronger upper bound. The Cartesian pattern of all minimum bases separately answers a natural structural question and makes the phenomenon reproducible without requiring any all-order extrapolation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

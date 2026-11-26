@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:45:47.931419Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A fort has a nonempty spine support S and contains the mates of selected spine vertices. At an unselected spine vertex the leaf is forbidden, required, or optional when it has respectively 0, 1, or 2 selected spine neighbors. Remove all optional leaves to obtain the canonical F(S). For nonempty T⊆S, canonical inclusion F(T)⊆F(S) fails exactly when T separates the two neighbors of an unselected spine vertex that had two selected neighbors in S. This is precisely a cut of an edge in the frozen distance-two link graph. Hence F(S) is minimal iff that graph is connected. The frozen proof's suggestion that every proper fort of a canonical fort is itself canonical is unnecessary and need not hold; every such fort contains its own canonical subfort, which is all the inclusion test needs. Connected supports are exactly step-two intervals; the adjacent boundary leaves are the only extra vertices. With k selected spine vertices there are n−2k+2 starts, two touching one endpoint except when both endpoints are touched by the unique longest progression at odd n. This yields the stated polynomial, count, extrema, and the single-edge case n=1. The inspected verify.py uses the defining neighborhood test plus a proper-subset dynamic program, matching the recorded full-family comparisons through n=9; it does not prove the infinite result. No uploaded code was run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cameron–Li Theorem 3.3 gives an iff criterion for every tree: at most one inside neighbor at an included vertex, zero or two inside neighbors at an excluded vertex, and no edge with both endpoints excluded can separate the fort.",
+          "Abiad–Ghasemi Nezhad provide a linear-time, linear-space scalar count algorithm for any tree; Dat–Kenter provide general upper bounds and finite maxima. Neither latter item alone gives the frozen symbolic profile.",
+          "Resultary 866a6a844b58 gives a broader link-graph theorem for every whiskered tree; its date key is later than the frozen record."
+        ],
+        "reasoning": "The cut characterization, rather than an algorithm or extremal bound, is the prior theorem strong enough to force the exact structure without a new comb-specific minimality argument.",
+        "searches": [
+          "arXiv:2512.12874v2, Theorem 3.3",
+          "arXiv:2609.11754v1, §4 Theorem 4.14",
+          "arXiv:2605.07298, Theorem 1 and §3",
+          "Resultary 866a6a844b58, all whiskered trees"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "arXiv:2512.12874v1 and v2",
+        "arXiv:2404.05963",
+        "arXiv:2605.07298",
+        "arXiv:2609.11754v1",
+        "Resultary 866a6a844b58 and 7b2f2ef29c50"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Condition (b) forces the mate of every selected spine vertex to be selected and rules out a nonempty fort of leaves alone. For each excluded spine vertex, (b) fixes its leaf to be selected exactly when there is one selected spine neighbor. Condition (a) now forbids adjacent selected spine vertices.",
+          "If consecutive selected spine indices differed by at least three, the intermediate edge between two consecutive excluded spine vertices would separate the fort, violating (c). Thus consecutive selected indices differ exactly by two. Conversely the resulting sets satisfy (a) and (b); no spine edge with both ends outside separates the fort, and deleting a pendant edge with both ends outside only isolates an excluded leaf, so (c) holds.",
+          "As soon as the two endpoints are known the boundary indicators fix the size. Counting the possible starts gives the polynomial and quadratic count, and the length-one spine gives its unique two-vertex fort."
+        ],
+        "reasoning": "This is a direct specialization of the prior iff with elementary endpoint counting. The v2 PDF bears the archive stamp 8 March 2026, so the theorem is not merely a possibly later addition to the December 2025 first version.",
+        "searches": [
+          "Cameron–Li arXiv:2512.12874v2 Theorem 3.3 conditions (a)–(c), and v2 PDF version stamp"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Whiskering a path is exactly P_n corona K₁. The matching catalogue statement uses zero-based indices and the same ordinary, inclusion-minimal fort definition.",
+          "Becker et al. use the same ordinary fort convention, but the inspected cycle-corona construction is not the path-corona classification. Ordinary paths without attached leaves are also a different graph."
+        ],
+        "reasoning": "Changing the index origin makes the whiskered-tree comb formulas identical. The same-date sunlet entry uses cyclic instead of path spine adjacency, so neither its family nor scalar counts are an exact match.",
+        "searches": [
+          "Resultary: minimal zero-forcing forts of combs, path corona and whiskered trees",
+          "Cameron–Li arXiv:2512.12874v2, tree fort cut characterization",
+          "Becker et al. arXiv:2404.05963, minimal forts and corona graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 866a6a844b58 states exactly the same size polynomial summed over its endpoint pairs and the same total for n≥2. Its all-tree link theorem includes the single-vertex core, so that n=1 also follows.",
+          "Dat–Kenter §3 reports extremal counts over tree shapes through order 19, not an exact all-n comb table."
+        ],
+        "reasoning": "In the catalogue match put k=(b−a)/2+1; its exponent is 2k plus the boundary-leaf indicators, identical to the frozen exponents. The later exact statement is corroborating coverage, not evidence of precedence over the frozen item.",
+        "searches": [
+          "Resultary: comb/parity interval and floor((n+1)^2/4) minimal forts",
+          "Dat–Kenter arXiv:2605.07298 §3 finite tree-count tables"
+        ]
+      },
+      "rationale": "Cameron–Li's earlier all-tree cut characterization specializes directly to the interval description and fixes every forced leaf; the polynomial then simply counts starts. The identified later whiskered-tree catalogue record explicitly states the same comb family and size polynomial, which corroborates equivalence but is not used to infer earlier priority. The earlier implication is decisive.",
+      "residual_risks": [
+        "This bounded comparison does not assign authorship or historical priority between the two comb catalogue statements. Failure rests on the independently demonstrated implication of the earlier published tree criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior all-tree iff implies the frozen characterization and count directly",
+          "evidence": [
+            "The v2 stamp is 8 Mar 2026; the first page separately dates the article March 10, 2026. Theorem 3.3 has the inside-neighbor, outside-neighbor and excluded-edge cut conditions quoted above."
+          ],
+          "identifier_or_url": "arXiv:2512.12874v2",
+          "material_read": "HTML Theorem 3.3, conditions (a)–(c) and proof at offsets 18100–21458; v2 PDF first page version stamp; contrasted with v1 Proposition 3.3",
+          "method": "Open arXiv HTML and versioned PDF",
+          "title": "On the minimal forts of trees",
+          "trigger": "General tree classification named in the frozen package; possible exact implication"
+        },
+        {
+          "assessment": "Exact explicit comb coverage for n≥2 and an all-tree link-graph generalization; later-indexed corroboration",
+          "evidence": [
+            "The comb support is {a,a+2,…,b}; its polynomial uses z to the power b−a+2 plus the two boundary indicators."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-connected-distance-two-supports-classify-minimal-forts-in-whiske--866a6a844b58/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2464",
+          "method": "Resultary search followed by local-mirror full text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Connected distance-two supports classify minimal forts in whiskered trees",
+          "trigger": "Exact whiskered-path census in Resultary"
+        },
+        {
+          "assessment": "Cyclic analogue, not the path case",
+          "evidence": [
+            "Its graph is C_n corona K₁ and it gives different cyclic counts and a lifting counterexample."
+          ],
+          "identifier_or_url": "Resultary 2026/10/26/SCOPE-minimal-forts-of-sunlet-graphs-a-quadratic-census-and-a-lifting--7b2f2ef29c50",
+          "material_read": "Finding, offsets 83–1196 in the local-mirror RESULT.md",
+          "method": "Resultary search and local-mirror full text",
+          "title": "Minimal forts of sunlet graphs: a quadratic census and a lifting obstruction",
+          "trigger": "Close same-date corona classification"
+        },
+        {
+          "assessment": "Ordinary fort enumeration antecedent and a cycle-corona construction, not the path-corona polynomial",
+          "evidence": [
+            "Proposition 23 targets C_n corona K_r; Figure 1 depicts a comb fort without giving an all-order comb census."
+          ],
+          "identifier_or_url": "arXiv:2404.05963",
+          "material_read": "Abstract, Figure 1 context and §5.2, particularly Proposition 23 (offsets 53103–53267)",
+          "method": "Open arXiv HTML",
+          "title": "On the number of minimal forts of a graph",
+          "trigger": "Earlier comb figure and potential corona classification"
+        },
+        {
+          "assessment": "General tree/forest bounds and exact maxima for small orders, not exact comb size profiles",
+          "evidence": [
+            "The small-order tables report maxima over trees rather than counts by fort size in a fixed comb."
+          ],
+          "identifier_or_url": "arXiv:2605.07298",
+          "material_read": "Theorem 1 and §3 at offsets 4182–4393 and 36087–47811",
+          "method": "Open arXiv HTML",
+          "title": "On the Number of Zero Forcing Minimal Forts on Trees",
+          "trigger": "Tree-wide enumeration and finite tables"
+        },
+        {
+          "assessment": "Computes the scalar number for arbitrary trees but does not state the classified family or size polynomial",
+          "evidence": [
+            "Theorem 4.14 gives linear time and space for computing the number of minimal forts in a tree."
+          ],
+          "identifier_or_url": "arXiv:2609.11754v1",
+          "material_read": "Section 4, Theorem 4.14, offsets 60600–62775",
+          "method": "Open arXiv HTML",
+          "title": "Fort Abundance in Zero Forcing",
+          "trigger": "Broad exact tree-counting algorithm potentially subsuming the scalar census"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The comb is natural and the full labeled size census would be useful if it required an uncovered classification. Here the prior tree conditions fix the entire family immediately by excluding gap lengths one and at least three; the remaining enumeration counts interval starts. The single-edge boundary and finite duplicate checks supply no separate valuable remainder.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

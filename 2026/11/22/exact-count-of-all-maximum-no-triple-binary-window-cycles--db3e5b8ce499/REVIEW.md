@@ -1,17 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The degree-one corridors terminate at degree-two states, enabling a bijection of directed in-arborescences. The directed BEST and matrix-tree theorems then count edge-distinguished Euler circuits modulo rotation with no extra factorial. The exact all-order proof uses the previously established optimal support, and the checker independently verifies the contracted and full cofactors and the direct small Euler tours. It does not replace proof by finite enumeration.
+## correctness
 
-## Originality — PASS, qualified
-The closest same-constraint work, *Sharp Fibonacci capacity and canonical window set for doubly run-limited de Bruijn cycles*, gives the maximum length and the precise optimal window set but does not count optimal cycles. The closest full-cycle enumeration, *Exact count of all maximum-length no-adjacent-ones de Bruijn cycles*, applies instead to the one-sided `11` restriction and a different compressed branching graph. Chee et al. (arXiv:2403.01454) study one-sided run restrictions and their maximum lengths/necklaces; Sawada et al. (2016) address generalized constructions. Searches under both Eulerian, compressed-tree and run-language aliases found no identical census. Historical-priority risk from unindexed sources remains.
+PASS
 
-## Value — PASS
-The complete number of distinct optimal circular schedules, rather than their already known optimum length, is a natural design-multiplicity invariant in constrained de Bruijn generation. A finite compressed cofactor of dimension \(2F_{n-2}-1\), the forced-corridor bijection, and the all-order population formula add information for enumeration and sampling of optimal designs.
+In the full no-triple overlap graph, the vertices of out-minus-in degree +1 begin with an equal pair and end with an unequal pair, and the −1 vertices have the reverse predicate. Any balanced edge set omits at least one outgoing edge from each +1 vertex. Equality requires the deletions to run directly from +1 to −1 vertices, forcing precisely the equal-pair-at-both-ends edges: a +1 vertex has only one such outgoing extension. These deletions do balance the graph. Appending alternating bits reaches a branch, and an alternating vertex with an unequal junction to a target can append all its letters while the first pair of each traversed edge differs. This proves attainability and rigid support independently of the cited premise. In the resulting graph, only the 2F_(n−2) vertices unequal at both ends branch (choose the initial bit and compose n−3 into ones and twos). All other vertices have one outgoing edge and reach a branch in at most n−1 shifts. Their forced exits give a bijection of in-arborescences before and after contraction, with parallel arcs kept distinct. The directed last-exit/BEST count with one fixed initial labeled edge counts each rotation class once and has unit factorial factor; the outgoing matrix-tree cofactor is consequently exactly the asserted count. Independent replay: python3 /workspace/review_checks/1.py (SymPy integer determinants) reproduced the table through n=11, with full graph cofactors through n=9 and direct rotation-class optimization at n=4,5. These checks do not replace the all-n proof.
 
-## Limits and sources
-The result does not improve the known maximum or characterize optimal windows anew; it is binary and two-sided with runs at most two. Values through order 11 are checked exactly, while the proof covers every order at least four. No elementary product formula or independent audit is asserted.
+## originality
 
-Primary references: https://arxiv.org/abs/2403.01454 ; https://doi.org/10.37236/5517 . Closest same-constraint source: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-fibonacci-capacity-and-canonical-window-set-for-doubly-run--aa3ac12cc70f . Closest different-constraint enumeration: https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-exact-count-of-all-maximum-length-no-adjacent-ones-de-bruijn-cyc--19257b27b2ec .
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Credit the sharp length, canonical support, classical Euler-tour/tree methods, and the strong one-sided methodological antecedent. The distinct result is the explicit branch-sized determinant and maximal-cycle census for the two-sided support. The uncompressed cofactor follows directly from the older support and BEST, so that alone would not justify a pass.
+
+## value
+
+PASS
+
+Knowing one optimal schedule or its window set does not identify how many schedules achieve it. The reduced determinant gives a concrete exact census for the entire natural two-sided run-limited family, with a computational reduction from 2F_n−1 to 2F_(n−2)−1 and exact counts far beyond direct listing. The value is the explicit efficient population count, not an advance in the optimum length or in abstract Euler-tour theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

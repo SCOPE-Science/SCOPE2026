@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:28:11.681520Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact four complexes using column-profile tiling generation and independent subset and incidence enumeration (replay: python /workspace/check_grid_morse.py 2 4 6 8). Perfect matching counts (3,11,41,153), augmented face and incidence totals, every greedy stage and all four critical-face sets matched. There is also a direct acyclicity proof: no directed path can take two upward arrows consecutively, so any directed cycle must alternate upward matched arrows and downward unmatched arrows. Take the earliest matching stage represented among its arrows. A downward arrow deleting that stage's coordinate would connect two faces still present at that stage, so it would have been paired and oriented upward. Thus the cycle adds this coordinate without being able to delete it, a contradiction. Removing the empty face frees one vertex; the resulting Morse CW complex has just this vertex and the indicated 0,1,1,2 positive-dimensional cells, with no intermediate cells and hence constant attaching maps. Independently constructing invariant faces as unions of orbits of each edge involution reproduced all fixed-face counts and reduced traces. An invariant face consisting of b edge orbits contributes (−1)^(b−1), including −1 at the empty face; this equals its chain degree sign times its orientation sign. By homological concentration the reduced Lefschetz vectors at widths 4,6,8 multiply by (−1)^(n/2−1) to give (1,−1,1,−1), (1,−1,−1,1), (2,0,0,2). The last decomposes as ++ and −−. This checks exactly the finite widths and rational characters, not equivariant homotopy. The packaged support scripts were inspected as source, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.5 of arXiv:2611.18058v1 gives the point at half-width 1 and F_(j−1) spheres of dimension j−1 at every half-width j≥2.",
+          "eda18ed068e3 defines the identical perfect-matching-generated complex and row/column reflections and gives (F_(j−1),r_j,c_j,h_j) for every j≥2."
+        ],
+        "reasoning": "The wedge theorem settles all four homotopy types and makes the width-2 reduced character zero. Substituting j=2,3,4 in the formulas of eda18ed068e3 gives exactly (1,−1,1,−1), (1,−1,−1,1), (2,0,0,2). The earlier rectangular-wedge conjecture and ordinary matching concentration do not give these implications.",
+        "searches": [
+          "Resultary eda18ed068e3 all-width half-turn and full symmetry character",
+          "arXiv:2611.18058v1 Theorem 3.5",
+          "arXiv:2407.05809 Theorem 3.3 and Conjecture 6.1",
+          "arXiv:2609.27366v1 pp. 1–2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.18058v1",
+        "Resultary eda18ed068e3",
+        "Resultary c400769702b4",
+        "Resultary 521893fb03dc",
+        "arXiv:2407.05809",
+        "arXiv:2609.27366v1",
+        "Resultary c1da8c8f4653",
+        "Resultary e4fab66f9a1a",
+        "Resultary 2352ab105c17"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both use open P_3 square P_(2j) and faces extendable to a perfect matching.",
+          "The all-width character formula also gives isotypic multiplicities (F_(j−1)+a r_j+b c_j+ab h_j)/4 and the actual quotient homology."
+        ],
+        "reasoning": "Once the two stronger results are available, no additional invariant computation is needed for any assertion of the frozen finding. The finite Morse certificate is an independent way to check the facts, not a claim of a stronger equivariant conclusion. The chronology of the records does not establish attribution.",
+        "searches": [
+          "Statement-level comparison of arXiv:2611.18058v1 Theorem 3.5 and eda18ed068e3 Finding with the frozen theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "521893fb03dc gives the S^1 equivalence, integral H_1 and action (−1,+1,−1) for row, column and product on P_3 square P_4.",
+          "Earlier Resultary c1da8c8f4653 and e4fab66f9a1a explicitly treat ordinary matching complexes."
+        ],
+        "reasoning": "The integral action in the distinct finite 3-by-4 record implies the exact rational character by tensoring with Q. The ordinary matching results concern a different complex and their Lefschetz computations are not interchangeable.",
+        "searches": [
+          "Resultary search for row and column reflection homology of the three-row perfect-matching-generated grid complex",
+          "Resultary 521893fb03dc Finding and definitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The open-strip column of c400769702b4 lists contractible, S^1, S^2 and wedge of two S^3 at 2,4,6,8 respectively.",
+          "521893fb03dc uses identical graph, facets and reflection coordinates at width 4."
+        ],
+        "reasoning": "Credit the exact entries as overlap, not the different periodic-boundary column; the full set of character entries follows from the all-width formulas even without a table.",
+        "searches": [
+          "Resultary c400769702b4 open and periodic three-row strip table",
+          "Resultary 521893fb03dc three-by-four integral reflection action"
+        ]
+      },
+      "rationale": "Verified existing coverage of all four homotopy types and all nonzero character vectors. The exact theorem of arXiv:2611.18058 and the all-width character formulas of the distinct Resultary record eda18ed068e3 specialize to the frozen result. Those sources are in later-dated records; this is a coverage assessment, not a conclusion that this computation was derivative or that those sources established historical priority over it. The tempting earlier results on ordinary matching complexes are not coverage. No separate novel claim about the certificate algorithm or equivariant topology is established in the frozen finding.",
+      "residual_risks": [
+        "The relation between the authorship or discovery of the frozen calculation and the later-dated exact/stronger results is unresolved. Earlier equivalent unpublished work was not ruled out; the existing coverage does not depend on finding it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "covers every frozen nonequivariant type",
+          "evidence": "Contractible at half-width one; wedge of F_(j−1) spheres of dimension j−1 otherwise.",
+          "identifier_or_url": "https://arxiv.org/pdf/2611.18058v1",
+          "material_read": "Theorem 3.5 and proof opening, PDF p. 6, offset 21960",
+          "method": "OA PDF locate and bounded passage",
+          "title": "Perfect Matching Complexes of 3×2n Grid Graph",
+          "trigger": "all-width wedge theorem cited by the full character record"
+        },
+        {
+          "assessment": "stronger character statement covers widths 4,6,8 exactly",
+          "evidence": "Full character with residue-class row trace and Fibonacci column and half-turn traces for all half-widths at least two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-half-turn-fibonacci-character-and-full-symmetry-quotient-of--eda18ed068e3/RESULT.md",
+          "material_read": "Finding and assumptions, offsets 0–2515, and reference to Theorem 3.5",
+          "method": "local Resultary mirror",
+          "title": "The half-turn Fibonacci character and full symmetry quotient of three-row perfect-matching complexes",
+          "trigger": "potential complete character coverage"
+        },
+        {
+          "assessment": "open-strip column exactly matches all four frozen homotopy types",
+          "evidence": "Same open graph and extendable faces; periodic strip claims are separate.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-boundary-sensitive-eight-column-classification-of-three-row-pe--c400769702b4/RESULT.md",
+          "material_read": "Finding table, assumptions and first proof paragraph, offsets 0–2532",
+          "method": "local Resultary mirror",
+          "title": "A boundary-sensitive eight-column classification of three-row perfect-matching complexes",
+          "trigger": "likely exact finite table"
+        },
+        {
+          "assessment": "covers the width-4 topology and reflection claim, over Z",
+          "evidence": "Gives one integral generator and the signed actions for precisely h,v,hv.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-five-cycle-core-and-signed-reflection-homology-for-the-three-b--521893fb03dc/RESULT.md",
+          "material_read": "Finding, assumptions and collapse proof opening, offsets 0–2647",
+          "method": "local Resultary mirror",
+          "title": "A five-cycle core and signed reflection homology for the three-by-four perfect-matching complex",
+          "trigger": "exact width-4 character match"
+        },
+        {
+          "assessment": "two-row theorem and general conjecture, no frozen three-row character or homotopy coverage in those statements",
+          "evidence": "Theorem concerns two-row strips; wedge topology for arbitrary rectangular grids is conjectural there.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.05809",
+          "material_read": "Theorem 3.3 PDF p. 6 and Conjecture 6.1 p. 17, offsets 21914 and 57500",
+          "method": "OA PDF passages",
+          "title": "Perfect Matching Complexes of Polygonal Line Tilings",
+          "trigger": "prior rectangular perfect-matching topology"
+        },
+        {
+          "assessment": "different simplicial complex",
+          "evidence": "All matchings are faces, without requiring extension to a perfect matching.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.27366v1",
+          "material_read": "PDF pp. 1–2 definitions and homology/connectivity results",
+          "method": "OA PDF passages",
+          "title": "Homology of matching complexes of 3×n grid graphs",
+          "trigger": "same graphs and a potentially stronger all-width theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "These natural finite tests and rational reflection actions would be useful as unknown base cases, but the precise data and substantially stronger results already exist. The frozen record neither improves the invariant nor presents a motivated new property of the certificate or a new boundary regime. Recomputing covered cases does not meet the scientific-value standard for a distinct final finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

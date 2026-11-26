@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:09:59.061100Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–97",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "The Clayton r-coordinate lower marginal at common threshold t is exactly t[r−(r−1)t^θ]^(−1/θ), so its first-order coefficient is r^(−1/θ). A lower–upper pair has mass t−Cθ(t,1−t)=O(t^(2+θ)) by factoring t and expanding; an upper–upper pair has mass O(t²) by bounded density near (1,1). Thus every wrong sign assignment on at least two constrained coordinates is o(t). For m≥3 the sole matching numerator orientation is s, whereas the conditioning event has the two matching orientations s and s⊕e_i. Dividing the first-order coefficients gives exactly hπ_s/(π_s+π_{s⊕e_i}), with a strictly positive denominator. Opposite directions share that denominator; their sum recovers h and hence the unique θ>0. Taking the ratio of the opposite coefficient to the given one gives π_{s⊕e_i}/π_s. Positivity, reciprocal reversal and the square relations make path products independent: exchange adjacent distinct flips using a square and remove repeated flips via immediate reversal, reducing to the ordered list of flipped coordinates. The connected cube then yields unique positive normalized weights. The modified m=3 example has a ratio 5/3 on the changed edge and unit ratios on the other edges of a square, so it passes the edge-sum test but is not realizable. The independent exact-rational computation python3 /workspace/checks/frozen_math_checks.py 3 verifies inclusion–exclusion for the uniform three-dimensional example (θ=1) at widths 10^−3, 10^−5 and 10^−7, giving conditional ratios 0.3320680454, 0.3333205568 and 0.3333332056; convergence for all admissible inputs is analytic, not inferred from these ratios.",
+      "residual_risks": [
+        "At m=2 the conditioning is on one marginal and wrong rotations are not negligible in the denominator, so the proof cannot be extended that way. Positive full-support weights and a common positive θ matter. The frozen checker recovers h and π for θ=1; it is not a finite test of the general-θ inverse theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Pan et al. multivariate model permits a parameter for every orientation, but its printed corner coefficient is not the conditional mixture ratio. The other two papers study realization of pairwise tail-correlation functions or matrices of pairwise χ(X_i,X_j)."
+        ],
+        "reasoning": "A larger class of distributions without the needed observable calculation is not a covering theorem. Pairwise realizability does not reconstruct directed all-but-one conditionals or imply the cube-square criterion for this parametric family.",
+        "searches": [
+          "arXiv:2403.12789v3 Eqs. (6) and (8), including component-specific parameters",
+          "arXiv:1405.6876 Discussion p. 34",
+          "arXiv:1901.02157 p. 2 definition of tail-dependence matrix"
+        ]
+      },
+      "checked_sources": [
+        "Pan–Nieto-Barajas–Craiu arXiv:2403.12789v1 and v3",
+        "Fiebig–Strokorb–Schlather arXiv:1405.6876",
+        "Shyamalkumar–Tao arXiv:1901.02157",
+        "Resultary indexed match e0753970d1d6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At m=3, θ=1 and uniform weights, take the all-lower corner. The joint event has first-order mass t/24 and the two-coordinate conditioning event t/8. The ratio is 1/3, whereas Eq. (8) predicts (1/8)(2/3)=1/12. This works even using the literally printed lower bands of Eq. (3).",
+          "For the original bivariate mixture the denominator is a single uniform marginal of mass t, so this particular failure of fixed-weight averaging does not arise."
+        ],
+        "reasoning": "The definitions of the model imply the corrected result only after the additional component-specific conditioning calculation. The published linear formula does not imply it and the earlier bivariate result has a different denominator. The positivity, face consistency and inverse conclusion are additional implications of the corrected law.",
+        "searches": [
+          "arXiv:2403.12789v1 p. 2 and arXiv:2403.12789v3 pp. 8, 10–11 Eqs. (3), (5), (6), (8)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent graph data are a common opposite-edge sum and positive directed odds whose products around each square equal one. Pan et al. introduce the mixture and the all-other-extremes conditional but write a linear combination of component coefficients, not normalized posterior weights on adjacent orientations.",
+          "The exact top Resultary hit e0753970d1d6 is this same record, not independent prior work."
+        ],
+        "reasoning": "Ordinary potential recovery from graph differences is standard. What is new against the inspected statements is the identification of these conditional coefficients with edge odds of rotation weights on this cube, and the resulting exact image and inverse for the copula model.",
+        "searches": [
+          "Resultary: rotated Clayton conditional corner-tail compatibility and unique common-parameter recovery",
+          "arXiv:2403.12789v3 Secs. 3–5 Eqs. (3), (5), (6), (8)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact title is the identical frozen record. The primary article's closest explicit numerical expression for m=3 uses π_s(3/2)^(−1/θ_s), not the common-parameter directed array in the finding."
+        ],
+        "reasoning": "The inspected proposed formula in the primary paper is not an equivalent tabulation, as the uniform example shows. No distinct exact table or inverse result was found in the bounded comparison; that is not a priority proof.",
+        "searches": [
+          "Resultary: rotated Clayton conditional corner-tail compatibility and common-parameter identification",
+          "arXiv:2403.12789v3 p. 11 Eq. (8) and following Clayton formula"
+        ]
+      },
+      "rationale": "The rotations, mixture model and intended conditional observables are prior. Against the inspected papers, the correctly normalized common-parameter formula and intrinsic compatibility and unique inverse theorem survive. Pan–Nieto-Barajas–Craiu's v3 Eq. (3) prints a nonshrinking upper interval inconsistent with the immediately following example. The comparison is to the intended extreme bands, and the all-lower test below avoids that typographical ambiguity altogether.",
+      "residual_risks": [
+        "No separate corrected later version surfaced in the bounded comparison; the unversioned HTML displayed the same Eq. (8). A prior equivalent derivation in specialized work is not excluded. The heterogeneous-parameter inverse problem is not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior model and conditional observable; no covering normalized formula or inverse theorem in these passages",
+          "evidence": [
+            "Eq. (3) conditions on all but coordinate l; printed B1=(ν,1] conflicts with U3>1−ν in the next example. Eq. (6) allows individual θ's and Eq. (8) multiplies each component coefficient by its original mixture weight. The uniform all-lower corner distinguishes 1/3 from 1/12."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.12789v3",
+          "material_read": "Sec. 3 Eq. (3) and example p. 8; rotated Clayton Eq. (5) p. 10; Sec. 5 Eqs. (6), (8) and m=3 coefficient p. 11",
+          "method": "OA original full-text passages, compared definitions and evaluated the equations on an all-lower corner",
+          "title": "Multivariate temporal dependence via mixtures of rotated copulas",
+          "trigger": "Originating multivariate model and same intended conditional observable"
+        },
+        {
+          "assessment": "Covers the four bivariate rotations; not the m≥3 tail characterization",
+          "evidence": [
+            "Bivariate construction only; the denominator of a single marginal tail is t regardless of the component."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.12789v1",
+          "material_read": "p. 2, bivariate mixture description",
+          "method": "Compare dimension and number of conditioned margins in the OA PDF",
+          "title": "Bivariate temporal dependence via mixtures of rotated copulas",
+          "trigger": "Earlier public version of the rotation construction"
+        },
+        {
+          "assessment": "Pairwise tail-correlation realizability is a different observable",
+          "evidence": [
+            "The discussion concerns bivariate tail-correlation functions and their matrix polytope."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1405.6876",
+          "material_read": "Discussion p. 34",
+          "method": "Compare the realized objects in the OA full-text passage",
+          "title": "The realization problem for tail correlation functions",
+          "trigger": "Potential stronger tail-realization theorem"
+        },
+        {
+          "assessment": "Pairwise matrix; not the directed corner array",
+          "evidence": [
+            "Matrix entries are pairwise χ(X_i,X_j), not one-coordinate tails conditional on the extremes of all the other coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.02157",
+          "material_read": "p. 2 definition of a tail-dependence matrix",
+          "method": "Compare the definition in the OA PDF with the frozen conditioning-event definition",
+          "title": "On tail dependence matrices: The realization problem for parametric families",
+          "trigger": "Potential broader parametric compatibility result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–30 and 87–97",
+        "Pan et al., arXiv:2403.12789v3 Eqs. (3), (6), (8)"
+      ],
+      "rationale": "For a preexisting multivariate extreme-dependence model, the theorem corrects the normalization of a specified conditional observable and shows that those limit data alone identify all the mixture weights and the shared parameter. The face relations give falsifiable constraints beyond local consistency; the explicit incompatible table demonstrates their need. These are substantive statements about model calibration and restrictions, not a claim about sample efficiency.",
+      "residual_risks": [
+        "No inference guarantee for finite or noisy tail data is proved; the result is exact at the population limit."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

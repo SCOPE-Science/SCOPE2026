@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The law of the exponential-walk branch sum obeys an independent log-concave convolution recurrence. A strictly totally positive translation kernel propagates likelihood-ratio ordering. Reciprocal symmetry of the central field yields an exact antisymmetric representation for adjacent Gibbs weights; strict likelihood-ratio domination of the longer branch makes every outward difference positive. All quantifiers are finite-length and arbitrary finite positive scale. Gaussian deterministic quadrature independently checks 36 normalization, symmetry and shape conditions, not an infinite proof.
+## correctness
 
-**Originality (PASS, qualified).** The U-shaped physical effect itself, a high-temperature quadratic approximation and a zero-temperature arcsine limit are established in the cited Ising papers. The additional exact strict ordering at *every* positive temperature and size, plus symmetric strictly log-concave universality, was not found in the inspected literature or semantic-index results. Shanthikumar–Yao's likelihood-ratio theorem provides a known proof ingredient, not the domain-wall conclusion. The supplementary material of the 2022 Ising paper was not fully accessible; an implicit previously published all-temperature proof remains the main priority risk. A failed semantic search is not a uniqueness certificate.
+PASS
 
-**Value (PASS).** The disorder-induced end bias is used to interpret and fit quantum-annealer control noise. A high-temperature approximation and low-temperature limit do not rule out an intermediate-temperature spatial inversion. This theorem closes that natural all-temperature logical gap for the actual restricted Gibbs benchmark and proves strictness, directly distinguishing the disordered classical baseline from a central-peaked coherent profile without fitting a temperature window. The extension to log-concave non-Gaussian noise identifies precisely a robust disorder class. It is not a claim about every device regime.
+The branch recursion is L_{n+1} =d Z+log(1+exp L_n) with independent inputs. For a positive shift, the density ratio f(x-u)/f(x) is strictly increasing by strict concavity of log f, establishing the base case. For the inductive step, an increasing bijection onto the transformed support preserves the density-ratio inequality. Splitting the determinant of the two convolution densities into u<v and u>v gives over u<v the product of the strictly positive translation-kernel determinant and the strictly positive ordered input-density determinant. The positive bounded increment density and probability inputs justify these integrations. For adjacent sites, independence of the two branches and the isolated edge, and pairing Y with 1/Y, give the antisymmetric kernel of lines 34–39. On u<v that kernel has positive sign for Y≠1 and the density difference has the same sign. The expectation is well-defined since the starting difference is between two normalized probabilities. The branch of length zero is deterministic 1, the equal-length center cancels, and reversing and negating all iid symmetric increments proves reflection. Scaling nondegenerate disorder by any finite β>0 preserves the hypotheses; the β=0 case is uniform. This is only the restricted classical single-wall law. Gaussian quadrature checks were inspected but not used as proof or rerun.
 
-**Limits.** Exactly one wall; iid, even, positive, strictly log-concave fields; finite chain; no transverse-field coherence or multi-wall Gibbs excitations. A previously undiscovered equivalent formulation could affect priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct claim is an adjacent strict order at every finite positive inverse temperature for the specified class of continuous disorder, not discovery of the U-shaped profile. The closest Ising studies and the relevant 2022 supplement were inspected; their asymptotic, approximate, and finite numerical results do not give this order.
+
+## value
+
+PASS
+
+It turns a known experimental/asymptotic physical bias into a strict, site-by-site order, including intermediate temperatures and non-Gaussian log-concave disorder. The proof provides a useful mechanism for why the order persists after quenched normalization. It neither extrapolates a sampled U shape nor merely imports the limiting arcsine law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

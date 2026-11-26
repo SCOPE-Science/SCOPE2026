@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:19:09.581524Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof lines 31–80",
+        "Frozen VERIFICATION.md and checker.py (inspected, not run)",
+        "Ricard–Xu arXiv:1405.0431, Theorem 2"
+      ],
+      "rationale": "Choose a maximizing Fourier frequency χ₀ and demodulate. The finite transitive affine average sends the demodulated function g to h=c·1_S, with c nonzero because the maximizing coefficient is nonzero. Affine pullbacks induce isometries of counting Fourier ℓʳ (phase and permutation). Their average H=ĥ has norm (1−δ)R for R=||f̂||ᵣ, in particular justifying δ∈[0,1). The pairwise convexity inequality has exponent s=r and coefficient β=1 for r>2, and s=2, β=r−1 for 1<r<2. Averaging over two independent translates of ĝ bounds the expected s-th power of their difference by (2ˢ/β)(Rˢ−||H||ᵣˢ): Jensen bounds the expected midpoint norm power below by ||H||ᵣˢ. Isometry and uniform group measure reduce the two-translate difference to one relative translate; Jensen then bounds ||ĝ−H||ᵣˢ by that one-translate expectation. At r=2 the average is an orthogonal projection, giving the stated identity. The singleton case has δ=0 and equality. For r>2, the full-support two-frequency example has δ∼tʳ/r and best relative error t/(1+tʳ)^(1/r). For 1<r≤2, on {0,1} in Z₃ the nonmaximal Fourier magnitudes before the common normalization are sqrt(1+3t²), with maximizing magnitude 2 for small t. Thus δ=3t²/(2ʳ+2)+Oᵣ(t⁴). The perturbation is transverse to the trivial modulation line while the two other lines are separated from the limiting signal; the best relative error is bounded below by a constant times |t|. Both obstructions are to any higher exponent even on the respective fixed group and support.",
+      "residual_risks": [
+        "The supplied sanity tests are not independent execution evidence; the result follows by analytic inequalities and exact small examples.",
+        "Iosevich–Li–Yu state the exact-constant theorem on Z_N^d; the proof of the reviewed bound supplies the requisite extension to general finite abelian groups directly by affine averaging."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ricard–Xu give the general conditional expectation estimate for 1<p≤2 and the general two-point inequality; known uniform convexity gives the power type of the upper estimates. The Bhowmik–Deodhar–Iosevich Theorem 5 gives a finite spectral-synthesis inequality, not a near-equality stability statement."
+        ],
+        "reasoning": "Indeed, the averaged orbit vector may be lifted to the product of the finite symmetry group and the Fourier coordinate set, with normalized measure on the group, so Ricard–Xu's expectation inequality implies a stronger upper constant for 1<r≤2. A general upper estimate or even its sharp abstract power does not settle optimality on the restricted Fourier-supported affine-transitive families with minimization over all modulations. The two explicit restricted extremizer perturbations do that.",
+        "searches": [
+          "Ricard–Xu arXiv:1405.0431, Theorems 1 and 2",
+          "Clarkson DOI 10.2307/1989630 and Ball–Carlen–Lieb DOI 10.1007/BF01231769",
+          "Bhowmik–Deodhar–Iosevich arXiv:2508.12194v2, Theorem 5"
+        ]
+      },
+      "checked_sources": [
+        "Iosevich–Li–Yu arXiv:2609.25404v2",
+        "Ricard–Xu arXiv:1405.0431",
+        "Bhowmik–Deodhar–Iosevich arXiv:2508.12194v2",
+        "Local Resultary 1ea2ed8ea56b, fd1bb1b52616 and self-match f0694cc7fd10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known averaging and uniform convexity account for the upper-bound mechanism and the Hilbert identity. Optimality in the stated class requires lower bounds after minimizing over every modulation, not just sharpness of Clarkson/Ball–Carlen–Lieb on arbitrary vectors."
+        ],
+        "reasoning": "Credit the prior implications for the upper estimate and the prior equality cases. Neither implies that the restricted Fourier problem realizes both obstruction powers; the full-support two-frequency and two-point reflection-supported families establish that separate assertion. No covering statement giving the combined result was identified.",
+        "searches": [
+          "Iosevich–Li–Yu Theorem 4.1 proof and later near-equality question; Ricard–Xu Theorems 1 and 2; sharper general convexity route for the upper bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Iosevich–Li–Yu ask for quantitative closeness to a modulated indicator, including the norm and modulus dependence; they characterize zero deficit but the passages compared do not supply a deficit-to-distance bound with these optimal exponents.",
+          "Local coordinate-cross and four-point-progression results give exact constants and equality cases, not optimal stability moduli."
+        ],
+        "reasoning": "Compared near equality in the equivalent form of distance to the union of character-modulated indicator lines, or norm loss under a demodulated affine orbit average. Neither exact equality nor a different support's sharp norm constant answers that distance problem.",
+        "searches": [
+          "Iosevich–Li–Yu arXiv:2609.25404v2, Theorem 4.1 and near-equality discussion",
+          "Local Resultary, quantitative Fourier synthesis, sharp synthesis and extremizers; f0694cc7fd10, 1ea2ed8ea56b, fd1bb1b52616"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact local match is the frozen record itself. The related indexed results are sharp-constant or equality results, not the stability-and-optimal-power theorem."
+        ],
+        "reasoning": "A finite sequence/table is inapplicable to the actual claim, which compares all real exponents in an interval, all transitive supports and all sufficiently small deficits. The synthesis theorem entries were checked instead, without treating absence as proof of priority.",
+        "searches": [
+          "Local Resultary exact/related quantitative synthesis search; f0694cc7fd10, 1ea2ed8ea56b and fd1bb1b52616",
+          "Iosevich–Li–Yu arXiv:2609.25404v2, sharp constant and near-equality discussion"
+        ]
+      },
+      "rationale": "Credit the known sharp constant and equality cases, and the prior abstract convexity/projection inequalities. The supported distinct contribution is the Fourier-specific dimension-independent stability classification with optimal deficit powers, including matching obstructions after optimizing over all extremizer lines. The upper-bound mechanism is a corollary of known convexity once the Fourier norm deficit is identified with loss under averaging; it is not a new Banach-space inequality.",
+      "residual_risks": [
+        "Direct lawful full-text access to the cited Clarkson and Ball–Carlen–Lieb originals was unavailable in the channels attempted; the specific inequalities were established independently or checked in the accessible formulation.",
+        "Search was bounded; earlier explicit Fourier stability or optimality formulations outside the inspected sources are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior sharp constant and equality; poses, rather than solves, quantitative near equality in the inspected discussion",
+          "evidence": [
+            "The theorem is stated on Z_N^d and uses averaging to produce a scalar indicator after demodulation; the discussion asks for closeness, the appropriate norm and modulus dependence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.25404v2",
+          "material_read": "Theorem 4.1 and affine-averaging proof (OA HTML offset 38277); near-equality discussion (offset 145000)",
+          "method": "OA HTML primary text",
+          "title": "Spectral synthesis, Fourier extension, and arithmetic in Z_N^d (Iosevich–Li–Yu)",
+          "trigger": "Same sharp synthesis extremizers and closest near-equality question"
+        },
+        {
+          "assessment": "Covers the general two-point tool, and via a product lift the small-r upper stability estimate, not the restricted optimality statement",
+          "evidence": [
+            "Theorem 1 bounds squared norm loss below by (p−1) times squared deviation from conditional expectation for 1<p≤2; Theorem 2 gives the two-point convexity form."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1405.0431",
+          "material_read": "Theorems 1 and 2, HTML offsets 2759 and 3857",
+          "method": "OA HTML primary text",
+          "title": "A noncommutative martingale convexity inequality (Ricard–Xu)",
+          "trigger": "General stability for expectations and midpoint inequalities"
+        },
+        {
+          "assessment": "Finite synthesis inequality, not quantitative stability in the located statement",
+          "evidence": [
+            "Theorem 5 controls a synthesis norm under Fourier support constraints; it does not estimate distance of near-extremizers to modulated indicators."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2508.12194v2",
+          "material_read": "Theorem 5, HTML offset 12800",
+          "method": "OA HTML primary text",
+          "title": "On spectral synthesis in Z_N^d (Bhowmik–Deodhar–Iosevich)",
+          "trigger": "General finite synthesis inequalities and sharpness"
+        },
+        {
+          "assessment": "The invoked two-point estimates are credited as known; no conclusion about unread original passages",
+          "evidence": [
+            "For complex scalar ℓʳ with r≥2 the cited Clarkson midpoint form also follows directly from the scalar parallelogram identity and convexity. The r<2 inequality is corroborated by the Ricard–Xu formulation."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1989630 ; https://doi.org/10.1007/BF01231769",
+          "material_read": "Original full text unavailable through the attempted channels; BCL-form inequality read in Ricard–Xu, Theorem 2",
+          "method": "Attempted lawful OA; compared reproduced theorem",
+          "title": "Uniformly convex spaces; Sharp uniform convexity and smoothness inequalities for trace norms",
+          "trigger": "Original convexity tools cited by the proof"
+        },
+        {
+          "assessment": "Sharp constants and exact extremizers on other support families; not the claimed stability classification",
+          "evidence": [
+            "Cross supports are analyzed at all exponents; the progressions record is a fourth-norm sharp-constant/equality result."
+          ],
+          "identifier_or_url": "Resultary 1ea2ed8ea56b and fd1bb1b52616",
+          "material_read": "Respective RESULT.md Findings and support families",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Fourier synthesis on coordinate crosses and the fourth-norm transition for four-point progressions",
+          "trigger": "Nearby exact Fourier-synthesis records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Proof and Limitations",
+        "Iosevich–Li–Yu arXiv:2609.25404v2, near-equality discussion"
+      ],
+      "rationale": "This answers the stated Fourier near-equality question in a concrete norm, uniformly in group size and support, and proves that the powers cannot improve even on fixed small groups when the comparison extremizer is optimized. The meaningful contribution is the optimal Fourier-specific stability law and its two distinct obstruction regimes, not novelty of convexity or optimality of the displayed constants.",
+      "residual_risks": [
+        "Scope is Fourier ℓʳ for 1<r<∞ with transitive support symmetry, not a general time-domain or endpoint stability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

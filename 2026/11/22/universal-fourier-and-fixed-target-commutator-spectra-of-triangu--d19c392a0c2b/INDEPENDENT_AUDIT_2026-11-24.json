@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T19:47:27.750699Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Final assessment applies to /workspace/repairs/2/RESULT.md, not the full original as written. Original RESULT.md line 38 is false under its unnormalized convention: it lists levels 2^8 through 2^16 in increments of two in the exponent, but at zero frequency the count alone is 4^12=2^24. The repaired levels are 2^16,2^18,2^20,2^22,2^24 with multiplicities 40,12,9,2,1; the ten fiber sizes and zero-target count 630784 survive. The repair also replaces the original's lift/truncation argument with a direct chain-ring computation. In diagonal-difference coordinates only five coordinates participate. Factor out the minimal frequency valuation a by passing to R/π^(ell-a) (a=ell handled separately). A unit h' gives two unit pivots; a unit s' or t' instead leaves a three-coordinate alternating complement with entry ideal (t',h') or (s',h'), respectively. The complement splits on an entry generating the ideal, without any division by 2, and has second exponent c=b-a. Counting the two free coordinates and q^(6a) lifts gives kernel size q^(2(ell+a+b)). Orthogonality contributes q^(6ell), and subtracting annihilator sums on successive ideals yields the stated inverse transform. Setting h=0 makes a+b=i+j and attains all levels; the unique trivial frequency is at 2ell, so the normalized radius is q^-2. Replayed the example independently by exactly multiplying triangular matrices over both order-four rings: take each bottom diagonal zero, enumerate 4^5 possibilities for each operand, and multiply each histogram contribution by 4^2 for the two omitted scalar diagonals. Compute the DFT of the resulting 64 targets using the usual fourth roots over Z/4 and the character (-1)^(epsilon coefficient) over the dual numbers. All 64 Fourier values in each ring agree with the repaired formula; independent shell summation from formula (1) gives the same ten-level histogram and total 16777216. The bounded replay checks the example, not the unbounded theorem, whose replay path is §§1–4 of the repair. The frozen checker and verification record were inspected, not executed; they do not state the false absolute exponents and need no replacement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Choosuwan–Jitman–Udomkavanich count single determinant fibers over a chain ring, treating unit, zero, and other divisibility classes; not three coupled additive bracket coordinates.",
+          "Fosner et al. study traces and maps preserving Lie triples. The same-date Resultary 9c148c4c1298 conditions on the first operand's regular semisimple type in trace-zero 2-by-2 matrices over odd residue fields, rather than allowing all of T3."
+        ],
+        "reasoning": "General determinant and Lie-algebra frameworks do not give the specific joint kernel profile. The strongest related chain-ring result about actual prescribed commutators uses a different Lie algebra and a restriction on inputs; neither same date nor shared q,ell gives coverage.",
+        "searches": [
+          "arXiv:1605.06826, §3, Theorems 3.5, 3.8, 3.11",
+          "arXiv:1411.6122 abstract and agenda",
+          "Resultary 9c148c4c1298 and 8fae3394a05c, Findings"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1411.6122, 1605.06826",
+        "Resultary ab8c2df75df2, b56a1e679f3d, 8fae3394a05c, 9c148c4c1298, f22a7b432c58 and e6d3dea87842"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general alternating bilinear Fourier identity gives q^(6ell) times a kernel count, not its profile. The field formula cannot resolve nonunits; the two-by-two nilpotent cases do not couple a 13-frequency to the two shorter-root frequencies.",
+          "Separate determinant fiber counts supply at most marginals for individual determinant constraints, not the coupled bracket kernel in the repaired proof."
+        ],
+        "reasoning": "A prior theorem that also supplies this specific profile would cover the result even with different terminology. In the inspected statements the profile requires the additional unit-pivot/factored-ideal cases; no dominating comparison was established.",
+        "searches": [
+          "Resultary T3 field exact formulas ab8c2df75df2; T2 chain-ring tuple formula 8fae3394a05c; trace-zero semisimple witness 9c148c4c1298",
+          "arXiv:1605.06826 §3 determinant theorems; compare rank/Smith-type bilinear Fourier identity to repaired proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full fixed-target counts and all labeled Fourier coefficients are equivalent by finite inversion; the multiset of eigenvalues alone would not give the fibers.",
+          "The field T3 tables give four strata and imply the corresponding field Fourier coefficients by inversion. Related Fourier records consider commuting pairs in M2 over finite rings or commutator graphs for full matrices over fields, not the non-field T3 additive output."
+        ],
+        "reasoning": "Credit all equivalent field formulations. Non-field valuation strata, in particular the joint two-exponent kernel profile after scaling away a, are a different mathematical comparison.",
+        "searches": [
+          "Resultary: exact T3 Lie-commutator fibers, valuation-stratified alternating kernel and Fourier spectrum; ab8c2df75df2 and b56a1e679f3d",
+          "Resultary f22a7b432c58 and e6d3dea87842, cited Fourier comparators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The four-stratum T3 field tables exactly cover length one, whereas 8fae3394a05c counts pairwise commuting tuples/cliques in T2 over chain rings.",
+          "The corrected two order-four tables are reproducible by direct products and shell inversion; no inspected distinct source supplies the non-field T3 table. This limited observation is not evidence that no table exists."
+        ],
+        "reasoning": "Length-one exact matches are excluded from novelty. The step from fields to non-field chains is not justified by matching a finite table on one ring, but by a uniform ring-theoretic profile.",
+        "searches": [
+          "Resultary exact T3 commutator target table, over fields, Z/4 and general chain rings; ab8c2df75df2, b56a1e679f3d and 8fae3394a05c"
+        ]
+      },
+      "rationale": "The repaired claim retains the exact non-field T3 chain-ring frequency profile, all target fibers and sharp walk radius. Its length-one fibers are known and its Fourier identities and pivoting methods are standard, not independently new. The corrected numerical example is corroboration, not the originality basis. The closest same-dimension exact precedent is field-only, and the closest chain-ring antecedents use different algebras or different output constraints.",
+      "residual_risks": [
+        "A broader bilinear word-map theorem that computes this kernel profile could encode the result; not excluded by the bounded inspections.",
+        "The primary web lookup yielded an unrelated response and no negative evidence; same-date distinct results were compared by statement, not chronological priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers length one; not the non-field theorem",
+          "evidence": [
+            "Every ordered fixed-target count is given over F_q in four strata."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-fibers-of-the-lie-commutator-on-three-by-three-triangular--ab8c2df75df2",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Resultary local mirror",
+          "title": "Exact fibers of the Lie commutator on three-by-three triangular matrices",
+          "trigger": "Exact same triangular algebra and fixed target over fields"
+        },
+        {
+          "assessment": "Verified equivalent field scope",
+          "evidence": [
+            "Four strata for T3(F_q), restricted to a field."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-four-commutator-fiber-strata-in-t-3-mathbb-f-q--b56a1e679f3d",
+          "material_read": "RESULT.md field fiber statement",
+          "method": "Resultary local mirror",
+          "title": "Four commutator fiber strata in T3 over finite fields",
+          "trigger": "Another exact boundary table"
+        },
+        {
+          "assessment": "T2 and zero-output constraints, not prescribed T3 output",
+          "evidence": [
+            "Commuting tuples and cliques in T2(R)."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-two-pole-commuting-tuple-and-clique-enumerators-for-triangular-a--8fae3394a05c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Two-pole commuting-tuple and clique enumerators for triangular algebras over finite chain rings",
+          "trigger": "Same coefficient rings; triangular brackets"
+        },
+        {
+          "assessment": "Different ring-Lie-algebra map and restricted first operand",
+          "evidence": [
+            "Fixed targets in sl2(R), first operand restricted by residue type, odd q."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-split-and-nonsplit-regular-semisimple-witness-fibers-for-trace-z--9c148c4c1298",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Split and nonsplit regular semisimple witness fibers for trace-zero matrices",
+          "trigger": "Strongest distinct same-date exact chain-ring commutator comparison"
+        },
+        {
+          "assessment": "Different algebra, transform and statistic",
+          "evidence": [
+            "Computes support/convolution rank for commuting pairs in M2(R)."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-fourier-support-descent-for-commuting-2-times2-matrices-over-fin--f22a7b432c58",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Fourier support descent for commuting 2-by-2 matrices over finite rings",
+          "trigger": "Fourier-and-chain-ring possible equivalence"
+        },
+        {
+          "assessment": "Full M_n over fields with commutator graph, not this fiber transform",
+          "evidence": [
+            "Its singular spectrum is for a graph operator on full matrices over F_q."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-fourier-support-and-exact-singular-spectrum-of-finite-field-matr--e6d3dea87842",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror",
+          "title": "Fourier support and exact singular spectrum of finite-field matrix commutator graphs",
+          "trigger": "Commutator spectrum wording and stronger full-matrix comparison"
+        },
+        {
+          "assessment": "Related algebra; announced results about traces and Lie-triple isomorphisms",
+          "evidence": [
+            "Does not advertise fixed-target finite-ring counts; no whole-document exclusion from abstract alone."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.6122",
+          "material_read": "p. 1 abstract, PDF offset 0",
+          "method": "OA PDF passage inspection",
+          "title": "Centralizing traces and Lie triple isomorphisms on generalized matrix algebras",
+          "trigger": "Triangular Lie-bracket algebra primary source"
+        },
+        {
+          "assessment": "Exact determinant fibers but not the coupled triangular bracket",
+          "evidence": [
+            "d_n(R,a) counts matrices with the single prescribed determinant a, grouped by unit, zero and nonunit valuation cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1605.06826",
+          "material_read": "Abstract and §3 statements Theorems 3.5, 3.8, 3.11; offsets 14950–17750, 21384, 27919",
+          "method": "OA PDF theorem inspection",
+          "title": "Determinants of Matrices over Commutative Finite Principal Ideal Rings",
+          "trigger": "Potential determinant-fiber reduction or stronger valuation-based theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting all prescribed additive outputs on the standard triangular algebra yields a full ring-indexed invariant, not only a zero-bracket count. At fixed (q,ell) the distribution is the same across genuinely different rings, including mixed- and equal-characteristic examples; the positive Fourier structure also gives an exact mixing spectral parameter. These facts survive the repair independently of the example-exponent correction; correcting exponents alone would not supply scientific value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:56:04.801501Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥8 the full four-subset kernel has the Newton expansion of s↦q^((4−s)²) at s=0 into the PSD matrices M_j M_jᵀ, with the degree-four term F(q)I. The first four coefficients are positive for 0<q≤1/3; F changes sign between 1/4 and 1/3 and is decreasing up through 13/25 by the displayed derivative bound. At the root, the lower incidence column spaces nest in that of M₃, so rank reduces to rank M₃. The column-independence induction works because the exchange of x,y passes from (t,k,n) to (t−1,k−1,n−2) within t≤k≤n−t, forcing adjacent t-set coefficients equal and hence zero. On eight points the degree-four and degree-three pair differences are eigenvectors by flips and unpaired-coordinate symmetry. Counting flips gives F and G=1−2q+2q⁹−q¹⁶, respectively; G=(1−q)(1−q⁸)(1−sum_{i=1}^7 q^i), which is negative on [13/25,1) by even the first four terms of the sum. Thus between the first root and 13/25 the degree-four form is negative, and beyond it up to 1 the degree-three form is negative. The eight-point matrices are principal submatrices at every n≥8, and unit diagonal ensures a positive direction. The all-ones endpoint is separate. At 19/20 a bounded numerical check gives F≈0.00616653 and G≈−0.07962785, consistent with the rational signs; for general n the degree-three eigenvalue counts one choice preserving the unpaired point and n−7 choices adding one unit to the distance, hence equals F+(n−6)γ₃ and is negative there as well. Replay: RESULT.md lines 28–83; VERIFICATION.md and check.py were inspected, not run. The result uses d² for shortest-path d, not squared Euclidean distance of indicators.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "74fec769ce53 treats k≥3 and n≥2k. At k=4 its B_k is exactly F, and its first root and rank specialize to ρ and binomial(n,3). Its negative interval ends at 1/(k−1).",
+          "Feragen–Lauze–Hauberg Thm. 2 treats all-bandwidth positivity on complete smooth Riemannian manifolds; Damase–Pascoe Thm. 4.2 gives a Hamming-cube Krawtchouk criterion."
+        ],
+        "reasoning": "Strong direct broader coverage of the first-loss and rank statements, but not the high-q exclusion or top-sector reentry. Neither all-bandwidth obstructions nor homogeneous-space machinery resolve the gaps between parameter intervals.",
+        "searches": [
+          "Resultary: universal Gaussian positivity frontier for Johnson subset metrics, 74fec769ce53",
+          "arXiv:1411.0296; arXiv:2602.09010"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py",
+        "Resultary 74fec769ce53",
+        "Filmus arXiv:1406.0142",
+        "Krebs–Shaheen §5",
+        "Feragen–Lauze–Hauberg arXiv:1411.0296",
+        "Damase–Pascoe arXiv:2602.09010"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The larger-k frontier uses the same positive incidence decomposition and lower incidence rank for the boundary; its negative range is only ρ_k<q≤1/(k−1), and it notes q=1 separately.",
+          "Here F(19/20)>0 while the independent degree-three form is strictly negative, so extending the first-root sign test is insufficient."
+        ],
+        "reasoning": "The full classification requires the complementary degree-three sign interval overlapping that of the degree-four obstruction. That substantive sign argument is not a restriction of the checked broader theorem.",
+        "searches": [
+          "74fec769ce53 RESULT.md Finding and proof discussion at offsets 1692 and 5376 onward",
+          "arXiv:1406.0142 §4; arXiv:2602.09010 Thm. 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Filmus §4 Lem. 4.3 gives common harmonic spaces for the Johnson Bose–Mesner algebra; Krebs–Shaheen §5 gives Eberlein/spherical functions.",
+          "With damping t, q=exp(−t); the Euclidean indicator kernel instead uses 2d, not d²."
+        ],
+        "reasoning": "The exact same question is the signs of Eberlein transforms of the five values (1,q,q⁴,q⁹,q¹⁶), not the Johnson adjacency spectrum or the ordinary indicator Gaussian. The general transform does not give their signs over the entire interval.",
+        "searches": [
+          "Squared graph-distance Gaussian kernel on Johnson four-subset slices; arXiv:1406.0142; On the Spectra of Johnson Graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue gives the exact first transition and rank, not a complete positivity set. Eberlein spectra give coefficient data, not the signs of the polynomial eigenvalues as functions of q."
+        ],
+        "reasoning": "The exact issue is a sign classification on a continuum independent of n, not a numerical root or a finite table of eigenvalues. The exact tabulated or general spectral framework checked does not decide reentry.",
+        "searches": [
+          "Resultary: Gaussian Johnson metrics and squared-distance cutoff, strongest match 74fec769ce53",
+          "Johnson Eberlein eigenvalues, Krebs–Shaheen §5"
+        ]
+      },
+      "rationale": "The exact all-n first-loss polynomial, cutoff rank, and incidence method overlap substantially with the broader published Resultary frontier. Those parts cannot be treated as distinct from that catalogue result. The distinct contribution supported here is the full four-subset classification beyond the first frontier, proving no additional admissible interval all the way to the isolated all-ones endpoint despite top-sector reentry. The broader frontier explicitly leaves the relevant high-q region unclassified. Catalogue dates do not decide priority.",
+      "residual_risks": [
+        "The substantial shared boundary theorem and proof do not resolve historical priority or independence.",
+        "Equivalent calculations in unindexed material on the four-cube or the Johnson scheme may exist; the inspected frameworks are not whole-literature exclusions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact specialization for small-q regime, first cutoff and rank; does not rule out high-q positivity",
+          "evidence": [
+            "B_k(q)=Σ_r(−1)^r binomial(k,r)q^(r²); at k=4, threshold rank binomial(n,3) and first negativity only through q=1/3."
+          ],
+          "identifier_or_url": "Resultary 74fec769ce53",
+          "material_read": "RESULT.md Finding offsets 74–730, incidence proof from 1692 and scope above 5376",
+          "method": "Local Resultary search and mirror read",
+          "title": "A universal Gaussian positivity frontier for Johnson subset metrics",
+          "trigger": "Same kernel with broader subset size"
+        },
+        {
+          "assessment": "Spectral framework; no sign classification in inspected passage",
+          "evidence": [
+            "Johnson Bose–Mesner matrices share eigenspaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1406.0142",
+          "material_read": "§4 Lem. 4.3, p. 12, offset 55885",
+          "method": "Lawful OA PDF passage",
+          "title": "Orthogonal basis for functions over a slice of the Boolean hypercube",
+          "trigger": "Common harmonic eigenspaces for subset kernels"
+        },
+        {
+          "assessment": "General spectra, not the q-dependent signs",
+          "evidence": [
+            "Derives Johnson spectra through Eberlein/spherical functions."
+          ],
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/513/513",
+          "material_read": "§5, journal p. 164, offset 33202",
+          "method": "Open journal PDF passage",
+          "title": "On the Spectra of Johnson Graphs",
+          "trigger": "Eberlein transform potentially tabulates the needed eigenvalues"
+        },
+        {
+          "assessment": "Different quantifier or different kernel",
+          "evidence": [
+            "All-bandwidth smooth-manifold result; separately a criterion for exp(−λd), not exp(−λd²)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1411.0296",
+          "material_read": "Thm. 2 p. 3 offset 13025; Thm. 4 p. 4 offset 16000",
+          "method": "Lawful OA PDF passages",
+          "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+          "trigger": "Gaussian of squared geodesic distance"
+        },
+        {
+          "assessment": "General machinery, no specific cutoff located in inspected material",
+          "evidence": [
+            "Krawtchouk criterion for the Hamming cube provides harmonic tests, not this parameter classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.09010",
+          "material_read": "Thm. 4.2, p. 21, offset 49700",
+          "method": "Lawful OA PDF passage",
+          "title": "Complete discrete Schoenberg-Delsarte theory for homogeneous spaces",
+          "trigger": "Broader positive-definite radial extension criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A radial kernel usable on every ground-set size has an explicit, size-independent admissible set and an exact rank at loss of strict positivity. The same finite obstruction excludes every high-q interval; the top harmonic's sign reversal shows why recording only the first transition is insufficient in this natural distance family. This is a full classification rather than a numerical bandwidth or one small matrix computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

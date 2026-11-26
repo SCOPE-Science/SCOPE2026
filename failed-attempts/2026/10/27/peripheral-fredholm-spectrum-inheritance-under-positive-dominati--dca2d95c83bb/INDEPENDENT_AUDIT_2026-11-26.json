@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:50:23.457774Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On c₀, AP_m has finite rank, and for compact K the norm ||K Q_m|| tends to zero because K* has compact image of the ℓ₁ unit ball and ℓ₁ tails tend uniformly to zero on compact sets. This proves the input-tail formula by comparison to arbitrary K. Iteration of |[S+z(T−S)]x|≤T|x| for |z|<1, applied to Q_m x, then bounds the Calkin norms of all powers by the corresponding powers of T. Gelfand gives the claimed spectral disks without assuming the interpolated operator is positive. For r>0 the spectral mapping of (1+conj(λ/r)G(z))/2 and Vesentini give equality of its radius with one throughout the disk, forcing persistence of λ/r by equality in the triangle inequality. Invertibility is open at z=1. At r=0, nonempty spectra of the unital Calkin algebra lie in {0}, so the result is automatic. The Fredholm interpretation follows from Atkinson. No computation is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dobrick Corollary 2.5 gives equal-radius peripheral inclusion for positive ordered operators on an arbitrary complex Banach lattice. Theorem 2.3 even gives boundary constancy along the open unit disk interpolation.",
+          "Räbiger–Wolff Corollary 1.5 assumes (G)-solvability when working with ordinary spectra, and their Theorem 3.1 uses a Riesz-point hypothesis for an essential-radius conclusion. The Martínez title identifies essential-radius domination, but no full result from that paper was obtained."
+        ],
+        "reasoning": "Dobrick's quantified Banach-lattice theorem applies to the induced pair on ℓ∞/c₀; its hypotheses are exactly satisfied by the transferred Calkin radii and positivity. The other two papers are not needed for this implication.",
+        "searches": [
+          "arXiv:2610.10093, Proposition 2.2, Theorem 2.3 and Corollary 2.5",
+          "Räbiger–Wolff, 10.1017/S144678870000029X, Corollary 1.5 and Theorem 3.1",
+          "Martínez, 10.2307/2160318"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.10093 §2",
+        "Räbiger–Wolff 1997 §§1,3",
+        "Martínez 1993 bibliographic record and retrieval attempt",
+        "Resultary 6cfe4d2d6508",
+        "Frozen RESULT.md and VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Proposition 2.2 states unit-circle spectral constancy for any holomorphic family in a unital complex Banach algebra with spectra in the closed unit disk. The frozen argument after its essential-norm comparison repeats precisely this proof, including the affine spectral map and Vesentini.",
+          "Corollary 2.5 independently supplies the desired conclusion after the quotient-lattice representation."
+        ],
+        "reasoning": "The norm-tail identity and its application to powers impose no new spectral hypothesis or regime beyond what is already covered on the quotient. Neither independence of the proof nor the use of the word Fredholm makes the claim distinct.",
+        "searches": [
+          "arXiv:2610.10093 PDF pp. 3–4, text offset 9020, especially Proposition 2.2 and Corollary 2.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For A on c₀, A** induces Â on the complex Banach lattice ℓ∞/c₀. Let a_i∈ℓ₁ be the rows of A; their fixed columns tend to zero. The output-tail formula gives ||A||_e=limsup_i||a_i||₁ since P_m A is finite-rank and Q_m K→0 in norm for every compact K.",
+          "The induced norm is exactly this limsup. It is at most the essential norm (compact maps act trivially in the quotient). For the converse, choose rows tending to the limsup and successive disjoint finite column blocks: pick each later row with arbitrarily small mass on the old finite prefix, and extend the block until its remaining row tail is small. A single bounded input, with conjugate phases of each chosen row on its block, then attains the limsup asymptotically on those rows, up to errors tending to zero."
+        ],
+        "reasoning": "Thus A↦Â descends to a closed isometric unital Calkin embedding. It preserves radii by the power formula. It preserves the peripheral spectrum because exterior resolvents belong to the Calkin image; if an outer-circle point is invertible in the ambient algebra, approach it radially from outside and use continuity of the inverse and closedness of the image. The converse follows from the unital homomorphism. Both positivity and the order of S,T are preserved under the action on the quotient lattice.",
+        "searches": [
+          "arXiv:2610.10093 §2, positive domination and peripheral spectrum",
+          "RESULT.md:15–21, tail norm; canonical second-dual quotient action"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Calkin-themed record 6cfe4d2d6508 addresses toric composition operators and Fredholm spectral disks, not positive domination on c₀. No exact table of this phenomenon is relevant for arbitrary bounded positive operators."
+        ],
+        "reasoning": "The catalogue check was for exact theorem equivalents rather than numeric entries; the absence of an exact hit does not affect the demonstrated implication from Dobrick.",
+        "searches": [
+          "Resultary: Calkin power norms, peripheral spectral domination, Fredholm essential spectrum on c₀"
+        ]
+      },
+      "rationale": "The result is a direct c₀ corollary of Dobrick's general theorem for positive operators on complex Banach lattices via the canonical action on ℓ∞/c₀. It is also obtained by applying Dobrick's precise Banach-algebra boundary persistence proposition to the Calkin interpolation after the elementary tail bound. The ordinary-spectrum versus essential-spectrum terminology does not prevent implication; the quotient preserves the relevant spectra. This is a finding of prior mathematical coverage, not of incorrectness or an inference from an inaccessible source.",
+      "residual_risks": [
+        "The Martínez full text was not obtained; any additional essential-spectrum coverage there remains unknown. The negative originality decision follows from Dobrick without relying on Martínez.",
+        "Searches are bounded and do not settle priority among all earlier sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior theorem covers the claim through the induced quotient lattice; ordinary terminology alone is not a distinction",
+          "evidence": "Corollary 2.5 assumes a complex Banach lattice, 0≤S≤T and equal ordinary radii. Proposition 2.2 assumes a unital Banach algebra, not an operator lattice. The frozen statement about Dobrick inaccessibility no longer reflects current access.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.10093",
+          "material_read": "§2, PDF pp. 3–4, Proposition 2.2, Theorem 2.3 and Corollary 2.5; text offset 9020",
+          "method": "Direct open-access PDF, bounded passage",
+          "title": "On the Cyclicity Conjecture",
+          "trigger": "Exact ordinary analogue and abstract Banach-algebra lemma"
+        },
+        {
+          "assessment": "Different ordinary spectral hypothesis or essential-radius conclusion; not the decisive coverage",
+          "evidence": "Corollary 1.5 uses (G)-solvability; §3 works with Wolf essential spectrum and treats r(T) a Riesz point.",
+          "identifier_or_url": "https://doi.org/10.1017/S144678870000029X",
+          "material_read": "Introduction p. 17, Corollary 1.5 p. 20, and §3 Theorem 3.1 pp. 25–26; text offsets 2600, 11800, 27500 and 30000",
+          "method": "Open-access PDF passages",
+          "title": "Spectral and asymptotic properties of dominated operators",
+          "trigger": "Earlier peripheral domination and essential spectra"
+        },
+        {
+          "assessment": "Unresolved additional overlap; not used to decide the verdict",
+          "evidence": "Title concerns essential spectral radii, not enough to infer peripheral inclusion.",
+          "identifier_or_url": "https://doi.org/10.2307/2160318",
+          "material_read": "Bibliographic identification and title only; no full mathematical passage retrieved",
+          "method": "DOI and JSTOR lawful open-access attempts and targeted lookup",
+          "title": "The Essential Spectral Radius of Dominated Positive Operators",
+          "trigger": "Plausible earlier essential-spectrum domination result"
+        },
+        {
+          "assessment": "Different operator class and no domination comparison",
+          "evidence": "Concerns toric composition operators and exact Calkin disks.",
+          "identifier_or_url": "Resultary 6cfe4d2d6508",
+          "material_read": "Indexed finding summary",
+          "method": "Local Resultary catalogue lookup",
+          "title": "Exact Calkin power norms and Perron spectral disks for toric bidisk composition operators",
+          "trigger": "Closest indexed Calkin comparison"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The Calkin formulation may be useful as an expository corollary, but the record obtains the identical already covered outer-circle conclusion by combining an elementary coordinate-tail estimate with the established holomorphic spectral theorem. There is no separately established new boundary phenomenon, quantitative invariant, or independent useful remainder to repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

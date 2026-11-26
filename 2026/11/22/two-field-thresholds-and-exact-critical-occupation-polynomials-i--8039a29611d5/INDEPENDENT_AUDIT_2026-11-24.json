@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:43:34.531470Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–53; VERIFICATION.md; verify_tripartite_potts.py, inspected (not run)",
+        "Independent majorization and coloring equality-case reconstruction"
+      ],
+      "rationale": "For s zeros, their cross-edge cost is (s²−u²−v²−w²)/2. Sorting occupancies, the first partial sum is at most a and the second at most a+b, as well as at most s. Filling largest shores first attains both partial-sum bounds, so strict convexity of the squares forces the same sorted vector in every equality case. This yields the sharp piecewise lower bound with slopes 0,a,a+b. Its three positive-field vertices are feasible with zero nonpreferred edge cost. At h=0 any proper coloring uses three disjoint nonempty shore color sets and hence exactly one color per shore. At h=a the largest shore must be full of zeros and the extra k may occupy only one other shore. For partial filling of that shore, both nonzero shores are nonempty and must use opposite constant colors; when the shore is exhausted every vertex of the last shore chooses independently. The two cases add, including when their monomials coincide (e.g. k=c on B and all of C). This gives the displayed P_a and its sum 3(2^b+2^c)−6 even for c=1. At h=a+b strict capacities force A and B full; all three colors of each C vertex are free, giving x^(a+b)(2+x)^c. The strict regimes follow from unique minimizing s and the same equality rules. The optional residual-entropy limits follow by bounding the first degeneracy between constants times 2^b and by taking logs of the other exact counts.",
+      "residual_risks": [
+        "The finite author census has only six size triples and eight fields per triple; the conclusion instead relies on the proof. Strict size ordering and the nonnegative-field regime are essential to this classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-graph field partition function is available",
+          "Weighted proper colorings of complete graphs and multipartite extensions of coloring bounds are available"
+        ],
+        "reasoning": "Proper colorings cover the zero-monochromatic-edge states but leave out a ground state with monochromatic edges that are offset by the finite field. The all-graph identity is a genuine framework overlap but its unprocessed sum is not a sharp classification of minima and ties.",
+        "searches": [
+          "Chang–Shrock arXiv:0907.0777 Eq. (7) and arXiv:0908.2375 Eq. (3.24)",
+          "Shrock–Xu arXiv:0911.4218 Eqs. (2.77)–(2.80), §III.C"
+        ]
+      },
+      "checked_sources": [
+        "Three Resultary mirror records enumerated above",
+        "arXiv:0907.0777, 0908.2375, 0911.4218",
+        "Focused external literature search; arXiv:2409.19863 abstract examined (zero-field Hanoi graphs)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The partition function for any fixed graph encodes counts by field and edge weight",
+          "The colored-edge inequality and equality census are not supplied by the compared coloring bounds"
+        ],
+        "reasoning": "A fixed-size enumeration can use the general coefficients, but the uniform crossing theorem and labeled critical polynomials require minimizing the preferred occupied induced edges with sharp equality conditions and counting the nonpreferred complements. They are not a known listed coefficient or a mechanically isolated entry of the compared sources.",
+        "searches": [
+          "arXiv:0907.0777 p. 2 Eq. (7); arXiv:0911.4218 §§II and III.C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Row-staggered cyclic-ladder Potts has two positive crossings h=1,2 but distinct strict counts 6,3,1 and transfer-matrix critical counts",
+          "An equal-tripartite Ising result counts no-single-spin-improvement weak minima"
+        ],
+        "reasoning": "A ladder has different edges and a staggered rather than global preference; a weak local minimum of a two-color energy need not be a global minimum of the three-color energy. Neither is an equivalent formulation.",
+        "searches": [
+          "Potts antiferromagnet magnetic field complete multipartite graph ground states occupation polynomial",
+          "Resultary: complete multipartite Potts model magnetic field ground state degeneracy thresholds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Local mirror finding at offset 693 reproduces both polynomials and the strict intermediate count for the very same frozen item",
+          "Selected distinct ladder and tripartite Ising records have different claims"
+        ],
+        "reasoning": "The exact record hit is not an independent predecessor; no distinct table of these labeled critical counts was retrieved in the bounded comparison.",
+        "searches": [
+          "Resultary: K_{a,b,c} two field crossings Potts labeled occupation polynomial",
+          "Resultary: tripartite Potts exact critical occupation polynomial two crossings"
+        ]
+      },
+      "rationale": "The all-graph field partition-function identity covers the model and implicitly its coefficients. The explicit all-size ground-energy and full labeled occupation classification at the two finite-coupling crossings is not stated or immediately supplied by the inspected comparisons. Related findings change either the geometry and field or the spin count and optimization criterion. Credit is limited to the explicit tripartite classification.",
+      "residual_risks": [
+        "An earlier unindexed or differently named specialization of the general field-dependent partition function may exist; the retrieved sources do not prove historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical assigned record",
+          "evidence": "Same critical occupation polynomials, degeneracies and intermediate count.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-field-thresholds-and-exact-critical-occupation-polynomials-i--8039a29611d5",
+          "material_read": "RESULT.md Finding, offset 693",
+          "method": "Local Resultary mirror",
+          "title": "Two field thresholds and exact critical occupation polynomials in a tripartite Potts antiferromagnet",
+          "trigger": "Exact-title and formula hit"
+        },
+        {
+          "assessment": "Distinct analogy, no inference from same-day date",
+          "evidence": "Ladder and row-staggering; h=1,2 and Lucas/transfer-matrix degeneracies.",
+          "identifier_or_url": "2026/11/22/SCOPE-two-sharp-entropy-spikes-for-a-row-staggered-three-state-potts-a--351c4c99b7bc",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Two sharp entropy spikes for a row-staggered three-state Potts antiferromagnet",
+          "trigger": "Same two-positive-crossing phenomenon"
+        },
+        {
+          "assessment": "Different model and invariant",
+          "evidence": "Ising on K_{n,n,n}; counts weak local minima rather than global Potts ground states.",
+          "identifier_or_url": "2026/11/8/SCOPE-field-resonant-weak-minima-and-parity-alternating-complexity-on--b9b1601dcfa6",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Field-resonant weak minima and parity-alternating complexity",
+          "trigger": "Magnetic field on complete tripartite graphs"
+        },
+        {
+          "assessment": "General identity, no explicit tripartite classification in compared passage",
+          "evidence": "Spanning-subgraph partition function for nonzero field.",
+          "identifier_or_url": "https://arxiv.org/abs/0907.0777",
+          "material_read": "p. 2 Eq. (7), around offset 3800",
+          "method": "OA full-text passage",
+          "title": "Some Exact Results on the Potts Model Partition Function in a Magnetic Field",
+          "trigger": "All-graph field formula could cover the model"
+        },
+        {
+          "assessment": "Proper-coloring rather than finite-coupling ground-state formula",
+          "evidence": "Exact weighted formula for complete graphs K_n.",
+          "identifier_or_url": "https://arxiv.org/abs/0908.2375",
+          "material_read": "§III.D p. 18 Eq. (3.24), offset 47581",
+          "method": "OA full-text passage",
+          "title": "Weighted Graph Colorings",
+          "trigger": "Antiferromagnet preferred-color weighted exact formulas"
+        },
+        {
+          "assessment": "Relevant proper-coloring bounds and generalization remark only",
+          "evidence": "Bipartite bounds with a multipartite extension remark; complete-graph weighted-set formula.",
+          "identifier_or_url": "https://arxiv.org/abs/0911.4218",
+          "material_read": "§II pp. 18–20 and §III.C pp. 21–22, offsets 51500, 55482, 61033",
+          "method": "OA full-text passages",
+          "title": "Weighted-Set Graph Colorings",
+          "trigger": "Multipartite bounds and weighted preferred sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md energy, polynomial and entropy formulas",
+        "Equality census and comparison with prior field and coloring formulations"
+      ],
+      "rationale": "An all-size exact finite-field classification for the natural first three-shore family distinguishes independent color choices when a shore is saturated from constrained two-shore choices. It separates two distinct critical entropy mechanisms and also exposes an extensive intermediate degeneracy, neither of which the ground-energy envelope alone determines. The critical polynomials are useful finite-size information, not just checks at chosen parameters.",
+      "residual_risks": [
+        "Crossing fields scale with shore sizes; these are not fixed-intensive-field thermodynamic transitions. No claim for positive temperature or wider multipartite families follows."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

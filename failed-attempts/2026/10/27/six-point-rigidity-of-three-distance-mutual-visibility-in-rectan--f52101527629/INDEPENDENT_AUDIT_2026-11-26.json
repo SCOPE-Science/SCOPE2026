@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:04:28.286251Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–57",
+        "VERIFICATION.md lines 19–25, check_grid_mu3.py and check_grid_mu3.out inspected",
+        "Independent replay: node /workspace/checks/grid_bfs_replay.js (same BFS test executed in the review runtime)"
+      ],
+      "rationale": "At most two selected cells occur per row or column because the collinear geodesic is unique. Manhattan diameter ≤3 bounds the span in each coordinate. For a row span of three, the extremes are singletons on the same column, so equality at six forces two cells in each intermediate row; the extremes forbid columns farther than one away, and their vertical geodesic forbids their own column on the intermediate rows. For smaller row span, six requires three consecutive rows of two cells; width two is too small and width three would leave one omitted cell per row and column. Such omissions cannot hit both opposite-corner pairs, since any two corners chosen from distinct opposite pairs share a row or column. The only remaining span is three in the column coordinate, giving the transposed equality argument. The listed six geodesic representatives for H cover all pairs under the two reversals and certify feasibility, and no orientation/translation is counted twice. On 3×3, a center-containing five-set would need two adjacent corners and two edge midpoints. With top corners, these midpoints must be bottom and left or right; in either case all monotone paths from the corresponding top corner to the bottom midpoint hit the center or the chosen side midpoint. Without the center, one corner and four midpoints is blocked by the midpoint on the corner-to-opposite-side-midpoint path; two adjacent corners prohibit the intervening midpoint and thus force all other midpoints. The feasible sets are the four rotations of B. Independent BFS subset enumeration found exactly the expected optimizer families on 3×3, 3×4, 4×3 and 4×4.",
+      "residual_risks": [
+        "The independent finite grids do not prove the theorem on larger grids; the span proof does. The frozen script visits all nonempty bounded-diameter cliques but skips visibility testing once a candidate is smaller than the current best. This does not affect the computed optimizer families. The frozen 13-grid output was not independently rerun."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed exact anchored-box proof covers all cardinalities under the same radius three, all m,n≥2, and radius two as well. The direct k-distance predecessor instead asks about grids; the unrestricted result reported in §3 of arXiv:2112.13024v2 applies for both sides greater than three."
+        ],
+        "reasoning": "The polynomial theorem genuinely contains the target scope and statistic. The older direct and unrestricted comparators do not supply this classification by themselves.",
+        "searches": [
+          "Resultary 036ef53d5845, proof at offsets 1030–4916",
+          "Cera López et al. §6 and Cicerone et al. arXiv:2112.13024v2 §3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 036ef53d5845, local mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+        "arXiv:2408.03976v1 and 2112.13024v2",
+        "Korže–Vesel DOI 10.1007/s00025-024-02139-x, p. 2",
+        "Kuziak et al. DOI 10.1007/s00025-025-02450-1",
+        "arXiv:2512.01978"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete exhaustive table uses an independent reachability count and notes that top-degree conclusions are not claimed to be new. The frozen H is visibly feasible in the 3×4 box, which already has exactly one feasible anchored six-set by the table."
+        ],
+        "reasoning": "A feasible representative plus uniqueness identifies the coordinates without an additional classification step; transposition identifies V. The explicit names or drawing of H,V do not constitute a new remaining theorem. The source comparison establishes coverage independently of the dates and does not settle publication priority.",
+        "searches": [
+          "Polynomial finding, locality proof and anchored-table proof (036ef53d5845)",
+          "Same record Relationship to prior work, offset 6630"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Polynomial record 036ef53d5845 and arXiv:2408.03976 both use the existential geodesic and literal cutoff; Kuziak et al. instead automatically allow distant pairs."
+        ],
+        "reasoning": "Choosing the leading term of the same polynomial invariant extracts exactly the frozen cardinality and labeled multiplicity; unrestricted or distant-pair-exempting formulations are not interchangeable.",
+        "searches": [
+          "Resultary distance-three grid optimizer classification and visibility counting polynomials",
+          "Cera López et al. arXiv:2408.03976v1 §1",
+          "Kuziak et al. DOI 10.1007/s00025-025-02450-1 §1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Radius-three 3×3 row: 8z³+25z⁴+4z⁵; 3×4 row: 4z⁴+4z⁵+z⁶; all other shapes up to transposition lack z⁶, and no larger degrees occur. Finite locality and the complete enumeration justify the table."
+        ],
+        "reasoning": "All placements of an anchored box are translates with the same visibility. In 3×3 no smaller box contributes a five-set, and the single 3×4 anchored six-set and its transpose give (m−2)(n−3)+(m−3)(n−2). This is an exact table match, not an extrapolation.",
+        "searches": [
+          "Exact anchored-box table, Resultary 036ef53d5845 RESULT.md offsets 1030–4916"
+        ]
+      },
+      "rationale": "An independently proved indexed polynomial result already gives the maxima and multiplicities on a larger domain, with exactly one anchored six-set in the only possible box up to transposition. The H,V coordinates are obtained by verifying the displayed feasible example in that singleton anchored class. This is exact coverage and direct implication, not a similar parameter or merely a shared subject. No historical priority inference is needed.",
+      "residual_risks": [
+        "The polynomial record mentions pre-existing optimizer results without resolving historical priority. Its own table and locality argument already suffice for this coverage decision, regardless of priority. No comprehensive search claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger result giving the complete frozen classification as a direct consequence",
+          "evidence": "It assigns the only z⁶ count to the exact 3×4 box up to transpose, with coefficient one; the exceptional 3×3 count is four.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-complete-distance-two-and-distance-three-mutual-visibility-polyn--036ef53d5845/RESULT.md",
+          "material_read": "Finding tail, assumptions, locality lemma, anchored-box table and exact counting method at offsets 1030–4916; prior-work portion at offset 6630",
+          "method": "Indexed search and local-mirror substantive passage comparison",
+          "title": "Complete distance-two and distance-three mutual-visibility polynomials of rectangular grids",
+          "trigger": "Decisive same-parameter exact table"
+        },
+        {
+          "assessment": "Same definition but no exact grid classification in the compared portions",
+          "evidence": "Theorem 2.1 gives a lower bound; §6 asks about the bounded-distance parameter on Cartesian products of paths.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.03976v1",
+          "material_read": "OA offsets 4200 (definition), 10751 (Theorem 2.1), 62010 (§6)",
+          "method": "Primary full-text passage comparison",
+          "title": "The k-Distance Mutual-Visibility Problem in Graphs",
+          "trigger": "Direct predecessor in this invariant"
+        },
+        {
+          "assessment": "Unrestricted invariant; scope in checked passage is r,s>3",
+          "evidence": "Reports 2 min{r,s} in that scope, citing Di Stefano Theorem 4.6; this neither enforces distance three nor describes the six-point optimizers.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13024v2",
+          "material_read": "§3, PDF p. 6, OA offset 17000",
+          "method": "Published theorem comparison via OA manuscript",
+          "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+          "trigger": "Known exact grid formula and potential broader implication"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Distance greater than d makes a pair visible automatically, opposite to the cutoff requirement here.",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-025-02450-1",
+          "material_read": "Page 1 and §1, OA offsets 0 and 5339",
+          "method": "Primary full-text definition comparison",
+          "title": "Mutual d-visibility in Graphs",
+          "trigger": "Potential equivalent terminology"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "It instead requires k+1 internally disjoint unobstructed shortest paths.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.01978",
+          "material_read": "Page 1, defining condition",
+          "method": "OA primary-text comparison",
+          "title": "Fault-Tolerant Mutual-Visibility: Complexity and Solutions for Grid-Like Networks",
+          "trigger": "Grid-like family and possible related diameter restriction"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–24, 30–57",
+        "Resultary 036ef53d5845 anchored-box table and locality lemma"
+      ],
+      "rationale": "The natural radius-three rigidity question has mathematical interest and the elementary span proof is explanatory, but the submitted finding gives the same optimizer invariant already fixed by the complete exact table. Naming the unique local configurations and counting placements does not leave a distinct valuable claim once that table is available; no new structural extension or independently useful remainder is established.",
+      "residual_risks": [
+        "The decision is about the original finding, not the pedagogical merit of its noncomputational proof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

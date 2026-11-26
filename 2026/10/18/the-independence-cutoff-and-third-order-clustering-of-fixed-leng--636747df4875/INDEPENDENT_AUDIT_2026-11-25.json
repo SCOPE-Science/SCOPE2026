@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:54:01.616433Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–52",
+        "VERIFICATION.md lines 19–23",
+        "check_palindrome_count.py lines 18–122 (inspected, not executed)",
+        "Independent exact reproduction: /tmp/opencode/frozen_review_reproduction.py palindrome"
+      ],
+      "rationale": "An equality graph with v vertices and c components has q^c consistent labels. Two distinct reflection matchings have no common edge and cannot have an alternating cycle, since two reflections compose to a nonzero translation on the integer line. For three consecutive windows, compositions of consecutive reflections connect x to x+2 for every x from 0 through k−1 in the block of length k+2 (allowing a reflection to fix its center). Thus each parity is connected, and the middle matching joins the two parities exactly when k is even. The rank is 2r+1 in either case. At k=2 or 3 any selected equalities form a forest. Distinct-index third cumulants are nonnegative since the joint rank is at most 3r; all repeated-index terms reduce to those of independent Bernoulli variables. The positive consecutive-triple contribution therefore rules out a binomial count, not just mutual independence. For k=4 and 5 I independently computed binary incidence-matrix ranks for all 15 and 28 offsets, respectively, with 1≤a<b≤2k−2. Only (1,2) has rank deficit, equal to one. For b≥2k−1 one gap is ≥k and separates an outer window. Direct word enumeration at five selected (q,k,N) also confirmed the count's third cumulant. In the nonuniform boundary overlap, one size-three equality component replaces two size-two components, and the bracket equals Var(w_X) for X with law w, proving the stated rigidity. All cases M=1,2 and r=1 are consistent.",
+      "residual_risks": [
+        "Finite replay verifies the k=4,5 offset step and selected count moments, not the unbounded claims; those use the reflection and cumulant arguments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lemma 3.2 gives the positional mean (n−m+1)/K^⌊m/2⌋.",
+          "The later radii record gives pairwise independence of maximal radii under uniformity, parity covariance, and a mixed-center dependent triple, not the same-length consecutive triple or count cutoff."
+        ],
+        "reasoning": "Means and pairwise statements, including independence at distinct centers, do not imply the third-order classifications. The later overlap is not evidence of priority.",
+        "searches": [
+          "Rubinchik–Shur arXiv:1505.08043, Lemma 3.2",
+          "Resultary fixed-length palindrome radii and count dependence, record 7fd48777c0b3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1505.08043",
+        "arXiv:1906.03689",
+        "arXiv:0705.2143",
+        "DOI:10.1080/03610926.2012.739253 (bibliographic only)",
+        "Resultary f2d2b4ad711f",
+        "Resultary 7fd48777c0b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "First-moment and distinct-center pairwise claims are covered or implied by related results. The modular-sum reduction makes the odd case a consequence of the corresponding even case."
+        ],
+        "reasoning": "The exact rank at three consecutive starts and classification of triple deficits for short lengths are additional steps absent from the accessible comparisons. Ruling out a binomial count also requires the no-cancellation property, which is not implied by one dependent triple alone.",
+        "searches": [
+          "Rubinchik–Shur Lemma 3.2; Gabric–Shallit Theorem 7; Lillo–Spanò Section II; Resultary f2d2b4ad711f and 7fd48777c0b3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gabric–Shallit compare odd and even palindromic prefix orders via adjacent modular sums.",
+          "Lillo–Spanò distinguish reversal and reverse-complement matches between separated segments, allowing mismatches.",
+          "The 2013 DNA-count paper's full text could not be inspected."
+        ],
+        "reasoning": "With uniform letters on a cyclic alphabet, all adjacent sums are again i.i.d. uniform, and an odd window is palindromic iff its adjacent-sum window is palindromic. This transfers established even-length results to the next odd length but does not supply the even-length cutoff or triple law. At even k, a fixed alphabet involution on the odd positions also converts reverse-complement matching to literal reversal simultaneously for all starts under a uniform law; consequently the unavailable DNA paper is a real potential overlap, not ruled out solely by terminology. The accessible separated-repeat model did not furnish the fixed-window classification.",
+        "searches": [
+          "Gabric–Shallit arXiv:1906.03689, Theorem 7",
+          "Lillo–Spanò arXiv:0705.2143, Section II",
+          "Špoljarić–Ugrina DOI 10.1080/03610926.2012.739253"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-date Poisson–binomial record treats a specified word and its borders; the later palindrome radii record treats all centers and length covariance."
+        ],
+        "reasoning": "The event in this record unites all palindromes of length k rather than occurrences of one specified word. Neither inspected finding provides the exact cutoff plus the fixed-length triple-deficit formulas. No exact table coverage was established.",
+        "searches": [
+          "Resultary fixed-length palindrome/count-dependence search, matched records f2d2b4ad711f and 7fd48777c0b3"
+        ]
+      },
+      "rationale": "The positional mean is known, and the graph-labeling identity and odd/even coupling are not independently credited as new. The distinct mathematical package is the sharp fixed-length joint-independence/binomial cutoff with its third-order obstruction, exact small-length cumulants and one-overlap rigidity. The nearest accessible results do not give or force that package. This is a best-of-knowledge judgment, not historical-priority certification.",
+      "residual_risks": [
+        "Unexamined 2013 DNA-palindrome article may cover some even-length uniform results after the alternate-position transform.",
+        "Other word-occurrence overlap calculations may contain equivalent formulas under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the first moment only in the inspected comparison",
+          "evidence": "The expected count (with repeated occurrences allowed) is (n−m+1)K^−⌊m/2⌋.",
+          "identifier_or_url": "https://arxiv.org/pdf/1505.08043",
+          "material_read": "Lemma 3.2 and footnote, PDF p. 3 (offset 9800)",
+          "method": "OA PDF passage inspection",
+          "title": "The Number of Distinct Subpalindromes in Random Words",
+          "trigger": "Positional palindrome expectations"
+        },
+        {
+          "assessment": "Known reduction, not a fixed-window even-length cutoff",
+          "evidence": "The map takes adjacent modular sums and matches classes of odd and even palindrome prefix orders.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.03689",
+          "material_read": "Theorem 7 and adjacent-sum proof, PDF p. 5 (offset 10999)",
+          "method": "OA PDF passage inspection",
+          "title": "Borders, Palindrome Prefixes, and Square Prefixes",
+          "trigger": "Exact parity reduction"
+        },
+        {
+          "assessment": "Related repeat model with different event class",
+          "evidence": "Mirror repeats reverse the first segment; inverted repeats reverse and complement it. The model examines pairs of repeat segments and imperfections.",
+          "identifier_or_url": "https://arxiv.org/pdf/0705.2143",
+          "material_read": "Section II examples, PDF p. 1 (offset 6176)",
+          "method": "OA PDF passage inspection",
+          "title": "Inverted and mirror repeats in model nucleotide sequences",
+          "trigger": "Literal reversal and reverse-complement repeat statistics"
+        },
+        {
+          "assessment": "Unresolved, not evidence of noncoverage",
+          "evidence": "An even-length uniform reverse-complement analysis could apply by relabeling alternate sites.",
+          "identifier_or_url": "https://doi.org/10.1080/03610926.2012.739253",
+          "material_read": "Bibliographic identification only; article definitions and theorems not inspected",
+          "method": "DOI and publisher PDF returned 403; no lawful open repository copy located",
+          "title": "On Statistical Properties of Palindromes in DNA",
+          "trigger": "Highly plausible prior palindrome-count analysis"
+        },
+        {
+          "assessment": "Different events; date alone gives no priority order",
+          "evidence": "Unbordered specified word versus membership in all palindromes of a given length.",
+          "identifier_or_url": "Resultary f2d2b4ad711f",
+          "material_read": "Finding and fixed-word scope",
+          "method": "Local catalogue search and record passage inspection",
+          "title": "A Poisson–binomial universality boundary for pattern counts in i.i.d. words",
+          "trigger": "Same-date adjacent exact count law"
+        },
+        {
+          "assessment": "Partial overlap, later catalogue date",
+          "evidence": "Pairwise center independence and length covariances; the example is not three consecutive starts of one fixed length.",
+          "identifier_or_url": "Resultary 7fd48777c0b3",
+          "material_read": "Finding and reflection proof, including the dependent triple example",
+          "method": "Local catalogue search and record passage inspection",
+          "title": "Pairwise independence of palindrome radii and the exact parity split",
+          "trigger": "Direct overlap in palindrome dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 13–34 and 44–52",
+        "Exact offset and word-count reproduction"
+      ],
+      "rationale": "This settles when a binomial model of a basic sliding-window statistic is exact: mean and variance match for every length, yet the third cumulant detects a sharp failure. An exact correction at the first two nontrivial lengths and the uniformity criterion at one shared site make the result useful for calibrating dependence, beyond a routine moment or a few tabulated examples.",
+      "residual_risks": [
+        "Not a tail approximation or a claim about non-i.i.d. sources; odd-length instances are related to the previous even length."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

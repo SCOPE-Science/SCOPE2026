@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:50:21.134509Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–94, VERIFICATION.md, HESSIAN.json, verify.py and crosscheck.py (scripts read only)",
+        "/workspace/branches/reproduce-5.py (independent Green-moment reconstruction; run with the frozen HESSIAN.json as its argument for the full matrix comparison)"
+      ],
+      "rationale": "Two area elements and the sixth distance power scale by length to the tenth power, canceled by area to the fifth power. The oblique-coordinate change contributes (2/sqrt(3))^3. I reconstructed the quartic-and-higher moment calculation independently using Green's theorem: M_pq=(p+1)^(-1) ∮u^(p+1)v^q dv, evaluated along straight edges. Near the given ordered vertices these are the actual convex polygon moments; their polynomial extensions can be evaluated at interpolation nodes even outside that neighborhood. The area polynomial has degree at most two and the energy degree at most ten. Exact interpolation on eleven nodes gives their first and second directional derivatives, and polarization gives all mixed entries. It verifies area 3 and energy 5157/280 in oblique coordinates, the Euclidean normalized value 191 sqrt(3)/2835, vanishing log gradient, and every supplied entry and all four characteristic quadratics of the log-Hessian. The matrix is real symmetric and each quadratic has positive sum and product of roots, so the eight nonzero modes are positive. Similarity invariance and stationarity put the two translation, scale and rotation tangents in the kernel, hence exhaust it. Fixing the first two vertices by the unique nearby direct similarity gives an explicit smooth transverse slice; local convexity and orientation are open, and Taylor's theorem gives strict minimality on that slice and exactly the stated equality cases.",
+      "residual_risks": [
+        "The strict conclusion is local among cyclically labeled positively oriented convex hexagons, not global or uniform across exponents. The verification is exact arithmetic, not proof-assistant or expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 of Bogosel–Bucur–Fragalà treats global fixed-area powers 2 and 4, not 6. Lemma 7(ii) covers higher powers including 6 on linear images of regular N-gons. Lemma 7(i)'s power-six result concerns a symmetric octagonal case.",
+          "Bonacini–Cristoferi–Topaloglu give results for 3 and 4 sides and identify N≥5 as future work in the relevant passage."
+        ],
+        "reasoning": "The affine-image theorem controls only an affine subfamily; an arbitrary nearby convex hexagon is not an affine deformation of a regular one. Neither the other exponents nor the fewer-sided statements dominate the present full local problem.",
+        "searches": [
+          "arXiv:2302.11677, §2 Theorem 5 and Lemma 7, §3.1, §3.3 and Appendix §9.3",
+          "arXiv:2103.06657 pp. 1, 4"
+        ]
+      },
+      "checked_sources": [
+        "Bogosel–Bucur–Fragalà arXiv:2302.11677, §§2, 3.1, 3.3 and 9.3",
+        "Bonacini–Cristoferi–Topaloglu arXiv:2103.06657, pp. 1 and 4",
+        "Bogosel arXiv:2609.14785, abstract and §1",
+        "Resultary records 30d544f884f4 (assigned), 5f6d5b097fbd and d7b4d3447d4b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest primary paper uses numerical quadrature and general gradient and Hessian formulas (85)–(86); it reports the sign pattern for N=6 without a rigorous exact sign certificate. General differentiation formulas require the actual 12-coordinate evaluation and positivity argument.",
+          "The higher-even hexagon record explicitly says power 6 is not included; the torsion result has a different operator and normalization."
+        ],
+        "reasoning": "No inspected stronger theorem or same-functional exact computation supplies the missing arbitrary-variation sign check. Independent reconstruction confirms that check is a substantive algebraic certificate, not a reinterpretation of the published numerical outcome.",
+        "searches": [
+          "arXiv:2302.11677 §3.1 p. 10, §3.3 pp. 12–13, Appendix §9.3 pp. 39–41",
+          "Local mirror hexagon 5f6d5b097fbd RESULT.md offsets 6160–7740",
+          "arXiv:2609.14785 abstract and §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At fixed area, the normalized Riesz-type positive-power distance integral differs by a constant denominator. At a stationary shape, log-energy and energy Hessians differ in sign only by a positive scalar factor.",
+          "Bogosel–Bucur–Fragalà §3.1 studies these equivalent shape modes numerically. Bogosel's exact Fourier-symbol work concerns torsional rigidity normalized by area squared, a different functional."
+        ],
+        "reasoning": "An exact all-direction fixed-area distance-energy local theorem or rigorous transverse Hessian positivity would cover the local conclusion. A numerical sign calculation or a torsion Hessian does not.",
+        "searches": [
+          "Resultary: sixth-power distance interaction regular hexagon local minimizer exact Hessian characteristic polynomial",
+          "Resultary: exact sixth power distance energy local Hessian regular hexagon convex polygons",
+          "Literature: regular hexagon sixth-power distance energy local minimizer arbitrary convex hexagon Hessian exact proof Riesz polygons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is itself a top exact match. The distinct hexagon entry 5f6d5b097fbd supplies exact positive pivots only for powers 8 through 24, and says the sixth-power proof is separate; its passage gives no identifier for a different proof. The distinct pentagon entry d7b4d3447d4b includes power 6 but is for five vertices.",
+          "The primary numerical paper reports signs for the same case; the sign observations and quadrature formula are not an exact spectral table."
+        ],
+        "reasoning": "The strongest inspected exact tables have disjoint exponent or polygon scope, and the same-case table is numerical. The related record's reference to a separate proof is consistent with the present record, but no date-based ordering or identification of that reference beyond its actual text is assumed.",
+        "searches": [
+          "Resultary searches for exact sixth-power hexagon Hessian listed above",
+          "arXiv:2302.11677 §§3.1, 3.3, 9.3",
+          "Published-record mirror: 5f6d5b097fbd and d7b4d3447d4b"
+        ]
+      },
+      "rationale": "The same Hessian sign pattern and the likely local behavior were explicitly known numerically. The distinct result is a fully exact sign certificate for the full vertex Hessian and the resulting all-direction strict local theorem for sixth-power distance, with an exact value. The closest primary paper proves a restricted affine-image result at this power but does not certify arbitrary nonaffine directions. The closest distinct same-day hexagon entry expressly excludes power six; its nonspecific reference to a separate proof is not a separate exact proof or a basis for inferring priority.",
+      "residual_risks": [
+        "An unindexed exact proof might exist, including a different proof alluded to without identifier in the higher-even record; the associated excerpt does not establish priority either way.",
+        "No originality is assigned to the prior numerical sign pattern, the affine-image special case, or the general shape-differentiation method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact restricted theorem and direct prior numerical result, not a rigorous full-neighborhood sixth-power theorem",
+          "evidence": [
+            "The global fixed-area powers in Theorem 5 are 2 and 4; higher-power linear images are covered by Lemma 7(ii).",
+            "Section 3.1 reports numerical Hessian positivity off the similarity modes; §3.3 uses quadrature despite the availability of polynomial integration. Equations (85)–(86) are general derivative formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2302.11677",
+          "material_read": "Theorem 5 and Lemma 7, §2 pp. 8–9; §3.1 p. 10 (offset about 31500); §3.3 pp. 12–13 (about 38500); Appendix §9.3 pp. 39–41 (about 119000 and 127000)",
+          "method": "OA original PDF passages",
+          "title": "The nonlocal isoperimetric problem for polygons: Hardy–Littlewood and Riesz inequalities",
+          "trigger": "Same functional and polygon order, proven subfamilies and explicit Hessian numerics"
+        },
+        {
+          "assessment": "Stated exact results apply to triangles and quadrilaterals, not the sixth-power hexagon",
+          "evidence": [
+            "The inspected statements are for N=3,4 and decreasing kernels, with N≥5 discussed as future work."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.06657",
+          "material_read": "pp. 1 and 4, offsets 500 and 14889",
+          "method": "OA original PDF passages",
+          "title": "Riesz-type inequalities and overdetermined problems for triangles and quadrilaterals",
+          "trigger": "Possible general polygon extremal result"
+        },
+        {
+          "assessment": "Exact local theorem for 8,10,…,24, explicitly not power 6; separate-proof wording does not identify an antecedent",
+          "evidence": [
+            "‘The sixth-power hexagon local minimum has separately been proved exactly; it is not a new exponent claimed here.’ The references in this passage supply no distinct sixth-power proof."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-certified-higher-even-distance-local-stability-of-the-regular-he--5f6d5b097fbd/RESULT.md",
+          "material_read": "RESULT.md claimed powers and comparison passage, notably offsets 6160–7740",
+          "method": "Local published-record mirror, bounded passage",
+          "title": "Certified higher-even distance local stability of the regular hexagon",
+          "trigger": "Strongest distinct matching record: same shape, functional and exact Hessian method"
+        },
+        {
+          "assessment": "Different vertex number, hence not a covering result",
+          "evidence": [
+            "The proof certifies pentagons, not hexagons."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-certified-local-minimality-of-the-regular-pentagon-for-ten-even--d7b4d3447d4b",
+          "material_read": "RESULT.md finding and claimed exponent range",
+          "method": "Local published-record mirror",
+          "title": "Certified local minimality of the regular pentagon for ten even powers",
+          "trigger": "Exact same sixth-power functional with a different polygon"
+        },
+        {
+          "assessment": "Methodological analogue only",
+          "evidence": [
+            "The block-circulant certification concerns torsional rigidity divided by area squared, for 5≤n≤25, not sixth-distance energy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.14785",
+          "material_read": "Abstract and §1, offsets 0–2194 and 6863",
+          "method": "OA primary text passages",
+          "title": "Computer-assisted local maximality of regular polygons for torsional rigidity",
+          "trigger": "Potential general exact Fourier-Hessian theorem for regular polygons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proof",
+        "arXiv:2302.11677 Theorem 5, Lemma 7 and §3.1",
+        "Independent exact reconstruction"
+      ],
+      "rationale": "The sixth power is the first even case beyond the known second- and fourth-power global inequalities. The cited numerical work directly motivates determining whether regular hexagons are stable under arbitrary nearby vertex perturbations. The exact full transverse Hessian answers that question rigorously and separates actual shape directions from the four similarity directions. Its value is the strict local theorem in nonaffine directions, not the length of the characteristic polynomial or the numerical value by itself.",
+      "residual_risks": [
+        "No global polygonal isoperimetric minimization, crossing exponent, or statement at other orders is proved by this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

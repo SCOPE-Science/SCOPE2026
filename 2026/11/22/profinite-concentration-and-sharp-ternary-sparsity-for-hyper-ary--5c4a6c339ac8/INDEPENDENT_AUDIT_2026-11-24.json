@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T10:46:18.227564Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–89",
+        "VERIFICATION.md and verify_hyper_concentration.py inspected, not executed",
+        "Independent replay /workspace/branches/05eb809d-3f25-42a4-8465-0728c986553e/verify_ternary_reproduction.py; ternary_check_small.log and ternary_check_full.log. Full bounded run: 120 checks in bases 2,3,4,5,7,11 up to the configured maximum index 200000."
+      ],
+      "rationale": "The occupancy of the units place is uniquely d when the last base-b digit d is nonzero, and is 0 or b when d=0, yielding the stated recursions with h_b(−1)=0. Tracking (h_b(n),h_b(n−1)) gives the three stated digit maps, including the leading-zero initial state (1,0). For b≥3 the word 2 0^(q−1) 2 sends (x,y) to (qx,qx). This absorbing congruence state forces all counted indices to avoid that word in the disjoint length-(q+1) blocks; counting available blocks gives exactly the bound. Bracketing any cutoff by two successive powers transfers the fixed-modulus density, and residue cylinders give weak profinite convergence. Modulo three the opposite-pair classes A,B,C,D have complete live transitions A→A,C; B→B,C; C→C,D; D→A,B,C, with row weights (1,b−1), (1,1), (b−2,2), (1,1,b−2). The missing b−2 weight at B goes to zero. The accepting classes are A,C,D. Solving the continuation series first gives C=(1+z)/[1−(b−1)z−(b−2)z²−4z³]; then A=[1+(b−1)zC]/(1−z), giving the displayed numerator and denominator, including b=2 and r=0. For b≥3 the live transfer is irreducible with a self-loop; a positive left Perron vector and the strict deficit at B force λ<b. The characteristic cubic has one positive root, larger than 1 by its value at 1. Positivity of both Perron pairings yields N_b(r)∼c_b λ^r with c_b>0, and neighboring base powers give the all-cutoff sharp exponent. These deductions and the independent finite replay agree.",
+      "residual_risks": [
+        "The finite replay compares partition enumeration, transfer and recurrence but does not establish the universal bounds. Density is for each fixed base and modulus; neither a uniform limit nor an optimal general-modulus exponent is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Courtright–Sellers formula h_m(m^j n+m^(j−1)k)=j h_m(n) for m≥3 and 2≤k<m shows exact divisibility at a prescribed suffix. Eom–Jeong–Sohn includes space-efficient pointwise matrix evaluation; Edgar also evaluates individual values from digits.",
+          "Coons's general bounded-multiplicity scope includes cap b but the inspected results concern growth and monotonicity. The unrestricted m-ary modular formula concerns a different partition function, also as a pointwise evaluation."
+        ],
+        "reasoning": "These methods give ingredients for a modular automaton. To infer the density result one still has to show that the whole residue state is killed by an internal word and that every longer suffix preserves zero; to infer the ternary law one needs the transfer and its spectral evaluation.",
+        "searches": [
+          "Courtright–Sellers (2004) Theorem 3.1, exact divisibility progressions",
+          "Eom–Jeong–Sohn (2016) matrix and special-form evaluation",
+          "Edgar (2018) digit formula; Coons arXiv:2611.08109v1 bounded-multiplicity family",
+          "Andrews–Fraenkel–Sellers m-ary modulo m Theorem 2.1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Related work",
+        "Resultary bb0ad70479bb, 0ef0f422a8a2, a4362220d5df",
+        "Reznick §5, Courtright–Sellers Thm. 3.1, Eom–Jeong–Sohn §§2–3, Edgar p. 1, Coons arXiv:2611.08109v1; Andrews–Fraenkel–Sellers Thm. 2.1",
+        "OEIS A002487"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Reznick, a_0=a_1=0, a_2=2 and a_r=a_(r−1)+4a_(r−3) for r≥3. Since s(2^r)=1, N₂(r)=2^r−Σ_(j<r)a_j. Hence the GF is 1/(1−2z)−2z³/[(1−z)(1−z−4z³)], exactly the reviewed b=2 formula.",
+          "The j=q progression identity supplies a zero first coordinate after the suffix 2 0^(q−1); adding the repeat of digit 2 kills the second coordinate and is the step needed to forbid arbitrary internal blocks of that form. The parity theorem already gives the q=2 density consequence, not the odd-prime count or all-modulus result.",
+          "The same-day cap-(b+1) parity law is material comparative overlap, not coverage of cap-b ternary states. The earlier all-ones m-ary entry a4362220d5df treats one index family with unrestricted multiplicities."
+        ],
+        "reasoning": "The binary result is an actual corollary and must be credited, not merely described as analogous. The progression identity is very close input but not by itself an aggregate bound; the new block mechanism uses both coordinates. The exact higher-base cubic, including the b−2 mass lost at B, is not a substitution into the two-state parity or binary formulas. Same UTC date does not determine priority.",
+        "searches": [
+          "Courtright–Sellers Theorem 3.1 and frozen block bound",
+          "Reznick Eq. (5.3) and Lemma 5.2 versus N₂(r)",
+          "Resultary bb0ad70479bb, 0ef0f422a8a2 and a4362220d5df, Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Restricting each power's multiplicity to b gives the same bounded-digit problem as representing n with digits from 0 through b; when b=2, h₂(n)=s(n+1) in Stern notation (Reznick Eq. (5.3) and following text).",
+          "The cap-b parity result bb0ad70479bb has a quadratic-transfer factor. The same-day 0ef0f422a8a2 changes the cap to b+1 and still concerns parity; it is not another name for the claimed ternary count."
+        ],
+        "reasoning": "The shifted Stern formulation is genuinely equivalent in base two and was compared at the exact level-count scale. Changing the digit cap or allowing unrestricted multiplicity changes the sequence, not merely the notation.",
+        "searches": [
+          "Resultary semantic queries for modular density, ternary level GF, sharp exponent and modular reset words for hyper-ary partitions",
+          "Primary query: Stern diatomic sequence mod 3 counts powers of two exact generating function Reznick distribution pair modulo d hyper m ary partition level counts OEIS not divisible by 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reznick's Theorem 5.1 gives the exact index set 3|s(n), and Lemma 5.2 gives exact counts a_r by dyadic layer with characteristic polynomial t³−t²−4. This is exact prior binary coverage, via the shift and summation below.",
+          "OEIS A002487 indexes the underlying Stern sequence; the bounded catalogue and primary comparisons located exact parity and binary results but no exact level-count formula for b≥3."
+        ],
+        "reasoning": "An exact level recurrence is as relevant as an explicit coefficient list. Exact base-two coverage does not give values in higher bases, where extra digits cause absorption rather than uniform distribution on nonzero Stern states.",
+        "searches": [
+          "OEIS A002487 Stern sequence and Reznick reference; exact minuscule-residue and level-count queries",
+          "Reznick §5 Eqs. (5.12)–(5.17) for ternary residues by dyadic level",
+          "Resultary exact ternary count law and analogous parity comparison"
+        ]
+      },
+      "rationale": "The parity-density special case for b≥3 is already covered by the earlier parity theorem, and Reznick's exact dyadic recurrence recovers the entire binary specialization of the ternary generating function. The supported additions are the cap-b family-wide all-modulus concentration with an explicit block bound, and the evaluated ternary generating function and sharp exponent in the higher bases; these are not implications of the inspected parity, binary, or pointwise partition results alone.",
+      "residual_risks": [
+        "Digital and regular sequence literature may give another implicit route to the all-modulus law. The bounded searches and inspected passages are not a historical priority proof; same-day order is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "recovers the whole b=2 ternary GF; does not treat b≥3",
+          "evidence": [
+            "The binary partition shift, modulo-three transfer, and exact recurrence a_r=a_(r−1)+4a_(r−3), with initial values (0,0,2), give the exact implication above."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610601",
+          "material_read": "§5, pp. 12–14, Eqs. (5.3)–(5.17), offsets 34300–40069",
+          "method": "OA PDF text passages",
+          "title": "Regularity properties of the Stern enumeration of the rationals",
+          "trigger": "exact binary specialization and modulo-three Stern recurrence"
+        },
+        {
+          "assessment": "exact progressions, key input but not a level law",
+          "evidence": [
+            "h_m(m^j n+m^(j−1)k)=j h_m(n) for m≥3 and 2≤k<m."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/e6/e6.pdf",
+          "material_read": "§3 p. 4, Theorem 3.1 and transition, offsets 7340 and 8646",
+          "method": "OA PDF passages",
+          "title": "Arithmetic Properties for Hyper m-Ary Partition Functions",
+          "trigger": "same cap and congruence/divisibility"
+        },
+        {
+          "assessment": "covers pointwise formulas in inspected passages; copy available despite frozen access limitation",
+          "evidence": [
+            "Special-form pointwise evaluation and a matrix evaluation method, rather than an evaluated modulo-three aggregate transfer."
+          ],
+          "identifier_or_url": "https://mathnet.or.kr/mathnet/thesis_file/BKMS-53-6-1857-1868.pdf",
+          "material_read": "Abstract p. 1, Lemma 2.1 p. 2, Theorem 2.5 p. 4, Lemma 3.1 p. 5; OA offsets 187, 4767, 11078, 15081",
+          "method": "lawful alternative OA PDF, selected full-text passages",
+          "title": "Three Different Ways to Obtain the Values of Hyper m-Ary Partition Functions",
+          "trigger": "same hyper-ary values and plausible digital methods"
+        },
+        {
+          "assessment": "covers the parity case but not the cap-b modulus-three or all-modulus theorem",
+          "evidence": [
+            "Quadratic-factor parity generating function and exponent, yielding density-one even counts for b≥3."
+          ],
+          "identifier_or_url": "Resultary bb0ad70479bb, 2026-11-08 UTC",
+          "material_read": "Finding and comparison at offsets 0 and 5230",
+          "method": "local mirror full-text passages",
+          "title": "A parity-sparsity transition for hyper-ary partitions",
+          "trigger": "same sequence and sharp modular level count"
+        },
+        {
+          "assessment": "material neighboring parity result, different sequence and modulus",
+          "evidence": [
+            "Cap b+1 and parity with a different quadratic growth law; identifies the cap-b parity theorem as baseline."
+          ],
+          "identifier_or_url": "Resultary 0ef0f422a8a2, 2026-11-22 UTC",
+          "material_read": "Finding offset 0 and comparison offset 5850",
+          "method": "local mirror full-text excerpts",
+          "title": "Parity sparsity under one additional digit in power partitions",
+          "trigger": "same-day sharp sparsity result for a nearby cap"
+        },
+        {
+          "assessment": "pointwise method",
+          "evidence": [
+            "Digit formula for individual hyper-ary partition values."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/s47/s47.pdf",
+          "material_read": "p. 1 around offsets 417 and 1274",
+          "method": "OA PDF passages",
+          "title": "On the Number of Hyper m-Ary Partitions",
+          "trigger": "same count and digital recurrence"
+        },
+        {
+          "assessment": "scope includes the sequence but inspected results concern different conclusions",
+          "evidence": [
+            "Pointwise growth, smoothness and monotonicity; no evaluated ternary level recurrence in the inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.08109v1",
+          "material_read": "Introduction and stated results at offsets 0–5495 and 26655",
+          "method": "OA HTML passages",
+          "title": "Coons's bounded-multiplicity partition study",
+          "trigger": "more general multiplicity cap could imply this family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Courtright–Sellers Thm. 3.1, Reznick §5 and Resultary bb0ad70479bb for established baselines"
+      ],
+      "rationale": "The absorbing-word argument quantifies simultaneous fixed-modulus divisibility in a natural integer sequence and identifies the full profinite limit, not just isolated progressions. The exact ternary transfer measures how sparse the exceptional set is, including a nontrivial sharp exponent for each higher base rather than just a small coefficient sample or the already known binary case.",
+      "residual_risks": [
+        "No optimal sparsity exponent for moduli other than three is claimed, and no comparable concentration is asserted in base two."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:47:15.064337Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The clique and peripheral permutation symmetries reduce the problem to the four allocations. Independently eliminating the peripheral block rI_v gives clique Schur eigenvalues r+m (multiplicity u−1) and w=m+a−uv/r>0. Block inversion yields J_a=(u−1)/(r+m)+v/r+(1+uv/r²)/w, including v=0 by direct interpretation. This equals the frozen trace formula. Exact rational reduction from this expression reproduced the comparisons for m=3,4,5,6 and J_2−J_3=(m−1)(r−6)/(3r(3r+2m−2)). For m≥7, J_3−J_0 has the sign of −[(m−3)(r+m−6)−18], strictly negative throughout; clearing positive denominators in J_1−J_2 and shifting by r=4,m=7 gives the nonnegative-coefficient polynomial with positive constant 92 in the record. Thus 0 and 1 cannot minimize in that range. At m=6,r=6, 0,2,3 tie and 1 is strictly worse. The other inequalities give precisely the listed winning allocations and the binomial count follows from symmetry. I inspected the frozen verification material but did not execute it; the unrestricted inference is algebraic, not from the recorded parameter sweep.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/10/26/SCOPE-exact-three-leader-coherence-and-optimal-triples-on-strongly-reg--a1b8a2e42b3a, Finding and Assumptions: strongly regular graphs",
+          "2026/11/8/SCOPE-a-square-root-migration-law-for-optimal-noise-free-leaders-on-ba--fe1c9ab36e72, Finding: arbitrary leader budget on balanced K_n join independent n"
+        ],
+        "reasoning": "The two distinct degrees rule out application of the strongly regular theorem. An arbitrary budget on the balanced diagonal is not coverage off the diagonal; the general trace framework is not an all-graphs classification.",
+        "searches": [
+          "Resultary: three-leader optimal triples, complete split and balanced split networks",
+          "arXiv:1407.1569 and arXiv:1708.06873"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 133a17f467a6",
+        "Resultary a1b8a2e42b3a",
+        "Resultary fe1c9ab36e72",
+        "Resultary 873cf0393183",
+        "arXiv:1407.1569",
+        "arXiv:1708.06873"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Complete-bipartite clique-side analogue is qI_u, rather than (r+m)I_u−11^T",
+          "The balanced formula bears on r=m only, and the fractional-order result has budget two"
+        ],
+        "reasoning": "Adding clique edges changes the trace differently for different allocations, so the bipartite optimizer theorem does not transfer. The distinct part is the full three-leader phase and equality analysis, not the objective or equitable reduction.",
+        "searches": [
+          "Resultary 133a17f467a6, Finding and Proof 1",
+          "Resultary fe1c9ab36e72, Finding",
+          "arXiv:1407.1569 p. 15; arXiv:1708.06873 abstract and Theorem 12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fitch and Leonard, arXiv:1407.1569, p. 15: general joint-centrality setup and cycle optimization",
+          "Patterson, Yi and Zhang, arXiv:1708.06873, abstract and Theorem 12: resistance-distance formulation and the two-leader perfect-binary-tree result"
+        ],
+        "reasoning": "Minimizing total stationary variance, grounded inverse trace, or the appropriate resistance-based objective is equivalent after normalization. The inspected equivalent formulations do not give the split-graph thresholds; the general methods still require a graph-specific comparison.",
+        "searches": [
+          "Resultary: three-leader coherence, complete split networks, resistance and optimal triples",
+          "Primary-literature lookup: noise-free leader selection on split/threshold or complete multipartite graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/10/25/SCOPE-exact-three-leader-coherence-allocation-on-complete-bipartite-ne--133a17f467a6, Finding: exact allocation table on K_{p,q}",
+          "2026/11/22/SCOPE-spectral-order-rigidity-and-a-unique-fractional-order-leader-swi--873cf0393183, Finding: two leaders"
+        ],
+        "reasoning": "No matching two-parameter exact table was established. The close tables concern a changed adjacency or a changed budget, not the same four allocation objectives.",
+        "searches": [
+          "Resultary: exact optimizer tables with three leaders in complete split, complete bipartite, or strongly regular networks",
+          "Resultary: split-network leader thresholds and ties"
+        ]
+      },
+      "rationale": "The strongest earlier exact-three-leader source is for complete bipartite graphs, not graphs with an internal clique; the same-day strongly regular result excludes this nonregular graph. The later balanced-split theorem is a narrower overlapping case, not an exact result for the two independent part sizes. General coherence tools provide the setup but not the complete optimizer and tie classification. This is a bounded comparison, not a certification of priority.",
+      "residual_risks": [
+        "A specialized split/threshold/multipartite result outside the inspected sources could supply further coverage. A bounded search cannot rule this out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not equivalent",
+          "evidence": "Unit-conductance K_{p,q}; the two grounded diagonal blocks are qI and pI, without clique edges.",
+          "identifier_or_url": "2026/10/25/SCOPE-exact-three-leader-coherence-allocation-on-complete-bipartite-ne--133a17f467a6",
+          "material_read": "RESULT.md Finding and Proof 1, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-leader coherence allocation on complete bipartite networks",
+          "trigger": "Closest exact earlier leader-budget classification"
+        },
+        {
+          "assessment": "Different graph hypothesis",
+          "evidence": "Requires strong regularity and compares triples by their induced edge count. The split graph has degrees r+m−1 and r.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-three-leader-coherence-and-optimal-triples-on-strongly-reg--a1b8a2e42b3a",
+          "material_read": "RESULT.md Finding and Assumptions, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Exact three-leader coherence and optimal triples on strongly regular networks",
+          "trigger": "Same-day exact-three-leader result"
+        },
+        {
+          "assessment": "Later, partial overlap only",
+          "evidence": "Both parts have size n; the finding ranges over k<n, not two independent part sizes.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-square-root-migration-law-for-optimal-noise-free-leaders-on-ba--fe1c9ab36e72",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "A square-root migration law for optimal noise-free leaders on balanced split networks",
+          "trigger": "Same graph type with a broader budget range"
+        },
+        {
+          "assessment": "Different leader budget",
+          "evidence": "Exactly two leaders, even at spectral order one.",
+          "identifier_or_url": "2026/11/22/SCOPE-spectral-order-rigidity-and-a-unique-fractional-order-leader-swi--873cf0393183",
+          "material_read": "RESULT.md Finding, offset 103",
+          "method": "Local Resultary mirror",
+          "title": "Spectral-order rigidity and a unique fractional-order leader switch on complete split networks",
+          "trigger": "Exact optimization on the same graph family"
+        },
+        {
+          "assessment": "Method and different special case",
+          "evidence": "The explicit multi-leader result in the inspected passage is for a cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+          "material_read": "p. 15, offset 65349",
+          "method": "Targeted OA PDF text",
+          "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+          "trigger": "General noise-free leader framework"
+        },
+        {
+          "assessment": "General framework but inspected explicit theorem does not cover the graph/budget",
+          "evidence": "Theorem 12 optimizes two leaders on perfect binary trees.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06873",
+          "material_read": "Abstract p. 1 offset 0; Theorem 12 p. 6 offset 45139",
+          "method": "Targeted OA PDF text",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "Equivalent optimization via resistance distance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete split graph is a canonical dense inhomogeneous graph and three leaders allow genuinely mixed optimal choices. The classification resolves when two clique leaders beat both pure allocations, and identifies a triple tie and the separate switch thresholds. This permits exact selection and multiplicity across all sizes, including unequal parts, rather than an illustrative finite grid or a restatement of the trace objective.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

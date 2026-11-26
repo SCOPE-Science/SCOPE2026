@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:49:57.180065Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The graph construction gives 20 vertices and 30 edges in each case. Simultaneous index shift by five is free; reduction of indices modulo five maps each vertex's three neighbors bijectively to those in G(5,2) (inner steps ±3 reduce to ∓2), so it is a two-sheeted covering, not just an orbit quotient. A triple lies on a geodesic exactly when its largest distance is the sum of the other two: concatenation of the two subpaths then realizes the endpoint distance. Consequently all 1,140 triples can be tested by exact distances, and larger faces are precisely the subsets containing no forbidden triple. Increasing-order enumeration prunes only nonfaces and includes every face exactly once by heredity, with no cutoff in the exact reconstruction. We independently reconstructed the two graphs by their rim, spoke and step edges, found all distances by BFS, enumerated the permitted subsets, constructed mod-two incidence columns by deleting one vertex, and reduced with exact XOR pivots; boundary compositions were checked to vanish. For k=2 and k=3 respectively, the forbidden counts are 540 and 720; face vectors are (20,190,600,550,60) and (20,190,420,370,60), with no higher nonzero entries; boundary ranks in degrees 1–4 are (19,161,379,60) and (19,131,289,60). The full one-skeleton ensures reduced H0=0 (also 20−19−1=0). Rank-nullity yields reduced Betti vectors (0,10,60,111,0) and (0,40,0,21,0); both alternating face sums equal −60. The unequal groups rule out homotopy equivalence without yielding integral homology or specifying either homotopy type. RESULT.md lines 25–70, VERIFICATION.md and verify_gp_covers.py were inspected; the frozen verifier was not executed. The independent reconstruction is replayable via python3 independent_gp_check.py, with its two-line exact result in independent_gp_check.out, retained separately in the private audit workspace.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manuel–Klavžar, Introduction: largest vertex sets with no three on a geodesic, not the complex's chain homology. García-Marco–Knauer p. 1 identifies both graphs in a study of graph cores and Cayley graphs. 94724b3e2a1c, 258354d52562 and c5432dd8e944 Findings cover cycles, the icosahedral graph and the Franklin graph, respectively."
+        ],
+        "reasoning": "A maximum-cardinality theorem determines at most the dimension, not the boundary ranks. The same-day complexes use the same construction but on different metric graphs, without a classification extending to these covers. The graph-family identification supplies the objects, not a homology formula.",
+        "searches": [
+          "Resultary: geodesic general-position complex homology cycle graph icosahedral Franklin",
+          "OA arXiv:1708.09130v1, literal query: general position problem",
+          "Literature: dodecahedral graph general position number Desargues graph GP(10,2)"
+        ]
+      },
+      "checked_sources": [
+        "6a8674c7694e",
+        "arXiv:2401.05696v1",
+        "arXiv:1708.09130v1",
+        "10.1007/s10801-023-01282-y",
+        "102ef659f4a1",
+        "94724b3e2a1c",
+        "258354d52562",
+        "c5432dd8e944",
+        "10.1515/math-2019-0088 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "6a8674c7694e, Finding and Assumptions: Ind(L(G)^2) is respectively a wedge of 104 two- and three-spheres, with 30 edge-vertices and pairwise exclusion. arXiv:2401.05696v1, Petersen example: the ten-vertex quotient has the polynomial 1+10x+45x²+90x³+80x⁴+30x⁵+5x⁶."
+        ],
+        "reasoning": "The prior exact homotopy result on the same graphs is stronger only for its different complex, not for this 20-vertex triple-avoidance complex. A graph covering is locally bijective on neighbors but does not preserve distances between arbitrary pairs or geodesic triples, and the base polynomial records no chain maps. Thus it cannot transfer the stated homology; exact ranks on both covers are needed.",
+        "searches": [
+          "Resultary: Equal sphere multiplicities in different degrees for two Petersen double covers dodecahedral Desargues 104 induced matchings 6a8674c7694e",
+          "OA arXiv:2401.05696v1, Petersen example",
+          "Literature: dodecahedral Desargues graph-geodesic general-position complex homology F2 simplicial complex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "ccd9ad4b079e is the assigned record itself. 6a8674c7694e, Finding and assumptions: simplicial vertices are graph edges, with pair exclusions for induced matchings. 102ef659f4a1, Finding: dodecahedral distance-equalizer sets meet every antipodal pair."
+        ],
+        "reasoning": "The target is the independence complex of the three-uniform hypergraph of geodesic triples on 20 graph vertices. That is not the induced-matching independence complex on 30 graph edges or the distance-equalizer family. In particular the target has every pair of vertices as an edge, while the induced-matching complex excludes edge pairs. The comparable graph names and topology vocabulary do not give an equivalent formulation.",
+        "searches": [
+          "Resultary: general-position complex homology classification generalized Petersen graph table",
+          "Resultary: Equal sphere multiplicities in different degrees for two Petersen double covers dodecahedral Desargues 104 induced matchings 6a8674c7694e",
+          "Literature: dodecahedral Desargues graph-geodesic general-position complex homology F2 simplicial complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Target Finding and boundary-rank passage (offset 3487) are an exact self-hit. Iršič–Klavžar–Rus–Tuite give the general-position polynomial for P=K(5,2), including 90 three-vertex faces, not the two 20-vertex face vectors or binary ranks. The polynomial entries 6f0644ac9deb and eea66c0e3a48 concern subdivided complete graphs and sunlets."
+        ],
+        "reasoning": "The exact-value search checked named graphs, generalized-Petersen notation and potential enumerator tables. A face-count polynomial stores counts by cardinality, not which subfaces occur in each boundary; even a full count match would not by itself fix the homology. The inspected ten-vertex Petersen table does not even give the two cover counts.",
+        "searches": [
+          "Resultary: general-position complex homology classification generalized Petersen graph table",
+          "Resultary: general position polynomial dodecahedral graph Desargues graph GP(10,2) GP(10,3",
+          "Literature: general position polynomial dodecahedral graph Desargues graph GP(10,2) GP(10,3)",
+          "arXiv:2401.05696v1, literal terms: generalized Petersen; dodecahedron; Desargues"
+        ]
+      },
+      "rationale": "The exact comparison of mod-two homology of these particular geodesic general-position complexes is distinct in the inspected sources. The strongest prior same-graph topology is an induced-matching classification of exactly the same cover pair, but it is for another complex. Known general-position definitions, counts by size for the ten-vertex base graph, and same-day homology studies for other graphs do not determine the binary boundary ranks in these covers. The finding does not claim originality for the geodesic predicate or exact rank algorithm.",
+      "residual_risks": [
+        "The inaccessible strong-resolving graph paper or further unindexed earlier work could contain additional general-position information; the bounded search is not a comprehensive table or priority certificate.",
+        "An exact indexed self-hit and close same-day findings establish neither independent precedence nor absence of prior external computations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong comparison, different complex and no logical dominance",
+          "evidence": [
+            "Vertices are graph edges, permissible sets are induced matchings (equivalently Ind(L(G)^2)), and the integral wedges have 104 spheres each in different dimensions."
+          ],
+          "identifier_or_url": "2026/11/1/SCOPE-equal-sphere-multiplicities-in-different-degrees-for-two-peterse--6a8674c7694e",
+          "material_read": "RESULT.md Finding, Assumptions and finite face certificate, offsets 0–3297",
+          "method": "Resultary exact-claim search and local mirror primary passage inspection",
+          "title": "Equal sphere multiplicities in different degrees for two Petersen double covers",
+          "trigger": "Strongest exact topology result for the identical graph pair"
+        },
+        {
+          "assessment": "Covers counting by size for the base graph, not ranks of the covers",
+          "evidence": [
+            "P=K(5,2) has 10 vertices and the stated counting polynomial; the method enumerates admissible subsets by cardinality."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.05696v1",
+          "material_read": "Abstract, offset 0, and Petersen example, offsets approximately 8800 and 11599",
+          "method": "Primary arXiv passage inspection plus literal graph-name lookup",
+          "title": "General Position Polynomials",
+          "trigger": "Possible exact table of general-position counts on Petersen graphs"
+        },
+        {
+          "assessment": "Defines the same admissibility condition, optimizes size rather than determining homology",
+          "evidence": [
+            "The problem asks for a largest set for which no three elements lie on a common geodesic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.09130v1",
+          "material_read": "Introduction general-position problem passage, offset about 2700",
+          "method": "OA literal lookup and primary arXiv passage inspection",
+          "title": "Graph theory general position problem",
+          "trigger": "Foundational metric predicate and possible broader result"
+        },
+        {
+          "assessment": "Relevant graph identification, different mathematical question",
+          "evidence": [
+            "Identifies dodecahedral and Desargues graphs in the generalized Petersen family; the stated scope concerns cores and Cayley graphs."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-023-01282-y",
+          "material_read": "Introduction, p. 1, offset about 430",
+          "method": "Primary OA passage inspection",
+          "title": "Beyond symmetry in generalized Petersen graphs",
+          "trigger": "Same graph family and standard names"
+        },
+        {
+          "assessment": "Same graph, different predicate",
+          "evidence": [
+            "Equalizer sets intersect all antipodal pairs, with polynomial (2z+z²)^10, rather than being hereditary geodesic-triple-avoiding subsets."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-antipodal-transversals-and-the-complete-distance-equalizer-struc--102ef659f4a1",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local primary passage inspection",
+          "title": "Antipodal transversals and the complete distance-equalizer structure",
+          "trigger": "Same-day exact dodecahedral face polynomial analogue"
+        },
+        {
+          "assessment": "Different input graphs",
+          "evidence": [
+            "Gives integral homology for cycle graphs C3 through C12."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-first-integral-two-homology-and-dihedral-action-in-cycle-general--94724b3e2a1c",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local primary passage inspection",
+          "title": "First integral two-homology and dihedral action in cycle general-position complexes",
+          "trigger": "Same-day homology of the identical complex construction"
+        },
+        {
+          "assessment": "Icosahedral, not dodecahedral; no duality implication supplied",
+          "evidence": [
+            "For the icosahedral metric graph, the wedge has six circles and 21 two-spheres. Polyhedral duality does not identify the graph metrics or geodesic triple predicates."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-icosahedral-geodesic-general-position-complex-is-bigvee-6-s--258354d52562",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local primary passage inspection",
+          "title": "The icosahedral geodesic general-position complex",
+          "trigger": "Same-day general-position homotopy of a related polyhedral graph"
+        },
+        {
+          "assessment": "Different graph and homotopy groups",
+          "evidence": [
+            "Gives 18 circles and four two-spheres for the Franklin graph, not either Petersen cover here."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-franklin-graph-general-position-complex-18-circles-4-two-sph--c5432dd8e944",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Resultary and local primary passage inspection",
+          "title": "The Franklin graph general-position complex",
+          "trigger": "Same-day geodesic complex of a named cubic graph"
+        },
+        {
+          "assessment": "No primary theorem inspected; no negative inference",
+          "evidence": [
+            "The identified paper is a plausible lead for general-position results, but no relevant passage could be read from the attempted routes."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/math-2019-0088",
+          "material_read": "Bibliographic identification only",
+          "method": "Literature search and lawful OA attempts, HTTP 202 and 403",
+          "title": "The general position problem and strong resolving graphs",
+          "trigger": "Possible strong-resolving reformulation or wider general-position coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are two canonical cubic double covers of the same Petersen graph, not arbitrary unrelated examples. Their geodesic complexes match on Euler characteristic and number of top-dimensional simplices, yet exact mod-two ranks locate the topological distinction, including the presence versus absence of degree-two homology. This is a useful finite reference comparison of a natural invariant, apparently not determined by a known table or implication. The conclusion is explicitly about this pair, not a general statement about lifts or integral torsion.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:53:23.647504Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–29 and 31–71",
+        "VERIFICATION.md",
+        "verify.py",
+        "/workspace/branches/frozen_review_checks.py"
+      ],
+      "rationale": "The theorem is true for finite termwise matched-length pairs in real or complex Euclidean d, not arbitrary pairs. Dualizing the multiplier norm and maximizing the phases gives the stated supremum of sums of absolute projection products. Haar averaging one projection gives mu times the vector length; matched lengths and |inner product|<=length then give the desired Bessel quadratic form, and exchanging the families gives the other bound. The real and complex beta laws for the squared coordinate are correct and give the stated gamma ratios; Stirling gives both limits. Haar empirical approximations give uniform convergence of the direction-dependent first moments by a finite net and uniform Lipschitz bounds. The fixed f_j=e_1 then gives B_f=N. Choosing x_j to span and replacing only d-1 of the f_j by independent directions changes U by O(d) and B_f to N-d+1 for large N, preserving sharpness. For strictness a great-circle path out of a generic point perpendicular to one positive-weight x_j has a positive cusp from the parallel terms; every other term is smooth there (also over the complex field). Thus the continuous projection sum is nonconstant and its maximum strictly exceeds its Haar mean when d>=2. At d=1 phase alignment always gives equality. In the planar family, max over signs selects a consecutive half of the 2N roots at any maximizing direction (a zero projection cannot occur for a maximizing signed sum, since flipping that sign would increase its norm). The geometric sum has modulus csc(pi/(2N)); strict increase of sin(x)/x as x decreases gives the limit ratio. The independent replay `python3 /workspace/branches/frozen_review_checks.py` (section 2, passes) integrates both beta moments in four dimensions per field and enumerates planar sign maxima at five lengths. These are checks of normalizations and examples only; the analytical proof covers all d and lengths. The supplied checker was inspected, not executed.",
+      "residual_risks": [
+        "The exact inequalities use termwise matching; no assertion for unequal lengths, rescaling, or arbitrary condition-number bounds was verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pietsch's theorem for p=1 says pi_1(T) is the least C admitting a probability measure nu on the dual unit ball with ||Tx||<=C integral |u(x)| dnu(u) for every x.",
+          "For the Euclidean identity the Haar probability on the dual sphere gives integral mu ||x||, where mu=E|<W,e_1>|. Conversely, integrating any candidate inequality over unit x gives 1<=C mu integral ||u|| dnu(u)<=C mu. Thus pi_1(I)=1/mu directly from the stronger classical result, including sharpness. Real versus complex beta moments are the respective standard spherical coordinate moments.",
+          "The frozen framework comparison for arXiv:2212.00947 concerns a condition-dependent estimate; its available statement is not the decisive implication."
+        ],
+        "reasoning": "The existing general domination theorem reduces the exact norm to a normalized spherical moment without any new sharp frame-multiplier principle. The stronger result used here is about absolutely summing maps, not the earlier condition-dependent multiplier estimate.",
+        "searches": [
+          "Literature: absolutely summing operator Euclidean Hilbert identity; real and complex projection constant and summing norm duality",
+          "Diestel–Jarchow–Tonge, Absolutely Summing Operators (1995), Pietsch Domination Theorem",
+          "Balazs–Freeman–Popescu–Speckbacher arXiv:2212.00947 Theorem 4.6 and Example 3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2bea3ef37ac9 (identical assigned record)",
+        "Classical Pietsch Domination Theorem; Diestel–Jarchow–Tonge (1995)",
+        "arXiv:1512.04713v1, p. 1",
+        "arXiv:2212.00947, recorded Theorem 4.6 and Example 3.2 comparison",
+        "Grünbaum 1960, p. 451",
+        "RESULT.md lines 31–80"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reduction plus Pietsch yields the exact two gamma constants and their dimension growth. For any finite nonzero sequence in d>=2, sum of absolute projections is nonconstant by a positive cusp at an orthogonal direction; hence its supremum strictly exceeds its Haar average. Together with the reduction this gives finite strictness, without another frame inequality.",
+          "The restriction to spanning pairs cannot change the supremum: append arbitrarily small balanced basis pairs to any near-extremal finite family. The two Bessel bounds and U are continuous in this perturbation. The planar sample just sums consecutive roots in a regular polygon."
+        ],
+        "reasoning": "The purported new constant is a direct corollary of a stronger established theorem; the ancillary finite, frame-spanning and planar facts are elementary consequences of the same geometry and continuity, not a separate independently nonroutine sharp theorem that saves the frozen finding.",
+        "searches": [
+          "Compare classical Pietsch Domination Theorem at p=1 and the weak-l1 sequence formulation with RESULT.md lines 31–68",
+          "Compare arXiv:2212.00947 Theorem 4.6 and Example 3.2 to the reviewed comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Write D(z)=sup_{||u||=1} sum_j |<u,z_j>|. The standard definition gives pi_1(I)=sup sum_j ||z_j||/D(z), over finite nonzero sequences. Botelho–Campos–Santos arXiv:1512.04713v1, opening background p.1, recalls the weak-to-absolute p-summing framework.",
+          "For fixed v take z_j=|<v,f_j>| x_j. Then D(z)<=U and sum ||z_j||>=sum |<v,f_j>|² by balance. This gives both Bessel upper bounds by pi_1(I). Conversely for arbitrary z_j choose x_j=z_j/sqrt(||z_j||) and f_j=sqrt(||z_j||) e_1, with both zero for z_j=0. Then U=D(z), B_f=sum ||z_j||, and B_x<=B_f."
+        ],
+        "reasoning": "The optimized ratios are identical across both fields and every dimension; this is a two-way reduction, not merely similar growth, a bound in one direction, or a matching numerical table.",
+        "searches": [
+          "Resultary: matched-length rank-one multipliers and the absolutely 1-summing identity; finite nonattainment and planar sharpness",
+          "Literature: absolutely 1-summing norm identity finite dimensional real complex Hilbert space pi_1 gamma spherical integral Pi_1 l2^n exact identity uniform measure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only materially matching Resultary entry, 2bea3ef37ac9, is the identical assigned finding, not independent priority evidence. The literature search identified classical projection-constant sources (Grünbaum 1960, Rutovitz 1965); their exact Euclidean calculations were not verified here, and neither is treated as a separate database match.",
+          "Low-dimensional numerical matches are not needed: the exact defining pi_1 invariant and its rotation-invariant Pietsch calculation already give all dimensions and both fields."
+        ],
+        "reasoning": "No independent table purporting to give this particular frame-multiplier notation was identified in the compared data. The failure does not rely on a keyword hit or absence of a separate table.",
+        "searches": [
+          "Resultary: dimension-dependent sharp unrescaled Bessel comparison; real and complex spherical constants; explicit regular-polygon sign extremizer",
+          "Literature: Rutovitz projection constants complex euclidean spaces Grünbaum projection constants real gamma finite dimensional formula"
+        ]
+      },
+      "rationale": "The central claimed sharp constant is not an independent extremal invariant: it is exactly the absolutely 1-summing norm of the Euclidean identity, via an elementary two-way reduction preserving the optimal constant. The classical Pietsch domination theorem gives this Euclidean norm directly by rotation averaging and a beta moment; no prior frame-multiplier paper stating the rewritten inequality is needed. Finite strictness is the standard distinction between a finite absolute-projection sum and its constant sphere average; spanning sharpness is a dense perturbation, and the special planar sequence is ordinary regular-polygon geometry. This is a finding of direct mathematical coverage of the core constant, not a claim that an earlier paper was shown to use the same terminology or to state every ancillary observation verbatim.",
+      "residual_risks": [
+        "No claim that the exact balanced-frame wording, planar illustration, or full package was located verbatim in an older article. Some exact source passages were unavailable and no whole-text exclusion is made. The mathematical reduction and direct implication, not those access limits, determine the FAIL."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive direct implication of the known general theorem, whether or not a frame-multiplier restatement exists",
+          "evidence": [
+            "Optimal measure domination constant equals the absolutely 1-summing norm; averaging the domination inequality rules out any constant less than 1/mu."
+          ],
+          "identifier_or_url": "Diestel, Jarchow and Tonge, Cambridge Studies in Advanced Mathematics 43 (1995)",
+          "material_read": "Bibliographic description and the standard named Pietsch Domination Theorem as stated in this comparison; not a new page-level monograph inspection",
+          "method": "Apply the classical theorem at p=1 and prove the exact spherical specialization and two-way norm reduction explicitly",
+          "title": "Absolutely Summing Operators",
+          "trigger": "Canonical general framework giving the exact norm by dominance"
+        },
+        {
+          "assessment": "Context for the equivalent invariant; not cited as a source of the exact gamma formula",
+          "evidence": [
+            "Absolutely p-summing operators take weakly p-summable sequences to absolutely p-summable sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1512.04713",
+          "material_read": "Opening introduction/background, page 1, describing absolutely p-summing operators",
+          "method": "Read the open PDF text opening and compare the weak-to-absolute summability framework",
+          "title": "Operator ideals related to absolutely summing and Cohen strongly summing operators",
+          "trigger": "Published operator-ideal context for the finite weak-l1 to l1 reduction"
+        },
+        {
+          "assessment": "Same application, different type of bound in the recorded statement; not the source of the decisive coverage",
+          "evidence": [
+            "The recorded estimate includes a frame-operator conditioning parameter."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.00947",
+          "material_read": "Theorem 4.6 and Example 3.2 comparison recorded in frozen RESULT.md lines 73–80; no new full passage retrieved",
+          "method": "Attempted exact text retrieval; compared the recorded hypotheses with the reviewed dimension-dependent bound",
+          "title": "Quantitative bounds for unconditional pairs of frames",
+          "trigger": "Same termwise equal-length multiplier framework"
+        },
+        {
+          "assessment": "Related classical context only; no exact-angle or gamma statement credited from the inspected passage",
+          "evidence": [
+            "Defines the infimum uniform projection constant over superspaces."
+          ],
+          "identifier_or_url": "https://www.ams.org/journals/tran/1960-095-03/S0002-9947-1960-0114110-9/S0002-9947-1960-0114110-9.pdf",
+          "material_read": "Page 451 opening defining absolute projection constant; precise Euclidean theorem was not accessible in this inspection",
+          "method": "Direct lawful open PDF retrieval of bounded passage and attempted exact Euclidean lookup",
+          "title": "Projection Constants",
+          "trigger": "Alternative orientation under Euclidean projection constants"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Finding, proof and limitations",
+        "Pietsch specialization and exact two-way reduction recorded under originality"
+      ],
+      "rationale": "The motivating frame-bound comparison is natural and the exposition is correct and potentially useful pedagogically, but the frozen claim computes a known operator-ideal invariant in equivalent notation. Its further consequences use a finite projection-sum cusp, dense spanning perturbation and the geometric sum of a regular half-polygon. None supplies an independently useful unknown exact invariant or new sharp parameter problem beyond the classical 1-summing comparison as frozen. No unbalanced, finite-N optimal, or conditioned-optimal refinement is proved.",
+      "residual_risks": [
+        "This does not devalue quantitative unconditional-frame questions generally; the verdict is limited to the mathematical contribution of this frozen formulation and its ancillary examples."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

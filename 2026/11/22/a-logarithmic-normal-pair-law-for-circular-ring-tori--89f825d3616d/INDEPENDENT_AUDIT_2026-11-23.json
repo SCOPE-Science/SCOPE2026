@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:31:21.850343Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, REVIEW.md, AUDIT.json, SLOGAN.txt, METADATA.json and checks/verify.py (inspected, not executed)",
+        "Independent local coefficient check: density relative to sphere area is (2 pi^2 sin(theta))^(-1). The two polar annuli down to transverse scale theta supply pi^(-3) log(1/theta) in the product-density angular integral; conversion to the dot-product density multiplies by 2 pi. This agrees with the spectral coefficient and the exact l=2 moment."
+      ],
+      "rationale": "The area factor is r(R+r cos u). At each interior z=sin u the two cosines have opposite signs and the same absolute Jacobian; adding their weights cancels the aspect ratio and leaves the arcsine density, independent of uniform azimuth. Conditioning on the two heights gives the positive integral. It has a continuous interior representative: on a compact range of t away from +/-1, choose small enough polar caps that the two normals cannot both be in those caps with scalar product t. Split the spherical density into its integrable polar part and a smooth remainder. The polar-polar term vanishes, and the mixed term is continuous by integrating the smooth factor on a latitude circle, using symmetry of the two factors. The addition theorem kills all nonzonal modes, and great-circle averaging gives the one-point Legendre moment P_l(0)^2, hence the pair moment P_l(0)^4. The l=2 moment 1/16 gives variance 3/8. The density series is locally uniformly and globally L^1 convergent by the standard Legendre bound; orthogonality and compact moment uniqueness identify the law. Stirling gives coefficient 2/(pi^2 k)+O(k^-2) at degree 2k. At t=cos(theta), frequencies k<=1/theta contribute the harmonic sum with bounded error (the derivative bound gives O(k^2 theta^2)); the high frequencies contribute O(1) by the same Legendre estimate. Thus the leading coefficient in log(1/theta) is 2/pi^2, or 1/pi^2 in log(1/(1-t)), and evenness gives the opposite endpoint. Integrating over length 1-cos(epsilon)~epsilon^2/2 yields the claimed angle-tail coefficient.",
+      "residual_risks": [
+        "The law assumes independent area-uniform points, outward normals and an embedded circular ring torus; it is not the law of chords or of correlated nearby points. The density diverges but is integrable at both endpoints. A malformed comparator URL and the metadata's day-specific date convention are source-support issues, not defects in the theorem; Horn's memo is from July 1983, earlier than the dated 1997 comparator."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horn sums the contributions of the inner and outer sheets, obtains the polar-singular one-point density and notes equal-area tori have equal extended Gaussian images. Normalization removes the remaining area scalar.",
+          "The Funk spectral formula gives P_l(0) for every harmonic of degree l, a general result from which the exact pair moments follow once the above representation is made. The inspected transform discussion concerns spectral decomposition and inversion, not the pointwise fourth-iterate endpoint expansion."
+        ],
+        "reasoning": "The stronger known one-point and operator-spectral results must not be sold as new. Neither presents the logarithmic pointwise asymptotic with coefficient and bounded remainder for this pair law; obtaining it entails controlling the whole endpoint spectral sum.",
+        "searches": [
+          "Horn, Extended Gaussian Images, torus subsections C–D",
+          "Quellmalz et al., A Frame Decomposition of the Funk-Radon Transform, Eq. (10)",
+          "Web: Funk transform fourth iterate kernel squared Legendre polynomials logarithmic Green kernel fourfold spherical Radon transform on S2 density"
+        ]
+      },
+      "checked_sources": [
+        "Horn journal PDF including torus example",
+        "Quellmalz et al. Funk transform spectrum",
+        "Brillinger sphere-diffusion paper",
+        "BMVC surface roughness abstract (limited access)",
+        "Resultary index and ring-torus chord-tail record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Taking the fourth power of the classical multiplier already supplies the abstract spectrum; applying it to the identified torus law gives the exact moments without a new harmonic identity. A useful comparison for the extra analysis is the even endpoint-log model: -log(1-t^2) has degree-l moment 4/[l(l+1)] for positive even l, from the Legendre differential equation. The torus density minus this model divided by pi^2 has absolutely summable Legendre coefficients, by the next-order multiplier estimate."
+        ],
+        "reasoning": "The prior spectra alone are not prior statements of the endpoint law, nor is a generic Green function identical to this density. Comparing the precise high-degree multipliers and summing their difference recovers bounded error and explains the sharp normalization. No inspected source states a stronger four-step endpoint result that would make this analysis a direct specialization.",
+        "searches": [
+          "Horn torus computation",
+          "Quellmalz et al. Eq. (10)",
+          "Web: Funk transform Green function sphere fourth power logarithmic kernel composition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normalized Funk transition averages over the great circle perpendicular to the present point. Starting at the pole, two transitions choose a uniform meridian and then a uniform point on it, exactly the torus Gauss-image probability. The dot product of two independent samples from that zonal law has the Legendre moments of four transitions, by the addition theorem and P_l(0) multiplier.",
+          "The potentially close Brillinger paper treats a continuous diffusion with drift, not finitely many fixed right-angle jumps."
+        ],
+        "reasoning": "The equivalent spherical convolution formulation is substantive: it explains why the exact fourth-power spectrum is inherited, while allowing a search for a pre-existing evaluated four-step kernel and sharp endpoint law.",
+        "searches": [
+          "Resultary: circular ring torus Gauss normal independent pair dot product Legendre fourth power logarithmic endpoint angle arcsine",
+          "Web: sphere fixed step random walk right angle four steps Legendre convolution Funk transform fourth power transition density logarithmic MacRobert"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary near-diameter torus calculation gives an aspect-dependent tail for Euclidean chord length, not angles of Gauss normals.",
+          "The accessible BMVC abstract describes co-occurrence histograms of quantized chord lengths and endpoint-normal angles as a surface descriptor. The open archive full text did not load in the review tool; the abstract does not establish or exclude particular calculations elsewhere in that paper."
+        ],
+        "reasoning": "The same sampling geometry or the same general angular statistic is not an exact database match. No inspected table or record gives the aligned and antipodal torus pair constants; limited BMVC access leaves residual uncertainty.",
+        "searches": [
+          "Resultary: circular ring torus Gauss normal independent pair dot product Legendre fourth power logarithmic endpoint angle arcsine",
+          "Web: circular torus extended Gaussian image Horn normal pair angle distribution Legendre fourth power dot product arcsine great circle logarithmic density",
+          "Web: 3D Surface Roughness Quantification Petrou Leontaritis 1997 normals angle chord histogram torus PDF"
+        ]
+      },
+      "rationale": "Horn already determines the one-normal distribution, including aspect-ratio invariance, and the abstract harmonic coefficients follow from the classical Funk multiplier after identifying the torus pushforward with two right-angle steps. The additional evaluated result is the torus normal-pair law and its sharp pointwise endpoint and angular-tail asymptotics. No matching prior asymptotic was located in the material examined; novelty is not assigned to the known one-point law or the multiplier.",
+      "residual_risks": [
+        "Classical spherical convolutions, isotropic step laws, directional statistics or inaccessible older literature may already calculate the four-step logarithmic endpoint. The fourth-power spectrum is a consequence of a classical diagonalization, not a new transform identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior one-point measure and invariance, not an evaluated two-independent-normal law in these sections",
+          "evidence": "Adds the absolute inner and outer contributions and identifies the two polar singularities; equal-area tori have the same extended Gaussian image.",
+          "identifier_or_url": "https://people.csail.mit.edu/bkph/papers/EGI.pdf",
+          "material_read": "Sections C–D of the nonconvex example, torus construction, sum of sheet contributions and equal-area observation",
+          "method": "Open journal PDF text",
+          "title": "Extended Gaussian Images",
+          "trigger": "Exactly the torus area-weighted Gauss measure"
+        },
+        {
+          "assessment": "Gives the known spectrum underlying the walk, not the sharp four-step kernel asymptotics in the inspected material",
+          "evidence": "The multiplier is P_l(0), zero at odd l and (-1)^(l/2)(l-1)!!/l!! at even l. Its fourth power matches the pair spectrum after the geometric identification.",
+          "identifier_or_url": "https://michaelquellmalz.github.io/paper/QueWeiHubErc23.pdf",
+          "material_read": "Great-circle averaging definition and §3, Eq. (10), harmonic eigenbasis and nearby spectral estimates",
+          "method": "Open manuscript PDF text",
+          "title": "A Frame Decomposition of the Funk-Radon Transform",
+          "trigger": "Equivalent fixed-right-angle walk and general multipliers"
+        },
+        {
+          "assessment": "Different dynamics",
+          "evidence": "A continuously evolving particle with surface diffusion and drift toward a destination has no fixed right-angle transition rule.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~brill/Papers/theorprob.pdf",
+          "material_read": "Abstract, introduction and diffusion setup",
+          "method": "Open journal-copy PDF text",
+          "title": "A Particle Migrating Randomly on a Sphere",
+          "trigger": "Potential alternative spherical-walk formulation"
+        },
+        {
+          "assessment": "Abstract gives a related practical descriptor; insufficient for a whole-document priority decision",
+          "evidence": "Uses a joint co-occurrence matrix of relative orientations and quantized chord lengths. This does not itself state an analytic torus pair law.",
+          "identifier_or_url": "https://bmva-archive.org.uk/bmvc/1997/papers/066/bmvc.htm",
+          "material_read": "Indexed abstract only; lawful open-text attempts on the overview and method pages were unsuccessful",
+          "method": "Web index abstract and open text access attempt",
+          "title": "3D Surface roughness quantification",
+          "trigger": "Earlier paired normal angles used as a geometric descriptor"
+        },
+        {
+          "assessment": "Different observable and no implication of the angle law",
+          "evidence": "Distance is the Euclidean separation of positions, with an aspect-dependent coefficient at the diameter; the focal scalar product is of Gauss normals.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-sharp-near-diameter-chord-tails-and-a-unique-shape-optimum-for-r--013f156ea24b/RESULT.md",
+          "material_read": "Finding and distance/tail assumptions",
+          "method": "Local published-record mirror",
+          "title": "Sharp near-diameter chord tails and a unique shape optimum for ring-torus surfaces",
+          "trigger": "Same independent area-sampling and geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md",
+        "Horn EGI and earlier use of chord/normal-angle histograms",
+        "Funk spectral comparison"
+      ],
+      "rationale": "Independent normal-pair angles are a natural surface descriptor, not an arbitrary polynomial statistic. The result evaluates a complete benchmark law for a canonical surface family and, beyond the known pushforward and inherited moments, quantifies the enhanced frequency of almost parallel and antiparallel observations by a sharp integrable logarithm. This is useful when interpreting normal-angle histograms or calibrating rare-angle thresholds; a marginal invariance statement by itself does not provide those probabilities.",
+      "residual_risks": [
+        "The statistical benchmark is limited to the ideal independent uniform-area experiment. It gives no aspect-ratio estimator, and no shape-discrimination claim for other surfaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

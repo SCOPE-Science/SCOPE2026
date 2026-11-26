@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:27:16.208837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 16–103, VERIFICATION.md, verify.py (inspected, not executed)",
+        "/workspace/review-evidence/05_alternant.py (independent alternant and exact degree computations)",
+        "Fonarev–Kuznetsov arXiv:2610.03309v1, Definition 2.1, Theorem 1.1 and its proof"
+      ],
+      "rationale": "The general-pencil common isotropic variety is a smooth zero locus of expected codimension six of two copies of the rank-three bundle Λ²S*; hence its Gysin class is the square of the top Chern class. An independent alternating-polynomial computation multiplied (a+b)²(a+c)²(b+c)² by the Vandermonde: the strictly decreasing exponent triples are (6,3,0), (6,2,1), (5,4,0), (5,3,1), (4,3,2), with coefficients 1,1,1,2,1. Dividing alternants by the Vandermonde proves the Schur identity. Pieri identifies the coefficient at the top rectangle with the standard-tableau count for the reversed complement (rotate the skew complement and reverse labels). Substituting the three-row hook formula gives the five rational summands and their claimed sum; subtraction from 1 and from 64 gives the displayed strict factorizations for R≥4, and 64≤2^d. Direct coefficient checks agree; n=3 gives degrees 61 and 5. The additive cohomology theorem gives both rank-one groups in degree two and top degree for n≥3. The hyperplane of Y is primitive, so a graded integral isomorphism would send it to a generator x up to sign and top class to a generator up to sign. Writing H_X=m x forces the positive degree ratio to be |m|^d, impossible between 1 and 2^d. No primitivity of H_X is assumed. The affine pavings give integral cycle-class isomorphisms compatible with multiplication. At n=2 the same cell theorem gives just a single zero-dimensional cell, so both varieties are points and the positive-dimensional obstruction is not applied there.",
+      "residual_risks": [
+        "The argument is for ordinary integral graded rings and a general pencil. It supplies neither a rational ring comparison nor a full ring presentation for n>3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 covers general k additively; Remark 1.2 leaves multiplication separate. Resultary 7e7b8f8a0a8e uses the square of the hyperplane class and Catalan degrees for two-planes. Benedetti computes a Chevalley formula in the two-plane setting; Fatighenti–Mongardi §3.8 discusses the rank-three even-ambient example and the bundle construction."
+        ],
+        "reasoning": "The broad additive theorem does not control top powers. The two-plane Catalan comparison uses rank one for Λ²S*, not the rank-three Chern-root product at issue. The neighboring even-ambient geometric study does not give the odd-ambient degree comparison in the inspected passages.",
+        "searches": [
+          "Fonarev–Kuznetsov arXiv:2610.03309v1 Theorem 1.1 and Remark 1.2",
+          "Resultary integral Chow rings of odd biisotropic two-plane Grassmannians 7e7b8f8a0a8e",
+          "Benedetti arXiv:1809.10902 and Fatighenti–Mongardi arXiv:1904.05679"
+        ]
+      },
+      "checked_sources": [
+        "Fonarev–Kuznetsov arXiv:2610.03309v1",
+        "Resultary 06041af7bdb7 and 7e7b8f8a0a8e",
+        "Benedetti arXiv:1809.10902",
+        "Fatighenti–Mongardi arXiv:1904.05679"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Additive rank and affine-cell data supply the groups and the n=2 point; the sixfold result's integral multiplicative data establish a proper subcase. Neither statement supplies the five-term hook calculation or uniform inequalities."
+        ],
+        "reasoning": "Standard Schubert integration computes each degree after specifying its Chern-class input; the inspected prior claims do not give the closed family expression or imply the needed separation from every possible |m|^d uniformly. The all-n integral obstruction remains the distinct claim.",
+        "searches": [
+          "arXiv:2610.03309v1 p. 1 Theorem 1.1, p. 2 Remark 1.2, and p. 10 references",
+          "Resultary 06041af7bdb7 Finding and top intersection computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-three sixfold record uses BIGr(3,7) for the same variety; its Finding gives the full ring and its verification computes the degree 61. Its scope is one sixfold."
+        ],
+        "reasoning": "The equivalent names and Chow/even-cohomology formulations agree under the affine paving. The matching fixed member is real existing coverage, not evidence that the full formula varying R is covered.",
+        "searches": [
+          "Resultary: S_2Gr(3,2n+1), BIGr(3,2n+1), ordinary integral cohomology and Chow rings compared with Gr(3,2n−1)",
+          "Resultary: The complete integral Chow ring of the odd biisotropic three-plane sixfold S2Gr(3,7) 06041af7bdb7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirrored RESULT.md offsets 4250 and 6320: restriction surjects in every degree and ∫c1^6=61; the record itself does not claim 61 as new."
+        ],
+        "reasoning": "This is explicit coverage of the first coefficient value and yields a graded-ring obstruction at n=3 since the degree of Gr(3,5) is 5. A single value does not establish the rational function or bounds for n≥4.",
+        "searches": [
+          "Resultary 06041af7bdb7, exact passage for the degree 61 and ambient restriction"
+        ]
+      },
+      "rationale": "Only the uniform three-plane degree-ratio and resulting all-positive-dimensional nonisomorphism are credited as distinct. The additive agreement, the general bundle construction, and the n=2 point are known inputs or direct consequences. A same-date Resultary record explicitly computes the degree 61 and gives the complete ring for n=3, which implies that first case using the primitive Plücker class. The n=3 example and degree are not credited as discoveries here. The closest broader multiplicative result located applies to two-planes and uses a different Gysin class. Neither that result nor the published rank-three first member yields the uniform three-plane comparison.",
+      "residual_risks": [
+        "The in-preparation Kuznetsov manuscript on S_2Gr(3,7), listed in the primary bibliography, was not available for content comparison. Unindexed broader computations may exist; no priority finding is made from path dates or failed searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct additive overlap and boundary input, not multiplicative coverage",
+          "evidence": "The result states a graded abelian-group isomorphism with Gr(k,2n+2−k); Remark 1.2 leaves the ring separate; bibliography lists the S_2Gr(3,7) manuscript in preparation.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03309v1",
+          "material_read": "PDF pp. 1–2, Theorem 1.1 and Remark 1.2, offsets 3805 and 4860; Definition 2.1 near 7653; reference list p. 10 near 42029",
+          "method": "OA PDF reader",
+          "title": "Betti Numbers of Odd Biisotropic Symplectic Grassmannians",
+          "trigger": "Primary result on the same family and exact additive comparison"
+        },
+        {
+          "assessment": "Stronger at n=3, but covers only that proper subcase of the uniform result",
+          "evidence": "Integral restriction is surjective, so c1 is primitive; the top intersection is explicitly 61. Same catalogue date does not establish priority.",
+          "identifier_or_url": "2026/10/18/SCOPE-the-complete-integral-chow-ring-of-the-odd-biisotropic-three-pla--06041af7bdb7",
+          "material_read": "Mirrored Finding at offset 0; ambient generation near 4250; verification and relationship to prior work near 6320",
+          "method": "Local mirror",
+          "title": "The complete integral Chow ring of the odd biisotropic three-plane sixfold",
+          "trigger": "Strongest exact first-member comparison"
+        },
+        {
+          "assessment": "Same strategy but distinct ranks, Gysin classes and comparison Grassmannians",
+          "evidence": "Rank-two tautological bundle, two hyperplane cuts, and comparison of Catalan numbers C_(2n−1) and C_(2n−2) with Gr(2,2n).",
+          "identifier_or_url": "2026/10/26/SCOPE-integral-chow-rings-of-odd-biisotropic-two-plane-grassmannians--7e7b8f8a0a8e",
+          "material_read": "Mirrored Finding and assumptions at offset 0",
+          "method": "Local mirror",
+          "title": "Integral Chow rings of odd biisotropic two-plane Grassmannians",
+          "trigger": "Plausibly overlapping all-n integral ring nonisomorphism via top powers"
+        },
+        {
+          "assessment": "Related multiplicative geometry, not the same parameter/family",
+          "evidence": "Equivariant Chevalley formula for two-planes and a presentation for the six-dimensional ambient case.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.10902",
+          "material_read": "PDF p. 1, abstract and opening",
+          "method": "OA PDF reader",
+          "title": "Bisymplectic Grassmannians of planes",
+          "trigger": "Earlier ring and multiplication theorem for biisotropic loci"
+        },
+        {
+          "assessment": "Provides the general zero-locus framework and studies related Hodge geometry",
+          "evidence": "Identifies S_2Gr(3,8) and the bundle Λ²S*⊕Λ²S*; does not supply the claimed family ratio in those passages.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.05679",
+          "material_read": "PDF §3.8 opening at p. 15, around offset 61745; bundle description p. 9",
+          "method": "OA PDF reader, bounded passages locating rank-three example and bundle",
+          "title": "Fano varieties of K3 type and IHS manifolds",
+          "trigger": "Earlier rank-three bisymplectic geometry cited in the finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof",
+        "Fonarev–Kuznetsov Remark 1.2",
+        "Resultary 06041af7bdb7 (first member)"
+      ],
+      "rationale": "The additive matching leaves multiplication as a natural question. The exact family degree ratio isolates a uniform obstruction in the first rank with three independent isotropy equations per form, and the bounded ratio avoids requiring primitive hyperplane input on X. It settles integral ring distinction throughout a natural positive-dimensional family, rather than repeating the known first-member degree or claiming a full ring presentation.",
+      "residual_risks": [
+        "Nonisomorphism detects only part of the multiplicative structure; it does not classify the rings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

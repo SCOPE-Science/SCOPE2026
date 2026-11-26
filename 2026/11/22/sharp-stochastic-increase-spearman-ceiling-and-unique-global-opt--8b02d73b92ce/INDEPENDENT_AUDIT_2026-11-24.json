@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:49:48.598474Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–85",
+        "VERIFICATION.md and check.py (inspected, not executed)",
+        "Independent numerical replay: python3 /workspace/evidence/record-3.py (mpmath)"
+      ],
+      "rationale": "The density is 1+delta alpha² g(u)g(v) with g antisymmetric on reflection. The absolute maximum of g is 1 for alpha<=2 and sqrt(2/alpha) exp(alpha/4-1/2) otherwise, so nonnegativity gives exactly the claimed admissibility interval. The u-derivative of the conditional CDF for nonzero alpha and positive delta has sign alpha(1-2u)²-2. For alpha>2 it is strictly positive on an interior interval near an endpoint; for alpha<=2 it is nonpositive everywhere. Negative coupling fails at u=1/2, and the independent cases are SI. Rank correlation is 12 delta h(alpha)²; on the positive upper boundary for nonzero alpha<=2 its envelope strictly increases because h(alpha)/alpha is the integral of x times the average of exp(t alpha x) over 0<=t<=1. The actual alpha=0 member has zero correlation, even though the rescaled boundary limit is 1/3. At alpha>2 the positive envelope has derivative sign opposite Q(s), s=sqrt(alpha)/2. Direct differentiation yields Q'(s)=s²(2s²-1)exp(-s²), and Q(0)=0 with positive limit at infinity, giving one root beyond 1/sqrt(2) and strict unimodality there. Its tail tends to zero. This yields both sharp maxima, the negative mirror bound, and exactly two upper-boundary shapes at intermediate high correlations. Proportionality of the rank-one factors for different nonzero shapes is impossible by the linear and quadratic Taylor coefficients in u(1-u), so the two copulas are distinct. An independent integrated-power-series computation in alpha reproduced both maxima and the maximizing shape.",
+      "residual_risks": [
+        "Numerical calculations do not prove global uniqueness. Some frozen sign diagnostics use coupling magnitudes outside the admissible interval; the analytic derivative factorization gives the sign for every admissible coupling and does not depend on those samples.",
+        "Two-branch uniqueness is only on the positive admissibility boundary, and the ceilings are not universal over all copulas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bound literature summary (RESULT.md lines 91–97) describes the original article and dissertation Ch. 2 as giving TP2 sufficiency; Ch. 3 concerns other PGF-generated copulas.",
+          "The separate spectral/mixing catalog result reports a different optimizer near 4.56756."
+        ],
+        "reasoning": "A sufficient condition or a bound on another dependence functional cannot determine the family-specific attained Spearman ceiling under SI or the uniqueness or two-preimage behavior of its Spearman envelope. A stronger result in an uninspected body passage is possible.",
+        "searches": [
+          "arXiv:2304.02231",
+          "Zachariah, Dependence and Uncertainty: A Copula-Based Framework (2025), Chs. 2–3",
+          "Resultary 201ee12aa592"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.02231 p. 1 abstract",
+        "Zachariah 2025 dissertation (attempted primary access; comparison attributed to frozen RESULT.md)",
+        "Resultary 201ee12aa592 (indexed summary) and self-match 8b02d73b92ce",
+        "Frozen RESULT.md lines 87–103"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The direct conditional derivative gives necessity at alpha>2 (RESULT.md line 58). The exact root sign and limiting argument give unimodality and the exact branch count (lines 71–85).",
+          "Accessible primary evidence establishes the rounded unrestricted correlation range; the TP2 theorem and grid information in the body are attributed in the frozen statement rather than independently read here."
+        ],
+        "reasoning": "The exact result is a refinement built from the established copula and moment formulas, not an implication of an approximate numerical extremum. The SI converse, sharp attainable ceiling and boundary parameter multiplicity require the additional monotonicity and root arguments. No known stronger statement was established in the available evidence.",
+        "searches": [
+          "Original article arXiv:2304.02231 and journal DOI",
+          "2025 Zachariah dissertation",
+          "Resultary 201ee12aa592"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original article's p. 1 abstract reports the rounded Spearman range [-0.5866,0.5866].",
+          "Frozen RESULT.md lines 91–97 identifies the earlier result as TP2 sufficiency and a shape-grid maximum; the separate same-day 201ee12aa592 summary names maximal correlation and uniform mixing, not Spearman correlation or SI."
+        ],
+        "reasoning": "TP2 implies SI, but its sufficiency does not logically give necessity for SI. Maximal correlation and Spearman correlation are different optimizations even for related separable kernels: the latter evaluates a fixed rank statistic. The full family-level relationship to the spectral result was not established from its summary.",
+        "searches": [
+          "Resultary semantic search for the exponentiated FGM copula's SI ceiling and Spearman optimum",
+          "arXiv:2304.02231; DOI:10.1016/j.spl.2023.109988",
+          "Resultary 201ee12aa592"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original article abstract p. 1 gives 0.5866 as the upper rounded endpoint. The frozen body synopsis reports an approximate grid winner near shape 3.8; that body table was not independently retrieved.",
+          "The Resultary entry which advertises the two Spearman ceilings is the frozen record itself, not independent priority evidence; the distinct same-day entry reports a different functional."
+        ],
+        "reasoning": "Credit the published rounded range. Neither that range nor an approximate grid winner implies a unique continuous optimizer or its root equation, much less the separate SI ceiling or exact branch multiplicity. No external exact table of those quantities was established.",
+        "searches": [
+          "arXiv:2304.02231 p. 1 abstract",
+          "Dissertation repository PDF, Ch. 2 as cited",
+          "Resultary 8b02d73b92ce and 201ee12aa592"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact SI boundary and ceiling, proof of the unique unrestricted optimizer, and exact two-branch structure for high correlations. The family, its admissibility and Spearman formula, sufficient TP2 condition and the previously reported rounded unrestricted range are not counted as new. Literature access did not extend to the full article and dissertation bodies.",
+      "residual_risks": [
+        "The original article body, dissertation chapters, and same-day spectral/mixing full record were not independently inspected, so further precise overlap cannot be ruled out.",
+        "The indexed search is not exhaustive. No priority order is inferred from same-day dating."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rounded unrestricted maximum is established prior content; exact body coverage unresolved",
+          "evidence": "Abstract gives Spearman range [-0.5866,0.5866]; it contains no exact optimizer equation, SI ceiling or two-branch statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.02231; DOI:10.1016/j.spl.2023.109988",
+          "material_read": "arXiv v1 p. 1 title and abstract; body TP2 and grid details available only as attributed in frozen RESULT.md lines 91–97",
+          "method": "Lawful PDF abstract extraction; deeper OA/arXiv and alternate journal DOI lookup timed out",
+          "title": "A new class of copulas having dependence range larger than FGM-type copulas",
+          "trigger": "Introduces the same copula and reports the unrestricted correlation range"
+        },
+        {
+          "assessment": "Potential overlapping body results unverified",
+          "evidence": "Frozen comparison attributes the tabulated range and sufficient TP2 condition to Ch. 2 and other PGF copulas to Ch. 3.",
+          "identifier_or_url": "https://dspace.iiti.ac.in/bitstream/123456789/16598/1/TH_745_Swaroop_Georgy_Zachariah_2001241009.pdf",
+          "material_read": "Attributed chapter comparison in frozen RESULT.md line 93; no primary chapter passage retrieved",
+          "method": "OA attempt timed out; repository PDF returned HTTP 400",
+          "title": "Dependence and Uncertainty: A Copula-Based Framework",
+          "trigger": "Later thesis by the first author could contain a stronger comparison"
+        },
+        {
+          "assessment": "Different objective in indexed statement; exact family relationship and priority not inferred",
+          "evidence": "Summary describes sharp maximal-correlation and uniform-mixing bounds and an optimizer near 4.56756, not SI-restricted Spearman correlation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-universal-spectral-and-uniform-mixing-envelopes-for-an-exp--201ee12aa592",
+          "material_read": "Indexed Resultary summary only",
+          "method": "Semantic search and attempted mirrored RESULT.md lookup; timed out",
+          "title": "Sharp universal spectral and uniform mixing envelopes for an exponential-quadratic copula",
+          "trigger": "Distinct same-day match with potentially related kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–39 and 58–97",
+        "Primary arXiv:2304.02231 p. 1 abstract"
+      ],
+      "rationale": "The substantive result is not the small numerical refinement of 0.5866. This family was designed for larger rank dependence, and the separate sharp SI ceiling identifies exactly when high correlation rules out monotone conditional responses even though positive quadrant dependence remains. The exact two-branch conclusion also shows rank correlation alone does not identify the boundary copula in that range. The natural dependence and conditional-order constraints motivate the optimization before computing it.",
+      "residual_risks": [
+        "The ceilings and nonidentifiability are specific to the stated family; no empirical model-fitting advantage or universal SI limitation is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

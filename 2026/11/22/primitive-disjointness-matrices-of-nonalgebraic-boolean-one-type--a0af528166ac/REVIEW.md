@@ -1,15 +1,21 @@
-# Scientific review: primitive disjointness of Boolean one-types
+# Independent mathematical audit
 
-## Correctness — PASS
-Every complete one-type over the old finite subalgebra is determined by the three-way status in each old atom, by the back-and-forth extension property of the countable atomless Boolean algebra. Algebraic types are exactly the binary statuses; deleting them yields precisely the designated principal submatrix of \(B^{\otimes m}\). The local disjointness matrix and its integral inverse are checked directly. Jacobi's complementary-minor identity on the binary index set gives the determinant as a unit, and the Schur-complement identity supplies the complete real inertia. An independent exact checker confirms the local cases and determinant for the first four values of \(m\). The finite checker is corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-A full read of Vermeeren's 2010 presentation establishes the atomless Boolean-algebra substrate, not the arithmetic feasibility matrix. Full reads of reports on nonzero powerset compatibility-frame rank-three theories and bounded morphisms concern a finite atomic frame indexed by *nonzero subsets*, not a complete one-type space over a fixed finite subalgebra. The independently indexed Fourier interpolation result concerns a different character kernel and support-constrained index set. Its general tensor method is mathematically adjacent, but does not state this submatrix's determinant or inertia. The comparison is by object, indexing, kernel and claimed consequences, not titles alone. There remains a risk that an unindexed classical result on complementary minors of ternary tensor products subsumes the specific numeric identities; the general Jacobi identity itself is acknowledged as standard.
+PASS
 
-## Mathematical value — PASS
-The object is intrinsic to model theory: complete nonalgebraic one-types over a finite Boolean parameter algebra, paired by existential disjointness. Removing the exponentially many algebraic types could ordinarily create singularity or finite cokernel torsion. The full all-size theorem shows a rigid opposite extreme: all invariant factors remain units, every field has full rank, and the real signature remains exactly one while the dimension grows as \(3^m-2^m\). These facts convey integral and spectral information unavailable from the simple type count alone. The mechanism is a primitive complementary inverse block rather than an arbitrary finite census.
+Over the individually named atoms, 0/partial/full states determine complete types by finite-subalgebra homogeneity. The partial state gives infinitely many realizations, and a feasible disjoint pair of nonalgebraic realizations is distinct because both elements are nonzero. The local disjointness table B and its tensor restriction in RESULT.md are correct. Independently, in the state-coordinate lattice replace e_0 by e_0−e_s, retaining e_s and e_1. In the new basis the local form is [1] on e_s orthogonal to the swap form J on e_0−e_s,e_1. The tensor basis transformation and its inverse preserve the integral span of tensors with at least one s (they fix e_s wherever it occurs). The restricted form therefore splits into blocks J^{⊗(m−|S|)} for nonempty sets S of s-coordinates, including a single positive unit block for S=[m]. For j≥1 the block J^{⊗j} pairs all 2^j binary labels with their complements, giving 2^{j−1} of each sign. This proves signature 1, order 3^m−2^m, the displayed inertia, determinant sign (including m=1), and integer unimodularity, hence identity SNF and full rank over every field. It also agrees with the frozen Jacobi/Schur proof. Exact independent checks of the local relation and determinants at m=1,2,3,4 are corroboration, not the general proof.
 
-## Closest work and limitations
-The principal historical source is Vermeeren, arXiv:1006.4479v1 (2010-06-23); additional exact-object comparisons include the published finite-powerset compatibility-frame and graph-exclusion Fourier reports listed in RESULT.md. The proof is limited to pair disjointness in the pure atomless Boolean algebra over a finite nonempty named subalgebra; higher-arity joint realizability and other relations remain open to separate analysis. A broad historical priority search and independent mathematical validation have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The type-indexed tensor restriction and its exact integer and real invariants are distinct on the checked evidence. The nearby random-poset records share the existential type-matrix viewpoint and signature-one phenomenon, but not the underlying algebra, relation, matrix or nonsingularity. This is a bounded statement-level assessment, not a claim of historical priority.
+
+## value
+
+PASS
+
+Nonalgebraic types are the canonical restriction for compatibility of new elements over a named base. A principal restriction of a unimodular matrix need not retain nonsingularity, much less integral invertibility or a fixed signature. These uniform invariants describe the actual restricted relation in every characteristic and can be used without tracking its exponentially growing matrix. The contribution is the exact behavior of this natural restriction, not the general tensor or Schur identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

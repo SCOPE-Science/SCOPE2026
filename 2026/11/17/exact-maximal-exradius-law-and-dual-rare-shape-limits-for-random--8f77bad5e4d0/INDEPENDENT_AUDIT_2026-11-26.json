@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:25:11.197915Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–105; VERIFICATION.md; exradius_check.py:13–112 (inspected, not executed)",
+        "Independent bounded quadrature: integrate partial sections only for u between u_min(t) (root of the fixed-u minimum from lines 79–83) and u_max(t)=2 acos((sqrt(1+2t)−1)/2); integrate full sections above u_max. At ε=10^−4 the lower and upper ratios were 0.303968617763 and 0.367555659930."
+      ],
+      "rationale": "Anchoring at a named sample point and ordering two independent uniform relative angles gives constant normalized density 2/π² in two angle coordinates. From Δ/(s−a_i), the sine law and half-angle identities, the exradius is 4 sin(A_i/2) cos(A_j/2) cos(A_k/2); pairwise ratios are tan(A_i/2)/tan(A_j/2), so the largest angle picks the largest exradius. With A largest, set u=B+C and v=B−C. Positivity and B,C≤A give |v|≤min(u,2π−3u), and the inverse Jacobian |∂(B,C)/∂(u,v)| is 1/2. The source's phrase naming the Jacobian direction is reversed, but the density 3/π² counting all three labels uses the correct inverse factor. Product-to-sum gives L=2cos(u/2)[cos(u/2)+cos(v/2)]. Its fixed-u sections give the asserted CDF with total mass one. Section minima decrease from 4 to 3/2 with equality at the equilateral point only; four is attained on the closed simplex only at the vertices. Fixed-u level sections have measure zero, proving no atoms by Fubini. Continuity on the connected open simplex and its positive density give strict increase between endpoints. At the minimum the linearization is sqrt(3) max_i δ_i, dominating a constant times the norm on the zero-sum plane; the uniform quadratic error and uniqueness localize the event to O(ε). Rescaling by ε gives a triangular limit of two-coordinate area 3/2, mapped affinely to the uniform Dirichlet simplex. At a corner the deficit is B²+BC+C²+O((B+C)^4); the event is bounded on the sqrt(ε) scale and the quadrant ellipse has area π/(3sqrt(3)), via the stated 60-degree sector map. The density and three corners give the upper coefficient, with constant labeled weights. For both tails the normalized indicators converge in L¹ on bounded rescaled domains, giving TV for the specified shape vectors. The scalar limits follow from 1−3 min_i D_i and squared radius respectively, in distribution. Independent split-interval quadrature using roots of the minimum and maximum section values gave F(2)=0.095449527761, F(3)=0.597104810021, F(3.8)=0.925231523525; the last displayed digits of the frozen approximations differ at about 10^−9, not in the exact CDF.",
+      "residual_risks": [
+        "The TV assertions apply to the specified angle vector and labeled sector tuple, not to a joint-TV claim that appends the changing scalar excess/deficit as an additional exact coordinate. The endpoint proof is the sublevel-set analysis, not the quadrature or the supplied Monte Carlo diagnostics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu–Yue–Chu's Springer excerpt is about deterministic cyclic sums of ratios and trigonometric inequalities; Edelman–Strang's search excerpt contrasts random angles with the Gaussian-vertex model. The frozen comparison reports side-direction sampling and different normalization for the Daley–Ebert–Swift study; its full text was not independently read."
+        ],
+        "reasoning": "A joint law of all circumradius-normalized exradii could dominate this CDF, but bounds on sums are not a joint law. Even when an angle-generation framework includes the uniform simplex, specifying the input distribution alone does not evaluate the maximum, its endpoints or the conditional shapes.",
+        "searches": [
+          "Primary queries: \"Sharp bounds for cyclic sums of the ratio of the exradius to the sides\" exradius formulas circumradius inradius; \"Random Triangle Theory with Geometry and Applications\" Edelman Strang random triangle models uniform angles Gaussian vertices",
+          "Daley–Ebert–Swift, DOI:10.1239/jap/1417528481 (cited comparison at RESULT.md:111,131)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary statements for f4fa44ae752a and d66cc98a9db3 and the self-hit 8f77bad5e4d0",
+        "Primary indexed material for Wu–Yue–Chu, Edelman–Strang and the Erdős problem",
+        "Frozen RESULT.md:107–131 and REVIEW.md as historical comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In unit circumradius one may rewrite L=r+2−2cos(A_max), with r the inradius, by the half-angle identities. The marginal law of r, or the identity ∑r_i−r=4, does not give that dependent combination. The returned excentral record instead concerns angle transformations and shape scores in the acute-conditioned setting."
+        ],
+        "reasoning": "The cited facts give the geometry and angular density but still require an exact section integration, localization, and two different sublevel limits. A prior joint law of (r,A_max) or a fully equivalent shape pushforward could affect the CDF assessment; the inspected statements do not establish one.",
+        "searches": [
+          "Resultary incircle law f4fa44ae752a and excentral transport result d66cc98a9db3; frozen RESULT.md:55–113",
+          "Wu–Yue–Chu, DOI:10.1186/s13660-015-0921-z; classical Erdős bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sole direct match returned was the frozen record itself (8f77bad5e4d0), not a separate source. Related indexed records cover the incircle law (f4fa44ae752a) and an acute-conditioned excentral shape transformation (d66cc98a9db3)."
+        ],
+        "reasoning": "Largest excircle radius, largest radius opposite the largest angle, and the corresponding maximum over the full uniform-angle simplex are equivalent. Neither the incircle law nor an acute-only excentral shape law has these same sublevel events, and the upper endpoint near a nearly straight angle requires the non-acute model.",
+        "searches": [
+          "Resultary: exact distribution full cumulative distribution largest maximum exradius ex-radii three independent uniform points circumference circle endpoint tail conditional shape",
+          "Resultary: largest exradius maximum exradius random inscribed triangle uniform circumference full law",
+          "Primary query: \"largest exradius\" random triangle distribution OR \"exradius\" random cyclic triangle exact distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed deterministic problem (Math StackExchange 2776274) includes the inequality 2r_a≥3R for the largest exradius. No different indexed exact CDF, two-tail-constant table or conditioned-mark statement for this maximum was returned; the incircle entry gives an exact law for another observable."
+        ],
+        "reasoning": "Support constraints can be shared by quite different probability laws. Exact distributions, or a same-model table yielding the two endpoint expansions, would count as substantive coverage; the deterministic inequality is not such a result.",
+        "searches": [
+          "Two Resultary CDF and endpoint searches above",
+          "Primary exact-distribution query above; targeted classical lower bound query: \"A Paul Erdős problem\" largest exradius 2r_a 3R"
+        ]
+      },
+      "rationale": "The supported distinct result is the evaluated maximum-exradius CDF under the full circumference-uniform model, the two sharp endpoint constants, and the conditional angle laws. The deterministic sharp lower bound, exradius identities, angular simplex law and incircle distribution are not credited as new. No accessible distinct statement or dominating evaluation of this maximum and both marked limits was identified.",
+      "residual_risks": [
+        "Full relevant passages of the related indexed records and primary articles were not recovered independently; snippets do not exclude further results. A prior exact pushforward or joint law in the identical circumference model remains a possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal incircle radius, not maximum of original exradii",
+          "evidence": "Indexed exact incircle law and thin/near-equilateral tails; the different observable requires more than its marginal law.",
+          "identifier_or_url": "2026/10/25/SCOPE-the-full-inradius-law-and-two-contrasting-tails-of-random-cyclic--f4fa44ae752a",
+          "material_read": "Indexed summary and frozen comparison at RESULT.md:110–113; full mirrored proof not retrieved",
+          "method": "Local Resultary search and bounded local-mirror retrieval attempt",
+          "title": "The full inradius law and two contrasting tails of random cyclic triangles",
+          "trigger": "Same random triangle model and exact law with contrasting tails"
+        },
+        {
+          "assessment": "Acute-conditioning and transformed shape scores, not the full unconditional extreme-exradius law",
+          "evidence": "Returned scope concerns an affine excentral angle transformation and ordering of acute shapes.",
+          "identifier_or_url": "2026/11/2/SCOPE-excentral-transport-and-universal-shape-ordering-for-acute-rando--d66cc98a9db3",
+          "material_read": "Indexed summary and frozen comparison at RESULT.md:110–113",
+          "method": "Local Resultary search; bounded mirror passage retrieval unsuccessful",
+          "title": "Excentral transport and universal shape ordering for acute random cyclic triangles",
+          "trigger": "Potentially equivalent excentral transformation and random-angle score"
+        },
+        {
+          "assessment": "The inequalities and formulas are background and the lower support bound is explicitly credited, not independently novel",
+          "evidence": "The Springer work treats cyclic sums of ratios; the displayed problem is to prove 2r_a≥3R for the largest exradius.",
+          "identifier_or_url": "DOI:10.1186/s13660-015-0921-z; https://math.stackexchange.com/questions/2776274",
+          "material_read": "Official Springer search excerpt and indexed public problem statement; frozen proof at lines 57–85 and discussion at line 109",
+          "method": "Targeted primary lookups; full OA retrieval unsuccessful and ordinary problem page returned 403",
+          "title": "Sharp bounds for cyclic sums of the ratio of the exradius to the sides of a triangle; A Paul Erdős problem",
+          "trigger": "Exact deterministic exradius identities and endpoint inequality"
+        },
+        {
+          "assessment": "Material read establishes model distinction, not absence of additional results in unseen passages",
+          "evidence": "Random angles are presented as the simplest model, distinct from the Gaussian-vertex model.",
+          "identifier_or_url": "arXiv:1501.03053",
+          "material_read": "Publisher/indexed Figure 2 excerpt contrasting angle and Gaussian-vertex models; frozen comparison at line 109",
+          "method": "Targeted primary query; OA passage retrieval unsuccessful",
+          "title": "Random Triangle Theory with Geometry and Applications",
+          "trigger": "Uniform-angle law or potentially broader triangle-size results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–51, 77–100, 107–117"
+      ],
+      "rationale": "This is a natural maximum with a classical sharp deterministic lower bound. The full CDF quantifies proximity to both extremes; the distinct powers arise from different local geometry (a maximum of linear forms at the equilateral triple and a quadratic deficit at three corners). The uniform Dirichlet and labeled sector limits identify the actual rare shapes rather than only giving another scalar moment or restating the support inequality.",
+      "residual_risks": [
+        "The results are for a fixed circumradius and independent uniform arclength points; a one-dimensional quadrature is not claimed to have an elementary primitive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact rational update reduces the state to a nonnegative scalar \(y\), and its rational multiplier is uniformly less than one in modulus away from the minimizer for normalized base steps through two. At the critical step, an exact telescoping reciprocal difference gives the asymptotic without treating finite numerical tests as a proof. Above two, the antipodal orbit has an explicitly solved radius and a second-iterate multiplier strictly below one. All statements have explicit parameter ranges; non-antipodal cycles and supercritical global basins are not classified. The standalone code passed 84 exact-rational consistency checks.
+## correctness
 
-**Originality — PASS, qualified.** Full relevant portions of the 2026 stability-index paper and the 2024 NGN origin paper were examined and compared by implication. The older 2024 work observes bounded dynamics for a positive-floor quadratic, but that observation does not imply nonoptimal attracting cycles or the sharp threshold and critical rate. A close published exact NGN quadratic-spectrum theorem concerns a zero-minimum quadratic and explicitly excludes floors and multi-step dynamics. A second close theorem concerns per-step NGN-versus-proximal model indices with zero floor, not iteration orbits. Targeted database and literature queries found no exact covering statement; historical priority is not proven exhaustive.
+PASS
 
-**Value — PASS.** The positive minimum is a natural condition for nonnegative learning objectives, and an actual objective-value offset changes the NGN algorithm. The result gives a sharp, explicit separation between nondivergence and convergence to an optimizer, including an attracting nonoptimal orbit, exact critical convergence rate and nonvanishing large-step loss gap. This is a substantive warning about interpreting stability-index robustness as large-step asymptotic optimization, rather than a trivial parameter substitution.
+For y=λx²/(2c) the effective normalized step is α(1+y)/(1+(1+α)y), giving x₊=x t(y), t(y)=(1+y−α)/(1+(1+α)y). The strictly increasing t lies strictly between −1 and 1 at y>0 when α≤2; a positive limit of the decreasing magnitude contradicts continuity of this strict inequality. T′(0)=1−α, and at α=1 the leading map term is λx³/(2c). At α=2, y₊=y[(1−y)/(1+3y)]² gives the reciprocal increment 8(1+y)/(1−y)². It tends to 8 on nonterminating orbits, hence ny_n→1/8, with the stated spatial and loss constants. Terminating orbits are excluded. For α>2, the origin is locally repelling and the unique equation t(y)=−1 gives y_*=(α−2)/(α+2). At that root the denominator is α²/(α+2), so differentiating T gives T′(±r)=t+2y t′=1−8/α² and the return derivative is its square, less than one, including the zero-multiplier case. At the cycle λγ=2 and excess loss is cy_*. It disproves all-start convergence but says nothing about uniqueness among non-antipodal cycles or global basins. Inspected the exact-arithmetic diagnostics in check_ngn.py and VERIFICATION.md; the upload was not executed. The rational identities and limiting argument certify the theorem independently of those diagnostics.
 
-The numerical verifier covers finite exact cases, while the proof supplies the infinite-parameter statements. Original source attribution, the absence of stochastic generalization, and residual historical-priority risk are disclosed. No outside independent mathematical validation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The NGN rule and the positive-floor scalar test problem are known, as are bounds separating boundedness from convergence. The exact all-start threshold, critical coefficient and attracting cycle on the actual positive-floor map are distinct within the examined sources. Overlap with scalar flip theorems for other adaptive updates does not give this explicit classification.
+
+## value
+
+PASS
+
+The simplest strongly convex test problem used by the method's authors separates boundedness from optimization: the true additive objective floor leaves an explicit attracting obstruction at every supercritical fixed base step, while the critical orbit still converges at a different rate with a sharp constant. This is a useful exact counterexample to inferring large-step minimization from NGN's per-step stability, not just a local derivative threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:28:36.187468Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reassessed the quorum-comparison repair. For each fixed z, x+ρy=ρ(1−z)+(1−ρ)x; among 0<z<1 the unique optimum in x is at x=0, and the remaining beta-shaped factor peaks only at z=h/n. The weighted benefit and advantage are constant at ω=0; the new text explicitly limits weighted uniqueness to ω>0 and distinguishes normalized ceilings when ω=0. The sign of the adjacent binomial-peak ratio is controlled by the strict increase of (1+1/u)^u. For s≥2 the risk-factor ratio is 1−1/(Σ_{i=0}^{s−1}ρ^(−i)), strictly falling from 1 to (s−1)/s. In the late-quorum case the binomial ratio is strictly between 1 and s/(s−1), by the two strict log bounds log(1+t)<t and log(1+t)>t/(1+t). These yield the exact unique crossing including equality, while symmetry of the binomial peak and the strictly falling risk factor give the unique first quorum, also when n=2. For N=5 the ratio is (9/8)/(1+ρ) and 765/2048<3/8<405/1024 as stated. Also checked the withdrawn dynamics: monotone z/x confines the trajectory to a compact set missing the unique normalized maximizer and yields its uniform-in-time gap; at z=0 the scalar edge bracket is increasing and the transverse rate at an interior edge equilibrium is −k. The vanishing perturbation and isolated scalar zeros justify convergence but do not make it novel. The frozen exact-rational checker was read, not run; the reported 13,680 composition cases and finitely sampled comparisons do not prove the general crossover or the original dynamics. The repaired proof independently establishes the comparisons.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nöldeke–Peña prove a binomial pivotal probability peaking at its mean-matching frequency and a fixed-threshold Poisson limit in a two-action game.",
+          "Li et al. classify the C–D edge saddle and give threshold comparisons for local stability for one group size."
+        ],
+        "reasoning": "The unweighted two-action calculation does not account for the factor 1−ρ^(n−h), which both breaks symmetry and competes with the adjacent binomial ratio. Equilibrium classifications do not determine the global composition-wise payoff ceiling crossing.",
+        "searches": [
+          "Nöldeke–Peña DOI 10.1016/j.jmateco.2020.02.003, §2.2 and Lemma 2",
+          "Li et al. §2.7.2 and §3.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check.py; corrected RESULT.md",
+        "Resultary 017d5b602d4e, 55fae09c6461 and 465d34c19309 (latter two, indexed summaries only)",
+        "arXiv:2609.28132 and DOI 10.1016/j.jmateco.2020.02.003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An earlier exact ceiling is the starting point. The repair computes Q=(1+1/h)^h/(1+1/(s−1))^(s−1), identifies when Q>1, bounds it by s/(s−1), and proves strict monotone variation of the risk ratio with its two limits.",
+          "The older −k asymptotic relative slope with z≤z/x already implies exponential extinction in the same region; the current review does not credit it as a new result."
+        ],
+        "reasoning": "Although the prior ceiling defines the functions being compared, it does not immediately determine whether or how often they cross on an open interval. The proof establishes orientation, existence and uniqueness for every late adjacent pair and strict absence for all earlier ones, not just direct substitution of example parameters.",
+        "searches": [
+          "Resultary 017d5b602d4e, RESULT.md near offsets 1500 and 5200",
+          "Nöldeke–Peña Eq. (1); Li et al. Eqs. (6)–(7) and Table 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior Resultary ceiling k_* in notations a=M−1 and b=N−M is exactly LωH_(N,M)(ρ), not a bound or proxy.",
+          "Li et al. define the same focal cost and pivotal risk factor, but their adjacent numerical comparisons use critical efficacy for local stability."
+        ],
+        "reasoning": "An efficacy cutoff for positive local advantage could be written k/(L H), which reverses the ranking on taking reciprocals. It is not the efficacy needed for a stable equilibrium. The repair compares the former invariant, using a known exact ceiling as its input.",
+        "searches": [
+          "Resultary: sharp protective cost ceiling, critical quorum, risk-weighted pivotal probability and quorum reversals",
+          "Li et al. arXiv:2609.28132, Eqs. (6)–(7) and Table 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "017d5b602d4e states the identical symbolic ceiling and yields exponential relative extinction including equality by its asymptotic log-ratio slope −k.",
+          "Li et al. tabulate critical efficacy for local stability at M=2,3,4, not exact winner intervals in ρ for the cost ceiling."
+        ],
+        "reasoning": "The exact older formula and dynamical finding invalidate the corresponding original novelty claims; neither a fixed-group-size table of another threshold nor the matched formula is itself a classification of its adjacent crossings. The additional same-model search hits were accessible only as summaries and are not relied on for noncoverage.",
+        "searches": [
+          "Resultary 017d5b602d4e, 55fae09c6461 and 465d34c19309",
+          "Li et al. §3.4/Table 2"
+        ]
+      },
+      "rationale": "The same exact ceiling and critical-threshold elimination were already covered, and both are explicitly treated as known or withdrawn in the repair. The new evaluated claim is the sharp global and adjacent comparison of the known ceilings as functions of quorum and survival factor. The source's stability diagrams compare a different quantity; the closest exact ceiling statement does not give the crossing classification, and deriving it needs a strict ratio comparison including both endpoint limits. No novelty is claimed for the standard binomial limits or the scalar edge classification.",
+      "residual_risks": [
+        "Full passages for the same-model equilibrium multiplicity and smallest-quorum attractor catalogue hits were not retrieved; their summaries do not settle precedence for quorum comparisons.",
+        "Equivalent risk-weighted adjacent comparisons may be indexed under pivotal probability or inverse efficacy terminology. No absolute priority claim follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the original ceiling and critical exclusion; not evidence of adjacent crossover in passages inspected",
+          "evidence": "Uses a=M−1, b=N−M in the identical risk-weighted binomial peak; at k≥k_* gives z→0 and t^(−1)log(z/x)→−k for x,z initially positive.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-protective-cost-ceiling-and-singular-phase-volume-collapse--017d5b602d4e/RESULT.md",
+          "material_read": "RESULT.md passages near offsets 1500 and 5200, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary mirror passage comparison",
+          "title": "Sharp protective-cost ceiling and singular phase-volume collapse in quorum public goods",
+          "trigger": "Exact same payoff ceiling and weak-threshold exclusion"
+        },
+        {
+          "assessment": "Same focal payoff identity and saddle; Table 2 measures a distinct stability threshold",
+          "evidence": "Eq. (1) gives failure law; Eqs. (6)–(7) give pivotal benefit and payoff contrast. Table 2 compares local-stability efficacy at quorums 2, 3 and 4.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.28132",
+          "material_read": "PDF §§2.2–2.5 and §2.7.2, pp. 2–5; §3.4/Table 2, offsets 13500, 18000, 27400, 33400 and 58000",
+          "method": "Open-access primary paper passage inspection",
+          "title": "Bifurcation and Multistability in a Collective-Risk Public Goods Game with Quorum-Activated Protection",
+          "trigger": "Source model and potentially matching quorum claims"
+        },
+        {
+          "assessment": "Unweighted pivotal probability and Poisson limit, not the model-specific risk-weighted adjacent ratio",
+          "evidence": "Peak participation frequency aligns the expected number of other contributions with the unique pivotal count.",
+          "identifier_or_url": "https://jorgeapenas.github.io/assets/pdf/Noeldeke2020.pdf (DOI 10.1016/j.jmateco.2020.02.003)",
+          "material_read": "§2.2 Eq. (1) and text; Lemma 2 Eq. (4), OA passage near offset 22600",
+          "method": "Open-access author copy passage inspection",
+          "title": "Group size and collective action in a binary contribution game",
+          "trigger": "Exact binomial pivotal optimization and possible prior quorum comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The comparative statics distinguish a globally optimal smallest quorum from nonmonotone behavior among larger quorums. The crossing theorem identifies exactly where the effect of an adjacent quorum increment reverses, at arbitrary group size; it yields strict incentive differences at intermediate costs without conflating them with stable coexistence. This is a useful structural property of the modeled risk-weighted incentive ceiling beyond its already known formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

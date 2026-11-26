@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The main implication for at most two voters is proved for arbitrarily many rounds and candidates: Pareto efficiency makes the selected approval count in each round equal to the best attainable approval count, while EJR+ protects each singleton's proportional level. The three-voter, at-most-two-round case is a complete proof by group sizes and the possible positive satisfaction levels; it does not depend on enumerating ballot profiles. The three-voter, three-round witness was independently checked against all FJR group/round-subset benchmarks and all EJR+ cohesive-group/common-candidate conditions. The finite verifier confirms those statements but is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest source is Teh (2026, arXiv:2609.35826v1), whose Example 3.3 proves qualitative separation using five voters, three rounds, three candidates and singleton ballots; it does not state the smaller sharp witness in the general empty-ballot model or the universal two-voter Pareto-efficient implication. Phillips et al. (2025, arXiv:2505.22513v1) is prior to temporal FJR+. Targeted mathematical-record and primary-literature comparisons found no corresponding claim; this is a bounded search, not a proof of global novelty. Equivalence, broader implication, data-table and exact-claim comparisons and the material inspected are documented in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
-This result identifies the first finite-size Pareto-efficient obstruction for a newly formalized proportionality criterion and proves universal low-population equivalence, refining the known five-voter qualitative witness. The empty-ballot assumption is explicit and materially limits extension to the nonempty-singleton-ballot setting.
+The three triggers and the FJR and EJR+ quantifiers match the cited definitions. In the witness voter 3's maximum satisfaction fixes every chosen candidate; group {1,2} violates only the cohesion equality trigger for target one. It has no common approved candidate, and its singleton subgroups have cohesion entitlement zero. FJR has benchmark zero for those singletons (pick an empty-approval round at full horizon); for the pair, a one-round choice cannot satisfy both, and for the full horizon the two identical first rounds witness benchmark zero. With two voters, a non-maximal supporter count is Pareto-dominated roundwise, so the grand-coalition score is maximal; singleton FJR+ triggers are covered by EJR+. For three voters and at most two rounds, singleton triggers cannot occur; pair triggers require two unanimous pair rounds, hence EJR+ protects target one; a grand-coalition violation would require all-zero satisfaction at target one or two unanimous rounds at target two, both inconsistent with Pareto efficiency and the trigger. For one candidate the maximal total support equals actual total satisfaction on every group. Independent witness evaluation and 1056 reduced profile/outcome checks agree (python /workspace/independent_checks.py 2). The short-domain replay reduces arbitrary candidate sets to maximal supporter masks: dropping smaller masks preserves common-approval availability, per-round support maxima and Pareto comparisons, and no Pareto-efficient outcome chooses such a smaller mask.
 
-## Limitations
-The universal all-horizon statements require Pareto efficiency; the two-candidate witness contains empty approval sets. This is neither a new computational algorithm nor an improvement for the nonempty-singleton-ballot subdomain. Publication-priority risk survives finite literature and index searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The qualitative Pareto-efficient separation is prior. The distinct result is the sharp three-voter obstruction with the simultaneous short-horizon/candidate minima, plus the underlying universal Pareto-efficient EJR+ implication at smaller sizes.
+
+## value
+
+PASS
+
+This locates exactly where the qualitative strengthening becomes observable under Pareto efficiency in the standard permissive model. The small witness isolates cohesion equality, and the arbitrary-horizon two-voter implication explains why an even smaller electorate cannot separate the axioms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

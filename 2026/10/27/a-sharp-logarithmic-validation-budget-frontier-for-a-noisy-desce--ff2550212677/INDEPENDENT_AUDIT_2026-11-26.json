@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:30:49.805536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At zero the empirical loss change is 3/2−2J/B, giving the strict integer cutoff floor(3B/4)+1. The unit-step proposal is always ±1 regardless of the current iterate, so zero cannot be revisited after acceptance. Fresh draws give the asserted conditional hazard and multiply survival; after departure the gap is exactly 1/2. For every B the exterior tail is positive and at most 1/2, so permanent survival is positive iff the hazards are summable. For large B the consecutive binomial mass ratio from the first accepted count is <1/3, so the tail and its first mass are comparable; Stirling at 3B/4+θ, 0<θ≤1, gives B^(-1/2) exp(−BI) up to bounded factors since the entropy shift is θ log 3+O(1/B). For c>0 the floors are bounded perturbations and summation reduces to k^(-cI)(log k)^(-1/2), or to 1/[k(log k)^(a+1/2)] at critical scale. The two equality cases diverge; if c≤0 is allowed, B stays at one and departure is immediate in the almost-sure eventual sense. An additive B offset bounds the union of departure events via a summable envelope. A flip after departure instead requires a strict majority for the opposite endpoint and an opposite proposal; the resulting symmetric chain contracts by |1−2q_B| for fixed B. The supplied finite enumeration and output were read as corroboration only, not as proof of the thresholds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang et al. compare candidate and current point with independent feedback in their hypergradient variant and update the scaling each step.",
+          "Györfi–Harremoës–Tusnády cover sharp lattice tails for iid sums, specializing to Bernoulli variables."
+        ],
+        "reasoning": "The latter covers the statistical estimate, not the dynamical identification of the hazard or irreversible states. The former's convergence assumptions do not hold: the population gradient vanishes at zero but a sampled gradient is ±1.",
+        "searches": [
+          "primary: online scaled gradient method null step stochastic preconditioning independent samples acceptance validation batch stochastic online scaled gradient descent null step divergence",
+          "Zhang et al. Algorithm 2 and Assumptions 3.1–3.2; arXiv:1205.1005 Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.json (read only)",
+        "Zhang et al. Optimization Online primary PDF",
+        "arXiv:1205.1005",
+        "3eb74e804a71",
+        "ea601f3469f2",
+        "a16d48da5cb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm 2 uses stochastic scaling updates; 3eb74e804a71 assumes a common minimizer and gives a different criterion; the later Armijo record studies a single backtracking sweep."
+        ],
+        "reasoning": "A lattice large-deviation theorem implies the tail envelope once the correct event is supplied, and the series threshold then follows by standard tests. None of the inspected sources identifies that event and the absorbing complement of zero for this repeated noninterpolating fixed-step comparison.",
+        "searches": [
+          "Zhang et al. Algorithm 2; Resultary 3eb74e804a71, ea601f3469f2 and a16d48da5cb2; arXiv:1205.1005 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "3eb74e804a71 is a convergence frontier for independently validated sparse interpolating quadratics; a16d48da5cb2 has the same type of two-row optimum and independent false validation but a one-sweep dyadic Armijo rule."
+        ],
+        "reasoning": "Neither produces the repeated irrecoverable departure event with its exact stage hazard and resulting two time-schedule thresholds.",
+        "searches": [
+          "Resultary: independently validated null step, strong-convex optimum departures, logarithmic batch size",
+          "primary: stochastic gradient null step independently validated stochastic Armijo line search mini batch false acceptance optimum online preconditioning logarithmic validation sample size binomial tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ea601f3469f2 indexes a sharp logarithmic-batch screening window from selection among fresh observations; a16d48da5cb2 indexes a square-root batch/dyadic-backtracking relation."
+        ],
+        "reasoning": "The Bernoulli tail is standard and tabulable; the target exact result is the infinite-time acceptance and survival law and phase boundary for this dynamics, not a table of finite binomial sums. Neither indexed law is the target process.",
+        "searches": [
+          "Resultary: logarithmic screening and exact binomial false validation",
+          "primary: Bahadur Rao exact large deviations binomial lattice tail 1960 Bahadur approximation binomial distribution tail project euclid Stirling"
+        ]
+      },
+      "rationale": "The covered ingredients are the independently sampled null-step rule, exact lattice-tail methods and the product/summability test. The distinct finding is the exact pathwise failure frontier of this specific noninterpolating, fixed-step repeated safeguard, including irreversibility and the sharply divergent equality at a=1/2. It is not a claim about full adaptive scaling or priority for any of the ingredients.",
+      "residual_risks": [
+        "An equivalent older fixed-step validation construction under different terminology was not ruled out exhaustively.",
+        "Tail, summability, and general safeguard ingredients are prior; the pass does not assign novelty to them or claim a general adaptive optimization theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rule antecedent, not subsuming theorem",
+          "evidence": "Independent samples ξ and ζ, argmin null step, and P update; relative gradient concentration assumes noise controlled by population gradient norm.",
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/05/Stochastic_OSGM-4.pdf",
+          "material_read": "Algorithm 2 and Assumptions 3.1–3.2, PDF offsets 22685–26285; Theorem 3.3, offset 27792",
+          "method": "OA primary PDF",
+          "title": "Stochastic Gradient Methods with Online Scaling",
+          "trigger": "Exact source of independent null-step rule"
+        },
+        {
+          "assessment": "Covers classical tail ingredient",
+          "evidence": "Theorem uses shifted Gaussian tail with the lattice correction factor, and the Bernoulli reduction handles attainable count thresholds.",
+          "identifier_or_url": "https://arxiv.org/abs/1205.1005",
+          "material_read": "Theorem 2, lattice case and opening Bernoulli specialization, manuscript p. 5 offset 14720",
+          "method": "OA author-hosted PDF",
+          "title": "Some Refinements of Large Deviation Tail Probabilities",
+          "trigger": "Exact large-deviation prefactor"
+        },
+        {
+          "assessment": "Closest earlier indexed dynamics; does not subsume",
+          "evidence": "Common minimizer, coordinate-sparse samples, and collision criterion Σp_i²<2 min p_i.",
+          "identifier_or_url": "3eb74e804a71",
+          "material_read": "Finding, assumptions and proof at offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "The collision-probability frontier for independently validated hypergradient updates",
+          "trigger": "Independent validation with fixed steps on quadratics"
+        },
+        {
+          "assessment": "Later comparison, different screening process",
+          "evidence": "Chooses among fresh noisy observations at two targets, not a null-step decision at a strongly convex optimum.",
+          "identifier_or_url": "ea601f3469f2",
+          "material_read": "Finding, assumptions and proof at offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "A sharp logarithmic screening window for streaming minimum-loss selection",
+          "trigger": "Exact logarithmic budget phase"
+        },
+        {
+          "assessment": "Later comparison, different time and trial mechanism",
+          "evidence": "One-sweep dyadic backtracking trades off validation size s and depth J at √s·2^(-J), not repeated zero survival.",
+          "identifier_or_url": "a16d48da5cb2",
+          "material_read": "Finding, assumptions and proof at offset 0",
+          "method": "Published Resultary local mirror",
+          "title": "A square-root validation–backtracking frontier for sampled Armijo",
+          "trigger": "Same type of two-row optimum and exact binomial false acceptance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model isolates how a shared but independently sampled validation batch can fail to protect even an exact global optimum. It distinguishes arbitrary finite fixed budgets, a sharp log slope, and the separate log-log refinement that a Chernoff exponent alone misses. It also gives an explicit way to control the probability of ever accepting a worse point in the regime where retention is possible, without claiming applicability to other step rules.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

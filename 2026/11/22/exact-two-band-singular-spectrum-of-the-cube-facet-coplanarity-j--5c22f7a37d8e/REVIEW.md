@@ -1,19 +1,21 @@
-# Scientific assessment: exact cube coplanarity singular spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The domain is the antipodally even real label space of the full Boolean cube, with unnormalized counting-measure vertex norm; the target contains one coordinate for every unordered \((n+1)\)-tuple in each positive coordinate facet, with no averaging. The crucial linearized determinant reduction follows because the constant homogeneous column duplicates the \(i\)-th spatial column on the \(i\)-th facet. Full Cauchy–Binet converts the sum of squared minors into \(N^n\) times the squared affine-fit residual, with \(N=2^{n-1}\); no determinant or binomial factor is omitted. On each facet, even Walsh characters remain pairwise orthogonal because their symmetric differences have even cardinality. A degree-two mode survives on exactly \(n-2\) facets, and every mode of even degree at least four on exactly \(n\), giving the exact coefficients \((n-2)2^{n^2-1}\) and \(n2^{n^2-1}\) before division by the domain norm \(2^n\). The dimension-three high-band multiplicity is zero and handled separately. Fully enumerated exact integer minors in dimensions three through five give 15 additional checks, including cross terms. The finite checks are corroboration only; the Cauchy–Binet argument proves the all-dimensional statement.
+PASS
 
-## Originality
+On a positive facet only the derivative of the fixed-coordinate column survives, since otherwise it duplicates the homogeneous column. The vector of complete derivative minors is, up to row signs, the exterior product of the affine columns with the restricted radial label. The n affine columns are orthogonal of squared norm N=2^(n-1); removing the affine component of the last column therefore gives squared norm N^n times the squared residual. On the even domain restriction to a positive facet chooses one representative of each antipodal pair, so its Gram normalization is 1/2 on counting measure. Distinct even characters restrict to distinct orthogonal characters; the constant is always removed, a quadratic character survives on n-2 facets, and a higher even character survives on n facets. Thus the Gram levels are (n-2)N^n/2 and nN^n/2 with precisely the stated multiplicities and equality space. For n=3 only the lower band exists, with Gram eigenvalue 32 and character output energy 256. Square roots give the claimed condition numbers.
 
-**PASS under the checked literature, with historical-priority risk.** The closest primary source is Jiménez Cuevas (arXiv:2606.14709v4), Section 4, particularly Theorem 4.6. It explicitly defines the same matrix and gives only positivity, Walsh-level diagonalization, and the dimension-three value \(\lambda_{3,2}=256\); it states that a general closed form and all values at \(n\ge4\) are not asserted. The current exact two-band coefficient formulas, sharp Euclidean singular values and multiplicities do not follow numerically from that qualitative assertion without the new complete-minor summation. Himmelmann–Schulze–Winter (arXiv:2505.00874v3) imposes additional fixed-edge-length constraints on substantially more general motions, and does not calculate this radial minor operator. Published Fourier sampling and matrix-minor studies using superficially similar square-root condition ratios have different domains and measurement operators; their statements do not imply the present full facet-coplanarity spectrum. Unindexed older treatments or an overlooked normalization-equivalent result remain possible and require external literature review.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The explicit coefficients answer the concrete all-dimensional spectral constants left open in the motivating source, not an arbitrary rescaling or a numerical example. They identify the unique least-detectable nontrivial deformation sector, provide a sharp quantitative rigidity constant under an intrinsic complete-minor normalization, and show that the positive singular spectrum becomes asymptotically tight even as the number of vertices and constraints grows exponentially. This makes the linearized coplanarity measurement's stability and conditioning exactly computable. Its applicability is limited to the specified Jacobian and Euclidean measurement norm; no nonlinear Mahler-product estimate is added.
+The identical operator and even-Walsh diagonalization were already published, as was the n=3 coefficient. The general all-dimensional squared singular levels, hence the exact band degeneracy and conditioning beyond dimension three, are the supported distinct contribution. The closest primary source explicitly does not evaluate those general coefficients.
 
-## Evidence and limitations
+## value
 
-The main independent proof is the affine-residual/Cauchy–Binet identity plus facetwise Walsh degree counting. `verify.py` and `verification_output.txt` document exact finite tests. Primary materials inspected were the relevant full sections of the 2026 cube-coplanarity manuscript and the open-access HTML of the 2025 polytope-rigidity paper. Residual risks include unnoticed older equivalent formulations and any difference in normalization if this formula is transferred to other operators. Independent specialist validation has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This evaluates a natural stability constant for a previously defined geometric measurement whose general coefficients were left unspecified. It identifies the least detectable nonconstant radial modes and proves near-equal nonzero singular values in high dimension. This is useful for the specified linearized Euclidean map without claiming a nonlinear Mahler estimate or invariance under different row weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

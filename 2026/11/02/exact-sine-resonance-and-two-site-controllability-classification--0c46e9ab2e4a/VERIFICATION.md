@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Mathematical and computational verification
+# Independent mathematical audit
 
-The analytic argument verifies the exact domain \(m,n\ge3\), \(\gcd(m,n)=1\), \(a,b>0\), and independent coordinate controls. The crucial steps are the root-of-unity chord identity, the coprime congruence that forces both frequency sums to equal their cycle lengths, the unique-pair and at-most-double spectral collision conclusion, and the two-row PBH determinant equivalence to simultaneous modular divisibility. The proof is not based on sampled spectra.
+## correctness
 
-The included `check_directed_tori.py` is a standalone Python 3 test requiring `mpmath` and executes with `python check_directed_tori.py` from the directory holding the file. The test was executed in its delivered form before acceptance and returned:
+PASS
 
-```
-PASS 4248701 deterministic checks across 89 resonant parameter samples and all coprime pairs through 25
-```
+Unitary Fourier diagonalization gives sums of two rate-weighted roots of unity, up to the shift convention. In a collision both indices differ. The nonzero root-of-unity chords must have parallel directions, so (j+j′)n−(k+k′)m is a multiple of mn. Coprimality and 1≤j+j′≤2m−3 (likewise for n) force sums m and n. Thus neither index is a self-conjugate frequency and each mode has at most one partner. Opposite signs of the two imaginary parts are necessary for positive rates, giving exactly the pairs and positive sine ratios stated. The two Fourier evaluation rows at inputs translated to (0,0),(u,v) lose rank exactly when 2ru/m−2sv/n is integral, equivalent by coprimality to both divisibilities. Simple modes never obstruct one input, repeated modes require two, and each coordinate adjacency clears the corresponding divisibility. Equal sines in (0,π) would force equal or supplementary angles, both excluded by the same modular argument at these indices; prime orders force zero displacement for a failure. An independent real-space eigensolver/PBH SVD checked 109 site sets including resonant composite orders and an equal-rate case (/workspace/branches/frozen_math_replay.py, argument 2). These numeric checks are bounded corroboration, not the analytic proof. The uploaded 82-digit checker was inspected, not executed.
 
-The tests include a complete integer check of the chord-direction modular implication for coprime orders from three through twenty-five, direct Fourier eigenvalue collision enumeration for 89 parameter settings, and all cyclic two-site displacements on those examples. The comparison tolerance is \(10^{-65}\) at 82-digit precision. The checks do not exhaust infinitely many lengths or positive real rate ratios. The finite script uses the analytic formulas and is an independent consistency calculation, not a formal proof certificate.
+## originality
 
-Scientific limitations and the unresolved accessible-literature overlap risk are documented in the result and review. Self-review was completed; no independent audit was performed.
+PASS
+
+Pass restricted to the exact positive-rate collision classification and all two-site placements on the stated directed family. Product eigenvalue sums, PBH eigenspace rank, Fourier modes, and the generic multiplicity-based actuator-count framework are not the original contribution. The strongest inspected related statements and indexed records do not give the directed coprime chord restriction or its exact resonance and placement formulas. Directly relevant specialist full-text access remains unresolved, so this is not a priority guarantee.
+
+## value
+
+PASS
+
+Exact exceptions determine sensor or actuator placement in a natural directed lattice family. The criterion distinguishes truly inadequate displacements from adjacent or other successful pairs at resonance, handles all positive ratios rather than generic ones, and provides a concrete composite-order obstruction. This is useful beyond the generic eigenvalue-multiplicity principle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of the four Hilbert-series strata
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the minimal support and computes graded ranks from exterior wedge maps. In the full-support case, an invertible rank-four wedge map reduces the cubic-rank computation to whether the pencil contains its unique decomposable point. Counting uses Gaussian coefficients, unique minimal supports, and Möbius inversion on a three-space. Binary exhaustive enumeration and finite-field tests corroborate the general proof.
+## correctness
 
-## Originality
-PASS for the theorem over arbitrary finite fields, with a material binary-case limitation. The exact \(q=2\) line-count distribution is already implied by the 2005 complete binary Grassmannian-line classification; it is not presented as a novel special case. The 2000 exterior-algebra paper addresses generic-series conjectures, and the earlier two-quadric syzygy literature does not give this distribution. The four uniform Gaussian formulas and rank-dependent Hilbert-series partition are not implied by the inspected primary claims. Other general-q finite-geometric classifications could subsume some or all of this conclusion; this risk remains.
+PASS
 
-## Value
-PASS. The complete Hilbert-series distribution for every quadratic-relation pencil in the first five-generator case with four strata is a natural exact invariant. A uniform finite-field law and ratio between the two full-support strata are useful for understanding both typical exterior quotients and exceptional projective pencils.
+The wedge pairing kills quotient degree five for any nonzero relation. If minimal support is three, splitting off the complementary two-space gives ideal ranks 5 and 4 in degrees three and four. If support is at least four, a nonzero annihilator of the degree-four ideal would force both relations into v∧V and support at most three, so degree four vanishes. In support four the same annihilator argument applied inside the support gives all of Λ³U, with two extra independent dimensions from wedging the complement, hence cubic quotient dimension four. For support five some pencil member α has rank four, since two independent decomposable members have joint support at most four. Write the other generator as β+e∧x relative to the support U of α. The invertible wedge map α∧−:U→Λ³U eliminates the pure-U component, leaving image contributions from x∧U+kα+kβ in the component e∧Λ²U. The rank of that span drops from five to four exactly when a pencil member with nonzero e-component is decomposable; two such points cannot occur. This uses alternating rank and perfect pairings even in characteristic two, not division by 2 or a wedge-square test. Unique minimal support gives C3 and C4. For C5,1 the fixed decomposable point count is Möbius inversion on V/S(ω) with coefficients 1,−1,q and zero contribution from dimension zero; the per-point factor simplifies to q⁴(q+1)(q³−1). Independent Gaussian polynomial expansion gives C5,0/C5,1=q(q−1) and proves positivity together with e12,e34 as a support-four witness. Independent replay (python /workspace/branches/independent-reproductions/algebra_reproduction.py) computes actual wedge ranks for all 174251 binary two-subspaces and gives 1085,16926,52080,104160 in the claimed order. The binary experiment does not prove the uniform theorem; the displayed rank and counting arguments do. Frozen verify.py was inspected, not executed.
 
-## Scientific limitations
-The q=2 census is prior-covered. No quotient orbit/isomorphism classification, Betti tables, or larger-dimension result is asserted. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the all-prime-power distribution of the Hilbert series of relation subspaces, not for the generic series or binary incidence problem. The generic five-generator series is explicitly prior. The frozen record excludes the binary census from novelty; the exact extent of the inaccessible binary orbit tables was not independently established. The strongest inspected pencil and exterior-algebra prior does not supply the uniform count of subspaces in each of the four strata.
+
+## value
+
+PASS
+
+The Hilbert series is a natural invariant of exterior ideals, and the first five-generator case exposes two distinct full-support behaviours which the generic series and binary line census alone do not explain uniformly. The complete distribution relates cubic syzygies to rank-two incidence, works in characteristic two, and gives exact proportions for arbitrary finite fields. It is not an orbit or Betti-table classification, and the worth of the result does not depend on treating the generic row or the q=2 recomputation as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

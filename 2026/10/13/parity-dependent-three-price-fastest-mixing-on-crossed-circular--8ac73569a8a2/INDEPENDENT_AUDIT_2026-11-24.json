@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:21:17.912612Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:5–104, including the exact unit-budget constraint and all equality regimes",
+        "VERIFICATION.md:19–29 and verify.py",
+        "Independent check: python3 /workspace/branches/frozen_math_reproduction.py ladder; 276 numerical boundary comparisons at n=5,...,50, including the odd three-way tie and two-way crossover above it."
+      ],
+      "rationale": "The Rayleigh minimum on the orthogonal complement of constants is concave even when the rate support is disconnected, so averaging over price-preserving rotations, reflection and layer swap suffices for the global value without imposing symmetry on feasible inputs. Fourier modes on the cycle and the two layer parities give sigma(a+c) and sigma a+(4−sigma)c+2b. Their minimum after discarding only the constant mode is the stated three-mode gap. Scaling to gap one gives three half-spaces plus nonnegativity. The all-positive three-active point has a=c=U/2 and negative b, and the zero-coordinate faces give exactly A,C,M1,M2 and, when delta>0, D. In particular beta+delta=4 implies U−z−1/4=beta(U−1/2)/(beta−delta)>0, so the two b=0 junctions are in the required order. The objective is strictly positive on nonzero recession rays; the minimizing face is the convex hull of its minimum-cost vertices. The factor n in the total cost follows from 2n rails, n rungs and 2n diagonals. For s>1, M2 dominates C,M1 and (when present) D, leaving A versus M2; for s<1 the candidates A,M2 are dominated, and the difference J_D−J_M1 has the sign of s−delta/beta. Comparing C to the resulting no-rung candidate gives the stated thresholds, including the three-way odd crossover and s=1 segment. Traversing only forward crossed edges reverses layer each step, giving one 2n-cycle for odd n and two n-cycles for even n.",
+      "residual_risks": [
+        "Floating-point boundary comparisons are supplemental; the analytic cost comparison proves exact equality. In the frozen verifier phase_checks counts grid visits, including some points at which conditional assertions are skipped; it is not 640 separate strict-equivalence assertions.",
+        "The optimizer classification applies only to rates constant within each of the three priced classes; nothing here excludes additional nonsymmetric global optimizers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun et al. formulate the general continuous-time conductance allocation with arbitrary positive edge prices. Tavasoli et al. fix intralayer weights and vary interlayer weights under an interlink budget. Sayama estimates spectra of unweighted graph products rather than solving this allocation problem."
+        ],
+        "reasoning": "The general optimization formulation includes this problem but not its explicit solution. Fixed intralayer Laplacians eliminate decision variables whose tradeoffs are essential to the present price diagram.",
+        "searches": [
+          "DOI:10.1137/S0036144504443821 §2.1",
+          "DOI:10.1017/nws.2024.9 §§2–3",
+          "arXiv:1507.03030 introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1906.04339",
+        "arXiv:1507.03030",
+        "DOI:10.1137/S0036144504443821",
+        "DOI:10.1017/nws.2024.9",
+        "Resultary and the cited published analogue findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The unweighted spectrum and arbitrary-price general variational model do not specify the three separate Laplacian contributions, the unit-gap vertex list, or the diagonal-only optimum. The same-day analogues optimize different graphs; the later priced Cartesian ladder result ending 1c968d5ff6c5 maximizes spanning-tree count."
+        ],
+        "reasoning": "Obtaining the phase diagram requires the weighted three-mode reduction and explicit feasible-face and cost comparison, not a substitution into the inspected formulas.",
+        "searches": [
+          "Sun et al. §2.1 and Pan–Li §3 Thm. 3.1",
+          "Tavasoli et al. §§2–3 eqs. (1)–(4)",
+          "Resultary: independently priced ladder/sunlet/cycle mixing and weighted class reductions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pan–Li use the identical 2n-vertex, 5n-edge graph P2 strong product Cn, and the unweighted spectral calculation sets a=b=c=1.",
+          "2026/11/8/SCOPE-five-facet-fastest-mixing-on-circular-ladders-with-two-mandatory--7683d92029e0 has a similar even/odd four-versus-five shape, but treats the Cartesian ladder with no crossed diagonals, using discrete-time SLEM and transition floors."
+        ],
+        "reasoning": "Identical topology by itself does not fix a price optimization; similarity in the number of active pieces does not equate the two different spectral objectives, graphs, or constraints.",
+        "searches": [
+          "Resultary: crossed circular ladder, strong prism, P2 strong product Cn, weighted prism spectral-gap allocation",
+          "arXiv:1906.04339 §2 and §3 Thm. 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-graph article uses the unweighted spectrum to compute Kirchhoff and spanning-tree invariants. The two named same-day catalogue records give exact continuous-time conductance allocations on an alternating-price even cycle and a sunlet, not on a crossed pair of cycles."
+        ],
+        "reasoning": "These are exact formulas but not for the identified three-price instance. They are distinct same-day records and no within-day priority is inferred.",
+        "searches": [
+          "Resultary: weighted strong prism class-price thresholds parity and circular ladder five-facet gap",
+          "arXiv:1906.04339 §3 unweighted spectral invariants",
+          "2026/10/13/SCOPE-square-root-price-geometry-for-fastest-mixing-on-alternating-eve--479ebc83d8ff",
+          "2026/10/13/SCOPE-unique-price-optimal-fastest-mixing-on-sunlet-networks--638ad6225b9e"
+        ]
+      },
+      "rationale": "The exact graph and unweighted spectrum are prior, and the conductance-budget gap optimization framework is prior. The distinct result is the exact solution with three independent prices for this graph, including the full symmetric optimal face and odd-only crossed-edge phase; the closest published statements do not give it.",
+      "residual_risks": [
+        "A specialized weighted strong-product computation under a different graph alias may exist outside the bounded results. An irrelevant keyword return is not evidence of historical absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_GRAPH_DIFFERENT_INVARIANTS",
+          "evidence": "The graph has 2n vertices and 5n edges; the fixed unit-weight Laplacian spectrum is used for Kirchhoff and spanning-tree quantities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.04339",
+          "material_read": "§2, PDF p. 2; §3 Thm. 3.1, PDF p. 5",
+          "method": "OA PDF bounded passages",
+          "title": "Resistance distance-based graph invariants and spanning trees of graphs derived from the strong product of P2 and Cn",
+          "trigger": "Exact underlying strong prism"
+        },
+        {
+          "assessment": "GENERAL_FORMULATION_NOT_EXPLICIT_PHASE_DIAGRAM",
+          "evidence": "The optimization chooses conductances under a weighted total budget to maximize the equilibration rate.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+          "material_read": "§2.1 conductance-budget model",
+          "method": "OA original PDF bounded passage",
+          "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+          "trigger": "General edge-priced continuous-time gap optimization"
+        },
+        {
+          "assessment": "FIXED_INTRALAYER_RATES_DIFFERENT_FEASIBLE_SET",
+          "evidence": "Only the interlink weights are variable under their budget.",
+          "identifier_or_url": "DOI:10.1017/nws.2024.9",
+          "material_read": "§§2–3, pp. 264–265, eqs. (1)–(4)",
+          "method": "OA PDF bounded passage",
+          "title": "The art of interconnections: Achieving maximum algebraic connectivity in multilayer networks",
+          "trigger": "Closest multilayer gap-allocation framework"
+        },
+        {
+          "assessment": "SPECTRUM_ESTIMATION_NOT_PRICE_OPTIMIZATION",
+          "evidence": "The object is heuristic spectral estimation for graph products.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.03030",
+          "material_read": "Introduction, PDF p. 1",
+          "method": "OA PDF bounded passage",
+          "title": "Estimation of Laplacian spectra of direct and strong product graphs",
+          "trigger": "Possible broader spectral coverage"
+        },
+        {
+          "assessment": "NO_CROSSED_EDGES_AND_DIFFERENT_OBJECTIVE",
+          "evidence": "The graph is Cartesian with rail and rung transition floors; the objective is discrete-time SLEM.",
+          "identifier_or_url": "2026/11/8/SCOPE-five-facet-fastest-mixing-on-circular-ladders-with-two-mandatory--7683d92029e0",
+          "material_read": "RESULT.md Finding and model",
+          "method": "Published record mirror",
+          "title": "Five-facet fastest mixing on circular ladders with two mandatory edge classes",
+          "trigger": "Closest catalogue match to the parity-dependent four/five-piece structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:23–50 and 80–104",
+        "Sun et al. §2.1"
+      ],
+      "rationale": "For a natural network with three independently priced physical connection types, the exact design rule identifies which connection mechanisms to buy and describes the entire symmetric tie face. The parity effect is structural, not a sample: the cheapest design can use only crosses on an odd ring, whereas such a design disconnects an even ring.",
+      "residual_risks": [
+        "This design rule is not a discrete-time SLEM result and does not address nonlinear costs or the full nonsymmetric optimizer set."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

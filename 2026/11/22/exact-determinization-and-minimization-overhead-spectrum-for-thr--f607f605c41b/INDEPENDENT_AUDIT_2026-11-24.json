@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:43:31.137139Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, table and lines 49–63",
+        "Frozen VERIFICATION.md and data/joint_spectrum.csv",
+        "Independent replay: python3 /workspace/branches/5b83ebb0-7b0e-4b68-b0b4-b60183ae6454/independent_census.py (no --limit flag); output independent_census.csv in the same directory"
+      ],
+      "rationale": "An ordered table of six three-bit rows gives exactly 512² distinct automata per fixed endpoint pair. State relabeling preserves the three statistics and gives weights 3 for coincident endpoints and 6 for distinct ones. Subset closure starts at the initial singleton and retains the empty rejecting sink if reached. Refinement by acceptance and ordered successor classes exactly tests equality on words of increasing length, and at its fixed point gives the complete minimal DFA. The union of reached subsets and reverse closure from the final state are respectively accessibility and coaccessibility on original states. An independent complete run on the 524,288 representative cases reproduced all 62 nonzero CSV rows, with trim totals 190,080 and 209,664 and labeled totals 2,359,296 overall and 1,828,224 trim. The only trim cell attaining R−M=5 is (7,2), with 3×216+6×178=1,716 cases. Conditional on trim and R=8, the minimum M is 4, with 3×192+6×116=1,272 cases. The all-R=8, trim-R=8 and all-(8,8) counts were also confirmed (15,660, 15,036 and 8,244).",
+      "residual_risks": [
+        "The census is finite and computer-assisted, and does not address other sizes, endpoint conventions, alphabets or epsilon moves. The uploaded scripts were not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baburin–Cotterell develops estimates, hardness and a transition-monoid-based parameter; the discussion around Theorem 11 explains why minimal DFA size alone is not a suitable computational complexity measure. Jirásková treats existence of minimal NFAs yielding specified minimal DFA sizes over binary and unary alphabets."
+        ],
+        "reasoning": "Algorithmic complexity, asymptotic or attainable-size information, and extremal examples do not classify the multiplicities of the joint sizes for all labeled input NFAs, which need not themselves be minimal.",
+        "searches": [
+          "Baburin–Cotterell arXiv:2611.10911v1, abstract and discussion of determinization complexity, pp. 8–9",
+          "Jirásková, Deterministic blow-ups of minimal NFA’s, Section 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary exact finite determinization comparisons",
+        "arXiv:2611.10911v1",
+        "DOI 10.1007/978-3-032-22749-2_20",
+        "DOI 10.1051/ita:2006032"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior statements examined give attainable minimal sizes or computational properties, not the distribution of the quotient sizes after conditioning on a particular reachable powerset size and trimness."
+        ],
+        "reasoning": "In particular, the conditional R=8,M≥4 restriction and exact M=4 multiplicity cannot be obtained by reading off a known overall blow-up bound or a table of attainable minimal sizes. Standard constructions prove the enumeration method, not the evaluated census.",
+        "searches": [
+          "Jirásková 2006, Section 3 on binary/unary attainable blow-ups",
+          "Baburin–Cotterell arXiv:2611.10911v1, minimal DFA versus determinization complexity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest exact Resultary hit is the identical assigned record. Nicol–Frohme's introduction, printed p. 395, measures subset construction compression for an on-the-fly method with experiments on real and synthetic instances."
+        ],
+        "reasoning": "The algorithmic compression comparison uses related notions of size but does not provide the normalized labeled probability law or enumerate the same population. The identical record is not separate coverage.",
+        "searches": [
+          "Resultary: exact three-state binary singleton-endpoint NFA reachable powerset size and minimal DFA size joint spectrum",
+          "Nicol–Frohme, Deconstructing Subset Construction, abstract and introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary ID ending f607f605c41b is this same record. Distinct same-day ID ending 69a841d7eb36 counts 5,808 eight-edge relations reaching 16 subsets and 56,544 relation/final-set choices with a 16-state minimal DFA in a four-state setting."
+        ],
+        "reasoning": "The four-state census fixes a threshold, uses different final-set and transition restrictions, and does not tabulate the smaller full joint spectrum. No priority is inferred from the common date.",
+        "searches": [
+          "Resultary: exact three-state determinization census and finite determinization threshold counts"
+        ]
+      },
+      "rationale": "The distinct supported result is the labeled joint distribution of reachable subset count and minimal complete DFA size with the trim and endpoint refinements. The closest checked sources give a different-dimensional threshold enumeration, attainable sizes, complexity measures or empirical compression, not that joint distribution or the conditional trim extremal counts.",
+      "residual_risks": [
+        "Bounded searches and passage comparisons cannot rule out an unindexed small-automata census or establish global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical record",
+          "evidence": [
+            "Same labeled joint census, endpoint distinction and trim conclusions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-exact-determinization-and-minimization-overhead-spectrum-for-thr--f607f605c41b",
+          "material_read": "RESULT.md Finding, offset 298",
+          "method": "Local Resultary mirror",
+          "title": "Exact determinization and minimization overhead spectrum for three-state binary NFAs",
+          "trigger": "Strongest exact joint-spectrum catalogue hit"
+        },
+        {
+          "assessment": "Different four-state threshold and final-set regime",
+          "evidence": [
+            "Counts constructions attaining size 16 at eight edges, rather than the full three-state joint spectrum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-eight-transition-boundary-for-complete-four-state-nfa-dete--69a841d7eb36",
+          "material_read": "RESULT.md Finding from offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp eight-transition boundary for complete four-state NFA determinization",
+          "trigger": "Closest distinct exact finite enumeration"
+        },
+        {
+          "assessment": "Complexity estimation and hardness, not an exact small labeled census in the inspected claims",
+          "evidence": [
+            "Discusses determinization difficulty even for state complexity one, and motivates a different complexity measure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.10911",
+          "material_read": "Abstract and pp. 8–9 discussion around Theorem 11",
+          "method": "OA PDF, located and read bounded passages",
+          "title": "Towards A Parametrized Complexity of Determinization",
+          "trigger": "Compares subset and minimal-DFA complexity"
+        },
+        {
+          "assessment": "On-the-fly algorithm and empirical reduction, not the exact census in the inspected claims",
+          "evidence": [
+            "Evaluates compression ratios on synthetic and real-world examples."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-032-22749-2_20",
+          "material_read": "Abstract and introduction, printed p. 395",
+          "method": "OA PDF, bounded passage inspection",
+          "title": "Deconstructing Subset Construction: Reducing While Determinizing",
+          "trigger": "Measures determinization overhead"
+        },
+        {
+          "assessment": "Attainability for minimal NFAs, not all labeled frequencies",
+          "evidence": [
+            "Studies existence for given equivalent minimal DFA sizes over binary or unary alphabets."
+          ],
+          "identifier_or_url": "https://doi.org/10.1051/ita:2006032",
+          "material_read": "Abstract and Section 3, printed p. 495",
+          "method": "OA PDF, bounded passage inspection",
+          "title": "Deterministic blow-ups of minimal NFA’s",
+          "trigger": "Finite sizes for binary NFA determinization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md joint table and trim extrema",
+        "Independent joint-census reproduction",
+        "Nicol–Frohme, introduction on reduction during subset construction"
+      ],
+      "rationale": "The natural smallest nontrivial binary powerset model is a complete calibrated benchmark for intermediate state blow-up versus final compressed size. Counting those quantities jointly, rather than just attaining each individually, exposes a concrete tradeoff: in trim automata the maximal additive loss occurs before full powerset reachability, and at full reachability the quotient cannot have fewer than four states. The exact frequencies distinguish these structural and typical-case questions from existence bounds and are useful for calibrating determinization and reduction experiments. The result is narrowly finite, with no implied general performance theorem.",
+      "residual_risks": [
+        "A uniform distribution on labeled tables is a benchmark, not a model established for real-world NFAs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

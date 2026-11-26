@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:04:29.522574Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The opening Finding says that fixing the moments leaves an exact one-dimensional ambiguity in the optimal policy. This is false as a general assertion on the stated domain: the feasible probability set can be a singleton, and it can be a nonsingleton segment with the same optimizer g=1 throughout. For example take r=(1/2,1,3/2,2), the nonsingleton moment slice in the record's witness, and change s to 1/4. Each yield exceeds s, so all feasible growth derivatives are strictly positive and every law gives the same optimal policy. The precise numbered theorem (unlike the opening sentence) allows these cases and is correct. The rank-three moment constraints identify a one-dimensional signed difference proportional to the barycentric weights, normalized by the third moment; the reciprocal divided difference gives the exact derivative factor. Strict concavity follows from mu>s and yields the optimizer comparison with saturation, and the quartic identity at each positive yield gives the harmonic-mean threshold and equality case. The feasible-law endpoint really minimizes growth simultaneously for all g>0; at g=0 the laws tie. Exact rational recomputation of the witness confirms the matched moments, the +/-1/50 boundary derivatives, the quadratic for the robust optimizer, and the root 0.89243699474278668… . Frozen support was inspected, not executed; see /tmp/opencode/frozen-review-replay.py (germination) for the independent arithmetic. The theory applies to fixed positive yields, iid environments and the stated constant fraction, not to field performance or larger alphabets.",
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Courtois–Denuit §2 explicitly treats evenly spaced supports and 3-convex functions under common first two moments, with moment-space extrema enclosing all admissible laws. Dette–Schorning describes boundary representations for Chebyshev-system moment spaces.",
+          "Sun–Boyd formulates worst-case expected log-growth over polyhedral probability sets. The focused arbitrary-support sign-crossing query did not give a usable source."
+        ],
+        "reasoning": "Both log growth and its g-derivative have strictly positive third yield derivative for g>0; discrete 3-convex order explains joint ordering within the grid covered by Courtois–Denuit. That paper alone does not cover unequally spaced nodes, and a general robust Kelly LP is not itself an explicit common minimizer. The actual arbitrary-support coverage is the separate divided-difference calculation.",
+        "searches": [
+          "Courtois–Denuit 2007 §§2–3: 3-convex order and local moment matching",
+          "Denne and Schorning principal representations (arXiv:1306.4872)",
+          "Sun–Boyd 2018 robust Kelly §§1–2.1",
+          "Denuit Lefevre Shaked 1998 s convex orders arbitrary support sign changes crossing criterion 3 convex theorem continuous pdf"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and VERIFICATION.md; check.py",
+        "Resultary e793a01a0e86 (self-match) and 490f761fdfe9",
+        "de Boor arXiv:math/0502036",
+        "Courtois–Denuit 2007",
+        "Dette–Schorning arXiv:1306.4872",
+        "Sun–Boyd author PDF",
+        "Cohen 1966 indexed material and Siegmund et al. 2022 unresolved full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published divided-difference identity gives the full rational derivative coefficient, so its positive sign, integration from g=0 and pointwise minimization at the lower third-moment endpoint require no new stochastic-order result.",
+          "The g=1 derivative is 1-s E[1/r]; the interpolating cubic for 1/r is obtained by dividing the monic support polynomial identity by r, giving exactly the displayed threshold. Vandermonde interpolation also uniquely determines the law from two moments on at most three yields.",
+          "Cohen's exposed abstract/snippet supports the old baseline model; original full text was not verified."
+        ],
+        "reasoning": "The specialization is quantitative for every admissible g. With the classical strictly concave growth criterion, the sign gives monotone optima and saturation, the linear moment comparison gives the single worst endpoint, and the cubic for 1/r rewrites the standard endpoint test with m3 as coordinate. Moment-matched laws with different third moments have different harmonic means; choosing dormant survival between two such means (scaling yields to ensure s<=1 if needed) routinely constructs a witness. Neither the exact rational example nor a clarification of the opening sentence yields a distinct substantive remainder.",
+        "searches": [
+          "Compare de Boor, Examples 8–9 and Eqs. (38)–(41), to the seed-bank derivative and g=1 endpoint",
+          "Cohen DOI 10.1016/0022-5193(66)90188-3, baseline seed-bank model",
+          "Courtois–Denuit 2007 fixed-moment extrema and Sun–Boyd 2018 worst-case log growth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e793a01a0e86 is an exact self-match; 490f761fdfe9 uses quadratic cooperative seed returns and a different switch mechanism.",
+          "De Boor §7, Examples 8–9, Eqs. (38)–(41), gives both the arbitrary-node interpolation coefficient and the reciprocal divided difference 1/prod_i(z-r_i)."
+        ],
+        "reasoning": "For any function f on the support, the expected difference between moment-matched laws equals Δm3 times the leading coefficient of the interpolating cubic. With z=s(1-1/g) and f(r)=(r-s)/[s+g(r-s)]=1/g+(s/g^2)/(z-r), that coefficient is exactly (s/g^2)/prod_i(z-r_i)=s g^2/prod_i[s+g(r_i-s)]. This is the general reciprocal identity, specialized to four arbitrary nodes, not an approximate analogy.",
+        "searches": [
+          "Resultary: fixed-moment/third-moment seed-bank germination and the exact record title",
+          "de Boor, Divided Differences, arXiv:math/0502036, Lagrange form and Example 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue hit for the exact four-yield theorem and rational pair is the assigned record. The distinct germination onset hit is about a two-environment quadratic model. No separate exact numerical witness table was inspected.",
+          "Formula (39) tabulates the exact coefficient function for all node counts, not just the four-yield numerical example."
+        ],
+        "reasoning": "Changing the sample yields or rational probabilities is not evidence of a new invariant, since the exact coefficient and its sign follow for all of them from the published function identity. The exact example was checked for correctness, not treated as an independent antecedent or a catalogue-priority claim.",
+        "searches": [
+          "Resultary: exact fixed-first-two-moment germination witness and four-level minimality",
+          "de Boor arXiv:math/0502036, reciprocal divided-difference formula (39)"
+        ]
+      },
+      "rationale": "The controlling exact sensitivity, not merely its sign, is a direct substitution into the published arbitrary-node reciprocal divided-difference formula. The third-moment coefficient for any test function is its third divided difference, because the equal lower moments kill the lower coefficients of the interpolating cubic. This specializes immediately to the displayed growth-derivative formula, leaving the usual concavity and harmonic criterion to give the policy classification. Thus the general formulas actually inspected, together with the classical seed-bank objective, cover the mathematical core mechanically. This verdict does not assert an earlier publication of the same biological wording, and does not depend on inaccessible sources.",
+      "residual_risks": [
+        "No historical priority finding about the literal seed-bank statement; the older seed-bank full text and the cited preprint were not available in the identified lawful attempts.",
+        "The originality failure is based on an exact general mathematical implication and not on the unavailable works, a keyword miss, or a same-day catalogue comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct quantitative coverage of the key expectation identity after changing test function; arbitrary node locations",
+          "evidence": [
+            "Example 8 gives Δ(t1:n)(z-·)^(-1)=1/prod_i(z-ti). Example 9 gives the Lagrange-coefficient sum for pairwise distinct nodes. Definition 37 identifies the leading coefficient of the interpolant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0502036",
+          "material_read": "Journal pp. 59–60, §7 Definition 37, Examples 8–9, equations (38)–(41); text offsets 30100–34542",
+          "method": "Lawful OA PDF, bounded passages",
+          "title": "Divided Differences",
+          "trigger": "General theorem can provide the exact derivative coefficient, including unequally spaced nodes"
+        },
+        {
+          "assessment": "General order/least-favorable-law precedent on evenly spaced supports, not by itself full arbitrary-node coverage",
+          "evidence": [
+            "For discrete 3-convex comparisons the first two moments coincide. The definition here uses D_n={e0+ih}, explicitly evenly spaced."
+          ],
+          "identifier_or_url": "https://www.casact.org/sites/default/files/database/astin_vol37no2_387.pdf",
+          "material_read": "§§2–3, journal pp. 388–389 and 391; confirmed definition in the opening of §2",
+          "method": "Lawful OA PDF, theorem and definition passages",
+          "title": "Local Moment Matching and S-Convex Extrema",
+          "trigger": "General 3-convex extrema potentially order all policies at fixed first two moments"
+        },
+        {
+          "assessment": "Relevant general context, not used as exact coverage of a fixed four-node feasible set",
+          "evidence": [
+            "Describes unique representations of boundary points in Chebyshev-system moment spaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1306.4872",
+          "material_read": "p. 2, moment-space boundary representation passage near text offset 5100",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Complete classes of designs for nonlinear regression models and principal representations of moment spaces",
+          "trigger": "Chebyshev moment-space and endpoint representation precedent"
+        },
+        {
+          "assessment": "Covers optimization framework, not by itself the coefficient or a policy-independent least-favorable law",
+          "evidence": [
+            "Linear equalities and inequalities on outcome probabilities define a polyhedral ambiguity set; the inner worst logarithmic return is a linear program."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/robust_kelly.pdf",
+          "material_read": "Abstract and §§1–2.1, pp. 1–4, polyhedral probability sets and inner LP",
+          "method": "Lawful Stanford full-text PDF, bounded passages",
+          "title": "Distributional Robust Kelly Gambling",
+          "trigger": "General robust expected log-growth formulation"
+        },
+        {
+          "assessment": "Baseline model confirmed; full-paper scope unresolved",
+          "evidence": [
+            "The indexed material describes a model with environmental seed production and dormant seeds decaying according to viability."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-5193(66)90188-3",
+          "material_read": "Indexed publisher abstract/snippet only; no verified full text",
+          "method": "Bounded lawful DOI, publisher, identified Academia copy and Europe PMC attempts",
+          "title": "Optimizing reproduction in a randomly varying environment",
+          "trigger": "Classical source of the annual seed-bank model and a plausible direct application overlap"
+        },
+        {
+          "assessment": "Unresolved, not counted as evidence for noncoverage",
+          "evidence": [
+            "No passage supplying or excluding the four-yield comparison was verified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1101/2022.09.15.508102",
+          "material_read": "Bibliographic identification only; no verified relevant full-text passage",
+          "method": "Bounded lawful bioRxiv and identified Academia attempts",
+          "title": "Bet hedging is not sufficient to explain intraspecific variation in germination patterns of a winter annual plant",
+          "trigger": "Named empirical and modeling seed-bank comparison"
+        },
+        {
+          "assessment": "Different mechanism, model and switch; not the reason for failure",
+          "evidence": [
+            "Two environments with quadratic cooperative returns and a discontinuous onset of germination, rather than four fixed yields with common moments."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-discontinuous-germination-onset-under-quadratic-cooperative-esta--490f761fdfe9/RESULT.md",
+          "material_read": "RESULT.md Finding, mirror offset 0",
+          "method": "Bounded local mirror passage",
+          "title": "Discontinuous germination onset under quadratic cooperative establishment",
+          "trigger": "Closest distinct catalogue germination threshold hit"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The ecological question is motivated, and the example distinguishes partial and complete germination at equal mean and variance. But the exact coefficient is the standard reciprocal divided difference; the threshold, common adverse endpoint and support size follow by textbook interpolation and one-variable concavity, and the rational witness is an instance of choosing survival between unequal harmonic means. The review did not identify a useful, distinct nonmechanical claim that a repair could preserve.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

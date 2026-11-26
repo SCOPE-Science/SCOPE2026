@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The proof bounds the total weight by summing the six five-vertex constraints, applies an integer-product smoothing argument to isolate the largest nonmaximum product, and proves the unique equality structure through excess degrees. The explicit weighted graph satisfies every constraint with equality. The same averaging argument also verifies the stated maximum product for all integers \(a\ge1\).
+PASS
 
-## Originality
+Each of 15 edges occurs in four of the six deleted-vertex inequalities, so total weight S≤15a+6. For S≤15a+5, the unrestricted integer product bound a^10(a+1)^5 is strictly below the claimed second layer. At S=15a+6, the balanced multiset attains the unrestricted maximum and is graphically feasible by taking its six unit excesses on a six-cycle. A positive product-maximizing unbalanced multiset must become balanced after any smoothing of entries differing by at least two; otherwise smoothing strictly improves it without reaching the balanced multiset. Reversing one such move gives just the three frozen candidates. The first candidate's ratio to the claimed winner has denominator minus numerator 2a+1; the third ratio is (a²−1)/a². Thus the winner has a unique multiset, also at a=1 where the other candidates can be zero. At full sum, equality of the sum of deleted-vertex inequalities forces each to be tight, so all excess degrees are two. The double edge fills both endpoint degrees, and the remaining four positive edges on the other four vertices must be a simple 4-cycle; this graph also directly satisfies all constraints. Dividing its product by the maximum yields 1−1/(a+1)². No enumeration is needed.
 
-The closest source is Gu and Wang, arXiv:2301.10430, whose six-vertex argument establishes the maximum product but does not state the next distinct product or classify its attaining weighted graph. Searches of published-finding corpus and inspections of the related primary texts by Day, Falgas-Ravry, and Treglown, and by Falgas-Ravry, found no statement covering this exact second-product layer. Search absence alone is not treated as proof of novelty.
+## originality
 
-## Value
+PASS
 
-The result gives an exact finite stability datum for the smallest six-vertex counterexample parameter: the next product is smaller than the maximum by the exact factor \(1-1/(a+1)^2\), and its weighted structure is unique up to relabeling. This identifies the closest nonmaximum competitor rather than only the maximum value.
+The maximum and integer balancing method are prior. The reviewed distinct claim is the entire next product layer, including attainability and uniqueness under the local five-set constraints. The strongest same-parameter primary passage proves the maximum and compares it to a restricted construction family, not to all other admissible graphs. Bounded catalogue and primary lookups did not produce a comparably strong second-layer theorem.
 
-## Closest literature and limitations
+## value
 
-The main comparison is Gu and Wang, arXiv:2301.10430, Theorem 1 and its six-vertex proof. The broader constructions in arXiv:2011.01626 and the asymptotic theorem in arXiv:2101.03056 do not cover this finite second-product claim. The result does not assert a general stability theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The parameters are the already studied finite Gu–Wang extremal family, not chosen to fit an isolated computation. The exact multiplicative gap gives a sharp threshold for when an admissible product must already be maximal; attaining the threshold identifies a unique nonmaximal structure. Integer AM–GM at the maximum does not give that threshold with a feasible equality case. This is a useful first stability layer even without a general larger-graph result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

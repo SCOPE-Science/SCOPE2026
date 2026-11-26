@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:40:14.603809Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–51",
+        "Frozen enum_factoradic.cpp and enum_packed.cpp",
+        "Frozen VERIFICATION.md and verify.py (inspected, not run)",
+        "/workspace/audit_replay/prism.py and prism.txt"
+      ],
+      "rationale": "Edge transpositions generate S₁₀ by connectivity; relabeling all tokens carries any start to identity and preserves moves. Every transposition changes parity and the fifteen different edges give distinct neighbors. I independently exhausted the metric using Python layer BFS with two five-symbol direct rank lookups and Floyd–Warshall for graph distances. It processed 3,628,800 distinct states with the exact 18 claimed shell counts, ending in the four strings 7895623401, 7895634012, 8956723401 and 8956734012. These give the stated rail swap with respective shifts independently 2 or 3 and 4·10!/2=7,257,600 unordered diametral pairs. I separately applied the explicit route and obtained the first string in 17 legal swaps. Each move reduces total displacement by at most two; the full census gives maximum ceiling-half deficit 4 at 1,440 states, and B=15 at each antipode. Both frozen C++ implementations were inspected: their different representations enumerate the same 15 neighbors, assign depths by FIFO and compute the correct transportation normalization. They were not executed. Independent replay: python3 /workspace/audit_replay/prism.py; output at /workspace/audit_replay/prism.txt.",
+      "residual_risks": [
+        "This is a complete finite census for unit-cost sequential swaps, not an argument for other prisms or for parallel swapping."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tree/spanner and general complexity conclusions do not classify the prism; transposition-tree extremal results apply to trees with different generating sets; circular sorting computes the diameter for a single cycle modulo rotations."
+        ],
+        "reasoning": "Dropping generators for a spanning tree supplies bounds, not equality. Forgetting rungs or quotienting by rotation changes the available moves or the actual state space.",
+        "searches": [
+          "Demaine et al., FUN 2014 §1.2–1.3",
+          "Aichholzer et al. arXiv:2103.06707 abstract and Theorem 1",
+          "Bonnet–Miltzow–Rzążewski Algorithmica, Theorem 1",
+          "Ganesan arXiv:1111.3114 Theorems 5 and 8",
+          "Adin–Alon–Roichman, Circular Sorting p. 2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8bd9f80f9e2c, afeca1314233 and 70982a1323ed",
+        "Demaine et al.; Aichholzer et al.; Bonnet et al.; Ganesan; Adin et al., passages above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known tree equality conditions are for a star/path, and the circular result is for one quotient circle. The open ladder embeds after removing two prism edges; the Petersen table changes inner generators."
+        ],
+        "reasoning": "Adding the two wraparound generators to the ladder can only decrease distances on the same state set, so its diameter gives 21 as an upper bound, not 17 or any equality class. The prism antipode form, histogram and maximal-deficit multiplicity are not mechanical consequences of these bounds.",
+        "searches": [
+          "Ganesan arXiv:1111.3114 pp. 4,7–8",
+          "Adin–Alon–Roichman Circular Sorting p. 2",
+          "Resultary afeca1314233 and 8bd9f80f9e2c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest indexed prism-sized comparisons instead use GP(5,2) (inner step 2) and P₂×P₅ (open rails). The target is the distinct GP(5,1) with closed step-1 rails."
+        ],
+        "reasoning": "Position swaps give a transposition-generator Cayley graph; relabeling positions can preserve it only by carrying the edge generators to the new edge set. The open ladder has fewer generators and the Petersen graph is not isomorphic to the prism (e.g. no 4-cycles versus rung squares).",
+        "searches": [
+          "Resultary: pentagonal prism / GP(5,1) / closed five-rung ladder, adjacent transposition Cayley distance spectrum and transport deficit",
+          "Focused literature search for pentagonal prism token swapping and transposition metric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Petersen table gives diameter 13, 11,616 antipodes and max gap 4 at 6,680 placements. The open-ladder table gives diameter 21, four antipodes and max gap 8. The 3-cube has diameter 12, one antipode and max gap 3 at 24 placements."
+        ],
+        "reasoning": "Even two coincident invariants in different tables (four antipodes for the ladder, gap 4 for Petersen) do not identify the metric or structured witnesses for the prism.",
+        "searches": [
+          "Resultary exact token-swap metric and shell tables: 8bd9f80f9e2c, afeca1314233, 70982a1323ed"
+        ]
+      },
+      "rationale": "No compared exact source supplies the pentagonal prism metric or the maximum transport deficit for its edge generators. Close matches were inspected for the Petersen graph and same-day open five-rung ladder and three-cube entries. Their graph, edge sets or number of vertices differ materially. Known Cayley graph arguments and BFS yield a method but not these specific shell counts or antipodes.",
+      "residual_risks": [
+        "A differently indexed earlier census for GP(5,1) could exist.",
+        "No precedence inferred from the date of a same-day but different-graph result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different graph and exact counts",
+          "evidence": "GP(5,2): diameter 13, 11,616 antipodes, transport deficit 4 attained 6,680 times.",
+          "identifier_or_url": "2026/10/26/SCOPE-exact-token-swapping-diameter-and-distance-spectrum-of-the-peter--8bd9f80f9e2c",
+          "material_read": "RESULT.md offsets 0 and 5894",
+          "method": "Local Resultary mirror text",
+          "title": "Exact token-swapping diameter and distance spectrum of the Petersen graph",
+          "trigger": "Closest same-size cubic-graph exact census"
+        },
+        {
+          "assessment": "Open, rather than circular, rails",
+          "evidence": "P₂×P₅ has 13 edges, diameter 21 and deficit 8.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-sequential-token-swap-geometry-of-the-five-rung-ladder--afeca1314233",
+          "material_read": "RESULT.md offsets 0–2053",
+          "method": "Local Resultary mirror text",
+          "title": "Exact sequential token-swap geometry of the five-rung ladder",
+          "trigger": "Distinct same-day five-rung metric"
+        },
+        {
+          "assessment": "Different graph and number of states",
+          "evidence": "Q₃ has 40,320 states, one antipode, diameter 12.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-token-swapping-metric-and-unique-antipodes-on-the-three-cu--70982a1323ed",
+          "material_read": "RESULT.md near offset 318",
+          "method": "Local Resultary mirror text",
+          "title": "Exact token-swapping metric and unique antipodes on the three-cube",
+          "trigger": "Distinct same-day cubic-graph census"
+        },
+        {
+          "assessment": "Does not apply to the cyclic set of prism generators",
+          "evidence": "Equality for tree-generator distance bound is characterized by stars, with a separate path diameter equality result.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.3114",
+          "material_read": "pp. 4, 7–8, Theorems 5 and 8",
+          "method": "OA PDF passage inspection",
+          "title": "Diameter of Cayley graphs of permutation groups generated by transposition trees",
+          "trigger": "Potential general diameter theorem"
+        },
+        {
+          "assessment": "Different moves and quotient state space",
+          "evidence": "One circle modulo common rotation, diameter floor((n−1)²/4).",
+          "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/cycsort1.pdf",
+          "material_read": "p. 2, offsets 2817 and 4139",
+          "method": "OA PDF passage inspection",
+          "title": "Circular Sorting",
+          "trigger": "Closest use of circular adjacent transpositions"
+        },
+        {
+          "assessment": "Model overlap, no relevant exact prism theorem in these passages",
+          "evidence": "Discusses paths, cycles, and cliques; tree approximation and complete bipartite exact results.",
+          "identifier_or_url": "https://erikdemaine.org/papers/TokenReconfiguration_FUN2014/paper.pdf",
+          "material_read": "p. 4, §1.2–1.3, offset 8945",
+          "method": "OA PDF passage inspection",
+          "title": "Swapping Labeled Tokens on Graphs",
+          "trigger": "General token-swap algorithmic results"
+        },
+        {
+          "assessment": "Tree hardness, not an exact graph metric",
+          "evidence": "Theorem 1 treats weighted token swapping on trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.06707",
+          "material_read": "Abstract p. 1 and Theorem 1 p. 8, offset 31716",
+          "method": "OA PDF passage inspection",
+          "title": "Hardness of Token Swapping on Trees",
+          "trigger": "Cited related problem results"
+        },
+        {
+          "assessment": "No metric implication for the prism",
+          "evidence": "Parameterized hardness of general token swapping.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-017-0387-0",
+          "material_read": "Theorem 1 p. 4, offset 9549",
+          "method": "OA passage inspection",
+          "title": "Complexity of Token Swapping and Its Variants",
+          "trigger": "Broader general complexity coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding, Cayley reduction and transportation proof",
+        "Independent prism census",
+        "Resultary Petersen and open-ladder comparators"
+      ],
+      "rationale": "The pentagonal prism is a canonical small non-tree cubic graph with two interacting rail cycles. Its full sequential-swap distribution and structured four extremizers are reusable benchmarks, not just an unexplained diameter constant. The worst transportation deficit and its multiplicity measure the accuracy of a standard lower bound on exactly this graph; notably, worst-gap placements are not the most distant placements. These exact facts are useful even without a formula for larger prisms.",
+      "residual_risks": [
+        "No general family formula, no claim of efficient exact token swapping on arbitrary graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

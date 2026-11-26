@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:50:14.178138Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–28; static inspection of verify.cpp and its recorded output in VERIFICATION.md",
+        "Independent replay: python /workspace/branches/independent-checks/kempe.py; /workspace/branches/independent-checks/kempe.out",
+        "Independent BFS cross-check: /workspace/branches/4ee8d85a-f4a8-406c-aaf1-eee9acfc525c/independent_kempe_check.py"
+      ],
+      "rationale": "Independently enumerated the proper labelled assignments by taking the Cartesian product of colourings of the outer 10-cycle and two inner 5-cycles and filtering the spoke conflicts. This decomposition accounts for every edge and exhausts all assignments. Inner odd cycles force all colours, making the quotient projection exactly six-to-one. A bit-set connected-component closure enumerated all swaps for each colour pair; projecting every labelled edge gives the quotient, dropping loops and duplications. Both adjacencies were checked for symmetry, and all-source unweighted shortest-path distances independently gave the frozen exact numbers. In labelled and quotient order the state/edge counts are (7200,36120) and (1200,5360), radii 7 and 6, diameters 8 and 7, respectively. Degree counts are {10:6960,11:240} and {8:140,9:1020,10:20,11:20}; eccentricity counts are {7:5280,8:1920} and {6:460,7:740}. Finite distances from every source establish connectedness. The quotient is by colour names alone, not by automorphisms of the underlying polyhedron.",
+      "residual_risks": [
+        "Exact exhaustive computation, not a result for a variable family or a proof-assistant certificate. Frozen C++ source was read, not executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 proves one Kempe equivalence class of 3-colourings for cubic graphs other than K4 and the 3-prism. It covers this graph's connectivity, hence also connectivity of its palette quotient.",
+          "Bonamy et al. address exact shortest-sequence algorithms and complexity on paths and stars; these cases do not include the dodecahedron."
+        ],
+        "reasoning": "Existence of paths does not give all-source maximum distances or their distribution. The stronger-looking optimization results require different graph hypotheses.",
+        "searches": [
+          "Feghali–Johnson–Paulusma arXiv:1503.03430v2, Theorem 1",
+          "Bonamy et al. DOI 10.4230/LIPIcs.STACS.2020.35, abstract and introduction"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.03430v2",
+        "DOI 10.4230/LIPIcs.STACS.2020.35",
+        "Resultary 3cb51ea39814 and 859b0ac0d1b1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cubic graph theorem covers the one-class assertion; it does not imply that the labelled maximum distance is 8 or that it drops to 7 when global palettes are identified.",
+          "The Petersen graph's different state enumerations and metric values do not specialize to the dodecahedron. An algorithm that could be run on a finite graph is not itself an evaluated metric profile for this graph."
+        ],
+        "reasoning": "The exact colouring-dependent moves, quotient adjacency and all-start distances require the finite computation; neither known connectivity nor a generic graph-search algorithm establishes these values without that work.",
+        "searches": [
+          "arXiv:1503.03430v2 Theorem 1",
+          "STACS 2020 Article 35 abstract and introduction",
+          "Resultary 3cb51ea39814 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bonamy et al., STACS 2020 pp. 35:1–35:2, uses shortest Kempe sequences, equivalent to distance in the labelled state graph; located results concern paths and stars. Palette-quotient distances are minima over all global relabellings of one endpoint, since the palette action is by graph automorphisms and quotient paths can be lifted edge by edge.",
+          "The mirrored Petersen records use the same move and quotient framework, but on the ten-vertex Petersen graph rather than GP(10,2)."
+        ],
+        "reasoning": "Neither a shortest-sequence restatement nor identifying palettes yields a match to a quoted prior statement. Quotient by graph symmetry or use of edge colourings would be a different claim.",
+        "searches": [
+          "Resultary and literature check for dodecahedral graph / GP(10,2), proper vertex three-colourings, Kempe distance, shortest change sequences, palette quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact Petersen census gives 120 labelled vertices and diameter 4, and 20 palette classes and diameter 3; the later five-clique-quotient record is also Petersen, not dodecahedral.",
+          "A chromatic polynomial evaluated at 3 would cover a state count, and division by 6 gives the quotient count, but does not contain Kempe adjacency or distance data."
+        ],
+        "reasoning": "No matching exact metric table was located in this bounded comparison; the numerical colouring counts by themselves are not the basis of the originality pass.",
+        "searches": [
+          "Resultary search for dodecahedral Kempe radius, diameter and palette-quotient profile; open-literature search by object and exact graph statistics",
+          "Resultary 3cb51ea39814 and 859b0ac0d1b1, mirrored RESULT.md"
+        ]
+      },
+      "rationale": "Prior work covers connectivity, shortest-sequence methods for other graph families, and different exact Kempe graphs. The supported distinct claim is the matched pair of sharp distance profiles and associated adjacency censuses for dodecahedral vertex colourings, not connectivity or mere evaluation of a colouring count. Bounded searches cannot rule out unpublished calculations.",
+      "residual_risks": [
+        "An unindexed exact calculation or catalogue of this particular reconfiguration graph could alter the priority assessment. Known connectivity is explicitly excluded from the distinct contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers connectivity but not the frozen metric census",
+          "evidence": [
+            "Cubic graphs other than K4 and the 3-prism have one Kempe class."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.03430",
+          "material_read": "v2 p. 2, Theorem 1, text offset 5541",
+          "method": "Open primary PDF passage",
+          "title": "Kempe Equivalence of Colourings of Cubic Graphs",
+          "trigger": "Potential general theorem for the precise move and graph class"
+        },
+        {
+          "assessment": "No implication from the located path and star results",
+          "evidence": [
+            "The lengths studied are shortest sequences of the same moves, on paths and stars in the located statements."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.STACS.2020.35",
+          "material_read": "pp. 35:1–35:2, abstract and introduction",
+          "method": "Open primary paper passage",
+          "title": "Shortest Reconfiguration of Colorings Under Kempe Changes",
+          "trigger": "Exact shortest Kempe sequence formulation"
+        },
+        {
+          "assessment": "Same invariant, different underlying graph",
+          "evidence": [
+            "Petersen labelled (120 states, 360 edges, diameter 4); palette quotient (20 states, 40 edges, diameter 3)."
+          ],
+          "identifier_or_url": "Resultary 3cb51ea39814",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local catalogue and mirror",
+          "title": "Petersen three-colouring Kempe graph: an oriented-edge quotient",
+          "trigger": "Closest similarly defined exact metric census"
+        },
+        {
+          "assessment": "Different graph",
+          "evidence": [
+            "Five-clique description treats the Petersen graph, not the dodecahedral GP(10,2)."
+          ],
+          "identifier_or_url": "Resultary 859b0ac0d1b1",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Local catalogue and mirror",
+          "title": "The Petersen three-colouring Kempe graph: a five-clique quotient",
+          "trigger": "Potential equivalent palette quotient census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and move definition",
+        "STACS 2020 Article 35 abstract and introductory formulation",
+        "Independent exact profiles"
+      ],
+      "rationale": "The dodecahedron is a canonical cubic planar graph, and shortest single-component Kempe sequences are a standard metric problem independent of this computation. The sharp worst-case lengths and complete eccentricity counts are usable benchmarks for shortest-sequence methods; a researcher can also quantify exactly how permitting arbitrary palettes at the endpoints changes the metric. This goes beyond both known connectivity and a lone chromatic count. No generalization from one graph is asserted.",
+      "residual_risks": [
+        "Value is as an exact finite benchmark and symmetry comparison, not as a new general reconfiguration method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

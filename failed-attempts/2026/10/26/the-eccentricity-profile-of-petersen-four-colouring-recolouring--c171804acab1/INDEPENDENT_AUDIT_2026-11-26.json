@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:23:47.447534Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent checker /workspace/branches/2770281c-d43d-403f-9e5c-bbf03d83ee90/reproduce_petersen.py, with output reproduce_petersen.out in the same directory, backtracks on the stated outer/inner convention, admitting each palette name except those already at adjacent assigned vertices. It enumerates each proper named colouring once, including those with an unused colour. It tests each alternative name at each vertex against the three neighbours, so exactly the legal edges are obtained. Automorphisms are generated directly from adjacency, and colour and graph permutations preserve every edge. Orbit reduction applies only to the choice of roots; each BFS reaches every named state in the full graph. The calculation gives 12960 vertices, 53280 edges, one component, radius and diameter 13 and 14, all degree counts and eccentricity multiplicities, and exactly the eleven listed size/eccentricity pairs. It agrees with both frozen outputs. Frozen programs were inspected, not executed. The calculation is exact for one graph and is not a general recolouring theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feghali–Johnson–Paulusma give at most one nonfrozen component and an O(n^2) distance bound for max-degree >=3 at Delta+1 colours. Their subsequent regular-graph observation rules out frozen states when n is not a multiple of Delta+1, including n=10 and Delta=3.",
+          "Daneshpajouh's optimal-palette classes use three colours for KG(5,2), not four. Johnson et al. address shortest-path complexity and general bounds, not the exact four-colour profile in the examined passage."
+        ],
+        "reasoning": "Four-colour connectivity is already implied separately by the general theorem. Neither an upper bound nor an optimal-palette description determines the exact eccentricity profile; the distinct matching indexed result provides that evidence.",
+        "searches": [
+          "Feghali–Johnson–Paulusma arXiv:1501.05800, Theorem 2 and following regular-graph example",
+          "Johnson et al. arXiv:1403.6347, component-diameter context",
+          "Daneshpajouh arXiv:2201.05605, optimal Kneser colourings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, both supplied verifier scripts and outputs",
+        "Independent reproduce_petersen.py and reproduce_petersen.out",
+        "Resultary 2026/11/8 record 83b049512d48",
+        "arXiv:1501.05800 Theorem 2",
+        "arXiv:1403.6347 p. 4",
+        "arXiv:2201.05605 pp. 1–2",
+        "OEIS A296913",
+        "Eppstein, Chessboards and colorings, passage on the 120 three-colourings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the published table order, summing 3 minus the number of distinct neighbour colours over vertices gives the degrees 11,10,9,9,8,7,8,7,9,8,6. Weighting by the published orbit sizes gives the frozen counts 720,2880,4560,2880,1440,480 for degrees 6 to 11."
+        ],
+        "reasoning": "Degree is constant on each symmetry orbit and is a local count readable from a representative; there is no new graph enumeration or distance calculation needed for the otherwise unprinted histogram. The exact current coverage is demonstrable independently of priority.",
+        "searches": [
+          "Indexed RESULT.md for record 83b049512d48, representative table with lexicographic Kneser vertex order"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed Finding and Assumptions use KG(5,2) with named colours, allow unused names, and define adjacency by exactly one coordinate. The eleven displayed orbit profiles, exact radius and diameter, and eccentricity counts match the frozen finding."
+        ],
+        "reasoning": "Identifying the outer/inner Petersen graph with KG(5,2) relabels the ten coordinates and does not quotient states or change distances. The indexed statements therefore apply to the identical recolouring graph, not only to a similar parameter or a quotient.",
+        "searches": [
+          "Resultary: exact Petersen four-colour single-vertex recolouring graph, eccentricities, degree distribution and symmetry orbits",
+          "Local mirror: 2026/11/8/SCOPE-exact-petersen-vertex-recolouring-geometry-at-three-and-four-col--83b049512d48/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A296913 records 120 proper three-colourings and 12960 proper four-colourings, not edges or distances. The indexed record states 53280 edges, the exact 13/14 metric and counts, all eleven orbit sizes/eccentricities, and an additional pair-distance spectrum."
+        ],
+        "reasoning": "The count table alone covers only the vertex number. The second, separate exact table covers the main findings even though its dated path is later; it also contains the canonical words needed to recover the degree census.",
+        "searches": [
+          "OEIS A296913, Petersen proper named-colouring counts",
+          "Resultary record 83b049512d48, Finding and eleven-row representative table"
+        ]
+      },
+      "rationale": "There is a distinct current indexed result for the identical named-colour single-vertex graph, with all main metrics and all eleven orbit size/eccentricity pairs stated explicitly, together with a stronger distance spectrum. The frozen degree histogram, not printed in that finding, follows immediately by counting legal changes on its eleven published representative words and weighting by their stated orbit sizes; this yields exactly the frozen vector. Thus there is no distinct remainder relative to verified current coverage. The comparison does not assert that the differently dated indexed record was published earlier or has historical priority.",
+      "residual_risks": [
+        "Current scientific overlap is not a decision on first public priority. No exact pre-existing metric table earlier than the frozen dated path was established by the bounded comparison.",
+        "The cited 2008 Durham connectedness record returned HTTP 403 and was not read in full; this does not weigh against originality. The decisive connectivity theorem and overlapping census were available as actual statements. Deferred broader searches are not negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct indexed entry with equivalent and stronger numerical coverage; no priority inferred",
+          "evidence": [
+            "Same radius 13, diameter 14, eccentricity split 3360/9600 and eleven orbit profiles.",
+            "The table contains one word per orbit; the degree vector was checked directly from these words. The finding additionally gives the pair-distance spectrum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-petersen-vertex-recolouring-geometry-at-three-and-four-col--83b049512d48/RESULT.md",
+          "material_read": "Finding, Assumptions, and enumeration/adjacency proof, offsets 0–5004, and prior-work section and references from offset 7650",
+          "method": "Local mirrored Resultary text, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact Petersen vertex-recolouring geometry at three and four colours",
+          "trigger": "Direct match for object, recolouring rule and all main exact invariants"
+        },
+        {
+          "assessment": "Implies connectivity, not the exact metrics",
+          "evidence": [
+            "Nonfrozen Delta+1 colourings are joined at distance O(n^2). A regular graph whose order is not divisible by Delta+1 has no such frozen colourings."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1501.05800",
+          "material_read": "Theorem 2 and following paragraph, PDF p. 4, text offsets 10400–12232",
+          "method": "OA original PDF passages",
+          "title": "A Reconfigurations Analogue of Brooks' Theorem and its Consequences",
+          "trigger": "General Delta+1 connectivity result directly applicable to the Petersen graph"
+        },
+        {
+          "assessment": "General complexity and bounds, not exact Petersen coverage in the material inspected",
+          "evidence": [
+            "Discusses quadratic bounds for three-colour components and families with exponential diameters for larger palettes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.6347",
+          "material_read": "PDF p. 4, offsets 12600–14472 on component diameter and shortest-path context",
+          "method": "OA original PDF passage",
+          "title": "Finding Shortest Paths between Graph Colourings",
+          "trigger": "Recolouring shortest paths and component diameter"
+        },
+        {
+          "assessment": "Optimal palette and different invariant",
+          "evidence": [
+            "For KG(5,2), optimal colour count is three, not four."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2201.05605",
+          "material_read": "PDF pp. 1–2, offsets 118–2348 and passage near 4923",
+          "method": "OA original PDF passages",
+          "title": "On the number of star-shaped classes in optimal colorings of Kneser graphs",
+          "trigger": "Same Kneser representation; compare the palette and invariant"
+        },
+        {
+          "assessment": "Covers proper-colouring counts only",
+          "evidence": [
+            "The counts at palette sizes 3 and 4 are 120 and 12960."
+          ],
+          "identifier_or_url": "https://oeis.org/A296913",
+          "material_read": "Sequence values near HTML offset 466",
+          "method": "OA sequence entry",
+          "title": "Number of ways to color the Petersen graph",
+          "trigger": "Potential direct census of the graph vertices"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A sharp metric at the first connected palette of the Petersen graph is intrinsically well motivated; if unknown, the exact eccentricity and orbit data would be useful benchmarks. Here the same metric profile is already available in the current catalogue, and the degree histogram is a direct readout of that profile's listed representative words. The independent replay is useful validation but does not leave a distinct scientific invariant of adequate value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

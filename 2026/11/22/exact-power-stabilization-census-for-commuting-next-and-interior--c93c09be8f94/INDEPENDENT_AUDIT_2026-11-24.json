@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:47:47.220850Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At point i the two sides are inclusion predicates for the sets [f(i),n−1] and f([i,n−1]). Equality for every valuation is equivalent to their equality and forces monotonicity, fixed top and no upward step larger than one. Those conditions conversely give the suffix equality. The binary encoding f(i)=i+number of zeros at positions ≥i gives r zeros and image [r,n−1], including the r=0 identity and n=1 boundary. For r>0 the restriction to this image is again of the same form on n−r vertices. Its s zeros leave r−s zeros in the first r slots, giving binom(r,s) extensions. Surjectivity onto the first image cancels the first f in both adjacent powers, so the index is one plus that of the restriction. Following the least image point bounds the index by n−r: images are nested final intervals and equality of successive intervals forces identity on the current interval. Taking the final zero at position r+t−2 with all but one zero in the first r slots realizes t≥2; all r zeros in the first r slots give t=1. To attain n−r≥2 the minimum orbit must move by one at each remaining step, so the final suffix has exactly its last increment zero; there are r such extensions. There is one constant-top map if n−r=1. Singleton valuations distinguish unequal powers, proving the uniform interpretation. A fresh independent Python checker (`independent_check.py`) evaluated all maps and Boolean valuations through n=5 and directly composed all 4,095 encoded maps across n=1,…,12. It confirmed the recurrence and boundaries, including the n=8 histogram (1,7,46,42,20,8,3,1). These are bounded checks; the all-size result rests on surjective restriction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 2581ac4ddfd0 gives a bivariate height-truncated plane-forest series for all nondecreasing regressive maps.",
+          "Adeshola–Umar jointly count image size, fixed points and image maximum for larger contraction classes."
+        ],
+        "reasoning": "The Catalan series includes maps with gaps in the image, and its variables do not separately track interval image. Contraction counts that track fixed points rather than iteration depth do not refine to a depth count: the two explicit C5 maps in the frozen result have identical defect and fixed set but distinct depths.",
+        "searches": [
+          "Resultary: exact rank and depth in Catalan transformation monoids",
+          "arXiv:1303.7428v2 Lemma 2.2 and Proposition 2.3",
+          "Order-preserving interval-image transformations power stabilization index height rank (primary-literature search)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary records 2581ac4ddfd0, 477eedb64580, 04f5773be42b and 19e836b5c0a7",
+        "arXiv:2407.05084v1 and arXiv:1303.7428v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=5 and rank=depth=2 the all-Catalan formula binom(n+rank−3,2rank−2) is 6, while the fixed-top unit-step count is 3.",
+          "In breadth-first forest labels after chain reversal, the restriction is that image vertices form an initial interval: all roots and nonroot vertices with children must precede any nonimage leaf. The Catalan recurrence marks the number of such image vertices but not this ordering condition."
+        ],
+        "reasoning": "The broader theorem implies a rank upper bound on depth, not the endpoint multiplicity or any full fixed-top unit-step distribution. Recovering the restricted coefficients would require a genuinely refined forest enumeration or the separate restriction proof in this result.",
+        "searches": [
+          "2581ac4ddfd0 Finding, forest bijection, rational series and boundary proof",
+          "Fernandes arXiv:2407.05084v1 §2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fernandes identifies interval-image order-preserving transformations with directed-path weak endomorphisms; the order-increasing subclass is exactly the fixed-top, nondecreasing 0/1-step family.",
+          "Conjugating by chain reversal turns it into the regressive unit-step subclass of the Catalan monoid, preserving rank and depth."
+        ],
+        "reasoning": "These formulations identify the same maps and statistics. They rule out novelty for the map family or its rank distribution, but not for the joint count under the step restriction.",
+        "searches": [
+          "Resultary: fixed-top interval-image transformations, finite-chain contractions, defect and power index",
+          "Fernandes arXiv:2407.05084v1 §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact census is for the Catalan monoid, with different coefficients. Related catalogue entries concern typical logarithmic scale, eventual-image rank, or block character rather than the required joint exact counts."
+        ],
+        "reasoning": "An eventual-image rank distribution does not determine the first step at which that image is reached. No matched table supplied these class-restricted coefficients, and a low-n match alone would not establish all-n coverage.",
+        "searches": [
+          "Resultary: exact joint defect and power-index census for finite-chain directed-path weak endomorphisms",
+          "Resultary records 2581ac4ddfd0, 477eedb64580, 04f5773be42b, 19e836b5c0a7"
+        ]
+      },
+      "rationale": "The interval-image subclass and ordinary rank census are prior art, and the Catalan rank-depth census overlaps on the statistic and contains the maps as a subclass after reversing order. The supported distinct claim is the joint exact defect-index enumeration subject to the fixed-end, unit-step condition, not the map family, binomial rank counts, or the general rank upper bound. The broader series do not select this constrained family.",
+      "residual_risks": [
+        "Same-day dates do not resolve priority. A previously published refinement of the Catalan forest enumeration to interval images, or a study under other transformation-semigroup terminology, could cover the exact recurrence; no such refinement was established by the passages checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial partial coverage, including rank upper bound; the joint subclass count does not follow from the aggregate formula",
+          "evidence": [
+            "The series records n, image rank and height bound; no interval restriction is imposed. Its sharp rank-depth boundary has the all-Catalan binomial coefficient."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-joint-image-rank-and-stabilization-depth-census-in-catalan-trans--2581ac4ddfd0/RESULT.md",
+          "material_read": "Finding, assumptions and proof §§1–4, mirror offsets 0–6144",
+          "method": "Local catalogue and direct mirror passage",
+          "title": "Joint image-rank and stabilization-depth census in Catalan transformation monoids",
+          "trigger": "Exact same statistic on a class containing the fixed-top subclass up to order reversal"
+        },
+        {
+          "assessment": "Same algebraic subclass and rank marginals, not exact power-depth counts in material inspected",
+          "evidence": [
+            "Order-increasing interval-image maps are identified; cardinality and rank are recalled."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.05084v1",
+          "material_read": "§1 offsets 2534–3447; §2 around offset 6350",
+          "method": "OA HTML passages",
+          "title": "On the monoid of order-preserving transformations of a finite chain whose ranges are intervals",
+          "trigger": "Potential coverage under interval-image monoid terminology"
+        },
+        {
+          "assessment": "Counts different invariants; no implication for the exact stabilization-time census",
+          "evidence": [
+            "The joint counts concern image size, fixed points and image maximum."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1303.7428v2",
+          "material_read": "§2, Lemma 2.2 and Proposition 2.3, offset about 10800",
+          "method": "OA HTML passages",
+          "title": "Combinatorial results for certain semigroups of order-preserving full contraction mappings of a finite chain",
+          "trigger": "Broader enumeration of contraction maps by joint invariants"
+        },
+        {
+          "assessment": "Related but different statistics or scope",
+          "evidence": [
+            "Respectively: typical logarithmic index for directed-path weak endomorphisms; eventual-image fibers by initial rank; stabilization-index distribution of partition-preserving maps by block character."
+          ],
+          "identifier_or_url": "Resultary records 477eedb64580, 04f5773be42b, 19e836b5c0a7",
+          "material_read": "Finding passages: offsets 20–1125, 11–715, and initial offset 0 respectively",
+          "method": "Local catalogue and mirror",
+          "title": "Related iteration distributions in transformation monoids",
+          "trigger": "Potential aggregate and eventual-rank coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Modal stabilization depth is the first uniform equality of successive next operators on arbitrary valuations, and measures information loss under iterating a single map. The joint census explains exactly how that depth varies at fixed first-step image loss, a statistic not recovered from counts by rank, fixed points or eventual rank. It provides all finite coefficients and the sharp multiplicity of the maximal delay within a natural topological subclass; the small histogram is just an illustration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

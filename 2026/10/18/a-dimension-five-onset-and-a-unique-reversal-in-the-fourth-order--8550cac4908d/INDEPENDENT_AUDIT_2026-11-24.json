@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:48:11.264447Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 7–105",
+        "Frozen VERIFICATION.md and verify.py (inspected, not executed)",
+        "/workspace/reproductions/finite_checks.py 3"
+      ],
+      "rationale": "In the normalized process the stationary coordinate is the stable harmonic filter of U, and a common first redraw followed by exponential contraction gives uniqueness. The finite polynomial generator is closed. Independent scalar recursion on monomials and their tilted stationary initial moments reproduces the complete rational transform symbolically (python3 /workspace/reproductions/finite_checks.py 3). Writing its numerator as H(s+1)+B gives A=Kf4(H+BR), where f4 is the fourfold exponential convolution and R=f5/f4. For strict simplicity, more than just strict monotonicity of R is needed: log f4 is concave and analytic on positive t, so its derivative is nonincreasing and cannot agree at distinct positive arguments; agreement would force an interval, and by analyticity global constancy, contradicted by f4(t)∼t³/6. Thus differentiating the defining integral for R gives strictly positive integrand for 0<u<t; the endpoint term vanishes since f4(0)=0 and the derivative is integrable there. Hence R'>0. Its initial limit is zero; its tail is 1/(1−alpha) if alpha<1, grows linearly at alpha=1, and diverges for alpha>1 by the slower e^(−t) factor. B is positive in d≤4; for d≥5 and alpha≥1 the strict crossing condition is B<0. For alpha<1 the tail sign is that of 3(d+1)−3(d−2)alpha−(d−1)alpha², decreasing for d≥5 with value 10−d at one. If its limiting sign is zero the finite-time factor stays strictly positive, while a negative limit gives exactly one simple crossing. This handles the equality cases and repeated decay rates without dividing by pole differences. The d=11 threshold is 0.978626204439…, as stated.",
+      "residual_risks": [
+        "A single fourth-order sign or its zero is not a classification of entropy production or full reversibility. The proof concerns the stationary harmonic spherical-redraw model, not general reorientation or confinement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frydel and Guéneau et al. supply same-family one-time moment or stationary law results. Sun et al. use a finite-tumble model and compute time-dependent single-time moments. Knight–Pruessner study observable irreversibility via partial entropy production; Garcia-Millan–Pruessner give a two-time second-order position correlation."
+        ],
+        "reasoning": "These results provide ingredients and analogous statistics but not a bound or classification for the sign of the stationary lag-antisymmetric fourth moment. One-time marginals alone do not determine the needed two-time coupling.",
+        "searches": [
+          "Frydel arXiv:2309.12537 eq. (27) and Table II",
+          "Sun–Ye–Podgornik arXiv:2409.00578 Eq. (9) and moment diagram law",
+          "Guéneau–Majumdar–Schehr arXiv:2602.08436 stationary laws",
+          "Knight–Pruessner arXiv:2605.29201 harmonic case",
+          "Garcia-Millan–Pruessner arXiv:2012.02900 Appendix F"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 0d6063747558, 1e0612824cd5, 326fd65bca2f, 4f8ef07add78, 4f3243fa2ced and dc843e2cf037 (specified statements)",
+        "arXiv:2309.12537, 2409.00578, 2602.08436, 2605.29201 and 2012.02900 (specified primary passages)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The available one-time hierarchy supplies the necessary m2 and m4; the two-time generator and its positive-convolution sign representation add distinct information. The later finite-tumble reversal diagram has positive-duration rests in one dimension; its extra dynamical state changes the generator. The two exact overlapping slices fix a dimension or rate and cannot infer the variable boundary."
+        ],
+        "reasoning": "No inspected stronger source supplies the nontrivial monotone-ratio sign theorem with the changing slowest mode at alpha=1 and the resulting dimension-dependent boundary. The claim is the evaluated classification, not exclusive ownership of the method or of every special case.",
+        "searches": [
+          "Primary same-model stationary moment/measure results and correlation papers used above",
+          "Resultary 0d6063747558, 1e0612824cd5 and finite-tumble reversal dc843e2cf037"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "0d6063747558 uses the negative of the frozen contrast and fixes gamma=2a; with a=kappa and diffusivity zero its boundary d=7/8 is exactly alpha=2 here.",
+          "1e0612824cd5 uses the opposite sign in d=1, with flip rate g=gamma/2. Substitution d=1 in the frozen numerator factors it as 3(alpha+2)(s+alpha+1), consistent with its four-resolvent formula."
+        ],
+        "reasoning": "These are true equivalent subcases after signs and rates are matched. Neither later indexed result implies the piecewise all-rate boundary or high-dimensional uniqueness at arbitrary rate; the record dates are not an external priority conclusion.",
+        "searches": [
+          "Resultary: stationary quartic time arrow with harmonic Poisson spherical refresh; opposite time-order sign, one-dimensional telegraph flip and fixed-rate threshold",
+          "Resultary 0d6063747558 and 1e0612824cd5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "326fd65bca2f has a dimension-five unique sign switch, but for a one-time fourth cumulant of free displacement from the origin. 4f8ef07add78 has precisely the same lag-order contrast for Brownian motion with multiplicative position resets, with sign fixed by a multiplier moment. 4f3243fa2ced treats a mode exchange for an even squared-position cross-particle covariance."
+        ],
+        "reasoning": "These are substantive same-day matches on certain aspects, but the observable, trap or initial law differs in each case. Same-day dates are not used to infer priority. Ranked searches do not certify absence of an exact match.",
+        "searches": [
+          "Resultary exact contrast, dimension-five and sharp refresh threshold searches",
+          "Resultary 2026/10/18 326fd65bca2f, 4f8ef07add78 and 4f3243fa2ced"
+        ]
+      },
+      "rationale": "The all-dimension and all-rate sign classification with its sharp piecewise threshold and simple crossing is distinct on the inspected evidence. Stationary moments, polynomial resolvents and the observable as a general irreversibility witness are not the novelty claim. Two later indexed results directly overlap on genuine slices, and two same-day records have strong partial overlap in either the dimension threshold or the observable, but not both with the same stationary model.",
+      "residual_risks": [
+        "Deferred external search lookups are not negative evidence. Similar multitime expressions may be obtainable from general moment machinery or appear elsewhere; no historical priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the fixed-rate slice, not the full phase diagram.",
+          "evidence": "At gamma=2a the opposite-sign contrast has no crossing for d≤7 and exactly one for d≥8; sign is independent of thermal diffusivity in that result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-dimension-seven-threshold-for-the-quartic-time-arrow-of--0d6063747558/RESULT.md",
+          "material_read": "Finding offset 0 and scope offset 1750 in local mirror",
+          "method": "Resultary retrieval and actual passage; match signs, rate units and D=0",
+          "title": "A sharp dimension-seven threshold for the quartic time arrow",
+          "trigger": "Exact overlap at alpha=2"
+        },
+        {
+          "assessment": "Covers d=1 only.",
+          "evidence": "Negative opposite-sign contrast for all rates, four-resolvent transform, and relation g=gamma/2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-strictly-negative-all-rate-fourth-order-time-arrow-for-a-trapp--1e0612824cd5/RESULT.md",
+          "material_read": "Finding offset 0, scope and proof offsets 2100–3828 in local mirror",
+          "method": "Resultary retrieval and actual passage; match sign and redraw versus flip rate",
+          "title": "A strictly negative all-rate fourth-order time arrow for a trapped particle",
+          "trigger": "Exact one-dimensional alternate sign/flip convention"
+        },
+        {
+          "assessment": "Different dynamics and observable.",
+          "evidence": "One-time displacement fourth cumulant in free motion started at the origin, not a two-time stationary contrast under confinement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-dimension-five-kurtosis-transition-for-run-and-tumble-pa--326fd65bca2f/RESULT.md",
+          "material_read": "Finding offset 0 and setup/proof offset 1600 in local mirror",
+          "method": "Resultary retrieval and actual passage",
+          "title": "A sharp dimension-five kurtosis transition for run-and-tumble particles",
+          "trigger": "Same-day shared model ingredient and dimension-five transition"
+        },
+        {
+          "assessment": "Same witness, not the same theorem.",
+          "evidence": "Brownian motion with Poisson multiplicative position resets; sign fixed through a reset multiplier moment, not spherical refresh and harmonic drift.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-universal-temporal-fourth-order-arrow-and-its-cancellation-und--4f8ef07add78/RESULT.md",
+          "material_read": "Finding offset 0 and scope offset 1940 in local mirror",
+          "method": "Resultary retrieval and actual passage",
+          "title": "A universal temporal fourth-order arrow and its cancellation under resets",
+          "trigger": "Same-day identical lag-order witness"
+        },
+        {
+          "assessment": "Relevant prior for the model and one-time moments.",
+          "evidence": "Stationary moment recurrence and second/fourth moments; not the stationary two-time contrast in inspected passages.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.12537",
+          "material_read": "Abstract p. 1, Eq. (27) and Table II p. 5, offsets 42300–43758",
+          "method": "OA PDF passages",
+          "title": "Run-and-tumble oscillator: moment analysis of stationary distributions",
+          "trigger": "Same oscillator and stationary moment hierarchy"
+        },
+        {
+          "assessment": "Nearby single-time dynamics, different tumble assumption.",
+          "evidence": "Time-dependent single-time position moments built from propulsion correlations.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.00578",
+          "material_read": "Abstract p. 1 and Eq. (9) and diagram-law discussion pp. 3–4",
+          "method": "OA PDF passages",
+          "title": "Exact moments for a run and tumble particle with a finite tumble time in a harmonic trap",
+          "trigger": "Potential implication through a moment framework"
+        },
+        {
+          "assessment": "One-time stationary coverage; no whole-paper noncoverage claim from abstract-level comparison.",
+          "evidence": "One-coordinate, radial and joint stationary laws, rather than the lag-orientation classification statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.08436",
+          "material_read": "Abstract and opening PDF pp. 1–2, offsets 1090–4300",
+          "method": "OA PDF passages",
+          "title": "Exact Stationary State of a d-dimensional Run-and-Tumble Particle in a Harmonic Potential",
+          "trigger": "Exact law in the same all-dimensional setting"
+        },
+        {
+          "assessment": "Different irreversibility output in inspected material.",
+          "evidence": "Partial entropy production and path/projection effects in confining potentials, not the all-dimensional fourth-order sign phase diagram.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.29201",
+          "material_read": "Abstract p. 1 and harmonic-case passage p. 8",
+          "method": "OA PDF passages",
+          "title": "Partial Entropy production of active particles with hidden states in potentials",
+          "trigger": "Potentially overlapping time-irreversibility statistic"
+        },
+        {
+          "assessment": "Second-order correlation, one-dimensional with diffusion.",
+          "evidence": "Appendix F evaluates the second-order two-time position correlation, not this fourth-order contrast.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.02900",
+          "material_read": "Appendix F pp. 16–17, offsets 59440–62861",
+          "method": "OA PDF passages",
+          "title": "Run-and-tumble motion in a harmonic potential: field theory and entropy production",
+          "trigger": "Two-time position correlations in harmonic confinement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact contrast and classification",
+        "Independent generator and convolution sign analysis",
+        "Inspected single-time moment and fixed-slice comparisons"
+      ],
+      "rationale": "A single exact statistic detects a qualitative difference invisible in stationary even moments: the sign develops a unique lag reversal only from dimension five onward, with a sharp rate criterion and a change in the formula for that criterion. This is a usable sign and uniqueness theorem, stronger than calculating a correlation at a few lags or announcing a numerical transition.",
+      "residual_risks": [
+        "The sign change does not diagnose vanishing irreversibility at the crossing or imply behavior of other observables."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

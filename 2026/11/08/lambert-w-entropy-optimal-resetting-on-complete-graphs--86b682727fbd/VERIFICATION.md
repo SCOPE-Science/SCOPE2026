@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and the standard library. The independent routine constructs a numerical transition matrix for each of 18 clique sizes \(n=3,\ldots,20\), seven reset probabilities per clique, and solves for its stationary probabilities by iteration. The observed row entropy is compared with the symbolic formula (126 combinations), the explicit stationary law, and a separately calculated unmerged-versus-merged entropy deficit. The test also checks normalization and a strict information upper bound. No output is used as an infinite-parameter proof.
+## correctness
 
-The analytic proof depends on: (i) detailed balance; (ii) an exact symbolic row-entropy identity; (iii) the positivity and derivative identity for a Kullback--Leibler divergence; (iv) a quantified localization of entropy-maximizing reset rates; and (v) a uniform Taylor bound and strongly concave comparison function. The limiting optimizer is identified through \(W(m)e^{W(m)}=m\), not by fitting an observed numerical trend.
+PASS
 
-The source date 2022-08-11 is verified as the first public arXiv version. Independent audit has not been performed. Possible unseen priority is a scientific limitation, not a computational certificate.
+The merged non-reset row has a mass u/m at the reset vertex and m−1 masses p/m; the reset row has mass γ at itself and m masses p/m. Detailed balance gives stationary masses u/d and p/d respectively, and averaging the two row entropies yields the stated expression (RESULT.md lines 26–40). At fixed m the −γ log γ term beats the O_m(γ) terms at γ↓0; continuity, the endpoint values, and the positive stationary mass of rows with only m successors give the strict interior and upper-bound claims. For the large-size claim, the split into bonus B and nonnegative divergence K gives γ<e/m whenever the gain is positive. K''=(m−1)/(pu) supplies a quadratic penalty of order mγ² there, whereas the weighted bonus is at most O(γ log m/m) when m²γ≥1; hence every maximizer has x=m²γ=O(log m). In that window K has quadratic term (m−1)γ²/2 and cubic error O(m²γ³). Expanding B separately retains the singular γ log(mγ). After scaling the error is uniformly o(1), including x=0 by boundedness of x²|log x| near zero. The comparison function x(1+log m−log x)−x²/2 has curvature ≤−1, derivative zero at W(m), and value W(m)+W(m)²/2 there. The uniform error controls the value additively and the squared distance of every maximizer to W(m); uniqueness of the finite-m maximizer is not required. The frozen 126 finite checks concern row entropy and normalization, not the limiting claim; no uploaded code was run.
+
+## originality
+
+PASS
+
+The exact finite clique entropy is covered by specialization of the earlier indexed regular-graph formula and does not receive a separate originality pass. The surviving claim is the optimized all-maximizer scale and optimized gain with additive o(1) in the scaled quantities. This requires a uniform localization and variational analysis not supplied by the inspected general expression or by the branch-wise regular-graph optimizer.
+
+## value
+
+PASS
+
+Merging indistinguishable arrivals changes the scale, not just a finite-size correction: the observed optimal probability is smaller than the split-outcome prescription by a diverging factor, and the useful entropy increment vanishes with a quantified leading expression. Controlling every optimizer and the additive error for a canonical network family gives a substantive benchmark beyond evaluating finite row entropies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

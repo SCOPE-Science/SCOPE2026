@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T22:15:06.872817Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and proof lines 17–56",
+        "Frozen VERIFICATION.md and verify_b_spline_reciprocal_zak.py, read but not executed",
+        "Hasannasab–Lemvig arXiv:2609.13116 p. 1 and Kloos–Stöckler arXiv:1311.7359 pp. 11–12",
+        "/workspace/reproductions/review_5.py"
+      ],
+      "rationale": "Partition the defining interval of B_1 into m equal translates of its scaled interval and convolve n times. This gives B_n(t/m)=m^(1-n) times the sum of B_n(t+n(m-1)/2-j_1-...-j_n) over 0≤j_a<m, a pointwise identity by continuity at these orders. In the normalized Zak sum, k'=k-K+sum(j_a) gives precisely m^(1/2-n) z^K D_m(z)^n Z_1 B_n(x+r,ν) with the stated sign. The prior unit-scale theorem uses the same centered convention and gives exactly the congruence class (1/2,1/2). The mask's simple unit-circle zeros are all the nonidentity m-th roots. Odd m gives r=0 and a disjoint center zero; for even m the only unit-scale zero falls on the line at ν=1/2, at x=1/2 for even n and x=0 for odd n. Finite Laurent-polynomial dependence on frequency implies exact order n at every other line point and at least n+1 at the exceptional point. The root at z=1 is removable in the quotient for D_m, not a zero. Independently, exact rational Cox–de Boor recursion checked 4100 Laurent coefficients and 100 unit-scale fibers at z=-1 for n=3..6 and m=2..6. The all-size proof does not follow from this finite test.",
+      "residual_risks": [
+        "The exceptional order is only bounded below, as asserted; no proof of its exact order is claimed.",
+        "The 1991 primary text was not retrieved; the classical unit-scale premise is explicitly available in the inspected 2013 and 2026 papers."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The displayed Poisson expansion precedes the assumption of resonant frequency. Kloos–Stöckler give the unique unit-scale zero for cardinal splines and the broader PEB result after adjusting the uncentered shift. The Hermite-spline article was not retrievable in full, so its exact mask parameters are not asserted."
+        ],
+        "reasoning": "It is the combination of the already displayed general expansion, its explicit spline coefficients, and unit-scale uniqueness that covers the reciprocal integers. The line inclusion alone would not suffice.",
+        "searches": [
+          "arXiv:2609.13116 §2.2 proof of Lemma 2.2",
+          "arXiv:1311.7359 pp. 11–12 Theorem 3.2",
+          "On the refinement matrix mask of interpolating Hermite splines"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.13116, 1311.7359, 1507.03982",
+        "Resultary 1c2481efa2dd and 8f35218fd14b",
+        "Hermite mask article abstract and failed full-text retrieval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The pre-resonance Poisson formula is Z_(1/b)B_n(x,ν)=sqrt(b) Σ_ℓ sinc(b(ℓ+ν))^n exp(2πi(ℓ+ν)x), with the same centered B_n. At integer b=m the sinc ratio is a scalar times (-1)^((m-1)ℓ); applying that identity and the published unique unit-scale zero gives the entire parity classification. Both cited line-zero results already imply the resonant horizontal lines."
+        ],
+        "reasoning": "At every frequency the new-looking mask follows termwise from the earlier series and the sine identity. Matching zeros of the two factors and adding their local vanishing orders gives the multiplicity statements directly. The proof does not require assuming what was to be proved by extending a resonant-only lemma off resonance.",
+        "searches": [
+          "arXiv:2609.13116 p. 1 Eq. (1.1), §2.2 pp. 3–4 and Proposition 4.1 p. 8",
+          "arXiv:1507.03982 §3.2 and Proposition 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier general Fourier–Zak series with sinc-power coefficients is exactly transformable to the mask times the shifted unit-scale Zak factor at integer b. The matched Resultary equation (1) uses the full shift s=n(m-1)/2 and z^(-2s)(1+z+...+z^(m-1))^n; quasi-periodicity separates s into K+r and gives the frozen identity."
+        ],
+        "reasoning": "The different shift placements and positive versus negative mask exponents give the same function, not merely the same zeros. No dependence is inferred from the exact indexed overlap.",
+        "searches": [
+          "Arbitrary-integer cardinal B-spline refinement and Zak scale aliasing",
+          "arXiv:2609.13116 proof of Lemma 2.2",
+          "Resultary 8f35218fd14b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 18 cubic-cardinal record covers B_4 at λ=1/2, including the full line and off-line exclusion. The November 16 finding covers n≥3,m≥3 with the same parity zero sets and exact generic line order, gives the same exact factorization in its proof, and does not print the lower bound at the exceptional point."
+        ],
+        "reasoning": "The cubic endpoint alone covers one case, and the second indexed record overlaps the main table for m≥3. The omitted lower bound is an immediate consequence of its product identity and unit-factor vanishing, not an independent multiplicity computation. Catalogue dates alone do not resolve independent provenance.",
+        "searches": [
+          "Resultary: higher-order reciprocal integer Zak zero sets, mask and multiplicity",
+          "Resultary 1c2481efa2dd and 8f35218fd14b"
+        ]
+      },
+      "rationale": "In the same centered normalization, Hasannasab–Lemvig already display a general all-frequency Poisson formula and the sinc-power Fourier transform at the start of the proof of Lemma 2.2, as well as all-order unit-scale uniqueness on p. 1. Before imposing resonance in that proof, take b=m an integer. At u=ℓ+ν the quotient sin(πmu)/sin(πu) is (-1)^((m-1)ℓ) times sin(πmν)/sin(πν). Thus each Fourier coefficient is multiplied by m^(1/2-n) times the nth power of the latter quotient, and the ℓ-dependent sign is exactly exp(2πirℓ). Collecting it shifts x to x+r and contributes exp(-2πirν). The elementary geometric series rewrites the remaining factor as z^K D_m(z)^n, including ν=0 by continuity. This direct specialization of the displayed earlier formulas gives the boxed factorization, not merely the previously printed inclusion of horizontal lines. Simple mask zeros and the stated unit-scale uniqueness then give all the listed zeros and frequency orders, without a new analytic estimate or classification lemma. Identical factorization in an additional indexed record gives further overlap (there restricted in its finding to m≥3); its catalogue date is not used to infer priority.",
+      "residual_risks": [
+        "No priority finding regarding who first printed the mask in Zak form. The direct mathematical implication uses readable earlier formulas, not an inaccessible source or an assumed prior publication of the boxed identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The printed reciprocal-integer statement gives line inclusion; earlier formulas in the same text entail the complete claim by direct integer specialization",
+          "evidence": "The Fourier series and sinc-power transform are displayed before the line-resonance substitution, and the unique unit-scale zero is stated for all n≥2.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.13116",
+          "material_read": "Eq. (1.1) and unit uniqueness on p. 1; Lemma 2.2 and its proof pp. 3–4 (decisive Poisson formula at text offset 11600 onward), Prop. 4.1 p. 8",
+          "method": "Primary OA original passages and direct coefficient comparison",
+          "title": "The zero set of the Zak transform of B-splines with applications to Gabor frames",
+          "trigger": "Same splines, scales and normalization; candidate broader formula and unit-scale premise"
+        },
+        {
+          "assessment": "Unit-scale premise established, not a direct statement about reciprocal-scale splines",
+          "evidence": "Uncentered locations (1/2,1/2) for even order and (0,1/2) for odd order both center to (1/2,1/2).",
+          "identifier_or_url": "https://arxiv.org/pdf/1311.7359",
+          "material_read": "pp. 11–12, text offsets 31603 and 33307; Theorem 3.2 and cardinal case",
+          "method": "Primary OA PDF passages, check of centering translation",
+          "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+          "trigger": "Independent classical unit-scale uniqueness and parity convention"
+        },
+        {
+          "assessment": "Integer case gives all-x resonant lines; line statement alone does not exclude other zeros",
+          "evidence": "Set the fractional part of b to zero in Proposition 6; the horizontal zero intervals extend over a whole period.",
+          "identifier_or_url": "https://arxiv.org/pdf/1507.03982",
+          "material_read": "Eq. (3.1) p. 4, §3.2 and Prop. 6 p. 6",
+          "method": "Primary OA passages",
+          "title": "Counterexamples to the B-spline conjecture for Gabor frames",
+          "trigger": "Earlier exactly resonant zero lines"
+        },
+        {
+          "assessment": "One endpoint overlap and extensive matching result and proof; no priority determination from dates",
+          "evidence": "Cubic n=4, λ=1/2 zero line in the first; identical factorization up to Zak quasi-periodicity, generic order n, and the same m≥3 parity law in the second.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-complete-subunit-zak-zero-classification-for-the-cubic-cardinal--1c2481efa2dd; https://github.com/Resultary/2026/tree/main/2026/11/16/SCOPE-exact-reciprocal-integer-zak-zero-geometry-for-centered-cardinal--8f35218fd14b",
+          "material_read": "Mirrored finding passages and second record's proof steps 1–3 (mask equation near offset 2202); first record's prior-work note near 6615",
+          "method": "Local mirror theorem and formula comparison",
+          "title": "Complete subunit Zak zero classification for the cubic cardinal spline; Exact reciprocal-integer Zak zero geometry for centered cardinal splines",
+          "trigger": "Earlier overlap at m=2 and nearly matching all-order result"
+        },
+        {
+          "assessment": "No conclusion about exact mask statements or whole-document coverage",
+          "evidence": "Description mentions arbitrary dilation and degree-(2n+1) cardinal B-splines, not an inspected general coefficient formula.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0893965920302469",
+          "material_read": "Displayed abstract description only",
+          "method": "Primary search and lawful direct and alternate OA attempts, no full text obtained",
+          "title": "On the refinement matrix mask of interpolating Hermite splines",
+          "trigger": "Arbitrary-dilation spline-mask literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Hasannasab–Lemvig p. 1 and pp. 3–4",
+        "Frozen zero and multiplicity claims",
+        "Exact mask bridge in originality assessment"
+      ],
+      "rationale": "The integer-resonance subfamily is mathematically motivated, and collecting its zero set is useful exposition. Under this standard the frozen exact result does not fill an independent scientific gap: substituting an integer in the available Fourier–Zak coefficients extracts a single geometric factor, after which the published unit-scale result gives the complete claimed set and line orders. No nonreciprocal scale, additional exceptional multiplicity computation, or genuinely unprovided fact is established here.",
+      "residual_risks": [
+        "No assessment of potential value in the unresolved general subunit regime."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

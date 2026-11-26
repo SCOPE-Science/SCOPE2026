@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:58:06.173648Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1) and boxed critical limit, Proof §§1–4",
+        "Frozen VERIFICATION.md and check.py (inspected only)",
+        "Independent finite checks: /workspace/replay_constants.py and /workspace/replay_constants.log, boxcar section"
+      ],
+      "rationale": "Fourier integration gives the sinc multiplier and a factor of two for ±n; the strict threshold counts no zero modes. At fixed width the empirical phases are uniform on the irrational orbit or uniform on the rational residues. Applying this on macroscopic frequency blocks in u=pi*alpha*n*t and integrating the threshold gives the mean absolute sine, namely 2/pi or cot(pi/(2b))/b. At fixed detuning lambda and on a rational residue class, u=pi*alpha0*n*t has mesh b*pi*alpha0*t, the phase has the asserted affine dependence on u, and the threshold is (1+lambda*t/alpha0)*u. The changed indicator can differ only near an equality point or cutoff. The squared equality is real analytic and nonidentically zero (the squared sine is bounded on the whole real axis while u squared is not). Its zero set on the compact interval is finite; small interval covers justify this moving Riemann sum and continuity. Reflecting residues gives evenness. For large absolute lambda, partition u into small blocks and sandwich the indicator between the two endpoint thresholds on each block; whole phase periods on each fixed block give the circle average, then mesh refinement gives the integral. At half width the sine contribution is empty for |lambda|<=1/2 and cosine crosses the diagonal once, with root 1-2*lambda^2+O(lambda^4). The positive counting constant gives the inverse ordered-tail law and, by harmonic comparison, the Schatten and Abelian conclusions. Independently tested three non-half resonances against direct counts, including negative detuning.",
+      "residual_risks": [
+        "No rate for general irrational widths and no uniformity in a detuning parameter growing as t decreases. Floating-point checks are illustrative; the strict-indicator limit uses the analytic boundary argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "6f295f59de60 proves the fixed-sequence counting lemma for any bounded nonnegative sequence with a weak empirical law.",
+          "Dron–Zhuk's accessible abstract discusses approximation error in terms of moduli of continuity."
+        ],
+        "reasoning": "The fixed-window assertion falls within the abstract fixed-sequence lemma, with the empirical law from rotation or residues. The moving window is a triangular array with phase drift coupled to the frequency scale in the threshold, not an instance of the fixed-sequence hypothesis.",
+        "searches": [
+          "Resultary: periodic Steklov averaging operator singular value asymptotics counting function",
+          "Resultary 6f295f59de60 Proof §2",
+          "Dron–Zhuk MathNet znsl6064, abstract"
+        ]
+      },
+      "checked_sources": [
+        "Johnstone–Raimondo arXiv:math/0503663",
+        "Resultary 6f295f59de60",
+        "Resultary 6487b872031e",
+        "Dron–Zhuk znsl6064 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems 1–2 in Johnstone–Raimondo are noisy minimax bounds for hyperrectangles and ellipsoids. The two-aperture lemma requires a single fixed sequence of numerators, while the present phase varies by order one across n of order 1/t at fixed lambda."
+        ],
+        "reasoning": "The prior multiplier and empirical-average machinery do not imply the joint threshold limit by parameter substitution; proving it requires preserving drift in each residue and analyzing the resulting coupled phase/threshold predicate. The new content survives crediting the fixed-window corollary separately.",
+        "searches": [
+          "Johnstone–Raimondo main results at pp. 6, 12 and 17",
+          "Resultary 6f295f59de60, Finding and Proof §§1–2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The top identical result is 6167de3a2980, the record under review, not independent corroboration.",
+          "Johnstone–Raimondo use the sinc multiplier written in their width convention, and identify rational null frequencies.",
+          "The closest distinct spectral record, 6f295f59de60, has an additional cosine interference factor and fixes an irrational aperture width."
+        ],
+        "reasoning": "Rescaling the half-width convention matches the underlying multipliers, but not a spectral count with detuning that changes together with the threshold.",
+        "searches": [
+          "Resultary: periodic boxcar singular value counting Weyl law rational irrational window",
+          "Resultary: boxcar moving window alpha(t) rational detuning spectral counting crossover",
+          "Johnstone–Raimondo arXiv:math/0503663, p. 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "6487b872031e has nonmonotone bandwidth for a BV-to-L2 residual norm, not for a singular-value count. The two-aperture record's half-turn minimum is about fixed aperture displacement, not about the detuning root y=cos(2|lambda|y)."
+        ],
+        "reasoning": "There is no finite database to reconstruct; the plausible matching exact half-circle statement and constants were compared as formulas and found to be different observables or regimes.",
+        "searches": [
+          "Resultary: half-circle boxcar resonance dip nonmonotone detuning spectral density",
+          "Resultary 6487b872031e and 6f295f59de60 Findings"
+        ]
+      },
+      "rationale": "The defensible original content is the moving-window threshold law and its strict half-circle dip, not Fourier diagonalization, rational kernel zeros, or novelty over general fixed-sequence counting principles. The same-day two-aperture text has a fixed-sequence lemma that does imply the fixed-window coefficient after computing the elementary empirical mean; it does not supply the frequency-dependent detuning law. The principal same-operator paper gives minimax risk results rather than this crossover.",
+      "residual_risks": [
+        "Same-day record dates do not fix publication order. No priority claim is made for the fixed-sequence counting principle. A more general uninspected moving-rotation or threshold theorem remains possible; the literature lookup was bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior multiplier and rational zeros; inspected main results do not cover the moving spectral threshold",
+          "evidence": "Sinc diagonal and vanished modes at rational widths; hyperrectangle/ellipsoid minimax bounds.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0503663.pdf",
+          "material_read": "pp. 2, 6, 12, 17; multiplier and main minimax theorems, rendered offsets 5000, 15800, 28800, 45300",
+          "method": "OA full-text passage inspection",
+          "title": "Periodic boxcar deconvolution and Diophantine approximation",
+          "trigger": "Same boxcar operator and rational obstruction"
+        },
+        {
+          "assessment": "Same-day material overlap; fixed-sequence lemma covers fixed-window reduction, not joint detuning",
+          "evidence": "Separated disjoint apertures, fixed irrational aperture width, and magnitude proportional to |sin(pi*n*a)cos(pi*n*b)|/n. Fixed-sequence counting lemma integrates the limit of the empirical numerator distribution.",
+          "identifier_or_url": "Resultary 6f295f59de60",
+          "material_read": "RESULT.md Finding, assumptions, multiplier and counting lemma (offset 0), proof offsets 4700–7753",
+          "method": "Local mirror passage inspection",
+          "title": "Arithmetic parity and sharp singular-value tails of two-aperture circle convolution",
+          "trigger": "Closest arithmetic counting-law hit"
+        },
+        {
+          "assessment": "Different observable",
+          "evidence": "BV-to-L2 residual error norm, not sorted or threshold singular values.",
+          "identifier_or_url": "Resultary 6487b872031e",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror text",
+          "title": "A flat-to-rigid transition and nonmonotone bandwidth law for circular boxcar smoothing",
+          "trigger": "Nonmonotone bandwidth for the same smoothing family"
+        },
+        {
+          "assessment": "Reported topic is approximation error; no whole-paper exclusion claimed",
+          "evidence": "Moduli of continuity and sharp approximation estimates.",
+          "identifier_or_url": "https://www.mathnet.ru/eng/znsl6064",
+          "material_read": "Abstract, rendered offset 750",
+          "method": "OA abstract only",
+          "title": "On approximation of periodic functions by modified Steklov averages in L2",
+          "trigger": "Steklov averaging terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, fixed-window and critical-detuning findings",
+        "Johnstone–Raimondo rational-zero comparison",
+        "Resultary 6f295f59de60, fixed-parameter spectral law"
+      ],
+      "rationale": "A spectral threshold probes frequencies of order 1/t, making displacement of order t the natural calibration scale. The result measures the leading rank at this scale and shows the counterintuitive initial loss upon detuning the half-circle window even though larger detuning recovers the irrational density. This is stronger than just counting exact Fourier zeros or testing a few bandwidths and matters for hard spectral truncation.",
+      "residual_risks": [
+        "Spectral rank is not noisy statistical risk; no calibration tolerance at finite t or minimax application is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

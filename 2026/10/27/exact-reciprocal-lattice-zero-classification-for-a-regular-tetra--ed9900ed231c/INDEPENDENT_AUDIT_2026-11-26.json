@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:14:56.481530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the reference triangle with area 1/2, translate the integer nodes by the same integer without phase change. For a repeated pair r,r and singleton s, integrating over the singleton barycentric coordinate v gives the integral of (1−v)exp(−2πi(s−r)v) over [0,1], namely 1/(2πi(s−r)); the minus-imaginary sign is consistent with the convention. For three distinct nodes the two edge exponentials after the inner integration have nonzero integer frequencies and both integrals vanish. Three equal nodes give 1/2. Each physical facet carries the same Jacobian 2A_f, so summing over the omitted node leaves zero for all-distinct nodes and cancels opposite pair contributions for 2+2. For 2+1+1 the sum can vanish only when the two nonzero reciprocal gaps 1/(s−r), 1/(t−r) add to zero, equivalently s+t=2r. Type 3+1 has positive real part from its constant face, and type 4 has Fourier value 4A_f, the total area. This exhausts all integer phases. Independently the stated cube count 396 splits as 336 all-distinct, 24 two-pair, 24 symmetric with repeated zero, and 12 symmetric with zero a singleton (then the other singleton is 2r). This and the rational finite check corroborate the claim; the analytical calculation proves it on all of L*. The supplied check.py was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Diaz–Le–Robins and Gallatin express volume transforms by Stokes/Gauss decompositions with normal-dependent coefficients. Borda gives a general simplex indicator contour formula and handles coincident poles. Kolountzakis–Spyridakis study complex indicator-transform zeros."
+        ],
+        "reasoning": "The scalar surface-area transform does not carry the normal factors of a volume representation. A general single-simplex integral formula supplies tools, but does not give the cancellations among facets or their lattice arithmetic.",
+        "searches": [
+          "arXiv:1602.08593, Theorem 1",
+          "arXiv:1109.5262, §2",
+          "arXiv:1608.02417, Theorem 3",
+          "arXiv:2404.03405, stated object and zero varieties",
+          "DOI:10.1107/S1600576715002964"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1602.08593",
+        "arXiv:1109.5262",
+        "arXiv:1608.02417",
+        "arXiv:0809.2083",
+        "arXiv:math/0502036",
+        "arXiv:2404.03405",
+        "DOI:10.1107/S1600576715002964 (abstract evidence only)",
+        "Resultary 4ea17425c01f, e3e3910e6894, 6a067c689394 and db8d34ed1235"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Simplex formulas evaluate (or provide limits for) each facet. The repeated-pair triangle terms can be nonzero even when their weighted sum vanishes; the opposite signs cancel in type 2+2 only because the facet weights are equal, and the 2+1+1 cancellation is an additional midpoint constraint."
+        ],
+        "reasoning": "Neither specialization of the verified volume zero criteria nor using the general facet formula without an additional cancellation analysis gives the surface zero classification. The contribution is that arithmetic classification, not the integration identity.",
+        "searches": [
+          "arXiv:0809.2083, Corollary 12 formula (10)",
+          "arXiv:math/0502036, p. 19",
+          "arXiv:1608.02417, Theorem 3",
+          "Resultary 4ea17425c01f and 6a067c689394, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With f(t)=exp(−2πit), a normalized triangle integral is (−2πi)^−2 times the second divided difference of f. The target is the sum of four such differences with equal Jacobians. The prior 4-simplex volume resonance 4ea17425c01f instead uses five nodes and has repeated-node pattern {a,a,a+d,a+2d,a+2d}."
+        ],
+        "reasoning": "The sum of second differences is not the single fourth difference for a 4-simplex indicator. In particular the shell already admits all 2+2 patterns, and its 2+1+1 midpoint exception has a different node count and multiplicity profile.",
+        "searches": [
+          "Resultary: tetrahedral shell extinctions, integer vertex phases, triangle divided differences and reciprocal-lattice zero classifications",
+          "arXiv:math/0502036, Genocchi–Hermite formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 4ea17425c01f and e3e3910e6894 give equivalent criteria for standard 4-simplex volume; 6a067c689394 handles 5-simplex volume. Same-day db8d34ed1235 concerns the complex zeros of p cos(nz)+(1−p) cos((n−2)z), a four-atom transform with a different measure and parameter."
+        ],
+        "reasoning": "No canonical finite database naturally tabulates this infinite lattice predicate. The relevant exact indexed classifications and the same-day candidate were compared on their actual measures and node conditions; none is the shell predicate. This is not evidence of exhaustive absence.",
+        "searches": [
+          "Resultary exact shell zero/extinction rule, simplex lattice zeros and same-day Fourier zero records"
+        ]
+      },
+      "rationale": "Standard simplex exponential integrals and divided differences already provide the facet-evaluation machinery. The supported distinct claim is the explicit necessary-and-sufficient rule for cancellation of the equal-area tetrahedron's scalar surface sum at reciprocal edge lattice frequencies, including the single repeated-pair midpoint condition. The closest verified lattice-zero classifications use simplex volume in other dimensions. Potential overlap with inaccessible polyhedral form-factor literature remains qualified.",
+      "residual_risks": [
+        "No lawful full text was located for the Senesi–Lee article or for the related Yang et al. polyhedron form-factor paper sought via the four-simplex record. Either could contain useful overlap; no whole-document absence or priority conclusion is drawn."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Indicator transform with Stokes weights; not the scalar surface zero rule",
+          "evidence": [
+            "Theorem 1 uses normal-dependent coefficients in descending to faces."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.08593",
+          "material_read": "Abstract, PDF p. 1; Theorem 1, p. 4, around offset 13100",
+          "method": "Compare measure and coefficients of the face terms",
+          "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+          "trigger": "General facewise Fourier decomposition"
+        },
+        {
+          "assessment": "Normal-weighted boundary representation of the volume transform",
+          "evidence": [
+            "The outward normal is contracted with the frequency vector."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1109.5262",
+          "material_read": "§2, PDF p. 2, offsets 5500–6300",
+          "method": "Identify the Gauss-law weight in the integrand",
+          "title": "Fourier, Gauss, Fraunhofer, Porod and the shape from moments problem",
+          "trigger": "Boundary Fourier representation for polyhedra"
+        },
+        {
+          "assessment": "Relevant classical computation, not the sum-zero condition",
+          "evidence": [
+            "Provides a contour formula and accounts for coincident poles."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1608.02417",
+          "material_read": "Theorem 3, PDF p. 7, around offset 18500 and discussion of coincident poles",
+          "method": "Check how coalescing poles enter and distinguish one simplex integral from the boundary face sum",
+          "title": "Borda, simplex indicator transform",
+          "trigger": "General transform formula valid with coincident vertex evaluations"
+        },
+        {
+          "assessment": "Computational precursor; not an extinction theorem",
+          "evidence": [
+            "The formula applies to distinct vertex evaluations on a single simplex."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0809.2083",
+          "material_read": "Corollary 12, equation (10), PDF p. 13, around offset 35800",
+          "method": "Compare the distinct-node exponential integral and the repeated-node limit required here",
+          "title": "Baldoni et al., exponential simplex integral",
+          "trigger": "Formula giving the face integrals used in the proof"
+        },
+        {
+          "assessment": "General integral identity, not a zero rule for a sum over four triangular faces",
+          "evidence": [
+            "A divided difference equals a simplex average of the corresponding derivative, with the standard integration normalization."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0502036",
+          "material_read": "Genocchi–Hermite formula, PDF p. 19, around offset 43343",
+          "method": "Specialize the integrand to the exponential and keep track of the order and repeated nodes",
+          "title": "Divided differences",
+          "trigger": "Equivalent expression for triangular Fourier integrals"
+        },
+        {
+          "assessment": "Unresolved possible overlap",
+          "evidence": [
+            "Studies form factors of regular and semiregular polyhedra; the material available did not establish a reciprocal-edge-lattice scalar surface zero census."
+          ],
+          "identifier_or_url": "https://doi.org/10.1107/S1600576715002964",
+          "material_read": "Bibliographic and abstract evidence only; lawful full-text lookup did not yield a copy",
+          "method": "Compare stated scope without inferring full-text noncoverage",
+          "title": "Scattering functions of polyhedra",
+          "trigger": "Plausibly covers form factors of tetrahedral shells"
+        },
+        {
+          "assessment": "Adjacent exact volume results, including equivalent formulations for the four-simplex, not the shell result",
+          "evidence": [
+            "Four-simplex resonance requires two doubles and a singleton at their midpoint; the five-simplex uses six nodes with different multiplicities."
+          ],
+          "identifier_or_url": "Resultary 4ea17425c01f, e3e3910e6894 and 6a067c689394",
+          "material_read": "RESULT.md Findings for the three criteria",
+          "method": "Compare measures, number of nodes and multiplicities",
+          "title": "Lattice Fourier zeros of the standard four- and five-simplex",
+          "trigger": "Closest prior exact repeated-node resonance criteria"
+        },
+        {
+          "assessment": "Distinct; decision does not rely on ordering of the two same-day records",
+          "evidence": [
+            "Four atoms on a line, complex zeros and a threshold in p, not Euclidean boundary area or reciprocal lattice."
+          ],
+          "identifier_or_url": "Resultary 2026/10/27, db8d34ed1235",
+          "material_read": "RESULT.md Finding and transform formula",
+          "method": "Compare measures, frequency domain and asserted criterion",
+          "title": "Sharp parity-dependent complex zero transition for a symmetric Fourier transform",
+          "trigger": "Same-day indexed Fourier-zero problem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform regular tetrahedral shell is a natural scattering object, and its exact extinctions at reciprocal edge frequencies are a concrete invariant distinct from the volume form factor. The rule resolves cases where individual facet contributions are nonzero but all cancel; in particular it distinguishes symmetric from nonsymmetric gaps in the same 2+1+1 multiplicity type. The result gives an all-frequency-lattice test without evaluating form factors afresh; it is not a check at a few frequencies or the renormalization of a known volume zero set.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:36:08.680498Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–32 and 34–104; VERIFICATION.md, lines 19–25; CHECK.py, lines 12–112 (inspected, not executed).",
+        "Independent bounded replay /workspace/branches/math-replay.js, section 1: ρ≈0.7773897816248265; direct complex determinant at the reconstructed nodes agrees with 22.90675193636629 and normalized value 0.8483982198654182."
+      ],
+      "rationale": "Dividing the alternant by the Vandermonde gives the symmetric quadratic S²−P. Rotation to Q=1 gives P=conj(S); complex conjugation gives minus the Vandermonde for this normalization, hence its modulus squared is minus the cubic discriminant. Writing r=|S| and u=Re(S³)/r³ gives the two stated factors. Their product is strictly concave in u for r>0. The discriminant factor plus four times the Schur-modulus factor is H=3r⁴−14r²+27, so the unclipped product is bounded by H²/16 with equality at the stated quadratic vertex. The two clipping polynomials increase for positive r and their rational brackets place the cubic root ρ strictly on the u=−1 branch. The derivative on that branch has only one positive critical root; the middle branch is <22 by the two endpoint bounds for H, and the upper branch peaks between 2 and 2.1 with value <17. The rational witness at r=3/4 exceeds 22. Thus the relaxed rectangle has only the optimizer (ρ,−1), and it is realized: after a cubic-root rotation S=−ρ, the node polynomial factors as (X−1)(X²+(1+ρ)X+1). This gives exactly the rotation/permutation orbit. The omitted r=0 case and coincident nodes have zero volume. Hadamard equality forces the first power sum to vanish, giving an equilateral triple; the other two inner products vanish precisely when neither m nor m−1 is divisible by three. Compactness gives a strict gap otherwise.",
+      "residual_risks": [
+        "Numerical evaluation only corroborates the explicit attained value; the clipping and derivative arguments prove the bound on the continuum. No formal certification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.1 treats an ordinary Vandermonde with a specific external pole weight, with a mapped equally spaced optimizer. The three-interval records concern prescribed one-parameter sampling families or a worst-fiber design."
+        ],
+        "reasoning": "An external weight is separable over nodes; the symmetric factor |S²−P|² depends jointly on the triple, including vanishing at equilateral triples. The inspected theorem does not optimize this sparse alternant, and the one-parameter designs do not give a bound over every two-angle configuration.",
+        "searches": [
+          "Resultary: Global optimization of three-node unit circle Vandermonde determinant with Schur factor S squared minus P, or exact degree-two Schur factor for exponents 0,1,4",
+          "Dubickas–Pritsker, arXiv:1902.08348, introduction and §3 Theorem 3.1"
+        ]
+      },
+      "checked_sources": [
+        "Four local Resultary searches identified above and corresponding cited statements",
+        "Dubickas–Pritsker, arXiv:1902.08348, p. 1 and §3 Theorem 3.1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-regime design varies a scalar shift to optimize a worst fiber. The arithmetic-gap paper uses rows indexed by 0,m,m+1 and columns by 0,1,2 along equally spaced cosets. The weighted Fekete case optimizes a different weight and matrix."
+        ],
+        "reasoning": "Even transposition or permutation of the three-coset matrices does not introduce the unconstrained two-angle family of this finding. A one-parameter maximum would not prove that the optimum over all node triples lies on that family. Schur factorization and Hadamard alone provide no exact gap or unique orbit.",
+        "searches": [
+          "Three-regime determinant design, Finding and assumptions at local mirror offset 604",
+          "Sharp arithmetic three-coset determinant gap, Finding at local mirror offset 252",
+          "Dubickas–Pritsker, §3 Theorem 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact catalog matches are the assigned record. Nearby determinant-design results use Szegő/Bergman Gram matrices on disks. The distinct same-day quartic Fourier record optimizes an eighth moment for support {0,1,4,5}, not a three-node determinant."
+        ],
+        "reasoning": "The squared sparse determinant is a Fekete-type objective, invariant under scaling all nodes by a common phase. The ordinary Vandermonde and reproducing-kernel Gram problems lack its coupled degree-two Schur factor. Sharing a reflected optimizer shape or one frequency does not identify the optimization.",
+        "searches": [
+          "Resultary: Exact unrestricted maximum of |det(1,z,z^4)| over three unit-circle nodes; sparse exponent set {0,1,4} and unique optimizer",
+          "Resultary: Unique maximizing generalized Vandermonde orbit {η,η exp(iθ),η exp(−iθ)} with cosθ=−(1+ρ)/2 for exponents 0,1,4",
+          "Literature: \"{0,1,4}\" generalized Vandermonde unit circle determinant maximum three points Fekete exact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact value and formula appear in the search hit 2026/11/22/SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7, the target itself. The distinct quartic Fourier hit has another objective and a different cubic."
+        ],
+        "reasoning": "No distinct exact entry identified for this frequency set, objective, and feasible node region. A similarly named cubic optimization or determinant gap is not an entry for this problem.",
+        "searches": [
+          "Resultary: Root rho of 4ρ³+7ρ²−4ρ−3=0 gives sharp squared determinant ρ²(1−ρ)(1+ρ)²(3+ρ)³",
+          "Resultary: Exact unrestricted maximum of |det(1,z,z^4)| over three unit-circle nodes"
+        ]
+      },
+      "rationale": "The distinct narrow claim is the exact unrestricted maximum for sparse columns 1,z,z⁴ and its non-equilateral equality orbit. No inspected distinct result covers it. The classical generalized alternant/Fekete formulation and elementary modulo-three tightness context are not included in this originality pass.",
+      "residual_risks": [
+        "Bos–De Marchi, Fekete points for bivariate polynomials restricted to y=x^m (https://www.research.unipd.it/handle/11577/120340): the repository returned 403 by attempted lawful routes. The frozen record describes real-interval alternants, but no theorem text was independently read; a further related specialization has not been ruled out.",
+        "Bawaneh, DOI 10.3934/math.20261421: publisher and OA recovery did not give a readable original passage. The frozen record reports a function-valued fractional Fourier problem, but that report does not exclude otherwise uninspected material.",
+        "The external query yielded no useful comparison; this is not evidence of absence and search coverage does not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weighted ordinary Vandermonde, not a sparse alternant",
+          "evidence": [
+            "The theorem's pole weight is w(z)=1/|z−b|; the design points come from a map of equally spaced points."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.08348",
+          "material_read": "p. 1 introduction; p. 6, §3 Theorem 3.1, OA offset 20295",
+          "method": "OA PDF theorem passage and weight comparison",
+          "title": "Weighted Fekete points on the real line and the unit circle",
+          "trigger": "Primary exact circle determinant design"
+        },
+        {
+          "assessment": "Different matrix and optimization constraints",
+          "evidence": [
+            "Worst-fiber problem with columns indexed by 0,1,2 and one scalar shift."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-a-three-regime-sharp-determinant-design-for-three-interval-fouri--c9a6f8a9b1bc",
+          "material_read": "Finding and assumptions, local mirror offset 604",
+          "method": "Primary result text in local mirror",
+          "title": "A three-regime sharp determinant design for three-interval Fourier Riesz bases",
+          "trigger": "Related exact three-by-three Fourier determinant optimum"
+        },
+        {
+          "assessment": "Constrained cosets, not arbitrary sparse-circle sampling",
+          "evidence": [
+            "V_m(τ) uses a∈{0,m,m+1}, s∈{0,1,2} and equally spaced cosets."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-sharp-arithmetic-determinant-gap-for-three-coset-fourier-bases-o--a0b1e6f9ca2a",
+          "material_read": "Finding, local mirror offset 252",
+          "method": "Local-mirror statement and matrix comparison",
+          "title": "Sharp arithmetic determinant gap for three-coset Fourier bases on separated integer intervals",
+          "trigger": "Nearby exact arithmetic determinant gap"
+        },
+        {
+          "assessment": "Szegő-kernel Gram problem, different objective and domain",
+          "evidence": [
+            "Prescribed disk radii r,r,s; angular optimization of a three-generator kernel Gram determinant."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-mixed-radius-szeg-orbit-determinant-design-and-its-quarter--083d9b816fef",
+          "material_read": "Finding, local mirror offset 251",
+          "method": "Local-mirror statement comparison",
+          "title": "Exact mixed-radius Szegő orbit determinant design",
+          "trigger": "Distinct three-node determinant index hit with reflected arrangement"
+        },
+        {
+          "assessment": "Bergman Gram determinant, not a sparse evaluation determinant",
+          "evidence": [
+            "Three normalized kernels of common disk radius; optimum equilateral."
+          ],
+          "identifier_or_url": "2026/10/26/SCOPE-strict-gap-schur-concavity-and-sharp-three-point-bergman-determi--847472a019ae",
+          "material_read": "Finding, local mirror offset 437",
+          "method": "Local-mirror statement comparison",
+          "title": "Strict gap, Schur concavity and sharp three-point Bergman determinant",
+          "trigger": "Distinct three-point determinant index hit"
+        },
+        {
+          "assessment": "Different objective and variable; not excluded on date grounds",
+          "evidence": [
+            "Eighth-moment maximization of (1+z)+z^m(U+Vz), with support {0,1,4,5} when m=4."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-quartic-fourier-resonance-and-a-non-cyclotomic-optimal-four-tone--1a272bbff389",
+          "material_read": "Finding, local mirror offset 469",
+          "method": "Local-mirror statement comparison",
+          "title": "Quartic Fourier resonance and a non-cyclotomic optimal four-tone design",
+          "trigger": "Distinct same-day frequency-four optimizer hit"
+        },
+        {
+          "assessment": "Assigned finding, not independent prior evidence",
+          "evidence": [
+            "Same exact cubic root, volume maximum, and maximizing orbit."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-sharp-three-node-fourier-volume-gap-for-the-sparse-modes-0-1--e6b7a2d650e7",
+          "material_read": "Indexed finding and frozen statement",
+          "method": "Local semantic searches and identity comparison",
+          "title": "The sharp three-node Fourier volume gap for the sparse modes 0,1,4",
+          "trigger": "Exact local-index hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 13–32 and 93–100; comparison with the constrained Fourier-determinant designs cited above"
+      ],
+      "rationale": "Three minimal evaluations of a sparse trigonometric polynomial give a natural square design with determinant as its information-volume criterion. In the first degree-two Schur case in this family the equilateral rule actually gives zero determinant and the orthogonal ceiling is unattainable. The exact best volume and forced non-equilateral orbit resolve both how large the gap is and which designs achieve it without postulating symmetry or spacing.",
+      "residual_risks": [
+        "This is an equal-weight, minimal-sample determinant theorem, not an optimal condition-number or general transform reconstruction result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

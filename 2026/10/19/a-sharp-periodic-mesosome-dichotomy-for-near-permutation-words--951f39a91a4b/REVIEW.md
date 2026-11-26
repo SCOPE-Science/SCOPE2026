@@ -1,23 +1,21 @@
-# Scientific review: periodic mesosomes in near-permutation words
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is quantified for every integer \(q\ge2\) and every period containing exactly one duplicated symbol. The full proof reduces any prospective mesosome to equality of cyclic arcs of residue length. Singleton-letter uniqueness confines their symmetric difference to the two positions of the duplicated symbol. The exact cardinality \(2\min(r,n-r)\) then forces adjacent duplicates. The explicit distinct-conjugate witness of half-length \(n-1\) proves attainability, and residues rule out every shorter half-length. Circular class enumeration uses a singleton to establish primitivity, followed by a fused-pair bijection. The packaged direct-conjugacy checker independently agrees for every labeled necklace with \(2\le q\le7\). No infinite conclusion is inferred from those finite tests.
+PASS
 
-## Originality — PASS, with residual uncertainty
+For a half-length h=tn+r, r=0 gives identical halves and is excluded. Conjugacy requires equal multiplicities; after deleting t full periods in counts, the adjacent cyclic r-arcs must therefore agree on every singleton position. Their symmetric difference has cardinality 2 min(r,n-r) (the arcs are disjoint when r<=n/2, and their complements otherwise). It is nonempty and contained in the two positions of the repeated letter. Hence r=1 or n-1 and these positions are cyclic neighbors in either case. This excludes factors of all lengths when the repeat is nonadjacent. For an adjacent repeat, rotating to aaC yields (Ca)(aC), distinct conjugate halves of length n-1. The only possible smaller residue is 1, which cannot give distinct conjugates for half-length 1. A singleton forces the period to be primitive; dividing the multinomial linear count by n gives q!/2 for fixed repeated label a. Fusing the adjacent aa gives (q-1)! circular arrangements, and subtraction gives the avoiding classes, including zero for q=2. Independent replay (`python3 independent_check.py`) directly tested all rotation classes for q=2 through 7, at all cyclic starts and half-lengths through 2(q+1), finding exactly the predicted table (at q=7: 2520/720/1800). The finite window does not prove infinite avoidance; the residue argument does. The supplied checker was inspected rather than run.
 
-[1] develops mesosomes and explicitly treats binary alphabets; its proofs do not cover periods on \(q\ge3\) individually distinguished letters. [2] studies applying one alphabet permutation or transformation to an entire half, which is not the same condition as rotating its positions. Its stronger-looking existence assertions do not imply which near-permutation periods avoid positional-conjugate factors, nor their exact shortest length and class counts. Targeted record searches found no statement equivalent to the theorem; broader circular repetition literature can cover stricter square-avoidance questions without classifying non-square mesosomes. Equivalence in unindexed or differently named literature remains a risk, so novelty is not claimed as formally certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first noninjective circular content family—exactly one collision of two equal letters—has a sharp, nontrivial dichotomy between permanent avoidance and a forced mesosome of the exact shortest possible length. Unlike pure-permutation periods, the words here contain repeated symbols; unlike general high-multiplicity periods, the theorem supplies a complete classification and an explicit factorial necklace distribution for every alphabet size. The boundary separates arbitrarily long periodic avoidance from immediate finite witnesses and supplies a natural base case for extending mesosome theory beyond binary words.
+The supported distinct claim is the multialphabet periodic one-repeat dichotomy across arbitrarily many period boundaries, including exact shortest length and rotation-class counts. The binary boundary is covered by prior classification; neither the inspected bounded circular classification nor the alphabet-permutation results supply the multialphabet statement. This is a bounded best-of-knowledge assessment.
 
-## Closest literature and limitations
+## value
 
-[1] R. Cummings, J. Shallit, P. Staadecker, *Mesosome Avoidance* (2021), arXiv:2107.13813v1; full text consulted.
+PASS
 
-[2] T. Ng, P. Ochem, N. Rampersad, J. Shallit, *New results on pseudosquare avoidance* (2019), arXiv:1904.09157v1; relevant full sections on alphabet permutations and transformations consulted.
+This is a complete classification of the first natural repeated-letter extension of permutation periods. It isolates cyclic adjacency as the only obstruction, permits true infinite periodic avoidance despite repetition, and gives exact first witness length when avoidance fails. Applying a position-residue argument to all half-lengths is the useful content; the necklace counts are secondary consequences. It does not address several repeated labels or arbitrary periodic words.
 
-The result excludes other multisets, ordinary-square avoidance and arbitrary aperiodic words. Computational checks run only through seven letters, while the proof covers every finite alphabet size. Independent audit is outstanding.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

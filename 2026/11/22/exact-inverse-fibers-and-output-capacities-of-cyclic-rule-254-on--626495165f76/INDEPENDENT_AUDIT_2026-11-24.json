@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:17:59.151538Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In each feasible nonconstant output run, the first and last centers are forced one site in from the bounding sites of the run. Differences between successive centers can only be 2 or 3 (independence and no coverage holes); zero-runs decouple the choices. Thus the local count is the composition coefficient c_(L−3), with infeasible lengths 1,2,4 and unique lengths 3,5,6,7. The all-one count is Perrin: cyclic steps 2 or 3 give (2z²+3z³)/(1−z²−z³) for positive lengths; n=1 excludes one by self-adjacency and n=2 gives two predecessors by the repeated-neighbor rule. For nonconstant indexed outputs, choosing the start label of a list of k run pairs counts each actual word k times even when periodic, giving the logarithmic derivative of 1−AB. Adding the separately counted constant outputs yields both stated series. Renewal weights include lengths 4 and 5, enforcing a positive simple unique dominant root by the triangle inequality and coprimality; its simple pole in the logarithmic derivative has coefficient prefactor one. Independent exhaustive finite check of every output and allowed input for n=1–16 and both series passed; /workspace/branches/470b5e86-15db-4e21-b741-0bf9df05b45b/independent_rule254_check.py and independent_rule254_check.txt. Bisection gives ratio 0.978994288608, but complex-root dominance is analytic. The supplied script was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salo's inspected example is Rule 28. The four-site test includes Rule 254 but obtains noninjectivity from its effective mask (0,1,1,1,1). The public keyword lookup supplied no material primary passage specific to these counts."
+        ],
+        "reasoning": "A general noninjectivity certificate cannot determine which outputs are reachable or uniquely liftable, or their full multiplicities.",
+        "searches": [
+          "Salo arXiv:2209.13373 ECA 28 golden-mean",
+          "2026/11/22/SCOPE-a-sharp-four-site-losslessness-test-for-elementary-cellular-auto--9f7344231b62",
+          "Public search: rule 254 golden mean preimage independent sets OR forbidden 011110"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Bisdorff–Marichal and Salo passages",
+        "OEIS A001608",
+        "Three nearest catalogue Findings and exact indexed-prefix lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Perrin theorem counts maximal independent sets covering the whole cycle; the Rule 28 catalogue result is bijective with Lucas counts. Under unrestricted dilation, internal input gaps 1,2,3 can occur, so a one-run of length 4 is possible, unlike under this constraint."
+        ],
+        "reasoning": "The full-cover enumeration gives neither the boundary-fixed run compositions nor the cardinalities of individual nonconstant fibers. The restricted coverage geometry supplies both series and separation.",
+        "searches": [
+          "Bisdorff–Marichal JIS 08.5.7, pp. 1–2",
+          "2026/11/22/SCOPE-a-lossless-golden-mean-restriction-of-elementary-rule-28-with-an--7cb9788fe571",
+          "Rule 254 constrained image versus unrestricted Boolean dilation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The majority entry has gap product formulas on the same source, but majority requires two neighboring source ones around a zero, whereas OR detects any one in the three sites."
+        ],
+        "reasoning": "Even one isolated one on a ring n≥4 gives a run of three in OR and an all-zero majority output, ruling out identification of their fiber partition on the same indexed source. The independent dominating-set reformulation covers only the all-one output.",
+        "searches": [
+          "Rule 254 cyclic golden-mean hard-core source dilation independent dominating sets",
+          "2026/11/22/SCOPE-exact-periodic-majority-image-fibers-over-the-binary-hard-core-s--a6b917e52dd3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A001608 is the Perrin sequence, matching the all-one fiber only. The exact prefix query retrieved the subject itself and different-rule counts (e.g. Rule 54 singleton counts beginning 0,0,3,12,15,24,49,96)."
+        ],
+        "reasoning": "Credit the exact special-case table; it does not enumerate the image or the unique-fiber outputs. The same-title hit is not an independent match.",
+        "searches": [
+          "OEIS A001608",
+          "Resultary: Rule 254 independent dominating set dilation periodic output counts 1 2 2 6 7 14 23 38 56 singleton 1 1 1 5 6 13 22 37 46"
+        ]
+      },
+      "rationale": "The scoped contribution is the nonconstant hard-core OR fiber factorization and the two aggregate indexed-ring counts; the local rule and the Perrin special case are prior. The inspected nearest works do not supply these statements or a direct implication covering them.",
+      "residual_risks": [
+        "No matching primary passage was identified for the full Rule-254 formulas; unindexed equivalence in independent-set neighborhood or finite-type shift literature remains possible.",
+        "The same-day catalogue records provide comparisons, not evidence of chronological precedence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of indexed cycle maximal independent set count",
+          "evidence": [
+            "Identifies the Perrin count and recurrence"
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.pdf",
+          "material_read": "Abstract and introduction, pp. 1–2, offset 0",
+          "method": "Lawful primary PDF passage",
+          "title": "Counting Non-Isomorphic Maximal Independent Sets of the n-Cycle Graph",
+          "trigger": "Exact known all-one fiber"
+        },
+        {
+          "assessment": "The inspected golden-mean passage concerns ECA 28",
+          "evidence": [
+            "Different local map"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+          "material_read": "PDF p. 9, offset 34670",
+          "method": "Lawful primary PDF passage",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Image/invertibility and golden-mean constraint"
+        },
+        {
+          "assessment": "Different fiber partition and count formulas",
+          "evidence": [
+            "Majority and product over successive-one gaps"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-periodic-majority-image-fibers-over-the-binary-hard-core-s--a6b917e52dd3",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured catalogue and local mirror",
+          "title": "Exact periodic majority image fibers over the binary hard-core shift",
+          "trigger": "Closest same-source structural analogue"
+        },
+        {
+          "assessment": "Establishes noninjectivity only for the present comparison",
+          "evidence": [
+            "Effective mask (0,1,1,1,1), c=e"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-four-site-losslessness-test-for-elementary-cellular-auto--9f7344231b62",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured catalogue and local mirror",
+          "title": "A sharp four-site losslessness test for elementary cellular automata",
+          "trigger": "Broader theorem expressly includes Rule 254"
+        },
+        {
+          "assessment": "Different rule, bijective rather than variable fiber sizes",
+          "evidence": [
+            "Lucas-number output counts"
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-lossless-golden-mean-restriction-of-elementary-rule-28-with-an--7cb9788fe571",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Configured catalogue and local mirror",
+          "title": "A lossless golden-mean restriction of elementary Rule 28",
+          "trigger": "Exact image counts for related rule on the same source"
+        },
+        {
+          "assessment": "Exact special case only",
+          "evidence": [
+            "a(0)=3, a(1)=0, a(2)=2; a(n)=a(n−2)+a(n−3)"
+          ],
+          "identifier_or_url": "https://oeis.org/A001608",
+          "material_read": "Page at offset 0",
+          "method": "Public sequence source passage",
+          "title": "Perrin numbers",
+          "trigger": "Known all-one count table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete individual fiber classification explains which output patterns retain information. The two rational series distinguish reachable from uniquely invertible outputs and quantify exponential loss among indexed outputs, a stronger result than a yes/no losslessness test. The growth is combinatorial, not a noise-channel capacity guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

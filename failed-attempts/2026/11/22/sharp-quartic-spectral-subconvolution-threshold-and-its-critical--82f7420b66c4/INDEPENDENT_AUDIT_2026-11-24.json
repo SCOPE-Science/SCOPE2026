@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:41:39.704023Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the uniform quartic support-plane gap, including the 1/12 coefficient, and the polar angle bound O(R^(-1/4)) after lattice-cell comparison; the integrable radial density has tail R^(3/4-p). Splitting the exponential gap by the supporting functional reduces the convolution quotient to two such tilted sums. Conversely the axial integers |l|<=j^(3/4), 1<=j<=N/2, give the lower bound sum j^(3/4-p). For the critical constant put D_j(l)=(j^4+l^4)^(1/4)-j for j>=0. For j>=1, D_j(l) is bounded below by a positive constant times l^4/j^3 for |l|<=j and by a constant times |l| for |l|>=j; the latter is needed for the very far tails, where a global quartic lower bound would be false. On l=j^(3/4)y, D_j(l) tends to y^4/4 uniformly on compact y-sets, and the two-regime bound supplies an integrable tail envelope for the lattice Riemann sum. The limiting endpoint mass per harmonic j-term is Gamma(1/4)/(sqrt(2)*a^(1/4)). For j<=epsilon*N and |l|<=K*j^(3/4) the long-leg defect is O(K^4*(epsilon/(1-epsilon))^3), and the long-leg polynomial quotient is bounded globally by (1-epsilon)^(-7/4); truncation followed by epsilon->0 is justified. Reflection doubles the coefficient. On the fixed interior the transverse sum is O(N^(3/4)) and the polynomial factor is O_epsilon(N^(-7/4)); outside [0,N] the extra outward gap 2*dist(j,[0,N]) makes the transverse contributions summable. The analytic argument proves all a>0 and p>=0; Fourier Cauchy–Schwarz gives sufficiency and no necessity claim about multiplication. Independent replay: python3 /workspace/review_evidence.py, lattice section. Its finite rectangles at a=2 are only scaling diagnostics, not rigorous tails or an asymptotic certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "503d42e83292 states p>1+(d-1)(1-1/q) for every finite q>=2 in dimension d, and axial power growth below and logarithmic growth at the boundary.",
+          "The Euclidean-radial continuous comparison cited in RESULT.md does not specialize to ℓ4 exponential lattice weights: the quartic-to-Euclidean radius ratio differs on axes and diagonals, precluding uniform Euclidean-radial exponential comparison."
+        ],
+        "reasoning": "Unlike the Euclidean comparison and the flat-facet ℓ∞ family, the finite-q result includes the actual geometry q=4, d=2. The comparison does not depend on just matching a numerical exponent.",
+        "searches": [
+          "Resultary: uniformly convex Fourier weights all-dimensional threshold and exact logarithmic coefficient",
+          "Kaleta–Ponikowski arXiv:2109.06336, Proposition 3.5 and Lemma 3.6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, supporting verification and checker",
+        "Resultary 82f7420b66c4 (self)",
+        "Resultary 503d42e83292 and 7d443dcb5931 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set d=2 and q=4 in the displayed general threshold: 1+(2-1)(1-1/4)=7/4. The same specialization covers subcritical power and critical logarithmic growth.",
+          "The broad summary's qualitative critical growth is weaker than the frozen assertion of the normalized limit with multiplier sqrt(2)*Gamma(1/4)*a^(-1/4)."
+        ],
+        "reasoning": "There is direct implication for the phase law and growth orders. Neither logarithmic order nor the different ℓ∞ residue implies the normalized finite-q critical coefficient; no discrete comparison of full coefficient formulas could be completed.",
+        "searches": [
+          "Resultary 503d42e83292 indexed statement; targeted RESULT.md lookup for log N via local paper reader",
+          "Resultary 7d443dcb5931 indexed statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Subconvolution lambda*lambda <= C lambda is exactly finiteness of the supremum in the frozen claim for strictly positive lambda=w.",
+          "The distinct Resultary summary 503d42e83292 explicitly gives a sharp threshold for exponentially decaying ℓ^q-radial lattice Fourier weights with polynomial correction."
+        ],
+        "reasoning": "Expressing the claim as a Fourier spectral algebra sufficiency theorem does not change the invariant; the same positive sequence convolution is compared. The compact-group framework is relevant to the consequence, not the sharp threshold by itself.",
+        "searches": [
+          "Resultary: exact exponential polynomial subconvolution ℓ4 Z² 7/4 quartic axis gamma logarithmic convolution criterion anisotropic Minkowski norm tails lattice Fourier Hilbert multiplication",
+          "Das–Giannakis arXiv:1912.11664, Theorem 4/Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact-index hit 82f7420b66c4 is the audited record itself and is not overlap evidence. Separate hit 503d42e83292 is a wider result. Hit 7d443dcb5931 concerns ℓ∞ facet weights and a different critical coefficient."
+        ],
+        "reasoning": "The available broader indexed statement has exact threshold and order but does not print the critical coefficient; the frozen record's own indexed formula supplies no independent precedent.",
+        "searches": [
+          "Resultary: Uniformly convex Fourier weights an exact all-dimensional subconvolution threshold Gamma(1/q) critical logarithmic coefficient 2 transverse integral axes quartic 503d42e83292"
+        ]
+      },
+      "rationale": "The exact all-a phase boundary at p=7/4 and the axial power/logarithmic growth regimes of the frozen claim already have explicit statement-level coverage in a distinct published index entry for finite-q radial lattice weights. The q=4, d=2 substitution gives precisely the advertised phase law; this is a substantive part of the frozen finding, not title or topic similarity. The indexed statement does not settle whether its full result also gives the exact critical gamma multiplier. This is a finding of overlapping coverage, not a claim of earlier priority or of coverage of every clause. Same-day labels do not establish priority. The inaccessible full text is a limitation on the coefficient comparison, not the reason for failure.",
+      "residual_risks": [
+        "The exact normalized Gamma coefficient in the broader finite-q result was not accessible; overlap beyond threshold and order is unresolved.",
+        "The bibliographic comparison does not determine priority or claim exhaustive coverage of anisotropic convolution literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the sharp decision boundary and axial growth regimes by specialization. Exact critical coefficient not resolved.",
+          "evidence": [
+            "Indexed formula p>1+(d-1)(1-1/q), with below-boundary power and at-boundary logarithmic axial growth; d=2, q=4 gives 7/4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-uniformly-convex-fourier-weights-an-exact-all-dimensional-subcon--503d42e83292",
+          "material_read": "Resultary indexed mathematical statement; decisive RESULT.md passage unavailable",
+          "method": "Two targeted Resultary queries; targeted mirrored RESULT.md retrieval at the file and raw representations",
+          "title": "Uniformly convex Fourier weights: an exact all-dimensional subconvolution threshold",
+          "trigger": "Exact broader finite-q lattice spectral family"
+        },
+        {
+          "assessment": "The displayed claim concerns the cube with a flat facet, not the finite-q quartic norm.",
+          "evidence": [
+            "The summary refers to ℓ∞ weights, threshold p>d and critical residue 2^d independent of a."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-flat-facet-subconvolution-a-dimension-sharp-lattice-threshold-an--7d443dcb5931",
+          "material_read": "Indexed statement only",
+          "method": "Resultary",
+          "title": "Flat-facet subconvolution: a dimension-sharp lattice threshold and universal logarithmic residue",
+          "trigger": "Nearby exact axial logarithmic calculation"
+        },
+        {
+          "assessment": "The consequence is recovered independently by the standard coefficient Cauchy–Schwarz criterion, not treated as an original new general theorem.",
+          "evidence": [
+            "Frozen RESULT.md §§6 and Relationship to prior work; w*w<=Sw implies bounded Fourier multiplication with norm <=sqrt(S)."
+          ],
+          "identifier_or_url": "arXiv:1912.11664",
+          "material_read": "Frozen comparison and citation to Theorem 4/Section 4; independent primary passage not recovered",
+          "method": "Targeted OA and ar5iv alternate retrieval attempted",
+          "title": "On harmonic Hilbert spaces on compact abelian groups",
+          "trigger": "Abstract subconvolution-to-RKHS consequence"
+        },
+        {
+          "assessment": "The stated Euclidean-radial continuous comparison does not yield this finite-q lattice specialization.",
+          "evidence": [
+            "The norm ratio is 1 on coordinate rays and 2^(-1/4) on diagonal rays, so exponential angular variation cannot be absorbed by radial comparability."
+          ],
+          "identifier_or_url": "arXiv:2109.06336",
+          "material_read": "Frozen citation and description of Proposition 3.5/Lemma 3.6; independent primary passage not recovered",
+          "method": "Targeted OA and ar5iv alternate retrieval attempted",
+          "title": "On directional convolution equivalent densities",
+          "trigger": "Nearby critical exponent in directional exponential convolution"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The substantive candidate value is the explicit normalized critical axial residue, which is useful for distinguishing quartic tangency from both quadratic curvature and exact flat facets and for calibrating finite-size divergence. Mere specialization of the wider threshold would not have independent value. The residue is not implied by the available logarithmic-order statement; its separate originality is unresolved, so this does not certify any narrowed repair.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

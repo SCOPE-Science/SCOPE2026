@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:31:02.905908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary solution is conditionally centered Gaussian with variance M+δU, where U is the exponential filter of a symmetric sign Z. Its stationary generator gives E[U^r]=E[ZU^(r−1)] and E[ZU^(r−1)]=[(r−1)γ/((r−1)γ+k)]E[U^(r−2)] for r≥2, independently of the density calculation. Thus E[U²]=γ/(γ+k), E[U⁴]=3γ E[U²]/(3γ+k), and odd moments vanish by symmetry. This verifies the exact moment map. The standardized ratio R strictly increases from 1 to 3 and physical positivity gives exactly M>δ, with δ²=2RB/(3−R). At fixed feasible M,B the interval 0<k/(2γ)<(M²/B−1)/2 preserves all moments through degree seven; the displayed dissipation is strictly increasing across that interval. The independent stationary diffusion-current calculation agrees with published Eq. (45) and fixes its factor-of-two convention. Both explicit ambiguity witnesses and their separation were reproduced by exact rational arithmetic: python3 /workspace/evidence/bounded_checks.py 3. The bundled checker was read, not executed. No finite-sample stability, unknown-γ recovery, or asymmetric-switching theorem is established.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The exact harmonic two-diffusivity model and forward EPR occur in Alston–Cocconi–Bertrand; §4.2.3 does not give the stationary-moment inverse in the passages compared.",
+          "Resultary b41de1dff3bf covers asymmetric rates but uses unconfined displacement at two durations, and 93bb1b2e24d1 treats a beta-prime variance law for an attracting/inverted trap.",
+          "Zhang–Wang full text was not accessible; exact inverse coverage there is unresolved. Frydel was inspected only partially."
+        ],
+        "reasoning": "Neither ability to vary asymmetry in a different measurement protocol nor existence of a general stationary-law calculation establishes what three ensemble moments of the same stationary position law determine in this fixed trap.",
+        "searches": [
+          "10.1080/03610918.2015.1132321 §3 and Remark 3.1",
+          "Published Alston–Cocconi–Bertrand §4.2.3 Eq. (45)",
+          "Resultary b41de1dff3bf and 93bb1b2e24d1",
+          "arXiv:2407.12213"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_stationary_moments.py",
+        "Alston–Cocconi–Bertrand published Eq. (45)",
+        "arXiv:2207.14068 and arXiv:2407.12213 (partial)",
+        "Resultary 4bb3a4c40dbd, b41de1dff3bf, 93bb1b2e24d1, be13e0084c9a and 6fbdf34d3ec1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forward EPR is γk(D_+−D_-)²/[4D_-D_+(γ+k)] and is prior; translating it after successful recovery is a corollary, not a new thermodynamic law.",
+          "The stationary beta-kernel shape and its monotone standardized fourth variance moment, the strict positivity condition and the noninjective lower-moment fibers are the ingredients for the inverse; the finite-time occupation law does not supply them."
+        ],
+        "reasoning": "Neither inspected exact forward dissipation nor the unconfined tomography implies the sharp confined inverse. Standard mixture moments alone do not state the feasible moment region or its lower-order nonidentifiability.",
+        "searches": [
+          "Alston–Cocconi–Bertrand published Eq. (45), arXiv:2202.02630v1 Eq. (44)",
+          "Resultary 4bb3a4c40dbd",
+          "Alston Cocconi Bertrand equation 45 symmetric diffusivity switching harmonic trap entropy production; Zhang Wang stationary distribution two-state Markov switching OU parameter estimation Remark 3.1; random temperature OU beta Gaussian mixture inverse moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 4bb3a4c40dbd gives symmetric switching inversion from second, fourth and eighth cumulants of free displacement at a known finite time.",
+          "Here the mixing variable is an exponentially weighted infinite past, not an unweighted finite occupation time; the latter has endpoint atoms from zero-jump histories.",
+          "Lanoiselée et al. uses a continuously varying diffusivity, not a filtered two-state sign."
+        ],
+        "reasoning": "Replacing even moments by cumulants at the same position snapshot could give an equivalent formulation; moving to unconfined displacement at a fixed duration does not, despite identical moment orders.",
+        "searches": [
+          "Resultary: symmetric two-state switching diffusivity harmonic trap stationary position moments eighth moment inverse identifiability entropy production",
+          "Resultary: hidden diffusivity switching sharp inverse moment identification m2 m4 m8 beta occupation",
+          "arXiv:2207.14068 §II"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest indexed cumulant inverse has finite-time free displacement. The related same-day active-particle finding uses tumble rates and moments through order six; the semi-Markov finding uses free/trapped residence times.",
+          "The checked beta-prime record modulates trap dynamics rather than the target diffusivity and does not catalogue this inverse."
+        ],
+        "reasoning": "No distinct indexed entry retrieved gives the same inverse image, minimal order and dissipation for the same measurement/model.",
+        "searches": [
+          "Resultary 4bb3a4c40dbd",
+          "Resultary b41de1dff3bf",
+          "Resultary be13e0084c9a",
+          "Resultary 6fbdf34d3ec1",
+          "Resultary 93bb1b2e24d1"
+        ]
+      },
+      "rationale": "Credit the known forward dissipation formula and standard variance-mixture tools. The supported distinct claim is the exact and sharp stationary-position inverse, including the feasible image and unavoidable ambiguity through sixth order with unequal dissipation. The closest indexed inverse uses a different observable and variance kernel. Zhang–Wang is a named access risk, not evidence for or against priority.",
+      "residual_risks": [
+        "Zhang–Wang §3 and Remark 3.1 remain unverified because the same-paper OA text could not be obtained.",
+        "Frydel passages were only partially accessible. Earlier unindexed moment inversion is possible; absence from the bounded search is not a priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward EPR prior, same flip-rate convention",
+          "evidence": "k_AB=k_BA=k and common α; EPR is αk/(4(α+k)) times D_B/D_A+D_A/D_B−2.",
+          "identifier_or_url": "https://iopscience.iop.org/article/10.1088/1751-8121/ac726b/pdf",
+          "material_read": "§4.2.3, pp. 14–15, Eq. (45), offset 48720; also arXiv v1 Eq. (44)",
+          "method": "Open PDF passage inspection",
+          "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+          "trigger": "Exact physical model and possible EPR normalization discrepancy"
+        },
+        {
+          "assessment": "Unresolved access risk, not an exclusion",
+          "evidence": "Direct access returned 403; the frozen document's characterization of Remark 3.1 was not verified.",
+          "identifier_or_url": "10.1080/03610918.2015.1132321",
+          "material_read": "Bibliographic identification; §3 and Remark 3.1 were not read",
+          "method": "Lawful OA direct and alternate routes attempted; no repository copy found",
+          "title": "The stationary distribution of Ornstein–Uhlenbeck process with a two-state Markov switching",
+          "trigger": "Potential exact stationary-law or inverse coverage"
+        },
+        {
+          "assessment": "Different hidden process",
+          "evidence": "Continuous diffusion-state dynamics; Gaussian and generalized-Laplace distribution regimes depending on type and timescale of fluctuations.",
+          "identifier_or_url": "arXiv:2207.14068",
+          "material_read": "p. 1 abstract; §II, p. 3",
+          "method": "Open PDF passage inspection",
+          "title": "Temperature and friction fluctuations inside a harmonic potential",
+          "trigger": "Potential random-temperature OU mixture generalization"
+        },
+        {
+          "assessment": "No full-text exclusion",
+          "evidence": "Partial inspection did not settle the relation; the stated mechanism comparison in the frozen result was not independently verified from those excerpts.",
+          "identifier_or_url": "arXiv:2407.12213",
+          "material_read": "Partial literal matches at pp. 2, 7; no decisive targeted passage retrieved",
+          "method": "Open PDF with further bounded retrieval unavailable",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+          "trigger": "Potential Gaussian-mixture result in a switching trap"
+        },
+        {
+          "assessment": "Material analogy but different observable and kernel",
+          "evidence": "κ2, κ4, κ8 of free displacement at a known finite time identify two diffusivities and the switching rate, with a positivity condition.",
+          "identifier_or_url": "Resultary 4bb3a4c40dbd",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Single-time cumulant tomography of a symmetric two-state fluctuating diffusivity",
+          "trigger": "Same switching parameters and moment orders"
+        },
+        {
+          "assessment": "Different measurement protocol",
+          "evidence": "Four cumulants of unconfined displacement over two durations recover asymmetric rates and diffusivities.",
+          "identifier_or_url": "Resultary b41de1dff3bf",
+          "material_read": "Mirror RESULT.md opening finding, offset 0",
+          "method": "Local mirror statement comparison",
+          "title": "Four cumulant observations identify a two-state fluctuating diffusivity",
+          "trigger": "Potential stronger inverse with asymmetric rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifying a hidden switching clock and dissipation from a stationary position snapshot is a natural inference question. The exact cutoff rules out all lower-order summaries even with ideal ensemble data, while the constructive inverse and strict feasibility conditions say when eighth-order data work. This is useful independently of practical high-moment estimation, which is not addressed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

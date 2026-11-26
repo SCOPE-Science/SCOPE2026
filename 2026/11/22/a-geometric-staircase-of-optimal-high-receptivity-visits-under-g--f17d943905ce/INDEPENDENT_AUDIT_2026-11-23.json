@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T17:57:18.682235Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deposition at visit j is independent of sensitivity, so the objective is a fixed baseline plus the sum of r scores h(x_j) for the high positions. Strict one-peak behavior of h on positive x ensures a superlevel set on the sampled ordered grid is an interval. If the cutoff is tied, any two tied indices have strictly larger scores between them and strictly smaller scores outside them; a noncontiguous maximizing set is impossible. The logarithmic derivative of h(x)/h(cx) is strictly negative: y/(exp(2y)-1) is decreasing, so coth(y)-c*coth(c*y)<1-c, giving the bound -b(1-c). The ratio decreases from 1/c to 0, proving unique crossing; taking c=q^r makes the adjacent block differences cross once at increasing loads in ratio 1/q. This gives all load intervals and the exact two-block ties, including r=1 and r=n-1. The golden-ratio substitution reduces to u(1+u)=1. Independent 70-digit enumeration of the 15 arrangements checks the five open regimes and four ties for the example; at L=8 positions 4,5 give 4.241880690637 versus 3.990255637369 for 1,2. Reproducer: /workspace/branches/531794c0-b94a-49b3-87b2-3cf5e1186206/staircase_independent_check.py. The supplied checker was read, not run; the numerical tie comparison corroborates the exact argument but is not its proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Aizen–Harder abstract explicitly supplies the negative-exponential response as an antecedent, but addresses pollen quantity versus quality limitation. Iwasa's bibliographic scope is optimizing the fraction of a plant's flowers visited, not fixing the count and assigning two classes of recipients. The frozen literature evidence identifies Kortsch et al. §§2.4 and equations (3)–(4) as transfer along modeled visitation histories; independent full-text access was not obtained."
+        ],
+        "reasoning": "Transfer and dose-response models may apply to a larger set of situations, but a larger model description alone is not a stronger optimization theorem. The distinction is the fixed multiset of sensitivities and the complete optimizer as a function of load, with uniqueness and explicit adjacent ties.",
+        "searches": [
+          "Iwasa, de Jong and Klinkhamer DOI:10.1046/j.1420-9101.1995.8040439.x",
+          "Aizen and Harder DOI:10.1890/06-1017 (MEDLINE PMID 17479745)",
+          "Landscape composition and pollinator traits interact to influence pollination success Kortsch open PDF Institutional Repository fulltext 14353"
+        ]
+      },
+      "checked_sources": [
+        "Aizen and Harder (2007), PMID 17479745 (abstract)",
+        "Iwasa et al. (1995), DOI:10.1046/j.1420-9101.1995.8040439.x (access-limited)",
+        "Kortsch et al. (2023), DOI:10.1111/1365-2435.14353 (access-limited)",
+        "Resultary SCOPE-20261122-4f99ff676197 and SCOPE-20261122-177f5986cef3 (indexed statements)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A dose-response law gives one summand, not a switching result. Taking the r largest scores may establish contiguity at each fixed L, but does not give the unique root of h(x)/h(q^r*x)=1. The neighboring-block endpoint identity and the strict one-crossing property supply that extra implication."
+        ],
+        "reasoning": "A generic single-peaked profile cannot substitute for the scaled-ratio comparison. The prior indexed comparisons change a different input, use a different objective, or do not optimize over a fixed count of recipient classes.",
+        "searches": [
+          "Aizen and Harder DOI:10.1890/06-1017 abstract",
+          "Resultary SCOPE-20261122-4f99ff676197 and SCOPE-20261122-177f5986cef3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest indexed optimal-placement comparator, SCOPE-20261122-4f99ff676197, optimizes one donor's position under geometric visitor persistence and can jump to the terminal flower. SCOPE-20261122-177f5986cef3 compares two fixed histories as retention varies rather than optimizing a high-recipient position set as initial load varies."
+        ],
+        "reasoning": "The present objective can be written as a separable two-class assignment or as top-r selection from samples of an exponential difference. Neither a donor-position problem nor a generic sorting argument gives the single crossing of two scaled scores as the initial load varies.",
+        "searches": [
+          "geometric pollen carryover optimal sequence flower sensitivity block exponential seed set geometric threshold arrangement (Resultary)",
+          "pollen carryover sequence optimal order flower receptivity heterogeneous pollen deposition exponential seed set optimization block geometric threshold Aizen Harder Iwasa Kortsch (literature service unavailable)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The assigned result is the exact returned match; the closest distinct records optimize donor position, compare fixed histories, or optimize spatial placement/visit allocations, not the given sequence of all switch loads."
+        ],
+        "reasoning": "The exact object to compare is the parameterized optimizer and its transition equation rather than just the four rounded example thresholds. Search absence is not priority certification.",
+        "searches": [
+          "Resultary: geometric pollen carryover optimal sequence flower sensitivity block exponential seed set geometric threshold arrangement"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the ordered phase diagram with two fixed recipient classes: neither geometric transfer, the saturating dose response, nor selecting the largest entries of a unimodal list is claimed as new.",
+      "residual_risks": [
+        "No whole-document non-coverage claim for the access-limited ecology papers.",
+        "There may be equivalents in unindexed assignment or optimal-visit work; the general sorting principle and biological model components are prior background."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Response already known; priority risk for uninspected sections",
+          "evidence": "The abstract explicitly models a negative-exponential relation to pollen receipt, then draws conclusions about quantity and quality limitation and their measurement. It does not state a fixed-count recipient-order problem.",
+          "identifier_or_url": "https://doi.org/10.1890/06-1017",
+          "material_read": "Complete MEDLINE abstract (mirror); full text not obtained",
+          "method": "Public abstract at https://reference.medscape.com/medline/abstract/17479745 and lawful open-copy lookup",
+          "title": "Expanding the limits of the pollen-limitation concept: effects of pollen quantity and quality",
+          "trigger": "Primary antecedent for the exact negative-exponential seed response"
+        },
+        {
+          "assessment": "Appears distinct; full-text coverage not settled",
+          "evidence": "The cited scope concerns the number/fraction visited, with the frozen inspection identifying male pollen export as the objective; the present problem fixes visits and optimizes two types' positions.",
+          "identifier_or_url": "https://doi.org/10.1046/j.1420-9101.1995.8040439.x",
+          "material_read": "Independently retrieved bibliographic record and inspected the frozen account of the theoretical sections; did not independently read the full text",
+          "method": "Publisher/DOI and public full-text lookup; no authorized Oxford tool available",
+          "title": "Why pollinators visit only a fraction of the open flowers on a plant: The plant's point of view",
+          "trigger": "Closely related optimization under pollen transfer"
+        },
+        {
+          "assessment": "Transfer antecedent according to frozen comparison; priority risk remains",
+          "evidence": "The cited methods §2.4 and equations (3)–(4) concern following modeled visiting sequences, not the quoted fixed-count recipient optimization.",
+          "identifier_or_url": "https://doi.org/10.1111/1365-2435.14353",
+          "material_read": "Independently retrieved citation and inspected frozen statement-level comparison; independent full-text request was denied",
+          "method": "DOI metadata, Wiley public full-text request and public-copy lookup",
+          "title": "Landscape composition and pollinator traits interact to influence pollination success in an individual-based model",
+          "trigger": "Potential coverage via geometric transfer on visitation sequences"
+        },
+        {
+          "assessment": "Distinct model and result",
+          "evidence": "It varies the donor position and a visitor-persistence probability and finds nonlocal ties; the reviewed result varies the initial load and switches adjacent high-recipient blocks.",
+          "identifier_or_url": "SCOPE-20261122-4f99ff676197",
+          "material_read": "Indexed statement summary",
+          "method": "Resultary search",
+          "title": "Macroscopic jumps in the optimal donor position of an interrupted flower sequence",
+          "trigger": "Closest indexed arrangement and geometric-transfer comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model makes a specific scarcity-versus-saturation tradeoff: sensitivity is most useful late when earlier doses already saturate both classes, but early when doses are scarce throughout. The theorem resolves every optimizer and transition without a combinatorial search and makes exact spacing independent of the sensitivity values. It is a precise benchmark for idealized ordering under geometric carryover, not a field recommendation or evidence for deterministic free-foraging behavior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

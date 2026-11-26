@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim assessed:** Exact two- and four-cycle spectra at the endpoint controls of a parity-hybrid skew tent map, including fixed-point spectra and dynamical zeta functions, for every integer \(m\ge2\).
+## correctness
 
-## Correctness — PASS
+PASS
 
-The defining floor and ceiling branches reduce exactly to \(S_1(z)=N-1-z\) and \(S_{N-1}(z)\equiv z+1\pmod N\), including both endpoints. The parity hybrid then gives explicit affine reflections for each two-step iterate. Since \(N\) is divisible by four, the even and odd solutions of the two linear congruences are disjoint in precisely the required way. This proves that every orbit has length two or four (only four at the second control) and gives the entire cycle census and zeta factors. The boundary \(m=2\) is handled separately for permutation order. The standard-library checker recomputed the original definitions and all advertised finite cycle counts for \(m=2,\ldots,14\). It is supporting evidence, not the infinite proof.
+For S_1 the special first-branch value at zero is N-1; in the other branch the fraction is k+k/(N-1) for 0<=k<=N-2 and floors to k=N-1-z. For S_{N-1}, the ceiling branch has the same expression with 1<=k<=N-1 and gives k after subtracting one; the last state maps to zero. Thus the two branch maps are reversal and cyclic increment, including wraparound. Each swaps parity. Restricting the second iterate to even states z=2j gives j -> -j for C_1 and j -> -j-1 for C_{N-1}, modulo N/2. Both maps are involutions. Because N/2 is even, the first has exactly two fixed points j=0,N/4 and the second has none. Every cycle alternates parity, so each such fixed point gives exactly one primitive two-cycle, and all remaining states are in primitive four-cycles. The two partners at the first endpoint are N-1 and N/2-1, giving the stated pairs. The counts are (N-4)/4 and N/4 for four-cycles, respectively. The order is the lcm of primitive periods; at m=2 the first endpoint is exactly order two and the second remains order four. A d-cycle contributes d fixed points at exponents divisible by d, giving the zeta factor (1-t^d)^(-1) and thus both formulas. Independent replay: python3 /workspace/independent_checks.py 4 recomputed exact rational floors and ceilings and enumerated least return times for 16,376 endpoint/state pairs, at both controls for m=2..12, including the identities of the two-cycles. This is bounded corroboration; the orbit argument proves all m>=2.
 
-## Originality — PASS within checked evidence
+## originality
 
-The main source, Choi et al. (2026), introduces the exact hybrid in Definition 1, proves general bijectivity in Theorem 2, and gives a discrete Lyapunov exponent statement in Theorem 3; its empirical investigations and concluding discussion do not state a complete endpoint cycle census. Indeed the source explicitly identifies systematic study of period lengths as an open direction. Its large discrete Lyapunov exponent cannot imply the claimed finite order: permutations of the same state space can have different orders, and the pure endpoint skew tent \(S_{N-1}\) itself has order \(N\), unlike the parity hybrid. Analogous short-period/zeta results on finite graph maps, coupled cat maps, and other combinatorial automata concern different map definitions and do not cover this one. A paper on digital skew-tent period distributions was located only at abstract/caption level; it apparently concerns the nonhybrid map, but its full text could not be checked. Historical priority is therefore provisional. The specific comparison details and residual risks are recorded in AUDIT.json.
+PASS
 
-## Mathematical value — PASS
+Choi et al. define the identical map and prove bijectivity and a discrete Lyapunov law; their conclusion identifies period classification as unfinished. The exact endpoint primitive spectra and orders are not supplied by those results. The zeta factors are standard consequences of the census, not a separate claim of novelty. This is a bounded judgment on the inspected sources.
 
-Period length is an explicitly identified gap in the source's study of a proposed pseudorandom-state generator. The result is an all-precision, complete periodic classification at both natural extremal admissible parameters, including exact cycle numbers, dynamical zeta functions, and an explicit control-asymmetry: one endpoint has two two-cycles, the other has none. The sharp four-step bound is independent of state-bit precision and contrasts with the source's large discrete Lyapunov diagnostic; it provides a concrete obstruction to treating that diagnostic alone as a guarantee of long unprocessed outputs. This is not a routine substitution into an existing cycle table; the endpoint simplification and parity selection must be combined and their two-step congruences exhausted.
+## value
 
-## Closest literature and limitations
+PASS
 
-The closest source is Choi et al., *Some New Maximally Chaotic Discrete Maps*, Entropy **28** (2026), 131, DOI 10.3390/e28010131. The result does not classify interior controls or postprocessed outputs and does not challenge the source's definition of finite-state discrete Lyapunov exponent. Full publisher-page inspection was limited to substantial accessible scientific material for Sections 2–5; an older digital-skew-tent paper was inspected only via abstract and figure caption. These are remaining historical-inspection risks, not gaps in the algebraic proof.
+Period dependence is expressly open as a systematic question in the paper introducing the map. The two extreme admissible controls are natural boundary cases. Their all-precision classification shows the sharply different two-cycle counts and the collapse from the unhybridized shift's N-step order to four at the right endpoint. Together with the paper's different Lyapunov diagnostic this illustrates why that diagnostic alone does not determine finite orbit length. The contribution is the exact mathematical boundary census, not an assertion about interior controls, postprocessing, or applied security.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

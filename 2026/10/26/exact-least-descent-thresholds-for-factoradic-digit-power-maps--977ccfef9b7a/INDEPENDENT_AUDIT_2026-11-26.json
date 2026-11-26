@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:47:48.772674Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 4–40",
+        "Assigned VERIFICATION.md and verify.py (inspected, not executed)",
+        "Sánchez Garza–Treviño, JIS 21.8.5, Theorem 1 (p. 3) and §4, Proposition 11 (pp. 11–12)",
+        "`python3 /workspace/independent_checks.py`, factorial_check"
+      ],
+      "rationale": "For i<j=j_r the maximal digit i makes i^r−i·i!≥0; convexity of the excess d^r−d·i! makes this endpoint a maximizer. Therefore every block with j-th digit a and no higher digits has maximum excess exactly P_r+a^r−a·j!, attained with all lower digits maximal, at (a+1)j!−1. The case a=0 ensures a_r exists, and only the largest a with nonnegative maximum is needed (no monotonicity in a is assumed). Thus C_r−1 is a witness and all later numbers below (j+1)! descend. When a_r=j that intermediate range is empty. I checked that Sánchez Garza–Treviño, Theorem 1, covers the entire range n≥(j+1)! with the same crossing index and digit convention; starting its crossing search at i=1 makes no difference. The arithmetic proof of the cited bound was also checked: the last integrality sentence of their Proposition 11 would not by itself imply a strict inequality, but their displayed bound has positive margin when r≥2168 and the finite range through 2167 was independently checked. Separately, an independent proof of the needed high-range bound is as follows. Since r−1<j and j≥3, for every i≥j the ratio i!/i^(r−1) grows by a factor greater than (i+1)/e each step. For i≥j+1 we have i^(r−1)/i!<e/(j+1), so the loss d·i!−d^r is, for positive d≤i, at least i!−1: by concavity minimize at d=1 or i, and at d=i the loss exceeds (j+1−e)i!>i!. Thus a single high nonzero digit suffices if P_r<(j+1)!−1. For j≥100, applying the integral lower bound for log((j−1)!) and minimality of j gives r−1≥(j−1)(1−1/log(j−1))>3j/4. Hence Σ_{i<j}i^r≤j^r Σ_{k≥1}exp(−3k/4)<j^r<j·j!, which bounds P_r as needed. For each 3≤j<100 my exact script checked P_r<(j+1)!−1 at the largest integer r allowed by j^(r−1)<j!; this bounds P_r for all smaller r with that same j. The script also reproduced all eight example cutoffs and exhaustively recovered the last failure below (j+1)! for r=2…6.",
+      "residual_risks": [
+        "The example scans alone cannot certify strict descent for unbounded r or n; the proof above separates the symbolic tail and finite arithmetic checks. This is one-step strict descent, not a claim about eventual cycles or convergence to particular points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 theorem covers all positive exponents, while the earlier paper states sufficient bounds in a finite exponent range. The strongest nearby Resultary hit d2aec2b4a734 is indexed as fifth-power iteration, recurrent dynamics and arbitrarily long basin runs, not a theorem computing one-step descent cutoffs across all exponents."
+        ],
+        "reasoning": "Uniform sufficient bounds are not sharp bounds for each r. Multi-step basin information does not determine the extremal input for one-step descent. The full text of the related Resultary hit was not available, so no claim about absence of related exact results in that text is made.",
+        "searches": [
+          "Sánchez Garza–Treviño, JIS Article 21.8.5, printed p. 3 and pp. 11–12",
+          "Carlson–Goedhart–Harris, arXiv:1912.02044v1, Theorem 3",
+          "Resultary: factoradic digit-power maps least strict descent cutoff and exact threshold"
+        ]
+      },
+      "checked_sources": [
+        "JIS 21.8.5, Theorem 1 and Proposition 11",
+        "arXiv:1912.02044v1, Theorem 3",
+        "OEIS A230319 and exact cutoff prefix search",
+        "Resultary index d2aec2b4a734"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With j=j_r, the left side of prior equation (19) is (j+1)!−(j+1)^(r−1)−P_r: the lower-digit sum is not itself new. That inequality compares it to loss on a higher position and proves descent above (j+1)!, regardless of the behavior below that position.",
+          "The assigned proof instead compares P_r with the exact loss a·j!−a^r, and realizes the upper envelope at (a+1)j!−1 in every block."
+        ],
+        "reasoning": "Neither the sufficient theorem nor the inequality that proves it asserts the conditional exact maximum or an admissible block-endpoint witness. The additional optimization and attainability determine the least cutoff; substituting into the earlier sufficient theorem does not.",
+        "searches": [
+          "JIS Article 21.8.5, Theorem 1 and §4, equation (19) and Proposition 11",
+          "arXiv:1912.02044v1, Theorem 3 and definition of M_e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Carlson–Goedhart–Harris notation M_r=Σ_{i≤j_r}i·i!=(j_r+1)!−1 has n>M_r as the sufficient inequality; this is identical to n≥(j_r+1)!, not the least threshold. OEIS A230319 records j_r with exponent shift r−1, not the last n at which the digit-power sum is at least n."
+        ],
+        "reasoning": "Telescoping resolves the notation and shifts. The earlier threshold coincides with C_r only for some exponents; at r=3 the two cutoffs are 120 and 24, respectively. Knowing the crossing index is not a statement of the last failure.",
+        "searches": [
+          "arXiv:1912.02044v1, Theorem 3",
+          "JIS Article 21.8.5, Theorem 1 and §4",
+          "OEIS A230319 (factorial/power crossing index)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A230319 lists the crossing indices, a different invariant. The exact cutoff prefix search returned no matching sequence. The finite-range comparison reported by the 2021 paper concerns checking its sufficient-bound inequality, not enumerating each last failure."
+        ],
+        "reasoning": "The explicit database match is for an input to the cutoff formula, not the cutoff. A failed prefix match is not evidence against differently indexed or unindexed equivalents.",
+        "searches": [
+          "OEIS A230319",
+          "OEIS exact prefix: 6,24,720,10080,362880,7257600,159667200,6227020800",
+          "Resultary factoradic least cutoff lookup"
+        ]
+      },
+      "rationale": "The covered result is a uniform sufficient upper threshold at (j_r+1)!, including the lower-digit sum used in the earlier inequality proving that bound. The distinct claim computes the least bound and supplies the actual last witness for every exponent, using an attained maximum conditional on the top digit rather than just an estimate above the sufficient threshold. The strongest available prior statements did not give that optimization.",
+      "residual_risks": [
+        "The full text of d2aec2b4a734 was unavailable through the local mirror. Bounded comparisons do not establish priority against all equivalent formulations or unpublished work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same map and crossing index; sufficient factorial cutoff but no per-top-digit endpoint optimum or least cutoff in the inspected proof",
+          "evidence": [
+            "For n≥(j_r+1)! the map strictly descends. Equation (19) uses the lower-digit sum only in bounding high-position loss."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Trevino/trevino6.pdf",
+          "material_read": "Theorem 1, p. 3 (offset 5563); §4, equation (19) and Proposition 11 and proof, pp. 11–12 (around offsets 30110–35089)",
+          "method": "Open journal PDF passages, checked algebra and strictness",
+          "title": "On a Sequence Related to the Factoradic Representation of an Integer",
+          "trigger": "Critical cited all-exponent bound and closest proof for possible implicit sharpness"
+        },
+        {
+          "assessment": "Sufficient, not sharp criterion; inspected preprint states e∈{2,3,4}, while the journal coverage is reported as 2≤r≤30 by the 2021 paper",
+          "evidence": [
+            "M_e is the sum Σ_{i=1}^{j_e} i·i!; the sufficient condition is n>M_e."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1912.02044v1",
+          "material_read": "Theorem 3 in arXiv v1, around HTML offset 15100; compared with the 2021 paper's description of cited journal Theorem 10",
+          "method": "Open arXiv HTML and inspect the later paper's citation context",
+          "title": "Sequences of consecutive factoradic happy numbers",
+          "trigger": "Earlier direct work on digit-power descent and finite exponent coverage"
+        },
+        {
+          "assessment": "Summary is about iteration at r=5 and does not show an all-exponent least cutoff; full-text overlap is not ruled out",
+          "evidence": [
+            "The indexed statement describes a two-cycle and runs in basins of fixed points 34 and 1058."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-arbitrarily-long-fifth-power-factoradic-runs-for-two-nontrivial-attractors--d2aec2b4a734",
+          "material_read": "Resultary catalogue summary only; no stored matching full-text copy returned",
+          "method": "Configured Resultary query and local-mirror retrieval attempt",
+          "title": "Arbitrarily long fifth-power factoradic runs for two nontrivial attractors",
+          "trigger": "Nearest hit on the same maps"
+        },
+        {
+          "assessment": "A230319 is the factorial-versus-power crossing index, not C_r",
+          "evidence": [
+            "No matching sequence returned for the listed C_r prefix; this does not certify database absence."
+          ],
+          "identifier_or_url": "https://oeis.org/A230319",
+          "material_read": "Sequence definition and exact-term search result for the submitted eight-term prefix",
+          "method": "OEIS public sequence and exact search",
+          "title": "OEIS A230319 and exact prefix lookup",
+          "trigger": "Potential exact invariant under a shifted index or alternate wording"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 3–37, including the witness and examples",
+        "JIS 21.8.5, Theorem 1"
+      ],
+      "rationale": "Least universal one-step descent is a natural invariant of these maps: it gives the exact maximum range that must be retained when reducing large inputs by descent. The endpoint witness proves no smaller such range is valid; the loss from using the previous sufficient cutoff is real even at r=3 (120 versus 24). The formula applies to every integer exponent and reduces a search over inputs to finitely many top digits with exact maxima, rather than reporting a numerical table or a bounded experiment.",
+      "residual_risks": [
+        "Does not classify or count the resulting cycles, fixed points or happy integers."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

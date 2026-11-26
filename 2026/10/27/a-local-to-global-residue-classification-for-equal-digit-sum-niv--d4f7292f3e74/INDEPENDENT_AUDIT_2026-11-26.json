@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:52:00.386586Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–50",
+        "Frozen VERIFICATION.md and verify.py"
+      ],
+      "rationale": "Independently checked the all-parameter construction and its boundary cases. In a padded k-digit block, the base-b digit sum of d is ≤d with equality exactly for d<b, so equality across blocks requires every B-digit below b. Reduction modulo m_0 then sees just v low blocks. For the converse fix an allowed prefix c and its digit sum d, and write c-d=(B-1)T. By CRT there are unbounded s≡r mod m_1 prime to B (use s≡1 mod rad(b)); set N=lcm(s,m_1) and q=N/gcd(N,B-1). For R=(-T) mod q, the repunits U_j=(B^j-1)/(B-1), starting at U_1=1, satisfy U_{j+1}=BU_j+1. In descending greedy division each remainder entering its U_j step is less than U_{j+1}, so its quotient is at most B. The number of scales is at most log_B(1+(B-1)R) for R>0; an empty sum suffices at R=0. As N≤sm_1, this correction uses O(log(s+1)) unit slots, fewer than s-d for large allowed s. Place those slots at pairwise distinct exponents ≥v in the prescribed congruence classes modulo ord_N(B), and put the remaining slots at distinct exponents congruent to zero. This changes neither the prefix nor the overall digit-sum count s. Modulo N the resulting number is s+(B-1)(T+R)≡s; this simultaneously gives divisibility by s and the residue r modulo m_1. The prefix gives r modulo m_0, and unbounded distinct sums yield infinitely many distinct positive integers. v=0 gives c=d=T=0; the trivial modulus/order convention and R=0 include the boundary cases. At m=B^v the prefix map is injective and has b^v values. This analytic replay verifies the universal theorem; the supplied modular checker was inspected, not executed.",
+      "residual_risks": [
+        "The theorem classifies equal-digit-sum witnesses only; unequal-digit-sum simultaneous Niven numbers are outside the claim.",
+        "The recorded finite checker uses the same construction and does not substantiate any quantitative witness-size or density result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.7 covers all progressions but only one base. Kominers covers the two bases but only coprime moduli. Witno prescribes a single-base digit sum or a trailing string in separate results."
+        ],
+        "reasoning": "Relaxing to one base removes the digit alphabet obstruction. Prescribing a trailing string in one base does not impose the same alphabet on every high B-digit or control an arbitrary coprime factor of the modulus while the sum grows.",
+        "searches": [
+          "Harrington–Litman–Wong arXiv:2303.06534v1, Theorem 2.7",
+          "Kominers arXiv:2602.01252v1, Theorem 1.1 and §7",
+          "Witno, Niven Repunits in General Bases, Theorems 4.3 and 4.4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2602.01252v1 and arXiv:2303.06534v1",
+        "Witno, Fibonacci Quarterly 54 (2016), 59–64",
+        "Resultary 7cc8dad094b8 and bounded semantic comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "m_0=1 gives v=0 and an unconditional prefix criterion, precisely the range of Kominers' theorem and equal-sum construction.",
+          "For b=2, B=4 and m=16, the classes 0,1,4,5 are exactly allowed before divisibility, so there is a genuine obstruction not seen by the all-progressions single-base result. Simply padding a coprime witness above an arbitrary prefix generally changes its digit sum and breaks divisibility; the proof corrects both conditions while preserving the digit alphabet."
+        ],
+        "reasoning": "The cited results do not supply a direct substitution covering arbitrary m with m_0>1. The exact obstruction plus the logarithmic-slot congruence correction supplies the missing step.",
+        "searches": [
+          "Kominers arXiv:2602.01252v1, pp. 2 and 7",
+          "Witno Theorem 4.4, PDF printed pp. 63–64",
+          "Harrington–Litman–Wong Theorem 2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal digit sums here mean B-digits all in {0,…,b-1}; with equal sums, simultaneous Niven-ness reduces to divisibility by one common sum.",
+          "Kominers' §7 says his construction gives this equal-sum strengthening under gcd(m,b)=1. Indexed 7cc8dad094b8 instead concerns reflection of a single-base increment s_b(kn)-s_b(n)."
+        ],
+        "reasoning": "Comparing in the equal-sum/digit alphabet and Harshad terminology reveals a real coprime overlap but no equivalent noncoprime classification in those sources. The reflection criterion treats a different statistic.",
+        "searches": [
+          "Resultary semantic searches on equal digit sums in power-related bases, simultaneous Harshad/Niven arithmetic progressions, and low-digit restrictions",
+          "Kominers arXiv:2602.01252v1, Theorem 1.1 and §7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest reported catalogue record 7cc8dad094b8 is in single-base increment reflection, not this spectrum. Witno's Theorem 1.3 exactly classifies Niven divisibility of the fixed all-one repunit family."
+        ],
+        "reasoning": "An exact repunit family criterion or a finite list of examples is not the low-prefix image of every m_0 together with sufficiency in all its lifts. For m=B^v, the count b^v is itself the simple injective-prefix consequence, not separate novel tabulation.",
+        "searches": [
+          "Resultary residue-spectrum comparison for digit-restricted equal-sum Niven progressions",
+          "Witno, Niven Repunits in General Bases, Theorem 1.3 and §4"
+        ]
+      },
+      "rationale": "Credit Kominers for the entire coprime-modulus subcase, including unbounded equal sums. The supported distinction is the exact arbitrary-modulus residue criterion and noncoprime sufficiency preserving a prescribed permitted prefix, not general existence of power-related simultaneous Niven numbers or single-base repunit identities.",
+      "residual_risks": [
+        "The focused literature and ranked catalogue coverage are nonexhaustive; unindexed digit-restricted Niven work may overlap.",
+        "Coprime-modulus existence is explicitly not credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers coprime classes including unbounded equal sums, not the noncoprime criterion",
+          "evidence": [
+            "Hypothesis gcd(m,b)=1 and construction strengthens the theorem to s_b(n_s)=s_B(n_s)."
+          ],
+          "identifier_or_url": "arXiv:2602.01252v1",
+          "material_read": "Theorem 1.1, p. 2, offset 5653; §7, p. 7, offset 18981",
+          "method": "OA original paper passages",
+          "title": "Simultaneous Niven Numbers in Arithmetic Progressions for Power-Related Bases",
+          "trigger": "Exact two-base equal-sum overlap and possible arbitrary-modulus scope"
+        },
+        {
+          "assessment": "Unrestricted modulus but only single-base divisibility",
+          "evidence": [
+            "Every progression contains infinitely many b-Niven numbers with no second base or digit equality in the assertion."
+          ],
+          "identifier_or_url": "arXiv:2303.06534v1",
+          "material_read": "HTML Theorem 2.7, offset 13600",
+          "method": "OA original arXiv HTML passage",
+          "title": "Every Arithmetic Progression Contains Infinitely Many b-Niven Numbers",
+          "trigger": "General modulus progression theorem"
+        },
+        {
+          "assessment": "Exact repunit criteria and single-base prefix/suffix existence, not the claimed joint residue spectrum",
+          "evidence": [
+            "Theorem 4.4 constructs trailing digits using a product with a long string of radix-minus-one digits; working in radix B gives no constraint that all such digits lie below b."
+          ],
+          "identifier_or_url": "https://www.fq.math.ca/Papers1/54-1/Witno11122015.pdf",
+          "material_read": "Theorem 1.3, printed p. 59, offset 3077; printed pp. 63–64, offsets 18450–20811, proof of prescribed sum and Theorem 4.4 with proof",
+          "method": "OA publisher PDF passages",
+          "title": "Niven Repunits in General Bases",
+          "trigger": "Older exact sparsity, prescribed sums and low-digit constructions"
+        },
+        {
+          "assessment": "Different invariant, no progression classification",
+          "evidence": [
+            "The statement concerns complement reflection of s_b(kn)-s_b(n) with k<b, not equal s_b and s_{b^k} or divisibility by those sums."
+          ],
+          "identifier_or_url": "Resultary 7cc8dad094b8",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Prime-power bases are exactly the two-center digit-sum reflection bases",
+          "trigger": "Closest digit-sum classification surfaced in the catalogue comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and constructive sufficiency",
+        "Kominers arXiv:2602.01252v1, Theorem 1.1 and §7"
+      ],
+      "rationale": "Removing coprimality from the existing power-related progression problem introduces a real obstruction, not just a change of parameters: some classes cannot contain any equal-sum numbers, while every permitted class has simultaneous Niven witnesses with unbounded sums. The exact low-prefix decision and preservation of that prefix while enforcing divisibility solve this natural local-to-global problem for arbitrary mixed or base-supported moduli.",
+      "residual_risks": [
+        "No classification of all simultaneous Niven progressions without the equal-sum restriction and no efficiency or density statement are asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

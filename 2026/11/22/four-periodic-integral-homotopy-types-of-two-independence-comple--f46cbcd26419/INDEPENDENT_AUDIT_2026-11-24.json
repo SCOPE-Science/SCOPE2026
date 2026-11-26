@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T09:27:23.644169Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–62",
+        "VERIFICATION.md, line 19",
+        "Frozen verify.py and expected_output.txt, inspected only",
+        "Deshpande–Singh, arXiv:2001.05448v2, Proposition 2.10 as cited, with acyclicity checked directly",
+        "/workspace/review-evidence/theta_base.py; replay with python3 /workspace/review-evidence/theta_base.py"
+      ],
+      "rationale": "A face has induced maximum degree at most one, equivalently contains no connected triple. Separating the four core vertices leaves the eleven listed cores and exactly the F/S/D restrictions on a path word avoiding 111. Under fixed-order toggling of the augmented poset the matching is acyclic: arrows in a cycle would alternate matched up and unmatched down (there cannot be consecutive up arrows and the net dimension change is zero). The earliest matched toggle in that cycle must be undone at a down arrow of the same coordinate; both incident faces would still be available at that stage and would have been matched to each other, a contradiction. On the left, F survivors start 0110: insertion at the first bit fails only after prefix 011, and 111 avoidance forces the fourth bit to zero. For S, omission of the first bit forces an F step at the second, leaving prefix 0011 with a suffix starting in a forced zero. For D, insertion at the first bit fails exactly when the next bit is one; removing the resulting prefix 01 leaves another D suffix (its first two bits cannot both be one), so two such steps give 0101. The right restriction is unchanged for m>=7. All three prefixes are distinct, so before the core toggles, different left types are disjoint at both m and m-4 for m>=11, and within one left type prefixing preserves whether path words are equal. Thus all core toggle matches are preserved and each critical face gains two vertices. A fresh finite enumeration using induced maximum degree reproduces all base critical cores and dimensions for m=2 through 10, with (dimension,count) respectively (1,1),(2,1),(3,3),(3,5),(3,1),(4,1),(5,3),(5,5),(5,1). Undoing the empty-face pairing gives exactly one ordinary critical vertex; the other cells all have the same positive dimension, so they attach to a point and give actual wedges, not just a homology calculation. With m=ell-1 this proves all four assertions including ell=3 and ell=4.",
+      "residual_risks": [
+        "The D step in RESULT.md says the suffix 'must begin with a forbidden pair 11'; read this as forbidding 11, not requiring it. The explicit state definition, recurrence, base cases, and independent argument use the correct restriction.",
+        "The direct computation is only of the finite bases; the recurrence and Morse argument, not the recorded finite tests, give homotopy for every length."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4.2 is on paths, and Theorem 4.6 is on cycles. The located subdivision passage concerns barycentric subdivisions of complexes, not inserting four vertices on a graph arm.",
+          "Abdelmalek et al. concern chordal graphs and trees in the compared statements; Sawant's Theorem 1.1 is for trees. The short arms in the target form an induced 4-cycle.",
+          "The Ghosh–Selvaraja abstract describes shellability criteria and constructions; the examined abstract does not give a four-edge suspension or this homotopy classification."
+        ],
+        "reasoning": "The cycle and path hypotheses do not survive sharing a path or adding a third arm. Tree and chordal theorems do not cover even the smallest target theta. The accessible positive statements do not determine the target through graph-edge subdivision.",
+        "searches": [
+          "Deshpande–Singh, arXiv:2001.05448v2, path and cycle theorems and subdivision passage",
+          "Abdelmalek et al., arXiv:2106.10863v3; Sawant, arXiv:2605.25150v1; Ghosh–Selvaraja, arXiv:2505.06614v3",
+          "Primary search for higher-independence edge-subdivision/suspension theorems"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md, lines 64–77",
+        "arXiv:2001.05448v2, 2106.10863v3, 2605.25150v1, 2505.06614v3",
+        "Resultary f46cbcd26419, 500c0c0501a0, bde2bc93e75e, dcb824ea52f8, 3a17bdf387a8 and db96fec92047"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The sequential-element matching lemma supplies acyclicity but not which critical faces survive.",
+          "The cycle theorem at threshold two gives multiplicity three for cycle sizes divisible by four and one in the other classes; it does not produce the multiplicity five on the theta. The edge-spined multitheta result uses modulo three, threshold one, and an extra pole edge."
+        ],
+        "reasoning": "Substituting into the existing path and cycle formulas does not decide how the extra arm changes surviving core matches. The distinct-prefix argument and matching of the boundary-conditioned paths are the missing family-specific step, not a homology or graph renaming.",
+        "searches": [
+          "Deshpande–Singh, arXiv:2001.05448v2, Proposition 2.10 and Theorems 4.2 and 4.6; section 6.1",
+          "Resultary 500c0c0501a0 and bde2bc93e75e, Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The threshold-two faces in the published definition are exactly dissociation sets, equivalently vertex sets inducing maximum degree at most one and avoiding connected triples.",
+          "The same-family induced-forest record 500c0c0501a0 allows a three-vertex induced path, which is forbidden here; the arc-based multipath record dcb824ea52f8 is not even on the same vertex set."
+        ],
+        "reasoning": "Compare the known higher-independence complex under all its names. Neither ordinary independence, induced-forest faces nor directed multipaths are equivalent to this vertex-subset predicate.",
+        "searches": [
+          "Resultary: two-/higher-independence, dissociation, forbidden connected triples, and homotopy on subdivided theta graphs",
+          "Deshpande–Singh, arXiv:2001.05448v2, Definition 3.1",
+          "Primary query: graph higher independence complexes Ind_2 r-independence graph edge subdivision four vertices suspension theta graphs dissociation complex homotopy theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact threshold-two match is the bound record itself. The same-theta induced-forest record gives two spheres of dimension ell, not the reported threshold-two wedge.",
+          "For Theta(2,2,3), prior directed multipath and strong Morse complexes have different face definitions and mixed dimensions. The ordinary-independence parallel-arm records use threshold one."
+        ],
+        "reasoning": "Neither an identical catalogue copy nor a homotopy value for another complex on the same graph is prior coverage of the four-residue table.",
+        "searches": [
+          "Resultary: exact Theta(2,2,ell) two-independence and theta homotopy, including f46cbcd26419, 500c0c0501a0, dcb824ea52f8, 3a17bdf387a8, and db96fec92047"
+        ]
+      },
+      "rationale": "The threshold-two definition, cyclic four-residue patterns for different graphs, and sequential acyclic matching all have precedent. The identifiable contribution is the all-length theta classification: the overlapping cycles require a new three-state endpoint analysis with distinct prefixes and core toggle compatibility. The exact theta graph also has prior results for different complexes, none of which gives this homotopy type under the checked hypotheses.",
+      "residual_risks": [
+        "The bounded focused primary search and literal locators did not supply an applicable general subdivision result. This is not evidence that all possible graph-subdivision or hypergraph reformulations have been ruled out; unsearched or unindexed equivalents remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same complex, noncovering graph hypotheses in the compared results",
+          "evidence": "The path formula applies to the path on n vertices; the cycle formula applies to C_n. Section 6.1 concerns barycentric subdivision.",
+          "identifier_or_url": "https://arxiv.org/html/2001.05448v2",
+          "material_read": "Definition 3.1 at offset 12193; Theorems 4.2 and 4.6 near offsets 32378 and 35930; section 6.1 subdivision passage",
+          "method": "OA primary text passages",
+          "title": "Higher Independence Complexes of graphs and their homotopy types",
+          "trigger": "Same invariant with earlier path, cycle and period results"
+        },
+        {
+          "assessment": "Compared chordal/tree scope does not contain the target",
+          "evidence": "The two short arms form an induced cycle of length four.",
+          "identifier_or_url": "https://arxiv.org/html/2106.10863v3",
+          "material_read": "Abstract at offset 1564; Theorem 2.4 near 14284",
+          "method": "OA primary text passages",
+          "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+          "trigger": "Potential more general higher-independence theorem"
+        },
+        {
+          "assessment": "Tree theorem, no application to the target graph",
+          "evidence": "Vertex decomposability statement assumes the graph is a tree.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.25150",
+          "material_read": "Theorem 1.1 near text offset 5345",
+          "method": "OA primary text passage",
+          "title": "On the Vertex Decomposability of r-Independence Complexes of Trees",
+          "trigger": "Same complex on a broad graph family"
+        },
+        {
+          "assessment": "Shellability/construction context; limited inspection does not establish whole-document noncoverage",
+          "evidence": "The abstract focuses on block graphs, trees and related families and describes star-clique attachments, clique whiskering, and clique cycle constructions; no useful subdivision passage was located.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.06614",
+          "material_read": "Abstract, offsets 0–2779; targeted theta and subdivision locators",
+          "method": "OA primary PDF excerpt and literal location",
+          "title": "Shellability of Higher Independence Complexes of Graphs",
+          "trigger": "Primary search lead for general graph operations on the same complex"
+        },
+        {
+          "assessment": "Same base graphs but different complex, no priority comparison based on date",
+          "evidence": "m arms give m-1 spheres of dimension N-m for forest faces; two short arms plus one long arm give two spheres of dimension ell.",
+          "identifier_or_url": "Resultary 500c0c0501a0",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "Induced forest complexes of subdivided multi-theta graphs",
+          "trigger": "Distinct same-day result for overlapping graph family"
+        },
+        {
+          "assessment": "Different graph and threshold",
+          "evidence": "Ordinary independence and an added pole edge; path lengths modulo three.",
+          "identifier_or_url": "Resultary bde2bc93e75e",
+          "material_read": "Finding at offset 0",
+          "method": "Local mirror",
+          "title": "The four-phase homotopy theorem for edge-spined multitheta graphs",
+          "trigger": "Distinct same-day multitheta homotopy theorem with residue classes"
+        },
+        {
+          "assessment": "Different ground set and predicate",
+          "evidence": "Faces are directed linear forests on arcs; the result has five 2-spheres and six 3-spheres, not the threshold-two vertex-set circle.",
+          "identifier_or_url": "Resultary dcb824ea52f8",
+          "material_read": "Finding",
+          "method": "Local mirror",
+          "title": "The bidirected uneven-theta multipath complex is a mixed-dimensional sphere wedge",
+          "trigger": "Exact smallest target graph and a sphere-wedge statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 4–17 and 19–59",
+        "Deshpande–Singh, Theorems 4.2 and 4.6",
+        "Resultary 500c0c0501a0, Finding"
+      ],
+      "rationale": "The family joins two small cycles along common structure in the simplest one-variable theta setting and tests whether the path/cycle periodicity survives a branching core. The classification determines actual integral homotopy types at every length, distinguishing the single-sphere phases from three and five spheres. The endpoint recurrence makes the finite calculation useful beyond the bases and is a transferable way to analyse constrained paths attached to a fixed core without claiming a general suspension theorem.",
+      "residual_risks": [
+        "No conclusion for arbitrary longer short arms, other thresholds or general edge subdivisions is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

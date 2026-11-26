@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:57:29.694024Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 21–76 and VERIFICATION.md lines 19–23",
+        "Ma arXiv:2610.00193v1, Theorems 1.1 and 2.3, equations (2.2), (2.13), (2.15)–(2.18)",
+        "Frozen verify.py lines 6–45, inspected but not executed",
+        "Independent exact bounded arithmetic replay: set P(r,z)=3(z+1)(z+2)−24r(z+1)+30r(r−1). For t,r in {0,…,5}, check the 36 equations Σ_{k=0}³(−1)^k binom(3,k)∏_{1≤m≤6; m∉[k+1,k+3]}(t+m)(t+k−r+1)(t+k−r+2)=2P(r,t). For j,t,s in {0,…,5}, set α=t−j, check the 216 equations H(t)P(t+3,s)−Σ_{i=0}^{j+2}P(i+α,t)P(i+α,s)=Σ_{r=0}²λ_r p_r(t)p_r(s). Use 3p₀ and 4p₁ to clear denominators: the corresponding coefficients are α and 3α(α²−1). All integer arithmetic is exact on this grid and all identities passed. Each difference is polynomial of degree at most 5 in each variable (power sums in the second identity); interpolation proves the identities. For j<k this is the off-diagonal Gram numerator, while on the diagonal P(t+3,t)=D−H reduces the numerator after subtracting R to the same identity."
+      ],
+      "rationale": "The normalization in Ma's order-three defect was checked against Theorem 2.3 and independently by exact polynomial interpolation. With H(t)=(t+1)(t+2)(t+3), D(t)=H(t+3), R=diag(1−H/D), one has M* = BM and S=M*(I−B*B)M. The finite-support right inverse is (I−T)^3 diag(H)/6 for the unilateral shift T; multiplication on basis vectors follows by cancelling the generating series (1−z)^−3 and (1−z)^3, giving dense range. On −1<α<0 the signed weights have signs (−,+,−). Since D−H=9t²+63t+114≥60 for t≥−1, the v₂ weighted square sum is at most (1/60)Σ_{n≥0}[(n+3)(n+4)(n+5)]^−1=1/1440. Multiplication by |λ₂|≤20 and weighted Cauchy–Schwarz absorb that direction into R/72. The form is nonnegative on v₀⊥, so its pullback has negative index at most one (the preimage of v₀⊥ has codimension at most one). For 1 on 0..N and zero elsewhere, the diagonal is 9 log N+O(1), the v₀ pairing is log N+O(1), and the other pairings stay bounded; the quadratic form is 9α(log N)²+O(log N) and eventually negative for each fixed α<0. Density transfers a strict witness to S. R tends to zero and the correction has finite rank, giving compactness and exactly one negative eigenvalue with multiplicity one. Ma Theorem 1.1 supplies nonnegativity for α≥0, including zero. No finite spectral truncation was used.",
+      "residual_risks": [
+        "The logarithmic witness is for fixed negative α; it is not uniform as α approaches zero and does not estimate the negative eigenvalue."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma treats all positive integer orders; nonnegative shifts are hyponormal and negative shifts have a negative direction.",
+          "Rhaly proves order-three supraposinormality for α>−1 and hyponormality for α∈{0,1}∪[2,∞)."
+        ],
+        "reasoning": "Ma already covers the α≥0 subclaim and provides the signed defect; neither the threshold alone nor supraposinormality counts negative eigenvalues. It is the separately indexed exact theorem that closes this gap.",
+        "searches": [
+          "Ma arXiv:2610.00193v1, Theorems 1.1 and 2.3, section 7",
+          "Rhaly arXiv:1903.07896, Theorem 2.1 and Corollary 2.4"
+        ]
+      },
+      "checked_sources": [
+        "Ma arXiv:2610.00193v1",
+        "Rhaly arXiv:1903.07896",
+        "Resultary exact match 88dd990f36ce and related records b9745d36b9d7 and f33d5c640367"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact indexed theorem absorbs the final negative rank-one term into the diagonal, giving index at most one, and uses a negative witness for the reverse bound.",
+          "Ma supplies the nonnegative regime and at least one negative direction below zero."
+        ],
+        "reasoning": "Together these cover the whole finding. The frozen 1/72 auxiliary absorption bound and its particular logarithmic witness are proof details, not a new claimed spectral invariant; no independently motivated sharp bound or eigenvalue estimate has been established.",
+        "searches": [
+          "Resultary 88dd990f36ce, proof sections 1–3",
+          "Ma arXiv:2610.00193v1, Theorem 1.1 and section 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The indexed exact-index theorem and the frozen theorem use the same rising-factorial matrix entries on complex ℓ²(N₀) and the same self-commutator sign.",
+          "For these compact self-adjoint operators, negative Morse index one is exactly one strictly negative eigenvalue counted with multiplicity."
+        ],
+        "reasoning": "Neither notation K versus S nor the formulation in terms of Morse index changes the invariant or the parameter regime.",
+        "searches": [
+          "Resultary order-three shifted Cesàro negative Morse index: 88dd990f36ce",
+          "Ma arXiv:2610.00193v1",
+          "Rhaly arXiv:1903.07896"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "88dd990f36ce, RESULT.md offset 0, Finding and Assumptions: exactly one strictly negative eigenvalue with multiplicity, every −1<α<0, same operator entries.",
+          "b9745d36b9d7 gives a trace formula and negative-part detection, not its rank; f33d5c640367 is order one for a different shift regime."
+        ],
+        "reasoning": "The exact database comparator is the distinct theorem record 88dd990f36ce, not the frozen record or a similarly titled hit. The finding and matrix entries establish equivalent coverage independent of date-based priority.",
+        "searches": [
+          "Resultary records 88dd990f36ce, b9745d36b9d7 and f33d5c640367; local snapshot 36a7204"
+        ]
+      },
+      "rationale": "Direct equivalent coverage in a distinct published catalogue record: Resultary 88dd990f36ce states and proves the identical exact index-one theorem on the same operator and the entire same negative-shift interval, including compactness. It uses the same Ma defect and the same absorption mechanism. The remaining nonnegative-shift statement is already Ma's Theorem 1.1. This is a finding of coverage, not a determination of which result was first proved or communicated; the exact-match record's later catalogue label does not prove antecedence.",
+      "residual_risks": [
+        "Chronology and relationship between the distinct records remain unresolved. No priority, attribution, or dependence conclusion follows from the catalogue dates. The negative decision is for exact demonstrated coverage as of review."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent coverage of the negative-shift finding; priority unresolved",
+          "evidence": "Same entries, interval, compactness and multiplicity-one claim. The proof absorbs the same rank-one defect component, with a different majorant.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/17/SCOPE-exactly-one-negative-eigenvalue-for-third-order-shifted-ces-ro-s--88dd990f36ce/RESULT.md",
+          "material_read": "RESULT.md offsets 0 and 4175; Finding, Assumptions, diagonal absorption and comparison",
+          "method": "Local published-record mirror, snapshot 36a7204",
+          "title": "Exactly one negative eigenvalue for third-order shifted Cesàro self-commutators",
+          "trigger": "Strongest exact index-one catalogue match"
+        },
+        {
+          "assessment": "Covers positivity half and negative existence, not the exact negative index",
+          "evidence": "Hyponormality iff α≥0; the order-three defect has two negative summands on −1<α<0.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00193",
+          "material_read": "p. 2 Theorem 1.1, p. 5 Theorem 2.3 and equations (2.15)–(2.18), p. 14 section 7",
+          "method": "Lawful OA primary PDF, theorem and proof passage inspection",
+          "title": "Hyponormality of Generalized Cesàro Matrices of Every Positive Integer Order",
+          "trigger": "Identical matrix, all-order theorem and exact defect cited by both records"
+        },
+        {
+          "assessment": "Does not establish index one in the inspected statements",
+          "evidence": "Supraposinormality on α>−1 and hyponormality on the listed nonnegative subset.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.07896",
+          "material_read": "p. 2 matrix and Theorem 2.1; p. 4 Corollary 2.4",
+          "method": "Lawful OA primary PDF, definition and theorem inspection",
+          "title": "The generalized Cesàro matrices of order three are supraposinormal on ℓ²",
+          "trigger": "Earlier primary article for the identical order-three family"
+        },
+        {
+          "assessment": "Related invariant, not exact negative index",
+          "evidence": "Trace-norm excess detects negative mass but not its multiplicity.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-a-shift-invariant-harmonic-trace-for-generalized-ces-ro-self-com--b9745d36b9d7",
+          "material_read": "RESULT.md offsets 0 and 6025, trace and trace-norm findings",
+          "method": "Local published-record mirror, snapshot 36a7204",
+          "title": "A shift-invariant harmonic trace for generalized Cesàro self-commutators",
+          "trigger": "Earlier catalogue result using the same self-commutator family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, Proof and Limitations",
+        "Resultary 88dd990f36ce Finding and proof",
+        "Ma Theorem 1.1"
+      ],
+      "rationale": "Negative inertia is intrinsically well motivated: order three is the first order where two signed defect terms threaten to produce a two-dimensional obstruction. However the submitted exact invariant is already present in a distinct catalogue result, and no remaining substantive increment is isolated. The tighter sufficient absorption estimate is neither claimed sharp nor shown to give a new spectral conclusion; the nonnegative range is also known.",
+      "residual_risks": [
+        "No assessment of a sharp absorption constant or unique-eigenvalue asymptotic, neither of which is asserted here."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

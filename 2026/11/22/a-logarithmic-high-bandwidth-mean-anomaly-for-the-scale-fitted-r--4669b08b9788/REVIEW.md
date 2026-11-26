@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact Rayleigh-to-Dirichlet normalization gives a marginal density with linear vanishing at zero and bounded two-coordinate density. A direct small-argument expansion of the empirical discrepancy, a one-large-coordinate tail lemma and a Laplace asymptotic establish the three pieces of the stated theorem for every fixed integer sample size at least two. The off-diagonal expectation estimate uses integrable inverse-coordinate products, explicitly treating the exceptional two-coordinate simplex separately. The attached checker independently reproduces 25 finite numerical comparisons for the two-sample case. Those checks corroborate but do not substitute for the proof.
+## correctness
 
-## Originality
-PASS on the compared sources, subject to historical-priority risk. The principal 2022 paper defines the statistic and studies its large-sample law at fixed bandwidth, whereas this result holds sample size fixed and changes the bandwidth. The 2018 distributional fixed-point framework and the related Gamma and Gaussian tests do not give the displayed Rayleigh endpoint tail or logarithmic mean coefficient. Nearby published research records involving inverse-Rayleigh tails concern distinct models, and available prior findings on heavy-tail goodness-of-fit statistics concern different statistics. Absence in these sources is not a proof of global uniqueness; a broader older Tauberian or singular-discrepancy theorem could subsume a component, although the exact normalized-Rayleigh coefficients still require model-specific verification.
+PASS
 
-## Value
-PASS. Tuning sensitivity matters for the finite-sample calibration of weighted goodness-of-fit tests. The theorem shows an unexpected conflict: almost-sure normalization yields a finite random limit, but the same normalization gives a divergent expectation with a sharp coefficient. The limiting variable has exactly the critical \(z^{-1}\) tail, quantifying the rare-event mechanism and warning against using a naive moment calibration at large tuning parameter. The result is not a power-optimality claim.
+Normalizing the iid Rayleigh squares by their sum gives the uniform Dirichlet simplex, with fitted coordinates Y_i=sqrt(2n U_i) and exact marginal density c_n y(1-y^2/(2n))^(n-2). Below the sample minimum the statistic's integrand before squaring is exactly t times the sample mean of Y_i-1/Y_i. Beyond this random positive cutoff the uniformly bounded kernels contribute an exponentially negligible piece for that sample. For W_i=1/Y_i, the marginal tail at r is c_n/(2r^2)+O_n(r^(-4)); the probability of two coordinates at any fixed positive fractions of r is O_n(r^(-4)), and is zero for large r when n=2. Inclusion-exclusion and the bound that a sum above r with maximum at most (1-delta)r requires two such coordinates give the sharp sum-tail constant. The bounded sum of Y_i does not change it; squaring and rescaling give c_n/z and the positive-moment threshold q<1. For the finite-bandwidth mean, the diagonal kernel contributes c_n t^2 log(1/t)+O_n(t^2): on Y<t the bounded kernel contributes O_n(t^2), and on Y>=t the reciprocal-square times the marginal density is c_n/y+O_n(y). The cross kernels contribute only O_n(t^2) since |g_y(t)|/t is bounded by a constant times 1+1/y and the exact Dirichlet mixed inverse moment for i!=j is pi(n-1)/(2n), including the n=2 beta-integral case. Tonelli and the integral of s^2 exp(-s), equal to 2, give the stated 2c_n coefficient, without an interchange of mean and samplewise limit. Fixed positive a has finite expectation by the uniform kernel bound; no joint n,a or nonpositive moment claim is needed. The packaged two-coordinate quadrature and deterministic sample checks were read as diagnostics, not executed or used as infinite-parameter proof.
 
-## Limitations and sources
-The result is strictly fixed-sample and concerns the maximum-likelihood scale fit. The primary paper is Grobler–Bothma–Allison (2022), https://www.mdpi.com/2227-7390/10/8/1316 , Sections 2–4; the closest broader framework is Betsch–Ebner (2018), https://arxiv.org/abs/1810.06226 , particularly its application section. The Gamma and Gaussian characterization-based tests provide further context. Wider historical priority requires independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original statistic, fitting rule, and general fixed-point framework are established; the pointwise endpoint is a short consequence of the published definition. The contribution is the joint characterization of the sharp tail, positive-moment transition and logarithmic prelimit mean for that exact fitted statistic. Neither the opposite-order limit nor the other high-weight statistics located cover these null constants.
+
+## value
+
+PASS
+
+The exact boundary behavior quantifies a failure of mean calibration for a published tuning family: an almost-sure finite scale limit coexists with logarithmically divergent normalized means, and rare near-zero observations set the constant and moment transition. Neither pointwise integration alone nor a finite power comparison addresses that phenomenon. The result is an idealized null calibration benchmark, not a choice of bandwidth, power theorem or simultaneous large-sample approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

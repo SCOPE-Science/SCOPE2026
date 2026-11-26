@@ -1,15 +1,21 @@
-# Review of nonbinary dinucleotide-profile deletion capacity
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-parameter argument reduces exact profile outcomes to local deletion-change vectors, whose distinct signatures split into \(q\) constant types, \(q(q-1)^2\) proper triples and up to two boundary types. Saturation requires visiting every equal-letter digraph vertex, giving a sharp additional \(2q\) traversed-edge cost when boundary pairs are unequal. A strongly connected balanced proper-triple graph with one modified portal exit has exactly the two Euler-imbalance vertices, yielding a sharp extremizer for every \(q\ge3\). The endpoint calculation and disjoint-block union bound establish the claimed random-word limit. Two independently implemented finite checks pass; they do not substitute for the all-length proof.
+## correctness
 
-## Originality — PASS against inspected sources
-The closest exact predecessor is the published binary one-deletion profile-ball classification; its proof uses the same elementary local change identity but does not contain a nonbinary Euler saturation-length theorem. Published global ordered two-multispectrum and unordered ternary composition-profile formulas have different observation spaces or quantifiers and do not imply the local one-deletion claim. The 2026 substring-count hashing paper concerns edit-code asymptotics and motivates the method, but its full text could not be inspected; no whole-document noncoverage claim is made. Searches for q-ary dinucleotide profile balls, Markov-type deletion shadows, saturation lengths and the explicit capacity formula returned no covering exact statement. Unindexed prior work or a hidden subsidiary lemma remains a priority risk.
+PASS
 
-## Value — PASS
-For a fixed alphabet, the number of observable dinucleotide histograms under a single deletion stabilizes at a sharp finite capacity even as word length increases. The exact shortest saturation length and the prevalence of saturation quantify when the full local ambiguity signature becomes possible. On a four-symbol alphabet the result gives 42 possible profile outputs, first realized at length 46, and limiting probability 33/64; the nonbinary saturation threshold depends on a new directed Euler-trail construction.
+For a fixed source the common profile cancels, so the number of resulting profiles is the number of distinct changes. If a=b or b=c an internal change is −e_bb; otherwise the added coordinate e_ac cannot coincide with a removed coordinate, and the two removed ordered pairs together with the ordered endpoints a,c recover b. In particular the reversal of an a,b,a triple with the same removed pairs has a different added diagonal coordinate. This gives q constant types and q(q−1)² distinct proper triples. Saturation needs both new boundary types, so the two endpoint pairs are unequal-letter pairs and distinct. The triple walk must then enter and exit each equal-letter state via separate non-loop edges, and no edge can serve two distinct equal-letter states. Counting these 2q edges in addition to all proper edges gives n≥M_q+q. The proper digraph is balanced and strongly connected: from (a,b) to (c,d), use (b,c) if b≠c, or one direct edge if b=c. The added two-edge portals balance because their sources and their unmodified destinations run over the same directed cycle of unequal states. Redirecting the single exit from (0,0) balances all but the claimed start and end with the required imbalance signs. All states lie in one weak component, so an Euler trail supplies the exact-length witness. Appending any letter except the previous final letter and, if relevant, one other letter preserves distinct new endpoint changes without losing internal types. For independent uniform words the endpoint-pair event has exactly the claimed probability once the endpoint pairs are disjoint; independent interior blocks contain every proper triple and each aaa except with the stated exponentially small union-bound probability. This proves the limit and both numerical cases. Independent literal deletion and histogram checks confirm the two frozen witnesses and the internal change counts on small alphabets (python3 /workspace/replay/checks.py 4); only the classification and graph proof establish the unbounded claims.
 
-## Source and scope limits
-The proof treats linear words and one exact symbol deletion only; it does not supply the full nonbinary distribution, longer-read statistics or a deletion-code rate improvement. Full text for the recent hashing source could not be obtained, and independent mathematical review is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact binary fixed-source distribution already covers the corresponding statistic for two symbols and shares the local-change idea. The supported increment is sharp capacity and its first and subsequent attainment together with the fixed-q limiting saturation probability on arbitrary alphabets q≥3. Closest distinct same-day catalog statements treat a different profile window or edit operation. This assessment is limited to the actual available statements, with the full recent substring-count hashing paper an explicit priority risk.
+
+## value
+
+PASS
+
+The question distinguishes local ambiguity of multiplicity data from ambiguity of the strings themselves. At fixed alphabet size the sharp number of observable ordered-pair profiles is bounded independently of source length; the exact first saturation length quantifies the cost of routing through equal-letter states, and the random limit distinguishes that deterministic possibility from typical behavior. These are substantive finite-alphabet conclusions, not a global deletion-code capacity claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

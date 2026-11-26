@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:34:05.946765Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The compact fixed-sum simplex admits a maximum; shifting stock from a positive coordinate to a zero coordinate strictly improves it by f′(0)>f′(x). Equal marginal returns and the decrease then increase of f′ around 2 restrict an asymmetric stationary point to 1<a<2<b. Exchange of stock between two large coordinates has positive curvature, so exactly one b is possible at an optimum. Equating f′(a)=f′(b) gives u=a−1=d/(exp(d)−1) and b−1=d/(1−exp(−d))>1. The positive u″ follows from d>2tanh(d/2). Thus S′_m rises strictly from 1−m/2 to 1. With v=b−1, f′ matching gives dv/du=−[(1−u)/u]/[(v−1)/v]; the fixed-sum exchange curvature has sign of m−1+dv/du, opposite S′_m since u′<0. When m≥3 this excludes the descending asymmetric branch. At the fold the equal vector strictly wins: H′=[f′(a)−f′(S/m)]S′ with positive bracket for a<S/m<2 forces H to decrease from 0 up to the fold. It then strictly increases up to the positive root d₂ of S_m(d)=2m. At S=2m the cubic coefficient e^(−2)[(m−1)³−(m−1)]/6 for the displayed perturbation is strictly positive; the surviving candidate wins and H(d₂)>0. This establishes a unique tie with one strictly positive gap, and for S>2m equality has positive constrained second variation. For m=2, S₂ is strictly increasing from 4, so the equality and asymmetric ranges and continuity follow separately. Independent numerical replay `python /workspace/review_replay.py 5` gives S_c(3)=5.774313471725124760…, d_c=1.397499519593884473…, a_c=1.458937984043746762…, b_c=2.856437503637631236…, consistent with the displayed rounded figures. This is not a field calibration or proof by experiment. Supplied checker inspected, not run; the separately reported multistart comparisons were not independently reproduced.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "904d722bd814 covers all n,S, places the unique n≥3 transition strictly between n and 2n, states exactly n unequal allocations tied with equality, and gives only those unequal permutations above it.",
+          "6909f062745f states the m=2 continuous threshold at 4 and the m≥3 discontinuous transition in Ricker variables, but explicitly does not claim uniqueness of the infimum-minimizing parameter."
+        ],
+        "reasoning": "The exact-covering fixed-budget theorem, not the generality or accessibility of other optimization or fishery results, is decisive. The lesser scope of the second record would not alone account for the unique asymmetric gap at coexistence.",
+        "searches": [
+          "Resultary 904d722bd814 Finding and Proof §§1–3",
+          "Resultary 6909f062745f Finding and Proof",
+          "Named fisheries comparisons: doi:10.1073/pnas.95.7.3696, doi:10.1111/j.1467-2979.2004.00143.x, doi:10.7717/peerj.1623, doi:10.1002/ece3.9679"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7678a45b7053 (self-match), 904d722bd814 and 6909f062745f (distinct matches)",
+        "doi:10.1002/ece3.9679 and named fisheries sources: only the frozen characterizations and OA access attempts for this review; no substantive priority inference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "904d722bd814 states that d_c>d_f is ‘the unique solution’ on the increasing branch to (n−1)f(a(d))+f(b(d))=n f(T_n(d)/n); S_c=T_n(d_c). Equality and exactly the n permutations of that one asymmetric vector tie; above the threshold solve T_n(d)=S on that same branch.",
+          "The retained proof sections independently exhibit the same stationary candidate, fold and decreasing-branch exclusion. 6909f062745f additionally explicitly covers the two-habitat change at 4 in the same model."
+        ],
+        "reasoning": "Under the exact variable identification the other theorem implies the frozen result's global thresholds, coexistence gap, all optimizers and numerical specialization; no broader external literature is needed to decide the overlap. The decision does not depend on assuming the inaccessible fishery appendix contains anything.",
+        "searches": [
+          "Resultary 904d722bd814 Finding (mirror offset 0) and Proof §§1–3 (through offset 6227)",
+          "Resultary 6909f062745f Finding and Proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-budget Steele record 904d722bd814 maximizes the sum of f(x)=xe^(−x) for identical normalized modules with real x_i≥0 and mandatory sum S, for every integer n≥2 and real S>0.",
+          "Its T_n(d)=n+d+nd/(exp(d)−1), a(d)=1+d/(exp(d)−1), b(d)=a(d)+d are identical to the frozen stock functions."
+        ],
+        "reasoning": "Set n=m and identify normalized irradiance at each module with normalized spawner stock in each patch; this is literally the same simplex and sum. A common positive scaling of objective does not change the maximizers.",
+        "searches": [
+          "Resultary: fixed-total identical Ricker and xe^(−x) allocation, one overloaded patch, all-m transition",
+          "Resultary 904d722bd814, RESULT.md Finding and Assumptions and scope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Ricker self-hit 7678a45b7053 is not separate evidence. Distinct IDs 6909f062745f and 904d722bd814 return covering threshold classifications; the stronger record explicitly gives the unique root equation and stock mapping."
+        ],
+        "reasoning": "This is more than matching numerical cutoffs: the identified catalogue theorem fixes the entire family of thresholds analytically. Substituting m=3 gives the rounded local numerical illustration without any additional mathematical claim.",
+        "searches": [
+          "Resultary: Ricker stock-recruitment optimal fixed-budget allocation and Steele photoinhibition module-count transition"
+        ]
+      },
+      "rationale": "A distinct Resultary record states the same global optimizer theorem and unique crossing under an exact change of physical interpretation, with no mathematical change in objective, feasible set, or parameters. The same repository date, 2026-11-22 UTC, does not resolve temporal priority, and no chronology or copying is inferred; the failure is demonstrable mathematical overlap, not a priority judgment. A second distinct record already covers the continuous/discontinuous split in the spawning-stock formulation. No substantive distinct mathematical claim remains in the frozen result.",
+      "residual_risks": [
+        "The distinct matching records have the same date; chronology and publication priority are not resolved.",
+        "The later proof of 904d722bd814 and Skoglund Appendix S1 were not independently retrieved; the exact statement-level match is directly verifiable from the main Finding and does not rely on those unread passages.",
+        "General separable nonconcave allocation literature was not exhaustively checked; this does not affect the affirmative evidence of exact catalogue overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct theorem-level match, including the exact coexistence multiplicity and unique gap; no timing inference",
+          "evidence": [
+            "‘For every n≥3 there is exactly one threshold S_c(n) strictly between n and 2n’; equality and ‘exactly n one-high allocations tie’; unique increasing-branch zero of the same reward difference."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-a-sharp-module-count-transition-in-fixed-budget-steele-photoinhi--904d722bd814",
+          "material_read": "Local mirror RESULT.md Finding, Assumptions and scope, Proof §§1–3, offset 0 through 6227; later proof passages timed out",
+          "method": "Resultary search, configured mirror and substitution of variables",
+          "title": "A sharp module-count transition in fixed-budget Steele photoinhibition",
+          "trigger": "Exact alternate physical formulation with identical objective and budget"
+        },
+        {
+          "assessment": "Direct overlap on main threshold phenomenon, with an explicitly weaker infimum-based description at coexistence",
+          "evidence": [
+            "Identical fixed-stock objective; m=2 continuous onset at 4; m≥3 one-high discontinuous switch; no claim of uniqueness of the infimum-minimizing parameter."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-sharp-continuous-versus-discontinuous-symmetry-breaking-in-ricke--6909f062745f",
+          "material_read": "Local mirror RESULT.md Finding and Proof near offset 0",
+          "method": "Resultary search and comparison of hypotheses and conclusions",
+          "title": "Sharp continuous versus discontinuous symmetry breaking in Ricker allocation",
+          "trigger": "Same named model and two-versus-many transition"
+        },
+        {
+          "assessment": "Unresolved secondary scientific comparison; not used to decide originality",
+          "evidence": [
+            "The frozen record describes imposed spawner distributions and explicitly records Appendix S1 as unread."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/ece3.9679",
+          "material_read": "Frozen main-text characterization only; independent article and appendix reads timed out",
+          "method": "Bounded lawful OA access attempt; no whole-paper inference",
+          "title": "From spawner habitat selection to stock-recruitment: Implications for assessment",
+          "trigger": "Ricker spawning decisions and the unresolved scope of supplementary Appendix S1"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The underlying threshold is an interesting invariant of the constrained optimization, but the only difference supported here after the exact comparison is a change from irradiance to spawner density. No new mathematical invariant, useful sharpened bound, or validated fishery conclusion follows from that reinterpretation under identical hypotheses. The displayed three-patch values are evaluations of the already identified scalar crossing. No valuable distinct remainder is established for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

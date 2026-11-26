@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T23:55:55.299593Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§Assumptions and scope, Proof and Verification",
+        "Frozen VERIFICATION.md, verify.py and requirements.txt, inspected only",
+        "Saumard–Wellner arXiv:1404.5886 §3.1.4 Prop. 3.5",
+        "calculations/numerical_examples.py and numerical_examples.txt (record 3)"
+      ],
+      "rationale": "With x=s+v, the filter-placement cofactors differ by (x+2k)(x+k)−k²−(x+k)²=kx; the end-to-end inverse numerator is k² in both cases. Thus the transform of Δ=f₂−f₁ is pk³(s+v)/(D₁D₂). Removing uniform loss multiplies both impulse responses by e^{vt}; use H equal to the convolution of six one-sided exponentials at the positive eigenvalues of M_j−vI (positivity follows from the path energy and one pinned vertex). The transform then gives Δ=pk³e^{−vt}H′. Convolution preserves log-concavity; H is positive and analytic for t>0 by the finite exponential-polynomial inversion, also for repeated eigenvalues. Its log derivative is strictly decreasing: equality at two times forces an affine log on an interval and hence everywhere, impossible since H∼t⁵/5! at zero. Because H vanishes at zero and infinity, it has exactly one maximum, and H′ changes sign there from positive to negative; this also shows why uniform v does not alter the crossing time. Integrating by parts gives pk³[e^{−vT}H(T)+v∫₀ᵀe^{−vt}H(t)dt]>0 at finite T, equivalent to the stated constant-source step response. Its infinite limit is pk³v/(D₁(0)D₂(0)), so the limit ties exactly when v=0. On a two-room path reflection interchanges end placements and transpose symmetry preserves end-to-end response, giving a tie. An independent high-precision reconstruction from eigenvector products reproduced the crossing near 6.88786993360507954, the signs at times 1 and 8, and dose difference 1/156.",
+      "residual_risks": [
+        "Only source vs middle fixed filter placements on the indicated symmetric homogeneous path, with no filtration-induced flow change. The step-source statement is not a general comparison for arbitrary time profiles or arbitrary room pairs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 3.5 gives preservation of log-concavity under convolution of independent log-concave distributions, directly applicable after normalizing the exponentials.",
+          "The Novoselac–Siegel citation is a plausible conceptual overlap in multizone placement; no relevant primary passage was available, so exact model/claim overlap was not adjudicated from that paper.",
+          "A broader steady optimization over continuously divisible rates is verified in e2566768d1d9; it does not optimize an impulse or transient dose."
+        ],
+        "reasoning": "Convolution log-concavity supplies a known general tool, but there is no crossing theorem until the placement-specific resolvent difference is factored into the derivative of a unimodal kernel. Applicability to these precise transient placements is not inferred from the title of an application study.",
+        "searches": [
+          "Saumard–Wellner arXiv:1404.5886 §3.1.4, convolution log-concavity",
+          "Novoselac–Siegel 10.1016/j.buildenv.2009.03.023, multizone portable-cleaner placement; exact-title lawful-copy lookup",
+          "Frozen references to Mao et al. and Parker et al."
+        ]
+      },
+      "checked_sources": [
+        "Mirrored three-room e2566768d1d9 and two-room cd7c91b4d72d",
+        "Assigned two-room pulse 7abc4e732c0e",
+        "Saumard–Wellner arXiv:1404.5886",
+        "Novoselac–Siegel DOI 10.1016/j.buildenv.2009.03.023 (access limited)",
+        "Frozen RESULT.md references including Mao, Parker and Prékopa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting (p,0,0) and (0,p,0) in the prior determinant gives D₁(0)−D₂(0)=pkv, hence infinite-horizon tie iff v=0 and otherwise source placement better. Replacing v with v+s gives the same exact rational transfer difference.",
+          "Time-domain positivity of its antiderivative requires the positive convolution certificate; the transient one-crossing further uses strict monotonicity of the log slope. Neither follows from a comparison of steady concentrations alone."
+        ],
+        "reasoning": "Credit the exact transform and endpoint dose comparison as directly obtainable from a distinct same-date record, without a priority inference. The new sign classification uses the inverse transform and its analyticity to rule out any extra roots, thereby resolving a comparison the steady formulas do not give by substitution.",
+        "searches": [
+          "Direct specialization of §Proof of e2566768d1d9 and inversion of the resulting resolvent difference",
+          "Proposition 3.5 of arXiv:1404.5886"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest separate record uses exactly M(x)=vI+kL₃+diag(x₁,x₂,x₃) with a constant source at room 1 and target room 3. With x one of the two single-filter allocations and v→v+s, its steady resolvent gives the frozen forward impulse transform.",
+          "The impulse cumulative difference equals the difference of constant step-source responses by convolution; these are equivalent formulations here, not separate discoveries."
+        ],
+        "reasoning": "The geometry, transfer cofactor and forward transform overlap exactly. A forced steady state is the infinite-time endpoint of the step response and is not an equivalent objective to the finite-time crossing or cumulative order.",
+        "searches": [
+          "Resultary: three-room path, end-to-end impulse filtration, source/middle placement reversal, and steady middle-room activation e2566768d1d9",
+          "Literature: multizone transient impulsive cleaner placement and cumulative exposure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact matching transient classification in the index is the assigned record itself (95d6860f0732). The steady e2566768d1d9 record gives an exact determinant formula and middle-room budget threshold for divisible filtration. Its two-room equal-split result concerns continuous allocations at steady state."
+        ],
+        "reasoning": "The scientific object is an all-positive-parameter theorem, not a finite lookup table. The relevant exact prior coverage is of the transfer formula and equilibrium optimizer, not a table or theorem specifying the signs at every finite time.",
+        "searches": [
+          "Resultary exact transient-reversal search and same-model steady e2566768d1d9; related two-room records cd7c91b4d72d and 7abc4e732c0e"
+        ]
+      },
+      "rationale": "The closest distinct indexed result gives the same three-room determinant for arbitrary divisible sinks at steady state; this covers the forward resolvent and the infinite-horizon comparison by specialization, not the transient order. The novel claim supported by the comparisons is the universal exactly-once pointwise reversal together with the all-finite-horizon cumulative ordering. The two-room reflection tie and the use of a standard log-concavity preservation theorem are supporting ingredients, not independent originality claims. The closest application-literature full text was not accessible, which limits the priority conclusion without constituting contrary evidence.",
+      "residual_risks": [
+        "An inaccessible paper or unindexed exact comparison might overlap under filtration, compartmental or spectral terminology. No assertion of exhaustive priority; the prior steady resolvent coverage is explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the forward resolvent and integrated endpoint via specialization; different optimizer and no inspected transient sign classification",
+          "evidence": [
+            "With a=v+k and b=v+2k, D(x)=(a+x₁)(b+x₂)(a+x₃)−k²(2a+x₁+x₃) and the forced steady target is qk²/D(x). The exact threshold is for turning on middle filtration as the divisible budget varies."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-a-sharp-middle-room-activation-threshold-for-end-to-end-air-clea--e2566768d1d9/RESULT.md",
+          "material_read": "§Finding, §Assumptions and scope, determinant and equal-endpoint proof, offsets 0–3475",
+          "method": "Local publication mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "A sharp middle-room activation threshold for end-to-end air cleaning on a three-room path",
+          "trigger": "Identical three-room geometry and sink operators; strongest distinct matching record"
+        },
+        {
+          "assessment": "Verifies the classical ingredient, not a prior filtration comparison",
+          "evidence": [
+            "The convolution of two log-concave distributions is log-concave; the proof marginalizes p(x−y)q(y). This does not itself give strictness for the convolution here, which follows from analyticity and the small-time behavior."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.5886",
+          "material_read": "§3.1.4, Prop. 3.5 and proof, p. 16, offsets 46550–48077",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Log-concavity and strong log-concavity: a review",
+          "trigger": "Decisive general convolution theorem; possible coverage at the level of the proof ingredient"
+        },
+        {
+          "assessment": "Access-limited; plausible conceptual overlap, no full-text noncoverage inference",
+          "evidence": [
+            "The frozen discussion characterizes it as CFD and particle tracking with impulsive contamination. The later exact-title alternate-copy lookup returned no results, which does not establish what the original paper proves."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.buildenv.2009.03.023",
+          "material_read": "Bibliographic identification and frozen §Relationship to prior work; no relevant primary full-text passage obtained",
+          "method": "Lawful retrieval attempt and targeted title lookup for an OA copy of the same paper",
+          "title": "Impact of placement of portable air cleaning devices in multizone residential environments",
+          "trigger": "Closest named primary application paper on transient multizone placement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, sign-change, dose certificate and two-room comparison",
+        "Same-geometry steady comparison e2566768d1d9"
+      ],
+      "rationale": "The result distinguishes two natural decisions about remote exposure: the instantaneous preferred placement reverses once, yet the cumulative ranking never reverses at a finite horizon. This is a substantive contrast, not just a transfer-function identity or one numerical reversal. The smallest path supporting the effect is motivated by exact endpoint symmetry in two rooms, and the result works uniformly in the three free physical parameters within the model.",
+      "residual_risks": [
+        "The structural conclusion is conditional on the prescribed linear model; it supplies no calibrated guideline on real airflow, particle size or human health."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:28:18.202898Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–79; VERIFICATION.md and verify.py (read, not executed)",
+        "Independent replay: python3 /workspace/reproductions/check_review_math.py, function simplices"
+      ],
+      "rationale": "The affine factor Gram matrix in barycentric coordinates is (I+11^T)/((d+1)(d+2)), whose inverse gives the vertex kernel (d+1)(d+2)U-(d+1). Independence makes centered factorwise affine spaces orthogonal; adding them and the shared constant yields the sum of factor kernels minus k-1. The product kernel is affine in its evaluation point, so its L1 mass is convex and cannot exceed the maximum over product vertices; barycentric symmetry makes their masses equal. The sign of the chosen vertex kernel attains the norm: the resulting projected function is continuous, so its vertex value is bounded by the essential supremum on the full-support domain. At a product vertex the U_i are independent Beta(1,d_i). For d_i/N→w_i>0, d_i U_i tends in law to a unit exponential and the scale multiplier tends to w_i; zero proportions vanish in L1 by expectation (d_i+2)/N, including bounded dimensions. Independence gives joint convergence, and E[K^2]=1+sum_i d_i(d_i+2) gives uniform integrability after dividing by N. To prove strictness for a pair of weights with sum s>0, swap the two iid exponentials and average, obtaining max(|R+s(X+Y)/2-1|, |a-b||X-Y|/2). For any two distinct imbalance magnitudes there is positive probability that the first term is smaller than the larger imbalance term and X≠Y: take R<1 and unequal positive X,Y with sum near 2(1-R)/s, then use the positive density on an open neighborhood. This proves strict balancing even with zero weights, and the usual characterization by balancing transfers gives the stated equality cases. At a vertex, the positive excess over one gives 2/e. At equal weights, the derivative of z^k exp(-z) integrates the gamma positive excess to 2k^k exp(-k)/k!; Stirling gives the iterated large-k law. For k=2 the two-exponential convolution and positive-excess integral give the divided difference, including continuous limits. Independently replayed all three rational norm examples.",
+      "residual_risks": [
+        "The projection is globally affine, not tensor product. The dimension limit holds with fixed k and gives no uniform remainder or finite-dimension Schur monotonicity statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chernov's trace theorems concern approximation/error on one simplex. The localized-basis theorem in arXiv:1005.2424 gives uniform Lp bounds under quasi-uniformity, stability and localization assumptions, not an exact norm on these product domains.",
+          "Symmetry and convexity of w↦Eφ(sum_i w_i E_i) imply Schur-convexity for any convex φ. They alone permit equality for nonsmooth φ. The frozen strictness uses the positive-probability crossing of the kink at one, also on the boundary of the weight simplex."
+        ],
+        "reasoning": "The known non-strict principle is credited. No inspected covering theorem provided the strict expected absolute-deviation law at all k or the exact beta formula with its fixed-k dimension limit; a uniform bound on a different projector class does not substitute for either.",
+        "searches": [
+          "Primary work on L∞ stability of L2 projection, Chernov DOI:10.1090/S0025-5718-2011-02513-5 Theorems 1.1 and 4.1; arXiv:1005.2424 Theorem 5.1",
+          "Weighted iid exponential sums, convex expectations, strict Schur-convexity and stop-loss/absolute deviations"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261004-99c2b9dd9b34",
+        "SCOPE-20261025-067382a671c8",
+        "SCOPE-20261101-5ad9b6de5c2f",
+        "SCOPE-20261012-2666a1201bc7",
+        "DOI:10.1090/S0025-5718-2011-02513-5",
+        "arXiv:1005.2424",
+        "DOI:10.1137/040613573 and DOI:10.1109/2945.765328 (access checks only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact one-simplex norm is not multiplicative for this problem. The one-simplex kernel is a prior ingredient; one needs to track the centered orthogonal sum and the distribution of its mixed terms.",
+          "For Z=aE_1+bE_2 with a+b=1, integrating (a exp(-t/a)-b exp(-t/b))/(a-b) for t>1 gives the frozen F_2/2 directly, so the expression itself is covered. The tail optimizer varies with t and does not give strict k-weight convex-order conclusions."
+        ],
+        "reasoning": "A two-factor theorem cannot be iterated as a black box with a previous product substituted for a simplex. Nor can marginal projector norms or the general non-strict expectation inequality prove the sharp arbitrary-k conclusion. The common orthogonal constant, independence, limit at zero proportions and strict crossing are the parts beyond the checked partial formulas.",
+        "searches": [
+          "Compare the one-simplex and two-simplex RESULT.md proofs with the k-factor kernel and compare SCOPE-20261012-2666a1201bc7 tail formula and optimizers with F_k"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For the shared evaluation kernel K of mean one, E|K|=1+2E[(-K)_+]. This identifies exactly the catalogue's two-factor hinge formula and this record's k=2 beta absolute-moment formula.",
+          "For the mean-one limit Z, E|Z-1|=2E[(Z-1)_+], so the same catalogue two-factor limiting hinge gives F_2 up to the exact factor two. Tensor-product projections have a different, multiplicative kernel; they are not alternative encodings of this operator."
+        ],
+        "reasoning": "The hinge and absolute-moment formulas are the same statements after normalization. The two-factor comparison is a genuine match, not merely a similar title. It does not give the arbitrary-factor operator or its entire majorization law.",
+        "searches": [
+          "Resultary: exact affine L2 projector L∞ norm on products of simplices, beta sum and positivity defect",
+          "SCOPE-20261101-5ad9b6de5c2f, RESULT.md finding offset 0 and assumptions/proof offset 1400"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The October 4 catalogue gives exact vertex beta integration and 2(d+1)((d+1)/(d+2))^d-1 for one simplex. The skeleton record recovers it at full volume s=n, d=n-1.",
+          "The November 1 catalogue gives the exact two-factor finite norm and exponential balance result. The October 12 exact two-exponential tail gives the k=2 divided difference after integration from one to infinity."
+        ],
+        "reasoning": "These are exact component or subfamily matches. They are credited independently of path date, and no claim about priority follows from those dates. The inspected exact formulas do not tabulate or state the beta-sum law and sharp strict weight-profile result for arbitrary fixed k.",
+        "searches": [
+          "Resultary exact-projector-norm records SCOPE-20261004-99c2b9dd9b34, SCOPE-20261025-067382a671c8, SCOPE-20261101-5ad9b6de5c2f; weighted-exponential table SCOPE-20261012-2666a1201bc7"
+        ]
+      },
+      "rationale": "The one-simplex result, the exact two-factor product law and the two-exponential divided difference have material coverage and are not credited as distinct on their own. The added result is a single projection theorem for arbitrary fixed k, including exact independent-beta norm, limits for all weight proportions and the strict balancing and equality structure. The general symmetric convex expectation heuristic supplies non-strict majorization but not the strict nonsmooth claim or the projection result. The inspected narrower results and general bounds do not cover the combined theorem.",
+      "residual_risks": [
+        "Older finite-element or visualization projection work (notably the two inaccessible DOI items) could overlap in a different formulation. A literature result on strict stop-loss ordering of gamma sums could cover more of the probability component than identified here. The checked sources do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the one-factor formula and a proof ingredient, not the multi-factor combined law",
+          "evidence": [
+            "The exact norm is 2(d+1)((d+1)/(d+2))^d-1 under uniform simplex volume."
+          ],
+          "identifier_or_url": "SCOPE-20261004-99c2b9dd9b34",
+          "material_read": "Mirrored RESULT.md finding and vertex-kernel proof, offset 0",
+          "method": "Compare the beta-kernel distribution and projection domain",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Same projection invariant on a single simplex"
+        },
+        {
+          "assessment": "Recovers single-simplex uniform-volume norm; no arbitrary product claim in the inspected statement",
+          "evidence": [
+            "The s=n case is full volume on one simplex with d=n-1."
+          ],
+          "identifier_or_url": "SCOPE-20261025-067382a671c8",
+          "material_read": "Mirrored RESULT.md finding, offset 0",
+          "method": "Specialize to s=n and compare supports",
+          "title": "Face-balanced simplex-skeleton affine projector record",
+          "trigger": "Broader simplex measure class"
+        },
+        {
+          "assessment": "Exact k=2 finite and limiting overlap, not the arbitrary fixed-k theorem",
+          "evidence": [
+            "The norm is 1+2E[(d+e+3-(d+1)(d+2)U-(e+1)(e+2)V)_+] for independent beta coordinates; the limit is strictly minimized by balance."
+          ],
+          "identifier_or_url": "SCOPE-20261101-5ad9b6de5c2f",
+          "material_read": "Mirrored RESULT.md finding offset 0 and assumptions/proof offset 1400",
+          "method": "Rewrite the negative-part integral using mean-one normalization; compare the number of factors and the aspect-ratio law",
+          "title": "Sharp affine least-squares norms on products of two simplices and the balanced-dimension law",
+          "trigger": "Strongest direct product statement"
+        },
+        {
+          "assessment": "Directly implies the k=2 closed formula; tail ordering does not supply the k-factor projector theorem or the strict all-weight law",
+          "evidence": [
+            "For t>1 and a≠b, survival is (a exp(-t/a)-b exp(-t/b))/(a-b); the maximizing weights depend on the threshold t."
+          ],
+          "identifier_or_url": "SCOPE-20261012-2666a1201bc7",
+          "material_read": "Mirrored RESULT.md finding and tail proof, offset 0",
+          "method": "Integrate the exact two-scale survival law and compare the scope of its optimizer",
+          "title": "Exact weight phase diagram for two exponential upper tails",
+          "trigger": "Potential covering exact statement for the weighted-exponential profile"
+        },
+        {
+          "assessment": "Inspected trace estimates do not give the exact global affine product norm",
+          "evidence": [
+            "The theorems are trace-error estimates for degree-p polynomial projection on one simplex."
+          ],
+          "identifier_or_url": "DOI:10.1090/S0025-5718-2011-02513-5",
+          "material_read": "Author PDF Theorem 1.1 p. 6 and Theorem 4.1 p. 14",
+          "method": "Compare the type of estimate, geometric domain and target norm",
+          "title": "Optimal convergence estimates for the trace of the polynomial L2-projection operator on a simplex",
+          "trigger": "Polynomial projection on simplex spaces"
+        },
+        {
+          "assessment": "General localized-projector bounds of a different kind",
+          "evidence": [
+            "Uniform Lp bounds under quasi-uniform centers and stable localized bases do not specify the beta expectation or asymptotic equality cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "Theorem 5.1 p. 17, with condition (3.1) and localization assumption 3.4",
+          "method": "Compare exact versus uniform boundedness results and space hypotheses",
+          "title": "Kernel Approximation on Manifolds II: The L∞-norm of the L2-projector",
+          "trigger": "Broader L∞-projector stability theory"
+        },
+        {
+          "assessment": "Retained access risk; not an exclusion based on snippets or HTTP status",
+          "evidence": [
+            "The DOI identifies the Stokes least-squares paper; no full-text statement-level comparison was possible for this item."
+          ],
+          "identifier_or_url": "DOI:10.1137/040613573",
+          "material_read": "Bibliographic record; primary full text not retrieved in this review",
+          "method": "Tried DOI and located OA routes; no accessible full copy yielded by checks",
+          "title": "L2-Projected Least-Squares Finite Element Methods for the Stokes Equations",
+          "trigger": "Frozen citation for local L2 projection applications"
+        },
+        {
+          "assessment": "Retained access risk, not established noncoverage",
+          "evidence": [
+            "The identifier points to the named adaptive visualization projection paper; no full-text comparison was possible for this item."
+          ],
+          "identifier_or_url": "DOI:10.1109/2945.765328",
+          "material_read": "Bibliographic record; primary full text not retrieved in this review",
+          "method": "Tried DOI and available OA routes; no accessible full copy yielded by checks",
+          "title": "Adaptive Projection Operators in Multiresolution Scientific Visualization",
+          "trigger": "Plausible older generalized projection source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md finding and proof",
+        "The exact one- and two-factor Resultary comparisons above"
+      ],
+      "rationale": "Uniform-volume least-squares projection onto total-degree-one polynomials is a natural operator on product cells; the exact L∞ norm measures worst-case amplification and is not the easier tensor-product norm. The supported arbitrary-factor law distinguishes all limiting aspect profiles via strict balancing and gives the precise best and worst cases. It unifies the known lower-factor examples and quantifies how the optimal amplification changes with the number of factors. This is a sharp, potentially useful benchmark, not a claim of any solver-performance improvement.",
+      "residual_risks": [
+        "No convergence rate or design criterion for simultaneous k,N growth, finite-dimensional exact balancing or nonuniform measures is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

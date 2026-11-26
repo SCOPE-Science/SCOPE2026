@@ -1,11 +1,21 @@
-# Scientific review: tetrahedral qutrit orbit tomography
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-generator proof uses the exact four-sign averaging and three-cycle action on \(\operatorname{Sym}^2(\mathbb C^3)\); its diagonal/cross blocks give necessary and sufficient quartic conditions, not merely sufficient examples. The universal operator trace and fixed eigenvalue \(4\) force the sharp lower bound \(\kappa\ge2\). The displayed algebraic seed satisfies the quartics exactly; the tensor-square identity implies the full Hermitian reconstruction formula. The independent algebraic checks in `check_a4.py` verify the moment and inversion identities from explicit matrices but do not replace the proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Scott (2006) and Innocenti et al. (2023) already establish the general equivalence between tight rank-one measurement frames and projective two-designs, and the general tomography reconstruction rule. Mohammadpour and Waldron (2023) supply a general finite-group orbit invariant criterion and discuss *binary* tetrahedral actions in complex dimension two. Elzenaar and Waldron (2024) study real projective twelve-point configurations. Comparison at the level of domains and implications found none directly supplies the sharp \(A_4\) three-dimensional orbit result, its quartic *if and only if* classification, or the explicit optimal qutrit seed. No survey exhaustiveness or independent priority determination is claimed; a stronger unlocated group-orbit design result remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** An exact characterization of every optimally conditioned generator is a natural classification for an entire nonabelian orbit family, not an arbitrary finite parameter slice. The twelve-projector group orbit reaches the universal condition-number obstruction, provides an explicit closed reconstruction formula on all nine Hermitian coordinates, and is not simply the standard four-basis design, as seen from its overlap set. This gives a reproducible, exactly soluble benchmark for informationally complete, non-MUB covariant tomography.
+Independently decomposed the real Hermitian frame by the four sign characters. Write Q=sum |v_i|^4 and U=(a conjugate(b))^2+(b conjugate(c))^2+(c conjugate(a))^2. The diagonal block is a circulant with diagonal 4Q and off-diagonal 2(1-Q), hence eigenvalues 4, 6Q−2, 6Q−2. Each oriented off-diagonal coordinate pair has a real two-by-two block equal to eight times the sum of the three real-imaginary outer products of a conjugate(b), b conjugate(c), c conjugate(a); the two eigenvalues are 2(1−Q) ± 4|U| in each of the three blocks. The trace is twelve and the scalar eigenvalue is four. Thus lower-frame equality or singular-value condition-number equality forces all eight other eigenvalues to be one, equivalent to Q=1/2 and U=0, also for zero coordinates. At the given seed the squared moduli are 2/3,1/6,1/6 and the real part of the square of either small coordinate is −1/48, giving U=0. Pairing the second moment against X tensor Y verifies the equivalence to S(X)=X+tr(X)I. The sum of all intensities is 4tr(X), giving the 1/16 correction. The only divisor of twelve compatible with spanning nine Hermitian dimensions is twelve; real seeds miss all imaginary-skew directions. Inspected check_a4.py and VERIFICATION.md; the recorded symbolic run was not rerun. The proof above is not limited to the script's seeds.
 
-**Scope and limitations.** Only complete labelled, unweighted rank-one tetrahedral orbits and exact Hermitian linear recovery are covered; no noise-statistical guarantee, nonlinear phase-retrieval theorem, or all-ensembles minimality is asserted. The 12 projector orbit is not a SIC (nine outcomes would be the minimum possible for arbitrary qutrit tomography). Independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general tight-measurement/design equivalence, trace obstruction, and canonical inversion are antecedents. The supported distinct claim as of the frozen record is the completed fixed-representation quartic classification with exact attainment by this signed-cycle tetrahedral qutrit orbit. A later-dated catalogue entry gives exact equivalent coverage of the core and a full spectrum; no inspected evidence places it before the frozen claim. This is not exclusive or absolute priority.
+
+## value
+
+PASS
+
+The complete equality test and explicit attainable qutrit seed give an exact example of covariant informationally complete tomography over a natural nonabelian orbit rather than another generic frame inequality. The example differs from four mutually unbiased bases: the signed element fixing the hub coordinate and negating the others gives squared overlap 1/9. This is useful as a non-MUB benchmark; no statistical or phase-retrieval gain is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

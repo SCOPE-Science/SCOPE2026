@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:41:11.596352Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md lines 3–84",
+        "Assigned VERIFICATION.md and verify_mod9.py, inspected",
+        "Independent bounded replay: python3 /workspace/review_checks/independent_discrete.py"
+      ],
+      "rationale": "The Fibonacci matrix satisfies Q⁴=−I+3B. After dividing the (1,2) binomial expansion by 3u with its indicated sign, the j=2 term is a multiple of 9, the j=3 term is 3(u−1)(u−2) modulo 9, and v₃(3^{j−1}/j)≥2 for every j≥4. Thus the surviving unit is 7 when 3 divides u and 1 otherwise, with v₃(F_{4u})=1+v₃(u). For the three other residues expansion modulo 9 gives only units; multiplying them gives exactly the tail R_h, and multiplying a full block gives 2 times the unit of u+1 times the exceptional factor 7 when 3 divides u+1. Combining valuations and units before reducing gives 6^δ 7^η W m!/(a!b!), with δ the sole possible radix-4 carry. For δ=1 the remaining factorial quotient is (b+1) binom(m,a) and 6 absorbs 7^η. For δ=0, η=1 only when the least ternary digits carry, which makes binom(m,a) divisible by 3 and again absorbs the factor 7. The derivation uses only inverses of units modulo 9 and covers k=0,n and n=0 by empty products. Independently the Fibonacci addition identity gives a Pascal recurrence modulo 9 without division; its rows through 512 agreed with the final simplified two-branch formula.",
+      "residual_risks": [
+        "The finite check does not establish the universal congruence; the block and carry argument does. The packaged checker retains the removable 7^η factor in the no-carry prediction, whereas the independent recurrence compares with the actual simplified statement."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Knuth–Wilf carry formula quoted by Southwick and Chand's matrix products concern prime-adic valuations. Ordinary-binomial prime-power congruences do determine residues of the ordinary binomial on the right but do not determine W for Fibonacci factorials."
+        ],
+        "reasoning": "Knowing v₃ exactly decides when the Fibonomial vanishes modulo 9, but does not choose between 3 and 6 at valuation one or among the lifts of its nonzero residue at valuation zero.",
+        "searches": [
+          "Southwick arXiv:1604.04775 §2.2 Theorem 2.3",
+          "Chand arXiv:2508.18461 Theorem 1",
+          "Meštrović arXiv:1409.3820 on Granville's prime-power generalization"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Chen–Sagan",
+        "DeBellevue–Kryuchkova attempt and frozen comparison",
+        "Southwick quoting Knuth–Wilf",
+        "Chand",
+        "Meštrović survey",
+        "Two identified Resultary records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proof's normalized factors F_{4u}/[3u(−1)^{u+1}] modulo 9 and the products for incomplete Fibonacci blocks retain information lost by valuation and modulo-3 tests."
+        ],
+        "reasoning": "Because 3u is not invertible modulo 9, recurrence values modulo 9 alone cannot be divided to infer the required normalized factors. An extra lift and cancellation proof is needed before applying ordinary binomial arithmetic.",
+        "searches": [
+          "Chen–Sagan modulo-3 laws",
+          "Southwick Theorem 2.3",
+          "Meštrović pp. 5 and 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Sagan give the modulo-3 shifts and discuss a digitwise description and its sign. The earlier signed Lucas-type result reported in the assignment is modulo a prime, with a rank-of-apparition hypothesis."
+        ],
+        "reasoning": "Reducing the assignment to modulo 3 is known coverage. Neither a sign modulo 3 nor the radix-4 carry determines the residual units modulo 9.",
+        "searches": [
+          "Chen–Sagan arXiv:1306.2377 §§5–6.1",
+          "DeBellevue–Kryuchkova DOI 10.1080/00150517.2018.12427704, Theorem 4.6 as described in the frozen record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest catalog results concern modulo-9 digitwise agreement in ordinary Pascal's triangle and prime-square period lifts of generalized Fibonacci recurrences, respectively."
+        ],
+        "reasoning": "A census of ordinary binomial agreements or a sequence-period theorem does not give the all-index Fibonomial coefficient residues after cancellation across powers of 3. No exact matching catalog rule was found in the checked material.",
+        "searches": [
+          "Resultary: Fibonomial triangle modulo 9, prime-square lift, Lucas and Fibonacci residues",
+          "2026/11/22/…--ef818f10edd9",
+          "2026/11/8/…--69c2e84e4b27"
+        ]
+      },
+      "rationale": "The signed Lucas-type congruence modulo 3 and the prime-adic valuation are covered. The distinct supported claim is the all-index unit-sensitive residue rule modulo 9, including cases in which the ordinary binomial or the Fibonomial is a nonunit. The checked sources do not supply a Fibonacci factorial unit formula of the needed precision.",
+      "residual_risks": [
+        "DeBellevue–Kryuchkova full text was unavailable in the lawful attempts. Knuth–Wilf and Granville were compared through available theorem accounts. Unlocated specialized prime-power work could overlap; the review does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong lower-modulus overlap, not prime-square residues",
+          "evidence": "Fractal shifts and digitwise discussion modulo 3.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.2377",
+          "material_read": "OA PDF pp. 7–8, Theorem 5.1 and §6.1, offsets 24101 and 29082",
+          "method": "Compare statements and modulus",
+          "title": "The fractal nature of the Fibonomial triangle",
+          "trigger": "Closest modulo-3 Fibonomial digit and sign laws"
+        },
+        {
+          "assessment": "Reported modulo-prime overlap credited; further overlap not independently excluded",
+          "evidence": "The frozen comparison identifies a signed congruence modulo odd prime p, including p=3. The DOI route returned 403 and no exact-paper repository copy was recovered.",
+          "identifier_or_url": "https://doi.org/10.1080/00150517.2018.12427704",
+          "material_read": "Bibliographic record and frozen account of Theorem 4.6; primary theorem not recovered",
+          "method": "DOI attempt and lawful repository recovery attempt",
+          "title": "Fractal Behavior of the Fibonomial Triangle Modulo Prime p, Where the Rank of Apparition of p Is p+1",
+          "trigger": "Theorem 4.6 is the stated exact signed Lucas antecedent"
+        },
+        {
+          "assessment": "Covers valuations, not units; Knuth–Wilf checked through this explicit statement",
+          "evidence": "Odd-prime valuation is a carry count tied to rank of apparition; Corollary 2.4 treats p=5 divisibility.",
+          "identifier_or_url": "https://arxiv.org/abs/1604.04775",
+          "material_read": "OA PDF p. 6, §2.2 Theorem 2.3 and Corollary 2.4, offset 15788",
+          "method": "Read stated valuation theorem and compare its output with residues",
+          "title": "A Conjecture concerning the Fibonomial Triangle",
+          "trigger": "Fibonomial divisibility and the Knuth–Wilf generalized carry result"
+        },
+        {
+          "assessment": "Broader for valuation distributions only",
+          "evidence": "Matrix products count p-adic valuations of C-nomials, including strong divisibility sequences, not unit factors.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.18461",
+          "material_read": "OA PDF pp. 1–3, abstract and Theorem 1, offsets 0 and 5700",
+          "method": "Compare the generalized statistic and input sequence",
+          "title": "Universal Matrices for Counting Fibonomial and C-nomial Coefficients by their p-adic Valuations",
+          "trigger": "Generalized binomial family could subsume Fibonomial counts"
+        },
+        {
+          "assessment": "Ordinary-binomial prime powers and other generalized coefficients, not the needed Fibotorial unit identity",
+          "evidence": "The prime-power extension discussed applies to ordinary binomial coefficients; the generalized coefficients discussed separately are polynomially defined.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.3820",
+          "material_read": "OA pp. 5 and 9, offsets 15314 and 25901",
+          "method": "Secondary comparison of exact arithmetic objects; Granville primary text not retrieved",
+          "title": "Lucas' theorem: its generalizations, extensions and applications (survey)",
+          "trigger": "Prime-power Lucas/Granville results"
+        },
+        {
+          "assessment": "Neither is an equivalent coefficient residue law",
+          "evidence": "The first is ordinary Pascal frequency; the second concerns recurrence periods.",
+          "identifier_or_url": "Resultary 2026/11/22/…--ef818f10edd9; 2026/11/8/…--69c2e84e4b27",
+          "material_read": "Both mirrored RESULT.md Findings",
+          "method": "Compare coefficient family and output",
+          "title": "An exact modulo-9 digitwise Lucas agreement frequency law; Exact prime-square period-stable lifts of generalized Fibonacci sequences",
+          "trigger": "Closest indexed prime-square comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned modulo-9 Finding and carry proof",
+        "Chen–Sagan modulo-3 result",
+        "Chand and Knuth–Wilf valuation comparisons"
+      ],
+      "rationale": "Modulo 9 is the first prime-power refinement of the established modulo-3 structure for a canonical generalized Pascal triangle. The rule reduces every Fibonomial coefficient to ordinary-binomial arithmetic and small unit factors, separating valuative and unit behavior even when the coefficient is 3 or 6. The natural lift and exact unit distinctions are useful arithmetic information beyond a divisibility table or extra finite rows.",
+      "residual_risks": [
+        "The stated method does not yet classify other prime powers or generalized Lucas sequences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

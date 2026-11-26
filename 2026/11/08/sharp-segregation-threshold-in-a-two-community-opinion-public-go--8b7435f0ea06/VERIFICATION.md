@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The included `verify.py` is a standalone exact-rational reference implementation. To check:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-Observed result:
+The unilateral material increment is alpha(r/n-1); minimizing the strictly convex opinion loss at y_i=c z_i+d x_i gives an optimized action difference K(z_i-1/2-eta). For two members of one community, z_i-z_j=-a(y_i-y_j)/(m-1) and (1+ca/(m-1))(y_i-y_j)=d(x_i-x_j). A cooperator would have weakly lower z than a defector in the same community, incompatible with strict cooperation and either strict or tie-selected defection, including a=0. Thus each block is constant. The block sum and difference equations give y_A+y_B=x_A+x_B and y_A-y_B=d(x_A-x_B)/(1-c(2a-1)). For a polarized pair only the cooperator threshold can bind: h d/[2(1-ch)]>eta, h=2a-1, is equivalent to the stated a>a_c and is feasible only at eta<1/2. The consensus means 0 and 1 give the other two cases. Defectors are strict in every surviving tie-selected block profile, so fixed points and strict Nash equilibria agree. Critical equalities give weak, not strict, cooperation.
 
-```text
-PASS: 864 exact parameter/network cases, 96768 exhaustive binary-action profiles; three sharp-boundary cases.
-```
+## originality
 
-The checker constructs \(W\), inverts \(I-cW\) using rational Gauss–Jordan elimination, solves the unique stationary opinion for every action vector, and evaluates each player's optimized unilateral payoff difference. It compares the computed set of all tie-broken fixed points with the derived formula; the three explicit boundary checks distinguish exact ties from strict cooperation.
+PASS
 
-The exact cases use community sizes \(m=2,3,4\), influence shares \(a\in\{0,1/4,1/2,3/4,4/5,5/6,9/10,1\}\), multiple positive parameter triples, and several admissible public-goods multipliers.
+The underlying payoff, optimized response, tie convention and consensus phenomena are established. The supported earlier distinct claim is the all-parameter balanced two-community strict phase diagram, including rigidity and exact tie boundaries, not a general mixed-equilibrium result for other networks.
 
-The general theorem is proved analytically by a within-community comparison lemma and two-by-two linear elimination. No finite checker proves all real parameters or unbounded population sizes. This file records a self-review only; independent audit has not been performed.
+## value
+
+PASS
+
+Gives an exact mixed-equilibrium classification in a motivated specialization of a game whose defining paper leaves mixed equilibria aside. The within-block rigidity removes all heterogeneous candidates without enumeration and the threshold distinguishes consensus coexistence from additional strict polarization, including equality and size dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

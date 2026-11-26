@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:38:44.554891Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite discrete variation the jump sequence is in ℓ¹. The second-derivative system has inverse g_j=(-q)^|j|/(2√3), q=2−√3: the recurrence holds off zero by q²−4q+1=0 and at zero by 4−2q=2√3. The two homogeneous roots exclude a nonzero bounded bilateral solution. For the step at zero the nodal second derivatives are 6(g_{i+1}−g_i); on the right they are −3(1−q)(−q)^i. The transition cell has positive derivative and contributes one. The right constant-data cells have their deviations proportional to (−q)^i t(1−t)[2−q−(1+q)t]; differentiating this positive interior cubic gives its unique height H=(√3−1+2√q)/6 at t=(1−√q)/(1+q). Each cell contributes twice its absolute peak. Reflection about the transition midpoint and the geometric series give exactly 1+2H. Every input is a constant plus an absolutely summable series of shifted steps. The inverse recurrence and the cell formula give convergence of the interpolated sums, and the triangle inequality on finite ordered partitions gives the all-input bound. A single step attains it and linearity gives the two-input claim. See RESULT.md lines 18–55 for the replay; the bundled finite-cell checker was inspected, not executed, and is not needed for the bilateral calculation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Percan, Zellmann and Lang article identification and frozen comparison, RESULT.md lines 61–72",
+          "SIAM public listing describes cardinal spline and B-spline theory; no relevant chapter text retrieved"
+        ],
+        "reasoning": "An all-degree sharp derivative reconstruction norm could subsume the cubic case. The classical sample-mask inversion provides the kernel but not by itself its exact integrated absolute derivative across both tails. No comparable broader theorem was substantiated in material actually available.",
+        "searches": [
+          "Literature: bilateral cardinal cubic spline interpolation total variation operator norm sharp bounded variation constant step response overshoot stability norm",
+          "DOI lookup: 10.1007/s11075-014-9941-x and 10.1137/1.9781611970555"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and check_cardinal_bv.py",
+        "Resultary query attempt recorded above",
+        "Schoenberg SIAM listing",
+        "Percan–Zellmann–Lang DOI",
+        "Zhang–Martin publication listing and DOI"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang and Martin, J. Comput. Appl. Math. 87 (1997), 359–371; only abbreviated public abstract material was accessible",
+          "RESULT.md lines 30–55: the first deviation is AH/6, whereas the total extra variation is 2H"
+        ],
+        "reasoning": "A prior derivation of the full bilateral limiting step response with summed oscillation variation would substantially overlap and, with jump superposition, could imply the result. The public material did not establish that derivation. A peak result for a finite-interval interpolation problem would need a bilateral limit and full control of the tail variations; a citation to Gibbs ringing alone is not an implication.",
+        "searches": [
+          "Literature: Convergence and Gibbs’ phenomenon in cubic spline interpolation of discontinuous functions Zhang Martin 1997 pdf",
+          "DOI lookup: 10.1016/S0377-0427(97)00199-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 39–55: step-tail variation and translated-jump representation",
+          "Schoenberg, Cardinal Spline Interpolation, DOI 10.1137/1.9781611970555, public listing"
+        ],
+        "reasoning": "Potential equivalent formulations are the ℓ¹-to-L¹ norm of cardinal jump reconstruction and the L¹ norm of the derivative of the bilateral unit-step response. A bound on reconstructed sample values or a maximum single overshoot is not either one. The book listing supplies no verifiable equivalent statement. The Resultary query did not complete.",
+        "searches": [
+          "Literature: bilateral cardinal cubic spline interpolation total variation operator norm sharp bounded variation constant step response overshoot stability norm",
+          "Resultary: cardinal cubic spline interpolation sharp total variation BV operator norm step response overshoot"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary reported temporary rate limiting with no completed search",
+          "RESULT.md equations (4)–(6) identify the possible exact table entry as the full infinite step variation, not its first peak"
+        ],
+        "reasoning": "An exact spline stability-constant or step-response table could cover the finding if it specifies the bilateral derivative metric or gives the complete equivalent response. A finite overshoot table without control of the summed tails does not suffice. No matching exact table was substantiated; the unavailable query is not negative evidence.",
+        "searches": [
+          "Resultary: cardinal cubic spline interpolation sharp total variation BV operator norm step response overshoot",
+          "Literature: bilateral cardinal cubic spline interpolation total variation operator norm sharp bounded variation constant step response overshoot stability norm"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact bilateral norm from the ℓ¹ norm of nodal jumps to the L¹ norm of the interpolant derivative and its attainment by steps, not the prefilter, overshoot, or function-sup-norm stability. The comparisons obtained do not establish prior coverage; the highly relevant inaccessible works remain an explicit risk.",
+      "residual_risks": [
+        "Resultary search was unavailable; exact relevance of other indexed records was not established.",
+        "Lawful primary full text was not retrieved for the potential Zhang–Martin limiting-profile overlap or the relevant contents of Schoenberg and Percan–Zellmann–Lang. No historical-priority certification is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Topically strong but relevant contents unresolved",
+          "evidence": [
+            "The available description does not specify an ℓ¹ jump to derivative L¹ norm; the source text was inaccessible."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/1.9781611970555",
+          "material_read": "Public search description of cardinal splines and B-splines; no chapter or table of contents obtained",
+          "method": "Literature result and attempted lawful SIAM/OA retrieval",
+          "title": "Cardinal Spline Interpolation",
+          "trigger": "Classical cardinal spline theory could include derivative stability or step ringing"
+        },
+        {
+          "assessment": "Potentially same construction; not evidence of exact norm coverage",
+          "evidence": [
+            "The frozen comparison distinguishes prefilter reconstruction error from variation of the unit-step response; primary retrieval was unsuccessful."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11075-014-9941-x",
+          "material_read": "Article identification and frozen record’s discussion at lines 61–72; no independent primary equations retrieved",
+          "method": "Lawful DOI and publisher PDF retrieval attempts",
+          "title": "Asymptotic error of cubic B-spline interpolation using prefiltering",
+          "trigger": "Same cardinal prefilter construction"
+        },
+        {
+          "assessment": "Unresolved equivalent limiting step-response risk",
+          "evidence": [
+            "J. Comput. Appl. Math. 87 (1997), 359–371. The available abstract fragment supplies no quantitative bilateral-tail or norm statement."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/S0377-0427(97)00199-4",
+          "material_read": "Public bibliographic listing and truncated abstract; no theorem or formula obtained",
+          "method": "Exact-title lookup and publisher/OA attempts; no identified lawful alternate full text verified",
+          "title": "Convergence and Gibbs’ phenomenon in cubic spline interpolation of discontinuous functions",
+          "trigger": "Spline interpolation of jump data and quantitative overshoot"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a sharp stability factor for a canonical, routinely used linear interpolation map measured in variation rather than peak error. It determines the full possible added variation, shows exactly how ringing accumulates on both infinite tails, and supplies attained worst-case data even among monotone samples. A bound on one overshoot does not answer that stability question. The value is specific to the bilateral cardinal method, not finite-endpoint or shape-preserving spline methods.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

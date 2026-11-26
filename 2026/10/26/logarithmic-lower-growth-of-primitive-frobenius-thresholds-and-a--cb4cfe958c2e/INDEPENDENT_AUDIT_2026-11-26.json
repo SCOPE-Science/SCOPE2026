@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:30:46.365325Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 21–35; VERIFICATION.md; verify.py",
+        "/workspace/repairs/4/RESULT.md and VERIFICATION.md",
+        "Jaffe arXiv:2610.17267, Theorem 4.3 for finiteness"
+      ],
+      "rationale": "The frozen formula for a=2 is true, but its asserted resolution was already known. The replacement finding consists only of the finite obstruction for a>=3 and its fixed-a liminf. Re-audit of the replacement: gcd(a,Q_a(R))=1 gives a CRT class modulo m=aQ_a(R). Its first representative above Rb lies at most m beyond Rb and strictly below (R+1)b by m<b. Reduction of any nonnegative representation modulo a forces y congruent to -1 modulo a, so y>=a-1>=2 and is coprime to a; y<=R by the upper interval endpoint. If no such y exists, there is no representation. Otherwise any prime factor of y divides Q_a(R) and n but not a, and hence also divides x. The argument works if x=0 or if Q_a(R)=1. With fixed a, the omitted prime logarithms have bounded sum, so log Q_a(R)=R+o(R); taking floor((1-epsilon)log b) makes m<b for every sufficiently large coprime b, proving the liminf with constant one. The repair's two replay examples were checked, including the empty product. A separate seven-example nonnegative-solution enumeration corroborated the frozen finite obstruction; the uploaded verify.py was inspected rather than executed. Finite examples are not the proof.",
+      "residual_risks": [
+        "No optimality of the lower constant or fixed-a upper asymptotic is demonstrated; the liminf is not asserted uniformly for growing a."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2026/10/18 indexed joint-growth theorem requires min(a,b)>M_k (a growing primorial); its asymptotic lets min(a,b) tend to infinity.",
+          "Ding et al. fix a>2 but select b by CRT; their theorem gives a positive lower bound on a limsup, not a liminf.",
+          "Jaffe Theorem 4.3 gives finiteness. The inspected §7 discussion concerns bounds, data and conjectures, not the repaired all-b obstruction."
+        ],
+        "reasoning": "At fixed a only finitely many k can satisfy the earlier joint-growth hypothesis, so that bound does not force logarithmic growth in b. A subsequence result cannot control the excluded coprime coefficients.",
+        "searches": [
+          "Ding–Wang–Zhang Theorems 1.6–1.7 and proof of 1.7",
+          "Resultary 0eee43f23b58: uniform primorial obstructions",
+          "Targeted literature search for primitive Frobenius, fixed a, liminf b log b, CRT and primorial"
+        ]
+      },
+      "checked_sources": [
+        "Ding–Wang–Zhang arXiv:2509.08599",
+        "Jaffe arXiv:2610.17267",
+        "Resultary records 0eee43f23b58 and d4c334da51d4",
+        "/workspace/repairs/4/RESULT.md, revised Finding and prior-work section"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Ding proof solves congruences on b for a specially shaped target qa b+1. The repair instead fixes arbitrary admissible b and imposes congruences on n.",
+          "Later d4c334da51d4 has K>=a, Kb>aP_a(K), and returns the largest class representative at most Kb. At (a,R,b)=(3,4,7), its K=R+1 witness is 20, not in (28,35), whereas the repaired construction gives 32 there. The variant should not be represented as a tabulation of the same finite witness.",
+          "The earlier joint-growth proof uses both generators above the CRT modulus and can give only fixed-k bounds for fixed a."
+        ],
+        "reasoning": "The published limsup and earlier joint-growth theorem do not imply the repaired all-b statement. The later finite argument uses the same divisibility idea and proves the same asymptotic; the repaired final statement discloses this, retaining the interval variant and not claiming an independently new asymptotic over that entry.",
+        "searches": [
+          "Ding–Wang–Zhang proof of Theorem 1.7, pp. 10–11, equations (4.3)–(4.5)",
+          "Resultary d4c334da51d4, Finding and CRT proof",
+          "Resultary 0eee43f23b58, Finding and exact construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ding et al.'s G and Jaffe's g are the largest gaps for nonnegative relatively prime multipliers. Both explicitly have g(2,b)=4b-2 for every odd b>=3.",
+          "Resultary d4c334da51d4 states the identical fixed-a>=3 liminf over coprime b; its witness has the same obstruction mechanism but lies in (Kb-aP_a(K),Kb] rather than the repaired (Rb,(R+1)b)."
+        ],
+        "reasoning": "The a=2 identity is exact prior coverage under the same invariant and assumptions; it is now solely credited background. The later exact asymptotic overlap is disclosed, rather than treated as a different result under a different name. The repaired finite interval assertion is the point of distinction from the later stated construction.",
+        "searches": [
+          "Ding–Wang–Zhang arXiv:2509.08599, definition and Theorem 1.8",
+          "Jaffe arXiv:2610.17267, Proposition 5.2",
+          "Resultary comparisons for the primitive Frobenius threshold, exact a=2 and fixed-a lower bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later indexed d4c334da51d4 matches the exact constant-one normalized liminf, so this is a real overlap, not a null search.",
+          "Jaffe's computed cases are finite information, not an all-b quantified threshold. The exact closed-form a=2 finding was already proved in Theorem 1.8 and Proposition 5.2, independently of tables."
+        ],
+        "reasoning": "Numerical samples establish neither uniform obstruction nor fixed-a liminf. The symbolic catalogue overlap and exact formula are credited instead of appealing to absence of a table.",
+        "searches": [
+          "Resultary: four focused searches covering Jaffe, the exact a=2 formula, fixed-a liminf and finite primorial obstruction",
+          "Resultary records d4c334da51d4 and 0eee43f23b58",
+          "Jaffe §7 computed-value discussion, offsets 46600–48582"
+        ]
+      },
+      "rationale": "This passes only for the repaired finding. The original novelty assertion for the exact a=2 formula fails: two inspected primary sources predate the frozen record and state that very formula on the entire claimed range. The replacement credits them and removes that component from the finding. The surviving contribution is the explicit uniformly applicable finite witness in (Rb,(R+1)b) and its sharpening from a published subsequence lower bound to the all-coprime-b lower bound with leading liminf constant one. An earlier joint-growth primorial result does not cover fixed a; a later distinct indexed record has exactly the same asymptotic and a closely related but differently formulated finite construction. That overlap is disclosed and no independent priority for the shared asymptotic is claimed.",
+      "residual_risks": [
+        "Jaffe's 2023 dissertation full text was not accessible; potential coverage there remains unresolved.",
+        "No independence or priority is inferred between the two closely overlapping catalogue findings; the repaired record makes the exact asymptotic overlap explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact boundary overlap; different asymptotic quantifier.",
+          "evidence": "Theorem 1.8 gives G(2,b)=4b-2 on the full odd range b>2. Theorem 1.7 gives a positive limsup in the b log b normalization. Its proof picks b by CRT.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.08599",
+          "material_read": "Definition p. 3; Theorems 1.7 and 1.8, pp. 3–4; proof of Theorem 1.7, pp. 10–11, around offsets 35780–40176; boundary proof p. 12.",
+          "method": "OA primary PDF, literal locations and bounded passages.",
+          "title": "The Diophantine Frobenius Problem revisited",
+          "trigger": "Exact same invariant and strongest published fixed-a comparison; prior exact boundary."
+        },
+        {
+          "assessment": "Finiteness and exact prior boundary; inspected sections do not state the repaired liminf.",
+          "evidence": "Proposition 5.2 explicitly gives g(2,b)=4b-2 for b>1 odd, with nonnegative multipliers.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.17267",
+          "material_read": "Theorem 4.3, p. 7; Proposition 5.2, p. 11, words/formula and proof start near offset 30240; §7 portions on data and conjectures near offsets 46600–48582.",
+          "method": "OA primary PDF, bounded passages.",
+          "title": "Denominators in the Farey Sequence, the Stern Sequence, and the Frobenius Problem with Relatively Prime Multipliers",
+          "trigger": "Frozen cited foundation for the invariant and strongest exact boundary comparison."
+        },
+        {
+          "assessment": "Related joint-growth bound, not a direct broader fixed-a theorem.",
+          "evidence": "Assumes min(a,b)>M_k with M_k the product of the first k-1 primes; uses a bound normalized in min(a,b) and takes that minimum to infinity.",
+          "identifier_or_url": "2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58",
+          "material_read": "RESULT.md offset 0, Finding, scope and beginning of proof.",
+          "method": "Local indexed-record mirror, bounded passage.",
+          "title": "Uniform primorial obstructions for primitive two-generator Frobenius numbers",
+          "trigger": "Earlier and very similar prime-product/CRT method."
+        },
+        {
+          "assessment": "Exact asymptotic overlap and almost the same method, differently stated finite witness; later dated, not evidence of earlier priority.",
+          "evidence": "For K>=a and Kb>aP_a(K), the witness is in (Kb-aP_a(K),Kb] with residues 0 modulo P_a(K) and -b modulo a. The normalized liminf is exactly the reviewed one.",
+          "identifier_or_url": "2026/11/8/SCOPE-primorial-obstructions-force-b-log-b-growth-for-primitive-froben--d4c334da51d4",
+          "material_read": "RESULT.md offset 0 through Finding, assumptions and CRT obstruction proof.",
+          "method": "Local indexed-record mirror, bounded passage.",
+          "title": "Primorial obstructions force b log b growth for primitive Frobenius numbers",
+          "trigger": "Strongest distinct indexed match, including exact asymptotic."
+        },
+        {
+          "assessment": "Named unresolved priority risk; no negative inference from inaccessible text.",
+          "evidence": "The thesis is an antecedent, but no theorem passage was retrieved for a statement-level comparison.",
+          "identifier_or_url": "https://hdl.handle.net/2142/120085",
+          "material_read": "Bibliographic record and frozen description only. DOI-style handle and IDEALS alternate returned no accessible full text.",
+          "method": "Lawful direct and configured alternate retrieval attempts.",
+          "title": "Topics in Analytic Number Theory",
+          "trigger": "Earlier dissertation antecedent of the exact Frobenius problem in Jaffe's article."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md, Finding and proof",
+        "Ding–Wang–Zhang Theorems 1.7–1.8",
+        "Resultary 0eee43f23b58 and d4c334da51d4 comparison"
+      ],
+      "rationale": "The exact finite obstruction can be replayed for any admissible b above a simple explicit threshold, and resolves a demonstrable gap left by the earlier subsequence bound. It establishes divergence of g(a,b)/b uniformly over large b at each fixed a>=3, in contrast to the known bounded a=2 behavior. This is a meaningful change in quantifier and order, not a new claim based on recomputing the prior exact boundary. Value is re-evaluated on the finite obstruction and all-b asymptotic only.",
+      "residual_risks": [
+        "The finite parameter threshold is sufficient, not optimized; the theorem is a lower bound, not a classification of all exceptions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

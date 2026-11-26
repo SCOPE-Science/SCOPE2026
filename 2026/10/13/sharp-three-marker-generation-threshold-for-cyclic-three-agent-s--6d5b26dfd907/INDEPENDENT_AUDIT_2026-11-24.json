@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:30:23.482184Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–55; VERIFICATION.md lines 19–31; verify_latin_modal_generators.py lines 10–119 and 122–185 (read, not run)",
+        "Independent set-based refinement: python /workspace/branches/independent_replay.py 2 excludes 509 sparse valuations for n=3,4,5, checks the n=1,2 boundaries and verifies the constructive depth bound at 22 sizes (3 through 24)."
+      ],
+      "rationale": "The two depth-one coordinate saturations intersect in the four cells with both coordinates in {0,1}; subtracting the marked L leaves (1,1) alone. Its saturations and the differences from the original ones give X_0,X_1,Y_0,Y_1 at depth two. From both sets of selectors through index L, intersect X_a and Y_b, saturate in the named sum direction, intersect with Y_0 or X_0, and saturate again, giving both selectors for a+b through min(2L,n-1) at depth increased by two. This yields the claimed logarithmic depth, with no claim of optimality, and intersecting selectors defines every cell. For a one- or two-cell support the map z -> c-z with c respectively 2u or u+v preserves the valuation and the three named equivalences; it is nonidentity for n>=3 because negation is not identity on the cyclic group (if the affine map were identity, evaluation at zero forces c=0). The empty valuation admits translations. Since every formula is invariant under these automorphisms, no such sparse valuation can define all singletons. For n=2 the two coordinate saturations of a singleton and their complements suffice; for n=1 the constants suffice. For the two-mode contrast, fewer than n-1 marks leave two empty rows whose transposition preserves the remaining relations and the valuation.",
+      "residual_risks": [
+        "The refinement replay is finite; the reflection and doubling arguments supply the unbounded proof. The original script's reflection loop checks valuation preservation and nonidentity while preservation of all three relations is established analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The checked affine-direction theorem states mu(q,d)=3 for q>2 and d>=2 and depth <=3 with every affine direction named. The cyclic record has only three named directions and admits every cyclic order, not just finite-field vector spaces.",
+          "The MS4 source addresses varieties and local finiteness with related S5 constructions, not exact minimum truth-set weight on the specified frame."
+        ],
+        "reasoning": "Generation with more operators does not imply generation after deleting them; a formula in a larger affine signature must be translated without increasing the required support/depth, and the finite-field setting does not cover all cyclic orders. The common automorphism lower bound does transfer in the appropriate cases.",
+        "searches": [
+          "Resultary affine-direction S5 frame record 164772abaf05",
+          "Bezhanishvili–Meadors, arXiv:2312.16754 abstract and §5; Delhommé et al., §3.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 164772abaf05",
+        "arXiv:1505.02955 §3.2",
+        "arXiv:2312.16754 abstract and §5",
+        "arXiv:2307.05150 abstract",
+        "Frozen RESULT.md lines 67–81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A triangle completion of two individually named cells can be expressed as an intersection of their saturations along two named relations. Thus the cyclic monogenicity result does give unquantified closure once the relevant two singleton names are available. It neither extracts those names from the one marked predicate nor states the modal depth bound.",
+          "The affine overlap includes the same kind of reflection on sparse marked sets. The two-mode argument uses arbitrary permutations of unmarked rows, and the upper bound uses interval doubling in the reduced signature."
+        ],
+        "reasoning": "The original combination is not a mere substitution into either prior theorem: one needs the valuation-to-selectors construction and a quantified iteration without the missing modalities. Prior ingredients are credited without attributing the sharp restricted-signature theorem to them.",
+        "searches": [
+          "Compare the affine-direction finding and reflection proof (offsets 300, 2925) with RESULT.md lines 31–55",
+          "Delhommé et al., arXiv:1505.02955, §3.2 Example 3.5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Delhommé et al. call G×G monogenic for cyclic G via triangle closure of {(0,0),(1,0)}. That operation is not closure of a Boolean algebra under existential modalities applied to a single truth set.",
+          "Nunn–Schwarzentruber's inspected logic has counting modalities, while the present modal signatures use only sets of successors; the named modalities cannot be replaced by an uncolored adjacency without an equivalence proof."
+        ],
+        "reasoning": "A triangle-closed set is not a set of individually definable points; in fact the two-marker valuation on the same net is preserved by a nontrivial reflection. Monogenicity becomes useful after individual point names are recovered, not as an equivalent two-marker theorem. Counting-refinement results need not hold for ungraded depth.",
+        "searches": [
+          "Resultary: three-marker modal generation, three equivalence cyclic S5 grids, affine directions",
+          "Delhommé et al., arXiv:1505.02955 §3.2, Definitions 3.1–3.2 and Example 3.5",
+          "Nunn–Schwarzentruber, arXiv:2307.05150 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest checked indexed exact value 3 uses the larger affine signature. Its relationship passage mentions related cyclic-net generation, but does not identify a source or supply a comparable exact quantified depth statement.",
+          "The finite frozen table checks specific valuations and sizes; it does not establish the all-orders invariant."
+        ],
+        "reasoning": "An exact number in a different signature or a finite instance table is not coverage of the quantified theorem. The affine relationship passage leaves a specific residual risk, not verified coverage.",
+        "searches": [
+          "Resultary semantic lookup for one-proposition support 3 and logarithmic depth on the cyclic addition grid",
+          "Resultary 164772abaf05, RESULT.md offsets 300 and 6900; frozen VERIFICATION.md lines 23–31"
+        ]
+      },
+      "rationale": "The distinct supported claim is the sharp one-proposition support and explicit depth bound using exactly three named relations at every cyclic order, including composite orders. The reflection method and cyclic-net generation with already individually identified points are not novel. The record combines recovery of individual point names from a single valuation with uniform bounded-depth generation in the restricted signature. No inspected result gives that combination or an implication of it; this is not a historical priority determination.",
+      "residual_risks": [
+        "The affine-direction record's unidentified cyclic-net antecedent remains unresolved. Older labelled-net or algebraic-logic literature could give an equivalent valuation construction or comparable depth bound. The web lookup did not produce usable evidence either way; the cited sources were compared on the inspected passages only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material partial overlap, not a verified theorem for a fixed three-direction signature at all cyclic orders. No order of priority inferred from path dates.",
+          "evidence": [
+            "All affine directions are named; q>2,d>=2 admits three marked points and depth at most three. The relationship discussion refers to related cyclic nets without identifying a decisive antecedent."
+          ],
+          "identifier_or_url": "Resultary 164772abaf05, RESULT.md, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "material_read": "Finding, lower-bound argument, and relationship to prior work, offsets 300, 2925 and 6900",
+          "method": "Local mirror source inspection",
+          "title": "Three markers suffice for every finite affine-direction S5 frame",
+          "trigger": "Same sharp support count and reflection method on a related family"
+        },
+        {
+          "assessment": "Same geometry and useful point-closure precursor; different starting data and closure, without checked quantitative modal depth.",
+          "evidence": [
+            "The triangle rule adds its third point when two points are already in the generating set. In Example 3.5 the cyclic pair {(0,0),(1,0)} is a monogenic generator in that sense."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.02955",
+          "material_read": "Printed p.16, §3.2, Definitions 3.1–3.2 and Example 3.5 (PDF text offsets 39350–42135)",
+          "method": "Read decisive bounded passages of open primary PDF",
+          "title": "Semirigid systems of three equivalence relations",
+          "trigger": "Exact cyclic G×G net and a two-point generation theorem"
+        },
+        {
+          "assessment": "Checked portions concern varieties and local finiteness, not a support threshold on the given finite frame.",
+          "evidence": [
+            "The S5^2-related material treats structure and translations rather than a one-proposition minimal valuation size in a three-net."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.16754",
+          "material_read": "Abstract and §5, pp.13–14 (text offsets 36391–36596)",
+          "method": "Read selected open primary PDF passages",
+          "title": "Local finiteness in varieties of MS4-algebras",
+          "trigger": "Modal-algebra finite generation and S5 background"
+        },
+        {
+          "assessment": "Different modal resources on the inspected evidence; no equivalent ordinary modal support statement verified.",
+          "evidence": [
+            "The abstract describes counting modalities in linear inequalities for the GNN correspondence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.05150",
+          "material_read": "Abstract, p.1",
+          "method": "Read open primary PDF abstract",
+          "title": "A Modal Logic for Explaining some Graph Neural Networks",
+          "trigger": "Modal expressivity and graph refinement analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 5–23 and 33–55; Delhommé et al. §3.2 as the related but distinct generation model"
+      ],
+      "rationale": "The exact size of a sparse unary valuation that makes every cell definable is a natural finite-frame invariant. A third named S5 modality changes a provably growing requirement to a constant for arbitrarily large cyclic nets. The constructive logarithmic formula depth gives quantitative control in ordinary modal logic and is not just a small-instance orbit calculation.",
+      "residual_risks": [
+        "Neither minimum depth nor the exact two-modality threshold is determined. The theorem does not extend on this proof to arbitrary Latin squares."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:01:06.271908Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The ranking is a uniform fixed-content word. Its initial and terminal runs give the minima and maxima, respectively. Uniform compositions of one color into the gaps of the other give the mean and same-color products. Integrating the cross-color joint probability over 0<x<y<1 gives 1-1/binom(a+b,a) after multiplying by ab. Combining these recovers (1), including the a=b=1 degenerate case. The exact independent replay verifies the difference factorization and the 65 strictly positive coefficients of the cleared lower bound for a≥3, and for a=2 verifies the degree-six numerator with coefficients 1,23,219,1129,3188,4056,936 over a positive denominator. The diagonal lower bound after a=u+2 has numerator 14u³+76u²+122u+48; the a=1 polynomial and fixed-a negative quadratic tail check separately. For scale, put e=1/a and r=(b-a)/a in the rational part F. Then F(0,r)=0, its e derivative there is -r²(r+2)³/(r+1)³, and the e² coefficient at r=0 is 8. Taylor expansion at r=c√e with bounded c is uniform; the reciprocal binomial is at most (2a+1)/4^a. This gives the claimed limit and, by monotonic sign bracketing on both sides of c=1, b_*(a)-a~√a. No finite-size tie is excluded. Supplied verify.py was inspected but not executed; separate exact replay: branches/afdeadca-c733-4153-b111-b74305c48a13/replay_certificates.py and replay_certificates.txt.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary cc36f3dd3737 gives joint probabilities and covariance signs for every pair of distinct vertices of a finite graph, in terms of adjacency and common and private neighbor counts.",
+          "Baldi–Rinott–Stein §2 proves a normal approximation and computes the mean for the single minima count of a regular graph."
+        ],
+        "reasoning": "The general dyadic joint formula applies to every pair type in a biclique. Its signs distinguish adjacency from shared neighbors, not which contribution wins when summed with the diagonal and with changing numbers and degrees of pairs. A single-count regular-graph result cannot determine the unbalanced mixed sign.",
+        "searches": [
+          "Resultary: general pairwise two point joint local extrema covariance local maxima minima iid random vertex heights regular graph common neighbors mixed peaks valleys",
+          "Resultary cc36f3dd3737 exact mirror, Finding and Proof through Exact joint probability",
+          "Baldi–Rinott–Stein 1989, §2 p. 728"
+        ]
+      },
+      "checked_sources": [
+        "Resultary cc36f3dd3737 and assigned-record self-match; bounded run-statistic summary comparisons",
+        "Baldi–Rinott–Stein (1989), pp. 727–732",
+        "Burdzy–Pal, arXiv:1606.08025v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For distinct vertices on the same shore the general dyadic formula reduces to 1/[(b+1)(b+2)] or 1/[(a+1)(a+2)]. For vertices on opposite shores the joint probability is [1-binomial(a+b,a)^(-1)]/(ab); a vertex contributes zero to the joint product with itself. Summing and subtracting the product of marginal counts gives (1).",
+          "The dyadic exact formula and sign classification do not compare the sums for successive b; the proof needs the strict decrement after the changing reciprocal-binomial correction and the uniform near-diagonal expansion."
+        ],
+        "reasoning": "The starting finite formula is mechanically covered. The strictly decreasing sign law for b≥a≥2 and its threshold scaling are not consequences of the dyadic sign pattern or of the inspected conditional and regular-graph results without further analysis.",
+        "searches": [
+          "Resultary cc36f3dd3737, Finding and Proof: Exact joint probability",
+          "Baldi–Rinott–Stein pp. 728–729",
+          "arXiv:1606.08025v1 §§3–5, 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The two endpoint run lengths are exactly the mixed extrema counts in law.",
+          "Nearby Resultary summary hits, A Pell-indexed covariance phase diagram for run-length spectra of fixed-composition binary words and Opposite conditional and unconditional covariance signs for color-separated singleton runs, use counts of fully bounded runs or singleton runs, not the pair of endpoint lengths.",
+          "Twin Peaks p. 1 and §3 p. 4 concerns conditioning on a fixed small number of peaks, not the unconditioned pair."
+        ],
+        "reasoning": "Fixed-content run counting is a genuine equivalent only when the two endpoint lengths, not the spectrum or count of interior runs, are the random variables. The bounded searches do not exclude other formulations.",
+        "searches": [
+          "Resultary: covariance of first and last monochromatic runs uniform binary words fixed composition",
+          "Resultary: initial and terminal homogeneous runs fixed-content random binary word covariance",
+          "Resultary: initial and final homogeneous runs fixed-composition word peak valley covariance",
+          "Primary search: two letter fixed composition random word initial final run lengths joint moments covariance first last runs binary word extrema Baldi Rinott Stein"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact sign/cutoff match is the assigned record itself. Neighboring run hits describe different observables in their search summaries.",
+          "Baldi et al. p. 729 gives examples for a lattice, a row/column graph, and a hypercube. Twin Peaks examples concern conditional labeling on square grids, ladders or tree peak locations. None of these inspected examples is a biclique imbalance table."
+        ],
+        "reasoning": "No located comparator reports the same table or analytic integer sign boundary. Finite pairwise probabilities already permit exact evaluation at any given sizes, but that does not amount to the all-size theorem. Resultary ranking is bounded, not a database census.",
+        "searches": [
+          "Resultary: complete bipartite graph iid continuous heights covariance number local maxima minima one crossing",
+          "Resultary: joint covariance first and last terminal monochromatic runs in fixed-content binary words",
+          "Primary source comparison: Baldi–Rinott–Stein pp. 727–732; Twin Peaks §§4, 5, 7"
+        ]
+      },
+      "rationale": "The finite covariance is covered by summation of general dyadic joint probabilities; no separate novelty credit for the ranking reduction or (1). The strict integer imbalance monotonicity and sharp square-root threshold survive comparison with the known pairwise formula, conditional peak-labeling papers and differently defined run statistics. This is qualified best-of-knowledge coverage, not exhaustive historical priority.",
+      "residual_risks": [
+        "An unlocated classical joint endpoint-run result, or further analysis of the general dyadic formula, could cover the sign boundary.",
+        "The semantic searches were bounded and nearby run records were distinguished by summaries, not asserted absent from their uninspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the covariance formula by dyadic summation, not the global imbalance boundary",
+          "evidence": "Uses e (adjacency), c (common neighbors) and private-neighbor counts for exact joint integral and signs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-opposite-extremum-covariance-signs-reconstruct-every-graph-from--cc36f3dd3737/RESULT.md",
+          "material_read": "Finding and Proof through Exact joint probability, mirrored offset 0–5832",
+          "method": "Local Resultary search and exact mirrored text",
+          "title": "Opposite-extremum covariance signs reconstruct every graph from random rankings",
+          "trigger": "Same local indicators on arbitrary hosts; directly relevant broader pairwise formula"
+        },
+        {
+          "assessment": "Marginal extrema count and normal approximation; no corresponding mixed sign theorem",
+          "evidence": "Regular d-graph, E W=|V|/(d+1); worked examples use non-biclique families.",
+          "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf",
+          "material_read": "Printed pp. 727–732, especially §2 on p. 728 and §3 on p. 729",
+          "method": "Lawful conference PDF",
+          "title": "On the Distribution of the Number of Local Minima of a Random Function on a Graph",
+          "trigger": "Classical graph-local-extremum distribution theorem"
+        },
+        {
+          "assessment": "Conditional labelings, not the unconditioned mixed covariance",
+          "evidence": "P_1 and P_2 condition on one or two peaks; the stated theorems concern grids, ladders and peak locations on trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/1606.08025v1",
+          "material_read": "Abstract p. 1, §3 p. 4, Theorems 4.2 pp. 6–7, 5.1 p. 8, 7.2 p. 17; full-text terminology search",
+          "method": "Lawful arXiv v1 PDF",
+          "title": "Twin Peaks",
+          "trigger": "Primary random-rank multiple-peak paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strict separation of positive and negative mixed count covariance is a meaningful all-size dependence classification, not an isolated exact entry. A square-root amount of shore imbalance already changes the balance of the competing dyadic terms; the sharp limit identifies that scale and the formula resolves finite boundaries. The scope is iid atomless heights on bicliques, not arbitrary graph modifications.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

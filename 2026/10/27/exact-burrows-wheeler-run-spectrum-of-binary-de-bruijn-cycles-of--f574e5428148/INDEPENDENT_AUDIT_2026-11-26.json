@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:07:39.207757Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Distinct k-prefixes order the rotations. Rows u0 and u1 cannot have the same predecessor, or the k-factor bu would repeat; their last-column letters are complementary. The displayed LF formulas rank each predecessor extension bu exactly once. A transitive LF orbit thus reconstructs one cycle with each prefix, and a de Bruijn cycle gives one such orbit, with one representation per rotation class. The internal boundaries contribute m=2^(k−1); each across-block boundary contributes one exactly for equal adjacent orientations. The end orientations are both 1, since the predecessors of the unique all-zero and all-one factors are respectively 1 and 0. With m even at least one adjacency is equal, giving m+2; differing end letters also make the linear run count even and equal to the circular count. I independently enumerated Hamilton cycles of the directed shift graph on k-bit words: start at word 0, extend by unused overlapping k-words, and retain full paths with an arc back to 0. The BWT letter at each destination rank is the high bit of its predecessor. This confirmed the spectra (4:1), (6:2), (10:4,12:4,14:8) and (20:38,22:426,24:840,26:608,28:130,30:6) at orders 2–5 and all six lexicographically first witnesses in TABLE.csv. The unique 0^k root makes this exhaustive without identifying reversals or complements. Frozen replay: verify.py, with both LF orientation and rooted Euler routines, and TABLE.csv; the uploaded code was inspected, not run. The count is exact at these orders, not extrapolated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 32, p. 15, gives the binary all-cycle range 2^(d−1)+2 through 2^d−2 at d>2. The inspected passage does not give the order-five gap or spectrum.",
+          "Date–Zatesko Theorem 2 (p. 12) attains the lower bound by construction if x^k+x+1 is primitive. At k=5 it factors as (x²+x+1)(x³+x²+1), so the theorem gives no case or nonattainment converse there."
+        ],
+        "reasoning": "The older structure and bounds apply, but do not force the set of achieved run counts, the 38 minimum classes, or the first gap. The primitive-trinomial criterion is sufficient for its construction, not necessary for any cycle to attain the bound.",
+        "searches": [
+          "Fici et al., BWT and Combinatorics on Words, Proposition 32",
+          "Date–Zatesko arXiv:2512.20598, §4.4–4.5",
+          "Mantaci et al., Measuring the clustering effect of BWT via RLE, 2017"
+        ]
+      },
+      "checked_sources": [
+        "Higgins arXiv:1901.08392",
+        "Fici et al., BWT and Combinatorics on Words, Proposition 32",
+        "Date–Zatesko arXiv:2512.20598",
+        "Resultary 2b078dd02462",
+        "Resultary 1eb61f1d72f3",
+        "Resultary e9f4efa40f3d",
+        "Mantaci et al. (2017), bibliographic access only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier catalogue proof gives the same single-cycle test and count 2048, and two exhaustive generators, but each result bins by a weighted unbordered-factor statistic. Higgins supplies the single-cycle block domain; Date–Zatesko supplies a construction with an inapplicable hypothesis at order five."
+        ],
+        "reasoning": "The earlier work provides an enumeration method that can be reused, not an evaluated lexicographic adjacency enumerator or a structural implication forcing those adjacency counts. To obtain the result requires determining T over the accepted masks (or BWT runs over the cycle classes), rather than specialization or marginalization of the earlier recorded statistic. Marginalization does suffice for the distinct later joint table. The independently meaningful boundary test is failure of the published sharp-looking lower bound at its first failing order.",
+        "searches": [
+          "Higgins arXiv:1901.08392 Theorem 3.4 and Examples 3.5",
+          "Resultary 2b078dd02462 Proof §1 and exhaustive computation offsets 5600–7215",
+          "Date–Zatesko arXiv:2512.20598 Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Higgins Theorem 3.4 characterizes the BWT block products; its examples distinguish a transitive permutation from a transformed multi-necklace set.",
+          "In 2b078dd02462 the forward transition P(av)=v(a xor epsilon_v) has inverse P^(-1)(vb)=(b xor epsilon_v)v. Thus epsilon_v is exactly the orientation indexed by v in the frozen LF representation."
+        ],
+        "reasoning": "For this feedback alias, writing T for changes between consecutive lexicographically indexed epsilon entries, the frozen run statistic is 2^k−T. Cyclic BWT without sentinel is essential; treating a terminated BWT as equivalent would change the tally. The earlier exact unbordered-transition statistic uses a different weight on this same feedback domain.",
+        "searches": [
+          "Higgins arXiv:1901.08392 §3",
+          "Resultary 2b078dd02462 feedback crossing-bit spectrum",
+          "Resultary e9f4efa40f3d reverse BWT transport"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "In the 2026/11/2 catalogue record 1eb61f1d72f3 the Finding offsets 0–3833 explicitly prints the same six-bin table, under the same convention. The separate 2026/11/2 record e9f4efa40f3d offsets 0–3215 includes a forward/reverse joint table whose forward marginal is this table.",
+          "The earlier 2b078dd02462 record counts unbordered factors in order-five cycles and prints a different eight-cell histogram. Its Proof and Verification provide generators over the same classes, rather than an adjacency-run table."
+        ],
+        "reasoning": "The later equal and dominating exact tables are not different statistics. They are distinct records with later publication-path dates than the frozen finding; that proves documentary overlap, not earlier priority. The earlier unbordered table is not an alternative binning from which these six coefficients can be read.",
+        "searches": [
+          "Published Resultary order-five BWT run spectrum: 1eb61f1d72f3, e9f4efa40f3d and 2b078dd02462",
+          "Primary BWT cluster/RLE searches; Mantaci et al. 2017"
+        ]
+      },
+      "rationale": "Pass for the exact order-five run distribution and the first strict nonattainment, not for the block or feedback characterization or the all-orders lower bound, which were known. There is an exact distinct later catalogue duplicate and a later stronger forward/reverse joint table; both are direct coverage of the statistic in those records, not evidence that they preceded the frozen result. The available earlier feedback census concerns a different statistic and does not give the adjacent-transition distribution. A relationship note should credit the previously published run bound explicitly.",
+      "residual_risks": [
+        "The 2017 BWT/RLE full text and 2024 Lipták–Parmigiani sequence-construction item could not be inspected. Either could contain a stronger or exact prior run analysis. Unindexed tables also remain possible.",
+        "The later catalogue overlaps do not establish the chronology of underlying independent discovery. The pass is based on the supported distinct contribution against the available earlier sources, not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the structural reduction, not the reported six-bin weights",
+          "evidence": "Theorem 3.4 gives all block products for de Bruijn sets; Examples 3.5 exhibit both one-cycle and multi-cycle cases.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.08392",
+          "material_read": "§3 Thm. 3.4, Examples 3.5 and Lemmas 3.6–3.7, PDF pp. 15–16, offsets 32800–36219",
+          "method": "OA author version",
+          "title": "Burrows–Wheeler transformations and de Bruijn words",
+          "trigger": "Prior BWT block representation and permutation inversion"
+        },
+        {
+          "assessment": "Directly covers the general bound at d>2, not the exact spectrum in the inspected passage",
+          "evidence": "States between 2^(d−1)+2 and 2^d−2 clusters for binary order d>2, and points to the prior BWT/RLE study.",
+          "identifier_or_url": "Fici et al., Proposition 32",
+          "material_read": "p. 15 offsets 56000–58444 and bibliography near entry 52",
+          "method": "OA paper passages",
+          "title": "BWT and Combinatorics on Words",
+          "trigger": "Prior lower and upper run bounds on binary de Bruijn words"
+        },
+        {
+          "assessment": "A conditional construction, not order-five obstruction or census",
+          "evidence": "With primitive x^k+x+1, the circular BWT pattern is 1(0011)^(2^(k−2)−1)010; k=5 does not satisfy primitivity.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.20598",
+          "material_read": "§4.4 Theorem 2 pp. 12ff, offsets 29955–34183; §4.5 convention",
+          "method": "OA paper passages",
+          "title": "de Bruijn BWT construction by Date and Zatesko",
+          "trigger": "Attainment theorem for the same run lower bound"
+        },
+        {
+          "assessment": "Earlier enumeration engine and different exact statistic",
+          "evidence": "The single-cycle masks are the same, but the table counts unbordered length-six factors rather than run breaks.",
+          "identifier_or_url": "Resultary:2b078dd02462",
+          "material_read": "RESULT.md Finding and Proof §1 (offsets 0–4059); exhaustive count and verification offsets 5600–7215",
+          "method": "Published local mirror",
+          "title": "Unbordered-transition spectrum of binary de Bruijn cycles",
+          "trigger": "Same order, class count and feedback representation"
+        },
+        {
+          "assessment": "Exact equal statistics and scope in a later published record",
+          "evidence": "Same linear, sentinel-free table over rotation classes, with frequencies 38,426,840,608,130,6 at even run counts 20–30.",
+          "identifier_or_url": "Resultary:1eb61f1d72f3",
+          "material_read": "RESULT.md offsets 0–7033, Finding and exhaustive computation",
+          "method": "Published local mirror",
+          "title": "Complete BWT run spectrum of binary order-five de Bruijn cycles",
+          "trigger": "Exact duplicate candidate"
+        },
+        {
+          "assessment": "Exact forward marginal of a later joint result",
+          "evidence": "The forward/reverse run table and r(W)=2^n−T(m) are stated; summing the reverse coordinate yields the frozen coefficients.",
+          "identifier_or_url": "Resultary:e9f4efa40f3d",
+          "material_read": "RESULT.md Finding offsets 0–3215",
+          "method": "Published local mirror",
+          "title": "Bit-reversal transport of reverse Burrows–Wheeler transforms",
+          "trigger": "Dominating joint statistic candidate"
+        },
+        {
+          "assessment": "Unresolved priority risk, not evidence of either coverage or noncoverage",
+          "evidence": "The relevant survey cites this paper near its bounds; no exact table was verified from this paper.",
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S0304397517305534",
+          "material_read": "Bibliographic citation, not full text",
+          "method": "Tried DOI landing and two identified lawful institutional postprint PDFs; full text unavailable",
+          "title": "Measuring the clustering effect of BWT via RLE",
+          "trigger": "2017 antecedent expressly cited in run-bound literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Run count measures residual BWT compressibility of a highly factor-diverse object. Order five is not an arbitrary cutoff: it is the first that misses the general lower bound, and the spectrum identifies both the true minimum and its exact multiplicity. The older bound and earlier different weighted count leave those quantities undetermined without a separate computation. This finite exact invariant is useful without claiming a formula or gap for all larger orders.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

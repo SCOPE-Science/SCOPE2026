@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:20:04.293273Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md: four inclusions, endpoint formula, and proof",
+        "Frozen VERIFICATION.md and four_confluence_verification.c (inspected, not run)",
+        "Independent raw-condition and DP reproductions at the replay paths above"
+      ],
+      "rationale": "Under left-to-right composition the forward condition propagates a nonempty row upward in source index and orders row maxima; downward propagates the other way and orders row minima. Backward and upward give the same two tests on columns. Conversely the appropriate extreme is a witness in each condition. The empty relation is separate. For given extrema, the intersection P of the row and column intervals contains all possible cells; requiring the row and column endpoint cells F makes each nonempty choice preserve exactly those extrema. Hence each feasible quadruple gives the stated binomial contribution, without overlap. Starting at the identity, adding an upper-diagonal edge (i,j) raises a row max to j, which the successor row already reaches when it exists, and lowers a col min to i, which the predecessor column already reaches from above when it exists; the other extrema stay fixed. The lower-diagonal insertions are the transposed argument, so every size between n and n² occurs. At n edges one gets an increasing permutation, necessarily the identity. Fixing the first and last rows and columns makes all interior bits free for n>=2 and gives the required entropy squeeze. Independent raw witness tests agreed for all matrices through order 4; a separate row-mask DP tracking first and last occupied rows in each column gave 2,5,34,538,23415,3567130 for orders 1–6. Replay python3 /workspace/branches/4bb26c7c-5703-4f23-8659-cc8a008bea47/four_way_direct_check.py and python3 /workspace/branches/4bb26c7c-5703-4f23-8659-cc8a008bea47/four_way_count_reproduction.py 6.",
+      "residual_risks": [
+        "The DP depends on the proved endpoint criterion beyond order 4. The classification is of relations on labelled chains, not arbitrary preorders or a classification of modal theories."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier --0c002f416cb4 Finding uses four prefix/suffix aggregates P,Q,D,E of row extrema of arbitrary relations, and gives an exact product of row-local multiplicities for each observational signature.",
+          "Related --b99647029094 and --7e6e6da0bef7 also concern semantic equivalence, not simultaneous confluence."
+        ],
+        "reasoning": "The earlier row signatures can collapse to the actual row endpoints on monotone nonempty rows, and already use mandatory endpoints and optional cells in a row. But the observational fiber counts range over arbitrary choices of rows; they generally include relations violating one of the column conditions. Their product formula neither tracks nor imposes simultaneous column extrema.",
+        "searches": [
+          "Resultary four-modal sparse normal form and observational fibers",
+          "External search for simultaneous monotone row and column endpoints and four-way confluence"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.07348 §3.2",
+        "Resultary --df6301f11b97, --f1e0f9b64170, --75c9508e987d, --0c002f416cb4, --b99647029094 and --7e6e6da0bef7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Transposing and combining the row-pair criterion gives all four extrema, but the earlier tables give no joint inclusion-exclusion data. On a fixed row fiber, adding a previously optional cell can change a column minimum or maximum; intersecting both endpoint specifications requires the simultaneous feasibility check F⊆P and joint optional-cell count.",
+          "The frozen record proves that every edge number n through n² occurs by a nested sequence of feasible relations, not by comparing the pair counts."
+        ],
+        "reasoning": "The joint weighted polynomial and spectrum require analyzing compatible row/column extremes, not just substituting a parameter in a pair count or semantic-fiber formula. The entropy bound is a short consequence of the endpoint criterion and is not credited as an independent major advance.",
+        "searches": [
+          "Balbiani–Gencer §3.2 versus the finite intersection enumerator",
+          "Resultary --df6301f11b97, --f1e0f9b64170 and --0c002f416cb4 Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balbiani–Gencer §3.2 defines the four confluences. Record --df6301f11b97 characterizes the forward/downward pair by row minima and maxima; its transpose gives the backward/upward pair.",
+          "Record --f1e0f9b64170 imposes forward/backward and orders row and column maxima, not all four extrema."
+        ],
+        "reasoning": "Translate composition and transpose the actual inclusions before comparing. The joint structural endpoint test is immediate from the prior row pair. The earlier pair censuses count larger classes.",
+        "searches": [
+          "Balbiani–Gencer arXiv:2606.07348 §3.2",
+          "Resultary four-way confluence and row/column endpoint normal forms",
+          "Resultary finite-chain KI and birelational confluence censuses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At n=4, --df6301f11b97 and --f1e0f9b64170 count 2855 and 4849 relations, respectively, rather than 538. Record --75c9508e987d counts forward confluence only. Record --0c002f416cb4 gives 7171 observational classes at n=4, not a count of confluent relations."
+        ],
+        "reasoning": "The inspected numbers count strict supersets or quotients of a different class. Neither their tables nor the overlap of their initial terms gives the intersection sequence or edge-count coefficients.",
+        "searches": [
+          "Resultary exact joint count and sequence 2,5,34,538,23415,3567130",
+          "Resultary forward-only, two-confluence and observational counts on labelled chains"
+        ]
+      },
+      "rationale": "Credit the existing individual and pair confluence normal forms: the four-extreme characterization follows already by combining the published row-pair characterization with its transpose, where transpose interchanges forward with backward and downward with upward. Do not count the endpoint observation itself as a new theorem in isolation. The verified distinct content is the exact joint edge-count enumerator and finite census, and the all-order edge spectrum for the intersection. The strongest inspected adjacent fiber count concerns observational equivalence of arbitrary relations; it does not impose the joint column constraints or enumerate this intersection.",
+      "residual_risks": [
+        "The focused external query did not surface a decisive matrix-enumeration source. The examined evidence does not exclude an older treatment under different binary-matrix terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the test, not the finite-chain census",
+          "evidence": "Contains the four relational conditions and names the classes; the inspected passage does not enumerate the simultaneous finite-chain class.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.07348",
+          "material_read": "§3.2 PDF pp. 6–7, OA offset about 14500",
+          "method": "OA PDF targeted reading",
+          "title": "Four intuitionistic modal connectives",
+          "trigger": "Primary definition of the four confluences"
+        },
+        {
+          "assessment": "Covers a component, and its dual gives the other component",
+          "evidence": "Forward/downward confluence is tested by row minima/maxima and gives count 2855 at n=4.",
+          "identifier_or_url": "2026/10/4/…--df6301f11b97",
+          "material_read": "RESULT.md Finding and n=4 count",
+          "method": "Resultary and local mirror",
+          "title": "Endpoint normal form and exact census for finite-chain KI frames",
+          "trigger": "Direct precursor of the row-extreme criterion"
+        },
+        {
+          "assessment": "Pair conditions, not joint class",
+          "evidence": "Forward/backward conditions test maxima in each direction; the n=4 count is 4849.",
+          "identifier_or_url": "2026/10/4/…--f1e0f9b64170",
+          "material_read": "RESULT.md Finding and n=4 count",
+          "method": "Resultary and local mirror",
+          "title": "Maxima normal form and exact census for chain birelational relations",
+          "trigger": "Earlier simultaneous row and column test"
+        },
+        {
+          "assessment": "Related endpoint counting method, not joint confluence coverage",
+          "evidence": "Its four signatures are monotone envelopes of row extrema. Every fiber count is a product over row choices for an arbitrary relation, and the n=4 count is of observational classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-sparse-normal-form-and-exact-observational-fibers-for-four--0c002f416cb4/RESULT.md",
+          "material_read": "Finding and scope, mirror offsets 0–3938",
+          "method": "Resultary and local-mirror passage check",
+          "title": "Sharp sparse normal form and exact observational fibers for four intuitionistic modalities",
+          "trigger": "Closest statement using four extrema and exact fibers on the same labelled chains"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md: endpoint polynomial, spectrum and entropy",
+        "The two prior pair-class censuses and the four-modal observational-fiber record",
+        "Independent finite count reproduction"
+      ],
+      "rationale": "All four confluences come from a natural modal frame problem, and their intersection has markedly different finite counts from either known pair. The joint polynomial gives exact conditioning on the edge budget, the sharp spectrum eliminates any further numerical edge-count obstruction, and the entropy limit quantifies the large difference between local restrictions and global matrix freedom. These are useful finite-chain statements, not claims about modal decidability or asymptotically sharp enumeration.",
+      "residual_risks": [
+        "No efficient asymptotic equivalent or polynomial-time enumeration algorithm is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

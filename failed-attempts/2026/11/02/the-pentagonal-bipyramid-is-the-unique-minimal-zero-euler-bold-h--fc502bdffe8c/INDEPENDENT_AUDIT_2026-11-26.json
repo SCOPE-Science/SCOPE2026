@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T09:46:19.751972Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The independent replay /workspace/branches/9a66e3f9-5c10-4c44-ac0d-9b512d0a36d8/independent_census.py with independent_census_output.txt enumerated every labeled edge mask at orders one through seven, filtered connected graphs and tested each nonempty induced subset for connectivity and domination. Upward closure makes the differential the one-vertex extension matrix; exact F_2 ranks give c_k-r_k-r_(k-1). The independent connected counts (1,1,4,38,728,26704,1866256), zero Euler counts (0,0,3,34,660,24401,1691767), and joint counts (0,0,0,0,0,0,252) agree with the frozen checks/bold_census_output.txt. Each positive has mod-two Betti numbers one in degrees two and three only, with two nonadjacent apices joined to a 2-regular five-vertex rim, necessarily C_5. Its automorphism group has size 20, so 7!/20=252. For the integral assertion, the downward-closed non-connected-dominating complex consists of the apex edge and the rim complex whose five triangles collapse across the five free perimeter edges, leaving the diagonal cycle. The relative cochain model with the full simplex has the stated one-degree cardinality shift, and the relative long exact sequence gives another shift to reduced cohomology of this disjoint union. This yields Z in bold degrees two and three and nowhere else. The original checker was inspected, not executed; the global census is only over F_2 and n<=7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 paper formulates the Euler question and computes cycle bold homology; the 2023 general simplicial-suspension theorem gives the pentagonal-bipyramid witness and its integral groups."
+        ],
+        "reasoning": "This broader theorem accounts for existence and the witness groups but alone does not classify all smaller and equal-order graphs. The exhaustive boundary and isomorphism assertion is covered instead by the exact earlier census.",
+        "searches": [
+          "arXiv:2201.00721 Propositions 4.6 and 5.6 and Question 5.11; arXiv:2304.10134 Theorem 5.8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, checks/bold_census.cpp and checks/bold_census_output.txt",
+        "Resultary c0f37b00e4c3 exact finding",
+        "arXiv:2201.00721 and arXiv:2304.10134 primary passages"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier record states the implication for n<=6 and the unique positive case at n=7. These together are the frozen if-and-only-if. The suspension formula and the C5 calculation supply Z in degrees two and three for the witness."
+        ],
+        "reasoning": "All substantive clauses are either stated in the earlier census or implied by the known witness formula. Reproducing all ranks using another implementation adds confidence, not a new result.",
+        "searches": [
+          "Resultary c0f37b00e4c3 mirrored RESULT.md versus frozen RESULT.md lines 5–13; suspension Theorem 5.8 for the integral part"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Proposition 4.6 identifies chi(H) with D_c(-1); over F_2, nonzero bold homology in the connected-dominating-set model is nonacyclicity of the same extension cochains. The prior cancellation record uses the same convention and identifies the same graph as the suspension of the 5-cycle."
+        ],
+        "reasoning": "Zero Euler cancellation and evaluation of the connected-domination polynomial at -1 are the same condition here. The suspension graph is the join C5 with two independent apices; the apex edge appears only in the complementary simplicial complex and is not an edge of the graph. Unrelated domination and neighborhood complexes are not substitutes.",
+        "searches": [
+          "Resultary: minimal nonacyclic zero-Euler bold homology, connected-domination cochains, seven vertices and suspension of C5",
+          "Caputi–Celoria–Collari arXiv:2201.00721 Proposition 4.6 and Question 5.11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier mirrored finding gives vanishing of bold homology in zero-Euler connected graphs through order six, exactly the C5 suspension class at seven, 252 labeled witnesses and beta_2=beta_3=1 only."
+        ],
+        "reasoning": "This is equality of the bounded graph universe, field, condition, witnesses and count, not overlap merely on a comparable numerical threshold or on one example.",
+        "searches": [
+          "Resultary exact seven-vertex cancellation census, c0f37b00e4c3; compare the full exhaustive finding and its labeled-mask/atlas checks"
+        ]
+      },
+      "rationale": "The earlier distinct Resultary record c0f37b00e4c3 explicitly gives the same exhaustive minimum, uniqueness, and label count with the same coefficient convention. The integral witness and its groups are already consequences of the cited suspension theorem, as the frozen text acknowledges. There is no distinct remaining classification statement.",
+      "residual_risks": [
+        "The broader web lookup and supplementary Graph-Uberhomology repository were unavailable; no inference of absence is drawn. The positive exact finding and theorem comparisons suffice for the coverage judgment.",
+        "This does not decide any external publication-priority or independent academic-validation question."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage of the frozen classification",
+          "evidence": "Six-vertex vanishing implication, unique seven-vertex C5 suspension, 252 labels and the same F_2 Betti profile.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-unique-minimal-seven-vertex-cancellation-of-bold-graph-homology--c0f37b00e4c3/RESULT.md",
+          "material_read": "Mirrored RESULT.md finding and census description, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local Resultary search and statement inspection; no execution of comparison artifacts",
+          "title": "Unique minimal seven-vertex cancellation of bold graph homology",
+          "trigger": "Exact minimum and uniqueness and same coefficient convention"
+        },
+        {
+          "assessment": "Establishes conventions and open-question background, not the bounded census in these passages",
+          "evidence": "Identifies the Euler polynomial evaluation, computes cycle groups, and asks if nonzero bold homology can coexist with zero Euler value.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.00721",
+          "material_read": "Proposition 4.6 (PDF p. 11, offset 40515), Proposition 5.6 (p. 17, offset 61992), Question 5.11 (p. 19, offset 69526)",
+          "method": "OA PDF passage inspection",
+          "title": "Categorifying connected domination via graph überhomology",
+          "trigger": "Original definition of bold homology and motivation for the Euler cancellation question"
+        },
+        {
+          "assessment": "Covers witness and groups by specialization; no whole-document negative claim about census data",
+          "evidence": "General simplicial-suspension formula applicable to the suspension of C5, together with the cycle calculation.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10134",
+          "material_read": "Theorem 5.8 (PDF p. 15, offset 62415)",
+          "method": "OA PDF theorem inspection",
+          "title": "From the Mayer–Vietoris spectral sequence to überhomology",
+          "trigger": "Suspected prior coverage of the pentagonal-bipyramid witness and groups"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Finding the first zero-Euler nonvanishing example and proving its uniqueness is a natural and meaningful finite boundary motivated by the published bold-homology question. But that same exhaustive boundary and witness are already stated, with the same mod-two census, in the comparison record. No new coefficient range, bound, mechanism, or other distinct scientific gain is claimed here; an independent reproduction is confirmation only.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

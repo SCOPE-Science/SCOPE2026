@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:35:04.058929Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4; VERIFICATION.md; direct.py and abstract.py inspected read-only",
+        "Independent replay constructed T_n using pair-intersection tests, enumerated compatible k-edge subsets, indexed sorted edge lists, and applied every one-edge replacement. For n=3 through 8 the counts were 3,12,30,90,630,2520; jump degrees 2,11,29,4,22,58 and slide degrees 2,6,10,4,12,20. Both graphs had ten size-9 components at n=6 and one in each other tested case."
+      ],
+      "rationale": "An edge of T_n specifies two intersecting ground pairs, hence a unique triple and center. Two selected edges are compatible if and only if their ground supports are disjoint, so maximum size is floor(n/3) and dividing by the free-label, block and leaf permutations gives n!/(r!2^k k!). After deletion the replacement is confined to the r+3 available labels. The jump degree counts all possible marked triples there except the old one; the slide degree counts edges incident to the two endpoints of the old edge in T_{r+3} other than itself. These are disjoint alternatives, since distinct edges share at most one endpoint, and distinct deleted edges cannot yield the same neighbor. For r=0 the invariant support partition gives independent K3 center changes. For r>0 a center change followed by a slide exchanges any designated occupied label with any free label. Such transpositions generate all placements (a third slot provides a buffer for same-class transpositions), and centers can be set afterward. This also works for k=1, including n=3 where there is just one component.",
+      "residual_risks": [
+        "Replay was bounded to 3≤n≤8 and checked component sizes, not Cartesian-product isomorphism; that is proved by the support invariant and independent center changes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior dissociation theorem permits isolated vertices and changes single T_n vertices. At n=3k+1 it has a second type with two isolated vertices; at n=3k+2 its states have an isolated vertex on the pair of free ground labels.",
+          "The general independent-set frameworks do not state the exact all-order degrees for the restricted L(T_n)-adjacency slides."
+        ],
+        "reasoning": "Despite closely related connectivity problems, the dissociation exchange graph does not furnish a general degree theorem for the two matching-edge graphs. At n=4 for example the dissociation graph has 15 vertices, while both frozen graphs have 12.",
+        "searches": [
+          "Resultary 1c0a049562c4: actual Finding and proof for all residues",
+          "Bonsma–Kamiński–Wrochna arXiv:1403.0359; Eto et al. arXiv:2111.13476"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, including the precise ambient graph and move definitions",
+        "Resultary 1c0a049562c4",
+        "OA primary passages arXiv:1403.0359 and arXiv:2111.13476; focused primary literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At r=0 the older exchange graph equals both frozen graphs. At r=1 the older path-and-singleton induced subgraph equals the frozen slide graph: a single T_n-vertex replacement within that subtype retains the other endpoint of the selected edge. The older proof explicitly supplies the vacancy slide and the six within-type moves per block.",
+          "At r=2 the two-step old dissociation move projects to jumps on the matched edges but not generally to slides; the old proof can inform connectivity, not count the new neighborhoods."
+        ],
+        "reasoning": "Do not credit the residue transition as independent novelty. The distinctive exact theorem concerns the two edge-token neighborhoods on the same states, including whole-edge jumps whose changing edges need not share an endpoint. Neither the old graph nor a change of terminology yields those transition counts.",
+        "searches": [
+          "1c0a049562c4 local mirror offsets 0–8561; arXiv:2111.13476 p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximum induced matchings correspond to maximum independent sets of F=L(T_n)^2, with jump equal to independent-set TJ on F.",
+          "Frozen slide requires adjacency in L(T_n), not F: at n=4 the edges ({1,2},{1,3}) and ({1,4},{2,4}) have distance two in L(T_n) but share no endpoint in T_n.",
+          "Eto et al. change one vertex of the induced 1-regular subgraph, not one whole edge of T_n."
+        ],
+        "reasoning": "Marking a center on a complete 3-uniform packing is a genuine equivalent state encoding, but unmarked packing moves do not distinguish the two degree counts. Ordinary independent-set TS on the conflict graph is a different move.",
+        "searches": [
+          "Resultary: residue-three triangular-graph reconfiguration, maximum induced matching / dissociation; 1c0a049562c4",
+          "Primary literature: triangular-graph induced matching edge jump/slide, arXiv:1403.0359, arXiv:2111.13476"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Its asserted component counts and r=0 Cartesian components agree exactly in that range. Its r=1 path-and-singleton subtype and r=2 canonical extra isolated vertex also account for the matching state counts.",
+          "For r=2 the prior graph degree is 6k, not 10k or 29k; for r=1 its full vertex-jump degrees are 8k and 10k−2, not the edge-jump degree 11k."
+        ],
+        "reasoning": "Credit the existing state-count and component overlap. The closest exact enumeration is under a different adjacency, so it is not a table of the two exact edge-token degrees.",
+        "searches": [
+          "Resultary 1c0a049562c4 exact component classification, enumeration/degree section and reported small-order counts"
+        ]
+      },
+      "rationale": "The residue transition, marked-block method and multiple-of-three component formula substantially overlap the prior triangular-graph dissociation record. The supported distinct contribution is the exact comparison of both whole-matching-edge reconfiguration graphs, notably the jump degrees for r=1,2 and the slide degree for r=2. The older one-vertex move graph is not either of these graphs uniformly over the residues and its degrees are not a formula for the frozen edge-token degrees.",
+      "residual_risks": [
+        "A more specific account of whole-edge strong-matching reconfiguration or marked hypergraph packings could cover the exact neighborhood counts; bounded searches do not establish historical priority. The overlapping connectivity and state-count results should be credited explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial partial coverage, including r=0, the r=1 slide subgraph, and marked-state counts; not the joint edge-token degree theorem",
+          "evidence": "At r=1 vacancy swaps occur inside the pure-path subtype, and at r=2 the single ground edge participates in a two-step exchange through a state not corresponding to a single slide.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-a-residue-three-connectivity-transition-for-maximum-dissociation--1c0a049562c4/RESULT.md",
+          "material_read": "Finding and structural reduction, component proof, degree cases and recorded counts; offsets 0–8561",
+          "method": "OA local Resultary mirror",
+          "title": "A residue-three connectivity transition for maximum dissociation sets of triangular graphs",
+          "trigger": "Same family, residues, and Cartesian components"
+        },
+        {
+          "assessment": "Model context, not coverage of the claimed joint degrees",
+          "evidence": "Standard TS uses adjacency in the independent-set base graph; applying it to the square conflict graph allows replacements excluded here.",
+          "identifier_or_url": "arXiv:1403.0359",
+          "material_read": "Pages 1–2, offsets near 600 and 5250, TJ and TS definitions",
+          "method": "OA primary text",
+          "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+          "trigger": "Independent-set reconfiguration formulation"
+        },
+        {
+          "assessment": "Different move convention",
+          "evidence": "It changes one selected vertex of the original graph, allowing only one endpoint of an induced matching edge to be replaced in a step.",
+          "identifier_or_url": "arXiv:2111.13476",
+          "material_read": "Page 2, near offset 4000, move and state definitions",
+          "method": "OA primary text",
+          "title": "Reconfiguration of Regular Induced Subgraphs",
+          "trigger": "d=1 model describes induced matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen degree and component theorems",
+        "Resultary 1c0a049562c4 model and degrees"
+      ],
+      "rationale": "The two natural models have the same reachable components but very different local mobility: e.g., with two free labels there are 29k jump choices but only 10k slide choices. The exact, labeled all-order comparison clarifies why allowing a whole matching edge to jump does not change reachability in this family despite adding many transitions. This is distinct utility from recomputing the known residue transition alone.",
+      "residual_risks": [
+        "Limited to maximum matchings and single-edge moves on this family; no diameter, mixing, or broader reconfiguration bound is shown."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

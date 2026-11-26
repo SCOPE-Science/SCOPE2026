@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:14:06.978624Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For s=y+2z and t=x+y+z, the allowed z are precisely max(0,s−t) through floor(s/2). Sorting by s modulo a gives the finite representation count. At the proposed G the first two rows give h+1 and p−h−1 and all later rows vanish. Each successor below G+a has the unique form G+aj−dv with 1≤v<a and j=ceil(dv/a)≥1; coprimality makes this a bijection with the nonzero offsets. The first two rows give p+j−δ, with δ the second-row saturation correction. If δ>0, the raw third-row count minus δ−j+1 is h−d+j−ceil(v/2)≥0, since d(a−v)/a<(a−v)/2. The nonnegative third-row count therefore supplies any deficit. At G+a the second row gains one entry even at the upper endpoint, giving at least p+1. Adding one a-coin then propagates the bound to every larger integer. The rechecked independent three-coin dynamic program (check_record4.py and check_record4_output.txt) found exactly p at all 30,750 boundaries and at least p+1 at all 1,940,622 successors for odd a≤83; it also found D(74)=8 and D(75),…,D(79)=9 for (5,3), which proves the stated out-of-range example by residue monotonicity. The supplied code and output are recorded corroboration, not an infinite proof or executed in this review.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Ying treat the same progression but require p≤floor(a/2) and get slope a+2d. Komatsu's general maximum-of-thresholds theorem does not evaluate those thresholds.",
+          "fd1945b86510 allows both parities of a and gives the same affine phase for d≥2 from floor(a/2)+2 through a+d, plus the strict break. d6ba501caf95 supplies the entire p-Apéry set and exact predecessor multiplicities at p=floor(a/2)+1 for d≥3; for odd a the largest predecessor is a(a−1)+(2a−1)d."
+        ],
+        "reasoning": "The classical general reduction is not itself full coverage; the stronger later threshold evaluations give concrete coverage. Restricting the broader theorems to the frozen hypotheses yields the displayed value and count on their domains.",
+        "searches": [
+          "Komatsu–Ying arXiv:2206.13052v3 Theorem 1",
+          "Komatsu arXiv:2111.11021v5 Corollary 1",
+          "Resultary fd1945b86510, (1) and Steps 1–3",
+          "Resultary d6ba501caf95, Finding and Steps 1–5"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py (not executed), verification_output.txt",
+        "arXiv:2206.13052v3",
+        "arXiv:2111.11021v5",
+        "Resultary Findings and proofs fd1945b86510, 6dc430dbb315 and d6ba501caf95"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "To obtain the otherwise unmatched d=2,p=h+1 corner from the odd-a first-post-range proof, write n=a(a+d+k)+dt, 0≤t<a and k=−1 or 0. A row ℓ≥2 would require 2a+2d≥2a+4d+t, impossible even at d=2. Row 0 gives 1+floor(t/2) and row 1 gives 1+floor((a+2k−t)/2); for odd a their sum is h+2+k. Hence each threshold and predecessor remain exactly those in that proof, now also for d=2. Taking t=a−1 gives the frozen value and exactly p representations.",
+          "Alternatively, in Steps 2–3 of the sharp affine proof, the lower-level restriction is used to ensure p≥ℓ0(r) in each residue, which holds already at p=h+1 for odd a; the attaining row also has ℓ0(a−1)=h+1."
+        ],
+        "reasoning": "The small omitted corner is not distinct mathematical content: the decisive proofs give it by the same row count with the same inequalities. Together the established evaluations exhaust the frozen affine and multiplicity claim, without supposing any matching source came first historically.",
+        "searches": [
+          "Resultary d6ba501caf95, Proof Steps 1–5 and odd-a case",
+          "Resultary fd1945b86510, proof of affine upper bound and attainment",
+          "Resultary 6dc430dbb315, Second regime proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For odd a the frozen value equals a(p+h−1)+(2a−1)d; d=1 specializes it to a(h+p+1)−1, exactly the second regime of 6dc430dbb315.",
+          "The p-Apéry thresholds are the (p+1)st residuewise base values counting multiplicities; subtracting a gives the last exception in that residue. The proof of fd1945b86510 Step 3 identifies the threshold in residue −d with exactly p bases below it, which are precisely the bases at most G."
+        ],
+        "reasoning": "These are the same threshold, counts and denomination model, not matches on terminology or sample parameters. The informal residue label in the Finding of fd1945b86510 is not used: its displayed value and Step 3 explicitly use the maximizing row r=a−1, which gives residue −d modulo a.",
+        "searches": [
+          "arXiv:2111.11021v5, p-Apéry definition and Corollary 1",
+          "Resultary fd1945b86510, Finding and Proof Steps 1–3",
+          "Resultary 6dc430dbb315, Second regime"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The first exact formula matches d≥2 and h+2≤p≤a+d; the second's middle phase matches d=1 and h+1≤p≤a+1; the third matches d≥3 at p=h+1. Their confirming proofs also show exact multiplicity. All three are distinct records from the frozen input."
+        ],
+        "reasoning": "The matches are exact over the indicated subdomains and their dates are later than the frozen catalogue date. The date distinction is preserved; it does not undo the matching statements or supply evidence of priority.",
+        "searches": [
+          "2026/11/22/SCOPE-a-sharp-affine-p-frobenius-phase-for-three-term-arithmetic-progr--fd1945b86510",
+          "2026/10/18/SCOPE-three-exact-phases-of-generalized-frobenius-numbers-for-three-co--6dc430dbb315",
+          "2026/11/22/SCOPE-first-post-range-representation-thresholds-for-three-term-arithm--d6ba501caf95"
+        ]
+      },
+      "rationale": "The frozen mathematical claim is demonstrably covered by distinct indexed results, not by Komatsu–Ying's published first phase. The later-dated Resultary records state exactly the same affine value on d=1 (including the boundary multiplicity), on d≥2 and p≥h+2, and on d≥3 at p=h+1. The remaining corner d=2, p=h+1 follows directly from the inspected first-post-range proof: for odd a it uses only k=−1,0 and the exclusion of higher rows works for every d>0. The sharp affine proof counts exactly p bases before the maximizing threshold, so its overlap includes D(G)=p. Thus no separate affine-phase or exact-boundary claim survives the statement-level coverage check. This finding concerns coverage in the inspected record set; the covering records have later catalogue dates, and this review does not infer that they were antecedents to the frozen work, nor make a priority or authorship ruling.",
+      "residual_risks": [
+        "No historical priority or dependence is inferred from the later catalogue matches or from this coverage decision.",
+        "The publisher version of Komatsu–Ying was not accessed; the linked preprint supplies the exact compared theorem. The noncoverage finding about its first-phase theorem is not an assertion about every other possible source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior first phase only",
+          "evidence": "0≤p≤floor(a/2); g_p=(a+2d)p+floor((a−2)/2)a+(a−1)d.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.13052v3",
+          "material_read": "Theorem 1, PDF p. 5, text offset 12593 and surrounding preprint discussion",
+          "method": "OA arXiv preprint; publisher access attempt did not yield full text",
+          "title": "The p-numerical semigroup of the triple of arithmetic progressions",
+          "trigger": "Same generators and published first phase"
+        },
+        {
+          "assessment": "Supplies framework, not this explicit evaluation",
+          "evidence": "g_p=max_i m_i^(p)−a_1; the m_i^(p) are least residue thresholds with more than p representations.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.11021v5",
+          "material_read": "PDF pp. 2, 4 and 6, definitions and Corollary 1, text offsets 5200 and 13931",
+          "method": "Bounded OA full-text passages",
+          "title": "On the determination of p-Frobenius and related numbers using the p-Apéry set",
+          "trigger": "General theorem that could subsume residue-window computation"
+        },
+        {
+          "assessment": "Exact and broader coverage over its range; proof supplies the boundary count",
+          "evidence": "Equation (1) gives a(p+m−1)+(2a−1)d for m+2≤p≤a+d; in Step 3 exactly p bases precede the attaining threshold in row a−1.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-affine-p-frobenius-phase-for-three-term-arithmetic-progr--fd1945b86510",
+          "material_read": "RESULT.md Finding, assumptions, and Proof Steps 1–4, offsets 0 and 4190",
+          "method": "Resultary local mirror",
+          "title": "A sharp affine p-Frobenius phase for three-term arithmetic progressions",
+          "trigger": "Exact matching affine formula for d≥2"
+        },
+        {
+          "assessment": "Exact overlap for d=1, with additional regimes outside this claim",
+          "evidence": "g_p=a(h+p+1)−1 on h+1≤p≤a+1, with d_a(G)=p and all a successors above p.",
+          "identifier_or_url": "2026/10/18/SCOPE-three-exact-phases-of-generalized-frobenius-numbers-for-three-co--6dc430dbb315",
+          "material_read": "RESULT.md Finding and Second regime proof, offset 0",
+          "method": "Resultary local mirror",
+          "title": "Three exact phases of generalized Frobenius numbers for three consecutive denominations",
+          "trigger": "Exact d=1 case"
+        },
+        {
+          "assessment": "Exact overlap for stated d≥3; odd-a proof also covers d=2 directly",
+          "evidence": "For odd a, M_t=a(a+d)+dt and D(M_t−a)=p; only two rows can contribute at the tested levels for any d>0.",
+          "identifier_or_url": "2026/11/22/SCOPE-first-post-range-representation-thresholds-for-three-term-arithm--d6ba501caf95",
+          "material_read": "RESULT.md Finding, assumptions and Proof Steps 1–5, offset 0",
+          "method": "Resultary local mirror",
+          "title": "First post-range representation thresholds for three-term arithmetic progressions",
+          "trigger": "First post-range level h+1 and exact predecessor multiplicities"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Resolving an entire affine phase after the end of the first established phase for a natural generator family, and proving exact attainment, is structurally useful mathematics. The independent value of knowing such a formula is separate from the demonstrated coverage of this frozen claim. The out-of-range example illustrates a real domain restriction but does not alone leave a distinct valuable repaired claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

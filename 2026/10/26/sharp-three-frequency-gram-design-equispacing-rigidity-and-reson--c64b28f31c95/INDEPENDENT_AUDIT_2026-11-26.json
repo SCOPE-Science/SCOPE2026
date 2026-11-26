@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:40:31.509664Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The dx/2 normalization gives a real sinc Gram matrix of trace 3. My symbolic replay /workspace/review-evidence/gram.py, independent of the frozen checker, confirms the elementary-symmetric coefficient expansions and the two symmetric eigenvalue coefficients. With z=ε² and λ=z²y, the characteristic equation divided by z³ is analytic at z=0, and the derivative in y there is 2(3+t²)/3, bounded away from zero on the closed interval. Local analytic branches glue on a compact neighborhood; this gives a uniform C² expansion in t. The largest root tends uniformly to 3 and the nontrivial middle root is 2(3+t²)z/9+O(z²), by the principal-minor sum, so the constructed root is the least even at t=±1. Its rescaled limit 2(1−t²)²/[45(3+t²)] has a strict isolated maximum with second derivative −28/405 at zero. Evenness, strict concavity near zero and the positive gap away from it imply exact uniqueness, not just convergence of optimizers. At zero the antisymmetric root is 1−sinc(2ε), and the remaining roots follow by splitting the symmetric 2×2 block. Independently, dividing the small block determinant 2z²/45−2z³/315+O(z⁴) by its large root 3−2z/3+O(z²) gives 2/135 and 2/1701. For any positive ε, compactness attains the maximum, and trace 3 forces equality at 1 exactly at identity. The two positive adjacent gaps must sum to 2ε and be nonzero integer multiples of π. This gives precisely the stated lattice, m≥2, the parity criterion and the m=3 strict loss at t=0. No intermediate-aperture classification is implied.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The generalized prolate setup and equispaced asymptotics are explicit, and broader two-sided clustered singular-value estimates are available.",
+          "The confluent work treats derivatives and fixed-grid recovery rather than this exact placement problem."
+        ],
+        "reasoning": "Order estimates and fixed-shape asymptotics do not compare all t sharply at each aperture; even leading-order global maximization plus a uniform C⁰ remainder would not by itself prove equality at t=0.",
+        "searches": [
+          "arXiv:2107.09326 Definition 2.4, Theorem 2.3 and §3 Eq. (3.1)",
+          "arXiv:1809.00658 continuous Gramian and clustered nodes",
+          "arXiv:1909.01927 Theorem 2.3",
+          "arXiv:2203.11923 abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2107.09326",
+        "arXiv:1809.00658",
+        "arXiv:1909.01927",
+        "arXiv:2203.11923",
+        "Resultary 0602ba6c6c22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Leading midpoint control is shared; the frozen proof needs a uniform C² expansion, a strict second-derivative sign, and a global gap to turn it into exact uniqueness.",
+          "The resonance lattice follows directly from ordinary sinc zeros plus the trace bound; no substantial priority claim relies on that observation in isolation."
+        ],
+        "reasoning": "The exact free-location optimization on a neighborhood of ε=0 is not established by the checked prior statements, while the orthogonality and prescribed-spacing ingredients deserve no independent credit.",
+        "searches": [
+          "Comparison with Resultary 0602ba6c6c22 finding and limitations",
+          "Comparison with cited equispaced prolate asymptotics and standard Fourier orthogonality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Use the squared lower singular value of the continuous synthesis operator or the generalized prolate Gram matrix; reflection and translation identify the fixed-span formulation with varying the middle node.",
+          "Resultary 0602ba6c6c22 is a materially related midpoint theorem for weighted symmetric finite sampling, but optimizes a leading coefficient rather than the exact eigenvalue."
+        ],
+        "reasoning": "Passing between the synthesis operator and Gram matrix does not make leading-order optimality equivalent to exact finite-aperture optimality. A paper on construction of exponential bases (De Carli) was scoped by abstract only, not treated as a full-text exclusion.",
+        "searches": [
+          "Resultary: fixed-span three-tone least sinc-Gram eigenvalue, midpoint and aperture",
+          "Primary literature search: fixed-span E-optimal placement of three exponentials and nonharmonic Fourier-frame design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/11/8 record 0602ba6c6c22 states a weight-independent leading-order midpoint maximizer for finite symmetric weighted apertures and limits itself to the small-separation coefficient. Neither that finding nor a fixed equispaced spectral formula is an exact optimizer table for the continuous sinc problem."
+        ],
+        "reasoning": "The material overlap is credited regardless of the date; the finite weighted leading-order result neither states all finite-aperture optimizers nor implies the exact continuous theorem as written.",
+        "searches": [
+          "Resultary fixed-endpoint midpoint/aperture records",
+          "Equispaced prolate formula in arXiv:2107.09326, §3 Eq. (3.1)"
+        ]
+      },
+      "rationale": "Credit prolate asymptotics, the fixed equispaced spectrum, and the elementary orthogonality criterion as background. The distinct supported content is exact global, unique placement for every sufficiently small positive aperture in the continuous fixed-span three-node problem. Resonance is a simple complementary result, not sufficient by itself for novelty or value.",
+      "residual_risks": [
+        "Earlier nonharmonic-exponential design literature could contain exact fixed-span optimization; the bounded search is not a priority certificate.",
+        "The broadly related weighted finite midpoint result overlaps in mechanism and leading coefficient, not the validated finite-aperture regime."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background and equispaced overlap",
+          "evidence": [
+            "Integral definition matches normalization; Eq. (3.1) concerns equispaced nodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.09326",
+          "material_read": "Definition 2.4, Theorem 2.3 and §3 Eq. (3.1), including PDF pp. 3–4, offsets 11704–16172",
+          "method": "OA primary passages",
+          "title": "Single-exponential bounds for the smallest singular value of Vandermonde matrices in the sub-Rayleigh regime",
+          "trigger": "Closest continuous Gram and equispaced asymptotic source"
+        },
+        {
+          "assessment": "Spectral bounds, not exact design",
+          "evidence": [
+            "Continuous Gramian bounds and the prolate specialization do not select the best free central node."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.00658",
+          "material_read": "PDF pp. 2 and 5, offsets 5614 and 14824",
+          "method": "OA primary passages",
+          "title": "Conditioning of partial nonuniform Fourier matrices with clustered nodes",
+          "trigger": "Irregularly spaced continuous Gramian"
+        },
+        {
+          "assessment": "Scaled bounds rather than optimizer",
+          "evidence": [
+            "Two-sided estimates involve cluster parameters."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.01927",
+          "material_read": "Theorem 2.3, PDF p. 6, offset 23535",
+          "method": "OA primary passage",
+          "title": "The spectral properties of Vandermonde matrices with clustered nodes",
+          "trigger": "Stronger-looking clustered spectral theorem"
+        },
+        {
+          "assessment": "Different stated operator and question",
+          "evidence": [
+            "Confluent Vandermonde matrices and original plus derivative measures."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.11923",
+          "material_read": "Abstract, PDF p. 1, offset 608",
+          "method": "OA primary abstract scope comparison",
+          "title": "Super-resolution of generalized spikes and spectra of confluent Vandermonde matrices",
+          "trigger": "Potential alternative Fourier stability formulation"
+        },
+        {
+          "assessment": "Material leading-order overlap, not exact finite-aperture coverage",
+          "evidence": [
+            "Finite weighted symmetric samples; leading gain only; no resonance classification."
+          ],
+          "identifier_or_url": "Resultary 0602ba6c6c22",
+          "material_read": "Finding and Limitations passage (offset 5990)",
+          "method": "Configured Resultary search and local mirror",
+          "title": "Universal midpoint optimality and a sharp three-source Fourier stability coefficient",
+          "trigger": "Strongest exact midpoint catalogue hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The free middle frequency at fixed bandwidth is a natural stability design variable. Exact small-aperture rigidity and the sharp optimum cost answer more than a scale bound or fixed-node computation. The lattice of perfect-conditioning designs provides a concrete contrast, with an entire resonant family excluding symmetry. No claim is made that the small-aperture interval is maximal or that the uncovered intermediate design problem is solved.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

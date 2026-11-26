@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:32:16.955961Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md equations and proof, lines 7–64",
+        "Frozen VERIFICATION.md and verify.py examined as text; no uploaded code executed",
+        "Independent proof check of transported chords by deleting a transposition and small-step multiplicity control"
+      ],
+      "rationale": "The rank-one midpoint factor is the stated convex two-site update at finite h. Positive diagonal entries and a positive sweep transition for each original oriented tree edge imply irreducibility and aperiodicity, so the zero-sum radius is strictly below one. Starting with singleton cycles, every edge joins different components of a growing forest, and the transposition merges their cycles; the limiting P is one n-cycle. Writing s=1/h gives P⁻¹M=I−sH+O(s²) with H the sum of the transported incidence outer products divided by rates. Differentiating each simple eigenvalue of P gives −ζ_k u_k*Hu_k, and the normalized cycle Fourier vectors give the displayed sine-square formula. If any nonconstant mode had zero first-order attenuation, it would be fixed by all the transported transpositions and therefore by P, a contradiction. As a check on the path and star simplifications, omitting edge j from P multiplies it on the right by its transported transposition; this splits P into cycles of lengths d_j and n−d_j. The two cycles are the components after deleting the original edge. Thus a path has split sizes j and n−j (the sine-square sum is n/2), whereas all star splits are 1 and n−1. For small h the scaled matrix (I−M)/h is L_T+O(h); since the baseline L_T is symmetric, its eigenvalues cluster within O(h) of those of L_T, with the appropriate multiplicities, giving the stated spectral-radius expansions even for the repeated star eigenvalue. For n≥4 the connectivity ordering is opposite to the ordering of the stiff deficits. Continuity on the fixed zero-sum space gives at least one crossover, not uniqueness.",
+      "residual_risks": [
+        "The expansion assumes fixed finite graph, rates and sweep order; it is not uniform in size or rates. Spectral radius controls asymptotic sweep convergence, not one-step singular norm. The frozen numerical tests are illustrative, not the all-tree proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spiteri–Wei p. 2 and Remark 9 on p. 11 give general fractional-step stability context; the simultaneously diagonalizable test setting does not apply to adjacent tree edge Laplacians.",
+          "Chen–Belabbas–Liu pp. 1, 3 and 5 describe broader weighted update and convergence conditions, but the inspected sections do not give a cycle Fourier stiffness law."
+        ],
+        "reasoning": "Convergence at every finite weight, general stability regions or edge ordering independence do not specify a first-order stiffness loss. Standard eigenvalue perturbation must here be combined with the limiting cycle and explicit transported incidences.",
+        "searches": [
+          "arXiv:2205.06365 fractional-step Runge–Kutta",
+          "arXiv:2102.08853v2 holonomic graph gossip",
+          "DOI 10.1109/TAC.2017.2688278"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1109/TAC.2017.2688278 (abstract)",
+        "arXiv:2102.08853v2 and arXiv:2205.06365",
+        "Resultary d26999634a1a, b4e17f3ba20b, a87a1a4ca010"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tree order invariance controls different orders on the same tree and therefore does not compare the path and star as the common update weight ranges from near zero to near one.",
+          "A full characteristic polynomial for each family valid across common weights, if supplied in an inaccessible source, could in principle imply the reversal; the retrieved abstract does not exhibit such a formula or a weighted-tree stiff law."
+        ],
+        "reasoning": "The exact found comparisons do not directly imply the weighted coefficient or the general-size reversal; a named unresolved possibility about Yu et al. is distinct from verified implication.",
+        "searches": [
+          "Yu et al. DOI 10.1109/TAC.2017.2688278, ANU abstract and lawful copy checks",
+          "Resultary d26999634a1a and b4e17f3ba20b Finding passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Cayley/midpoint factor is the ordinary symmetric gossip factor in this parameterization: q lies in (0,1) and tends to 1 (the transposition), not above 1. The equal-rate scheme is a common-weight periodic gossip sweep.",
+          "The ANU primary abstract for Yu et al. states order-invariant convergence rate when every tree edge is used once per period; it also discusses optimal tree structures. Chen et al. p. 3 cites that tree result, and p. 5 allows general convex pair weights."
+        ],
+        "reasoning": "The equivalent update representation and known order invariance are credited. Neither the update equivalence nor order invariance alone is a first derivative of the radius at the transposition limit or a comparison between two tree types.",
+        "searches": [
+          "Periodic tree gossip, weighted convex pairwise averaging, Cayley/Crank–Nicolson stiff sweep, path versus star spectral radius",
+          "Yu et al. DOI 10.1109/TAC.2017.2688278",
+          "Chen–Belabbas–Liu arXiv:2102.08853v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected November 22 records respectively give a four-vertex fixed-weight star order comparison with invariant sweep characteristic polynomial, and weighted four-site path comparisons, including squared-disagreement spectra. The November 17 path record measures Gini contraction. No match to all-size mode attenuation or an equal-rate path/star radius comparison was obtained from these entries."
+        ],
+        "reasoning": "These exact computations are finite-order/fixed-topology comparisons and in some cases different observables; they are not tables of the claimed all-size coefficient or of cross-topology spectral regimes.",
+        "searches": [
+          "Resultary weighted gossip four-site paths and three-edge stars, exact spectral/characteristic polynomial comparisons",
+          "Resultary d26999634a1a, b4e17f3ba20b, a87a1a4ca010"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the explicit weighted-tree stiff Fourier coefficient and the parameter-driven equal-rate path/star reversal. The finite-h pair update is exactly a convex gossip update of neighbor weight q=ha/(1+ha); neither periodic gossip, its tree edge-order invariance, nor path/star benchmarking is new. The closest periodic-gossip full text could not be obtained lawfully in the attempted routes; its actual abstract and the other accessible passages do not establish coverage of the stiff coefficient or reversal.",
+      "residual_risks": [
+        "The primary full text of Yu et al. was not lawfully available in the routes tried. The stated common-weight extension and any exact path/star formulas there are not independently verified; such formulas could affect originality of the reversal. No absolute priority claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Verified nearby tree order-invariance result; strongest unresolved source for general-weight path/star formulas",
+          "evidence": "Abstract states tree convergence-rate invariance over orders using each edge once and discusses optimal tree structures. Repository PDF is restricted; alternate PDF request returned 403.",
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2017.2688278",
+          "material_read": "ANU repository abstract; full text and Remark 3 not obtained",
+          "method": "Primary repository page; attempted publisher/DOI and identified ResearchGate PDF routes",
+          "title": "Distributed Averaging Using Periodic Gossiping",
+          "trigger": "Identical tree periodic-gossip sweep under the weight reparameterization"
+        },
+        {
+          "assessment": "Weighted gossip and convergence context; no stiffness coefficient in inspected passages",
+          "evidence": "Defines local pair averaging weights in (0,1); identifies once-per-period tree order-invariance as known.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.08853v2",
+          "material_read": "Primary PDF, pp. 1, 3, 5",
+          "method": "OA primary text passages",
+          "title": "Gossip over Holonomic Graphs",
+          "trigger": "Broader weighted pairwise-update framework"
+        },
+        {
+          "assessment": "Broader operator-splitting background; does not supply the claimed calculation in these passages",
+          "evidence": "The simultaneous-diagonalizability assumption of the test problem does not hold for noncommuting adjacent edge Laplacians.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.06365",
+          "material_read": "Introduction p. 2; Remark 9 p. 11",
+          "method": "OA primary text passages",
+          "title": "Fractional-Step Runge–Kutta Methods: Representation and Linear Stability Analysis",
+          "trigger": "General fractional-step linear stability"
+        },
+        {
+          "assessment": "Fixed-size weighted order/disagreement questions, not the target regimes",
+          "evidence": "Same star characteristic polynomial across orders; squared-disagreement comparison for a four-site path. No all-size cross-topology parameter comparison in the inspected statements.",
+          "identifier_or_url": "Resultary:d26999634a1a; Resultary:b4e17f3ba20b",
+          "material_read": "Matching findings and scope",
+          "method": "Local Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Opposite optimal orderings for three-edge weighted gossip; Opposite one-sweep orderings for weighted four-site path gossip",
+          "trigger": "Exact characteristic polynomials for related path and star sweeps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and proofs of finite-step, stiff and small-step regimes"
+      ],
+      "rationale": "The result quantifies how a strictly mixing algorithm approaches a nonmixing permutation in the stiff regime; the coefficient explains precisely why an ordering suggested by continuous-time connectivity can reverse for the completed discrete sweep. The formula treats arbitrary positive rates on every finite tree, not just an isolated numerical crossover.",
+      "residual_risks": [
+        "The comparison is of asymptotic spectral mixing factors; it is not a universal finite-sweep ranking or a prediction of the exact crossover timestep."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

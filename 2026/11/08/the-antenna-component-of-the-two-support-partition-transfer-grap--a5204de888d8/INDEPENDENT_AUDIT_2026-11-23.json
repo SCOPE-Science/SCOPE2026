@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T15:23:59.413849Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and supporting files, including artifact code inspected as text only",
+        "Complete corrected replacement proof: /workspace/repairs/5/RESULT.md",
+        "Corrected verification account: /workspace/repairs/5/VERIFICATION.md",
+        "Independent exact replay: python /workspace/checks/frozen-check-5.py"
+      ],
+      "rationale": "For the repaired result only: the frozen closure table and prose say a singleton entering a size-two row of (2^p,1) yields (3,2^p), which has the wrong total n; the correct result is (3,2^(p−1)). For example (2,2,2,1) becomes (3,2,2) at n=7. When p=1 and there are at least two singleton rows the same donor/recipient type produces the hook (3,1^(q−1)), not listed in the frozen explanatory subcases. At (3,1), the move from size 3 to size 1 gives (2,2), contrary to the frozen blanket statement that other nontrivial outcomes have at least three sizes. A fresh-row move from the larger part of (a,b) gives the equal-largest odd exception only for a=b+1 and b>=2, since b=1,a=2 yields support one. The replacement proof treats all feasible donor/recipient sizes with multiplicity checks and filters loops and support-one/three results. A transfer is reversible by moving a unit back, creating a fresh row if the old donor was a singleton, so enumerating outgoing transfers suffices for undirected closure. From H only H,T,U survive; T gives T,H, or (b,b,1); U gives U,H, or (3,2^(p−1)). The two extra families attach by one edge to their respective chains and are adjacent to each other only for n=7. At n=5 the would-be extras already lie in U_5 and T_5, and n=3 is a singleton. For n>=4 the only intersections of H,T,U are the two different end hooks. Inclusion–exclusion and the two distinct odd added vertices give the stated orders. The witness (n−4,2,2) is two-support outside the closed set for every n>=8; whole-stratum counts for n=3..7 are 1,2,5,6,11. Independent indexed-row BFS with all partitions confirmed the component at n=3..24 and agreed with the value-pair implementation on all support-two vertices at these sizes; feasible value-pair closure was checked through n=250. This preserves the theorem statement but corrects a false exhaustive description in the supporting proof.",
+      "residual_risks": [
+        "The finite BFS and closure replays stop at different bounds. The corrected case analysis, not either bounded experiment, is the all-n proof. There is no claim about the membership of other components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older path theorem gives the hook and two side chains as paths of the ambient graph. The rectangular-ear work analyzes ambient-graph neighborhoods, and support there also labels ear attachment edges. The support-jumps paper gives the elementary multiplicity update in §3 and fixes the induced support strata in §6.1."
+        ],
+        "reasoning": "The known paths give the connected base family (after omitting the support-one endpoints), and the general multiplicity rule is a known ingredient. None is a maximal connected component result for the support-two stratum; an exhaustive transfer classification is still needed.",
+        "searches": [
+          "Lyudogovskiy arXiv:2603.21221v1 Proposition 2.7, Definition 2.8",
+          "arXiv:2603.24824v1 §§2–4",
+          "arXiv:2604.11837v1 §§3,5–8"
+        ]
+      },
+      "checked_sources": [
+        "Three primary Lyudogovskiy preprints above",
+        "Exact/related Resultary and web query results",
+        "Repaired Finding, scope and closure proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Problem 7.4 asks for the connectivity threshold of the fixed-support graph, if one exists; the section explicitly treats its patterns as computational, not theorems. Proposition 2.7 only proves ambient paths with the same two end hooks. The adjacency of the extra odd-size shapes and lack of any escape in the induced graph are not asserted in either result."
+        ],
+        "reasoning": "The connected chains and number of components in the atlas do not determine which vertices may be reached from the chains. The corrected case split resolves precisely that issue and gives a cutoff beyond the atlas; it does not settle the general fixed-support problem.",
+        "searches": [
+          "arXiv:2604.11837v1 Problem 7.4 and §8; arXiv:2603.21221v1 Proposition 2.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact graph is the induced stratum of positive size-count two in the unit-cell-transfer graph on unlabelled partitions. Ferrers conjugation preserves support size (arXiv:2604.11837v1 §5.2) and exchanges the two side chains of the older boundary framework. It exchanges the two extra shapes as well. The semantic exact match was the assigned record itself; other returned graph/partition problems used different vertices and edges."
+        ],
+        "reasoning": "This is not a partition Gray code in the unrestricted graph, or a component of the graph on support levels. Conjugation identifies the two end viewpoints, not a missing closure theorem.",
+        "searches": [
+          "Resultary: partition graph antenna component exactly two distinct part sizes support two fixed stratum hook support cutoff Lyudogovskiy",
+          "Web: partition graph support jumps fixed support two component antenna hook connectivity Lyudogovskiy partition transfer graph 2604.11837"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "§7.4 tabulates support-two component counts through n=25, giving one for n=3..7 and more than one for n=8..25; §7.1 gives the small stratum cardinalities. The inspected table does not identify the members or order of the antenna component for every n."
+        ],
+        "reasoning": "Credit no novelty to the early cutoff observed in the table. The proof of an exact family for unbounded n and the outside witness for every n>=8 are not finite table recomputation.",
+        "searches": [
+          "arXiv:2604.11837v1 §7.1 and §7.4 tables",
+          "Exact-model Resultary search above"
+        ]
+      },
+      "rationale": "For the unchanged theorem with its corrected proof: the three full-graph chains and the small-n disconnection data are prior. The claim being credited is the exact induced component, including the odd-size neighbors and its order, and the connectivity cutoff proved for all n. The primary fixed-support source poses the general problem and records small sizes; it does not establish this closure.",
+      "residual_risks": [
+        "A later web lookup specifically for a previously published solution to Problem 7.4 was unavailable; this is not a negative result. Earlier Gray-code work and unindexed fixed-support classifications are not exhaustively excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior finite evidence and transfer formulas, not the all-size distinguished component.",
+          "evidence": [
+            "Lemma 3.2 is the multiplicity update, §6.1 fixes the graph, §7.4 is finite through n=25, and Problem 7.4 asks for the threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.11837v1",
+          "material_read": "Full primary HTML, especially §§3,5,6,7.1,7.4, Problem 7.4 and §8.",
+          "method": "Read and compared statement, tables and open-problem wording.",
+          "title": "Support and Support Jumps in the Partition Graph",
+          "trigger": "Same graph, same strata, and a possible already tabulated or proved connectivity result."
+        },
+        {
+          "assessment": "The ambient scaffold is prior, not induced closure.",
+          "evidence": [
+            "The two side chains are paths meeting the main chain at (n−1,1) and (2,1^(n−2)); the framework is their union with the main chain."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.21221v1",
+          "material_read": "Primary §§2.4–2.6, particularly Proposition 2.7 and Definition 2.8.",
+          "method": "ArXiv HTML passage and hypothesis comparison.",
+          "title": "The Partition Graph as a Growing Discrete Geometric Object",
+          "trigger": "Prior framework chains containing the claimed root and most of its component."
+        },
+        {
+          "assessment": "Related full-graph attachments, not the induced two-support component.",
+          "evidence": [
+            "The support edge and corridor there refer to rectangular ears and the ambient graph. In the present induced graph rectangular partitions are excluded by support one."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.24824v1",
+          "material_read": "Primary sections on framework and rectangular vertices, ear support-edge setup, ambient corridor language and conclusion passages.",
+          "method": "ArXiv HTML sections and topology/adjacency comparison.",
+          "title": "Boundary Framework, Rear Morphology, and Rectangular Ears in the Partition Graph",
+          "trigger": "Potential stronger classification of framework attachments."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md; arXiv:2604.11837v1 Problem 7.4 and the earlier boundary framework"
+      ],
+      "rationale": "This is a natural distinguished component of the smallest nontrivial support stratum of an established transfer graph. The exact closure and odd exceptions describe which boundary configurations communicate; the order and witness turn a short computational connectivity observation into a sharp theorem for all n in this stratum. The value is not the three known paths or an exhaustive census of every component. Repairing the transfer proof keeps that substantive structural content unchanged.",
+      "residual_risks": [
+        "No broader value claim for higher support, the full graph or the other components."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

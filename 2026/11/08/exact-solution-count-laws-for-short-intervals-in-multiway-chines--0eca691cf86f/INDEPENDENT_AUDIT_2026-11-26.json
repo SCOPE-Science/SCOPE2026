@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:42:33.362992Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The generalized CRT gives exactly one solution modulo the lcm per compatible tuple. All pairwise compatibilities are equality modulo g, and a cyclic interval of length at most g injects under that projection. Hence H is the common arc intersection size and each reduced start tuple has the same product of lift counts. Nesting gives the upper endpoint; laying the complementary arcs consecutively projects an integer interval of total length sum(g-a_i), giving the lower endpoint. A move of one start by a single step changes the count by at most one (one point enters and one leaves), and the start space is connected, so no count between the endpoints is missing. For a nonempty r-subset with gaps d_j, a complementary arc of size g-a fits into d_j-1 empty points in max(0,d_j+a-g) ways. When a=g all g starts are possible, consistently with the same formula by summing the d_j. Marking a point of the subset counts each r-subset r times among g choices of first marked point and ordered gap compositions. This proves B_r=sum_starts binom(H,r), including the separate r=0 term; binomial inversion gives the histogram. Ordered-pair indicator summation gives the stated second moment, including displacement zero, and the expectation follows from single-point inclusion probabilities. Independent exact replay (python3 /workspace/review_replay.py, section 1) used bit masks of actual residues modulo the lcm at every original start in four chosen cases, including g=1, a zero-length interval, a full projected interval, and a four-modulus case. It corroborates the extrema, gap moments and ordinary moments on those cases only. The frozen verifier was inspected but not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gibson bounds compatible pairs for two interval congruences and gives the coprime exact count in Corollary 2.3. Section 6 discusses more than two sets and additional information as further directions.",
+          "The full coverage papers were not accessible in the inspected routes. General coverage-moment identities alone would not evaluate the number of starts covering each marked r-subset."
+        ],
+        "reasoning": "Gibson has broader two-modulus length hypotheses but neither the multiway full probability law nor its support; a genuinely broader coverage theorem giving evaluated mixed-length discrete coefficients would matter and was not established.",
+        "searches": [
+          "Gibson arXiv:1302.0917v1, §2 Theorem 2.2 and §6",
+          "Siegel (1978) Random arcs on the circle; Ailam (1966) Moments of coverage and coverage spaces, Cambridge OA attempts"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py",
+        "Gibson arXiv:1302.0917v1",
+        "Resultary 0eca691cf86f and a4255a5666ab",
+        "Siegel and Ailam access attempts and frozen bibliography"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generalized CRT gives only the pointwise equality to intersection size. The bound for two nonempty intervals in Gibson does not compute the overlapping count of three or more arcs for all translations.",
+          "The audited formula evaluates mixed-length subset inclusion counts via cyclic gaps and marked subsets before binomial inversion, while the sharp support requires a separate connectivity/constructive extremum argument."
+        ],
+        "reasoning": "A known reduction is not the claimed computed law. No inspected result yielded both the heterogeneous composition sum and the full attainable integer interval as a specialization.",
+        "searches": [
+          "Gibson §2 Eq. (2.6) and §6",
+          "Frozen RESULT.md lines 36–67; complementary random-arc interpretation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited statistic is exactly the number of uncovered sites under the complementary uniformly translated discrete arcs. Random-circle coverage is therefore a genuinely equivalent problem when the model uses a discrete cycle, fixed varied lengths and independent uniform starts.",
+          "Indexed a4255a5666ab is about covariance between the uncovered-gap count and covered fraction for equal-length arcs on a continuous circle, not the uncovered-site count law for this model."
+        ],
+        "reasoning": "The dual reformulation is relevant and was used in the comparison. Related coverage observables or continuous equal-length formulas do not by themselves provide the full heterogeneous discrete law. The focused query did not give a direct additional match; a search miss proves nothing about priority.",
+        "searches": [
+          "('Chinese remainder theorem' OR CRT) common gcd interval congruences exact solution count distribution cyclic intervals 'random arcs' discrete circle intersection cardinality binomial moments gap composition",
+          "Resultary a4255a5666ab (random arc gaps and coverage)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact hit repeats the spectrum, B_r inversion, and moment formulas of this frozen result. The discrete count law was not in the matched continuous-circle covariance result."
+        ],
+        "reasoning": "Same-record indexing is not independent prior coverage, and the distinct indexed result predicts a mathematically different statistic. No independent matching table or general enumerator was established in these comparisons.",
+        "searches": [
+          "Resultary 2026/11/8/SCOPE-exact-solution-count-laws-for-short-intervals-in-multiway-chines--0eca691cf86f",
+          "Resultary 2026/10/13/SCOPE-a-unique-covariance-sign-transition-for-gaps-and-coverage-in-ran--a4255a5666ab"
+        ]
+      },
+      "rationale": "Distinct result on current evidence is the full discrete varied-length common-gcd law together with its interval of attainable counts. Generalized CRT, coverage moments/inversion as a method, and the two-modulus density problem receive prior credit. The older random-coverage full-text gap limits historical confidence, not the mathematical verdict.",
+      "residual_risks": [
+        "Unread older random-coverage papers or a discrete cyclic coverage equivalent may contain a broader exact law. Failed access and a null focused search are not evidence against that possibility."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Two-modulus interval bound and exact coprime count, not the audited multiway distribution",
+          "evidence": [
+            "The quantified bound concerns pairs of interval residues; Section 6 identifies multiway extension and further structure as directions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1302.0917v1",
+          "material_read": "§2 Theorem 2.2, Eq. (2.6) and Corollary 2.3 (offsets 5100–8089); §6 (offsets 24000–25985)",
+          "method": "Primary HTML passage inspection",
+          "title": "A density Chinese remainder theorem",
+          "trigger": "Same interval-CRT compatibility question"
+        },
+        {
+          "assessment": "Unknown whether either includes a stronger equivalent discrete evaluated law; no noncoverage inference",
+          "evidence": [
+            "The inspected frozen account identifies continuous random arcs and general coverage moments as potentially relevant."
+          ],
+          "identifier_or_url": "Siegel (1978) J. Appl. Prob. 15:774–789; Ailam (1966) J. Appl. Prob. 3:550–555; Cambridge links in frozen RESULT.md",
+          "material_read": "Frozen bibliography and its account of abstracts; no readable primary full-text passage obtained",
+          "method": "Lawful OA attempts from the identified Cambridge records",
+          "title": "Random arcs on the circle; Moments of coverage and coverage spaces",
+          "trigger": "Complement/coverage formulation and potential general coverage-space theorem"
+        },
+        {
+          "assessment": "Exact same record; distinct continuous model concerns covariance",
+          "evidence": [
+            "Full spectrum and B_r/D_h law appear in the same record; the neighbor studies equal lengths and uncovered-gap covariance."
+          ],
+          "identifier_or_url": "Resultary 0eca691cf86f and a4255a5666ab",
+          "material_read": "Local mirror RESULT.md offsets 320–1916 for the exact hit and finding near offset 340 for the neighbor",
+          "method": "Semantic lookup followed by actual finding comparison",
+          "title": "Exact short-interval CRT solution counts and adjacent random arc coverage finding",
+          "trigger": "Exact indexed match and potentially equivalent coverage formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The common gcd is a natural tractable noncoprime regime of the multiway interval problem. The result tells when every placement is solvable, gives every possible solution multiplicity, and evaluates the full finite law under a natural random-placement model rather than only its expectation or a lower bound. The solution provides a reusable heterogeneous coverage law on a discrete cycle, even when direct enumeration over the original larger moduli is undesirable.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

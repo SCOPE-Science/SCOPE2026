@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The rational circle map has a strictly positive angular derivative exactly on the stated open parameter sector. The Radó–Kneser–Choquet theorem gives a harmonic disk diffeomorphism. The Laurent coefficients and positive coefficient \(c_1\) are reconstructed. Squaring their geometric tails yields exact analytic/coanalytic convolution parts; an identity for two-point divided differences and the explicit strictly positive factorization of \(\Lambda(x,y)\) establish injectivity and positive Jacobian at every interior point. The exact symbolic checker validates the nontrivial identities, while the universal inequalities are proved algebraically. The endpoint \(y=(1-x)/(3+x)\) is excluded, and the normalization retains a generally nonzero \(g'(0)\).
+PASS
 
-## Originality
+On the specified sign quadrant the angular derivative decreases with cos(t); its minimum is positive exactly under the stated strict bound on y. The degree-one boundary diffeomorphism has a sense-preserving disk Poisson extension by Radó–Kneser–Choquet and Lewy's theorem. Separating the pole at y and the pole at -1/x gives the stated Laurent tails and c1=D/(1+xy); the decreasing D is still positive at the upper y endpoint. Squaring the two coefficient tails separately gives H and G with denominators 1-x^2 z and 1-y^2 z. With r=x^2, s=y^2 and d=mu^2-r>=0, the analytic two-point numerator is 1+d(z+w)-rdzw, and the coanalytic quotient is nu^2/((1-sz)(1-sw)). Bounding these gives the stated gap; the analytic lower bound is automatic if its intermediate numerator bound is nonpositive. Clearing denominators using D=(1-r)-y(x+y) yields the stated factorization. Its critical last factor is positive since x^2+x+2<3+x. These uniform estimates give injectivity and, by taking the separate derivative limits, strictly positive Jacobian. At y=0 the coanalytic part vanishes and H=z/(1-rz), consistent with the bound. The frozen symbolic checker was inspected, not run; the analytic estimates establish the result throughout the sector, without asserting optimality or extension to the topological boundary.
 
-**PASS on the inspected literature, with residual priority risk.** Wang–Zhong's arXiv:2609.11556 proves loss of local univalence after a real-affine normalization to an ellipse. Their rational circle map and Fourier tail formulas do not imply the novel disk-normalized self-convolution inequality. Four especially close published mathematical notes were read in full: they analyze the same ellipse-normalized construction by parameter, radius, real-axis fold, or higher convolution powers. None treats the complex-linear disk normalization or proves full two-parameter global co-Lipschitz univalence. Older half-plane/strip or shear theorems have distinct hypotheses; some peripheral prior sources could be checked only at abstract level. No exhaustive literature uniqueness is claimed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The 2026 counterexample makes normalization-dependent preservation of harmonic univalence a concrete, motivated gap. The result solves it positively for the complete maximal strictly orientation-preserving two-real-parameter Blaschke-quotient sector, not just the source example. The explicit global lower bound is quantitatively useful for stable inversion and persists at parameters arbitrarily close to the circle-map degeneracy boundary. It distinguishes disk-target complex-linear normalization from ellipse-target real-affine normalization, clarifying why the latter counterexample is not inherited by the original disk map. At \(y=0\) the displayed lower bound is exact; no optimality claim is made for positive \(y\).
+The boundary input itself, its strict admissibility on this slice, and the disk-extension argument overlap with verified existing results. Neither the stronger boundary phase diagram nor the same-input ellipse studies supply the full-disk positive two-point estimate for the complex-linearly normalized Hadamard square. The distinct claim credited is this convolution estimate, its global injectivity and sense preservation, not boundary-map construction or classification.
 
-## Closest literature and limitations
+## value
 
-Wang–Zhong (arXiv:2609.11556), four public 2026 ellipse-convolution notes identified by `a0b680fc0771`, `e20d7884e72b`, `486895b5c6f3`, `8f1ef438e553`; Dorff (2001), Boyd et al. (2014) and Li–Ponnusamy (2016). The conclusion covers only the stated rational family with the specified normalization, not every convex harmonic self-convolution. Other unindexed general theorems may subsume this result, a residual priority risk. No independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The positive full-disk result for the same boundary family as a known ellipse counterexample isolates a consequential normalization choice. A single explicit nonzero bound controls all secants and the Jacobian on the full strict parameter sector. This goes beyond an example or a local-radius calculation, without claiming convexity of the convolution image.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

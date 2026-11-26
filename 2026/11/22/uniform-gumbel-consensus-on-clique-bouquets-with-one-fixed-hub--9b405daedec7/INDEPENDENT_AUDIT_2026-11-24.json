@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:38:17.797172Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Disjoint clocks and the deterministic hub give independent petals, and their all-positive states are absorbing, so the bouquet time is their maximum. At a fixed observation time all vertices are positive exactly when every backward lineage has reached the hub, allowing mergers. With k active lineages, each has k rate-1/r destinations that reduce the count (hub plus k−1 occupied sites); all relocations preserve this hazard, giving independent Exp(k²/r) holding times. Partial fractions give the alternating factorial coefficients, including c_r=2r/(r+1). As a separate algebraic check, the forward negative-count chain has rates x(r−x)/r up and x(r−x+1)/r down. In the basis f_j(x)=binom(x,j)/binom(r,j) on states 0,…,r, Lf_j=[j(j−1)f_{j−1}−j²f_j]/r for j≥1. The killed generator thus has poles −j²/r; the endpoint-to-endpoint tridiagonal resolvent gives the product of the down rates divided by ∏(s+j²/r), agreeing with the petal Laplace transform. After scaling time by r, the residue bound |a_{r,j}|≤2 gives a uniform remainder ≤2e^(−4y)/(1−e^(−5y)). At y=log(mc_r)+x it is O_x(m^−4); m times the survival converges uniformly to e^(−x), and the maximum gives the Gumbel CDF. The centered positive tails are bounded by a constant times e^(−x), and the Exp(1) summand gives negative tails ≤exp(−e^x/2) when the threshold is nonnegative, zero otherwise. These bounds justify uniform mean convergence. The star and friendship specializations check directly; the double-log contrast is with nontrivial flooding petals of size at least two, not flooding on a star. The frozen verifier was inspected, not executed; finite rational checks cannot certify the uniform limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fudolig–Esguerra's author abstract describes first-step analysis for single-type zealots on complete graphs, reports mean consensus times and magnetization, and does not state a full consensus-time spectrum; the body was not accessible. The clique-bouquet hub-persistence result allows the hub to update. Independent bond flooding has rates j(r+1−j) with a repeated slow rate for r≥2, whereas the voter rates j²/r have a simple slow pole."
+        ],
+        "reasoning": "A mean calculation, an event in a model without a pinned hub, and a two-parameter limit for edge flooding do not establish the uniform two-parameter voter limit. There is no whole-paper exclusion based on the author abstract or empty web lookup.",
+        "searches": [
+          "Web: complete graph one zealot fixed voter finite-size consensus absorption time full distribution exact spectrum j squared eigenvalues Fudolig Esguerra 2014 DOI 10.1016/j.physa.2014.07.033",
+          "RePEc:eee:phsmap:v:413:y:2014:i:c:p:626-634",
+          "Resultary dd79e6859dc0, b342e8b97dcd and b38bb38e62e1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–74, VERIFICATION.md and verify_voter_clique.py",
+        "Aldous–Fill §14.3; Fudolig–Esguerra author abstract, DOI 10.1016/j.physa.2014.07.033",
+        "Resultary 2551722f2bda, dd79e6859dc0, b342e8b97dcd and b38bb38e62e1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The usual duality and star formula do not specify the k²/r clocks for r>1. The uniform flooding theorem uses the repeated slowest rate to generate a double logarithm; that implication cannot be transferred to the voter pole structure. Here the exact residue uniformly bounded in [1,2), the uniform gap to rate 4 in scaled time, and the two integrable tail bounds are decisive."
+        ],
+        "reasoning": "Even ordinary fixed-distribution extreme-value theory does not justify uniformity for arbitrarily changing r or mean convergence; the model-specific spectral estimates and lower tail control justify those assertions. The accessible passages do not supply this combination.",
+        "searches": [
+          "Aldous–Fill §14.3",
+          "Fudolig–Esguerra RePEc author abstract, offsets 650–2624",
+          "Resultary 2551722f2bda, b342e8b97dcd and b38bb38e62e1, opening findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aldous–Fill give the Poisson-arrow voter/coalescing-walk duality and equality in distribution with ordinary coalescence time. The current initial condition and fixed opinion identify the relevant event as extinction of all active lineages via mergers and hub trapping, at rates k²/r rather than ordinary complete-graph coalescence alone. Fudolig–Esguerra's one-zealot complete graph is the closest single-petal model."
+        ],
+        "reasoning": "The required result is the extreme of independent absorption clocks with a fixed trap; the duality and the competing constructions must not be mistaken for a statement of those clocks or their extremes.",
+        "searches": [
+          "Resultary: fixed hub zealot voter model clique bouquet petals exact consensus time independent Exp(j^2/r) uniform Gumbel extreme value",
+          "Aldous–Fill §14.3, literal coalescing",
+          "10.1016/j.physa.2014.07.033"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The catalogue star result gives exactly (1−e^(−t))^(n+1), harmonic mean H_{n+1} and Gumbel centering log(n+1). This is the exact r=1 subfamily at m=n+1. The catalogue's identical hit 9b405daedec7 is the assigned record itself."
+        ],
+        "reasoning": "The boundary case is covered and not independently novel. No catalogue of the complete law for arbitrary r was identified; the uniform extreme-value statement in particular cannot be tested by a finite table of petal sizes.",
+        "searches": [
+          "Resultary 2551722f2bda, dd79e6859dc0, and identical record 9b405daedec7"
+        ]
+      },
+      "rationale": "Classical voter duality, single-clique zealot mean calculations, fixed-hub star extremes and clique-bouquet flooding are acknowledged overlaps. The evidence supports the distinct all-petal-size voter law and the unrestricted uniform-in-size Gumbel and mean approximations. The exact distributional overlap with the older single-clique zealot paper remains access-limited; no absolute priority is claimed.",
+      "residual_risks": [
+        "The full Fudolig–Esguerra paper was inaccessible; it could overlap more strongly with the exact single-petal law than its author abstract reveals. Bounded searches cannot rule out an older equivalent statement or spectral specialization. The positive assessment is for the supported all-size uniform bouquet result, not a claim of novelty for the star, duality, or complete-graph zealot means."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong single-petal overlap on dynamics and mean; distribution/spectrum in full text unresolved",
+          "evidence": "Abstract states exact first-step calculations for consensus times and reports mean scaling with population size and zealot count; the landing page marks publisher full text restricted.",
+          "identifier_or_url": "https://doi.org/10.1016/j.physa.2014.07.033; https://ideas.repec.org/a/eee/phsmap/v413y2014icp626-634.html",
+          "material_read": "Author abstract and bibliographic/access notice, RePEc offsets 650–2624; full text not retrieved",
+          "method": "Lawful DOI OA retrieval attempt, focused primary search, then identified RePEc alternate landing page with literal locate and bounded read",
+          "title": "Analytic treatment of consensus achievement in the single-type zealotry voter model",
+          "trigger": "Exact single-clique zealot dynamics and possible prior finite-size absorption law"
+        },
+        {
+          "assessment": "Credit standard duality, not this trapped and uniform family of laws",
+          "evidence": "Coalescing walks are the backward voter genealogy; the passage describes the shared Poisson arrows and identity of ordinary consensus and coalescence times in distribution.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch14.S3.html",
+          "material_read": "§14.3 offsets 1120–4291",
+          "method": "OA public page, literal locate and bounded offset read",
+          "title": "Reversible Markov Chains and Random Walks on Graphs, §14.3 Coalescing random walks and the voter model",
+          "trigger": "Graphical dual formulation"
+        },
+        {
+          "assessment": "Exact coverage at r=1",
+          "evidence": "Pinned-hub CDF (1−e^(−t))^(n+1), harmonic mean and Gumbel center log(n+1).",
+          "identifier_or_url": "2026/11/8/SCOPE-zealot-placement-changes-star-network-voter-consensus-from-gumbe--2551722f2bda",
+          "material_read": "RESULT.md offsets 0–2573",
+          "method": "Resultary local mirror",
+          "title": "Zealot placement changes star-network voter consensus from Gumbel to exponential",
+          "trigger": "Exact pinned-hub boundary case"
+        },
+        {
+          "assessment": "Different hub dynamics and observable",
+          "evidence": "Ordinary voter model and probability that the hub never reverses before consensus.",
+          "identifier_or_url": "2026/11/8/SCOPE-exact-hub-persistence-on-clique-bouquets-and-its-size-biased-bla--dd79e6859dc0",
+          "material_read": "RESULT.md offsets 0–2800",
+          "method": "Resultary local mirror",
+          "title": "Exact hub persistence on clique bouquets and its size-biased blanket time",
+          "trigger": "Nearest non-identical voter result on the same geometry"
+        },
+        {
+          "assessment": "Different process and pole multiplicities",
+          "evidence": "Independent edge lengths and double-log centering for petal sizes at least two, with a star exception.",
+          "identifier_or_url": "2026/11/8/SCOPE-a-uniform-double-logarithmic-gumbel-law-for-first-passage-floodi--b38bb38e62e1",
+          "material_read": "RESULT.md offsets 0–2424; related fixed-size flooding record b342e8b97dcd offsets 0–2553",
+          "method": "Resultary local mirror",
+          "title": "A uniform double-logarithmic Gumbel law for first-passage flooding on clique bouquets",
+          "trigger": "Exact geometry and unrestricted petal-size extreme law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicit spectrum and residue allow calibrated predictions for clique bouquets even when petal sizes change without bound, and the mean has the same centering with an explicit constant. The comparison to repeated-pole flooding identifies why the same geometry does not produce the same correction, a distinction not supplied by a fixed-size Gumbel theorem or a single-clique mean.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

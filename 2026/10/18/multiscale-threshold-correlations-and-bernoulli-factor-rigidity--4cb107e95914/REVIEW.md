@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The arcsine-to-uniform conjugacy is exact and preserves endpoints up to null sets. The overlap calculation counts every complete monotone branch and the only incomplete branch, obtaining the sign-alternating covariance formula with strict zeros only at integer grid positions. The inverse-branch transfer operator gives the probability of *every* finite symbol word, not just pair decorrelation. The entropy comparison uses the standard generating full-branch partition. The exact checker independently reconstructed finite branch overlaps and finite-word distributions over multiple degrees and lags; it is not the logical proof of generality.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** Bollt et al. (2000, 2001) studied misplaced thresholds for the classical two-branch tent and symbolic entropy. The 2015 causation-entropy study treats Markov orders for that same two-branch map. Yan and Beck (2020) give full-branch Chebyshev conjugacy and correlations for smooth polynomial observables. Pfante et al. (2013/2014) address closure and Markov partitions for the tent map and its iterates; the primary full preprint is known and publicly hosted but could not be read. Its possible coverage of dyadic-degree special cases is a material unresolved comparison. No inspected source or checked matching research record was found to imply both the every-degree, every-lag indicator covariance and the complete one-lag/IID equivalence; this is a best-knowledge self-review, not proof of priority.
+PASS
 
-**Mathematical value — PASS.** The natural question is which deterministic chaotic threshold observations actually behave like independent coin tosses and how pair correlations change when the cut moves. A complete signed covariance classification at *every* lag, plus rigidity from the first covariance to the full probability law, distinguishes misleading coarse symbolizations. The non-generating IID factors across unbounded polynomial degree quantify a substantive loss of dynamical information.
+The arcsine change of variable gives a uniform full-branch zigzag with g_q^n=g_(q^n). Each of the j whole branches contributes p/Q to the joint event. The partial branch contributes min(theta,p)/Q if increasing, and max(0,theta-(1-p))/Q if decreasing. Subtracting p^2 gives the claimed sign and minimum, with zeros exactly at integer Qp and maximum magnitude bounded by p(1-p)/Q. At a one-step grid threshold the two label indicators transfer to constants, so iteration factors all word probabilities. The full branch cylinders shrink and have equal weights q^(-m), giving entropy log q and the claimed strict information loss at q>=3. The q=2,p=1/4 counterexample gives lag one 1/16, lag two zero. Endpoints are null. Independent exact backward-branch checks (210 cases, replay: python3 /workspace/check_frozen_math.py) corroborate the covariance, not the infinite proof. Frozen verification notes and checker inspected, not executed.
 
-The argument is restricted to the invariant arcsine initial law, integer Chebyshev degree and a single binary threshold. It does not classify general coarse-grainings, Markov factors of arbitrary maps, or publication priority. The 2013 institutional preprint could not be compared in full.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the existing two-branch threshold-symbol probability analysis and the known generating tent partition; credit also general Chebyshev correlations for other observables. The distinct supported contribution is the all-integer-degree, all-lag explicit threshold covariance with exact zeros, combined with the lag-one rigidity classification for this threshold family. The closest inspected indexed divisibility criteria concern materially different systems, partitions and orders of independence. This is a best-of-knowledge verdict with named unresolved tent-map sources, not a historical priority claim.
+
+## value
+
+PASS
+
+The threshold family is a natural observation of a full-branch chaotic map. The signed covariance with exact arithmetic zeros is a usable diagnostic: one adjacent-time covariance determines whether the entire observed process is Bernoulli, while isolated more distant zeros can be spurious. The all-lag formula and factor criterion add information beyond the known binary tent coding, exponential mixing bounds, or pairwise numerical tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

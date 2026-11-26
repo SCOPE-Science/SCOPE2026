@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:32:12.968415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under product stationarity, choosing the unique absent coordinate and refreshing it to 1 contributes w_i p q^n to the entrance flux. From all present, given the touched set U after r draws, its last refresh bits are independent; the same calculation on U gives p q^|U| sum_{i in U} w_i. Counting designated repeats for r≤d=floor(1/(64 w_+)) bounds the probability of fewer than r/2 distinct indices by 4^(−r); after d the touched set can only grow. These bounds give a sum of return-entrance probabilities over b=ceil(n^(B+4)) steps bounded by O(w_+) plus a polynomial times exp(−Ω(n^γ)), uniformly. By the Markov property after an entrance, this makes the factorial second moment in a stationary block o(bμ), proving the one-block probability bμ(1+o(1)). The shared-refresh coupling after h=ceil(H n^(B+1)) steps has TV error at most n exp(−cHn)=o(bμ); this applies to the whole next-block event even conditional on preceding failed blocks. Gaps and the incomplete terminal block have negligible expected stationary entrance count, and from empty a burn-in visit has probability at most h q^n. The product of conditional block survival probabilities therefore tends to exp(−t). In blocks of h+b steps every starting state has hit probability at least bμ/2, yielding a uniform scaled exponential tail and uniform integrability for each fixed moment. Uniformity is over the row vectors satisfying the specified inequalities at n. The Zipf profile has minimum of order n^(−1) and maximum of order n^(s−1) for fixed s<1; the exceptional coordinate's union bound is (x/p)exp(−(θ+log q)n) at time x/μ. The frozen checker was inspected and an independent small rational check agreed with the flux and exact touched-set identity; neither checks the asymptotic bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general stationary-entry criterion requires the stationary one-block entrance estimate. The indexed weighted refresh/mixing theorem controls coupling via coordinate cover time, not first passage to all present."
+        ],
+        "reasoning": "A mixing bound does not exclude immediate entrance clusters. The frozen proof supplies a separate estimate uniform over the weight class and a geometric bound for the scaled moments.",
+        "searches": [
+          "Long arXiv:2605.14511 Theorem 2.3",
+          "Resultary 4f84351246d8 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Long arXiv:2605.14511",
+        "Attrill–Garoni arXiv:2605.14206",
+        "Resultary d79ee5d7e4b4, 4f84351246d8 and 870ace5234fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published uniform model already has exponential tails and all fixed moments. In the exact nonuniform PGF the r^|S| summation is a Bernoulli-p subset average times q^(−n), with W(S)=sum w_i 1_{i in S}."
+        ],
+        "reasoning": "For an alternate proof from that PGF one would need, for example, concentration of W(S) near p using w_+ and uniform integrability of its inverse on nonempty subsets using w_−, cancellation bounds for the numerator, and uniform tail or analytic control for moment convergence. No such asymptotic assertion follows by taking an already stated limit or substituting parameters. The rare-coordinate example independently shows why the extension cannot follow from the flux alone.",
+        "searches": [
+          "Long arXiv:2605.14511 Theorem 2.3, Theorem 4.4 and Corollary 4.5",
+          "Resultary d79ee5d7e4b4 exact probability generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior clumsy models refresh a uniformly chosen coordinate. The indexed all-held deletion model is a different transition. Attrill–Garoni's centering by n log n is negligible on this exponential scale at fixed loss."
+        ],
+        "reasoning": "Calling the chain random-scan product refresh or switching to the number absent preserves the model only if the actual transitions agree; for unequal weights the count need not be Markov. The uniform exponential theorem is equivalent on its subfamily, not on the allowed weight class.",
+        "searches": [
+          "Long arXiv:2605.14511 §4.1–4.2, Proposition 4.1 and Theorem 4.4",
+          "Attrill–Garoni arXiv:2605.14206 Definition 1.1 and Theorem 4.8",
+          "Resultary 870ace5234fa Finding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "An exact PGF and mean for all positive weights in the identical selected-coordinate process were found, along with a balancing law; these are stronger finite-distribution information, not a table of asymptotic rates."
+        ],
+        "reasoning": "The transform has nonempty-subset denominators s+w_S, and its limit at s of order pq^n needs control of the weighted subset sum and its lower tail; it does not list the asymptotic family under review.",
+        "searches": [
+          "Resultary d79ee5d7e4b4 Finding and Proof, offset 490 onwards"
+        ]
+      },
+      "rationale": "The exponential scale and fixed-moment law for uniform draws are prior. The supported distinction is the uniform nonuniform-weight theorem: a scalar missing-count chain cannot provide its block probability, and the new touched-set return estimate does. The general block theorem assumes this input. The strongest distinct indexed match gives an exact finite transform for the same process but not a uniform asymptotic estimate; extracting one requires a new weighted small-denominator and tail argument. No equivalent existing asymptotic claim was established in the inspected evidence.",
+      "residual_risks": [
+        "A previously published random-scan rare-target theorem could supply the weighted short-return bound under comparable hypotheses; the search and source comparison were bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uniform-weight limit and moments covered; criterion needs new input here",
+          "evidence": [
+            "Uniform missing-count chain drives the model-specific clump analysis. The general theorem assumes a one-block probability of order bμ with the exact leading constant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14511",
+          "material_read": "Theorem 2.3, §4.1–4.2, Proposition 4.1, Theorem 4.4 and Corollary 4.5; pp. 5–6, 17 and 20–21",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+          "trigger": "Same stationary entrance scale and general rare-entry criterion"
+        },
+        {
+          "assessment": "Uniform selection, including the fixed-loss limit",
+          "evidence": [
+            "Uniform draws and p q^n(T−n log n) scaling; the centering vanishes for fixed p."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.14206",
+          "material_read": "Definition 1.1, Theorems 4.8 and 5.2–5.3, pp. 1, 13–14 and 16–18",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "The Clumsy Coupon Collector’s Problem",
+          "trigger": "Foundational clumsy collector limit formulas"
+        },
+        {
+          "assessment": "Exact law is a potential alternative starting point, not an evaluated uniform limit",
+          "evidence": [
+            "The PGF is a ratio of signed and positive subset sums of (s+w_S)^(−1), with common empty-set term 1/s."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-first-passage-transform-and-strict-balancing-law-for-nonun--d79ee5d7e4b4/RESULT.md",
+          "material_read": "Finding, assumptions and Poissonized transition/hitting-transform proof, offset 490 to 3945",
+          "method": "Bounded local mirror source reading",
+          "title": "Exact first-passage transform and strict balancing law for nonuniform clumsy coupon collection",
+          "trigger": "Same process and unrestricted positive weight vectors"
+        },
+        {
+          "assessment": "Mixing, not hitting",
+          "evidence": [
+            "The classical structure is used for a coordinate-coverage identity, not the empty-to-all-present first entrance law."
+          ],
+          "identifier_or_url": "Resultary 4f84351246d8",
+          "material_read": "Finding, offset 0",
+          "method": "Bounded local mirror source reading",
+          "title": "Exact coupon collector diamond mixing for product-state quantum refresh",
+          "trigger": "Weighted single-site replacement and classical refresh overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The extension preserves an exact time scale and all fixed moments for a wide range of uneven frequencies, including fixed Zipf profiles, despite loss of the uniform model's count-chain reduction. The touched-set estimate resolves the consequential short-return issue, and the exponentially rare coordinate delineates a real obstruction rather than an arbitrary numerical cutoff.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

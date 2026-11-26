@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-index size-factor limit is an explicit partial-weight ratio. A rate-gap induction strictly separates every later site; signed-coefficient analysis gives the first-difference limit. A two-regime geometric-moment estimate uniformly excludes remote sites and upgrades the limiting statement to an eventual exact equality. All quantified cases include shape one and any fixed nonnegative offsets. The extracted exact-rational checker passed 6,156 assertions. Numerical verification is finite and not used to prove the tail control.
+## correctness
 
-**Originality — PASS against inspected literature and retrieved claims.** DeSalvo's Proposition 3.17 gives an exact size-factor expression and bounds but leaves the dense regime open in Open Problem 7. General affine-rate and constant-birth Stein factor work does not supply the degree-two-or-higher product-rate result. A previous two-row shape-two special case gives the size factor only and is strictly subsumed by the theorem's general joint statement. No directly equivalent published-finding corpus finding was returned in queries for dense Stein factors and first-lattice-site optimality. Priority remains subject to unlocated earlier general product-rate estimates.
+PASS
 
-**Value — PASS.** The high-fugacity regime is explicitly motivated by the unresolved sharpness of two approximation constants in a conditional negative-binomial model. The exact eventual formula, simultaneous sharp first-difference factor and structural dependence on row count provide a reusable analytic endpoint, not just an isolated numerical value.
+The rate balance is w b(m)p_m=d(m+1)p_(m+1); telescoping gives the stated size-site formula, and g(0)=0 fixes the increment at site zero. The polynomial product gap b(m)-d(m)>b(0) for m≥1 follows from d(0)=0 and a strictly positive coefficient of positive degree when r≥2. Induction using a_m d(m)=a_(m-1)b(m-1) proves T_m<T_0 for m≥1, while T_m>1/b(m) there. For the signed increment coefficients, the region j<m has strictly negative limiting coefficients, the site j=m has limit 1/b(m)>0, and the entire remaining tail has one sign with total converging to T_(m-1)-T_m. This gives H_m=1/b(m)+max(0,T_(m-1)-T_m)<T_0: if the max term is positive use T_m>1/b(m), and otherwise use strict growth of b. For uniformity choose the split m(1-w)≤1 or >1. In the first regime w^(-m)≤e^2 for w≥1/2 and the factor is O((m+1)/b(m)); in the second, the degree bound and geometric moments give G_(m+1)/p_m=O((1-w)^(-1))=O(m), again giving O((m+1)/b(m)). This vanishes for r≥2, and adjacent size bounds control the increment tail. A finite number of strict noninitial comparisons then yields eventual simultaneous exact maximization at site zero; the singleton and its complement attain it. All arguments include c=1 and fixed nonzero offsets. The recorded 6,156 assertions are finite evidence; the source script was not executed. A separate exact coefficient spot check at (r,c,kappa,w)=(2,1,(0,0),9/10) gives both site-zero factors 1 and the next size and increment factors 19/40 and 3/4; it is not a proof of the uniform limit.
 
-**Closest literature and limits.** DeSalvo (arXiv:2611.00275v1), Proposition 3.17 and Open Problem 7; Eichelsbacher (arXiv:2609.25380) for affine-rate comparisons; Brown–Xia for general Stein factor methods. Fixed parameters and a nonexplicit existence threshold are necessary limitations. Historical priority and external validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+DeSalvo supplies the exact general size-site representation, not the eventual optimum or the simultaneous sharp increment theorem. The same-day two-row zero-offset size result is genuine subclass coverage, acknowledged in the frozen record. The supported distinct claim is simultaneous first-site eventual equality for both factors throughout the fixed-parameter degree-r family.
+
+## value
+
+PASS
+
+This answers the dense-regime question for both sharp indicator factors in the stated multirow integer-shape setting and goes beyond limits: it identifies a single exact maximizing site eventually over the whole unbounded state space, with a specified maximizing test event. The exact constants are usable in Stein bounds without optimizing over sites or events in that regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

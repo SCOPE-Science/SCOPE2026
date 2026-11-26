@@ -1,18 +1,21 @@
-# Self-review: inversion-graded Bruhat edge census
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact cover criterion is derived from the inversion difference after a swap. Conditional Mallows projectivity for a consecutive block is proved by separating crossing inversions from internal inversions. Endpoint consecutive ranks yield precisely d choices, each of weight \(q^{d-1}[d-1]_q!\), so the gap-d factor follows. The finite polynomial enumerator is obtained by multiplying by \([n]_q!\), and the nonmonotone and fixed-parameter asymptotic corollaries are proved by expansions and exponential tails. The standalone independent Python verifier checked 1,246,964 position-pair candidates, \(2\le n\le8\), by actual swap and inversion recount, and all cross-multiplied polynomial equalities hold.
+## correctness
 
-## Originality — PASS
-The full q-inversion-rank Hasse-edge enumerator and the position-gap refinement were compared against the actual scope of the 2026 boxed-mesh/strong-Bruhat paper, the 2005 Adin–Roichman results, the Mallows positive-association work, and related research. The uniform mean, standard reciprocal symmetry, and covariance consequence are explicitly treated as known or implied, not novel. No prior source was found giving the claimed all-rank formula. Remaining risk: alternate or unindexed q-enumerators could supersede it.
+PASS
 
-## Value — PASS
-The inversion-rank distribution of edges in the full strong Bruhat Hasse diagram is a canonical counting invariant beyond the previously determined total count and upward-degree maximum. The formula resolves every coefficient and refines further by position span. Its Mallows form displays two mathematically distinct effects: an interior global optimum for \(n\ge4\) and a fixed-\(q\) linear-versus-n log n transition. This is structurally informative for weighted sampling of Bruhat cover edges; it is not a mere reformulation of the uniform mean or of reciprocity.
+Conditioning on the inside value set and ordered outside of a consecutive block leaves exactly the internal inversions as the variable Mallows weight. The increasing endpoints are consecutive in internal rank precisely for an up-cover; their contribution is d−1 inversions, with d possible rank pairs and [d−1]_q! for the remaining internal entries. This yields the exact all-n, all-gap enumerator, including d=1 and d=n−1. The frozen wording incorrectly suggests each gap polynomial has actual degree N−1. Removing the two q-integer factors and including q^(d−1) gives its degree N−d and minimum exponent d−1; N−1 is the ambient reflection grade and actual degree only for the total and d=1. The repaired finding states both facts explicitly, consistent with the padded-vector test. The coefficient identity was separately checked at every gap for n=4 and n=8; n=8 gives 341136 total at q=1. The reciprocal relation for the mean strictly dominates q>1 by 1/q; its derivatives at 0+ and 1 have opposite strict signs for n≥4, so compactness on [0,1] gives the claimed optimizer location, not uniqueness. Geometric bounds give linear order for fixed q≠1; the exact uniform sum is (n+1)H_n−2n. These checks validate the corrected statement.
 
-## Closest sources and limitations
-- Kitaev, Qiu and Xu (arXiv:2609.13764): boxed 12 / Bruhat equivalence, extremal and uniform first moment, degree-distribution insertion identity; the present rank-generating polynomial is a different invariant.
-- Adin and Roichman (arXiv:math/0505020): original cover criterion and uniform expectation.
-- Johnson, Leader and Long (arXiv:1909.03770): Mallows positive association, not a cover count.
-- The proof applies to full symmetric groups; it does not settle full up-degree distributions, arbitrary Bruhat intervals, or uniqueness of an optimizing Mallows parameter.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repair credits that the boxed-cover event is known and that its exact uniform probability by gap is already published. The retained result is the nonuniform lower-inversion-rank count at each position span and the induced full Mallows mean with distinct optimizer and growth laws. The inspected catalogue and primary comparators do not count this rank-refined statistic or imply those nonuniform statements without the new endpoint-inversion enumeration. Rank reflection itself is not a separate novelty claim.
+
+## value
+
+PASS
+
+The low-endpoint rank and position-span census refines a natural degree statistic studied in strong Bruhat order, and gives an exact first moment throughout the full Mallows family. It distinguishes the uniform law’s growth and shows that the uniform parameter does not maximize the finite-n mean. Those are consequences of nonuniform information unavailable from the already known uniform gap counts, rather than isolated finite checks or mere parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

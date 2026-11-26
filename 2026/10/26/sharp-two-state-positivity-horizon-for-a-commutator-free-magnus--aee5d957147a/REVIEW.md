@@ -1,11 +1,21 @@
-# Scientific review: Sharp two-state positivity horizon
+# Independent mathematical audit
 
-**Correctness — PASS.** For column Markov generators with a common total rate, the exact quadratic matrix identity makes each exponential affine in its generator. The ordered product reduces to two explicit rates whose sum is \(1-e^{-hs}\). Nonnegative off-diagonals are necessary and sufficient for stochasticity; the coefficient \(eta+lpha e^{-hs/2}\) changes sign at the stated sharp cutoff. The explicit one-way and perturbed irreducible witnesses demonstrate necessity. Exact symbolic and seeded numerical checks in `verify.py` agree with the proof.
+## correctness
 
-**Originality — PASS (best knowledge).** The motivating Magnus paper defines the algorithm and states a sufficient positivity criterion for each factor, but its relevant sections do not provide the exact endpoint threshold or the complete rate classification. The Hofstätter--Koch theorem addresses coefficient positivity for order-five-plus exponential integrators, not the Markov endpoint. Targeted mathematical searches and comparisons with related positivity-frontier records did not identify covering implications. A general older binary Markov-product result might still cover the theorem; independent priority review is outstanding.
+PASS
 
-**Value — PASS.** An exact sharp threshold for **endpoint** positivity when individual matrix exponentials are not positive measures a genuine reliability margin for a published higher-order method, directly addressing its stated almost-positivity problem. Equal total relaxation rate permits arbitrary directional asymmetry; the complete supercritical inequalities and irreducible sharpness witness make the result a natural two-state classification rather than a numerically tuned example.
+For Q=u v^T with u=(-1,1)^T and v=(a,-b)^T, v^Tu=-s. Every affine combination C of the two given generators therefore satisfies C^2=-sC, and the left and right exponent matrices L,R satisfy LR=-sR. With r=exp(-hs/2), their product is I+(1-r)(L+rR)/s, in the specified order. The off-diagonal sum is 1-r², so their nonnegativity is necessary and sufficient for the column-conservative product to be stochastic and implies strictly positive diagonals. The coefficient of Q1 is positive; that of Q2 changes sign exactly at r=7-4√3. The opposite one-way pair attains the failure beyond this boundary, and perturbing its zero rates gives strictly positive-rate counterexamples at each fixed supercritical step. The same one-way pair has a negative entry in each factor for every positive step. At equality the Q2 coefficient vanishes; above it division by the positive Q1 coefficient gives precisely both stated rate inequalities. No conclusion about realization by the other stages is needed.
 
-**Scope and limitations.** Two states, common positive total exit intensity, exact matrix exponentials, and exactly the displayed endpoint composition, not the full nonlinear scheme or higher-dimensional/unequal-rate cases. The cutoff is uniform across the class, not necessarily sharp for a fixed pair. Computer tests are only supporting checks. Self-review is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+On inspected evidence, the distinct result is the sharp interval and full rate test for the product, including cases where both factors are signed, not the two-exponential construction or the sufficient test that both exponent matrices are generators.
+
+## value
+
+PASS
+
+The published method's negative coefficient makes stage-wise positivity an incomplete test. A sharp scaled time horizon with an exact test beyond it and cancellation even for two signed factors answers a natural endpoint question in the minimal nontrivial Markov dimension. The common-relaxation hypothesis is substantive; the result is not sold as a bound for arbitrary generators or for the full nonlinear scheme.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

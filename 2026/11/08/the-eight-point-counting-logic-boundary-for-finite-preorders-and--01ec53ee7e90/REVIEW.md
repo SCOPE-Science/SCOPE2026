@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exhaustive generation follows the maximal-element/ideal recurrence for finite posets and the positive-weight expansion classification of preorders. The standard-library checker uses exact binary-relational counting refinement and complete isomorphism backtracking. Its independent counts match the established 35,979 topological types, while exactly 35,977 distinct stable logical profiles occur. It checks 40,877 weighted descriptions and identifies exactly two pairs, both antisymmetric. The proof is a finite exhaustive theorem, not an inference from sampled cases.
+## correctness
 
-**Originality — PASS, qualified.** Brinkmann and McKay enumerate isomorphism types of all finite topologies. Kiefer, Schweitzer and Selman give broader generic methods for \(C^2\)-identification. A prior eight-point poset result establishes the two exceptional \(T_0\) pairs only. The inspected sources do not imply the new statement that every one of the 18,980 non-\(T_0\) eight-point topologies has its own counting theory, nor give the 35,977 full-topology logical census. Indexed records and search variants were checked; undiscovered prior finite tables remain a priority risk.
+PASS
 
-**Mathematical value — PASS.** The precise smallest-order boundary for the entire finite-topology class is a natural classification, with an informative separation-axiom phenomenon: at the first failure order, no non-\(T_0\) topology is an exception. The result goes beyond counting known isomorphism types and gives the complete coincidence structure of logical theories on a substantial natural finite family.
+The mutual-comparability relation is an equivalence relation, with a well-defined quotient poset and positive integer class sizes; expansion and weighted quotient preserve exactly isomorphism types. Independently enumerated quotient posets by entire minimal-antichain removal/reinsertion, expanded the positive weights by cut positions, and refined with full atomic pair types including equality and mutual comparability. Exact isomorphism within each joint-profile class gives totals 1,3,9,33,139,718,4535,35979, the same class totals through seven, and 35977 classes at eight, consisting of 35975 singleton classes and two doubletons without any distinct mutually comparable elements. Refinement computes unary counting types inductively: all two-name binary formulas combine atomic pair data and unary or nullary quantified subformulas. Every n-element local partition stabilizes after at most n−1 rounds; one more shared round records the per-class type counts needed to match stable cells across two structures. Thus the bounded rounds suffice for unrestricted C², even if the entire global palette has not stabilized. The two pairs of frozen codes have the stated different component and cover counts. Specialization translates finite topologies exactly to preorders; T₀ corresponds to antisymmetry, and cardinality sentences rule out collisions at different orders.
 
-**Limitations.** No classification is claimed past eight points, no identification relative to all binary relational structures, and no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two antisymmetric exceptions and T₀ restriction overlap exactly with the distinct indexed poset census; no separate originality is credited for that restriction. The supported distinct result is the full preorder census, specifically the absence of additional equivalences among all positive-weight expansions through eight, fixing the total of 35977 classes. The comparisons inspected do not already supply this conclusion.
+
+## value
+
+PASS
+
+The finite-topology/preorder correspondence motivates counting equivalence classes of a natural logic on a natural class, with no arbitrary sampling. It is useful to know that the first loss of identification creates exactly the two known T₀ obstructions and that none of the 18980 non-T₀ eight-point types participates. This is a complete first-layer census and a sharp distinction between the topological and antisymmetric domains, not merely a new computation of the known isomorphism table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

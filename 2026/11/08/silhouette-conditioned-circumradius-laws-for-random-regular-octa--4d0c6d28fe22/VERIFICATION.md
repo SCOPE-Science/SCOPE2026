@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the joint octahedron-shadow circumradius law
 
-The self-contained `verify.py` requires Python 3, NumPy, and SciPy as recorded in `requirements.txt`. Execute `python verify.py` in a directory containing the two files.
+# Independent mathematical audit
 
-The recorded package-path execution returned `OCTAHEDRON_SHADOW_RADIUS_SILHOUETTE_LAW_OK 600000 2400 48`. That program: (i) directly projects and enumerates planar convex-hull vertices and radii at 2,400 independently drawn normals, (ii) checks nine joint probabilities against an independent 600,000-sample Haar-normal simulation, (iii) quadratures the angular-width formula and checks the known four-/six-vertex mass, (iv) verifies strict conditional ordering over 48 thresholds, and (v) checks each of four endpoint coefficients for three decreasing perturbations. Its tests are bounded checks, not an exhaustive search or proof of a continuum claim.
+## correctness
 
-The mathematical proof itself is in `RESULT.md`. Its critical identities are: central symmetry forces the center of a minimal enclosing circle to the origin; projection gives squared vertex norm \(1-U_i^2\); elimination of one projected vector gives the triangle-inequality silhouette criterion; and a signed-and-ordered spherical coordinate chamber has area element \(dt\,d\varphi\). The end behavior follows by Taylor expansion of the two angular boundaries. A joint stochastic-ordering argument uses a strictly decreasing likelihood ratio; its conclusion is conditional on the stated geometric Haar model.
+PASS
 
-The closest full texts inspected include Finch (arXiv:1203.2464), Böröczky–Henk (preprint SC-97-21), Rivin (arXiv:math/0305252), and the published records on the octahedron planar-shadow inradius and triaxial-octahedron shadow vertex count. None of these inspected texts gives the specific **joint** radius–silhouette theorem as stated. The available literature may omit an equivalent result under different terminology, and independent historical verification is not performed.
+Central symmetry gives a least enclosing disk centered at zero; the largest projected coordinate-vector norm gives R²=1−t², t=min |U_i|. In the chamber a≥b≥c, the projected-vector relation makes the a-pair redundant exactly for a≥b+c, apart from null degeneracies. With c=t and the other two coordinates sqrt(1−t²)(cos φ,sin φ), the spherical Jacobian is one and the 48 chambers give 12/π. The lower angle is α(t), the chamber upper angle π/4, and the quadrilateral cap is φ≤β(t), closing at (2,1,1)/sqrt(6). Therefore L_4=(β−α)_+ and L_6=L−L_4 give the asserted joint tails of t; the change of variable to R reverses the tail. Computing the solid angle of the triangle-ray cone for the six-vertex event gives numerator |det|=2 and denominator 5 sqrt(2) in the half-angle formula, hence 4 arctan(sqrt(2)/5)/π across the eight octants. L_4/L strictly decreases to zero, so the normalized density ratio crosses one once; both sides have positive interval mass, giving strict interior stochastic order. The lower-width slopes at t=1/sqrt(6) and 1/sqrt(3) are sqrt(6) and 3 sqrt(3)/2, with t-to-radius slope magnitudes sqrt(5) and sqrt(2). The upper widths at zero are π/4+O(t) and t/sqrt(2)+O(t³). Integration gives all four joint coefficients and opposite jumps ±60 sqrt(6)/π. Inclusion–exclusion of the three coordinate bands yields the stated marginal; integrating its t-density against t² reduces to (2/π) times the integral of (1−q²)/(1+q²) over q∈[1/sqrt(3),1], giving the stated expectation. Read RESULT.md lines 62–100, VERIFICATION.md and the checker. Recorded Monte Carlo, convex-hull checks and quadrature were inspected, not rerun; the analytic argument proves the full Haar law.
+
+## originality
+
+PASS
+
+Accept the joint circumradius/silhouette law and its derived conditional comparison and split endpoint behavior. The silhouette criterion and frequency and the unconditional minimum-coordinate law are not new. A distinct same-day record gives the identical unconditional n=3,q=1 CDF; no same-day priority order is inferred. The closest earlier joint law uses a different size statistic, and its actual coarea slices prove why it does not transfer to the minimum-coordinate joint law by a change of scalar variable.
+
+## value
+
+PASS
+
+A classical rotationally random projection has two shape classes at the same upper radius endpoint. Their strict conditional ordering, different lower supports, and distinct linear versus square-root upper-tail orders give information no marginal reveals. The cancellation of opposite second-derivative jumps identifies a real transition in the split law that the marginal hides. This is an exact motivated coupling, not priority for single-statistic evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:47:51.177252Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Finite bounded commutative BCK-algebras split into standard finite chain factors, and independent uniform sampling of each tuple induces independent uniform tuples in the factors; equation degrees therefore multiply. On the standard continuum, truncated subtraction is 1-Lipschitz for the sum of the two argument distances, so the real-valued difference of the two terms is L-Lipschitz in the sup norm, including repeated variables. A witness in C_(n₀) gives |t−s|≥1/(n₀−1). For Q=L(n₀−1) and δ=1/(4Q), a one-sided coordinate box of length δ at the witness stays in the cube and entirely violates the equation, even for boundary witnesses. If n−1≥8Q, each interval has at least (n−1)δ/2 grid points and thus at least a δ/4 fraction of C_n. If n−1<8Q, a nonzero failure fraction is at least n^(−k)≥(16Q)^(−k). The trivial algebra satisfies every equation; terms with no variables evaluate to 0 or 1 on nontrivial chains, and are either equal everywhere or fail entirely there. Consequently the dichotomy and bound hold. In the accompanying example a pair violates exactly when x>y>0, giving (n−1)(n−2)/2 failures, hence one at n=3 and the reported witness bound 1/25600. The frozen exact-arithmetic checker was inspected, not executed; its finite range is not used for the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans Theorem 3.2 assumes the strict subunit chain degrees have a maximum; Theorem 4.2 is a particular example. His later commuting-degrees theorem concerns general BCK-algebras and does not contradict the restriction to the finite bounded commutative class.",
+          "Bumpus–Kocsis classify the unary Heyting case, where failure of the finite-gap property is possible. The hypotheses and operations are not those of a stronger finite MV theorem."
+        ],
+        "reasoning": "The structural product theorem applies, but neither a condition requiring control of all chain degrees beforehand nor the different Heyting or general BCK problem dominates the uniform witness-based result.",
+        "searches": [
+          "OA: Evans arXiv:2209.13704 Theorems 2.2, 3.2, 4.2 and Remark 4.4",
+          "OA: Bumpus–Kocsis arXiv:2110.11515 Theorem 2.19",
+          "OA: Evans arXiv:2504.17283, introduction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "arXiv:2209.13704, 2110.11515, 2112.03190 and 2504.17283",
+        "Resultary ae23559c31c0 and 8b987ab8b815; focused primary-literature lookup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "McNaughton functions give continuous integer piecewise-linear term functions and rational polyhedral loci. In particular any real counterexample has a neighborhood of counterexamples, so qualitative uniform eventual failure density follows readily using standard grid counting. The inspected representation does not give the stated explicit uniform witness/term-complexity bound or control the small failing chains.",
+          "The present argument sizes a box using the rational margin and the occurrence-count Lipschitz bound, then covers the sparse grids with the one-failure bound. It does not show that the maximum nonunit degree is attained, nor does it need that assertion."
+        ],
+        "reasoning": "Separate the elementary qualitative consequence of known structure and continuity from the supported quantitative contribution, which holds at every chain size with a single explicit constant and extends to products.",
+        "searches": [
+          "OA: Evans Remark 4.4 and Theorem 3.2; Abbadini et al. p. 2, Definition 2.3 and representation",
+          "Focused lookup for a stronger uniform rational-grid counting theorem in the MV/BCK setting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bounded commutative BCK and MV are term-equivalent; finite-chain evaluation becomes Łukasiewicz term evaluation on equally spaced grids. So matching same-chain and MV formulations were treated as germane, not screened out by terminology.",
+          "The Resultary Łukasiewicz spectra record 8b987ab8b815 counts failures for two specific distributivity equations. The all-equation Gödel record ae23559c31c0 uses a different chain operation."
+        ],
+        "reasoning": "Term-equivalence leads to the same question in MV language, while a chain ordered as a grid is not enough for equivalence if its operations are Gödel operations rather than truncated subtraction.",
+        "searches": [
+          "Resultary: all-equation finite gaps in bounded commutative BCK, finite MV or Łukasiewicz algebras; uniform rational-grid failure counts",
+          "OA: Evans Remark 4.4; Abbadini et al. Definition 2.3 and free MV representation",
+          "Literature lookup: arbitrary BCK/MV identity degree gaps and rational-grid counting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-day exact Łukasiewicz spectra record gives exact counts but only for two particular equations; the same-day Gödel record gives binomial-basis failure counts and a product-chain extension in its own language. No exact indexed all-equation witness bound was returned in the ranked checks."
+        ],
+        "reasoning": "This is a uniform bound on infinitely many finite grids, not a sequence lookup. The relevant indexed exact counts were checked for overlap in scope; exact solutions of isolated identities do not already supply the stated general bound.",
+        "searches": [
+          "Resultary: finite gap trichotomy, violation polynomials, exact Łukasiewicz spectra and arbitrary BCK equations"
+        ]
+      },
+      "rationale": "The all-equation quantitative bound is distinct on the evidence inspected. Evans provides a conditional chain-gap criterion and examples, not a uniform quantitative grid estimate for arbitrary equations. The finite product theorem and McNaughton representation are established background. The closest indexed all-equation classification is for Gödel chains, and the closer same-chain indexed result is restricted to two identities.",
+      "residual_risks": [
+        "The Cignoli–D’Ottaviano–Mundici book was identified via Evans but not inspected in full; access to McNaughton's original paper did not yield full text. The representation itself was independently confirmed in accessible primary text.",
+        "An unindexed or implicit equivalent in quantitative MV-logic, polyhedral counting or probability remains possible; no priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Structure, sufficient condition and special identities are prior; not the arbitrary-equation explicit bound",
+          "evidence": "Product decomposition, maximum-nonunit-degree hypothesis, and MV/McNaughton discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13704",
+          "material_read": "Theorem 2.2 p. 4, offset 12802; Theorem 3.2 p. 5, offset 14707; Theorem 4.2 and Remark 4.4 p. 6, remark offset 18333",
+          "method": "OA PDF passages",
+          "title": "Satisfiability Degrees for BCK-Algebras",
+          "trigger": "Same degree framework, finite chain reduction, and conditional gap theorem"
+        },
+        {
+          "assessment": "Classification in a different class and unary scope",
+          "evidence": "Only the specified unary Heyting equations have gaps there.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.11515",
+          "material_read": "Theorem 2.19 p. 10, offset 24407",
+          "method": "OA PDF passage",
+          "title": "Degree of Satisfiability in Heyting Algebras",
+          "trigger": "Potential general finite-degree classification"
+        },
+        {
+          "assessment": "Established representation, not a uniform all-chain degree estimate",
+          "evidence": "Integer continuous piecewise-linear functions and the free MV-algebra realization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.03190",
+          "material_read": "p. 2, Definition 2.3 and following free-algebra passage, offsets 6597 and 7035",
+          "method": "OA PDF passages",
+          "title": "A finite axiomatization of positive MV-algebras",
+          "trigger": "MV term function representation and polyhedral methods"
+        },
+        {
+          "assessment": "Different algebraic scope; no contradiction",
+          "evidence": "The commutativity equation has no finite gap across general finite BCK-algebras, unlike the setting restricted here to bounded commutative algebras.",
+          "identifier_or_url": "https://arxiv.org/pdf/2504.17283",
+          "material_read": "Abstract and introduction, offsets 0 and 5200",
+          "method": "OA PDF passages",
+          "title": "Commuting Degrees for BCK-Algebras",
+          "trigger": "Focused lookup surfaced apparent negative gap result for BCK"
+        },
+        {
+          "assessment": "Substantial structural analogue, not an MV/BCK coverage result",
+          "evidence": "Gödel chains, counts by order type and binomial-basis coefficients, with extension to products.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-order-type-violation-polynomials-and-finite-gap-trichotomy-for-f--ae23559c31c0",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirror original text",
+          "title": "Order-type violation polynomials and finite-gap trichotomy",
+          "trigger": "Closest indexed arbitrary-equation gap theorem"
+        },
+        {
+          "assessment": "Two fixed equations, not an all-equation theorem",
+          "evidence": "Exact degree spectra for the given distributivity laws.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-dual-distributivity-spectra-in-finite-ukasiewicz-chains--8b987ab8b815",
+          "material_read": "Finding, mirror offset 0",
+          "method": "Local mirror original text",
+          "title": "Exact dual distributivity spectra in finite Łukasiewicz chains",
+          "trigger": "Same finite chains under term equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result replaces a per-identity hypothesis about the set of chain degrees by a bound recoverable from just a single witness and the term syntax. It explains why no sequence of nonunit degrees can approach one in this class, for all arities, and is a useful contrast to Heyting or unrestricted BCK behavior. It does not claim a sharp gap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

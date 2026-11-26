@@ -1,27 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-vertex attachment rules were reconstructed from the original rooted tree and independent bond marks. The \(C,L\) transition system gives the centered residual \(D_n=L_n-pC_n/(1+p)\) conditional drift \(-D_n/n\); its conditional squared-increment identity yields the exact relation
-\[\mathbb E D_n^2=\frac{p(2-p)}{(1+p)^2(p+2)}\mathbb EC_n,\quad n\ge3.\]
-A Yule embedding proves a strictly positive root-component scaling limit. A weighted martingale convergence argument proves the almost-sure terminal-leaf ratio, while direct predictable-quadratic-variation and vanishing-maximal-increment checks permit the stable martingale central limit theorem. Exact independent full-tree enumeration and state-space propagation passed 313 checker assertions; numerical simulation is only a diagnostic. The standard martingale CLT is used as a theorem, not re-proved from first principles.
+PASS
 
-## Originality — PASS (qualified)
+A component leaf loses original-tree leaf status on every attachment to it, even if the edge is deleted. Enumerating the four inside-parent outcomes gives the asserted count increments. The size has multiplier 1+p/n in expectation; the leaf-to-size mean identity holds at n=2 (means p and 1+p) and is preserved. For D=L−θC the drift is −D/n, and the conditional squared increment is [p C/(1+p)²+(1−p)L/(1+p)]/n. Thus E D² obeys the stated recurrence with forcing c_p a_n/n and c_p=p(2−p)/(1+p)². The coefficient of the old second moment is zero at n=2, so V₃=v_p a₃ and the identity persists. In the Yule embedding, the birth clocks thinned to retained births from component members give a rate-p Yule population. The two individual normalized populations have finite positive almost-sure limits, so at size n their ratio yields W_p, without requiring independent Yule limits. For U_n=(n−1)D_n the squared increment has expectation O(n^(p+1)); the weighted sum with weights n^(−1−p) has summable variances, and Kronecker's lemma gives D_n/n^p→0 almost surely. The predictable bracket, divided by n^(p+2), tends to v_p W_p: the leading term is a weighted sum using the two almost-sure count limits, and the subtracted sum of D_j² is negligible in L¹ by the exact identity. The maximum normalized increment is bounded by 2n^(−p/2), proving conditional Lindeberg. The rescaled triangular martingale arrays use the same nested filtration, so the stable martingale CLT gives joint convergence with the measurable W_p and a Gaussian independent of it. Positive W_p permits studentization. At p=1 all component sizes are n and v₁=1/12.
 
-Desmarais, Holmgren and Wagner (2021, arXiv:2110.15050v1) calculate global leaves by broadcast colour and root-cluster size separately; their root-cluster statements and leaf-colour covariance appendix were inspected. In their model, being coloured like the root need not mean being connected to it by retained edges, because two flips can return to the root colour. The new statistic counts original-tree leaves inside the fully retained-path component. Baur (arXiv:1407.2508) concerns a near-one retention regime and cluster size statistics; Gu and Yuan (arXiv:2408.12515v1) study site-percolation cluster-size distributions and a bond/site coupling. Searches of accessible published mathematical claims identified the closest root-degree/component-size dependence and all-tree leaf/broadcast-spin residual results but not the joint original-terminal-leaf/root-cluster observable. These comparisons support originality without establishing absolute historical priority. The risk of a previously published general marked-branching result implying the theorem remains.
+## originality
 
-## Value — PASS
+PASS
 
-The source's separate cluster-size and leaf-colour analyses leave a natural structural question: what fraction of the connected root lineage is genuinely terminal in the complete tree, rather than becoming a leaf merely by deletion of edges? The theorem supplies the exact proportion \(p/(1+p)\), an exact finite-size centered variance, and a Gaussian limit normalized by the realized random sublinear component size. It gives meaningful second-order information on a natural nonlocal population characteristic, not a renaming of the global leaf/broadcast residual.
+The root-size limit, the exact restricted leaf mean and the one-step count updates are credited background. The exact centered second moment for n≥3 and the joint mixed-normal and studentized limits for original-tree leaves inside the root cluster remain distinct in the inspected material.
 
-## Scope and limitations
+## value
 
-Only fixed \(p\in(0,1]\), independent Bernoulli bond retention and uniform random recursive trees are covered. Terminality is measured in the original tree, not the percolation-induced subgraph. Normal convergence is asymptotic; finite checker and simulation outcomes do not certify infinite statements. Related preferential-attachment and site-percolation cases remain unproved. No independent mathematical audit has been performed.
+PASS
 
-## Primary references
+The statistic separates terminal vertices of the original tree from leaves created by percolation. The exact variance from the first nontrivial sizes and the studentized Gaussian law quantify genuine fluctuations at the realized cluster scale rather than confusing them with random cluster-size variation.
 
-- Desmarais, Holmgren and Wagner, *Broadcasting induced colourings of random recursive trees and preferential attachment trees*, arXiv:2110.15050v1 (2021), https://arxiv.org/html/2110.15050v1.
-- Baur, *Percolation on random recursive trees*, arXiv:1407.2508 (2014), https://arxiv.org/abs/1407.2508.
-- Gu and Yuan, *Size distribution of clusters in site-percolation on random recursive tree*, arXiv:2408.12515v1 (2024), https://arxiv.org/html/2408.12515v1.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

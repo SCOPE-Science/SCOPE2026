@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:16:16.993942Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and proof; VERIFICATION.md; verify_rankmax_minregret_boundary.py (read only)",
+        "/workspace/independent_replays/05_matchings.py and 05_matchings.txt (independent normalization, optimizer census and orbit traversal)"
+      ],
+      "rationale": "For n=1 there is one matching. For n=2 with two stable matchings, the men must both prefer the same one: if they disagreed they would both prefer the same woman, who would need to prefer each of her two partners to the other to prevent blocking in both matchings. When both men prefer one matching, stability of the other forces both women to prefer that other matching. Both profiles are then (2,2), with regret 2. For n=3 I reproduced the exact census by fixing man 0's preference list to the identity, a free normalization under women's label permutations, and weighting each normalized input by 6. For each perfect matching I independently compared the sets of pairs preferred by their male and female endpoints to their assigned partners; disjointness is exactly stability. Both partners' ranks contribute to the lexicographic objective and the maximum rank. Exact set comparisons give 37716 equal, 6984 strict P subsets, 1956 disjoint and no other cases. The stable counts are 34080, 11484, 1092. Among the disjoint profiles the counts by (stable count, |P|, |G|) are (2,1,1): 1728, (3,1,1): 144, (3,2,1): 84. After expanding the disjoint normalized profiles, orbit traversal by adjacent label transpositions on both shores and side-swap gives 26 size-72, 2 size-36 and 1 size-12 orbits. The witness has just the specified two stable matchings with profiles (2,4,0), (4,0,2) and regrets 2, 3; the incidence fraction reduces to 163/3888.",
+      "residual_risks": [
+        "The census is for labeled complete strict instances, stopping at n=3. The orbit count uses two independent label permutations and optional side exchange, not equivalence of only the matching sets."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The accessible Cooper–Manlove passages describe the two objectives separately in the incomplete-list model, and the paper gives profile-based algorithms. The cited 1987 references concern regret and weighted stable-matching optimization; their full texts were not retrieved."
+        ],
+        "reasoning": "An algorithm for each objective does not relate the optimizer sets, even in the complete-list special case; the inspected comparison does not prove a stronger compatibility or census theorem.",
+        "searches": [
+          "Cooper–Manlove arXiv:1905.06626, PDF pages 1–2 and 6",
+          "Gusfield DOI 10.1137/0216010; Irving–Leather–Gusfield DOI 10.1145/28869.28871"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.06626",
+        "DOI 10.1137/0216010 and DOI 10.1145/28869.28871 (retrieval limited)",
+        "Resultary 4d39d633f8a1, c67e0358daf3, 8dcd874ae6a3, 58b281ed93c1 and indexed summary 57631882a89b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The nearest catalogued census reports the symmetry classes without these objective labels. The egalitarian/minimum-regret summary describes a different objective pair and nestedness at size three."
+        ],
+        "reasoning": "Equal stable counts or known relations involving an intermediate optimizer set do not determine the intersection of the lexicographic and minimax optima. The same underlying profiles must be partitioned using the actual rank vectors and worst ranks.",
+        "searches": [
+          "Cooper–Manlove arXiv:1905.06626, two-sided profiles and minimum regret",
+          "Resultary 58b281ed93c1 and c67e0358daf3, RESULT.md",
+          "Resultary 57631882a89b (indexed summary only)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three records compare minimum regret with sex equality, rank-maximality with egalitarian rank sum, and rank-maximality with sex equality, respectively. Their disjoint counts at size three are respectively 144, 972 and 6204."
+        ],
+        "reasoning": "The maximum individual rank is distinct from rank sum and from the absolute difference of the two shores' sums. Distinct pairwise optimizer comparisons cannot be pooled to recover the target comparison. The present objective is two-sided stable lexicographic rank-maximality, not one-sided rank-maximal matching.",
+        "searches": [
+          "Resultary: rank-maximal stable marriage and minimum-regret optimizer intersection, disjointness and three-couple census",
+          "Resultary 4d39d633f8a1, c67e0358daf3 and 8dcd874ae6a3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest exact same-size census gives 669 classes of all profiles and the stable-matching-count distribution. Its described census does not classify profiles by this pair of objectives."
+        ],
+        "reasoning": "The full quotient and stable-count totals are overlap, not the optimizer-compatibility partition or the sizes of the orbits in its disjoint part. Literal misses were only locators, not priority evidence.",
+        "searches": [
+          "Resultary lookup for 37716 / 6984 / 1956 and the 29-class quotient",
+          "Resultary 58b281ed93c1, full-symmetry census",
+          "Cooper–Manlove arXiv:1905.06626, term checks for 37716, 46656, disjoint"
+        ]
+      },
+      "rationale": "The objectives and underlying profile space are established. Very close Resultary records compute other pairs of fairness objectives, or the objective-free symmetry quotient of the same market. The checked sources do not supply the rank-maximal/minimum-regret optimizer relations or the objective-specific quotient. This is a best-of-knowledge assessment of the specific boundary and census, not priority for the objectives or enumeration technique.",
+      "residual_risks": [
+        "The 1987 articles were not checked in full. The local searches were bounded; a thesis appendix or unindexed exact optimizer census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes both notions, not the specific optimizer-set comparison",
+          "evidence": "Rank-maximality uses the lexicographically best two-sided profile; minimum regret minimizes the largest individual rank. The abstract is about rank-maximal and generous algorithms in the incomplete-list model.",
+          "identifier_or_url": "https://arxiv.org/pdf/1905.06626",
+          "material_read": "PDF pp. 1–2 and 6, including definitions and algorithmic scope",
+          "method": "OA PDF passage inspection",
+          "title": "Two-sided profile-based optimality in the stable marriage problem",
+          "trigger": "Closest primary comparison of the same fairness notions"
+        },
+        {
+          "assessment": "Unresolved full-text scope",
+          "evidence": "The cited problem is minimum-regret stable marriage; there is no full-text basis for excluding a small comparison example.",
+          "identifier_or_url": "10.1137/0216010",
+          "material_read": "Bibliographic citation; primary full text not retrieved",
+          "method": "DOI/publisher OA retrieval attempt",
+          "title": "Three Fast Algorithms for Four Problems in Stable Marriage",
+          "trigger": "Foundational minimum-regret reference"
+        },
+        {
+          "assessment": "Unresolved full-text scope",
+          "evidence": "The weighted framework known from the citation concerns computing optimum matchings, not evidence of the claimed boundary.",
+          "identifier_or_url": "10.1145/28869.28871",
+          "material_read": "Bibliographic citation and later primary paper's attribution; primary full text not retrieved",
+          "method": "DOI/publisher OA retrieval attempt",
+          "title": "An efficient algorithm for the ‘optimal’ stable marriage",
+          "trigger": "Weighted stable optimization can encode lexicographic rank profiles"
+        },
+        {
+          "assessment": "Different second objective",
+          "evidence": "Sex-equality comparison gives 144 disjoint profiles and two orbits.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-first-conflict-between-minimum-regret-and-sex-equal-stable--4d39d633f8a1",
+          "material_read": "RESULT.md offsets 500–1610",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp first conflict between minimum-regret and sex-equal stable marriage",
+          "trigger": "Same first size and minimum-regret objective"
+        },
+        {
+          "assessment": "Different second objective",
+          "evidence": "Egalitarian rank sum gives 42756 equal, 2928 strict rank-maximal subset and 972 disjoint.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-egalita--c67e0358daf3",
+          "material_read": "RESULT.md offsets 400–1700",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp three-by-three conflict layer for rank-maximal and egalitarian stable marriage",
+          "trigger": "Closest rank-maximal vs aggregate-rank census"
+        },
+        {
+          "assessment": "Different second objective",
+          "evidence": "The comparison is against sex equality, with 7572 disagreements and 6204 disjoint profiles.",
+          "identifier_or_url": "2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-sex-equ--8dcd874ae6a3",
+          "material_read": "RESULT.md, passage near offset 1351",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp three-by-three conflict layer for rank-maximal and sex-equal stable marriage",
+          "trigger": "Same first size and rank-maximal objective"
+        },
+        {
+          "assessment": "Underlying classification, not objective-specific counts",
+          "evidence": "669 symmetry classes of all profiles, not the compatibility labels or 29 incompatible classes.",
+          "identifier_or_url": "2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1",
+          "material_read": "RESULT.md, census passage around offset 300",
+          "method": "Local mirror passage inspection",
+          "title": "Full symmetry census of three-by-three stable marriage profiles",
+          "trigger": "Same profiles, stable-count distribution and symmetry action"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding and witness",
+        "Cooper–Manlove arXiv:1905.06626, fairness definitions",
+        "Resultary 58b281ed93c1"
+      ],
+      "rationale": "Lexicographically maximizing the number of high ranks and optimizing the worst individual rank express two natural, established goals. The result determines the smallest market where enforcing one can preclude the other and describes all optimizer-set relations there. Exact counts and symmetry types quantify and classify the first obstruction, rather than presenting a cherry-picked example or recomputing the known unlabelled compatibility-free census.",
+      "residual_risks": [
+        "The count gives no large-market frequency estimate and no conclusion for one-sided rank profiles or incomplete or tied preferences."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T00:41:38.849802Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for repairs/1/RESULT.md. The frozen Finding's unqualified sign-extremizer sentence overstates the result for L1. In C6, row j has entries ±1/4 at j−2,j+2 and zeros elsewhere; on a sign input each three-index parity class has at most two unequal pairs, so the normalized L1 output is at most 1/3, strictly below the L1 norm 1/2. Independent exact enumeration of the 64 six-cycle sign vectors also gave maximum 1/3. The corrected statement restricts the sign construction to L∞ and gives a point mass at a maximizing column for L1. For both norms the count follows from subtracting equal-sized supports of size d^2 with common support of size 2d−1+c4(e), and using skew-symmetry. If all rows vanish, each edge's two neighborhood sets form a saturated K_{d,d} component; the reverse follows from the same intersection count. Hall decomposition of a larger prime-plane incidence graph preserves four-cycle-freeness and attains the sharp bound for every degree. On the plane, normalized endpoint indicator bases have cross-Gram matrix A/(q+1), with AA^T=qI+J. Each nonconstant two-projection block gives s sqrt(1−s^2) at s=sqrt(q)/(q+1), yielding the stated exact Hilbert norm and separation. The supplied verifier was inspected, not run: direct composition is restricted to examples of at most 60 edges; exact row sums and the incidence Gram checks are finite evidence. The repaired proof independently covers the universal statements and the six-cycle counterexample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Walters Theorem 1.1 and Corollary 1.2 give Hilbert-space anticommutator and commutator results",
+          "Abiad–Dalfó–Fiol p. 1 describes spectral characterizations of regular and distance-regular bipartite graphs"
+        ],
+        "reasoning": "The Hilbert ingredients, including principal-angle blocks and the projective incidence spectrum, are standard; no independent originality is assigned to them. They do not provide the absolute L1/L∞ row/column norm or the c4 extremal cases. The graph paper was only inspected at p. 1; this is not a whole-document exclusion.",
+        "searches": [
+          "Walters arXiv:1604.00699v1 §1 and cited two-projection theory",
+          "Abiad–Dalfó–Fiol arXiv:1205.5913v2 regular bipartite graph characterization"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "repairs/1/RESULT.md",
+        "Resultary 409e7e388392 and 9c8a38ae8411",
+        "arXiv:1604.00699v1 §1",
+        "arXiv:1205.5913v2 p. 1",
+        "DOI 10.1214/17-ECP90 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "409e7e388392 gives endpoint →2 and L2 →0 along p=q→1",
+          "9c8a38ae8411 gives the same limits for nearly coincident balanced events",
+          "The repaired graph proof counts common support at each edge before maximizing"
+        ],
+        "reasoning": "The separation phenomenon is prior. The earlier models do not range over arbitrary finite simple regular bipartite supports, and a Hilbert formula alone cannot imply a minimum local four-cycle count or sharp endpoint equality for every fixed d. This is a distinct graph-controlled realization and norm formula, not a claim of first separation.",
+        "searches": [
+          "Compare deleted-rectangle and balanced-binary hypotheses, and the general two-projection bounds, to the repaired uniform-graph theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "409e7e388392 §Finding computes endpoint and L2 norms for a product law with one deleted rectangle",
+          "9c8a38ae8411 §Finding computes all-p norms for two balanced binary conditional expectations",
+          "DOI 10.1214/17-ECP90 abstract refers to random-scan Wasserstein convergence"
+        ],
+        "reasoning": "The endpoint norm can be phrased as twice the largest total-variation distance between the two deterministic sweep orders started at the same edge. General kernel norms and sampler convergence are not an exact regular-support intersection count. The prior exact formulas use different distributions or two-cell partitions, not arbitrary degree-regular incidence partitions.",
+        "searches": [
+          "Resultary semantic lookup for endpoint conditional expectation commutators, regular bipartite supports and minimum edge four-cycles",
+          "Primary-literature search around alternating Gibbs, total variation/Dobrushin, and two-projection commutators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "409e7e388392: endpoint norm 2 max(pq,p(1−q),(1−p)q); same-operator L2 norm sqrt(pq(1−pq))",
+          "9c8a38ae8411: balanced-binary endpoints s(1+s); L2 norm s sqrt(1−s^2)"
+        ],
+        "reasoning": "These exact invariant records contain the qualitative asymptotic contrast, but neither gives the claimed regular-graph invariant or its projective-plane values. No matching all-graph formula was located in the bounded semantic search.",
+        "searches": [
+          "Resultary semantic comparison of sharp commutator endpoint norms, rectangle deletion, balanced binary conditional expectations and graph four-cycle formula"
+        ]
+      },
+      "rationale": "PASS for the corrected graph-specific claim. Prior records already establish the qualitative endpoint-versus-Hilbert separation for these kinds of conditional expectations. They do not establish the exact uniform regular-graph four-cycle norm, its extremal classification across degrees, or the projective-plane specialization. The repair withdraws a false extremizer reading rather than asserting a new originality claim for extremizer theory.",
+      "residual_risks": [
+        "Unindexed equivalent two-sweep total-variation or incidence formulas remain possible; the Gibbs and spectral comparisons limited to opening passages provide no negative whole-paper evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage; different support and exact formula",
+          "evidence": [
+            "Coordinate expectations for a product law with one missing rectangle; p=q→1 gives the same two contrasting limits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-endpoint-commutator-norms-after-deleting-one-product-recta--409e7e388392",
+          "material_read": "RESULT.md §Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp endpoint commutator norms after deleting one product rectangle",
+          "trigger": "Identical endpoint-versus-Hilbert limiting behavior"
+        },
+        {
+          "assessment": "Binary-event prior coverage, not general graph coverage",
+          "evidence": [
+            "All-p result for two balanced binary-event partitions; endpoint norm tends to 2 while Hilbert norm tends to 0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-l-p-commutator-norms-for-two-balanced-binary-conditional-e--9c8a38ae8411",
+          "material_read": "RESULT.md §Finding and limitations, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Sharp Lp commutator norms for two balanced binary conditional expectations",
+          "trigger": "Exact norms and same qualitative separation for conditional expectations"
+        },
+        {
+          "assessment": "Covers Hilbert-space context, not the graph endpoint formula",
+          "evidence": [
+            "Hilbert anticommutator norm and projection commutator inequalities."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1604.00699v1",
+          "material_read": "§1, Theorem 1.1 and Corollary 1.2, offset 0",
+          "method": "OA full-text passage inspection",
+          "title": "Anticommutator Norm Formula for Projection Operators",
+          "trigger": "General projection norm formulas"
+        },
+        {
+          "assessment": "Graph-spectral context in the passage read; no full-text verdict",
+          "evidence": [
+            "Abstract describes spectral characterizations of regular and distance-regular bipartite graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.5913",
+          "material_read": "p. 1 abstract",
+          "method": "OA PDF opening passage",
+          "title": "Algebraic characterizations of regularity properties in bipartite graphs",
+          "trigger": "Regular bipartite graph algebra might imply a relevant identity"
+        },
+        {
+          "assessment": "Abstract treats a different statistic; no whole-paper conclusion",
+          "evidence": [
+            "The abstract describes Wasserstein geometric convergence of random-scan Gibbs sampling."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/17-ECP90",
+          "material_read": "Search abstract; OA attempt reached landing/abstract only",
+          "method": "Primary search and lawful OA attempt",
+          "title": "Convergence rates of the random-scan Gibbs sampler under the Dobrushin’s uniqueness condition",
+          "trigger": "Related Markov-kernel and Dobrushin contraction terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The corrected exact invariant identifies which local subgraph count controls the order defect of two endpoint heat-bath averages, with a sharp classification of extremizers and commuting components at each degree. The explicit incidence family connects this combinatorial criterion to a different Hilbert-scale behavior on the same operator. The reusable graph invariant, not the already known qualitative separation or the false sign claim, carries the mathematical value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

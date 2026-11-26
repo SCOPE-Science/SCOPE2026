@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T16:50:24.932568Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Faithfulness makes every singular competitor have infinite divergence; the diagonal state at reward τ is finite. For a feasible faithful competitor above τ, mixing toward ρ until reward equals τ strictly lowers D by convexity and D(ρ||σ)>0. On the boundary, spectral calculus gives log σ=(1/2)log[(1−q²)/4]·I+(artanh q/q)s·σ_Pauli. At a nonzero transverse radius, p>0 makes the azimuth aligned with the arm uniquely optimal; at radius zero the azimuth does not distinguish states. Substituting the aligned vector gives the claimed D and differentiation gives D′. Along this affine line the second derivative is 2∫Tr(ρ BHBHB)du>0, with B=(σ+uI)⁻¹ and H=σ_x/2, by the integral representation of −log and ρ>0. At zero radius D′(0)=−p·artanh(|z|)/|z|<0, continued to −p at z=0. At the positive pure-state endpoint the positive (1−q²)⁻¹ term dominates the logarithmic term, since the arm Bloch norm is strictly less than one. Hence there is exactly one interior root and global minimizer. Independent 60-digit bisection gave x*=0.2559243261276990811, D_inf=1.1173300547617507845, K_inf=0.8303656034108254540 and 1−K_inf/D_inf=0.2568305131755495459, agreeing with the published rounding in the frozen result. Ng's running parameters and converse were checked against the primary text. The bundled artifacts/verify.py was inspected, not executed; the reproduction supplements the proof. The percentage bounds a potential coefficient reduction, not an attainable operational improvement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ng's converse uses the very same second-argument projection for a general reward observable and reports a qubit evaluation. Fawzi–Fawzi gives broader numerical optimization methods over other constraints."
+        ],
+        "reasoning": "A characterization of the converse by an infimum or a general numerical method leaves open explicit evaluation of the qubit minimizer. The elementary boundary reduction and one-dimensional uniqueness are what supply that missing evaluation.",
+        "searches": [
+          "Ng arXiv:2609.40339v1, general definition and Theorem 5",
+          "Fawzi–Fawzi arXiv:1705.06671 §4"
+        ]
+      },
+      "checked_sources": [
+        "Ng arXiv:2609.40339v1",
+        "Olivares–Paris arXiv:0708.0956v3",
+        "Fawzi–Fawzi arXiv:1705.06671",
+        "Resultary 2026/10/4/…fc8675268da0 and 2026/10/13/…b7ea7e636ff5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ng sets b_z≥0.9 for a competing arm with Bloch vector (0.9,0,0); this matches p=z=0.9, m=0. The orbit comparison assumes both input spectra fixed."
+        ],
+        "reasoning": "The existing numerical specialization already supplies the magnitude of the converse saving. It does not imply the optimizing coordinate or the scalar-root theorem for all p,m,z; likewise, a fixed spectral radius cannot supply an optimizer over the admissible radii.",
+        "searches": [
+          "Ng arXiv:2609.40339v1, D_inf definition, Theorem 5 and running qubit evaluation",
+          "Resultary 2026/10/4/…fc8675268da0 Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olivares–Paris fix the prior τ in D(ρ||τ) and vary ρ, the opposite orientation. Fawzi–Fawzi §4 minimizes D(ρ||τ) over separable/PPT sets numerically.",
+          "The Resultary orbit result fixes spectra and varies eigenbasis overlap for maximal quantum f-divergences."
+        ],
+        "reasoning": "Interchanging states changes the Euler equation. Neither same-order optimization over different sets nor a fixed-spectrum orbit profile gives the variable spectrum and coherence subject to this linear reward constraint. The maximal divergence in the indexed orbit result is not Umegaki.",
+        "searches": [
+          "Resultary: qubit Umegaki reward-half-space projection and qubit orbit profiles; strongest near-hit …fc8675268da0",
+          "Olivares–Paris arXiv:0708.0956v3, constrained minimum quantum Kullback entropy",
+          "Fawzi–Fawzi arXiv:1705.06671, variable-second-argument relative entropy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ng already tabulates D_inf=1.117330 and K_inf≈0.8304 and quotes approximately 25.7%. The inspected indexed profiles treat unitary-orbit variation rather than this half-space."
+        ],
+        "reasoning": "Extra numerical digits or reproducing the tabulated example do not constitute the distinct result. The full analytic parametrized minimizer is not a table lookup.",
+        "searches": [
+          "Ng arXiv:2609.40339v1, p. 8 numerical table and pp. 8–9 discussion",
+          "Resultary qubit projection and orbit lookup"
+        ]
+      },
+      "rationale": "Pass for the faithful-qubit analytic boundary reduction, explicit scalar objective and unique minimizing-root characterization for the range of projector thresholds, not for the Umegaki converse, the example, or the already tabulated numerical divergence and approximate percentage.",
+      "residual_risks": [
+        "The literature and index checks were bounded; an older qubit reverse projection under a different label could overlap. No priority is claimed for the numerical example, and collective attainability remains open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the objective, example and converse interpretation, not of an analytic scalar minimizer in the compared passages",
+          "evidence": [
+            "The infimum is D(ρ_k||σ) over Λ_k; the example sets b_z≥0.9 and tabulates 1.117330. The discussion conditions the possible saving on attaining the floor."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.40339v1",
+          "material_read": "Definition p. 3, Theorem 5 p. 6, table and running example p. 8, savings and attainability discussion p. 9",
+          "method": "Primary open PDF, decisive passages inspected (text offsets about 17700, 43800, 60850, 66000, 68700)",
+          "title": "The Single-Copy Quantum Bandit Is Classical: An Exact Spectral Collapse",
+          "trigger": "Same divergence, reward set, converse and example"
+        },
+        {
+          "assessment": "Opposite minimization argument",
+          "evidence": [
+            "The prior is the second state in K(ρ|τ); the estimated first state varies."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0708.0956v3",
+          "material_read": "p. 3, fixed prior and constrained minimization, offsets about 16400 and 18800",
+          "method": "Primary open PDF passages",
+          "title": "Quantum estimation via minimum Kullback entropy principle",
+          "trigger": "Observable-constrained quantum Kullback minimization"
+        },
+        {
+          "assessment": "Same orientation but different feasible sets and numerical approach",
+          "evidence": [
+            "Minimizes D(ρ||τ) over separable states, with numerical methods including PPT relaxations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1705.06671",
+          "material_read": "§4 p. 8, definition of relative entropy of entanglement, offset about 23200",
+          "method": "Primary open PDF passage",
+          "title": "Efficient optimization of the quantum relative entropy",
+          "trigger": "Same second-argument orientation in relative-entropy projection"
+        },
+        {
+          "assessment": "Different divergence and geometry",
+          "evidence": [
+            "The second state stays on a fixed-spectrum unitary orbit, unlike the reward half-space."
+          ],
+          "identifier_or_url": "2026/10/4/SCOPE-strict-qubit-orbit-profile-for-maximal-quantum-f-divergences--fc8675268da0",
+          "material_read": "Finding, fixed-spectra assumptions and eigenbasis-overlap profile",
+          "method": "Resultary lookup and mirrored primary statement",
+          "title": "Strict qubit orbit profile for maximal quantum f-divergences",
+          "trigger": "Closest indexed analytic qubit geometry reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The infimum is an independently motivated converse constant, not an arbitrary qubit statistic. The scalar equation and uniqueness yield a reproducible analytic evaluation in the entire faithful projector-reward regime without general matrix optimization. That is useful independently of the known example and does not resolve adaptive or collective attainability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:47:53.917336Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On bin i write qX=i+u, where u is uniform on [0,1). The future label runs through b^n consecutive residues, with exactly the excess residues and multiplicities in (1), including the lag-zero diagonal. The same residues are the endpoints of n successive digit updates, which proves the stated power identity independently of an assumption about the observation process. For the spectrum let Df(i)=f(i+1)-f(i) and Mf(i)=f(bi mod q). The identity b Q^T D=DM follows by telescoping. D identifies functions modulo constants with the mean-zero subspace, so the restriction is conjugate to the action of M modulo constants divided by b. On characters M permutes each coprime additive-order class in cycles of length ord_d(b), while all transient characters contribute zero on the resulting diagonal blocks. Removing the fixed constant gives exactly (2). The two relative deviations from uniform are (q-r_n)/b^n and -r_n/b^n. Counting their multiplicities gives (3) and (4); the linear terms cancel and the quadratic term in (3) is chi-square/2, with O_q(b^(-3n)) error. The zero residue occurs iff q divides b^n; otherwise the eventual nonzero residue cycle yields the claimed rate and the checked coefficients 5,6,3 at b=2,q=7. The supplied exact finite checker check_arithmetic_binning.py and VERIFICATION.md were inspected; no uploaded code was run. This verifies the stated equal-bin, two-time result, not arbitrary partitions or higher-order information.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Steiner Remark 1.1 directly attests the older characteristic polynomial for the identified family. Binder–Wissman's abstract gives the joint-matrix coarse-graining framework. The random expanding-map CLT example in arXiv:1310.4359 is related but does not give the finite-bin kernel."
+        ],
+        "reasoning": "The characteristic polynomial of Q for b>=q reduces to the graph polynomial at b mod q through an all-ones matrix, or to the elementary remainders 0 and 1. The residue class and its multiplicative order at all divisors of the coprime part are unchanged. The general transfer-operator framework alone would not establish coverage.",
+        "searches": [
+          "DOI 10.1016/0012-365X(91)90024-V",
+          "DOI 10.1063/1.3298244",
+          "arXiv:1310.4359, Example 7.3"
+        ]
+      },
+      "checked_sources": [
+        "Steiner Remark 1.1 and bibliography",
+        "Li–Fuji DOI 10.1016/0012-365X(91)90024-V (abstract)",
+        "Binder–Wissman DOI 10.1063/1.3298244 (abstract)",
+        "arXiv:1310.4359 Example 7.3",
+        "Resultary f150481bc4c2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Successive arcs in the identified graph choose digits of a unique a in [0,b^n); their endpoint is b^n i+a modulo q. Li–Fuji's cited characteristic polynomial gives the spectral invariant in the nonparallel range."
+        ],
+        "reasoning": "The endpoint interval gives the two cell multiplicities immediately, including the exact uniformity test. Once these are known the divergence and Shannon terms are direct substitutions and the leading term uses the ordinary quadratic KL expansion. The example coefficients and eventual periodicity are elementary modular arithmetic, not an independent unresolved invariant.",
+        "searches": [
+          "Steiner generalized de Bruijn Remark 1.1",
+          "Li Xueliang and Z. Fuji, On the numbers of spanning trees and Eulerian tours in generalized de Bruijn graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remark 1.1 explicitly defines G_B(n,d) by i→di+a mod n for 0<=a<d<n, and attributes its characteristic polynomial to Li Xueliang and Z. Fuji. The Li–Fuji publisher abstract confirms spectra and characteristic polynomials."
+        ],
+        "reasoning": "At (n,d)=(q,b), the adjacency transpose scaled by 1/b is precisely Q for b<q. The distinct reflected Imase–Itoh variant is not needed. Ordinary de Bruijn shifts q=b^k cover only a smaller special case.",
+        "searches": [
+          "Imase Itoh generalized de Bruijn digraph characteristic polynomial eigenvalues adjacency matrix spectrum",
+          "Steiner, Generalized De Bruijn Digraphs and the Distribution of Patterns in α-Expansions, Remark 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The November indexed record's Finding and Proof §§3–4 give the same kernel, finite-independence criterion, TV and cycle polynomial under constant slopes, and additionally treat time-varying slopes."
+        ],
+        "reasoning": "Cycle factors grouped by additive order reproduce the divisor-order product. The indexed November record does not establish prior priority to the October target and does not state the Shannon prefactor. The older graph identification is independent of that chronology.",
+        "searches": [
+          "Resultary equal-bin arithmetic and information loss",
+          "2026/11/8/SCOPE-arithmetic-spectral-and-exact-memory-laws-for-coarse-integer-bas--f150481bc4c2"
+        ]
+      },
+      "rationale": "The claimed all-resolution arithmetic classification materially overlaps the older spectrum of exactly the generalized de Bruijn digraph, not merely the classical q=b^k case. The ordinary graph parameter range suffices for the nonconstant spectrum at all b: write b=Lq+r, then b Q_{b,q}=L J+r Q_{r,q} for 2<=r<q, where J is the all-ones matrix; at r=0 or 1 the residual summand is respectively zero or the identity. On mean-zero vectors the uniform part vanishes. The cell law and exact cutoff follow by counting digit-path endpoints in the graph. Exact divergences, the quadratic information prefactor and its eventual arithmetic oscillation then follow directly from the two distinct cell counts. No separate prior statement of the Shannon formulas is claimed. The failed decision is grounded in the older spectrum coverage and the mathematical reductions, not in inability to read the full 1991 article or in treating a later indexed record as earlier.",
+      "residual_risks": [
+        "Li–Fuji full text was unavailable; the exact printed factorization and treatment of multiarcs are not asserted. Binder–Wissman's exact example passages were not independently available. No dated first statement of the Shannon formula was established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact graph match for q>b and direct attribution of its polynomial",
+          "evidence": "Arcs i→di+a mod n, n>d; the remark names Xueliang and Fuji for its characteristic polynomial.",
+          "identifier_or_url": "https://www.irif.fr/~steiner/debruijn.pdf",
+          "material_read": "Remark 1.1, PDF p. 3; bibliography, p. 20",
+          "method": "Lawful OA PDF text at exact passages",
+          "title": "Generalized De Bruijn Digraphs and the Distribution of Patterns in α-Expansions",
+          "trigger": "Same affine digit-update graph"
+        },
+        {
+          "assessment": "Older spectrum/characteristic-polynomial coverage; exact presentation unverified",
+          "evidence": "The abstract says spectra and characteristic polynomials of generalized de Bruijn graphs are given.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(91)90024-V",
+          "material_read": "Publisher-indexed abstract, with theorem attribution cross-checked in Steiner; full text inaccessible",
+          "method": "Publisher record and lawful OA retrieval attempt",
+          "title": "On the numbers of spanning trees and Eulerian tours in generalized de Bruijn graphs",
+          "trigger": "Spectrum of the same graph"
+        },
+        {
+          "assessment": "Framework antecedent; exact examples not independently confirmed",
+          "evidence": "The abstract describes joint-probability matrices for equally sized coarse bins and time separation.",
+          "identifier_or_url": "https://doi.org/10.1063/1.3298244",
+          "material_read": "Publisher-indexed abstract; full text not accessed in the audit",
+          "method": "Publisher discovery and lawful retrieval attempts",
+          "title": "Geometry of repeated measurements in chaotic systems",
+          "trigger": "Same coarse-measurement motivation"
+        },
+        {
+          "assessment": "Nearby setting, not the audited conclusion",
+          "evidence": "The example verifies transfer-operator conditions for a quenched CLT, not an equal-cell characteristic polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.4359",
+          "material_read": "Example 7.3, text offset 116669",
+          "method": "Lawful OA paper text",
+          "title": "Annealed and quenched limit theorems for random expanding dynamical systems",
+          "trigger": "Integer expanding maps with variable slopes"
+        },
+        {
+          "assessment": "Substantial later overlap; not used as earlier priority",
+          "evidence": "The cell kernel, TV, divisibility cutoff and multiplication-cycle characteristic polynomial specialize to the audited formulas.",
+          "identifier_or_url": "2026/11/8/SCOPE-arithmetic-spectral-and-exact-memory-laws-for-coarse-integer-bas--f150481bc4c2",
+          "material_read": "Finding and Proof §§3–4, text offsets 0–7651",
+          "method": "Resultary local mirror",
+          "title": "Arithmetic spectral and exact memory laws for coarse integer-base maps",
+          "trigger": "Closest indexed theorem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The bridge from bins to a digit walk and the oscillating information example are useful exposition. The proposed new classification, however, recomputes the invariant of an established graph, extends it by a uniform matrix term, and applies elementary divergence formulas to its two cell counts. The surviving changes do not supply an independently substantive new invariant as claimed.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

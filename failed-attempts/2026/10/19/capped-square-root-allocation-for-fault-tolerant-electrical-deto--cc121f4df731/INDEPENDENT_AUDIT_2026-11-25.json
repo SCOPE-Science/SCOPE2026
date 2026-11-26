@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T17:17:28.082715Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–118; VERIFICATION.md and verification.py (inspected, not run)",
+        "Independent replay: /workspace/evidence/independent_checks.py (check_record1), output /workspace/evidence/independent_checks.log"
+      ],
+      "rationale": "In a cactus with cycle blocks and at least one edge, deleting an edge leaves its cycle complement as the unique simple path between its endpoints. The remaining blocks are electrically pendant, so the relevant resistance is exactly the sum of reciprocal conductances on that path. In resistance coordinates the unit-detour constraints are affine and the expenditure is strictly convex. The threshold sum is continuous, increases strictly after the least price, and crosses 1 only with at least two active terms. Write q_i=√max(c_i,T) and H=Σq_i−√T. Then r_i=q_i/H is primal feasible, and the nonnegative multipliers H²(1−c_i/T)_+ sum to H², satisfy complementarity (including thresholds with ties), and give the stationarity identities c_i/r_i²=Σ_{j≠i}ν_j. Also Σ c_i/q_i=H from the threshold equation. Strict convexity proves uniqueness and the single-cycle cost H² at unit bound. At general bound d each cycle independently requires H_j²/d; summing proves feasibility and uniqueness at d=S/B and yields the budget split. Substitution at prices (1,…,1,t) gives the stated plateau condition and the two matching value formulas. Independent finite tests checked random heterogeneous cycles and solved for the failed-endpoint voltages on an explicitly assembled two-cycle cactus. The positive budget and cycle-block scope exclude the empty-edge vacuity: if the singleton graph were counted as a bridgeless cactus in the opening shorthand, its feasible set would be empty.",
+      "residual_risks": [
+        "No result for overlapping cycles, multiple failures, or all-pairs post-outage resistance. The finite replay supports but does not establish the general result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Robust transmission-network optimization uses outage power dissipation plus network cost. Ghosh–Boyd–Saberi treat maximum resistance over intact-network pairs. Suliman–Weinstein treat a maximum over intact edges and distinguish it from the Kirchhoff index."
+        ],
+        "reasoning": "These passages formulate different general optimization goals, not a stronger exact theorem for the endpoint-detour claim. The decisive coverage comes from a different model whose one-ring objective is identical, not from analogy to intact-network or grid-dissipation designs.",
+        "searches": [
+          "Johnson–Chertkov arXiv:1004.2285, PDF p. 7",
+          "Ghosh–Boyd–Saberi DOI 10.1137/050645452, p. 65",
+          "Suliman–Weinstein arXiv:2302.05966, PDF p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary e8c1669f972b, 0e2a6b59a0bc, 623a2d5d5f81",
+        "Johnson–Chertkov arXiv:1004.2285; Ghosh–Boyd–Saberi DOI 10.1137/050645452; Suliman–Weinstein arXiv:2302.05966"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unique alternate paths supply the cycle-wise reduction for a nonempty bridgeless cactus. The prior theorem gives the exact cycle objective H_j²/B_j for every cycle budget B_j>0."
+        ],
+        "reasoning": "The joined design problem is therefore just minimize max_j H_j²/B_j with Σ B_j=B. Requiring this maximum to be at most d is equivalent to B_j≥H_j²/d for every j. The minimum and unique split then follow immediately, including equality of the cycle values, and each cycle inherits the prior unique allocation. The difference in topology does not require a new optimized case or a new invariant once this reduction is made.",
+        "searches": [
+          "Compare Resultary e8c1669f972b and its ring budget scaling with frozen RESULT.md lines 62–118"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary e8c1669f972b, RESULT.md offset 0 and passage-time reduction: max_j Σ_{i≠j}1/r_i under Σ c_i r_i=B, with the same clipped inverse-square-root rate formula and unique optimizer.",
+          "Frozen RESULT.md lines 62–68: endpoint-resistance objective max_e Σ_{f≠e}1/w_f after the cactus electrical reduction."
+        ],
+        "reasoning": "Set r_i in the directed-ring result equal to the electrical conductance w_i. This matches both objective and feasible set exactly on a cycle. Directed Markov passage and undirected electrical resistance are different interpretations of the same optimization; price and budget quantifiers agree. The prior uniform-rate condition (n−1)max c_i≤Σ c_i gives exactly t≤(n−1)/(n−2).",
+        "searches": [
+          "Resultary: price-clipped square-root minimax passage on directed rings and worst-outage electrical resistance",
+          "Literature search: edge-deletion endpoint detours with heterogeneous conductance prices and robust power-network design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "e8c1669f972b gives the same threshold equation, optimizer and uniform-allocation condition.",
+          "0e2a6b59a0bc (2026-10-18) instead minimizes post-outage sums of all vertex-pair resistances on alternating-price cycles; 623a2d5d5f81 (2026-10-18) instead optimizes the post-outage algebraic connectivity of a book graph."
+        ],
+        "reasoning": "The earlier directed-ring record is an exact law, not a coincident special-case number. The other catalogue results do not match the endpoint objective.",
+        "searches": [
+          "Resultary: directed ring capped price law, equal-conductance outage plateau, backup-edge price"
+        ]
+      },
+      "rationale": "The earlier 2026-10-12 directed-ring passage result e8c1669f972b is an exact equivalent of the central one-cycle optimization, including arbitrary heterogeneous prices, the unique optimum, the capped square-root law, and the plateau. The cactus extension is not literally stated there, but after the standard cut-vertex reduction it is mechanically implied by the quoted one-ring theorem and a scalar budget split. No substantial distinct claim survives in the frozen result. This decision rests on positive prior-coverage evidence, not on a literature search miss.",
+      "residual_risks": [
+        "The comparison does not assert historical priority among all possible sources; the dated exact one-ring coverage is enough to explain the rejection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact coverage on one cycle and supplies all nontrivial optimization for the cactus",
+          "evidence": "The worst mean passage time is max_j Σ_{i≠j}1/r_i; the theorem gives the same threshold, uniqueness and uniformity criterion.",
+          "identifier_or_url": "2026/10/12/SCOPE-a-clipped-square-root-price-law-for-minimax-passage-on-directed--e8c1669f972b",
+          "material_read": "Original RESULT.md finding at offset 0 and passage-time reduction",
+          "method": "Indexed comparison and original passage inspection",
+          "title": "A clipped square-root price law for minimax passage on directed rings",
+          "trigger": "Same price clipping and exclusion of one edge from the maximized sum"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Uses all vertex-pair resistance sums and alternating prices.",
+          "identifier_or_url": "2026/10/18/SCOPE-an-equal-conductance-plateau-in-worst-outage-resistance-design-o--0e2a6b59a0bc",
+          "material_read": "Original RESULT.md offset 0",
+          "method": "Indexed comparison and original passage inspection",
+          "title": "An equal-conductance plateau in worst-outage resistance design",
+          "trigger": "Equal-conductance plateau in outage resistance on cycles"
+        },
+        {
+          "assessment": "Different graph and invariant",
+          "evidence": "Uses post-outage algebraic connectivity.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-sharp-backup-edge-price-for-fault-tolerant-diffusion-on-book-g--623a2d5d5f81",
+          "material_read": "Original RESULT.md offset 0",
+          "method": "Indexed comparison and original passage inspection",
+          "title": "A sharp backup-edge price for fault-tolerant diffusion on book graphs",
+          "trigger": "Single-failure graph design and pricing threshold"
+        },
+        {
+          "assessment": "Relevant robust design, no matching formula in the inspected formulation",
+          "evidence": "Outage loss is power dissipation, incorporated with network cost.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.2285",
+          "material_read": "PDF p. 7, OA offset 50000",
+          "method": "Primary PDF passage comparison",
+          "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+          "trigger": "Single-line failure robust electrical design"
+        },
+        {
+          "assessment": "Intact-network objective",
+          "evidence": "Maximum over pairs of original vertices with no deletion for the resistance evaluation.",
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "p. 65, OA offset 94792",
+          "method": "Primary PDF passage comparison",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Convex design for maximum effective resistance"
+        },
+        {
+          "assessment": "Intact-edge objective",
+          "evidence": "Maximum edge resistance via Lewis weights does not evaluate the graph after deleting that edge.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.05966",
+          "material_read": "PDF p. 1, OA offset 347",
+          "method": "Primary PDF passage comparison",
+          "title": "Infinite Lewis Weights in Spectral Graph Theory",
+          "trigger": "Minimization of maximum edge effective resistance"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 25–46, 60–118",
+        "Resultary e8c1669f972b, original result and one-ring reduction"
+      ],
+      "rationale": "The fault criterion is natural and the network interpretation may be useful, but the frozen exact finding does not fill a distinct mathematical gap: the cutoff, closed form and nontrivial uniqueness already apply to an identical cycle optimization. Articulation decomposition and the scalar budget inequality account for everything added by the cactus. This is a useful reformulation and application, not a standalone new structural lemma or an unaccounted-for exact invariant under the review standard.",
+      "residual_risks": [
+        "The rejection does not rule out scientifically valuable variants beyond cactus-separable objectives; no such variant is proved in the assigned record."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

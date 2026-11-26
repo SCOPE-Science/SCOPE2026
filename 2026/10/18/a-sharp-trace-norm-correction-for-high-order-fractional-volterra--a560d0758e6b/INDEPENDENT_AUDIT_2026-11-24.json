@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:55:27.524793Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The separate unitary input dilation and output reflection/dilation cancel the prefactor α, giving kα(s)=(1−s/α)_+^(α−1) at s=u+v. The twice-differentiated kernel is continuous through s=α for real α>3. Reconstruct h by integrating h'' against (t−s)_+; the triangle kernel equals the reflected J_t², a product of two zero-extended Hilbert–Schmidt kernels each with squared norm t²/2. They vary continuously in t in Hilbert–Schmidt norm, so the resulting weighted integral is well defined in trace class and bounded by half the weighted L¹ second derivative. For s≤α^(1/5), expanding the logarithm of the differentiated power gives −s+(3s−s²/2)/α+O((s²+s³)/α²); the prefactor adds −3/α. The exponential Taylor bound integrates against s² uniformly. Beyond the cutoff kα'' is bounded by e^(−s/2) for sufficiently large α, and the subtrahends are exponentially bounded as well. Thus the full nuclear remainder is O(α⁻²). Independently replayed the finite compression in the orthonormal basis √2 e^(−u) times [1,1−2u,1−4u+2u²]: the K₁ matrix is [[1,1,−1],[1,−1,0],[−1,0,0]]/8. Replay by expanding (u+v)−(u+v)²/2 and integrating each monomial via ∫u^m e^(−2u)du=m!/2^(m+1). The kernel is supported on this finite-dimensional operator block; a first-order skew-adjoint conjugation across the 1/2 spectral gap removes the off-diagonal block, leaving 1/2+ε/8, −ε/8, 0, up to O(ε²) in trace norm. Here support means the range and co-range of K₀+εK₁, not the spatial support. Ordered extremal eigenvalues and the best rank-two approximation bound transfer this to the infinite Hankel operator, including the O(ε²) total remaining singular mass. Rank-one singular-value interlacing and leading-mode truncation yield the exact best rank-one tail identity, hence both constants. No finite Nyström samples certify the real-order limit or trace tail; the listed checker orders are integer samples, although the proof is for real orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eveson's general Schatten rank-one relation and wider leading Volterra norm results do not give the first nuclear correction. Thorpe's accessible abstract concerns operator and Hilbert–Schmidt norms; the fixed-polynomial comparator treats a different spectral problem.",
+          "The later hierarchy gives s_j(Tα)∼(j−1)!/(2^(2j−1)α^(j−1)) for fixed j, including j=1,2, with its new fixed-rank results beginning at j=3."
+        ],
+        "reasoning": "A fixed-j asymptotic is not a uniform summability bound. Broader leading norm or fixed-polynomial results do not supply the nuclear remainder for this varying real exponent.",
+        "searches": [
+          "Eveson 2003 Sections 3, 8, 9; Thorpe 1998 DOI:10.1112/S0024609398004810; Lyubich–Tsedenbayar DOI:10.4064/sm199-2-3",
+          "SCOPE-a-complete-fixed-rank-singular-value-hierarchy-for-high-order-vo--84dd5742ec0f"
+        ]
+      },
+      "checked_sources": [
+        "Eveson 2003 JOT 50:369–386",
+        "3619ccb23ef6",
+        "84dd5742ec0f",
+        "DOI:10.1112/S0024609398004810 (abstract-level evidence only)",
+        "DOI:10.4064/sm199-2-3 (fixed-polynomial scope in frozen comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published leading coefficient is 1/2 and the older rate evidence concerns the explicit rank-one model; neither yields the nuclear constants at order α⁻¹.",
+          "A squared ℓ² tail of order α⁻⁴ cannot exclude an ℓ¹ tail of order α⁻¹ (e.g. α² terms each of order α⁻³). Fixed-j data do not exclude such mass at growing indices either."
+        ],
+        "reasoning": "The nuclear remainder is the logical distinction. It determines the total mass outside the first two spectral modes and proves the two trace-norm expansions; the matched operator-norm, Hilbert–Schmidt and fixed-j results alone cannot substitute for it.",
+        "searches": [
+          "Eveson Theorem 8.1, Lemma 3.1 and Section 9",
+          "3619ccb23ef6 Finding and relationship-to-prior-work passage",
+          "84dd5742ec0f Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eveson's V^n includes positive real orders. Multiplication by Γ(n+1) turns Theorem 8.1 into ||Tα||₁∼1/2; reflection and dilation do not change the singular sequence.",
+          "Eveson's Section 9 asks about ||V^n−T_n||₁/||T_n||₁ for his explicit rank-one model T_n; the passage does not identify that model as an optimum."
+        ],
+        "reasoning": "These are the same integration family and norm after normalization. The leading equivalence is prior coverage; the stated defect for a particular model and the optimum over all rank-one approximants are not equivalent.",
+        "searches": [
+          "fractional Volterra integration high order trace norm asymptotic nuclear norm rank-one approximation error",
+          "Eveson 2003 Sections 3, 8 and 9",
+          "Resultary: high-order Volterra, rank-one nuclear error, and singular hierarchy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-day 3619ccb23ef6 gives s₁=1/2+1/(8α)+1/(32α²)+O(α⁻³), s₂=1/(8α)+O(α⁻²), and Σ_{j≥3}s_j²=O(α⁻⁴). Its prior-work paragraph expressly does not claim a complete trace-norm defect law.",
+          "84dd5742ec0f is a later-dated fixed-rank hierarchy, not a table of trace-norm asymptotics. The primary query surfaced Eveson's qualitative trace result but not an independently substantiated exact correction."
+        ],
+        "reasoning": "There is exact overlap of the first two singular coefficients. Neither inspected indexed statement gives the nuclear sum. This is bounded comparison, not a conclusion that an exact expression cannot appear elsewhere.",
+        "searches": [
+          "Resultary exact high-order Volterra spectral coefficients, trace norm and rank-one approximation comparisons",
+          "SCOPE-sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6",
+          "SCOPE-a-complete-fixed-rank-singular-value-hierarchy-for-high-order-vo--84dd5742ec0f"
+        ]
+      },
+      "rationale": "Pass for the sharp trace-class correction and the optimal nuclear tail, not for the leading trace constant or the first two singular coefficients in isolation. The same-day related record gives the latter coefficients and an ℓ² tail, not a nuclear tail. Its chronology within the day is undetermined. Eveson gives the leading trace norm and asks about a specified rank-one approximation; RESULT.md:78 should not describe that question as explicitly about the optimizer. This attribution qualification does not change the actual new trace-class conclusion.",
+      "residual_risks": [
+        "Thorpe's full text was not inspected; no whole-document noncoverage conclusion.",
+        "Same-day priority cannot be assigned for the spectral subclaims.",
+        "Other terminology for nuclear Hankel estimates or older literature may hide an equivalent result; the search is bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers leading trace constant; the §9 question is not stated for the optimal approximant",
+          "evidence": "Theorem 8.1: ||V^n||₁∼1/[2Γ(n+1)] for positive real n. §9 discusses ||V^n−T_n||₁/||T_n||₁ and suggests a rate closer to 1/n for T_n.",
+          "identifier_or_url": "https://jot.theta.ro/jot/archive/2003-050-002/2003-050-002-010.pdf",
+          "material_read": "Introduction pp. 369–370; §3 Lemma 3.1 pp. 372–373; §8 Theorem 8.1 pp. 384–385; §9 p. 386 (text offsets about 650, 7000 and 41000)",
+          "method": "OA original PDF passage comparison and normalization",
+          "title": "Norms of Iterates of Volterra Operators on L²",
+          "trigger": "Same operator, trace norm, and previously raised rank-one rate question"
+        },
+        {
+          "assessment": "Covers first two singular-value coefficients, not the whole nuclear correction; within-day order unresolved",
+          "evidence": "First two coefficients agree; the remainder is specified for a sum of squares and the discussion disclaims a complete trace-norm defect law.",
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-second-singular-asymptotics-and-rank-two-collapse-for-high--3619ccb23ef6",
+          "material_read": "Finding and relationship-to-prior-work, text offsets 0 and about 6400",
+          "method": "Local published-record mirror; compare norms, spectral constants and tails",
+          "title": "Sharp second singular asymptotics and rank-two collapse for high-order Volterra integration",
+          "trigger": "Strongest same-day material mathematical overlap"
+        },
+        {
+          "assessment": "Later, overlaps fixed-j asymptotics only in inspected material",
+          "evidence": "Gives the coefficient (j−1)!/2^(2j−1) at scale α^(−j+1) for fixed j.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-complete-fixed-rank-singular-value-hierarchy-for-high-order-vo--84dd5742ec0f",
+          "material_read": "Finding, text offset about 200",
+          "method": "Local published-record mirror; compare fixed-rank quantifiers with trace sums",
+          "title": "A complete fixed-rank singular-value hierarchy for high-order Volterra integration",
+          "trigger": "Broader fixed-rank asymptotic result for the same operator"
+        },
+        {
+          "assessment": "Residual priority risk; not a full-text exclusion",
+          "evidence": "Accessible description concerns operator and Hilbert–Schmidt norms.",
+          "identifier_or_url": "https://doi.org/10.1112/S0024609398004810",
+          "material_read": "Abstract/topic scope reported in frozen source comparison; no full-text conclusion",
+          "method": "Bibliographic comparison qualified by access limit",
+          "title": "The Norm of Powers of the Indefinite Integral Operator on (0, 1)",
+          "trigger": "Earlier same-family potential coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies the optimal nuclear error for a classical family where even the first two singular values and a small Hilbert–Schmidt tail do not determine that error. Eveson's question about a particular model motivates this operator-ideal scale, but the value does not rely on claiming that his literal question concerned the optimum or that the result computes the error for his chosen approximant. The weighted Hankel decomposition yields genuine uniform nuclear control beyond the same-day spectral subclaims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

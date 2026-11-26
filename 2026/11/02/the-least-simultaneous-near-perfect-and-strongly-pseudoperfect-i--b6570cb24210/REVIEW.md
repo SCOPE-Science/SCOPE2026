@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The near-perfect witness is the proper divisor \(43648\), since exact multiplicativity gives \(\sigma(174592)=392832=2(174592)+43648\). Nine explicit complete complementary divisor pairs have sum \(349184\), establishing strong pseudoperfectness without computation-dependent existence claims. Minimality is a finite exact statement and is proved by a complete divisor-sum sieve through \(174592\), followed by exhaustive complementary-orbit subset-sum dynamic programming for all 37 near-perfect candidates. The attached standalone verifier passes and independently checks every candidate's divisor-sum identity. No infinite claim relies on finite evidence.
+PASS
 
-## Originality — PASS within inspected evidence
+At N=174592 the displayed factorization gives sigma(N)=1023*12*32=392832; the excess over 2N is 43648=N/4. The nine pairs consist of 18 distinct divisors, their products are N and their sum is 349184=2N, so their union is complement-closed. For leastness, 1 cannot satisfy the proper-divisor condition. For every 2<=n<=N the divisor-sum sieve counts each divisor once and near-perfectness is exactly 0<e=sigma(n)-2n<n and n mod e=0. Complement is an involution; any closed subset is precisely a union of whole orbits, counting a square-root singleton once. The reachable-sum update from B=1 is B=(B|(B<<w)) & ((1<<(2*n+1))-1) for each orbit weight w; the 2n bit tests the condition. Positive weights make the truncation exact. A separately written Python reproduction (independent_sieve.py, default limit 174592) returned all 37 listed candidates and sole intersection [174592], independently checking the factorization, excess and witness. The frozen code was inspected, not executed.
 
-McCormack–Zelinsky, arXiv:2312.11661, Section 4, explicitly poses the joint-existence question (Question 42). The inspected Wang–Zelinsky 2026 paper gives strong-pseudoperfect constructions and restrictions but no simultaneous near-perfect witness or leastness result. OEIS A181595 already lists \(174592\) as near-perfect; that single classification does not imply the strong property. OEIS A334405 supplies strong-property examples only through \(30324\) in its published table. Searches of relevant mathematical records found no result implying the simultaneous example or minimum. This is not a claim of newness for the individual table entry. Residual risk: unindexed work or an unpublished cross-sequence calculation might have established the same intersection.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies an affirmative answer to an explicitly motivated 2023 research question about the interaction of two natural pseudoperfectness conditions; the exact least example adds a useful sharp boundary. It resolves neither the distinct square-root omitted-divisor question nor the size of the whole intersection, and the contribution is self-contained rather than a large general theory.
+The contribution is the conjunction and its least element, not the appearance of N in the near-perfect sequence, or the separate definition or theory of strong pseudoperfectness. The explicit witness answers Question 42. No covering prior intersection statement or sufficient theorem furnishing this example was identified in the compared passages.
 
-## Literature and limitations
+## value
 
-The closest primary sources are T. McCormack–J. Zelinsky, arXiv:2312.11661 (Question 42), and A. Wang–J. Zelinsky, arXiv:2609.36068 (strong-pseudoperfect results). Separate preexisting tables describe near-perfect and strongly pseudoperfect numbers. The claim is scoped to the intersection and least positive member. Search evidence cannot establish absolute priority; independent validation was not requested or performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit nonsquare example answers a precise published existence question without assuming the conjectural square-root omission route. Leastness is a natural, fully checked numerical invariant of that intersection rather than an arbitrary bounded slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

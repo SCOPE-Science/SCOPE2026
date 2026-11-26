@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:18:57.351582Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md §§ Finding, Assumptions and Proof; CHECKER.py; CENSUS.csv; VERIFICATION.md",
+        "Independent set-of-points finite enumeration in /workspace/branches/replay145.py"
+      ],
+      "rationale": "Exact collinearity makes (1,2,3,5) a frame, so fixing its ordered coordinates eliminates the entire label-preserving PGL freedom. Point 7 is forced onto 23 (away from its endpoints), and point 6 is forced off 23. Their normalized forms (0,1,t) and (1,a,b) are therefore exhaustive. The four construction intersections are unique in any strict realization: coincident defining lines would give a forbidden triple (125, 136, 125, or 345, respectively). Independent enumeration used spans as explicit point sets and set intersections, not the supplied cross-product checker. It tested all 120 possible three-subsets for each candidate with ten distinct points, used the irreducible quadratic X²+X+1 over F2 to handle F4, and checked the displayed polynomial separately in factored form. The (roots, distinct roots, strict classes) counts are (4,0,0), (13,0,0), (22,0,0), (31,0,0), (50,1,1) for q=2,3,4,5,7. The witness and (a,b,t)=(5,6,6) agree. These are all prime powers through 7. Replay: python3 /workspace/branches/replay145.py (PLANE lines), output /workspace/branches/replay145.txt. ‘Cubic’ here refers to degree in a,b for t fixed, not total degree in all three variables.",
+      "residual_risks": [
+        "The proof is bounded to five field orders and concerns strict labeled orbits, not weak realizations, larger fields, generic surface geometry, or automorphism orbits of labels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.3 is birational over the algebraic closure of Q; §4 poses finite-characteristic questions."
+        ],
+        "reasoning": "Even birational agreement over characteristic zero need not preserve the exact open locus or its points over any of the five fields.",
+        "searches": [
+          "Resultary: 10_3 configurations finite fields counts realization space Schroeter V",
+          "Isham et al. arXiv:2507.09829v1, §1 Theorem 1.3 and §4"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary ranked returns and matching mirror record",
+        "Sink arXiv:2312.07542v2",
+        "Isham et al. arXiv:2507.09829v1",
+        "Targeted indexed web lookup for a small finite-plane census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known equation has 4,13,22,31,50 roots in the indicated chart, whereas checking distinctness and exact incidences leaves 0,0,0,0,1 strict orbits."
+        ],
+        "reasoning": "The prior equation makes the census feasible but does not imply the numbers without evaluating finite-field points and removing the degenerate locus. No inspected theorem already does that evaluation.",
+        "searches": [
+          "Sink §2 equation (2.1) and surrounding frame construction",
+          "Isham et al. §4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sink specifies the same L_V incidence list and iff collinearity convention, and identifies a parameter chart modulo PGL."
+        ],
+        "reasoning": "This is an equivalent description of the object and its parameterization, but not an evaluation of the open strict locus over finite fields.",
+        "searches": [
+          "Resultary: finite field strict realization Schroeter V projective plane ten points ten triples exact collinearity PG(2,q) census",
+          "Sink arXiv:2312.07542v2, §§1–2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The local Resultary mirror hit ending 1561ec8a549b matches the same frozen result.",
+          "Isham et al. p. 4 mentions 10-arc counts/database; 10-arcs forbid all collinear triples. The targeted web query surfaced general configuration and projective-plane sources, but no identifiable matching table."
+        ],
+        "reasoning": "Neither the identical indexed record nor a database of 10-arcs supplies an independent earlier census of L_V, which requires ten triples. No verified independent exact table was located.",
+        "searches": [
+          "Resultary: Schroeter configuration V strict realizations finite fields least field order 7 unique labeled projective class F7 counts F2 F3 F4 F5",
+          "Resultary: Schroeter finite field strict realization unique projective equivalence class labeled configuration census",
+          "Websearch: \"(10_3)\" configurations Schroeter projective plane order 7 finite fields representability Gropp ten points exhaustive census"
+        ]
+      },
+      "rationale": "The configuration, strict convention, frame and equation are prior. The supported distinct result is the least finite-field order and exact labeled orbit count at the threshold, relative to the inspected sources. An identical Resultary hit is the assigned record, not independent precedence.",
+      "residual_risks": [
+        "The inspected literature does not exclude an unindexed finite-plane configuration or finite-matroid database under alternate nomenclature. The web results are not evidence of global absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_RECORD",
+          "evidence": [
+            "Same strict triples, labeled equivalence, minimum and census as the assigned source."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-the-first-finite-field-for-strict-realizations-of-schroeter-conf--1561ec8a549b",
+          "material_read": "RESULT.md Finding and scope",
+          "method": "Local mirror",
+          "title": "The first finite field for strict realizations of Schroeter configuration V",
+          "trigger": "Exact Resultary title and theorem match"
+        },
+        {
+          "assessment": "SUBSTANTIAL_PRIOR_SETUP_NOT_CENSUS",
+          "evidence": [
+            "Same strict realization condition and L_V; Section 2 gives unique parameters modulo PGL, not the asserted finite-field counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.07542v2",
+          "material_read": "§1, PDF pp. 1–2, including incidence list at text offset 6421; §2, p. 3, offset 9000 including (2.1)",
+          "method": "OA PDF, literal locators and bounded reading",
+          "title": "Line configurations and K3 surfaces",
+          "trigger": "Same configuration and realization equation"
+        },
+        {
+          "assessment": "ADJACENT_NOT_COVERING",
+          "evidence": [
+            "Theorem 1.3 addresses characteristic-zero birational components; the discussed finite database is for 10-arcs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.09829v1",
+          "material_read": "§1 pp. 1–2; p. 4 finite-plane database discussion (offset 12450); §4 pp. 20–21 (offset 58800)",
+          "method": "OA PDF, literal locators and bounded reading",
+          "title": "Configurations of 10 points and their incidence varieties",
+          "trigger": "Ten-point classifications and finite-plane enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; Sink §2; Isham et al. §4; independently reproduced five-field census"
+      ],
+      "rationale": "This is a field-of-realization boundary for a pre-existing named configuration, not a slice picked after an arbitrary census. Working in the strict open locus is decisive: many equation roots do not correspond to ten distinct points. The minimum and unique labeled model provide an exact finite-characteristic benchmark that the known characteristic-zero geometry and equation do not supply.",
+      "residual_risks": [
+        "Value is a bounded minimum and unique witness, not a formula for general q or a new classification of realization surfaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

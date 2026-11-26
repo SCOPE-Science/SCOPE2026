@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The density operator is the unique convergent Poisson-age resolvent of a finite Hermitian Hamiltonian. An explicit \(9\times9\) linear solution gives all three stationary probabilities, the determinant, and the exact directional difference. Descartes' sign criterion proves the unique rate optimizer, an exact positive factor proves monotone flux-envelope optimization, and an implicit-root expansion gives the finite weak-flux optimum. The standalone algebraic checker and independent complex-matrix solves corroborate the derivation. No numerical evidence is used as proof of uniqueness or asymptotic behavior.
+PASS
 
-## Originality
+The Poisson renewal integral gives a density matrix and r+i ad_H is invertible for r>0. Independently distribute the phase clockwise by a diagonal gauge and diagonalize the resulting circulant in the Fourier basis, with dimensionless E_k=2 cos(Phi/3−2*pi*k/3). Let d_k=E_(k+1)−E_k cyclically. The sums of d_k and d_k² are 0 and 18, the sum of pairwise products of squared gaps is 81, and their signed product is 6*sqrt(3)*sin(Phi). The reset population difference is (2*sqrt(3)*u/9) times sum d_k/(u²+d_k²); combining terms gives the signed numerator and Q in the Finding. The Fourier route checked the diagonal normalization and 30 parameter pairs, including extremely small rate and sine flux. Direct differentiation verifies the optimizer polynomial. Descartes' one sign change together with the endpoint signs proves a unique positive simple root and a maximum. Equivalently h=x(x³+11x²+27x+81)/(108(x+1)) is strictly increasing for x>0, giving a smooth optimizer there. At that root the fixed-rate flux derivative has the sign of x(x+9)²−108h=8x²(x+9)/(x+1)>0. The h=1 factorization gives the unique maximizing rate and |bias|=0.24306121012757808026… . Near h=0 the implicit root is 4h/3+O(h²); setting u=(2/sqrt(3))|s|+O(|s|³) in the formula gives 1/(3 sqrt(3)). At s=0 every positive rate has zero bias, so no exchange of optimization and flux removal is valid.
 
-PASS under the material inspected, with a meaningful broad-framework caveat. Rose et al. (2018) and Wald–Böttcher (2020) already give general spectral formulas for stationary states with quantum resetting, and none of that method is claimed as novel. Their inspected model sections do not state the combined chiral-triangle optimal-control and noncommuting weak-flux result. The oscillating-field chain work of Dattagupta–Das–Gupta (2022) has a different geometry and forcing. Published chiral transport, absorption, magnetic Krylov spreading and return-measurement results cover different observables or channels. The algebraic optimum is computable from the general spectral representation, so independent appraisal of whether it is a sufficiently nontrivial implicit consequence remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result solves a physically motivated directional-sampling design problem completely over both reset rate and magnetic flux and reveals a singular two-parameter limit caused by lifting a coherent spectral degeneracy. The exact finite limiting contrast \(1/(3\sqrt3)\) cannot be seen by taking flux to zero at fixed positive rate, making the order of limits structurally important. No claim is made about experimental robustness, detection-time optimality, or current circulation.
+The distinct result is the rate-and-flux optimization of a stationary directional occupation imbalance, including the genuinely singular optimized weak-flux limit. The known general stationary reset resolvent and its evaluation on this triangle are not credited as a new reset framework. The closest triangle-and-Poisson studies optimize a different objective under a different dynamical map.
 
-## Closest literature and limitations
+## value
 
-The nearest general formulas are Rose et al., arXiv:1806.01298, especially Sec. V.2 and Eqs. (73)–(74), and Wald–Böttcher, arXiv:2008.00510, Sec. III D. The lattice-drive setting in arXiv:2209.14117 and triangle-unit coherent transport in doi:10.1007/s11128-024-04331-y are distinct. The finding covers only homogeneous coherent three-site dynamics with perfect instantaneous global resets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The homogeneous triangle is a minimal loop with a gauge-invariant phase. The optimization determines whether directed population imbalance can persist under weak symmetry breaking when the reset scale is tuned, and gives the measurable rate scale and absolute bound. The singular limit distinguishes near-degenerate dynamics from setting the phase to a symmetry value at the outset; it is substantive beyond the routine stationary resolvent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

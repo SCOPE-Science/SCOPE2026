@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditioning on the entire descendant label set leaves independent uniform parent choices within the branch and its complement. The resulting conditional leaf law is an independent sum, with a singleton-root correction. Leaf counts have an exact Eulerian distribution, and differentiation of its moment-generating function yields cumulants through order one less than tree size. A Laurent coefficient at the next even order gives the sharp defect \(-\beta_{2h}\). All steps are analytic. The included standard-library checker passed 6,586 exact rational assertions, including exhaustive trees up to nine vertices; these do not replace the unrestricted proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Goldschmidt and Martin (arXiv:math/0502263, Sec. 2.2) establish the uniform recursive-tree/Chinese-restaurant connection. Bryc, Minda and Sethuraman (arXiv:0809.4741) study unconditioned leaves and their limits. The nearest published recursive-tree comparison concerns root degree versus leaves, not first-branch size or conditional cumulants. Their main accessible statements do not establish the exact moment-invisibility hierarchy or its sharp Bernoulli cutoff. A less accessible older split-tree treatment could still imply the result; no uniqueness guarantee is asserted.
+PASS
 
-**Mathematical value — PASS.** The result identifies a natural family of conditional statistics that provably cannot reveal the first root-branch size up to a sharp finite order. The general-order cutoff and explicit nonzero boundary defect go substantially beyond an isolated covariance identity. It may inform moment-based inference about split sizes and demonstrate the limits of low-order leaf statistics.
+Fixing the label set of descendants of vertex 2 restricts individual uniform parent choices independently to the corresponding earlier labels, giving two independent recursive trees. There are (s−1)!(n−s−1)! choices for every such set, and binomial(n−2,s−1) possible sets, yielding (n−2)! parent arrays for each s and proving uniformity. The only edge joining components is 1 to 2, which subtracts one leaf precisely for a singleton complement. The leaf process at size d has the Eulerian recursion because choosing a leaf leaves the total unchanged and choosing any nonleaf adds one; hence L_d=1+D_(d−1) in distribution for d≥2. With t=−u, its moment generating function is (1−exp(−u))^d/(d−1)! times the (d−1)st signed derivative of 1/(exp(u)−1). The leading Laurent pole gives ((exp(t)−1)/t)^d, and the first regular term contributes −β_d t^d/d! relative to that factor. This verifies the mean and cumulants of orders below d and zero order-d cumulant for even d. Additivity for the two independent sizes gives the interior identities and at s=2h gives the nonzero −β_(2h) defect with all lower moments matching, likewise at the mirrored boundary. Only the two singleton ends shift the mean, by +1/2 and −1/2 respectively for n≥3, giving the stated covariance; n=2 is deterministic. A separately written direct joint parent-transition recursion confirmed complete conditional laws, covariance, interior matching and even boundary defects 2, 4, 6 and 8 for tested sizes through 17.
 
-**Limitations.** Uniform independent-parent recursive trees only; finite-order equal moments do not imply conditional independence or equal full laws. The even-order cutoff is sharp; the optimal odd-order threshold is not claimed. Historical priority remains provisional. No independent scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct contribution is the sharp conditional boundary at every even order, including the explicit nonzero Bernoulli defect for the whole tree. Uniform subtree size and individual Eulerian cumulants are not new, and a later indexed finding covers the split, interior hierarchy and covariance. That mathematical overlap is credited independently of priority; the rounded-sum cumulant formula provides strong methodological coverage but does not state the recursive-tree detection boundary.
+
+## value
+
+PASS
+
+The size of a designated root branch and the total leaf count are natural global tree statistics. An exact all-even-order transition telling when one specific cumulant first becomes sensitive, with a sign and magnitude that can be used without recovering the whole distribution, is useful beyond a covariance or unquantified lower-order matching. The exact cutoff and coefficient are not a numerical example or an arbitrary choice of size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

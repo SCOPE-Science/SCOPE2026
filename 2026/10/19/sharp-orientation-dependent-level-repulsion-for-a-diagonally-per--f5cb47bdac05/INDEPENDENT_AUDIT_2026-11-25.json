@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:39:23.595782Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–39 and 43–107",
+        "VERIFICATION.md, verify_gap.py, and verification_output.txt inspected; the supplied script was not executed. Its symbolic and numerical checks are supporting evidence only."
+      ],
+      "rationale": "With p=p₁,q=p₂,r=p₃, the projector I−aaᵀ yields the stated quadratic form M in x=d₁−d₃,y=d₂−d₃; its off-diagonal entry is pq−r and (1−p)(1−q)=pq+r, giving det M=4pqr. The cube fibers in d₃ have length (1−w)₊, w=max(|x|,|y|,|x−y|)=(|x|+|y|+|x−y|)/2. The ellipse stays in w≤1 through exactly t₀, since its maxima of those three linear absolute values are t(1−q), t(1−p), t(1−r), each divided by 2√(pqr). Beyond t₀, the integrals of (1−w)₊ and 1−w differ strictly on a positive-area open set. The disk change of variables has Jacobian t²/(2√(pqr)); integrating absolute linear forms with disk first absolute moment 4/3 gives the stated cubic. At one zero coordinate the gap is |d₁−Z| with Z the independent weighted sum of the other uniforms; subtracting the two end losses against the triangular endpoint densities gives 2t−t³/(3uv). At two zeros the uniform difference gives 2t−t². Layer cake gives the claimed thresholds, with logarithmic divergence at the critical exponents. For positive η the Schur complement at λ uses a positive denominator ≥1−η. At λ=0 the complement is PSD, and at λ=η its eigenvalues are ≤η before subtracting λI; each ordered eigenvalue minus λ decreases strictly. The two roots, counted with multiplicity, are the two small full-matrix eigenvalues by inertia. Weyl on the 2×2 complement bounds each error as claimed, and hence the normalized gap error is uniform. No fixed-positive-η polynomial is inferred.",
+      "residual_risks": [
+        "The moment claim concerns the compression, not finite-η inverse moments; the limit is first η→0, then t→0. No expert attestation or Lean certificate is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kressner–Shao give min-gap ≥ δη/(Cn²) with probability ≥1−δ for iid uniform diagonal disturbance and η below the stated spectral scale. Kumar–Ahmed derive spacing statistics of different random-entry symmetric 2×2 ensembles.",
+          "The indexed Crofton and simplex-section results randomize a cutting plane/subspace and count section types rather than sample the fixed pushforward and integrate its orientation-dependent elliptic event."
+        ],
+        "reasoning": "The general gap bound is linear and does not determine the quadratic interior law, degeneration, exact small-gap coefficients, or moment threshold. The nearby geometric and spacing results do not carry the same measure and statistic.",
+        "searches": [
+          "arXiv:2407.04634v1 HTML Theorem 4 / PDF Theorem 2.2",
+          "Kumar–Ahmed DOI 10.14311/AP.2017.57.0418",
+          "Resultary ecdb5fa9f8fa and fa06652356bb for geometric box sections"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2407.04634v1 HTML and PDF",
+        "DOI:10.14311/AP.2017.57.0418",
+        "Resultary ecdb5fa9f8fa, fa06652356bb, and 8569868be0fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite-perturbation theorem only supplies a high-probability scale, with no pᵢ in the bound. The generic and coordinate-aligned cases obey that broad statement but have different leading powers.",
+          "Even with the known cube-to-plane pushforward viewpoint, one needs the orientation matrix, exact ellipse-support contact, and the integral of the piecewise linear density over that ellipse."
+        ],
+        "reasoning": "The prior inequality cannot be specialized into an equality polynomial, and known support/section geometry alone does not give its sharp integration threshold or vanishing-orientation behavior.",
+        "searches": [
+          "Kressner–Shao Theorem 4 against the exact local CDF",
+          "Resultary ecdb5fa9f8fa Finding against the uniform-cube fiber representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The perturbation AᵀA+ηD and the small-eigenvalue cluster are the same as the general Lanczos perturbation setting.",
+          "The gap in the proposed result is the length of a two-dimensional traceless projection, equivalently an ellipse event on the difference-coordinate pushforward of uniform cube measure."
+        ],
+        "reasoning": "The prior perturbation model agrees, but its lower-probability bound on minimum gaps is not an equivalent statement to the first-order orientation law.",
+        "searches": [
+          "Resultary: uniform diagonal perturbation, two-dimensional null compression, exact level-spacing / inverse-gap law",
+          "Kressner–Shao arXiv:2407.04634v1 §2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching symbolic law in the bounded ranked hits. ecdb5fa9f8fa concerns random affine-plane sections; 8569868be0fe concerns numerical-range width for a perturbed Jordan shift."
+        ],
+        "reasoning": "The target is an exact continuum formula for independent uniform inputs and a continuously variable orientation, not a numerical table; the relevant indexed symbolic and geometric matches involved different observables.",
+        "searches": [
+          "Resultary for orientation-dependent compressed gap CDF, powers t²/t, inverse moments and diagonal noise nullity two",
+          "Resultary box-spline / cube-projection analogues"
+        ]
+      },
+      "rationale": "The diagonal perturbation model and broad finite-perturbation gap bound are established by Kressner–Shao, and the first-order compression mechanism and small-spacing geometric intuition are not new. The distinct result is the exact orientation-dependent CDF including its sharp interval, boundary degeneration, and inverse-moment classification in this minimal model. Neither the prior gap bound nor the other 2×2 spacing models determine it.",
+      "residual_risks": [
+        "Resultary e48b1a6346ec (random central sections of the three-cube, apparently endpoint area) surfaced but its exact file was unavailable; only its topic was seen, so it is not treated as negative evidence or as established overlap.",
+        "A bounded search does not rule out equivalent formulas in the box-spline or structured two-level random matrix literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strongest direct overlap; broader finite-perturbation probability bound, not the claimed exact first-order law. The theorem labels differ by rendering, so the frozen HTML label is valid.",
+          "evidence": [
+            "Theorem bounds min gap below by δη/(Cn²) with probability at least 1−δ; no exact orientation coefficients or boundary classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2407.04634v1",
+          "material_read": "§2.1, HTML Theorem 4 near offset 14332; PDF v1 Theorem 2.2, p. 5, near offset 17447",
+          "method": "Bounded OA primary HTML and PDF passages",
+          "title": "On a randomized small-block Lanczos method for large-scale null space computations",
+          "trigger": "Same AᵀA+ηD model, iid uniform diagonal noise, and null-space gaps"
+        },
+        {
+          "assessment": "Different ensemble, no implication for the structured compression",
+          "evidence": [
+            "Two random-entry ensembles and density-dependent linear repulsion, not the given correlated pushforward or rank-degenerate boundary."
+          ],
+          "identifier_or_url": "https://doi.org/10.14311/AP.2017.57.0418",
+          "material_read": "OA full-text opening and model passages, p. 1, offsets 0 and 721",
+          "method": "Bounded primary full-text passages",
+          "title": "New Spectral Statistics for Ensembles of 2×2 Real Symmetric Random Matrices",
+          "trigger": "Exact spacing laws and linear density near zero for symmetric two-level systems"
+        },
+        {
+          "assessment": "Different distribution and observable",
+          "evidence": [
+            "Affine-plane section types under a Euclidean-invariant sampling law; no fixed compression or eigenvalue gap."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-elementary-crofton-section-type-law-and-quadratic-hexagon-extinc--ecdb5fa9f8fa/RESULT.md",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Exact local Resultary mirror file",
+          "title": "Elementary Crofton section-type law and quadratic hexagon extinction",
+          "trigger": "Closest indexed exact geometric box-section calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, exact CDF and inverse-moment findings",
+        "Kressner–Shao arXiv:2407.04634v1 Theorem 4"
+      ],
+      "rationale": "The exact small-gap exponent changes at coordinate-aligned orientations in the smallest nontrivial model of a randomly split null space. That change determines precisely which inverse moments are finite. The coefficients and sharp CDF interval quantify what a general gap bound misses and provide a direct benchmark when near-degenerate orientations matter.",
+      "residual_risks": [
+        "Not a uniform-in-orientation lower separation result, dimension-general classification, iteration-count estimate, or fixed-η spacing law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

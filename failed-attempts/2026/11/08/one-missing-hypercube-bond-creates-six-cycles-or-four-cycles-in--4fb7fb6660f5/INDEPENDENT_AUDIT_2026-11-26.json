@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T15:30:17.211034Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated theorem, as distinct from every inference in the frozen proof, is correct. Let A be intact adjacency, E the deleted-edge toggle and m=N/2. Coordinate flips give A²=(d mod 2)I. If d is even, splitting by a coordinate yields the layer matrix with off-diagonal identity and diagonal A_(d−1), where A_(d−1)²=I. Thus rank A=m. In the bipartite parity block, the deleted endpoints lie outside the totally isotropic images of H and Hᵀ, so the rank-one update raises rank H by one: rank B=m+2. With full endpoint vectors e,f, the four independent vectors e,f,p=Be,q=Bf span W. There Bp=e+q, Bq=f+p; e is cyclic, B³e=f and B⁴e=q=B²e+e. The polynomial is therefore (t²+t+1)², and im B²=W since it lies in W and W is invertible. Rank on the zero summand is m−2, giving only size-two nilpotent blocks. Fixed-space dimensions on W are 0,2,4 at powers 1,3,6 by polynomial gcd; this works whether or not the quadratic splits. At d=2 the zero summand vanishes. If d is odd, H'H'ᵀ=I+L with L=uuᵀ+auᵀ+uaᵀ, a nonzero isotropic and orthogonal to u. L has rank two and L²=(u+a)(u+a)ᵀ is a rank-one projection. Both parity blocks of B² thus have one simple zero, one size-two block at 1, and m−3 simple blocks at 1. B has two simple zero blocks, because a square cannot turn a nonsimple zero block into a single simple zero without increasing its multiplicity, and rank B=N−2. The frozen line 48 list of partitions is not exhaustive from the square and dimension alone (pairs of J₁(1) can replace J₂(1)); close the gap as follows. D=A+I satisfies D²=0, and the coordinate-layer calculation with diagonal A_(d−1)+I gives rank D=m. Therefore im D=ker D=(ker D)⊥. U=span{e,f} intersects ker D trivially: De and Df have nonzero off-endpoint parts on opposite parity sides. Since im E=U, ker(B+I)=ker D∩ker E, of dimension m−2 by independence of the two endpoint constraints on ker D. The frozen witness (B+I)³x=u+c with B(u+c)=c+a≠0 forces a size-four block, since every block at 1 has size at most four by the square. This consumes both size-two blocks of the square; the remaining m−3 blocks at 1 have size at most two and dimension 2(m−3), hence all size two. The odd fixed-space dimensions on the invertible part at powers 1,2,4 are m−2,N−4,N−2. Kernel increments give the stated transient counts; invariant direct sum gives the exact product census, which counts configurations, not cycles. Fresh GF(2) rank tests d=2,…,7 and full state enumerations d=2,3,4 agree, including odd ranks [m+2,4,3,2] for powers 1–4 of B+I. Replay: python3 /workspace/branches/84337f69-e5f1-4738-97d9-f914708b7913/independent_check.py; output is adjacent in independent_check_output.txt. The frozen checkers were inspected, not executed; tests are bounded, not the all-field proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Record 0ddebf65b6fe explicitly covers characteristic-two fields and exact dynamics, not just binary states. The frozen comparisons describe a general additive-automaton framework and a different ordinary-real spectral-radius problem; primary passages for those papers were not recovered."
+        ],
+        "reasoning": "There is no additional field or parameter regime to claim over the directly matching earlier record. General additive algebra is not by itself evidence of this specific defect classification; real adjacency spectral radii would not determine the characteristic-two Jordan form.",
+        "searches": [
+          "Resultary: single-edge parity transition, additive hypercube dynamics and characteristic-two extension fields",
+          "Martin–Odlyzko–Wolfram doi:10.1007/BF01223745; Wu et al. doi:10.1155/2017/1382980"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and bound verification/scripts/captures",
+        "Resultary 0ddebf65b6fe indexed statement and mirrored opening",
+        "Martin–Odlyzko–Wolfram and Wu et al. bibliographic comparisons and targeted access attempts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier exact Jordan and shell/period claims are for the same operator over the same fields; the frozen joint census factors by the canonical Fitting decomposition."
+        ],
+        "reasoning": "Even if the earlier marginal formulas were presented separately or with different block notation, the nilpotent and invertible coordinates are independent under the vector-space decomposition. Multiplying the shell and period counts, reading maximum period or entry time, or expressing the even block by a cyclic polynomial does not establish a distinct invariant.",
+        "searches": [
+          "Resultary 0ddebf65b6fe indexed statement and mirrored RESULT.md opening plus attempted Jordan passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinct record 0ddebf65b6fe specifies one deleted undirected Boolean-cube edge, the characteristic-two finite-field dynamics, and exact Jordan data; its opening passage at offset 62 confirms the setup."
+        ],
+        "reasoning": "After cube automorphisms identify the deleted edge, XOR adjacency is precisely addition of surviving neighbors in the binary model; the earlier extension-field scope also matches. This is not the intact, distance-two, or pendant-leaf cube.",
+        "searches": [
+          "Resultary: deleted hypercube edge in XOR/parity/open-neighbor sum dynamics; 0ddebf65b6fe"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed statement for 0ddebf65b6fe advertises exact Jordan, transient-shell and primitive-period populations and specifies the parity-dependent primitive 3-, 6- and 4-periods."
+        ],
+        "reasoning": "The prior enumeration/classification target is the same exact invariant, not a tabulation of a few small dimensions. Individual displayed formulas could not be compared in the inaccessible body.",
+        "searches": [
+          "Resultary: exact single-defect Jordan, transient-shell and primitive-period census in cube XOR dynamics"
+        ]
+      },
+      "rationale": "The distinct earlier record 0ddebf65b6fe already describes exact Jordan structure and transient and primitive-period counts for the same one-edge deletion, same cube adjacency update and characteristic-two fields, including the same parity-specific recurrent periods. The opening passage corroborates the setup. This is positive evidence of material coverage, not a rejection based on a timeout or a title. Direct-sum multiplication of the two counts is a consequence of the Jordan classification; no distinct surviving contribution was established. The detailed formula-by-formula cross-check of the earlier proof was not possible from the passages retrieved.",
+      "residual_risks": [
+        "The earlier record's complete proof and per-cell formulas were not retrieved. The decision rests on affirmative statement-level evidence of the exact same classification, not on absence of further accessible text.",
+        "References for the mentioned distance-two and pendant-leaf comparisons were not supplied in the frozen bibliography. Primary general literature comparisons are limited; they are not the basis of the originality failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material equivalent coverage supported by the indexed statement and matching setup; exact presentation not fully examined",
+          "evidence": "Same single deletion and finite characteristic-two setting, with exact Jordan, transient-shell and primitive-period counts and the same parity-specific periods.",
+          "identifier_or_url": "2026/11/1/SCOPE-a-missing-edge-parity-transition-in-hypercube-xor-dynamics--0ddebf65b6fe",
+          "material_read": "Resultary indexed statement and mirrored opening passage around offset 62; formula passage could not be obtained",
+          "method": "Configured Resultary and targeted local-mirror OA",
+          "title": "A missing-edge parity transition in hypercube XOR dynamics",
+          "trigger": "Exact same cube defect, periods, and classification target"
+        },
+        {
+          "assessment": "No independent statement-level determination for this paper",
+          "evidence": "The frozen description attributes finite additive cellular automaton methods, not the defect census.",
+          "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+          "material_read": "Bibliographic entry and frozen result's description; targeted primary retrieval timed out",
+          "method": "Primary OA attempt and frozen references",
+          "title": "Algebraic Properties of Cellular Automata",
+          "trigger": "Classical prior algebraic treatment of additive dynamics"
+        },
+        {
+          "assessment": "No independent statement-level determination for this paper",
+          "evidence": "The frozen comparison describes real spectral radius with two to four edges removed, rather than one-edge finite-field Jordan blocks.",
+          "identifier_or_url": "https://doi.org/10.1155/2017/1382980",
+          "material_read": "Bibliographic entry and frozen result's description; primary retrieval timed out",
+          "method": "Primary OA attempt and frozen references",
+          "title": "The Minimum Spectral Radius of an Edge-Removed Network: A Hypercube Perspective",
+          "trigger": "Closest named hypercube deletion spectral study"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The defect classification itself is a meaningful structural invariant, but the submitted contribution recomputes the already covered invariant without a distinct application, extension, or comparison yielding a new scientific conclusion. The joint-product form and the checkers do not add a separately valuable result beyond the existing Jordan and orbit census. No repair is warranted solely to patch the submitted proof.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

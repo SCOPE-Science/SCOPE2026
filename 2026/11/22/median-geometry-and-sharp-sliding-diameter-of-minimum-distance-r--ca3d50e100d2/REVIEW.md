@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The gap constraints encode radius-\(r\) coverage exactly, while the deficit sum \(d=(2r+1)k-n\) forces all interior capacities to be automatic. Sliding a selected vertex is exactly moving one deficit unit across an adjacent boundary. This realizes an interval of the order-ideal distributive lattice of a finite rectangular poset, proving median geometry, isometric Boolean embedding, full transport-distance formula, and sharp diameter. Stars-and-bars with two disjoint forbidden endpoint-cap events gives the exact vertex count. The standalone independent actual-path brute checker passed 90 cases and 183,806 ordered-pair distances. Finite testing is not used as proof.
+## correctness
 
-## Originality — PASS, subject to residual risk
-Banerjee–Hoang (arXiv:2310.00241) studies distance-\(r\) domination reconfiguration but does not derive the path minimum-optimum token-slide graph's median structure, its sharp formula for diameter, or its optimum hypercube dimension. Křišťan–Svoboda (arXiv:2307.10847) proves a broader shortest-slide transport property for subtree hitting sets: this indeed subsumes the **metric optimality** aspect after the radius-\(r\) balls are recognized as subtrees. The new claim deliberately does not represent that aspect as original. Their algorithm does not directly supply the identified bounded-deficit ideal lattice, vertex enumeration, or endpoint-saturation diameter. Lemańska–Żyliński (2020) concerns radius-one domination, not \(r\ge2\). published-finding corpus and web searches for equivalent formulations and graph-isomorphism statements did not identify coverage. An unindexed equivalent description remains possible.
+PASS
 
-## Value — PASS
-This is an all-radius, all-length classification of the reconfiguration **geometry** of minimum distance cover placements on a basic network family. Beyond an algorithm to decide reachability, it specifies the entire state space as a median interval, exact optimization of a global worst-case relocation budget and minimum isometric bit encoding, including a sharp saturation phase at \(d=r\). A complete natural family with a structural proof is useful for studying robustness and optimal routing of distance domination, and is not just a numerical recomputation of the domination number.
+Each selected vertex covers at most 2r+1 vertices, so size is at least k. For any k positions, the gaps must be nonnegative and at most r at the two ends and 2r between successive positions; these conditions are necessary and sufficient on an integer path. The deficits from those capacities sum to d∈[0,2r], so interior bounds are automatic, and an admissible tuple exists by putting min(d,r) at the left end and the remainder at the right end. Reconstructing centers from gaps is unique. A right slide of token i transfers one deficit from slot i−1 to i; feasibility ensures the destination is in the path and not occupied. Sorted deficit lists allow no more than r zeros and r entries k, precisely the coordinate bounds L=(0^{min(d,r)},1^{(d−r)_+}) and R=((k−1)^{(d−r)_+},k^{min(d,r)}). On reversing rows these describe the ideals between I(L) and I(R) in the rectangular product poset; difference with I(L) identifies ideals in the induced difference poset. One legal transfer adds/deletes one box, and all one-box moves are realized. Deleting maximal extra boxes and adding minimal missing boxes realizes the symmetric-difference lower bound; majority of three ideals is an ideal and is the unique median for this Hamming metric. The number of available boxes is kd−2(d−r)_+, also the attained L–R distance, so the same value is both diameter and optimal isometric hypercube dimension. Subtracting the two disjoint endpoint violations from all weak compositions gives the stated binomial formula. These arguments include d=0, k=1, and n=1 (the last is a singleton even with d>0). Inspected the frozen checker without executing it. Replay: python3 -B /workspace/review_evidence/independent_checks.py 3; independently built legal slides for 135 path/radius cases, checked 547,440 ordered-pair distances against ordered-token matching, counts and diameters and 10,538 tested median memberships. The equality with the deficit metric can also be seen by counting unit crossings: for each cut i between slots, the number of ordered deficit matches crossing it is the absolute difference of the prefix deficit counts; these prefix differences equal the negatives of the corresponding token-position differences. Finite checks only corroborate the all-size proof.
 
-## Limits
-Only original-path token slides at minimum cardinality are covered. General tree-hitting-set shortest metric results and the abstract distributive-lattice machinery are established literature; they are not claimed as new. Historical literature may contain an unindexed matching structural characterization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact median interval and its state count, sharp diameter and dimension are the supported distinct content for the specified original-path slides at minimum cardinality. The exact transport-distance principle is already implied by the tree subtree-hitting framework, not a separate novelty ground.
+
+## value
+
+PASS
+
+Minimum placements of fixed-radius service vertices along a path are a natural state space. Its full geometry, exact size and minimum binary representation are useful beyond the known shortest-route metric. The sharp reduction in diameter once d exceeds r distinguishes two actual endpoint-capacity regimes and gives the worst reconfiguration cost exactly, rather than fitting finite cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T23:31:54.698789Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonempty subsets the divisor Möbius test of the joint gcd yields Σ μ(d)(2^(n/d)−1); the constants cancel only for n>1. Parity is immediate for n>1, and mod 3 the sum is zero on odd n≥3 and on 4|n; for n=2w, w>1 odd, the odd and even squarefree divisors pair to give 2Σ_{e|w}μ(e)=0. For odd m≥5 the order d of 2 is >2, so a prime p≡−1 mod d (chosen >B) has Φ(p)≡2^(-1)−2≠0 mod m. A different prime q≡1 mod lcm(T,d) makes Φ(pq)≡0 and pq≡p mod T. Dirichlet supplies arbitrarily large primes in these reduced classes. For 4|m choose p>B odd, p≡1 mod T, and Φ(p),Φ(p²) are respectively 2 and 0 mod 4, sufficient to distinguish them modulo m. Every other nondivisor of 6 has odd part ≥5. An eventual period would force equal residues at any two indices above its threshold in the same T-class. Thus the theorem is true as stated.",
+      "replay": "/workspace/review-evidence/phi4.py and phi4.txt: direct subset checks at n=1,…,14, and exact modular instances for 9,15,25,4. The bound check_phi.py was inspected, not run; its printed checks are modular, and it does not contain the separate direct subset enumeration described in the prose. The all-moduli result is symbolic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed records concern nonsquares of Φ and the growth law for the complementary counts, respectively. The 2008 two-variable subset formula specializes to the frozen formula. The 2009 §3 uses distinct large primes p≡1 and q≡−1 mod (ℓ−1)T for Φ(q),Φ(pq)."
+        ],
+        "reasoning": "The transform is already known; it is the explicitly same-sequence, same-congruence-class contradiction in §3, not the neighboring indexed topics or a theorem about f alone, that covers nonperiodicity for primes ℓ≥5.",
+        "searches": [
+          "Resultary 28a8b11e1461 and e3e2e0e56cb2",
+          "Ayad–Kihel 2008 Equation (1) and 2009 pp. 164–165, Lemmas 1–2 and §3"
+        ]
+      },
+      "checked_sources": [
+        "Ayad–Kihel 2009 A14 full-text passages",
+        "Ayad–Kihel 2008 Article 08.5.5",
+        "Pongsriiam 2013 Article 13.9.1",
+        "OEIS A038199",
+        "Resultary 28a8b11e1461 and e3e2e0e56cb2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A14 §3, p. 165: 'Hence, Φ(p) ≡ 0 (mod ℓ), Φ(q) ≡ 2⁻¹−2 (mod ℓ) and Φ(pq) ≡ 0 (mod ℓ). But pq ≡ q (mod T)'. Lemma 2 states Φ(n)≡0 mod 3 for n≥3. Pongsriiam's later question does not erase the earlier proof."
+        ],
+        "reasoning": "Replace ℓ−1 with the exponent d=ord_m(2) for an odd m; every displayed congruence carries over, and −3/2 cannot vanish unless m divides 3. For mod 4 the same Möbius sum reduces to 2μ(n) for n>1, immediately giving the prime/square witness in any T-class of the form p≡1 mod T. Set reduction then gives the remaining even moduli. The prime case is already proved; the extension is routine, not inferred solely from a theorem stated for f.",
+        "searches": [
+          "Ayad–Kihel 2009 §3 pp. 165–166; Pongsriiam 2013 §3.5 p. 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A14 Theorem 1(ii) identifies Φ(n) for n≥2 with the exponential Möbius sum, which also counts primitive binary strings. Theorem 3 defines periodicity starting from an arbitrary N."
+        ],
+        "reasoning": "The two Φ definitions and witness indices coincide. Prior use of the cutoff N rules out interpreting 'not periodic' there as only absence of a period from the beginning.",
+        "searches": [
+          "Resultary: relatively-prime subset counts, exponential Möbius transform, modular and eventual periodicity",
+          "Pongsriiam 2013 §3.5; Ayad–Kihel Integers 9 (2009), A14, §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A038199 displays this exact sequence (starting 1,2,6,12,30,54), its exponential Möbius transform and equivalent binary periods; the material inspected does not state an all-moduli classification. The closest indexed results inspected treat a different property of the same sequence."
+        ],
+        "reasoning": "A match of sequence values or the defining transform is not a match of the modular assertion. The source of decisive proof-level coverage is A14, not the table.",
+        "searches": [
+          "OEIS A038199, definition, COMMENTS and FORMULA; Resultary exact modular-periodicity search"
+        ]
+      },
+      "rationale": "The full Ayad–Kihel paper was recovered. Despite Theorem 3 being worded for f(n), its proof explicitly rules out eventual periodicity of Φ itself for every prime ℓ≥5, using the same prime/semiprime witnesses above any threshold. Lemma 2 gives the positive mod-3 case. The extension to every odd m≥5 is a mechanical change to the same argument (Euler's totient of m or ord_m(2) in place of ℓ−1; 2^(-1)−2=−3/2 mod m). The mod-4 case is an immediate Möbius/square-divisibility check. The exact all-moduli wording is not stated in the earlier paper; the lack of an independent mathematical remainder, not a missing publication or an exact-match assumption, determines the verdict.",
+      "residual_risks": [
+        "No claim is made that the exact composite-modulus wording appears in the earlier paper. The comparison rests on the prime proof and its explicit elementary adaptation, not a literature-exhaustiveness or priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same modulo-prime Φ nonperiodicity proof and positive mod-3 case; uniform odd extension by the same argument",
+          "evidence": [
+            "Defines periodicity from N; explicitly exhibits Φ(q)≠Φ(pq) mod ℓ with q≡pq mod T for arbitrary T and large q.",
+            "Lemma 2 already proves Φ(n)≡0 mod 3 for n≥3."
+          ],
+          "identifier_or_url": "https://math.colgate.edu/~integers/j14/j14.pdf",
+          "material_read": "pp. 163–165, Theorems 1 and 3, Lemmas 1 and 2, odd-prime argument in §3; OA offsets 550–7334",
+          "method": "Lawful journal mirror PDF",
+          "title": "The Number of Relatively Prime Subsets of {1, 2, …, N}",
+          "trigger": "Decisive same-function and periodicity risk behind the statement about f"
+        },
+        {
+          "assessment": "States the question, not a solution; the mention of f is less informative than the proof in A14",
+          "evidence": [
+            "Question 3.5 concerns periodicity of D and Φ modulo a prime."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Pongsriiam/pong2.pdf",
+          "material_read": "p. 1 definition and §3.5 p. 9",
+          "method": "Journal OA PDF",
+          "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+          "trigger": "Same sequence and directly cited question"
+        },
+        {
+          "assessment": "Covers the underlying transform at m=n, not directly the modular classification",
+          "evidence": [
+            "Φ([1,m],n) divisor formula."
+          ],
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Ayad/ayad3.pdf",
+          "material_read": "p. 2 Equation (1), offset about 1400",
+          "method": "Journal OA PDF",
+          "title": "On the Number of Subsets Relatively Prime to an Integer",
+          "trigger": "Broader Möbius formula"
+        },
+        {
+          "assessment": "Same sequence, no all-moduli classification in inspected material",
+          "evidence": [
+            "Möbius transform of 2^n−1 and binary period interpretation."
+          ],
+          "identifier_or_url": "https://oeis.org/A038199",
+          "material_read": "Offsets 440–3061: terms, COMMENTS, FORMULA",
+          "method": "Public database entry",
+          "title": "OEIS A038199",
+          "trigger": "Exact sequence and alternate interpretation"
+        },
+        {
+          "assessment": "Different questions",
+          "evidence": [
+            "Nonsquares of Φ for n≥2 and a growth law involving D and Φ, not modular periods."
+          ],
+          "identifier_or_url": "Resultary 28a8b11e1461 and e3e2e0e56cb2",
+          "material_read": "Both RESULT.md Findings at mirror offset 0",
+          "method": "Local indexed mirror",
+          "title": "No perfect squares among the relatively prime subset counts; Uniform arithmetic growth law for complementary relatively prime counts",
+          "trigger": "Closest focused indexed same-function results"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Classifying eventual periods is a natural task and the original prime obstruction is worthwhile. Once the directly matching 2009 prime proof is credited, the extension is a parameter substitution for odd moduli; the extra square obstruction is the immediate mod-4 reduction to μ(n). Separating out 9 or 4 would not provide an independently valuable result beyond those deductions.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

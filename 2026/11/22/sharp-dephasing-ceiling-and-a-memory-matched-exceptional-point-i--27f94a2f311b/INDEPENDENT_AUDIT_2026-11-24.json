@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:12:20.496661Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–64",
+        "VERIFICATION.md lines 18–22",
+        "verify.py lines 10–82 (inspected)"
+      ],
+      "rationale": "Conditioning on a fresh independent reset mark gives the normalized average M=e^(−γt)ρ₀+γ∫₀ᵗexp(−γ(t−s))ρ(s)ds; the initial atom is indispensable. Differentiating closes the averaged dynamics, with coherence vector initially (1,1) and derivatives (−iω,0). The characteristic discriminant is the stated Δ. Any single-mode f would force −iω as an eigenvalue, excluded by det(A+iωI)=−irω, so the mode with strictly larger real part cannot cancel. At matched rates above the critical gap the modulus after removing e^(−rt) is strictly positive and periodic (its imaginary sine term and real cosine cannot vanish together); at equality it is the modulus of a nonvanishing linear polynomial times the exponential. These give the full log limit, not merely an envelope. The positive quadratic γ|f|²+r|h|² has derivative −2rγ|f−h|², and f=h is not an eigenline for ω≠0, giving strict spectral stability. For γ<r the trace bound is strict; for d=γ−r>0, |Δ|²−(2d²−Re Δ)²=16rγd²>0 forces Re √Δ>d. At γ=r the bound is saturated exactly for |ω|≥2r. At the critical gap the nonzero off-diagonal of the repeated-root matrix guarantees a nontrivial Jordan block and the initial state gives a nonzero linear term in the observed coherence. Direct differentiation yields the stated nonpositive derivative, with only isolated zeros in the oscillatory regime and the negative critical limit for t>0. All matched-rate f are nonzero for finite times, so f(t)/f(s) defines a CPTP dephasing map; trace-distance monotonicity follows also by shrinking transverse differences while leaving diagonal differences fixed. Independently compared 21 high-precision matrix-series evaluations and checked matched-rate monotonicity there: python3 /workspace/reproductions/check_frozen_math.py 1. No uploaded checker executed.",
+      "residual_risks": [
+        "The divisor statement is only for matched rates and the qubit reduced maps, not for trajectories, multitime reset statistics or multigap systems.",
+        "For |ω|<2r the claim does not solve the age-rate optimization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed abstract of Quantum resetting with memory says the past time is chosen uniformly from the entire history. Frozen lines 69–70 explain the 1/t memory versus exponential-age closure distinction.",
+          "The frozen comparisons identify the classical nonuniform relocation framework and colored Gaussian bath EP study; neither comparison is an independently verified full-text noncoverage claim.",
+          "OA attempts for the plausible telegraph primary passages did not produce exact equations."
+        ],
+        "reasoning": "Uniform-history kernel results are for different Volterra equations. A generic two-state exact coherence solution is relevant and would recover the noncancelling exponent when correctly initialized, but a prior sharp bound and equality analysis for unrestricted reverse rate would be needed to cover the optimization.",
+        "searches": [
+          "De Mauro–Kulkarni–Majumdar arXiv:2608.02297",
+          "Boyer–Evans–Majumdar arXiv:2411.00641",
+          "Chen et al. arXiv:2611.13221",
+          "Paladino arXiv:1304.7925"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 30–64, 69–80",
+        "Local Resultary c3ac5492b019, 4fd743353391 and self-hit 27f94a2f311b",
+        "arXiv:2608.02297 indexed abstract",
+        "arXiv:cond-mat/0201449 and 1304.7925 (passage attempts only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact telegraph characteristic function, after fixing its initial state, implies the scalar solution and lends itself to reading off the exceptional-point discriminant; at symmetric rates the amplitude formula also directly supports a monotonicity check.",
+          "The clipped family varies γ for fixed r and ω. The strict bound for γ>r follows from the separate inequality Re √Δ>γ−r; the sharp equality and the uniqueness of the maximizer for |ω|≥2r require both signs of γ−r and the saturated matched case."
+        ],
+        "reasoning": "The surviving distinction is the sharp fixed-forward-rate bound/equality theorem, not the coherence expression under another name. No mathematically equivalent prior bound or dominating parameter theorem was verified.",
+        "searches": [
+          "Initialized random telegraph noise and fixed-forward-rate asymmetric switching",
+          "arXiv:cond-mat/0201449; arXiv:1304.7925; arXiv:2608.02297"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "From frozen lines 38–43, adding iωI/2 yields Q−i diag(ω/2,−ω/2) for Q with forward and reverse rates r and γ. Its evolution from the all-ones column is the finite-state Feynman–Kac formula, evaluated in the initially positive state; g(t)=exp(iωt/2)f(t).",
+          "The modulus, CP-divisibility and defective coherence block are consequently the same as for this fully polarized one-time telegraph model, up to deterministic phase rotation. The symmetric equilibrium initialization is a different average.",
+          "This alias does not equate pathwise resetting and fluctuator statistics."
+        ],
+        "reasoning": "Prior results for precisely initialized asymmetric telegraph dephasing would cover the shared one-time formulas and could cover the ceiling. Stationary symmetric initializations, uniform-history resets and bath EPs alone are not equivalent.",
+        "searches": [
+          "Resultary: clipped exponential age memory reset qubits and dephasing ceiling",
+          "Telegraph fluctuator with fully polarized initial noise; Paladino arXiv:cond-mat/0201449 and arXiv:1304.7925"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 27f94a2f311b is the self-hit.",
+          "Resultary c3ac5492b019 describes a log-periodic crossover in a driven qubit with uniform-history resets; Resultary 4fd743353391 describes trace-distance revivals with uniform-history resets at a specific rate.",
+          "Neither catalogue statement specifies a clipped exponential age or an optimization over its rate."
+        ],
+        "reasoning": "Different memory kernels account for the different regimes; the cited backflow instance does not contradict matched-rate divisibility or reproduce the theorem. No distinct exact catalogue entry was located.",
+        "searches": [
+          "Resultary: dephasing ceiling, memory-matched exceptional point, and quantum historical reset backflow"
+        ]
+      },
+      "rationale": "The supported distinct content is the sharp age-rate ceiling with unique equality locus at fixed forward reset rate, proved for the clipped preferential-return protocol, together with the characterization at saturation. Do not assign independent novelty to diagonalizing a two-state fluctuator, to its coalescence, or to re-expressing its scalar coherence. The exact telegraph alias is material: it can give the same channel conclusions in a rotating frame, but an initialized scalar solution or a result at symmetric switching does not itself assert the sharp optimization over the other switching rate. No verified earlier statement of that optimization was located. The primary telegraph literature comparison remains access-limited.",
+      "residual_risks": [
+        "Earlier asymmetric telegraph literature under a different normalization could contain the same fixed-forward-rate ceiling or its equality case. The exact initialized regimes and optimization in the named sources could not be checked in full text.",
+        "The exact solution and the matched-rate channel properties are mathematically shared with fully polarized telegraph dephasing; they should not be presented as a new independent spectral mechanism."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "uniform history verified in abstract, not same kernel",
+          "evidence": [
+            "Indexed abstract: reset time 'chosen uniformly from its entire history'; frozen RESULT.md lines 69–76 supply the source's comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.02297",
+          "material_read": "indexed abstract and frozen comparison; exact paper sections not retrieved",
+          "method": "focused literature search and bounded OA passage attempt",
+          "title": "Quantum resetting with memory",
+          "trigger": "nearest quantum reset-to-trajectory history framework"
+        },
+        {
+          "assessment": "strong mathematical alias independently derived; exact prior assertions unresolved",
+          "evidence": [
+            "Frozen RESULT.md lines 38–43 yield the exact gauge-shifted Feynman–Kac generator; attempts did not recover decisive primary passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0201449 ; https://arxiv.org/abs/1304.7925",
+          "material_read": "first title indexed; no exact initialized equation or optimization passage retrieved",
+          "method": "targeted literature search and bounded OA passage attempts",
+          "title": "Decoherence and 1/f noise in Josephson qubits; 1/f noise: implications for solid-state quantum information",
+          "trigger": "known telegraph-dephasing alias with polarized initialization and potential asymmetric switching"
+        },
+        {
+          "assessment": "uniform-history regimes, not the clipped kernel; no priority inferred from a same-day entry",
+          "evidence": [
+            "Catalogue summaries discuss a uniform-history polarization crossover or uniform-history revivals, respectively."
+          ],
+          "identifier_or_url": "Resultary c3ac5492b019 and 4fd743353391",
+          "material_read": "catalogue summaries, not full text",
+          "method": "local Resultary and bounded local mirror attempt",
+          "title": "A sharp real-to-log-periodic relaxation crossover in a history-reset qubit; Two certified information-backflow episodes in a uniformly memory-reset qubit",
+          "trigger": "closest indexed quantum memory-reset comparisons"
+        },
+        {
+          "assessment": "distinct mechanisms as described in the frozen comparison; no independent full-text scope conclusion",
+          "evidence": [
+            "Frozen RESULT.md lines 69–80."
+          ],
+          "identifier_or_url": "arXiv:2411.00641 and arXiv:2611.13221",
+          "material_read": "frozen comparison only",
+          "method": "source-package inspection",
+          "title": "Diffusion with preferential relocation in a confining potential; Exceptional points in non-Markovian quantum-state diffusion",
+          "trigger": "nonuniform memory and EP background"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–31 and 46–64"
+      ],
+      "rationale": "The age scale is a tunable parameter of a normalized memory-reset protocol. The sharp ceiling and its unique maximal-gap tuning give a concrete limit on how much changing that scale can accelerate coherence decay. The matched-rate channel shows that visible Jordan behavior and saturation of the long-time exponent do not require trace-distance revivals. The motivation is the exact reset rate/age rate tradeoff, not a new name for two-state coalescence.",
+      "residual_risks": [
+        "No physical realization is implied and the conclusion is scoped to the stipulated qubit protocol."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

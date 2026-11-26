@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The source `pentagon_interval.py` has no nonstandard dependencies. Running `python pentagon_interval.py` constructs all monomial moments to total degree 24, evaluates 28 Taylor-jet components, computes all ten six-coordinate Hessians, and performs rigorous \(LDL^{\mathsf T}\) interval eliminations with \(10^{40}\) integer scale. It terminates successfully only if every interval denominator excludes zero, every one of the 60 pivots is strictly positive, and all ten *minimum* pivot lower endpoints exceed \(1/5\); see `certificate_results.txt`.
+## correctness
 
-The exact-integer \(\sqrt5\) bracket is obtained using `math.isqrt(5 * 10**80)` and its successor. All other rational coefficients and outward rounding are based on integer operations. The check prints small first-derivative residual enclosures, while exact gradient vanishing is supplied analytically by symmetry and scaling. The coefficient formula, Hessian identity, and chart argument are set out in `RESULT.md`.
+PASS
 
-Run `python pentagon_quadrature.py` with NumPy for independent Gauss–Legendre double-integration of the unnormalized energy at the regular pentagon. Its output is in `independent_quadrature_results.txt`; it is an independent numerical consistency check of endpoint powers only, not an infinite-proof substitute.
+The supplied scaled vertices give the Euclidean regular pentagon under (X,Y)→(X,sY); two fixed labeled adjacent vertices determine a unique local direct-similarity gauge. Nearby pentagons remain strictly convex and contain the origin, so the moment formula follows from the simplex beta integral on the five triangles. The pairwise energy is the stated binomial moment convolution, with s²=(5+sqrt(5))/8, and the two integration Jacobians and area normalization yield s^(−m). Dihedral covariance of the full vertex gradient makes its components a common radial multiple, which vanishes by scale invariance. The quotient rule then yields the stated normalized Hessian, including −(m+2)(m+1) A'A'^T/A² in B_m/E_m. The checker stores actual second derivatives, not half of the diagonal derivatives, and its integer endpoint multiplication and nonzero-divisor quotient contain the exact quantities. The Schur updates enclose the unpivoted LDL pivots; the recorded lower bounds all exceed 1/5. In a separate exact Q(sqrt(5)) recomputation for the limiting case m=3, all six pivots exceeded 1/5 by exact sign comparisons, with the least about 0.2154909091. The other nine exponents were checked by inspecting the mathematical formula, implementation and recorded output rather than executing submitted code. Positive definiteness and stationarity imply strict local minimality by Taylor's theorem in the slice; this is not a global claim.
 
-This is a self-review and reproducible finite exact-arithmetic certificate. No independent mathematical audit has occurred. Historical priority, all-exponent claims, and global optimality are not certified.
+## originality
+
+PASS
+
+The numerical Hessian signs and their tested parameters, including k=6, belong to BBF. The distinct claim is an exact proof of strict local minimality in the higher-even pentagon window. Exact hexagon cases neither duplicate nor imply it; the related rigorous results for smaller powers, other kernels, or the first Dirichlet eigenvalue do not cover it.
+
+## value
+
+PASS
+
+This certifies every nonsimilarity mode for a canonical polygon over the complete higher-even pentagon window numerically studied by BBF. The exponents and polygon are motivated by an existing numerical conjectural test, and the rigorous local result is useful even without any global inequality or classification for other real exponents.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

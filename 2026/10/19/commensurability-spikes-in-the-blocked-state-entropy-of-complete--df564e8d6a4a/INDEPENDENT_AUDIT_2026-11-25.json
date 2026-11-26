@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T19:32:44.046288Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–61",
+        "Frozen VERIFICATION.md and verify_potts_bipartite.py, inspected but not run; the reported finite enumeration is corroboration only"
+      ],
+      "rationale": "For a one-vertex recoloring on the first side, the energy change is the new color's multiplicity on the second side minus the old one's. At a blocked state each occupied color on either side must minimize the opposite multiplicity. A shared color then forces all colors onto the second side, hence equal first-side multiplicities, which in turn force equal second-side multiplicities. These states are blocked under the stipulated strictly downhill single-site rule; a cross-side exchange of two distinct colors lowers their energy by 2. Proper states are global minima. Counting a chosen exact left support by surjections and counting the balanced branch by two multinomials gives the two energy enumerators; for q=3 and a=b=3 the terms are 42 and 36u^3. On equal parts the proper term is controlled by the maximizers of s(q−s) with exponential error for fixed q, while the squared central multinomial is asymptotic to q^(2n+q)/(2πn)^(q−1). Comparing exponential rates yields both limits and the probability statements. The move rule permits ties in the local optimality test, not neutral steps in the dynamics.",
+      "residual_risks": [
+        "The asymptotic conclusion is for fixed q and equal part sizes, not growing q or a dynamical quench law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kun–Powers–Reyzin, pp. 4–5: general game and stable-coloring existence, not a classification of all biclique equilibria in the inspected passages.",
+          "Resultary dd5898d7bbc5, RESULT.md offsets 0–2582: binary equal splits under a same-color-majority criterion."
+        ],
+        "reasoning": "General existence does not force the claimed equal-multiplicity support rigidity; the majority inequality points the other way and its binary split is outside the stated palette range. The later biclique result covers the classification even though it was framed in game language.",
+        "searches": [
+          "arXiv:1308.3258v1, stable graph-coloring definitions and existence",
+          "Resultary b23c91cf8e4c, unweighted and weighted biclique cases",
+          "Resultary dd5898d7bbc5, majority colorings of complete multipartite graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1308.3258v1",
+        "Resultary b23c91cf8e4c",
+        "Resultary dd5898d7bbc5",
+        "Frozen RESULT.md, literature comparison and limitations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The chromatic-polynomial/Potts correspondence accounts only for the energy-zero term; knowing local best response does not by itself give the positive-energy branch.",
+          "Combined with the balanced multiplicities, the later exact Nash count allows energy tagging by ab/q and the entropy asymptotics by Stirling and the maximal proper-coloring base."
+        ],
+        "reasoning": "The later overlap extends by straightforward deduction beyond what it explicitly prints; the originality assessment does not treat those deductions as a difference that would defeat earlier coverage if the source were earlier. In the earlier inspected material the crucial support classification and two-site witness are not supplied.",
+        "searches": [
+          "arXiv:1308.3258v1, pp. 4–5",
+          "Resultary b23c91cf8e4c, RESULT.md offsets 138–8119",
+          "Frozen RESULT.md lines 57–61 and 68–76"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1308.3258v1, p. 4: the payoff is the number of differently colored neighbors, and stable means no unilateral improvement.",
+          "Resultary b23c91cf8e4c, RESULT.md offsets 138–8119: max-q-cut Nash classification and strict joint gain from the same cross-side exchange."
+        ],
+        "reasoning": "A gain in unilateral max-cut payoff equals the loss in monochromatic-edge energy, so the Nash and one-site notions coincide exactly. The two-player coalition objective need not agree with energy for arbitrary changes, but the displayed exchange proves escape under both notions for the exceptional branch.",
+        "searches": [
+          "Kun–Powers–Reyzin arXiv:1308.3258v1, stable graph coloring and anti-coordination payoff",
+          "Resultary: max-q-cut bicliques, two-player coalitional stability, blocked Potts entropy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2026/11/8/SCOPE-two-player-coalitional-stability-is-exactly-efficiency-in-bicliq--b23c91cf8e4c, offsets 4439–8119: exact proper and total unweighted Nash counts.",
+          "2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5, offsets 0–2582: exact binary split count in a different rule."
+        ],
+        "reasoning": "The later exact Nash count is the frozen enumerator at u=1, not a mere match of small parameters. Neither this later record in the passages checked nor the earlier binary majority entry explicitly gives the positive-energy coefficient law or the two entropy limits. No earlier matching exact law was verified; a search miss is not evidence of absence.",
+        "searches": [
+          "Resultary semantic comparisons for biclique max-q-cut Nash counts and complete-bipartite Potts blocked entropy"
+        ]
+      },
+      "rationale": "The prior stable-coloring condition and ordinary proper-coloring count are background. The inspected earlier sources do not provide the complete-bipartite positive-energy classification and its two-site and entropy consequences. A distinct later catalogue result has substantial mathematical overlap, including the exact unweighted classification and the cross-side escape; it is disclosed here, not counted as an earlier source or as evidence of priority.",
+      "residual_risks": [
+        "An earlier complete-bipartite specialization under equilibrium, local-optimum or color-exchange terminology may exist; the inspected results do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct definitional overlap; not the biclique law in the inspected passages",
+          "evidence": [
+            "Payoff counts differently colored neighbors; stable and strictly stable are distinguished; the general existence proposition does not enumerate all equilibria."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.3258",
+          "material_read": "Version 1, PDF pp. 4–5, extracted offsets 11000–13726 and 14600–16254; targeted complete-bipartite term check",
+          "method": "Primary open-access PDF, relevant passages",
+          "title": "Anti-Coordination Games and Stable Graph Colorings",
+          "trigger": "Exact alias for one-site blocked colorings"
+        },
+        {
+          "assessment": "Substantial mathematically equivalent later coverage of Nash classification, exact totals and escape; no priority inference",
+          "evidence": [
+            "Same disjoint supports or uniform counts, identical divisibility constraint, and strict two-vertex gain from exchanging different colors across shores."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-two-player-coalitional-stability-is-exactly-efficiency-in-bicliq--b23c91cf8e4c/RESULT.md",
+          "material_read": "Offsets 138–4439 and 4439–8119",
+          "method": "Published source via local mirror",
+          "title": "Two-player coalitional stability is exactly efficiency in bicliques",
+          "trigger": "Direct overlap on the same graph and color palette"
+        },
+        {
+          "assessment": "Different rule, with only a binary balanced slice in common",
+          "evidence": [
+            "Same-color majority rule and equal half-splits do not give the arbitrary-palette blocked classification."
+          ],
+          "identifier_or_url": "Resultary 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5/RESULT.md",
+          "material_read": "Offsets 0–2582",
+          "method": "Published source via local mirror",
+          "title": "Majority C-colorings of complete multipartite graphs",
+          "trigger": "Earlier exact split-count candidate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–37 and 46–61"
+      ],
+      "rationale": "This classifies all local minima and energies in a natural solvable antiferromagnet, quantifies precisely the exceptional metastable population, and shows that an apparently innocuous change of size can switch a combinatorial entropy between two distinct limits. The disappearance under a minimal enlargement of the move set is structurally informative. This is not a claim about equilibrium free energy or relaxation times.",
+      "residual_risks": [
+        "Value is for the exact finite graph model and fixed-palette thermodynamic counting question."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:18:05.566696Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:5–84, VERIFICATION.md:18–24 and verify.py:13–132 (inspected, not executed)",
+        "/workspace/branches/repro_frozen_review.py: rule73()",
+        "/workspace/repairs/3/RESULT.md, SLOGAN.txt, VERIFICATION.md and verify.py; ran repaired verify.py and checked frozen verification front matter unchanged"
+      ],
+      "rationale": "The repaired theorem concerns the minimal complete recognizer, not an unpointed presentation or temporal dynamics. A path of length n determines an input block of length n+2, which extends to a bilateral configuration. This proves word recognition for every length. In the reconstructed subset table the 16 access words reach all 16 masks, including empty. Computing backward origin masks for the four continuations 111, 11001, 0111, 10011 gives exactly 1, 2, 4, 8. Any distinct masks disagree on whether at least one of those words is accepted, proving minimality by distinct right languages. Both an independently written reconstruction and the repaired standalone certificate reproduce the witnesses. No false original formula was found: the frozen forbidden family follows by the constant transition at mask 8 on 0 and the suffix orbit 12→11→14→15; both immediate proper factors are legal. Independently computing D=det(I−zM) and N=[D−det(I−z(M+1eᵀ))]/z by the rank-one determinant identity reproduces both frozen polynomials and the first 12 counts. The live matrix has min(M⁸)=0 and min(M⁹)=2; primitivity and Perron–Frobenius give the frozen spatial entropy, with independently checked root 1.8864996390854936195076 and logarithm 0.6347230691078676926285. Those frozen claims were removed on scope and coverage grounds, not corrected numerically.",
+      "residual_risks": [
+        "The finite access and suffix checks prove all-length DFA minimality only in conjunction with the path-to-bilateral-input correspondence; no temporal, eventual-image, or uniqueness-of-extremizer statement is made."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first-offender classification includes Rule 73 in the 52 exponentially growing cases and uses a paired-subset recognizer for minimal forbidden words, not a minimal recognizer for all allowed words.",
+          "The exact entropy catalogue constructs the reachable nonempty subset presentation and records 15 reachable nonempty states for Rule 73; it gives the exact entropy but does not supply the pairwise distinct right languages. General sofic-image machinery gives finiteness, not sharp determinization for this class."
+        ],
+        "reasoning": "The repair does not claim general reachability, novelty for strict soficity or a new entropy. A recognizer for minimal obstructions is a different language; a reachable all-accepting live presentation alone is not a minimal DFA.",
+        "searches": [
+          "Local Resultary --23171f1f1979, Proof steps 1–4 and classification.csv",
+          "Local Resultary --d4f1725c3486, Finding, Proof step 2 and rule_catalog.csv",
+          "arXiv:2209.13373, sofic language and image results"
+        ]
+      },
+      "checked_sources": [
+        "Resultary --23171f1f1979, --5742d176c6e4, --d4f1725c3486 and --4412da3b7a44",
+        "Wolfram Atlas Rule 73 properties",
+        "arXiv:1305.6533, arXiv:1310.3311, arXiv:2209.13373",
+        "Chen et al., CSC 2011"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier first-offender pairing (q,s) is valid for 11001 after stripping its first letter: it is (8,12), then on zeros goes to (8,11), (8,14), (8,15), repeating (8,15). On the next 1 the first mask is 4; a final 1 empties only the first component. This is an accepting route in the published general construction for every positive gap length, and the earlier exponential class already directly implies non-SFT.",
+          "The entropy result supplies the standard M-resolvent method and the exact spectral datum; neither matrix reachability nor characteristic data certify pairwise right-language distinction. The repaired proof uses four distinct singleton origin tests, an explicit minimality certificate not among the inspected comparison results."
+        ],
+        "reasoning": "The repaired lower bound is not a parameter substitution into an existing exact minimum theorem. It does require a separate state-unmergeability calculation; automatic minimization is available in general, but the resulting sharpness in the elementary class does not follow from the published size bound or reachability count alone.",
+        "searches": [
+          "Resultary --23171f1f1979 RESULT.md offsets 2850–8856",
+          "Resultary --d4f1725c3486 RESULT.md Proof step 2 and rule_catalog.csv Rule 73",
+          "arXiv:2209.13373, opening and sofic definitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Rule 73 properties page lists black–white conjugate 109, left–right reflection 73, and combined conjugate 109. Letter complementation therefore gives the same minimal complete DFA size for Rule 109.",
+          "The cyclic Rule 73 output series distinguishes outputs on indexed rings; its length-two count 2 differs from 4 for bilateral blocks, even though a polynomial factor agrees. Counts of preimages and entropy of the map on invariant subsystems are also different invariants."
+        ],
+        "reasoning": "Normalize symmetry by symbol relabelling, and keep input boundary, time step and language of recognition fixed. Results for cyclic words or temporal dynamics do not transfer the minimality claim.",
+        "searches": [
+          "Wolfram Atlas, https://atlas.wolfram.com/01/01/73/01_01_1_73.html",
+          "Local Resultary --4412da3b7a44, Finding and Relationship to prior work",
+          "arXiv:1305.6533, Appendix A",
+          "Chen et al., CSC 2011, Theorem 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier first-offender row reads 73,exponential,-1. The same-day second-update entry reads 73,0,6,010011,36 for the separation between the first and second images, not a word-recognizer state count.",
+          "The all-rule entropy row assigns Rule 73 class 8 with example root 1.886499639; the rule catalogue has 15 reachable live masks and the same characteristic polynomial with its zero factor. The Atlas properties page gives equivalences and the algebraic rule form, not an exact image-language recognizer table."
+        ],
+        "reasoning": "Exact catalogue matches for neighboring numerical or language invariants are credited; none of the compared entries certifies that 16 is necessary for this complete recognizer.",
+        "searches": [
+          "Local Resultary --23171f1f1979, classification.csv Rule 73 row",
+          "Local Resultary --5742d176c6e4, Rule 73 row",
+          "Local Resultary --d4f1725c3486, entropy_spectrum and rule_catalog Rule 73 entries",
+          "Atlas Rule 73 properties and index"
+        ]
+      },
+      "rationale": "This PASS is for the repaired sharp complete state-complexity theorem. The frozen combined finding is not passed as distinct: the earlier indexed first-offender result already covers strict soficity and its constructive product graph also yields the displayed obstruction family by a fixed transition calculation. The all-rule entropy catalogue gives the exact same Perron entropy and characteristic polynomial (it is indexed the next day, not assigned priority), and makes the matrix-count method explicit. The surviving assertion is the witnessed attainment of the full subset upper bound for this constrained class, not a reachable-subset count, general powerset construction, or a characteristic-polynomial computation. The strongest compared all-rule sources do not establish right-language inequivalence for these reachable subsets. The singleton continuation certificates supply that separate lower bound.",
+      "residual_risks": [
+        "An older or nonindexed Rule 73 or Rule 109 exact minimized table could predate this certificate. Only the noted passages and catalogue entries are compared; no exhaustive priority claim is made.",
+        "Later catalogue records show coverage, not priority over the frozen one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier coverage of strict soficity and constructive coverage of the family; not a minimal image recognizer theorem",
+          "evidence": "Rule 73 exponential; first-offender acceptance uses (q,s) with nonempty q and final letter emptying q but not s. See transition calculation above.",
+          "identifier_or_url": "Resultary/2026/10/25/SCOPE-a-first-offender-growth-gap-for-all-elementary-cellular-automato--23171f1f1979",
+          "material_read": "RESULT.md opening and offsets 2850–8856, construction and complete evaluation; classification.csv heading and Rule 73 row",
+          "method": "Local Resultary mirror, exact theorem, proof and table passages",
+          "title": "A first-offender growth gap for all elementary cellular-automaton images",
+          "trigger": "Same image and general obstruction theorem"
+        },
+        {
+          "assessment": "Later exact entropy overlap and reachability count, not state minimality",
+          "evidence": "Same bilateral one-step definition; assigns Rule 73 to the exact Perron class with lambda approximately 1.886499639, and distinguishes reachable nonempty count 15 from full automaton including the sink.",
+          "identifier_or_url": "Resultary/2026/10/27/SCOPE-exact-nineteen-value-spatial-image-entropy-spectrum-of-elementar--d4f1725c3486",
+          "material_read": "RESULT.md opening, class 8 table, proof of word matrix and verification; rule_catalog.csv Rule 73 row near offset 2900",
+          "method": "Local Resultary mirror, theorem and supporting table passages",
+          "title": "Exact nineteen-value spatial image entropy spectrum of elementary cellular automata",
+          "trigger": "Exact entropy and reachable-state catalogue"
+        },
+        {
+          "assessment": "Same-day distinct invariant",
+          "evidence": "Reports 010011 as a length-six first/second image separation, not DFA equivalence classes for the first image.",
+          "identifier_or_url": "Resultary/2026/10/26/SCOPE-a-sharp-twelve-symbol-threshold-for-second-update-image-loss-in--5742d176c6e4",
+          "material_read": "CSV heading and Rule 73 row, offsets 0 and 880",
+          "method": "Local Resultary mirror, original table",
+          "title": "A sharp twelve-symbol threshold for second-update image loss",
+          "trigger": "Exact image-word data for Rule 73"
+        },
+        {
+          "assessment": "Different boundary convention, alias confirmed",
+          "evidence": "Indexed finite rings give length-two count 2. Its factor f_6 agrees with D, but its series does not count the bilateral block language.",
+          "identifier_or_url": "Resultary/2026/11/8/SCOPE-exact-cyclic-one-step-image-series-of-elementary-cellular-automa--4412da3b7a44",
+          "material_read": "RESULT.md Finding at offset 0 and Relationship to prior work near 4880",
+          "method": "Local Resultary mirror original passages",
+          "title": "Exact cyclic one-step image series of Rule 73",
+          "trigger": "Same rule, series and symmetry aliases"
+        },
+        {
+          "assessment": "Alias and local algebra covered; this page does not tabulate a complete image-language recognizer",
+          "evidence": "The Black–White, Left–Right, BW & LR entries are respectively 109, 73 and 109.",
+          "identifier_or_url": "https://atlas.wolfram.com/01/01/73/01_01_1_73.html",
+          "material_read": "Rule properties page: equivalent rules, rule descriptions and neighbor dependency",
+          "method": "OA website mode, direct page",
+          "title": "Rule 73 — Rule properties",
+          "trigger": "Authoritative rule alias and possible exact published rule data"
+        },
+        {
+          "assessment": "Preimage counts rather than number or recognizer of distinct image words",
+          "evidence": "Defines numbers of n-step preimages of basic blocks.",
+          "identifier_or_url": "arXiv:1305.6533",
+          "material_read": "Appendix A, PDF p.12, offset about 31000",
+          "method": "OA original PDF passage",
+          "title": "Sequences of preimages in elementary cellular automata",
+          "trigger": "Possible exact counts for output words"
+        },
+        {
+          "assessment": "Temporal restricted entropy, not bilateral spatial image recognizer",
+          "evidence": "Computes entropy of f_73 acting on constructed invariant sets.",
+          "identifier_or_url": "https://worldcomp-proceedings.com/proc/p2011/CSC2769.pdf",
+          "material_read": "Abstract p.1 and Theorem 2 p.4 near offset 26200",
+          "method": "OA proceedings PDF original passages",
+          "title": "Dynamics of Wolfram’s Class III Cellular Automaton Rule 73",
+          "trigger": "Exact Rule 73 and entropy"
+        },
+        {
+          "assessment": "The inspected scope concerns spaced neighborhoods and finite tapes",
+          "evidence": "Focuses on long-distance cellular automata, not the minimal DFA of the ordinary nearest-neighbor bilateral one-step language.",
+          "identifier_or_url": "arXiv:1310.3311",
+          "material_read": "Opening p.1, offset 0",
+          "method": "OA original PDF opening",
+          "title": "Investigation of Rule 73 as Case Study of Class 4 Long-Distance Cellular Automata",
+          "trigger": "Exact-rule study with potential structural data"
+        },
+        {
+          "assessment": "Prior general image/sofic language framework, not the exact minimality certificate in the inspected material",
+          "evidence": "Defines sofic languages and considers regularity and elementary examples, a different goal from a complete reachable-minimal image DFA count.",
+          "identifier_or_url": "arXiv:2209.13373",
+          "material_read": "PDF p.1 and p.2, offsets 0 and about 8500",
+          "method": "OA original PDF openings and definitions",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "General image theory and exact elementary-rule examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "/workspace/repairs/3/RESULT.md, Finding and Proof",
+        "Resultary --d4f1725c3486, reachable masks and count identity",
+        "/workspace/repairs/3/verify.py"
+      ],
+      "rationale": "The repaired claim proves that the generic powerset worst-case bound is attainable within the much more constrained local-rule de Bruijn images of elementary binary cellular automata. The exact minimum, rather than the standard bound or a 16-row presentation, matters when assessing whether automata for these image languages can always be compressed. The four diagnostic words give a reusable explicit reason no compression is possible for this rule. Recomputing the known entropy class or first-offender category is not offered as the surviving contribution.",
+      "residual_risks": [
+        "This is attainment, not a classification of all rules attaining it, and no lower bound is claimed for nondeterministic or bi-infinite presentations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

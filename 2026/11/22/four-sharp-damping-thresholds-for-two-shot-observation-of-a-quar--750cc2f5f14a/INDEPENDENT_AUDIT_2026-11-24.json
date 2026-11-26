@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T07:03:41.199077Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For lag d, conjugation by the start rotation and multiplication by q^s give the shifted Gramian. Scale strictly disfavors shifting nonsingular E/A/D schedules and every T schedule, and is invisible to K. At start zero the trace and determinant are 1+q^d and q^d sin²(dπ/4); multiples of four are singular. Within a nonsingular angular class the lag weight z=q^d orders all four criteria strictly: E equals (1+z-sqrt(1+z²))/2 for odd lags and z for lags 2 mod 4, both strictly increasing; D increases, inverse trace decreases, and normalized determinant cz/(1+z)² increases and is strictly decreasing as a function of condition number. Thus lags 1 and 2 alone compete. Direct comparison gives q_D=1/2 and q_A=√2−1. For E, 1+q−2q²=(1−q)(1+2q)>0, so the cubic from squaring gives an equivalent tie; it decreases strictly from 1 to −1. For K the reciprocal quartic becomes v²−2v−4 with v=q+q⁻¹>2, monotone in q, giving exactly one tie. For small q the lag-one E and K scores are better, and at q→1 lag two wins; A and D have the asserted signs directly. Exact polynomial signs put q_K in (0.34,0.35), q_E in (0.40,0.41) and q_A in (0.41,0.42). Strict within-class comparisons rule out other ties. T directly prefers s=0 and d=1, regardless of angular class. The angle used throughout is π/4 per step; the descriptive title should not be read as π/2. The bundled numerical checker was inspected, not executed; the infinite-horizon comparison is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Siami and coauthors give general performance guarantees for sparse schedules; the compared statements are not exact two-observation integer schedules with criterion-specific damping thresholds.",
+          "The three-time envelope concerns equally spaced continuous observations and a determinant, so uses a different lag problem and budget."
+        ],
+        "reasoning": "A general objective formulation or approximation bound does not yield exact optimizer sets, tie points or strict switch ordering; dropping a third observation changes the matrix and need not preserve maximizers.",
+        "searches": [
+          "arXiv:1805.00606 observability duality",
+          "arXiv:2005.03143 schedule and Gramian",
+          "Resultary 718ab126a5c2 Finding and limitations"
+        ]
+      },
+      "checked_sources": [
+        "Resultary f516fee65ff8",
+        "Resultary 6b4e061b93c9",
+        "Resultary 718ab126a5c2",
+        "Resultary 50b398f70222",
+        "arXiv:1704.05719",
+        "arXiv:1805.00606",
+        "arXiv:2005.03143"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous E-optimality shares the objective and start-zero conclusion, but does not directly compare integer lags straddling a continuous optimizer. The spectral-majorization result varies an actuator direction rather than comparing time samples of a fixed sensor."
+        ],
+        "reasoning": "The angular-class dominance and exact cross-lag comparisons do additional work. Neither restricting a set containing a continuous optimum not on the grid, nor applying Gramian duality alone, gives all the claimed decision boundaries.",
+        "searches": [
+          "Resultary f516fee65ff8 and 6b4e061b93c9 Findings",
+          "Resultary 50b398f70222 Finding",
+          "arXiv:1805.00606 sensor-duality passage"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both same-day Resultary Findings optimize the least information eigenvalue over real continuous lags. Their conclusion does not state the integer E crossover or A/D/K/T schedules.",
+          "Baran–Szák-Kocsis–Stehlík use a stochastic complex OU process and estimate trend or covariance quantities, not the unknown initial condition of the known deterministic flow."
+        ],
+        "reasoning": "Equivalent least eigenvalue and worst-direction language was checked, as was the OU design analogy; changing the feasible times or statistical experiment changes the claimed optimizer. Same-day records are treated as substantive comparisons, without inferring their order.",
+        "searches": [
+          "Resultary f516fee65ff8 and 6b4e061b93c9 (two-time E-optimal oscillator timing)",
+          "arXiv:1704.05719"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The scan returned the assigned record itself and distinct two-snapshot least-eigenvalue findings in continuous time. The distinct multi-criterion cyclic-actuator record gives an actuator-direction optimum with constant trace, not the four-switch table."
+        ],
+        "reasoning": "Exact near-hits were compared for feasible set, optimized variables and conclusions. Bounded nonappearance of a different exact table is not a novelty guarantee.",
+        "searches": [
+          "Local Resultary scans for damped planar rotation, exact two observations and information criteria",
+          "Resultary f516fee65ff8, 6b4e061b93c9 and 50b398f70222"
+        ]
+      },
+      "rationale": "The inspected comparisons cover Gramian scheduling generally, oscillator timing continuously, or exact optimizers in a different design variable. They do not supply the exact two-integer-reading cross-criterion classification on the evidence inspected. The distinct claim is the complete switching law and all attaining schedules, not the Gramian or the criteria themselves.",
+      "residual_risks": [
+        "The general web search wave was deferred; this decision relies on the inspected sources and local comparisons, not a comprehensive primary-literature scan.",
+        "Exact two-visit optimal-design results under other terms could be relevant. The same-day continuous findings carry no inferred publication ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Close overlap limited to a different feasible-set problem and E",
+          "evidence": "Unique continuous lag, starting time zero",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-globally-optimal-two-time-worst-direction-observation-of-a-dampe--f516fee65ff8/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Globally optimal two-time worst-direction observation of a damped oscillator",
+          "trigger": "Same deterministic oscillator, observation count and E criterion"
+        },
+        {
+          "assessment": "A continuous-time least-eigenvalue comparison, not the integer multi-criterion classification",
+          "evidence": "Continuous spacing with a unique optimal lag",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-unique-globally-optimal-two-snapshot-spacing-for-a-damped-rotati--6b4e061b93c9/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Unique globally optimal two-snapshot spacing for a damped rotation",
+          "trigger": "Exact two-snapshot oscillator timing"
+        },
+        {
+          "assessment": "Different sampling budget and spacing",
+          "evidence": "Determinant with three equally spaced readings",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-strong-damping-observability-envelope-for-three-time-oscil--718ab126a5c2/RESULT.md",
+          "material_read": "Finding and later passage, offsets 0 and 7200",
+          "method": "Local Resultary mirror",
+          "title": "Sharp strong-damping observability envelope for three-time oscillator sampling",
+          "trigger": "Exact deterministic damped-mode observability"
+        },
+        {
+          "assessment": "Optimizes actuator direction, not observation times",
+          "evidence": "Majorization for a damped cyclic shift, trace constant across unit actuators",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-horizon-universal-spectral-majorization-for-a-damped-cyclic-actu--50b398f70222/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Local Resultary mirror",
+          "title": "Horizon-universal spectral majorization for a damped cyclic actuator",
+          "trigger": "Exact multi-criterion damped discrete design"
+        },
+        {
+          "assessment": "Different process and parameter design",
+          "evidence": "Brownian-driven stationary complex OU and parameter estimation",
+          "identifier_or_url": "https://arxiv.org/pdf/1704.05719",
+          "material_read": "Abstract and stochastic process model, pp. 1 and 3 (offsets 0 and 6400)",
+          "method": "OA primary PDF text",
+          "title": "D-optimal designs for complex Ornstein–Uhlenbeck processes",
+          "trigger": "Oscillator-like dynamic model with exact designs"
+        },
+        {
+          "assessment": "General scheduling approximation, not exact thresholds here",
+          "evidence": "Sparse activation with approximation guarantees",
+          "identifier_or_url": "https://arxiv.org/pdf/1805.00606",
+          "material_read": "Abstract and sensor-duality discussion, offsets 0 and 12500",
+          "method": "OA primary PDF text",
+          "title": "Deterministic and Randomized Actuator Scheduling With Guaranteed Performance Bounds",
+          "trigger": "General Gramian performance and sensor duality"
+        },
+        {
+          "assessment": "The compared results are performance bounds for joint sparse scheduling",
+          "evidence": "Time-varying sparse schedule and Gramian formulation",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.03143",
+          "material_read": "Abstract and schedule/Gramian discussion (offsets 0 and 50000)",
+          "method": "OA primary PDF text",
+          "title": "A Separation Theorem for Joint Sensor and Actuator Scheduling With Guaranteed Performance Bounds",
+          "trigger": "General time-varying sensor design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A two-reading budget is a natural minimal full-rank design for a planar initial state. The exact four distinct switch points quantify where common objective choices select incompatible schedules in the same experiment; the K-only freedom in start time is another useful distinction. The global reduction and threshold order make the result more useful than a tabulation of two matrix scores or a numerical finite-lag comparison. The conclusion is specialized to known 45-degree steps and equal precision.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

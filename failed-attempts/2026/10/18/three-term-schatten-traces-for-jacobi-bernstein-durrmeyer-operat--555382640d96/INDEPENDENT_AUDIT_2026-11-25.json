@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:04:04.246523Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 23–109",
+        "Frozen VERIFICATION.md and checker.py, inspected, not executed"
+      ],
+      "rationale": "The beta posterior moments preserve the polynomial filtration and give diagonal entries n falling k divided by (n+c) rising k, where c=a+b+2. Selfadjointness and rank give the stated trace for every s>0. The log-product bound gives a compact-uniform Gaussian tail past n^(3/5). For h=n^(-1/2), t=h(k+(c-1)/2), the first three logarithmic sums give -t^2+h^2[(c-1)^2/4+ct^2/2-t^4/6] with a summable O(h^3(1+|t|^5)) logarithmic remainder on the window. Exponentiation there is uniform; the squared correction and remainder sum, with the Gaussian weight, to O(h^2). Euler–Maclaurin from the shifted starting point (possibly negative) gives the boundary coefficient 1/2-(c-1)/2 and no order-h boundary term because the Gaussian derivative at zero vanishes. Integrating the three correction monomials gives the stated coefficient. As a separate exact check, for c=1 and s=2 Vandermonde gives T=1/2+binom(4n,2n)/(2 binom(2n,n)^2), matching both the half-unit boundary term and correction factor 3/16 by Stirling. The argument is compact-uniform, not uniform at s=0 or for unbounded parameters.",
+      "residual_risks": [
+        "Finite packaged checks are corroboration only; no formal verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The trace theorem explicitly restricts d>=2. The proof's expansion for lambda^s before weighting has no d, and the parameter restriction is A>0, s>0 with compact-uniform estimates."
+        ],
+        "reasoning": "Do not substitute d=1 in the displayed d>=2 trace theorem; apply its dimension-independent estimate to the identical unweighted spectral sum.",
+        "searches": [
+          "Local Resultary record 7bbc01919259, RESULT.md, Assumptions and scope; Gaussian window; Exact dimension-two constant"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7bbc01919259, decisive Gaussian product estimates",
+        "Lara-Velasco–Pérez §2 and §5",
+        "Berdysheva–Jetter abstract/OA retrieval",
+        "Derriennic landing page and secondary attribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Writing x=jh, the inspected expansion has Gaussian factor times 1-s(A-1)hx+h^2[(sA/2+s^2(A-1)^2/2)x^2-sx^4/6], with summable O(h^3(1+x)^12 exp(-const x^2)) pointwise error and negligible tails.",
+          "Summing the first term gives leading Gaussian mass and endpoint +1/2. The linear term gives -(A-1)/2 by integral, with no endpoint at order h. The quadratic correction integrated against the Gaussian gives the relative coefficient A/4+s(A-1)^2/4-1/(8s). The residual sum is O(h^2)."
+        ],
+        "reasoning": "This is exactly the frozen expansion under A=c, including its compact scope. The implication uses only standard unshifted half-line summation of an already available second-order estimate, not a new uniform trace lemma.",
+        "searches": [
+          "7bbc01919259, RESULT.md, offsets 3810–4821 and 5360–6590: pointwise Gaussian expansions before multiplying by j+1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Jacobi interval operator is the d=1 Dirichlet construction with total shape A=a+b+2, up to cancelling measure normalization. Its degree multiplicity is one. Both give the same rising/falling factorial product."
+        ],
+        "reasoning": "A shift of the lattice center does not change the already available expansion of this exact summand. Fixed-degree eigenvalue limits alone, however, would not justify summing on the moving Gaussian scale.",
+        "searches": [
+          "Local Resultary: Jacobi/Dirichlet Bernstein–Durrmeyer spectral-power traces and Gaussian gamma-product sums",
+          "Lara-Velasco–Pérez (2024), §2 and §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Found the distinct same-date Dirichlet trace record 7bbc01919259; its printed exact trace identities are dimension two at critical shape and s=1,2, not an exact table for the general one-dimensional statement.",
+          "The adjacent record b293f27b565c instead treats iterate-to-semigroup convergence.",
+          "The frozen unweighted exact trace is a special slice, not evidence for priority on the full expansion."
+        ],
+        "reasoning": "No exact literal match was verified. The pointwise estimate in the matched proof is stronger evidence than a table lookup; same-day metadata supplies no priority ordering.",
+        "searches": [
+          "Local Resultary search for Bernstein–Durrmeyer Jacobi/Dirichlet trace cancellation and all Schatten powers",
+          "Focused primary-literature lookup for the Jacobi-weighted trace expansion"
+        ]
+      },
+      "rationale": "The one-dimensional formula is not printed in the closest distinct indexed record, whose trace theorem states d>=2. However, its proof already supplies the full compact-uniform pointwise powered-eigenvalue expansion with summable O(h^3) Gaussian remainder for the identical product at every A>0, before any multiplicity is inserted. Ordinary Euler–Maclaurin with multiplicity one yields all three frozen coefficients with the stated remainder. This is verified implication, not rejection for an inaccessible source or an inference about which record came first.",
+      "residual_risks": [
+        "No publication order inferred for the two same-day records.",
+        "The 1981 and 2010 original full texts were not available; the failure does not depend on their contents."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BY_IMPLICATION",
+          "evidence": "Dimension-independent powered product expansion before multiplying by j+1 directly gives the claimed d=1 coefficients and remainder when summed with multiplicity one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spectral-power-trace-cancellation-for-dirichlet-bernstein-durrme--7bbc01919259/RESULT.md",
+          "material_read": "Finding, scope, exact eigenspaces and Gaussian window (offsets 0–4821); dimension-two constant proof (offsets 5360–6590)",
+          "method": "Local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4; statement and proof comparison",
+          "title": "Spectral-power trace cancellation for Dirichlet Bernstein–Durrmeyer operators on simplices",
+          "trigger": "Closest distinct indexed match, shared spectral product and trace asymptotics"
+        },
+        {
+          "assessment": "COVERS_SPECTRUM_NOT_TRACE_EXPANSION_IN_INSPECTED_PASSAGES",
+          "evidence": "Identical eigenvalues and fixed-degree asymptotics; neither is the moving-window all-power trace estimate.",
+          "identifier_or_url": "https://doi.org/10.1007/s40314-024-02796-2",
+          "material_read": "Springer PDF §2 Eq. (2.5), pp. 4–5; §5 Eq. (5.1) and following discussion, pp. 13–14",
+          "method": "Lawful accessible PDF with targeted passage inspection",
+          "title": "Bernstein–Jacobi-type operators preserving derivatives",
+          "trigger": "Classical operator and exact Jacobi product"
+        },
+        {
+          "assessment": "FULL_TEXT_UNINSPECTED",
+          "evidence": "Frozen citation reports classical spectrum; independent confirmation is provided by the accessible 2024 article.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jat.2009.11.005",
+          "material_read": "Publisher abstract and frozen locator §3.2.2 Eq. (3.12); primary equation not retrieved",
+          "method": "DOI and identified CORE PDF tried via lawful OA; PDF unavailable",
+          "title": "Multivariate Bernstein–Durrmeyer operators with arbitrary weight functions",
+          "trigger": "Earliest close cited weighted eigenvalue reference"
+        },
+        {
+          "assessment": "FULL_TEXT_UNINSPECTED",
+          "evidence": "Secondary source credits the classical structure/eigenbasis; no whole-document inference is made.",
+          "identifier_or_url": "https://doi.org/10.1016/0021-9045(81)90027-7",
+          "material_read": "DOI landing page; attribution in Lara-Velasco–Pérez §5",
+          "method": "Lawful DOI/OA retrieval, full text unavailable",
+          "title": "Sur l'approximation de fonctions intégrables sur [0,1] par des polynômes de Bernstein modifiés",
+          "trigger": "Foundational unweighted operator"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and Proof",
+        "Resultary 7bbc01919259, Exact dimension-two constant proof"
+      ],
+      "rationale": "Spectral effective dimension and the exponent-independent boundary term are natural quantities. But as a distinct contribution here the exact three-term invariant is mechanically supplied by the already indexed identical Gaussian summand estimate, and the frozen statement adds no independent structural result beyond that specialization.",
+      "residual_risks": [
+        "The one-dimensional statement remains useful as an explicit reference formula; this does not make the already implied invariant an independent new result."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

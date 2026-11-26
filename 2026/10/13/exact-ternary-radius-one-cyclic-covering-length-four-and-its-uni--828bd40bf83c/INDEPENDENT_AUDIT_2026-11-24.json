@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:03:48.419692Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verify_independent.cpp, inspected as source",
+        "Replay: python3 /workspace/independent/censuses.py 5; window-ball census, exact orbit sets and distance-three packing check"
+      ],
+      "rationale": "Each radius-one Hamming ball has 1+4(3−1)=9 targets, so every cycle of length at most 8 is excluded, including cycles shorter than the window length. In a fresh exhaustive calculation I generated the balls by changing one ternary digit and used rolling base-three indices to visit each cyclic window, including wraparound. The 19,683, 59,049, 177,147 and 531,441 indexed sequences at lengths 9–12 give 0,0,0,48 full covers, with largest coverage sizes 69,76,76,81. The explicit length-12 witness is in the census. Constructing every uniform symbol relabeling and rotation of the witness and of its reversal gives two disjoint orbits of 24 whose union is exactly the full census. Adding reversal exchanges those orbits. The one-orbit statement is for the positional dihedral group together with uniform relabeling, not the positional dihedral group alone.",
+      "residual_risks": [
+        "Finite executable enumeration, not an analytic classification for general spans, other alphabets, or multiple cyclic components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Chung–Cooper lower bound reduces here to the ordinary covering-code bound of 9. Ta–Vu's fixed-q, fixed-radius constant-factor construction is for sufficiently large span. Etzion's corollary at q=3,r=2 gives a (4,8,1)_3 covering-sequence code from the ternary Hamming code, and the paper gives a cycle-merging construction."
+        ],
+        "reasoning": "The component length 8 in the code is not a single-cycle length bound. The broader results either lack a matching finite lower bound or have hypotheses that do not produce a sharp statement at span four.",
+        "searches": [
+          "Chung–Cooper arXiv:math/0310385 §5",
+          "Ta–Vu arXiv:2606.29236 main theorem",
+          "Etzion arXiv:2607.14840v1 and v2, Construction MC and §IV Corollary 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0310385",
+        "DOI 10.1007/s10623-025-01726-5",
+        "arXiv:2606.29236",
+        "arXiv:2607.14840v1 and v2",
+        "Resultary cd1d48014b9f",
+        "Independent packing check for the optimal windows"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Etzion's merge retains every original four-window, and the nine centers in the Hamming code are at mutual distance at least three. The verified unique optimal orbit has at most three such windows in any representative, by testing all four-subsets of the representative's windows. The binary indexed classification uses different spans and symmetry counts."
+        ],
+        "reasoning": "Isometries of the claimed action preserve this packing property: rotation permutes windows, and reversal and relabeling preserve their mutual Hamming distances. A cycle produced by that window-preserving Hamming construction cannot be one of the length-12 optima. No compared result forces the exact minimum 12 or classifies these equality cases.",
+        "searches": [
+          "arXiv:2607.14840, §II Theorem 1 and §IV Corollary 1",
+          "Resultary cd1d48014b9f, Finding, offset 0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The de Bruijn covering cycle definition is the same single cyclic string read modulo its length. A covering-sequence code may use several cycles; the uniform alphabet relabeling in the equality claim acts on the whole string, not independently on coordinates."
+        ],
+        "reasoning": "The minimum of one cycle is not the minimum cardinality of an arbitrary Hamming covering code or the case of a collection of cycles. A closed walk in the ternary order-three overlap graph is an equivalent description of the single-cycle condition; arbitrary sets of four-words need not be its windows.",
+        "searches": [
+          "Resultary ranked search for ternary order-four radius-one cyclic covering sequence / de Bruijn covering cycle and its optimizer census",
+          "Chung–Cooper arXiv:math/0310385, definition",
+          "Chee–Etzion–Ta–Vu DOI 10.1007/s10623-025-01726-5, abstract and §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest indexed classification cd1d48014b9f gives binary span 7, length 22 and 132 indexed optima. Chung–Cooper's table is for alphabet size 2; the Chee et al. table is for binary spans 9–20."
+        ],
+        "reasoning": "These positive table and catalogue matches do not cover ternary span four. No direct match was found in the returned ranked results, which is not proof that no match exists.",
+        "searches": [
+          "Resultary ranked exact-parameter and equality-census search for ternary span 4, radius 1, 12, 48",
+          "Chung–Cooper binary finite table",
+          "Chee–Etzion–Ta–Vu Table 1"
+        ]
+      },
+      "rationale": "The closest inspected literature has the same cyclic object, binary finite tables, general bounds, or a constacyclic Hamming construction at these exact ternary span and radius parameters. Etzion's paper also explicitly describes how to merge constituent cycles, not just how to construct separate ones. Its merge retains all original windows, and the Hamming construction for these parameters supplies nine pairwise distance-at-least-three centers. Independent checking finds that not even four such centers occur among the windows of any optimal length-12 cycle. Thus that construction, specialized as given, does not supply the length-12 witness, let alone its optimality or the census. The closest indexed classification match is for binary span seven and is not implication-equivalent.",
+      "residual_risks": [
+        "An unindexed exact small-parameter result could exist. A presumed path for the identical record was not accessible and the shared literature lookup was deferred; neither is negative evidence. The comparisons rely on the passages read and the mathematical specialization, not on keyword absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same object; general lower bound and binary table, no exact ternary implication",
+          "evidence": [
+            "Cyclic index convention; ordinary covering-code lower bound; table explicitly for M(n,R,2)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0310385",
+          "material_read": "Definition p. 2, offset 2450; §5 pp. 13–14, offset 31000; table pp. 15–16, offset 36253",
+          "method": "Read bounded primary OA passages",
+          "title": "De Bruijn Cycles for Covering Codes",
+          "trigger": "Foundational same single-cycle problem and small-parameter table"
+        },
+        {
+          "assessment": "Distinguishes single and multiple cycles; table does not cover ternary span four",
+          "evidence": [
+            "Section focuses on binary; table for spans 9–20 and radii 1, 2, 3."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-025-01726-5",
+          "material_read": "Abstract p. 1 offset 150; §3 p. 4 offset 10400; Table 1 p. 12 offset 41815",
+          "method": "Read bounded primary OA passages",
+          "title": "Constructions of covering sequences and 2D-sequences",
+          "trigger": "Primary literature on sequence codes with candidate finite table"
+        },
+        {
+          "assessment": "Asymptotic bound, not finite coverage of the claim",
+          "evidence": [
+            "Fixed alphabet and radius, sufficiently large span."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.29236",
+          "material_read": "Main theorem p. 4 offset 17861",
+          "method": "Read bounded primary OA passage",
+          "title": "Near-Optimal Covering Sequences",
+          "trigger": "Broader single-cycle result including nonbinary alphabets"
+        },
+        {
+          "assessment": "Exact parameter match for a multicomponent starting code, but its Hamming-window-preserving merge cannot yield an optimal cycle here",
+          "evidence": [
+            "Merger contains all original n-tuples as windows. At q=3,r=2 the initial windows are the nine words of the ternary radius-one perfect Hamming code, whereas every optimum permits only a distance-3 packing of size three among its windows."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2607.14840v2",
+          "material_read": "§II Theorem 1, offsets 10200–14082; §IV Lemma 3 and Corollary 1, offsets 22200–26100 and following paragraph; compared v1 §II Construction MC and Corollary 1 around offsets 13057 and 22300",
+          "method": "Read decisive primary OA passages from both versions; checked the exact specialization against the verified optimal window sets",
+          "title": "Covering Sequences and Covering-Sequences Codes",
+          "trigger": "Construction for the same ternary span and radius, including single-cycle merging"
+        },
+        {
+          "assessment": "Related binary classification, different object after parameter specialization",
+          "evidence": [
+            "Binary order seven, length 22, 132 indexed minimizers, full-symmetry classes of sizes 44 and 88."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-complete-classification-of-minimum-length-binary-radius-one-cove--cd1d48014b9f/RESULT.md",
+          "material_read": "Finding, offset 0",
+          "method": "Read exact primary passage in local mirror",
+          "title": "Complete classification of minimum-length binary radius-one covering sequences",
+          "trigger": "Closest ranked exact classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and scope",
+        "Etzion §IV Corollary 1 and comparison with the independent census",
+        "Ordinary ternary perfect-cover syndrome argument and exact cyclic enumeration"
+      ],
+      "rationale": "Span four is the first nontrivial ternary radius-one perfect Hamming parameter: an unrestricted cover needs only nine centers, attained by the kernel of a ternary parity-check matrix with one column from each of the four projective directions in dimension two. Requiring the centers to occur on a single walk of overlapping windows raises this to exactly 12, a sharp one-third overhead. At this natural benchmark the equality description distinguishes the effect of reversal and identifies the unique full-symmetry type. This answers a concrete finite comparison not supplied by the sphere bound or the multicomponent construction.",
+      "residual_risks": [
+        "No proposed gap or symmetry classification is extrapolated to other lengths, radii, alphabets or more cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

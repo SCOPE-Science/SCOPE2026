@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:38:31.872940Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, definition and Proof, lines 17–86",
+        "Frozen verify.py, lines 11–83; VERIFICATION.md, lines 19–23"
+      ],
+      "rationale": "If c=0 or the full ball minimizer is feasible, the output is exact. Otherwise write d0=-c/||c||, q=x+tau d0, and v=p-q. The support inequality gives n·d0>=0 when tau>0; if tau=0 and n·d0<0 the ray enters the rolling ball, a contradiction. The relaxed solution is in the tangent plane (the unconstrained solution is outside the halfspace or on its boundary). Since q is feasible for the relaxation, d0·v>=0 for every minimizer, including a tie. Hence s^2>=||p-x||^2=||v||^2+tau^2+2tau d0·v>=||v||^2. Projection into the tangent ball is feasible in K, does not increase distance to q, and moves by a nonpositive multiple of v+rho n, whose scalar product with q-x is nonnegative. Expanding the two distances to x proves locality. The excess objective is bounded by ||c|| times the exact displacement sqrt(rho^2+||v||^2)-rho, giving both displayed bounds. On the disk, at x=rho e1 and s=rho eps, the positive tangential component eps^3 forces the unique relaxed solution x+s e2; the disk support point rho d_eps lies in the local ball since its squared distance to x is at most 2rho^2 eps^6. The repaired support gap is rho(1-(sqrt(1-eps^6)+eps^4)/sqrt(1+eps^2))=rho eps^2/2+O(rho eps^4). Thus the uniform coefficient cannot be reduced. The supplied disk tests were inspected, not run; their tolerances and finite scope do not bear the proof.",
+      "residual_risks": [
+        "The stronger radius-dependent upper bound is not certified pointwise optimal at fixed s. This is an exact-geometry result, not an inexact implementation or tie-breaking stability analysis."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The adaptive BroxGD analysis assumes an exact local oracle; the exact LMO projection interpretation projects onto the feasible set intersected with a localizing halfspace under its radius condition.",
+          "The relative-accuracy catalogue result bounds distance to a solution from a supplied objective error, rather than certifying the gap of the specified rolling-ball repair."
+        ],
+        "reasoning": "These results neither give a lower witness nor determine the smallest coefficient for this approximate method. Exact local-oracle convergence cannot substitute for a bound on an oracle implementation's error.",
+        "searches": [
+          "arXiv:2611.11354v1",
+          "arXiv:2609.33383v1, Theorem 2",
+          "2026/10/12/SCOPE-dimension-sensitive-breakdown-of-relative-local-oracle-accuracy--09315b59bb24"
+        ]
+      },
+      "checked_sources": [
+        "Hazan v2, Lemma 2.3 and Theorem 2.1 proof",
+        "Levy–Krause (2019), Theorem 3.1",
+        "Kolzenburg–Richtárik v1; Richtárik–Mahran v1",
+        "Resultary: identical finding and the relative-accuracy and exact-tie-breaking results listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hazan uses ||p-q||<=2s for repair distance, but separately states (q-x)·(p-q)>=0; expanding ||p-x||^2 then directly gives ||p-q||<=s.",
+          "The proof above checks the submitted disk family's true local optimizer and limiting objective gap; saturation of a displacement bound alone would not establish this."
+        ],
+        "reasoning": "The tightened upper estimate follows from the prior proof geometry plus one expansion. The separate lower witness compares with the true optimum and is what supports the new sharpness claim.",
+        "searches": [
+          "arXiv:2608.04321v2, Lemma 2.3, repair distance and preservation of the local ball"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hazan uses the same last feasible ray point, halfspace relaxation, and interior-tangent-ball projection.",
+          "Levy–Krause's distance-based approximate-projection bound has a quadratic coefficient 1/(2R) for an R-ball but uses a different repair and loss."
+        ],
+        "reasoning": "The relevant equivalent problem is the worst objective gap for the identical repair, not any projection method with a coefficient numerically equal to 1/(2R).",
+        "searches": [
+          "arXiv:2608.04321v2, Section 2.2 and Lemma 2.3",
+          "Resultary: local linear oracle accuracy and tangent-ball repair",
+          "Levy and Krause (2019), Algorithm 1 and Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Resultary match is the assigned finding itself; the distinct catalogue tie-breaking result concerns one-step point-error amplification on a halfspace, not the repair's objective gap.",
+          "The prior stated coefficient for this algorithm is 2/rho; no separate matching extremal-loss witness was verified."
+        ],
+        "reasoning": "This is a sharp constant, not a census. The check concerns exact constants and equality/limiting cases; a self-match or a numerical match for another error metric cannot establish overlap.",
+        "searches": [
+          "2026/11/22/SCOPE-the-sharp-one-tangent-local-oracle-constant-on-rolling-ball-conv--990ade6e0591",
+          "2026/11/22/SCOPE-exact-oracle-tie-breaking-creates-an-unbounded-one-step-distance--d9b83be25066",
+          "arXiv:2608.04321v2, equation (7) and Proof of Theorem 2.1"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the sharp coefficient, in particular the matching loss witness for the same deterministic construction with a unique relaxed solution. Hazan's Lemma 2.3 states 2/rho for exactly this oracle. Its proof already establishes the nonnegative cross term that implies ||p-q||<=s by expansion, so the stronger upper estimate is a short consequence of existing proof ingredients, not a new oracle or independently novel upper-bound mechanism. The verified prior sources do not give the matching lower gap relative to the true local optimum.",
+      "residual_risks": [
+        "A bounded search does not rule out an earlier lower witness in geometric optimization literature. No priority is inferred from same-date catalogue entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact algorithm overlap, prior upper-bound geometry, no matching lower bound in the inspected proof",
+          "evidence": [
+            "Equations (7) and (10) and the final proof use 2/rho; the local-ball preservation paragraph states the nonnegative cross term."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04321v2",
+          "material_read": "Section 2.2, Lemma 2.3 and proof, PDF pp. 5–6, OA offset 14969; end of Proof of Theorem 2.1",
+          "method": "OA primary PDF text",
+          "title": "A Linearly Convergent Projection-Free Algorithm for Smooth Convex Sets",
+          "trigger": "Identical oracle and closest quantitative comparison"
+        },
+        {
+          "assessment": "Different oracle and distance loss",
+          "evidence": [
+            "Uses a normal-based feasibility correction and distance estimate with curvature parameter 0.5/R for balls."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v89/levy19a/levy19a.pdf",
+          "material_read": "Sections 2–3, Algorithm 1 and Theorem 3.1, OA offsets 14350–17312 and 18650–22899",
+          "method": "OA primary PDF text",
+          "title": "Projection Free Online Learning over Smooth Sets",
+          "trigger": "Related tangent repair with the same numerical ball coefficient"
+        },
+        {
+          "assessment": "Exact oracle assumed, not an accuracy analysis of the repair",
+          "evidence": [
+            "Assumes exact linear minimization over the feasible set intersected with a ball."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2611.11354v1",
+          "material_read": "PDF pp. 1 and 3, OA offsets 0–3744 and 10069–13199",
+          "method": "OA primary PDF text",
+          "title": "An Adaptive Short-Step Variant of BroxGD with Linear Convergence under Quadratic Growth",
+          "trigger": "Same underlying local subproblem"
+        },
+        {
+          "assessment": "Different projection, no such quantitative error",
+          "evidence": [
+            "Exact local step is represented by projection onto the feasible set with a solution-retaining halfspace under the stated radius condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.33383v1",
+          "material_read": "Theorem 2 passage, PDF p. 2, OA offset 7400–11366",
+          "method": "OA primary PDF text",
+          "title": "Local LMO is Secretly a Projection Method!",
+          "trigger": "Potential equivalent projection interpretation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, loss and sharpness proof, lines 63–86",
+        "Hazan v2, Lemma 2.3 and Proof of Theorem 2.1"
+      ],
+      "rationale": "The same oracle now has a quantified sharp performance limit, not merely a smaller valid coefficient. The disk construction shows that no analysis of this algorithm can uniformly improve its quadratic guarantee under the same assumptions, even if ties never occur. This separates an analysis improvement from an algorithmic limit and does not promise an improved convergence order.",
+      "residual_risks": [
+        "The result does not compare alternative local solvers or numerical robustness."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

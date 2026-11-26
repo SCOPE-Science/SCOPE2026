@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:31:41.986669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, equations (1)–(4) and Proof 1–4",
+        "Frozen VERIFICATION.md and tools/check_period.py, inspected, not executed"
+      ],
+      "rationale": "The displayed energy is conserved, proper, and has a smooth connected level oval through each (A,0); the vector field never vanishes there. The unchanged-time coordinate q(x) with q'=exp(beta x²/2) eliminates the squared-velocity term. The derivative of xq'(x)/(1+beta x²) is strictly less than q' for x>0. With G'=1+(beta+3gamma)x²+beta gamma x⁴ this gives qG'-G>0 and strict increase of G/q, hence strict decrease of the scaled canonical period integral. Dividing its inner integral by 1-s² leaves a positive smooth factor on local amplitude ranges including s=1, so the period is smooth. The cubic coefficient in the canonical force is gamma+beta/3; expanding the integral yields the stated -(beta+3gamma)A²/8 small-amplitude correction. To check the large-amplitude coefficient, the turning coordinate u=A²-x² yields the exact integrand 2(1-u/A²)^(-1/2)(E0-rE1/A²)^(-1/2) for A sqrt(1+gamma A²) T. For u<=A, a first-order Taylor expansion has error bounded by a constant times A^(-4)u² E0^(-1/2), uniformly in r in [0,1]. For A<=u<=A²/2 the two correction factors are bounded. Beyond A²/2 the weighted exponential integral in the second denominator is bounded below by half its integral over [u/2,u]; the first denominator leaves only an integrable endpoint factor. Both tails are exponentially small uniformly in r. With v=beta u, f(v)=(exp(v)-1)^(-1/2), the needed moments are integral f=pi and integral v f=2pi log 2 by z=exp(-v) beta integrals. Since (exp(v)-1)^(-3/2)=-2f'-f, integrating v times this identity gives 2pi(1-log 2), which yields the stated r-dependent coefficient. Thus the normalized remainder is uniform for fixed beta even when gamma varies with A. The endpoints of the strictly decreasing period are 2pi and 0, proving the claimed bijection and uniqueness at each period.",
+      "residual_risks": [
+        "Uniformity is at fixed positive beta, not in a joint beta-to-zero limit. Monotonicity is for a fixed vector field. The 18 recorded numerical quadratures are supplemental, not evidence for the parameter-uniform remainder."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The classification includes a_4=-gamma and a_6=-beta, with the other cubic coefficients zero, so it covers the global-center assertion.",
+          "The quintic analogues treat x³y² and x⁵ nonlinearities, with different power and matched scales."
+        ],
+        "reasoning": "Phase-portrait classification is not a period expansion. The distinct quintic powers do not specialize to the cubic powers by a coefficient substitution in the stated results; a displacement or time change would also require rechecking the original physical time and turning amplitude.",
+        "searches": [
+          "Appis–Llibre institutional PDF, Theorem 4(d)",
+          "Resultary quintic period and crossover records ffe383da977f, 022db8b9fa47, d8280613f6f7"
+        ]
+      },
+      "checked_sources": [
+        "Appis–Llibre DOI 10.1007/s00010-024-01051-7",
+        "Resultary c61200f602fe, 5ef7d7af5678, 2728f0f48663, c36617c285d5, ffe383da977f, 022db8b9fa47, d8280613f6f7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strongest exact-system comparison gives an error of the same order as the target correction itself. The strongest explicit two-term result inspected on the exact axis fixes only r=0."
+        ],
+        "reasoning": "An O(A^-2) relative bound loses the first correction and does not control the residual after subtracting it. The axis result does not determine its r-slope. Extracting that slope and bounding the remaining endpoint contribution uniformly require additional quantitative steps; they are not consequences of those statements alone.",
+        "searches": [
+          "Resultary 2728f0f48663 (exact system, quantitative leading law)",
+          "Resultary c61200f602fe (restoring-free high-amplitude law)",
+          "Appis–Llibre Theorem 4(d)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In 2728f0f48663 the variables k,h are exactly gamma,beta; its leading uniform law has relative O_h(A^-2) error and it gives decrease. c36617c285d5 gives the same family and uniform leading limit without a rate.",
+          "The zero-parameter specializations of c61200f602fe and 5ef7d7af5678 give the target's gamma=0 axis. The former gives exactly the target's limiting correction log(2)/beta on this axis."
+        ],
+        "reasoning": "Matching the cubic and squared-velocity coefficients identifies exact family coverage for the leading law; it cannot supply the missing coefficient or sharper remainder. Matching the restoring-free axis is exact but does not exercise the positive-restoration crossover.",
+        "searches": [
+          "Resultary exact cubic period/crossover: 2728f0f48663, c36617c285d5, c61200f602fe, 5ef7d7af5678",
+          "Appis–Llibre DOI 10.1007/s00010-024-01051-7, Theorems 1(ii) and 4(d)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact-axis and exact-family leading statements, as well as same-day and later quintic comparisons, were inspected. None of these statements gives [2log 2+r(2log 2-1)]/(2beta) as the A^-2 coefficient with the stated uniform remainder."
+        ],
+        "reasoning": "The target is a functional coefficient and parameter-uniform theorem, not a numerical constant to look up alone; ordinary beta-integral identities are not the novel claim. Catalogue path dates are provenance, not proof of priority.",
+        "searches": [
+          "Resultary catalogue and mirrored Findings: c61200f602fe, 5ef7d7af5678, 2728f0f48663, c36617c285d5, ffe383da977f, 022db8b9fa47, d8280613f6f7"
+        ]
+      },
+      "rationale": "The global center, the restoring-free two-term result, and same-family leading and monotonicity assertions have direct overlap in the inspected records. The supported distinct claim is the gamma>0 explicit relative correction with a uniform O_beta(A^-4) error across the crossover, not these overlapping portions taken separately.",
+      "residual_risks": [
+        "The bounded literature search did not resolve whether an equivalent parameterized asymptotic is unindexed or appears in different variables. No historical priority claim; the later exact-family catalogue entries overlap in their leading statements."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the global center, not the period expansion",
+          "evidence": "With a_4 and a_6 negative and the remaining coefficients zero, Theorem 4(d) gives a global center.",
+          "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2024/292038/aeqmat_a2024m4v98.pdf",
+          "material_read": "pp. 1–3: family definition and Theorems 1(ii), 4(d); OA offsets 0, 3459, 4472",
+          "method": "Open institutional PDF passage comparison",
+          "title": "Global centers of a family of cubic systems",
+          "trigger": "Exact cubic system within general center classification"
+        },
+        {
+          "assessment": "Exact overlap on the gamma=0 axis excluded from novelty",
+          "evidence": "Setting alpha=0 gives gamma=0 and kappa=beta, with first relative correction log(2)/(beta A²).",
+          "identifier_or_url": "Resultary c61200f602fe",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror and direct substitution",
+          "title": "Two-term boundary-period law and velocity skew for a cubic global center",
+          "trigger": "Earlier cubic two-term law"
+        },
+        {
+          "assessment": "Leading law on the target's excluded axis",
+          "evidence": "a=0 gives the restoring-free cubic field and a leading high-energy period proportional to (log E)^(-1/2).",
+          "identifier_or_url": "Resultary 5ef7d7af5678",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror and parameter comparison",
+          "title": "Universal logarithmic frequency and square-wave limit at a cubic global center",
+          "trigger": "Earlier restoring-free period law in energy coordinates"
+        },
+        {
+          "assessment": "Exact system and leading crossover, not the explicit first correction",
+          "evidence": "k=gamma, h=beta; strict period decrease and uniform leading law with O_h(A^-2) relative error.",
+          "identifier_or_url": "Resultary 2728f0f48663",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror and coefficient identification",
+          "title": "Uniform period crossover and arcsine turning layers in cubic global centers",
+          "trigger": "Exact-family quantitative leading result"
+        },
+        {
+          "assessment": "Exact system, overlapping leading limit and strict decrease",
+          "evidence": "Leading crossover stated without a quantitative rate.",
+          "identifier_or_url": "Resultary c36617c285d5",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror and coefficient identification",
+          "title": "Uniform period crossover and arcsine turning layers in a cubic global center",
+          "trigger": "Exact-family uniform leading limit"
+        },
+        {
+          "assessment": "Different family and scale",
+          "evidence": "Restoring degree five and a cubic-in-x squared-velocity coefficient.",
+          "identifier_or_url": "Resultary ffe383da977f",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Strict period decrease and sharp large-amplitude laws for quintic global centers",
+          "trigger": "Earlier analogous monotonicity and large-amplitude laws"
+        },
+        {
+          "assessment": "Different quintic scaling, no direct cubic implication",
+          "evidence": "Crossover in the alpha A⁴ scale for the quintic oscillator.",
+          "identifier_or_url": "Resultary 022db8b9fa47",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "A likelihood-ordered matched crossover and period overshoot",
+          "trigger": "Same-day matched period crossover"
+        },
+        {
+          "assessment": "Analogous technique and a distinct oscillator",
+          "evidence": "An error on the quartic amplitude scale for a quintic system does not give the cubic correction.",
+          "identifier_or_url": "Resultary d8280613f6f7",
+          "material_read": "Mirrored RESULT.md, Finding, offset 0",
+          "method": "Local mirror",
+          "title": "Uniform crossover and time-occupation laws for quintic global centers",
+          "trigger": "Uniform quintic crossover estimate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and exact quadrature",
+        "Appis–Llibre Theorem 4(d)",
+        "Resultary c61200f602fe and 2728f0f48663"
+      ],
+      "rationale": "The positive-restoration term changes the large-amplitude period scale. An explicit correction and an error bound valid through gamma A² of order one, as well as in its small and large regimes, quantify when fixed-parameter laws can be used and what they miss. This is an original-time period invariant in a classified natural cubic family, not merely reidentifying its phase portrait or recomputing the known restoring-free coefficient.",
+      "residual_risks": [
+        "No perturbation-persistence or uniform beta-to-zero consequence is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

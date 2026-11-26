@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:56:26.183109Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof steps 1–5",
+        "VERIFICATION.md",
+        "verify.py",
+        "Independent finite Liouville divisor convolution and exact products"
+      ],
+      "rationale": "An even solution has odd beta(n), so every odd-prime exponent is even: n=2^a t^2 with t odd. For at most eight primes dividing t, the first eight odd primes minimize the product of p/(p+1) and give beta(t^2)/t^2>2/5; t=1 also satisfies the bound. The factor beta(2^a)/2^a is at least 1/2, so the positive odd quotient (n-1)/beta(n) is below 5. If the quotient is 3 then n=1 mod 3, forcing even a and 3 not dividing t. Omitting 3 from the smallest eligible primes gives beta(t^2)/t^2>1/2, and even a gives beta(2^a)/2^a>2/3, contradicting quotient 3. For t>1, beta(n)<(2^a-1)t^2<n-1, ruling out quotient 1; for t=1, the explicit power-of-two formula leaves only 2 and 4. An independent divisor convolution beta(n)=sum over d|n of d times Liouville(n/d) gave only 2 and 4 through 500000 among even inputs. Independent exact products gave 1062347/2654208, 30808063/59719680, and 20928465245153916450 for twice the square of the first nine odd primes. The finite computation corroborates but does not establish the unrestricted argument; the submitted script was inspected, not executed.",
+      "residual_risks": [
+        "Necessary condition only, with no conclusion for odd n or existence when ten or more primes divide n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest earlier displayed Resultary statement has thresholds four for odd and five for even candidates, uniformly in exponents. Earlier and later low-support catalog results only exclude composite candidates with at most two primes except 4.",
+          "The classical bound summarized in arXiv:2110.13318v1 is for the phi problem, which agrees on squarefree inputs but not on these even candidates."
+        ],
+        "reasoning": "The earlier parity-separated theorem covers more parities but with a strictly weaker even bound. Totient bounds do not transfer to the nonsquarefree even candidate class.",
+        "searches": [
+          "Resultary parity-separated prime-support and two-prime-support entries",
+          "Classical Lehmer totient necessary conditions, arXiv:2110.13318v1"
+        ]
+      },
+      "checked_sources": [
+        "Tóth 2013 §2 and Problem 4",
+        "Tóth 2011 arXiv v1 §7",
+        "Resultary October 13 parity-separated and two-prime results; November 2 low-support result",
+        "Tărnăuceanu arXiv:2110.13318v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof forces quotient 3 for at most three odd primes and uses 3 not dividing n with the uniform factor 1/2. With eight odd primes excluding 3, that same 1/2 factor is not sufficient: their product bound times 1/2 is below 1/3.",
+          "In the frozen proof, n=1 mod 3 with square odd part forces a even; beta(2^a)/2^a>2/3 is the extra bound used to exclude quotient 3 for eight odd primes."
+        ],
+        "reasoning": "This is an extension of a known approach, not an unrelated novelty. The previous conclusion and certificates do not imply the new threshold without the strengthened modular and product argument.",
+        "searches": [
+          "October 13 parity-separated proof, Even case, local mirror offset 650",
+          "Tóth 2013, §2 and Problem 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Problem 4 treats the identical beta and exact divisibility condition for composite n other than 4.",
+          "Tóth §2: beta(n) is odd iff n is a square or twice a square; the October 13 even-case proof explicitly deduces even exponents at odd primes."
+        ],
+        "reasoning": "With beta(n) dividing the odd n-1, both formulations give the same square odd part. The parity claim receives no originality credit.",
+        "searches": [
+          "Resultary: alternating Lehmer divisibility and even prime-support obstructions",
+          "Tóth 2013, §2 and Problem 4",
+          "beta as the alternating sum-of-divisors and coprime-square count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tóth reports a computation through 10^6 without composite exceptions other than 4; the journal passage explicitly excludes 4 and supplies code, not an unbounded prime-support certificate.",
+          "Resultary indexed exact low-support classifications and a five-prime even bound, not the ten-prime statement in the inspected entries."
+        ],
+        "reasoning": "A finite census cannot rule out lower-support numbers of unbounded size and exponents; this is not a claim to new tabulated small values.",
+        "searches": [
+          "Tóth journal survey, Problem 4, p. 102",
+          "arXiv:1111.4842v1, §7",
+          "Resultary two-prime and parity-separated theorem entries"
+        ]
+      },
+      "rationale": "The square odd part is known: it follows immediately from Tóth's published parity characterization and is also explicit in the October 13 Resultary proof. That proof uses a closely related odd-quotient and prime-product argument, and its even conclusion is only omega(n)>=5 for n>4. The supported distinct contribution is the tightening to omega(n)>=10 and the resulting explicit size bound. In particular, tracking the valuation of 2 after quotient 3 is forced to be a multiple of 3 is not needed in the earlier three-odd-prime argument but supplies the stronger factor bound here. No inspected source gives the ten-prime implication for even beta solutions.",
+      "residual_risks": [
+        "Unindexed stronger beta bounds remain possible. The early arXiv extraction omits the exception 4; the journal formulation explicitly includes it. Full 1932 Lehmer text was not accessed, and it concerns a different equation on these candidates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Parity and basic method covered; even quantitative bound improved",
+          "evidence": "Earlier proof explicitly forces square odd part, excludes at most three odd primes and concludes omega(n)>=5 for n>4; it does not apply the valuation parity refinement to eight odd primes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-parity-separated-prime-support-obstructions-for-the-alternating--c7e355b44925/RESULT.md",
+          "material_read": "Finding (offset 128), Proof incl. Even case (offset 650 onward)",
+          "method": "Local corpus passage inspection",
+          "title": "Parity-separated prime-support obstructions for the alternating Lehmer divisibility",
+          "trigger": "Identical equation and earlier unrestricted support theorem"
+        },
+        {
+          "assessment": "Weaker coverage",
+          "evidence": "Only 4 is composite with at most two distinct primes satisfying the divisibility.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-two-prime-support-barrier-for-t-th-s-alternating-lehmer-problem--4316b401d3f6",
+          "material_read": "Finding",
+          "method": "Local corpus comparison",
+          "title": "Two-prime-support barrier for the alternating Lehmer problem",
+          "trigger": "Exact low-support classification for the same equation"
+        },
+        {
+          "assessment": "Square odd part already follows; finite search not covering new bound",
+          "evidence": "Beta is odd iff n is a square or twice a square. Problem 4 asks about composites other than 4 and reports no such composites up to 10^6.",
+          "identifier_or_url": "https://acta.sapientia.ro/content/docs/10415--Volume5_Issue_1_07_paper.pdf",
+          "material_read": "§2 parity (PDF offset 7910); Problem 4, p. 102 (offset 22641)",
+          "method": "Publisher OA PDF passage inspection",
+          "title": "A survey of the alternating sum-of-divisors function",
+          "trigger": "Exact original divisibility question and possible known necessary conditions"
+        },
+        {
+          "assessment": "Different function on the necessary even candidate class",
+          "evidence": "The 15-prime bound summarized there is for the Euler-totient equation and squarefree candidates.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.13318",
+          "material_read": "Abstract, PDF offset 684",
+          "method": "OA summary passage; Lehmer 1932 full text inaccessible in attempted legal retrieval",
+          "title": "Generalizing the Lehmer’s totient problem",
+          "trigger": "Could strong standard Lehmer bounds dominate the result?"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Proof steps 2–5",
+        "Earlier October 13 parity-separated theorem",
+        "Tóth Problem 4"
+      ],
+      "rationale": "Improving the earlier five-prime even obstruction to ten is a substantial unrestricted exclusion, obtained without any exponent cap. The parity-dependent treatment of the quotient exposes an arithmetic constraint absent from a finite search and supplies a concrete lower bound on n. This advances the posed beta analogue without claiming to settle it or treating the known parity characterization as the contribution.",
+      "residual_risks": [
+        "The bound is not shown optimal and gives no candidate existence or odd-case advance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

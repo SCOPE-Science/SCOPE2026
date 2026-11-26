@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:50:21.789056Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With the hub fixed, a degree-one leaf copies its parent for majority and opposes it for minority. The two rim encodings in the finding then give cyclic exclusion of 010 and 111, respectively, with the common at-most-half restriction exactly from hub stability; this holds for n=3 and on hub ties at even n. Marking a zero in minority counts each word z times and marking a one-run start in majority counts it r times, giving the two sums for labelled words, without a rotation quotient. The weighted pair-state traces enumerate exactly these words before the hub weight cutoff. For minority the logarithmic mean density at y=1 is (τ+2)/(τ²+2τ+3)<1/2; a small positive weight tilt exponentially bounds the removed tail, while τ is simple dominant in the unrestricted trace. For majority the displayed cubic at y0=3/4 has Perron root 3/2; implicit differentiation gives L'=1, L''=2/9 and log-scale variance 1/3. The loops 00 and 11 force any equality of twisted spectral radii to have both global phase 1 and exp(iθ)=1, by irreducibility and triangle equality. Thus the trace integral off a neighborhood of 0 is exponentially small; the centered eigenvalue near zero has Gaussian decay with variance 1/3. This proves the local limit for deviations O(log n) and an O(n^-1/2) coefficient bound after exponential untilting uniform in k. Summing from floor(n/2) down contributes y0^((n mod 2)/2)/(1−y0), and the two hub colors give the stated factor 8. Dividing logs by 2n+1 gives the stated distinct entropies. Independent full-state sign-margin computation at n=3–7 reproduced both counts; parity-normalized exact majority counts at n=800,801 were about 0.96233 and 0.95659 (private replay: python3 /workspace/branches/independent_checks.py, helm_check). These are finite diagnostics; uploaded programs were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wacław–Burda study disorder-averaged 1-spin-stable counts in random Ising systems; this is not a deterministic labelled count specialized to a helm in the inspected text.",
+          "Sunlets have the private leaves but no universal hub; squared cycles have different adjacency. The Agur–Fraenkel–Klein full-text scan and Banks–Djirar full report were not readable by the routes used."
+        ],
+        "reasoning": "The available general methodological comparisons do not combine the one-sided rim forbidden word with the hub tail and do not imply its quantitative parity-sensitive cutoff. The older inaccessible sources limit the priority assessment.",
+        "searches": [
+          "arXiv:0801.1224 p. 1",
+          "doi:10.1016/0012-365X(88)90005-2 and the cited Agur–Fraenkel–Klein scan",
+          "Sheffield ACSE report 459, eprints record 79286",
+          "Resultary sunlet and squared-cycle fixed-state Findings"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9b137598a71e (self), 99c7289fb664, e12f8e4fef4a, 4965dafb6e67",
+        "arXiv:0801.1224",
+        "doi:10.1016/0012-365X(88)90005-2 (access attempt)",
+        "Sheffield eprints 79286 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gear majority has a half-density cyclic constraint but a different word rule and leading purely exponential form; sunlet majority lacks the hub restriction. The disorder-averaged Ising results change the model and the quantity averaged.",
+          "Applying the standard transfer framework to the helm requires identifying a nontrivial saddle for one rule and an exponentially small discarded tail for the other; the parity coefficient is from the exact discrete lower-tail summation."
+        ],
+        "reasoning": "The inspected precedents supply methods and analogies, not a parameter specialization yielding the two helm formulas and their sharp contrast.",
+        "searches": [
+          "Resultary 99c7289fb664 offsets 1557–3700, 4965dafb6e67 offsets 0–1472, e12f8e4fef4a offsets 0–1414",
+          "arXiv:0801.1224 p. 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent models count labelled cyclic binary words avoiding 111 (minority) or 010 (majority), each of weight ≤floor(n/2); a necklace quotient or exact-half model is not equivalent. Search yielded graph definitions, related circular-word topics and no identified exact sequence entry.",
+          "The gear result is on rim subdivision and avoids 101 under a half-density cap. Bit complement converts 101 to 010 but also reverses the density inequality, so that is not an equivalence of the constrained classes."
+        ],
+        "reasoning": "The hub constraint couples to which bit is encoded as 1, so same pattern length and a common density boundary are insufficient for equivalence.",
+        "searches": [
+          "helm graph fixed configurations majority minority tie synchronous counting fixed points wheel pendant vertices circular words 010 111",
+          "OEIS binary circular words no isolated ones at most half ones 1 5 6 13 15 37 46 106 majority helm fixed configurations",
+          "Resultary 99c7289fb664, Finding and rim reduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "9b137598a71e is this record. Inspected related entries give gears (99c7289fb664), squared cycles (e12f8e4fef4a) or sunlets (4965dafb6e67), not helms.",
+          "The sequence query did not identify an exact entry; returning the OEIS homepage is not a negative OEIS table result."
+        ],
+        "reasoning": "No distinct inspected exact entry reports these two counts or the majority leading coefficient; the checked records' object definitions differ.",
+        "searches": [
+          "Resultary 9b137598a71e, 99c7289fb664, e12f8e4fef4a, 4965dafb6e67",
+          "Sequence-number and OEIS query for the per-hub majority counts from n=3"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the exact two-rule helm counts and especially the sharply different majority/minority asymptotics including the majority parity factor. The cyclic-word method is classical, but the closest inspected results do not impose the same local and hub constraints together. A named older report and scanned ring paper could not be inspected at the decisive passage level.",
+      "residual_risks": [
+        "The AFK scan and Banks–Djirar full report were not compared at passage level.",
+        "An older specialized table or weighted-word enumeration under another description could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong structural analogue, different rule and graph",
+          "evidence": "Rim subdivisions impose 101 avoidance, not the leaf-induced helm constraints.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/17/SCOPE-rim-subdivision-creates-exponential-majority-equilibria-on-gear--99c7289fb664/RESULT.md",
+          "material_read": "Finding and word reduction, offsets 0–3700",
+          "method": "Local mirror passages",
+          "title": "Rim subdivision creates exponential majority equilibria on gear graphs",
+          "trigger": "Tie-retaining fixed points with a half-density hub constraint"
+        },
+        {
+          "assessment": "No universal hub; not a specialization",
+          "evidence": "Fixed counts and two-cycles for sunlets, without the half-density cap.",
+          "identifier_or_url": "Resultary 4965dafb6e67",
+          "material_read": "Finding, offsets 0–1472",
+          "method": "Local mirror primary passage",
+          "title": "Lucas residue laws for majority oscillations on sunlet graphs",
+          "trigger": "Cycle with private leaves, majority fixed counts"
+        },
+        {
+          "assessment": "Different adjacency and word problem",
+          "evidence": "Counts and entropy contrast on C_n² rather than helms.",
+          "identifier_or_url": "Resultary e12f8e4fef4a",
+          "material_read": "Finding, offsets 0–1414",
+          "method": "Local mirror primary passage",
+          "title": "Exact fixed-state spectra and an entropy gap on squared cycles",
+          "trigger": "Same two-rule comparison and entropy objective"
+        },
+        {
+          "assessment": "Different random-coupling question",
+          "evidence": "One-spin-stable local minima in Gaussian and other random coupling ensembles.",
+          "identifier_or_url": "https://arxiv.org/abs/0801.1224",
+          "material_read": "PDF p. 1, offset 3383 context",
+          "method": "OA primary passage",
+          "title": "Counting metastable states of Ising spin glasses on arbitrary graphs",
+          "trigger": "Possible broader local-stability census"
+        },
+        {
+          "assessment": "Residual risk; no independent full-text noncoverage finding",
+          "evidence": "The frozen record describes ordinary ring counts with two simultaneously excluded patterns, which if so stated would not impose a universal-hub cap.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(88)90005-2",
+          "material_read": "No decisive passage; supplied OA PDF scan had no extractable text",
+          "method": "Cited PDF and DOI OA attempts",
+          "title": "The number of fixed points of the majority rule",
+          "trigger": "Classical cyclic word counts and majority fixed points"
+        },
+        {
+          "assessment": "Report not compared at passage level",
+          "evidence": "No usable report text recovered; abstract is insufficient to decide whether there is a close weighted-word case.",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/79286/",
+          "material_read": "Landing page and abstract only",
+          "method": "OA record retrieval",
+          "title": "Fixed Points and Shift Cycles in Cellular Automata",
+          "trigger": "Plausible older fixed-point counting framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The helm's hub turns a local fixed-state rule into a global density filter on a natural graph family. This filter is exponentially negligible for one rule but changes both the exponential growth and the polynomial/parity scale for the other. Exact counts and the sharp constants quantify a structural difference not captured by the bare existence of exponentially many equilibria.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

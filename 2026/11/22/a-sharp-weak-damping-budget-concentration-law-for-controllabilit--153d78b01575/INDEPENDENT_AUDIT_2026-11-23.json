@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T22:33:10.485206Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cascade is stable and its controllability matrix is triangular with determinant product w_i^(n−i). At distinct poles the impulse-response coefficients form a triangular matrix with diagonal gamma_i divided by the preceding pole differences. In the Gramian this matrix multiplies a symmetric Cauchy matrix on both sides. Its squared determinant cancels the Cauchy Vandermonde; continuity extends the formula to repeated poles at μ>0. The closed simplex gives zero determinant only on its boundary, so maximizers are interior. A permutation that moves a higher rate earlier strictly improves the numerator with fixed denominator; exchanging an infinitesimal amount at equal rates has zero denominator derivative and positive numerator derivative in that direction. Under strong damping the denominator divided by (2μ)^(n²) tends uniformly to one, and the strict weighted-log maximizer gives the reported fractions. Under weak damping the descending poles bound the denominator below by 2^n times product λ_i^(2(n−i)+1). In particular μ^(n−1)det W is bounded above by 2^(−n)/(μ+w₁) times product μ/(μ+w_i) for 2≤i<n. For a trial w_i=μc_i, exact factorization gives μ^(n−1)det W= F_n(c)/(2(μ+w₁)) times product of [w₁/(2μ+w₁+w_j)]² over 2≤j≤n, with w_n=0. The positive trial limit forces bounded c_i at optimizers and w₁→S, and this same factorization excludes a zero limiting c_i. Uniform convergence on the resulting compact set and comparison to every fixed ordered trial vector identify all accumulation points. Sorting never decreases F_n, so comparison with ordered trials suffices. In log coordinates log F_n is strictly concave by its diagonal log(2+2 exp y_i) terms, and differentiating gives the displayed stationary equations. This proves the shared limit and coefficient for every optimizing family. At n=3 the equation is c²−2c−4=0, and F_3=c²/[4(1+c)(2+c)²] gives the stated constant. At fixed positive rates only the terminal diagonal factor 2μ vanishes. Proof replay: RESULT.md §§1–6. VERIFICATION.md and verify.py were inspected, not run; its exact recurrence checks the determinant, not weak-limit optimality. The result does not claim finite-μ optimizer uniqueness, and total mass is not conserved in the presence of leakage.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Summers et al. analyze log-determinant volume for actuator-set selection. Becker et al. vary edge weights, but their metrics are smallest Gramian eigenvalue and trace of its inverse. Pasqualetti et al. emphasize energy and the smallest Gramian eigenvalue."
+        ],
+        "reasoning": "Changing weights changes both loss and forward transfer here. The fixed-dynamics actuator theorem cannot make that change, and the other controllability metrics need not maximize the determinant. The general Cauchy product law gives the objective, not the maximizing rates or their limiting scaling.",
+        "searches": [
+          "Pasqualetti–Zampieri–Bullo arXiv:1308.1201",
+          "Summers–Cortesi–Lygeros arXiv:1404.7665, Theorem 6",
+          "Becker–Pequito–Pappas–Preciado arXiv:1902.04195"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8bab5bddfc04, f98b0bb4fa60 and 4c44e6e23704",
+        "arXiv:1308.1201, 1404.7665 and 1902.04195"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The star record already shows det Gramian = (det Kalman matrix)² divided by the product of all ordered pole sums, by a modal Cauchy/Vandermonde cancellation. In its star Eq. (1), put the weak spoke v=μβ, u=S−μ β. The limiting profile is β²/[32 S(4+3β)²(2+3β)]. Writing c=3β/2 turns this into c²/[576 S(2+c)²(1+c)], exactly 1/72 of the cascade's three-vertex profile. The common golden-ratio stationary equation is thus a material overlap, not just coincident numerical constants."
+        ],
+        "reasoning": "The determinant formula itself is a standard SISO specialization, and the rescaled n=3 limiting scalar maximization is already present mathematically in the star solution. Neither supplies the all-n compactness forcing exactly one order-S rate, the n−2 dimensional weak profile, or its unique strictly ordered optimizer. These are the surviving distinct results.",
+        "searches": [
+          "Resultary 8bab5bddfc04, Proof Eq. (1)",
+          "Modal SISO controllability determinant and Cauchy cancellation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The distinct hub-controlled three-vertex undirected star optimizes over the same type of fixed sum. Its exact determinant has a factor S²−4uv and vanishes at equal spokes. The cascade instead remains controllable at equal positive rates and its optimal ordering is labels-specific. The star has two labelled optimizers related by leaf exchange."
+        ],
+        "reasoning": "The finite-damping feasible systems are not equivalent, and the star theorem is only for three vertices. There is a genuine equivalence of the leading scalar optimization profiles after rescaling, addressed under prior implication below. Same-day date alone does not resolve priority.",
+        "searches": [
+          "Resultary semantic search for D-optimal cascade weights, near-disconnection, Cauchy Gramian, weak leakage budget",
+          "Resultary 8bab5bddfc04 exact determinant and weak-spoke law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The diagonal-semigroup result optimizes a smallest eigenvalue over the input vector, with a Cauchy-matrix limit. The path-diffusion result gives fixed-sum edge allocations for heat trace. No distinct exact indexed result for the all-dimension cascade ratios c_i was identified."
+        ],
+        "reasoning": "Those exact indexed quantities are different objectives and constraints, not alternative ways of computing the same allocation. The target is a family indexed by chain dimension, not a numerical table of particular three-node optima.",
+        "searches": [
+          "Resultary exact fixed-sum edge allocation and Gramian Cauchy searches",
+          "Resultary 4c44e6e23704 diagonal semigroup frame bounds",
+          "Resultary f98b0bb4fa60 exact path diffusion allocation"
+        ]
+      },
+      "rationale": "The accepted distinct statement is the all-dimension optimal weak-damping allocation and its limiting value on this directed cascade, not the general SISO determinant identity or the generic observation that optimal designs may approach disconnection. An unusually close same-day comparison has the same rescaled leading scalar objective in dimension three, but not the directed chain's general allocation theorem.",
+      "residual_risks": [
+        "No independent older primary text for the general SISO determinant identity was retrieved; the identity is not credited here and the same-day star proves the closely overlapping modal formula.",
+        "Bounded search is not proof of priority. Same-day ordering is unresolved and a general budgeted Gramian optimization result could cover the remaining concentration law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage of the method and rescaled three-node weak profile, but not the all-dimension directed allocation",
+          "evidence": "An undirected star with hub input has two leaf-exchanged optima, zero determinant at equal spokes, weak spoke 2(1+√5)μ/3 and coefficient (5√5−11)/(1152 S). The explicit rational determinant yields the profile comparison above.",
+          "identifier_or_url": "2026/11/22/SCOPE-unique-d-optimal-near-disconnection-in-a-hub-controlled-three-ve--8bab5bddfc04",
+          "material_read": "RESULT.md Finding, Assumptions, and Proof Eq. (1), beginning to about offset 4340",
+          "method": "Local publication mirror",
+          "title": "Unique D-optimal near-disconnection in a hub-controlled three-vertex diffusion network",
+          "trigger": "Closest same-day determinant objective, budget, and weak-damping result"
+        },
+        {
+          "assessment": "Different decision variables",
+          "evidence": "Log determinant measures reachable-ellipsoid volume and is submodular in a selection of actuator columns, not in redistribution of forward rates.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.7665",
+          "material_read": "PDF p. 3 volume discussion and p. 5 Theorem 6",
+          "method": "Open-access PDF",
+          "title": "On Submodularity and Controllability in Complex Dynamical Networks",
+          "trigger": "Broader determinant/volume optimization theorem"
+        },
+        {
+          "assessment": "Related weight design, but no matching objective or weak-damping theorem in inspected passages",
+          "evidence": "Feasible weights lie in a polytope; reachability constraints concern the smallest Gramian eigenvalue and trace of the inverse.",
+          "identifier_or_url": "https://arxiv.org/abs/1902.04195",
+          "material_read": "PDF abstract and p. 4 reachability metrics",
+          "method": "Open-access PDF",
+          "title": "Network Design for Controllability Metrics",
+          "trigger": "Closest primary literature on tuning edge weights for a Gramian metric"
+        },
+        {
+          "assessment": "Background, not the budget hierarchy",
+          "evidence": "The focus is worst-direction energy/smallest eigenvalue, contrasted with trace-based actuator selection.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.1201",
+          "material_read": "PDF pp. 2–3",
+          "method": "Open-access PDF",
+          "title": "Controllability Metrics, Limitations and Algorithms for Complex Networks",
+          "trigger": "General Gramian metric and network control framework"
+        },
+        {
+          "assessment": "Different objective",
+          "evidence": "Fixed-sum edge allocations optimize a diffusion heat trace, not a controllability determinant.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-one-fifth-short-horizon-penalty-and-a-universal-edge-priority--f98b0bb4fa60",
+          "material_read": "RESULT.md Finding, beginning of file",
+          "method": "Local publication mirror",
+          "title": "A one-fifth short-horizon penalty and a universal edge-priority reversal in optimal path diffusion",
+          "trigger": "Distinct same-day exact fixed-sum path-rate allocation"
+        },
+        {
+          "assessment": "Different metric and design variable",
+          "evidence": "The lower frame bound optimizes a smallest eigenvalue over a unit input vector, rather than a determinant over budgeted rates.",
+          "identifier_or_url": "2026/11/22/SCOPE-exact-finite-window-lower-frame-bounds-for-diagonal-contraction--4c44e6e23704",
+          "material_read": "RESULT.md Finding, beginning of file",
+          "method": "Local publication mirror",
+          "title": "Exact finite-window lower frame bounds for diagonal contraction semigroups",
+          "trigger": "Distinct same-day Cauchy-matrix limit in Gramian design"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weak-leakage optimum is singular: it sacrifices all but the first rate on the original budget scale yet maintains controllability and achieves a larger determinant divergence power than every fixed positive design. The theorem identifies the unique downstream profile and coefficient in every dimension and contrasts it with the nonsingular strong-leakage profile. This is materially more than evaluating a known determinant or rescaling the three-node example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

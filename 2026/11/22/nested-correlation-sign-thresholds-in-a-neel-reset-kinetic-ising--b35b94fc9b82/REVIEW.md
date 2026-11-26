@@ -1,15 +1,21 @@
-# Review of the Neel-reset kinetic Ising correlation theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-temperature Glauber generator gives the exact pair hierarchy, including the coincident-spin boundary. Global Néel resets add an alternating source. The finite-ring difference equation has a unique solution by strict diagonal dominance, and the infinite-chain bounded solution follows from the decaying characteristic root. A strict hyperbolic-cosine monotonicity proves one threshold for each odd separation and ordering on each half-ring; the positive finite-size correction yields the comparison with the infinite line. Algebraic reduction of the unique root and a Lambert-function inversion establish the asymptotic without relying on finite enumeration. A separately assembled full Markov generator for three ring sizes, analytic threshold checks and Fourier checks yielded 400 successful numerical assertion groups. Limits: zero temperature, whole-ring Poisson resetting, even rings and infinite line only.
+PASS
 
-## Originality — PASS, qualified
+The specified unit-clock zero-temperature flips are equivalent to copying a uniformly chosen neighbor. Before coalescence two backward lineages have relative jumps at rate one in each direction; global resetting kills the relative walk at rate r with reward (-1)^n, while coalescence at 0 or N has reward 1. This gives the stated recurrence with no extra factor of two. Poisson renewal gives stationarity and first-reset coupling gives uniqueness; fair phase makes the one-spin means zero. The alternating particular solution and the bounded or two-boundary homogeneous solution give the exact kernels. The cosh ratio is strictly decreasing in r, and in n up to the midpoint; for fixed n the finite-image correction is positive and strictly decreases to zero with N. Bracketing the roots at the infinite root and any larger rate proves strict finite-size nesting and convergence. The odd infinite-chain equation gives u^m(u-1)=2. With t=kappa/2 and y=nt it yields y+log y=log n+o(1); since the derivative of y+log y is at least one, y-W(n)=o(1). This verifies the asymptotic and the fixed-rate sign-front scale. Fourier transformation of the normalized geometric periodization and (-1)^n gives the exact diffuse and Bragg terms.
 
-Magoni, Majumdar and Schehr (arXiv:2002.04867) provide the global reset framework and magnetization-law analysis, with independent initial spins. Their full available article specifically leaves two-point correlation structure for future work. Mayer and Sollich (arXiv:cond-mat/0307214) provide nonreset general correlation hierarchies. A published all-plus-reset two-point result concerns a spatially constant rather than alternating source and gives a positive spatial profile; a published Pareto-reset result addresses independently initialized spins and algebraic positive correlations. Neither establishes the finite/infinite Néel sign hierarchy, the strict finite-size threshold ordering or the odd-distance asymptotic. The principal residual risk is that the algebraic result can be extracted as a special case by combining the classical general Glauber propagator and the global renewal identity; no definitive independent literature-priority certificate is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a motivated complete classification of how synchronized antiferromagnetic driving competes with ferromagnetic coarsening in an interacting spin system. The stationary state simultaneously has a staggered Bragg component and a positive diffuse ferromagnetic component; their interference creates nested sign thresholds at every odd separation. Exact finite-size shifts, polynomial critical rates and a logarithmically enhanced crossover length make the result testable and useful for comparing local and mesoscopic spin-correlation measurements. It is not an arbitrary finite-size slice or a restatement of a known magnetization law. Thresholds are correlation zeros, not thermodynamic phase transitions.
+Credit the classical pair closure, renewal formula and exponential/periodized Green kernel as known or directly inherited. The supported distinction is the Néel-specific sign classification: finite-size and separation nesting, algebraic odd-root thresholds, and logarithmically enhanced front, with the associated staggered response. The strongest same-day record explicitly has the same kernel but an iid reset source, hence no staggered term or sign hierarchy. No inspected result gives or directly contains the full hierarchy and asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The alternating reset ensemble directly competes with local ferromagnetic coarsening. The exact nested odd-distance crossover identifies which pair observables change sign and how the ring modifies their crossing rates. Its weak-reset front grows by a logarithmic factor beyond the exponential decay length, and its staggered plateau yields a distinct Bragg contribution. These are informative distinctions beyond evaluating a standard renewal integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

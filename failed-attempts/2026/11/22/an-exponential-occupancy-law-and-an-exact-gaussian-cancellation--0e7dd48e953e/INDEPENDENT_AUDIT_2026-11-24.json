@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:36:42.845394Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the centered coordinate simplex, expanding the ball inequality cancels the 1/m on both sides and gives lambda_i>=Q, Q=sum lambda_j^2; the maximum coordinate always qualifies. Under the normalized-exponential coupling the test is E_i>=T_m, T_m=sum E_i^2/sum E_i. The strong law gives T_m->2, and bracketing by empirical survivals at deterministic thresholds gives almost-sure convergence to p=e^(-2). The ratio linearization uses H=E^2-2E. On a window of radius K/sqrt(m) the proof's grid has O(m^(1/4)) points, the centered survival increment has variance O(m^(-3/2)) at each grid point, and a binomial count bound in each grid interval controls interpolation. This justifies the local empirical-process expansion at T_m. For I=1{E>=2}, integration of -(x^2 exp(-x))' gives Cov(I,H)=4p and factorial moments give Var(H)=8, so the influence I-p-pH has variance p(1-p). This is a Gaussian limit, not a finite-sample binomial model. The supplied checker and notes were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At shape alpha=1, y=2, the October joint law has asymptotic variances p(1-p)-4p^2 and 4, and zero cross-covariance. Its proof applies local stochastic equicontinuity of the exponential empirical cdf at y to a moving threshold.",
+          "Baci et al. provide norm-limit theorems and the exponential representation, but the more decisive coverage is the directly joint Greenwood law."
+        ],
+        "reasoning": "The exact switching point and the relevant pair of fluctuations were known together under the identical uniform Dirichlet distribution. The proof's local empirical control applies to the two thresholds 2 times the sample mean and (mG) times the sample mean: both lie in a tight root-m window around 2. This is not an inference from a fixed-threshold marginal CLT alone.",
+        "searches": [
+          "Resultary 178c0a43180a Eqs. (4)–(5) and Joint asymptotic law",
+          "arXiv:2005.04911v1 Abstract and Theorem A/Corollary 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 178c0a43180a, 8cec2684e10a and 0e7dd48e953e (self-hit)",
+        "arXiv:2611.14277v1",
+        "arXiv:2005.04911v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Write U_m=(N_m(2/m)-mp)/sqrt(m) and V_m=sqrt(m)(mG-2). The two exponential thresholds differ by (mG-2) times the sample mean, and the derivative of the population survival at 2 is -p. The prior proof's local equicontinuity thus gives (N_m(G)-mp)/sqrt(m)=U_m-pV_m+o_P(1). The joint limit has zero cross term, so the variance is [p(1-p)-4p^2]+4p^2.",
+          "The strong law follows from the same normalized-exponential representation plus deterministic bracketing; it does not add a distinct nontrivial asymptotic mechanism."
+        ],
+        "reasoning": "The prior proof already contains the local moving-threshold tool needed for this one extra substitution; the missing exact wording is not a scientific gap. The simpler deterministic ball computation is valid but does not provide a genuinely distinct surviving theorem at the claimed level.",
+        "searches": [
+          "178c0a43180a, RESULT.md Eqs. (4)–(5) and Joint asymptotic law (offsets 2000–4452 and 4452–8586)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For uniform barycentric coordinates the target is exactly the Dirichlet exceedance count N_m(G), with G=sum lambda_i^2. The closed versus strict inequality is immaterial almost surely since each equality is a nontrivial polynomial equation on the simplex.",
+          "The October result gives N_m(y/m) jointly with G; the November one-switch result gives the deterministic-threshold covariance."
+        ],
+        "reasoning": "The geometry is a new presentation of a natural Dirichlet statistic. To assess coverage one must compare a moving threshold with the earlier joint law and its proof, not merely look for the word Thales or compare with the weaker covariance-only theorem.",
+        "searches": [
+          "Resultary Greenwood statistic random-threshold exceedance and Thales occupancy; 178c0a43180a, 8cec2684e10a",
+          "arXiv:2611.14277v1 Sec. 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact title hit is the assigned record itself. The distinct October record tabulates the joint covariance analytically in Eq. (5), including the exact switch and both marginal variances used in the implication."
+        ],
+        "reasoning": "No finite table can certify the geometric almost-sure and Gaussian limits. The relevant exact available data are the prior covariance formulas together with the joint limit theorem, not finite samples.",
+        "searches": [
+          "Resultary 0e7dd48e953e, 178c0a43180a, 8cec2684e10a; Dirichlet exceedance covariance and Gaussian crossover"
+        ]
+      },
+      "rationale": "The frozen comparison misses the materially stronger October Dirichlet record 178c0a43180a. It supplies both the joint fixed-threshold/Greenwood CLT at the exact switch point and the local empirical-process control already used in its proof. After the elementary ball-to-barycentric identity, the main Gaussian law and the cancellation are a direct linear projection of that result with its own local expansion; this is coverage by implication, not an assertion that the earlier theorem literally names the Thales balls or states N_m(G) verbatim.",
+      "residual_risks": [
+        "Older empirical-spacing sources were not exhaustively checked; the rejection rests on the verified October implication, not on an inaccessible source or a search miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the substantive Gaussian law by the short moving-threshold projection; does not explicitly state the geometric identity",
+          "evidence": [
+            "Joint centered Gaussian law, exact zero covariance at y=(alpha+1)/alpha, and empirical-cdf expansion at y times the sample mean"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-sharp-greenwood-exceedance-covariance-crossover-for-dirichlet--178c0a43180a/RESULT.md",
+          "material_read": "Finding and assumptions, Eqs. (4)–(5), offsets 2000–4452; Joint asymptotic law proof, offsets 4452–8586",
+          "method": "Local mirror actual statement and proof; evaluate at alpha=1,y=2 and linearly project using local equicontinuity",
+          "title": "A sharp Greenwood–exceedance covariance crossover for Dirichlet spacings",
+          "trigger": "Same Dirichlet exceedance, Greenwood statistic and switch-point Gaussian limit"
+        },
+        {
+          "assessment": "Deterministic-threshold covariance, not the joint CLT used for the decisive comparison",
+          "evidence": [
+            "The quadratic covariance changes sign at the deterministic threshold 2/(m+2)"
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-a-universal-one-switch-covariance-law-for-large-spacings-and-con--8cec2684e10a",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror theorem comparison",
+          "title": "A universal one-switch covariance law for large spacings and convex spacing tests",
+          "trigger": "Cited covariance comparison"
+        },
+        {
+          "assessment": "Covers geometric covering, not probabilistic multiplicity",
+          "evidence": [
+            "A polytope is covered by the closed vertex-to-source diameter balls"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2611.14277v1",
+          "material_read": "Sec. 5, Theorem 5.1, around offset 45450",
+          "method": "Primary OA comparison",
+          "title": "Thales's theorem in higher dimensions",
+          "trigger": "Same family of diameter balls"
+        },
+        {
+          "assessment": "Norm limits and representation, not the decisive joint Greenwood/exceedance limit",
+          "evidence": [
+            "The inspected limits treat l_q norms rather than the random-threshold count"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.04911",
+          "material_read": "Abstract and Theorem A/Corollary 1.1, OA offsets 0 and 7000",
+          "method": "Primary OA theorem comparison",
+          "title": "Limit theorems for random points in a simplex",
+          "trigger": "Uniform simplex limit laws"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Volume-typical covering redundancy is a motivated quantity, and the geometry supplies a useful illustration. But the purported new variance phenomenon and its scale are inherited from the exact earlier joint law and local expansion. The remaining elementary translation to the diameter-ball test and direct strong-law bracketing do not support a standalone new finding of the claimed substance.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:32:28.396178Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–79",
+        "Frozen VERIFICATION.md and check_root_spectrum.py"
+      ],
+      "rationale": "The principal-minor expansion of det(nI-J+t diag(z)) gives each nonempty root-set multiplicity k n^(n-k-1), including the empty determinant at k=n. Inserting Boolean signs and expanding the rank-one term gives exactly the three multiplier formulas without division by n-t. At t=n the terms at weights 0 and 1 survive, so the rank is n+1, including n=2. Off that activity only the linear factor in a middle shell can vanish, precisely at t=n-2j with binomial nullity. At t=1, putting a=n-1 and b=n+1, the magnitudes decrease on the positive branch (with the top at weight zero). On the negative branch the ratio is (d+2)a/(db) with d=2s+1-n>0; it is >=1 up to the terminal step since d<=a, and the terminal boundary has equal magnitude. The first negative shell beats the last positive middle shell by a/b (even) or (a/b)^2 (odd). The small cases have weight spectra (3,-1,-1) and (16,0,-4,-4), agreeing with the claimed gaps. The positive total mass is the maximum magnitude by the triangle inequality. Orthogonal Walsh diagonalization gives the inverse or pseudoinverse norm and restricted condition number. The supplied check_root_spectrum.py was inspected, not executed; python3 check_root_spectrum.py replays the reported finite checks. The proof, not the finite test, covers real activity and arbitrary n.",
+      "residual_risks": [
+        "The sharp nonzero gap is proved for unit activity only, and the argument assumes a complete graph with unit edge weights and a common positive root activity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The matrix-forest and determinantal root results give a general distribution and imply the signed generating determinant. Moumeni cites the exact complete-graph finite-size distributions of D’Achille–Enriquez–Melotti.",
+          "The identified DOI did not yield full text via configured direct or alternate access; no alternate copy was identified in the bounded exact-title search."
+        ],
+        "reasoning": "General determinant evaluation gives no pre-optimized sharp nonzero magnitude at unit activity. The inaccessible same-graph paper is a plausible overlap risk, not affirmative evidence for or against coverage of the gap.",
+        "searches": [
+          "Chebotarev–Shamis arXiv:math/0602575",
+          "Avena–Gaudillière arXiv:1310.1723, Theorem 3.1, Corollary 3.2 and Theorem 3.4",
+          "D’Achille–Enriquez–Melotti DOI 10.1002/rsa.70048 and exact-title lawful alternate-copy search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.1723, math/0602575 and 2607.13210",
+        "Pitman technical report 482",
+        "Four distinct local Resultary comparisons",
+        "D’Achille–Enriquez–Melotti citation and access attempt, not full text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evaluating det(nI-J+t diag(z)) at character signs yields the shell formula; factoring its zeros gives the resonant activities and multiplicities directly. The comparison of the nearest positive and negative nonzero shells at t=1, checked against both endpoints, identifies the smaller shell irrespective of parity."
+        ],
+        "reasoning": "The determinant-law corollaries and sharp optimization are different evidence. The latter requires monotonicity on two branches with opposite signs and resolving the competition across the intervening zero or sign change; it is not just a signed evaluation or reading a known table.",
+        "searches": [
+          "Frozen RESULT.md lines 45–76 compared with arXiv:1310.1723 §3.2, arXiv:2607.13210 p. 11 and Resultary 7a0c1bc2e70a limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The generic determinantal root-set law and Moumeni's complete-graph inclusion probabilities determine precisely the same root distribution, up to the stated rate rescaling and total mass.",
+          "Local records 7a0c1bc2e70a and 6e86cdc4f4e6 concern K_{m,n} or K_{n,n}; c987bb4dd1d8 and e2c0b7b0a6e5 use edge-incidence profiles rather than vertex root sets."
+        ],
+        "reasoning": "The same distribution under a change of rate or normalization is not a new claim. Deleting all within-shore edges or using an edge observable does not preserve the present Walsh minimization.",
+        "searches": [
+          "Local Resultary: rooted complete-graph root-set Walsh spectra, complete bipartite forest nullity, and complete-graph forest and tree spectral gaps",
+          "Avena–Gaudillière arXiv:1310.1723, Theorem 3.4",
+          "Moumeni arXiv:2607.13210, complete-graph example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Pitman's exact k n^(n-k-1) enumerator is the source of the coefficients, not an optimized Fourier spectrum. The K_6 forest spectrum reports a nonzero gap of 4 for edge profiles; the all-n spanning-tree gaps also concern edge profiles."
+        ],
+        "reasoning": "Those exact values are not tables of root-set multipliers or their minima. A finite table of this observable, even if available, would not certify the claimed all-order gap.",
+        "searches": [
+          "Local Resultary: complete graph and complete bipartite forest spectral census and sharp Walsh gaps, records 7a0c1bc2e70a, 6e86cdc4f4e6, c987bb4dd1d8 and e2c0b7b0a6e5",
+          "Pitman technical report 482, p. 1 fixed-root enumeration"
+        ]
+      },
+      "rationale": "Credit the known fixed-root law and its generic determinant evaluation. The signed generating formula and the zeros it directly exposes are consequences of that law, not independent originality grounds. The supported distinct claim is the sharp all-order smallest nonzero absolute Walsh multiplier at unit activity, with exact Hilbert-space recovery conditioning even in the singular parity. This uses a discrete minimization across the sign change. The compared sources do not establish this sharp minimization for the vertex root profiles of K_n. The assessment is to the best of current knowledge, not a priority finding.",
+      "residual_risks": [
+        "The D’Achille–Enriquez–Melotti paper was not readable; an earlier signed-root calculation or a sharp bound expressed in another formalism remains possible. Same-day catalog dates do not determine priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the root-set law and determines the signed spectrum and its zero factors; not the optimized nonzero gap in the inspected passages",
+          "evidence": [
+            "Determinant partition function and inclusion-determinant law. The frozen bibliography uses a different title for the same arXiv identifier."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1310.1723",
+          "material_read": "§1.2, Theorem 3.1/Corollary 3.2 p. 13 near extracted offset 38117, and Theorem 3.4 pp. 14–15 near offset 44645",
+          "method": "Lawful OA PDF passages",
+          "title": "Random spanning forests, Markov matrix spectra and well distributed points (cover title of consulted version)",
+          "trigger": "Generic determinantal root law may cover the spectral formula"
+        },
+        {
+          "assessment": "Established enumeration framework",
+          "evidence": [
+            "det(I+L) enumerates rooted forests."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0602575",
+          "material_read": "pp. 1–2, extracted offsets 1194 and 5462",
+          "method": "Lawful OA paper passages",
+          "title": "Matrix-Forest Theorems",
+          "trigger": "Classical determinant enumeration"
+        },
+        {
+          "assessment": "Covers the coefficient enumerator",
+          "evidence": [
+            "Fixed-root-subset Cayley formula k n^(n-k-1)."
+          ],
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/482.pdf",
+          "material_read": "p. 1, extracted offset 1216",
+          "method": "Lawful public report passage",
+          "title": "Enumerations of trees and forests related to branching processes and random walks",
+          "trigger": "Fixed-root count prior to Walsh analysis"
+        },
+        {
+          "assessment": "Same complete-graph root law after activity rescaling; no sharp Walsh gap in those passages",
+          "evidence": [
+            "For a k-vertex set, inclusion probability a^(k-1)(a+k)/(a+n)^k with a=(n-1)q, and root kernel eigenvalues."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.13210",
+          "material_read": "p. 4 exact-distribution context (offset 14198), p. 11 complete-graph example (35599), p. 30 reference (109836)",
+          "method": "Lawful OA PDF passages",
+          "title": "Punctured Wilson–Evolving Sets and Root Identities for Massive Kirchhoff Forests",
+          "trigger": "Explicit complete-graph root law"
+        },
+        {
+          "assessment": "Unresolved access risk, no negative inference about contents",
+          "evidence": [
+            "Moumeni attributes exact finite-size complete-graph distributions to this paper."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.70048",
+          "material_read": "Bibliographic reference and description in Moumeni pp. 4 and 30; full text not read",
+          "method": "Configured full-text retrieval returned HTTP 403; exact-title search for a lawful alternate copy returned no results",
+          "title": "Massive Spanning Forests on the Complete Graph: Exact Distribution and Local Limit",
+          "trigger": "Same graph and exact finite-size distributions"
+        },
+        {
+          "assessment": "Close method and observable, different input graphs; no sharp least-nonzero spectrum claim",
+          "evidence": [
+            "Complete bipartite shores, not K_n, and no shared positive-activity phase diagram."
+          ],
+          "identifier_or_url": "Resultary 7a0c1bc2e70a and 6e86cdc4f4e6",
+          "material_read": "Findings and limitations, offsets 0 and 7879; 0 and 5110 respectively",
+          "method": "Local mirror passages",
+          "title": "A parity-sharp Walsh nullity law for rooted forests of complete bipartite graphs; Central parity switch in Fourier recovery from rooted forest roots",
+          "trigger": "Root-set spectrum with parity and nullity"
+        },
+        {
+          "assessment": "Edge signals on a different Boolean group",
+          "evidence": [
+            "Edge-incidence gap for all K_6 forests and parity-dependent edge-incidence gaps for K_n spanning trees."
+          ],
+          "identifier_or_url": "Resultary c987bb4dd1d8 and e2c0b7b0a6e5",
+          "material_read": "Findings and profile definitions",
+          "method": "Local mirror passages",
+          "title": "First nontrivial Walsh singularity of complete-graph forests; Sharp nonzero Walsh gaps for complete-graph spanning trees",
+          "trigger": "Same graph family and sharp spectral invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 16–36 and 60–76",
+        "Determinantal root law and local bipartite comparisons above"
+      ],
+      "rationale": "The root set is the natural Boolean observable. Knowing the exact smallest nonzero multiplier determines best possible stability of Hilbert-space recovery, on the whole space for even n and on the recoverable subspace for odd n. This requires locating the worst shell, not merely evaluating a root count or detecting a zero. The activity analysis also separates a high-nullity point from the isolated single-shell losses, without needing to treat those formula corollaries as original.",
+      "residual_risks": [
+        "No optimization away from unit activity, weighted-graph extension, or recovery of information in the nullspace is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:33:54.219235Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 25–58; VERIFICATION.md and verify.py inspected, not executed.",
+        "Independent exact replay: python3 /workspace/branches/check_superspecial.py.",
+        "Repaired /workspace/repairs/3/RESULT.md, whole file and especially lines 25–55."
+      ],
+      "rationale": "The frozen proof falsely calls the v² coefficient of B a nonzero constant and conflates the length of the scheme-theoretic u=2 fiber with the sum of the full local lengths over it. The complete repaired RESULT.md corrects both: the coefficient is 3(u−2), B(2,v)=0, and the fiber cut by u−2 has length 5, whereas the three affine intersection local algebras over u=2 have total length 17. The revised proof uses the determinant of multiplication by B in the rank-five free k[u]-module k[u,v]/(A). Its order at each base point equals the length of its cokernel over the local DVR, hence the sum of the local geometric lengths. Independent coefficient convolution and multiplication-matrix computation gave the stated determinant, eight simple other roots, the two nonzero Jacobians (8), and the three boundary gcds. Independently imposing (u−2)^17 and inverting (v−3)(v−4) gives a quotient with 15 standard monomials, confirming the local length. The relative Cartier entries are the specified even coefficients; this zero scheme on the smooth family, not an absolute semilinear matrix on the boundary, is what is counted. Finite support gives the complete intersection, and the homogeneous forms also rule out infinity.",
+      "residual_risks": [
+        "The computation is for the specified model and characteristic, and the repaired proof does not identify a moduli-theoretic multiplicity at the singular model."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem B proves reducedness and dimension zero of the smooth three-variable Rosenhain superspecial locus. Gutiérrez–Shaska treats the normal forms and extra involutions."
+        ],
+        "reasoning": "These give geometric context and precedent for smooth reducedness. They do not enumerate the solution scheme in this two-coordinate slice or address its extended boundary equations.",
+        "searches": [
+          "Gutiérrez–Shaska arXiv:math/0601456, normal forms and genus-two invariants; Harashita–Yamamoto arXiv:2409.13212, Theorem B"
+        ]
+      },
+      "checked_sources": [
+        "Ohashi arXiv:2308.11963; Harashita–Yamamoto arXiv:2409.13212; Katsura–Takashima arXiv:2003.00633; Gutiérrez–Shaska arXiv:math/0601456; local Resultary matches including the Howe-locus Finding."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The inspected statements use smooth curves/Rosenhain coordinates or isomorphism classes; the local length 15 is the length of the extension of the equations at an excluded singular parameter, not the local length of a smooth moduli point."
+        ],
+        "reasoning": "The known abstract catalogue constrains the ten smooth points and the multiplicity theorem may inform smooth reducedness. Neither determines how the eliminated fiber and affine local schemes differ at (2,1); the new coefficient-ideal calculation supplies this information.",
+        "searches": [
+          "Ohashi Lemma 3.3; Harashita–Yamamoto Theorem B; Katsura–Takashima §7.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohashi Lemma 3.3 is exactly the family before the substitution (u,v)=(a+b,ab); it assumes superspeciality for maximality/minimality tests. The same-day Howe-locus record uses a genus-four fiber product in characteristic five and counts non-superspecial points."
+        ],
+        "reasoning": "Changing from a,b to their symmetric functions is not the contribution. The exact collision pertains to the extended Cartier ideal in the specified plane; the same-family criterion assumes smooth superspecial input, and the Howe scheme is a different family and invariant.",
+        "searches": [
+          "Local Resultary: characteristic eleven genus-two superspecial marked parameters, even sextic and length-15 boundary; Ohashi arXiv:2308.11963, §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The p=11 catalogue has two superspecial genus-two isomorphism classes with explicit models and reduced automorphism groups S3 and D12; no exact matching marked scheme was retrieved from the indexed corpus."
+        ],
+        "reasoning": "The catalogue classifies smooth unmarked curves, not the points in this coordinate plane; a conversion would require counting realizations with the specified marking, and the table has no singular input or local ideal lengths.",
+        "searches": [
+          "Local Resultary/SCOPE: ten superspecial genus-two parameters, Cartier coefficient intersection, marked branch pairs at p=11; Katsura–Takashima arXiv:2003.00633, §7.2"
+        ]
+      },
+      "rationale": "The repair preserves the original outcome but distinguishes the fiber length from the affine local length precisely. The supported distinct contribution is the exact decomposition for this marked plane, in particular the affine length-15 triple collision. Prior work treats the very same normal form, establishes general reducedness in smooth Rosenhain coordinates, and catalogues the two abstract curves; none of the inspected statements accounts for the extended coefficient ideal at the degenerate parameter.",
+      "residual_risks": [
+        "An unindexed alternate-coordinate computation of this specific extended ideal or a marked realization table could overlap. A nearby indexed Ciani quartic item could not be opened from the mirror; it was not used as negative evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact family is prior; no exact scheme count or boundary length in the inspected result",
+          "evidence": "Lemma 3.3 assumes superspeciality and compares maximality/minimality.",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.11963",
+          "material_read": "Main Theorem A, PDF p. 1, offset 4065; Lemma 3.3, PDF p. 10, offset 36978",
+          "method": "Bounded OA original PDF passages",
+          "title": "On the Rosenhain Forms of Superspecial Curves of Genus Two",
+          "trigger": "Exact even sextic"
+        },
+        {
+          "assessment": "Related general reducedness theorem on the smooth Rosenhain base, not the extended plane boundary",
+          "evidence": "The four Cartier–Manin coefficients define a reduced zero-dimensional Rosenhain superspecial scheme.",
+          "identifier_or_url": "https://arxiv.org/pdf/2409.13212",
+          "material_read": "Theorem B, PDF p. 4, offset 9031",
+          "method": "Bounded OA original PDF passage",
+          "title": "The Multiplicity-One Theorem for the Superspeciality of Curves of Genus Two",
+          "trigger": "General genus-two Cartier scheme reducedness"
+        },
+        {
+          "assessment": "Abstract isomorphism catalogue does not give the marked affine scheme or its boundary",
+          "evidence": "Two superspecial curves and their reduced automorphism groups/models are given in characteristic eleven.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.00633",
+          "material_read": "§7.2, PDF p. 14, offset 46116",
+          "method": "Bounded OA original PDF passage",
+          "title": "Counting Richelot Isogenies between Superspecial Abelian Surfaces",
+          "trigger": "Exact characteristic and abstract genus-two census"
+        },
+        {
+          "assessment": "Normal form and isomorphism invariants, not the stated Cartier calculation",
+          "evidence": "Survey and genus-two invariant passages concern extra involutions and isomorphism invariants.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0601456",
+          "material_read": "PDF p. 1 offset 3306 and p. 5 offset 16446",
+          "method": "Bounded OA original PDF passages",
+          "title": "Hyperelliptic Curves with Extra Involutions",
+          "trigger": "Possible equivalence through normal-form invariants"
+        },
+        {
+          "assessment": "Different genus, characteristic, family and invariant",
+          "evidence": "Its ten points have a-number three on genus-four Howe curves in characteristic five.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-the-ten-non-superspecial-points-in-the-characteristic-five-super--52cb745b87be/RESULT.md",
+          "material_read": "Finding, mirror offsets 0–1555",
+          "method": "Local match followed by bounded mirror inspection",
+          "title": "The ten non-superspecial points in the characteristic-five supersingular Howe parameter locus",
+          "trigger": "Same-day marked parameter count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Repaired RESULT.md; independent affine/local quotient check; Ohashi Lemma 3.3, Harashita–Yamamoto Theorem B and Katsura–Takashima §7.2 as mathematical context."
+      ],
+      "rationale": "On a natural normal-form family with a distinguished branch pair, a smooth moduli census does not account for intersections absorbed by degeneration. The exact marked decomposition distinguishes ten simple smooth points from local mass 15 at the unique excluded triple collision and locates all ten smooth parameters. The 5-versus-17 length distinction makes this useful for checking elimination multiplicities and compactification comparisons rather than just reproducing a list of abstract genus-two curves.",
+      "residual_risks": [
+        "The local length depends on this marked affine extension and is not asserted as an invariant under arbitrary reparametrization or compactification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

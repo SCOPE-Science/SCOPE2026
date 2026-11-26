@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:13:52.520559Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With X=KN and X³=0, the product is B=I+aN+b₂N², a=K(1−2t), b₂=K²(t²−2t). A, q_t(A) and B are upper triangular with diagonal one. Uniform positivity for complex Rayleigh quotients is equivalent to positive definiteness of the real symmetric part. I eliminated the middle coordinate using its unit diagonal; the remaining 2×2 Schur complement has eigenvalues 1−b₂/2 and 1+(b₂−a²)/2. Now a²−b₂=K² f(t), f(t)=1−2t+3t²=2/3+3(t−1/3)², and b₂<K² f(t) for K>0. Thus the exact safety interval for each slope is K² f(t)<2, also valid at K=0. Its maximal range is K<√3 for the unique t=1/3; t=1/2 gives K<√(8/3). To independently check the witness, the unnormalized real vector (1,y,1) has quadratic form (y+a)²+2−K² f(t), with a real zero whenever K≥√3, for every slope. Applying q_t(A)⁻¹ to this vector and starting with q_t(A)b realizes the zero in H₁ after normalization. At the optimal endpoint v=(1,−1/√3,1) comes from the stated input b=(1,0,1). In the truncated polynomial ring the square of I−X/2+3X²/8 is I−X+X² and multiplication by I+X gives I; in size two already X²=0 and the linear Taylor polynomial works for all K. The finding concerns exact real normalized affine slopes and one-step left Arnoldi. Above the threshold, a failing real input exists for each slope; not every input fails. I inspected the supplied checker without executing it; these conclusions are algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carden–Embree treat the bare shift and bounds on real parts of separate Ritz values; §3 gives the deeper joint characterization. Frommer et al.'s spectral analysis in §3.2 is restricted to Hermitian positive-definite A, and §5 states general right-half-plane field-of-values control for Ritz values. Tichý–Liesen–Faber use an affine polynomial on a Jordan block for ideal GMRES norm bounds."
+        ],
+        "reasoning": "The standard Hermitian-part or field-of-values criterion applies but does not give the sharp signs uniformly along the affine preconditioning curve; the Jordan GMRES theorem optimizes a different norm under a different polynomial normalization.",
+        "searches": [
+          "Carden–Embree §§1, 2.2 and 3 on the 3×3 Jordan block",
+          "Frommer et al. §§3.1–3.2 and 5",
+          "Tichý–Liesen–Faber §6, Thm. 6.2 and Eq. (6.4)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.06684v1",
+        "DOI:10.1137/120872693, author-hosted PDF",
+        "Tichý–Liesen–Faber 2007 §6",
+        "Resultary 00a25760cd57",
+        "Resultary 365decda5f33",
+        "Resultary 5d97da22428e",
+        "Resultary 1082617ed86e",
+        "DOI:10.1137/19M1302430 (bibliographic scope only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Ritz-pair theorem can be used to pose the same left-support optimization over its feasible set, but has no slope family or optimization along the coefficients (K(1−2t),K²(t²−2t)). The indexed joint radius bounds magnitudes in aggregate, not their signed linear combination in this direction. The branch condition spec(q(A))⊂ℂ⁺ is satisfied even at the singular examples."
+        ],
+        "reasoning": "The sharp barrier is not a direct specialization of a known bound or a tabulated number. Extracting it from the prior joint-set description would still require solving an extremum over Ritz pairs and then over slopes, as well as locating a real witness. The elementary Schur complement yields that new optimization and shows exactly which quantifiers hold. Do not treat the degree-two Taylor identity as an independent novelty claim.",
+        "searches": [
+          "Compare Carden–Embree Proposition 3.1 and Eqs. (3.1)–(3.2), Frommer et al. §3 and Resultary 00a25760cd57 and 365decda5f33 to the slope and K quantifiers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frommer et al. use exactly c=q(A)b and the preconditioned operator q(A)²A. Carden–Embree identify v*Nv=−(θ₁+θ₂) and v*N²v=θ₁θ₂ for the two Ritz values of N on v⊥; their Proposition 3.1 characterizes feasible pairs by a cubic root condition, with a special case at zero product."
+        ],
+        "reasoning": "The one-step Rayleigh quotient of I+aN+b₂N² is exactly 1−a(θ₁+θ₂)+b₂θ₁θ₂ in this formulation. Thus joint moment feasibility and its connection to Ritz pairs are prior, not a new result. It remains to take a directional extremum along the slope-dependent coefficients and optimize the resulting safety interval, not simply to test a given pair.",
+        "searches": [
+          "Frommer et al., arXiv:2401.06684v1 §§3.1–3.2, 5",
+          "Primary-literature lookup: Ritz Value Localization for Non-Hermitian Matrices, Carden Embree PDF Jordan block",
+          "Carden–Embree, §3, Proposition 3.1 and Eqs. (3.1)–(3.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Record 00a25760cd57 optimizes the induced norm of (1−λ)I+λJ_n and gives λ=(n+1)/(2n+1). Record 365decda5f33 gives a Euclidean joint numerical-radius profile for (J_n,tJ_n²), including R₃(t)=2/√(8−t²) up to t=2 and t/2 thereafter. Record 5d97da22428e gives a later-dated t≤1/3 transfer threshold for residual nonexpansion under one-step GMRES. The same-day record 1082617ed86e concerns restarted GMRES(2) and coarse normal-matrix conditioning."
+        ],
+        "reasoning": "There is no matching exact table entry in these results. An induced-norm optimizer, Euclidean joint radius, or norm transfer threshold for GMRES is not the open right-half-plane support criterion for q_t(A)²A. The same-day record was compared by its claim, not rejected by date.",
+        "searches": [
+          "Resultary searches for affine Jordan pencil, numerical radius of the first two Jordan powers, inverse-square-root Arnoldi zero Ritz value and one-third threshold"
+        ]
+      },
+      "rationale": "Credit the optimized λ=1 Jordan-family obstruction for left inverse-square-root Arnoldi: the sharp uniform threshold, the optimizer and the zero compression for some real input at every slope at and above the threshold. The Arnoldi method and branch condition are established, the joint geometry of the first two Jordan powers has a prior exact characterization through two Ritz values, and degree-two Taylor exactness is routine nilpotent calculus. The inspected prior results do not supply the optimization over this preconditioning curve.",
+      "residual_risks": [
+        "The bounded review does not exclude unindexed computations of the same optimum or a stronger directed-support theorem. The 2021 stability paper was not inspected in full; this is not evidence of no overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct method overlap but no optimized nonnormal Jordan barrier",
+          "evidence": [
+            "Starts from q(A)b with operator q(A)²A and applies H_m⁻¹ᐟ². The branch condition on q is sufficient for the branch identity, not a guarantee of nonsingular Ritz compressions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2401.06684v1",
+          "material_read": "§3.1 near offset 16350; §3.2 near 18850; §5 near 43800",
+          "method": "Open primary HTML passages",
+          "title": "Polynomial Preconditioning for the Action of the Matrix Square Root and Inverse Square Root",
+          "trigger": "Identical left Arnoldi method and inverse-square-root branch issue"
+        },
+        {
+          "assessment": "Exact joint geometry in different variables; not the slope-optimized inverse-square-root barrier",
+          "evidence": [
+            "Bare shift numerical range is the disk of radius √2/2. The two Ritz values for v⊥ determine the first two Jordan moments through their negative sum and product; the exact feasibility condition is a cubic with a specified root interval."
+          ],
+          "identifier_or_url": "https://personal.math.vt.edu/embree/87269.pdf",
+          "material_read": "Author-hosted complete paper, §1 Eq. (1.1) and Fig. 1.1 at offsets 5950–10126, §2.2 at 16420–17827 and §3, printed pp. 1328–1330, Proposition 3.1 and Eqs. (3.1)–(3.5) at offsets 29622–35180",
+          "method": "Lawful author-hosted primary PDF located by exact-title search; read scoped passages",
+          "title": "Ritz Value Localization for Non-Hermitian Matrices",
+          "trigger": "Direct analysis of a three-dimensional Jordan block and first two power moments"
+        },
+        {
+          "assessment": "Different Krylov objective and bound",
+          "evidence": [
+            "Uses p_ω(z)=1−ωz for ideal GMRES and bounds the minimax residual quantity between cosines; does not study right-half-plane compression of Aq(A)²."
+          ],
+          "identifier_or_url": "https://www2.karlin.mff.cuni.cz/~ptichy/download/public/TiLiFa2007.pdf",
+          "material_read": "§6, Theorem 6.2 and Eq. (6.4), PDF p. 19 near offset 64600",
+          "method": "Open primary PDF passage",
+          "title": "Worst-case and ideal GMRES for a Jordan block",
+          "trigger": "Jordan-block affine one-step polynomial optimization"
+        },
+        {
+          "assessment": "Different linear pencil, operator norm and optimizing slopes",
+          "evidence": [
+            "Unique induced-norm minimizer (n+1)/(2n+1) for (1−λ)I+λJ_n, and a scaled spectral-set cutoff."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57",
+          "material_read": "Local RESULT.md at offsets 0 and 9000",
+          "method": "Resultary and local original passages",
+          "title": "The sharp affine Jordan norm pencil and its scaled-q spectral-set cutoff",
+          "trigger": "Similar sharp optimization problem for an affine Jordan pencil"
+        },
+        {
+          "assessment": "Different objective; not a directional left-support formula",
+          "evidence": [
+            "Gives the sharp Euclidean joint-radius profile, including the n=3 case, for (J_n,tJ_n²)."
+          ],
+          "identifier_or_url": "2026/10/11/SCOPE-parity-controlled-saturation-of-the-euclidean-radius-of-the-firs--365decda5f33",
+          "material_read": "Local RESULT.md finding, offset 0",
+          "method": "Resultary and local original passage",
+          "title": "Parity-controlled saturation of the Euclidean radius of the first Jordan powers",
+          "trigger": "Numerical-radius result for exactly the first two Jordan powers"
+        },
+        {
+          "assessment": "Unresolved beyond bibliographic scope; not used as negative coverage evidence",
+          "evidence": [
+            "Title concerns Arnoldi stability/control; the frozen record identifies the eigenvalue-computation setting."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/19M1302430",
+          "material_read": "Bibliographic scope; readable full text not obtained in bounded lawful access attempt",
+          "method": "DOI open-access check",
+          "title": "Polynomial Preconditioned Arnoldi with Stability Control",
+          "trigger": "Adjacent stability control for polynomially preconditioned Arnoldi eigenvalue calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the minimal Jordan dimension where first-order Taylor exactness fails, and left inverse-square-root Arnoldi is a previously motivated numerical method that actually needs nonsingular compressions. The example excludes every real affine slope past a sharp point despite an innocuous preconditioner spectrum, rather than just noting that eigenvalues may misrepresent the field of values. The sharp comparison to the standard Taylor slope and the explicit singular input make the obstruction usable as a benchmark.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

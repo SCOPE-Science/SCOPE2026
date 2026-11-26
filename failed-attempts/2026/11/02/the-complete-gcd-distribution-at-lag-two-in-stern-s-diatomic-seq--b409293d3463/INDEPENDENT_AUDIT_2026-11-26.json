@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:28:54.398777Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 4–88; VERIFICATION.md and verify_stern.py inspected, not executed",
+        "Reznick, arXiv:math/0610601v1, Theorem 4.7, eq. (4.11)",
+        "Replay: python3 /workspace/reviews/evidence/replay.py 2"
+      ],
+      "rationale": "Reconstructing from the two Stern pair digit maps (a,b)→(a,a+b) and (a+b,b) gives adjacent coprimality and the two flanking values a+k(a+b), b+k(a+b) for n+1=2^k(2u+1); this works also at k=0 and at n=0. Their difference and coprimality give gcd(2k+1,a−b). Reznick's Theorem 4.7 concerns arbitrary initial intervals and each fixed modulus d≥2, including composite moduli; d=1 is trivial. Primitive diagonal pairs modulo p^a number p^a−p^(a−1) of p^(2a)−p^(2a−2), so CRT yields the claimed q_d. The allowed run lengths start at (d−1)/2 and have step d; their geometric weights give the stated closed factor. The proportion with k≥K is at most 2^(−K) in every interval [0,N), by counting multiples of 2^K in [1,N]. This permits both conditioning and tightness; exact value h on each fixed k is a finite congruence condition. For inversion one may first use finite divisor inversion within each run stratum and then sum over strata: the absolute majorant ∑(2k+1)2^(−k−1) is finite. The stratum k=(h−1)/2 contributes strictly positive mass for each odd h. Independent bit-map replay confirms the identity on 65,536 indices and exact rational evaluations at d=3,5,7; an independent conditional mixture agrees with the Möbius series, which yields 0.89734042214605 with absolute truncation error at most 2^−49.",
+      "residual_risks": [
+        "No uniform rate in the modulus or independent reproof of the modular equidistribution theorem; the finite replay is only arithmetic corroboration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed result also gives the exact law within each fixed stratum and first occurrences. Reznick gives modular equidistribution of primitive adjacent pairs, not a lag-two gcd statement in the inspected theorem."
+        ],
+        "reasoning": "The stronger indexed conditional theorem implies the full unconditional law; the adjacent-pair theorem is a necessary antecedent used in both records, not by itself a duplicate.",
+        "searches": [
+          "Resultary record 8c7eb2a5d08a Finding and conditional-density proof",
+          "Reznick arXiv:math/0610601v1 §§1,4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches and local-mirror record 8c7eb2a5d08a",
+        "Reznick, arXiv:math/0610601v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The conditional prime-power tail at threshold t≥1 is p^(1−t)/(p+1) if the threshold is allowed by 2r+1. The stratum probability is 2^(−r−1)."
+        ],
+        "reasoning": "Multiplying the tails gives the frozen q_d on exactly those strata with d dividing 2r+1; summing the geometric progression gives delta_d. The geometric stratum tail also justifies absolute Möbius inversion, making the alternate formula and decimal no distinct law.",
+        "searches": [
+          "Local-mirror record 8c7eb2a5d08a, Finding and conditional-density calculation at offsets 0–4747",
+          "Reznick Theorem 4.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n+1=2^r(2j+1) the indexed Finding gives gcd(2r+1,s(j)−s(j+1)); its rho(h) sums the explicit positive conditional densities with weights 2^(−r−1), and includes the even-index h=1 term."
+        ],
+        "reasoning": "Identify r=k and j=u; counting n≥1 rather than n≥0 does not change a natural density. The mixture and the frozen inversion both specify the same unique exact-value natural densities.",
+        "searches": [
+          "Resultary searches on Stern lag two, second-neighbor gcd, two-step gcd law, and divisor strata",
+          "Local-mirror Finding of record 8c7eb2a5d08a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier catalogue entry explicitly tabulates the prime-power conditional probabilities and states the exact all-index limiting law, including positivity and unit total mass."
+        ],
+        "reasoning": "The formulas are an exact specification of the whole distribution and cover all moduli/values, not a match based on finite observed frequencies or a table of Stern terms.",
+        "searches": [
+          "Resultary exact two-step Stern gcd law search and record 8c7eb2a5d08a"
+        ]
+      },
+      "rationale": "The October 13 indexed two-step Stern law already determines the complete exact-value distribution with positive odd support, and gives the stronger conditional divisor law at every fixed trailing-run stratum. Its prime-power tails and stratum weights give the frozen divisor formula by a geometric sum; standard Möbius inversion gives the alternate exact-value expression. These are statements about the same sequence and lag, not just similar Stern statistics.",
+      "residual_risks": [
+        "The targeted external literature search did not return a usable result; no absence inference is drawn. The exact catalogue overlap already suffices. No conclusion about historical publication priority outside the inspected catalogue is needed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Stronger indexed coverage",
+          "evidence": [
+            "Same exact gcd identity and all-index law rho(h), with explicit prime-power conditional probabilities, even exclusion, and strict positivity at every odd value."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-the-exact-two-step-stern-gcd-law-divisor-strata-densities-and-fi--8c7eb2a5d08a",
+          "material_read": "RESULT.md Finding, Assumptions and Proof; especially offsets 0–4747 for formulas and prime-power tails, and offsets 4400–8031 for density argument",
+          "method": "Bounded local-mirror passage review, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "The exact two-step Stern gcd law: divisor strata, densities, and first occurrences",
+          "trigger": "Exact indexed match on Stern and gcd at lag two"
+        },
+        {
+          "assessment": "Establishes the modular input under precisely applicable fixed-modulus hypotheses",
+          "evidence": [
+            "For each fixed d≥2 and primitive class alpha, B(alpha;0,N)=N/N_d+O(N^tau_d), with tau_d<1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0610601v1",
+          "material_read": "PDF pp. 3,9–11; equations (1.9)–(1.10), (4.1), (4.5), and Theorem 4.7 equation (4.11), offsets 29600–31100 for the theorem",
+          "method": "Bounded OA PDF passage inspection",
+          "title": "Regularity properties of the Stern enumeration of the rationals",
+          "trigger": "Decisive hypothesis: natural density along all initial intervals at a fixed composite modulus"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding; indexed record 8c7eb2a5d08a conditional-density law and exact-value mixture"
+      ],
+      "rationale": "The first nontrivial lag is well motivated and the full distribution would be useful as a new result. The existing stronger law already answers that question, and its conditional tails give the closed divisibility formula by a single geometric summation. The alternative standard inversion and numerical example do not establish a separate worthwhile unknown invariant. No surviving valuable claim warrants repair.",
+      "residual_risks": [
+        "This verdict concerns the incremental frozen contribution, not the usefulness of the underlying Stern law."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

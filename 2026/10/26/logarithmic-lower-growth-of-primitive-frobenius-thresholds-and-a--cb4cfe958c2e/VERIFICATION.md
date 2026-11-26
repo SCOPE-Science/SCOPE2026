@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,8 @@
 }
 ---
 
-# Finite verification and mathematical scope
+# Verification of the finite witness and asymptotic
 
-The standalone script `verify.py` was executed on the packaged science checks. It found exact nonprimitive status at 50 constructed prime-product obstructions and confirmed the exact boundary formula for 50 odd second coefficients. The script uses integer arithmetic and exhaustive enumeration of the relevant nonnegative solution pairs. These finite tests do not establish the asymptotic; that follows from the written proof and classical prime number theorem. The source-paper and literature comparison does not constitute an independent audit.
+Given \((a,R,b)\) satisfying the hypotheses, compute \(Q=Q_a(R)\) and the least nonnegative representative \(r\) of the two congruences in `RESULT.md`. Put \(m=aQ\); the witness is \(r+m(\lfloor(Rb-r)/m\rfloor+1)\). Verify that it is strictly between \(Rb\) and \((R+1)b\). To check a particular witness directly, enumerate the integers \(0\le y\le\lfloor n/b\rfloor\). Whenever \(a\mid n-by\), set \(x=(n-by)/a\) and check \(\gcd(x,y)>1\). The sample cases in `RESULT.md` include \(Q=1\) and a nonprimitive representation.
+
+The general obstruction follows from the residue of \(y\) and the prime factor argument in the proof. The liminf is a prime number theorem consequence of the finite obstruction and needs no computation. The known boundary value at \(a=2\) is cited as context, not claimed or certified as a new finding.

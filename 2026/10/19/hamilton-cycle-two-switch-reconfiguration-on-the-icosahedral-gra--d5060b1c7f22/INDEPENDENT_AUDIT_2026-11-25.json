@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:43:01.598761Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read the complete enumeration proof and both supplied algorithms without executing uploaded scripts. A legal switch is equivalent to two distinct spanning cycles sharing exactly ten edges; since each cycle has degree two, the four symmetric-difference edges are an alternating four-cycle. An XOR candidate must still be one Hamiltonian cycle, not just a 2-factor. I independently regenerated the host graph from cyclic permutations of (0,±1,±(1+√5)/2), testing squared edge distance four in the exact quadratic ring. Relabeled a vertex as 0, its neighbor ring as a_i, and the second common neighbor of a_i,a_{i+1} as b_i. An independent degree-constrained edge-set recursion propagated the forced inclusions/exclusions for degree two and branched exhaustively on each unresolved vertex's remaining edge choices; a full assignment was retained iff connected. Bucketed each cycle by every ten-edge subset obtained by deleting two edges, and joined cycles in the same bucket. This exactly reproduced the frozen certificate's sorted 1,280 masks and entire 1,800-pair list. Traversals produced 80 singletons, 60 pairs and 30 components of order 36. Each large component had 58 edges, diameter 8 and degree counts 1:2, 2:11, 3:8, 4:8, 5:6, 6:1. Distances to the vertices of one ordered triangular face distinguish all 12 vertices. Every automorphism is thus uniquely determined by the image of this face; testing each ordered image face by distance fingerprints and adjacency produces 120 automorphisms. Their action gives component orbit (order,count) pairs (1,20),(1,60),(2,60),(36,30), proving large-component isomorphism. Replay paths for the frozen certificate are `python verify_flips.py certificate.json` and `python verify_direct.py certificate.json` in the record directory; the former checks the automorphism action and diameter and both verify the full tables. This is finite exact enumeration for the specified graph and move, not an all-graph assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takaoka's results address complexity and designated graph classes. In particular, the host is not bipartite; its degree-five regular graph has no simplicial vertex and is not an interval graph. The available Hopkins abstract describes topological distinctness, not transition components; full text could not be obtained."
+        ],
+        "reasoning": "The stated connectivity and complexity results do not imply a particular finite component table, and classifying tours by topology or symmetry is not computing connectivity under switches.",
+        "searches": [
+          "Takaoka Algorithms 11 (2018), 140, abstract and §1",
+          "Hopkins DOI 10.1155/S0161171204307118; author-copy listing"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/a11090140",
+        "DOI 10.1155/S0161171204307118 (abstract-level)",
+        "MathOverflow 37788 (partial)",
+        "MathWorld IcosahedralGraph",
+        "Resultary/SCOPE 084711c2e94a, 8aadbd6cc4ba, 98a001e14839"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The independent enumeration verified the within-component degree and diameter data and four component orbits, over and above the 1,280 tour count. The nearby matching flip result uses perfect matchings as states, and the two nearby tour studies don't use the icosahedral two-edge switch."
+        ],
+        "reasoning": "Even a symmetry partition of individual tours need not coincide with component orbits; the induced full switch adjacency must be known or independently resolved. The inspected results cannot be specialized to yield these component data.",
+        "searches": [
+          "Takaoka §1 against RESULT.md proof and certificate",
+          "Resultary/SCOPE 084711c2e94a, 8aadbd6cc4ba, 98a001e14839 original statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Takaoka §1 requires Hamiltonian intermediates and replaces exactly two cycle edges by unused graph edges, the exact same transition as in this finding.",
+          "084711c2e94a classifies this operation on cylindrical and Möbius ladders; 8aadbd6cc4ba instead concerns alternating-cycle exchanges on the dodecahedron."
+        ],
+        "reasoning": "Tour reversal (two-opt) and alternating-four-cycle exchange with a Hamiltonian membership test give the same move; switching a cycle cover or a perfect matching does not. The exact move being known does not classify the components on this host graph.",
+        "searches": [
+          "icosahedral graph / icosahedron Hamiltonian circuit graph two-edge switch 2-opt component reconfiguration",
+          "Takaoka DOI 10.3390/a11090140 §1",
+          "Resultary/SCOPE Hamiltonian-preserving two-edge switch and isomers of Platonic graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The frozen source explicitly acknowledges the O'Rourke–Wynn tour census (512 undirected tours through a fixed edge, giving 512·30/12=1280 by edge transitivity and incidence counting); the answer's full text was not retrieved independently.",
+          "The catalogue hits inspected give different host graphs or state spaces, including an icosahedral perfect-matching flip census, not a Hamiltonian switch table."
+        ],
+        "reasoning": "A list or symmetry census of undirected tours would give the vertices but not the already evaluated legal-switch pairs and their reachability classes; exact computations are meaningful here even though the tour set itself was previously counted. The checked routes do not settle unindexed tables or unpublished code.",
+        "searches": [
+          "Resultary/SCOPE exact components using 1280,1800 and 36",
+          "icosahedral Hamiltonian-cycle enumerations and MathOverflow 37788",
+          "MathWorld IcosahedralGraph"
+        ]
+      },
+      "rationale": "Best of current knowledge: the switch and tour census are prior, but no inspected available statement or table gives the two-edge reachability graph, its component invariants, or its component action for the icosahedron. Access to two historical sources was partial; neither the count nor the move is credited as original.",
+      "residual_risks": [
+        "Hopkins and the MathOverflow answer were not accessible in full on the attempted routes. A specialized table or earlier unpublished enumeration may overlap.",
+        "The operation and the tour count themselves are not originality claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same move; no specialized component census follows from the inspected results",
+          "evidence": "Consecutive Hamiltonian cycles differ by removal and insertion of two edges; results concern complexity or specified graph classes.",
+          "identifier_or_url": "https://doi.org/10.3390/a11090140",
+          "material_read": "Abstract and §1 p. 1, text offsets around 900 and 2980",
+          "method": "OA published PDF in Muroran Institute repository, https://muroran-it.repo.nii.ac.jp/record/10266/files/ALGO_11_9.pdf",
+          "title": "Complexity of Hamiltonian Cycle Reconfiguration",
+          "trigger": "Exact two-edge move definition and general reconfiguration results"
+        },
+        {
+          "assessment": "Partial evidence, no full-document exclusion",
+          "evidence": "The accessible description distinguishes icosahedral tours topologically, not by reconfiguration.",
+          "identifier_or_url": "https://doi.org/10.1155/S0161171204307118",
+          "material_read": "Bibliographic and abstract-level information only",
+          "method": "OA DOI and identified author-copy route attempted; latter and publisher route did not yield primary full text",
+          "title": "Hamiltonian Paths on Platonic Graphs",
+          "trigger": "Closest Platonic-graph tour classification"
+        },
+        {
+          "assessment": "The tour count is not credited as new; cannot exclude other details there",
+          "evidence": "The discussion concerns cycle counting and symmetry, including order-three rotations; the frozen result cites the fixed-edge count.",
+          "identifier_or_url": "https://mathoverflow.net/questions/37788/",
+          "material_read": "Indexed discussion excerpts; exact answer count read as cited by the bound record, not independently from the answer",
+          "method": "Web lookup returned the discussion; article/page and API retrieval did not provide readable full text",
+          "title": "Why are there 1024 Hamiltonian cycles on an icosahedron?",
+          "trigger": "Known tour and symmetry data"
+        },
+        {
+          "assessment": "Comparable finite classifications but different host graphs, moves or states",
+          "evidence": "Cylindrical and Möbius ladders under the same move; dodecahedral alternating-cycle exchange; icosahedral perfect matchings under four-/six-cycle flips.",
+          "identifier_or_url": "084711c2e94a; 8aadbd6cc4ba; 98a001e14839",
+          "material_read": "Original Findings and scope at offsets around 600; 150/490; 1020, respectively",
+          "method": "Resultary lookup and OA local-mirror inspection",
+          "title": "Indexed ladder switch, icosian eight-edge switch and icosahedral matching mobility results",
+          "trigger": "Closest catalogue results in move, Platonic graph and exact mobility tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural symmetric benchmark for Hamiltonian reconfiguration under the standard local move, not an arbitrary subcollection of tours. The exact decomposition shows very limited reach despite the host's high symmetry and sizeable tour set, and the distinct singleton orbits distinguish two symmetry classes of frozen tours. The full certified adjacency and orbit classification give comparable data for other graph classes or move sets. The value lies in this classification, not counting Hamiltonian tours again.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

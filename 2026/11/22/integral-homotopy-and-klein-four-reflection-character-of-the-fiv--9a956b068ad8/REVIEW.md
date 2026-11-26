@@ -1,15 +1,7 @@
-# Scientific review
+# Scientific assessment: reflection character of the five-robust four-by-five grid
 
-## Correctness
-PASS. The finite object is precisely defined by the induced independence-number threshold. Two independently implemented exact face predicates agree on all 1,048,576 subsets; the f-vector is checked; the deterministic face-poset matching has 36,039 pairs and one critical vertex plus 489 critical seven-cells. Exhaustive traversal of all 446,610 Hasse covers verifies directed acyclicity, yielding the integral sphere wedge by Forman's theorem. Orientation-correct fixed-simplex Lefschetz calculations give all four traces; character orthogonality yields the integer multiplicities. The exact embedded verifier and expected output were replayed before review.
+**Correctness.** Complementing independent five-subsets and taking downward closure constructs all faces of the total five-cut Alexander dual. The cited element matching leaves 489 ten-cells in addition to its base vertex, yielding integral homological support in degree seven on the robust complex. All fixed simplices are enumerated via unions of vertex orbits, whose signed Lefschetz contribution is determined by the parity of the number of orbits. This gives the four traces and their sign-character multiplicities. No symmetry-equivariant Morse or integral lattice assertion is needed.
 
-## Originality
-PASS, with documented residual risk. Filakovský (arXiv:2602.11365, Theorem 1, Corollary 3, Conjecture 5) does not cover the higher-parameter corner-glued case. Bayer et al. (arXiv:2209.13503, Table 3) already give the numeric rank 489 for the Alexander-dual five-cut complex, so this rank is **not** counted as original. Their paper does not state the present integral homotopy type or any reflection character. The 2024 grid-cut classification covers other dimensions/parameters, while the closest published exact finite four-by-four, three-by-five, and four-robust rectangular-grid results concern different objects or thresholds. Search cannot prove absolute priority: unindexed computational output or unpublished Morse details remain risks.
+**Originality and scope.** The rank 489 is in Table 3 of Bayer et al. Their published lexicographic matching recipe, applied to the tabulated case, gives the concentrated critical-cell vector, and the ordinary wedge is then implied by duality and simple connectivity. The claim here is the exact rational row/column reflection representation and its rational quotient-rank consequences, not the homotopy classification. The inspected sources give no equivalent character for this complex. This is a bounded assessment, not exhaustive priority clearance.
 
-## Mathematical value
-PASS. A natural unresolved parameter-five and four-row instance of the published square-sequence wedge question receives an explicit integral homotopy answer, beyond a known Betti count. The complete rational two-reflection representation adds information not implied by that count, and permits exact homology-invariant ranks for quotients. This is a finite but motivated structural classification, not an arbitrary slice or minor numerical gain.
-
-## Scope and unresolved questions
-Only the one four-by-five graph is classified; no all-width induction, no equivariant homotopy type, no integral symmetry lattice, and no independent mathematical validation are asserted. The rank 489 is previously tabulated.
-
-Self-review: passed. Independent audit: not yet performed.
+**Value.** Row and column reflections are the natural generators of the rectangular grid symmetries. The traces distinguish their invariant cycles, and give exact rational Betti ranks of the corresponding ordinary quotients; these data are not determined by the nonequivariant topology.

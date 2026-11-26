@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:18:37.226296Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 5–43 and 54–68",
+        "VERIFICATION.md and checker.py (recorded exhaustive bound n<=6 inspected, not rerun)",
+        "OEIS A093352, NAME and FORMULA"
+      ],
+      "rationale": "For a singleton valuation V(p)={x}, Delta p is false at w exactly when x lies in N(w) and |N(w)|>=2. The singleton queries recover each whole neighborhood of size at least two; all smaller neighborhoods give the same constant truth function on arbitrary truth sets. Hence equality of these signatures is equivalent to equality of the modal truth-set operators, which gives equal truth for arbitrary nesting by induction at the same valuation. Undirectedness means every edge except an isolated K2 edge is incident to a recovered row, so the recovered graph is exactly the kernel. Any lift adds a matching on its s isolates, and conversely; selecting and pairing vertices gives I_s. Choosing the isolate labels and forbidding K1 and K2 on the complement gives the C_(n,s) formula. The formal species of connected components gives the claimed bivariate exponential series and its specialization to the known univariate coefficient. A connected graph exists on each m>=3, but there is no graph without K1 or K2 components on m=1,2, proving the claimed support. The cases n=1,2 and the auxiliary n=0 term agree. At n=6 the listed class totals add to 31883 and their fiber-weighted sum is 32768.",
+      "residual_risks": [
+        "The deduction uses the same labeled carrier and all same valuations, plus undirectedness and no loops; it neither tests model bisimilarity at one fixed valuation nor characterizes equality of frame-valid formulas."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The bundled Hennessy–Milner theorem gives theory equivalence iff bisimilarity for image-finite models. The proof-theory paper treats frame conditions including symmetry. The Resultary match characterizes validity of Delta p -> Delta Delta p by complete multipartite components and counts safe edits, not fixed-domain class equality."
+        ],
+        "reasoning": "None of these inspected broad results gives the matching quotients. In particular a graph property defined by validity of one formula is not equality of operators on all valuations, and its edit census is a different invariant.",
+        "searches": [
+          "Ding–Yang arXiv:2603.26268, non-contingency instance and Theorem 3.8",
+          "Sierra Miranda–Wang–Zenger arXiv:2609.38975v1",
+          "Local Resultary published non-contingency graph census, 42f722087b8a"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A093352",
+        "Ding–Yang arXiv:2603.26268",
+        "Fan–Wang–van Ditmarsch 2015 and bounded 2014 access attempts",
+        "Sierra Miranda–Wang–Zenger arXiv:2609.38975v1",
+        "Local Resultary and record 42f722087b8a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General bisimulation provides a semantic characterization and formal graph enumeration provides the univariate sequence. To reach the result one must compute the neighborhood signature, use symmetry to show every non-isolated edge survives and characterize which edges can be restored without changing it."
+        ],
+        "reasoning": "The bivariate generating function is a straightforward consequence of the graph decomposition once the semantic kernel and its lifts are computed. The additional contribution is the explicit graph quotient, depth-one witness and exact fiber invariant, not new generating-function machinery.",
+        "searches": [
+          "Ding–Yang Definition 3.5 and Theorem 3.8 versus RESULT.md Lemmas 1–4",
+          "OEIS A093352 formula versus RESULT.md Lemmas 4–5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equality under all same valuations is equivalently equality of the two Delta truth-set operators, because single atoms realize every truth set. Ding–Yang's completion and coherent-set condition provide a general way to compare such observations between pointed models. They do not state the undirected graph kernel or its fibers."
+        ],
+        "reasoning": "One can encode name-preserving comparisons with an injectively separating valuation and coherent sets in the broader model framework. That relates the two formulations but leaves the computation of observable neighborhoods and the identification of all invisible edges to be done; frame-validity comparison is a different formulation, not equivalent.",
+        "searches": [
+          "Fan–Wang–van Ditmarsch, Contingency and Knowing Whether pp. 6, 27; Almost Necessary lawful-access attempts",
+          "Ding–Yang arXiv:2603.26268, Propositions 3.2 and 3.4, Definition 3.5 and Theorem 3.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A093352 explicitly lists graphs with no 2-component and gives exp(-z^2/2) A(z) and the inclusion–exclusion coefficient, credited there to work from 2022. The distinct Resultary result 42f722087b8a tabulates a different graph property; no materially matching same-day record surfaced in the ranked search."
+        ],
+        "reasoning": "The univariate counts really are covered. The OEIS entry is not evidence of separate priority for the modal identification or the joint census of kernel isolate count and equivalence-class size.",
+        "searches": [
+          "OEIS A093352 NAME/FORMULA",
+          "Local Resultary search for the fixed-label isolated-edge non-contingency kernel and census"
+        ]
+      },
+      "rationale": "The supported contribution is the explicit same-valuation kernel of the finite symmetric loop-free semantics and the exact matching fibers of its quotient. Univariate graph enumeration is prior work and is excluded from that contribution. Bundled and non-contingency bisimulation characterize logical invariance more generally but the inspected results do not supply the concrete graph identification and matching-fiber invariant.",
+      "residual_risks": [
+        "The 2014 original and the potentially overlapping bundled-fragments thesis mentioned in the frozen record were not read in full. General bisimulation methods supply much of the semantic setting; this assessment credits only the explicit graph identification and fiber refinement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Same univariate EGF and coefficient formula; no modal identification or matching fibers in the inspected entry.",
+          "identifier_or_url": "https://oeis.org/A093352",
+          "material_read": "NAME, values through n=6, FORMULA and attribution",
+          "method": "Lawful public database page",
+          "title": "Number of labeled n-vertex graphs without a 2-component",
+          "trigger": "Exact univariate values and no-K2 model"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Generated-neighborhood completion determines a one-step truth value; bundled bisimulation uses agreement on coherent sets. The Hennessy–Milner result does not compute the same-label graph kernel; it does not give the census.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.26268",
+          "material_read": "Non-contingency instance p. 3 (offset 10993), Definition 3.1 and Proposition 3.2 (12232 onward), Definition 3.3 through Definition 3.5 (17000 onward), and Theorem 3.8 (22972)",
+          "method": "Lawful OA PDF, scoped statements and definitions",
+          "title": "A General Theory of Propositional Modal Bundled Modalities",
+          "trigger": "General bisimulation could subsume the claimed equivalence"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Identifies the earlier Delta-bisimulation and its expressive-invariance purpose; inspected passages do not give the labeled kernel classification.",
+          "identifier_or_url": "https://doi.org/10.1017/S1755020314000343",
+          "material_read": "Accessible PDF pp. 6, 27, offsets 18171 and 90549",
+          "method": "Lawful full-text passage inspection",
+          "title": "Contingency and Knowing Whether",
+          "trigger": "Same modality and possible earlier bisimulation equivalences"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": "AIML access failed; the attempted HAL document returned 404. Uninspected original examples or specializations remain a priority risk.",
+          "identifier_or_url": "https://www.aiml.net/volumes/volume10/Fan-Wang-Ditmarsch.pdf",
+          "material_read": "Bibliographic identification and discussion in the later paper only; no original full text available in bounded attempts",
+          "method": "Lawful AIML and identified HAL retrieval attempts",
+          "title": "Almost Necessary",
+          "trigger": "Original Delta-bisimulation paper may contain closer special cases"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Proof theory for frame conditions, including symmetry, not the stated same-valuation quotient.",
+          "identifier_or_url": "https://arxiv.org/html/2609.38975v1",
+          "material_read": "Prior bisimulation and labelled-sequent scope, offset 3500",
+          "method": "Lawful OA HTML targeted passage",
+          "title": "Proof Theory for Non-Contingency Logic",
+          "trigger": "Same language and symmetric frame conditions"
+        },
+        {
+          "assessment": "RELATED",
+          "evidence": "Complete multipartite components and safe edge toggles for validity of Delta introspection, not operator equality or matching fibers.",
+          "identifier_or_url": "Resultary 2026/11/22, 42f722087b8a",
+          "material_read": "RESULT.md Finding, offset 0; snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Local mirror",
+          "title": "One-edge robustness and labelled census of non-contingency introspection",
+          "trigger": "Distinct non-contingency graph census in the local catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen proof and class-size distribution",
+        "OEIS A093352 and the compared bisimulation literature"
+      ],
+      "rationale": "This gives a concrete invariant of which adjacencies the non-contingency language can observe even under arbitrary nesting and all assignments, and a complete canonical representative plus depth-one separating test when equivalence fails. The matching fibers then describe all indistinguishable frames and their multiplicities, giving a use for the refined census beyond recomputing the known graph totals.",
+      "residual_risks": [
+        "No claim that the bare enumeration or general bisimulation ideas are new; the result is not a quotient for directed or reflexive frames."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

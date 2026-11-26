@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Free amalgamation supplies all and only compatible one-point status diagrams. A directed triangle involving a fresh point and a path base must use a path edge, yielding the exact forbidden-adjacent-letter rule and integer transfer product. The exhaustive 128-word, 36-class eight-point comparison and every lower-order comparison are reproducible by the bundled checker; direct enumeration independently confirms the polynomial coefficients and directional witness distinction. The isolated-vertex multiplier is exact. No all-order uniqueness assertion is made.
+## correctness
 
-**Originality: PASS, with residual priority risk.** Targeted comparison with the published literature on cyclic-triangle-free oriented graph enumeration, oriented-path homomorphisms, general directed graph homomorphisms, and neighboring finite-base type spectra found no implication establishing the specific degree-graded path census. The established transfer method and the older homogeneous finite-extension framework are credited. Unindexed or inaccessible historical enumeration remains a possible priority risk.
+PASS
 
-**Mathematical value: PASS.** This is the sharp first loss of reconstruction from a natural one-point type invariant on connected path-shaped parameter structures. The collision persists in an infinite family of finite bases but is resolved by separating the new point's incoming and outgoing incidences. The complete minimal finite classification is motivated by that precise inverse problem, not by an arbitrary coefficient slice.
+Free amalgamation cannot create a directed 3-cycle using vertices from both sides outside the base, and the limit realizes each admissible new-vertex diagram. Its finite relational homogeneity identifies exactly the equal diagrams over the named path. An old arc i→j closes a directed triangle precisely with x→i and j→x; an old nonedge imposes no constraint. The resulting consecutive-pair exclusions give exactly the stated transfer expression and biweight refinement. Path reversal reverses and complements the word and arc converse complements it, so all relevant equivalence classes are the four-image orbits (with repetitions allowed). The independent exact ternary enumeration for every orientation through eight gives class counts 1,1,2,3,6,10,20,36 and distinct profile counts 1,1,2,3,6,10,20,35. The sole double fibre has the displayed words, coefficient vector (1,16,105,368,753,923,664,257,41), and total 3,128; the biweight coefficients at (3,3) are 163 and 164. An isolated named point supplies an independent factor 1+2z, and the connected path remains identifiable as a component, so padded bases remain distinct.
 
-**Scope and limitations.** A path-only, through-eight-vertices classification modulo converse; padded witnesses need not remain connected. No independent priority certification or mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is a standard type diagram and transfer calculation but a distinct reconstruction problem and sharp finite result: the degree-graded invariant for directed-3-cycle-free path bases, its first and unique eight-point collision modulo converse, and separation by the biweight. No inspected result is equivalent to, subsumes, or independently gives that classification.
+
+## value
+
+PASS
+
+The adjacency degree of a fresh vertex is a natural coarsening of exact named type data; the path family removes unrelated differences in the undirected base and tests how much arc orientation that coarsening retains. The exhaustive first collision, its uniqueness and its separation under the natural split into in/out incidences answer that inverse question more informatively than a transfer formula or a single pair. Padding shows that the obstruction persists among finite bases, without claiming connected persistence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

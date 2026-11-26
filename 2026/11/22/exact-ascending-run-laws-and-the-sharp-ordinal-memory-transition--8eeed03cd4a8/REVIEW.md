@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Under Lebesgue measure the base-\(b\) digits are iid uniform. Comparing successive shifted suffixes gives an exact digit characterization of an all-ascent event. The finite word count is stars-and-bars, its future-tail comparison probability is \((b-1-v)/(b-1)\), and double hockey-stick summation produces the stated closed form. Binary digits yield exactly \(A_j=1-D_j\) for \(b=2\). For \(b>2\), the conditional all-ascent continuation rate depends strictly on the run length, ruling out every finite Markov order. Independent exact rational geometric-interval checks and algebraic sums passed 925 instances. Finite checks alone cannot establish the infinite quantifiers.
+## correctness
 
-## Originality — PASS with stated historical limits
-The closest recorded example already proves \(b=3\); that case is expressly excluded from the novelty comparison. The new assertion classifies **all integer bases**, identifies \(b=2\) as the unique iid member, and shows an exact degree-\(b-2\) polynomial correction for runs. This does not follow as a statement from an individual ternary example. The 2026 ordinal-entropy paper establishes generic behavior rather than exact sign-process laws, Elizalde's beta-shift analysis addresses allowable permutations, and Bandt's random-order model addresses general pattern distributions. Searches did not find a stronger all-base result; an unlocated earlier treatment remains a genuine residual risk.
+PASS
 
-## Value — PASS
-Ordinal comparisons are a standard robust observation of chaotic interval dynamics. This natural one-parameter family shares independent underlying digits and mixing invariant dynamics, yet the observed increase/decrease process undergoes a sharp transition from exact iid to provably unbounded memory at the smallest possible increase of the integer expansion parameter. The exact all-horizon probability and run continuation rate quantify the transition; they are more informative than a finite set of pattern probabilities. The ternary example alone cannot supply the classification.
+For n strict ascents the first n digits must be weakly increasing. Equal adjacent digits defer the comparison to the next suffix; at the last digit v, the first different digit in the independent tail must exceed v. Apart from a null set this is also sufficient. The prefix count is binom(n+v-1,n-1) and the tail factor is (b-1-v)/(b-1); summing by two hockey-stick identities gives the frozen formula and its fixed-b asymptotic. At b=2 the same comparison gives A_j=1-D_j almost surely, jointly in j. At b≥3 all-one histories have positive probability and their continuation ratio 1/b+(b-2)/(b(n+2)) strictly varies even beyond any proposed memory order. Independent interval intersections for n=2 give 1/4 and 2/9 at bases 2 and 3; these are spot checks, not the proof. The supplied checker was inspected, not executed. No Lean or expert attestation is inferred.
 
-## Literature and limitations
-The known ternary formula and no-finite-Markov result preclude claiming the special case as new. The proof applies to integer bases and strict adjacent ascent indicators under invariant Lebesgue measure only, not to arbitrary continuous maps or arbitrary ordinal comparisons. No claim of exhaustive global priority is made; no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass the all-integer-base ascent law and sharp binary memory classification, not the previously known tripling specialization. The strongest inspected related sources concern the exact b=3 case, realizable ordinal patterns rather than their probabilities, generic entropy growth, or a different probability model. No equivalent all-base evaluation or classification was established in the bounded comparison.
+
+## value
+
+PASS
+
+There is a sharp qualitative distinction between the iid base-two ordinal observations and infinite memory at every higher integer base, despite iid generating digits in all cases. The exact run law supplies a quantitative memory diagnostic and its base-dependent polynomial prefactor, not just another parameter example of the known tripling calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

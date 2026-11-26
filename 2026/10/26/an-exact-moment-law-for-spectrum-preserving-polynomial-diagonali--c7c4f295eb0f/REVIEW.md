@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** Jordan Taylor expansion makes the derivative-divisibility condition necessary and sufficient for diagonalizability; integrating the factored derivative reduces every collision to a nonzero moment functional. Linear hyperplane avoidance proves existence at the largest first-nonzero moment order, while sign changes bound that order. Weighted Jacobi orthogonality supplies an exact infinite-family equality example. Exact finite rational calculations corroborate the formula but are not treated as a proof.
+## correctness
 
-**Originality (PASS, with priority risk).** Chang (arXiv:2510.16901v1, full Section 4 inspected) enumerates admissible operators for fixed polynomials; it does not minimize a polynomial for a fixed operator while preserving all spectral images. Chang (arXiv:2411.11883v1, Sections 1–2 inspected) discusses the functional calculus, not the moment degree or Jacobi extremizers. Hermite interpolation handles arbitrary prescribed interpolation values but does not imply the smaller, configuration-dependent optimum. Targeted published-record searches retrieved no implication-equivalent result. Residual risk: an older polynomial critical-value or osculatory-interpolation formulation could yield the same characterization.
+PASS
 
-**Mathematical value (PASS).** Avoiding spectral collisions while removing nilpotent Jordan structure is a naturally motivated functional-calculus design constraint. The exact moment-law answers the optimal-degree problem for arbitrary real spectral configurations, exhibits a nontrivial extra obstruction beyond jet-counting, and explains why classical Hermite's upper degree can be attained sharply. The Jacobi family is a structural all-order boundary example, not a small numerical improvement. The result is finite-dimensional and does not address complex spectra.
+On a largest Jordan block the different positive powers of the nilpotent part occupy distinct superdiagonals, so diagonalizability is equivalent to vanishing derivatives of orders 1 through q_j−1 at each node. Thus p'=FQ. In the degree-d space of real Q, the pairwise differences of outputs are linear functionals with monomial coefficients given by the displayed moments. If d<H one pair always collides; if d=H a finite union of proper hyperplanes cannot cover the real coefficient space (also when H=0). Multiplying F by one factor per interior sign change makes a nonzero constant-sign integrand, bounding the first nonvanishing moment by the number of such roots and proving finiteness. Hence the least degree and all inequalities follow, including H=0 for s=2 or all q_j=1. In the proposed sharp family, Jacobi orthogonality annihilates the endpoint moments below degree s−2, and the moment at degree s−2 is proportional to the nonzero weighted squared norm. An independent check with three size-two blocks at −1,u,1 yields full-span zeroth moment 4u/3; at u=0 the first moment is −4/15. The least degree is four for u≠0 and five for u=0. The general proof is analytic, not an extrapolation from the frozen rational-arithmetic checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The shared input is standard Jordan functional calculus and interpolation. The supported distinction is the exact least degree for a fixed input with distinct but freely chosen output values, including the signed-moment penalty, the sign-change bound and the attaining family. These are not the fixed-function enumeration studied by Chang and are not supplied by the inspected interpolation framework or related catalogue records.
+
+## value
+
+PASS
+
+This gives an exact obstruction to lowering the degree in a natural constrained matrix functional calculus, in a range not resolved by the usual Hermite upper bound. It predicts a degree jump when real spectral nodes move with the Jordan data fixed and gives a sharp upper envelope in every number of nodes. The moment formula is actionable from the nodes and block sizes alone, rather than a new name for derivative divisibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

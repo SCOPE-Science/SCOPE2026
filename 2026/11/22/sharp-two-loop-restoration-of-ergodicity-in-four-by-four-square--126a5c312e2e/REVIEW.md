@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite theorem is fully quantified over all 256 subsets of the eight fixed short winding loops on the labelled \(4\times4\) square-ice torus. The orientation normalization, 16 site ice constraints, 16 face supports and eight length-four winding supports are explicit. Each allowable flip toggles exactly the edges of a directed simple cycle, and membership in the independently enumerated ice state set is equivalent to directed-cycle legality. A complete row/column recurrence enumerates all 2970 states, and an exact union–find graph computation verifies all 256 subsets, in particular the 16 transverse minimal pairs. A separate Gray-coded four-cube generator confirms the state count, cycle classification, and every subset condition. The winding fluxes provide an analytical necessity proof; adding moves preserves connectivity. No stochastic or floating-point inference is used, and no generalization beyond this finite graph is claimed. Residual risk: implementation errors common to independent formulations, mitigated by distinct representations and direct local invariant checks; external independent audit has not occurred.
+## correctness
 
-## Originality — PASS on inspected primary evidence; residual historical risk
-Relevant searches included the exact selected-loop condition, square ice and six-vertex aliases, four-by-four torus face/winding reversals, homologous orientations and Markov-chain irreducibility. The closest published four-by-four face-only census already establishes 2970 states and 69 components; neither count is claimed new. Barkema–Newman (1997) develops broad nonlocal loop algorithms, and Kondákor–Penc (2023) explains flux-sector changes under directed boundary-crossing loops, but neither examined statement determines whether two *fixed labelled* four-edge loops suffice for all states. Zhang–Qian (2020) characterizes homological/facial-flip accessibility, not the exact generator-selection condition. Borodin–Bufetov (2015) concerns a different toroidal update chain. A possible earlier unindexed exhaustive calculation is the principal priority risk; published source inspection does not prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-Six-vertex ice is a classical constrained statistical-mechanics model. Standard face updates are nonergodic on a torus; simulation algorithms therefore need nonlocal moves. The theorem answers the precise, operationally motivated minimum *fixed move-support* question for the canonical 16-site torus rather than merely recounting known ice configurations. The sharp necessity and sufficiency, 16 minimizing pairs, and complete 256-repertoire criterion distinguish generic permission to flip arbitrary loops from an exceptionally small predetermined repertoire. This exact finite benchmark can test Markov-chain implementations and clarifies how topological winding obstructions are removed without enumerating all noncontractible loops. No asymptotic or mixing-time significance is asserted.
+Summing the local ice equations along a cut shows that the positive-edge counts a and b (equivalently signed fluxes up to an affine normalization) do not depend on the cut. Face reversals preserve both; a directed horizontal reversal changes only a by one and a vertical one only b. Uniform horizontal and vertical orientations independently realize different cuts' flux values, giving necessity. I reconstructed the labelled state space by transfers between rows: for each incoming four-bit vertical row and each horizontal four-bit row, the ice equations uniquely determine outgoing vertical bits; retain binary outputs, concatenate four transfers and enforce periodic closure. Every ice orientation gives exactly one such sequence. Independently tested legal directed traversals by matching the four edges against either traversal orientation, then used graph search (not either frozen checker's union-find) over each designated subset. The result is 2970 states, 8768 facial edges, 69 facial components, 19 for any single designated loop, 11 for any parallel pair and one for every transverse pair. Across the 256 subsets, the numbers of subsets with 1, 5, 7, 11, 19, 69 components were respectively 225, 2, 8, 12, 8, 1. There are 16 minimizing pairs; supersets of a connecting pair remain connected. Positive proposals along all allowed types give the stated equivalence for irreducibility and a self-loop suffices for aperiodicity in that case. Replay: python3 /workspace/reproductions/review_02_ice.py (standard library). Both frozen verifiers were inspected, not executed. This is exhaustive only for the labelled C4 × C4 model and these fixed length-four loops; it proves no mixing-time result.
 
-## Literature and limitations
-Closest primary sources: Barkema and Newman, arXiv:cond-mat/9706190 (1997); Zhang and Qian, arXiv:2011.07481 (2020); Borodin and Bufetov, arXiv:1509.05070 (2015); Kondákor and Penc, arXiv:2305.08571 (2023), especially flux sectors and the 16-site table. The earlier face-only finite census was compared by its complete available statement and proof. All exact enumerations are reproducible using the two included standalone programs. Further sizes and quantitative mixing are unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Supports the minimal fixed-position transverse-loop criterion and the associated mixed-repertoire enumeration. The 2970 states and 69 face-only components are established prior overlap and specifically excluded from the distinct claim. Homological necessity and generic loop updates are not new here.
+
+## value
+
+PASS
+
+Face updates on a periodic constrained model are known to be disconnected. The exact smallest fixed update library that removes this obstruction on the canonical labelled 16-site graph is a useful finite benchmark and is not given by topology alone. In particular the result distinguishes allowance of all winding moves from just one specified move of each direction and gives concrete component counts useful for validating simulations. No dynamical speedup or larger-size conclusion is needed for this value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

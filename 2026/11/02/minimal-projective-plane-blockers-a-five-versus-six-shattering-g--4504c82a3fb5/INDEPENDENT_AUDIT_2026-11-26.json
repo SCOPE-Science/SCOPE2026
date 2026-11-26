@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:00:05.302373Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The class consists of all inclusion-minimal hitting sets, including the lines. Hitting every line and giving each chosen point a line it hits alone are necessary and sufficient. A separately written checker reconstructs PG(2,3) from an affine plane with points at infinity, tests all 8192 subsets, and obtains 13 four-point lines and 234 six-point open-side triangles and no other blockers. For support sizes 3,4,5,6 it reproduces respectively {8:286}, {15:13,16:702}, {29:117,31:468,32:702}, and {56:468,57:78,60:936,61:234}. It compares the actual five-support sets, not just counts, with all triangle deletions and checks multiplicity two. No six-support is shattered, excluding all larger ones by restriction. Reconstructing incidence separately for certificate.json and following positive and negative branches verified all 63 internal nodes and 64 distinct terminal witnesses; a separate exact version-space recurrence also gave depth 6. No depth-seven tree is possible: along an all-positive path every query must be different (a repeated query has an inconsistent sibling), and maximum concept size is six. In the control PG(2,2) all seven blockers are lines and all 21 pairs are shattered; seven concepts rule out depth or cardinality three. Minimality factors over disjoint components. For VC, restriction to each component must shatter there, and component witnesses can be combined independently. For Littlestone, concatenate trees for the lower bound; for the upper bound, a query only splits one component and at least one child decreases that component rank for every nontrivial split. Iteration gives the sum bound. The disjoint unions are linear, four-uniform, four-regular and point-transitive by the projectivity action and component permutations. Independent finite replay: /workspace/branches/a13dbeae-9d2b-41bc-9a59-c82f6e10a7d4/check_record2.py (pass the frozen certificate.json path; see adjoining check_record2.out). Frozen scripts were read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coolsaet et al. classify small-plane minimal blockers up to equivalence. Available metadata and the indexed exchange result's attribution support crediting geometric classification to prior work; the article's main text was not available through lawful OA.",
+          "Mary concerns enumeration when the input hypergraph has bounded VC dimension, not VC or Littlestone dimensions of its output class of transversals. The indexed three-line result studies a different concept family with shattered four-arcs."
+        ],
+        "reasoning": "Blocker classification is input to, not the result of, the exact learning-dimension and trace analysis; bounded VC of the lines is not a theorem computing a VC or online rank of blockers.",
+        "searches": [
+          "Coolsaet–Botteldoorn–Fack, DOI 10.1002/jcd.21842, DOI and publisher OA retrieval",
+          "Mary, arXiv:2407.00694",
+          "Resultary d0e69f631382, shattering by three-line unions"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, certificate.json, verify.py, independent.py and generate.py",
+        "Resultary 2ff15d411d81, 94f22e63c9c6 and d0e69f631382",
+        "DOI 10.1002/jcd.21842 (full text unavailable)",
+        "arXiv:2407.00694"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior exchange theorem says each point of each six-point minimum nontrivial blocker has exactly one valid replacement. Thus each deletion support has two completions, and 234*6/2=702 distinct candidate supports. This part follows directly, even though phrased as an exchange property.",
+          "The prior exchange graph tests shared five-point positives. It does not certify 32 projected patterns for a support, exclude every shattered six-support, count all other traces or produce a complete depth-six tree. The two-line result certifies positive and negative traces for line unions, not blockers."
+        ],
+        "reasoning": "The substantive further step is verifying all traces for these candidate supports, the remaining trace spectra and the adaptive gap for blockers. Disjoint union makes the gap unbounded by standard dimension additivity once the base gap is known.",
+        "searches": [
+          "Resultary 2ff15d411d81, Finding, third sentence after the exchange graph statistics",
+          "Resultary 94f22e63c9c6, precisely which five-point supports are shattered"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exchange-graph record describes the 234 minimum nontrivial blockers by six intersections of four lines in general position, a geometric description of the same six-point layer.",
+          "The two-line-union record shatters exactly the two-triple bow-tie five-sets at order three; these are the same 702 five-point supports, verified as sets independently. Its concepts are two-line unions, not blockers. Complementing a two-line union does not turn it into a blocker: its complement misses the two lines."
+        ],
+        "reasoning": "Equivalent geometry and equality of one family of shattered supports do not identify the concepts or transfer trace counts and adaptive decision trees.",
+        "searches": [
+          "Resultary: ternary minimal blockers, complete quadrilaterals, triangle deletions, shattering and adaptive queries",
+          "Resultary 2ff15d411d81 and 94f22e63c9c6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exchange record directly gives the 234 six-point objects and single-point exchange count 702. The same geometric blocker classification is not claimed as new here.",
+          "The two-line-union result gives 702 shattered five-sets for its own class. No inspected entry supplies the full blocker trace spectrum or the depth-six blocker tree."
+        ],
+        "reasoning": "Exact geometric counts and a shared five-support family are partial coverage only; the spectra and online rank depend on which traces can be realized by this blocker class.",
+        "searches": [
+          "Resultary exact checks for 247 minimal blockers, 234 projective triangles, VC=5/Ldim=6 and five- or six-support spectra"
+        ]
+      },
+      "rationale": "The supported distinct claim is the query-learning result for the entire minimal-blocker class, especially the exact trace spectra, characterization of which supports are shattered by blockers, and adaptive depth six versus static dimension five. The underlying small-plane blocker geometry is prior work. Moreover, a distinct earlier indexed exchange-graph record directly implies the two-completion property and the count of candidate five-sets, and a separate two-line-union theorem shatters precisely the same five-sets for a different concept class. Neither establishes their shattering by minimal blockers, the trace spectra, or the adaptive rank. The amplification is a direct product consequence of the new base gap, not a separate novel dimension-additivity theorem.",
+      "residual_risks": [
+        "The Coolsaet–Botteldoorn–Fack full text could not be inspected. An unnoticed learning-dimension statement there or elsewhere remains possible. Neither a failed lookup nor a later index date proves absence or priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of six-point geometry and two completions; not query-learning coverage",
+          "evidence": [
+            "There are 234 six-point nontrivial minimum sets and each of their points can be exchanged in exactly one way."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-the-six-regular-exchange-graph-of-minimum-nontrivial-ternary-pro--2ff15d411d81/RESULT.md",
+          "material_read": "Finding and assumptions, mirror chars 0–1776; prior-work passage around char 6234",
+          "method": "Read local-mirror mathematical statement and compare exchange edges to triangle-deletion supports",
+          "title": "The six-regular exchange graph of minimum nontrivial ternary projective blocking sets",
+          "trigger": "Same 234-point-set family and exact exchange multiplicity"
+        },
+        {
+          "assessment": "Same shattered five-supports, different concepts and no implication for the blocker spectra",
+          "evidence": [
+            "At order three, two-line unions shatter precisely the 702 bow-tie supports; equality of supports alone does not transfer smaller traces or adaptive witnesses."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-finite-order-exceptions-and-the-shattering-polynomial-of-two-lin--94f22e63c9c6/RESULT.md",
+          "material_read": "Finding on five-point supports, assumptions and proof start, mirror chars 1300–3300",
+          "method": "Local mirror comparison and finite equality test of supports",
+          "title": "Finite-order exceptions and the shattering polynomial of two-line unions",
+          "trigger": "Exact match of the five-point support family"
+        },
+        {
+          "assessment": "Different concept family",
+          "evidence": [
+            "Studies unions of three distinct lines and 234 shattered four-arcs, not minimal blockers and their traces."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/22/SCOPE-three-line-shattering-in-the-ternary-projective-plane-four-arcs--d0e69f631382",
+          "material_read": "Finding, offset 0",
+          "method": "Local mirror comparison",
+          "title": "Three-line shattering in the ternary projective plane",
+          "trigger": "Shattering in the same finite plane"
+        },
+        {
+          "assessment": "Credit prior geometric coverage; no verdict about unread query-learning material",
+          "evidence": [
+            "J. Combin. Designs 30 (2022), 561–580, small-plane minimal blocking sets; the indexed exchange theorem explicitly attributes classification to this work."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jcd.21842",
+          "material_read": "Bibliographic scope and available attribution in the closely matching exchange result; full text not obtained",
+          "method": "Lawful direct DOI and publisher lookup (403), OA alternate-copy discovery returned no repository copy",
+          "title": "Classification of minimal blocking sets in small Desarguesian projective planes",
+          "trigger": "Primary classification of exactly these geometric objects"
+        },
+        {
+          "assessment": "Different learning object in the inspected statement",
+          "evidence": [
+            "Bounded VC dimension is a hypothesis on the input hypergraph in an algorithmic enumeration problem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.00694",
+          "material_read": "PDF page 1, abstract around char 536",
+          "method": "Available original OA passage",
+          "title": "Enumeration of minimal transversals of hypergraphs of bounded VC-dimension",
+          "trigger": "Plausible overlap between hypergraph transversals and VC dimension"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimal transversals of a classical symmetric incidence structure give a natural test of how static and adaptive membership-query capacities differ. The trace spectra answer more than just the VC maximum, and the verifiable depth-six tree establishes a strict gap not implied by the geometric count or exchange graph. Repeating the plane makes the gap unbounded within a point-transitive linear uniform regular class; this construction makes no connected amplification claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

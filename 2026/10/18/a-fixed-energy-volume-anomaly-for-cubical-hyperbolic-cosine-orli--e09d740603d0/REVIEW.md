@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The coordinatewise substitution from \(\log\cosh\) to simplex energies gives the exact Dirichlet expectation of the Jacobian multiplier. The logarithmic multiplier admits a uniform fourth-order remainder at each fixed level, and the required Dirichlet first, second, and fourth moments are rational identities. Their estimates prove the stated \(O_\beta(n^{-2})\) residual without extrapolating finite computations. The attached checker confirms the exact moment identities and independent low-dimensional quadratures. No smooth-boundary theorem is applied to the cube.
+## correctness
 
-## Originality — PASS (best available evidence)
-The motivating October 8, 2026 source develops the smooth-covariogram transition and identifies the hyperbolic-cosine functional, not its fixed-energy cubical high-dimensional volume. Closest known exact cubical transition-body results determine John/Löwner ellipsoids or Banach–Mazur distances, which do not determine normalized volume. General Orlicz-ball asymptotics by Barthe–Wolff and Kabluchko–Prochno use an extensive-energy high-dimensional regime; no inspected statement asserts the present fixed-level constant and first correction. The Dirichlet argument supplies both explicitly. Search incompleteness and possible older small-energy formulas remain genuine priority risks.
+PASS
 
-## Mathematical value — PASS
-At the natural unit level selected by the 2026 transition functional, replacing \(\log\cosh x\) by its quadratic tangent predicts an incorrect high-dimensional volume by the nontrivial factor \(\sqrt e\). Identifying the exact factor at every fixed level and the dimension-order correction supplies a precise benchmark for a geometrically motivated Orlicz family. This is a natural quantitative high-dimensional distinction, rather than an arbitrary low-dimensional calculation or a mere radius estimate.
+Independently checked RESULT.md §§1–3. The paired-sign Jacobian after log cosh |x| = beta z is 2 beta / sqrt(1-exp(-2 beta z)); relative to the Euclidean change of variables it gives g(beta z). The simplex weight has coordinates of shape 1/2 and slack of shape 1. Therefore the log integrand is beta/2 minus A plus E, with A=(beta/2)Z0+(beta^2/12)Q, Q=sum Zi^2, and |E| bounded by a beta-dependent constant times sum Zi^4. The rising-factorial Dirichlet moments give EZ0=2/(n+2), EQ=3n/((n+2)(n+4)), EA^2=O_beta(n^-2), and E|E|=O_beta(n^-3). Since A and E are bounded for fixed beta, the integrated linear expansion has error O_beta(n^-2), giving both terms. Facet evaluation is exact without any smooth-limit assumption. The frozen check_volume.py lines 65–70 assign ratio2=direct rather than compute a second planar integral: these lines do not establish the two-quadrature agreement asserted in VERIFICATION.md. The analytic derivation above is the evidence for the theorem, independent of that ancillary check.
 
-## Boundaries and prior work
-The claim is not universal in the Orlicz function and not uniform across levels growing with dimension. The original smooth-boundary result is used only to motivate the functional; its convergence hypotheses are not asserted for polytopes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass for the two-term dependence on an arbitrary fixed positive level, not for the unit-level formula or the basic Dirichlet method as separately distinct claims. An indexed November record exactly overlaps at beta=1 and uses the same argument there. Its statement does not cover the free level, and no earlier stronger fixed-energy result was identified. Neither the unit-level numerical expansion nor the extensive-energy theorems imply the all-level expansion by a scaling of the x coordinates.
+
+## value
+
+PASS
+
+The natural sublevel parameter matters in a nonhomogeneous body. The result quantifies how the accumulated nonlinear deformation changes volume relative to the tangent prediction at each fixed level, including two distinct contributions to the first correction (radial slack and quartic coordinate fluctuation). This is a quantitative benchmark across levels, beyond a second computation of the known unit-level coefficient; it makes no claim in growing-energy regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

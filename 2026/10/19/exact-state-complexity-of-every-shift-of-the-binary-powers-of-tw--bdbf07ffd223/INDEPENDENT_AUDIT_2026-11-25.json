@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:20:25.639264Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed both languages and all reachable continuation classes in RESULT.md lines 33–65. For a nonpower, 2^k−c for k≥s has binary expansion α at k=s and 1^(k−s)β for k>s; prefixing zeros gives 0*( {α} ∪ 1+β ). It is essential that β starts with zero and |α|<s. Beyond a nonzero prefix, before its first zero the r exceptional suffixes augment 1*β by distinct words shorter than s; a longer initial run reaches 1*β alone. After consuming the first zero, exactly h overlap-prefix lengths leave two suffixes; the longer suffix distinguishes the h pairs. Singletons are precisely the s proper suffixes of β, including the empty suffix, since exceptional-only suffixes also occur among them. The start residual alone has accepted words with arbitrarily many initial zeros, and an impossible prefix reaches the empty residual. For c=2^(s−1), the language 0*({ε} ∪ 1+0^(s−1)) gives the start, sink, 1*0^(s−1), and s−1 singletons, including the s=1 case with no singletons. The bounds follow from 1≤r+h≤|α|≤s−1 and the two stated choices of c realize the endpoints, including their coincidence at s=2. Inspected the bundled checker and saved finite output; the source script was not executed, and the proof is independent of the finite test range.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The strongest verified same-object construction uses 2+(ℓ+1)+|(c)_2| states in the nonpower case and discusses the power case as O(log c).",
+          "No readable chapter was obtained for the general Zantema reference; the chapter citation is not the same bibliographic attribution as in the frozen record."
+        ],
+        "reasoning": "The stated construction is an upper bound, not a classification of equivalence classes. Shifts of Fibonacci words concern a different sequence and representation; they do not give a broader exact classification that includes the present MSD indicator.",
+        "searches": [
+          "arXiv:2512.10017 §4.3 pp. 18–19",
+          "arXiv:2603.18858 Introduction and ref. 14",
+          "Zantema, Complexity of automatic sequences (LATA 2020 chapter identified via arXiv:2603.18858 ref. 21)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, shifted_powers_checker.py and shifted_powers_checks.txt",
+        "arXiv:2512.10017 and 2603.18858",
+        "Resultary local index and mirror records 19c751e8e9ff, 1e34b2c53039"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known bound and construction have no minimality statement assigning residual classes for the finite exceptional branch and its overlap with the regular branch.",
+          "The frozen proof exhausts equivalent continuation languages, including distinct finite pairs and merged singleton suffixes."
+        ],
+        "reasoning": "Minimization of a particular prior automaton is possible in principle and its accepted language is near-direct prior structure; it does not mechanically provide the symbolic, all-c Myhill–Nerode count or the matching lower bound.",
+        "searches": [
+          "arXiv:2512.10017 §4.3 construction, p. 19",
+          "arXiv:2603.18858 Introduction, p. 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Moradi–Rampersad–Shallit use the same shifted characteristic sequence in MSD order and state an O(log c) upper bound.",
+          "Moradi et al. (Fibonacci shifts) cite that same bound and point back to the same source."
+        ],
+        "reasoning": "A Boolean-output complete DFAO can be identified with a complete acceptor for its 1-language. Prior description of that sequence and a small automaton are equivalent in object, not in the assertion of exact minimal state count. The frozen count also specifies arbitrary zero padding and the rejecting sink.",
+        "searches": [
+          "Resultary local index: shifted powers-of-two indicator and literal state-count formula",
+          "arXiv:2512.10017 §4.3, Theorem 21",
+          "arXiv:2603.18858 Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest same-object checked catalogue records compute an attractor-size invariant and minimal absent factors, respectively.",
+          "The supplied finite shift table is the record's own check, not an independent database or priority source."
+        ],
+        "reasoning": "No exact count or all-shift table in the inspected indexed sources covers the claim; factor or attractor tables are for inequivalent invariants.",
+        "searches": [
+          "Resultary local index search for the exact formula and shifted powers-of-two DFAO",
+          "local mirror records 19c751e8e9ff and 1e34b2c53039"
+        ]
+      },
+      "rationale": "The prior logarithmic upper bound and related construction for the identical shifted indicator are credited. The inspected evidence does not already give the minimal complete count, its dependence on bits of c, or the sharp dyadic envelope. This is a bounded statement comparison, not a priority guarantee.",
+      "residual_risks": [
+        "The exact citation intended by the incomplete Zantema–Bosma reference was not resolved.",
+        "Indexed record e4d7b7cd5521 was available only at summary level (minimal absent factors); its full text was unavailable.",
+        "A differently formulated exact automaton classification may not surface in targeted searches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap on object and an upper bound; not an exact minimum",
+          "evidence": "The shifted powers-of-two indicator has O(log c) MSD state complexity; a logarithmic construction is given.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.10017",
+          "material_read": "§4.3 Theorem 21 and construction, pp. 18–19 (including passage near OA offset 55916)",
+          "method": "OA primary passages",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Same sequence, shifts, and input direction"
+        },
+        {
+          "assessment": "Same known bound cited, main result on another sequence",
+          "evidence": "The powers-of-two example repeats the O(log c) result and cites arXiv:2512.10017.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18858",
+          "material_read": "Introduction p. 2 and bibliography ref. 14, p. 13",
+          "method": "OA primary passages",
+          "title": "State Complexity of Shifts of the Fibonacci Word",
+          "trigger": "Secondary comparison on shifted indicators"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Gives a prefix attractor number, not a continuation state count.",
+          "identifier_or_url": "19c751e8e9ff",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Exact dyadic string-attractor size of the powers-of-two indicator word",
+          "trigger": "Same characteristic word and exact dyadic invariant"
+        },
+        {
+          "assessment": "Different language question",
+          "evidence": "Classifies missing contiguous factors, not binary representations of translated indices.",
+          "identifier_or_url": "1e34b2c53039",
+          "material_read": "Mirrored RESULT.md Finding",
+          "method": "Configured local mirror",
+          "title": "Complete minimal absent factors of the powers-of-two characteristic word",
+          "trigger": "Same characteristic word and language terminology"
+        },
+        {
+          "assessment": "Not a scientific exclusion or positive overlap",
+          "evidence": "The cited bibliographic metadata do not match the frozen Zantema–Bosma reference closely enough to treat them as the same work.",
+          "identifier_or_url": "arXiv:2603.18858 ref. 21",
+          "material_read": "Bibliographic citation only; chapter not obtained",
+          "method": "OA chapter retrieval attempted",
+          "title": "Complexity of automatic sequences (Zantema, LATA 2020)",
+          "trigger": "Possible prior general state-complexity transformations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the full exact classification of a natural translated automatic indicator already used as a state-complexity example. The formula separates shifts in the same size band that differ by up to s−2 states and identifies the combinatorial information needed to predict those states. A qualitative upper bound, or minimizing each chosen shift separately, cannot answer that question.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

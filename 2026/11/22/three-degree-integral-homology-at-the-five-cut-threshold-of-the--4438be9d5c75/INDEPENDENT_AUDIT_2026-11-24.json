@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:12:11.045353Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–4, VERIFICATION.md, evidence/verify.py and evidence/CHECK_OUTPUT.txt; source scripts inspected, not executed",
+        "Independent exact replay /workspace/reviews/replay_2.py and /workspace/reviews/replay_2.txt"
+      ],
+      "rationale": "A separate exact computation reconstructed the ordinary cut complex using K3□K4=L(K3,4): on each five-set, union the incident endpoints of the five selected bipartite edges, ignoring isolated bipartite vertices; the selected edges have connected line graph exactly when they lie in a single non-isolated component. Taking complements of the 264 disconnected sets and closing under subsets gave the frozen augmented face counts (1,12,66,220,492,768,666,264). The fresh calculation used the original signed simplicial boundaries, not the reported Morse matching or mod-two ranks. Integral column additions clear each ±1 pivot row, after which integral row additions clear its column without affecting the remaining block. In every degree the original boundary reduced to a unit diagonal and zero residual, with augmented ranks by degree 0–6 equal to (1,11,55,165,327,433,228). For each degree d, H_d embeds in coker ∂_(d+1), which is free by the unit invariant factors. Thus there is no torsion at any prime; rank subtraction in the augmented complex gives (0,0,0,0,8,5,36). The ranks agree with the frozen Morse counts and primitive rank-one B5 certificate. All the listed facets have cardinality seven, so the dimension is six and the complex is pure. The degree-four reduced group stays nonzero over any field, contradicting the empty-face Reisner condition; pure shellability would imply Cohen–Macaulayness. No homotopy wedge decomposition follows from these calculations.",
+      "residual_risks": [
+        "Single finite graph and cut parameter only. The independent replay certifies the integral additive groups without dependance on the particular matching order or a choice of coefficient field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Thm. 7.18 in arXiv:2304.13675 treats clique prisms K_n□K2; §5 of arXiv:2407.08158 treats path grids",
+          "bd50464fc17f gives the ordinary three-cut theorem for rook boards (at 3×4, rank 12 in degree 7); de2f98e55b1f gives the ordinary four-cut of the 4×4 rook graph, ranks 21 and 96 in degrees 10 and 11; dc4e90566a37 treats four-cut of K3□K3",
+          "arXiv:2408.07646v3 Thm. 1.1 deals with total cuts of two-row path grids and total three-cuts of three-row path grids"
+        ],
+        "reasoning": "No examined family statement includes the simultaneous requirements of three complete rows, four complete columns, ordinary cut and k=5. Same-day scopes are compared by mathematics, not used to infer chronology.",
+        "searches": [
+          "Bayer et al. arXiv:2304.13675 Thm. 7.18; arXiv:2407.08158 §5 Prop. 5.15; arXiv:2408.07646v3 Thm. 1.1",
+          "Resultary general rook homology and next-nearest thresholds: bd50464fc17f, de2f98e55b1f, dc4e90566a37"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2304.13675, 2407.08158, 2209.13503, 2408.07646v3",
+        "Resultary bd50464fc17f, de2f98e55b1f, dc4e90566a37, d8043fe70f6a, f934e656621e, a96727170cea, 9a956b068ad8, 4506134a68d7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P3□P4 is triangle-free while K3□K4 contains row and column cliques, so the graph hypotheses and selection of disconnected sets differ",
+          "Known Euler-characteristic formula or ranks on other boards do not determine the three independent ranks, much less absence of torsion in this board's signed boundaries"
+        ],
+        "reasoning": "Relabeling to the line graph preserves the problem and helps enumerate; it supplies no evaluated signed homology theorem for this cut. Neither the adjacent thresholds nor the total-cut duality implies the exact additive groups checked here.",
+        "searches": [
+          "Read ordinary and total cut definitions and path-grid hypotheses in arXiv:2304.13675, 2407.08158, 2209.13503",
+          "Compare rook thresholds in Resultary bd50464fc17f, de2f98e55b1f and dc4e90566a37; same-threshold line-graph/icosahedral comparisons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K3□K4=L(K3,4); ordinary five-cut facets delete disconnected fives, not independent fives",
+          "Resultary d8043fe70f6a computes dual ordinary four/five cuts of L(Petersen), whose five-cut homology is rank 624 in degree 9; f934e656621e treats a four-cut of L(Q3)"
+        ],
+        "reasoning": "Independence of line-graph vertices corresponds to a matching, of size at most three here, so the total five-cut version cannot be substituted for the ordinary complex. The Alexander dual consists of subsets containing no disconnected five-set, not matchings. The two named line-graph comparisons do not cover this graph.",
+        "searches": [
+          "Resultary ordinary five-cut rook, Hamming/complete-product and line-graph formulations; matching/chessboard and Alexander-dual aliases",
+          "arXiv:2304.13675 ordinary k-cut definition; arXiv:2209.13503 total k-cut definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The ordinary path-grid 3×4, k=5 table entry is 221 with Euler-characteristic prediction 214 in parentheses, not the rook groups",
+          "The total path-grid table gives β6=122 for G(4,4) and β10=489 for G(4,5) at k=5; Resultary 9a956b068ad8 identifies the 489 as already known via the total-cut entry for its five-robust clique calculation",
+          "a96727170cea gives Z/2 in degree 4 and Z^30 in degree 6 for the ordinary five-cut of the 12-vertex icosahedral graph"
+        ],
+        "reasoning": "These numbers pertain to different graphs, complexes or both. Equal vertex counts, grid dimensions and cut labels do not transport integral boundary maps. The exact indexed target self-match, if returned, is not independent coverage.",
+        "searches": [
+          "arXiv:2407.08158 §5 Table 2 for an ordinary five-cut on the 3×4 grid",
+          "arXiv:2209.13503 Table 3 for k=5 four-row grids; Resultary 9a956b068ad8 and 4506134a68d7 on robust-clique duals",
+          "Resultary same-order k=5 exact results including a96727170cea"
+        ]
+      },
+      "rationale": "The closest prior rook results are at different cuts or on different boards, and the grid tables with matching cut or dimensions are for Cartesian products of paths, in some cases for total rather than ordinary cuts. The line-graph interpretation is an exact alias, but does not turn this complex into the matching complex of K3,4. No equivalent or dominating exact result for ordinary Δ5(K3□K4) was verified. The bounded search and accessible comparisons, not absence of hits alone, support this assessment.",
+      "residual_risks": [
+        "Unindexed exact rook calculations or different formulations may exist. No chronological priority is inferred for same-day entries. The general path-grid papers are not evidence that no complete-product theorem exists elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Clique prisms only in the relevant product theorem",
+          "evidence": "Thm. 7.18 treats K_n□K2 rather than this rook graph.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Definition of ordinary cut and Thm. 7.18, PDF p. 29 around offset 127800",
+          "method": "OA PDF passages",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Defining ordinary cuts and complete-product graph family"
+        },
+        {
+          "assessment": "Same nominal dimensions and threshold, different graph",
+          "evidence": "The 221 Sage value, parenthesized 214 Euler-characteristic prediction, concern P3□P4.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.08158",
+          "material_read": "§5, Table 2 p. 18 around offsets 76500–81388; Prop. 5.15 p. 21 around offset 93300",
+          "method": "OA PDF passages",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Ordinary k=5 exact table at the same board dimensions"
+        },
+        {
+          "assessment": "Not the target graph or cut construction",
+          "evidence": "Table 3's k=5 entries for four rows include ranks 122 and 489; facets delete independent sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.13503",
+          "material_read": "Abstract, path-grid definition p. 17 around offset 56689, Table 3 p. 22 around offsets 66800–70748",
+          "method": "OA PDF passages",
+          "title": "Total Cut Complexes of Graphs",
+          "trigger": "Exact k=5 grid tables and ordinary-versus-total distinction"
+        },
+        {
+          "assessment": "Different graph and ordinary-versus-total choice",
+          "evidence": "Total cuts of two-row path grids and three-cut total complexes for three-row grids.",
+          "identifier_or_url": "https://arxiv.org/html/2408.07646v3",
+          "material_read": "Thm. 1.1 around offset 6030",
+          "method": "OA HTML paper passage",
+          "title": "Chandrakar et al., grid total-cut results",
+          "trigger": "Potential dominating grid theorem"
+        },
+        {
+          "assessment": "Related exact integral invariants, not dominating",
+          "evidence": "General ordinary three-cut formula; ordinary four-cut of 4×4 or 3×3 rooks.",
+          "identifier_or_url": "Resultary bd50464fc17f, de2f98e55b1f, dc4e90566a37",
+          "material_read": "Findings and graph/threshold definitions",
+          "method": "Local Resultary and mirrored statements",
+          "title": "Rook three-cut and four-cut computations",
+          "trigger": "Same natural family at neighboring thresholds"
+        },
+        {
+          "assessment": "Close comparison cases but not this combination of parameters and graph",
+          "evidence": "Five-cut of L(Petersen) or the icosahedral graph, four-cut of L(Q3), or robust clique complexes of path grids.",
+          "identifier_or_url": "Resultary d8043fe70f6a, f934e656621e, a96727170cea, 9a956b068ad8, 4506134a68d7",
+          "material_read": "Findings and definitions of the graphs, complexes and threshold",
+          "method": "Local Resultary and mirrored statements",
+          "title": "Related exact line-graph, polyhedral-graph and grid-dual calculations",
+          "trigger": "Same k or a reduced formulation via duality/line graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and prior-work comparison; independent integer boundary replay; Resultary bd50464fc17f and de2f98e55b1f; arXiv:2304.13675 Thm. 7.18"
+      ],
+      "rationale": "This is a small, standard rook board beyond clique prisms, at the next cut size after the studied four-cut cases. The diagnostic question is whether its ordinary cut homology is top-concentrated or simple over the integers. Two successive nonzero degrees below the top show failure of even top-two concentration, and the exact primitive boundaries separate that effect from field-dependent torsion. The complete invariant provides a comparison case for ordinary cut complexes on clique products and line graphs and disproves shellability and Cohen–Macaulayness on this concrete board; the value is not just the number of disconnected sets.",
+      "residual_risks": [
+        "No infinite family theorem, equivariant calculation or full homotopy type is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

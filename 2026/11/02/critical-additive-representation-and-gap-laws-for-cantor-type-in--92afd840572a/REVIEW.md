@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposition is checked for every integer base \(p\ge2\), every real \(1<\alpha<2\), and all nonnegative indices. The key strict gap \(a_j-(p-1)\sum_{i<j}a_i\ge1\) follows by exact induction using floor-generated base digits, including terminating expansions and composite bases. It forces unique critical digit vectors, from which the consecutive-gap formula, fiber product, finite moment identities, and independent-digit Gaussian law follow. Tail control justifies the infinite gap frequencies, and the explicit \(O(\log X)\) digit-approximation bound establishes density. The covering-order proof uses a complete interval induction and explicit lower obstructions. Sparse-order counting uses two-sided length bounds. The standalone `verify.py` passed 20 configurations, 48,780 exact gap checks, 1,760 unaggregated representation checks, and 20 prefix-covering checks. Finite tests are not substituted for proofs.
+## correctness
 
-## Originality — PASS within inspected evidence
-Hegyvári's full accessible 2023 text contains the increment identity and the binary twofold-covering result, and its general-base Theorem 2.1 concerns \(C+(p-1)\cdot C\) (scalar dilation), not the repeated \((p-1)\)-fold sum. The present claim is about a different sumset and adds complete gap-frequency distributions, ordered tuple fibers and collision moments, Gaussian logarithmic fluctuations, a full density estimate, and a sharp all-base covering-order formula. The earlier digit lemma is prominently credited. Accessible theorems on fixed-seed exponential sequences, Brown completeness and real Cantor-set sums do not already state a dominating version of the joint arithmetic classification. Targeted mathematical literature and published-result searches found no equivalent theorem. Generic digital combinatorics could imply parts of the result; an overlooked specialized theorem remains a genuine priority risk. Only accessible prior records were compared.
+PASS
 
-## Value — PASS
-The motivating paper explicitly investigates additive structure of the same Cantor-type integer subset sums. This theorem determines the previously unclassified critical repeated-sumset quantitatively for all bases and all real parameters, not simply an example or finite table: it gives exact element gaps and their limiting frequencies, exact ordered representation fibers and collision growth, a sharp covering-order phase transition, and a nondegenerate distribution law. Each invariant serves a natural question about additive representations or density, with exact formulas allowing further work on finer sumsets and energies. It does not claim a general representation theorem above the critical order.
+Every coefficient vector in [0,h] is realizable by placing its column's ones in h ordered slots. At h=p−1 the carry gap is a_j−(p−1)Σ_{i<j}a_i=1+Σ_{i=1}^jη_i, so the base-p order is strictly increasing and gives the whole support; uniqueness for individual subset-sum summands follows too. The proportion of indices of valuation j is (p−1)/p^{j+1} even for composite p; the omitted valuation tail has proportion at most p^{−J}. The floor-generated digits give bounded gaps iff they terminate, and m≤F(m)≤αm with error O_p(log(m+2)) proves the counting estimate by inversion. Independent choices within columns give the ordered binomial fiber, the exact finite moments by summation and Vandermonde, and the log-normalization CLT by the i.i.d. digits of a uniform index (variance zero precisely at p=2). Below criticality, unique digits and the two prefix cutoffs give the stated exponent. Positive α−1 makes some η_j positive, yielding a missing integer at h=p−1, and h+1 is missing if h<a_1−1. Conversely h≥max(p,a_1−1) makes a_1≤h+1 and a_j≤p a_{j−1}+p−1≤hΣ_{i<j}a_i+1 for j≥2, so successive shifted integer intervals cover every prefix range. These arguments cover exact, not merely eventual, coverage, including terminating parameters. The submitted rational finite checker was inspected, not run.
 
-## Closest sources and residual limitations
-Hegyvári, arXiv:2307.07237, provides the principal digit identity; *On exponential type sequences* (2023) treats a distinct fixed-seed setting; Brown's criterion supplies standard completeness arguments. The complete journal text of the distinct fixed-seed paper was not inspected; broader unindexed digit-numeration results may be relevant. The Gaussian law is on uniform critical indices, and finite computations certify no infinite claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The underlying denomination increment, base-two twofold coverage, and general completeness test are prior. The supported remainder is the quantitative classification of the actual critical repeated sumset, in particular the joint exact gap and ordered representation laws and the all-base distinction between positive-density onset and exact covering order. The closest earlier theorem is on a dilated sum, not the same object, and the inspected general criterion is not already a quantitative classification for this family.
+
+## value
+
+PASS
+
+Repeated additive sums are a natural question for this already studied family. The exact h threshold separates sparsity, positive density and full coverage, and the critical support is described at the level of individual gaps and ordered representation multiplicities, not just existence or asymptotic order. These data give meaningful exact inputs for studying additive energies and finer representation behavior without attributing novelty or independent significance to Vandermonde or the standard CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

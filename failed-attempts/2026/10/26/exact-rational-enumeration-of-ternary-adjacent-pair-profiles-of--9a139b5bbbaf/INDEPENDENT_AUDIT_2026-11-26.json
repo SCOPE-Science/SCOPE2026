@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:44:59.981609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–86, VERIFICATION.md and verify.py; uploaded code inspected only",
+        "Independent endpoint-set dynamic programming: start with the zero profile in each last-letter set, extend by adding one to the corresponding bigram coordinate, and union the three sets for each n. Exact comparison with the numerator/denominator recurrence for n=1..16; a_16=39269. Independent symbolic simplification verified both displayed formulas and the cyclic-support projection identity."
+      ],
+      "rationale": "A nonempty profile has a realizing word exactly when its directed multigraph is weakly connected on the active vertices and has balanced degrees or a single start/end imbalance. Disconnected loop components cannot be repaired by loops. On three active vertices, the signed oriented multiplicity differences are (t,t,t) for closed trails or (t+1,t,t) for one prescribed open direction, up to permuting the symbols. Each matched pair of opposite arcs contributes 1/(1-z^2). The minimum cross-length in the open class is 3t+1 for t>=0 and 3|t|-1 for t<=-1, giving the displayed two numerators. Subtract the zero or single-pair supports as appropriate, then add arbitrary loops on the active vertices; the source formulas count every profile once. The empty length-one profile is counted once. Exact rational simplification matches the displayed fraction; its dominant pole has order seven and multiplier 7/12, giving 7/8640 after coefficient extraction, with all other poles of lower order. The maximum observation-separating code cardinality is one word per realized profile.",
+      "residual_risks": [
+        "The dynamic check is finite; the Euler proof and the exact projection argument establish all lengths. Endpoints are not separate observations and profile counts concern fixed labeled symbols."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jacquet–Knessl–Szpankowski give the balanced all-matrix fraction, not the connectivity and off-diagonal support refinement. 8ada8bf40720 gives the full bivariate connected cyclic profile count with s the number of positive off-diagonal arc types.",
+          "Chang et al. give a short-word characterization and longer-word bounds. The composition-profile Resultary record forgets order within pairs and keeps singleton counts."
+        ],
+        "reasoning": "Plain cyclic totals would not be enough, but the support refinement is exactly the number of distinct closing arc types to count for each cyclic profile. It therefore dominates the linear count after projection.",
+        "searches": [
+          "Resultary 8ada8bf40720 Finding and Proof §§1–7",
+          "Counting Markov Types, DOI 10.46298/dmtcs.2768 §§2–3",
+          "arXiv:1607.02279 Theorem 3.3 and Corollary 3.4",
+          "Resultary 08e655a29220 Finding"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 8ada8bf40720, 08e655a29220, f0497779133f and 87bc1f36ef2d",
+        "DOI 10.46298/dmtcs.2768; arXiv:1410.8837, 1607.02279, 1605.03319 (passages above)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let G(z,u)=sum_(m>=1,s) p_(m,s) z^m u^s from 8ada8bf40720. Nonempty balanced linear profiles are the same as cyclic profiles of the same arc count. Open profiles on m arcs equal the sum of s p_(m+1,s) by the marked closing-arc bijection. Thus F(z)=1+G(z,1)+z^(-1) partial_u G(z,1).",
+          "Substitution of the published bivariate formula gives the frozen rational fraction exactly; symbolic cancellation gave zero difference. The previously published unrestricted/closed asymptotic ratio is seven at alphabet size three."
+        ],
+        "reasoning": "Both the boundary imbalance and connectivity corrections are accounted for by the inverse cutting operation, without needing a new open matrix enumeration. The whole exact claim, not just its asymptotic coefficient, is a short projection of a distinct covered result. No intra-day publication order is inferred.",
+        "searches": [
+          "Resultary 8ada8bf40720, RESULT.md offsets 0–6515",
+          "arXiv:1410.8837 Theorem 4.5 and Table I"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same nine ordered multiplicities are used in 8ada8bf40720; the differences are wraparound and explicit off-diagonal support marking. Closing an open trail adds one arc from end to start. Since the imbalance recovers the ordered endpoints, this maps injectively to a cyclic profile with one marked positive off-diagonal arc type.",
+          "2-abelian equivalence also requires one-letter counts and is finer. The later f0497779133f and 87bc1f36ef2d use exactly the frozen endpoint-free linear observation."
+        ],
+        "reasoning": "Any cyclic profile with a marked nonloop type can be realized by an Euler circuit. Cut the circuit just after a chosen occurrence of that arc so that the chosen arc is traversed last, and delete the last traversal. This realizes the corresponding open profile and inverts closing it. Identical copies of the marked arc are not distinct choices at the profile level.",
+        "searches": [
+          "Resultary 8ada8bf40720 (support-refined cyclic dinucleotide profiles)",
+          "arXiv:1605.03319 p. 1",
+          "Resultary f0497779133f and 87bc1f36ef2d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "8ada8bf40720 supplies exact p_(m,s) at every m and s via its generating function. For instance at m=2 there are three closed loop profiles and three two-edge cycles of support size two, yielding six open profiles of one edge; with three closed one-edge profiles this gives a_2=9.",
+          "The later two records give the same rational linear enumerator. Kiah et al. Table I is an asymptotic leading-constant table, with closed ternary coefficient 1/8640, not an exact finite-length table."
+        ],
+        "reasoning": "The decisive exact object is the earlier-or-contemporary catalogued bivariate cyclic series, rather than a numerical sequence coincidence or a leading constant. The later duplicate formulas are not evidence of preexistence before the October record.",
+        "searches": [
+          "Resultary 8ada8bf40720 exact bivariate series and first coefficients",
+          "Resultary f0497779133f and 87bc1f36ef2d Findings",
+          "arXiv:1410.8837 Table I p. 21"
+        ]
+      },
+      "rationale": "The distinct same-day support-refined cyclic-profile result already gives a bivariate exact enumerator from which the frozen all-length linearly observed count follows by a direct bijection and one derivative. This is demonstrable statement-level coverage, independent of within-day priority. Separately, the leading coefficient is implied by the earlier published asymptotic comparison and was correctly not claimed as new. Two exact later catalogue matches confirm the mathematical overlap but are not used to assign earlier priority.",
+      "residual_risks": [
+        "The same-day pair of records establishes exact mathematical coverage, not within-day priority or attribution.",
+        "The bounded comparison does not identify the earliest possible publication of the linear fraction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically implies the frozen exact enumerator, without a priority inference",
+          "evidence": "The u^s marking counts the positive off-diagonal arc types in each realizable connected cyclic profile.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-support-refined-enumeration-of-ternary-cyclic-dinucleotide-profi--8ada8bf40720/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–7, offsets 0–6515",
+          "method": "Read Resultary local mirror; derived closing-arc bijection and compared rational expressions symbolically",
+          "title": "Support-refined enumeration of ternary cyclic dinucleotide profiles",
+          "trigger": "Same-day distinct exact ordered profile series with support refinement"
+        },
+        {
+          "assessment": "Known balanced all-matrix component, not enough by itself for the full result",
+          "evidence": "The ternary exact fraction has numerator 1−z+z^2; linear open imbalance is outside that term.",
+          "identifier_or_url": "https://dmtcs.episciences.org/articles/2768/download",
+          "material_read": "§2 pp. 388–391 and §3 p. 394 (OA offsets 4300, 23414)",
+          "method": "Lawful open PDF passages",
+          "title": "Counting Markov Types",
+          "trigger": "Earliest cited exact ternary balanced-matrix theorem"
+        },
+        {
+          "assessment": "Covers leading coefficient by implication, not all finite lengths",
+          "evidence": "Unrestricted-to-closed ratio q^2−q+1 and closed coefficient 1/8640 for q=3 and pair length two.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.8837",
+          "material_read": "Theorem 4.5 p. 10 and Table I p. 21 (offsets near 52000 and 106800)",
+          "method": "Lawful open PDF passages",
+          "title": "Codes for DNA Storage Channels",
+          "trigger": "Asymptotic ordered substring-profile enumeration"
+        },
+        {
+          "assessment": "Inspected exact short-word characterization not the frozen all-length formula",
+          "evidence": "Characterization for factor length at most n but n less than twice the factor length; longer-length bound.",
+          "identifier_or_url": "https://arxiv.org/pdf/1607.02279",
+          "material_read": "Theorem 3.3 and Corollary 3.4, pp. 5–6, offset near 21600",
+          "method": "Lawful open PDF passages",
+          "title": "Rates of DNA Sequence Profiles for Practical Values of Read Lengths",
+          "trigger": "Possible exact arbitrary-length pair-profile enumeration"
+        },
+        {
+          "assessment": "Not the pair-only observation",
+          "evidence": "All factor lengths through k are retained, including length one at k=2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1605.03319",
+          "material_read": "Definition on p. 1 near offset 600",
+          "method": "Lawful open PDF passage",
+          "title": "On cardinalities of k-abelian equivalence classes",
+          "trigger": "Potentially equivalent linear observation"
+        },
+        {
+          "assessment": "Same rational linear count, catalogued after the frozen record",
+          "evidence": "Labeled ternary overlapping ordered bigram multisets at all lengths; notes the difference from substring sets and binary counts.",
+          "identifier_or_url": "Resultary f0497779133f",
+          "material_read": "Finding at offset 0 and prior-work passage from offset 6590",
+          "method": "Resultary local mirror",
+          "title": "Exact ternary ordered bigram multispectrum counts and the degree-six law",
+          "trigger": "Direct exact linear count match"
+        },
+        {
+          "assessment": "Same claim, catalogued later",
+          "evidence": "Same rational enumerator without endpoints, contrasting cyclic Markov types and finer 2-abelian equivalence.",
+          "identifier_or_url": "Resultary 87bc1f36ef2d",
+          "material_read": "Finding at offset 0 and prior-work passage from offset 7240",
+          "method": "Resultary local mirror",
+          "title": "Exact ternary adjacent-pair spectrum enumerator for linear words",
+          "trigger": "Direct exact linear count match"
+        },
+        {
+          "assessment": "Different observation and enumerator",
+          "evidence": "Unordered compositions and singleton factors; the ternary growth exponent is five, rather than six.",
+          "identifier_or_url": "Resultary 08e655a29220",
+          "material_read": "Finding and scope at offset 0",
+          "method": "Resultary local mirror",
+          "title": "Ternary length-two composition profiles and their finite-alphabet growth law",
+          "trigger": "Near-topic ternary length-two exact count"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding, proof and prior-work discussion",
+        "Resultary 8ada8bf40720",
+        "arXiv:1410.8837 Theorem 4.5 and Table I"
+      ],
+      "rationale": "The exact ternary observation count is natural and its coefficients matter for exact code capacities. The frozen record, however, adds no independently unresolved invariant beyond the projection of the complete cyclic support series. Its asymptotic coefficient and the one-representative code interpretation are already immediate consequences.",
+      "residual_risks": [
+        "This does not rule out value in counting individual profile classes, new supported factor lengths, or observation models not covered by the marked cyclic reduction."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

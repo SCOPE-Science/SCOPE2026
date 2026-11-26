@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:29:52.363038Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, lines 3–27 and 31–67; VERIFICATION.md and verify.py inspected, not executed",
+        "Nataraj arXiv:2209.06900v1, pp. 3–4, divisor pairing and statement of the Landau input",
+        "Independent bounded replay: /workspace/branches/77dfa48a-00a4-490a-acf3-8f75d48fb17b/independent_schreier_check.py, with INDEPENDENT_CHECK.md in the same directory"
+      ],
+      "rationale": "For composite n the least prime p is at most √n, so small-divisor pairing gives τ≤2p+2 for nonsquares and τ≤2p+1 for squares exactly; in the latter case τ is odd. Prime n=p and all squares are negligible for fixed p. In the nonsquare factorization pᵉ∏qⱼ^{aⱼ}, the product (e+1)∏(aⱼ+1)≤2(p+1) bounds all exponents and gives at most uₚ=floor(log₂(p+1)) additional distinct primes. At maximal support with every aⱼ=1, the exact exponent bound is Eₚ=floor((p+1)/2^{uₚ−1})−1∈{1,2}. Allowed integers of this form are nonsquares and satisfy the exact criterion irrespective of the primes' sizes. Landau at X/pᵉ gives their common asymptotic scale and coefficient p^{−e}/(uₚ−1)!; restricting finitely many small primes does not affect it. For repeated exponents, split the product D of the at least square prime powers at √X. Below the split, sum 1/D against the fixed-r Landau bound, with r<uₚ first-power primes and log(X/(pᵉD)) of order log X. Above it, one qᵃ>X^{1/(2s)} with s repeated-prime factors; even counting all integer bases gives a union bound Oₚ(X^{1−1/(4s)}) by summing X/qᵃ. With r=0, the cofactor n/pᵉ is squarefull, and writing it as A²B³ with B squarefree gives O(√X) by summing B^{−3/2}. Terms with fewer simple primes also have lower order (including p-powers when uₚ=1). Thus only the stated simple-cofactor layers contribute, not necessarily all integers with maximal distinct support. An independent trial-division and direct-small-divisor calculation gave agreement for all 199,999 n from 2 through 200,000, including the square boundary at 16 and 729 and the nonsquare boundary at 12 and 135; it also confirmed the leading-layer inclusions checked for p=2,3,5,7.",
+      "residual_risks": [
+        "The finite calculation verifies arithmetic predicates and examples, not a limit. The proof uses the classical Landau asymptotic and is not uniform as p grows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chu §3 defines the numbers, gives small examples and asks density questions. Landau's theorem as used by Nataraj gives fixed-prime-factor counts, not a divisor-label filter on the p-power or the relative sizes of the heterogeneous exponent-pattern classes."
+        ],
+        "reasoning": "The asymptotic uses a standard stronger prime-counting input, but that input on its own does not specify admissible patterns at a fixed least prime or their relative contributions. The omitted layer is not resolved by the general zero-density theorem.",
+        "searches": [
+          "Chu, Numbers with Small/Large Divisors Satisfying Some Recurrence Relation, §3",
+          "Nataraj §2, Lemma 1 and Corollary 1 including Landau citation; lawful OA attempt for the cited Landau pages"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.06900v1",
+        "Chu project note §3",
+        "Landau (1909) as invoked by Nataraj",
+        "Resultary c6019f5b8954 and 0e6bb7e15c2f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact criterion immediately gives Eₚ for the maximal squarefree-cofactor patterns, but support alone does not rule out repeated primes among maximal-support integers. For example, p=5 allows both n=5²qr and n=5q²r for distinct primes above 5; the first contributes to the main term, the second has lower order. A sum over bounded higher-power patterns with an explicit tail, not simply dropping all non-squarefree cofactors, establishes that separation."
+        ],
+        "reasoning": "The method is elementary once the known inputs are assembled. The scientific increment is not a rediscovery of Landau's scale, but a uniform-in-form classification of the missing same-order layer and a correction of a quantitatively incorrect comparison, with the cofactor-pattern error now justified. It is not an already supplied special case of the inspected source statements.",
+        "searches": [
+          "Nataraj arXiv:2209.06900v1, pp. 3–4, proof of Corollary 1",
+          "Fixed-prime-factor Landau input, cited in Nataraj as reference [14]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nataraj uses the same nontrivial small-divisor definition and exact square/nonsquare divisor pairing, and explicitly sets the maximum distinct support of the cofactor to uₚ. Corollary 1 displays a comparison with squarefree cofactors k≤X/p with exactly uₚ factors."
+        ],
+        "reasoning": "The arithmetic set and enumerative scale coincide; that is real coverage, not merely related terminology. But the displayed p-only comparison fails as an asymptotic equivalence when Eₚ=2. For p=2 it gives the contribution 1/2 times X/log X, whereas the missed disjoint 4q family adds 1/4 times X/log X. The zero-density conclusion is unaffected.",
+        "searches": [
+          "Nataraj arXiv:2209.06900v1, definition, Lemma 1 and Corollary 1 proof",
+          "Targeted literature and Resultary lookups for Schreier numbers, least/smallest prime factor and fixed-prime asymptotics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary c6019f5b8954 counts exponential-perfect numbers by total distinct-prime count using a core 36; 0e6bb7e15c2f concerns unit-group generators. Neither tabulates Schreier strata. Nataraj's displayed local comparison has the missing-layer issue, not a table of the correct constants."
+        ],
+        "reasoning": "The finite sample counts are not the credited contribution. No matching exact family of asymptotic constants was identified, and the inspected numerical cutoffs and generic prime-factor-layer analogues concern different objects.",
+        "searches": [
+          "Resultary: fixed-prime and divisor-count strata, including c6019f5b8954 and 0e6bb7e15c2f",
+          "Nataraj Corollary 1 as the closest prior explicit local asymptotic comparison"
+        ]
+      },
+      "rationale": "The divisor criterion, the support cutoff and the Landau scale are credited to prior work. The contribution is the corrected exact leading term: the motivating source's Corollary 1 proof uses an asymptotic comparison with only the p-times-squarefree-cofactor layer. As written this comparison misses another layer of the very same asymptotic order for many p, including 2. The result locates precisely the primes admitting this layer and bounds the repeated-cofactor-prime patterns away from the leading order. No inspected prior result already gives this corrected fixed-p coefficient.",
+      "residual_risks": [
+        "No original Landau scan was inspected. The bounded search does not exclude an independent explicit correction elsewhere under another arithmetic counting formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the divisor criterion, support cutoff and zero density. Its displayed local asymptotic comparison is missing the p² contribution for Eₚ=2.",
+          "evidence": [
+            "The proof compares the count ∼ Σ1 over squarefree k≤X/p with exactly uₚ factors, noting that maximal support is achieved for exponent one. This gives the first layer but not the second; at p=2 the omitted 4q contribution is one-half as large as the 2q contribution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.06900v1",
+          "material_read": "Introduction, p. 1, offset 1500; divisor identities and Lemma 1–Corollary 1 proof, pp. 3–4, offsets 6800–10379",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Schreier Numbers and Nontrivial Small Divisors Satisfying Linear Recurrence of Order at Most Two",
+          "trigger": "Same arithmetic object and exact fixed-least-prime counting comparison"
+        },
+        {
+          "assessment": "Provides the definition, basic examples, gaps and density questions, not a fixed-least-prime asymptotic in this passage.",
+          "evidence": [
+            "Example 3.4 notes that primes and products of two primes are Schreier; Problem 3.8 asks the density of all Schreier numbers."
+          ],
+          "identifier_or_url": "https://web.williams.edu/Mathematics/sjmiller/public_html/polymathreumiller/ChuPossibleProjects.pdf",
+          "material_read": "§3, Definition 3.1 and §3.2 through Problem 3.9, PDF pp. 2–3, offsets 4500–7640",
+          "method": "Primary OA PDF passage inspection",
+          "title": "Numbers with Small/Large Divisors Satisfying Some Recurrence Relation",
+          "trigger": "Original definitions and density question"
+        },
+        {
+          "assessment": "Credited counting input, not evidence of a direct Schreier asymptotic.",
+          "evidence": [
+            "Nataraj explicitly invokes Landau for counts of products of exactly uₚ distinct primes."
+          ],
+          "identifier_or_url": "Landau (1909), pp. 203–211, Nataraj reference [14]",
+          "material_read": "Statement as invoked by Nataraj Corollary 1; original pages not recovered in the bounded OA attempt",
+          "method": "Cited application in primary full text and attempted OA retrieval of the original",
+          "title": "Handbuch der Lehre von der Verteilung der Primzahlen",
+          "trigger": "Classical asymptotic for the fixed number of prime factors"
+        },
+        {
+          "assessment": "Different arithmetic filter and slicing rule.",
+          "evidence": [
+            "Counts exponential-perfect integers with total ω(n)=r and core 36, rather than a Schreier stratum at fixed least prime."
+          ],
+          "identifier_or_url": "Resultary c6019f5b8954",
+          "material_read": "RESULT.md Finding in local mirror",
+          "method": "Resultary search and local mirror",
+          "title": "Fixed prime-factor layers of exponential-perfect numbers",
+          "trigger": "Closest indexed analogue using fixed prime-factor counting and a fixed core"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, lines 9–23 and 49–67",
+        "Nataraj Corollary 1 proof, p. 4, as the motivating prior comparison"
+      ],
+      "rationale": "This is a natural sharpening of an existing count on exactly the fixed-prime strata already isolated in the motivating paper. The extra factor 1+1/p when the p² layer is allowed does not vanish as X grows for fixed p, and is 3/2 at p=2. Correcting that leading term and determining exactly which exponent layers may be ignored is substantive, even though the counting tool is classical. The iterated-log separation makes the strata quantitatively distinguishable; a density-zero statement alone does not.",
+      "residual_risks": [
+        "This does not estimate the total Schreier count or provide a uniform approximation in the least prime. The significance is the corrected local asymptotic, not a new prime-distribution theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

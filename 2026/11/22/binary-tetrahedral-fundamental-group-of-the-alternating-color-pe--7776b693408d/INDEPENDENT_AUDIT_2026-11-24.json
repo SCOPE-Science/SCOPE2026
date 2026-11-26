@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:57:23.564391Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md proof §§1–4; VERIFICATION.md; verify.py lines 14–130 and verification_output.txt inspected but not executed",
+        "Independent replay with Python 3 + SymPy: /workspace/branches/bc76c293-f6f0-4f0c-9705-cb9d48636c84/independent_check.py; output at adjacent independent_check_output.txt. It exhausts the 2160 cells by bit-mask color subsets and verifies quotient counts (20,65,70,25), both boundary compositions, ranks and integer Smith factors."
+      ],
+      "rationale": "An interior fixed point would force the open cell to be invariant, so each nonempty color subset is a union of orbits of the permutation. Each nonidentity even permutation has two orbits; an adjacent nonempty disjoint subset rules out using both, and the odd cycle then prevents alternating the two orbits. Thus the action is free. The known RP^3 topology gives the covering by S^3; a free self-map reversing its orientation would have rational Lefschetz number 2, impossible, so the quotient is orientable. Independent reconstruction of the quotient cellular boundaries includes the product-simplex boundary signs and the signs of the even relabeling on each surviving ordered color subset. It recovers ranks (19,46,24) and Smith factors (1^19;1^45,3;1^24). The kernels are primitive sublattices, giving precisely Z/3 in H_1 and zero H_2, with H_0 and H_3 both Z. The central extension E of A4 by C2 has order 24; H_1 gives commutator subgroup of order eight, over V4. A subgroup of order three exists by Cauchy's theorem and acts by a three-cycle on the three nonzero elements of the V4 quotient. If the order-eight group were abelian, the entire commutator would have size at most four, since it is the image of conjugation-minus-identity with the central C2 in its kernel. D8 has a characteristic cyclic subgroup of order four, ruling out the three-cycle. The kernel over V4 is therefore Q8, and the order-three action cycling its cyclic subgroups gives the standard binary tetrahedral semidirect product 2T, isomorphic to SL2(F3). No equivariant round-sphere model is needed.",
+      "residual_risks": [
+        "The chain computation verifies integral homology of this finite ordinary quotient, not the equivariance of any Stiefel model, the fundamental group unaided, or other palettes. The group and cover follow from the separate topological and group-theoretic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schultz covers all Hom(C5,K_{n+2}) as Stiefel spaces, using a target-subset natural intermediate poset construction and final regular-neighborhood comparison. The joint-color/source result is rational. The alternating-color theorem is for Hom(K_m,K_n), not an odd noncomplete source."
+        ],
+        "reasoning": "A natural intermediate model is not an available target-equivariant homeomorphism. Rational characters and rational quotient homology cannot detect the claimed integral torsion or distinguish the central extension. The complete-graph-source theorem cannot be specialized to a pentagon.",
+        "searches": [
+          "Schultz math/0510535 Theorem 5.2 and §5.4; Dover–Özaydın 1302.2831",
+          "Resultary joint color/source symmetry 72253c7af9d3 and alternating-color quotients for complete-graph sources 4ac9843326aa"
+        ]
+      },
+      "checked_sources": [
+        "Csorba–Lutz math/0510177; Schultz math/0510535; Dover–Özaydın 1302.2831",
+        "Resultary self-hit 7776b693408d and distinct records d57eddbf16e9, 72253c7af9d3, 4ac9843326aa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general covering step from free target action on RP^3 to a central C2 extension is standard. Its particular application still needs target freeness and the group must be distinguished from the split central extension; the exact chains do so by H_1."
+        ],
+        "reasoning": "Nothing in the inspected statements establishes the target action's quotient extension by computing the marked action or its integral abelianization. The source-action quotient uses a different homomorphism in the cover. The theorem does not claim that its invariant is unobtainable using other general group-action classification arguments once target freeness has been shown.",
+        "searches": [
+          "Dover–Özaydın 1302.2831 Question 5.6; Schultz math/0510535 §5.4; local passages for d57eddbf16e9 and 72253c7af9d3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The underlying complex is RP^3=SO(3), the oriented frame model V3,2. The inspected final Stiefel theorem does not state target-color equivariance; the explicit equivariance result is for a source reflection."
+        ],
+        "reasoning": "An equivariant identification with the rotational tetrahedral subgroup acting by translation on SO(3) would directly give the same covering invariants, but the bare homeomorphism or a source-reflection intertwining is not that identification. An abstract binary tetrahedral extension, not a conjugacy of the action to an isometric action, is the frozen claim.",
+        "searches": [
+          "Resultary exact color A4 Hom(C5,K4), binary tetrahedral/SL2(F3) and pentagon quotient comparisons",
+          "Csorba–Lutz math/0510177 Theorem 13; Schultz math/0510535 Theorem 5.2; Dover–Özaydın 1302.2831 Main Theorem and Question 5.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "7776b693408d is the self-hit. The distinct d57eddbf16e9 gives Dic_5 of order 20 and H_1=Z/4 for D5 acting on source positions. The inspected 72253c7af9d3 addresses rational joint symmetries, not these integral invariants."
+        ],
+        "reasoning": "Same underlying space does not mean the same marked action or quotient. The two calculated group orders differ, with different acting groups and homology torsion, so the earlier invariant is not an exact table entry for this quotient.",
+        "searches": [
+          "Resultary binary tetrahedral and four-color pentagon invariants, source vs target actions"
+        ]
+      },
+      "rationale": "The distinct supported claim is the free alternating target-color action on the four-color pentagon Hom complex and the integral and nonabelian invariants of its actual geometric quotient. The known nonequivariant Stiefel homeomorphism and the established source-action quotients do not, in their inspected statements, determine this color quotient.",
+      "residual_risks": [
+        "An earlier target-equivariant refinement of the natural Stiefel model or differently described quotient could exist. The bounded statement-level comparison is not a proof of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing topology, not stated for this target action",
+          "evidence": "The proof gives a Heegaard description and RP^3 for the four-color pentagon.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0510177",
+          "material_read": "Theorem 13 pp.7–8, OA PDF offset about 20100",
+          "method": "OA bounded PDF passage inspection",
+          "title": "Graph coloring manifolds",
+          "trigger": "Exact Hom(C5,K4) underlying manifold"
+        },
+        {
+          "assessment": "Target-subset natural intermediate construction; inspected final identification does not state target equivariance",
+          "evidence": "Theorem 5.2 identifies the underlying orthonormal frame space; §5.4 specifically concerns a source reflection.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0510535",
+          "material_read": "Theorem 5.2 p.17 offset about 71000 and §5.4 offset about 76000",
+          "method": "OA bounded PDF passage inspection",
+          "title": "Small models of graph colouring manifolds and the Stiefel manifolds Hom(C5,K_n)",
+          "trigger": "Could the target action be identified by naturality of the Stiefel model?"
+        },
+        {
+          "assessment": "Equivariance for a source reflection, not the A4 target action",
+          "evidence": "The authors ask for full D5 source equivariance; the proved reflection acts on the source.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.2831",
+          "material_read": "Main Theorem p.6 offset about 14500; Question 5.6 p.32 offset about 79037",
+          "method": "OA bounded PDF passage inspection",
+          "title": "Stiefel manifolds and coloring the pentagon",
+          "trigger": "Strongest explicit equivariant Stiefel theorem"
+        },
+        {
+          "assessment": "Source action is materially different",
+          "evidence": "Source D5 quotient has Dic_5 and H_1=Z/4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-dicyclic-fundamental-group-of-the-four-colour-pentagon-quotient--d57eddbf16e9",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror bounded passage inspection",
+          "title": "Dicyclic fundamental group of the four-colour pentagon quotient",
+          "trigger": "Closest distinct invariant of the same Hom complex"
+        },
+        {
+          "assessment": "Rational joint symmetry, insufficient for exact integral torsion or extension",
+          "evidence": "The homology representations and joint quotient statements in the finding use rational coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-joint-color-and-pentagon-symmetry-of-graph-coloring-manifolds--72253c7af9d3",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror bounded passage inspection",
+          "title": "Joint color and pentagon symmetry of graph-coloring manifolds",
+          "trigger": "Joint action might include an exact target subgroup calculation"
+        },
+        {
+          "assessment": "Different source graph assumption",
+          "evidence": "The source is K_m and target K_n, not the pentagon.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-alternating-color-quotients-of-complete-graph-hom-complexes-are--4ac9843326aa",
+          "material_read": "Mirrored RESULT.md Finding, offset 0",
+          "method": "Local mirror bounded passage inspection",
+          "title": "Alternating-color quotients of complete-graph Hom complexes are integral sphere wedges",
+          "trigger": "Same target subgroup, possibly stronger Hom theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and §§1–4; exact independent chain reconstruction; prior distinct majority comparisons to source-D5 and rational joint-action results"
+      ],
+      "rationale": "The ordinary quotient by even relabelings is a natural way to forget palette labels while retaining orientation of the four-color palette. This determines exact integral torsion and a nonabelian deck group for a distinguished free action on the classical pentagon coloring manifold, in contrast to the rational joint-action invariants and the distinct source quotient. The calculation is exhaustive for that given action, and the type of extension is mathematically meaningful rather than an incidental table count.",
+      "residual_risks": [
+        "No geometric realization or conjugacy class of the deck action on a round S^3 is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

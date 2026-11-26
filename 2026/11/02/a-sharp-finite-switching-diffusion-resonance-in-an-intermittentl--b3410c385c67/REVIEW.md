@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is a continuous-time Markov-modulated planar swimmer with state-independent rotational Brownian diffusivity \(D_R>0\), zero propulsion in the resting state, opposite state-dependent angular drifts, and fixed rate ratio \(r\ge1\). The diffusion coefficient is derived by integrating the stationary velocity correlation, identified with the \((+,+)\) entry of an exponentially stable \(2\times2\) complex semigroup. Its inverse gives the displayed rational expression. Direct differentiation factors into a quadratic with strictly positive constant coefficient; its linear and leading coefficients have the stated signs below the explicitly derived threshold. Above the threshold, the negative leading coefficient forces a unique positive critical point and thus a unique global maximum. The expansion at the threshold yields the asserted sharp blow-up prefactor. Symbolic exact checks and independently quadrature-integrated correlations (1,478 total checks) reproduce these steps. None of the finite tests purport to prove the continuum assertions.
+PASS
 
-## Originality — PASS on examined evidence
+With fixed Q and stationary motile mass 1/(r+1), the Green–Kubo normalization for E|R_t-R_0|^2/(4t) is one half the integral of the propulsion dot-product correlation. Conditional on the switching path the Brownian first harmonic supplies exp(-D_R t), so the integral is absolutely convergent. To replay the resolvent independently, condition on the first switch: with Z_+=D_R+r lambda-i Omega and Z_-=D_R+lambda+i Omega, the integrals for an endpoint motile indicator obey I_+=1/Z_++r lambda I_-/Z_+ and I_-=lambda I_+/Z_-. Solving gives the frozen complex quotient and hence F. Any initial-state correction to the mean-square-displacement integral is bounded, by switching mixing in the earlier time times Brownian damping in the lag. The derivative numerator is r(a_0+a_1 x+a_2 x^2): a_0>0, and with K=(r+1)+(r-1)y^2, a_2=4y^2-K^2 changes sign exactly at K=2y. For r<=r_c the linear coefficient is strictly positive, including at threshold; above it the quadratic has one positive and one negative root since a_0>0>a_2. This gives strict monotonicity or a unique finite maximum over lambda>0 at fixed r. Using the positive root in the form (a_1+sqrt(a_1^2-4a_0 a_2))/(-2a_2) gives its divergence and leading coefficient y-1. Independent symbolic evaluation of the y=r=2 example gives x_*=5/3 and active values 1/20, 1/30, 1/26 in units v^2/D_R at the maximum, vanishing and rapid switching, respectively; supporting calculations are in /workspace/branches/9afb8076-b472-4f01-89b1-a1ea7d837b24/record2-check.md. The printed reciprocal root is exactly correct but can suffer subtraction cancellation near threshold when a_1>0; the expression above is preferable there in finite precision. This is a numerical-evaluation caveat, not a defect in the theorem. verify.py and VERIFICATION.md were inspected, not executed.
 
-Weber, Sokolov and Schimansky-Geier (arXiv:1205.3419, 2012) analyze asymmetric Markov angular forcing with **constant** translational speed; they already obtain nonmonotone diffusivity and resonance, so neither phenomenon in isolation is original here. Their accessible abstract does not supply a motile/resting state that simultaneously flips the angular drift. Nourhani et al. (arXiv:1607.00587, 2016) study chirality reversals with constant speed. Das and Basu (arXiv:2301.11194) again retain constant speed, whereas Jamali (arXiv:2012.14155) switches motile and passive speeds but specifies independent rotational Brownian angular dynamics. The present claim instead fixes the motile fraction while varying both transition rates, links propulsion shutdown exactly to opposite chirality, and proves a sharp rate-ratio boundary with a uniquely finite optimum and inverse-distance critical scaling. The closest examined published-results records concern different stochastic or dynamical objects and do not imply this theorem.
+## originality
 
-This is a historical-priority assessment, not proof of uniqueness: the complete 2012 Weber et al. study remained inaccessible from the available lawful routes. A fuller bibliographic comparison may reveal broader coverage.
+PASS
 
-## Mathematical value — PASS
+The distinct contribution supported here is the exact fixed-rate-ratio threshold, uniqueness of the finite maximum, and its sharp escape coefficient for on/off propulsion coupled to equal opposite angular drifts. Neither a generic diffusion resonance nor computation by a first-harmonic resolvent is credited as new. Strong same-day indexed material uses a different rest drift and a different optimization domain; the formula and optimizer do not coincide even on a matched test ray.
 
-The switching rate changes temporal correlations without changing stationary motile occupancy. Whether increased switching can *reduce* long-time exploration is therefore not settled by mixture weights alone. The exact threshold separates an everywhere-monotone regime from genuine optimal finite switching, with a sharp divergence of the optimizer at onset. The rule is physically motivated and parameter-wide, not a single isolated computation. Its precise dimensionless critical law can guide design of intermittent self-propelled transport.
+## value
 
-## Limitations
+PASS
 
-The theorem is restricted to positive rotational diffusivity, \(\Omega>D_R\), the sector \(r\ge1\), symmetric opposite angular-speed magnitudes and Poisson transitions. It concerns asymptotic scalar diffusion rather than finite-time navigation, arbitrary speed switching, or experimental optimization. A closely related historical full text remains inaccessible. No independent certification is claimed.
+Optimizing speed of long-time spreading while the motile fraction remains fixed separates kinetic effects from a change in average motile occupancy. The exact transition between a finite optimum and a monotone large-rate approach, with a sharp inverse-distance divergence, answers a natural global question not contained in computing the diffusivity alone. It is a single-particle long-time result, not a theorem on finite-time search or interacting swimmers.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-26.md",
+      "INDEPENDENT_AUDIT_2026-11-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The analytical verification consists of five exact steps: substitution into the fixed-point formula; differentiation of the arctangent; inversion of the \(2\)-cycle implicit system whose determinant is \(5\); the exact matrix trace identity \(7+3(d_a+d_b)+d_ad_b\); and the Taylor coefficients of the traces. Both displayed quadratic coefficients are strictly positive because \(25>7\sqrt5\). Differentiating a hypothetical \(C^1\) conjugacy at a primitive period-two orbit would preserve its two-step derivative trace, in contradiction with the calculated deviation from \(7\).
+## correctness
 
-Run the standalone Python 3 program `verify_periodic_data.py` directly in the same directory as this document. It has no nonstandard dependencies. On the checked execution it printed:
+PASS
 
-```
-branch 0.8 0.2 coefficient 4.673762078751 verified
-branch 0.6 0.4 coefficient 20.326237921249 verified
-mu=0.01, traces 7.000467346768 7.002032773233
-all numerical checks passed; asymptotic universality is proved analytically
-```
+Fixedness gives y=0 and x+f_mu(x)=0 modulo one; the latter lift has derivative (1-mu²)/(1-2mu cos(2πx-alpha)+mu²)>0 and degree one. At x=arcsin(mu)/π the arctangent equals -arcsin(mu) and f'_mu=0. The two-step equations follow from y'=x'-x; the seed Jacobian has determinant 5, giving analytic continuation with primitive, disjoint cycles. Writing c=cos(2πa_0), the first displacement of both first coordinates is c mu/π. Substitution directly into the rational derivative gives d_a=2mu sin(2πa_0)+2(1-c)mu²+O(mu³) and d_b with the opposite linear term. The exact trace 7+3(d_a+d_b)+d_a d_b therefore has coefficient 8-12c+4c², which gives (25-7√5)/2 and (25+7√5)/2 in the stated order. This verifies the Finding analytically, without relying on the supplied Newton examples. For the last step differentiate the conjugacy equation for the second iterate once (rather than twice as worded in the proof); a C¹ diffeomorphic conjugacy preserves the two-step traces. The asymptotics and obstruction are local in mu.
 
-The script evaluates the exact fixed-point cancellation for seven perturbations, checks two lifted primitive two-cycles at five perturbations each, tests the first-order orbit corrections, and compares quadratic trace asymptotics at finite positive perturbations. These computations are diagnostic only; they are not an exhaustive check over the continuous parameter interval. The proof itself does not give a globally sharp perturbation cutoff. Independent mathematical review has not been performed.
+## originality
+
+PASS
+
+The supported distinct result is the orbit-resolved unequal quadratic trace pair on the moving fixed-point-blind slice. The fixed-point condition and the conjugacy argument do not separately earn originality credit. The strongest related same-day exact spectra result concerns a different phase slice, with a different fixed-point trace for all positive parameters and a linear rather than quadratic splitting; this is a mathematical distinction, not a priority inference.
+
+## value
+
+PASS
+
+This is the locus selected by the failure of the entire fixed-point derivative to detect deformation, not an arbitrary parameter restriction. Having both first available primitive periodic spectra split at quadratic order, with unequal explicit coefficients and a differentiable-rigidity obstruction, is useful quantitative periodic data beyond the generic fixed-point test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of terminal-fertility sensitivity staircase
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof uses a simple positive Perron eigenvalue and its perturbation formula. A ratio of consecutive coordinates of the right Perron vector yields the exact comparison for every age, including the terminal retention denominator. Strict monotonicity of the scalar characteristic relation and of each crossing function proves uniqueness, ordering, equality cases and sharp necessity/sufficiency for the complete staircase. The packaged standard-library checker independently evaluates finite differences and frontiers; it is diagnostic, not a proof.
+## correctness
 
-## Originality
-PASS on accessible comparisons, with residual priority risk. Carslake et al. (2009), Table 2, state a simulated partial ordering (S2), not a complete terminal sensitivity classification or sequential crossing budget. Giaimo and Traulsen (2021) prove elasticity-flow inequalities, a distinct derivative normalization, not these absolute sensitivity thresholds. Giaimo and Traulsen (2022) treat age-specific perturbations within stage-structured models; those do not state the finite-class terminal fertility budget staircase. Generic Perron sensitivity and stable-stage distribution formulas are well known, and may make the result accessible as a consequence without the explicit claim being named. This is a precise risk, not a claim of exhaustive historical priority.
+PASS
 
-## Value
-PASS. The exact feasible boundary \(\prod_{i=1}^{n-1}s_i>1-t\) separates life histories in which terminal-class fertility can ever dominate all younger-class absolute fertility sensitivities while population growth exceeds replacement. The full ordered crossings supply a parameter-free ranking protocol for a natural type of age-class projection with terminal survival; they refine a published numerically identified sensitivity rule. The finding is not presented as an empirically calibrated management recommendation, and no downstream theorem is needed for this finite structural classification.
+Independently eliminate lower rows to normalize the stable age vector by w_1=1. Then lambda=sum_j f_j w_j(lambda); implicit differentiation gives G_j=w_j/(1-sum_i f_i w_i'), a common positive denominator (the weights are nonincreasing functions of lambda>t). The lower-row multipliers are s_j/lambda through class n-1, and s_(n-1)/(lambda-t) at the terminal step, giving strict nonterminal descent in the stated growth regime and exactly the reported tail-product ratio. For terminal-only fertility F=lambda/w_n(lambda) increases strictly. The h_j used to compare ranks increase from 1-t to infinity on [1,infinity); equality P_j=1-t reaches replacement only. Eligible indices form a suffix, and at a crossing with j the terminal value is strictly above j+1, so that next crossing must occur later. This includes t=0 (no growing-regime crossing) and survival entries equal to one (crossings remain distinct). An independent scalar bisection reproduces the three growth and fertility crossings in the four-class example. Inspected but did not execute the frozen checker; the proof is symbolic. Absolute sensitivities and not elasticities are ranked.
 
-## Closest literature and scientific limits
-The closest reported sensitivity claim is S2 in Carslake et al. (2009). A 2021 general theorem covers elasticity identities but not absolute sensitivity rankings, and the 2022 stage-age analysis describes a different perturbation axis. Older Leslie eigenvector and sensitivity references remain a historical-priority caveat. The linear projection, independent absolute perturbations, fixed positive survival, and terminal-only fertility family limit practical application.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass is limited to the explicit complete terminal-rank staircase and its all-ranks criterion, not the left/right Perron formula, the stable-age recurrence, or priority for the nonterminal ordering. The strongest inspected same-model rule stops at the penultimate class. The standard formula immediately gives the pointwise comparison, but the inspected work does not give the complete sequence of eligible and ordered crossings on a fertility path or the criterion for traversing all strict ranks.
+
+## value
+
+PASS
+
+A modest structural contribution: S2 identifies a real missing terminal comparison in a standard demographic model. The criterion distinguishes fixed-survival populations whose adult plus class can pass every absolute-sensitivity rank from those where some ranks are structurally impossible. It gives all threshold and tie conditions rather than only recomputing a sensitivity or naming an example. Its use is to interpret the terminal exception and diagnose crossings in the stated one-parameter family, not to recommend conservation interventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

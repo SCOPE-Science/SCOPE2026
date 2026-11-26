@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complexification of the real two-dimensional bilinear operator yields a two-component recurrence with period matrices \(T(h)\). Multiplying the matrices gives trace \(1-4uv-i(u+v)\) and determinant \(-uv\). The quadratic Schur–Cohn criterion gives both the necessary \(uv<1\) condition and the exact positive margin \(\Delta(u,v)>0\). The proof also treats \(\Delta=0\), the constant-step limit, and the equality cases of the small-step ratio. Exact rational substitution and finite eigenvalue computations from the distributed Python checker corroborate these identities. No finite test is used to infer the universal or asymptotic conclusions.
+## correctness
 
-## Originality — PASS (qualified)
-The closest constant-step OGDA results are Anagnostides–Penna (arXiv:2010.03211, Theorem 3.1) and de Montbrun–Renault (arXiv:2208.03085, Section 2); neither states a stability set for two different alternating learning rates. Alacaoglu–Böhm–Malitsky (arXiv:2212.13955, Sections 2 and 4) establish fixed-step equivalence of OGDA with golden-ratio methods and analyze a *different* adaptive algorithm. The two-period Floquet boundary and the vanishing-scale \(2\pm\sqrt3\) step-ratio obstruction are not covered by the identified claims. Accessible public mathematical records were checked for alias formulations. A more general older variable-coefficient multistep theorem may imply the criterion; that is a remaining priority risk.
+PASS
 
-## Value — PASS
-Variable learning rates are a natural change to a stabilizing optimistic-gradient solver. The result shows that individually stable, even arbitrarily small, steps do not ensure convergence of the naive step-scaled historical-gradient rule. A sharp necessary-and-sufficient two-period stability region and an exact nontrivial ratio threshold explain this genuinely structural failure and distinguish naive substitution from guarded adaptive algorithms. This is not asserted as a convergence analysis for those guarded algorithms.
+In complex coordinates T(h)=[[1−2ih,ih],[1,0]]. The product T(v)T(u) has trace 1−4uv−i(u+v) and determinant −uv. For roots ξ,η of z²+Az+B, the Schur margin (1−|B|²)²−|A−BĀ|² factors as (1−|ξ|²)(1−|η|²)|1−ξ conjugate(η)|². Under |B|<1 the last factor is positive and the roots cannot both be outside. This proves the strict test and the neutral/expansive alternatives without a continuity argument. Here the margin is Δ. When Δ<0, uv<1, the expansive eigenvalue is simple and its coefficient is nonzero off a proper real subspace; the expansive eigenvector has nonzero first component since M₁₂=(1−2iv)iu≠0, so even iterates themselves grow. The constant-step factor and the negative rational witness agree. At a fixed ratio write r=ab t² and C=(a+b)²/(ab). The leading bracket is 6−C, and when C=6 the exact bracket is 3r(3−10r−5r²)>0 for sufficiently small r. Hence both endpoints are stable in the stated small-step sense. The source checker was inspected, not run; its finite ratio samples are not equality certificates. `python3 /workspace/branches/review_reproduction.py 5` independently passed exact rational transfer-matrix, margin, witness and critical-bracket tests.
 
-## Limits and nearby work
-The model is a single unconstrained bilinear saddle in exact arithmetic, with positive deterministic period-two steps. No nonperiodic, nonlinear, stochastic, or finite-precision extension is claimed. Classical Schur stability and fixed-step OGDA convergence are prior mathematical ingredients. Independent priority and proof validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp constant-step cutoff and the Schur test are known and are not credited. The distinct claim is the explicit two-period stability/instability region for this current-step-scaled explicit method and its closed ratio boundary at vanishing scales. The strongest inspected period-two comparison has an extra resolvent, with a different stability region.
+
+## value
+
+PASS
+
+The first nonconstant periodic schedule is a natural test of whether fixed-step safeguards carry over to the explicit historical-gradient substitution. The sharp relative-step restriction gives a concrete negative answer even for arbitrarily small step sizes, and resolving the closed endpoints is important for that criterion. The finding gives a meaningful boundary for one precise optimizer, not a claim against safeguarded variable-step methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Writing \(a=\|Tx\|^2\), \(b=\|T^2x\|^2\), and using the normalized defect, the proof obtains \(\delta\ge a^2-b\) and, on \(Tx/\sqrt a\), \(\delta\ge b^2/a^2-\|T^3\|^2/a\). A norm-maximizing sequence yields a scalar minimax problem with solution \((3-\sqrt{5+4\varepsilon^2})/2\). Exact matrix multiplication exhibits a cubic-zero extremizer. Finite diagnostics agree but are not the proof.
+## correctness
 
-**Originality (PASS, with residual risk).** The accessible Pietrzycki 2026 abstract proves qualitative quasinormality using *two* exact moment equalities, whereas the present theorem gives a sharp operator-norm obstruction for *one* moment on cubic-zero operators. Pietrzycki–Stochel's published Theorems 2.1 and 4.1 describe qualitative moments or additional operator classes. Searches of published mathematical research records under the Embry, power-quasinormal and weighted-shift formulations revealed no statement implying the golden-ratio bound. However, the full text of Pietrzycki 2026 was not accessible; older equivalent terminology could also conceal priority.
+PASS
 
-**Mathematical value (PASS).** Cubic-zero is the first nilpotent class with potentially nonzero second iterate. The dimension-independent sharp lower bound is a nontrivial structural obstruction to approximate second-moment identities and the additional cubic-power estimate gives an explicit stability law. The bound is attained already in dimension three and is not a table recomputation or finite experiment.
+Normalize ||T||=1 and let δ=||(T*T)^2−(T²)*T²||. For a unit x, Cauchy–Schwarz gives δ≥a²−b with a=||Tx||² and b=||T²x||². For a>0 the same inequality at Tx/√a yields δ≥b²/a²−ε²/a. A norm-maximizing sequence with a→1 and a subsequential limit b→s∈[0,1] gives δ≥max(1−s,s²−ε²). Minimizing, including ε=1 where the crossing is at s=1, gives the stated envelope. Rescaling restores precisely the fourth and third powers of ||T||. At ε=0 the norm-one three-site shift with squared weights 1 and τ=(√5−1)/2 has defect diag(1−τ,τ²,0), and these nonzero entries coincide. At ε=1 the identity has zero defect. This covers both fields and non-norm-attaining operators. No intermediate sharpness is inferred. Replay is analytic from RESULT.md lines 22–53; the supplied NumPy script was inspected, not executed, and its finite checks are not needed for the theorem.
 
-**Limits.** Sharpness of the full parameter-dependent profile for intermediate cubic powers is open here, as are all general equality cases; no independent literature audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier primary sources checked supply qualitative exact or one-sided moment criteria, not a quantitative nilpotent gap or its stability law. The strongest distinct indexed match really has the same sharp constant and equality chain for two weights; it is a later record and covers only weighted shifts, not the unrestricted bound. No inspected prior statement subsumes the supported general result.
+
+## value
+
+PASS
+
+The cubic-zero case is the first nilpotent stage at which (T²)*T² can cancel part of (T*T)^2. A sharp dimension-independent lower bound resolves that cancellation question for arbitrary operators, not merely shifts. The envelope additionally gives quantitative separation as cubic powers get small, while the attained constant makes the estimate usable without quantitative conjectures about intermediate ε.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

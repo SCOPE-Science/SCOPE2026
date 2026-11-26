@@ -1,19 +1,21 @@
-# Assessment of the sharp bounded-tier house-supply threshold
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is finite house assignment with complete transitive weak preferences, at most \(k\) nonempty tiers per agent, and one distinct house per agent. Inclusion-minimal Hall-deficient agent sets have exactly one fewer neighboring top-choice houses. Each participating agent exhausts one tier and can participate at most \(k-1\) times. With \(T\) eliminations, \(R\le\min\{(n-1)T,n(k-1)-T\}\le(n-1)(k-1)\), leaving at least \(n\) houses. Hence a top-choice matching must exist. Identical rankings with \(k\) tiers of \(n-1\) houses demonstrate sharpness. Finite exact assignment searches and a separate peeling implementation agree on \(39,329\) complete-domain profiles, with additional boundary and randomized checks. The invariant and construction are proved for every \(n,k\) by the symbolic argument; computation alone is not used as an infinite certificate.
+PASS
 
-## Originality — PASS, with residual risk
+The sharp theorem survives unchanged. The implementation sentence at frozen RESULT.md line 25 did not distinguish testing the neighborhood cardinality of the current agent set from testing whether that set still contains a Hall violator. The cardinality-only deletion test can stop too early: take top sets {h},{h},{x,y},{x,y} on four active houses h,x,y,w. All four agents are deficient and each triple has three neighbors, but the first pair is deficient. The complete replacement at /workspace/repairs/5/RESULT.md uses a polynomial matching test for each restricted agent set with the house side fixed. Unsaturability is retained at each deletion. At termination every proper subset is saturable by restricting a matching of a single-deletion set, so Hall implies that the returned set itself is inclusion-minimal deficient. Its neighborhood has size z−1 for z agents, and z≥2. Each participation when at least n houses are active spends one entire current top tier, and no agent with only one surviving tier can participate because she sees all active houses. For any prefix begun with at least n houses, summing z−1≤(n−1)z/n and counting at most k−1 participations per agent bounds deletions by (n−1)(k−1). Thus the algorithm retains at least n houses after every prefix and terminates in a covering top-choice matching. Identical tiers of size n−1 force envy at the lower supply, or no injection when k=1. The minimization takes at most n² matching tests per round and at most m rounds. Independent bounded bitmask checks found zero failures in 6,561 profiles at (n,k,m)=(2,3,4) and 32,768 at (3,2,5); they found 78 obstructions in 4,096 at (3,2,4) and 6 in 729 at (2,3,3). The corrected shrinking rule returned an inclusion-minimal set on each of 12,802 unsaturable graphs among all 50,625 top-choice graphs with four agents, four houses and nonempty agent neighborhoods. Replay: node /workspace/review-evidence/5.js. These finite checks do not establish the universal bound or the running time. Frozen verification notes and code were inspected, not executed or modified.
 
-The 2019 Gan–Suksompong–Voudouris Hall-elimination algorithm is explicitly prior art; no claim is made to invent the algorithm, Hall's theorem, or envy-free house assignment. Comparison to its algorithm and structural results, the 2022 unweighted-graph envy-free matching work of Aigner-Horev and Segal-Halevi, the 2024 uncertain-preference work of Aziz et al., and the 2026 subsidy papers of Dai et al. and Teh et al. found no sharp universal formula \(k(n-1)+1\) in terms of the number of individual indifference tiers, nor the tight tier-incidence counting invariant. The result is logically neither implied by the general existence decision algorithm alone nor by positive-subsidy upper bounds without the new counting argument. An unindexed equivalent observation or a standard unpublished consequence of the 2019 algorithm is the principal priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies an exact resource-capacity law for coarse ordinal housing markets without requiring common rankings, utilities, randomness, or financial transfers. It separates a robust, always-feasible region from sharp worst-case impossibility, and yields a constructive guarantee for binary preferences at \(2n-1\) houses. It is a natural quantitative strengthening of existing matching-based envy-freeness methods, rather than an arbitrary enumeration or a renamed special case.
+The repaired claim credits the polynomial top-choice Hall-elimination algorithm and minimal-set existence to prior work; the supported distinct result is the sharp uniform bounded-tier supply guarantee. The inclusion-minimal matching-test correction repairs correctness, not originality. The decisive additive tier budget and tight worst-case supply are not stated or supplied by specializing the inspected unrestricted algorithm's existence/complexity result. The readily derived dichotomous case is not separately credited as new. A bounded follow-up search for the two specific supply bounds produced no new plausible primary candidate, not evidence of historical absence.
 
-## Prior-work limits
+## value
 
-The established peeling algorithm is not original here. The subsidy papers solve different optimization/online questions and do not by themselves imply the zero-subsidy supply threshold. The 2024 uncertain-preference paper concerns possible/certain envy under tie refinements, not this deterministic weak-order sharp existence guarantee. Searches cannot exclude unindexed equivalent results. The computational checker is finite-scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result asks for the smallest stock of houses that guarantees a feasible no-envy assignment under an interpretable restriction on individual preference coarseness. An existence algorithm does not tell a planner what stock necessarily suffices. The tier-edge accounting gives a tight answer under heterogeneous weak orders and the identical-order obstruction shows precisely why one fewer house can fail, without transfers. This value is retained by the implementation repair.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

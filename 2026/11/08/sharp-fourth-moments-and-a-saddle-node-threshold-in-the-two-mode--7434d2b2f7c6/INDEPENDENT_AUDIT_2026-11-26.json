@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:41:11.355010Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof",
+        "Frozen VERIFICATION.md, requirements.txt and check_ch.py (inspected, checker not executed)",
+        "/workspace/audit_checks/5.py"
+      ],
+      "rationale": "Using E[(X)_k]=lambda^k and descending exact expansion into the falling-factorial basis through order eight, I recovered N=lambda(1+2lambda t²) and E f⁴=lambda B. Differentiating K gives -8Q/(1+2lambda t²)^3. The sign at t=0 and the nonzero leading quartic term show that neither zero nor infinity is projectively stationary (use s=1/t at infinity); the odd part of B strictly prefers t to -t for positive t, excluding every negative direction from the maximum and every positive one from the minimum. Descartes gives one simple positive root; the negative half-line has at least one real root. The resultant divided by the leading coefficient gives discriminant -256R. Independent Sturm remainders end with a nonzero constant and give variations (3,3,2,2) at (0,1/250,1/200,+infinity), so the change from four simple real roots to two is unique. At small positive lambda the three negative roots deform from -3/2,-1,-1/2; Q(-1)>0 and Q(-1/2)<0 below the transition locate the nearest root in (-1,-1/2), with the other two below -1. The two latter roots cannot cross -1. The simple discriminant zero and fixed nonzero leading coefficient exclude a triple root or simultaneous collisions (the Sylvester matrix would have nullity ≥2). Thus the two left roots merge in a double root, with nonzero quadratic curvature in Q there and a local root splitting controlled by the simple zero of the discriminant. The corresponding K stationary point has nonzero cubic term, so it is an inflection; the derivative signs give the merging negative minimum and adjacent negative maximum. The rightmost negative root stays simple at the transition and, once only two real roots remain, is still in (-1,0) by the signs at those endpoints. The independent anchor comparison with t=-1/2 recovered all five c_i; c0,c1,c3,c4 are positive, and 4c0c4-c2² divided by 32lambda is strictly positive through 1/200 by monotonicity and exact sign there. Hence K(t)>K(-1/2) for all t≤-1 in the transition regime. The rightmost negative minimum is strictly below the anchor by the derivative sign on its right, so uniquely global, and above threshold there is no other candidate. Connectedness on the real projective circle proves the sharp full interval. Replay: python3 -B /workspace/audit_checks/5.py (exact moment/resultant/Sturm/comparison calculations, rational bisection of threshold; root ordering, stationary geometry and global selection are analytical).",
+      "residual_risks": [
+        "The threshold concerns stationary mixed-mode directions, not a jump in the global minimizer or a transition in the underlying Poisson law."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Charlier–Parseval identity gives the orthogonal second-order weighting in this law. The Poisson process Fock-space result gives an isometry and variance bounds for Poisson functionals."
+        ],
+        "reasoning": "These broader statements control second moments or express normalizations. They do not give a sharp fourth-order quotient over the projective coefficient line, and hence do not select the minimizing branch or the number of stationary roots as intensity varies.",
+        "searches": [
+          "Zacharovas–Hwang arXiv:0810.4756v1 §2.2 Proposition 2.2",
+          "Last–Penrose arXiv:0909.3205v1 Theorems 1.1–1.2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 7434d2b2f7c6 (same record), 229f887431e2 and 2ece3ada8b3a",
+        "arXiv:0810.4756v1",
+        "arXiv:0909.3205v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Gamma stationary quartic behaves differently for all shapes; the symmetric Jacobi record has an optimizer-switching threshold from an energy-quadratic profile. The Poisson-related primary passages provide normalization or variance identities."
+        ],
+        "reasoning": "A method to compute moment coefficients can reproduce the objective but does not imply its sharp stationary or extremal behavior. The same-day analogues neither dominate the Poisson problem nor explain this nonglobal collision. No relative priority is inferred from their common date.",
+        "searches": [
+          "Resultary 229f887431e2 and 2ece3ada8b3a Findings and stationary/extremum claims",
+          "arXiv:0810.4756v1 Proposition 2.2; arXiv:0909.3205v1 Theorems 1.1–1.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C1,C2 span all centered real quadratics of degree at most two for the Poisson law (triangular change of the polynomial basis). The exact catalog hit 7434d2b2f7c6 is the frozen claim; 229f887431e2 covers centered quadratic polynomials for a Gamma law."
+        ],
+        "reasoning": "A Poisson centered-quadratic norm result would cover the same domain regardless of naming Charlier modes. Gamma/Laguerre is a different measure, changing the quartic coefficients and number of stationary roots, not a reparametrization of this claim.",
+        "searches": [
+          "Resultary first-two-mode Poisson–Charlier normalized fourth moments and centered Poisson quadratic extremizers",
+          "Resultary two-mode stationary quartic for mixed Poisson chaos"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed exact Poisson threshold is in the target itself. The closely matched Gamma and Jacobi catalog records report sharp fourth moments or optimizer thresholds in different laws."
+        ],
+        "reasoning": "The related data are not tabulations of roots of the same polynomial or of equivalent parameters; the Gamma result has only two simple real stationary roots throughout, while the Jacobi transition switches optimizers. No independent exact threshold table for the Poisson ratio was established.",
+        "searches": [
+          "Resultary exact Poisson–Charlier endpoints and stationary saddle-node intensity 0.0046412067",
+          "Resultary Gamma and Jacobi two-mode fourth moments (229f887431e2, 2ece3ada8b3a)"
+        ]
+      },
+      "rationale": "Pass for the combined all-intensity sharp optimization, exact algebraic threshold for nonglobal stationary directions and exclusion of a competing global minimum. Charlier orthogonality and algebraic moment evaluation are background, not credited as new.",
+      "residual_risks": [
+        "Broader public-literature search coverage was limited; an unindexed exact computation under the centered quadratic or Charlier product/linearization terminology remains possible. No priority is certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Normalization overlap; inspected statement not sharp fourth-moment coverage",
+          "evidence": "The proposition gives the Parseval identity for Charlier generating-function coefficients.",
+          "identifier_or_url": "https://arxiv.org/pdf/0810.4756v1",
+          "material_read": "§2.2 pp. 6–7, Proposition 2.2, OA offsets 22487 and 23917",
+          "method": "Primary OA PDF",
+          "title": "A Charlier-Parseval approach to Poisson approximation and its applications",
+          "trigger": "Poisson–Charlier basis and exact Parseval formula"
+        },
+        {
+          "assessment": "Isometry/variance, not a sharp fourth-order real projective result",
+          "evidence": "Fock-space norm and variance identities, not extremizers or the number of critical branches in the first-two-mode quotient.",
+          "identifier_or_url": "https://arxiv.org/pdf/0909.3205v1",
+          "material_read": "Theorems 1.1–1.2, pp. 2–3, OA text near offset 5403",
+          "method": "Primary OA PDF",
+          "title": "Poisson process Fock space representation, chaos expansion and covariance inequalities",
+          "trigger": "General Poisson-chaos theorem possibly implying the result"
+        },
+        {
+          "assessment": "Different law and root geometry",
+          "evidence": "Centered real Gamma/Laguerre problem with two simple real roots for every positive shape.",
+          "identifier_or_url": "Resultary 229f887431e2",
+          "material_read": "Finding and stationary-root scope",
+          "method": "Local Resultary mirror",
+          "title": "Sharp fourth-moment geometry of centered quadratic Gamma polynomials",
+          "trigger": "Analogous mixed first-two-mode stationary analysis"
+        },
+        {
+          "assessment": "Different law and transition",
+          "evidence": "Symmetric Jacobi energy-quadratic profile has global optimizer switching, not the Poisson stationary inflection while the global minimizing branch persists.",
+          "identifier_or_url": "Resultary 2ece3ada8b3a",
+          "material_read": "Finding and optimizer threshold passages",
+          "method": "Local Resultary mirror",
+          "title": "Reentrant fourth-moment minima in symmetric Jacobi two-mode spaces",
+          "trigger": "Analogous sharp parametric fourth-moment transition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and global branch comparison",
+        "Resultary Gamma and Jacobi Findings for distinct forms of stationary/extremal behavior"
+      ],
+      "rationale": "The two lowest centered polynomial modes are the natural first test of mixing orders in a Poisson norm comparison. Neither extremum is a pure mode. The exact intensity at which a pair of nonglobal stationary directions disappears, with proof that the optimizing branch does not switch, distinguishes the phase portrait from the global norm profile. This is useful exact information for studying mixed-chaos optimizers beyond finite case sampling.",
+      "residual_risks": [
+        "No claim for noncentered, multivariate, complex or higher-degree Poisson polynomials."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

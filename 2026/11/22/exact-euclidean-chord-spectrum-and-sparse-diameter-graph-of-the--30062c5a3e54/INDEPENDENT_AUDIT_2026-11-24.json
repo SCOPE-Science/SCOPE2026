@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:54:49.189766Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bottman–Poliakova's Definition 4.4 and the braid-chamber argument after Theorem 4.1 make the 5! orders exhaustive: every order determines a refining normal chamber, and every vertex chamber contains one. I implemented an independent exact allocation: assign each pair of parallel lines to the last adjacent collision in its span, and each rectangle (one pair from each axis) to the later of its two assigned collisions. At an event this adds W1*W2 for its parallel pairs, then one for each rectangle with an already joined opposite pair, giving precisely W1*W2*T. This generates 108 distinct vectors of coordinate sum 27. Exact traversal reproduces every row of CHORD_SPECTRUM.csv, with 174 nonzero keys, 5778 pairs, and top entries (424,4), (430,4). It also reproduces the exact four 430 pairs; every edge joins degree 2 to degree 1, giving two disjoint P3 and 102 isolates. Convexity passes the maximum from vertices to the whole convex hull. Replay record2() in /workspace/branches/frozen_metric_replay.py; the supplied checker was read, not executed. The Table 10 count must be read at Chapoton–Pilaud's native (2,3), not their native (3,4), because they index by collision slots rather than lines. This notation clarification does not affect exhaustion or the metric theorem. The title's 'first mixed' should be read as first unequal mixed case up to swapping axes, not as excluding the smaller mixed C(3,3).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The same-realization inball result covers m,n>=3 and identifies the uniform incenter and exactly the singleton collision facets as tangent.",
+          "The primary source proves coordinate and normal-fan descriptions, not a stated general formula for chord multiplicities, longest chords, or the diameter graph."
+        ],
+        "reasoning": "An inradius constrained by tangent facets is not a maximum of vertex-pair separation. The inball theorem contains no deduction giving the entire pair metric or the two outer shells.",
+        "searches": [
+          "Resultary: 2ad33fc827f4, Bottman–Poliakova constrainahedron metric",
+          "arXiv:2208.14529v1 §4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.14529v1",
+        "arXiv:2201.06896 (DOI 10.5802/ahl.225)",
+        "Resultary:2ad33fc827f4",
+        "Resultary:30062c5a3e54 (self-hit only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary construction yields every vertex as an exact coordinate vector, but supplies no chord census. The actual finite determination requires constructing and deduplicating the vectors and comparing all 5778 pairs; the result isolates the explicit maximizers and second shell.",
+          "The inball result's active inequalities are about distances from the incenter to facets, not the six nonisolated vertices of the diameter graph."
+        ],
+        "reasoning": "The coordinate formulas provide exact inputs for a new classified finite observable, not an already known metric classification or a formal parameter substitution in a general distance theorem.",
+        "searches": [
+          "arXiv:2208.14529v1 Definition 4.4, Theorem 4.1 and concluding fan passage",
+          "Resultary: 2ad33fc827f4, inradius and equality statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Swapping the two line directions swaps coordinate blocks in the Bottman–Poliakova rule, so C(4,3) is an isometric reformulation; no distinct spectrum for that transpose was identified.",
+          "The Chapoton–Pilaud shuffle coordinates are given by their separate additive/Minkowski construction, not the Bottman–Poliakova thickness product. Bottman–Poliakova explicitly distinguish the realizations."
+        ],
+        "reasoning": "Combinatorial equivalence or an indexing shift does not by itself transfer Euclidean pair lengths. The genuinely isometric transpose was included in the search.",
+        "searches": [
+          "Resultary: C(3,4), integer chord spectrum, squared diameter 430, transposed constrainahedra",
+          "arXiv:2208.14529v1, Definition 4.4 and Remark 4.6",
+          "arXiv:2201.06896 §4, Propositions 146 and 148"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Table 10 has 108 at native (2,3) and (3,2), and 3580 at native (3,4). It tabulates vertex counts, not distances.",
+          "The direct spectrum hit 30062c5a3e54 is the assigned record itself. No independently published 174-row distance table was identified in the examined sources."
+        ],
+        "reasoning": "A vertex-count table cannot be substituted for a distance-frequency table and the self-match does not establish priority.",
+        "searches": [
+          "Chapoton–Pilaud Appendix A.3, Table 10",
+          "Resultary: 174 levels, 108 vertices, squared diameter 430 and runner-up 424"
+        ]
+      },
+      "rationale": "The collision realization and the vertex census were already known. The complete pair metric in those coordinates, exact runner-up and diameter-graph structure are distinct from the inspected inball theorem and the separate shuffle realization. Priority remains a bounded best-of-knowledge assessment.",
+      "residual_risks": [
+        "A public web query returned no usable results and is not negative evidence. An unindexed computational chord table or metric derivation for the transpose could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies coordinates and completeness, not a stated metric census in the inspected sections",
+          "evidence": [
+            "Collision coordinate W1*W2*T, coordinate sum binomial(m,2)binomial(n,2)+binomial(m,2)+binomial(n,2), and every vertex chamber a union of refining braid chambers."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2208.14529v1",
+          "material_read": "Definition 4.4 (offset 38973), Theorem 4.1 and Lemma 4.2 (offset 42712), concluding §4 normal-fan passage and Remark 4.6 (offsets near 54415–54661)",
+          "method": "Lawful primary full-text HTML, decisive bounded passages",
+          "title": "Constrainahedra",
+          "trigger": "Exact integer realization and exhaustive coordinate generation"
+        },
+        {
+          "assessment": "Known 108-vertex census in the shifted notation and a different coordinate construction",
+          "evidence": [
+            "Table 10 native (2,3) entry 108 and native (3,4) entry 3580."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.06896",
+          "material_read": "§4, Propositions 146 and 148 (offsets 155681 and 158330), Appendix A.3 Table 10 (offset 213300)",
+          "method": "Lawful arXiv copy of the same paper after author-hosted link failed",
+          "title": "Shuffles of deformed permutahedra, multiplihedra, constrainahedra, and biassociahedra",
+          "trigger": "Same combinatorial object and exact independent vertex count; potential prior metrics"
+        },
+        {
+          "assessment": "Inball coverage, not chord-spectrum coverage",
+          "evidence": [
+            "Uniform incenter, inradius (C-d)/sqrt(d(d-1)), and singleton collision tangent facets."
+          ],
+          "identifier_or_url": "Resultary:2ad33fc827f4",
+          "material_read": "RESULT.md Finding (offsets 95 and 545)",
+          "method": "Published local-mirror statement",
+          "title": "Singleton collision facets determine the inball of the Bottman–Poliakova constrainahedron",
+          "trigger": "Closest exact same-realization Euclidean metric result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest unequal case with both axes in the mixed regime provides a natural low-dimensional test of interaction between the collision axes; it is not a numerically chosen coordinate slice. The exact pair invariant distinguishes Euclidean realizations not distinguished by their vertex counts. The complete spectrum and very sparse diameter graph with a sharp runner-up give reproducible baseline data for extremal-chord comparisons, with no extrapolation to other dimensions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

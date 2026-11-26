@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:06:47.382552Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The magnetic Schur complement across the other two vertices has numerator 2(y+c) and denominator y²−1; the uniform regular incidence tree gives y=z−(m−1)h. Its upper-half-plane branch has Im y>0 and G=(m−1)/(my−z). Independently recomputing both discriminants gives exactly the frozen formulas. For |c|<1 the quartic discriminant is negative and D(0)<0, hence exactly two simple real zeros; between them, the unique real cubic root is in (−1,1) with positive y-derivative of the cubic. Its derivative as a function of energy is negative, ruling it out as the upper-half-plane branch, so the density is strictly positive there. Where the cubic roots are distinct and real, the resolvent has real boundary values except at possible isolated poles. Ordinary edges follow from the simple discriminant zeros: the double root is not ±1, so the E-partial does not vanish and the inverse has a square-root term. To check that G does not turn it into an inverse square root, write E=H(y)=y+2(m−1)(y+c)/(y²−1). If my−E=0 then y³−3y−2c=0, and substitution gives H′(y)=3−2m≠0, impossible at the double root. Also the derivative of G in y is nonzero there. At c=1 the physical quadratic has edges 1±sqrt(8(m−1)); G=(y−1)/((y−2)(y+1)), with regular edges except y=−1 at m=3. Its expansion gives the coefficient sqrt(2)/(3π); sign reversal handles c=−1. The algebraic resolvent has possible singular support only at finitely many real exceptional points, and the free-power atom threshold excludes all atoms since the largest input atom is at most 2/3 and m≥3. The trace is faithful, or equivalently all site diagonal spectral measures agree, so this gives full spectral support and pure absolute continuity of the operator, not just a single component of its spectral measure.",
+      "replay": "python3 /workspace/review_checks/exact_checks.py 1; checks the cubic, discriminants, pole exclusion identity and critical coefficient exactly. It does not substitute for analytic branch selection or the spectral-measure argument. Frozen moment and rational-grid evidence was inspected, not used as infinite-domain proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang's theorem describes the AC support via the homeomorphic image of {g>1/(m−1)}, gives positive analytic density there, and the preceding regularity facts give purely atomic singular part and the strict atom threshold. Here for |c|<1, g(x)=(1+c)/(x−1)²+(1−c)/(x+1)² is strictly greater than 1/2 throughout (−1,1), and on either outside ray increases toward the nearer pole from zero at infinity. So the superlevel set is one interval for every m≥3. For |c|=1 only one pole remains, and the superlevel set is immediately an interval as well.",
+          "Lux–Prodan covers connectedness through the F2 Cayley presentation at m=3; the same argument applies to multiples of three using a free product of copies of that decorated free-group presentation. Moreillon's inspected asymptotics passage assumes absolutely continuous Jacobi-type inputs and is not used to cover the atomic input here."
+        ],
+        "reasoning": "The free-power support criterion applies at the exact branching threshold, not merely eventually. Lux–Prodan does not give absolute continuity or the edges, and the regular atomic free-product Cayley presentation itself has torsion; the separate torsion-free presentation is what permits that comparison.",
+        "searches": [
+          "arXiv:1205.5542, Secs. 2–3, particularly Thm. 3.8",
+          "arXiv:2212.10329, Prop. 3.14",
+          "arXiv:2209.15607, edge-asymptotics assumptions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1205.5542",
+        "arXiv:1110.3419v2",
+        "Resultary 2026/9/14/SCOPE007",
+        "arXiv:2212.10329",
+        "arXiv:2206.04543",
+        "arXiv:2209.15607",
+        "PMID:17919051 (abstract)",
+        "doi:10.1103/PhysRevB.7.3777 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two exterior g crossings are simple by strict exterior monotonicity with nonzero derivative. Their endpoint energies are H evaluated there, equivalently the real critical values obtained by discriminating the cleared cubic (H(w)−E)(w²−1); the known map gives the quartic by direct elimination. At these simple critical points G has no pole since H′=3−2m wherever m w−H=0. Thus the generic regular edges follow by inversion. The published β density has edges x±=(m+1±2sqrt(2(m−1)))/(3m) and is proportional to sqrt((x−x−)(x+−x))/(x(1−x)). Only when m=3 does x−=0, then x+=8/9. With E=3m x−m, its exact singular coefficient is sqrt(2)/(3π)."
+        ],
+        "reasoning": "The single-band and pure-AC statements hold by the general theorem and the two-pole inequality. The displayed edge law is exact prior coverage at the critical fluxes, and the generic algebraic description comes by routine elimination and local inversion. Neither the concrete energy units nor the absence of the exact quartic in the prior wording prevents those implications.",
+        "searches": [
+          "arXiv:1205.5542, Thm. 3.8 and support parametrization",
+          "arXiv:1110.3419v2, Eq. (14) and convolution-power identification"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The block Cayley adjacency is the sum of free summands with common law ν, and Gν(w)=(w²−1)/(w³−3w−2c). Thus Fν(w)=w−(1+c)/(w−1)−(1−c)/(w+1). The prior subordination map m w−(m−1)Fν(w) is exactly the frozen map H(w).",
+          "At c=1, ν=(2/3)δ_{−1}+(1/3)δ₂, hence the energy variable is E=3m x−m for x with free-binomial parameters σ=m/3 and θ=2m/3."
+        ],
+        "reasoning": "These are exact reductions preserving the trace law; the group trace is faithful, so support and absence of singular mass transfer to the magnetic operator. No assumption about a generic continuous input is needed in Huang's theorem.",
+        "searches": [
+          "Resultary: triangle cactus uniform magnetic flux and three-atom free convolution powers",
+          "arXiv:1205.5542, Nevanlinna representation and Theorem 3.8",
+          "arXiv:1110.3419v2, free-binomial law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE007 supplies the c=0 slice by a dilation of sqrt(3), including one band and ordinary edges. Eq. (14) supplies both endpoint-flux edges and their density, by reflection for c=−1. Mosseri–Vogeler–Vidal's flux-dependent cubic and spectra are for m=2. The older exact Husimi-cactus abstract describes finite cacti; full coverage was not established from that abstract."
+        ],
+        "reasoning": "No matching all-flux quartic table was identified. These exact distributions and neighboring parameter values should not be conflated: SCOPE007 and the free-binomial density give genuine exact slices, while the m=2 computation does not cover higher branching.",
+        "searches": [
+          "Resultary 2026/9/14/SCOPE007, three-point uniform free power",
+          "arXiv:1110.3419v2, Eq. (14)",
+          "arXiv:2206.04543, Sec. III.D and Eqs. (17)–(20)",
+          "Spectra of Husimi cacti: exact results and applications, literature search"
+        ]
+      },
+      "rationale": "The all-flux structural claim, not just the credited symmetric slice, is a direct corollary of Huang's free-power support and density theorem applied to the exact triangle law. Its Nevanlinna integral reduces to a two-term function whose level set has one component by an elementary inequality. The endpoint-flux laws, including the exceptional coefficient, are direct instances of the published free-binomial density. For generic flux the specific quartic is the routine discriminant elimination of the known subordination map, and the ordinary edge expansion follows from the map's simple critical points and a nonvanishing Cauchy denominator. No retrieved source is asserted to print this exact quartic in magnetic notation. The decision rests on the mathematical implication covering the physical conclusions, not on the literature access gaps.",
+      "residual_risks": [
+        "Older Husimi-cactus full-text coverage remains uncertain. No claim is made that the explicit quartic is already printed. The FAIL rests on affirmative support and density coverage and the direct algebraic specialization, not on missing papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_ALL_FLUX_STRUCTURAL_IMPLICATION",
+          "evidence": [
+            "Thm. 3.8 gives the AC support as the closure of the homeomorphic image of the level set and an explicit positive density on that image. It applies to a probability measure not a point mass. The preceding regularity passage states the singular part is purely atomic, and the mass cutoff is strict."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1205.5542",
+          "material_read": "Regularity paragraph on p. 5; g and level-set definitions pp. 5–6, text offsets 15100–17350; Thm. 3.8 and proof pp. 9–10, text offsets 29350–31800",
+          "method": "Insert the two-pole reciprocal Cauchy transform and check the exact level set, atom threshold, support homeomorphism and density positivity.",
+          "title": "Supports of measures in a free additive convolution semigroup",
+          "trigger": "Potential broad coverage of support for atomic free powers at the actual branching threshold"
+        },
+        {
+          "assessment": "EXACT_ENDPOINT_FLUX_COVERAGE_INCLUDING_CRITICAL_CONSTANT",
+          "evidence": [
+            "The density is (σ+θ)/(2π) times sqrt((x−x−)(x+−x))/(x(1−x)) and the power of pδ₀+(1−p)δ_{1/m} has σ=m(1−p), θ=mp."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.3419v2",
+          "material_read": "p. 6, Eq. (14), endpoints, density and immediately following free-convolution-power identification (offsets 23200–26600)",
+          "method": "Set n=m and p=2/3 in the Bernoulli power and convert x to E=3m x−m.",
+          "title": "Dual Lukacs regressions for non-commutative variables",
+          "trigger": "Possible exact free-binomial coverage of degenerate magnetic flux"
+        },
+        {
+          "assessment": "EXACT_C_ZERO_SLICE",
+          "evidence": [
+            "For t>3/2 one band and ordinary edges; its inverse-cubic-root critical point has a different parameter and is not the magnetic edge in the frozen theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/14/SCOPE007",
+          "material_read": "Mirrored RESULT.md, Finding and proof, offset 0 onward",
+          "method": "Compare the base measures under dilation, and m≥3 with the continuous-power regime t>3/2.",
+          "title": "No interior one-third cusp zero in free powers of the three-point uniform law",
+          "trigger": "Exact unmagnetized-in-cosine three-atom slice"
+        },
+        {
+          "assessment": "PARTIAL_GAPLESSNESS_COVERAGE",
+          "evidence": [
+            "Torsion-free Baum–Connes groups give connected spectra for scalar self-adjoint elements; the claim is not a pure-AC statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2212.10329",
+          "material_read": "Sec. 3.2, Prop. 3.14(ii)–(iii), pp. 19–20, offset around 75000",
+          "method": "Use the F2 generators a,b,ab and inverses, with coherent uniform flux via generator phases; distinguish connectedness from spectral type.",
+          "title": "Spectral and Combinatorial Aspects of Cayley-Crystals",
+          "trigger": "Prior connected-spectrum theorem and the free-group graph realization"
+        },
+        {
+          "assessment": "LOWER_BRANCHING_PRECEDENT_NOT_FULL_COVERAGE",
+          "evidence": [
+            "The line graph is the m=2 cactus, with flux-dependent self-energy and flat-band behavior, not the m≥3 family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.04543",
+          "material_read": "Sec. III.D, pp. 8–9, Eqs. (17)–(20), offsets around 45700 and 52000",
+          "method": "Compare the trivalent-tree line graph to the assigned triangle incidence branching.",
+          "title": "Aharonov-Bohm cages, flat bands, and gap labeling in hyperbolic tilings",
+          "trigger": "Most direct magnetic Husimi spectral precedent"
+        },
+        {
+          "assessment": "DISTINCT_INPUT_HYPOTHESES_IN_INSPECTED_PASSAGE",
+          "evidence": [
+            "The stated local power-law analysis is for AC input under Jacobi-type assumptions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.15607",
+          "material_read": "Introduction p. 2, around offset 6974, on free-power edge asymptotics and regularity assumptions",
+          "method": "Compare the AC Jacobi-type input hypothesis to the discrete triangle law.",
+          "title": "Density of the free additive convolution of multi-cut measures",
+          "trigger": "Possible stronger edge-law theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMITED",
+          "evidence": [
+            "The indexed abstract starts from exact relations for finite Husimi cacti; it does not establish or exclude the infinite magnetic theorem."
+          ],
+          "identifier_or_url": "PMID:17919051; doi:10.1103/PhysRevB.7.3777",
+          "material_read": "Indexed abstract of the finite-cacti paper only; Thorpe–Weaire–Alben full text not recovered",
+          "method": "Attempt lawful access and compare only the visible finite-cacti scope; no whole-paper noncoverage inference.",
+          "title": "Spectra of Husimi cacti: exact results and applications; Electronic Properties of an Amorphous Solid III",
+          "trigger": "Older potentially equivalent Husimi spectra under another label"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The graph formulation is a useful exposition, but the claimed band, its spectral type, and the critical singularity are obtained directly from the prior general criterion and exact free-binomial law. The extra quartic presentation is the discriminant of the cleared universal map, not an independent new spectral invariant or previously unresolved transition. The threshold and edge profile would have clear scientific value if they were not mechanically implied.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

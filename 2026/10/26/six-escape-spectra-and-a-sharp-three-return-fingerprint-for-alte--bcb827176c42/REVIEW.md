@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim uses the phase-labelled two-sided shift for zeta counts and Lebesgue almost-everywhere binary coding for escape, avoiding dyadic-endpoint conflation. The four-state de Bruijn transfer is exact; each schedule is one of 64 finite pairs. Complement, phase exchange and simultaneous word reversal preserve time-two traces, and the 14 explicitly listed group orbits partition all 64. Direct integer determinants prove six zeta polynomials. Perron root isolation proves strict entropy ordering; Newton identities and a concrete equal-two-count pair prove the sharp three-return cutoff. The standalone exact verifier corroborates every finite case and many direct string counts.
+PASS
 
-## Originality
+Use the 2-bit overlapping states and delete one transition in each phase. A time-two edge has a unique intermediate state determined by its endpoints; closed length-j paths count exactly the phase-labelled 2j-periodic strings including repeats. Thus the trace determinant formula gives the symbolic zeta function. Survivor cylinder counts come from summing entries of the alternating products and multiplying by 2^(-n-2). For even n these sums are comparable to an induced norm of P^(n/2); for odd n the terminal vector M_u1 has entries in [1,2], preserving the same growth exponent. The finite-state entropy and escape formulas follow. The unpunctured matrix has rank 2, hence each deleted-edge matrix and P have rank ≤3, so the first three traces determine the full determinant by Newton identities. Independent exact reproduction checked all 64 ordered pairs (including the static pairs) and 192 cyclic word counts: class sizes 8,16,12,8,16,4, the stated six cubic denominators and all triples agree. Rational disjoint brackets and monotonicity of each cubic from 5/2 establish strict Perron ordering; the end cubics give the squares of the golden and tribonacci constants. 000:000 and 000:001 both give (3,11) but have third returns 39 and 33, proving sharpness. Replay: branches/9444d01f-7582-4398-904b-46ef7365b438/reproduce_census.py. This finite run checks the classification, not the all-time identities by itself. The zeta calculation does not claim interval endpoint periodic counts. Frozen checker and verification notes inspected, not rerun; audit/attestation/Lean were not performed in the frozen record.
 
-PASS relative to examined sources, with priority risk. The 2012 static-hole primary source supplies general overlap techniques, the 2013 moving-hole primary source treats sinusoidal oscillation or breathing mostly by Ulam calculations/approximations, and the 2021 fixed-cylinder paper maximizes escape for one static hole. Their inspected statements do not give the exact period-two depth-three six-class census or the sharp three-return orbit fingerprint. Standard de Bruijn determinant machinery is prior knowledge. An unlocated earlier explicit enumeration remains possible; absence of a search hit is not proof of priority.
+## originality
 
-## Value
+PASS
 
-PASS. The pair of equal-size, alternating length-three holes is the smallest natural next-memory test of time-periodic Markov leakage beyond two-symbol edges. Its complete escape spectrum spans six exact values with strict extremizers and counts, and static and complementary moving holes can share *all* return-point counts. The sharp six-iteration observation horizon supplies a finite but intrinsic dynamical discriminator; none of these numerical strata follows without the overlap classification, though general matrix methods are standard.
+The inspected primary literature supplies return/transfer methods and static or continuous moving-hole results, and one later indexed result gives the same class-C cubic for a single schedule. None of those statements or implications gives this complete equal-depth, period-two spectrum, or the optimal fingerprint within it. Credit is for that finite classification and sharpness, not the determinant method or the individual static spectra.
 
-## Remaining limitations
+## value
 
-No classification of deeper holes or nonperiodic forcing is claimed. Interval-map periodic endpoint conventions differ from symbolic periodic-point conventions. Published priority and the significance of the finite model require independent assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete exact classification of a natural first moving-hole family where hole sizes and depths are held fixed and only the schedule varies. The six different rates exhibit real schedule effects, and the sharp finite return test and static/alternating spectral coincidences show exactly what short periodic data can and cannot recover. The value does not hinge on generalizing beyond this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

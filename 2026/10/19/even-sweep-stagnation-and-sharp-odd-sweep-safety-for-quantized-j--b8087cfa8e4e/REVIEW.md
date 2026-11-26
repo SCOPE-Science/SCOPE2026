@@ -1,13 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The correction polynomial is reconstructed directly from the zero-start inner recurrence. Symmetry reduces every error mode to a real scalar. A discrete convexity/chord inequality establishes the uniform sharp norm bound for odd sweep counts, and the endpoint eigenvectors establish both sharpness and failure at the longer-sweep threshold. The binary midpoint calculation is exact. The included rational checker independently multiplies actual small graph matrices; finite tests are only supporting evidence. No extrapolation from sampling is used.
+## correctness
 
-**Originality — PASS on the inspected record, with bounded residual risk.** The 2026 matrix-splitting paper provides the algorithm and a restart equivalence for the unperturbed splitting, not the quantized-operator odd/even phase result. Earlier multigrid work explicitly recognizes loss of definiteness under storage quantization, and classical Neumann iterations give the truncated polynomial, so neither ingredient is new. The combined quantified Perron-mode annihilation, sharp uniform odd-sweep safety inequality, power-of-two-degree binary realization, and bipartite convergence boundary were not located in inspected primary texts or semantic research-record searches. A possible older specialization in polynomial preconditioning remains a limitation; novelty is not inferred from search silence alone.
+PASS
 
-**Value — PASS.** The result explains a real design decision in restarted low-precision stationary correction: longer inner runs can completely remove the useful correction in a graph Perron mode despite exact residual refreshing. It gives a sharp safe inner-sweep policy for a natural family of SPD sparse systems and quantifies both rate preservation and instability boundaries. The result is structural, not an arbitrary small numerical example.
+Resetting the inner guess gives E_k=I-(I+rP) sum_{j=0}^{k-1}(-P)^j. Symmetry reduces its norm and convergence to the scalar polynomial g_k. At +1 the eigenvalue is 1 for even k (and the tested right-hand side gives a zero correction on every refresh) and −r for odd k. At −1 it is 1−k(1−r). For odd k write delta=1−r. On nonnegative λ one has g=−λ^k+delta·λ(1+λ^k)/(1+λ), so g≥−r using λ^k≤λ and g≤delta; for k≥3 with delta(k+1)≤2 the latter is at most r, while k=1 gives g=−rλ directly. On λ=−t, g=t^k−delta sum_{j=1}^k t^j≤rt^k. Summing the secant bound for t^j on j=0,...,k gives g+r≥(1+t^k)(1−delta(k+1)/2). Dropping the j=0 term instead gives g≥(1−k·delta/2)t^k−k·delta/2, strictly above −1 when k·delta<2. The nonnegative half also lies strictly between −1 and 1, and the −1 spectral endpoint proves necessity and the sharp rate deterioration when present. The predecessor of 1/d is (1−2^(-p))/d for dyadic d, so the midpoint and ties-to-even direction are as stated. The stochastic graph coupling has the +1 eigenvector and the sign vector gives −1 for bipartite instances; r<1 keeps the original operator SPD.
 
-**Closest literature.** Lindquist et al. (arXiv:2610.06414, Section 2.1), Tamstorf et al. (arXiv:2007.06628, Sections 1 and 4), Suzuki and Iwashita (arXiv:2505.20719, Sections 3–4), and Zhang and Trogdon (arXiv:1909.07506, Sections 1–3). Standard Neumann and spectral-theorem components are acknowledged explicitly in RESULT.md.
+## originality
 
-**Limitations and residual risk.** The exact-arithmetic-after-storage idealization does not certify an IEEE hardware run with additional operation rounding. The source quantization boundary entails large condition numbers; no universal well-conditioned failure is claimed. Independent bibliographic and mathematical audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge pass for the combination of the uniform sharp odd-sweep estimate and parity split under the exact-residual/stored-coupling mismatch, realized by literal binary ties-to-even storage. Truncated Neumann polynomials, graph endpoints, and midpoint rounding alone are standard. The closest inspected schemes do not supply the mismatch with this boundary spectrum and do not state the resulting sharp scalar bound.
+
+## value
+
+PASS
+
+The exact boundary separates three practically distinguishable behaviors of a motivated correction architecture: every even count can stall, a long range of odd counts does not improve the worst-case contraction, and excessive odd counts can destabilize a positive-definite target. Exact binary round-to-nearest witnesses show that the mismatch need not be an arbitrary perturbation. The uniform sharp estimate over the symmetric spectral interval, not just the scalar stagnation, supplies the substantive result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

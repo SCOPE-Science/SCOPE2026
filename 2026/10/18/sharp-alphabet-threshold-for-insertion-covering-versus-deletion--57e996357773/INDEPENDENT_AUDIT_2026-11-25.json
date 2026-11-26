@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:51:19.247031Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen theorem's two numerical boundaries are sound. To force a deletion target y, it suffices to construct one ambient word whose every allowed subsequence contains y. At m=n−R=1 or for repeated length-two targets use a constant word. For distinct a,b, the word a^(R+1)b^(R+1) has no ab-avoiding subsequence longer than R+1. At m=3 over any q≥3, a word of length 2R+3 has at most R copies of at least one prescribed letter from {0,1,2}, since 3(R+1)>2R+3 for R≥1. Delete all its copies, then pad to R deletions; the avoidance code insertion-covers but misses 012. That proves the repaired q≥3 onset and covers the boundary R=1. The frozen binary comparison also holds: 000, 001 and 010 witnesses up to symmetries cover m=3; for 010 the between-selected-zeros restriction bounds an avoiding length by R+2. At m=4 any alleged ambient word forcing 0110 must have exactly R+2 of each symbol, but its R+1 consecutive-zero gaps would each require two ones. The repaired RESULT.md and SLOGAN.txt retain the binary threshold only as credited context. Independent replay: python3 -B /workspace/branches/reproduce_frozen_checks.py 5 maximizes avoiding-subsequence length via a greedy-prefix automaton on every ambient word, for (q,R)=(2,1),(2,2),(3,1) through each onset. It confirms the stated implication below and failure at the boundary in those cases only; the uploaded code and recorded counts were inspected but not rerun.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Sun–Ge gives the all-R binary upper witness; the foundational source treats minimum codebook cardinality.",
+          "The ternary cardinality study constructs a size-33 separating code at n=4 and R=1, excluding 012 and 102."
+        ],
+        "reasoning": "Minimum size at a prescribed length is a different invariant from first possible length across all radii. The ternary study gives one existence case with a stronger cardinality requirement, but no general blocklength exclusion or all-parameter construction.",
+        "searches": [
+          "arXiv:2606.15379v1 Section III Theorem III.2 and Remark III.3",
+          "arXiv:1911.09944, definitions and stated bounds",
+          "2026/11/8/SCOPE-exact-ternary-length-four-insertion-covering-threshold-and-the-t--2ff15d49787f"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.15379v1",
+        "arXiv:1911.09944",
+        "Resultary 09950c1acd62, 2ff15d49787f and ranked resilience results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 25 statement prohibits binary separation at all R<n≤R+3 and attains R+4 for every R, exactly covering the frozen binary branch.",
+          "The June paper proves the R+4 side via the adjacent-zero count, not the lower bound or the alphabet transition.",
+          "The November 8 statement assumes q=3, R=1 and n=4; it does not compare all n or positive R."
+        ],
+        "reasoning": "The repaired claim does not repeat the binary theorem as a contribution. Enlarging an alphabet changes the ambient covering space and the available missing targets, so one cannot deduce the nonbinary upper bound and universal lower bound just by relabeling or embedding the binary code. The repaired upper mechanism is the count of a prescribed distinct-letter triple.",
+        "searches": [
+          "2026/10/25/SCOPE-sharp-onset-and-maximal-binary-insertion-deletion-covering-separ--09950c1acd62/RESULT.md",
+          "arXiv:2606.15379v1 Theorem III.2 versus all-q onset",
+          "November 8 indexed ternary cardinality Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 indexed binary record states the maximal-avoidance versus robust-superword equivalence.",
+          "The November 2 indexed deletion-resilient sandwich result concerns binary patterns 0·1^b·0.",
+          "Xie–Sun–Ge Theorem III.2 forbids 0110, not a three-distinct-letter pattern."
+        ],
+        "reasoning": "For target y, any deletion-failing code omitting it lies in the full avoidance family; that family insertion-covers iff no ambient word forces y after R deletions. Binary sandwich resilience does not answer this test for a distinct-letter triple. The exact nonbinary threshold requires failure for one target at m=3 together with robust hosts for every target at each smaller m.",
+        "searches": [
+          "shortest host retaining a fixed three distinct letter scattered subsequence under any r deletions 3(r+1) deletion resilience nonbinary insertion deletion covering implication sharp onset",
+          "insertion covering not deletion covering minimum blocklength nonbinary ternary first failure R+3 012 unavoidable scattered subsequence deletion robust fixed pattern"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits inspected in full relevant passages include 09950c1acd62 (exact binary threshold and stronger maximality) and 2ff15d49787f (ternary single-insertion cardinality). No other exact all-R and all-q≥3 onset surfaced in those returns."
+        ],
+        "reasoning": "Neither the symbolic binary classification nor fixed-R code-size computation is an exact table for the nonbinary first-blocklength invariant for arbitrary R. This is a bounded query comparison, not a claim of catalog exhaustiveness.",
+        "searches": [
+          "Nonbinary insertion covering does not imply deletion covering minimum blocklength R+3 q at least 3 avoiding 012 scattered subsequence deleting R symbols robust superword",
+          "shortest host retaining a fixed three distinct letter scattered subsequence under any r deletions 3(r+1) deletion resilience nonbinary insertion deletion covering implication sharp onset"
+        ]
+      },
+      "rationale": "Pass applies to the narrowed all-positive-radius nonbinary first-blocklength theorem. The frozen all-alphabet framing presented a binary threshold that is fully covered by a distinct indexed record, which even classifies the maximal separators. That is an overlap, not a claim of chronological priority for the later-dated record. The ternary q=3,R=1 existence slice is also indexed. The corrected RESULT.md explicitly distinguishes these from the general nonbinary onset; neither overlapping result supplies the nonbinary theorem for general q,R.",
+      "residual_risks": [
+        "An equivalent general nonbinary robust-subsequence calculation may be couched in unavoidable-pattern or deletion-resilience terminology.",
+        "Foundational paper comparison is limited to the inspected passages; catalogue and primary searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the frozen binary existence proof; does not supply the exact nonbinary onset.",
+          "evidence": [
+            "Theorem III.2 uses C_R⊂{0,1}^{R+4} avoiding 0110 for all R≥1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2606.15379v1",
+          "material_read": "Section III, Theorem III.2 and proof, PDF p. 6, offsets 25300–28568; following Remark III.3 checked for continuation",
+          "method": "Open primary PDF passages",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Direct earlier nonequivalence construction"
+        },
+        {
+          "assessment": "Supports the two covering definitions and discusses cardinality bounds; inspected passages do not determine implication onset.",
+          "evidence": [
+            "Every length n+R word contains a center for insertion coverage, and every length n−R word embeds in a center for deletion coverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.09944",
+          "material_read": "Introduction and abstract, PDF p. 1, offset 1450–3268",
+          "method": "Open primary PDF bounded passages",
+          "title": "Covering Codes using Insertions or Deletions",
+          "trigger": "Foundational covering definitions and possibly equivalent threshold"
+        },
+        {
+          "assessment": "Covers the frozen binary branch exactly and is stronger there; alphabet restricted to binary.",
+          "evidence": [
+            "m≤3 never separates; at m=4 the two maximal codes avoid 0110 or 1001."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-sharp-onset-and-maximal-binary-insertion-deletion-covering-separ--09950c1acd62/RESULT.md",
+          "material_read": "Finding and Assumptions, offsets 0–2528",
+          "method": "Local-mirror original record passage",
+          "title": "Sharp onset and maximal binary insertion/deletion covering separators",
+          "trigger": "Exact indexed overlap on binary onset"
+        },
+        {
+          "assessment": "Overlaps one nonbinary existence slice, not the full first-blocklength theorem.",
+          "evidence": [
+            "Code C33 separates at q=3,n=4,R=1; the covered length and radius are held fixed throughout its statement."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-ternary-length-four-insertion-covering-threshold-and-the-t--2ff15d49787f/RESULT.md",
+          "material_read": "Finding, assumptions and separating-code witness/reduction, offsets 0–3108",
+          "method": "Local-mirror original record passage",
+          "title": "Exact ternary length-four insertion-covering threshold and the two-codeword cost of non-equivalence",
+          "trigger": "Plausible direct overlap with nonbinary boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonbinary onset is a natural missing threshold after the earlier binary non-equivalence construction. It both excludes every earlier length and produces a one-symbol improvement that holds for all positive radii and every larger alphabet, explaining it by a third distinct symbol. This structural separation is useful independently of binary maximality and does not claim a code-size optimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

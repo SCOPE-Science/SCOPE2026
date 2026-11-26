@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T04:38:35.291875Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, §§1–5 of the proof; frozen VERIFICATION.md, artifacts/verify.py and artifacts/verification.txt inspected, not executed",
+        "Independent exact node collection, branches/6e9e989c-ecb3-4bdd-8254-ef2ea1c632cf/independent-midpoint-check.txt: (1,2,6) gives H=0, norm 1 and max 27/140; (1,3,6) gives H=13/35, norm 61/35 and max 8/35. The depth-one counterexample and the mixed-parity depth-three positive example were also checked. Replay by forming rational Lagrange coefficients at zero and adding c_j/N_j at every reduced rational midpoint."
+      ],
+      "rationale": "The Vandermonde conditions give the Lagrange weights at zero. For x_j=N_j^{-2}, the ratio of successive absolute per-node coefficients is bounded below by 2 times the product of (1-4^{-q}) over earlier levels, hence is strictly greater than one (the first ratio is at least two). Two grids in an integer-divisibility chain are nested if their quotient is odd and disjoint if it is even. Each actual node receives an alternating tail entirely within one block, with the strict sign of the terminal coefficient, so there are no zero weights. The nonfinal terminal level just before an even refinement at i is i-1; its sign is negative exactly when i and d have the same parity. Summing over disjoint negative blocks recovers the negative coefficient sums, and the sharp absolute perturbation bound is attained by sign-aligned node errors. For the strict maximum, tails in any earlier block have magnitude at most b_t<b_d, including singleton tails newly introduced at that block's last grid; in the final block only singleton tails reach b_d. This clarifies an overstatement in the prose of the maximum proof without changing the conclusion. The midpoint Euler–Maclaurin expansion terminates at the claimed degree and the moment conditions cancel all remaining even powers.",
+      "residual_risks": [
+        "The finite reproduction is corroboration only. The universal proof uses exact divisibility and exact arithmetic; its norm pertains to separately bounded absolute errors at distinct physical nodes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farzi allows general increasing divisions for trapezoidal Richardson/Neville extrapolation and discusses positivity for named closed-rule sequences. The October finding allows arbitrary integer-divisibility chains but keeps closed trapezoidal rules.",
+          "Sidi full text was not lawfully retrievable in the bounded inspection; bibliographic information alone gives no statement-level comparison."
+        ],
+        "reasoning": "Generality in division sizes or a general extrapolation construction does not by itself give a theorem about which physical midpoint samples overlap and the signs of their sums.",
+        "searches": [
+          "Farzi (2014) §§2, 3.1; Resultary 663b06718b7c; Sidi DOI 10.1137/S0036142994278589"
+        ]
+      },
+      "checked_sources": [
+        "Resultary records 663b06718b7c and b7c2819b6648",
+        "Farzi §2 and §3.1",
+        "Berrut–Trummer §3",
+        "Classical Romberg and generalized Richardson bibliographic leads as specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October trapezoidal result has the same numerical peak product at fixed N_j; it concludes positivity on every chain in its own setting.",
+          "The midpoint rule satisfies M_N=2T_{2N}-T_N with normalized closed trapezoidal rules T_N. Positivity of the two separate extrapolates does not determine signs of their difference at collected nodes. For example (1,2) is negative at the central midpoint, while (1,2,6) is positive throughout."
+        ],
+        "reasoning": "The peak product and coefficient method overlap substantially. The prior positivity results do not imply the block parity criterion or the associated negative mass without the new node-overlap analysis.",
+        "searches": [
+          "October arbitrary-chain Resultary theorem and September fixed-factor theorem; Farzi §3.1; Berrut–Trummer §3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berrut–Trummer identify the ordinary midpoint rule as the t=1/2 shift of a Riemann sum; the inspected extrapolation considers a fixed jump-offset example, not collected sample signs across integer-divisibility chains.",
+          "The two indexed results apply to closed composite trapezoidal nodes. Changing from the closed rule to the half-cell shift changes coincidence from unconditional nesting to parity-dependent nesting or disjointness."
+        ],
+        "reasoning": "An open/shifted-rule formulation is materially equivalent only if it handles fixed half-cell offsets, the identical extrapolation constraints, and signs after collecting physical nodes. The inspected shifted and closed formulations do not do this.",
+        "searches": [
+          "Resultary search for positive-weight integer-refinement Richardson–Romberg and midpoint node coincidences",
+          "Primary literature search for midpoint/open-rule extrapolation and collected weight signs",
+          "Berrut–Trummer §3; Resultary 663b06718b7c and b7c2819b6648"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed findings include positivity and peak-weight formulas, not a table/classification of midpoint chains indexed by the positions of even refinements."
+        ],
+        "reasoning": "A finite example or coefficient table cannot cover the asserted arbitrary-depth criterion. The closest indexed exact formulas concern a different node family.",
+        "searches": [
+          "Resultary published findings on generalized and positive-weight Romberg; the published fixed-factor and arbitrary-chain theorems"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the midpoint-specific necessary and sufficient parity classification and negative-block formula for all integer-divisibility chains. Evaluation by Lagrange weights, alternating growth techniques, polynomial exactness, the general norm identity, and the form of the final-grid peak are established or analogous to prior work, not independent novelty claims. No inspected prior statement covers the midpoint classification.",
+      "residual_risks": [
+        "Older open-rule extrapolation literature may use a different terminology; de Camargo and Sidi full text could not be compared, and the bounded searches do not establish historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial methodological overlap, different rule and sign classification",
+          "evidence": [
+            "All closed composite trapezoidal weights are positive; the maximum has the same numerical product."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-positive-weight-richardson-romberg-quadrature-on-every-nested-in--663b06718b7c",
+          "material_read": "RESULT.md, Finding",
+          "method": "Local mirror, opening passage",
+          "title": "Positive-weight Richardson–Romberg quadrature on every nested integer refinement chain",
+          "trigger": "Strongest arbitrary-chain positivity result"
+        },
+        {
+          "assessment": "Closed trapezoidal rules at fixed geometric ratios",
+          "evidence": [
+            "The hierarchy is N_k=s r^k and midpoint coincidence is not the subject of the theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648",
+          "material_read": "RESULT.md, Setting and Theorems 1–2",
+          "method": "Local mirror, opening passage",
+          "title": "Positive-weight generalized Romberg quadrature for every integer refinement factor",
+          "trigger": "Integer-refinement positivity and peak weight"
+        },
+        {
+          "assessment": "Methodological antecedent; inspected positivity is for closed rules",
+          "evidence": [
+            "General division sequences enter Richardson/Neville extrapolation of trapezoidal rules; named schemes appear in the positivity discussion."
+          ],
+          "identifier_or_url": "https://www.mathos.unios.hr/mc/index.php/mc/article/download/619/224",
+          "material_read": "§2 pp. 377–378 and §3.1 p. 379, text offsets near 7000 and 12835",
+          "method": "Bounded primary PDF passages",
+          "title": "Generalized extrapolation methods for solving nonlinear Fredholm integral equations",
+          "trigger": "Arbitrary integer divisions and sign analysis"
+        },
+        {
+          "assessment": "Defines the midpoint offset; inspected application is different",
+          "evidence": [
+            "The shift parameter t=1/2 gives the midpoint rule, and variable jumps may require offsets depending on h."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01462-0",
+          "material_read": "§3, PDF p. 3, text near offset 7260",
+          "method": "Bounded primary PDF passage",
+          "title": "Extrapolation quadrature from equispaced samples of functions with jumps",
+          "trigger": "Explicit midpoint rule and extrapolation in the same source"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01393-w",
+          "material_read": "Bibliographic metadata only",
+          "method": "Bounded lawful retrieval attempts; full text not reached",
+          "title": "A Chebyshev-Markov-Stieltjes separation type theorem for classical Romberg quadrature",
+          "trigger": "Possible prior positivity argument"
+        },
+        {
+          "assessment": "Unresolved access risk, not negative evidence",
+          "evidence": [],
+          "identifier_or_url": "https://doi.org/10.1137/S0036142994278589",
+          "material_read": "Bibliographic identification only",
+          "method": "Bounded lawful retrieval; HTTP 403 on attempt",
+          "title": "A Complete Convergence and Stability Theory for a Generalized Richardson Extrapolation Process",
+          "trigger": "Potential general stability framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and block-sign and norm proofs; independent positive and negative representative chains"
+      ],
+      "rationale": "For standard midpoint quadrature with an arbitrary admissible refinement chain, the classification decides directly whether high-order extrapolation retains norm one under bounded sample errors. The positions, not just the presence, of even refinements distinguish stable positive mixed chains from genuinely negative ones. Quantifying the defect gives a usable exact error bound on nonpositive chains. The contribution is the structural classification and its consequence for chain choice, not merely two small computed examples.",
+      "residual_risks": [
+        "No comparison of floating-point or stochastic performance is supported by this norm theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T06:40:15.118808Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 5–100",
+        "VERIFICATION.md and checker.py inspected; frozen checker not executed"
+      ],
+      "rationale": "The Taylor coefficients are c_0=a and c_k=r^(k-1)[(2ra+b)+(k-1)(ra+b)] for k>=1. Summation bounds their absolute total by the three covectors v_0,v_1,v_2 in the record, with equality when the two tail combinations point along the same ray. Summing squares/cross-products of the two numerator columns gives equal Hardy Gram diagonals (1+r^2)/(1-r^2)^3 and off-diagonal 2r/(1-r^2)^3; its determinant is (1-r^2)^(-4) and inversion gives the displayed matrix. The squared majorant norm is the maximum inverse-Gram norm squared of the sum of three unimodularly phased covectors by duality and Hilbert Cauchy–Schwarz. After fixing the first phase and optimizing the last, the off-diagonal objective becomes At+sqrt(B^2+C^2-2BCt) with A,B,C as in (69)–(72). Here A,B,C>0 and C/B>=2 on the positive stated interval; the objective is strictly concave. Its right derivative at t=-1 is A-BC/(B+C)<=0 by the factorization involving (1-2r)(1+2r); strict concavity gives the unique maximum even when the endpoint derivative vanishes at r=1/2. The last phase then must be -1 as well. Multiplying v_0-v_1-v_2 by the inverse Gram yields (1-r^2)(1+2r^2,-1-4r), and pairing gives the squared constant. Both tail combinations for that vector have strictly negative real sign after rescaling, so the majorant is exact and all extremizers arise from that unique phase choice and the Hilbert equality condition. At r=0 two coefficient magnitudes give the elementary equality criterion; at r=1/2 the unscaled extremizer has Wiener norm 9 and Hardy norm squared 12, consistent with 3sqrt(3)/2.",
+      "residual_risks": [
+        "The cutoff is for the verified dual-majorant phase argument; neither a formula nor a sharp transition for the actual embedding at radii above 1/2 is asserted.",
+        "For r>0 the pole in the z-plane is 1/r outside the disk; r is the Blaschke zero. The proof uses the analytic Taylor expansion in the disk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 result gives a bound of order sqrt(n/(1-r)); the 2026 result proves large-degree sharpness in order using explicit tests.",
+          "The Blaschke-powers source concerns asymptotic Fourier-coefficient behavior, not exact norm maximization on all numerator vectors.",
+          "The 2019 source is cited in the 2023 article (p. 11) but original text was not accessible."
+        ],
+        "reasoning": "A uniform estimate and an asymptotically sharp rate for a larger rational class do not provide a sharp finite n=2 upper bound on the coalesced-pole subspace. The inaccessible 2019 item remains a named limitation, not a proof of either coverage or lack of coverage.",
+        "searches": [
+          "DOI:10.2478/mjpaa-2023-0012, p. 4",
+          "arXiv:2603.03908, pp. 1–3",
+          "arXiv:2107.00405, abstract",
+          "H∞ interpolation and embedding theorems for rational functions (2019)"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md lines 106–117",
+        "Primary and indexed passages identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At r=1/2 the extremizer is -3 b_(1/2)/(1-z/2) for b_r=(z-r)/(1-rz), so it coincides up to scale with the n=2 test of Auxemery–Borichev–Zarouf at that endpoint.",
+          "The transition at 1/2 in that prior paper separates two asymptotic test constructions; here the factor (1-2r) controls the optimum over all phases of the majorant."
+        ],
+        "reasoning": "The endpoint coincidence provides a previously used candidate but not its global optimality, the exact embedding constant, or uniqueness; the repeated-factor test has a different numerator ratio from the interior candidate. Neither asymptotic sharpness nor the prior repeated-zero representation implies the exact result.",
+        "searches": [
+          "arXiv:2603.03908, p. 2 repeated-factor test family",
+          "DOI:10.2478/mjpaa-2023-0012, pp. 4–5",
+          "RESULT.md lines 66–98"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Putting two equal zeros r into the standard Hardy model-space description gives K_(b_r^2)=E_r; the basis can be taken proportional to (1-rz)^(-1) and b_r(z)/(1-rz).",
+          "The exact norm is equivalently a coefficient l1/H2 quotient on the full two-monomial numerator space, not just evaluation on a finite Blaschke product or one test vector."
+        ],
+        "reasoning": "Equivalence of spaces and the inessential Blaschke sign convention are accounted for. The inspected descriptions of the same model space do not evaluate its exact dual coefficient phase optimum or all equality cases.",
+        "searches": [
+          "DOI:10.2478/mjpaa-2023-0012, §3.1.2",
+          "arXiv:1310.1182, p. 2",
+          "arXiv:2603.03908, pp. 1–3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact catalog hit 44110e339241 is the frozen record itself.",
+          "The distinct same-day neighboring indexed result 1f83a1c49082 gives 2/sqrt(3) for a partial-section projection on homogeneous bidisk quadratics in the supremum norm, as read in its mirrored finding."
+        ],
+        "reasoning": "The actual projection, space and norm in the neighboring finding are different; there is no equality or implication match between that exact invariant and the present coefficient embedding. This conclusion is based on mathematical content, not ordering by date.",
+        "searches": [
+          "Resultary: exact Wiener-to-Hardy norm on the double-pole model space",
+          "2026/11/22/SCOPE-exact-wiener-to-hardy-norm-on-the-double-pole-model-space-up-to--44110e339241",
+          "2026/11/22/SCOPE-exact-first-partial-section-norm-of-homogeneous-bidisk-quadratic--1f83a1c49082"
+        ]
+      },
+      "rationale": "The exact full-subspace norm and equality vectors on 0<r<=1/2 were not established by the inspected general rational Wiener–Hardy inequalities or asymptotic lower-test results. The repeated model space itself is classical, r=0 is elementary, and the sharp endpoint vector is proportional to a published test function at n=2, rather than a new test function in isolation. The new assertion is the global exact norm and uniqueness at that endpoint and across the positive range, best of current knowledge.",
+      "residual_risks": [
+        "Full text of the named 2019 rational embedding paper was unavailable; this and possible unindexed exact finite-degree work leave a historical-priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Standard model-space identification and general order bound, not the exact double-pole constant.",
+          "evidence": [
+            "K_B=H^2 minus BH^2 has rational functions with poles at reciprocal zeros; general norm bound proportional to sqrt(n/(1-r))."
+          ],
+          "identifier_or_url": "https://doi.org/10.2478/mjpaa-2023-0012",
+          "material_read": "PDF pp. 1, 4–5, including §3.1.2, offsets 0, 7500, 9724; references p. 11 offset 35886",
+          "method": "Lawful publisher open PDF passage inspection",
+          "title": "H∞ interpolation constrained by Beurling–Sobolev norms",
+          "trigger": "Same embedding and model spaces"
+        },
+        {
+          "assessment": "Asymptotic order theorem and endpoint witness antecedent; no exact full-space n=2 upper bound in the inspected results.",
+          "evidence": [
+            "Uses (1-lambda*z)^(-1) b_lambda^(n-1) and a Dirichlet-kernel test in different parameter regimes; the n=2 repeated-factor test matches the candidate at lambda=1/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.03908",
+          "material_read": "Original PDF pp. 1–3, offsets 0 and 5417",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Asymptotic sharpness of a Nikolskii type inequality for rational functions in the Wiener algebra",
+          "trigger": "Rational Wiener/Hardy sharpness, repeated-factor tests and same cutoff"
+        },
+        {
+          "assessment": "Equivalent space but boundary L^p setting, not the coefficient Wiener quotient.",
+          "evidence": [
+            "Describes rational elements P/Q with degree bound on P and fixed pole multiplicities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.1182",
+          "material_read": "Original PDF p. 2, offset 5490",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Baranov–Zarouf preprint on rational Nikolskii inequalities",
+          "trigger": "Fixed rational model space with repeated poles"
+        },
+        {
+          "assessment": "Asymptotic coefficients of particular powers, not a sharp full two-dimensional embedding.",
+          "evidence": [
+            "The abstract states asymptotic Fourier-coefficient formulas for powers of one Blaschke factor."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.00405",
+          "material_read": "Original PDF p. 1, offset 0",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Borichev–Fouchet–Zarouf on Fourier coefficients of powers of a Blaschke factor",
+          "trigger": "Prior coefficients for repeated Blaschke powers"
+        },
+        {
+          "assessment": "An exact norm for a different operator and Banach space.",
+          "evidence": [
+            "The quadratic projection removes Cz^2 from Aw^2+Bzw+Cz^2 and has supremum-norm operator norm 2/sqrt(3)."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-exact-first-partial-section-norm-of-homogeneous-bidisk-quadratic--1f83a1c49082",
+          "material_read": "Mirrored RESULT.md, finding at offset 0",
+          "method": "Resultary identification and local mirror statement inspection",
+          "title": "Exact first partial-section norm of homogeneous bidisk quadratics",
+          "trigger": "Strongest distinct same-day exact-norm catalog neighbor"
+        },
+        {
+          "assessment": "Unresolved earlier-source risk; no whole-document inference.",
+          "evidence": [
+            "The 2023 source lists this as earlier work on rational interpolation and embedding."
+          ],
+          "identifier_or_url": "Baranov–Zarouf (2019), reference in DOI:10.2478/mjpaa-2023-0012",
+          "material_read": "Bibliographic citation, 2023 PDF p. 11 offset 35886; no original passages accessible",
+          "method": "Lawful DOI and publisher PDF/HTML retrieval attempts",
+          "title": "H∞ interpolation and embedding theorems for rational functions",
+          "trigger": "Potential earlier Rational Wiener–Hardy coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md lines 12–21 and 66–100",
+        "arXiv:2603.03908, repeated-factor test family and asymptotic comparison"
+      ],
+      "rationale": "A repeated pole is the first nontrivial coalesced-zero model for the rational Wiener/Hardy embedding, and its exact sharp constant and uniqueness are information not delivered by the large-degree rate. The range is motivated by an explicit global phase criterion, not by an arbitrary numeric sample; the half-radius case includes a prior test function but answering whether that test is a global optimizer is a distinct exact question. The result gives a reusable finite-degree benchmark for extensions to larger radii or distinct poles.",
+      "residual_risks": [
+        "No exact norm for all double-pole radii or distinct-pole rational spaces is established, and the majorant phase cutoff should not be presented as a phase transition of the underlying norm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment: boundary-cluster Korobov quadrature
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Bernoulli kernel polynomial, periodic sine density Fourier series and the analytic kernel mean establish the needed coefficients independently. The two-site sum/difference equations have bounded limits. The three-site averaged Gram subsystem has a determinant of order three in the mesh width and numerator of order two; the calculated nonzero positive residue yields the claimed A(1,-2,1) vector law. Exact norm and variance identities give the sharp growth coefficients. The 113 standalone high-precision checks reproduce sample Gram solves and Fourier identities, not the infinite-dimensional analytical proof.
+PASS
 
-## Originality — PASS, with residual risk
+The positive Fourier spectrum gives strict positive definiteness on these distinct periodic sites. The Bernoulli polynomial gives K(t,0)=k0-a t^2(1-t)^2 on [0,1]; convolving the sine-density coefficients gives the stated absolutely four-times differentiable kernel mean and the constants b0 and b2. I checked the two-site sum and difference limits b0/k0 and -b2/(2a), and the exact reduced determinant for three sites: 8 k0 a h^3-12 k0 a h^4-2 a^2 h^4(1-h)^4. Its cubic term survives quadratic cancellation. The numerator of the averaged outer weight has quadratic coefficient k0 b2/2+a b0. The outer difference is bounded and the middle weight is -2A/h+O(1). Hence A>0 gives the eventual signs, the exact leading l1 operator norm on arbitrary nodal perturbations, and the variance law for independent centered equal-variance errors. An independent evaluation from the determinant and the convergent mean series gave A=0.04457579267013564 and middle weight -11.5313217985 at N=128. Replay: RESULT.md lines 44–93 and the displayed determinant; read VERIFICATION.md and verify.py without running the frozen script. Distinctness for N>=3 is of transformed sites; the advertised physical-node distinctness holds throughout N>=5. Neither added-noise variance nor a single deliberately collapsing subset is a statement about inherent deterministic error or typical random subsamples.
 
-The source by Bartel, Gilbert, Griebel, Kuo and Sloan defines this quadrature mechanism and discusses conditioning and positivity but does not state the sharp boundary-cluster weight law. Closest published findings concern complete-lattice higher-order Korobov positivity, two-node random collision noise tails, first-order full-grid sine-periodized thresholds, or a three-node Gaussian-kernel sign diagram. Their hypotheses do not imply this fixed-size, smoothness-two, three-consecutive-node asymptotic, but their full papers were not all accessible. Exhaustive historical priority is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-This is a structurally motivated and explicitly quantified warning about a particular legitimate subsampling choice: a third nearby lattice node destabilizes optimal weights where a two-node cluster stays bounded. It computes the precise signed-weight and independent-noise amplification scales, rather than merely observing poor conditioning.
+The distinct claim is the sharp two-to-three-site contrast for this periodic kernel and sine density, including the explicit linear coefficient. The closest collision work uses the same general Gram reduction but a quartic rather than a cubic determinant under hypotheses excluding this kernel. The inspected full-lattice results do not govern inversion of a fixed-cardinality principal submatrix. This is a bounded originality decision, not a priority certification.
 
-## Scientific limitations
+## value
 
-The construction is deterministic and intentionally unfavorable, not representative of randomized or well-separated subsets; it does not contradict established convergence guarantees. Only α=2, γ=1, sine periodization, unregularized weights and one dimension are proved; no other parameters or empirical noise models are implied. No independent mathematical audit has taken place.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a motivated adverse design for an existing integration method. It separates simple ill-conditioning from actual weight instability: two nearly coincident sites remain bounded, while the next cluster develops a quantitatively sharp signed mode and an evaluation-noise penalty. The finite design and leading coefficient are useful to judge claims of positivity or robustness under deterministic subsampling, without implying typical-case failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

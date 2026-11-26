@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:59:31.909082Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The state (a_n,a_(n+1),a_(n+2)) advances by the stated integral matrix M of determinant one, so back substitution reaches w_(−4)=(−1,0,1). Multiplication gives M^7=I+2C and M^14=I+4B as displayed, with first coordinates of Cw_(−4) and Bw_(−4) equal to 1 and 5. For n=7s−4, odd s gives (a_n+1)≡2s mod 4. For s=2m>0, the j≥2 terms in (I+4B)^m are divisible by 2^(ν₂(m)+3) since binom(m,j)=(m/j)binom(m−1,j−1) and 2j−ν₂(j)≥3. Thus the leading 20m fixes the exact valuation. For all other branches the period of the state modulo 4 divides 14; the extra residue 5 mod 14 has valuation 2 because the first coordinate of Bw_5 is the even integer 148, fixing a_n+1≡4 mod 8. This exhausts all n≥0 and gives the stated counting classes: periods 14,14,28 at 0,1,2 and one progression of modulus 7·2^t at each t≥3. A single class has error strictly less than one. Enumerating the three short prefix periods gives ranges [−5/7,4/7], [−3/7,9/7], [−15/28,6/7]; the witness N=4,t=1 attains 9/7. Independently computed 4001 exact terms, valuations and prefixes confirm these checks (python -I /workspace/branches/independent_checks.py 1). Frozen VERIFICATION.md and verify.py were inspected, not executed. The infinite result rests on the matrix congruence and complete period argument, not on the diagnostics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "9db364243951 gives exact differences 1+ν₂(s−t) in each of the residues 3 and 4 mod 7 and a dyadic period law, with the same recurrence. The normalized-shifted chart in 1d412e89dd2f also treats the corresponding progression. These catalogue records are dated 22 November, later than the frozen finding. Ji et al. Lemma 3 bounds unshifted binary valuations from below; Guadalupe gives an exact unshifted ternary valuation law."
+        ],
+        "reasoning": "The later isometry is genuinely stronger for the unbounded branch, not merely similar vocabulary. In contrast an unshifted bound/census or another prime cannot be specialized to that branch for a_n+1.",
+        "searches": [
+          "Resultary 9db364243951 and 1d412e89dd2f, dyadic isometries and full residue sections",
+          "10.3390/sym14102004, §2.1",
+          "arXiv:2112.06187, Theorem 1.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 9db364243951",
+        "Resultary 1d412e89dd2f",
+        "Resultary 145313dde067",
+        "arXiv:2206.09174",
+        "10.3390/sym14102004",
+        "arXiv:2112.06187",
+        "OEIS A000930",
+        "10.3390/sym13010149 (access attempt)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The later isometry and its proof give M^(7·2^j)→I 2-adically. Taking s=2^j−1 in the r=3 branch sends u_(3+7s) to u_(−4)=−1. For fixed q≥0 and j>ν₂(q+1), ν₂(q−s)=ν₂(q+1); the finite difference valuation is constant, so its limit gives the exact shifted 1+ν₂(q+1)."
+        ],
+        "reasoning": "There is a direct implication from the later difference theorem plus the negative-index value to the difficult branch. This does not reverse the available chronology; neither the earlier prime-three result nor the unshifted binary results imply the shifted residue classifications and sharp 9/7 count.",
+        "searches": [
+          "9db364243951, offsets 0–2782, Finding and Proof §§1–2",
+          "145313dde067, Finding and Assumptions",
+          "arXiv:2206.09174 Theorem 3.6 and 10.3390/sym14102004 Lemma 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The initial 1,1,1 convention b_m equals a_(m+1) here, so the shifted expression becomes b_(n−1)+1 for n≥1, not the unshifted b_m. Theorem 3.6 of arXiv:2206.09174 uses the frozen normalization and the same +1 shift but prime three."
+        ],
+        "reasoning": "A shift of the index does not turn additive +1 into the unshifted recurrence, and the 3-adic law does not determine the 2-adic valuations.",
+        "searches": [
+          "Resultary: shifted Narayana cows binary valuations at +1, parity and index shifts",
+          "OEIS A000930, M0571, N0207",
+          "arXiv:2206.09174 normalization and Theorem 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "145313dde067 states an exact level law and uniform discrepancy at most 16 for ν₂(a_n), n≥1. The A000930 entry inspected identifies the sequence under index shift, not the shifted valuation table or its exact optimal bound."
+        ],
+        "reasoning": "The strongest exact indexed count concerns the wrong variable; no chronology among same-day records is assumed. Neither this count nor a table of recurrence terms constitutes an exact count for a_n+1.",
+        "searches": [
+          "Resultary: exact ν₂(a_n+1) levels and uniform sharp 9/7 prefix discrepancy",
+          "Resultary 145313dde067, same-day complete binary valuation law",
+          "OEIS A000930, definition and identifiers, offset 429"
+        ]
+      },
+      "rationale": "The same shifted terms have a prior prime-three theorem, and the same prime has prior unshifted lower bounds and a same-day exact unshifted law. These do not cover the shifted binary valuation. A later same-normalization isometry does imply the nonperiodic branch after centering it using the reversible recurrence, as shown below; it is not prior coverage, and does not state the sharp shifted prefix count. The exact level law and its joint sharp discrepancy survive the statement-level comparisons. This judgment is relative to the inspected evidence.",
+      "residual_risks": [
+        "Lin's full text was not recovered through the attempted lawful routes.",
+        "Unindexed equivalent shifted binary formulas or valuation counts could exist; bounded catalogue comparison is not proof of priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Later theorem implies the centered unbounded branch",
+          "evidence": "Exact difference isometry, seven-step matrix and iterative congruence; scope in the stated theorem is nonnegative indices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-dyadic-isometric-branches-and-singleton-residue-balls-for-na--9db364243951/RESULT.md",
+          "material_read": "Finding, assumptions and Proof §§1–2, offsets 0–2782",
+          "method": "Resultary search and paged local mirror",
+          "title": "Two dyadic isometric branches and singleton residue balls for Narayana numbers",
+          "trigger": "Near-equivalent dyadic branch with identical normalization"
+        },
+        {
+          "assessment": "Later close chart result, not priority evidence",
+          "evidence": "Its 7t+2 progression corresponds to frozen indices 7t+3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-two-complete-residue-sections-of-narayana-cows-at-every-power-of--1d412e89dd2f/RESULT.md",
+          "material_read": "Finding",
+          "method": "Resultary search and local mirror",
+          "title": "Two complete residue sections of Narayana cows at every power of two",
+          "trigger": "Same progression in another normalization"
+        },
+        {
+          "assessment": "Same recurrence but unshifted valuation, no order inferred",
+          "evidence": "Counts ν₂(a_n) for positive indices and gives uniform discrepancy ≤16.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-complete-binary-valuation-law-and-bounded-discrepancy-density--145313dde067/RESULT.md",
+          "material_read": "Finding and assumptions",
+          "method": "Resultary search and local mirror",
+          "title": "A complete binary valuation law and bounded-discrepancy density for Narayana numbers",
+          "trigger": "Same-day exact string of concepts: binary valuation and discrepancy"
+        },
+        {
+          "assessment": "Same shift at another prime",
+          "evidence": "Exact valuation law for ν₃(a_n+1), with the frozen normalization.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.09174",
+          "material_read": "PDF p. 1, Theorem 3.6 p. 5, OA offset 19300",
+          "method": "OA original PDF",
+          "title": "Narayana Sequence and The Brocard–Ramanujan Equation",
+          "trigger": "Prior valuations for identical shifted sequence"
+        },
+        {
+          "assessment": "Index-shifted normalization, unshifted lower bounds",
+          "evidence": "The bounds concern ν₂(G_n) on specified classes, where G_n=a_(n+1).",
+          "identifier_or_url": "10.3390/sym14102004",
+          "material_read": "PDF p. 1 and §2.1 Lemma 3 p. 3, OA offset 13000",
+          "method": "OA original PDF",
+          "title": "On Diophantine Equations Related to Narayana’s Cows Sequence and Double Factorials or Repdigits",
+          "trigger": "Prior binary valuation work"
+        },
+        {
+          "assessment": "Neither same prime nor shifted observable",
+          "evidence": "The law treats ν₃(a_n).",
+          "identifier_or_url": "https://arxiv.org/abs/2112.06187",
+          "material_read": "Theorem 1.1, PDF p. 2, OA offset 7790",
+          "method": "OA original PDF",
+          "title": "Guadalupe’s 3-adic valuation theorem for Narayana numbers",
+          "trigger": "Exact unshifted valuation analogue"
+        },
+        {
+          "assessment": "Base sequence catalogue, not a matching valuation table",
+          "evidence": "1,1,1 convention; historical M0571 and N0207.",
+          "identifier_or_url": "https://oeis.org/A000930",
+          "material_read": "Entry definition and identifiers near offset 429",
+          "method": "OA entry text",
+          "title": "Narayana’s cows sequence",
+          "trigger": "Database aliases, normalization, and possible exact table"
+        },
+        {
+          "assessment": "No full-text exclusion of overlapping claims",
+          "evidence": "The exact publisher PDF attempt returned landing-page level access or HTTP 403.",
+          "identifier_or_url": "10.3390/sym13010149",
+          "material_read": "Publisher landing-page level only; full text not available in the attempted routes",
+          "method": "Lawful publisher PDF attempt, configured direct and VPN routes",
+          "title": "On the Recurrence Properties of Narayana’s Cows Sequence",
+          "trigger": "Negative-index recurrence methods relevant to the centered branch"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shifted p-adic laws for this particular natural recurrence are motivated by the known prime-three case and by Diophantine applications of valuations. The infinite binary law reveals a unique index branch supporting arbitrarily high levels, establishes exact level frequencies, and gives the optimal uniform prefix error over all levels and cutoffs. The last conclusion is exact distributional information rather than a tightening of a fitted finite estimate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

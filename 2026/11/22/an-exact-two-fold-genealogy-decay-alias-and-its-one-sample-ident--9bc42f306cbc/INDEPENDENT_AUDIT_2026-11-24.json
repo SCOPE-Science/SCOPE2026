@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:28:41.217148Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md genealogy and proof §§1–4; direct common-prefix and logit-gap reconstruction above",
+        "Frozen CHECK.py and VERIFICATION.md (inspected, not executed)"
+      ],
+      "rationale": "For depth-five leaves the distance is twice five minus twice the length of the common prefix. Across different two-bit prefix families it is at least eight; within the four designated families, distances to the named leaves give respectively (0,0,1),(1,0,3),(1,1,1),(1,0,0), and the leading determinant is 1. The binary prefix tree is feasible with positive probability because all finite logits give Binomial probabilities strictly between zero and one. A Binomial(2,p) law determines its logit, and conditional independence gives the joint law from the marginals. Subtract the first predictor from the next two: the gaps are β₁t(1+2t²) and β₁t(1+t). Their ratio is R(t)=(1+t)/(1+2t²). Its coincidence equation is (s−t)[1−2(s+t+st)]=0, so the unique possible partner s=(1−2t)/(2(1+t)) lies in (0,1) precisely for 0<t<1/2, and is distinct except at (sqrt(6)−2)/2. The positive first gap determines β₁ at either candidate, and the first logit determines β₀, proving both necessity and realizability. In particular (t,β₀,β₁)=(1/5,0,1) and (1/4,−1/250,96/125) both give (1,28,31)/125. Differencing rows of the Jacobian gives the t-coordinate determinant β₁[t(1+2t²)]²R'(t); multiplying by −2t gives 2β₁t³(2t²+4t−1) in θ. The Binomial information weights 2p_i(1−p_i) are positive, so precisely the fold is singular despite its singleton fiber. The new row gives gap ratio (1−t²)/(1+2t²), derivative −6t/(1+2t²)², hence unique reconstruction over the entire domain. Its two logits in the exact example differ by 3/250.",
+      "residual_risks": [
+        "The result concerns selected branching-event conditional distributions given the observed pre-branching genealogy. It does not alias a full observed trajectory or the marginal law of a full tree, and one noisy count at each design point is not practical recovery."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1(a) treats a design with a zero count vector, which none of these four vectors is. The full-rank condition of 1(b) does apply as written, but its predicted global injectivity is contradicted for the three events. Appendix A's span criterion is standard; the further assertion of full span under those hypotheses fails at the fold."
+        ],
+        "reasoning": "The general Fisher criterion correctly identifies local regularity when the predictor Jacobian is nonsingular; it neither licenses rank of the nonlinear Jacobian from rank of C alone nor excludes a second global branch. No coverage conclusion relies on the unavailable age-dependent branching passage.",
+        "searches": [
+          "arXiv:2611.08548v1 §4 Theorem 1(a,b), Appendix A; public literature search for branching/phylogenetic identifiability; PMC4294276 retrieval attempt"
+        ]
+      },
+      "checked_sources": [
+        "Kochocki arXiv:2611.08548v1",
+        "Resultary 3e396ed1a58f and self-match 9bc42f306cbc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1(b) expressly gives a three-sampled-individual condition with linear independence and at least three distances. The leading rows satisfy the condition and produce identical Binomial laws at the two exact triples. The fourth row is not the zero-vector case of Theorem 1(a). Eq. (6) also discusses a product for a fully observed trajectory."
+        ],
+        "reasoning": "There is direct contradiction for the selected conditional experiment, not an implication of a theorem for a fully observed trajectory with additional branching events. The fourth-row monotonicity proof supplies the distinct repair.",
+        "searches": [
+          "arXiv:2611.08548v1 §3.2 Eq. (6), §4 Theorem 1, and Appendix A"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kochocki uses the same truncated exponential-logistic Binomial model, so the ratio computation is a reparameterization of that conditional likelihood, not a new model. Resultary 3e396ed1a58f has a two-parameter exchange resolved by a kinetic slope for stationary reset-coagulation intervals."
+        ],
+        "reasoning": "The common alias/extra-observation pattern is real, but the reset-coagulation observables do not represent the genealogy count design or its Möbius partner map. No such equivalent construction was located.",
+        "searches": [
+          "Resultary: genealogical reinforcement and count-design identifiability; interval-statistic aliases 3e396ed1a58f; Kochocki arXiv:2611.08548v1 §2 and §3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact matched entry was this record (9bc42f306cbc); the nearest cross-model alias entry inspected was 3e396ed1a58f."
+        ],
+        "reasoning": "The self-match is not antecedent evidence; the other indexed result gives different sufficient observables on a different model, not these four co-realizable count rows.",
+        "searches": [
+          "Resultary: exact count-design alias and structural-identification repair for genealogical reinforcement"
+        ]
+      },
+      "rationale": "The distinct claim is the feasible full-rank design that refutes the stated sufficient condition, with its exact fiber/fold classification and a feasible fourth-row repair. Eliminating location and positive scale is a general technique, not new here.",
+      "residual_risks": [
+        "An unindexed equivalent nonlinear-design example or broader theorem may exist. The unsuccessful retrieval and unrelated broad search hits are not evidence of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same conditional model; stated three-sample rank condition is refuted in that experiment",
+          "evidence": "Three independent count vectors spanning three distances are asserted to suffice; Appendix A additionally claims nonsingularity there.",
+          "identifier_or_url": "https://arxiv.org/html/2611.08548v1",
+          "material_read": "§2 Eqs. (1)–(3) (offset 3300); §3.2 Eq. (6) (offsets 9500–12023); §4 Theorem 1 (offset 12826); Appendix A (offset 32277)",
+          "method": "Bounded original open-access HTML passages",
+          "title": "Genealogical Reinforcement in Branching Processes",
+          "trigger": "Same model and precise identifiability claim"
+        },
+        {
+          "assessment": "Analogy, not equivalent design",
+          "evidence": "Parameter exchange in a reset-coagulation model, distinguishable by a kinetic slope.",
+          "identifier_or_url": "Resultary 3e396ed1a58f",
+          "material_read": "RESULT.md opening statement",
+          "method": "Resultary and bounded local-mirror passage",
+          "title": "Complete interval-statistic aliasing and kinetic identification",
+          "trigger": "Closest indexed observation-design alias pattern"
+        },
+        {
+          "assessment": "No coverage decision on this item",
+          "evidence": "No statement was obtained that can be compared to the fixed-genealogy conditional Binomial experiment.",
+          "identifier_or_url": "PMC4294276",
+          "material_read": "No usable decisive passage retrieved",
+          "method": "Attempted lawful full-text retrieval",
+          "title": "Age-dependent branching identifiability comparison",
+          "trigger": "Broader branching-identifiability search hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md §§1–4; arXiv:2611.08548v1 Theorem 1(b) and Appendix A"
+      ],
+      "rationale": "This is a realizable obstruction to an explicit proposed sufficiency rule, not just an arbitrary rank example. An open region of genuine aliases persists despite nonsingular local information away from the fold. The exact fiber classification, singular point and one-observation repair show what the three-event design cannot identify and how to remove the ambiguity without changing the model.",
+      "residual_risks": [
+        "The value is structural design and correction of the conditional criterion, not full-trajectory inference or precision guarantees."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

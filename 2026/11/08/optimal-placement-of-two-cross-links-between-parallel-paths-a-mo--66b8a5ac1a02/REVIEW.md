@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four-tail decomposition of the unicyclic graph gives an exact rational Kirchhoff-index formula, including zero tails. Summing effective resistances uses only series additions and the two-arc cycle parallel law. A parity-aware quadratic comparison proves the unique optimal cycle length for all integers \(m\ge2\) and then all optimal rung placements. Independent exact symbolic Laplacian inversion on small orders, and an exhaustive placement replay through order \(100\), corroborate the identity and classification. Those computations do not replace the universal proof.
+PASS
 
-## Originality — PASS, with disclosed access limitation
+The graph reduces to a 2q-cycle and two tails each of lengths l and r. A tail bridge separating h vertices from the rest contributes h(2m−h) to the unordered-pair index, independently of all other bridges. For the cycle contribution, collapse each tail to its corner, adding mass l or r there. On a length-L cycle the kernel at distance d is d(L−d)/L, the pair sum is (L³−L)/12 and the row sum is (L²−1)/6. Across either rung use d=1; among the four left-right pairs there are two each at d=q−1 and q. Adding the base cycle, the extra corner masses and the bridge sums exactly reproduces the stated expression, including zero tails. At fixed q the only imbalance term is m(l−r)²/2; balance yields the parity penalty in F_m. Recomputing the neighbor differences of H=5(q−(3m+6)/5)²+3ε gives the stated two tables. Further to the right the quadratic grows more than the maximal parity loss and −3m/q increases strictly. Moving d steps left loses at most (5/2)d from −3m/q because q≥2 and m/q_*≤5/3; the quadratic-parity increment is at least 4 at d=1 and at least 5d²−4d−3 for d≥2, both strictly larger than (5/2)d. Therefore q_* is the unique legal optimal cycle parameter, even at the small endpoint cases. Only m≡0 mod 5 has an odd tail sum at q_*, so it supplies exactly the two reflected placements. With q_*=(3/5)m+O(1) the cubic part gives (5−6·(3/5)+5·(3/5)²)/6=8/15; all remaining terms are O(m²) or smaller.
 
-The 2014 Carmona–Encinas–Mitjana source treats Green functions, resistances and Kirchhoff indices for ladder-like chains with consecutive opposite cross-edges; the focal finding instead optimizes two freely separated corresponding rungs and identifies a congruence-dependent complete optimizer set. The 2021 Chen–Yan general unicyclic index theorem covers index calculation but not this optimized integer placement as a stated theorem. Queries of the published mathematical-result database for “two-rung unicyclic ladder,” “two cross-links,” and “one-fifth” did not expose a matching optimization statement; no database search proves uniqueness in the worldwide literature. The full text of the highly relevant 2014 ladder paper was not obtained (arXiv/open-access search unsuccessful; authorized full-text access unavailable), leaving a specific publication-priority risk. Accessible full introductory material and the theorem of Chen–Yan were compared to the present claim.
+## originality
 
-## Value — PASS
+PASS
 
-Exactly two additional links are the first redundant-link intervention joining parallel routes while retaining a sparse unicyclic network. Under an all-pairs resistance objective, placement materially changes the resulting cost. The sharp one-fifth/four-fifths law, its integer modulo-five correction, and the complete uniqueness exception give an implementable discrete design rule rather than a known-table value or arbitrary isolated example.
+The formula for evaluating a unicyclic resistance index uses known principles. The creditable claim is the exact all-m discrete minimizer and tie classification in the two-rung design family, with the resulting sharp leading value. Comparisons found related ladder-like calculations, a distinct one-link design theorem and general unicyclic formula leads, but no demonstrated coverage of that optimizer. Full-text access limits are material to historical priority, not a negative finding about what those papers contain.
 
-## Limits
+## value
 
-The optimization concerns unweighted, identically indexed rungs on equal paths, not arbitrary reweighting, costs or multi-rung design. Related full-text access remains incomplete; independent literature review may discover an equivalent optimization theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Adding two corresponding cross-links on equal paths is a natural constrained design problem, and total pairwise resistance is a standard connectivity objective. The exact result determines where to put the links at each size and when two designs tie. It rules out an end-rung heuristic, exhibits an interior 1/5–4/5 rule, and quantifies the minimum at cubic order. That complete classification is useful beyond a circuit identity or finite graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

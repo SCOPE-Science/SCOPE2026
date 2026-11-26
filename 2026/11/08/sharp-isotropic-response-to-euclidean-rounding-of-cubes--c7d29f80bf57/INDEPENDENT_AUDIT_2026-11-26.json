@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T11:55:06.998609Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–99",
+        "Frozen VERIFICATION.md and check.py inspected, not executed; symbolic and optional Sobol checks described there are not expert attestation, prior independent audit or Lean verification."
+      ],
+      "rationale": "The outside coordinates of a point are determined by the coordinatewise Euclidean projection to the cube. For exactly k excess coordinates their vector ranges over a positive-orthant k-ball. Thus V has normalized coefficients 1,d,πd(d−1)/8 through order two. The contribution to S from a stratum uses the inside-square mean (d−k)/3 and k outside squares (1+u_i)^2. The face linear-in-excess term contributes 3 to the normalized quadratic coefficient, and k=2 contributes π(d+4)(d−1)/8. Symmetry gives L²=S/(dV^(1+2/d)); the binomial expansion cancels the linear term and gives −(d−1)(4−π)/48. Erosion is exactly a homothetic cube, so the signed profile is C¹ but lacks a second derivative at zero. In d=3 the edge region integrates ∫u_1=t³/3 on a quarter-disk and the corner region integrates ∫u_1=πt⁴/16 on an octant, consistent with independent sums of the volume and moment polynomials. An exact scaled-integer coefficient convolution, adding (5i−3j)v_i s_j to the coefficient of t^(i+j−1) and using a formal variable for π, reproduced the five-term derivative certificate in RESULT.md lines 82–97. Rational bounds 3.1<π<22/7 give all signs; the derivative is strictly negative for positive t. Leading terms give the ball limit, which is not attained at finite radius.",
+      "residual_risks": [
+        "The expansion is for fixed d; strict global decrease was checked only in d=3. The signed negative-radius branch is flat, not strictly decreasing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Richter–Saorín Gómez study surface-area/volume isoperimetric quotients for inner and outer parallel bodies. Kipp's structural restrictions concern maximizers of the isotropic constant and include zonotopal bodies. The Hanner range concerns a class of polytopes, whereas positive-radius parallel cubes have curved regions."
+        ],
+        "reasoning": "The broad parallel-body theorem uses a different functional; a structural restriction or extremal bound does not give strict comparison along the entire one-parameter family or determine the onset coefficient. The polytope range does not give this curved family's profile.",
+        "searches": [
+          "Richter–Saorín Gómez arXiv:2003.14182v1 Theorem 1.1",
+          "Kipp arXiv:2407.01353v2 structural results on maximizers",
+          "Resultary Hanner isotropic constant range 7976b0937cd2"
+        ]
+      },
+      "checked_sources": [
+        "Resultary c7d29f80bf57 (self), a92aac8471a4 (finding), 7976b0937cd2 (catalog scope)",
+        "arXiv:2003.14182v1 and 2407.01353v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a cubic body the target ratio is S/(3V^(5/3)); even knowing the Steiner polynomial for V does not on its own supply S. The sign uses a cancellation and the positivity of all five coefficients of (5V'S−3VS')/(8t)."
+        ],
+        "reasoning": "Neither the known volume machinery nor the existing statements checked mechanically imply the onset and strict all-radius sign for the covariance functional. Credit is limited to those explicit conclusions and the associated profile.",
+        "searches": [
+          "Statements in arXiv:2003.14182v1, arXiv:2407.01353v2 and Resultary a92aac8471a4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary c7d29f80bf57 is the frozen record itself. The distinct one-corner clipped-cube record a92aac8471a4 optimizes the isotropic constant along removal of a simplex cap, not addition of a Euclidean ball.",
+          "By cubic symmetry the inertia tensor for unit density would give S (its trace is 2S in three dimensions); this is a plausible alias, but no independent exact inertia formula for the identical family was identified."
+        ],
+        "reasoning": "Moment of inertia is a genuine equivalent input for computing the profile. Corner clipping is a different body even at matching dimension and affects the covariance via a different domain and symmetry.",
+        "searches": [
+          "Resultary: cube rounding Euclidean parallel bodies isotropic constant and covariance",
+          "Primary search for rounded-cube radial second moment/inertia and isotropic-constant deformation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The close local-catalog exact profile a92aac8471a4 tabulates/formulates one-corner simplex clipping, not rounding. The inspected isoperimetric quotient theorem uses only surface area and volume, and supplies no raw quadratic moment table."
+        ],
+        "reasoning": "An exact V,S formula for the identical rounded cube could give the exact profile directly and is not ruled out by the search. No such independent formula was found in the compared sources, which also do not give the positive derivative certificate.",
+        "searches": [
+          "Resultary exact isotropic profiles and cube truncations",
+          "Primary search for rounded-cube inertia and Euclidean parallel bodies"
+        ]
+      },
+      "rationale": "The supported distinct content is the explicit signed onset for every d and the exact strict outer-radius profile in d=3, not the use of parallel-body stratification, volume polynomials or covariance invariance themselves.",
+      "residual_risks": [
+        "Historical priority remains bounded by search; earlier mechanical-inertia, spheropolyhedral mass properties or moment-of-parallel-body formulae could cover parts of the calculations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Non-identical deformation; no date-based priority inference",
+          "evidence": "The parameter removes a simplex cap at one corner and gives dimension-dependent minimizers; it does not add an outer Euclidean ball or erode the cube.",
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-a-dimension-five-monotonicity-threshold-for-the-isotropic-consta--a92aac8471a4",
+          "material_read": "Finding and geometry, offsets 50–2957",
+          "method": "Local mirror RESULT.md",
+          "title": "A dimension-five monotonicity threshold for the isotropic constant of a one-corner clipped cube",
+          "trigger": "Same-day exact isotropic profile for a deformed cube"
+        },
+        {
+          "assessment": "The quoted general theorem is about a different functional",
+          "evidence": "Isoperimetric quotient is defined from surface area and volume, not covariance or radial second moment.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.14182v1",
+          "material_read": "Quotient definition p. 1 offset 3502, Theorem 1.1 p. 2 offset 5758",
+          "method": "OA PDF locate and bounded offset read",
+          "title": "On the monotonicity of the isoperimetric quotient for parallel bodies",
+          "trigger": "General signed inner/outer parallel-body monotonicity"
+        },
+        {
+          "assessment": "Checked structural results do not imply the profile",
+          "evidence": "Maximizer structure is not a derivative or moment identity along cube-plus-ball rounding.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.01353v2",
+          "material_read": "p. 1 offsets 250–3659 including the statements on structural restrictions and zonotopes",
+          "method": "OA PDF bounded passage",
+          "title": "Isotropic constants and platonic solids",
+          "trigger": "Plausible general results on isotropic constants or highly symmetric maximizers"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 10–32 and 51–99"
+      ],
+      "rationale": "Euclidean rounding is a canonical deformation of the cube. The vanishing linear term and explicit negative quadratic term distinguish covariance response from volume growth and exhibit a loss of twice differentiability in the signed family. The exact dimension-three profile establishes strict behavior across all outer radii rather than just an endpoint ordering or a near-cube approximation.",
+      "residual_risks": [
+        "No value inference about global monotonicity in higher dimensions or for arbitrary convex bodies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

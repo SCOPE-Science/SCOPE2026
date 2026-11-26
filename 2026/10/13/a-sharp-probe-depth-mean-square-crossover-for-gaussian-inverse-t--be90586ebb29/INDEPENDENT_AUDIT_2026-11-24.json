@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:01:47.413470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed RESULT.md lines 39–119. Rotational invariance gives Q=R²/(a cos²θ+b sin²θ); the tangent substitution and a common spectral shift give angular moments 1/√(ab) and (a+b)/(2(ab)^{3/2}). The χ²₂ radial moments 2 and 8 give E Q=2/√(ab), Var Q=4(a+b)/(ab)^{3/2}−4/(ab). The squared bias is (u−1)^4/(b²u^4). Two-step nonbreakdown occurs almost surely and gives gᵀA⁻¹g, with variance 2(a⁻²+b⁻²). At the stated fixed budget the difference deep minus shallow is (u−1)^4(B*−B)/(B b²u^4). Writing z=1/(u−1) gives B*=4(1+3z+4z²+2z³+z⁴), strictly decreasing from infinity to 4 as u increases. The B=2 half-deep gap is 2(u−1)²/(b²u³), strictly positive. A separate scalar bisection gives κ₈=26.08108750465537. VERIFICATION.md and verify.py were read; the script was not run. The proof covers exactly the two allocations with independent unnormalized real Gaussian probes, distinct eigenvalues and exact arithmetic, not repeated-eigenvalue breakdown or other oracle algorithms.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General trace-function quadrature, Gaussian trace estimation and error bounds cover the setup or components.",
+          "Li–Huang–Zhu optimize a total-MVM error bound for the log determinant with asymmetric quadrature nodes."
+        ],
+        "reasoning": "Upper bounds and error balancing are not a necessary-and-sufficient MSE comparison at a common budget. The log-determinant comparison does not dominate a reciprocal-function comparison.",
+        "searches": [
+          "Ubaru–Chen–Saad DOI 10.1137/16M1104974",
+          "arXiv:2005.10009v1 §3",
+          "arXiv:2204.01941v1 §1.3.1",
+          "arXiv:2307.00847v1 abstract and conclusion"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index and cited SCOPE Findings",
+        "Ubaru–Chen–Saad (2017)",
+        "Cortinovis–Kressner arXiv:2005.10009v1",
+        "Chen–Trogdon–Ubaru arXiv:2204.01941v1",
+        "Li–Huang–Zhu arXiv:2307.00847v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-node Gaussian quadratic-form identity and its variance are standard; the one-node inverse Rayleigh quotient needs its own first and second moments, and retains a nonzero bias after averaging."
+        ],
+        "reasoning": "The checked general results do not supply the exact difference or sign comparison. The matched allocation and interpolation results cannot substitute for the reciprocal angular moments or the different variance penalty.",
+        "searches": [
+          "arXiv:2005.10009v1 §3",
+          "arXiv:2204.01941v1 §1.3.1",
+          "arXiv:2307.00847v1 conclusion",
+          "SCOPE 63138f0a4092 and 945502efd97e Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SCOPE 63138f0a4092 Finding: idealized deflated log determinant and one-versus-two-probe comparison",
+          "SCOPE 945502efd97e Finding: real spherical one-node inverse trace versus known-endpoint interpolation"
+        ],
+        "reasoning": "The first result changes the matrix function and allocation family; the second shares the inverse function and a two-level spectrum but changes both the probe law and comparator. Neither yields the frozen crossover.",
+        "searches": [
+          "Resultary: exact frozen title",
+          "Resultary: 2×2 one-/two-node Gaussian MSE threshold",
+          "Resultary: fixed-budget inverse-trace depth allocation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The related indexed findings give a deflated-log-determinant tail sum or an interpolation comparison, not the quartic ratio for B*."
+        ],
+        "reasoning": "There is no discrete invariant or identified standard exact-value table to compare here; the formula and benchmark searches of the relevant catalogue address the possibility of an already indexed exact boundary.",
+        "searches": [
+          "Resultary: displayed algebraic boundary for the one-/two-node comparison",
+          "Resultary: 2×2 one-/two-node Gaussian MSE threshold"
+        ]
+      },
+      "rationale": "The inspected sources establish the ingredients and analyze adjacent tradeoffs, but do not cover the exact biased-versus-unbiased equal-product Gaussian inverse-trace crossover or its uniform two-product inequality. Pass is limited to that benchmark, not to inverse-trace SLQ or the generic probe-depth tradeoff.",
+      "residual_risks": [
+        "An equivalent specialized angular-moment or numerical-linear-algebra calculation could occur in material outside the inspected passages; this is not a priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the inverse-trace setup, not this exact comparison in the inspected passage.",
+          "evidence": "The inverse trace is expressed as tr(f(A)) with f(t)=1/t for general SPD A.",
+          "identifier_or_url": "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+          "material_read": "p. 6, text offset 56674",
+          "method": "OA PDF text passage",
+          "title": "Fast estimation of tr(f(A)) via stochastic Lanczos quadrature",
+          "trigger": "Foundational SLQ, same inverse-trace target"
+        },
+        {
+          "assessment": "General analysis, not an exact comparison of the two allocations.",
+          "evidence": "Analytic matrix-function trace estimation and Lanczos quadrature error analysis.",
+          "identifier_or_url": "https://arxiv.org/abs/2005.10009v1",
+          "material_read": "§3, pp. 12–13, text offset 39716",
+          "method": "OA paper passage",
+          "title": "On randomized trace estimates for indefinite matrices with an application to determinants",
+          "trigger": "Gaussian variance and Lanczos interaction"
+        },
+        {
+          "assessment": "Balancing sufficient resources is not the exact bias–variance boundary.",
+          "evidence": "Sample-count bounds and balancing samples against approximation degree for trace/spectrum approximation.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.01941v1",
+          "material_read": "§1.3.1, p. 5, text offset 18826",
+          "method": "OA paper passage",
+          "title": "Randomized matrix-free quadrature: Unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+          "trigger": "Broader quadrature accuracy and sample-count results"
+        },
+        {
+          "assessment": "Different target and bounded-error objective.",
+          "evidence": "Optimized total-MVM error allocation in the log-determinant and asymmetric-node setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.00847v1",
+          "material_read": "Abstract p. 1 offset 1082; conclusion p. 13 offset 44137",
+          "method": "OA paper passages",
+          "title": "An analysis on stochastic Lanczos quadrature with asymmetric quadrature nodes",
+          "trigger": "Closest primary fixed-total-MVM allocation study found"
+        },
+        {
+          "assessment": "Distinct result; matching date gives no priority inference.",
+          "evidence": "Deflated log-determinant exact risk is 2/N times the residual sum of log²(1+λ); one probe is globally optimal iff it beats two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-single-crossing-optimality-of-gaussian-probe-allocation-after-id--63138f0a4092",
+          "material_read": "RESULT.md Finding and assumptions, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "Single-crossing optimality of Gaussian probe allocation after idealized deflation",
+          "trigger": "Same-budget single-crossing allocation analogue"
+        },
+        {
+          "assessment": "Different probes and estimators.",
+          "evidence": "Real spherical one-node quadrature is compared with a known-endpoint interpolant, not Gaussian one- versus two-step allocations.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-dimension-sharp-mean-square-risk-reversal-for-one-node-inverse--945502efd97e",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local catalogue mirror",
+          "title": "A dimension-sharp mean-square risk reversal for one-node inverse trace",
+          "trigger": "Same inverse function with one node and a two-level spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-dimensional distinct-spectrum case is the first setting where increasing quadrature depth to two removes approximation bias exactly while halving the number of Gaussian probes. The exact curve distinguishes when that removes enough bias to justify the added sampling variance; exactness alone does not favor deep at B=4 even at arbitrarily large finite condition number. The result gives a useful analytic benchmark for depth/probe allocation and MSE analysis, not an optimal oracle-complexity claim.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:22:24.818107Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py (inspected, not executed)",
+        "General symbolic reconstruction: python /tmp/opencode/frozen-review-math.py, wachspress()"
+      ],
+      "rationale": "The center and three active support pairs yield the normalized strip form after an invertible affine map and sign choices; the four inequalities a,b>0, a+b>1, |a-b|<1 are equivalent to a genuine hexagon in these coordinates. Slack rescaling multiplies each weight by the product of the six scale factors; a coordinate change contributes one common determinant factor with the cyclic orientation corrected if needed. Independently expanded the six quartic weights with symbolic a,b and verified the quadratic, its principal-minor identity, and all three opposite-pair values. Positivity holds on the closed polygon: in each relative face interior at least one weight is strictly positive. The quadratic penalty is positive definite, so the center is the unique maximum and nonvertices cannot minimize. The three vertex values are 8rs/(r+s) for gap pairs (β,γ), (α,β) and (α,γ). Strict monotonicity in each gap makes the smallest-pair criterion exact even with ties. The exact deficit factors as in the claim and vanishes only for equal gaps, i.e. a=b=1; that shape is an affine image of the regular hexagon and all such images attain equality by invariance. Along a=b=t decreasing from 1 to 1/2, the smallest gap tends to zero while the other two stay 1, giving divergence and all intermediate values. Noncancellation follows from definiteness (the degree-two leading part cannot itself be a product of real linear forms), not merely from its rank.",
+      "residual_risks": [
+        "The degenerate endpoint is not a member of the class. No floating-point condition number or general nonsymmetric-hexagon inequality is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Low-denominator-degree results address what degree is possible. ID 7b4aad67706d includes degree m−4 for centrally symmetric polygons, which is two here."
+        ],
+        "reasoning": "The broader degree result does not determine coefficient magnitudes or positivity of the quadratic penalty, and does not order the three vertex values.",
+        "searches": [
+          "arXiv:2611.02110v1 §4",
+          "arXiv:2508.04275v1 abstract and scope",
+          "Resultary ID 7b4aad67706d"
+        ]
+      },
+      "checked_sources": [
+        "Focused Resultary searches; IDs 3cbb9ad8cd9b and 7b4aad67706d",
+        "Targeted literature search; arXiv:2611.02110v1, 2508.04275v1, 1904.02123"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Regular radial monotonicity yields the expected equality example. General Wachspress construction and degree two give starting identities, not the sorted positive gap pairs or their normalized extrema."
+        ],
+        "reasoning": "An independent coefficient evaluation, strict concavity, monotone comparison of vertex pairs and shape optimization are needed; equality-case knowledge alone implies neither the 3/2 lower bound nor its converse or the unbounded range.",
+        "searches": [
+          "3cbb9ad8cd9b, Monotonicity, extrema, and sharp ratio",
+          "7b4aad67706d, Finding",
+          "arXiv:2611.02110v1 §4 and arXiv:1904.02123 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Indexed ID 3cbb9ad8cd9b gives the regular n-gon ratio 2^n cos(π/n)^(n-2) sin²(π/n)/n, which at n=6 is 3/2. The projective adjoint construction identifies an adjoint curve, not its variation on the primal polygon."
+        ],
+        "reasoning": "Affine equivalence transfers the regular value only within its class. Generic centrally symmetric hexagons have two free canonical strip parameters and need not be affine-regular. Changing from the primal to the geometric adjoint description does not transfer a known extremal ratio for all those parameters.",
+        "searches": [
+          "Resultary queries on centrally symmetric hexagonal denominator profile and sharp bound, center/vertex extrema, regular hexagon range, and shape-extrema versus adjoint degree",
+          "arXiv:1904.02123, Introduction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact target hit is the frozen record itself. The other exact ratio family is indexed by regular polygon side count, not by the central-hexagon strip parameters."
+        ],
+        "reasoning": "That exact formula reproduces one value in this classification, not a table or formula for the remaining shapes. No separate relevant all-shape formula was identified.",
+        "searches": [
+          "Resultary searches for Wachspress maxima/minima and exact hexagonal ratio",
+          "Indexed regular-polygon exact formula, ID 3cbb9ad8cd9b, Finding"
+        ]
+      },
+      "rationale": "Existing regular-polygon work already supplies the value 3/2 and the extremum locations at the regular six-gon; that case and its affine images are not new. Prior structural and adjoint-degree theorems supply inputs but not the fixed-class all-shapes ratio, rigidity, and transition formula. No equivalent or dominating statement for that remaining contribution was identified in the inspected material.",
+      "residual_risks": [
+        "Bounded searches and passage comparisons do not certify historical priority. The polytope-operations paper was only used as scope context, not exhaustively compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the regular equality case, not the class-wide inequality",
+          "evidence": "Regular n-gon extrema at center and vertices give 3/2 at n=6.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-radial-wachspress-adjoints-pole-circles-and-sharp-conditio--3cbb9ad8cd9b",
+          "material_read": "RESULT.md Finding and Monotonicity, extrema, and sharp ratio, offsets 0 and 4600",
+          "method": "Resultary retrieval and local full-text mirror, commit 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Exact radial Wachspress adjoints, pole circles, and sharp conditioning for every regular polygon",
+          "trigger": "Exact known six-gon ratio"
+        },
+        {
+          "assessment": "Degree, not pointwise variation",
+          "evidence": "Central symmetry gives degree m−4.",
+          "identifier_or_url": "2026/11/8/SCOPE-wachspress-denominators-have-minimum-degree-on-every-convex-poly--7b4aad67706d",
+          "material_read": "RESULT.md Finding, offset 300",
+          "method": "Resultary and local full-text mirror",
+          "title": "Wachspress denominators have minimum degree on every convex polygon",
+          "trigger": "Broad polygon result on the same denominator"
+        },
+        {
+          "assessment": "Relevant degree theory, not the proposed ratio in those passages",
+          "evidence": "Minimal denominator degree and parallelity-related degree drops.",
+          "identifier_or_url": "https://arxiv.org/html/2611.02110v1",
+          "material_read": "Abstract and §4 Low denominator degrees, offsets 0 and 47000",
+          "method": "OA primary-text inspection",
+          "title": "Rational barycentric coordinates and low degree adjoints",
+          "trigger": "Same denominator class and possible more general classification"
+        },
+        {
+          "assessment": "Context only; no whole-document conclusion from this inspection",
+          "evidence": "Degree drops and behavior under polytope operations.",
+          "identifier_or_url": "https://arxiv.org/html/2508.04275v1",
+          "material_read": "Abstract, offset 0",
+          "method": "OA abstract scope comparison",
+          "title": "The canonical form, scissors congruence and adjoint degrees of polytopes",
+          "trigger": "Adjoint degree drops for symmetric polytopes"
+        },
+        {
+          "assessment": "Gives the geometric construction, not the claimed shape extremum in the inspected passage",
+          "evidence": "Adjoint curve through appropriate edge-line intersections.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.02123",
+          "material_read": "Introduction, offset 2184",
+          "method": "OA primary-text inspection",
+          "title": "Projective Geometry of Wachspress Coordinates",
+          "trigger": "Equivalent projective adjoint formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem, explicit shape profile, and limitations",
+        "Indexed regular-polygon range and prior general degree comparison"
+      ],
+      "rationale": "This is a natural dimensionless measure of the variation of the common positive denominator in a standard barycentric system, on the first centrally symmetric polygonal class with a nonconstant adjoint. The theorem quantifies rigidity near the best shape and identifies the exact vertex pairs controlling denominator smallness and how it can diverge under degeneration. It does not rely on treating the ratio as a floating-point condition number.",
+      "residual_risks": [
+        "Not an interpolation-error or implementation stability guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

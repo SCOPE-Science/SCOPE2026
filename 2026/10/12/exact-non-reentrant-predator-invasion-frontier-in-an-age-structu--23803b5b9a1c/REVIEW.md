@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The predator-free linearization is triangular because prey-derivatives of predator vital rates are multiplied by zero predator density. The scalar renewal block gives the characteristic equation directly. The below-threshold modulus bound, above-threshold positive real crossing, strict \(g\)-derivatives, affine \(k\)-dependence, dominated-convergence limit, and sharp-maturation change of variables were reconstructed explicitly. The bundled checker replays representative instances but is not used as the proof.
+## correctness
 
-## Originality
-PASS. Classical McKendrick theory already supplies the generic replacement threshold and is treated as prior work. The motivating article numerically maps predator-free outcomes and identifies \(g\) and \(\tau^*\) as influential, but it does not derive the exact invasion integral, \(A(g)+k\bar xC(g)\), the monotone \(k_c(g)\), or the sharp factorization \(e^{-g\bar x\tau^*}Q(\tau^*,k)\). The closest inspected structured predator-prey threshold paper uses a different architecture.
+PASS
 
-## Value
-PASS. The result gives an exact analytic boundary for a numerically prominent transition in the source and proves that local predator invasibility cannot reappear after increasing juvenile predation. In the sharp model it also explains why longer maturation lowers the juvenile-predation threshold for extinction, directly organizing the source's principal \((\tau^*,g)\) phase plane.
+The repair restricts to the sharp numerical fertility and mortality profiles, with positive reproductive mass and a uniform mortality lower bound h. At the prey-only state the predator is autonomous to first order, with replacement integral R. A real positive characteristic root proves invasion above one, and the exponentially weighted Volterra convolution plus prey variation of constants proves exponential decay below one. Shifting adult age to s removes T from fertility and extracts exp(-g*xbar*T). Since cumulative baseline mortality is nondecreasing, Q(T2,k) <= exp(-h(T2-T1))*Q(T1,k). Positivity, continuity and decay imply a unique positive age crossing precisely when Q(0,k)>1, and give the explicit upper bound. The logarithmic g-threshold decreases where T>0 and Q>1. No finite-steepness age conclusion or global nonlinear extinction is asserted. The frozen numerical script was inspected, not executed, and is unnecessary for the repaired analytic proof.
 
-## Closest literature and limitations
-Cushing (1984), DOI 10.1007/BF00275988, supplies the generic age-structured replacement threshold. Lu and Liu (2018), DOI 10.1186/s13662-018-1614-y, give a predator reproductive threshold for a different model with age-structured prey. The accepted result is local, does not classify coexistence attractors, and proves explicit \(\tau^*\)-monotonicity only in the exact sharp-maturation model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pass only the sharpened cross-age comparison for the exact step model with the specified shifted fertility profile, including its positive age threshold and bound, not the general replacement rule or the prior fixed-age g-cutoff.
+
+## value
+
+PASS
+
+The repair supplies an exact age-dependent boundary, existence criterion and quantitative upper bound for shortage of local recruitment, in the very age parameter used to organize the motivating phase diagrams. It separates this usable analytic frontier from both the known fixed-age cutoff and global numerical outcomes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

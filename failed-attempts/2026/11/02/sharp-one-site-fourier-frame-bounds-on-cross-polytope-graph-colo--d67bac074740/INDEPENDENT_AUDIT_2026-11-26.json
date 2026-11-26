@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T08:20:18.845381Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For s monochromatic parts there are binom(m,s) choices and (q)_{2m-s} ordered colour injections; conditioning one part to be monochromatic leaves q choices and Z_{m-1,q-1} colourings. Colour symmetry makes each nonzero-frequency block identical, with diagonal 1, opposite-pair entry r=(qp-1)/(q-1), and other entry b=-1/(q-1); cross-frequencies and the constant are orthogonal. The block is (1-r)I+(r-b)P+bJ, with P the block diagonal of 2-by-2 all-ones blocks and J the full all-ones matrix. Its three eigenspaces give exactly the stated levels and multiplicities. At q=m only monochromatic parts occur, giving the stated rank and nullity. For q>m positive definiteness also follows by comparing colourings differing at one vertex that is recoloured to a spare colour: in a vanishing sum of one-site functions, this forces every single-site function to be constant, using arbitrary relabellings of colours. The pair level exceeds the other levels and 1, while conditional coincidence 1/(q-K)>1/q, K the number of colours used on other parts, implies L_anti<1. At q=m+1 the S=0 and S=1 counts are in ratio 1:m, giving p=m/(m+1) and squared condition number 2m+1. Since m-1<=K<=2m-2 at large palette, p=1/q+O_m(q^-2); the total mode is then the minimum and the resulting ratio has coefficient 2m. These are all-parameter algebraic checks; the frozen script was read, not run. The spectrum is for the constant and one-site functions only, not all frequencies of the product space.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The archived arbitrary-core reduction gives 1 plus q-1 identical spatial blocks with entries (q Pr[c(u)=c(v)]-1)/(q-1). Crew–Spirkl Eq. (9) gives chromatic-symmetric coefficients of complete multipartite graphs.",
+          "The cycle and friendship graph records give analogue spectra and conditioning on other graphs; those object restrictions do not cover the cross-polytope family."
+        ],
+        "reasoning": "The enumerator alone is not a spectral result. In combination with the graph-general Gram reduction it fixes the entire spatial matrix, since merging one opposite pair stays within the complete multipartite class.",
+        "searches": [
+          "Crew–Spirkl arXiv:2009.14141, complete multipartite chromatic symmetric function",
+          "Resultary --b86156ccdbe6 Proof §1; cycle and friendship-graph one-site spectra"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify_colouring_frame.py",
+        "Resultary --b86156ccdbe6, --2b34d08d2568, --8dc8f90856db and --c7312df52d26",
+        "Crew–Spirkl arXiv:2009.14141",
+        "Shrock–Xu arXiv:0911.4218",
+        "Cahill et al. arXiv:1106.0921"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting the first q variables to 1 and the rest to 0 in r_(2^m) counts proper colourings; the same evaluation in r_(2^(m-1),1) counts colourings in which the chosen pair is forced to coincide. The ratio is p; edge coincidences are zero."
+        ],
+        "reasoning": "Insert these two inputs into the existing arbitrary-graph Gram formula to obtain H=(1-r)I+(r-b)P+bJ. P has eigenvalue 0 on contrasts and 2 on pair means; J only acts on the full mean. Reading off the three levels is immediate, including multiplicities. At q=m and q=m+1 substituting the zero- and one-split counts gives both stated sharp numbers. For larger q, spare-colour recolouring gives positivity and the other-parts occupancy bound gives p=1/q+O_m(q^-2); the extremal comparisons then give the condition law. The distinction from the known exact ingredients is routine rather than a new proof of a spectral mechanism.",
+        "searches": [
+          "Resultary --b86156ccdbe6 Proof §1",
+          "Crew–Spirkl arXiv:2009.14141 definition of r_lambda and Eq. (9)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The complete-bipartite spectrum --2b34d08d2568 has the same Gram normalization and one-site family, but covers two parts, not m>=3.",
+          "The pendant-transfer result --b86156ccdbe6 proves the per-frequency correlation formula for its arbitrary core, not merely for pendant vertices."
+        ],
+        "reasoning": "The identical-frequency reduction is already available for the target as an arbitrary core. The final pendant transfer theorem is not applied to the target graph, which has no pendant vertices.",
+        "searches": [
+          "Resultary one-site Fourier Gram on cross-polytope proper colourings; complete bipartite exact Fourier spectra",
+          "Resultary any graph one-site Fourier Gram and spare-colour rank threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded exact-spectrum and condition-constant searches found no cross-polytope spectral table or duplicate statement. Eq. (9) supplies the exact enumerator underlying each coincidence entry, not a table of eigenvalues."
+        ],
+        "reasoning": "No eigenvalue table is needed to establish overlap: because there is a single off-edge orbit, the exact complete-multipartite count and its one-vertex contraction determine all entries simultaneously.",
+        "searches": [
+          "Resultary K_{2,...,2} Fourier spectrum and rank at chromatic palette",
+          "Resultary first-extra-colour squared condition number 2m+1",
+          "Crew–Spirkl arXiv:2009.14141 Eq. (9)"
+        ]
+      },
+      "rationale": "No inspected catalogue entry states the cross-polytope numbers verbatim. But a distinct indexed proof already gives the exact general one-site Gram reduction on arbitrary graphs, and the established complete-multipartite chromatic enumerator gives both of the only inputs required here. Their specialization leaves the simultaneous diagonalization of I, the within-pair all-ones blocks and the total all-ones matrix, with routine endpoint counts and comparisons. Same-day catalogue date does not imply priority; the adverse result is based on the mathematical implication, not the date or a title match.",
+      "residual_risks": [
+        "A bounded search did not establish any historical priority over other graph-colouring or influence-matrix literature.",
+        "The catalogue overlap establishes availability and implication, not ordering among same-day findings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proof §1 exactly covers the reduction used here on the unrestricted core. Final transfer law concerns a different graph construction.",
+          "evidence": "Proof §1 gives identical nontrivial frequency blocks, their exact entries via colour coincidences, and the orthogonal constant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/2/SCOPE-universal-fourier-spectral-transfer-under-pendant-colour-amplifi--b86156ccdbe6/RESULT.md",
+          "material_read": "Finding (offsets 0–1924) and Proof §1 (within offsets 3500–6878)",
+          "method": "Local mirror reading and direct spatial-matrix comparison",
+          "title": "Universal Fourier spectral transfer under pendant-colour amplification",
+          "trigger": "Graph-general exact one-site spectral reduction"
+        },
+        {
+          "assessment": "Provides the necessary counts for both partitions; does not assert the Fourier problem itself.",
+          "evidence": "The refinement formula gives all monomial coefficients of a complete multipartite chromatic symmetric function, hence the exact proper-colouring count after specialization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.14141",
+          "material_read": "Definition of r_lambda (p. 4, around offset 14600) and Eq. (9) (p. 7, offset 26800 onward)",
+          "method": "Targeted OA PDF reading and principal specialization comparison",
+          "title": "A complete multipartite basis for the chromatic symmetric function",
+          "trigger": "Exact count and pair contraction on the same complete multipartite class"
+        },
+        {
+          "assessment": "Covers K_{2,2} for q>=3, not the assigned m>=3 family.",
+          "evidence": "The statement allows arbitrary part sizes but only two parts.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/36a7204b5741b75430355c38bf9bf0ef7468c2a4/2026/11/1/SCOPE-exact-fourier-sampling-spectra-and-a-thin-side-conditioning-tran--2b34d08d2568/RESULT.md",
+          "material_read": "Finding, offsets 0–1795",
+          "method": "Local mirror comparison of hypotheses and multiplicities",
+          "title": "Exact Fourier sampling spectra and a thin-side conditioning transition for bipartite colourings",
+          "trigger": "Same exact spectral invariant for a nearby graph family"
+        },
+        {
+          "assessment": "Context only in inspected passages; no adverse overlap was inferred from a keyword miss.",
+          "evidence": "The former treats weighted colour-count polynomials, the latter finite frame construction with prescribed spectrum and lengths.",
+          "identifier_or_url": "https://arxiv.org/pdf/0911.4218 ; https://arxiv.org/pdf/1106.0921",
+          "material_read": "Abstract and opening context, pp. 1–2 of the former and p. 1 of the latter",
+          "method": "Bounded OA passage comparison",
+          "title": "Weighted-Set Graph Colorings; Constructing finite frames of a given spectrum and set of lengths",
+          "trigger": "Cited colour enumerators and frame-spectrum framework"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rank and norm control are natural quantitative invariants for one-site interpolation, and the elementary derivation is transparent. On this family, though, the complete spectrum reduces to mechanically using existing general Gram and counting formulas and diagonalizing three commuting all-ones matrices. The rank above the chromatic palette also follows by spare-colour recolouring, and 2m+1 is the direct first-extra-colour substitution. No distinct substantive invariant beyond this specialization is established.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

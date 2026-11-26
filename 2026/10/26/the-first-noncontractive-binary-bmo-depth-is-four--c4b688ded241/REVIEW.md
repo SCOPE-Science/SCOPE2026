@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise claim is \(c_3(2)=1\) for real mean-centered \(L^1\)-BMO on an eight-leaf binary tree, together with the earliest-depth consequence using a published 16-leaf counterexample. The lower bound is attained by any nonconstant nonnegative datum. At the root, the linearization of two independent sign patterns reduces the inequality to 1540 canonical rooted-tree color orbits. For every orbit, the supplied rational dual vector satisfies all exact dual feasibility identities and has objective at most 64 after integer scaling. `VERIFY.py` independently reconstructs the 63-by-32 matrix and all 1540 canonical sign patterns and checks them with `fractions.Fraction`. Four-atom and two-atom descendant bounds are separately justified. The published depth-four example was rechecked by exact averaging and has ratio \(41/40\). A finite exhaustive certificate is a proof because the orbit reduction and linear-programming dual argument are proved for arbitrary real leaf values, not inferred from sampled inputs.
+PASS
 
-## Originality — PASS
+For real depth-three leaf data with F_3(x) ≤ 1, fix folding signs ε and root mean-deviation signs s. The linear objective has coefficients ε_i(8s_i−Σs) and the maximum over s equals 64 times the folded root mean deviation. The 63 inequalities correctly encode the seven node bounds and the orthant, with eight free leaf variables and 24 nonnegative auxiliaries. For each certificate, nonnegative row multipliers give the required leaf coefficients, nonnegative auxiliary coefficients, and right-hand side at most 64, proving a bound for all real points in the sign region. Independent replay canonicalized all 4^8 colorings by subtree swaps and confirmed exact coverage by 1,540 supplied cases, and verified the multiplier identities, signs and bounds in rational arithmetic; maximum certified bound 64. The root bound also gives the four-leaf descendant bound by applying it to two identical copies of the four-leaf datum (no change in input tree BMO or folded root deviation). The two-leaf case follows from the reverse triangle inequality. Nonconstant nonnegative data give equality. Direct 16-leaf recomputation yielded F_4(x)=5 and F_4(|x|)=41/8, with only the folded root above 5.
 
-Mohajer's arXiv:2610.14459v1, Section 6, explicitly states that \(c_3(2)\) is undetermined, although it proves \(c_1(2)=c_2(2)=1\) and supplies \(c_4(2)\ge41/40\). The new result supplies exactly the omitted sharp depth-three value and fixes the least failing depth. Relevant comparisons include Slavin–Vasyunin's Bellman-function \(L^1\)/\(L^2\) comparison and Dafni–Gibara's shape/rearrangement bounds; neither implies the particular mean-centered eight-leaf norm contraction. Multiple searches of indexed mathematical findings using the exact parameter, aliases and binary-depth language found no statement with the same implication. Residual priority risk: an unindexed earlier finite-tree calculation could contain the result. The negative searches are not treated as a proof of global uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The first possible noncontractive depth and the exact value of \(c_3(2)\) are expressly posed as a concrete open finite-level problem by the motivating paper. They locate the first multigeneration departure from four-atom scalar folding: eight leaves remain contractive, while 16 leaves need not. The complete exact certificate resolves the naturally motivated minimal finite instance without presuming a formula for the unrestricted infinite-depth constant. The conclusion is not an arbitrary finite table entry or a tiny perturbative gain.
+Mohajer explicitly leaves the unrestricted rooted depth-three value and the least failing depth open; the earlier depth-four witness is not new. A separate Resultary record states the same theorem and uses the same cited example, with a materially different certificate formulation; it is listed on a later catalogue date. The mathematical overlap is established, but there is no evidence that this is prior coverage of the assigned result, or that either proof derives from the other. The distinct contribution relative to the verified prior literature is the depth-three bound resolving the threshold.
 
-## Scope and residual limitations
+## value
 
-The proof uses an exact finite certificate, is restricted to the real eight-leaf binary tree, and does not estimate the sharp depth-four constant. The only role of the already known depth-four example is to identify the minimal failing depth after proving depth-three contractivity. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is the exact missing case of a specifically posed extremal problem. The four-leaf scalar bound and the known depth-four failure do not settle the eight-leaf inequality. The result fixes the first failing depth and the sharp last contractive constant, not just a sampled or approximate bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

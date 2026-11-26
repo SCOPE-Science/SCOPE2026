@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:01:26.234220Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The range constraint plus the within-pair differences is exactly the Lipschitz ball for 0<t≤1. Partition by the minimum vertex, disregarding tied minima of measure zero. In minimum-anchored coordinates, the mate of the minimum is uniform on [0,t], and the remaining pairs have independently distributed uniform band vectors in B_t; the changes of anchor are unimodular. Within one ordinary band vector the coordinates need not be independent, despite loose wording in Proof §3; the proof uses their joint band law, which is explicit and correct. For A=2t−t² the band difference has density (1−|d|)/A, and its conditional midpoint has mean 1/2 and variance (1−|d|)²/12. This gives q=t²(4−3t)/(6(2−t)) for squared difference and s=(t²−2t+2)/24 for midpoint variance. The exceptional pair has squared difference mean t²/3, midpoint mean t/4 and variance t²/48. Pair swaps eliminate mixed intra-pair contrast terms and pair-constant cross terms; permutations make the covariance scalar on each summand of H. Mixing over the exceptional pair gives λ_intra=[t²/3+(m−1)q]/(2m) and λ_inter=2(m−1)s/m+2[t²/48+(2−t)²/16]/m, which simplify to the claimed expressions. For x=1−t the gap is x[3+3mx+(1−m)x²]/[6m(1+x)], which gives positivity, the fixed-t limit, and the claimed m²-scaled boundary limit. The bottom projector on H (not on the ambient space, which has a constant zero mode) recovers the matching, and strict increase of λ_intra follows from the t² term and truncation of the band difference density. At t=1 covariance is scalar on H. The supplied exact lattice-enumeration and finite-difference support was inspected, not executed; the general proof does not rely on a finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alexander et al. compute equilateral volume and volume product; Aliaga treats extreme points of the free ball, and Ostrovska–Ostrovskii study isometric structure of transportation-cost spaces.",
+          "Resultary 3bd6d7048744 treats shortened pairs even with independent shortening lengths, but studies facets and extreme potentials, not second moments."
+        ],
+        "reasoning": "A broader domain of metrics is not broader coverage of this invariant. Neither an extreme-point census nor a volume determines the covariance of a uniform interior distribution without a further moment calculation.",
+        "searches": [
+          "arXiv:1911.10642 §5.2, equilateral complete graph and volume product",
+          "arXiv:2102.01219, extreme molecules",
+          "arXiv:2112.02689, finite transportation-cost spaces",
+          "Resultary: equilateral metrics with independently shortened pairs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and enumerate_lattice.cpp",
+        "Resultary 3351c76a2868, 3bd6d7048744 and 781986497a31",
+        "arXiv:1911.10642, 2102.01219 and 2112.02689"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-day matching-deleted result overlaps in its covariance-to-matching inference. Its t=2 model allows an overall range greater than 1 with extremes from one pair; the t≤1 chamber product here instead uses the global range bound of 1.",
+          "The inspected equilateral analysis uses the fully symmetric metric, where the pairing is invisible. The facet result gives boundary data, not the required moment integrations."
+        ],
+        "reasoning": "The inference after establishing a spectral gap is shared; the spectrum and gap themselves are not implied by that overlap. The t=2 law does not determine the formulas in a different chamber regime, nor their limit under t=1−c/m. Same-day archive dates do not decide priority.",
+        "searches": [
+          "Matching-deleted complete-graph covariance Finding and assumptions, local Resultary mirror",
+          "arXiv:1911.10642 §5.2",
+          "Shortened-pair facet enumeration Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Record 3351c76a2868 computes full covariance and matching recovery for the complete graph with a matching deleted, using the top eigenspace for deleted pairs at distance 2.",
+          "Record 781986497a31 gives equilateral covariance for the uniform Lipschitz-free/root-polytope ball, the polar side rather than the potential ball."
+        ],
+        "reasoning": "Scaling cannot convert the distinguished-to-common distance ratio of 2 to one less than 1, and relabeling cannot interchange the pair class and the more numerous inter-pair distances. Polarity is not a measure-preserving map transferring interior covariance.",
+        "searches": [
+          "Resultary: exact covariance of uniform Lipschitz potentials, paired/clustered metrics, matching recovery",
+          "Resultary: matching-deleted complete graphs, shortened-pair metric polytope and equilateral covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact formula catalogue contains the length-2 recovery result and the equilateral polar covariance, not a matching formula for 0<t<1 on the potential side. The equilateral potential-ball passage gives volumes, not the two continuous eigenvalues for paired metrics."
+        ],
+        "reasoning": "The natural exact check here is for a formula across the continuous distance parameter, not agreement with isolated sample cases or an equilateral value.",
+        "searches": [
+          "Resultary records 3351c76a2868, 3bd6d7048744, 781986497a31",
+          "Alexander et al., arXiv:1911.10642 PDF pp. 16–18"
+        ]
+      },
+      "rationale": "The distinct claim is the exact interior covariance on the Lipschitz-potential ball of the shortened-pair family, including the gap, matching and distance reconstruction, and boundary scaling. The strongest inspected overlap recovers a matching from covariance for deleted edges of a complete graph, but concerns lengthened pairs at distance 2 rather than shortened pairs and does not cover the claimed regime. No novelty is credited to the ball's volume formula, the symmetry decomposition in isolation, or the general idea of covariance recovery. The inspected citation for equilateral volume does not itself establish the credited paired volume, which is derived directly in this record.",
+      "residual_risks": [
+        "An equivalent uniform covariance calculation might be indexed under metric polytope, truncated cube or geometric probability terminology. This is a bounded comparison.",
+        "The inspected equilateral citation alone does not establish the attributed prior clustered volume. The present proof establishes the volume, but originality here does not depend on the attribution or claim novelty for normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Conceptual overlap, different metric regime",
+          "evidence": "Deleted pairs have shortest-path distance 2 and are recovered from the largest eigenspace, unlike the shortened pairs and bottom eigenspace here.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-covariance-and-deleted-edge-recovery-for-matching-deleted--3351c76a2868",
+          "material_read": "RESULT.md Finding and assumptions, opening mirror passage",
+          "method": "Local Resultary mirror",
+          "title": "Exact covariance and deleted-edge recovery for matching-deleted complete graphs",
+          "trigger": "Strongest overlap on covariance recovery of a matching"
+        },
+        {
+          "assessment": "Same family, different invariant",
+          "evidence": "Facet counts of the Lipschitz-free unit ball and classification of dual extreme potentials, not uniform interior covariance.",
+          "identifier_or_url": "2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744",
+          "material_read": "RESULT.md statement of facet enumeration and dual extreme potentials",
+          "method": "Local Resultary mirror",
+          "title": "Facet enumeration for equilateral metrics with independently shortened pairs",
+          "trigger": "Same shortened-pair metric family"
+        },
+        {
+          "assessment": "Different ball and no paired-parameter moment",
+          "evidence": "Uniform law on the free/root-polytope ball, not the Lipschitz-potential ball.",
+          "identifier_or_url": "2026/10/18/SCOPE-exact-isotropic-covariance-and-a-gaussian-radial-law-for-equilat--781986497a31",
+          "material_read": "RESULT.md covariance Finding",
+          "method": "Local Resultary mirror",
+          "title": "Exact isotropic covariance and a Gaussian radial law for equilateral Lipschitz-free balls",
+          "trigger": "Equilateral covariance and polar convention"
+        },
+        {
+          "assessment": "Equilateral volumes; does not establish paired volume or covariance in the inspected passage",
+          "evidence": "The passage uses an equally weighted complete graph and computes its equilateral Lipschitz-ball volume and volume product.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.10642",
+          "material_read": "§5.2, PDF pp. 16–18, OA offsets 80000–89976",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "Directly cited complete-graph/equilateral Lipschitz-ball analysis"
+        },
+        {
+          "assessment": "Different invariant",
+          "evidence": "Characterizes extreme points through molecules, not uniform potential moments.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.01219",
+          "material_read": "PDF pp. 1–2, OA offsets 4073–7320",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Extreme points in Lipschitz-free spaces over compact metric spaces",
+          "trigger": "Cited polar geometry"
+        },
+        {
+          "assessment": "Framework, not coverage",
+          "evidence": "The inspected results concern isometric structure of transportation-cost spaces.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.02689",
+          "material_read": "PDF p. 1, OA offsets 385–2708",
+          "method": "Lawful OA PDF, bounded passage",
+          "title": "Isometric structure of transportation cost spaces on finite metric spaces",
+          "trigger": "Cited finite-metric isometric theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact inverse statement from a natural summary of the uniform law on a canonical convex body. Symmetry identifies the possible invariant subspaces but cannot tell whether their eigenvalues coincide, which projector encodes the pairs, or the scale on which that distinction disappears. The explicit formulas solve those questions and identify the common length, with a quantitative transition at the equilateral endpoint. The result is about population covariance, not an unproved sample-recovery guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

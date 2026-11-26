@@ -1,18 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The four independent Kummer characters yield a connected, tame degree-sixteen cover with five inertia-two branch points and genus five by Riemann–Hurwitz. The five four-branch characters give elliptic quotients; the remaining ten characters have zero-dimensional cohomology. Exact \(\mathbb F_5\) counts of the split/nonsplit quartic elliptic quotients prove their traces \(\mp2\) and the full zeta numerators. The five sign characters have even parity, occurring with frequencies \(1,10,5\). The affine order-twenty subgroup permutes the branch labels and preserves their twist square classes, proving an isomorphism for all curves in each frequency class; distinct rational point counts prove class separation. An independently implemented finite field/fibre point counter and exhaustive affine group orbit checker passed for all sixteen curves. Scope: only the sixteen specified deck-twisted covers; no global genus-five census.
+## correctness
 
-## Originality: PASS, with residual priority risk
-The prior Humbert motive, branch-moduli and elliptic Jacobian decomposition are explicitly credited and do not give the sixteen arithmetic twist Weil numerators or their three \(\mathbb F_5\)-isomorphism classes. Targeted searches for the stated numerical classification, its even-parity character formulation, a potentially stronger finite-field Humbert theorem, and published related arithmetic work found no same-object implication. The closest finite-field comparison concerns the *six-branch, genus-seventeen* curve, not this five-branch, genus-five configuration. An unindexed historical finite-field table remains possible; summaries available for some related mathematical records could not be checked against their full repository texts.
+PASS
 
-## Mathematical value: PASS
-The five-rational-branch Humbert configuration over \(\mathbb F_5\) is the canonical complete finite affine branch set and has a nontrivial arithmetic descent question. The theorem supplies a complete moduli-level classification rather than a selected witness: it distinguishes one pointless class from ten marked eight-point models and one sixteen-point model, while proving that all have the same quadratic-extension point count and ordinary Jacobians. Its group-action orbit computation is essential for upgrading a trace census to isomorphism classes. No general theorem or additional applications are asserted.
+The valuation at each nonzero branch point detects its own Kummer generator, even after geometric base change. There are five inertia-two branch fibers and no ramification at infinity, giving genus five. The nontrivial characters indexed by subsets of three or four generators are exactly the five elliptic quotients; the other characters have two branch points. The elliptic quotients have four finite roots, remaining value -1 before twisting, and two or zero rational points at infinity according to the leading square class. This gives traces -2 eta_j and their quadratic-extension traces -6; the five character spaces give the stated numerator and ordinarity. The five quartic classes span the full Kummer subspace: the product of the class indexed by 0 and the class indexed by j recovers the jth original radical class. Therefore the permutation of their signed classes under affine substitutions (the scalar is u^4) really lifts to an isomorphism of the extensions. The even sign vectors are in bijection with presentations, with one affine orbit for each sign count 0,2,4. Distinct rational-point counts exclude further identifications of abstract curves. In an independent count on the smooth diagonal model v_0^2=U, v_a^2=epsilon_a(U-aV), normalizing the first nonzero coordinate among v_0,v_1 and counting the other three square roots gave distributions {16:1,8:10,0:5} and {56:16} over the two fields; replay with python /workspace/review_check_4.py. This count corroborates the point statistics, not the isomorphism proof.
 
-## Closest literature and limitations
-- Laterveer (2022), Definition 2.1 and Proposition 2.6, establishes the classical Humbert setting but not finite-field twist counts.
-- Auffarth–Lucchini Arteche–Rojas (2019/2020), Theorem 2.1, already supplies general elliptic Jacobian splitting.
-- Hidalgo–Reyes-Carocca (2016), early section on the five-branch Humbert quotient, treats geometric automorphisms and fields of moduli rather than this finite-field arithmetic classification.
-- A published six-rational-branch Humbert–Edge genus-seventeen arithmetic calculation has similar zeta-count language but a different genus, extension degree and branch-action problem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accepted contribution is the three abstract arithmetic classes, their frequencies in the specified deck-twist set and their exact Weil numerators. The type-4 Humbert–Edge model, elliptic factorization and branch symmetries are prior ingredients; the inspected prior statements do not supply the arithmetic signs and their full orbit classification.
+
+## value
+
+PASS
+
+The complete affine rational branch set is a natural fixed configuration; its sixteen constant square-class modifications are a complete, nonarbitrary set of deck twists in this presentation. The computation distinguishes the unique zero-point abstract class and the unique sixteen-point class from the middle trace class despite identical quadratic-extension counts, and gives a test for isomorphism in the specified set rather than just examples or a point census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

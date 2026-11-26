@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T03:49:16.032536Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For ell>0, the return is the first passage of drift-a Brownian motion with generator d∂²+a∂ to distance ell. Its inverse-Gaussian mean is ell/a and variance 2d ell/a³. For d2>d1 the likelihood ratio is below one at t=ell/a, and rises to infinity toward either end of (0,infinity), monotonically on each side of that minimum. The +,-,+ density difference gives positive call gaps at the outer strikes by equal mass and mean and positive concave interpolation between the two crossings. Conditioning on the common exploration skeleton keeps the dependence between durations and alarm positions while making the return noises independent. Translation and independent convolution preserve call order, so averaging yields convex order. For any t>0 there is positive probability that the first exploration alarms before t/2 without exit and at a point distinct from x, and the next exits within t/2 before its alarm. On these skeletons the conditional single-return call gap at t-S>0 is strict, making each global positive-strike inequality strict. The second-derivative measure of a strictly convex test charges every nonempty interval of positive strikes, yielding strict test expectations whenever both are finite. A successful episode has positive probability q, attempts are geometric and stopped exploration durations have small exponential moments; bounded return distances and inverse-Gaussian moments suffice for total variance. The skeleton conditional mean is S+W/a² and variance 2dW/a⁴; the work and terminal side are skeleton observables. The killed rate-r resolvent has the stated Dirichlet kernel, and summing expected one-attempt work across renewals gives ar/q times its distance integral, strictly positive. Frozen verify.py was inspected: it is finite corroboration, and its same-formula transform comparisons do not add independent evidence. The conclusion relies on the crossing and conditioning proofs, not on Laplace-order checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Singh's earlier joint renewal transform is in a semi-infinite search and does not give strict call inequalities under changes in return diffusivity in the passages read.",
+          "Gupta et al. allow different coefficients in the search and return phases; the model passage does not prove an order in those coefficients for total bounded two-target search time.",
+          "Chen–Tang–Li treat the very same bounded geometry and give return transforms and the work law independent of return diffusivity."
+        ],
+        "reasoning": "A joint transform can encode a family of time laws without ordering them. The combination of conditional ordering and a positive chance of arbitrarily short exploration histories is needed to get all-strike strictness, not just a representation or a mean Pareto front.",
+        "searches": [
+          "Chen–Tang–Li arXiv:2611.23790v1 §§II–III and work equations",
+          "Singh arXiv:2407.02071 §3",
+          "Gupta et al. arXiv:2004.11679 §3.1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.23790v1",
+        "arXiv:2407.02071",
+        "arXiv:2004.11679",
+        "Resultary 57279310924a, 6de4b2fc20c8 and neighboring hit edbbbd41dbc4",
+        "Fixed-mean IG dispersion literature query and arXiv:2501.14820v1 literal lookup (not a full-text noncoverage comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Differentiation of the return transform supplies the mean and variance; renewal differentiation or conditional variance gives the affine slope and no separate originality is assigned to that calculation.",
+          "An inverse-Gaussian order transported by a common conditionally independent skeleton explains the weak direction. Strictness at every t>0 additionally uses the event of a positive-distance return with exploration time below t.",
+          "Work invariance and equal means cannot imply the sign of all call gaps; neither can ordering the completion transforms only for positive Laplace arguments."
+        ],
+        "reasoning": "The parent formulas plus general convex-order techniques provide the ingredients, but the inspected statements do not yield the sharp full-search risk comparison by parameter substitution. The global strictness is the distinct result.",
+        "searches": [
+          "arXiv:2611.23790v1 return/completion-time transforms and work Eqs. (39)–(41)",
+          "Classical fixed-mean inverse-Gaussian law and stop-loss criterion compared against RESULT Steps 1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In fixed-mean IG notation the shape parameter is ell²/(2d), so the single-return comparison orders decreasing shape parameter at the same mean. The density and Brownian first-passage interpretation are classical.",
+          "The parent return Laplace transform specifies the same law. Laplace ordering alone tests only exponentials and is not equivalent to convex order or positive-strike strictness."
+        ],
+        "reasoning": "The equivalent fixed-mean dispersion comparison is an ingredient, not the new observable: the assigned result orders the whole physical absorption time including dependent exploration and failed-return distances. No separate prior exact full-search statement was found by changing the first-passage parametrization.",
+        "searches": [
+          "Chen–Tang–Li arXiv:2611.23790v1 return transform and work law",
+          "Fixed mean inverse Gaussian shape/dispersion, stop-loss and Brownian first-passage stochastic-order search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct match 6de4b2fc20c8 is the assigned record.",
+          "Distinct same-day 57279310924a varies an independent positive-integer exploration reset deadline and characterizes ordering of a terminal outcome probability, a ratio of two expectations. Its gambler's-ruin midpoint result does not order physical completion durations under varying return noise.",
+          "The related hit edbbbd41dbc4 concerns changing spatial diffusivity profiles in first-passage timing, not this fixed exploration law and varied return phase."
+        ],
+        "reasoning": "The strongest indexed convex-order match has a different input and a different output; its ratio criterion does not subsume a completion-time stop-loss law. No distinct exact tabulation or distributional theorem for these global comparisons was found.",
+        "searches": [
+          "Resultary searches for convex-risk ordering, stochastic returns, variable diffusivity and two-exit renewal",
+          "Exact indexed comparison 57279310924a, local mirror RESULT offsets 0–3544"
+        ]
+      },
+      "rationale": "Best-of-knowledge pass for the strict all-positive-deadline convex-risk law of the full two-target completion time under changing only return diffusivity. The parent already gives the exact model and renewal transforms; the mean, work distribution, splitting probabilities and the moment input are not new. The affine variance coefficient is useful supporting structure, also derivable from the earlier model transform; the substantive increment is the strict convex-risk result rather than the moment identity alone or a claim of a new inverse-Gaussian ordering criterion.",
+      "residual_risks": [
+        "A classical general dispersion theorem may give the single-return order; that ingredient is not claimed as new. The focused query did not establish a primary attribution for its strict fixed-mean formulation.",
+        "An equivalent full-time comparison implicit in a more general renewal or stochastic-order statement is not exhaustively ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact model, forward transforms and work already covered; no strict total-time risk statement in inspected passages",
+          "evidence": "Targets are inactive in return; return mean is distance/a; work is a times the sum of reset distances and has a diffusivity-independent transform.",
+          "identifier_or_url": "https://arxiv.org/html/2611.23790v1",
+          "material_read": "Model Eqs. (2)–(5), HTML offsets 9000–13011; §III Eqs. (9)–(12), 14310–18689; work Eqs. (39)–(41), 33100–37600",
+          "method": "Open article, bounded passage reading",
+          "title": "Finite-time stochastic resetting in bounded domains: competing targets, energetic cost, and optimal search strategies",
+          "trigger": "Exact parent model and moments/work"
+        },
+        {
+          "assessment": "Related earlier transform, not the same strict comparison",
+          "evidence": "Half-line geometry; joint work–completion-time renewal transform.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.02071",
+          "material_read": "§2 Eqs. (3)–(6) and §3 Eqs. (17)–(20), extracted offsets 10000–14403 and 27000–31500",
+          "method": "Open paper, bounded passage reading",
+          "title": "Emerging cost-time Pareto front for diffusion with stochastic return",
+          "trigger": "Earlier broad joint time/work transform"
+        },
+        {
+          "assessment": "Relevant model ingredients, different claim",
+          "evidence": "The model allows different diffusion coefficients and defines return on the line.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.11679",
+          "material_read": "§3.1, extracted offsets 10800–14726",
+          "method": "Open paper, bounded passage reading",
+          "title": "Stochastic resetting with stochastic returns using external trap",
+          "trigger": "Two-phase diffusivity and stochastic returns"
+        },
+        {
+          "assessment": "Exact order result on distinct observables",
+          "evidence": "Positive-integer exploration deadlines are ordered and the output is a ratio giving an absorbing-side probability; at the midpoint it is invariant and away from it the universal direction fails.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-the-exact-convex-order-dual-for-two-exit-renewal-resetting-and-a--57279310924a/RESULT.md",
+          "material_read": "Finding, assumptions and first renewal step, offsets 0–3544, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "method": "Resultary hit and local mirror excerpt",
+          "title": "The exact convex-order dual for two-exit renewal resetting and a gambler's-ruin obstruction",
+          "trigger": "Closest distinct indexed convex-order renewal result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It exposes a controllable source of duration risk in the exact motivating model that mean time, complete switching work statistics and exit-side probabilities cannot detect. Every positive-deadline overrun loss worsens, not just a few transforms or the variance; the latter's coefficient ties the effect to expected work. The conclusion is meaningful at fixed drift with targets inactive on return, and does not imply the same response for a physically coupled change of drift or active return targets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

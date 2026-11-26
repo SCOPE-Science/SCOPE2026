@@ -1,11 +1,21 @@
-# Scientific review: projective torsion in the five-cube antipodal orbit
+# Independent mathematical audit
 
-**Correctness — PASS.** The starting integral homotopy groups are supplied by Feng's scale-three theorem. Ten coordinate four-facet fundamental cycles pair unimodularly with the maximal-seven-simplex cocycles of Adams–Virk, hence constitute a genuine integral basis; the attached checker replays the special-case combinatorial premises. The antipode exchanges five pairs of these generators and has no invariant simplex. A multiplicative Cartan–Leray sequence, with its otherwise possible degree-four and degree-eight transgressions eliminated explicitly, forces the nonzero degree-five transgression and the truncated polynomial cup ring. Integral transfer, universal coefficients, and the low-degree group-homology term yield the two exact order-two homology groups.
+## correctness
 
-**Originality — PASS subject to residual bibliographic risk.** Feng proves the cover's integral homotopy type; Adams–Virk construct top-degree cross-polytope generators; Galetto–Montaño–Wellner completely determine characteristic-zero hyperoctahedral homology modules of the cover. In particular, the present work does *not* claim a new representation or a new rational Betti number. The searched and inspected sources do not determine the integral cohomology ring or torsion groups of the geometric quotient by central complementation. The closest related smaller-cube quotient has a different metric scale and different cover homology, so its conclusion does not imply this one. No equivalent indexed statement was found, which is evidence rather than proof of global novelty.
+PASS
 
-**Value — PASS.** The central antipode is a canonical free isometry at this metric threshold, making its geometric orbit space natural rather than an arbitrary finite slice. The mod-two nilpotence height and the nonzero integral square detect information that is absent from all previously described characteristic-zero symmetry modules. This provides a benchmark for the difference between rational equivariant homology and integral topology of symmetry quotients, without requiring an unsupported broader theorem or homotopy classification.
+Feng's inclusive-scale formula at dimension five gives one S^4 and ten S^7 summands on the cover. The decisive integral basis certificate was checked directly: even first-three-bit parity and either fourth bit define a simplex in a coordinate four-face. An omitted vertex in that face has an even-parity complement at distance four. An outside vertex has a different fixed coordinate and differs from some simplex vertex in at least three free coordinates, so the simplex is globally maximal. Its indicator cocycle pairs by a unit with its own facet cycle and by zero with all other facet cycles. The ten unit pairings and the known rank give an integral basis. Complementation pairs the basis vectors up to orientation, which can be chosen compatibly, giving five regular modules. No simplex can contain an antipodal pair; there are no invariant simplices and the action is free. Its Lefschetz number is zero, so the rank-one degree-four action is minus one. In the mod-two Cartan–Leray sequence the degree-seven row is concentrated in column zero. Its classes are annihilated by t, whereas t acts injectively on the degree-four row at d_4, forcing that differential to vanish. If d_5 on the degree-four generator vanished, the same annihilator argument would rule out d_8 and leave unbounded cohomological degrees in a finite-dimensional quotient. Thus d_5 kills t^5 and all higher bottom-row powers, and t^4 survives as the actual covering-class power. Rational transfer gives the free rank; integral transfer kills all torsion by 2, since the cover has torsion-free homology. UCT and the mod-two dimensions then give one order-two summand in each of degrees one and three only. The integral Bockstein of t reduces to t^2 and its square reduces to t^4. All unlisted positive-degree products vanish by degree. The frozen verifier was not executed, and its full face census was not reproduced; the hand-checked maximal-simplex certificate and spectral sequence establish the stated groups and products without that optional census.
 
-**Limitations and risks.** The analysis does not determine the quotient homotopy type, does not apply to the metric quotient's independently constructed Rips complex, and relies on the cited proven cover homotopy theorem. The 2026 representation theorem covers some preliminary rational ingredients, not the integral quotient claim. Equivalent unindexed work cannot be ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Credit the cover homotopy type, cross-polytopal class method and characteristic-zero representation to the cited literature. The supported distinction is the integral torsion and multiplicative cohomology of this actual geometric C2-orbit space, not the rational representation or homology alone.
+
+## value
+
+PASS
+
+For a natural free complement action, this distinguishes the quotient from what is visible in the nonequivariant sphere wedge or in rational invariants. The fourth power of the actual covering class identifies a projective-type feature beyond the additive torsion list. The argument explains that feature by a forced differential rather than relying on an unexplained small-instance census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:09:54.862650Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–119",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen verify.py, lines 21–103, inspected without execution; independent binary-root and sign replay"
+      ],
+      "rationale": "The conditional mean given equilibrium age is zero, the conditional variance is q+(v-q)Z, and the conditional fourth cumulant is kappa_R Z^2 because independent Gaussian noise contributes zero fourth cumulant. Thus the mixture contributes three times the variance of the conditional variance, yielding exactly kappa_R L_2+3(v-q)^2(L_2-L_1^2), including D=0. Uniform and exponential ages give the displayed F functions. For tau>0, sinh(tau)>tau and the positive polynomial difference tau^2(24tau+7) establish the strict gap. The derivatives are positive and endpoints 0 and 1 are unattained at finite positive period, so the stated equality and threshold cases are exhaustive. An independent replay gave the no-diffusion binary roots 2.224744871391589 and 2.984704585357887. At tau=5/2, the Poisson value is a^4/132, while the deterministic value is negative since tanh(5/2)>5/6. Ordering refers to normalized cumulants; positive attenuation preserves each sign but not the numerical ordering of the original values.",
+      "residual_risks": [
+        "The equilibrium-renewal law assumes a common interarrival distribution. A synchronized deterministic clock at a fixed phase does not represent the stated stationary sampling protocol."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Eule–Metzger construct the steady state under a general renewal clock with a fixed reset target, including a deterministic-clock limit.",
+          "Olsen gives the Poisson harmonic stationary moment hierarchy for arbitrary reset position distributions."
+        ],
+        "reasoning": "The more general renewal framework concerns computing distributions, not the sign or order of the normalized mixtures. The broader moments in Olsen apply to only one of the two protocols.",
+        "searches": [
+          "arXiv:1510.07876, Eqs. (5)–(7) and deterministic limit",
+          "arXiv:2310.04840, §III Eqs. (17)–(22)"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and references",
+        "Primary and local passages in source_inspections"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordering requires comparing tanh(tau)/tau with (1+4tau)/(1+2tau)^2 for the entire positive real axis; unique crossings also require strict clock-specific monotonicity and endpoint analysis."
+        ],
+        "reasoning": "That inequality and finite-period comparison are not merely the application of a known single-protocol moment formula. The Poisson root itself is a direct corollary and not the novelty basis.",
+        "searches": [
+          "Compare renewal construction arXiv:1510.07876 pp. 2–3 and Poisson moments arXiv:2310.04840 p. 4 with Frozen RESULT.md lines 81–119"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Poisson Gaussian-position record varies the reset mean rather than the clock.",
+          "The run–rest record compares Erlang and exponential rest of equal mean in a different model.",
+          "The same-day telegraph-driven harmonic network result concerns signs of cumulants under a driving process, not independent OU position resets."
+        ],
+        "reasoning": "None compares the same equilibrium-age mixture with the same distributed position law under the two specified clocks. The same date carries no priority conclusion.",
+        "searches": [
+          "Resultary: periodic versus Poisson OU position resetting, matched-mean fourth cumulant and sign changes",
+          "2026/10/25/SCOPE-two-reentrant-kurtosis-regimes-under-gaussian-distributed-ornste--013cabb14fb4",
+          "2026/11/8/SCOPE-laplace-transform-universality-and-a-sharp-kurtosis-crossover-fo--d2cdec50cb7e",
+          "2026/10/18/SCOPE-strict-fourth-cumulant-signs-and-fast-flip-laws-in-cooperative-t--09e88e59f6d0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact Poisson moments imply the Poisson component and its root after substitution; the local reentrant OU record gives exact Poisson Gaussian-reset sign regimes.",
+          "The local clock-crossover record gives an exact rest-clock comparison for a trapped run–rest process, not this stationary OU reset age."
+        ],
+        "reasoning": "Single-clock formulas and sign regimes are credited as prior coverage when applicable. They do not give the deterministic critical period or matched-mean opposite signs for binary resetting.",
+        "searches": [
+          "Resultary exact OU kurtosis and equal-mean clock-crossover records",
+          "arXiv:2310.04840 §III Eqs. (17)–(22)"
+        ]
+      },
+      "rationale": "Pass for the strict equal-mean comparison of the two normalized fourth cumulants, the resulting exact crossing classification including the deterministic protocol, and the opposite-sign example. The renewal-age framework and Poisson harmonic moment formulas are existing machinery, not distinct findings here.",
+      "residual_risks": [
+        "The literature lookup was bounded and yielded no useful additional primary source; that miss is not evidence of novelty. Other general renewal inequalities or earlier comparison results may cover the same order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage of the Poisson harmonic moments, not the clock comparison.",
+          "evidence": [
+            "Closed-form moments for arbitrary reset distributions; harmonic master equation and moment hierarchy for Poisson resets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "PDF abstract p. 1 (text offset 1884); §III, Eqs. (17)–(22), p. 4 (20613)",
+          "method": "Bounded passages from lawful open PDF",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Direct overlap on the OU Poisson component"
+        },
+        {
+          "assessment": "Framework antecedent, without matched-mean distributed-position fourth-cumulant ordering.",
+          "evidence": [
+            "Arbitrary waiting-time laws with fixed reset target; deterministic limit of the Gamma clock."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.07876",
+          "material_read": "PDF introduction p. 1 (offset 5344), Eqs. (5)–(7) p. 2 (9488), Gamma-clock discussion p. 3 (17545)",
+          "method": "Bounded passages from lawful open PDF",
+          "title": "Non-equilibrium steady states of stochastic processes with intermittent resetting",
+          "trigger": "General renewal and deterministic-reset antecedent"
+        },
+        {
+          "assessment": "Overlaps the model and sign observable but compares reset means at one clock.",
+          "evidence": [
+            "Gaussian position resets with Poisson clock; sign regimes as the reset mean varies."
+          ],
+          "identifier_or_url": "2026/10/25/SCOPE-two-reentrant-kurtosis-regimes-under-gaussian-distributed-ornste--013cabb14fb4",
+          "material_read": "RESULT.md Finding and Assumptions",
+          "method": "Local Resultary mirror",
+          "title": "Two reentrant kurtosis regimes under Gaussian-distributed Ornstein–Uhlenbeck resetting",
+          "trigger": "Closest OU resetting and fourth-cumulant signs"
+        },
+        {
+          "assessment": "Different pair of clocks and a different process.",
+          "evidence": [
+            "A trapped run–rest model compares Erlang and exponential rest at equal mean."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-laplace-transform-universality-and-a-sharp-kurtosis-crossover-fo--d2cdec50cb7e",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Laplace-transform universality and a sharp kurtosis crossover",
+          "trigger": "Equal-mean clock-dependent cumulant crossing"
+        },
+        {
+          "assessment": "Driving noise problem, not a reset-position mixture.",
+          "evidence": [
+            "Telegraph-driven network sign theorem and signed-probe counterexample."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-strict-fourth-cumulant-signs-and-fast-flip-laws-in-cooperative-t--09e88e59f6d0",
+          "material_read": "RESULT.md Finding",
+          "method": "Local Resultary mirror",
+          "title": "Strict fourth-cumulant signs and fast-flip laws in cooperative telegraph-driven systems",
+          "trigger": "Same-day harmonic system with strict fourth-cumulant results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 5–49 and 125–133",
+        "arXiv:1510.07876 pp. 1–3 and arXiv:2310.04840 §III"
+      ],
+      "rationale": "The renewal-reset literature motivates evaluating protocol sensitivity at equal mean; the reset law and mean waiting time alone do not determine even the sign of the stationary fourth cumulant. The strict comparison and a simple opposite-sign example give a mathematically precise distinction between two standard protocols, with exact thresholds rather than an isolated numerical case.",
+      "residual_risks": [
+        "No ordering of unnormalized cumulants, excess kurtosis, or arbitrary renewal clocks is asserted; zero fourth cumulant is not Gaussianity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

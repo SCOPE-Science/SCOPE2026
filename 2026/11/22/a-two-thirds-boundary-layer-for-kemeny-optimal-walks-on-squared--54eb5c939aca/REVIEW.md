@@ -1,19 +1,21 @@
-# Scientific review: A two-thirds boundary layer for Kemeny-optimal walks on squared cycles
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all integers \(n\ge5\), the zero-target Kemeny sum is the inverse trace of \(I-P\) on the mean-zero subspace. It is strictly convex as a function of the independently adjustable edge probabilities on connected feasible graphs. Rotation averaging plus uniqueness identifies the unrestricted minimizer with a two-parameter circulant walk; removing diagonal holding then fixes its probability budget. Fourier eigenvalues yield a strictly convex scalar objective with one interior root. The exact resolvent follows from partial fractions and a Poisson-kernel sum over roots of unity. Uniform boundary-layer estimates and a unique limiting scalar minimizer prove the \(n^{-2/3}\) scale and exact correction. The standalone checker passed 986 finite diagnostics, including separate matrix inversion; those tests do not certify the infinite analytical claims.
+PASS
 
-## Originality — PASS, subject to access and publication risk
+On the mean-zero space, L=I−P is positive definite exactly for connected support; inverse trace tends to infinity on approach to disconnected support. The feasible closed polytope with that extension gives attainment. The Hessian along a nonzero perturbation is positive by the inverse-trace square identity, and the mean-zero restriction is injective on the row-sum-zero perturbations, giving uniqueness. Rotation invariance forces orbit weights a,b. If 2a+2b<1, rescale both by 1/(2a+2b), preserving support and multiplying L by a factor greater than one, so the optimizer has no holding. Fourier modes give the displayed D_k; not all A_k and B_k agree. At ε=1, B_k/A_k=4−2A_k and ∑1/A_k=(n²−1)/6 give F′_n(1)=(n−1)(n−3)/2. At ε=0 there is disconnection for even n, and for odd n multiplication by two shows the two endpoint values coincide, so strict convexity excludes both. For n=5, the complete graph has ε=1/2 and K=16/5; independently for n=6 the modes give F_6(ε)=2/(3/2−ε)+4/3+1/(2ε), minimized at ε=1/2, K=13/3. The stated finite resolvent follows by partial fractions and sampling the reciprocal-cosine Fourier series, retaining multiples of n with sign (−r)^n and removing k=0. The comparison ε=n^(−2/3) bounds optimal excess by O(n^(4/3)), so the first positive term gives ε_n=O(n^(−2/3)). If n√ε_n stayed bounded on a subsequence, the near-π mode in the nonnegative second sum would alone add order n² above that first term, a contradiction for either parity. Thus (−r)^n→0 and the second term is asymptotic to n/(4√ε_n), forcing ε_n bounded below on the n^(−2/3) scale. The uniform scaled correction is x/32+1/(4√x), whose unique minimum is at x=4^(2/3) with value 3/(8·4^(1/3)); compactness gives both asymptotics. Substituting ε=1/2 gives the equal-edge comparison n²/15, and the pure one-hop sum is (n²−1)/6.
 
-The general symmetry method of Boyd–Diaconis–Parrilo–Xiao (arxiv:0709.0955v1), the resistance-design framework of Ghosh–Boyd–Saberi (DOI:10.1137/070689413), and the Kemeny convex/SDP framework of Patel–Agharkar–Bullo (DOI:10.1109/TAC.2015.2426317) cover general techniques, not the explicit squared-cycle Kemeny optimizer in the read portions. Doi et al. (arxiv:2110.12614) derive hitting times for the fixed equal-edge squared-cycle walk only. The closest published squared-cycle optimization records concern SLEM and \(n^{-2}\) one-hop weights; they do not state the inverse-trace solution or the new asymptotic order. Their full manuscripts could not be materially inspected; conclusions about their uninspected contents are withheld. Another equivalent source may exist.
+## originality
 
-## Value — PASS
+PASS
 
-The family is the simplest cycle with a local competing two-hop route. The exact n-dependent probability allocation, a positive-to-vanishing short-step boundary layer, and the quantitative fourfold leading Kemeny improvement make the precise invariant worth determining beyond generic convex optimization. The second asymptotic term distinguishes competing near-optimal allocations and explains why the dominant two-hop network alone is not optimal at finite size.
+Pass is for the evaluated squared-cycle design: interior edge balance, parity-resolved response and optimized n^(−2/3) boundary layer with its correction constant. In particular, existence, uniqueness, symmetry and zero holding after budget normalization are already consequences of the effective-resistance framework and are not credited as independent novelties. The same-day Möbius-ladder result establishes a genuine analogous boundary layer, not this theorem for C_n². No inspected prior statement supplies the evaluated optimum or its asymptotics for C_n².
 
-## Limitations
+## value
 
-Only symmetric, uniform-stationary stochastic walks on \(C_n^2\) are covered. No claims for other long jumps, priced conductances, biased or directed walks. The scientific status is a same-model analytical review, not independent certification; finite computations only test examples. Publication priority remains qualified by full-text access and indexing gaps.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The graph remains a natural sparse test case for optimizing average travel times, and the singular optimum distinguishes this objective from equal weighting, removing a channel, or minimizing worst spectral contraction. The fractional exponent and correction follow from competing low-frequency costs near 0 and π and quantify how a nearly dominant jump type must be regularized even when it stays connected. These are useful precise design laws beyond the known general convex formulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

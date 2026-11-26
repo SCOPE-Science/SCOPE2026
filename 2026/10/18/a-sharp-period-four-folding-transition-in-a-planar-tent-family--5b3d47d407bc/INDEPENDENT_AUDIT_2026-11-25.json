@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:26:18.692993Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the affine returns in temporal order over Q(t): see /workspace/tent_symbolic_replay.py (run with python -B; SymPy). It reproduced all six nonzero determinants, the closed-triangle margins and the four branch signs for each primitive word. Each product of n branches is (√2 t)^n times an orthogonal matrix, so no formal return matrix has eigenvalue 1 in this interval. The necklaces 0000, 0101, 1111 yield precisely the two fixed points and one 2-cycle from words 0, 1, 01; the latter has seed (2t/(2t²+1),2t/(2t²+1)) strictly left and its image strictly right. The 0001 word always passes, and 0011 and 0111 pass iff P=4t⁴−2t−1≥0: their time-one x−1 has, respectively, sign −P and +P, with all other signs strict. The seed lies in the triangle and then forward invariance applies to the admissible orbit, not to a wrong-branch formal iterate. The positive factors can be checked already for t>1/√2: 4t⁴−4t³+1≥37/64, 4t⁴−2t+1>0 by monotonicity from 1/√2, 4t⁴+4t³−1>0, and the nontrivial triangle margin has the strictly positive sum of squares (2t²−t)²+(t−1)². P increases strictly with P(τ)=√2−2τ<0 and P(1)=1. The stated rational bracket has opposite signs. Modulo P the two new seeds agree exactly, and their time-one point is on the fold; the two descriptions represent one orbit, which has x₀<1<x₂ and thus period four. Away from the root, strict labels distinguish the primitive necklaces and exclude periods one and two. This gives the 1/2/3 trichotomy and 8/12/16 fixed-iterate counts including endpoints. Off-fold four-step expansion is 4t⁴>1. The supplied rational checker was inspected, not run, and cannot by finite sampling establish the equality case.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 treats dense periodic orbits on the attractor for τ<t≤1, not an exact primitive-period catalogue; it excludes τ. The full two-symbol coding is discussed at t=1. The kneading comparison is for a skew interval tent map, not the affine planar family."
+        ],
+        "reasoning": "Density alone fixes neither how many primitive period-four orbits exist nor whether they collide on the fold. Results about an interval kneading family do not specialize to these closed planar domains.",
+        "searches": [
+          "MP_ARC 14-8 Theorem 1.1 and endpoint symbolic discussion",
+          "MP_ARC 22-50 invariant polygons and attractors",
+          "Buczolich–Keszthelyi arXiv:1804.01837v2 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "MP_ARC 14-8 and 22-50",
+        "arXiv:2409.18805v2",
+        "arXiv:1804.01837v2",
+        "DOI:10.1088/0951-7715/28/2/407 (final-version access attempt)",
+        "Resultary 1afb4a350786 and a8aec9ff96f0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The two-symbol endpoint coding gives 2⁴=16 return words. The fold causes no periodic ambiguity at t=1: its image is on the boundary, the boundary is invariant, and its boundary endpoints (1,0) and (1,1) are preperiodic. This credits the endpoint without requiring a topological conjugacy of the entire connected triangle to a shift space.",
+          "None of the general dynamics statements imposes the time-one admissibility signs ±P(t) on the two words; fold identification at the interior root needs the simultaneous return and branch tests."
+        ],
+        "reasoning": "Direct implication applies to the endpoint, not to the genuine new interior transition, the equality case, or the full-interval short-period statement. Exhaustive symbolic case enumeration is a known method, not itself the originality claim.",
+        "searches": [
+          "Pumariño et al. MP_ARC 14-8 p. 2 symbolic description and p. 3 Theorem 1.1",
+          "Marqués-Lobeiras et al. MP_ARC 22-50 Eq. (6) and Remark 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "14-8 pp. 1–2 defines Λ_t=Λ_{t,t} with precisely these two branches and this fold. 22-50 Eq. (6) and Remark 1 identify the same map and its affine form Γ_{a,φ} with a=2t, φ=3π/4. Alves–Etubi §1.2 uses φ_t=tφ_1 on the same triangle, with the same lower endpoint."
+        ],
+        "reasoning": "These are exact or affine-equivalent family identifications, not merely similar names. The inspected comparisons address transitivity, invariant polygons or statistical regularity, rather than the cycle count or a threshold in either parameterization.",
+        "searches": [
+          "MP_ARC 14-8 and 22-50: two-dimensional tent family, diagonal parameter and expanding-Baker equivalence",
+          "Alves–Etubi arXiv:2409.18805v2 §1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed record 1afb4a350786 studies a boundary-measure cycle and a density-response obstruction for the same family; it states no primitive period-four count. Indexed record a8aec9ff96f0 counts 80 primitive four-cycles for an orthogonal-tents torus map with different branches and domain.",
+          "At t=1, the prior symbolic description gives the periodic-word counts 2 fixed points, one primitive 2-cycle and three primitive 4-cycles; no competing interior census was identified."
+        ],
+        "reasoning": "The endpoint is covered. Neither matching indexed record evaluates the same invariant for this full parameter interval.",
+        "searches": [
+          "Local Resultary search for the closed-triangle tent family, primitive four-cycles and period catalogues; inspect 1afb4a350786 and a8aec9ff96f0",
+          "MP_ARC 14-8 p. 2 endpoint symbolic catalogue implication"
+        ]
+      },
+      "rationale": "The established family, its eventual attractor and endpoint symbolic dynamics are not contributions here. The supported distinct result is the complete low-period census over the closed parameter interval, particularly the exact interior transition and geometric identification of the two words at equality. The closest same-family primary preprint was available; the final journal version remains an access risk, not affirmative contrary evidence.",
+      "residual_risks": [
+        "The final 2015 journal version was not obtainable; the relevant passages in the accessible same-paper preprint were inspected. An unlocated low-period result in equivalent expanding-Baker coordinates is not ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the family, dense periodic orbits and endpoint coding; does not establish the interior census in the inspected results",
+          "evidence": [
+            "Defines Λ_t=Λ_{t,t}; periodic orbits dense on R_t for τ<t≤1; two-symbol partition coding at t=1."
+          ],
+          "identifier_or_url": "https://web.ma.utexas.edu/mp_arc/c/14/14-8.pdf",
+          "material_read": "pp. 1–3, family and Eq. (2), endpoint coding (offset ~3378), Theorem 1.1 (offset ~5300)",
+          "method": "OA preprint primary passages",
+          "title": "Chaotic dynamics for 2-D tent maps",
+          "trigger": "Same family and likely short-cycle precedent"
+        },
+        {
+          "assessment": "Final-version changes unresolved",
+          "evidence": [
+            "The complete OA preprint was accessible for targeted passages; the publisher full text was not."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/0951-7715/28/2/407",
+          "material_read": "Publisher bibliographic access only; compare linked OA same-paper preprint",
+          "method": "Lawful DOI access and alternate MP_ARC preprint",
+          "title": "Chaotic dynamics for two-dimensional tent maps (journal version)",
+          "trigger": "Published version of closest primary source"
+        },
+        {
+          "assessment": "Exact-family and coordinate-change precedent, not the claimed census in these passages",
+          "evidence": [
+            "An affine change gives Γ_{2t,3π/4}; the relevant results concern invariant sets and attractors."
+          ],
+          "identifier_or_url": "https://web.ma.utexas.edu/mp_arc/c/22/22-50.pdf",
+          "material_read": "p. 4 Eq. (6) and p. 6 Remark 1; offsets ~10666 and ~14685",
+          "method": "OA primary passages",
+          "title": "Strictly invariant sets for 2-D tent maps: 2-D strange attractors",
+          "trigger": "Exact family and possible expanding-Baker conjugate coverage"
+        },
+        {
+          "assessment": "Same family, different observable",
+          "evidence": [
+            "Defines φ_t=tφ_1 and studies invariant densities and entropies."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2409.18805v2",
+          "material_read": "§1.2, pp. 5–6, offset ~16808",
+          "method": "OA primary passages",
+          "title": "Modulus of continuity of invariant densities and entropies for piecewise expanding maps",
+          "trigger": "Exact map and parameter interval highlighted by the record"
+        },
+        {
+          "assessment": "Not equivalent",
+          "evidence": [
+            "The skew maps T_{α,β} are interval maps."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1804.01837v2",
+          "material_read": "p. 1 model description",
+          "method": "OA primary passage",
+          "title": "Isentropes and Lyapunov Exponents",
+          "trigger": "Kneading comparison for tent maps"
+        },
+        {
+          "assessment": "Same family, different finding",
+          "evidence": [
+            "Two-cycle of boundary-supported measures, not a census of primitive period-four orbits."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-a-boundary-cycle-obstruction-to-lipschitz-statistical-stability--1afb4a350786",
+          "material_read": "RESULT.md, offsets 91 and 3424",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "A boundary-cycle obstruction to Lipschitz statistical stability",
+          "trigger": "Strongest same-family indexed hit"
+        },
+        {
+          "assessment": "Different map",
+          "evidence": [
+            "Counts 80 cycles for a fractional-part map on a flat torus, not Φ_t on the triangle."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-eighty-primitive-four-cycles-in-the-orthogonal-tents-map--a8aec9ff96f0",
+          "material_read": "RESULT.md offsets 63–291",
+          "method": "Local Resultary search and mirror inspection",
+          "title": "Eighty primitive four-cycles in the orthogonal tents map",
+          "trigger": "Indexed exact period-four catalogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The interval is the natural expanding-chaotic regime studied for a standard planar tent family, not an arbitrary numerical slice. The exact primitive count and polynomial threshold distinguish the actual periodic geometry from a count of admissible words: two new word types first give just one geometric orbit. This is a usable short-period benchmark and fold-boundary example, not a recensus of the already understood full-shift endpoint alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

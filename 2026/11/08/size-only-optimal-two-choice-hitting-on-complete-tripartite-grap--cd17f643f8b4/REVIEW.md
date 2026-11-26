@@ -1,15 +1,21 @@
-# Review of the tripartite two-choice hitting theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The theorem precisely fixes the graph, the target, the with-replacement two-offer mechanism, the objective and all parameter ranges. The stated policy induces the displayed three-state substochastic transition system. The target is reached with finite mean, so the linear system has a unique positive solution. Two exact Cramer-determinant identities establish the ordering of all three values: one difference factors with the sign of the difference between the two other part sizes, while the second difference has a strictly positive-coefficient decomposition on the full allowed integer domain. The verification script checks both polynomial identities by exact interpolation using the proved degree bound and independently solves full-vertex chains for 45 graphs. The final order satisfies Bellman optimality, including against history-dependent competitors. There is no extrapolation from experiments to an unproved infinite claim.
+PASS
 
-## Originality: PASS (with residual historical risk)
+Under the proposed priority, a B or C vertex hits the target whenever it is offered, with positive probability 1-(1-1/d)^2; from A one step first reaches B or C. Thus the proposed chain is transient off the target and the three-state system gives its unique finite positive hitting values. Its coefficients follow by enumerating two ordered independent offers, with repetition. I independently expanded both Cramer identities symbolically and checked strict positivity of the expanded P on a-2,c-1,b-c >= 0, including the constant term. The numerator of H_C-H_B vanishes precisely at b=c; the determinant is positive because the transient matrix has spectral radius less than one. The resulting order makes the rule attain the one-step Bellman minimum. For any competing strategy, iteration of the Bellman inequality up to the target or step N gives a lower bound by the candidate value on the expected elapsed time plus the bounded terminal residual. For any competitor of finite mean the residual tends to zero, and infinite mean cannot improve the candidate. This handles adaptive strategies and the tie case without a stronger stochastic-dominance assertion.
 
-The closest primary source is Georgakopoulos, Haslegrave, Sauerwald and Sylvester, *The Power of Two Choices for Random Walks* (first public posting November 12, 2019), especially Section 7.1, Lemma 7.1 and Theorem 1.6. These prove the general lower-hitting-value preference principle and polynomial computability, but do not give an all-parameter explicit size-only ranking for a target-rooted three-part complete graph. The related 2020 conference treatment addresses generic algorithms, bounds and applications rather than the asserted classification. The general principle is used, not claimed as novel. A search for exact tripartite instances, alternative descriptions, fuller domination and tabulations found no decisively covering result. The graph family and objective also differ from finite complete-multipartite cover-walk classifications. Lack of a found statement is not proof of worldwide priority; unindexed or inaccessible literature remains a risk.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The theorem supplies an explicit state-independent decision rule valid uniformly over an infinite natural family, resolves nontrivial distance ties between two neighbor classes by their *relative sizes*, and replaces an optimization over all adaptive controls with a three-state rational calculation. Strict inequality and equal-size degeneracy are both established. This is more informative than restating generic Bellman equations or merely checking small instances, and the certificate covers all integer parameters in the stated domain. It does not address more than three parts, deadline-wise optimality or robustness.
+The supported distinct claim is the parameter-uniform size order, including the exact equality boundary and its evaluated three-state system. The minimum-value control rule, existence of an optimal stationary rule and a general strategy algorithm were known. The inspected sources did not supply the size ranking, nor a stronger ordering theorem covering this family.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is an explicit structural decision rule for a natural graph family. It resolves every ordering, including ties, across an unbounded range of part sizes; the nontarget classes on opposite parts are all one edge from the target, so distances alone do not decide their ranking. It avoids numerical or graph-specific strategy optimization. The quotient system alone, with the ranking assumed, would not supply this contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

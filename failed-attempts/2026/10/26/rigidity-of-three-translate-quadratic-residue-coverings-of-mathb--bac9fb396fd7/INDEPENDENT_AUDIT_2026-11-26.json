@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T01:11:20.273985Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 4–62; VERIFICATION.md and verifier.py inspected, not executed",
+        "Independent exact replay: /workspace/branches/0d57e1a7-b2b8-42c9-8a2f-d5720282a3c6/independent_check.py and independent_check_output.txt"
+      ],
+      "rationale": "A point is missed by the three closed translates exactly when the three relevant characters are all -1. The sum of the product of their three factors (1-chi) expands to 22-T, using the three vanishing single sums and the three pair sums of -1. Each missed point contributes 8; each center with both differences nonsquare contributes 4. Thus 22-T=8M+4R. Hasse bounds |T| by 10, so coverage is equivalent to R=3 and T=10. Normalizing the triple gives T=chi(t)T_lambda, and R=3 forces t nonsquare. The independently recovered cubic-sum table has T_lambda=-10 only at 13 and 18, the two roots of lambda^2-lambda+1; both lambda and lambda-1 are squares there. A direct independent test of all 2,300 subsets found exactly the asserted 100 covers, all 600 ordered parametrizations mapping six-to-one onto those covers, and the same orbit of the given representative under the 300 affine-square maps. Inversion swaps the two roots, so swapping the second and third points converts one root to the other without changing the nonsquare condition on t. The stabilizer order follows, and the pair intersection sizes 6 and 7 exclude any two-center cover.",
+      "residual_risks": [
+        "The check concerns the specified field and the affine-square group, not general fields or the full Paley automorphism group."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Auer–Top section 3 recalls the exact supersingular-parameter criterion: roots of the Deuring polynomial with squared binomial coefficients. Proposition 2.2, invoked in the proof of their proposition 3.1, gives the group (Z/(p'-1)Z)^2, where p'=(-1)^((p-1)/2)p, for the supersingular Legendre curve over F_(p^2). At p=5 this gives 16 points. Zhou–Wu give general covering bounds, not the decisive coverage here."
+        ],
+        "reasoning": "Specialization to p=5 gives exactly the polynomial lambda^2-lambda+1 and character sum 16-26=-10. Conversely the required trace is divisible by p, hence the curve is supersingular. Thus the general theorem gives the exact normalized parameters of the extremal Paley triples in this field.",
+        "searches": [
+          "arXiv:2109.03654v1, Proposition 0.3, supersingular endpoint argument",
+          "Auer–Top, arXiv:math/0106273, Proposition 2.2 and section 3, Deuring",
+          "arXiv:2610.25228v1, Theorem 1.1 and introduction"
+        ]
+      },
+      "checked_sources": [
+        "Brouwer–Martin arXiv:2109.03654v1",
+        "Auer–Top arXiv:math/0106273",
+        "Brouwer's Paley graphs domination table",
+        "Zhou–Wu arXiv:2610.25228v1",
+        "Two catalogue comparisons specified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalize a triangle at a square difference to (0,1,lambda); its character sum remains -10. The Auer–Top Legendre theorem supplies exactly the reciprocal roots, with both lambda and 1-lambda square for supersingular parameters, using the symmetry lambda -> 1-lambda. Here -1 is square. Nonsquare scaling converts the zero-common-neighbor triangles to the covering triples."
+        ],
+        "reasoning": "There are 25 translations, 12 nonsquare differences, and two reciprocal ratios; each unordered triple has six orderings. Hence 100. Swapping the second and third points inverts the ratio and changes the difference by a square multiplier, so all covers are affine-square equivalents; the stabilizer is 300/100. These are direct consequences of the older exact criterion with elementary normalization and orbit arithmetic, not a new classification gap closed by the census.",
+        "searches": [
+          "Brouwer–Martin arXiv:2109.03654v1, proofs of propositions 0.1 and 0.3",
+          "Auer–Top arXiv:math/0106273, p. 5 and following Deuring-polynomial display"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A+Q=F means the three vertices dominate the Paley graph using closed neighborhoods. The uncovered points are exactly the common neighbors of the three vertices in the complement. Nonsquare multiplication identifies the complement with the Paley graph, changing independent triples into triangles. Brouwer–Martin's expansion and Hasse bound imply that a triangle with no common neighbor at q=25 has S=-10, and that no other type of triple can have zero common neighbors."
+        ],
+        "reasoning": "For zero common neighbors, their q-3+S=8[111]+4R gives 22+S=4R with S >= -10 and R <= 3, forcing S=-10 and R=3. Both directions of this equivalence follow from the same identity. Thus the cover problem is exactly the already studied endpoint over q=25, up to the nonsquare dilation. The later shattering result uses the square-difference family, not identical covers, even though nonsquare scaling exchanges the two geometric families.",
+        "searches": [
+          "Resultary: affine-square orbits of three-shift residue coverings and Paley(25) exceptional triples",
+          "arXiv:2109.03654v1, proposition 0.1 and proof of proposition 0.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Brouwer lists domination number 3. The triple-intersection table gives a q=25 triangle common-neighbor range of 0 to 2, not multiplicities. The later 2026/11/2 record gives the exact 100 covers and one orbit, and attributes this row to an unnamed earlier classification."
+        ],
+        "reasoning": "The first two tables alone do not enumerate the covers. The later catalogue entry is exact overlap but its date and uncited attribution do not establish earlier historical priority. The FAIL rests on the statement-level implication from inspected primary literature, not the later table.",
+        "searches": [
+          "Brouwer, Paley graphs, Dominating sets",
+          "arXiv:2109.03654v1, small-q table",
+          "SCOPE-complete-affine-square-orbit-spectrum-of-three-shift-quadratic-r--3e8343da37ce, Finding and prior-work passage"
+        ]
+      },
+      "rationale": "The classification is correct but is a direct specialization of two earlier results. Brouwer–Martin's proposition 0.1 proof applied in the complementary Paley graph forces a zero common-neighbor triple at q=25 to attain the elliptic Hasse endpoint, with R=3. Their proposition 0.3 proof explicitly relates the endpoints to supersingular Legendre parameters and nonsquare dilation. Auer–Top give both the Deuring polynomial criterion and the point count of the supersingular Legendre curves over the prime-square field. At p=5 the polynomial is exactly 1+4 lambda+lambda^2, and the supersingular Legendre point count is 16, i.e. T_lambda=-10. Conversely 16 points give trace 10 divisible by 5, hence supersingularity, as also used for the endpoint in Brouwer–Martin. Thus the two parameters are forced without a new enumeration, the nonsquare twist changes the trace sign, and the count and single orbit follow from ordered triples and the reciprocal pair of roots. This is a mathematical coverage finding, not an inference from an uncited later remark or a bare matching parameter.",
+      "residual_risks": [
+        "An earlier source might state the count verbatim; that is not needed for the verified direct implication. The later catalogue's unnamed attribution does not settle bibliographic priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the exact endpoint reduction and an extremal existence result; not by itself a tabulation of covering triples",
+          "evidence": [
+            "q-3+S=8[111]+4R, |S|<=2 sqrt(q), and R<=3; nonsquare scaling exchanges [222] and [111]; the extremal curves are supersingular."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2109.03654v1",
+          "material_read": "Proposition 0.1 proof near HTML offset 2750; q=25 table after corollary 0.2; proposition 0.3 proof and supersingular Legendre passage in offsets 4400–10195",
+          "method": "Bounded primary HTML inspection",
+          "title": "Triple intersection numbers for the Paley graphs",
+          "trigger": "Exact common-neighbor reformulation and Hasse endpoint at the same field size"
+        },
+        {
+          "assessment": "Decisive prior general criterion, giving the two normalized parameters directly at p=5",
+          "evidence": [
+            "The supersingular Legendre parameters are the roots of the Deuring polynomial with coefficients (-1)^m times binomial(m,k)^2. The F_(p^2)-point group for a supersingular Legendre curve in the proof is (Z/(p'-1)Z)^2. At p=5 these yield lambda^2-lambda+1 and 16 points."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0106273",
+          "material_read": "Section 3, proposition 3.1 proof invoking proposition 2.2, and Deuring criterion across the next page break, PDF text offsets 11380–14162",
+          "method": "Bounded primary PDF inspection",
+          "title": "Legendre curves over finite fields",
+          "trigger": "Cited exact theorem for supersingular Legendre parameters and point counts"
+        },
+        {
+          "assessment": "Direct coverage of minimum size only",
+          "evidence": [
+            "Domination number 3 for the listed orders from 9 to 25."
+          ],
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Paley.html",
+          "material_read": "Dominating sets, page offset about 3851",
+          "method": "Bounded table inspection",
+          "title": "Paley graphs",
+          "trigger": "Known minimum size for a quadratic-residue cover"
+        },
+        {
+          "assessment": "Broad covering bounds, not the exact classification in the inspected claims",
+          "evidence": [
+            "The shift-set covering problem is posed for A+G_d^0=F_q with general d; the inspected bounds do not determine which triples cover at q=25."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.25228v1",
+          "material_read": "Introduction and theorem 1.1 near offsets 0 and 3492",
+          "method": "Bounded primary HTML inspection",
+          "title": "Covering finite fields by translates of multiplicative subgroups",
+          "trigger": "Same cover object with general parameters"
+        },
+        {
+          "assessment": "Exact overlapping row in a later-dated record; attribution to an earlier classification is uncited",
+          "evidence": [
+            "One q=25 orbit of 100 covers, stated there as previously known."
+          ],
+          "identifier_or_url": "SCOPE-complete-affine-square-orbit-spectrum-of-three-shift-quadratic-r--3e8343da37ce",
+          "material_read": "Finding near offset 540 and Relationship to prior work near offset 4629",
+          "method": "Local mirror inspection",
+          "title": "Complete affine-square orbit spectrum of three-shift quadratic-residue coverings",
+          "trigger": "Same q=25 census in a wider catalogue result"
+        },
+        {
+          "assessment": "Related geometry in a later record, but different triple family",
+          "evidence": [
+            "The nonshattered triples use a square difference, whereas the coverings use a nonsquare difference."
+          ],
+          "identifier_or_url": "SCOPE-the-exact-paley-25-shattering-polynomial-and-its-exceptional-tri--d709a1a3fcdd",
+          "material_read": "Finding and parametrization near offsets 440 and 3428",
+          "method": "Local mirror inspection",
+          "title": "Exact Paley-25 shattering polynomial and its exceptional triples",
+          "trigger": "The same count and roots occur in a related triple problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Finding and relationship to prior work",
+        "Brouwer–Martin endpoint reduction and Auer–Top exact Legendre criterion",
+        "Independent finite reproduction"
+      ],
+      "rationale": "The order-25 boundary is naturally motivated and the finite result can be useful as a check. But its purported contribution—the precise parameters and count of the covering triples and their affine-square orbit—is mechanically implied by the prior endpoint reduction and Deuring criterion. The remaining 23-entry trace calculation is an auxiliary small-field recomputation, not a separately motivated surviving claim in this record.",
+      "residual_risks": [
+        "This verdict does not dismiss an independently motivated, previously uncovered triple-orbit calculation for other orders or other invariants."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

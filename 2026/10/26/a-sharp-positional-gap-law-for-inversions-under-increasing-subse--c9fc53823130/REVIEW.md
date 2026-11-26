@@ -1,19 +1,21 @@
-# Review of the positional-gap inversion theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Conditioning sorts the selected values while keeping the unordered selected-value set uniformly random and preserving exchangeability of the other values. Conditional pair-comparison probabilities are derived from the \(k+1\) equally likely ranks of an unselected value. Summing comparisons gives the weighted interior-gap formula; weak-composition symmetry gives the mixture, and the exact size-bias identity gives the covariance. All boundary cases \(2\leq k\leq n\) are covered, including \(k=n\). Exhaustive rational enumeration through \(n=7\), run from the attached standalone checker, agrees for every eligible marked set and every claimed identity.
+PASS
 
-## Originality
+For any one unmarked position its rank in the k+1 values consisting of that position and the marks stays uniform after conditioning on the relative order at the marks. If it lies after j of the marks, its total expected comparisons contributing inversions with the marks are [j(j+1)+(k−j)(k−j+1)]/[2(k+1)]=k/2−j(k−j)/(k+1). Unmarked pairs remain fair and marked pairs lose precisely 1/2 each. This gives the claimed gap law including exterior gaps (j=0,k). All k+1 gap sizes form a weak composition of n−k, so linear optimization gives the exact central-gap equality cases, including the coincident endpoints for k=n. For uniform marks each gap has mean (n−k)/(k+1); the weight sum is k(k−1)(k+1)/6. Averaging produces (3), and tilting by Z/EZ then gives (4). As a separate bounded check, enumeration of all 40320 permutations and all 70 marked sets for n=8,k=4 yielded minimum 39/5 only at (1,2,7,8), maximum 11, and mixture mean 47/5; the counts were exact integers before division. The rank and gap arguments establish the arbitrary-size formulas.
 
-PASS under the documented accessible-source comparison, subject to independent priority checking. Pinsky (arXiv:math/0407353) explicitly defines the same marked-subsequence mixture and proves approximation properties but does not give a position-dependent inversion law in the inspected relevant sections. Janson--Nakamura--Zeilberger (arXiv:1312.3955) develops generic fixed-pattern mixed-moment methods; the examined covariance examples and asymptotic claims neither state nor force the sharp layout dependence. Even-Zohar (arXiv:1811.07883) gives asymptotic profile structure for fixed patterns. Searched research records on cycle counts and inversion-indicator geometry concern distinct observables. The main conditional theorem has strictly richer information than a global covariance and is not inferred by simply matching titles or parameters. Residual risk: an unlocated special-case calculation in older linear-extension or permutation-pattern literature could coincide with this formula.
+## originality
 
-## Value
+PASS
 
-PASS. The marked-position mixture was introduced as a precise model of partial randomization of permutations, so inversion count is a natural measure of remaining order. The theorem determines, for every finite \(n,k\), the exact effect of each interior unmarked gap and the best/worst layouts, not merely a numerical moment. The uniform-mixture law is then a derived quantitative diagnostic for growing as well as fixed subsequence lengths. This sharp position-resolved extremal structure motivates the precise statistic and avoids an arbitrary finite slice.
+The distinct content is the complete dependence of the inversion mean on prescribed marks, with sharp optimal placement and equality conditions. The uniform marked mixture and size-bias identity were already in Pinsky. General mixed-pattern moment methods are relevant to the covariance; the covariance is not treated as a separate novelty claim or as evidence for the sharper positional law.
 
-## Closest literature and limits
+## value
 
-The closest sources are Pinsky's 2004 increasing-subsequence mixture, Janson--Nakamura--Zeilberger's 2013 pattern-moment methods, and Even-Zohar's fixed-pattern asymptotics. The result is a conditional mean and covariance statement, not a distributional ordering, full inversion-conditioned monotonicity theorem, or independent historical-priority certificate. Exhaustive finite checks support but do not prove the all-size result; the algebraic proof provides the all-size guarantee.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Inversions quantify how much ordering remains when a selected subsequence is forced to increase in a permutation otherwise sampled uniformly. The exact all-size formula answers how every forced-position layout changes that observable; all unused positions go in a middle gap to maximize the reduction, while moving them outside the marked interval eliminates their contribution. Pinsky's natural mixture motivates the averaged diagnostic, but cannot substitute for this placement information. The result also works for k growing with n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

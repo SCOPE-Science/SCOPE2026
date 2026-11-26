@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:48:46.505781Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The last shift forces both endpoint bits to be one; the integer oddness conditions are then exactly the mod-two identity B B*=1+X+⋯+X^(7^k−1). Each pair of reciprocal cyclotomic factors at level j is F(X^(7^j)), G(X^(7^j)): their product is Φ_(7^(j+1)), and every irreducible factor has degree ord_(7^(j+1))(2)=3·7^j by lifting 2³−1=7. The factors are squarefree, so one of each pair must be chosen. The base-seven support product has no coefficient collisions. Each one-digit difference occurs exactly once except zero, which occurs three times. Balanced digits are unique by reduction modulo seven, proving the full integer correlation; sign pairing gives the histogram and removes only probability 7^(−k) from the binomial law, sufficient for the CLT. All supports have the same endpoints, so no nonzero shift can identify two; reflection switches each factor choice, yielding 2^(k−1) classes. For the sixth moment the constant term of the product of dilates of P³ is taken with exact transition weights q_(7c'−c); starting at zero, |d|≤9 implies the only integral carries are −1,0,1. Row-vector symmetry gives the two-state transfer with trace 118 and determinant 873; the seeds, generating numerator and leading spectral coefficient follow. I read the frozen checker and notes without executing them. Independent exhaustive length-four binary enumeration and exact Laurent-coefficient convolution through depth four are replayable with python3 /workspace/branches/independent_bounded_checks.py, giving moments 1, 99, 10809, 1189035, 130869873; the transfer, not the finite sequence, proves all depths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moree–Solé prove a general count in terms of irreducible factors. At 7^k the order formula gives i_2(7^k)=1+2k and hence count 2^k, with the length-four block product iterating N↦7N−3.",
+          "Ku–Wong prescribe autocorrelations modulo a prime and also count solutions to their congruence problem; that theorem does not evaluate ordinary integer correlations.",
+          "The November 22 Cantor spectrum analogue uses radix three and obtains trace 26/determinant 90; it is not an all-radix theorem yielding this law."
+        ],
+        "reasoning": "Prior broader parity and counting theorems cover the family structure and enumeration. Their statements do not compute the exact integer invariants or sixth moment evaluated here.",
+        "searches": [
+          "Moree–Solé arXiv:math/0407084v2 Lemmas 3 and 5, Proposition 2; Ku–Wong Theorem 12",
+          "Resultary radix carry moment analogues, a30ba852d85c"
+        ]
+      },
+      "checked_sources": [
+        "Moree–Solé arXiv:math/0407084v2",
+        "Ku–Wong DOI 10.37236/5075",
+        "Inglis–Wiseman DOI 10.1016/0097-3165(95)90017-9 (abstract only)",
+        "OEIS A053006",
+        "Resultary 5260cc41f9aa and a30ba852d85c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known count plus product construction force the complete factor-choice family. The three-point digit differences and tensor-product argument then give the explicit profile, which determines homometry and the histogram.",
+          "The discrete Fano formula collapses exponent classes modulo seven; its proof separates the one-block constant contribution but does not iterate the carry states or give the 118,873 recurrence."
+        ],
+        "reasoning": "The integer invariant is a quantitative extraction from known structure, not a new existence or counting theorem. For the central all-depth sixth moment, digit convolution with nonzero carries rules out naive multiplication of one-block moments; the exact transition computation is distinct.",
+        "searches": [
+          "Moree–Solé Lemma 3 and Proposition 2; Resultary 5260cc41f9aa Finding and proof, a30ba852d85c Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Over the integers the frozen correlation is the coefficient of X^t in B(X)B(X^−1), so equality of aperiodic autocorrelations is exactly equality of Fourier magnitude or signed difference multiset.",
+          "Moree–Solé use reciprocal polynomials over F_2, which retain parity, not the ordinary coefficients. The exact product supports are available from their injective construction plus count."
+        ],
+        "reasoning": "A parity prescription is not an exact integer autocorrelation profile. The perfect three-point digit differences and the no-overlap balanced representations are needed for the specific 3^(number of zero digits) values.",
+        "searches": [
+          "very odd sequences aperiodic integer autocorrelation homometric seventh powers balanced base seven sixth Fourier moment Inglis Wiseman",
+          "Moree–Solé reciprocal support polynomials; Resultary integer correlations and sixth Fourier moments of radix digit sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A053006 lists admissible lengths, including 4,25,172; Moree–Solé Table 1 gives S(25)=4. Neither is a table of integer profiles or Fourier moments.",
+          "Resultary's Fano Singer record measures the sixth moment on the seven discrete characters for {0,1,3}; its equal-coefficient moment is 111, whereas the continuous M_1 is 99. The extra terms come from exponents ±7, which alias cyclically."
+        ],
+        "reasoning": "The prior numerical matches concern length/count; the closest sixth-moment record has the same local support but a different averaging measure and no evaluated seven-adic tower.",
+        "searches": [
+          "OEIS A053006; Moree–Solé Table 1; Resultary seven-power very odd autocorrelations and recurrence 118,873; Fano Singer spectrum 5260cc41f9aa"
+        ]
+      },
+      "rationale": "Qualified to the evaluated ordinary-integer profile and the continuous-circle sixth-moment law. The existence criterion, 2^k count, and underlying factor/product construction are already supplied by earlier theorems. The homometry mechanism and the reflection/histogram/CLT consequences are elementary once the profile is evaluated. The exact balanced-digit difference invariant and the explicit all-depth transfer calculation are not the earlier parity/factor-count statements, nor are the moments a substitution into the inspected finite cyclic analogue.",
+      "residual_risks": [
+        "The inaccessible original 1995 full text and general homometry or lacunary-moment literature remain plausible sources of equivalent specialized calculations. Bounded searching does not certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts and realizes the family; inspected results not an exact integer-profile or continuous moment law",
+          "evidence": "Block multiplication by a length-four input gives the correct length recursion, and the factor-count formula gives 2^k.",
+          "identifier_or_url": "https://arxiv.org/html/math/0407084v2",
+          "material_read": "Definition, reciprocal identity and Lemma 3 near offsets 650 and 6500; Lemma 5 near 12500; Proposition 2 and Table 1 near 19700",
+          "method": "OA HTML passage inspection and 7^k order substitution",
+          "title": "Around Pelikán’s conjecture on very odd sequences",
+          "trigger": "Exact words, count, and reciprocal product construction"
+        },
+        {
+          "assessment": "Congruence-level coverage, including numbers of solutions",
+          "evidence": "Theorem 12 prescribes residue classes of the autocorrelations, not the positive integer multiplicities of the seven-power supports.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p12/pdf/",
+          "material_read": "pp. 1–2 and p. 4, Theorem 12 near offset 10672",
+          "method": "OA PDF passage inspection",
+          "title": "A Generalization of Very Odd Sequences",
+          "trigger": "Plausible exact correlation coverage for generalized words"
+        },
+        {
+          "assessment": "Abstract establishes odd-order existence criterion; possible stronger full-text overlap unresolved",
+          "evidence": "The abstract states existence iff the order of 2 modulo 2n−1 is odd.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(95)90017-9",
+          "material_read": "Lancaster University research directory abstract and bibliographic record; no full text obtained via publisher route or directory",
+          "method": "OA lookup and identified institutional alternate landing page",
+          "title": "Very odd sequences",
+          "trigger": "Earliest named primary work on the same family"
+        },
+        {
+          "assessment": "Related cyclic one-block problem, not continuous tower",
+          "evidence": "Discrete seven-character operator-norm inequality and extremizers explicitly exclude continuous-circle or larger spectra.",
+          "identifier_or_url": "5260cc41f9aa",
+          "material_read": "Mirrored RESULT.md Finding, scope, and proof including cyclic cubic coefficients (offset 0)",
+          "method": "Local mirror passage read and normalization check",
+          "title": "Sharp sixth moment and complete extremizers for the Fano Singer spectrum",
+          "trigger": "Same frequency triple and moment degree"
+        },
+        {
+          "assessment": "Later structurally similar, different digits and recurrence",
+          "evidence": "Ternary Cantor digits {0,1}, seeds 1,20 and recurrence coefficients 26,90.",
+          "identifier_or_url": "a30ba852d85c",
+          "material_read": "Mirrored RESULT.md Finding at offset 0",
+          "method": "Resultary search and local mirror passage read",
+          "title": "Exact sixth Fourier moments of finite middle-thirds Cantor spectra",
+          "trigger": "Similar radix carry recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An oddness condition does not normally determine integer pair multiplicities. An exact common autocorrelation on every shift for this natural infinite family and a precise sixth Fourier-energy recurrence quantify the ambiguity beyond the known count and give concrete test cases for inverse correlation and moment questions. The classification is internal to these lengths and is not claimed as general reconstruction uniqueness or an extremal moment bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

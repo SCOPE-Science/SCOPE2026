@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T05:41:12.383365Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A regular path endomorphism has a section on its image, necessarily an injective nearest-neighbor walk, hence a contiguous monotone full-image run; inverses of such runs extend by alternating at each endpoint. For a fixed width h, marking the run bounds the free prefix and suffix by the path spectral radius 2 cos(π/(h+2)); fixing a leading run and applying the positive sine eigenvector supplies the uniform lower bound. The all-walk count is between a constant times 2^(n−1) and n·2^(n−1) for large n, e.g. by maximal inequality for a walk started in the central half. Thus log of the ratio differs by O(log n) from the negative minimum of h log 2−(n−1−h) log cos(π/(h+2)). Widths on smaller and larger scales than (n−1)^(1/3) cannot minimize, by −log cos x≥x²/2 and the linear run cost, respectively. Compact rescaling gives u log 2+π²/(2u²), minimized at u=(π²/log 2)^(1/3), with the stated constant and negative sign. Independent finite replay checked inverse-witness equivalence through n=7 and spectral bounds through n=10; the uploaded checker was inspected, not executed. The retrieved version of the criterion labels it Proposition 1.7 rather than the frozen citation's 1.9; the criterion itself matches.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The even-cycle result gives a stronger regular-to-idempotent comparison on even cycles, R_n∼2nI_n, with the same normalized exponent. The directed path paper instead concerns weak endomorphisms. The retraction-rank result also gives fluctuation and concentration laws for idempotents."
+        ],
+        "reasoning": "A cyclic bridge or a weak directed map is not the frozen strict path family; the even-cycle law is not used as a dominating theorem. The path retraction result is enough through the correspondence at the frozen logarithmic resolution, but does not imply that the regular rank distribution has the same fluctuations.",
+        "searches": [
+          "Resultary: path endomorphism range size monotone run asymptotic spectral confinement counting",
+          "arXiv:2112.13427, pp. 1 and 5",
+          "SCOPE:bcd009a44ae2, Finding and Proof steps 1–2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–65 and 67–81; VERIFICATION.md; verify.py",
+        "SCOPE:b83ffdca265e",
+        "SCOPE:4c53adec9545",
+        "SCOPE:bcd009a44ae2",
+        "arXiv:1810.09307",
+        "arXiv:2112.13427"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published idempotent asymptotic and exact convolution use the same n, strict homomorphisms, and labels. The standard criterion supplies a mark at some source interval J on which a regular endomorphism bijects onto its image I."
+        ],
+        "reasoning": "Compose the marked map with the inverse I→J of the restriction. This fixes J pointwise and has image J, hence is idempotent. Conversely, from any rank h+1 idempotent choose one of n−h image intervals and either orientation of its isomorphism from J; postcomposition recovers a unique marked regular map. Each regular map has at most n−h eligible positions. Summing and taking logs loses only O(log n), so combining the published asymptotic and the walk-count normalization mechanically gives the exact claimed limit.",
+        "searches": [
+          "SCOPE:b83ffdca265e, Finding and Proof step 1, offset 0",
+          "arXiv:1810.09307, Proposition 1.7, offset about 13900"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1810.09307, p. 4 Proposition 1.7 gives the bijective consecutive-interval criterion for strict regular path endomorphisms. SCOPE:b83ffdca265e gives log I_n=n log 2−(3/2)π^(2/3)(log 2)^(2/3)n^(1/3)+o(n^(1/3)) on the same labelled undirected path."
+        ],
+        "reasoning": "Regular and idempotent do not mean the same thing; however, the marked-run correspondence controls their counts within a polynomial, which is equivalence for this logarithmic invariant. No direct primary-source web match was found; that is not negative evidence.",
+        "searches": [
+          "Resultary: sharp cubic-root rarity regular endomorphisms finite undirected path constant n^(1/3)",
+          "Resultary: finite undirected path P_n regular endomorphisms regular fraction image interval monotone traversal cubic-root asymptotic",
+          "Web: \"regular endomorphisms\" finite path stretched exponential n^(1/3) constant pi^(2/3) log 2 asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed idempotent records give I_{n,r}=∑_{l=0}^{n−r}w_r(l)w_r(n−r−l), with w_r the strip endpoint walk count. arXiv:1810.09307 points to Arworn and Michels–Knauer for the whole-monoid count, not the regular subset."
+        ],
+        "reasoning": "The exact idempotent rank convolution is not an exact unmarked regular count. Multiplying it by 2(n−h) at r=h+1 gives the exact marked regular count; this is sufficient for logarithmic equivalence. The normalizing whole-monoid count has the elementary walk representation 1ᵀA^{n−1}1 and requires no exact unmarked count.",
+        "searches": [
+          "Resultary: regular elements endomorphism monoid of a finite path monotone run criterion exact count",
+          "arXiv:1810.09307, p. 2 and bibliography",
+          "SCOPE:4c53adec9545 and SCOPE:b83ffdca265e, rank formulas"
+        ]
+      },
+      "rationale": "The exact exponent and constant are a direct corollary of the distinct indexed retraction-rank result plus the standard regularity criterion. For image width h, the total number of regular maps with a marked full run is exactly 2(n−h) times the count of idempotents of rank h+1: transport the whole output by the isomorphism from the image interval to the marked source interval, producing an idempotent there; the original image interval and orientation recover the marked map. Between 1 and n−h marks per regular map give 2 I_{n,h+1}≤R_{n,h+1}≤2(n−h)I_{n,h+1}; in particular log R_n=log I_n+O(log n). The published retraction asymptotic for I_n therefore gives the entire finding, not just one inequality. The distinct record's later indexed date establishes no earlier priority; the failure is coverage by mathematical implication in the inspected corpus.",
+      "residual_risks": [
+        "No priority ordering is inferred from record dates. The two earlier whole-monoid enumeration papers were identified bibliographically but not inspected in full. Additional probability or monoid literature may provide other derivations; neither an exact unmarked regular count nor a sharp prefactor was audited or claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly implies the logarithmic regular-element law via a polynomial mark bound; no claim of earlier priority",
+          "evidence": "Exact I_{n,r} and log I_n=n log 2−Kn^(1/3)+o(n^(1/3)) with K=(3/2)π^(2/3)(log 2)^(2/3).",
+          "identifier_or_url": "2026/11/8/SCOPE-gaussian-fluctuations-of-retraction-ranks-in-finite-path-endomor--b83ffdca265e",
+          "material_read": "Finding, assumptions, Proof steps 1–2, offset 0",
+          "method": "OA local mirror",
+          "title": "Gaussian fluctuations of retraction ranks in finite path endomorphism monoids",
+          "trigger": "Same path, exact rank counts, identical exponent for idempotents"
+        },
+        {
+          "assessment": "Exactly the structural criterion used in the implication",
+          "evidence": "Regular iff an interval in the domain maps onto the image with the same cardinality; identifies earlier whole-monoid enumeration references.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.09307",
+          "material_read": "p. 2 at offset 6940, p. 4 Proposition 1.7 near offset 13900, and referenced counting works",
+          "method": "OA arXiv PDF",
+          "title": "Ranks of Monoids of Endomorphisms of a Finite Undirected Path",
+          "trigger": "Primary regularity criterion on the same monoid"
+        },
+        {
+          "assessment": "Counts idempotents, not unmarked regular maps",
+          "evidence": "I_{n,r} is the convolution of endpoint-strip walk counts.",
+          "identifier_or_url": "2026/10/26/SCOPE-reflection-conjugacy-orbit-spectra-of-idempotent-path-endomorphi--4c53adec9545",
+          "material_read": "Finding with rank convolution",
+          "method": "OA local mirror",
+          "title": "Reflection-conjugacy orbit spectra of idempotent path endomorphisms",
+          "trigger": "Earlier exact rank counts for the same path"
+        },
+        {
+          "assessment": "Different graph; validates no direct transfer of the 2n factor to paths",
+          "evidence": "Complementary arcs are bridge walks; the count and exponentially small relative error are for even cycles.",
+          "identifier_or_url": "2026/11/8/SCOPE-the-2n-factor-law-for-regular-endomorphisms-of-even-cycles--bcd009a44ae2",
+          "material_read": "Finding, assumptions, Proof steps 1–2, offset 0",
+          "method": "OA local mirror",
+          "title": "The 2n-factor law for regular endomorphisms of even cycles",
+          "trigger": "Same constant and a marked-run comparison"
+        },
+        {
+          "assessment": "Different monoid",
+          "evidence": "Directed weak endomorphisms with a fiber-based regularity criterion.",
+          "identifier_or_url": "https://arxiv.org/pdf/2112.13427",
+          "material_read": "pp. 1 and 5, offsets 758 and 18720, Proposition 1.7",
+          "method": "OA arXiv PDF",
+          "title": "On the Rank of Monoids of Endomorphisms of a Finite Directed Path",
+          "trigger": "Near title and regularity result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The rarity rate is a natural invariant, but at exactly this logarithmic resolution the known retraction law already determines it by marking and relabeling a full run. The frozen result has no independent unmarked counting formula, prefactor, or fluctuation law that survives the coverage comparison. The alternate spectral proof alone does not supply a distinct scientific finding.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

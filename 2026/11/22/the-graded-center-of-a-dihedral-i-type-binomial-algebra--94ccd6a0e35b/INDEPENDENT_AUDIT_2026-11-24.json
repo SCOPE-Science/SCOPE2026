@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T17:03:07.649277Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–57",
+        "VERIFICATION.md and verify_center.py inspected as evidence, not executed",
+        "Bhatoy arXiv:2611.03989v1, Theorem 1 and Example 6",
+        "/workspace/review-work/algebra_check.py, exact run"
+      ],
+      "rationale": "The semidirect images respect all six defining relations. Independently, each relation swaps one of the six unordered distinct coordinate-increment pairs at the identity, and a prefix with permutation p transports that swap by p. Each ordered increment list decodes to a unique word, so adjacent swaps identify exactly words with the same nonnegative translation coordinate. The word x_0^2 x_1 x_3 gives the central translation q=(1,1,1,1), and the increment argument expresses it with any x_i first. Thus every x_i inverse is a positive word times q inverse, giving first-coordinate existence and uniqueness on the fraction group by translating far enough by q. In particular left translation cosets of N correspond to coordinate cosets and its index is eight; this fills the index step explicitly. The four stated translation vectors satisfy the congruences and have determinant of magnitude eight, and the congruence map onto Z/2 × Z/4 is surjective. Thus N is precisely Lambda. Conjugation by its full-rank translation subgroup gives infinite classes for elements with nonidentity permutation and finite F-orbits for translations. Finite-support central elements have constant coefficients on conjugacy classes in every characteristic; commuting with the monoid generators implies commuting with their inverses in the group algebra. This gives the stated positive-support center. The exact independent script /workspace/review-work/algebra_check.py verifies the local swaps, translation vectors, all eight fixed-vector residue polynomials by cross-multiplication, and their Burnside sum numerator 8(1-t^2+t^4) over the common denominator. Hence the series is an infinite rational identity and remains characteristic-independent, not merely a degree-sixteen fit.",
+      "residual_risks": [
+        "The conclusion is for the coefficient-free presentation. Dihedral describes the finite holonomy, not the infinite fraction group; the wording 'dihedral group of fractions' in the frozen prior-work paragraph should be read with this distinction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhatoy supplies general I-type embeddings and the exact example's extension by the order-eight D8. Goffa–Jespers develops structural results for fraction groups and PI/maximal-order properties; Z(S) in the inspected passage denotes the monoid center."
+        ],
+        "reasoning": "These are structure inputs, not an explicit center computation for this graded monoid algebra. The group-algebra finite-conjugacy argument allows invariant orbit sums that need not be central monomials, so monoid-center results alone do not settle it.",
+        "searches": [
+          "Bhatoy arXiv:2611.03989v1 Theorem 1 and §6.3",
+          "Goffa–Jespers arXiv:math/0601546v3 p. 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2611.03989v1, Theorem 1 and Example 6",
+        "arXiv:math/0601546v3 p. 4",
+        "Resultary 64c93c75d8a6 and exact-formula index match 94ccd6a0e35b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The abstract Z^4 kernel in Bhatoy does not identify which nonnegative coordinate vectors it contains. The Zhang-twist result gives Pv=v and a degree divisibility condition for its different monoid. The claimed answer requires the two concrete congruences, the finite-conjugacy support result, and dihedral rather than cyclic orbit counts."
+        ],
+        "reasoning": "The source data are needed and credited, but neither inspected center formula nor the general embedding mechanically yields the entire graded center without the kernel and residue computations.",
+        "searches": [
+          "Bhatoy Theorem 1 and Algebra 21; Resultary 64c93c75d8a6 local-mirror center statement; compare frozen RESULT.md lines 35–54"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact rational-function match was the assigned record 94ccd6a0e35b itself. Bhatoy gives the same presentation and left actions. The close indexed center computation 64c93c75d8a6 uses a star b=a+P^|a|b for a single fixed permutation."
+        ],
+        "reasoning": "Algebra 21 and the specified binomial presentation are equivalent labels. The cyclic holonomy single-permutation model does not include the nonabelian D8 cocycle action here.",
+        "searches": [
+          "Resultary: Bhatoy Algebra 21 D8 graded center Hilbert series; exact rational function; centers of permutation-twisted monoids",
+          "Bhatoy arXiv:2611.03989v1 Example 6 ('Algebra 21')"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected catalogue example identifies the relations, left actions and abstract extension. It does not tabulate the graded center dimensions, the embedded translation congruences, or the claimed rational series. The exact indexed series match was the frozen record itself."
+        ],
+        "reasoning": "The available exact-object data specify the algebra but do not tabulate the invariant being reviewed. A self-match is not separate prior coverage.",
+        "searches": [
+          "Bhatoy's Algebra 21 catalogue entry and Example 6; Resultary exact series rational-function query"
+        ]
+      },
+      "rationale": "The exact coefficient-free algebra and its semidirect structure are known from Bhatoy. The inspected primary and indexed claims do not give its graded center; specifying the embedded translation lattice and carrying out the dihedral fixed-vector count are additional mathematical work, not renaming the abstract kernel or reading a table entry. This verdict is limited to the sources checked.",
+      "residual_risks": [
+        "The external comparison is bounded to the inspected primary sources and targeted Resultary searches; unindexed equivalent center calculations remain possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Presentation and group structure match; inspected statements do not compute this center",
+          "evidence": "Example 6 gives the four prescribed left actions, D8 of order eight, and fraction group extension with abstract kernel Z^4.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.03989v1",
+          "material_read": "Theorem 1, p. 4, offset 11250; §6.3 Example 6, pp. 12–13, offset 30000",
+          "method": "Bounded open-access source passages",
+          "title": "Binomial Artin–Schelter Regular Algebras and Twisted Monoid Algebras",
+          "trigger": "Exact Algebra 21 source and I-type hypotheses"
+        },
+        {
+          "assessment": "Broader structural context, not the claimed graded algebra center",
+          "evidence": "The passage discusses fraction groups, PI/maximal-order properties, and uses Z(S) for the monoid center.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0601546v3",
+          "material_read": "p. 4, offset 11100",
+          "method": "Bounded open-access source passage",
+          "title": "Monoids of IG-type and Maximal Orders",
+          "trigger": "Possible group/monoid-center coverage"
+        },
+        {
+          "assessment": "Genuine conceptual overlap but different, cyclic-holonomy family",
+          "evidence": "Uses one fixed permutation P and a star b=a+P^|a|b, with the center described by P-fixedness and total-degree divisibility.",
+          "identifier_or_url": "Resultary 2026/10/26/64c93c75d8a6",
+          "material_read": "RESULT.md offset 1050, defining product and center criterion",
+          "method": "Bounded local-mirror read",
+          "title": "Orbit gcd torsion and degree-congruence centers of permutation Zhang twists",
+          "trigger": "Closest indexed graded-center computation for permutation monoids"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bhatoy Example 6 identifies the natural algebra",
+        "Frozen RESULT.md lines 11–26 and 35–54"
+      ],
+      "rationale": "This determines a natural invariant of a previously specified I-type algebra with nonabelian holonomy. The embedded congruence lattice describes actual central orbit sums, while the full graded series gives their multiplicities in every characteristic, including modular characteristics where averaging vectors over the group is not valid. This is concrete center information not given by the abstract group extension or a finite-dimensional census.",
+      "residual_risks": [
+        "The result does not give a minimal presentation of the center or classify other binomial examples and scalar twists."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

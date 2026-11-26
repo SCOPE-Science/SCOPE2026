@@ -1,15 +1,21 @@
-# Scientific assessment: correlated hop counts in a dilute two-lane exclusion ring
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows from an exact reversible relative-coordinate generator on \(N\) states, two finite-state martingale correctors and the identity linking cross covariance to the total-count and difference-count variances. The explicitly given solution of the Poisson equation determines the energy term \(E_N\), while the effective-conductance argument gives the difference-count variance \(2N/R_N\). A strictly positive arithmetic–harmonic mean defect plus nonnegative energy proves positivity; direct rational limits prove the \(a^2/(6p)\) limit. A coupling from stationary uniform positions proves independent Poisson hop counts at every fixed time as \(N\) increases. The standalone program carries out 60 tracked exact rational cases, including nine full physical two-position-generator comparisons. Experiments alone do not establish the infinite-domain statements; the analytical arguments do.
+## correctness
 
-## Originality — PASS (qualified, best-knowledge)
-The broader two-lane product-stationary rate family and its current formulas were introduced in Popkov–Peschel (2001) and Popkov–Schütz (2002), and extended or developed by Popkov and collaborators (2015) and Popkov (2026). In particular, the symmetric uniform measure and rate specialization are already in Popkov–Schütz (2002). These claims are not new. Direct comparison of those papers' models and principal results, including source sections and the 2002 same-rate specialization, did not identify an exact covariance for two **time-integrated** lane jump counts in the one-particle-per-lane sector, nor its finite positive limit at vanishing density with reversed zero-density/time limits. Earlier static current-density relations cannot logically imply a second tilted-generator derivative without a dynamical argument. Relevant stochastic-current fluctuation theory may yield the formula by an unrecorded specialization; exhaustive publication priority is not asserted.
+PASS
 
-## Value — PASS
-The smallest interacting particle sector isolates a physically meaningful transport-noise effect invisible to the stationary product measure: increasingly sparse cross-lane contacts induce a nonzero long-time count-covariance rate. The closed finite-size formula identifies its sign for both accelerating and retarding interactions and the exact \(a^2/(6p)\) dilute coefficient. The quantified noncommutation warns against inferring macroscopic long-time noise from a fixed-time zero-density approximation. This is a structural, naturally motivated transport invariant rather than a cosmetic parameter substitution.
+Direct application of the endpoint occupancy rule gives the two directed rates c_d and c_{d+1} in the relative coordinate, with c_0=c_1=p+a/2 and all other edges p. Reverse rates match across each relative edge, and the two-position in- and out-rates balance for uniform product initialization. The total-count Poisson corrector has flux differences J_d-J_{d+1}=c_d+c_{d+1}-2(p+a/N) and the zero-circulation condition sum J_d/c_d=0. Substitution verifies the stated fluxes, including the symmetry-paired special edges and the single ordinary edge at N=3. The total-count martingale bracket averages to 2(p+a/N)+2E_N: linear terms cancel by stationarity and the gradient squares contribute twice per undirected edge. The signed lift corrected increments are N/(R_N c) on each forward edge, so its bracket average is 2N/R_N. The endpoint corrections are bounded for fixed N and do not change linear variance growth. Taking one quarter of the difference gives C_N; strict arithmetic–harmonic mean inequality gives positivity unless a=0, and E_N tends to a^2/(3p). For the reverse limits, bound the integrated first-disagreement intensity by |a| times the occupation of {0,1,N-1} by the unconditional stationary baseline walk, whose expectation is 3t/N; no uniformity conditional on agreement is needed. Bounded-rate Poisson domination makes all fixed-degree mixed moments uniformly integrable. Thus the two limits differ for a nonzero coupling, without extending to t growing jointly with N. Independently reproduced exact values by the per-lane mixed martingale bracket (15 cases across N=3,4,5,9,17, both signs and zero coupling); e.g. 11/420 for N=3, p=1, a=-3/4. Replay: python3 -B /workspace/branches/frozen_review_replay.py 3. Frozen script inspected, not executed.
 
-## Scope and residual risks
-The limit is calculated with physical hop counts, not single-bond currents, and the system has one particle per lane with no backward hops and equal baseline rates. No finite-density extension or joint scaling for \(t\) growing with \(N\) is proved. Related hydrodynamic fluctuation theory or previously unlocated specialized current-cumulant work could change the originality assessment. Independent expert mathematical and publication-priority audits have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rate family, product law and stationary mean currents are already known. The checked papers and catalogue entries do not give or directly imply the stated finite-sector two-count mixed cumulant and its order-of-limits boundary. No claim of exhaustive priority is made.
+
+## value
+
+PASS
+
+This is a minimal canonical sector that cleanly distinguishes independent stationary positions from dynamically correlated integrated counts. The exact size-dependent law identifies a persistent covariance from a vanishing fraction of interaction states, with a different fixed-time limit. That boundary matters for dilution arguments and gives a reproducible fluctuation benchmark without assuming finite-density or crossover-scale results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

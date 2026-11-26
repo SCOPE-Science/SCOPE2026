@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The observation-region argument proves the precise power-domination criterion independently of earlier literature. The optimum configurations are all and only row-covering or column-covering near-transversals. Direct degree counts establish the local-slide edge formula, using an explicit exclusion of cross-type slides. Constructed two-coordinate paths bound every pair distance by \(2n-2\), with the stronger strict bound whenever two source/target cells share a coordinate. For the only remaining geometric pairs, every token must change both coordinates, proving sharpness and the complete \(n^2\) extremal-pair classification. Two independent programs reproduced the minimum states, edge count and finite shortest paths without supplying the infinite proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2022 power-domination reconfiguration work supplies general models, not this rook-graph local-slide metric. The public 2026 rook-graph classification and connected-enumerator works imply the minimum sets and are acknowledged as prior; the 2026 rook-graph reconfiguration component theorem uses token addition/removal, a different graph from the fixed-optimum token-slide graph. Exact published-record searches considered rook graphs, their line-graph interpretation, coordinate-changing sensor moves, sharp diameters and antipodal placements. None of the identified and materially inspected sources covers or implies the edge formula, sharp slide diameter, or complete extremal-pair classification. An unindexed same-result theorem is a residual risk, not ruled out by a database search.
+PASS
 
-## Value — PASS
-The theorem resolves a motivated minimum-sensor relocation question for a natural, highly symmetric infinite family: can an optimal placement be changed without temporarily buying another sensor, and how many actual network-edge moves may be needed? The answer supplies an exact resource-preserving relocation diameter, the number of legal moves and a geometric characterization of every worst-case endpoint pair. The previously known optimum-set count alone gives none of these metrics. The result is neither a small-order table nor a generic restatement of the initial monitoring criterion.
+After domination the unobserved rectangle is the product of empty rows and columns. With both sides at least two no force starts; if one side is a singleton the appropriate row or column neighbors each have a unique unobserved neighbor. Thus the minimum states are exactly the two coordinate near-transversal families. Their internal degrees are n(n−1) each, their overlap has degree 2(n−1), and an exclusive-to-exclusive edge is impossible because a slide retains the set of coordinates of one type. This yields the stated edge and vertex counts. Within a family, move the hole once if necessary, then align at most n−1 entries, giving strictly less than 2(n−1) even at n=3. Across families an arbitrary matching of source rows to target columns gives a two-phase path of length at most 2(n−1); any shared row or column can be matched to save a slide. If neither coordinate is shared, the only possible endpoints are the complementary column and row stars. Tracking individual tokens proves that each must change both coordinates there, irrespective of temporary moves, and gives the lower bound and exactly n² unordered pairs. An independent calculation enumerated minimum sets by actual propagation, built edges via common deletion subsets, and tested all source orbits under row/column permutations and transposition at n=3,4,5. Sorted occupied-column multiplicities classify distinct-row states up to this action, so these 2, 3, and 5 representatives test every pair up to symmetry. Counts were (36,126), (416,2784), and (5650,60100), with precisely the stated extremal type.
 
-## Scientific limitations
-The theorem concerns square rather than all rectangular rook graphs and adjacent single-token slides, not the shortest-path distribution or token jumping. Finite experiments through order five are corroborative, not a substitute for the all-order proof. Published and indexed literature comparisons cannot exclude every historical equivalent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The state structure and vertex count are established prior coverage. The distinct supported claim is the number of legal minimum-set slides and the sharp adjacent-slide distance with all extremizers. Checked reconfiguration results concern either a different move rule, a different graph, or a different domination/forcing parameter.
+
+## value
+
+PASS
+
+The slide metric measures relocation effort when the monitoring budget stays optimal and a sensor can move only along an edge. General connectivity or the number of optimal placements does not give that worst-case effort. The sharp linear bound and complete description of its witnesses isolate a genuine obstruction (both coordinates must change for all tokens); the edge census further quantifies the legal choices on this basic graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

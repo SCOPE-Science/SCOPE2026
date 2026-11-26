@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T18:12:16.811401Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reviewed RESULT.md:5–39, VERIFICATION.md and check_derangement_first_zero.py. The unnormalized real/complex convolution multipliers are sums of d_n signs. The simultaneous-label symmetry and exactly n edges per derangement give each allowed edge marginal 1/(n−1); averaging (−1)^t >= 1−2t gives the claimed signed lower bound, with equality exactly when no two selected edges co-occur. For n>=4 two allowed edges in distinct rows and columns extend to a derangement: the residual square board has at least two rows, each missing at most one distinct column, so Hall holds for singletons and for sets of two or more rows. Hence equality is equivalent to being a star, with unique center for k>=2. The count for k>=2 is in the n>=4 star-characterization clause (as in the proof and limitations); it is not valid for n=3, k=2, where there are 9 minimizers, not 6. Repeating the n>=4 qualifier in the count sentence would remove ambiguity. The even-n nonvanishing follows from odd derangement count by the recurrence, including n=2. At odd n, only off-diagonal size >=(n−1)/2 can cancel, and stars exactly reach zero there. Diagonal support cannot occur at minimum full weight. The first layer at n=3 has six singletons. Independent replay: python3 /workspace/branches/replay_frozen_review.py 5 used a sign-product expansion and inclusion–exclusion on residual diagonals. Exhaustive layers: 0..2 at n=3, 0..3 at n=4,6,7, 0..4 at n=5. The odd first-zero layers have 6, 60 and 280 zeros, respectively. These finite checks corroborate the proof, rather than establish the infinite claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete-graph spanning trees: first zero for K_(2p) at p−1, with star support; odd graph orders invertible.",
+          "K_(3,n) partial matchings record 3f0888fdee6d: odd-side first zero at (n+3)/2, with lower-bound count of examples; even side has no zeros.",
+          "Record d84d57a040aa on derangement traces contains the pair-extension result for support size <=n−2."
+        ],
+        "reasoning": "The tree and partial-matching transforms sum over different supports; their zeros need not be zeros of the restriction to off-diagonal perfect matchings. Trace universality supplies the feasible pairs in the equality proof but does not give the Walsh weight envelope or minimum cancellation. Same-day distinct records were compared by statement, without assuming publication order.",
+        "searches": [
+          "Resultary: first Walsh cancellation for spanning trees and partial matchings; derangement trace universality and parity-conditioned spectra"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.1080/03081080500093990",
+        "DOI 10.1155/2011/539030 / arXiv:1710.00788",
+        "Resultary ca7e522e4dc1, 44e28ad20e0e, d84d57a040aa, 3f0888fdee6d, 5bf177d89df5, 75693f3f8db9, 93355b7101e4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior symmetry and derangement parity already give the unsigned base case and even-order nonvanishing.",
+          "The trace theorem gives the feasibility condition for selected pairs, and the tree theorem supplies an analogous star shape, but neither supplies the relevant derangement Walsh comparison."
+        ],
+        "reasoning": "The contribution is not Hall's theorem or even-order nonvanishing alone. It applies matching support geometry to the equality condition in the first-moment signed bound, obtaining attainment at every weight through n−1, proof of first odd-order cancellation, and all its supports and their count. No compared exact table, alternate orbit theorem or generalized count implies that combined classification.",
+        "searches": [
+          "Resultary signed spectrum, derangement traces and matching threshold records ca7e522e4dc1, d84d57a040aa, 3f0888fdee6d and 5bf177d89df5; Feinsilver–McSorley §6.1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Walsh multiplier is exactly the permanent with zero diagonal and independent off-diagonal signs, as also used in the published order-five record.",
+          "Wanless treats complete ±1 matrices, not a board with a forbidden diagonal; Feinsilver–McSorley give unsigned hollow and generalized derangement counts."
+        ],
+        "reasoning": "Renaming the multiplier as a signed permanent creates no novelty. The new extremal question fixes the number of negative off-diagonal entries of a hollow board and asks for the sharp signed lower bound and equality supports, rather than lowest positive permanent among dense ±1 matrices.",
+        "searches": [
+          "Resultary: derangement signed hollow permanent, Walsh spectrum, negative-entry first cancellation, and fixed-weight star extremizers",
+          "Wanless DOI 10.1080/03081080500093990; Feinsilver–McSorley DOI 10.1155/2011/539030"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This same-family order-five table gives absolute multiplier values 0,2,4,6,8,10,12,16,22,44 with respective multiplicities divided by 2^14 of 338,504,405,260,130,240,90,60,20,1."
+        ],
+        "reasoning": "Credit all prior absolute-spectrum data at n=5. The published table aggregates by absolute value without Hamming-weight indexing, so it does not by itself give the 60 first-layer zero stars or the order-variable signed envelope.",
+        "searches": [
+          "2026/11/16/SCOPE-exact-walsh-spectrum-and-sharp-projection-norm-for-five-letter-d--ca7e522e4dc1, Finding and proof §1"
+        ]
+      },
+      "rationale": "Credit prior unsigned derangement counts, pair extendibility, the fixed order-five absolute spectrum, and close cancellation results for other incidence families. The supported distinct result is the all-order signed weight minimum through row length, its exact equality geometry, and the resulting first-zero layer within the off-diagonal perfect-matching family. No compared source states a stronger result having that conclusion as a specialization.",
+      "residual_risks": [
+        "Comparison is bounded to indexed records and located primary passages. An unindexed signed rook or matching first-moment extremum with the same equality condition could cover the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different board and extremum; not evidence about hollow equality supports",
+          "evidence": [
+            "Hadamard permanents through order 28 and existence/lowest-positive questions for complete signed-one matrices through order 20."
+          ],
+          "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/wangconjLAMA.pdf",
+          "material_read": "Journal p. 427, abstract and §1, PDF offset 773",
+          "method": "Lawful author OA PDF passage",
+          "title": "Permanents of matrices of signed ones",
+          "trigger": "Classical signed-permanent extrema"
+        },
+        {
+          "assessment": "Credits unsigned counts; no sparse sign extremum in the compared claim",
+          "evidence": [
+            "per(J−I)=D_(n,0)=d_n; counts with only a prescribed subset required to be deranged."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1710.00788 (DOI 10.1155/2011/539030)",
+          "material_read": "§6.1.1 and Proposition 6.1, pp. 19–20, offset 50623",
+          "method": "Lawful OA PDF passage",
+          "title": "Zeons, Permanents, the Johnson Scheme, and Generalized Derangements",
+          "trigger": "Hollow permanent and derangement generalizations"
+        },
+        {
+          "assessment": "Direct finite overlap; absolute histogram is not a signed fixed-weight table",
+          "evidence": [
+            "Signed hollow permanent representation; complete absolute histogram including vanishing coefficients."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exact-walsh-spectrum-and-sharp-projection-norm-for-five-letter-d--ca7e522e4dc1",
+          "material_read": "Finding and §1, RESULT.md offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "Exact Walsh spectrum and sharp projection norm for five-letter derangements",
+          "trigger": "Exact same transform at n=5"
+        },
+        {
+          "assessment": "Different probability law and support family",
+          "evidence": [
+            "For spanning trees on K_(2p), first zero at p−1 and all at that weight are K_(1,p−1) stars."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-the-sharp-first-walsh-cancellation-threshold-for-complete-graph--44e28ad20e0e",
+          "material_read": "Finding, RESULT.md offset 0",
+          "method": "Local Resultary mirror passage",
+          "title": "The sharp first Walsh cancellation threshold for complete-graph spanning trees",
+          "trigger": "Close structural analogue"
+        },
+        {
+          "assessment": "Supplies the pair-extension ingredient, not the signed minimum",
+          "evidence": [
+            "For support size <=n−2, derangement traces are exactly the internal bipartite matchings."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa",
+          "material_read": "Finding, sparse off-diagonal trace assertion",
+          "method": "Local Resultary mirror passage",
+          "title": "Perfect matching trace universality and the shattering polynomial",
+          "trigger": "Directly covers feasibility of sparse traces in the same family"
+        },
+        {
+          "assessment": "Partial matchings of a rectangular complete board; different threshold and equality theorem",
+          "evidence": [
+            "Odd n threshold (n+3)/2; even n no zeros."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-sharp-first-walsh-zero-threshold-for-partial-matchings-of-k-3-n--3f0888fdee6d",
+          "material_read": "Finding, odd/even thresholds and family definition",
+          "method": "Local Resultary mirror passage",
+          "title": "Sharp first Walsh zero threshold for partial matchings of K_(3,n)",
+          "trigger": "Distinct near-identical first-cancellation question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum weight of a Fourier zero measures precisely the first degree at which this natural incidence codebook loses information under convolution. The signed envelope goes beyond detecting singularity: it determines the worst multiplier at each sparse weight up to a full row and exactly identifies all most vulnerable supports. The order-variable equality classification, rather than an isolated spectrum table or the parity check, gives this result its value. Higher-weight nullity and quantitative recovery norms do not follow.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

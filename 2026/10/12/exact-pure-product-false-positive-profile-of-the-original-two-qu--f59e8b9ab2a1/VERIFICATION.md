@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof is analytic. For unit Bloch vectors \(\mathbf a,\mathbf b\) with \(c=\mathbf a\cdot\mathbf b>-1\), the collective mean has norm \(\sqrt{(1+c)/2}\). Product-state covariance reduces the transverse variance to a two-vector Euclidean minimization, and the optimizing axis is parallel to \(\mathbf a-\mathbf b\), giving
-\[
-(\Delta J_\perp)^2_{\min}=\frac{1+c}{4}.
-\]
-Substitution into the original \(N=2\) definitions gives
-\[
-\xi_1=\sqrt{\frac{1+c}{2}}=\cos(\gamma/2),\qquad \xi_2=1.
-\]
+# Independent mathematical audit
 
-`verify.py` independently checks the same identities on representative canonical Bloch-vector pairs, reproduces the source example \(c=-1/2\) with \(\xi_1=1/2\), and checks approach to the antipodal endpoint. The recorded checker output is in `verification_output.txt`.
+## correctness
 
-The computation is supplementary; finite numerical checks are not used as proof of the quantified statement. The theorem is limited to pure two-qubit product states, the original collective squeezing parameters, and the nonzero-mean domain \(\gamma<\pi\). No statement is made about mixed states, \(N>2\), or the source's locally invariant replacement criterion.
+PASS
+
+For half-angle α=γ/2 and nonzero mean direction m, write the two unit Bloch vectors as cos(α)m ± sin(α)e, with e perpendicular to m (arbitrary there if γ=0). The mean has length cos(α). For a unit transverse n, factorization gives zero cross covariance and variance [1−sin²(α)(e·n)²]/2. Its global minimum is cos²(α)/2, attained at n=e; at γ=0 all transverse axes tie. Both normalizations give the stated values, and taking γ→π gives an infimum but not a value at the undefined endpoint. The review's explicit product uses opposite transverse components ±√3/2 and common longitudinal component 1/2; the dot product is −1/2 and the variance minimum is 1/8. This exact witness is in the 2011 review, not the qualitative product paragraph of the 2003 preprint; correct the attribution when citing the example. The analytic minimization, not the recorded numerical output, supports the result.
+
+## originality
+
+PASS
+
+The qualitative counterexample and a particular point were known. The supported distinct contribution is the complete relative-angle profile under the original collective definitions, including the optimal variance and vanishing infimum of ξ₁ with ξ₂ exactly one. This also resolves the apparent over-unity claim for nonsymmetric products in the pure two-qubit discussion of the motivating source.
+
+## value
+
+PASS
+
+A known false-positive example becomes a complete diagnostic boundary: every misaligned nonantipodal pure product is classified, and one can make the apparent Kitagawa–Ueda squeezing arbitrarily strong without genuine entanglement or Wineland squeezing. The exact normalization and endpoint matter to interpreting the witness, and the full classification also resolves a conflicting qualitative statement in the motivating discussion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

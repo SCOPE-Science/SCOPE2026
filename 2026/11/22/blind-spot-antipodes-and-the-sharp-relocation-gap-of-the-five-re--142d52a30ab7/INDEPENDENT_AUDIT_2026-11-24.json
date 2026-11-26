@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T00:52:41.814442Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen mathematics and narrowed replacement agree on the slide and mixed-metric counts. From the five XOR generators, translations and generator permutations give exactly the two required minimum-placement orbits: translate a path center to zero; for an independent triple translate one member to zero and use transitivity on intersecting pairs of two-generator index sets. Explicit move legality is one replacement, with XOR in {1,2,4,8,15} for a slide. A separate exhaustive reproduction from the graph and propagation rule (branches/46c08968-162c-4d3f-8745-85ceb2dcef1a/independent_check.py) confirms the 320 minima and all 51,040 unordered distance pairs. It gives 1,120 slide edges, degrees 9 and 5, slide eccentricity six, a single last-layer placement equal to the antineighborhood, and the reported 12,560/27,520/10,800/160 gap counts. Each of the 160 involution pairs is disjoint and has jump distance three. The explicit six-slide and three-jump witnesses are legal. This is exhaustive for the given graph, not an assertion for other folded cubes or the complement. The supplied code was inspected, not executed; the repair leaves its inputs and numerical claims unchanged.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general primary work defines move rules; Section 5.1 treats complete, complete bipartite, path, cycle and wheel graphs.",
+          "99315adae8ca classifies successful placements at all cardinalities and gives every minimum jump shell."
+        ],
+        "reasoning": "The all-cardinality theorem subsumes the frozen feasibility classification, and its jump graph supplies the baseline. Neither theorem gives the distances along the specific slide subgraph.",
+        "searches": [
+          "arXiv:2201.01798v1, sections 1 and 5.1",
+          "99315adae8ca, Finding and Proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 99315adae8ca",
+        "Resultary c9e2c260f397",
+        "Resultary 891539ac1265",
+        "arXiv:2201.01798v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The jump diameter and disjointness already imply jump distance three within each involution pair.",
+          "The rainbow metric moves two named-color copies simultaneously. The slide graph requires the original base edge for a single sensor; its degrees are unequal between the two types, unlike the 9-regular rainbow move graph."
+        ],
+        "reasoning": "Neither earlier metric implies the unique slide distance-six target or that the slide-minus-jump gap reaches three only on the involution pairs. These require computing the distinct slide adjacency and shortest paths and aligning the two distance matrices.",
+        "searches": [
+          "99315adae8ca and c9e2c260f397 move predicates compared with frozen RESULT.md §§III–IV and repaired RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "99315adae8ca, Finding: same XOR graph, ordinary power-domination rule, 320 optima and one-replacement jump adjacency.",
+          "c9e2c260f397, Finding and proof steps 2–3: exactly the same map V minus N[A] on the same 320 triples, switching types, under two-rainbow domination."
+        ],
+        "reasoning": "The different domination label does not make the involution distinct. Its farthest-point characterization uses the one-sensor adjacent move rule, not simultaneous two-copy relocation.",
+        "searches": [
+          "Resultary: five-regular Clebsch folded five-cube power domination independent/path triples and token jumping/sliding",
+          "Resultary: Clebsch antineighborhood involution and minimum rainbow placements; records 99315adae8ca and c9e2c260f397"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The jump shells (1,21,126,172) already give all frozen jump-only pair counts.",
+          "The rainbow graph reports 1,440 edges and diameter five. Locating domination uses 416 minima of size five. Neither gives the repaired 1,120-edge graph or its mixed-distance table."
+        ],
+        "reasoning": "There is exact catalogue coverage of shared baselines, not demonstrated coverage of the one-sensor slide metric or its farthest-pair table.",
+        "searches": [
+          "99315adae8ca, Finding and Proof distance shells",
+          "c9e2c260f397, Finding and Proof two-copy distances",
+          "Resultary 891539ac1265, Clebsch locating domination and relocation geometry"
+        ]
+      },
+      "rationale": "PASS only for the delivered narrowed theorem in repairs/4/RESULT.md and repairs/4/SLOGAN.txt. Originality of the frozen attribution fails: the minimum-placement classification and jump metric are covered by 99315adae8ca, and the very same antineighborhood involution on that family is covered by c9e2c260f397. These are distinct records, not the frozen record itself; their common catalogue date does not establish an ordering. The replacement explicitly credits both and claims the slide graph, unique slide-antipode interpretation and exact slide-versus-jump gaps only.",
+      "residual_risks": [
+        "The relative chronology of distinct records dated 2026-11-22 is not determined here.",
+        "An additional independent general-literature query did not run in the admitted wave, and is not negative evidence; an unindexed equivalent Clebsch slide calculation could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers feasibility and jump claims, not the slide metric in the repaired result",
+          "evidence": [
+            "Same generator set; theorem covers all successful placements and gives 21-regularity, 3,360 edges and shell profile (1,21,126,172)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-induced-triple-criterion-and-three-step-exchange-mobility-for-cl--99315adae8ca/RESULT.md",
+          "material_read": "Finding, scope and relevant proof; Finding begins at mirror offset 0",
+          "method": "Resultary lookup and original RESULT.md via local mirror",
+          "title": "Induced-triple criterion and three-step exchange mobility for Clebsch power domination",
+          "trigger": "Same graph, seed classification, and exact jump graph"
+        },
+        {
+          "assessment": "Covers type-switching antineighborhood exactly, not one-token slide distances",
+          "evidence": [
+            "Color 1 runs through the same 320 triples and color 2 equals V minus N[A]; moving exactly two color copies gives 1,440 edges and diameter five."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-antineighborhood-involution-and-sharp-two-token-mobility-of-mini--c9e2c260f397/RESULT.md",
+          "material_read": "Finding and scope at mirror offsets 440–2337; proof of orbit checks and classification around offsets 4724–5399",
+          "method": "Resultary lookup, then bounded original passages via local mirror",
+          "title": "Antineighborhood involution and sharp two-token mobility of minimum rainbow placements on the Clebsch graph",
+          "trigger": "Same mathematical involution under a seemingly different predicate"
+        },
+        {
+          "assessment": "Framework, not exact Clebsch slide geometry",
+          "evidence": [
+            "Section 5.1 treats complete, complete bipartite, path, cycle and wheel graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2201.01798v1",
+          "material_read": "Section 1 definitions (OA offset 2810) and Section 5.1 (offset 69000)",
+          "method": "Bounded primary OA original text",
+          "title": "Power domination reconfiguration",
+          "trigger": "Primary source for the move rules and graph-family theorems"
+        },
+        {
+          "assessment": "Different feasible sets",
+          "evidence": [
+            "416 minimum five-sets, not the 320 power-dominating triples."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-locating-domination-and-relocation-geometry-of-the-five-regular--891539ac1265",
+          "material_read": "Finding at local-mirror offset 0",
+          "method": "Resultary lookup and original RESULT.md",
+          "title": "Locating domination and relocation geometry of the five-regular Clebsch graph",
+          "trigger": "Same graph and relocation alias with different domination predicate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired theorem ties the unique most remote optimum under local sensor movement to a directly defined feature of initial observability: the three initially missed vertices. It quantifies exactly when local moves impose three extra steps and shows a meaningful structural contrast between the two symmetry orbits, despite jump regularity. This is useful independently of the known seed census and is a motivated fixed-graph metric benchmark, not a claim about physical grid movement or a wider family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

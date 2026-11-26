@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T15:44:39.688297Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:24–67 (proof)",
+        "VERIFICATION.md",
+        "checker.py",
+        "checker_output.txt"
+      ],
+      "rationale": "The forced pairs (a,b+3) and (b,a), with b−a≥3, form a matching on the (n−2)(n+1) histories, so subtracting exactly one per pair gives a valid universal upper bound even when other collisions exist. I independently reconstructed the signature table: if the two differences within the second source triple are α,β and its outgoing difference is γ, the insertion replaces γ by (0,−β,−α,α+β+γ) mod 3. Applying this rule to the first defect 0--0 gives all six local signatures and the two generic gaps −d−1 and d−4 in RESULT.md:41–50. The finite output extends by an unchanged periodic tail, and the initial symbol is fixed, so signature equality is exactly word equality. Different histories have the same signature only across the generic families, at a common gap h≥2 and common first defect, giving exactly the commuting pair (a,b+3),(b,a) with b−a=h+1; within either family the history is uniquely determined. This handles legality, end insertions and n=3 (four outputs) as well as general n. The archived checker and output are supplementary, read but not rerun.",
+      "residual_risks": [
+        "The finite exhaustive checker was inspected, not independently executed; the universal result instead follows from the reconstructed symbolic classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The odd-length index summary covers all odd k≥3 with q≥n and specializes to the same formula at k=3. The frozen prior-work comparison identifies Theorem 5.1 as an even-length result."
+        ],
+        "reasoning": "Broader length coverage of the first result does not remove its alphabet condition; the second length regime excludes k=3.",
+        "searches": [
+          "Resultary exact-two odd block lengths q≥n",
+          "arXiv:2609.00779v4 Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary record c4b4c103-f5f1-4cb5-b20f-b97eb5828b89 (index summary)",
+        "RESULT.md:72–84 (frozen prior-work comparison)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The disjoint-commutation argument gives only an upper bound; relabeling the distinct-letter witness modulo three is not injective and may create collisions. The frozen comparison describes one-step collisions and disjoint long-duplication coding results, rather than this sequential two-step overlap classification."
+        ],
+        "reasoning": "The prior upper bound and distinct-letter collision classification do not control what happens after identifying source symbols; the signed-difference proof supplies that missing step.",
+        "searches": [
+          "Resultary odd-block record c4b4c103-f5f1-4cb5-b20f-b97eb5828b89",
+          "arXiv:2609.00779v4",
+          "arXiv:1707.00052 §3.3 and arXiv:2602.01151v1 as identified in RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The strongest indexed hit c4b4c103-f5f1-4cb5-b20f-b97eb5828b89 uses distinct letters; other returned records concerned unequal lengths or reverse-complement duplication."
+        ],
+        "reasoning": "Equality of numerical formulas is not equivalence of attainment claims: q=3 and n>3 is outside the distinct-letter hypothesis; reversing without complementing is also a different operation.",
+        "searches": [
+          "Resultary exact title; fixed ternary PAL3 maximum; periodic ternary source and two-history collision classification",
+          "External literature search for fixed-alphabet exact-two palindromic duplication"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matching formula is indexed for q≥n; no inspected index entry gives the arbitrary-n periodic ternary attainment and fibers."
+        ],
+        "reasoning": "Finite small-q tables, including the source's checker output, cannot attest arbitrary-n attainability or the two-history classification.",
+        "searches": [
+          "Resultary exact formula/title and fixed-ternary PAL3 claim"
+        ]
+      },
+      "rationale": "The numerical bound and its attainment over sufficiently large alphabets are prior. The supported distinct result is that the period-three source attains that bound with only three letters for arbitrary n, with exactly the commuting collisions. The strongest located prior requires distinct source symbols (q≥n) and the cited even-block construction does not furnish a PAL3 source.",
+      "residual_risks": [
+        "Primary full text was not retrieved for the strongest matched index record or the cited arXiv comparison. Further treatment in those sources or an unindexed exact equivalent cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct prior coverage at q≥n; the available statement does not establish fixed ternary attainment beyond n=3",
+          "evidence": [
+            "(n−k+1)(n+1)−binom(max(0,n−2k+2),2), attained using n distinct letters."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1",
+          "material_read": "Indexed result summary giving the formula, commuting pairs, and distinct-letter hypothesis; full source retrieval timed out",
+          "method": "Local Resultary search and targeted full-source retrieval attempt",
+          "title": "Sharp exact-two palindromic-duplication spheres for odd block lengths over large alphabets",
+          "trigger": "Exact expression and collision classification in a broader block-length family"
+        },
+        {
+          "assessment": "The reported even-length theorem does not cover PAL3; no whole-document exclusion",
+          "evidence": [
+            "The stated extremizer uses alternation in the even-length setting."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.00779v4",
+          "material_read": "RESULT.md:73 and 81 identify Theorem 5.1 as even-length; primary retrieval timed out",
+          "method": "Targeted OA attempt and frozen citation check",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Same numerical bound for exact-two duplication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:3–10, 24–67, 72–78",
+        "Resultary odd-block prior record c4b4c103-f5f1-4cb5-b20f-b97eb5828b89 (index summary)"
+      ],
+      "rationale": "The fixed-alphabet regime matters for palindromic-duplication channel sphere counts: an unbounded distinct-symbol source does not model arbitrarily long words over a small alphabet. The record gives an explicit extremizer and a complete history-fiber classification even when the second duplication uses newly inserted symbols.",
+      "residual_risks": [
+        "No binary maximum, correction-code size, or new universal upper bound is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

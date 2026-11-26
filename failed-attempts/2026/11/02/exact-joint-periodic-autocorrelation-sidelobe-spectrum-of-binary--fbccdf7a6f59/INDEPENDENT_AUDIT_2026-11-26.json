@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T06:22:47.657290Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The feedback parametrization is bijective: the two five-bit windows with a common four-bit suffix must append different bits, and the resulting permutation yields a cycle exactly when its zero orbit visits all states. Starting with the unique zero window identifies rotations only. Neither reversal nor complementation is quotiented. Independently enumerated Euler tours in the directed order-four de Bruijn graph, by enumerating last-exit trees with the all-zero edge prescribed first. Each complete tour gives a tree: along a nonroot last exit to another nonroot, the next last exit must be later. Conversely the local outgoing-edge orders determined by a tree give an Euler tour. The greedy walk can stop only at the root; if an edge were unused, unused last exits would lead from an unexhausted vertex to the exhausted root, contradicting balance of unused in- and out-degrees after the closed walk. For each generated word, counted ordered pairs of one-positions with difference t, giving the exact correlation 4*overlap(t)-32 by balance. Replayed via /tmp/opencode/frozen_review_3.py using Python 3. It matched the complete table (20 occupied cells, 2,048 distinct rooted words), the digest e8b5746482780303fec542789b123a2d51a892f460137bb9f8a96c85fec30421, the p=0 count of four at m=-8, and both absolute bounds (12 and 784). These are nonzero shifts, not nonzero correlation values. This is exhaustive only for order five; the frozen verifier was read, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spinsante et al., PDF p. 8: 12 and 784 low-absolute-sidelobe cycles in the 2,048-cycle family. Fujisaki and Nabeshima, Tables I–II: normalized worst and second-worst extrema with delays and counts, not complete signed pairs."
+        ],
+        "reasoning": "Neither these thresholds nor these extremal summaries force the joint cells. The full indexed lag vectors are stronger than both kinds of summaries.",
+        "searches": [
+          "Literature lookup on de Bruijn order-five autocorrelation sidelobe distributions",
+          "Spinsante et al., DOI 10.1186/1687-1499-2011-4",
+          "Fujisaki and Nabeshima, DOI 10.1587/nolta.2.400"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Resultary 132a86d69a57 and its cycles.csv",
+        "Resultary 6e926677b401",
+        "Spinsante et al. (2011)",
+        "Fujisaki and Nabeshima (2011)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Map each row to (min(R1,...,R16),max(R1,...,R16)) and count the rows by pair. Lag symmetry covers exactly shifts 1 through 31, with zero lag excluded."
+        ],
+        "reasoning": "The reduction recovers every joint cell, including absences and the four p=0 cases, and all highlighted marginals and threshold counts. It is a simple grouping of complete data, not a new mathematical result.",
+        "searches": [
+          "132a86d69a57 lag-vector dataset compared to frozen RESULT.md Finding and scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary record 132a86d69a57: the entire per-cycle lag vector R1..R16 in cycles.csv for all 2,048 rotation classes. Record 6e926677b401 tabulates linear complexity and max |R| instead."
+        ],
+        "reasoning": "Full per-cycle lag vectors retain both signed extrema, since R(t)=R(32-t). A single absolute peak does not retain them. Taking extrema of R1..R16 includes the case that the largest value is zero.",
+        "searches": [
+          "Resultary order-five de Bruijn cyclic phase retrieval and periodic autocorrelation",
+          "Resultary signed extrema and absolute sidelobe spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The mirrored RESULT.md identifies the exact per-cycle table (offsets around 2133 and 7807); the CSV header and sample rows at offset 0 show the R1–R16 schema. The described table covers all rotation classes, rather than one representative per autocorrelation fingerprint."
+        ],
+        "reasoning": "The data include both coordinates needed for every item, with the correct counting multiplicities. No new cycle generation or search is required to tabulate the frozen result from the data.",
+        "searches": [
+          "Indexed 2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57, RESULT.md and cycles.csv"
+        ]
+      },
+      "rationale": "A distinct earlier indexed record supplies the complete same-universe, per-cycle periodic autocorrelation data. Taking the two extrema and counting pairs is a direct reduction of those data, so the frozen table is covered even though no checked paper printed it. The verdict is about coverage, not priority or mathematical validity.",
+      "residual_risks": [
+        "The database inspection used the coverage statement, schema and sample rows; it was not a row-by-row validation of the indexed dataset.",
+        "Independent enumeration validated the frozen counts; neither archive path dates nor the bounded literature search establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanically covers the complete frozen law",
+          "evidence": "One row per rotation class with all sixteen independent nonzero periodic lags.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-almost-complete-cyclic-phase-retrieval-for-binary-order-five-de--132a86d69a57",
+          "material_read": "RESULT.md passages around offsets 2133 and 7807; cycles.csv header/sample rows at offset 0",
+          "method": "Local mirrored passages and CSV excerpt",
+          "title": "Almost-complete cyclic phase retrieval for binary order-five de Bruijn cycles",
+          "trigger": "Exact same universe and autocorrelation values"
+        },
+        {
+          "assessment": "Partial overlap only",
+          "evidence": "P=max |R|; P=4 and P=8 totals 12 and 772, rather than signed joint extrema.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-joint-linear-complexity-and-periodic-sidelobe-spectrum-of--6e926677b401",
+          "material_read": "Passage defining and tabulating (L,P)",
+          "method": "Local mirrored record passage",
+          "title": "Exact joint linear complexity and periodic sidelobe spectrum of binary de Bruijn cycles",
+          "trigger": "Same order and sidelobe statistic terminology"
+        },
+        {
+          "assessment": "Absolute-threshold overlap",
+          "evidence": "12 in F4 and 784 in F8; does not specify the joint sign-resolved cells in that passage.",
+          "identifier_or_url": "https://doi.org/10.1186/1687-1499-2011-4",
+          "material_read": "PDF p. 8, text around offsets 43931–44151",
+          "method": "OA article passage",
+          "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+          "trigger": "Complete 2,048-cycle family and sidelobe thresholds"
+        },
+        {
+          "assessment": "Partial extremal data",
+          "evidence": "For order five the normalized worst minimum is -0.75, the listed largest positive maximum is 0.5 and the second-worst minimum is -0.625.",
+          "identifier_or_url": "https://doi.org/10.1587/nolta.2.400",
+          "material_read": "Printed p. 406, Tables I–II (PDF text offsets 16433–20573)",
+          "method": "OA article tables",
+          "title": "On auto-correlation values of de Bruijn sequences",
+          "trigger": "Small-order extremal autocorrelation experiments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Signed sidelobe extrema measure a natural feature not encoded in the absolute peak alone, but the entire claimed result is a direct aggregation of a complete existing autocorrelation dataset. A different correct census is a corroboration, not an unknown finite invariant. No non-covered result remains for repair.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

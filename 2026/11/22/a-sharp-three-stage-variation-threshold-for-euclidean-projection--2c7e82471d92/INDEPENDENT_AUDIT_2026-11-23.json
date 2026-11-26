@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T21:57:25.119338Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim is for unweighted cyclic variation, Euclidean projection, and positive radius. At a boundary point, write V as a maximum of signed edge sums. The tight sign vectors agree on nonzero edges and vary independently on zero edges, so their common equality space enforces constant values on the zero-edge blocks and one equation with normal g=QD^Ts. This gives the face derivative J=Q−ggᵀ/||g||²; the finite polyhedral projection cells yield the global bound by subdivision of a segment. Jensen applied to a cyclically ordered selection of one vertex per block gives V(Qv)≤V(v). Block j has g-value 0 or ±2/ℓ_j; therefore V(g)≤2Σ_j|g_j|=||g||², and |gᵀv|≤V(Qv). These give the bound 2. In the zero-sum difference hyperplane, every ℓ¹-unit vector is a convex combination of the normalized transfers (e_i−e_j)/2 by transporting positive to negative mass, with zero included by symmetry. These pull back to arc indicators modulo constants. I inspected verify_cycle_tv.py and independently enumerated exact integer face/arc ratios: for each nonconstant sign assignment up to reversal, scan the blocks between chosen boundary edges, take L=lcm(1,…,n), set q_j=L times the average of the arc on block j and d_j=L(s_before−s_after)/ℓ_j, and compute V in block order on q_j B−d_j A with denominator 2LB, where B=Σℓ_j d_j² and A=Σℓ_j d_j q_j. Face counts and maxima by r were (3,3)/(0,1), (6,12,7)/(0,1,1), and (10,30,35,15)/(0,1,4/3,3/2). The submitted certificate can be replayed as documented in VERIFICATION.md; no uploaded code was executed in this review. For the large-cycle witness the face normal is 2(e_1−e_4), and the perturbed arc indicator becomes (1,1/2,1,0,1/2,0,…), with cyclic variation 3 for n=5 and 4 for n≥6 versus input variation 2. Both projection residuals are positive multiples of the normal and all edge signs persist. Interior pairs attain 1; scaling verifies arbitrary τ>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The graph-general fused-lasso modulus in b4b1357d8d1c is for a fixed penalty λ. The simplex paper projects onto a probability simplex. Fadili–Peyré equation (12) identifies a TV-ball projector in an algorithm; the inspected pages do not state a two-input cyclic variation modulus."
+        ],
+        "reasoning": "Graph generality does not cover a different map. The simplex and graph-TV ball are not interchangeable, and an algorithm for a projector is not a sharp norm theorem.",
+        "searches": [
+          "Resultary graph-TV and graph projection comparisons b4b1357d8d1c and af98be3387d4",
+          "Fadili–Peyré, DOI 10.1109/TIP.2010.2072512"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_cycle_tv.py",
+        "Resultary mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4: 2c7e82471d92, 43b65933e518, 97d7a705aa9c, b4b1357d8d1c, af98be3387d4",
+        "Fadili–Peyré OA manuscript pp. 3–4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At exterior inputs a TV-ball projection may coincide with a TV denoiser at a penalty chosen to reach the radius. That multiplier depends on input. The cited fixed-penalty modulus has both inputs at one λ; the constrained projector introduces the active-radius rank-one correction."
+        ],
+        "reasoning": "The individual-input multiplier relation does not transfer a two-input same-penalty estimate or a sharp witness. General Euclidean nonexpansiveness also uses a different norm and cannot yield the exact cyclic variation constants.",
+        "searches": [
+          "Resultary b4b1357d8d1c, 43b65933e518 and 97d7a705aa9c, Finding and scope",
+          "Fadili–Peyré manuscript, pp. 3–4, equation (12) and surrounding algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both path records give 1 for n=2,3 and 2 for n≥4, with positive radius and finite attaining pairs. The first is dated earlier, the second is a distinct same-day path record."
+        ],
+        "reasoning": "Closing the path changes both the constraint and perturbation seminorm. At n=4 and 5 the two path values are 2, whereas the cycle values are 1 and 3/2. Changing the radius does not reconcile them.",
+        "searches": [
+          "Resultary search for the cyclic TV projection constants and the path analogue",
+          "2026/11/17 SCOPE record 43b65933e518; 2026/11/22 SCOPE record 97d7a705aa9c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mirror Finding for 2c7e82471d92 states the exact constants and is the same frozen record. The distinct same-day 97d7a705aa9c gives a path table, not a cyclic table."
+        ],
+        "reasoning": "The matching frozen identity is not separate coverage. The path table cannot give the cyclic five-site entry. No distinct exact cycle table was established by the searches.",
+        "searches": [
+          "Resultary exact cyclic TV law, finite-size transition and 3/2 five-site constant"
+        ]
+      },
+      "rationale": "The closest actual statements cover the path analogue, a penalized denoiser, or a different feasible set. None of the compared statements gives the cyclic two-input projector law, notably the five-cycle value and the delayed onset of 2. This is a best-of-current-knowledge conclusion, not absolute historical priority.",
+      "residual_risks": [
+        "Couprie et al. full text was not accessible via tried lawful copies.",
+        "A negative search does not exclude an unindexed sharp cyclic projector theorem or another equivalent formulation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identical frozen record, not independent coverage",
+          "evidence": "Unweighted cycle, τ>0, exact constants 1, 3/2, 2 by size.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-three-stage-variation-threshold-for-euclidean-projection--2c7e82471d92",
+          "material_read": "RESULT.md, Finding, offset 0; frozen proof and supports",
+          "method": "Frozen package and Resultary mirror",
+          "title": "A sharp three-stage variation threshold for Euclidean projection onto cyclic TV balls",
+          "trigger": "Exact indexed match"
+        },
+        {
+          "assessment": "Earlier path analogue, different constraint and seminorm",
+          "evidence": "Path constants 1 for two and three sites, 2 starting at four.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-bounded-variation-stability-transition-for-projection-onto--43b65933e518",
+          "material_read": "RESULT.md, Finding and Assumptions and scope, offset 0",
+          "method": "Resultary mirror",
+          "title": "Sharp bounded-variation stability transition for projection onto a discrete total-variation ball",
+          "trigger": "Same projector objective and nearest graph analogue"
+        },
+        {
+          "assessment": "Path analogue, not cycle; no within-day priority inferred",
+          "evidence": "Path constants 1 for n=2,3 and 2 for n≥4, attained for positive radius.",
+          "identifier_or_url": "2026/11/22/SCOPE-a-sharp-dimension-four-transition-for-variation-sensitivity-of-p--97d7a705aa9c",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "A sharp dimension-four transition for variation sensitivity of projection",
+          "trigger": "Distinct same-day near match"
+        },
+        {
+          "assessment": "Different map",
+          "evidence": "Connected-block-partition cut ratios for the fixed-λ penalized denoiser, not the radius-constrained projector.",
+          "identifier_or_url": "2026/11/17/SCOPE-exact-graph-variation-perturbation-modulus-of-the-graph-fused-la--b4b1357d8d1c",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Exact graph-variation perturbation modulus of the graph fused lasso",
+          "trigger": "Plausible graph-general coverage"
+        },
+        {
+          "assessment": "Different feasible set",
+          "evidence": "Simplex projector bound in graph variation using edge connectivity.",
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-graph-variation-instability-of-simplex-projection-under-ed--af98be3387d4",
+          "material_read": "RESULT.md, Finding, offset 0",
+          "method": "Resultary mirror",
+          "title": "Sharp graph-variation instability of simplex projection under edge connectivity",
+          "trigger": "Graph variation of a Euclidean projector"
+        },
+        {
+          "assessment": "Inspected statements supply projection context, not the cyclic sharp factor",
+          "evidence": "The projector onto the TV ball is an operator in an image-optimization scheme.",
+          "identifier_or_url": "https://fadili.users.greyc.fr/Pub/bibtex/manuscript/manuscrit504.pdf",
+          "material_read": "PDF p. 3, offset 18962, eq. (12); p. 4, offset 24980, algorithm discussion",
+          "method": "Lawful OA manuscript, bounded page reads",
+          "title": "Total Variation Projection with First Order Schemes",
+          "trigger": "Primary study of TV-ball projection"
+        },
+        {
+          "assessment": "Unresolved access risk, not evidence of noncoverage",
+          "evidence": "No substantive theorem inferred from failed retrieval.",
+          "identifier_or_url": "https://doi.org/10.1137/120895068",
+          "material_read": "No decisive full-text passage retrieved",
+          "method": "Tried cited CORE manuscript and SIAM and CORE alternatives",
+          "title": "Dual Constrained TV-based Regularization on Graphs",
+          "trigger": "Plausible graph-general TV regularization result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp two-input norm determines exactly when a standard periodic regularizer can amplify variation in a perturbation. The closing edge makes the path result unusable at the small sizes: the nonexpansive four-cycle, strict five-cycle intermediate constant, and uniform factor two thereafter give a complete and structurally explained transition, not merely a certificate at one arbitrary size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

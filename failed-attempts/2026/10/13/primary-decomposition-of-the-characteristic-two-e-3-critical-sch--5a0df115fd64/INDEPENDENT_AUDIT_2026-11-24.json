@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T21:05:43.093467Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In characteristic two, f₄=f₁+f₂+f₃ and Euler's identity gives e₃=Σ xᵢfᵢ, so adjoining e₃ does not change the derivative ideal. Xie's exact dimension gives height three; the three quadrics in the polynomial ring form a complete intersection, unmixed of degree eight. The four axes have length two generically by Xie and already exhaust the degree. For fixed i and distinct remaining indices a,b,c, f_a+f_b=(x_a+x_b)(x_i+x_c); the second factor is a unit at the axis prime P_i. These identities force the three off-axis coordinates to coincide in R_{P_i}/I. Then f_i gives the square of their common coordinate, and conversely all partials vanish when the three equal coordinates have square zero. The quotient by the contracted ideal Q_i is K[x_i,t]/(t²), whose zero divisors are nilpotent (an element with nonzero constant-in-t part is regular), so Q_i is P_i-primary. The contraction equals the isolated component at P_i, and distinct axis primes give an irredundant intersection. Unmixedness leaves no embedded component; inverting x_i eliminates the other three components, also verifying the claimed saturation. An independent exact SymPy 1.14.0 elimination replay over GF(2) checked all four saturations, the full ideal intersection, and the Euler membership. The algebraic argument proves the field-level statement; the finite ideal identity also persists by flat field extension.",
+      "replay": "python3 /workspace/audit-evidence/algebra.py 5; output /workspace/audit-evidence/5.txt",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie gives dimension one at L=Q=2 and says the four coordinate axes are components with local length two. Section 4.1 calculates the embedded local generators via equation (8) and the residual principal ideal (t^Q).",
+          "Orzel establishes the pertinent dimension via n<2d−1, not the nonreduced completion. Resultary 69573ed2e326 discusses a broader range of cubics but excludes n=4; later 3c3cffc51ba7 has a genuinely inclusive n=4m homogeneous decomposition."
+        ],
+        "reasoning": "The same-date n≥5 theorem is not coverage of the boundary value. The predated Xie results are broader in parameters and their embedded local computation and dimension cover the exact ingredients needed to recover the boundary's global decomposition.",
+        "searches": [
+          "Xie Theorems 1.1, 1.4 and §4.1",
+          "Orzel v3 Lemma 1.7 and v4 Theorem 3.6",
+          "Resultary: complete singular and curvilinear singular schemes of elementary symmetric cubics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_output.txt",
+        "Xie arXiv:2610.00259 Theorems 1.1 and 1.4 and proof §4.1",
+        "Orzel arXiv:2509.05009v3 and v4",
+        "Resultary 69573ed2e326, 55631dbc3dd3, 3c3cffc51ba7, 3fc363467b40 and b80f0c72fd29",
+        "MathOverflow 264226 (access attempt only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set q=1, d=3, n=4, p=2. Here r=L=Q=2 and |S|=1. In §4.1 identity (8) forces equality of the three off-axis coordinates, then the remaining localized ideal is (t²). This identifies the embedded local ideal, not only the abstract ring.",
+          "The dimension theorem gives height three; f₄=f₁+f₂+f₃ gives a three-quadric complete intersection of degree eight. The four length-two axis components account for all eight and unmixedness excludes an embedded prime. Each localization contracts to its displayed axis-primary ideal because the quotient by the indicated differences and square is K[x_i,t]/(t²)."
+        ],
+        "reasoning": "The intersection and saturations follow by standard localization and primary contraction once the prior embedded equations and dimension are specialized. There is no remaining nonroutine exact global calculation in this case. A general open problem about possible smaller components/embedded structure does not override this implication at the chosen parameters.",
+        "searches": [
+          "Xie §1.2 Theorem 1.1 and §1.3 Theorem 1.4",
+          "Xie §4.1 coordinate components, equation (8), p. 7, OA offsets 22400–26000",
+          "Xie concluding limitations, p. 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In this characteristic Euler makes the critical and order-two ideals equal, so results for either scheme are directly relevant.",
+          "Xie calls these C₁ and Z₂ and treats both in Theorem 1.4. The later projective treatment in Resultary 55631dbc3dd3 describes the four doubled points but does not by itself rule out vertex-embedded structure in the affine cone."
+        ],
+        "reasoning": "The different derivative and multiplicity terminology does not separate the frozen claim from Xie's hypotheses. The affine/projective distinction is real until the unmixedness check, which follows here.",
+        "searches": [
+          "Xie arXiv:2610.00259, C₁(e₃), Z₂(e₃), coordinate components",
+          "Resultary: characteristic-two elementary symmetric cubic Jacobian/critical/derivative scheme",
+          "Orzel arXiv:2509.05009v3, order-two zero locus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Later catalogue record 3c3cffc51ba7 states the homogeneous ideal decomposition for n=4m; the four singleton-support ideals at m=1 give exactly the affine Q_i.",
+          "Later record 55631dbc3dd3 gives the four local length-two projective points at n=4, not the affine embedded-prime assertion. Record 3fc363467b40 covers the reduced support only, and b80f0c72fd29 requires d≥4."
+        ],
+        "reasoning": "The exact later affine formula is material equivalence but not evidence of prior coverage. The proved earlier implication comes instead from Xie, not from reduced-hull or projective-locus data or the calculation log.",
+        "searches": [
+          "Resultary: doubled Jacobian points of elementary symmetric cubics",
+          "Resultary: curvilinear singular schemes of elementary symmetric cubics in characteristic two",
+          "Resultary: characteristic-two singularity trichotomy and penultimate derivative loci"
+        ]
+      },
+      "rationale": "The exact four-variable affine result is a routine consequence of the predated and cited Xie theorems and their proof. Crucially, Xie's §4.1 supplies not merely an abstract generic length: it identifies the embedded off-support differences and the remaining t^Q ideal in the resulting local coordinate. At n=4,d=3,p=2 these are exactly the localizations of the stated Q_i. The dimension theorem and three visible quadrics then give a degree-eight unmixed complete intersection; the four known length-two axes exhaust degree, and contracting the four primary local ideals gives precisely the claimed intersection. Xie's remarks about general unresolved primary decompositions are accurate, but this special case is covered by a short standard deduction. This is established prior implication, not a verdict based on an inaccessible source or a later duplicate.",
+      "residual_risks": [
+        "The MathOverflow source remained inaccessible. It is unnecessary to the prior-implication decision.",
+        "The later and same-day overlap comparisons do not establish discovery order; the rejection rests on the already available Xie results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coverage by routine specialization and complete-intersection deduction",
+          "evidence": "Height three and four codimension-three components of local length two. The proof itself identifies the transverse parameter as the common off-axis coordinate and gives its square-zero equation in the specialization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00259",
+          "material_read": "§1.2 Theorem 1.1 p. 2; §1.3 Theorem 1.4 p. 3; §4.1 p. 7 including equation (8) and the t^Q calculation; concluding limitations p. 10",
+          "method": "OA primary PDF, decisive bounded passages",
+          "title": "Derivative and multiplicity loci of elementary symmetric polynomials in positive characteristic",
+          "trigger": "Cited earlier theorem on the exact schemes, parameters and local coordinate structure"
+        },
+        {
+          "assessment": "Dimension overlap only",
+          "evidence": "For n=4,d=3 the n<2d−1 regime gives d−2=1; conjectural wording is not treated as proof. No decomposition in these passages.",
+          "identifier_or_url": "arXiv:2509.05009v3 and v4",
+          "material_read": "v3 Lemma 1.7 p. 6, Conjecture 2.11 p. 13; v4 Theorem 3.6, offset 35800",
+          "method": "OA primary PDFs, located passages",
+          "title": "Computing the Elementary Symmetric Polynomials in Positive Characteristics",
+          "trigger": "Earlier order-two multiplicity locus result"
+        },
+        {
+          "assessment": "Hypotheses exclude four variables; date does not order the records",
+          "evidence": "Projective support and doubled points for 4|n within a theorem requiring n≥5.",
+          "identifier_or_url": "Resultary 69573ed2e326",
+          "material_read": "Finding and Assumptions offset 0",
+          "method": "local source mirror",
+          "title": "The complete singular scheme of the elementary symmetric cubic",
+          "trigger": "Same-date similarly titled cubic decomposition"
+        },
+        {
+          "assessment": "Later projective overlap",
+          "evidence": "Four projective points, each with dual-number local ring; no claim about affine embedded structure at the vertex.",
+          "identifier_or_url": "Resultary 55631dbc3dd3",
+          "material_read": "Finding and Assumptions offset 0",
+          "method": "local source mirror",
+          "title": "Nodes and doubled Jacobian points of the elementary symmetric cubic",
+          "trigger": "Includes the four-variable doubled points"
+        },
+        {
+          "assessment": "Later theorem implies exact affine formula",
+          "evidence": "Full homogeneous primary decomposition for 4|n includes n=4 and yields the stated ideals.",
+          "identifier_or_url": "Resultary 3c3cffc51ba7",
+          "material_read": "Finding and proof Step 4, offsets 0 and 4261",
+          "method": "local source mirror",
+          "title": "Curvilinear singular schemes of elementary symmetric cubics in characteristic two",
+          "trigger": "Strongest exact affine overlap"
+        },
+        {
+          "assessment": "Reduced-only overlap or different degree",
+          "evidence": "The trichotomy covers reduced support; the other record assumes d≥4.",
+          "identifier_or_url": "Resultary 3fc363467b40 and b80f0c72fd29",
+          "material_read": "Relevant Findings and scope passages",
+          "method": "local source mirror",
+          "title": "Characteristic-two singularity trichotomy; Four scheme structures in penultimate derivative loci",
+          "trigger": "Nearby derivative-locus classifications"
+        },
+        {
+          "assessment": "No independent statement-level verdict on this source",
+          "evidence": "The frozen text describes a characteristic-zero reduced support argument. Rejection does not rely on this unavailable discussion.",
+          "identifier_or_url": "https://mathoverflow.net/questions/264226",
+          "material_read": "Frozen attribution only; primary discussion unavailable",
+          "method": "Lawful OA retrieval attempts returned 403",
+          "title": "Singular locus of zero set of elementary symmetric polynomial",
+          "trigger": "Cited earlier discussion of underlying support"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An explicit primary decomposition of a critical scheme and control of its cone vertex are natural objectives. Here, however, all four embedded generic ideals are already furnished by the prior local-coordinate theorem, and the three-quadric complete-intersection degree forces the entire global scheme, leaving only routine contractions. The exact computational replay is useful as an illustration but is not a surviving distinct valued finding; no broader new case, obstruction or method is proved in the frozen record.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

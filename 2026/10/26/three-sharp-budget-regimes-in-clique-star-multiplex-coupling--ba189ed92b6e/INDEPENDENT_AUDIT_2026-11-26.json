@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T03:16:31.672386Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the unnormalized Laplacian, the Rayleigh minimum on the space orthogonal to constants is concave in the weights, so averaging the leaf permutations preserves the attainable maximum. The constant-leaf sector has the same within-layer quotient for clique and star and splits into the symmetric 0,n eigenvalues and the antisymmetric two-by-two block A. Zero-sum leaf contrasts give n−2 copies of C with lower eigenvalue ν<n. Along x=B−(n−1)y, the lower eigenvalue μ of A has derivative zero at y=B/n and strictly negative second derivative −8n²(n−1)/(δ²+4(n−1))^(3/2); ν is strictly increasing. At uniformity, ν≥2B/n exactly when B≤n²/(n+1), with the squaring sign valid at and below the threshold. Equality of the opposite-layer-constant Rayleigh test enforces equality of all weights. For B>B1, the optimum is the crossing to the right of uniformity, or the endpoint x=0 when no earlier crossing occurs. With t=ν, inversion gives y=(t−1)(n−t)/(n+1−2t); the determinant at x=0 has sign t−2 since the upper A eigenvalue is at least n−1>t. At t=2, y=(n−2)/(n−3) if n≥4, and t<2 at every finite y when n=3. The positive factor 1+2y−t=(t−1)(n−1)/(n+1−2t) yields the stated x(t) at the crossing. For unequal leaf weights, an orthonormal basis of leaf contrasts paired with a lower-eigenvalue vector (a,b) of C at the average leaf weight has mean Rayleigh quotient ν((B−x)/(n−1)). Attainment at and above B2 forces x=0; minimum equality on the whole test space then implies (y_i−ȳ)(a−b)θ_i=0 for every contrast θ, hence equal leaf weights as a≠b. This includes B=B2. In the n=3 crossing, x is bounded by its value at t=2n/(n+1) (the three positive factors in x(t) give strict decrease), so y→∞ and x→0. The large-budget limits follow. The frozen verify_multiplex.py uses finite rational checks and full-matrix Jacobi calculations (with symmetric neighboring designs); they are not needed for global or infinite claims and were not replayed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shakeri et al. give the universal small-budget linear value and necessity of uniform matching weights where attained.",
+          "Tavasoli et al. 2024 allow a more general interlayer design and discuss general first transitions; the checked material does not solve this post-uniform instance.",
+          "arXiv:1903.01073v2 discusses optimal embeddings and transitions, some for different spectral objectives."
+        ],
+        "reasoning": "The first threshold is a specialization and is not counted as new. Changes in a general optimal embedding or in a different spectral objective do not force extinction of the distinguished matched edge at the claimed second threshold.",
+        "searches": [
+          "arXiv:1510.06785v1, general bound and transition",
+          "arXiv:1903.01073v2 §II, including Proposition 5 and §V",
+          "doi:10.1017/nws.2024.9, pp. 262, 265–266"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1510.06785v1",
+        "arXiv:1903.01073v2",
+        "doi:10.1017/nws.2024.9",
+        "2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846",
+        "2026/10/13/SCOPE-a-discontinuous-matching-price-frontier-for-fastest-mixing-on-ba--ab43d87936fe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general Rayleigh and semidefinite formulations give the linear bound and solve the uniform portion, not the ordering of the two competing spectral branches after it fails.",
+          "Sign of det(A(0,y)−tI) at t=ν(y) and equality in the average contrast test respectively yield the family-specific support threshold and all-allocation rigidity."
+        ],
+        "reasoning": "A general optimization formulation or a high-budget embedding bound does not imply the explicit finite crossing, its n=3 limiting case, or uniqueness among asymmetric allocations. The spectrum and equality analysis are required.",
+        "searches": [
+          "arXiv:1510.06785v1 small-budget theorem; arXiv:1903.01073v2 Eq. (3) and §II",
+          "doi:10.1017/nws.2024.9 one-to-one comparison and spectral bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:1903.01073v2 §II, PDF p. 3, Eq. (3), has the same primal optimization in general and identifies the uniform phase; its p. 7 examples discuss changes of embedding dimensions and asymmetry between layers, not the stated clique–star optimizer.",
+          "The closest same-date catalogue hit 2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846 instead allows all conductances to vary and connects two cliques by a complete bipartite gateway."
+        ],
+        "reasoning": "Neither the adjacency and allowed weights nor the control parameter of the two-clique theorem specialize to the fixed-unit-edge clique–star matching. The general exact primal formulation is prior, but does not give the post-uniform branch solution.",
+        "searches": [
+          "Resultary and primary-literature comparison for budgeted clique–star matching algebraic connectivity, hub extinction and balanced weights",
+          "arXiv:1903.01073v2, matched interlayer structure, star graph, clique"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier matching-price record deletes a perfect matching above a price threshold in K(n,n), with different variables and a different budget model.",
+          "The same-date two-clique regime table is parameterized by gateway size, not by the budget of the frozen matching-only design."
+        ],
+        "reasoning": "These are support-transition analogues, not tabulations of B2, x(t), y(t), or the n=3 exception under the frozen constraints. No matching table was located in the checked sources.",
+        "searches": [
+          "2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846",
+          "2026/10/13/SCOPE-a-discontinuous-matching-price-frontier-for-fastest-mixing-on-ba--ab43d87936fe",
+          "arXiv:1903.01073v2, §II figures and §V"
+        ]
+      },
+      "rationale": "The general one-to-one problem, uniform-optimum bound and first-transition criterion are established prior work. No inspected prior statement gives the exact post-uniform clique–star allocation, finite second threshold and high-budget optimizer rigidity, or the three-node exception. This is a bounded statement-level comparison, not a publication-priority claim.",
+      "residual_risks": [
+        "The lawful arXiv v2 version of the 2020 article was accessible for scoped reading, not read exhaustively. The comparison does not exclude an equivalent derivation in uninspected material or other unindexed optimization work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the uniform regime framework",
+          "evidence": "Uniform matching weights are optimal through the first critical budget, after which the linear bound generally ceases to be tight.",
+          "identifier_or_url": "arXiv:1510.06785v1",
+          "material_read": "p. 1 at offsets 2092–2852 and uniform regime comparison",
+          "method": "Open primary PDF passages",
+          "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+          "trigger": "Same optimization model and first transition"
+        },
+        {
+          "assessment": "General exact problem and transition framework; no matching post-uniform statement in inspected passages",
+          "evidence": "Eq. (3) sets a simplex budget on interlayer edges; the cited examples describe geometric embedding changes; §V restates uniformity up to a threshold and generic nonuniformity afterwards.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.01073v2",
+          "material_read": "Abstract; p. 2 model at offset 7900; §II Eq. (3), offset 17937, transition offset 27300, p. 7 offset 53000; §V p. 13 offset 117850; literal term checks for star graph and clique",
+          "method": "Retrieved full OA arXiv v2 PDF; read bounded primary passages",
+          "title": "Designing Optimal Multiplex Networks for Certain Laplacian Spectral Properties",
+          "trigger": "Highly relevant matching problem; frozen package noted an access gap"
+        },
+        {
+          "assessment": "Broader optimization, not an exact clique–star solution in the inspected statements",
+          "evidence": "Identifies the 2020 paper as the one-to-one case, and treats more general interconnections.",
+          "identifier_or_url": "doi:10.1017/nws.2024.9",
+          "material_read": "pp. 262 and 265–266, offsets 5200 and 23200",
+          "method": "Open primary PDF passages",
+          "title": "The Art of Interconnections: Achieving Maximum Algebraic Connectivity in Multilayer Networks",
+          "trigger": "Broader spectral optimization and structural transitions"
+        },
+        {
+          "assessment": "Similar phenomena in a different optimization domain",
+          "evidence": "Two equal cliques, complete bipartite gateway, and all edge conductances variable; regimes depend on gateway ratio.",
+          "identifier_or_url": "2026/10/26/SCOPE-sharp-three-regime-spectral-gap-allocation-for-two-cliques-with--901311831846",
+          "material_read": "Finding, graph definition and allocation constraints",
+          "method": "Local catalogue mirror passage",
+          "title": "Sharp three-regime spectral-gap allocation for two cliques with a gateway",
+          "trigger": "Same-date exact spectral-gap phase theorem"
+        },
+        {
+          "assessment": "Analogue, not implication-equivalent",
+          "evidence": "Variable conductances on all K(n,n) edges with a priced matching; deletion at price 2(n−1)/(n−2), even at n=3.",
+          "identifier_or_url": "2026/10/13/SCOPE-a-discontinuous-matching-price-frontier-for-fastest-mixing-on-ba--ab43d87936fe",
+          "material_read": "Finding and priced perfect matching setup",
+          "method": "Local catalogue mirror passage",
+          "title": "A discontinuous matching-price frontier for fastest mixing",
+          "trigger": "Earlier exact optimum support-deletion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a standard budgeted spectral design problem, the solution identifies exactly when increasing the budget makes one designated connection dispensable and proves that every optimizer deletes it thereafter. The sharp threshold, explicit intermediate allocation and absence of finite extinction on the three-node layers are natural, useful constraints, not consequences of the prior uniform bound alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

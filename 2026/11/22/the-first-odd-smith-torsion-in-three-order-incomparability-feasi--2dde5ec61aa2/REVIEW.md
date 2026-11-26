@@ -1,11 +1,21 @@
-# Assessment of the three-order incomparability-feasibility invariant
+# Independent mathematical audit
 
-**Correctness — PASS.** Independent linear-order amalgamation gives precisely the three-coordinate gap types. Strict dominance is the only obstruction to choosing two new types incomparable in the intersection order. The explicit exact 1,061-step unimodular operation certificate diagonalizes the three matrices of orders 8, 27, and 64. Its independent replay checks all entries, all ranks and the divisibility order. It proves the finite threshold without extrapolation to larger bases.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Cameron (2002) gives homogeneous permutations and higher-dimensional motivation. Braunfeld (2017/2018) classifies three-order homogeneous structures. Neither inspected treatment states the finite-base Smith forms. The previously recorded two-order compatibility classification is confined to two order coordinates, and the previously recorded unordered generic multiorder type spectrum is a different one-type orbit count. No equivalent exact three-order strict-dominance matrix statement was found among the targeted published-finding corpus and mathematical literature searches. Searches cannot prove absolute novelty; a buried product-grid matrix identity is a residual risk.
+PASS
 
-**Mathematical value — PASS.** This exact natural finite cut-off locates the first odd-prime characteristic defect of the existential pair-type incompatibility kernel. It is not a random numerical slice: the three-parameter case is the first dimension of the named base at which an order-three cokernel class arises, contrasting with the smaller cases and the known two-order parity phenomenon. The explicit primitive lattice certificate makes the result reproducible and reusable in related type-compatibility investigations.
+Relative order in a coordinate is forced by unequal gaps and freely selectable when the gaps coincide. Coordinate extensions can be specified independently, then realized over the named base by the Fraïssé extension property. Incomparability is the existence of a mixed set of directions, which is possible except under strict coordinatewise dominance in one direction or the other; this also handles equal types with distinct realizations. Homogeneity makes the insertion gaps complete type invariants. Independently built each matrix by enumerating the actual linear orders extending a fixed ranking in one coordinate, then combining the three sets of feasible directions, which do not depend on parameter identities. Fresh exact Smith forms at sizes 0,1,2,3 gave respectively [1], 3 units and 5 zeros, 15 units plus 2 and 11 zeros, and 44 units plus 3 and 19 zeros. Independently replayed all 25,183,853 admissible elementary operations on those matrices, confirming their diagonals and all off-diagonal zeros. The exact least parameter size for odd-primary torsion follows.
 
-The claim is deliberately restricted to at most three parameters. It does not assert an all-size Smith formula or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinct content is the exact three-order integral computation through size three and the first odd-primary factor; the ambient multiorder framework and the use of Smith forms for a related feasibility matrix are not claimed new. No equal or dominating computation in the same matrix was established by the inspected statements.
+
+## value
+
+PASS
+
+The kernel is intrinsic to incomparability feasibility over named parameters and allows distinct realizations on the diagonal. The prior two-order comparison gives a concrete prime-support question in the next number of orders. Exact integral classification through the first odd factor answers it and gives the sharp base size; rational rank alone cannot distinguish these cases. The three displayed sizes form a motivated cutoff, not an arbitrary selection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

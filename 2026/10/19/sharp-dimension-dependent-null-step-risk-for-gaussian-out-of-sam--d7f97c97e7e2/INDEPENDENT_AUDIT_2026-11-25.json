@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T21:13:01.291102Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the first zero proposal, the negative feedback derivative is the validation projection onto the training direction divided by the training norm. Conditional on the training vector, the standardized projection has a fixed standard normal law, independent of the chi-square radius; the common sigma/sqrt(b) cancels. Projection yields the stated law and atoms. The second update uses fresh samples; at fixed p>0 the acceptance condition is a one-sided normal test at p sqrt(U_d)/2. Weighting by the true squared displacement multiplies the chi-square density by U_d, exactly d times the chi-square_(d+2) density. At p=0 the tie cannot affect risk; A_d(0)=1/2 is the continuous tail extension, not the actual tie acceptance probability. For d=1, rescale the Cauchy integral by y=eta r; the limiting coefficient is [integral_0^M A_1(y) dy+M A_1(M)]/pi, and integrating the t_3-ratio tail using (p arctan(p/2))' gives the printed positive formula. For d=2, r^2 rho_2(r)=1/(2r)+O(r^-3) above r=1; the Lipschitz tail A_2(eta r)=1/2+O(eta r) up to r=M/eta changes the clipped logarithmic contribution only by O_M(eta^2), as does the saturated tail. Above d=2 the clipped risk is dominated after eta^-2 rescaling by (R_d)_+^2, of mean 1/[2(d-2)]. Replacing the acceptance factor by one checks all proposal constants. These arguments verify RESULT.md lines 55–109 at fixed M,b,sigma,d. The self-review's 70 finite checks are reported in VERIFICATION.md; check.py was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Relative-gradient-noise bounds in Zhang et al. are violated at the noninterpolating minimizer.",
+          "Gao et al. use deterministic feedback and population-objective monotonicity.",
+          "The indexed scalar random-curvature analysis concerns population feedback targets and curvature stability."
+        ],
+        "reasoning": "The method itself applies as a recursion, but its convergence guarantee and the other scalar specialization do not supply a finite-time Gaussian risk under persistent validation noise.",
+        "searches": [
+          "arXiv:2609.11751v2 §3.1 Assumptions 3.1–3.2",
+          "arXiv:2505.23081v2 §§3.2 and 4.1",
+          "Resultary 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.11751v2",
+        "arXiv:2505.23081v2",
+        "Resultary 021cc30589a6",
+        "Resultary 3eb74e804a71"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary algorithm makes the primal choice before updating P, so starting with P_0=0 the first learned scale is applied only with the next independent training/validation pair.",
+          "The collision-probability characterization holds a population-optimal scalar scale fixed and studies a trajectory rather than a random projected learning step."
+        ],
+        "reasoning": "The known algorithm defines the experiment but does not deliver its sharp diagnostic without weighting the validation tail by the squared gradient, handling clipping and evaluating the threshold moments. No stronger inspected statement directly supplies that combination.",
+        "searches": [
+          "arXiv:2609.11751v2 Eq. (4) and Algorithm 2",
+          "Resultary 021cc30589a6 and 3eb74e804a71, Finding and model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The projected first score is a clipped positive part of t_d/sqrt(d); this distributional representation is classical.",
+          "The closest validated-coordinate formulation holds the step fixed and has collision rather than Gaussian-radius randomness."
+        ],
+        "reasoning": "A Student-distribution reparameterization of the feedback alone, or a validation gate without the learned random step, does not identify the objective-weighted acceptance or the three asymptotic coefficients.",
+        "searches": [
+          "arXiv:2609.11751v2 §3.1 Algorithm 2 and (4)",
+          "Resultary Gaussian additive gradients / independent hypergradient and validation gating; 021cc30589a6 and 3eb74e804a71"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The scalar-curvature record and the later-dated coordinate-sparse collision-probability record were inspected in the mirror; neither states a learned additive-Gaussian two-update risk.",
+          "Classical t laws supply the density and inverse-square-radius moment, but not a tabulated clipped, tail-weighted risk of this procedure."
+        ],
+        "reasoning": "An exact match would require the learned clipped score times the independent objective-weighted validation factor, or the same asymptotics in equivalent notation. The actual closest findings concern different laws and outputs.",
+        "searches": [
+          "Resultary 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+          "Resultary 2026/10/25/SCOPE-the-collision-probability-frontier-for-independently-validated-h--3eb74e804a71"
+        ]
+      },
+      "rationale": "Qualified pass for the exact accepted two-update diagnostic and its sharp dimension- and cap-dependent coefficients, not for the algorithm, Student-ratio identity, or chi-square size bias in isolation.",
+      "residual_risks": [
+        "The bounded primary-text and catalogue comparison cannot exclude an uncatalogued specialized Gaussian or clipped Student and independent-test risk calculation; no general web search was used for this record."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the method, not the out-of-assumption two-update boundary calculation",
+          "evidence": [
+            "Independent training/validation; primal decision before scale update; noise measured relative to the population-gradient norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.11751v2",
+          "material_read": "§3.1, Eq. (4), Algorithm 2 and Assumptions 3.1–3.2; OA offsets about 23000–30473",
+          "method": "Compared recursion ordering, sampling, and noise hypotheses in the primary text",
+          "title": "Stochastic Gradient Methods with Online Scaling",
+          "trigger": "Primary algorithm using independent validation hypergradients and a null step"
+        },
+        {
+          "assessment": "Background, not a stochastic Gaussian risk law",
+          "evidence": [
+            "Hypergradient feedback and null-step action with deterministic objective."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.23081v2",
+          "material_read": "§3.2 offsets about 17400–20992; §4.1 offsets about 26000–28188",
+          "method": "Read the feedback definition and monotone action in OA text",
+          "title": "Gradient Methods with Online Scaling Part I: Theoretical Foundations",
+          "trigger": "Deterministic antecedent of normalized hypergradient and null step"
+        },
+        {
+          "assessment": "Not covering additive-Gaussian size-biased risk",
+          "evidence": [
+            "Random curvature, feedback-optimal steps, and clipping or null-step stability rather than two-update risk at the optimum."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+          "material_read": "Mirrored RESULT.md, finding and model",
+          "method": "Compared exact noise and optimization targets",
+          "title": "SOSGM feedback curvature stability",
+          "trigger": "Indexed scalar online-scaling safeguard analysis"
+        },
+        {
+          "assessment": "Different model and parameter regime; later-dated catalogue record is not an equivalent claim",
+          "evidence": [
+            "Coordinate-sparse losses; fixed population-optimal scalar step; all-time convergence classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-the-collision-probability-frontier-for-independently-validated-h--3eb74e804a71",
+          "material_read": "Mirrored RESULT.md, finding and model",
+          "method": "Compared stochastic model, scaling rule, and claimed output",
+          "title": "The collision-probability frontier for independently validated hypergradient scaling",
+          "trigger": "Close indexed independent-validation overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A noisy validation null step is designed to protect the primal iterate, so its exact residual risk at a noninterpolating optimum is a natural diagnostic. Even when larger batches reduce this risk by 1/b, they do not stabilize the normalized feedback law. The critical dimensions and exact factors quantify how the safeguard and cap modify the risk, separating a heavy-tail boundary layer from a finite-moment regime. This is a specific mechanism, not a claim about eventual convergence or a new optimizer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

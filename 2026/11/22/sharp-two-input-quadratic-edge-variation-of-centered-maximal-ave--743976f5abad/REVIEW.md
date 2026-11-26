@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns nonnegative real vertex functions on one unweighted four-vertex path with each edge counted once. Row-stochastic ball averaging preserves constants, so the seminorm quotient reduces to a three-dimensional edge-space matrix for each active selection. Every one of the \(144\) possible selection matrices is certified to satisfy the exact positive-semidefinite inequality \(216I-H_{12}^{\mathsf T}H_{12}\succeq0\) using all seven principal minors, without floating-point comparisons. Integrating these local bounds along a segment proves the global two-input bound. A strictly feasible rational pair realizes equality, verified exactly. No claim for signed or complex two-input data is made.
+PASS
 
-## Originality — PASS relative to inspected sources
+The four counting-ball families have sizes 4,3,3,4. On the nonnegative cone every affine segment of the coordinatewise maximum has a derivative given by one of the 144 row selectors, including segments with persistent ties (tied affine forms along the segment have the same slope). Each selector preserves constants, so its edge-space matrix H acts on the three unconstrained edge coordinates; the step representatives are a right inverse of the edge difference. I independently enumerated all 144 selectors and checked the coefficients of det(tI+216I-144 H^T H) over the rationals: all were nonnegative, with leading coefficient 1. Hence that polynomial has no positive root and symmetry gives 216I-144 H^T H positive semidefinite. The defect is singular only for masks (0,2,2,0) and (3,0,0,3). Integrating edge derivatives gives the stated bound for all pairs, including constant differences. For the frozen positive rational witness, independently evaluated ball averages strictly select (0,2,2,0) at both ends; their output difference is (3,3/2,3/2,0)/100, giving squared ratio 3/2. Replay: python3 /workspace/checks/frozen_exact.py 1. The submitted checker was read, not run. The result does not cover a signed absolute-value-input map or other graph sizes.
 
-González-Riquelme–Kovač–Madrid (arXiv:2603.12462v1) treat sharp one-input graph variation, including the first-variation value on the four-vertex path. Liu–Lian–Wang (arXiv:2611.15377v1) and Lu–Zhao (arXiv:2611.24180v1) also formulate one-input variation ratios and derive results for stars, complete graphs, or general oscillation. A one-input estimate does not imply a two-input difference estimate for a nonlinear operator. The closest published two-input variants found concern stars, complete graphs or uncentered cycles, in different norms and settings. Search results and accessible full texts did not expose the new statement or a stronger result that implies it; equivalent historical coverage remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Perturbation stability is a natural companion to the graph maximal-function variation problem. The exact \(\sqrt{3/2}>1\) amplification on the canonical four-vertex path distinguishes output regularity for a single signal from sensitivity between signals, and supplies a sharp, independently runnable finite-cell certificate with an attained equality pair. This is a natural exact base-case invariant rather than an arbitrary unmotivated parameter slice; extension to larger graphs is not claimed.
+The checked evidence supports the distinct exact two-input edge-Hilbert coefficient on this particular centered path operator. The identical indexed record is not separate coverage. The near matches change the norm, the graph, or a difference of nonlinear outputs to a single output. This is a qualified assessment, not a priority guarantee.
 
-## Limitations and closest literature
+## value
 
-The theorem holds on nonnegative real signals on the four-vertex path only. The proof does not classify every equality case, and no independent mathematical or bibliographic validation has been performed. The primary comparator is arXiv:2603.12462v1; important additional comparators are arXiv:2611.15377v1 and arXiv:2611.24180v1. None of their **inspected stated claims** establish the same two-input path-specific quadratic bound; unpublished or unindexed variants remain a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quadratic edge variation is the natural square root of the graph Dirichlet energy. An explicit strictly positive expansion example and a sharp coefficient on the first open path not a star give a usable benchmark for graph-maximal perturbation bounds in that geometry. The extremizing active selector exposes a norm-dependent mechanism distinct from the adjacent-l1 result on the same path. No path-family conclusion or equality classification is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

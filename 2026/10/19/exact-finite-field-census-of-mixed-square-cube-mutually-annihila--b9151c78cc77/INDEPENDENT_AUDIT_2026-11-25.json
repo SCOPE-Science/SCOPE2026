@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T20:05:19.455772Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–70; independent flag, block-power and centralizer calculations",
+        "Frozen VERIFICATION.md and check.py source (inspected, not executed)",
+        "Standalone replay: python3 /workspace/review-evidence/bounded_counts.py, matrix_check()"
+      ],
+      "rationale": "Rank r of A fixes a unique square-zero Jordan type. Its labeled realizations are counted by choosing im A in ker A and then an isomorphism from the quotient to im A, giving the two Gaussian factors times |GL_r|. In U⊕W⊕T with A:T→U, annihilation means B vanishes on U and has image in U⊕W. Direct cubing leaves Z³, XZ², Z²H and XZH, with Y free. On each length-three chain, H lands in ker Z² and applying Z puts its component in im Z², which X kills; one r-coordinate row and column per such chain have been constrained. Length-one chains have Z=0. The length-two chains supply exactly X_2 H_2=0, while the other X,H coordinates contribute q^{2r(s−u−v)}. For rank h of H_2, choose its image, count surjections onto that h-space, then let X_2 factor through the v−h quotient. These are exactly the three factors in H_{r,v}. To check the Z orbit size, the dimension of its F_q[t]-module endomorphism space is the sum of min(i,j) over pairs of cyclic blocks, equal to (u+v+w)²+(u+v)²+u². Reducing on M/tM gives a triangular map by block length (a map from a shorter cyclic summand into a longer one has image in tM). Invertibility is equivalent to invertibility of each same-length diagonal block, by nilpotence of t. The fraction of invertible endomorphisms is therefore the three stated products. Orbit–stabilizer gives J and every term of the sum, including the zero-dimensional empty case. For n=2,3, the A=0 terms are respectively q² and q⁶ (also from summing the allowed single-matrix Jordan orbits), while the rank-one fibers have q and q³ choices for B, giving the advertised polynomials. Independent GF(4) enumeration of all n=2 labeled pairs gave 76, and GF(2) fixed-A/Z enumeration gave 384 and 320 for Z chains (3,2) and (2,2), respectively, exercising the three-block constraint and the two-chain coupling. Additional exact fixed-A enumerations gave total counts 10, 232 and 3537 at (n,q)=(2,2),(3,2),(3,3).",
+      "residual_risks": [
+        "Finite tests corroborate small fields/types only. The all-prime-power statement uses the characteristic-independent block proof. Counts are ordered labeled pairs, not simultaneous-conjugacy orbits or a geometric component classification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang (1.14) counts all mutually annihilating pairs with normalization by |GL_n|; (1.15) counts the nilpotent subfamily. The cited Fulman–Guralnick proof of (1.15) was not separately accessible through the attempted route.",
+          "The broader nilpotent result includes the target but its coefficients do not retain both individual Jordan types or their largest parts. No inspected module-mass formula refines both bounds for the same labeled pair count."
+        ],
+        "reasoning": "One cannot filter a total indexed only by dimension and field size to impose both nilpotency exponents. A suitably refined simultaneous-Jordan-type formula really would subsume the result; no such implication was established from the sources actually read.",
+        "searches": [
+          "Huang arXiv:2110.15566 Theorem 1.2, equations (1.14) and (1.15); mutually annihilating matrices, nodal singularity and nilpotent generating series",
+          "Search for a Hall polynomial/module mass refining both Jordan bounds"
+        ]
+      },
+      "checked_sources": [
+        "Schröer arXiv:math/0211293 §1; Huang arXiv:2110.15566 Theorem 1.2",
+        "Published records 2db661bafe6d, 442e4aaba275, 7465760ed8a5; summary only for 6deaf49eec33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known nilpotent similarity-class sizes supply J but do not evaluate the constrained B fiber. At fixed A and Z, the cube condition forces the product X_2 H_2 to vanish on the length-two-chain coordinates, while the length-three coordinates are handled by restrictions on Z². The resulting count requires a rank split for the corner product."
+        ],
+        "reasoning": "That mixed-type fiber is not the result of setting a parameter in either the single-matrix centralizer expression, the square–square count or the unrefined annihilator generating series. The assembly has a real new constraint and not just a new presentation of those prior totals.",
+        "searches": [
+          "Compare Huang Theorem 1.2, Schröer §1 and square-zero indexed formulas to frozen RESULT.md lines 46–68"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schröer's V(n,a,b) is the same equations at exponents 2 and 3 but his inspected theorem concerns irreducible components over an algebraically closed field.",
+          "The labeled count is |GL_n| times the mass Σ_{[M], dim M=n}1/|Aut(M)| for the indicated algebra; swapping the names of the two operators merely exchanges the exponents. Neither the orbit–stabilizer identity nor swapping names evaluates this mass.",
+          "Inspected indexed records 2db661bafe6d, 442e4aaba275 and 7465760ed8a5 impose two square-zero factors in their two-operator mutually annihilating cases."
+        ],
+        "reasoning": "The algebra, geometric and matrix formulations refer to the same point set only for the correct relations and field. A component classification or a refined count with a stronger equation B²=0 does not provide this finite-field point count.",
+        "searches": [
+          "Resultary mixed square–cube and mutually annihilating nilpotent finite-field matrix-pair count; square-zero product-rank and common-kernel formulations",
+          "Schröer arXiv:math/0211293 §1; finite-dimensional algebra F_q⟨x,y⟩/(x²,y³,xy,yx) module-mass formulation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2db661bafe6d counts square-zero pairs by both ranks and common-kernel dimension. The zero-product-rank slice of 442e4aaba275 gives the same square–square domain. The applicable two-operator case of 7465760ed8a5 likewise requires both operators square zero. None counts the extra cube-zero, non-square-zero B.",
+          "A later indexed summary 6deaf49eec33 describes a square-zero pair census by rank and image intersection; its exact file was unavailable, so only that stated scope was compared."
+        ],
+        "reasoning": "An exact law on a proper subvariety cannot supply the missing size-three contribution. Those strata are already nonempty at n=3 (take A=0 and B a length-three Jordan block). The comparison is to retrieved records, not proof of absence.",
+        "searches": [
+          "Resultary exact census for mutually annihilating finite-field pairs, including 2db661bafe6d, 442e4aaba275, 7465760ed8a5 and abstract-only 6deaf49eec33"
+        ]
+      },
+      "rationale": "The bounded-exponent variety, the individual Jordan orbit weights, and broadly unrefined mutually annihilating counts are known. The supported distinct finding is the exact labeled point count at mixed square–cube bounds, including the residual size-two coupling in the fixed-A fiber. The inspected exact square-zero slices omit all B with a size-three Jordan block, and the inspected unrefined nilpotent totals sum over types without tracking those bounds.",
+      "residual_risks": [
+        "An unlocated Jordan-refined Hall or representation mass may subsume the count. The Fulman–Guralnick full text was not independently accessible via the attempted route. Bounded queries and these comparisons do not establish absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Includes the target family but the stated totals are not a refinement by the individual nilpotency bounds",
+          "evidence": "Gives dimension-series coefficients for all mutually annihilating pairs and for nilpotent pairs, each normalized by |GL_n|.",
+          "identifier_or_url": "https://arxiv.org/pdf/2110.15566",
+          "material_read": "Theorem 1.2 and Eqs. (1.14)–(1.15), PDF pp. 4–5 (offsets 11800–15975)",
+          "method": "OA PDF passage inspection",
+          "title": "Mutually annihilating matrices, and a Cohen–Lenstra series for the nodal singularity",
+          "trigger": "Exact broader finite-field point count"
+        },
+        {
+          "assessment": "Prior definition and component classification, not an evaluated finite-field mass",
+          "evidence": "The defining equations AB=BA=A^a=B^b=0 match for a=2,b=3, while the theorem addresses irreducible components over an algebraically closed field.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0211293",
+          "material_read": "§1, pp. 1–2, definition V(n,a,b) and main geometric results",
+          "method": "OA PDF passage inspection",
+          "title": "Varieties of pairs of nilpotent matrices annihilating each other",
+          "trigger": "Same mixed-exponent algebraic variety"
+        },
+        {
+          "assessment": "Exact stronger refinement within the proper square–square subfamily",
+          "evidence": "Requires X²=Y²=XY=YX=0; the Gaussian sum stratifies by rank and common-kernel dimension.",
+          "identifier_or_url": "2026/10/12/SCOPE-joint-rank-and-common-kernel-distribution-of-mutually-annihilati--2db661bafe6d",
+          "material_read": "RESULT.md Finding and exact marginal and total formula",
+          "method": "Published-record local mirror",
+          "title": "Joint rank and common kernel distribution of mutually annihilating square-zero matrices",
+          "trigger": "Refined finite-field exact count of an overlapping variety"
+        },
+        {
+          "assessment": "Zero product ranks recover the square–square subcase only",
+          "evidence": "Both input factors must be square-zero, regardless of the chosen product ranks.",
+          "identifier_or_url": "2026/10/18/SCOPE-bidirectional-product-rank-fibers-of-square-zero-matrix-pairs--442e4aaba275",
+          "material_read": "RESULT.md Finding, individual and product ranks",
+          "method": "Published-record local mirror",
+          "title": "Bidirectional product-rank fibers of square-zero matrix pairs",
+          "trigger": "May cover mutually annihilating pairs as a specialization"
+        },
+        {
+          "assessment": "The cited result is an unrefined total; possible additional refinements in the unavailable primary text remain unverified",
+          "evidence": "Huang attributes a direct proof of the all-nilpotent mutually annihilating pair series to this work.",
+          "identifier_or_url": "Fulman–Guralnick, as cited in Huang arXiv:2110.15566 near Eq. (1.15)",
+          "material_read": "Huang's attribution of Eq. (1.15); separate primary full text not read",
+          "method": "OA primary follow-up attempt unsuccessful; relied on the accessible citing statement",
+          "title": "Cohen Lenstra partitions and mutually annihilating matrices over a finite field",
+          "trigger": "Possible stronger nilpotent-pair count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–37 and 46–70",
+        "Schröer arXiv:math/0211293 and Huang arXiv:2110.15566"
+      ],
+      "rationale": "This counts labeled finite-field representations of a natural small mixed-exponent annihilator algebra, a geometric family with a previously inspected component theory but no point count there. The fixed-rank residual formula separates the exact coupling from standard orbit weights, so it gives usable arithmetic information for each population of square-zero first factors. It is more informative than brute-force small dimensions or replacing this asymmetric problem with the square–square subvariety.",
+      "residual_risks": [
+        "The contribution is an exact count on one natural mixed-exponent variety, not a general classification of Gelfand–Ponomarev modules or bounds of arbitrary exponents."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

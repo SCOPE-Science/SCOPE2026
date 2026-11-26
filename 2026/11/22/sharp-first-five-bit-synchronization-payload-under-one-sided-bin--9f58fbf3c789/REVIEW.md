@@ -1,19 +1,21 @@
-# Scientific review of one-sided-run-limited synchronization codes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mathematical equivalence between admissible codes and cliques of the eligible-word compatibility graph is immediate from the quantified two-direction definition. The all-vertex generator checks the forbidden factor and self-borders, and an independent bit-mask implementation tests all pair overlaps. The greedy-color branch-and-bound is exhaustive: each discarded subtree has an upper bound no larger than an already verified clique. `verify.py` replay produced `VERIFY_OK`, including 410 length-16 vertices, 308053 search nodes, one length-16 42-word witness, the sharp length-15 upper bound 30, and all smaller cases. `certificates.json` contains all witness codebooks. The test is a finite proof; nothing is inferred for larger lengths.
+PASS
 
-## Originality — PASS, with priority qualification
+The self-overlap exclusion is exactly the unbordered-word condition; compatibility of two vertices requires absence of both orientations of overlap. Cliques therefore correspond exactly to codebooks. In verifying the source upper bound, each color class is independent in the compatibility graph, so the remaining color count bounds the largest extension. The recursive choice of the last available vertex followed by removal from the parent exhausts cliques not pruned by this valid bound. An independent finite reproduction used the length-one overlap to reduce every nonempty code at n>1 to common first bit 1 and last bit 0, up to reversal. It generated eligible words from the binary cube, formed conflicts by equal prefix/suffix buckets, and used degree order and first-fit coloring for an exact clique search. It matched all reported capacities, eligible-word counts, and witness sizes for n=1 through 16, and checked every published witness against the language and every proper overlap in both orientations. In particular M_15=30 and M_16=42, and none of the earlier entries reaches 32. For the reversed marker families, the gaps between consecutive ones must be 1 through k−1 zeros, with exactly k trailing zeros and at least two ones. The independent composition recurrence counts all families at n=16 and gives 24 at both k=4 and k=5. This is consistent with the finding's nonexclusive claim of attainment at k=5. Thus the unrestricted choice within the no-11 language yields five whole payload bits versus four for the specified marker families.
 
-Closest literature: Chee et al. (2012) and Blackburn (2013) study unrestricted cross-bifix-free code sizes and marker families; Stanovnik, Moškon and Mraz (2024) compute unrestricted optimal values and (2025) give run-limited constructions and characterizations. The 2025 study explicitly notes that differing restrictions for letters can be accommodated, but does not list the asymmetric `11`-avoiding exact maxima and the five-bit boundary. General algorithms alone do not provide the evaluated numerical capacities without the special finite search. Named-source and indexed-record searches found no implication yielding \(M_{15}=30\), \(M_{16}=42\). The general 2025 characterization and unindexed historical computations remain priority risks, not disproof of the distinct stated calculation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact minimum 16-bit synchronized block for a five-bit payload is an operationally meaningful cutoff in a natural finite-type constrained source. The difference between the exact 42-word optimum and 24 words in a standard marker family is substantial: it yields an additional complete payload bit at the same length under the same internal constraint. All capacities through the threshold and explicit witnesses are supplied, not merely a code example or a loose bound. No larger-length rate claim is made.
+The prefix/suffix construction framework and its asymmetric run-limit extension are already covered at the method level, and the classical fixed-zero-marker family is known. The supported distinct finding is the exact optimization table in the one-sided no-11 language, the certified first 32-word length, and the corresponding numeric gap to the restricted marker construction. The closest inspected primary results give all maximal codes through a general construction or compute optima for other constraints, not this finite asymmetric optimum table.
 
-## Scope and residual risks
+## value
 
-The rule forbidding `11` is internal to each codeword and does not protect transitions between successive frames. There is no substitution/deletion robustness. Exact capacity at length 17 or beyond and historical uniqueness are unproved. This work has not received independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a basic constrained binary language, precise capacity immediately answers the minimum fixed-length question for a concrete five-bit block payload. The table rules out all shorter lengths and certifies a feasible code, rather than illustrating only one construction at one length. The exact separation from the standard marker families crosses a whole-bit boundary and shows why choosing the common construction alone would miss feasible payload within this model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

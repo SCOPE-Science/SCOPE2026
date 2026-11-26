@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T02:40:57.049655Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On nonconstant eigenmodes, μ/(d−μ)=μ/d+μ²/[d(d−μ)]. For connected d-regular G the first sum is −1 after division by d; the second is at least (Nd−d²)/(2d²) since μ≥−d. This gives tr(AL⁺)≥(N−3d)/(2d). Equality at N=3d would require every nonconstant μ to be 0 or −d. The trace then forces a single −d, but the second moment requires a nonconstant squared sum of 2d², not d². Thus an actual edge has L⁺_uv>0 by the undirected edge trace sum. Completing the square in the scalar numerator gives positivity, the denominator is no smaller for h≥0, and the constant mode is fixed. Expansion on each positive Laplacian eigenmode gives T=I−12L⁺/h+O(h^(−2)), establishing negativity on the fixed edge for all sufficiently large finite h without instability. For C_3 square C_3 use the constant and orthogonal complement projectors of each K_3 factor: with A=3h²+3h+1 and B=3h²+6h+4 one gets R(3h)=1−12h/B and R(6h)=1−6h/A. The adjacent and nonadjacent coefficients give 4h(h+1)/(AB) and 2h²(3h+2)/(AB); subtracting four of each from 1 yields the claimed diagonal. The entries are strictly positive at h>0 and at h=0 the matrix is I. All other tori in the stated range have N≥12 and d=4, so fail unconditional positivity. The exact-rational support and recorded output were inspected but not executed; the all-graph result does not depend on the seven finite regressions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The (2,2) Padé radius of absolute monotonicity is zero. The complete-multipartite record nevertheless finds positivity throughout its family; the connected noncomplete strongly regular record gives all-step positivity iff v−(2k−λ+μ)≤0."
+        ],
+        "reasoning": "A method-wide radius does not fix a given graph's large-step entries. Strongly regular and complete multipartite hypotheses do not encompass all regular graphs at the threshold. The rook graph (9,4,1,2) is a covered special case, with v−(2k−λ+μ)=0; its positivity is used, not credited as new.",
+        "searches": [
+          "Lóczi–Ketcheson arXiv:1303.6651v1 §2.2.1",
+          "Resultary 2026/10/13/SCOPE-an-exact-positivity-criterion-on-complete-multipartite-diffusion--690509e7de2b",
+          "Resultary 2026/10/25/SCOPE-exact-gauss-legendre-diffusion-positivity-on-all-strongly-regula--2a383c6386f9"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify_regular_gauss.py and verify_output.txt",
+        "Bendito et al., authors' 2011 slides; journal DOI attempted",
+        "Lóczi–Ketcheson arXiv:1303.6651v1",
+        "Resultary strongly regular, cycle, complete multipartite and complete-product records identified above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The static n<3k implication is for distance-regular graphs. The strongly regular classification includes an eventual adjacent sign failure outside its parameter bound, but only on that class. The published zero-radius test has no graph-specific degree/order hypothesis."
+        ],
+        "reasoning": "Neither the broader method test nor the static result gives the claimed actual-edge witness for general regular graphs, including the equality case N=3d. The new trace argument handles those hypotheses and applies uniformly to the nonexceptional tori; the earlier nine-vertex positive half of the dichotomy is established input.",
+        "searches": [
+          "Distance-regular graphs having the M-property, authors' slides p. 22",
+          "Resultary 2026/10/25/SCOPE-exact-gauss-legendre-diffusion-positivity-on-all-strongly-regula--2a383c6386f9",
+          "arXiv:1303.6651v1 §2.2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The authors' 2011 slides (p. 22) give n<3k as necessary for the M-property in distance-regular graphs of diameter ≥2. The edge trace is d tr(L⁺)−(N−1), equivalently a Kirchhoff-index test Kf(G)>N(N−1)/d for strict positivity of that sum."
+        ],
+        "reasoning": "The M-property concerns the signs of all off-diagonal entries of L⁺. Its failure is necessary for, but not equivalent to, showing a positive entry on an edge. Resistance of an edge detects its sign only after comparison to the sum of the two pseudoinverse diagonal entries. The edge trace formulation does not require a constant diagonal or distance regularity.",
+        "searches": [
+          "Bendito–Carmona–Encinas–Mitjana, Distance-regular graphs having the M-property, DOI 10.1080/03081087.2011.589047",
+          "Resultary: Gauss graph diffusion positivity, edge-pseudoinverse witness and degree–order obstruction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior single-cycle classification is positive for all steps on exactly C_3,C_4,C_5; a later Cartesian-product finding concerns complete graph factors. The targeted comparison did not retrieve an exact classification table or formula for all cycle products."
+        ],
+        "reasoning": "The single-cycle rule is not a product rule for a rational function of a Kronecker sum; the later product-of-complete-graphs rule includes the shared C_3 square C_3 case but not the family with arbitrary cycle lengths. Searches do not prove absence of another table or earlier equivalent family theorem.",
+        "searches": [
+          "Resultary: toroidal-grid fourth-order Gauss all-step positivity C_m square C_n",
+          "Resultary 2026/10/25/SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+          "Resultary 2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7"
+        ]
+      },
+      "rationale": "The supported distinct claims are the actual-edge obstruction for all connected simple regular graphs at the sufficient order–degree threshold and the resulting complete all-step cycle-product classification. The exceptional positive rook graph is covered by the earlier strongly regular classification as acknowledged. Prior distance-regular M-property bounds give the same ratio in a narrower graph class with a weaker off-diagonal witness; general absolute monotonicity does not classify these graphs. No priority claim is made for those inputs or the nine-vertex case.",
+      "residual_risks": [
+        "The Bendito et al. journal full text was not recovered; the scope judgment uses the actual slide passages, not an assumption about what the whole article lacks.",
+        "Historical literature coverage is bounded. An equivalent general Kirchhoff-index inequality or earlier exact classification of the torus may exist; a broader external search was deferred. The cited Higueras and Ketcheson–Macdonald–Gottlieb publisher full texts were not retrieved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Substantial static overlap limited to the distance-regular hypothesis in the read passages, not the general edge-sum statement.",
+          "evidence": [
+            "A distance-regular graph of diameter D≥2 with the M-property must have n<3k."
+          ],
+          "identifier_or_url": "DOI:10.1080/03081087.2011.589047 (authors' 2011 conference slides for the same topic)",
+          "material_read": "Slides' M-property definitions near extracted offset 7900 and p. 22 corollary at offset 16877; journal full text not retrieved",
+          "method": "Open PDF passage inspection of authors' slides; lawful DOI/alternate recovery attempted for journal version",
+          "title": "Distance-regular graphs having the M-property",
+          "trigger": "Same numerical order–degree threshold for Laplacian pseudoinverse signs"
+        },
+        {
+          "assessment": "Covers C_3 square C_3 as a special case, not full regular or toroidal claim.",
+          "evidence": [
+            "For connected noncomplete strongly regular graphs, all-step positivity iff v−(2k−λ+μ)≤0; adjacent entries turn negative after a cutoff otherwise."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-exact-gauss-legendre-diffusion-positivity-on-all-strongly-regula--2a383c6386f9",
+          "material_read": "RESULT.md Finding at local mirror offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "Exact Gauss–Legendre diffusion positivity on all strongly regular graphs",
+          "trigger": "Prior completed-step positivity theorem including the rook graph"
+        },
+        {
+          "assessment": "Cycle-only classification, not the rational step on the Cartesian product.",
+          "evidence": [
+            "C_3,C_4,C_5 have all-step positivity; C_n with n≥6 eventually have negative adjacent entries."
+          ],
+          "identifier_or_url": "Resultary 2026/10/25/SCOPE-the-six-cycle-is-the-first-cycle-to-lose-fourth-order-gauss-posi--164458fb3547",
+          "material_read": "RESULT.md Finding at local mirror offset 0",
+          "method": "Local mirror passage inspection",
+          "title": "The six-cycle is the first cycle to lose fourth-order Gauss positivity",
+          "trigger": "Pre-existing classification on the cycle factors"
+        },
+        {
+          "assessment": "Later comparison and different product family with a shared case.",
+          "evidence": [
+            "Unconditional positivity for a single complete factor, or two complete factors both of orders in {2,3}; the C_3 square C_3 overlap is included."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8/SCOPE-sharp-all-step-gauss-positivity-on-cartesian-products-of-complet--e93fc3196dc7",
+          "material_read": "RESULT.md Finding",
+          "method": "Local mirror passage inspection",
+          "title": "Sharp all-step Gauss positivity on Cartesian products of complete graphs",
+          "trigger": "Close product-graph classification"
+        },
+        {
+          "assessment": "Confirms general monotonicity limitation but not graph-specific sign conditions.",
+          "evidence": [
+            "The (2,2) Padé function has radius of absolute monotonicity zero."
+          ],
+          "identifier_or_url": "arXiv:1303.6651v1",
+          "material_read": "PDF p. 6, §2.2.1",
+          "method": "OA PDF full-text passage inspection",
+          "title": "Rational functions with maximal radius of absolute monotonicity",
+          "trigger": "Relevant prior method-wide monotonicity obstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Distinguishing preservation of nonnegative data from spectral stability matters for graph heat integration. The sufficient condition depends only on coarse graph structure and locates a failing transition on an existing edge without a graph-specific calculation. It also settles all cycle-product sizes in the stated range, rather than extrapolating from a few grids or claiming that all positive steps fail.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

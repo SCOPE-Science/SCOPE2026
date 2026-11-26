@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The wordwise product of four binary inclusion-exclusion indicators is exact. Each of its 81 terms is counted by a fully specified four-state de Bruijn transfer matrix, producing a rational formal power series. Exact adjugate arithmetic proves the displayed rational-function identity, from which the recurrence, residue constant, and length threshold follow. Independent streaming-state counts agree through length 64 and exhaustive literal word counts through length 15. The proof covers all finite lengths; finite enumeration is corroboration, not the proof.
+## correctness
 
-**Originality — PASS (qualified).** The closest inspected full primary text is Currie et al., *Complement Avoidance in Binary Words*, arXiv:2209.09598v2, notably Theorem 3 and Section 5. It treats the same complement-factor condition but studies critical exponents and the complexity of infinite words subject to repetition restrictions, rather than this complete finite-length enumeration without power restrictions. Baranwal et al., *Antisquares and Critical Exponents*, arXiv:2209.09223v3, Section 7, counts a different local-antisquare avoidance language, not simultaneous complementary factors occurring at arbitrary positions. A prior exact result about cube-free length-50 extremizers with forbidden complementary factors of length six has a different domain, parameters, and conclusion. Targeted research-record and literature searches found no identical formula; absence of a result from a search is not a proof of novelty. Residual risk: an equivalent finite-language count could exist under another terminology or in an unindexed table.
+PASS
 
-**Value — PASS.** This is the complete length enumerator for the smallest nontrivial complement-pair avoidance language, directly extending the natural family studied in the cited primary source. It determines both finite coefficients and a sharp entropy/growth transition at three-symbol factors. The growth constant and recurrence are not supplied by the previous critical-exponent classification; the result is a natural complete exact classification of an enumerative invariant, not an arbitrary parameter slice.
+The repaired result keeps the exact finite linear-word theorem. The absence indicator is the product of four correct pairwise inclusion–exclusion factors. For each forbidden triple set the two-bit suffix transfer counts every word, including arbitrary overlapping factors, and lengths zero and one are handled separately. I checked the infinite rational identity by a separate, unsigned exact computation: after starting with the four two-bit suffixes, use states (observed triple mask, suffix), append a letter unless the complementary triple has been seen, and solve H_state=1+z times the sum of continuation series over legal successors. There are 46 reachable states over 35 masks. The mask never loses a bit, so solving each same-mask block in descending size gives exact rational functions and precisely the displayed numerator and denominator, not just initial terms. Formal division gives 4+2b_n for n>=5. The cubic has one real root and a conjugate pair whose reciprocal growth moduli are lambda^(-1/2) by Vieta; the simple positive pole gives the stated C (checked numerically), and the pole at z=1 contributes four. For lengths one and two the direct run counts are correct; inclusion by length-three prefixes and submultiplicativity justify the threshold and the existence of the rate for larger factor lengths. These checks are unchanged by the repaired attribution and narrower claim of contribution.
 
-**Limits.** No formulas for longer forbidden-factor lengths are claimed. No claim of external replication or independent audit is made. The exact symbolic identity can be recomputed, and numerical experiments alone do not establish the infinite result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired contribution is the exact enumeration of all finite linear words avoiding complementary triples, including the precise asymptotic amplitude and additive correction. The qualitative positive-entropy boundary already follows from a published morphic construction and elementary small-length cases, and the same algebraic growth base occurs in older antisquare work. The complete word counts were not supplied or mechanically implied by the inspected sources. The repair explicitly credits the overlaps and does not claim the qualitative threshold as a separate contribution.
+
+## value
+
+PASS
+
+Complementary-triple avoidance is the smallest nontrivial exponential member of an independently studied avoidance family. The repaired claim computes its entire finite-word enumeration, not just an existence witness or an already familiar base. The recurrence, exact amplitude, and four-word additive correction quantify finite-length and asymptotic behavior that is not determined by the earlier restricted-language or qualitative results. This is a useful natural counting invariant even without a general formula for larger windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-24.md",
+      "INDEPENDENT_AUDIT_2026-11-24.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 transposition_morse.py` from the directory containing this file. The program builds the unordered transposition choices, the ordered-word face set, all incidences, a deterministic matching and an integral chain cancellation without external packages or precomputed matrices.
+## correctness
 
-Actual checks: the five-letter face vector is `(5,20,48,41,10)`, 124 cells; exactly 60 matched pairs; four critical cells with dimensions `(0,2,2,3)`; every matched incidence is a unit integral pivot; the directed Hasse graph is acyclic; the critical Morse boundary is zero. The smaller values 2, 3 and 4 give the claimed critical counts and the same zero differential.
+PASS
 
-The independent `rational_rank_check.py` reconstructs the face set and all boundary matrices separately, then performs exact Fraction-based Gaussian elimination; actual boundary ranks in degrees one through four were 4, 16, 30, and 10. These corroborate but do not replace the integral Morse proof.
+With one cell per distinct ordered subsequence, signed deletion gives the integral cellular differential; the checked f-vector for n=5 is (5,20,48,41,10). Independent reconstruction verifies acyclicity of the oriented Hasse graph and all 60 unit cancellations, leaving a zero differential and critical dimensions 0,2,2,3. All 60 ordered pairs and all four ordered critical entries agree with the supplied JSON. The matching gives a Morse CW model with a single vertex and 2-skeleton S²∨S². In that model the only 3-to-2 boundary must be zero: the integral cancellation gives H3=Z and the 3-chain group is Z with no higher groups. Thus the 3-cell has zero degrees on both 2-cells, and by Hurewicz its attaching class in π2(S²∨S²) is zero. This proves the actual wedge, not just its Betti numbers. In n=2,3,4 the independent critical dimensions (0), (0,1), (0,2,2,2) give the stated point, circle, and three 2-spheres. Purity follows from generation by full words; nonzero homology below dimension four contradicts pure Boolean-cell shellability.
 
-The accompanying `MORSE_MATCHING.json` contains the complete five-letter pairing with explicit ordered words, and is not a replacement for the generated differential or acyclicity checks. Finite exact checks provide no theorem for every alphabet size. The homotopy conclusion additionally uses the standard discrete-Morse, Hurewicz and CW attaching-map arguments in `RESULT.md`.
+## originality
 
-Independent mathematical validation has not been performed.
+PASS
+
+The exact small-n classification of the transposition class is distinct from generic wedge realizability, results for two generators, and calculations for different generator sets. The closest inspected conjugacy-class calculation concerns 3-cycles on six letters; the earlier mixed-dimensional calculation on five letters uses the affine group and is not this complex.
+
+## value
+
+PASS
+
+A single cycle type in the symmetric group is a canonical choice of generators, and topology of this subcomplex is not controlled by the full group or fixed-point complex. The low-order cutoff gives an exact test case in which a pure permutation-word complex has homology in two non-top degrees; the integral wedge identifies its topology more precisely than a rank calculation and is reusable as a benchmark for broader cycle-type families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T22:16:16.154453Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At diag(a,-b), differentiating the positive spectral projector multiplies an off-diagonal entry by 1/(a+b), so differentiation of the positive eigenvalue times that projector gives the Hermitian Schur mask (1,q;q,0). The 2-norm is one by the entrywise formula and the first diagonal coordinate. Independently optimize in trace norm: the Hermitian trace unit ball is the convex hull of signed rank-one orthogonal projectors. A unit projector with first diagonal r has output trace norm squared r^2+4q^2 r(1-r), using the nonpositive determinant. On [0,1] this has maximum 1 at r=1 up through q^2=1/2, and otherwise maximum 4q^4/(4q^2-1) at r=2q^2/(4q^2-1). Trace duality and mask symmetry transfer the maximum to operator norm. The exhibited real symmetry has unit input and top output eigenvalue (t+sqrt(4q^2+(1-4q^2)t^2))/2, attaining the maximum at t=1 or t=1/sqrt(4q^2-1), as appropriate. The threshold is a/b>1+sqrt(2) in the stated infinitesimal sense. For global bounds the nonzero determinant polynomial yields finitely many crossings on a segment, with derivative bounds integrated between them; the identically singular segment is rank at most one, with its positive part either the input or zero according to affine trace, and bounded on both pieces. The profile increases on its upper branch to 2/sqrt(3); derivative ratios first at fixed indefinite input then as b/a->0 approach this ceiling. Frobenius sharpness already occurs in the positive cone. The claims apply on the real space of Hermitian matrices, not automatically to unrestricted perturbations. The inspected check.py gives finite corroboration only; 1892 checks is the frozen report, not a fresh run.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Christensen gives general Schur-norm variational factorizations/majorants. The November universal monotone result gives the global operator-norm 2/sqrt(3) bound and its sharpness through the positive part."
+        ],
+        "reasoning": "The November statement directly covers the global operator-norm component, not the separate q-conditioned profile; its endpoint bound permits K(q)=1 on a whole interval but does not imply it. General variational formulas encode a norm computation but do not state the optimized q branches by parameter substitution.",
+        "searches": [
+          "arXiv:2505.24670v1, Theorems 1.2, 1.3 and 1.6",
+          "arXiv:0907.3049 §3",
+          "Resultary 2026/11/17/9cb1003d5874, finding and derivative argument"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.4849, 2505.24670v1, 0907.3049, 1309.3378v2",
+        "DOI:10.1007/s13226-010-0014-0 (access limitation)",
+        "Resultary 9cb1003d5874 and 710237cc3e82",
+        "Frozen RESULT.md, check.py and associated verification evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The universal monotone theorem has the same global sharp example; absolute-value weak-type estimates have different output scales. The trace-slice derivative can be recombined with the identity, but the printed norm concerns |A|, not the sum."
+        ],
+        "reasoning": "Neither the endpoint ceiling, weak-type control, nor the exact bound for the absolute value of a matrix identifies where the clipping derivative stops being contractive. The full fixed-ratio maximization is the distinct claim, not the use of a Schur mask.",
+        "searches": [
+          "Resultary 2026/11/17/9cb1003d5874 and 710237cc3e82",
+          "arXiv:1309.3378v2, weak-type statement",
+          "DOI:10.1007/s13226-010-0014-0 lawful retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact mask on Hermitian inputs is (1,q;q,0). Levene's idempotent case gives the limiting triangular norm 2/sqrt(3). The trace-slice absolute-value result supplies a related derivative on trace-zero inputs."
+        ],
+        "reasoning": "On a trace-zero H with diagonal (x,-x), D|A|[H] has diagonal (x,x) and off-diagonal gain 2q-1, so (H+D|A|[H])/2 recovers the clipping derivative on those directions. Even with this formula, the absolute-value norm alone cannot give the norm of the sum: optimizing the recombined map is needed for the threshold. No earlier exact equivalent across q was identified.",
+        "searches": [
+          "Resultary: two-level positive-part / spectral clipping derivative, sharp Schur-multiplier norm and threshold",
+          "arXiv:1302.4849, Proposition 5.1",
+          "Resultary 2026/11/17/710237cc3e82, finding and proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact small-mask classification is idempotent, giving q=1 but not 0<q<1 in this family. The inspected catalogue matches concern the universal Lipschitz constant and a different trace-slice map."
+        ],
+        "reasoning": "There is exact endpoint coverage but no identified table/catalogue statement evaluating the entire mask continuum or its threshold.",
+        "searches": [
+          "Resultary: two-eigenvalue matrix clipping Lipschitz profile and norm transition",
+          "Focused primary search for exact two-by-two Schur-multiplier profile",
+          "arXiv:1302.4849, small masks §5"
+        ]
+      },
+      "rationale": "The supported distinct result is the exact fixed-ratio Hermitian derivative profile, especially the interior transition at q=1/sqrt(2). Divided differences, the triangular endpoint, and Hilbert–Schmidt projection nonexpansion are not new. Neither the known endpoint nor the inspected broader variational characterizations evaluate this fixed-q problem. Later published Resultary statements have real overlap on the global bound and derivative machinery but do not supply the evaluated fixed-q transition in the passages read.",
+      "residual_risks": [
+        "Bhatia full text was not independently recovered; exact specialized overlap in it was not excluded.",
+        "A historical evaluated two-by-two Schur-multiplier formula may be indexed under different notation. The two later November catalogue hits have material overlaps and the chronology does not itself establish wider priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Endpoint covered",
+          "evidence": [
+            "Triangular two-by-two idempotent mask norm 2/sqrt(3)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1302.4849",
+          "material_read": "§5, Proposition 5.1, p. 15",
+          "method": "Open primary text",
+          "title": "Norms of idempotent Schur multipliers",
+          "trigger": "Exact two-by-two Schur mask norm"
+        },
+        {
+          "assessment": "Implicit variational coverage",
+          "evidence": [
+            "Generic factorization and majorant characterizations, not evaluated q branches in the inspected passages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.24670v1",
+          "material_read": "Theorems 1.2, 1.3 and 1.6, pp. 2–4",
+          "method": "Open primary text",
+          "title": "The Schur multiplier norm and its dual norm",
+          "trigger": "Potential dominating exact multiplier formula"
+        },
+        {
+          "assessment": "Classical framework",
+          "evidence": [
+            "Divided-difference integral representation, not a resolved fixed-q maximum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0907.3049",
+          "material_read": "§3, pp. 13–14",
+          "method": "Open primary text",
+          "title": "Operator Hölder–Zygmund functions",
+          "trigger": "Divided differences under operator norms"
+        },
+        {
+          "assessment": "Different conclusion",
+          "evidence": [
+            "Weak-type absolute-value differences, not exact Hermitian 2x2 derivative gains."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1309.3378v2",
+          "material_read": "p. 1, main estimate scope",
+          "method": "Open primary text",
+          "title": "Weak type estimates for the absolute value mapping",
+          "trigger": "Absolute value in trace ideals"
+        },
+        {
+          "assessment": "Access risk, no whole-paper exclusion",
+          "evidence": [
+            "A general absolute-value norm cannot simply be halved to obtain the clipping norm, since the identity contribution matters."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s13226-010-0014-0",
+          "material_read": "Bibliographic identity; no independently recovered full text",
+          "method": "Bounded lawful DOI and alternate OA retrieval attempts",
+          "title": "Modulus of continuity of the matrix absolute value",
+          "trigger": "Possible exact finite-dimensional absolute-value results"
+        },
+        {
+          "assessment": "Global overlap, fixed-q law not supplied",
+          "evidence": [
+            "Universal factor 2/sqrt(3); positive part derivative as q approaches 1."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-sharp-universal-two-level-spectral-stability-for-monotone-lipsch--9cb1003d5874",
+          "material_read": "RESULT.md offsets 0, 2100 and 3900",
+          "method": "Published local mirror",
+          "title": "Sharp universal two-level spectral stability for monotone Lipschitz functions",
+          "trigger": "Broader global operator-norm theorem with same example"
+        },
+        {
+          "assessment": "Related derivative ingredients, not the recombined optimum",
+          "evidence": [
+            "Exact local fixed-trace norm for the absolute-value map; its norming problem differs from clipping."
+          ],
+          "identifier_or_url": "2026/11/17/SCOPE-trace-slice-discontinuity-in-the-sharp-spectral-lipschitz-modulu--710237cc3e82",
+          "material_read": "RESULT.md offsets 0 and 1800",
+          "method": "Published local mirror",
+          "title": "Trace-slice discontinuity in the sharp spectral Lipschitz modulus",
+          "trigger": "Related sharp derivative on a norming slice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local threshold resolves whether infinitesimal perturbations can be amplified at a given mixed-sign input in two commonly used matrix norms. A universal constant or its known endpoint does not answer that question. The exact identity/expanding regimes over the full natural two-eigenvalue family, contrasted with Frobenius nonexpansion, are the substantive sensitivity result.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

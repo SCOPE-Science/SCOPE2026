@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T00:13:35.812465Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–57",
+        "Frozen VERIFICATION.md, lines 19–23",
+        "Frozen checker.py, lines 1–80",
+        "Replay: python3 /workspace/branches/independent_finite_checks.py"
+      ],
+      "rationale": "For unequal exponents the mod-p diagonal map is multiplicative since both cross terms contain p^d, and its kernel K has corner weights 1,0,d,1 in row order. For a path in a corner product, each opposed pair of crossings replaces two diagonal steps and changes weight by d-2; an unmatched crossing has cost 0 in the upper-right and d in the lower-left. Minimize with no opposed crossings for d>=2 and maximize the number of opposed pairs for d=1. These minima generate the full corner ideals: pick the single-corner factors on a minimizing path and multiply, getting the corresponding power of p (possibly zero at its output modulus), then take additive multiples. Row reduction is compatible with this multiplication, because the lower-left coefficient converts any discrepancy divisible by p^a to one divisible by p^b. K is nilpotent and has semisimple quotient, hence equals J. Counting corner residues proves every displayed order; layer zero has |R/J|=p^2 in the unequal case. The unequal quotient is reduced, so every nilpotent lies in J. The minimal vanishing powers are sharp on diag(0,p) for d>=2 and on the off-diagonal map f with entries 1 and p for d=1, since f^2=pI. For equal exponents the semisimple mod-p quotient gives J=pR; reducing any nilpotent matrix gives square zero, whence its 2b-th power vanishes, and f^(2b-1) has the nonzero upper-right entry p^(b-1). An independent exhaustive program formed the full corner sets via additive closure of all products for ten small rings across all regimes at p=2,3, scanning every endomorphism for nilpotency; every set and maximal cutoff agreed. The frozen checker was inspected, not used as independent evidence.",
+      "residual_risks": [
+        "Finite reproduction is limited to the ten listed small rings. In the frozen checker the equal-case cardinality loop is a tautological lower bound, and the unequal-case element loop checks vanishing at the cutoff rather than attainment. The independent calculation and proof check both facts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Keef describes radicals using structural classes and socle bounds, without a corner-by-corner all-powers statement in the passages read.",
+          "The chapter description indicates broad radical and nilpotence coverage, but the material decisive to this comparison could not be retrieved.",
+          "Senden counts automorphism fixed points to determine Reidemeister spectra, not powers of endomorphism radicals."
+        ],
+        "reasoning": "A theorem computing arbitrary products or the nilpotency class in general rank might dominate part of the finding. The accessible structural descriptions of the radical itself and the automorphism results do not supply such a theorem.",
+        "searches": [
+          "Keef, DOI 10.4171/RSMUP/162, Section 2, Examples 2.6–2.9",
+          "Krylov–Mikhalev–Tuganbaev, DOI 10.1007/978-94-017-0345-1_4",
+          "Senden arXiv:2205.15740, abstract and Section 1"
+        ]
+      },
+      "checked_sources": [
+        "Mader 2012, Theorem 3.2",
+        "Keef, DOI 10.4171/RSMUP/162, Section 2",
+        "Senden arXiv:2205.15740",
+        "Krylov–Mikhalev–Tuganbaev chapter bibliographic lead only",
+        "Resultary 5538837448c5, 23a796dc387a, 47b0bd29f01e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known matrix reduction supplies K and, for a=b, the usual bound f^(2b)=0. The square-zero results classify the first nontrivial nilpotent condition for specific parameters."
+        ],
+        "reasoning": "The reduction does not as a quoted conclusion optimize the competition between diagonal steps and two crossings, which changes at d=2, or give sharp same-map witnesses. Square-zero counts need not determine either the additive ideal powers or the much longer individual powers; the explicit filtration and adjacent-exponent cutoff survive the inspected comparisons.",
+        "searches": [
+          "Mader Theorem 3.2; Keef Section 2; Resultary findings 5538837448c5, 23a796dc387a and 47b0bd29f01e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mader gives matrix blocks and the composition law. Keef gives structural descriptions of J for broader abelian p-groups.",
+          "The nearby catalog statements 5538837448c5 and 23a796dc387a concern image spectra for square-zero maps on the same families with a=2 or 1."
+        ],
+        "reasoning": "The mechanism is weighted corner composition; equivalent layer sizes could be read from corner valuations, but the inspected normal form gives only the ambient matrix operations, not minima after arbitrary numbers of compositions. Knowing square-zero image types is not equivalent to knowing these minima.",
+        "searches": [
+          "Resultary: powers of the Jacobson radical for two-cyclic finite abelian p-group endomorphisms",
+          "Resultary: Loewy layer cardinalities and valuation products for two cyclic summands",
+          "Mader, Section 3, Theorem 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 5538837448c5 and 23a796dc387a index image-isomorphism or image-order refinements at T^2=0; 47b0bd29f01e gives total square-zero counts for a in {1,2}. None of the inspected findings tabulates the radical powers or lists the three sharp maximal indices."
+        ],
+        "reasoning": "Exact T^2=0 counts are level sets of the squaring map, not cardinalities of the additive ideal generated by products of two independent radical elements. They are not entries of the Loewy profile.",
+        "searches": [
+          "Resultary: exact J^k corner ideals and two-cyclic Loewy profile",
+          "Resultary: maximal nilpotency index for two cyclic p-power summands"
+        ]
+      },
+      "rationale": "Credit the explicit all-power valuation profile and sharp distinction between equal, adjacent and separated exponents as a combined statement. The classical matrix form, the first radical, and the equal-case reduction argument are not independent novelty. Inspected square-zero results do not treat powers of the radical or classify the longest nonzero nilpotent iterate. The strongest plausible older chapter was inaccessible after the DOI and identified Springer PDF route; no inference of noncoverage is drawn from that limitation.",
+      "residual_risks": [
+        "The older Krylov–Mikhalev–Tuganbaev chapter may contain broader product or nilpotency formulas; lawful routes did not yield the text. An older equivalent rank-two nilpotent classification is also possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known matrix calculus underlying the finding",
+          "evidence": "Homomorphism block matrices compose by matrix multiplication; the inspected result concerns the representation and automorphism criteria.",
+          "identifier_or_url": "https://www.labmath.uqam.ca/~annales/volumes/36-2/PDF/559-575.pdf",
+          "material_read": "Section 3, Theorem 3.2, printed pp. 561–562",
+          "method": "Bounded open PDF passage inspection",
+          "title": "The Automorphism Group of Finite Abelian p-Groups",
+          "trigger": "Classical finite p-group endomorphism normal form"
+        },
+        {
+          "assessment": "Relevant for structural radical background; no matching profile found in these passages",
+          "evidence": "Describes J for direct-sum and t-product classes via socle-bounded maps, not exact min-valuation corner powers for the two-generator finite case.",
+          "identifier_or_url": "https://ems.press/content/serial-article-files/52171",
+          "material_read": "Section 2, Examples 2.6–2.9, printed pp. 29–30",
+          "method": "Bounded open full-text passage inspection",
+          "title": "Jacobson radicals, abelian p-groups and the direct-sum-c topology",
+          "trigger": "Broad Jacobson-radical structure in the same subject"
+        },
+        {
+          "assessment": "Unresolved coverage risk, not negative evidence",
+          "evidence": "The description indicates broader radical and nilpotence theory but no decisive exact passage was available.",
+          "identifier_or_url": "https://doi.org/10.1007/978-94-017-0345-1_4",
+          "material_read": "Bibliographic and search description only; chapter text not obtained",
+          "method": "DOI and identified lawful Springer PDF routes attempted; no usable full text",
+          "title": "The Jacobson Radical of the Endomorphism Ring",
+          "trigger": "Strongest older lead for radical products or nilpotence results"
+        },
+        {
+          "assessment": "Different spectrum and different class of maps",
+          "evidence": "Uses fixed-point counts of automorphisms.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.15740",
+          "material_read": "Abstract and opening Section 1, p. 1",
+          "method": "Bounded open PDF passage inspection",
+          "title": "The Reidemeister spectrum of finite abelian groups",
+          "trigger": "Relevance of finite abelian group endomorphism spectra"
+        },
+        {
+          "assessment": "Square-zero enumerations, not full filtration or sharp arbitrary nilpotent index",
+          "evidence": "The first two enumerate square-zero maps by image invariants for a=2 and a=1; the third counts them for a at most two.",
+          "identifier_or_url": "Resultary 5538837448c5, 23a796dc387a, 47b0bd29f01e",
+          "material_read": "The three RESULT.md finding statements and their parameter scope",
+          "method": "Bounded local catalog mirror inspection (snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)",
+          "title": "Resultary square-zero endomorphism results on two cyclic summands",
+          "trigger": "Strongest catalog matches on the same group family and nilpotency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–30 and 43–57",
+        "Mader Theorem 3.2"
+      ],
+      "rationale": "This is the complete power filtration for the simplest group family with a nontrivial exponent gap, not a numerical list at a particular p. It detects exactly when alternating crossings propagate longer than diagonal steps and locates a sharp change in the maximal individual nilpotency index. The difference between ideal and element nilpotence at equal exponents is useful for interpreting the cutoff. The exact corner ideals allow layer sizes and vanishing bounds to be read off without enumerating the ring.",
+      "residual_risks": [
+        "No higher-rank Loewy formula or classification of nilpotent conjugacy classes follows from this calculation alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

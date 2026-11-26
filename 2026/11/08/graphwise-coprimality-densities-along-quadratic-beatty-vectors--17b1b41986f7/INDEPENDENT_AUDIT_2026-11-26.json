@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:44:49.875963Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The repaired RESULT proves a power-saving estimate, not just the frozen limit. For either type of edge, a common positive divisor d gives 1<=k<=O(X/d) and ||kρ||<=O(1/d), where ρ is an irrational square root of a positive rational. The frozen proof's wording about all quadratic irrationals being of that form was overbroad; only these specific ratios are needed and the repair restricts the elementary rationalization accordingly. It gives ||kρ||>=c/k, hence d=O(sqrt X), and circular separation Ω(d/X) gives O(X/d²+1) possibilities for each d, with at most one n per k. This holds for composite d also; summing over integers d>Y bounds the union event of an endpoint gcd exceeding Y by O(X/Y+sqrt X). Independently, the norm of h·α minus its nearest integer is a nonzero integer in the degree D=2^(s−1) multiquadratic field, with all other conjugates O(H), so ||h·α|| is bounded below by a constant times H^(1−D). Erdős–Turán–Koksma and the geometric sum bound then give uniform translated-box discrepancy O(T^(−γ)), γ=1/(2D); the correctly scaled fractional parts on n=b0+Mt give X/M^s+O((X/M)^(1−γ)+1) uniformly for M<=X. Replacing the product of full edge Möbius sums by divisors <=Y differs only on the gcd tail and costs O(X^ε(X/Y+sqrt X)) by the divisor bound. A tuple of edge divisors has modulus <=Y^e and main density the inverse product of incident lcms; summing the residue errors costs O(X^(1−γ)Y^(e(s+1))). The absolute main series has local nonempty terms <=p^(−2); weighting one marked edge divisor by its square root leaves terms <=p^(−3/2), proving truncation cost O(XY^(−1/2)). The local signed sum equals the independent-set factor by inclusion-exclusion on edges, and the factors are positive and 1+O(p^(−2)). Taking θ=γ/(2e(s+1)), Y=floor(X^θ), ε=θ/4 makes all errors O(X^(1−θ/2)); the stated δ and K3 example follow. Edgeless graphs are exact and nonintegral X differs only by the floor in the main term. The frozen verify.py and the repaired scientific verification notes were inspected, not executed; numerical examples check neither the theorem nor the exponent.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Champagne's proof bounds the large-prime edge event by O(N/q(N)+N sum_{p>z} p^(−2)+sqrt(N) log log P(N)); for quadratic ratios q(N) is at least a constant times sqrt N, giving e.g. O(N^(3/4)) when z=N^(1/4). Banks–Shparlinski give O(X^(4/5+o(1))) for one quadratic floor and n; multiple polynomials have strictly increasing degrees and one joint gcd. Arias de Reyna–Heyman give an error term on independently ranging box tuples."
+        ],
+        "reasoning": "A power-saving large-prime tail does not give the required effective count of small-prime-passing indices; simultaneous modulus cutoffs cannot be taken to be a large primorial without more input. Neither distinct-degree joint gcd nor independent-box main terms and errors cover this thin graphwise count. The known stronger single-edge case is explicitly credited in the repair.",
+        "searches": [
+          "arXiv:2607.27533v1, Lemma 4.3 including its finite-N bound",
+          "arXiv:2205.00253, type definition and Theorem 1.1",
+          "arXiv:1403.2769, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "repairs/5/RESULT.md and repairs/5/VERIFICATION.md",
+        "Resultary 17b1b41986f7 (same record)",
+        "Resultary bcbc904e31ef",
+        "arXiv:2607.27533v1",
+        "arXiv:2205.00253",
+        "arXiv:1403.2769",
+        "arXiv:1310.3802",
+        "arXiv:2611.02223v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 4.3 applies to (1,sqrt(r_i)) or (sqrt(r_i),sqrt(r_j)) because the two slopes are rationally independent. The qualitative proof may take the limit at fixed cutoff then increase it. The repaired proof instead needs all divisors on each edge, uniform residue counts up to Y^e rather than a prime primorial, and a weighted absolutely convergent main sum."
+        ],
+        "reasoning": "The first implication establishes coverage of the original finding, notwithstanding different wording. The quantitative pair component and special-case full estimates do not perform the polynomial-cutoff simultaneous sieve or imply this full-count error by taking graph unions. The new quantitative proof provides the missing statement.",
+        "searches": [
+          "arXiv:2607.27533v1, primary PDF p. 11, Lemma 4.3 and proof",
+          "arXiv:2205.00253, Theorem 1.1",
+          "repairs/5/RESULT.md, Proof §§1–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Champagne's Theorem 1.1 is about one joint gcd, but the separate Lemma 4.3 is precisely a pairwise large-prime tail. Banks–Shparlinski treat a joint gcd with distinct polynomial degrees and include the single-edge n versus quadratic floor case."
+        ],
+        "reasoning": "The pairwise tail, not the joint-gcd condition, applies separately to each graph edge. For quantitative counts, an edge marginal or a single simultaneous joint gcd does not identify intersections of edgewise coprimality events.",
+        "searches": [
+          "Local Resultary searches for graphwise Beatty coprimality and effective deterministic floor coprimality",
+          "arXiv:2607.27533v1, §§1 and 4",
+          "arXiv:2205.00253, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The graphwise quadratic match 17b1b41986f7 is the assigned record itself and claims no error power. The distinct same-day record bcbc904e31ef concerns a joint gcd with a split polynomial and explicitly claims no effective rate. Box and random-integer results already give the local factors."
+        ],
+        "reasoning": "Equal Euler factors and sample counts do not give a power error in a one-parameter graphwise counting theorem. No finite table could certify the uniform error for X→∞.",
+        "searches": [
+          "Resultary 17b1b41986f7 and bcbc904e31ef",
+          "arXiv:1403.2769, Theorem 1",
+          "arXiv:1310.3802, equation (1.5)"
+        ]
+      },
+      "rationale": "The frozen qualitative graphwise limit is mathematically covered: Champagne's Lemma 4.3 supplies the required upper-density tail for both types of slope pairs, and ordinary residue equidistribution plus CRT and a finite union over edges give the limit and factor. The repaired contribution is only the full-count power saving for arbitrary fixed graphs along the same thin sequence. The closest primary quantitative results cover the large-prime tail, or give an even stronger full count for a single edge incident to n, but do not provide an effective count for simultaneous constraints on several edges or several linear floor coordinates. The replacement proof supplies that by combining all-divisor tails with effective residue discrepancy and a bounded-modulus edgewise sieve. No first-priority or exponent optimality claim is made.",
+      "residual_risks": [
+        "The scoped comparisons do not exclude an unlocated general power-saving sieve for graph constraints along related deterministic sequences.",
+        "The stated saving is deliberately coarse; checked sources already give a much better exponent for the single n–floor edge and a quantitative large-prime tail usable for each edge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Implies frozen qualitative result by finite union and CRT; quantitative component does not determine full-count graph error",
+          "evidence": "Pairwise upper density of the large-prime event bounded by a constant times sum_{p>z} p^(−2) under rational independence; the proof gives the explicit counting majorant via q(N). The main theorem is a joint-gcd density.",
+          "identifier_or_url": "arXiv:2607.27533v1",
+          "material_read": "Theorem 1.1 pp. 3–4; §4 definitions p. 9; Lemma 4.3 with proof p. 11 (PDF offset 36000–39635); Lemma 4.2 and Lemma 4.3 proof in HTML around offsets 37900 and 40500",
+          "method": "Primary OA PDF and HTML bounded passages",
+          "title": "On the greatest common divisor of n, floor(α₁n), floor(α₂n²), …, floor(αₖnᵏ)",
+          "trigger": "Candidate covering graphwise density and providing effective Beatty pair tail estimates"
+        },
+        {
+          "assessment": "Power-saving and stronger for a special case only",
+          "evidence": "For one finite-type-one slope and n, the error is O(X^(4/5+o(1))); the multi-coordinate case imposes strictly increasing degrees and a single joint gcd.",
+          "identifier_or_url": "arXiv:2205.00253",
+          "material_read": "Type definition and Theorem 1.1, OA HTML offsets 4500–7064",
+          "method": "OA primary HTML passages",
+          "title": "On the greatest common divisor of integer parts of polynomials",
+          "trigger": "Strongest checked full-count error for related Beatty coprimality"
+        },
+        {
+          "assessment": "Exact prior factor and quantitative box theorem, distinct counting domain",
+          "evidence": "Counts s independently ranging integers in boxes, with main density product_p Q_G(1/p), not points on a one-parameter Beatty sequence.",
+          "identifier_or_url": "arXiv:1403.2769",
+          "material_read": "Theorem 1, p. 2, offset 4079",
+          "method": "OA primary PDF passage",
+          "title": "Counting tuples restricted by coprimality conditions",
+          "trigger": "Arbitrary prescribed graph constraints and same local factor"
+        },
+        {
+          "assessment": "Distinct joint-gcd density with no effective rate",
+          "evidence": "Uses gcd(P_H(n),floor(f_1(n)),...) and only a limiting prime-tail argument; does not impose graphwise pair constraints.",
+          "identifier_or_url": "Resultary 2026/11/8 SCOPE-coprimality-densities-for-split-integer-polynomials-and-equidist--bcbc904e31ef",
+          "material_read": "RESULT.md Finding, proof and limitations, offsets 0–8075",
+          "method": "Local mirror bounded passages",
+          "title": "Coprimality densities for split integer polynomials and equidistributed integer parts",
+          "trigger": "Closest distinct catalogue record involving a polynomial and equidistributed floor coordinates"
+        },
+        {
+          "assessment": "Prior product in independent integer sampling",
+          "evidence": "The complete-graph product matches the local factors, not the thin-sequence error.",
+          "identifier_or_url": "arXiv:1310.3802",
+          "material_read": "p. 3 equation (1.5), offset 8954",
+          "method": "OA primary PDF passage",
+          "title": "Equidistribution and coprimality",
+          "trigger": "Complete-graph pairwise coprimality product"
+        },
+        {
+          "assessment": "Joint gcd and a tail for n and one floor, not the repaired statement",
+          "evidence": "The gcd event is not the intersection of prescribed edgewise events.",
+          "identifier_or_url": "arXiv:2611.02223v1",
+          "material_read": "§1 Theorems 1.2–1.3, offsets 9608–14600",
+          "method": "OA primary HTML passages",
+          "title": "On the probability that the integer parts of polynomials are coprime",
+          "trigger": "Close deterministic gcd setting mentioned in the frozen result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repair supplies an explicit algebraic-rate discrepancy from the graphwise density for a thin deterministic set with potentially overlapping coprimality constraints, rather than another proof of the already implied qualitative limit. The all-divisor tail and bounded-modulus Möbius truncation address the substantive obstacle that pairwise power bounds and a fixed-prime limiting sieve do not estimate the full graph count. Although not optimized, the explicit saving works for arbitrary fixed edge incidence and includes simultaneous floor–floor constraints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

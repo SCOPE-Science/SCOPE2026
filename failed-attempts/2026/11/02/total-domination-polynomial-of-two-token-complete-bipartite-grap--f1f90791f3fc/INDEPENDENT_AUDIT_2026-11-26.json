@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T12:46:17.409184Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md, Finding and Proof, lines 5–64",
+        "verify.py, static inspection of literal token-graph and incidence-based tests",
+        "VERIFICATION.md, recorded verification statuses",
+        "arXiv:2610.31557v1, Theorem 1.1"
+      ],
+      "rationale": "The token graph is bipartite between mixed and pure pairs. A pure pair is missed exactly if both its labels are absent from the chosen mixed pairs, so at most one row and at most one column may be empty. A mixed pair is missed exactly if both its endpoints are uncovered by the chosen pure pairs; because all mixed pairs exist, one whole shore must be edge-covered. These independent constraints give R and E by inclusion–exclusion. Each optimum mixed choice uses one entry in each of n−1 columns and has an image of size m−1 or m; the Stirling count follows. The optimum pure choice lies entirely in one shore, and the larger shore is an option exactly when the two ceiling bounds agree. An even minimum edge cover is a matching; an odd one has exactly one vertex of degree two and all others of degree one, yielding one 3-vertex path and a matching. This works at m=n=2 and in the tied odd/even case. At (3,4) the two minimum counts are 96 and 6, giving 576 sets of size 5.",
+      "residual_risks": [
+        "The frozen script was not executed; its reported exhaustive sample is not used as an all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The record covers every 2≤r≤t and in addition gives an inclusion-minimal-set polynomial and upper total-domination number."
+        ],
+        "reasoning": "The assigned all-set enumeration is included in the stronger catalogue result, not a special case outside its hypotheses.",
+        "searches": [
+          "Resultary record 4fa1b36deec0, Finding"
+        ]
+      },
+      "checked_sources": [
+        "Local Resultary catalogue and matching Finding 4fa1b36deec0",
+        "arXiv:2610.31557v1",
+        "arXiv:2610.28936v1",
+        "Assigned RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary-domination formula is one below the total minimum for m=3 or odd m≥5 with n=m+1, and equal otherwise.",
+          "The distinct catalogue Finding directly states the total-domination factorization and multiplicity."
+        ],
+        "reasoning": "The ordinary theorem explains the scalar comparison but does not imply the total polynomial or count. The catalogue result leaves no distinct part of the assigned enumeration uncovered. No historical priority conclusion follows.",
+        "searches": [
+          "Resultary record 4fa1b36deec0, Finding",
+          "Acosta Troncoso et al., arXiv:2610.31557v1, Theorem 1.1",
+          "Chinman et al., arXiv:2610.28936v1, Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the distinct Resultary Finding, U_{a,b}=Q_{a,b}, X_{r,t}=R_{r,t} and Y_{r,t}=E_{r,t}; T_{r,t}=X_{r,t}Y_{r,t} counts the same labelled sets.",
+          "The two primary arXiv results use ordinary, not open-neighborhood, domination."
+        ],
+        "reasoning": "Matching the factors, labelling convention and adjacency constraints establishes equivalence; similar titles in the ordinary-domination literature do not.",
+        "searches": [
+          "Resultary, two-token complete-bipartite total-domination spectra; matching record 4fa1b36deec0",
+          "arXiv:2610.31557v1 and arXiv:2610.28936v1, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The minimum n−1+ceil(m/2), Stirling factor n·m!·(S(n−1,m−1)+S(n−1,m)), minimum edge-cover factors and ceiling-tie condition all agree, with the odd edge-cover factor written in an algebraically equivalent form."
+        ],
+        "reasoning": "This is exact symbolic coverage of every coefficient via the polynomial, including its least nonzero coefficient; it is not an inference from agreeing examples or dates.",
+        "searches": [
+          "Resultary record 4fa1b36deec0, Finding, from offset 600"
+        ]
+      },
+      "rationale": "A distinct published Resultary record gives the same entire polynomial, minimum, and labelled minimum coefficient over the entire parameter range, and adds a minimal-set polynomial. This is demonstrable coverage in the present comparison, not evidence that the catalogue record had earlier priority: its displayed date is later than the frozen record's. The cited ordinary-domination papers do not supply the total-domination enumeration.",
+      "residual_risks": [
+        "No claim about first discovery, dependence between the two records, or exhaustive earlier literature, including under symmetric-square terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equivalent and broader coverage; not evidence of earlier priority",
+          "evidence": "U=Q, X=R, Y=E, same minimum and same minimum-set count plus a minimal-set spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-total-domination-spectra-of-two-token-complete-bipartite-graphs--4fa1b36deec0/RESULT.md",
+          "material_read": "Finding, local snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4, from offset 600",
+          "method": "Statement-level comparison from local Resultary mirror",
+          "title": "Total-domination spectra of two-token complete bipartite graphs",
+          "trigger": "Same host, token number, parameter range and counted property"
+        },
+        {
+          "assessment": "Ordinary domination, not the total-domination enumerator",
+          "evidence": "Theorem 1.1 gives the two exceptions in which gamma is n−2+ceil(m/2).",
+          "identifier_or_url": "arXiv:2610.31557v1",
+          "material_read": "Theorem 1.1, p. 2",
+          "method": "Lawful OA PDF statement inspection",
+          "title": "The domination number of the 2-token graph of the complete bipartite graph",
+          "trigger": "Identical host family and cited ordinary-domination comparison"
+        },
+        {
+          "assessment": "Corroborates the ordinary comparison only",
+          "evidence": "For two tokens the case split agrees with the separate 2-token paper.",
+          "identifier_or_url": "arXiv:2610.28936v1",
+          "material_read": "Theorem 1.1, p. 1",
+          "method": "Lawful OA PDF statement inspection",
+          "title": "The domination number of the k-token graph of the complete bipartite graph K_{m,n}",
+          "trigger": "Cited ordinary-domination theorem, specialized to two tokens"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md, Finding",
+        "Resultary 4fa1b36deec0, Finding"
+      ],
+      "rationale": "A complete enumeration of open domination is a worthwhile target and contains more information than the ordinary or total minimum. In this comparison the same natural family, coefficient data and labelled minimum counts are already given in a distinct broader result. The frozen claim supplies no remaining new invariant, witness or refinement beyond that coverage.",
+      "residual_risks": [
+        "This is an assessment of the exact contribution relative to verified coverage, not a statement that the problem itself lacks value or that the other record was first."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}

@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T20:18:16.687375Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The transposition metric is 5 minus the number of cycles: a swap changes the cycle count by one and any cycle of length l can be built with l-1 swaps. Distinct words of the same parity must consequently differ by a 5-cycle, hence cannot agree in any position. There are at most five of each parity. The independently reproduced equality census uses BFS-checked distances, enumerating the four nonidentity even words among the 24 five-cycles and then all compatible odd five-sets, so it exhausts normalized maxima without relying on the uploaded maximal-clique histogram. It finds precisely six even halves (the order-five subgroups) and exactly two normalizer generator cosets for each. In translation coordinates on F_5 the normalizer consists of ax+b; the multiplier quotient is F_5*, and the two generators 2 and 3 give odd 4-cycles with one fixed point. Thus these cosets construct size 10 and all their differences with H have type (4,1); the 20 within-parity pairs have type (5). Alternatively, an odd word has exactly five total positional agreements against the five even words, while each relative distance-3 odd permutation has at most one fixed point; every mixed pair therefore has one. Counting incidences with a distinguished word gives (120*12)/10=144 labeled codes. Conjugation relates all six H, inversion interchanges the two generator cosets, and translation removes normalization. The left-right action is faithful because S_5 is centerless; inversion cannot be one of those maps (otherwise it would be an inner automorphism on a nonabelian group). This gives 28800 maps and stabilizer 200, as checked directly. Replay: python3 /workspace/branches/19ede26b-3375-4bd9-abfa-520504275776/independent_reproduction.py; recorded summary independent_reproduction.txt in the same directory. The frozen verification and uploaded checker were inspected without executing that checker; the decision concerns the stated group, not maximality of the isometry group.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nguyen gives the same C(n,d) and the general radius-one bound: floor(120/(1+10))=10 when (n,d)=(5,3). The inspected bounds and asymptotic statements do not enumerate equality families.",
+          "The indexed generalized Cayley result concerns interval-block transpositions in S6, with optimum 6 and 6000 maxima. Chee–Vu is a relevant primary candidate but lawful full-text recovery failed."
+        ],
+        "reasoning": "The numerical upper bound is a special case, not distinct. Here 10 radius-one balls would cover 110 of 120 vertices, so the rounded bound is not a perfect-code equality statement from which one can read off structure. General feasibility bounds do not give the C5 normalizer description.",
+        "searches": [
+          "Nguyen arXiv:2404.15126, arbitrary-transposition definition and sphere-packing bound (pp. 2–3)",
+          "Chee–Vu DOI 10.1109/ISIT.2014.6875376, breakpoint constructions",
+          "Resultary e2a79c3b36a0, generalized Cayley census"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and VERIFY.txt",
+        "Independent parity-split computation and summary",
+        "Nguyen arXiv:2404.15126",
+        "Cameron–Wu Metrics3.pdf",
+        "Chee–Vu DOI 10.1109/ISIT.2014.6875376 access attempts",
+        "Resultary 4226e19a357b, e2a79c3b36a0 and 0f0c08c901a7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The upper bound and an affine-group construction settle the optimum size; establishing that every maximal even half is an order-five subgroup and every allowable odd half one of two generator cosets requires the distinct equality analysis.",
+          "None of the inspected comparison statements identifies the eligible even and odd classes for the arbitrary-transposition metric, or counts their normalized combinations."
+        ],
+        "reasoning": "The construction H union gH alone proves only one example, not the exhaustiveness or single orbit. Conversely numerical extremal results for a graph with different generators or even-agreement adjacency do not classify this graph's maxima.",
+        "searches": [
+          "Nguyen arXiv:2404.15126 pp. 2–3",
+          "Resultary 4226e19a357b and e2a79c3b36a0, generators and Findings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cameron–Wu distinguish arbitrary swaps (Cayley) from adjacent swaps (Kendall); the same metric is given by relative cycle count or distance in the all-transposition graph.",
+          "The same-day indexed S5 census 4226e19a357b is for block transpositions and reports a different extremal family: size 4, 540 labeled codes, two orbits of sizes 180 and 360."
+        ],
+        "reasoning": "Disjoint closed neighborhoods in the graph generated by all ten transpositions are equivalent to minimum distance 3. Neither adjacent-swap graphs nor block-transposition graphs yield that neighborhood condition. For example, a 3-cycle on three consecutive positions can be one block transposition but is at Cayley distance 2.",
+        "searches": [
+          "Resultary: S5 distance-3 Cayley permutation code for arbitrary transpositions, exact equality and normalizer cosets",
+          "Cameron–Wu, The Complexity of the Weight Problem for Permutation and Matrix Groups, §7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected exact S5 block-transposition census gives 540 labeled codes at size 4; the exact even-intersecting-family census gives 240 families at size 13 for the even-agreement relation.",
+          "No matching count or classification for the arbitrary-transposition graph was identified in the bounded searches. The primary literature does supply the specialized numerical upper bound even without an exact table entry."
+        ],
+        "reasoning": "At the same n, a distance label or number of agreements alone is not enough: the bound condition distinguishes relative cycle types. Exact counts in those other relations cannot serve as an equality table here.",
+        "searches": [
+          "Resultary exact S5 Cayley size-10 maxima and enumeration 12 normalized/144 labeled",
+          "Resultary 4226e19a357b and 0f0c08c901a7, nearby exact S5 results",
+          "Published Cayley permutation code lookup for C(5,3) equality"
+        ]
+      },
+      "rationale": "Credit the usual Cayley metric and the published arbitrary-transposition sphere-packing bound, which already implies the upper bound 10 here. The distinct result is the complete equality structure, including the normalized subgroup and quotient-coset description, the labeled count, and the declared-action orbit. Inspected neighboring censuses differ in their generators or relation, not just notation. No claim of absence is made about the inaccessible Chee–Vu primary paper.",
+      "residual_risks": [
+        "The Chee–Vu paper was not accessible for primary passage inspection. An unindexed finite equality census or a more general structural result not identified in these searches could affect originality. The absence of an exact search hit is not proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the inequality C(5,3)<=10; no equality classification in the inspected statements",
+          "evidence": [
+            "Cayley distance uses all transpositions; the sphere-packing formula uses V(5,1)=11 on substitution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.15126",
+          "material_read": "PDF pp. 2–3, offsets 5251–10448 and 10448–15375",
+          "method": "Original OA paper, bounded passage inspection",
+          "title": "Improving the Gilbert–Varshamov bound for permutation Codes in the Cayley metric and Kendall τ-Metric",
+          "trigger": "Same code parameter and a general bound that specializes to the numerical upper bound"
+        },
+        {
+          "assessment": "Metric and weight-problem background, not the equality census",
+          "evidence": [
+            "Cayley uses all transpositions; Kendall uses adjacent transpositions."
+          ],
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/p.j.cameron/preprints/Metrics3.pdf",
+          "material_read": "§7.2, PDF p. 12, offsets 21500–24464",
+          "method": "Original OA preprint, bounded passage inspection",
+          "title": "The Complexity of the Weight Problem for Permutation and Matrix Groups",
+          "trigger": "Exact metric and aliases"
+        },
+        {
+          "assessment": "Exact finite results unresolved, not ruled out",
+          "evidence": [
+            "The title establishes code and metric overlap but cannot establish the applicability or exhaustiveness of any construction at n=5."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/ISIT.2014.6875376",
+          "material_read": "Bibliographic/title evidence; no primary full-text passage retrieved",
+          "method": "Lawful publisher and OA repository recovery attempted",
+          "title": "Breakpoint analysis and permutation codes in generalized Kendall tau and Cayley metrics",
+          "trigger": "Plausibly relevant direct code construction paper"
+        },
+        {
+          "assessment": "Material comparison, different generating operations and conclusion; date does not establish priority",
+          "evidence": [
+            "Maximum size 4, 540 labeled maxima and two orbits of sizes 180 and 360 in the block-transposition metric."
+          ],
+          "identifier_or_url": "Resultary 4226e19a357b",
+          "material_read": "Finding and metric statement",
+          "method": "Indexed local-mirror original passage",
+          "title": "Exact diameter-code census in the block-transposition metric",
+          "trigger": "Same-day indexed S5 distance-3 equality census"
+        },
+        {
+          "assessment": "Different block operations and length",
+          "evidence": [
+            "Generalized interval-block transpositions in S6; maximum 6 and 6000 maxima."
+          ],
+          "identifier_or_url": "Resultary e2a79c3b36a0",
+          "material_read": "Finding and metric statement",
+          "method": "Indexed local-mirror original passage",
+          "title": "Exact length-six generalized Cayley code census",
+          "trigger": "Nearby generalized Cayley equality classification"
+        },
+        {
+          "assessment": "Different relation despite the common universe",
+          "evidence": [
+            "Even number of agreements, maximum 13 and 240 families in S5."
+          ],
+          "identifier_or_url": "Resultary 0f0c08c901a7",
+          "material_read": "Finding and relation statement",
+          "method": "Indexed local-mirror original passage",
+          "title": "Exact small-order even-intersecting permutation families",
+          "trigger": "Nearby small S5 extremizers defined by positional agreement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "In the natural single-arbitrary-transposition correction problem on S5, the result exposes the exact affine subgroup structure behind equality, not just a small code size or a benchmark replay. It lets a researcher generate all optima without rerunning a general clique search and shows that the apparent normalized alternatives are equivalent under explicit metric symmetries. The structure, pair constraints and census together justify the finite scope; no extension to larger symmetric groups is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

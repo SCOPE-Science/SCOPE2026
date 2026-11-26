@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T07:43:00.676496Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Proof §§1–5 and Finding; VERIFICATION.md; verify.py source; independent Bernstein conversion and bisection"
+      ],
+      "rationale": "Independently expand R(h(X−1)) using (1−tX)^−2 and sum each residue class modulo n. With a_r=(1−t)t^r/(1−t^n), the coefficient is a_r times [(1+√2)(1−t)(r+1+n t^n/(1−t^n))−√2]. For h>0 all a_r are positive and the bracket strictly increases with r, so the diagonal alone tests nonnegativity; off-diagonals are strictly positive at either diagonal zero and throughout the positive safe ranges. This does not assert off-diagonal positivity inside the forbidden range. Row sums are one by R(0)=1 and h=0 is the identity. Writing U_n=(1−t)(1+n/(e^(na)−1)) with a=−log t gives strict decrease in n; diagonal sign is that of U_n−γ, equivalently q_n. Independently converting 2−3t−3t²−3t³+15t⁴ on each half interval to Bernstein form gives respectively (2,13/8,9/8,13/32,5/16) and (5/16,7/32,3/4,11/4,8), all positive, and 5q_4 is strictly larger. At t=3/5, q_5=(7205√2−10313)/3125<0. The one sign variation of q'_n and opposite derivative endpoint signs give exactly one minimum; positive q_n endpoints and the negative witness give two simple roots for every n≥5. For the lower limit, signs at β±ε bracket the lower root for large n since U_n→1−t there (choose β+ε<3/5); the upper moves to 1. For fixed s>0, U_n(e^(−s/n))→s/(e^s−1). The latter strictly decreases from 1 to 0, so fixed s on either side of s_* bracket −n log t_n^+, since the comparison points are eventually above 3/5. Converting both limits to h proves the assertions. Independent high-precision bisection reproduces 3.222709632051…, 6.805854390690… and 3.4529561713… .",
+      "residual_risks": [
+        "Decimal roots illustrate the exact boundaries; bisection is not the proof of root counts or large-n asymptotics. Scope is endpoint positivity for uniform directed cycles only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The absolute-monotonicity radius ≈2.414 is a general sufficient bound, not a necessary-and-sufficient cycle statement. dc2fd2585c8b treats undirected complete multipartite graphs under TR-BDF2, with positivity through five vertices and quartic thresholds, not the directed cycle family.",
+          "The exact Padé positivity obstructions use a different rational map and different matrices."
+        ],
+        "reasoning": "None of these results is a broader theorem that specializes to the two positive roots on directed uniform cycles.",
+        "searches": [
+          "arXiv:1510.04303 §3 pp. 11–12",
+          "Resultary dc2fd2585c8b",
+          "Zappavigna et al. §4 Example 3"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 6a25765621c8, 24a51aae20d9, dc2fd2585c8b",
+        "arXiv:1510.04303v1",
+        "doi:10.1016/j.laa.2011.12.021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known method formula and sufficient radius supply the rational map and one comparison constant but no cyclic-kernel diagonal test or root count. The Lobatto IIIC recovery law scales as n/π, not n/(cs_*)."
+        ],
+        "reasoning": "An additional cyclic residue computation, all-dimension comparison and asymptotic root bracketing are needed. The prior radius is not by itself an implication that a family saturates it in a limit.",
+        "searches": [
+          "Bonaventura–Della Rocca Eq. (3.2) and §3 monotonicity radius",
+          "Zappavigna et al. Example 3",
+          "Resultary 6a25765621c8 and dc2fd2585c8b proof passages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eq. (3.2) specializes to exactly the frozen stability function; switching row/column conventions would only transpose P_n. Resultary 6a25765621c8 and 24a51aae20d9 have directed cycles but different stability functions and windows."
+        ],
+        "reasoning": "Transpose is equivalent, but substituting a different stability function changes the sign polynomial and the form of the admissible interval.",
+        "searches": [
+          "Resultary: L-stable TR-BDF2 directed cycle Markov positivity, reentrant timestep, cyclic resolvent",
+          "Focused primary search for TR-BDF2 directed-cycle positivity",
+          "arXiv:1510.04303 Eq. (3.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lobatto IIIC also has a four-state unconditional barrier but its n≥5 set is {0}∪[cot(π/n)−1,∞). The Radau IIA comparison is unconditional through five states and gives a different recovery set. TR-BDF2 multipartite thresholds have a different cutoff and defining polynomials."
+        ],
+        "reasoning": "Matching the number four or the phenomenon of reentry is not an exact entry for the frozen map and family.",
+        "searches": [
+          "Exact positivity boundaries and recovery records in Resultary: 6a25765621c8, 24a51aae20d9, dc2fd2585c8b",
+          "arXiv:1510.04303 stability and monotonicity values"
+        ]
+      },
+      "rationale": "The comparison found the same scalar method and absolute-monotonicity radius in the primary TR-BDF2 paper, but not the cycle-specific necessary-and-sufficient inequalities, the two positive thresholds or the recovery scaling. Exact cycle calculations with other stability functions and the same TR-BDF2 map on a different graph family do not imply this classification. The supported distinct result is the directed-cycle classification, not the method formula or the value of the known radius itself.",
+      "residual_risks": [
+        "Bounded literature search does not rule out an independently derived specialized cyclic-kernel calculation. No claim of absolute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact stability formula and sufficient radius; no cycle window in the decisive passages",
+          "evidence": [
+            "Stability function specializes to the one in Finding; radius approximately 2.414."
+          ],
+          "identifier_or_url": "arXiv:1510.04303v1",
+          "material_read": "§3 pp. 11–12, Eq. (3.2) around offset 25704 and radius around 28865",
+          "method": "OA primary full-text passage inspection",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "Same numerical method and apparent lower limiting constant"
+        },
+        {
+          "assessment": "Different rational map and obstruction",
+          "evidence": [
+            "Cyclic feedback-chain setup and open nilpotent shift example use diagonal Padé C_2, not L-stable TR-BDF2."
+          ],
+          "identifier_or_url": "doi:10.1016/j.laa.2011.12.021",
+          "material_read": "§4 Example 3, OA offsets 37000–41457",
+          "method": "OA primary full-text passage inspection",
+          "title": "Essentially Negative News About Positive Systems",
+          "trigger": "Cyclic kernels and loss of time-stepping positivity"
+        },
+        {
+          "assessment": "Different method and recovery set, no date-based exclusion",
+          "evidence": [
+            "Lobatto IIIC; recovery at cot(π/n)−1 for n≥5 with no small positive safe interval."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 6a25765621c8",
+          "material_read": "Finding and cyclic formula",
+          "method": "Indexed search and local-mirror statement inspection",
+          "title": "Sharp cyclic positivity recovery for two-stage Lobatto IIIC Markov stepping",
+          "trigger": "Same-day directed cycle result with the same small-size cutoff"
+        },
+        {
+          "assessment": "Different stability function and boundary",
+          "evidence": [
+            "Unconditional through five states; only {0}∪[ρ,∞) for six states."
+          ],
+          "identifier_or_url": "Resultary 2026/11/2, 24a51aae20d9",
+          "material_read": "Finding, local-mirror offset 0",
+          "method": "Indexed search and local-mirror statement inspection",
+          "title": "Sharp six-state recovery of Markov positivity for Radau IIA on directed cycles",
+          "trigger": "Same-day exact cycle positivity threshold"
+        },
+        {
+          "assessment": "Material analogy but not equivalent coverage, irrespective of date",
+          "evidence": [
+            "Unweighted complete multipartite undirected graphs; unconditional through five vertices and part-dependent quartic endpoints beyond."
+          ],
+          "identifier_or_url": "Resultary 2026/11/8, dc2fd2585c8b",
+          "material_read": "Finding and analysis, offsets 0–5968",
+          "method": "Indexed search and local-mirror inspection",
+          "title": "A five-vertex positivity boundary and one-band sign recovery for TR-BDF2",
+          "trigger": "Same map and bounded negative diagonal band"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and Proof §§2–5; arXiv:1510.04303 §3"
+      ],
+      "rationale": "The smallest counterexample, exact disconnected safe set, and linear recovery scaling together calibrate the gap between a general sufficient positivity step and the actual endpoint behavior on a natural conservative irreducible test family. In particular, neither L-stability nor conservation guarantees nonnegative transitions, and failure at one step does not imply failure at all larger steps.",
+      "residual_risks": [
+        "No guarantee for arbitrary generators, intermediate stages, or nonuniform rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

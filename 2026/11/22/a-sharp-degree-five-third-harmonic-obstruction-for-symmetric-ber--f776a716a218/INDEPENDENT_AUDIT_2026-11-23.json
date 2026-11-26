@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T20:57:17.771131Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cosine output P is antisymmetric about 1/2 by the Bernstein reflection identity, so its constant and even modes vanish. Strictly decreasing samples imply P'<0 and integration against sin(pi*u) shows positive first cosine integral. At degree 4 the coefficient vector (1,c,0,-c,-1) gives the cubic polynomial 1+(-4+4c)u+(6-12c)u^2+(-4+8c)u^3. For odd k, writing h=k*pi, integration by parts gives 8(1-c)/h^2+(-48+96c)/h^4. The endpoint minima on |c|<=1 are positive for k=1 and odd k>=3. Degree elevation preserves this vector form for n<4. In the clustered limit the central tie receives zero, S_(2r)=S_(2r-1) by degree elevation, and differentiating gives -S' equal to twice the Beta(r,r) density. For S_5 the endpoint derivatives give -240/(3*pi)^4+2880/(3*pi)^6, the claimed negative raw integral. On [0,1/2] the sine weight changes from positive to negative just at 1/3; multiplying the r=3 integrand by [u(1-u)]^(r-3), increasing on this half, bounds the new integral above by its value at 1/3 times the negative base integral. Thus the sign holds for every r>=3. Uniform limit and continuity give strictly ordered examples at positive epsilon. The beta second and fourth central moments give the stated expansion with O(r^-2), with the factor of two between a positive-frequency cosine coefficient and its raw integral accounted for. The frozen numeric script was inspected, not executed; it is supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary paper covers every input in the circle cone and every n, but only on the equispaced nodes j*pi/n.",
+          "The cubic record covers every circle-positive-definite input on symmetric cubic grids; the quartic records' full-cone guarantee is confined to two grids."
+        ],
+        "reasoning": "Broader input quantifiers do not imply preservation on different node vectors. In degree 4, knowing exactly which grids preserve all inputs does not establish the sign for cos(theta) at the other grids.",
+        "searches": [
+          "Otten–Nguyen–Watts 2608.04836v1 §1 Theorem 1.2",
+          "Resultary b87f6c90a4aa, f6e744bea94d and 65ea943fabbe RESULT.md statements"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md proof and VERIFICATION.md; verify.py by inspection",
+        "Otten–Nguyen–Watts arXiv:2608.04836v1",
+        "Local Resultary b87f6c90a4aa, 65ea943fabbe, f6e744bea94d, 527180daa6d9, 8e7caa082c60, 15fbd77e21d0 (mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier cubic all-input result implies the cubic part. The exact degree-5 witness is already known on a quantified epsilon interval that is stronger than mere existence in that one degree.",
+          "Bernstein degree elevation generally produces new coefficients that are not the arithmetic-gap samples of any prescribed parameter; even the special majority elevation only identifies each even n with its preceding odd n."
+        ],
+        "reasoning": "Neither a degree-5 witness nor its simple one-step elevation gives all odd n>=7 or the nonvanishing limiting violation. The proof needs the monotone half-beta reweighting across all odd degrees.",
+        "searches": [
+          "527180daa6d9 RESULT.md offsets 0 and 2700; b87f6c90a4aa offset 500; f6e744bea94d offset 0 and 65ea943fabbe offset 370"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "527180daa6d9 has exactly the degree-5 strict clustered grid (0,t,2t,pi-2t,pi-t,pi) and negative output third mode for input cos(theta) when 0<t<=pi/8.",
+          "Otten–Nguyen–Watts use the classical equispaced operator, defined in equation (1)."
+        ],
+        "reasoning": "Positive-definite and positive-semidefinite kernel terminology refer to the same nonnegative Fourier cone here. The prior degree-5 coefficient is twice the raw integral; this does not change its sign or remove exact overlap at n=5.",
+        "searches": [
+          "Local Resultary: symmetric nonuniform Bernstein circle sampling, negative third harmonic, degree 3/4/5 and clustered gaps",
+          "Literature: Bernstein circle positive definite nonuniform symmetric nodes cosine third Fourier coefficient degree five binomial majority positivity Otten Nguyen Watts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two quartic records share the complete full-cone classification: uniform nodes or (0,pi/3,pi/2,2pi/3,pi). A same-day entry is separate and materially overlaps the earlier quartic theorem; it does not state this all-degree fixed-input claim.",
+          "The known arithmetic-gap family and its third-mode failure at degree 5 are exact catalogue matches for that subclaim.",
+          "The sphere records address higher-dimensional lifting or a negative spherical mean rather than a negative third circle harmonic."
+        ],
+        "reasoning": "The finite-degree classifications are relevant exact comparisons, not an all-degree table or proof. No catalogue entry inspected, beyond the assigned record itself, gave the all-n majority/Beta sign or asymptotic.",
+        "searches": [
+          "Resultary b87f6c90a4aa, f6e744bea94d, 65ea943fabbe and 527180daa6d9; sphere comparisons 8e7caa082c60 and 15fbd77e21d0"
+        ]
+      },
+      "rationale": "The n=5 cluster counterexample with the same input and output mode is exact prior coverage, and the cubic guarantee is a corollary of stronger prior work. The material surviving content is the uniform quantifier over every higher degree with one fixed input and first possible offending mode, together with the limiting spectral strength and the universal degree-4 fixed-input guarantee. No checked source covers that uniform statement.",
+      "residual_risks": [
+        "The frozen prior-work paragraph should identify the exact degree-five fixed-mode overlap, not just call the preceding classification a constrained family.",
+        "A distinct same-day quartic match must be retained in comparison; its order and relationship to the other records are not established from dates.",
+        "The bounded search does not rule out an unindexed all-degree equivalent. The asymptotic is for the cluster limit, not uniform over grids."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROADER INPUT, STRICTER GRID HYPOTHESIS",
+          "evidence": [
+            "Sampling is f(j*pi/n); positivity is guaranteed for all cone inputs on those nodes."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.04836v1",
+          "material_read": "§1, definition (1) of B_n and Theorem 1.2, PDF p. 2 and HTML offsets about 1800–5071",
+          "method": "Open-access primary PDF/HTML passages",
+          "title": "Preservation of Positive-Definiteness by Bernstein Operators on the Circle",
+          "trigger": "Main all-degree theorem for Bernstein approximation on the circle"
+        },
+        {
+          "assessment": "IMPLIES CUBIC SUBCLAIM",
+          "evidence": [
+            "Every circle-positive-definite input is preserved on cubic grids (0,a,pi-a,pi) for 0<=a<=pi/2."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-quadratic-rigidity-and-cubic-node-freedom-for-positive-definite--b87f6c90a4aa",
+          "material_read": "RESULT.md offset about 500, cubic classification",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Quadratic rigidity and cubic node freedom for positive-definite Bernstein interpolation on the circle",
+          "trigger": "Stronger low-degree guarantee"
+        },
+        {
+          "assessment": "EXACT FULL-CONE QUARTIC CLASSIFICATION, NOT THE CLAIM HERE",
+          "evidence": [
+            "The uniform and pi/3-inner-angle grids are the only universal full-cone preservers; no fixed-cosine failure on all other grids is asserted."
+          ],
+          "identifier_or_url": "2026/11/22/SCOPE-quartic-bernstein-circle-covariance-preservation-exactly-two-dis--65ea943fabbe",
+          "material_read": "RESULT.md offset about 370, statement and quantifier",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Quartic Bernstein circle covariance preservation: exactly two distinct grids",
+          "trigger": "Distinct same-day quartic classification"
+        },
+        {
+          "assessment": "SAME QUARTIC CLASSIFICATION AS 65ea943fabbe",
+          "evidence": [
+            "Two grids preserve every input; this does not imply the arbitrary symmetric-grid theorem for the single input cos(theta)."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exactly-two-five-node-bernstein-grids-preserve-circle-positive-d--f6e744bea94d",
+          "material_read": "RESULT.md offset 0, scope and classification",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Exactly two five-node Bernstein grids preserve circle positive definiteness",
+          "trigger": "Earlier exact quartic catalogue comparison"
+        },
+        {
+          "assessment": "EXACT DEGREE-FIVE SUBCLAIM, NO ALL-DEGREE THEOREM",
+          "evidence": [
+            "Full-cone preservation exactly at t=pi/5,pi/6; same input cos(theta) and negative third mode throughout 0<t<=pi/8."
+          ],
+          "identifier_or_url": "2026/11/16/SCOPE-exactly-two-arithmetic-gap-six-node-bernstein-grids-preserve-cir--527180daa6d9",
+          "material_read": "RESULT.md offsets 0 and 2700, grid hypotheses, full-cone and small-gap cosine witnesses",
+          "method": "Local Resultary search and mirror passage inspection",
+          "title": "Exactly two arithmetic-gap six-node Bernstein grids preserve circle positive definiteness",
+          "trigger": "Strongest exact matching cluster geometry and harmonic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result quantifies a concrete failure of the usual Bernstein circle-positivity theorem under symmetric perturbation: a single common input and its earliest possible offending mode provide witnesses at every eligible degree. The half-beta sign mechanism and limiting negative strength explain why the phenomenon is not confined to a special degree-five example or washed out at large degree.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

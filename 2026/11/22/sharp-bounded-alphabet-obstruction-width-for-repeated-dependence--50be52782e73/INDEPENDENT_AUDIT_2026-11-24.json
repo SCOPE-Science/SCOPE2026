@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T14:53:53.194394Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Because the atoms are downward closed, the lax cover can be disjointified. A matching assigning each ordered pair to one of the r slots at its row or the one slot at its column exactly realizes the partition (the repeated row atoms provide separate slots). For any collection of pairs, the union of its slots has size r times its row-support size plus its column-support size. Hall is therefore equivalent to the inequalities on all support rectangles; the team is finite, so finite supports suffice even if the ambient alphabets are infinite. For a minimal false team, no edge can be outside a violating rectangle, and reducing to the actual supports preserves violation. Thus with a rows and b columns it has ra+b+1 edges, since any deletion must restore the full-support inequality. A row with at most r edges could be deleted and then restored using that row’s own slots, so every row has at least r+1 edges. Hence a≤b+1≤q+1 and the stated sharp upper bound follows; q≤r trivially allows all edges to use row slots. At equality the team has a=q+1, b=q and all degrees r+1. For a proper set of columns S, taking all rows with N(x) contained in S shows the necessity of the multiset condition. Conversely, a row not contained in S contributes at most r edges to the rectangle, so the condition suffices for every proper column set; with all columns the inequality also holds for every proper row set. The full rectangle has excess one and deleting any edge restores it. For existence the q cyclic windows of length r+1 plus a duplicate of the zero window satisfy the condition: when any window fits in a proper S, the maximal cyclic runs in S give at most |S|−r fitting starts before the duplication. When q=r+1 no proper S contains a whole window, so even all neighborhoods coinciding is valid. For r=2 and q=4 the five row neighborhoods 012,123,230,301,012 explicitly give 15 pairs, not a 4×4 team. A minimal false subteam exists in every finite false team. Replay: RESULT.md lines 22–46; the bundled finite checker was inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fröhlich–Kolaitis–Meier PDF p. 1 abstract covers two unary atoms and coherence for disjunctions of two dependence atoms.",
+          "RESULT.md lines 54–66 distinguish the claimed bound from general coherence and Hall ingredients; primary passages on repeated multiplicity in arXiv:2605.31269 were not retrieved."
+        ],
+        "reasoning": "A general circuit-size theorem for two vertex capacities or a quantitative coherence result for repeated inverse dependencies could subsume the finding. A two-atom theorem supplies relevant r=1 context, not a formula for arbitrarily many separate row slots. Standard Hall feasibility makes the proof possible, but by itself does not establish sharpness or an all-parameter extremal witness.",
+        "searches": [
+          "Resultary: Hall pseudoforest repeated dependence functional dependencies disjunction minimal counterexamples obstruction spectrum",
+          "Literature: \"Disjunctions of Two Dependence Atoms\" Fröhlich Kolaitis Meier arXiv 2508.16146 opposite pair dep(x,y) dep(y,x) classification",
+          "OA passage query: arXiv:2605.31269v1, disjunction"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and checker.py",
+        "Resultary 2a96c3a15333 and 3104d9c726df indexed statements",
+        "Fröhlich–Kolaitis–Meier arXiv PDF p. 1 abstract",
+        "Attempted OA check of arXiv:2605.31269v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 2a96c3a15333 indexed upper endpoint agrees exactly with the r=1 specialization on the unrestricted-row regime.",
+          "The indexed 3104d9c726df and primary two-atom abstract do not combine to cover larger r and arbitrary q.",
+          "RESULT.md lines 28–46 derive and attain the exact bound and characterize equality."
+        ],
+        "reasoning": "Credit the earlier r=1 width as actual coverage rather than merely a similar result. The precise r=1 extremizer criterion in the earlier text is unresolved. A size census at r=2 on bounded alphabets cannot prove the unrestricted-row upper bound or produce the saturating q+1-row construction in general. The matching criterion is standard; attaining the largest circuit simultaneously for all parameter pairs is the additional content.",
+        "searches": [
+          "Resultary: r=1 opposite dependence atoms dep(x,y) or dep(y,x), minimal falsifying teams, two disjuncts",
+          "Resultary: sharp obstruction width repeated dependence r copies dep(x,y) and one dep(y,x), bounded y alphabet (r+1)(q+1) q+1 row neighborhoods exact proper-subset condition",
+          "Local mirror lookups: 2a96c3a15333 and 3104d9c726df"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RESULT.md lines 22–26 and 46: capacity criterion and extremal proper-subset criterion.",
+          "Resultary 2a96c3a15333 is an inverse-dependence obstruction-spectrum hit for two disjuncts."
+        ],
+        "reasoning": "Equivalent objects are minimal nonmatchable edge sets in the edge-to-row/column-slot transversal matroid, or minimally infeasible orientations assigning each edge to an endpoint of capacity (r,1). At equality the degree-r+1 rows must each use one distinct column slot, making the multiset condition a row-neighborhood Hall-circuit criterion. For r=1 the graph pseudoforest formulation is relevant. The abstract matching/circuit vocabulary alone does not supply the sharp q-dependent size, the attainment at every r and q, or the characterization of all teams that attain the upper bound.",
+        "searches": [
+          "Resultary: sharp obstruction width repeated dependence r copies dep(x,y) and one dep(y,x), bounded y alphabet (r+1)(q+1) q+1 row neighborhoods exact proper-subset condition",
+          "Resultary: Hall pseudoforest repeated dependence functional dependencies disjunction minimal counterexamples obstruction spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 3104d9c726df: 292 minimal obstructions, largest size 13 on fixed 4×4 boards.",
+          "Resultary 2a96c3a15333: r=1 minimal-falsifier size spectra, including the unequal-alphabet maximum 2(q+1) with enough row labels in the applicable range.",
+          "RESULT.md lines 39–46 give q+1 rows and q columns for general attainment."
+        ],
+        "reasoning": "The size-spectrum record covers the two-disjunct width: take the row alphabet larger than q. The 4×4 census is exact overlap in the three-way formula but imposes an extra row bound, so its maximum 13 is compatible with the present 15 on a 5×4 board at the same column cap. Neither entry is an all-multiplicity exact table or answers the equality criterion for unconstrained rows.",
+        "searches": [
+          "Resultary: three-way Boolean dependence split four by four table 292 minimal obstructions largest 13 assignments",
+          "Resultary: r=1 opposite dependence atoms dep(x,y) or dep(y,x), minimal falsifying teams, two disjuncts"
+        ]
+      },
+      "rationale": "The frozen finding expressly treats r=1 as an existing specialization; the earlier finite unequal-alphabet spectrum covers its width. The supported contribution of the general theorem is the sharp width with only the column alphabet bounded for all multiplicities, its uniform attaining construction, and the equality characterization. Neither Hall’s criterion nor the fixed 4×4 census is credited as new.",
+      "residual_risks": [
+        "The nearby Resultary full texts were unavailable; whether the two-disjunct case includes the exact present neighborhood characterization was not resolved.",
+        "An earlier result on circuits of endpoint-capacitated transversal or sparsity systems, or a general quantitative coherence theorem, could encode the result under other terminology. The bounded comparison does not certify historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct coverage of the two-disjunct width, not the all-multiplicity claim",
+          "evidence": [
+            "Indexed unequal-alphabet endpoint is 2 min(p,q)+2 in the applicable range, agreeing with 2(q+1) for p>q."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333",
+          "material_read": "Indexed statement of the size spectra and largest sizes; full finding unavailable",
+          "method": "Local Resultary search and bounded local mirror retrieval attempt",
+          "title": "Sharp minimal-falsifier spectra for inverse functional-dependence disjunctions",
+          "trigger": "Same formula for r=1 and two bounded alphabets; can take more than q rows"
+        },
+        {
+          "assessment": "Related exact table with a stricter row restriction",
+          "evidence": [
+            "The 4×4 table reports 292 minimal obstructions and maximum 13; the current 15-pair witness needs five distinct rows."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-292-minimal-obstructions-for-a-three-way-boolean-dependenc--3104d9c726df",
+          "material_read": "Indexed statement of board size, census and largest obstruction; full finding unavailable",
+          "method": "Local Resultary search and bounded local mirror retrieval attempt",
+          "title": "Exact 292 minimal obstructions for a three-way Boolean dependence split",
+          "trigger": "Same three-way formula and q=4"
+        },
+        {
+          "assessment": "Two-disjunct scope confirmed in the accessible passage; no full-document exclusion asserted",
+          "evidence": [
+            "The abstract explicitly concerns disjunctions of two unary dependence atoms and coherence of disjunctions of two arbitrary dependence atoms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2508.16146 ; https://doi.org/10.4230/LIPIcs.CSL.2026.10",
+          "material_read": "arXiv PDF p. 1, abstract lines 22–27; no full-text pseudoforest passage obtained",
+          "method": "Exact-title literature lookup and bounded PDF/OA attempts",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Opposite pair and coherence classification in the original logical language"
+        },
+        {
+          "assessment": "Potential broader coverage unresolved",
+          "evidence": [
+            "The frozen account identifies coherence and first-order rewritability as background; retrieval did not yield an applicable theorem statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.31269",
+          "material_read": "Frozen citation and related-work comments, RESULT.md lines 54 and 62; primary passage not obtained",
+          "method": "Bounded OA passage retrieval attempt at arXiv:2605.31269v1",
+          "title": "Aspects of Coherence in Dependence Logic",
+          "trigger": "Potential broader quantitative coherence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural disjunction of repeated functional dependencies, the finite column alphabet is an intrinsic restriction that turns non-uniform obstruction size into an exact finite witness guarantee. The result locates the entire vacuous regime, gives witnessed sharp linear growth with q at each multiplicity, and characterizes the extremal support systems rather than only restating a matching algorithm. The contrast with the smaller 4×4 maximum shows concretely why bounding just one alphabet is a different regime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

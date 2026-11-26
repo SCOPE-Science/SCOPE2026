@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T13:20:16.637983Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md:3–88; VERIFICATION.md; CHECK.py:10–74 (inspected, not executed)"
+      ],
+      "rationale": "The trace-free matrix model has L² Gram 2 tr(AB)/[d(d+2)]. Signs and absolute coordinates separate, and multiplying ∑S_i=0 by one and by three distinct signs gives pair and four-sign moments −1/(d−1) and 3/[(d−1)(d−3)]. The Dirichlet magnitude moments then give the squarefree block with entries 1, −2/[π(d−1)], and 12/[π²(d−1)(d−3)] (same edge, intersecting, disjoint). For the unsigned incidence matrix N, NᵀN=2I+A for the intersecting-edge adjacency A and NNᵀ=(d−2)I+J. This gives the stated three edge-sector eigenvalues and multiplicities without assuming the representation decomposition. For a trace-free diagonal u the mixed moment on edge ij is −√2(u_i+u_j)/[π(d−1)], so only the standard sector mixes, with coupling g_d and the two eigenvalues ℓ_{d,±}. The diagonal block is identity and the listed multiplicities exhaust the space, also after complexification. Positivity follows from polynomial nonvanishing on an open cone. Writing C=π(d−3), the determinant of c_d I minus the mixed block has numerator 6(d−2)(C²+12C+24) over π⁴(d−1)²(d−3)², and c_d exceeds both diagonal entries. Since a_d<1<ℓ_{d,+}, the sign of the determinant at a_d compares a_d to ℓ_{d,−}; its sign is that of d(4π²−18π+18)−π², with threshold strictly between 10 and 12 by the stated rational bounds. The exact squared condition numbers and their limit follow, with all unconditioned eigenvalues scaled by p_d.",
+      "residual_risks": [
+        "The claim is for even d≥4 and pure degree two, excluding constants. The frozen script's sampled dimensions lie on the d≤10 side only; the exact determinant, not those tests, establishes the crossover and the entire higher-dimensional regime."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The indexed squarefree result reports k+1 explicit Johnson-sector eigenvalues, all exact sign-count masks and d≥2k. The frozen comparison at RESULT.md:93–94 identifies general Slepian concentration, general estimates and a transform, not a claimed exact solution for the full balanced quadratic space."
+        ],
+        "reasoning": "The wider dimension, squarefree degree and sign-count ranges genuinely dominate the off-diagonal subproblem, but do not broaden the subspace at k=2. A general concentration estimate or transform does not identify the finite extrema switch.",
+        "searches": [
+          "2026/11/16/SCOPE-exact-all-degree-squarefree-spherical-harmonic-concentration-on--9e06559bb490",
+          "Jaming–Speckbacher, arXiv:2004.02474, Theorems 4.2 and 4.4; Aslam–Khalid, arXiv:2010.07266; Simons–Dahlen–Wieczorek, DOI:10.1137/S0036144504445765 (frozen comparisons)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary source summaries for 9e06559bb490 and f9d7096cbc9a",
+        "Frozen RESULT.md:62–94 and REVIEW.md for the actual claimed sectors and historical references",
+        "Targeted public literature search reported above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At k=2 the squarefree monomials correspond precisely to unordered off-diagonal pairs. The d−1 dimensional sector of that block is not invariant by itself in the full space: the frozen proof gives a nonzero mixed entry with the traceless diagonal copy. Other symmetry sectors do remain unchanged. The exact threshold depends on the additional g_d².",
+          "Conjugating and averaging a full single-orthant operator can assemble a balanced-mask operator, but the individual spectra do not give the spectrum of that sum."
+        ],
+        "reasoning": "The identified overlap covers the compression independently of whether a literal formula is printed on specialization. It does not mechanically imply the all-space bands or least-sector classification; there is a substantive mixed operator calculation beyond averaging spectra.",
+        "searches": [
+          "Squarefree record 9e06559bb490 indexed statement versus RESULT.md:62–86",
+          "Positive-orthant band record f9d7096cbc9a versus frozen REVIEW.md and RESULT.md:93–94"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the all-degree squarefree sign-count record 9e06559bb490, and the positive-orthant quadratic band record f9d7096cbc9a. The first is precisely same-mask at s=d/2 but with a smaller function space; the latter has a different mask and includes lower degrees. The targeted literature search surfaced no comparably matching statement."
+        ],
+        "reasoning": "A general exact sign-count theorem is an equivalent formulation if it contains all trace-free quadratics and specializes here. The reported squarefree subspace instead omits every trace-free diagonal harmonic, and a single positive orthant is not related to the middle-layer union by a rotation.",
+        "searches": [
+          "Resultary: complete balanced-orthant conditional spectrum for traceless pure degree-two harmonics and crossover between d=10 and 12",
+          "Targeted public literature search on balanced-orthant exact quadratic harmonic concentration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The squarefree index summary reports an exact sector spectrum, so it overlaps with the balanced specialization a_d,b_d,c_d computed at line 62. The Johnson adjacency eigenvalues are already established ingredients. No exact table of the mixed eigenvalues and their switch is in the inspected source material."
+        ],
+        "reasoning": "Edge adjacency spectra diagonalize the squarefree block but neither quantify the diagonal-edge coupling g_d nor compare a_d against the smaller mixed eigenvalue.",
+        "searches": [
+          "Resultary same-mask lookup; 9e06559bb490 and f9d7096cbc9a",
+          "Frozen RESULT.md:62–86, comparison with Johnson-scheme spectra"
+        ]
+      },
+      "rationale": "The supported distinct contribution is the complete trace-free degree-two spectrum with its mixed standard bands and sharp dimensional switch. The same-day squarefree result gives substantive scope overlap: its k=2 balanced specialization is the off-diagonal compression, hence it covers the scalar sectors a_d and c_d there and the compression eigenvalue b_d. These pieces are not treated as independently novel, and relative priority is not inferred from dates. The compression result does not itself specify the diagonal–off-diagonal coupling or the extrema in the full degree-two space.",
+      "residual_risks": [
+        "No priority sequence can be assigned to the same-date records. The squarefree full text was not independently retrieved, so possible remarks that extend it beyond its advertised subspace remain uninspected.",
+        "Primary full text for related single-orthant results was not available in this review. The frozen literature summaries are not independent full-document disambiguation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematical scope overlaps the whole off-diagonal compression at k=2, s=d/2; neither literal coefficient comparison nor priority established; full-space mixed bands not implied by the returned scope",
+          "evidence": "Compare RESULT.md:62 (a_d,b_d,c_d) with 64–72 (nonzero g_d, mixed ℓ bands) and 81–86 (threshold).",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-all-degree-squarefree-spherical-harmonic-concentration-on--9e06559bb490",
+          "material_read": "Indexed summary: complete squarefree degree-k spectrum for exactly s positive coordinates, d≥2k, k+1 explicit sectors",
+          "method": "Local search; bounded local-mirror paper retrieval attempts timed out",
+          "title": "Exact all-degree squarefree spherical-harmonic concentration on sign-count masks",
+          "trigger": "Same balanced layer and k=2 exact Johnson spectrum"
+        },
+        {
+          "assessment": "Different region and band. Full transform or matrix entries could be useful inputs; visible summary does not establish the exact balanced union spectrum.",
+          "evidence": "Positive orthant rather than exactly d/2 positive coordinates; cf. current assumptions at line 38.",
+          "identifier_or_url": "2026/11/16/SCOPE-exact-quadratic-band-slepian-blocks-on-every-spherical-positive--f9d7096cbc9a",
+          "material_read": "Indexed summary identifying a positive orthant and a degree-zero-through-two band; historical frozen comparison",
+          "method": "Local search and frozen comparison reading",
+          "title": "Exact quadratic-band Slepian blocks on every spherical positive orthant",
+          "trigger": "Exact quadratic concentration in a related orthant model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md:12–38, 62–88"
+      ],
+      "rationale": "Sharp observability of pure quadratics from an exactly balanced sign mask is a natural concentration problem. The complete spectrum identifies which symmetry mode limits stability and proves that this mode changes between d=10 and 12. The sharp relative conditioning remains bounded as the observed area tends to zero. The switch and mixed spectrum give usable mathematics beyond the known squarefree block or a finite numerical comparison.",
+      "residual_risks": [
+        "Bounded squared relative conditioning does not give an absolute lower bound on restriction energy, or optimality among masks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

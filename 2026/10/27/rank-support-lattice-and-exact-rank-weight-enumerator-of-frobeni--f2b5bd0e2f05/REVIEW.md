@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The orbit-seed representation follows from the source paper's finite-abelian Fourier descent. With a normal basis, Frobenius gives the cyclic module \(\mathbb F_q[T]/(T^d-1)\), *even if* characteristic divides \(d\). The submodule with annihilator \(f\) is precisely \(\ker f(\sigma)\), with dimension \(\deg f\). The sum of conjugate-generated seed submodules has annihilator their least common multiple. In each primary factor, the count of independent seed tuples with maximum annihilator exponent bounded by \(j\) is \(q^{\delta_P\sum_i\min(j,a_{iP})}\); finite differences and CRT reconstruct every coefficient. A full-length Frobenius orbit guarantees each allowable exponent is attained. Direct enumeration checked six complete cyclic cases and one complete noncyclic character transform. No finite check is treated as a proof for all fields.
+PASS
 
-## Originality (O): PASS with identified residual risk
+The splitting condition implies p does not divide |A| and d divides m. Covariance under Frobenius and Fourier inversion identify the spectra with base-field functions; an orbit of length ℓ_i contributes a free seed in F_{q^{ℓ_i}} and its entire conjugate span. The normal basis realizes Frobenius as a cyclic shift of d independent vectors, so the ambient module is F_q[T]/(T^d−1) even when p divides d. Every invariant subspace is the ideal of (T^d−1)/f in that module, equivalently W_f of dimension deg f. The sum of seed spans is the ideal for the lcm of their annihilators. Independently, containment of the whole support in W_f is equivalent to each seed lying in the intersection W_f∩W_{T^{ℓ_i}−1}=W_{gcd(f,T^{ℓ_i}−1)}. Thus the cumulative count is q^{Σ_i deg gcd(f,T^{ℓ_i}−1)}. It factors over primary exponents; consecutive differences within each chain give the stated exact-support factors, including the one zero choice at exponent zero. The character of full exponent N has orbit length d, so the factors are positive for all exponent choices. The top-chain difference divided by its cumulative count is 1−q^{-deg(P)t_P}. The trivial group has d=1 and one seed, giving 1+(q−1)z. A separate small check at q=2, A=C_3 has orbit lengths 1 and 2 and a single repeated factor (T+1)^2; the cumulative counts 1,4,8 give 1+3z+4z² and full-rank probability 1/2, matching the captured output.
 
-The closest primary full text, Kumallagov–Sizikov–Zarubin arXiv:2605.20062 (Theorem 3.1 and Propositions 8.1–8.2), gives independent orbit seeds and a **symbol Hamming** enumerator, not the rank support of spectral values or its multiplicities. The checked q-order literature arXiv:2601.09201 defines one-element Frobenius order and normality, while the claim requires the entire joint multi-orbit primary-decomposition distribution. Mathematically these antecedents supply ingredients but do not state the code-level enumerator or individual-support counts. Targeted mathematical-record and literature searches found no dominating theorem. Classical cyclic-module enumerator technology could imply an equivalent formula under another name; unindexed or implicit coverage remains a real priority risk. No independent priority certification is asserted.
+## originality
 
-## Value (V): PASS
+PASS
 
-The natural field-value rank metric is distinct from the source paper's positional Hamming measure. The theorem determines the **entire exact support lattice** and the population of every Frobenius-invariant support in all finite abelian cases, not a small numerical parameter. The characteristic-dependent repeated-root behavior, explicit all-rank probability and finite factorization recipe provide a useful structural benchmark for rank-metric behavior and spectral diversity in this new code family. No coding-rate or decoder-performance improvement is asserted.
+The contribution is the exact field-value rank-support census of the complete Fourier code, a modest synthesis of Fourier orbit descent and finite-field module counts. Neither the orbit seed description, the cyclic Frobenius lattice in itself, nor the single-seed q-order/totient law is new. The claimed joint statistic counts heterogeneous orbit seeds by the subspace generated together, rather than by separate span dimensions or nonzero positions. The inspected sources do not give this joint census or a stronger such census with the same heterogeneous subfield constraints.
 
-## Sources and limitations
+## value
 
-Primary sources: arXiv:2605.20062 (full Theorem 3.1, Proposition 8.1–8.2 and residual-coding sections read), arXiv:2601.09201 (Frobenius-order preliminaries and section 3 read). General finite-field normal basis results and the 2013 k-normal line of work are classical antecedents. All computations and their exact small-case limitations appear in `VERIFICATION.md` and the standalone verifier.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The objects and weight arise naturally from complete base-field Fourier spectra and the rank metric, and positional statistics cannot answer the rank question. The result gives which field-value subspaces are possible, the number at each particular support, and a sharp full-support probability from orbit lengths, including cases where reducing Frobenius to a square-free spectrum would lose information. It gives exact populations without exhaustively enumerating q^{|A|} inputs, rather than a small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

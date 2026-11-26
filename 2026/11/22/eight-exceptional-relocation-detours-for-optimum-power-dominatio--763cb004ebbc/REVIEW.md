@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Both self-contained programs independently enumerate all 24-vertex one-, two-, and three-sensor configurations, including all \(576\) optimum triples; both generate each reconfiguration graph and compare every unordered pair's exact shortest-path distances. The independent bitset implementation reproduces the radius/diameter, eccentricity and full locality-penalty histogram. The direct set-based implementation verifies every degree and distance count and the eight disjoint extremal pairs. Critical finite completeness follows from enumerating every combination and reaching every vertex with exhaustive shortest paths; this does not claim a theorem for larger cages.
+## correctness
 
-**Originality — PASS, qualified.** The foundational 2022 power-domination reconfiguration paper gives general models, not the McGee-specific optimal configurations or distances. The publicly indexed McGee maximum-packing reconfiguration study addresses independent sets rather than power dominating sets; published McGee identifying-code, matching and critical-group claims also do not imply this theorem. Targeted comparisons under seven-cage, 24-vertex LCF, power domination and token-sliding aliases found no stronger same-object implication. An unindexed identical finite census remains possible, and indexed summaries are not substitutes for unavailable complete articles.
+PASS
 
-**Value — PASS.** The unique cubic seven-cage is the natural first odd-girth cubic-cage test case beyond the smaller Petersen graph. An exact observation-and-relocation census addresses the physically motivated question of retaining minimum sensors while moving only along network edges. The surprising eight disjoint pairs with jump distance one but slide distance eight demonstrate a sharp bottleneck that the global connectedness or diameter alone would conceal. The exact numbers and reproducible witnesses make a reusable test case for constrained reconfiguration algorithms without asserting broader applicability.
+The corrected statement specifies the unique cubic seven-cage, i.e. minimum order, rather than unqualified uniqueness among cubic graphs of girth seven. The latter is not true: for example take two copies of the cage, choose an edge outside a fixed 7-cycle in each, and cross-connect their endpoints after deleting the two edges. The new graph is cubic, has more vertices and retains a 7-cycle; a cycle using the new edges must traverse both sides and each side's replacement path has length at least six. This correction does not change the explicitly labelled graph or any enumeration. An independent exhaustive computation constructed the graph, checked degree, girth and base diameter, tested all 0–3 vertex subsets using simultaneous Boolean observation arrays, and compared sparse all-pairs shortest paths for the two exact exchange relations. It reproduced 0, 0, 0, 576 successful placements, wave counts 144, 272, 160, edge counts 6184 and 1328, all distance and eccentricity histograms, and the exact eight named pairs at (1,8) with sixteen distinct endpoints. The bound and matching refer only to minimum placements. The frozen scripts were inspected, not executed.
 
-**Limitations.** Finite graph only; no larger-cage extension, no physical-grid validation, no independent mathematical audit. Historical completeness cannot be proved from search alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of current knowledge: the prior framework and cage are known, but the optimum census and paired-distance result on their specific feasible configurations are supported as distinct. The narrow wording correction makes no novelty claim about cage uniqueness.
+
+## value
+
+PASS
+
+The canonical smallest cubic girth-seven graph gives a reproducible benchmark for minimum-preserving relocation. The joint metric and labelled matching identify exactly which one-step jumps intrinsically force eight slides, information not present in the separate diameters or in a minimum placement count. The repair preserves that finite structural contribution and makes no application or larger-family claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

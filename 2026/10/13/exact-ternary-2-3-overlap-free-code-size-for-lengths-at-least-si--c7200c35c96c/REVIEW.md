@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes a three-symbol ordered alphabet, all lengths at least six, and both self-overlaps and distinct-word overlaps of precisely lengths two and three. A code of length at least six injects into its set of three-symbol prefixes, arbitrary middle words, and three-symbol suffixes. Its prefix and suffix triple sets are disjoint and their respective two-letter end-block sets are disjoint. Each ordered pair of symbols has exactly three exhaustive statuses (unused/prefix/suffix), giving 19683 configurations. For each, allocating the intersection of the two candidate triple sets gives the stated exact integer upper envelope. Two implementations of this finite optimization both attain maximum 132; the construction has eleven allowed triples at the left and twelve at the right and satisfies both disjointness conditions. This proves the exact all-length result without extrapolating finite experiments.
+PASS
 
-## Originality — PASS
+The length-three prefix and suffix sets are disjoint, and their outer length-two end sets A,B are disjoint, including self-comparisons. Each word is uniquely specified by the two triples and one middle block for n≥6. The frozen upper-envelope calculation allocates each common candidate triple to one end and uses all 3^9 assignments of ordered pairs to neither end, A, or B. Independent upper bound without that certificate: for bounding candidate triple sets U_A,V_B enlarge B so that A,B partition all nine pairs. Reverse triples and exchange ends if needed so a=|A|≤|B|. For a≤2 the product is at most (3a)(27−3a)≤126. Otherwise a=3 or 4. Write r_j,c_j for the row and column degrees of A. The number of triples shared by U_A,V_B is h=Σ_j c_j(3−r_j)=3a−Σ_j r_j c_j. For a=3, sorted row sizes (3,0,0), (2,1,0), (1,1,1) give degree-product sums at most 3,5,3 respectively: each c_j is bounded by the number of occupied rows, and Σ c_j=3. For a=4 the row patterns (3,1,0), (2,2,0), (2,1,1) give at most 8,8,7 using the same bounds and Σ c_j=4. Thus h≥4; the disjoint selected end sets have total size at most |U_A∪V_B|=27−h≤23. Their product is at most floor(23²/4)=132. For the lower bound, P has nine triples with middle zero and two with both ends zero and middle nonzero; T has 3·2·2=12. Their relevant ordered pairs and triples are disjoint because the prefix requirements use zeros and the last pair of T does not. Every middle block is free, yielding the claimed optimum. A separate exact check enumerated the 512 complete ordered-pair partitions, built the corresponding triple sets, and maximized x·(|U_A∪V_B|−x) over integers |U_A∖V_B|≤x≤|U_A|; it found 132 with six maximizing partitions. The uploaded verifier was inspected but not executed. The maximum is for restrictions at lengths two and three only, with no conclusion for n<6.
 
-Yang–Ding's full-text Construction 3.5 and Theorem 3.4 give a family of restricted-overlap codes, not an optimum for the unrestricted ternary \((2,3)\) problem; specialization to their short-block bipartition choices yields at most \(108\cdot3^{n-6}\). Stanovnik's Proposition 3 already supplies the scaling in length, but not the missing numerical base value. Blackburn and collaborators' full-text treatment derives general bounds and binary constructions for \((1,k)\); their Cartesian prefix–suffix decomposition is prior technique, not the ternary optimum. Exact-value, alias, and upper-bound literature comparisons did not find the value 132. Residual risk: earlier unindexed computations or independent derivations could contain an equivalent optimum.
+## originality
 
-## Value — PASS
+PASS
 
-Determining the maximum at the smallest stable base length resolves a natural open finite coding-size invariant and all its arbitrary-length extensions. The result strictly improves the size of the available simple alphabet-bipartition construction in the emerging ternary setting, from 108 to 132 at base length six. It is neither a renamed binary statement nor merely a computation of codewords in a previously specified construction; the upper bound quantifies over all codes with the prescribed overlaps.
+The distinct content is the sharp ternary base-six value and its attaining end blocks. Stanovnik already gives the arbitrary-length reduction for n>6, and the boundary-set framework is not itself new. Checked general bounds and published construction counts do not fix the optimum at these parameters.
 
-## Scientific limits
+## value
 
-The proof uses a complete 19683-case integer certificate, whose source is embedded; the formula does not apply to all non-overlapping codes or to forbidden intervals other than \((2,3)\). The known length-reduction proposition is credited rather than claimed. Scientific validation beyond the checks described here is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Length six is the first stable length from the published reduction, so the finite optimum is not an arbitrary instance: it determines every larger length. The sharp constant 132 and explicit attaining end blocks improve on the cited bipartition sizes and prove optimality over all ternary codes with exactly these overlap restrictions, a useful baseline for restricted-overlap constructions. The scaling itself is prior work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

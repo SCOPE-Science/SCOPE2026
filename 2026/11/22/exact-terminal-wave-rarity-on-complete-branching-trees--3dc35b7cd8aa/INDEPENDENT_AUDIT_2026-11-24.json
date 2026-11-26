@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:56:10.588630Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With b>=2 and the exact synchronous 0->1->2->0 threshold rule, traceback from an excitation at time t branches at least b ways. Excitations at the same site cannot be two ticks apart, so backwards paths never immediately retrace an edge; on a tree they are simple and siblings' branches cannot meet. A height-t witness therefore takes at least (b^(t+1)-1)/(b-1) vertices. This forces t<=h, and a height-h witness spans and is rooted at the true root (any other vertex is farther than h from a leaf in a different first-generation branch). Its time labels force bottom states 1,0,{0,2}. Conversely the first two updates produce the waves as stated (the parent alone cannot stimulate a nonleaf with b>=2). If all children fire at j-1, none fires at j-2 or j-3. For j>=3 their parent cannot fire at either j-2 or j-1; it must be at rest at j-1 regardless of the initial state and external parent trajectory. It fires at j. The last excitation at h is nonzero through h+1 and is gone by h+2; if no excitation occurs at h, extinction is by h+1. The product count, probability and h=0,1 cases follow directly. My independent simulator checked both extinction time and the predicted extremizer predicate coordinatewise for every enumerated initial state, including all 3^15 binary height-three states (12 maximizers), all 3^13 ternary height-two states (2), and the ternary height-three slice with leaves fixed (24). Replay: python3 /workspace/reviews/reproduce.py 4 full (NumPy); /workspace/reviews/reproduce-output.txt. The height-three ternary slice is not full enumeration; the proof covers all parameters. Frozen C++/Python and saved outputs were inspected, not executed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The forest theorem max tau=H_theta(F)+kappa-1 specializes to h+2 and constructs one attaining coloring; it explicitly does not assert uniqueness.",
+          "Lemma 2.7(ii) excludes excitation at t>=h+1; for three states this already gives extinction by h+2. The infinite regular-tree Theorem 1.4 proves a fixation/tail result rather than a finite-tree equality."
+        ],
+        "reasoning": "The broader clock theorem covers the sharp time, not all attaining configurations. Neither a bound for arbitrary trees nor an infinite-tree upper-tail estimate implies finite equality.",
+        "searches": [
+          "Resultary sharp branching-rank extinction clocks b77bed2400cd",
+          "Bello–Sivakoff arXiv:2108.06404v1, Lemma 2.7(ii), Theorem 1.4"
+        ]
+      },
+      "checked_sources": [
+        "Frozen result, verification description and labelled output/code files",
+        "Resultary local search and mirror b77bed2400cd",
+        "Bello–Sivakoff arXiv:2108.06404v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 4.7 forces states 1,0,{0,2} on the bottom three witness levels for kappa=3; the next restriction allows every state.",
+          "The inequality before (4.7) multiplies the per-level probabilities of the necessary pattern; it does not assert that pattern is sufficient.",
+          "The clock construction keeps internal vertices resting initially; it does not establish freedom to set each higher layer independently."
+        ],
+        "reasoning": "Multiplying necessary-event probabilities gives an upper bound, not equality. The new local implication from the scheduled child firings to rest just before each parent firing prevents arbitrary upper-layer initial colors and parent feedback from spoiling the wave. This is needed to infer the exact count.",
+        "searches": [
+          "Bello–Sivakoff Lemma 4.7 and proof of Thm. 1.4, pp. 18–20",
+          "Resultary b77bed2400cd attaining construction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "On the perfect tree the time-h root excitation, time-h spanning causal witness, and time h+2 extinction agree. The prior lemma traces an excitation back to a witness and restricts its initial layers, not the reverse direction.",
+          "Threshold-one tree/path onset problems have different contact requirements and do not encode the full branching terminal shell."
+        ],
+        "reasoning": "The equivalent exact event is excitation of the root at time h. Formulating it this way exposes the prior one-way implication but does not convert it into the claimed iff.",
+        "searches": [
+          "Resultary terminal-wave maximal extinction and sharp branching rank on forests",
+          "Bello–Sivakoff arXiv:2108.06404v1, Lemma 4.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The bounded indexed search brought up the assigned finding itself and the forest clock record. The forest record gives an extremal time formula, not a table or census of maximizing colorings.",
+          "The published product calculation counts restrictions per candidate witness as an upper bound, not enumerated maximizers."
+        ],
+        "reasoning": "There is material exact prior data for times and a candidate shell upper bound; no checked table specifies the actual maximizing colorings or their exact populations.",
+        "searches": [
+          "Local Resultary terminal-wave rarity / maximal extinction coloring census",
+          "Bello–Sivakoff Eq. (4.7) and preceding bound"
+        ]
+      },
+      "rationale": "Pass only for the sufficient as well as necessary characterization and exact attainment of the shell probability on perfect trees. The old tree traceback, worst-case bound, existence of a standard attaining configuration, bottom-layer necessity, and product upper bound are not distinct contributions. The inspected overlapping statements do not force all admissible higher-layer initial colors to work; the local refractory-time argument establishes that missing assertion.",
+      "residual_risks": [
+        "Catalog overlap is clear, but the two November 22, 2026 dates do not settle within-day ordering of the clock record and this finding.",
+        "Search evidence is bounded; no assertion of absolute priority against unindexed or equivalent sufficiency results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct overlap of bound and necessity, not equality",
+          "evidence": "No excitation at t>=h+1 on finite rooted trees; Lemma 4.7 requires bottom states 1,0,{0,2}; the probability step uses a union bound over candidate witnesses on the infinite regular tree.",
+          "identifier_or_url": "https://arxiv.org/pdf/2108.06404",
+          "material_read": "ArXiv v1, pp. 1, 3, 10 and 18–20: Lemmas 2.7(ii), 4.7 and Theorem 1.4 and its proof around Eq. (4.7)",
+          "method": "Lawful OA PDF passage inspection",
+          "title": "Cyclic Cellular Automata and Greenberg–Hastings Models on Regular Trees",
+          "trigger": "Same threshold dynamics; witness necessity, extinction and rare-event estimate"
+        },
+        {
+          "assessment": "Covers h+2 and attainment by one coloring; not a census",
+          "evidence": "max tau=H_theta(F)+kappa-1; leaves initially excited and nonleaves resting in canonical witness; extremizer not asserted unique.",
+          "identifier_or_url": "Resultary 2026/11/22/SCOPE-sharp-branching-rank-extinction-clocks-for-excitable-dynamics-on--b77bed2400cd",
+          "material_read": "Local mirror RESULT.md finding, clock proof and construction, offsets 0, 2600–5611, 8750 onwards",
+          "method": "Local Resultary index and OA mirror",
+          "title": "Sharp branching-rank extinction clocks for excitable dynamics on forests",
+          "trigger": "Broader theorem for the same maximum time"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The census resolves whether the known worst-case clock is reached on a whole product class or only on special witnesses. The iff condition pins exactly the three bottom layers and explains why the probability of the maximal event is doubly exponentially small in height. Exact attainment despite arbitrary parent feedback is the useful additional structural fact, not the specialization of the old clock.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

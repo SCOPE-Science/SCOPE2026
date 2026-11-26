@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:31:52.981197Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From time one every 1 has a neighboring 2 (its previous-time exciter). If a right-moving head at j appears at the next time, j was resting and j−1 was excited; the requisite refractory neighbor of j−1 had to be j−2. This is a unique right-moving ancestor; conversely a head advances exactly when its target rests. Reflection gives the other direction. For opposite heads at time one the clockwise separation d lies in 0..n−2; d=n−1 would give an excited head and a refractory body at the same vertex. If both survive, after floor(d/2) advances they share a head surrounded by refractory sites (even d), or have mutually blocking adjacent heads (odd d). Thus by time floor(n/2)+1 at most one direction remains. Then any head's forward site is resting: a 2 there would make the opposite particle, while a 1 there needs its own forward refractory body and would also make an opposite particle. One further update drops all unpaired refractory sites and realizes a clean rotating train, or gives zero if no excitation remains. The rotation relation persists by translation-equivariance, so the period divides n. With one initial 1 all forward sites on the intervening arc are resting until the two heads meet or become adjacent, at time floor(n/2); excitation disappears next and the last refractory cells disappear one update later. This also handles n=3 (100→211→022→000), and eventual zero rules out earlier periodic entrance in the witness. Independent enumeration, without invoking the supplied verifier, checked 265707 states for n=3..11, giving depths 3,4,4,5,5,6,6,7,7 and only zero or translating recurrent states. Replay algorithm: use ternary state indices and the displayed local update; peel indegree-zero vertices, assign depth zero to the remaining cycles, then propagate depths backward in reverse peel order. The source verify.py and its documented invocation were inspected, not executed. These finite checks only corroborate the all-size particle proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner–Lyu–Sivakoff analyze three-color CCA and GHM on general graphs, using irrotationality and long-run cycle activity. Their preprint's Theorem 3(i) as printed claims equality of all colors at t≥diameter for irrotational data; on C_3 the frozen rule gives 100→211 at t=1=D and its two 0/1 edge contributions in Eq. (5) cancel. The diameter-of-monochromaticity statement as printed cannot be applied literally to this GHM example.",
+          "Fisch–Gravner p. 331 specifies free boundary conditions for finite intervals; Kesseböhmer et al. use the infinite lattice and distinguish the eventual image from arbitrary time-zero data."
+        ],
+        "reasoning": "The frozen prior-work paragraph should not be read as verifying the printed diameter-to-monochromaticity statement, and uses different terminology from the preprint. Its comparison does not enter the frozen proof. Even an extinction bound on the synchronizing branch and asymptotic activity on its complement do not establish a finite preperiod for the rotating branch.",
+        "searches": [
+          "arXiv:1610.07320 §§ definitions, Theorem 3 and its proof",
+          "Fisch–Gravner, Complex Systems 9 (1995), pp. 331, 334",
+          "arXiv:1903.02459 pp. 2–3, pulse-annihilation dynamics"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md and verify.py",
+        "Configured Resultary catalogue and one-way pulse-sorting mirror record",
+        "arXiv:1610.07320 and arXiv:1903.02459 primary passages; Fisch–Gravner Complex Systems 9 (1995) pp. 331 and 334",
+        "Durrett–Griffeath patt-sol/9303002 retrieval attempted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3(ii) gives a limiting activity from cycle circulation, not when the finite trajectory reaches its eventual orbit.",
+          "The inspected full-shift argument explains how particular counter-propagating pulses disappear and describes pure pulse dynamics in the eventual image."
+        ],
+        "reasoning": "The quantitative finite criterion used in the frozen proof is that, from time one, any two opposite heads still alive have time-one ancestors whose separation is at most n−2 and whose relative speed is two, followed by exact one-step cleanup. The inspected prior statements do not provide that coverage for arbitrary time-zero ring data.",
+        "searches": [
+          "arXiv:1610.07320 Theorem 3(ii)",
+          "arXiv:1903.02459 pp. 2–3 on collision dynamics and pure pulse-annihilation for e=r=1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The closest indexed one-way excitable ring result explicitly checks only neighbor i+1 and proves three-update sorting; it excludes the undirected rule.",
+          "Kesseböhmer–Rademacher–Ulbrich pp. 2–3 describe left and right multi-pulses and the annihilation subsystem on the full shift."
+        ],
+        "reasoning": "Spatially n-periodic data in the full shift implement the frozen ring rule, but qualitative pulse annihilation on an invariant subsystem does not alone say when all arbitrary ring data reach a one-direction train. The proof must bound all surviving opposite ancestries and account for initial and final cleanup.",
+        "searches": [
+          "Resultary: three-state Greenberg–Hastings finite rings, preperiod, pulse sorting and traveling waves",
+          "Primary search: Greenberg-Hastings cycle preperiod finite ring traveling wave"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate exact table or theorem on this maximum was identified in the returned material. The indexed one-way result has a different rule and extremal quantity."
+        ],
+        "reasoning": "Particle rates, asymptotic activity, a cutoff under a different neighbor rule, and finite per-n checks are not exact coverage of this all-size preperiod invariant.",
+        "searches": [
+          "Resultary: sharp floor(n/2)+2 maximum preperiod for undirected three-state cyclic GHM"
+        ]
+      },
+      "rationale": "The supported distinct claim is the exact universal least-preperiod cutoff for all initial states on the undirected finite cycle, including entry into rotating states. One-dimensional traveling pulses, their annihilation, and activity/winding relations are not new here. The inspected strongest comparisons did not establish the same uniform finite entrance bound.",
+      "residual_risks": [
+        "The single focused public search was uninformative; a specialized older finite periodic-boundary result may not have been identified.",
+        "The cited Durrett–Griffeath full text and the journal-version wording of the Gravner–Lyu–Sivakoff theorem were not independently inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct rule, not equivalent.",
+          "evidence": "Only i+1 affects excitation; the proof sorts this one-way model in at most three updates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/17/SCOPE-three-update-pulse-sorting-and-a-cubic-extinction-law-for-one-wa--1097a8f8e9c8",
+          "material_read": "RESULT.md from offset 0",
+          "method": "Configured local mirror, snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4",
+          "title": "Three-update pulse sorting and a cubic extinction law for one-way excitable rings",
+          "trigger": "Closest indexed ring sorting result"
+        },
+        {
+          "assessment": "Substantial background; synchronization-time statement as printed needs qualification for this GHM convention. Nonirrotational conclusion addresses limiting activity, not entrance time.",
+          "evidence": "Eq. (5) counts oriented 0→1 edges positively and 1→0 negatively; Theorem 3(ii) gives activity by maximal mean circulation. The C_3 trajectory stated in the review refutes literal application of (i) to equality of colors at t=D in that preprint formulation.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320; DOI 10.1214/17-AAP1350",
+          "material_read": "Preprint pp. 3–4, Eq. (5), (7) and Theorem 3 (offsets 9700–12689 and 14480–16523); p. 14 proof around 50020–53250",
+          "method": "Targeted OA PDF; DOI recovery supplied the preprint",
+          "title": "Limiting Behavior of 3-Color Excitable Media on Arbitrary Graphs",
+          "trigger": "Closest general-graph transient and winding comparison"
+        },
+        {
+          "assessment": "Relevant wave and stable-object background; the inspected finite-system convention differs.",
+          "evidence": "Finite subsets of the line have free boundaries; §2 discusses stable periodic objects.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+          "material_read": "pp. 331, 334, §2 (offsets around 5800 and 13100)",
+          "method": "Targeted OA PDF text",
+          "title": "One-dimensional Deterministic Greenberg-Hastings Models",
+          "trigger": "Primary literature on one-dimensional fronts"
+        },
+        {
+          "assessment": "Known front phenomena, not an inspected exact preperiod theorem on finite rings.",
+          "evidence": "A one-direction multi-pulse shifts undispersed; opposite clean pulses annihilate; for e=r=1 the eventual image equals the pulse-annihilation system.",
+          "identifier_or_url": "https://arxiv.org/pdf/1903.02459",
+          "material_read": "Full-shift setup p. 2; pp. 2–3 on pure pulses, collisions and the eventual image, offsets 7880–10652",
+          "method": "Targeted OA PDF text",
+          "title": "Dynamics and Topological Entropy of 1D Greenberg–Hastings Cellular Automata",
+          "trigger": "Existing classification of wave and annihilation dynamics on the infinite line"
+        },
+        {
+          "assessment": "Unresolved comparison, not negative evidence.",
+          "evidence": "The cited identifier did not yield its PDF through the accessible route.",
+          "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+          "material_read": "No full-text passage recovered",
+          "method": "OA retrieval of the exact supplied arXiv identifier attempted",
+          "title": "Asymptotic Behavior of Excitable Cellular Automata",
+          "trigger": "Older cited primary study of excitable media"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact cutoff bounds the time necessary to identify an attractor for every coloring in a standard finite excitable automaton. It uses the geometry of two annihilating fronts and applies also to nonsynchronizing states, so it is more informative than an entropy or long-run-activity statement. Sharpness is realized by a natural minimal excitation and tracks the exact final refractory delay.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

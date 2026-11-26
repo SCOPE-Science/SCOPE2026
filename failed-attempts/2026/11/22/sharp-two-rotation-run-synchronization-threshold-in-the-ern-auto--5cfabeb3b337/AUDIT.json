@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "All n>=3 covered by explicit Q,S,T invariant for no-aa inputs and exact algebraic verification of x,e block actions, followed by an interval-shrinking induction. W length and lack of aaa follow from the block spellings. Verified independently in the current package for n=3..100 and exhaustive no-aa reachable states n=3..15; finite tests are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "failed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoffmann 2021 Theorem 4.3 covers a larger class of automata for decidability, not a quantified all-n threshold and explicit legal word.",
+        "published-finding corpus 2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4 bounds counts of rotational and collapse letters in arbitrary reset words and has no contiguous-run existence assertion."
+      ],
+      "reasoning": "A general algorithm for testing constraints could decide each individual Cerny instance but does not logically provide the explicit theorem for all n without the new construction. Lower bounds on the total number of rotations do not force any prescribed number to be consecutive.",
+      "searches": [
+        "Cerny automaton shortest synchronizing word forbidden aaa a-runs length at most 2 quadratic formula",
+        "constrained synchronization Cerny automaton no triple repeated cycle letter",
+        "published-finding corpus 2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+        "Hoffmann 2021 arXiv:2109.02743 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2109.02743",
+      "https://doi.org/10.4230/LIPIcs.MFCS.2019.63",
+      "published-finding corpus record 2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+      "published-finding corpus record 2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+      "published-finding corpus record 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+      "published-finding corpus record 2026/10/18/SCOPE-exact-shortest-extension-profile-of-the-ern-automata--32f9b58cd457",
+      "published-finding corpus record 2026/10/13/SCOPE-exact-reset-thresholds-for-cyclic-automata-with-one-consecutive--967ac6af616f",
+      "published-finding corpus record 2026/10/13/SCOPE-an-exact-parity-dichotomy-for-cyclic-automata-with-alternating-s--910c2de38d8d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus 2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c states a mandatory scattered optimal reset subsequence, which allows arbitrary letters inserted between positions and does not entail a no-aaa witness.",
+        "Theorem 4.3 in Hoffmann 2021 is a complexity theorem, not an asserted all-n construction.",
+        "Fernau et al. 2019 establish regular-constraint complexity, not this extremal-family threshold."
+      ],
+      "reasoning": "The new assertion is stronger than instance-wise decidability and incomparable to unconstrained letter-count or scattered-subsequence claims. No checked stronger theorem was shown to imply the explicit positive/negative boundary. If a general theorem elsewhere covers the exact constraint through hidden corollaries, that would affect originality; this risk is disclosed.",
+      "searches": [
+        "Černý automaton C_n no three consecutive rotations aaa-free reset word block ab aab reduces to C_{n-1}",
+        "published-finding corpus 2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+        "Hoffmann 2021 simple idempotents Theorem 4.3",
+        "Fernau Gusev Hoffmann Holzer Volkov Wolf MFCS 2019 constrained synchronization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hoffmann 2021 Theorem 4.3 gives polynomial-time decision for automata with simple idempotents and small constraint automata, rather than the explicit uniform threshold.",
+        "published-finding corpus 2026/10/18/SCOPE-exact-shortest-extension-profile-of-the-ern-automata--32f9b58cd457 describes shortest extension of inverse images of subsets, not reset words restricted by a-run lengths."
+      ],
+      "reasoning": "An equivalent result would assert the sharp no-aa/no-aaa threshold for all n or an isomorphic statement on the word blocks ab/aab. Neither form was located among the returned statements and materially inspected primary text; an equivalent unindexed formulation cannot be ruled out.",
+      "searches": [
+        "Černý automaton C_n no three consecutive rotations aaa-free reset word block ab aab reduces to C_{n-1}",
+        "Cerny shortest constrained reset strings avoiding aa a^3 precise run threshold",
+        "Cerny automaton block alphabet ab aab induced n-1 state Cerny semigroup conjugate",
+        "published-finding corpus 2026/10/18/SCOPE-exact-shortest-extension-profile-of-the-ern-automata--32f9b58cd457"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3 gives earliest deficiency-s lengths for unconstrained words, not the all-n constrained synchronizability dichotomy.",
+        "published-finding corpus 2026/10/13/SCOPE-exact-reset-thresholds-for-cyclic-automata-with-one-consecutive--967ac6af616f changes the collapse letter and proves a different reset-threshold formula."
+      ],
+      "reasoning": "The finding is an exact parameter-free cutoff over all n, not an integer series or finite table. Returned records of finite automata or unconstrained length spectra do not record the same family of local command constraints.",
+      "searches": [
+        "reset threshold Černý automaton bounded a powers alternation of b",
+        "published-finding corpus 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+        "published-finding corpus 2026/10/13/SCOPE-exact-reset-thresholds-for-cyclic-automata-with-one-consecutive--967ac6af616f",
+        "Černý constrained reset aaa forbidden explicit automaton threshold"
+      ]
+    },
+    "rationale": "The exact uniform a-run threshold and constructive predecessor-collapse block representation were not implied by the inspected nearby primary results or indexed published claims. Existing results address decision complexity, unrestricted optimal words, scattered subsequences, or letter counts, none of which proves the explicit no-aaa construction and impossible no-aa case. Unknown equivalent prior formulations remain a candid priority risk.",
+    "residual_risks": [
+      "A differently labeled, unindexed characterization of restricted Černý reset words could predate this statement.",
+      "The 2021 polynomial-time decision result might have implicit corollaries specialized to the same language; the inspected theorem/proof sections did not directly establish the claimed all-n formula.",
+      "Some indexed published-finding corpus summaries were compared at the statement level only, not fully read; a hidden stronger appendix could affect priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_COVERAGE: proves tractable decision procedure; no found statement of the sharp two-run threshold or this explicit action on n-1 states",
+        "evidence": [
+          "arXiv:2109.02743v1, public 2021-09-06, Theorem 4.3, p.10: polynomial-time constrained synchronization for simple-idempotent automata and constraint automata at most 3 states; Fig.3 includes the Černý family."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.02743",
+        "material_read": "Abstract, introduction, Section 4 Proposition 4.2 and Theorem 4.3 around PDF pages 9–11, related proof cases and appendix pages 17–19, references",
+        "method": "Read lawful open-access PDF text, cross-checked theorem page visually; searched for the exact prohibited run and block terminology",
+        "title": "Constrained Synchronization for Commutative Automata and Automata with Simple Idempotents",
+        "trigger": "Closest primary treatment specifically including the Černý family and small regular constraints"
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_SAME_CLAIM: regular-constraint complexity and decision questions, no family-specific all-n two-rotation-run construction observed",
+        "evidence": [
+          "MFCS 2019, DOI 10.4230/LIPIcs.MFCS.2019.63, abstract and introductory definitions of constrained synchronization."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.63",
+        "material_read": "Abstract, introduction and headline complexity statements in the accessible MFCS 2019 PDF; theorem claims checked in parsed text",
+        "method": "Read OA PDF text and inspected its title/abstract page image",
+        "title": "Computational Complexity of Synchronization under Regular Constraints",
+        "trigger": "Foundational primary framework for exact regularly constrained reset words"
+      },
+      {
+        "assessment": "NOT_SHOWN_COVERING: lower bounds on number of rotations, not how they are grouped; material-access limitation noted",
+        "evidence": [
+          "Record 2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4 states at least (n-1)(n-2) rotations and n-1 merging letters for any reset word."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-uniform-weighted-reset-optimality-in-the-ern-automata--6527a70965c4",
+        "material_read": "Published indexed theorem and abstract-sized summary; full proof text not available here",
+        "method": "Mathematical statement comparison with the new contiguous-run restriction",
+        "title": "Uniform weighted-reset optimality in the Černý automata",
+        "trigger": "Potential implication from quantitative bounds on letters used by any reset word"
+      },
+      {
+        "assessment": "NOT_SHOWN_COVERING: scattered occurrence of optimal reset word does not preclude a legal no-aaa supersequence",
+        "evidence": [
+          "Record 2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c asserts the classical optimal word is a scattered subsequence of every reset word."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/13/SCOPE-a-mandatory-reset-subsequence-and-exact-one-step-multiplicity-fo--8a725fd1702c",
+        "material_read": "Published indexed theorem and summary, without full proof body",
+        "method": "Compare scattered-subsequence inclusion to forbidden contiguous runs",
+        "title": "Mandatory reset subsequence and one-step multiplicity for the Černý automata",
+        "trigger": "Possible coverage through universally mandatory reset subsequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "previously_published_pending_reaudit": false,
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5cfabeb3-b337-48da-9f6e-69f6b496582e",
+  "value": {
+    "rationale": "The all-n transition from impossible to possible local reset controls occurs at exactly two consecutive rotation commands in a classical extremal synchronization family. A constructive block embedding supplies a reproducible quadratic reset sequence and a mechanistic explanation, rather than a bare decision algorithm or arbitrary finite example. This addresses a natural restricted-control synchronization parameter; optimal constrained word length is not asserted.",
+    "status": "PASS"
+  }
+}

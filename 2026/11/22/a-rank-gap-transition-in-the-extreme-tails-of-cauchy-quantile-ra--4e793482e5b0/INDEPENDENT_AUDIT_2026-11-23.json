@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-23",
+  "audited_at_utc": "2026-11-23T19:57:52.406622Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, assumptions and Proof Steps 1–4; AUDIT.json, REVIEW.md, METADATA.json, SLOGAN.txt and VERIFICATION.md; frozen check.py inspected but not executed",
+        "Independent boundary-coefficient derivation and numerical quadrature of the two four-rank integrals: /workspace/branches/801e5c0f-ded2-4aa3-8906-90ffc5c1118f/ordinal-2-math-check.md"
+      ],
+      "rationale": "Positive-scale affine invariance gives the standard Cauchy normalization. To justify the key joint-density limit, put d=1/v and split the ordered density by the sample-minimum coordinate y at y=−d/2, so z=y+d. In the half y≥−d/2 retain the first n−1 order statistics, set x_c=x_b+g, and multiply their product density by d² f(y+d), with the indicator that y+d exceeds the last retained coordinate. The removed endpoint factor is bounded by 4/pi and tends to 1/pi. For each fixed tuple of the other n−2 coordinates the endpoint restrictions become automatic uniformly on bounded g intervals. The retained product is dominated by sup f times the product of densities in those free coordinates, an integrable bound. The other half is the same calculation by reflection, removing the minimum, with indices b−1,c−1 in the retained sample. This proves local uniformity of the two-term density H; the ordered factorials give n/pi. Integrating the r−1 coordinates between the two marked ranks yields the uniform O(g^(r−1)) bound. The same gap bound holds for the marginal small-gap law, and a union bound on absolute sample extremes gives P(V<s)=O(s). For adjacent ranks the small square integrates to H(0)t log(1/t) to leading order; its two exterior strips are O(t) at fixed square size. For r≥2 the compact region bounded away from zero gives the integral of H(g)/g; the g>M tail is O(t/M), and near zero integration of min(v0,t/g) against the gap bound plus the V>v0 strip gives O(t δ^(r−1)+t^r). The adjacent density at zero follows by integrating f² against the two order-statistic weights and substituting u=F(y). At n=4 the two three-sample densities are each 3/(2pi), giving 12/pi². At the other endpoint the two outer gaps lie in a simplex of area t²d²/2. For t≤1/4 one pair of translated endpoint densities has both arguments at distance at least d/4 from zero, according to the same y split, so the integrated four-density product is O(d^−4) for d≥1; it is bounded for d≤1. Dominated convergence and symmetry give 12(∫ f²)(∫ x² f²)=3/pi². Both moment thresholds follow by integrating these endpoint tails, including divergence at equality. The stated four probability levels do give (1,3,8,10) at n=10 under the record's own ceiling-rank convention.",
+      "residual_risks": [
+        "The quadrature tests the constants, not uniform convergence. The theorem is fixed-n for raw inverse-CDF ranks with both sample extrema selected; no approximation at moderate t, alternative interpolation, or uniform large-n calibration is established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pekgör's accessible abstract describes a null asymptotic law and Monte Carlo critical values. Rublík's fixed-interior-probability limit is explicitly not extended to his n-dependent extreme probabilities. The normalized-spacings chapter is plausibly relevant but only its description was available; the normalization and distribution results could not be established from that description."
+        ],
+        "reasoning": "A limit obtained by letting sample size grow at fixed quantile levels does not supply the small-threshold limit at fixed sample size. A theorem on general normalized spacings could matter only if it applies to normalization by the full range and resolves the heavy-tail boundary; no affirmative coverage determination about the inaccessible chapter is made.",
+        "searches": [
+          "Web: fixed sample normalized spacings heavy tails interior gap sample range ratio tail asymptotics regular variation cauchy finite sample logarithm",
+          "DOI 10.1155/2023/9200213",
+          "Stochastic Comparisons of Sample Spacings, DOI 10.1007/978-3-031-12104-3_7",
+          "Rublík, Section 2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and supporting audit; bounded literature and Resultary search results; exact sources and access limits listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Rublík statistic is a fitted two-coordinate CDF quadratic form, whereas the present ratio is computed without parameter estimation. Secondary descriptions of Pekgör use a four-spacing ratio, but at fixed probabilities and with a different limit or calibration task. The two one-extreme boundary densities and the competition of their reciprocal-gap integral with local gap collapse are essential for the stated coefficients."
+        ],
+        "reasoning": "Neither a quantile central limit theorem nor separately knowing a tail law for the range and a density law for the spacing proves the ratio boundary law: the coefficient depends on the joint density. No checked result transfers directly to that joint boundary. Do not infer noncoverage merely from inaccessible text.",
+        "searches": [
+          "Rublík, Section 2 and p. 344 endpoint caveat",
+          "Pekgör DOI/Crossref record and frozen RESULT.md, prior-work comparison",
+          "arXiv:2511.04784v1, equations (1.1)–(1.2) and (2.1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ratio is the difference of two order positions after mapping the sample minimum and maximum to zero and one. The raw-gap-times-reciprocal-range form is the same observable. The known Rublík quadratic form uses fitted CDF differences at the two extreme order statistics, rather than a gap of normalized interior positions. Quantile contribution in arXiv:2511.04784v1 is instead an upper-rank sum divided by the total sample sum."
+        ],
+        "reasoning": "Do not equate methods merely because they share extreme ranks or the word spacing. The exact hitting Resultary item is the finding itself. The rank convention permits a quantile-test interpretation but is not evidence about another author's implementation.",
+        "searches": [
+          "Resultary: Cauchy fixed sample range normalized four order spacing quantile ratio extreme tail t log inverse gap",
+          "Web: Cauchy sample range normalized spacings exact finite sample distribution inner quartile spacing ratio Cauchy order statistics affine invariant maximal invariant",
+          "Rublík, equations (2.5)–(2.7)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rublík's Table 3 critical values are Monte Carlo estimates for a quadratic statistic. Pekgör's abstract describes simulated finite-sample critical values; its primary tables were not accessible. Related Resultary hits included different Cauchy statistics or different spacing/collision observables rather than a precedent for these exact coefficients."
+        ],
+        "reasoning": "Finite cutoffs for selected probabilities or a different statistic do not determine the t→0 asymptotic. Neither these inspections nor the finite searches certify absence of another exact formula.",
+        "searches": [
+          "Resultary: Cauchy fixed sample range normalized four order spacing quantile ratio extreme tail t log inverse gap",
+          "Web: A Novel Goodness-of-Fit Test for Cauchy Distribution Pekgör 9200213 0.02217468 pdf quantile ratio",
+          "Rublík, Table 3"
+        ]
+      },
+      "rationale": "The useful comparison is a fixed-size endpoint law for a raw affine-invariant spacing ratio, not priority for defining a quantile test. The accessible extreme-order Cauchy primary source uses a different statistic; the closest four-quantile source is reported to study null asymptotics and simulated cutoffs, but its full text and its interpolation convention could not be independently checked. The checked material does not supply the claimed coefficients or collapse-versus-escape transition. This is a bounded best-of-knowledge conclusion with the two specific access gaps below.",
+      "residual_risks": [
+        "Pekgör's article and supplemental implementation were not independently available beyond abstract/secondary descriptions; neither the paper's quantile convention nor claims outside the abstract are certified.",
+        "The Springer chapter was not accessible beyond its description; an applicable earlier general spacing theorem or unindexed fixed-size asymptotic could affect priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Accessible evidence supports null asymptotics and simulated critical values; independent full-text comparison and exact quantile convention unresolved",
+          "evidence": [
+            "The abstract reports a null asymptotic law and Monte Carlo critical values at different sample sizes. The levels yielding (1,3,8,10) are interpreted only under the frozen record's specified rank convention."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2023/9200213",
+          "material_read": "Crossref metadata and abstract at https://api.crossref.org/works/10.1155/2023/9200213; ratio details only from secondary descriptions and the frozen package",
+          "method": "Lawful OA attempts at publisher versions returned 403/401; bounded abstract and secondary-source comparison",
+          "title": "A Novel Goodness-of-Fit Test for Cauchy Distribution",
+          "trigger": "Closest quantile-ratio Cauchy test and possible fixed-size null result"
+        },
+        {
+          "assessment": "A distinct fitted-CDF quadratic statistic; the endpoint calibration does not imply the raw-spacing result",
+          "evidence": [
+            "The extreme test uses deviations at the first and last order statistics with location and scale fitted; the power-of-chi-square fixed-interior argument is not justified for moving endpoint probabilities, and critical values for the parameter-free extreme statistic are simulated."
+          ],
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/134472/AplMat_46-2001-5_2.pdf",
+          "material_read": "Original PDF, equations (1.6), (1.8), (2.2)–(2.7), p. 344 and Table 3",
+          "method": "Lawful DML-CZ full PDF and direct formula/limit comparison",
+          "title": "A quantile goodness-of-fit test for Cauchy distribution, based on extreme order statistics",
+          "trigger": "Older Cauchy test explicitly using the extreme order statistics"
+        },
+        {
+          "assessment": "Coverage undetermined",
+          "evidence": [
+            "The public description mentions stochastic ordering and distribution theory of normalized spacings, without specifying the normalization or a theorem for this Cauchy ratio."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-12104-3_7",
+          "material_read": "Public chapter description of §§7.2–7.3 only; text of the sections was not retrieved",
+          "method": "Web result description and lawful OA attempts at exact chapter and PDF; redirect failure",
+          "title": "Stochastic Comparisons of Sample Spacings",
+          "trigger": "Possible general normalized-spacing distribution theorem"
+        },
+        {
+          "assessment": "Distinct statistic, not an equivalent Cauchy range ratio",
+          "evidence": [
+            "Uses a partial sum divided by the total sample sum; the numerator and denominator are not the two marked differences of this theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2511.04784v1",
+          "material_read": "Definition equations (1.1)–(1.2) and order representation (2.1)",
+          "method": "Lawful open HTML, direct formula comparison",
+          "title": "Insights into Tail-Based and Order Statistics",
+          "trigger": "Potential finite-sample order-statistic ratio formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, Finding and Proof Steps 1–4; Rublík endpoint test and bounded Pekgör comparison"
+      ],
+      "rationale": "The theorem resolves a natural fixed-sample rare-tail calibration question for an affine-invariant raw order-statistic ratio. It distinguishes the borderline adjacent collision coupled to an extreme range from the integrable inverse-gap case, with sharp constants and a contrasting quadratic endpoint at the minimal sample size. This gives precise moment thresholds and mathematically meaningful null-tail behavior, irrespective of which software quantile rule an existing test uses.",
+      "residual_risks": [
+        "No claim of test optimality, practical moderate-tail calibration, or applicability to interpolated quantiles or non-Cauchy sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For any strictly positive normalized endpoint clearance, a Gaussian one-site optimization yields the exact conditional two-query policy. Gaussian integration and differentiation produce a strictly positive explicit right derivative at the central first-query time and the opposite left derivative. Endpoint continuity and midpoint improvement force a reflected pair of off-center global optima. All boundaries and quantifiers are explicit in `RESULT.md`. The delivered `verification.py` passed deterministic checks; finite numerics supplement rather than replace the proof.
+## correctness
 
-**Originality — PASS, with historical risk.** Searches for two-step Brownian-bridge threshold detection and midpoint symmetry breaking in the mathematical-results index and scholarly literature did not identify a statement that implies the exact two-query functional or its universal cusp. Alabert--Caballero analyze nonadaptive minimum approximation, Calvin--Hefter--Herzwurm analyze asymptotic minimum approximation using a midpoint-based heuristic, and Hoel--Ragunathan analyze exit-time step discretization. The high-relevance Calvin--Hefter--Herzwurm original full text could not be fetched; the abstract and a detailed accessible synopsis were reviewed, so historical priority is provisional. The conditional bridge distribution and interval-crossing formulas are established background, not novelty claims.
+PASS
 
-**Value — PASS.** The result supplies a structural, all-parameter counterexample to a natural balanced-first retrospective refinement rule under the two-evaluation constraint. The exact positive cusp derivative explains the mechanism, and the policy is implementable without numerical optimization of the second query. At normalized clearance \(c=1/2\), choosing first-time fraction \(1/3\) raises detection from about \(0.23572175\) to \(0.24646203\). The finite-budget, binary crossing-detection objective is distinct from asymptotic accuracy of estimating the minimum or an exit time.
+For conditioned endpoint values u,v>0 on length L, the squared positive standardized mean equals [u²/r+v²/(1-r)−(u−v)²]/L. Minimizing gives r=u/(u+v) and the unique segment optimum Φ(−2√(uv/L)). Hence on a positive first reading, choose the longer conditioned segment; on a nonpositive reading the alarm has already occurred. This gives the stated Gaussian integral and a measurable attaining rule. In the integral, the first marginal depends on s through v_s=1/4−(s−1/2)² while the second term also depends on L_s=1/2+|s−1/2|. Differentiation locally has an integrable Gaussian envelope; only the length term contributes the first-order change. At the midpoint its derivative integrand is (2√(2c)/π)y^(1/2)exp(−2y²−2c²); substituting x=2y² gives Γ(3/4)√c exp(−2c²)/(2^(1/4)π). Reflection gives the opposite left derivative. As s tends to an endpoint, the first reading converges in probability to c>0 and the bounded success integrand tends to Φ(−2c), strictly below the midpoint value. Compactness, the cusp, and reflection then yield mirrored interior maximizers, without uniqueness.
 
-**Limits.** The setting is symmetric pinned Brownian bridges with noiseless offline conditional sampling; no unique off-center optimizer, non-Gaussian, asymmetric, larger-budget, or online extension is asserted. Priority outside inspected material is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The supported distinct result is the universal midpoint cusp and its explicit coefficient for the optimized offline two-sample binary alarm, not the Gaussian bridge conditioning law, a law of the continuous minimum, nor a general new adaptive-sampling method. The closest inspected sampling and exit-time results do not establish this claim.
+
+## value
+
+PASS
+
+A fixed budget of two samples is the first setting where the use of a revealed value can change the next location. The result quantitatively rules out a symmetry-based first-stage design for every positive clearance despite symmetric endpoint data. It supplies the exact conditional policy and local improvement coefficient, not merely a numerical example of an off-center optimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

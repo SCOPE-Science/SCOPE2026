@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T01:01:51.450716Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md lines 4–52; VERIFICATION.md; verify_yule_simon.py (inspected, not run)",
+        "Independent replay: python3 /workspace/branches/review_bounded_checks.py"
+      ],
+      "rationale": "For α=−a<0, the power-mean inequality reverses when raised to the negative power and becomes discrete convexity of h_a(k)=[∏_{j=0}^ρ(k+j)]^a. The support starts at 1, and the zero-value convention imposes no extra boundary restriction. Telescoping adjacent ratios gives the stated F_ρ(a) at center 2. It vanishes at 0, has negative derivative there, is strictly convex, and diverges to +∞, so a≥a_ρ is necessary. Writing w=g′ and f=S₂/S₁² gives f′<0 by strict Cauchy–Schwarz S₂²<S₁S₃ for ρ≥1. The sliding w-weighted mean R(x) lies strictly between f(x+1) and f(x); its derivative is strictly negative because both endpoint terms have the required signs. The continuous unit slope B_a has derivative of the sign of a−R(x), so B_a(2)≥B_a(1) forces a>R(2) and strictly increasing B_a on [2,∞). This proves all later lattice inequalities strictly, including when a=a_ρ, with equality only at center 2. For the strict bounds, h_a″ has sign a−f: f(x)>1/(ρ+1) everywhere, whereas f(x)<f(1)=b_ρ for x>1, giving strictly opposite first-triple signs at the two bounds. Increasing probability ratios give strict log-convexity and rule out all α≥0 by power-mean monotonicity. An independent high-precision check of the ρ=1 defining equation confirms the printed decimal; the all-index proof is analytic.",
+      "residual_risks": [
+        "Only positive integer shape on the stated infinite support and the stated power-mean convention are proved; no noninteger or truncated-family classification is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Example 1.2(3) uses a continuous second-derivative sufficient bound at x=1; it does not give discrete sharpness. The inspected Karp results concern rising-factorial power series and discrete Wright log-concavity of Pochhammer-ratio series, not second differences of a single rising-factorial power."
+        ],
+        "reasoning": "These stronger-looking results have a different kind of convexity, different independent variable, or only sufficient continuous hypotheses; no examined theorem forces exact first-triple sufficiency.",
+        "searches": [
+          "arXiv:2610.05439v1 Example 1.2(3)",
+          "Karp NIST slides pp. 14, 30, 38, including Theorems 1 and 5",
+          "arXiv:2305.09029v3 p. 1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05439v1; 1203.1482v1; 2305.09029v3",
+        "Karp NIST slides pp. 14, 30, 38",
+        "Resultary 346b4369fd3a and 7f02d543e0e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior admissible exponent −b_ρ implies admissibility at more negative indices, but −a_ρ>−b_ρ is strictly outside that implication. The first-triple test alone only gives necessity; sufficiency and strictness on the rest of the lattice rely on the one-turn argument."
+        ],
+        "reasoning": "Neither power-mean parameter monotonicity, continuous curvature at the conservative bound, nor the inspected series theorems establishes the exact lattice classification.",
+        "searches": [
+          "Alqasem–Aravinda–Marsiglietti Example 1.2(3) vs. the frozen theorem and its first-triple root",
+          "Karp Theorems 1 and 5, variable and curvature types"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The negative power of the Yule–Simon law is proportional to the stated power of the rising factorial. The inspected Toeplitz-polynomial and Pochhammer-series papers study different objects, and Karp's log-convexity and log-concavity theorems vary a series parameter."
+        ],
+        "reasoning": "A change to rising-factorial notation is an exact reformulation of this claim; it does not turn logarithmic curvature in a series parameter into ordinary second differences of the powered sequence.",
+        "searches": [
+          "arXiv:2610.05439v1 Example 1.2(3)",
+          "Rising-factorial and gamma-ratio formulations of ordinary convexity for k↦[(k)_{ρ+1}]^a: Karp NIST Theorems 1 and 5; arXiv:1203.1482v1; arXiv:2305.09029v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The cited prior gives the exact b_ρ formula but not the a_ρ table or defining sharp threshold. The nearest displayed local results concern finite beta-binomial log-concavity and a negative-binomial CDF/local-minimum sequence."
+        ],
+        "reasoning": "Neither indexed exact result nor the b_ρ formula supplies this Yule–Simon sharp index; the finding is an infinite-family classification, not a refit of a finite table.",
+        "searches": [
+          "Local Resultary Yule–Simon sharp negative power concavity index and related beta-binomial and negative-binomial shape classifications (346b4369fd3a; 7f02d543e0e8)",
+          "arXiv:2610.05439v1 Example 1.2(3), exact admissible parameter"
+        ]
+      },
+      "rationale": "The checked prior Yule–Simon result gives −b_ρ by a continuous curvature sufficient condition, not the exact larger lattice-optimal −a_ρ. The supported distinct claim is exact first-triple control across the unbounded lattice for every positive integer shape, with the equality location and strict gap. The closest broader statement-level and local catalogue comparisons do not cover it.",
+      "residual_risks": [
+        "A general sharp ordinary-convexity theorem for powers of rising factorials might imply the result; no coverage is established from the inspected statements. Bounded retrieval is not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The prior result gives a sufficient integer-shape index from continuous curvature, not the optimal lattice index.",
+          "evidence": [
+            "The negative index is −Σ_{i=1}^{ρ+1} i^(−2)/(Σ_{i=1}^{ρ+1} i^(−1))², obtained from continuous second curvature at x=1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.05439v1",
+          "material_read": "PDF p. 3, Example 1.2(3), offsets 7877–9050",
+          "method": "Bounded primary OA PDF passage",
+          "title": "Majorization, Entropy and Concentration Inequalities for Discrete α-Concave Random Variables",
+          "trigger": "Same family, same concavity parameter, plausible exact coverage"
+        },
+        {
+          "assessment": "Logarithmic convexity or concavity in a parameter of a series, not sharp ordinary convexity of a lattice rising-factorial power.",
+          "evidence": [
+            "Theorem 1 concerns a rising-factorial power series; Theorem 5 gives discrete Wright log-concavity for a series of Pochhammer ratios."
+          ],
+          "identifier_or_url": "D. Karp, NIST slides of that title, Theorems 1 and 5",
+          "material_read": "pp. 14, 30, 38, OA offsets 11451, 27550 and 33800",
+          "method": "Bounded OA PDF passages",
+          "title": "Log-convexity and log-concavity for series in product ratios of rising factorials and gamma functions",
+          "trigger": "Plausible broad theorem covering the rising-factorial formulation"
+        },
+        {
+          "assessment": "The inspected opening describes a Toeplitz-polynomial property, not the sharp sequence index.",
+          "evidence": [
+            "The stated object is a polynomial with rising factorials and Toeplitz structure."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.1482v1",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Bounded OA opening passage",
+          "title": "Rising factorials and Toeplitz matrices",
+          "trigger": "Search hit involving rising factorials and log-concavity"
+        },
+        {
+          "assessment": "The inspected claims concern series curvature, not the reviewed first-triple theorem.",
+          "evidence": [
+            "The subject is log-concavity/convexity of series involving Pochhammer symbols."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.09029v3",
+          "material_read": "PDF p. 1, offset 0",
+          "method": "Bounded OA opening passage",
+          "title": "Logarithmic concavity or convexity of series involving Pochhammer symbols",
+          "trigger": "Related broader Pochhammer curvature claim"
+        },
+        {
+          "assessment": "Different distribution, finite support, ordinary log-concavity only; no date-order inference.",
+          "evidence": [
+            "Classifies log-concavity of finite beta-binomial count probabilities."
+          ],
+          "identifier_or_url": "2026/10/18/SCOPE-sharp-finite-sample-log-concavity-phase-diagram-for-beta-binomia--346b4369fd3a",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary search and mirror",
+          "title": "Sharp finite-sample log-concavity phase diagram for beta-binomial probabilities",
+          "trigger": "Closest same-day local exact discrete concavity classification"
+        },
+        {
+          "assessment": "Different sequence, not a competing exact mass-power criterion.",
+          "evidence": [
+            "Concerns a negative-binomial CDF/local-minimum sequence."
+          ],
+          "identifier_or_url": "2026/10/13/SCOPE-strict-concavity-of-the-chv-tal-negative-binomial-local-minimum--7f02d543e0e8",
+          "material_read": "Indexed claim comparison",
+          "method": "Local Resultary search",
+          "title": "Strict concavity of the Chvátal negative-binomial local minimum",
+          "trigger": "Nearby exact sequence-concavity claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md Finding and one-turn proof",
+        "Alqasem–Aravinda–Marsiglietti Example 1.2(3)"
+      ],
+      "rationale": "The sharp index determines the exact admissible parameter range of a canonical heavy-tailed law in a framework where concavity is a substantive hypothesis. A single first-triple equality governs infinitely many lattice inequalities for every integer shape, and the strict improvement over the continuous bound is conceptual, not a numerical adjustment. No downstream sharp concentration result is claimed.",
+      "residual_risks": [
+        "No classification for noninteger shapes or claim about optimal downstream constants."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

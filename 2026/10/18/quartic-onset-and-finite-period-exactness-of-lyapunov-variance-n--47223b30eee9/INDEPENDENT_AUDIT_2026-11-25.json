@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-25",
+  "audited_at_utc": "2026-11-25T02:05:15.170977Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the repaired claim, conjugating by x + epsilon sin(2 pi x) removes the first variation and produces the second-order log derivative 2 pi^2(3 C_3 - C_1 - 2 C_2). Multipliers are preserved exactly. For fixed n all 2^n-1 solutions continue by expansion with orbit-point error O_n(epsilon^2), which cannot change the coefficient. On the uniform cyclic group, S_2=S_1; the signed 1- and 3-frequency orbits mod 2^n-1 are distinct, nonzero and disjoint by size for n>=5. Orthogonality gives n/2 for each unmixed second moment and zero cross term, giving 36 pi^4/n with O_n(|epsilon|^5) remainder. At n=4 the second family has multiplicity two on four signed residues, doubling its second moment from 2 to 4, giving 54 pi^4 for the coefficient in nV_n. For the original asymptotic calculation, the inverse-branch contraction supplies uniform summable correlations and Fourier gives 28 pi^4 at lag zero and 4 pi^4 at lag one; the periodic variance theorem identifies their Green–Kubo sum. CHECK.py was inspected, not executed; the exact algebra is independent of finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drach et al. §4, Eqs. (4.5)–(4.6) and Lemma 4.1 give a Green–Kubo coefficient and an n-asymptotic variance expansion; Shub–Sullivan treats expanding-circle rigidity."
+        ],
+        "reasoning": "Neither yields coefficients for each fixed n or excludes finite cyclic aliases. In particular an O(n^-2) estimate at fixed parameter does not identify small-parameter Taylor coefficients at each fixed n.",
+        "searches": [
+          "arXiv:2511.15662v2, §4",
+          "DOI:10.1017/S014338570000290X, Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md lines 3–84 and 86–99; VERIFICATION.md and CHECK.py",
+        "arXiv:2511.15662v2",
+        "DOI:10.1017/S014338570000290X",
+        "Resultary passages listed above, mirror snapshot 36a7204b5741b75430355c38bf9bf0ef7468c2a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Green–Kubo on Lebesgue measure at doubling uses continuous Fourier orthogonality, not residue-class orthogonality modulo 2^n-1.",
+          "The integer-beta switching record computes annealed BV noise-onset variance; the entropy curvature record uses the absolutely continuous invariant probability rather than uniform periodic points."
+        ],
+        "reasoning": "In the repaired theorem the period-four alias changes the answer even though the limiting coefficient is fixed; no inspected implication supplies the missing all-n modular step.",
+        "searches": [
+          "arXiv:2511.15662v2 Lemma 4.1",
+          "Resultary 06a032792658 proof §4",
+          "Resultary c097279b5a2a and 877b8579539e"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The explicit family in 06a032792658 is identical under delta=2 pi epsilon: (9/4)delta^4=36 pi^4 epsilon^4, but this is for asymptotic maximal-entropy variance.",
+          "The same-day crossover record uses a single-harmonic family b x + epsilon sin(2 pi x) and epsilon=tau/sqrt(n)."
+        ],
+        "reasoning": "The exact rescaling covers the excised limit, not the surviving fixed-period threshold or arithmetic. The crossover is not a rescaling of this conjugacy-tangent two-harmonic problem.",
+        "searches": [
+          "Resultary SCOPE-quartic-lyapunov-variance-onset-along-conjugacy-tangent-expandin--06a032792658",
+          "Resultary SCOPE-a-critical-gaussian-crossover-for-periodic-multipliers-of-nearly--1ecd725635cb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest numerical analogue is the asymptotic 9/4 formula in 06a032792658. The others respectively concern crossover, absolutely continuous entropy curvature, and shrinking-target pair-correlation counts."
+        ],
+        "reasoning": "No inspected table or exact record gives the repaired finite-period invariant. Equality of numbers after units conversion was checked in the asymptotic case rather than treated as new.",
+        "searches": [
+          "Resultary periodic-multiplier variance and two-harmonic doubling records, including 06a032792658, 1ecd725635cb, 877b8579539e and d5c688b954c6"
+        ]
+      },
+      "rationale": "The repaired result is the exact coefficient at each fixed n>=5 plus the n=4 exception. Inspected coverage of the asymptotic coefficient does not determine these finite-period facts. No reviewed source states or implies the repaired claim without the additional cyclic nonresonance calculation.",
+      "residual_risks": [
+        "The submitted primary-literature search returned irrelevant hits; this is not evidence of absence. An unindexed finite cyclic perturbation calculation could overlap.",
+        "Statement coverage of the asymptotic coefficient does not establish priority between records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the general n-asymptotic framework, not the fixed-period formula",
+          "evidence": "Var(chi_n)=sigma^2/n+O(n^-2) and the covariance series.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.15662",
+          "material_read": "v2 §4 PDF pp. 6–7, Eqs. (4.5)–(4.6), conclusion of Lemma 4.1",
+          "method": "OA PDF passage",
+          "title": "Normal distribution of Lyapunov exponents of periodic orbits for expanding circle maps",
+          "trigger": "General theorem for the same periodic statistic"
+        },
+        {
+          "assessment": "Related rigidity, no explicit fixed-period variance coefficient",
+          "evidence": "The theorem addresses smooth rigidity under absolutely continuous conjugacy.",
+          "identifier_or_url": "https://doi.org/10.1017/S014338570000290X",
+          "material_read": "Theorem 1, p. 285, retrieved at offset 1665",
+          "method": "OA PDF passage",
+          "title": "Expanding endomorphisms of the circle revisited",
+          "trigger": "Conjugacy and multiplier rigidity"
+        },
+        {
+          "assessment": "Exact rescaled overlap with original asymptotic subclaim; no fixed-period identity in inspected material",
+          "evidence": "Family 2x+delta[sin(4pi x)/(2pi)-sin(2pi x)/pi], asymptotic coefficient 9/4.",
+          "identifier_or_url": "2026/10/25/SCOPE-quartic-lyapunov-variance-onset-along-conjugacy-tangent-expandin--06a032792658",
+          "material_read": "RESULT.md Finding at offset 0 and proof §4 at offset 3464",
+          "method": "Resultary local mirror passage",
+          "title": "Quartic Lyapunov variance onset along conjugacy-tangent expanding perturbations",
+          "trigger": "Same two-harmonic perturbation and quartic onset"
+        },
+        {
+          "assessment": "Distinct family and limit",
+          "evidence": "Single sine harmonic and epsilon=tau/sqrt(n) Gaussian crossover.",
+          "identifier_or_url": "2026/10/18/SCOPE-a-critical-gaussian-crossover-for-periodic-multipliers-of-nearly--1ecd725635cb",
+          "material_read": "RESULT.md Finding and scaling hypotheses",
+          "method": "Resultary local mirror passage",
+          "title": "A critical Gaussian crossover for periodic multipliers",
+          "trigger": "Same-day periodic-multiplier perturbation result"
+        },
+        {
+          "assessment": "Different observable and noise model",
+          "evidence": "Annealed BV observable variance for random switching of integer maps.",
+          "identifier_or_url": "2026/10/11/SCOPE-distinct-integer-beta-maps-eliminate-zero-variance-and-give-an-e--c097279b5a2a",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "Distinct integer beta maps eliminate zero variance and give an exact noise-onset coefficient",
+          "trigger": "Possible cohomological onset analogue"
+        },
+        {
+          "assessment": "Different statistic",
+          "evidence": "Shrinking-target counts for integer maps, not log derivative multipliers.",
+          "identifier_or_url": "2026/10/11/SCOPE-sharp-second-moment-inflation-for-expanding-circle-map-pair-corr--d5c688b954c6",
+          "material_read": "RESULT.md Finding at offset 0",
+          "method": "Resultary local mirror passage",
+          "title": "Sharp second-moment inflation for expanding circle-map pair correlations",
+          "trigger": "Possible exact periodic arithmetic analogue"
+        },
+        {
+          "assessment": "Different measure and invariant",
+          "evidence": "Absolutely continuous invariant measure entropy/Lyapunov exponent rather than periodic-point variance.",
+          "identifier_or_url": "2026/11/2/SCOPE-quartic-entropy-curvature-in-the-minimal-two-harmonic-doubling-m--877b8579539e",
+          "material_read": "RESULT.md Finding",
+          "method": "Resultary local mirror passage",
+          "title": "Quartic entropy curvature in the minimal two-harmonic doubling model",
+          "trigger": "Same two-harmonic model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The family is motivated by a conjugacy-tangent direction that suppresses the first variation. Resolving the last finite modulus resonance and proving exact agreement of the scaled leading coefficient for every period from five on helps researchers distinguish true quartic onset from short-cycle aliasing; it is not an arbitrary cutoff or a parameter rescaling of the limiting coefficient.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}

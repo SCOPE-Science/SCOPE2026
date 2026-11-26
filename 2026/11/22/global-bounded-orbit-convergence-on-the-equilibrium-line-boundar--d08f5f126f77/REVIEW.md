@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The identities \(\dot W=-\alpha z^2\) and, on \(\alpha=0\), \(\dot H=-11y^2/10\) follow by exact differentiation in `check.py`. Boundedness gives precompact forward orbits and finite limiting monotone functionals. The largest invariant zero-dissipation set is the equilibrium line; its intersection with the limiting \(W\)-level is at most two points, and omega-limit connectedness leaves a singleton. Compactly supported stationary measures are supported on the same line by integrated Lie-derivative identities. Unbounded solutions are not classified.
+PASS
 
-## Originality — PASS within inspected sources
+With b=11/10 and a=0, direct differentiation gives (z+by+x-x^2/2)'=-alpha z^2. A bounded maximal forward orbit continues for all time and has a nonempty compact invariant omega-limit set, connected as the intersection of the nested closures of connected orbit tails. For alpha of either nonzero sign, W has a finite limit and is constant on the limit set, which therefore lies in z=0. There y would be constant; if nonzero it makes x affine with nonzero slope and cannot satisfy (x-1)y=0 at all times. The remaining points are equilibria, with W restricted to x-x^2/2, so a level has at most two points and connectedness forces a singleton. For alpha=0, W=K fixes z as a function of x,y and yields the damped scalar second-order equation. Differentiating H_K gives -by^2 and its limit forces y=0; invariance forces z=0, and the same finite-fiber argument applies. For a compactly supported invariant probability, integration of the corresponding Lie derivative is legitimate by invariance and boundedness on the support. Either it forces z=0 or it forces y=0; support invariance again gives the equilibrium line. Every compactly supported probability on that line is invariant. This concerns recurrence, not a claim that every compact invariant set contains only equilibria, nor that all forward orbits are bounded. RESULT.md lines 19–53 and the verification files were inspected; the supplied SymPy script was not executed.
 
-The originating paper by Liu, Sang, Wang and Ahmad, *Axioms* 2021, Section 4, establishes a nonchaos statement at \(\alpha=0,a\le0\), and notes conservation at \(a=\alpha=0\). It does not state all-\(\alpha\) convergence or the compact stationary-measure classification. Indexed published-finding corpus neighbors concern distinct jerk systems, so their published summaries do not entail the claim. This is a limited priority check, not a universal novelty certification. The accessible earlier precursor was identified but its full text not read; this and possible unindexed general jerk theorems are real risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The line \(a=0\) is the natural point at which the unique equilibrium becomes a continuum, and both signs of the curvature coefficient remain admissible. The result upgrades numerical/nonchaos discussion to an exact global conditional convergence classification and excludes all compact recurrent dynamics, even when pointwise phase-volume contraction is not guaranteed.
+The supported distinct part is the nonzero-alpha equilibrium-line convergence and corresponding invariant-measure exclusion, covering both signs. The original Liu–Sang–Wang–Ahmad paper already gives W at a=alpha=0, and its proof entails the zero-alpha bounded-orbit convergence case even though Theorem 2 is stated in terms of chaos. Credit that slice rather than counting the whole line as previously untreated. No statement covering the nonzero-alpha part was identified in the compared sources.
 
-## Independent status and limits
+## value
 
-No independent mathematical review has been performed. The result assumes bounded forward trajectories and makes no claim of global boundedness or rates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The equilibrium-line boundary is a natural degeneracy of the motivating jerk family, and even identifying an equilibrium omega-limit set would not by itself prove convergence to a point. The sign-independent nonzero-alpha mechanism and finite-level argument settle that issue and exclude compact nonstationary recurrence for both signs. The result is conditional on boundedness and does not purport to partition basins, but answers a substantive full-boundary dynamical question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

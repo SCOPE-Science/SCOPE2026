@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T02:32:30.117621Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After eliminating the nonzero peripheral diagonal coordinates, the shifted clique block is uniformly symmetric. Normalize the rank-t surviving coupling to I_t plus zeros. The paired block [[U,I],[I,0]] is nonsingular and its inverse has zero clique-to-clique block, so eliminating it leaves the original symmetric restriction on the k−t uncoupled clique directions. This is the needed fact even in characteristic two; no alternating bilinear form is assumed. Rectangular factorization modulo GL_t gives the rank count. Choosing the radical and then an invertible quotient form gives the symmetric rank count. In particular, bordering gives h_d=(1−1/q)h_(d−1)+q^(−1)(1−q^(−(d−1)))h_(d−2) with h_0=1 and h_1=1−1/q: only old radicals of dimension zero or one can contribute to nonsingularity. With dimension one the new column must pair nontrivially with the radical. The recurrence yields the odd-factor product. Nonsingularity then forces s=t and a nonsingular residual form. For critical scaling the difference from (S_m−k)_+ is twice the rectangular defect plus the residual symmetric corank. The first is uniformly tight by a kernel-subspace union bound, the second by the expected number (<1) of nonzero nullvectors, since each fixed nonzero vector can be made the first basis vector and the corresponding column is uniform. The CLT and Slutsky apply. An m^(1/4) band about k has o(1) probability at critical scale, while on S_m<k−m^(1/4) the two rank factors converge uniformly to 1 and h_∞; the strict sides follow by binomial concentration. Independently, python /workspace/reproductions/nullity.py matched the complete spectra for five additional (q,k,m) triples over prime fields by counting kernel vectors, not by replaying uploaded code. This is bounded corroboration, not the all-field or asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salmond et al. give monotonicity and lower bounds on full-rank probabilities when the entries not fixed to zero are independent.",
+          "Fulman–Goldstein gives all ranks in a dense uniform symmetric ensemble, not in a prescribed symmetric split-pattern space."
+        ],
+        "reasoning": "The first hypotheses do not allow the symmetric dependence, and neither result supplies the target census or the m-dependent probability of an unpaired zero diagonal.",
+        "searches": [
+          "arXiv:1404.3250, §2 Theorems 1–2",
+          "arXiv:1211.0504, §4"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local catalog and mirror: records 2a40cd6a7961 (identical) and c41d65fc2e6a (distinct)",
+        "Fulman–Goldstein arXiv:1211.0504",
+        "Salmond–Grant–Grivell–Chan arXiv:1404.3250",
+        "Barrett–van der Holst–Loewy DOI 10.13001/1081-3810.1175"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fulman–Goldstein's dense symmetric law supplies exactly the quotient form factors H_d(r), including even q.",
+          "No dense rank specialization or tridiagonal statement inspected supplies the binomial diagonal-zero count, the rectangular coupling defect, or the atom-versus-exact-nonsingularity distinction."
+        ],
+        "reasoning": "The prior ingredient together with new independent block conditioning and binomial scaling produces the census and law; the cited conclusions alone do not state or cover that split-pattern result.",
+        "searches": [
+          "arXiv:1211.0504, equations (20)–(21), Theorem 4.1",
+          "arXiv:1404.3250, §2",
+          "Resultary tridiagonal census Finding and Limitations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barrett–van der Holst–Loewy, abstract and §1, pp. 32–33, require off-diagonal nonzero positions exactly on graph edges and minimize rank.",
+          "The target instead allows zeros in every free position and counts all ranks under uniform sampling; even the rank-zero matrix is in its sample space."
+        ],
+        "reasoning": "Rephrasing as a graph-constrained rank problem does not identify the random ensemble with exact-support minimum rank. The symmetric corank generating function and threshold survive this alias check.",
+        "searches": [
+          "Resultary semantic comparison: symmetric finite-field split-pattern nullity/corank census and Gaussian threshold",
+          "Barrett–van der Holst–Loewy, DOI 10.13001/1081-3810.1175"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the frozen finding itself and a distinct same-day tridiagonal record. The latter's Finding gives an exact corank generating function with all 2n−1 free entries unrestricted and a CLT with mean μ_q n, μ_q=1/(q²+q−1). Its Limitations exclude general zero-pattern graphs."
+        ],
+        "reasoning": "This is a substantively related exact census but not the same support or asymptotic regime. Same-day dating entails no priority inference; the identical frozen finding is not independent prior coverage.",
+        "searches": [
+          "Resultary: complete corank census, symmetric finite-field allowed zero patterns, split and tridiagonal",
+          "2026/11/22/SCOPE-complete-corank-census-and-gaussian-nullity-law-for-symmetric-fi--c41d65fc2e6a"
+        ]
+      },
+      "rationale": "The known dense symmetric rank law is an ingredient; preset-zero full-rank bounds for independent entries and graph minimum-rank classifications are not a census for this symmetric allowed-support ensemble. The strongest distinct Resultary overlap is a tridiagonal census with a linear-density CLT, not the split-pattern mixture or its critical window. The supported distinct claim is the exact split-pattern distribution and its fixed-field limits, not a new unrestricted rank formula.",
+      "residual_risks": [
+        "A more general unindexed bordered-diagonal rank theorem could subsume the finite mixture; the checked sources do not establish historical uniqueness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related, not covering the complete split pattern",
+          "evidence": "Outside the three central diagonals entries vanish; mean corank is linear, and the Limitations exclude general patterns.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/22/SCOPE-complete-corank-census-and-gaussian-nullity-law-for-symmetric-fi--c41d65fc2e6a/RESULT.md",
+          "material_read": "Finding (offset 0) and Limitations (offset 5497)",
+          "method": "Local Resultary mirror; statement and scope comparison",
+          "title": "Complete corank census and Gaussian nullity law for symmetric finite-field tridiagonal matrices",
+          "trigger": "Strongest distinct Resultary overlap in exact symmetric rank counting and Gaussian asymptotics"
+        },
+        {
+          "assessment": "Known exact unrestricted rank ingredient, not split-pattern coverage",
+          "evidence": "p_(k,n)=N(n,n−k)/q^binom(n+1,2) for uniformly sampled symmetric matrices, with formula valid for odd and even q.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.0504",
+          "material_read": "Printed p. 13, §4, eqs. (20)–(21) and Theorem 4.1; OA offset 32775",
+          "method": "Targeted OA primary PDF passages",
+          "title": "Stein’s method and the rank distribution of random matrices over finite fields",
+          "trigger": "Symmetric finite-field rank distribution cited in theorem"
+        },
+        {
+          "assessment": "Different dependence structure and full-rank bounds only in the inspected results",
+          "evidence": "The unfixed entries are independent uniform field elements; conclusions include full-rank lower bounds and monotonicity under extra zero restrictions.",
+          "identifier_or_url": "https://arxiv.org/pdf/1404.3250",
+          "material_read": "Abstract p. 1; §2 Theorems 1–2 p. 4, OA offset 8591",
+          "method": "Targeted OA primary PDF passages",
+          "title": "On the rank of random matrices over finite fields",
+          "trigger": "Potentially dominating result for prescribed zero patterns"
+        },
+        {
+          "assessment": "Exact nonzero edge support; minimization, not random allowed-support census",
+          "evidence": "The nonzeros occur in exactly the graph edge positions; the classification concerns minimum rank at most two.",
+          "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/351/351",
+          "material_read": "Abstract and §1, pp. 32–33, OA offset 0",
+          "method": "Targeted OA publisher PDF passages",
+          "title": "Graphs whose minimal rank is two: The finite fields case",
+          "trigger": "Graph rank formulations can resemble allowed-pattern counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-corank census is an exact invariant of a natural random symmetric pattern. The distinction between scaled corank zero and actual invertibility is substantive: the limiting invertibility includes an independent dense finite-field factor that the atom of the scaled distribution alone cannot determine. The finite formula also gives every rank multiplicity, not only the asymptotic threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

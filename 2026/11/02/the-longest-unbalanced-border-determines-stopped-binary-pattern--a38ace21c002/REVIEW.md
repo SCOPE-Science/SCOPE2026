@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the exact bivariate stopping-time generating function from Bóna–Maga–Richey (2026), derives an explicit positive-kernel integral for \(q_w-1/2\), and proves that the sign of the border polynomial at every \(T\ge2\) is that of its largest nonzero imbalance by a nearest-neighbor inequality and an exact geometric sum. It checks both boundary convergence and the correct expectation-of-a-ratio normalization. The independent prefix-automaton stopping dynamic program corroborates the integral in small cases; the all-length claim rests on the algebraic argument, not the finite tests.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+The all-length argument is sound. Independently, let F and A be the first-hit and avoidance generating functions with letter weights x/2 and xy/2. Decomposing any string gives 1=A(1-x(1+y)/2)+F. Appending the target to an avoiding string gives a first-hit string followed by the residual suffix corresponding to a unique nonempty self-overlap; dividing by the target weight gives A=F times the sum of reciprocal border-prefix weights. This establishes the stated bivariate function, including the full-word term. Integrating the y derivative divided by x weights each contribution by 1/tau; subtracting half the integrated x derivative uses almost-sure hitting and tau>=1. The result is the stated strictly positive kernel times the signed border polynomial at T=2/x. If the last nonzero coefficient d_b is positive, unit prefix increments imply d_j>=1-(b-j), so all earlier negative terms together are bounded by T^b sum_{h>=2}(h-1)/T^h=T^b/(T-1)^2<T^b for T>2. Negation handles the other sign, and all zero coefficients give exact equality. The geometric hitting tail and integrable endpoints justify the operations; this is not inferred from finite testing.
 
-The precise source's Conjecture 6.1 explicitly leaves the \(q\) necessity open; Proposition 3.3 gives only sufficient balance, while its unbordered formula covers only a special case. Its general \(q\)-\(\rho\) identity does not supply this sign rule. The older autocorrelation/entropy paper and related earlier mathematical statements concern a different observable. Actual published-finding corpus searches for the conjecture, border polynomial, expectation at first occurrence and longest-border signs revealed no equivalent result. The original 1981 overlap paper's full text was inaccessible, so unindexed equivalent coverage cannot be excluded categorically.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves an explicit published conjectural equivalence for the stopped empirical one-frequency, and gives the stronger full strict sign classification for *all* binary words. The core structural explanation—the largest imbalanced border dominates exponentially weighted shorter imbalances—is not a restatement of a table or a routine small-parameter substitution.
+The distinct contribution is necessity for the stopped q statistic and the strict sign classification, not the published sufficiency, generating function, or a result for limiting avoidance frequency. The strongest distinct catalog match is a finite-alphabet extension: it demonstrably covers the binary statement by specialization, but its own prior-work section describes the binary classification as earlier, and the materials inspected do not establish it as prior coverage of this finding.
 
-## Boundaries and references
+## value
 
-The conclusion concerns only the first-occurrence stopped statistic under fair independent bits; the companion conjecture about limiting avoidance frequency remains open. Principal comparisons: Bóna–Maga–Richey (2026), arXiv:2606.06655; Chandgotia–Marcus–Richey–Wu (2024), arXiv:2409.09024; Guibas–Odlyzko (1981), DOI 10.1016/0097-3165(81)90005-4 (abstract available only).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This resolves a precise published open direction for a natural stopping-time statistic, and gives a strict sign criterion even for globally balanced words and mixed border imbalances. The one-step bound supplies a uniform explanation of why cancellation cannot occur. No resolution of the avoidance-frequency conjecture is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

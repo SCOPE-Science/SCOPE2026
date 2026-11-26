@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T05:37:15.856540Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–51: word and channel definitions, interior rigidity, core count and enumerator",
+        "VERIFICATION.md and verify.py, inspected statically: graph construction by one-symbol moves and finite component census"
+      ],
+      "rationale": "Taking adjacent differences modulo 3 gives signs ±1; abab corresponds to an alternating triple, so comparison bits avoid consecutive ones. The six initial letter/sign choices give 6 F_n admissible words. At an interior substitution the neighbors must coincide; swapping the local sign pair (s,-s) to (-s,s) then creates an alternating triple with the next unchanged sign, or with the previous one at the last interior position. Such an unchanged sign exists for n>=4. Thus all moves are at endpoints. For n>=5 the two endpoint restrictions are independent: each has two choices on an equal-sign pair in the core and one choice on an unequal-sign pair. For k=n-4>=2 core comparison bits, the counts with endpoint types 00, exactly one 1, and 11 are F_k, 2 F_(k-1), F_(k-2), obtained by fixing endpoints and their forced zero neighbors; at k=2 the counts are 1,2,0, and at k=3 the 11 case is just 101. Each core contributes a connected K_1, K_2 or C_4, with six initial choices per bit string. At n=5 there is one comparison bit, and at n=4 the forbidden word removes one vertex from each endpoint square. The independence polynomials multiply; their degrees and leading coefficients give the asserted sizes and counts. Dividing by 6 F_n and taking Fibonacci ratios gives phi^(-6)+2 phi^(-5)+2 phi^(-4)=5-2 sqrt(5). The alphabet, boundary model and detection-only reading are essential.",
+      "residual_risks": [
+        "The supplied finite enumeration through n=16 was not rerun and is not the basis of the all-length proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang et al. allow a substitution as part of a noisy fixed-length tandem duplication; their k=1 statement makes their irreducible family 1ND-detecting for that channel. Tang and Farnoud allow length-at-most-three duplications and one substitution, using <=3-irreducibles and analyzing root changes. Kovačević uses duplication-descendant confusability."
+        ],
+        "reasoning": "The graph here compares equal-length admissible inputs at Hamming distance one and imposes no duplication/root operations. Even a correct construction or asymptotic bound for a stronger mixed channel on a narrower source language would not classify all components or count all codebooks here.",
+        "searches": [
+          "arXiv:1911.05413, Definition 2 and p. 6 k=1 statement",
+          "arXiv:2011.05896, abstract and root-change lemmas",
+          "arXiv:1911.06561, abstract and Section 2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1801.02310, 1911.05413, 2011.05896, 1911.06561",
+        "Resultary e1dd2f70f4bd (self-match), 350f349099ec, 63d30c872f2e, 56b7d93ce284"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chee et al. separate irreducible words for enumeration but do not supply the Hamming-one core fibers in the inspected definition/recurrence. Tang–Farnoud's local substitutions concern bounded changes in a duplication root. Resultary 56b7d93ce284 treats correction on ternary words avoiding every square."
+        ],
+        "reasoning": "The exact polynomials and density follow mechanically once the fiber classification is known; that classification requires the interior-move obstruction and endpoint census, not supplied by the prior word counts, root-length bounds, or square-free correction result.",
+        "searches": [
+          "arXiv:1801.02310, Corollary 1",
+          "arXiv:2011.05896, pp. 2–4 (including Lemma 1)",
+          "Resultary 56b7d93ce284, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact Resultary hit e1dd2f70f4bd is the assigned record itself. The language agrees exactly with ternary <=2-irreducibles in Chee et al.; their cardinality recurrence gives 6 F_n.",
+          "Resultary 350f349099ec and 63d30c872f2e use the same language but adjacent swaps and one-symbol insertions, respectively."
+        ],
+        "reasoning": "Aliasing the language as <=2-irreducibles is valid. Swap edges and insertion spheres are not equivalent to Hamming-one substitution edges; a recurrence for total vertices does not determine the graph.",
+        "searches": [
+          "Resultary: ternary short-tandem irreducibles, substitution graph and detecting codebooks",
+          "arXiv:1801.02310, Definition 2 and Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The only evidenced exact component listing is the self-match. The independent exact cardinality recurrence counts words, while the closest different-edit records count frozen swap states or insertion spheres."
+        ],
+        "reasoning": "The claimed enumerator is an all-length family of polynomials derived from graph components, not a finite-instance table entry. The independently indexed exact counts concern different invariants.",
+        "searches": [
+          "Resultary exact component/independence-polynomial search for ternary aa, abab avoidance",
+          "arXiv:1801.02310, Corollary 1 recurrence"
+        ]
+      },
+      "rationale": "The admissible language and its Fibonacci cardinality are prior. The supported distinct contribution is the exact Hamming-one component structure on that language and the resulting full independent-set and maximum-codebook enumeration. Neither the closest different-edit problems on this same language nor the inspected mixed-channel results cover those invariants.",
+      "residual_risks": [
+        "Bounded comparison, not exhaustive priority certification. Related substitution/root literature outside the inspected statements can still contain an equivalent lemma; common record dates do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact source language and cardinality covered; graph not given by recurrence",
+          "evidence": "I_(<=2)(n,q)=(q-2)(I_(<=2)(n-1,q)+I_(<=2)(n-2,q)); the given starting values yield 6 F_n at q=3.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.02310",
+          "material_read": "Definition 2 (OA offset about 6500), Corollary 1 (offset 15991)",
+          "method": "Open-access paper text, bounded passages",
+          "title": "Efficient Encoding/Decoding of Irreducible Words for Codes Correcting Tandem Duplications",
+          "trigger": "Same <=2-irreducible language and Fibonacci count"
+        },
+        {
+          "assessment": "Different channel and criterion",
+          "evidence": "The 1ND definition concerns a noisy tandem duplication. The p. 6 k=1 statement relies on no ambiguous substitutions in that model.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05413",
+          "material_read": "Definition 2 (OA offset about 23500) and p. 6 (offset about 47500)",
+          "method": "Open-access paper text, bounded passages",
+          "title": "Single-Error Detection and Correction for Duplication and Substitution Channels",
+          "trigger": "Detection under substitution on an irreducible language"
+        },
+        {
+          "assessment": "Mixed channel, narrower irreducible language, different invariant",
+          "evidence": "Uses <=3-irreducibles and treats effects on the duplication root, including root-length bounds.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.05896",
+          "material_read": "Abstract and pp. 2–4 including Lemma 1 (OA offsets 0, 9000, 12500, 17200)",
+          "method": "Open-access paper text, bounded passages",
+          "title": "Error-correcting codes for short tandem duplications and substitutions (Tang and Farnoud)",
+          "trigger": "Local effects of substitution on short-tandem irreducibility"
+        },
+        {
+          "assessment": "Duplication descendants, not direct substitutions",
+          "evidence": "Avoids length-three squares in addition to aa and abab and studies confusability under repeated duplications.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.06561",
+          "material_read": "Abstract and Section 2 (OA offsets 0 and 9200)",
+          "method": "Open-access paper text, bounded passages",
+          "title": "On the Maximum Number of Non-Confusable Strings Evolving Under Short Tandem Duplications",
+          "trigger": "Optimal nonconfusability on a related constrained language"
+        },
+        {
+          "assessment": "Different graph and count",
+          "evidence": "Counts isolated states under adjacent-position swaps.",
+          "identifier_or_url": "350f349099ec",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Frozen adjacent-swap states in ternary short tandem-irreducible words",
+          "trigger": "Same-day record on the same language and a local graph move"
+        },
+        {
+          "assessment": "Insertion rather than substitution",
+          "evidence": "Counts distinct admissible one-symbol insertions of a word and their sphere spectrum.",
+          "identifier_or_url": "63d30c872f2e",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "Complete one-insertion sphere spectrum of ternary short tandem-irreducibles",
+          "trigger": "Same-day exact local-edit distribution on the same language"
+        },
+        {
+          "assessment": "Different language and correction objective",
+          "evidence": "Requires avoidance of all squares and concerns correction in the received alphabet, not this induced graph's independent sets.",
+          "identifier_or_url": "56b7d93ce284",
+          "material_read": "Finding, offset 0",
+          "method": "Published record via local mirror",
+          "title": "A sharp five-bit threshold for ternary square-free substitution correction",
+          "trigger": "Same-day substitution coding result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, lines 3–51",
+        "Chee et al., arXiv:1801.02310, Definition 2 and Corollary 1"
+      ],
+      "rationale": "The constrained source language is established in coding theory. The graph's confinement to fibers of the whole interior is a structural restriction not visible from Fibonacci enumeration alone. It identifies the complete set of editing-confusability components, yields the exact optimum for one-substitution detection, and gives the total number of codebooks at every size and a nontrivial limiting occupied fraction.",
+      "residual_risks": [
+        "The limiting fraction is an optimal density within this language; the result does not give substitution correction or a capacity theorem for a mixed duplication/edit channel."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

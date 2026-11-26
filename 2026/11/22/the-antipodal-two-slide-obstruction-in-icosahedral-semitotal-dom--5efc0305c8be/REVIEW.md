@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The labelled icosahedral graph is specified by a complete 30-edge construction. Every pair dominating the graph consists of antipodes at distance three and cannot be semitotal. Checking all 220 triples under the explicit domination and distance-two witness predicate proves exactly 80 optima in two distance-signature classes. Independent graph generators agree on every optimal configuration and all 3160 configuration-pair shortest-path comparisons. All 30 pairs requiring two extra edge slides are certified by an exact antipodal-pair predicate, not by sampling. The programs, exhaustive ranges, and all intended limits are included.
+PASS
 
-## Originality — PASS, qualified
+Independently constructed the graph from the 12 golden-ratio icosahedron vertices with exact integer-pair arithmetic and checked isomorphism to the stated two-ring graph by adjacency-preserving backtracking. Computed distances by Floyd–Warshall, exhausted every subset of size at most 3, and tested set equality with the two specified families (both directions). Enumerated 120 automorphisms by backtracking and checked transitivity on each sector. Tested every pair of states for membership in each move graph by its symmetric difference and the underlying exchanged pair's adjacency; Floyd–Warshall and per-state invariants give degrees (13,9)/(7,9), eccentricities (3,3)/(4,3), 480/300 edges and finite distances throughout. Among all 3160 pairs the differences have counts 2440/690/30. Exact equality of the extremal set with the retained-antipodal-pair and exchanged-antipodes predicate holds, and every extremal pair has distances (1,3). Closed neighborhoods each have size six and a dominating pair must be disjoint in closed neighborhoods, hence antipodal and infeasible; enumeration separately covered the smaller sizes. All move paths stay among global minima.
 
-Tripathi–Pandey–Maheshwari (arXiv:2109.02142, 2021) optimize semitotal domination on strongly chordal graphs, whereas the icosahedron has induced five-cycles and their paper does not study relocation. Bousquet et al. (arXiv:2204.10526) discuss different domination and independent-set reconfiguration predicates. Křišťan–Svoboda (arXiv:2307.10847) prove ordinary dominating-set sliding results for trees and interval graphs. The 2016 ordinary icosahedral domination number two is not new. The nearest indexed icosahedral paired-domination classification has 135 optimum four-sets; the resolving-set classification has 160 optimum triples. Neither is equivalent to semitotal three-sets or implies their exact distance distribution. Source-inspection limits and historical-priority risks are recorded in AUDIT.json; an unindexed equivalent remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The semitotal feasibility rule is a natural monitoring intermediate between domination and total domination. The canonical icosahedral network has a known minimum ordinary domination of two, but minimum semitotal monitoring requires three. Its entire optimal placement space has a nonobvious intrinsic 60/20 antipodal/distanced-two geometry; local edge movement changes radius and diameter, with a sharp detour of two moves at exactly 30 structurally classified state pairs. This is a useful exact benchmark for movement-constrained optimal monitoring, beyond an arbitrary graph count, though no infinite-family extension is asserted.
+The distinct content is the classification and exact local-versus-global move metric on the minimum semitotal family, especially the complete obstruction criterion; not the ordinary domination number, semitotal predicate, or token-move definitions.
 
-## Limitations and references
+## value
 
-An exact finite result for the twelve-vertex icosahedron, not an infinite-family or complexity classification. Computer-assisted exhaustive checks on the fully specified 220 triple domain and 3160 unordered state pairs. No external independent audit; indexed searches and inspected sources cannot exclude an unindexed historical equivalent. The 2016 ordinary domination number is acknowledged as prior work.
+PASS
 
-Primary references: https://arxiv.org/abs/2109.02142 ; https://arxiv.org/abs/2204.10526 ; https://arxiv.org/abs/2307.10847 ; https://doi.org/10.12732/ijpam.v107i3.5 .
+Minimum semitotal domination is a motivated constraint between ordinary and total/paired domination; the regular icosahedron is a natural highly symmetric test case. Comparing sliding and jumping exposes a precise shortest-path phenomenon explained by the ambient antipodal involution, rather than only a finite count of minima. The exact iff description and its distances are useful as a benchmark for constrained reconfiguration.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

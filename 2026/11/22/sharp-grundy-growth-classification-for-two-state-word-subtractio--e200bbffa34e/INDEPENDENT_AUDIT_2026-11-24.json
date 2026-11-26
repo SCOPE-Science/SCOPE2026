@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T13:13:47.588713Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md:4–32",
+        "VERIFICATION.md:19–23",
+        "checker_types.py:5–69 and checker_table.cpp:10–67 (inspected, not executed)"
+      ],
+      "rationale": "The four maps exhaust all complete two-state tables with the stated acceptance convention. An O-letter repeated n times allows all shorter prefixes, giving mex n, the upper bound from at most n options. With no O or T the accepting state is never reached. With swaps but no resets an accepted suffix toggles parity; odd positions have the empty option and even positions have no zero-valued option, proving the pointwise parity rule. In the remaining case, if the last block has even parity, accepted suffixes lie within that block and leave positive-valued prefixes by induction. If it has odd parity, cuts before the last reset are all allowed; the first T in each earlier T-bearing block realizes the next positive integer, and cuts within the final block leave zero. This yields precisely the mex equal to the number of T-bearing blocks. A value k needs k swaps and k−1 separators, and T(ZT)^(k−1) and ZT(ZT)^(k−1) give equality for both length parities. Renaming letters by transition type preserves all legal cuts and the mex induction, but arbitrary codeword recodings need not.",
+      "residual_risks": [
+        "The checker word counts are consistent with 64·Σ_{n=1}^8 3^n and 16·Σ_{n=1}^{16} 2^n. The finite regressions cannot establish all lengths or alphabets; that is the role of the induction."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inoue–Inazu §3.4 proves fixed-Grundy-fiber regularity for regular rule languages, and §7 poses boundedness of the entire function.",
+          "Takata et al. obtain regular fixed fibers and a decision result in a different grammar-controlled game.",
+          "Hetyei Theorem 2.9 factors kernel positions, not all positive mex values."
+        ],
+        "reasoning": "Regularity of each individual fiber does not bound how many fibers are nonempty. The grammar model and kernel factorization do not classify the exact length maxima or the mixed block values for the stated DFA model.",
+        "searches": [
+          "Inoue–Inazu arXiv:2611.09157v1 §3.4 and §7",
+          "Takata–Inoue–Seki arXiv:2609.00871v1 §§2–3",
+          "Hetyei arXiv:0912.0573v1 §§2–3"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md:39–48",
+        "arXiv:2611.09157v1 pp. 31–32, 70; arXiv:2609.00871v1 pp. 3, 9; arXiv:0912.0573v1 pp. 4–5",
+        "Resultary 246546bca970, 0a8d7e89e639 and 6a1a4edf498c (actual Findings)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same-model paper poses global boundedness despite fixed-fiber regularity. Describing zero positions or deciding a maximum-Grundy predicate in another game does not give the all-length values here.",
+          "The proof counts T-bearing blocks and uses final swap parity specifically after a state-erasing reset; invertible coset transitions do not encode that argument."
+        ],
+        "reasoning": "The cited general results supply context and standard inputs, not a dominating theorem from which the supported mixed-case law and witnesses follow.",
+        "searches": [
+          "Inoue–Inazu §7 boundedness question",
+          "Hetyei Theorem 2.9",
+          "Takata et al. Theorem 1 and Corollaries 1–2",
+          "Resultary 246546bca970"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hetyei's Def. 2.1 uses the same general suffix-truncation move, with an additional strongly Bernoulli condition in Def. 2.3.",
+          "The coset result counts prefix visits in a group action, where all letters are invertible. A reset is noninvertible; more concretely in a finite group some positive power of a letter reaches the identity subgroup, whereas no positive power of a rejecting reset is accepted in the mixed case.",
+          "The two-sided binary and balanced-suffix results use different move cuts."
+        ],
+        "reasoning": "Relabeling letters by their four types is an exact reduction for this problem. Neither a group/subgroup monoid nor a rule allowing prefix deletions or length-balance constraints is an equivalent encoding of the mixed reset/swap game.",
+        "searches": [
+          "Resultary queries for suffix games, two-state automaton types and run formulas",
+          "arXiv:0912.0573v1, Defs. 2.1 and 2.3",
+          "Resultary 246546bca970, 0a8d7e89e639 and 6a1a4edf498c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed identical frozen result is not independent prior coverage. Distinct inspected Findings give a group coset visit law, floor(n/2) for a two-sided binary game, and floor(n/4) for endpoint-constrained balanced suffixes.",
+          "The recorded finite checker comparisons give bounded word/table ranges only."
+        ],
+        "reasoning": "An even-length coincidence of floor(n/2) with ceil(n/2) is not an exact table match for the same game, and finite enumeration does not determine the maxima at arbitrary n.",
+        "searches": [
+          "Resultary two-state Grundy maxima and two-state boundedness queries",
+          "Resultary 246546bca970, 0a8d7e89e639, 6a1a4edf498c"
+        ]
+      },
+      "rationale": "The supported contribution is the complete all-length maximum law and, especially, the pointwise mixed reset/swap formula. Fixed-value regularity, elementary parity and the mex recurrence are antecedents or standard ingredients. The closest sources give general language regularity, or exact laws for different deletion rules; no checked stronger result covers the reset/swap classification.",
+      "residual_risks": [
+        "The passage and catalogue searches were bounded. Unindexed equivalent classifications are not excluded; no same-day priority is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same model, no implication of the two-state classification from the inspected results",
+          "evidence": [
+            "Theorem 3.8 treats regular P/N languages; p. 32 constructs regular fixed-Grundy fibers; p. 70 asks when the function is bounded."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2611.09157",
+          "material_read": "v1 PDF §3.4 pp. 31–32 and §7 p. 70",
+          "method": "Bounded direct lawful arXiv PDF reading after passage-service timeout",
+          "title": "Word Subtraction Games",
+          "trigger": "Same suffix game and general open boundedness question"
+        },
+        {
+          "assessment": "Related grammar-controlled game model, not the arbitrary-start-word right-suffix rule",
+          "evidence": [
+            "Definition is on derivation positions, possibly multisets; regular fibers and the decision results use right-linear grammars."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.00871",
+          "material_read": "v1 PDF §2 Def. 2 p. 3; §3 Theorem 1 and Corollaries 1–2 p. 9",
+          "method": "Bounded direct lawful arXiv PDF reading",
+          "title": "Construction of a DFA for Computing Grundy Numbers in the Successful Derivation Games on Right-Linear Grammars",
+          "trigger": "Automaton-based Grundy regularity and decidability results"
+        },
+        {
+          "assessment": "Real model antecedent with a restricted kernel theorem, not the full nim-value formula",
+          "evidence": [
+            "Theorem 2.9 gives unique concatenation of elementary kernel positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0912.0573",
+          "material_read": "v1 PDF Defs. 2.1 and 2.3 p. 4; Theorem 2.9 p. 5",
+          "method": "Bounded direct lawful arXiv PDF reading",
+          "title": "Enumeration by kernel positions for strongly Bernoulli type truncation games on words",
+          "trigger": "Same general suffix-removal rule and word-factorizations of positions"
+        },
+        {
+          "assessment": "Different algebraic rule; does not cover reset letters",
+          "evidence": [
+            "Finding gives γ(w)=#{j<n:p_jH=p_nH} for group-product suffix deletion into a subgroup H."
+          ],
+          "identifier_or_url": "Resultary 246546bca970",
+          "material_read": "Local mirror RESULT.md Finding",
+          "method": "Resultary lookup and local mirror reading",
+          "title": "Exact coset-visit Grundy law and sharp P-language state complexity",
+          "trigger": "Exact Grundy values for automaton-like suffix languages"
+        },
+        {
+          "assessment": "Exact laws for different rule sets",
+          "evidence": [
+            "One allows both prefix deletion ending ab and suffix deletion beginning ba, with maximum floor(n/2). The other requires balanced suffixes with endpoints a and has maximum floor(n/4)."
+          ],
+          "identifier_or_url": "Resultary 0a8d7e89e639; Resultary 6a1a4edf498c",
+          "material_read": "Both local mirror RESULT.md Findings",
+          "method": "Resultary lookup and local mirror reading",
+          "title": "Run rigidity and exact losing-position enumeration for a two-letter game; An excursion-run law for endpoint-constrained balanced suffix words",
+          "trigger": "Exact run and maximum formulas for nearby truncation games"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md:4–32",
+        "Word Subtraction Games §7, PDF p. 70"
+      ],
+      "rationale": "This completely resolves the first nontrivial DFA-state class for a natural boundedness question. The growing case without an accepting reset is not explained by the obvious unary accepting-reset strategy: intervening rejecting resets create many distinct mex levels. Both the sharp growth constant and the individual formula are useful beyond deciding which tables are bounded.",
+      "residual_risks": [
+        "No result here for larger automata, other deletion conventions, or all pointwise values in the O-letter regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

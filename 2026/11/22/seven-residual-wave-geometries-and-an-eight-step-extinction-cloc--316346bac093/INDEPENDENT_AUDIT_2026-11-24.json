@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T11:12:23.781606Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md lines 3–69",
+        "adjacency.txt",
+        "VERIFICATION.md",
+        "verify_direct.cpp",
+        "verify_vector.py",
+        "verify_symmetry.py",
+        "Independent replay: /workspace/branches/1a0176dd-b4af-4c69-b107-5ddc7924396a/independent_census.py and independent_census.txt"
+      ],
+      "rationale": "The independent replay used only adjacency.txt and a new transition implementation. On all 531,441 ternary states it found F^11=F^8 and failure of F^10=F^7; the first equality makes every recurrent period divide three. The minimum t with F^(t+3)(x)=F^t(x) is exactly first periodic entry, with F^(t+1)(x)=F^t(x) distinguishing fixed points. The full histogram agrees: period-1 counts at t=0,...,8 are 1, 4095, 66091, 206142, 176472, 64900, 10440, 1620, 420, and the period-3 counts at t=0,...,3 are 600, 540, 60, 60, zero later. Canonicalizing phases yielded 200 cycles with 100, 40 and 60 basins of sizes 3, 6 and 12. Enumerating all 120 spatial automorphisms and acting on phase-canonical cycles gave seven classes of sizes 5, 5, 20, 30, 40, 40, 60, matching the representative codes and per-cycle basin sizes. The 600 successor-color states with at least two successor-color neighbors at every vertex were exactly the nonconstant recurrent states. The explicit orbit of code 2824 is at code 2 at update 7 and 0 at update 8, so sharpness concerns extinction; the oscillating basin enters by update 3.",
+      "residual_risks": [
+        "Exhaustive only for the stated graph and update rule. The phase characterization for this graph does not rule out partial phase rotation on other graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adamatzky explicitly uses the absolute threshold-two rule, in the context of Delaunay wave behavior. Gravner–Lyu–Sivakoff and Doba use the single-contact rule. The same-day triangle-locked record uses ceil(d/2), which is three on this graph; the earlier even-regular half-degree theorem uses degree 2r and threshold r."
+        ],
+        "reasoning": "Neither single-contact time-evolution results nor balanced-coloring results for those critical degree thresholds classify this degree-five, threshold-two map. The earlier use of absolute threshold two covers the rule itself, not the specified dynamics.",
+        "searches": [
+          "Primary-literature lookup: Greenberg–Hastings icosahedral graph and threshold two",
+          "arXiv:1102.1069 §2",
+          "arXiv:1610.07320 Theorem 3",
+          "Doba DOI 10.25088/ComplexSystems.27.2.101 Theorem 1",
+          "Resultary half-degree excitation records 76b9562220e5 and 7c3fe196f42d"
+        ]
+      },
+      "checked_sources": [
+        "Resultary local index, self-hit and distinct records identified above",
+        "Adamatzky arXiv:1102.1069",
+        "Gravner–Lyu–Sivakoff arXiv:1610.07320",
+        "Doba, Complex Systems 27 (2018), 101–126"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The rotation condition depends only on the current coloring. The older threshold-one finite time bound is six, while the independently verified threshold-two witness is still nonzero at update seven.",
+          "The distinct triangle-locked theorem concerns a different threshold and does not supply a uniform settling-time bound."
+        ],
+        "reasoning": "The static filter cannot be used to filter transient basins or deduce their times from the older bound. The dynamical claim is not a restatement of the recurrent colorings.",
+        "searches": [
+          "Threshold-one proof of phase characterization, 6295ce972482, RESULT.md offsets 2512–5285",
+          "Doba 2018, single-contact rule and phase-difference criteria",
+          "Resultary 76b9562220e5, Finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The threshold-one record characterizes recurrent waves by at least one successor-color neighbor. The assigned static condition asks for at least two such neighbors at each vertex, invariant under automorphism and phase rotation.",
+          "The self-hit ending 316346bac093 is the assigned record, not independent evidence."
+        ],
+        "reasoning": "Filtering the earlier static representatives gives the new static subcatalog once one knows the threshold-two period-three states all rotate. It does not give the new first-entry or basin statistics: increasing the threshold changes the successor of non-phase states, including states with resting vertices having exactly one excited neighbor.",
+        "searches": [
+          "Resultary: icosahedral three-state excitation, threshold-two residual waves, successor-color phase rotation",
+          "2026/11/1/SCOPE-icosahedral-excitation-exact-three-cycle-geometric-orbit-and-six--6295ce972482, RESULT.md offsets 0–5285"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier table has 48,400 primitive cycles, 473 classes, and sharp entry at six, all under threshold one. The identical indexed threshold-two numbers come from the record under review."
+        ],
+        "reasoning": "The table supplies earlier static candidates and a comparison baseline, but it is not a dataset for the threshold-two transition map.",
+        "searches": [
+          "Resultary icosahedral excitation exact class and basin tables",
+          "2026/11/1 record 6295ce972482, Finding and proof"
+        ]
+      },
+      "rationale": "The supported distinction is the threshold-two dynamical census: which states reach each attractor and the sharp relaxation time for this graph. The threshold-two phase colorings can be recovered by a local filter of the known threshold-one phase-coloring catalog, so the static count and geometric quotient are less independent than the dynamics. The inspected distinct records and primary passages do not give the two-contact attraction basins or its global iterate identity.",
+      "residual_risks": [
+        "A bounded search does not establish historical priority or exclude an unindexed threshold-two census.",
+        "The static color and class list is recoverable in substantial part from the earlier threshold-one list; originality does not rest on treating that list as unrelated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Static reduction available, distinct dynamical map",
+          "evidence": "A resting vertex activates with some excited neighbor; the proof counts 145,200 recurrent wave states via the successor-color condition.",
+          "identifier_or_url": "2026/11/1/SCOPE-icosahedral-excitation-exact-three-cycle-geometric-orbit-and-six--6295ce972482",
+          "material_read": "RESULT.md Finding and proof, offsets 0–5285",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Icosahedral excitation: exact three-cycle, geometric-orbit, and six-step entrance census",
+          "trigger": "Same graph, state alphabet and kind of finite census"
+        },
+        {
+          "assessment": "Different threshold and result",
+          "evidence": "Uses ceil(d(v)/2) and balanced proper colorings, not threshold two on the 5-regular icosahedral graph.",
+          "identifier_or_url": "2026/11/22/SCOPE-triangle-locked-critical-excitation-and-the-johnson-graph-extinc--76b9562220e5",
+          "material_read": "RESULT.md Finding, offset 0",
+          "method": "Local Resultary mirror passage inspection",
+          "title": "Triangle-locked critical excitation and the Johnson graph extinction phenomenon",
+          "trigger": "Distinct same-date threshold and phase-color record"
+        },
+        {
+          "assessment": "Does not specialize to this graph",
+          "evidence": "Regular degree 2r at threshold r; the assigned graph has odd degree five.",
+          "identifier_or_url": "2026/11/8/SCOPE-half-degree-rigidity-and-a-sharp-contact-threshold-collapse-on-s--7c3fe196f42d",
+          "material_read": "Finding and degree hypotheses",
+          "method": "Local Resultary comparison",
+          "title": "Half-degree rigidity and a sharp contact-threshold collapse",
+          "trigger": "Broader phase-coloring theorem"
+        },
+        {
+          "assessment": "Rule precedes assignment; inspected examples do not give this graph census",
+          "evidence": "Defines synchronous threshold-two excitation and applies it to wave/front behavior on Delaunay triangulations.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.1069",
+          "material_read": "§2, pp. 3–4, PDF offset 5600",
+          "method": "OA PDF passage inspection",
+          "title": "Excitable Delaunay triangulations",
+          "trigger": "Same three-state absolute threshold-two excitation rule"
+        },
+        {
+          "assessment": "Different contact rule",
+          "evidence": "Uses excitation by a single successor-color neighbor in standard Greenberg–Hastings dynamics.",
+          "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+          "material_read": "Abstract and Theorem 3 p. 4, offsets 0 and 14637",
+          "method": "OA PDF passage inspection",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "General finite-graph recurrent excitation theory"
+        },
+        {
+          "assessment": "Different threshold",
+          "evidence": "Activation requires at least one excited neighbor, with phase-difference criteria for the evolution.",
+          "identifier_or_url": "https://doi.org/10.25088/ComplexSystems.27.2.101",
+          "material_read": "Rule, PDF offset 0; Theorem 1, printed p. 114, offset 23835",
+          "method": "OA PDF passage inspection",
+          "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Potentially encompassing time-evolution theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The regular icosahedral graph is a natural common benchmark for comparing the two local rules. The full transition census provides information not available from phase-coloring data: raising the threshold prunes the recurrent waves from 48,400 to 200 but increases maximum first periodic entry from six to eight. It isolates the slow extinction tail from the small oscillating basin with an exact sharp identity and supplies per-orbit basin sizes. This supports a concrete comparison of persistence versus transient duration, without suggesting a monotonicity or a general theorem for other graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

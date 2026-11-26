@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-11-24",
+  "audited_at_utc": "2026-11-24T01:53:58.385504Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For distinct rank-one constants A→a and B→b, two nonempty equal composites would force A=B and a=b. Thus commutation is exactly mutual zero products, b not in A and a not in B. For image set H and complement R, each image can carry one map whose domain contains that image, or a nonempty selection from the 2^|R|−1 nonempty domains contained in R; choices at distinct images are independent. This gives P_n. A maximal clique must saturate any external image, which then uses every point of R in its domains and prevents any new image. If there are no external images, the only extension risk is an unused point of R; its singleton identity can be added exactly when that point is absent from every domain. Each point in R must therefore assign itself to a nonempty subset of the self-domains. These two disjoint cases prove M_n, including R empty. For h<n the size is at most h(2^(n−h)−1), strictly below 2^(n−1)−1 if h>=2 by h<=2^(h−1). The h=n case has size n. At n>=4 this leaves exactly n one-image cliques of all external maps. The proof's one-image equality sentence at RESULT.md line 43 should be restricted to n>=3 (and h<n): at n=2 a singleton self-map ties the external size one, but the maximum is two and the finding does not claim its maximizer classification there. Independently reconstructed direct pointwise compositions and counted all cliques and extensions for n=1–4, confirming every coefficient, with P_4 total 1376, M_4 total 221, and four degree-7 terms counted with multiplicity. Small-case checks do not replace the uniform argument.",
+      "replay": "python3 /workspace/branches/reproduction/partial_rank_one.py",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The trivial-group 0-Rees representation uses a row for every nonempty domain, a column for every image, and a nonzero sandwich entry iff the domain contains the image. There is no nonzero central vertex for n>=2: for a given constant choose a different domain containing its image and the products do not commute.",
+          "Theorem 5.4 gives the extremal size from maximal zero submatrix area (and small diagonal cases). For h selected image columns the largest zero submatrix uses 2^(n−h)−1 rows, so the maximum is 2^(n−1)−1, with the n=2 diagonal exception and n=3 tie. At n>=4 a maximum clique has size >n and must repeat an image. The transposed repeated-index argument in Case 4 bounds its size by h(2^(n−h)−1), forcing h=1 and all compatible domains. Thus that extremal information is already implied.",
+          "The full partial-transformation graph includes higher ranks; its clique number does not give the restricted polynomials."
+        ],
+        "reasoning": "The prior Rees theorem covers the commutation test and extremal result, but no inspected general theorem gives both all-clique and maximal-clique polynomials in the singleton-output graph. The Boolean proof provides a close counting method, not the specialised statistic needed.",
+        "searches": [
+          "Paulista, arXiv:2510.23871, Lemma 3.2 and Theorem 5.4 with proof pp. 43–47",
+          "Paulista, arXiv:2511.09495, Section 6",
+          "Resultary:a62e32d5a371, clique and maximal clique proof"
+        ]
+      },
+      "checked_sources": [
+        "Resultary:a62e32d5a371",
+        "Resultary:a2f16599b2ee",
+        "Resultary:00e8b0fff4f8",
+        "Resultary:d4e8c855c2e4",
+        "arXiv:2510.23871",
+        "arXiv:2511.09495",
+        "arXiv:1205.1664",
+        "arXiv:1210.4775"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The ordinary all-rectangle polynomial tracks how many vertices are idempotent versus square-zero, not whether each right support has exactly one member. The latter requires restricting each vertex's coordinate choices separately and recounting.",
+          "At n=3 the pair of maps {3}→1 and {3}→2 is maximal for partial constants, but the rectangle {3}×{1,2} extends it in the all-rectangle graph. Hence full-graph maximal counts cannot simply be filtered, even if the vertex support sizes were tagged.",
+          "Paulista's general clique-number bound and repeated-index proof do mechanically imply the extremal statement; that portion receives no independent novelty credit."
+        ],
+        "reasoning": "The structural ideas overlap substantially. The two restricted enumerators need the extra image-fibre count and induced extension analysis. Their joint classification is distinct even though the extremal part is covered.",
+        "searches": [
+          "Resultary:a62e32d5a371, coordinate symbols and maximality by support coverage",
+          "arXiv:2510.23871, Theorem 5.4 equality bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A partial constant is the rectangle A×{a} as a binary relation. The Boolean full-rank-one record allows arbitrary nonempty right support.",
+          "Inverse-semigroup rank-one partial bijections instead have singleton domain too; Resultary:d4e8c855c2e4 computes their adjacency spectrum."
+        ],
+        "reasoning": "There is an exact singleton-output induced-graph correspondence with Boolean rectangles, but neither a graph on arbitrary rectangles nor one on singleton domains supplies the restricted enumerator. Partial bijections omit the essential multi-element domains.",
+        "searches": [
+          "Resultary: constant-head nonempty rank-one partial transformations, rank-one Boolean rectangles and labelled clique enumerators",
+          "arXiv:1205.1664 abstract and Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-rectangle verification table gives 6042 cliques and 725 maximal cliques at n=4; the assigned singleton-output graph has 1376 and 221.",
+          "The idempotent-only Boolean record omits the square-zero maps, and the square-zero matrix record uses rank-one linear maps and a field."
+        ],
+        "reasoning": "The exact nearby tables concern other vertex predicates or ambient maximality. No independent table of both restricted sequences or their coefficientwise refinements was identified.",
+        "searches": [
+          "Resultary: rank-one graph clique and maximal-clique spectra, exact partial constant domain counts",
+          "Resultary:a62e32d5a371 verification table; a2f16599b2ee and 00e8b0fff4f8 formula statements"
+        ]
+      },
+      "rationale": "Credit the exact commutation rule and the extremal size and structure to the applicable 0-Rees matrix framework of Paulista. The separate contribution is the two complete labelled enumerators for the singleton-output induced graph. The strongest same-day Resultary record genuinely contains this graph as an induced subgraph, but its actual enumerators do not specialize to the two polynomials just by evaluating their variables; in particular the ambient maximality census excludes some induced maximal cliques. No precedence is inferred from the catalogue date.",
+      "residual_risks": [
+        "No publication order is inferred between different same-day records.",
+        "Uninspected semigroup graph work could enumerate the incidence-matrix instance explicitly. The additional broad web query was uninformative, not contrary evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong structural overlap, no direct polynomial specialization to singleton output",
+          "evidence": "Both supports may be arbitrary; square type is marked, not support sizes; full maximality requires all compatible rectangular nilpotents, including larger output supports.",
+          "identifier_or_url": "Resultary:a62e32d5a371",
+          "material_read": "Finding and assumptions plus proof of coordinate-label enumeration and aggregate support maximality, offsets 0–9243",
+          "method": "Resultary and bounded local mirror reading",
+          "title": "Full clique and maximal-clique spectra of rank-one Boolean relations",
+          "trigger": "Same-date broader graph containing the exact induced vertex set"
+        },
+        {
+          "assessment": "Covers extremal statements and the commutation rule, not full enumerators",
+          "evidence": "Zero-submatrix area formula plus small diagonal cases and the bound by number of indices times largest repeated-index class.",
+          "identifier_or_url": "https://arxiv.org/pdf/2510.23871",
+          "material_read": "Lemma 3.2 p. 9 and Theorem 5.4 pp. 43–47, especially repeated-index Case 4",
+          "method": "OA PDF passages, offsets 30214 and 151400–165564",
+          "title": "Commuting Graphs of Completely 0-Simple Semigroups",
+          "trigger": "General clique-number theorem applies to the incidence sandwich matrix"
+        },
+        {
+          "assessment": "Full-graph clique numbers do not give induced spectra",
+          "evidence": "Exact full-graph clique numbers for 2<=n<=5 and bounds for n>=6.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.09495",
+          "material_read": "Section 6, p. 66 near offset 223814",
+          "method": "Targeted OA PDF reading",
+          "title": "Characterizing the Largest Commutative (Full and Partial) Transformation Semigroups of Certain Types",
+          "trigger": "Same ambient partial-transformation semigroup"
+        },
+        {
+          "assessment": "Different vertex domain",
+          "evidence": "Noncentral partial bijections from the whole symmetric inverse semigroup; no multi-element-domain rank-one constants.",
+          "identifier_or_url": "https://arxiv.org/pdf/1205.1664",
+          "material_read": "Abstract p. 1 and Section 6 p. 18 near offset 69564",
+          "method": "Targeted OA PDF reading",
+          "title": "The Commuting Graph of the Symmetric Inverse Semigroup",
+          "trigger": "Same commuting language but partial maps may be injective"
+        },
+        {
+          "assessment": "Structural result, not the induced clique census",
+          "evidence": "Order, generating rank, and monoid structure rather than clique counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/1210.4775",
+          "material_read": "Theorem 1.1, p. 1",
+          "method": "Targeted OA PDF reading",
+          "title": "Partial Transformation Monoids Preserving a Uniform Partition",
+          "trigger": "Primary framework citation"
+        },
+        {
+          "assessment": "Idempotent-only larger supports, omitting necessary square-zero maps",
+          "evidence": "All rectangles with nonempty self-intersection; maximality expressed using coverage of the ground set.",
+          "identifier_or_url": "Resultary:a2f16599b2ee",
+          "material_read": "Finding and proof, offsets 0–8004",
+          "method": "Resultary and local mirror",
+          "title": "Clique and maximal-clique enumerators for rank-one idempotent Boolean relations",
+          "trigger": "Earlier ordinary and maximal polynomial with Boolean multiplication"
+        },
+        {
+          "assessment": "Different multiplication and vertices",
+          "evidence": "Rank-one square-zero linear maps over finite fields, with kernel/image constraints.",
+          "identifier_or_url": "Resultary:00e8b0fff4f8",
+          "material_read": "Matching Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Projective geometry and clique spectra of rank-one nilpotent commuting graphs",
+          "trigger": "Similar exact complete rank-one clique and maximal classification"
+        },
+        {
+          "assessment": "Narrower vertices and different spectral invariant",
+          "evidence": "Adjacency spectrum on just the n^2 single-arrow partial bijections.",
+          "identifier_or_url": "Resultary:d4e8c855c2e4",
+          "material_read": "Matching Finding at offset 0",
+          "method": "Resultary and local mirror",
+          "title": "Complete adjacency spectrum and nullity onset for commuting rank-one partial bijections",
+          "trigger": "Genuine induced subset of the candidate graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank one is a canonical stratum of the partial transformation monoid. The two labelled polynomials give fine information not determined by its already covered clique number: how idempotent and external-domain choices combine, and when every possible extension is blocked. The exact distinction between ambient and induced maximality is useful in comparing partial maps with relations and partial bijections. The coverage of extremal size alone does not reduce the two enumerators to a rephrasing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

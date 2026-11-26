@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-26",
+  "audited_at_utc": "2026-11-26T04:09:59.432589Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The result uses all m gaps, including the boundary gaps, with sum one and the uncorrected Gini normalization. An independent check is to work on the descending ordered simplex: its density is constant, and Z_r=r*(X_[r]-X_[r+1]), with X_[m+1]=0, is a linear bijection onto the standard simplex since sum_r Z_r=sum_i X_i=1. Thus Z is again Dirichlet(1,...,1). The coefficient vectors of M and G in Z are a_r=1/r and b_r=1-r/m: r(m-r) pairs cross the r-th gap. For any two such linear forms the covariance is [m*sum(a_r*b_r)-sum(a_r)*sum(b_r)]/[m^2*(m+1)]. Here the three sums are H_m-1, H_m and (m-1)/2, respectively, and the same formula with a,a or b,b gives the stated two variances. In particular the exact covariances at m=2,3 are 1/48 and 1/54. Positivity follows from the numerator being 1/2 at m=2 and increasing by H_m-1+1/(m+1). At m=2 there is the affine identity M=G+1/2; for m>=3, affine dependence on the simplex would require the vector 1/r to be affine in r at three or more ranks, which is impossible. The harmonic limits give the coefficient 3*sqrt(2)/pi in the correlation. The frozen verification script and recorded output were inspected, not executed; their seeded checks are corroboration, not the general argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The upper-share theorem states Cov(G_n,T_(n,k))=k*[(n+1)*(H_n-H_k)-(n-k)]/[2*n^2*(n+1)] for the sum of the top k normalized shares. At k=1 the numerator is (n+1)*H_n-2n.",
+          "Rao–Sobel give the constant simplex density and the joint density of the largest k spacings together with the remaining gaps; taking all but one gap as ordered describes the full ordered law. Jammalamadaka–Goria give the Gini marginal law, not a maximum–Gini cross-moment in the passages read."
+        ],
+        "reasoning": "The broader indexed formula evaluates the joint moment directly at the required rank. The older full law determines all ordered second moments after the linear scaled-gap map, though its inspected passages do not print the headline covariance.",
+        "searches": [
+          "Local mirror 2026/10/13/SCOPE-a-sharp-upper-share-covariance-profile-for-the-exponential-sampl--873a317ea0c5, Finding and proof",
+          "Rao–Sobel (1980), §1 Eq. (1.3), §3 Eq. (3.1)",
+          "Jammalamadaka–Goria (2004), §3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, VERIFICATION.md, verify.py and verification_results.txt",
+        "Local Resultary upper-share, raw-rank, and adjacent Greenwood dependence records",
+        "Rao–Sobel (1980), DOI 10.1016/0047-259X(80)90073-1",
+        "Jammalamadaka–Goria (2004), DOI 10.1016/j.spl.2004.02.009"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitution n=m, k=1, H_1=1 in the broader exact formula gives the frozen rational-harmonic covariance without any further identity. The prior full ordered law gives the simplex-gap covariance rule, and plugging coefficient vectors (1/r) and (1-r/m) gives the marginal variances as well.",
+          "The Pearson coefficient is the covariance divided by the marginal standard deviations. Its asymptotic follows by H_m~log m and H_m^(2)->pi^2/6; equality in correlation is affine dependence of the two coefficient vectors modulo constants."
+        ],
+        "reasoning": "The explicit correlation wording need not already be printed: the covariance is directly covered and the correlation, asymptotic and finite-size equality classification add no independent exact evaluation.",
+        "searches": [
+          "Upper-share covariance profile, local Finding offset 0 and proof near 2100",
+          "Raw exponential rank covariance record, Finding offset 0 and proof near 2500",
+          "Rao–Sobel joint ordered law §3 Eq. (3.1); frozen lines 42–50 for the Pearson and asymptotic claims"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Normalizing an iid exponential sample by its sum yields the boundary-inclusive Dirichlet(1,...,1) spacing vector. The ordinary sample Gini, sum of pairwise differences divided by sample size times total, becomes the frozen Gini on those normalized coordinates, and the top-one share is M.",
+          "Jammalamadaka–Goria's unnormalized double-pair spacing statistic is 2mG, so its normalization must be accounted for before comparing moments."
+        ],
+        "reasoning": "The normalized exponential top-one share and the largest uniform spacing are exactly the same random variable in the joint construction with G. A raw exponential order statistic or Greenwood's quadratic statistic is not interchangeable with either variable.",
+        "searches": [
+          "Local Resultary: largest uniform spacing, simplex maximum, largest normalized exponential share, and exact Gini covariance",
+          "Upper-share covariance profile, mirrored Finding and exponential normalization proof",
+          "Jammalamadaka–Goria (2004), §2 Eq. (3)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Oct. 13 upper-share profile is exact covering evidence; the other Oct. 13 result concerns the unnormalized Gini mean difference versus raw order statistics, giving at the maximum 2*(H_n-1)/[(n-1)*lambda^2] for exponential rate lambda.",
+          "The two Oct. 18 records and the Oct. 26 record pair the maximum with Greenwood's sum of squared gaps, not Gini. The Oct. 25 record pairs Gini with Greenwood, not the maximum."
+        ],
+        "reasoning": "The distinct same-day records were compared by their statements, not ordered by date within a day. Only the upper-share record directly gives the exact normalized target. No matching table is needed in light of that all-size formula.",
+        "searches": [
+          "Local Resultary exact formula and spacing-dependence searches",
+          "Distinct 2026/10/13 indexed records 873a317ea0c5 and d004c7551177",
+          "Distinct 2026/10/18 indexed records 8791657f8166 and 7536578b7678; 2026/10/25 record 2fcab2520919; 2026/10/26 record a4f2c9f76454"
+        ]
+      },
+      "rationale": "An earlier indexed exact upper-share covariance theorem gives the identical covariance at k=1 with the same Gini normalization and the same simplex law. The additional Pearson formula and decay constant follow by elementary normalization using the marginal variances, and the strict inequality classification is the standard affine-equality test. The inspected primary papers supply older distributional context, but the decision relies on the demonstrated exact coverage and the routine nature of the remaining deductions, not on an assertion of historical priority.",
+      "residual_risks": [
+        "No assertion is made about first publication of the evaluated covariance or of the explicit correlation. The indexed covering theorem is enough to establish mathematical overlap.",
+        "A generic websearch result added no relevant primary evidence; the coverage decision does not depend on that miss."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct exact broader coverage",
+          "evidence": "The statement uses the ordinary sample Gini normalization and the top-k share; k=1 gives the exact frozen Dirichlet maximum covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-a-sharp-upper-share-covariance-profile-for-the-exponential-sampl--873a317ea0c5/RESULT.md",
+          "material_read": "Finding at local text offset 0 and proof near 2100",
+          "method": "Local mirror passages",
+          "title": "A sharp upper-share covariance profile for the exponential sample",
+          "trigger": "Exact formula for Gini versus top-k normalized shares"
+        },
+        {
+          "assessment": "Adjacent raw-statistic moment, not the normalized ratio as stated",
+          "evidence": "It gives covariance with each raw order statistic using independent exponential order gaps; at the maximum it gives 2*(H_n-1)/[(n-1)*lambda^2].",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-asymptotically-optimal-exponential-sample-quantile-for-gini-m--d004c7551177/RESULT.md",
+          "material_read": "Finding offset 0 and proof near offset 2500",
+          "method": "Local mirror passages",
+          "title": "An asymptotically optimal exponential sample quantile for Gini mean difference",
+          "trigger": "Distinct same-day result with exponential rank covariances"
+        },
+        {
+          "assessment": "Broader joint law, not the printed covariance in these passages",
+          "evidence": "Constant density for all gaps and joint density for an ordered largest-k subset with the remaining gaps.",
+          "identifier_or_url": "https://doi.org/10.1016/0047-259X(80)90073-1",
+          "material_read": "§1 Eq. (1.3), journal p. 604, PDF offset about 3500; §3 Eq. (3.1), pp. 606–607, offset about 9000",
+          "method": "Lawful author-hosted OA PDF passages",
+          "title": "Incomplete Dirichlet Integrals with Applications to Ordered Uniform Spacings",
+          "trigger": "Primary full ordered-spacing law may imply cross-moments"
+        },
+        {
+          "assessment": "Same Gini marginal and different joint-dependence discussion",
+          "evidence": "The double-pair index equals 2mG; the marginal null distribution and the ranked statistic involving Gini and Greenwood are not an evaluated maximum–Gini covariance.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2004.02.009",
+          "material_read": "§2 Eq. (3), p. 180, PDF offset about 8650; §3 and Eqs. (10)–(11), p. 183, offsets about 16000 and 18100",
+          "method": "Lawful author-hosted OA PDF passages",
+          "title": "A test of goodness-of-fit based on Gini's index of spacings",
+          "trigger": "Primary study of the same Gini statistic under the spacing null"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Comparing two natural irregularity measures is well motivated, but the exact covariance is already furnished by the complete upper-share profile. The Pearson normalization, strict affine-equality test and harmonic asymptotic are routine additions and do not leave an independently useful new exact claim under the required standard.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}
